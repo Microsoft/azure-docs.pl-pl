@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Tworzenie aplikacji lokalizatora sklepu przy użyciu Azure Maps | Mapy Microsoft Azure'
-description: W tym samouczku dowiesz się, jak utworzyć aplikację sieci Web lokalizatora magazynu za pomocą Microsoft Azure Maps Web SDK.
+description: Dowiedz się, jak tworzyć aplikacje sieci Web lokalizatora magazynu. Użyj zestawu Web SDK Azure Maps, aby utworzyć stronę sieci Web, wysłać zapytanie do usługi wyszukiwania i wyświetlić wyniki na mapie.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/14/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 4bb0a4a0a621881fe1d9a59585476baa2ce05f8e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d6ab05d92ec209e10bfc4aec4e4fe2b6ea150099
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289554"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037664"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Samouczek: Tworzenie lokalizatora sklepu za pomocą Azure Maps
 
@@ -37,7 +37,7 @@ Przejdź dalej do [przykładu lokalizatora sklepów na żywo](https://azuremapsc
 
 Aby wykonać kroki opisane w tym samouczku, musisz najpierw utworzyć konto Azure Maps i uzyskać klucz podstawowy (klucz subskrypcji). Postępuj zgodnie z instrukcjami w temacie [Tworzenie konta](quick-demo-map-app.md#create-an-azure-maps-account) , aby utworzyć subskrypcję konta usługi Azure Maps z warstwą cenową S1, i wykonaj kroki opisane w sekcji [Pobieranie klucza podstawowego](quick-demo-map-app.md#get-the-primary-key-for-your-account) , aby uzyskać klucz podstawowy dla konta. Aby uzyskać więcej informacji na temat uwierzytelniania w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](how-to-manage-authentication.md).
 
-## <a name="design"></a>Projekt
+## <a name="design"></a>Projektowanie
 
 Zanim przejdziesz do kodu, dobrze jest zacząć od projektu. Lokalizator sklepów może być prosty lub złożony — taki, jaki chcesz. W tym samouczku utworzymy prosty lokalizator sklepów. W trakcie tego procesu podamy kilka wskazówek pomocnych w rozszerzeniu niektórych funkcji, jeśli zechcesz to zrobić. Utworzymy lokalizator sklepów dla fikcyjnej firmy o nazwie Contoso Coffee. Na poniższej ilustracji przedstawiono szkielet ogólnego układu lokalizatora sklepów, który utworzymy w tym samouczku:
 

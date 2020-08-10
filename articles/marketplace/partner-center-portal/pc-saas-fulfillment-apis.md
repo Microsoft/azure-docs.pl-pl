@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d9413deb99ce938429d05f7c6348c5914e7dd2b1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2e6381afb19018822f6f37171a5ca4b3d929b42e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304143"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037528"
 ---
-# <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>Interfejsy API realizacji SaaS w komercyjnej witrynie Microsoft Marketplace
+# <a name="saas-fulfillment-apis-in-the-microsoft-commercial-marketplace"></a>Interfejsy API realizacji SaaS w komercyjnej witrynie Microsoft Marketplace
 
 Interfejsy API realizacji SaaS umożliwiają wydawcom, znanym także jako niezależnym dostawcom oprogramowania (ISV), publikowanie i sprzedawanie aplikacji SaaS w Microsoft AppSource, Azure Marketplace i Azure Portal. Te interfejsy API umożliwiają aplikacjom niezależnego dostawcy oprogramowania uczestnictwo we wszystkich kanałach z obsługą handlu: bezpośredni, partnerski-LED (odsprzedawca) i dioda.  Integracja z tymi interfejsami API jest wymaganiem do tworzenia i publikowania oferty SaaS z możliwością zrealizowania w centrum partnerskim.
 

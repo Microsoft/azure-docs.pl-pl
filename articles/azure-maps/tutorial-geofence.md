@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Tworzenie geoogrodzenia i śledzenie urządzeń na mapie Microsoft Azure'
-description: Dowiedz się, jak skonfigurować geoogrodzenie i śledzić urządzenia względem geofencingu przy użyciu usługi Microsoft Azure Maps.
+description: Dowiedz się, jak skonfigurować geoogrodzenie. Zobacz, jak śledzić urządzenia względem geoogrodzenia przy użyciu usługi przestrzennej Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 7/15/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 775d98b992f2bca4441c868873ceaeb2389db81a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1044348e50f4208038739975e7355fb6f4873454
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517400"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037647"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Samouczek: Konfigurowanie geofencingu przy użyciu usługi Azure Maps
 
@@ -188,7 +188,7 @@ W tym samouczku przekażemy geoplikowe dane GEOJSON, które zawierają `FeatureC
 
 W tej sekcji utworzymy dwa punkty końcowe [aplikacji logiki](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) , które będą wyzwalać powiadomienie e-mail. Pokażemy, jak utworzyć pierwszy wyzwalacz, który wyśle powiadomienia e-mail przy każdym wywołaniu punktu końcowego.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 
 2. W lewym górnym rogu witryny [Azure Portal](https://portal.azure.com) kliknij przycisk **Utwórz zasób**.
 

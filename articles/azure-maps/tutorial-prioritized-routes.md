@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Znajdowanie wielu tras według trybu podróży | Mapy Microsoft Azure'
-description: W tym samouczku dowiesz się, jak znaleźć trasy dla różnych trybów podróży przy użyciu Microsoft Azure Maps.
+description: Dowiedz się, jak używać Azure Maps, aby znaleźć trasy dla określonych trybów podróży do punktów zainteresowania. Zobacz, jak wyświetlić wiele tras na mapach.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/14/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 0cb3c1eadae426cef59b7aad8821343c23e76d79
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7d17b9474edef245f7db16f33c72d722f356f712
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289533"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037596"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Samouczek: Znajdowanie tras dla różnych trybów podróży przy użyciu Azure Maps
 

@@ -1,6 +1,6 @@
 ---
 title: Obsługiwane wbudowane style mapy Azure Maps
-description: Ten artykuł zawiera informacje na temat różnych wbudowanych stylów mapy obsługiwanych przez Microsoft Azure Maps.
+description: Dowiedz się więcej na temat wbudowanych stylów mapy obsługiwanych przez Azure Maps, takich jak Road, blank_accessible, satelit, satellite_road_labels, road_shaded_relief i nocy.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/24/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b9641fe647eebae020ee67ee19a9cc131a487a7c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f6ce2966d7e91bd0fc6a23ad2605316da4e2342e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286889"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037732"
 ---
 # <a name="azure-maps-supported-built-in-map-styles"></a>Azure Maps obsługiwane style wbudowanej mapy
 

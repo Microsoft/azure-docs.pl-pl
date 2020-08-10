@@ -1,6 +1,6 @@
 ---
 title: Szyfrowanie danych tabeli usługi Azure Storage | Microsoft Docs
-description: Informacje o szyfrowaniu danych tabeli w usłudze Azure Storage.
+description: Informacje o szyfrowaniu danych tabeli w usłudze Azure Storage. Biblioteka klienta usługi Azure Storage dla platformy .NET umożliwia szyfrowanie jednostek ciągów dla operacji wstawiania i zamiany.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: f56946702011968a0fcb31f6fbecbaacdc89ea42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fec213b9d7429714beb948f061445fd37d698624
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60326007"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037494"
 ---
 # <a name="encrypt-table-data"></a>Szyfruj dane tabeli
 Biblioteka klienta usługi Azure Storage dla platformy .NET obsługuje szyfrowanie właściwości jednostki ciągów dla operacji wstawiania i zamieniania. Zaszyfrowane ciągi są przechowywane w usłudze jako właściwości binarne i są konwertowane z powrotem do ciągów po odszyfrowaniu.    

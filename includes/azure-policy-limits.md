@@ -4,14 +4,14 @@ description: dołączanie pliku
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/23/2020
+ms.date: 08/07/2020
 ms.author: dacoulte
-ms.openlocfilehash: 08183cc2cbe2fce83bc7347da22308931b99dcc1
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e22594a50a9c0d814ef7d66443f8253f5832cb1d
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010939"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88038492"
 ---
 Dla każdego typu obiektu dla Azure Policy istnieje maksymalna liczba. Wpis _Zakres_ oznacza subskrypcję lub [grupę zarządzania](../articles/governance/management-groups/overview.md).
 
@@ -26,4 +26,4 @@ Dla każdego typu obiektu dla Azure Policy istnieje maksymalna liczba. Wpis _Zak
 | Definicja inicjatywy | Parametry | 100 |
 | Zasady lub przypisania inicjatywy | Wykluczenia (notScopes) | 400 |
 | Reguła zasad | Zagnieżdżone uwarunkowania | 512 |
-| Zadanie korygowania | Zasoby | 500 |
+| Zadanie korygowania | Zasoby | 1000 |

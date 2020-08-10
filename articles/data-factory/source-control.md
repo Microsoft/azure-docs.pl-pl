@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/30/2020
-ms.openlocfilehash: 2d6f667b6a49520dfe210fd797a828328899b634
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2f5a8a87d4ac4936f25e7ece2a34b518c09a063
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83674598"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037630"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Kontrola źródła w Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -211,11 +211,11 @@ Zostanie otwarte okienko boczne, w którym można potwierdzić, że gałąź pub
 
 ### <a name="permissions"></a>Uprawnienia
 
-Zwykle nie chcesz, aby każdy członek zespołu miał uprawnienia do aktualizowania fabryki. Zalecane są następujące ustawienia uprawnień:
+Zwykle nie chcesz, aby każdy członek zespołu miał uprawnienia do aktualizowania Data Factory. Zalecane są następujące ustawienia uprawnień:
 
-*   Wszyscy członkowie zespołu powinni mieć uprawnienia do odczytu fabryki danych.
-*   Tylko wybrany zestaw osób powinien zezwalać na publikowanie w fabryce. W tym celu muszą mieć rolę **współautor Data Factory** w grupie zasobów, w której znajduje się fabryka. Aby uzyskać więcej informacji o uprawnieniach, zobacz [role i uprawnienia dla Azure Data Factory](concepts-roles-permissions.md).
-   
+*   Wszyscy członkowie zespołu powinni mieć uprawnienia do odczytu do Data Factory.
+*   Tylko wybrany zestaw osób powinien zezwalać na publikowanie w Data Factory. W tym celu muszą mieć rolę **współautor Data Factory** w **grupie zasobów** , która zawiera Data Factory. Aby uzyskać więcej informacji o uprawnieniach, zobacz [role i uprawnienia dla Azure Data Factory](concepts-roles-permissions.md).
+
 Zaleca się, aby nie zezwalać na bezpośrednie ewidencjonowanie gałęzi współpracy. To ograniczenie może pomóc zapobiec wystąpieniu błędów, ponieważ każde zaewidencjonowanie przejdzie przez proces przeglądu żądania ściągnięcia opisany w temacie [Tworzenie gałęzi funkcji](source-control.md#creating-feature-branches).
 
 ### <a name="using-passwords-from-azure-key-vault"></a>Korzystanie z haseł z Azure Key Vault

@@ -1,6 +1,6 @@
 ---
 title: Dodawanie warstwy wielokąta do mapy | Mapy Microsoft Azure
-description: W tym artykule dowiesz się, jak renderować Wielokąt i wielowielokąt na mapie w Microsoft Azure Maps Web SDK.
+description: Dowiedz się, jak dodać wielokąty lub okręgi do map. Zapoznaj się z tematem jak używać zestawu SDK sieci Web Azure Maps, aby dostosować kształty geometryczne i ułatwić ich aktualizowanie i konserwowanie.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: b267109113ce4d2ec3e653fb079b760eb4a5a514
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 58262be34a716a04e9779454a30e845d691f3a6a
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286878"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037715"
 ---
 # <a name="add-a-polygon-layer-to-the-map"></a>Dodawanie warstwy wielokąta do mapy
 

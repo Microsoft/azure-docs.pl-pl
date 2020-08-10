@@ -1,6 +1,6 @@
 ---
 title: Obsługa lokalizacji | Mapy Microsoft Azure
-description: Ten artykuł zawiera informacje na temat obsługiwanych języków dla usług w Microsoft Azure Maps.
+description: Sprawdź, które regiony Azure Maps obsługiwane przez usługi, takie jak mapy, wyszukiwanie, routing, Pogoda i zdarzenia dotyczące ruchu sieciowego. Dowiedz się, jak skonfigurować parametr widoku.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 11/20/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0d3adc4bc49379a9ec3408ab76b913a096840dbb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a6664b5a2c0c6b4de2435ee5c8bb29f63560c342
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127897"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037698"
 ---
 # <a name="localization-support-in-azure-maps"></a>Obsługa lokalizacji w Azure Maps
 
@@ -25,7 +25,7 @@ Azure Maps obsługuje różne języki i widoki na podstawie kraju/regionu. W tym
 Azure Maps zostały zlokalizowane w różnych językach w ramach usług. W poniższej tabeli przedstawiono obsługiwane kody języka dla każdej usługi.  
   
 
-| ID         | Nazwa                   |  Maps | Wyszukaj | Routing | Pogoda | Zdarzenia dotyczące ruchu | Formant mapy JS |
+| ID         | Nazwa                   |  Mapy | Wyszukaj | Routing | Pogoda | Zdarzenia dotyczące ruchu | Formant mapy JS |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | AF — za      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Arabski                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
@@ -110,44 +110,44 @@ Azure Maps zostały zlokalizowane w różnych językach w ramach usług. W poni�
 > Po 1 sierpnia 2019 parametr **widoku** określi zawartość zamapowanej mapy dla nowych regionów/krajów wymienionych powyżej. Parametr **widoku** Azure Maps (określany również jako "parametr regionu użytkownika") to dwuliterowy kod kraju ISO-3166, który będzie pokazywał poprawne mapy dla danego kraju/regionu, określając, który zestaw geopoznawczych treści jest zwracany przez usługi Azure Maps, w tym obramowania i etykiety wyświetlane na mapie. 
 
 Upewnij się, że parametr **View** jest skonfigurowany jako wymagany dla interfejsów API REST i zestawów SDK, których usługi używają.
->  
->
->  **Interfejsy API REST:**
->  
->  Upewnij się, że parametr View został skonfigurowany zgodnie z wymaganiami. Parametr widoku Określa, który zestaw zawartości o treści geopolitycznej jest zwracany przez Azure Maps usług. 
->
->  Azure Maps usługi REST:
->    
->    * Pobierz kafelek mapy
->    * Pobierz obraz mapy 
->    * Pobierz rozmyte wyszukiwanie
->    * Pobierz punkt POI wyszukiwania
->    * Pobierz kategorię wyszukiwania punkt POI
->    * Rozpocznij wyszukiwanie w pobliżu
->    * Pobierz adres wyszukiwania
->    * Pobierz strukturę adresu wyszukiwania
->    * Uzyskaj zwrotny adres wyszukiwania
->    * Pobierz adres wyszukiwania odwrotnie
->    * Opublikuj wyszukiwanie w geometrii
->    * Zapoznawcza partia adresów wyszukiwania
->    * Adres wyszukiwania zwrotnego — wersja zapoznawcza
->    * Publikuj wyszukiwanie wzdłuż trasy
->    * Przeszukiwanie rozmytej partii w wersji zapoznawczej
->
->    
->  **Zestawy**
->
->  Upewnij się, że skonfigurowano parametr **View** zgodnie z wymaganiami i masz najnowszą wersję zestawu Web SDK i Android SDK. Uwzględnione zestawy SDK:
->
->    * Azure Maps Web SDK
->    * Azure Maps Android SDK
+  
+
+### <a name="rest-apis"></a>Interfejsy API REST
+  
+Upewnij się, że parametr View został skonfigurowany zgodnie z wymaganiami. Parametr widoku Określa, który zestaw zawartości o treści geopolitycznej jest zwracany przez Azure Maps usług. 
+
+Azure Maps usługi REST:
+    
+ * Pobierz kafelek mapy
+ * Pobierz obraz mapy 
+ * Pobierz rozmyte wyszukiwanie
+ * Pobierz punkt POI wyszukiwania
+ * Pobierz kategorię wyszukiwania punkt POI
+ * Rozpocznij wyszukiwanie w pobliżu
+ * Pobierz adres wyszukiwania
+ * Pobierz strukturę adresu wyszukiwania
+ * Uzyskaj zwrotny adres wyszukiwania
+ * Pobierz adres wyszukiwania odwrotnie
+ * Opublikuj wyszukiwanie w geometrii
+ * Zapoznawcza partia adresów wyszukiwania
+ * Adres wyszukiwania zwrotnego — wersja zapoznawcza
+ * Publikuj wyszukiwanie wzdłuż trasy
+ * Przeszukiwanie rozmytej partii w wersji zapoznawczej
+
+ 
+### <a name="sdks"></a>Zestawy SDK
+
+Upewnij się, że skonfigurowano parametr **View** zgodnie z wymaganiami i masz najnowszą wersję zestawu Web SDK i Android SDK. Uwzględnione zestawy SDK:
+
+ * Azure Maps Web SDK
+ * Azure Maps Android SDK
 
 Domyślnie parametr widoku jest ustawiany na **zunifikowany**, nawet jeśli nie został zdefiniowany w żądaniu. Określ lokalizację użytkowników. Następnie ustaw parametr **widoku** poprawnie dla tej lokalizacji. Alternatywnie można ustawić wartość "View = Auto", która zwróci dane mapy na podstawie adresu IP żądania.  Parametr **widoku** w Azure Maps musi być używany zgodnie z obowiązującymi przepisami, łącznie z tymi prawami dotyczącymi mapowania kraju/regionu, w którym mapy, obrazy i inne dane oraz zawartość innych firm, do których masz uprawnienia dostępu za pośrednictwem Azure Maps są udostępniane.
 
 
 W poniższej tabeli przedstawiono obsługiwane widoki.
 
-| Widok         | Opis                            |  Maps | Wyszukaj | kontrolka mapy JS |
+| Widok         | Opis                            |  Mapy | Wyszukaj | kontrolka mapy JS |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Zjednoczone Emiraty Arabskie (widok arabski)    |   ✓   |        |     ✓          |
 | AR           | Argentyna (widok argentyński)           |   ✓   |    ✓   |     ✓          |

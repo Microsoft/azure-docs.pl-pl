@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 18eecdfeca58bc04c77dd0e39658a51fe56d0e68
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: b2252a70aea6df755bb8b37c36b77b08db819ba9
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513098"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037545"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Tworzenie zestawów danych Azure Machine Learning
 
@@ -25,17 +25,15 @@ ms.locfileid: "87513098"
 
 W tym artykule opisano sposób tworzenia Azure Machine Learning zestawów danych w celu uzyskania dostępu do danych dla eksperymentów lokalnych lub zdalnych. Aby dowiedzieć się, gdzie zestawy danych mieszczą się w przepływie pracy ogólnego dostępu do danych Azure Machine Learning, zobacz artykuł dotyczący [bezpiecznego dostępu do danych](concept-data.md#data-workflow) .
 
-Tworząc zestaw danych, tworzysz odwołanie do lokalizacji źródła danych wraz z kopią jego metadanych. Ponieważ dane pozostają w istniejącej lokalizacji, nie ponosisz żadnych dodatkowych kosztów magazynu i nie ryzykują integralności źródeł danych. Ponadto zestawy danych są opóźnieniem-oceniane, co ułatwia szybkość działania przepływu pracy.
+Tworząc zestaw danych, tworzysz odwołanie do lokalizacji źródła danych wraz z kopią jego metadanych. Ponieważ dane pozostają w istniejącej lokalizacji, nie ponosisz żadnych dodatkowych kosztów magazynu i nie ryzykują integralności źródeł danych. Ponadto zestawy danych są opóźnieniem oceniane, co ułatwia szybkość działania przepływu pracy. Zestawy danych mogą być tworzone z magazynów danych, publicznych adresów URL i [otwartych zestawów danych platformy Azure](../open-datasets/how-to-create-dataset-from-open-dataset.md).
 
 Za pomocą Azure Machine Learning zestawów danych można:
 
 * Przechowywanie pojedynczej kopii danych w magazynie, do której odwołują się zestawy danych.
 
-* Bezproblemowo Uzyskuj dostęp do danych podczas uczenia modelowego bez obaw o parametry połączenia lub ścieżki danych.
+* Bezproblemowo Uzyskuj dostęp do danych podczas uczenia modelowego bez obaw o parametry połączenia lub ścieżki danych. [Dowiedz się więcej na temat uczenia się z zestawami danych](how-to-train-with-datasets.md).
 
 * Udostępnianie danych i współpraca z innymi użytkownikami.
-
-[Dowiedz się więcej na temat uczenia się z zestawami danych](how-to-train-with-datasets.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -46,6 +44,12 @@ Aby tworzyć zestawy danych i korzystać z nich, potrzebne są:
 * [Obszar roboczy Azure Machine Learning](how-to-manage-workspace.md).
 
 * [Zestaw Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), który obejmuje pakiet usługi Azure DataSets.
+
+    * Utwórz [wystąpienie obliczeniowe Azure Machine Learning](concept-compute-instance.md#managing-a-compute-instance), które jest w pełni skonfigurowane i zarządzane środowisko programistyczne, które zawiera zintegrowane notesy oraz już zainstalowany zestaw SDK.
+
+    **ORAZ**
+
+    * Pracuj nad własnym notesem Jupyter i samodzielnie Instaluj zestaw SDK, korzystając z [tych instrukcji](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
 > [!NOTE]
 > Niektóre klasy zestawu danych mają zależności w pakiecie [Azure preprodukcyjnym](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) , który jest zgodny z 64-bitowym językiem Python. W przypadku użytkowników systemu Linux te klasy są obsługiwane tylko w następujących dystrybucjach: Red Hat Enterprise Linux (7, 8), Ubuntu (14,04, 16,04, 18,04), Fedora (27, 28), Debian (8, 9) i CentOS (7).
@@ -224,50 +228,15 @@ Aby utworzyć zestaw danych w programie Studio:
 1. Wybierz pozycję **dalej** , aby przejrzeć formularz **Potwierdź szczegóły** . Sprawdź wybrane opcje i Utwórz opcjonalny profil danych dla zestawu danych. Dowiedz się więcej na temat [profilowania danych](how-to-use-automated-ml-for-ml-models.md#profile). 
 1. Wybierz pozycję **Utwórz** , aby zakończyć tworzenie zestawu danych.
 
+## <a name="create-datasets-with-azure-open-datasets"></a>Tworzenie zestawów danych za pomocą otwartych zestawów danych platformy Azure
+
+[Otwarte zestawy danych platformy Azure](https://azure.microsoft.com/services/open-datasets/) mają nadzorowane zestawy danych, których można użyć do dodawania funkcji specyficznych dla scenariusza do rozwiązań uczenia maszynowego w celu uzyskania dokładniejszych modeli. Zestawy danych obejmują dane z domeny publicznej na potrzeby pogodowych, spisu, świąt, bezpieczeństwa publicznego i lokalizacji, które ułatwiają uczenie modeli uczenia maszynowego i wzbogacanie rozwiązań predykcyjnych. Otwarte zestawy danych znajdują się w chmurze w Microsoft Azure i znajdują się w zestawie SDK i Studio.
+
+Dowiedz się, jak tworzyć [zestawy danych Azure Machine Learning z poziomu otwartych zestawów danych platformy Azure](../open-datasets/how-to-create-dataset-from-open-dataset.md). 
+
 ## <a name="train-with-datasets"></a>Szkolenie przy użyciu zestawów danych
 
 Używaj Twoich zestawów danych w eksperymentach uczenia maszynowego do uczenia modeli ML. [Dowiedz się więcej na temat uczenia się z zestawami danych](how-to-train-with-datasets.md)
-
-## <a name="create-datasets-with-azure-open-datasets"></a>Tworzenie zestawów danych za pomocą otwartych zestawów danych platformy Azure
-
-[Otwarte zestawy danych platformy Azure](https://azure.microsoft.com/services/open-datasets/) mają nadzorowane zestawy danych, których można użyć do dodawania funkcji specyficznych dla scenariusza do rozwiązań uczenia maszynowego w celu uzyskania dokładniejszych modeli. Zestawy danych obejmują dane z domeny publicznej na potrzeby pogodowych, spisu, świąt, bezpieczeństwa publicznego i lokalizacji, które ułatwiają uczenie modeli uczenia maszynowego i wzbogacanie rozwiązań predykcyjnych. Otwarte zestawy danych znajdują się w chmurze w Microsoft Azure i znajdują się zarówno w zestawie SDK, jak i w interfejsie użytkownika obszaru roboczego.
-
-### <a name="use-the-sdk"></a>Korzystanie z zestawu SDK
-
-Aby utworzyć zestawy danych przy użyciu otwartych zestawów danych platformy Azure z zestawu SDK, upewnij się, że pakiet został zainstalowany przy użyciu programu `pip install azureml-opendatasets` . Każdy zestaw danych dyskretnych jest reprezentowany przez własną klasę w zestawie SDK, a niektóre klasy są dostępne jako `TabularDataset` , `FileDataset` lub obie. Pełną listę klas można znaleźć w [dokumentacji referencyjnej](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py) .
-
-Niektóre klasy można pobrać z `TabularDataset` lub `FileDataset` , co pozwala na manipulowanie i/lub pobranie plików bezpośrednio. Inne klasy mogą uzyskać zestaw danych **tylko** przy użyciu jednej `get_tabular_dataset()` lub `get_file_dataset()` funkcji. Poniższy przykład kodu pokazuje kilka przykładów tych typów klas.
-
-```python
-from azureml.opendatasets import MNIST
-
-# MNIST class can return either TabularDataset or FileDataset
-tabular_dataset = MNIST.get_tabular_dataset()
-file_dataset = MNIST.get_file_dataset()
-
-from azureml.opendatasets import Diabetes
-
-# Diabetes class can return ONLY TabularDataset and must be called from the static function
-diabetes_tabular = Diabetes.get_tabular_dataset()
-```
-
-Po zarejestrowaniu zestawu danych utworzonego na podstawie otwartych zestawów danych żadne dane nie są natychmiast pobierane, ale dane będą dostępne później na żądanie (na przykład na potrzeby szkolenia) z centralnej lokalizacji magazynu.
-
-### <a name="use-the-ui"></a>Korzystanie z interfejsu użytkownika
-
-Zestawy danych można także tworzyć z klas otwartych zestawów danych za pośrednictwem interfejsu użytkownika. W obszarze roboczym wybierz kartę **zestawy danych** w obszarze **zasoby**. Z menu rozwijanego **Utwórz zestaw danych** wybierz pozycję **z otwarte zestawy**danych.
-
-![Otwórz zestaw danych przy użyciu interfejsu użytkownika](./media/how-to-create-register-datasets/open-datasets-1.png)
-
-Wybierz zestaw danych, wybierając jego kafelek. (Istnieje możliwość filtrowania przy użyciu paska wyszukiwania). Wybierz pozycję **dalej**.
-
-![Wybierz zestaw danych](./media/how-to-create-register-datasets/open-datasets-2.png)
-
-Wybierz nazwę, pod którą ma zostać zarejestrowany zestaw danych, i opcjonalnie odfiltruj dane przy użyciu dostępnych filtrów. W tym przypadku dla zestawu danych dni wolnych, należy odfiltrować przedział czasu do jednego roku i kod kraju tylko do USA. Wybierz przycisk **Utwórz**.
-
-![Ustaw parametry zestawu danych i Utwórz zestaw danych](./media/how-to-create-register-datasets/open-datasets-3.png)
-
-Zestaw danych jest teraz dostępny w obszarze roboczym w obszarze **zestawy danych**. Można go użyć w taki sam sposób jak inne utworzone zestawy danych.
 
 ## <a name="version-datasets"></a>Zestawy danych wersji
 

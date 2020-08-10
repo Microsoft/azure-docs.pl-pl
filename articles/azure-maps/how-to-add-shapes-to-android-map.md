@@ -1,6 +1,6 @@
 ---
 title: Dodawanie kształtów do map systemu Android | Mapy Microsoft Azure
-description: W tym artykule dowiesz się, jak renderować różne kształty na mapie przy użyciu Android SDK Microsoft Azure Maps.
+description: Dowiedz się, jak dodać kształty do map. Zobacz przykłady kodu, które używają Android SDK Azure Maps, aby dodać linię i wielokąt do mapy.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 855a05bd228a3bf903b79522549ed519b4745e17
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 9dd8718a6a96627781a578edb514d797e40f01fb
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127098"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037426"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Dodawanie kształtu do mapy przy użyciu Azure Maps Android SDK
 

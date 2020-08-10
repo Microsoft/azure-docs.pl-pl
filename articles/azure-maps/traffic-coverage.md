@@ -1,6 +1,6 @@
 ---
 title: Pokrycie ruchu | Mapy Microsoft Azure
-description: Ten artykuł zawiera informacje na temat pokrycia ruchu w mapach Microsoft Azure.
+description: Dowiedz się więcej o zapotrzebowaniu na ruch w Azure Maps. Sprawdź, czy informacje o przepływie ruchu i zdarzeniach są dostępne w różnych regionach na całym świecie.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/22/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 346cd13c021b70dac1501e5ca5a9e6930d407e6e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 51fdbda755b98b47b700f57bf990b5c5356854a9
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129427"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037613"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure Maps pokrycie ruchu
 

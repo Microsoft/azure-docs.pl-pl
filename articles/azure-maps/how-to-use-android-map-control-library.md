@@ -1,6 +1,6 @@
 ---
 title: Wprowadzenie do kontrolki mapy systemu Android | Mapy Microsoft Azure
-description: W tym artykule dowiesz się, jak rozpocząć pracę z kontrolką mapy systemu Android przy użyciu Android SDK Microsoft Azure Maps.
+description: Zapoznaj się z Android SDK Azure Maps. Zobacz jak utworzyć projekt w Android Studio, zainstalować zestaw SDK i utworzyć mapę interaktywną.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f3a19a3e596d4d0162e92ac3f69c1333eea6aa41
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: fca1b48911ff2af977b8415ad1d9ec1cc2801623
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132164"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037766"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Wprowadzenie do Azure Maps Android SDK
 

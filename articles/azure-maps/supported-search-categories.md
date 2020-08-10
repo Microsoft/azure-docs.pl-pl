@@ -1,6 +1,6 @@
 ---
 title: Wyszukaj kategorie | Mapy Microsoft Azure
-description: Ten artykuł zawiera informacje na temat obsługiwanych kategorii wyszukiwania w Microsoft Azure Maps.
+description: Dowiedz się, które kategorie wyszukiwania są obsługiwane w Azure Maps. Wyświetl wszystkie obsługiwane kody kategorii i typy punktów, które reprezentuje każda z nich.
 author: sataneja
 ms.author: sataneja
 ms.date: 05/14/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 4975a5842ef23b54444663f653f43bb8dbd1d2c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9e910c38000fc4dbc454b68b752925df9145837
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83745978"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037681"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure Maps obsługiwanych kategorii
 

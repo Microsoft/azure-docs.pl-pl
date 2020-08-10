@@ -1,6 +1,6 @@
 ---
 title: Wyszukiwanie lokalizacji przy użyciu usług wyszukiwania Azure Maps
-description: W tym artykule dowiesz się, jak wyszukiwać lokalizację przy użyciu interfejsów API wyszukiwania Microsoft Azure Maps na potrzeby geokodowania, odwracania geokodowania, wyszukiwania rozmytego i odwrotnego wyszukiwania krzyżowego.
+description: Dowiedz się więcej na temat usługi wyszukiwania Azure Maps. Zobacz, jak używać tego zestawu interfejsów API do geokodowania, odwracania geokodowania, wyszukiwania rozmytego i odwrotnego wyszukiwania krzyżowego.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/21/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 51ee2bb66adedc310f65b2d3b430023ae7767df6
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 48dd0168f878a16e2eabe47151d0b09993d9f5f9
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126649"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037783"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Wyszukiwanie lokalizacji przy użyciu usług wyszukiwania Azure Maps
 
