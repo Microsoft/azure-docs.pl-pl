@@ -13,12 +13,12 @@ ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0ec314e6b5abde60102dacfc81c9303cef16e887
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: da697ad6fac5c75faacbfb20b768a4ec96528881
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058625"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041463"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Instrukcje: Dodawanie ról aplikacji do aplikacji i odbieranie ich w tokenie
 
@@ -74,7 +74,7 @@ Poniższy przykład pokazuje `appRoles` , że można przypisać do `users` .
 ```
 
 > [!NOTE]
->`displayName`Nie może zawierać spacji.
+>`displayName`Może zawierać spacje.
 
 Można zdefiniować role aplikacji, które mają być docelowe `users` , `applications` lub obie. Gdy jest to możliwe `applications` , role aplikacji są wyświetlane jako uprawnienia aplikacji w obszarze **zarządzaj** sekcja > **uprawnienia interfejsu api > Dodawanie uprawnień > moich interfejsów API > wybierz interfejs API > uprawnienia aplikacji**. Poniższy przykład przedstawia rolę aplikacji ukierunkowaną na `Application` .
 

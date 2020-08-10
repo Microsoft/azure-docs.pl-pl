@@ -4,12 +4,12 @@ description: Dowiedz się, jak dostosować funkcję uwierzytelniania i autoryzac
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 747729b7cbb3dcce72eb36704b5965e8427b59e1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 32b7db234cd91aaf9fa5fcfa9b35679d32561474
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424260"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042619"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Zaawansowane użycie uwierzytelniania i autoryzacji w Azure App Service
 
@@ -468,6 +468,67 @@ W pliku są dostępne następujące opcje konfiguracji:
     }
 }
 ```
+
+## <a name="pin-your-app-to-a-specific-authentication-runtime-version"></a>Przypinanie aplikacji do określonej wersji środowiska uruchomieniowego uwierzytelniania
+
+Po włączeniu uwierzytelniania/autoryzacji oprogramowanie pośredniczące platformy jest wstrzykiwane do potoku żądania HTTP zgodnie z opisem w temacie [Omówienie funkcji](overview-authentication-authorization.md#how-it-works). Ta platforma oprogramowania pośredniczącego jest okresowo aktualizowana o nowe funkcje i ulepszenia w ramach rutynowych aktualizacji platformy. Domyślnie aplikacja sieci Web lub funkcja będzie uruchamiana w najnowszej wersji tego oprogramowania. Te aktualizacje automatyczne są zawsze zgodne z poprzednimi wersjami. Jednak w rzadkich przypadkach, gdy ta aktualizacja automatyczna wprowadza problem w czasie wykonywania dla aplikacji sieci Web lub funkcji, można tymczasowo przywrócić poprzednią wersję oprogramowania pośredniczącego. W tym artykule opisano sposób tymczasowego przypinania aplikacji do określonej wersji oprogramowania pośredniczącego uwierzytelniania.
+
+### <a name="automatic-and-manual-version-updates"></a>Aktualizacje automatyczne i ręczne 
+
+Możesz przypiąć aplikację do określonej wersji oprogramowania pośredniczącego platformy przez ustawienie `runtimeVersion` Ustawienia dla aplikacji. Aplikacja zawsze jest uruchamiana w najnowszej wersji, o ile nie zostanie wybrana jawne Przypinanie jej z powrotem do określonej wersji. W danym momencie będzie obsługiwanych kilka wersji. Jeśli przypinasz do nieprawidłowej wersji, która nie jest już obsługiwana, aplikacja będzie używać najnowszej wersji. Aby zawsze uruchamiać najnowszą wersję, ustaw wartość `runtimeVersion` ~ 1. 
+
+### <a name="view-and-update-the-current-runtime-version"></a>Wyświetl i zaktualizuj bieżącą wersję środowiska uruchomieniowego
+
+Możesz zmienić wersję środowiska uruchomieniowego używaną przez aplikację. Nowa wersja środowiska uruchomieniowego powinna obowiązywać po ponownym uruchomieniu aplikacji. 
+
+#### <a name="view-the-current-runtime-version"></a>Wyświetl bieżącą wersję środowiska uruchomieniowego
+
+Bieżącą wersję oprogramowania pośredniczącego uwierzytelniania platformy można wyświetlić przy użyciu interfejsu wiersza polecenia platformy Azure lub za pośrednictwem jednej z built0 wersji punktów końcowych HTTP w aplikacji.
+
+##### <a name="from-the-azure-cli"></a>W interfejsie wiersza polecenia platformy Azure
+
+Korzystając z interfejsu wiersza polecenia platformy Azure, Wyświetl bieżącą wersję oprogramowania pośredniczącego przy użyciu [AZ webapp auth show](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show) .
+
+```azurecli-interactive
+az webapp auth show --name <my_app_name> \
+--resource-group <my_resource_group>
+```
+
+W tym kodzie Zamień na `<my_app_name>` nazwę aplikacji. Zastąp również `<my_resource_group>` nazwą grupy zasobów aplikacji.
+
+Zobaczysz `runtimeVersion` pole w danych wyjściowych interfejsu wiersza polecenia. Będzie podobne do następujących przykładowych danych wyjściowych, które zostały obcięte do przejrzystości: 
+```output
+{
+  "additionalLoginParams": null,
+  "allowedAudiences": null,
+    ...
+  "runtimeVersion": "1.3.2",
+    ...
+}
+```
+
+##### <a name="from-the-version-endpoint"></a>Z punktu końcowego wersji
+
+Możesz również kliknąć pozycję punkt końcowy/.auth/Version w aplikacji, aby wyświetlić bieżącą wersję oprogramowania pośredniczącego, na którym działa aplikacja. Będzie wyglądać podobnie do następujących przykładowych danych wyjściowych:
+```output
+{
+"version": "1.3.2"
+}
+```
+
+#### <a name="update-the-current-runtime-version"></a>Aktualizuj bieżącą wersję środowiska uruchomieniowego
+
+Korzystając z interfejsu wiersza polecenia platformy Azure, można zaktualizować `runtimeVersion` ustawienie w aplikacji za pomocą [AZ webapp auth Update](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-update) .
+
+```azurecli-interactive
+az webapp auth update --name <my_app_name> \
+--resource-group <my_resource_group> \
+--runtime-version <version>
+```
+
+Zamień `<my_app_name>` na nazwę aplikacji. Zastąp również `<my_resource_group>` nazwą grupy zasobów aplikacji. Zastąp również `<version>` prawidłową wersją środowiska uruchomieniowego 1. x lub `~1` najnowszą wersję. Informacje o wersji można znaleźć w różnych wersjach środowiska uruchomieniowego [tutaj] ( https://github.com/Azure/app-service-announcements) Aby określić wersję do przypięcia do programu.
+
+Możesz uruchomić to polecenie z [Azure Cloud Shell](../cloud-shell/overview.md) , wybierając pozycję **Wypróbuj** w poprzednim przykładzie kodu. Możesz również użyć [interfejsu wiersza polecenia platformy Azure lokalnie](https://docs.microsoft.com/cli/azure/install-azure-cli) , aby wykonać to polecenie po wykonaniu polecenia [AZ login](https://docs.microsoft.com/cli/azure/reference-index#az-login) , aby się zalogować.
 
 ## <a name="next-steps"></a>Następne kroki
 

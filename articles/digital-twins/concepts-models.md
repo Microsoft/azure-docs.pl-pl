@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 4d0ed9826326256e3b91815746e43d34b6934ba0
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 1f6fc7bff31faa62c290a4c02be3e80fee6fa200
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985885"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042636"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Zrozumienie modeli bliźniaczych w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -36,8 +36,8 @@ Usługa Azure Digital bliźniaczych reprezentacji używa **DTDL w _wersji 2_**. 
 W ramach definicji modelu element kodu najwyższego poziomu jest **interfejsem**. To hermetyzuje cały model, a reszta modelu jest definiowana w interfejsie. 
 
 Interfejs modelu DTDL może zawierać zero, jeden lub wiele z następujących pól:
-* Właściwości **Właściwości** to pola danych, które reprezentują stan jednostki (na przykład właściwości w wielu językach programowania zorientowanego obiektowo). W przeciwieństwie do telemetrii, która jest zdarzeniem związanym z danymi, właściwości mają magazyn zapasowy i mogą być odczytywane w dowolnym momencie.
-* Pola **telemetrii** danych telemetrycznych reprezentują pomiary lub zdarzenia i są często używane do opisywania odczytów czujników urządzeń. Dane telemetryczne nie są przechowywane w postaci cyfrowej dwuosiowej; jest to bardziej podobne do strumienia zdarzeń danych gotowych do wysłania w dowolnym miejscu. 
+* Właściwości **Właściwości** to pola danych, które reprezentują stan jednostki (na przykład właściwości w wielu językach programowania zorientowanego obiektowo). Właściwości mają magazyn zapasowy i mogą być odczytywane w dowolnym momencie.
+* Pola **telemetrii** danych telemetrycznych reprezentują pomiary lub zdarzenia i są często używane do opisywania odczytów czujników urządzeń. W przeciwieństwie do właściwości, dane telemetryczne nie są przechowywane w postaci cyfrowej przędzy; jest to seria zdarzeń związanych z danymi, które muszą być obsługiwane w miarę ich występowania. Aby uzyskać więcej informacji na temat różnic między właściwością i telemetrią, zobacz sekcję [*Właściwości a Telemetria*](#properties-vs-telemetry) poniżej.
 * Składniki **składnika** umożliwiają tworzenie interfejsu modelu jako zestawu innych interfejsów, jeśli chcesz. Przykładem składnika jest interfejs *frontCamera* (i inny interfejs *składnika),* który jest używany do definiowania modelu dla *telefonu*. Najpierw należy zdefiniować interfejs dla *frontCamera* , jakby był własnym modelem, a następnie można odwoływać się do niego przy definiowaniu *telefonu*.
 
     Użyj składnika, aby opisać element, który jest integralną częścią Twojego rozwiązania, ale nie wymaga oddzielnej tożsamości i nie musi być tworzony, usunięty ani ponownie rozmieszczenia w grafie bliźniaczym. Jeśli chcesz, aby jednostki miały niezależne istnienie na grafie bliźniaczym, reprezentują je jako oddzielne cyfrowe bliźniaczych reprezentacji różnych modeli, połączone przez *relacje* (Zobacz następny punktor).
@@ -47,7 +47,25 @@ Interfejs modelu DTDL może zawierać zero, jeden lub wiele z następujących p�
 * Relacje między **relacjami** umożliwiają prezentowanie sposobu, w jaki można polegać na cyfrowym przędze za pomocą innych bliźniaczych reprezentacji cyfrowych. Relacje mogą reprezentować różne orednie semantyczne, takie jak *Contains* ("piętro zawiera pomieszczenie"), *chłodnie* ("pomieszczenie chłodzenia HVAC"), *isBilledTo* ("kompresor jest rozliczany na użytkownika") itd. Relacje umożliwiają rozwiązanie udostępnienie grafu powiązanych jednostek.
 
 > [!NOTE]
-> Specyfikacja DTDL definiuje także **polecenia**, które są metodami, które mogą być wykonywane na dwucyfrowej sznurze (na przykład polecenie Reset lub polecenie w celu przełączenia lub wyłączenia wentylatora). *Polecenia nie są jednak obecnie obsługiwane w usłudze Azure Digital bliźniaczych reprezentacji.*
+> [Specyfikacja DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) definiuje także **polecenia**, które są metodami, które mogą być wykonywane na dwucyfrowej sznurze (na przykład polecenie Reset lub polecenie w celu przełączenia lub wyłączenia wentylatora). *Polecenia nie są jednak obecnie obsługiwane w usłudze Azure Digital bliźniaczych reprezentacji.*
+
+### <a name="properties-vs-telemetry"></a>Właściwości a Telemetria
+
+Poniżej znajdują się dodatkowe wskazówki dotyczące rozróżniania pól **Właściwości** DTDL i **telemetrii** w usłudze Azure Digital bliźniaczych reprezentacji.
+
+Różnica między właściwościami i telemetrią dla modeli usługi Azure Digital bliźniaczych reprezentacji jest następująca:
+* **Właściwości** powinny mieć magazyn zapasowy. Oznacza to, że można odczytać właściwość w dowolnym momencie i pobrać jej wartość. Jeśli właściwość jest zapisywalna, można również zapisać wartość we właściwości.  
+* Dane **telemetryczne** są bardziej podobne do strumienia zdarzeń; jest to zestaw komunikatów danych, które mają krótki lifespans. Jeśli nie skonfigurowano nasłuchiwania dla zdarzenia i akcji, które mają być podejmowane w momencie wystąpienia, nie ma śledzenia zdarzenia w późniejszym czasie. Nie możesz wrócić do niego i przeczytać go później. 
+  - W terminologii w języku C# dane telemetryczne przypominają zdarzenie w języku C#. 
+  - W przypadku rzeczy IoT dane telemetryczne są zazwyczaj pojedynczej miary wysyłanej przez urządzenie.
+
+Dane **telemetryczne** są często używane w przypadku urządzeń IoT, ponieważ wiele urządzeń nie jest w stanie, ani interesuje, przechowywanie wartości miary, które generują. Po prostu wysyłają je jako strumień zdarzeń "telemetrii". W takim przypadku nie można w dowolnym momencie wykonać zapytania o urządzenie w celu uzyskania najnowszej wartości pola telemetrii. Zamiast tego należy nasłuchiwać komunikatów z urządzenia i podejmować działania w miarę nadejścia komunikatów. 
+
+W związku z tym podczas projektowania modelu w usłudze Azure Digital bliźniaczych reprezentacji prawdopodobnie będziesz używać **Właściwości** w większości przypadków, aby modelować bliźniaczych reprezentacji. Pozwala to na przechowywanie kopii zapasowych oraz możliwość odczytywania i wykonywania zapytań dotyczących pól danych.
+
+Dane telemetryczne i właściwości często współpracują ze sobą, aby obsługiwać ruch przychodzący z urządzeń. Ponieważ wszystkie dane przychodzące do usługi Azure Digital bliźniaczych reprezentacji są realizowane za pośrednictwem [interfejsów API](how-to-use-apis-sdks.md), zazwyczaj używana jest funkcja transferu danych przychodzących do odczytywania zdarzeń telemetrii lub właściwości z urządzeń oraz ustawiania właściwości w ADT w odpowiedzi. 
+
+Możesz również opublikować wydarzenie telemetryczne z interfejsu API Digital bliźniaczych reprezentacji systemu Azure. Podobnie jak w przypadku innych danych telemetrycznych, to jest zdarzenie krótkoterminowe wymagające odbiornika do obsłużenia.
 
 ### <a name="azure-digital-twins-dtdl-implementation-specifics"></a>Specyficzne dla implementacji usługi Azure Digital bliźniaczych reprezentacji DTDL
 

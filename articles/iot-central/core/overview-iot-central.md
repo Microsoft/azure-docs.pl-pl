@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: c8cd789b16f839c60249b36f570ca1c945ef4e01
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 1af549feb551eca02bb1ef8df6481eceb959f6d1
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337181"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042721"
 ---
 # <a name="what-is-azure-iot-central"></a>Co to jest usługa Azure IoT Central?
 
@@ -34,10 +34,10 @@ Ten artykuł zawiera opis IoT Central:
 
 Dokumentacja IoT Central obejmuje cztery osób, którzy współpracują z aplikacją IoT Central:
 
-- _Konstruktor rozwiązań_ jest odpowiedzialny za Definiowanie typów urządzeń łączących się z aplikacją i dostosowywania aplikacji dla operatora.
-- _Operator_ zarządza urządzeniami połączonymi z aplikacją.
+- _Konstruktor rozwiązań_ jest odpowiedzialny za [Definiowanie typów urządzeń](howto-set-up-template.md) łączących się z aplikacją i dostosowywania aplikacji dla operatora.
+- _Operator_ [zarządza urządzeniami](howto-manage-devices.md) podłączonymi do aplikacji.
 - _Administrator_ jest odpowiedzialny za zadania administracyjne, takie jak zarządzanie [rolami i uprawnieniami użytkownika](howto-administer.md) w aplikacji.
-- _Deweloper urządzenia_ tworzy kod, który jest uruchamiany na urządzeniu lub IoT Edge module podłączonym do aplikacji.
+- _Deweloper urządzenia_ [tworzy kod, który jest uruchamiany na urządzeniu](concepts-telemetry-properties-commands.md) lub [IoT Edge module](concepts-iot-edge.md) podłączonym do aplikacji.
 
 ## <a name="create-your-iot-central-application"></a>Tworzenie aplikacji IoT Central
 
@@ -55,7 +55,7 @@ Jako Konstruktor rozwiązań można utworzyć _szablon urządzenia_ dla urządze
 - Właściwości urządzenia ustawiane przez urządzenie, które są tylko do odczytu w aplikacji.
 - Właściwości, które są ustawiane przez operator, które określają zachowanie urządzenia.
 
-Ten szablon urządzenia obejmuje następujące:
+Ten [szablon urządzenia](howto-set-up-template.md) obejmuje następujące:
 
 - _Model możliwości urządzenia_ , który opisuje możliwości implementowane przez urządzenie, takie jak dane telemetryczne, które wysyła, oraz właściwości, które zgłasza.
 - Właściwości chmury, które nie są przechowywane na urządzeniu.
@@ -83,13 +83,13 @@ Jako Konstruktor rozwiązań można także dostosować interfejs użytkownika ap
 
 ## <a name="manage-your-devices"></a>Zarządzanie urządzeniami
 
-Jako operator korzystasz z aplikacji IoT Central do zarządzania urządzeniami w rozwiązaniu IoT Central. Operatory wykonywania zadań, takich jak:
+Jako operator korzystasz z aplikacji IoT Central do [zarządzania urządzeniami](howto-manage-devices.md) w rozwiązaniu IoT Central. Operatory wykonywania zadań, takich jak:
 
 - Monitorowanie urządzeń połączonych z aplikacją
 - Rozwiązywanie i korygowanie problemów z urządzeniami
 - Aprowizowanie nowych urządzeń
 
-Jako Konstruktor rozwiązań można definiować niestandardowe reguły i akcje, które działają w ramach przesyłania strumieniowego danych z połączonych urządzeń. Operator może włączyć lub wyłączyć te reguły na poziomie urządzenia, aby kontrolować i automatyzować zadania w aplikacji.
+Jako Konstruktor rozwiązań można [definiować niestandardowe reguły i akcje](howto-configure-rules.md) , które działają w ramach przesyłania strumieniowego danych z połączonych urządzeń. Operator może włączyć lub wyłączyć te reguły na poziomie urządzenia, aby kontrolować i automatyzować zadania w aplikacji.
 
 W przypadku wszystkich rozwiązań IoT zaprojektowanych do działania w odpowiedniej skali, podejście strukturalne do zarządzania urządzeniami jest ważne. Połączenie urządzeń z chmurą jest za mało, aby urządzenia były połączone i działać prawidłowo. Operator może korzystać z następujących funkcji IoT Central, aby zarządzać urządzeniami w całym cyklu życia aplikacji:
 
@@ -125,7 +125,7 @@ Twórz rozwiązania IoT, takie jak:
 
 Aplikacje IoT Central są w pełni hostowane przez firmę Microsoft, co zmniejsza koszty administracyjne związane z zarządzaniem aplikacjami. Administratorzy zarządzają dostępem do aplikacji przy użyciu [ról i uprawnień użytkownika](howto-administer.md).
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Możesz utworzyć aplikację IoT Central przy użyciu 7-dniowej bezpłatnej wersji próbnej lub użyć planu cenowego w warstwie Standardowa.
 

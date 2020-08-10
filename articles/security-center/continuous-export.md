@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 7b0fbb7c4f680f9d732a63fff7b0b317c6cf1511
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3bfaa9f2961dca2b8b717b1506d112943910485a
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519701"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042329"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Eksportowanie alertów zabezpieczeń i zaleceń
 
@@ -31,12 +31,14 @@ Za pomocą tych narzędzi możesz:
 
 ## <a name="availability"></a>Dostępność
 
-- Stan wydania: **ogólnie dostępny**
-- Wymagane role i uprawnienia:
-    - **Czytelnik** w subskrypcji zawierającej konfigurację eksportu
-    - **Rola administratora zabezpieczeń** w grupie zasobów (lub **właściciela**)
-    - Musi mieć również uprawnienia do zapisu dla zasobu docelowego
-- Chmury: ✔ chmury komercyjne ✔ US Gov ✘ Chiny gov, inne gov
+|Aspekt|Szczegóły|
+|----|:----|
+|Stan wydania:|Ogólnie dostępna|
+|Wpisaną|Warstwa Bezpłatna|
+|Wymagane role i uprawnienia:|**Czytelnik** w subskrypcji zawierającej konfigurację eksportu<br>**Rola administratora zabezpieczeń** w grupie zasobów (lub **właściciela**)<br>Musi mieć również uprawnienia do zapisu dla zasobu docelowego|
+|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov|
+|||
+
 
 
 ## <a name="setting-up-a-continuous-export"></a>Konfigurowanie eksportu ciągłego

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: f3006bdd0cb90c22123c8db103a12ef3c0bee75a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 68d3646b4ebc3fc5dd5943186afdb75307dfd5ed
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519341"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042670"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorowanie integralności plików w usłudze Azure Security Center
 Dowiedz się, jak skonfigurować monitorowanie integralności plików (FIM) w Azure Security Center przy użyciu tego przewodnika.
@@ -26,12 +26,16 @@ Dowiedz się, jak skonfigurować monitorowanie integralności plików (FIM) w Az
 
 ## <a name="availability"></a>Dostępność
 
-- Stan wydania: **ogólnie dostępny**
-- Wymagane role: **właściciel obszaru roboczego** może włączyć/wyłączyć program FIM (Aby uzyskać więcej informacji, zobacz [role platformy Azure dla log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)). **Czytelnik** może wyświetlać wyniki.
-- Połączeń
-    - ✔ Chmury komercyjne
-    - ✔ US Gov Cloud
-    - ✘ Chiny gov/inne gov
+|Aspekt|Szczegóły|
+|----|:----|
+|Stan wydania:|Ogólnie dostępna|
+|Wpisaną|Warstwa Standardowa|
+|Wymagane role i uprawnienia:|**Właściciel obszaru roboczego** może włączyć/wyłączyć program FIM (Aby uzyskać więcej informacji, zobacz [role platformy Azure dla log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>**Czytelnik** może wyświetlać wyniki.|
+|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov|
+|||
+
+
+
 
 
 ## <a name="what-is-fim-in-security-center"></a>Co to jest FIM w Security Center?

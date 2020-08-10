@@ -6,12 +6,12 @@ manager: jureid
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: jureid
-ms.openlocfilehash: 7feb49266a10b7423121dc5362b0bd6bda4d0e08
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: aef9c6781c87ff4e84e46de711308319755e4630
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824498"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042075"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Udzielanie dostępu do tworzenia subskrypcji platformy Azure Enterprise (wersja zapoznawcza)
 
@@ -62,7 +62,7 @@ Aby można było [tworzyć subskrypcje](programmatically-create-subscription.md)
 
     Użyj `principalName` właściwości, aby zidentyfikować konto, do którego chcesz udzielić dostępu właściciela RBAC. Skopiuj to `name` konto. Jeśli na przykład chcesz udzielić dostępu właściciela RBAC do SignUpEngineering@contoso.com konta rejestracji, skopiujesz ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` . To jest identyfikator obiektu konta rejestracji. Wklej tę wartość w miejscu, aby można było użyć jej w następnym kroku jako `enrollmentAccountObjectId` .
 
-    # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+    # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
     Użyj polecenia cmdlet [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) , aby wyświetlić listę wszystkich kont rejestracji, do których masz dostęp. Wybierz pozycję **Wypróbuj,** aby otworzyć [Azure Cloud Shell](https://shell.azure.com/). Aby wkleić kod, kliknij prawym przyciskiem myszy okna powłoki i wybierz polecenie **Wklej**.
 
@@ -156,7 +156,7 @@ Aby można było [tworzyć subskrypcje](programmatically-create-subscription.md)
     }
     ```
 
-    # <a name="powershell"></a>[PowerShell](#tab/azure-powershell-2)
+    # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell-2)
 
     Uruchom następujące polecenie [New-AzRoleAssignment](../../role-based-access-control/role-assignments-powershell.md) , zastępując ```<enrollmentAccountObjectId>``` je `ObjectId` zebranym w pierwszym kroku ( ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ). Zamień na ```<userObjectId>``` Identyfikator obiektu zebrany w drugim kroku.
 
@@ -180,7 +180,7 @@ Aby można było [tworzyć subskrypcje](programmatically-create-subscription.md)
 
 Aby śledzić subskrypcje utworzone za pośrednictwem tego interfejsu API, użyj [interfejsu API dziennika aktywności dzierżawcy](/rest/api/monitor/tenantactivitylogs). Nie jest obecnie możliwe używanie programu PowerShell, interfejsu wiersza polecenia lub Azure Portal do śledzenia tworzenia subskrypcji.
 
-1. Jako administrator dzierżawy usługi Azure Active Directory [podnieś poziom dostępu](../../role-based-access-control/elevate-access-global-admin.md), a następnie przypisz rolę Czytelnika dla zakresu `/providers/microsoft.insights/eventtypes/management` do użytkownika wykonującego inspekcję.
+1. Jako administrator dzierżawy usługi Azure Active Directory [podnieś poziom dostępu](../../role-based-access-control/elevate-access-global-admin.md), a następnie przypisz rolę Czytelnika dla zakresu `/providers/microsoft.insights/eventtypes/management` do użytkownika wykonującego inspekcję. Ten dostęp jest dostępny w roli [czytelnik](../../role-based-access-control/built-in-roles.md#reader) , roli [współautor monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-contributor) lub [roli niestandardowej](../../role-based-access-control/custom-roles.md).
 1. Jako użytkownik inspekcji Wywołaj [interfejs API dziennika aktywności dzierżawców](/rest/api/monitor/tenantactivitylogs) , aby zobaczyć działania związane z tworzeniem subskrypcji. Przykład:
 
     ```

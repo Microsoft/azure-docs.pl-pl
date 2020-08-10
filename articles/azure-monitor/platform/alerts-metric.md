@@ -4,14 +4,14 @@ description: Dowiedz się, jak używać Azure Portal lub interfejsu wiersza pole
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 08/10/2020
 ms.subservice: alerts
-ms.openlocfilehash: c040958d9518485bc5d583fc01aedd50d5c6e57a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8afe62173dc0e90783c494fa51994e9ebac506f3
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321126"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042738"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Tworzenie i wyświetlanie alertów metryk oraz zarządzanie nimi w usłudze Azure Monitor
 
@@ -53,7 +53,7 @@ Poniższa procedura opisuje sposób tworzenia reguły alertu dotyczącego metryk
 
 10. Opcjonalnie można uściślić warunek przez dostosowanie **stopnia szczegółowości agregacji** i **częstotliwości obliczania**. 
 
-11. Kliknij pozycję **Gotowe**.
+11. Kliknij przycisk **Gotowe**.
 
 12. Opcjonalnie dodaj kolejne kryteria, jeśli chcesz monitorować złożoną regułę alertów. Obecnie użytkownicy mogą mieć reguły alertów z kryteriami progów dynamicznych jako pojedyncze kryterium.
 
@@ -87,6 +87,7 @@ Reguły alertów dotyczących metryk można wyświetlać i zarządzać nimi za p
     > Po utworzeniu alertu dotyczącego metryki nie można edytować **zasobu docelowego** i **nazwy reguły alertu** .
 
 6. Kliknij przycisk **gotowe** , aby zapisać zmiany.
+
 
 ## <a name="with-azure-cli"></a>Z interfejsem wiersza polecenia platformy Azure
 
@@ -133,6 +134,14 @@ Poprzednie sekcje opisują sposób tworzenia i wyświetlania reguł alertów dot
     ```azurecli
     az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
     ```
+
+## <a name="with-powershell"></a>Z programem PowerShell
+
+Reguły alertów dotyczących metryk mają dostępne dedykowane polecenia cmdlet programu PowerShell:
+
+- [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2): tworzy nową regułę alertu metryki lub aktualizuje istniejącą.
+- [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2): Pobiera co najmniej jedną regułę alertu dotyczącego metryki.
+- [Remove-AzMetricAlertRuleV2](/powershell/module/az.monitor/remove-azmetricalertrulev2): usuwa regułę alertu metryki.
 
 ## <a name="next-steps"></a>Następne kroki
 

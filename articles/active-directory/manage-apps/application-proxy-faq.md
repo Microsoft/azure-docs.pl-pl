@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: aa9a930195908671cc0e772fd9643dcbce9dbb1c
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 78a0cb6217d8c1d25f08801066a970d6bc94e1b0
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562416"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042109"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Serwer proxy aplikacji usługi Active Directory (Azure AD) — często zadawane pytania
 
@@ -31,6 +31,9 @@ Ta strona zawiera odpowiedzi na często zadawane pytania dotyczące serwera prox
 ### <a name="what-license-is-required-to-use-azure-ad-application-proxy"></a>Jaka licencja jest wymagana do korzystania z usługi Azure serwer proxy aplikacji usługi Azure AD?
 
 Aby korzystać z usługi Azure serwer proxy aplikacji usługi Azure AD, musisz mieć licencję na Azure AD — wersja Premium P1 lub P2. Aby uzyskać więcej informacji o licencjonowaniu, zobacz [Cennik usługi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
+
+### <a name="what-happens-to-azure-ad-application-proxy-in-my-tenant-if-my-license-expires"></a>Co się stanie z usługą Azure serwer proxy aplikacji usługi Azure AD w mojej dzierżawie, jeśli moja licencja wygaśnie?
+Jeśli licencja wygaśnie, serwer proxy aplikacji zostanie automatycznie wyłączony. Informacje o aplikacji zostaną zapisane przez maksymalnie jeden rok.
 
 ### <a name="why-is-the-enable-application-proxy-button-grayed-out"></a>Dlaczego przycisk "Włącz serwer proxy aplikacji jest wyszarzony?
 

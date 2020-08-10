@@ -7,16 +7,17 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 08/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 49c44b17247f14b8826df7652dc9eb025953b748
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6c0b03db281a054410b3c4f44e278dbccf32029f
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099382"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042687"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Format XML w Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Postępuj zgodnie z tym artykułem, jeśli chcesz **przeanalizować pliki XML**. 
@@ -86,7 +87,7 @@ Obsługiwane **Ustawienia odczytu XML** w obszarze `formatSettings` :
 | Walidacja | Określa, czy ma być sprawdzana Walidacja schematu XML.<br>Dozwolone wartości to **none** (domyślne, bez sprawdzania poprawności), **XSD** (Validate using XSD), **DTD** (Walidacja przy użyciu DTD). | Nie |
 | namespacePrefixes | Identyfikator URI przestrzeni nazw do mapowania prefiksów, który jest używany do nazwy pól podczas analizowania pliku XML.<br/>Jeśli plik XML ma przestrzeń nazw i przestrzeń nazw jest włączona, domyślnie nazwa pola jest taka sama jak w dokumencie XML.<br>Jeśli istnieje element zdefiniowany dla identyfikatora URI przestrzeni nazw w tej mapie, nazwa pola to `prefix:fieldName` . | Nie |
 | compressionProperties | Grupa właściwości na temat sposobu dekompresowania danych dla danego kodera kompresji. | Nie       |
-| preserveZipFileNameAsFolder<br>(*w `compressionProperties` obszarze *) | Stosuje się, gdy zestaw danych wejściowych jest skonfigurowany z kompresją **ZipDeflate** . Wskazuje, czy podczas kopiowania zachować nazwę źródłowego pliku zip jako strukturę folderów. Po ustawieniu na wartość true (domyślnie) Data Factory zapisuje niespakowane pliki do `<path specified in dataset>/<folder named as source zip file>/` ; po ustawieniu na wartość false Data Factory zapisuje niespakowane pliki bezpośrednio do `<path specified in dataset>` .  | Nie |
+| preserveZipFileNameAsFolder<br>(*w `compressionProperties` obszarze *) | Stosuje się, gdy zestaw danych wejściowych jest skonfigurowany z kompresją **ZipDeflate** . Wskazuje, czy podczas kopiowania zachować nazwę źródłowego pliku zip jako strukturę folderów.<br>-Po ustawieniu na **wartość true (domyślnie)** Data Factory zapisuje niespakowane pliki do `<path specified in dataset>/<folder named as source zip file>/` .<br>-Po ustawieniu na **wartość false**Data Factory zapisuje niespakowane pliki bezpośrednio do `<path specified in dataset>` . Upewnij się, że nie masz zduplikowanych nazw plików w różnych źródłowych plikach ZIP, aby uniknąć wyścigów lub nieoczekiwanych zachowań.  | Nie |
 
 ## <a name="mapping-data-flow-properties"></a>Mapowanie właściwości przepływu danych
 
@@ -99,13 +100,13 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez Źródło XM
 | Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Ścieżki symboli wieloznacznych | Wszystkie pliki zgodne ze ścieżką wieloznaczną zostaną przetworzone. Zastępuje folder i ścieżkę pliku ustawioną w zestawie danych. | Nie | Ciąg [] | wildcardPaths |
-| Ścieżka katalogu głównego partycji | W przypadku danych plików podzielonych na partycje można wprowadzić ścieżkę katalogu głównego partycji, aby odczytywać foldery partycjonowane jako kolumny | Nie | String (ciąg) | partitionRootPath |
+| Ścieżka katalogu głównego partycji | W przypadku danych plików podzielonych na partycje można wprowadzić ścieżkę katalogu głównego partycji, aby odczytywać foldery partycjonowane jako kolumny | Nie | Ciąg | partitionRootPath |
 | Lista plików | Czy źródło wskazuje plik tekstowy, który zawiera listę plików do przetworzenia | Nie | `true` lub `false` | fileList |
-| Kolumna do przechowywania nazwy pliku | Utwórz nową kolumnę o nazwie i ścieżce pliku źródłowego | Nie | String (ciąg) | rowUrlColumn |
+| Kolumna do przechowywania nazwy pliku | Utwórz nową kolumnę o nazwie i ścieżce pliku źródłowego | Nie | Ciąg | rowUrlColumn |
 | Po zakończeniu | Usuń lub Przenieś pliki po przetworzeniu. Ścieżka pliku zaczyna się od katalogu głównego kontenera | Nie | Usuń: `true` lub`false` <br> Przenieś`['<from>', '<to>']` | purgeFiles <br>moveFiles |
 | Filtruj według ostatniej modyfikacji | Wybierz filtrowanie plików na podstawie czasu ich ostatniej modyfikacji | Nie | Timestamp | modifiedAfter <br>modifiedBefore |
 | Tryb walidacji | Określa, czy ma być sprawdzana Walidacja schematu XML. | Nie | `None`(domyślnie bez sprawdzania poprawności)<br>`xsd`(Weryfikuj przy użyciu XSD)<br>`dtd`(Sprawdź poprawność przy użyciu DTD). | Walidacja |
-| Przestrzenie nazw | Określa, czy należy włączyć przestrzeń nazw podczas analizowania plików XML. | Nie | `true`(ustawienie domyślne) lub`false` | przestrzeni |
+| Namespaces | Określa, czy należy włączyć przestrzeń nazw podczas analizowania plików XML. | Nie | `true`(ustawienie domyślne) lub`false` | przestrzeni |
 | Pary prefiksów przestrzeni nazw | Identyfikator URI przestrzeni nazw do mapowania prefiksów, który jest używany do nazwy pól podczas analizowania pliku XML.<br/>Jeśli plik XML ma przestrzeń nazw i przestrzeń nazw jest włączona, domyślnie nazwa pola jest taka sama jak w dokumencie XML.<br>Jeśli istnieje element zdefiniowany dla identyfikatora URI przestrzeni nazw w tej mapie, nazwa pola to `prefix:fieldName` . | Nie | Tablica ze wzorcem`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
 
 ### <a name="xml-source-script-example"></a>Przykład skryptu źródłowego XML
@@ -137,7 +138,7 @@ Należy pamiętać o następujących kwestiach w przypadku używania kodu XML ja
 
 - Atrybuty XML:
 
-    - Atrybuty elementu są analizowane jako pola podrzędne elementu w hierarchii.
+    - Atrybuty elementu są analizowane jako podpola elementu w hierarchii.
     - Nazwa pola atrybutu jest zgodna ze wzorcem `@attributeName` .
 
 - Walidacja schematu XML:

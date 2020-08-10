@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2020
 ms.author: memildin
-ms.openlocfilehash: b66969b26a801e6bd9aacf999c1c1ef9179ef1bd
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 767ad928779743ec28dbe3da8be6154a1fe0b0ab
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534672"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042319"
 ---
 # <a name="azure-container-registry-image-scanning-by-security-center"></a>Azure Container Registry skanowania obrazów przez Security Center
 
@@ -27,17 +27,16 @@ Jeśli jesteś w warstwie Standardowa Azure Security Center, możesz dodać paki
 
 ## <a name="availability"></a>Dostępność
 
-- Stan wydania: **Ogólna dostępność**
-- Wymagane role: **czytelnik zabezpieczeń** i [rola czytnika Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
-- Obsługiwane rejestry i obrazy:
-    - ✔ Hostowane w systemie Linux rejestry ACR, które są dostępne z publicznego Internetu i zapewniają dostęp do powłoki.
-    - ✘ Rejestry ACR hostowane w systemie Windows.
-    - Rejestry prywatne ✘ — Security Center wymaga, aby rejestry były dostępne z publicznego Internetu. Security Center nie może obecnie nawiązać połączenia z usługą, ani skanować rejestrów z dostępem ograniczonym za pomocą zapory, punktu końcowego usługi lub prywatnych punktów końcowych, takich jak link prywatny platformy Azure.
-    - ✘ Minimalistyczny obrazy, takie jak obrazy wyłuskane [platformy Docker](https://hub.docker.com/_/scratch/) lub obrazy typu "Distroless", które zawierają tylko aplikację i jej zależności środowiska uruchomieniowego bez Menedżera pakietów, powłoki lub systemu operacyjnego.
-- Połączeń 
-    - ✔ Chmury komercyjne
-    - ✘ W chmurze dla instytucji rządowych USA
-    - ✘ W chmurze dla instytucji rządowych, inne chmury dla instytucji rządowych
+|Aspekt|Szczegóły|
+|----|:----|
+|Stan wydania:|Ogólna dostępność|
+|Wpisaną|Warstwa Standardowa|
+|Obsługiwane rejestry i obrazy:|![Tak ](./media/icons/yes-icon.png) hostowane w systemie Linux rejestry ACR, które są dostępne z publicznego Internetu i zapewniają dostęp do powłoki.<br>![Brak ](./media/icons/yes-icon.png) rejestrów ACR hostowanych przez system Windows.<br>![Brak ](./media/icons/yes-icon.png) rejestrów prywatnych — Security Center wymaga dostępu do Twoich rejestrów z publicznego Internetu. Security Center nie może obecnie nawiązać połączenia z usługą, ani skanować rejestrów z dostępem ograniczonym za pomocą zapory, punktu końcowego usługi lub prywatnych punktów końcowych, takich jak link prywatny platformy Azure.<br>![Nie ](./media/icons/yes-icon.png) są to obrazy minimalistyczny, takie jak obrazy wyłuskane [platformy Docker](https://hub.docker.com/_/scratch/) ani obrazy "Distroless", które zawierają tylko aplikacje i ich zależności środowiska uruchomieniowego bez Menedżera pakietów, powłoki lub systemu operacyjnego.|
+|Wymagane role i uprawnienia:|Rola **czytelnik zabezpieczeń** i [Azure Container Registry czytelnik](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
+|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
+|||
+
+
 
 
 ## <a name="when-are-images-scanned"></a>Kiedy są skanowane obrazy?

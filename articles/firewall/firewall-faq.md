@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/30/2020
+ms.date: 08/10/2020
 ms.author: victorh
-ms.openlocfilehash: 3f2b844163abce0946dc5df29c3121691e83035b
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 1ba8977272817d41334ccf0d9ad01d4d751bfb17
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439213"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041701"
 ---
 # <a name="azure-firewall-faq"></a>Często zadawane pytania dotyczące zapory platformy Azure
 
@@ -26,9 +26,9 @@ Aby dowiedzieć się więcej o funkcjach zapory platformy Azure, zobacz [funkcje
 
 ## <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Jaki jest typowy model wdrażania dla zapory platformy Azure?
 
-Zaporę platformy Azure można wdrożyć w dowolnej sieci wirtualnej, ale klienci zazwyczaj wdrażają ją w centralnej sieci wirtualnej i innych sieci wirtualnych w modelu gwiazdy i szprych. Następnie można ustawić trasy domyślnej z równorzędnych sieci wirtualnych w taki sposób, aby wskazywały tę centralną sieć wirtualną zapory. Globalna komunikacja równorzędna sieci wirtualnej jest obsługiwana, ale nie jest zalecana ze względu na potencjalne problemy z wydajnością i opóźnieniami w różnych regionach. Aby uzyskać najlepszą wydajność, wdróż jedną zaporę na region.
+Usługę Azure Firewall można wdrożyć w dowolnej sieci wirtualnej, ale klienci zazwyczaj wdrażają ją w centralnej sieci wirtualnej i łączą z nią równorzędnie inne sieci wirtualne w modelu piasty i szprych. Następnie można ustawić trasy domyślnej z równorzędnych sieci wirtualnych w taki sposób, aby wskazywały tę centralną sieć wirtualną zapory. Globalna komunikacja równorzędna sieci wirtualnej jest obsługiwana, ale nie jest zalecana ze względu na potencjalne problemy z wydajnością i opóźnieniami w różnych regionach. Aby uzyskać najlepszą wydajność, wdróż jedną zaporę na region.
 
-Zaletą tego modelu jest możliwość scentralizowanej kontroli nad wieloma szprychami sieci wirtualnych w różnych subskrypcjach. Są również naliczane oszczędności, ponieważ nie trzeba oddzielnie wdrażać zapory w każdej sieci wirtualnej. Oszczędności kosztów należy mierzyć w porównaniu z kosztami powiązania komunikacji równorzędnej na podstawie wzorców ruchu klientów.
+Zaletą tego modelu jest możliwość scentralizowanej kontroli nad wieloma sieciami wirtualnymi szprychy w różnych subskrypcjach. Są również naliczane oszczędności, ponieważ nie trzeba oddzielnie wdrażać zapory w każdej sieci wirtualnej. Oszczędności kosztów należy mierzyć w porównaniu z kosztami powiązanej komunikacji równorzędnej na podstawie wzorców ruchu klienta.
 
 ## <a name="how-can-i-install-the-azure-firewall"></a>Jak zainstalować zaporę platformy Azure?
 
@@ -123,7 +123,7 @@ Zapora platformy Azure nie ma protokołu IPSec, gdy docelowy adres IP jest prywa
 
 Wymuszone tunelowanie jest obsługiwane podczas tworzenia nowej zapory. Nie można skonfigurować istniejącej zapory do wymuszonego tunelowania. Aby uzyskać więcej informacji, zobacz [tunelowanie wymuszone przez zaporę platformy Azure](forced-tunneling.md). 
 
-Zapora platformy Azure musi mieć bezpośrednią łączność z Internetem. Jeśli AzureFirewallSubnet nauczy trasy domyślnej do sieci lokalnej za pośrednictwem protokołu BGP, należy przesłonić ten element przy użyciu wartości 0.0.0.0/0 UDR z wartością **NextHopType** ustawioną jako **Internet** w celu utrzymania bezpośredniej łączności z Internetem.
+Usługa Azure Firewall musi mieć bezpośrednie połączenie z Internetem. Jeśli AzureFirewallSubnet nauczy trasy domyślnej do sieci lokalnej za pośrednictwem protokołu BGP, należy przesłonić ten element przy użyciu wartości 0.0.0.0/0 UDR z wartością **NextHopType** ustawioną jako **Internet** w celu utrzymania bezpośredniej łączności z Internetem.
 
 Jeśli konfiguracja wymaga wymuszonego tunelowania do sieci lokalnej i można określić docelowe prefiksy adresów IP dla miejsc docelowych Internetu, można skonfigurować te zakresy przy użyciu sieci lokalnej jako następnego skoku za pośrednictwem trasy zdefiniowanej przez użytkownika w AzureFirewallSubnet. Lub można użyć protokołu BGP, aby zdefiniować te trasy.
 
@@ -137,11 +137,13 @@ Nie. Reguły translatora adresów sieciowych niejawnie Dodaj odpowiednią reguł
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Jak działają symbole wieloznaczne w nazwie FQDN docelowej reguły aplikacji?
 
+Obecnie symboli wieloznacznych można używać tylko po lewej stronie nazwy FQDN. Na przykład ***. contoso.com** i ***contoso.com**.
+
 Skonfigurowanie ***. contoso.com**umożliwia *anyvalue*. contoso.com, ale nie contoso.com (wierzchołk domeny). Jeśli chcesz zezwolić na wierzchołk domeny, musisz jawnie skonfigurować go jako docelową nazwę FQDN.
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>Co to jest *stan aprowizacji: niepowodzenie* ?
 
-Za każdym razem, gdy stosowana jest zmiana konfiguracji, Zapora platformy Azure próbuje zaktualizować wszystkie jej bazowe wystąpienia zaplecza. W rzadkich przypadkach nie można zaktualizować jednego z tych wystąpień zaplecza przy użyciu nowej konfiguracji, a proces aktualizacji zostanie zatrzymany z nieprawidłowym stanem aprowizacji. Zapora platformy Azure nadal działa, ale zastosowana konfiguracja może być w niespójnym stanie, w którym niektóre wystąpienia mają poprzednią konfigurację, gdzie inne mają zaktualizowany zestaw reguł. W takim przypadku spróbuj zaktualizować konfigurację jeszcze raz, dopóki operacja się nie powiedzie, a Zapora *zakończyła się pomyślnie* .
+Po każdym zastosowaniu zmiany konfiguracji usługa Azure Firewall próbuje zaktualizować wszystkie swoje bazowe wystąpienia zaplecza. W rzadkich przypadkach nie można zaktualizować jednego z tych wystąpień zaplecza przy użyciu nowej konfiguracji, a proces aktualizacji zostanie zatrzymany z nieprawidłowym stanem aprowizacji. Usługa Azure Firewall nadal działa, ale zastosowana konfiguracja może być w niespójnym stanie, w którym niektóre wystąpienia mają poprzednią konfigurację, a inne mają zaktualizowany zestaw reguł. W takim przypadku spróbuj zaktualizować konfigurację jeszcze raz, dopóki operacja się nie powiedzie, a Zapora *zakończyła się pomyślnie* .
 
 ## <a name="how-does-azure-firewall-handle-planned-maintenance-and-unplanned-failures"></a>Jak Zapora platformy Azure obsługuje planowaną konserwację i nieplanowane błędy?
 Zapora platformy Azure składa się z kilku węzłów zaplecza w konfiguracji aktywne-aktywne.  W przypadku każdej planowanej konserwacji mamy do bezpiecznego aktualizowania węzłów opróżnianie logiki.  Aktualizacje są planowane w godzinach poza godzinami pracy dla każdego regionu platformy Azure w celu dodatkowego ograniczenia ryzyka zakłócenia.  W przypadku nieplanowanych problemów tworzymy nowy węzeł, który zastąpi węzeł zakończony niepowodzeniem.  Połączenie z nowym węzłem jest zwykle ponownie nawiązane w ciągu 10 sekund od momentu awarii.

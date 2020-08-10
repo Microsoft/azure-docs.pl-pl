@@ -2,13 +2,13 @@
 title: Przenoszenie Azure App Service zasobów
 description: Użyj Azure Resource Manager, aby przenieść zasoby App Service do nowej grupy zasobów lub subskrypcji.
 ms.topic: conceptual
-ms.date: 12/13/2019
-ms.openlocfilehash: d0ecd117bdcda9238e310a3020dba19a6871a3fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/10/2020
+ms.openlocfilehash: 45f04cad27e175b471f4d6e07426787ca678e369
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80655783"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042062"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>Wskazówki dotyczące przenoszenia dla App Service zasobów
 
@@ -23,7 +23,8 @@ Podczas przemieszczania aplikacji sieci Web w ramach subskrypcji są stosowane n
     - Plany usługi App Service
     - Przekazano lub zaimportowano certyfikaty TLS/SSL
     - Środowiska usługi App Service
-- Wszystkie zasoby App Service w grupie zasobów należy przenieść razem. Należy pamiętać, że nie można przenieść środowisk App Service do nowej grupy zasobów ani do nowej subskrypcji.
+- Wszystkie zasoby App Service w grupie zasobów należy przenieść razem.
+- Nie można przenieść środowisk App Service do nowej grupy zasobów lub subskrypcji. Można jednak przenieść aplikację sieci Web i plan usługi App Service do nowej subskrypcji bez przechodzenia App Service Environment. Po przeniesieniu aplikacja internetowa nie będzie już hostowana w App Service Environment.
 - Można przenieść certyfikat powiązany z siecią Web bez usuwania powiązań TLS, o ile certyfikat zostanie przeniesiony ze wszystkimi innymi zasobami w grupie zasobów.
 - Zasoby App Service można przenosić tylko z grupy zasobów, w której zostały pierwotnie utworzone. Jeśli zasób App Service nie jest już w oryginalnej grupie zasobów, przenieś go z powrotem do jego oryginalnej grupy zasobów. Następnie przenieś zasób między subskrypcjami.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b887c91a289730c3d92efe753a2df162f36a047
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: f8dfeb8a38e07d94671691bb797d26a32973c910
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032133"
+ms.locfileid: "88042483"
 ---
 # <a name="conditional-access-conditions"></a>Dostęp warunkowy: warunki
 
@@ -68,7 +68,7 @@ Domyślnie wszystkie nowo utworzone zasady dostępu warunkowego będą stosowane
 > Zachowanie warunku aplikacji klienckich zostało zaktualizowane w sierpniu 2020. Jeśli masz istniejące zasady dostępu warunkowego, pozostaną bez zmian. Jeśli jednak klikniesz istniejące zasady, przełącznik Konfiguruj został usunięty i są wybrane aplikacje klienckie, do których odnoszą się zasady.
 
 > [!IMPORTANT]
-> Logowania ze starszych klientów uwierzytelniania nie obsługują uwierzytelniania MFA i nie przekazują informacji o stanie urządzenia do usługi Azure AD, dzięki czemu będą blokowane przez kontrolę dostępu warunkowego, takich jak wymaganie uwierzytelniania MFA lub urządzeń zgodnych. Jeśli masz konta, które muszą używać starszego uwierzytelniania, możesz wykluczyć te konta z zasad albo skonfigurować zasady tak, aby dotyczyły tylko nowoczesnych klientów uwierzytelniania.
+> Logowania ze starszych klientów uwierzytelniania nie obsługują uwierzytelniania MFA i nie przekazują informacji o stanie urządzenia do usługi Azure AD, dzięki czemu będą blokowane przez kontrolę dostępu warunkowego, takich jak wymaganie uwierzytelniania MFA lub urządzeń zgodnych. Jeśli masz konta, które muszą używać starszego uwierzytelniania, musisz wykluczyć te konta z zasad albo skonfigurować zasady tak, aby dotyczyły tylko nowoczesnych klientów uwierzytelniania.
 
 Opcja **Konfiguruj** przełącznik, gdy ma wartość **tak** , dotyczy zaznaczonych elementów, gdy **nie** ma zastosowania do wszystkich aplikacji klienckich, w tym nowoczesnych i starszych klientów uwierzytelniania. Ten przełącznik nie pojawia się w zasadach utworzonych przed 2020 sierpnia.
 

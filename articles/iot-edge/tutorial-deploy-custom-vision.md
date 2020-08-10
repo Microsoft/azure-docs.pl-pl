@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5d4b87c14422744fd62d42a4d8e5b1ca0f34ffac
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 07945926600163a3fca228ef6d848b50efc4318d
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439728"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042806"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Samouczek: wykonywanie klasyfikacji obrazów na urządzeniach brzegowych za pomocą usługi Custom Vision
 
@@ -433,13 +433,13 @@ Na urządzeniu możesz wyświetlać dzienniki modułu cameraCapture, aby zobaczy
 W Visual Studio Code kliknij prawym przyciskiem myszy nazwę urządzenia IoT Edge i wybierz pozycję **Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia**. 
 
 > [!NOTE]
-> W danych wyjściowych modułu cameraCapture można początkowo zobaczyć błędy połączeń. Jest to spowodowane opóźnieniem między wdrożeniem i rozpoczęciem modułów.
+> Początkowo można zobaczyć błędy połączeń w danych wyjściowych modułu cameraCapture. Jest to spowodowane opóźnieniem między wdrożeniem i rozpoczęciem modułów.
 >
-> Moduł cameraCapture automatycznie podejmie ponowną próbę połączenia do momentu pomyślnego. Następnie należy zacząć widzieć oczekiwane komunikaty klasyfikacji obrazów opisane poniżej.
+> Moduł cameraCapture automatycznie podejmuje próbę nawiązania połączenia do momentu pomyślnego zakończenia. Po pomyślnym nawiązaniu połączenia zobaczysz oczekiwane komunikaty klasyfikacji obrazów opisane poniżej.
 
 Wyniki z modułu usługi Custom Vision, które są wysyłane jako komunikaty z modułu cameraCapture, uwzględniają prawdopodobieństwo, że obraz przedstawia cykutę lub drzewo wiśni. Ponieważ obraz przedstawia cykutę, powinno być widoczne prawdopodobieństwo 1.0.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zamierzasz przejść do kolejnego zalecanego artykułu, możesz zachować utworzone zasoby oraz konfiguracje i użyć ich ponownie. Możesz także nadal używać tego samego urządzenia usługi IoT Edge jako urządzenia testowego. 
 
