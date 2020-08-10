@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 4e7828810a069756d1a0cde55ab47915ad11acc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd2bd404d59b57eae111ba969fb7dcf20a98de35
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249707"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036372"
 ---
 # <a name="monitor-copy-activity"></a>Monitorowanie działania kopiowania
 
@@ -56,6 +56,8 @@ Szczegóły wykonania działania kopiowania i charakterystyki wydajności są r�
 | zapisywana | Rzeczywista instalacja danych zapisywana/zatwierdzona do ujścia. Rozmiar może różnić się od `dataRead` rozmiaru, ponieważ odnosi się do tego, jak każdy magazyn danych przechowuje dane. | Wartość Int64, w bajtach |
 | filesRead | Liczba plików odczytywanych ze źródła opartego na plikach. | Wartość Int64 (brak jednostki) |
 | filesWritten | Liczba plików, które zostały zapełnione/przekazane do ujścia opartego na plikach. | Wartość Int64 (brak jednostki) |
+| filesSkipped | Liczba plików pominiętych w źródle opartym na plikach. | Wartość Int64 (brak jednostki) |
+| dataConsistencyVerification | Szczegóły weryfikacji spójności danych, gdzie można sprawdzić, czy skopiowane dane zostały zweryfikowane pod kątem spójności między magazynem źródłowym i docelowym. Dowiedz się więcej z [tego artykułu](copy-activity-data-consistency.md#monitoring). | Tablica |
 | sourcePeakConnections | Szczytowa liczba jednoczesnych połączeń ustanowionych w źródłowym magazynie danych podczas uruchomienia działania kopiowania. | Wartość Int64 (brak jednostki) |
 | sinkPeakConnections | Szczytowa liczba jednoczesnych połączeń ustanowionych do magazynu danych ujścia podczas uruchomienia działania kopiowania. | Wartość Int64 (brak jednostki) |
 | rowsRead | Liczba wierszy odczytanych ze źródła. Ta Metryka nie ma zastosowania w przypadku kopiowania plików jako-jest bez analizy, na przykład gdy źródła i ujścia danych są typu binarnego, lub innego typu formatu z identycznymi ustawieniami. | Wartość Int64 (brak jednostki) |
@@ -65,15 +67,17 @@ Szczegóły wykonania działania kopiowania i charakterystyki wydajności są r�
 | danych | Szybkość transferu danych. | Liczba zmiennoprzecinkowa w KB/s |
 | sourcePeakConnections | Szczytowa liczba jednoczesnych połączeń ustanowionych w źródłowym magazynie danych podczas uruchomienia działania kopiowania. | Wartość Int32 (brak jednostki) |
 | sinkPeakConnections| Szczytowa liczba jednoczesnych połączeń ustanowionych do magazynu danych ujścia podczas uruchomienia działania kopiowania.| Wartość Int32 (brak jednostki) |
-| sqlDwPolyBase | Określa, czy baza danych jest używana, gdy dane są kopiowane do SQL Data Warehouse. | Boolean |
-| redshiftUnload | Czy ZWALNIAnie jest używane, gdy dane są kopiowane z RedShift. | Boolean |
-| hdfsDistcp | Określa, czy pomocą distcp jest używany, gdy dane są kopiowane z systemu plików HDFS. | Boolean |
+| sqlDwPolyBase | Określa, czy baza danych jest używana, gdy dane są kopiowane do SQL Data Warehouse. | Wartość logiczna |
+| redshiftUnload | Czy ZWALNIAnie jest używane, gdy dane są kopiowane z RedShift. | Wartość logiczna |
+| hdfsDistcp | Określa, czy pomocą distcp jest używany, gdy dane są kopiowane z systemu plików HDFS. | Wartość logiczna |
 | effectiveIntegrationRuntime | Środowisko Integration Runtime (IR) lub środowisko uruchomieniowe służące do włączania uruchomienia działania w formacie `<IR name> (<region if it's Azure IR>)` . | Tekst (ciąg) |
 | usedDataIntegrationUnits | Efektywna jednostka integracji danych podczas kopiowania. | Wartość Int32 |
 | usedParallelCopies | Efektywna parallelCopies podczas kopiowania. | Wartość Int32 |
-| redirectRowPath | Ścieżka do dziennika pominiętych niezgodnych wierszy w magazynie obiektów BLOB skonfigurowanym we `redirectIncompatibleRowSettings` właściwości. Zobacz [odporność na uszkodzenia](copy-activity-overview.md#fault-tolerance). | Tekst (ciąg) |
+| logPath | Ścieżka do dziennika sesji pominiętych danych w magazynie obiektów BLOB. Zobacz [odporność na uszkodzenia](copy-activity-overview.md#fault-tolerance). | Tekst (ciąg) |
 | executionDetails | Więcej szczegółów na temat etapów działania kopiowania oraz odpowiednich czynności, czasów trwania, konfiguracji itd. Nie zalecamy przeanalizowania tej sekcji, ponieważ może ona ulec zmianie. Aby lepiej zrozumieć, jak ułatwia zrozumienie i rozwiązywanie problemów z wydajnością kopiowania, zapoznaj się z sekcją [Monitoruj wizualizację](#monitor-visually) . | Tablica |
 | perfRecommendation | Kopiuj wskazówki dotyczące dostrajania wydajności. Aby uzyskać szczegółowe informacje, zobacz [porady dotyczące dostrajania wydajności](copy-activity-performance-troubleshooting.md#performance-tuning-tips) . | Tablica |
+| billingReference | Użycie rozliczeń dla danego przebiegu. Więcej informacji na temat [monitorowania zużycia na poziomie uruchomienia działania](plan-manage-costs.md#monitor-consumption-at-activity-run-level). | Obiekt |
+| durationInQueue | Czas trwania kolejki na sekundę przed rozpoczęciem działania kopiowania. | Obiekt |
 
 **Przykład:**
 
@@ -83,6 +87,7 @@ Szczegóły wykonania działania kopiowania i charakterystyki wydajności są r�
     "dataWritten": 1180089300500,
     "filesRead": 110,
     "filesWritten": 110,
+    "filesSkipped": 0,
     "sourcePeakConnections": 640,
     "sinkPeakConnections": 1024,
     "copyDuration": 388,
@@ -92,6 +97,11 @@ Szczegóły wykonania działania kopiowania i charakterystyki wydajności są r�
     "usedDataIntegrationUnits": 128,
     "billingReference": "{\"activityType\":\"DataMovement\",\"billableDuration\":[{\"Managed\":11.733333333333336}]}",
     "usedParallelCopies": 64,
+    "dataConsistencyVerification": 
+    { 
+        "VerificationResult": "Verified", 
+        "InconsistentData": "None" 
+    },
     "executionDetails": [
         {
             "source": {

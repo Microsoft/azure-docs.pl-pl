@@ -1,6 +1,6 @@
 ---
 title: Kopiowanie danych do Azure Data Lake Storage Gen2 przy użyciu pomocą distcp | Microsoft Docs
-description: Używanie narzędzia pomocą distcp do kopiowania danych do i z Data Lake Storage Gen2
+description: Skopiuj dane do i z Azure Data Lake Storage Gen2 przy użyciu narzędzia do kopiowania rozproszonego Apache Hadoop (pomocą distcp).
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 4930d99c4175126ffba65598bd6b33e973ba1c44
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 734ad2d45dbb27894e5da4fbeb11c0e8b60df8bd
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109505"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035675"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Użyj pomocą distcp do kopiowania danych między obiektami BLOB usługi Azure Storage a Azure Data Lake Storage Gen2
 

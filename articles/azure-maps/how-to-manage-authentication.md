@@ -1,7 +1,7 @@
 ---
 title: Zarządzanie uwierzytelnianiem
 titleSuffix: Azure Maps
-description: Użyj Azure Portal, aby zarządzać uwierzytelnianiem w usłudze Microsoft Azure Maps.
+description: Zapoznaj się z uwierzytelnianiem Azure Maps. Zobacz, które podejście najlepiej sprawdza się w tym scenariuszu. Dowiedz się, jak wyświetlać ustawienia uwierzytelniania przy użyciu portalu.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 870ecb8bda9f07c9270724002d381a4f58bc4d13
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 8fc27ea4de7e81f1279f68d2e4a1a7fde1fcf41f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531733"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037341"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Zarządzanie uwierzytelnianiem w Azure Maps
 
@@ -45,8 +45,8 @@ W poniższej tabeli przedstawiono typowe scenariusze uwierzytelniania i autoryza
 
 | Scenariusz                                                                                    | Authentication | Autoryzacja | Nakład pracy programistycznej | Nakład pracy operacyjnej |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
-| [Zaufany demon/nieinteraktywna aplikacja kliencka](./how-to-secure-daemon-app.md)        | Klucz wspólny     | Brak           | Średniaa             | Wysoki               |
-| [Zaufany demon/nieinteraktywna aplikacja kliencka](./how-to-secure-daemon-app.md)        | Azure AD       | Wysoki          | Nis.                | Średniaa             |
+| [Zaufany demon/nieinteraktywna aplikacja kliencka](./how-to-secure-daemon-app.md)        | Klucz wspólny     | Nie dotyczy           | Średniaa             | Wysoki               |
+| [Zaufany demon/nieinteraktywna aplikacja kliencka](./how-to-secure-daemon-app.md)        | Azure AD       | Wys.          | Nis.                | Średniaa             |
 | [Aplikacja jednostronicowa sieci Web z interaktywnym logowaniem jednokrotnym](./how-to-secure-spa-users.md) | Azure AD       | Wys.          | Śred.             | Średnia             |
 | [Aplikacja jednostronicowa sieci Web z logowaniem nieinterakcyjnym](./how-to-secure-spa-app.md)      | Azure AD       | Wys.          | Śred.             | Średnia             |
 | [Aplikacja sieci Web z interaktywnym logowaniem jednokrotnym](./how-to-secure-webapp-users.md)          | Azure AD       | Wysoki          | Wys.               | Śred.             |

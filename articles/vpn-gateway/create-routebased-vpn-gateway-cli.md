@@ -1,18 +1,18 @@
 ---
 title: 'Tworzenie opartej na trasach VPN Gateway platformy Azure: interfejs wiersza polecenia'
-description: Informacje o sposobie tworzenia bramy sieci VPN opartej na trasach przy użyciu interfejsu wiersza polecenia platformy Azure. Połącz się z siecią lokalną za pomocą bramy sieci VPN.
+description: Szybkie tworzenie opartej na trasach bramy sieci VPN platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure dla połączenia sieci VPN z siecią lokalną lub do łączenia sieci wirtualnych.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8c207d2c5b2817bacd75ffcd12c9b4c43fe86f55
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 81f451ace7ec3f032dc7752829d12a0a3598811b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923326"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036117"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Tworzenie bramy sieci VPN opartej na trasach za pomocą interfejsu wiersza polecenia
 

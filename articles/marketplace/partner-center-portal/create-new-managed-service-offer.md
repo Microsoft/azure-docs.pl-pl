@@ -3,16 +3,16 @@ title: Tworzenie oferty usługi zarządzanej w witrynie Microsoft Commercial Mar
 description: Tworzenie nowej oferty usługi zarządzanej na potrzeby wyświetlania listy w witrynie Azure Marketplace przy użyciu portalu komercyjnej witryny Marketplace w centrum partnerskim.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.date: 07/07/2020
-ms.openlocfilehash: ae079fce02f58d6c6457d7fe6401526f4002662f
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.date: 08/07/2020
+ms.openlocfilehash: f58ec53d1c4f3ad95993fd2faff44f7164c4beeb
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798192"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036610"
 ---
 # <a name="create-a-managed-service-offer"></a>Tworzenie oferty usługi zarządzanej
 
@@ -130,20 +130,23 @@ Jeśli masz pomoc techniczną dla klientów **globalnych platformy Azure** i/lub
 
 W tej sekcji można podać logo i obrazy, które będą używane podczas wyświetlania oferty dla klienta. Wszystkie obrazy muszą mieć format PNG.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >Jeśli występuje problem z przekazywaniem plików, upewnij się, że sieć lokalna nie blokuje https://upload.xboxlive.com usługi używanej przez centrum partnerskie.
 
-#### <a name="store-logos"></a>Logo sklepu
+#### <a name="marketplace-logos"></a>Logo witryny Marketplace
 
-Podaj plik PNG dla logo o **dużym** rozmiarze (od 216 x 216 do 350 x 350 pikseli). Centrum partnerskie będzie używać tego do tworzenia **małych** (48 x 48 pikseli) i **średniego** rozmiaru logo (90 x 90 pikseli). Opcjonalnie można zastąpić je różnymi obrazami.
-
-Wszystkie trzy rozmiary logo są wymagane do użycia w różnych miejscach na liście:
+Podaj logo swojej oferty w postaci czterech pikseli:
 
 - **Mały** (48 x 48)
 - **Średni** (90 x 90)
-- **Duże** (od 216 x 216 do 350 x 350)
+- **Duże** (216 x 216)
+- **Szeroki** (255 x 115)
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+Te logo są używane w różnych miejscach w witrynie Azure Marketplace:
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### <a name="screenshots"></a>Zrzuty ekranu
 

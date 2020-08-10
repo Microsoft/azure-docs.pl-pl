@@ -1,6 +1,6 @@
 ---
 title: Przewodnik Szybki start dotyczący zarządzania udziałami plików platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
-description: W tym przewodniku Szybki start dowiesz się, jak zarządzać usługą Azure Files za pomocą interfejsu wiersza polecenia platformy Azure.
+description: W tym przewodniku szybki start dowiesz się, jak zarządzać Azure Files przy użyciu interfejsu wiersza polecenia platformy Azure. Utwórz grupę zasobów i konto magazynu, a następnie Utwórz udział plików platformy Azure i użyj go.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
@@ -8,12 +8,12 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0d9d0bad982a12e3b96bdbe4f680f2501b33ec67
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 149481f9cae535fa53f94a876e1f52e813b3838b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495779"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034587"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Szybki start: tworzenie udziałów plików platformy Azure i zarządzanie nimi przy użyciu interfejsu wiersza polecenia platformy Azure
 W tym przewodniku przedstawiono podstawowe informacje dotyczące pracy z [udziałami plików platformy Azure](storage-files-introduction.md) przy użyciu interfejsu wiersza polecenia platformy Azure. Udziały plików platformy Azure są podobne do innych udziałów plików, ale są przechowywane w chmurze i obsługiwane przez platformę Azure. Udziały plików platformy Azure obsługują standardowy w branży protokół SMB i umożliwiają udostępnianie plików między wieloma maszynami, aplikacjami i wystąpieniami. 

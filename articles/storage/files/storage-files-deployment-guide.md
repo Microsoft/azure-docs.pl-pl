@@ -1,18 +1,18 @@
 ---
 title: Jak wdrożyć Azure Files | Microsoft Docs
-description: Dowiedz się, jak wdrożyć Azure Files od początku do końca.
+description: Dowiedz się, jak wdrożyć Azure Files od początku do końca. Przenieś dane do Azure Files. Zainstaluj automatycznie na wymaganych komputerach lub serwerach.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b9df9375dee59df987cea01a4142a22a78eb533e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08bcb41dd8d9f4643b03d855960d8632b778ff84
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510793"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034502"
 ---
 # <a name="how-to-deploy-azure-files"></a>Jak wdrożyć usługę Pliki Azure
 [Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem standardowego protokołu SMB. W tym artykule przedstawiono, jak praktycznie wdrożyć Azure Files w organizacji.
@@ -87,7 +87,7 @@ Poniższe kroki spowodują zaimportowanie danych z lokalizacji lokalnej do udzia
 
 7. [Utwórz zadanie importu](../common/storage-import-export-data-to-files.md#step-2-create-an-import-job).
     
-### <a name="robocopy"></a>Rozszerzenie Robocopy
+### <a name="robocopy"></a>Robocopy
 Robocopy to dobrze znane narzędzie do kopiowania, które jest dostarczane z systemami Windows i Windows Server. Robocopy może służyć do transferowania danych do Azure Files przez zainstalowanie udziału plików lokalnie, a następnie użycie zainstalowanej lokalizacji jako miejsca docelowego w poleceniu Robocopy. Korzystanie z Robocopy jest bardzo proste:
 
 1. [Zainstaluj udział plików platformy Azure](storage-how-to-use-files-windows.md). W celu uzyskania optymalnej wydajności zalecamy zainstalowanie udziału plików platformy Azure lokalnie na serwerze, który zawiera dane. W niektórych przypadkach, na przykład gdy serwer plików, który obsługuje dane, jest urządzeniem NAS, może to nie być możliwe. W takim przypadku warto zainstalować udział plików platformy Azure na komputerze. W tym przykładzie `net use` jest używany w wierszu polecenia, aby zainstalować udział plików:

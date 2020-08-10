@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 2df7d8273b2b25cd0171b38e5cc0ada557ea9a2d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bf1721b45ff63c225c378e50bff9040948820c8b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325359"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035029"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Łączenie produktów/usług ITSM za pomocą łącznika zarządzania usługami IT
 Ten artykuł zawiera informacje dotyczące sposobu konfigurowania połączenia między produktem narzędzia ITSM/usługą a łącznik zarządzania usługami IT (ITSMC) w Log Analytics, aby centralnie zarządzać elementami roboczymi. Aby uzyskać więcej informacji na temat ITSMC, zobacz [Omówienie](./itsmc-overview.md).
@@ -97,7 +97,7 @@ Uruchom skrypt, podając następujące wymagane szczegóły:
 
 - Szczegóły subskrypcji platformy Azure
 - Nazwa grupy zasobów
-- Location
+- Lokalizacja
 - Szczegóły serwera Service Manager (nazwa serwera, domena, nazwa użytkownika i hasło)
 - Prefiks nazwy witryny dla aplikacji sieci Web
 - ServiceBus przestrzeń nazw.
@@ -179,13 +179,14 @@ Poniższe sekcje zawierają szczegółowe informacje dotyczące sposobu łączen
 ### <a name="prerequisites"></a>Wymagania wstępne
 Upewnij się, że zostały spełnione następujące wymagania wstępne:
 - ITSMC. Więcej informacji: [Dodawanie rozwiązania łącznik zarządzania usługami IT](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Obsługiwane wersje programu usługi ServiceNow: New York, Madryt, Londyn, Kingston, Dżakarta, Stambuł, Helsinki, Genewa.
+- Usługi ServiceNow obsługiwane wersje: Orlando, Nowy Jork, Madryt, Londyn, Kingston, Dżakarta, Stambuł, Helsinki, Genewa.
 > [!NOTE]
 > ITSMC obsługuje teraz tylko oficjalną ofertę SaaS z usługi. Prywatne wdrożenia usługi są teraz nieobsługiwane. 
 
 **Administratorzy usługi ServiceNow muszą wykonać następujące czynności w ich wystąpieniu usługi ServiceNow**:
 - Generuj identyfikator klienta i klucz tajny klienta dla produktu usługi ServiceNow. Aby uzyskać informacje na temat sposobu generowania identyfikatora klienta i wpisu tajnego, zobacz następujące informacje zgodnie z wymaganiami:
 
+    - [Konfigurowanie protokołu OAuth dla Orlando](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurowanie protokołu OAuth dla Nowego Jorku](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurowanie protokołu OAuth dla usługi Madryt](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurowanie protokołu OAuth dla Londyn](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)

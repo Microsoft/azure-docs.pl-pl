@@ -1,6 +1,6 @@
 ---
 title: Obsługa zdarzeń mapy | Mapy Microsoft Azure
-description: W tym artykule dowiesz się, jak utworzyć interaktywną mapę sieci Web SDK ze zdarzeniami mapy przy użyciu zestawu Microsoft Azure Web SDK mapy.
+description: Informacje o zdarzeniach, które są wywoływane, gdy użytkownicy pracują z usługą Maps. Wyświetl listę wszystkich obsługiwanych zdarzeń mapy. Zobacz, jak używać zestawu SDK sieci Web Azure Maps do obsługi zdarzeń.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 667ab684ef4a453d210af36c0221d350b25c9829
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f3a48e4434588b2eb64637e6f0a454148cad39f2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282895"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036446"
 ---
 # <a name="interact-with-the-map"></a>Korzystanie z mapy
 

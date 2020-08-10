@@ -3,12 +3,12 @@ title: SERWERA usługi MAB (Azure Backup Server) v3 UR1 Protection Matrix
 description: Ten artykuł zawiera informacje o wszystkich obciążeniach, typach danych i instalacjach, które Azure Backup Server chronić.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 974820389e84f727a9aab284716b3be9020c6dd8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cdbe874baf45d9858acbf891af3c0aae4bd0c2d2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032599"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036729"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>SERWERA usługi MAB (Azure Backup Server) v3 UR1 Protection Matrix
 
@@ -23,6 +23,9 @@ Skorzystaj z następującej macierzy dla serwera usługi MAB v3 UR1:
 * Instalacja serwera usługi MAB — komputer/lokalizacja, w której chcesz zainstalować serwera usługi MAB.
 
 * Ochrona i odzyskiwanie — lista szczegółowych informacji o obciążeniach, takich jak obsługiwane kontenery magazynu lub obsługiwane wdrożenie.
+
+>[!NOTE]
+>Obsługa 32-bitowego agenta ochrony jest przestarzała z serwera usługi MAB v3 UR1. Zobacz [32-bitowe przestarzałe Agent ochrony](backup-mabs-whats-new-mabs.md#32-bit-protection-agent-deprecation).
 
 ## <a name="protection-support-matrix"></a>Macierz obsługi ochrony
 

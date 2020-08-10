@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: d1595354803b0625137dd1ac45d17962063ce4e0
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 739eb4e7968cb140e49f1baee777b48140811936
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562450"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034961"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Omówienie lokalnej pamięci podręcznej Azure App Service
 
@@ -36,7 +36,7 @@ Funkcja lokalnej pamięci podręcznej Azure App Service udostępnia widok roli s
 
 ## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Jak lokalna pamięć podręczna zmienia zachowanie App Service
 * _D:\home_ wskazuje lokalną pamięć podręczną, która jest tworzona w wystąpieniu maszyny wirtualnej podczas uruchamiania aplikacji. _D:\Local_ nadal wskazuje na tymczasowy magazyn specyficzny dla maszyny wirtualnej.
-* Lokalna pamięć podręczna zawiera jednorazową kopię folderów _/Konfiguracja_ i _/siteextensions_ magazynu zawartości udostępnionej odpowiednio w _D:\home\site_ i _D:\home\siteextensions_. Pliki są kopiowane do lokalnej pamięci podręcznej podczas uruchamiania aplikacji. Rozmiar dwóch folderów dla każdej aplikacji jest domyślnie ograniczony do 1 GB, ale można go zwiększyć do 2 GB. Należy pamiętać, że w miarę wzrostu rozmiaru pamięci podręcznej ładowanie pamięci podręcznej zajmie więcej czasu. Jeśli skopiowane pliki przekroczą rozmiar lokalnej pamięci podręcznej, App Service dyskretnie ignoruje lokalną pamięć podręczną i odczytuje ze zdalnego udziału plików.
+* Lokalna pamięć podręczna zawiera jednorazową kopię folderów _/Konfiguracja_ i _/siteextensions_ magazynu zawartości udostępnionej odpowiednio w _D:\home\site_ i _D:\home\siteextensions_. Pliki są kopiowane do lokalnej pamięci podręcznej podczas uruchamiania aplikacji. Rozmiar dwóch folderów dla każdej aplikacji jest domyślnie ograniczony do 1 GB, ale można go zwiększyć do 2 GB. Należy pamiętać, że w miarę wzrostu rozmiaru pamięci podręcznej ładowanie pamięci podręcznej zajmie więcej czasu. Jeśli zwiększono limit lokalnej pamięci podręcznej na 2 GB, a liczba skopiowanych plików przekracza maksymalny rozmiar wynoszący 2 GB, App Service dyskretnie ignoruje lokalną pamięć podręczną i odczytuje ze zdalnego udziału plików. Jeśli nie zdefiniowano limitu lub limit wynosi mniej niż 2 GB, a skopiowane pliki przekroczą limit, wdrożenie lub zamiana może zakończyć się niepowodzeniem z powodu błędu.
 * Lokalna pamięć podręczna to odczyt i zapis. Jednak jakakolwiek modyfikacja zostanie odrzucona, gdy aplikacja przenosi maszyny wirtualne lub zostanie uruchomiona ponownie. Nie należy używać lokalnej pamięci podręcznej dla aplikacji, które przechowują dane o kluczowym znaczeniu w magazynie zawartości.
 * _D:\home\LogFiles_ i _D:\home\Data_ zawierają pliki dziennika i dane aplikacji. Dwa podfoldery są przechowywane lokalnie w wystąpieniu maszyny wirtualnej i są kopiowane do magazynu zawartości udostępnionej okresowo. Aplikacje mogą utrwalać pliki i dane dziennika, pisząc je w tych folderach. Kopiowanie do magazynu zawartości udostępnionej jest jednak najlepszym rozwiązaniem, więc możliwe jest utratę plików dziennika i danych z powodu nagłej awarii wystąpienia maszyny wirtualnej.
 * Jest to wpływ na [przesyłanie strumieniowe dzienników](troubleshoot-diagnostic-logs.md#stream-logs) . W dziennikach przesyłanych strumieniowo można obserwować maksymalnie jedną minutę.

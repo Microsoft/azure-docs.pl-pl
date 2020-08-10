@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/21/2020
 ms.author: juliako
-ms.openlocfilehash: 33c762e2f2a9bed90991f7b85e0fb83fbb43765c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a039e1d4442490d3747a302754d521f1f3402bcf
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090165"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035810"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Uzyskiwanie poświadczeń w celu uzyskania dostępu do interfejsu API Media Services  
 
@@ -45,7 +45,7 @@ W tym artykule opisano procedurę uzyskiwania poświadczeń w celu uzyskania dos
 Strona **dostęp do interfejsu API** umożliwia wybranie metody uwierzytelniania, która ma być używana do nawiązywania połączenia z interfejsem API. Na stronie znajdują się również wartości potrzebne do nawiązania połączenia z interfejsem API.
 
 1. W [Azure Portal](https://portal.azure.com/)wybierz swoje konto Media Services.
-2. Wybierz sposób nawiązywania połączenia z interfejsem API Media Services.
+2. Wybierz blok **dostęp do interfejsu API (nowy)** na lewym pasku nawigacyjnym.
 3. W obszarze **Połącz z interfejsem api Media Services**wybierz Media Services wersję interfejsu API, z którą chcesz nawiązać połączenie (wersja 3 to Najnowsza wersja usługi).
 
 ### <a name="service-principal-authentication--recommended"></a>Uwierzytelnianie jednostki usługi (zalecane)

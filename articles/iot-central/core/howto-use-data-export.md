@@ -8,12 +8,12 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 737fe4b334e60f1b51e8f60f39e8821588a6841c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: f51630154b77233aeb2587ac3a2d603c1da6fa4f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010314"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036559"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-preview"></a>Eksportowanie danych IoT do miejsc docelowych w chmurze przy użyciu funkcji eksportu danych (wersja zapoznawcza)
 
@@ -33,7 +33,7 @@ W tym artykule opisano sposób korzystania z nowych funkcji w wersji zapoznawcze
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Musisz być administratorem w aplikacji IoT Central lub mieć uprawnienia do eksportowania danych.
+Aby korzystać z eksportu danych (wersja zapoznawcza), musisz mieć aplikację v3 i mieć uprawnienia do eksportowania danych.
 
 ## <a name="set-up-export-destination"></a>Skonfiguruj miejsce docelowe eksportu
 
@@ -150,15 +150,22 @@ Utwórz nowe miejsce docelowe lub Dodaj już utworzone miejsce docelowe.
 
 ## <a name="export-contents-and-format"></a>Eksportuj zawartość i format
 
-W przypadku Event Hubs i Service Bus miejsc docelowych dane są eksportowane niemal w czasie rzeczywistym. Dane są w treści wiadomości i są w formacie JSON zakodowanym jako UTF-8. Przykłady znajdują się poniżej.
+### <a name="azure-blob-storage-destination"></a>Miejsce docelowe Blob Storage platformy Azure
 
-W przypadku usługi BLOB Storage dane są eksportowane raz na minutę, przy czym każdy plik zawierający partię zmian od ostatniego wyeksportowanego pliku. Eksportowane dane są umieszczane w trzech folderach w formacie JSON. Domyślne ścieżki na koncie magazynu:
+Dane są eksportowane raz na minutę, przy czym każdy plik zawierający partię zmian od ostatniego wyeksportowanego pliku. Eksportowane dane są umieszczane w trzech folderach w formacie JSON. Domyślne ścieżki na koncie magazynu:
 
 - Dane telemetryczne: _{Container}/{app-id}/{partition_id}/{yyyy}/{mm}/{dd}/{hh}/{mm}/{filename}_
 - Zmiany właściwości: _{Container}/{app-id}/{partition_id}/{yyyy}/{mm}/{dd}/{hh}/{mm}/{filename}_
 
 Aby przeglądać wyeksportowane pliki w Azure Portal, przejdź do pliku i wybierz kartę **Edytuj obiekt BLOB** .
 
+### <a name="azure-event-hubs-and-azure-service-bus-destinations"></a>Event Hubs platformy Azure i miejsca docelowe Azure Service Bus
+
+Dane są eksportowane niemal w czasie rzeczywistym. Dane są w treści wiadomości i są w formacie JSON zakodowanym jako UTF-8. 
+
+W odniesieniu do okna adnotacji lub właściwości systemu można znaleźć `iotcentral-device-id` , `iotcentral-application-id` , `iotcentral-message-source` , i `iotcentral-message-type` które mają te same wartości co odpowiednie pola w treści komunikatu.
+
+### <a name="webhook-destination"></a>Miejsce docelowe elementu webhook
 W przypadku miejsc docelowych elementów webhook dane są również eksportowane w czasie niemal rzeczywistym. Dane są w formacie treści wiadomości w taki sam sposób, jak w przypadku Event Hubs i Service Bus.
 
 
@@ -254,6 +261,7 @@ Jest to tabela, która wyróżnia różnice między starym eksportem danych a no
 | Filtrowanie | Brak | Zależy od typu eksportowanych danych. W przypadku telemetrii filtrowanie według telemetrii, właściwości komunikatów i wartości właściwości |
 | Wzbogaceń | Brak | Wzbogacanie z niestandardowym ciągiem lub wartością właściwości na urządzeniu |
 | Miejsca docelowe | Azure Event Hubs, kolejki Azure Service Bus i tematy, Blob Storage platformy Azure | Analogicznie jak w przypadku starszego eksportu danych i elementów webhook| 
+| Obsługiwane aplikacje | V2, V3 | Tylko wersja 3 |
 | Istotne limity | 5 eksportów na aplikację, 1 miejsce docelowe na eksport | 10 eksportów — połączenia docelowe na aplikację | 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/31/2020
-ms.openlocfilehash: 339926fbd3c96f6f6c279d29676950b9915b4256
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/09/2020
+ms.openlocfilehash: 82a66d88b3c7c3492e7cb90116ff8ff8e61ca1b0
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87484163"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036593"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Informacje o wersji usługi Azure HDInsight
 
@@ -23,9 +23,9 @@ Ten artykuł zawiera informacje **o najnowszych aktualizacjach wersji usługi Az
 
 Usługa Azure HDInsight to jedna z najpopularniejszych usług dla klientów korporacyjnych na potrzeby analiz typu open source na platformie Azure.
 
-## <a name="release-date-07302020"></a>Data wydania: 07/30/2020
+## <a name="release-date-08092020"></a>Data wydania: 08/09/2020
 
-Ta wersja dotyczy zarówno usługi HDInsight 3,6, jak i 4,0. Wersja usługi HDInsight jest udostępniana wszystkim regionom przez kilka dni. Data wydania wskazuje na datę wydania pierwszego regionu. Jeśli nie widzisz poniżej zmian, poczekaj na zakończenie wydania w Twoim regionie w kilka dni.
+Ta wersja dotyczy tylko usługi HDInsight 4,0. Wersja usługi HDInsight jest udostępniana wszystkim regionom przez kilka dni. Data wydania wskazuje na datę wydania pierwszego regionu. Jeśli nie widzisz poniżej zmian, poczekaj na zakończenie wydania w Twoim regionie w kilka dni.
 
 ## <a name="new-features"></a>Nowe funkcje
 ### <a name="support-for-sparkcruise"></a>Obsługa SparkCruise
@@ -64,6 +64,11 @@ Poniżej JIRAs są ponownie przyłączone do platformy Hive:
 * [GAŁĄŹ-22121](https://issues.apache.org/jira/browse/HIVE-22121)
 * [GAŁĄŹ-22136](https://issues.apache.org/jira/browse/HIVE-22136)
 * [GAŁĄŹ-18786](https://issues.apache.org/jira/browse/HIVE-18786)
+
+Poniżej JIRAs są ponownie przyłączone do HBase:
+* [HBASE-21458](https://issues.apache.org/jira/browse/HBASE-21458)
+* [HBASE-24208](https://issues.apache.org/jira/browse/HBASE-24208)
+* [HBASE-24205](https://issues.apache.org/jira/browse/HBASE-24205)
 
 ## <a name="component-version-change"></a>Zmiana wersji składnika
 Brak zmian wersji składnika dla tej wersji. Bieżące wersje składników usługi HDInsight 4,0 i HDInsight 3,6 można znaleźć w [tym dokumencie](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).

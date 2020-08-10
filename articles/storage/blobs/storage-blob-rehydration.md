@@ -1,6 +1,6 @@
 ---
 title: Przeodwodnione dane obiektów blob z warstwy Archiwum
-description: Zapisz obiekty blob z magazynu archiwum, aby uzyskać dostęp do danych.
+description: Zapisz obiekty blob z magazynu archiwum, aby uzyskać dostęp do danych obiektów BLOB. Skopiuj zarchiwizowany obiekt BLOB do warstwy online.
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 9d1d663dce8791b70b9fd8679730d5681d66013a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a416c22c5b8e09104b20a17bc5042302fa56d8ba
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282470"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035148"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Przeodwodnione dane obiektów blob z warstwy Archiwum
 

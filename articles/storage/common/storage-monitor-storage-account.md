@@ -1,6 +1,6 @@
 ---
 title: Jak monitorować konto usługi Azure Storage w Azure Portal | Microsoft Docs
-description: Dowiedz się, jak monitorować konto magazynu na platformie Azure przy użyciu Azure Portal.
+description: Dowiedz się, jak monitorować konto magazynu na platformie Azure przy użyciu Azure Portal i analityka magazynu platformy Azure.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 46ff6fb26cf568474b24d941e4a174b425bf5207
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 4c78938e2f70342822a4009ed9195196ca486fe0
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87474363"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034672"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorowanie konta magazynu w witrynie Azure Portal
 

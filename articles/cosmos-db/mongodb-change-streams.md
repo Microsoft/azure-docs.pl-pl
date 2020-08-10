@@ -1,19 +1,19 @@
 ---
 title: Zmień strumienie w interfejsie API Azure Cosmos DB dla MongoDB
 description: Dowiedz się, jak używać usługi Change Streams n Azure Cosmos DB API MongoDB, aby uzyskać zmiany wprowadzone do danych.
-author: srchi
+author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 06/04/2020
-ms.author: srchi
+ms.author: rosouz
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 845398744637d0e0092934248d4eb4533d7b9344
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: b13585b4a839bfcf6c0645c911e98d1f1885f3ca
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415537"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036712"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Zmień strumienie w interfejsie API Azure Cosmos DB dla MongoDB
 

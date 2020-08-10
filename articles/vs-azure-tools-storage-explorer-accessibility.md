@@ -1,6 +1,6 @@
 ---
-title: Dostępność Eksplorator usługi Azure Storage (wersja zapoznawcza) | Microsoft Docs
-description: Dostępność Eksplorator usługi Azure Storage (wersja zapoznawcza)
+title: Ułatwienia dostępu Eksplorator usługi Azure Storage | Microsoft Docs
+description: Poznaj ułatwienia dostępu w Eksplorator usługi Azure Storage. Sprawdź, jakie czytniki ekranu są dostępne, możliwość powiększenia, motywy o dużym kontraście i klawisze skrótów.
 services: storage
 documentationcenter: na
 author: MrayermannMSFT
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
-ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca4a8d719277eaa1d853d53d282649f839256be9
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60457270"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035489"
 ---
 # <a name="storage-explorer-accessibility"></a>Ułatwienia dostępu Eksploratora usługi Storage
 
@@ -59,7 +59,7 @@ Polecenie       | Skrót klawiaturowy
 --------------|--------------------
 Nowe okno    | **Control + Shift + N**
 Zamknij Edytor  | **Control + F4**
-Zakończ          | **Control + Shift + W**
+zakończ.          | **Control + Shift + W**
 
 ### <a name="navigation-commands"></a>Polecenia nawigacji
 

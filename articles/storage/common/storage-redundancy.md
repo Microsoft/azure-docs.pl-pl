@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/08/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8fa775ab4d183d75fef41529a95555fe3bcdc91c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 556d3df41b7ee66bfb2b32b8a566d7172f45e313
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827847"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034468"
 ---
 # <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
 
@@ -51,11 +51,13 @@ LRS to dobry wybór w następujących scenariuszach:
 
 Magazyn strefowo nadmiarowy (ZRS) replikuje dane usługi Azure Storage synchronicznie w trzech strefach dostępności platformy Azure w regionie podstawowym. Każda strefa dostępności jest oddzielną lokalizacją fizyczną z niezależną mocą, chłodzeniem i siecią. ZRS oferuje trwałość dla obiektów danych usługi Azure Storage, co najmniej 99,9999999999% (12 9) w danym roku.
 
-Dzięki ZRS dane są nadal dostępne dla operacji odczytu i zapisu, nawet jeśli strefa przestanie być dostępna. Jeśli strefa przestanie być dostępna, platforma Azure podniesie aktualizacje sieciowe, takie jak ponowne wskazanie DNS. Te aktualizacje mogą mieć wpływ na aplikację, Jeśli uzyskujesz dostęp do danych przed ukończeniem aktualizacji. Podczas projektowania aplikacji dla ZRS, postępuj zgodnie z zaleceniami dotyczącymi obsługi błędów przejściowych, w tym implementowanie zasad ponawiania z wycofywaniem z powrotem.
+Dzięki ZRS dane są nadal dostępne dla operacji odczytu i zapisu, nawet jeśli strefa przestanie być dostępna. Jeśli strefa przestanie być dostępna, platforma Azure podniesie aktualizacje sieciowe, takie jak repunktowanie DNS. Te aktualizacje mogą mieć wpływ na aplikację, Jeśli uzyskujesz dostęp do danych przed ukończeniem aktualizacji. Podczas projektowania aplikacji dla ZRS, postępuj zgodnie z zaleceniami dotyczącymi obsługi błędów przejściowych, w tym implementowanie zasad ponawiania z wycofywaniem z powrotem.
 
 Żądanie zapisu do konta magazynu, które korzysta z ZRS, odbywa się synchronicznie. Operacja zapisu jest zwracana pomyślnie tylko po zapisaniu danych we wszystkich replikach w trzech strefach dostępności.
 
-Firma Microsoft zaleca korzystanie z usługi ZRS w regionie podstawowym w scenariuszach wymagających spójności, trwałości i wysokiej dostępności. ZRS zapewnia doskonałą wydajność, małe opóźnienia i odporność na dane, jeśli staną się tymczasowo niedostępne. Niemniej jednak ZRS może nie chronić danych przed regionalną awarią, w której mają stałe wpływ na wiele stref. Aby chronić przed awariami regionalnymi, firma Microsoft zaleca używanie [magazynu geograficznie nadmiarowego](#geo-zone-redundant-storage) (GZRS), który używa ZRS w regionie podstawowym, a także geograficznie replikuje dane do regionu pomocniczego.
+Firma Microsoft zaleca korzystanie z usługi ZRS w regionie podstawowym w scenariuszach wymagających spójności, trwałości i wysokiej dostępności. Zalecamy również użycie ZRS, jeśli chcesz ograniczyć aplikację do replikowania danych tylko w obrębie kraju lub regionu z powodu wymagań dotyczących nadzoru danych.
+
+ZRS zapewnia doskonałą wydajność, małe opóźnienia i odporność na dane, jeśli staną się tymczasowo niedostępne. Niemniej jednak ZRS może nie chronić danych przed regionalną awarią, w której mają stałe wpływ na wiele stref. Aby chronić przed awariami regionalnymi, firma Microsoft zaleca używanie [magazynu geograficznie nadmiarowego](#geo-zone-redundant-storage) (GZRS), który używa ZRS w regionie podstawowym, a także geograficznie replikuje dane do regionu pomocniczego.
 
 W poniższej tabeli przedstawiono typy kont magazynu obsługujące ZRS, w których regiony:
 

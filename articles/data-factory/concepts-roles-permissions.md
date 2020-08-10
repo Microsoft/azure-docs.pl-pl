@@ -10,12 +10,12 @@ ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 923b3fbb617f46ba0551f6b21c384331559da2f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40fa6bce67aa6c5643e4a153da610dce65907b56
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263249"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036355"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roles and permissions for Azure Data Factory (Role i uprawnienia w usłudze Data Factory)
 
@@ -26,21 +26,21 @@ W tym artykule opisano role wymagane do tworzenia zasobów Azure Data Factory i 
 
 ## <a name="roles-and-requirements"></a>Role i wymagania
 
-Aby utworzyć wystąpienia usługi Data Factory, konto użytkownika używane do logowania się na platformie Azure musi być członkiem roli *współautora* lub *właściciela* albo *administratorem* subskrypcji platformy Azure. W witrynie Azure Portal wybierz swoją nazwę użytkownika w prawym górnym rogu, a następnie wybierz pozycję **Uprawnienia**, aby wyświetlić uprawnienia, które masz w subskrypcji. Jeśli masz dostęp do wielu subskrypcji, wybierz odpowiednią subskrypcję. 
+Aby utworzyć Data Factory wystąpienia, konto użytkownika używane do logowania się na platformie Azure musi być członkiem roli *współautor* , roli *właściciela* lub *administratorem* subskrypcji platformy Azure. W witrynie Azure Portal wybierz swoją nazwę użytkownika w prawym górnym rogu, a następnie wybierz pozycję **Uprawnienia**, aby wyświetlić uprawnienia, które masz w subskrypcji. Jeśli masz dostęp do wielu subskrypcji, wybierz odpowiednią subskrypcję. 
 
 Aby utworzyć zasoby podrzędne — w tym zestawy danych, połączone usługi, potoki, wyzwalacze i środowiska Integration Runtime — oraz nimi zarządzać w usłudze Data Factory, należy spełnić następujące wymagania:
-- Aby utworzyć zasoby podrzędne i nimi zarządzać, trzeba należeć do roli **Współautor w usłudze Data Factory** na poziomie grupy zasobów lub wyższej.
+- Aby utworzyć zasoby podrzędne i zarządzać nimi w Azure Portal, musisz należeć do roli **współautor Data Factory** na poziomie **grupy zasobów** lub nowszej.
 - W przypadku tworzenia zasobów podrzędnych i zarządzania nimi za pomocą programu PowerShell lub zestawu SDK rola **współautora** na poziomie grupy zasobów lub wyższej jest wystarczająca.
 
 Aby uzyskać przykładowe instrukcje dotyczące dodawania użytkownika do roli, zobacz artykuł [Add roles (Dodawanie ról)](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## <a name="set-up-permissions"></a>Konfigurowanie uprawnień
 
-Po utworzeniu Data Factory można zezwolić innym użytkownikom na współpracę z fabryką danych. Aby zapewnić ten dostęp innym użytkownikom, należy dodać je do wbudowanej roli **współautor Data Factory** w grupie zasobów zawierającej fabrykę danych.
+Po utworzeniu Data Factory można zezwolić innym użytkownikom na współpracę z fabryką danych. Aby zapewnić ten dostęp innym użytkownikom, należy dodać je do wbudowanej roli **współautor Data Factory** w **grupie zasobów** zawierającej Data Factory.
 
 ### <a name="scope-of-the-data-factory-contributor-role"></a>Zakres roli współautor Data Factory
 
-Członkostwo w roli **współautor Data Factory** umożliwia użytkownikom wykonywanie następujących czynności:
+Członkostwo roli **współautor Data Factory** umożliwia użytkownikom wykonywanie następujących czynności:
 - Twórz, Edytuj i usuwaj fabryki danych i zasoby podrzędne, w tym zestawy, połączone usługi, potoki, wyzwalacze i środowiska Integration Runtime.
 - Wdróż szablony Menedżer zasobów. Wdrożenie Menedżer zasobów to metoda wdrażania używana przez Data Factory w Azure Portal.
 - Zarządzanie alertami usługi App Insights dla fabryki danych.

@@ -1,17 +1,17 @@
 ---
 title: Co to jest Azure Cosmos DB magazyn analityczny (wersja zapoznawcza)?
 description: Dowiedz się więcej na temat Azure Cosmos DB transakcyjnych (opartych na wierszach) i analitycznych (opartych na kolumnach). Zalety magazynu analitycznego, wpływ na wydajność obciążeń o dużej skali oraz automatyczne synchronizowanie danych z magazynu transakcyjnego do magazynu analitycznego
-author: SriChintala
+author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.author: srchi
-ms.openlocfilehash: a6f486f15fb5967dfb14508115e2340e4953be81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: rosouz
+ms.openlocfilehash: 3b210ea558f857d017504d07e571e94e34c0d4f6
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85116030"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037103"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Co to jest Azure Cosmos DB magazyn analityczny (wersja zapoznawcza)?
 
@@ -94,7 +94,7 @@ Dobrze zdefiniowany schemat dla analiz został zdefiniowany z następującymi kw
 
   * Element o właściwościach 201 na najwyższym poziomie nie ma dobrze zdefiniowanego schematu.
 
-  * Element o więcej niż pięciu zagnieżdżonych poziomach w schemacie również nie ma dobrze zdefiniowanego schematu. Na przykład: `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
+  * Element o więcej niż pięciu zagnieżdżonych poziomach w schemacie również nie ma dobrze zdefiniowanego schematu. Na przykład `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
 
 * Nazwy właściwości są unikatowe w porównaniu z wielkością liter
 

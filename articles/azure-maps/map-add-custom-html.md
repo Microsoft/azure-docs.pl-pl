@@ -1,6 +1,6 @@
 ---
 title: Dodawanie znacznika HTML do mapy | Mapy Microsoft Azure
-description: W tym artykule opisano sposób dodawania znacznika HTML do mapy przy użyciu zestawu Microsoft Azure Web SDK mapy.
+description: Dowiedz się, jak dodać znaczniki HTML do map. Zobacz, jak używać zestawu SDK sieci Web Azure Maps, aby dostosowywać znaczniki i dodawać okienka podręczne i zdarzenia myszy do znacznika.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 9b7156bf5c266ccbba926a22a4afe46129ee3f1e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 58954a98215fd353c5944486446dab5664e5349c
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286990"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035437"
 ---
 # <a name="add-html-markers-to-the-map"></a>Dodawanie znaczników HTML do mapy
 

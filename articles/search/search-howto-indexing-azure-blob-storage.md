@@ -1,7 +1,7 @@
 ---
 title: Wyszukaj zawartość usługi Azure Blob Storage
 titleSuffix: Azure Cognitive Search
-description: Dowiedz się, jak indeksować Blob Storage platformy Azure i wyodrębnić tekst z dokumentów przy użyciu usługi Azure Wyszukiwanie poznawcze.
+description: Dowiedz się, jak indeksować dokumenty na platformie Azure Blob Storage i wyodrębnić tekst z dokumentów za pomocą usługi Azure Wyszukiwanie poznawcze.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 29e123666b35e4659e68a1a925047267f8519940
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6295dfbbee2d44b61b5dc832163adc8d643ab0f1
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496455"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036151"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Jak indeksować dokumenty w usłudze Azure Blob Storage przy użyciu usługi Azure Wyszukiwanie poznawcze
 
@@ -147,7 +147,7 @@ W zależności od [konfiguracji indeksatora](#PartsOfBlobToIndex)indeksator obie
 * Standardowe właściwości metadanych obiektów BLOB są wyodrębniane do następujących pól:
 
   * ** \_ \_ Nazwa magazynu metadanych** (EDM. String) — nazwa pliku obiektu BLOB. Na przykład jeśli masz resume.pdf obiektu BLOB, wartość tego pola to `resume.pdf` .
-  * ** \_ \_ ścieżka magazynu metadanych** (EDM. String) — pełny identyfikator URI obiektu BLOB, w tym konto magazynu. Na przykład: `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+  * ** \_ \_ ścieżka magazynu metadanych** (EDM. String) — pełny identyfikator URI obiektu BLOB, w tym konto magazynu. Na przykład `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
   * ** \_ \_ \_ Typ zawartości magazynu metadanych** (EDM. String) — typ zawartości określony przez kod, który został użyty do przekazania obiektu BLOB. Na przykład `application/octet-stream`.
   * ** \_ \_ ostatnio \_ modyfikowany magazyn metadanych** (EDM. DateTimeOffset) — sygnatura czasowa ostatniej modyfikacji dla obiektu BLOB. Usługa Azure Wyszukiwanie poznawcze używa tej sygnatury czasowej do identyfikowania zmienionych obiektów blob, aby uniknąć ponownego indeksowania wszystkiego po początkowej indeksowaniu.
   * ** \_ \_ Rozmiar magazynu metadanych** (EDM. Int64) — rozmiar obiektu BLOB w bajtach.
@@ -289,7 +289,7 @@ Na przykład aby zindeksować tylko metadane magazynu, użyj:
 
 Opisane powyżej parametry konfiguracji dotyczą wszystkich obiektów BLOB. Czasami może być konieczne sterowanie sposobem indeksowania *poszczególnych obiektów BLOB* . Można to zrobić, dodając następujące właściwości i wartości metadanych obiektu BLOB:
 
-| Nazwa właściwości | Wartość właściwości | Wyjaśnienie |
+| Nazwa właściwości | Wartość właściwości | Objaśnienie |
 | --- | --- | --- |
 | AzureSearch_Skip |oznacza |Instruuje indeksator obiektu BLOB, aby całkowicie pominąć obiekt BLOB. Nie podjęto próby przeprowadzenia żadnej metadanych ani wyodrębniania zawartości. Jest to przydatne, gdy konkretny obiekt BLOB powtarza się wielokrotnie i przerywa proces indeksowania. |
 | AzureSearch_SkipContent |oznacza |Jest to odpowiednik `"dataToExtract" : "allMetadata"` Ustawienia opisanego [powyżej](#PartsOfBlobToIndex) w zakresie określonego obiektu BLOB. |
@@ -322,7 +322,7 @@ Usługa Azure Wyszukiwanie poznawcze ogranicza rozmiar indeksowanych obiektów B
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 ```
 
-Możesz również kontynuować indeksowanie w przypadku wystąpienia błędów w dowolnym momencie przetwarzania, podczas analizowania obiektów blob lub dodawania dokumentów do indeksu. Aby zignorować określoną liczbę błędów, należy ustawić `maxFailedItems` `maxFailedItemsPerBatch` wymagane wartości parametrów i konfiguracji. Na przykład:
+Możesz również kontynuować indeksowanie w przypadku wystąpienia błędów w dowolnym momencie przetwarzania, podczas analizowania obiektów blob lub dodawania dokumentów do indeksu. Aby zignorować określoną liczbę błędów, należy ustawić `maxFailedItems` `maxFailedItemsPerBatch` wymagane wartości parametrów i konfiguracji. Przykład:
 
 ```http
     {

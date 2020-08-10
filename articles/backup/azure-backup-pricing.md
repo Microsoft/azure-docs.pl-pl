@@ -3,12 +3,12 @@ title: Cennik usługi Azure Backup
 description: Dowiedz się, jak oszacować koszty związane z budżetem Azure Backup.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 274a61ff5a98fa1291f9d8917af9ab1d1b3da2fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cdb3dc756e1ee7e32453acd7246952c84abebaf7
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391115"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035760"
 ---
 # <a name="azure-backup-pricing"></a>Cennik usługi Azure Backup
 
@@ -38,7 +38,7 @@ Aby oszacować koszty tworzenia kopii zapasowych maszyn wirtualnych platformy Az
 - Liczba serwerów z tym rozmiarem
 
 - Jaka jest oczekiwana ilość danych na tych serwerach?<br>
-  Zmiany dotyczą ilości danych. Na przykład, jeśli masz maszynę wirtualną z 200 GB danych do utworzenia kopii zapasowej, a 10 GB zmiany jest codziennie, dzienne przebicie wynosi 5%.
+  Zmiany dotyczą ilości danych. Na przykład, jeśli masz maszynę wirtualną z 200 GB danych do utworzenia kopii zapasowej i 10 GB zmian z niej dziennie, dzienne przebicie wynosi 5%.
 
   - Większe zmiany spowodują utworzenie kopii zapasowej większej ilości danych
 
@@ -58,7 +58,7 @@ Aby oszacować koszty tworzenia kopii zapasowych maszyn wirtualnych platformy Az
 
   - Jak długo chcesz zachować migawki "Natychmiastowe przywracanie"? (1-5 dni)
 
-    - Ta opcja umożliwia przywrócenie z powrotem przez siedem dni w szybki sposób przy użyciu migawek przechowywanych na dyskach
+    - Ta opcja umożliwia przywracanie z powrotem przez siedem dni w sposób szybszy przy użyciu migawek przechowywanych na dyskach.
 
 - **Opcjonalne** — selektywne tworzenie kopii zapasowej dysku
 
@@ -129,6 +129,7 @@ Aby oszacować koszty tworzenia kopii zapasowych serwerów SAP HANA uruchomionyc
 - Łączny rozmiar SAP HANA baz danych, których kopia zapasowa ma zostać utworzona. Powinna to być suma pełnego rozmiaru kopii zapasowej każdej bazy danych, zgodnie z informacjami w SAP HANA.
 - Liczba serwerów SAP HANA o powyższym rozmiarze
 - Jaki jest oczekiwany rozmiar kopii zapasowych dziennika?
+  
   - % Oznacza średni dzienny rozmiar dziennika jako% łącznego rozmiaru SAP HANA baz danych, których kopia zapasowa jest wykonywana na serwerze SAP HANA
 - Jaka jest oczekiwana ilość dziennych zmian danych na tych serwerach?
   - % Oznacza średni rozmiar zmian dziennych jako% łącznego rozmiaru SAP HANA baz danych, których kopia zapasowa jest wykonywana na serwerze SAP HANA
@@ -144,9 +145,37 @@ Aby oszacować koszty tworzenia kopii zapasowych serwerów SAP HANA uruchomionyc
   - Jak długo chcesz zachować kopie zapasowe "miesięcznie"? (w miesiącach)
   - Jak długo chcesz zachować kopie zapasowe "rocznie"? (w latach)
 - **Opcjonalne** — nadmiarowość magazynu kopii zapasowych
+  
   - Wskazuje to nadmiarowość konta magazynu, do którego prowadzą dane kopii zapasowej. Zalecamy korzystanie z **GRS** w celu zapewnienia najwyższej dostępności. Ponieważ gwarantuje to, że kopia kopii zapasowej danych jest przechowywana w innym regionie, ułatwia spełnienie wielu standardów zgodności. Zmień nadmiarowość na **LRS** , jeśli tworzysz kopie zapasowe środowisk programistycznych lub testowych, które nie wymagają tworzenia kopii zapasowych na poziomie przedsiębiorstwa.
 - **Opcjonalne** — modyfikowanie cen regionalnych lub stosowanie stawek z rabatem
+  
   - Jeśli chcesz sprawdzić oszacowania dla innego regionu lub stawek z rabatem, wybierz opcję **tak** dla opcji **Wypróbuj oszacowania dla innego regionu?** i wprowadź stawki, dla których chcesz uruchomić oszacowania.
+  
+## <a name="estimate-costs-for-backing-up-azure-file-shares"></a>Oszacowanie kosztów tworzenia kopii zapasowych udziałów plików platformy Azure
+
+Aby oszacować koszty tworzenia kopii zapasowych udziałów plików platformy Azure przy użyciu [rozwiązania do tworzenia kopii zapasowych opartego na migawce](azure-file-share-backup-overview.md) Azure Backup, potrzebne są następujące parametry:
+
+- Rozmiar (**w GB**) udziałów plików, dla których chcesz utworzyć kopię zapasową.
+
+- Jeśli chcesz utworzyć kopię zapasową udziałów plików rozmieszczonych na wielu kontach magazynu, określ liczbę kont magazynu obsługujących udziały plików o powyższym rozmiarze.
+
+- Oczekiwana ilość zmian danych w udziałach plików, dla których chcesz utworzyć kopię zapasową. <br>Zmiany dotyczą ilości zmian danych i bezpośrednio mają wpływ na rozmiar magazynu migawek. Na przykład jeśli masz udział plików o 200 GB danych do utworzenia kopii zapasowej, a 10 GB zmiany jest codziennie, dzienne przebicie wynosi 5%.
+  - Wyższa zmiana oznacza, że ilość danych w zawartości udziału plików każdego dnia jest wysoka, a więc przyrostowa migawka (przechwytywanie tylko zmian danych) również będzie większa.
+  - Wybierz niski (1%), umiarkowany (3%) lub wysoki (5%) na podstawie charakterystyki i użycia udziału plików.
+  - Jeśli znasz dokładną wartość **procentową** zmian w udziale plików, możesz wybrać opcję **wprowadź własny%** z listy rozwijanej. Określ wartości (w%) w przypadku codziennych, cotygodniowych, miesięcznych i rocznych zmian.
+
+- Typ konta magazynu (w warstwie Standardowa lub Premium) oraz ustawienia nadmiarowości magazynu dla konta magazynu obsługującego kopię zapasową udziału plików. <br>W bieżącym rozwiązaniu tworzenia kopii zapasowej dla udziałów plików platformy Azure migawki są przechowywane na tym samym koncie magazynu co udział plików kopii zapasowej. W związku z tym koszt magazynu związany z migawkami jest rozliczany jako część rachunku usługi Azure Files na podstawie cennika migawek dla typu konta i ustawienia nadmiarowości konta magazynu obsługującego kopię zapasową udziału plików i migawek.
+
+- Przechowywanie dla różnych kopii zapasowych
+  - Jak długo należy zachować kopie zapasowe "dzienne"? (w dniach)
+  - Jak długo chcesz zachować kopie zapasowe "cotygodniowe"? (w tygodniach)
+  - Jak długo chcesz zachować kopie zapasowe "miesięcznie"? (w miesiącach)
+  - Jak długo chcesz zachować kopie zapasowe "rocznie"? (w latach)
+
+  Zapoznaj się z [macierzą obsługi udziału plików platformy Azure](azure-file-share-support-matrix.md#retention-limits) , aby uzyskać maksymalną liczbę obsługiwanych wartości przechowywania w każdej kategorii.
+
+- **Opcjonalne** — Modyfikuj ceny regionalne lub Zastosuj stawki z rabatem.
+  - Wartości domyślne ustawione dla kosztu magazynu migawek dla GB i kosztu chronionego wystąpienia w szacowania są dla regionu Wschodnie stany USA. Jeśli chcesz sprawdzić oszacowania dla innego regionu lub stawek z rabatem, wybierz opcję **tak** dla opcji **Wypróbuj oszacowania dla innego regionu?** , a następnie wprowadź stawki, dla których chcesz uruchomić oszacowania.
 
 ## <a name="next-steps"></a>Następne kroki
 

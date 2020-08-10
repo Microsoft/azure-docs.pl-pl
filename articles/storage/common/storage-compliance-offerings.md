@@ -1,6 +1,6 @@
 ---
 title: Oferty zgodności usługi Azure Storage | Microsoft Docs
-description: Podsumowanie ofert zgodności w usłudze Azure Storage
+description: Zapoznaj się z podsumowaniem ofert zgodności w usłudze Azure Storage na potrzeby krajowych, regionalnych i branżowych wymagań dotyczących zbierania i używania danych.
 services: storage
 author: fhryo-msft
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: c24db9fb1b411de31ba8d086b6baa418f656c920
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac37dc66c9861c974c2d5fea435a3ae6771e6c7d
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514411"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035012"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Oferty zgodności usługi Azure Storage
 

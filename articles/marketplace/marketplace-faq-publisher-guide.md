@@ -7,20 +7,20 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 93366bf963350bf9cbdbda15ec4070c21a1dc975
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 20c82793726221515ad4d1019f4d8f4754b3ae08
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090148"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036576"
 ---
-# <a name="common-questions-about-microsoft-commercial-marketplace"></a>Często zadawane pytania dotyczące komercyjnej witryny Microsoft Marketplace
+# <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Często zadawane pytania dotyczące komercyjnej witryny Marketplace firmy Microsoft
 
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące komercyjnej witryny Marketplace.
 
 ## <a name="general"></a>Ogólne
 
-### <a name="what-is-microsoft-commercial-marketplace"></a>Co to jest Microsoft Commercial Marketplace?
+### <a name="what-is-the-microsoft-commercial-marketplace"></a>Co to jest komercyjne oprogramowanie Microsoft Marketplace?
 
 Komercyjna witryna Marketplace łączy agencje biznesowe i rządowe z rozwiązaniami utworzonymi przez naszych partnerów. Nasi Partnerzy tworzą i zarządzają ofertami w centrum partnerskim, a klienci mogą odkrywać i kupować rozwiązania za pośrednictwem środowisk w środowisku produkcyjnym, takich jak Microsoft AppSource, Azure Marketplace, odsprzedawców w programie dostawcy rozwiązań w chmurze i naszych zespołów sprzedaży za pośrednictwem programu współsprzedaży.
 
@@ -60,7 +60,7 @@ Sposoby korzystania z komercyjnej oferty portalu Marketplace zależą od tego, j
 
 - W przypadku rozwiązań, które są dostępne automatycznie, bez względu na to, czy są one płatne, możesz korzystać z własnej licencji (BYOL), czy bezpłatnie, klienci są zachęcani do *uzyskania teraz*.
 - Oferty obsługujące dysk testowy (Demonstracja) żądają od klienta *przetestowania dysku*. 
-- Oferty oprogramowanie jako usługa (SaaS), które udostępniają wersję próbną spoza naszej komercyjnej *wersji próbnej*.
+- Oferty oprogramowanie jako usługa (SaaS), które udostępniają *okres próbny*poza komercyjnym rynkiem Marketplace.
 - Proste listy umożliwiają klientowi zażądanie *kontaktu z*nami.
 
 ### <a name="how-do-i-create-offers-for-the-commercial-marketplace"></a>Jak mogę utworzyć oferty dla komercyjnej witryny Marketplace?
@@ -77,7 +77,7 @@ Możesz również [dołączyć nasze aktywne forum społeczności](https://www.m
 
 ### <a name="what-analytics-are-available-to-my-organization-from-the-commercial-marketplace"></a>Jakie analizy są dostępne dla mojej organizacji z komercyjnej witryny Marketplace?
 
-Udostępniamy raporty na temat ofert w naszym portalu komercyjnym. Aby uzyskać dostęp do danych o klientach, zamówieniach, zakontraktowaniu sklepu i nie tylko, przejdź do pozycji [Analiza dla portalu komercyjnego w centrum partnerskim](partner-center-portal/analytics.md).
+Udostępniamy raporty dotyczące ofert w portalu komercyjnym. Aby uzyskać dostęp do danych o klientach, zamówieniach, zakontraktowaniu sklepu i nie tylko, przejdź do pozycji [Analiza dla portalu komercyjnego w centrum partnerskim](partner-center-portal/analytics.md).
 
 ### <a name="what-is-microsofts-relationship-with-my-customers"></a>Co to jest relacja firmy Microsoft z klientami?
 
@@ -124,7 +124,7 @@ Aby dokonać zakupu w bardzo niskich cenach, zalecamy opublikowanie prywatnego p
 
 ### <a name="what-are-leads-from-the-commercial-marketplace-and-what-should-i-do-with-them"></a>Jakie są potencjalni klienci z komercyjnej witryny Marketplace i co należy zrobić z nimi?
 
-Gdy klienci korzystają z ofert w witrynie Microsoft AppSource i witrynie Azure Marketplace, informacje są przechwytywane. Po pomyślnym zaprezentowaniu przez klientów szansy klient zostanie utworzony, a szansa sprzedaży zostanie wysłana do wybranego systemu. Wydawcy, którzy pomyślą o naszej komercyjnej witrynie Marketplace, często realizują potencjalni klienci, opracowują relacje i przekształcają zainteresowania.
+Gdy klienci korzystają z ofert w witrynie Microsoft AppSource i witrynie Azure Marketplace, informacje są przechwytywane. Po pomyślnym zaprezentowaniu przez klientów szansy klient zostanie utworzony, a szansa sprzedaży zostanie wysłana do wybranego systemu. Wydawcy, którzy pomyślnie korzystali z komercyjnej witryny Marketplace, często realizują potencjalni klienci, opracowują relacje i przekształcają zainteresowania.
 
 Aby uzyskać więcej informacji, zobacz temat [potencjalni klienci z oferty w portalu Marketplace](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
@@ -285,7 +285,7 @@ Aby uzyskać więcej informacji, zobacz [progi płatności, metody i klatki czas
 
 ### <a name="in-what-countriesregions-are-taxes-managed-on-my-behalf"></a>W jakich krajach/regionach są podatki zarządzane w moim imieniu?
 
-Klienci mogą znaleźć rozwiązania naszych komercyjnych rynków handlowych na całym świecie i zarządzać podatkami w wielu lokalizacjach. 
+Klienci mogą znaleźć rozwiązania z komercyjnej witryny Marketplace na całym świecie i zarządzać podatkami w wielu lokalizacjach. 
 
 Aby zapoznać się z pełną listą lokalizacji, przejdź do [szczegółów podatku dla komercyjnych wydawców portalu Marketplace](partner-center-portal/tax-details-paid-transactions.md).
 

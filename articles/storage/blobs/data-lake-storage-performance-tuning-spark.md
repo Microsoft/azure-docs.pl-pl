@@ -1,6 +1,6 @@
 ---
 title: 'Dostrajanie wydajności: Spark, & HDInsight Azure Data Lake Storage Gen2 | Microsoft Docs'
-description: Wskazówki dotyczące dostrajania wydajności Azure Data Lake Storage Gen2 Spark
+description: Poznaj wskazówki dotyczące dostrajania wydajności platformy Spark za pomocą usługi Azure HDInsight i Azure Data Lake Storage Gen2.
 services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 06fe2670e5ee0d95df8985c9777d3ad9741336b3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8ae9f96b42c0eb36a9380589780d141711c7ae4d
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106122"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034737"
 ---
 # <a name="tune-performance-spark-hdinsight--azure-data-lake-storage-gen2"></a>Dostrajanie wydajności: Spark, & usługi HDInsight Azure Data Lake Storage Gen2
 

@@ -1,19 +1,19 @@
 ---
 title: Rozwiązywanie problemów z połączeniem punkt-lokacja platformy Azure
 titleSuffix: Azure VPN Gateway
-description: Dowiedz się, jak rozwiązywać typowe problemy z połączeniem punkt-lokacja, które mogą wystąpić na platformie Azure, w tym różne błędy klienta sieci VPN.
+description: Informacje na temat rozwiązywania problemów i rozwiązywania typowych problemów z połączeniem punkt-lokacja oraz innych błędów i problemów z wirtualną siecią prywatną.
 services: vpn-gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: 8fd32cb99db115484c913e1a0f00b038b62367e9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: dbf0d096827ec1af16e6d38d405709e48175ae89
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920657"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035955"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Rozwiązywanie problemów: problemy z połączeniem punkt-lokacja platformy Azure
 

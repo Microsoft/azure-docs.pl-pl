@@ -1,6 +1,6 @@
 ---
 title: Tworzenie mapy za pomocą Azure Maps | Mapy Microsoft Azure
-description: W tym artykule dowiesz się, jak renderować mapę na stronie sieci Web przy użyciu zestawu Microsoft Azure Web SDK mapy.
+description: Dowiedz się, jak dodać mapy do stron sieci Web za pomocą zestawu Azure Maps Web SDK. Dowiedz się więcej o opcjach animacji, stylu, aparatu, usług i interakcji z użytkownikiem.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/26/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 77eaa3e1f4390182ad210ae3aa2ce6a1427d8b0f
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 9566bcc329b4d148fe9454fe70b556a9010fc4ac
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87551901"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036474"
 ---
 # <a name="create-a-map"></a>Tworzenie mapy
 
@@ -180,7 +180,7 @@ Zapoznaj się z przykładami kodu. Można edytować kod JavaScript wewnątrz **k
 Dowiedz się więcej na temat klas i metod używanych w tym artykule:
 
 > [!div class="nextstepaction"]
-> [Zmapować](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
 > [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions)

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 7/9/2020
-ms.openlocfilehash: 38ca6528b77d9f36c84f5aacaa34a64d113b5978
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 8/7/2020
+ms.openlocfilehash: 518d3880a740de2cda4f01e362d8a5ef7865b361
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206938"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037307"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database bezserwerowe
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Warstwa obliczeń bezserwerowych dla pojedynczej bazy danych w Azure SQL Databas
 - **Minimalna rdzeni wirtualnych** i **Maksymalna rdzeni wirtualnych** to konfigurowalne parametry, które definiują zakres wydajności obliczeniowej dostępny dla bazy danych. Limity pamięci i operacji we/wy są proporcjonalne do określonego zakresu rdzeń wirtualny.  
 - **Opóźnienie AutoPause** to konfigurowalny parametr, który określa okres czasu, przez który baza danych musi być nieaktywna, zanim zostanie automatycznie wstrzymana. Baza danych zostanie automatycznie wznowiona po wystąpieniu następnego logowania lub innego działania.  Alternatywnie można wyłączyć autowstrzymywanie.
 
-### <a name="cost"></a>Koszt
+### <a name="cost"></a>Koszty
 
 - Koszt bazy danych bezserwerowej to podsumowanie kosztów i kosztów magazynu obliczeniowego.
 - Gdy użycie obliczeniowe ma wartość z przedziału minimalnego i maksymalnego skonfigurowanego limitu, koszt obliczeń jest oparty na rdzeń wirtualny i używanej pamięci.
@@ -67,7 +67,7 @@ W poniższej tabeli zestawiono różnice między warstwą obliczeniową bezserwe
 | | **Bezserwerowe usługi obliczeniowe** | **Zainicjowane obliczenie** |
 |:---|:---|:---|
 |**Wzorzec użycia bazy danych**| Sporadyczne, nieprzewidywalne użycie z niższym średnim wykorzystaniem obliczeń w czasie. | Bardziej regularne wzorce użycia z wyższym średnim wykorzystaniem obliczeń w czasie lub wielu bazach danych korzystających z pul elastycznych.|
-| **Nakład pracy zarządzania wydajnością** |Lower|Wyższe|
+| **Nakład pracy zarządzania wydajnością** |Niższa|Wyższa|
 |**Skalowanie obliczeniowe**|Automatyczny|Ręcznie|
 |**Czas odpowiedzi obliczeń**|Poniżej nieaktywnych okresów|Bezpośredniego|
 |**Stopień szczegółowości rozliczeń**|Na sekundę|Za godzinę|
@@ -88,7 +88,7 @@ Pamięć dla baz danych bezserwerowych jest odzyskiwana częściej niż dla zain
 
 #### <a name="cache-reclamation"></a>Odzyskiwanie pamięci podręcznej
 
-W przeciwieństwie do baz danych obliczeniowych, pamięć z pamięci podręcznej SQL jest odzyskiwana z bazy danych bezserwerowej, gdy użycie procesora CPU lub aktywnej pamięci podręcznej jest niskie.  Należy pamiętać, że gdy użycie procesora CPU jest niskie, użycie aktywnej pamięci podręcznej może być wysokie w zależności od wzorca użycia i uniemożliwić odzyskiwanie pamięci.
+W przeciwieństwie do baz danych obliczeniowych, pamięć z pamięci podręcznej SQL jest odzyskiwana z bazy danych bezserwerowej, gdy użycie procesora CPU lub aktywnej pamięci podręcznej jest niskie.
 
 - Użycie aktywnej pamięci podręcznej jest uznawane za niskie, gdy łączny rozmiar ostatnio używanych wpisów w pamięci podręcznej spadnie poniżej wartości progowej przez pewien czas.
 - Gdy odzyskiwanie pamięci podręcznej jest wyzwalane, rozmiar docelowej pamięci podręcznej jest zmniejszany przyrostowo do ułamka poprzedniego rozmiaru i odzyskiwanie odbywa się tylko w przypadku, gdy użycie będzie niskie.
@@ -96,6 +96,8 @@ W przeciwieństwie do baz danych obliczeniowych, pamięć z pamięci podręcznej
 - Rozmiar pamięci podręcznej nigdy nie jest mniejszy niż minimalny limit pamięci określony przez minimalną rdzeni wirtualnych, który można skonfigurować.
 
 W przypadku baz danych obliczeniowych bezserwerowych i inicjowanych, wpisy pamięci podręcznej mogą zostać wykluczone, jeśli jest używana cała dostępna pamięć.
+
+Należy pamiętać, że gdy użycie procesora CPU jest niskie, użycie aktywnej pamięci podręcznej może być wysokie w zależności od wzorca użycia i uniemożliwić odzyskiwanie pamięci.  Ponadto może istnieć dodatkowe opóźnienie po zatrzymaniu działania użytkownika przed odzyskaniem pamięci, ponieważ okresowe procesy w tle odpowiadają na poprzednie działania użytkownika.  Na przykład operacje usuwania generują rekordy widma, które są oznaczone do usunięcia, ale nie są fizycznie usuwane do momentu uruchomienia procesu oczyszczania duplikowania, które mogą polegać na odczytywaniu stron danych w pamięci podręcznej.
 
 #### <a name="cache-hydration"></a>Odwodnienie pamięci podręcznej
 
@@ -125,11 +127,11 @@ Autowstrzymywanie jest tymczasowo uniemożliwiane podczas wdrażania niektórych
 
 Autowznawianie jest wyzwalane, jeśli w dowolnym momencie spełniony jest którykolwiek z następujących warunków:
 
-|Obiekt feature|Wyzwalacz autowznawiania|
+|Cechy|Wyzwalacz autowznawiania|
 |---|---|
-|Uwierzytelnianie i autoryzacja|Identyfikator logowania|
+|Uwierzytelnianie i autoryzacja|Zaloguj się|
 |Wykrywanie zagrożeń|Włączanie/wyłączanie ustawień wykrywania zagrożeń na poziomie bazy danych lub serwera.<br>Modyfikowanie ustawień wykrywania zagrożeń na poziomie bazy danych lub serwera.|
-|Odnajdywanie i klasyfikacja danych|Dodawanie, modyfikowanie, usuwanie lub wyświetlanie etykiet czułości|
+|Odnajdowanie i klasyfikacja danych|Dodawanie, modyfikowanie, usuwanie lub wyświetlanie etykiet czułości|
 |Inspekcja|Wyświetlanie rekordów inspekcji.<br>Aktualizowanie lub przeglądanie zasad inspekcji.|
 |Maskowanie danych|Dodawanie, modyfikowanie, usuwanie lub wyświetlanie reguł maskowania danych|
 |Transparent Data Encryption|Wyświetlanie stanu lub stanu przezroczystego szyfrowania danych|

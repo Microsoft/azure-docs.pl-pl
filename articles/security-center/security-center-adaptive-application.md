@@ -1,6 +1,6 @@
 ---
 title: Funkcje adaptacyjnego sterowania aplikacjami w usłudze Azure Security Center
-description: Ten dokument ułatwia korzystanie z adaptacyjnej kontroli aplikacji w Azure Security Center, aby dozwolonych aplikacje działające na maszynach platformy Azure.
+description: Ten dokument ułatwia korzystanie z adaptacyjnej kontroli aplikacji w Azure Security Center, aby umożliwić wyświetlanie aplikacji na komputerach z systemem Azure.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,173 +11,218 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/23/2019
+ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 1dc94c5ec08cc27fb1819ccc16fd766c62aad796
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cbbfddca1a6a07625a69be8ffb0409640d825793
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77604677"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037022"
 ---
-# <a name="adaptive-application-controls"></a>Funkcje adaptacyjnego sterowania aplikacjami
-Z tego przewodnika dowiesz się, jak skonfigurować funkcje sterowania aplikacjami w usłudze Azure Security Center.
+# <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Korzystanie z adaptacyjnych kontrolek aplikacji w celu ograniczenia podatności na ataki maszyn
 
-## <a name="what-are-adaptive-application-controls-in-security-center"></a>Co to są funkcje adaptacyjnego sterowania aplikacjami w usłudze Security Center?
-Adaptacyjna kontrola aplikacji to inteligentne, zautomatyzowane i kompleksowe rozwiązanie od Azure Security Center, które pomaga kontrolować, które aplikacje mogą być uruchamiane na maszynach z platformą Azure i poza platformą Azure (Windows i Linux). Dzięki temu można zwiększyć ochronę komputerów przed złośliwym oprogramowaniem. Security Center korzysta z uczenia maszynowego do analizowania aplikacji uruchomionych na maszynach i tworzy listę dozwolonych z tej analizy. Ta funkcja znacznie upraszcza proces konfigurowania i konserwowania zasad listy dozwolonych aplikacji, co pozwala:
+Dowiedz się więcej o zaletach adaptacyjnych kontrolek aplikacji Azure Security Center i sposobach zwiększania bezpieczeństwa dzięki tej funkcji inteligentnej opartej na danych.
 
-- Blokuj lub Ostrzegaj o próbach uruchomienia złośliwych aplikacji, w tym tych, które w przeciwnym razie mogą zostać pominięte przez rozwiązania chroniące przed złośliwym kodem.
-- Zachowanie zgodności z zasadami zabezpieczeń organizacji, które nakazują korzystanie wyłącznie z licencjonowanego oprogramowania.
-- Unikanie używania w danym środowisku niechcianego oprogramowania.
-- Unikanie uruchamiania starych i nieobsługiwanych aplikacji.
-- Zapobieganie używaniu określonych programów narzędziowych, które nie są dozwolone w organizacji.
-- Umożliwianie informatykom sterowania dostępem do poufnych danych za pomocą aplikacji.
 
-> [!NOTE]
-> W przypadku maszyn z systemami innym niż Azure i Linux funkcje adaptacyjnego sterowania aplikacjami są obsługiwane tylko w trybie inspekcji.
+## <a name="what-are-security-centers-adaptive-application-controls"></a>Co to są Security Center adaptacyjne kontrolki aplikacji?
 
-## <a name="how-to-enable-adaptive-application-controls"></a>Jak włączyć funkcje adaptacyjnego sterowania aplikacjami?
+Adaptacyjne kontrolki aplikacji to inteligentne i zautomatyzowane rozwiązanie umożliwiające Definiowanie listy dozwolonych aplikacji z znanymi bezpiecznymi aplikacjami dla maszyn. 
 
-Adaptacyjne kontrole aplikacji ułatwiają zdefiniowanie zestawu aplikacji, które mogą być uruchamiane w skonfigurowanych grupach maszyn. Ta funkcja jest dostępna zarówno na platformie Azure, jak i w systemie Windows (wszystkie wersje, klasyczne lub Azure Resource Manager) i na maszynach z systemem Linux. Wykonaj następujące kroki, aby skonfigurować listę dozwolonych aplikacji:
+Często organizacje mają kolekcje maszyn, które rutynowie uruchamiają te same procesy. Security Center korzysta z uczenia maszynowego, aby analizować aplikacje działające na maszynach i utworzyć listę znanego bezpiecznego oprogramowania. Listy dozwolonych są oparte na określonych obciążeniach platformy Azure i można bardziej dostosować zalecenia, korzystając z poniższych instrukcji.
 
-1. Otwórz pulpit nawigacyjny usługi **Security Center**.
+Po włączeniu i skonfigurowaniu adaptacyjnych kontrolek aplikacji otrzymasz alerty zabezpieczeń w przypadku uruchamiania aplikacji innych niż te, które zostały zdefiniowane jako bezpieczne.
 
-1. W okienku po lewej stronie wybierz pozycję **Funkcje adaptacyjnego sterowania aplikacjami** w obszarze **Zaawansowana ochrona w chmurze**.
 
-    [![Ochrona](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png#lightbox)
+## <a name="what-are-the-benefits-of-adaptive-application-controls"></a>Jakie są zalety adaptacyjnych kontroli aplikacji?
 
-Zostanie wyświetlona strona **Adaptacyjne kontrolki aplikacji**.
+Przez Definiowanie list znanych bezpiecznych aplikacji oraz generowanie alertów w przypadku wykonywania jakichkolwiek innych czynności można osiągnąć wiele celów związanych z ograniczaniem funkcjonalności:
 
-![funkcje sterowania](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
+- Zidentyfikuj potencjalne złośliwe oprogramowanie, nawet te, które mogły zostać pominięte przez rozwiązania chroniące przed złośliwym kodem
+- Poprawa zgodności z lokalnymi zasadami zabezpieczeń, które wymuszają korzystanie wyłącznie z licencjonowanego oprogramowania
+- Unikanie uruchamiania starych lub nieobsługiwanych aplikacji
+- Zapobiegaj określonemu oprogramowaniu, które jest zabronione przez organizację
+- Zwiększenie nadzoru nad aplikacjami, które uzyskują dostęp do poufnych danych
 
-Sekcja **Grupy maszyn wirtualnych** zawiera trzy karty:
 
-* **Skonfigurowane**: lista grup zawierających maszyny wirtualne, dla których skonfigurowano sterowanie aplikacjami.
-* **Zalecane**: lista grup, dla których zaleca się sterowanie aplikacjami. Usługa Security Center przy użyciu uczenia maszynowego identyfikuje maszyny wirtualne odpowiednie do zastosowania funkcji sterowania aplikacjami na podstawie tego, czy na tych maszynach są spójnie uruchamiane te same aplikacje.
-* **Brak zaleceń**: lista grup zawierających maszyny wirtualne bez żadnych zaleceń dotyczących sterowania aplikacjami. Na przykład maszyny wirtualne, na których aplikacje stale się zmieniają i nie osiągają stanu stabilnego.
 
-> [!NOTE]
-> Usługa Security Center korzysta z własnościowego algorytmu klastrowania w celu tworzenia grup maszyn wirtualnych, jednocześnie zapewniając, że podobne maszyny wirtualne uzyskają optymalne zalecane zasady sterowania aplikacjami.
->
->
+## <a name="availability"></a>Dostępność
 
-### <a name="configure-a-new-application-control-policy"></a>Konfigurowanie nowych zasad sterowania aplikacjami
+|Aspekt|Szczegóły|
+|----|:----|
+|Stan wydania:|Ogólna dostępność|
+|Wpisaną|Warstwa Standardowa|
+|Obsługiwane maszyny:|![Tak na ](./media/icons/yes-icon.png) platformie Azure i na maszynach spoza platformy Azure z systemem Windows i Linux<br>![Tak — ](./media/icons/yes-icon.png) maszyny [usługi Azure Arc](https://docs.microsoft.com/azure/azure-arc/)|
+|Wymagane role i uprawnienia:|Role czytnika i **czytnika** **zabezpieczeń** mogą wyświetlać grupy i listy znanych bezpiecznych aplikacji<br>Role administratora **współautora** i **zabezpieczeń** mogą edytować grupy i listy znanych bezpiecznych aplikacji|
+|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
+|||
 
-1. Wybierz kartę **zalecane** , aby uzyskać listę grup z zaleceniami dotyczącymi kontroli aplikacji:
 
-   ![Zalecane](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
-   Lista zawiera następujące pozycje:
+## <a name="enable-application-controls-on-a-group-of-machines"></a>Włączanie formantów aplikacji w grupie komputerów
 
-   - **Nazwa grupy**: Nazwa subskrypcji i grupy
-   - **Maszyny wirtualne i komputery**: liczba maszyn wirtualnych w grupie
-   - **Stan**: stan zaleceń
-   - **Ważność**: poziom ważności zaleceń
+Jeśli Security Center zidentyfikował grupy maszyn w Twoich subskrypcjach, które regularnie uruchamiają podobny zestaw aplikacji, zostanie wyświetlony monit z następującym zaleceniem: **adaptacyjne mechanizmy kontroli aplikacji do definiowania bezpiecznych aplikacji powinny być włączone na maszynach**.
 
-2. Kliknij grupę, aby otworzyć opcję **Utwórz reguły sterowania aplikacjami** .
+Wybierz zalecenie lub Otwórz stronę adaptacyjne kontrolki aplikacji, aby wyświetlić listę sugerowanych, znanych, bezpiecznych aplikacji i grup maszyn.
 
-   [![Reguły sterowania aplikacjami](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png#lightbox)
+1. Z menu Security Center wybierz pozycję **adaptacyjne kontrolki aplikacji**.
 
-3. Na stronie **Wybieranie maszyn wirtualnych**Przejrzyj listę zalecanych maszyn wirtualnych i usuń zaznaczenie wszystkich elementów, których nie chcesz stosować do programu. Następnie zostaną wyświetlone dwie listy:
+    Zostanie otwarta strona **adaptacyjne kontrolki aplikacji** z maszynami wirtualnymi pogrupowanymi na następujące karty:
 
-   - **Zalecane aplikacje**: Lista aplikacji, które są często używane na maszynach wirtualnych w tej grupie, i zaleca się ich uruchomienie.
-   - **Więcej aplikacji**: Lista aplikacji, które rzadziej często znajdują się na maszynach wirtualnych w tej grupie lub które są znane jako wykorzystania (Zobacz więcej poniżej) i zalecane do przeglądu.
+    - **Skonfigurowane** grupy maszyn, które mają już zdefiniowaną listę dozwolonych aplikacji. Dla każdej grupy na skonfigurowanej karcie są wyświetlane:
+        - Liczba maszyn w grupie
+        - Ostatnie alerty
 
-4. Dokonaj przeglądu aplikacji na każdej liście i wyczyść zaznaczenie pól wyboru tych, które nie mają być stosowane. Każda lista zawiera takie elementy, jak:
+    - **Zalecane** — grupy maszyn, które regularnie uruchamiają te same aplikacje i nie mają skonfigurowanej listy dozwolonych. Zalecamy włączenie adaptacyjnych kontrolek aplikacji dla tych grup.
+    
+      > [!TIP]
+      > Jeśli zostanie wyświetlona nazwa grupy z prefiksem "Reviewing", zawiera ona komputery z częściowo spójną listą aplikacji. Security Center nie widzi wzorca, ale zaleca przejrzenie tej grupy, aby sprawdzić _,_ czy można ręcznie zdefiniować niektóre reguły adaptacyjnych kontroli aplikacji zgodnie z opisem w sekcji [Edytowanie reguły adaptacyjnych kontroli aplikacji w grupie](#editing-a-groups-adaptive-application-controls-rule).
+      >
+      > Możesz również przenieść maszyny z tej grupy do innych grup, zgodnie z opisem w [Przenieś maszynę z jednej grupy do innej](#move-a-machine-from-one-group-to-another).
 
-   - **Nazwa**: informacje o certyfikacie lub pełna ścieżka aplikacji
-   - **TYPY PLIKÓW**: typ pliku aplikacji. Może to być plik EXE, skrypt, MSI lub dowolną permutację tych typów.
-   - Możliwe do **wykorzystania**: ikona ostrzeżenia wskazuje, czy dana aplikacja może być używana przez osobę atakującą do obejścia listy dozwolonych aplikacji. Zaleca się dokonanie przeglądu tych aplikacji przed ich zatwierdzeniem.
-   - **UŻYTKOWNICY**: lista użytkowników, którym zezwala się na uruchomienie aplikacji
+    - **Brak zaleceń** -maszyn bez zdefiniowanej listy dozwolonych aplikacji, które nie obsługują tej funkcji. Twoja maszyna może znajdować się na tej karcie z następujących powodów:
+      - Brak agenta Log Analytics
+      - Agent Log Analytics nie wysyła zdarzeń
+      - Jest to maszyna z systemem Windows z wcześniej istniejącymi zasadami [funkcji AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker) , które są włączone przez obiekt zasad grupy lub zasady zabezpieczeń lokalnych.
 
-5. Po wybraniu opcji wybierz przycisk **Utwórz**. <br>
-   Po wybraniu opcji Utwórz program Azure Security Center automatycznie tworzy odpowiednie reguły na podstawie wbudowanej aplikacji Zezwalaj na listę dostępności na serwerach systemu Windows (AppLocker).
+      > [!TIP]
+      > Security Center potrzebuje co najmniej dwóch tygodni danych do zdefiniowania unikatowych zaleceń dla każdej grupy maszyn. Ostatnio utworzone maszyny lub należące do subskrypcji, które były niedawno włączone przy użyciu warstwy Standardowa, będą wyświetlane na karcie **bez rekomendacji** .
 
-> [!NOTE]
-> - Usługa Security Center używa danych z co najmniej dwóch tygodni w celu utworzenia planu bazowego i przygotowania unikatowych zaleceń dla grup maszyn wirtualnych. Nowi klienci usługi Security Center w warstwie Standardowa powinni spodziewać się, że najpierw ich grupy maszyn wirtualnych pojawią się na karcie *Brak zaleceń*.
-> - Funkcje adaptacyjnego sterowania aplikacjami w usłudze Security Center nie obsługują maszyn wirtualnych, dla których zasady funkcji AppLocker zostały już włączone za pomocą obiektu zasad grupy lub lokalnych zasad zabezpieczeń.
-> -  Zgodnie z najlepszymi rozwiązaniami w zakresie bezpieczeństwa, Security Center będzie zawsze próbować utworzyć regułę wydawcy dla aplikacji, które są wybrane do dozwolonych, i tylko wtedy, gdy aplikacja nie ma informacji o wydawcy (bez podpisu), zostanie utworzona reguła ścieżki dla pełnej ścieżki konkretnej aplikacji.
->   
 
-### <a name="editing-and-monitoring-a-group-configured-with-application-control"></a>Edytowanie i monitorowanie grupy, dla której skonfigurowano sterowanie aplikacjami
+1. Otwórz kartę **zalecane** . Zostanie wyświetlona Grupa komputerów z zalecanymi listami dozwolonych.
 
-1. Aby edytować i monitorować grupę, dla której skonfigurowano zasady listy dozwolonych aplikacji, Wróć do strony **adaptacyjne kontrolki aplikacji** i wybierz pozycję **skonfigurowane** w obszarze **grupy maszyn wirtualnych**:
+   ![Karta zalecana](./media/security-center-adaptive-application/adaptive-application-recommended-tab.png)
 
-   ![Grupy](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
+1. Wybierz grupę. 
 
-   Lista zawiera następujące pozycje:
+1. Aby skonfigurować nową regułę, Przejrzyj różne sekcje tej strony **Konfigurowanie reguł kontroli aplikacji** oraz zawartość, która będzie unikatowa dla tej konkretnej grupy maszyn:
 
-   - **Nazwa grupy**: Nazwa subskrypcji i grupy
-   - **Maszyny wirtualne i komputery**: liczba maszyn wirtualnych w grupie
-   - **Tryb**: w trybie inspekcji będą rejestrowane próby uruchomienia aplikacji, które nie znajdują się na liście dozwolonych. Wymuś, że aplikacje nie będą działać, chyba że znajdują się na liście dozwolonych
-   - **Alerty**: wszystkie bieżące naruszenia
+   ![Skonfiguruj nową regułę](./media/security-center-adaptive-application/adaptive-application-create-rule.png)
 
-2. Kliknij grupę, aby wprowadzić zmiany na stronie **Edytowanie zasad kontroli aplikacji** .
+   1. **Wybierz pozycję Maszyny** — domyślnie zaznaczone są wszystkie komputery w określonej grupie. Usuń zaznaczenie dowolnego, aby usunąć je z tej reguły.
+   
+   1. **Zalecane aplikacje** — Przejrzyj tę listę aplikacji, które są wspólne dla maszyn w ramach tej grupy, i zaleca się ich uruchomienie.
+   
+   1. **Więcej aplikacji** — Przejrzyj tę listę aplikacji, które są rzadziej widoczne na maszynach w ramach tej grupy lub są znane jako możliwe do wykorzystania. Ikona ostrzeżenia wskazuje, że dana aplikacja może być używana przez osobę atakującą do obejścia listy dozwolonych aplikacji. Zalecamy dokładne zapoznanie się z tymi aplikacjami.
 
-   ![Ochrona](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
+      > [!TIP]
+      > Obie listy aplikacji obejmują opcję ograniczenia określonej aplikacji do określonych użytkowników. Jeśli to możliwe, należy zastosować zasadę najniższych uprawnień.
+      > 
+      > Aplikacje są definiowane przez wydawców, jeśli aplikacja nie ma informacji o wydawcy (bez znaku), tworzona jest reguła ścieżki dla pełnej ścieżki konkretnej aplikacji.
 
-3. W obszarze **Tryb ochrony** do wyboru są następujące opcje:
+   1. Aby zastosować regułę, wybierz pozycję **Inspekcja**. 
 
-   - **Inspekcja**: w tym trybie rozwiązanie sterowania aplikacjami nie będzie wymuszać reguł, a jedynie prowadzić inspekcję działań na chronionych maszynach wirtualnych. Jest to zalecane w scenariuszach, w których trzeba najpierw przyjrzeć się ogólnym zachowaniom, zanim zablokuje się uruchamianie aplikacji na docelowej maszynie wirtualnej.
-   - **Wymuszanie**: w tym trybie rozwiązanie sterowania aplikacjami będzie wymuszać reguły, a aplikacje, które nie powinny być uruchamiane, będą blokowane.
 
-   > [!NOTE]
-   > -  Tryb **wymuszania** ochrony jest wyłączony do momentu dalszej uwagi.
-   > - Jak wcześniej wspomniano, domyślnie nowe zasady sterowania aplikacjami są zawsze skonfigurowane w trybie *inspekcji*. 
+
+
+## <a name="editing-a-groups-adaptive-application-controls-rule"></a>Edytowanie reguły adaptacyjnych kontrolek aplikacji grupy
+
+Możesz zdecydować się na edycję listy dozwolonych dla grupy komputerów ze względu na znane zmiany w organizacji. 
+
+Aby edytować reguły dla grupy komputerów:
+
+1. Z menu Security Center wybierz pozycję **adaptacyjne kontrolki aplikacji**.
+
+1. Na **skonfigurowanej** karcie Wybierz grupę z regułą, którą chcesz edytować.
+
+1. Zapoznaj się z różnymi sekcjami strony **Konfigurowanie reguł kontroli aplikacji** zgodnie z opisem w temacie [Włączanie adaptacyjnych kontroli aplikacji w grupie komputerów](#enable-application-controls-on-a-group-of-machines).
+
+1. Opcjonalnie dodaj co najmniej jedną regułę niestandardową:
+
+   1. Wybierz pozycję **Dodaj regułę**.
+
+      ![Dodawanie reguły niestandardowej](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
+
+   1. Jeśli definiujesz znaną bezpieczną ścieżkę, Zmień **Typ reguły** na "Path". W ścieżce można uwzględnić symbole wieloznaczne.
+   
+      > [!TIP]
+      > Niektóre scenariusze, w których mogą być przydatne symbole wieloznaczne w ścieżce:
+      > 
+      > * Użyj symbolu wieloznacznego na końcu ścieżki, aby zezwolić na wszystkie pliki wykonywalne w tym folderze i podfolderach.
+      > * Użycie symbolu wieloznacznego w środku ścieżki w celu włączenia znanej nazwy pliku wykonywalnego ze zmianą nazwy folderu (na przykład folderów osobistych użytkownika zawierających znane pliki wykonywalne, automatycznie wygenerowane nazwy folderów itp.).
+  
+   1. Zdefiniuj dozwolonych użytkowników i chronione typy plików.
+
+   1. Po zakończeniu definiowania reguły wybierz pozycję **Dodaj**.
+
+1. Aby zastosować zmiany, wybierz pozycję **Zapisz**.
+
+
+
+
+## <a name="responding-to-the-allowlist-rules-in-your-adaptive-application-control-policy-should-be-updated-recommendation"></a>Należy zaktualizować zalecenia dotyczące "reguł dozwolonych w ramach adaptacyjnych zasad kontroli aplikacji".
+
+To zalecenie zostanie wyświetlone, gdy Security Center Uczenie maszynowe będzie identyfikować potencjalnie wiarygodne zachowanie, które nie było wcześniej dozwolone. Zalecenie sugeruje nowe reguły dla istniejących definicji w celu zmniejszenia liczby fałszywych alertów pozytywnych.
+
+Aby skorygować problemy:
+
+1. Na stronie zalecenia wybierz **reguły dozwolonychymi w ramach adaptacyjnych zasad kontroli aplikacji należy zaktualizować** zalecenia, aby zobaczyć grupy z nowo określonymi, potencjalnie uprawnionym zachowaniem.
+
+1. Wybierz grupę z regułą, którą chcesz edytować.
+
+1. Zapoznaj się z różnymi sekcjami strony **Konfigurowanie reguł kontroli aplikacji** zgodnie z opisem w temacie [Włączanie adaptacyjnych kontroli aplikacji w grupie komputerów](#enable-application-controls-on-a-group-of-machines).
+
+1. Aby zastosować zmiany, wybierz pozycję **Inspekcja**.
+
+
+
+
+## <a name="auditing-alerts-and-violations"></a>Inspekcja alertów i naruszeń
+
+1. Z menu Security Center wybierz pozycję **adaptacyjne kontrolki aplikacji**.
+
+1. Aby wyświetlić grupy z maszynami, które mają Ostatnie alerty, przejrzyj grupy wymienione na karcie **skonfigurowane** .
+
+1. Aby dokładniej zbadać, wybierz grupę.
+
+   ![Ostatnie alerty](./media/security-center-adaptive-application/recent-alerts.png)
+
+1. Aby uzyskać więcej szczegółów, a także listę maszyn, których to dotyczy, wybierz alert.
+
+
+
+## <a name="move-a-machine-from-one-group-to-another"></a>Przenoszenie maszyny z jednej grupy do innej
+
+Po przeniesieniu maszyny z jednej grupy do innej zasady kontroli aplikacji zastosowane do niej zmieniają ustawienia grupy, do której została przeniesiona. Możesz również przenieść maszynę ze skonfigurowanej grupy do grupy, która nie jest skonfigurowana. spowoduje to usunięcie wszystkich reguł kontroli aplikacji, które zostały zastosowane do maszyny.
+
+1. Na stronie **adaptacyjne kontrolki aplikacji** na **skonfigurowanej** karcie Wybierz grupę zawierającą maszynę, która ma zostać przeniesiona.
+
+1. Otwórz listę **skonfigurowanych maszyn**.
+
+1. Otwórz menu maszyny z trzech kropek na końcu wiersza, a następnie wybierz pozycję **Przenieś**. Zostanie otwarte okienko **Przenieś maszynę do innej grupy** .
+
+1. Wybierz grupę docelową, a następnie wybierz pozycję **Przenieś maszynę**.
+
+1. Aby zapisać zmiany, wybierz pozycję **Zapisz**.
+
+
+
+
+
+## <a name="managing-application-controls-via-the-rest-api"></a>Zarządzanie kontrolkami aplikacji za pośrednictwem interfejsu API REST 
+
+Aby zarządzać adaptacyjnymi kontrolkami aplikacji programowo, użyj naszego interfejsu API REST. 
+
+Pełna dokumentacja interfejsu API jest dostępna [tutaj](https://docs.microsoft.com/rest/api/securitycenter/adaptiveapplicationcontrols).
+
+Niektóre funkcje, które są dostępne w interfejsie API REST:
+
+* **Lista** pobiera wszystkie zalecenia dotyczące grupy i zawiera kod JSON z obiektem dla każdej grupy.
+
+* **Pobierz** plik JSON z pełnymi danymi rekomendacji (czyli listą maszyn, regułami wydawcy/ścieżki itd.).
+
+* **Put** konfiguruje regułę (Użyj pliku JSON pobranego z opcją **Get** jako treść dla tego żądania).
+ 
+   > [!IMPORTANT]
+   > Funkcja **Put** oczekuje mniej parametrów niż kod JSON zwrócony przez polecenie Get zawiera.
    >
+   > Przed użyciem kodu JSON w żądaniu Put należy usunąć następujące właściwości: recommendationStatus, configurationStatus, Issues, Location i sourceSystem.
 
-4. W obszarze **rozszerzenie zasad**Dodaj dowolną ścieżkę aplikacji, którą chcesz zezwolić. Po dodaniu tych ścieżek Security Center aktualizuje zasady listy dozwolonych aplikacji na maszynach wirtualnych w ramach wybranej grupy maszyn wirtualnych i tworzy odpowiednie reguły dla tych aplikacji, a także reguły, które już istnieją.
 
-5. Zapoznaj się z bieżącymi naruszeniami wymienionymi w sekcji **Ostatnie alerty** . Kliknij każdy wiersz, który ma zostać przekierowany do strony **alerty** w Azure Security Center i Wyświetl wszystkie alerty wykryte przez Azure Security Center na skojarzonych maszynach wirtualnych.
-   - **Alerty**: wszystkie naruszenia, które zostały zarejestrowane.
-   - **Nie. z maszyn**wirtualnych: liczba maszyn wirtualnych z tym typem alertu.
 
-6. W obszarze reguły **listy dozwolonych wydawcy**, **ścieżki listy dozwolonych reguły**i **reguły listy dozwolonych skrótu** można zobaczyć, które reguły listy dozwolonych aplikacji są obecnie skonfigurowane na maszynach wirtualnych w grupie, zgodnie z typem kolekcji reguł. Dla każdej reguły można zobaczyć:
-
-   - **Reguła**: konkretne parametry, zgodnie z którymi aplikacja jest kontrolowana przez funkcję AppLocker, aby określić, czy aplikacja może być uruchamiana.
-   - **Typ pliku**: typy plików objęte określoną regułą. Może to być dowolny z następujących elementów: EXE, Script, MSI lub dowolne permutacje tego typu plików.
-   - **Użytkownicy**: nazwa lub liczba użytkowników, którzy mogą uruchamiać aplikację objętą regułą listy dozwolonych aplikacji.
-
-   ![Reguły umieszczania na liście dozwolonych](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
-
-7. Kliknij trzy kropki na końcu każdego wiersza, jeśli chcesz usunąć konkretną regułę lub edytować uprawnionych użytkowników.
-
-8. Po wprowadzeniu zmian w zasadach **adaptacyjnych kontroli aplikacji** kliknij przycisk **Zapisz**.
-
-### <a name="not-recommended-list"></a>Lista bez zaleceń
-
-Security Center zaleca się tylko zasady listy dozwolonych aplikacji dla maszyn wirtualnych z stabilnym zestawem aplikacji. Zalecenia nie są tworzone w przypadku ciągłych zmian aplikacji na skojarzonych maszynach wirtualnych.
-
-![Zalecenie](./media/security-center-adaptive-application/security-center-adaptive-application-fig11.png)
-
-Lista zawiera:
-- **Nazwa grupy**: Nazwa subskrypcji i grupy
-- **Maszyny wirtualne i komputery**: liczba maszyn wirtualnych w grupie
-
-Azure Security Center umożliwia zdefiniowanie zasad listy dozwolonych aplikacji dla niezalecanych grup maszyn wirtualnych. Postępuj zgodnie z tymi samymi zasadami, które zostały wcześniej opisane, aby skonfigurować zasady listy dozwolonych aplikacji również dla tych grup.
-
-## <a name="move-a-vm-from-one-group-to-another"></a>Przenoszenie maszyny wirtualnej z jednej grupy do innej
-
- Po przeniesieniu maszyny wirtualnej z jednej grupy do drugiej zasady kontroli aplikacji zastosowane do niej zmieniają ustawienia grupy, do której została przeniesiona. Możesz również przenieść maszynę wirtualną ze skonfigurowanej grupy do grupy, która nie jest skonfigurowana, co spowoduje usunięcie wszystkich zasad kontroli aplikacji, które zostały wcześniej zastosowane do maszyny wirtualnej.
-
- 1. Na stronie **adaptacyjne kontrolki aplikacji** na karcie **skonfigurowany** kliknij grupę, do której należy obecnie przenieść maszynę wirtualną.
-1. Kliknij pozycję **skonfigurowane maszyny wirtualne i komputery**.
-1. Kliknij trzy kropki w wierszu maszyny wirtualnej, aby przenieść, a następnie kliknij przycisk **Przenieś**. Zostanie otwarte okno **Przenieś komputer do innej grupy** .
-
-    ![Ochrona](./media/security-center-adaptive-application/adaptive-application-move-group.png)
-
- 1. Wybierz grupę, do której chcesz przenieść maszynę wirtualną, a następnie kliknij pozycję **Przenieś komputer**, a następnie kliknij przycisk **Zapisz**.
-
-    ![Ochrona](./media/security-center-adaptive-application/adaptive-application-move-group2.png)
-
- > [!NOTE]
-> Pamiętaj, aby kliknąć przycisk **Zapisz** po kliknięciu pozycji **Przenieś komputer**. Jeśli nie klikniesz przycisku **Zapisz**, komputer nie zostanie przeniesiony.
 
 ## <a name="next-steps"></a>Następne kroki
-W tym dokumencie przedstawiono sposób korzystania z adaptacyjnej kontroli aplikacji w Azure Security Center, aby dozwolonych aplikacje działające na platformie Azure i maszynach wirtualnych spoza platformy Azure. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń Azure, zobacz następujące artykuły:
+W tym dokumencie przedstawiono sposób korzystania z adaptacyjnej kontroli aplikacji w Azure Security Center, aby zdefiniować listę dozwolonych aplikacji uruchomionych na maszynach na platformie Azure i poza platformą Azure. Aby dowiedzieć się więcej na temat innych funkcji ochrony obciążeń w chmurze Security Center, zobacz:
 
-* [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w usłudze Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Dowiedz się, jak zarządzać alertami i reagować na zdarzenia związane z bezpieczeństwem w usłudze Security Center.
-* [Monitorowanie kondycji zabezpieczeń w Azure Security Center](security-center-monitoring.md). Informacje na temat sposobu monitorowania kondycji zasobów platformy Azure.
-* [Informacje o alertach zabezpieczeń w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Poznaj różne typy alertów zabezpieczeń.
-* [Azure Security Center Przewodnik rozwiązywania problemów](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Dowiedz się, jak rozwiązywać typowe problemy z usługą Security Center.
-* [Blog dotyczący zabezpieczeń platformy Azure](https://blogs.msdn.com/b/azuresecurity/). Wpisy na blogu dotyczące zabezpieczeń i zgodności platformy Azure.
+* [Zrozumienie dostępu do maszyny wirtualnej just-in-Time (JIT)](just-in-time-explained.md)
+* [Zabezpieczanie klastrów usługi Azure Kubernetes](azure-kubernetes-service-integration.md)

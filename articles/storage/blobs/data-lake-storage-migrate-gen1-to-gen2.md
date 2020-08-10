@@ -1,6 +1,6 @@
 ---
 title: Migrowanie Azure Data Lake Storage z Gen1 do Gen2
-description: Przeprowadź migrację Azure Data Lake Storage z Gen1 do Gen2.
+description: Przeprowadź migrację Azure Data Lake Storage z Gen1 do Gen2, która jest oparta na usłudze Azure Blob Storage i oferuje zestaw funkcji przeznaczonych do analizy danych Big Data.
 author: normesta
 ms.topic: how-to
 ms.author: normesta
@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 2cfe5f763b3dedd68c5180f5a0a3c7a3f4ea3e93
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 25879178930c80f1265470645808d9ee81acafa8
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496427"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035131"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrowanie Azure Data Lake Storage z Gen1 do Gen2
 

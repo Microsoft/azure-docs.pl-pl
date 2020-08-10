@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/20/2019
+ms.date: 08/07/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 6f1beea12b33dcc3c0111e26d79daf096c1eedcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0d442624448cfe48fdd9ab426147599acbb940d
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808428"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034729"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>Tworzenie sygnatury dostępu współdzielonego usługi dla kontenera lub obiektu BLOB przy użyciu platformy .NET
 
@@ -25,9 +25,17 @@ W tym artykule pokazano, jak za pomocą klucza konta magazynu utworzyć sygnatur
 
 ## <a name="create-a-service-sas-for-a-blob-container"></a>Tworzenie sygnatury dostępu współdzielonego usługi dla kontenera obiektów BLOB
 
-Aby utworzyć sygnaturę dostępu współdzielonego usługi dla kontenera, wywołaj metodę [CloudBlobContainer. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getsharedaccesssignature) .
+Poniższy przykład kodu tworzy sygnaturę dostępu współdzielonego dla kontenera. Jeśli zostanie podana nazwa istniejących zasad dostępu, te zasady są skojarzone ze skojarzonymi ze standardami SAS. Jeśli nie podano żadnych przechowywanych zasad dostępu, kod tworzy skojarzenie wielodostępne ad hoc w kontenerze.
 
-Poniższy przykład kodu tworzy sygnaturę dostępu współdzielonego w kontenerze. Jeśli zostanie podana nazwa istniejących zasad dostępu, te zasady są skojarzone ze skojarzonymi ze standardami SAS. Jeśli nie podano żadnych przechowywanych zasad dostępu, kod tworzy skojarzenie wielodostępne ad hoc w kontenerze.
+### <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
+
+Utwórz nowy [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder). Następnie Wywołaj [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) , aby uzyskać ciąg tokenu sygnatury dostępu współdzielonego. 
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetContainerSasUri":::
+
+### <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
+
+Aby utworzyć sygnaturę dostępu współdzielonego usługi dla kontenera, wywołaj metodę [CloudBlobContainer. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getsharedaccesssignature) .
 
 ```csharp
 private static string GetContainerSasUri(CloudBlobContainer container, string storedPolicyName = null)
@@ -67,13 +75,23 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
     // Return the URI string for the container, including the SAS token.
     return container.Uri + sasContainerToken;
 }
+
 ```
+---
 
 ## <a name="create-a-service-sas-for-a-blob"></a>Tworzenie sygnatury dostępu współdzielonego usługi dla obiektu BLOB
 
-Aby utworzyć sygnaturę dostępu współdzielonego usługi dla obiektu BLOB, wywołaj metodę [polecenia cloudblob. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) .
-
 Poniższy przykład kodu tworzy sygnaturę dostępu współdzielonego dla obiektu BLOB. Jeśli zostanie podana nazwa istniejących zasad dostępu, te zasady są skojarzone ze skojarzonymi ze standardami SAS. Jeśli nie podano żadnych przechowywanych zasad dostępu, kod tworzy w obiekcie blob ad hoc SAS.
+
+### <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
+
+Utwórz nowy [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder). Następnie Wywołaj [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) , aby uzyskać ciąg tokenu sygnatury dostępu współdzielonego. 
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetBlobSasUri":::
+
+### <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
+
+Aby utworzyć sygnaturę dostępu współdzielonego usługi dla obiektu BLOB, wywołaj metodę [polecenia cloudblob. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) .
 
 ```csharp
 private static string GetBlobSasUri(CloudBlobContainer container, string blobName, string policyName = null)
@@ -117,6 +135,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
     return blob.Uri + sasBlobToken;
 }
 ```
+---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 

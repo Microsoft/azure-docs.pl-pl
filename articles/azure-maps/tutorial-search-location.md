@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: wyszukiwanie lokalizacji w pobliżu mapy | Mapy Microsoft Azure'
-description: W tym samouczku dowiesz się, jak wyszukiwać punkty orientacyjne na mapie przy użyciu Microsoft Azure Maps.
+description: Dowiedz się, jak wyszukiwać punkty orientacyjne na mapie. Zobacz, jak używać zestawu SDK sieci Web Azure Maps, aby dodawać możliwości wyszukiwania i interaktywne okna podręczne do mapy.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 1/15/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 4e16c4e88d749f6dbc4f6271a7ceaf77661a208c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8dc430febb25283ab5bd32496bb2f71ba19c895b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281535"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035862"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Samouczek: Wyszukiwanie punktów orientacyjnych w pobliżu za pomocą Azure Maps
 

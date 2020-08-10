@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 07/28/2020
-ms.openlocfilehash: 0adffbb9058141ea89daefc292b937841659c879
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.date: 08/07/2020
+ms.openlocfilehash: 8d27594b33db72303c71ceb39de92b1d4340b9be
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798073"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037273"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Tworzenie oferty maszyny wirtualnej platformy Azure w witrynie Azure Marketplace
 
@@ -31,7 +31,7 @@ Po opublikowaniu ofert w witrynie Azure Marketplace można:
 - Uzyskuj wysokiej jakości potencjalni klienci z tych rynków.
 - Zyskaj swoje usługi przez zespoły ds. sprzedaży i telesprzedaży firmy Microsoft.
 
-### <a name="before-you-begin"></a>Przed rozpoczęciem
+### <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Jeśli jeszcze tego nie zrobiono, zapoznaj się z [przewodnikiem publikowania oferty maszyn wirtualnych](../marketplace-virtual-machines.md) i tym materiałem maszyny wirtualnej platformy Azure:
 
@@ -242,20 +242,23 @@ Podaj informacje kontaktowe firmy Microsoft, które mają być używane w przypa
 
 Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy muszą mieć format PNG. Nierozmyte obrazy spowodują odrzucenie zgłoszenia.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >Jeśli występuje problem z przekazywaniem plików, należy się upewnić, że sieć lokalna nie blokuje https://upload.xboxlive.com usługi używanej przez centrum partnerskie.
 
-#### <a name="store-logos"></a>Logo sklepu
+#### <a name="azure-marketplace-logos"></a>Logo portalu Azure Marketplace
 
-Podaj plik PNG dla logo o **dużym** rozmiarze (od 216 x 216 do 350 x 350 pikseli). Centrum partnerskie będzie używać tego do tworzenia **małych** (48 x 48 pikseli) i **średniego** rozmiaru logo (90 x 90 pikseli). Opcjonalnie można zastąpić je różnymi obrazami.
+Podaj pliki PNG logo oferty o następujących czterech wymiarach obrazu:
 
-Wszystkie trzy rozmiary logo są wymagane do użycia w różnych miejscach na liście:
+- **Mały** (48 &times; 48 pikseli)
+- **Średni** (90 &times; 90 pikseli)
+- **Duże** (216 &times; 216 pikseli)
+- **Szerokie** (255 &times; 115 pikseli)
 
-- **Mały** (48 x 48)
-- **Średni** (90 x 90)
-- **Duże** (od 216 x 216 do 350 x 350)
+Wszystkie cztery logo są wymagane i są wyświetlane w różnych aukcjach portalu Azure Marketplace.
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### <a name="screenshots"></a>Zrzuty ekranu
 
@@ -313,7 +316,7 @@ W polu **identyfikator planu** Utwórz unikatowy identyfikator planu dla każdeg
 
 W polu **Nazwa planu** wprowadź nazwę dla tego planu. Klienci widzą tę nazwę podczas wybierania planu do wyboru w ramach oferty. Utwórz unikatową nazwę, która jasno wskazuje różnice między planami. Na przykład możesz wprowadzić **system Windows Server** z opcją *płatność zgodnie z rzeczywistym*użyciem, *BYOL*, *zaawansowanym*i planem *przedsiębiorstwa* .
 
-Wybierz przycisk **Utwórz**.
+Wybierz pozycję **Utwórz**.
 
 ### <a name="plan-setup"></a>Konfigurowanie planu
 

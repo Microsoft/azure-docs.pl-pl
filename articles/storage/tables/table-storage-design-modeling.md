@@ -1,6 +1,6 @@
 ---
 title: Relacje modelowania w projekcie usługi Azure Table Storage | Microsoft Docs
-description: Zapoznaj się z procesem modelowania podczas projektowania rozwiązania do magazynowania tabel.
+description: Zapoznaj się z procesem modelowania podczas projektowania rozwiązania Azure Table Storage. Zapoznaj się z relacjami "jeden do wielu", jeden-do-jednego i dziedziczenie.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 25082c107fbc0feeb533aa2b4fc56cff960e778d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c803a7b11aee3d57d6145bed296bd40ddd9bb5e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75457567"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036049"
 ---
 # <a name="modeling-relationships"></a>Modelowanie relacji
 W tym artykule omówiono proces modelowania ułatwiający projektowanie rozwiązań usługi Azure Table Storage.

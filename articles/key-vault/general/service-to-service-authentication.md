@@ -5,21 +5,21 @@ keywords: poświadczenia lokalne uwierzytelniania magazynu kluczy Azure
 author: msmbaldwin
 services: key-vault
 ms.author: mbaldwin
-ms.date: 06/30/2020
+ms.date: 08/08/2020
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: 6edb6f026f3062dfb2beafd863cf090519f6b66a
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: d48e9ac71ba12ecd2eaadb8ba333f5440c68af4b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875987"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034791"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Uwierzytelnianie między usługami Azure Key Vault przy użyciu platformy .NET
 
 > [!NOTE]
-> **Microsoft. Azure. Services. AppAuthentication** nie jest już zalecane do użycia z nowym zestawem SDK Key Vault. Jest on zastępowany WIT nową biblioteką usługi Azure Identity **DefaultAzureCredentials** dostępną dla środowisk .NET, Java, TypeScript i Python i należy używać jej w przypadku wszystkich nowych rozwiązań programistycznych. Więcej informacji można znaleźć tutaj: [uwierzytelnianie i zestaw Azure SDK](https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html).
+> **Microsoft. Azure. Services. AppAuthentication** nie jest już zalecane do użycia z nowym zestawem SDK Key Vault. Jest on zastępowany WIT nową biblioteką usługi Azure Identity **DefaultAzureCredentials** dostępną dla środowisk .NET, Java, TypeScript i Python i należy używać jej w przypadku wszystkich nowych rozwiązań programistycznych. Więcej informacji można znaleźć tutaj: [uwierzytelnianie i zestaw Azure SDK](https://devblogs.microsoft.com/azure-sdk/authentication-and-the-azure-sdk/).
 
 Aby uwierzytelnić się w Azure Key Vault, musisz mieć poświadczenia Azure Active Directory (Azure AD), wspólny klucz tajny lub certyfikat.
 

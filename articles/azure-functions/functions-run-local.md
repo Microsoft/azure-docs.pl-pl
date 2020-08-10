@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: ae83d8f68b78a3b13f9ebafe3c7cedd18a29de53
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 5c6761b083200556314d7133d5040f7811066e30
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449127"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037035"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Korzystanie z narzędzi Azure Functions Core Tools
 
@@ -205,7 +205,23 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 > [!IMPORTANT]
 > Domyślnie wersja 2. x i nowsze wersje podstawowych narzędzi tworzy projekty aplikacji funkcji dla środowiska uruchomieniowego .NET jako [projekty klas C#](functions-dotnet-class-library.md) (. csproj). Te projekty w języku C#, które mogą być używane z programem Visual Studio lub Visual Studio Code, są kompilowane podczas testowania i podczas publikowania na platformie Azure. Jeśli zamiast tego chcesz utworzyć i korzystać z tych samych plików skryptu C# (. CSX) utworzonych w wersji 1. x i w portalu, musisz uwzględnić `--csx` parametr podczas tworzenia i wdrażania funkcji.
 
-[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+## <a name="register-extensions"></a>Rejestrowanie rozszerzeń
+
+Z wyjątkiem wyzwalaczy HTTP i Timer, powiązania funkcji w środowisku uruchomieniowym w wersji 2. x i nowszych są implementowane jako pakiety rozszerzeń. Powiązania HTTP i wyzwalacze czasomierza nie wymagają rozszerzeń. 
+
+Aby zmniejszyć niezgodności między różnymi pakietami rozszerzeń, funkcje umożliwiają odwołanie do pakietu rozszerzenia w host.jsw pliku projektu. Jeśli zdecydujesz się nie używać pakietów rozszerzeń, musisz również zainstalować lokalnie zestaw .NET Core 2. x SDK i zachować rozszerzenia. csproj z projektem funkcji.  
+
+W wersji 2. x i większej niż środowisko uruchomieniowe Azure Functions należy jawnie zarejestrować rozszerzenia dla typów powiązań używanych w funkcjach. Można wybrać opcję instalacji rozszerzeń powiązań pojedynczo lub dodać odwołanie do pakietu rozszerzenia do host.jsw pliku projektu. Pakiety rozszerzeń usuwają prawdopodobieństwo problemów ze zgodnością pakietu w przypadku korzystania z wielu typów powiązań. Jest to zalecane podejście do rejestrowania rozszerzeń powiązań. Pakiety rozszerzeń również usuwają wymagania dotyczące instalowania zestawu SDK programu .NET Core 2. x. 
+
+### <a name="use-extension-bundles"></a>Użyj pakietów rozszerzeń
+
+[!INCLUDE [Register extensions](../../includes/functions-extension-bundles.md)]
+
+Aby dowiedzieć się więcej, zobacz [Rejestrowanie rozszerzeń powiązań Azure Functions](functions-bindings-register.md#extension-bundles). Przed dodaniem powiązań do function.jsw pliku należy dodać pakiety rozszerzeń do host.js.
+
+### <a name="explicitly-install-extensions"></a>Jawne Instalowanie rozszerzeń
+
+[!INCLUDE [functions-extension-register-core-tools](../../includes/functions-extension-register-core-tools.md)]
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
@@ -512,7 +528,7 @@ Następujące opcje publikowania są obsługiwane tylko dla wersji 2. x i nowszy
 | **`--nozip`** | Wyłącza tryb domyślny `Run-From-Package` . |
 | **`--build-native-deps`** | Pomija generowanie folderu. kół podczas publikowania aplikacji funkcji języka Python. |
 | **`--build`**, **`-b`** | Wykonuje akcję kompilacji podczas wdrażania w aplikacji funkcji systemu Linux. Akceptuje: `remote` i `local` . |
-| **`--additional-packages`** | Lista pakietów do zainstalowania podczas kompilowania natywnych zależności. Przykład: `python3-dev libevent-dev`. |
+| **`--additional-packages`** | Lista pakietów do zainstalowania podczas kompilowania natywnych zależności. Na przykład: `python3-dev libevent-dev`. |
 | **`--force`** | Ignoruj weryfikację przed publikacją w określonych scenariuszach. |
 | **`--csx`** | Opublikuj projekt skryptu C# (. CSX). |
 | **`--no-build`** | Projekt nie został skompilowany podczas publikowania. Dla języka Python `pip install` nie jest wykonywane. |

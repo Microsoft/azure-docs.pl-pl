@@ -1,6 +1,6 @@
 ---
 title: Wskazówki dotyczące projektowania tabeli usługi Azure Storage | Microsoft Docs
-description: Zaprojektuj usługę tabel platformy Azure w celu wydajnego obsługi operacji odczytu.
+description: Poznaj wskazówki dotyczące projektowania usługi tabel usługi Azure Storage w celu wydajnej obsługi operacji odczytu i zapisu.
 services: storage
 author: SnehaGunda
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: d056d29469ad9a60fceeee307aca3c0e1319283c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5671cc71683061becbdbbce5d855e55cbaa7c595
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61269851"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035403"
 ---
 # <a name="guidelines-for-table-design"></a>Wytyczne dotyczące projektu tabel
 

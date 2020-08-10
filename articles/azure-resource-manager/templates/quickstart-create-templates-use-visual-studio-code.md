@@ -2,15 +2,15 @@
 title: Utwórz szablon — Visual Studio Code
 description: Program Visual Studio Code i rozszerzenie Narzędzia usługi Azure Resource Manager służą do pracy z szablonami usługi Resource Manager.
 author: neilpeterson
-ms.date: 04/17/2020
+ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: 06e7d3f291d32cecdcbf4d1f22ff9976d8970109
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5375fedcd05aefa5d23ee872325373ce631d43bb
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040525"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034989"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Szybki Start: Tworzenie szablonów Azure Resource Manager przy użyciu Visual Studio Code
 
@@ -26,7 +26,7 @@ Utwórz i Otwórz przy użyciu Visual Studio Code nowy plik o nazwie *azuredeplo
 
 Wybierz `arm!` , aby utworzyć szablon dla wdrożenia grupy zasobów platformy Azure.
 
-![Obraz przedstawiający tworzenie szkieletów Azure Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/1.png)
+![Obraz przedstawiający fragmenty kodu Azure Resource Manager tworzenia szkieletów](./media/quickstart-create-templates-use-visual-studio-code/1.png)
 
 Ten fragment kodu tworzy podstawowe bloki konstrukcyjne dla szablonu ARM.
 
@@ -68,7 +68,7 @@ Aby skorzystać z możliwości ukończenia, Usuń `megaStorage` , umieść kurso
 
 Teraz Utwórz i użyj parametru, aby określić nazwę konta magazynu.
 
-Umieść kursor w bloku parametry, Dodaj znak powrotu karetki, wpisz `par` , a następnie wybierz `arm-param-value` fragment kodu. Ta akcja dodaje parametr generyczny do szablonu.
+Umieść kursor w bloku parametry, Dodaj znak powrotu karetki, wpisz `"` , a następnie wybierz `new-parameter` fragment kodu. Ta akcja dodaje parametr generyczny do szablonu.
 
 ![Obraz przedstawiający parametr dodawany do szablonu ARM](./media/quickstart-create-templates-use-visual-studio-code/9.png)
 
@@ -114,7 +114,7 @@ Wróć do szablonu ARM i zwróć uwagę, że został zgłoszony błąd wskazują
 
 Zaktualizuj wartość do odpowiedniej wartości, Zapisz plik i przejdź z powrotem do szablonu. Zwróć uwagę, że błąd w parametrze został rozwiązany.
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 Otwórz Visual Studio Code terminalu zintegrowanego przy użyciu `ctrl`  +  ```` ` ```` kombinacji klawiszy, a następnie wdróż szablon przy użyciu interfejsu wiersza polecenia platformy Azure lub modułu Azure PowerShell.
 
