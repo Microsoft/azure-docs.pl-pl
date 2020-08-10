@@ -5,14 +5,14 @@ author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 08/04/2020
 ms.author: banders
-ms.openlocfilehash: 3f124e94398e53e3ab8ff7eb4b054d252129128b
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 437344d1a0e3cc1178c21efb4bfa26f192d23e5c
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987002"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760043"
 ---
 # <a name="what-are-azure-reservations"></a>Co to jest Azure Reservations?
 
@@ -20,7 +20,7 @@ Rezerwacje platformy Azure pomagają zaoszczędzić pieniądze dzięki rocznym l
 
 Za rezerwację można zapłacić z góry lub w miesięcznych ratach. Łączny koszt rezerwacji w przypadku płatności z góry i miesięcznych rat jest taki sam, a wybór płatności miesięcznych nie pociąga za sobą dodatkowych opłat. Opcja płatności miesięcznych jest dostępna w przypadku rezerwacji platformy Azure, a nie produktów innych firm.
 
-Rezerwację można kupić w witrynie Azure Portal pod adresem [https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+Rezerwację można kupić w witrynie [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
 ## <a name="why-buy-a-reservation"></a>Dlaczego warto kupić rezerwację?
 
