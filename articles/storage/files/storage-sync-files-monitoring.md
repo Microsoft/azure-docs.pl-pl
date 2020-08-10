@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1d7b29bbd508223888c6f205e25008c0b29fecea
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 8b2b62ac4d79964c0a597f40d8154e5f57350f0b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922938"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031085"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorowanie usługi Azure File Sync
 
@@ -81,17 +81,32 @@ Aby uzyskać instrukcje dotyczące sposobu tworzenia alertów dla tych scenarius
 
 ## <a name="storage-sync-service"></a>Usługa synchronizacji magazynu
 
-Aby wyświetlić zarejestrowane kondycje serwera, kondycja punktu końcowego serwera i metryki, przejdź do usługi synchronizacji magazynu w Azure Portal. Zarejestrowane kondycje serwera można wyświetlić w bloku **zarejestrowane serwery** i kondycja punktu końcowego serwera w bloku **grupy synchronizacji** .
+Aby wyświetlić kondycję wdrożenia Azure File Sync w **Azure Portal**, przejdź do **usługi synchronizacji magazynu** i dostępne są następujące informacje:
+
+- Zarejestrowana kondycja serwera
+- Kondycja punktu końcowego serwera
+    - Pliki, których nie należy synchronizować
+    - Działanie synchronizacji
+    - Wydajność warstw chmury
+    - Niewarstwowe pliki
+    - Błędy odwoływania
+- Metryki
 
 ### <a name="registered-server-health"></a>Zarejestrowana kondycja serwera
+
+Aby wyświetlić **stan zarejestrowanego serwera** w portalu, przejdź do sekcji **zarejestrowane serwery** **usługi synchronizacji magazynu**.
 
 - Jeśli **zarejestrowany stan serwera** jest w **trybie online**, serwer pomyślnie komunikuje się z usługą.
 - Jeśli **zarejestrowany stan serwera** jest **wyświetlany w trybie offline**, proces monitora synchronizacji magazynu (AzureStorageSyncMonitor.exe) nie jest uruchomiony lub serwer nie może uzyskać dostępu do usługi Azure File Sync. Wskazówki można znaleźć w dokumentacji dotyczącej [rozwiązywania problemów](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity) .
 
 ### <a name="server-endpoint-health"></a>Kondycja punktu końcowego serwera
 
-- Kondycja punktu końcowego serwera w portalu jest oparta na zdarzeniach synchronizacji, które są rejestrowane w dzienniku zdarzeń telemetrii na serwerze (identyfikator 9102 i 9302). Jeśli sesja synchronizacji kończy się niepowodzeniem z powodu błędu przejściowego, takiego jak błąd anulowany, synchronizacja może nadal wyglądać w dobrej kondycji w portalu, o ile bieżąca sesja synchronizacji jest w toku. Identyfikator zdarzenia 9302 służy do określenia, czy pliki są stosowane. Aby uzyskać więcej informacji, zobacz [kondycja synchronizacji](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) i [postęp synchronizacji](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
-- Jeśli w portalu jest wyświetlany komunikat o błędzie synchronizacji, ponieważ synchronizacja nie trwa, zapoznaj się ze wskazówkami dotyczącymi [rozwiązywania problemów](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) .
+Aby wyświetlić kondycję **punktu końcowego serwera** w portalu, przejdź do sekcji **synchronizowanie grup** **usługi synchronizacji magazynu** i wybierz **grupę synchronizacji**.
+
+- **Działanie** **kondycji punktu końcowego serwera** w portalu jest oparte na zdarzeniach synchronizacji, które są rejestrowane w dzienniku zdarzeń telemetrii na serwerze (identyfikator 9102 i 9302). Jeśli sesja synchronizacji kończy się niepowodzeniem z powodu błędu przejściowego, takiego jak błąd anulowany, synchronizacja będzie nadal wyświetlana jako dobra kondycja w portalu, dopóki bieżąca sesja synchronizacji jest w toku (pliki są stosowane). Identyfikator zdarzenia 9302 jest zdarzeniem postępu synchronizacji, a identyfikator zdarzenia 9102 jest rejestrowany po zakończeniu sesji synchronizacji.  Aby uzyskać więcej informacji, zobacz [kondycja synchronizacji](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) i [postęp synchronizacji](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). Jeśli w portalu jest wyświetlany komunikat o błędzie, ponieważ synchronizacja nie trwa, zobacz [dokumentację dotyczącą rozwiązywania problemów](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) , aby uzyskać wskazówki.
+- Liczba **synchronizowanych plików** w portalu jest oparta na identyfikatorze zdarzenia 9121, który jest rejestrowany w dzienniku zdarzeń telemetrii na serwerze. To zdarzenie jest rejestrowane dla każdego błędu poszczególnych elementów po zakończeniu sesji synchronizacji. Aby rozwiązać błędy poszczególnych elementów, zobacz [Jak mogę sprawdzić, czy istnieją określone pliki lub foldery, które nie są synchronizowane?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
+- Aby wyświetlić **wydajność obsługi warstw w chmurze** w portalu, przejdź do **właściwości punktu końcowego serwera** i przejdź do sekcji Obsługa **warstw chmury** . Dane dotyczące wydajności warstw chmury są oparte na zdarzeniu o IDENTYFIKATORze 9071, który jest rejestrowany w dzienniku zdarzeń telemetrii na serwerze. Aby dowiedzieć się więcej, zobacz [Omówienie obsługi warstw w chmurze](https://docs.microsoft.com/azure/storage/files/storage-sync-cloud-tiering).
+- Aby wyświetlić **pliki niewarstwowe** i **Błędy odwołania** w portalu, przejdź do **właściwości punktu końcowego serwera** i przejdź do sekcji Obsługa **warstw w chmurze** . **Pliki bez warstw** opierają się na identyfikatorze zdarzenia 9003, który jest rejestrowany w dzienniku zdarzeń telemetrii na serwerze, a **Błędy odwoływania** są oparte na identyfikatorze zdarzenia 9006. Aby zbadać pliki, których nie można przystąpić do warstwy lub odwołania, zobacz [Jak rozwiązywać problemy z niepowodzeniem](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) i [sposobami rozwiązywania problemów z plikami, które nie zostały wywołane](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled).
 
 ### <a name="metric-charts"></a>Wykresy metryk
 
@@ -112,13 +127,13 @@ Aby wyświetlić zarejestrowane kondycje serwera, kondycja punktu końcowego ser
 
 ## <a name="windows-server"></a>Windows Server
 
-Na serwerze z systemem Windows, na którym zainstalowano agenta Azure File Sync, można wyświetlić warstwowe usługi w chmurze, zarejestrowane serwery i kondycję synchronizacji.
+Na **serwerze z systemem Windows** , na którym jest zainstalowany agent Azure File Sync, można wyświetlić kondycję punktów końcowych serwera na tym serwerze przy użyciu **dzienników zdarzeń** i **liczników wydajności**.
 
 ### <a name="event-logs"></a>Dzienniki zdarzeń
 
 Użyj dziennika zdarzeń telemetrii na serwerze do monitorowania zarejestrowanego serwera, synchronizacji i kondycji warstw w chmurze. Dziennik zdarzeń telemetrii znajduje się w Podgląd zdarzeń w obszarze *aplikacje i Services\Microsoft\FileSync\Agent*.
 
-Kondycja synchronizacji:
+Kondycja synchronizacji
 
 - Zdarzenie o IDENTYFIKATORze 9102 jest rejestrowane po zakończeniu sesji synchronizacji. To zdarzenie służy do określenia, czy sesje synchronizacji powiodły się (**HRESULT = 0**) i czy występują błędy synchronizacji poszczególnych elementów. Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [kondycji synchronizacji](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) i [błędów poszczególnych elementów](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) .
 
@@ -129,11 +144,11 @@ Kondycja synchronizacji:
 
 - Zdarzenie o IDENTYFIKATORze 9302 jest rejestrowane co 5 – 10 minut, jeśli istnieje aktywna sesja synchronizacji. To zdarzenie służy do określenia, czy bieżąca sesja synchronizacji powoduje postęp (**AppliedItemCount > 0**). Jeśli synchronizacja nie jest w toku, sesja synchronizacji powinna ostatecznie zakończyć się niepowodzeniem, a identyfikator zdarzenia 9102 zostanie zarejestrowany z powodu błędu. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą postępu synchronizacji](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
-Zarejestrowana kondycja serwera:
+Zarejestrowana kondycja serwera
 
 - Zdarzenie o IDENTYFIKATORze 9301 jest rejestrowane co 30 sekund, gdy serwer wysyła zapytanie do usługi dla zadań. Jeśli GetNextJob zakończy się **stanem = 0**, serwer może komunikować się z usługą. Jeśli GetNextJob kończy się z błędem, zapoznaj się z [dokumentacją rozwiązywania problemów](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity) , aby uzyskać wskazówki.
 
-Kondycja warstw chmury:
+Kondycja warstw chmury
 
 - Aby monitorować aktywność warstwową na serwerze, należy użyć zdarzenia o IDENTYFIKATORze 9003, 9016 i 9029 w dzienniku zdarzeń telemetrii, który znajduje się w Podgląd zdarzeń w obszarze *aplikacje i Services\Microsoft\FileSync\Agent*.
 

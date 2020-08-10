@@ -3,12 +3,12 @@ title: Omówienie przykładu strategii obciążenia środowiska ASE/bazy danych 
 description: Omówienie i architektura przykładu strategii obciążenia środowiska App Service Environment/bazy danych SQL ISO 27001.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 71044ae1754cf4bdfc42be7b6585a1905dce426c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 76177efcac8b32907c60cecac41404a3834d0fb8
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536837"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926097"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Przegląd przykładowej strategii obciążenia środowiska App Service Environment/bazy danych SQL ISO 27001
 
@@ -28,7 +28,7 @@ Przykład strategii obciążenia środowiska App Service Environment/bazy danych
 
 To środowisko składa się z kilku usług platformy Azure, które udostępniają bezpieczną, w pełni monitorowaną infrastrukturę obciążeń z obsługą przedsiębiorstw zgodną ze standardami ISO 27001. To środowisko zawiera następujące składniki:
 
-- [Kontrola dostępu oparta na rolach](../../../../role-based-access-control/overview.md) — rola o nazwie DevOps, która ma uprawnienia do wdrażania zasobów i zarządzania nimi w [środowiskach Azure App Service Environment](../../../../app-service/environment/intro.md) wdrożonych przez przykładową strategię
+- [Rola platformy Azure](../../../../role-based-access-control/overview.md) o nazwie DevOps, która ma uprawnienia do wdrażania zasobów i zarządzania nimi w [środowiskach Azure App Service Environment](../../../../app-service/environment/intro.md) wdrożonych przez przykładową strategię
 - [Zasady platformy Azure](../../../policy/overview.md) blokujące usługi, które można wdrażać w środowisku, i odmawiające utworzenia zasobu publicznego adresu IP
 - Sieć wirtualna zawierająca jedną podsieć i połączona równorzędnie z istniejącym wcześniej środowiskiem [usług udostępnionych](../iso27001-shared/index.md), która wymusza przekazywanie całego ruchu przez zaporę [usług udostępnionych](../iso27001-shared/index.md). Sieć wirtualna hostuje następujące zasoby:
   - [Środowiska Azure App Service Environment](../../../../app-service/environment/intro.md), które umożliwiają hostowanie aplikacji internetowych, internetowych interfejsów API lub funkcji

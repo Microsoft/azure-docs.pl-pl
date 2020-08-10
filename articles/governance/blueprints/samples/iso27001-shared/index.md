@@ -3,12 +3,12 @@ title: Omówienie przykładu strategii usług udostępnionych ISO 27001
 description: Omówienie i architektura przykładu strategii usług udostępnionych ISO 27001. Ten przykład strategii pomaga klientom ocenić określone mechanizmy kontroli ISO 27001.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 0ef39a4e409320d08529904239dc17fc563c2044
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 09309fe05200cf8c7a958324f3412967296a8dc9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072877"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927355"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Omówienie przykładu strategii usług udostępnionych ISO 27001.
 
@@ -25,7 +25,7 @@ Wirtualne centrum danych to zestaw sprawdzonych architektur referencyjnych, narz
 
 To środowisko składa się z kilku usług platformy Azure, które udostępniają bezpieczną, w pełni monitorowaną infrastrukturę usług udostępnionych z obsługą przedsiębiorstw zgodną ze standardami ISO 27001. To środowisko zawiera następujące składniki:
 
-- [Kontrola dostępu oparta na rolach](../../../../role-based-access-control/overview.md) — role używane do dzielenia zadań z perspektywy płaszczyzny kontroli. Przed wdrożeniem infrastruktury są definiowane trzy role:
+- [Role platformy Azure](../../../../role-based-access-control/overview.md) używane do dzielenia zadań z perspektywy płaszczyzny kontroli. Przed wdrożeniem infrastruktury są definiowane trzy role:
   - Rola NetOps ma uprawnienia do zarządzania środowiskiem sieci, w tym ustawieniami zapory, ustawieniami sieciowej grupy zabezpieczeń, routingiem i innymi funkcjami sieci
   - Rola SecOps ma uprawnienia niezbędne do wdrażania usługi [Azure Security Center](../../../../security-center/security-center-intro.md) i zarządzania nią oraz definiowania [zasad platformy Azure](../../../policy/overview.md), a także inne prawa związane z zabezpieczeniami
   - Rola SysOps ma uprawnienia niezbędne do zdefiniowania [zasad platformy Azure](../../../policy/overview.md) w ramach subskrypcji i zarządzania usługą [Log Analytics](../../../../azure-monitor/overview.md) dla całego środowiska oraz inne prawa operacyjne

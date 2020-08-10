@@ -60,7 +60,7 @@
           href: ./security-controls-policy.md
     - name: Networking
       href: concepts-network.md
-    - name: Storage
+    - name: Magazyn
       href: concepts-storage.md
     - name: Skalowanie
       href: concepts-scale.md
@@ -87,7 +87,7 @@
               href: operator-best-practices-cluster-security.md
             - name: Zarządzanie obrazami kontenerów
               href: operator-best-practices-container-image-management.md
-            - name: Sieć
+            - name: Networking
               href: operator-best-practices-network.md
             - name: Magazyn
               href: operator-best-practices-storage.md
@@ -290,8 +290,8 @@
           href: windows-container-powershell.md
         - name: Połączenie zdalne
           href: rdp.md
-        - name: Znane ograniczenia
-          href: windows-node-limitations.md
+        - name: Często zadawane pytania dotyczące kontenerów systemu Windows Server
+          href: windows-faq.md
         - name: Korzystanie z pulpitu nawigacyjnego rozwiązania Kubernetes
           href: kubernetes-dashboard.md
         - name: Tworzenie plików aparatu Docker dla kontenerów systemu Windows Server

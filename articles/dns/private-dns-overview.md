@@ -64,7 +64,7 @@ Azure DNS ma następujące ograniczenia:
 * Zwrotny serwer DNS dla prywatnego adresu IP dla połączonej sieci wirtualnej zwraca *Internal.cloudapp.NET* jako domyślny sufiks dla maszyny wirtualnej. W przypadku sieci wirtualnych, które są połączone ze strefą prywatną z włączoną funkcją autorejestracji, odwrotny serwer DNS dla prywatnego adresu IP zwraca dwie nazwy FQDN: jeden z domyślną sufiks *Internal.cloudapp.NET* i drugi z sufiksem strefy prywatnej.
 * Warunkowe przekazywanie nie jest obecnie obsługiwane natywnie. Aby włączyć rozwiązanie między platformą Azure i sieciami lokalnymi, zobacz [rozpoznawanie nazw dla maszyn wirtualnych i wystąpień ról](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
  
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Aby uzyskać informacje o cenach, zobacz [Cennik usługi Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
 

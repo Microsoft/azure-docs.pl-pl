@@ -5,16 +5,16 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 2dde784e2f67266b2f6c6ccd7da20f01546bbda7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a045ef0fea70347f168e8ae0cc93e0c359f31dfa
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506489"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031130"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Rejestrowanie rozszerzeń powiązań Azure Functions
 
-W Azure Functions w wersji 2. x [powiązania](./functions-triggers-bindings.md) są dostępne jako oddzielne pakiety w środowisku uruchomieniowym funkcji. Chociaż usługa .NET Functions uzyskuje dostęp do powiązań za pomocą pakietów NuGet, zbiory rozszerzeń umożliwiają innym funkcjom dostęp do wszystkich powiązań za pomocą ustawienia konfiguracji.
+Począwszy od Azure Functions w wersji 2. x [powiązania](./functions-triggers-bindings.md) są dostępne jako oddzielne pakiety w środowisku uruchomieniowym funkcji. Chociaż usługa .NET Functions uzyskuje dostęp do powiązań za pomocą pakietów NuGet, zbiory rozszerzeń umożliwiają innym funkcjom dostęp do wszystkich powiązań za pomocą ustawienia konfiguracji.
 
 Należy wziąć pod uwagę następujące elementy związane z rozszerzeniami powiązań:
 
@@ -24,30 +24,38 @@ Należy wziąć pod uwagę następujące elementy związane z rozszerzeniami pow
 
 Poniższa tabela zawiera informacje o tym, kiedy i w jaki sposób rejestrujesz powiązania.
 
-| Środowisko deweloperskie |Rejestracja<br/> w funkcjach 1. x  |Rejestracja<br/> w funkcjach 2. x  |
+| Środowisko projektowe |Rejestracja<br/> w funkcjach 1. x  |Rejestracja<br/> w funkcjach 3. x/2. x  |
 |-------------------------|------------------------------------|------------------------------------|
-|Azure Portal|Automatyczny|Automatyczny|
+|Azure Portal|Automatyczny|Automatyczne<sup>*</sup>|
 |Programowanie w języku Non-.NET lub lokalne podstawowe narzędzia platformy Azure|Automatyczny|[Użyj Azure Functions Core Tools i pakietów rozszerzeń](#extension-bundles)|
 |Biblioteka klas języka C# przy użyciu programu Visual Studio|[Korzystanie z narzędzi NuGet](#vs)|[Korzystanie z narzędzi NuGet](#vs)|
 |Biblioteka klas języka C# używająca Visual Studio Code|Nie dotyczy|[Użyj interfejs wiersza polecenia platformy .NET Core](#vs-code)|
 
-## <a name="extension-bundles-for-local-development"></a><a name="extension-bundles"></a>Zestawy rozszerzeń do lokalnego tworzenia
+<sup>*</sup>Portal używa pakietów rozszerzeń.
 
-Pakiety rozszerzeń to technologia wdrażania, która umożliwia dodawanie zgodnego zestawu funkcji powiązań dla aplikacji funkcji. Podczas kompilowania aplikacji dodawane są wstępnie zdefiniowane rozszerzenia. Pakiety rozszerzeń zdefiniowane w pakiecie są zgodne ze sobą, co pomaga uniknąć konfliktów między pakietami. Pakiety rozszerzeń można włączyć w host.jsaplikacji w pliku.  
+## <a name="extension-bundles"></a><a name="extension-bundles"></a>Pakiety rozszerzeń
 
-Można używać pakietów rozszerzeń z wersją 2. x i nowszymi wersjami środowiska uruchomieniowego Functions. Podczas programowania lokalnego upewnij się, że używasz najnowszej wersji [Azure Functions Core Tools](functions-run-local.md#v2).
+Zestawy rozszerzeń umożliwiają dodawanie zgodnego zestawu funkcji powiązania z aplikacją funkcji. W przypadku korzystania z pakietów do kompilowania aplikacji dodawane są wstępnie zdefiniowany zestaw rozszerzeń. Pakiety rozszerzeń zdefiniowane w pakiecie są weryfikowane pod kątem zgodności ze sobą, co pomaga uniknąć konfliktów między pakietami. Zestawy rozszerzeń umożliwiają uniknięcie konieczności publikowania kodu projektu .NET za pomocą projektu funkcji non-.NET. Pakiety rozszerzeń można włączyć w host.jsaplikacji w pliku.  
 
-Używaj pakietów rozszerzeń do lokalnego tworzenia przy użyciu Azure Functions Core Tools, Visual Studio Code i podczas zdalnego kompilowania.
+Można używać pakietów rozszerzeń z wersją 2. x i nowszymi wersjami środowiska uruchomieniowego Functions. 
 
-Jeśli nie używasz zestawów rozszerzeń, przed zainstalowaniem rozszerzeń powiązań należy zainstalować zestaw SDK programu .NET Core 2. x na komputerze lokalnym. Pakiety rozszerzeń usuwają to wymaganie na potrzeby lokalnego projektowania. 
+Używaj pakietów rozszerzeń do lokalnego tworzenia przy użyciu Azure Functions Core Tools, Visual Studio Code i podczas zdalnego kompilowania. Podczas programowania lokalnego upewnij się, że używasz najnowszej wersji [Azure Functions Core Tools](functions-run-local.md#v2). Pakiety rozszerzeń są również używane podczas tworzenia funkcji w Azure Portal. 
+
+Jeśli nie używasz zestawów rozszerzeń, musisz zainstalować zestaw SDK programu .NET Core 2. x na komputerze lokalnym przed [jawne instalowaniem rozszerzeń powiązań](#explicitly-install-extensions). Plik Extensions. csproj, który jawnie definiuje wymagane rozszerzenia, jest dodawany do projektu. Zestawy rozszerzeń usuwają te wymagania dla lokalnego tworzenia. 
 
 Aby użyć pakietów rozszerzeń, zaktualizuj *host.jsw* pliku, aby uwzględnić następujący wpis dla `extensionBundle` :
  
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
-<a name="local-csharp"></a>
+## <a name="explicitly-install-extensions"></a>Jawne Instalowanie rozszerzeń
 
-## <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>\#Biblioteka klas C z programem Visual Studio
+[!INCLUDE [functions-extension-register-core-tools](../../includes/functions-extension-register-core-tools.md)]
+
+## <a name="nuget-packages"></a><a name="local-csharp"></a>Pakiety NuGet
+
+W przypadku projektu funkcji opartych na bibliotece klas języka C#, należy zainstalować pakiety rozszerzeń przeznaczone specjalnie dla projektów, które nie są klasami 
+
+### <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>\#Biblioteka klas C z programem Visual Studio
 
 W programie **Visual Studio**można zainstalować pakiety z konsoli Menedżera pakietów za pomocą polecenia [install-package](/nuget/tools/ps-ref-install-package) , jak pokazano w następującym przykładzie:
 

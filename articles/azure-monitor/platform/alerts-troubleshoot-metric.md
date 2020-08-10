@@ -4,14 +4,14 @@ description: Typowe problemy związane z alertami metryk Azure Monitor i możliw
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 07/21/2020
+ms.date: 08/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: 3e691e3f32404af792c852636a257659b629eef4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 5ea28a7a4669fd000800bf62b7b940abefcf7551
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824566"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030966"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Rozwiązywanie problemów z alertami metryk Azure Monitor 
 
@@ -130,6 +130,15 @@ Aby uniknąć niepowodzenia wdrożenia podczas próby zweryfikowania definicji m
         }
 ```
 
+## <a name="export-the-arm-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Wyeksportuj szablon ARM reguły alertu metryki za pośrednictwem Azure Portal
+
+Eksportowanie szablonu ARM reguły alertu dotyczącego metryki ułatwia zrozumienie jego składni i właściwości JSON oraz może służyć do automatyzowania przyszłych wdrożeń.
+1. Przejdź do sekcji **grupy zasobów** w portalu i wybierz grupę zasobów zawierającą regułę.
+2. W sekcji Przegląd zaznacz pole wyboru **Pokaż ukryte typy** .
+3. W polu Filtr **typu** wybierz pozycję *Microsoft. Insights/metricalerts*.
+4. Wybierz odpowiednią regułę alertu, aby wyświetlić jej szczegóły.
+5. W obszarze **Ustawienia**wybierz pozycję **Eksportuj szablon**.
+
 ## <a name="metric-alert-rules-quota-too-small"></a>Zbyt mały przydział reguł alertów dotyczących metryk
 
 Dozwolona liczba reguł alertów dotyczących metryk na subskrypcję podlega [limitom przydziału](../service-limits.md).
@@ -236,7 +245,7 @@ Podczas używania wymiarów w regule alertu zawierającej wiele warunków należ
 - Można wybrać tylko jedną wartość dla każdego wymiaru w każdym warunku.
 - Nie można użyć opcji "zaznacz wszystkie bieżące i przyszłe wartości" (wybierz \* ).
 - Gdy metryki, które są skonfigurowane w różnych warunkach, obsługują ten sam wymiar, wówczas skonfigurowana wartość wymiaru musi być jawnie ustawiona w taki sam sposób dla wszystkich metryk (w odpowiednich warunkach).
-Na przykład:
+Przykład:
     - Należy wziąć pod uwagę regułę alertu metryki zdefiniowaną na koncie magazynu i monitoruje dwa warunki:
         * Łączna liczba **transakcji** > 5
         * Średnia **SuccessE2ELatency** > 250 MS

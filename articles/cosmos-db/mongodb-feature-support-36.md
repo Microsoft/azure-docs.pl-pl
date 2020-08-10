@@ -4,15 +4,15 @@ description: Dowiedz się więcej o obsługiwanych funkcjach i składni interfej
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 07/15/2020
+ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: bd59b27b5af92d7aa90851c592ba4de495e41283
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2b389b71e15edcf0558b2ce60290c1ad7b171eab
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076834"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030547"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB (wersja 3.6): obsługiwane funkcje i składnia
 
@@ -36,7 +36,7 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 
 |Polecenie  |Obsługiwane |
 |---------|---------|
-|usunięcie | Tak |
+|delete | Tak |
 |find | Tak     |
 |findAndModify | Tak  |
 |getLastError|   Tak |
@@ -47,7 +47,7 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 |resetError |    Nie  |
 |update  |   Tak  |
 |[Zmiana strumieni](mongodb-change-streams.md)  |  Tak  |
-|GridFS |   Tak  |
+|Kolekcja GridFS |   Tak  |
 
 ### <a name="authentication-commands"></a>Polecenia uwierzytelniania
 
@@ -331,12 +331,12 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 |Polecenie  |Obsługiwane |
 |---------|---------|
 |Double    |Tak    |
-|String (ciąg)    |Tak    |
+|Ciąg    |Tak    |
 |Obiekt    |Tak    |
 |Tablica    |Tak    |
 |Dane binarne    |Tak|    
 |ObjectId    |Tak    |
-|Boolean (wartość logiczna)    |Tak    |
+|Wartość logiczna    |Tak    |
 |Data    |Tak    |
 |Null    |Tak    |
 |32-bitowa liczba całkowita (int)    |Tak    |
@@ -495,10 +495,10 @@ $nearSphere |  Tak |
 $geometry |  Tak |
 $minDistance | Tak |
 $maxDistance | Tak |
-$center | Tak |
-$centerSphere | Tak |
-$box | Tak |
-$polygon |  Tak |
+$center | Nie |
+$centerSphere | Nie |
+$box | Nie |
+$polygon |  Nie |
 
 ## <a name="cursor-methods"></a>Metody kursora
 

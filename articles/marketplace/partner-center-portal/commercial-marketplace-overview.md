@@ -1,18 +1,18 @@
 ---
-title: Omówienie portalu witryny Marketplace dla zastosowań komercyjnych w Centrum partnerskim
-description: Dowiedz się więcej o portalu komercyjnej witryny Marketplace w centrum partnerskim oraz jak wystawiać oferty w witrynie Azure Marketplace, AppSource i za pomocą programu Cloud Solution Provider (CSP).
+title: Omówienie portalu komercyjnej witryny Marketplace w centrum partnerskim
+description: Dowiedz się więcej o portalu komercyjnej witryny Microsoft Marketplace w centrum partnerskim oraz jak wystawiać i sprzedawać oferty w witrynie Azure Marketplace, AppSource i za pomocą programu Cloud Solution Provider (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/19/2020
-ms.openlocfilehash: 8f827d3e983a50589975eca59808bd1471fe4810
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c91e6396171511fa3b11b0295504f0ca0d75d15
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047595"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030865"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Omówienie portalu komercyjnej witryny Marketplace w centrum partnerskim
 

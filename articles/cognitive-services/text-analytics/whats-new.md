@@ -107,7 +107,7 @@ Dodatkowe typy jednostek są teraz dostępne w publicznej wersji zapoznawczej ro
 
 * Rozpoznawanie następujących głównych typów jednostek (tylko w języku angielskim):
     * Persontype
-    * Product (Produkt)
+    * Produkt
     * Zdarzenie
     * Jednostka geopolityczna (GPE) jako podtyp w lokalizacji
     * Czy

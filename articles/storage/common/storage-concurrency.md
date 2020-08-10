@@ -1,7 +1,7 @@
 ---
 title: Zarządzanie współbieżnością
 titleSuffix: Azure Storage
-description: Dowiedz się, jak zarządzać współbieżnością dla usług obiektów blob, kolejek, tabel i plików.
+description: Dowiedz się, jak zarządzać współbieżnością w usłudze Azure Storage dla usług obiektów blob, kolejek, tabel i plików. Zapoznaj się z trzema głównymi używanymi strategiami współbieżności danych.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 099711bf09fc29a1168ca8ce73ea6ae93f810a08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1ec7661bc2823932328bd994ec7bc7f6167f13a
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504291"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030388"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Zarządzanie współbieżnością w usłudze Microsoft Azure Storage
 
@@ -90,13 +90,13 @@ Poniższa tabela zawiera podsumowanie operacji kontenera akceptujących nagłów
 
 | Operacja | Zwraca wartość ETag kontenera | Akceptuje nagłówki warunkowe |
 |:--- |:--- |:--- |
-| Tworzenie kontenera |Yes |Nie |
-| Pobierz właściwości kontenera |Yes |Nie |
-| Pobierz metadane kontenera |Yes |Nie |
+| Tworzenie kontenera |Tak |Nie |
+| Pobierz właściwości kontenera |Tak |Nie |
+| Pobierz metadane kontenera |Tak |Nie |
 | Ustawianie metadanych kontenera |Tak |Tak |
-| Pobierz listę ACL kontenerów |Yes |Nie |
+| Pobierz listę ACL kontenerów |Tak |Nie |
 | Ustawianie listy ACL kontenerów |Tak |Tak (*) |
-| Usuwanie kontenera |Nie |Yes |
+| Usuwanie kontenera |Nie |Tak |
 | Kontener dzierżawy |Tak |Tak |
 | Wyświetl listę obiektów BLOB |Nie |Nie |
 
@@ -116,10 +116,10 @@ Poniższa tabela zawiera podsumowanie operacji obiektów blob, które akceptują
 | Wykonywanie migawki obiektu blob |Tak |Tak |
 | Kopiowanie obiektu blob |Tak |Tak (dla źródłowego i docelowego obiektu BLOB) |
 | Przerwij Kopiowanie obiektu BLOB |Nie |Nie |
-| Usuwanie obiektu blob |Nie |Yes |
+| Usuwanie obiektu blob |Nie |Tak |
 | Umieść blok |Nie |Nie |
 | Umieść listę zablokowanych |Tak |Tak |
-| Pobierz listę zablokowanych |Yes |Nie |
+| Pobierz listę zablokowanych |Tak |Nie |
 | Umieść stronę |Tak |Tak |
 | Pobierz zakresy stron |Tak |Tak |
 
@@ -244,13 +244,13 @@ Poniższa tabela zawiera podsumowanie sposobu używania wartości ETag przez ope
 
 | Operacja | Zwraca wartość ETag | Wymaga nagłówka żądania if-Match |
 |:--- |:--- |:--- |
-| Jednostki zapytań |Yes |Nie |
-| Wstaw jednostkę |Yes |Nie |
+| Jednostki zapytań |Tak |Nie |
+| Wstaw jednostkę |Tak |Nie |
 | Aktualizuj jednostkę |Tak |Tak |
 | Scal jednostkę |Tak |Tak |
-| Usuń jednostkę |Nie |Yes |
-| Wstaw lub Zamień jednostkę |Yes |Nie |
-| Wstaw lub Scal jednostkę |Yes |Nie |
+| Usuń jednostkę |Nie |Tak |
+| Wstaw lub Zamień jednostkę |Tak |Nie |
+| Wstaw lub Scal jednostkę |Tak |Nie |
 
 Należy zauważyć, że operacje **wstawiania i zastępowania jednostki** i **wstawiania lub scalania jednostek** *nie wykonują* żadnych kontroli współbieżności, ponieważ nie wysyłają wartości ETag do usługi Table Service.  
 

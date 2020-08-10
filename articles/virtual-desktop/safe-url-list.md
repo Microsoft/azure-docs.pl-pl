@@ -67,12 +67,12 @@ Wszyscy klienci korzystający z Pulpit zdalny muszą mieć dostęp do następuj�
 
 |Adres|Wychodzący port TCP|Przeznaczenie|Klienci|
 |---|---|---|---|
-|*. wvd.microsoft.com|443|Ruch usługi|Wszyscy|
-|*.servicebus.windows.net|443|Rozwiązywanie problemów z danymi|Wszyscy|
-|go.microsoft.com|443|Linki fwlink firmy Microsoft|Wszyscy|
-|aka.ms|443|Shortener URL firmy Microsoft|Wszyscy|
-|docs.microsoft.com|443|Dokumentacja|Wszyscy|
-|privacy.microsoft.com|443|Oświadczenie o ochronie prywatności|Wszyscy|
+|*. wvd.microsoft.com|443|Ruch usługi|Wszystko|
+|*.servicebus.windows.net|443|Rozwiązywanie problemów z danymi|Wszystko|
+|go.microsoft.com|443|Linki fwlink firmy Microsoft|Wszystko|
+|aka.ms|443|Shortener URL firmy Microsoft|Wszystko|
+|docs.microsoft.com|443|Dokumentacja|Wszystko|
+|privacy.microsoft.com|443|Oświadczenie o ochronie prywatności|Wszystko|
 |query.prod.cms.rt.microsoft.com|443|Aktualizacje klienta|Pulpit systemu Windows|
 
 >[!IMPORTANT]

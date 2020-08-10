@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/06/2020
+ms.date: 08/07/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-javascript
-ms.openlocfilehash: e47b8727eccd1b185f381ae3f8474fe13a406501
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: fb90390814af39b240c9a157f490ee9390afeb8f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843814"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030507"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Zarządzanie indeksowaniem w interfejsie API Azure Cosmos DB dla MongoDB
 
@@ -40,7 +40,7 @@ Jedno zapytanie używa wielu indeksów pojedynczego pola, jeśli są dostępne. 
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>Indeksy złożone (MongoDB Server wersja 3,6)
 
-Interfejs API Azure Cosmos DB dla MongoDB obsługuje indeksy złożone dla kont, które korzystają z protokołu sieci w wersji 3,6. Można uwzględnić maksymalnie osiem pól w indeksie złożonym. W przeciwieństwie do programu w MongoDB, należy utworzyć indeks złożony tylko wtedy, gdy zapytanie musi efektywnie sortować w wielu polach jednocześnie. W przypadku zapytań z wieloma filtrami, które nie muszą sortować, należy utworzyć wiele indeksów jednego pola zamiast pojedynczego indeksu złożonego.
+Interfejs API Azure Cosmos DB dla MongoDB obsługuje indeksy złożone dla kont, które korzystają z protokołu sieci w wersji 3,6. Można uwzględnić maksymalnie osiem pól w indeksie złożonym. **W przeciwieństwie do programu w MongoDB, należy utworzyć indeks złożony tylko wtedy, gdy zapytanie musi efektywnie sortować w wielu polach jednocześnie.** W przypadku zapytań z wieloma filtrami, które nie muszą sortować, należy utworzyć wiele indeksów jednego pola zamiast pojedynczego indeksu złożonego.
 
 Następujące polecenie tworzy indeks złożony dla pól `name` i `age` :
 
@@ -57,6 +57,9 @@ Można również użyć powyższego indeksu złożonego do wydajnego sortowania 
 Jednak sekwencja ścieżek w indeksie złożonym musi dokładnie pasować do zapytania. Oto przykład zapytania, które będzie wymagało dodatkowego indeksu złożonego:
 
 `db.coll.find().sort({age:1,name:1})`
+
+> [!NOTE]
+> Nie można tworzyć indeksów złożonych dla zagnieżdżonych właściwości lub tablic.
 
 ### <a name="multikey-indexes"></a>Indeksy MultiKey
 

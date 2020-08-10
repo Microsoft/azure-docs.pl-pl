@@ -23,7 +23,7 @@ Jeśli chcesz utworzyć pule hostów i inne obiekty, musisz mieć przypisaną ro
 
 Aby opublikować grupy aplikacji dla użytkowników lub grup użytkowników, musisz mieć przypisaną rolę administratora dostępu użytkowników w grupie aplikacji.
 
-Aby ograniczyć administrator do zarządzania sesjami użytkowników, takich jak wysyłanie komunikatów do użytkowników, Wylogowywanie użytkowników i tak dalej, można utworzyć role niestandardowe. Przykład:
+Aby ograniczyć administrator do zarządzania sesjami użytkowników, takich jak wysyłanie komunikatów do użytkowników, Wylogowywanie użytkowników i tak dalej, można utworzyć role niestandardowe. Na przykład:
 
 ```powershell
 "actions": [
@@ -60,7 +60,7 @@ Obszary robocze muszą również znajdować się w tej samej lokalizacji co grup
 
 Po uruchomieniu polecenia cmdlet programu PowerShell zobaczysz tylko nazwę zasobu i lokalizację.
 
-Przykład:
+Na przykład:
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg
@@ -72,7 +72,7 @@ westus   0224hp Microsoft.DesktopVirtualization/hostpools
 
 Aby wyświetlić wszystkie właściwości zasobu, należy dodać albo `format-list` `fl` do końca polecenia cmdlet.
 
-Przykład:
+Na przykład:
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
@@ -80,7 +80,7 @@ Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
 
 Aby wyświetlić określone właściwości, należy dodać nazwy określonych właściwości po `format-list` lub `fl` .
 
-Przykład:
+Na przykład:
 
 ```powershell
 Get-AzWvdHostPool -Name demohp -ResourceGroupName 0414rg |fl CustomRdpProperty

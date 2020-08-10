@@ -1,5 +1,5 @@
 ---
-title: Plik dyrektywy include
+title: dołączanie pliku
 description: Dołączanie pliku do wybierania między wersjami artykułu usługi Azure Digital bliźniaczych reprezentacji Setup
 services: digital-twins
 author: baanders

@@ -39,11 +39,11 @@
       items:
         - name: Używanie aplikacji Spring Boot Initializer
           href: cache-java-spring-boot-initializer-with-redis-cache.md
-    - name: Używanie buforowania z rankingami
+    - name: Tworzenie rankingów
       href: cache-web-app-cache-aside-leaderboard.md
-    - name: Azure PowerShell
+    - name: Zarządzanie przy użyciu programu Azure PowerShell
       href: cache-how-to-manage-redis-cache-powershell.md
-    - name: Interfejs wiersza polecenia platformy Azure
+    - name: Zarządzanie przy użyciu interfejsu wiersza polecenia platformy Azure
       href: cli-samples.md
 - name: Pojęcia
   items:
@@ -65,7 +65,7 @@
     - name: Planowanie
       items:
         - name: Wybieranie warstwy pamięci podręcznej
-          href: cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use
+          href: cache-overview.md#choosing-the-right-tier
         - name: Rozproszenie pamięci podręcznej przez zastosowanie klastrowania
           href: cache-how-to-premium-clustering.md
         - name: Trwałość pamięci podręcznej dzięki funkcji trwałości danych Redis
@@ -82,6 +82,12 @@
           href: cache-migration-guide.md
         - name: Migrowanie z usługi Managed Cache Service (przestarzała)
           href: cache-migrate-to-redis.md
+        - name: Często zadawane pytania dotyczące planowania
+          href: cache-planning-faq.md
+    - name: Kompilacja
+      items:
+        - name: Często zadawane pytania dotyczące programowania
+          href: cache-development-faq.md
     - name: Automatyzacja
       items:
         - name: Wdrażanie i zarządzanie przy użyciu programu Azure PowerShell
@@ -106,12 +112,22 @@
           href: cache-how-to-redis-cli-tool.md
         - name: Usuwanie protokołów TLS 1.0 i 1.1
           href: cache-remove-tls-10-11.md
+        - name: Często zadawane pytania dotyczące zarządzania
+          href: cache-management-faq.md
     - name: Monitorowanie
       items:
         - name: Monitorowanie w witrynie Azure Portal
           href: cache-how-to-monitor.md
         - name: Ustawianie alertów dla wyjątków
           href: cache-how-to-monitor.md#operations-and-alerts
+        - name: Często zadawane pytania dotyczące monitorowania
+          href: cache-monitor-troubleshoot-faq.md
+    - name: Skalowanie
+      items:
+        - name: Aktualizowanie do innego rozmiaru i innej warstwy
+          href: cache-how-to-scale.md
+        - name: Używanie klastra pamięci podręcznej Redis do skalowania w pionie i w poziomie
+          href: cache-how-to-premium-clustering.md
     - name: Diagnozowanie i rozwiązywanie problemów
       items:
         - name: Rozwiązywanie problemów z serwerem Redis
@@ -122,12 +138,8 @@
           href: cache-troubleshoot-timeouts.md
         - name: Rozwiązywanie problemów z utratą danych
           href: cache-troubleshoot-data-loss.md
-    - name: Skalowanie
-      items:
-        - name: Aktualizowanie do innego rozmiaru i innej warstwy
-          href: cache-how-to-scale.md
-        - name: Używanie klastra pamięci podręcznej Redis do skalowania w pionie i w poziomie
-          href: cache-how-to-premium-clustering.md
+        - name: Często zadawane pytania dotyczące rozwiązywania problemów
+          href: cache-monitor-troubleshoot-faq.md
 - name: Dokumentacja
   items:
     - name: Przykłady usługi Azure Cache for Redis
@@ -152,7 +164,7 @@
       href: 'https://redis.io/commands#'
 - name: Zasoby
   items:
-    - name: Azure Cache for Redis — często zadawane pytania
+    - name: Często zadawane pytania dotyczące usługi Azure Cache for Redis
       href: cache-faq.md
     - name: Filmy wideo
       href: 'https://www.youtube.com/results?search_query=azure+redis+cache'

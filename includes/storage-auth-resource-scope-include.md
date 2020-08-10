@@ -1,5 +1,5 @@
 ---
-title: Plik dyrektywy include
+title: dołączanie pliku
 services: storage
 author: tamram
 ms.service: storage

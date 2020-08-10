@@ -1,18 +1,18 @@
 ---
 title: 'VPN Gateway platformy Azure: Rozwiązywanie problemów z połączeniami punkt-lokacja: Mac OS X klientów'
-description: 'Rozwiązywanie problemów z połączeniem punkt-lokacja z Mac OS X. Sprawdź następujące ustawienia: adres serwera, identyfikator zdalny, Identyfikator lokalny, ustawienia uwierzytelniania i wersja systemu operacyjnego.'
+description: Dowiedz się, jak rozwiązywać problemy z połączeniem punkt-lokacja z Mac OS X przy użyciu natywnego klienta sieci VPN i protokołu IKEv2.
 services: vpn-gateway
 author: kumudD
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: ae7ca9ad69bc5bea20fc959f86e41439bd01cd5c
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 58250980081388b78ebb32fb01b84beb8d86c1c2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920759"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030667"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Rozwiązywanie problemów z połączeniami sieci VPN typu punkt-lokacja z Mac OS X klientów sieci VPN
 
