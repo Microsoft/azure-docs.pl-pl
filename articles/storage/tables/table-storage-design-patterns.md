@@ -1,6 +1,6 @@
 ---
 title: Wzorce projektowe tabeli usługi Azure Storage | Microsoft Docs
-description: Używaj wzorców dla rozwiązań usługi tabel platformy Azure.
+description: Przejrzyj wzorce projektowe, które są odpowiednie do użycia z rozwiązaniami Table service na platformie Azure. Problemy dotyczące adresów i ich zalet, które zostały omówione w innych artykułach.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: cbafe7c3e3b76ea13a8ca7a82b2968662b43685a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 32904044cf6dcecf19b1a78eb4236dc02555bb86
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081234"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034201"
 ---
 # <a name="table-design-patterns"></a>Wzorce projektowe tabel
 W tym artykule opisano niektóre wzorce odpowiednie do użycia z rozwiązaniami Table service. Ponadto zobaczysz, jak można praktycznie rozwiązać niektóre problemy i wady, które omówiono w innych artykułach dotyczących projektowania magazynów tabel. Poniższy diagram podsumowuje relacje między różnymi wzorcami:  
@@ -729,7 +729,7 @@ Table service to magazyn tabel bez *schematu* , który oznacza, że pojedyncza t
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Znacznik czasu</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -739,10 +739,10 @@ Table service to magazyn tabel bez *schematu* , który oznacza, że pojedyncza t
 <td>
 <table>
 <tr>
-<th>FirstName</th>
-<th>LastName</th>
+<th>FirstName (Imię)</th>
+<th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -759,10 +759,10 @@ Table service to magazyn tabel bez *schematu* , który oznacza, że pojedyncza t
 <td>
 <table>
 <tr>
-<th>FirstName</th>
-<th>LastName</th>
+<th>FirstName (Imię)</th>
+<th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -796,10 +796,10 @@ Table service to magazyn tabel bez *schematu* , który oznacza, że pojedyncza t
 <td>
 <table>
 <tr>
-<th>FirstName</th>
-<th>LastName</th>
+<th>FirstName (Imię)</th>
+<th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -821,7 +821,7 @@ Każda jednostka musi nadal mieć wartości **PartitionKey**, **RowKey**i **time
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Znacznik czasu</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -832,13 +832,13 @@ Każda jednostka musi nadal mieć wartości **PartitionKey**, **RowKey**i **time
 <table>
 <tr>
 <th>Typ obiektu</th>
-<th>FirstName</th>
-<th>LastName</th>
+<th>FirstName (Imię)</th>
+<th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
-<td>Employee</td>
+<td>Pracownik</td>
 <td></td>
 <td></td>
 <td></td>
@@ -854,13 +854,13 @@ Każda jednostka musi nadal mieć wartości **PartitionKey**, **RowKey**i **time
 <table>
 <tr>
 <th>Typ obiektu</th>
-<th>FirstName</th>
-<th>LastName</th>
+<th>FirstName (Imię)</th>
+<th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
-<td>Employee</td>
+<td>Pracownik</td>
 <td></td>
 <td></td>
 <td></td>
@@ -895,13 +895,13 @@ Każda jednostka musi nadal mieć wartości **PartitionKey**, **RowKey**i **time
 <table>
 <tr>
 <th>Typ obiektu</th>
-<th>FirstName</th>
-<th>LastName</th>
+<th>FirstName (Imię)</th>
+<th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
-<td>Employee</td>
+<td>Pracownik</td>
 <td></td>
 <td></td>
 <td></td>

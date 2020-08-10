@@ -1,18 +1,18 @@
 ---
 title: Tworzenie oferty Dynamics 365 Business Central — Microsoft Commercial Marketplace
-description: Zapoznaj się z instrukcjami i zagadnieniami dotyczącymi tworzenia nowej oferty Dynamics 365 Business Central w portalu komercyjnym Marketplace w centrum partnerskim. Możesz wyświetlić lub sprzedać swoją ofertę w witrynie Azure Marketplace lub za pomocą programu Cloud Solution Provider (CSP).
+description: Zapoznaj się z krokami i zagadnieniami dotyczącymi tworzenia nowej oferty Dynamics 365 Business Central w portalu komercyjnym firmy Microsoft w centrum partnerskim. Możesz wyświetlić lub sprzedać swoją ofertę w witrynie Azure Marketplace lub za pomocą programu Cloud Solution Provider (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 06/17/2020
-ms.openlocfilehash: 5ec8949d1ba614ca947f9848182ae2c94e044fc3
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.date: 08/07/2020
+ms.openlocfilehash: ff93a336b50ceac1106b31726d865ed3e0b41108
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800402"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031487"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Tworzenie oferty Dynamics 365 Business Central
 
@@ -180,19 +180,21 @@ W sekcji **skontaktuj się z pomocą techniczną** należy również podać **ad
 
 Podaj co najmniej jeden (i maksymalnie trzy) powiązane dokumenty marketingowe, takie jak oficjalne dokumenty, broszury, listy kontrolne lub prezentacje. Te dokumenty muszą mieć format PDF.
 
-### <a name="store-logos"></a>Logo sklepu
+### <a name="marketplace-images"></a>Obrazy z witryny Marketplace
 
-Podaj plik PNG dla logo o **dużym** rozmiarze (od 216 x 216 do 350 x 350 pikseli). Centrum partnerskie będzie używać tego do tworzenia **małego** logo (48 x 48 pikseli) rozmiaru. Opcjonalnie można zastąpić ten obraz innym.
+Podaj logo i obrazy oferty. Wszystkie obrazy muszą mieć format PNG. 
 
-Oba rozmiary logo są wymagane do użycia w różnych miejscach na liście:
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
 
-- **Mały** (48 x 48)
-- **Duże** (od 216 x 216 do 350 x 350)
+Przekaż logo oferty o dwa rozmiary:
+
+* **Mały** (48 x 48 pikseli)
+* **Duże** (216 x 216 pikseli)
+
+[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
 >[!NOTE]
 >Jeśli występuje problem z przekazywaniem plików, upewnij się, że sieć lokalna nie blokuje `https://upload.xboxlive.com` usługi używanej przez centrum partnerskie.
-
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Zrzuty ekranu
 

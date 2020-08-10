@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: fb0a5c06c8b7bdbb62e937e865e6bb2fd4000f2d
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 1ec3eaac90e1d2bc24608f6cb4546d5bed859b5e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87462478"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033244"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Szybki Start: Tworzenie wewnętrznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu Azure Portal
 
@@ -51,20 +51,56 @@ Prywatny adres IP w sieci wirtualnej jest skonfigurowany jako fronton (domyślni
 
 Adres IP frontonu może być **statyczny** lub **dynamiczny**.
 
-## <a name="virtual-network-and-parameters"></a>Sieć wirtualna i parametry
+## <a name="create-the-virtual-network"></a>Tworzenie sieci wirtualnej
 
-W tej sekcji zastąpisz parametry w krokach poniższymi informacjami:
+W tej sekcji utworzysz sieć wirtualną i podsieć.
 
-| Parametr                   | Wartość                |
-|-----------------------------|----------------------|
-| **\<resource-group-name>**  | myResourceGroupLB |
-| **\<virtual-network-name>** | myVNet          |
-| **\<region-name>**          | West Europe      |
-| **\<IPv4-address-space>**   | 10.1.0.0 \ 16          |
-| **\<subnet-name>**          | myBackendSubnet        |
-| **\<subnet-address-range>** | 10.1.0.0 \ 24          |
+1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób > sieci > sieci wirtualnej** lub Wyszukaj **sieć wirtualną** w polu wyszukiwania.
 
-[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
+2. W obszarze **Utwórz sieć wirtualną**wprowadź lub wybierz te informacje na karcie **podstawowe** :
+
+    | **Ustawienie**          | **Wartość**                                                           |
+    |------------------|-----------------------------------------------------------------|
+    | **Szczegóły projektu**  |                                                                 |
+    | Subskrypcja     | Wybierz subskrypcję platformy Azure                                  |
+    | Grupa zasobów   | Wybierz **myResourceGroupLB** |
+    | **Szczegóły wystąpienia** |                                                                 |
+    | Nazwa             | Wprowadź **myVNet**                                    |
+    | Region           | Wybierz **Europa Zachodnia** |
+
+3. Wybierz kartę **adresy IP** lub wybierz przycisk **Dalej: adresy IP** w dolnej części strony.
+
+4. Na karcie **adresy IP** wprowadź następujące informacje:
+
+    | Ustawienie            | Wartość                      |
+    |--------------------|----------------------------|
+    | Przestrzeń adresów IPv4 | Wprowadź **10.1.0.0/16** |
+
+5. W obszarze **Nazwa podsieci**wybierz pozycję **domyślny**wyraz.
+
+6. W obszarze **Edytuj podsieć**wprowadź następujące informacje:
+
+    | Ustawienie            | Wartość                      |
+    |--------------------|----------------------------|
+    | Nazwa podsieci | Wprowadź **myBackendSubnet** |
+    | Zakres adresów podsieci | Wprowadź **10.1.0.0/24** |
+
+7. Wybierz pozycję **Zapisz**.
+
+8. Wybierz kartę **zabezpieczenia** .
+
+9. W obszarze **BastionHost**wybierz pozycję **enable (Włącz**). Wprowadź następujące informacje:
+
+    | Ustawienie            | Wartość                      |
+    |--------------------|----------------------------|
+    | Nazwa bastionu | Wprowadź **myBastionHost** |
+    | Przestrzeń adresowa AzureBastionSubnet | Wprowadź **10.1.1.0/24** |
+    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. </br> W obszarze **Nazwa**wprowadź **myBastionIP**. </br> Wybierz przycisk **OK**. |
+
+
+8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
+
+9. Wybierz pozycję **Utwórz**.
 
 ## <a name="create-load-balancer"></a>Tworzenie modułu równoważenia obciążenia
 
@@ -165,6 +201,9 @@ W tej sekcji utworzysz regułę modułu równoważenia obciążenia:
 
 4. Pozostaw pozostałe wartości domyślne, a następnie wybierz przycisk **OK**.
 
+>[!NOTE]
+>Maszyny wirtualne w puli zaplecza nie będą miały wychodzącej łączności z Internetem przy użyciu tej konfiguracji. </br> Aby uzyskać więcej informacji na temat zapewniania łączności wychodzącej, zobacz: </br> **[Połączenia wychodzące na platformie Azure](load-balancer-outbound-connections.md)**</br> Opcje zapewniania łączności: </br> **[Konfiguracja modułu równoważenia obciążenia tylko dla ruchu wychodzącego](egress-only.md)** </br> **[Co to jest Virtual Network translator adresów sieciowych?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
+
 ## <a name="create-backend-servers"></a>Tworzenie serwerów zaplecza
 
 W tej sekcji omówiono następujące zagadnienia:
@@ -256,20 +295,56 @@ Prywatny adres IP w sieci wirtualnej jest skonfigurowany jako fronton (domyślni
 
 Adres IP frontonu może być **statyczny** lub **dynamiczny**.
 
-## <a name="virtual-network-and-parameters"></a>Sieć wirtualna i parametry
+## <a name="create-the-virtual-network"></a>Tworzenie sieci wirtualnej
 
-W tej sekcji zastąpisz parametry w krokach poniższymi informacjami:
+W tej sekcji utworzysz sieć wirtualną i podsieć.
 
-| Parametr                   | Wartość                |
-|-----------------------------|----------------------|
-| **\<resource-group-name>**  | myResourceGroupLB |
-| **\<virtual-network-name>** | myVNet          |
-| **\<region-name>**          | West Europe      |
-| **\<IPv4-address-space>**   | 10.1.0.0 \ 16          |
-| **\<subnet-name>**          | myBackendSubnet        |
-| **\<subnet-address-range>** | 10.1.0.0 \ 24          |
+1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób > sieci > sieci wirtualnej** lub Wyszukaj **sieć wirtualną** w polu wyszukiwania.
 
-[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
+2. W obszarze **Utwórz sieć wirtualną**wprowadź lub wybierz te informacje na karcie **podstawowe** :
+
+    | **Ustawienie**          | **Wartość**                                                           |
+    |------------------|-----------------------------------------------------------------|
+    | **Szczegóły projektu**  |                                                                 |
+    | Subskrypcja     | Wybierz subskrypcję platformy Azure                                  |
+    | Grupa zasobów   | Wybierz **myResourceGroupLB** |
+    | **Szczegóły wystąpienia** |                                                                 |
+    | Nazwa             | Wprowadź **myVNet**                                    |
+    | Region           | Wybierz **Europa Zachodnia** |
+
+3. Wybierz kartę **adresy IP** lub wybierz przycisk **Dalej: adresy IP** w dolnej części strony.
+
+4. Na karcie **adresy IP** wprowadź następujące informacje:
+
+    | Ustawienie            | Wartość                      |
+    |--------------------|----------------------------|
+    | Przestrzeń adresów IPv4 | Wprowadź **10.1.0.0/16** |
+
+5. W obszarze **Nazwa podsieci**wybierz pozycję **domyślny**wyraz.
+
+6. W obszarze **Edytuj podsieć**wprowadź następujące informacje:
+
+    | Ustawienie            | Wartość                      |
+    |--------------------|----------------------------|
+    | Nazwa podsieci | Wprowadź **myBackendSubnet** |
+    | Zakres adresów podsieci | Wprowadź **10.1.0.0/24** |
+
+7. Wybierz pozycję **Zapisz**.
+
+8. Wybierz kartę **zabezpieczenia** .
+
+9. W obszarze **BastionHost**wybierz pozycję **enable (Włącz**). Wprowadź następujące informacje:
+
+    | Ustawienie            | Wartość                      |
+    |--------------------|----------------------------|
+    | Nazwa bastionu | Wprowadź **myBastionHost** |
+    | Przestrzeń adresowa AzureBastionSubnet | Wprowadź **10.1.1.0/24** |
+    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. </br> W obszarze **Nazwa**wprowadź **myBastionIP**. </br> Wybierz przycisk **OK**. |
+
+
+8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
+
+9. Wybierz pozycję **Utwórz**.
 
 ## <a name="create-load-balancer"></a>Tworzenie modułu równoważenia obciążenia
 
@@ -434,9 +509,10 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
 5. Wybierz kartę **Zarządzanie** lub wybierz pozycję **Dalej** > **Zarządzanie**.
 
 6. Na karcie **Zarządzanie** wybierz lub wprowadź:
+    
     | Ustawienie | Wartość |
     |-|-|
-    | **Monitorowanie** | |
+    | **Monitorowanie** |  |
     | Diagnostyka rozruchu | Wybierz pozycję **wyłączone** |
 
 7. Wybierz pozycję **Przegląd + utwórz**. 
@@ -487,7 +563,6 @@ W tej sekcji utworzysz maszynę wirtualną o nazwie **myTestVM**.  Ta maszyna wi
     | Nazwa maszyny wirtualnej | Wprowadź **myTestVM** |
     | Region | Wybierz **Europa Zachodnia** |
     | Opcje dostępności | Nie wybieraj **nadmiarowości infrastruktury** |
-    | Strefa dostępności | Wybierz **strefę nadmiarową** |
     | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
@@ -505,7 +580,7 @@ W tej sekcji utworzysz maszynę wirtualną o nazwie **myTestVM**.  Ta maszyna wi
     | **Interfejs sieciowy** |  |
     | Sieć wirtualna | **myVNet** |
     | Podsieć | **myBackendSubnet** |
-    | Publiczny adres IP | Zaakceptuj wartość domyślną **myTestVM-IP**. |
+    | Publiczny adres IP | Wybierz pozycję **Brak**. |
     | Grupa zabezpieczeń sieci karty sieciowej | Wybierz pozycję **Zaawansowane**|
     | Konfigurowanie sieciowej grupy zabezpieczeń | Wybierz **MyNSG** utworzone w poprzednim kroku.|
     
@@ -526,15 +601,15 @@ W tej sekcji utworzysz maszynę wirtualną o nazwie **myTestVM**.  Ta maszyna wi
 
 1. Wybierz pozycję **wszystkie usługi** w menu po lewej stronie, wybierz pozycję **wszystkie zasoby**, a następnie na liście zasobów wybierz pozycję **myVM1** , która znajduje się w grupie zasobów **myResourceGroupLB** .
 
-2. Na stronie **Przegląd** wybierz pozycję **Połącz** , aby pobrać plik RDP dla maszyny wirtualnej.
+2. Na stronie **Przegląd** wybierz opcję **Połącz**, a następnie **bastionu**.
 
-3. Otwórz plik RDP.
+4. Wprowadź nazwę użytkownika i hasło wprowadzone podczas tworzenia maszyny wirtualnej.
 
-4. Zaloguj się do maszyny wirtualnej przy użyciu poświadczeń podanych podczas jej tworzenia.
+5. Wybierz pozycję **Połącz**.
 
-5. Na pulpicie serwera przejdź do **narzędzi administracyjnych systemu Windows** > **programu Windows PowerShell**.
+6. Na pulpicie serwera przejdź do **narzędzi administracyjnych systemu Windows**  >  **programu Windows PowerShell**.
 
-6. W oknie programu PowerShell uruchom następujące polecenia, aby:
+7. W oknie programu PowerShell uruchom następujące polecenia, aby:
 
     * Zainstaluj serwer IIS
     * Usuń domyślny plik iisstart.htm
@@ -546,14 +621,15 @@ W tej sekcji utworzysz maszynę wirtualną o nazwie **myTestVM**.  Ta maszyna wi
     Install-WindowsFeature -name Web-Server -IncludeManagementTools
     
     # remove default htm file
-    remove-item  C:\inetpub\wwwroot\iisstart.htm
+     remove-item  C:\inetpub\wwwroot\iisstart.htm
     
     # Add a new htm file that displays server name
-    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
    ```
-7. Zamknij sesję protokołu RDP na maszynie wirtualnej **myVM1**.
+8. Zamknij sesję bastionu z **myVM1**.
 
-8. Powtórz kroki od 1 do 6, aby zainstalować usługi IIS i zaktualizowany plik iisstart.htm na maszynie wirtualnej **myVM2**.
+9. Powtórz kroki od 1 do 6, aby zainstalować usługi IIS i zaktualizowany plik iisstart.htm na maszynie wirtualnej **myVM2**.
+
 
 ## <a name="test-the-load-balancer"></a>Testowanie modułu równoważenia obciążenia
 
@@ -563,21 +639,19 @@ W tej sekcji utworzysz maszynę wirtualną o nazwie **myTestVM**.  Ta maszyna wi
 
 3. Wybierz pozycję **wszystkie usługi** w menu po lewej stronie, wybierz pozycję **wszystkie zasoby**, a następnie na liście zasobów wybierz pozycję **myTestVM** , która znajduje się w grupie zasobów **myResourceGroupLB** .
 
-4. Na stronie **Przegląd** wybierz pozycję **Połącz** , aby pobrać plik RDP dla maszyny wirtualnej.
+4. Na stronie **Przegląd** wybierz opcję **Połącz**, a następnie **bastionu**.
 
-5. Otwórz plik RDP.
-
-6. Zaloguj się do maszyny wirtualnej przy użyciu poświadczeń podanych podczas jej tworzenia.
+6. Wprowadź nazwę użytkownika i hasło wprowadzone podczas tworzenia maszyny wirtualnej.
 
 7. Otwórz program **Internet Explorer** w systemie **myTestVM**.
 
-4. Skopiuj prywatny adres IP, a następnie wklej go na pasku adresu przeglądarki. W przeglądarce jest wyświetlana domyślna strona internetowego serwera usług IIS.
+8. Wprowadź adres IP z poprzedniego kroku na pasku adresu przeglądarki. W przeglądarce jest wyświetlana domyślna strona internetowego serwera usług IIS.
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Tworzenie standardowego wewnętrznego modułu równoważenia obciążenia" border="true":::
    
 Aby zobaczyć, jak moduł równoważenia obciążenia dystrybuuje ruch między wszystkimi trzema maszynami wirtualnymi, można dostosować domyślną stronę każdego z serwerów sieci Web usług IIS na maszynie wirtualnej, a następnie wymusić odświeżenie przeglądarki sieci Web na komputerze klienckim.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, moduł równoważenia obciążenia i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. W tym celu wybierz grupę zasobów **myResourceGroupLB** , która zawiera zasoby, a następnie wybierz pozycję **Usuń**.
 
@@ -591,4 +665,5 @@ W ramach tego przewodnika Szybki start wykonasz następujące czynności:
 
 Aby dowiedzieć się więcej na temat Azure Load Balancer, przejdź do [co Azure Load Balancer?](load-balancer-overview.md) i [Load Balancer często zadawanych pytań](load-balancer-faqs.md).
 
-Dowiedz się więcej na temat [stref Load Balancer i dostępności](load-balancer-standard-availability-zones.md).
+* Dowiedz się więcej na temat [stref Load Balancer i dostępności](load-balancer-standard-availability-zones.md).
+* Dowiedz się więcej o [usłudze Azure bastionu](https://docs.microsoft.com/azure/bastion/bastion-overview).

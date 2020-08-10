@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9a2ab4b1ebc1c958be9dc4bd07a010f7fef8afc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6778b556795f4e079100f1a7bcbb8b9465e9e315
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82610524"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032972"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Rozwiązywanie problemów z logowaniem przy użyciu dostępu warunkowego
 
@@ -55,11 +55,16 @@ Aby dowiedzieć się, które zasady dostępu warunkowego lub zasady są stosowan
    1. Informacje na karcie **Rozwiązywanie problemów i pomoc techniczna** mogą stanowić wyraźny powód, dla którego logowanie nie powiodło się, takie jak urządzenie, które nie spełnia wymagań dotyczących zgodności.
    1. Aby dowiedzieć się więcej, przejdź do szczegółów konfiguracji zasad, klikając **nazwę zasad**. Kliknięcie **nazwy zasad** spowoduje wyświetlenie interfejsu użytkownika konfiguracji zasad dla wybranych zasad na potrzeby przeglądania i edytowania.
    1. **Szczegóły dotyczące** **użytkownika** i urządzenia, które były używane na potrzeby oceny zasad dostępu warunkowego, są również dostępne na kartach **podstawowe informacje**, **Lokalizacja**, **Informacje o urządzeniu**, **szczegóły uwierzytelniania**i **dodatkowe szczegóły** dotyczące zdarzenia logowania.
-   1. Wybranie wielokropka po prawej stronie zasad powoduje wyświetlenie szczegółów zasad. Dzięki temu administratorzy mogą dowiedzieć się więcej o tym, dlaczego zasady zostały pomyślnie zastosowane.
+
+### <a name="policy-details"></a>Szczegóły zasad
+
+Wybranie wielokropka po prawej stronie zasad w zdarzeniu logowania powoduje wyświetlenie szczegółów zasad. Dzięki temu administratorzy mogą dowiedzieć się więcej o tym, dlaczego zasady zostały pomyślnie zastosowane.
 
    ![Karta dostęp warunkowy zdarzenia logowania](./media/troubleshoot-conditional-access/image5.png)
 
    ![Szczegóły zasad (wersja zapoznawcza)](./media/troubleshoot-conditional-access/policy-details.png)
+
+Po lewej stronie znajdują się szczegółowe informacje zebrane podczas logowania, a po prawej stronie znajdują się szczegółowe informacje o tym, czy te szczegóły spełniają wymagania zastosowania zasad dostępu warunkowego. Zasady dostępu warunkowego są stosowane tylko wtedy, gdy wszystkie warunki są spełnione lub nie zostały skonfigurowane.
 
 Jeśli informacje w zdarzeniu nie są wystarczające, aby zrozumieć wyniki logowania lub dostosować zasady w celu uzyskania pożądanych wyników, można otworzyć zdarzenie obsługi. Przejdź do karty **Rozwiązywanie problemów i pomoc techniczna** dla tego zdarzenia logowania, a następnie wybierz pozycję **Utwórz nowe żądanie obsługi**.
 

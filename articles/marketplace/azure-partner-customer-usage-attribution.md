@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/14/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: ab729d34219c05ee76a2a14832f41342d29eab21
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c5fc239c32037354547c6818fd507a7a8cfd3657
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065793"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031289"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Komercyjny partner Marketplace i przypisanie użytkowania przez klienta
 
@@ -45,7 +45,7 @@ Identyfikator GUID jest unikatowym identyfikatorem odwołania, który ma 32 cyfr
 
 Zalecamy utworzenie unikatowego identyfikatora GUID dla każdej oferty i kanału dystrybucji dla każdego produktu. Można wybrać opcję użycia jednego identyfikatora GUID dla wielu kanałów dystrybucji produktu, jeśli nie chcesz, aby raportowanie było podzielone.
 
-Jeśli produkt zostanie wdrożony przy użyciu szablonu, który jest dostępny zarówno w portalu Azure Marketplace, jak i w witrynie GitHub, można utworzyć i zarejestrować dwa różne identyfikatory GUID:
+Jeśli produkt zostanie wdrożony przy użyciu szablonu, który jest dostępny zarówno w portalu Azure Marketplace, jak i w witrynie GitHub, można utworzyć i zarejestrować dwa unikatowe identyfikatory GUID:
 
 - Produkt A w portalu Azure Marketplace
 - Produkt A w serwisie GitHub
@@ -82,7 +82,7 @@ Po dodaniu identyfikatora GUID do szablonu lub w agencie użytkownika i zarejest
 1. Wybierz pozycję **Zapisz**.
 
 ## <a name="use-resource-manager-templates"></a>Używanie szablonów usługi Resource Manager
-Wiele rozwiązań partnerskich jest wdrażanych przy użyciu szablonów Azure Resource Manager. Jeśli masz szablon Menedżer zasobów, który jest dostępny w portalu Azure Marketplace, w witrynie GitHub lub w ramach przewodnika Szybki Start, proces modyfikacji szablonu, który umożliwi przypisanie użycia klienta, jest prosty do przodu.
+Wiele rozwiązań partnerskich jest wdrażanych przy użyciu szablonów Azure Resource Manager. Jeśli masz szablon Menedżer zasobów, który jest dostępny w witrynie Azure Marketplace, w witrynie GitHub lub w ramach przewodnika Szybki Start, proces modyfikacji szablonu, który umożliwi przypisanie użycia klienta, jest prosty do przodu.
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat tworzenia i publikowania szablonów rozwiązań, zobacz

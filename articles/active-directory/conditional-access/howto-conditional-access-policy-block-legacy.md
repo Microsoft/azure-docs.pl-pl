@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15e3c5ba72ff7b97e03cd7aa2b68eeffb2aa7882
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7a4693dabc62ec03897ccc46398bdff77118fe4
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283014"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032088"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Dostęp warunkowy: Blokuj starsze uwierzytelnianie
 
@@ -36,8 +36,8 @@ Poniższe kroki pomogą w tworzeniu zasad dostępu warunkowego w celu blokowania
    1. Kliknij **Gotowe**.
 1. W obszarze **aplikacje lub akcje w chmurze**wybierz pozycję **wszystkie aplikacje w chmurze**.
    1. Kliknij **Gotowe**.
-1. W obszarze **warunki**  >  **aplikacje klienckie (wersja zapoznawcza)** w obszarze **Wybierz aplikacje klienckie, do których zostaną zastosowane te zasady**:
-   1. Sprawdź tylko pola **aplikacje mobilne i klienci stacjonarni**  >  **inni klienci**.
+1. W obszarze **warunki**  >  **aplikacje klienckie**ustaw opcję **Skonfiguruj** na **wartość tak**.
+   1. Sprawdź tylko pola **klienci programu Exchange ActiveSync** i **innych klientów**.
    1. Kliknij **Gotowe**.
 1. W obszarze **kontrole dostępu**  >  **Udziel**wybierz opcję **Blokuj dostęp**.
    1. Wybierz pozycję **Wybierz**.

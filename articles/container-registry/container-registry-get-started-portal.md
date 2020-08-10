@@ -1,17 +1,17 @@
 ---
 title: Szybki Start — tworzenie rejestru w portalu
-description: Szybka nauka tworzenia rejestru prywatnego platformy Docker w Azure Container Registry z Azure Portal.
+description: Szybka nauka tworzenia prywatnego rejestru kontenerów platformy Azure przy użyciu Azure Portal.
 ms.topic: quickstart
-ms.date: 06/11/2020
+ms.date: 08/04/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 82f9a6b02832b718d5b4e7b662c590f1992af595
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: ace1030923ea226376369941badafafa662d25ce
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752876"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031828"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Szybki Start: Tworzenie prywatnego rejestru kontenerów przy użyciu Azure Portal
+# <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>Szybki Start: Tworzenie usługi Azure Container Registry przy użyciu Azure Portal
 
 Usługa Azure Container Registry jest prywatnym rejestrem platformy Docker na platformie Azure, w którym można przechowywać prywatne obrazy kontenerów platformy Docker i powiązane artefakty oraz zarządzać nimi. W tym przewodniku Szybki start utworzysz rejestr kontenerów za pomocą witryny Azure Portal. Następnie za pomocą poleceń platformy Docker wypchniesz obraz kontenera do rejestru, a na koniec ściągniesz i uruchomisz obraz z rejestru.
 
@@ -41,14 +41,20 @@ Kiedy pojawi się komunikat **Wdrażanie zakończyło się pomyślnie**, wybierz
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Przegląd rejestru kontenerów w portalu":::
 
-Zanotuj wartość **Serwer logowania**. Ta wartość jest używana w poniższych krokach podczas wypychania i ściągania obrazów przy użyciu platformy Docker.
+Zanotuj nazwę rejestru i wartość **serwera logowania**. Te wartości są używane w poniższych krokach podczas wypychania i ściągania obrazów przy użyciu platformy Docker.
 
 ## <a name="log-in-to-registry"></a>Logowanie do rejestru
 
-Przed wypychaniem i ściąganiem obrazów kontenerów należy zalogować się do wystąpienia rejestru. [Zaloguj się do interfejsu wiersza polecenia platformy Azure][get-started-with-azure-cli] na komputerze lokalnym, a następnie uruchom polecenie [AZ ACR login][az-acr-login] . (W przypadku logowania za pomocą interfejsu wiersza polecenia platformy Azure należy określić tylko nazwę rejestru. Nie dołączaj sufiksu "azurecr.io".
+Przed wypychaniem i ściąganiem obrazów kontenerów należy zalogować się do wystąpienia rejestru. [Zaloguj się do interfejsu wiersza polecenia platformy Azure][get-started-with-azure-cli] na komputerze lokalnym, a następnie uruchom polecenie [AZ ACR login][az-acr-login] . (W przypadku logowania za pomocą interfejsu wiersza polecenia platformy Azure należy określić tylko nazwę rejestru. Nie dołączaj sufiksu domeny "azurecr.io".
 
 ```azurecli
 az acr login --name <registry-name>
+```
+
+Przykład:
+
+```azurecli
+az acr login --name mycontainerregistry
 ```
 
 Po ukończeniu polecenie zwraca ciąg `Login Succeeded`. 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30d9ca806a7ddaf7d6ba657d8224d312a6aae33b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5f75ce20d24f98e5fcefde49b95a545281f8066
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253141"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032887"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Rozwiązywanie problemów przy użyciu narzędzia What If w dostępie warunkowym
 
@@ -32,7 +32,7 @@ Narzędzie **What If** umożliwia szybkie ustalenie zasad, które mają zastosow
 
 ## <a name="how-it-works"></a>Jak to działa
 
-W **narzędziu dostępu warunkowego What If**należy najpierw skonfigurować ustawienia scenariusza logowania, który ma zostać symulowany. Należą do nich następujące ustawienia:
+W **narzędziu dostępu warunkowego What If**należy najpierw skonfigurować ustawienia scenariusza logowania, który ma zostać symulowany. takie jak:
 
 - Użytkownik, który ma zostać przetestowany 
 - Aplikacje w chmurze, do których użytkownik podejmie próbę uzyskania dostępu
@@ -76,7 +76,7 @@ To ustawienie naśladuje [warunek platformy urządzeń](concept-conditional-acce
 
 ### <a name="client-apps"></a>Aplikacje klienckie
 
-To ustawienie naśladuje [warunek aplikacji klienckich](concept-conditional-access-conditions.md#client-apps-preview).
+To ustawienie naśladuje [warunek aplikacji klienckich](concept-conditional-access-conditions.md#client-apps).
 Domyślnie to ustawienie powoduje obliczenie wszystkich zasad mających zarówno **przeglądarkę** , **jak i aplikacje mobilne oraz klientów klasycznych** pojedynczo lub oba wybrane. Wykrywa także zasady, które wymuszają program **Exchange ActiveSync (EAS)**. To ustawienie można zawęzić, wybierając pozycję:
 
 - **Przeglądarka** oceni wszystkie zasady, które mają co najmniej wybraną **przeglądarkę** . 

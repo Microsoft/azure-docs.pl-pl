@@ -1,6 +1,6 @@
 ---
 title: Przykładowy skrypt programu Azure PowerShell — pobieranie szablon konfiguracji urządzenia | Microsoft Docs
-description: Ten skrypt programu PowerShell pobiera szablon urządzenia sieci VPN dla połączenia na platformie Azure. Dowiedz się więcej na temat wszystkich poleceń cmdlet w skrypcie.
+description: Dowiedz się, jak pobrać szablon konfiguracji urządzenia sieci VPN dla połączenia przy użyciu skryptu programu PowerShell.
 services: vpn-gateway
 documentationcenter: vpn-gateway
 author: yushwang
@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 01/09/2020
 ms.author: yushwang
-ms.openlocfilehash: 77e5291010767368600ef3032306867556181373
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 283ddb12e497c242f1843840fe1f1ff208712626
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926233"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031714"
 ---
 # <a name="download-vpn-device-template-using-powershell"></a>Pobieranie szablonu urządzenia sieci VPN za pomocą programu PowerShell
 

@@ -1,18 +1,18 @@
 ---
 title: Resetowanie bramy sieci VPN platformy Azure w celu ponownego ustanowienia tunelu protokołu IPsec
-description: W tym artykule omówiono Resetowanie VPN Gateway platformy Azure w celu ponownego ustanowienia tuneli IPsec. Ten artykuł ma zastosowanie do bram sieci VPN zarówno w klasycznym modelu wdrażania, jak i Menedżer zasobów.
+description: Zresetuj VPN Gateway platformy Azure, aby ponownie ustanowić tunele IPsec dla bram sieci VPN w klasycznym i Menedżer zasobów modele wdrażania.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 90a01e4ee3ddf7b100ef51e55b9917c709a05864
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f78b33a95001639abfeaecb381b597f5273c0fc
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982904"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033057"
 ---
 # <a name="reset-a-vpn-gateway"></a>Resetowanie bramy VPN Gateway
 
@@ -28,7 +28,7 @@ Jeśli połączenie nie zostanie przywrócone po pierwszym ponownym rozruchu kom
 
 Jeśli po dwóch ponownych uruchomieniach nadal występują problemy z łącznością między różnymi lokalizacjami, Otwórz żądanie pomocy technicznej z Azure Portal.
 
-## <a name="before-you-begin"></a><a name="before"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a><a name="before"></a>Zanim rozpoczniesz
 
 Przed zresetowaniem bramy dla każdego tunelu połączenia sieci VPN typu lokacja-lokacja (site-to site, S2S) korzystającego z protokołu IPsec należy sprawdzić kluczowe elementy wymienione poniżej. Brak zgodności którychkolwiek elementów spowoduje przerwanie połączenia tuneli sieci VPN S2S. Weryfikowanie i poprawianie konfiguracji usług lokalnych i bram sieci VPN platformy Azure powoduje zaoszczędzenie niepotrzebnych ponownych uruchomień i zakłóceń dla innych połączeń roboczych na bramach.
 

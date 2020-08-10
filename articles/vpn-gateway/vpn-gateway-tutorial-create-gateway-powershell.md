@@ -1,18 +1,18 @@
 ---
 title: Samouczek — Tworzenie bramy i zarządzanie nią za pomocą usługi Azure VPN Gateway
-description: Ten samouczek umożliwia wdrożenie bramy sieci VPN platformy Azure w celu zapewnienia łączności między lokalizacją klienta i platformą Azure. Wyświetlanie, zmienianie rozmiaru i Resetowanie bramy sieci VPN.
+description: Postępuj zgodnie z tym samouczkiem, aby dowiedzieć się, jak tworzyć i wdrażać VPN Gateway platformy Azure oraz zarządzać nimi przy użyciu programu PowerShell.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 03/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: f423ed5ea9017d510639bbe7046a12d320cd5c7d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 38b13ddc08b08ce080f1cc9e9b30caeea3b4efdf
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920572"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031528"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Samouczek: Tworzenie bramy sieci VPN i zarządzanie nią przy użyciu programu PowerShell
 

@@ -1,6 +1,6 @@
 ---
 title: Przekazywanie danych obrazu do chmury za pomocą usługi Azure Storage | Microsoft Docs
-description: Przechowywanie danych aplikacji przy użyciu usługi Azure Blob Storage i aplikacji internetowej
+description: Używanie usługi Azure Blob Storage z usługą Web Apps do przechowywania danych aplikacji na koncie magazynu. W tym samouczku zostanie utworzona aplikacja sieci Web, która przechowuje i wyświetla obrazy z usługi Azure Storage.
 author: mhopkins-msft
 ms.service: storage
 ms.subservice: blobs
@@ -9,12 +9,12 @@ ms.date: 06/24/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 15d18372b9123602e6d6f05b9259e50a74f7eb39
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 3ac1855c0cc72a3c4afc20598d023f0adce2bd76
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433270"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034145"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Samouczek: przekazywanie danych obrazu do chmury za pomocą usługi Azure Storage
 

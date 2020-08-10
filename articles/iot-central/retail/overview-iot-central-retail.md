@@ -8,23 +8,20 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 9427b007bc047e2f01db2dad02e06bf0ab0f5dea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c060b87b24d7467097d06adecb9f34acb4993779
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81000616"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032297"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Tworzenie rozwiązań dla handlu detalicznego za pomocą usługi Azure IoT Central
-
-
 
 Azure IoT Central to platforma aplikacji IoT, która zmniejsza obciążenie i koszty związane z opracowywaniem i konserwowaniem rozwiązań IoT klasy korporacyjnej oraz zarządzania nimi. Wybranie opcji kompilowania za pomocą usługi Azure IoT Central umożliwia skoncentrowanie się na czasie, pieniędzy i energii związanej z transformą działalności w firmie za pomocą danych IoT, a nie tylko utrzymaniem i aktualizacją złożonej i ciągle rosnącej infrastruktury IoT.
 
 W tym artykule opisano kilka szablonów aplikacji IoT Central specyficznych dla handlu detalicznego. Jako Konstruktor rozwiązań możesz użyć tych szablonów do kompilowania rozwiązań IoT, które optymalizują łańcuchy dostaw, ulepszania środowisk w sklepie dla klientów i śledzenia spisu bardziej wydajnie.
 
-> [!div class="mx-imgBorder"]
-> ![Omówienie usługi Azure IoT detalicznego](./media/overview-iot-central-retail/retail-app-templates.png)
+:::image type="content" source="media/overview-iot-central-retail/retail-app-templates.png" alt-text="Omówienie usługi Azure IoT detalicznego":::
 
 W poniższych sekcjach opisano możliwości tych szablonów aplikacji:
 
@@ -44,19 +41,17 @@ Zalety połączonego rozwiązania logistycznego obejmują:
 
 Poniższe zrzuty ekranu przedstawiają wbudowany pulpit nawigacyjny w szablonie aplikacji. Pulpit nawigacyjny jest w pełni dostosowywany do konkretnych wymagań dotyczących rozwiązań:
 
-> [!div class="mx-imgBorder"]
-> ![Połączony pulpit nawigacyjny logistyki](./media/overview-iot-central-retail/connected-logistics-dashboard1.png)
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Połączony pulpit nawigacyjny logistyki":::
 
-> [!div class="mx-imgBorder"]
-> ![Połączony pulpit nawigacyjny logistyki](./media/overview-iot-central-retail/connected-logistics-dashboard2.png)
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Połączony pulpit nawigacyjny logistyki":::
 
 Aby dowiedzieć się więcej, zobacz samouczek [wdrażanie i przechodzenie przez połączony szablon aplikacji logistycznej](./tutorial-iot-central-connected-logistics.md) .
 
 ## <a name="digital-distribution-center"></a>Cyfrowe centrum dystrybucji
 
-Ponieważ producenci i sprzedawcy detaliczni mają na całym świecie obecność, ich łańcuchy dostaw rozgałęzienia i stają się bardziej skomplikowane. Konsumenci oczekują teraz dużej ilości produktów, które mają być dostępne, a także w ramach jednego lub dwóch dni zakupu. Centra dystrybucji muszą dostosowywać się do tych trendów, jednocześnie utrzymując istniejące nieefektywność. 
+Ponieważ producenci i sprzedawcy detaliczni mają na całym świecie obecność, ich łańcuchy dostaw rozgałęzienia i stają się bardziej skomplikowane. Konsumenci oczekują teraz dużej ilości produktów, które mają być dostępne, a także w ramach jednego lub dwóch dni zakupu. Centra dystrybucji muszą dostosowywać się do tych trendów, jednocześnie utrzymując istniejące nieefektywność.
 
-Obecnie zależność od pracy ręcznej oznacza, że konta pobierania i pakowania dla 55-65% kosztów centrum dystrybucji. Ręczne pobieranie i pakowanie są również zwykle wolniejsze niż zautomatyzowane systemy i gwałtownie zmieniające się potrzeby związane z zatrudnieniem sprawiają, że jest jeszcze trudniejsze do spełnienia woluminów wysyłkowych. Ta sezonowa fluktuacja skutkuje dużym obrotem dla pracowników i zwiększa prawdopodobieństwo wystąpienia kosztownych błędów.
+Dzisiaj, zależnie od pracy ręcznej, oznacza to, że konta pobrań i pakowania dla 55-65% kosztów centrum dystrybucji. Ręczne pobieranie i pakowanie są również zwykle wolniejsze niż zautomatyzowane systemy i gwałtownie zmieniające się potrzeby związane z zatrudnieniem sprawiają, że jest jeszcze trudniejsze do spełnienia woluminów wysyłkowych. Ta sezonowa fluktuacja skutkuje dużym obrotem dla pracowników i zwiększa prawdopodobieństwo wystąpienia kosztownych błędów.
 
 Rozwiązania oparte na kamerach z obsługą IoT mogą dostarczać zalety transformacji, włączając w to cyfrową pętlę opinii. Dane przesyłane przez centrum dystrybucji prowadzą do szczegółowych informacji umożliwiających podjęcie odpowiednich działań, które z kolei powodują lepsze dane.
 
@@ -69,8 +64,7 @@ Zalety centrum dystrybucji cyfrowej obejmują:
 
 Poniższy zrzut ekranu przedstawia wbudowany pulpit nawigacyjny w szablonie aplikacji. Pulpit nawigacyjny jest w pełni dostosowywany do konkretnych wymagań dotyczących rozwiązań: 
 
-> [!div class="mx-imgBorder"]
-> ![Pulpit nawigacyjny centrum dystrybucji cyfrowej](./media/overview-iot-central-retail/digital-distribution-center-dashboard.png)
+:::image type="content" source="media/overview-iot-central-retail/digital-distribution-center-dashboard.png" alt-text="Pulpit nawigacyjny centrum dystrybucji cyfrowej":::
 
 Aby dowiedzieć się więcej, zobacz samouczek [wdrażanie i przechodzenie przez centrum dystrybucji aplikacji w formie elektronicznej](./tutorial-iot-central-digital-distribution-center.md) .
 
@@ -82,8 +76,8 @@ Jako Konstruktor rozwiązań można użyć szablonu aplikacji monitorowanie waru
 
 Użyj szablonu aplikacji, aby:
 
-* Połącz różne czujniki IoT z wystąpieniem aplikacji IoT Central.
-* Monitoruj kondycję sieci czujnika i zarządzaj nimi oraz urządzeniami bramy w środowisku.
+* Połącz różne rodzaje czujników IoT z wystąpieniem aplikacji IoT Central.
+* Monitoruj kondycję sieci czujnika i wszystkie urządzenia bramy w środowisku oraz zarządzaj nimi.
 * Tworzenie reguł niestandardowych wokół warunków środowiska w magazynie w celu wyzwalania alertów dla menedżerów sklepów.
 * Przekształć warunki środowiska w sklepie w szczegółowe informacje, które zespół ds. sprzedaży może wykorzystać w celu poprawy obsługi klienta.
 * Wyeksportuj zagregowane informacje do istniejących lub nowych aplikacji firmowych, aby zapewnić przydatną i czasową informację dla pracowników detalicznych.
@@ -92,8 +86,7 @@ Szablon aplikacji zawiera zestaw szablonów urządzeń i używa zestawu symulowa
 
 Poniższy zrzut ekranu przedstawia wbudowany pulpit nawigacyjny w szablonie aplikacji. Pulpit nawigacyjny jest w pełni dostosowywany do konkretnych wymagań dotyczących rozwiązań: 
 
-> [!div class="mx-imgBorder"]
-> ![Monitorowanie warunków analizy w sklepie](./media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png)
+:::image type="content" source="media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png" alt-text="Monitorowanie warunków analizy w sklepie":::
 
 Aby dowiedzieć się więcej, zobacz samouczek [Tworzenie aplikacji analizy w sklepie w usłudze Azure IoT Central](./tutorial-in-store-analytics-create-app.md) .
 
@@ -105,8 +98,8 @@ Jako Konstruktor rozwiązań możesz użyć szablonu aplikacji do wyewidencjonow
 
 Użyj szablonu aplikacji, aby:
 
-* Połącz różne czujniki IoT z wystąpieniem aplikacji IoT Central.
-* Monitoruj kondycję sieci czujnika i zarządzaj nimi oraz urządzeniami bramy w środowisku.
+* Połącz różne rodzaje czujników IoT z wystąpieniem aplikacji IoT Central.
+* Monitoruj kondycję sieci czujnika i wszystkie urządzenia bramy w środowisku oraz zarządzaj nimi.
 * Tworzenie reguł niestandardowych wokół stanu wyewidencjonowania w sklepie w celu wyzwalania alertów dla pracowników detalicznych.
 * Przekształć warunki wyewidencjonowania w sklepie, aby uzyskać szczegółowe informacje, które zespół ds. sprzedaży może wykorzystać do poprawy obsługi klienta.
 * Wyeksportuj zagregowane informacje do istniejących lub nowych aplikacji firmowych, aby zapewnić przydatną i czasową informację dla pracowników detalicznych.
@@ -115,8 +108,7 @@ Szablon aplikacji zawiera zestaw szablonów urządzeń i używa zestawu symulowa
 
 Poniższy zrzut ekranu przedstawia wbudowany pulpit nawigacyjny w szablonie aplikacji. Pulpit nawigacyjny jest w pełni dostosowywany do konkretnych wymagań dotyczących rozwiązań: 
 
-> [!div class="mx-imgBorder"]
-> ![Wyewidencjonowywanie analiz w sklepie](./media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png)
+:::image type="content" source="media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png" alt-text="Wyewidencjonowywanie analiz w sklepie":::
 
 Aby dowiedzieć się więcej, zobacz samouczek [Tworzenie aplikacji analizy w sklepie w usłudze Azure IoT Central](./tutorial-in-store-analytics-create-app.md) .
 
@@ -136,8 +128,7 @@ Ten szablon aplikacji koncentruje się na łączności urządzeń oraz konfigura
 
 Poniższy zrzut ekranu przedstawia wbudowany pulpit nawigacyjny w szablonie aplikacji. Pulpit nawigacyjny jest w pełni dostosowywany do konkretnych wymagań dotyczących rozwiązań:
 
-> [!div class="mx-imgBorder"]
-> ![Pulpit nawigacyjny zarządzania magazynem inteligentnym](./media/overview-iot-central-retail/smart-inventory-management-dashboard.png)
+:::image type="content" source="media/overview-iot-central-retail/smart-inventory-management-dashboard.png" alt-text="Pulpit nawigacyjny zarządzania magazynem inteligentnym":::
 
 Aby dowiedzieć się więcej, zobacz samouczek [wdrażanie i przechodzenie przez szablon aplikacji do zarządzania magazynem inteligentnym](./tutorial-iot-central-smart-inventory-management.md) .
 
@@ -157,10 +148,32 @@ Szablon aplikacji umożliwia wykonywanie:
 
 Poniższy zrzut ekranu przedstawia wbudowany pulpit nawigacyjny w szablonie aplikacji. Pulpit nawigacyjny jest w pełni dostosowywany do konkretnych wymagań dotyczących rozwiązań:
 
-> [!div class="mx-imgBorder"]
-> ![Centrum mikrorealizacji](./media/overview-iot-central-retail/MFC-Dashboard.png)
+:::image type="content" source="media/overview-iot-central-retail/MFC-Dashboard.png" alt-text="Centrum mikrorealizacji":::
 
 Aby dowiedzieć się więcej, zapoznaj się z samouczkiem [wdrażanie i przechodzenie do szablonu aplikacji Centrum programu Micro-zrealizować](./tutorial-micro-fulfillment-center.md) .
+
+## <a name="video-analytics---object-and-motion-detection"></a>Analiza wideo — wykrywanie obiektów i ruchu
+
+Szablon *IoT Central analiza filmów wideo — obiekt i wykrywanie ruchu* umożliwia szybkie wdrażanie i monitorowanie rozwiązania, które używa inteligentnych kamer brzegowych do wykrywania obiektów i ruchu.
+
+Aplikacja do analizy filmów wideo używa modułu [LVA (Live Video Analytics)](#live-video-analytics) działającego w IoT Edge. Moduł LVA udostępnia platformę umożliwiającą tworzenie inteligentnych aplikacji wideo, które rozciągają się na brzeg i chmurę. Możesz użyć platformy, aby ulepszyć rozwiązania IoT, takie jak aplikacja do analizy wideo, przy użyciu funkcji wykrywania obiektów i ruchu.
+
+Szablon aplikacji zawiera cztery pulpity nawigacyjne aplikacji:
+
+* **Instalator** zawiera informacje o projekcie aplikacji i umożliwia dodawanie i usuwanie kamer.
+* Program **umożliwia zarządzanie** kamerami. Można na przykład skonfigurować aparaty, wyświetlać informacje o stanie i uruchamiać aparaty fotograficzne z systemem.
+* **Prawdziwe aparaty fotograficzne** umożliwiają wyświetlanie informacji z rzeczywistych kamer, takich jak liczba wykryć i zdarzenia aparatu.
+* **Monitor** umożliwia wyświetlenie szczegółowych informacji ze wszystkich kamer.
+
+:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Analiza wideo — wykrywanie obiektów i ruchu":::
+
+Aby dowiedzieć się więcej o architekturze rozwiązania, zobacz [Architektura aplikacji wideo Analytics](architecture-video-analytics.md).
+
+Aby dowiedzieć się, jak wdrożyć rozwiązanie, zobacz samouczek [Tworzenie aplikacji wideo Analytics w usłudze Azure IoT Central](tutorial-video-analytics-create-app.md) .
+
+### <a name="live-video-analytics"></a>Analiza wideo na żywo
+
+Usługa Analiza filmów wideo na żywo udostępnia platformę umożliwiającą tworzenie inteligentnych aplikacji wideo obejmujących brzeg i chmurę. Platforma oferuje możliwość przechwytywania, rejestrowania, analizowania wideo na żywo i publikowania wyników, które mogą być plikami wideo lub analizami wideo w usługach platformy Azure. Usługi platformy Azure mogą działać w chmurze lub na krawędzi. Możesz użyć platformy, aby ulepszyć rozwiązania IoT dzięki analizie wideo.
 
 ## <a name="next-steps"></a>Następne kroki
 

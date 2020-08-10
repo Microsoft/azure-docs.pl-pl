@@ -1,18 +1,18 @@
 ---
 title: Migrowanie danych do Azure File Sync z Azure Data Box
-description: Migruj dane zbiorcze w sposób zgodny z Azure File Sync.
+description: Migruj dane zbiorcze w trybie offline, które są zgodne z Azure File Sync. Unikaj konfliktów plików i zachowuj listy ACL plików i folderów oraz sygnatury czasowe po włączeniu synchronizacji.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: dda05331163d071a9a47c6f6af8c758a11ec7dd8
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ae9404d366b24c0cc1bcf01ecffc71a427f949d4
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827898"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034349"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migrowanie danych zbiorczych do usługi Azure File Sync za pomocą usługi Azure DataBox
 Dane zbiorcze można migrować do Azure File Sync na dwa sposoby:

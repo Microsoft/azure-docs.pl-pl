@@ -5,15 +5,15 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 01/23/2019
+ms.date: 08/04/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: b10bf18fde850223bda80a597f448747558113f1
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 16c1dec9e52be98e5b4e0103a583bdc219bc2417
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752190"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031825"
 ---
 ## <a name="push-image-to-registry"></a>Wypychanie obrazu do rejestru
 
@@ -23,13 +23,20 @@ Aby wypchnąć obraz do usługi Azure Container Registry, najpierw musisz go mie
 docker pull hello-world
 ```
 
-Przed wypchnięciem obrazu do rejestru należy oznaczyć go za pomocą w pełni kwalifikowanej nazwy serwera logowania rejestru. Nazwa serwera logowania ma format * \<registry-name\> . azurecr.IO* (wszystkie małe litery), na przykład *mycontainerregistry007.azurecr.IO*.
+Przed wypchnięciem obrazu do rejestru należy oznaczyć go za pomocą w pełni kwalifikowanej nazwy serwera logowania rejestru. Nazwa serwera logowania ma format * \<registry-name\> . azurecr.IO* (wszystkie małe litery), na przykład *mycontainerregistry.azurecr.IO*.
 
 Aby dodać tag do obrazu, użyj polecenia [docker tag][docker-tag]. Zastąp element `<login-server>` nazwą serwera logowania wystąpienia usługi ACR.
 
 ```
 docker tag hello-world <login-server>/hello-world:v1
 ```
+
+Przykład:
+
+```
+docker tag hello-world mycontainerregistry.azurecr.io/hello-world:v1
+```
+
 
 Na koniec Użyj [polecenia Docker push][docker-push] , aby wypchnąć obraz do wystąpienia rejestru. Zamień na `<login-server>` nazwę serwera logowania wystąpienia rejestru. W tym przykładzie jest tworzone repozytorium **hello-world** zawierające obraz `hello-world:v1`.
 

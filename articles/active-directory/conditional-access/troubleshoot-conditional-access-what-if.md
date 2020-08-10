@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 07/03/2019
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9aaab58acb00305f76b10847a0417d91d724ba8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46d3b8d94148e3db163411c21cccf39c7630c6b3
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83737643"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032926"
 ---
 # <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>Rozwiązywanie problemów z dostępem warunkowym przy użyciu narzędzia What If
 
@@ -67,7 +67,7 @@ Wiele organizacji tworzy zasady w oparciu o lokalizacje sieciowe, umożliwiając
 
 Aby sprawdzić, czy konfiguracja została wprowadzona prawidłowo, administrator może użyć narzędzia What If, aby naśladować dostęp, z lokalizacji, która powinna być dozwolona, i z lokalizacji, która powinna zostać odrzucona.
 
-![Narzędzie What If pokazujące wyniki z dostępem do bloku](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)
+[![Narzędzie What If pokazujące wyniki z dostępem do bloku](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png#lightbox)
 
 W takim przypadku użytkownikowi zablokowano dostęp do dowolnej aplikacji w chmurze w podróży do Korei Północnej, ponieważ firma Contoso zablokował dostęp z tej lokalizacji.
 

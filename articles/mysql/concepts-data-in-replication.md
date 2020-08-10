@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 20be34191355e6ade40e0f3b218818bfa5345a28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 8/7/2020
+ms.openlocfilehash: a9d6c1b2438f20a06062842b96b147e094760238
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79533236"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031221"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replikowanie danych do Azure Database for MySQL
 
@@ -29,6 +29,11 @@ W przypadku scenariuszy migracji Użyj [Azure Database Migration Service](https:
 
 ### <a name="data-not-replicated"></a>Dane nie zostały zreplikowane
 [*Baza danych systemu MySQL*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) na serwerze głównym nie jest replikowana. Zmiany kont i uprawnień na serwerze głównym nie są replikowane. Jeśli utworzysz konto na serwerze głównym, a to konto musi uzyskać dostęp do serwera repliki, ręcznie Utwórz to samo konto na stronie serwera repliki. Aby zrozumieć, jakie tabele są zawarte w systemowej bazie danych, zobacz [Podręcznik programu MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
+
+### <a name="filtering"></a>Filtrowanie
+Aby pominąć replikację tabel z serwera głównego (hostowanego lokalnie, w maszynach wirtualnych lub w usłudze bazy danych hostowanej przez innych dostawców chmury), `replicate_wild_ignore_table` parametr jest obsługiwany. Opcjonalnie należy zaktualizować ten parametr na serwerze repliki hostowanym na platformie Azure przy użyciu [Azure Portal](howto-server-parameters.md) lub [interfejsu wiersza polecenia platformy Azure](howto-configure-server-parameters-using-cli.md).
+
+Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) , aby dowiedzieć się więcej o tym parametrze.
 
 ### <a name="requirements"></a>Wymagania
 - Wersja serwera głównego musi być nowsza niż wersja 5,6. 

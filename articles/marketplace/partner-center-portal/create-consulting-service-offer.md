@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 8dd0abb5c127d51a0feaf0c71188b7fc48e2fd69
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: f020d3e98a5c13848a67ed4d8c9ded485b2f9450
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798226"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032598"
 ---
 # <a name="create-a-consulting-service-offer"></a>Tworzenie oferty usługi konsultingowej
 
@@ -202,19 +202,22 @@ Dodaj maksymalnie trzy (ale co najmniej jeden) obsługę dokumentów PDF dla ofe
 
 Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy muszą mieć format PNG. Rozmyte obrazy zostaną odrzucone.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >Jeśli występuje problem z przekazywaniem plików, upewnij się, że sieć lokalna nie blokuje https://upload.xboxlive.com usługi używanej przez centrum partnerskie.
 
 #### <a name="store-logos"></a>Logo sklepu
 
-Podaj plik PNG dla logo o **dużym** rozmiarze (od 216 x 216 do 350 x 350 pikseli). Centrum partnerskie będzie używać tego do tworzenia **małego** logo (48 x 48 pikseli) rozmiaru. Opcjonalnie można zastąpić ten obraz innym.
+Podaj pliki PNG logo oferty w każdym z następujących rozmiarów pikseli:
 
-Oba rozmiary logo są wymagane do użycia w różnych miejscach na liście:
+- **Mały (48 x 48)**
+- **Duże (216 x 216)**
 
-- **Mały** (48 x 48)
-- **Duże** (od 216 x 216 do 350 x 350)
+Wszystkie logo są wymagane i są używane w różnych miejscach na liście w portalu Marketplace.
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+-   Małe logo (48 x 48 pikseli) pojawia się w wynikach wyszukiwania Azure Marketplace i na stronie głównej Microsoft AppSource i wynikach wyszukiwania. 
+-   Duże logo (od 216 x 216 i 350 x 350 pikseli) pojawia się na stronie aukcji oferty w witrynie Azure Marketplace i Microsoft AppSource.
 
 #### <a name="screenshots-optional"></a>Zrzuty ekranu (opcjonalnie)
 

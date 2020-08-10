@@ -1,18 +1,18 @@
 ---
 title: Konfigurowanie alertów w usłudze Azure VPN Gateway metryki
-description: Dowiedz się, jak skonfigurować alerty w usłudze Azure VPN Gateway Metrics. Użyj Azure Monitor, aby skonfigurować alerty dla bram sieci wirtualnej typu sieci VPN.
+description: Dowiedz się, w jaki sposób używać Azure Portal do konfigurowania alertów Azure Monitor opartych na metrykach sieci wirtualnych sieci VPN.
 services: vpn-gateway
 author: kumudD
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: alzam
-ms.openlocfilehash: 3819f653cba80854a65a08f92a10f82057abb0fd
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 14bb407cb12e24ca789085e954aaabff2333da7b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923071"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033499"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Konfigurowanie alertów dotyczących metryk VPN Gateway
 
@@ -50,11 +50,11 @@ Poniższe przykładowe kroki spowodują utworzenie alertu na bramie dla:
 
 2. Wybierz bramę sieci VPN jako zasób.
 
-   ![Przycisk Wybierz i Brama sieci VPN na liście zasobów](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert2.png "Wybierz")
+   ![Przycisk Wybierz i Brama sieci VPN na liście zasobów](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert2.png "Wybierz pozycję")
 
 3. Wybierz metrykę, która ma zostać skonfigurowana dla alertu.
 
-   ![Wybrana Metryka na liście metryk](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert3.png "Wybierz")
+   ![Wybrana Metryka na liście metryk](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert3.png "Wybierz pozycję")
 4. Skonfiguruj logikę sygnału. Istnieją trzy składniki:
 
     a. **Wymiary**: Jeśli Metryka ma wymiary, można wybrać określone wartości wymiaru, aby alert obliczał tylko dane tego wymiaru. Są one opcjonalne.
@@ -63,11 +63,11 @@ Poniższe przykładowe kroki spowodują utworzenie alertu na bramie dla:
 
     c. **Czas**: Określ stopień szczegółowości danych metryki oraz okres, w którym ma zostać obliczony alert.
 
-   ![Szczegóły dotyczące konfigurowania logiki sygnałów](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert4.png "Wybierz")
+   ![Szczegóły dotyczące konfigurowania logiki sygnałów](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert4.png "Wybierz pozycję")
 
 5. Aby wyświetlić skonfigurowane reguły, wybierz pozycję **Zarządzaj regułami alertów**.
 
-   ![Przycisk służący do zarządzania regułami alertów](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert8.png "Wybierz")
+   ![Przycisk służący do zarządzania regułami alertów](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert8.png "Wybierz pozycję")
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 9e3bc4cdab62dd304c5266ff6c9cccf66600fb7b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 198a5da63ed90937c53f7f12f3559f15100e8f19
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848847"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031429"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorowanie, odbieranie i wysyłanie zdarzeń za pomocą usług Azure Event Hubs i Azure Logic Apps
 
@@ -20,7 +20,7 @@ W tym artykule pokazano, jak można monitorować zdarzenia wysyłane do [usługi
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/). 
+* Konto i subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/). 
 
 * [Przestrzeń nazw i centrum zdarzeń usługi Azure Event Hubs](../event-hubs/event-hubs-create.md)
 
@@ -156,7 +156,7 @@ Z listy Akcje wybierz pozycję Ta akcja: **Wyślij Zdarzenie — Event Hubs**
    | **Event Hubs przestrzeń nazw** | Tak | <*Event-Hubs — przestrzeń nazw*> | Wybierz przestrzeń nazw Event Hubs, której chcesz użyć. |
    |||||  
 
-   Na przykład:
+   Przykład:
 
    ![Utwórz połączenie centrum zdarzeń](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-1.png)
 

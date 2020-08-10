@@ -4,12 +4,12 @@ description: Dowiedz się, jak skalować klaster Service Fabric, dodając typ w�
 ms.topic: article
 ms.date: 08/06/2020
 ms.author: pepogors
-ms.openlocfilehash: 01f6c90f9f7d7679f5b108138e2d2318eb6b9e18
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5cabe7e377c29812252074336d7c5e9c9d3ba259
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010863"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031985"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Skalowanie w górę węzła klastra usługi Service Fabric podstawowego typu
 W tym artykule opisano sposób skalowania w górę typu węzła podstawowego klastra Service Fabric przez dodanie dodatkowego typu węzła do klastra. Klaster Service Fabric jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Maszyna lub maszyna wirtualna będąca częścią klastra nazywa się węzłem. Zestawy skalowania maszyn wirtualnych to zasób obliczeniowy platformy Azure, który służy do wdrażania kolekcji maszyn wirtualnych jako zestawu i zarządzania nią. Każdy typ węzła, który jest zdefiniowany w klastrze platformy Azure [, jest ustawiany jako oddzielny zestaw skalowania](service-fabric-cluster-nodetypes.md). Każdy typ węzła może być następnie zarządzany osobno.
@@ -62,9 +62,6 @@ New-AzResourceGroupDeployment `
 ### <a name="add-a-new-primary-node-type-to-the-cluster"></a>Dodawanie nowego typu węzła podstawowego do klastra
 > [!Note]
 > Zasoby utworzone w następujących krokach staną się nowym typem węzła podstawowego w klastrze po zakończeniu operacji skalowania. Upewnij się, że używasz nazw unikatowych z podsieci początkowej, publicznego adresu IP, Load Balancer, zestawu skalowania maszyn wirtualnych i typu węzła. 
-
-> [!Note]
-> Jeśli korzystasz już z publicznego adresu IP jednostki SKU w warstwie Standardowa, możesz nie mieć potrzeby tworzenia nowych zasobów sieciowych. 
 
 Szablon zawierający wszystkie poniższe kroki można znaleźć tutaj: [Service Fabric-nowy klaster typu węzeł](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-2.json). Poniższe kroki zawierają częściowe fragmenty zasobów, które wyróżnią zmiany w nowych zasobach.  
 
@@ -162,7 +159,40 @@ Klaster Service Fabric będzie miał teraz dwa typy węzłów po zakończeniu wd
 ### <a name="remove-the-existing-node-type"></a>Usuń istniejący typ węzła 
 Po zakończeniu wdrażania zasobów można rozpocząć wyłączanie węzłów w oryginalnym typie węzła podstawowego. Po wyłączeniu węzłów usługi systemowe zostaną zmigrowane do nowego typu węzła podstawowego, który został wdrożony w powyższym kroku.
 
-1. Wyłącz węzły w węźle typu 0. 
+1. Ustaw właściwość Typ węzła podstawowego w Service Fabric zasób klastra na wartość false. 
+```json
+{
+    "name": "[variables('vmNodeType0Name')]",
+    "applicationPorts": {
+        "endPort": "[variables('nt0applicationEndPort')]",
+        "startPort": "[variables('nt0applicationStartPort')]"
+    },
+    "clientConnectionEndpointPort": "[variables('nt0fabricTcpGatewayPort')]",
+    "durabilityLevel": "Bronze",
+    "ephemeralPorts": {
+        "endPort": "[variables('nt0ephemeralEndPort')]",
+        "startPort": "[variables('nt0ephemeralStartPort')]"
+    },
+    "httpGatewayEndpointPort": "[variables('nt0fabricHttpGatewayPort')]",
+    "isPrimary": false,
+    "reverseProxyEndpointPort": "[variables('nt0reverseProxyEndpointPort')]",
+    "vmInstanceCount": "[parameters('nt0InstanceCount')]"
+}
+```
+2. Wdróż szablon ze zaktualizowaną właściwością isprimary dla oryginalnego typu węzła. Możesz znaleźć szablon z flagą Primary ustawioną na wartość false w oryginalnym typie węzła w tym miejscu: [Service Fabric-typ węzła podstawowego false](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-3.json).
+
+```powershell
+# deploy the updated template files to the existing resource group
+$templateFilePath = "C:\AzureDeploy-3.json"
+$parameterFilePath = "C:\AzureDeploy.Parameters.json"
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile $templateFilePath `
+    -TemplateParameterFile $parameterFilePath `
+```
+
+3. Wyłącz węzły w węźle typu 0. 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterConnectionEndpoint `
     -KeepAliveIntervalInSec 10 `
@@ -196,7 +226,7 @@ foreach($node in $nodes)
 > [!Note]
 > Wykonanie tego kroku może potrwać trochę czasu. 
 
-2. Zatrzymaj dane w węźle typu 0. 
+4. Zatrzymaj dane w węźle typu 0. 
 ```powershell
 foreach($node in $nodes)
 {
@@ -208,62 +238,18 @@ foreach($node in $nodes)
   }
 }
 ```
-3. Cofnij przydział węzłów w oryginalnym zestawie skalowania maszyn wirtualnych 
+5. Cofnij przydział węzłów w oryginalnym zestawie skalowania maszyn wirtualnych 
 ```powershell
 $scaleSetName="nt1vm"
 $scaleSetResourceType="Microsoft.Compute/virtualMachineScaleSets"
 
 Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceType -ResourceGroupName $resourceGroupName -Force
 ```
+> [!Note]
+> Kroki 6 i 7 są opcjonalne, jeśli używasz już publicznego adresu IP jednostki SKU i usługi równoważenia obciążenia w warstwie Standardowa. W takim przypadku można mieć wiele zestawów skalowania maszyn wirtualnych/węzłów w ramach tego samego modułu równoważenia obciążenia. 
 
-4. Usuń stan węzła z typu węzła 0.
-```powershell
-foreach($node in $nodes)
-{
-  if ($node.NodeType -eq $nodeType)
-  {
-    $node.NodeName
+6. Możesz teraz usunąć oryginalny adres IP, a Load Balancer zasoby. W tym kroku zostanie również zaktualizowana nazwa DNS. 
 
-    Remove-ServiceFabricNodeState -NodeName $node.NodeName -Force
-  }
-}
-```
-5. Ustaw właściwość Typ węzła podstawowego w Service Fabric zasób klastra na wartość false. 
-
-```json
-{
-    "name": "[variables('vmNodeType0Name')]",
-    "applicationPorts": {
-        "endPort": "[variables('nt0applicationEndPort')]",
-        "startPort": "[variables('nt0applicationStartPort')]"
-    },
-    "clientConnectionEndpointPort": "[variables('nt0fabricTcpGatewayPort')]",
-    "durabilityLevel": "Bronze",
-    "ephemeralPorts": {
-        "endPort": "[variables('nt0ephemeralEndPort')]",
-        "startPort": "[variables('nt0ephemeralStartPort')]"
-    },
-    "httpGatewayEndpointPort": "[variables('nt0fabricHttpGatewayPort')]",
-    "isPrimary": false,
-    "reverseProxyEndpointPort": "[variables('nt0reverseProxyEndpointPort')]",
-    "vmInstanceCount": "[parameters('nt0InstanceCount')]"
-}
-```
-
-5. Wdróż szablon ze zaktualizowaną właściwością isprimary dla oryginalnego typu węzła. Możesz znaleźć szablon z flagą Primary ustawioną na wartość false w oryginalnym typie węzła w tym miejscu: [Service Fabric-typ węzła podstawowego false](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-3.json).
-
-```powershell
-# deploy the updated template files to the existing resource group
-$templateFilePath = "C:\AzureDeploy-3.json"
-$parameterFilePath = "C:\AzureDeploy.Parameters.json"
-
-New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -TemplateFile $templateFilePath `
-    -TemplateParameterFile $parameterFilePath `
-```
-
-7. Możesz teraz usunąć oryginalny adres IP, a Load Balancer zasoby. W tym kroku zostanie również zaktualizowana nazwa DNS. 
 ```powershell
 $lbname="LB-cluster-name-nt1vm"
 $lbResourceType="Microsoft.Network/loadBalancers"
@@ -283,11 +269,24 @@ $PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
 $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
 Set-AzPublicIpAddress -PublicIpAddress $PublicIP
 ``` 
-6. Zaktualizuj punkt końcowy zarządzania w klastrze, aby odwołać się do nowego adresu IP. 
+
+7. Zaktualizuj punkt końcowy zarządzania w klastrze, aby odwołać się do nowego adresu IP. 
 ```json
   "managementEndpoint": "[concat('https://',reference(concat(variables('lbIPName'),'-',variables('vmNodeType1Name'))).dnsSettings.fqdn,':',variables('nt0fabricHttpGatewayPort'))]",
 ```
-7. Usuń pierwotne odwołanie do typu węzła z zasobu Service Fabric w szablonie ARM. 
+8. Usuń stan węzła z typu węzła 0.
+```powershell
+foreach($node in $nodes)
+{
+  if ($node.NodeType -eq $nodeType)
+  {
+    $node.NodeName
+
+    Remove-ServiceFabricNodeState -NodeName $node.NodeName -Force
+  }
+}
+```
+9. Usuń pierwotne odwołanie do typu węzła z zasobu Service Fabric w szablonie ARM. 
 ```json
 "name": "[variables('vmNodeType0Name')]",
 "applicationPorts": {
@@ -338,13 +337,10 @@ W przypadku klastrów Silver i wyższych trwałości należy zaktualizować zas�
  } 
 }
 ```
+10. Usuń wszystkie inne zasoby związane z oryginalnym typem węzła z szablonu ARM. Zapoznaj się z tematem [Service Fabric-nowy węzeł typu węzła](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-4.json) dla szablonu z usuniętymi wszystkimi oryginalnymi zasobami.
 
-8. Usuń wszystkie inne zasoby związane z oryginalnym typem węzła z szablonu ARM. Zapoznaj się z tematem [Service Fabric-nowy węzeł typu węzła](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-4.json) dla szablonu z usuniętymi wszystkimi oryginalnymi zasobami.
-
-9. Wdróż zmodyfikowany szablon Azure Resource Manager. * * Ten krok zajmie trochę czasu, zwykle maksymalnie dwie godziny. To uaktualnienie spowoduje zmianę ustawień na InfrastructureService, w związku z czym wymagane jest ponowne uruchomienie węzła. W tym przypadku forceRestart jest ignorowane. Parametr upgradeReplicaSetCheckTimeout określa maksymalny czas, który Service Fabric czeka, aż partycja będzie w stanie bezpiecznym, jeśli nie jest jeszcze w stanie bezpiecznym. Gdy sprawdzanie bezpieczeństwa zostanie zakończone dla wszystkich partycji w węźle, Service Fabric kontynuuje uaktualnianie w tym węźle. Wartość parametru upgradeTimeout można zmniejszyć do 6 godzin, ale w celu zapewnienia maksymalnego poziomu bezpieczeństwa 12 godzin powinno być używane.
-Następnie sprawdź, czy:
-
-* Zasób Service Fabric w portalu pokazuje gotowość.
+11. Wdróż zmodyfikowany szablon Azure Resource Manager. * * Ten krok zajmie trochę czasu, zwykle maksymalnie dwie godziny. To uaktualnienie spowoduje zmianę ustawień na InfrastructureService, w związku z czym wymagane jest ponowne uruchomienie węzła. W tym przypadku forceRestart jest ignorowane. Parametr upgradeReplicaSetCheckTimeout określa maksymalny czas, który Service Fabric czeka, aż partycja będzie w stanie bezpiecznym, jeśli nie jest jeszcze w stanie bezpiecznym. Gdy sprawdzanie bezpieczeństwa zostanie zakończone dla wszystkich partycji w węźle, Service Fabric kontynuuje uaktualnianie w tym węźle. Wartość parametru upgradeTimeout można zmniejszyć do 6 godzin, ale w celu zapewnienia maksymalnego poziomu bezpieczeństwa 12 godzin powinno być używane.
+Następnie sprawdź, czy zasób Service Fabric w portalu jest wyświetlany jako gotowy. 
 
 ```powershell
 # deploy the updated template files to the existing resource group

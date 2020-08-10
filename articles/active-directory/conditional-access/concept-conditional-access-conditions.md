@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a74fe2bf6b326dac782ac75418a7f4960e66501a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4b887c91a289730c3d92efe753a2df162f36a047
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275007"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032133"
 ---
 # <a name="conditional-access-conditions"></a>Dostęp warunkowy: warunki
 
 W ramach zasad dostępu warunkowego administrator może używać sygnałów z warunków, takich jak ryzyko, platforma urządzenia lub lokalizacja, aby usprawnić decyzje dotyczące zasad. 
 
-![Definiowanie zasad dostępu warunkowego i określanie warunków](./media/concept-conditional-access-conditions/conditional-access-conditions.png)
+[![Definiowanie zasad dostępu warunkowego i określanie warunków](./media/concept-conditional-access-conditions/conditional-access-conditions.png)](./media/concept-conditional-access-conditions/conditional-access-conditions.png#lightbox)
 
 Można połączyć wiele warunków, aby utworzyć szczegółowe i konkretne zasady dostępu warunkowego.
 
@@ -60,21 +60,28 @@ Na przykład niektóre organizacje mogą zrezygnować z uwierzytelniania wielosk
 
 Więcej informacji na temat lokalizacji można znaleźć w artykule [co to jest warunek lokalizacji w Azure Active Directory dostęp warunkowy](location-condition.md).
 
-## <a name="client-apps-preview"></a>Aplikacje klienckie (wersja zapoznawcza)
+## <a name="client-apps"></a>Aplikacje klienckie
 
-Zasady dostępu warunkowego są domyślnie stosowane do aplikacji i aplikacji opartych na przeglądarce, które korzystają z nowoczesnych protokołów uwierzytelniania. Oprócz tych aplikacji Administratorzy mogą dołączać klientów programu Exchange ActiveSync i innych klientów korzystających ze starszych protokołów.
+Domyślnie wszystkie nowo utworzone zasady dostępu warunkowego będą stosowane do wszystkich typów aplikacji klienta, nawet jeśli warunek aplikacji klienta nie jest skonfigurowany. 
 
 > [!NOTE]
-> Usunięto przełącznik Konfiguruj tak/nie w stanie aplikacje klienckie, aby ułatwić sprawdzenie, które aplikacje klienckie są wybrane. Nie ma to wpływu na to, które aplikacje klienckie obowiązują dla istniejących zasad.
+> Zachowanie warunku aplikacji klienckich zostało zaktualizowane w sierpniu 2020. Jeśli masz istniejące zasady dostępu warunkowego, pozostaną bez zmian. Jeśli jednak klikniesz istniejące zasady, przełącznik Konfiguruj został usunięty i są wybrane aplikacje klienckie, do których odnoszą się zasady.
 
-- Przeglądarka
-   - Obejmują one aplikacje oparte na sieci Web, które używają protokołów takich jak SAML, WS-Federation, OpenID Connect Connect lub usługi zarejestrowane jako klient z poufnym uwierzytelnianiem OAuth.
-- Aplikacje mobilne i klienci stacjonarni
-   - Nowoczesne komputery klienckie uwierzytelniania
-      - Ta opcja obejmuje aplikacje, takie jak aplikacje dla komputerów stacjonarnych i telefonów biurowych.
+> [!IMPORTANT]
+> Logowania ze starszych klientów uwierzytelniania nie obsługują uwierzytelniania MFA i nie przekazują informacji o stanie urządzenia do usługi Azure AD, dzięki czemu będą blokowane przez kontrolę dostępu warunkowego, takich jak wymaganie uwierzytelniania MFA lub urządzeń zgodnych. Jeśli masz konta, które muszą używać starszego uwierzytelniania, możesz wykluczyć te konta z zasad albo skonfigurować zasady tak, aby dotyczyły tylko nowoczesnych klientów uwierzytelniania.
+
+Opcja **Konfiguruj** przełącznik, gdy ma wartość **tak** , dotyczy zaznaczonych elementów, gdy **nie** ma zastosowania do wszystkich aplikacji klienckich, w tym nowoczesnych i starszych klientów uwierzytelniania. Ten przełącznik nie pojawia się w zasadach utworzonych przed 2020 sierpnia.
+
+- Nowoczesne komputery klienckie uwierzytelniania
+   - Przeglądarka
+      - Obejmują one aplikacje oparte na sieci Web, które używają protokołów takich jak SAML, WS-Federation, OpenID Connect Connect lub usługi zarejestrowane jako klient z poufnym uwierzytelnianiem OAuth.
+   - Aplikacje mobilne i klienci stacjonarni
+      -  Ta opcja obejmuje aplikacje, takie jak aplikacje dla komputerów stacjonarnych i telefonów biurowych.
+- Klienci starszego uwierzytelniania
    - Klienci programu Exchange ActiveSync
-      - Domyślnie obejmuje to wszystkie zastosowania protokołu Exchange ActiveSync (EAS). Wybór opcji **Zastosuj zasady tylko do obsługiwanych platform** będzie ograniczać się do obsługiwanych platform, takich jak iOS, Android i Windows.
+      - Obejmuje to wszystkie zastosowania protokołu Exchange ActiveSync (EAS).
       - Gdy zasady blokują korzystanie z programu Exchange ActiveSync, dany użytkownik otrzyma pojedynczą wiadomość e-mail z kwarantanny. Ta wiadomość e-mail z informacjami o tym, dlaczego są blokowane i w razie możliwości zawiera instrukcje dotyczące korygowania.
+      - Administratorzy mogą stosować zasady tylko do obsługiwanych platform (takich jak iOS, Android i Windows) poprzez dostęp warunkowy MS interfejs API programu Graph.
    - Inni klienci
       - Ta opcja obejmuje klientów korzystających z protokołów uwierzytelniania Basic/starszej, które nie obsługują nowoczesnego uwierzytelniania.
          - Uwierzytelniony protokół SMTP używany przez klienta POP i IMAP do wysyłania wiadomości e-mail.

@@ -1,35 +1,36 @@
 ---
-title: Ograniczenia adresu URL odpowiedzi & URI przekierowania — platforma tożsamości firmy Microsoft | Azure
-description: Ograniczenia adresów URL odpowiedzi/adresów URL przekierowania & ograniczenia
+title: Ograniczenia URI przekierowania (adres URL odpowiedzi) | Azure
+titleSuffix: Microsoft identity platform
+description: Opis ograniczeń i ograniczeń w formacie URI przekierowania (adres URL odpowiedzi) wymuszonego przez platformę tożsamości firmy Microsoft.
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 07/17/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 4fdeb0018e27a2557161b2ec1c4794d975403523
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6a8cc588ff7325242e7e010e9869eaa9a24f6fc2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311623"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033340"
 ---
-# <a name="redirect-urireply-url-restrictions-and-limitations"></a>Identyfikator URI przekierowania lub adres URL odpowiedzi i ograniczenia
+# <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Ograniczenia i ograniczenia URI przekierowania (adres URL odpowiedzi)
 
-Identyfikator URI przekierowania lub adres URL odpowiedzi to lokalizacja, do której serwer autoryzacji wyśle użytkownika, gdy aplikacja zostanie pomyślnie autoryzowana, a następnie zostanie udzielony kod autoryzacji lub token dostępu. Kod lub token jest zawarty w identyfikatorze URI przekierowania lub token odpowiedzi, dlatego ważne jest, aby zarejestrować poprawną lokalizację w ramach procesu rejestracji aplikacji.
+Identyfikator URI przekierowania lub adres URL odpowiedzi to lokalizacja, do której serwer autoryzacji wysyła użytkownika po pomyślnym autoryzacji aplikacji i przydzieleniu mu kodu autoryzacji lub tokenu dostępu. Serwer autoryzacji wysyła kod lub token do identyfikatora URI przekierowania, dlatego ważne jest, aby zarejestrować poprawną lokalizację w ramach procesu rejestracji aplikacji.
 
- Do adresów URL odpowiedzi są stosowane następujące ograniczenia:
+ Identyfikatory URI przekierowania dotyczą następujących ograniczeń:
 
-* Adres URL odpowiedzi musi rozpoczynać się od schematu `https` .
+* Identyfikator URI przekierowania musi rozpoczynać się od schematu `https` .
 
-* W adresie URL odpowiedzi jest rozróżniana wielkość liter. Jego wielkość liter musi być zgodna z wielkością liter w ścieżce URL działającej aplikacji. Na przykład jeśli aplikacja zawiera jako część swojej ścieżki `.../abc/response-oidc` , nie należy określać jej `.../ABC/response-oidc` w adresie URL odpowiedzi. Ponieważ przeglądarka sieci Web traktuje ścieżki w miarę uwzględniania wielkości liter, pliki cookie skojarzone z programem `.../abc/response-oidc` mogą zostać wykluczone w przypadku przekierowania do niezgodnego z wielkością liter `.../ABC/response-oidc` adresów URL.
-    
+* W identyfikatorze URI przekierowania jest rozróżniana wielkość liter. Jego wielkość liter musi być zgodna z wielkością liter w ścieżce URL działającej aplikacji. Na przykład jeśli aplikacja zawiera jako część swojej ścieżki, nie należy `.../abc/response-oidc` określać jej `.../ABC/response-oidc` w identyfikatorze URI przekierowania. Ponieważ przeglądarka sieci Web traktuje ścieżki w miarę uwzględniania wielkości liter, pliki cookie skojarzone z programem `.../abc/response-oidc` mogą zostać wykluczone w przypadku przekierowania do niezgodnego z wielkością liter `.../ABC/response-oidc` adresów URL.
+
 ## <a name="maximum-number-of-redirect-uris"></a>Maksymalna liczba identyfikatorów URI przekierowania
 
-W poniższej tabeli przedstawiono maksymalną liczbę identyfikatorów URI przekierowania, które można dodać podczas rejestrowania aplikacji.
+W tej tabeli przedstawiono maksymalną liczbę identyfikatorów URI przekierowania, które można dodać do rejestracji aplikacji na platformie tożsamości firmy Microsoft.
 
 | Konta, które są zalogowane | Maksymalna liczba identyfikatorów URI przekierowania | Opis |
 |--------------------------|---------------------------------|-------------|
@@ -42,53 +43,56 @@ Dla każdego identyfikatora URI przekierowania, który można dodać do rejestra
 
 ## <a name="supported-schemes"></a>Obsługiwane schematy
 
-Model aplikacji usługi Azure AD już dziś obsługuje zarówno schematy HTTP, jak i HTTPS dla aplikacji, które logują się na kontach służbowych firmy Microsoft w ramach dzierżawy Azure Active Directory (Azure AD) w organizacji. To `signInAudience` pole w manifeście aplikacji jest ustawione na wartość *AzureADMyOrg* lub *AzureADMultipleOrgs*. W przypadku aplikacji, które logują się do osobistych kont Microsoft i kont służbowych ( `signInAudience` ustawionych do *AzureADandPersonalMicrosoftAccount*), dozwolony jest tylko schemat https.
+Model aplikacji Azure Active Directory (Azure AD) obsługuje obecnie zarówno schematy HTTP, jak i HTTPS dla aplikacji, które logują się w ramach konta służbowego w ramach dzierżawy usługi Azure AD w organizacji. Te typy kont są określane przez `AzureADMyOrg` wartości i `AzureADMultipleOrgs` w `signInAudience` polu manifestu aplikacji. W przypadku aplikacji, które logują się do osobistych kont Microsoft (MSA) *i* kont służbowych (czyli `signInAudience` ustawionych jako `AzureADandPersonalMicrosoftAccount` ), dozwolony jest tylko schemat https.
 
-> [!NOTE]
-> Nowe środowisko [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) nie pozwala deweloperom dodawać identyfikatorów URI z schematem http w interfejsie użytkownika. Dodawanie identyfikatorów URI protokołu HTTP dla aplikacji, które logują się do konta służbowego, jest obsługiwane tylko za pośrednictwem Edytora manifestu aplikacji. W przód nowe aplikacje nie będą mogły używać schematów HTTP w identyfikatorze URI przekierowania. Jednak starsze aplikacje zawierające schematy HTTP w identyfikatorach URI przekierowania będą nadal działały. Deweloperzy muszą używać schematów HTTPS w identyfikatorach URI przekierowania.
+Aby dodać identyfikatory URI przekierowania ze schematem HTTP do rejestracji aplikacji, które logują się do konta służbowego, należy użyć edytora manifestu aplikacji w [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) w Azure Portal. Jednak chociaż można ustawić identyfikator URI przekierowania oparty na protokole HTTP przy użyciu edytora manifestu, *zdecydowanie* zalecamy użycie schematu HTTPS dla identyfikatorów URI przekierowania.
 
 ## <a name="localhost-exceptions"></a>Wyjątki localhost
 
 Zgodnie z [sekcją RFC 8252 sekcje 8,3](https://tools.ietf.org/html/rfc8252#section-8.3) i [7,3](https://tools.ietf.org/html/rfc8252#section-7.3), "sprzężenie zwrotne" lub "localhost" identyfikatorów URI przekierowania są dwa specjalne zagadnienia:
 
-1. `http`Schematy identyfikatorów URI są akceptowalne, ponieważ przekierowanie nigdy nie opuszcza urządzenia.  Oznacza to `http://127.0.0.1/myApp` , że jest to dozwolone, a także `https://127.0.0.1/myApp` . 
-1. Z powodu tymczasowych zakresów portów często wymaganych przez aplikacje natywne składnik portu (np. `:5001` lub `:443` ) jest ignorowany na potrzeby dopasowywania identyfikatora URI przekierowania.  W związku z tym `http://127.0.0.1:5000/MyApp` `http://127.0.0.1:1234/MyApp` oba te elementy są zgodne, `http://127.0.0.1/MyApp` jak również`http://127.0.0.1:8080/MyApp`
+1. `http`Schematy identyfikatorów URI są akceptowalne, ponieważ przekierowanie nigdy nie opuszcza urządzenia. W związku z tym oba te elementy są akceptowane:
+    - `http://127.0.0.1/myApp`
+    - `https://127.0.0.1/myApp`
+1. Ze względu na tymczasowe zakresy portów często wymagane przez natywne aplikacje, składnik portu (na przykład `:5001` lub `:443` ) jest ignorowany na potrzeby dopasowywania identyfikatora URI przekierowania. W związku z tym wszystkie te są uważane za równoważne:
+    - `http://127.0.0.1/MyApp`
+    - `http://127.0.0.1:1234/MyApp`
+    - `http://127.0.0.1:5000/MyApp`
+    - `http://127.0.0.1:8080/MyApp`
 
 Z punktu widzenia projektowania oznacza to kilka rzeczy:
 
-1. Nie rejestruj wielu identyfikatorów URI odpowiedzi, w których tylko port jest różny.  Serwer logowania zostanie wybrany arbitralnie i użyje zachowania skojarzonego z tym identyfikatorem URI odpowiedzi (na przykład, czy jest to `web` `native` przekierowanie, i `spa` -Type.
-1. Jeśli zachodzi potrzeba zarejestrowania wielu identyfikatorów URI przekierowania na hoście lokalnym w celu przetestowania różnych przepływów podczas opracowywania, Odróżnij je za pomocą składnika *ścieżki* identyfikatora URI.  `http://127.0.0.1/MyWebApp`nie jest zgodny `http://127.0.0.1/MyNativeApp` .  
-1. Zgodnie ze wskazówkami RFC nie należy używać `localhost` go w identyfikatorze URI przekierowania.  Zamiast tego należy użyć rzeczywistego adresu IP sprzężenia zwrotnego — `127.0.0.1` . Zapobiega to zerwaniu aplikacji przez błędnie skonfigurowane zapory lub nazwy interfejsów sieciowych.
+1. Nie należy rejestrować wielu identyfikatorów URI przekierowania, gdy tylko port jest różny. Serwer logowania wybiera arbitralnie i użyje zachowania skojarzonego z tym identyfikatorem URI przekierowania (na przykład niezależnie od tego, czy jest to `web` -, `native` -, czy `spa` -Type redirect).
+1. Jeśli zachodzi potrzeba zarejestrowania wielu identyfikatorów URI przekierowania na hoście lokalnym w celu przetestowania różnych przepływów podczas opracowywania, Odróżnij je za pomocą składnika *ścieżki* identyfikatora URI. Na przykład `http://127.0.0.1/MyWebApp` nie są zgodne `http://127.0.0.1/MyNativeApp` .
+1. Zgodnie ze wskazówkami RFC nie należy używać `localhost` go w identyfikatorze URI przekierowania. Zamiast tego należy użyć rzeczywistego adresu IP sprzężenia zwrotnego `127.0.0.1` . Zapobiega to zerwaniu aplikacji przez błędnie skonfigurowane zapory lub nazwy interfejsów sieciowych.
 
->[!NOTE]
-> W tej chwili sprzężenie zwrotne IPv6 ( `[::1]` ) nie jest w tej chwili obsługiwane.  Ta wartość zostanie dodana w późniejszym terminie.
+    Adres sprzężenia zwrotnego IPv6 ( `[::1]` ) nie jest obecnie obsługiwany.
 
-## <a name="restrictions-using-a-wildcard-in-uris"></a>Ograniczenia przy użyciu symboli wieloznacznych w identyfikatorach URI
+## <a name="restrictions-on-wildcards-in-redirect-uris"></a>Ograniczenia dotyczące symboli wieloznacznych w identyfikatorach URI przekierowania
 
-Symbole wieloznaczne, takie jak `https://*.contoso.com` , są wygodne, ale należy je unikać. Używanie symboli wieloznacznych w identyfikatorze URI przekierowania ma wpływ na zabezpieczenia. Zgodnie ze specyfikacją OAuth 2,0 ([sekcja 3.1.2 specyfikacji RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)), identyfikator URI punktu końcowego przekierowania musi być bezwzględnym identyfikatorem URI.
+Identyfikatory URI z symbolami wieloznacznymi `https://*.contoso.com` mogą pozornie być wygodne, ale należy je unikać z powodu implikacji zabezpieczeń. Zgodnie ze specyfikacją OAuth 2,0 ([sekcja 3.1.2 specyfikacji RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)), identyfikator URI punktu końcowego przekierowania musi być bezwzględnym identyfikatorem URI.
 
-Model aplikacji usługi Azure AD nie obsługuje wieloznacznych identyfikatorów URI dla aplikacji skonfigurowanych do logowania osobistych kont Microsoft i kont służbowych. Jednak symbole wieloznaczne są dozwolone dla aplikacji, które są skonfigurowane do logowania konta służbowego w ramach dzierżawy usługi Azure AD w organizacji już dziś.
+Symbole wieloznaczne nie są obecnie obsługiwane w rejestracjach aplikacji skonfigurowanych do logowania osobistych kont Microsoft i kont służbowych. Symbole wieloznaczne są dozwolone, jednak w przypadku aplikacji skonfigurowanych do logowania tylko kont służbowych w dzierżawie usługi Azure AD w organizacji.
 
-> [!NOTE]
-> Nowe środowisko [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) nie pozwala deweloperom dodawać symboli wieloznacznych URI w interfejsie użytkownika. Dodawanie identyfikatora URI symbol wieloznaczny dla aplikacji, które logują się do konta służbowego, jest obsługiwane tylko za pomocą edytora manifestu aplikacji. W przód nowe aplikacje nie będą mogły używać symboli wieloznacznych w identyfikatorze URI przekierowania. Jednak starsze aplikacje zawierające symbole wieloznaczne w identyfikatorach URI przekierowania nadal będą działały.
+Aby dodać identyfikatory URI przekierowania z symbolami wieloznacznymi do rejestracji aplikacji, które logują się do konta służbowego, należy użyć edytora manifestu aplikacji w [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) w Azure Portal. Chociaż istnieje możliwość ustawienia identyfikatora URI przekierowania z symbolem wieloznacznym przy użyciu edytora manifestu, *zdecydowanie* zalecamy przestrzeganie [sekcji 3.1.2 RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) i użycie tylko bezwzględnych identyfikatorów URI.
 
-Jeśli scenariusz wymaga więcej identyfikatorów URI przekierowania niż maksymalny dozwolony limit, zamiast dodawać wieloznaczny identyfikator URI przekierowania, należy wziąć pod uwagę następujące podejście.
+Jeśli scenariusz wymaga więcej identyfikatorów URI przekierowania niż maksymalny dozwolony limit, należy wziąć pod uwagę [poniższe podejście](#use-a-state-parameter) zamiast dodawać symbol wieloznaczny URI przekierowania.
 
 ### <a name="use-a-state-parameter"></a>Użyj parametru stanu
 
-Jeśli masz wiele domen podrzędnych, a jeśli w Twoim scenariuszu użytkownik wymaga przekierowania użytkowników po pomyślnym uwierzytelnieniu na tej samej stronie, na której zostały uruchomione, może być przydatne użycie parametru stanu.
+Jeśli masz kilka poddomen i twój scenariusz wymaga, aby po pomyślnym uwierzytelnieniu przekierować użytkowników na tę samą stronę, z której uruchomiono, przy użyciu parametru stanu może być przydatne.
 
 W tym podejściu:
 
 1. Utwórz "współużytkowany" identyfikator URI przekierowania dla aplikacji, aby przetworzyć tokeny zabezpieczające otrzymane z punktu końcowego autoryzacji.
-1. Aplikacja może wysyłać parametry specyficzne dla aplikacji (takie jak adres URL domeny podrzędnej, w którym użytkownik wychodził lub coś, jak informacje o znakowaniu) w parametrze State. W przypadku korzystania z parametru stanu Ochrona przed CSRF ochroną zgodnie z opisem w [sekcji 10,12 specyfikacji RFC 6749](https://tools.ietf.org/html/rfc6749#section-10.12)). 
+1. Aplikacja może wysyłać parametry specyficzne dla aplikacji (takie jak adres URL poddomeny, w którym użytkownik wychodził lub coś, jak informacje o znakowaniu) w parametrze State. W przypadku korzystania z parametru stanu Ochrona przed CSRF ochroną zgodnie z opisem w [sekcji 10,12 specyfikacji RFC 6749](https://tools.ietf.org/html/rfc6749#section-10.12)).
 1. Parametry specyficzne dla aplikacji będą zawierać wszystkie informacje potrzebne do przetworzenia przez aplikację poprawnego środowiska dla użytkownika, czyli konstruowania odpowiedniego stanu aplikacji. Punkt końcowy autoryzacji usługi Azure AD przydzieli kod HTML z parametru State, aby upewnić się, że nie przekazujesz zawartości HTML w tym parametrze.
 1. Gdy usługa Azure AD wysyła odpowiedź do "udostępnionego" identyfikatora URI przekierowania, wyśle parametr stanu z powrotem do aplikacji.
 1. Aplikacja może następnie użyć wartości w parametrze State, aby określić adres URL, do którego ma być wysyłany użytkownik. Upewnij się, że jest sprawdzana poprawność ochrony CSRF.
 
-> [!NOTE]
-> Takie podejście pozwala naruszonemu klientowi zmodyfikować dodatkowe parametry wysłane w parametrze State, w związku z tym przekierowując użytkownika do innego adresu URL, który jest [otwartym zagrożeniem](https://tools.ietf.org/html/rfc6819#section-4.2.4) w dokumencie RFC 6819. W związku z tym, klient musi chronić te parametry przez szyfrowanie stanu lub Weryfikowanie go przy użyciu innych metod, takich jak Walidacja nazwy domeny w identyfikatorze URI przekierowania względem tokenu.
+> [!WARNING]
+> Takie podejście pozwala naruszonemu klientowi zmodyfikować dodatkowe parametry wysłane w parametrze State, w związku z tym przekierowując użytkownika do innego adresu URL, który jest [otwartym zagrożeniem](https://tools.ietf.org/html/rfc6819#section-4.2.4) w dokumencie RFC 6819. W związku z tym klient musi chronić te parametry przez szyfrowanie stanu lub Weryfikowanie go w inny sposób, na przykład w celu sprawdzenia nazwy domeny w identyfikatorze URI przekierowania względem tokenu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Informacje o [manifeście aplikacji](reference-app-manifest.md)
+Dowiedz się więcej na temat [manifestu aplikacji](reference-app-manifest.md)do rejestracji aplikacji.
