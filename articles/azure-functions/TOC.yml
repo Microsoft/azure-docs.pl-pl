@@ -103,6 +103,7 @@
           href: functions-bindings-example.md
         - name: Rejestrowanie rozszerzeń do wiązania
           href: functions-bindings-register.md
+          displayName: 'bundles, extension bundles'
         - name: Wzorce wyrażeń wiązania
           href: functions-bindings-expressions-patterns.md
         - name: Używanie wartości zwracanych wiązania
@@ -272,8 +273,6 @@
           displayName: 'app setting, application setting'
         - name: Ustawianie wersji środowiska uruchomieniowego
           href: set-runtime-version.md
-        - name: Ręcznie zarejestruj rozszerzenie
-          href: install-update-binding-extensions-manual.md
         - name: Wyłączanie funkcji
           href: disable-function.md
         - name: Geograficzne odzyskiwanie po awarii

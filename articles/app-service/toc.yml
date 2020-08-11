@@ -66,6 +66,8 @@
     - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
+    - name: Terraform
+      href: samples-terraform.md
 - name: Pojęcia
   items:
     - name: Plany usługi App Service
