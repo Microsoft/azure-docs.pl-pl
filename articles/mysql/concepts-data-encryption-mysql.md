@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 7399bc60ffa88112fee87b429571772f634c0754
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8fca0195c2941e4ed1a859c3201adfc2a4a0a2ed
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285428"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067447"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Azure Database for MySQL szyfrowanie danych za pomocą klucza zarządzanego przez klienta
 
@@ -26,7 +26,7 @@ Key Vault to oparty na chmurze zewnętrzny system zarządzania kluczami. Jest on
 
 ## <a name="benefits"></a>Korzyści
 
-Szyfrowanie danych dla Azure Database for MySQL zapewnia następujące korzyści:
+Szyfrowanie danych za pomocą kluczy zarządzanych przez klienta Azure Database for MySQL zapewnia następujące korzyści:
 
 * Dostęp do danych jest w pełni kontrolowany przez użytkownika przez możliwość usuwania klucza i uzyskiwania dostępu do bazy danych 
 * Pełna kontrola nad cyklem życia klucza, włącznie z rotacją klucza do dopasowania do zasad firmowych
@@ -49,8 +49,8 @@ DEKs szyfrowany za pomocą KEKs są przechowywane oddzielnie. Tylko jednostka z 
 Aby serwer MySQL mógł używać kluczy zarządzanych przez klienta przechowywanych w Key Vault na potrzeby szyfrowania danych w programie, administrator Key Vault ma następujące prawa dostępu do serwera:
 
 * **Pobierz**: w celu pobrania publicznej części i właściwości klucza w magazynie kluczy.
-* **wrapKey**: aby można było zaszyfrować klucz szyfrowania danych.
-* **unwrapKey**: aby można było odszyfrować klucz szyfrowania danych.
+* **wrapKey**: aby można było zaszyfrować klucz szyfrowania danych. Zaszyfrowany klucz szyfrowania danych jest przechowywany w Azure Database for MySQL.
+* **unwrapKey**: aby można było odszyfrować klucz szyfrowania danych. Do szyfrowania/odszyfrowywania danych Azure Database for MySQL musi zostać zaszyfrowany/odszyfrowany.
 
 Administrator magazynu kluczy może również [włączyć rejestrowanie Key Vault zdarzeń inspekcji](../azure-monitor/insights/key-vault-insights-overview.md), aby mogły być później poddane inspekcji.
 
@@ -60,16 +60,16 @@ Gdy serwer jest skonfigurowany do korzystania z klucza zarządzanego przez klien
 
 Poniżej przedstawiono wymagania dotyczące konfigurowania Key Vault:
 
-* Key Vault i Azure Database for MySQL muszą należeć do tej samej dzierżawy Azure Active Directory (Azure AD). Między dzierżawcami Key Vault i interakcje serwera nie są obsługiwane. Późniejsze przeniesienie zasobów wymaga ponownego skonfigurowania szyfrowania danych.
+* Key Vault i Azure Database for MySQL muszą należeć do tej samej dzierżawy Azure Active Directory (Azure AD). Między dzierżawcami Key Vault i interakcje serwera nie są obsługiwane. Późniejsze przeniesienie zasobów Key Vault wymaga ponownego skonfigurowania szyfrowania danych.
 * Włącz funkcję usuwania nietrwałego w magazynie kluczy, aby chronić przed utratą danych w przypadku, gdy zostanie usunięte wystąpienie przypadkowe (lub Key Vault). Zasoby usunięte nietrwale są przechowywane przez 90 dni, chyba że użytkownik odzyskuje lub przeczyści je w międzyczasie. Akcje odzyskania i przeczyszczania mają własne uprawnienia skojarzone z zasadami dostępu Key Vault. Funkcja usuwania nietrwałego jest domyślnie wyłączona, ale można ją włączyć za pomocą programu PowerShell lub interfejsu wiersza polecenia platformy Azure (należy zauważyć, że nie można włączyć jej za pomocą Azure Portal).
-* Przyznaj Azure Database for MySQL dostęp do magazynu kluczy za pomocą uprawnień Get, wrapKey i unwrapKey przy użyciu unikatowej tożsamości zarządzanej. W Azure Portal unikatowa tożsamość jest tworzona automatycznie po włączeniu szyfrowania danych w programie MySQL. Szczegółowe instrukcje krok po kroku znajdują Azure Portal się w temacie [Konfigurowanie szyfrowania danych dla programu MySQL](howto-data-encryption-portal.md) .
+* Przyznaj Azure Database for MySQL dostęp do magazynu kluczy za pomocą uprawnień Get, wrapKey i unwrapKey przy użyciu unikatowej tożsamości zarządzanej. W Azure Portal unikatowa tożsamość "usługa" jest automatycznie tworzona, gdy szyfrowanie danych jest włączone w programie MySQL. Szczegółowe instrukcje krok po kroku znajdują Azure Portal się w temacie [Konfigurowanie szyfrowania danych dla programu MySQL](howto-data-encryption-portal.md) .
 
 Poniżej przedstawiono wymagania dotyczące konfigurowania klucza zarządzanego przez klienta:
 
 * Klucz zarządzany przez klienta, który ma być używany na potrzeby szyfrowania, może być tylko asymetryczny, RSA 2048.
 * Data aktywacji klucza (jeśli jest ustawiona) musi być datą i godziną w przeszłości. Data wygaśnięcia (jeśli jest ustawiona) musi być przyszłą datą i godziną.
 * Klucz musi być w stanie *włączony* .
-* W przypadku importowania istniejącego klucza do magazynu kluczy upewnij się, że jest on udostępniany w obsługiwanych formatach plików ( `.pfx` , `.byok` , `.backup` ).
+* W przypadku [importowania istniejącego klucza](https://docs.microsoft.com/rest/api/keyvault/ImportKey/ImportKey) do magazynu kluczy upewnij się, że jest on udostępniany w obsługiwanych formatach plików ( `.pfx` , `.byok` , `.backup` ).
 
 ## <a name="recommendations"></a>Zalecenia
 

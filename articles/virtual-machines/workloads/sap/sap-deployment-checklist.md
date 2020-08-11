@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/13/2020
+ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9f517eb5bd113d8d54714b75bea4c8436882d0f9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: a3c22a46d22ef4eb717eb686fa295c820c78c934
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924431"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067260"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Obciążenia SAP na platformie Azure: Lista kontrolna planowania i wdrażania
 
@@ -44,7 +44,8 @@ W tej fazie planujesz migrację obciążenia SAP na platformę Azure. Co najmnie
     - Zasady zabezpieczeń dotyczące uruchamiania wysokiego wpływu na platformę Azure. Aby dowiedzieć się więcej o zabezpieczeniach danych, Zacznij od [dokumentacji zabezpieczeń platformy Azure](../../../security/index.yml).
 2.  Dokument techniczny projektowania. Ten dokument powinien zawierać:
     - Diagram blokowy rozwiązania.
-    - Ustalanie rozmiarów składników obliczeniowych, magazynu i sieci na platformie Azure. Aby zmienić rozmiar SAP maszyn wirtualnych platformy Azure, zobacz [uwagi dotyczące pomocy technicznej sap #1928533](https://launchpad.support.sap.com/#/notes/1928533).
+    - Ustalanie rozmiarów składników obliczeniowych, magazynu i sieci na platformie Azure. Aby zmienić rozmiar SAP maszyn wirtualnych platformy Azure, zobacz [SAP 
+    -  Uwaga #1928533] ( https://launchpad.support.sap.com/#/notes/1928533) .
     - Ciągłość działania i architektura odzyskiwania po awarii.
     - Szczegółowe informacje na temat wersji systemów operacyjnych, baz danych, jądra i pakietu SAP support. Nie musi to być prawdą, że każda wersja systemu operacyjnego obsługiwana przez oprogramowanie SAP NetWeaver lub S/4HANA jest obsługiwana na maszynach wirtualnych platformy Azure. Ta sama wartość dotyczy wersji systemu DBMS. Zapoznaj się z następującymi źródłami, aby wyrównać i w razie potrzeby uaktualnić wydania SAP, wersje DBMS i wersje systemu operacyjnego w celu zapewnienia wsparcia SAP i platformy Azure. Aby uzyskać pełną pomoc techniczną od oprogramowania SAP i Microsoft, musisz mieć kombinacje wydań obsługiwane przez oprogramowanie SAP i platformę Azure. W razie potrzeby należy zaplanować uaktualnienie niektórych składników oprogramowania. Więcej informacji o obsługiwanych oprogramowaniu SAP, OS i DBMS opisano tutaj:
         - [Uwaga dotycząca pomocy technicznej SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533). Ta Uwaga definiuje minimalne wersje systemu operacyjnego obsługiwane na maszynach wirtualnych platformy Azure. Definiuje również minimalne wersje bazy danych wymagane dla większości baz danych innych niż HANA. Na koniec oferuje Określanie rozmiarów SAP dla typów maszyn wirtualnych platformy Azure obsługiwanych przez oprogramowanie SAP.
@@ -56,9 +57,11 @@ W tej fazie planujesz migrację obciążenia SAP na platformę Azure. Co najmnie
         - [Uwaga dotycząca pomocy technicznej SAP #2555629-SAP HANA 2,0 dynamiczne warstwy — Obsługa funkcji hypervisor i chmury](https://launchpad.support.sap.com/#/notes/2555629)
         - [Uwaga dotycząca pomocy technicznej SAP #1662610 — szczegóły pomocy technicznej dla programu oprogramowanie SIOS Protection Suite dla systemu Linux](https://launchpad.support.sap.com/#/notes/1662610)
         - Uwagi dotyczące oprogramowania SAP dla innych produktów specyficznych dla oprogramowania SAP.     
-    - Zalecamy stosowanie rygorystycznych trzech warstw dla systemów produkcyjnych SAP. Nie zaleca się łączenia serwerów ASCS i/lub DBMS i/lub aplikacji na jednej maszynie wirtualnej. Korzystanie z konfiguracji klastra z obsługą identyfikatorów SID dla usług SAP Central jest obsługiwane w systemach operacyjnych gościa systemu Windows na platformie Azure. Ta konfiguracja nie jest obsługiwana w przypadku usług SAP Central w systemach operacyjnych Linux na platformie Azure. Dokumentację scenariusza systemu operacyjnego gościa w systemie Windows można znaleźć w następujących artykułach:
+    - Korzystanie z konfiguracji klastra z obsługą wiele identyfikatorów SID dla usług SAP Central jest obsługiwane w systemach operacyjnych Windows, SLES i RHEL na platformie Azure. Należy pamiętać, że wzmocnienie usługi RADIUS może zwiększyć ASCS/SCS miejsce na tym klastrze z wieloma identyfikatorami SID. Dokumentację dotyczącą odpowiedniego scenariusza systemu operacyjnego gościa można znaleźć w następujących artykułach:
         - [Rozwiązanie SAP ASCS/SCS o wysokiej dostępności z użyciem usługi Windows Server Failover Clustering i dysku udostępnionego na platformie Azure](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
         - [Rozwiązanie SAP ASCS/SCS o wysokiej dostępności z użyciem klastra trybu failover systemu Windows Server i udziału plików na platformie Azure](./sap-ascs-ha-multi-sid-wsfc-file-share.md)
+        - [Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure w systemie SUSE Linux Enterprise Server for SAP — Przewodnik dotyczący wiele identyfikatorów SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
+        - [Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure w systemie Red Hat Enterprise Linux for SAP — Przewodnik dotyczący wiele identyfikatorów SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
     - Architektura wysokiej dostępności i odzyskiwania po awarii.
         - W oparciu o RTO i cel punktu odzyskiwania należy określić, co ma być podobne do potrzeb.
         - Aby zapewnić wysoką dostępność w ramach strefy, sprawdź, co wymaga system DBMS do zaoferowania na platformie Azure. Większość pakietów systemu DBMS oferuje synchroniczną metodę synchronicznej rezerwy gorącą, którą zalecamy dla systemów produkcyjnych. Zapoznaj się również z dokumentacją dotyczącą oprogramowania SAP dla różnych baz danych, rozpoczynając od [uwagi dotyczącej wdrożenia systemu Azure Virtual Machines DBMS dla obciążeń SAP](./dbms_guide_general.md) i powiązanych dokumentów.
@@ -78,7 +81,7 @@ W tej fazie planujesz migrację obciążenia SAP na platformę Azure. Co najmnie
     - Topologia grupy zasobów.
     - [Strategia tagowania](../../../azure-resource-manager/management/tag-resources.md#tags-and-billing).
     - Konwencje nazewnictwa dla maszyn wirtualnych i innych składników infrastruktury i/lub nazw logicznych.
-5.  Kontrakt pomoc techniczna Premier firmy Microsoft. Zidentyfikuj firmę Microsoft Technical Account Manager (konsultant). Aby uzyskać wymagania dotyczące pomocy technicznej SAP, zobacz [uwagi dotyczące pomocy technicznej sap #2015553](https://launchpad.support.sap.com/#/notes/2015553).
+5.  Kontrakt Microsoft Professional lub pomoc techniczna Premier. Skontaktuj się z pomocą techniczną firmy Microsoft, jeśli masz umowę pomocy technicznej Premier z firmą Microsoft. Aby uzyskać wymagania dotyczące pomocy technicznej SAP, zobacz [uwagi dotyczące pomocy technicznej sap #2015553](https://launchpad.support.sap.com/#/notes/2015553).
 6.  Liczba subskrypcji platformy Azure i limit przydziału rdzeni dla subskrypcji. [Otwórz żądania obsługi, aby zwiększyć przydziały subskrypcji platformy Azure](../../../azure-portal/supportability/resource-manager-core-quotas-request.md) zgodnie z wymaganiami.
 7.  Planowanie zmniejszenia i migracji danych na potrzeby migrowania danych SAP na platformę Azure. W przypadku systemów SAP NetWeaver w systemie SAP zawarto wskazówki dotyczące ograniczania ilości dużych ilości danych. Zobacz [ten przewodnik SAP](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) dotyczący zarządzania danymi w systemach SAP ERP. Część zawartości dotyczy również systemów NetWeaver i S/4HANA.
 8.  Automatyczne podejście do wdrożenia. Celem automatyzacji wdrożeń infrastruktury na platformie Azure jest wdrożenie w sposób deterministyczny i uzyskanie deterministycznych wyników. Wielu klientów używa programu PowerShell lub skryptów opartych na interfejsie wiersza polecenia. Istnieją jednak różne technologie "open source", których można użyć do wdrożenia infrastruktury platformy Azure dla oprogramowania SAP, a nawet w przypadku instalowania programu SAP. Przykłady można znaleźć w witrynie GitHub:
@@ -106,6 +109,7 @@ Zalecamy skonfigurowanie i zweryfikowanie pełnego projektu rozwiązania HADR Cl
            -  [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ważne jest, aby uwzględnić *maksymalną przepływność dysku niebuforowanego* dla rozmiaru.
            -  [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ważne jest, aby uwzględnić *maksymalną przepływność dysku niebuforowanego* dla rozmiaru.
    2. Pamięć.
+        - Sprawdź dokument [typy magazynów Azure dla obciążeń SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage)
         - Za pomocą [usługi Azure SSD w warstwie Standardowa Storage](../../windows/disks-types.md#standard-ssd) można korzystać w przypadku maszyn wirtualnych, które reprezentują warstwy aplikacji SAP, oraz wdrażania systemów DBMS, które nie są wrażliwe na wydajność.
         - Ogólnie rzecz biorąc nie zalecamy używania [dysków HDD w warstwie Standardowa platformy Azure](../../windows/disks-types.md#standard-hdd).
         - Użyj [Premium Storage platformy Azure](../../windows/disks-types.md#premium-ssd) dla wszystkich maszyn wirtualnych z systemem DBMS, które są zdalnie wrażliwe na wydajność.

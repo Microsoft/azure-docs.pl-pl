@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: abfb4f6ba9452581811db1f462089cbafc771266
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c92d6569e3c92d3bad3575599283c7796bd78225
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544756"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88068625"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -51,6 +51,58 @@ Wykonaj następujące kroki, aby zainstalować interfejs wiersza polecenia mowy 
 
 Wpisz `spx` , aby wyświetlić pomoc dla interfejsu wiersza polecenia mowy.
 
+#### <a name="docker-install"></a>[Instalacja platformy Docker](#tab/dockerinstall)
+
+Wykonaj następujące kroki, aby zainstalować interfejs wiersza polecenia mowy w kontenerze platformy Docker:
+
+1. Zainstaluj i uruchom program [Docker Desktop dla danej platformy](https://www.docker.com/get-started).
+1. W nowym wierszu polecenia lub terminalu wpisz następujące polecenie:`docker pull msftspeech/spx`
+1. Wpisz to polecenie. Należy zapoznać się z informacjami pomocy dla interfejsu wiersza polecenia usługi Speech:`docker run -it --rm msftspeech/spx help`
+
+### <a name="mount-a-directory-in-the-container"></a>Instalowanie katalogu w kontenerze
+
+Narzędzie interfejsu wiersza polecenia mowy zapisuje ustawienia konfiguracji jako pliki i ładuje je podczas wykonywania dowolnego polecenia (z wyjątkiem poleceń pomocy).
+W przypadku korzystania z interfejsu wiersza polecenia mowy w kontenerze platformy Docker należy zainstalować katalog lokalny z kontenera, dzięki czemu narzędzie może przechowywać lub wyszukiwać ustawienia konfiguracji, a także umożliwia odczytanie lub zapisanie plików wymaganych przez polecenie, takich jak pliki audio mowy.
+
+W systemie Windows wpisz następujące polecenie, aby utworzyć lokalny katalog interfejsu wiersza polecenia mowy, którego można użyć w kontenerze:
+
+`mkdir c:\spx-data`
+
+Lub w systemie Linux lub Mac wpisz to polecenie w terminalu, aby utworzyć katalog i wyświetlić jego ścieżkę bezwzględną:
+
+```bash
+mkdir ~/spx-data
+cd ~/spx-data
+pwd
+```
+
+Ścieżka bezwzględna zostanie użyta podczas wywoływania interfejsu wiersza polecenia mowy.
+
+### <a name="run-speech-cli-in-the-container"></a>Uruchamianie interfejsu wiersza polecenia mowy w kontenerze
+
+W tej dokumentacji przedstawiono polecenie interfejsu wiersza `spx` polecenia mowy używane w instalacjach programów innych niż Docker.
+Podczas wywoływania `spx` polecenia w kontenerze platformy Docker należy zainstalować katalog w kontenerze w systemie plików, w którym interfejs wiersza polecenia mowy może przechowywać i znajdować wartości konfiguracji oraz pliki odczytu i zapisu.
+W systemie Windows polecenia będą wyglądać następująco:
+
+`docker run -it -v c:\spx-data:/data --rm msftspeech/spx`
+
+W systemie Linux lub Mac polecenia zaczną wyglądać podobnie do tego:
+
+`sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`
+
+> [!NOTE]
+> Zamień na `/ABSOLUTE_PATH` ścieżkę bezwzględną pokazaną przez `pwd` polecenie w powyższej sekcji.
+
+Aby użyć `spx` polecenia zainstalowanego w kontenerze, należy zawsze wprowadzić pełne pokazane powyżej polecenie, a następnie parametry żądania.
+Na przykład w systemie Windows to polecenie ustawia klucz:
+
+`docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY`
+
+> [!NOTE]
+> Nie można użyć mikrofonu lub głośników komputera podczas uruchamiania interfejsu wiersza polecenia mowy w kontenerze platformy Docker.
+> Aby korzystać z tych urządzeń, Przekaż pliki audio do i z interfejsu wiersza polecenia mowy do nagrywania/odtwarzania poza kontenerem platformy Docker.
+> Narzędzie interfejsu wiersza polecenia mowy może uzyskać dostęp do katalogu lokalnego, który został skonfigurowany w powyższych krokach.
+
 ***
 
 ## <a name="create-subscription-config"></a>Utwórz konfigurację subskrypcji
@@ -58,8 +110,8 @@ Wpisz `spx` , aby wyświetlić pomoc dla interfejsu wiersza polecenia mowy.
 Aby rozpocząć korzystanie z interfejsu wiersza polecenia mowy, musisz najpierw wprowadzić informacje o kluczu subskrypcji mowy i regionie. Aby znaleźć identyfikator regionu, zobacz stronę [Obsługa regionów](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) . Gdy masz klucz subskrypcji i Identyfikator regionu (np. `eastus`, `westus` Uruchom następujące polecenia.
 
 ```shell
-spx config @key --set YOUR-SUBSCRIPTION-KEY
-spx config @region --set YOUR-REGION-ID
+spx config @key --set SUBSCRIPTION-KEY
+spx config @region --set REGION
 ```
 
 Twoje uwierzytelnianie subskrypcji jest teraz przechowywane dla przyszłych żądań SPX. Jeśli musisz usunąć jedną z tych przechowywanych wartości, uruchom polecenie `spx config @region --clear` lub `spx config @key --clear` .

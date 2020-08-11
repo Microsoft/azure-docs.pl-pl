@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 04/16/2020
 ms.author: tamram
-ms.openlocfilehash: a9a048801c6bea74e6b5318eeedf76f92709bee6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f2e18b060aabcb849fb8e17722c530d199ebdbb8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81535177"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067775"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Szybki start: przekazywanie, pobieranie i wyświetlanie listy obiektów blob za pomocą witryny Azure Portal
 
@@ -45,7 +45,7 @@ Aby przekazać blokowy obiekt blob do nowego kontenera w witrynie Azure Portal, 
 
 1. W witrynie Azure Portal przejdź do kontenera utworzonego w poprzedniej sekcji.
 1. Wybierz kontener, aby wyświetlić listę obiektów blob, które zawiera. Ten kontener jest nowy, więc nie zawiera jeszcze żadnych obiektów BLOB.
-1. Wybierz przycisk **Przekaż** , aby otworzyć blok przekazywanie i przeglądać lokalny system plików, aby znaleźć plik do przekazania jako blokowy obiekt BLOB. Opcjonalnie można rozwinąć sekcję Zaawansowane, aby skonfigurować inne ustawienia dla operacji przekazywania.
+1. Wybierz przycisk **Przekaż** , aby otworzyć blok przekazywanie i przeglądać lokalny system plików, aby znaleźć plik do przekazania jako blokowy obiekt BLOB. Opcjonalnie można rozwinąć sekcję **Zaawansowane** , aby skonfigurować inne ustawienia dla operacji przekazywania.
 
     ![Zrzut ekranu pokazujący sposób przekazywania obiektu blob z dysku lokalnego](media/storage-quickstart-blobs-portal/upload-blob.png)
 
@@ -59,9 +59,18 @@ Blokowy obiekt blob możesz pobrać, aby wyświetlić go w przeglądarce lub zap
 1. Przejdź do listy obiektów blob przekazanych w poprzedniej sekcji.
 1. Kliknij prawym przyciskiem myszy obiekt blob, który chcesz pobrać, a następnie wybierz pozycję **Pobierz**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+    ![Zrzut ekranu przedstawiający sposób pobierania obiektu BLOB](media/storage-quickstart-blobs-portal/download-blob.png)
 
-Aby usunąć zasoby utworzone w tym przewodniku Szybki start, możesz usunąć kontener. Wszystkie obiekty blob w kontenerze również zostaną usunięte.
+## <a name="delete-a-block-blob"></a>Usuwanie blokowego obiektu BLOB
+
+Blokowy obiekt blob możesz pobrać, aby wyświetlić go w przeglądarce lub zapisać w lokalnym systemie plików. Aby pobrać blokowy obiekt blob, wykonaj następujące kroki:
+
+1. Przejdź do listy obiektów blob przekazanych w poprzedniej sekcji.
+1. Wybierz obiekty blob, które chcesz usunąć, a następnie wybierz pozycję **Usuń** na górnym pasku akcji.
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Aby usunąć wszystkie zasoby utworzone w ramach tego przewodnika Szybki Start, możesz po prostu usunąć kontener. Wszystkie obiekty blob w kontenerze również zostaną usunięte.
 
 Aby usunąć kontener:
 

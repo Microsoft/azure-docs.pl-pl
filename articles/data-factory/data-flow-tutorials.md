@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 05/25/2020
-ms.openlocfilehash: 87bfd505edcb394bafd70a975b5b3d6bde341cb9
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 08/11/2020
+ms.openlocfilehash: 809011df3c8cd6dbc1ee2a2129a261102adb43c0
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848903"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067855"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Samouczki wideo dotyczące przepływów mapowania danych
 
@@ -36,6 +36,8 @@ Gdy aktualizacje są stale wprowadzane do produktu, niektóre funkcje zostały d
 [Monitorowanie wydajności przepływu danych mapowania i zarządzanie nim](https://www.youtube.com/watch?v=fktIWdJiqTk)
 
 [Czasy testów wydajności](http://youtu.be/6CSbWm4lRhw?hd=1)
+
+[Debugowanie przepływów pracy dla przepływów danych](https://youtu.be/y3suL7UsWVw)
 
 ## <a name="transformation-overviews"></a>Omówienia transformacji
 
@@ -118,6 +120,8 @@ Gdy aktualizacje są stale wprowadzane do produktu, niektóre funkcje zostały d
 [Dynamicznie Optymalizuj Rozmiar klastra przepływu danych w czasie wykonywania](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
 [Optymalizowanie czasów uruchamiania przepływu danych](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
+
+[Środowisko Azure Integration Runtime dla przepływów danych](https://mssqldude.wordpress.com/)
 
 ## <a name="mapping-data-flow-scenarios"></a>Mapowanie scenariuszy przepływu danych
 

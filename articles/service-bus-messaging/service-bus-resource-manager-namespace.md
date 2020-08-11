@@ -7,16 +7,16 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 6bcbdbb72f3d26522790b769a8185138c1207a98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b7aafca331170100ce99c084a11c96c97df7781
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85336842"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067396"
 ---
 # <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>Tworzenie przestrzeni nazw Service Bus przy użyciu szablonu Azure Resource Manager
 
-Dowiedz się, jak wdrożyć szablon Azure Resource Manager, aby utworzyć Service Bus przestrzeni nazw. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb. Aby uzyskać więcej informacji na temat tworzenia szablonów, zobacz [dokumentację Azure Resource Manager](/azure/azure-resource-manager/).
+Dowiedz się, jak wdrożyć szablon Azure Resource Manager, aby utworzyć Service Bus przestrzeni nazw. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb. Aby uzyskać więcej informacji na temat tworzenia szablonów, zobacz [dokumentację Azure Resource Manager](../azure-resource-manager/index.yml).
 
 Następujące szablony są również dostępne do tworzenia Service Bus przestrzenie nazw:
 
@@ -27,7 +27,7 @@ Następujące szablony są również dostępne do tworzenia Service Bus przestrz
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="create-a-service-bus-namespace"></a>Tworzenie przestrzeni nazw usługi Service Bus
 

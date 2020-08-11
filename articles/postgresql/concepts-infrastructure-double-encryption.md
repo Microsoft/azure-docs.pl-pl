@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 3806135b7ed212e6eb5ea458c015ebc5810e0e80
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8468d733756ef92ffc9078e945dc46d23e1ab54a
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86034962"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067498"
 ---
 # <a name="azure-database-for-postgresql-infrastructure-double-encryption"></a>Azure Database for PostgreSQL podwójne szyfrowanie infrastruktury
 
@@ -32,11 +32,11 @@ Implementacja w warstwach infrastruktury obsługuje również różnorodność k
 > [!NOTE]
 > Użycie podwójnego szyfrowania infrastruktury będzie miało wpływ na wydajność na serwerze Azure Database for PostgreSQL z powodu dodatkowego procesu szyfrowania.
 
-## <a name="benefits"></a>Zalety
+## <a name="benefits"></a>Korzyści
 
 Podwójne szyfrowanie infrastruktury dla Azure Database for PostgreSQL zapewnia następujące korzyści:
 
-1. **Dodatkowa różnorodność implementacji kryptograficznej** — planowane przejście do szyfrowania na podstawie sprzętu spowoduje dalsze zróżnicowanie implementacji przez dostarczenie implementacji opartej na sprzęcie oprócz implementacji opartej na oprogramowaniu.
+1. **Dodatkowa różnorodność implementacji kryptograficznej** — planowane przejście do szyfrowania opartego na sprzęcie spowoduje dalsze zróżnicowanie implementacji przez udostępnienie implementacji opartej na sprzęcie oraz implementacji opartej na oprogramowaniu.
 2. **Błędy implementacji** — dwie warstwy szyfrowania w warstwie infrastruktury chronią przed wszelkimi błędami w pamięci podręcznej lub zarządzaniu pamięcią na wyższych warstwach, które udostępniają dane zwykłego tekstu. Ponadto dwie warstwy są również chronione przed błędami w implementacji szyfrowania.
 
 Połączenie tych elementów zapewnia silną ochronę przed typowymi zagrożeniami i słabościmi używanymi do zaatakowania kryptografii.
@@ -54,7 +54,7 @@ Funkcje szyfrowania zapewniane przez Azure Database for PostgreSQL mogą być u�
 |       |                    |                                  |                                              |
 
 > [!Important]
-> - Scenariusz 2 i 4 będą mieć znaczący wpływ na wydajność na serwerze Azure Database for PostgreSQL z powodu dodatkowej warstwy szyfrowania infrastruktury.
+> - Scenariusz 2 i 4 będą mieć wpływ na wydajność na serwerze Azure Database for PostgreSQL z powodu dodatkowej warstwy szyfrowania infrastruktury.
 > - Konfigurowanie podwójnego szyfrowania infrastruktury dla Azure Database for PostgreSQL jest dozwolone tylko podczas tworzenia serwera. Po aprowizacji serwera nie można zmienić szyfrowania magazynu. Jednak nadal można włączyć szyfrowanie danych przy użyciu kluczy zarządzanych przez klienta dla serwera utworzonego za pomocą podwójnego szyfrowania infrastruktury/bez.
 
 ## <a name="limitations"></a>Ograniczenia

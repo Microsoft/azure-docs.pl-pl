@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 9ddf4641cfba2fb9704c2354e01299df368eb2ac
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: b4881ee52b39539bfc29f62d7c6773da371a3ea5
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432025"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067175"
 ---
 # <a name="configure-the-model-conversion"></a>Konfigurowanie konwersji modelu
 
@@ -49,6 +49,12 @@ Zawartość pliku powinna spełniać następujący schemat JSON:
             },
             "minItems": 3,
             "maxItems": 3
+        },
+        "metadataKeys": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
         }
     },
     "additionalProperties" : false
@@ -130,6 +136,12 @@ Każdy tryb ma inną wydajność środowiska uruchomieniowego. W `dynamic` trybi
 ### <a name="coordinate-system-overriding"></a>Przesłanianie systemu współrzędnych
 
 * `axis`-Aby przesłonić jednostkę układu współrzędnych. Wartości domyślne to `["+x", "+y", "+z"]` . Teoretycznie format FBX ma nagłówek, w którym są zdefiniowane te wektory, a konwersja używa tych informacji do przekształcenia sceny. Format glTF definiuje również stały układ współrzędnych. W ramach tej działalności niektóre elementy zawartości mają nieprawidłowe informacje w nagłówku lub zostały zapisane z inną Konwencją systemu współrzędnych. Ta opcja umożliwia przesłonięcie układu współrzędnych w celu zrekompensowania. Na przykład: `"axis" : ["+x", "+z", "-y"]` program zamieni osi z i oś y i utrzymuje skrętności układu współrzędnych, odwracając kierunek osi y.
+
+### <a name="node-meta-data"></a>Metadane węzła
+
+* `metadataKeys`— Umożliwia określenie kluczy właściwości metadanych węzła, które mają być zachowane w wyniku konwersji. Można określić dokładne klucze lub klucze wieloznaczne. Klucze wieloznaczne mają format "ABC *" i pasują do każdego klucza rozpoczynającego się od "ABC". Obsługiwane typy wartości metadanych to `bool` , `int` , `float` , i `string` .
+
+    Dla plików GLTF te dane pochodzą z [obiektu Extras w węzłach](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeextras). Dla plików FBX te dane pochodzą z `Properties70` danych `Model nodes` . Aby uzyskać więcej informacji, zapoznaj się z dokumentacją narzędzia zasobów 3W.
 
 ### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex":::Formatowanie
 

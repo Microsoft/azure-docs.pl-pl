@@ -2,16 +2,31 @@
 title: Service Fabric uaktualniania aplikacji
 description: Ten artykuł zawiera wprowadzenie do uaktualniania aplikacji Service Fabric, w tym wybierania trybów uaktualniania i przeprowadzania kontroli kondycji.
 ms.topic: conceptual
-ms.date: 2/23/2018
-ms.openlocfilehash: 9e7a93dd3ef8a1adf6617dcd57887a0ce694c509
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 8/5/2020
+ms.openlocfilehash: cb0c1c0049957244b94b59707b70e47dc53f6c9f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248003"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067515"
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric uaktualniania aplikacji
 Aplikacja Service Fabric platformy Azure to zbiór usług. Podczas uaktualniania Service Fabric porównuje nowy [manifest aplikacji](service-fabric-application-and-service-manifests.md) z poprzednią wersją i określa, które usługi w aplikacji wymagają aktualizacji. Service Fabric porównuje numery wersji w manifestach usługi z numerami wersji w poprzedniej wersji. Jeśli usługa nie uległa zmianie, ta usługa nie zostanie uaktualniona.
+
+> [!NOTE]
+> [ApplicationParameter](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s nie są zachowywane podczas uaktualniania aplikacji. Aby zachować bieżące parametry aplikacji, użytkownik powinien najpierw pobrać parametry i przekazać je do wywołania interfejsu API uaktualniania, takiego jak poniżej:
+```powershell
+$myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
+$appParamCollection = $myApplication.ApplicationParameters
+
+$applicationParameterMap = @{}
+foreach ($pair in $appParamCollection)
+{
+    $applicationParameterMap.Add($pair.Name, $pair.Value);
+}
+
+Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -ApplicationTypeVersion 2.0.0 -ApplicationParameter $applicationParameterMap -Monitored -FailureAction Rollback
+```
 
 ## <a name="rolling-upgrades-overview"></a>Przegląd stopniowego uaktualniania
 W przypadku stopniowego uaktualniania aplikacji uaktualnienie jest wykonywane w etapach. Na każdym etapie uaktualnienie jest stosowane do podzbioru węzłów w klastrze, zwanego domeną aktualizacji. W związku z tym aplikacja pozostaje dostępna podczas uaktualniania. Podczas uaktualniania klaster może zawierać kombinację starych i nowych wersji.

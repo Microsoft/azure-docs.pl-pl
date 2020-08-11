@@ -5,12 +5,12 @@ author: spelluru
 ms.topic: article
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: beafd0d49e8fccaef4ccc043d198875b9f1b1ebd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 750ee2f05e81fe18560a20227aefb52ca343e07b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341023"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067532"
 ---
 # <a name="service-bus-messaging-samples"></a>Przykłady obsługi komunikatów Service Bus
 Przykłady obsługi komunikatów Service Bus przedstawiają kluczowe funkcje w [Service Bus Messaging](https://azure.microsoft.com/services/service-bus/). Obecnie przykłady można znaleźć w następujących miejscach:
@@ -30,5 +30,4 @@ Ponadto [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplo
 W poniższych tematach znajdują się informacje o pojęciach dotyczących omówienia Service Bus.
 
 * [Przegląd komunikatów Service Bus](service-bus-messaging-overview.md)
-* [Architektura usługi Service Bus](service-bus-architecture.md)
-
+* [Architektura usługi Service Bus](./service-bus-messaging-overview.md)

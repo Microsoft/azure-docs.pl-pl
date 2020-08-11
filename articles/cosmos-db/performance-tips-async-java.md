@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 6aa55f864319146c4d3237eb9e6725da2a68035f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d925c1387a408d38eb7974a01ebf3ce3386b7e58
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87308988"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067614"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Porady dotyczące wydajności Azure Cosmos DB Async Java SDK V2
 
@@ -97,7 +97,7 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
     Jeśli używasz Azure Cosmos DB jako bazy danych referencyjnych (oznacza to, że baza danych jest używana w wielu operacjach odczytu punktu i kilku operacjach zapisu), można zaakceptować wartość *idleEndpointTimeout* na 0 (czyli bez limitu czasu).
 
 
-    | Opcja konfiguracji       | Domyślne    |
+    | Opcja konfiguracji       | Domyślny    |
     | :------------------:       | :-----:    |
     | bufferPageSize             | 8192       |
     | Parametru          | "PT1M"     |
@@ -239,28 +239,6 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
     ```
     * - nofile 100000
     ```
-
-* **Użyj natywnej implementacji protokołu TLS/SSL dla sieci dwusieciowych**
-
-    Sieci i mogą korzystać z OpenSSL bezpośrednio dla stosu implementacji TLS, aby osiągnąć lepszą wydajność. W przypadku braku tej konfiguracji te konfiguracje zostaną przywrócone do domyślnej implementacji protokołu TLS w języku Java.
-
-    w Ubuntu:
-    ```bash
-    sudo apt-get install openssl
-    sudo apt-get install libapr1
-    ```
-
-    i Dodaj następującą zależność do zależności projektu Maven:
-    ```xml
-    <dependency>
-      <groupId>io.netty</groupId>
-      <artifactId>netty-tcnative</artifactId>
-      <version>2.0.20.Final</version>
-      <classifier>linux-x86_64</classifier>
-    </dependency>
-    ```
-
-W przypadku innych platform (Red Hat, Windows, Mac itp.) zapoznaj się z tymi instrukcjamihttps://netty.io/wiki/forked-tomcat-native.html
 
 ## <a name="indexing-policy"></a>Zasady indeksowania
  

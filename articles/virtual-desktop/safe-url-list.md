@@ -3,15 +3,15 @@ title: Lista bezpiecznych adresów URL pulpitu wirtualnego systemu Windows — A
 description: Lista adresów URL, które należy odblokować, aby upewnić się, że wdrożenie pulpitu wirtualnego systemu Windows działa zgodnie z oczekiwaniami.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9ac147eec7004f109687a6bb0888e25d0db84448
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 37fb5ccf121fed6e772dc1cd3dcba2345d62c66f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009481"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067209"
 ---
 # <a name="safe-url-list"></a>Lista bezpiecznych adresów URL
 
@@ -76,4 +76,6 @@ Wszyscy klienci korzystający z Pulpit zdalny muszą mieć dostęp do następuj�
 |query.prod.cms.rt.microsoft.com|443|Aktualizacje klienta|Pulpit systemu Windows|
 
 >[!IMPORTANT]
->Otwieranie tych adresów URL jest niezbędne dla niezawodnego środowiska klienta. Blokowanie dostępu do tych adresów URL nie jest obsługiwane i wpłynie na funkcjonalność usługi. Te adresy URL odnoszą się tylko do lokacji i zasobów klienta oraz nie obejmują adresów URL dla innych usług, takich jak Azure Active Directory.
+>Otwieranie tych adresów URL jest niezbędne dla niezawodnego środowiska klienta. Blokowanie dostępu do tych adresów URL nie jest obsługiwane i wpłynie na funkcjonalność usługi.
+>
+>Te adresy URL odnoszą się tylko do lokacji i zasobów klienta. Ta lista nie zawiera adresów URL dla innych usług, takich jak Azure Active Directory. Adresy URL Azure Active Directory można znaleźć pod IDENTYFIKATORem 56 dla [adresów URL i zakresów adresów IP pakietu Office 365](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).

@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 4c5d6bf83d9aa9c3717b0f8e08785b0fc897577d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5fe674fa7ab6a6a3f222a215ebc6912549776fee
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244450"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067362"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Dostosowywanie ruchu wychodzącego klastra przy użyciu trasy zdefiniowanej przez użytkownika
 
@@ -60,7 +60,7 @@ Poniżej znajduje się topologia sieci wdrożona domyślnie w klastrach AKS, kt�
 
 Jeśli `userDefinedRouting` jest ustawiona, AKS nie konfiguruje automatycznie ścieżek ruchu wychodzącego. Konfigurację ruchu wychodzącego należy wykonać przez użytkownika.
 
-Klaster AKS musi zostać wdrożony w istniejącej sieci wirtualnej z podsiecią, która została wcześniej skonfigurowana, ponieważ w przypadku korzystania z architektury usługi równoważenia obciążenia w warstwie Standardowa należy ustanowić jawne dane wyjściowe. W związku z tym ta architektura wymaga jawnego wysłania ruchu wychodzącego do urządzenia, takiego jak zapora, Brama lub serwer proxy lub umożliwienie translacji adresów sieciowych (NAT) przez publiczny adres IP przypisany do standardowego modułu równoważenia obciążenia lub urządzenia.
+Klaster AKS musi zostać wdrożony w istniejącej sieci wirtualnej z podsiecią, która została wcześniej skonfigurowana, ponieważ w przypadku braku korzystania ze standardowej architektury modułu równoważenia obciążenia należy ustanowić jawne dane wyjściowe. W związku z tym ta architektura wymaga jawnego wysłania ruchu wychodzącego do urządzenia, takiego jak zapora, Brama lub serwer proxy lub umożliwienie translacji adresów sieciowych (NAT) przez publiczny adres IP przypisany do standardowego modułu równoważenia obciążenia lub urządzenia.
 
 Dostawca zasobów AKS będzie wdrażać usługę równoważenia obciążenia w warstwie Standardowa. Moduł równoważenia obciążenia nie jest skonfigurowany z żadną regułą i [nie powoduje naliczania opłat do momentu, gdy reguła zostanie umieszczona](https://azure.microsoft.com/pricing/details/load-balancer/). Usługa AKS **nie będzie** automatycznie inicjować publicznego adresu IP dla FRONTONU modułu równoważenia obciążenia ani automatycznie konfigurować puli zaplecza modułu równoważenia obciążeń.
 

@@ -3,12 +3,12 @@ title: Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge — Azu
 description: W tym artykule przedstawiono kroki, które ułatwią wdrożenie analizy wideo na żywo na urządzeniu IoT Edge. Można to zrobić na przykład, jeśli masz dostęp do lokalnej maszyny z systemem Linux i/lub wcześniej utworzono konto Azure Media Services.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: ea7a1026f42cd3d8745559bc195a89b7fbcb69a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f031f679d8fe8e1c14b6a4086f5e1c37f15c7855
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074449"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067940"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge
 
@@ -86,8 +86,8 @@ Na żywo analiza filmów wideo na IoT Edge uwidacznia właściwości wieloosiowe
 
 ### <a name="deploy-using-the-azure-portal"></a>Wdrażanie przy użyciu witryny Azure Portal
 
-Azure Portal przeprowadzi Cię przez proces tworzenia manifestu wdrażania i wypychania wdrożenia na urządzenie IoT Edge.
-Wybierz urządzenie
+Azure Portal przeprowadzi Cię przez proces tworzenia manifestu wdrażania i wypychania wdrożenia na urządzenie IoT Edge.  
+#### <a name="select-your-device-and-set-modules"></a>Wybierz urządzenie i ustaw moduły
 
 1. Zaloguj się do [Azure Portal](https://ms.portal.azure.com/) i przejdź do centrum IoT Hub.
 1. Wybierz **IoT Edge** z menu.
@@ -112,23 +112,12 @@ Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, spos
     > [!TIP]
     > Nie zaznaczaj opcji **Dodaj** , dopóki nie zostaną określone wartości na kartach **Ustawienia modułu**, **Opcje tworzenia kontenera**i **Ustawienia sznurka modułu** , zgodnie z opisem w tej procedurze.
     
-    > [!IMPORTANT]
+    > [!WARNING]
     > Podczas wykonywania wywołań do modułów w Azure IoT Edge rozróżniana jest wielkość liter. Zanotuj dokładny ciąg używany jako nazwa modułu.
 
 1. Otwórz kartę **zmienne środowiskowe** .
    
-   Skopiuj i wklej poniższy kod JSON w polu, aby podać identyfikator użytkownika i identyfikator grupy do użycia w celu zapisania danych aplikacji i wideo.
-    ```   
-   {
-        "LOCAL_USER_ID": 
-        {
-            "value": "1010"
-        },
-        "LOCAL_GROUP_ID": {
-            "value": "1010"
-        }
-    }
-     ``` 
+   Dodaj następujące wartości w polach wejściowych, w których widoczne są ![ zmienne środowiskowe](./media/deploy-iot-edge-device/environment-variables.png) 
 
 1. Otwórz kartę **Opcje tworzenia kontenera** .
 
@@ -201,8 +190,8 @@ Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, spos
     "armEndpoint": "https://management.azure.com/",
     "allowUnsecuredEndpoints": true
     ```
-   [!Note]
-   Właściwość przędzy **allowUnsecuredEndpoints** jest ustawiona na wartość true na potrzeby samouczków i przewodników Szybki Start.   
+   > [!Note]
+   > Właściwość przędzy **allowUnsecuredEndpoints** jest ustawiona na wartość true na potrzeby samouczków i przewodników Szybki Start.   
    Należy ustawić dla tej właściwości **wartość false** podczas uruchamiania w środowisku produkcyjnym. Pozwoli to zagwarantować, że aplikacja będzie blokować wszystkie niezabezpieczone punkty końcowe i w celu uruchomienia topologii wykresu będą potrzebne prawidłowe poświadczenia połączenia.  
    
     Wybierz pozycję Dodaj, aby dodać właściwości sznurka modułu.
@@ -258,5 +247,7 @@ Następnie umożliwia przetestowanie próbki przez wywołanie metody bezpośredn
     ![Komunikat o stanie 200](./media/deploy-iot-edge-device/connection-timeout.png) 
 
 ## <a name="next-steps"></a>Następne kroki
+Wypróbuj [Szybki Start: Rozpoczynanie pracy — Analiza filmów wideo na żywo na IoT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
 
-[Szybki Start: Rozpoczynanie pracy — Analiza filmów wideo na żywo na IoT Edge](get-started-detect-motion-emit-events-quickstart.md)
+> [!TIP]
+> W poleceniu zostanie uruchomione polecenie Dalej, `device-id` zamiast domyślnego `lva-sample-device` .

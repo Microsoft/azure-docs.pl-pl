@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
-ms.openlocfilehash: 35e2e86f68e1f53febabc75fcc537dbdd4481882
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 1b07faa5b2540aafafc27a51192d824d4445ce35
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87369037"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067158"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Migruj istniejące aplikacje JMS (Java Message Service) 2,0 z platformy Apache ActiveMQ do Azure Service Bus
 
@@ -35,7 +35,7 @@ Azure Service Bus i Apache ActiveMQ są brokerami komunikatów, działającymi j
 
 Nawet Dlatego istnieją pewne różnice między tymi dwoma, jak przedstawiono w poniższej tabeli:
 
-| Kategoria | ActiveMQ | Azure Service Bus |
+| Kategoria | ActiveMQ | Usługa Azure Service Bus |
 | --- | --- | --- |
 | Obsługa warstw aplikacji | Monolitu klastrowane | Dwie warstwy <br> (Brama + zaplecze) |
 | Obsługa protokołów | <ul> <li>AMQP</li> <li> STOMP </li> <li> OpenWire </li> </ul> | AMQP |
@@ -272,7 +272,7 @@ Po zmodyfikowaniu aplikacji w celu rozpoczęcia wysyłania i otrzymywania komuni
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać bezproblemową integrację z usługą Service Bus, użyj programu [sprężynowego rozruchu Starter dla Azure Service Bus JMS](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) .
+Aby uzyskać bezproblemową integrację z usługą Service Bus, użyj programu [sprężynowego rozruchu Starter dla Azure Service Bus JMS](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) .
 
 Aby dowiedzieć się więcej na temat Service Bus Messaging i JMS, zobacz:
 

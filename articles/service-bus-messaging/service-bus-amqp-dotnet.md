@@ -3,12 +3,12 @@ title: Azure Service Bus z platformą .NET i AMQP 1,0 | Microsoft Docs
 description: W tym artykule opisano sposób korzystania z Azure Service Bus z aplikacji .NET przy użyciu protokołu AMQP (Advanced Messaging kolejkowania komunikatów).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: d969607a28759af3b6ee36d79638bb27d0d53808
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a67ab74efc700e16f5b1689e9cc1f459ecf14bd
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340184"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067107"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Używanie Service Bus z platformy .NET z AMQP 1,0
 
@@ -52,7 +52,7 @@ Aby ułatwić współdziałanie z klientami non-.NET, należy używać tylko typ
 
 | Typ obiektu treści .NET | Zamapowany typ AMQP | Typ sekcji treści AMQP |
 | --- | --- | --- |
-| bool |wartość logiczna |AMQP wartość |
+| bool |boolean |AMQP wartość |
 | byte |ubyte |AMQP wartość |
 | ushort |ushort |AMQP wartość |
 | uint |uint |AMQP wartość |
@@ -70,7 +70,7 @@ Aby ułatwić współdziałanie z klientami non-.NET, należy używać tylko typ
 | Byte [] |binarny |AMQP wartość |
 | ciąg |ciąg |AMQP wartość |
 | System. Collections. IList |list |Wartość AMQP: elementy zawarte w kolekcji mogą być tylko tymi, które są zdefiniowane w tej tabeli. |
-| System. Array |tablica |Wartość AMQP: elementy zawarte w kolekcji mogą być tylko tymi, które są zdefiniowane w tej tabeli. |
+| System. Array |array |Wartość AMQP: elementy zawarte w kolekcji mogą być tylko tymi, które są zdefiniowane w tej tabeli. |
 | System. Collections. IDictionary |map (mapa) |Wartość AMQP: elementy zawarte w kolekcji mogą być tylko tymi, które są zdefiniowane w tej tabeli. Uwaga: obsługiwane są tylko klucze ciągów. |
 | Adresu |Opisany ciąg (patrz Poniższa tabela) |AMQP wartość |
 | DateTimeOffset |Opisany czas (patrz Poniższa tabela) |AMQP wartość |
@@ -109,7 +109,7 @@ Chcesz dowiedzieć się więcej? Odwiedź następujące linki:
 * [Przewodnik dotyczący protokołu AMQP 1.0]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
-[DataContractSerializer]: https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx
+[DataContractSerializer]: /dotnet/api/system.runtime.serialization.datacontractserializer?view=netcore-3.1
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azureservicebus-4.0.0
 [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory.acceptmessagesession?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactory_AcceptMessageSession
 [OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
@@ -117,4 +117,3 @@ Chcesz dowiedzieć się więcej? Odwiedź następujące linki:
 [Azure portal]: https://portal.azure.com
 [Service Bus AMQP — Omówienie]: service-bus-amqp-overview.md
 [Przewodnik dotyczący protokołu AMQP 1.0]: service-bus-amqp-protocol-guide.md
-

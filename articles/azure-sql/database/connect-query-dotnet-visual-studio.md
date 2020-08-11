@@ -11,13 +11,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/29/2020
-ms.openlocfilehash: 497de36d63a909d2c53374482dfe09d1f19dfded
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/10/2020
+ms.openlocfilehash: ed0ad6c5597d63c411eeb323cf00dcb7f044f667
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033123"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067821"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki Start: używanie platformy .NET i języka C# w programie Visual Studio do łączenia się z bazą danych i wykonywania w niej zapytań w Azure SQL Database lub wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,7 +26,7 @@ W tym przewodniku szybki start pokazano, jak używać kodu [.NET Framework](http
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten przewodnik Szybki Start, musisz spełnić następujące warunki:
+Do wykonania czynności opisanych w tym przewodniku Szybki start potrzebne są następujące elementy:
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Baza danych w Azure SQL Database. Aby utworzyć, a następnie skonfigurować bazę danych w usłudze Azure SQL Database, można użyć instrukcji z jednego z tych przewodników Szybki start:
@@ -62,17 +62,17 @@ Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą 
 
 ## <a name="create-code-to-query-the-database-in-azure-sql-database"></a>Utwórz kod do wykonywania zapytań w bazie danych w Azure SQL Database
 
-1. W programie Visual Studio wybierz pozycję **plik**  >  **Nowy**  >  **projekt**. 
+1. Utwórz nowy projekt w programie Visual Studio. 
    
-1. W oknie dialogowym **Nowy projekt** wybierz pozycję **Visual C#** i wybierz opcję **Aplikacja konsolowa (.NET Framework)**.
+1. W oknie dialogowym **Nowy projekt** wybierz **Visual C#**, **aplikację konsolową (.NET Framework)**.
    
 1. Wprowadź *sqltest* jako nazwę projektu i wybierz **OK**. Zostanie utworzony nowy projekt. 
    
 1. Wybierz pozycję **projekt**  >  **Zarządzaj pakietami NuGet**. 
    
-1. W **Menedżerze pakietów NuGet** wybierz kartę **Przeglądaj**, a następnie wyszukaj i wybierz pozycję **System.Data.SqlClient**.
+1. W **Menedżerze pakietów NuGet**wybierz kartę **Przeglądaj** , a następnie wyszukaj i wybierz pozycję **Microsoft. Data. SqlClient**.
    
-1. Na stronie **System.Data.SqlClient** wybierz przycisk **Instaluj**. 
+1. Na stronie **Microsoft. Data. SqlClient** wybierz pozycję **Zainstaluj**. 
    - W odpowiedzi na monit wybierz **OK**, aby kontynuować instalację. 
    - W przypadku wyświetlenia okna **Akceptacja licencji** wybierz przycisk **Akceptuję**.
    
@@ -85,7 +85,7 @@ Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą 
    
    ```csharp
    using System;
-   using System.Data.SqlClient;
+   using Microsoft.Data.SqlClient;
    using System.Text;
    
    namespace sqltest

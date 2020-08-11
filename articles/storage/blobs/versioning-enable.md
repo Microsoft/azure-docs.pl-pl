@@ -1,24 +1,28 @@
 ---
 title: Włączanie obsługi wersji obiektów blob i zarządzanie nimi (wersja zapoznawcza)
 titleSuffix: Azure Storage
-description: Dowiedz się, jak włączyć obsługę wersji obiektów BLOB w Azure Portal lub przy użyciu szablonu Azure Resource Manager.
+description: Dowiedz się, jak włączyć obsługę wersji obiektów BLOB (wersja zapoznawcza) w Azure Portal lub przy użyciu szablonu Azure Resource Manager.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 7ff0bb6d593a199bd249441cf484d1f0580774ac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 85e8ccd03bd20ed9bb572d482dbc7a06b8af725c
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086051"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067277"
 ---
-# <a name="enable-and-manage-blob-versioning"></a>Włączanie obsługi wersji obiektów blob i zarządzanie nimi
+# <a name="enable-and-manage-blob-versioning-preview"></a>Włączanie obsługi wersji obiektów blob i zarządzanie nimi (wersja zapoznawcza)
 
-W dowolnym momencie możesz włączyć lub wyłączyć obsługę wersji obiektów BLOB (wersja zapoznawcza) dla konta magazynu, korzystając z szablonu Azure Portal lub Azure Resource Manager.
+Możesz włączyć przechowywanie wersji magazynu obiektów BLOB (wersja zapoznawcza), aby automatycznie obsługiwać poprzednie wersje obiektu.  Po włączeniu obsługi wersji obiektów BLOB można przywrócić wcześniejszą wersję obiektu BLOB, aby odzyskać dane, jeśli są one błędnie modyfikowane lub usuwane.
+
+W tym artykule przedstawiono sposób włączania lub wyłączania obsługi wersji obiektów BLOB dla konta magazynu przy użyciu szablonu Azure Portal lub Azure Resource Manager.
+
+Musisz zarejestrować się w celu uzyskania podglądu przed włączeniem obsługi wersji obiektów BLOB. Aby dowiedzieć się więcej na temat przechowywania wersji obiektów blob, w tym sposobu rejestracji w wersji zapoznawczej, zobacz temat [wersja usługi BLOB](versioning-overview.md).
 
 ## <a name="enable-blob-versioning"></a>Włączanie obsługi wersji obiektów blob
 

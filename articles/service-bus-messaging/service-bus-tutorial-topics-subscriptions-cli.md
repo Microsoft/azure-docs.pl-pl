@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: spelluru
 ms.author: spelluru
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cdbde84780ed7c64f9ad3f4284a74261d2f4a728
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2526559a8b88309c098e59e8cc6d0ffd2793984f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500474"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067600"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Samouczek: aktualizowanie magazynu przy użyciu interfejsu wiersza polecenia oraz tematów/subskrypcji
 
@@ -36,7 +36,7 @@ Jeśli nie masz subskrypcji platformy Azure, możesz utworzyć [bezpłatne konto
 Aby utworzyć aplikację usługi Service Bus w języku Java, trzeba mieć zainstalowane następujące składniki:
 
 - [Zestaw Java Development Kit](https://aka.ms/azure-jdks), najnowsza wersja.
-- [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure)
+- [Interfejs wiersza polecenia platformy Azure](/cli/azure)
 - [Apache Maven](https://maven.apache.org), wersja 3,0 lub nowsza.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -47,7 +47,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 Każda [subskrypcja tematu](service-bus-messaging-overview.md#topics) może otrzymywać kopie wszystkich komunikatów. Tematy są w pełni protokołowane i semantycznie zgodne z kolejkami usługi Service Bus. Tematy usługi Service Bus obsługują najróżniejsze reguły wyboru z warunkami filtru, z użyciem opcjonalnych akcji, które ustawiają lub modyfikują właściwości komunikatów. Za każdym razem, gdy reguła pasuje, generuje komunikat. Aby dowiedzieć się więcej o regułach, filtrach i akcjach, kliknij ten [link](topic-filters.md).
 
-## <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Po zainstalowaniu interfejsu wiersza polecenia otwórz wiersz polecenia i uruchom następujące polecenia, aby zalogować się na platformie Azure. Te kroki nie są konieczne, jeśli używasz usługi Cloud Shell:
 

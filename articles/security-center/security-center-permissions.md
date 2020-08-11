@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: memildin
-ms.openlocfilehash: 3f7d08e2290291dfcd931ed5609e30d5fec9f973
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e5728b220f12c3305aa896e64010fc7e5828d6fb
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835650"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067226"
 ---
 # <a name="permissions-in-azure-security-center"></a>Uprawnienia w usłudze Azure Security Center
 
@@ -45,7 +45,7 @@ W poniższej tabeli przedstawiono role i dozwolone akcje w Security Center.
 |Edytuj zasady zabezpieczeń|-|✔|-|-|✔|
 |Dodaj/Przypisz inicjatywy (w tym) normy zgodności z przepisami)|-|-|-|-|✔|
 |Zmień warstwę cenową subskrypcji|-|✔|-|-|✔|
-|Włącz/Wyłącz funkcję autoaprowizacji|-|✔|✔|-|✔|
+|Włącz/Wyłącz funkcję autoaprowizacji|-|✔|-|✔|✔|
 |Stosowanie zaleceń dotyczących zabezpieczeń dla zasobu</br> (i Użyj [szybkiej poprawki!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
 |Odrzuć alerty|-|✔|-|✔|✔|
 |Wyświetlanie alertów i zaleceń|✔|✔|✔|✔|✔|

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 531322c49a772eaf416fadf1bb4f9a5fb6bf1ff6
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 5afe5eded4937631d25ab94edc1908b7ac83d383
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430605"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067481"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Szybki Start: jak używać tematów Service Bus i subskrypcji z Node.js i pakietem Azure/Service-Bus
 W ramach tego samouczka nauczysz się napisać program Node.js do wysyłania komunikatów do Service Bus tematu i odbierania komunikatów z subskrypcji Service Bus przy użyciu nowego [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) pakietu. Ten pakiet używa szybszego [protokołu AMQP 1,0](service-bus-amqp-overview.md) , podczas gdy starszy pakiet [platformy Azure-SB](https://www.npmjs.com/package/azure-sb) używany [Service Bus interfejsów API czasu wykonywania REST](/rest/api/servicebus/service-bus-runtime-rest). Przykłady są zapisywane w języku JavaScript.
@@ -33,7 +33,7 @@ npm install @azure/service-bus
 ```
 
 ## <a name="send-messages-to-a-topic"></a>Wysyłanie komunikatów do tematu
-Korzystanie z tematu Service Bus rozpoczyna się od tworzenia wystąpienia klasy [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) i korzystania z niej w celu utworzenia wystąpienia klasy [TopicClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/topicclient) . Gdy masz klienta tematu, możesz utworzyć nadawcę i użyć metody [send](https://docs.microsoft.com/javascript/api/%40azure/service-bus/sender#send-sendablemessageinfo-) lub [sendBatch](https://docs.microsoft.com/javascript/api/@azure/service-bus/sender#sendbatch-sendablemessageinfo---) do wysyłania wiadomości.
+Korzystanie z tematu Service Bus rozpoczyna się od tworzenia wystąpienia klasy [ServiceBusClient](/javascript/api/@azure/service-bus/servicebusclient) i korzystania z niej w celu utworzenia wystąpienia klasy [TopicClient](/javascript/api/@azure/service-bus/topicclient) . Gdy masz klienta tematu, możesz utworzyć nadawcę i użyć metody [send](/javascript/api/@azure/service-bus/sender#send-sendablemessageinfo-) lub [sendBatch](/javascript/api/@azure/service-bus/sender#sendbatch-sendablemessageinfo---) do wysyłania wiadomości.
 
 1. Otwórz ulubiony Edytor, taki jak [Visual Studio Code](https://code.visualstudio.com/)
 2. Utwórz plik o nazwie `send.js` i wklej do niego Poniższy kod. Ten kod wyśle 10 komunikatów do tematu.
@@ -83,7 +83,7 @@ Komunikaty mają pewne właściwości standardowe, takie jak `label` i `messageI
 Tematy usługi Service Bus obsługują maksymalny rozmiar komunikatu 256 KB w [warstwie Standardowa](service-bus-premium-messaging.md) i 1 MB w [warstwie Premium](service-bus-premium-messaging.md). Nie ma żadnego limitu liczby komunikatów przechowywanych w temacie, ale istnieje limit całkowitego rozmiaru komunikatów przechowywanych w temacie. Rozmiar tematu jest definiowany w czasie tworzenia, z górnym limitem 5 GB. Aby uzyskać więcej informacji na temat przydziałów, zobacz [Service Bus przydziały](service-bus-quotas.md).
 
 ## <a name="receive-messages-from-a-subscription"></a>Odbieranie komunikatów z subskrypcji
-Korzystanie z subskrypcji Service Bus rozpoczyna się od utworzenia wystąpienia klasy [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) i użycia jej do utworzenia wystąpienia klasy [SubscriptionClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient) . Gdy masz klienta subskrypcji, możesz utworzyć odbiorcę i użyć metody [receiveMessages](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#receivemessages-number--undefined---number-) lub [registerMessageHandler](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) do odbierania komunikatów.
+Korzystanie z subskrypcji Service Bus rozpoczyna się od utworzenia wystąpienia klasy [ServiceBusClient](/javascript/api/@azure/service-bus/servicebusclient) i użycia jej do utworzenia wystąpienia klasy [SubscriptionClient](/javascript/api/@azure/service-bus/subscriptionclient) . Gdy masz klienta subskrypcji, możesz utworzyć odbiorcę i użyć metody [receiveMessages](/javascript/api/@azure/service-bus/receiver#receivemessages-number--undefined---number-) lub [registerMessageHandler](/javascript/api/@azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) do odbierania komunikatów.
 
 1. Otwórz ulubiony Edytor, taki jak [Visual Studio Code](https://code.visualstudio.com/)
 2. Utwórz plik o nazwie `recieve.js` i wklej do niego Poniższy kod. Ten kod będzie próbował otrzymywać 10 komunikatów z subskrypcji. Rzeczywista liczba jest zależna od liczby komunikatów w ramach subskrypcji i opóźnienia sieci.
@@ -121,7 +121,7 @@ Korzystanie z subskrypcji Service Bus rozpoczyna się od utworzenia wystąpienia
 
 Gratulacje! Właśnie odebrano komunikaty z subskrypcji Service Busej.
 
-Metoda [getreceive](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient#createreceiver-receivemode-) przyjmuje w wyniku, `ReceiveMode` który jest wyliczeniem z wartościami [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) i [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Należy pamiętać o [rozliczeniu komunikatów](message-transfers-locks-settlement.md#settling-receive-operations) , jeśli używasz `PeekLock` trybu przy użyciu dowolnego z `complete()` , `abandon()` , `defer()` lub `deadletter()` metod w komunikacie.
+Metoda [getreceive](/javascript/api/@azure/service-bus/subscriptionclient#createreceiver-receivemode-) przyjmuje w wyniku, `ReceiveMode` który jest wyliczeniem z wartościami [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) i [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Należy pamiętać o [rozliczeniu komunikatów](message-transfers-locks-settlement.md#settling-receive-operations) , jeśli używasz `PeekLock` trybu przy użyciu dowolnego z `complete()` , `abandon()` , `defer()` lub `deadletter()` metod w komunikacie.
 
 ## <a name="subscription-filters-and-actions"></a>Filtry i akcje subskrypcji
 Service Bus obsługuje [filtry i akcje dotyczące subskrypcji](topic-filters.md), co umożliwia filtrowanie komunikatów przychodzących do subskrypcji i edytowanie ich właściwości.
@@ -143,5 +143,3 @@ Aby dowiedzieć się więcej, zobacz następujące zasoby.
 - [Kolejki, tematy i subskrypcje](service-bus-queues-topics-subscriptions.md)
 - Wyewidencjonuj inne [przykłady NodeJS dla Service Bus w witrynie GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/javascript)
 - [Node.js Developer Center (Centrum deweloperów środowiska Node.js)](https://azure.microsoft.com/develop/nodejs/)
-
-

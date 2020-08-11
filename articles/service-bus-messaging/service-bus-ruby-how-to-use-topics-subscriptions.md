@@ -6,12 +6,12 @@ documentationcenter: ruby
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: ef4bb8ba724a8ae1f708ab80a770a521f7879685
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: aba326a63558632bee3bf0c48d34e471bbe30886
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85336732"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067566"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Szybki Start: jak używać tematów Service Bus i subskrypcji za pomocą języka Ruby
  
@@ -62,7 +62,7 @@ Subskrypcje tematów są również tworzone za pomocą obiektu **Azure:: Service
 
 Domyślnie subskrypcje są trwałe. Są one nadal dostępne do momentu, aż lub temat, z którym są skojarzone, zostaną usunięte. Jeśli aplikacja zawiera logikę do utworzenia subskrypcji, należy najpierw sprawdzić, czy subskrypcja już istnieje przy użyciu metody getsubscription.
 
-Subskrypcje mogą być automatycznie usuwane przez ustawienie [Właściwości AutoDeleteOnIdle](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle).
+Subskrypcje mogą być automatycznie usuwane przez ustawienie [Właściwości AutoDeleteOnIdle](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Tworzenie subskrypcji z filtrem domyślnym (MatchAll)
 Jeśli podczas tworzenia nowej subskrypcji nie zostanie określony żaden filtr, zostanie użyty filtr **MatchAll** (domyślnie). Gdy filtr **MatchAll** jest używany, wszystkie komunikaty opublikowane w temacie są umieszczane w kolejce wirtualnej subskrypcji. Poniższy przykład tworzy subskrypcję o nazwie "All-Messages" i używa domyślnego filtru **MatchAll** .
@@ -150,7 +150,7 @@ Istnieje również limit czasu skojarzony z komunikatem zablokowanym w ramach su
 W przypadku awarii aplikacji po przetworzeniu komunikatu, ale przed `delete_subscription_message()` wywołaniem metody, komunikat zostanie ponownie dostarczony do aplikacji po jej ponownym uruchomieniu. Często nazywa się to *co najmniej raz na przetwarzanie*; oznacza to, że każdy komunikat jest przetwarzany co najmniej raz, ale w pewnych sytuacjach może zostać ponownie dostarczony ten sam komunikat. Jeśli scenariusz nie toleruje dwukrotnego przetwarzania, deweloperzy aplikacji powinni dodać dodatkową logikę do swojej aplikacji w celu obsługi dwukrotnego dostarczania komunikatów. Ta logika jest często osiągana przy użyciu `message_id` Właściwości komunikatu, która pozostaje stała między kolejnymi próbami dostarczenia.
 
 ## <a name="delete-topics-and-subscriptions"></a>Usuwanie tematów i subskrypcji
-Tematy i subskrypcje są trwałe, chyba że [Właściwość AutoDeleteOnIdle](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle) jest ustawiona. Można je usunąć za pomocą [Azure Portal][Azure portal] lub programowo. Poniższy przykład ilustruje sposób usuwania tematu o nazwie `test-topic` .
+Tematy i subskrypcje są trwałe, chyba że [Właściwość AutoDeleteOnIdle](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle) jest ustawiona. Można je usunąć za pomocą [Azure Portal][Azure portal] lub programowo. Poniższy przykład ilustruje sposób usuwania tematu o nazwie `test-topic` .
 
 ```ruby
 azure_service_bus_service.delete_topic("test-topic")

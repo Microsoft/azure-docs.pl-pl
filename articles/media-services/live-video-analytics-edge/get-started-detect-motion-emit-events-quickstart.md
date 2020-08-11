@@ -3,12 +3,12 @@ title: Wprowadzenie do analizy filmów wideo na żywo na IoT Edge platformy Azur
 description: Ten przewodnik Szybki Start przedstawia sposób rozpoczynania pracy z usługą analiza filmów wideo na żywo na IoT Edge. Dowiedz się, jak wykrywać ruch w strumieniu wideo na żywo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: ccdbbffb3da240aab7897dd93a6c4ae85c550eba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 16c3c849e7d936c6e94539176d8f171f52bd15de
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090080"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067704"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Szybki Start: Rozpoczynanie pracy — Analiza filmów wideo na żywo na IoT Edge
 
@@ -31,7 +31,7 @@ Po wykonaniu kroków instalacji można uruchomić symulowany strumień wideo na 
 
 Ten samouczek wymaga następujących zasobów platformy Azure:
 
-* IoT Hub
+* Usługa IoT Hub
 * Konto magazynu
 * Konto Azure Media Services
 * Maszyna wirtualna z systemem Linux na platformie Azure, w której zainstalowano [środowisko uruchomieniowe IoT Edge](../../iot-edge/how-to-install-iot-edge-linux.md)
@@ -84,7 +84,7 @@ Jeśli połączenie zakończy się pomyślnie, zostanie wyświetlona lista urzą
 
 ![LVA — przykład — węzeł urządzenia](./media/quickstarts/lva-sample-device-node.png)
 
-## <a name="use-direct-methods"></a>Korzystanie z metod bezpośrednich
+## <a name="use-direct-method-calls"></a>Używanie wywołań metod bezpośrednich
 
 Za pomocą modułu można analizować strumienie wideo na żywo poprzez wywoływanie metod bezpośrednich. Aby uzyskać więcej informacji, zobacz [bezpośrednie metody analizy wideo na żywo na IoT Edge](direct-methods.md). 
 
