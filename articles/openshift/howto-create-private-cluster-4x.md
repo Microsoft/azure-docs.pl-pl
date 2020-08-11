@@ -8,12 +8,12 @@ author: ms-jasondel
 ms.author: jasondel
 keywords: ARO, OpenShift, AZ ARO, Red Hat, CLI
 ms.custom: mvc
-ms.openlocfilehash: 581587382c3bfd03ed329672e5c6ca065554d1c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c196d48d22a2bd714c4b6252ad927d18790f4674
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83727641"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056775"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Tworzenie klastra prywatnego usługi Azure Red Hat OpenShift 4
 
@@ -23,24 +23,9 @@ W tym artykule opisano przygotowanie środowiska do tworzenia prywatnych klastr�
 > * Skonfiguruj wymagania wstępne i utwórz wymaganą sieć wirtualną i podsieci
 > * Wdrażanie klastra z punktem końcowym prywatnego serwera interfejsu API i prywatnym kontrolerem danych przychodzących
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.75 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
-
-### <a name="install-the-az-aro-extension"></a>Zainstaluj rozszerzenie "AZ ARO"
-`az aro`Rozszerzenie umożliwia tworzenie i usuwanie klastrów usługi Azure Red Hat OpenShift oraz uzyskiwanie do nich dostępu bezpośrednio z wiersza polecenia przy użyciu interfejsu użytkownika platformy Azure.
-
-Uruchom następujące polecenie, aby zainstalować `az aro` rozszerzenie.
-
-```azurecli-interactive
-az extension add -n aro --index https://az.aroapp.io/stable
-```
-
-Jeśli rozszerzenie jest już zainstalowane, można je zaktualizować, uruchamiając następujące polecenie.
-
-```azurecli-interactive
-az extension update -n aro --index https://az.aroapp.io/stable
-```
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 ### <a name="register-the-resource-provider"></a>Rejestrowanie dostawcy zasobów
 
@@ -48,21 +33,6 @@ Następnie musisz zarejestrować `Microsoft.RedHatOpenShift` dostawcę zasobów 
 
 ```azurecli-interactive
 az provider register -n Microsoft.RedHatOpenShift --wait
-```
-
-Sprawdź, czy rozszerzenie jest zarejestrowane.
-
-```azurecli-interactive
-az -v
-```
-
-  Powinno zostać wyświetlone dane wyjściowe podobne do poniższego.
-
-```output
-...
-Extensions:
-aro                                1.0.0
-...
 ```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Pobierz wpis tajny Red Hat (opcjonalnie)

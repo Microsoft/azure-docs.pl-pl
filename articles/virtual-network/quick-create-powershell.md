@@ -14,17 +14,18 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: e547da3d1a26a7dcc110a8349dbae3c7e3f29e0b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f469256841bf81f5e35ebf9c4a0fe322b513153d
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291933"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056979"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Szybki start: tworzenie sieci wirtualnej przy użyciu programu PowerShell
 
 Dzięki sieci wirtualnej zasoby platformy Azure, takie jak maszyny wirtualne (VM), mogą komunikować się prywatnie ze sobą i z Internetem. W tym przewodniku Szybki start dowiesz się, jak utworzyć sieć wirtualną. Po utworzeniu sieci wirtualnej, wdrożysz w niej dwie maszyny wirtualne. Następnie nawiążesz połączenie z jedną z maszyn wirtualnych z Internetu i rozpoczniesz prywatną komunikację przez sieć wirtualną.
 
+## <a name="prerequisites"></a>Wymagania wstępne
 Jeśli nie masz subskrypcji platformy Azure, utwórz teraz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -209,7 +210,7 @@ mstsc /v:<publicIpAddress>
 
 1. Zamknij podłączanie pulpitu zdalnego z maszyną wirtualną *myVm2*.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu korzystania z sieci wirtualnej i maszyn wirtualnych użyj polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup), aby usunąć grupę zasobów i wszystkie zasoby, które zawiera:
 
@@ -219,6 +220,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start utworzono domyślną sieć wirtualną i dwie maszyny wirtualne. Z Internetu nawiązano połączenie z jedną z maszyn wirtualnych, a następnie rozpoczęto prywatną komunikację między jedną i drugą maszyną wirtualną. Aby dowiedzieć się więcej na temat ustawień sieci wirtualnych, zobacz [Manage a virtual network](manage-virtual-network.md) (Zarządzanie siecią wirtualną).
-
-Platforma Azure umożliwia nieograniczoną komunikację prywatną między maszynami wirtualnymi. Platforma Azure domyślnie zezwala tylko na połączenia przychodzące pulpitu zdalnego z maszynami wirtualnymi Windows z Internetu. Aby dowiedzieć się więcej na temat konfigurowania różnych typów komunikacji sieciowej między maszynami wirtualnymi, przejdź do samouczka [Filtrowanie ruchu sieciowego](tutorial-filter-network-traffic.md).
+W tym przewodniku Szybki start utworzono domyślną sieć wirtualną i dwie maszyny wirtualne. Z Internetu nawiązano połączenie z jedną z maszyn wirtualnych, a następnie rozpoczęto prywatną komunikację między tymi dwiema maszynami wirtualnymi.
+Azure umożliwia nieograniczoną komunikację prywatną między maszynami wirtualnymi. Azure domyślnie zezwala tylko na połączenia przychodzące pulpitu zdalnego z maszynami wirtualnymi Windows z Internetu. Przejdź do następnego artykułu, aby dowiedzieć się więcej o konfigurowaniu różnych typów komunikacji sieciowej maszyny wirtualnej:
+> [!div class="nextstepaction"]
+> [Filtrowanie ruchu sieciowego](tutorial-filter-network-traffic.md)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 5401957cb527d43e041345ac9e67e7f7a69ed0d0
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: b9ac473c3864b4be06c978e7d6a3555bb4550d2a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725537"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056843"
 ---
 # <a name="what-is-custom-speech"></a>Co to jest Custom Speech?
 
@@ -48,7 +48,7 @@ Ten diagram przedstawia elementy wchodzące w skład [portalu Custom Speech](htt
 Wymagana jest subskrypcja usługi mowy, aby można było użyć [portalu Custom Speech](https://speech.microsoft.com/customspeech) w celu utworzenia modelu niestandardowego. Postępuj zgodnie z tymi instrukcjami, aby utworzyć standardową subskrypcję usługi mowy: [Utwórz subskrypcję mowy](get-started.md#new-resource).
 
 > [!NOTE]
-> Pamiętaj, aby utworzyć standardowe subskrypcje (S0) i subskrypcje bezpłatnej wersji próbnej (F0) nie są obsługiwane.
+> Pamiętaj, aby utworzyć standardowe subskrypcje (S0), bezpłatne subskrypcje (F0) nie są obsługiwane.
 
 Po utworzeniu konta platformy Azure i subskrypcji usługi mowy należy zalogować się do [portalu Custom Speech](https://speech.microsoft.com/customspeech) i połączyć swoją subskrypcję.
 
@@ -71,5 +71,5 @@ Aby utworzyć swój pierwszy projekt, wybierz **mowę zamiany mowy na tekst/nies
 * [Przygotowywanie i testowanie danych](how-to-custom-speech-test-data.md)
 * [Inspekcja danych](how-to-custom-speech-inspect-data.md)
 * [Oceń dane](how-to-custom-speech-evaluate-data.md)
-* [Trenowanie modelu](how-to-custom-speech-train-model.md)
+* [Szkolenie modelu](how-to-custom-speech-train-model.md)
 * [Wdrażanie modelu](how-to-custom-speech-deploy-model.md)

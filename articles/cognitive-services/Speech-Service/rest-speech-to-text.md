@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
-ms.openlocfilehash: 4b1548efe942cbef842498035d6e0b0d11a91d00
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 5c356a1c707ede3b9417bc3e742a940333b4c4ac
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905248"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056826"
 ---
 # <a name="speech-to-text-rest-api"></a>Interfejs API REST zamiany mowy na tekst
 
@@ -302,6 +302,6 @@ Typowa odpowiedź na potrzeby rozpoznawania z oceną wymowy:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Pobierz subskrypcję usługi mowy w wersji próbnej](https://azure.microsoft.com/try/cognitive-services/)
+- [Tworzenie bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/cognitive-services/)
 - [Samouczek: tworzenie niestandardowego modelu akustycznego](how-to-customize-acoustic-models.md)
 - [Samouczek: tworzenie niestandardowego modelu językowego](how-to-customize-language-model.md)

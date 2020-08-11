@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 8c2203fec71430840e547115d24330b661bda50f
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5b454c324d475eb4f692e1715cb2ea45105f78e1
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002223"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056928"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Zarządzanie dostępem do obszaru roboczego Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -146,6 +146,8 @@ Poniższa tabela zawiera podsumowanie działań Azure Machine Learning i uprawni
 | Uzyskiwanie dostępu do magazynu przy użyciu notesów interaktywnych | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na:`"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
 | Utwórz nową rolę niestandardową | Właściciel, współautor lub rola niestandardowa zezwalająca na`Microsoft.Authorization/roleDefinitions/write` | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na:`/workspaces/computes/write` |
 
+> [!TIP]
+> Jeśli wystąpi błąd podczas próby utworzenia obszaru roboczego po raz pierwszy, upewnij się, że rola zezwala `Microsoft.MachineLearningServices/register/action` . Ta akcja umożliwia zarejestrowanie dostawcy zasobów Azure Machine Learning w ramach subskrypcji platformy Azure.
 
 ### <a name="q-are-we-publishing-azure-built-in-roles-for-the-machine-learning-service"></a>PYTANIE: Czy publikujemy wbudowane role platformy Azure dla usługi Machine Learning?
 

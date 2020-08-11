@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 0f43d1f780f838fdc49eb055536204026edcc729
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6fafb668ecc2ae36dbe5a6bbc3d1e1d501545b50
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079235"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056809"
 ---
 # <a name="text-to-speech-rest-api"></a>Interfejs API REST zamiany tekstu na mowę
 
@@ -67,7 +67,7 @@ Przed użyciem tego interfejsu API należy zrozumieć następujące informacje:
 
 Ta tabela zawiera listę wymaganych i opcjonalnych nagłówków dla żądań zamiany tekstu na mowę.
 
-| Nagłówek | Opis | Wymagane/opcjonalne |
+| Header | Opis | Wymagane/opcjonalne |
 |--------|-------------|---------------------|
 | `Authorization` | Token autoryzacji poprzedzony słowem `Bearer` . Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie). | Wymagane |
 
@@ -167,7 +167,7 @@ Te regiony są obsługiwane dla zamiany tekstu na mowę przy użyciu interfejsu 
 
 Ta tabela zawiera listę wymaganych i opcjonalnych nagłówków dla żądań zamiany tekstu na mowę.
 
-| Nagłówek | Opis | Wymagane/opcjonalne |
+| Header | Opis | Wymagane/opcjonalne |
 |--------|-------------|---------------------|
 | `Authorization` | Token autoryzacji poprzedzony słowem `Bearer` . Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie). | Wymagane |
 | `Content-Type` | Określa typ zawartości dla podanego tekstu. Zaakceptowana wartość: `application/ssml+xml` . | Wymagane |
@@ -241,6 +241,6 @@ Jeśli stan HTTP to `200 OK` , treść odpowiedzi zawiera plik audio w żądanym
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Pobierz subskrypcję usługi mowy w wersji próbnej](https://azure.microsoft.com/try/cognitive-services)
+- [Tworzenie bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/cognitive-services/)
 - [Synteza asynchroniczna dla długich postaci audio](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
 - [Wprowadzenie do usługi Custom Voice](how-to-custom-voice.md)

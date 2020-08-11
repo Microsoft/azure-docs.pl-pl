@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 78656b4789ea03601bc12579c391292e2f9ead9a
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: c0ab2b2f61c4aa7a83d82b0300bb28cae91992d2
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856377"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056894"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Globalna architektura sieci tranzytowej i wirtualna sieć WAN
 
@@ -132,6 +132,9 @@ Wirtualne centra sieci wirtualnej platformy Azure łączą wszystkie punkty koń
 ![bezpieczny koncentrator wirtualny z zaporą platformy Azure](./media/virtual-wan-global-transit-network-architecture/figure5.png)
 
 **Rysunek 5. zabezpieczone centrum wirtualne za pomocą zapory platformy Azure**
+
+> [!NOTE]
+> Między koncentratorem a zaporą nie jest obecnie obsługiwane. Ruch między centrami zostanie przesunięty bezpośrednio z pominięciem zapory platformy Azure w każdym centrum.
 
 Zapora platformy Azure z wirtualną siecią WAN obsługuje następujące ścieżki połączeń zabezpieczonych globalnie. Litery w nawiasach są mapowane na rysunek 5.
 

@@ -4,14 +4,14 @@ description: Dowiedz się, jak skalować klaster Service Fabric, dodając typ w�
 ms.topic: article
 ms.date: 08/06/2020
 ms.author: pepogors
-ms.openlocfilehash: 5cabe7e377c29812252074336d7c5e9c9d3ba259
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: eecf398359470f6e5e151c53eb63b3cb56efbe39
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031985"
+ms.locfileid: "88056758"
 ---
-# <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Skalowanie w górę węzła klastra usługi Service Fabric podstawowego typu
+# <a name="scale-up-a-service-fabric-cluster-primary-node-type-by-adding-a-node-type"></a>Skaluj w górę typ węzła podstawowego klastra Service Fabric, dodając typ węzła
 W tym artykule opisano sposób skalowania w górę typu węzła podstawowego klastra Service Fabric przez dodanie dodatkowego typu węzła do klastra. Klaster Service Fabric jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Maszyna lub maszyna wirtualna będąca częścią klastra nazywa się węzłem. Zestawy skalowania maszyn wirtualnych to zasób obliczeniowy platformy Azure, który służy do wdrażania kolekcji maszyn wirtualnych jako zestawu i zarządzania nią. Każdy typ węzła, który jest zdefiniowany w klastrze platformy Azure [, jest ustawiany jako oddzielny zestaw skalowania](service-fabric-cluster-nodetypes.md). Każdy typ węzła może być następnie zarządzany osobno.
 
 Przykładowe szablony w następującym samouczku można znaleźć tutaj: [Service Fabric podstawowe skalowanie typu węzła](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Primary-NodeType-Scaling-Sample)

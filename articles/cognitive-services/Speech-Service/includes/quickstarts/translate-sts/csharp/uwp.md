@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.date: 04/04/2020
-ms.author: erhopf
+ms.author: jhakulin
 ms.topic: include
-ms.openlocfilehash: 08001aabd279b2df64635719e9ef3e0772df62e9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2af0d0eb2411c5ffe9f80498a3e93d48fe0a769b
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80671305"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88057812"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -29,31 +29,31 @@ Przed rozpoczęciem upewnij się, że:
 
 Teraz Dodaj kod XAML, który definiuje interfejs użytkownika aplikacji, a następnie Dodaj implementację kodu w języku C#.
 
-1. W **Eksplorator rozwiązań**Otwórz `MainPage.xaml`program.
+1. W **Eksplorator rozwiązań**Otwórz program `MainPage.xaml` .
 
-1. W widoku XAML projektanta Wstaw następujący fragment kodu XAML do tagu **Grid** (między `<Grid>` i `</Grid>`):
+1. W widoku XAML projektanta Wstaw następujący fragment kodu XAML do tagu **Grid** (między `<Grid>` i `</Grid>` ):
 
    [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/translate-speech-to-text/helloworld/MainPage.xaml#StackPanel)]
 
-1. W **Eksplorator rozwiązań**Otwórz plik `MainPage.xaml.cs`źródłowy związany z kodem. (Jest ono pogrupowane `MainPage.xaml`w.)
+1. W **Eksplorator rozwiązań**Otwórz plik źródłowy związany z kodem `MainPage.xaml.cs` . (Jest ono pogrupowane w `MainPage.xaml` .)
 
 1. Zastąp cały kod w nim następującym fragmentem kodu:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/translate-speech-to-text/helloworld/MainPage.xaml.cs#code)]
 
-1. W obszarze `SpeechTranslationFromMicrophone_ButtonClicked` obsługi w tym pliku Znajdź ciąg `YourSubscriptionKey`i zastąp go kluczem subskrypcji.
+1. W obszarze `SpeechTranslationFromMicrophone_ButtonClicked` obsługi w tym pliku Znajdź ciąg `YourSubscriptionKey` i zastąp go kluczem subskrypcji.
 
-1. W programie `SpeechTranslationFromMicrophone_ButtonClicked` obsługi Znajdź ciąg `YourServiceRegion`i zastąp go [regionem](~/articles/cognitive-services/Speech-Service/regions.md) skojarzonym z subskrypcją. (Na przykład użyj `westus` subskrypcji bezpłatnej wersji próbnej).
+1. W programie `SpeechTranslationFromMicrophone_ButtonClicked` obsługi Znajdź ciąg `YourServiceRegion` i zastąp go [regionem](~/articles/cognitive-services/Speech-Service/regions.md) skojarzonym z subskrypcją. (Na przykład użyj `westus` subskrypcji bezpłatnej wersji próbnej).
 
-1. Na pasku menu wybierz kolejno opcje **plik** > **Zapisz wszystko** , aby zapisać zmiany.
+1. Na pasku menu wybierz kolejno opcje **plik**  >  **Zapisz wszystko** , aby zapisać zmiany.
 
 ## <a name="build-and-run-the-application"></a>Kompilowanie i uruchamianie aplikacji
 
 Teraz możesz przystąpić do kompilowania i testowania aplikacji.
 
-1. Na pasku menu wybierz kolejno opcje **Kompiluj** > kompilacje**rozwiązanie** , aby skompilować aplikację. Kod powinien teraz zostać skompilowany bez błędów.
+1. Na pasku menu wybierz kolejno opcje **Kompiluj**kompilacje  >  **rozwiązanie** , aby skompilować aplikację. Kod powinien teraz zostać skompilowany bez błędów.
 
-1. Wybierz **Debuguj** > **Rozpocznij debugowanie** (lub naciśnij klawisz **F5**), aby uruchomić aplikację. Zostanie wyświetlone okno **HelloWorld** .
+1. Wybierz **Debuguj**  >  **Rozpocznij debugowanie** (lub naciśnij klawisz **F5**), aby uruchomić aplikację. Zostanie wyświetlone okno **HelloWorld** .
 
    ![Przykładowa aplikacja tłumaczenia platformy UWP w języku C# — Szybki Start](~/articles/cognitive-services/Speech-Service/media/sdk/qs-translate-speech-uwp-helloworld-window.png)
 

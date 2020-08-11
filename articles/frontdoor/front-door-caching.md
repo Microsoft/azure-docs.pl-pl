@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: d4fed878e2c0b1430e963f43743fd772493d3270
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e521711cdf488f00b56e2805ee0aaa6ee8412958
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471748"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056962"
 ---
 # <a name="caching-with-azure-front-door"></a>Buforowanie z usługami frontonu platformy Azure
 Poniższy dokument określa zachowanie dla drzwi z przodu z regułami routingu, które mają włączone buforowanie. Przód drzwi to nowoczesne Content Delivery Network (CDN) i tak, jak za pomocą funkcji przyspieszania witryn dynamicznych i równoważenia obciążenia, obsługuje również zachowania buforowania tak samo jak w przypadku innych sieci CDN.
@@ -111,6 +111,12 @@ Nagłówki odpowiedzi kontroli pamięci podręcznej, wskazujące, że odpowiedź
 Następujące nagłówki żądania nie będą przekazywane do zaplecza podczas korzystania z pamięci podręcznej.
 - Długość zawartości
 - Transfer-Encoding
+
+## <a name="cache-duration"></a>Czas trwania pamięci podręcznej
+
+Czas trwania pamięci podręcznej można skonfigurować zarówno w projektancie przednim, jak i w aparacie reguł. Czas trwania pamięci podręcznej ustawiony w programie usługa frontdoor Designer to minimalny czas trwania pamięci podręcznej. To przesłonięcie nie będzie działało, jeśli nagłówek kontroli pamięci podręcznej ze źródła ma większy czas wygaśnięcia niż wartość zastąpienia. 
+
+Czas trwania pamięci podręcznej ustawiony przez aparat reguł to prawdziwe przesłonięcie pamięci podręcznej, co oznacza, że zostanie użyta wartość zastąpienia, niezależnie od tego, jaki jest nagłówek odpowiedzi pochodzenia.
 
 ## <a name="next-steps"></a>Następne kroki
 

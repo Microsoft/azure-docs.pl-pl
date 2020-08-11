@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/30/2020
+ms.date: 08/10/2020
 ms.author: victorh
-ms.openlocfilehash: 37cbc3737b826060e96524528b065bc8d711bd8b
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0fcf1c8a3800a52e8fa8659fe4bf97e83103c79d
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384773"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056996"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Co to jest usługa Azure Firewall Manager?
 
@@ -25,7 +25,7 @@ Menedżer zapory może zapewnić zarządzanie zabezpieczeniami dla dwóch typów
    [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources) to zasób zarządzany przez firmę Microsoft, który umożliwia łatwe tworzenie architektur Hub i szprych. Gdy zasady zabezpieczeń i routingu są skojarzone z takim centrum, jest ono nazywane *[bezpiecznym koncentratorem wirtualnym](secured-virtual-hub.md)*. 
 - **Sieć wirtualna centrum**
 
-   Jest to standardowa Sieć wirtualna platformy Azure, która jest tworzona i zarządzana. Gdy zasady zabezpieczeń są skojarzone z takim centrum, jest ono określane jako *centralny sieci wirtualnej*. W tej chwili obsługiwane są tylko zasady zapory platformy Azure. Można połączyć sieci wirtualne równorzędne, które zawierają serwery obciążeń i usługi. Można także zarządzać zaporami w autonomicznych sieciach wirtualnych, które nie są połączone z żadną szprychą.
+   Jest to standardowa Sieć wirtualna platformy Azure, która jest tworzona i zarządzana. Gdy zasady zabezpieczeń są skojarzone z takim centrum, jest ono określane jako *centralny sieci wirtualnej*. W tej chwili obsługiwane są tylko zasady zapory platformy Azure. Można połączyć sieci wirtualne równorzędne, które zawierają serwery obciążeń i usługi. Można także zarządzać zaporami w autonomicznych sieciach wirtualnych, które nie są połączone za pomocą komunikacji równorzędnej z żadną szprychą.
 
 Aby zapoznać się ze szczegółowym porównaniem bezpiecznych architektur wirtualnych *centrów wirtualnych* i *koncentratorów* , zobacz [co to są opcje architektury usługi Azure firewall Manager?](vhubs-and-vnets.md).
 
@@ -66,7 +66,7 @@ Aby uzyskać więcej informacji o dostawcach partnerów zabezpieczeń, zobacz [c
 
 Ta funkcja jest dostępna tylko w przypadku bezpiecznych wdrożeń koncentratora wirtualnego.
 
-Dostawców innych firm można używać do filtrowania ruchu z Internetu (B2I), obok siebie przy użyciu zapory platformy Azure dla gałęzi do sieci wirtualnej (B2V), sieci wirtualnej z siecią wirtualną (V2V) i Sieć wirtualna do Internetu (V2I). Dostawców innych firm można także używać do filtrowania ruchu V2I, o ile nie jest wymagana Zapora platformy Azure dla B2V lub V2V. 
+Dostawców innych firm można używać do filtrowania ruchu z Internetu (B2I), obok siebie przy użyciu zapory platformy Azure dla gałęzi do sieci wirtualnej (B2V), sieci wirtualnej z siecią wirtualną (V2V) i Sieć wirtualna do Internetu (V2I). Dostawców innych firm można także używać do filtrowania ruchu V2I, tak długo, jak Zapora platformy Azure nie jest wymagana dla B2V lub V2V. 
 
 ## <a name="region-availability"></a>Dostępność w danym regionie
 
@@ -76,12 +76,14 @@ Zasady zapory platformy Azure mogą być używane w różnych regionach. Można 
 
 Menedżer zapory platformy Azure ma następujące znane problemy:
 
-|Problem  |Opis  |Ograniczanie ryzyka  |
+|Problem  |Description  |Ograniczanie ryzyka  |
 |---------|---------|---------|
-|Dzielenie ruchu nie jest obecnie obsługiwane.|Dzielenie pakietów Office 365 i Public PaaS nie jest obecnie obsługiwane. W związku z tym wybranie dostawcy innej firmy dla usługi V2I lub B2I spowoduje również wysłanie wszystkich usług Azure Public PaaS i Office 365 przez usługę partnera.|Badanie podziału ruchu w centrum.
-|Jeden bezpieczny koncentrator wirtualny na region.|Na region nie można mieć więcej niż jednego zabezpieczonego koncentratora wirtualnego.|Utwórz wiele wirtualnych sieci WAN w regionie.|
-|Zasady podstawowe muszą znajdować się w tym samym regionie co zasady lokalne.|Utwórz wszystkie zasady lokalne w tym samym regionie co zasady podstawowe. Można nadal stosować zasady, które zostały utworzone w jednym regionie w zabezpieczonym centrum z innego regionu.|Badanie|
-|Komunikacja między centrami, która nie przechodzi przez zabezpieczone centrum wirtualne|Zabezpieczona wirtualna koncentrator do bezpiecznej komunikacji z koncentratorem wirtualnym nie jest jeszcze obsługiwana, ale komunikacja między centrum a usługą Hub będzie nadal możliwa.|Badanie|
+|Dzielenie ruchu|Dzielenie pakietów Office 365 i Public PaaS na platformie Azure nie jest obecnie obsługiwane. W związku z tym wybranie dostawcy innej firmy dla usługi V2I lub B2I spowoduje również wysłanie wszystkich usług Azure Public PaaS i Office 365 przez usługę partnera.|Badanie podziału ruchu w centrum.
+|Jeden bezpieczny koncentrator wirtualny na region|Na region nie można mieć więcej niż jednego zabezpieczonego koncentratora wirtualnego.|Utwórz wiele wirtualnych sieci WAN w regionie.|
+|Zasady podstawowe muszą znajdować się w tym samym regionie co zasady lokalne|Utwórz wszystkie zasady lokalne w tym samym regionie co zasady podstawowe. Można nadal stosować zasady, które zostały utworzone w jednym regionie w zabezpieczonym centrum z innego regionu.|Badanie|
+|Filtrowanie ruchu między centrami w ramach bezpiecznych wdrożeń koncentratora wirtualnego|Zabezpieczonego koncentratora wirtualnego do zabezpieczonego filtrowania komunikacji koncentratora wirtualnego nie jest jeszcze obsługiwana. Jednak komunikacja między centrum a centrum nadal działa, jeśli Filtrowanie ruchu prywatnego za pośrednictwem zapory platformy Azure nie jest włączone.|Badanie|
+|Szprychy w innym regionie niż koncentrator wirtualny|Szprychy w innym regionie niż koncentrator wirtualny nie są obsługiwane.|Badanie<br><br>Utwórz centrum na region i sieci wirtualnych równorzędne w tym samym regionie, w którym znajduje się centrum.|
+|Rozgałęzienie do ruchu rozgałęzienia z włączonym filtrowaniem ruchu prywatnego|Rozgałęzienie ruchu rozgałęzienia nie jest obsługiwane, gdy jest włączone filtrowanie ruchu prywatnego. |Badanie.<br><br>Nie zabezpieczaj ruchu prywatnego, jeśli rozgałęzienie połączenia z gałęzią ma krytyczne znaczenie.|
 |Wszystkie zabezpieczone centra wirtualne współużytkujące tę samą wirtualną sieć WAN muszą znajdować się w tej samej grupie zasobów.|To zachowanie jest wyrównane z koncentratorami wirtualnych sieci WAN już dziś.|Utwórz wiele wirtualnych sieci WAN, aby umożliwić tworzenie zabezpieczonych koncentratorów wirtualnych w różnych grupach zasobów.|
 
 ## <a name="next-steps"></a>Następne kroki

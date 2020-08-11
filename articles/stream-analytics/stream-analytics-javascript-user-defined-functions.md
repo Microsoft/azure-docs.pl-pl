@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-javascript
 ms.date: 06/16/2020
-ms.openlocfilehash: ff4af372fa0ec1b6b24698184eb3f52449e28d46
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6540b35925a92ebd6a8bcced427b5457785603db
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430818"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056911"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funkcje języka JavaScript zdefiniowane przez użytkownika w Azure Stream Analytics
  
@@ -86,7 +86,7 @@ Stream Analytics | JavaScript
 bigint | Number (maksymalna liczba całkowita, która może być reprezentowana przez język JavaScript, to 2^53)
 DateTime | Date (język JavaScript obsługuje tylko milisekundy)
 double | Liczba
-nvarchar(MAX) | String
+nvarchar(MAX) | Ciąg
 Rekord | Obiekt
 Tablica | Tablica
 NULL | Null
@@ -97,7 +97,7 @@ JavaScript | Stream Analytics
 --- | ---
 Liczba | Bigint (jeśli liczba jest zaokrąglona i należy do zakresu long.MinValue-long.MaxValue; w przeciwnym razie to double)
 Data | DateTime
-String | nvarchar(MAX)
+Ciąg | nvarchar(MAX)
 Obiekt | Rekord
 Tablica | Tablica
 Null, Undefined | NULL
@@ -130,6 +130,60 @@ INTO
     output
 FROM
     input PARTITION BY PARTITIONID
+```
+
+### <a name="cast-string-to-json-object-to-process"></a>Rzutowanie ciągu na obiekt JSON w celu przetworzenia
+
+Jeśli masz pole ciągu, które jest w formacie JSON i chcesz przekonwertować je do obiektu JSON w celu przetworzenia w kodzie UDF języka JavaScript, możesz użyć funkcji **JSON. Parse ()** , aby utworzyć obiekt JSON, którego można następnie użyć.
+
+**Definicja funkcji języka JavaScript zdefiniowanej przez użytkownika:**
+
+```javascript
+function main(x) {
+var person = JSON.parse(x);  
+return person.name;
+}
+```
+
+**Przykładowe zapytanie:**
+```SQL
+SELECT
+    UDF.getName(input) AS Name
+INTO
+    output
+FROM
+    input
+```
+
+### <a name="use-trycatch-for-error-handling"></a>Użyj try/catch do obsługi błędów
+
+Bloki try/catch mogą pomóc w identyfikowaniu problemów z nieprawidłowymi danymi wejściowymi, które są przesyłane do formatu UDF języka JavaScript.
+
+**Definicja funkcji języka JavaScript zdefiniowanej przez użytkownika:**
+
+```javascript
+function main(input, x) {
+    var obj = null;
+
+    try{
+        obj = JSON.parse(x);
+    }catch(error){
+        throw input;
+    }
+    
+    return obj.Value;
+}
+```
+
+**Przykładowe zapytanie: Przekaż cały rekord jako pierwszy parametr, aby można było go zwrócić, jeśli wystąpił błąd.**
+```SQL
+SELECT
+    A.context.company AS Company,
+    udf.getValue(A, A.context.value) as Value
+INTO
+    output
+FROM
+    input A
 ```
 
 ## <a name="next-steps"></a>Następne kroki

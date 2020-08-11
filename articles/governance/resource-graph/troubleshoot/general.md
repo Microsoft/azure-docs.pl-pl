@@ -1,14 +1,14 @@
 ---
 title: Rozwiązywanie typowych problemów
 description: Dowiedz się, jak rozwiązywać problemy z różnymi zestawami SDK podczas badania zasobów platformy Azure za pomocą usługi Azure Resource Graph.
-ms.date: 05/20/2020
+ms.date: 08/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: e1b3758e52641bc27341c5da0ced9e811263c02b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 052c3e1c10f1b0ca94653f086e2df4f3d395070e
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83683240"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056945"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Rozwiązywanie problemów z błędami przy użyciu grafu zasobów platformy Azure
 

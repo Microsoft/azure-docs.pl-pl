@@ -2,14 +2,14 @@
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 06/07/2019
+ms.date: 08/10/2020
 ms.author: rogarana
-ms.openlocfilehash: c2bd10ab4c98fe2e77332c3cc2566ab2f0c7ad42
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d704c6026e9d007a7365a3b72649ca509585da4d
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841938"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88057738"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>Dodatkowe limity poziomów udziałów plików w warstwie Premium
 
@@ -23,11 +23,11 @@ ms.locfileid: "87841938"
 
 #### <a name="file-level-limits"></a>Limity poziomów plików
 
-|Obszar  |Plik Premium  |Plik standardowy |
+|Obszar  |Plik standardowy  |Plik Premium  |
 |---------|---------|---------|
-|Rozmiar                  |4 TiB         |1 TiB|
-|Maksymalna liczba operacji we/wy na plik     |5000         |1000|
-|Równoczesne uchwyty    |2000         |2000|
-|Ruch wychodzący  |300 MiB/s|      Zobacz standardowe wartości przepływności plików|
-|Ruch przychodzący  |200 MiB/s| Zobacz standardowe wartości przepływności plików|
-|Przepływność| Zobacz wartości wejściowe/wyjściowe plików w warstwie Premium| Do 60 MiB/s|
+|Rozmiar     |1 TiB         |4 TiB         |
+|Maksymalna liczba operacji we/wy na plik      |1000         |5000         |
+|Równoczesne uchwyty     |2000         |2000         |
+|Ruch wychodzący     |Zobacz standardowe wartości przepływności plików         |300 MiB/s         |
+|Ruch przychodzący     |Zobacz standardowe wartości przepływności plików         |200 MiB/s         |
+|Przepływność     |Do 60 MiB/s         |Zobacz wartości wejściowe/wyjściowe plików w warstwie Premium         |
