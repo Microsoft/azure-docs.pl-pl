@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: routlaw
-ms.openlocfilehash: 7e78a8dfdf902c4c2548e0521a79d67716987791
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c1bbe48ca5205cf1db49d67a711e9a7523e1845
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832087"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077122"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Using Node.js Modules with Azure applications (Używanie modułów Node.js z aplikacjami platformy Azure)
 Ten dokument zawiera wskazówki dotyczące korzystania z modułów Node.js w aplikacjach hostowanych na platformie Azure. Zawiera on wskazówki dotyczące zapewnienia, że aplikacja korzysta z określonej wersji modułu, a także przy użyciu modułów macierzystych z platformą Azure.
@@ -85,7 +85,7 @@ Gdy aplikacja jest gotowa do produkcji, można zablokować wymagania dotyczące 
 >
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, gdy rozumiesz, jak używać modułów Node.js z platformą Azure, Dowiedz się, jak [określić wersję Node.js](https://github.com/squillace/nodejs-microservice), [skompilować i wdrożyć aplikację internetową Node.js](app-service/app-service-web-get-started-nodejs.md)oraz [jak korzystać z interfejsu wiersza polecenia platformy Azure dla systemów Mac i Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
+Teraz, gdy rozumiesz, jak używać modułów Node.js z platformą Azure, Dowiedz się, jak [określić wersję Node.js](https://github.com/squillace/nodejs-microservice), [skompilować i wdrożyć aplikację internetową Node.js](app-service/quickstart-nodejs.md)oraz [jak korzystać z interfejsu wiersza polecenia platformy Azure dla systemów Mac i Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
 
 Aby uzyskać więcej informacji, odwiedź stronę [Centrum deweloperów środowiska Node.js](/azure/developer/javascript/).
 

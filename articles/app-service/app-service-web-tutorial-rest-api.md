@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.custom: mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seodec18
-ms.openlocfilehash: c59ff344cc3e24387c764ba2f23bc3fe0065b371
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 78d44310420558d2f57d2b652f8453028b20c433
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559809"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077689"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Samouczek: hostowanie interfejsu API RESTful z mechanizmem CORS w usłudze Azure App Service
 
@@ -89,7 +89,7 @@ W tym kroku wdrożysz aplikację .NET Core połączoną z bazą danych SQL Datab
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
-### <a name="create-a-web-app"></a>Tworzenie aplikacji internetowej
+### <a name="create-a-web-app"></a>tworzenie aplikacji internetowej
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)] 
 
@@ -142,7 +142,7 @@ Następnie włącz wbudowaną obsługę mechanizmu CORS w usłudze App Service d
 
 W lokalnym repozytorium otwórz plik _wwwroot/index.html_.
 
-W wierszu 51 ustaw zmienną `apiEndpoint` na adres URL wdrożonego interfejsu API (`http://<app_name>.azurewebsites.net`). Zastąp zmienną _ \<nazwa_aplikacji>_ nazwą aplikacji w App Service.
+W wierszu 51 ustaw zmienną `apiEndpoint` na adres URL wdrożonego interfejsu API (`http://<app_name>.azurewebsites.net`). Zastąp ciąg _\<appname>_ nazwą swojej aplikacji w App Service.
 
 W lokalnym oknie terminala ponownie uruchom aplikację przykładową.
 
@@ -150,7 +150,7 @@ W lokalnym oknie terminala ponownie uruchom aplikację przykładową.
 dotnet run
 ```
 
-Przejdź do aplikacji przeglądarki pod adresem `http://localhost:5000`. Otwórz okno narzędzia deweloperskie w przeglądarce`Ctrl` + `Shift` + `i` (w programie Chrome dla systemu Windows) i sprawdź kartę **konsola** . Powinien pojawić się komunikat o błędzie `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
+Przejdź do aplikacji przeglądarki pod adresem `http://localhost:5000`. Otwórz okno narzędzia deweloperskie w przeglądarce ( `Ctrl` + `Shift` + `i` w programie Chrome dla systemu Windows) i sprawdź kartę **konsola** . Powinien pojawić się komunikat o błędzie `No 'Access-Control-Allow-Origin' header is present on the requested resource` .
 
 ![Błąd mechanizmu CORS w kliencie przeglądarki](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
 
@@ -169,7 +169,7 @@ az webapp cors add --resource-group myResourceGroup --name <app-name> --allowed-
 W parametrze `properties.cors.allowedOrigins` możesz określić więcej niż jeden adres URL klienta (`"['URL1','URL2',...]"`). Możesz również włączyć adresy URL wszystkich klientów za pomocą wartości `"['*']"`.
 
 > [!NOTE]
-> Jeśli Twoja aplikacja wymaga wysyłania poświadczeń, takich jak pliki cookie lub tokeny uwierzytelniania, przeglądarka może wymagać nagłówka `ACCESS-CONTROL-ALLOW-CREDENTIALS` w odpowiedzi. Aby włączyć tę funkcję w App Service, `properties.cors.supportCredentials` Ustaw `true` wartość w konfiguracji CORS. Tego nie można włączyć, `allowedOrigins` gdy `'*'`zawiera.
+> Jeśli Twoja aplikacja wymaga wysyłania poświadczeń, takich jak pliki cookie lub tokeny uwierzytelniania, przeglądarka może wymagać nagłówka `ACCESS-CONTROL-ALLOW-CREDENTIALS` w odpowiedzi. Aby włączyć tę funkcję w App Service, ustaw wartość `properties.cors.supportCredentials` `true` w konfiguracji CORS. Tego nie można włączyć, gdy `allowedOrigins` zawiera `'*'` .
 
 ### <a name="test-cors-again"></a>Ponowne testowanie mechanizmu CORS
 
@@ -203,4 +203,4 @@ Które czynności umiesz wykonać:
 Przejdź do następnego samouczka, aby dowiedzieć się, jak uwierzytelniać i autoryzować użytkowników.
 
 > [!div class="nextstepaction"]
-> [Samouczek: kompleksowe uwierzytelnianie i autoryzacja użytkowników](app-service-web-tutorial-auth-aad.md)
+> [Samouczek: kompleksowe uwierzytelnianie i autoryzacja użytkowników](tutorial-auth-aad.md)

@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 01/17/2020
 ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: 0798b7674828b14a37f20921e05820d995bff6a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a385a339122197b7055ef6f54b8e37edea8eae4a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760800"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078941"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Integracja z usługą Azure serwer proxy aplikacji usługi Azure AD na serwerze usługi rejestracji urządzeń sieciowych (NDES)
 
@@ -89,10 +89,10 @@ Usługa Azure serwer proxy aplikacji usługi Azure AD jest oparta na platformie 
 
 1. Powinien zostać wyświetlony **komunikat o błędzie HTTP 403 — Dostęp zabroniony** .
 
-1. Zmień podany adres URL usługi NDES (za pośrednictwem Microsoft Intune) na urządzenia. Ta zmiana może być w centrum konfiguracji Microsoft Endpoint Center lub w chmurze usługi Intune.
+1. Zmień podany adres URL usługi NDES (za pośrednictwem Microsoft Intune) na urządzenia. Ta zmiana może być w programie Microsoft Endpoint Configuration Manager lub centrum administracyjnym programu Microsoft Endpoint Manager.
 
-   * W przypadku programu Configuration Center przejdź do punktu rejestracji certyfikatu (CRP) i Dostosuj adres URL. Ten adres URL wskazuje, które urządzenia są wywoływane, i zaprezentowanie ich wyzwania.
-   * Tylko w przypadku chmury usługi Intune, znanej również jako autonomiczna usługa Intune, edytuj lub Utwórz nowe zasady SCEP i Dodaj nowy adres URL.
+   * W przypadku Configuration Manager przejdź do punktu rejestracji certyfikatu i Dostosuj adres URL. Ten adres URL wskazuje, które urządzenia są wywoływane, i zaprezentowanie ich wyzwania.
+   * W przypadku autonomicznej usługi Intune Edytuj lub Utwórz nowe zasady SCEP i Dodaj nowy adres URL.
 
 ## <a name="next-steps"></a>Następne kroki
 

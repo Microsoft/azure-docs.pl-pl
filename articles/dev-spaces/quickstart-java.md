@@ -7,12 +7,12 @@ description: W tym przewodniku szybki start pokazano, jak używać Azure Dev Spa
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Java, Helm, Service siatk, routing sieci usługi, polecenia kubectl, k8s
 manager: gwallace
 ms.custom: devx-track-java
-ms.openlocfilehash: c0fd035a0341e5e92b2706d833b24d5e5b87e018
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 53d7b602166ae463ddb821f5a9992de39f6e1644
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371570"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078720"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-java---azure-dev-spaces"></a>Szybki Start: debugowanie i iteracja na Kubernetes z Visual Studio Code i Java — Azure Dev Spaces
 
@@ -163,10 +163,10 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak Azure Dev Spaces ułatwiają tworzenie bardziej złożonych aplikacji w wielu kontenerach i jak można uprościć programowanie do współpracy, pracując z różnymi wersjami lub gałęziami kodu w różnych miejscach.
+Dowiedz się więcej o tym, jak działa Azure Dev Spaces.
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development (Praca z wieloma kontenerami i programowanie zespołowe)](multi-service-java.md)
+> [Jak działa usługa Azure Dev Spaces](how-dev-spaces-works.md)
 
 
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68d40e9dbc2c4da6b298f7245318c95de983edcc
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 65aed14ec7f644f2792aaecde5c8bccfffdd8081
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530150"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078448"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Zarządzanie przypisaniami ról w programie Azure Active Directory przy użyciu grup chmurowych (wersja zapoznawcza)
 
@@ -53,7 +53,7 @@ Zaprojektowano sposób, w jaki grupy są przypisane do ról, aby zapobiec wystę
 Następujące scenariusze nie są obecnie obsługiwane:  
 
 - Przypisywanie grup chmur do ról niestandardowych usługi Azure AD
-- Przypisywanie grup chmur do ról usługi Azure AD (wbudowanych lub niestandardowych) przez jednostkę administracyjną.
+- Przypisywanie grup chmur do ról usługi Azure AD (wbudowanych lub niestandardowych) za pośrednictwem jednostki administracyjnej lub zakresu aplikacji.
 - Przypisywanie grup lokalnych do ról usługi Azure AD (wbudowanych lub niestandardowych)
 
 ## <a name="known-issues"></a>Znane problemy

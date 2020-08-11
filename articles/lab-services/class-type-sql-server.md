@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: a3601010eae614049b4af5aa2ddbcdc6acda21cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fc0a965869207ba8d1b4eb6f45e878ae4b93c3a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444883"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079026"
 ---
 # <a name="set-up-a-lab-to-manage-and-develop-with-sql-server"></a>Skonfiguruj laboratorium do zarządzania i programowania przy użyciu SQL Server
 
@@ -64,8 +64,8 @@ Teraz, gdy strona sieci jest obsługiwana, umożliwia utworzenie bazy danych SQL
 23. Kliknij przycisk **OK**.
 24. Kliknij przycisk **Dalej: Ustawienia dodatkowe**.
 25. Dla ustawienia **Użyj istniejących danych** wybierz pozycję **przykład**.  Dane z bazy danych AdventureWorksLT będą używane podczas tworzenia bazy danych.
-26. Kliknij pozycję **Przegląd + utwórz**.
-27. Kliknij pozycję **Utwórz**.
+26. Kliknij pozycję **Przejrzyj i utwórz**.
+27. Kliknij przycisk **Utwórz**.
 
 Po pomyślnym zakończeniu wdrażania SQL Database można utworzyć laboratorium i zainstalować oprogramowanie na komputerze szablonu laboratorium.
 
@@ -86,7 +86,7 @@ Wybrany powyżej obraz zawiera [program Visual Studio 2019 Community](https://vi
 
 Program Visual Studio zawiera zestaw narzędzi do **przechowywania i przetwarzania danych** , w tym narzędzia do SQL Server Data Tools (SSDT).  Aby uzyskać więcej informacji na temat możliwości SSDT, zobacz [SQL Server Data Tools — Omówienie](https://docs.microsoft.com/sql/ssdt/sql-server-data-tools?view=sql-server-ver15).  Aby sprawdzić, czy połączenie z udostępnioną SQL Server dla klasy zakończyło się pomyślnie, zobacz [nawiązywanie połączenia z bazą danych i przeglądanie istniejących obiektów](https://docs.microsoft.com/sql/ssdt/how-to-connect-to-a-database-and-browse-existing-objects?view=sql-server-ver15). Jeśli zostanie wyświetlony monit, Dodaj adres IP komputera szablonu do [listy dozwolonych komputerów](https://docs.microsoft.com/azure/azure-sql/database/firewall-configure) , które mogą połączyć się z wystąpieniem SQL Server.
 
-Program Visual Studio obsługuje kilka obciążeń, w tym **& sieci Web w chmurze** i **pulpitu & dla urządzeń przenośnych** .  Oba te obciążenia obsługują SQL Server jako źródło danych. Aby uzyskać więcej informacji na temat korzystania z ASP.NET Core do SQL Server, zobacz [Tworzenie aplikacji ASP.NET Core i SQL Database w](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb) samouczku Azure App Service.  Użyj biblioteki [System. Data. SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) , aby nawiązać połączenie z SQL Database z aplikacji platformy [Xamarin](https://docs.microsoft.com/xamarin) .
+Program Visual Studio obsługuje kilka obciążeń, w tym **& sieci Web w chmurze** i **pulpitu & dla urządzeń przenośnych** .  Oba te obciążenia obsługują SQL Server jako źródło danych. Aby uzyskać więcej informacji na temat korzystania z ASP.NET Core do SQL Server, zobacz [Tworzenie aplikacji ASP.NET Core i SQL Database w](https://docs.microsoft.com/azure/app-service/tutorial-dotnetcore-sqldb-app) samouczku Azure App Service.  Użyj biblioteki [System. Data. SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) , aby nawiązać połączenie z SQL Database z aplikacji platformy [Xamarin](https://docs.microsoft.com/xamarin) .
 
 ## <a name="install-azure-data-studio"></a>Zainstaluj Azure Data Studio
 
@@ -109,7 +109,7 @@ Teraz, gdy zainstalowano Azure Data Studio, Skonfigurujmy połączenie z Azure S
     - Ustaw **hasło** do hasła używanego do tworzenia bazy danych.
     - Zaznacz pole wyboru **Zapamiętaj hasło**.
     - W obszarze **baza danych**wybierz pozycję *classlabdb*.
-3. Kliknij pozycję **Połącz**.
+3. Kliknij przycisk **Podłącz**.
 
 ## <a name="install-sql-server-management-studio"></a>Zainstaluj SQL Server Management Studio
 

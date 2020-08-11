@@ -7,12 +7,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: W tym samouczku pokazano, jak używać Azure Dev Spaces i programu Visual Studio do debugowania i szybkiej iteracji aplikacji platformy .NET Core w usłudze Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s
-ms.openlocfilehash: 1ce2647e89915dd581b0b5ad9fc75a9f2fe840de
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 436ef1b83bd23c78aed6e793e237423110ca6bc6
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499113"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077707"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-and-net-core-with-azure-dev-spaces"></a>Utwórz przestrzeń Kubernetes dev: Visual Studio i .NET Core z Azure Dev Spaces
 
@@ -179,8 +179,10 @@ Odśwież aplikację internetową w przeglądarce, a następnie otwórz stronę 
 
 ## <a name="next-steps"></a>Następne kroki
 
+Dowiedz się więcej o tym, jak działa Azure Dev Spaces.
+
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o opracowywaniu dla wielu usług](multi-service-netcore-visualstudio.md)
+> [Jak działa usługa Azure Dev Spaces](how-dev-spaces-works.md)
 
 
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

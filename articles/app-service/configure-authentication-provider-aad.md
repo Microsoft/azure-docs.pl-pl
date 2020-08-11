@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 5d5348f8abe8d30c7f23882974b8c121af39636c
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: cdbce7c11bc3184b624fa00f3ac33db7ad8730d8
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448157"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077440"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Skonfiguruj App Service lub aplikację Azure Functions do korzystania z logowania za pomocą usługi Azure AD
 
@@ -76,7 +76,7 @@ Wykonaj następujące czynności:
 1. Wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**  >  **nową rejestrację**.
 1. Na stronie **zarejestruj aplikację** wprowadź **nazwę** rejestracji aplikacji.
 1. W obszarze **Identyfikator URI przekierowania**wybierz pozycję **Sieć Web** i wpisz `<app-url>/.auth/login/aad/callback` . Na przykład `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 1. Po utworzeniu rejestracji aplikacji Skopiuj **Identyfikator aplikacji (klienta)** i **Identyfikator katalogu (dzierżawcy)** w przyszłości.
 1. Wybierz pozycję **Uwierzytelnianie**. W obszarze **niejawne Przyznaj** **tokeny identyfikatora** , aby zezwolić OpenID Connect na logowanie użytkowników z App Service.
 1. Obowiązkowe Wybierz **znakowanie**. W polu **adres URL strony głównej**wprowadź adres url aplikacji App Service i wybierz pozycję **Zapisz**.
@@ -121,7 +121,7 @@ Możesz zarejestrować natywnych klientów, aby zezwolić na uwierzytelnianie w 
 
     > [!NOTE]
     > W przypadku aplikacji Microsoft Store Użyj [identyfikatora SID pakietu](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) jako identyfikatora URI.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 1. Po utworzeniu rejestracji aplikacji skopiuj wartość **Identyfikator aplikacji (klienta)**.
 1. Wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienie**  >  **Moje interfejsy API**.
 1. Wybierz rejestrację aplikacji utworzoną wcześniej dla aplikacji App Service. Jeśli nie widzisz rejestracji aplikacji, upewnij się, że dodano zakres **user_impersonation** w temacie [Tworzenie rejestracji aplikacji w usłudze Azure AD dla aplikacji App Service](#register).
@@ -136,7 +136,7 @@ Aplikacja może uzyskać token do wywoływania internetowego interfejsu API host
 1. W [Azure Portal]wybierz pozycję **Active Directory**  >  **rejestracje aplikacji**  >  **Nowa rejestracja**.
 1. Na stronie **zarejestruj aplikację** wprowadź **nazwę** rejestracji aplikacji demona.
 1. W przypadku aplikacji demona nie jest potrzebny identyfikator URI przekierowania, aby można było zachować tę wartość pustą.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 1. Po utworzeniu rejestracji aplikacji skopiuj wartość **Identyfikator aplikacji (klienta)**.
 1. Wybierz pozycję **Certyfikaty &** wpisy tajne  >  **Nowy klient Dodaj wpis tajny**  >  **Add**. Skopiuj wartość klucza tajnego klienta podaną na stronie. Nie zostanie on wyświetlony ponownie.
 
@@ -157,7 +157,7 @@ Już skonfigurowano aplikację kliencką demona, która może uzyskiwać dostęp
 ## <a name="next-steps"></a><a name="related-content"> </a>Następne kroki
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
-* [Samouczek: kompleksowe uwierzytelnianie i autoryzacja użytkowników w usłudze Azure App Service](app-service-web-tutorial-auth-aad.md)
+* [Samouczek: kompleksowe uwierzytelnianie i autoryzacja użytkowników w usłudze Azure App Service](tutorial-auth-aad.md)
 <!-- URLs. -->
 
 [Witryna Azure Portal]: https://portal.azure.com/

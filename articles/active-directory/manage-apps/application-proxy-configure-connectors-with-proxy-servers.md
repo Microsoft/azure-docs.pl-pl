@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c785e2b13e7d5c57ff6d5ce9161fea1a80da77e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d177dce250d65b4f9d825c9d70916f70c4076d4b
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019543"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077513"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Praca z istniejącymi lokalnymi serwerami proxy
 
@@ -115,7 +115,7 @@ Zezwól na dostęp do następujących adresów URL:
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Komunikacja między łącznikiem a usługą serwera proxy aplikacji w chmurze |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Łącznik używa tych adresów URL do weryfikowania certyfikatów |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*. microsoftonline.com <br> *. microsoftonline-p.com<br>*. msauth.NET <br> *. msauthimages.net<br>*. msecnd.NET <br> *. msftauth.net<br>*. msftauthimages.NET <br> *. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | Łącznik używa tych adresów URL podczas procesu rejestracji. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*. microsoftonline.com <br> *. microsoftonline-p.com<br>*. msauth.NET <br> *. msauthimages.net<br>*. msecnd.NET <br> *. msftauth.net<br>*. msftauthimages.NET <br> *. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | Łącznik używa tych adresów URL podczas procesu rejestracji. |
 
 Jeśli zapora lub serwer proxy umożliwia skonfigurowanie list dozwolonych DNS, można zezwolić na połączenia z \* . msappproxy.NET i \* . ServiceBus.Windows.NET. W przeciwnym razie musisz zezwolić na dostęp do [zakresów adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653). Zakresy adresów IP są aktualizowane co tydzień.
 

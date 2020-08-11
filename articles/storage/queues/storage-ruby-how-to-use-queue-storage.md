@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 518a1b01f52edcf5fa365e2275d4b995ffd719c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac47747f7789b23801900804522681e5a4b10e5a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805182"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078703"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Jak używać Magazynu kolejek w języku Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -29,7 +29,7 @@ Omówione scenariusze obejmują **Wstawianie**, **wgląd**, **pobieranie**i **us
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Tworzenie aplikacji języka Ruby
-Tworzenie aplikacji Ruby. Aby uzyskać instrukcje, zobacz [Tworzenie aplikacji Ruby w App Service w systemie Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby).
+Tworzenie aplikacji Ruby. Aby uzyskać instrukcje, zobacz [Tworzenie aplikacji Ruby w App Service w systemie Linux](https://docs.microsoft.com/azure/app-service/quickstart-ruby).
 
 ## <a name="configure-your-application-to-access-storage"></a>Konfigurowanie aplikacji w celu uzyskania dostępu do magazynu
 Aby korzystać z usługi Azure Storage, należy pobrać i użyć pakietu platformy Azure w języku Ruby, który obejmuje zestaw wygodnych bibliotek, które komunikują się z usługami REST usługi Storage.

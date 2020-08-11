@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-javascript
-ms.openlocfilehash: af75afb2840d2bc14e1fa46310f76f662efa2a54
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 17e01894ac3d26720b1e74be9d0fd7fc193c463f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384790"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077309"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Szybki Start: Rozpoczynanie monitorowania Node.js aplikacji sieci Web za pomocą platformy Azure Application Insights
 
@@ -46,7 +46,7 @@ Application Insights może zbierać dane telemetryczne z dowolnej aplikacji poł
    | **Grupa zasobów**     | myResourceGroup      | Nazwa nowej grupy zasobów do hostowania danych AppInsights. istnieje możliwość utworzenia nowej lub użycia istniejącej grupy zasobów. |
    | **Lokalizacja** | East US | Wybierz lokalizację w pobliżu Ciebie lub w pobliżu miejsca hostowania aplikacji |
 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 
 ## <a name="configure-appinsights-sdk"></a>Konfigurowanie zestawu SDK AppInsights
 
@@ -60,7 +60,7 @@ Application Insights może zbierać dane telemetryczne z dowolnej aplikacji poł
    npm install applicationinsights --save
    ```
 
-3. Edytuj pierwszy plik *. js* aplikacji i Dodaj dwa wiersze poniżej do najwyższej części skryptu. Jeśli używasz [aplikacji szybkiego startuNode.js](../../app-service/app-service-web-get-started-nodejs.md), zmodyfikuj plik *index.js* . Zamień `<instrumentation_key>` na klucz Instrumentacji aplikacji. 
+3. Edytuj pierwszy plik *. js* aplikacji i Dodaj dwa wiersze poniżej do najwyższej części skryptu. Jeśli używasz [aplikacji szybkiego startuNode.js](../../app-service/quickstart-nodejs.md), zmodyfikuj plik *index.js* . Zamień `<instrumentation_key>` na klucz Instrumentacji aplikacji. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');
@@ -118,7 +118,7 @@ Application Insights może zbierać dane telemetryczne z dowolnej aplikacji poł
 
 Aby dowiedzieć się więcej na temat monitorowania Node.js, zapoznaj się z [dodatkową dokumentacją Node.js AppInsights](../app/nodejs.md).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu testowania można usunąć grupę zasobów i wszystkie powiązane zasoby. W tym celu wykonaj poniższe kroki.
 

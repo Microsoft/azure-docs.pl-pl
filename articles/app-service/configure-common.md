@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: e4ebb33333dc59432fd269c4847abdeab91d935c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9371b39bd37ba2514256a3b2fa90812f45c7ce5e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389783"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077377"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Skonfiguruj aplikację App Service w Azure Portal
 
@@ -33,13 +33,13 @@ W przypadku deweloperów ASP.NET i ASP.NET Core, Ustawianie ustawień aplikacji 
 
 Inne stosy języka, podobnie, pobierają ustawienia aplikacji jako zmienne środowiskowe w czasie wykonywania. Aby zapoznać się z procedurami specyficznymi dla stosu, zobacz:
 
-- [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
-- [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
-- [PHP](containers/configure-language-php.md#access-environment-variables)
-- [Python](containers/how-to-configure-python.md#access-environment-variables)
-- [Java](containers/configure-language-java.md#data-sources)
-- [Ruby](containers/configure-language-ruby.md#access-environment-variables)
-- [Kontenery niestandardowe](containers/configure-custom-container.md#configure-environment-variables)
+- [ASP.NET Core](configure-language-dotnetcore.md#access-environment-variables)
+- [Node.js](configure-language-nodejs.md#access-environment-variables)
+- [PHP](configure-language-php.md#access-environment-variables)
+- [Python](configure-language-python.md#access-environment-variables)
+- [Java](configure-language-java.md#data-sources)
+- [Ruby](configure-language-ruby.md#access-environment-variables)
+- [Kontenery niestandardowe](configure-custom-container.md#configure-environment-variables)
 
 Ustawienia aplikacji są zawsze szyfrowane, gdy są przechowywane (szyfrowane w trybie REST).
 
@@ -104,13 +104,13 @@ W czasie wykonywania parametry połączenia są dostępne jako zmienne środowis
 
 Na przykład parametry połączenia MySql o nazwie *connectionstring1* są dostępne jako zmienne środowiskowe `MYSQLCONNSTR_connectionString1` . Aby zapoznać się z procedurami specyficznymi dla stosu, zobacz:
 
-- [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
-- [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
-- [PHP](containers/configure-language-php.md#access-environment-variables)
-- [Python](containers/how-to-configure-python.md#access-environment-variables)
-- [Java](containers/configure-language-java.md#data-sources)
-- [Ruby](containers/configure-language-ruby.md#access-environment-variables)
-- [Kontenery niestandardowe](containers/configure-custom-container.md#configure-environment-variables)
+- [ASP.NET Core](configure-language-dotnetcore.md#access-environment-variables)
+- [Node.js](configure-language-nodejs.md#access-environment-variables)
+- [PHP](configure-language-php.md#access-environment-variables)
+- [Python](configure-language-python.md#access-environment-variables)
+- [Java](configure-language-java.md#data-sources)
+- [Ruby](configure-language-ruby.md#access-environment-variables)
+- [Kontenery niestandardowe](configure-custom-container.md#configure-environment-variables)
 
 Parametry połączenia są zawsze szyfrowane, gdy są przechowywane (szyfrowane w trybie REST).
 
@@ -176,7 +176,7 @@ Tutaj można skonfigurować niektóre typowe ustawienia dla aplikacji. Niektóre
     > [!NOTE]
     > Większość nowoczesnych przeglądarek obsługuje protokół HTTP/2 tylko w przypadku protokołu TLS, podczas gdy ruch nieszyfrowany nadal używa protokołu HTTP/1.1. Aby upewnić się, że przeglądarki klienta nawiązują połączenie z aplikacją za pomocą protokołu HTTP/2, Zabezpiecz swoją niestandardową nazwę DNS. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie niestandardowej nazwy DNS z powiązaniem TLS/SSL w Azure App Service](configure-ssl-bindings.md).
     - **Koligacja ARR**: w przypadku wdrożenia obejmującego wiele wystąpień upewnij się, że klient jest kierowany do tego samego wystąpienia w okresie istnienia sesji. Tę opcję można ustawić na wartość **off** dla bezstanowych aplikacji.
-- **Debugowanie**: Włącz debugowanie zdalne dla aplikacji [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure)lub [Node.js](containers/configure-language-nodejs.md#debug-remotely) . Ta opcja jest włączana automatycznie po 48 godzinach.
+- **Debugowanie**: Włącz debugowanie zdalne dla aplikacji [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure)lub [Node.js](configure-language-nodejs.md#debug-remotely) . Ta opcja jest włączana automatycznie po 48 godzinach.
 - **Przychodzące certyfikaty klienta**: Wymagaj certyfikatów klienta w ramach [uwierzytelniania wzajemnego](app-service-web-configure-tls-mutual-auth.md).
 
 ## <a name="configure-default-documents"></a>Konfigurowanie dokumentów domyślnych
@@ -215,7 +215,7 @@ Aby skonfigurować aplikacje i katalogi wirtualne, określ każdy katalog wirtua
 
 ### <a name="containerized-apps"></a>Aplikacje w kontenerze
 
-Możesz [dodać niestandardowy magazyn dla aplikacji w kontenerze](containers/how-to-serve-content-from-azure-storage.md). Aplikacje z kontenerami obejmują wszystkie aplikacje systemu Linux, a także kontenery niestandardowe z systemami Windows i Linux działające na App Service. Kliknij pozycję **Nowa instalacja usługi Azure Storage** i skonfiguruj własny magazyn w następujący sposób:
+Możesz [dodać niestandardowy magazyn dla aplikacji w kontenerze](configure-connect-to-azure-storage.md). Aplikacje z kontenerami obejmują wszystkie aplikacje systemu Linux, a także kontenery niestandardowe z systemami Windows i Linux działające na App Service. Kliknij pozycję **Nowa instalacja usługi Azure Storage** i skonfiguruj własny magazyn w następujący sposób:
 
 - **Nazwa**: Nazwa wyświetlana.
 - **Opcje konfiguracji**: **podstawowa** lub **zaawansowana**.
@@ -228,22 +228,22 @@ Możesz [dodać niestandardowy magazyn dla aplikacji w kontenerze](containers/ho
 - **Klucz dostępu**: Aby skonfigurować konfigurację zaawansowaną, klucz dostępu.
 - **Ścieżka instalacji**: ścieżka bezwzględna w kontenerze, w której ma zostać zainstalowany magazyn niestandardowy.
 
-Aby uzyskać więcej informacji, zobacz [Obsługa zawartości z usługi Azure Storage w usłudze App Service w systemie Linux](containers/how-to-serve-content-from-azure-storage.md).
+Aby uzyskać więcej informacji, zobacz [dostęp do usługi Azure Storage jako udziału sieciowego z kontenera w App Service](configure-connect-to-azure-storage.md).
 
 ## <a name="configure-language-stack-settings"></a>Konfigurowanie ustawień stosu języka
 
 W przypadku aplikacji systemu Linux Zobacz:
 
-- [ASP.NET Core](containers/configure-language-dotnetcore.md)
-- [Node.js](containers/configure-language-nodejs.md)
-- [PHP](containers/configure-language-php.md)
-- [Python](containers/how-to-configure-python.md)
-- [Java](containers/configure-language-java.md)
-- [Ruby](containers/configure-language-ruby.md)
+- [ASP.NET Core](configure-language-dotnetcore.md)
+- [Node.js](configure-language-nodejs.md)
+- [PHP](configure-language-php.md)
+- [Python](configure-language-python.md)
+- [Java](configure-language-java.md)
+- [Ruby](configure-language-ruby.md)
 
 ## <a name="configure-custom-containers"></a>Konfigurowanie kontenerów niestandardowych
 
-Zobacz [Konfigurowanie niestandardowego kontenera systemu Linux dla Azure App Service](containers/configure-custom-container.md)
+Zobacz [Konfigurowanie niestandardowego kontenera systemu Linux dla Azure App Service](configure-custom-container.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -258,7 +258,7 @@ Zobacz [Konfigurowanie niestandardowego kontenera systemu Linux dla Azure App Se
 <!-- URL List -->
 
 [ASP.NET SignalR]: https://www.asp.net/signalr
-[Azure Portal]: https://portal.azure.com/
+[Witryna Azure Portal]: https://portal.azure.com/
 [Konfigurowanie niestandardowej nazwy domeny w Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Konfigurowanie środowisk przejściowych w usłudze Azure App Service]: ./deploy-staging-slots.md
 [How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906

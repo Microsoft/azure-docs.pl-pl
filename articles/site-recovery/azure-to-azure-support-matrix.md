@@ -4,12 +4,12 @@ description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych pla
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 09b7fe1cc4f871d1f94844a8551479fabc0e22ff
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c8890afcdab1b6247fe072f2e34437d790185e58
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008852"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88076932"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -21,7 +21,7 @@ W tym artykule podsumowano obsługę i wymagania wstępne dotyczące odzyskiwani
 **Wdrożenie** |  **Pomoc techniczna**
 --- | ---
 **Witryna Azure Portal** | Obsługiwane.
-**Program PowerShell** | Obsługiwane. [Dowiedz się więcej](azure-to-azure-powershell.md)
+**PowerShell** | Obsługiwane. [Dowiedz się więcej](azure-to-azure-powershell.md)
 **Interfejs API REST** | Obsługiwane.
 **Interfejs wiersza polecenia** | Nie jest obecnie obsługiwana.
 
@@ -163,7 +163,9 @@ SUSE Linux Enterprise Server 15 i 15 SP1 | 9,32 | Domyślnie obsługiwane są ws
 
 * Systemy plików: ext3, EXT4, XFS, BTRFS
 * Menedżer woluminów: LVM2
-* Oprogramowanie wielościeżkowe: mapowanie urządzeń
+
+> [!NOTE]
+> Oprogramowanie wielościeżkowe nie jest obsługiwane. 
 
 
 ## <a name="replicated-machines---compute-settings"></a>Zreplikowane maszyny — ustawienia obliczeń
@@ -272,7 +274,7 @@ Zarezerwowany (statyczny) adres IP | Obsługiwane | Jeśli karta sieciowa na źr
 Dynamiczny adres IP | Obsługiwane | Jeśli karta sieciowa w źródle ma dynamiczne adresowanie IP, karta sieciowa na maszynie wirtualnej w trybie failover jest również domyślnie dynamiczna.<br/><br/> Jeśli jest to wymagane, można je zmodyfikować na stały adres IP.
 Wiele adresów IP | Nieobsługiwane | Po przełączeniu maszyny wirtualnej w tryb failover, która ma kartę sieciową z wieloma adresami IP, zachowywany jest tylko podstawowy adres IP karty sieciowej w regionie źródłowym. Aby przypisać wiele adresów IP, można dodać maszyny wirtualne do [planu odzyskiwania](recovery-plan-overview.md) i dołączyć skrypt, aby przypisać dodatkowe adresy IP do planu, lub wprowadzić zmianę ręcznie lub za pomocą skryptu po przejściu do trybu failover.
 Traffic Manager     | Obsługiwane | Można wstępnie skonfigurować Traffic Manager tak, aby ruch był kierowany do punktu końcowego w regionie źródłowym w regularnych odstępach czasu i do punktu końcowego w regionie docelowym w przypadku przejścia w tryb failover.
-System DNS platformy Azure | Obsługiwane |
+Azure DNS | Obsługiwane |
 Niestandardowe DNS    | Obsługiwane |
 Nieuwierzytelniony serwer proxy | Obsługiwane | [Dowiedz się więcej](./azure-to-azure-about-networking.md)
 Uwierzytelniony serwer proxy | Nieobsługiwane | Jeśli maszyna wirtualna używa uwierzytelnionego serwera proxy do łączności wychodzącej, nie może być replikowana przy użyciu Azure Site Recovery.

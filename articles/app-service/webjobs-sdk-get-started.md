@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 287b58f85cad0082ac782a20cdfb0b9b9ea810e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3b3e52b8386f212521f0fa1ca97cbd658374209
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83743621"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078312"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Get started with the Azure WebJobs SDK for event-driven background processing (Rozpoczynanie pracy z zestawem SDK usługi Azure WebJobs umożliwiającym oparte na zdarzeniach przetwarzanie w tle)
 
@@ -191,7 +191,7 @@ Emulator usługi Azure Storage, który działa lokalnie, nie ma wszystkich funkc
 
 1. Otwórz **Eksplorator serwera** w programie Visual Studio i zaloguj się do platformy Azure. Kliknij prawym przyciskiem myszy węzeł **platformy Azure** , a następnie wybierz pozycję **Połącz z subskrypcją Microsoft Azure**.
 
-   ![Logowanie do platformy Azure](./media/webjobs-sdk-get-started/sign-in.png)
+   ![Logowanie się do platformy Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
 1. W węźle **platformy Azure** w **Eksplorator serwera**kliknij prawym przyciskiem myszy pozycję **Magazyn**, a następnie wybierz pozycję **Utwórz konto magazynu**.
 
@@ -310,7 +310,7 @@ W tej sekcji wykonaj następujące zadania, aby skonfigurować rejestrowanie App
 
 ### <a name="create-app-service-app-and-application-insights-instance"></a>Tworzenie App Service aplikacji i wystąpienia Application Insights
 
-1. Jeśli nie masz jeszcze aplikacji App Service, której możesz użyć, [Utwórz ją](app-service-web-get-started-dotnet-framework.md). Podczas tworzenia aplikacji można również utworzyć połączony zasób Application Insights. Gdy to zrobisz, `APPINSIGHTS_INSTRUMENTATIONKEY` zostanie ustawione dla Ciebie w aplikacji.
+1. Jeśli nie masz jeszcze aplikacji App Service, której możesz użyć, [Utwórz ją](quickstart-dotnet-framework.md). Podczas tworzenia aplikacji można również utworzyć połączony zasób Application Insights. Gdy to zrobisz, `APPINSIGHTS_INSTRUMENTATIONKEY` zostanie ustawione dla Ciebie w aplikacji.
 
 1. Jeśli nie masz jeszcze zasobu Application Insights, którego możesz użyć, [Utwórz go](../azure-monitor/app/create-new-resource.md ). W polu **Typ aplikacji** ustaw wartość **Ogólne**i Pomiń następujące sekcje, które obserwują **kopię klucza Instrumentacji**.
 
@@ -428,7 +428,7 @@ W tej sekcji należy ponownie uruchomić lokalnie, aby sprawdzić, czy dane reje
 
 1. Zamknij okno konsoli.
 
-## <a name="deploy-to-azure"></a><a name="deploy-as-a-webjob"></a>Wdróż na platformie Azure
+## <a name="deploy-to-azure"></a><a name="deploy-as-a-webjob"></a>Wdrażanie na platformie Azure
 
 Podczas wdrażania należy utworzyć wystąpienie usługi App Service, w której będą uruchamiane funkcje. Po opublikowaniu aplikacji konsolowej .NET Core w celu App Service na platformie Azure jest ona automatycznie uruchamiana jako zadanie WebJob. Aby dowiedzieć się więcej o publikowaniu, zobacz [Tworzenie i wdrażanie zadań WebJob za pomocą programu Visual Studio](webjobs-dotnet-deploy-vs.md).
 

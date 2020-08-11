@@ -3,12 +3,12 @@ title: Uwierzytelnianie tożsamości zarządzanej przy użyciu Azure Active Dire
 description: Ten artykuł zawiera informacje dotyczące uwierzytelniania tożsamości zarządzanej przy użyciu Azure Active Directory dostępu do zasobów Event Hubs platformy Azure
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 707c93d1f104dcc2982999c4e7461947280918ef
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c74e49eff8233d9918fcdb55e6fa2ad8d7517f6f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534417"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079145"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Uwierzytelnianie zarządzanej tożsamości za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs
 Usługa Azure Event Hubs obsługuje uwierzytelnianie Azure Active Directory (Azure AD) z [tożsamościami zarządzanymi dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md). Zarządzane tożsamości dla zasobów platformy Azure mogą autoryzować dostęp do zasobów Event Hubs przy użyciu poświadczeń usługi Azure AD z aplikacji uruchomionych na platformie Azure Virtual Machines (maszyny wirtualne), aplikacji funkcji, Virtual Machine Scale Sets i innych usług. Korzystając z tożsamości zarządzanych dla zasobów platformy Azure wraz z uwierzytelnianiem w usłudze Azure AD, można uniknąć zapisywania poświadczeń z aplikacjami uruchomionymi w chmurze.
@@ -21,7 +21,7 @@ Aby można było używać zarządzanych tożsamości dla zasobów platformy Azur
 - [Azure Portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Interfejs wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Szablon Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Szablon usługi Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Azure Resource Manager biblioteki klienckie](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Przyznawanie uprawnień do zarządzanej tożsamości w usłudze Azure AD
@@ -32,7 +32,7 @@ Aby uzyskać więcej informacji na temat przypisywania ról platformy Azure, zob
 ## <a name="use-event-hubs-with-managed-identities"></a>Korzystanie z usługi Event Hubs przy użyciu tożsamości zarządzanych
 Aby użyć Event Hubs z tożsamościami zarządzanymi, należy przypisać tożsamość roli i odpowiedniego zakresu. Procedura opisana w tej sekcji używa prostej aplikacji, która działa w ramach zarządzanej tożsamości i uzyskuje dostęp do zasobów Event Hubs.
 
-Tutaj korzystamy z przykładowej aplikacji sieci Web hostowanej w [Azure App Service](https://azure.microsoft.com/services/app-service/). Aby uzyskać instrukcje krok po kroku dotyczące tworzenia aplikacji sieci Web, zobacz [Tworzenie aplikacji internetowej ASP.NET Core na platformie Azure](../app-service/app-service-web-get-started-dotnet.md)
+Tutaj korzystamy z przykładowej aplikacji sieci Web hostowanej w [Azure App Service](https://azure.microsoft.com/services/app-service/). Aby uzyskać instrukcje krok po kroku dotyczące tworzenia aplikacji sieci Web, zobacz [Tworzenie aplikacji internetowej ASP.NET Core na platformie Azure](../app-service/quickstart-dotnetcore.md)
 
 Po utworzeniu aplikacji wykonaj następujące kroki: 
 

@@ -6,16 +6,16 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: c93938db4632f6509e386d440c9be75596ea254f
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: fb62d4d2ca22b6043e63645006c2d60cf0b7859b
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597899"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078635"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Zabezpiecz niestandardową nazwę DNS z powiązaniem TLS/SSL w Azure App Service
 
-W tym artykule pokazano, jak zabezpieczyć [domenę niestandardową](app-service-web-tutorial-custom-domain.md) w [aplikacji App Service](https://docs.microsoft.com/azure/app-service/) lub [aplikacji funkcji](https://docs.microsoft.com/azure/azure-functions/) przez utworzenie powiązania certyfikatu. Po zakończeniu możesz uzyskać dostęp do aplikacji App Service w `https://` punkcie końcowym dla NIESTANDARDOWEJ nazwy DNS (na przykład `https://www.contoso.com`). 
+W tym artykule pokazano, jak zabezpieczyć [domenę niestandardową](app-service-web-tutorial-custom-domain.md) w [aplikacji App Service](https://docs.microsoft.com/azure/app-service/) lub [aplikacji funkcji](https://docs.microsoft.com/azure/azure-functions/) przez utworzenie powiązania certyfikatu. Po zakończeniu możesz uzyskać dostęp do aplikacji App Service w `https://` punkcie końcowym dla niestandardowej nazwy DNS (na przykład `https://www.contoso.com` ). 
 
 ![Aplikacja internetowa z niestandardowym certyfikatem TLS/SSL](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
@@ -52,12 +52,12 @@ Aby wykonać następujące czynności:
 
 Wykonaj następujące czynności:
 
-W <a href="https://portal.azure.com" target="_blank">Azure Portal</a>z menu po lewej stronie wybierz pozycję **App Services** > **\<App-Name>**.
+W <a href="https://portal.azure.com" target="_blank">Azure Portal</a>z menu po lewej stronie wybierz pozycję **App Services**  >  **\<app-name>** .
 
 W lewym panelu nawigacyjnym aplikacji Uruchom okno dialogowe **powiązania protokołu TLS/SSL** , wykonując następujące działania:
 
-- Wybieranie **domen** > niestandardowych**Dodawanie powiązania**
--  > Wybieranie **ustawień protokołu TLS/SSL****Dodawanie powiązania TLS/SSL**
+- Wybieranie **domen niestandardowych**  >  **Dodawanie powiązania**
+- Wybieranie **ustawień protokołu TLS/SSL**  >  **Dodawanie powiązania TLS/SSL**
 
 ![Dodawanie powiązania do domeny](./media/configure-ssl-bindings/secure-domain-launch.png)
 
@@ -106,11 +106,11 @@ Istnieją dwie zmiany, które należy wprowadzić, potencjalnie:
 
 ## <a name="test-https"></a>Testowanie protokołu HTTPS
 
-W różnych przeglądarkach przejdź do `https://<your.custom.domain>` , aby sprawdzić, czy program obsługuje aplikację.
+W różnych przeglądarkach przejdź do, aby `https://<your.custom.domain>` sprawdzić, czy program obsługuje aplikację.
 
 ![Nawigacja w portalu do aplikacji platformy Azure](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
-Kod aplikacji może sprawdzić protokół za pośrednictwem nagłówka "x-appService-proto". Nagłówek będzie miał wartość `http` lub. `https` 
+Kod aplikacji może sprawdzić protokół za pośrednictwem nagłówka "x-appService-proto". Nagłówek będzie miał wartość `http` lub `https` . 
 
 > [!NOTE]
 > Jeśli Twoja aplikacja wyświetla błędy walidacji certyfikatu, prawdopodobnie używasz certyfikatu z podpisem własnym.
@@ -133,7 +133,7 @@ Na stronie aplikacji w obszarze nawigacji po lewej stronie wybierz pozycję **Us
 
 ![Wymuszanie protokołu HTTPS](./media/configure-ssl-bindings/enforce-https.png)
 
-Po zakończeniu operacji przejdź do dowolnego adresu URL protokołu HTTP, który wskazuje Twoją aplikację. Przykład:
+Po zakończeniu operacji przejdź do dowolnego adresu URL protokołu HTTP, który wskazuje Twoją aplikację. Na przykład:
 
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`
@@ -153,7 +153,7 @@ Po ukończeniu operacji aplikacja odrzuca wszystkie połączenia z niższymi wer
 
 W App Service [wygaśnięcie protokołu TLS](https://wikipedia.org/wiki/TLS_termination_proxy) odbywa się w modułach równoważenia obciążenia sieciowego, więc wszystkie żądania HTTPS docierają do aplikacji jako nieszyfrowane żądania HTTP. Jeśli logika aplikacji musi sprawdzać, czy żądania użytkownika są szyfrowane, czy nie, zbadaj nagłówek `X-Forwarded-Proto`.
 
-Wskazówki dotyczące konfiguracji specyficzne dla języka, takie jak przewodnik [konfiguracji Node. js systemu Linux](containers/configure-language-nodejs.md#detect-https-session) , przedstawiają sposób wykrywania sesji HTTPS w kodzie aplikacji.
+Wskazówki dotyczące konfiguracji specyficzne dla języka, takie jak przewodnik [konfiguracji Node.js systemu Linux](configure-language-nodejs.md#detect-https-session) , przedstawiają sposób wykrywania sesji HTTPS w kodzie aplikacji.
 
 ## <a name="automate-with-scripts"></a>Automatyzowanie przy użyciu skryptów
 
@@ -165,7 +165,7 @@ Wskazówki dotyczące konfiguracji specyficzne dla języka, takie jak przewodnik
 
 [!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
 
-## <a name="more-resources"></a>Więcej zasobów
+## <a name="more-resources"></a>Dodatkowe zasoby
 
 * [Użyj certyfikatu TLS/SSL w kodzie w Azure App Service](configure-ssl-certificate-in-code.md)
 * [Często zadawane pytania: certyfikaty App Service](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

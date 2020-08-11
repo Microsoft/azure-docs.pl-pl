@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/14/2020
-ms.openlocfilehash: c6aea3be5782c967c5816a1e40dc5443306671b3
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/05/2020
+ms.openlocfilehash: e6a4c7fe739bd517646f8401e5c812a557441e9f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445288"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88076901"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Omówienie agentów Azure Monitor
 
@@ -29,22 +29,37 @@ W poniższych tabelach przedstawiono krótkie porównanie Azure Monitor agentów
 
 ### <a name="windows-agents"></a>Agenci dla systemu Windows
 
-| | Diagnostyka<br>rozszerzenie (funkcji wad) | Log Analytics<br>agent | Zależność<br>agent |
-|:---|:---|:---|:---|
-| **Obsługiwane środowiska** | Azure | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Środowiska lokalne | 
-| **Wymagania dotyczące agenta**  | Brak | Brak | Wymaga agenta Log Analytics |
-| **Zbierane dane** | Dzienniki zdarzeń<br>zdarzenia ETW<br>Wydajność<br>Dzienniki na podstawie plików<br>Dzienniki usług IIS<br>Dzienniki aplikacji .NET<br>Zrzuty awaryjne<br>Dzienniki diagnostyki agentów | Dzienniki zdarzeń<br>Wydajność<IIS logs><br>Dzienniki na podstawie plików<br>Szczegółowe informacje i rozwiązania<br>Inne usługi | Szczegóły procesu i zależności<br>Metryki połączenia sieciowego |
-| **Dane wysyłane do** | Azure Storage<br>Metryki Azure Monitor<br>Centrum zdarzeń | Dzienniki usługi Azure Monitor | Dzienniki usługi Azure Monitor |
+| | Agent Azure Monitor (wersja zapoznawcza) | Diagnostyka<br>rozszerzenie (funkcji wad) | Log Analytics<br>agent | Zależność<br>agent |
+|:---|:---|:---|:---|:---|
+| **Obsługiwane środowiska** | Azure<br>Inna chmura<br>Lokalnie | Azure | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Środowiska lokalne | 
+| **Wymagania dotyczące agenta**  | Brak | Brak | Brak | Wymaga agenta Log Analytics |
+| **Zbierane dane** | Dzienniki zdarzeń<br>Wydajność | Dzienniki zdarzeń<br>zdarzenia ETW<br>Wydajność<br>Dzienniki na podstawie plików<br>Dzienniki usług IIS<br>Dzienniki aplikacji .NET<br>Zrzuty awaryjne<br>Dzienniki diagnostyki agentów | Dzienniki zdarzeń<br>Wydajność<IIS logs><br>Dzienniki na podstawie plików<br>Szczegółowe informacje i rozwiązania<br>Inne usługi | Szczegóły procesu i zależności<br>Metryki połączenia sieciowego |
+| **Dane wysyłane do** | Dzienniki usługi Azure Monitor<br>Metryki Azure Monitor<br>Azure Storage<br>Centrum zdarzeń | Azure Storage<br>Metryki Azure Monitor<br>Centrum zdarzeń | Dzienniki usługi Azure Monitor | Dzienniki usługi Azure Monitor |
 
 
 ### <a name="linux-agents"></a>Agenci dla systemu Linux
 
-| | Diagnostyka<br>rozszerzenie (LAD) | Telegraf<br>agent | Log Analytics<br>agent | Zależność<br>agent |
-|:---|:---|:---|:---|:---|
-| **Obsługiwane środowiska** | Azure | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Środowiska lokalne |
-| **Wymagania dotyczące agenta**  | Brak | Brak | Brak | Wymaga agenta Log Analytics |
-| **Zbierane dane** | Dziennik systemu<br>Wydajność | Wydajność | Dziennik systemu<br>Wydajność| Szczegóły procesu i zależności<br>Metryki połączenia sieciowego |
-| **Dane wysyłane do** | Azure Storage<br>Centrum zdarzeń | Metryki Azure Monitor | Dzienniki usługi Azure Monitor | Dzienniki usługi Azure Monitor |
+| | Agent Azure Monitor (wersja zapoznawcza) | Diagnostyka<br>rozszerzenie (LAD) | Telegraf<br>agent | Log Analytics<br>agent | Zależność<br>agent |
+|:---|:---|:---|:---|:---|:---|
+| **Obsługiwane środowiska** | Azure | Azure | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Lokalnie | Azure<br>Inna chmura<br>Środowiska lokalne |
+| **Wymagania dotyczące agenta**  | Brak | Brak | Brak | Brak | Wymaga agenta Log Analytics |
+| **Zbierane dane** | Dziennik systemu<br>Wydajność | Dziennik systemu<br>Wydajność | Wydajność | Dziennik systemu<br>Wydajność| Szczegóły procesu i zależności<br>Metryki połączenia sieciowego |
+| **Dane wysyłane do** | Dzienniki usługi Azure Monitor<br>Azure Storage<br>Metryki Azure Monitor<br>Centrum zdarzeń | Azure Storage<br>Centrum zdarzeń | Metryki Azure Monitor | Dzienniki usługi Azure Monitor | Dzienniki usługi Azure Monitor |
+
+## <a name="azure-monitor-agent-preview"></a>Agent Azure Monitor (wersja zapoznawcza)
+[Agent Azure monitor](azure-monitor-agent-overview.md) jest obecnie w wersji zapoznawczej i zastępuje agenta log Analytics, rozszerzenia diagnostyki oraz agenta telegraf dla maszyn wirtualnych z systemami Windows i Linux. Można wysyłać dane do dzienników Azure Monitor i metryk Azure Monitor i używać [zasad zbierania danych (DCR)](data-collection-rule-overview.md) , które zapewniają bardziej skalowalną metodę konfigurowania zbierania i lokalizacji docelowych danych dla każdego agenta.
+
+Użyj agenta Azure Monitor, jeśli zachodzi taka potrzeba:
+
+- Zbierz dzienniki gościa i metryki z dowolnej maszyny wirtualnej na platformie Azure, w innych chmurach lub lokalnie. (Tylko platforma Azure w wersji zapoznawczej).
+- Wysyłaj dane do dzienników Azure Monitor i Azure Monitor metryki analizy za pomocą Azure Monitor. 
+- Wyślij dane do usługi Azure Storage w celu archiwizacji.
+- Wyślij dane do narzędzi innych firm przy użyciu [usługi Azure Event Hubs](diagnostics-extension-stream-event-hubs.md).
+- Zarządzaj zabezpieczeniami maszyn wirtualnych przy użyciu [Azure Security Center](../../security-center/security-center-intro.md) lub [platformy Azure](../../sentinel/overview.md). (Niedostępne w wersji zapoznawczej).
+
+Ograniczenia Azure Monitor agenta obejmują:
+
+- Obecnie w publicznej wersji zapoznawczej. Zobacz [bieżące ograniczenia](azure-monitor-agent-overview.md#current-limitations) dotyczące listy ograniczeń w ramach publicznej wersji zapoznawczej.
 
 ## <a name="log-analytics-agent"></a>Agent usługi Log Analytics
 

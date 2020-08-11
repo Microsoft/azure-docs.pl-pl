@@ -4,12 +4,12 @@ description: Użyj polecenia AZ ACR Pack Build, aby skompilować obraz kontenera
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 1892f4c20eb75e5e95140c829c49a708a81c2184
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: f99175165e01a9287a66c59957fc7a239b00393a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408020"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077224"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Kompilowanie i wypychanie obrazu z aplikacji przy użyciu natywnej Buildpack w chmurze
 
@@ -96,7 +96,7 @@ Przejdź do `localhost:8080` ulubionej przeglądarki, aby wyświetlić przykład
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skompilowaniu i wypchnięciu obrazu kontenera za pomocą programu `az acr pack build` można wdrożyć go jak dowolny obraz w wybranym miejscu docelowym. Opcje wdrażania platformy Azure obejmują uruchamianie go w [App Service](../app-service/containers/tutorial-custom-docker-image.md) lub [usługi Azure Kubernetes](../aks/tutorial-kubernetes-deploy-cluster.md).
+Po skompilowaniu i wypchnięciu obrazu kontenera za pomocą programu `az acr pack build` można wdrożyć go jak dowolny obraz w wybranym miejscu docelowym. Opcje wdrażania platformy Azure obejmują uruchamianie go w [App Service](../app-service/tutorial-custom-container.md) lub [usługi Azure Kubernetes](../aks/tutorial-kubernetes-deploy-cluster.md).
 
 Aby uzyskać więcej informacji na temat funkcji zadań ACR, zobacz [Automatyzacja kompilacji i konserwacji obrazów kontenerów za pomocą zadań ACR](container-registry-tasks-overview.md).
 

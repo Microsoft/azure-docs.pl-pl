@@ -3,12 +3,12 @@ title: Azure Service Bus-wstrzymywanie jednostek obsługi komunikatów
 description: W tym artykule wyjaśniono, jak tymczasowo wstrzymywać i ponownie aktywować Azure Service Bus jednostki komunikatów (kolejki, tematy i subskrypcje).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: da7c25c8ef9f3daa32984ac26aa62710ab775951
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2dad0b774f271ed719ca09b1e749559d5e1868bd
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038141"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078868"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Wstrzymywanie i ponowne uaktywnianie jednostek obsługi komunikatów (wyłączone)
 
@@ -18,9 +18,11 @@ Zawieszenie jednostki jest zwykle wykonywane z pilnymi przyczynami administracyj
 
 Zawieszenie lub ponowna aktywacja może zostać wykonana przez użytkownika lub przez system. System zawiesza jedynie jednostki z powodu poważnego działania administracyjnego, takiego jak nakroczenie limitu wydatków na subskrypcję. Jednostki wyłączone przez system nie mogą być ponownie uaktywniane przez użytkownika, ale są przywracane po rozdaniu przyczyny zawieszenia.
 
-W portalu, sekcja **Właściwości** dla odpowiedniej jednostki umożliwia zmianę stanu; Poniższy zrzut ekranu przedstawia przełącznik dla kolejki:
+W portalu sekcja **Przegląd** dla odpowiedniej jednostki umożliwia zmianę stanu. bieżący stan jest wyświetlany w obszarze **stan** jako hiperlink.
 
-![Zrzut ekranu przedstawiający funkcję Service Bus z wyróżnionym ustawieniem właściwości i opcją stanu kolejki ustawioną jako aktywny i wyróżnioną kolorem czerwonym.][1]
+Poniższy zrzut ekranu przedstawia dostępne Stany, do których można zmienić jednostkę, zaznaczając hiperlink: 
+
+![Zrzut ekranu funkcji Service Bus w ramach przeglądu, aby zmienić opcję stanu jednostki.][1]
 
 Portal zezwala tylko na całkowite wyłączenie kolejek. Operacje wysyłania i odbierania można także wyłączać oddzielnie przy użyciu interfejsów API Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) w zestawie .NET Framework SDK lub z szablonem Azure Resource Manager za pomocą interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
 
@@ -55,5 +57,5 @@ Aby dowiedzieć się więcej na temat Service Bus Messaging, zobacz następując
 * [Wprowadzenie do kolejek usługi Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Jak używać tematów i subskrypcji usługi Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
-[1]: ./media/entity-suspend/queue-disable.png
+[1]: ./media/entity-suspend/entity-state-change.png
 

@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/25/2020
+ms.date: 08/11/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 14f9ab0b1c3b8b437e46a7b6a2d8b87f03442a02
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b8d3472eeedab72644456b4278d3b9f3625c5850
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290461"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078208"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitor an integration runtime in Azure Data Factory (Monitorowanie środowiska Integration Runtime w usłudze Azure Data Factory)
 
@@ -48,8 +48,8 @@ Poniższa tabela zawiera opisy właściwości zwracanych przez polecenie cmdlet 
 | Właściwość | Opis |
 -------- | ------------- | 
 | Nazwa | Nazwa środowiska Azure Integration Runtime. |  
-| State | Stan środowiska Azure Integration Runtime. | 
-| Location | Lokalizacja środowiska Azure Integration Runtime. Aby uzyskać szczegółowe informacje na temat lokalizacji środowiska Azure Integration Runtime, zobacz [wprowadzenie do środowiska Integration Runtime](concepts-integration-runtime.md). |
+| Stan | Stan środowiska Azure Integration Runtime. | 
+| Lokalizacja | Lokalizacja środowiska Azure Integration Runtime. Aby uzyskać szczegółowe informacje na temat lokalizacji środowiska Azure Integration Runtime, zobacz [wprowadzenie do środowiska Integration Runtime](concepts-integration-runtime.md). |
 | DataFactoryName | Nazwa fabryki danych, do której należy środowisko Azure Integration Runtime. | 
 | ResourceGroupName | Nazwa grupy zasobów, do której należy Fabryka danych.  |
 | Opis | Opis środowiska Integration Runtime.  |
@@ -161,7 +161,7 @@ Przykładowe dane wyjściowe (zakłada, że istnieją dwa węzły skojarzone z t
 
 ## <a name="azure-ssis-integration-runtime"></a>Azure SSIS Integration Runtime
 
-Azure-SSIS IR to w pełni zarządzany klaster maszyn wirtualnych platformy Azure (lub węzłów) przeznaczonych do uruchamiania pakietów SSIS. Można wywołać wykonywanie pakietów SSIS na Azure-SSIS IR przy użyciu różnych metod, na przykład za pośrednictwem platformy Azure SQL Server Data Tools (SSDT), AzureDTExec narzędzia wiersza polecenia, T-SQL w systemie SQL Server Management Studio (SSMS)/SQL Server Agent oraz wykonywać działania pakietu SSIS w potokach ADF. W Azure-SSIS IR nie są uruchamiane żadne inne działania ADF. Po zainicjowaniu obsługi można monitorować jego ogólne/właściwości i Stany zależne od Azure PowerShell, Azure Portal i Azure Monitor.
+Azure-SSIS IR to w pełni zarządzany klaster maszyn wirtualnych platformy Azure (maszyn wirtualnych lub węzłów) przeznaczonych do uruchamiania pakietów usług SSIS. Można wywołać wykonywanie pakietów SSIS na Azure-SSIS IR przy użyciu różnych metod, na przykład za pośrednictwem platformy Azure SQL Server Data Tools (SSDT), AzureDTExec narzędzia wiersza polecenia, T-SQL w systemie SQL Server Management Studio (SSMS)/SQL Server Agent oraz wykonywać działania pakietu SSIS w potokach ADF. W Azure-SSIS IR nie są uruchamiane żadne inne działania ADF. Po zainicjowaniu obsługi można monitorować jego ogólne/właściwości i Stany zależne od Azure PowerShell, Azure Portal i Azure Monitor.
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-with-azure-powershell"></a>Monitoruj środowisko Azure-SSIS Integration Runtime przy użyciu Azure PowerShell
 
@@ -181,8 +181,8 @@ Poniższa tabela zawiera opisy właściwości zwracanych przez powyższe polecen
 | Węzły                        | Przydzielono lub dostępne węzły Azure-SSIS IR z Stanami specyficznymi dla węzła (początkowymi/dostępnymi/odtwarzanymi/niedostępnymi) i błędami do wykonania. |
 | OtherErrors                  | Błędy niespecyficzne dla węzła w Azure-SSIS IR. |
 | LastOperation                | Wynik ostatniej operacji uruchamiania/zatrzymywania na Azure-SSIS IR z błędami, które można wykonać, jeśli to się nie powiodło. |
-| State                        | Ogólny stan (początkowy/początkowy/uruchomiony/zatrzymywanie/zatrzymana) Azure-SSIS IR. |
-| Location                     | Lokalizacja Azure-SSIS IR. |
+| Stan                        | Ogólny stan (początkowy/początkowy/uruchomiony/zatrzymywanie/zatrzymana) Azure-SSIS IR. |
+| Lokalizacja                     | Lokalizacja Azure-SSIS IR. |
 | NodeSize                     | Rozmiar każdego węzła w Azure-SSIS IR. |
 | NodeCount                    | Liczba węzłów w Azure-SSIS IR. |
 | MaxParallelExecutionsPerNode | Maksymalna liczba równoległych wykonań na węzeł w Azure-SSIS IR. |
@@ -228,31 +228,55 @@ Aby monitorować Azure-SSIS IR w Azure Portal, przejdź do strony **Integration 
 
 ![Monitoruj wszystkie środowiska Integration Runtime](media/monitor-integration-runtime/monitor-integration-runtimes.png)
 
-Następnie wybierz nazwę Azure-SSIS IR, aby otworzyć jej stronę monitorowania, w której można zobaczyć jej właściwości i Stany ogólne/specyficzne dla węzła.
+Następnie wybierz nazwę Azure-SSIS IR, aby otworzyć jej stronę monitorowania, w której można zobaczyć jej właściwości i Stany ogólne/specyficzne dla węzła. Na tej stronie, w zależności od sposobu konfigurowania ustawień ogólnych, wdrażania i zaawansowanego Azure-SSIS IR, znajdziesz różne kafelki informacyjne/funkcjonalne.  Kafelki informacyjne **typu** i **regionu** pokazują odpowiednio typ i region Azure-SSIS IR. Kafelek informacje o **rozmiarze węzła** przedstawia jednostkę SKU (edition_VM SSIS tier_VM Series), liczbę rdzeni procesora CPU i rozmiar pamięci RAM dla węzła Azure-SSIS IR. Kafelek z informacjami o **uruchomionym/żądanym węźle** porównuje liczbę węzłów aktualnie uruchomionych z łączną liczbą węzłów, które wcześniej zażądały w odniesieniu do Azure-SSIS IR. Kafelki funkcjonalne są opisane poniżej.
 
 ![Monitoruj Azure-SSIS IR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime.png)
 
-Na kafelku **stan** strony monitorowania Azure-SSIS IR można zobaczyć jej ogólny stan, na przykład **uruchomioną** lub **zatrzymaną**. Wybranie stanu **działania** powoduje wyczyszczenie okna z aktywnym przyciskiem **Zatrzymaj** , aby zatrzymać Azure-SSIS IR. Zaznaczenie pola stan **zatrzymania** powoduje wyczyszczenie okna z aktywnym przyciskiem **Start** , aby rozpocząć Azure-SSIS IR. W oknie podręcznym jest również dostępny przycisk **Wykonaj pakiet SSIS** , aby automatycznie wygenerować potok ADF z działaniem Uruchom pakiet SSIS uruchomionego na Azure-SSIS IR (zobacz [uruchamianie pakietów SSIS jako działania pakietu SSIS w potokach ADF](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)) i pole tekstowe **Identyfikator zasobu** . z którego można skopiować identyfikator zasobu Azure-SSIS IR ( `/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR` ), którego można użyć do zakupu dodatkowych składników usług SSIS w warstwie Premium/licencjonowanych od niezależnych dostawców oprogramowania (ISV) i powiązać je z Azure-SSIS IR (zobacz [Instalowanie składników Premium/licencjonowanych w Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-develop-azure-ssis-ir-licensed-components)).
+#### <a name="status-tile"></a>Kafelek stanu
+
+Na kafelku **stan** strony monitorowania Azure-SSIS IR można zobaczyć jej ogólny stan, na przykład **uruchomioną** lub **zatrzymaną**. Wybranie stanu **działania** powoduje wyczyszczenie okna z aktywnym przyciskiem **Zatrzymaj** , aby zatrzymać Azure-SSIS IR. Zaznaczenie pola stan **zatrzymania** powoduje wyczyszczenie okna z aktywnym przyciskiem **Start** , aby rozpocząć Azure-SSIS IR. W oknie podręcznym jest również dostępny przycisk **Wykonaj pakiet SSIS** , aby automatycznie wygenerować potok ADF z działaniem pakietu SSIS, które jest uruchamiane na Azure-SSIS IR (zobacz [uruchamianie pakietów SSIS jako działania pakietu SSIS w potokach APD](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)) i pole tekstowe **Identyfikator zasobu** , w którym można skopiować identyfikator zasobu Azure-SSIS IR ( `/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR` ). Sufiks identyfikatora zasobu Azure-SSIS IR, który zawiera pliki ADF i Azure-SSIS IR, stanowi identyfikator klastra, którego można użyć do zakupu dodatkowych składników usług SSIS/licencjonowanych w warstwie Premium od niezależnych dostawców oprogramowania (ISV) i powiązać je z Azure-SSIS IR (zobacz [Instalowanie składników Premium/licencjonowanych w Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-develop-azure-ssis-ir-licensed-components)).
 
 ![Monitorowanie kafelka Azure-SSIS IR-STATUS](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-status.png)
+
+#### <a name="ssisdb-server-endpoint-tile"></a>Kafelek punktu końcowego serwera SSISDB
 
 W przypadku używania modelu wdrażania projektu, w którym pakiety są przechowywane w SSISDB hostowanym przez serwer Azure SQL Database lub wystąpienie zarządzane, na stronie monitorowanie Azure-SSIS IR można zobaczyć kafelek **punktu końcowego serwera SSISDB** (zobacz [konfigurowanie ustawień wdrożenia Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure#deployment-settings-page)). Na tym kafelku można wybrać łącze wskazujące serwer Azure SQL Database lub wystąpienie zarządzane, aby wyskakujące okno, w którym można skopiować punkt końcowy serwera z pola tekstowego i użyć go podczas łączenia się z programu SSMS w celu wdrażania, konfigurowania, uruchamiania i zarządzania pakietami. W oknie podręcznym możesz również wybrać łącze **Sprawdź ustawienia Azure SQL Database lub wystąpienia zarządzanego** , aby ponownie skonfigurować/zmienić rozmiar SSISDB w Azure Portal.
 
 ![Monitorowanie kafelka Azure-SSIS IR-SSISDB](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-ssisdb.png)
 
+#### <a name="proxy--staging-tile"></a>Kafelek PROXY/PRZEMIESZCZAnie
+
+W przypadku pobierania, instalowania i konfigurowania samodzielnego środowiska IR (SHIR) jako serwera proxy dla Azure-SSIS IR dostępu do danych lokalnych, zobaczysz kafelek **serwer proxy/przemieszczanie** na stronie monitorowania Azure-SSIS IR (zobacz [Konfigurowanie SHIR jako serwera proxy dla Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)). Na tym kafelku możesz wybrać łącze wyznaczające SHIR, aby otworzyć jego stronę monitorowania. Możesz również wybrać inny link wskazujący Blob Storage platformy Azure na potrzeby przygotowania, aby ponownie skonfigurować jego połączoną usługę.
+
+#### <a name="validate-vnet--subnet-tile"></a>Sprawdź poprawność kafelka sieci wirtualnej/podsieci
+
 Jeśli dołączysz Azure-SSIS IR do sieci wirtualnej, zobaczysz kafelek **Weryfikuj sieć wirtualną/podsieć** na stronie monitorowania Azure-SSIS IR (zobacz [przyłączanie Azure-SSIS IR do sieci wirtualnej](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)). Na tym kafelku można wybrać link wyznaczania sieci wirtualnej i podsieci, aby wyskakujące okno, w którym można skopiować identyfikator zasobu sieci wirtualnej ( `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/virtualNetworks/YourARMVNet` ) i nazwę podsieci z pól tekstowych, a także sprawdzić poprawność konfiguracji sieci wirtualnej i podsieci, aby upewnić się, że wymagane jest niezakłócony ruch przychodzący i niezależny oraz zarządzanie Azure-SSIS IRami.
 
 ![Monitoruj Azure-SSIS IR — Sprawdź poprawność kafelka](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-validate.png)
+
+#### <a name="diagnose-connectivity-tile"></a>Diagnozuj kafelek łączności
 
 Na kafelku **Diagnostyka łączności** na stronie monitorowania Azure-SSIS IR możesz wybrać link **Test connection** , aby wypróbować okno, w którym można sprawdzić połączenia między Azure-SSIS IR i odpowiednimi pakietami/konfiguracjami/magazynami danych, a także usługami zarządzania, za pośrednictwem ich w pełni kwalifikowanej nazwy domeny (FQDN)/IP i wystawionego portu (zobacz [Testowanie połączeń z Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-diagnose-connectivity-faq)).
 
 ![Monitorowanie kafelka Azure-SSIS IR-Diagnozuj](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
+#### <a name="static-public-ip-addresses-tile"></a>Kafelek statyczne publiczne adresy IP
+
+W przypadku wprowadzenia własnych statycznych publicznych adresów IP dla Azure-SSIS IR zobaczysz kafelek **statyczne publiczne adresy IP** na stronie monitorowania Azure-SSIS IR (zobacz temat Przenoszenie [własnych statycznych adresów IP dla Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#publicIP)). Na tym kafelku można wybrać linki wyznaczające pierwsze/drugie statyczne publiczne adresy IP dla Azure-SSIS IR, aby wyskakujące okno, w którym można skopiować swój identyfikator zasobu ( `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress` ) z pola tekstowego. W oknie podręcznym możesz również wybrać łącze **Zobacz ustawienia pierwszego/drugiego statycznego publicznego adresu IP** , aby zarządzać pierwszym/drugim statycznym publicznym adresem ip w Azure Portal.
+
+![Monitorowanie kafelka Azure-SSIS IR-Diagnozuj](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+
+#### <a name="package-stores-tile"></a>Kafelek MAGAZYNów pakietów
+
 Jeśli używasz modelu wdrażania pakietów, w którym pakiety są przechowywane w systemie plików/Azure Files/SQL Server Database (MSDB) hostowanym przez wystąpienie zarządzane usługi Azure SQL i zarządzane za pośrednictwem Azure-SSIS IR magazynów pakietów, zobaczysz kafelek **magazyny pakietów** na stronie monitorowania Azure-SSIS IR (zobacz [konfigurowanie ustawień wdrożenia Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure#deployment-settings-page)). Na tym kafelku można wybrać łącze wyznaczające liczbę magazynów pakietów dołączonych do Azure-SSIS IR, aby wyskakujące okno, w którym można ponownie skonfigurować odpowiednie połączone usługi dla Azure-SSIS IR magazynów pakietów w systemie plików/Azure Files/MSDB hostowanej przez wystąpienie zarządzane Azure SQL.
 
 ![Monitorowanie kafelka Azure-SSIS IR — pakiet](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-package.png)
 
+#### <a name="errors-tile"></a>Kafelek błędów
+
 Jeśli wystąpią problemy z uruchamianiem/zatrzymywaniem/konserwacją/uaktualnieniem Azure-SSIS IR, na stronie monitorowania Azure-SSIS IR zobaczysz dodatkową tabliczkę **błędów** . Na tym kafelku można wybrać łącze wyznaczające liczbę błędów wygenerowanych przez Azure-SSIS IR, aby wypróbować okno, w którym można zobaczyć te błędy w bardziej szczegółowych i skopiować je w celu znalezienia zalecanych rozwiązań w naszym przewodniku rozwiązywania problemów (zobacz [Rozwiązywanie problemów z Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-management-troubleshoot)).
+
+![Monitorowanie kafelka Azure-SSIS IR-Diagnozuj](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-with-azure-monitor"></a>Monitoruj środowisko Azure-SSIS Integration Runtime przy użyciu Azure Monitor
 
@@ -263,10 +287,10 @@ Aby monitorować Azure-SSIS IR przy użyciu Azure Monitor, zobacz [monitorowanie
 Zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej na temat środowiska Azure-SSIS Integration Runtime:
 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). Ten artykuł zawiera ogólne informacje koncepcyjne dotyczące środowiska Integration Runtime, w tym Azure-SSIS IR. 
-- [Samouczek: Wdrażanie pakietów usług SSIS na platformie Azure](tutorial-create-azure-ssis-runtime-portal.md). Ten artykuł zawiera instrukcje krok po kroku dotyczące tworzenia Azure-SSIS IR i używania SQL Database do hostowania wykazu usług SSIS. 
-- [How to: Create an Azure-SSIS integration runtime (Jak: Tworzenie środowiska Azure SSIS Integration Runtime)](create-azure-ssis-integration-runtime.md). Ten artykuł rozszerza się w samouczku i zawiera instrukcje dotyczące używania wystąpienia zarządzanego SQL i przyłączania środowiska IR do sieci wirtualnej. 
-- [Manage an Azure-SSIS IR (Zarządzanie środowiskiem Azure-SSIS IR)](manage-azure-ssis-integration-runtime.md). W tym artykule przedstawiono sposób zatrzymywania, uruchamiania lub usuwania środowiska Azure-SSIS IR. Zawiera on również instrukcje skalowania środowiska Azure-SSIS IR do wewnątrz za pomocą dodawania do niego węzłów. 
-- [Join an Azure-SSIS IR to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md) (Dołączanie środowiska IR Azure SSIS do sieci wirtualnej). Ten artykuł zawiera podstawowe informacje na temat dołączania środowiska IR Azure-SSIS do sieci wirtualnej platformy Azure. Przedstawiono w nim również kroki Azure Portal służące do konfigurowania sieci wirtualnej w taki sposób, aby Azure-SSIS IR mógł dołączyć do sieci wirtualnej. 
+- [Samouczek: Wdrażanie pakietów usług SSIS na platformie Azure](tutorial-create-azure-ssis-runtime-portal.md). Ten artykuł zawiera instrukcje krok po kroku dotyczące tworzenia Azure-SSIS IR i używania Azure SQL Database do hostowania wykazu usług SSIS (SSISDB). 
+- [How to: Create an Azure-SSIS integration runtime (Jak: Tworzenie środowiska Azure SSIS Integration Runtime)](create-azure-ssis-integration-runtime.md). Ten artykuł rozszerza się w samouczku i zawiera instrukcje dotyczące używania wystąpienia zarządzanego Azure SQL do hostowania SSISDB. 
+- [Manage an Azure-SSIS IR (Zarządzanie środowiskiem Azure-SSIS IR)](manage-azure-ssis-integration-runtime.md). W tym artykule przedstawiono sposób uruchamiania, zatrzymywania lub usuwania Azure-SSIS IR. Przedstawiono w nim również sposób skalowania go przez dodanie kolejnych węzłów. 
+- [Join an Azure-SSIS IR to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md) (Dołączanie środowiska IR Azure SSIS do sieci wirtualnej). Ten artykuł zawiera instrukcje dotyczące przyłączania Azure-SSIS IR do sieci wirtualnej.
 
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z następującymi artykułami dotyczącymi monitorowania potoków na różne sposoby: 

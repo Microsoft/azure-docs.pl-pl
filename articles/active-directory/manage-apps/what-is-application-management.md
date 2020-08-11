@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie aplikacjami przy użyciu usługi Azure Active Directory | Microsoft Docs
+title: Co to jest zarządzanie aplikacjami w Azure Active Directory
 description: Omówienie korzystania z usługi Azure Active Directory (AD) jako systemu zarządzania tożsamościami i dostępem w chmurze i aplikacji lokalnych.
 services: active-directory
 author: kenwith
@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28b04828bc778a2b9076c9ea1970ce80f231fbe3
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: dafd3d7805924d92354c3de6ded50f17598f80f6
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386014"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078074"
 ---
 # <a name="what-is-application-management"></a>Co to jest zarządzanie aplikacjami?
 

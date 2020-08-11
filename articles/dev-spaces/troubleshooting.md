@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Dowiedz się, jak rozwiązywać typowe problemy podczas włączania i używania Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s '
-ms.openlocfilehash: 1efaa178c2abda316cfad3e375dfdd38b41d75e0
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7696cc8eaeef9ba5e2e0955bad6f17d28e95b5e5
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835701"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077037"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Rozwiązywanie problemów Azure Dev Spaces
 
@@ -18,7 +18,7 @@ Ten przewodnik zawiera informacje o typowych problemach, które mogą wystąpić
 
 Jeśli wystąpi problem podczas korzystania z Azure Dev Spaces, Utwórz [problem w repozytorium Azure dev Spaces GitHub](https://github.com/Azure/dev-spaces/issues).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby bardziej efektywnie rozwiązywać problemy, może to pomóc w tworzeniu bardziej szczegółowych dzienników do przeglądu.
 
@@ -284,7 +284,7 @@ Na przykład aby zatrzymać i wyłączyć usługę *Windows BranchCache* :
 
 Podczas uruchamiania usługi z Azure Dev Spaces w klastrze AKS z [zarządzaną tożsamością](../aks/use-managed-identity.md) i [tożsamościami zarządzanymi](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities) , proces może przestać odpowiadać po kroku *instalacji wykresu* . Po sprawdzeniu *azds-wtryskiwacza elementu webhook* w przestrzeni nazw *azds* może zostać wyświetlony ten błąd.
 
-Azure Dev Spaces usługi są uruchamiane w klastrze przy użyciu tożsamości zarządzanej klastra, aby komunikować się z usługami zaplecza Azure Dev Spaces poza klastrem. Gdy jest zainstalowana tożsamość zarządzana, reguły sieci są konfigurowane w węzłach klastra w celu przekierowania wszystkich wywołań poświadczeń tożsamości zarządzanej do [tożsamości zarządzanej przez węzeł (NMI) elementu daemonset zainstalowanej w klastrze](https://github.com/Azure/aad-pod-identity#node-managed-identity). Ten NMI elementu daemonset identyfikuje wywoływanie pod i gwarantuje, że pod etykietą jest odpowiednio etykieta, aby uzyskać dostęp do żądanej tożsamości zarządzanej. Azure Dev Spaces nie może wykryć, czy klaster ma zainstalowaną tożsamość zarządzaną i nie może wykonać niezbędnej konfiguracji, aby umożliwić Azure Dev Spaces usługom dostęp do tożsamości zarządzanej klastra. Ponieważ usługi Azure Dev Spaces nie zostały skonfigurowane w celu uzyskania dostępu do tożsamości zarządzanej klastra, NMI elementu daemonset nie zezwoli im na uzyskanie tokenu usługi AAD dla tożsamości zarządzanej i nie będzie mógł komunikować się z usługami zaplecza Azure Dev Spaces.
+Azure Dev Spaces usługi są uruchamiane w klastrze przy użyciu tożsamości zarządzanej klastra, aby komunikować się z usługami zaplecza Azure Dev Spaces poza klastrem. Gdy jest zainstalowana tożsamość zarządzana, reguły sieci są konfigurowane w węzłach klastra w celu przekierowania wszystkich wywołań poświadczeń tożsamości zarządzanej do [tożsamości zarządzanej przez węzeł (NMI) elementu daemonset zainstalowanej w klastrze](https://github.com/Azure/aad-pod-identity#node-managed-identity). Ten NMI elementu daemonset identyfikuje wywoływanie pod i gwarantuje, że pod etykietą jest odpowiednio etykieta, aby uzyskać dostęp do żądanej tożsamości zarządzanej. Azure Dev Spaces nie może wykryć, czy klaster ma zainstalowaną tożsamość zarządzaną i nie może wykonać niezbędnej konfiguracji, aby umożliwić Azure Dev Spaces usługom dostęp do tożsamości zarządzanej klastra. Ponieważ usługi Azure Dev Spaces nie zostały skonfigurowane do uzyskiwania dostępu do tożsamości zarządzanej klastra, NMI elementu daemonset nie zezwoli im na uzyskanie tokenu usługi Azure AD dla tożsamości zarządzanej i nie będzie mógł komunikować się z usługami zaplecza Azure Dev Spaces.
 
 Aby rozwiązać ten problem, Zastosuj element [AzurePodIdentityException](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md) dla *azds-iniektora-webhook* i updatebinding z instrumentacją Azure dev Spaces, aby uzyskać dostęp do tożsamości zarządzanej.
 
@@ -416,7 +416,7 @@ Aby rozwiązać ten problem, zainstaluj [rozszerzenie vs Code dla języka C#](ht
 
 Ten błąd może pojawić się podczas uruchamiania debugera Visual Studio Code. Być może nie masz rozszerzenia VS Code Azure Dev Spaces zainstalowane na komputerze deweloperskim.
 
-Aby rozwiązać ten problem, zainstaluj [rozszerzenie vs Code dla Azure dev Spaces](get-started-netcore.md).
+Aby rozwiązać ten problem, zainstaluj rozszerzenie VS Code dla Azure Dev Spaces.
 
 ### <a name="error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>Błąd "Nieprawidłowa wartość" cwd ""/src ". System nie może odnaleźć określonego pliku. " lub "Launch: program/src/[ścieżka do pliku binarnego projektu] ' nie istnieje"
 

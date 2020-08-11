@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 50a7fe866d236a7edb30b3cae5ef076d3ebbca56
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 3c7e4887610f30113b81421396500416d04c5e5e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009719"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078516"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (CLI)
 
@@ -63,10 +63,10 @@ Masz teraz już gotowe do użycia wystąpienie usługi Azure Digital bliźniaczy
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-Użyj następującego polecenia, aby przypisać rolę (musi być uruchamiana przez użytkownika z [wystarczającymi uprawnieniami](#prerequisites-permission-requirements) w ramach subskrypcji platformy Azure):
+Użyj następującego polecenia, aby przypisać rolę (musi być uruchamiana przez użytkownika z [odpowiednimi uprawnieniami](#prerequisites-permission-requirements) w ramach subskrypcji platformy Azure). Polecenie wymaga przekazania *nazwy głównej użytkownika* na koncie usługi Azure AD dla użytkownika, do którego ma zostać przypisana rola. W większości przypadków będzie to zgodne z wiadomościami e-mail użytkownika na koncie usługi Azure AD.
 
 ```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-email-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
 Wynikiem tego polecenia jest informacje o utworzonym przypisaniu roli.
@@ -74,13 +74,13 @@ Wynikiem tego polecenia jest informacje o utworzonym przypisaniu roli.
 > [!NOTE]
 > Jeśli to polecenie zwróci błąd informujący, że interfejs wiersza polecenia **nie może odnaleźć nazwy głównej użytkownika lub usługi w usłudze Graph Database**:
 >
-> Użyj *identyfikatora obiektu* użytkownika zamiast wiadomości e-mail. Może się tak zdarzyć w przypadku użytkowników korzystających z osobistych [kont Microsoft (kont MSA)](https://account.microsoft.com/account). 
+> Zamiast tego Przypisz rolę przy użyciu *identyfikatora obiektu* użytkownika. Może się tak zdarzyć w przypadku użytkowników korzystających z osobistych [kont Microsoft (kont MSA)](https://account.microsoft.com/account). 
 >
 > Użyj [Azure Portal stronie Azure Active Directory użytkowników](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) , aby wybrać konto użytkownika i otworzyć jego szczegóły. Skopiuj *Identyfikator obiektu użytkownika:*
 >
 > :::image type="content" source="media/includes/user-id.png" alt-text="Widok strony użytkownika w Azure Portal wyróżniania identyfikatora GUID w polu "Identyfikator obiektu"" lightbox="media/includes/user-id.png":::
 >
-> Następnie powtórz polecenie listy przypisywania ról przy użyciu *identyfikatora obiektu* użytkownika zamiast wiadomości e-mail.
+> Następnie powtórz polecenie listy przypisywania ról przy użyciu *identyfikatora obiektu* użytkownika dla `assignee` powyższego parametru.
 
 ### <a name="verify-success"></a>Weryfikowanie sukcesu
 

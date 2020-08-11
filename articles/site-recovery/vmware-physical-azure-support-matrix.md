@@ -3,12 +3,12 @@ title: Macierz obsługi dla oprogramowania VMware/fizycznego odzyskiwania po awa
 description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych programu VMware i serwera fizycznego na platformie Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 595f12f9204dff58af0bfebb60402cc89ffb386a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7bb4422eb17353dc4e1895de8dcb2c427c6d0d15
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826249"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079403"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Macierz obsługi odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure
 
@@ -169,7 +169,10 @@ BTRFS | BTRFS jest obsługiwana z [pakietu zbiorczego aktualizacji 34](https://s
 Zmień rozmiar dysku na zreplikowanej maszynie wirtualnej | Obsługiwane przez źródłową maszynę wirtualną przed przełączeniem w tryb failover bezpośrednio we właściwościach maszyny wirtualnej. Nie trzeba wyłączać/ponownie włączać replikacji.<br/><br/> Zmiana źródłowej maszyny wirtualnej po przejściu do trybu failover powoduje, że zmiany nie będą przechwytywane.<br/><br/> W przypadku zmiany rozmiaru dysku maszyny wirtualnej platformy Azure po przejściu w tryb failover program Site Recovery tworzy nową maszynę wirtualną z aktualizacjami.
 Dodawanie dysku do zreplikowanej maszyny wirtualnej | Nieobsługiwane.<br/> Wyłącz replikację dla maszyny wirtualnej, Dodaj dysk, a następnie ponownie Włącz replikację.
 
-## <a name="network"></a>Network
+> [!NOTE]
+> Jakakolwiek zmiana tożsamości dysku nie jest obsługiwana. Na przykład, jeśli partycjonowanie dysku zostało zmienione z GPT na MBR lub odwrotnie, spowoduje to zmianę tożsamości dysku. W takim scenariuszu replikacja zostanie przerwana i konieczne będzie skonfigurowanie nowej instalacji. 
+
+## <a name="network"></a>Sieć
 
 **Składnik** | **Obsługiwane**
 --- | ---

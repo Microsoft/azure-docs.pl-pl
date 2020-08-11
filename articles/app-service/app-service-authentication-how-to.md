@@ -4,12 +4,12 @@ description: Dowiedz się, jak dostosować funkcję uwierzytelniania i autoryzac
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 32b7db234cd91aaf9fa5fcfa9b35679d32561474
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: d69a75092f4ede5d5467357a7ac254be6e7c379b
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042619"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078397"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Zaawansowane użycie uwierzytelniania i autoryzacji w Azure App Service
 
@@ -17,8 +17,7 @@ W tym artykule opisano sposób dostosowywania wbudowanego [uwierzytelniania i au
 
 Aby szybko rozpocząć pracę, zobacz jeden z następujących samouczków:
 
-* [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników na zakończenie w Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
-* [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników w Azure App Service dla systemu Linux](containers/tutorial-auth-aad.md)
+* [Samouczek: kompleksowe uwierzytelnianie i autoryzacja użytkowników w usłudze Azure App Service](tutorial-auth-aad.md)
 * [Jak skonfigurować aplikację do używania logowania w usłudze Azure Active Directory](configure-authentication-provider-aad.md)
 * [Jak skonfigurować aplikację do używania logowania usługi Facebook](configure-authentication-provider-facebook.md)
 * [Jak skonfigurować aplikację do używania logowania usługi Google](configure-authentication-provider-google.md)
@@ -533,5 +532,4 @@ Możesz uruchomić to polecenie z [Azure Cloud Shell](../cloud-shell/overview.md
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników na całym końcu (Windows)](app-service-web-tutorial-auth-aad.md) 
->  [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników na całym końcu (Linux)](containers/tutorial-auth-aad.md)
+> [Samouczek: kompleksowe uwierzytelnianie i autoryzacja użytkowników](tutorial-auth-aad.md)

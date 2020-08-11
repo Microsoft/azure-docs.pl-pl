@@ -18,12 +18,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 8d2f96c0423b2e26c0faaf3dcc16f18bf85b8403
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: d9b914c631c829c2e3dc71940a171cdb3dc81960
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417645"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077496"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Wysyłanie powiadomień wypychanych za pomocą usługi Azure Notification Hubs i Node.js
 
@@ -229,8 +229,8 @@ Przykładowe fragmenty kodu umożliwiają łatwe tworzenie infrastruktury usług
 [Web Site with WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
-[nodejswebsite]: ../app-service/app-service-web-get-started-nodejs.md
+[nodejswebsite]: ../app-service/quickstart-nodejs.md
 [webmatrix]: /aspnet/web-pages/videos/introduction/create-a-website-using-webmatrix
 [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
 [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
-[Azure Portal]: https://portal.azure.com
+[Witryna Azure Portal]: https://portal.azure.com

@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Zawiera opis procesów Azure Dev Spaces i sposobu działania routingu
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery
-ms.openlocfilehash: 8677284d61a0a08a3262c26d6307399922dab4be
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19a55f37725464da73e93877d9c5238f3ebaced1
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512473"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077669"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>Jak działa Routing przy użyciu Azure Dev Spaces
 
@@ -49,7 +49,7 @@ Wszystkie inne ruchy TCP, które nie są przekazywane przez protokół HTTP, za 
 
 ## <a name="sharing-a-dev-space"></a>Udostępnianie obszaru deweloperskiego
 
-Podczas pracy z zespołem możesz [udostępnić miejsce deweloperskie w całym zespole](how-to/share-dev-spaces.md) i utworzyć pochodne miejsca dev. Miejsce dev może być używane przez każdego, kto ma dostęp współautora do grupy zasobów obszaru dev.
+Podczas pracy z zespołem możesz udostępnić miejsce deweloperskie w całym zespole i utworzyć pochodne miejsca dev. Miejsce dev może być używane przez każdego, kto ma dostęp współautora do grupy zasobów obszaru dev.
 
 Możesz również utworzyć nowe miejsce dev, które jest tworzone na podstawie innego miejsca dev. Gdy tworzysz pochodną przestrzeń dev, etykieta *azds.IO/Parent-Space=Parent-Space-Name* jest dodawana do przestrzeni nazw pochodnego obszaru dev. Ponadto wszystkie aplikacje z nadrzędnego miejsca deweloperskiego są udostępniane za pomocą pochodnego obszaru dev. W przypadku wdrożenia zaktualizowanej wersji aplikacji do pochodnego obszaru dev, będzie ona istniała tylko w pochodnym obszarze dev, a nadrzędna przestrzeń dev pozostanie bez zmian. Możesz mieć maksymalnie trzy poziomy *pochodnych lub miejsc do magazynowania.*
 

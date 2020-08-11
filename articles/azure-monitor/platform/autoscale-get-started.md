@@ -4,12 +4,12 @@ description: Dowiedz się, jak skalować aplikację internetową zasobów, usłu
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: a17d2de24aadfbab218d2b28a157f19e2e845fa9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 67b041476ecc5b5da389ab1377025a94675fc42a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073553"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078890"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Wprowadzenie do skalowania automatycznego na platformie Azure
 W tym artykule opisano sposób konfigurowania ustawień automatycznego skalowania dla zasobu w Microsoft Azure Portal.
@@ -121,7 +121,7 @@ Zawsze możesz wrócić do automatycznego skalowania, klikając pozycję **Włą
 [1]:https://portal.azure.com
 [2]: ./media/autoscale-get-started/azure-monitor-launch.png
 [3]: ./media/autoscale-get-started/discover-autoscale-azure-monitor.png
-[4]: ../../app-service/app-service-web-get-started-dotnet.md
+[4]: ../../app-service/quickstart-dotnetcore.md
 [5]: ./media/autoscale-get-started/scale-setting-new-web-app.png
 [6]: ./media/autoscale-get-started/create-scale-setting-web-app.png
 [7]: ./media/autoscale-get-started/scale-in-recommendation.png

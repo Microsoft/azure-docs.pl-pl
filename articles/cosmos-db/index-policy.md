@@ -4,18 +4,18 @@ description: Dowiedz się, jak skonfigurować i zmienić domyślne zasady indeks
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 08/11/2020
 ms.author: tisande
-ms.openlocfilehash: e3981e828e7ffe401be3b72f68185c272ab11645
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: e1254b31bffa72918b46c550e8354bd1c2195dfb
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760825"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077598"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Zasady indeksowania w usłudze Azure Cosmos DB
 
-W Azure Cosmos DB każdy kontener ma zasady indeksowania, które określają sposób indeksowania elementów kontenera. Domyślne zasady indeksowania dla nowo utworzonych kontenerów indeksuje każdą właściwość każdego elementu, wymuszając indeksy zakresów dla dowolnego ciągu lub liczby oraz indeksy przestrzenne dla dowolnego obiektu GEOJSON typu punkt. Dzięki temu można uzyskać wysoką wydajność zapytań bez konieczności zawieszania indeksowania i zarządzania indeksem z góry.
+W Azure Cosmos DB każdy kontener ma zasady indeksowania, które określają sposób indeksowania elementów kontenera. Domyślne zasady indeksowania dla nowo utworzonych kontenerów indeksuje każdą właściwość każdego elementu i wymuszają indeksy zakresu dla dowolnego ciągu lub liczby. Dzięki temu można uzyskać wysoką wydajność zapytań bez konieczności zawieszania indeksowania i zarządzania indeksem z góry.
 
 W niektórych sytuacjach może być potrzebne zastąpienie tego automatycznego zachowania zachowaniem lepiej dostosowanym do wymagań. Można dostosować zasady indeksowania kontenera, ustawiając jego *tryb indeksowania*i dołączając lub wykluczając *ścieżki właściwości*.
 
