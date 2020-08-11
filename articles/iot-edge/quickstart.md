@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 748e31499a4aa8f1ddd2cea4e918b688426338fa
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 73d9eed757acb4c58052a34811c490a70d306995
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117243"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88061493"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Szybki Start: wdrażanie pierwszego modułu IoT Edge na urządzeniu wirtualnym z systemem Windows
 
@@ -65,7 +65,9 @@ Urządzenie usługi IoT Edge:
   az vm create --resource-group IoTEdgeResources --name EdgeVM --image MicrosoftWindowsDesktop:Windows-10:rs5-pro:latest --admin-username azureuser --admin-password {password} --size Standard_DS1_v2
   ```
 
-  Utworzenie i uruchomienie nowej maszyny wirtualnej może potrwać kilka minut. Następnie można pobrać plik RDP do użycia podczas nawiązywania połączenia z maszyną wirtualną:
+  Utworzenie i uruchomienie nowej maszyny wirtualnej może potrwać kilka minut.
+
+  Po uruchomieniu maszyny wirtualnej można pobrać plik RDP do użycia podczas nawiązywania połączenia z maszyną wirtualną:
 
   1. Przejdź do nowej maszyny wirtualnej z systemem Windows w Azure Portal.
   1. Wybierz pozycję **Połącz**.
@@ -74,11 +76,13 @@ Urządzenie usługi IoT Edge:
   Otwórz ten plik z Podłączanie pulpitu zdalnego, aby nawiązać połączenie z maszyną wirtualną z systemem Windows przy użyciu nazwy użytkownika i hasła podanego za pomocą `az vm create` polecenia.
 
 > [!NOTE]
+> Maszyna wirtualna z systemem Windows zaczyna się od systemu Windows w wersji 1809 (kompilacja 17763), czyli najnowszej [kompilacji długoterminowej pomocy technicznej systemu Windows](https://docs.microsoft.com/windows/release-information/). System Windows automatycznie sprawdza aktualizacje co 22 godziny. Po sprawdzeniu maszyny wirtualnej system Windows wypycha aktualizację wersji, która jest niezgodna z IoT Edge dla systemu Windows, co uniemożliwi dalsze korzystanie z IoT Edge funkcji systemu Windows. Zalecamy ograniczenie używania maszyny wirtualnej do 22 godzin lub [czasowo wstrzymanie aktualizacji systemu Windows](https://support.microsoft.com/help/4028233/windows-10-manage-updates).
+>
 > W tym przewodniku szybki start do uproszczenia jest stosowana maszyna wirtualna z systemem Windows. Informacje o tym, które systemy operacyjne Windows są ogólnie dostępne w scenariuszach produkcyjnych, można znaleźć w temacie [Azure IoT Edge obsługiwane systemy](support.md).
 >
 > Aby skonfigurować własne urządzenie z systemem Windows w celu IoT Edge, w tym urządzeń z systemem IoT Core, wykonaj kroki opisane w temacie [Instalowanie środowiska wykonawczego Azure IoT Edge w systemie Windows](how-to-install-iot-edge-windows.md).
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
 Rozpocznij pracę z przewodnikiem Szybki start od utworzenia centrum IoT za pomocą interfejsu wiersza polecenia platformy Azure.
 

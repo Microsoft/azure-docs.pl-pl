@@ -16,17 +16,17 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 753e00ef5f015c554e49d7326120d29f5c5da4a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1879df40122549ddc4c57557017fa2c84c883368
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357770"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88061510"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Synchronizacja programu Azure AD Connect: konfigurowanie filtrowania
 Korzystając z funkcji filtrowania, można kontrolować, które obiekty są wyświetlane w Azure Active Directory (Azure AD) z katalogu lokalnego. Konfiguracja domyślna pobiera wszystkie obiekty we wszystkich domenach w skonfigurowanych lasach. Ogólnie rzecz biorąc jest to zalecana konfiguracja. Użytkownicy korzystający z obciążeń pakietu Office 365, takich jak Exchange Online i Skype dla firm, korzystają z kompletnej globalnej listy adresów, aby mogli wysyłać wiadomości e-mail i wywoływać wszystkich użytkowników. W przypadku konfiguracji domyślnej mogą one korzystać z tego samego środowiska z lokalną implementacją programu Exchange lub Lync.
 
-W niektórych przypadkach wymagane jest wprowadzenie pewnych zmian w konfiguracji domyślnej. Poniżej przedstawiono kilka przykładów:
+W niektórych przypadkach wymagane jest wprowadzenie pewnych zmian w konfiguracji domyślnej. Oto kilka przykładów:
 
 * Planujesz użycie [topologii katalogu usługi AD systemu Azure](plan-connect-topologies.md#each-object-only-once-in-an-azure-ad-tenant). Następnie należy zastosować filtr w celu kontrolowania, które obiekty są synchronizowane z określonym katalogiem usługi Azure AD.
 * Uruchamiasz program pilotażowy dla platformy Azure lub pakietu Office 365 i potrzebujesz tylko podzbioru użytkowników w usłudze Azure AD. W małych pilotażach nie ma konieczności posiadania kompletnej globalnej listy adresów, aby zademonstrować tę funkcjonalność.
@@ -47,7 +47,7 @@ Ponieważ filtrowanie może usunąć wiele obiektów w tym samym czasie, przed r
 
 Aby chronić przed przypadkowym usunięciem wielu obiektów, funkcja "[Zapobiegaj przypadkowemu usuwaniu](how-to-connect-sync-feature-prevent-accidental-deletes.md)" jest domyślnie włączona. Jeśli usuniesz wiele obiektów ze względu na filtrowanie (domyślnie 500), musisz wykonać kroki opisane w tym artykule, aby umożliwić usuwanie w usłudze Azure AD.
 
-Jeśli używasz kompilacji przed listopadem 2015 ([1.0.9125](reference-connect-version-history.md#1091250)), wprowadź zmiany w konfiguracji filtru i użyj synchronizacji skrótów haseł, a następnie musisz wyzwolić pełną synchronizację wszystkich haseł po zakończeniu konfiguracji. Aby dowiedzieć się, jak wyzwolić pełną synchronizację hasła, zobacz [wyzwalanie pełnej synchronizacji wszystkich haseł](tshoot-connect-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). Jeśli korzystasz z kompilacji 1.0.9125 lub nowszej, zwykła Akcja **pełna synchronizacja** oblicza również, czy hasła powinny być zsynchronizowane i czy ten dodatkowy krok nie jest już wymagany.
+Jeśli używasz kompilacji przed listopadem 2015 ([1.0.9125](reference-connect-version-history.md)), wprowadź zmiany w konfiguracji filtru i użyj synchronizacji skrótów haseł, a następnie musisz wyzwolić pełną synchronizację wszystkich haseł po zakończeniu konfiguracji. Aby dowiedzieć się, jak wyzwolić pełną synchronizację hasła, zobacz [wyzwalanie pełnej synchronizacji wszystkich haseł](tshoot-connect-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). Jeśli korzystasz z kompilacji 1.0.9125 lub nowszej, zwykła Akcja **pełna synchronizacja** oblicza również, czy hasła powinny być zsynchronizowane i czy ten dodatkowy krok nie jest już wymagany.
 
 Jeśli obiekty **użytkownika** zostały przypadkowo usunięte w usłudze Azure AD z powodu błędu filtrowania, możesz ponownie utworzyć obiekty użytkownika w usłudze Azure AD, usuwając konfiguracje filtrowania. Następnie można zsynchronizować katalogi ponownie. Ta akcja spowoduje przywrócenie użytkowników z Kosza w usłudze Azure AD. Nie można jednak cofnąć usunięcia innych typów obiektów. Jeśli na przykład przypadkowo usuniesz grupę zabezpieczeń, która została użyta do zasobu listy ACL, nie można odzyskać grupy i jej list ACL.
 
@@ -202,7 +202,7 @@ Aparat synchronizacji można skonfigurować tak, aby nie synchronizować nowych 
 W przypadku tej konfiguracji nowa jednostka organizacyjna utworzona w obszarze ManagedObjects nie jest zsynchronizowana.
 
 ## <a name="attribute-based-filtering"></a>Filtrowanie oparte na atrybutach
-Upewnij się, że korzystasz z 2015 listopada ([1.0.9125](reference-connect-version-history.md#1091250)) lub późniejszej kompilacji, aby wykonać te kroki.
+Upewnij się, że korzystasz z 2015 listopada ([1.0.9125](reference-connect-version-history.md)) lub późniejszej kompilacji, aby wykonać te kroki.
 
 > [!IMPORTANT]
 >Firma Microsoft zaleca, aby nie modyfikować reguł domyślnych utworzonych przez **Azure AD Connect**. Jeśli chcesz zmodyfikować regułę, Sklonuj ją i Wyłącz pierwotną regułę. Wprowadź zmiany w sklonowanej regule. Należy pamiętać, że przez wykonanie tej czynności (wyłączenie oryginalnej reguły) spowoduje to pominięcie wszelkich poprawek lub funkcji włączonych w ramach tej reguły.
