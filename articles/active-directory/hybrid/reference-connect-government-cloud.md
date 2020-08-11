@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0120bf3f2bd347ae60677b89ec658f08140af49
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39acc0373f5748f57f4fef5a5cee5fb038071523
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356359"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080185"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Zagadnienia dotyczące tożsamości hybrydowej w chmurze Azure Government
 
@@ -42,7 +42,7 @@ Przed wdrożeniem agenta uwierzytelniania przekazywanego Sprawdź, czy istnieje 
 |-----|-----|
 |&#42;. msappproxy.us</br>&#42;.servicebus.usgovcloudapi.net|Agent używa tych adresów URL do komunikowania się z usługą w chmurze usługi Azure AD. |
 |`mscrl.microsoft.us:80` </br>`crl.microsoft.us:80` </br>`ocsp.msocsp.us:80` </br>`www.microsoft.us:80`| Agent używa tych adresów URL do weryfikowania certyfikatów.|
-|login.windows.us </br>secure.aadcdn.microsoftonline-p.com </br>&#42;. microsoftonline.us </br>&#42;. microsoftonline-p.us </br>&#42;. msauth.net </br>&#42;. msauthimages.net </br>&#42;. msecnd.net</br>&#42;. msftauth.net </br>&#42;. msftauthimages.net</br>&#42;. phonefactor.net </br>enterpriseregistration.windows.net</br>management.azure.com </br>policykeyservice.dc.ad.msft.net</br>ctdl.windowsupdate.us:80| Agent używa tych adresów URL podczas procesu rejestracji.
+|login.windows.us </br>secure.aadcdn.microsoftonline-p.com </br>&#42;. microsoftonline.us </br>&#42;. microsoftonline-p.us </br>&#42;. msauth.net </br>&#42;. msauthimages.net </br>&#42;. msecnd.net</br>&#42;. msftauth.net </br>&#42;. msftauthimages.net</br>&#42;. phonefactor.net </br>enterpriseregistration.windows.net</br>management.azure.com </br>policykeyservice.dc.ad.msft.net</br>ctldl.windowsupdate.us:80| Agent używa tych adresów URL podczas procesu rejestracji.
 
 ### <a name="install-the-agent-for-the-azure-government-cloud"></a>Zainstaluj agenta dla chmury Azure Government
 

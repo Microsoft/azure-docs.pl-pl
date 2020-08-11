@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 18054e47a987a7e79e9083b6f7a2f20b059c7f28
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 470324799cd157c8b33311e1cae8b5b698433e1f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81254618"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079913"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Samouczek: dodawanie usługi Azure CDN do aplikacji internetowej usługi Azure App Service
 
@@ -49,7 +49,7 @@ W celu ukończenia tego samouczka:
 
 ## <a name="create-the-web-app"></a>Tworzenie aplikacji internetowej
 
-Aby utworzyć aplikację internetową, z którą będziesz pracować, postępuj zgodnie z instrukcjami opisanymi w artykule [Tworzenie statycznej witryny HTML — szybki start](../app-service/app-service-web-get-started-html.md) do kroku **Przechodzenie do aplikacji**.
+Aby utworzyć aplikację internetową, z którą będziesz pracować, postępuj zgodnie z instrukcjami opisanymi w artykule [Tworzenie statycznej witryny HTML — szybki start](../app-service/quickstart-html.md) do kroku **Przechodzenie do aplikacji**.
 
 ## <a name="log-in-to-the-azure-portal"></a>Logowanie do witryny Azure Portal
 
@@ -60,7 +60,7 @@ Aby zoptymalizować punkt końcowy usługi CDN na potrzeby przyspieszania witryn
 
 ## <a name="create-a-cdn-profile-and-endpoint"></a>Tworzenie profilu i punktu końcowego usługi CDN
 
-Na lewym panelu nawigacyjnym wybierz pozycję **App Services**, a następnie wybierz aplikację utworzoną w samouczku [tworzenie statycznej witryny HTML — szybki start](../app-service/app-service-web-get-started-html.md).
+Na lewym panelu nawigacyjnym wybierz pozycję **App Services**, a następnie wybierz aplikację utworzoną w samouczku [tworzenie statycznej witryny HTML — szybki start](../app-service/quickstart-html.md).
 
 ![Wybieranie aplikacji usługi App Service w portalu](media/cdn-add-to-web-app/portal-select-app-services.png)
 
@@ -75,8 +75,8 @@ Na stronie **Azure Content Delivery Network** określ ustawienia dla **nowego pu
 | Ustawienie | Sugerowana wartość | Opis |
 | ------- | --------------- | ----------- |
 | **Profil CDN** | myCDNProfile | Profil CDN jest kolekcją punktów końcowych usługi CDN znajdujących się w tej samej warstwie cenowej. |
-| **Warstwa cenowa** | Standard Akamai | [Warstwa cenowa](cdn-features.md) określa dostawcę i dostępne funkcje. W tym samouczku jest używana warstwa *Standard Akamai*. |
-| **Nazwa punktu końcowego usługi CDN** | Dowolna unikatowa nazwa w domenie azureedge.net | Dostęp do buforowanych zasobów można uzyskać w domenie * &lt;EndpointName&gt;*. azureedge.NET.
+| **Warstwa cenowa** | Akamai — Standardowa | [Warstwa cenowa](cdn-features.md) określa dostawcę i dostępne funkcje. W tym samouczku jest używana warstwa *Standard Akamai*. |
+| **Nazwa punktu końcowego usługi CDN** | Dowolna unikatowa nazwa w domenie azureedge.net | Dostęp do buforowanych zasobów można uzyskać w domenie * &lt; EndpointName &gt; *. azureedge.NET.
 
 Wybierz pozycję **Utwórz**, aby utworzyć profil CDN.
 

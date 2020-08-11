@@ -8,12 +8,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Dowiedz się, jak skonfigurować ciągłą integrację/ciągłe wdrażanie przy użyciu usługi Azure DevOps z Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kontenery
-ms.openlocfilehash: 3a5f232111bd01f707080cc1638970f8dc51e6fa
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: c7b3eba0bea85082dbb4e39d108af9471d5dc45e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229333"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080270"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Korzystanie z potoków ciągłej integracji/ciągłego wdrażania za pomocą obszarów Azure Dev Spaces
 
@@ -24,7 +24,7 @@ Ten artykuł przeprowadzi Cię przez proces konfigurowania ciągłej integracji/
 Mimo że ten artykuł prowadzi użytkownika przez usługę Azure DevOps, te same koncepcje dotyczą systemów ciągłej integracji/ciągłego wdrażania, takich jak Jenkins, TeamCity itd.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* [Klaster usługi Azure Kubernetes Service (AKS) z włączonym Azure Dev Spaces](../get-started-netcore.md)
+* Klaster usługi Azure Kubernetes Service (AKS) z włączonym Azure Dev Spaces
 * [Zainstalowano interfejs wiersza polecenia Azure Dev Spaces](upgrade-tools.md)
 * [Organizacja usługi Azure DevOps z projektem](/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
 * [Azure Container Registry (ACR)](../../container-registry/container-registry-get-started-azure-cli.md)
@@ -119,7 +119,7 @@ Masz teraz rozwiązanie CI, które automatycznie kompiluje *mywebapi* i *webfron
 1. Kliknij przycisk **Zapisz** w prawym górnym rogu i **OK**.
 1. Kliknij pozycję **+ wersja** (obok przycisku Zapisz) i **Utwórz wydanie**.
 1. W obszarze **artefakty**Sprawdź, czy jest wybrana Najnowsza kompilacja z potoku kompilacji.
-1. Kliknij pozycję **Utwórz**.
+1. Kliknij przycisk **Utwórz**.
 
 Proces zautomatyzowanej wersji rozpocznie się teraz, wdrażając wykresy *mywebapi* i *webfrontonu* w klastrze Kubernetes w _obszarze najwyższego_ poziomu. Postęp wydania można monitorować w portalu sieci Web usługi Azure DevOps:
 
@@ -185,5 +185,7 @@ Poniżej znajduje się przykładowa struktura przestrzeni nazw, która obsługuj
 
 ## <a name="next-steps"></a>Następne kroki
 
+Dowiedz się więcej o tym, jak działa Azure Dev Spaces.
+
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o programowaniu zespołowym przy użyciu Azure Dev Spaces](../team-development-netcore.md)
+> [Jak działa usługa Azure Dev Spaces](../how-dev-spaces-works.md)

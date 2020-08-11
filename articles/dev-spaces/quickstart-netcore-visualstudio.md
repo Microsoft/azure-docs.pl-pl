@@ -8,12 +8,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, 
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 8279a32ece16209c1dd5bca13d08e22b283677ee
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1855fd201d7963fdf2f1b3fa292643908bbb05a0
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007008"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079607"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Szybki Start: debugowanie i iteracja na Kubernetes: Visual Studio & .NET Core — Azure Dev Spaces
 
@@ -150,8 +150,10 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Następne kroki
 
+Dowiedz się więcej o tym, jak działa Azure Dev Spaces.
+
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development (Praca z wieloma kontenerami i programowanie zespołowe)](multi-service-netcore-visualstudio.md)
+> [Jak działa usługa Azure Dev Spaces](how-dev-spaces-works.md)
 
 [ingress-update]: how-dev-spaces-works-up.md#how-running-your-code-is-configured
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

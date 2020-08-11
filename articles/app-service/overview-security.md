@@ -5,12 +5,12 @@ keywords: Azure App Service, aplikacja sieci Web, aplikacja mobilna, aplikacja i
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0a4d3518c3325eff2b3c3db111babb9e784d5e31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6c8aeeaded659fb7fd37409c3d9e495aa711fa6
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83649033"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080304"
 ---
 # <a name="security-in-azure-app-service"></a>Zabezpieczenia w Azure App Service
 
@@ -56,7 +56,7 @@ App Service uwierzytelnianie i autoryzacja obsługują wielu dostawców uwierzyt
 Podczas uwierzytelniania w usłudze zaplecza App Service zapewnia dwa różne mechanizmy, w zależności od potrzeb:
 
 - **Tożsamość usługi** — Zaloguj się do zasobu zdalnego przy użyciu tożsamości samej aplikacji. App Service pozwala łatwo utworzyć [tożsamość zarządzaną](overview-managed-identity.md), której można użyć do uwierzytelniania za pomocą innych usług, takich jak [Azure SQL Database](/azure/sql-database/) lub [Azure Key Vault](/azure/key-vault/). Aby uzyskać kompleksowy samouczek tego podejścia, zobacz [bezpieczny Azure SQL Database połączenie z App Service przy użyciu tożsamości zarządzanej](app-service-web-tutorial-connect-msi.md).
-- **W imieniu (OBO)** — umożliwia delegowanie dostępu do zdalnych zasobów w imieniu użytkownika. Dzięki Azure Active Directory jako dostawca uwierzytelniania aplikacja App Service może przeprowadzić delegowane logowanie do usługi zdalnej, takiej jak [interfejs API Microsoft Graph](../active-directory/develop/microsoft-graph-intro.md) lub zdalna aplikacja interfejsu api w App Service. Aby zapoznać się z kompleksowym samouczkiem tego podejścia, zobacz temat [uwierzytelnianie i Autoryzowanie użytkowników na końcu w Azure App Service](app-service-web-tutorial-auth-aad.md).
+- **W imieniu (OBO)** — umożliwia delegowanie dostępu do zdalnych zasobów w imieniu użytkownika. Dzięki Azure Active Directory jako dostawca uwierzytelniania aplikacja App Service może przeprowadzić delegowane logowanie do usługi zdalnej, takiej jak [interfejs API Microsoft Graph](../active-directory/develop/microsoft-graph-intro.md) lub zdalna aplikacja interfejsu api w App Service. Aby zapoznać się z kompleksowym samouczkiem tego podejścia, zobacz temat [uwierzytelnianie i Autoryzowanie użytkowników na końcu w Azure App Service](tutorial-auth-aad.md).
 
 ## <a name="connectivity-to-remote-resources"></a>Łączność z zasobami zdalnymi
 
@@ -94,7 +94,7 @@ Nie przechowuj wpisów tajnych aplikacji, takich jak poświadczenia bazy danych,
 
 Alternatywnie możesz zintegrować swoją aplikację App Service z [Azure Key Vault](/azure/key-vault/) do zarządzania zaawansowanymi kluczami tajnymi. Dzięki [dostępowi do Key Vault za pomocą tożsamości zarządzanej](../key-vault/tutorial-web-application-keyvault.md)aplikacja App Service może bezpiecznie uzyskać dostęp do potrzebnych wpisów tajnych.
 
-## <a name="network-isolation"></a>Izolacja sieciowa
+## <a name="network-isolation"></a>Izolacja sieci
 
 Z wyjątkiem warstwy cenowej **izolowanej** wszystkie warstwy uruchamiają aplikacje w udostępnionej infrastrukturze sieci w App Service. Na przykład publiczne adresy IP i usługi równoważenia obciążenia frontonu są udostępniane innym dzierżawcom. Warstwa **izolowana** zapewnia pełną izolację sieci, uruchamiając aplikacje w dedykowanym [środowisku App Service](environment/intro.md). Środowisko App Service działa we własnym wystąpieniu [platformy Azure Virtual Network](/azure/virtual-network/). Umożliwia to: 
 

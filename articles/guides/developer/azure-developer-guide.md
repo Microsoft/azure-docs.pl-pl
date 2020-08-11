@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: aae0ed4efa7f96ab6258dbf0ce4c34a6879ecbc2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d91fd15d7f1f5d2bb1bd97b5a28ef56f09797140
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832811"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080321"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Wprowadzenie — przewodnik dla deweloperów platformy Azure
 
@@ -64,7 +64,7 @@ Istniejące aplikacje można migrować do App Service za pomocą [Narzędzia mig
 
 > **Kiedy używać**: App Service podczas migrowania istniejących aplikacji sieci Web na platformę Azure i gdy potrzebna jest w pełni zarządzana platforma hostingu dla aplikacji sieci Web. Możesz również użyć App Service, gdy musisz obsługiwać klientów mobilnych lub udostępniać interfejsy API REST w aplikacji.
 >
-> **Wprowadzenie**: App Service ułatwia tworzenie i wdrażanie pierwszej [aplikacji sieci Web](../../app-service/app-service-web-get-started-dotnet.md), [aplikacji mobilnej](../../app-service-mobile/app-service-mobile-ios-get-started.md)lub [aplikacji interfejsu API](../../app-service/app-service-web-tutorial-rest-api.md).
+> **Wprowadzenie**: App Service ułatwia tworzenie i wdrażanie pierwszej [aplikacji sieci Web](../../app-service/quickstart-dotnetcore.md), [aplikacji mobilnej](../../app-service-mobile/app-service-mobile-ios-get-started.md)lub [aplikacji interfejsu API](../../app-service/app-service-web-tutorial-rest-api.md).
 >
 > **Wypróbuj teraz**: App Service umożliwia obsługę krótkoterminowej aplikacji do wypróbowania platformy bez konieczności rejestrowania się w celu uzyskania konta platformy Azure. Wypróbuj platformę i [Utwórz aplikację Azure App Service](https://tryappservice.azure.com/).
 
@@ -158,7 +158,7 @@ Platforma Azure oferuje kilka sposobów korzystania z kontenerów w aplikacjach.
   >
   > **Wprowadzenie**: [Użyj niestandardowego obrazu platformy docker dla App Service w systemie Linux](../../app-service/containers/quickstart-docker-go.md).
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 Niezwykle ważne jest, aby nie tylko wiedzieć, kto korzysta z aplikacji, ale również aby uniemożliwić nieautoryzowany dostęp do zasobów. Platforma Azure oferuje kilka metod uwierzytelniania klientów aplikacji.
 

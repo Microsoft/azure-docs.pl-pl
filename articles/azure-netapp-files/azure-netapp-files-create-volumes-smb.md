@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: ba66716abe80a1b12bc64b739f498a0a01d54fe3
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3299865837bd14566cca54ec84b2dce452c633da
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533176"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080511"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu SMB dla usługi Azure NetApp Files
 
 Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików NFS (NFSv3 i NFSv 4.1), SMBv3 lub Dual Protocol (NFSv3 i SMB). Użycie pojemności woluminu jest liczone jako użycie aprowizowanej pojemności puli. W tym artykule pokazano, jak utworzyć wolumin SMBv3.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem 
+## <a name="before-you-begin"></a>Zanim rozpoczniesz 
 Potrzebujesz skonfigurowanej puli pojemności.   
 [Konfigurowanie puli pojemności](azure-netapp-files-set-up-capacity-pool.md)   
 Podsieć musi być delegowana do usługi Azure NetApp Files.  
@@ -45,7 +45,7 @@ Podsieć musi być delegowana do usługi Azure NetApp Files.
     |    Usługi sieci Web AD    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
     |    DNS                |    53        |    UDP           |
-    |    Ruch             |    Brak       |    Odpowiedź echa    |
+    |    Ruch             |    Nie dotyczy       |    Odpowiedź echa    |
     |    Kerberos           |    464       |    TCP           |
     |    Kerberos           |    464       |    UDP           |
     |    Kerberos           |    88        |    TCP           |
@@ -172,7 +172,7 @@ To ustawienie jest konfigurowane w **Active Directory połączenia** w obszarze 
         Sprawdź stan rejestracji funkcji: 
 
         > [!NOTE]
-        > **RegistrationState** może być w `Registering` stanie przez kilka minut przed zmianą na `Registered` . Przed kontynuowaniem Zaczekaj na **zarejestrowanie** stanu.
+        > **RegistrationState** może być w stanie od `Registering` do 60 minut przed zmianą na `Registered` . Przed kontynuowaniem Zaczekaj na **zarejestrowanie** stanu.
 
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator

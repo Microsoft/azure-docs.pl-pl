@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 5b454c324d475eb4f692e1715cb2ea45105f78e1
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: afffdd0267cde8ffc841587748e51dd27e021369
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056928"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079590"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Zarządzanie dostępem do obszaru roboczego Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -142,7 +142,7 @@ Poniższa tabela zawiera podsumowanie działań Azure Machine Learning i uprawni
 | Przesyłanie dowolnego typu przebiegu | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na:`"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
 | Publikowanie punktu końcowego potoku | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na:`"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | Wdrażanie zarejestrowanego modelu w zasobie AKS/ACI | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na:`"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
-| Ocenianie względem wdrożonego punktu końcowego AKS | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (jeśli nie korzystasz z uwierzytelniania usługi AAD) lub `"/workspaces/read"` (Jeśli używasz uwierzytelniania tokenu) |
+| Ocenianie względem wdrożonego punktu końcowego AKS | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (jeśli nie używasz uwierzytelniania Azure Active Directory) lub `"/workspaces/read"` (Jeśli używasz uwierzytelniania tokenu) |
 | Uzyskiwanie dostępu do magazynu przy użyciu notesów interaktywnych | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na:`"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
 | Utwórz nową rolę niestandardową | Właściciel, współautor lub rola niestandardowa zezwalająca na`Microsoft.Authorization/roleDefinitions/write` | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na:`/workspaces/computes/write` |
 
@@ -374,10 +374,14 @@ Można je również znaleźć na liście [operacji dostawcy zasobów](/azure/rol
 Poniżej przedstawiono kilka kwestii, z którymi należy się zapoznać w przypadku korzystania z kontroli dostępu opartej na rolach (Azure RBAC):
 
 - Podczas tworzenia zasobu na platformie Azure Załóżmy, że nie jesteś bezpośrednio właścicielem obszaru roboczego. Rola jest dziedziczona od najwyższej roli zakresu, do której masz autoryzację w ramach tej subskrypcji. Przykładowo jeśli jesteś administratorem sieci i masz uprawnienia do tworzenia obszaru roboczego Machine Learning, przypiszesz rolę administratora sieci do tego obszaru roboczego, a nie rolę właściciela.
-- Jeśli istnieją dwa przypisania ról do tego samego użytkownika usługi AAD z sprzecznymi sekcjami akcji/nienaruszonych, operacje wymienione w "noactions" z jednej roli mogą nie zostać zastosowane, jeśli są również wyświetlane jako akcje w innej roli. Aby dowiedzieć się więcej o tym, jak platforma Azure analizuje przypisania ról, Przeczytaj, w [jaki sposób kontrola RBAC na platformie Azure określa, czy użytkownik ma dostęp do zasobu](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
-- Aby wdrożyć zasoby obliczeniowe w sieci wirtualnej, należy jawnie mieć uprawnienia do "Microsoft. Network/virtualNetworks/Join/Action" w tym zasobie sieci wirtualnej.
-- Wykonanie nowych przypisań ról w ramach stosu może czasami zająć maksymalnie 1 godzinę.
+- Jeśli istnieją dwa przypisania ról do tego samego Azure Active Directory użytkownika, które powodują konflikt z sekcjami akcji/nienaruszonych, operacje wymienione w zaistnieniu z jednej roli mogą nie zostać zastosowane, jeśli są również wyświetlane jako akcje w innej roli. Aby dowiedzieć się więcej o tym, jak platforma Azure analizuje przypisania ról, Przeczytaj, w [jaki sposób kontrola RBAC na platformie Azure określa, czy użytkownik ma dostęp do zasobu](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
+- Aby wdrożyć zasoby obliczeniowe w sieci wirtualnej, należy jawnie mieć uprawnienia do następujących akcji:
+    - "Microsoft. Network/virtualNetworks/Join/Action" w zasobie sieci wirtualnej.
+    - "Microsoft. Network/virtualNetworks/Subnet/Join/Action" w zasobie podsieci.
+    
+    Aby uzyskać więcej informacji na temat RBAC w sieci, zobacz [wbudowane role sieciowe](/azure/role-based-access-control/built-in-roles#networking).
 
+- Wykonanie nowych przypisań ról w ramach stosu może czasami zająć maksymalnie 1 godzinę.
 
 ### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>PYTANIE: Jakie uprawnienia są potrzebne do użycia tożsamości zarządzanej przez użytkownika z moimi klastrami Amlcompute?
 

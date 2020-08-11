@@ -3,12 +3,12 @@ title: Używanie usługi DevTest Labs w potokach kompilacji i wydań usługi Azu
 description: Dowiedz się, jak używać Azure DevTest Labs w Azure Pipelines kompilacjach i wydaniach.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 71af1e0dfe205fe1028f7b82b41f3ed38ebefd3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d04ed5dd7bebac0c8f24deb9145c3d2e4b77122e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483078"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080338"
 ---
 # <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Używanie usługi DevTest Labs w potokach kompilacji i wydań usługi Azure Pipelines
 Ten artykuł zawiera informacje dotyczące sposobu używania DevTest Labs w Azure Pipelines potoków kompilowania i wydawania. 
@@ -26,7 +26,7 @@ Po pomyślnym zakończeniu kompilacji **potok wersji** użyje artefaktów kompil
 
 Jednym z niezbędnych miejsc jest to, że wszystkie informacje potrzebne do odtworzenia testowanego ekosystemu są dostępne w ramach artefaktów kompilacji, w tym konfiguracji zasobów platformy Azure. Ponieważ zasoby platformy Azure ponoszą koszt w przypadku użycia, firmy chcą kontrolować lub śledzić użycie tych zasobów. W niektórych sytuacjach Azure Resource Manager szablony służące do tworzenia i konfigurowania zasobów mogą być zarządzane przez inny dział, taki jak. Szablony te mogą być przechowywane w innym repozytorium. Prowadzi do interesującej sytuacji, w której kompilacja zostanie utworzona i przetestowana, a zarówno kod, jak i konfiguracja muszą być przechowywane w artefaktach kompilacji, aby prawidłowo odtworzyć system w środowisku produkcyjnym. 
 
-Korzystając z DevTest Labs w fazie kompilowania/testowania, można dodać szablony Azure Resource Manager i pliki pomocnicze do źródeł kompilacji, aby w fazie wydania dokładna konfiguracja użyta do przetestowania została wdrożona w środowisku produkcyjnym. Zadanie **tworzenia środowiska Azure DevTest Labs** z odpowiednią konfiguracją spowoduje zapisanie Menedżer zasobów szablonów w ramach artefaktów kompilacji. Na potrzeby tego przykładu będziesz używać kodu z [samouczka: Tworzenie aplikacji sieci Web platformy .NET Core i SQL Database w usłudze Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md), aby wdrożyć i przetestować aplikację sieci Web na platformie Azure.
+Korzystając z DevTest Labs w fazie kompilowania/testowania, można dodać szablony Azure Resource Manager i pliki pomocnicze do źródeł kompilacji, aby w fazie wydania dokładna konfiguracja użyta do przetestowania została wdrożona w środowisku produkcyjnym. Zadanie **tworzenia środowiska Azure DevTest Labs** z odpowiednią konfiguracją spowoduje zapisanie Menedżer zasobów szablonów w ramach artefaktów kompilacji. Na potrzeby tego przykładu będziesz używać kodu z [samouczka: Tworzenie aplikacji sieci Web platformy .NET Core i SQL Database w usłudze Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md), aby wdrożyć i przetestować aplikację sieci Web na platformie Azure.
 
 ![Przepływ ogólny](./media/use-devtest-labs-build-release-pipelines/overall-flow.png)
 
@@ -40,7 +40,7 @@ Istnieje kilka elementów, które muszą zostać utworzone wcześniej:
 Potok kompilacji utworzy środowisko DevTest Labs i Wdróż kod do testowania.
 
 ## <a name="set-up-a-build-pipeline"></a>Konfigurowanie potoku kompilacji
-W Azure Pipelines Utwórz potok kompilacji przy użyciu kodu z [samouczka: Tworzenie aplikacji internetowej platformy .NET Core i SQL Database w Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md). Użyj szablonu **ASP.NET Core** , który wypełni zadanie niezbędne do skompilowania, przetestowania i opublikowania kodu.
+W Azure Pipelines Utwórz potok kompilacji przy użyciu kodu z [samouczka: Tworzenie aplikacji internetowej platformy .NET Core i SQL Database w Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md). Użyj szablonu **ASP.NET Core** , który wypełni zadanie niezbędne do skompilowania, przetestowania i opublikowania kodu.
 
 ![Wybierz szablon ASP.NET](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 

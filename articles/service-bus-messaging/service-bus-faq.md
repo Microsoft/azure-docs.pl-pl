@@ -3,12 +3,12 @@ title: Azure Service Bus często zadawanych pytań (FAQ) | Microsoft Docs
 description: Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące Azure Service Bus.
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: 04ff12d28be1dd232c5666b17d8a121f8020ca89
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: e098b05dba25a51d5d6ef7c50a1b73730828357a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371247"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080817"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus — często zadawane pytania
 
@@ -57,7 +57,7 @@ Aby znaleźć odpowiednie adresy IP do dodania do listy dozwolonych połączeń,
 1. Uruchom następujące polecenie w wierszu polecenia: 
 
     ```
-    nslookup <YourNamespaceName>.cloudapp.net
+    nslookup <YourNamespaceName>.servicebus.windows.net
     ```
 2. Zanotuj adres IP zwrócony w `Non-authoritative answer` . Ten adres IP jest statyczny. Jedyną zmianą jest to, że w przypadku przywracania przestrzeni nazw w innym klastrze.
 
@@ -66,7 +66,7 @@ Jeśli używasz nadmiarowości strefy dla przestrzeni nazw, musisz wykonać kilk
 1. Najpierw uruchom polecenie nslookup w przestrzeni nazw.
 
     ```
-    nslookup <yournamespace>.cloudapp.net
+    nslookup <yournamespace>.servicebus.windows.net
     ```
 2. Zanotuj nazwę w sekcji **Nieautorytatywna odpowiedź** , która znajduje się w jednym z następujących formatów: 
 

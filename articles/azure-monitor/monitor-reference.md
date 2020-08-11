@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/15/2020
-ms.openlocfilehash: c59e8c9e4c756a44d7507fca328aa691ecb184da
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 48eb8674a7d3f0fbeb8cc012debfc8a08752d5ff
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447312"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080868"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Co jest monitorowane przez Azure Monitor?
 W tym artykule opisano różne aplikacje i usługi monitorowane przez program Azure Monitor. 
@@ -57,10 +57,10 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 
 | Usługa | Metryki | Dzienniki | Szczegółowe informacje | Uwagi |
 |:---|:---|:---|:---|:---|
-|Usługa Active Directory | Nie | Yes | [Tak](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
+|Active Directory | Nie | Tak | [Tak](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
 |Active Directory B2C | Nie | Nie | Nie |  |
-|Active Directory Domain Services | Nie | Yes | Nie |  |
-|Dziennik aktywności | Nie | Yes | Nie | |
+|Active Directory Domain Services | Nie | Tak | Nie |  |
+|Dziennik aktywności | Nie | Tak | Nie | |
 |Zaawansowana ochrona przed zagrożeniami | Nie | Nie | Nie |  |
 |Advisor | Nie | Nie | Nie |  |
 |AI Builder | Nie | Nie | Nie |  |
@@ -71,60 +71,60 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |AppConfig | Nie | Nie | Nie |  |
 |Application Gateway | Tak | Tak | Nie |  |
 |Usługa zaświadczania | Nie | Nie | Nie |  |
-|Automation | Tak | Tak | Nie |  |
+|Automatyzacja | Tak | Tak | Nie |  |
 |Azure Service Manager (frontonu reddog) | Nie | Nie | Nie |  |
-|Backup | Nie | Yes | Nie |  |
+|Backup | Nie | Tak | Nie |  |
 |Bastion | Nie | Nie | Nie |  |
 |Batch | Tak | Tak | Nie |  |
 |Usługa Batch — sztuczna inteligencja | Nie | Nie | Nie |  |
-|Usługa Blockchain | Nie | Yes | Nie |  |
+|Usługa Blockchain | Nie | Tak | Nie |  |
 |Blueprints | Nie | Nie | Nie |  |
 |Usługa bota | Nie | Nie | Nie |  |
 |Cloud Services | Tak | Tak | Nie | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy.  |
 |Cloud Shell | Nie | Nie | Nie |  |
 |Cognitive Services | Tak | Tak | Nie |  |
-|Container Instances | Yes | Nie | Nie |  |
+|Container Instances | Tak | Nie | Nie |  |
 |Container Registry | Tak | Tak | Nie |  |
-|Content Delivery Network (CDN) | Nie | Yes | Nie |  |
+|Content Delivery Network (CDN) | Nie | Tak | Nie |  |
 |Cosmos DB | Tak | Tak | [Tak](insights/cosmosdb-insights-overview.md) |  |
 |Cost Management | Nie | Nie | Nie |  |
 |Data Box | Nie | Nie | Nie |  |
 |Data Catalog Gen2 | Nie | Nie | Nie |  |
-|Data Explorer | Tak | Tak | Nie |  |
+|Eksplorator danych | Tak | Tak | Nie |  |
 |Data Factory | Tak | Tak | Nie |  |
-|Data Factory v2 | Nie | Yes | Nie |  |
+|Data Factory v2 | Nie | Tak | Nie |  |
 |Data Share | Nie | Nie | Nie |  |
 |Database for MariaDB | Tak | Tak | Nie |  |
 |Database for MySQL | Tak | Tak | Nie |  |
 |Database for PostgreSQL | Tak | Tak | Nie |  |
 |Database Migration Service | Nie | Nie | Nie |  |
-|Databricks | Nie | Yes | Nie |  |
-|Ochrona przed atakami DDoS | Tak | Tak | Nie |  |
+|Databricks | Nie | Tak | Nie |  |
+|DDoS Protection | Tak | Tak | Nie |  |
 |DevOps | Nie | Nie | Nie |  |
-|DNS | Yes | Nie | Nie |  |
+|DNS | Tak | Nie | Nie |  |
 |Nazwy domen | Nie | Nie | Nie |  |
 |DOKUMENTY | Nie | Nie | Nie |  |
 |Dynamics 365 — zaangażowanie klienta | Nie | Nie | Nie |  |
 |Dynamics 365 — Finanse i operacje | Nie | Nie | Nie |  |
-|Event Grid | Yes | Nie | Nie |  |
+|Event Grid | Tak | Nie | Nie |  |
 |Event Hubs | Tak | Tak | Nie |  |
 |ExpressRoute | Tak | Tak | Nie |  |
-|Zapora | Tak | Tak | Nie |  |
+|Firewall | Tak | Tak | Nie |  |
 |Front Door | Tak | Tak | Nie |  |
 |Funkcje | Tak | Tak | Nie |  |
-|HDInsight | Nie | Yes | Nie |  |
+|HDInsight | Nie | Tak | Nie |  |
 |HPC Cache | Nie | Nie | Nie |  |
-|Information Protection | Nie | Yes | Nie |  |
-|Intune | Nie | Yes | Nie |  |
+|Information Protection | Nie | Tak | Nie |  |
+|Intune | Nie | Tak | Nie |  |
 |IoT Central | Nie | Nie | Nie |  |
 |Usługa IoT Hub | Tak | Tak | Nie |  |
-|Usługa Key Vault | Tak | Tak | [Tak](./insights/key-vault-insights-overview.md) |  |
+|Key Vault | Tak | Tak | [Tak](./insights/key-vault-insights-overview.md) |  |
 |Kubernetes Service (AKS) | Nie | Nie | [Tak](insights/container-insights-overview.md)  |  |
-|Moduł równoważenia obciążenia | Tak | Tak | Nie |  |
+|Load Balancer | Tak | Tak | Nie |  |
 |Logic Apps | Tak | Tak | Nie |  |
 |Usługa Machine Learning | Nie | Nie | Nie |  |
 |Aplikacje zarządzane  | Nie | Nie | Nie |  |
-|Maps  | Nie | Nie | Nie |  |
+|Mapy  | Nie | Nie | Nie |  |
 |Media Services | Tak | Tak | Nie |  |
 |Microsoft Flow | Nie | Nie | Nie |  |
 |Microsoft Managed Desktop | Nie | Nie | Nie |  |
@@ -132,13 +132,13 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Microsoft Social Engagement | Nie | Nie | Nie |  |
 |Usługa Microsoft Stream | Tak | Tak | Nie |  |
 |Migrate (Migracja) | Nie | Nie | Nie |  |
-|Multi-Factor Authentication | Nie | Yes | Nie |  |
+|Multi-Factor Authentication | Nie | Tak | Nie |  |
 |Network Watcher | Tak | Tak | Nie |  |
-|Notification Hubs | Yes | Nie | Nie |  |
+|Notification Hubs | Tak | Nie | Nie |  |
 |Open Datasets | Nie | Nie | Nie |  |
 |Zasady | Nie | Nie | Nie |  |
 |Power BI Embedded | Tak | Tak | Nie |  |
-|Private Link | Nie | Nie | Nie |  |
+|Link prywatny | Nie | Nie | Nie |  |
 |Platforma komunikacji buforu projektu | Nie | Nie | Nie |  |
 |Red Hat OpenShift | Nie | Nie | Nie |  |
 |Pamięć podręczna Redis | Tak | Tak | [Tak](insights/redis-cache-insights-overview.md) | |
@@ -147,15 +147,15 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Wyszukiwanie detaliczne — według Bing | Nie | Nie | Nie |  |
 |Wyszukaj | Tak | Tak | Nie |  |
 |Service Bus | Tak | Tak | Nie |  |
-|Service Fabric | Nie | Yes | Nie | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy.  |
+|Service Fabric | Nie | Tak | Nie | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy.  |
 |Portal rejestracji | Nie | Nie | Nie |  |
-|Site Recovery | Nie | Yes | Nie |  |
+|Site Recovery | Nie | Tak | Nie |  |
 |Usługa w chmurze wiosennej | Nie | Nie | Nie |  |
 |SQL Data Warehouse | Tak | Tak | Nie |  |
-|Baza danych SQL | Tak | Tak | Nie |  |
+|SQL Database | Tak | Tak | Nie |  |
 |SQL Server Stretch Database | Tak | Tak | Nie |  |
 |Stos | Nie | Nie | Nie |  |
-|Magazyn | Yes | Nie | [Tak](insights/storage-insights-overview.md) |  |
+|Magazyn | Tak | Nie | [Tak](insights/storage-insights-overview.md) |  |
 |Pamięć podręczna magazynu | Nie | Nie | Nie |  |
 |Usługi synchronizacji magazynu | Nie | Nie | Nie |  |
 |Stream Analytics | Tak | Tak | Nie |  |
@@ -163,10 +163,10 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |TINA | Nie | Nie | Nie |  |
 |Traffic Manager | Tak | Tak | Nie |  |
 |Wydruk uniwersalny | Nie | Nie | Nie |  |
-|Zestawy skali maszyn wirtualnych | Nie | Yes | [Tak](insights/vminsights-overview.md) | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy. |
+|Zestawy skali maszyn wirtualnych | Nie | Tak | [Tak](insights/vminsights-overview.md) | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy. |
 |Virtual Machines | Tak | Tak | [Tak](insights/vminsights-overview.md) | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy. |
 |Virtual Network | Tak | Tak | [Tak](insights/network-insights-overview.md) |  |
-|Dzienniki przepływów Virtual Network sieciowej grupy zabezpieczeń | Nie | Yes | Nie |  |
+|Dzienniki przepływów Virtual Network sieciowej grupy zabezpieczeń | Nie | Tak | Nie |  |
 |VPN Gateway | Tak | Tak | Nie |  |
 |Windows Virtual Desktop | Nie | Nie | Nie |  |
 
@@ -220,7 +220,7 @@ Azure Monitor może zbierać dane z zasobów poza platformą Azure przy użyciu 
 | Zasób | Metoda |
 |:---|:---|
 | Aplikacje | Monitoruj aplikacje sieci Web poza platformą Azure przy użyciu Application Insights. Zobacz [co to jest Application Insights?](./app/app-insights-overview.md). |
-| Maszyny wirtualne | Agent Log Analytics służy do zbierania danych z systemu operacyjnego gościa maszyn wirtualnych w innych środowiskach w chmurze lub lokalnie. Zobacz [zbieranie danych dziennika za pomocą agenta log Analytics](platform/log-analytics-agent.md). |
+| Maszyny wirtualne | Użyj agentów do zbierania danych z systemu operacyjnego gościa maszyn wirtualnych w innych środowiskach w chmurze lub lokalnie. Zobacz [Omówienie agentów Azure monitor](platform/agents-overview.md). |
 | Klient interfejsu API REST | Dostępne są oddzielne interfejsy API do zapisywania danych do Azure Monitor dzienników i metryk z dowolnego klienta interfejsu API REST. Zobacz [wysyłanie danych dzienników do Azure monitor za pomocą interfejsu API modułu zbierającego dane protokołu HTTP](platform/data-collector-api.md) dla dzienników i [wysyłania niestandardowych metryk dla zasobu platformy Azure do magazynu metryk Azure monitor przy użyciu interfejsu API REST](platform/metrics-store-custom-rest-api.md) dla metryk. |
 
 

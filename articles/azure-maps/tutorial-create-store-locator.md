@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: d6ab05d92ec209e10bfc4aec4e4fe2b6ea150099
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e69385d174cfb2ea3aa37867d65e0ac9eb5eaff0
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037664"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080800"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Samouczek: Tworzenie lokalizatora sklepu za pomocą Azure Maps
 
@@ -37,7 +37,7 @@ Przejdź dalej do [przykładu lokalizatora sklepów na żywo](https://azuremapsc
 
 Aby wykonać kroki opisane w tym samouczku, musisz najpierw utworzyć konto Azure Maps i uzyskać klucz podstawowy (klucz subskrypcji). Postępuj zgodnie z instrukcjami w temacie [Tworzenie konta](quick-demo-map-app.md#create-an-azure-maps-account) , aby utworzyć subskrypcję konta usługi Azure Maps z warstwą cenową S1, i wykonaj kroki opisane w sekcji [Pobieranie klucza podstawowego](quick-demo-map-app.md#get-the-primary-key-for-your-account) , aby uzyskać klucz podstawowy dla konta. Aby uzyskać więcej informacji na temat uwierzytelniania w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](how-to-manage-authentication.md).
 
-## <a name="design"></a>Projektowanie
+## <a name="design"></a>Projekt
 
 Zanim przejdziesz do kodu, dobrze jest zacząć od projektu. Lokalizator sklepów może być prosty lub złożony — taki, jaki chcesz. W tym samouczku utworzymy prosty lokalizator sklepów. W trakcie tego procesu podamy kilka wskazówek pomocnych w rozszerzeniu niektórych funkcji, jeśli zechcesz to zrobić. Utworzymy lokalizator sklepów dla fikcyjnej firmy o nazwie Contoso Coffee. Na poniższej ilustracji przedstawiono szkielet ogólnego układu lokalizatora sklepów, który utworzymy w tym samouczku:
 
@@ -950,7 +950,7 @@ W tym samouczku przedstawiono tworzenie podstawowego lokalizatora sklepów przy 
 > * Umożliw użytkownikom [filtrowanie lokalizacji wzdłuż trasy](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
 > * Dodaj możliwość [ustawienia filtrów](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
 > * Dodaj obsługę określania początkowej wartości wyszukiwania przy użyciu ciągu zapytania. Jeśli włączysz tę opcję w lokalizatorze sklepów, użytkownicy będą mogli dodawać zakładki i udostępniać wyszukiwania. Zapewnia ona także prostą metodę przekazywania wyszukiwań do tej strony z innej strony.  
-> * Wdróż swój lokalizator sklepów jako [aplikację internetową usługi Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
+> * Wdróż swój lokalizator sklepów jako [aplikację internetową usługi Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-html). 
 > * Przechowuj dane w bazie danych i wyszukuj pobliskie lokalizacje. Aby dowiedzieć się więcej, zobacz [omówienie typów danych przestrzennych programu SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) i artykuł na temat [wysyłania zapytań względem danych przestrzennych dla najbliższego otoczenia](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
 
 > [!div class="nextstepaction"]

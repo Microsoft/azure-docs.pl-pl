@@ -9,18 +9,18 @@ ms.author: mlearned
 description: Łączenie klastra Kubernetes z obsługą usługi Azure ARC przy użyciu usługi Azure Arc
 keywords: Kubernetes, łuk, Azure, K8s, kontenery
 ms.custom: references_regions
-ms.openlocfilehash: 2c5e697f3dd67087582118fb6a6e083feecf549f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 761263a4cb8c83475142c2afcc39695bb84d46cd
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050096"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080494"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Połącz klaster Kubernetes z obsługą usługi Azure ARC (wersja zapoznawcza)
 
 W tym dokumencie opisano proces łączenia z klastrem Kubernetes, który jest certyfikowany w chmurze CNCF, na przykład AKS-Engine na platformie Azure, AKS-Engine on Azure Stack Hub, GKE, EKS i VMware vSphere do usługi Azure Arc.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Sprawdź, czy masz gotowe do spełnienia następujące wymagania:
 
@@ -172,6 +172,41 @@ Możesz również wyświetlić ten zasób na [Azure Portal](https://portal.azure
 > [!NOTE]
 > Po dołączeniu klastra trwa około 5 – 10 minut, aby metadane klastra (wersja klastra, wersja agenta, liczba węzłów) były dostępne na stronie Przegląd zasobu Kubernetes w usłudze Azure Arc w Azure Portal.
 
+## <a name="connect-using-an-outbound-proxy-server"></a>Nawiązywanie połączenia przy użyciu serwera proxy wychodzącego
+
+Jeśli klaster znajduje się za wychodzącym serwerem proxy, interfejs wiersza polecenia platformy Azure i agenci Kubernetes muszą kierować żądania za pośrednictwem serwera proxy wychodzącego. Następująca konfiguracja pozwala osiągnąć, że:
+
+1. Sprawdź wersję `connectedk8s` rozszerzenia zainstalowanego na komputerze, uruchamiając następujące polecenie:
+
+    ```bash
+    az -v
+    ```
+
+    Wymagana jest `connectedk8s` wersja rozszerzenia >= 0.2.3, aby skonfigurować agentów z serwerem proxy wychodzącego. Jeśli masz wersję < 0.2.3 na maszynie, wykonaj [kroki aktualizacji](#before-you-begin) , aby pobrać najnowszą wersję rozszerzenia na komputerze.
+
+2. Ustaw zmienne środowiskowe, które są zbędne dla interfejsu wiersza polecenia platformy Azure:
+
+    ```bash
+    export HTTP_PROXY=<proxy-server-ip-address>:<port>
+    export HTTPS_PROXY=<proxy-server-ip-address>:<port>
+    export NO_PROXY=<cluster-apiserver-ip-address>:<port>
+    ```
+
+3. Uruchom polecenie Connect z określonymi parametrami serwera proxy:
+
+    ```bash
+    az connectedk8s connect -n <cluster-name> -g <resource-group> \
+    --proxy-https https://<proxy-server-ip-address>:<port> \
+    --proxy-http http://<proxy-server-ip-address>:<port> \
+    --proxy-skip-range <excludedIP>,<excludedCIDR>
+    ```
+
+> [!NOTE]
+> 1. Określenie excludedCIDR w obszarze--proxy-Skip-Range jest ważne, aby zapewnić, że komunikacja w klastrze nie jest uszkodzona dla agentów.
+> 2. Powyższe specyfikacje serwera proxy są obecnie stosowane tylko dla agentów ARC, a nie dla zasobników strumieni używanych w sourceControlConfiguration. Zespół z włączonym łukiem Kubernetes aktywnie pracuje nad tą funkcją i będzie dostępny wkrótce.
+
+## <a name="azure-arc-agents-for-kubernetes"></a>Agenci Azure ARC dla Kubernetes
+
 Usługa Azure ARC z włączonym Kubernetes wdraża kilka operatorów w `azure-arc` przestrzeni nazw. Te wdrożenia i zasobniki można wyświetlić tutaj:
 
 ```console
@@ -199,8 +234,6 @@ pod/flux-logs-agent-7c489f57f4-mwqqv            2/2     Running  0       16h
 pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
-
-## <a name="azure-arc-agents-for-kubernetes"></a>Agenci Azure ARC dla Kubernetes
 
 Usługa Azure ARC z włączonym Kubernetes składa się z kilku agentów (operatorów) uruchomionych w klastrze wdrożonym w `azure-arc` przestrzeni nazw.
 

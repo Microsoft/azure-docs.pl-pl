@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 04/22/2020
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: f397a3df7280b9277b2b7205368ef5788ed321aa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d5fe447e8a1467530cd0eb4c9d2f8a20a4273876
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82206679"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080885"
 ---
-Utwórz [aplikację internetową](../articles/app-service/containers/app-service-linux-intro.md) w planie `myAppServicePlan` App Service. 
+Utwórz [aplikację internetową](../articles/app-service/overview.md#app-service-on-linux) w `myAppServicePlan` planie App Service. 
 
-W Cloud Shell można użyć [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest) polecenia. W poniższym przykładzie zastąp ciąg `<app-name>` globalnie unikatową nazwą aplikacji (prawidłowe znaki to `a-z`, `0-9` i `-`). Środowisko uruchomieniowe jest ustawione `DOTNETCORE|LTS`na wartość, czyli .net Core 3,1. Aby wyświetlić wszystkie obsługiwane środowiska uruchomieniowe, [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest)Uruchom polecenie. 
+W Cloud Shell można użyć [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest) polecenia. W poniższym przykładzie zastąp ciąg `<app-name>` globalnie unikatową nazwą aplikacji (prawidłowe znaki to `a-z`, `0-9` i `-`). Środowisko uruchomieniowe ma ustawioną wartość `DOTNETCORE|3.1`. Aby wyświetlić wszystkie obsługiwane środowiska uruchomieniowe, uruchom polecenie [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest) . 
 
 ```azurecli-interactive
 # Bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "DOTNETCORE|LTS" --deployment-local-git
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "DOTNETCORE|3.1" --deployment-local-git
 # PowerShell
-az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "DOTNETCORE|LTS" --deployment-local-git
+az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "DOTNETCORE|3.1" --deployment-local-git
 ```
 
 Po utworzeniu aplikacji internetowej w interfejsie wiersza polecenia platformy Azure zostaną wyświetlone dane wyjściowe podobne do następujących:
@@ -49,12 +49,3 @@ Utworzona została pusta aplikacja internetowa w kontenerze systemu Linux z wł�
 > [!NOTE]
 > Adres URL zdalnego repozytorium Git jest wyświetlany we właściwości `deploymentLocalGitUrl` w formacie `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Zapisz ten adres URL, ponieważ będzie on potrzebny później.
 >
-
-Obecnie należy uruchomić następujące dodatkowe polecenie w celu poprawnego skonfigurowania wersji platformy .NET Core (Zastąp `<app-name>` ją z poprzednią czynnością):
-
-```azurecli-interactive
-# Bash
-az webapp config set --resource-group myResourceGroup --name <app-name> --linux-fx-version "DOTNETCORE|3.1"
-# PowerShell
-az --% webapp config set --resource-group myResourceGroup --name <app-name> --linux-fx-version "DOTNETCORE|3.1"
-```

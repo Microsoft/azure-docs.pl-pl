@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a198456412c3146db2bc3e2a2483377e387f452d
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: b957ea9131c5124925b74576fd78665522afd8dc
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513336"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080236"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Samouczek: używanie tożsamości zarządzanej do łączenia Key Vault z aplikacją sieci Web platformy Azure przy użyciu platformy .NET
 
@@ -140,7 +140,7 @@ Po utworzeniu planu usługi App Service interfejs wiersza polecenia platformy Az
 
 ### <a name="create-a-remote-web-app"></a>Tworzenie zdalnej aplikacji sieci Web
 
-Utwórz [aplikację internetową platformy Azure](../../app-service/containers/app-service-linux-intro.md) w `myAppServicePlan` planie App Service. 
+Utwórz [aplikację internetową platformy Azure](../../app-service/overview.md#app-service-on-linux) w `myAppServicePlan` planie App Service. 
 
 > [!Important]
 > Podobnie jak w przypadku Key Vault, aplikacja internetowa platformy Azure musi mieć unikatową nazwę. Zastąp ciąg \<your-webapp-name\> nazwą aplikacji sieci Web poniższymi przykładami.

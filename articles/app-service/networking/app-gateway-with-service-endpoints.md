@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 5e32baa10e98f0f57a861f8cebfb7506ad615631
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2bedd8d9ab0b879886042de3dc2fcff7f7b36f2f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74980064"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080936"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Application Gateway integrację z punktami końcowymi usługi
 Istnieją trzy różnice App Service, które wymagają nieco innej konfiguracji integracji z usługą Azure Application Gateway. Różnice obejmują regularne App Service — nazywane również wieloma dzierżawcami, wewnętrznymi Load Balancer (ILB) App Service Environment (ASE) i zewnętrznym środowiskiem ASE. W tym artykule opisano sposób konfigurowania tego programu przy użyciu App Service (wiele dzierżawców) i omówienia zagadnień dotyczących ILB oraz zewnętrznego środowiska ASE.
@@ -33,7 +33,7 @@ Istnieją dwie części tej konfiguracji Oprócz tworzenia App Service i Applica
 
 ## <a name="using-azure-portal"></a>Korzystanie z witryny Azure Portal
 W przypadku Azure Portal należy wykonać cztery kroki, aby zainicjować i skonfigurować konfigurację. Jeśli masz istniejące zasoby, możesz pominąć pierwsze kroki.
-1. Utwórz App Service przy użyciu jednego z przewodników szybki start w dokumentacji App Service, na przykład [.NET Core szybki start](../../app-service/app-service-web-get-started-dotnet.md)
+1. Utwórz App Service przy użyciu jednego z przewodników szybki start w dokumentacji App Service, na przykład [.NET Core szybki start](../quickstart-dotnetcore.md)
 2. Utwórz Application Gateway za pomocą [przewodnika Szybki Start dla portalu](../../application-gateway/quick-create-portal.md), ale Pomiń sekcję Dodawanie elementów docelowych zaplecza.
 3. Skonfiguruj [App Service jako zaplecze w Application Gateway](../../application-gateway/configure-web-app-portal.md), ale Pomiń sekcję ograniczanie dostępu.
 4. Na koniec Utwórz [ograniczenie dostępu za pomocą punktów końcowych usługi](../../app-service/app-service-ip-restrictions.md#service-endpoints).

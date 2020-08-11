@@ -3,12 +3,12 @@ title: Wysyłanie lub odbieranie zdarzeń z usługi Azure Event Hubs przy użyci
 description: Ten artykuł zawiera Przewodnik dotyczący tworzenia aplikacji .NET Core, która wysyła/odbiera zdarzenia do/z usługi Azure Event Hubs przy użyciu najnowszego pakietu Azure. Messaging. EventHubs.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 9e7f40b0312798667b63c6cf5d02772307dbc2b9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 292e6e36337f565100c25d655882e60fa2a0bb6d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537143"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080059"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Wysyłanie zdarzeń do i odbieranie zdarzeń z usługi Azure Event Hubs — .NET (Azure. Messaging. EventHubs) 
 W tym przewodniku szybki start pokazano, jak wysyłać zdarzenia do i odbierać zdarzenia z centrum zdarzeń przy użyciu biblioteki platformy .NET **Azure. Messaging. EventHubs** . 
@@ -114,7 +114,7 @@ W tej sekcji pokazano, jak napisać aplikację konsolową .NET Core, która odbi
 ### <a name="create-an-azure-storage-and-a-blob-container"></a>Tworzenie usługi Azure Storage i kontenera obiektów BLOB
 W tym przewodniku szybki start użyjesz usługi Azure Storage jako magazynu punktów kontrolnych. Wykonaj następujące kroki, aby utworzyć konto usługi Azure Storage. 
 
-1. [Utwórz konto usługi Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal)
+1. [Tworzenie konta usługi Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal)
 2. [Tworzenie kontenera obiektów blob](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
 3. [Pobierz parametry połączenia z kontem magazynu](../storage/common/storage-configure-connection-string.md)
 

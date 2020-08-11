@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 25f43051f11d42c4f8565039d3168f2ae162eb37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 163a6940e50d1f8beacc23855fd1e6f9daad0085
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74671687"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080477"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Często zadawane pytania dotyczące aplikacji internetowych na platformie Azure
 
@@ -40,7 +40,7 @@ Aby rozwiązać ten problem, należy przeprowadzić uaktualnienie do [najnowszeg
 ## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>Jak mogę wdrożyć aplikację ASP.NET z poziomu programu Visual Studio w celu App Service?
 <a id="deployasp"></a>
 
-Samouczek [Tworzenie pierwszej aplikacji sieci web ASP.NET na platformie Azure w ciągu pięciu minut](app-service-web-get-started-dotnet.md) pokazuje, jak wdrożyć aplikację sieci Web ASP.NET w aplikacji sieci web w App Service przy użyciu programu Visual Studio.
+Samouczek [Tworzenie pierwszej aplikacji sieci web ASP.NET na platformie Azure w ciągu pięciu minut](quickstart-dotnetcore.md) pokazuje, jak wdrożyć aplikację sieci Web ASP.NET w aplikacji sieci web w App Service przy użyciu programu Visual Studio.
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>Jakie są różne typy poświadczeń wdrażania?
 

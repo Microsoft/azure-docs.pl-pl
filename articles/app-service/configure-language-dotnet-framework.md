@@ -4,12 +4,12 @@ description: Dowiedz się, jak skonfigurować aplikację ASP.NET w Azure App Ser
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 1aeb243b3ff4a1e6bd2ae984510d2ec709776fa9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53654520ea20bd8ee797de61449a616eadd001a5
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84908152"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080151"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Konfigurowanie aplikacji ASP.NET dla Azure App Service
 
@@ -18,7 +18,7 @@ ms.locfileid: "84908152"
 
 Aplikacje ASP.NET muszą zostać wdrożone w celu Azure App Service jako skompilowane pliki binarne. Narzędzie do publikowania programu Visual Studio kompiluje rozwiązanie, a następnie wdraża skompilowane pliki binarne bezpośrednio, natomiast aparat wdrażania App Service najpierw wdraża repozytorium kodu, a następnie kompiluje pliki binarne.
 
-Ten przewodnik zawiera najważniejsze pojęcia i instrukcje dla deweloperów ASP.NET. Jeśli nie korzystasz z Azure App Service, najpierw postępuj zgodnie z samouczkiem [Szybki Start](app-service-web-get-started-dotnet-framework.md) i [ASP.NET z programem SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md) .
+Ten przewodnik zawiera najważniejsze pojęcia i instrukcje dla deweloperów ASP.NET. Jeśli nie korzystasz z Azure App Service, najpierw postępuj zgodnie z samouczkiem [Szybki Start](quickstart-dotnet-framework.md) i [ASP.NET z programem SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md) .
 
 ## <a name="show-supported-net-framework-runtime-versions"></a>Pokaż obsługiwane wersje środowiska uruchomieniowego .NET Framework
 
@@ -82,7 +82,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="get-detailed-exceptions-page"></a>Strona pobierania szczegółowych wyjątków
 
-Gdy aplikacja ASP.NET generuje wyjątek w debugerze programu Visual Studio, przeglądarka wyświetla szczegółową stronę wyjątku, ale w App Service ta strona zostanie zastąpiona przez ogólny komunikat o błędzie. Aby wyświetlić szczegółową stronę wyjątku w App Service, Otwórz plik *Web.config* i Dodaj `<customErrors mode="Off"/>` element poniżej `<system.web>` elementu. Przykład:
+Gdy aplikacja ASP.NET generuje wyjątek w debugerze programu Visual Studio, przeglądarka wyświetla szczegółową stronę wyjątku, ale w App Service ta strona zostanie zastąpiona przez ogólny komunikat o błędzie. Aby wyświetlić szczegółową stronę wyjątku w App Service, Otwórz plik *Web.config* i Dodaj `<customErrors mode="Off"/>` element poniżej `<system.web>` elementu. Na przykład:
 
 ```xml
 <system.web>
@@ -94,7 +94,7 @@ Wdróż ponownie aplikację ze zaktualizowanym *Web.config*. Powinna zostać wy�
 
 ## <a name="access-diagnostic-logs"></a>Uzyskiwanie dostępu do dzienników diagnostycznych
 
-W kodzie aplikacji można dodawać komunikaty diagnostyczne przy użyciu funkcji [System. Diagnostics. Trace](https://docs.microsoft.com/dotnet/api/system.diagnostics.trace). Przykład: 
+W kodzie aplikacji można dodawać komunikaty diagnostyczne przy użyciu funkcji [System. Diagnostics. Trace](https://docs.microsoft.com/dotnet/api/system.diagnostics.trace). Na przykład: 
 
 ```csharp
 Trace.TraceError("Record not found!"); // Error trace
@@ -107,4 +107,4 @@ Trace.TraceInformation("GET /Home/Index"); // Information trace
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Samouczek: tworzenie aplikacji ASP.NET na platformie Azure przy użyciu usługi SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+> [Samouczek: Tworzenie aplikacji ASP.NET na platformie Azure przy użyciu usługi SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)

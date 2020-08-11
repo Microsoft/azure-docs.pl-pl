@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 074171d658eb4e1e029652c9c0851e082ba043fe
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: d5497f50f9e868338541143a18ab0c83f32c1d1b
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053443"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080528"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Konfiguracje magazynu maszyn wirtualnych platformy Azure SAP HANA
 
@@ -133,7 +133,7 @@ Szczególnie w przypadku mniejszych systemów DBMS, w których obciążenie obs�
 > Certyfikat SAP HANA dla maszyn wirtualnych z serii M systemu Azure jest oparty wyłącznie na platformie Azure akcelerator zapisu dla woluminu **/Hana/log** . W efekcie scenariusz produkcyjny SAP HANA wdrożenia na maszynach wirtualnych z serii M na platformie Azure powinien zostać skonfigurowany za pomocą usługi Azure akcelerator zapisu dla woluminu **/Hana/log** .  
 
 > [!NOTE]
-> W scenariuszach obejmujących usługę Azure Premium Storage wdrażamy możliwości serii w konfiguracji. W miarę jak narzędzia do testowania magazynu dla dowolnego kształtu lub formularza, należy pamiętać, że działanie dotyczące tworzenia [dysków w warstwie Premium platformy Azure](../../linux/disk-bursting.md) jest zgodne. W przypadku uruchamiania testów magazynu dostarczonych za pomocą narzędzia SAP HWCCT lub HCMT nie oczekujemy, że wszystkie testy przechodzą kryteria, ponieważ niektóre testy przekroczą kredyty na rozerwanie, które można gromadzić. Szczególnie wtedy, gdy wszystkie testy działają sekwencyjnie bez przerwy.
+> W scenariuszach obejmujących usługę Azure Premium Storage wdrażamy możliwości serii w konfiguracji. Korzystając z narzędzi do testowania magazynu dla dowolnego kształtu lub formularza, należy pamiętać, aby mieć świadomość, jak [działa duże wykorzystanie dysku platformy Azure](../../linux/disk-bursting.md) . W przypadku uruchamiania testów magazynu dostarczonych za pomocą narzędzia SAP HWCCT lub HCMT nie oczekujemy, że wszystkie testy przechodzą kryteria, ponieważ niektóre testy przekroczą kredyty na rozerwanie, które można gromadzić. Szczególnie wtedy, gdy wszystkie testy działają sekwencyjnie bez przerwy.
 
 
 > [!NOTE]

@@ -3,12 +3,12 @@ title: Azure Windows Communication Foundation (WCF) — hybrydowa aplikacja loka
 description: Dowiedz się, jak uwidocznić lokalną usługę WCF dla aplikacji internetowej w chmurze za pomocą usługi Azure Relay
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 78d250eb2572f137df4bcfd40c5c85cee9fb61dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9ac01beb28b1246122f437bcf1c7a7be7a1dfd9
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314408"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079964"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Uwidacznianie lokalnej usługi WCF dla aplikacji internetowej w chmurze za pomocą usługi Azure Relay
 
@@ -244,7 +244,7 @@ W tej sekcji utworzysz prostą aplikację ASP.NET, która będzie wyświetlać d
     ![Określanie uwierzytelniania][18]
 
 1. Po powrocie do **tworzenia nowej aplikacji sieci Web ASP.NET**wybierz pozycję **Utwórz** , aby utworzyć aplikację MVC.
-1. Skonfiguruj zasoby platformy Azure dla nowej aplikacji sieci Web. Wykonaj kroki opisane w temacie [publikowanie aplikacji sieci Web](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard). Następnie wróć do tego samouczka i przejdź do następnego kroku.
+1. Skonfiguruj zasoby platformy Azure dla nowej aplikacji sieci Web. Wykonaj kroki opisane w temacie [publikowanie aplikacji sieci Web](../app-service/quickstart-dotnet-framework.md#launch-the-publish-wizard). Następnie wróć do tego samouczka i przejdź do następnego kroku.
 1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **modele** , a następnie wybierz polecenie **Dodaj**  >  **klasę**.
 1. Nazwij klasę *Product.cs*, a następnie wybierz pozycję **Dodaj**.
 

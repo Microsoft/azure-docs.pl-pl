@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: c8e0b476c50378bde00e01a39985fbcc188f04ed
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 8362cc3b8f8477f77d8ec672144e7c68d2e3434d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562382"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080732"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Uwierzytelnianie i autoryzacja w Azure App Service i Azure Functions
 
@@ -56,7 +56,7 @@ Moduł uwierzytelniania i autoryzacji jest uruchamiany w oddzielnym kontenerze o
 
 ### <a name="userapplication-claims"></a>Oświadczenia użytkownika/aplikacji
 
-W przypadku wszystkich platform językowych App Service wykonuje oświadczenia w tokenie przychodzącym (niezależnie od tego, czy są one od uwierzytelnionego użytkownika końcowego lub aplikacji klienckiej) dostępne dla kodu, wprowadzając je do nagłówków żądania. W przypadku aplikacji ASP.NET 4,6 App Service wypełnia [ClaimsPrincipal. Current](/dotnet/api/system.security.claims.claimsprincipal.current) przy użyciu oświadczeń uwierzytelnionego użytkownika, więc można przestrzegać standardowego wzorca kodu .NET, w tym `[Authorize]` atrybutu. Podobnie w przypadku aplikacji PHP App Service wypełnia `_SERVER['REMOTE_USER']` zmienną. W przypadku aplikacji Java oświadczenia są [dostępne z Tomcat serwletu](containers/configure-language-java.md#authenticate-users-easy-auth).
+W przypadku wszystkich platform językowych App Service wykonuje oświadczenia w tokenie przychodzącym (niezależnie od tego, czy są one od uwierzytelnionego użytkownika końcowego lub aplikacji klienckiej) dostępne dla kodu, wprowadzając je do nagłówków żądania. W przypadku aplikacji ASP.NET 4,6 App Service wypełnia [ClaimsPrincipal. Current](/dotnet/api/system.security.claims.claimsprincipal.current) przy użyciu oświadczeń uwierzytelnionego użytkownika, więc można przestrzegać standardowego wzorca kodu .NET, w tym `[Authorize]` atrybutu. Podobnie w przypadku aplikacji PHP App Service wypełnia `_SERVER['REMOTE_USER']` zmienną. W przypadku aplikacji Java oświadczenia są [dostępne z Tomcat serwletu](configure-language-java.md#authenticate-users-easy-auth).
 
 W [Azure Functions](../azure-functions/functions-overview.md)przypadku Azure Functions `ClaimsPrincipal.Current` nie jest wypełniony dla kodu platformy .NET, ale nadal można znaleźć oświadczenia użytkownika w nagłówkach żądania lub pobrać `ClaimsPrincipal` obiekt z kontekstu żądania lub nawet za pośrednictwem parametru powiązania. Aby uzyskać więcej informacji, zobacz [Praca z tożsamościami klientów](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) .
 
@@ -149,7 +149,7 @@ W przypadku tej opcji nie trzeba pisać kodu uwierzytelniania w aplikacji. Bardz
 
 ## <a name="more-resources"></a>Dodatkowe zasoby
 
-[Samouczek: uwierzytelnianie i Autoryzowanie użytkowników na zakończenie w Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)  
+[Samouczek: uwierzytelnianie i Autoryzowanie użytkowników na zakończenie w Azure App Service (Windows)](tutorial-auth-aad.md)  
 [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników w Azure App Service dla systemu Linux](containers/tutorial-auth-aad.md)  
 [Dostosuj uwierzytelnianie i autoryzację w App Service](app-service-authentication-how-to.md) 
  [Integracja z platformą .NET Core w usłudze Azure appService EasyAuth (trzecia firma)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) 

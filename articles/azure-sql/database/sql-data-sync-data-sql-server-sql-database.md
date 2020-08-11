@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 0e6229e38674651f3db068d30f68ef4c7e293c0a
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 7f5ce25edfc4c3afd8a30528396f1f285b9af571
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386847"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080698"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Co to jest SQL Data Sync dla platformy Azure?
 
@@ -131,6 +131,7 @@ Inicjowanie obsługi administracyjnej i cofanie aprowizacji podczas tworzenia gr
 ### <a name="general-limitations"></a>Ogólne ograniczenia
 
 - Tabela nie może mieć kolumny tożsamości, która nie jest kluczem podstawowym.
+- Tabela musi mieć indeks klastrowany, aby można było używać synchronizacji danych.
 - Klucz podstawowy nie może mieć następujących typów danych: sql_variant, Binary, varbinary, Image, XML.
 - Należy zachować ostrożność w przypadku używania następujących typów danych jako klucza podstawowego, ponieważ obsługiwana precyzja jest tylko sekundą: Time, DateTime, datetime2, DateTimeOffset.
 - Nazwy obiektów (baz danych, tabel i kolumn) nie mogą zawierać kropki do drukowalnego znaku (.), lewego nawiasu kwadratowego ([) lub prawego nawiasu kwadratowego (]).

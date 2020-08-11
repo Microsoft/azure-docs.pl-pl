@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: dapine
-ms.openlocfilehash: 6f5df14d9488f8ccb1f93c2a16ba52998f25e268
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: db1b88b9c22012cb4e6b5025dda31432c9278ff8
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876584"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080902"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Konfigurowanie sieci wirtualnych usług Azure Cognitive Services
 
@@ -40,10 +40,9 @@ Reguły sieciowe są wymuszane dla wszystkich protokołów sieciowych na platfor
 
 ## <a name="supported-regions-and-service-offerings"></a>Obsługiwane regiony i oferty usług
 
-Cognitive Services wymienione poniżej obsługują sieci wirtualne w chmurze komercyjnej i w chmurze US Gov. Jeśli usługa nie jest wymieniona w tym miejscu, nie obsługuje jeszcze sieci wirtualnych.
+Sieci wirtualne (sieci wirtualnych) są obsługiwane w [regionach, w których są dostępne Cognitive Services](https://azure.microsoft.com/global-infrastructure/services/). Jeśli usługa poznawcze nie znajduje się na liście, nie obsługuje obecnie sieci wirtualnych.
 
 > [!div class="checklist"]
-
 > * [Narzędzie do wykrywania anomalii](./anomaly-detector/index.yml)
 > * [Przetwarzanie obrazów](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
@@ -59,8 +58,8 @@ Cognitive Services wymienione poniżej obsługują sieci wirtualne w chmurze kom
 ## <a name="service-tags"></a>Tagi usługi
 
 Cognitive Services obsługuje Tagi usług dla konfiguracji reguł sieci. Wymienione poniżej usługi znajdują się w tagu usługi **CognitiveServicesManagement** .
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * [Narzędzie do wykrywania anomalii](./anomaly-detector/index.yml)
 > * [Przetwarzanie obrazów](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)

@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: app-service
 author: msangapu-msft
 ms.service: app-service
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: msangapu
 ms.custom: include file
-ms.openlocfilehash: 14b84c27140c7aebf83684d7c80dfbae5713850b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c32788cdf77b31c34021e0eaded6f73520fd572a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085249"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88081033"
 ---
-Utwórz [aplikację internetową](../articles/app-service/containers/app-service-linux-intro.md) w planie `myAppServicePlan` App Service. 
+Utwórz [aplikację internetową](../articles/app-service/overview.md#app-service-on-linux) w `myAppServicePlan` planie App Service. 
 
-W Cloud Shell można użyć [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) polecenia. W poniższym przykładzie zastąp ciąg `<app-name>` globalnie unikatową nazwą aplikacji (prawidłowe znaki to `a-z`, `0-9` i `-`). Środowisko uruchomieniowe ma ustawioną wartość `PHP|7.3`. Aby wyświetlić wszystkie obsługiwane środowiska uruchomieniowe, [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes)Uruchom polecenie. 
+W Cloud Shell można użyć [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) polecenia. W poniższym przykładzie zastąp ciąg `<app-name>` globalnie unikatową nazwą aplikacji (prawidłowe znaki to `a-z`, `0-9` i `-`). Środowisko uruchomieniowe ma ustawioną wartość `PHP|7.3`. Aby wyświetlić wszystkie obsługiwane środowiska uruchomieniowe, uruchom polecenie [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) . 
 
 ```azurecli-interactive
 # Bash

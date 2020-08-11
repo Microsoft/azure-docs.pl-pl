@@ -12,12 +12,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: fb1623c4a409f1c6cba94bad56d773e166d2b182
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e75b5a265ba85813581e39a548d897ea57a33da6
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "69637321"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080562"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Jak nawiązać połączenie telefoniczne za pomocą Twilio w aplikacji PHP na platformie Azure
 Poniższy przykład pokazuje, jak można użyć Twilio, aby wykonać wywołanie ze strony sieci Web w języku PHP hostowanej na platformie Azure. Aplikacja wynikowa wyświetli monit dla użytkownika o wartości połączeń telefonicznych, jak pokazano na poniższym zrzucie ekranu.
@@ -105,7 +105,7 @@ Oprócz tworzenia wywołania **MakeCall. php** wyświetla niektóre metadane wyw
 ![Odpowiedź na wywołanie platformy Azure przy użyciu Twilio i języka PHP][twilio_php_response]
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
-Następnym krokiem jest [wdrożenie aplikacji na platformie Azure Web Apps przy użyciu usługi git](app-service/app-service-web-get-started-php.md) (chociaż nie wszystkie informacje są istotne). 
+Następnym krokiem jest [wdrożenie aplikacji na platformie Azure Web Apps przy użyciu usługi git](app-service/quickstart-php.md) (chociaż nie wszystkie informacje są istotne). 
 
 ## <a name="next-steps"></a>Następne kroki
 Ten kod został dostarczony, aby pokazać podstawowe funkcje przy użyciu Twilio w języku PHP na platformie Azure. Przed wdrożeniem na platformie Azure w środowisku produkcyjnym warto dodać więcej obsługi błędów lub innych funkcji. Na przykład:

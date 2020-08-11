@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d83aae778c940958d545a9402b09d24a55b1c5a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5507e6f97211f209eb559ff7491f22bdf1a00e54
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482687"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079675"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorowanie aplikacji w Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) zapewnia wbudowaną funkcję monitorowania dla aplikacji sieci Web, urządzeń przenośnych i aplikacji interfejsu API w [Azure Portal](https://portal.azure.com).
@@ -35,7 +35,7 @@ Przydziały dla aplikacji bezpłatnych lub udostępnionych:
 | --- | --- |
 | **PROCESOR (krótki)** | Ilość procesora CPU dozwolona dla tej aplikacji w interwale 5-minutowym. Ten przydział resetuje co pięć minut. |
 | **PROCESOR (dzień)** | Całkowita ilość procesora CPU dozwolona dla tej aplikacji w ciągu dnia. Ten przydział resetuje co 24 godziny o północy czasu UTC. |
-| **Memory (Pamięć)** | Całkowita ilość pamięci dozwolonej dla tej aplikacji. |
+| **Pamięć** | Całkowita ilość pamięci dozwolonej dla tej aplikacji. |
 | **Przepustowość** | Całkowita ilość wychodzącej przepustowości dozwolonej dla tej aplikacji w ciągu dnia. Ten przydział resetuje co 24 godziny o północy czasu UTC. |
 | **Filesystem** | Łączna ilość dozwolonego miejsca w magazynie. |
 
@@ -55,7 +55,7 @@ W przypadku przekroczenia limitu przydziału systemu plików operacja zapisu nie
 
 Można zwiększyć lub usunąć przydziały z aplikacji, uaktualniając plan App Service.
 
-## <a name="understand-metrics"></a>Informacje o metrykach
+## <a name="understand-metrics"></a>Opis metryk
 
 > [!NOTE]
 > **Użycie systemu plików** to nowa Metryka, która jest rzutowana globalnie, nie jest oczekiwane, o ile nie udzielono dostępu do prywatnej wersji zapoznawczej.
@@ -64,11 +64,15 @@ Można zwiększyć lub usunąć przydziały z aplikacji, uaktualniając plan App
 > [!IMPORTANT]
 > **Średni czas odpowiedzi** będzie przestarzały, aby uniknąć pomyłek w agregacji metryk. Użyj **czasu odpowiedzi** jako zamiennika.
 
+> [!NOTE]
+> Metryki dla aplikacji obejmują żądania do witryny SCM (kudu) aplikacji.  Obejmuje to żądania wyświetlenia logstream lokacji przy użyciu kudu.  Żądania Logstream mogą obejmować kilka minut, co wpłynie na metryki czasu żądania.  Użytkownicy powinni mieć świadomość tej relacji, gdy używają tych metryk z logiką skalowania automatycznego.
+> 
+
 Metryki zawierają informacje dotyczące aplikacji lub zachowania planu App Service.
 
 W przypadku aplikacji dostępne są następujące metryki:
 
-| Metric | Opis |
+| Metryka | Opis |
 | --- | --- |
 | **Czas odpowiedzi** | Czas potrzebny na obsługę żądań w aplikacji (w sekundach). |
 | **Średni czas odpowiedzi (przestarzałe)** | Średni czas, w którym aplikacja będzie obsługiwała żądania (w sekundach). |
@@ -112,7 +116,7 @@ W przypadku planu App Service dostępne są następujące metryki:
 > Metryki planu App Service są dostępne tylko w przypadku planów w warstwach *podstawowa*, *standardowa*i *Premium* .
 > 
 
-| Metric | Opis |
+| Metryka | Opis |
 | --- | --- |
 | **Procent użycia procesora CPU** | Średni procesor używany przez wszystkie wystąpienia planu. |
 | **Procent pamięci** | Średnia pamięć użyta we wszystkich wystąpieniach planu. |

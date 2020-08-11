@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Ten przewodnik Szybki Start przedstawia sposób tworzenia zespołu Kubernetes z użyciem kontenerów i mikrousług za pomocą Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 0fe177db420913e5d68807dd803df791653c0914
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3b4aae5c249e4dcbc4365c98791415e9fdc55c0c
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78244943"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080440"
 ---
 # <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>Szybki Start: Programowanie zespołowe w usłudze Kubernetes — Azure Dev Spaces
 
@@ -40,10 +40,10 @@ az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Włączanie Azure Dev Spaces w klastrze AKS
 
-Użyj `use-dev-spaces` polecenia, aby włączyć miejsca deweloperskie w klastrze AKS i postępuj zgodnie z monitami. Poniższe polecenie włącza miejsca deweloperskie w klastrze *MyAKS* w grupie Grupa *zasobów* i tworzy przestrzeń dev o nazwie *dev*.
+Użyj `use-dev-spaces` polecenia, aby włączyć miejsca deweloperskie w KLASTRZE AKS i postępuj zgodnie z monitami. Poniższe polecenie włącza miejsca deweloperskie w klastrze *MyAKS* w grupie Grupa *zasobów* i tworzy przestrzeń dev o nazwie *dev*.
 
 > [!NOTE]
-> `use-dev-spaces` Polecenie spowoduje również zainstalowanie interfejsu wiersza polecenia Azure dev Spaces, jeśli nie został jeszcze zainstalowany. Nie można zainstalować interfejsu wiersza polecenia Azure Dev Spaces w Azure Cloud Shell.
+> `use-dev-spaces`Polecenie spowoduje również zainstalowanie interfejsu wiersza polecenia Azure dev Spaces, jeśli nie został jeszcze zainstalowany. Nie można zainstalować interfejsu wiersza polecenia Azure Dev Spaces w Azure Cloud Shell.
 
 ```azurecli
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space dev --yes
@@ -89,7 +89,7 @@ cd charts/
 helm install bikesharingsampleappsampleapp . --dependency-update --namespace dev --atomic
 ```
 
-Wykonanie `helm install` polecenia może potrwać kilka minut. Po zainstalowaniu przykładowej aplikacji w klastrze, ponieważ w klastrze są włączone spacje, użyj `azds list-uris` polecenia, aby wyświetlić adresy URL dla przykładowej aplikacji w *deweloperskim* , który jest aktualnie wybrany.
+`helm install`Wykonanie polecenia może potrwać kilka minut. Po zainstalowaniu przykładowej aplikacji w klastrze, ponieważ w klastrze są włączone spacje, użyj `azds list-uris` polecenia, aby wyświetlić adresy URL dla przykładowej aplikacji w *deweloperskim* , który jest aktualnie wybrany.
 
 ```cmd
 $ azds list-uris
@@ -99,13 +99,13 @@ http://dev.bikesharingweb.fedcab0987.eus.azds.io/  Available
 http://dev.gateway.fedcab0987.eus.azds.io/         Available
 ```
 
-Przejdź do usługi *bikesharingweb* , otwierając publiczny adres URL z `azds list-uris` polecenia. W powyższym przykładzie publiczny adres URL usługi *bikesharingweb* to `http://dev.bikesharingweb.fedcab0987.eus.azds.io/`. Wybierz pozycję *Aurelia Briggs (Customer)* jako użytkownik. Upewnij się, że zobaczysz tekst *Hi Aurelia Briggs | Wyloguj się* u góry.
+Przejdź do usługi *bikesharingweb* , otwierając publiczny adres URL z `azds list-uris` polecenia. W powyższym przykładzie publiczny adres URL usługi *bikesharingweb* to `http://dev.bikesharingweb.fedcab0987.eus.azds.io/` . Wybierz pozycję *Aurelia Briggs (Customer)* jako użytkownik. Upewnij się, że zobaczysz tekst *Hi Aurelia Briggs | Wyloguj się* u góry.
 
 ![Przykładowa aplikacja do udostępniania roweru Azure Dev Spaces](media/quickstart-team-development/bikeshare.png)
 
 ## <a name="create-child-dev-spaces"></a>Tworzenie podrzędnych miejsc dev
 
-Użyj polecenia `azds space select` , aby utworzyć dwie spacje podrzędne w obszarze *dev*:
+Użyj `azds space select` polecenia, aby utworzyć dwie spacje podrzędne w obszarze *dev*:
 
 ```cmd
 azds space select -n dev/azureuser1 -y
@@ -126,7 +126,7 @@ $ azds space list
 *  dev/azureuser2  True
 ```
 
-Użyj, `azds list-uris` aby wyświetlić adresy URL dla przykładowej aplikacji w aktualnie wybranym miejscu, które jest *dev/azureuser2*.
+Użyj, `azds list-uris` Aby wyświetlić adresy URL dla przykładowej aplikacji w aktualnie wybranym miejscu, które jest *dev/azureuser2*.
 
 ```cmd
 $ azds list-uris
@@ -136,13 +136,13 @@ http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/  Available
 http://azureuser2.s.dev.gateway.fedcab0987.eus.azds.io/         Available
 ```
 
-Upewnij się, że adresy URL wyświetlane `azds list-uris` przez polecenie mają prefiks *azureuser2. s. dev* . Ten prefiks potwierdza, że bieżące wybrane miejsce to *azureuser2*, które jest elementem podrzędnym *dev*.
+Upewnij się, że adresy URL wyświetlane przez `azds list-uris` polecenie mają prefiks *azureuser2. s. dev* . Ten prefiks potwierdza, że bieżące wybrane miejsce to *azureuser2*, które jest elementem podrzędnym *dev*.
 
-Przejdź do usługi *bikesharingweb* , aby uzyskać dostęp do deweloperów *dev/azureuser2* , otwierając publiczny adres URL za `azds list-uris` pomocą polecenia. W powyższym przykładzie publiczny adres URL usługi *bikesharingweb* to `http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/`. Wybierz pozycję *Aurelia Briggs (Customer)* jako użytkownik. Upewnij się, że zobaczysz tekst *Hi Aurelia Briggs | Wyloguj się* u góry.
+Przejdź do usługi *bikesharingweb* , aby uzyskać dostęp do deweloperów *dev/azureuser2* , otwierając publiczny adres URL za pomocą `azds list-uris` polecenia. W powyższym przykładzie publiczny adres URL usługi *bikesharingweb* to `http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/` . Wybierz pozycję *Aurelia Briggs (Customer)* jako użytkownik. Upewnij się, że zobaczysz tekst *Hi Aurelia Briggs | Wyloguj się* u góry.
 
 ## <a name="update-code"></a>Aktualizowanie kodu
 
-Otwórz *BikeSharingWeb/Components/header. js* z edytorem tekstu i Zmień tekst w [elemencie span na wartość `userSignOut` ClassName](https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/components/Header.js#L16).
+Otwórz *BikeSharingWeb/Components/Header.js* za pomocą edytora tekstów i Zmień tekst w [elemencie span na wartość `userSignOut` ClassName](https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/components/Header.js#L16).
 
 ```html
 <span className="userSignOut">
@@ -175,7 +175,7 @@ Przejdź do usługi *bikesharingweb* dla obszaru tworzenia */azureuser2* dev, ot
 ![Zaktualizowana aplikacja Przykładowa udostępniania Azure Dev Spaces roweru](media/quickstart-team-development/bikeshare-update.png)
 
 > [!NOTE]
-> Gdy przejdziesz do usługi w trakcie `azds up`działania, w danych wyjściowych `azds up` polecenia są również wyświetlane dane śledzenia żądań HTTP. Te ślady mogą pomóc w rozwiązywaniu problemów i debugowaniu usługi. Te ślady można wyłączyć przy `--disable-http-traces` użyciu programu `azds up`podczas uruchamiania.
+> Gdy przejdziesz do usługi w trakcie działania `azds up` , w danych wyjściowych polecenia są również wyświetlane dane śledzenia żądań HTTP `azds up` . Te ślady mogą pomóc w rozwiązywaniu problemów i debugowaniu usługi. Te ślady można wyłączyć przy użyciu programu `--disable-http-traces` podczas uruchamiania `azds up` .
 
 ## <a name="verify-other-dev-spaces-are-unchanged"></a>Upewnij się, że inne miejsca deweloperskie nie zostały zmienione
 
@@ -205,10 +205,10 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak usługa Azure Dev Spaces pomaga tworzyć bardziej złożone aplikacje w wielu kontenerach i jak można uprościć programowanie zespołowe przez pracę z różnymi wersjami lub gałęziami kodu w różnych obszarach.
+Dowiedz się więcej o tym, jak działa Azure Dev Spaces.
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development (Praca z wieloma kontenerami i programowanie zespołowe)](multi-service-nodejs.md)
+> [Jak działa usługa Azure Dev Spaces](how-dev-spaces-works.md)
 
 [helm-installed]: https://helm.sh/docs/intro/install/
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

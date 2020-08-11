@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 6ac47bec2f14e14fcb83f79ea26b1514abc36f8f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c4b1c506ff0e78e5e304ceb1682c73f9cd784c95
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519834"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080545"
 ---
 # <a name="using-twilio-for-voice-voip-and-sms-messaging-in-azure"></a>Korzystanie z programu Twilio do obsługi wiadomości głosowych, VoIP i SMS na platformie Azure
 W tym przewodniku pokazano, jak tworzyć aplikacje, które komunikują się z Twilio i node.js na platformie Azure.
@@ -242,7 +242,7 @@ Mamy nadzieję, że lubisz działanie hakerskie node.js i Twilio na platformie A
 [purchase_phone]: https://www.twilio.com/console/phone-numbers/search
 [twiml]: https://www.twilio.com/docs/api/twiml
 [signup]: https://ahoy.twilio.com/azure
-[azure_new_site]: app-service/app-service-web-get-started-nodejs.md
+[azure_new_site]: app-service/quickstart-nodejs.md
 [twilio_console]: https://www.twilio.com/console
 [npm]: https://npmjs.org
 [express]: https://expressjs.com

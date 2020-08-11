@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 5afe5eded4937631d25ab94edc1908b7ac83d383
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: fafdf18a3593f7ec444e9970d99807cbfe0cb13d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067481"
+ms.locfileid: "88080630"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Szybki Start: jak używać tematów Service Bus i subskrypcji z Node.js i pakietem Azure/Service-Bus
 W ramach tego samouczka nauczysz się napisać program Node.js do wysyłania komunikatów do Service Bus tematu i odbierania komunikatów z subskrypcji Service Bus przy użyciu nowego [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) pakietu. Ten pakiet używa szybszego [protokołu AMQP 1,0](service-bus-amqp-overview.md) , podczas gdy starszy pakiet [platformy Azure-SB](https://www.npmjs.com/package/azure-sb) używany [Service Bus interfejsów API czasu wykonywania REST](/rest/api/servicebus/service-bus-runtime-rest). Przykłady są zapisywane w języku JavaScript.
@@ -22,7 +22,7 @@ W ramach tego samouczka nauczysz się napisać program Node.js do wysyłania kom
 - Jeśli nie masz tematu i subskrypcji do współpracy z programem, wykonaj czynności opisane w [Azure Portal Użyj, aby utworzyć tematy Service Bus i subskrypcje](service-bus-quickstart-topics-subscriptions-portal.md) , aby je utworzyć. Zanotuj parametry połączenia dla wystąpienia Service Bus i nazwy utworzonego tematu i subskrypcji. Będziemy używać tych wartości w przykładach.
 
 > [!NOTE]
-> - Ten samouczek współpracuje z przykładami, które można kopiować i uruchamiać przy użyciu [NodeJS](https://nodejs.org/). Aby uzyskać instrukcje dotyczące sposobu tworzenia aplikacji Node.js, zobacz [Tworzenie i wdrażanie aplikacji Node.js w witrynie sieci Web platformy Azure](../app-service/app-service-web-get-started-nodejs.md)lub [Node.js usługi w chmurze przy użyciu programu Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
+> - Ten samouczek współpracuje z przykładami, które można kopiować i uruchamiać przy użyciu [NodeJS](https://nodejs.org/). Aby uzyskać instrukcje dotyczące sposobu tworzenia aplikacji Node.js, zobacz [Tworzenie i wdrażanie aplikacji Node.js w witrynie sieci Web platformy Azure](../app-service/quickstart-nodejs.md)lub [Node.js usługi w chmurze przy użyciu programu Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
 > - Nowy [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) pakiet nie obsługuje jeszcze tworzenia topcis i subskrypcji. Użyj pakietu, [@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus) Jeśli chcesz programowo je utworzyć.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Instalowanie menedżera NPM (Node Package Manager)

@@ -4,12 +4,12 @@ description: Monitorowanie wydajności aplikacji dla usług Azure App Services. 
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 6c0d99e89e17c2aad3c7dcfe0056b597aa88d2a2
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: d30d5fa8532b9bdec2b231daf9a59732dc1ebce8
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876397"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079709"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorowanie wydajności usługi Azure App Service
 
@@ -401,7 +401,7 @@ Aby uzyskać najnowsze informacje na temat Application Insights agenta/rozszerze
 
 Podczas tworzenia aplikacji sieci Web za pomocą programu `ASP.NET` lub `.NET Core` środowiska uruchomieniowego na platformie Azure App Services wdrażana jest pojedyncza statyczna strona HTML jako początkowa witryna sieci Web. Statyczna Strona sieci Web ładuje również zarządzane składniki sieci .NET w usługach IIS. Pozwala to na testowanie bezkodowego monitorowania po stronie serwera, ale nie obsługuje automatycznego monitorowania po stronie klienta.
 
-Jeśli chcesz przetestować monitorowanie po stronie serwera i klienta dla ASP.NET lub ASP.NET Core w aplikacji sieci Web App Services platformy Azure, zalecamy wykonanie oficjalnych przewodników związanych z [tworzeniem aplikacji internetowej ASP.NET Core](../../app-service/app-service-web-get-started-dotnet.md) i [Tworzenie aplikacji sieci Web ASP.NET Framework](../../app-service/app-service-web-get-started-dotnet-framework.md) , a następnie użyj instrukcji w bieżącym artykule, aby włączyć monitorowanie.
+Jeśli chcesz przetestować monitorowanie po stronie serwera i klienta dla ASP.NET lub ASP.NET Core w aplikacji sieci Web App Services platformy Azure, zalecamy wykonanie oficjalnych przewodników związanych z [tworzeniem aplikacji internetowej ASP.NET Core](../../app-service/quickstart-dotnetcore.md) i [Tworzenie aplikacji sieci Web ASP.NET Framework](../../app-service/quickstart-dotnet-framework.md) , a następnie użyj instrukcji w bieżącym artykule, aby włączyć monitorowanie.
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP i WordPress nie są obsługiwane
 

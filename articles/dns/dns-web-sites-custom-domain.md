@@ -7,16 +7,16 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 8722a52a097f7f830287d125a4e56e9bbcb9f932
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7a250eaeb8ac4d0c8cacfb1748855700c9986bf5
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76939102"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079471"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Samouczek: tworzenie rekordów DNS w domenie niestandardowej dla aplikacji internetowej 
 
-Możesz skonfigurować usługę Azure DNS, aby hostować domenę niestandardową dla aplikacji internetowych. Można na przykład utworzyć aplikację internetową platformy Azure i uzyskać do niej dostęp przy użyciu przeglądarki www\.contoso.com lub contoso.com jako w pełni kwalifikowanej nazwy domeny (FQDN).
+Możesz skonfigurować usługę Azure DNS, aby hostować domenę niestandardową dla aplikacji internetowych. Można na przykład utworzyć aplikację internetową platformy Azure i uzyskać do niej dostęp przy użyciu przeglądarki www \. contoso.com lub contoso.com jako w pełni kwalifikowanej nazwy domeny (FQDN).
 
 > [!NOTE]
 > W tym samouczku jako przykład używana jest domena contoso.com. Zastąp contoso.com swoją nazwą domeny.
@@ -48,7 +48,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * Musisz mieć nazwę domeny dostępną do przetestowania, aby można było hostować w Azure DNS. Musisz mieć pełną kontrolę nad tą domeną. Pełna kontrola obejmuje możliwość ustawiania dla domeny rekordów serwera nazw (NS).
-* [Utwórz aplikację usługi App Service](../app-service/app-service-web-get-started-html.md) lub użyj aplikacji utworzonej w innym samouczku.
+* [Utwórz aplikację usługi App Service](../app-service/quickstart-html.md) lub użyj aplikacji utworzonej w innym samouczku.
 
 * Utwórz strefę DNS w usłudze Azure DNS i deleguj strefę u rejestratora do usługi Azure DNS.
 
@@ -175,12 +175,12 @@ Otwórz przeglądarkę i przejdź do `http://www.<your domainname>` oraz `http:/
 > [!NOTE]
 > Upewnij się, że dołączysz `http://` prefiks, w przeciwnym razie przeglądarka może próbować przewidzieć adres URL.
 
-Dla obu adresów URL powinna zostać wyświetlona ta sama strona. Przykład:
+Dla obu adresów URL powinna zostać wyświetlona ta sama strona. Na przykład:
 
 ![Usługa aplikacji Contoso](media/dns-web-sites-custom-domain/contoso-app-svc.png)
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeżeli nie potrzebujesz już zasobów utworzonych w ramach tego samouczka, możesz usunąć grupę zasobów **myresourcegroup**.
 

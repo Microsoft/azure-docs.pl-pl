@@ -5,18 +5,18 @@ ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
-ms.openlocfilehash: ed84cb2b0cb8d98b12fe787e49c400ba47e4e38a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11798db483f0ba370f73340489c17f38c87ede41
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74671625"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080202"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funkcjonalność systemu operacyjnego na Azure App Service
 W tym artykule opisano typowe podstawowe funkcje systemu operacyjnego, które są dostępne dla wszystkich aplikacji systemu Windows działających na [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Ta funkcja obejmuje dostęp do plików, sieci i rejestru oraz dzienniki i zdarzenia diagnostyczne. 
 
 > [!NOTE] 
-> [Aplikacje systemu Linux](containers/app-service-linux-intro.md) w App Service uruchamiane we własnych kontenerach. Żaden dostęp do systemu operacyjnego hosta nie jest dozwolony, masz dostęp do kontenera. Podobnie w przypadku [aplikacji działających w kontenerach systemu Windows](app-service-web-get-started-windows-container.md)użytkownik ma dostęp administracyjny do kontenera, ale nie ma dostępu do systemu operacyjnego hosta. 
+> [Aplikacje systemu Linux](overview.md#app-service-on-linux) w App Service uruchamiane we własnych kontenerach. Żaden dostęp do systemu operacyjnego hosta nie jest dozwolony, masz dostęp do kontenera. Podobnie w przypadku [aplikacji działających w kontenerach systemu Windows](quickstart-custom-container.md?pivots=container-windows)użytkownik ma dostęp administracyjny do kontenera, ale nie ma dostępu do systemu operacyjnego hosta. 
 >
 
 <a id="tiers"></a>
@@ -51,7 +51,7 @@ App Service to usługa działająca w oparciu o infrastrukturę platformy Azure 
 - Dysk aplikacji zawierający pliki cspkg pakietu platformy Azure używane wyłącznie przez App Service (i niedostępne dla klientów)
 - Stacja "użytkownika" (C:\ Drive), którego rozmiar zmienia się w zależności od rozmiaru maszyny wirtualnej. 
 
-Ważne jest, aby monitorować wykorzystanie dysku w miarę zwiększania się aplikacji. Po osiągnięciu limitu przydziału dysku może on mieć niekorzystny wpływ na aplikację. Przykład: 
+Ważne jest, aby monitorować wykorzystanie dysku w miarę zwiększania się aplikacji. Po osiągnięciu limitu przydziału dysku może on mieć niekorzystny wpływ na aplikację. Na przykład: 
 
 - Aplikacja może zgłosić błąd informujący o braku wystarczającej ilości miejsca na dysku.
 - Błędy dysku mogą być widoczne podczas przeglądania do konsoli kudu.
@@ -60,7 +60,7 @@ Ważne jest, aby monitorować wykorzystanie dysku w miarę zwiększania się apl
 
 <a id="NetworkDrives"></a>
 
-### <a name="network-drives-aka-unc-shares"></a>Dyski sieciowe (udziały UNC)
+### <a name="network-drives-unc-shares"></a>Dyski sieciowe (udziały UNC)
 Jednym z unikatowych aspektów App Service, które ułatwiają wdrażanie i konserwację aplikacji, jest to, że cała zawartość użytkownika jest przechowywana na zestawie udziałów UNC. Ten model jest dobrze mapowany do wspólnego wzorca magazynu zawartości używanego przez lokalne środowiska hostingu w sieci Web, które mają wiele serwerów o zrównoważonym obciążeniu. 
 
 W ramach App Service istnieje wiele udziałów UNC utworzonych w każdym centrum danych. Procent zawartości użytkownika dla wszystkich klientów w poszczególnych centrach danych jest przypisywany do każdego udziału UNC. Ponadto cała zawartość pliku dla subskrypcji jednego klienta jest zawsze umieszczana w tym samym udziale UNC. 

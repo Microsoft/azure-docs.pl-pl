@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: W tym przewodniku szybki start pokazano, jak używać Azure Dev Spaces i Visual Studio Code do debugowania i szybkiej iteracji aplikacji platformy .NET Core w usłudze Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 104e812cc9e792ce71f263085ba1a3474cc2226b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 13c5aabfc5a737a516a407803e620f2b62490e3e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002781"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080749"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Szybki Start: debugowanie i iteracja na Kubernetes: Visual Studio Code i .NET Core — Azure Dev Spaces
 
@@ -169,10 +169,10 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak Azure Dev Spaces ułatwiają tworzenie bardziej złożonych aplikacji w wielu kontenerach i jak można uprościć programowanie do współpracy, pracując z różnymi wersjami lub gałęziami kodu w różnych miejscach. 
+Dowiedz się więcej o tym, jak działa Azure Dev Spaces.
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development (Praca z wieloma kontenerami i programowanie zespołowe)](multi-service-netcore.md)
+> [Jak działa usługa Azure Dev Spaces](how-dev-spaces-works.md)
 
 
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
