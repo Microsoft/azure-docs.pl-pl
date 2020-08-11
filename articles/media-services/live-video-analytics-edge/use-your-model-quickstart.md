@@ -3,12 +3,12 @@ title: Analizowanie wideo na żywo przy użyciu własnego modelu — Azure
 description: W tym przewodniku szybki start nastąpi zastosowanie wizji komputerowej w celu przeanalizowania na żywo kanału informacyjnego wideo z (symulowanej) kamery IP.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: dc8c2d1f0620a92a13cb1f4c0b83c2452f964fd6
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 75e18917b0d44dc33999d17360cd66a538c83d2b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170620"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065203"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-model"></a>Szybki Start: analizowanie wideo na żywo przy użyciu własnego modelu
 
@@ -31,7 +31,7 @@ Ten przewodnik Szybki Start używa maszyny wirtualnej platformy Azure jako urzą
 ## <a name="review-the-sample-video"></a>Zapoznaj się z przykładowym wideo
 Po skonfigurowaniu zasobów platformy Azure do maszyny wirtualnej z systemem Linux na platformie Azure jest kopiowany krótki film wideo dotyczący ruchu drogowego, który jest używany jako urządzenie IoT Edge. Ten przewodnik Szybki Start używa pliku wideo do symulowania strumienia na żywo.
 
-Otwórz aplikację, taką jak [VLC Media Player](https://www.videolan.org/vlc/). Wybierz kombinację klawiszy CTRL + N, a następnie wklej link do [filmu wideo](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) , aby rozpocząć odtwarzanie. Zobaczysz film o wielu pojazdach poruszających się w ruchu drogowym.
+Otwórz aplikację, taką jak [VLC Media Player](https://www.videolan.org/vlc/). Wybierz `Ctrl+N` , a następnie wklej link do [przykładowego wideo z przecięciem na autostradę](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) , aby rozpocząć odtwarzanie. Zobaczysz film o wielu pojazdach poruszających się w ruchu drogowym.
 
 W tym przewodniku szybki start użyjesz usługi Analiza filmów wideo na żywo na IoT Edge do wykrywania obiektów, takich jak pojazdy i osoby. Spowoduje to opublikowanie skojarzonych zdarzeń wnioskowania w centrum IoT Edge.
 
@@ -107,9 +107,18 @@ W ramach wymagań wstępnych pobrano przykładowy kod do folderu. Wykonaj nastę
 1. Po wyświetleniu monitu o wybranie urządzenia IoT Hub wybierz pozycję **LVA-Sample-Device**.
 1. Po około 30 sekundach w lewym dolnym rogu okna Odśwież IoT Hub platformy Azure. Na urządzeniu brzegowym są teraz wyświetlane następujące wdrożone moduły:
 
-    * Moduł Live Video Analytics o nazwie **lvaEdge**
-    * Moduł **rtspsim** , który symuluje serwer RTSP i działa jako źródło kanału informacyjnego wideo na żywo
-    * Moduł **yolov3** , który jest modelem wykrywania obiektów yolov3, który ma zastosowanie do obrazów i zwraca wiele klas typów obiektów
+    * Moduł analizy wideo na żywo o nazwie`lvaEdge`
+    * `rtspsim`Moduł, który symuluje serwer RTSP i działa jako źródło kanału informacyjnego wideo na żywo
+    > [!NOTE]
+    > Jeśli używasz własnego urządzenia brzegowego zamiast zainicjowanego przez nasz skrypt Instalatora, przejdź do urządzenia brzegowego i uruchom następujące polecenia z **uprawnieniami administratora**, aby ściągnąć i przechować przykładowy plik wideo używany do tego przewodnika Szybki Start:  
+
+    ```
+    mkdir /home/lvaadmin/samples
+    mkdir /home/lvaadmin/samples/input    
+    curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
+    chown -R lvaadmin /home/lvaadmin/samples/  
+    ```
+    * `yolov3`Moduł, który jest modelem wykrywania obiektów YoloV3, który stosuje na potrzeby obrazów i zwraca wiele klas typów obiektów
  
       ![Moduły wdrożone na urządzeniu brzegowym](./media/quickstarts/yolov3.png)
 
@@ -278,13 +287,13 @@ W komunikatach Zwróć uwagę na następujące informacje:
 * `body`Sekcja zawiera dane dotyczące zdarzenia analizy. W takim przypadku zdarzenie jest zdarzeniem wnioskowania, dlatego treść zawiera `inferences` dane.
 * `inferences`Sekcja wskazuje, że `type` jest `entity` . Ta sekcja zawiera dodatkowe dane dotyczące jednostki.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz wypróbować inne Przewodniki Szybki Start, Zachowaj utworzone zasoby. W przeciwnym razie przejdź do Azure Portal, przejdź do grup zasobów, wybierz grupę zasobów, w której uruchomiono ten przewodnik Szybki Start, i Usuń wszystkie zasoby.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Wypróbuj [bezpieczną wersję modelu YOLOv3](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/tls-yolov3-onnx/readme.md) i Wdróż ją na urządzeniu IoT Edge. 
+* Wypróbuj [bezpieczną wersję modelu YoloV3](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/tls-yolov3-onnx/readme.md) i Wdróż ją na urządzeniu IoT Edge. 
 
 Zapoznaj się z dodatkowymi wyzwaniami dla zaawansowanych użytkowników:
 

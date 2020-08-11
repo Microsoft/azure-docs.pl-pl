@@ -3,12 +3,12 @@ title: Azure Service Bus — wygaśnięcie komunikatu
 description: W tym artykule wyjaśniono, jak wygasa i czas na żywo komunikatów Azure Service Bus. Po upływie tego terminu wiadomość nie zostanie już dostarczona.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: ca789be91e835576ec06a422bdbbbf25eb775dac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41711428711533a6ecac449f59d415e86474545b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341206"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064727"
 ---
 # <a name="message-expiration-time-to-live"></a>Wygaśnięcie komunikatu (czas wygaśnięcia)
 
@@ -27,9 +27,9 @@ Gdy wiadomość jest zablokowana, aplikacja może być w posiadaniu wiadomości,
 Wszystkie komunikaty wysyłane do kolejki lub tematu podlegają domyślnym wygaśnięciu ustawionym na poziomie jednostki z właściwością [defaultMessageTimeToLive](/azure/templates/microsoft.servicebus/namespaces/queues) , które można również ustawić w portalu podczas tworzenia i korygowania później. Domyślne wygaśnięcie jest używane dla wszystkich komunikatów wysyłanych do jednostki, gdzie [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) nie jest jawnie ustawiona. Domyślne wygaśnięcie również działa jako pułap dla wartości **TimeToLive** . Komunikaty, które mają dłuższy czas wygaśnięcia **TimeToLive** niż wartość domyślna, są w trybie dyskretnym dostosowywane do wartości **defaultMessageTimeToLive** przed utworzeniem ich w kolejce.
 
 > [!NOTE]
-> Domyślna wartość [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) dla komunikatu obsługiwanego przez brokera to [TimeSpan. Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) , jeśli nie określono inaczej.
+> Domyślna wartość [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) dla komunikatu obsługiwanego przez brokera to [TimeSpan. Max](/dotnet/api/system.timespan.maxvalue) , jeśli nie określono inaczej.
 >
-> W przypadku jednostek obsługi komunikatów (kolejek i tematów) domyślny czas wygaśnięcia jest określany jako [TimeSpan. Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) dla warstw Service Bus Standard i Premium.  W przypadku warstwy Podstawowa domyślny czas wygaśnięcia wynosi 14 dni.
+> W przypadku jednostek obsługi komunikatów (kolejek i tematów) domyślny czas wygaśnięcia jest określany jako [TimeSpan. Max](/dotnet/api/system.timespan.maxvalue) dla warstw Service Bus Standard i Premium.  W przypadku warstwy Podstawowa domyślny czas wygaśnięcia wynosi 14 dni.
 
 Wygasłe komunikaty można opcjonalnie przenieść do [kolejki utraconych wiadomości](service-bus-dead-letter-queues.md) , ustawiając właściwość [EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enabledeadletteringonmessageexpiration#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) lub zaznaczając odpowiednie pole w portalu. Jeśli opcja jest wyłączona, wygasłe komunikaty są usuwane. Wygasłe komunikaty przeniesione do kolejki utraconych wiadomości można odróżnić od innych utraconych wiadomości, oceniając Właściwość [DeadletterReason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) , która jest przechowywana przez brokera w sekcji właściwości użytkownika; w tym przypadku wartość jest [TTLExpiredException](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) .
 

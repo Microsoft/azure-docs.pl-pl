@@ -4,12 +4,12 @@ description: W ramach tego samouczka nauczysz się używać tematów i subskrypc
 ms.devlang: PHP
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: f2161d39961cc52bc0f0da509abec3ed6377cc07
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 706f523fdfb3c710bb16b048cfc68ce98875adb1
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341090"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066206"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Szybki Start: jak używać tematów Service Bus i subskrypcji w języku PHP
 
@@ -261,13 +261,13 @@ for($i = 0; $i < 5; $i++){
 Tematy usługi Service Bus obsługują maksymalny rozmiar komunikatu 256 KB w [warstwie Standardowa](service-bus-premium-messaging.md) i 1 MB w [warstwie Premium](service-bus-premium-messaging.md). Nagłówek, który zawiera standardowe i niestandardowe właściwości aplikacji, może mieć maksymalny rozmiar 64 KB. Nie ma żadnego limitu liczby komunikatów w temacie, ale jest ograniczenie całkowitego rozmiaru komunikatów przechowywanych przez temat. Górny limit rozmiaru tematu wynosi 5 GB. Aby uzyskać więcej informacji na temat przydziałów, zobacz [Service Bus przydziały][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-subscription"></a>Odbieranie komunikatów z subskrypcji
-Najlepszym sposobem odbierania komunikatów z subskrypcji jest użycie `ServiceBusRestProxy->receiveSubscriptionMessage` metody. Komunikaty mogą być odbierane w dwóch różnych trybach: [ *ReceiveAndDelete* i *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). Ustawienie domyślne to **PeekLock**.
+Najlepszym sposobem odbierania komunikatów z subskrypcji jest użycie `ServiceBusRestProxy->receiveSubscriptionMessage` metody. Komunikaty mogą być odbierane w dwóch różnych trybach: [ *ReceiveAndDelete* i *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode). Ustawienie domyślne to **PeekLock**.
 
-W przypadku używania trybu [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) odbieranie jest operacją pojedynczego zrzutu. Oznacza to, że kiedy usługa Service Bus odbiera żądanie odczytu komunikatu w subskrypcji, oznacza komunikat jako wykorzystywany i zwraca go do aplikacji. Tryb [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) * jest najprostszym modelem i najlepiej sprawdza się w scenariuszach, w których aplikacja może tolerować nieprzetwarzanie komunikatu w przypadku wystąpienia błędu. Aby to zrozumieć, rozważmy scenariusz, w którym konsument wystawia żądanie odbioru, a następnie ulega awarii przed jego przetworzeniem. Ponieważ Service Bus oznaczył komunikat jako używany, wtedy, gdy aplikacja zostanie ponownie uruchomiona i rozpocznie korzystanie z komunikatów, zostanie pominięty komunikat, który był używany przed awarią.
+W przypadku używania trybu [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) odbieranie jest operacją pojedynczego zrzutu. Oznacza to, że kiedy usługa Service Bus odbiera żądanie odczytu komunikatu w subskrypcji, oznacza komunikat jako wykorzystywany i zwraca go do aplikacji. Tryb [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) * jest najprostszym modelem i najlepiej sprawdza się w scenariuszach, w których aplikacja może tolerować nieprzetwarzanie komunikatu w przypadku wystąpienia błędu. Aby to zrozumieć, rozważmy scenariusz, w którym konsument wystawia żądanie odbioru, a następnie ulega awarii przed jego przetworzeniem. Ponieważ Service Bus oznaczył komunikat jako używany, wtedy, gdy aplikacja zostanie ponownie uruchomiona i rozpocznie korzystanie z komunikatów, zostanie pominięty komunikat, który był używany przed awarią.
 
-W domyślnym trybie [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) otrzymywanie komunikatu staje się operacją dwuetapową, co umożliwia obsługę aplikacji, które nie mogą tolerować brakujących komunikatów. Gdy usługa Service Bus odbiera żądanie, znajduje następny komunikat do wykorzystania, blokuje go w celu uniemożliwienia innym klientom odebrania go i zwraca go do aplikacji. Gdy aplikacja zakończy przetwarzanie komunikatu (lub zapisuje ją w sposób niezawodny w przyszłości), kończy drugi etap procesu odbierania, przekazując odebrany komunikat do `ServiceBusRestProxy->deleteMessage` . Gdy Service Bus widzi `deleteMessage` wywołanie, oznacza komunikat jako używany i usunąć go z kolejki.
+W domyślnym trybie [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode) otrzymywanie komunikatu staje się operacją dwuetapową, co umożliwia obsługę aplikacji, które nie mogą tolerować brakujących komunikatów. Gdy usługa Service Bus odbiera żądanie, znajduje następny komunikat do wykorzystania, blokuje go w celu uniemożliwienia innym klientom odebrania go i zwraca go do aplikacji. Gdy aplikacja zakończy przetwarzanie komunikatu (lub zapisuje ją w sposób niezawodny w przyszłości), kończy drugi etap procesu odbierania, przekazując odebrany komunikat do `ServiceBusRestProxy->deleteMessage` . Gdy Service Bus widzi `deleteMessage` wywołanie, oznacza komunikat jako używany i usunąć go z kolejki.
 
-Poniższy przykład pokazuje, jak odbierać i przetwarzać komunikat przy użyciu trybu [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) (tryb domyślny). 
+Poniższy przykład pokazuje, jak odbierać i przetwarzać komunikat przy użyciu trybu [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode) (tryb domyślny). 
 
 ```php
 require_once 'vendor/autoload.php';

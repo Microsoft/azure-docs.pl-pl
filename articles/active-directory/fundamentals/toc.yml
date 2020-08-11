@@ -49,6 +49,8 @@
       items:
         - name: Architektura usługi Azure AD
           href: active-directory-architecture.md
+        - name: Integrowanie wszystkich aplikacji z usługą Azure AD
+          href: five-steps-to-full-application-integration-with-azure-ad.md
     - name: Podręcznik wdrażania
       items:
         - name: 'Wdrożenie 30, 90 i dalej'

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ae598fb9e4018369230de5fadcf173a3df9fb4c
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 09050bc6895076994baf1c98c65aa87672a5652e
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87551697"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066070"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
 
@@ -545,11 +545,11 @@ Może tworzyć wszystkie aspekty rejestracji aplikacji i aplikacji przedsiębior
 | Microsoft. Directory/appRoleAssignments/Update | Aktualizacja appRoleAssignments w Azure Active Directory. |
 | Microsoft. Directory/appRoleAssignments/Delete | Usuń appRoleAssignments w Azure Active Directory. |
 | Microsoft. Directory/auditLogs/allProperties/odczyt | Odczytaj wszystkie właściwości (w tym właściwości uprzywilejowane) w witrynie auditLogs w Azure Active Directory. |
-| Microsoft. Directory/connectorGroups/wszystko/odczyt | Odczytaj właściwości grupy łączników serwera proxy aplikacji w Azure Active Directory. |
-| Microsoft. Directory/connectorGroups/wszystko/aktualizacja | Zaktualizuj wszystkie właściwości grupy łączników serwera proxy aplikacji w Azure Active Directory. |
+| Microsoft. Directory/connectorGroups/allProperties/odczyt | Odczytaj właściwości grupy łączników serwera proxy aplikacji w Azure Active Directory. |
+| Microsoft. Directory/connectorGroups/allProperties/Update | Zaktualizuj wszystkie właściwości grupy łączników serwera proxy aplikacji w Azure Active Directory. |
 | Microsoft. Directory/connectorGroups/Create | Utwórz grupy łączników serwera proxy aplikacji w Azure Active Directory. |
 | Microsoft. Directory/connectorGroups/Delete | Usuń grupy łączników serwera proxy aplikacji w Azure Active Directory. |
-| Microsoft. katalog/łączniki/wszystko/odczyt | Odczytaj wszystkie właściwości łącznika serwera proxy aplikacji w Azure Active Directory. |
+| Microsoft. Directory/Connectors/allProperties/Read | Odczytaj wszystkie właściwości łącznika serwera proxy aplikacji w Azure Active Directory. |
 | Microsoft. Directory/Connectors/Create | Utwórz łączniki serwera proxy aplikacji w Azure Active Directory. |
 | Microsoft. Directory/policies/applicationConfiguration/Basic/Read | Odczytaj Właściwość zasad. applicationConfiguration w Azure Active Directory. |
 | Microsoft. Directory/policies/applicationConfiguration/Basic/Update | Zaktualizuj Właściwość policies. applicationConfiguration w Azure Active Directory. |
@@ -1426,7 +1426,6 @@ Usługa umożliwia zarządzanie aplikacjami pakietu Office w chmurze, w tym zarz
 | Microsoft. Office 365. messageCenter/messages/Read | Odczytuj wiadomości w Microsoft. 365. messageCenter. |
 | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Service Health pakietu Office 365. |
 | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej pakietu Office 365 i zarządzaj nimi. |
-| Microsoft. Office 365. usageReports/allEntities/odczyt | Przeczytaj raporty dotyczące użycia pakietu Office 365. |
 | Microsoft. Office 365. userCommunication/allEntities/allTasks | Odczytuj i Aktualizuj informacje o nowościach. |
 | Microsoft. 365. webports/allEntities/Basic/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
 

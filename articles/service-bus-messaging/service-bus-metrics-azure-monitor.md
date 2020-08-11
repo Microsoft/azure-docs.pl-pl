@@ -3,18 +3,18 @@ title: Metryki Azure Service Bus w Azure Monitor | Microsoft Docs
 description: W tym artykule wyjaśniono, jak używać Azure Monitor do monitorowania jednostek Service Bus (kolejek, tematów i subskrypcji).
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: c4bf33fc7aa21be150a1ee0d6c65df84a391565e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3081b46bebdba8e83e5584178b37aab2dffee599
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089689"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065016"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Metryki Azure Service Bus w Azure Monitor
 
 Metryki Service Bus umożliwiają udostępnienie stanu zasobów w ramach subskrypcji platformy Azure. Dzięki bogatemu zestawowi danych metryk można ocenić ogólną kondycję zasobów Service Bus, nie tylko na poziomie przestrzeni nazw, ale również na poziomie jednostki. Te dane statystyczne mogą być ważne, ponieważ ułatwiają monitorowanie stanu Service Bus. Metryki mogą również pomóc w rozwiązywaniu problemów dotyczących głównych przyczyn, bez konieczności kontaktowania się z pomocą techniczną platformy Azure.
 
-Azure Monitor zapewnia ujednolicone interfejsy użytkownika do monitorowania różnych usług platformy Azure. Aby uzyskać więcej informacji, zobacz [monitorowanie w Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) i [pobieranie metryk Azure monitor z przykładem platformy .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) w witrynie GitHub.
+Azure Monitor zapewnia ujednolicone interfejsy użytkownika do monitorowania różnych usług platformy Azure. Aby uzyskać więcej informacji, zobacz [monitorowanie w Microsoft Azure](../azure-monitor/overview.md) i [pobieranie metryk Azure monitor z przykładem platformy .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) w witrynie GitHub.
 
 > [!IMPORTANT]
 > Gdy nie dojdzie do żadnej interakcji z jednostką przez 2 godziny, metryki rozpoczną wyświetlanie "0" jako wartości do momentu, gdy jednostka nie będzie już w stanie bezczynności.
@@ -159,7 +159,7 @@ Azure Service Bus obsługuje następujące wymiary dla metryk w Azure Monitor. D
     8. Na stronie **wiadomości e-mail/SMS/wypychanie/głos** wykonaj następujące czynności:
         1. Wybierz pozycję **Adres e-mail**. 
         2. Wpisz **adres e-mail**. 
-        3. Wybierz przycisk **OK**.
+        3. Wybierz pozycję **OK**.
 
             ![Szczegóły alertu](./media/service-bus-metrics-azure-monitor/add-action-group.png)
         4. Na stronie **Dodaj grupę akcji** wybierz pozycję **OK**. 
@@ -169,9 +169,7 @@ Azure Service Bus obsługuje następujące wymiary dla metryk w Azure Monitor. D
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [omówienie Azure monitor](../monitoring-and-diagnostics/monitoring-overview.md).
+Zobacz [omówienie Azure monitor](../azure-monitor/overview.md).
 
 [1]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor1.png
 [2]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor2.png
-
-

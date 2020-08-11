@@ -3,12 +3,12 @@ title: Konfigurowanie reguł zapory adresów IP dla Azure Service Bus
 description: Jak używać reguł zapory do zezwalania na połączenia z określonych adresów IP do Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e9b39f1b163a894bf4831662ac050463086133d5
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 699ece2e78ff0605ff4076b09c023d14e289b1f7
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552921"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064642"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Zezwalaj na dostęp do przestrzeni nazw Azure Service Bus z określonych adresów IP lub zakresów
 Domyślnie obszary nazw Service Bus są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją do tylko zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas routingu między domenami)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
@@ -164,4 +164,4 @@ Aby ograniczyć dostęp do Service Bus do sieci wirtualnych platformy Azure, Sko
 
 [lnk-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 [lnk-vnet]: service-bus-service-endpoints.md
-[express-route]:  /azure/expressroute/expressroute-faqs#supported-services
+[express-route]:  ../expressroute/expressroute-faqs.md#supported-services

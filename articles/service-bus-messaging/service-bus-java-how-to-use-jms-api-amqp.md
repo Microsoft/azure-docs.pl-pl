@@ -4,12 +4,12 @@ description: Jak używać usługi wiadomości Java (JMS) z Azure Service Bus i A
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 935579bdcb142969d9baf7ca24cf03268620bf46
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: be6b5de7946fc54ab58087fccabed9f5ed09251d
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799688"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065781"
 ---
 # <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Korzystanie z usługi wiadomości Java (JMS) z Azure Service Bus i AMQP 1,0
 
@@ -29,7 +29,7 @@ Obsługa AMQP 1,0 w Azure Service Bus oznacza, że można używać funkcji kolej
 W tym przewodniku przyjęto założenie, że masz już Service Bus przestrzeń nazw zawierającą kolejkę o nazwie `basicqueue` . Jeśli tego nie zrobisz, możesz [utworzyć przestrzeń nazw i kolejkę](service-bus-create-namespace-portal.md) za pomocą [Azure Portal](https://portal.azure.com). Aby uzyskać więcej informacji na temat sposobu tworzenia Service Bus obszarów nazw i kolejek, zobacz [Rozpoczynanie pracy z kolejkami Service Bus](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
-> Partycjonowane kolejki i tematy obsługują również AMQP. Aby uzyskać więcej informacji, zobacz [partycjonowane jednostki obsługi komunikatów](service-bus-partitioning.md) i [obsługę AMQP 1,0 Service Bus dla kolejek i tematów z podziałem na partycje](service-bus-partitioned-queues-and-topics-amqp-overview.md).
+> Partycjonowane kolejki i tematy obsługują również AMQP. Aby uzyskać więcej informacji, zobacz [partycjonowane jednostki obsługi komunikatów](service-bus-partitioning.md) i [obsługę AMQP 1,0 Service Bus dla kolejek i tematów z podziałem na partycje](./service-bus-amqp-protocol-guide.md).
 > 
 > 
 
@@ -380,7 +380,7 @@ Możesz również użyć Service Bus AMQP 1,0 z innych języków, w tym .NET, C,
 
 ## <a name="next-steps"></a>Następne kroki
 * [Obsługa AMQP 1,0 w Azure Service Bus](service-bus-amqp-overview.md)
-* [Jak używać AMQP 1,0 z interfejsem API platformy .NET Service Bus](service-bus-dotnet-advanced-message-queuing.md)
+* [Jak używać AMQP 1,0 z interfejsem API platformy .NET Service Bus](./service-bus-amqp-dotnet.md)
 * [Podręcznik dewelopera Service Bus AMQP 1,0](service-bus-amqp-dotnet.md)
 * [Wprowadzenie do kolejek usługi Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Centrum deweloperów języka Java](https://azure.microsoft.com/develop/java/)

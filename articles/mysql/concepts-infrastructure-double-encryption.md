@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 6532ec33d930ab42a9aa04a92d84ab795f32ebd6
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 079e3f9219d649d9740d38a8a8452e51b9d84acf
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86034971"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066410"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Azure Database for MySQL podwójne szyfrowanie infrastruktury
 
@@ -32,11 +32,11 @@ Implementacja w warstwach infrastruktury obsługuje również różnorodność k
 > [!NOTE]
 > Użycie podwójnego szyfrowania infrastruktury będzie miało wpływ na wydajność na serwerze Azure Database for MySQL z powodu dodatkowego procesu szyfrowania.
 
-## <a name="benefits"></a>Zalety
+## <a name="benefits"></a>Korzyści
 
 Podwójne szyfrowanie infrastruktury dla Azure Database for MySQL zapewnia następujące korzyści:
 
-1. **Dodatkowa różnorodność implementacji kryptograficznej** — planowane przejście do szyfrowania na podstawie sprzętu spowoduje dalsze zróżnicowanie implementacji przez dostarczenie implementacji opartej na sprzęcie oprócz implementacji opartej na oprogramowaniu.
+1. **Dodatkowa różnorodność implementacji kryptograficznej** — planowane przejście do szyfrowania opartego na sprzęcie spowoduje dalsze zróżnicowanie implementacji przez udostępnienie implementacji opartej na sprzęcie oraz implementacji opartej na oprogramowaniu.
 2. **Błędy implementacji** — dwie warstwy szyfrowania w warstwie infrastruktury chronią przed wszelkimi błędami w pamięci podręcznej lub zarządzaniu pamięcią na wyższych warstwach, które udostępniają dane zwykłego tekstu. Ponadto dwie warstwy są również chronione przed błędami w implementacji szyfrowania.
 
 Połączenie tych elementów zapewnia silną ochronę przed typowymi zagrożeniami i słabościmi używanymi do zaatakowania kryptografii.
@@ -54,7 +54,7 @@ Funkcje szyfrowania zapewniane przez Azure Database for MySQL mogą być używan
 |       |                    |                                  |                                              |
 
 > [!Important]
-> - Scenariusz 2 i 4 będą mieć znaczący wpływ na wydajność na serwerze Azure Database for MySQL z powodu dodatkowej warstwy szyfrowania infrastruktury.
+> - Scenariusz 2 i 4 mogą spowodować spadek przepływności 5-10 procent na podstawie typu obciążenia dla Azure Database for MySQL serwera z powodu dodatkowej warstwy szyfrowania infrastruktury.
 > - Konfigurowanie podwójnego szyfrowania infrastruktury dla Azure Database for MySQL jest dozwolone tylko podczas tworzenia serwera. Po aprowizacji serwera nie można zmienić szyfrowania magazynu. Jednak nadal można włączyć szyfrowanie danych przy użyciu kluczy zarządzanych przez klienta dla serwera utworzonego za pomocą podwójnego szyfrowania infrastruktury/bez.
 
 ## <a name="limitations"></a>Ograniczenia

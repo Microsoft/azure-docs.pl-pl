@@ -3,12 +3,12 @@ title: AMQP 1,0 Azure Service Bus i Event Hubs Przewodnik po protokole | Microso
 description: Przewodnik po protokole do wyrażeń i opisów AMQP 1,0 w Azure Service Bus i Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 5957e2d36b57be7db1af279736e8859d1a69b66b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ffccd49d37dbf2a8fc404e9895b648e53007675c
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511317"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064540"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1,0 Azure Service Bus i Event Hubs Przewodnik po protokole
 
@@ -73,7 +73,7 @@ Połączenia, kanały i sesje są nieulotne. Jeśli połączenie podstawowe jest
 
 ### <a name="amqp-outbound-port-requirements"></a>Wymagania dotyczące portów wychodzących AMQP
 
-Klienci korzystający z połączeń AMQP za pośrednictwem protokołu TCP potrzebują portów 5671 i 5672 do otwarcia w lokalnej zaporze. Wraz z tymi portami może być konieczne otwarcie dodatkowych portów, jeśli funkcja [EnableLinkRedirect](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) jest włączona. `EnableLinkRedirect`to nowa funkcja obsługi komunikatów, która pomaga w pomijaniu jednego przeskoku podczas odbierania komunikatów, co pomaga zwiększyć przepływność. Klient zacznie komunikować się bezpośrednio z usługą zaplecza za pośrednictwem zakresu portów 104XX, jak pokazano na poniższej ilustracji. 
+Klienci korzystający z połączeń AMQP za pośrednictwem protokołu TCP potrzebują portów 5671 i 5672 do otwarcia w lokalnej zaporze. Wraz z tymi portami może być konieczne otwarcie dodatkowych portów, jeśli funkcja [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) jest włączona. `EnableLinkRedirect`to nowa funkcja obsługi komunikatów, która pomaga w pomijaniu jednego przeskoku podczas odbierania komunikatów, co pomaga zwiększyć przepływność. Klient zacznie komunikować się bezpośrednio z usługą zaplecza za pośrednictwem zakresu portów 104XX, jak pokazano na poniższej ilustracji. 
 
 ![Lista portów docelowych][4]
 
@@ -419,5 +419,5 @@ Aby dowiedzieć się więcej na temat AMQP, odwiedź następujące linki:
 [4]: ./media/service-bus-amqp-protocol-guide/amqp4.png
 
 [Service Bus AMQP — Omówienie]: service-bus-amqp-overview.md
-[Obsługa AMQP 1,0 Service Bus dla kolejek i tematów podzielonych na partycje]: service-bus-partitioned-queues-and-topics-amqp-overview.md
-[AMQP w Service Bus dla systemu Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+[Obsługa AMQP 1,0 Service Bus dla kolejek i tematów podzielonych na partycje]: 
+[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn574799(v=azure.100)

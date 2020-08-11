@@ -2,18 +2,18 @@
 title: Service Fabric uaktualniania aplikacji przy użyciu programu PowerShell
 description: W tym artykule omówiono środowisko wdrażania aplikacji Service Fabric, zmiany kodu i wdrażania uaktualnienia przy użyciu programu PowerShell.
 ms.topic: conceptual
-ms.date: 2/23/2018
-ms.openlocfilehash: d277df6959ea3e7985514f81faed520f163c6012
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 8/5/2020
+ms.openlocfilehash: 2bd74d071d5dfb3385d4203704eacd5ba685917e
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82195888"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064591"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Service Fabric uaktualniania aplikacji przy użyciu programu PowerShell
 > [!div class="op_single_selector"]
 > * [Program PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
-> * [Program Visual Studio](service-fabric-application-upgrade-tutorial.md)
+> * [Visual Studio](service-fabric-application-upgrade-tutorial.md)
 > 
 > 
 
@@ -24,6 +24,21 @@ Najczęściej używane i zalecane podejście do uaktualniania to monitorowane ua
 Uaktualnienie monitorowanej aplikacji można wykonać przy użyciu zarządzanych lub natywnych interfejsów API, programu PowerShell, interfejsu wiersza polecenia platformy Azure, środowiska Java lub REST. Aby uzyskać instrukcje dotyczące przeprowadzania uaktualnienia przy użyciu programu Visual Studio, zobacz [Uaktualnianie aplikacji przy użyciu programu Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
 Przy Service Fabric monitorowanych uaktualnień stopniowych administrator aplikacji może skonfigurować zasady oceny kondycji, których Service Fabric używa do określenia, czy aplikacja jest w dobrej kondycji. Ponadto administrator może skonfigurować akcję, która ma zostać podjęta w przypadku niepowodzenia oceny kondycji (na przykład podczas automatycznego wycofywania). W tej sekcji przedstawiono monitorowane uaktualnienie dla jednego z przykładów zestawu SDK korzystającego z programu PowerShell. 
+
+> [!NOTE]
+> [ApplicationParameter](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s nie są zachowywane podczas uaktualniania aplikacji. Aby zachować bieżące parametry aplikacji, użytkownik powinien najpierw pobrać parametry i przekazać je do wywołania interfejsu API uaktualniania, takiego jak poniżej:
+```powershell
+$myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
+$appParamCollection = $myApplication.ApplicationParameters
+
+$applicationParameterMap = @{}
+foreach ($pair in $appParamCollection)
+{
+    $applicationParameterMap.Add($pair.Name, $pair.Value);
+}
+
+Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -ApplicationTypeVersion 2.0.0 -ApplicationParameter $applicationParameterMap -Monitored -FailureAction Rollback
+```
 
 ## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>Krok 1. Kompilowanie i wdrażanie przykładu obiektów wizualnych
 Skompiluj i Opublikuj aplikację, klikając prawym przyciskiem myszy projekt aplikacji, **VisualObjectsApplication** i wybierając polecenie **Publikuj** .  Aby uzyskać więcej informacji, zobacz [Samouczek dotyczący uaktualniania aplikacji Service Fabric](service-fabric-application-upgrade-tutorial.md).  Alternatywnie możesz użyć programu PowerShell do wdrożenia aplikacji.

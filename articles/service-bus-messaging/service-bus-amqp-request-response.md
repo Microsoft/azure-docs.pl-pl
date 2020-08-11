@@ -3,12 +3,12 @@ title: Operacje żądania/odpowiedzi AMQP 1,0 w Azure Service Bus
 description: W tym artykule zdefiniowano listę operacji AMQP i opartych na odpowiedziach w Microsoft Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 82eb968cc952fab6e828c8b98f4ec2ba569b4441
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b845f4086ee1ac4fe868571c1754caf6d29b9021
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337833"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064419"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1,0 w Microsoft Azure Service Bus: operacje oparte na odpowiedziach na żądanie
 
@@ -142,7 +142,7 @@ Komunikat odpowiedzi musi zawierać następujące właściwości aplikacji:
   
 |Klucz|Typ wartości|Wymagane|Zawartość wartości|  
 |---------|----------------|--------------|--------------------|  
-|Stanu|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — powodzenie; w przeciwnym razie nie powiodło się.|  
+|statusCode|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — powodzenie; w przeciwnym razie nie powiodło się.|  
 |statusDescription|ciąg|Nie|Opis stanu.|  
   
 Treść komunikatu odpowiedzi musi składać się z sekcji AMQP-Value zawierającej mapę z następującymi wpisami:  
@@ -177,7 +177,7 @@ Komunikat odpowiedzi musi zawierać następujące właściwości aplikacji:
   
 |Klucz|Typ wartości|Wymagane|Zawartość wartości|  
 |---------|----------------|--------------|--------------------|  
-|Stanu|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — zawiera więcej komunikatów<br /><br /> 204: Brak zawartości — nie ma więcej komunikatów|  
+|statusCode|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — zawiera więcej komunikatów<br /><br /> 204: Brak zawartości — nie ma więcej komunikatów|  
 |statusDescription|ciąg|Nie|Opis stanu.|  
   
 Treść komunikatu odpowiedzi musi składać się z sekcji **AMQP-Value** zawierającej **mapę** z następującymi wpisami:  
@@ -227,7 +227,7 @@ Komunikat odpowiedzi musi zawierać następujące właściwości aplikacji:
   
 |Klucz|Typ wartości|Wymagane|Zawartość wartości|  
 |---------|----------------|--------------|--------------------|  
-|Stanu|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — powodzenie; w przeciwnym razie nie powiodło się.|  
+|statusCode|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — powodzenie; w przeciwnym razie nie powiodło się.|  
 |statusDescription|ciąg|Nie|Opis stanu.|  
   
 Treść komunikatu odpowiedzi musi składać się z sekcji **AMQP-Value** zawierającej mapę z następującymi wpisami:  
@@ -261,7 +261,7 @@ Komunikat odpowiedzi musi zawierać następujące właściwości aplikacji:
   
 |Klucz|Typ wartości|Wymagane|Zawartość wartości|  
 |---------|----------------|--------------|--------------------|  
-|Stanu|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — powodzenie; w przeciwnym razie nie powiodło się.|  
+|statusCode|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — powodzenie; w przeciwnym razie nie powiodło się.|  
 |statusDescription|ciąg|Nie|Opis stanu.|   
   
 ## <a name="session-operations"></a>Operacje sesji  
@@ -291,7 +291,7 @@ Komunikat odpowiedzi musi zawierać następujące właściwości aplikacji:
   
 |Klucz|Typ wartości|Wymagane|Zawartość wartości|  
 |---------|----------------|--------------|--------------------|  
-|Stanu|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — zawiera więcej komunikatów<br /><br /> 204: Brak zawartości — nie ma więcej komunikatów|  
+|statusCode|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — zawiera więcej komunikatów<br /><br /> 204: Brak zawartości — nie ma więcej komunikatów|  
 |statusDescription|ciąg|Nie|Opis stanu.|  
   
 Treść komunikatu odpowiedzi musi składać się z sekcji **AMQP-Value** zawierającej mapę z następującymi wpisami:  
@@ -327,7 +327,7 @@ Komunikat odpowiedzi musi zawierać następujące właściwości aplikacji:
   
 |Klucz|Typ wartości|Wymagane|Zawartość wartości|  
 |---------|----------------|--------------|--------------------|  
-|Stanu|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — zawiera więcej komunikatów<br /><br /> 204: Brak zawartości — nie ma więcej komunikatów|  
+|statusCode|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — zawiera więcej komunikatów<br /><br /> 204: Brak zawartości — nie ma więcej komunikatów|  
 |statusDescription|ciąg|Nie|Opis stanu.|  
   
 Treść komunikatu odpowiedzi musi składać się z sekcji **AMQP-Value** zawierającej mapę z następującymi wpisami:  
@@ -368,7 +368,7 @@ Komunikat odpowiedzi musi zawierać następujące właściwości aplikacji:
   
 |Klucz|Typ wartości|Wymagane|Zawartość wartości|  
 |---------|----------------|--------------|--------------------|  
-|Stanu|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — powodzenie; w przeciwnym razie nie powiodło się|  
+|statusCode|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — powodzenie; w przeciwnym razie nie powiodło się|  
 |statusDescription|ciąg|Nie|Opis stanu.|  
   
 ### <a name="get-session-state"></a>Pobierz stan sesji  
@@ -396,7 +396,7 @@ Komunikat odpowiedzi musi zawierać następujące właściwości aplikacji:
   
 |Klucz|Typ wartości|Wymagane|Zawartość wartości|  
 |---------|----------------|--------------|--------------------|  
-|Stanu|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — powodzenie; w przeciwnym razie nie powiodło się|  
+|statusCode|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — powodzenie; w przeciwnym razie nie powiodło się|  
 |statusDescription|ciąg|Nie|Opis stanu.|  
   
 Treść komunikatu odpowiedzi musi składać się z sekcji **AMQP-Value** zawierającej **mapę** z następującymi wpisami:  
@@ -424,7 +424,7 @@ Treść komunikatu żądania musi składać się z sekcji **AMQP-Value** zawiera
 |---------|----------------|--------------|--------------------|  
 |czas ostatniej aktualizacji|sygnatura czasowa|Tak|Filtr w celu uwzględnienia tylko sesji zaktualizowanych po danym czasie.|  
 |Pomiń|int|Tak|Pomiń liczbę sesji.|  
-|top|int|Tak|Maksymalna liczba sesji.|  
+|top (pierwsze)|int|Tak|Maksymalna liczba sesji.|  
   
 #### <a name="response"></a>Odpowiedź  
 
@@ -432,7 +432,7 @@ Komunikat odpowiedzi musi zawierać następujące właściwości aplikacji:
   
 |Klucz|Typ wartości|Wymagane|Zawartość wartości|  
 |---------|----------------|--------------|--------------------|  
-|Stanu|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — zawiera więcej komunikatów<br /><br /> 204: Brak zawartości — nie ma więcej komunikatów|  
+|statusCode|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — zawiera więcej komunikatów<br /><br /> 204: Brak zawartości — nie ma więcej komunikatów|  
 |statusDescription|ciąg|Nie|Opis stanu.|  
   
 Treść komunikatu odpowiedzi musi składać się z sekcji **AMQP-Value** zawierającej **mapę** z następującymi wpisami:  
@@ -502,7 +502,7 @@ Komunikat odpowiedzi musi zawierać następujące właściwości aplikacji:
   
 |Klucz|Typ wartości|Wymagane|Zawartość wartości|  
 |---------|----------------|--------------|--------------------|  
-|Stanu|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — powodzenie; w przeciwnym razie nie powiodło się|  
+|statusCode|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — powodzenie; w przeciwnym razie nie powiodło się|  
 |statusDescription|ciąg|Nie|Opis stanu.|  
   
 ### <a name="remove-rule"></a>Usuń regułę  
@@ -528,7 +528,7 @@ Komunikat odpowiedzi musi zawierać następujące właściwości aplikacji:
   
 |Klucz|Typ wartości|Wymagane|Zawartość wartości|  
 |---------|----------------|--------------|--------------------|  
-|Stanu|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — powodzenie; w przeciwnym razie nie powiodło się|  
+|statusCode|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — powodzenie; w przeciwnym razie nie powiodło się|  
 |statusDescription|ciąg|Nie|Opis stanu.|  
   
 ### <a name="get-rules"></a>Pobierz reguły
@@ -546,7 +546,7 @@ Treść komunikatu żądania musi składać się z sekcji **AMQP-Value** zawiera
   
 |Klucz|Typ wartości|Wymagane|Zawartość wartości|  
 |---------|----------------|--------------|--------------------|  
-|top|int|Tak|Liczba reguł do pobrania na stronie.|  
+|top (pierwsze)|int|Tak|Liczba reguł do pobrania na stronie.|  
 |Pomiń|int|Tak|Liczba reguł do pominięcia. Definiuje początkowy indeks (+ 1) na liście reguł. | 
 
 #### <a name="response"></a>Odpowiedź
@@ -555,7 +555,7 @@ Komunikat odpowiedzi zawiera następujące właściwości:
 
 |Klucz|Typ wartości|Wymagane|Zawartość wartości|  
 |---------|----------------|--------------|--------------------|  
-|Stanu|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — powodzenie; w przeciwnym razie nie powiodło się|  
+|statusCode|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — powodzenie; w przeciwnym razie nie powiodło się|  
 |rules| Tablica map|Tak|Tablica reguł. Każda reguła jest reprezentowana przez mapę.|
 
 Każdy wpis mapy w tablicy zawiera następujące właściwości:
@@ -593,7 +593,7 @@ Każdy wpis mapy w tablicy zawiera następujące właściwości:
 |---------|----------------|--------------|
 | 0 | ciąg | Identyfikator korelacji |
 | 1 | ciąg | Identyfikator komunikatu |
-| 2 | ciąg | Do |
+| 2 | ciąg | Działanie |
 | 3 | ciąg | Odpowiedz na |
 | 4 | ciąg | Etykieta |
 | 5 | ciąg | Identyfikator sesji |
@@ -638,7 +638,7 @@ Komunikat odpowiedzi musi zawierać następujące właściwości aplikacji:
   
 |Klucz|Typ wartości|Wymagane|Zawartość wartości|  
 |---------|----------------|--------------|--------------------|  
-|Stanu|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — powodzenie; w przeciwnym razie nie powiodło się|  
+|statusCode|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — powodzenie; w przeciwnym razie nie powiodło się|  
 |statusDescription|ciąg|Nie|Opis stanu.|  
   
 Treść komunikatu odpowiedzi musi składać się z sekcji **AMQP-Value** zawierającej **mapę** z następującymi wpisami:  
@@ -683,7 +683,7 @@ Komunikat odpowiedzi musi zawierać następujące właściwości aplikacji:
   
 |Klucz|Typ wartości|Wymagane|Zawartość wartości|  
 |---------|----------------|--------------|--------------------|  
-|Stanu|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — powodzenie; w przeciwnym razie nie powiodło się|  
+|statusCode|int|Tak|Kod odpowiedzi HTTP [RFC2616]<br /><br /> 200: OK — powodzenie; w przeciwnym razie nie powiodło się|  
 |statusDescription|ciąg|Nie|Opis stanu.|
 
 ## <a name="next-steps"></a>Następne kroki
@@ -696,4 +696,4 @@ Aby dowiedzieć się więcej na temat AMQP i Service Bus, odwiedź następujące
 
 [Service Bus AMQP — Omówienie]: service-bus-amqp-overview.md
 [Przewodnik dotyczący protokołu AMQP 1.0]: service-bus-amqp-protocol-guide.md
-[AMQP w Service Bus dla systemu Windows Server]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)
+[AMQP w Service Bus dla systemu Windows Server]: /previous-versions/service-bus-archive/dn282144(v=azure.100)

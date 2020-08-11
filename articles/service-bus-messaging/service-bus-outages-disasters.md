@@ -3,12 +3,12 @@ title: Izolowanie Azure Service Bus aplikacji przed awariami i katastrofami
 description: W tym artykule przedstawiono techniki ochrony aplikacji przed potencjalną Azure Service Bus awarią.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e6dba5e6cf4700dfab354a434ac4d48f9a95b76a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f3ff89e3ec59ad4445ab0b7ee7eeb45d18fa3b8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339652"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065628"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Najlepsze rozwiązania dotyczące izolowania aplikacji od wyłączeń i awarii usługi Service Bus
 
@@ -72,7 +72,7 @@ W przypadku korzystania z replikacji pasywnej komunikaty mogą być tracone lub 
 Przykład [replikacji geograficznej z Service Bus warstwy standardowej][Geo-replication with Service Bus Standard Tier] ilustruje pasywną replikację jednostek obsługi komunikatów.
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Ochrona punktów końcowych przekaźnika przed awariami centrum danych i awariami
-Replikacja geograficzna dla punktów końcowych [Azure Relay](../service-bus-relay/relay-what-is-it.md) umożliwia usłudze, która uwidacznia punkt końcowy usługi Relay w obecności Service Bus awarii. Aby osiągnąć replikację geograficzną, usługa musi utworzyć dwa punkty końcowe przekaźnika w różnych przestrzeniach nazw. Przestrzenie nazw muszą znajdować się w różnych centrach danych, a dwa punkty końcowe muszą mieć różne nazwy. Na przykład można uzyskać dostęp do podstawowego punktu końcowego w obszarze **contosoPrimary.ServiceBus.Windows.NET/myPrimaryService**, podczas gdy jego pomocniczy odpowiednik można uzyskać w obszarze **contosoSecondary.ServiceBus.Windows.NET/mySecondaryService**.
+Replikacja geograficzna dla punktów końcowych [Azure Relay](../azure-relay/relay-what-is-it.md) umożliwia usłudze, która uwidacznia punkt końcowy usługi Relay w obecności Service Bus awarii. Aby osiągnąć replikację geograficzną, usługa musi utworzyć dwa punkty końcowe przekaźnika w różnych przestrzeniach nazw. Przestrzenie nazw muszą znajdować się w różnych centrach danych, a dwa punkty końcowe muszą mieć różne nazwy. Na przykład można uzyskać dostęp do podstawowego punktu końcowego w obszarze **contosoPrimary.ServiceBus.Windows.NET/myPrimaryService**, podczas gdy jego pomocniczy odpowiednik można uzyskać w obszarze **contosoSecondary.ServiceBus.Windows.NET/mySecondaryService**.
 
 Usługa następnie nasłuchuje na obu punktach końcowych, a klient może wywołać usługę za pośrednictwem jednego z punktów końcowych. Aplikacja kliencka losowo wybiera jedno z przekaźników jako podstawowy punkt końcowy i wysyła żądanie do aktywnego punktu końcowego. Jeśli operacja kończy się niepowodzeniem z kodem błędu, ten błąd wskazuje, że punkt końcowy przekazywania nie jest dostępny. Aplikacja otwiera kanał do punktu końcowego kopii zapasowej i ponownie wystawia żądanie. W tym momencie aktywne i punkty końcowe kopii zapasowej przełączają role: aplikacja kliencka traktuje stary aktywny punkt końcowy jako nowy punkt końcowy kopii zapasowej, a stary punkt końcowy kopii zapasowej będzie nowym aktywnym punktem końcowym. Jeśli oba operacje wysyłania zakończą się niepowodzeniem, role dwóch jednostek pozostaną niezmienione i zostanie zwrócony błąd.
 

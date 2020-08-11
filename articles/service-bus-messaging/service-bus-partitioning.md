@@ -3,12 +3,12 @@ title: Tworzenie podzielonych kolejek Azure Service Bus i tematów | Microsoft D
 description: Opisuje sposób partycjonowania Service Bus kolejek i tematów przy użyciu wielu brokerów komunikatów.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6ea0bee255f489355056f91d82195382153786bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c43d8d560ddede021b70b0cdc167f42052904b0b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339645"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064863"
 ---
 # <a name="partitioned-queues-and-topics"></a>Partycjonowane kolejki i tematy
 
@@ -43,7 +43,7 @@ W przestrzeni nazw warstwy Premium partycjonowanie jednostek nie jest obsługiwa
 
 ### <a name="create-a-partitioned-entity"></a>Tworzenie jednostki partycjonowanej
 
-Istnieje kilka sposobów tworzenia partycjonowanej kolejki lub tematu. Podczas tworzenia kolejki lub tematu z aplikacji można włączyć partycjonowanie dla kolejki lub tematu, odpowiednio ustawiając właściwość [QueueDescription. EnablePartitioning][QueueDescription.EnablePartitioning] lub [TopicDescription. EnablePartitioning][TopicDescription.EnablePartitioning] na **wartość true**. Te właściwości muszą być ustawione w momencie tworzenia kolejki lub tematu i są dostępne tylko w starszej bibliotece [windowsazure. ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) . Jak wspomniano wcześniej, nie można zmienić tych właściwości dla istniejącej kolejki lub tematu. Przykład:
+Istnieje kilka sposobów tworzenia partycjonowanej kolejki lub tematu. Podczas tworzenia kolejki lub tematu z aplikacji można włączyć partycjonowanie dla kolejki lub tematu, odpowiednio ustawiając właściwość [QueueDescription. EnablePartitioning][QueueDescription.EnablePartitioning] lub [TopicDescription. EnablePartitioning][TopicDescription.EnablePartitioning] na **wartość true**. Te właściwości muszą być ustawione w momencie tworzenia kolejki lub tematu i są dostępne tylko w starszej bibliotece [windowsazure. ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) . Jak wspomniano wcześniej, nie można zmienić tych właściwości dla istniejącej kolejki lub tematu. Na przykład:
 
 ```csharp
 // Create partitioned topic
@@ -83,7 +83,7 @@ Klucz partycji "przypina" do określonej partycji. Jeśli magazyn komunikatów, 
 
 ## <a name="advanced-topics-use-transactions-with-partitioned-entities"></a>Tematy zaawansowane: używanie transakcji z podzielonymi jednostkami
 
-Komunikaty wysyłane w ramach transakcji muszą określać klucz partycji. Klucz może mieć jedną z następujących właściwości: [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey)lub [MessageID](/dotnet/api/microsoft.azure.servicebus.message.messageid). Wszystkie komunikaty wysyłane jako część tej samej transakcji muszą określać ten sam klucz partycji. Jeśli podjęto próbę wysłania komunikatu bez klucza partycji w ramach transakcji, Service Bus zwraca wyjątek nieprawidłowej operacji. Jeśli spróbujesz wysłać wiele komunikatów w ramach tej samej transakcji, które mają różne klucze partycji, Service Bus zwraca wyjątek nieprawidłowej operacji. Przykład:
+Komunikaty wysyłane w ramach transakcji muszą określać klucz partycji. Klucz może mieć jedną z następujących właściwości: [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey)lub [MessageID](/dotnet/api/microsoft.azure.servicebus.message.messageid). Wszystkie komunikaty wysyłane jako część tej samej transakcji muszą określać ten sam klucz partycji. Jeśli podjęto próbę wysłania komunikatu bez klucza partycji w ramach transakcji, Service Bus zwraca wyjątek nieprawidłowej operacji. Jeśli spróbujesz wysłać wiele komunikatów w ramach tej samej transakcji, które mają różne klucze partycji, Service Bus zwraca wyjątek nieprawidłowej operacji. Na przykład:
 
 ```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();
@@ -103,7 +103,7 @@ W przypadku ustawienia dowolnej z właściwości, które służą jako klucz par
 
 Aby wysłać wiadomość transakcyjną do tematu lub kolejki z obsługą sesji, komunikat musi mieć ustawioną właściwość [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid) . Jeśli właściwość [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) jest również określona, musi być taka sama jak Właściwość [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid) . Jeśli różnią się one, Service Bus zwraca wyjątek nieprawidłowej operacji.
 
-W przeciwieństwie do zwykłych (niepartycjonowanych) kolejek lub tematów nie jest możliwe użycie pojedynczej transakcji do wysyłania wielu komunikatów do różnych sesji. Jeśli podjęto próbę, Service Bus zwraca nieprawidłowy wyjątek operacji. Przykład:
+W przeciwieństwie do zwykłych (niepartycjonowanych) kolejek lub tematów nie jest możliwe użycie pojedynczej transakcji do wysyłania wielu komunikatów do różnych sesji. Jeśli podjęto próbę, Service Bus zwraca nieprawidłowy wyjątek operacji. Na przykład:
 
 ```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();
@@ -149,4 +149,4 @@ Zapoznaj się z podstawowymi pojęciami dotyczącymi specyfikacji komunikatów A
 [QueueDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
 [TopicDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablepartitioning
 [QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto
-[AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[AMQP 1.0 support for Service Bus partitioned queues and topics]: ./service-bus-amqp-protocol-guide.md

@@ -3,12 +3,12 @@ title: Zarządzanie zasobami Azure Service Bus za pomocą programu PowerShell | 
 description: W tym artykule wyjaśniono, jak za pomocą modułu Azure PowerShell utworzyć jednostki Service Bus (przestrzenie nazw, kolejki, tematy, subskrypcje) i zarządzać nimi.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 7ff79d8cf2aac09a0b8d2f04ade0b3d1d9b2e74e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6439deb2b86c2ea5b50fe3bdbad89a0875b2acc
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341754"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065747"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Zarządzanie zasobami Service Bus przy użyciu programu PowerShell
 
@@ -26,7 +26,7 @@ Przed rozpoczęciem należy spełnić następujące wymagania wstępne:
 * Komputer z Azure PowerShell. Aby uzyskać instrukcje, zobacz [wprowadzenie do Azure PowerShell poleceń cmdlet](/powershell/azure/get-started-azureps).
 * Ogólna znajomość skryptów programu PowerShell, pakietów NuGet i .NET Framework.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 Pierwszym krokiem jest użycie programu PowerShell w celu zalogowania się do konta platformy Azure i subskrypcji platformy Azure. Postępuj zgodnie z instrukcjami w temacie [wprowadzenie do Azure PowerShell poleceń cmdlet](/powershell/azure/get-started-azureps) , aby zalogować się do konta platformy Azure i pobrać i uzyskać dostęp do zasobów w ramach subskrypcji platformy Azure.
 
@@ -159,8 +159,8 @@ Za pomocą [modułu Service Bus PowerShell](/powershell/module/az.servicebus) mo
 
 Istnieją różne sposoby zarządzania jednostkami Service Bus, zgodnie z opisem w następujących wpisach w blogu:
 
-* [Jak utworzyć Service Bus kolejki, tematy i subskrypcje przy użyciu skryptu programu PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
-* [Jak utworzyć Service Bus przestrzeni nazw i centrum zdarzeń przy użyciu skryptu programu PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
+* [Jak utworzyć Service Bus kolejki, tematy i subskrypcje przy użyciu skryptu programu PowerShell](/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
+* [Jak utworzyć Service Bus przestrzeni nazw i centrum zdarzeń przy użyciu skryptu programu PowerShell](/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
 * [Skrypty Service Bus PowerShell](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->

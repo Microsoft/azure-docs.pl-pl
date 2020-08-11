@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/05/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: da458b8aaf1ace7b87e98ded59a4bf90e4158e0f
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 39a4cbd5ffd04aa3346b1ce4f3b73576b92c4d3b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054090"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065492"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Znane problemy i rozwiązania z standard scim 2,0 zgodności protokołów aprowizacji użytkowników usługi Azure AD
 
@@ -43,14 +43,14 @@ W poniższej tabeli każdy element oznaczony jako FIXED oznacza, że odpowiednie
 | Atrybuty rozszerzenia używają notacji kropki "." przed nazwami atrybutów zamiast dwukropka ":" notacji |  Tak  | 18 grudnia, 2018  | Obniżanie poziomu do customappSSO |
 | Żądania poprawek dla atrybutów wielowartościowych zawierają nieprawidłową składnię filtru ścieżki | Tak  |  18 grudnia, 2018  | Obniżanie poziomu do customappSSO |
 | Żądania utworzenia grupy zawierają nieprawidłowy identyfikator URI schematu | Tak  |  18 grudnia, 2018  |  Obniżanie poziomu do customappSSO |
-| Aktualizowanie zachowania poprawek w celu zapewnienia zgodności | Nie | TBD| Użyj flagi podglądu |
+| Aktualizowanie zachowania poprawek w celu zapewnienia zgodności (np. aktywnego jako wartości logicznej i usuwania członkostwa w grupie) | Nie | TBD| Użyj flagi podglądu |
 
 ## <a name="flags-to-alter-the-scim-behavior"></a>Flagi zmieniające zachowanie standard scim
 Użyj flag poniżej w adresie URL dzierżawy aplikacji, aby zmienić domyślne zachowanie klienta standard scim.
 
 :::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="Standard scim flagi do późniejszego zachowania.":::
 
-* Użyj następującego adresu URL, aby zaktualizować zachowanie poprawek i zapewnić zgodność Standard scim. To zachowanie jest obecnie dostępne tylko wtedy, gdy jest używana flaga, ale będzie zachowaniem domyślnym w ciągu następnych kilku miesięcy.
+* Użyj następującego adresu URL, aby zaktualizować zachowanie poprawek i zapewnić zgodność Standard scim (np. aktywna jako wartość logiczna i odpowiednie usunięcia członkostwa w grupie). To zachowanie jest obecnie dostępne tylko wtedy, gdy jest używana flaga, ale będzie zachowaniem domyślnym w ciągu następnych kilku miesięcy.
   * **Adres URL (zgodny z standard scim):** AzureAdScimPatch062020
   * **Odwołania do Standard scim RFC:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2

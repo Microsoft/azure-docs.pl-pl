@@ -8,12 +8,12 @@ ms.date: 08/10/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: f056f685c999895e793af3eb3c6e2047c5b6dc09
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 238cd5e79fe749052206cfdf25d576f88f1020e8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88043016"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065441"
 ---
 # <a name="create-two-web-apps-connected-securely-with-private-endpoint-and-vnet-integration"></a>Twórz bezpieczne, połączone aplikacje sieci Web dzięki integracji z prywatnymi punktami końcowymi i sieciami wirtualnymi
 
@@ -27,11 +27,11 @@ W tym artykule przedstawiono przykład użycia [prywatnego punktu końcowego](ht
 - Tworzenie aplikacji sieci Web zaplecza
 - Utwórz strefę prywatną DNS z nazwą strefy linku prywatnego dla aplikacji internetowej privatelink.azurewebsites.net
 - Połącz tę strefę z siecią wirtualną
-- Utwórz prywatny punkt końcowy dla aplikacji sieci Web zaplecza w podsieci punktu końcowego i zarejestruj nazwy DNS w wcześniej utworzonej strefie prywatnej DNS
+- Utwórz prywatny punkt końcowy dla aplikacji sieci Web zaplecza w podsieci punktu końcowego i zarejestruj nazwy DNS (witryny sieci Web i SCM) w wcześniej utworzonej strefie prywatnej DNS
 
 ## <a name="how-to-use-terraform-in-azure"></a>Jak używać Terraform na platformie Azure
 
-Przejdź do [Azure Portal](https://docs.microsoft.com/azure/developer/terraform/) , aby dowiedzieć się, jak używać Terraform z platformą Azure.
+Przejdź do [dokumentacji platformy Azure](https://docs.microsoft.com/azure/developer/terraform/) , aby dowiedzieć się, jak używać programu Terraform z platformą Azure.
 
 ## <a name="the-complete-terraform-file"></a>Kompletny plik Terraform
 

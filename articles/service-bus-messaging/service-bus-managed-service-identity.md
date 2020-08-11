@@ -3,12 +3,12 @@ title: Zarządzane tożsamości dla zasobów platformy Azure z Service Bus
 description: W tym artykule opisano sposób używania tożsamości zarządzanych do uzyskiwania dostępu do Azure Service Bus jednostek (kolejek, tematów i subskrypcji).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: a3458d7d160317e383da6217252e3dd7ed52e90f
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b33f4e9b38d55ef3ed709df8d09f1ffd62a8bca8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008903"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066291"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Uwierzytelnianie zarządzanej tożsamości za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Azure Service Bus
 [Zarządzane tożsamości dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md) to funkcja obejmująca wiele platform Azure, która umożliwia tworzenie bezpiecznej tożsamości skojarzonej z wdrożeniem, w ramach którego działa kod aplikacji. Następnie można powiązać tę tożsamość z rolami kontroli dostępu, które przyznają niestandardowe uprawnienia dostępu do określonych zasobów platformy Azure wymaganych przez aplikację.
@@ -65,10 +65,10 @@ Aby uzyskać więcej informacji na temat sposobu definiowania wbudowanych ról, 
 ## <a name="enable-managed-identities-on-a-vm"></a>Włączanie tożsamości zarządzanych na maszynie wirtualnej
 Aby można było używać zarządzanych tożsamości dla zasobów platformy Azure w celu autoryzowania Service Bus zasobów z maszyny wirtualnej, należy najpierw włączyć zarządzane tożsamości dla zasobów platformy Azure na maszynie wirtualnej. Aby dowiedzieć się, jak włączyć zarządzane tożsamości dla zasobów platformy Azure, zobacz jeden z następujących artykułów:
 
-- [Azure Portal](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
+- [Azure Portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Interfejs wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Szablon usługi Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Szablon Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Azure Resource Manager biblioteki klienckie](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Przyznawanie uprawnień do zarządzanej tożsamości w usłudze Azure AD

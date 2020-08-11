@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6ffbd23dccd7bac03e849241866416ac07af4a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b5734cb76e4ed018778c6858597ec8efe3019bf9
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035421"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065985"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Ochrona kont użytkowników przed atakami za pomocą usługi inteligentnego blokowania Azure Active Directory
 
@@ -24,7 +24,7 @@ Inteligentna blokada ułatwia zablokowanie nieprawidłowych aktorów próbujący
 
 ## <a name="how-smart-lockout-works"></a>Jak działa inteligentna blokada
 
-Domyślnie inteligentna blokada blokuje konto przed próbami logowania przez jedną minutę po 10 nieudanych próbach. Konto jest blokowane ponownie po każdej kolejnej nieudanej próbie logowania w ciągu jednej minuty na pierwszy czas i dłużej w kolejnych próbach.
+Domyślnie inteligentna blokada blokuje konto przed próbami logowania przez jedną minutę po 10 nieudanych próbach. Konto jest blokowane ponownie po każdej kolejnej nieudanej próbie logowania w ciągu jednej minuty na pierwszy czas i dłużej w kolejnych próbach. Aby zminimalizować sposoby obejścia tego problemu przez atakującego, nie ujawniamy informacji o szybkości, z jaką czas blokady rośnie w przypadku dodatkowych nieudanych prób logowania.
 
 Inteligentna blokada śledzi ostatnie trzy niewłaściwe skróty haseł, aby uniknąć zwiększenia licznika blokady dla tego samego hasła. Jeśli ktoś wprowadzi to samo złe hasło wielokrotnie, to zachowanie nie spowoduje zablokowania konta.
 

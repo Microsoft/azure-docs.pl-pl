@@ -272,7 +272,7 @@
           href: ./partner-center-portal/payout-policy-details.md
         - name: Szczegóły podatku
           href: ./partner-center-portal/tax-details-paid-transactions.md
-    - name: Dokumentacja interfejsu API języka CPP
+    - name: Dokumentacja interfejsu CPP API
       items:
         - name: Omówienie
           href: ./cloud-partner-portal-api-overview.md

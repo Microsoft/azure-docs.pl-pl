@@ -3,12 +3,12 @@ title: Uwierzytelnianie aplikacji w celu uzyskania dostępu do Azure Service Bus
 description: Ten artykuł zawiera informacje o uwierzytelnianiu aplikacji przy użyciu Azure Active Directory w celu uzyskania dostępu do Azure Service Bus jednostek (kolejek, tematów itp.).
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 1d18772dfa9cf444dc55d5e4cef6f31dd6c0d669
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b12f2f294a66159a7035240c361ab93f9f84718e
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006268"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064829"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Uwierzytelnianie i Autoryzowanie aplikacji przy użyciu Azure Active Directory dostępu do Azure Service Bus jednostek
 Azure Service Bus obsługuje używanie Azure Active Directory (Azure AD) do autoryzacji żądań Service Bus jednostek (kolejek, tematów, subskrypcji lub filtrów). Korzystając z usługi Azure AD, możesz użyć kontroli dostępu opartej na rolach (Azure RBAC), aby przyznać uprawnienia podmiotowi zabezpieczeń, który może być użytkownikiem, grupą lub jednostką usługi aplikacji. Aby dowiedzieć się więcej o rolach i przypisaniach ról, zobacz [opis różnych ról](../role-based-access-control/overview.md).
@@ -102,7 +102,7 @@ Po zarejestrowaniu aplikacji zobaczysz **Identyfikator aplikacji (klienta)** w o
 
 ![Identyfikator aplikacji zarejestrowanej aplikacji](./media/authenticate-application/application-id.png)
 
-Aby uzyskać więcej informacji na temat rejestrowania aplikacji w usłudze Azure AD, zobacz [Integrowanie aplikacji z Azure Active Directory](../active-directory/develop/quickstart-v2-register-an-app.md).
+Aby uzyskać więcej informacji na temat rejestrowania aplikacji w usłudze Azure AD, zobacz [Integrowanie aplikacji z Azure Active Directory](../active-directory/develop/quickstart-register-app.md).
 
 > [!IMPORTANT]
 > Zanotuj **TenantId** i identyfikator **aplikacji**. Te wartości będą potrzebne do uruchomienia aplikacji.

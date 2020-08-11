@@ -3,12 +3,12 @@ title: Najlepsze rozwiązania dotyczące poprawy wydajności przy użyciu Azure 
 description: Opisuje, w jaki sposób używać Service Bus do optymalizowania wydajności podczas wymiany komunikatów obsługiwanych przez brokera.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e0a6e54c1e941d7b7ff244ac40066a564e2ebbc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a81e6fa1c6097f46bbfa3016beb1b7780ad3c351
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341099"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065305"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Najlepsze rozwiązania dotyczące zwiększania wydajności przy użyciu komunikatów usługi Service Bus
 
@@ -40,7 +40,7 @@ Istnieją dwa obsługiwane Azure Service Bus zestawy SDK platformy .NET. Ich int
 | <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus" target="_blank">Microsoft. Azure. ServiceBus<span class="docon docon-navigate-external x-hidden-focus"></span></a> | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5,4<br>Platforma Xamarin. iOS 10,14<br>Xamarin. Mac 3,8<br>Xamarin. Android 8,0<br>Platforma uniwersalna systemu Windows 10.0.16299 | AMQP<br>HTTP |
 | <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus" target="_blank">WindowsAzure. ServiceBus<span class="docon docon-navigate-external x-hidden-focus"></span></a> | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
 
-Aby uzyskać więcej informacji o minimalnej obsłudze platformy .NET Standard, zobacz [Obsługa implementacji platformy .NET](https://docs.microsoft.com/dotnet/standard/net-standard#net-implementation-support).
+Aby uzyskać więcej informacji o minimalnej obsłudze platformy .NET Standard, zobacz [Obsługa implementacji platformy .NET](/dotnet/standard/net-standard#net-implementation-support).
 
 ## <a name="reusing-factories-and-clients"></a>Używanie fabryk i klientów
 
@@ -180,7 +180,7 @@ Funkcja wsadowa dla zestawu SDK .NET Standard nie uwidacznia jeszcze właściwo�
 
 Domyślnie klient używa interwału partii 20 ms. Możesz zmienić interwał partii, ustawiając właściwość [BatchFlushInterval][BatchFlushInterval] przed utworzeniem fabryki komunikatów. To ustawienie ma wpływ na wszystkich klientów utworzonych przez tę fabrykę.
 
-Aby wyłączyć tworzenie partii, ustaw właściwość [BatchFlushInterval][BatchFlushInterval] na **TimeSpan. zero**. Przykład:
+Aby wyłączyć tworzenie partii, ustaw właściwość [BatchFlushInterval][BatchFlushInterval] na **TimeSpan. zero**. Na przykład:
 
 ```csharp
 var settings = new MessagingFactorySettings

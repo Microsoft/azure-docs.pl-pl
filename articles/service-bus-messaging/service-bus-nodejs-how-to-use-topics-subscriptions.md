@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/09/2020
 ms.author: spelluru
 ms.custom: devx-track-javascript
-ms.openlocfilehash: fc8b1be387446b26fca86b344a203c103068db52
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: fa1f6738628ed96e386186a579569170bfaac3ee
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036032"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066954"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Szybki Start: jak używać tematów Service Bus i subskrypcji z Node.js i pakietem Azure-SB
 W ramach tego samouczka nauczysz się tworzyć Node.js aplikacje do wysyłania komunikatów do Service Bus tematu i odbierania komunikatów z subskrypcji Service Bus przy użyciu pakietu [Azure-SB](https://www.npmjs.com/package/azure-sb) . Przykłady są zapisywane w języku JavaScript i używają modułu Node.js [platformy Azure](https://www.npmjs.com/package/azure) , który wewnętrznie używa `azure-sb` pakietu.
@@ -20,7 +20,7 @@ W ramach tego samouczka nauczysz się tworzyć Node.js aplikacje do wysyłania k
 > [!IMPORTANT]
 > Pakiet [Azure-SB](https://www.npmjs.com/package/azure-sb) używa [Service Bus interfejsów API REST w czasie wykonywania](/rest/api/servicebus/service-bus-runtime-rest). Możesz uzyskać szybsze środowisko przy użyciu nowego pakietu, [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) który korzysta z szybszego [protokołu AMQP 1,0](service-bus-amqp-overview.md). 
 > 
-> Aby dowiedzieć się więcej na temat nowego pakietu, zobacz temat [jak korzystać z Service Bus tematów i subskrypcji z @azure/service-bus pakietami Node.js i Package](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), w przeciwnym razie Kontynuuj czytanie, aby zobaczyć, jak korzystać z pakietu [platformy Azure](https://www.npmjs.com/package/azure) .
+> Aby dowiedzieć się więcej na temat nowego pakietu, zobacz temat [jak korzystać z Service Bus tematów i subskrypcji z @azure/service-bus pakietami Node.js i Package](./service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md), w przeciwnym razie Kontynuuj czytanie, aby zobaczyć, jak korzystać z pakietu [platformy Azure](https://www.npmjs.com/package/azure) .
 
 Scenariusze omówione poniżej obejmują:
 
@@ -142,7 +142,7 @@ Subskrypcje tematów są również tworzone za pomocą obiektu **ServiceBusServi
 > [!NOTE]
 > Domyślnie subskrypcje są trwałe do momentu ich usunięcia lub tematu, z którym są skojarzone, są usuwane. Jeśli aplikacja zawiera logikę do utworzenia subskrypcji, należy najpierw sprawdzić, czy subskrypcja istnieje przy użyciu `getSubscription` metody.
 >
-> Subskrypcje mogą być automatycznie usuwane przez ustawienie [Właściwości AutoDeleteOnIdle](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle).
+> Subskrypcje mogą być automatycznie usuwane przez ustawienie [Właściwości AutoDeleteOnIdle](/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Tworzenie subskrypcji z filtrem domyślnym (MatchAll)
 Filtr **MatchAll** jest filtrem domyślnym używanym podczas tworzenia subskrypcji. Kiedy używasz filtru **MatchAll**, wszystkie komunikaty opublikowane do tematu są umieszczane w wirtualnej kolejce subskrypcji. Poniższy przykład tworzy subskrypcję o nazwie AllMessages i używa domyślnego filtru **MatchAll** .
@@ -306,7 +306,7 @@ Istnieje również limit czasu skojarzony z komunikatem zablokowanym w ramach su
 W przypadku awarii aplikacji po przetworzeniu komunikatu, ale przed `deleteMessage` wywołaniem metody komunikat zostanie ponownie dostarczony do aplikacji po jej ponownym uruchomieniu. Takie zachowanie jest często nazywane *co najmniej raz na przetwarzanie*. Oznacza to, że każdy komunikat jest przetwarzany co najmniej raz, ale w pewnych sytuacjach może zostać ponownie dostarczony ten sam komunikat. Jeśli scenariusz nie może tolerować zduplikowanego przetwarzania, należy dodać logikę do aplikacji, aby obsługiwała zduplikowane dostarczanie komunikatów. Można użyć właściwości **MessageID** komunikatu, która pozostaje stała między kolejnymi próbami dostarczenia.
 
 ## <a name="delete-topics-and-subscriptions"></a>Usuwanie tematów i subskrypcji
-Tematy i subskrypcje są trwałe, chyba że [Właściwość autoDeleteOnIdle](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle) jest ustawiona i należy ją jawnie usunąć za pomocą [Azure Portal][Azure portal] lub programowo.
+Tematy i subskrypcje są trwałe, chyba że [Właściwość AutoDeleteOnIdle](/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle) jest ustawiona i należy ją jawnie usunąć za pomocą [Azure Portal][Azure portal] lub programowo.
 Poniższy przykład ilustruje sposób usuwania tematu o nazwie `MyTopic` :
 
 ```javascript
@@ -345,4 +345,3 @@ Teraz, gdy znasz już podstawy Service Bus tematów, Skorzystaj z poniższych li
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Tworzenie i wdrażanie aplikacji Node.js w witrynie sieci Web systemu Azure]: ../app-service/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-

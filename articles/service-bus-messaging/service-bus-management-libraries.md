@@ -4,12 +4,12 @@ description: W tym artykule wyjaśniono, jak za pomocą bibliotek zarządzania A
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 042edcd1851f86dd2a660673bc87884b68410bfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63a8f0f8ef299f9d27d3c1be2746052536c4e5e8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341709"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066172"
 ---
 # <a name="service-bus-management-libraries"></a>Biblioteki zarządzania usługi Service Bus
 
@@ -26,11 +26,11 @@ Azure Service Bus biblioteki zarządzania mogą dynamicznie inicjować Service B
 
 Aby rozpocząć korzystanie z bibliotek zarządzania Service Bus, należy uwierzytelnić się za pomocą usługi Azure Active Directory (Azure AD). Usługa Azure AD wymaga uwierzytelniania jako nazwy głównej usługi, która zapewnia dostęp do zasobów platformy Azure. Aby uzyskać informacje na temat tworzenia nazwy głównej usługi, zobacz jeden z następujących artykułów:  
 
-* [Użyj Azure Portal, aby utworzyć Active Directory aplikację i nazwę główną usługi, które mogą uzyskiwać dostęp do zasobów](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
-* [Use Azure PowerShell to create a service principal to access resources (Tworzenie jednostki usługi używanej do uzyskiwania dostępu do zasobów przy użyciu programu Azure PowerShell)](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Use Azure CLI to create a service principal to access resources (Tworzenie jednostki usługi używanej do uzyskiwania dostępu do zasobów przy użyciu interfejsu wiersza polecenia platformy Azure)](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Użyj Azure Portal, aby utworzyć Active Directory aplikację i nazwę główną usługi, które mogą uzyskiwać dostęp do zasobów](../active-directory/develop/howto-create-service-principal-portal.md)
+* [Use Azure PowerShell to create a service principal to access resources (Tworzenie jednostki usługi używanej do uzyskiwania dostępu do zasobów przy użyciu programu Azure PowerShell)](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+* [Use Azure CLI to create a service principal to access resources (Tworzenie jednostki usługi używanej do uzyskiwania dostępu do zasobów przy użyciu interfejsu wiersza polecenia platformy Azure)](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 
-Te samouczki zapewniają `AppId` (identyfikator klienta), `TenantId` i `ClientSecret` (klucz uwierzytelniania), które są używane do uwierzytelniania przez biblioteki zarządzania. Musisz mieć co najmniej Azure Service Bus uprawnienia [**właściciela danych**](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-owner) lub [**współautora**](/azure/role-based-access-control/built-in-roles#contributor) dla grupy zasobów, w której chcesz uruchomić.
+Te samouczki zapewniają `AppId` (identyfikator klienta), `TenantId` i `ClientSecret` (klucz uwierzytelniania), które są używane do uwierzytelniania przez biblioteki zarządzania. Musisz mieć co najmniej Azure Service Bus uprawnienia [**właściciela danych**](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) lub [**współautora**](../role-based-access-control/built-in-roles.md#contributor) dla grupy zasobów, w której chcesz uruchomić.
 
 ## <a name="programming-pattern"></a>Wzorzec programowania
 

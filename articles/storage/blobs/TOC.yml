@@ -158,8 +158,10 @@
           items:
             - name: Obsługa wersji
               href: versioning-overview.md
-            - name: Usuwanie nietrwałe
-              href: soft-delete-overview.md
+            - name: Usuwanie nietrwałe dla obiektów blob
+              href: soft-delete-blob-overview.md
+            - name: Usuwanie nietrwałe dla kontenerów
+              href: soft-delete-container-overview.md
             - name: Migawki
               href: snapshots-overview.md
             - name: Źródło zmian
@@ -423,8 +425,10 @@
           items:
             - name: Włączanie obsługi wersji obiektów blob
               href: versioning-enable.md
-            - name: Włączanie usuwania nietrwałego
-              href: soft-delete-enable.md
+            - name: Włączanie usuwania nietrwałego dla obiektów blob
+              href: soft-delete-blob-enable.md
+            - name: Włączanie usuwania nietrwałego dla kontenerów
+              href: soft-delete-container-enable.md
             - name: Tworzenie migawek (.NET)
               href: snapshots-manage-dotnet.md
             - name: Dzienniki źródła zmian procesu

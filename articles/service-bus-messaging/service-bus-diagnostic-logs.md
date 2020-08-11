@@ -3,12 +3,12 @@ title: Dzienniki diagnostyki Azure Service Bus | Microsoft Docs
 description: Ten artykuł zawiera omówienie wszystkich dzienników operacyjnych i diagnostycznych, które są dostępne dla Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: eeaa7e92488fd59994fc07ea0081b0f00c8768df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f227f5a988ccd51425b4f43e87b4ed4d9af74e1f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337541"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064438"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Włączanie dzienników diagnostycznych dla Service Bus
 
@@ -101,7 +101,7 @@ Dzienniki operacyjne są domyślnie wyłączone. Aby włączyć dzienniki diagno
 
 Nowe ustawienia zaczną obowiązywać od około 10 minut. Dzienniki są wyświetlane w skonfigurowanym miejscu docelowym archiwizowania w okienku **dzienniki diagnostyczne** .
 
-Więcej informacji o konfigurowaniu ustawień diagnostycznych znajduje się w temacie [Omówienie dzienników diagnostyki platformy Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+Więcej informacji o konfigurowaniu ustawień diagnostycznych znajduje się w temacie [Omówienie dzienników diagnostyki platformy Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

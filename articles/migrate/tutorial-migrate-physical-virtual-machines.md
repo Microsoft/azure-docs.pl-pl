@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób migrowania maszyn fizycznych na plat
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: 16145c5d8b2414750b6eff9669fa7cd61eb482f5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: ff8ac55f129e7579b12e2102c0c6292e9030021c
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165400"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066631"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrowanie maszyn jako serwerów fizycznych na platformę Azure
 
@@ -103,10 +103,13 @@ Azure Migrate: Migracja serwera używa urządzenia replikacji do replikowania ma
 
 Przygotuj się do wdrożenia urządzenia w następujący sposób:
 
-- Przygotuj komputer do hostowania urządzenia replikacji. [Zapoznaj](migrate-replication-appliance.md#appliance-requirements) się z wymaganiami dotyczącymi maszyn. Urządzenie nie powinno być zainstalowane na maszynie źródłowej, która ma być replikowana.
+- Przygotuj komputer do hostowania urządzenia replikacji. [Zapoznaj](migrate-replication-appliance.md#appliance-requirements) się z wymaganiami dotyczącymi maszyn.
 - Urządzenie do replikacji używa programu MySQL. Zapoznaj się z [opcjami](migrate-replication-appliance.md#mysql-installation) instalacji bazy danych MySQL na urządzeniu.
 - Przejrzyj adresy URL platformy Azure wymagane przez urządzenie replikacji, aby uzyskać dostęp do chmur [publicznych](migrate-replication-appliance.md#url-access) i [instytucji rządowych](migrate-replication-appliance.md#azure-government-url-access) .
 - Zapoznaj się z tematem [port] (Migrowanie-replikacja-urządzenie. MD # port-dostęp) wymagania dostępu dla urządzenia replikacji.
+
+> [!NOTE]
+> Urządzenia replikacji nie należy instalować na maszynie źródłowej, która ma zostać zreplikowana lub na urządzeniu odnajdywania Azure Migrate i ocenie, które zainstalowano wcześniej.
 
 ## <a name="add-the-server-migration-tool"></a>Dodawanie narzędzia migracji serwera
 
@@ -125,8 +128,8 @@ Skonfiguruj projekt Azure Migrate, a następnie Dodaj do niego narzędzie do mig
 
     ![Tworzenie projektu Azure Migrate](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
 
-8. W **narzędziu Wybierz ocenę**wybierz pozycję **Pomiń Dodawanie narzędzia do oceny teraz**  >  **Next**.
-9. W obszarze **Wybieranie narzędzia migracji**wybierz **Azure Migrate: Migracja serwera**  >  **dalej**.
+8. W obszarze **Wybierz narzędzie oceny**, wybierz pozycję **Pomiń teraz dodawanie narzędzia oceny** > **Dalej**.
+9. W obszarze **Wybierz narzędzie migracji** wybierz pozycję **Azure Migrate: Migracja serwera** > **Dalej**.
 10. W obszarze **Przegląd i dodawanie narzędzi** przejrzyj ustawienia, a następnie kliknij pozycję **Dodaj narzędzia**
 11. Po dodaniu narzędzia pojawia się ono w Azure Migrate **Servers**  >  **Narzędzia migracji**serwerów > projektu.
 
@@ -155,7 +158,7 @@ Pierwszym krokiem migracji jest skonfigurowanie urządzenia do replikacji. Aby s
     ![Pobierz dostawcę](media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
 10. Skopiuj plik Instalatora urządzenia i plik klucza do komputera z systemem Windows Server 2016, który został utworzony dla urządzenia.
-11. Uruchom plik instalacyjny urządzenia replikacji, zgodnie z opisem w następnej procedurze. Po zakończeniu instalacji Kreator konfiguracji urządzenia zostanie uruchomiony automatycznie (można również uruchomić Kreatora ręcznie przy użyciu skrótu cspsconfigtool utworzonego na pulpicie urządzenia). Za pomocą karty Zarządzanie kontami kreatora można dodać szczegóły konta do użycia podczas instalacji wypychanej usługi mobilności. W tym samouczku ręcznie zainstalujemy usługę mobilności na maszynach, które mają być replikowane, więc Utwórz fikcyjne konto w tym kroku i przejdź dalej.
+11. Po zakończeniu instalacji Kreator konfiguracji urządzenia zostanie uruchomiony automatycznie (można również uruchomić Kreatora ręcznie przy użyciu skrótu cspsconfigtool utworzonego na pulpicie urządzenia). Za pomocą karty Zarządzanie kontami kreatora można dodać szczegóły konta do użycia podczas instalacji wypychanej usługi mobilności. W tym samouczku będziemy ręcznie instalować usługę mobilności na źródłowych maszynach wirtualnych do replikacji, więc Utwórz fikcyjne konto w tym kroku i przejdź dalej. Poniżej przedstawiono szczegółowe informacje na temat tworzenia fikcyjnego konta "Gość" jako przyjaznej nazwy, "username" jako nazwy użytkownika i hasła do konta. Będziesz używać tego fikcyjnego konta na etapie włączania replikacji. 
 
 12. Po ponownym uruchomieniu urządzenia po zakończeniu instalacji w obszarze **odnajdywanie maszyn**wybierz nowe urządzenie na liście **Wybierz serwer konfiguracji**, a następnie kliknij pozycję **finalizowanie rejestracji**. Finalizowanie rejestracji wykonuje kilka zadań końcowych w celu przygotowania urządzenia do replikacji.
 
@@ -230,7 +233,7 @@ Teraz wybierz maszyny do migracji.
 2. W obszarze **replikacja**> **Ustawienia źródła**  >  **są zwirtualizowane na maszynach?** wybierz opcję **niezwirtualizowane/inne**.
 3. W **urządzeniu lokalnym**wybierz nazwę skonfigurowanego urządzenia Azure Migrate.
 4. W obszarze **serwer przetwarzania**wybierz nazwę urządzenia replikacji.
-6. W obszarze **poświadczenia gościa**należy określić fikcyjne konto, które będzie używane do ręcznego instalowania usługi mobilności (instalacja wypychana nie jest obsługiwana w trybie fizycznym). Następnie kliknij przycisk **Dalej: maszyny wirtualne**.
+6. W obszarze **poświadczenia gościa**wybierz konto fikcyjne utworzone wcześniej podczas [instalacji Instalatora replikacji](#download-the-replication-appliance-installer) , aby ręcznie zainstalować usługę mobilności (instalacja wypychana nie jest obsługiwana). Następnie kliknij przycisk **Dalej: maszyny wirtualne**.   
 
     ![Replikowanie maszyn wirtualnych](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 

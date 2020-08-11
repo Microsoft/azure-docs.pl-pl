@@ -3,16 +3,16 @@ title: Azure Service Bus — migracja do autoryzacji sygnatury dostępu współd
 description: Dowiedz się więcej na temat migrowania z Azure Active Directory Access Control Service do autoryzacji sygnatury dostępu współdzielonego.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9ef6eda205af150a20236da68e1b6b1dbf91059e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8cd12ac97020417f9958beded1fd198dd485fff
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340113"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064625"
 ---
 # <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Service Bus — migracja z Azure Active Directory Access Control Service do autoryzacji sygnatury dostępu współdzielonego
 
-Aplikacje Service Bus miały wcześniej możliwość korzystania z dwóch różnych modeli autoryzacji: modelu tokenu [sygnatury dostępu współdzielonego (SAS)](service-bus-sas.md) dostarczonego bezpośrednio przez Service Bus i modelu federacyjnego, w którym zarządzanie regułami autoryzacji jest zarządzane w ramach [Azure Active Directory](/azure/active-directory/) Access Control Service (ACS) i tokeny uzyskane z usługi ACS są przekazywane do Service Bus w celu autoryzowania dostępu do żądanych funkcji.
+Aplikacje Service Bus miały wcześniej możliwość korzystania z dwóch różnych modeli autoryzacji: modelu tokenu [sygnatury dostępu współdzielonego (SAS)](service-bus-sas.md) dostarczonego bezpośrednio przez Service Bus i modelu federacyjnego, w którym zarządzanie regułami autoryzacji jest zarządzane w ramach [Azure Active Directory](../active-directory/index.yml) Access Control Service (ACS) i tokeny uzyskane z usługi ACS są przekazywane do Service Bus w celu autoryzowania dostępu do żądanych funkcji.
 
 Model autoryzacji usług ACS został zastąpiony przez [autoryzację SAS](service-bus-authentication-and-authorization.md) jako preferowany model, a cała dokumentacja, wskazówki i przykłady używają wyłącznie sygnatury dostępu współdzielonego. Ponadto nie można już tworzyć nowych przestrzeni nazw Service Bus, które są sparowane z usługą ACS.
 
@@ -56,4 +56,3 @@ Aby dowiedzieć się więcej o uwierzytelnianiu Service Bus, zobacz następując
 
 * [Uwierzytelnianie i autoryzacja w usłudze Service Bus](service-bus-authentication-and-authorization.md)
 * [Uwierzytelnianie Service Bus przy użyciu sygnatur dostępu współdzielonego](service-bus-sas.md)
-

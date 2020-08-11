@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 1ec3eaac90e1d2bc24608f6cb4546d5bed859b5e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 1a7511ed0e7bb1d9032331efa87f0d61a99cf5dc
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033244"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065237"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Szybki Start: Tworzenie wewnętrznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu Azure Portal
 
@@ -95,7 +95,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
     |--------------------|----------------------------|
     | Nazwa bastionu | Wprowadź **myBastionHost** |
     | Przestrzeń adresowa AzureBastionSubnet | Wprowadź **10.1.1.0/24** |
-    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. </br> W obszarze **Nazwa**wprowadź **myBastionIP**. </br> Wybierz przycisk **OK**. |
+    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. </br> W obszarze **Nazwa**wprowadź **myBastionIP**. </br> Wybierz pozycję **OK**. |
 
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
@@ -339,7 +339,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
     |--------------------|----------------------------|
     | Nazwa bastionu | Wprowadź **myBastionHost** |
     | Przestrzeń adresowa AzureBastionSubnet | Wprowadź **10.1.1.0/24** |
-    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. </br> W obszarze **Nazwa**wprowadź **myBastionIP**. </br> Wybierz przycisk **OK**. |
+    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. </br> W obszarze **Nazwa**wprowadź **myBastionIP**. </br> Wybierz pozycję **OK**. |
 
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
@@ -419,7 +419,7 @@ Utwórz sondę kondycji o nazwie **myHealthProbe**, aby monitorować kondycję m
     | Interwał | Wprowadź **15** dla liczby **interwałów** (w sekundach) między kolejnymi próbami sondowania. |
     | Próg złej kondycji | Wybierz **2** dla liczby **progów złej kondycji** lub kolejnych niepowodzeń sondy, które muszą wystąpić, zanim maszyna wirtualna zostanie uznana za złą.|
 
-3. Wybierz przycisk **OK**.
+3. Wybierz pozycję **OK**.
 
 ### <a name="create-a-load-balancer-rule"></a>Tworzenie reguły modułu równoważenia obciążenia
 
@@ -500,7 +500,7 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     | **Interfejs sieciowy** |  |
     | Sieć wirtualna | Wybierz **myVNet** |
     | Podsieć | Wybierz **myBackendSubnet** |
-    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy** </br> Wprowadź **myVM-IP** w polu Nazwa. </br> Wybierz **przycisk OK** |
+    | Publiczny adres IP | Nie zaznaczaj **niczego** |
     | Grupa zabezpieczeń sieci karty sieciowej | Wybierz pozycję **Zaawansowane**|
     | Konfigurowanie sieciowej grupy zabezpieczeń | Wybierz pozycję**Utwórz nowy**. </br> W **grupie Tworzenie zabezpieczeń sieci**wprowadź **MyNSG** w polu **Nazwa**. </br> Wybierz **przycisk OK** |
     | **Równoważenie obciążenia**  |

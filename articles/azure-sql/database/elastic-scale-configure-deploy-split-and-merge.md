@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 200a6b1bc2f960555fae1d910dfebde66628d13a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cd03814e1590abebb74db490a2692d492a9207d
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84045648"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064948"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Wdrażanie usługi Split-Merge do przenoszenia danych między bazami danych podzielonej na fragmenty
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ Pliki są umieszczane w katalogu o nazwie **Microsoft. Azure. SQLDatabase. Elast
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-1. Utwórz bazę danych Azure SQL Database, która będzie używana jako baza danych stanu Split-Merge. Przejdź do [Azure Portal](https://portal.azure.com). Utwórz nowy **SQL Database**. Nadaj bazie danych nazwę i Utwórz nowego administratora i hasło. Pamiętaj, aby zapisać nazwę i hasło do późniejszego użycia.
+1. Utwórz bazę danych Azure SQL Database, która będzie używana jako baza danych stanu Split-Merge. Przejdź do witryny [Azure Portal](https://portal.azure.com). Utwórz nowy **SQL Database**. Nadaj bazie danych nazwę i Utwórz nowego administratora i hasło. Pamiętaj, aby zapisać nazwę i hasło do późniejszego użycia.
 
 1. Upewnij się, że serwer zezwala na nawiązywanie połączeń z usługą Azure. W portalu w **ustawieniach zapory**upewnij się, że ustawienie **Zezwalaj na dostęp do usług platformy Azure** jest ustawione na wartość **włączone**. Kliknij ikonę "Save" (Zapisz).
 
@@ -108,7 +108,7 @@ Wykonaj następujące polecenie w tym samym oknie, w którym zostało wykonane M
 
 ### <a name="upload-the-pfx-file-to-the-cloud-service"></a>Przekaż plik PFX do usługi w chmurze
 
-1. Przejdź do [Azure Portal](https://portal.azure.com).
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
 2. Wybierz **Cloud Services**.
 3. Wybierz usługę w chmurze utworzoną powyżej dla usługi Split/Merge.
 4. Kliknij pozycję **Certyfikaty** w górnym menu.
@@ -173,6 +173,9 @@ Określ punkt końcowy sieci Web usługi Split-Merge. Można to znaleźć w port
 ### <a name="test-with-powershell-scripts"></a>Testowanie za pomocą skryptów programu PowerShell
 
 Wdrożenie i środowisko można sprawdzić, uruchamiając dołączone przykładowe skrypty programu PowerShell.
+
+> [!IMPORTANT]
+> Przykładowe skrypty są uruchamiane w programie PowerShell 5,1. Nie są one obecnie uruchamiane w programie PowerShell 6 lub nowszym.
 
 Uwzględnione pliki skryptów:
 

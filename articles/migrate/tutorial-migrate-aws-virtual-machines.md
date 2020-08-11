@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób migrowania maszyn wirtualnych AWS na
 ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: MVC
-ms.openlocfilehash: 61a7bee52179ac525b42ad696d118f4f753f6931
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 9aad6993af4a90acb41316da0056da84f2e95f70
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534837"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066648"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Odnajdywanie, ocenianie i migrowanie maszyn wirtualnych usługi Amazon Web Services (AWS) na platformę Azure
 
@@ -99,7 +99,7 @@ Azure Migrate: Migracja serwera używa urządzenia replikacji do replikowania ma
 Przygotuj się do wdrożenia urządzenia w następujący sposób:
 
 - Skonfiguruj oddzielną maszynę wirtualną EC2 do hostowania urządzenia replikacji. To wystąpienie musi działać pod kontrolą systemu Windows Server 2012 R2 lub Windows Server 2016. [Zapoznaj](./migrate-replication-appliance.md#appliance-requirements) się z wymaganiami dotyczącymi sprzętu, oprogramowania i sieci dla urządzenia.
-- Urządzenia nie należy instalować na źródłowej maszynie wirtualnej, która ma być replikowana. Należy ją wdrożyć na innej maszynie wirtualnej.
+- Urządzenia nie należy instalować na źródłowej maszynie wirtualnej, która ma zostać zreplikowana lub na Azure Migrate odnajdywania i oceny, które zostały wcześniej zainstalowane. Należy ją wdrożyć na innej maszynie wirtualnej.
 - Źródłowe maszyny wirtualne AWS, które mają zostać zmigrowane, powinny mieć sieć linii wglądu do urządzenia replikacji. Skonfiguruj niezbędne reguły grupy zabezpieczeń, aby je włączyć. Zaleca się, aby urządzenie replikacji zostało wdrożone w tym samym VPC co źródłowe maszyny wirtualne do migracji. Jeśli urządzenie replikacji musi znajdować się w innym VPC, VPCs muszą być połączone za pomocą komunikacji równorzędnej VPC.
 - Źródłowe maszyny wirtualne AWS komunikują się z urządzeniem replikacji na portach HTTPS 443 (aranżacja kanału kontroli) i TCP 9443 (transport danych) przychodzących na potrzeby zarządzania replikacją i transferu danych replikacji. Urządzenie replikacji z kolei organizuje i wysyła dane replikacji do platformy Azure przez port HTTPS 443 dla ruchu wychodzącego. Aby skonfigurować te reguły, Edytuj reguły ruchu przychodzącego/wychodzącego grupy zabezpieczeń przy użyciu odpowiednich portów i źródłowych informacji o adresie IP.
 
@@ -170,7 +170,7 @@ Pierwszym krokiem migracji jest skonfigurowanie urządzenia do replikacji. Aby s
     9,8 w **lokalizacji instalacji**wybierz pozycję **dalej** , aby zaakceptować wartość domyślną.  
     9,9 w **obszarze Wybór sieci**wybierz pozycję **dalej** , aby zaakceptować wartość domyślną.  
     9,10 w obszarze **Podsumowanie**wybierz pozycję **Zainstaluj**.   
-    9,11 **postęp instalacji** pokazuje informacje o procesie instalacji. Po zakończeniu wybierz opcję **Zakończ**. Zostanie wyświetlone okno z komunikatem o konieczności ponownego uruchomienia. Wybierz przycisk **OK**.   
+    9,11 **postęp instalacji** pokazuje informacje o procesie instalacji. Po zakończeniu wybierz opcję **Zakończ**. Zostanie wyświetlone okno z komunikatem o konieczności ponownego uruchomienia. Wybierz pozycję **OK**.   
     9,12 następnie w oknie zostanie wyświetlony komunikat dotyczący hasła połączenia z serwerem konfiguracji. Skopiuj hasło do schowka i Zapisz hasło w tymczasowym pliku tekstowym na źródłowych maszynach wirtualnych. To hasło będzie potrzebne później, podczas procesu instalacji usługi mobilności.
 10. Po zakończeniu instalacji Kreator konfiguracji urządzenia zostanie uruchomiony automatycznie (można również uruchomić Kreatora ręcznie przy użyciu skrótu cspsconfigtool utworzonego na pulpicie urządzenia). Za pomocą karty Zarządzanie kontami kreatora można dodać szczegóły konta do użycia podczas instalacji wypychanej usługi mobilności. W tym samouczku będziemy ręcznie instalować usługę mobilności na źródłowych maszynach wirtualnych do replikacji, więc Utwórz fikcyjne konto w tym kroku i przejdź dalej. Poniżej przedstawiono szczegółowe informacje na temat tworzenia fikcyjnego konta "Gość" jako przyjaznej nazwy, "username" jako nazwy użytkownika i hasła do konta. Będziesz używać tego fikcyjnego konta na etapie włączania replikacji. 
 11. Po ponownym uruchomieniu urządzenia po zakończeniu instalacji w obszarze **odnajdywanie maszyn**wybierz nowe urządzenie na liście **Wybierz serwer konfiguracji**, a następnie kliknij pozycję **finalizowanie rejestracji**. Finalizowanie rejestracji wykonuje kilka zadań końcowych w celu przygotowania urządzenia do replikacji.

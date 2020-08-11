@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
-ms.openlocfilehash: cf21030fbf1aaa9f36e4d34aac918c4604066ec2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 373629c86f2d842ad2e02dd2b66739f3963bf7ed
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071623"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064557"
 ---
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>Jak zintegrować RabbitMQ z Azure Service Bus
 
@@ -20,7 +20,7 @@ W tym przewodniku dowiesz się, jak wysyłać komunikaty z usługi RabbitMQ do A
 
 Poniżej przedstawiono kilka scenariuszy, w których firma Microsoft może korzystać z tych możliwości:
 
-- **Ustawienia programu Edge**: mamy konfigurację graniczną, w której wysyłamy wiadomości do RabbitMQ, ale chcemy przesłać te komunikaty do [Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview) do dalszej obróbki, dzięki czemu możemy korzystać z wielu [możliwości usługi Azure Big Data](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/big-data).
+- **Ustawienia programu Edge**: mamy konfigurację graniczną, w której wysyłamy wiadomości do RabbitMQ, ale chcemy przesłać te komunikaty do [Azure Service Bus](./service-bus-messaging-overview.md) do dalszej obróbki, dzięki czemu możemy korzystać z wielu [możliwości usługi Azure Big Data](/azure/architecture/guide/architecture-styles/big-data).
 - **Chmura hybrydowa**: Firma właśnie nabyła inną firmę, która używa RabbitMQ do potrzeb obsługi komunikatów. Znajdują się one w innej chmurze. Podczas przejścia na platformę Azure możesz już rozpocząć udostępnianie danych przez mostkowanie RabbitMQ z Azure Service Bus.
 - **Integracja z innymi**firmami: inna osoba korzysta z RabbitMQ jako brokera i chce wysłać do nas swoje dane, ale nie są one poza naszą organizacją. Możemy zapewnić im klucz sygnatury dostępu współdzielonego, który umożliwia im dostęp do ograniczonego zestawu Azure Service Busych kolejek, gdzie mogą przekazywać swoje wiadomości do programu.
 
@@ -28,7 +28,7 @@ Lista znajduje się na liście, ale możemy rozwiązać większość tych przypa
 
 Najpierw musisz utworzyć bezpłatne konto platformy Azure, rejestrując się w [tym miejscu](https://azure.microsoft.com/free/)
 
-Po zalogowaniu się do konta przejdź do [Azure Portal](https://portal.azure.com/) i Utwórz nową [przestrzeń nazw](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal)Azure Service Bus. Przestrzenie nazw to kontenery określania zakresu, w których będą się znajdować składniki obsługi komunikatów, takie jak kolejki i tematy.
+Po zalogowaniu się do konta przejdź do [Azure Portal](https://portal.azure.com/) i Utwórz nową [przestrzeń nazw](./service-bus-create-namespace-portal.md)Azure Service Bus. Przestrzenie nazw to kontenery określania zakresu, w których będą się znajdować składniki obsługi komunikatów, takie jak kolejki i tematy.
 
 ## <a name="adding-a-new-azure-service-bus-namespace"></a>Dodawanie nowej przestrzeni nazw Azure Service Bus
 
@@ -40,7 +40,7 @@ Następnie wybierz pozycję integracja i kliknij pozycję Azure Service Bus, aby
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/integration.png" alt-text="Wybieranie usługi Azure Service Bus":::
 
-Zostanie wyświetlony monit o wprowadzenie informacji o przestrzeni nazw. Wybierz subskrypcję platformy Azure, której chcesz użyć. Jeśli nie masz [grupy zasobów](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal), możesz utworzyć nową.
+Zostanie wyświetlony monit o wprowadzenie informacji o przestrzeni nazw. Wybierz subskrypcję platformy Azure, której chcesz użyć. Jeśli nie masz [grupy zasobów](../azure-resource-manager/management/manage-resource-groups-portal.md), możesz utworzyć nową.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace.png" alt-text="Create namespace":::
 
@@ -76,7 +76,7 @@ Teraz możesz uzyskać poświadczenia wymagane do łączenia RabbitMQ z platform
 
 ## <a name="connecting-rabbitmq-to-azure-service-bus"></a>Łączenie RabbitMQ z Azure Service Bus
 
-Należy utworzyć [zasady dostępu współdzielonego](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) (SAS) dla kolejki, aby RabbitMQ mogły publikować w niej komunikaty. Zasady sygnatury dostępu współdzielonego umożliwiają określenie, które strony zewnętrznej mogą robić z Twoim zasobem. Pomysłem jest to, że RabbitMQ może wysyłać komunikaty, ale nie nasłuchują kolejki ani nie zarządzają nią.
+Należy utworzyć [zasady dostępu współdzielonego](../storage/common/storage-sas-overview.md) (SAS) dla kolejki, aby RabbitMQ mogły publikować w niej komunikaty. Zasady sygnatury dostępu współdzielonego umożliwiają określenie, które strony zewnętrznej mogą robić z Twoim zasobem. Pomysłem jest to, że RabbitMQ może wysyłać komunikaty, ale nie nasłuchują kolejki ani nie zarządzają nią.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-sas-policy.png" alt-text="Dodawanie zasad SAS":::
 

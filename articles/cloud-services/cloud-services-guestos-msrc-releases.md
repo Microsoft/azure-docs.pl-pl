@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/21/2020
+ms.date: 8/10/2020
 ms.author: yohaddad
-ms.openlocfilehash: 04e75d108b9f518311ad19b2f9027dd0ad7e9e88
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e14295842413464ed9faced59c8bb897f192a511
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002883"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067022"
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa platformy Azure
 W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Response Center (MSRC) zastosowane do systemu operacyjnego gościa platformy Azure. Przeszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczy systemu operacyjnego gościa, którego używasz. Aktualizacje są zawsze przenoszone dla określonej [rodziny][family-explain] , w której zostały wprowadzone.
@@ -76,24 +76,22 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 
 ## <a name="june-2020-guest-os"></a>OS systemu operacyjnego gościa 2020
->[!NOTE]
->System operacyjny gościa w czerwcu jest obecnie wdrażany na maszynach wirtualnych usługi w chmurze skonfigurowanych do aktualizacji automatycznych. Po zakończeniu wprowadzania ta wersja zostanie udostępniona do ręcznego aktualizowania za pomocą plików Azure Portal i konfiguracji. W systemie operacyjnym gościa w kwietniu uwzględniono następujące poprawki. Ta lista może ulec zmianie.
 
 
 | Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
-|  Rel 20-06  |  [4561603]  |  Internet Explorer  |  2,99, 3,86, 4,79  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561616]  |  Najnowsza aktualizacja zbiorcza (LCU)  |  5,44  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561608]  |  Najnowsza aktualizacja zbiorcza (LCU)  |  6,20  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4562030]  |  Obsługa aktualizacji stosu  |  2,99  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561643]  |  Zestawienie miesięczne  |  2,99  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4562252]  |  Obsługa aktualizacji stosu  |  3,86  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561612]  |  Zestawienie miesięczne  |  3,86  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561600]  |  Flash  |  3,86, 4,79, 5,44, 6,20  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4562253]  |  Obsługa aktualizacji stosu  |  4,79  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561666]  |  Zestawienie miesięczne  |  4,79  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4562561]  |  Obsługa aktualizacji stosu  |  5,44  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4562562]  |  Obsługa aktualizacji stosu  |  6,20  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561603]  |  Internet Explorer  |  [2,99], [3,86], [4,79]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561616]  |  Najnowsza aktualizacja zbiorcza (LCU)  |  [5,44]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561608]  |  Najnowsza aktualizacja zbiorcza (LCU)  |  [6,20]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562030]  |  Obsługa aktualizacji stosu  |  [2,99]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561643]  |  Zestawienie miesięczne  |  [2,99]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562252]  |  Obsługa aktualizacji stosu  |  [3,86]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561612]  |  Zestawienie miesięczne  |  [3,86]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561600]  |  Flash  |  [3,86], [4,79], [5,44], [6,20]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562253]  |  Obsługa aktualizacji stosu  |  [4,79]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561666]  |  Zestawienie miesięczne  |  [4,79]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562561]  |  Obsługa aktualizacji stosu  |  [5,44]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562562]  |  Obsługa aktualizacji stosu  |  [6,20]  |  Jun 9, 2020  |
 
 
 
@@ -109,6 +107,11 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 [4561666]: https://support.microsoft.com/kb/4561666
 [4562561]: https://support.microsoft.com/kb/4562561
 [4562562]: https://support.microsoft.com/kb/4562562
+[2,99]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3,86]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4,79]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5,44]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6,20]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="may-2020-guest-os"></a>System operacyjny gościa 2020
@@ -1193,7 +1196,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | Rel 17-09 | [4038779], [4038786], [4038793] |Tylko zabezpieczenia systemu Windows |2,66, 3,53, 4,46 |12 września 2017 |
 | Rel 17-09 | [4040966], [4040960], [4040965], [4040959], [4033988], [4040955], [4040967], [4040958]|Aktualizacja z września .NET |2,66, 3,53, 4,46 |12 września 2017 |
 | Rel 17-09 | [4036586] |Internet Explorer |2,66, 3,53, 4,46 |12 września 2017 |
-| CVE-2017-8704 | [4038782] |Odmowa usługi |5.11 |12 września 2017 |
+| CVE-2017-8704 | [4038782] |Denial of Service (odmowa usługi) |5.11 |12 września 2017 |
 | Nie dotyczy | [4034664] |Zestawienie niezwiązane z zabezpieczeniami sierpnia  |2,66 |8 sierpnia 2017 |
 | Nie dotyczy | [4034665] |Zestawienie niezwiązane z zabezpieczeniami sierpnia |5.11 |8 sierpnia 2017 |
 | Nie dotyczy | [4034681] |Zestawienie niezwiązane z zabezpieczeniami sierpnia |4,46 |8 sierpnia 2017 |
@@ -1664,8 +1667,8 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | MS15 — 011 |[3000483] |Luka w zabezpieczeniach zasady grupy może umożliwić zdalne wykonywanie kodu |4,17, 3,24, 2,36 |Nie dotyczy |
 | MS15 — 014 |[3004361] |Luka w zabezpieczeniach protokołu SMB może pozwolić na obejście funkcji zabezpieczeń |4,17, 3,24, 2,36 |Nie dotyczy |
 | MS15-015 |[3031432] |Luka w zabezpieczeniach w systemie Microsoft Windows może pozwolić na podniesienie uprawnień |4,17, 3,24, 2,36 |Nie dotyczy |
-| MS15 — 016 |[3029944] |Luka w składniku grafiki firmy Microsoft może umożliwić ujawnienie informacji |4,17, 3,24, 2,36 |Nie dotyczy |
-| Nie dotyczy |[3004375] |Aktualizacja w celu usprawnienia inspekcji wiersza polecenia systemu Windows<p/>**Uwaga**: Ta funkcja jest zainstalowana, ale klucz rejestru, aby go włączyć, jest wyłączony |4,17, 3,24, 2,36 |Nie dotyczy |
+| MS15 — 016 |[3029944] |Luka w składniku grafiki firmy Microsoft może umożliwić ujawnienie informacji |4,17, 3,24, 2,36 |NIE DOTYCZY |
+| NIE DOTYCZY |[3004375] |Aktualizacja w celu usprawnienia inspekcji wiersza polecenia systemu Windows<p/>**Uwaga**: Ta funkcja jest zainstalowana, ale klucz rejestru, aby go włączyć, jest wyłączony |4,17, 3,24, 2,36 |Nie dotyczy |
 
 ## <a name="january-2015-guest-os"></a>System operacyjny gościa w styczniu 2015
 | Identyfikator biuletynu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |

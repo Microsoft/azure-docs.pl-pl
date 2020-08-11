@@ -3,17 +3,17 @@ title: Azure Service Bus uwierzytelniania i autoryzacji | Microsoft Docs
 description: Uwierzytelniaj aplikacje w celu Service Bus z uwierzytelnianiem sygnatury dostępu współdzielonego (SAS).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 56461c13cf6589b5f66f05837e1bcaa6a49a58c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d5d0ed03c869bd574e4cfaa52ac7b62e8cb7fb98
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337715"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066865"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja w usłudze Service Bus
 Istnieją dwa sposoby uwierzytelniania i autoryzowania dostępu do zasobów Azure Service Bus: katalog aktywności platformy Azure (Azure AD) i sygnatury dostępu współdzielonego (SAS). Ten artykuł zawiera szczegółowe informacje dotyczące korzystania z tych dwóch typów mechanizmów zabezpieczeń. 
 
-## <a name="azure-active-directory"></a>Usługa Azure Active Directory
+## <a name="azure-active-directory"></a>Azure Active Directory
 Integracja z usługą Azure AD dla zasobów Service Bus zapewnia kontrolę dostępu opartą na rolach (RBAC) w celu uzyskania szczegółowej kontroli nad dostępem klientów do zasobów. Za pomocą kontroli dostępu opartej na rolach (RBAC) można udzielać uprawnień podmiotowi zabezpieczeń, który może być użytkownikiem, grupą lub jednostką usługi aplikacji. Podmiot zabezpieczeń jest uwierzytelniany przez usługę Azure AD w celu zwrócenia tokenu OAuth 2,0. Token może służyć do autoryzowania żądania dostępu do zasobu Service Bus (Kolejka, temat itp.).
 
 Aby uzyskać więcej informacji na temat uwierzytelniania przy użyciu usługi Azure AD, zobacz następujące artykuły:
@@ -30,7 +30,7 @@ Aby uzyskać więcej informacji na temat uwierzytelniania przy użyciu usługi A
 ## <a name="shared-access-signature"></a>Sygnatura dostępu współdzielonego
 [Uwierzytelnianie za pomocą sygnatury dostępu współdzielonego](service-bus-sas.md) umożliwia użytkownikom dostęp do Service Bus zasobów przy użyciu określonych praw. Uwierzytelnianie za pomocą sygnatury dostępu współdzielonego w Service Bus obejmuje konfigurację klucza kryptograficznego ze skojarzonymi prawami w ramach zasobu Service Bus. Klienci mogą następnie uzyskać dostęp do tego zasobu przez przedstawienie tokenu sygnatury dostępu współdzielonego, który składa się z identyfikatora URI zasobu, do którego jest uzyskiwany dostęp, i podpisanego kluczem.
 
-Klucze dla sygnatury dostępu współdzielonego można skonfigurować w Service Bus przestrzeni nazw. Klucz ma zastosowanie do wszystkich jednostek obsługi komunikatów w tej przestrzeni nazw. Możesz również skonfigurować klucze na Service Bus kolejkach i tematach. Sygnatura dostępu współdzielonego jest również obsługiwana na [Azure Relay](../service-bus-relay/relay-authentication-and-authorization.md).
+Klucze dla sygnatury dostępu współdzielonego można skonfigurować w Service Bus przestrzeni nazw. Klucz ma zastosowanie do wszystkich jednostek obsługi komunikatów w tej przestrzeni nazw. Możesz również skonfigurować klucze na Service Bus kolejkach i tematach. Sygnatura dostępu współdzielonego jest również obsługiwana na [Azure Relay](../azure-relay/relay-authentication-and-authorization.md).
 
 Aby użyć sygnatury dostępu współdzielonego, można skonfigurować obiekt [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) dla przestrzeni nazw, kolejki lub tematu. Ta reguła składa się z następujących elementów:
 
@@ -46,12 +46,12 @@ Aby uzyskać dostęp do jednostki, klient wymaga tokenu sygnatury dostępu wspó
 Obsługa uwierzytelniania SAS dla Service Bus jest zawarta w zestawie SDK platformy Azure w wersji 2,0 lub nowszej. Sygnatura dostępu współdzielonego obejmuje obsługę [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Wszystkie interfejsy API, które akceptują parametry połączenia jako parametr obejmują obsługę ciągów połączeń sygnatury dostępu współdzielonego.
 
 > [!IMPORTANT]
-> W przypadku korzystania z programu Azure Active Directory Access Control (znanego również jako Access Control Service lub ACS) z Service Bus należy zauważyć, że obsługa tej metody jest teraz ograniczona i należy [przeprowadzić migrację aplikacji do korzystania z SAS](service-bus-migrate-acs-sas.md) lub uwierzytelniania OAuth 2,0 z usługą Azure AD (zalecane). Aby uzyskać więcej informacji o zaniechaniu usługi ACS, zobacz [ten wpis w blogu](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/).
+> W przypadku korzystania z programu Azure Active Directory Access Control (znanego również jako Access Control Service lub ACS) z Service Bus należy zauważyć, że obsługa tej metody jest teraz ograniczona i należy [przeprowadzić migrację aplikacji do korzystania z SAS](service-bus-migrate-acs-sas.md) lub uwierzytelniania OAuth 2,0 z usługą Azure AD (zalecane). Aby uzyskać więcej informacji o zaniechaniu usługi ACS, zobacz [ten wpis w blogu](/archive/blogs/servicebus/upcoming-changes-to-acs-enabled-namespaces).
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji na temat uwierzytelniania przy użyciu usługi Azure AD, zobacz następujące artykuły:
 
-- [Uwierzytelnianie z tożsamościami zarządzanymi](service-bus-managed-service-identity.md)
+- [Uwierzytelnianie za pomocą tożsamości zarządzanych](service-bus-managed-service-identity.md)
 - [Uwierzytelnianie z poziomu aplikacji](authenticate-application.md)
 
 Aby uzyskać więcej informacji na temat uwierzytelniania przy użyciu sygnatury dostępu współdzielonego, zobacz następujące artykuły:

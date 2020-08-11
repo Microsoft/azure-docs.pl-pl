@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a882e3a21d5e1e99f6f9154fd2162071752b4499
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 6151bb915298cc4f771b6d49628f39c8d27b62b4
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800352"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064370"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Korzystanie z platformy Azure do hostowania i uruchamiania scenariuszy obciążeń SAP
 
@@ -45,6 +45,7 @@ Jeśli masz określone pytania, przejdźmy do określonych dokumentów lub przep
     - [Obsługiwane scenariusze dla dużego wystąpienia HANA](./hana-supported-scenario.md)
 - Jakie usługi platformy Azure, typy maszyn wirtualnych platformy Azure i usługi Azure Storage są dostępne w różnych regionach świadczenia usługi Azure, sprawdź dostępne dla lokacji [produkty według regionów](https://azure.microsoft.com/global-infrastructure/services/) 
 - Czy ramka HA innej firmy działa, oprócz systemu Windows i Pacemaker? Sprawdź dolną część [uwagi dotyczącej pomocy technicznej SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533)
+- Co to jest usługa Azure Storage Najlepsza dla mojego scenariusza? Odczytaj [typy usługi Azure Storage dla obciążenia SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage)
 
  
 ## <a name="sap-hana-on-azure-large-instances"></a>Oprogramowanie SAP HANA na platformie Azure (duże wystąpienia)
@@ -59,23 +60,7 @@ W tej części dokumentacji omówiono różne aspekty SAP HANA. Jako warunek wst
  
 
 ## <a name="sap-netweaver-deployed-on-azure-virtual-machines"></a>Oprogramowanie SAP NetWeaver wdrożone na maszynach wirtualnych platformy Azure
-Ta sekcja zawiera listę dokumentacji dotyczącej planowania i wdrażania dla oprogramowania SAP NetWeaver i Business One na platformie Azure. Dokumentacja dotyczy podstaw i używania baz danych innych niż HANA z obciążeniem SAP na platformie Azure. Dokumenty i artykuły dotyczące wysokiej dostępności są również podstawą dla wysokiej dostępności HANA na platformie Azure, na przykład:
-
-- [Przewodnik planowania platformy Azure](./planning-guide.md). 
-- [Oprogramowanie SAP Business One na maszynach wirtualnych platformy Azure](./business-one-azure.md)
-- [Ochrona wielowarstwowego wdrożenia aplikacji SAP NetWeaver przy użyciu Site Recovery](../../../site-recovery/site-recovery-sap.md)
-- [Łącznik SAP LaMa dla platformy Azure](./lama-installation.md)
-
-Aby uzyskać informacje na temat baz danych innych niż HANA w obciążeniu SAP na platformie Azure, zobacz:
-
-- [Zagadnienia dotyczące wdrażania systemu Azure Virtual Machines DBMS dla obciążeń SAP](./dbms_guide_general.md)
-- [SQL Server wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP NetWeaver](./dbms_guide_sqlserver.md)
-- [Wdrażanie systemu DBMS usługi Azure Virtual Machines oprogramowania Oracle dla obciążenia SAP](./dbms_guide_oracle.md)
-- [Wdrożenie programu IBM DB2 Azure Virtual Machines DBMS dla obciążenia SAP](./dbms_guide_ibm.md)
-- [Wdrażanie systemu DBMS usługi Azure Virtual Machines produktu SAP ESE dla obciążenia SAP](./dbms_guide_sapase.md)
-- [Wdrażanie oprogramowania SAP MaxDB, pamięci podręcznej na żywo i serwera zawartości na maszynach wirtualnych platformy Azure](./dbms_guide_maxdb.md)
-
-Aby uzyskać informacje na temat SAP HANA baz danych na platformie Azure, zobacz sekcję "SAP HANA w usłudze Azure Virtual Machines".
+Ta sekcja zawiera listę dokumentacji dotyczącej planowania i wdrażania dla oprogramowania SAP NetWeaver i Business One na platformie Azure. Dokumentacja dotyczy podstaw i używania baz danych innych niż HANA z obciążeniem SAP na platformie Azure. Dokumenty i artykuły wysokiej dostępności są również podstawą wysokiej dostępności platformy HANA na platformie Azure
 
 Aby uzyskać informacje na temat wysokiej dostępności obciążeń SAP na platformie Azure, zobacz:
 
@@ -104,6 +89,7 @@ Aby uzyskać informacje na temat integracji usług platformy Azure z składnikam
 
 ## <a name="change-log"></a>Dziennik zmian
 
+- 08/10/2020: wprowadzenie do kosztów SAP HANA konfiguracji magazynu w [SAP HANA Konfiguracja magazynu maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) i wprowadzanie aktualizacji do [obciążeń SAP na platformie Azure: planowanie i wdrażanie listy kontrolnej](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
 - 08/04/2020: zmiana konfiguracji [Pacemaker na SLES na platformie Azure](./high-availability-guide-suse-pacemaker.md) i [KONFIGUROWANIA Pacemaker na RHEL na platformie Azure](./high-availability-guide-rhel-pacemaker.md) w celu wyróżnienia znaczenia niezawodnego rozpoznawania nazw dla klastrów Pacemaker
 - 08/04/2020: zmiana w programie [SAP NW ha na WFCS z udziałem plików](./sap-high-availability-installation-wsfc-file-share.md), [SAP NW ha na WFCS z udostępnionym dyskiem](./sap-high-availability-installation-wsfc-shared-disk.md), [ha for SAP NW na maszynach wirtualnych platformy Azure](./high-availability-guide.md), [ha dla SAP NW na maszynach wirtualnych platformy Azure w systemie SLES](./high-availability-guide-suse.md), [ha dla oprogramowania SAP NW na maszynach wirtualnych platformy Azure w systemie SLES z ANF](./high-availability-guide-suse-netapp-files.md), [ha dla SAP NW na maszynach wirtualnych platformy Azure w przypadku usługi SLES z obsługą wielosid](./high-availability-guide-suse-multi-sid.md), [wysoka dostępność rozwiązań SAP NETWEAVER na maszynach wirtualnych platformy](./high-availability-guide-rhel.md)Azure na RHEL, [ha dla SAP NW](./high-availability-guide-rhel-netapp-files.md) na maszynach wirtualnych platformy Azure w RHEL z ANF i [ha dla SAP](./high-availability-guide-rhel-multi-sid.md)`enque/encni/set_so_keepalive`
 - 07/23/2020: dodano [SAP HANA — duże wystąpienia zapisywania w artykule dotyczącym rezerwacji platformy Azure](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md) wyjaśniającym, co musisz wiedzieć przed zakupieniem SAP HANA — duże wystąpienia rezerwacji i sposobami zakupu.

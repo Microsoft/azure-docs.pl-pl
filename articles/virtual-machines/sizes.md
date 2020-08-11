@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
-ms.openlocfilehash: 65b4bf5e8a681bea36ab381771a2843ac1d1fbe4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 234156186d045e21cc01cc4b407408f98268c790
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827626"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065475"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Rozmiary maszyn wirtualnych na platformie Azure
 
@@ -25,7 +25,7 @@ W tym artykule opisano dostępne rozmiary i opcje dla maszyn wirtualnych platfor
 | [Optymalizacja pod kątem obliczeń](sizes-compute.md) | F, FS, Fsv2 | Wysoki współczynnik procesora CPU do pamięci. Dobre dla serwerów sieci Web o średnim ruchu, urządzeń sieciowych, procesów wsadowych i serwerów aplikacji. |
 | [Optymalizacja pod kątem pamięci](sizes-memory.md) | Esv3, EV3, Easv4, Eav4, Ev4, Esv4, Edv4, Edsv4, Mv2, M, DSv2, Dv2 | Duże proporcje pamięci i procesora CPU. Opcja bardzo dobra w przypadku serwerów relacyjnych baz danych, średnich i dużych pamięci podręcznych oraz analizowania w pamięci.                 |
 | [Optymalizacja pod kątem magazynu](sizes-storage.md) | Lsv2 | Wysoka przepływność dysku i doskonałe operacje we/wy dla danych Big Data, baz danych SQL, NoSQL, magazynowania danych i dużych transakcyjnych baz danych.  |
-| [Procesor GPU](sizes-gpu.md) | NC, NCv2, Seria NCV3, ND, NDv2 (wersja zapoznawcza), NV, NVv3, NVv4 | Wyspecjalizowane maszyny wirtualne przeznaczone do intensywnego renderowania grafiki i edytowania wideo, a także szkolenia modelowe i inferencing (ND) z głębokie uczenie. Dostępne z pojedynczym lub wieloma procesorami GPU. |
+| [Procesor GPU](sizes-gpu.md) | NC, NCv2, Seria NCV3, NCasT4_v3 (wersja zapoznawcza), ND, NDv2 (wersja zapoznawcza), NV, NVv3, NVv4 | Wyspecjalizowane maszyny wirtualne przeznaczone do intensywnego renderowania grafiki i edytowania wideo, a także szkolenia modelowe i inferencing (ND) z głębokie uczenie. Dostępne z pojedynczym lub wieloma procesorami GPU. |
 | [Obliczenia o wysokiej wydajności](sizes-hpc.md) | HB, HBv2, HC, H | Nasze najszybsze i najbardziej wydajne maszyny wirtualne procesora z opcjonalnymi interfejsami sieciowymi o wysokiej przepływności (RDMA). |
 
 - Aby uzyskać informacje o cenach różnych rozmiarów, zobacz strony cen dla systemu [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) lub [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows).

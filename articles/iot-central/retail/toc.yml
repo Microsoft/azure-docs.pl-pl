@@ -30,6 +30,20 @@
       items:
         - name: Tworzenie aplikacji centrum mikrorealizacji
           href: tutorial-micro-fulfillment-center.md
+    - name: Analiza wideo — wykrywanie obiektów i ruchu
+      items:
+        - name: 1 — Tworzenie aplikacji do analizy wideo
+          href: tutorial-video-analytics-create-app.md
+        - name: 2 — Konfigurowanie urządzenia usługi IoT Edge
+          items:
+            - name: Tworzenie urządzenia do analizy wideo na brzegu sieci (maszyna wirtualna z systemem Linux)
+              href: tutorial-video-analytics-iot-edge-vm.md
+            - name: Tworzenie urządzenia do analizy wideo na brzegu sieci (urządzenie Intel NUC)
+              href: tutorial-video-analytics-iot-edge-nuc.md
+        - name: 3 — Monitorowanie aplikacji do analizy wideo i zarządzanie nią
+          href: tutorial-video-analytics-manage.md
+        - name: 4 — Modyfikowanie i tworzenie modułów bramy analizy wideo na żywo
+          href: tutorial-video-analytics-build-module.md
 - name: Pojęcia
   items:
     - name: Architektura szablonu aplikacji połączonej logistyki
@@ -42,12 +56,16 @@
       href: store-analytics-architecture.md
     - name: Architektura szablonu aplikacji centrum mikrorealizacji
       href: architecture-micro-fulfillment-center.md
+    - name: Architektura szablonu aplikacji do analizy wideo
+      href: architecture-video-analytics.md
     - name: Łączność
       href: ../core/concepts-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: Co to są szablony aplikacji?
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
 - name: Przewodniki z instrukcjami
   items:
+    - name: Wdrażanie aplikacji do wykrywania obiektów i ruchu
+      href: howto-deploy-video-analytics-template.md
     - name: Łączenie urządzeń
       items:
         - name: Przygotowywanie i łączenie urządzenia Rigado Cascade 500

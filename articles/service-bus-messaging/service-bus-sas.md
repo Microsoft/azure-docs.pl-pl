@@ -3,12 +3,12 @@ title: Azure Service Bus kontroli dostępu z sygnaturami dostępu współdzielon
 description: Omówienie kontroli dostępu Service Bus przy użyciu sygnatur dostępu współdzielonego — Omówienie, szczegółowe informacje na temat autoryzacji SAS i Azure Service Bus.
 ms.topic: article
 ms.date: 07/30/2020
-ms.openlocfilehash: b75f1ec3a1aac36124287523140c24d468329aaa
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 8e48858fd76bcf4667cfff1237f49597a477b3e8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460698"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066189"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus kontroli dostępu z sygnaturami dostępu współdzielonego
 
@@ -27,7 +27,7 @@ Funkcja SAS chroni dostęp do Service Bus na podstawie reguł autoryzacji. Są o
 
 Sygnatury dostępu współdzielonego to mechanizm autoryzacji oparty na oświadczeniach korzystający z prostych tokenów. Przy użyciu sygnatury dostępu współdzielonego klucze nigdy nie są przesyłane do sieci. Klucze są używane do kryptograficznego podpisywania informacji, które mogą zostać później zweryfikowane przez usługę. Sygnatury dostępu współdzielonego można użyć podobnie jak w przypadku schematu nazwy użytkownika i hasła, w którym klient ma bezpośredni dostęp do nazwy reguły autoryzacji i pasującego klucza. Sygnatura dostępu współdzielonego może być również używana podobnie jak w przypadku federacyjnego modelu zabezpieczeń, w którym klient otrzymuje ograniczony czas i podpisany token dostępowy z usługi tokenu zabezpieczającego bez wcześniejszego posiadania klucza podpisywania.
 
-Uwierzytelnianie za pomocą SYGNATURy dostępu współdzielonego w Service Bus jest skonfigurowane z nazwanymi [regułami autoryzacji dostęp współdzielony](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) , które mają skojarzone prawa dostępu oraz parę podstawowych i pomocniczych kluczy kryptograficznych. Klucze są 256-bitowe wartości w reprezentacji Base64. Reguły można skonfigurować na poziomie przestrzeni nazw, na Service Bus [przekaźników](../service-bus-relay/relay-what-is-it.md), [kolejkach](service-bus-messaging-overview.md#queues)i [tematach](service-bus-messaging-overview.md#topics).
+Uwierzytelnianie za pomocą SYGNATURy dostępu współdzielonego w Service Bus jest skonfigurowane z nazwanymi [regułami autoryzacji dostęp współdzielony](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) , które mają skojarzone prawa dostępu oraz parę podstawowych i pomocniczych kluczy kryptograficznych. Klucze są 256-bitowe wartości w reprezentacji Base64. Reguły można skonfigurować na poziomie przestrzeni nazw, na Service Bus [przekaźników](../azure-relay/relay-what-is-it.md), [kolejkach](service-bus-messaging-overview.md#queues)i [tematach](service-bus-messaging-overview.md#topics).
 
 Token [sygnatury dostępu współdzielonego](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) zawiera nazwę wybranej reguły autoryzacji, identyfikator URI zasobu, do którego można uzyskać dostęp, chwilę wygaśnięcia oraz sygnaturę szyfrowania HMAC-SHA256 obliczoną dla tych pól przy użyciu podstawowego lub pomocniczego klucza kryptograficznego wybranej reguły autoryzacji.
 
@@ -84,7 +84,7 @@ Token zawiera wartości niebędące skrótami, dzięki czemu odbiorca może pono
 
 Identyfikator URI zasobu to pełny identyfikator URI zasobu Service Bus, do którego odnosi się dostęp. Na przykład `http://<namespace>.servicebus.windows.net/<entityPath>` lub `sb://<namespace>.servicebus.windows.net/<entityPath>` `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3` . 
 
-**Identyfikator URI musi być [zakodowany przy użyciu wartości procentowej](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
+**Identyfikator URI musi być [zakodowany przy użyciu wartości procentowej](/dotnet/api/system.web.httputility.urlencode?view=netcore-3.1).**
 
 Reguła autoryzacji dostępu współdzielonego używana do podpisywania musi być skonfigurowana w jednostce określonej przez ten identyfikator URI lub według jednego z hierarchicznych obiektów nadrzędnych. Na przykład `http://contoso.servicebus.windows.net/contosoTopics/T1` lub `http://contoso.servicebus.windows.net` w poprzednim przykładzie.
 
@@ -256,7 +256,7 @@ W poniższej tabeli przedstawiono prawa dostępu wymagane do różnych operacji 
 
 | Operacja | Wymagane jest żądanie | Zakres roszczeń |
 | --- | --- | --- |
-| **Przestrzeń nazw** | | |
+| **Obszaru** | | |
 | Konfigurowanie reguły autoryzacji w przestrzeni nazw |Zarządzanie |Dowolny adres przestrzeni nazw |
 | **Rejestr usługi** | | |
 | Wyliczanie zasad prywatnych |Zarządzanie |Dowolny adres przestrzeni nazw |
@@ -276,7 +276,7 @@ W poniższej tabeli przedstawiono prawa dostępu wymagane do różnych operacji 
 | Pobierz stan skojarzony z sesją kolejki komunikatów |Nasłuchiwanie |Dowolny prawidłowy adres kolejki |
 | Ustawianie stanu skojarzonego z sesją kolejki komunikatów |Nasłuchiwanie |Dowolny prawidłowy adres kolejki |
 | Zaplanuj wiadomość w celu późniejszego dostarczenia; na przykład [ScheduleMessageAsync ()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Nasłuchiwanie | Dowolny prawidłowy adres kolejki
-| **Temat** | | |
+| **Rozdziału** | | |
 | Tworzenie tematu |Zarządzanie |Dowolny adres przestrzeni nazw |
 | Usuwanie tematu |Zarządzanie |Dowolny prawidłowy adres tematu |
 | Wyliczenie tematów |Zarządzanie |/$Resources/topics |

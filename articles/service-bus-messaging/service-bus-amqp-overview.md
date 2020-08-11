@@ -3,15 +3,15 @@ title: Omówienie AMQP 1,0 w Azure Service Bus
 description: Dowiedz się, jak Azure Service Bus obsługuje Advanced Message Queuing Protocol (AMQP), Open standard Protocol.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 1113ffd268c991ba8a9c8f574b90d555a81ae840
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c91c7965b94216f3f3bcb47e0cb652ce22a0217a
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083875"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066342"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Obsługa AMQP 1,0 w Service Bus
-Zarówno usługa Azure Service Bus w chmurze, jak i lokalne [Service Bus dla systemu Windows Server (Service Bus 1,1)](https://msdn.microsoft.com/library/dn282144.aspx) obsługują protokół Advanced Message Queueing Protocol (AMQP) 1,0. AMQP umożliwia tworzenie aplikacji hybrydowych dla wielu platform przy użyciu protokołu Open Standard. Aplikacje można konstruować przy użyciu składników utworzonych przy użyciu różnych języków i struktur, które działają w różnych systemach operacyjnych. Wszystkie te składniki mogą łączyć się z Service Bus i bezproblemowo wymieniać strukturalne wiadomości biznesowe oraz z pełną dokładnością.
+Zarówno usługa Azure Service Bus w chmurze, jak i lokalne [Service Bus dla systemu Windows Server (Service Bus 1,1)](/previous-versions/service-bus-archive/dn282144(v=azure.100)) obsługują protokół Advanced Message Queueing Protocol (AMQP) 1,0. AMQP umożliwia tworzenie aplikacji hybrydowych dla wielu platform przy użyciu protokołu Open Standard. Aplikacje można konstruować przy użyciu składników utworzonych przy użyciu różnych języków i struktur, które działają w różnych systemach operacyjnych. Wszystkie te składniki mogą łączyć się z Service Bus i bezproblemowo wymieniać strukturalne wiadomości biznesowe oraz z pełną dokładnością.
 
 ## <a name="introduction-what-is-amqp-10-and-why-is-it-important"></a>Wprowadzenie: co to jest AMQP 1,0 i dlaczego jest ważne?
 Tradycyjnie, zorientowane na komunikaty oprogramowanie pośredniczące wykorzystuje protokoły własnościowe do komunikacji między aplikacjami klienckimi i brokerami. Oznacza to, że po wybraniu brokera obsługi komunikatów określonego dostawcy należy użyć bibliotek tego dostawcy, aby połączyć aplikacje klienckie z tym brokerem. Wynika to z stopnia zależności od tego dostawcy, ponieważ port aplikacji do innego produktu wymaga wprowadzenia zmian w kodzie we wszystkich połączonych aplikacjach. 
@@ -84,6 +84,6 @@ Chcesz dowiedzieć się więcej? Odwiedź następujące linki:
 
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
 [Korzystanie z Service Bus z platformy .NET z AMQP]: service-bus-amqp-dotnet.md
-[Używanie Service Bus z języka Java z AMQP]: service-bus-amqp-java.md
-[Instalowanie oprogramowania Apache Qpid Proton-C na maszynie wirtualnej z systemem Linux na platformie Azure]: service-bus-amqp-apache.md
-[AMQP w Service Bus dla systemu Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+[Używanie Service Bus z języka Java z AMQP]: ./service-bus-java-how-to-use-jms-api-amqp.md
+[Instalowanie oprogramowania Apache Qpid Proton-C na maszynie wirtualnej z systemem Linux na platformie Azure]: 
+[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn574799(v=azure.100)
