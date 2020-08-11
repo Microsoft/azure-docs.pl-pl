@@ -9,12 +9,12 @@ author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 07/27/2020
-ms.openlocfilehash: b3abda9787654734b24cc27987921ef40d8070fc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2c8aa39b6819e135181e2d153825e89686359538
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294206"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053766"
 ---
 # <a name="create-azure-ad-guest-users-and-set-as-an-azure-ad-admin"></a>Tworzenie użytkowników-gości usługi Azure AD i ustawianie jako administratora usługi Azure AD
 
@@ -133,9 +133,9 @@ Wykonaj następujące kroki, aby ustawić użytkownika-gościa usługi Azure AD 
 
 ## <a name="limitations"></a>Ograniczenia
 
-Istnieje ograniczenie dotyczące Azure Portal, które uniemożliwiają wybranie użytkownika-gościa usługi Azure AD jako administratora usługi Azure AD dla SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse. W przypadku kont Gości spoza usługi Azure AD, takich jak * \@ Outlook.com*, * \@ hotmail.com*, * \@ Live.com*lub * \@ gmail.com*, selektor administratora usługi AD zawiera te konta, ale są wyszarzone i nie można ich wybrać. Użyj powyższej listy [poleceń programu PowerShell lub interfejsu wiersza polecenia](#setting-a-guest-user-as-an-azure-ad-admin) , aby ustawić administratora usługi Azure AD. Alternatywnie można ustawić grupę usługi Azure AD zawierającą użytkownika Gość jako administratora usługi Azure AD dla serwera logicznego SQL.
+Istnieje ograniczenie dotyczące Azure Portal, które uniemożliwiają wybranie użytkownika Gość usługi Azure AD jako administratora usługi Azure AD dla wystąpienia zarządzanego SQL. W przypadku kont Gości spoza usługi Azure AD, takich jak * \@ Outlook.com*, * \@ hotmail.com*, * \@ Live.com*lub * \@ gmail.com*, selektor administratora usługi AD zawiera te konta, ale są wyszarzone i nie można ich wybrać. Użyj powyższej listy [poleceń programu PowerShell lub interfejsu wiersza polecenia](#setting-a-guest-user-as-an-azure-ad-admin) , aby ustawić administratora usługi Azure AD. Alternatywnie można ustawić grupę usługi Azure AD zawierającą użytkownika Gość jako administratora usługi Azure AD dla wystąpienia zarządzanego SQL.
 
-Ta funkcja zostanie włączona dla SQL Database i Azure Synapse przed ogólnym udostępnieniem tej funkcji.
+Ta funkcja zostanie włączona dla wystąpienia zarządzanego SQL przed ogólnym udostępnieniem tej funkcji.
 
 ## <a name="next-steps"></a>Następne kroki
 

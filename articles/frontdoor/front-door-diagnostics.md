@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: f57c0353989cfcf924042d202bd80a57b476507b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 249b2406f048709fd7e4f76f8272b3158708e5bb
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322311"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056435"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitorowanie metryk i dzienników na platformie Azure — drzwiczki
 
@@ -91,7 +91,7 @@ Drzwi z przodu zawierają obecnie dzienniki diagnostyczne (wsadowe co godzinę).
 | RulesEngineMatchNames | Nazwy reguł, które pasują do żądania. |
 | To elementu SecurityProtocol | Wersja protokołu TLS/SSL używana przez żądanie lub wartość null, jeśli nie ma szyfrowania. |
 | SentToOriginShield | Pole logiczne reprezentujące, czy podczas pierwszego środowiska wystąpił chybień w pamięci podręcznej, a żądanie zostało wysłane do regionalnej pamięci podręcznej. Zignoruj to pole, jeśli reguła routingu jest przekierowaniem lub gdy buforowanie nie jest włączone. |
-| TimeTaken | Czas trwania akcji (w milisekundach). |
+| TimeTaken | Czas od pierwszego bajtu żądania w przód do ostatniego bajtu odpowiedzi w sekundach. |
 | TrackingReference | Unikatowy ciąg odwołania, który identyfikuje żądanie obsługiwane przez tylne drzwi, również wysyłany jako nagłówek X-Azure-ref do klienta. Wymagane do wyszukiwania szczegółowych informacji w dziennikach dostępu dla określonego żądania. |
 | UserAgent | Typ przeglądarki używany przez klienta. |
 

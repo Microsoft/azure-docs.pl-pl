@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cd8771afdc9c4462faaff758ffdd073382f69f53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24118e6ae5c31399ce5d33361dd60e3a08424681
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550979"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055772"
 ---
 # <a name="blob-snapshots"></a>Migawki obiektów BLOB
 
@@ -33,7 +33,7 @@ Migawka obiektu BLOB jest taka sama jak jego podstawowy obiekt BLOB, z tą róż
 > Wszystkie migawki korzystają z identyfikatora URI podstawowego obiektu BLOB. Jedyną różnicą między bazowym obiektem blob a migawką jest dołączona wartość **DateTime** .
 >
 
-Obiekt BLOB może zawierać dowolną liczbę migawek. Migawki są utrwalane, dopóki nie zostaną jawnie usunięte, co oznacza, że migawka nie może na bieżąco odistnieć podstawowego obiektu BLOB. Można wyliczyć migawki skojarzone z podstawowym obiektem BLOB w celu śledzenia bieżących migawek.
+Obiekt BLOB może zawierać dowolną liczbę migawek. Migawki zachowują się do momentu usunięcia ich jawnie, niezależnie lub jako część operacji usuwania obiektu BLOB dla podstawowego obiektu BLOB. Można wyliczyć migawki skojarzone z podstawowym obiektem BLOB w celu śledzenia bieżących migawek.
 
 Podczas tworzenia migawki obiektu BLOB właściwości systemu obiektu BLOB są kopiowane do migawki z tymi samymi wartościami. Metadane podstawowego obiektu BLOB są również kopiowane do migawki, o ile nie zostanie określone oddzielne metadane dla migawki podczas jej tworzenia. Po utworzeniu migawki można ją odczytywać, kopiować lub usuwać, ale nie można jej modyfikować.
 

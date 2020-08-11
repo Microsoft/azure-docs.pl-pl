@@ -5,17 +5,17 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.date: 03/27/2020
-ms.openlocfilehash: 725d1cf38a0c7f6de02addc62577e397a935af94
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 08/07/2020
+ms.openlocfilehash: 1c649499fd9eaedac0ca4ff9c182e13a9da223ef
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041051"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053154"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Błędy danych Azure Stream Analytics
 
-Błędy danych to błędy występujące podczas przetwarzania danych.  Te błędy najczęściej występują podczas operacji cofania serializacji, serializacji i zapisu danych.  W przypadku wystąpienia błędów danych Stream Analytics zapisuje szczegółowe informacje i przykładowe zdarzenia do dzienników zasobów.  W niektórych przypadkach podsumowanie tych informacji jest również udostępniane za poorednictwem powiadomień portalu.
+Błędy danych to błędy występujące podczas przetwarzania danych.  Te błędy najczęściej występują podczas operacji cofania serializacji, serializacji i zapisu danych.  W przypadku wystąpienia błędów danych Stream Analytics zapisuje szczegółowe informacje i przykładowe zdarzenia do dzienników zasobów. Aby uzyskać dodatkowe informacje, Włącz dzienniki diagnostyczne w zadaniu. W niektórych przypadkach podsumowanie tych informacji jest również udostępniane za pomocą powiadomień portalu.
 
 W tym artykule opisano różne typy błędów, przyczyny i szczegóły dotyczące błędów danych wejściowych i wyjściowych.
 

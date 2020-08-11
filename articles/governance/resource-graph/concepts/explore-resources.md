@@ -1,14 +1,14 @@
 ---
 title: Eksplorowanie zasobów platformy Azure
 description: Dowiedz się, jak używać języka zapytań grafu zasobów do eksplorowania zasobów i dowiedzieć się, jak są one połączone.
-ms.date: 05/20/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 33bf457a57f7e62b9c99471bcb7676f62046f61d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2dcd27380cb67213c3c2c7a5776243b5e9a2e37f
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83654486"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056588"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Badanie zasobów platformy Azure przy użyciu usługi Resources Graph
 
@@ -207,8 +207,8 @@ Resources
 | where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'
 ```
 
-Przed uruchomieniem zapytania, w jaki sposób wiemy, że **Typ** powinien być teraz **Microsoft. COMPUTE/disks**?
-Jeśli zobaczysz pełny identyfikator, zobaczysz **/providers/Microsoft.COMPUTE/disks/** jako część ciągu. Ten fragment ciągu zawiera wskazówkę dotyczącą typu wyszukiwania. Alternatywną metodą jest usunięcie limitu według typu i wyszukanie tylko według pola identyfikatora. Ponieważ identyfikator jest unikatowy, zwracany jest tylko jeden rekord i Właściwość **Type** na nim zawiera te szczegóły.
+Przed uruchomieniem zapytania, w jaki sposób wiemy, że **Typ** powinien być teraz **Microsoft. COMPUTE/disks**? Jeśli zobaczysz pełny identyfikator, zobaczysz **/providers/Microsoft.COMPUTE/disks/** jako część ciągu.
+Ten fragment ciągu zawiera wskazówkę dotyczącą typu wyszukiwania. Alternatywną metodą jest usunięcie limitu według typu i wyszukanie tylko według pola identyfikatora. Ponieważ identyfikator jest unikatowy, zwracany jest tylko jeden rekord i Właściwość **Type** na nim zawiera te szczegóły.
 
 > [!NOTE]
 > Aby ten przykład działał, należy zamienić pole ID na wynik z własnego środowiska.

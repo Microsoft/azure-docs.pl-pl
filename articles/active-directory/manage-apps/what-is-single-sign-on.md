@@ -1,6 +1,6 @@
 ---
 title: Co to jest logowanie jednokrotne na platformie Azure?
-description: Dowiedz się, jak wybrać metodę logowania jednokrotnego podczas konfigurowania aplikacji w Azure Active Directory (Azure AD). Użyj logowania jednokrotnego, aby użytkownicy nie musieli zapamiętywać haseł dla każdej aplikacji i uprościć administrowanie zarządzaniem kontami.
+description: Dowiedz się, jak działa Logowanie jednokrotne (SSO) przy użyciu Azure Active Directory. Użyj logowania jednokrotnego, aby użytkownicy nie musieli zapamiętywać haseł dla każdej aplikacji. Aby uprościć administrowanie zarządzaniem kontami, należy również użyć logowania jednokrotnego.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -12,22 +12,31 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0928cb264dcff43cc0a3e45a8417dcd1e23a1ed3
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 5446d945a81d2630d788a866bda00eb118382b93
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042602"
+ms.locfileid: "88053783"
 ---
 # <a name="what-is-single-sign-on-sso"></a>Co to jest logowanie jednokrotne?
 
-Logowanie jednokrotne (SSO) zwiększa bezpieczeństwo i wygodę, gdy użytkownicy logują się do aplikacji w Azure Active Directory (Azure AD). W tym artykule opisano metody logowania jednokrotnego, które ułatwiają wybranie najbardziej odpowiedniej metody rejestracji jednokrotnej podczas konfigurowania aplikacji.
+Logowanie jednokrotne oznacza, że użytkownik nie musi logować się do każdej używanej aplikacji. Użytkownik loguje się raz, a poświadczenia są również używane dla innych aplikacji.
+
+Jeśli jesteś użytkownikiem końcowym, możesz nie zadbać o szczegóły dotyczące rejestracji jednokrotnej. Warto tylko korzystać z aplikacji, które zwiększają produktywność, bez konieczności pisania hasła. Aplikacje można znaleźć pod adresem: https://myapps.microsoft.com .
+ 
+Jeśli jesteś administratorem lub informatykiem, Przeczytaj, aby dowiedzieć się więcej na temat sposobu implementacji logowania jednokrotnego na platformie Azure.
+
+## <a name="single-sign-on-basics"></a>Podstawy logowania jednokrotnego
+Logowanie jednokrotne zapewnia bardzo dużeą w przód w celu zalogowania się i używania aplikacji przez użytkowników. Systemy uwierzytelniania oparte na rejestracji jednokrotnej są często nazywane "nowoczesnym uwierzytelnianiem". Aby dowiedzieć się, jak to zrobić przy użyciu logowania jednokrotnego, zapoznaj się z tym wideo.
+> [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4]
+
+
+## <a name="choosing-a-single-sign-on-method"></a>Wybieranie metody logowania jednokrotnego
 
 - **Logowanie jednokrotne**umożliwia użytkownikom logowanie jednokrotne przy użyciu jednego konta, aby uzyskać dostęp do urządzeń przyłączonych do domeny, zasobów firmy, aplikacji jako usługi (SaaS) i aplikacji sieci Web. Po zalogowaniu użytkownik może uruchamiać aplikacje z poziomu portalu pakietu Office 365 lub panelu dostępu webapps usługi Azure AD. Administratorzy mogą scentralizować zarządzanie kontami użytkowników i automatycznie dodawać lub usuwać dostęp użytkowników do aplikacji w oparciu o członkostwo w grupach.
 
 - **Bez logowania jednokrotnego**użytkownicy muszą pamiętać hasła specyficzne dla aplikacji i zalogować się do każdej aplikacji. Pracownicy działu IT muszą tworzyć i aktualizować konta użytkowników dla każdej aplikacji, takiej jak Office 365, Box i Salesforce. Użytkownicy muszą pamiętać swoje hasła, a także poświęcać czas na zalogowanie się do każdej aplikacji.
-
-## <a name="choosing-a-single-sign-on-method"></a>Wybieranie metody logowania jednokrotnego
 
 Istnieje kilka sposobów konfigurowania aplikacji do logowania jednokrotnego. Wybór metody logowania jednokrotnego zależy od tego, w jaki sposób aplikacja jest skonfigurowana do uwierzytelniania.
 
@@ -197,10 +206,5 @@ Ponieważ ten scenariusz jest oferowany przez partnerstwo między usługą Azure
 
 Aby uzyskać więcej informacji, zobacz [Wersje usługi Azure Active Directory](../fundamentals/active-directory-whatis.md).
 
-## <a name="related-articles"></a>Pokrewne artykuły:
+## <a name="next-steps"></a>Następne kroki
 * [Seria szybkiego startu w zarządzaniu aplikacjami](view-applications-portal.md)
-* [Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Konfigurowanie logowania jednokrotnego opartego na hasłach](configure-password-single-sign-on-non-gallery-applications.md)
-* [Konfigurowanie logowania połączonego](configure-linked-sign-on.md)
-* [Wprowadzenie do zarządzania dostępem do aplikacji](what-is-access-management.md)
-* Link do pobierania: [plan wdrożenia z logowaniem](https://aka.ms/SSODeploymentPlan)jednokrotnym.

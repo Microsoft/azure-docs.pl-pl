@@ -16,12 +16,12 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaeaa8625a5bdb5bbf8ce76a68e616a913da5655
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: c2b65f8cd22e72e0ba90918121a02d66fe6bf3e7
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147000"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053052"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Synchronizacja programu Azure AD Connect: Harmonogram
 W tym temacie opisano wbudowany harmonogram w programie Azure AD Connect Sync (aparat synchronizacji).
@@ -171,7 +171,7 @@ Gdy cykl synchronizacji jest uruchomiony, nie można wprowadzać zmian w konfigu
 Harmonogram jest nadal aktywny i zostanie uruchomiony ponownie przy następnej okazji.
 
 ## <a name="custom-scheduler"></a>Harmonogram niestandardowy
-Polecenia cmdlet udokumentowane w tej sekcji są dostępne tylko w kompilacjach [1.1.130.0](reference-connect-version-history.md#111300) i nowszych.
+Polecenia cmdlet udokumentowane w tej sekcji są dostępne tylko w kompilacjach [1.1.130.0](reference-connect-version-history.md) i nowszych.
 
 Jeśli wbudowany harmonogram nie spełnia wymagań użytkownika, można zaplanować łączniki przy użyciu programu PowerShell.
 

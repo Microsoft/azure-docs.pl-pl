@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 06/25/2020
-ms.openlocfilehash: b7d7ec95d2227076ff7b7a95ce6e72fffc840975
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7194e4553386c25691bb3ede8096da7fb63c5dc0
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073343"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055228"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Co to jest wystąpienie zarządzane Azure SQL?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Wystąpieniem usługi Azure SQL dla rodziny produktów, zarządzanej przez usługę Azure SQL, jest inteligentna, skalowalna usługa bazy danych w chmurze, która łączy najszerszą SQL Server zgodności aparatu bazy danych ze wszystkimi korzyściami z w pełni zarządzanej i Evergreen platformy jako usługi. Wystąpienie zarządzane SQL ma prawie 100% zgodność z najnowszym aparatem bazy danych SQL Server (Enterprise Edition), zapewniając natywną implementację [sieci wirtualnej (VNET)](../../virtual-network/virtual-networks-overview.md) , która rozwiązuje typowe problemy związane z bezpieczeństwem, oraz [model biznesowy](https://azure.microsoft.com/pricing/details/sql-database/) preferowany dla istniejących SQL Server klientów. Wystąpienie zarządzane SQL umożliwia istniejącym klientom SQL Server na podniesienie i przesunięcia aplikacji lokalnych do chmury przy minimalnych zmianach aplikacji i baz danych. W tym samym czasie wystąpienie zarządzane SQL zachowuje wszystkie możliwości PaaS (automatyczne stosowanie poprawek i aktualizacji wersji, [zautomatyzowane kopie zapasowe](../database/automated-backups-overview.md), [wysoka dostępność](../database/high-availability-sla.md)), które znacząco zmniejszają koszty zarządzania i całkowity koszt posiadania.
+Wystąpienie zarządzane usługi Azure SQL to inteligentna, skalowalna usługa bazy danych w chmurze, która łączy najszerszą SQL Serverą zgodność aparatu bazy danych ze wszystkimi zaletami w pełni zarządzanej i Evergreen platformy jako usługi. Wystąpienie zarządzane SQL ma prawie 100% zgodność z najnowszym aparatem bazy danych SQL Server (Enterprise Edition), zapewniając natywną implementację [sieci wirtualnej (VNET)](../../virtual-network/virtual-networks-overview.md) , która rozwiązuje typowe problemy związane z bezpieczeństwem, oraz [model biznesowy](https://azure.microsoft.com/pricing/details/sql-database/) preferowany dla istniejących SQL Server klientów. Wystąpienie zarządzane SQL umożliwia istniejącym klientom SQL Server na podniesienie i przesunięcia aplikacji lokalnych do chmury przy minimalnych zmianach aplikacji i baz danych. W tym samym czasie wystąpienie zarządzane SQL zachowuje wszystkie możliwości PaaS (automatyczne stosowanie poprawek i aktualizacji wersji, [zautomatyzowane kopie zapasowe](../database/automated-backups-overview.md), [wysoka dostępność](../database/high-availability-sla.md)), które znacząco zmniejszają koszty zarządzania i całkowity koszt posiadania.
 
 > [!IMPORTANT]
 > Aby zapoznać się z listą regionów, w których jest obecnie dostępne wystąpienie zarządzane SQL, zobacz [Obsługiwane regiony](resource-limits.md#supported-regions).
@@ -161,7 +161,7 @@ Wprowadzono nową składnię do tworzenia podmiotów zabezpieczeń serwera usłu
 
 Wystąpienie zarządzane SQL umożliwia centralne zarządzanie tożsamościami użytkowników bazy danych i innych usług firmy Microsoft z [integracją Azure Active Directory](../database/authentication-aad-overview.md). Ta funkcja upraszcza zarządzanie uprawnieniami i zwiększa bezpieczeństwo. Azure Active Directory obsługuje [uwierzytelnianie wieloskładnikowe](../database/authentication-mfa-ssms-configure.md) w celu zwiększenia bezpieczeństwa danych i aplikacji podczas obsługi logowania jednokrotnego.
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 Uwierzytelnianie wystąpienia zarządzanego SQL dotyczy sposobu, w jaki użytkownicy udowadniają swoją tożsamość podczas łączenia się z bazą danych. Wystąpienie zarządzane SQL obsługuje dwa typy uwierzytelniania:  
 

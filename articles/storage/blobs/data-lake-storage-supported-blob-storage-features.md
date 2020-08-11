@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 0e7cedaea89e2ed3d998df6ffe0ecaa06115e265
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 0d915c0b293e9f3deadbfb2a5fb0ff7f379e1717
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513795"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053477"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Funkcje magazynu obiektów BLOB dostępne w Azure Data Lake Storage Gen2
 
@@ -42,15 +42,17 @@ Ta tabela zawiera listę funkcji magazynu obiektów blob, których można używa
 |Archiwizowanie warstwy dostępu|Ogólnie dostępne|Nieobsługiwane|[Usługa Azure Blob Storage: warstwy dostępu Gorąca, Chłodna i Archiwum](storage-blob-storage-tiers.md)|
 |Zasady zarządzania cyklem życia|Ogólnie dostępne|Jeszcze nieobsługiwane|[Zarządzanie cyklem życia magazynu usługi Azure Blob Storage](storage-lifecycle-management-concepts.md)|
 |Logowanie Azure Monitor|Wersja zapoznawcza |Jeszcze nieobsługiwane|[Monitorowanie usługi Azure Storage](../common/monitor-storage.md)|
-|Migawki|Wersja zapoznawcza<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Jeszcze nieobsługiwane|[Migawki obiektów BLOB](snapshots-overview.md)|
-|Statyczne witryny internetowe|Wersja zapoznawcza<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Jeszcze nieobsługiwane|[Hostowanie statycznej witryny internetowej w usłudze Azure Storage](storage-blob-static-website.md)|
-|Niezmienny magazyn|Wersja zapoznawcza<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Jeszcze nieobsługiwane|[Przechowywanie kluczowych dla działalności danych obiektów blob z niezmiennym magazynem](storage-blob-immutable-storage.md)|
+|Migawki|Wersja zapoznawcza|Jeszcze nieobsługiwane|[Migawki obiektów BLOB](snapshots-overview.md)|
+|Statyczne witryny internetowe|Wersja zapoznawcza|Jeszcze nieobsługiwane|[Hostowanie statycznej witryny internetowej w usłudze Azure Storage](storage-blob-static-website.md)|
+|Niezmienny magazyn|Wersja zapoznawcza|Jeszcze nieobsługiwane|[Przechowywanie kluczowych dla działalności danych obiektów blob z niezmiennym magazynem](storage-blob-immutable-storage.md)|
+|Zasady zarządzania cyklem życia|Wersja zapoznawcza|Jeszcze nieobsługiwane|[Zarządzanie cyklem życia magazynu usługi Azure Blob Storage](storage-lifecycle-management-concepts.md)|
+|Usuwanie nietrwałe kontenera|Wersja zapoznawcza|Wersja zapoznawcza|[Usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)](soft-delete-container-overview.md)|
+|Usuwanie nietrwałe obiektów BLOB|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Usuwanie nietrwałe dla obiektów BLOB](storage-blob-soft-delete.md)|
 |Blobfuse|Wersja zapoznawcza|Jeszcze nieobsługiwane|[Jak zainstalować magazyn obiektów BLOB jako system plików za pomocą blobfuse](storage-how-to-mount-container-linux.md)|
 |Źródło zmian|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage](storage-blob-change-feed.md)|
 |Tryb failover konta|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Odzyskiwanie po awarii i tryb failover konta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Lista ACL kontenera obiektów BLOB|Jeszcze nieobsługiwane<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Jeszcze nieobsługiwane<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|[Ustawianie listy ACL kontenerów](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
 |Niestandardowe domeny|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Mapowanie domeny niestandardowej na punkt końcowy usługi Azure Blob Storage](storage-custom-domain-name.md)|
-|Usuwanie nietrwałe|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Soft delete for Azure Storage blobs](storage-blob-soft-delete.md) (Usuwanie nietrwałe dla obiektów blob usługi Azure Storage)|
 
 <div id="diagnostic-logging"><sup>1</sup> w przypadku kont magazynu blokowych obiektów BLOB w warstwie Premium nie można włączyć obsługi dzienników diagnostycznych (klasycznych) przy użyciu Azure Portal. Włącz je za pomocą programu PowerShell.</div><br>
 

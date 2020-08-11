@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bc0390ba9bf8d0f80d1533fe6e40b42df0cb5359
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d00b0558f85e18dfb53736d89fead953cc01ee60
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835718"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053171"
 ---
 # <a name="use-azure-files-with-linux"></a>Używanie usługi Azure Files z systemem Linux
 [Azure Files](storage-files-introduction.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziały plików platformy Azure można instalować w dystrybucjach systemu Linux przy użyciu [klienta jądra SMB](https://wiki.samba.org/index.php/LinuxCIFS). W tym artykule przedstawiono dwa sposoby instalowania udziału plików platformy Azure: na żądanie z `mount` poleceniem i przy rozruchu, tworząc wpis w `/etc/fstab` .
@@ -26,7 +26,7 @@ Zalecanym sposobem instalowania udziału plików platformy Azure w systemie Linu
 | CentOS | 7 + |  7.5 + |
 | Debian | 8 + | Ponad 10 |
 | openSUSE | 13.2 + | 42.3 + |
-| SUSE Linux Enterprise Server | 12+ | 12 SP3 + |
+| SUSE Linux Enterprise Server | 12+ | 12 Z DODATKIEM SP2 + |
 
 Jeśli używasz dystrybucji systemu Linux, która nie jest wymieniona w powyższej tabeli, możesz sprawdzić, czy w systemie Linux jest obsługiwana obsługa protokołu SMB 3,0 z szyfrowaniem. Protokół SMB 3,0 z szyfrowaniem został dodany do jądra systemu Linux w wersji 4,11. `uname`Polecenie zwróci wersję jądra systemu Linux w użyciu:
 

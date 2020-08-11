@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2085f0e8a148e27914b517f25e48894009592dd2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 494c1fc1c1c91538240258ab0517c7ff79bdfa74
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498603"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056537"
 ---
 # <a name="blob-versioning-preview"></a>Przechowywanie wersji obiektów BLOB (wersja zapoznawcza)
 
@@ -24,6 +24,8 @@ Możesz włączyć przechowywanie wersji magazynu obiektów BLOB (wersja zapozna
 Obsługa wersji obiektów BLOB jest włączona na koncie magazynu i ma zastosowanie do wszystkich obiektów BLOB na koncie magazynu. Po włączeniu obsługi wersji obiektów BLOB dla konta magazynu usługa Azure Storage automatycznie obsługuje wersje dla każdego obiektu BLOB na koncie magazynu.
 
 Firma Microsoft zaleca używanie funkcji przechowywania wersji obiektów BLOB do obsługi wcześniejszych wersji obiektu BLOB w celu zapewnienia najwyższej ochrony danych. Jeśli to możliwe, użyj wersji obiektów BLOB zamiast migawek obiektów BLOB do przechowywania poprzednich wersji. Migawki obiektów BLOB zapewniają podobną funkcjonalność, która zachowuje wcześniejsze wersje obiektu BLOB, ale migawki muszą być utrzymywane ręcznie przez aplikację.
+
+Aby dowiedzieć się, jak włączyć obsługę wersji obiektów blob, zobacz [Włączanie obsługi wersji obiektów blob i zarządzanie nimi](versioning-enable.md).
 
 > [!IMPORTANT]
 > Przechowywanie wersji obiektów BLOB nie pozwala na odzyskanie od przypadkowego usunięcia konta magazynu lub kontenera. Aby zapobiec przypadkowemu usunięciu konta magazynu, Skonfiguruj blokadę **CannotDelete** dla zasobu konta magazynu. Aby uzyskać więcej informacji na temat blokowania zasobów platformy Azure, zobacz [blokowanie zasobów, aby zapobiec nieoczekiwanym zmianom](../../azure-resource-manager/management/lock-resources.md).
@@ -179,7 +181,7 @@ W poniższej tabeli przedstawiono akcje RBAC obsługujące usuwanie obiektu BLOB
 
 | Opis | Operacja Blob service | Wymagana jest akcja danych RBAC | Wbudowana rola RBAC |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
-| Usuwanie bieżącej wersji obiektu BLOB | Usuwanie obiektu blob | **Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/usuwanie** | Współautor danych obiektu blob magazynu |
+| Usuwanie bieżącej wersji obiektu BLOB | Usuwanie obiektu blob | **Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/usuwanie** | Współautor danych obiektu blob usługi Storage |
 | Usuwanie wersji | Usuwanie obiektu blob | **Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/deleteBlobVersion/akcja** | Właściciel danych obiektów blob magazynu |
 
 ### <a name="shared-access-signature-sas-parameters"></a>Parametry sygnatury dostępu współdzielonego (SAS)
@@ -204,7 +206,8 @@ Wersja programu BLOB jest dostępna w wersji zapoznawczej w następujących regi
 - Kanada Wschodnia
 - Kanada Środkowa
 
-Wersja zapoznawcza jest przeznaczona wyłącznie do użytku nieprodukcyjnego.
+> [!IMPORTANT]
+> Wersja zapoznawcza usługi BLOB jest przeznaczona wyłącznie do użytku nieprodukcyjnego. Umowy dotyczące poziomu usług produkcyjnych (umowy SLA) nie są obecnie dostępne.
 
 W wersji 2019-10-10 i nowszej interfejsu API REST usługi Azure Storage obsługiwane jest przechowywanie wersji obiektów BLOB.
 
@@ -224,9 +227,9 @@ Konta magazynu z hierarchiczną przestrzenią nazw włączone do użycia z Azure
 
 Aby zarejestrować się w wersji zapoznawczej usługi BLOB, użyj programu PowerShell lub interfejsu wiersza polecenia platformy Azure w celu przesłania żądania zarejestrowania tej funkcji w ramach subskrypcji. Po zatwierdzeniu żądania można włączyć obsługę wersji obiektów BLOB przy użyciu dowolnego nowego lub istniejącego konta programu ogólnego przeznaczenia w wersji 2, BLOB Storage lub Premium Storage blokowych obiektów BLOB.
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
-Aby zarejestrować się w programie PowerShell, wywołaj polecenie [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
+Aby zarejestrować się w programie PowerShell, wywołaj polecenie [register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) .
 
 ```powershell
 # Register for blob versioning (preview)
@@ -242,8 +245,8 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 Aby zarejestrować się w interfejsie wiersza polecenia platformy Azure, wywołaj polecenie [AZ Feature Register](/cli/azure/feature#az-feature-register) .
 
 ```azurecli
-az feature register --namespace Microsoft.Storage \
-    --name Versioning
+az feature register --namespace Microsoft.Storage --name Versioning
+az provider register --namespace 'Microsoft.Storage'
 ```
 
 ---
@@ -252,7 +255,7 @@ az feature register --namespace Microsoft.Storage \
 
 Aby sprawdzić stan rejestracji, użyj programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Aby sprawdzić stan rejestracji w programie PowerShell, wywołaj polecenie [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
 
@@ -266,8 +269,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
 Aby sprawdzić stan rejestracji w interfejsie wiersza polecenia platformy Azure, wywołaj polecenie [AZ Feature](/cli/azure/feature#az-feature-show) .
 
 ```azurecli
-az feature show --namespace Microsoft.Storage \
-    --name Versioning
+az feature show --namespace Microsoft.Storage --name Versioning
 ```
 
 ---

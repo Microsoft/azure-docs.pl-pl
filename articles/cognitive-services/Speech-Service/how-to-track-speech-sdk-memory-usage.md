@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rhurey
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: da5103317a2215aca68cec14ba8a0951258c9b89
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a6be6ca00b2bc5d7b35fb71437809754f129df96
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75456433"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054639"
 ---
 # <a name="how-to-track-speech-sdk-memory-usage"></a>Jak śledzić użycie pamięci zestawu SDK mowy
 
@@ -40,7 +40,7 @@ Oto przykładowy dziennik:
 
 Istnieje możliwość utworzenia progu ostrzegawczego. w przypadku przekroczenia progu (przy założeniu, że rejestrowanie jest włączone) jest rejestrowany komunikat ostrzegawczy. Komunikat ostrzegawczy zawiera zrzut wszystkich obiektów w istnieniu wraz z ich liczbą. Te informacje mogą służyć do lepszego zrozumienia problemów. 
 
-Aby włączyć próg ostrzeżenia, musi on być określony dla `SpeechConfig` obiektu. Ten obiekt jest sprawdzany po utworzeniu nowego aparatu rozpoznawania. W poniższych przykładach Przypuśćmy, że utworzono wystąpienie o `SpeechConfig` nazwie: `config`
+Aby włączyć próg ostrzeżenia, musi on być określony dla `SpeechConfig` obiektu. Ten obiekt jest sprawdzany po utworzeniu nowego aparatu rozpoznawania. W poniższych przykładach Przypuśćmy, że utworzono wystąpienie o `SpeechConfig` nazwie `config` :
 
 ::: zone pivot="programming-language-csharp"
 
@@ -69,7 +69,7 @@ config.setProperty("SPEECH-ObjectCountWarnThreshold", "10000");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name(“SPEECH-ObjectCountWarnThreshold", "10000")?
+speech_config.set_property_by_name("SPEECH-ObjectCountWarnThreshold", "10000")?
 ```
 
 ::: zone-end
@@ -102,7 +102,7 @@ class Microsoft::CognitiveServices::Speech::Impl::ISpxAudioConfig 0
 class Microsoft::CognitiveServices::Speech::Impl::ISpxSpeechConfig 0
 ```
 
-Aby włączyć próg błędu, musi on być określony dla `SpeechConfig` obiektu. Ten obiekt jest sprawdzany po utworzeniu nowego aparatu rozpoznawania. W poniższych przykładach Przypuśćmy, że utworzono wystąpienie o `SpeechConfig` nazwie: `config`
+Aby włączyć próg błędu, musi on być określony dla `SpeechConfig` obiektu. Ten obiekt jest sprawdzany po utworzeniu nowego aparatu rozpoznawania. W poniższych przykładach Przypuśćmy, że utworzono wystąpienie o `SpeechConfig` nazwie `config` :
 
 ::: zone pivot="programming-language-csharp"
 
@@ -131,7 +131,7 @@ config.setProperty("SPEECH-ObjectCountErrorThreshold", "10000");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name(“SPEECH-ObjectCountErrorThreshold", "10000")?
+speech_config.set_property_by_name("SPEECH-ObjectCountErrorThreshold", "10000")?
 ```
 
 ::: zone-end
@@ -145,9 +145,8 @@ speech_config.set_property_by_name(“SPEECH-ObjectCountErrorThreshold", "10000"
 ::: zone-end
 
 > [!TIP]
-> Wartością domyślną dla tej właściwości jest wartość maksymalna dla typu `size_t` danych specyficzna dla platformy. Typowym rozpoznawaniem będzie zużywać się od 7 do 10 obiektów wewnętrznych.
+> Wartością domyślną dla tej właściwości jest wartość maksymalna dla typu danych specyficzna dla platformy `size_t` . Typowym rozpoznawaniem będzie zużywać się od 7 do 10 obiektów wewnętrznych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Pobierz subskrypcję wersji próbnej usługi Speech Service](get-started.md)
-* [Dowiedz się, jak rozpoznać mowę przy użyciu mikrofonu](quickstarts/speech-to-text-from-microphone.md)
+* [Dowiedz się więcej na temat zestawu Speech SDK](speech-sdk.md)

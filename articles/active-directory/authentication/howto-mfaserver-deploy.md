@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c32867313a0adf1967cb55cb78c42cc1b4e5758
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc4bd817fda762e62e791542aea2df65deb0dae3
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80653121"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054055"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Wprowadzenie do serwera Azure Multi-Factor Authentication
 
@@ -54,7 +54,7 @@ Upewnij się, że serwer Azure Multi-Factor Authentication spełnia następując
 | Wymagania serwera Azure Multi-Factor Authentication | Opis |
 |:--- |:--- |
 | Sprzęt |<li>200 MB wolnego miejsca na dysku twardym</li><li>Procesor umożliwiający obsługę architektury x32 lub x64</li><li>Co najmniej 1 GB pamięci RAM</li> |
-| Oprogramowanie |<li>Windows Server 2016</li><li>Windows Server 2012 z dodatkiem R2</li><li>Windows Server 2012</li><li>Windows Server 2008 z dodatkiem R2</li><li>Windows Server 2008, z dodatkiem SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, z dodatkiem SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, wszystkie wersje</li><li>Windows 8, wszystkie wersje</li><li>Windows 7, wszystkie wersje</li><li>Windows Vista, wszystkie wersje, z dodatkiem SP1, SP2</li><li>Oprogramowanie Microsoft .NET 4.0 Framework</li><li>Usługi IIS 7.0 lub nowsze w przypadku instalacji portalu użytkowników lub zestawu SDK usługi sieci Web</li> |
+| Oprogramowanie |<li>Windows Server 2016</li><li>Windows Server 2012 z dodatkiem R2</li><li>Windows Server 2012</li><li>Windows Server 2008/R2 (tylko z użyciem [EJW](https://docs.microsoft.com/lifecycle/faq/extended-security-updates) )</li><li>Windows 10</li><li>Windows 8.1, wszystkie wersje</li><li>Windows 8, wszystkie wersje</li><li>Windows 7, wszystkie wersje (tylko z użyciem [EJW](https://docs.microsoft.com/lifecycle/faq/extended-security-updates) )</li><li>Oprogramowanie Microsoft .NET 4.0 Framework</li><li>Usługi IIS 7.0 lub nowsze w przypadku instalacji portalu użytkowników lub zestawu SDK usługi sieci Web</li> |
 | Uprawnienia | Administrator domeny lub konto administratora przedsiębiorstwa do rejestracji w Active Directory |
 
 ### <a name="azure-mfa-server-components"></a>Składniki serwera usługi Azure MFA
@@ -81,15 +81,27 @@ Jeśli zapory ruchu wychodzącego mają ograniczenie na porcie 443, otwórz nast
 |:---: |:---: |:---: |
 | 134.170.116.0/25 |255.255.255.128 |134.170.116.1 – 134.170.116.126 |
 | 134.170.165.0/25 |255.255.255.128 |134.170.165.1 – 134.170.165.126 |
-| 70.37.154.128/25 |255.255.255.128 |70.37.154.129 – 70.37.154.254 |
+| 70.37.154.128/25 |255.255.255.128 |70.37.154.129 – 70.37.154.254   |
+| 52.251.8.48/28   | 255.255.255.240 | 52.251.8.48 - 52.251.8.63     |
+| 52.247.73.160/28 | 255.255.255.240 | 52.247.73.160 - 52.247.73.175 |
+| 52.159.5.240/28  | 255.255.255.240 | 52.159.5.240 - 52.159.5.255   |
+| 52.159.7.16/28   | 255.255.255.240 | 52.159.7.16 - 52.159.7.31     |
+| 52.250.84.176/28 | 255.255.255.240 | 52.250.84.176 - 52.250.84.191 |
+| 52.250.85.96/28  | 255.255.255.240 | 52.250.85.96 - 52.250.85.111  |
 
 Jeśli nie używasz funkcji potwierdzania zdarzeń i użytkownicy nie korzystają z uwierzytelniania z użyciem aplikacji mobilnych z poziomu urządzeń w sieci firmowej, potrzebujesz tylko następujących zakresów:
 
 | Podsieć IP | Maska sieci | Zakres adresów IP |
 |:---: |:---: |:---: |
-| 134.170.116.72/29 |255.255.255.248 |134.170.116.72 – 134.170.116.79 |
-| 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
-| 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
+| 134.170.116.72/29 |255.255.255.248 |134.170.116.72 – 134.170.116.79|
+| 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79|
+| 70.37.154.200/29 |255.255.255.248  |70.37.154.201 – 70.37.154.206  |
+| 52.251.8.48/28   | 255.255.255.240 | 52.251.8.48 - 52.251.8.63     |
+| 52.247.73.160/28 | 255.255.255.240 | 52.247.73.160 - 52.247.73.175 |
+| 52.159.5.240/28  | 255.255.255.240 | 52.159.5.240 - 52.159.5.255   |
+| 52.159.7.16/28   | 255.255.255.240 | 52.159.7.16 - 52.159.7.31     |
+| 52.250.84.176/28 | 255.255.255.240 | 52.250.84.176 - 52.250.84.191 |
+| 52.250.85.96/28  | 255.255.255.240 | 52.250.85.96 - 52.250.85.111  |
 
 ## <a name="download-the-mfa-server"></a>Pobieranie serwera MFA
 

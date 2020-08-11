@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/30/2020
+ms.date: 08/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1e0efc2c64a1cbdcc2c83c019f7743406054afe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 074171d658eb4e1e029652c9c0851e082ba043fe
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074023"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053443"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Konfiguracje magazynu maszyn wirtualnych platformy Azure SAP HANA
 
@@ -321,6 +321,44 @@ W związku z tym można rozważyć wdrożenie podobnej przepływności dla wolum
 > Woluminy Azure NetApp Files można zmieniać dynamicznie, bez konieczności stosowania `unmount` woluminów, zatrzymywać maszyny wirtualne lub zatrzymywać SAP HANA. Dzięki temu można elastycznie spełnić wymagania dotyczące przepływności aplikacji zarówno w oczekiwany sposób, jak i nieprzewidziane.
 
 Dokumentacja dotycząca sposobu wdrażania SAP HANA skalowania w poziomie za pomocą węzła rezerwy przy użyciu woluminów NFS w wersji 4.1, które są hostowane w ANF, jest publikowana w [SAP HANA skalowanie w poziomie za pomocą węzła gotowości na maszynach wirtualnych platformy Azure z Azure NetApp Files na SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md).
+
+
+## <a name="cost-conscious-solution-with-azure-premium-storage"></a>Ekonomiczne rozwiązanie dzięki usłudze Azure Premium Storage
+Do tej pory rozwiązanie Azure Premium Storage opisane w tym dokumencie znajduje się w sekcji [rozwiązania z magazynem w warstwie Premium i usługą azure akcelerator zapisu dla maszyn wirtualnych z serii M dla systemu Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) przeznaczone dla SAP HANA obsługiwanych scenariuszy produkcyjnych. Jedną z cech konfiguracji obsługiwanych przez produkcyjną jest rozdzielenie woluminów dla SAP HANA danych i ponowne zalogowanie się do dwóch różnych woluminów. Przyczyną takiego oddzielenia jest fakt, że charakterystyki obciążenia woluminów są różne. Ponadto w przypadku sugerowanych konfiguracji produkcyjnych istnieje różne typy buforowania, a nawet różne rodzaje magazynu blokowego platformy Azure. Obsługiwane konfiguracje produkcyjne usługi Azure Block Storage są również zgodne z umową [SLA dla jednej maszyny wirtualnej dla usługi azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/) .  W przypadku scenariuszy innych niż produkcyjne niektóre zagadnienia związane z systemami produkcyjnymi mogą nie dotyczyć bardziej małych systemów nieprodukcyjnych. W związku z tym można połączyć dane i wolumin dziennika platformy HANA. Mimo że niektóre culprits, takie jak ostatecznie nie spełniają wymagań dotyczących przepływności lub wskaźników czasu oczekiwania, które są wymagane dla systemów produkcyjnych. Innym aspektem obniżenia kosztów w takich środowiskach może być użycie [usługi Azure SSD w warstwie Standardowa Storage](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage#azure-standard-ssd-storage). Chociaż wybór, który unieważnia umowę [SLA jednej maszyny wirtualnej dla usługi Azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
+
+Mniej kosztowna alternatywa dla takich konfiguracji może wyglądać następująco:
+
+
+| Jednostka SKU maszyny wirtualnej | Pamięć RAM | Maksymalnie z WE/WY MASZYNY WIRTUALNEJ<br /> Przepływność | /Hana/Data i/Hana/log<br /> rozłożone z LVM lub MDADM | /hana/shared | wolumin/root | /usr/sap | komentarz |
+| --- | --- | --- | --- | --- | --- | --- | -- |
+| DS14v2 | 112 GiB | 768 MB/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | Nie osiąga 1 ms magazynu mniejszego niż czas oczekiwania<sup>1</sup> |
+| E16v3 | 128 GiB | 384 MB/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | Typ maszyny wirtualnej nie ma certyfikatu HANA <br /> Nie osiąga 1 ms magazynu mniejszego niż czas oczekiwania<sup>1</sup> |
+| M32ts | 192 GiB | 500 MB/s | 3 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | Użycie akcelerator zapisu do połączonych danych i woluminu dziennika spowoduje ograniczenie liczby operacji we/wy do 5 000<sup>2</sup> |
+| E20ds_v4 | 160 GiB | 480 MB/s | 4 x P6 | 1 x E15 | 1 x E6 | 1 x E6 | Nie osiąga 1 ms magazynu mniejszego niż czas oczekiwania<sup>1</sup> |
+| E32v3 | 256 GiB | 768 MB/s | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | Typ maszyny wirtualnej nie ma certyfikatu HANA <br /> Nie osiąga 1 ms magazynu mniejszego niż czas oczekiwania<sup>1</sup> |
+| E32ds_v4 | 256 GiB | 768 MB/s | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | Nie osiąga 1 ms magazynu mniejszego niż czas oczekiwania<sup>1</sup> |
+| M32ls | 256 GiB | 500 MB/s | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | Użycie akcelerator zapisu do połączonych danych i woluminu dziennika spowoduje ograniczenie liczby operacji we/wy do 5 000<sup>2</sup> |
+| E48ds_v4 | 384 GiB | 1 152 Mb/s | 6 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Nie osiąga 1 ms magazynu mniejszego niż czas oczekiwania<sup>1</sup> |
+| E64v3 | 432 GiB | 1 200 MB/s | 6 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Nie osiąga 1 ms magazynu mniejszego niż czas oczekiwania<sup>1</sup> |
+| E64ds_v4 | 504 GiB | 1200 MB/s |  7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Nie osiąga 1 ms magazynu mniejszego niż czas oczekiwania<sup>1</sup> |
+| M64ls | 512 GiB | 1 000 MB/s | 7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Użycie akcelerator zapisu do połączonych danych i woluminu dziennika spowoduje ograniczenie liczby operacji we/wy do 10 000<sup>2</sup> |
+| M64s | 1 000 GiB | 1 000 MB/s | 7 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | Użycie akcelerator zapisu do połączonych danych i woluminu dziennika spowoduje ograniczenie liczby operacji we/wy do 10 000<sup>2</sup> |
+| M64ms | 1 750 GiB | 1 000 MB/s | 6 x P20 | 1 x E30 | 1 x E6 | 1 x E6 | Użycie akcelerator zapisu do połączonych danych i woluminu dziennika spowoduje ograniczenie liczby operacji we/wy do 10 000<sup>2</sup> |
+| M128s | 2 000 GiB | 2 000 MB/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | Użycie akcelerator zapisu do połączonych danych i woluminu dziennika spowoduje ograniczenie liczby operacji we/wy do 20 000<sup>2</sup> |
+| M208s_v2 | 2 850 GiB | 1 000 MB/s | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | Użycie akcelerator zapisu do połączonych danych i woluminu dziennika spowoduje ograniczenie liczby operacji we/wy do 10 000<sup>2</sup> |
+| M128ms | 3 800 GiB | 2 000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | Użycie akcelerator zapisu do połączonych danych i woluminu dziennika spowoduje ograniczenie liczby operacji we/wy do 20 000<sup>2</sup> |
+| M208ms_v2 | 5 700 GiB | 1 000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | Użycie akcelerator zapisu do połączonych danych i woluminu dziennika spowoduje ograniczenie liczby operacji we/wy do 10 000<sup>2</sup> |
+| M416s_v2 | 5 700 GiB | 2 000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | Użycie akcelerator zapisu do połączonych danych i woluminu dziennika spowoduje ograniczenie liczby operacji we/wy do 20 000<sup>2</sup> |
+| M416ms_v2 | 11400 GiB | 2 000 MB/s | 7 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | Użycie akcelerator zapisu do połączonych danych i woluminu dziennika spowoduje ograniczenie liczby operacji we/wy do 20 000<sup>2</sup> |
+
+
+nie można użyć <sup>1</sup> [Akcelerator zapisu platformy Azure](../../linux/how-to-enable-write-accelerator.md) z rodziną maszyn wirtualnych Ev4 i Ev4. W wyniku korzystania z usługi Azure Premium Storage opóźnienie operacji we/wy nie będzie mniejsze niż 1 ms
+
+<sup>2</sup> rodzina maszyn wirtualnych obsługuje [platformę Azure akcelerator zapisu](../../linux/how-to-enable-write-accelerator.md), ale istnieje możliwość ograniczenia liczby IOPS akceleratora zapisu, która może ograniczyć liczbę operacji we/wy konfiguracji dysków
+
+W przypadku łączenia danych i woluminu dziennika dla SAP HANA dyski tworzące wolumin rozłożony nie powinny mieć włączonej pamięci podręcznej odczytu lub odczytu i zapisu.
+
+Istnieją wymienione typy maszyn wirtualnych, które nie są certyfikowane za pomocą oprogramowania SAP i nie są wymienione w tym [katalogu jako SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Opinie klientów polegają na tym, że niewymienione typy maszyn wirtualnych zostały pomyślnie użyte dla niektórych zadań nieprodukcyjnych.
 
 
 ## <a name="next-steps"></a>Następne kroki

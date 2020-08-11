@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 611124a113a0cce3ab1fb8db5969a6ab6f5f6658
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 88f1924f69aed350b39f953cb7503a0dde9ca9ad
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041956"
+ms.locfileid: "88056318"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Zabezpieczanie portów zarządzania przy użyciu dostępu just in Time
 
@@ -35,7 +35,7 @@ Na tej stronie zawarto informacje na temat sposobu dołączania JIT do programu 
 |----|:----|
 |Stan wydania:|Ogólna dostępność|
 |Wpisaną|Warstwa Standardowa|
-|Obsługiwane maszyny wirtualne:|![Tak ](./media/icons/yes-icon.png) w przypadku maszyn wirtualnych wdrożonych za pośrednictwem Azure Resource Manager.<br>![Nie ](./media/icons/yes-icon.png) wdrożono żadnych maszyn wirtualnych z klasycznymi modelami wdrażania. [Dowiedz się więcej na temat tych modeli wdrażania](../azure-resource-manager/management/deployment-models.md).<br>![Brak ](./media/icons/yes-icon.png) maszyn wirtualnych chronionych przez zapory platformy Azure kontrolowane przez [Menedżera zapory platformy Azure](https://docs.microsoft.com/azure/firewall-manager/overview)|
+|Obsługiwane maszyny wirtualne:|![Tak ](./media/icons/yes-icon.png) w przypadku maszyn wirtualnych wdrożonych za pośrednictwem Azure Resource Manager.<br>![Nie ](./media/icons/no-icon.png) wdrożono żadnych maszyn wirtualnych z klasycznymi modelami wdrażania. [Dowiedz się więcej na temat tych modeli wdrażania](../azure-resource-manager/management/deployment-models.md).<br>![Brak ](./media/icons/no-icon.png) maszyn wirtualnych chronionych przez zapory platformy Azure kontrolowane przez [Menedżera zapory platformy Azure](https://docs.microsoft.com/azure/firewall-manager/overview)|
 |Wymagane role i uprawnienia:|Role **Reader** i **SecurityReader** mogą wyświetlać stan i parametry JIT.<br>Aby utworzyć role niestandardowe, które mogą korzystać z JIT, zobacz [jakie uprawnienia są potrzebne do skonfigurowania i użycia JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).<br>Aby utworzyć rolę najniższych uprawnień dla użytkowników, którzy muszą zażądać dostępu JIT do maszyny wirtualnej i wykonać inne operacje JIT, użyj [skryptu Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) ze stron społeczności usługi GitHub Security Center.|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
 |||

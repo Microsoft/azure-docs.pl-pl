@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/09/2020
+ms.date: 08/10/2020
 ms.author: iainfou
-ms.openlocfilehash: f77d9cd72476f9f2c30ca22bb2296efe1fd6cf9d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: de27ee713caae0310f185cd717d5db2095feff32
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051678"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054293"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Przeprowadź migrację Azure Active Directory Domain Services z modelu klasycznej sieci wirtualnej do Menedżer zasobów
 
@@ -87,7 +87,7 @@ Kroki wysokiego poziomu związane z tym przykładem scenariusza migracji obejmuj
 1. Skonfiguruj komunikację równorzędną sieci wirtualnych między klasyczną siecią wirtualną i nową Menedżer zasobów sieci wirtualnej.
 1. Później należy [przeprowadzić migrację dodatkowych zasobów][migrate-iaas] z klasycznej sieci wirtualnej zgodnie z wymaganiami.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Podczas przygotowywania i migrowania domeny zarządzanej istnieją pewne kwestie dotyczące dostępności usług uwierzytelniania i zarządzania. Domena zarządzana jest niedostępna przez pewien czas podczas migracji. Aplikacje i usługi, które opierają się na usłudze Azure AD DS na czas przestoju podczas migracji.
 
@@ -145,7 +145,7 @@ Migracja do modelu wdrażania Menedżer zasobów i sieci wirtualnej jest podziel
 
 | Krok    | Wykonywane przez  | Szacowany czas  | Downtime (Przestoje)  | Czy wycofać/przywrócić? |
 |---------|--------------------|-----------------|-----------|-------------------|
-| [Krok 1 — aktualizowanie i lokalizowanie nowej sieci wirtualnej](#update-and-verify-virtual-network-settings) | Witryna Azure Portal | 15 minut | Brak wymaganego przestoju | Nie dotyczy |
+| [Krok 1 — aktualizowanie i lokalizowanie nowej sieci wirtualnej](#update-and-verify-virtual-network-settings) | Azure Portal | 15 minut | Brak wymaganego przestoju | Nie dotyczy |
 | [Krok 2. Przygotowanie domeny zarządzanej do migracji](#prepare-the-managed-domain-for-migration) | PowerShell | średnio 15 – 30 minut | Czas przestoju AD DS platformy Azure zostanie uruchomiony po zakończeniu tego polecenia. | Wycofaj i Przywróć dostępne. |
 | [Krok 3. przeniesienie domeny zarządzanej do istniejącej sieci wirtualnej](#migrate-the-managed-domain) | PowerShell | 1 – 3 godziny średnio | Po zakończeniu tego polecenia jest dostępny jeden kontroler domeny, przestoje zakończy się. | W przypadku niepowodzenia dostępne są zarówno wycofywanie (samoobsługowe) i przywracanie. |
 | [Krok 4. testowanie i oczekiwanie na replikę kontrolera domeny](#test-and-verify-connectivity-after-the-migration)| PowerShell i Azure Portal | 1 godzina lub więcej, w zależności od liczby testów | Oba kontrolery domeny są dostępne i powinny działać normalnie. | Nie dotyczy. Po pomyślnym przeprowadzeniu migracji pierwszej maszyny wirtualnej nie jest dostępna opcja wycofywania ani przywracania. |
@@ -197,6 +197,12 @@ Aby przygotować domenę zarządzaną do migracji, wykonaj następujące czynno�
     ```powershell
     $creds = Get-Credential
     ```
+    
+1. Zdefiniuj zmienną dla identyfikatora subskrypcji platformy Azure. W razie potrzeby można użyć polecenia cmdlet [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) , aby wyświetlić listę identyfikatorów subskrypcji i wyświetlać je. Podaj własny identyfikator subskrypcji w następującym poleceniu:
+
+   ```powershell
+   $subscriptionId = 'yourSubscriptionId'
+   ```
 
 1. Teraz uruchom `Migrate-Aadds` polecenie cmdlet przy użyciu parametru *-Prepare* . Podaj wartość *-ManagedDomainFqdn* dla własnej domeny zarządzanej, na przykład *aaddscontoso.com*:
 
@@ -204,7 +210,8 @@ Aby przygotować domenę zarządzaną do migracji, wykonaj następujące czynno�
     Migrate-Aadds `
         -Prepare `
         -ManagedDomainFqdn aaddscontoso.com `
-        -Credentials $creds
+        -Credentials $creds `
+        -SubscriptionId $subscriptionId
     ```
 
 ## <a name="migrate-the-managed-domain"></a>Migrowanie domeny zarządzanej
@@ -224,7 +231,8 @@ Migrate-Aadds `
     -VirtualNetworkResourceGroupName myResourceGroup `
     -VirtualNetworkName myVnet `
     -VirtualSubnetName DomainServices `
-    -Credentials $creds
+    -Credentials $creds `
+    -SubscriptionId $subscriptionId
 ```
 
 Po sprawdzeniu przez skrypt, że domena zarządzana jest gotowa do migracji, wprowadź wartość *Y* , aby rozpocząć proces migracji.
@@ -310,7 +318,8 @@ Migrate-Aadds `
     -Abort `
     -ManagedDomainFqdn aaddscontoso.com `
     -ClassicVirtualNetworkName myClassicVnet `
-    -Credentials $creds
+    -Credentials $creds `
+    -SubscriptionId $subscriptionId
 ```
 
 ### <a name="restore"></a>Przywracanie

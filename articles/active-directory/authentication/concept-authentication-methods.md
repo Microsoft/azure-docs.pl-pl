@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 05283c02c2e5f95e22beb6fbeaad7a99e42ee6aa
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: b6111529d1a3d37f08b29fb5c0751fb6a49acea5
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540839"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054072"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Jakie metody uwierzytelniania i weryfikacji są dostępne w usłudze Azure Active Directory?
 
@@ -39,7 +39,7 @@ W poniższej tabeli opisano, jakie metody są dostępne dla uwierzytelniania pod
 | [Aplikacja Microsoft Authenticator](#microsoft-authenticator-app) | Tak (wersja zapoznawcza) | Uwierzytelnianie MFA i SSPR |
 | [Klucze zabezpieczeń FIDO2 (wersja zapoznawcza)](#fido2-security-keys) | Tak | Tylko MFA |
 | [Tokeny oprogramowania OATH](#oath-software-tokens) | Nie | Funkcja |
-| [Tokeny sprzętowe OATH (wersja zapoznawcza)](#oath-hardware-tokens-preview) | Tak | Funkcja |
+| [Tokeny sprzętowe OATH (wersja zapoznawcza)](#oath-hardware-tokens-preview) | Nie | Funkcja |
 | [SMS](#phone-options) | Tak (wersja zapoznawcza) | Uwierzytelnianie MFA i SSPR |
 | [Połączenie głosowe](#phone-options) | Nie | Uwierzytelnianie MFA i SSPR |
 | [Pytania zabezpieczające](#security-questions) | Nie | Tylko SSPR |

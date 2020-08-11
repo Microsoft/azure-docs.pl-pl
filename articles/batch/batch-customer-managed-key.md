@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: 77c0489838685d65d7579f37d6a6cb922af509f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2af82233013f064b185aefde3f2e1710bd86ed43
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062539"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053749"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Skonfiguruj klucze zarządzane przez klienta dla konta Azure Batch przy użyciu tożsamości Azure Key Vault i zarządzanej
 
@@ -25,7 +25,7 @@ Klucze, które należy podać, muszą być generowane w [Azure Key Vault](../key
 
 ## <a name="create-a-batch-account-with-system-assigned-managed-identity"></a>Tworzenie konta w usłudze Batch z tożsamością zarządzaną przypisaną przez system
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 W [Azure Portal](https://portal.azure.com/)podczas tworzenia kont wsadowych wybierz pozycję **system przypisany** w typie tożsamości na karcie **Zaawansowane** .
 
@@ -82,7 +82,7 @@ W polu **Wybierz** w obszarze **podmiot zabezpieczeń**Wypełnij `principalId` w
 
 ### <a name="generate-a-key-in-azure-key-vault"></a>Wygeneruj klucz w Azure Key Vault
 
-W Azure Portal przejdź do wystąpienia Key Vault w sekcji **klucz** , wybierz pozycję **Generuj/Importuj**. Wybierz **Typ klucza** , który ma `RSA` być **kluczem** i jaki ma być rozmiar `2048` .
+W Azure Portal przejdź do wystąpienia Key Vault w sekcji **klucz** , wybierz pozycję **Generuj/Importuj**. Wybierz **Typ klucza** , który ma być `RSA` i **Rozmiar klucza RSA** , aby mieć co najmniej `2048` bity. `EC`typy kluczy nie są obecnie obsługiwane jako klucz zarządzany przez klienta na koncie wsadowym.
 
 ![Utwórz klucz](./media/batch-customer-managed-key/create-key.png)
 
@@ -90,7 +90,7 @@ Po utworzeniu klucza kliknij nowo utworzony klucz i bieżącą wersję, skopiuj 
 
 ## <a name="enable-customer-managed-keys-on-azure-batch-account"></a>Włącz klucze zarządzane przez klienta na koncie Azure Batch
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 W [Azure Portal](https://portal.azure.com/)przejdź do strony konto w usłudze Batch. W sekcji **szyfrowanie** Włącz **klucz zarządzany przez klienta**. Można bezpośrednio użyć identyfikatora klucza lub wybrać Magazyn kluczy, a następnie kliknąć pozycję **Wybierz magazyn kluczy i klucz**.
 
@@ -142,6 +142,7 @@ az batch account set \
 ```
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
   * **Czy dla istniejących kont usługi Batch są obsługiwane klucze zarządzane przez klienta?** Nie. Klucze zarządzane przez klienta są obsługiwane tylko w przypadku nowych kont usługi Batch.
+  * **Czy mogę wybrać rozmiary kluczy RSA większe niż 2048 bitów?** Tak, `3072` obsługiwane są również rozmiary kluczy RSA i `4096` bity.
   * **Jakie operacje są dostępne po odwołaniu klucza zarządzanego przez klienta?** Jedyną dozwoloną operacją jest usunięcie konta, jeśli partia utraci dostęp do klucza zarządzanego przez klienta.
   * **Jak przywrócić dostęp do konta w usłudze Batch w przypadku przypadkowego usunięcia klucza Key Vault?** Ponieważ ochrona przed przeczyszczeniem i usuwanie trwałe są włączone, można przywrócić istniejące klucze. Aby uzyskać więcej informacji, zobacz [odzyskiwanie Azure Key Vault](../key-vault/general/soft-delete-cli.md#recovering-a-key-vault).
   * **Czy można wyłączyć klucze zarządzane przez klienta?** W dowolnym momencie możesz ustawić typ szyfrowania konta wsadowego z powrotem na "klucz zarządzany przez firmę Microsoft". Następnie możesz usunąć lub zmienić klucz.

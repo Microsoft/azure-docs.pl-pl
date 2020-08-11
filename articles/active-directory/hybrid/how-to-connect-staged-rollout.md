@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d582db4bd7ef99d86602f49bc9046aadb8c3e8f0
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: e260ff55c3039b7943137ff1656068e9b5b9cb28
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460613"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053228"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrowanie do uwierzytelniania w chmurze przy użyciu wdrożenia etapowego (wersja zapoznawcza)
 
@@ -84,7 +84,7 @@ Następujące scenariusze nie są obsługiwane w przypadku wdrażania etapowego:
 
 - Przy pierwszym dodawaniu grupy zabezpieczeń do wdrożenia przemieszczanego można ograniczyć do 200 użytkowników, aby uniknąć przekroczenia limitu czasu środowiska. Po dodaniu grupy można do niej dodać kilku użytkowników bezpośrednio, zgodnie z potrzebami.
 
-- Podczas wprowadzania etapowego zasady wygasania haseł są ustawiane na 90 dni bez opcji dostosowywania. 
+- Podczas wdrażania etapowego, gdy EnforceCloudPasswordPolicyForPasswordSyncedUsers jest włączona, zasady wygasania haseł są ustawiane na 90 dni bez opcji dostosowywania. 
 
 
 ## <a name="get-started-with-staged-rollout"></a>Wprowadzenie do wdrożenia przemieszczanego
@@ -207,7 +207,7 @@ Włączono zdarzenia inspekcji dla różnych akcji wykonywanych w celu wdrożeni
 
   ![Okienko "Dodawanie użytkownika do wdrożenia funkcji" — karta elementy docelowe](./media/how-to-connect-staged-rollout/sr12.png)
 
-## <a name="validation"></a>Walidacja
+## <a name="validation"></a>Weryfikacja
 
 Aby przetestować logowanie za pomocą *synchronizacji skrótów haseł* lub *uwierzytelniania przekazywanego* (Logowanie przy użyciu nazwy użytkownika i hasła), wykonaj następujące czynności:
 

@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: 33e7a97f4b82bd3d7e82532fe2f0a5e3d80c73f5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ca106625acf28aded0009fd09022843f1016faf3
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006795"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056146"
 ---
-# <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Aktualizowanie istniejącej oferty w witrynie Marketplace dla zastosowań komercyjnych
+# <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Aktualizowanie istniejącej oferty w komercyjnej witrynie Marketplace
 
 Istniejące oferty można wyświetlić na karcie **Przegląd** w [portalu komercyjnej witryny Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) w centrum partnerskim.
 
-Aby zaktualizować istniejącą ofertę, która jest obecnie aktywna w portalu Marketplace:
+Aby zaktualizować istniejącą ofertę, która jest obecnie aktywna na rynku komercyjnym:
 
 1. Wybierz nazwę oferty, którą chcesz zaktualizować. Stan oferty może być wyświetlany jako **wersja zapoznawcza**, na **żywo**, **Publikowanie w toku**, **wersja robocza**, **wymagana Uwaga**lub **niedostępna** (jeśli wcześniej wybrano, aby zrezygnować z sprzedaży oferty). Po wybraniu zostanie otwarta strona **przeglądu oferty** dla tej oferty.
 2. Wybierz pozycję **Aktualizuj** z karty na stronie Przegląd oferty lub element menu w lewym obszarze nawigacji dla obszaru, który chcesz zaktualizować. Możesz chcieć zaktualizować **konfigurację oferty**, **Właściwości**, **listę oferty**, **Podgląd**, **konfigurację techniczną**, **Przegląd planu**lub **dysk testowy**.
@@ -74,7 +74,7 @@ Teraz, gdy plan został ukryty przy użyciu starej ceny, Utwórz kopię tego pla
 1. Wybierz pozycję **Zapisz wersję roboczą**.
 1. Po zakończeniu wszystkich wymaganych sekcji nowego planu wybierz pozycję **Przejrzyj i Opublikuj**. Spowoduje to przesłanie oferty do przeglądu i publikacji. Aby uzyskać więcej informacji, przeczytaj temat [przeglądanie i publikowanie oferty w portalu komercyjnym](../review-publish-offer.md) .
 
-## <a name="compare-changes-to-marketplace-offers"></a>Porównaj zmiany z ofertami w witrynie Marketplace
+## <a name="compare-changes-to-commercial-marketplace-offers"></a>Porównaj zmiany z komercyjnymi ofertami Marketplace
 
 Można przeprowadzać inspekcję zmian wprowadzonych w [opublikowanej](#compare-changes-to-published-offer) ofercie lub [wersji zapoznawczej](#compare-changes-to-a-preview-offer) przed wprowadzeniem ich na żywo przy użyciu funkcji **PORÓWNAJ**.
 
@@ -161,11 +161,13 @@ Jeśli chcesz opublikować ofertę w późniejszym czasie, musisz rozpocząć pr
 
 ## <a name="stop-selling-an-offer-or-plan"></a>Zatrzymaj sprzedawanie oferty lub planu
 
+Z różnych powodów można zdecydować o usunięciu oferty z portalu komercyjnego firmy Microsoft. Usunięcie oferty gwarantuje, że nowi klienci nie będą już kupować ani wdrażać oferty, ale nie mają wpływu na istniejących klientów.
+
 Aby zrezygnować z sprzedaży oferty po jej opublikowaniu, wybierz pozycję **Zatrzymaj sprzedawanie** na stronie **przeglądu oferty** .
 
-Po potwierdzeniu, że chcesz zrezygnować z sprzedaży oferty, w ciągu kilku godzin nie będzie już widoczna w portalu Marketplace, a nowi klienci nie będą mogli jej pobrać.
+Po potwierdzeniu, że chcesz zrezygnować z sprzedaży oferty, w ciągu kilku godzin nie będzie już widoczna w komercyjnym portalu Marketplace, a nowi klienci nie będą mogli jej pobrać.
 
-Aby zrezygnować z sprzedaży planu, wybierz pozycję **Zatrzymaj sprzedawanie** na stronie **Przegląd planu** . Opcja zatrzymania sprzedaży planu jest dostępna tylko wtedy, gdy w ofercie znajduje się więcej niż jeden plan. Możesz zrezygnować z sprzedaży jednego planu bez wpływu na inne plany w ramach oferty. Po potwierdzeniu, że chcesz zrezygnować z sprzedaży planu, należy ponownie opublikować ofertę zmiany, która zaczęła obowiązywać. Po ponownym opublikowaniu oferty plan nie będzie już widoczny w portalu Marketplace, a nowi klienci nie będą mogli jej pobrać.
+Aby zrezygnować z sprzedaży planu, wybierz pozycję **Zatrzymaj sprzedawanie** na stronie **Przegląd planu** . Opcja zatrzymania sprzedaży planu jest dostępna tylko wtedy, gdy w ofercie znajduje się więcej niż jeden plan. Możesz zrezygnować z sprzedaży jednego planu bez wpływu na inne plany w ramach oferty. Po potwierdzeniu, że chcesz zrezygnować z sprzedaży planu, należy ponownie opublikować ofertę zmiany, która zaczęła obowiązywać. Po ponownym opublikowaniu oferty plan nie będzie już widoczny w komercyjnej witrynie Marketplace, a nowi klienci nie będą mogli jej pobrać.
 
 Wszyscy klienci, którzy wcześniej uzyskali ofertę lub plan, nadal mogą z niego korzystać. Mogą pobrać je ponownie, ale nie będą otrzymywać aktualizacji w przypadku aktualizacji i ponownego opublikowania oferty lub planu w późniejszym czasie.
 

@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
-ms.openlocfilehash: eda3afdf8deb3336cd0c5293c2422e694caa69c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f5eb5f5ce6c6ded3fffc95b73d3ac86ae9e94ba2
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80132755"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055466"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Tworzenie pierwszej funkcji trwałej w języku C\#
 
@@ -27,11 +27,11 @@ W tym artykule dowiesz się, jak używać Visual Studio Code do lokalnego tworze
 
 W celu ukończenia tego samouczka:
 
-* Zainstaluj narzędzie [Visual Studio Code](https://code.visualstudio.com/download).
+* Zainstaluj [Visual Studio Code](https://code.visualstudio.com/download).
 
 * Zainstaluj następujące rozszerzenia VS Code:
     - [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
-    - [S #](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+    - [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 
 * Upewnij się, że masz najnowszą wersję [Azure Functions Core Tools](../functions-run-local.md).
 
@@ -45,7 +45,7 @@ W celu ukończenia tego samouczka:
 
 W tej sekcji użyto Visual Studio Code do utworzenia projektu Azure Functions lokalnego. 
 
-1. W Visual Studio Code naciśnij klawisz F1 (lub Ctrl/Cmd + Shift + P), aby otworzyć paletę poleceń. W palecie poleceń Wyszukaj i wybierz `Azure Functions: Create New Project...`.
+1. W Visual Studio Code naciśnij klawisz F1 (lub Ctrl/Cmd + Shift + P), aby otworzyć paletę poleceń. W palecie poleceń Wyszukaj i wybierz `Azure Functions: Create New Project...` .
 
     ![Tworzenie projektu funkcji](media/durable-functions-create-first-csharp/functions-vscode-create-project.png)
 
@@ -56,17 +56,17 @@ W tej sekcji użyto Visual Studio Code do utworzenia projektu Azure Functions lo
     | Monit | Wartość | Opis |
     | ------ | ----- | ----------- |
     | Wybierz język projektu aplikacji funkcji | C# | Utwórz projekt funkcji lokalnych w języku C#. |
-    | Wybierz wersję | Azure Functions v3 | Ta opcja jest wyświetlana tylko wtedy, gdy podstawowe narzędzia nie są jeszcze zainstalowane. W takim przypadku podstawowe narzędzia są instalowane przy pierwszym uruchomieniu aplikacji. |
+    | Wybierz wersję | Azure Functions, wersja 3 | Ta opcja jest wyświetlana tylko wtedy, gdy podstawowe narzędzia nie są jeszcze zainstalowane. W takim przypadku podstawowe narzędzia są instalowane przy pierwszym uruchomieniu aplikacji. |
     | Wybierz szablon dla pierwszej funkcji projektu | Pomiń teraz | |
     | Wybierz, w jaki sposób chcesz otworzyć projekt | Otwórz w bieżącym oknie | Ponownie otwiera VS Code w wybranym folderze. |
 
-Visual Studio Code instaluje Azure Functions Core Tools, w razie konieczności. Tworzy również projekt aplikacji funkcji w folderze. Ten projekt zawiera pliki konfiguracji pliku [host. JSON](../functions-host-json.md) i [Local. Settings. JSON](../functions-run-local.md#local-settings-file) .
+Visual Studio Code instaluje Azure Functions Core Tools, w razie konieczności. Tworzy również projekt aplikacji funkcji w folderze. Ten projekt zawiera [host.js](../functions-host-json.md) i [local.settings.js](../functions-run-local.md#local-settings-file) plików konfiguracyjnych.
 
 ## <a name="add-functions-to-the-app"></a>Dodawanie funkcji do aplikacji
 
 Poniższe kroki używają szablonu do tworzenia trwałego kodu funkcji w projekcie.
 
-1. W palecie poleceń Wyszukaj i wybierz `Azure Functions: Create Function...`.
+1. W palecie poleceń Wyszukaj i wybierz `Azure Functions: Create Function...` .
 
 1. Postępując zgodnie z instrukcjami, podaj następujące informacje:
 
@@ -86,7 +86,7 @@ Poniższe kroki używają szablonu do tworzenia trwałego kodu funkcji w projekc
     | Wybieranie grupy zasobów | *Unikatowa nazwa* | Nazwa grupy zasobów do utworzenia |
     | Wybieranie lokalizacji | *okolicy* | Zaznacz region blisko siebie |
 
-Klasa zawierająca nowe funkcje jest dodawana do projektu. VS Code dodaje również parametry połączenia konta magazynu do pliku *Local. Settings. JSON* oraz odwołanie do pakietu [`Microsoft.Azure.WebJobs.Extensions.DurableTask`](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) NuGet do plik projektu *. csproj* .
+Klasa zawierająca nowe funkcje jest dodawana do projektu. VS Code dodaje również parametry połączenia konta magazynu do *local.settings.jsna* i odwołanie do [`Microsoft.Azure.WebJobs.Extensions.DurableTask`](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) pakietu NuGet do pliku projektu *. csproj* .
 
 Otwórz nowy plik *HelloOrchestration.cs* , aby wyświetlić jego zawartość. Ta trwała funkcja jest prostym przykładem łączenia funkcji w łańcuch przy użyciu następujących metod:  
 
@@ -148,7 +148,7 @@ Gdy będziesz mieć pewność, że funkcja działa poprawnie na komputerze lokal
 
 1. Skopiuj adres URL wyzwalacza HTTP z panelu **Dane wyjściowe**. Adres URL, który wywołuje funkcję wyzwalaną przez protokół HTTP, powinien mieć następujący format:
 
-        https://<functionappname>.azurewebsites.net/api/HelloOrchestration_HttpStart
+    `https://<functionappname>.azurewebsites.net/api/HelloOrchestration_HttpStart`
 
 1. Wklej nowy adres URL żądania HTTP na pasku adresu przeglądarki. Podczas korzystania z opublikowanej aplikacji powinna zostać zwrócona taka sama odpowiedź dotycząca stanu.
 
@@ -181,9 +181,9 @@ W celu ukończenia tego samouczka:
 
 Szablon projektu usługi Azure Functions umożliwia utworzenie projektu, który można opublikować w aplikacji funkcji na platformie Azure. Aplikacja funkcji umożliwia grupowanie funkcji jako jednostki logicznej, co ułatwia zarządzanie, wdrażanie, skalowanie i udostępnianie zasobów.
 
-1. W programie Visual Studio wybierz pozycję **Nowy** > **projekt** z menu **plik** .
+1. W programie Visual Studio wybierz pozycję **Nowy**  >  **projekt** z menu **plik** .
 
-1. W oknie dialogowym **Tworzenie nowego projektu** Wyszukaj `functions`, wybierz szablon **Azure Functions** i kliknij przycisk **dalej**. 
+1. W oknie dialogowym **Tworzenie nowego projektu** Wyszukaj `functions` , wybierz szablon **Azure Functions** i kliknij przycisk **dalej**. 
 
     ![Okno dialogowe Nowy projekt umożliwiające utworzenie funkcji w programie Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-project.png)
 
@@ -205,7 +205,7 @@ Szablon projektu usługi Azure Functions umożliwia utworzenie projektu, który 
 
 Poniższe kroki używają szablonu do tworzenia trwałego kodu funkcji w projekcie.
 
-1. Kliknij prawym przyciskiem myszy projekt w programie Visual Studio i wybierz polecenie **Dodaj** > **nową funkcję platformy Azure**.
+1. Kliknij prawym przyciskiem myszy projekt w programie Visual Studio i wybierz polecenie **Dodaj**  >  **nową funkcję platformy Azure**.
 
     ![Dodawanie nowej funkcji](./media/durable-functions-create-first-csharp/functions-vs-add-function.png)
 
@@ -277,7 +277,7 @@ Aby opublikować projekt, musisz mieć aplikację funkcji w swojej subskrypcji p
 
     Adres URL, który wywołuje wyzwalacz HTTP funkcji trwałej, powinien mieć następujący format:
 
-        https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>_HttpStart
+    `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>_HttpStart`
 
 2. Wklej nowy adres URL żądania HTTP na pasku adresu przeglądarki. Podczas korzystania z opublikowanej aplikacji powinna zostać zwrócona taka sama odpowiedź dotycząca stanu.
 

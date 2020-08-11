@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Tworzenie Menedżer zasobów szablonu bramy translatora adresów sieciowych'
+title: Tworzenie Menedżer zasobów szablonu bramy translatora adresów sieciowych
 titleSuffix: Azure Virtual Network NAT
 description: W tym przewodniku szybki start pokazano, jak utworzyć bramę NAT przy użyciu szablonu Azure Resource Manager.
 services: load-balancer
@@ -10,20 +10,20 @@ Customer intent: I want to create a NAT gateway by using an Azure Resource Manag
 ms.service: virtual-network
 ms.subservice: nat
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2020
 ms.author: allensu
 ms.custom: subject-armqs
-ms.openlocfilehash: fbc8b48f4ff6a6df687d45a53008a159c5322084
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: fc4804070e0fa4ca6e9e54dcf6e04aafcc17f91a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84703574"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053902"
 ---
-# <a name="tutorial-create-a-nat-gateway---resource-manager-template"></a>Samouczek: Tworzenie Menedżer zasobów szablonu bramy translatora adresów sieciowych
+# <a name="create-a-nat-gateway---resource-manager-template"></a>Tworzenie Menedżer zasobów szablonu bramy translatora adresów sieciowych
 
 Rozpocznij pracę z Virtual Network translatora adresów sieciowych przy użyciu szablonu Azure Resource Manager.  Ten szablon służy do wdrażania sieci wirtualnej, zasobu bramy translatora adresów sieciowych i Ubuntu maszyny wirtualnej. Maszyna wirtualna Ubuntu jest wdrażana w podsieci skojarzonej z zasobem bramy translatora adresów sieciowych.
 
@@ -71,7 +71,7 @@ Dziewięć zasobów platformy Azure są zdefiniowane w szablonie:
 
 * **[Microsoft. COMPUTE/virtualMachines](https://docs.microsoft.com/azure/templates/Microsoft.Compute/virtualMachines)**: tworzy maszynę wirtualną.
 
-### <a name="deploy-the-template"></a>Wdrożenie szablonu
+### <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 **Interfejs wiersza polecenia platformy Azure**
 
@@ -101,7 +101,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
 ```
 
-**Azure Portal**
+**Witryna Azure Portal**
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-nat-gateway-1-vm%2Fazuredeploy.json)
 
@@ -136,7 +136,7 @@ Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, 
 Remove-AzResourceGroup -Name myResourceGroupNAT
 ```
 
-**Azure Portal**
+**Witryna Azure Portal**
 
 Gdy grupa zasobów, Brama translatora adresów sieciowych i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Wybierz grupę zasobów **myResourceGroupNAT** , która zawiera bramę translatora adresów sieciowych, a następnie wybierz pozycję **Usuń**.
 

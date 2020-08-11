@@ -6,21 +6,21 @@ author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
-ms.date: 04/21/2020
+ms.date: 08/10/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: d22b83e1f3464f6d87d2bc3821682b25e05d947b
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: ef205a9a94ef7b40ed271387df617a5d96a78307
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142539"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054310"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Użyj programu PowerShell do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2
 
 W tym artykule przedstawiono sposób użycia programu PowerShell do tworzenia katalogów, plików i uprawnień w ramach kont magazynu, które mają włączoną hierarchiczną przestrzeń nazw (SNS), oraz do zarządzania nimi. 
 
-Mapowanie Gen1 do [Gen2](#gen1-gen2-map)  |  [Przekaż opinię](https://github.com/Azure/azure-powershell/issues)
+[Dokumentacja](https://docs.microsoft.com/powershell/module/Az.Storage/?view=azps-4.5.0)  |  Mapowanie Gen1 do [Gen2](#gen1-gen2-map)  |  [Przekaż opinię](https://github.com/Azure/azure-powershell/issues)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c6cdde3ae63a2f816db7a978557f72b4b60d2677
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 7ec61bf4db949649c993fad4a3255b55626cb259
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439142"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056231"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Samouczek: opracowywanie modułów IoT Edge dla urządzeń z systemem Linux
 
@@ -151,6 +151,9 @@ Po załadowaniu nowego rozwiązania w oknie Visual Studio Code Poświęć chwil�
 ### <a name="provide-your-registry-credentials-to-the-iot-edge-agent"></a>Podaj poświadczenia rejestru dla agenta IoT Edge
 
 W pliku środowiska przechowywane są poświadczenia rejestru kontenerów udostępniane środowisku uruchomieniowemu usługi IoT Edge. Środowisko uruchomieniowe wymaga tych poświadczeń do ściągania obrazów kontenerów na urządzenie IoT Edge.
+
+>[!NOTE]
+>Jeśli wartość **localhost: 5000** nie została zastąpiona wartością serwera logowania z usługi Azure Container Registry, w kroku [**Tworzenie szablonu projektu**](#create-a-project-template) brakuje pliku **. env** i sekcji registryCredentials manifestu wdrażania. 
 
 Rozszerzenie IoT Edge podejmuje próbę ściągnięcia poświadczeń rejestru kontenera z platformy Azure i wypełniania ich w pliku środowiska. Sprawdź, czy Twoje poświadczenia zostały już uwzględnione. Jeśli nie, Dodaj je teraz:
 
@@ -326,7 +329,7 @@ Polecenia w tej sekcji dotyczą urządzenia IoT Edge, a nie komputera dewelopers
 
    Dzienniki SimulatedTemperatureSensor i SampleModule powinny zawierać komunikaty, które są przetwarzane. Moduł edgeAgent jest odpowiedzialny za uruchamianie innych modułów, więc jego dzienniki zawierają informacje dotyczące implementowania manifestu wdrożenia. Jeśli którykolwiek moduł nie jest wyświetlany lub nie jest uruchomiony, dzienniki edgeAgent prawdopodobnie będą miały błędy. Moduł edgeHub jest odpowiedzialny za komunikację między modułami i IoT Hub. Jeśli moduły są uruchomione, ale komunikaty nie docierają do centrum IoT, dzienniki edgeHub prawdopodobnie będą miały błędy.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zamierzasz przejść do kolejnego zalecanego artykułu, możesz zachować utworzone zasoby oraz konfiguracje i użyć ich ponownie. Możesz także nadal używać tego samego urządzenia usługi IoT Edge jako urządzenia testowego.
 

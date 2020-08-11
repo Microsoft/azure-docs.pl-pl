@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: bcb4563f7106161920b89897b706b05d2f819938
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f4bf3974cd561626c280dc65aa5fc78d0c9a159b
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282453"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056503"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB
 
@@ -22,7 +22,7 @@ AzCopy to narzędzie wiersza polecenia, za pomocą którego można kopiować dan
 > [!TIP]
 > W przykładach w tym artykule zamieszczono argumenty Path z pojedynczymi cudzysłowami (' '). Używaj pojedynczych cudzysłowów we wszystkich powłokach poleceń z wyjątkiem powłoki poleceń systemu Windows (cmd.exe). Jeśli używasz powłoki poleceń systemu Windows (cmd.exe), argumenty ścieżki należy ująć w podwójne cudzysłowy ("") zamiast pojedynczego cudzysłowu ("").
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 Zapoznaj się z artykułem [wprowadzenie do AzCopy](storage-use-azcopy-v10.md) w celu pobrania AzCopy i Dowiedz się więcej na temat sposobów dostarczania poświadczeń autoryzacji do usługi magazynu.
 
@@ -31,7 +31,7 @@ Zapoznaj się z artykułem [wprowadzenie do AzCopy](storage-use-azcopy-v10.md) w
 >
 > Jeśli wolisz używać tokenu SAS do autoryzacji dostępu do danych obiektów blob, możesz dołączyć ten token do adresu URL zasobu w każdym poleceniu AzCopy.
 >
-> Przykład: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
+> Na przykład: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## <a name="create-a-container"></a>Tworzenie kontenera
 
@@ -283,7 +283,7 @@ Te przykłady działają również z kontami, które mają hierarchiczną przest
 >
 > |Scenariusz|Flaga|
 > |---|---|
-> |Kopiuj pliki jako Dołącz obiekty blob lub stronicowe obiekty blob.|**--Typ** = \[ obiektu BLOB BlockBlob \| PageBlob \| AppendBlob\]|
+> |Kopiuj obiekty blob jako blokowe, stronicowe lub dołączane obiekty blob.|**--Typ** = \[ obiektu BLOB BlockBlob \| PageBlob \| AppendBlob\]|
 > |Kopiuj do określonej warstwy dostępu (na przykład warstwy archiwum).|**--Block-BLOB-warstw** = \[ Brak \| aktywnego \| archiwum chłodnego \|\]|
 > |Automatycznie Kompresuj pliki.|**--dekompresowanie** = \[ Wklęśnięcie (gzip) \|\]|
 > 

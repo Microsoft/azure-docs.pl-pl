@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: 4604bfe7c815f79733f99a1a3727e4c68527e7ec
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5dc1f8ed31c8d7199a31643a76e611d828da77ac
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80656126"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056469"
 ---
-# <a name="try-the-speech-service-for-free"></a>Wypróbuj bezpłatnie usługę mowy ""
+# <a name="try-the-speech-service-for-free"></a>Wypróbuj bezpłatnie usługę rozpoznawania mowy
 
 W tym artykule można wybrać opcję łatwego testowania bezpłatnej usługi mowy, aby można było wykryć, co usługa może zrobić, i zdecydować, czy jest ona odpowiednia dla Twoich potrzeb. Wybierz jedną z dwóch następujących opcji, w zależności od sytuacji i przypadków użycia:
 
@@ -52,7 +52,7 @@ Gdy masz konto Microsoft, przejdź do [strony tworzenia konta platformy Azure](h
 
 Aby dodać zasób usługi mowy (warstwa Bezpłatna lub płatna) do konta platformy Azure:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konto Microsoft.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) za pomocą konta Microsoft.
 
 1. Wybierz pozycję **Utwórz zasób** w lewym górnym rogu portalu. Jeśli nie widzisz opcji **Utwórz zasób**, zawsze możesz ją znaleźć, wybierając menu zwinięte w lewym górnym rogu:
 
@@ -71,7 +71,7 @@ Aby dodać zasób usługi mowy (warstwa Bezpłatna lub płatna) do konta platfor
    - Wybierz [region](regions.md) , w którym będzie używany zasób.
    - Wybierz opcję bezpłatna (F0) lub płatna (S0). Aby uzyskać pełne informacje na temat cen i przydziałów użycia dla każdej warstwy, wybierz pozycję **Wyświetl pełne szczegóły cennika**.
    - Utwórz nową grupę zasobów dla tej subskrypcji mowy lub Przypisz subskrypcję do istniejącej grupy zasobów. Grupy zasobów ułatwiają zachowanie różnych subskrypcji platformy Azure.
-   - Wybierz przycisk **Utwórz**. Spowoduje to przejście do omówienia wdrażania i wyświetlenie komunikatów o postępie wdrażania.
+   - Wybierz pozycję **Utwórz**. Spowoduje to przejście do omówienia wdrażania i wyświetlenie komunikatów o postępie wdrażania.
 
 > [!NOTE]
 > W jednym lub wielu regionach można utworzyć nieograniczoną liczbę subskrypcji w warstwie Standardowa. Można jednak utworzyć tylko jedną subskrypcję warstwy Bezpłatna. Wdrożenie modelu w warstwie Bezpłatna, które pozostanie nieużywane przez 7 dni, zostanie zlikwidowane automatycznie.
@@ -87,7 +87,7 @@ Aby przełączyć się z jednej subskrypcji na drugą, na przykład jeśli bezp�
 
 ## <a name="about-regions"></a>Regiony — informacje
 
-- Jeśli aplikacja korzysta z [zestawu Speech SDK](speech-sdk.md), podczas tworzenia konfiguracji mowy należy podać kod regionu `westus`, taki jak.
+- Jeśli aplikacja korzysta z [zestawu Speech SDK](speech-sdk.md), `westus` podczas tworzenia konfiguracji mowy należy podać kod regionu, taki jak.
 - Jeśli aplikacja używa jednego z [interfejsów API REST](rest-apis.md)usługi mowy, region jest częścią identyfikatora URI punktu końcowego, który jest używany podczas tworzenia żądań.
 - Klucze utworzone dla regionu są prawidłowe tylko w tym regionie. Próba użycia ich z innymi regionami spowoduje błędy uwierzytelniania.
 
@@ -96,5 +96,5 @@ Aby przełączyć się z jednej subskrypcji na drugą, na przykład jeśli bezp�
 Wykonaj jedną z naszych 10-minutowych przewodników szybki start lub zapoznaj się z naszymi przykładami zestawu SDK:
 
 > [!div class="nextstepaction"]
-> [Szybki Start: Rozpoznawanie mowy w](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
-> [przykładach zestawu Speech SDK](speech-sdk.md#sample-source-code) języka C#
+> [Szybki Start: Rozpoznawanie mowy przy użyciu interfejsu wiersza polecenia mowy](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programmer-tool-spx) 
+>  [Przykłady zestawu Speech SDK](speech-sdk.md#sample-source-code)

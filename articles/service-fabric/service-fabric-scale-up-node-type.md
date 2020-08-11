@@ -3,14 +3,14 @@ title: Skalowanie w górę typu węzła Service Fabric platformy Azure
 description: Dowiedz się, jak skalować klaster Service Fabric przez dodanie zestawu skalowania maszyn wirtualnych.
 ms.topic: article
 ms.date: 02/13/2019
-ms.openlocfilehash: a42e33fa87b6cf7966368481ef6d3920511919e3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a8a8a432d4a11427f2c4f545a0907540af3112bc
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260457"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056486"
 ---
-# <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Skalowanie w górę węzła klastra usługi Service Fabric podstawowego typu
+# <a name="scale-up-a-service-fabric-cluster-primary-node-type-by-adding-a-virtual-machine-scale-set"></a>Skaluj w górę typ węzła podstawowego klastra Service Fabric, dodając zestaw skalowania maszyn wirtualnych
 W tym artykule opisano sposób skalowania w górę typu węzła podstawowego klastra Service Fabric przez zwiększenie zasobów maszyny wirtualnej. Klaster Service Fabric jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Maszyna lub maszyna wirtualna będąca częścią klastra nazywa się węzłem. Zestawy skalowania maszyn wirtualnych to zasób obliczeniowy platformy Azure, który służy do wdrażania kolekcji maszyn wirtualnych jako zestawu i zarządzania nią. Każdy typ węzła, który jest zdefiniowany w klastrze platformy Azure [, jest ustawiany jako oddzielny zestaw skalowania](service-fabric-cluster-nodetypes.md). Każdy typ węzła może być następnie zarządzany osobno. Po utworzeniu klastra Service Fabric można skalować typ węzła klastra w pionie (zmienić zasoby węzłów) lub uaktualnić system operacyjny maszyn wirtualnych typu węzła.  Klaster można skalować w dowolnym momencie, nawet w przypadku uruchamiania obciążeń w klastrze.  W miarę skalowania klastra aplikacje są automatycznie skalowane.
 
 > [!WARNING]

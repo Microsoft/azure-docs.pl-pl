@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 8f22b1ff97826dc318794aca58973b1276e74209
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a82f3c347c75d658e3e7ec52d51107f5a240ee5b
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79087855"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056520"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Poziom zgodności dla zadań Azure Stream Analytics
 
@@ -121,7 +121,7 @@ Następujące istotne zmiany są wprowadzane w obszarze poziom zgodności 1,1:
 
 ### <a name="service-bus-xml-format"></a>Service Bus format XML
 
-**poziom 1,0:** Azure Stream Analytics użyciu DataContractSerializer, więc zawartość komunikatów zawiera tagi XML. Przykład:
+**poziom 1,0:** Azure Stream Analytics użyciu DataContractSerializer, więc zawartość komunikatów zawiera tagi XML. Na przykład:
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 
@@ -142,11 +142,11 @@ Następujące istotne zmiany są wprowadzane w obszarze poziom zgodności 1,1:
 
 **poziom 1,1:** CREATE TABLE pozwala określić mocny schemat. Aparat Stream Analytics sprawdza, czy dane są zgodne z tym schematem. Przy użyciu tego modelu polecenie umożliwia filtrowanie zdarzeń przy użyciu wartości NaN.
 
-### <a name="disable-automatic-upcast-for-datetime-strings-in-json"></a>Wyłącz automatyczne przerzutowanie dla ciągów DateTime w formacie JSON
+### <a name="disable-automatic-conversion-of-datetime-strings-to-datetime-type-at-ingress-for-json"></a>Wyłącz automatyczną konwersję ciągów DateTime na typ DateTime w danych wejściowych JSON
 
-**poziom 1,0:** Analizator JSON automatycznie przekształci wartości ciągu z informacjami o dacie/godzinie/strefie do typu DateTime, a następnie przekonwertuje ją na czas UTC. Takie zachowanie spowodowało utratę informacji o strefie czasowej.
+**poziom 1,0:** Analizator JSON automatycznie przekonwertuje wartości ciągu na dane typu Data/Godzina/Strefa na typ DATETIME w ruchu przychodzącym, więc wartość spowoduje natychmiastowe utratę pierwotnego formatowania i informacji o strefie czasowej. Ponieważ jest to wykonywane w przypadku ruchu przychodzącego, nawet jeśli to pole nie było używane w zapytaniu, jest konwertowane na datę i godzinę UTC.
 
-**poziom 1,1:** Nie ma więcej automatycznego przerzutowania wartości ciągu z informacjami o dacie/godzinie/strefie na typ DateTime. W związku z tym informacje o strefie czasowej są przechowywane.
+**poziom 1,1:** Nie ma automatycznej konwersji wartości ciągu z informacjami o dacie/godzinie/strefie na typ DATETIME. W rezultacie są przechowywane informacje o strefie czasowej i oryginalne formatowanie. Jeśli jednak pole NVARCHAR (MAX) jest używane w zapytaniu jako część wyrażenia DATETIME (na przykład funkcja DATEADD), jest konwertowane na typ DATETIME w celu wykonania obliczeń i utraci oryginalny formularz.
 
 ## <a name="next-steps"></a>Następne kroki
 

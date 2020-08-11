@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Tworzenie bramy translatora adresów sieciowych — interfejs wiersza polecenia platformy Azure'
+title: Tworzenie bramy translatora adresów sieciowych — interfejs wiersza polecenia platformy Azure
 titlesuffix: Azure Virtual Network NAT
 description: W tym przewodniku szybki start pokazano, jak utworzyć bramę NAT przy użyciu interfejsu wiersza polecenia platformy Azure
 services: virtual-network
@@ -10,19 +10,19 @@ Customer intent: I want to create a NAT gateway for outbound connectivity for my
 ms.service: virtual-network
 ms.subservice: nat
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9e0fcf4a973be1fe2c753e7606c6628eaeefaae8
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a44a3af7be214aa2ed000eb824b63c0bf7a95aee
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486786"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054028"
 ---
-# <a name="tutorial-create-a-nat-gateway-using-azure-cli"></a>Samouczek: Tworzenie bramy NAT przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="create-a-nat-gateway-using-azure-cli"></a>Tworzenie bramy NAT przy użyciu interfejsu wiersza polecenia platformy Azure
 
 W tym samouczku przedstawiono sposób korzystania z usługi Azure Virtual Network translatora adresów sieciowych. Utworzysz bramę translatora adresów sieciowych, aby zapewnić łączność wychodzącą dla maszyny wirtualnej na platformie Azure. 
 

@@ -1,14 +1,14 @@
 ---
 title: Praca z dużymi zestawami danych
 description: Informacje na temat pobierania, formatowania, wyświetlania i pomijania rekordów w dużych zestawach danych podczas pracy z wykresem zasobów platformy Azure.
-ms.date: 03/20/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4b45a28a5dbd2ebc233bcf9a6808cb7d7cd6d8c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77ec7cc342672becddcbca7e6173eb1968519f02
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83681074"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056410"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Praca z dużymi zestawami danych zasobów platformy Azure
 
@@ -63,10 +63,10 @@ W [interfejsie API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-p
 
 ## <a name="paging-results"></a>Stronicowanie wyników
 
-Gdy konieczne jest przerwanie zestawu wyników w mniejszych zestawach rekordów do przetworzenia lub ponieważ zestaw wyników będzie przekroczyć maksymalną dozwoloną wartość _1000_ zwracanych rekordów, należy użyć stronicowania. [Interfejs API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) **QueryResponse** udostępnia wartości wskazujące, że zestaw wyników został podzielony: **resultTruncated** i **$skipToken**.
-**resultTruncated** jest wartością logiczną, która informuje odbiorcę, jeśli w odpowiedzi nie zostały zwrócone dodatkowe rekordy. Ten stan można również zidentyfikować, gdy właściwość **Count** jest mniejsza niż Właściwość **totalRecords** . **totalRecords** definiuje liczbę rekordów, które pasują do zapytania.
+Gdy konieczne jest przerwanie zestawu wyników w mniejszych zestawach rekordów do przetworzenia lub ponieważ zestaw wyników będzie przekroczyć maksymalną dozwoloną wartość _1000_ zwracanych rekordów, należy użyć stronicowania. [Interfejs API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) 
+ **QueryResponse** udostępnia wartości wskazujące, że zestaw wyników został podzielony: **resultTruncated** i **$skipToken**. **resultTruncated** jest wartością logiczną, która informuje odbiorcę, jeśli w odpowiedzi nie zostały zwrócone dodatkowe rekordy. Ten stan można również zidentyfikować, gdy właściwość **Count** jest mniejsza niż Właściwość **totalRecords** . **totalRecords** definiuje liczbę rekordów, które pasują do zapytania.
 
- **resultTruncated** ma **wartość true** , Jeśli stronicowanie jest wyłączone lub niemożliwe ze względu na brak `id` kolumny lub gdy są dostępne mniej zasobów niż żądanie zapytania. Gdy **resultTruncated** ma **wartość true**, właściwość **$skipToken** nie jest ustawiona.
+ **resultTruncated** ma **wartość true** , Jeśli stronicowanie jest wyłączone lub niemożliwe, ponieważ nie ma żadnej `id` kolumny lub gdy nie są dostępne mniej zasobów niż żądanie zapytania. Gdy **resultTruncated** ma **wartość true**, właściwość **$skipToken** nie jest ustawiona.
 
 W poniższych przykładach pokazano, jak **pominąć** pierwsze 3000 rekordów i zwrócić **pierwsze** 1000 rekordów po pominięciu tych rekordów przy użyciu interfejsu wiersza polecenia platformy Azure i Azure PowerShell:
 

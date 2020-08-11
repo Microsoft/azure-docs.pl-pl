@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2020
 ms.author: memildin
-ms.openlocfilehash: 767ad928779743ec28dbe3da8be6154a1fe0b0ab
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 718f9a29b70dab34269c959ccd62452e56a32d72
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042319"
+ms.locfileid: "88056605"
 ---
 # <a name="azure-container-registry-image-scanning-by-security-center"></a>Azure Container Registry skanowania obrazów przez Security Center
 
@@ -31,7 +31,7 @@ Jeśli jesteś w warstwie Standardowa Azure Security Center, możesz dodać paki
 |----|:----|
 |Stan wydania:|Ogólna dostępność|
 |Wpisaną|Warstwa Standardowa|
-|Obsługiwane rejestry i obrazy:|![Tak ](./media/icons/yes-icon.png) hostowane w systemie Linux rejestry ACR, które są dostępne z publicznego Internetu i zapewniają dostęp do powłoki.<br>![Brak ](./media/icons/yes-icon.png) rejestrów ACR hostowanych przez system Windows.<br>![Brak ](./media/icons/yes-icon.png) rejestrów prywatnych — Security Center wymaga dostępu do Twoich rejestrów z publicznego Internetu. Security Center nie może obecnie nawiązać połączenia z usługą, ani skanować rejestrów z dostępem ograniczonym za pomocą zapory, punktu końcowego usługi lub prywatnych punktów końcowych, takich jak link prywatny platformy Azure.<br>![Nie ](./media/icons/yes-icon.png) są to obrazy minimalistyczny, takie jak obrazy wyłuskane [platformy Docker](https://hub.docker.com/_/scratch/) ani obrazy "Distroless", które zawierają tylko aplikacje i ich zależności środowiska uruchomieniowego bez Menedżera pakietów, powłoki lub systemu operacyjnego.|
+|Obsługiwane rejestry i obrazy:|![Tak ](./media/icons/yes-icon.png) hostowane w systemie Linux rejestry ACR, które są dostępne z publicznego Internetu i zapewniają dostęp do powłoki.<br>![Brak ](./media/icons/no-icon.png) rejestrów ACR hostowanych przez system Windows.<br>![Brak ](./media/icons/no-icon.png) rejestrów prywatnych — Security Center wymaga dostępu do Twoich rejestrów z publicznego Internetu. Security Center nie może obecnie nawiązać połączenia z usługą, ani skanować rejestrów z dostępem ograniczonym za pomocą zapory, punktu końcowego usługi lub prywatnych punktów końcowych, takich jak link prywatny platformy Azure.<br>![Nie ](./media/icons/no-icon.png) są to obrazy minimalistyczny, takie jak obrazy wyłuskane [platformy Docker](https://hub.docker.com/_/scratch/) ani obrazy "Distroless", które zawierają tylko aplikacje i ich zależności środowiska uruchomieniowego bez Menedżera pakietów, powłoki lub systemu operacyjnego.|
 |Wymagane role i uprawnienia:|Rola **czytelnik zabezpieczeń** i [Azure Container Registry czytelnik](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
 |||

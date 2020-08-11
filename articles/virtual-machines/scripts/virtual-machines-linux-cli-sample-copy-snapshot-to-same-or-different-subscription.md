@@ -1,6 +1,6 @@
 ---
-title: Kopiuj migawkę dysku zarządzanego do subskrypcji — przykład interfejsu wiersza polecenia
-description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — kopiowanie (lub przenoszenie) migawek dysku zarządzanego do tej samej lub innej subskrypcji przy użyciu interfejsu wiersza polecenia
+title: Kopiowanie migawki dysku zarządzanego do przykładu subskrypcji — interfejs wiersza polecenia, maszyna wirtualna z systemem Linux
+description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — kopiowanie (lub przenoszenie) migawek dysku zarządzanego do tej samej lub innej subskrypcji przy użyciu interfejsu wiersza polecenia na maszynie wirtualnej z systemem Linux
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: c17773da09b51e135e855002de7b35628c21508f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 637c8c3a2f6ba90a7a16fa375d99a7463be71270
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509765"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056095"
 ---
-# <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>Kopiowanie migawki dysku zarządzanego do tej samej lub innej subskrypcji przy użyciu interfejsu wiersza polecenia
+# <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli-on-a-linux-vm"></a>Kopiowanie migawki dysku zarządzanego do tej samej lub innej subskrypcji przy użyciu interfejsu wiersza polecenia na maszynie wirtualnej z systemem Linux
 
 Ten skrypt kopiuje migawkę dysku zarządzanego do tej samej lub innej subskrypcji. Użyj tego skryptu w następujących scenariuszach:
 

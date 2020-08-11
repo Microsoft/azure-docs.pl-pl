@@ -1,14 +1,14 @@
 ---
 title: Jak korzystać z grup zarządzania — Zarządzanie platformą Azure
 description: Dowiedz się, jak wyświetlać, obsługiwać, aktualizować i usuwać hierarchię grup zarządzania.
-ms.date: 04/15/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: c5a0269935daedb3be478cc27d5ecaf87f3c97f7
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 43837dcaed9b9628573ee92244ede542107155f9
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535012"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055143"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Zarządzanie zasobami za pomocą grup zarządzania
 
@@ -65,9 +65,7 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
 Aby można było usunąć grupę zarządzania, muszą zostać spełnione następujące wymagania:
 
-1. W grupie zarządzania nie ma podrzędnych grup ani subskrypcji zarządzania.
-
-   - Aby przenieść subskrypcję lub grupę zarządzania do innej grupy zarządzania [, zobacz Przenoszenie grup zarządzania i subskrypcji w hierarchii](#moving-management-groups-and-subscriptions).
+1. W grupie zarządzania nie ma podrzędnych grup ani subskrypcji zarządzania. Aby przenieść subskrypcję lub grupę zarządzania do innej grupy zarządzania, zobacz [przenoszenie grup zarządzania i subskrypcji w hierarchii](#moving-management-groups-and-subscriptions).
 
 1. Potrzebujesz uprawnień do zapisu w grupie zarządzania ("właściciel", "Współautor" lub "Współautor grupy zarządzania"). Aby zobaczyć, jakie masz uprawnienia, wybierz grupę zarządzania, a następnie wybierz pozycję **IAM**. Aby dowiedzieć się więcej na temat ról platformy Azure, zobacz  
    [Zarządzanie dostępem i uprawnieniami za pomocą RBAC](../../role-based-access-control/overview.md).

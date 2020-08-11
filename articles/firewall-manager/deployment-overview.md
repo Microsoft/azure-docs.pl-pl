@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 07/28/2020
+ms.date: 08/10/2020
 ms.author: victorh
-ms.openlocfilehash: 748adbcc719df2cdcf734f308bd4b083e9ca6ec0
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 8cca982e291d5d4caf7856e0d807515511c41dc8
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372369"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055041"
 ---
 # <a name="azure-firewall-manager-deployment-overview"></a>Omówienie wdrażania Menedżera zapory platformy Azure
 
@@ -65,6 +65,8 @@ Istnieje więcej niż jeden sposób wdrożenia Menedżera zapory platformy Azure
 > - Na każdym regionie nie może być więcej niż jeden koncentrator na wirtualną sieć WAN. Można jednak dodać wiele wirtualnych sieci WAN w regionie, aby to osiągnąć.
 > - Nie ma nakładających się przestrzeni adresowych IP dla centrów w vWAN.
 > - Połączenia sieci wirtualnej koncentratora muszą znajdować się w tym samym regionie co centrum.
+>
+> Aby poznać więcej znanych problemów, zobacz [co to jest Menedżer zapory platformy Azure?](overview.md#known-issues)
 
 ## <a name="convert-virtual-networks"></a>Konwertowanie sieci wirtualnych
 

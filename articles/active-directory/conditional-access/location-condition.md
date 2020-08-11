@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 091555bac780f3abc7089d6214d0f9a8cfbf98cd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 08e236d798f700a3c48dd41ba61941bc0037d613
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518440"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055381"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Używanie warunku lokalizacji w zasadach dostępu warunkowego 
 
@@ -190,7 +190,7 @@ Podczas tworzenia lub aktualizowania nazwanych lokalizacji w przypadku aktualiza
 
 W przypadku korzystania z serwera proxy hostowanego w chmurze lub rozwiązania sieci VPN adres IP używany przez usługę Azure AD podczas oceniania zasad jest adresem IP serwera proxy. Nagłówek X-Forwarded-For (XFF), który zawiera publiczny adres IP użytkownika, nie jest używany, ponieważ nie ma weryfikacji, że pochodzi on z zaufanego źródła, dlatego należy przedstawić metodę faking adresu IP.
 
-Gdy serwer proxy w chmurze jest na miejscu, można użyć zasad, które są używane do wymagania urządzenia przyłączonego do domeny, lub wewnątrz roszczeń sieci firmowej z AD FS.
+Gdy serwer proxy w chmurze jest używany, można użyć zasad, które są wymagane do zażądania hybrydowego urządzenia dołączonego do usługi Azure AD lub z poziomu AD FS.
 
 ### <a name="api-support-and-powershell"></a>Obsługa interfejsu API i programu PowerShell
 

@@ -1,15 +1,15 @@
 ---
 title: 'Szybki Start: pierwsze zapytanie interfejsu wiersza polecenia platformy Azure'
 description: W tym przewodniku szybki start wykonaj kroki umożliwiające włączenie rozszerzenia Graf zasobów dla interfejsu wiersza polecenia platformy Azure i uruchomienie pierwszego zapytania.
-ms.date: 05/20/2020
+ms.date: 08/10/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 82e36027e5016554770fc9359f413c1fff6fe227
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8132cfb60009739fc2f5fd518ef2a112fea93c4a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500678"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056452"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -19,7 +19,7 @@ Po zakończeniu tego procesu będziesz mieć rozszerzenie dodane do instalacji i
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

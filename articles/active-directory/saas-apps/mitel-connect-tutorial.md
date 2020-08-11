@@ -11,70 +11,70 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/03/2019
+ms.date: 07/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 26a761708f56ff7aba8daf86d2991579e60291cb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 60e81bed348289f560b6341398bf4fe9bdaff0eb
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81870191"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054861"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>Samouczek: integracja Azure Active Directory z roztocznym połączeniem MiCloud
+# <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect-or-cloudlink-platform"></a>Samouczek: integracja Azure Active Directory z roztocznym połączeniem MiCloud lub platformą CloudLink
 
-W tym samouczku dowiesz się, jak zintegrować program MiCloud Connect z usługą Azure Active Directory (Azure AD). Integracja MiCloud z usługą Azure AD zapewnia następujące korzyści:
+W ramach tego samouczka nauczysz się używać aplikacji do nawiązywania połączenia w celu zintegrowania Azure Active Directory (Azure AD) z platformą MiCloud Connect lub CloudLink. Aplikacja ze zgięciem jest dostępna w galerii platformy Azure. Integracja usługi Azure AD z platformą MiCloud Connect lub CloudLink zapewnia następujące korzyści:
 
-* Możesz kontrolować w usłudze Azure AD, kto ma dostęp do usługi MiCloud Connect Apps przy użyciu poświadczeń przedsiębiorstwa.
-* Możesz umożliwić użytkownikom na swoim koncie automatyczne logowanie do usługi MiCloud Connect (Logowanie jednokrotne) przy użyciu kont w usłudze Azure AD.
+* Można kontrolować dostęp użytkowników do usługi MiCloud Connect Apps i CloudLink aplikacje w usłudze Azure AD przy użyciu poświadczeń przedsiębiorstwa.
+* Możesz umożliwić użytkownikom na Twoim koncie automatyczne logowanie do usługi MiCloud Connect lub CloudLink (Logowanie jednokrotne) przy użyciu swoich kont usługi Azure AD.
 
+Aby uzyskać szczegółowe informacje na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem integracji usługi Azure AD z roztoczną platformą MiCloud Connect lub CloudLink.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby skonfigurować integrację usługi Azure AD z programem MiCloud Connect, potrzebne są następujące elementy:
 
-* Subskrypcji usługi Azure AD
-
-  Jeśli nie masz środowiska usługi Azure AD, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/)
-* Roztoczne konto MiCloud Connect
+* Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
+* Roztoczne konto MiCloud Connect lub CloudLinke konto, w zależności od aplikacji, którą chcesz skonfigurować.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne w usłudze Azure AD.
 
 * Roztoczne połączenie obsługuje usługę **SP** zainicjowaną przez usługę SSO
+* Po skonfigurowaniu roztoczne Połącz można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-mitel-connect-from-the-gallery"></a>Dodawanie roztoczne połączenia z galerii
+## <a name="add-mitel-connect-from-the-gallery"></a>Dodaj roztoczne połączenie z galerii
 
 Aby skonfigurować integrację nawiązywania połączenia z usługą Azure AD, należy dodać roztoczne połączenie z galerii do listy zarządzanych aplikacji SaaS w Azure Portal.
 
-**Aby dodać roztoczne połączenie z galerii, wykonaj następujące czynności:**
-
-1. W **[Azure Portal](https://portal.azure.com)**, w okienku nawigacji po lewej stronie kliknij pozycję **Azure Active Directory**.
+1. W **[Azure Portal](https://portal.azure.com)** w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Kliknij pozycję **aplikacje dla przedsiębiorstw** , a następnie kliknij pozycję **wszystkie aplikacje**.
+2. Wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-3. Kliknij pozycję **Nowa aplikacja**.
+3. Wybierz pozycję **Nowa aplikacja**.
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz tekst **ścięcia** , kliknij pozycję **Rozłącz się** z poziomu panelu wyniki, a następnie kliknij przycisk **Dodaj**.
+4. W polu wyszukiwania wpisz tekst **ścięcia** , wybierz pozycję **Rozłącz się** z panelem wyników, a następnie wybierz pozycję **Dodaj**.
 
      ![Roztoczne połączenie na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD za pomocą MiCloud Connect na podstawie użytkownika testowego o nazwie **Britta Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w programie MiCloud Connect.
+W tej sekcji skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD przy użyciu platformy MiCloud Connect lub CloudLink na podstawie użytkownika testowego o nazwie **_Britta Simon_**. Aby logowanie jednokrotne działało, należy nawiązać połączenie między użytkownikiem w portalu usługi Azure AD i odpowiednim użytkownikiem na platformie rozłożenia. W poniższych sekcjach znajdują się informacje o konfigurowaniu i testowaniu rejestracji jednokrotnej usługi Azure AD przy użyciu platformy MiCloud Connect lub CloudLink.
+* Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD przy użyciu połączenia MiCloud
+* Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą platformy CloudLink
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu połączenia MiCloud, należy wykonać następujące czynności:
+## <a name="configure-and-test-azure-ad-sso-with-micloud-connect"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD przy użyciu połączenia MiCloud
+
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą MiCloud Connect:
 
 1. **[Skonfiguruj MiCloud Connect dla logowania jednokrotnego za pomocą usługi Azure AD](#configure-micloud-connect-for-sso-with-azure-ad)** — aby umożliwić użytkownikom korzystanie z tej funkcji oraz Konfigurowanie ustawień logowania jednokrotnego po stronie aplikacji.
 2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
@@ -82,80 +82,86 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy u
 4. **[Utwórz test "Roztoczne MiCloud](#create-a-mitel-micloud-connect-test-user)** ", aby uzyskać odpowiednik Britta Simon na koncie MiCloud, które jest połączone z reprezentacją usługi Azure AD.
 5. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
-### <a name="configure-micloud-connect-for-sso-with-azure-ad"></a>Konfigurowanie MiCloud Connect dla logowania jednokrotnego za pomocą usługi Azure AD
+## <a name="configure-micloud-connect-for-sso-with-azure-ad"></a>Konfigurowanie MiCloud Connect dla logowania jednokrotnego za pomocą usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD dla MiCloud Connect w Azure Portal i skonfiguruj konto połączenia MiCloud, aby zezwolić na logowanie jednokrotne przy użyciu usługi Azure AD.
 
 Aby skonfigurować MiCloud łączenie z logowaniem jednokrotnym w usłudze Azure AD, najłatwiej otworzyć Azure Portal i roztoczny Portal konta. Należy skopiować niektóre informacje z Azure Portal do portalu konta roztocznego, a część z portalu konta roztocznego do Azure Portal.
 
 
-1. Aby otworzyć stronę konfiguracji w [Azure Portal](https://portal.azure.com/), wykonaj następujące czynności:
+1. Aby otworzyć stronę konfiguracji w [Azure Portal](https://portal.azure.com/):
 
-    a. Na stronie **Rozwiąż połączenie z** integracją aplikacji kliknij pozycję **Logowanie jednokrotne**.
+    1. Na stronie **Rozwiąż połączenie z** integracją aplikacji wybierz pozycję **Logowanie jednokrotne**.
 
-    ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
+       ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
-    b. W oknie dialogowym **Wybierz metodę logowania** jednokrotnego kliknij pozycję **SAML**.
-
-    ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
+    1. W oknie dialogowym **Wybierz metodę logowania** jednokrotnego wybierz pozycję **SAML**.
     
-    Zostanie wyświetlona strona logowania oparta na protokole SAML.
+       ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
+    
+       Zostanie wyświetlona strona logowania oparta na protokole SAML.
 
-2. Aby otworzyć okno dialogowe konfiguracji w portalu konta roztocznego, wykonaj następujące czynności:
+2. Aby otworzyć okno dialogowe konfiguracji w portalu konta roztocznego:
 
-    a. W menu **system Phone (telefon** ) kliknij pozycję **funkcje dodatków**.
+    1. W menu **system telefoniczny** wybierz pozycję **funkcje dodatków**.
 
-    b. Po prawej stronie **logowania jednokrotnego**kliknij pozycję **Aktywuj** lub **Ustawienia**.
+    1. Z prawej strony **logowania jednokrotnego**wybierz pozycję **Aktywuj** lub **Ustawienia**.
     
     Zostanie wyświetlone okno dialogowe łączenie ustawień logowania jednokrotnego.
     
 3. Zaznacz pole wyboru **Włącz logowanie jednokrotne** .
-    ![obraz](./media/mitel-connect-tutorial/Mitel_Connect_Enable.png)
+    
+    ![Zrzut ekranu pokazujący roztoczne połączenie logowania jednokrotnego przy użyciu pola wyboru Włącz logowanie jednokrotne.](./media/mitel-connect-tutorial/mitel-connect-enable.png)
 
-
-4. W Azure Portal kliknij ikonę **Edytuj** w sekcji **Podstawowa konfiguracja protokołu SAML** .
-    ![obraz](common/edit-urls.png)
+4. W Azure Portal wybierz ikonę **Edytuj** w sekcji **podstawowe konfiguracje języka SAML** .
+   
+    ![image (obraz)](common/edit-urls.png)
 
     Zostanie wyświetlone okno dialogowe Podstawowa konfiguracja protokołu SAML.
 
 5.  Skopiuj adres URL z pola **Identyfikator Roztoczny (identyfikator jednostki)** w portalu konta roztocznego i wklej go do pola **Identyfikator (identyfikator jednostki)** w Azure Portal.
 
-6. Skopiuj adres URL z pola **adres URL odpowiedzi (adres URL usługi konsumenckej odbiorcy)** w portalu roztocza konta i wklej go do pola **adres URL odpowiedzi (adres URL usługi konsumenckej odbiorcy)** w Azure Portal.  
-   ![obraz](./media/mitel-connect-tutorial/Mitel_Azure_BasicConfig.png)
+6. Skopiuj adres URL z pola **adres URL odpowiedzi (adres URL usługi konsumenckej odbiorcy)** w portalu roztocza konta i wklej go do pola **adres URL odpowiedzi (adres URL usługi konsumenckej odbiorcy)** w Azure Portal.
+
+   ![image (obraz)](./media/mitel-connect-tutorial/mitel-azure-basic-configuration.png)
 
 7. W polu tekstowym **adres URL logowania** wpisz jeden z następujących adresów URL:
 
-    * **https://portal.shoretelsky.com**— Aby użyć portalu konta roztocznego jako domyślnej aplikacji pod kątem rozłożenia
-    * **https://teamwork.shoretel.com**-Aby użyć zespołowej jako domyślnej aplikacji pod kątem rozłożenia
+    1. **https://portal.shoretelsky.com**— Aby użyć portalu konta roztocznego jako domyślnej aplikacji pod kątem rozłożenia
+    1. **https://teamwork.shoretel.com**-Aby użyć zespołowej jako domyślnej aplikacji pod kątem rozłożenia
 
-    **Uwaga**: jest to aplikacja, do której uzyskuje się dostęp, gdy użytkownik kliknie kafelek roztoczne połączenie w panelu dostępu. Jest to również aplikacja, do której można uzyskać dostęp podczas przeprowadzania konfiguracji testowej z usługi Azure AD.
+    > [!NOTE]
+    > Domyślna aplikacja pod kątem aplikacji jest dostępna, gdy użytkownik wybierze kafelek roztoczne połączenie w panelu dostępu. Jest to również aplikacja, do której można uzyskać dostęp podczas przeprowadzania konfiguracji testowej z usługi Azure AD.
 
-8. Kliknij przycisk **Zapisz** w oknie dialogowym **podstawowe konfiguracje SAML** w Azure Portal.
+8. Wybierz pozycję **Zapisz** w oknie dialogowym **Podstawowa konfiguracja SAML** w Azure Portal.
 
-9. W sekcji **certyfikat podpisywania SAML** na stronie **logowania opartej na protokole SAML** w Azure Portal kliknij pozycję **Pobierz** obok pozycji **certyfikat (base64)** , aby pobrać **certyfikat podpisywania** i zapisać go na komputerze.
-    ![obraz](./media/mitel-connect-tutorial/Azure_SigningCert.png)
+9. W sekcji **certyfikat podpisywania SAML** na stronie **logowania opartej na protokole SAML** w Azure Portal wybierz pozycję **Pobierz** obok pozycji **certyfikat (base64)** , aby pobrać **certyfikat podpisywania** i zapisać go na komputerze.
+
+    ![image (obraz)](./media/mitel-connect-tutorial/azure-signing-certificate.png)
 
 10. Otwórz plik certyfikatu podpisywania w edytorze tekstów, skopiuj wszystkie dane z pliku, a następnie wklej dane w polu **certyfikat podpisywania** w portalu konta roztocznego. 
-    ![obraz](./media/mitel-connect-tutorial/Mitel_Connect_SigningCert.png)
 
-11. W sekcji **Ustawienia Roztoczne połączenie** na stronie **logowania opartej na protokole SAML** Azure Portal wykonaj następujące czynności:
+      ![image (obraz)](./media/mitel-connect-tutorial/mitel-connect-signing-certificate.png)
 
-    a. Skopiuj adres URL z pola **adres URL logowania** i wklej go w polu **adres URL** logowania w portalu rozłożenia konta.
+11. W sekcji **Ustawienia Roztoczne połączenie** na stronie **logowania opartej** na protokole SAML Azure Portal:
 
-    b. Skopiuj adres URL z pola **Identyfikator usługi Azure AD** i wklej go do pola **Identyfikator jednostki** w portalu roztocznego konta.
-    ![obraz](./media/mitel-connect-tutorial/Mitel_Azure_SetupConnect.png)
+     1. Skopiuj adres URL z pola **adres URL logowania** i wklej go w polu **adres URL** logowania w portalu rozłożenia konta.
 
-12. Kliknij przycisk **Zapisz** w oknie dialogowym **łączenie ustawień logowania jednokrotnego** w portalu konta rozłożenia.
+     1. Skopiuj adres URL z pola **Identyfikator usługi Azure AD** i wklej go do pola **Identyfikator jednostki** w portalu roztocznego konta.
+         
+         ![image (obraz)](./media/mitel-connect-tutorial/mitel-azure-set-up-connect.png)
+
+12. Wybierz pozycję **Zapisz** w oknie dialogowym **łączenie ustawień logowania jednokrotnego** w portalu konta rozłożenia.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
 W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w Azure Portal.
 
-1. W Azure Portal w lewym okienku kliknij pozycję **Azure Active Directory**, kliknij pozycję **Użytkownicy**, a następnie kliknij pozycję **Wszyscy użytkownicy**.
+1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory**, wybierz opcję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Kliknij pozycję **nowy użytkownik** w górnej części ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -163,40 +169,39 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w Azure Port
 
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
-    a. W polu **Nazwa** wpisz **BrittaSimon**.
+    1. W polu **Nazwa** wpisz **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz brittasimon@\<yourcompanydomain\>. \<rozszerzenie\>.  
-Na przykład BrittaSimon@contoso.com.
+    1. W polu **Nazwa użytkownika** wpisz brittasimon@ \<yourcompanydomain\> . \<extension\> .  Na przykład BrittaSimon@contoso.com.
 
-    c. Zaznacz pole wyboru **Pokaż hasło** , a następnie Zapisz wartość, która jest wyświetlana w polu **hasło** .
+    1. Zaznacz pole wyboru **Pokaż hasło** , a następnie Zapisz wartość, która jest wyświetlana w polu **hasło** .
 
-    d. Kliknij przycisk **Utwórz**.
+    1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 W tej sekcji włączysz usługę Britta Simon do korzystania z logowania jednokrotnego platformy Azure, przyznając dostęp do rozłożenia.
 
-1. W Azure Portal kliknij pozycję **aplikacje przedsiębiorstwa**, a następnie kliknij pozycję **wszystkie aplikacje**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście Aplikacje kliknij pozycję **Nawiąż połączenie**.
+2. Na liście Aplikacje wybierz pozycję **Rozłącz się**.
 
     ![Link roztoczne połączenie na liście aplikacji](common/all-applications.png)
 
-3. W menu po lewej stronie kliknij pozycję **Użytkownicy i grupy**.
+3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
     ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
-4. Kliknij pozycję **Dodaj użytkownika**, a następnie kliknij pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodaj przypisanie** .
+4. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 
     ![Okienko Dodawanie przypisania](common/add-assign-user.png)
 
-5. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **Britta Simon** na liście **Użytkownicy** , a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+5. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **Britta Simon** na liście **Użytkownicy** , a następnie wybierz **pozycję zaznacz** w dolnej części ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, wybierz odpowiednią rolę dla użytkownika z listy w oknie dialogowym **Wybierz rolę** , a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+6. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, wybierz odpowiednią rolę dla użytkownika z listy w oknie dialogowym **Wybierz rolę** , a następnie wybierz **opcję Wybierz** w dolnej części ekranu.
 
-7. W oknie dialogowym **Dodaj przypisanie** kliknij przycisk **Przypisz**.
+7. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Przypisz**.
 
 ### <a name="create-a-mitel-micloud-connect-test-user"></a>Tworzenie MiCloudego użytkownika testowego połączenia
 
@@ -206,26 +211,179 @@ Aby uzyskać szczegółowe informacje o dodawaniu użytkowników w portalu konta
 
 Utwórz użytkownika na koncie MiCloud Connect z następującymi szczegółami:
 
-  * **Nazwa:** Britta Simon
-
+* **Nazwa:** Britta Simon
 * **Służbowy adres e-mail:**`brittasimon@<yourcompanydomain>.<extension>`   
-(Przykład: [brittasimon@contoso.com](mailto:brittasimon@contoso.com))
-
+  (Przykład: [brittasimon@contoso.com](mailto:brittasimon@contoso.com) )
 * **Nazwa użytkownika:**`brittasimon@<yourcompanydomain>.<extension>`  
-(Przykład: [brittasimon@contoso.com](mailto:brittasimon@contoso.com); nazwa użytkownika jest zwykle taka sama jak służbowy adres e-mail użytkownika)
+  (Przykład: [brittasimon@contoso.com](mailto:brittasimon@contoso.com) ; Nazwa użytkownika jest zwykle taka sama jak w przypadku firmowego adresu e-mail użytkownika.
 
-**Uwaga:** Nazwa użytkownika MiCloud kontaktu musi być taka sama jak adres e-mail użytkownika na platformie Azure.
+> [!NOTE]
+> Nazwa użytkownika MiCloud kontaktu musi być taka sama jak adres e-mail użytkownika na platformie Azure.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD za pomocą panelu dostępu.
 
-Po kliknięciu kafelka roztoczne połączenie w panelu dostępu należy automatycznie przekierować do logowania się do aplikacji MiCloud Connect skonfigurowanej jako wartość domyślna w polu **adres URL logowania** . Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po wybraniu kafelka ze zgięciem Połącz w panelu dostępu należy automatycznie przekierować do logowania się do aplikacji MiCloud Connect skonfigurowanej jako wartość domyślna w polu **adres URL logowania** . Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="configure-and-test-azure-ad-sso-with-cloudlink-platform"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą platformy CloudLink
+
+W tej sekcji opisano, jak włączyć usługę Azure AD SSO dla platformy CloudLink w Azure Portal i jak skonfigurować konto platformy CloudLink, aby umożliwić Logowanie jednokrotne przy użyciu usługi Azure AD.
+
+Aby skonfigurować platformę CloudLink z logowaniem jednokrotnym w usłudze Azure AD, zaleca się otwarcie Azure Portal i portalu kont CloudLink obok siebie, ponieważ trzeba będzie skopiować niektóre informacje z Azure Portal do portalu konta CloudLink i na odwrót.
+
+1. Aby otworzyć stronę konfiguracji w [Azure Portal](https://portal.azure.com/):
+
+    1. Na stronie **Rozwiąż połączenie z** integracją aplikacji wybierz pozycję **Logowanie jednokrotne**.
+
+       ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
+
+    1. W oknie dialogowym **Wybierz metodę logowania** jednokrotnego wybierz pozycję **SAML**.
+
+       ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
+    
+       Zostanie otwarta strona **logowania oparta na protokole SAML** , w której jest wyświetlana sekcja **Podstawowa konfiguracja języka SAML** .
+
+       ![image (obraz)](./media/mitel-connect-tutorial/mitel-azure-saml-settings.png)
+
+2. Aby uzyskać dostęp do panelu konfiguracji logowania jednokrotnego usługi **Azure AD** w portalu konta CloudLink:
+
+    1. Przejdź do strony **Informacje o koncie** konta klienta, na którym chcesz włączyć integrację.
+
+    1. W sekcji **integracje** wybierz pozycję **+ Dodaj nowe**. Na ekranie podręcznym zostanie wyświetlony panel **integracji** .
+
+    1. Wybierz kartę **inne firmy** . Zostanie wyświetlona lista obsługiwanych aplikacji innych firm. Wybierz przycisk **Dodaj** skojarzony z **logowaniem jednokrotnym w usłudze Azure AD**, a następnie wybierz pozycję **gotowe**.
+
+       ![image (obraz)](./media/mitel-connect-tutorial/mitel-cloudlink-integrations.png)
+
+       Rejestracja jednokrotna **usługi Azure AD** jest włączona dla konta klienta i zostanie dodana do sekcji **Integrations** na stronie **Informacje o koncie** .   
+
+   1. Wybierz pozycję **Ukończ instalację**.
+    
+      ![image (obraz)](./media/mitel-connect-tutorial/mitel-cloudlink-complete-setup.png)
+      
+      Zostanie otwarty panel konfiguracja logowania jednokrotnego **usługi Azure AD** .
+      
+       ![image (obraz)](./media/mitel-connect-tutorial/mitel-cloudlink-sso-setup.png)
+       
+       Należy zastanowić się, że nie jest zaznaczone pole wyboru **Włącz poświadczenia ścięcia (opcjonalnie)** w sekcji **opcjonalne poświadczenia z zatoczeniem** . Zaznacz to pole wyboru tylko wtedy, gdy chcesz, aby użytkownik zalogować się do aplikacji CloudLink przy użyciu poświadczeń pod kątem jednolitego logowania.
+
+3. W Azure Portal na stronie **logowania opartej na protokole SAML** wybierz ikonę **Edytuj** w sekcji **Podstawowa konfiguracja protokołu SAML** . Zostanie otwarty panel **podstawowe Konfigurowanie protokołu SAML** .
+
+    ![image (obraz)](./media/mitel-connect-tutorial/mitel-azure-saml-basic.png)
+ 
+ 4. Skopiuj adres URL z pola **Identyfikator Roztoczny (identyfikator jednostki)** w portalu konta CloudLink i wklej go do pola **Identyfikator (identyfikator jednostki)** w Azure Portal.
+
+ 5. Skopiuj adres URL z pola **adres URL odpowiedzi (adres URL usługi konsumenckej odbiorcy)** w portalu konta CloudLink i wklej go do pola **adres URL odpowiedzi (adres URL usługi konsumenckej odbiorcy)** w Azure Portal.  
+    
+    ![image (obraz)](./media/mitel-connect-tutorial/mitel-cloudlink-saml-mapping.png) 
+
+ 6. W polu tekstowym **adres URL logowania** wpisz adres URL, `https://accounts.mitel.io` Aby użyć portalu kont CloudLink jako domyślnej aplikacji pod kątem rozłożenia.
+     
+     ![image (obraz)](./media/mitel-connect-tutorial/mitel-cloudlink-sign-on-url.png)
+  
+     > [!NOTE]
+     > Domyślna aplikacja pod kątem aplikacji jest otwierana, gdy użytkownik wybierze kafelek roztoczne połączenie w panelu dostępu. Jest to również aplikacja, do której można uzyskać dostęp, gdy użytkownik skonfiguruje konfigurację testową z usługi Azure AD.
+
+7. W oknie dialogowym **Podstawowa konfiguracja SAML** wybierz pozycję **Zapisz** .
+
+8. W sekcji **certyfikat podpisywania SAML** na stronie **logowania opartej na protokole SAML** w Azure Portal wybierz pozycję **Pobierz** obok **certyfikatu (base64)** , aby pobrać **certyfikat podpisywania**. Zapisz certyfikat na komputerze.
+  
+    ![image (obraz)](./media/mitel-connect-tutorial/mitel-cloudlink-save-certificate.png)
+
+9. Otwórz plik certyfikatu podpisywania w edytorze tekstów, skopiuj wszystkie dane z pliku, a następnie wklej dane do pola **certyfikat podpisywania** w portalu konta CloudLink.  
+
+    > [!NOTE]
+    > Jeśli masz więcej niż jeden certyfikat, zalecamy wklejenie ich jeden po drugim. 
+       
+    ![image (obraz)](./media/mitel-connect-tutorial/mitel-cloudlink-enter-certificate.png)
+
+10. W sekcji **Skonfiguruj nawiązanie połączenia** na stronie **logowania opartej na protokole SAML** Azure Portal:
+
+     1. Skopiuj adres URL z pola **adres URL logowania** i wklej go w polu **adres URL logowania** w portalu konta CloudLink.
+
+     1. Skopiuj adres URL z pola **Identyfikator usługi Azure AD** i wklej go do pola **Identyfikator dostawcy tożsamości (identyfikator jednostki)** w portalu konta CloudLink.
+     
+        ![image (obraz)](./media/mitel-connect-tutorial/mitel-cloudlink-copy-settings.png)
+
+11. Wybierz pozycję **Zapisz** w panelu Logowanie jednokrotne **usługi Azure AD** w portalu konta CloudLink.
+
+### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
+
+W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w Azure Portal.
+
+1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory**, wybierz opcję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+
+    ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
+
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+
+    ![Przycisk Nowy użytkownik](common/new-user.png)
+
+3. W oknie dialogowym właściwości użytkownika wykonaj następujące czynności:
+
+    ![Okno dialogowe Użytkownik](common/user-properties.png)
+
+    1. W polu **Nazwa** wpisz **BrittaSimon**.
+  
+    1. W polu **Nazwa użytkownika** wpisz brittasimon@ \<yourcompanydomain\> . \<extension\> .  Na przykład BrittaSimon@contoso.com.
+
+    1. Zaznacz pole wyboru **Pokaż hasło** , a następnie Zapisz wartość, która jest wyświetlana w polu **hasło** .
+
+    1. Wybierz pozycję **Utwórz**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
+
+W tej sekcji włączysz usługę Britta Simon do korzystania z logowania jednokrotnego platformy Azure, przyznając dostęp do rozłożenia.
+
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+
+    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
+
+2. Na liście Aplikacje wybierz pozycję **Rozłącz się**.
+
+    ![Link roztoczne połączenie na liście aplikacji](common/all-applications.png)
+
+3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
+
+    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
+
+4. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
+
+    ![Okienko Dodawanie przypisania](common/add-assign-user.png)
+
+5. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **Britta Simon** na liście **Użytkownicy** , a następnie wybierz **pozycję zaznacz** w dolnej części ekranu.
+
+6. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, wybierz odpowiednią rolę dla użytkownika z listy w oknie dialogowym **Wybierz rolę** , a następnie wybierz **opcję Wybierz** w dolnej części ekranu.
+
+7. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Przypisz**.
+
+### <a name="create-a-cloudlink-test-user"></a>Tworzenie użytkownika testowego CloudLink
+
+W tej sekcji opisano sposób tworzenia użytkownika testowego o nazwie **_Britta Simon_** na platformie CloudLink. Aby można było korzystać z logowania jednokrotnego, użytkownicy muszą być utworzeni i aktywowani.
+
+Aby uzyskać szczegółowe informacje na temat dodawania użytkowników w portalu konta usługi CloudLink, zobacz **_Zarządzanie użytkownikami_** w [dokumentacji kont CloudLink](https://www.mitel.com/document-center/technology/cloudlink/all-releases/en/cloudlink-accounts-html).
+
+Utwórz użytkownika w portalu kont CloudLink z następującymi szczegółami:
+
+* Nazwa: Britta Simon
+* Imię: Britta
+* Nazwisko: Simon
+* Poczta e-mail: BrittaSimon@contoso.com
+
+> [!NOTE]
+> Adres e-mail CloudLink użytkownika musi być taki sam jak **główna nazwa użytkownika** w Azure Portal.
+
+### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
+
+W tej sekcji przedstawiono Testowanie konfiguracji logowania jednokrotnego usługi Azure AD za pomocą panelu dostępu.
+
+Po wybraniu kafelka ze zgięciem Połącz w panelu dostępu nastąpi automatyczne przekierowanie w celu zalogowania się do aplikacji CloudLink, która została skonfigurowana jako domyślna w polu **adres URL logowania** . Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

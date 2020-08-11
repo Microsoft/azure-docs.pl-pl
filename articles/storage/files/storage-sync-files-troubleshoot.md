@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: d268358f2f80cc9d347fa722d5027e1a87894b20
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: d266583a2bd73c92a58fad1882a1c572ed4f3769
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034400"
+ms.locfileid: "88056265"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Rozwiązywanie problemów z usługą Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
@@ -47,7 +47,7 @@ Po utworzeniu punktu końcowego serwera w systemie Windows Server 2012 R2 wystą
 litera dysku: \ nie jest dostępny.  
 Parametr jest nieprawidłowy.
 
-Aby rozwiązać ten problem, zainstaluj najnowsze aktualizacje systemu Windows Server 2012 R2 i ponownie uruchom serwer.
+Aby rozwiązać ten problem, zainstaluj program [KB2919355](https://support.microsoft.com/help/2919355/windows-rt-8-1-windows-8-1-windows-server-2012-r2-update-april-2014) i ponownie uruchom serwer. Jeśli ta aktualizacja nie zostanie zainstalowana, ponieważ jest już zainstalowana nowsza aktualizacja, przejdź do Windows Update, zainstaluj najnowsze aktualizacje systemu Windows Server 2012 R2 i ponownie uruchom serwer.
 
 <a id="server-registration-missing-subscriptions"></a>**Rejestracja serwera nie zawiera wszystkich subskrypcji platformy Azure**  
 Podczas rejestrowania serwera przy użyciu ServerRegistration.exe nie ma subskrypcji, po kliknięciu listy rozwijanej subskrypcja platformy Azure.
@@ -338,7 +338,7 @@ Aby wyświetlić te błędy, uruchom skrypt programu **FileSyncErrorsReport.ps1*
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | Nie można zsynchronizować pliku, ponieważ osiągnięto maksymalną liczbę plików konfliktów. Azure File Sync obsługuje pliki konfliktów 100 na plik. Aby dowiedzieć się więcej na temat konfliktów plików, zobacz Azure File Sync [często zadawane pytania](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution). | Aby rozwiązać ten problem, zmniejsz liczbę plików konfliktów. Plik zostanie zsynchronizowany, gdy liczba plików konfliktów jest mniejsza niż 100. |
 
 #### <a name="handling-unsupported-characters"></a>Obsługa nieobsługiwanych znaków
-Jeśli skrypt **FileSyncErrorsReport.ps1** PowerShell zawiera błędy z powodu nieobsługiwanych znaków (kod błędu 0x8007007B lub 0x80c80255), należy usunąć lub zmienić nazwy znaków z odpowiednich nazw plików. Program PowerShell prawdopodobnie drukuje te znaki jako znaki zapytania lub puste prostokąty, ponieważ większość z tych znaków nie ma standardowego kodowania wizualnego. [Narzędzie do oceny](storage-sync-files-planning.md#evaluation-cmdlet) może służyć do identyfikowania znaków, które nie są obsługiwane.
+Jeśli skrypt **FileSyncErrorsReport.ps1** PowerShell pokazuje błędy synchronizacji poszczególnych elementów z powodu nieobsługiwanych znaków (kod błędu 0x8007007B lub 0x80c80255), należy usunąć lub zmienić nazwy znaków z odpowiednich nazw plików. Program PowerShell prawdopodobnie drukuje te znaki jako znaki zapytania lub puste prostokąty, ponieważ większość z tych znaków nie ma standardowego kodowania wizualnego. [Narzędzie do oceny](storage-sync-files-planning.md#evaluation-cmdlet) może służyć do identyfikowania znaków, które nie są obsługiwane. Jeśli zestaw danych zawiera kilka plików z nieprawidłowymi znakami, Użyj skryptu [ScanUnsupportedChars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) , aby zmienić nazwy plików, które zawierają nieobsługiwane znaki.
 
 Poniższa tabela zawiera wszystkie znaki Unicode, Azure File Sync nie są jeszcze obsługiwane.
 

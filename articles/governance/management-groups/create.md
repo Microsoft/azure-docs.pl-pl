@@ -1,14 +1,14 @@
 ---
 title: Tworzenie grup zarządzania w celu organizowania zasobów — zarządzanie platformą Azure
 description: Dowiedz się, jak utworzyć grupy zarządzania platformy Azure, aby zarządzać wieloma zasobami przy użyciu portalu, Azure PowerShell i interfejsu wiersza polecenia platformy Azure.
-ms.date: 04/15/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6fe7f2ea74c697701084321e068042b36acbdb11
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 0739eafdf4cf41195b189a8496c331ab470bbec0
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971140"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056639"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Tworzenie grup zarządzania na potrzeby organizowania zasobów i zarządzania nimi
 
@@ -18,7 +18,7 @@ Wykonanie pierwszej grupy zarządzania utworzonej w katalogu może potrwać do 1
 
 ## <a name="create-a-management-group"></a>Tworzenie grupy zarządzania
 
-Każdy użytkownik usługi Azure AD w dzierżawie może utworzyć grupę zarządzania bez uprawnienia do zapisu grupy zarządzania przypisanej do tego użytkownika. Ta nowa grupa zarządzania będzie elementem podrzędnym głównej grupy zarządzania, a twórca otrzyma przypisanie roli "właściciel". Usługa Grupa zarządzania umożliwia taką możliwość, aby przypisania ról nie były koniecznie na poziomie głównym. Brak dostępu użytkowników do głównej grupy zarządzania podczas jej tworzenia. Aby uniknąć progu wyszukiwania administratorów globalnych usługi Azure AD do rozpoczęcia korzystania z grup zarządzania, zezwalamy na tworzenie początkowych grup zarządzania w katalogu głównym  
+Każdy użytkownik usługi Azure AD w dzierżawie może utworzyć grupę zarządzania bez uprawnienia do zapisu grupy zarządzania przypisanej do tego użytkownika. Ta nowa grupa zarządzania będzie elementem podrzędnym głównej grupy zarządzania, a twórca otrzyma przypisanie roli "właściciel". Usługa Grupa zarządzania umożliwia taką możliwość, aby przypisania ról nie były potrzebne na poziomie głównym. Brak dostępu użytkowników do głównej grupy zarządzania podczas jej tworzenia. Aby uniknąć progu wyszukiwania administratorów globalnych usługi Azure AD do rozpoczęcia korzystania z grup zarządzania, zezwalamy na tworzenie początkowych grup zarządzania w katalogu głównym  
 poziomie.
 
 Grupę zarządzania można utworzyć przy użyciu portalu, [szablonu Azure Resource Manager](../../azure-resource-manager/templates/deploy-to-tenant.md#create-management-group), programu PowerShell lub interfejsu wiersza polecenia platformy Azure.

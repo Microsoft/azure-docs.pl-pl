@@ -16,15 +16,15 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 749c97549661f2b2d647f8f7ba718d7696ef8355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcc6de1ce50e86f177023a0a66c436633c8d502c
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359011"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053290"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: automatyczne uaktualnianie
-Ta funkcja została wprowadzona w programie Build [1.1.105.0 (wydano luty 2016)](reference-connect-version-history.md#111050).  Ta funkcja została zaktualizowana w usłudze [build 1.1.561](reference-connect-version-history.md#115610) i obsługuje teraz dodatkowe scenariusze, które wcześniej nie były obsługiwane.
+Ta funkcja została wprowadzona w programie Build [1.1.105.0 (wydano luty 2016)](reference-connect-version-history.md).  Ta funkcja została zaktualizowana w usłudze [build 1.1.561](reference-connect-version-history.md) i obsługuje teraz dodatkowe scenariusze, które wcześniej nie były obsługiwane.
 
 ## <a name="overview"></a>Omówienie
 Upewnienie się, że instalacja Azure AD Connect jest zawsze aktualna, nigdy nie było łatwiejsze dzięki funkcji **automatycznego uaktualniania** . Ta funkcja jest domyślnie włączona w przypadku instalacji ekspresowych i uaktualnień narzędzia DirSync. Po wydaniu nowej wersji instalacja zostanie automatycznie uaktualniona.
@@ -41,7 +41,7 @@ Bieżący stan uaktualniania automatycznego można wyświetlić za pomocą polec
 | --- | --- |
 | Enabled (Włączony) |Automatyczne uaktualnianie jest włączone. |
 | Suspended |Ustawiane tylko przez system. System nie kwalifikuje się **obecnie** do otrzymywania automatycznych uaktualnień. |
-| Disabled (Wyłączony) |Automatyczne uaktualnianie jest wyłączone. |
+| Disabled |Automatyczne uaktualnianie jest wyłączone. |
 
 Można zmienić między **włączonym** i **wyłączonym** programem `Set-ADSyncAutoUpgrade` . Tylko system powinien ustawić stan **wstrzymane**.  Przed 1.1.750.0 polecenie cmdlet Set-ADSyncAutoUpgrade blokuje autouaktualnienie, jeśli stan autouaktualniania został ustawiony na zawieszone. Ta funkcja została zmieniona, więc nie blokuje autouaktualniania.
 

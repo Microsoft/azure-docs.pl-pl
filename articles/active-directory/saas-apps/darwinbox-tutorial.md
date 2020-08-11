@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7169d6ab1e6a63b7275b8b09e977117ca0f62750
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 783a61c8e2b6c60b81e31d7771d3237c93be92a8
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902698"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055598"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-darwinbox"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Darwinbox
 
@@ -30,7 +30,6 @@ W tym samouczku dowiesz się, jak zintegrować usługę Darwinbox z usługą Azu
 * Kontrolka w usłudze Azure AD, która ma dostęp do Darwinbox.
 * Zezwól użytkownikom na automatyczne logowanie się do usługi Darwinbox przy użyciu kont w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
-
 Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -39,9 +38,9 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
 * Subskrypcja z włączonym logowaniem jednokrotnym (SSO) Darwinbox.
-
 > [!NOTE]
 > Ta integracja jest również dostępna do użycia w środowisku chmury dla instytucji rządowych USA usługi Azure AD. Tę aplikację można znaleźć w galerii aplikacji w chmurze dla instytucji rządowych USA usługi Azure AD i skonfigurować ją w taki sam sposób, jak w przypadku chmury publicznej.
+
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -86,12 +85,12 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<SUBDOMAIN>.darwinbox.in/`
+   1. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<SUBDOMAIN>.darwinbox.in/`
 
-    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `https://<SUBDOMAIN>.darwinbox.in/adfs/module.php/saml/sp/metadata.php/<CUSTOMID>`
+   1. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `https://<SUBDOMAIN>.darwinbox.in/adfs/module.php/saml/sp/metadata.php/<CUSTOMID>`
 
-    > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta Darwinbox](https://darwinbox.com/contact-us.php) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+      > [!NOTE]
+      > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta Darwinbox](https://darwinbox.com/contact-us.php) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **plik XML metadanych Federacji** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -145,7 +144,29 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Darwinbox w panelu dostępu należy automatycznie zalogować się do Darwinbox, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="test-sso-for-darwinbox-mobile"></a>Testowanie logowania jednokrotnego dla usługi Darwinbox (Mobile)
+
+1. Otwórz aplikację mobilną Darwinbox. Kliknij pozycję **wprowadź adres URL organizacji** , a następnie wprowadź adres URL organizacji w polu tekstowym, a następnie kliknij przycisk strzałki.
+
+    ![Aplikacja mobilna Darwinbox](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
+
+1. Jeśli masz wiele domen, a następnie kliknij domenę.
+
+    ![Aplikacja mobilna Darwinbox](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
+
+1. Wprowadź swoje wiadomości e-mail usługi Azure AD w aplikacji Darwinbox, a następnie kliknij przycisk **dalej**.
+
+    ![Aplikacja mobilna Darwinbox](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
+
+1. Wprowadź hasło usługi Azure AD w aplikacji Darwinbox, a następnie kliknij przycisk **Zaloguj**.
+
+    ![Aplikacja mobilna Darwinbox](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
+
+1. Na koniec po pomyślnym zalogowaniu zostanie wyświetlona strona główna aplikacji.
+
+    ![Aplikacja mobilna Darwinbox](media/darwinbox-tutorial/DarwinboxMobile05.jpg)
+
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

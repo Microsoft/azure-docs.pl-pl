@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 61e2d4607ebe1b688b2874220a170b2539a2226e
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 1164d838a45496a075d356995a60beb967cdfcca
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404178"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054344"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Samouczek: Konfigurowanie bezpiecznego protokołu LDAP dla domeny zarządzanej Azure Active Directory Domain Services
 
@@ -265,7 +265,7 @@ Aby nawiązać połączenie i utworzyć powiązanie z domeną zarządzaną oraz 
 Następnie powiąż z domeną zarządzaną. Użytkownicy (i konta usług) nie mogą wykonać prostych powiązań LDAP w przypadku wyłączenia synchronizacji skrótów haseł NTLM w domenie zarządzanej. Aby uzyskać więcej informacji na temat wyłączania synchronizacji skrótów haseł NTLM, zobacz [Zabezpieczanie domeny zarządzanej][secure-domain].
 
 1. Wybierz opcję menu **połączenie** , a następnie wybierz pozycję **bind...**.
-1. Podaj poświadczenia konta użytkownika należącego do grupy *administratorów domeny usługi AAD* , na przykład *contosoadmin*. Wprowadź hasło konta użytkownika, a następnie wprowadź domenę, na przykład *aaddscontoso.com*.
+1. Podaj poświadczenia konta użytkownika należącego do domeny zarządzanej. Wprowadź hasło konta użytkownika, a następnie wprowadź domenę, na przykład *aaddscontoso.com*.
 1. W **polu Typ powiązania**wybierz opcję *powiązania z poświadczeniami*.
 1. Wybierz **przycisk OK** , aby powiązać z domeną zarządzaną.
 
@@ -280,7 +280,7 @@ Aby wyświetlić obiekty przechowywane w domenie zarządzanej:
 
 Aby bezpośrednio wysyłać zapytania do określonego kontenera, w menu **drzewa widoku >** można określić **BaseDN** , taki jak *OU = AADDC users, DC = AADDSCONTOSO, DC = com* lub *OU = AADDC komputery, DC = AADDSCONTOSO, DC = com*. Aby uzyskać więcej informacji na temat formatowania i tworzenia zapytań, zobacz [podstawowe informacje dotyczące zapytań LDAP][ldap-query-basics].
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli dodano wpis DNS do lokalnego pliku hosts komputera w celu przetestowania łączności dla tego samouczka, Usuń ten wpis i Dodaj formalny rekord do strefy DNS. Aby usunąć wpis z lokalnego pliku hosts, wykonaj następujące czynności:
 

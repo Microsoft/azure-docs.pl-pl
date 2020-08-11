@@ -1,14 +1,14 @@
 ---
 title: 'Szybki Start: pierwsze zapytanie programu PowerShell'
 description: W tym przewodniku szybki start wykonaj kroki umożliwiające włączenie modułu Graf zasobów Azure PowerShell i uruchomienie pierwszego zapytania.
-ms.date: 05/20/2020
+ms.date: 08/10/2020
 ms.topic: quickstart
-ms.openlocfilehash: e98ca5974ba46d4d908cfe6dd8c04d3f6ba33a2a
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 4cc7eb524060f2a797077f38321ae9ce6c9cf267
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872009"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056418"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu Azure PowerShell
 
@@ -18,7 +18,7 @@ Po zakończeniu tego procesu będziesz mieć moduł dodany do wybranej instalacj
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -103,7 +103,7 @@ Uninstall-Module -Name 'Az.ResourceGraph'
 ```
 
 > [!NOTE]
-> Nie powoduje ono usunięcia wcześniej pobranego pliku modułu. Powoduje tylko usunięcie go z uruchomionej sesji programu PowerShell.
+> Nie spowoduje to usunięcia pobranego wcześniej pliku modułu. Powoduje tylko usunięcie go z uruchomionej sesji programu PowerShell.
 
 ## <a name="next-steps"></a>Następne kroki
 

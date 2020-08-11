@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: c01e543b251020581d96d61434d0b3309535ef0c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 19f4e7b340f0b1ceb64d04a2704a4f6667e1e14a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902049"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053579"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
 
@@ -147,7 +147,7 @@ Aby uzyskać więcej informacji na temat dostępności regionalnej, zobacz [regi
 | `hi-IN` | Hindi (Indie)                   | Kobiety | `hi-IN-SwaraNeural`      | Ogólne |
 | `it-IT` | Włoski (Włochy)                 | Kobiety | `it-IT-ElsaNeural`       | Ogólne |
 | `ja-JP` | Japoński                        | Kobiety | `ja-JP-NanamiNeural`     | Ogólne |
-| `ko-KR` | koreański                          | Kobiety | `ko-KR-SunHiNeural`      | Ogólne |
+| `ko-KR` | Koreański                          | Kobiety | `ko-KR-SunHiNeural`      | Ogólne |
 | `nb-NO` | Norweski                       | Kobiety | `nb-NO-IselinNeural`     | Ogólne |
 | `nl-NL` | Holenderski (Netherland)              | Kobiety | `nl-NL-ColetteNeural`    | Ogólne |
 | `pl-PL` | Polski (Polska)                 | Kobiety | `pl-PL-ZofiaNeural`      | Ogólne |
@@ -229,7 +229,7 @@ Ponad 75 standardowych głosów jest dostępnych w ponad 45 językach i ustawien
 | `ja-JP` | Japoński | Kobiety |  "ja-JP-Ayumi-Apollo" |
 |  |  | Mężczyźni | "ja-JP-Ichiro-Apollo" |
 |  |  | Kobiety |  "ja-JP-HarukaRUS" |
-| `ko-KR` | koreański | Kobiety | "ko-KR-HeamiRUS" |
+| `ko-KR` | Koreański | Kobiety | "ko-KR-HeamiRUS" |
 | `ms-MY` | Malajski | Mężczyźni |  "MS-MY-Rizwan" |
 | `nb-NO` | Norweski | Kobiety |  "NB-NO-HuldaRUS" |
 | `nl-NL` | Niderlandzki | Kobiety |  "NL-NL-HannaRUS" |
@@ -317,7 +317,7 @@ Interfejs API **tłumaczenia mowy** obsługuje różne języki dla tłumaczenia 
 | Kiswahili               | `sw`          |
 | Klingon                 | `tlh-Latn`    |
 | Klingon (plqaD)         | `tlh-Piqd`    |
-| koreański                  | `ko`          |
+| Koreański                  | `ko`          |
 | Łotewski                 | `lv`          |
 | Litewski              | `lt`          |
 | Madagaskaru                | `mg`          |
@@ -361,20 +361,20 @@ Zapoznaj się z poniższą tabelą dla obsługiwanych języków dla różnych ro
 | Regionalne | Język | Weryfikacja zależna od tekstu | Weryfikacja niezależna od tekstu | Identyfikacja niezależna od tekstu |
 |----|----|----|----|----|
 | pl-PL | Angielski (Stany Zjednoczone) | tak | tak | tak |
-|zh-CN  |Chiński (mandarynki, uproszczony)|    nie dotyczy|    tak|    tak|
-|de-DE  |Niemiecki (Niemcy)   |nie dotyczy    |tak    |tak|
-|en-GB  |Angielski (Zjednoczone Królestwo)   |nie dotyczy    |tak    |tak|
-|fr-FR  |Francuski (Francja)    |nie dotyczy    |tak    |tak|
-|en-AU  |Angielski (Australia)    |nie dotyczy    |tak    |tak|
-|EN-CA  |Angielski (Kanada)   |nie dotyczy|   tak|    tak|
-|fr — CA  |francuski (Kanada)    |nie dotyczy    |tak|   tak|
-|it-IT  |Włoski|   nie dotyczy |tak|   tak|
-|es-ES| hiszpański (Hiszpania) |nie dotyczy    |tak|   tak|
-|es — MX  |Hiszpański (Meksyk)   |nie dotyczy|   tak|    tak|
-|ja-JP| Japoński    |nie dotyczy    |tak    |tak|
-|pt-BR| Portugalski (Brazylia)|    nie dotyczy|    tak|    tak|
+|zh-CN    |Chiński (mandarynki, uproszczony)|    nie dotyczy|    tak|    tak|
+|de-DE    |Niemiecki (Niemcy)    |nie dotyczy    |tak    |tak|
+|en-GB    |Angielski (Zjednoczone Królestwo)    |nie dotyczy    |tak    |tak|
+|fr-FR    |Francuski (Francja)    |nie dotyczy    |tak    |tak|
+|en-AU    |Angielski (Australia)    |nie dotyczy    |tak    |tak|
+|EN-CA    |Angielski (Kanada)    |nie dotyczy|    tak|    tak|
+|fr — CA    |francuski (Kanada)    |nie dotyczy    |tak|    tak|
+|it-IT    |Włoski|    nie dotyczy    |tak|    tak|
+|es-ES|    hiszpański (Hiszpania)    |nie dotyczy    |tak|    tak|
+|es — MX    |Hiszpański (Meksyk)    |nie dotyczy|    tak|    tak|
+|ja-JP|    Japoński    |nie dotyczy    |tak    |tak|
+|pt-BR|    Portugalski (Brazylia)|    nie dotyczy|    tak|    tak|
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Pobierz subskrypcję wersji próbnej usługi Speech Service](https://azure.microsoft.com/try/cognitive-services/)
+* [Tworzenie bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/cognitive-services/)
 * [Zobacz jak rozpoznać mowę w języku C #](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

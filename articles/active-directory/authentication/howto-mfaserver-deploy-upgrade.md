@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f242b4a7e984ceeb183547cb3a949927f3c91da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebe40cd68074d4857b9869f29173ec3e6f78379d
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80653097"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054004"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Upgrade to the latest Azure Multi-Factor Authentication Server (Uaktualnianie do najnowszej wersji serwera Azure Multi-Factor Authentication)
 
@@ -41,7 +41,7 @@ Kroki uaktualniania w skrócie:
 4. Uruchom Nowy Instalator na każdym serwerze usługi MFA. Najpierw Uaktualnij serwery podrzędne, ponieważ mogą one odczytywać stary plik danych replikowany przez serwer główny.
 
    > [!NOTE]
-   > Podczas uaktualniania serwera należy usunąć z dowolnego LoadBalancing lub udostępnianie ruchu z innymi serwerami usługi MFA.
+   > Podczas uaktualniania serwera należy go usunąć z dowolnego równoważenia obciążenia lub udostępniania ruchu z innymi serwerami usługi MFA.
    >
    > Nie ma potrzeby odinstalowywania bieżącego serwera usługi MFA przed uruchomieniem Instalatora. Instalator przeprowadza uaktualnienie w miejscu. Ścieżka instalacji jest pobierana z rejestru z poprzedniej instalacji, więc jest instalowana w tej samej lokalizacji (np. C:\Program Files\Multi-Factor Authentication Server).
   

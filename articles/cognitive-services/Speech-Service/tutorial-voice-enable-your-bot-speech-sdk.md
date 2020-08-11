@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: 7a5e6bd262a1772356653eaaff7688ade9b4bfb7
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 47448a97c89b1feddfc43da300cb53fd65eaff05
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041788"
+ms.locfileid: "88056656"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Samouczek: Voice — Włączanie bot przy użyciu zestawu Speech SDK
 
@@ -60,7 +60,7 @@ Oto co należy zrobić, aby ukończyć ten samouczek:
 - KOMPUTER z systemem Windows 10 z działającym mikrofonem i głośnikami (lub słuchawą)
 - [Program Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) lub nowszy z zainstalowaną **ASP.NET i programowaniem w sieci Web**
 - [.NET Framework środowisko uruchomieniowe 4.6.1](https://dotnet.microsoft.com/download) lub nowsze
-- Konto platformy Azure. [Zarejestruj się bezpłatnie](https://azure.microsoft.com/free/ai/).
+- Konto platformy Azure. [Zarejestruj się bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
 - Konto usługi [GitHub](https://github.com/)
 - [Git dla systemu Windows](https://git-scm.com/download/win)
 
@@ -83,7 +83,6 @@ Jeśli chcesz użyć innego regionu dla tego samouczka, te czynniki mogą ograni
 
 * Upewnij się, że korzystasz z [obsługiwanego regionu platformy Azure](regions.md#voice-assistants).
 * Kanał mowy linii Direct używa usługi zamiany tekstu na mowę, która ma standardowe i neuronowych głosy. Głosy neuronowych są [ograniczone do określonych regionów świadczenia usługi Azure](regions.md#standard-and-neural-voices).
-* Klucze bezpłatnej wersji próbnej mogą być ograniczone do określonego regionu.
 
 Aby uzyskać więcej informacji na temat regionów, zobacz temat [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/).
 
