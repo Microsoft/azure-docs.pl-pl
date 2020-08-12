@@ -13,12 +13,12 @@ ms.date: 04/28/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 774822eae5ab327f57da3eca4499ca14d3e0c7a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5aca96a9c3bc4e8f1061f677e316565b10014ac9
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82584313"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117485"
 ---
 # <a name="application-model"></a>Model aplikacji
 
@@ -86,4 +86,4 @@ Aby dowiedzieć się więcej na temat modelu aplikacji:
 
 * Zobacz [, jak i dlaczego aplikacje są dodawane do usługi Azure AD](active-directory-how-applications-are-added.md) , aby uzyskać więcej informacji na temat obiektów aplikacji i jednostek usługi na platformie tożsamości firmy Microsoft.
 * Aby uzyskać więcej informacji na temat aplikacji z jedną dzierżawą i aplikacji z wieloma dzierżawcami, zobacz temat [dzierżawa w Azure Active Directory](single-and-multi-tenant-apps.md) .
-* Zapoznaj się z [dokumentacją Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c) , aby uzyskać więcej informacji o tym, jak usługa Azure AD udostępnia także Azure Active Directory B2C, dzięki czemu organizacje mogą logować użytkowników, zazwyczaj są to klienci korzystający z tożsamości społecznościowych, takich jak konto Google.
+* Zapoznaj się z [dokumentacją Azure Active Directory B2C](../../active-directory-b2c/index.yml) , aby uzyskać więcej informacji o tym, jak usługa Azure AD udostępnia także Azure Active Directory B2C, dzięki czemu organizacje mogą logować użytkowników, zazwyczaj są to klienci korzystający z tożsamości społecznościowych, takich jak konto Google.

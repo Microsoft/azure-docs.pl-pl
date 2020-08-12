@@ -1,19 +1,14 @@
 ---
 title: Łączenie maszyn hybrydowych z platformą Azure na dużą skalę
 description: W tym artykule dowiesz się, jak połączyć maszyny z platformą Azure przy użyciu usługi Azure ARC dla serwerów (wersja zapoznawcza) przy użyciu nazwy głównej usługi.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 75badd5b6c26938c5c6b02be331fe697bebe050d
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 0f599ae6bab8a2b1ce442df677ba5de206d11ab2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809493"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121820"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Łączenie maszyn hybrydowych z platformą Azure na dużą skalę
 

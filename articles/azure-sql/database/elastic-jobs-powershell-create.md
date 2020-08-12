@@ -11,17 +11,17 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 093214241757bdc3973d88d5a0e6f3157c6178c7
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 84f3bbc01d7161dd6d7002102cc006dfae3ce3e4
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85251135"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118165"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Tworzenie agenta zadań elastycznych za pomocą programu PowerShell
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[Zadania elastyczne](job-automation-overview.md#elastic-database-jobs-preview) umożliwiają uruchamianie jednego lub większej liczby skryptów języka Transact-SQL (T-SQL) równolegle w wielu bazach danych.
+[Zadania elastyczne (wersja zapoznawcza)](job-automation-overview.md#elastic-database-jobs-preview) umożliwiają równoległe uruchamianie co najmniej jednego skryptu Transact-SQL (T-SQL) w wielu bazach danych.
 
 W tym samouczku przedstawiono kroki wymagane do uruchomienia zapytania w wielu bazach danych:
 
@@ -280,7 +280,7 @@ W poniższej tabeli wymieniono możliwe Stany wykonania zadania:
 |**Utworzone** | Wykonywanie zadania zostało właśnie utworzone i nie jest jeszcze w toku.|
 |**Toku** | Wykonywanie zadania jest obecnie w toku.|
 |**WaitingForRetry** | Wykonanie zadania nie mogło wykonać akcji i oczekuje na ponowienie próby.|
-|**Sukces** | Wykonywanie zadania zakończyło się pomyślnie.|
+|**Powiodło się** | Wykonywanie zadania zakończyło się pomyślnie.|
 |**SucceededWithSkipped** | Wykonywanie zadania zakończyło się pomyślnie, ale niektóre z jego elementów podrzędnych zostały pominięte.|
 |**Niepowodzenie** | Wykonanie zadania nie powiodło się i wystąpiła ponowna próba.|
 |**TimedOut** | Przekroczono limit czasu wykonywania zadania.|

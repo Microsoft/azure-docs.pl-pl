@@ -11,18 +11,18 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: iainfou
-ms.openlocfilehash: cc78df7ea904bf85f5f2561319e6fc773244e971
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 912cf31e29854e9fcd54bbc358bb954c0d7bf389
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005217"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116703"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>Często zadawane pytania dotyczące usług domenowych Azure Active Directory (AD)
 
 Ta strona zawiera odpowiedzi na często zadawane pytania dotyczące Azure Active Directory Domain Services.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 * [Czy mogę utworzyć wiele domen zarządzanych dla jednego katalogu usługi Azure AD?](#can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory)
 * [Czy mogę włączyć Azure AD Domain Services w klasycznej sieci wirtualnej?](#can-i-enable-azure-ad-domain-services-in-a-classic-virtual-network)
@@ -117,7 +117,11 @@ Nie. Schemat jest zarządzany przez firmę Microsoft dla domeny zarządzanej. Ro
 Tak. Członkowie grupy *Administratorzy domeny usługi AAD* mają uprawnienia *administratora DNS* , aby modyfikować rekordy DNS w domenie zarządzanej. Ci użytkownicy mogą korzystać z konsoli Menedżera DNS na komputerze z systemem Windows Server przyłączonym do domeny zarządzanej w celu zarządzania systemem DNS. Aby użyć konsoli Menedżera DNS, zainstaluj *Narzędzia serwera DNS*, które jest częścią opcjonalnej funkcji *Narzędzia administracji zdalnej serwera* na serwerze. Aby uzyskać więcej informacji, zobacz [administrowanie systemem DNS w domenie zarządzanej Azure AD Domain Services](manage-dns.md).
 
 ### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>Jakie są zasady okresu istnienia hasła w domenie zarządzanej?
-Domyślny okres istnienia hasła w domenie zarządzanej Azure AD Domain Services to 90 dni. Okres istnienia hasła nie jest zsynchronizowany z okresem istnienia hasła skonfigurowanym w usłudze Azure AD. W związku z tym może wystąpić sytuacja, w której hasła użytkowników wygasną w domenie zarządzanej, ale są nadal ważne w usłudze Azure AD. W takich scenariuszach użytkownicy muszą zmienić swoje hasło w usłudze Azure AD, a nowe hasło zostanie zsynchronizowane z domeną zarządzaną. Ponadto *hasła — nie wygasają* , a *użytkownik-musi-Change — atrybuty logowania przy użyciu hasła przy następnym logowaniu* dla kont użytkowników nie są synchronizowane z domeną zarządzaną.
+Domyślny okres istnienia hasła w domenie zarządzanej Azure AD Domain Services to 90 dni. Okres istnienia hasła nie jest zsynchronizowany z okresem istnienia hasła skonfigurowanym w usłudze Azure AD. W związku z tym może wystąpić sytuacja, w której hasła użytkowników wygasną w domenie zarządzanej, ale są nadal ważne w usłudze Azure AD. W takich scenariuszach użytkownicy muszą zmienić swoje hasło w usłudze Azure AD, a nowe hasło zostanie zsynchronizowane z domeną zarządzaną. Jeśli chcesz zmienić domyślny okres istnienia hasła w domenie zarządzanej, możesz [utworzyć i skonfigurować niestandardowe zasady haseł.](password-policy.md)
+
+Ponadto zasady haseł usługi Azure AD dla *DisablePasswordExpiration* są synchronizowane z domeną zarządzaną. Gdy *DisablePasswordExpiration* jest stosowana do użytkownika w usłudze Azure AD *, zostanie zastosowana wartość konta* usług w *DONT_EXPIRE_PASSWORD* domenie zarządzanej dla synchronizowanego użytkownika.
+
+Po zresetowaniu hasła przez użytkownika w usłudze Azure AD jest stosowany atrybut *forceChangePasswordNextSignIn = true* . Domena zarządzana synchronizuje ten atrybut z usługi Azure AD. Po wykryciu przez domenę zarządzaną *forceChangePasswordNextSignIn* jest ustawiona dla synchronizowanego użytkownika z usługi Azure AD, atrybut *pwdLastSet* w domenie zarządzanej jest ustawiony na *0*, co unieważnia obecnie ustawione hasło.
 
 ### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>Czy Azure AD Domain Services zapewnić ochronę blokady konta usługi AD?
 Tak. Pięć nieudanych prób wprowadzenia hasła w ciągu 2 minut w domenie zarządzanej powoduje, że konto użytkownika zostanie zablokowane przez 30 minut. Po 30 minutach konto użytkownika zostanie automatycznie odblokowane. Nieprawidłowe próby hasła w domenie zarządzanej nie Zablokuj konta użytkownika w usłudze Azure AD. Konto użytkownika jest blokowane tylko w ramach domeny zarządzanej Azure AD Domain Services. Aby uzyskać więcej informacji, zobacz [zasady blokowania haseł i kont w domenach zarządzanych](password-policy.md).

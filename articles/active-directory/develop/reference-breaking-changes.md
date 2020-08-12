@@ -12,12 +12,12 @@ ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2fe41cdc6fa1adef96568981df5bb13129fe900f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0c5abf345fda9db4cc5123360245e42ea0ef40e1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026734"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115037"
 ---
 # <a name="whats-new-for-authentication"></a>Co nowego w uwierzytelnianiu?
 
@@ -49,7 +49,7 @@ Brak zaplanowanych w tym momencie.  Poniżej znajdują się zmiany, które znajd
 
 1 czerwca 2018 Urząd oficjalnych Azure Active Directory (AAD) dla Azure Government zmieniony z `https://login-us.microsoftonline.com` na `https://login.microsoftonline.us` . Ta zmiana została również zastosowana do Microsoft 365 i DoD w serwisie zatoce, które Azure Government usługi AAD. Jeśli jesteś członkiem aplikacji w ramach dzierżawy dla instytucji rządowych Stanów Zjednoczonych, musisz zaktualizować aplikację, aby zalogować użytkowników w `.us` punkcie końcowym.  
 
-Począwszy od 5 maja, usługa Azure AD zacznie wymuszać zmianę punktu końcowego, blokując Logowanie użytkowników w aplikacjach hostowanych w dzierżawach dla instytucji rządowych Stanów Zjednoczonych przy użyciu publicznego punktu końcowego ( `microsoftonline.com` ).  Aplikacje, których dotyczy problem, rozpoczną wyświetlanie błędu `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint` . Ten błąd oznacza, że aplikacja próbuje zalogować się do użytkownika rządu USA w punkcie końcowym chmury publicznej. Jeśli Twoja aplikacja znajduje się w dzierżawie chmury publicznej i jest przeznaczona do obsługi użytkowników w Stanach Zjednoczonych, musisz [zaktualizować aplikację, aby obsługiwała ją jawnie](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). Może to wymagać utworzenia nowej rejestracji aplikacji w chmurze dla instytucji rządowych USA. 
+Począwszy od 5 maja, usługa Azure AD zacznie wymuszać zmianę punktu końcowego, blokując Logowanie użytkowników w aplikacjach hostowanych w dzierżawach dla instytucji rządowych Stanów Zjednoczonych przy użyciu publicznego punktu końcowego ( `microsoftonline.com` ).  Aplikacje, których dotyczy problem, rozpoczną wyświetlanie błędu `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint` . Ten błąd oznacza, że aplikacja próbuje zalogować się do użytkownika rządu USA w punkcie końcowym chmury publicznej. Jeśli Twoja aplikacja znajduje się w dzierżawie chmury publicznej i jest przeznaczona do obsługi użytkowników w Stanach Zjednoczonych, musisz [zaktualizować aplikację, aby obsługiwała ją jawnie](./authentication-national-cloud.md). Może to wymagać utworzenia nowej rejestracji aplikacji w chmurze dla instytucji rządowych USA. 
 
 Egzekwowanie tej zmiany zostanie wykonane przy użyciu stopniowego wdrażania w zależności od tego, jak często użytkownicy z chmury rządowej Stanów Zjednoczonych zalogują się do aplikacji aplikacja — aplikacje dla instytucji rządowych STANów Zjednoczonych często zobaczą wymuszanie, a aplikacje często używane przez użytkowników rządów USA będą musiały zostać zastosowane. Oczekujemy, że wymuszanie zakończy się we wszystkich aplikacjach w czerwcu 2020. 
 
@@ -98,7 +98,7 @@ Po wysłaniu odpowiedzi uwierzytelniania z login.microsoftonline.com do aplikacj
 
 **Wpływ na punkty końcowe**: 1.0 i v 2.0
 
-**Wpływ na protokół**: wpis wszędzie jest używany ([poświadczenia klienta](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), [wykup kodu autoryzacji](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow), [ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), [OBO](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)i [wykup tokenów](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token))
+**Wpływ na protokół**: wpis wszędzie jest używany ([poświadczenia klienta](./v2-oauth2-client-creds-grant-flow.md), [wykup kodu autoryzacji](./v2-oauth2-auth-code-flow.md), [ROPC](./v2-oauth-ropc.md), [OBO](./v2-oauth2-on-behalf-of-flow.md)i [wykup tokenów](./v2-oauth2-auth-code-flow.md#refresh-the-access-token))
 
 Począwszy od tygodnia 9/2, żądania uwierzytelniania używające metody POST będą weryfikowane przy użyciu bardziej rygorystycznych standardów protokołu HTTP.  W przypadku opcji spacje i podwójne cudzysłowy (") nie będą już usuwane z wartości formularza żądania. Te zmiany nie są oczekiwane w celu podziału istniejących klientów i zapewniają niezawodne Obsługiwanie żądań wysyłanych do usługi Azure AD za każdym razem. W przyszłości (Zobacz powyżej) planujemy dodatkowo odrzucanie zduplikowanych parametrów i ignorowanie BOM w ramach żądań.
 
@@ -113,9 +113,9 @@ Dzisiaj `?e=    "f"&g=h` jest analizowane identycznie tak, jak to `?e=f&g=h` mo�
 
 **Data wprowadzenia**: 26 lipca 2019
 
-**Wpływ na punkty końcowe**: [1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) i v [2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
+**Wpływ na punkty końcowe**: [1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md) i v [2.0](./v2-oauth2-client-creds-grant-flow.md)
 
-**Wpływ na protokół**: [poświadczenia klienta (tokeny tylko dla aplikacji)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
+**Wpływ na protokół**: [poświadczenia klienta (tokeny tylko dla aplikacji)](../azuread-dev/v1-oauth2-client-creds-grant-flow.md)
 
 Nastąpiła zmiana zabezpieczeń na żywo 26 lipca, która zmienia sposób, w jaki są wydawane tokeny tylko dla aplikacji (za pośrednictwem przyznanych poświadczeń klienta). Wcześniej aplikacje mogły uzyskać tokeny wywołujące dowolną inną aplikację, niezależnie od obecności w dzierżawie lub rolach, które zostały wysłane do danej aplikacji.  To zachowanie zostało zaktualizowane, tak aby w przypadku zasobów (nazywanych czasem interfejsem API sieci Web) ustawić jedną dzierżawę (domyślnie), aplikacja kliencka musi znajdować się w dzierżawie zasobów.  Należy zauważyć, że istniejąca zgoda między klientem i interfejsem API nadal nie jest wymagana, a aplikacje nadal powinny przeprowadzać własne testy autoryzacji, aby upewnić się, że `roles` występuje żądanie i zawiera oczekiwaną wartość dla interfejsu API.
 

@@ -13,18 +13,18 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: db158a50cfc164a0fc839e858cc6e7c46558eb77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8cb426239fe9f3dea207df06b6f2bafbdb54058a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85551582"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117672"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>Azure Active Directory dla deweloperów (v 1.0) — Omówienie
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-Azure Active Directory (Azure AD) to usługa zarządzania tożsamościami w chmurze, która umożliwia deweloperom tworzenie aplikacji zapewniających bezpieczne logowanie użytkowników mających konta służbowe Microsoft. Usługa Azure AD obsługuje zarówno deweloperów tworzących aplikacje biznesowe dla pojedynczej dzierżawy, jak i deweloperów chcących tworzyć aplikacje wielodostępne. Oprócz podstawowego logowania usługa Azure AD umożliwia również aplikacjom wywoływanie interfejsów API firmy Microsoft, takich jak [Microsoft Graph](https://docs.microsoft.com/graph/overview), a także niestandardowych interfejsów API opartych na platformie Azure AD. W tej dokumentacji pokazano, jak dodać obsługę usługi Azure AD do własnej aplikacji, używając standardowych w branży protokołów, takich jak OAuth 2.0 i OpenID Connect.
+Azure Active Directory (Azure AD) to usługa zarządzania tożsamościami w chmurze, która umożliwia deweloperom tworzenie aplikacji zapewniających bezpieczne logowanie użytkowników mających konta służbowe Microsoft. Usługa Azure AD obsługuje zarówno deweloperów tworzących aplikacje biznesowe dla pojedynczej dzierżawy, jak i deweloperów chcących tworzyć aplikacje wielodostępne. Oprócz podstawowego logowania usługa Azure AD umożliwia również aplikacjom wywoływanie interfejsów API firmy Microsoft, takich jak [Microsoft Graph](/graph/overview), a także niestandardowych interfejsów API opartych na platformie Azure AD. W tej dokumentacji pokazano, jak dodać obsługę usługi Azure AD do własnej aplikacji, używając standardowych w branży protokołów, takich jak OAuth 2.0 i OpenID Connect.
 
 > [!NOTE]
 > Większość zawartości na tej stronie koncentruje się na punkcie końcowym i platformie v 1.0, który obsługuje tylko konta służbowe firmy Microsoft. Jeśli chcesz zalogować się do użytkowników lub osobistych kont Microsoft, zapoznaj się z informacjami w [punkcie końcowym i platformie v 2.0](../develop/v2-overview.md). Punkt końcowy v 2.0 oferuje ujednolicone środowisko programistyczne dla aplikacji, które chcą zalogować się do wszystkich tożsamości firmy Microsoft.
@@ -32,7 +32,7 @@ Azure Active Directory (Azure AD) to usługa zarządzania tożsamościami w chmu
 - [Podstawowe informacje o uwierzytelnianiu](v1-authentication-scenarios.md) Wprowadzenie do uwierzytelniania za pomocą usługi Azure AD.
 - [Typy aplikacji](app-types.md) Omówienie scenariuszy uwierzytelniania obsługiwanych przez usługę Azure AD.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Przewodniki Szybki Start i samouczki dotyczące programu v 1.0 przeprowadzą Cię przez proces tworzenia aplikacji na preferowanej platformie przy użyciu zestawu SDK biblioteki Azure AD Authentication Library (ADAL). Aby rozpocząć pracę, zobacz **samouczki** **Szybki Start** i wersja 1.0 usługi [Microsoft Identity platform (Azure Active Directory dla deweloperów)](index.yml) .
 
@@ -48,7 +48,7 @@ Następujące artykuły zawierają szczegółowe informacje o interfejsach API, 
 - [Przykłady kodu](sample-v1-code.md) Lista wszystkich przykładów kodu usługi Azure AD.
 - [Słownik](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) Terminologia i definicje słów używanych w tej dokumentacji.
 
-## <a name="videos"></a>Wideo
+## <a name="videos"></a>Filmy wideo
 
 Zapoznaj się z tematem [Azure Active Directory deweloperskich filmów wideo](videos.md) , aby uzyskać pomoc w migracji do nowej platformy tożsamości firmy Microsoft.
 

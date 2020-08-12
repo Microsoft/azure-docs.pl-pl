@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.custom: devx-track-java
 ms.author: lcozzens
-ms.openlocfilehash: 51052994a4d00995910a85546cce57867b6143f6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 93a2fd89e21dbf4edee29a27bd18f63f2b835aae
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324781"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121225"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Szybki Start: Tworzenie aplikacji ze sprężyną Java przy użyciu konfiguracji aplikacji platformy Azure
 
@@ -69,7 +69,7 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
-        <version>1.1.2</version>
+        <version>1.1.5</version>
     </dependency>
     ```
 
@@ -79,7 +79,7 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
-        <version>1.2.2</version>
+        <version>1.2.7</version>
     </dependency>
     ```
 
@@ -182,7 +182,7 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
 
     Zobaczysz komunikat wprowadzony w magazynie konfiguracji aplikacji.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
@@ -191,4 +191,4 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
 W tym przewodniku szybki start utworzono nowy magazyn konfiguracji aplikacji i użył go w aplikacji ze sprężyną Java. Aby uzyskać więcej informacji, zobacz [Sprężyna na platformie Azure](https://docs.microsoft.com/java/azure/spring-framework/). Aby dowiedzieć się, jak włączyć aplikację ze sprężyną Java do dynamicznego odświeżania ustawień konfiguracji, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
-> [Włącz konfigurację dynamiczną](./enable-dynamic-configuration-java-spring-app.md)
+> [Włączanie dynamicznej konfiguracji](./enable-dynamic-configuration-java-spring-app.md)

@@ -12,12 +12,12 @@ ms.date: 12/09/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv, marsma
 ms.custom: aaddev
-ms.openlocfilehash: 504caffe0505a4e8a66608fcad528130630a5cc8
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 23ab8c5092a546a7b66b93900c6c083ac8e84394
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86236304"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117774"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Ewolucja platformy tożsamości firmy Microsoft
 
@@ -49,7 +49,7 @@ Na poniższym diagramie przedstawiono ogólnie środowisko obsługi tożsamości
 
 Aby przeprowadzić integrację z usługą Azure AD B2C (podczas uwierzytelniania tożsamości społecznościowych lub lokalnych), należy zarejestrować aplikację w dzierżawie Azure AD B2C. To środowisko jest również częścią Azure Portal.
 
-Użyj [interfejsu API aplikacji](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0) , aby programowo skonfigurować aplikacje zintegrowane z platformą tożsamości firmy Microsoft na potrzeby uwierzytelniania dowolnej tożsamości firmy Microsoft.
+Użyj [interfejsu API aplikacji](/graph/api/resources/application?view=graph-rest-1.0) , aby programowo skonfigurować aplikacje zintegrowane z platformą tożsamości firmy Microsoft na potrzeby uwierzytelniania dowolnej tożsamości firmy Microsoft.
 
 ### <a name="msal-libraries"></a>Biblioteki MSAL
 
@@ -57,7 +57,7 @@ Biblioteka MSAL może służyć do kompilowania aplikacji, które uwierzytelniaj
 
 Za pomocą bibliotek MSAL można także zintegrować swoją aplikację z Azure AD B2C.
 
-Biblioteki po stronie serwera do tworzenia aplikacji sieci Web i interfejsów API sieci Web są ogólnie dostępne: [ASP.NET](https://docs.microsoft.com/aspnet/overview) i [ASP.NET Core](https://docs.microsoft.com/aspnet/core/?view=aspnetcore-2.2)
+Biblioteki po stronie serwera do tworzenia aplikacji sieci Web i interfejsów API sieci Web są ogólnie dostępne: [ASP.NET](/aspnet/overview) i [ASP.NET Core](/aspnet/core/?view=aspnetcore-2.2)
 
 ### <a name="microsoft-identity-platform-endpoint"></a>Punkt końcowy platformy tożsamości firmy Microsoft
 

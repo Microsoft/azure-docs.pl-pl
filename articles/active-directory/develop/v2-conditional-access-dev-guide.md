@@ -14,12 +14,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: 6b31a03a6367c9c6f2025c1544b59c95b3f69175
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1bfefb3b72c151e7a61068b3c0ad9f3e2bc4a6f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83771081"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120630"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Wskazówki dla deweloperów dotyczące dostępu warunkowego w usłudze Azure Active Directory
 
@@ -33,7 +33,7 @@ Aby uzyskać więcej informacji na temat pełnych możliwości dostępu warunkow
 
 W przypadku deweloperów tworzących aplikacje dla usługi Azure AD w tym artykule przedstawiono sposób korzystania z dostępu warunkowego, a także informacje o wpływie dostępu do zasobów, do których nie ma kontroli, które mogą mieć zastosowane zasady dostępu warunkowego. W tym artykule omówiono także skutki dostępu warunkowego w ramach przepływu, aplikacji sieci Web, uzyskiwania dostępu do Microsoft Graph i wywoływania interfejsów API.
 
-Założono znajomość [pojedynczych](quickstart-register-app.md) i [wielodostępnych](howto-convert-app-to-be-multi-tenant.md) aplikacji oraz [wspólnych wzorców uwierzytelniania](authentication-scenarios.md) .
+Założono znajomość [pojedynczych](quickstart-register-app.md) i [wielodostępnych](howto-convert-app-to-be-multi-tenant.md) aplikacji oraz [wspólnych wzorców uwierzytelniania](./authentication-vs-authorization.md) .
 
 > [!NOTE]
 > Korzystanie z tej funkcji wymaga licencji na Azure AD — wersja Premium P1. Aby znaleźć licencję odpowiednią do wymagań, zobacz [porównanie ogólnodostępnych funkcji w wersji bezpłatnej, podstawowej i premium](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -52,7 +52,7 @@ W szczególnych przypadkach następujące scenariusze wymagają, aby kod obsług
 * Aplikacje jednostronicowe korzystające z MSAL.js
 * Web Apps wywoływania zasobu
 
-Zasady dostępu warunkowego można zastosować do aplikacji, ale można je również zastosować do internetowego interfejsu API, do którego aplikacja uzyskuje dostęp. Aby dowiedzieć się więcej o konfigurowaniu zasad dostępu warunkowego, zobacz [Szybki Start: Wymagaj uwierzytelniania wieloskładnikowego dla określonych aplikacji przy Azure Active Directory dostępu warunkowego](../conditional-access/app-based-mfa.md).
+Zasady dostępu warunkowego można zastosować do aplikacji, ale można je również zastosować do internetowego interfejsu API, do którego aplikacja uzyskuje dostęp. Aby dowiedzieć się więcej o konfigurowaniu zasad dostępu warunkowego, zobacz [Szybki Start: Wymagaj uwierzytelniania wieloskładnikowego dla określonych aplikacji przy Azure Active Directory dostępu warunkowego](../authentication/tutorial-enable-azure-mfa.md).
 
 W zależności od scenariusza Klient korporacyjny może w dowolnym momencie zastosować i usunąć zasady dostępu warunkowego. Aby aplikacja kontynuowała działanie w przypadku zastosowania nowych zasad, należy zaimplementować obsługę "wyzwania". Poniższe przykłady ilustrują obsługę wyzwania.
 
@@ -93,7 +93,7 @@ Deweloperzy mogą podjąć to wyzwanie i dołączyć go do nowego żądania do u
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Dostęp warunkowy usługi Azure AD jest funkcją objętą [Azure AD — wersja Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Klienci z [licencjami Microsoft 365 Business](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) również mają dostęp do funkcji dostępu warunkowego.
+Dostęp warunkowy usługi Azure AD jest funkcją objętą [Azure AD — wersja Premium](../fundamentals/active-directory-whatis.md). Klienci z [licencjami Microsoft 365 Business](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) również mają dostęp do funkcji dostępu warunkowego.
 
 ### <a name="considerations-for-specific-scenarios"></a>Zagadnienia dotyczące konkretnych scenariuszy
 
@@ -180,7 +180,7 @@ Aby wypróbować ten scenariusz, zapoznaj się [z naszym Przykładem Spa](https:
 
 ## <a name="see-also"></a>Zobacz także
 
-* Aby dowiedzieć się więcej o możliwościach, zobacz [dostęp warunkowy w Azure Active Directory](/azure/active-directory/conditional-access/overview).
+* Aby dowiedzieć się więcej o możliwościach, zobacz [dostęp warunkowy w Azure Active Directory](../conditional-access/overview.md).
 * Aby uzyskać więcej przykładów kodu usługi Azure AD, zobacz [przykłady](sample-v2-code.md).
 * Aby uzyskać więcej informacji na temat zestawu SDK MSAL i uzyskać dostęp do dokumentacji referencyjnej, zobacz [Omówienie biblioteki uwierzytelniania firmy Microsoft](msal-overview.md).
 * Aby dowiedzieć się więcej o scenariuszach obejmujących wiele dzierżawców, zobacz [Jak logować użytkowników przy użyciu wzorca wielodostępności](howto-convert-app-to-be-multi-tenant.md).

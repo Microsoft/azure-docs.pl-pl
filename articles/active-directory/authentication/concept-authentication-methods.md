@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: b6111529d1a3d37f08b29fb5c0751fb6a49acea5
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 40ea8c3d070d8895a6da063789279895f52189e3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054072"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116771"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Jakie metody uwierzytelniania i weryfikacji są dostępne w usłudze Azure Active Directory?
 
@@ -45,6 +45,8 @@ W poniższej tabeli opisano, jakie metody są dostępne dla uwierzytelniania pod
 | [Pytania zabezpieczające](#security-questions) | Nie | Tylko SSPR |
 | [Adres e-mail](#email-address) | Nie | Tylko SSPR |
 | [Hasła aplikacji](#app-passwords) | Nie | MFA tylko w niektórych przypadkach |
+
+Te metody uwierzytelniania można skonfigurować w Azure Portal i w coraz większym stopniu korzystać [Microsoft Graph z interfejsu API REST w wersji beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
 W tym artykule opisano różne metody uwierzytelniania i weryfikacji dostępne w usłudze Azure AD oraz określone ograniczenia lub ograniczenia.
 
@@ -297,6 +299,8 @@ Aby rozpocząć, zobacz Samouczek dotyczący samoobsługowego [resetowania hasł
 Aby dowiedzieć się więcej o pojęciach SSPR, zobacz Jak działa funkcja samoobsługowego [resetowania hasła w usłudze Azure AD][concept-sspr].
 
 Aby dowiedzieć się więcej na temat pojęć MFA, zobacz [jak działa usługa Azure Multi-Factor Authentication][concept-mfa].
+
+Dowiedz się więcej na temat konfigurowania metod uwierzytelniania przy użyciu [interfejsu API REST Microsoft Graph w wersji beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

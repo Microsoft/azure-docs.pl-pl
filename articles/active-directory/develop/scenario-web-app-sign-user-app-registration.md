@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 1adff446e6d41e30db109d0871811dc651f1f4f5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b16ee98b44e52482423229a0940c8927a94d4c83
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026263"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118675"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplikacja sieci Web, która loguje się do użytkowników: Rejestracja aplikacji
 
@@ -41,7 +41,7 @@ Możesz użyć tych linków do uruchomienia uruchamiania aplikacji sieci Web:
 > Portal, który ma być używany, różni się w zależności od tego, czy aplikacja działa w Microsoft Azureej chmurze publicznej czy w chmurze krajowej lub suwerennej. Aby uzyskać więcej informacji, zobacz [chmury narodowe](./authentication-national-cloud.md#app-registration-endpoints).
 
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego. Alternatywnie Zaloguj się do [Azure Portal wyboru](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#app-registration-endpoints) dla chmury krajowej.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego. Alternatywnie Zaloguj się do [Azure Portal wyboru](./authentication-national-cloud.md#app-registration-endpoints) dla chmury krajowej.
 2. Jeśli Twoje konto zapewnia dostęp do więcej niż jednej dzierżawy, wybierz swoje konto w prawym górnym rogu. Następnie ustaw sesję portalu na żądaną dzierżawę usługi Azure Active Directory (Azure AD).
 3. W okienku po lewej stronie wybierz usługę **Azure Active Directory** a następnie wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
 
@@ -119,7 +119,7 @@ Możesz użyć tych linków do uruchomienia uruchamiania aplikacji sieci Web:
 > - MyOrg (konta tylko w tym katalogu organizacji)
 > - AnyOrg (konta w dowolnym katalogu organizacyjnym)
 >
-> Możesz utworzyć aplikację, która loguje się do użytkowników przy użyciu osobistych kont Microsoft (na przykład Skype, Xbox lub Outlook.com). Najpierw Utwórz aplikację wielodostępną. Obsługiwane typy kont to konta w dowolnym katalogu organizacyjnym. Następnie zmień [`accessTokenAcceptedVersion`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) Właściwość na wartość **2** i [`signInAudience`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#signinaudience-attribute) Właściwość na `AzureADandPersonalMicrosoftAccount` w [manifeście aplikacji](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) z Azure Portal. Aby uzyskać więcej informacji, zobacz [krok 1,3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) w samouczku ASP.NET Core. Możesz uogólnić ten krok do aplikacji sieci Web w dowolnym języku.
+> Możesz utworzyć aplikację, która loguje się do użytkowników przy użyciu osobistych kont Microsoft (na przykład Skype, Xbox lub Outlook.com). Najpierw Utwórz aplikację wielodostępną. Obsługiwane typy kont to konta w dowolnym katalogu organizacyjnym. Następnie zmień [`accessTokenAcceptedVersion`](./reference-app-manifest.md#accesstokenacceptedversion-attribute) Właściwość na wartość **2** i [`signInAudience`](./reference-app-manifest.md#signinaudience-attribute) Właściwość na `AzureADandPersonalMicrosoftAccount` w [manifeście aplikacji](./reference-app-manifest.md) z Azure Portal. Aby uzyskać więcej informacji, zobacz [krok 1,3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) w samouczku ASP.NET Core. Możesz uogólnić ten krok do aplikacji sieci Web w dowolnym języku.
 
 ## <a name="next-steps"></a>Następne kroki
 

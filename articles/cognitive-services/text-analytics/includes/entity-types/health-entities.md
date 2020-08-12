@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/28/2020
 ms.author: aahi
-ms.openlocfilehash: 4ac65e85e05f408b8d2f37a1d6845dc9e28e2bab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6880391fb54791fe5f597de2305d24f8c0e47ec6
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373078"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88122347"
 ---
 ## <a name="health-entity-categories"></a>Kategorie jednostek kondycji:
 
@@ -23,46 +23,55 @@ Następujące kategorie jednostek są zwracane przez [Analiza tekstu dla kondycj
 
 |Kategoria  |Opis   |
 |----------|--------------|
-| WAŻNOŚCI | Ważności. |
-| BODY_STRUCTURE | Części ciała ludzkiego, w tym organy i inne struktury. | 
-| CONDITION_QUALIFIER | Poziomy warunków, takie jak *łagodny*, *rozszerzony*lub *rozpraszający*. | 
-| RÓŻNIC | Warunki medyczne. Na przykład *naciągnięcie* . | 
-| WSKAZYWA | Wskazówki, takie jak *lewo* lub *przedniej*. | 
-| DAWKĘ | Rozmiar lub ilość leków.  | 
-| EXAMINATION_NAME | Metoda lub procedura badania. | 
-| EXAMINATION_RELATION | skojarzenie między jednostką miary a badaniem.  | 
-| EXAMINATION_UNIT | Jednostka pomiarowa do badania. | 
-| EXAMINATION_VALUE | Wartość jednostki pomiarowej badania. | 
-| FAMILY_RELATION | Relacja familial, taka jak *siostrzany*.  | 
-| JAKĄ | Takt.   | 
-| SKORYGOWAN | Ich płci. | 
-| PIERWIASTK | Jednostka genu, taka jak *TP53*.   | 
-| MEDICATION_CLASS | Klasy leków. Na przykład *antybiotyki*.  | 
-| MEDICATION_NAME  | Rodzajowy i Marka o nazwie medications.| 
-| ROUTE_OR_MODE  | Metoda administrowania leczeniem. | 
-| SYMPTOM_OR_SIGN  | Objawy choroby. | 
-| CZAS  | Trzykrotn. Na przykład "8 lat" lub "2:10:30 ten rano" |
-| TREATMENT_NAME  | Nazwy leczenia. | 
-| VARIANT  | Genetyczna odmiana jednostki genu | 
+| Wiek | Ważności. Na przykład w *wieku 30 lat*. |
+| AdministrativeEvent | Zdarzenie administracyjne. |
+| BodyStructure | Części ciała ludzkiego, w tym organy i inne struktury. Na przykład *ARM*lub *serce*. | 
+| CareEnvironment | Środowisko, w którym jest administrowane opieką lub traktowaniem. Na przykład *Pokój awaryjny* | 
+| ConditionQualifier | Poziomy warunków. Na przykład *niedelikatny*, *rozszerzony*lub *rozpraszający*. | 
+| Różnic | Warunki medyczne. Na przykład *naciągnięcie*. | 
+| Kierunek | Ze. Na przykład *po lewej* lub *przedniej*. | 
+| Dawkę | Rozmiar lub ilość leków. Na przykład *25mg*.  | 
+| Badaniename | Metoda lub procedura badania. Na przykład *X-ray*. | 
+| RelationalOperator | Operator, który definiuje relację między dwoma jednostkami. Na przykład *mniejsze niż*lub `>=` .  | 
+| MeasurementUnit | Jednostka miary (taka jak wartość procentowa). | 
+| MeasurementValue | Wartość liczbowa jednostki miary. | 
+| FamilyRelation | Relacja familial. Na przykład jako *siostrzane*.  | 
+| Częstotliwość | Takt.   | 
+| Płeć | Ich płci. | 
+| Pierwiastk | Jednostka genu, taka jak *TP53*.   | 
+| HealthcareProfession | Metoda administrowania leczeniem. Na przykład *Administracja doustna*. | 
+| MedicationClass | Klasy leków. Na przykład *antybiotyki*.  | 
+| MedicationForm | Forma leków. Na przykład *kapsułka*. | 
+| "Lekiname"  | Rodzajowy i Marka o nazwie medications. Na przykład *ibuprofen*. | 
+| MedicationRoute | Metoda administrowania leczeniem. Na przykład *Administracja doustna*. | 
+| SymptomOrSign  | Objawy choroby. Na przykład *Sore Throat*. | 
+| Czas | Trzykrotn. Na przykład *8 lat* lub *2:10:30 tego rano* |
+| "Leczeniename"  | Nazwy leczenia. Na przykład *.* | 
+| Wariant | Genetyczna odmiana jednostki genu. | 
 
 ### <a name="relation-extraction"></a>Wyodrębnianie relacji
 
 Wyodrębnienie relacji identyfikuje znaczące połączenia między pojęciami wymienionymi w tekście. Na przykład relacja "czas warunku" można znaleźć, kojarząc nazwę warunku z godziną. Analiza tekstu dla kondycji mogą identyfikować następujące relacje:
 
-* DIRECTION_OF_BODY_STRUCTURE  
-* TIME_OF_CONDITION
-* QUALIFIER_OF_CONDITION  
-* DOSAGE_OF_MEDICATION 
-* FORM_OF_MEDICATION  
-* ROUTE_OR_MODE_OF_MEDICATION   
-* STRENGTH_OF_MEDICATION 
-* ADMINISTRATION_RATE_OF_MEDICATION   
-* FREQUENCY_OF_MEDICATION 
-* TIME_OF_MEDICATION 
-* TIME_OF_TREATMENT 
-* FREQUENCY_OF_TREATMENT  
-* VALUE_OF_EXAMINATION
-* UNIT_OF_EXAMINATION 
-* RELATION_OF_EXAMINATION 
-* TIME_OF_EXAMINATION  
-* JEDNOSTEK 
+|Kategoria  |Opis   |
+|----------|--------------|
+| DirectionOfBodyStructure | Kierunek struktury treści. |
+| DirectionOfCondition | Kierunek warunku. |
+| DirectionOfExamination | Kierunek badania. |
+| DirectionOfTreatment | Kierunek traktowania. |
+| TimeOfCondition | Czas skojarzony z wystąpieniem początku warunku. |
+| QualifierOfCondition | Skojarzony kwalifikator warunku. |
+| DosageOfMedication | Dozowanie leków. |
+| FormOfMedication | Forma leków. |
+| RouteOfMedication | Trasa lub tryb konsumowania medycyny. Na przykład *doustnie*. |
+| FrequencyOfMedication | Częstotliwość, z jaką jest zużywana leczenie. | 
+| ValueOfCondition | Wartość liczbowa skojarzona z warunkiem. |
+| UnitOfCondition | Jednostka (na przykład czas) skojarzona z warunkiem. |
+| TimeOfMedication | Godzina, o której zostało zużyte leczenie. |
+| TimeOfTreatment | Czas administrowania traktowaniem. | 
+| FrequencyOfTreatment | Częstotliwość, z jaką jest administrowane traktowanie. |
+| ValueOfExamination | Wartość liczbowa skojarzona z badaniem. | 
+| UnitOfExamination | Jednostka (na przykład wartość procentowa) skojarzona z badaniem. |
+| RelationOfExamination | Relacja między jednostką a badaniem. | 
+| TimeOfExamination | Czas skojarzony z badaniem. |
+| Skrót | Skrót.  | 

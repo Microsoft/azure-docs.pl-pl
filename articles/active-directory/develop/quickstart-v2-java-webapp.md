@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 1474a8ad73f7deb9a7c321f7d7994a7b2b73d624
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 10ae1c76d48c1cedbb915fec66177ac3612feea0
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87312405"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115224"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Szybki Start: Dodawanie logowania do aplikacji sieci Web w języku Java przez firmę Microsoft
 
@@ -212,7 +212,7 @@ Jeśli chcesz wdrożyć próbkę sieci Web w Tomcat, musisz wprowadzić kilka zm
 
 
 > [!IMPORTANT]
-> Aplikacja w tym przewodniku Szybki start używa klucza tajnego klienta do identyfikowania się jako klienta poufnego. Ponieważ klucz tajny klienta jest dodawany jako zwykły tekst do plików projektu, ze względów bezpieczeństwa zaleca się użycie certyfikatu zamiast klucza tajnego klienta przed uwzględnieniem aplikacji jako aplikacji produkcyjnej. Aby uzyskać więcej informacji na temat korzystania z certyfikatu, zobacz [poświadczenia certyfikatu na potrzeby uwierzytelniania aplikacji](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
+> Aplikacja w tym przewodniku Szybki start używa klucza tajnego klienta do identyfikowania się jako klienta poufnego. Ponieważ klucz tajny klienta jest dodawany jako zwykły tekst do plików projektu, ze względów bezpieczeństwa zaleca się użycie certyfikatu zamiast klucza tajnego klienta przed uwzględnieniem aplikacji jako aplikacji produkcyjnej. Aby uzyskać więcej informacji na temat korzystania z certyfikatu, zobacz [poświadczenia certyfikatu na potrzeby uwierzytelniania aplikacji](./active-directory-certificate-credentials.md).
 
 ## <a name="more-information"></a>Więcej informacji
 
@@ -254,11 +254,11 @@ import com.microsoft.aad.msal4j.*;
 Dowiedz się więcej na temat uprawnień i wyrażania zgody:
 
 > [!div class="nextstepaction"]
-> [Uprawnienia i zgoda](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
+> [Uprawnienia i zgoda](./v2-permissions-and-consent.md)
 
 Aby dowiedzieć się więcej o przepływie uwierzytelniania dla tego scenariusza, zobacz przepływ kodu autoryzacji OAuth 2,0:
 
 > [!div class="nextstepaction"]
-> [Przepływ OAuth kodu autoryzacji](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow)
+> [Przepływ OAuth kodu autoryzacji](./v2-oauth2-auth-code-flow.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

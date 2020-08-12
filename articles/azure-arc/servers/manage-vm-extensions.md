@@ -3,16 +3,12 @@ title: Zarządzanie rozszerzeniami maszyny wirtualnej za pomocą usługi Azure A
 description: Usługa Azure ARC dla serwerów (wersja zapoznawcza) może zarządzać wdrożeniem rozszerzeń maszyn wirtualnych, które zapewniają konfigurację po wdrożeniu i zadania automatyzacji z maszynami wirtualnymi spoza platformy Azure.
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
-ms.openlocfilehash: eb1de0c2a5b995231c2972fca7279195cbaea9e7
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 0319420fe528d41a23ee8fae90c4ad8c326f35a0
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809633"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121310"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-for-servers-preview"></a>Zarządzanie rozszerzeniami maszyn wirtualnych za pomocą usługi Azure ARC dla serwerów (wersja zapoznawcza)
 

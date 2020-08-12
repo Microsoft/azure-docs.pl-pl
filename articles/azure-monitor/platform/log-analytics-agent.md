@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/06/2020
-ms.openlocfilehash: ff8bb1fea863c8ba08434df9c718199ad9f51652
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: d507db415a2438c97444ca008f0c9b182306242b
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925791"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121531"
 ---
 # <a name="log-analytics-agent-overview"></a>Omówienie agenta Log Analytics
 Agent usługi Azure Log Analytics został opracowany z myślą o rozbudowanym zarządzaniu między maszynami wirtualnymi w każdej chmurze, maszynach lokalnych i tych monitorowanych przez [System Center Operations Manager](/system-center/scom/). Agenci systemów Windows i Linux wysyłają zebrane dane z różnych źródeł do obszaru roboczego Log Analytics w Azure Monitor, a także do wszystkich unikatowych dzienników lub metryk zgodnie z definicją w rozwiązaniu monitorowania. Agent Log Analytics obsługuje także szczegółowe informacje i inne usługi w Azure Monitor, takie jak [Azure monitor dla maszyn wirtualnych](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml)i [Azure Automation](../../automation/automation-intro.md).
@@ -174,7 +174,7 @@ Aby zapewnić bezpieczeństwo danych przesyłanych do dzienników Azure Monitor,
 
 
 ## <a name="sha-2-code-signing-support-requirement-for-windows"></a>Wymagania dotyczące obsługi podpisywania kodu SHA-2 w przypadku systemu Windows
-Agent systemu Windows rozpocznie korzystanie wyłącznie z podpisywania SHA-2 w dniu 17 sierpnia 2020. Ta zmiana wpłynie na klientów korzystających z agenta Log Analytics w ramach starszej wersji systemu operacyjnego w ramach dowolnej usługi platformy Azure (Azure Monitor, Azure Automation, Update Management platformy Azure, Change Tracking platformy Azure, Azure Security Center, platformy Azure, usługi Windows Defender ATP). Zmiana nie wymaga żadnej akcji klienta, chyba że Agent jest uruchomiony w starszej wersji systemu operacyjnego (Windows 7, Windows Server 2008 R2 i Windows Server 2008). Klienci korzystający ze starszej wersji systemu operacyjnego są zobowiązani do podjęcia następujących działań na swoich maszynach przed 17 sierpnia 2020 lub ich agenci przestają wysyłać dane do swoich Log Analyticsych obszarów roboczych:
+Agent systemu Windows rozpocznie korzystanie wyłącznie z podpisywania SHA-2 w dniu 2 listopada 2020. Ta zmiana wpłynie na klientów korzystających z agenta Log Analytics w ramach starszej wersji systemu operacyjnego w ramach dowolnej usługi platformy Azure (Azure Monitor, Azure Automation, Update Management platformy Azure, Change Tracking platformy Azure, Azure Security Center, platformy Azure, usługi Windows Defender ATP). Zmiana nie wymaga żadnej akcji klienta, chyba że Agent jest uruchomiony w starszej wersji systemu operacyjnego (Windows 7, Windows Server 2008 R2 i Windows Server 2008). Klienci korzystający ze starszej wersji systemu operacyjnego muszą podejmować następujące działania na ich maszynach przed 2 listopada 2020 lub ich agenci przestają wysyłać dane do swoich Log Analyticsych obszarów roboczych:
 
 1. Zainstaluj najnowszy dodatek Service Pack dla systemu operacyjnego. Wymagane wersje dodatku Service Pack to:
     - Windows 7 z dodatkiem SP1
@@ -198,9 +198,9 @@ W poniższej tabeli wymieniono informacje o konfiguracji serwera proxy i zapory,
 |Zasób agenta|Porty |Kierunek |Obejście inspekcji HTTPS|
 |------|---------|--------|--------|   
 |*.ods.opinsights.azure.com |port 443 |Outbound|Tak |  
-|*.oms.opinsights.azure.com |port 443 |Outbound|Yes |  
-|*.blob.core.windows.net |port 443 |Outbound|Yes |
-|*.azure-automation.net |port 443 |Outbound|Yes |
+|*.oms.opinsights.azure.com |port 443 |Outbound|Tak |  
+|*.blob.core.windows.net |port 443 |Outbound|Tak |
+|*.azure-automation.net |port 443 |Outbound|Tak |
 
 Informacje dotyczące zapory wymagane do Azure Government można znaleźć w temacie [Azure Government Management](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). 
 

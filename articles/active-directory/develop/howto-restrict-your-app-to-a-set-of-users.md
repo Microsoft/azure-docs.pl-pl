@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6e20b2f8c0e12fdb23668d16e2cbd7936cc4e48c
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: a9b0090fa13a6d2f7a837a4f5ffee37d70893318
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445466"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116907"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Instrukcje: ograniczanie aplikacji usługi Azure AD do zestawu użytkowników w dzierżawie usługi Azure AD
 
@@ -39,7 +39,7 @@ Opcja ograniczenia aplikacji do określonego zestawu użytkowników lub grup zab
 - Aplikacje utworzone bezpośrednio na platformie aplikacji usługi Azure AD, która korzysta z uwierzytelniania OAuth 2.0/OpenID Connect, gdy użytkownik lub administrator wyraził zgodę na tę aplikację.
 
      > [!NOTE]
-     > Ta funkcja jest dostępna tylko dla aplikacji sieci Web/internetowego interfejsu API i aplikacje dla przedsiębiorstw. Aplikacje zarejestrowane jako [natywne](quickstart-v1-integrate-apps-with-azure-ad.md) nie mogą być ograniczone do zestawu użytkowników lub grup zabezpieczeń w dzierżawie.
+     > Ta funkcja jest dostępna tylko dla aplikacji sieci Web/internetowego interfejsu API i aplikacje dla przedsiębiorstw. Aplikacje zarejestrowane jako [natywne](./quickstart-register-app.md) nie mogą być ograniczone do zestawu użytkowników lub grup zabezpieczeń w dzierżawie.
 
 ## <a name="update-the-app-to-enable-user-assignment"></a>Aktualizowanie aplikacji w celu włączenia przypisania użytkownika
 
@@ -95,8 +95,8 @@ Po skonfigurowaniu aplikacji do włączania przypisywania użytkowników można 
 
 ## <a name="more-information"></a>Więcej informacji
 
-- [Instrukcje: Dodawanie ról aplikacji w aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
+- [Instrukcje: Dodawanie ról aplikacji w aplikacji](./howto-add-app-roles-in-azure-ad-apps.md)
 - [Dodawanie autoryzacji przy użyciu ról aplikacji & oświadczenia ról do aplikacji sieci Web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
 - [Używanie grup zabezpieczeń i ról aplikacji w aplikacjach (wideo)](https://www.youtube.com/watch?v=V8VUPixLSiM)
 - [Azure Active Directory, teraz z oświadczeniami grupy i rolami aplikacji](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
-- [Manifest aplikacji usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
+- [Manifest aplikacji usługi Azure Active Directory](./reference-app-manifest.md)

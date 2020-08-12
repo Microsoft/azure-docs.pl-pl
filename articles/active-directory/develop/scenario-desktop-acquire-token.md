@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 1caddf2fba8544bfbb1108865a459f4166af680b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: c394a3e84982db31b5727d170c143e9c07636d62
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846075"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121072"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: uzyskiwanie tokenu
 
@@ -175,7 +175,7 @@ catch(MsalUiRequiredException)
 
 ### <a name="mandatory-parameters"></a>Parametry obowiązkowe
 
-`AcquireTokenInteractive`ma tylko jeden obowiązkowy parametr, ``scopes`` który zawiera Wyliczenie ciągów definiujących zakresy, dla których wymagany jest token. Jeśli token dotyczy Microsoft Graph, wymagane zakresy można znaleźć w dokumentacji interfejsu API poszczególnych Microsoft Graph API w sekcji o nazwie "uprawnienia". Na przykład aby [wyświetlić listę kontaktów użytkownika](https://docs.microsoft.com/graph/api/user-list-contacts), należy użyć zakresu "User. Read", "Contacts. Read". Aby uzyskać więcej informacji, zobacz [Microsoft Graph informacje o uprawnieniach](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+`AcquireTokenInteractive`ma tylko jeden obowiązkowy parametr, ``scopes`` który zawiera Wyliczenie ciągów definiujących zakresy, dla których wymagany jest token. Jeśli token dotyczy Microsoft Graph, wymagane zakresy można znaleźć w dokumentacji interfejsu API poszczególnych Microsoft Graph API w sekcji o nazwie "uprawnienia". Na przykład aby [wyświetlić listę kontaktów użytkownika](/graph/api/user-list-contacts), należy użyć zakresu "User. Read", "Contacts. Read". Aby uzyskać więcej informacji, zobacz [Microsoft Graph informacje o uprawnieniach](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
 
 W systemie Android należy również określić działanie nadrzędne przy użyciu `.WithParentActivityOrWindow` , jak pokazano, aby token odwracał do tego działania nadrzędnego po interakcji. Jeśli nie zostanie on określony, wyjątek jest zgłaszany podczas wywoływania `.ExecuteAsync()` .
 
@@ -278,7 +278,7 @@ Zespół MSAL.NETy ponownie zapisał testy interfejsu użytkownika, aby użyć t
 
 ##### <a name="provide-a-great-experience-with-systemwebviewoptions"></a>Zapewnianie doskonałej obsługi SystemWebViewOptions
 
-Z MSAL.NET 4,1 [`SystemWebViewOptions`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet) można określić:
+Z MSAL.NET 4,1 [`SystemWebViewOptions`](/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet) można określić:
 
 - Identyfikator URI do przechodzenia do ( `BrowserRedirectError` ) lub fragmentu kodu HTML do wyświetlenia ( `HtmlMessageError` ) w przypadku błędów logowania lub wyrażania zgody w przeglądarce sieci Web systemu.
 - Identyfikator URI, aby przejść do ( `BrowserRedirectSuccess` ) lub fragment kodu HTML do wyświetlenia ( `HtmlMessageSuccess` ) w przypadku pomyślnego logowania lub zgody.
@@ -433,13 +433,13 @@ Aby zalogować użytkownika domeny w domenie lub na komputerze przyłączonym do
   - Lub Administrator dzierżawy musi być wcześniej wysłany do wszystkich użytkowników w dzierżawie, aby mógł korzystać z aplikacji.
   - Innymi słowy:
     - Deweloper zaznaczył przycisk **Udziel** w Azure Portal dla siebie.
-    - Lub Administrator dzierżawy zaznaczył przycisk **Udziel/odwołaj zgodę administratora dla {domena dzierżawy}** na karcie **uprawnienia interfejsu API** rejestracji aplikacji. Aby uzyskać więcej informacji, zobacz [Dodawanie uprawnień dostępu do interfejsów API sieci Web](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis).
-    - Możesz też zapewnić użytkownikom zgodę na stosowanie aplikacji. Aby uzyskać więcej informacji, zobacz [żądanie zgody poszczególnych użytkowników](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-individual-user-consent).
-    - Możesz też zapewnić, że administrator dzierżawy wyrazi zgodę na stosowanie aplikacji. Aby uzyskać więcej informacji, zobacz [zgoda administratora](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant).
+    - Lub Administrator dzierżawy zaznaczył przycisk **Udziel/odwołaj zgodę administratora dla {domena dzierżawy}** na karcie **uprawnienia interfejsu API** rejestracji aplikacji. Aby uzyskać więcej informacji, zobacz [Dodawanie uprawnień dostępu do interfejsów API sieci Web](./quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+    - Możesz też zapewnić użytkownikom zgodę na stosowanie aplikacji. Aby uzyskać więcej informacji, zobacz [żądanie zgody poszczególnych użytkowników](./v2-permissions-and-consent.md#requesting-individual-user-consent).
+    - Możesz też zapewnić, że administrator dzierżawy wyrazi zgodę na stosowanie aplikacji. Aby uzyskać więcej informacji, zobacz [zgoda administratora](./v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
 - Ten przepływ jest włączony dla aplikacji klasycznych .NET, .NET Core i platformy UWP.
 
-Aby uzyskać więcej informacji na temat zgody, zobacz [uprawnienia platformy tożsamości firmy Microsoft i wyrażanie zgody](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
+Aby uzyskać więcej informacji na temat zgody, zobacz [uprawnienia platformy tożsamości firmy Microsoft i wyrażanie zgody](./v2-permissions-and-consent.md).
 
 ### <a name="learn-how-to-use-it"></a>Dowiedz się, jak z niej korzystać
 

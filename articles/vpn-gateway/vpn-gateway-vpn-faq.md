@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: yushwang
-ms.openlocfilehash: 027047a212df72479a4f1b2511729365f3fa09e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5d66e79e79edd98f3192d0187d6f0454c3aeffa
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708930"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121480"
 ---
 # <a name="vpn-gateway-faq"></a>Brama sieci VPN — często zadawane pytania
 
@@ -126,6 +126,10 @@ Metody uwierzytelniania ograniczają się do stosowania kluczy wstępnych (PSK).
 ### <a name="can-i-configure-force-tunneling"></a>Czy mogę skonfigurować wymuszone tunelowanie?
 
 Tak. Zobacz [Configure force tunneling](vpn-gateway-about-forced-tunneling.md) (Konfigurowanie wymuszonego tunelowania).
+
+### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>Czy mogę użyć translatora adresów sieciowych dla połączeń sieci VPN?
+
+Tak, obsługiwane jest przechodzenie NAT (NAT-T). Usługa Azure VPN Gateway nie będzie wykonywać żadnych funkcji podobnej do translatora adresów sieciowych do/z tuneli IPsec.  W tej konfiguracji upewnij się, że urządzenie lokalne inicjuje tunel IPSec.
 
 ### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network"></a>Czy można wdrożyć własny serwer sieci VPN na platformie Azure i używać go do nawiązywania połączenia z siecią lokalną?
 

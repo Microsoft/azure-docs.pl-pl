@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c27938227a13934de11dd6e88d58138c46c3f58e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60c61ff4753413d2241820400dcbc899e925eecc
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204630"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120953"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Obsługa wyjątków i błędów MSAL
 
@@ -46,7 +46,7 @@ Jeśli zgłoszono [MsalServiceException](/dotnet/api/microsoft.identity.client.m
 
 Poniżej przedstawiono typowe wyjątki, które mogą zostać zgłoszone i niektóre możliwe środki zaradcze:  
 
-| Wyjątek | Kod błędu | Środki zaradcze|
+| Wyjątek | Kod błędu | Ograniczanie ryzyka|
 | --- | --- | --- |
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: użytkownik lub administrator nie wyraził zgody na korzystanie z aplikacji o IDENTYFIKATORze "{appId}" o nazwie "{nazwa_aplikacji}". Wyślij interaktywne żądanie autoryzacji dla tego użytkownika i zasobu.| Musisz najpierw uzyskać zgodę użytkownika. Jeśli nie korzystasz z platformy .NET Core (bez interfejsu użytkownika sieci Web), wywołaj (tylko raz) `AcquireTokeninteractive` . Jeśli korzystasz z platformy .NET Core lub nie chcesz go wykonać `AcquireTokenInteractive` , użytkownik może przejść do adresu URL, aby wyrazić zgodę: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read` . Aby wywołać `AcquireTokenInteractive` :`app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079: użytkownik musi korzystać z [uwierzytelniania wieloskładnikowego (MFA)](../authentication/concept-mfa-howitworks.md).| Nie ma żadnych środków zaradczych. Jeśli skonfigurowano usługę MFA dla dzierżawy, a Azure Active Directory (AAD) zdecyduje się ją wymusić, należy wrócić do interaktywnego przepływu, takiego jak `AcquireTokenInteractive` lub `AcquireTokenByDeviceCode` .|
@@ -236,7 +236,7 @@ W programie MSAL for Python większość błędów jest przekazywanych jako wart
 * Pomyślna odpowiedź zawiera `"access_token"` klucz. Format odpowiedzi jest definiowany przez protokół OAuth2. Aby uzyskać więcej informacji, zobacz [5,1 Pomyślne odpowiedzi](https://tools.ietf.org/html/rfc6749#section-5.1)
 * Odpowiedź na błąd zawiera `"error"` i zwykle `"error_description"` . Format odpowiedzi jest definiowany przez protokół OAuth2. Aby uzyskać więcej informacji, zobacz [5,2 odpowiedzi na błędy](https://tools.ietf.org/html/rfc6749#section-5.2)
 
-Po zwróceniu błędu `"error_description"` klucz zawiera komunikat z możliwością odczytu przez człowieka, który z kolei zwykle zawiera kod błędu platformy tożsamości firmy Microsoft. Aby uzyskać szczegółowe informacje o różnych kodach błędów, zobacz [kody błędów uwierzytelniania i autoryzacji](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes).
+Po zwróceniu błędu `"error_description"` klucz zawiera komunikat z możliwością odczytu przez człowieka, który z kolei zwykle zawiera kod błędu platformy tożsamości firmy Microsoft. Aby uzyskać szczegółowe informacje o różnych kodach błędów, zobacz [kody błędów uwierzytelniania i autoryzacji](./reference-aadsts-error-codes.md).
 
 W programie MSAL for Python wyjątki są rzadko, ponieważ większość błędów jest obsługiwana przez zwrócenie wartości błędu. `ValueError`Wyjątek jest zgłaszany tylko wtedy, gdy występuje problem z próbą użycia biblioteki — na przykład wtedy, gdy parametry interfejsu API są źle sformułowane.
 

@@ -13,12 +13,12 @@ ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: e86b89fbf325eb0af5e4127e7fe113b87b1b70c2
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: f9ad5eeec17027b0e2891069af703c28aee9c528
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874269"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119100"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serializacja pamięci podręcznej tokenów w MSAL.NET
 Po [uzyskaniu tokenu](msal-acquire-cache-tokens.md)zostanie on zbuforowany przez bibliotekę uwierzytelniania firmy Microsoft (MSAL).  Kod aplikacji powinien próbować uzyskać token z pamięci podręcznej przed uzyskaniem tokenu przez inną metodę.  W tym artykule omówiono domyślną i niestandardową serializację pamięci podręcznej tokenów w MSAL.NET.
@@ -325,7 +325,7 @@ services.AddDistributedSqlServerCache(options =>
 });
 ```
 
-Ich użycie jest proponowane w [samouczku ASP.NET Core Web App](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/) w [Pamięci Podręcznej tokenów 2-2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache).
+Ich użycie jest proponowane w [samouczku ASP.NET Core Web App](/aspnet/core/tutorials/first-mvc-app/) w [Pamięci Podręcznej tokenów 2-2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache).
 
 ## <a name="next-steps"></a>Następne kroki
 

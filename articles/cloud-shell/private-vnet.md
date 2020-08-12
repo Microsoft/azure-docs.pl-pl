@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
-ms.openlocfilehash: 5abc10d149cdb2c054f4122cd805ec22b2e37e2f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1cb5716e2f02a99e4d39a4041a2e54e87cf43568
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098135"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114663"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Wdrażanie Cloud Shell w sieci wirtualnej platformy Azure
 > [!NOTE]
@@ -103,7 +103,7 @@ Przejdź do przekaźnika utworzonego przy użyciu powyższego szablonu, wybierz 
 > [!NOTE]
 > Ten krok należy wykonać dla każdego administratora, który będzie używać Cloud Shell.
 
-Po wdrożeniu wykonaj powyższe kroki przejdź do Cloud Shell w Azure Portal lub na https://shell.azure.com .
+Po wdrożeniu wykonaj powyższe kroki przejdź do Cloud Shell w Azure Portal lub na https://shell.azure.com . Jedno z tych środowisk musi być używane za każdym razem, gdy chcesz nawiązać połączenie z izolowanym Cloud Shell środowiska.
 
 > [!NOTE]
 > Jeśli w przeszłości użyto Cloud Shell, należy odinstalować istniejące CloudDrive. Aby wykonać ten przebieg `clouddrive unmount` z aktywnej sesji Cloud Shell, Odśwież stronę.
