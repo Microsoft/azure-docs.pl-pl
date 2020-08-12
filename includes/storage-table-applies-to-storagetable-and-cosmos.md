@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: dołączanie pliku
+description: dołączanie pliku
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
