@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21b8748cf74a5061e9dfa154047f867df4cb5428
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: d6ede429de686dd005785b44cf5c6d9571aac5a2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848761"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117026"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integracja infrastruktury Pulpit zdalny Gateway przy użyciu rozszerzenia serwera zasad sieciowych (NPS) i usługi Azure AD
 
@@ -110,6 +110,11 @@ Wykonaj kroki opisane w temacie Rozpoczynanie [pracy z usługą azure Multi-Fact
 Po włączeniu konta usługi MFA nie można zalogować się do zasobów objętych zasadami usługi MFA do momentu pomyślnego skonfigurowania zaufanego urządzenia do użycia dla drugiego czynnika uwierzytelniania i uwierzytelnienia przy użyciu weryfikacji dwuetapowej.
 
 Postępuj zgodnie z instrukcjami w sekcji [co to jest usługa Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user.md) , aby zrozumieć i prawidłowo skonfigurować urządzenia do uwierzytelniania wieloskładnikowego przy użyciu konta użytkownika.
+
+> [!IMPORTANT]
+> Zachowanie podczas logowania dla bramy Pulpit zdalny nie zapewnia opcji wprowadzania kodu weryfikacyjnego za pomocą usługi Azure Multi-Factor Authentication. Konto użytkownika musi być skonfigurowane pod kątem weryfikacji telefonu lub aplikacji Microsoft Authenticator z użyciem powiadomień wypychanych.
+>
+> Jeśli jedna z tych dwóch metod uwierzytelniania nie jest skonfigurowana dla użytkownika, nie będzie można ukończyć wyzwania usługi Azure Multi-Factor Authentication i zalogować się do bramy Pulpit zdalny.
 
 ## <a name="install-and-configure-nps-extension"></a>Instalowanie i Konfigurowanie rozszerzenia serwera NPS
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: ad66e0698cf0705c7a4db90a6dd515b71fed84e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85c406fc561424d7b02d39dfd58dc3c8fe34aab2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478624"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116091"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Instrukcje: Konfigurowanie roszczeń ról wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw
 
@@ -265,7 +265,7 @@ Aby usunąć istniejącą rolę, wykonaj następujące czynności:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dodatkowe kroki można znaleźć w [dokumentacji aplikacji](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+Dodatkowe kroki można znaleźć w [dokumentacji aplikacji](../saas-apps/tutorial-list.md).
 
 <!--Image references-->
 <!--Image references-->

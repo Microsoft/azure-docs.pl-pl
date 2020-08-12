@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
@@ -8,19 +8,17 @@ ms.topic: include
 ms.date: 1/31/2020
 ms.author: lcozzens
 ms.custom: include file
-ms.openlocfilehash: 3eb77799b1845112e9f7e5ca0b65d790625fd529
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e49f68f43044b93f329295181717ec2d3ade9fc6
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76961497"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116992"
 ---
-Jeśli planujesz przejść do następnego samouczka, Zachowaj zasoby utworzone w tym przewodniku Szybki Start, aby można było użyć ich ponownie.
-
-Po zakończeniu korzystania z przykładowej aplikacji szybkiego startu Usuń zasoby platformy Azure utworzone w tym przewodniku Szybki Start, aby uniknąć naliczania opłat.
+Jeśli nie chcesz nadal używać zasobów utworzonych w tym artykule, Usuń utworzoną tutaj grupę zasobów, aby uniknąć naliczania opłat.
 
 > [!IMPORTANT]
-> Usunięcie grupy zasobów jest nieodwracalne. Grupa zasobów i wszystkie znajdujące się w niej zasoby są trwale usuwane. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub niewłaściwej grupy zasobów. Jeśli utworzono zasoby do hostowania tego przykładu wewnątrz grupy zasobów zawierającej zasoby, które chcesz zachować, Usuń każdy z nich oddzielnie, zamiast usuwać grupę zasobów.
+> Usunięcie grupy zasobów jest nieodwracalne. Grupa zasobów i wszystkie znajdujące się w niej zasoby są trwale usuwane. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub niewłaściwej grupy zasobów. Jeśli zasoby dla tego artykułu zostały utworzone w grupie zasobów zawierającej inne zasoby, które chcesz zachować, Usuń każdy z nich oddzielnie, zamiast usuwać grupę zasobów.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com)i wybierz pozycję **grupy zasobów**.
 1. W polu **Filtruj według nazwy** wprowadź nazwę grupy zasobów. 

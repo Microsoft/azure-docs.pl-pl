@@ -13,12 +13,12 @@ ms.date: 07/16/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 0654bce86cf5fb0b5bd117e444721e95f137dd47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 502bbe65cdc0aef768ff4f017b1f6a920815b001
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652691"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118862"
 ---
 # <a name="considerations-for-using-universal-windows-platform-with-msalnet"></a>Zagadnienia dotyczące korzystania z platforma uniwersalna systemu Windows z MSAL.NET
 Deweloperzy aplikacji korzystających z platforma uniwersalna systemu Windows (platformy UWP) z MSAL.NET powinni wziąć pod uwagę Koncepcje opisane w tym artykule.
@@ -56,7 +56,7 @@ Można uniknąć tego problemu, upewniając się, że w sieci prywatnej jest uż
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\authhost.exe\EnablePrivateNetwork = 00000001
 ```
 
-Aby uzyskać więcej informacji, zobacz [brokera uwierzytelniania w sieci Web — programu Fiddler](https://docs.microsoft.com/windows/uwp/security/web-authentication-broker#fiddler).
+Aby uzyskać więcej informacji, zobacz [brokera uwierzytelniania w sieci Web — programu Fiddler](/windows/uwp/security/web-authentication-broker#fiddler).
 
 ## <a name="next-steps"></a>Następne kroki
 Poniższe przykłady zawierają więcej informacji.

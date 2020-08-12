@@ -13,12 +13,12 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8895e52209622025f943aaa6a4261b68a7e2899c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1075cce9b9e3bc3267756bba84691788293fa8d2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034843"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116310"
 ---
 # <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Wskazówki dla deweloperów dotyczące funkcji dostępu warunkowego Azure Active Directory
 
@@ -90,7 +90,7 @@ Deweloperzy mogą podjąć to wyzwanie i dołączyć go do nowego żądania do u
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Dostęp warunkowy usługi Azure AD jest funkcją objętą [Azure AD — wersja Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Więcej informacji o wymaganiach licencyjnych można znaleźć w raporcie dotyczącym [użycia bez licencji](../active-directory-conditional-access-unlicensed-usage-report.md). Deweloperzy mogą dołączać do [sieci Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), która obejmuje bezpłatną subskrypcję pakietu Enterprise Mobility Suite, która obejmuje Azure AD — wersja Premium.
+Dostęp warunkowy usługi Azure AD jest funkcją objętą [Azure AD — wersja Premium](../fundamentals/active-directory-whatis.md). Więcej informacji o wymaganiach licencyjnych można znaleźć w raporcie dotyczącym [użycia bez licencji](../reports-monitoring/overview-reports.md). Deweloperzy mogą dołączać do [sieci Microsoft Developer Network](/), która obejmuje bezpłatną subskrypcję pakietu Enterprise Mobility Suite, która obejmuje Azure AD — wersja Premium.
 
 ### <a name="considerations-for-specific-scenarios"></a>Zagadnienia dotyczące konkretnych scenariuszy
 
@@ -175,9 +175,9 @@ Nasza aplikacja musi przechwycić `error=interaction_required` . Aplikacja może
 
 Aby wypróbować ten scenariusz, zapoznaj się [z naszym Przykładem Spa](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca). Ten przykładowy kod korzysta z zasad dostępu warunkowego i internetowego interfejsu API, który został zarejestrowany wcześniej przy użyciu protokołu JS SPA, aby przedstawić ten scenariusz. Pokazuje, jak prawidłowo obsługiwać wyzwanie oświadczeń i uzyskać token dostępu, który może być używany przez internetowy interfejs API. Alternatywnie można wyewidencjonować [przykład kodu ogólnegoAngular.js](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) , aby uzyskać wskazówki dotyczące KĄTOWego Spa
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-* Aby dowiedzieć się więcej o możliwościach, zobacz [dostęp warunkowy w Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+* Aby dowiedzieć się więcej o możliwościach, zobacz [dostęp warunkowy w Azure Active Directory](../conditional-access/overview.md).
 * Aby uzyskać więcej przykładów kodu usługi Azure AD, zobacz [repozytorium kodu](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory)w witrynie GitHub.
 * Aby uzyskać więcej informacji na temat zestawu SDK ADAL i uzyskać dostęp do dokumentacji referencyjnej, zobacz [Przewodnik po bibliotece](active-directory-authentication-libraries.md).
 * Aby dowiedzieć się więcej o scenariuszach obejmujących wiele dzierżawców, zobacz [Jak logować użytkowników przy użyciu wzorca wielodostępności](../develop/howto-convert-app-to-be-multi-tenant.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).

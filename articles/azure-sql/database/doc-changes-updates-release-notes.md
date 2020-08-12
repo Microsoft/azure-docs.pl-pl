@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: af19b72846c78ef80ba170b6d6e0cec97fa2b96e
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e1e6c9254c3906b79c3a20de4672dff1b9ac6c63
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533363"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121463"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Co nowego w Azure SQL Database & wystąpieniu zarządzanym SQL?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -36,13 +36,13 @@ Należy wziąć pod uwagę, że jest to trwające prace, a nie każdy artykuł z
 Ta tabela zawiera krótkie porównanie zmian w terminologii: 
 
 
-|**Nowy termin**  | **Poprzedni termin**  |**Wyjaśnienie** |
+|**Nowy termin**  | **Poprzedni termin**  |**Objaśnienie** |
 |---------|---------|---------|
 |**Wystąpienie zarządzane Azure SQL** | Azure SQL Database *wystąpienie zarządzane*| Wystąpienie zarządzane Azure SQL to własny produkt należący do rodziny Azure SQL, a nie tylko opcja wdrażania w ramach Azure SQL Database. | 
 |**Azure SQL Database**|Azure SQL Database *pojedynczą bazę danych*| O ile nie określono jawnie inaczej, nazwa produktu Azure SQL Database obejmuje pojedyncze bazy danych i bazy danych wdrożone w puli elastycznej. |
 |**Azure SQL Database**|Azure SQL Database *elastyczna Pula*| O ile nie określono jawnie inaczej, nazwa produktu Azure SQL Database obejmuje pojedyncze bazy danych i bazy danych wdrożone w puli elastycznej.  |
 |**Azure SQL Database** |Azure SQL Database | Mimo że termin pozostaje taki sam, ma zastosowanie tylko do wdrożeń pojedynczej bazy danych i pul elastycznych i nie obejmuje wystąpienia zarządzanego. |
-| **Azure SQL**| Brak | Odnosi się to do rodziny SQL Server produktów aparatu bazy danych, które są dostępne na platformie Azure: Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i SQL Server na maszynach wirtualnych platformy Azure. | 
+| **Azure SQL**| Nie dotyczy | Odnosi się to do rodziny SQL Server produktów aparatu bazy danych, które są dostępne na platformie Azure: Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i SQL Server na maszynach wirtualnych platformy Azure. | 
 
 ## <a name="features-in-public-preview"></a>Funkcje w publicznej wersji zapoznawczej
 
@@ -51,8 +51,8 @@ Ta tabela zawiera krótkie porównanie zmian w terminologii:
 | Cechy | Szczegóły |
 | ---| --- |
 | Szybsze odzyskiwanie bazy danych przy użyciu pojedynczych baz danych i pul elastycznych | Aby uzyskać więcej informacji, zobacz [przyspieszone odzyskiwanie bazy danych](../accelerated-database-recovery.md).|
-| Odnajdowanie i klasyfikacja danych  |Aby uzyskać więcej informacji, zobacz [Azure SQL Database i Synapse Analytics Data discovery & Klasyfikacja](data-discovery-and-classification-overview.md).|
-| Zadania elastycznych baz danych | Aby uzyskać więcej informacji, zobacz [Tworzenie i Konfigurowanie zadań elastycznych oraz zarządzanie nimi](elastic-jobs-overview.md). |
+| Odnajdywanie i klasyfikacja danych  |Aby uzyskać więcej informacji, zobacz [Azure SQL Database i Synapse Analytics Data discovery & Klasyfikacja](data-discovery-and-classification-overview.md).|
+| Zadania Elastic Database (wersja zapoznawcza) | Aby uzyskać więcej informacji, zobacz [Tworzenie i Konfigurowanie zadań elastycznych oraz zarządzanie nimi](elastic-jobs-overview.md). |
 | Zapytania elastyczne | Aby uzyskać więcej informacji, zobacz [Omówienie zapytania elastycznego](elastic-query-overview.md). |
 | Transakcje elastyczne | [Transakcje rozproszone w bazach danych w chmurze](elastic-transactions-overview.md). |
 | Edytor zapytań w Azure Portal |Aby uzyskać więcej informacji, zobacz [Używanie edytora zapytań SQL Azure Portal do łączenia i wykonywania zapytań dotyczących danych](connect-query-portal.md).|

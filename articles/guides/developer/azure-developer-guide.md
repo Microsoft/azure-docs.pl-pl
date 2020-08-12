@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: d91fd15d7f1f5d2bb1bd97b5a28ef56f09797140
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 9ed6244d8f5ecf18e89994c0c62af16290fb68c5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080321"
+ms.locfileid: "88120579"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Wprowadzenie — przewodnik dla deweloperów platformy Azure
 
@@ -35,7 +35,7 @@ Ten przewodnik zawiera wprowadzenie do platformy Azure dla deweloperów aplikacj
 
 Dzięki wszystkim usługom oferowanym przez platformę Azure może być zastraszanie zadanie pozwalające ustalić, które usługi są potrzebne do obsługi architektury rozwiązania. W tej sekcji przedstawiono usługi platformy Azure powszechnie używane przez deweloperów. Aby zapoznać się z listą wszystkich usług platformy Azure, zobacz [dokumentację platformy Azure](../../index.yml).
 
-Najpierw należy zdecydować, jak hostować aplikację na platformie Azure. Czy musisz zarządzać całą infrastrukturą jako maszyną wirtualną. Czy można korzystać z funkcji zarządzania platformą udostępnianych przez platformę Azure? Być może potrzebujesz platformy bezserwerowej tylko do hostowania wykonywania kodu?
+Najpierw należy zdecydować, jak hostować aplikację na platformie Azure. Czy musisz zarządzać całą infrastrukturą jako maszyną wirtualną? Czy można korzystać z funkcji zarządzania platformą udostępnianych przez platformę Azure? Być może potrzebujesz platformy bezserwerowej tylko do hostowania wykonywania kodu?
 
 Twoja aplikacja wymaga magazynu w chmurze, w którym platforma Azure oferuje kilka opcji. Możesz skorzystać z zalet uwierzytelniania przedsiębiorstwa na platformie Azure. Istnieją także narzędzia do programowania i monitorowania w chmurze, a większość usług hostingu oferuje integrację DevOps.
 

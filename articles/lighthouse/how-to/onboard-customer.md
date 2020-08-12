@@ -3,12 +3,12 @@ title: Dołączanie klienta do usługi Azure Lighthouse
 description: Dowiedz się, jak dołączyć klienta do usługi Azure Lighthouse, umożliwiając dostęp do zasobów i zarządzanie nimi za pośrednictwem własnej dzierżawy przy użyciu funkcji zarządzania zasobami delegowanymi przez platformę Azure.
 ms.date: 05/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 3cc754dba124c5f647cd4b51246ced19360c82c3
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: cac40a835ff3227a31611b31655865d43fa378ab
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133472"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118879"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Dołączanie klienta do usługi Azure Lighthouse
 
@@ -86,7 +86,7 @@ Aby zdefiniować autoryzacje, musisz znać wartości identyfikatora dla każdego
 (Get-AzADUser -UserPrincipalName '<yourUPN>').id
 
 # To retrieve the objectId for an SPN
-(Get-AzADApplication -DisplayName '<appDisplayName>').objectId
+(Get-AzADApplication -DisplayName '<appDisplayName>' | Get-AzADServicePrincipal).Id
 
 # To retrieve role definition IDs
 (Get-AzRoleDefinition -Name '<roleName>').id
@@ -254,7 +254,7 @@ Po pomyślnym dołączeniu subskrypcji klienta do usługi Azure Lighthouse użyt
 W dzierżawie dostawcy usług:
 
 1. Przejdź do [strony moi klienci](view-manage-customers.md).
-2. Wybierz pozycję **klienci**.
+2. Wybierz pozycję **Klienci**.
 3. Upewnij się, że można zobaczyć subskrypcje o nazwie oferty podanej w szablonie Menedżer zasobów.
 
 > [!IMPORTANT]
@@ -263,7 +263,7 @@ W dzierżawie dostawcy usług:
 W dzierżawie klienta:
 
 1. Przejdź do [strony dostawcy usług](view-manage-service-providers.md).
-2. Wybierz pozycję **oferty dostawcy usług**.
+2. Wybierz pozycję **Oferty dostawców usług**.
 3. Upewnij się, że można zobaczyć subskrypcje o nazwie oferty podanej w szablonie Menedżer zasobów.
 
 > [!NOTE]

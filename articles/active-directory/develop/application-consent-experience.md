@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
-ms.openlocfilehash: e96442be50a075ebf2cd81bf1b6fb0f58f883bad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e768c1e938006afd62fc097a80f8ebc3ea0f3e6
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885586"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115479"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Opis środowisk zgody dla aplikacji usługi Azure AD
 
@@ -28,10 +28,10 @@ Dowiedz się więcej na temat sposobu korzystania z aplikacji Azure Active Direc
 
 Zgoda polega na tym, że użytkownik udzielający autoryzacji aplikacji dostępu do chronionych zasobów w ich imieniu. Administrator lub użytkownik może zostać poproszony o zgodę, aby zezwolić na dostęp do swojej organizacji/poszczególnych danych.
 
-Rzeczywiste środowisko użytkownika udzielania zgody będzie różnić się w zależności od zasad ustawionych w dzierżawie użytkownika, zakresu uwierzytelniania użytkownika (lub roli) oraz typu [uprawnień](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent) wymaganych przez aplikację kliencką. Oznacza to, że deweloperzy aplikacji i Administratorzy dzierżawy mają pewną kontrolę nad doświadczeniem w zakresie wyrażania zgody. Administratorzy mają elastyczność ustawiania i wyłączania zasad w dzierżawie lub aplikacji w celu kontrolowania sposobu wyrażania zgody w dzierżawie. Deweloperzy aplikacji mogą określać, jakie typy uprawnień są wymagane i czy chcą przeprowadzić użytkowników przez przepływ zgody użytkownika lub przepływ zgody administratora.
+Rzeczywiste środowisko użytkownika udzielania zgody będzie różnić się w zależności od zasad ustawionych w dzierżawie użytkownika, zakresu uwierzytelniania użytkownika (lub roli) oraz typu [uprawnień](../azuread-dev/v1-permissions-consent.md) wymaganych przez aplikację kliencką. Oznacza to, że deweloperzy aplikacji i Administratorzy dzierżawy mają pewną kontrolę nad doświadczeniem w zakresie wyrażania zgody. Administratorzy mają elastyczność ustawiania i wyłączania zasad w dzierżawie lub aplikacji w celu kontrolowania sposobu wyrażania zgody w dzierżawie. Deweloperzy aplikacji mogą określać, jakie typy uprawnień są wymagane i czy chcą przeprowadzić użytkowników przez przepływ zgody użytkownika lub przepływ zgody administratora.
 
 - **Przepływ zgody użytkownika** polega na tym, że deweloper aplikacji kieruje użytkowników do punktu końcowego autoryzacji z zamiarem zarejestrowania zgody wyłącznie dla bieżącego użytkownika.
-- **Przepływ zgody administratora** polega na tym, że deweloper aplikacji kieruje użytkowników do punktu końcowego zgody na administratora z zamiarem zarejestrowania zgody dla całej dzierżawy. Aby zapewnić prawidłowe działanie przepływu zgody administratora, deweloperzy aplikacji muszą wyświetlić listę wszystkich uprawnień we `RequiredResourceAccess` właściwości w manifeście aplikacji. Aby uzyskać więcej informacji, zobacz [manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
+- **Przepływ zgody administratora** polega na tym, że deweloper aplikacji kieruje użytkowników do punktu końcowego zgody na administratora z zamiarem zarejestrowania zgody dla całej dzierżawy. Aby zapewnić prawidłowe działanie przepływu zgody administratora, deweloperzy aplikacji muszą wyświetlić listę wszystkich uprawnień we `RequiredResourceAccess` właściwości w manifeście aplikacji. Aby uzyskać więcej informacji, zobacz [manifest aplikacji](./reference-app-manifest.md).
 
 ## <a name="building-blocks-of-the-consent-prompt"></a>Bloki konstrukcyjne monitu o zgodę
 
@@ -81,6 +81,6 @@ Poniżej przedstawiono sposób, w jaki użytkownik może zobaczyć w typowych sc
     1. Użytkownicy niebędący administratorami zobaczą ten sam ekran co 2. II powyżej.
 
 ## <a name="next-steps"></a>Następne kroki
-- Zapoznaj się z omówieniem krok po kroku [na temat sposobu, w jaki platforma zgody usługi Azure AD implementuje wyrażanie zgody](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- Aby uzyskać większą głębokość, Dowiedz się, w [jaki sposób aplikacja wielodostępna może używać struktury zgody](active-directory-devhowto-multi-tenant-overview.md) do implementowania zgody "User" i "admin", co pozwala na bardziej zaawansowane wzorce aplikacji wielowarstwowej.
+- Zapoznaj się z omówieniem krok po kroku [na temat sposobu, w jaki platforma zgody usługi Azure AD implementuje wyrażanie zgody](./quickstart-register-app.md).
+- Aby uzyskać większą głębokość, Dowiedz się, w [jaki sposób aplikacja wielodostępna może używać struktury zgody](./howto-convert-app-to-be-multi-tenant.md) do implementowania zgody "User" i "admin", co pozwala na bardziej zaawansowane wzorce aplikacji wielowarstwowej.
 - Dowiedz się [, jak skonfigurować domenę wydawcy aplikacji](howto-configure-publisher-domain.md).

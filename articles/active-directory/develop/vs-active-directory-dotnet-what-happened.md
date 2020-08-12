@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: b6a364cbd29c3273466bee15b9a54e097497a8e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc23a61c88337c152a764cc0ec90ddbbad25cef1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479117"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114731"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>Co się stało z moim projektem MVC (usługa połączona Azure Active Directory Visual Studio)?
 
@@ -162,5 +162,5 @@ Podczas dodawania połączonej usługi program Visual Studio 2015 tworzy kopie z
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Scenariusze uwierzytelniania dla Azure Active Directory](authentication-scenarios.md)
+- [Scenariusze uwierzytelniania dla Azure Active Directory](./authentication-vs-authorization.md)
 - [dodawanie logowania przy użyciu konta Microsoft do aplikacji internetowej ASP.NET](quickstart-v2-aspnet-webapp.md)

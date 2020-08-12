@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7193affad3da212a6a40c0d9479473ec597e86f6
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 38bd83f8bd713f2d5bda658e052c919dd3d7625d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807625"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119712"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Wywoływanie interfejsu API Microsoft Graph z aplikacji platforma uniwersalna systemu Windows (XAML)
 
@@ -27,7 +27,7 @@ W tym przewodniku wyjaśniono, jak aplikacja natywna platforma uniwersalna syste
 Na końcu tego przewodnika aplikacja wywołuje chroniony interfejs API przy użyciu kont osobistych. Przykłady to outlook.com, live.com i inne. Aplikacja wywołuje również konta służbowe z dowolnej firmy lub organizacji, która ma Azure Active Directory (Azure AD).
 
 >[!NOTE]
-> Ten przewodnik wymaga programu Visual Studio z zainstalowaną platforma uniwersalna systemu Windows programowaniem. Aby uzyskać instrukcje dotyczące pobierania i konfigurowania programu Visual Studio do opracowywania aplikacji platforma uniwersalna systemu Windows, zobacz [get set up](https://docs.microsoft.com/windows/uwp/get-started/get-set-up).
+> Ten przewodnik wymaga programu Visual Studio z zainstalowaną platforma uniwersalna systemu Windows programowaniem. Aby uzyskać instrukcje dotyczące pobierania i konfigurowania programu Visual Studio do opracowywania aplikacji platforma uniwersalna systemu Windows, zobacz [get set up](/windows/uwp/get-started/get-set-up).
 
 >[!NOTE]
 > Jeśli jesteś nowym firmą Microsoft Identity platform, Zacznij od [wywołania interfejsu API Microsoft Graph z poziomu aplikacji platforma uniwersalna systemu Windows (platformy UWP)](quickstart-v2-uwp.md).
@@ -437,7 +437,7 @@ W bieżącym przykładzie `WithRedirectUri("https://login.microsoftonline.com/co
 
 3. W portalu rejestracji aplikacji Dodaj wartość zwróconą w **RedirectUri** w okienku **uwierzytelnianie** .
    
-## <a name="test-your-code"></a>testowanie kodu
+## <a name="test-your-code"></a>Testowanie kodu
 
 Aby przetestować aplikację, wybierz klawisz **F5** , aby uruchomić projekt w programie Visual Studio. Zostanie wyświetlone okno główne:
 

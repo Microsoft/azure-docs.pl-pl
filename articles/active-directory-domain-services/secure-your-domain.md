@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 6c5e0779ce0dfe2730a60873316c66184e038a35
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 50cf58f83115cfb8c84fe7b2a37b6664c2d9c567
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039878"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116686"
 ---
 # <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-active-directory-domain-services-managed-domain"></a>Wyłącz słabe szyfry i synchronizację skrótów haseł, aby zabezpieczyć domenę zarządzaną Azure Active Directory Domain Services
 
@@ -74,6 +74,11 @@ Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySetti
 ```
 
 Zastosowanie ustawień zabezpieczeń do domeny zarządzanej może chwilę potrwać.
+
+> [!IMPORTANT]
+> Po wyłączeniu uwierzytelniania NTLM należy wykonać pełną synchronizację skrótów haseł w Azure AD Connect, aby usunąć wszystkie skróty haseł z domeny zarządzanej. Jeśli wyłączysz protokół NTLM, ale nie wymusisz synchronizacji skrótów haseł, skróty haseł NTLM dla konta użytkownika zostaną usunięte tylko przy następnej zmianie hasła. Takie zachowanie może pozwolić użytkownikowi na kontynuowanie logowania, jeśli mają zbuforowane poświadczenia w systemie, w którym protokół NTLM jest używany jako metoda uwierzytelniania.
+>
+> Gdy skrót hasła NTLM różni się od wartości skrótu hasła protokołu Kerberos, powrót do protokołu NTLM nie będzie działał. Poświadczenia buforowane również nie będą działać, jeśli maszyna wirtualna ma łączność z zarządzanym kontrolerem domeny.  
 
 ## <a name="next-steps"></a>Następne kroki
 

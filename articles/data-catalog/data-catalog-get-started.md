@@ -1,17 +1,17 @@
 ---
-title: Tworzenie usługi Azure Data Catalog
+title: 'Szybki Start: Tworzenie Azure Data Catalog'
 description: W tym przewodniku szybki start opisano sposób tworzenia Azure Data Catalog przy użyciu Azure Portal.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: e37bd22e0bd0f750ef7b4ae9cc8465ed5292883e
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: e08527ae530b7b5ed5e5293a3af9e2d8dd3f795a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860991"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118794"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Szybki Start: Tworzenie Azure Data Catalog
 
@@ -28,7 +28,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 Aby rozpocząć, musisz dysponować:
 
-* Subskrypcja [Microsoft Azure](https://azure.microsoft.com/) .
+* Subskrypcję platformy [Microsoft Azure](https://azure.microsoft.com/).
 * Musisz mieć własną [dzierżawę Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 Aby skonfigurować Data Catalog, musisz być właścicielem lub współwłaścicielem subskrypcji platformy Azure.
@@ -41,7 +41,7 @@ W ramach organizacji — domeny usługi Azure Active Directory — można aprowi
 
     ![Przycisk tworzenia Azure Data Catalog](media/data-catalog-get-started/data-catalog-create.png)
 
-2. Określ **nazwę** wykazu danych, **subskrypcję** , której chcesz użyć, **lokalizację** katalogu i **warstwę cenową**. Następnie wybierz pozycję **Utwórz**.
+2. Określ **nazwę** wykazu danych, **subskrypcję** , której chcesz użyć, **lokalizację** katalogu i **warstwę cenową**. Następnie wybierz przycisk **Utwórz**.
 
 3. Przejdź do [strony głównej usługi Azure Data Catalog](http://azuredatacatalog.com) i kliknij pozycję **Publikuj dane**.
 

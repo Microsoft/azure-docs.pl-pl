@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9f56fdd08a73db5b3164a316afe9c6568c885413
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd31171d04dcf0102472e71fdcdc058471d79fb0
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85383669"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117723"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory Authentication Libraries (Biblioteki Azure Active Directory Authentication Libraries)
 
@@ -31,7 +31,7 @@ Biblioteka Azure Active Directory Authentication Library (ADAL) v 1.0 umożliwia
 - Obsługa wywołań metod asynchronicznych
 
 > [!NOTE]
-> Szukasz bibliotek usługi Azure AD v 2.0 (MSAL)? Zaewidencjonuj [Przewodnik po bibliotece MSAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries).
+> Szukasz bibliotek usługi Azure AD v 2.0 (MSAL)? Zaewidencjonuj [Przewodnik po bibliotece MSAL](../develop/reference-v2-libraries.md).
 >
 >
 
@@ -39,24 +39,24 @@ Biblioteka Azure Active Directory Authentication Library (ADAL) v 1.0 umożliwia
 
 | Platforma | Biblioteka | Pobierz | Kod źródłowy | Przykład | Dokumentacja
 | --- | --- | --- | --- | --- | --- |
-| Klient .NET, Sklep Windows, platformy UWP, Xamarin iOS i Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [Aplikacja klasyczna](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-dotnet) |[Tematy pomocy](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet) |
+| Klient .NET, Sklep Windows, platformy UWP, Xamarin iOS i Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [Aplikacja klasyczna](../develop/quickstart-v2-windows-desktop.md) |[Odwołanie](/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet) |
 | JavaScript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[Aplikacja jednostronicowa](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
-| iOS, macOS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[Aplikacja systemu iOS](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-ios) | [Tematy pomocy](http://cocoadocs.org/docsets/ADAL/2.5.1/)|
-| Android |ADAL |[Maven](https://search.maven.org/search?q=g:com.microsoft.aad+AND+a:adal&core=gav) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Aplikacja systemu Android](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-android) | [JavaDocs](https://javadoc.io/doc/com.microsoft.aad/adal/)|
-| Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | [Aplikacja internetowa środowiska Node.js](https://github.com/Azure-Samples/active-directory-node-webapp-openidconnect)|[Tematy pomocy](https://docs.microsoft.com/javascript/api/overview/azure/activedirectory) |
-| Java |ADAL4J |[Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3Aadal4j%20g%3Acom.microsoft.azure) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Aplikacje internetowe w języku Java](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) |[Tematy pomocy](https://javadoc.io/doc/com.microsoft.azure/adal4j) |
-| Python |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[Aplikacja sieci Web języka Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi) |[Tematy pomocy](https://adal-python.readthedocs.io/) |
+| iOS, macOS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[Aplikacja systemu iOS](../develop/quickstart-v2-ios.md) | [Odwołanie](http://cocoadocs.org/docsets/ADAL/2.5.1/)|
+| Android |ADAL |[Maven](https://search.maven.org/search?q=g:com.microsoft.aad+AND+a:adal&core=gav) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Aplikacja systemu Android](../develop/quickstart-v2-android.md) | [JavaDocs](https://javadoc.io/doc/com.microsoft.aad/adal/)|
+| Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | [Aplikacja internetowa środowiska Node.js](https://github.com/Azure-Samples/active-directory-node-webapp-openidconnect)|[Odwołanie](/javascript/api/overview/azure/activedirectory) |
+| Java |ADAL4J |[Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3Aadal4j%20g%3Acom.microsoft.azure) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Aplikacje internetowe w języku Java](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) |[Odwołanie](https://javadoc.io/doc/com.microsoft.azure/adal4j) |
+| Python |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[Aplikacja sieci Web języka Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi) |[Odwołanie](https://adal-python.readthedocs.io/) |
 
 ## <a name="microsoft-supported-server-libraries"></a>Biblioteki serwerów obsługiwane przez firmę Microsoft
 
 | Platforma | Biblioteka | Pobierz | Kod źródłowy | Przykład | Dokumentacja
 | --- | --- | --- | --- | --- | --- |
-| .NET |OWIN dla AzureAD|[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.ActiveDirectory) |[Aplikacja MVC](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-webapp-dotnet) | |
+| .NET |OWIN dla AzureAD|[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.ActiveDirectory) |[Aplikacja MVC](../develop/quickstart-v2-aspnet-webapp.md) | |
 | .NET |OWIN dla OpenIDConnect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.OpenIdConnect) |[Aplikacja sieci Web](https://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet) | |
 | .NET |OWIN dla usługi WS-Federation |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.WsFederation) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.WsFederation) |[Aplikacja sieci Web MVC](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) | |
 | .NET |Rozszerzenia protokołu tożsamości dla programu .NET 4,5 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocol.Extensions) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
 | .NET |Procedura obsługi JWT dla programu .NET 4,5 |[NuGet](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
-| Node.js |Paszport usługi Azure AD |[npm](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Interfejs API sieci Web](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-webapi-nodejs)| |
+| Node.js |Paszport usługi Azure AD |[npm](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Interfejs API sieci Web](../develop/authentication-flows-app-scenarios.md)| |
 
 ## <a name="scenarios"></a>Scenariusze
 

@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 7cecbc48eb362c2c0f1741352e6f7f5f6ad40c9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5abb6852e267fa7d7277e0e0674a4099343e14ca
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80550255"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114918"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Tryb udostępnionego urządzenia dla urządzeń z systemem iOS
 
@@ -67,7 +67,7 @@ Urządzenie musi być skonfigurowane do obsługi trybu udostępnionego urządzen
       - Typ: wartość logiczna
       - Wartość: prawda
 
-    Aby uzyskać więcej informacji na temat konfigurowania usługi Intune, zapoznaj się z [dokumentacją konfiguracyjną usługi Intune](https://docs.microsoft.com/intune/configuration/ios-device-features-settings).
+    Aby uzyskać więcej informacji na temat konfigurowania usługi Intune, zapoznaj się z [dokumentacją konfiguracyjną usługi Intune](/intune/configuration/ios-device-features-settings).
 
 1. Następnie skonfiguruj rozwiązanie MDM w celu wypchnięcia aplikacji Microsoft Authenticator na urządzenie przy użyciu profilu MDM.
 

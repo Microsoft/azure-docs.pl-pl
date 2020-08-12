@@ -12,12 +12,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 79983678d13b810a521a00ba2c1978de92a5029f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 65fff06b4a2d28bbc276920ccbaba90d814d03f3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81309506"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115360"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Szybki Start: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft
 
@@ -34,12 +34,12 @@ Aplikacja jest zintegrowana z platformą tożsamości firmy Microsoft przez zare
 
 1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com) przy użyciu służbowego lub osobistego konta Microsoft.
 1. Jeśli Twoje konto zapewnia dostęp do więcej niż jednej dzierżawy, wybierz swoje konto w prawym górnym rogu. Skonfiguruj sesję portalu do dzierżawy usługi Azure AD, której chcesz użyć.
-1. Wyszukaj i wybierz pozycję **Azure Active Directory**. W obszarze **Zarządzaj**wybierz pozycję **rejestracje aplikacji**.
+1. Wyszukaj i wybierz pozycję **Azure Active Directory**. W obszarze **Zarządzanie** wybierz pozycję **Rejestracje aplikacji**.
 1. Wybierz pozycję **Nowa rejestracja**.
 1. W obszarze **zarejestruj aplikację**wprowadź zrozumiałą nazwę aplikacji wyświetlaną dla użytkowników.
 1. Określ, kto może korzystać z aplikacji w następujący sposób:
 
-    | Obsługiwane typy konta | Opis |
+    | Obsługiwane typy kont | Opis |
     |-------------------------|-------------|
     | **Konta tylko w tym katalogu organizacyjnym** | Wybierz tę opcję, jeśli kompilujesz aplikację biznesową. Ta opcja jest niedostępna, jeśli aplikacja nie jest rejestrowana w katalogu.<br><br>Ta opcja mapuje do usługi Azure AD tylko aplikację jednodostępną.<br><br>Ta opcja jest wartością domyślną, chyba że rejestrujesz aplikację poza katalogiem. W przypadkach, gdy aplikacja jest rejestrowana poza katalogiem, wartość domyślna to aplikacja wielodostępna usługi Azure AD i konta osobiste Microsoft. |
     | **Konta w dowolnym katalogu organizacyjnym** | Wybierz tę opcję, jeśli aplikacja jest przeznaczona dla wszystkich klientów biznesowych i edukacyjnych.<br><br>Ta opcja mapuje do usługi Azure AD tylko aplikację wielodostępną.<br><br>Jeśli aplikacja została zarejestrowana jako jedyna dzierżawa usługi Azure AD, możesz ją zaktualizować do usługi Azure AD z wieloma dzierżawcami i z powrotem do jednej dzierżawy za pomocą strony **uwierzytelniania** . |
@@ -50,7 +50,7 @@ Aplikacja jest zintegrowana z platformą tożsamości firmy Microsoft przez zare
     * W przypadku aplikacji internetowej podaj podstawowy adres URL aplikacji. Na przykład ciąg `https://localhost:31544` może być adresem URL aplikacji internetowej uruchomionej na komputerze lokalnym. Użytkownicy mogą użyć tego adresu URL, aby zalogować się do aplikacji klienta internetowego.
     * W przypadku publicznych aplikacji klienckich podaj identyfikator URI używany przez usługę Azure AD do zwracania odpowiedzi tokenu. Podaj wartość specyficzną dla Twojej aplikacji, np. `myapp://auth`.
 
-    Przykłady aplikacji sieci Web lub aplikacji natywnych można znaleźć w sekcji Przewodniki Szybki Start na [platformie Microsoft Identity platform](https://docs.microsoft.com/azure/active-directory/develop).
+    Przykłady aplikacji sieci Web lub aplikacji natywnych można znaleźć w sekcji Przewodniki Szybki Start na [platformie Microsoft Identity platform](./index.yml).
 
 1. Po zakończeniu wybierz pozycję **Rejestruj**.
 
@@ -70,7 +70,7 @@ Usługa Azure AD przypisuje do aplikacji unikatową aplikację lub identyfikator
 
 * Aby zarządzać obsługiwanymi kontami, zobacz [Szybki Start: modyfikowanie kont obsługiwanych przez aplikację](quickstart-modify-supported-accounts.md).
 
-* Aby skompilować aplikację i dodać jej funkcje, zobacz Przewodniki Szybki Start na [platformie Microsoft Identity platform](https://docs.microsoft.com/azure/active-directory/develop).
+* Aby skompilować aplikację i dodać jej funkcje, zobacz Przewodniki Szybki Start na [platformie Microsoft Identity platform](./index.yml).
 
 * Aby dowiedzieć się więcej na temat dwóch obiektów usługi Azure AD, które reprezentują zarejestrowaną aplikację i związek między nimi, zobacz [Application objects and service principal objects](app-objects-and-service-principals.md) (Obiekty aplikacji i obiekty jednostek usługi).
 

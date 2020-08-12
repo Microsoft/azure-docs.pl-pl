@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6fc4de3ef934e2d1b9dcff46c78f45e7d0f3b6d8
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f746cc654934464d907c6ad669eb7470e4dcaeeb
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845463"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117740"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Wywołania między usługami, które korzystają z delegowanej tożsamości użytkownika w ramach przepływu w imieniu
 
@@ -264,7 +264,7 @@ Odpowiedź zawiera token języka SAML zakodowany w formacie UTF8 i Base64url.
 - **Danych SubjectConfirmationData dla potwierdzenia SAML pochodzącego z wywołania OBO**: Jeśli aplikacja docelowa wymaga wartości odbiorcy w **danych SubjectConfirmationData**, wartość musi być adresem URL odpowiedzi innego niż symbol wieloznaczny w konfiguracji aplikacji zasobów.
 - **Węzeł danych SubjectConfirmationData**: węzeł nie może zawierać atrybutu **InResponseTo** , ponieważ nie jest częścią odpowiedzi SAML. Aplikacja, która otrzymała token SAML, musi być w stanie zaakceptować potwierdzenie SAML bez atrybutu **InResponseTo** .
 
-- **Wyrażanie zgody**: należy przyznać zgodę na otrzymywanie tokenu SAML zawierającego dane użytkownika w przepływie protokołu OAuth. Aby uzyskać informacje na temat uprawnień i uzyskiwania zgody administratora, zobacz [uprawnienia i zgoda w punkcie końcowym Azure Active Directory v 1.0](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent).
+- **Wyrażanie zgody**: należy przyznać zgodę na otrzymywanie tokenu SAML zawierającego dane użytkownika w przepływie protokołu OAuth. Aby uzyskać informacje na temat uprawnień i uzyskiwania zgody administratora, zobacz [uprawnienia i zgoda w punkcie końcowym Azure Active Directory v 1.0](./v1-permissions-consent.md).
 
 ### <a name="response-with-saml-assertion"></a>Odpowiedź z potwierdzeniem SAML
 

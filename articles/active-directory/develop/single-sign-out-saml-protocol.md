@@ -12,12 +12,12 @@ ms.date: 07/19/2017
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: c2673552638c1829b1640724634e365dc6595703
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1d09355993af96e9e0cd334c57174cdaa771b388
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284425"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118267"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protokół SAML wylogowania jednokrotnego
 
@@ -42,7 +42,7 @@ Usługa w chmurze wysyła `LogoutRequest` komunikat do usługi Azure AD w celu w
 
 * `ID`— Identyfikuje żądanie wylogowania. Wartość `ID` nie może rozpoczynać się od cyfry. Typowym sposobem jest dołączenie **identyfikatora** do ciągu REPREZENTUJĄCEGO identyfikator GUID.
 * `Version`-Ustaw wartość tego elementu na **2,0**. Ta wartość jest wymagana.
-* `IssueInstant`— Jest to `DateTime` ciąg z wartością uniwersalnego czasu koordynowanego (UTC) i [formatem rundy ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Usługa Azure AD oczekuje wartości tego typu, ale nie wymusza jej.
+* `IssueInstant`— Jest to `DateTime` ciąg z wartością uniwersalnego czasu koordynowanego (UTC) i [formatem rundy ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Usługa Azure AD oczekuje wartości tego typu, ale nie wymusza jej.
 
 ### <a name="issuer"></a>Wystawca
 `Issuer`Element w a `LogoutRequest` musi dokładnie odpowiadać jednemu z **ServicePrincipalNames** w usłudze w chmurze w usłudze Azure AD. Zwykle jest to **Identyfikator URI aplikacji** określony podczas rejestracji aplikacji.

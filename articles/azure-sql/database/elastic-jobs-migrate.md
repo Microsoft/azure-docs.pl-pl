@@ -1,5 +1,5 @@
 ---
-title: Migrowanie do nowych zadań Elastic Database
+title: Migrowanie do nowych zadań Elastic Database (wersja zapoznawcza)
 description: Przeprowadź migrację do nowych zadań Elastic Database.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: johnpaulkee
 ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: bb5f7c441ae25e24857d0709b32e17931c3c63a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1f9e392ddb7b5a79b01459925fe711707db97b5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84050128"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121191"
 ---
-# <a name="migrate-to-the-new-elastic-database-jobs"></a>Migruj do nowego zadania Elastic Database
+# <a name="migrate-to-the-new-elastic-database-jobs-preview"></a>Migrowanie do nowego zadania Elastic Database (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Dostępna jest uaktualniona wersja [Elastic Database zadań](elastic-jobs-overview.md) .

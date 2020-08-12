@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 981342db2de0585899ca068c7d7aab70fb303ad0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 142037366e9309f8087a2e42fa46cd0b4137f6b8
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445759"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119406"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Przykłady kodu platformy tożsamości firmy Microsoft (punkt końcowy v 2.0)
 
@@ -39,7 +39,7 @@ Możesz również współtworzyć przykłady w witrynie GitHub. Aby dowiedzieć 
 
 Te przykłady przedstawiają sposób pisania aplikacji jednostronicowej zabezpieczonej za pomocą platformy tożsamości firmy Microsoft. W tych przykładach użyto jednego z następujących rodzajów MSAL.js.
 
-| Platforma | Opis | Link |
+| Platforma | Opis | Łącze |
 | -------- | --------------------- | -------- |
 | ![Ten obraz pokazuje logo JavaScript ](media/sample-v2-code/logo_js.png) [javascript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Wywołania SPA Microsoft Graph |[JavaScript-graphapi-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) |
 | ![Ten obraz pokazuje logo JavaScript ](media/sample-v2-code/logo_js.png) [javascript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | Wywołania SPA Microsoft Graph przy użyciu przepływu kodu uwierzytelniania w/PKCE |[JavaScript — v2](https://github.com/Azure-Samples/ms-identity-javascript-v2) |
@@ -106,7 +106,7 @@ Poniższy przykład pokazuje publiczną aplikację kliencką działającą na ur
 
 W poniższych przykładach pokazano, jak skonfigurować aplikację do akceptowania logowań z dowolnej dzierżawy usługi Azure Active Directory (Azure AD). Skonfigurowanie aplikacji w taki sposób, aby była *wielodostępna* , oznacza, że możesz zaoferować aplikację **oprogramowanie jako usługa** (SaaS) w wielu organizacjach, umożliwiając użytkownikom zalogowanie się do aplikacji po dodaniu ich do konta.
 
-| Platforma | Opis | Link |
+| Platforma | Opis | Łącze |
 | -------- | --------------------- | -------- |
 | ![Ten obraz pokazuje logo JavaScript ](media/sample-v2-code/logo_js.png) [javascript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | Wywołania SPA z wieloma dzierżawcami interfejs API programu Graph |[MS-Identity-JavaScript-skośne-Spa-ASPNET-WebAPI-wielodostępny](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnet-webapi-multitenant/tree/master/Chapter1) |
 | ![Ten obraz pokazuje kątowe logo kątowe ](media/sample-v2-code/logo_angular.png) [(MSAL-kątowy)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) | Wiele dzierżawców wywołuje niestandardowy internetowy interfejs API z wieloma dzierżawcami |[MS-Identity-JavaScript-skośne-Spa-ASPNET-WebAPI-wielodostępny](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnet-webapi-multitenant/tree/master/Chapter2) |
@@ -143,4 +143,4 @@ Aby dowiedzieć się więcej na temat [przykładów](https://github.com/microsof
 ## <a name="see-also"></a>Zobacz także
 
 - [Przewodnik dewelopera Azure Active Directory (v 1.0)](../azuread-dev/v1-overview.md)
-- [Informacje koncepcyjne i informacje o interfejsie API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2Fbeta&view=graph-rest-beta)
+- [Informacje koncepcyjne i informacje o interfejsie API Microsoft Graph](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)

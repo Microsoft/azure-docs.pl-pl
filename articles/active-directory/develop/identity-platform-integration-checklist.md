@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 9a1f86a78eaac96f2a6202b4ec29e99a0a978ff1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 036c40395e5da5ebc09a87e420893d7dbd2ec668
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554371"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116805"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Najlepsze rozwiązania i zalecenia dotyczące platformy tożsamości firmy Microsoft
 
@@ -25,12 +25,12 @@ W tym artykule przedstawiono najlepsze rozwiązania, zalecenia i szczegółowe i
 
 Jeśli dopiero zaczynasz, zapoznaj się z [dokumentacją platformy tożsamości firmy Microsoft](index.yml) , aby poznać podstawowe informacje dotyczące uwierzytelniania, scenariusze aplikacji na platformie tożsamości firmy Microsoft i inne elementy.
 
-Użyj poniższej listy kontrolnej, aby upewnić się, że aplikacja jest efektywnie zintegrowana z [platformą tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/).
+Użyj poniższej listy kontrolnej, aby upewnić się, że aplikacja jest efektywnie zintegrowana z [platformą tożsamości firmy Microsoft](./index.yml).
 
 > [!TIP]
 > *Asystent integracji* w Azure Portal może pomóc w zastosowaniu wielu najlepszych rozwiązań i zaleceń. W Azure Portal wybierz dowolną [rejestrację aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) , a następnie wybierz element menu **Asystent Integration (wersja zapoznawcza)** , aby rozpocząć pracę z asystentem.
 
-## <a name="basics"></a>Informacje podstawowe
+## <a name="basics"></a>Podstawy
 
 ![pole wyboru ](./media/active-directory-integration-checklist/checkbox-two.svg) Odczytaj i zapoznaj się z [zasadami platformy firmy Microsoft](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Upewnij się, że aplikacja jest zgodna z warunkami, które zostały zaprojektowane w celu ochrony użytkowników i platformy.
 
@@ -58,9 +58,9 @@ Użyj poniższej listy kontrolnej, aby upewnić się, że aplikacja jest efektyw
 
 ![pole wyboru jest ](./media/active-directory-integration-checklist/checkbox-two.svg) przenoszone poza nazwę użytkownika i hasło. Nie używaj [przepływu poświadczeń hasła właściciela zasobu (ROPC)](v2-oauth-ropc.md), który bezpośrednio obsługuje hasła użytkowników. Ten przepływ wymaga wysokiego stopnia zaufania i zagrożeń użytkownika i powinien być używany tylko wtedy, gdy inne, bezpieczniejsze, nie można używać przepływów. Ten przepływ jest nadal wymagany w niektórych scenariuszach (na przykład DevOps), ale uważaj, że jego użycie spowoduje nałożenie ograniczeń dotyczących aplikacji.  Aby uzyskać bardziej nowoczesne podejścia, Przeczytaj [przepływy uwierzytelniania i scenariusze aplikacji](authentication-flows-app-scenarios.md).
 
-![pole wyboru ](./media/active-directory-integration-checklist/checkbox-two.svg) umożliwia ochronę poufnych poświadczeń aplikacji sieci Web, interfejsów API sieci Web i aplikacji demona oraz zarządzanie nimi. Użyj [poświadczeń certyfikatu](active-directory-certificate-credentials.md), a nie poświadczeń hasła (kluczy tajnych klienta). Jeśli musisz użyć poświadczenia hasła, nie ustawiaj go ręcznie. Nie należy przechowywać poświadczeń w kodzie ani w konfiguracji, a nigdy nie zezwalać na ich obsługę przez człowieka. Jeśli to możliwe, użyj [zarządzanych tożsamości dla zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) lub [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) do przechowywania i regularnego rotacji Twoich poświadczeń.
+![pole wyboru ](./media/active-directory-integration-checklist/checkbox-two.svg) umożliwia ochronę poufnych poświadczeń aplikacji sieci Web, interfejsów API sieci Web i aplikacji demona oraz zarządzanie nimi. Użyj [poświadczeń certyfikatu](active-directory-certificate-credentials.md), a nie poświadczeń hasła (kluczy tajnych klienta). Jeśli musisz użyć poświadczenia hasła, nie ustawiaj go ręcznie. Nie należy przechowywać poświadczeń w kodzie ani w konfiguracji, a nigdy nie zezwalać na ich obsługę przez człowieka. Jeśli to możliwe, użyj [zarządzanych tożsamości dla zasobów platformy Azure](../managed-identities-azure-resources/overview.md) lub [Azure Key Vault](../../key-vault/general/basic-concepts.md) do przechowywania i regularnego rotacji Twoich poświadczeń.
 
-![Upewnij ](./media/active-directory-integration-checklist/checkbox-two.svg) się, że aplikacja żąda najniższych uprawnień. Tylko Poproś o uprawnienia wymagane przez aplikację i tylko wtedy, gdy są one potrzebne. Zapoznaj się z różnymi [rodzajami uprawnień](v2-permissions-and-consent.md#permission-types). W razie potrzeby używaj uprawnień aplikacji; Użyj uprawnień delegowanych, jeśli jest to możliwe. Aby uzyskać pełną listę uprawnień Microsoft Graph, zobacz to [odwołanie do uprawnień](https://docs.microsoft.com/graph/permissions-reference).
+![Upewnij ](./media/active-directory-integration-checklist/checkbox-two.svg) się, że aplikacja żąda najniższych uprawnień. Tylko Poproś o uprawnienia wymagane przez aplikację i tylko wtedy, gdy są one potrzebne. Zapoznaj się z różnymi [rodzajami uprawnień](v2-permissions-and-consent.md#permission-types). W razie potrzeby używaj uprawnień aplikacji; Użyj uprawnień delegowanych, jeśli jest to możliwe. Aby uzyskać pełną listę uprawnień Microsoft Graph, zobacz to [odwołanie do uprawnień](/graph/permissions-reference).
 
 ![pole wyboru](./media/active-directory-integration-checklist/checkbox-two.svg) W przypadku zabezpieczania interfejsu API przy użyciu platformy tożsamości firmy Microsoft należy uważnie zastanowić się nad uprawnieniami, które powinien ujawnić. Weź pod uwagę, jaki jest poziom szczegółowości rozwiązania i jakie uprawnienia wymagają zgody administratora. Przed podjęciem decyzji o autoryzacji Sprawdź, czy w tokenach przychodzących są oczekiwane uprawnienia.
 
@@ -68,7 +68,7 @@ Użyj poniższej listy kontrolnej, aby upewnić się, że aplikacja jest efektyw
 
 ![pole wyboru ](./media/active-directory-integration-checklist/checkbox-two.svg) Użyj nowoczesnych rozwiązań uwierzytelniania (OAuth 2,0, [OpenID Connect Connect](v2-protocols-oidc.md)) do bezpiecznego logowania użytkowników.
 
-![pole wyboru ](./media/active-directory-integration-checklist/checkbox-two.svg) nie program bezpośrednio w przypadku protokołów takich jak OAuth 2,0 i Open ID. Zamiast tego Skorzystaj z [biblioteki Microsoft Authentication Library (MSAL)](msal-overview.md). Biblioteki MSAL bezpiecznie zawijają protokoły zabezpieczeń w łatwej w użyciu bibliotece i udostępniamy wbudowaną obsługę scenariuszy [dostępu warunkowego](/azure/active-directory/conditional-access/overview) , [logowania](/azure/active-directory/manage-apps/what-is-single-sign-on)jednokrotnego dla całego urządzenia oraz wbudowanej obsługi buforowania tokenów. Aby uzyskać więcej informacji, zobacz listę [bibliotek klienckich](reference-v2-libraries.md#microsoft-supported-client-libraries) obsługiwanych przez firmę Microsoft i [bibliotek oprogramowania pośredniczącego](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries) oraz listę [zgodnych bibliotek klientów](reference-v2-libraries.md#compatible-client-libraries)innych firm.<br/><br/>Jeśli konieczne jest przekazanie kodu dla protokołów uwierzytelniania, należy postępować zgodnie z metodologią, taką jak [Microsoft SDL](https://www.microsoft.com/sdl/default.aspx). Zwróć szczególną uwagę na kwestie dotyczące zabezpieczeń w specyfikacjach standardów dla każdego protokołu.
+![pole wyboru ](./media/active-directory-integration-checklist/checkbox-two.svg) nie program bezpośrednio w przypadku protokołów takich jak OAuth 2,0 i Open ID. Zamiast tego Skorzystaj z [biblioteki Microsoft Authentication Library (MSAL)](msal-overview.md). Biblioteki MSAL bezpiecznie zawijają protokoły zabezpieczeń w łatwej w użyciu bibliotece i udostępniamy wbudowaną obsługę scenariuszy [dostępu warunkowego](../conditional-access/overview.md) , [logowania](../manage-apps/what-is-single-sign-on.md)jednokrotnego dla całego urządzenia oraz wbudowanej obsługi buforowania tokenów. Aby uzyskać więcej informacji, zobacz listę [bibliotek klienckich](reference-v2-libraries.md#microsoft-supported-client-libraries) obsługiwanych przez firmę Microsoft i [bibliotek oprogramowania pośredniczącego](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries) oraz listę [zgodnych bibliotek klientów](reference-v2-libraries.md#compatible-client-libraries)innych firm.<br/><br/>Jeśli konieczne jest przekazanie kodu dla protokołów uwierzytelniania, należy postępować zgodnie z metodologią, taką jak [Microsoft SDL](https://www.microsoft.com/sdl/default.aspx). Zwróć szczególną uwagę na kwestie dotyczące zabezpieczeń w specyfikacjach standardów dla każdego protokołu.
 
 ![pole wyboru ](./media/active-directory-integration-checklist/checkbox-two.svg) Migruj istniejące aplikacje z [biblioteki uwierzytelniania Azure Active Directory (ADAL)](../azuread-dev/active-directory-authentication-libraries.md) do [biblioteki uwierzytelniania firmy Microsoft](msal-overview.md). MSAL to najnowsze rozwiązanie platformy tożsamości firmy Microsoft i jest preferowane dla biblioteki ADAL. Jest ona dostępna w systemach .NET, JavaScript, Android, iOS i macOS, a także w publicznej wersji zapoznawczej dla języków Python i Java. Dowiedz się więcej na temat migrowania aplikacji [ADAL.NET](msal-net-migration.md), [ADAL.js](msal-compare-msal-js-and-adal-js.md)i [ADAL.NET i dla brokera systemu iOS](msal-net-migration-ios-broker.md) .
 

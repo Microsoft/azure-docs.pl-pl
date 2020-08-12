@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: cd21ef8d697570afb2109bb56d552284c03fd9a2
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 4450b0bcc06b048fd9ad42d2a7bf1c588816eae7
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552785"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115615"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>Używanie atrybutów rozszerzenia schematu katalogu w oświadczeniach
 
@@ -34,7 +34,7 @@ Identyfikator atrybutu rozszerzenia schematu katalogu ma postać *Extension_xxxx
 ## <a name="registering-and-using-directory-schema-extensions"></a>Rejestrowanie i używanie rozszerzeń schematu katalogu
 Atrybuty rozszerzenia schematu katalogu mogą być rejestrowane i wypełniane na jeden z dwóch sposobów:
 
-- Konfigurując program AD Connect w celu ich tworzenia i synchronizowania danych z lokalnej usługi AD. Zobacz [Azure AD Connect rozszerzenia katalogu synchronizacji](/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions).
+- Konfigurując program AD Connect w celu ich tworzenia i synchronizowania danych z lokalnej usługi AD. Zobacz [Azure AD Connect rozszerzenia katalogu synchronizacji](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
 - Przy użyciu Microsoft Graph do rejestrowania, ustawiania wartości i odczytywania z atrybutów rozszerzenia schematu katalogów [rozszerzenia schematu katalogu | Interfejs API programu Graph koncepcje](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions) i/lub program PowerShell + [Zarządzanie atrybutami rozszerzenia za pomocą poleceń cmdlet programu PowerShell AzureAD](/powershell/azure/active-directory/using-extension-attributes-sample?view=azureadps-2.0).
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-with-ad-connect"></a>Emitowanie oświadczeń z danymi z atrybutów rozszerzenia schematu katalogu utworzonych przy użyciu programu AD Connect

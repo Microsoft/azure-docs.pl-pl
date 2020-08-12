@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 4/17/2020
+ms.date: 8/11/2020
 ms.author: swmachan
-ms.openlocfilehash: 2ddc3921c77f8861761ea37b8783e220c1242b97
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6b211dd8ca735ea9ee4a5209aa6030398cca472e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592274"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121021"
 ---
 # <a name="translator-v30"></a>Translator — wersja 3.0
 
-## <a name="whats-new"></a>Co nowego
+## <a name="whats-new"></a>Co nowego?
 
 Wersja 3 usługi Translator udostępnia nowoczesny internetowy interfejs API oparty na notacji JSON. Zwiększa użyteczność i wydajność dzięki konsolidacji istniejących funkcji do mniejszej liczby operacji i udostępnia nowe funkcje.
 
@@ -147,11 +147,11 @@ Token uwierzytelniania jest ważny przez 10 minut. Token powinien być ponownie 
 
 ## <a name="virtual-network-support"></a>Obsługa sieci wirtualnej
 
-Usługa Translator jest teraz dostępna z możliwościami Virtual Network w ograniczonych regionach (,,,,, `WestUS2` `EastUS` `SouthCentralUS` `WestUS` `CentralUSEUAP` `global` ). Aby włączyć Virtual Network, zobacz [Konfigurowanie platformy Azure Cognitive Services sieci wirtualnych](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+Usługa Translator jest teraz dostępna z możliwościami Virtual Network (VNET) we wszystkich regionach chmury publicznej platformy Azure. Aby włączyć Virtual Network, zobacz [Konfigurowanie platformy Azure Cognitive Services sieci wirtualnych](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
 
 Po włączeniu tej funkcji musisz użyć niestandardowego punktu końcowego, aby wywołać translator. Nie można użyć globalnego punktu końcowego usługi Translator ("api.cognitive.microsofttranslator.com") i nie można uwierzytelnić się przy użyciu tokenu dostępu.
 
-Niestandardowy punkt końcowy można znaleźć po utworzeniu [zasobu usługi Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
+Niestandardowy punkt końcowy można znaleźć po utworzeniu [zasobu usługi Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) i umożliwieniu dostępu z wybranych sieci i prywatnych punktów końcowych.
 
 |Nagłówki|Opis|
 |:-----|:----|
@@ -169,7 +169,7 @@ curl -X POST "https://<your-custom-domain>.cognitiveservices.azure.com/translato
      -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
-## <a name="errors"></a>Errors
+## <a name="errors"></a>błędy
 
 Standardowa odpowiedź na błąd to obiekt JSON z parą nazwa/wartość o nazwie `error` . Wartość jest również obiektem JSON z właściwościami:
 

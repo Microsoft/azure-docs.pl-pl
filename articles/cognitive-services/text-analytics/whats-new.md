@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 67850490a3c1d972d4d03eec545068b1d9eb9fff
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 95e9b208159e9af41563f12ce8af7892e13f6629
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986302"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121854"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Co nowego w interfejsie API analizy tekstu?
 
@@ -23,9 +23,45 @@ Interfejs API analizy tekstu jest regularnie aktualizowana. Aby zachować aktual
 
 ## <a name="august-2020"></a>2020 sierpnia
 
+### <a name="general-api-updates"></a>Ogólne aktualizacje interfejsu API
+
 * Wersja modelu `2020-07-01` dla `/keyphrases` `/pii` `/languages` punktów końcowych v3 i, które dodaje:
     * Dodatkowe [Kategorie jednostek](named-entity-types.md?tabs=personal) dla instytucji rządowych i poszczególnych krajów dla nazwanego rozpoznawania jednostek.
 * W przypadku żądań interfejsu API v3, które przekraczają opublikowane [limity danych](concepts/data-limits.md), zostanie teraz zwrócony błąd HTTP 400. 
+
+### <a name="text-analytics-for-health-container-august-updates"></a>analiza tekstu dla aktualizacji kontenera kondycji sierpnia
+
+Następujące aktualizacje są specyficzne dla wydania z sierpnia analiza tekstu tylko dla kontenera kondycji.
+
+* Nowy model — wersja dla analiza tekstu na potrzeby kondycji:`2020-07-24`
+* Nowy adres URL służący do wysyłania analiza tekstu dla żądań dotyczących kondycji:`http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` 
+
+Zmieniono następujące właściwości odpowiedzi JSON:
+
+* Zmieniono nazwę polecenia `type` na `category` 
+* Zmieniono nazwę polecenia `score` na `confidenceScore`
+* Jednostki w `category` polu danych wyjściowych JSON znajdują się teraz w języku Pascal. Zmieniono nazwy następujących jednostek:
+    * `EXAMINATION_RELATION`została zmieniona na `RelationalOperator` .
+    * `EXAMINATION_UNIT`została zmieniona na `MeasurementUnit` .
+    * `EXAMINATION_VALUE`została zmieniona na `MeasurementValue` .
+    * `ROUTE_OR_MODE`Zmieniono nazwę `MedicationRoute` .
+    * Nazwa jednostki relacyjnej została `ROUTE_OR_MODE_OF_MEDICATION` zmieniona na `RouteOfMedication` .
+
+Dodano następujące jednostki:
+
+* NER
+    * `AdministrativeEvent`
+    * `CareEnvironment`
+    * `HealthcareProfession`
+    * `MedicationForm` 
+
+* Wyodrębnianie relacji
+    * `DirectionOfCondition`
+    * `DirectionOfExamination`
+    * `DirectionOfTreatment`
+
+> [!div class="nextstepaction"]
+> [Dowiedz się więcej na temat analiza tekstu dla kontenera kondycji](how-tos/text-analytics-for-health.md)
 
 ## <a name="july-2020"></a>Lipiec 2020 r. 
 
@@ -39,10 +75,6 @@ Kontener oferuje następujące funkcje:
 * Wyodrębnianie relacji
 * Łączenie jednostek
 * Negacja
-
-
-> [!div class="nextstepaction"]
-> [Dowiedz się więcej na temat analiza tekstu dla kontenera kondycji](how-tos/text-analytics-for-health.md)
 
 ## <a name="may-2020"></a>Maj 2020 r.
 

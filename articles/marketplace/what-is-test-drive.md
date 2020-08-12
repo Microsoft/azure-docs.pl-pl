@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 06/19/2020
-ms.openlocfilehash: abad72145b095b4da77ec499f936c6912fd970a6
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: bd3b77f80a414dd3db1d5106929fa0e215e34c1f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229452"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121871"
 ---
 # <a name="what-is-a-test-drive"></a>Co to jest wersja testowa?
 
@@ -44,7 +44,17 @@ Aby uzyskać szczegółowe informacje na temat konfigurowania jednego z tych dys
 
 ### <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager dysk testowy
 
-Ten szablon wdrożenia zawiera wszystkie zasoby platformy Azure, które składają się na Twoje rozwiązanie. Produkty, które pasują do tego scenariusza, korzystają tylko z zasobów platformy Azure. Jest to jedyna opcja dysku testowego dla oferty maszyny wirtualnej lub aplikacji platformy Azure.
+Ten szablon wdrożenia zawiera wszystkie zasoby platformy Azure, które składają się na Twoje rozwiązanie. Produkty, które pasują do tego scenariusza, korzystają tylko z zasobów platformy Azure. Dla następujących typów ofert jest dostępny Azure Resource Manager dysk testowy: 
+
+- Aplikacje platformy Azure
+- Dynamics 365 for Business Central
+- Dynamics 365 dla zaangażowania klienta & PowerApps
+- Dynamics 365 for Operations
+- SaaS
+- Maszyny wirtualne
+
+>[!NOTE]
+>Jest to jedyna opcja dysku testowego dla ofert dla maszyn wirtualnych i aplikacji platformy Azure.
 
 ### <a name="hosted-test-drive"></a>Hostowany dysk testowy
 

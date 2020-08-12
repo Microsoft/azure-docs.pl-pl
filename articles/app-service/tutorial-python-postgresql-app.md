@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 5ddd40f00bab0e1c115a31ac87ee3fb7bf45e089
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: d9d8694c8ac81352ab36f3d610f02f3751090b27
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88084574"
+ms.locfileid: "88120596"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Samouczek: wdrażanie aplikacji sieci Web Django za pomocą PostgreSQL w Azure App Service
 
@@ -79,6 +79,7 @@ To polecenie umożliwia otwarcie przeglądarki w celu zebrania poświadczeń. Po
 
 Po zalogowaniu możesz uruchamiać polecenia platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure, aby pracować z zasobami w ramach subskrypcji.
 
+[Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
 
 ## <a name="clone-or-download-the-sample-app"></a>Klonowanie lub pobieranie przykładowej aplikacji
 
@@ -114,6 +115,8 @@ Przykład jest również modyfikowany do uruchamiania w środowisku produkcyjnym
 - Aplikacja używa ustawień produkcyjnych, gdy `DJANGO_ENV` zmienna środowiskowa jest ustawiona na "produkcja". Tę zmienną środowiskową utworzysz w dalszej części tego samouczka wraz z innymi osobami używanymi do konfiguracji bazy danych PostgreSQL.
 
 Te zmiany są specyficzne dla konfigurowania Django do uruchamiania w dowolnym środowisku produkcyjnym i nie są szczególnie App Service. Aby uzyskać więcej informacji, zobacz [Lista kontrolna wdrożenia Django](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).
+
+[Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
 
 ## <a name="create-postgres-database-in-azure"></a>Tworzenie bazy danych Postgres na platformie Azure
 
@@ -156,6 +159,8 @@ Po zakończeniu wykonywania polecenia generuje obiekt JSON, który zawiera róż
 > [!TIP]
 > `-l <location-name>`, można ustawić na jeden z [regionów świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/regions/). Dostępne regiony można pobrać za pomocą [`az account list-locations`](/cli/azure/account#az-account-list-locations) polecenia. W przypadku aplikacji produkcyjnych Umieść swoją bazę danych i aplikację w tej samej lokalizacji.
 
+[Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
+
 ## <a name="deploy-the-code-to-azure-app-service"></a>Wdróż kod w Azure App Service
 
 W tej sekcji utworzysz hosta aplikacji w aplikacji App Service, Połącz tę aplikację z bazą danych Postgres, a następnie wdróż swój kod na tym hoście.
@@ -188,6 +193,8 @@ Po pomyślnym wdrożeniu polecenie generuje dane wyjściowe JSON podobne do poni
 
 ![Przykład AZ webapp up dane wyjściowe polecenia](./media/tutorial-python-postgresql-app/az-webapp-up-output.png)
 
+[Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
+
 > [!TIP]
 > Wiele poleceń interfejsu wiersza polecenia platformy Azure buforuje typowe parametry, takie jak nazwa grupy zasobów i plan App Service, do pliku *. Azure/config*. W związku z tym nie trzeba określać wszystkich parametrów z nowszymi poleceniami. Na przykład aby ponownie wdrożyć aplikację po wprowadzeniu zmian, można po prostu uruchomić polecenie `az webapp up` bez żadnych parametrów. Polecenia, które pochodzą z rozszerzeń CLI, takie jak `az postgres up` , nie są już używane do korzystania z pamięci podręcznej, dlatego należy określić grupę zasobów i lokalizację w tym miejscu przy użyciu `az webapp up` .
 
@@ -209,6 +216,8 @@ az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<pos
 - Nazwa grupy zasobów i aplikacji jest rysowana z wartości pamięci podręcznej w pliku *. Azure/config* .
 - Polecenie tworzy ustawienia o nazwie `DJANGO_ENV` ,,, `DBHOST` `DBNAME` `DBUSER` i `DBPASS` zgodnie z oczekiwaniami w kodzie aplikacji.
 - W kodzie w języku Python te ustawienia są dostępne jako zmienne środowiskowe z instrukcjami takimi jak `os.environ.get('DJANGO_ENV')` . Aby uzyskać więcej informacji, zobacz [dostęp do zmiennych środowiskowych](configure-language-python.md#access-environment-variables).
+
+[Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
 
 ### <a name="run-django-database-migrations"></a>Uruchom migracje bazy danych Django
 
@@ -232,6 +241,8 @@ Migracja baz danych Django upewnij się, że schemat w PostgreSQL w bazie danych
     ```
     
 1. `createsuperuser`Polecenie prosi o poświadczenia administratora. Na potrzeby tego samouczka Użyj domyślnej nazwy użytkownika `root` , naciśnij klawisz **Enter** , aby adres e-mail pozostawić puste, a następnie wprowadź `Pollsdb1` hasło.
+
+[Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
     
 ### <a name="create-a-poll-question-in-the-app"></a>Tworzenie pytania dotyczącego ankiety w aplikacji
 
@@ -243,9 +254,10 @@ Migracja baz danych Django upewnij się, że schemat w PostgreSQL w bazie danych
 
 **Gratulacje!** Korzystasz z aplikacji sieci Web w języku Python Django w Azure App Service dla systemu Linux z aktywną bazą danych Postgres.
 
+[Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
+
 > [!NOTE]
 > App Service wykrywa projekt Django, szukając pliku *WSGI.py* w każdym podfolderze, który `manage.py startproject` tworzy domyślnie. Gdy App Service odnajdzie ten plik, ładuje aplikację sieci Web Django. Aby uzyskać więcej informacji, zobacz [Konfigurowanie wbudowanego obrazu w języku Python](configure-language-python.md).
-
 
 ## <a name="make-code-changes-and-redeploy"></a>Wprowadzanie zmian w kodzie i ponowne wdrażanie
 
@@ -324,6 +336,8 @@ Przetestuj aplikację lokalnie, wykonując następujące czynności:
 
 W przypadku uruchamiania lokalnego aplikacja korzysta z lokalnej bazy danych Sqlite3 i nie zakłóca pracy w produkcyjnej bazie danych. W razie potrzeby można również użyć lokalnej bazy danych PostgreSQL, aby lepiej symulować środowisko produkcyjne.
 
+[Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
+
 ### <a name="update-the-app"></a>Aktualizowanie aplikacji
 
 W programie `polls/models.py` Znajdź wiersz zaczynający się od `choice_text` i Zmień `max_length` parametr na 100:
@@ -344,6 +358,8 @@ Uruchom ponownie serwer programistyczny `python manage.py runserver` i przetestu
 
 Zatrzymaj ponownie serwer sieci Web Django za pomocą **klawisza Ctrl** + **C**.
 
+[Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
+
 ### <a name="redeploy-the-code-to-azure"></a>Ponowne wdrażanie kodu na platformie Azure
 
 Uruchom następujące polecenie w katalogu głównym repozytorium:
@@ -353,6 +369,8 @@ az webapp up
 ```
 
 To polecenie używa parametrów w pamięci podręcznej w pliku *. Azure/config* . Ponieważ App Service wykryje, że aplikacja już istnieje, po prostu ponownie wdraża kod.
+
+[Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
 
 ### <a name="rerun-migrations-in-azure"></a>Ponowne uruchamianie migracji na platformie Azure
 
@@ -369,9 +387,13 @@ source /antenv/bin/activate
 python manage.py migrate
 ```
 
+[Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
+
 ### <a name="review-app-in-production"></a>Przeglądanie aplikacji w środowisku produkcyjnym
 
 Przejdź do *protokołu http: \/ / \<app-name> . azurewebsites.NET* i przetestuj aplikację ponownie w środowisku produkcyjnym. (Ponieważ zmieniono tylko długość pola bazy danych, zmiana jest zauważalna tylko wtedy, gdy użytkownik spróbuje wprowadzić dłuższy czas odpowiedzi podczas tworzenia pytania).
+
+[Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
 
 ## <a name="stream-diagnostic-logs"></a>Przesyłanie strumieniowe dzienników diagnostycznych
 
@@ -386,6 +408,8 @@ az webapp log tail
 Jeśli nie widzisz dzienników konsoli, sprawdź ponownie w ciągu 30 sekund.
 
 Aby zatrzymać przesyłanie strumieniowe dzienników w dowolnym momencie, wpisz **Ctrl** + **C**.
+
+[Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
 
 > [!NOTE]
 > Możesz również sprawdzić pliki dziennika z przeglądarki pod adresem `https://<app-name>.scm.azurewebsites.net/api/logs/docker` .
@@ -406,6 +430,8 @@ Domyślnie w portalu jest wyświetlana strona **omówienia** aplikacji, która z
 
 ![Zarządzanie aplikacją Django języka Python na stronie Przegląd w Azure Portal](./media/tutorial-python-postgresql-app/manage-django-app-in-app-services-in-the-azure-portal.png)
 
+[Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
+
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz zachować aplikację lub przejść do następnego samouczka, przejdź do [sekcji Następne kroki](#next-steps). W przeciwnym razie, aby uniknąć ponoszenia opłat, możesz usunąć grupę zasobów utworzoną dla tego samouczka:
@@ -415,6 +441,8 @@ az group delete
 ```
 
 Polecenie używa nazwy grupy zasobów zapisanej w pamięci podręcznej w pliku *. Azure/config* . Usunięcie grupy zasobów spowoduje również cofnięcie alokacji i usunięcie wszystkich znajdujących się w niej zasobów.
+
+[Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -12,17 +12,17 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b899e1d651f41c9c1e1e54af1b5ec19162dfc28d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b4de8a5e96466ea324475030df1f00eb6bb5cf1a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380056"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118291"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-application"></a>Samouczek: Logowanie użytkowników i wywoływanie Microsoft Graph z aplikacji systemu Android 
 
 >[!NOTE]
->W tym samouczku przedstawiono uproszczone Przykłady sposobu pracy z programem MSAL for Android. Dla uproszczenia w tym samouczku jest stosowany tylko tryb jednego konta. Możesz również wyświetlić repozytorium i sklonować [wstępnie skonfigurowaną przykładową aplikację](https://github.com/Azure-Samples/ms-identity-android-java/) , aby poznać bardziej złożone scenariusze. Zapoznaj się z [przewodnikiem Szybki Start](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-android) , aby uzyskać więcej informacji na temat przykładowej aplikacji, konfiguracji i rejestracji. 
+>W tym samouczku przedstawiono uproszczone Przykłady sposobu pracy z programem MSAL for Android. Dla uproszczenia w tym samouczku jest stosowany tylko tryb jednego konta. Możesz również wyświetlić repozytorium i sklonować [wstępnie skonfigurowaną przykładową aplikację](https://github.com/Azure-Samples/ms-identity-android-java/) , aby poznać bardziej złożone scenariusze. Zapoznaj się z [przewodnikiem Szybki Start](./quickstart-v2-android.md) , aby uzyskać więcej informacji na temat przykładowej aplikacji, konfiguracji i rejestracji. 
 
 W tym samouczku dowiesz się, jak zintegrować aplikację systemu Android z platformą tożsamości firmy Microsoft przy użyciu biblioteki uwierzytelniania firmy Microsoft dla systemu Android. Dowiesz się, jak zalogować się i wylogować użytkownika, uzyskać token dostępu w celu wywołania interfejsu API Microsoft Graph i przetworzyć żądanie do interfejs API programu Graph. 
 
@@ -68,30 +68,30 @@ Jeśli nie masz jeszcze aplikacji systemu Android, wykonaj następujące kroki, 
 4. Zapisz nazwę pakietu. Wprowadzisz ją później do Azure Portal.
 5. Zmień język z **Kotlin** na **Java**.
 6. Ustaw **minimalny poziom interfejsu API** na **interfejs API 19** lub nowszy, a następnie kliknij przycisk **Zakończ**.
-7. W widoku Projekt wybierz **projekt** na liście rozwijanej, aby wyświetlić źródło i nieźródłowe pliki projektu, Otwórz **aplikację/Build. Gradle** i ustaw `targetSdkVersion` wartość `28`.
+7. W widoku Projekt wybierz **projekt** na liście rozwijanej, aby wyświetlić źródło i nieźródłowe pliki projektu, Otwórz **aplikację/Build. Gradle** i ustaw `targetSdkVersion` wartość `28` .
 
 ## <a name="integrate-with-microsoft-authentication-library"></a>Integracja z biblioteką uwierzytelniania firmy Microsoft 
 
 ### <a name="register-your-application"></a>Rejestrowanie aplikacji
 
-1. Przejdź do [Azure Portal](https://aka.ms/MobileAppReg).
+1. Przejdź do witryny [Azure Portal](https://aka.ms/MobileAppReg).
 2. Otwórz [blok rejestracje aplikacji](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) i kliknij pozycję **+ Nowa rejestracja**.
 3. Wprowadź **nazwę** aplikacji, a następnie, **bez** ustawienia identyfikatora URI przekierowania, kliknij pozycję **zarejestruj**.
-4. W sekcji **Zarządzanie** w wyświetlonym okienku wybierz pozycję **uwierzytelnianie** > **i Dodaj platformę** > **Android**. (Może być konieczne wybranie pozycji "Przełącz do nowego środowiska" w górnej części bloku, aby zobaczyć tę sekcję)
-5. Wprowadź nazwę pakietu projektu. Jeśli pobrano kod, ta wartość jest `com.azuresamples.msalandroidapp`.
+4. W sekcji **Zarządzanie** w wyświetlonym okienku wybierz pozycję **uwierzytelnianie**  >  **i Dodaj platformę**  >  **Android**. (Może być konieczne wybranie pozycji "Przełącz do nowego środowiska" w górnej części bloku, aby zobaczyć tę sekcję)
+5. Wprowadź nazwę pakietu projektu. Jeśli pobrano kod, ta wartość jest `com.azuresamples.msalandroidapp` .
 6. W sekcji **skrót podpisu** na stronie **Konfigurowanie aplikacji systemu Android** kliknij pozycję **generowanie skrótu sygnatury deweloperskiej.** i skopiuj polecenie Narzędzia klawiaturowego, które ma być używane dla danej platformy.
 
    > [!Note]
-   > Narzędzie narzêdzi. exe jest instalowane w ramach zestawu Java Development Kit (JDK). Należy również zainstalować narzędzie OpenSSL, aby wykonać polecenie Narzędzia. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją systemu Android dotyczącą generowania klucza](https://developer.android.com/studio/publish/app-signing#generate-key) . 
+   > KeyTool.exe jest instalowany jako część zestawu Java Development Kit (JDK). Należy również zainstalować narzędzie OpenSSL, aby wykonać polecenie Narzędzia. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją systemu Android dotyczącą generowania klucza](https://developer.android.com/studio/publish/app-signing#generate-key) . 
 
 7. Wprowadź **skrót podpisu** wygenerowany przez narzędzie.
-8. Kliknij `Configure` i Zapisz **konfigurację MSAL** , która jest wyświetlana na stronie **konfiguracji systemu Android** , aby można ją było wprowadzić podczas późniejszej konfiguracji aplikacji.  Kliknij pozycję **Gotowe**.
+8. Kliknij `Configure` i Zapisz **konfigurację MSAL** , która jest wyświetlana na stronie **konfiguracji systemu Android** , aby można ją było wprowadzić podczas późniejszej konfiguracji aplikacji.  Kliknij przycisk **Gotowe**.
 
 ### <a name="configure-your-application"></a>Konfigurowanie aplikacji 
 
 1. W okienku projektu Android Studio przejdź do **app\src\main\res**.
-2. Kliknij prawym przyciskiem myszy pozycję **res** i wybierz pozycję **Nowy** > **katalog**. Wprowadź `raw` nazwę nowego katalogu, a następnie kliknij przycisk **OK**.
-3. W oknie **App** > **src** > **Main** > **res**res > **RAW**Utwórz nowy plik JSON o nazwie `auth_config_single_account.json` i wklej wcześniej zapisaną konfigurację MSAL. 
+2. Kliknij prawym przyciskiem myszy pozycję **res** i wybierz pozycję **Nowy**  >  **katalog**. Wprowadź `raw` nazwę nowego katalogu, a następnie kliknij przycisk **OK**.
+3. W oknie **App**  >  **src**  >  **Main**  >  **res**  >  **RAW**Utwórz nowy plik JSON o nazwie `auth_config_single_account.json` i wklej wcześniej zapisaną konfigurację MSAL. 
 
     Poniżej identyfikatora URI przekierowania wklej: 
     ```json
@@ -117,9 +117,9 @@ Jeśli nie masz jeszcze aplikacji systemu Android, wykonaj następujące kroki, 
    ```
     
    >[!NOTE]
-   >W tym samouczku przedstawiono tylko sposób konfigurowania aplikacji w trybie jednego konta. Zapoznaj się z dokumentacją, aby uzyskać więcej informacji na temat [trybu pojedynczego i wielu kont](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account) oraz [konfigurowania aplikacji](https://docs.microsoft.com/azure/active-directory/develop/msal-configuration)
+   >W tym samouczku przedstawiono tylko sposób konfigurowania aplikacji w trybie jednego konta. Zapoznaj się z dokumentacją, aby uzyskać więcej informacji na temat [trybu pojedynczego i wielu kont](./single-multi-account.md) oraz [konfigurowania aplikacji](./msal-configuration.md)
    
-4. W **oknie App** > **src** > **Main** > **pliku AndroidManifest. XML**Dodaj poniższe `BrowserTabActivity` działanie do treści aplikacji. Ten wpis umożliwia firmie Microsoft wywoływanie z powrotem do aplikacji po zakończeniu uwierzytelniania:
+4. W **app**oknie  >  **src**  >  **main**  >  **AndroidManifest.xml**aplikacji głównej Dodaj `BrowserTabActivity` poniższe działanie do treści aplikacji. Ten wpis umożliwia firmie Microsoft wywoływanie z powrotem do aplikacji po zakończeniu uwierzytelniania:
 
     ```xml
     <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
@@ -137,15 +137,15 @@ Jeśli nie masz jeszcze aplikacji systemu Android, wykonaj następujące kroki, 
     ```
 
     Zastąp nazwę pakietu zarejestrowanego w Azure Portal dla tej `android:host=` wartości.
-    Zastąp skrót klucza zarejestrowany w Azure Portal `android:path=` wartości. Wartość skrótu podpisu **nie** powinna być zakodowana w adresie URL. Upewnij się, że na początku `/` skrótu podpisu występuje wiodąca wartość. 
+    Zastąp skrót klucza zarejestrowany w Azure Portal `android:path=` wartości. Wartość skrótu podpisu **nie** powinna być zakodowana w adresie URL. Upewnij się, że `/` na początku skrótu podpisu występuje wiodąca wartość. 
     >[!NOTE]
-    >"Nazwa pakietu" zostanie zastąpiona `android:host` wartością, która powinna wyglądać podobnie do: "com. azuresamples. Msalandroidapp", "skrót podpisu" spowoduje zamienienie `android:path` wartości w następujący sposób: "/1wIqXSqBj7w + h11ZifsnqwgyKrY =" będzie można znaleźć te wartości w bloku uwierzytelniania rejestracji aplikacji. Zwróć uwagę, że identyfikator URI przekierowania będzie wyglądać podobnie do: "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D". Gdy skrót sygnatury jest zakodowany na końcu tej wartości, wartość skrótu podpisu **nie** powinna być zakodowana w `android:path` adresie URL. 
+    >"Nazwa pakietu" zostanie zastąpiona wartością, która `android:host` powinna wyglądać podobnie do: "com. azuresamples. msalandroidapp", "skrót podpisu" spowoduje zamienienie `android:path` wartości w następujący sposób: "/1WIqXSqBj7w + h11ZifsnqwgyKrY =" będzie można znaleźć te wartości w bloku uwierzytelniania rejestracji aplikacji. Zwróć uwagę, że identyfikator URI przekierowania będzie wyglądać podobnie do: "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D". Gdy skrót sygnatury jest zakodowany na końcu tej wartości, wartość skrótu podpisu **nie** powinna być zakodowana w adresie URL `android:path` . 
 
 ## <a name="use-msal"></a>Użyj MSAL 
 
 ### <a name="add-msal-to-your-project"></a>Dodawanie MSAL do projektu
 
-1. W oknie projekt Android Studio przejdź do **aplikacji** > **src** > **Build. Gradle** i Dodaj następujące elementy: 
+1. W oknie projekt Android Studio przejdź do **aplikacji**  >  **src**  >  **Build. Gradle** i Dodaj następujące elementy: 
 
     ```gradle
     repositories{
@@ -163,7 +163,7 @@ Jeśli nie masz jeszcze aplikacji systemu Android, wykonaj następujące kroki, 
 
 ### <a name="required-imports"></a>Wymagane importy 
 
-Dodaj następujący kod na początku **aplikacji** > **src** > **main**> głównej modelu**Java** > **com. przykład (yourapp)** > **Main. Java** 
+Dodaj następujący kod na początku aplikacji głównej **app**  >  **src**  >  **main** >  **java**  >  **modelu Java com. przykład (yourapp)**  >  **Main. Java** 
 
 ```java
 import android.os.Bundle;
@@ -207,7 +207,7 @@ TextView currentUserTextView;
 ```
 
 ### <a name="oncreate"></a>onCreate
-Wewnątrz `MainActivity` klasy zapoznaj się z następującą metodą OnCreate (), aby utworzyć wystąpienie MSAL przy `SingleAccountPublicClientApplication`użyciu.
+Wewnątrz `MainActivity` klasy zapoznaj się z następującą metodą OnCreate (), aby utworzyć wystąpienie MSAL przy użyciu `SingleAccountPublicClientApplication` .
 
 ```java
 @Override
@@ -570,16 +570,16 @@ Przykładowy `activity_main.xml` plik do wyświetlania przycisków i pól teksto
 
 Kompiluj i Wdróż aplikację na urządzeniu testowym lub w emulatorze. Powinno być możliwe zalogowanie się i uzyskanie tokenów dla usługi Azure AD lub osobistych kont Microsoft.
 
-Po zalogowaniu aplikacja będzie wyświetlać dane zwrócone z punktu końcowego Microsoft Graph `/me` .
+Po zalogowaniu aplikacja będzie wyświetlać dane zwrócone z `/me` punktu końcowego Microsoft Graph.
 
-### <a name="consent"></a>Posiadacz
+### <a name="consent"></a>Wyrażanie zgody
 
 Gdy użytkownik po raz pierwszy zaloguje się do aplikacji, otrzyma monit o tożsamość firmy Microsoft, aby wyrazić zgodę na wymagane uprawnienia. Niektórzy dzierżawy usługi Azure AD wyłączyli zgodę użytkownika, która wymaga od administratorów wyrażania zgody w imieniu wszystkich użytkowników. Aby obsługiwać ten scenariusz, trzeba utworzyć własną dzierżawę lub odebrać zgodę administratora. 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie jest już potrzebne, Usuń obiekt aplikacji, który został utworzony w kroku [zarejestruj aplikację](#register-your-application) .
 
-## <a name="get-help"></a>Uzyskiwanie pomocy
+## <a name="get-help"></a>Uzyskaj pomoc
 
-Odwiedź [Pomoc i pomoc techniczną,](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options) Jeśli masz problemy z tym samouczkiem lub platformą tożsamości firmy Microsoft.
+Odwiedź [Pomoc i pomoc techniczną,](./developer-support-help-options.md) Jeśli masz problemy z tym samouczkiem lub platformą tożsamości firmy Microsoft.

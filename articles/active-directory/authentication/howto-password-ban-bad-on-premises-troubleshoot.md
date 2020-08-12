@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79ebf543a3880a4f2c8ee8c0d706c268ef3f08d2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 25199aeb7a3ed6332e74ad05835a8c4fca763c00
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035489"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116465"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Rozwiązywanie problemów: lokalna Ochrona hasłem w usłudze Azure AD
 
@@ -72,7 +72,20 @@ Ochrona hasłem w usłudze Azure AD ma krytyczną zależność od funkcji szyfro
 
    Poprawka zabezpieczeń KDS została wprowadzona w systemie Windows Server 2016, która modyfikuje format szyfrowanych buforów KDS; bufory te czasami nie mogą zostać odszyfrowane w systemach Windows Server 2012 i Windows Server 2012 R2. Odwrotny kierunek to odpowiednie bufory KDS-Encrypted w systemie Windows Server 2012, a system Windows Server 2012 R2 zawsze zostanie pomyślnie odszyfrowany w systemie Windows Server 2016 i nowszych. Jeśli kontrolery domeny w domenach Active Directory korzystają z różnych systemów operacyjnych, mogą zostać zgłoszone sporadyczne błędy odszyfrowywania ochrony hasłem w usłudze Azure AD. Nie jest możliwe dokładne przewidywalność czasu ani objawów tych awarii ze względu na charakter poprawki zabezpieczeń i zważywszy, że nie jest to deterministyczny Agent DC ochrony hasłem usługi Azure AD, na którym kontroler domeny będzie szyfrować dane w danym momencie.
 
-   Firma Microsoft bada problem związany z tym problemem, ale nie ma jeszcze dostępnej EZT. W międzyczasie nie ma żadnego obejścia tego problemu, który jest inny niż w przypadku niezgodności z tymi niezgodnymi systemami operacyjnymi w domenach Active Directory. Innymi słowy, należy uruchomić tylko kontrolery domeny z systemem Windows Server 2012 i Windows Server 2012 R2 lub tylko systemu Windows Server 2016 i nowszych kontrolerów domeny.
+   Nie ma żadnego obejścia tego problemu, który jest inny niż w przypadku niezgodności z tymi niezgodnymi systemami operacyjnymi w domenach Active Directory. Innymi słowy, należy uruchomić tylko kontrolery domeny z systemem Windows Server 2012 i Windows Server 2012 R2 lub tylko systemu Windows Server 2016 i nowszych kontrolerów domeny.
+
+## <a name="dc-agent-thinks-the-forest-has-not-been-registered"></a>Agent kontrolera domeny uzna, że Las nie został zarejestrowany
+
+Objawem tego problemu jest 30016 zdarzeń rejestrowanych w kanale Agent\Admin kontrolera domeny, który znajduje się w części:
+
+```text
+The forest has not been registered with Azure. Password policies cannot be downloaded from Azure unless this is corrected.
+```
+
+Istnieją dwie możliwe przyczyny tego problemu.
+
+1. Las rzeczywiście nie został zarejestrowany. Aby rozwiązać ten problem, uruchom polecenie Register-AzureADPasswordProtectionForest, zgodnie z opisem w temacie [wymagania dotyczące wdrażania](howto-password-ban-bad-on-premises-deploy.md).
+1. Las został zarejestrowany, ale agent DC nie może odszyfrować danych rejestracji lasu. Ten przypadek ma taką samą przyczynę główną jak problem #2 wymieniony powyżej w obszarze [Agent kontrolera domeny nie może zaszyfrować lub odszyfrować plików zasad haseł](howto-password-ban-bad-on-premises-troubleshoot.md#dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files). W prosty sposób potwierdzić, że ten błąd będzie widoczny tylko w przypadku agentów DC działających na kontrolerach domeny systemu Windows Server 2012 lub Windows Server 2012R2, podczas gdy agenci DC działający w systemie Windows Server 2016 i nowszych kontrolerach domeny są prawidłowe. Obejście jest takie samo: uaktualnienie wszystkich kontrolerów domeny do systemu Windows Server 2016 lub nowszego.
 
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Hasła słabe są akceptowane, ale nie powinny być
 

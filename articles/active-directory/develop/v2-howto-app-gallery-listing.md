@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 6a20bbeef83072b6fb76bd4e9214e63f094736a1
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: b76e77d6d8575fa086f74c956594a344076f7c74
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172620"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118845"
 ---
 # <a name="add-your-application-to-the-azure-active-directory-application-gallery"></a>Dodawanie aplikacji do galerii aplikacji Azure Active Directory
 
@@ -89,14 +89,14 @@ Użytkownik-Gość jest federacyjny dla dzierżawy głównej, która jest równi
 
 Aby wyświetlić listę aplikacji w galerii aplikacji usługi Azure AD, należy najpierw zaimplementować jeden z następujących protokołów federacyjnych obsługiwanych przez usługę Azure AD. Musisz również wyrazić zgodę na warunki i postanowienia galerii aplikacji usługi Azure AD. Przeczytaj warunki i postanowienia galerii aplikacji usługi Azure AD w [tej witrynie sieci Web](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
 
-- **OpenID Connect Connect**: aby zintegrować aplikację z usługą Azure AD przy użyciu protokołu połączenia Open ID Connect, postępuj zgodnie z [instrukcjami dla deweloperów](v1-authentication-scenarios.md).
+- **OpenID Connect Connect**: aby zintegrować aplikację z usługą Azure AD przy użyciu protokołu połączenia Open ID Connect, postępuj zgodnie z [instrukcjami dla deweloperów](../azuread-dev/v1-authentication-scenarios.md).
 
     ![Wyświetlanie aplikacji OpenID Connect Connect w galerii](./media/howto-app-gallery-listing/openid.png)
 
     * Jeśli chcesz dodać aplikację do listy w galerii za pomocą OpenID Connect Connect, wybierz pozycję **OpenID Connect connect & OAuth 2,0** jak pokazano.
     * Jeśli masz problemy z dostępem, skontaktuj się z [zespołem ds. integracji rejestracji jednokrotnej usługi Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-- **Saml 2,0** lub **WS-karmione**: Jeśli aplikacja obsługuje protokół SAML 2,0, można zintegrować ją bezpośrednio z DZIERŻAWą usługi Azure AD, postępując zgodnie z [instrukcjami, aby dodać aplikację niestandardową](../active-directory-saas-custom-apps.md).
+- **Saml 2,0** lub **WS-karmione**: Jeśli aplikacja obsługuje protokół SAML 2,0, można zintegrować ją bezpośrednio z DZIERŻAWą usługi Azure AD, postępując zgodnie z [instrukcjami, aby dodać aplikację niestandardową](../manage-apps/view-applications-portal.md).
 
   ![Wyświetlanie listy aplikacji SAML 2,0 lub WS-karmione w galerii](./media/howto-app-gallery-listing/saml.png)
 

@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist
-ms.date: 06/25/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 4910dc03cc4ef24b8515271a9197650c4b041f01
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: how-to
+ms.openlocfilehash: 6c2d1b3db422a40f7bcf237c292b48183d99962b
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489609"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121276"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Tworzenie obszaru roboczego dla Azure Machine Learning przy użyciu interfejsu wiersza polecenia platformy Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -141,6 +141,44 @@ Dane wyjściowe tego polecenia są podobne do następujących:
   "workspaceid": "<GUID>"
 }
 ```
+
+### <a name="virtual-network-and-private-endpoint"></a>Sieć wirtualna i prywatny punkt końcowy
+
+Jeśli chcesz ograniczyć dostęp do obszaru roboczego do sieci wirtualnej, możesz użyć następujących parametrów:
+
+* `--pe-name`: Nazwa tworzonego prywatnego punktu końcowego.
+* `--pe-auto-approval`: Czy połączenia prywatnego punktu końcowego z obszarem roboczym powinny być automatycznie zatwierdzane.
+* `--pe-resource-group`: Grupa zasobów, w której ma zostać utworzony prywatny punkt końcowy. Musi być tą samą grupą, która zawiera sieć wirtualną.
+* `--pe-vnet-name`: Istniejąca sieć wirtualna do utworzenia prywatnego punktu końcowego w programie.
+* `--pe-subnet-name`: Nazwa podsieci, w której ma zostać utworzony prywatny punkt końcowy. Wartość domyślna to `default`.
+
+Aby uzyskać więcej informacji na temat korzystania z prywatnego punktu końcowego i sieci wirtualnej z obszarem roboczym, zobacz [izolacja sieci i ochrona prywatności](how-to-enable-virtual-network.md).
+
+### <a name="customer-managed-key-and-high-business-impact-workspace"></a>Klucz zarządzany przez klienta i duży obszar roboczy wpływ na działalność biznesową
+
+Domyślnie metryki i metadane obszaru roboczego są przechowywane w Azure Cosmos DB wystąpieniu, które utrzymuje firma Microsoft. Te dane są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. 
+
+Jeśli tworzysz wersję __Enterprise__ Azure Machine Learning, możesz użyć klucza Podaj swój własny klucz. Spowoduje to utworzenie wystąpienia Azure Cosmos DB, które przechowuje metryki i metadane w ramach subskrypcji platformy Azure. Użyj `--cmk-keyvault` parametru, aby określić Azure Key Vault, który zawiera klucz, i `--resource-cmk-uri` określić adres URL klucza w ramach magazynu.
+
+> [!IMPORTANT]
+> Przed użyciem `--cmk-keyvault` parametrów i `--resource-cmk-uri` należy najpierw wykonać następujące czynności:
+>
+> 1. Autoryzuj __aplikację Machine Learning__ (w temacie Zarządzanie tożsamościami i dostępem) z uprawnieniami współautora w ramach subskrypcji.
+> 1. Wykonaj kroki opisane w temacie [Konfigurowanie kluczy zarządzanych przez klienta](/azure/cosmos-db/how-to-setup-cmk) do:
+>     * Rejestrowanie dostawcy Azure Cosmos DB
+>     * Tworzenie i Konfigurowanie Azure Key Vault
+>     * Generowanie klucza
+>
+>     Nie musisz ręcznie tworzyć wystąpienia Azure Cosmos DB, po utworzeniu obszaru roboczego zostanie ono utworzone. To wystąpienie Azure Cosmos DB zostanie utworzone w oddzielnej grupie zasobów przy użyciu nazwy opartej na tym wzorcu: `<your-resource-group-name>_<GUID>` .
+>
+> Tego ustawienia nie można zmienić po utworzeniu obszaru roboczego. Jeśli usuniesz Azure Cosmos DB używany przez obszar roboczy, musisz również usunąć obszar roboczy, który go używa.
+
+Aby ograniczyć ilość danych zbieranych przez firmę Microsoft w obszarze roboczym, użyj `--hbi-workspace` parametru. 
+
+> [!IMPORTANT]
+> Wybór dużego wpływu na działalność biznesową można wykonać tylko podczas tworzenia obszaru roboczego. Tego ustawienia nie można zmienić po utworzeniu obszaru roboczego.
+
+Aby uzyskać więcej informacji na temat kluczy zarządzanych przez klienta i obszarów roboczych o dużym znaczeniu biznesowym, zobacz [zabezpieczenia przedsiębiorstwa dla Azure Machine Learning](concept-enterprise-security.md#encryption-at-rest).
 
 ### <a name="use-existing-resources"></a>Korzystanie z istniejących zasobów
 

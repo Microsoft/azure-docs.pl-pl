@@ -13,12 +13,12 @@ ms.date: 08/13/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: 53a44ed270dc47725dddfd57d6a212e859d46bad
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 0574eb0b8ab0b5d4de671ad44a45a85e434393f1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552717"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115581"
 ---
 # <a name="app-registration-reference"></a>Dokumentacja rejestracji aplikacji
 
@@ -26,7 +26,7 @@ Ten dokument zawiera kontekst i opisy różnych funkcji dostępnych w [rejestrac
 
 ## <a name="my-applications-or-converged-applications"></a>Moje aplikacje lub aplikacje, które są zbieżne
 
-Ta lista zawiera wszystkie aplikacje zarejestrowane do użycia z punktem końcowym Microsoft Identity platform (v 2.0). Te aplikacje mają możliwość logowania użytkowników z kontami osobistymi firmy Microsoft i kont służbowych z Azure Active Directory. Aby dowiedzieć się więcej o punkcie końcowym platformy tożsamości, zobacz [Omówienie programu v 2.0](active-directory-appmodel-v2-overview.md). Te aplikacje mogą być również używane do integracji z punktem końcowym uwierzytelniania konto Microsoft `https://login.live.com` .
+Ta lista zawiera wszystkie aplikacje zarejestrowane do użycia z punktem końcowym Microsoft Identity platform (v 2.0). Te aplikacje mają możliwość logowania użytkowników z kontami osobistymi firmy Microsoft i kont służbowych z Azure Active Directory. Aby dowiedzieć się więcej o punkcie końcowym platformy tożsamości, zobacz [Omówienie programu v 2.0](./v2-overview.md). Te aplikacje mogą być również używane do integracji z punktem końcowym uwierzytelniania konto Microsoft `https://login.live.com` .
 
 ## <a name="azure-ad-only-applications"></a>Tylko aplikacje usługi Azure AD
 

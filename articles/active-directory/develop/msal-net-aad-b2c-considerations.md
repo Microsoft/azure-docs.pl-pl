@@ -13,12 +13,12 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 3aac63369dffa5b8ba0b9e55b5063ad8136c95cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea5cc53d909ed090e152af84da49c8e87907f6bf
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82883230"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120613"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Korzystanie z MSAL.NET do logowania użytkowników przy użyciu tożsamości społecznościowych
 
@@ -78,7 +78,7 @@ W poprzednim fragmencie kodu:
 
 - `policy`jest ciągiem zawierającym nazwę przepływu użytkownika Azure AD B2C lub zasad niestandardowych (na przykład `PolicySignUpSignIn` ).
 - `ParentActivityOrWindow`jest wymagana w przypadku systemu Android (działanie) i jest opcjonalne dla innych platform, które obsługują nadrzędny interfejs użytkownika, taki jak Windows w systemach Microsoft Windows i UIViewController w systemie iOS. Aby uzyskać więcej informacji o interfejsie użytkownika, zobacz [WithParentActivityOrWindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) The MSAL wiki.
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)`to metoda, która odnajduje konto dla danej zasady. Przykład:
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)`to metoda, która odnajduje konto dla danej zasady. Na przykład:
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -134,7 +134,7 @@ Przy użyciu nazwy użytkownika/hasła w przepływie ROPC można naświęcić ki
 
 ### <a name="configure-the-ropc-flow-in-azure-ad-b2c"></a>Konfigurowanie przepływu ROPC w Azure AD B2C
 
-W dzierżawie Azure AD B2C Utwórz nowy przepływ użytkownika i wybierz pozycję **Zaloguj się za pomocą ROPC** , aby włączyć ROPC dla przepływu użytkownika. Aby uzyskać więcej informacji, zobacz [Konfigurowanie przepływu poświadczeń hasła właściciela zasobu](/azure/active-directory-b2c/configure-ropc).
+W dzierżawie Azure AD B2C Utwórz nowy przepływ użytkownika i wybierz pozycję **Zaloguj się za pomocą ROPC** , aby włączyć ROPC dla przepływu użytkownika. Aby uzyskać więcej informacji, zobacz [Konfigurowanie przepływu poświadczeń hasła właściciela zasobu](../../active-directory-b2c/configure-ropc.md).
 
 `IPublicClientApplication`zawiera `AcquireTokenByUsernamePassword` metodę:
 
@@ -182,7 +182,7 @@ Objawem takiego scenariusza jest to, że MSAL.NET zwraca, `Missing from the toke
 
 Sugerowane obejście polega na użyciu [pamięci podręcznej opisanej wcześniej przez zasady](#acquire-a-token-to-apply-a-policy) .
 
-Alternatywnie możesz użyć tego żądania, `tid` Jeśli używasz [zasad niestandardowych](../../active-directory-b2c/custom-policy-get-started.md) w Azure AD B2C. Zasady niestandardowe mogą zwracać dodatkowe oświadczenia do aplikacji przy użyciu [transformacji oświadczeń](/azure/active-directory-b2c/claims-transformation-technical-profile).
+Alternatywnie możesz użyć tego żądania, `tid` Jeśli używasz [zasad niestandardowych](../../active-directory-b2c/custom-policy-get-started.md) w Azure AD B2C. Zasady niestandardowe mogą zwracać dodatkowe oświadczenia do aplikacji przy użyciu [transformacji oświadczeń](../../active-directory-b2c/claims-transformation-technical-profile.md).
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Środki zaradcze dla braku odpowiedzi tokenu
 

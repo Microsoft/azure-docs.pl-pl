@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: 787f30302d163dc0097cde1be31e745d7f29bb64
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 1e537c6f61a7c461b2a9edb4097fba95f5c66a6f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129784"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120528"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w usłudze JavaScript SPA
 
@@ -111,7 +111,7 @@ W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć si�
 >
 > Gdzie:
 > - *\<Enter_the_Application_Id_Here>* to **Identyfikator aplikacji (klienta)** dla zarejestrowanej aplikacji.
-> - *\<Enter_the_Cloud_Instance_Id_Here>* jest wystąpieniem chmury platformy Azure. W przypadku głównej lub globalnej chmury platformy Azure po prostu wprowadź *https://login.microsoftonline.com* . W przypadku chmur **narodowych** (na przykład Chin), zobacz [chmury narodowe](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
+> - *\<Enter_the_Cloud_Instance_Id_Here>* jest wystąpieniem chmury platformy Azure. W przypadku głównej lub globalnej chmury platformy Azure po prostu wprowadź *https://login.microsoftonline.com* . W przypadku chmur **narodowych** (na przykład Chin), zobacz [chmury narodowe](./authentication-national-cloud.md).
 > - *\<Enter_the_Tenant_info_here>* jest ustawiona na jedną z następujących opcji:
 >    - Jeśli aplikacja obsługuje *konta w tym katalogu organizacyjnym*, Zastąp tę wartość **identyfikatorem dzierżawy** lub **nazwą dzierżawy** (na przykład *contoso.Microsoft.com*).
 >    - Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym*, Zastąp tę wartość **organizacją**.
@@ -144,7 +144,7 @@ W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć si�
 > [!div renderon="docs"]
 >
 > Gdzie:
-> - *\<Enter_the_Graph_Endpoint_Here>* jest punktem końcowym, z którym będą wykonywane wywołania interfejsu API. W przypadku usługi interfejsu API głównej lub globalnej Microsoft Graph, wystarczy wprowadzić polecenie `https://graph.microsoft.com` . Aby uzyskać więcej informacji, zobacz [wdrażanie w chmurze krajowej](https://docs.microsoft.com/graph/deployments)
+> - *\<Enter_the_Graph_Endpoint_Here>* jest punktem końcowym, z którym będą wykonywane wywołania interfejsu API. W przypadku usługi interfejsu API głównej lub globalnej Microsoft Graph, wystarczy wprowadzić polecenie `https://graph.microsoft.com` . Aby uzyskać więcej informacji, zobacz [wdrażanie w chmurze krajowej](/graph/deployments)
 >
 > #### <a name="step-4-run-the-project"></a>Krok 4. uruchamianie projektu
 
@@ -300,7 +300,7 @@ myMSALObj.acquireTokenPopup(requestObj)
 Aby uzyskać bardziej szczegółowy przewodnik krok po kroku dotyczący tworzenia aplikacji dla tego samouczka szybkiego startu, zobacz:
 
 > [!div class="nextstepaction"]
-> [Samouczek umożliwiający zalogowanie się i Wywołaj program MS Graph](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-javascriptspa)
+> [Samouczek umożliwiający zalogowanie się i Wywołaj program MS Graph](./tutorial-v2-javascript-spa.md)
 
 Aby przejrzeć repozytorium MSAL w celu uzyskania dokumentacji, często zadawane pytania i problemów, zobacz:
 

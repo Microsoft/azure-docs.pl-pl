@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
-ms.openlocfilehash: aab914caa2647146639aa366f558c80bebcfde54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8e439a055b71ed291573965c561ee31610e3ed4
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84810208"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121616"
 ---
 # <a name="vm-sizes"></a>Rozmiary maszyn wirtualnych
 
@@ -76,7 +76,7 @@ W związku z tym można napisać aplikację, która jest przeznaczona dla `stand
 
 Istnieją dwa sposoby określenia liczby wielokątów modelu lub sceny, które przyczyniają się do limitu budżetu `standard` maszyny wirtualnej o rozmiarze:
 * Na stronie Konwersja modelu Pobierz [wyjściowy plik JSON konwersji](../how-tos/conversion/get-information.md)i sprawdź `numFaces` wpis w [sekcji *inputStatistics* ](../how-tos/conversion/get-information.md#the-inputstatistics-section)
-* Jeśli aplikacja dotyczy zawartości dynamicznej, liczba renderowanych wielokątów może być dynamicznie przetwarzana w czasie wykonywania. Użyj [zapytania oceny wydajności](../overview/features/performance-queries.md#performance-assessment-queries) i sprawdź, czy `polygonsRendered` element członkowski znajduje się w `FrameStatistics` strukturze. Tło z szachownicą jest zawsze wyblakłe z pewnym opóźnieniem, aby można było wykonać akcję użytkownika po wykonaniu tej kwerendy asynchronicznej. Akcja użytkownika może na przykład ukryć lub usunąć wystąpienia modelu.
+* Jeśli aplikacja dotyczy zawartości dynamicznej, liczba renderowanych wielokątów może być dynamicznie przetwarzana w czasie wykonywania. Użyj [zapytania oceny wydajności](../overview/features/performance-queries.md#performance-assessment-queries) i sprawdź, czy `polygonsRendered` element członkowski znajduje się w `FrameStatistics` strukturze. `polygonsRendered`Pole zostanie ustawione na, `bad` gdy moduł renderowania trafi na ograniczenie wielokąta. Tło z szachownicą jest zawsze wyblakłe z pewnym opóźnieniem, aby można było wykonać akcję użytkownika po wykonaniu tej kwerendy asynchronicznej. Akcja użytkownika może na przykład ukryć lub usunąć wystąpienia modelu.
 
 ## <a name="pricing"></a>Cennik
 

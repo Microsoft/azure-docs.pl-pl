@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: 9b6451d29a3a874e09d74cbe664662a395b647f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 465adbb71abaa45160399ecba2ebfb692a8307c2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82890463"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120681"
 ---
 # <a name="how-to-configure-single-sign-on-for-an-application"></a>Jak skonfigurować Logowanie jednokrotne dla aplikacji
 
@@ -26,20 +26,20 @@ Włączenie federacyjnego logowania jednokrotnego w aplikacji jest automatycznie
 
 * W przypadku kompilowania aplikacji mobilnej może być konieczne dodanie dodatkowych konfiguracji w celu włączenia obsługi rejestracji Jednokrotnej dla brokera lub nieobsługiwanego przez brokera.
 
-W przypadku systemu Android zobacz [Włączanie logowania jednokrotnego aplikacji w systemie Android](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android).<br>
+W przypadku systemu Android zobacz [Włączanie logowania jednokrotnego aplikacji w systemie Android](../azuread-dev/howto-v1-enable-sso-android.md).<br>
 
-W przypadku systemu iOS zobacz [Włączanie logowania jednokrotnego aplikacji w systemie iOS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios).
+W przypadku systemu iOS zobacz [Włączanie logowania jednokrotnego aplikacji w systemie iOS](../azuread-dev/howto-v1-enable-sso-ios.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Logowanie jednokrotne usługi Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)<br>
+[Logowanie jednokrotne usługi Azure AD](../manage-apps/what-is-single-sign-on.md)<br>
 
-[Włączanie logowania jednokrotnego aplikacji w systemie Android](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android)<br>
+[Włączanie logowania jednokrotnego aplikacji w systemie Android](../azuread-dev/howto-v1-enable-sso-android.md)<br>
 
-[Włączanie logowania jednokrotnego aplikacji w systemie iOS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios)<br>
+[Włączanie logowania jednokrotnego aplikacji w systemie iOS](../azuread-dev/howto-v1-enable-sso-ios.md)<br>
 
-[Integrowanie aplikacji z usługą AzureAD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)<br>
+[Integrowanie aplikacji z usługą AzureAD](./quickstart-register-app.md)<br>
 
-[Uprawnienia i zgoda w punkcie końcowym platformy tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
+[Uprawnienia i zgoda w punkcie końcowym platformy tożsamości firmy Microsoft](./v2-permissions-and-consent.md)<br>
 
 [AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

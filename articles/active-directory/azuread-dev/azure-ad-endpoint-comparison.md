@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 001de375edab7505ed4687d848aca0ad0965dbfb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c6e59ab0432ad2b7bdccb5ce9916e85eb6d95048
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034911"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116397"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Dlaczego warto wykonać aktualizację do platformy tożsamości Microsoft (wersja 2.0)?
 
@@ -33,9 +33,9 @@ Podczas tworzenia nowej aplikacji ważne jest, aby znać różnice między punkt
 
 * Punkt końcowy v 1.0 zezwala tylko na konta służbowe do logowania się do aplikacji (Azure AD)
 * Punkt końcowy platformy tożsamości firmy Microsoft umożliwia logowanie się przy użyciu kont służbowych z usługi Azure AD i osobistych kont Microsoft (MSA), takich jak hotmail.com, outlook.com i msn.com.
-* Oba punkty końcowe również akceptują logowania *[użytkowników-Gości](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* w katalogu usługi Azure AD dla aplikacji skonfigurowanych jako *[pojedyncze dzierżawy](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* lub dla aplikacji *wielodostępnych* skonfigurowanych tak, aby wskazywały punkt końcowy specyficzny dla dzierżawy ( `https://login.microsoftonline.com/{TenantId_or_Name}` ).
+* Oba punkty końcowe również akceptują logowania *[użytkowników-Gości](../external-identities/what-is-b2b.md)* w katalogu usługi Azure AD dla aplikacji skonfigurowanych jako *[pojedyncze dzierżawy](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* lub dla aplikacji *wielodostępnych* skonfigurowanych tak, aby wskazywały punkt końcowy specyficzny dla dzierżawy ( `https://login.microsoftonline.com/{TenantId_or_Name}` ).
 
-Punkt końcowy platformy tożsamości firmy Microsoft umożliwia pisanie aplikacji akceptujących logowania z osobistych kont Microsoft oraz kont służbowych. Dzięki temu można napisać aplikację całkowicie Account-niezależny od. Na przykład jeśli aplikacja wywołuje [Microsoft Graph](https://graph.microsoft.io), niektóre dodatkowe funkcje i dane będą dostępne dla kont służbowych, takich jak witryny programu SharePoint lub dane katalogu. Jednak w przypadku wielu akcji, takich jak [odczytywanie wiadomości e-mail](https://docs.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0), ten sam kod może uzyskać dostęp do poczty e-mail zarówno dla kont osobistych, jak i służbowych.
+Punkt końcowy platformy tożsamości firmy Microsoft umożliwia pisanie aplikacji akceptujących logowania z osobistych kont Microsoft oraz kont służbowych. Dzięki temu można napisać aplikację całkowicie Account-niezależny od. Na przykład jeśli aplikacja wywołuje [Microsoft Graph](https://graph.microsoft.io), niektóre dodatkowe funkcje i dane będą dostępne dla kont służbowych, takich jak witryny programu SharePoint lub dane katalogu. Jednak w przypadku wielu akcji, takich jak [odczytywanie wiadomości e-mail](/graph/api/user-list-messages?view=graph-rest-1.0), ten sam kod może uzyskać dostęp do poczty e-mail zarówno dla kont osobistych, jak i służbowych.
 
 W przypadku punktu końcowego platformy tożsamości firmy Microsoft można korzystać z biblioteki Microsoft Authentication Library (MSAL) w celu uzyskania dostępu do przedsiębiorstw, programów edukacyjnych i korporacyjnych. Punkt końcowy usługi Azure AD v 1.0 akceptuje logowania tylko z kont służbowych.
 
@@ -141,7 +141,7 @@ Rejestracje aplikacji, które obsługują konta służbowe i konta osobiste, maj
 
 ### <a name="restrictions-on-redirect-urls"></a>Ograniczenia dotyczące adresów URL przekierowania
 
-Aby uzyskać najbardziej aktualne informacje o ograniczeniach dotyczących adresów URL przekierowania dla aplikacji, które są zarejestrowane dla platformy tożsamości firmy Microsoft, zobacz [ograniczenia i ograniczenia adresów URL przekierowania URI/odpowiedzi](https://docs.microsoft.com/azure/active-directory/develop/reply-url) w dokumentacji platformy tożsamości firmy Microsoft.
+Aby uzyskać najbardziej aktualne informacje o ograniczeniach dotyczących adresów URL przekierowania dla aplikacji, które są zarejestrowane dla platformy tożsamości firmy Microsoft, zobacz [ograniczenia i ograniczenia adresów URL przekierowania URI/odpowiedzi](../develop/reply-url.md) w dokumentacji platformy tożsamości firmy Microsoft.
 
 Aby dowiedzieć się, jak zarejestrować aplikację do użycia z platformą tożsamości firmy Microsoft, zobacz [Rejestrowanie aplikacji przy użyciu nowego środowiska rejestracje aplikacji](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 

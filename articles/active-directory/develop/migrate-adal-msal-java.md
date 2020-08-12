@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: 3b775d88409a03f6de54b9db3ab62d6988c5bddd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ec4103251d27114b8fe40101c0e78c259106a440
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313051"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120885"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Przewodnik migracji biblioteki ADAL do MSAL dla języka Java
 
@@ -37,15 +37,15 @@ MSAL for Java jest biblioteką uwierzytelniania zalecaną do użycia z platform�
 
 ## <a name="differences"></a>Różnice
 
-Jeśli pracujesz z punktem końcowym usługi Azure AD dla deweloperów (i ADAL4J), warto zapoznać się z [informacjami o tym, co się dzieje w punkcie końcowym platformy Identity platform (v 2.0)?](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison).
+Jeśli pracujesz z punktem końcowym usługi Azure AD dla deweloperów (i ADAL4J), warto zapoznać się z [informacjami o tym, co się dzieje w punkcie końcowym platformy Identity platform (v 2.0)?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 ## <a name="scopes-not-resources"></a>Zakresy nie są zasobami
 
-ADAL4J uzyskuje tokeny dla zasobów, a MSAL for Java uzyskuje tokeny dla zakresów. Liczba MSAL dla klas języka Java wymaga parametru Scopes. Ten parametr jest listą ciągów, które deklarują żądane uprawnienia i żądane zasoby. Zobacz [zakresy Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference) , aby zobaczyć przykładowe zakresy.
+ADAL4J uzyskuje tokeny dla zasobów, a MSAL for Java uzyskuje tokeny dla zakresów. Liczba MSAL dla klas języka Java wymaga parametru Scopes. Ten parametr jest listą ciągów, które deklarują żądane uprawnienia i żądane zasoby. Zobacz [zakresy Microsoft Graph](/graph/permissions-reference) , aby zobaczyć przykładowe zakresy.
 
 Można dodać `/.default` sufiks zakresu do zasobu, aby ułatwić migrację aplikacji z punktu końcowego v 1.0 (ADAL) do punktu końcowego platformy tożsamości firmy Microsoft (MSAL). Na przykład dla wartości zasobu wartość `https://graph.microsoft.com` równoważna wartość zakresu to `https://graph.microsoft.com/.default` .  Jeśli zasób nie jest w formie adresu URL, ale identyfikator zasobu formularza `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` , można nadal używać wartości zakresu jako `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
 
-Aby uzyskać więcej informacji na temat różnych typów zakresów, zapoznaj się z [uprawnieniami i wyrażaniem zgody na platformie tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) oraz [zakresami dla internetowego interfejsu API akceptujących artykuły tokenów w wersji 1.0](https://docs.microsoft.com/azure/active-directory/develop/msal-v1-app-scopes) .
+Aby uzyskać więcej informacji na temat różnych typów zakresów, zapoznaj się z [uprawnieniami i wyrażaniem zgody na platformie tożsamości firmy Microsoft](./v2-permissions-and-consent.md) oraz [zakresami dla internetowego interfejsu API akceptujących artykuły tokenów w wersji 1.0](./msal-v1-app-scopes.md) .
 
 ## <a name="core-classes"></a>Klasy podstawowe
 
@@ -86,9 +86,9 @@ Jeśli używasz `https://login.microsoftonline.com/common` urzędu w wersji 2.0,
 
 Punkt końcowy v 1.0 (używany przez ADAL) emituje tylko tokeny w wersji 1.0.
 
-Punkt końcowy v 2.0 (używany przez MSAL) może emitować tokeny v 1.0 i v 2.0. Właściwość manifestu aplikacji internetowego interfejsu API pozwala deweloperom wybrać, która wersja tokenu jest akceptowana. Zapoznaj `accessTokenAcceptedVersion` się z dokumentacją dotyczącą [manifestu aplikacji](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) .
+Punkt końcowy v 2.0 (używany przez MSAL) może emitować tokeny v 1.0 i v 2.0. Właściwość manifestu aplikacji internetowego interfejsu API pozwala deweloperom wybrać, która wersja tokenu jest akceptowana. Zapoznaj `accessTokenAcceptedVersion` się z dokumentacją dotyczącą [manifestu aplikacji](./reference-app-manifest.md) .
 
-Aby uzyskać więcej informacji na temat tokenów v 1.0 i v 2.0, zobacz [Azure Active Directory tokeny dostępu](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
+Aby uzyskać więcej informacji na temat tokenów v 1.0 i v 2.0, zobacz [Azure Active Directory tokeny dostępu](./access-tokens.md).
 
 ## <a name="adal-to-msal-migration"></a>Migracja biblioteki ADAL do MSAL
 

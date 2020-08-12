@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
-ms.openlocfilehash: 86b592ecf5485654ab6860addbfde48cee4df077
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15270a998aff174c04acf2969d984eb022852635
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885552"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117366"
 ---
 # <a name="how-application-consent-works"></a>Jak działa zgoda dla aplikacji
 
@@ -24,10 +24,10 @@ Ten artykuł ma na celu ułatwienie Dowiedz się więcej o tym, jak działa stru
 
 ## <a name="recommended-documents"></a>Zalecane dokumenty
 
-- Zapoznaj się z ogólnymi informacjami o tym, [jak zgoda Właściciel zasobu może zarządzać dostępem aplikacji do zasobów](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#consent).
-- Zapoznaj się z omówieniem krok po kroku [na temat sposobu, w jaki platforma zgody usługi Azure AD implementuje wyrażanie zgody](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- Aby uzyskać większą głębokość, Dowiedz się, w [jaki sposób aplikacja wielodostępna może używać struktury zgody](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) do implementowania zgody "User" i "admin", co pozwala na bardziej zaawansowane wzorce aplikacji wielowarstwowej.
-- Aby uzyskać więcej informacji, Dowiedz się, [jak zgoda jest obsługiwana w warstwie protokołu OAuth 2,0 podczas przepływu przydzielenia kodu autoryzacji.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)
+- Zapoznaj się z ogólnymi informacjami o tym, [jak zgoda Właściciel zasobu może zarządzać dostępem aplikacji do zasobów](./developer-glossary.md#consent).
+- Zapoznaj się z omówieniem krok po kroku [na temat sposobu, w jaki platforma zgody usługi Azure AD implementuje wyrażanie zgody](./quickstart-register-app.md).
+- Aby uzyskać większą głębokość, Dowiedz się, w [jaki sposób aplikacja wielodostępna może używać struktury zgody](./howto-convert-app-to-be-multi-tenant.md) do implementowania zgody "User" i "admin", co pozwala na bardziej zaawansowane wzorce aplikacji wielowarstwowej.
+- Aby uzyskać więcej informacji, Dowiedz się, [jak zgoda jest obsługiwana w warstwie protokołu OAuth 2,0 podczas przepływu przydzielenia kodu autoryzacji.](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code)
 
 ## <a name="next-steps"></a>Następne kroki
 [AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

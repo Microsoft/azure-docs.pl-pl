@@ -12,14 +12,14 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 19c94a4807b8958fa8b1ec46ccae660c7cbe92de
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: df873e49e1bc581a32bcb4e4b40b2b24db98cee5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256700"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120817"
 ---
-# <a name="quickstart-set-up-a-tenant"></a>Szybki Start: Konfigurowanie dzierżawy
+# <a name="quickstart-set-up-a-tenant"></a>Szybki start: Konfigurowanie dzierżawy
 
 Platforma tożsamości firmy Microsoft umożliwia deweloperom tworzenie aplikacji przeznaczonych dla wielu różnych niestandardowych środowisk oraz tożsamości usługi Microsoft 365. Aby rozpocząć korzystanie z platformy tożsamości firmy Microsoft, należy uzyskać dostęp do środowiska, nazywanego również dzierżawą usługi Azure AD, które umożliwia rejestrowania aplikacji i zarządzanie nimi, uzyskać dostęp do danych platformy Microsoft 365 i wdrożyć niestandardowe ograniczenia dostępu warunkowego i dzierżawy.
 
@@ -72,5 +72,5 @@ Aby rozpocząć tworzenie aplikacji, które umożliwiają logowanie za pomocą k
 ## <a name="next-steps"></a>Następne kroki
 
 * [Zarejestruj aplikację](quickstart-register-app.md) i Zintegruj ją z platformą tożsamości firmy Microsoft. 
-* Zapoznaj się z [podstawowymi informacjami na temat uwierzytelniania](authentication-scenarios.md).
+* Zapoznaj się z [podstawowymi informacjami na temat uwierzytelniania](./authentication-vs-authorization.md).
 * Aby uzyskać szczegółowe informacje na temat relacji między subskrypcjami a dzierżawą usługi Azure AD, zobacz temat [kojarzenie lub Dodawanie subskrypcji platformy Azure do dzierżawy Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md) .

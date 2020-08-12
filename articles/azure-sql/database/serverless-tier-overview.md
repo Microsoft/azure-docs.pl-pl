@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 8/7/2020
-ms.openlocfilehash: 518d3880a740de2cda4f01e362d8a5ef7865b361
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 7697ba514b74935f8da6d71cdfb380e704d66f56
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037307"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121361"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database bezserwerowe
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -119,7 +119,7 @@ Następujące funkcje nie obsługują automatycznego wstrzymywania, ale obsługu
 - Replikacja geograficzna (aktywna replikacja geograficzna i grupy autotrybu failover).
 - Długoterminowe przechowywanie kopii zapasowych (LTR).
 - Baza danych synchronizacji używana w usłudze SQL Data Sync.  W przeciwieństwie do baz danych synchronizacji, bazy danych Hub i elementów członkowskich obsługują autowstrzymywanie.
-- Baza danych zadań używana w zadaniach elastycznych.
+- Baza danych zadań używana w zadaniach elastycznych (wersja zapoznawcza).
 
 Autowstrzymywanie jest tymczasowo uniemożliwiane podczas wdrażania niektórych aktualizacji usługi, które wymagają, aby baza danych była w trybie online.  W takich przypadkach autowstrzymywanie zostanie ponownie dozwolone po zakończeniu aktualizacji usługi.
 

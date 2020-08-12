@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: fc71ebe61fba8c1bdb6b7625b16a50d8995a581a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8de6a7aafdd402e4ee75862e69ac60af3af0e041
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80883357"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114935"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Jak zmienić wartości domyślne okresu istnienia tokenu dla aplikacji opracowanej niestandardowo
 
@@ -29,5 +29,5 @@ W tym artykule pokazano, jak ustawić zasady okresu istnienia tokenu przy użyci
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zobacz [konfigurowalne okresy istnienia tokenu w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) , aby dowiedzieć się, jak skonfigurować okresy istnienia tokenów wystawionych przez usługę Azure AD, w tym informacje o sposobie ustawiania okresów istnienia tokenu dla wszystkich aplikacji w organizacji, dla aplikacji z wieloma dzierżawami lub dla określonej jednostki usługi w organizacji. 
-* [Odwołanie do tokenu usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
+* Zobacz [konfigurowalne okresy istnienia tokenu w usłudze Azure AD](./active-directory-configurable-token-lifetimes.md) , aby dowiedzieć się, jak skonfigurować okresy istnienia tokenów wystawionych przez usługę Azure AD, w tym informacje o sposobie ustawiania okresów istnienia tokenu dla wszystkich aplikacji w organizacji, dla aplikacji z wieloma dzierżawami lub dla określonej jednostki usługi w organizacji. 
+* [Odwołanie do tokenu usługi Azure AD](./id-tokens.md)

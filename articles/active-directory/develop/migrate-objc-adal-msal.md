@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 6050bdc8c2600998b9804b04b62102e74612719f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13923596b7ad0f6d3fdef24e847f469645b448ee
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77085177"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119933"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrowanie aplikacji do MSAL dla systemów iOS i macOS
 
@@ -45,7 +45,7 @@ Platforma tożsamości firmy Microsoft oferuje kilka najważniejszych różnic w
 * Punkt końcowy Azure Active Directory v 1.0 wymaga, aby wszystkie uprawnienia były zgłaszane z wyprzedzeniem podczas rejestracji aplikacji. Oznacza to, że te uprawnienia są statyczne.
 * Platforma tożsamości firmy Microsoft umożliwia dynamiczne żądanie uprawnień. Aplikacje mogą prosić o uprawnienia tylko w razie potrzeby i żądać więcej, jak aplikacja je potrzebuje.
 
-Aby uzyskać więcej informacji o różnicach między Azure Active Directory v 1.0 i platformą tożsamości firmy Microsoft, zobacz [Dlaczego warto zaktualizować platformę tożsamości firmy Microsoft (v 2.0)?](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison).
+Aby uzyskać więcej informacji o różnicach między Azure Active Directory v 1.0 i platformą tożsamości firmy Microsoft, zobacz [Dlaczego warto zaktualizować platformę tożsamości firmy Microsoft (v 2.0)?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 ## <a name="adal-and-msal-library-differences"></a>Różnice w bibliotece ADAL i MSAL
 
@@ -61,11 +61,11 @@ W programie MSAL główną interakcją jest użycie `MSALPublicClientApplication
 
 W bibliotece ADAL aplikacja musiała podać identyfikator *zasobu* , na przykład `https://graph.microsoft.com` w celu uzyskania tokenów z punktu końcowego Azure Active Directory v 1.0. Zasób może definiować wiele zakresów lub oAuth2Permissions w manifeście aplikacji, który rozumie. To dozwolone aplikacje klienckie do żądania tokenów z tego zasobu dla określonego zestawu zakresów wstępnie zdefiniowanych podczas rejestracji aplikacji.
 
-W MSAL zamiast pojedynczego identyfikatora zasobu aplikacje udostępniają zestaw zakresów dla żądania. Zakres jest identyfikatorem zasobu, po którym następuje nazwa uprawnienia w formularzu zasób/uprawnienie. Na przykład: `https://graph.microsoft.com/user.read`
+W MSAL zamiast pojedynczego identyfikatora zasobu aplikacje udostępniają zestaw zakresów dla żądania. Zakres jest identyfikatorem zasobu, po którym następuje nazwa uprawnienia w formularzu zasób/uprawnienie. Na przykład `https://graph.microsoft.com/user.read`
 
 Istnieją dwa sposoby udostępniania zakresów w MSAL:
 
-* Podaj listę wszystkich uprawnień wymaganych przez aplikacje. Przykład: 
+* Podaj listę wszystkich uprawnień wymaganych przez aplikacje. Na przykład: 
 
     `@[@"https://graph.microsoft.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
 
@@ -77,7 +77,7 @@ Jest to wbudowany zakres dla każdej aplikacji. Odnosi się do statycznej listy 
 
 Aby użyć `/.default` zakresu, Dołącz `/.default` do identyfikatora zasobu. Na przykład: `https://graph.microsoft.com/.default`. Jeśli zasób kończy się ukośnikiem ( `/` ), nadal powinien być dołączany `/.default` , łącznie z wiodącym ukośnikiem, co spowoduje powstanie zakresu, który ma podwójny ukośnik ( `//` ).
 
-Więcej informacji na temat korzystania z zakresu "/.default" można znaleźć [tutaj](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope)
+Więcej informacji na temat korzystania z zakresu "/.default" można znaleźć [tutaj](./v2-permissions-and-consent.md#the-default-scope)
 
 ### <a name="supporting-different-webview-types--browsers"></a>Obsługa różnych typów widoków WebView & przeglądarek
 
@@ -146,7 +146,7 @@ Aby włączyć brokera dla aplikacji:
 
 1. Zarejestruj format URI przekierowania zgodnego z brokerem dla aplikacji. Format identyfikatora URI przekierowania zgodnego z brokerem to `msauth.<app.bundle.id>://auth` . Zamień `<app.bundle.id>` na identyfikator pakietu aplikacji. Jeśli przeprowadzasz migrację z biblioteki ADAL, a Twoja aplikacja została już obsługiwana przez brokera, nie musisz wykonywać żadnych dodatkowych czynności. Poprzedni identyfikator URI przekierowania jest w pełni zgodny z MSAL, więc możesz przejść do kroku 3.
 
-2. Dodaj schemat identyfikatora URI przekierowania aplikacji do pliku info. plist. W przypadku domyślnego identyfikatora URI przekierowania MSAL format to `msauth.<app.bundle.id>` . Przykład:
+2. Dodaj schemat identyfikatora URI przekierowania aplikacji do pliku info. plist. W przypadku domyślnego identyfikatora URI przekierowania MSAL format to `msauth.<app.bundle.id>` . Na przykład:
 
     ```xml
     <key>CFBundleURLSchemes</key>
@@ -207,7 +207,7 @@ MSAL w systemie iOS obsługuje również dwa inne typy logowania jednokrotnego:
 
 ## <a name="intune-mam-sdk"></a>Zestaw SDK MAM usługi Intune
 
-[Zestaw SDK mam usługi Intune](https://docs.microsoft.com/intune/app-sdk-get-started) obsługuje MSAL dla systemu iOS, począwszy od wersji [11.1.2](https://github.com/msintuneappsdk/ms-intune-app-sdk-ios/releases/tag/11.1.2)
+[Zestaw SDK mam usługi Intune](/intune/app-sdk-get-started) obsługuje MSAL dla systemu iOS, począwszy od wersji [11.1.2](https://github.com/msintuneappsdk/ms-intune-app-sdk-ios/releases/tag/11.1.2)
 
 ## <a name="msal-and-adal-in-the-same-app"></a>MSAL i ADAL w tej samej aplikacji
 
@@ -226,7 +226,7 @@ Nie musisz zmieniać istniejącej aplikacji usługi AAD, aby przełączyć się 
 
 Identyfikator URI przekierowania powinien mieć następujący format: `msauth.<app.bundle.id>://auth` . Zamień `<app.bundle.id>` na identyfikator pakietu aplikacji. Określ identyfikator URI przekierowania w [Azure Portal](https://aka.ms/MobileAppReg).
 
-W przypadku tylko systemu iOS w celu obsługi uwierzytelniania opartego na certyfikatach w aplikacji musi być zarejestrowany dodatkowy identyfikator URI przekierowania, a Azure Portal w następującym formacie: `msauth://code/<broker-redirect-uri-in-url-encoded-form>` . Na przykład: `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
+W przypadku tylko systemu iOS w celu obsługi uwierzytelniania opartego na certyfikatach w aplikacji musi być zarejestrowany dodatkowy identyfikator URI przekierowania, a Azure Portal w następującym formacie: `msauth://code/<broker-redirect-uri-in-url-encoded-form>` . Na przykład `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
 
 Zalecamy, aby wszystkie aplikacje rejestrowali oba identyfikatory URI przekierowania.
 

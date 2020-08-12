@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: reference
 ms.date: 08/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: 5ea28a7a4669fd000800bf62b7b940abefcf7551
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: c6b7d1fb28e81957ded56662a06946e56c3dc00e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030966"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114901"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Rozwiązywanie problemów z alertami metryk Azure Monitor 
 
@@ -108,9 +108,9 @@ Alerty metryk są domyślnie stanowe i w związku z tym dodatkowe alerty nie są
 
 ## <a name="define-an-alert-rule-on-a-custom-metric-that-isnt-emitted-yet"></a>Zdefiniuj regułę alertu na niestandardową metrykę, która nie jest jeszcze emitowana
 
-Podczas tworzenia reguły alertu metryki Nazwa metryki jest sprawdzana pod kątem [interfejsu API definicji metryk](/rest/api/monitor/metricdefinitions/list) , aby upewnić się, że istnieje. W niektórych przypadkach chcesz utworzyć regułę alertu dla metryki niestandardowej nawet przed emisją. Na przykład podczas tworzenia (przy użyciu szablonu ARM) Application Insights zasobu, który będzie emitować metrykę niestandardową, wraz z regułą alertu, która monitoruje tę metrykę.
+Podczas tworzenia reguły alertu metryki Nazwa metryki jest sprawdzana pod kątem [interfejsu API definicji metryk](/rest/api/monitor/metricdefinitions/list) , aby upewnić się, że istnieje. W niektórych przypadkach chcesz utworzyć regułę alertu dla metryki niestandardowej nawet przed emisją. Na przykład podczas tworzenia (przy użyciu szablonu Menedżer zasobów) Application Insights zasobu, który będzie emitować metrykę niestandardową, wraz z regułą alertu, która monitoruje tę metrykę.
 
-Aby uniknąć niepowodzenia wdrożenia podczas próby zweryfikowania definicji metryk niestandardowych, można użyć parametru *skipMetricValidation* w sekcji kryteria reguły alertu, co spowoduje Pominięcie sprawdzania poprawności metryki. Zapoznaj się z poniższym przykładem, jak używać tego parametru w szablonie ARM (Aby uzyskać pełne przykłady szablonów usługi ARM do tworzenia reguł alertów dotyczących metryk, zobacz [tutaj]( ./alerts-metric-create-templates.md)).
+Aby uniknąć niepowodzenia wdrożenia podczas próby zweryfikowania definicji metryk niestandardowych, można użyć parametru *skipMetricValidation* w sekcji kryteria reguły alertu, co spowoduje Pominięcie sprawdzania poprawności metryki. Zapoznaj się z poniższym przykładem, jak używać tego parametru w szablonie Menedżer zasobów. Aby uzyskać więcej informacji, zobacz [pełne przykłady szablonów Menedżer zasobów na potrzeby tworzenia reguł alertów dotyczących metryk](./alerts-metric-create-templates.md).
 
 ```json
 "criteria": {
@@ -245,7 +245,7 @@ Podczas używania wymiarów w regule alertu zawierającej wiele warunków należ
 - Można wybrać tylko jedną wartość dla każdego wymiaru w każdym warunku.
 - Nie można użyć opcji "zaznacz wszystkie bieżące i przyszłe wartości" (wybierz \* ).
 - Gdy metryki, które są skonfigurowane w różnych warunkach, obsługują ten sam wymiar, wówczas skonfigurowana wartość wymiaru musi być jawnie ustawiona w taki sam sposób dla wszystkich metryk (w odpowiednich warunkach).
-Przykład:
+Na przykład:
     - Należy wziąć pod uwagę regułę alertu metryki zdefiniowaną na koncie magazynu i monitoruje dwa warunki:
         * Łączna liczba **transakcji** > 5
         * Średnia **SuccessE2ELatency** > 250 MS

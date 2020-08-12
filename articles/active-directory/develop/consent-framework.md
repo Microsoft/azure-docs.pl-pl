@@ -13,12 +13,12 @@ ms.date: 11/30/2018
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: e706c0eeb848b6cd14a3c14de821ca59a9c52ee9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe321de279397d24e0926cf1ef26a1d66adac8c4
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82611368"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117315"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Platforma wyrażania zgody w usłudze Azure Active Directory
 
@@ -28,7 +28,7 @@ Struktura jest oparta na użytkowniku lub administratorze, który wyraża zgodę
 
 Struktura zgody jest oparta na uwierzytelnianiu OAuth 2,0 i jego różnych przepływach, takich jak przyznawanie kodu autoryzacji i udzielanie poświadczeń klienta, przy użyciu klientów publicznych lub poufnych. Dzięki użyciu protokołu OAuth 2,0 usługa Azure AD umożliwia tworzenie wielu różnych typów aplikacji klienckich — takich jak telefon, tablet, serwer lub aplikacja sieci Web — i uzyskiwanie dostępu do wymaganych zasobów.
 
-Aby uzyskać więcej informacji na temat korzystania z struktury zgody z przyznanymi autoryzacją OAuth 2.0, zobacz [Autoryzuj dostęp do aplikacji sieci Web przy użyciu protokołu oauth 2,0 i usługi Azure AD](v2-oauth2-auth-code-flow.md) oraz [scenariusze uwierzytelniania dla usługi Azure AD](authentication-scenarios.md). Aby uzyskać informacje na temat uzyskiwania autoryzowanego dostępu do pakietu Office 365 za pomocą Microsoft Graph, zobacz [uwierzytelnianie aplikacji z Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview).
+Aby uzyskać więcej informacji na temat korzystania z struktury zgody z przyznanymi autoryzacją OAuth 2.0, zobacz [Autoryzuj dostęp do aplikacji sieci Web przy użyciu protokołu oauth 2,0 i usługi Azure AD](v2-oauth2-auth-code-flow.md) oraz [scenariusze uwierzytelniania dla usługi Azure AD](./authentication-vs-authorization.md). Aby uzyskać informacje na temat uzyskiwania autoryzowanego dostępu do pakietu Office 365 za pomocą Microsoft Graph, zobacz [uwierzytelnianie aplikacji z Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview).
 
 ## <a name="consent-experience---an-example"></a>Środowisko zgody — przykład
 
@@ -65,4 +65,4 @@ Poniższe kroki pokazują, jak środowisko zgody działa zarówno dla deweloper�
 ## <a name="next-steps"></a>Następne kroki
 
 * Zobacz [, jak przekonwertować aplikację w celu korzystania z wielu dzierżawców](howto-convert-app-to-be-multi-tenant.md)
-* Aby uzyskać więcej informacji, Dowiedz się, [jak zgoda jest obsługiwana w warstwie protokołu OAuth 2,0 podczas przepływu przydzielenia kodu autoryzacji.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)
+* Aby uzyskać więcej informacji, Dowiedz się, [jak zgoda jest obsługiwana w warstwie protokołu OAuth 2,0 podczas przepływu przydzielenia kodu autoryzacji.](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code)

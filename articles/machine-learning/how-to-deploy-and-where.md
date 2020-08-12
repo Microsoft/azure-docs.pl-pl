@@ -12,12 +12,12 @@ ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 zone_pivot_groups: aml-control-methods
-ms.openlocfilehash: 5e73744f3d467d08944d0e8800dd6d8824857abd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 439bf51aac4d04ee12968588a4e38c4643b4808a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846993"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120353"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Wdrażanie modeli za pomocą usługi Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,15 +35,17 @@ Przepływ pracy wygląda podobnie niezależnie od tego, gdzie wdrażasz model:
 Aby uzyskać więcej informacji na temat pojęć związanych z przepływem pracy wdrożenia, zobacz artykuł [Zarządzanie, wdrażanie i monitorowanie modeli przy użyciu Azure Machine Learning](concept-model-management-and-deployment.md).
 
 
- 
-::: zone pivot="cli"
-[!INCLUDE [CLI quickstart](../../includes/machine-learning-how-to-deploy-and-where-cli.md)]
-::: zone-end
-
 ::: zone pivot="py-sdk"
+
 [!INCLUDE [SDK quickstart](../../includes/machine-learning-how-to-deploy-and-where-sdk.md)]
+
 ::: zone-end
 
+::: zone pivot="cli"
+
+[!INCLUDE [CLI quickstart](../../includes/machine-learning-how-to-deploy-and-where-cli.md)]
+
+::: zone-end
 
 ### <a name="understanding-service-state"></a>Informacje o stanie usługi
 

@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 499b7348c645f4792332769ac598ffcea07ea102
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 79b9be504639b35c7c15d427bd7766ed2dd15535
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541910"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121089"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Uzyskaj token dla aplikacji mobilnej, która wywołuje interfejsy API sieci Web
 
@@ -209,7 +209,7 @@ catch(MsalUiRequiredException)
 
 `AcquireTokenInteractive`ma tylko jeden obowiązkowy parametr: `scopes` . `scopes`Parametr wylicza ciągi definiujące zakresy, dla których wymagany jest token. Jeśli token jest przeznaczony dla Microsoft Graph, można znaleźć wymagane zakresy w dokumentacji interfejsu API dla każdego Microsoft Graph interfejsu API. W odwołaniu przejdź do sekcji "uprawnienia".
 
-Na przykład aby [wyświetlić listę kontaktów użytkownika](https://docs.microsoft.com/graph/api/user-list-contacts), należy użyć zakresu "User. Read", "Contacts. Read". Aby uzyskać więcej informacji, zobacz [Microsoft Graph informacje o uprawnieniach](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+Na przykład aby [wyświetlić listę kontaktów użytkownika](/graph/api/user-list-contacts), należy użyć zakresu "User. Read", "Contacts. Read". Aby uzyskać więcej informacji, zobacz [Microsoft Graph informacje o uprawnieniach](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
 
 W systemie Android podczas tworzenia aplikacji za pomocą programu można określić działanie nadrzędne `PublicClientApplicationBuilder` . Jeśli nie określisz działania nadrzędnego w tym czasie, możesz je określić za pomocą `.WithParentActivityOrWindow` , jak w poniższej sekcji. W przypadku określenia działania nadrzędnego token wraca do tego działania nadrzędnego po interakcji. Jeśli nie zostanie on określony, `.ExecuteAsync()` wywołanie zgłosi wyjątek.
 
@@ -234,7 +234,7 @@ Klasa definiuje następujące stałe:
 - `ForceLogin`umożliwia usłudze monitowanie użytkownika o podanie poświadczeń, nawet jeśli monit nie jest wymagany.
 
     Ta opcja może być przydatna w przypadku niepowodzenia pozyskiwania tokenu i poinformowania użytkownika o konieczności ponownego zalogowania. W takim przypadku MSAL wysyła `prompt=login` do dostawcy tożsamości. Warto użyć tej opcji w aplikacjach ukierunkowanych na zabezpieczenia, w których administrator organizacji wymaga, aby użytkownik mógł się zalogować przy każdej próbie dostępu do określonych części aplikacji.
-- `Never`dotyczy tylko programu .NET 4,5 i środowisko wykonawcze systemu Windows (WinRT). Ta stała nie monituje użytkownika, ale podejmie próbę użycia pliku cookie przechowywanego w ukrytym osadzonym widoku sieci Web. Aby uzyskać więcej informacji, zobacz [Korzystanie z przeglądarek sieci Web w programie MSAL.NET](https://docs.microsoft.com/azure/active-directory/develop/msal-net-web-browsers).
+- `Never`dotyczy tylko programu .NET 4,5 i środowisko wykonawcze systemu Windows (WinRT). Ta stała nie monituje użytkownika, ale podejmie próbę użycia pliku cookie przechowywanego w ukrytym osadzonym widoku sieci Web. Aby uzyskać więcej informacji, zobacz [Korzystanie z przeglądarek sieci Web w programie MSAL.NET](./msal-net-web-browsers.md).
 
     Jeśli ta opcja zakończy się niepowodzeniem, program `AcquireTokenInteractive` zgłosi wyjątek, aby powiadomić o konieczności interakcji z interfejsem użytkownika. Następnie należy użyć innego `Prompt` parametru.
 - `NoPrompt`nie wysyła monitu do dostawcy tożsamości.

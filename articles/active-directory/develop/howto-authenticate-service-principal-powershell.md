@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: 6204fcefa60d1a627e6e3d4e6b799efd3ee9298b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 423ec19d249d183f8888bf9e1eb837e2c860b1ed
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505872"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117145"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Instrukcje: używanie Azure PowerShell do tworzenia jednostki usługi przy użyciu certyfikatu
 
@@ -43,13 +43,13 @@ Aby ukończyć ten artykuł, musisz mieć wystarczające uprawnienia zarówno w 
 Najłatwiejszym sposobem sprawdzenia, czy Twoje konto ma odpowiednie uprawnienia, jest skorzystanie z portalu. Zobacz [Sprawdzanie wymaganego uprawnienia](howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## <a name="assign-the-application-to-a-role"></a>Przypisywanie aplikacji do roli
-Aby uzyskać dostęp do zasobów w ramach subskrypcji, musisz przypisać aplikację do roli. Zdecyduj, która rola oferuje odpowiednie uprawnienia dla aplikacji. Aby dowiedzieć się więcej na temat dostępnych ról, zobacz [RBAC: Wbudowane role](/azure/role-based-access-control/built-in-roles).
+Aby uzyskać dostęp do zasobów w ramach subskrypcji, musisz przypisać aplikację do roli. Zdecyduj, która rola oferuje odpowiednie uprawnienia dla aplikacji. Aby dowiedzieć się więcej na temat dostępnych ról, zobacz [RBAC: Wbudowane role](../../role-based-access-control/built-in-roles.md).
 
 Zakres można ustawić na poziomie subskrypcji, grupy zasobów lub zasobu. Uprawnienia są dziedziczone do niższych poziomów zakresu. Na przykład dodanie aplikacji do roli *czytelnik* dla grupy zasobów oznacza, że może ona odczytać grupę zasobów i wszystkie zawarte w niej zasoby. Aby umożliwić aplikacji wykonywanie akcji takich jak ponowny rozruch, uruchamianie i zatrzymywanie wystąpień, wybierz rolę *współautor* .
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Tworzenie jednostki usługi z certyfikatem z podpisem własnym
 
-Poniższy przykład przedstawia prosty scenariusz. Używa polecenie [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) , aby utworzyć jednostkę usługi z certyfikatem z podpisem własnym, i przypisać rolę [czytnika](/azure/role-based-access-control/built-in-roles#reader) do jednostki usługi przy użyciu funkcji [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) . Zakres przypisania roli to aktualnie wybrana subskrypcja platformy Azure. Aby wybrać inną subskrypcję, użyj polecenie [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
+Poniższy przykład przedstawia prosty scenariusz. Używa polecenie [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) , aby utworzyć jednostkę usługi z certyfikatem z podpisem własnym, i przypisać rolę [czytnika](../../role-based-access-control/built-in-roles.md#reader) do jednostki usługi przy użyciu funkcji [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) . Zakres przypisania roli to aktualnie wybrana subskrypcja platformy Azure. Aby wybrać inną subskrypcję, użyj polecenie [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
 
 > [!NOTE]
 > Polecenie cmdlet New-SelfSignedCertificate i moduł PKI nie są obecnie obsługiwane w programie PowerShell Core. 
@@ -224,4 +224,4 @@ Podczas tworzenia jednostki usługi mogą wystąpić następujące błędy:
 
 * Aby skonfigurować jednostkę przy użyciu hasła, zobacz [Tworzenie jednostki usługi platformy Azure za pomocą programu Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 * Aby uzyskać bardziej szczegółowy opis aplikacji i jednostek usługi, zobacz [Application Objects and Service Principal Objects (Obiekty aplikacji i obiekty jednostki usługi)](app-objects-and-service-principals.md).
-* Aby uzyskać więcej informacji na temat uwierzytelniania usługi Azure AD, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](authentication-scenarios.md).
+* Aby uzyskać więcej informacji na temat uwierzytelniania usługi Azure AD, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](./authentication-vs-authorization.md).

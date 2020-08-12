@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 31aaa0134ffe34d0424868221f01b68b64e4b088
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 5977aced8354694a631cce05bf6d6b913ea79118
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371162"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121599"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Samouczek: Używanie odwołań Key Vault w aplikacji ze sprężyną Java
 
@@ -102,7 +102,7 @@ Aby dodać wpis tajny do magazynu, należy wykonać zaledwie kilka dodatkowych k
 
     Ta operacja zwraca serię par klucz/wartość:
 
-    ```console
+    ```json
     {
     "clientId": "7da18cae-779c-41fc-992e-0527854c6583",
     "clientSecret": "b421b443-1669-4cd7-b5b1-394d5c945002",
@@ -118,31 +118,51 @@ Aby dodać wpis tajny do magazynu, należy wykonać zaledwie kilka dodatkowych k
 
 1. Uruchom następujące polecenie, aby umożliwić jednostce usługi dostęp do magazynu kluczy:
 
-    ```console
+    ```azurecli
     az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get
     ```
 
 1. Uruchom następujące polecenie, aby uzyskać identyfikator obiektu, a następnie dodaj go do konfiguracji aplikacji.
 
-    ```console
+    ```azurecli
     az ad sp show --id <clientId-of-your-service-principal>
     az role assignment create --role "App Configuration Data Reader" --assignee-object-id <objectId-of-your-service-principal> --resource-group <your-resource-group>
     ```
 
-1. Utwórz następujące zmienne środowiskowe przy użyciu wartości dla jednostki usługi, która została wyświetlona w poprzednim kroku:
+1. Utwórz zmienne środowiskowe **AZURE_CLIENT_ID**, **AZURE_CLIENT_SECRET**i **AZURE_TENANT_ID**. Użyj wartości dla jednostki usługi, która została wyświetlona w poprzednich krokach. W wierszu polecenia Uruchom następujące polecenia i ponownie uruchom wiersz polecenia, aby zezwolić na wprowadzenie zmiany:
 
-    * **AZURE_CLIENT_ID**: *clientId*
-    * **AZURE_CLIENT_SECRET**: *clientSecret*
-    * **AZURE_TENANT_ID**: *tenantId*
+    ```cmd
+    setx AZURE_CLIENT_ID "clientId"
+    setx AZURE_CLIENT_SECRET "clientSecret"
+    setx AZURE_TENANT_ID "tenantId"
+    ```
+
+    Jeśli używasz programu Windows PowerShell, uruchom następujące polecenie:
+
+    ```azurepowershell
+    $Env:AZURE_CLIENT_ID = "clientId"
+    $Env:AZURE_CLIENT_SECRET = "clientSecret"
+    $Env:AZURE_TENANT_ID = "tenantId"
+    ```
+
+    Jeśli używasz macOS lub Linux, uruchom następujące polecenie:
+
+    ```cmd
+    export AZURE_CLIENT_ID ='clientId'
+    export AZURE_CLIENT_SECRET ='clientSecret'
+    export AZURE_TENANT_ID ='tenantId'
+    ```
+
 
 > [!NOTE]
 > Te poświadczenia Key Vault są używane tylko w aplikacji.  Aplikacja uwierzytelnia się bezpośrednio za pomocą Key Vault przy użyciu tych poświadczeń bez uwzględniania usługi konfiguracji aplikacji.  Key Vault zapewnia uwierzytelnianie zarówno aplikacji, jak i usługi konfiguracji aplikacji bez udostępniania ani ujawniania kluczy.
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Zaktualizuj kod, aby użyć odwołania Key Vault
 
-1. Utwórz zmienną środowiskową o nazwie **APP_CONFIGURATION_ENDPOINT**. Ustaw jej wartość na punkt końcowy magazynu konfiguracji aplikacji. Punkt końcowy można znaleźć w bloku **klucze dostępu** w Azure Portal.
+1. Utwórz zmienną środowiskową o nazwie **APP_CONFIGURATION_ENDPOINT**. Ustaw jej wartość na punkt końcowy magazynu konfiguracji aplikacji. Punkt końcowy można znaleźć w bloku **klucze dostępu** w Azure Portal. Ponownie uruchom wiersz polecenia, aby zmiany zaczęły obowiązywać. 
 
-1. Otwórz okno *Bootstrap. Properties* w folderze *resources* . Zaktualizuj ten plik, aby użyć punktu końcowego konfiguracji aplikacji zamiast parametrów połączenia.
+
+1. Otwórz okno *Bootstrap. Properties* w folderze *resources* . Zaktualizuj ten plik, aby użyć wartości **APP_CONFIGURATION_ENDPOINT** . Usuń wszystkie odwołania do parametrów połączenia w tym pliku. 
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
@@ -218,7 +238,7 @@ Aby dodać wpis tajny do magazynu, należy wykonać zaledwie kilka dodatkowych k
     }
     ```
 
-1. Utwórz nowy plik w katalogu META-INF zasobów o nazwie *sprężyne. fabryki* i Dodaj.
+1. Utwórz nowy plik w katalogu META-INF zasobów o nazwie *sprężyn. Factors* i Dodaj poniższy kod.
 
     ```factories
     org.springframework.cloud.bootstrap.BootstrapConfiguration=\
@@ -240,7 +260,7 @@ Aby dodać wpis tajny do magazynu, należy wykonać zaledwie kilka dodatkowych k
 
     Zobaczysz komunikat wprowadzony w magazynie konfiguracji aplikacji. Zobaczysz również komunikat wprowadzony w Key Vault.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

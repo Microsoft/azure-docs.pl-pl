@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: 13e4c7a981124aba22dcb324d60e075d1d552bf8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1bf080ad4c4dc665e61d1075cf22c84d4cd66648
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526804"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121395"
 ---
 # <a name="how-to-use-perfinsights"></a>Korzystanie z narzędzia PerfInsights
 
@@ -78,12 +78,12 @@ Zbierane są informacje o maszynie wirtualnej z systemem Linux, systemie operacy
   - Profilowanie przechwytywania użycia procesora CPU i procesów w 5-sekundowych interwałach
   - Profilowanie przechwytywania procesów użycia pamięci w przedziale czasu 5 sekund
 
-- Sieć  
+- Networking  
   - Lista kart sieciowych z statystykami kart
   - Tabela routingu sieciowego
   - Otwarte porty i stan
 
-- Storage
+- Magazyn
   - Lista zablokowanych urządzeń
   - Lista partycji
   - Lista punktów instalacji
@@ -99,6 +99,7 @@ Zbierane są informacje o maszynie wirtualnej z systemem Linux, systemie operacy
   - /var/log/boot.log
   - /var/log/yum.log
   - /var/log/dpkg.log
+  - /var/log/sysstat lub/var/log/sa [ `**` ]
   - /var/log/cloud-init.log
   - /var/log/cloud-init-output.log
   - /var/log/gpu-manager.log
@@ -112,7 +113,9 @@ Zbierane są informacje o maszynie wirtualnej z systemem Linux, systemie operacy
 - [Metadane wystąpienia maszyny wirtualnej platformy Azure](../windows/instance-metadata-service.md)
 
 >[!Note]
->[ `*` ] Informacje o magistrali PCI nie zostały jeszcze zebrane w ramach dystrybucji Debian i SLES
+>[ `*` ] Informacje o magistrali PCI nie zostały jeszcze zebrane w ramach dystrybucji Debian i SLES.
+> 
+>[ `**` ]/var/log/sysstat lub/var/log/sa zawiera pliki raportów działania systemu (SAR), które są zbierane przez pakiet sysstat. Jeśli na maszynie wirtualnej nie zainstalowano pakietu sysstat, narzędzie że program perfinsights zapewnia rekomendację do jej zainstalowania.
 
 ## <a name="run-the-perfinsights-linux-on-your-vm"></a>Uruchamianie że program perfinsights systemu Linux na maszynie wirtualnej
 
@@ -121,7 +124,7 @@ Zbierane są informacje o maszynie wirtualnej z systemem Linux, systemie operacy
 #### <a name="tool-requirements"></a>Wymagania dotyczące narzędzi
 
 - To narzędzie musi być uruchomione na maszynie wirtualnej, na której występuje problem z wydajnością.
-- Na maszynie wirtualnej musi być zainstalowany język Python 2,7
+- Na maszynie wirtualnej musi być zainstalowany język Python 3. x lub Python 2,7.
 
 - Obecnie obsługiwane są następujące dystrybucje:
 

@@ -14,12 +14,12 @@ ms.date: 11/11/2019
 ms.author: rayluo
 ms.reviewer: rayluo, nacanuma, twhitney
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 4737b2ef701f643ff5bec47be29b3139e27fb146
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 8dcd2b55d177c533336842293b2aedaef6b4222c
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845157"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119916"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Przewodnik migracji biblioteki ADAL do MSAL dla języka Python
 
@@ -38,19 +38,19 @@ Uguje
   - OAuth 2.0
   - OpenID Connect Connect (OIDC)
 
-Zobacz [, co różni się w punkcie końcowym platformy Identity platform (v 2.0) firmy Microsoft,](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison) Aby uzyskać więcej informacji.
+Zobacz [, co różni się w punkcie końcowym platformy Identity platform (v 2.0) firmy Microsoft,](../azuread-dev/azure-ad-endpoint-comparison.md) Aby uzyskać więcej informacji.
 
 ### <a name="scopes-not-resources"></a>Zakresy nie są zasobami
 
-Biblioteka ADAL Python uzyskuje tokeny dla zasobów, ale MSAL Python uzyskuje tokeny dla zakresów. Powierzchnia interfejsu API w MSAL Python nie ma już parametru zasobu. Należy podać zakresy jako listę ciągów, które deklarują żądane uprawnienia i żądane zasoby. Aby zobaczyć przykład zakresów, zobacz [zakresy Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
+Biblioteka ADAL Python uzyskuje tokeny dla zasobów, ale MSAL Python uzyskuje tokeny dla zakresów. Powierzchnia interfejsu API w MSAL Python nie ma już parametru zasobu. Należy podać zakresy jako listę ciągów, które deklarują żądane uprawnienia i żądane zasoby. Aby zobaczyć przykład zakresów, zobacz [zakresy Microsoft Graph](/graph/permissions-reference).
 
 Można dodać `/.default` sufiks zakresu do zasobu, aby ułatwić migrację aplikacji z punktu końcowego v 1.0 (ADAL) do punktu końcowego platformy tożsamości firmy Microsoft (MSAL). Na przykład dla wartości zasobu wartość `https://graph.microsoft.com` równoważna wartość zakresu to `https://graph.microsoft.com/.default` .  Jeśli zasób nie jest w formie adresu URL, ale identyfikator zasobu formularza `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` , można nadal używać wartości zakresu jako `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
 
-Aby uzyskać więcej informacji na temat różnych typów zakresów, zapoznaj się z [uprawnieniami i wyrażaniem zgody na platformie tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) oraz [zakresami dla internetowego interfejsu API akceptujących artykuły tokenów w wersji 1.0](https://docs.microsoft.com/azure/active-directory/develop/msal-v1-app-scopes) .
+Aby uzyskać więcej informacji na temat różnych typów zakresów, zapoznaj się z [uprawnieniami i wyrażaniem zgody na platformie tożsamości firmy Microsoft](./v2-permissions-and-consent.md) oraz [zakresami dla internetowego interfejsu API akceptujących artykuły tokenów w wersji 1.0](./msal-v1-app-scopes.md) .
 
 ### <a name="error-handling"></a>Obsługa błędów
 
-Biblioteka Azure Active Directory Authentication Library (ADAL) dla języka Python używa wyjątku, `AdalError` Aby wskazać, że wystąpił problem. MSAL for Python zwykle używa kodów błędów zamiast. Aby uzyskać więcej informacji, zobacz [MSAL for Python — obsługa błędów](https://docs.microsoft.com/azure/active-directory/develop/msal-handling-exceptions?tabs=python).
+Biblioteka Azure Active Directory Authentication Library (ADAL) dla języka Python używa wyjątku, `AdalError` Aby wskazać, że wystąpił problem. MSAL for Python zwykle używa kodów błędów zamiast. Aby uzyskać więcej informacji, zobacz [MSAL for Python — obsługa błędów](./msal-handling-exceptions.md?tabs=python).
 
 ### <a name="api-changes"></a>Zmiany interfejsu API
 
@@ -59,17 +59,17 @@ Poniższa tabela zawiera listę interfejsów API w bibliotece ADAL dla języka P
 | Biblioteka ADAL dla interfejsu API języka Python  | MSAL dla interfejsu API języka Python |
 | ------------------- | ---------------------------------- |
 | [AuthenticationContext](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext)  | [PublicClientApplication lub ConfidentialClientApplication](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.__init__)  |
-| Brak  | [get_authorization_request_url ()](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.get_authorization_request_url)  |
+| Nie dotyczy  | [get_authorization_request_url ()](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.get_authorization_request_url)  |
 | [acquire_token_with_authorization_code ()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_authorization_code) | [acquire_token_by_authorization_code ()](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.acquire_token_by_authorization_code) |
 | [acquire_token ()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token) | [acquire_token_silent ()](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.acquire_token_silent) |
-| [acquire_token_with_refresh_token ()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_refresh_token) | Brak |
+| [acquire_token_with_refresh_token ()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_refresh_token) | Nie dotyczy |
 | [acquire_user_code ()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_user_code) | [initiate_device_flow ()](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.initiate_device_flow) |
 | [acquire_token_with_device_code ()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_device_code) i [cancel_request_to_get_token_with_device_code ()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.cancel_request_to_get_token_with_device_code) | [acquire_token_by_device_flow ()](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.acquire_token_by_device_flow) |
 | [acquire_token_with_username_password ()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_username_password) | [acquire_token_by_username_password ()](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.acquire_token_by_username_password) |
 | [acquire_token_with_client_credentials ()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_client_credentials) i [acquire_token_with_client_certificate ()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_client_certificate) | [acquire_token_for_client ()](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_for_client) |
-| Brak | [acquire_token_on_behalf_of ()](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) |
+| Nie dotyczy | [acquire_token_on_behalf_of ()](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) |
 | [TokenCache ()](https://adal-python.readthedocs.io/en/latest/#adal.TokenCache) | [SerializableTokenCache()](https://msal-python.readthedocs.io/en/latest/#msal.SerializableTokenCache) |
-| Brak | Pamięć podręczna z trwałość, dostępna z poziomu [rozszerzeń MSAL](https://github.com/marstr/original-microsoft-authentication-extensions-for-python) |
+| Nie dotyczy | Pamięć podręczna z trwałość, dostępna z poziomu [rozszerzeń MSAL](https://github.com/marstr/original-microsoft-authentication-extensions-for-python) |
 
 ## <a name="migrate-existing-refresh-tokens-for-msal-python"></a>Migrowanie istniejących tokenów odświeżania dla języka MSAL Python
 
@@ -122,4 +122,4 @@ print("Migration completed")
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji, zobacz [porównanie v 1.0 i 2.0](active-directory-v2-compare.md).
+Aby uzyskać więcej informacji, zobacz [porównanie v 1.0 i 2.0](../azuread-dev/azure-ad-endpoint-comparison.md).

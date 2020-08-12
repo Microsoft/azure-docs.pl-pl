@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 9388ef4aa320147815bec79c2fa4b90bce3cdac1
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 56d2e01d35f25ac469e808a805382463d2b23ceb
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846143"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121106"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: Konfiguracja kodu
 
@@ -103,12 +103,12 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-### <a name="learn-more"></a>Więcej informacji
+### <a name="learn-more"></a>Dowiedz się więcej
 
 Aby dowiedzieć się więcej o konfigurowaniu aplikacji klasycznej MSAL.NET:
 
-- Aby uzyskać listę wszystkich modyfikatorów dostępnych na stronie `PublicClientApplicationBuilder` , zobacz dokumentację referencyjną [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
-- Aby uzyskać opis wszystkich opcji uwidocznionych w programie `PublicClientApplicationOptions` , zobacz [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) w dokumentacji referencyjnej.
+- Aby uzyskać listę wszystkich modyfikatorów dostępnych na stronie `PublicClientApplicationBuilder` , zobacz dokumentację referencyjną [PublicClientApplicationBuilder](/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
+- Aby uzyskać opis wszystkich opcji uwidocznionych w programie `PublicClientApplicationOptions` , zobacz [PublicClientApplicationOptions](/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) w dokumentacji referencyjnej.
 
 ### <a name="complete-example-with-configuration-options"></a>Ukończ przykład z opcjami konfiguracji
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: ca164b6ad6b5333c662a6632b27f658ab479231c
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 655486d8273719e89187ebac0992cf83904d9b98
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067634"
+ms.locfileid: "88120647"
 ---
 # <a name="hyperscale-service-tier"></a>Warstwa usługi Hiperskala
 
@@ -87,7 +87,7 @@ Na poniższym diagramie przedstawiono różne typy węzłów w bazie danych w sk
 
 Baza danych wieloskali zawiera następujące różne typy składników:
 
-### <a name="compute"></a>Compute
+### <a name="compute"></a>Wystąpienia obliczeniowe
 
 Węzeł obliczeniowy to miejsce, w którym działa silnik relacyjny, więc wszystkie elementy języka, przetwarzanie zapytań i tak dalej występują. Wszystkie interakcje użytkownika z bazą danych w ramach skalowania są wykonywane za pomocą tych węzłów obliczeniowych. Węzły obliczeniowe mają pamięć podręczną opartą na dyskach SSD (z etykietami RBPEX-odporny na błędy w powyższym diagramie), aby zminimalizować liczbę podróży w sieci wymaganych do pobrania strony danych. Istnieje jeden podstawowy węzeł obliczeniowy, w którym są przetwarzane wszystkie obciążenia odczytu i zapisu. Istnieje co najmniej jeden pomocniczy węzeł obliczeniowy działający jako węzły rezerwy aktywnej do pracy w trybie failover, a także działający jako węzeł obliczeniowy tylko do odczytu do odciążania obciążeń odczytu (Jeśli ta funkcja jest wymagana).
 
@@ -105,7 +105,9 @@ Usługa Azure Storage zawiera wszystkie pliki danych w bazie danych. Serwery str
 
 ## <a name="backup-and-restore"></a>Tworzenie kopii zapasowej i przywracanie
 
-Kopie zapasowe są tworzone na podstawie migawek plików, a tym samym prawie chwilowo. Rozdzielenie magazynu i obliczeń umożliwia wypychanie operacji tworzenia kopii zapasowej/przywracania do warstwy magazynowania w celu zmniejszenia obciążenia związanego z przetwarzaniem w podstawowej replice obliczeniowej. W związku z tym kopia zapasowa bazy danych nie wpływa na wydajność podstawowego węzła obliczeniowego. Analogicznie, przywracanie odbywa się przez przywrócenie migawek plików i nie jest to rozmiar operacji danych. Przywracanie jest operacją o stałym czasie, a nawet kilka baz danych można przywrócić w ciągu kilku minut, a nie godzin lub dni. Tworzenie nowych baz danych przez przywrócenie istniejącej kopii zapasowej obejmuje również korzystanie z tej funkcji: Tworzenie kopii bazy danych do celów deweloperskich i testowych, nawet w przypadku baz danych o rozmiarze terabajtów, jest doable w ciągu kilku minut.
+Kopie zapasowe są tworzone na podstawie migawek plików, a tym samym prawie chwilowo. Rozdzielenie magazynu i obliczeń umożliwia wypychanie operacji tworzenia kopii zapasowej/przywracania do warstwy magazynowania w celu zmniejszenia obciążenia związanego z przetwarzaniem w podstawowej replice obliczeniowej. W związku z tym kopia zapasowa bazy danych nie wpływa na wydajność podstawowego węzła obliczeniowego. Podobnie odzyskiwanie do punktu w czasie (kopie) jest wykonywane przez przywrócenie migawek plików, a w związku z tym nie jest to rozmiar operacji danych. Przywracanie bazy danych w ramach skalowania w tym samym regionie platformy Azure jest operacją o stałej godzinie, a nawet kilka baz danych z wieloma terabajtami można przywrócić w ciągu kilku minut, a nie godzin lub dni. Tworzenie nowych baz danych przez przywrócenie istniejącej kopii zapasowej obejmuje również korzystanie z tej funkcji: Tworzenie kopii bazy danych do celów deweloperskich i testowych, nawet w przypadku baz danych o rozmiarze terabajtów, jest doable w ciągu kilku minut.
+
+W przypadku przywracania geograficznego baz danych można znaleźć w temacie Przywracanie bazy danych w ramach skalowania [do innego regionu](#restoring-a-hyperscale-database-to-a-different-region).
 
 ## <a name="scale-and-performance-advantages"></a>Zalety skalowania i wydajności
 
@@ -156,7 +158,7 @@ Aby zapoznać się z umową SLA, zobacz [Umowa SLA dla Azure SQL Database](https
 
 ## <a name="disaster-recovery-for-hyperscale-databases"></a>Odzyskiwanie po awarii dla baz danych w ramach skalowania
 
-### <a name="restoring-a-hyperscale-database-to-a-different-geography"></a>Przywracanie bazy danych ze skalowaniem do innej lokalizacji geograficznej
+### <a name="restoring-a-hyperscale-database-to-a-different-region"></a>Przywracanie bazy danych ze skalowaniem do innego regionu
 
 Jeśli chcesz przywrócić bazę danych w ramach skalowania w Azure SQL Database do regionu innego niż ten, w którym jest obecnie hostowana, w ramach operacji odzyskiwania po awarii lub przechodzenia do szczegółów, relokacji lub z innego powodu, podstawowa metoda polega na wykonaniu przywracania geograficznego bazy danych. Obejmuje to dokładnie te same kroki jak w przypadku przywracania innych baz danych w SQL Database do innego regionu:
 

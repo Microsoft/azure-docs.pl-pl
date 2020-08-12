@@ -4,12 +4,12 @@ description: Rozpocznij pracę z Azure App Service, wdrażając pierwszą aplika
 ms.topic: quickstart
 ms.date: 06/30/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python
-ms.openlocfilehash: b258185d2fb7220332ee1287d399f0e49e5708a9
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 5463b23a4c19681515197f7d0cf880235ef6c0f2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88085128"
+ms.locfileid: "88121548"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Szybki Start: Tworzenie aplikacji w języku Python w Azure App Service w systemie Linux
 
@@ -63,6 +63,8 @@ To polecenie umożliwia otwarcie przeglądarki w celu zebrania poświadczeń. Po
 
 Po zalogowaniu możesz uruchamiać polecenia platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure, aby pracować z zasobami w ramach subskrypcji.
 
+[Masz problemy? Daj nam znać.](https://aka.ms/FlaskCLIQuickstartHelp)
+
 ## <a name="clone-the-sample"></a>Klonowanie przykładu
 
 Sklonuj przykładowe repozytorium za pomocą poniższego polecenia. ([Zainstaluj program git](https://git-scm.com/downloads) , jeśli nie masz już usługi Git).
@@ -78,6 +80,8 @@ cd python-docs-hello-world
 ```
 
 Przykładowy kod zawiera plik *Application.py* , który informuje, App Service, że kod zawiera aplikację z kolbą. Aby uzyskać więcej informacji, zobacz temat [proces uruchamiania kontenera](configure-language-python.md#container-startup-process).
+
+[Masz problemy? Daj nam znać.](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 
@@ -140,6 +144,8 @@ Otwórz przeglądarkę internetową i przejdź do przykładowej aplikacji pod ad
 
 W oknie terminalu naciśnij klawisz **Ctrl**, + **C** aby wyjść z serwera deweloperskiego.
 
+[Masz problemy? Daj nam znać.](https://aka.ms/FlaskCLIQuickstartHelp)
+
 ## <a name="deploy-the-sample"></a>Wdróż przykład
 
 Wdróż kod w folderze lokalnym (*Python-docs-Hello-World*) przy użyciu `az webapp up` polecenia:
@@ -157,6 +163,8 @@ Wykonanie polecenia może potrwać kilka minut. W trakcie korzystania z programu
 
 ![Przykładowe dane wyjściowe polecenia AZ webapp up](./media/quickstart-python/az-webapp-up-output.png)
 
+[Masz problemy? Daj nam znać.](https://aka.ms/FlaskCLIQuickstartHelp)
+
 [!INCLUDE [AZ Webapp Up Note](../../includes/app-service-web-az-webapp-up-note.md)]
 
 ## <a name="browse-to-the-app"></a>Przechodzenie do aplikacji
@@ -168,6 +176,8 @@ Przykładowy kod w języku Python używa kontenera systemu Linux w App Service p
 ![Uruchamianie przykładowej aplikacji w języku Python na platformie Azure](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
 
 **Gratulacje!** Twoja aplikacja w języku Python została wdrożona w celu App Service.
+
+[Masz problemy? Daj nam znać.](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## <a name="redeploy-updates"></a>Wdróż ponownie aktualizacje
 
@@ -193,6 +203,8 @@ Po zakończeniu wdrażania Przełącz się z powrotem do okna przeglądarki otwa
 
 ![Uruchamianie zaktualizowanej przykładowej aplikacji w języku Python na platformie Azure](./media/quickstart-python/run-updated-hello-world-sample-python-app-in-browser.png)
 
+[Masz problemy? Daj nam znać.](https://aka.ms/FlaskCLIQuickstartHelp)
+
 > [!TIP]
 > Visual Studio Code zapewnia zaawansowane rozszerzenia dla języka Python i Azure App Service, co upraszcza proces wdrażania aplikacji sieci Web w języku Python w App Service. Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji w języku Python do App Service z Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
 
@@ -212,6 +224,8 @@ Możesz również sprawdzić pliki dziennika z przeglądarki pod adresem `https:
 
 Aby zatrzymać przesyłanie strumieniowe dzienników w dowolnym momencie, wpisz **Ctrl** + **C**.
 
+[Masz problemy? Daj nam znać.](https://aka.ms/FlaskCLIQuickstartHelp)
+
 ## <a name="manage-the-azure-app"></a>Zarządzanie aplikacją platformy Azure
 
 Przejdź do witryny <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, aby zarządzać utworzoną aplikacją. Wyszukaj i wybierz **App Services**.
@@ -228,6 +242,8 @@ Wybranie aplikacji spowoduje otwarcie jej strony **Przegląd** , na której moż
 
 Menu App Service zawiera różne strony służące do konfigurowania aplikacji.
 
+[Masz problemy? Daj nam znać.](https://aka.ms/FlaskCLIQuickstartHelp)
+
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W poprzednich krokach utworzono zasoby platformy Azure w grupie zasobów. Grupa zasobów ma nazwę "appsvc_rg_Linux_CentralUS" w zależności od lokalizacji. Jeśli używasz jednostki SKU App Service innej niż bezpłatna warstwa F1, te zasoby ponoszą bieżące koszty (zobacz [App Service Cennik](https://azure.microsoft.com/pricing/details/app-service/linux/)).
@@ -241,6 +257,8 @@ az group delete
 Polecenie używa nazwy grupy zasobów zapisanej w pamięci podręcznej w pliku *. Azure/config* .
 
 Wykonanie polecenia może potrwać minutę.
+
+[Masz problemy? Daj nam znać.](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## <a name="next-steps"></a>Następne kroki
 

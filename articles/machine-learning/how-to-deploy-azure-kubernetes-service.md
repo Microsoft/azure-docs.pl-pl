@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 9503abf147ee89ec03e7e1317df823426ea37b1c
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 5c253abf0fa6ae95dff178847209be407fb5bca5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87758887"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120834"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Wdrażanie modelu w klastrze usługi Azure Kubernetes Service
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,7 +41,7 @@ Klaster AKS i obszar roboczy AML mogą znajdować się w różnych grupach zasob
 > Proces tworzenia lub załączników to zadanie jednorazowe. Gdy klaster AKS jest połączony z obszarem roboczym, można go użyć do wdrożeń. Możesz odłączyć lub usunąć klaster AKS, jeśli nie jest już potrzebny. Po odłączeniu lub usunięciu nie będzie już można wdrażać w klastrze.
 
 > [!IMPORTANT]
-> Zdecydowanie zaleca się debugowanie lokalnie przed wdrożeniem w usłudze sieci Web. Aby uzyskać więcej informacji, zobacz [debugowanie lokalne](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
+> Zalecamy debugowanie lokalnie przed wdrożeniem w usłudze sieci Web. Aby uzyskać więcej informacji, zobacz [debugowanie lokalne](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
 >
 > Możesz również zapoznać się z artykułem Azure Machine Learning- [Deploy do lokalnego notesu](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
@@ -88,7 +88,7 @@ __Zakresy adresów IP Authroized współdziałają z usługa Load Balancer w war
 Tworzenie i dołączanie klastra AKS jest jednym procesem czasu dla Twojego obszaru roboczego. Można ponownie użyć tego klastra dla wielu wdrożeń. W przypadku usunięcia klastra lub grupy zasobów, która zawiera tę usługę, należy utworzyć nowy klaster przy następnym wdrożeniu. Do obszaru roboczego można dołączyć wiele klastrów AKS.
  
 Azure Machine Learning teraz obsługuje korzystanie z usługi Azure Kubernetes, która ma włączone łącze prywatne.
-Aby utworzyć prywatny klaster AKS, Skorzystaj z witryny docs [tutaj](https://docs.microsoft.com/azure/aks/private-clusters)
+Aby utworzyć prywatny klaster AKS, Skorzystaj z dokumentacji [tutaj](https://docs.microsoft.com/azure/aks/private-clusters)
 
 > [!TIP]
 > Jeśli chcesz zabezpieczyć klaster AKS przy użyciu Virtual Network platformy Azure, musisz najpierw utworzyć sieć wirtualną. Aby uzyskać więcej informacji, zobacz temat [bezpieczne eksperymentowanie i wnioskowanie za pomocą usługi Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).
@@ -109,6 +109,13 @@ from azureml.core.compute import AksCompute, ComputeTarget
 # For example, to create a dev/test cluster, use:
 # prov_config = AksCompute.provisioning_configuration(cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST)
 prov_config = AksCompute.provisioning_configuration()
+# Example configuration to use an existing virtual network
+# prov_config.vnet_name = "mynetwork"
+# prov_config.vnet_resourcegroup_name = "mygroup"
+# prov_config.subnet_name = "default"
+# prov_config.service_cidr = "10.0.0.0/16"
+# prov_config.dns_service_ip = "10.0.0.10"
+# prov_config.docker_bridge_cidr = "172.17.0.1/16"
 
 aks_name = 'myaks'
 # Create the cluster
@@ -267,7 +274,7 @@ Aby uzyskać informacje na temat korzystania z VS Code, zobacz [wdrażanie do AK
 
 ### <a name="understand-the-deployment-processes"></a>Informacje o procesach wdrażania
 
-Słowo "Deployment" jest używane zarówno w Kubernetes, jak i Azure Machine Learning. "Wdrożenie" ma bardzo różne znaczenie w tych dwóch kontekstach. W Kubernetes, a `Deployment` jest konkretną jednostką określoną przy użyciu deklaratywnego pliku YAML. Kubernetes `Deployment` ma zdefiniowany cykl życia i konkretne relacje z innymi jednostkami Kubernetes, takimi jak `Pods` i `ReplicaSets` . Aby dowiedzieć się więcej na temat Kubernetes z dokumentów i filmów wideo, zobacz [co to jest Kubernetes?](https://aka.ms/k8slearning).
+Słowo "Deployment" jest używane zarówno w Kubernetes, jak i Azure Machine Learning. "Wdrożenie" ma inne znaczenie w tych dwóch kontekstach. W Kubernetes, a `Deployment` jest konkretną jednostką określoną przy użyciu deklaratywnego pliku YAML. Kubernetes `Deployment` ma zdefiniowany cykl życia i konkretne relacje z innymi jednostkami Kubernetes, takimi jak `Pods` i `ReplicaSets` . Aby dowiedzieć się więcej na temat Kubernetes z dokumentów i filmów wideo, zobacz [co to jest Kubernetes?](https://aka.ms/k8slearning).
 
 W Azure Machine Learning "wdrożenie" jest używane w bardziej ogólnym sensie udostępniania i czyszczenia zasobów projektu. Kroki, które Azure Machine Learning rozważają część wdrożenia, to:
 

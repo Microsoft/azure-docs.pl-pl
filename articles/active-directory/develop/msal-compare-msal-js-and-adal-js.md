@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 7238a78279528b4522d09178d00bf916f14bad88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d91514af9aea3dd7ea13b94681fbb27c53772fe
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76696422"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120902"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Różnice między MSAL JS i ADAL JS
 
@@ -30,7 +30,7 @@ W tym artykule opisano sposób wybierania biblioteki uwierzytelniania firmy Micr
 
 W większości przypadków chcesz używać platformy tożsamości firmy Microsoft i MSAL.js, czyli najnowszej generacji bibliotek uwierzytelniania firmy Microsoft. Korzystając z MSAL.js, uzyskujesz tokeny dla użytkowników logujących się do aplikacji za pomocą usługi Azure AD (konta służbowe), kont Microsoft (osobistych) lub Azure AD B2C.
 
-Jeśli znasz już punkt końcowy v 1.0 (i ADAL.js), możesz chcieć zapoznać się z [informacjami o tym, co się dzieje w punkcie końcowym v 2.0?](active-directory-v2-compare.md).
+Jeśli znasz już punkt końcowy v 1.0 (i ADAL.js), możesz chcieć zapoznać się z [informacjami o tym, co się dzieje w punkcie końcowym v 2.0?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 Jednak nadal musisz używać ADAL.js, jeśli aplikacja musi zalogować się użytkowników ze starszymi wersjami [Active Directory Federation Services (AD FS)](/windows-server/identity/active-directory-federation-services).
 
@@ -73,7 +73,7 @@ W wersji 2.0 przy użyciu `https://login.microsoftonline.com/common` urzędu uż
 
 * Zakresy dynamiczne na potrzeby przyrostowej zgody.
 
-    Podczas kompilowania aplikacji przy użyciu wersji 1.0 należy zarejestrować pełen zestaw uprawnień (zakresy statyczne) wymagane przez aplikację, aby użytkownik mógł wyrazić zgodę na zalogowanie się. W wersji 2.0 można użyć parametru scope, aby zażądać uprawnień w odpowiednim czasie. Są one nazywane zakresami dynamicznymi. Dzięki temu użytkownik może zapewnić przyrostową zgodę na zakresy. Tak więc jeśli na początku użytkownik chce tylko zalogować się do aplikacji i nie ma żadnego rodzaju dostępu, możesz to zrobić. Jeśli później potrzebujesz możliwości odczytywania kalendarza użytkownika, możesz zażądać zakresu kalendarza w metodach acquireToken i uzyskać zgodę użytkownika. Przykład:
+    Podczas kompilowania aplikacji przy użyciu wersji 1.0 należy zarejestrować pełen zestaw uprawnień (zakresy statyczne) wymagane przez aplikację, aby użytkownik mógł wyrazić zgodę na zalogowanie się. W wersji 2.0 można użyć parametru scope, aby zażądać uprawnień w odpowiednim czasie. Są one nazywane zakresami dynamicznymi. Dzięki temu użytkownik może zapewnić przyrostową zgodę na zakresy. Tak więc jeśli na początku użytkownik chce tylko zalogować się do aplikacji i nie ma żadnego rodzaju dostępu, możesz to zrobić. Jeśli później potrzebujesz możliwości odczytywania kalendarza użytkownika, możesz zażądać zakresu kalendarza w metodach acquireToken i uzyskać zgodę użytkownika. Na przykład:
 
     ```javascript
     var request = {
@@ -85,7 +85,7 @@ W wersji 2.0 przy użyciu `https://login.microsoftonline.com/common` urzędu uż
 
 * Zakresy interfejsów API 1.0
 
-    Podczas uzyskiwania tokenów dla interfejsów API 1.0 przy użyciu MSAL.js można zażądać wszystkich statycznych zakresów zarejestrowanych w interfejsie API przez dołączenie `.default` do identyfikatora URI aplikacji interfejsu API jako zakresu. Przykład:
+    Podczas uzyskiwania tokenów dla interfejsów API 1.0 przy użyciu MSAL.js można zażądać wszystkich statycznych zakresów zarejestrowanych w interfejsie API przez dołączenie `.default` do identyfikatora URI aplikacji interfejsu API jako zakresu. Na przykład:
 
     ```javascript
     var request = {
@@ -96,4 +96,4 @@ W wersji 2.0 przy użyciu `https://login.microsoftonline.com/common` urzędu uż
     ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji, zobacz [porównanie v 1.0 i 2.0](active-directory-v2-compare.md).
+Aby uzyskać więcej informacji, zobacz [porównanie v 1.0 i 2.0](../azuread-dev/azure-ad-endpoint-comparison.md).

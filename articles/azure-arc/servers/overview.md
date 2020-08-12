@@ -1,21 +1,16 @@
 ---
 title: Azure ARC dla serwerów (wersja zapoznawcza) — Omówienie
 description: Dowiedz się, jak używać usługi Azure ARC dla serwerów do zarządzania maszynami hostowanymi poza platformą Azure, tak jakby były to zasoby platformy Azure.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 keywords: Azure Automation, DSC, PowerShell, Konfiguracja żądanego stanu, zarządzanie aktualizacjami, śledzenie zmian, spis, elementy Runbook, Python, graficzne, hybrydowe
 ms.custom: references_regions
 ms.date: 08/06/2020
 ms.topic: overview
-ms.openlocfilehash: 8c02b22d27fbae0465ed3b8c97622544256854e0
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: f11eedaf5f70cb24fa6c1588b7f26b2eed4734ce
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905622"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121803"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>Co to jest usługa Azure ARC dla serwerów (wersja zapoznawcza)?
 

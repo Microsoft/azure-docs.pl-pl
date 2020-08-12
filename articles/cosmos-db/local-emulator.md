@@ -6,12 +6,12 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: e06a2eac5387cd02e95d8252ae04edc356683ed9
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 7a115de449588ea69951e6d997aa5332e5d55ad1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028237"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119525"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Korzystanie z emulatora usługi Azure Cosmos na potrzeby lokalnego tworzenia i testowania
 
@@ -507,6 +507,8 @@ Poniższe wskazówki ułatwiają rozwiązywanie problemów napotykanych przez em
 - W przypadku wystąpienia problemu z łącznością należy [zebrać pliki śledzenia](#trace-files), skompresować je i otworzyć bilet pomocy technicznej w [Azure Portal](https://portal.azure.com).
 
 - Jeśli zostanie wyświetlony komunikat **Service Unavailable** (Usługa niedostępna), może to wskazywać na błąd inicjacji stosu sieciowego. Sprawdź, czy masz zainstalowanego klienta Pulse Secure lub Juniper Networks — ich sterowniki filtrów sieci mogą powodować problemy. Odinstalowanie sterowników filtrów sieci innych firm zwykle pozwala rozwiązać problem. Alternatywnie można uruchomić emulator przy użyciu/DisableRIO, co spowoduje przełączenie komunikacji między sieciami emulatora do zwykłego interfejsu Winsock. 
+
+- Jeśli wystąpi **"zabronione", "komunikat": "żądanie jest wykonywane z niedozwolonym szyfrowaniem w protokole tranzytowym lub szyfrie. Sprawdź ustawienia Minimalny dozwolony protokół SSL/TLS konta... "** problemy z łącznością mogą być spowodowane przez globalne zmiany w systemie operacyjnym (na przykład kompilacja Insider Preview 20170) lub ustawienia przeglądarki, które domyślnie włączają protokół TLS 1,3. Podobny błąd może wystąpić podczas używania zestawu SDK do wykonywania żądania względem emulatora Cosmos, takiego jak **Microsoft.Azure.Documents.DocumentClientException: żądanie jest wykonywane z niedozwolonym szyfrowaniem w protokole tranzytowym lub szyfrem. Sprawdź ustawienie Minimalny dozwolony protokół SSL/TLS konta**. Jest to oczekiwane w tej chwili, ponieważ emulator Cosmos akceptuje tylko protokół TLS 1,2 i współpracuje z nim. Zalecaną obejściem jest zmiana ustawień i domyślnego protokołu TLS 1,2; na przykład w Menedżerze usług IIS przejdź do lokalizacji "Lokacje" — > "domyślne witryny sieci Web" i Znajdź "powiązania witryny" dla portu 8081 i edytuj je, aby wyłączyć protokół TLS 1,3. Podobną operację można wykonać dla przeglądarki sieci Web za pomocą opcji "Ustawienia".
 
 - Kiedy emulator jest uruchomiony, jeśli komputer przejdzie w tryb uśpienia lub uruchomi dowolną aktualizację systemu operacyjnego, możesz zobaczyć komunikat **Service is currently unavailable** (Usługa jest obecnie niedostępna). Zresetuj dane emulatora, klikając prawym przyciskiem myszy ikonę widoczną na pasku powiadomień systemu Windows i wybierając pozycję **Zresetuj dane**.
 
