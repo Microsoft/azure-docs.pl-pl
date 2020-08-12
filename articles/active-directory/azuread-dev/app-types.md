@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: c290cbf36fd53d5afb5fd805cda896fb6879bb4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ff2858dd8b91ba036c517cbff07be96a729ef8c
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80154954"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116448"
 ---
 # <a name="application-types-in-v10"></a>Typy aplikacji w wersji 1.0
 
@@ -41,13 +41,13 @@ Oto pięć scenariuszy aplikacji podstawowych obsługiwanych przez usługę Azur
 Skorzystaj z linków, aby dowiedzieć się więcej na temat poszczególnych typów aplikacji i zrozumieć scenariusze wysokiego poziomu przed rozpoczęciem pracy z kodem. Możesz również zapoznać się z różnicami, które należy znać podczas pisania konkretnej aplikacji, która współpracuje z punktem końcowym v 1.0 lub punktem końcowym v 2.0.
 
 > [!NOTE]
-> Punkt końcowy v 2.0 nie obsługuje wszystkich scenariuszy i funkcji usługi Azure AD. Aby określić, czy należy używać punktu końcowego v 2.0, przeczytaj temat [ograniczenia dotyczące wersji v 2.0](../develop/active-directory-v2-limitations.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+> Punkt końcowy v 2.0 nie obsługuje wszystkich scenariuszy i funkcji usługi Azure AD. Aby określić, czy należy używać punktu końcowego v 2.0, przeczytaj temat [ograniczenia dotyczące wersji v 2.0](./azure-ad-endpoint-comparison.md?bc=%2fazure%2factive-directory%2fazuread-dev%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fazuread-dev%2ftoc.json).
 
 Można opracowywać dowolne aplikacje i scenariusze opisane w tym miejscu przy użyciu różnych języków i platform. Są one obsługiwane przez kompletne przykłady kodu dostępne w przewodniku przykładów kodu: [przykłady kodu w wersji 1.0 według scenariusza](sample-v1-code.md) i [przykładów kodu v 2.0 według scenariusza](../develop/sample-v2-code.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json). Możesz również pobrać przykłady kodu bezpośrednio z odpowiednich [repozytoriów przykładów usługi GitHub](https://github.com/Azure-Samples?q=active-directory).
 
 Ponadto, jeśli aplikacja wymaga określonego fragmentu lub segmentu kompleksowego scenariusza, w większości przypadków można dodać funkcje niezależnie. Na przykład jeśli masz natywną aplikację, która wywołuje interfejs API sieci Web, możesz łatwo dodać aplikację sieci Web, która również wywołuje internetowy interfejs API.
 
-## <a name="app-registration"></a>Rejestrowanie aplikacji
+## <a name="app-registration"></a>Rejestracja aplikacji
 
 ### <a name="registering-an-app-that-uses-the-azure-ad-v10-endpoint"></a>Rejestrowanie aplikacji korzystającej z punktu końcowego usługi Azure AD v 1.0
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
-ms.openlocfilehash: c44575ca43063388d5c65855542cf15700d2cb5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1469fcfa68b10353b78d31ccc758c61bf7746692
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80883172"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120698"
 ---
 # <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Pola rejestracji aplikacji niestandardowej w witrynie Azure Portal
 
@@ -37,8 +37,8 @@ Ten artykuł zawiera krótki opis wszystkich dostępnych pól w formularzu rejes
 | Pole            | Opis                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
 | Nazwa             | Nazwa aplikacji. Powinna zawierać co najmniej cztery znaki.                |
-| Obsługiwane typy konta| Wybierz konta, które mają być obsługiwane przez Twoją aplikację: konta w tym katalogu organizacyjnym, konta w dowolnym katalogu organizacyjnym lub konta w dowolnym katalogu organizacyjnym i osobiste konta Microsoft.  |
-| Identyfikator URI przekierowania (opcjonalnie) | Wybierz typ aplikacji, którą tworzysz, **Sieć Web** lub **Klient publiczny (Mobile & Desktop)**, a następnie wprowadź identyfikator URI przekierowania (lub adres URL odpowiedzi) dla aplikacji. W przypadku aplikacji internetowej podaj podstawowy adres URL aplikacji. Na przykład ciąg http://localhost:31544 może być adresem URL aplikacji internetowej uruchomionej na komputerze lokalnym. Użytkownicy mogą użyć tego adresu URL, aby zalogować się do aplikacji klienta internetowego. W przypadku publicznych aplikacji klienckich podaj identyfikator URI używany przez usługę Azure AD do zwracania odpowiedzi tokenu. Wprowadź wartość specyficzną dla swojej aplikacji, taką jak myapp://auth. Aby zobaczyć konkretne przykłady dla aplikacji sieci Web lub aplikacji natywnych, zapoznaj się z [przewodnikami szybki start](https://docs.microsoft.com/azure/active-directory/develop).|
+| Obsługiwane typy kont| Wybierz konta, które mają być obsługiwane przez Twoją aplikację: konta w tym katalogu organizacyjnym, konta w dowolnym katalogu organizacyjnym lub konta w dowolnym katalogu organizacyjnym i osobiste konta Microsoft.  |
+| Identyfikator URI przekierowania (opcjonalnie) | Wybierz typ aplikacji, którą tworzysz, **Sieć Web** lub **Klient publiczny (Mobile & Desktop)**, a następnie wprowadź identyfikator URI przekierowania (lub adres URL odpowiedzi) dla aplikacji. W przypadku aplikacji internetowej podaj podstawowy adres URL aplikacji. Na przykład ciąg http://localhost:31544 może być adresem URL aplikacji internetowej uruchomionej na komputerze lokalnym. Użytkownicy mogą użyć tego adresu URL, aby zalogować się do aplikacji klienta internetowego. W przypadku publicznych aplikacji klienckich podaj identyfikator URI używany przez usługę Azure AD do zwracania odpowiedzi tokenu. Wprowadź wartość specyficzną dla swojej aplikacji, taką jak myapp://auth. Aby zobaczyć konkretne przykłady dla aplikacji sieci Web lub aplikacji natywnych, zapoznaj się z [przewodnikami szybki start](./index.yml).|
 
 Po wypełnieniu powyższych pól aplikacja zostanie zarejestrowana w Azure Portal i nastąpi przekierowanie do strony przeglądu aplikacji. Strony Ustawienia w lewym okienku w obszarze **Zarządzaj** zawierają więcej pól pozwalających dostosować aplikację. W poniższych tabelach opisano wszystkie pola. Podzbiór tych pól zostanie wyświetlony tylko w zależności od tego, czy utworzono aplikację sieci Web, czy publiczną aplikację kliencką.
 
@@ -61,7 +61,7 @@ Po wypełnieniu powyższych pól aplikacja zostanie zarejestrowana w Azure Porta
 | Pole           | Opis        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Adres URL wylogowywania      | Jest to adres URL wylogowania jednokrotnego. Usługa Azure AD wysyła do tego adresu URL żądanie wylogowania, gdy użytkownik czyści swoją sesję w usłudze Azure AD przy użyciu innej zarejestrowanej aplikacji.|
-| Obsługiwane typy konta  | Ten przełącznik określa, czy aplikacja może być używana przez wielu dzierżawców. Zazwyczaj oznacza to, że organizacje zewnętrzne mogą korzystać z aplikacji, rejestrując ją w swojej dzierżawie i przyznając dostęp do danych organizacji.|
+| Obsługiwane typy kont  | Ten przełącznik określa, czy aplikacja może być używana przez wielu dzierżawców. Zazwyczaj oznacza to, że organizacje zewnętrzne mogą korzystać z aplikacji, rejestrując ją w swojej dzierżawie i przyznając dostęp do danych organizacji.|
 | Adresy URL przekierowania      | Adresy URL przekierowania lub odpowiedzi są punktami końcowymi, w których usługa Azure AD zwraca wszelkie tokeny, których żąda aplikacja. W przypadku aplikacji natywnych jest to miejsce, w którym użytkownik jest wysyłany po pomyślnej autoryzacji. Usługa Azure AD sprawdza, czy identyfikator URI przekierowania udostępniany przez aplikację w żądaniu protokołu OAuth 2,0 jest zgodny z jedną z zarejestrowanej wartości w portalu.|
 
 ### <a name="certificates-and-secrets"></a>Certyfikaty i wpisy tajne

@@ -3,18 +3,18 @@ title: 'Samouczek: Tworzenie geoogrodzenia i śledzenie urządzeń na mapie Micr
 description: Dowiedz się, jak skonfigurować geoogrodzenie. Zobacz, jak śledzić urządzenia względem geoogrodzenia przy użyciu usługi przestrzennej Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 7/15/2020
+ms.date: 8/11/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 1044348e50f4208038739975e7355fb6f4873454
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b88d9132ec1548c9d94fc418af35b55ac2836e96
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037647"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121242"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Samouczek: Konfigurowanie geofencingu przy użyciu usługi Azure Maps
 
@@ -25,7 +25,7 @@ Ten samouczek przeprowadzi Cię przez podstawowe informacje na temat tworzenia i
 Azure Maps udostępnia wiele usług, które obsługują śledzenie sprzętu i opuszczanie obszaru budowy w powyższym scenariuszu. W tym samouczku omówiono sposób wykonywania tych zadań:
 
 > [!div class="checklist"]
-> * Przekaż [Geoencing GEOJSON dane](geofence-geojson.md) , które definiują obszary budowy, które chcemy monitorować. Użyjemy [interfejsu API przekazywania danych](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) , aby przekazać geoogrodzenie jako współrzędne wielokąta do konta Azure Maps.
+> * Przekazuj [dane GEOnotacji GEOJSON](geofence-geojson.md) , które definiują obszary budowy, które chcemy monitorować. Użyjemy [interfejsu API przekazywania danych](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) , aby przekazać geoogrodzenie jako współrzędne wielokąta do konta Azure Maps.
 > * Skonfiguruj dwie [Aplikacje logiki](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) , które po wyzwoleniu wyśle powiadomienia e-mail do lokacji budownictwa Operations Manager, gdy sprzęt wejdzie i opuszcza obszar geoogrodzenia.
 > * Użyj [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) , aby subskrybować Azure Maps geoogrodzenia zdarzenia wejścia i wyjścia. Skonfigurujemy dwie subskrypcje zdarzeń elementu webhook, które będą wywoływać punkty końcowe HTTP zdefiniowane w dwóch Logic Apps. Logic Apps następnie wyśle odpowiednie powiadomienia e-mail dotyczące sprzętu przechodzącego poza lub wprowadzającego geoogrodzenie.
 > * Użyj [interfejsu API wyszukiwania geoogrodzenia Szukaj](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) , aby otrzymywać powiadomienia, gdy sprzęt zostanie zakończony i przejdzie do obszaru geoogrodzenia.
@@ -254,7 +254,7 @@ Wykonaj poniższe kroki, aby utworzyć subskrypcję dla zdarzeń wjazdu wirtualn
 
     :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Szczegóły subskrypcji zdarzeń Azure Maps":::
 
-4. Kliknij pozycję **Utwórz**.
+4. Kliknij przycisk **Utwórz**.
 
 5. Powtórz kroki 1-4 dla punktu końcowego aplikacji logiki, który został utworzony w poprzedniej sekcji. W kroku 3 Upewnij się, że wybrano opcję `Geofence Exited` jako typ zdarzenia.
 

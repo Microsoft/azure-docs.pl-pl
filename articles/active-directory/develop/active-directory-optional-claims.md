@@ -12,12 +12,12 @@ ms.date: 07/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: f93e2b34c64ce4bd8cec7182c3e990f0e675dc11
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: e82f5fb868dd728d439c68943c8809c5373ae133
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552870"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115734"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji
 
@@ -31,13 +31,13 @@ Opcjonalne oświadczenia można używać do:
 
 Listę oświadczeń standardowych można znaleźć w dokumentacji [token dostępu](access-tokens.md) i [id_token](id-tokens.md) oświadczenia.
 
-Chociaż opcjonalne oświadczenia są obsługiwane zarówno w tokenach w formacie v 1.0, jak i 2.0, jak również w przypadku tokenów języka SAML, zapewniają większość wartości podczas przechodzenia z wersji 1.0 do wersji 2.0. Jednym z celów [punktu końcowego platformy tożsamości w wersji 2.0 firmy Microsoft](active-directory-appmodel-v2-overview.md) jest mniejszy rozmiar tokenu, aby zapewnić optymalną wydajność przez klientów. W związku z tym kilka oświadczeń wcześniej uwzględnionych w tokenach dostępu i identyfikatorów nie jest już obecny w tokenach v 2.0 i musi być poproszony o odszukanie poszczególnych aplikacji.
+Chociaż opcjonalne oświadczenia są obsługiwane zarówno w tokenach w formacie v 1.0, jak i 2.0, jak również w przypadku tokenów języka SAML, zapewniają większość wartości podczas przechodzenia z wersji 1.0 do wersji 2.0. Jednym z celów [punktu końcowego platformy tożsamości w wersji 2.0 firmy Microsoft](./v2-overview.md) jest mniejszy rozmiar tokenu, aby zapewnić optymalną wydajność przez klientów. W związku z tym kilka oświadczeń wcześniej uwzględnionych w tokenach dostępu i identyfikatorów nie jest już obecny w tokenach v 2.0 i musi być poproszony o odszukanie poszczególnych aplikacji.
 
 **Tabela 1: możliwość zastosowania**
 
 | Typ konta               | tokeny v 1.0 | tokeny v 2.0 |
 |----------------------------|-------------|-------------|
-| konto Microsoft osobiste | Brak         | Obsługiwane   |
+| konto Microsoft osobiste | Nie dotyczy         | Obsługiwane   |
 | Konto usługi Azure AD           | Obsługiwane   | Obsługiwane   |
 
 ## <a name="v10-and-v20-optional-claims-set"></a>zestaw oświadczeń opcjonalnych 1.0 i v 2.0
@@ -61,10 +61,10 @@ Zestaw opcjonalnych oświadczeń dostępnych domyślnie dla aplikacji do użycia
 | `fwd`                      | Adres IP.| JWT    |   | Dodaje oryginalny adres IPv4 klienta żądającego (w sieci wirtualnej) |
 | `ctry`                     | Kraj/region użytkownika | JWT |  | Usługa Azure AD zwraca `ctry` opcjonalne, jeśli jest obecne, a wartość zgłoszenia to standardowy dwuliterowy kod kraju/regionu, taki jak fr, JP, sz i tak dalej. |
 | `tenant_ctry`              | Kraj/region dzierżawy zasobów | JWT | | |
-| `xms_pdl`             | Preferowana lokalizacja danych   | JWT | | W przypadku dzierżaw z wieloma lokalizacjami geograficznymi preferowaną lokalizacją danych jest kod składający się z regionu geograficznego, w którym znajduje się użytkownik. Aby uzyskać więcej informacji, zobacz [dokumentację Azure AD Connect dotyczącą preferowanej lokalizacji danych](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation).<br/>Na przykład: `APC` dla Azja i Pacyfik. |
+| `xms_pdl`             | Preferowana lokalizacja danych   | JWT | | W przypadku dzierżaw z wieloma lokalizacjami geograficznymi preferowaną lokalizacją danych jest kod składający się z regionu geograficznego, w którym znajduje się użytkownik. Aby uzyskać więcej informacji, zobacz [dokumentację Azure AD Connect dotyczącą preferowanej lokalizacji danych](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md).<br/>Na przykład: `APC` dla Azja i Pacyfik. |
 | `xms_pl`                   | Preferowany język użytkownika  | JWT ||Preferowany język użytkownika, jeśli jest ustawiony. Pochodzący od swojej dzierżawy domowej w scenariuszach dostępu gościa. Sformatowane — DW ("pl-US"). |
 | `xms_tpl`                  | Preferowany język dzierżawy| JWT | | Preferowany język dzierżawy zasobu, jeśli został ustawiony. Sformatowane w szystkie ("en"). |
-| `ztdid`                    | Identyfikator wdrożenia bez dotknięcia | JWT | | Tożsamość urządzenia używana na potrzeby [Autopilotażu systemu Windows](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
+| `ztdid`                    | Identyfikator wdrożenia bez dotknięcia | JWT | | Tożsamość urządzenia używana na potrzeby [Autopilotażu systemu Windows](/windows/deployment/windows-autopilot/windows-10-autopilot) |
 | `email`                    | Adres e-mail dla tego użytkownika, jeśli użytkownik go ma.  | JWT, SAML | MSA, Azure AD | Ta wartość jest uwzględniana domyślnie, jeśli użytkownik jest gościem w dzierżawie.  W przypadku użytkowników zarządzanych (użytkowników w ramach dzierżawy) należy zażądać ich przez to opcjonalne żądanie lub tylko w wersji 3.0, z zakresem OpenID Connect.  W przypadku użytkowników zarządzanych adres e-mail musi być ustawiony w [portalu administracyjnym pakietu Office](https://portal.office.com/adminportal/home#/users).|
 | `acct`                | Stan konta użytkowników w dzierżawie | JWT, SAML | | Jeśli użytkownik jest członkiem dzierżawy, wartość jest `0` . Jeśli jest gościem, wartość to `1` . |
 | `groups`| Opcjonalne formatowanie oświadczeń grupy |JWT, SAML| |Używany w połączeniu z ustawieniem GroupMembershipClaims w [manifeście aplikacji](reference-app-manifest.md), który musi być również ustawiony. Aby uzyskać szczegółowe informacje, zobacz poniższe [oświadczenia grupy](#configuring-groups-optional-claims) . Aby uzyskać więcej informacji na temat oświadczeń grup, zobacz [jak skonfigurować oświadczenia grupy](../hybrid/how-to-connect-fed-group-claims.md)
@@ -191,7 +191,7 @@ Deklaruje opcjonalne oświadczenia wymagane przez aplikację. Aplikacja może sk
 
 ### <a name="optionalclaim-type"></a>Typ OptionalClaim
 
-Zawiera opcjonalne powiązanie skojarzone z aplikacją lub jednostką usługi. Właściwości idToken, accessToken i saml2Token typu [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) to kolekcja OptionalClaim.
+Zawiera opcjonalne powiązanie skojarzone z aplikacją lub jednostką usługi. Właściwości idToken, accessToken i saml2Token typu [OptionalClaims](/graph/api/resources/optionalclaims?view=graph-rest-1.0) to kolekcja OptionalClaim.
 Jeśli jest to obsługiwane przez określone zgłoszenie, można również zmodyfikować zachowanie OptionalClaim przy użyciu pola AdditionalProperties.
 
 **Tabela 6: właściwości typu OptionalClaim**
@@ -205,7 +205,7 @@ Jeśli jest to obsługiwane przez określone zgłoszenie, można również zmody
 
 ## <a name="configuring-directory-extension-optional-claims"></a>Konfigurowanie opcjonalnych oświadczeń rozszerzenia katalogu
 
-Oprócz standardowego opcjonalnego zestawu oświadczeń można także skonfigurować tokeny do dołączania rozszerzeń. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą Microsoft Graph extensionProperty](https://docs.microsoft.com/graph/api/resources/extensionproperty?view=graph-rest-1.0).
+Oprócz standardowego opcjonalnego zestawu oświadczeń można także skonfigurować tokeny do dołączania rozszerzeń. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą Microsoft Graph extensionProperty](/graph/api/resources/extensionproperty?view=graph-rest-1.0).
 
 Rozszerzenia schematu i otwarte nie są obsługiwane przez oświadczenia opcjonalne, tylko rozszerzenia katalogu stylów usługi AAD-Graph. Ta funkcja jest przydatna do dołączania dodatkowych informacji o użytkownikach, które mogą być używane przez aplikację — na przykład dodatkowego identyfikatora lub ważnej opcji konfiguracji ustawionej przez użytkownika. Przykład znajduje się na końcu tej strony.
 
@@ -232,7 +232,7 @@ W tej sekcji omówiono opcje konfiguracji w obszarze opcjonalne oświadczenia do
 
 **Konfigurowanie grup opcjonalnych oświadczeń za pomocą interfejsu użytkownika:**
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 1. Po uwierzytelnieniu wybierz dzierżawę usługi Azure AD, wybierając ją w prawym górnym rogu strony.
 1. Wybierz **Azure Active Directory** z menu po lewej stronie
 1. W sekcji **Zarządzanie** wybierz pozycję **rejestracje aplikacji**
@@ -245,7 +245,7 @@ W tej sekcji omówiono opcje konfiguracji w obszarze opcjonalne oświadczenia do
 
 **Konfigurowanie grup opcjonalnych oświadczeń za pomocą manifestu aplikacji:**
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 1. Po uwierzytelnieniu wybierz dzierżawę usługi Azure AD, wybierając ją w prawym górnym rogu strony.
 1. Wybierz **Azure Active Directory** z menu po lewej stronie
 1. Wybierz aplikację, dla której chcesz skonfigurować oświadczenia opcjonalne na liście
@@ -362,8 +362,8 @@ W tej sekcji można zapoznać się z scenariuszem, aby dowiedzieć się, jak mo�
 Dostępnych jest wiele opcji aktualizowania właściwości konfiguracji tożsamości aplikacji w celu włączenia i skonfigurowania oświadczeń opcjonalnych:
 
 - Możesz użyć interfejsu użytkownika **konfiguracji tokenu** (Zobacz przykład poniżej)
-- Możesz użyć **manifestu** (Zobacz przykład poniżej). Przeczytaj [dokument manifestu aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) najpierw, aby zapoznać się z wprowadzeniem do manifestu.
-- Istnieje również możliwość napisania aplikacji, która używa [interfejsu API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) do aktualizowania aplikacji. Typ [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) w podręczniku Skorowidz interfejsu API Microsoft Graph może pomóc w konfigurowaniu opcjonalnych oświadczeń.
+- Możesz użyć **manifestu** (Zobacz przykład poniżej). Przeczytaj [dokument manifestu aplikacji usługi Azure AD](./reference-app-manifest.md) najpierw, aby zapoznać się z wprowadzeniem do manifestu.
+- Istnieje również możliwość napisania aplikacji, która używa [interfejsu API Microsoft Graph](/graph/use-the-api?context=graph%2fapi%2f1.0&view=graph-rest-1.0) do aktualizowania aplikacji. Typ [OptionalClaims](/graph/api/resources/optionalclaims?view=graph-rest-1.0) w podręczniku Skorowidz interfejsu API Microsoft Graph może pomóc w konfigurowaniu opcjonalnych oświadczeń.
 
 **Przykład:**
 
@@ -375,7 +375,7 @@ W poniższym przykładzie użyjesz interfejsu użytkownika i manifestu **konfigu
 
 **Konfiguracja interfejsu użytkownika:**
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 
 1. Po uwierzytelnieniu wybierz dzierżawę usługi Azure AD, wybierając ją w prawym górnym rogu strony.
 
@@ -404,7 +404,7 @@ W poniższym przykładzie użyjesz interfejsu użytkownika i manifestu **konfigu
 1. Wybierz **Azure Active Directory** z menu po lewej stronie.
 1. Znajdź aplikację, dla której chcesz skonfigurować opcjonalne oświadczenia na liście, a następnie wybierz ją.
 1. W sekcji **Zarządzanie** wybierz pozycję **manifest** , aby otworzyć wbudowany edytor manifestu.
-1. Możesz bezpośrednio edytować manifest za pomocą tego edytora. Manifest jest zgodny ze schematem dla [jednostki aplikacji](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)i automatycznie formatuje manifest po zapisaniu. Nowe elementy zostaną dodane do `OptionalClaims` właściwości.
+1. Możesz bezpośrednio edytować manifest za pomocą tego edytora. Manifest jest zgodny ze schematem dla [jednostki aplikacji](./reference-app-manifest.md)i automatycznie formatuje manifest po zapisaniu. Nowe elementy zostaną dodane do `OptionalClaims` właściwości.
 
     ```json
     "optionalClaims": {

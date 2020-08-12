@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-javascript
-ms.openlocfilehash: 67ce5f898f2f9b6be088a0d01aec908c93ce7418
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: a58da8b11876d662173ae83de43d8ed74ab43e93
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446885"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118301"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph ze kątowej aplikacji jednostronicowej
 
@@ -71,7 +71,7 @@ ng generate component page-name                  # To add a new page (such as a 
 
 ## <a name="register-your-application"></a>Rejestrowanie aplikacji
 
-Postępuj zgodnie z [instrukcjami, aby zarejestrować aplikację jednostronicową](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) w Azure Portal.
+Postępuj zgodnie z [instrukcjami, aby zarejestrować aplikację jednostronicową](./scenario-spa-app-registration.md) w Azure Portal.
 
 Na stronie **Przegląd** aplikacji w swojej rejestracji Zanotuj wartość **identyfikatora aplikacji (klienta)** na potrzeby późniejszego użycia.
 
@@ -124,7 +124,7 @@ Zarejestruj wartość **identyfikatora URI przekierowania** jako **http://localh
     |Nazwa wartości|Informacje|
     |---------|---------|
     |Enter_the_Application_Id_Here|Na stronie **Przegląd** rejestracji aplikacji jest to wartość **identyfikatora aplikacji (klienta)** . |
-    |Enter_the_Cloud_Instance_Id_Here|Jest to wystąpienie chmury platformy Azure. W głównej lub globalnej chmurze platformy Azure wprowadź wartość **https://login.microsoftonline.com** . W przypadku chmur narodowych (na przykład Chin), zobacz [chmury narodowe](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
+    |Enter_the_Cloud_Instance_Id_Here|Jest to wystąpienie chmury platformy Azure. W głównej lub globalnej chmurze platformy Azure wprowadź wartość **https://login.microsoftonline.com** . W przypadku chmur narodowych (na przykład Chin), zobacz [chmury narodowe](./authentication-national-cloud.md).|
     |Enter_the_Tenant_Info_Here| Ustaw jedną z następujących opcji: Jeśli aplikacja obsługuje *konta w tym katalogu organizacji*, Zastąp tę wartość identyfikatorem katalogu (dzierżawy) lub nazwą dzierżawy (na przykład **contoso.Microsoft.com**). Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym*, Zastąp tę wartość **organizacją**. Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym i osobistych kontach Microsoft*, Zastąp tę wartość **wspólnym**. Aby ograniczyć obsługę *tylko do osobistych kont Microsoft*, Zastąp tę wartość **odbiorcom**. |
     |Enter_the_Redirect_Uri_Here|Zamień na **http://localhost:4200** .|
 

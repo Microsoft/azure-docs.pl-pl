@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 5c598807f36000a18211e32eba53220bfbeea2f7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1a8ce0bc94c61a0cfe6cdad11375763ba954957d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108718"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88122384"
 ---
 ### <a name="verify-that-a-container-is-running"></a>Sprawdź, czy kontener jest uruchomiony
 
@@ -37,4 +37,4 @@ Istnieje kilka adresów URL, których można także użyć do sprawdzenia, czy k
 |`http://localhost:5000/swagger`|Za pomocą tego adresu URL kontener zawiera pełen zestaw dokumentacji dla punktów końcowych i `Try it now` funkcji. Korzystając z tej funkcji, można wprowadzić ustawienia w formie HTML opartej na sieci Web i utworzyć zapytanie bez konieczności pisania kodu. Po powrocie zapytania zostanie podane przykładowe ZWINIĘCIE polecenia, aby przedstawić nagłówki HTTP i format treści, który jest wymagany. |
 |`http://localhost:5000/demo`| Zażądano za pośrednictwem przeglądarki, ta funkcja zapewnia interaktywną wizualizację wyników zapytań dotyczących wejściowych próbek tekstowych lub jeden z nich.  |
 
-Użyj tego adresu URL żądania — `http://localhost:5000/text/analytics/v3.0-preview.1/domains/health` w celu przesłania zapytania do kontenera.
+Użyj tego adresu URL żądania — `http://localhost:5000/text/analytics/v3.2-preview.1/entities/health` w celu przesłania zapytania do kontenera.

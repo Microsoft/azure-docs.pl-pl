@@ -12,12 +12,12 @@ ms.date: 1/15/2020
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b2f74d2d441007f195abd38ca26ca7fa73605318
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f49a5703b19a76095c8eafe358742b442725d3d0
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80886436"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118250"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>Samouczek: korzystanie z trybu udostępnionego urządzenia w aplikacji systemu Android
 
@@ -28,11 +28,11 @@ ms.locfileid: "80886436"
 
 ## <a name="developer-guide"></a>Przewodnik dla deweloperów
 
-Ten przewodnik zawiera wskazówki dla deweloperów dotyczące wdrażania trybu udostępnionego urządzenia w aplikacji systemu Android przy użyciu biblioteki uwierzytelniania firmy Microsoft (MSAL). Zapoznaj się z [samouczkiem MSAL dla systemu Android](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android) , aby dowiedzieć się, jak zintegrować MSAL z aplikacją systemu Android, zalogować użytkownika, wywołać program Microsoft Graph i wylogować użytkownika.
+Ten przewodnik zawiera wskazówki dla deweloperów dotyczące wdrażania trybu udostępnionego urządzenia w aplikacji systemu Android przy użyciu biblioteki uwierzytelniania firmy Microsoft (MSAL). Zapoznaj się z [samouczkiem MSAL dla systemu Android](./tutorial-v2-android.md) , aby dowiedzieć się, jak zintegrować MSAL z aplikacją systemu Android, zalogować użytkownika, wywołać program Microsoft Graph i wylogować użytkownika.
 
-### <a name="download-the-sample"></a>Pobierz przykład
+### <a name="download-the-sample"></a>Pobieranie przykładu
 
-Sklonuj [przykładową aplikację](https://github.com/Azure-Samples/ms-identity-android-java/) z usługi GitHub. Przykład ma możliwość pracy w [trybie jednego lub wielu kont](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account).
+Sklonuj [przykładową aplikację](https://github.com/Azure-Samples/ms-identity-android-java/) z usługi GitHub. Przykład ma możliwość pracy w [trybie jednego lub wielu kont](./single-multi-account.md).
 
 ### <a name="add-the-msal-sdk-to-your-local-maven-repository"></a>Dodawanie zestawu SDK MSAL do lokalnego repozytorium Maven
 
@@ -46,13 +46,13 @@ dependencies{
 
 ### <a name="configure-your-app-to-use-shared-device-mode"></a>Skonfiguruj aplikację do korzystania z trybu udostępnionego urządzenia
 
-Aby uzyskać więcej informacji na temat konfigurowania pliku konfiguracji, zapoznaj się z [dokumentacją konfiguracyjną](https://docs.microsoft.com/azure/active-directory/develop/msal-configuration) .
+Aby uzyskać więcej informacji na temat konfigurowania pliku konfiguracji, zapoznaj się z [dokumentacją konfiguracyjną](./msal-configuration.md) .
 
-Ustaw `"shared_device_mode_supported"` wartość `true` na w pliku konfiguracji MSAL.
+Ustaw wartość na `"shared_device_mode_supported"` `true` w pliku konfiguracji MSAL.
 
-Nie można zaplanować obsługi trybu wielu kont. Może to być możliwe, jeśli nie używasz urządzenia udostępnionego, a użytkownik może zalogować się do aplikacji z więcej niż jednym kontem w tym samym czasie. Jeśli tak, ustaw `"account_mode"` wartość `"SINGLE"`. Gwarantuje to, że aplikacja będzie zawsze otrzymywać `ISingleAccountPublicClientApplication`i znacząco upraszcza integrację z MSAL. Wartość domyślna `"account_mode"` to `"MULTIPLE"`, dlatego ważne jest, aby zmienić tę wartość w pliku konfiguracji, jeśli używasz `"single account"` trybu.
+Nie można zaplanować obsługi trybu wielu kont. Może to być możliwe, jeśli nie używasz urządzenia udostępnionego, a użytkownik może zalogować się do aplikacji z więcej niż jednym kontem w tym samym czasie. Jeśli tak, ustaw `"account_mode"` wartość `"SINGLE"` . Gwarantuje to, że aplikacja będzie zawsze otrzymywać `ISingleAccountPublicClientApplication` i znacząco upraszcza integrację z MSAL. Wartość domyślna `"account_mode"` to `"MULTIPLE"` , dlatego ważne jest, aby zmienić tę wartość w pliku konfiguracji, jeśli używasz `"single account"` trybu.
 
-Oto przykład pliku auth_config. JSON zawartego w**głównym**>**res**>**katalogu** zasobów **aplikacji**>przykładowej:
+Oto przykład auth_config.jsw pliku uwzględnionym w **app** > katalogu**głównym** > **zasobów**aplikacji > **raw** przykładowej:
 
 ```json
 {
@@ -80,7 +80,7 @@ Tryb Shared-Device umożliwia skonfigurowanie urządzeń z systemem Android, kt�
 
 Użyj `isSharedDevice()` , aby określić, czy aplikacja jest uruchomiona na urządzeniu znajdującym się w trybie Shared-urządzenie. Twoja aplikacja może użyć tej flagi, aby określić, czy należy odpowiednio zmodyfikować środowisko użytkownika.
 
-Oto fragment kodu, który pokazuje, jak można korzystać `isSharedDevice()`z programu.  Jest ona z `SingleAccountModeFragment` klasy w przykładowej aplikacji:
+Oto fragment kodu, który pokazuje, jak można korzystać z programu `isSharedDevice()` .  Jest ona z `SingleAccountModeFragment` klasy w przykładowej aplikacji:
 
 ```Java
 deviceModeTextView.setText(mSingleAccountApp.isSharedDevice() ?"Shared" :"Non-Shared");
@@ -88,7 +88,7 @@ deviceModeTextView.setText(mSingleAccountApp.isSharedDevice() ?"Shared" :"Non-Sh
 
 ### <a name="initialize-the-publicclientapplication-object"></a>Inicjowanie obiektu PublicClientApplication
 
-W przypadku ustawienia `"account_mode":"SINGLE"` w pliku konfiguracji MSAL można bezpiecznie rzutować zwracany obiekt aplikacji jako `ISingleAccountPublicCLientApplication`.
+W przypadku ustawienia `"account_mode":"SINGLE"` w pliku konfiguracji MSAL można bezpiecznie rzutować zwracany obiekt aplikacji jako `ISingleAccountPublicCLientApplication` .
 
 ```java
 private ISingleAccountPublicClientApplication mSingleAccountApp;
@@ -129,7 +129,7 @@ private IPublicClientApplication mApplication;
 
 ### <a name="get-the-signed-in-user-and-determine-if-a-user-has-changed-on-the-device"></a>Uzyskaj zalogowanego użytkownika i ustal, czy użytkownik zmienił się na urządzeniu
 
-`loadAccount` Metoda pobiera konto zalogowanego użytkownika. `onAccountChanged` Metoda określa, czy zalogowany użytkownik zmienił się, a jeśli tak, wyczyść:
+`loadAccount`Metoda pobiera konto zalogowanego użytkownika. `onAccountChanged`Metoda określa, czy zalogowany użytkownik zmienił się, a jeśli tak, wyczyść:
 
 ```java
 private void loadAccount()
@@ -202,20 +202,20 @@ Poniższe kroki opisują skonfigurowanie aplikacji w Azure Portal i przełączen
 
 ### <a name="register-your-application-in-azure-active-directory"></a>Zarejestruj swoją aplikację w Azure Active Directory
 
-Najpierw Zarejestruj swoją aplikację w dzierżawie organizacyjnej. Następnie podaj poniższe wartości w pliku auth_config. JSON, aby aplikacja działała poprawnie.
+Najpierw Zarejestruj swoją aplikację w dzierżawie organizacyjnej. Następnie podaj poniższe wartości w auth_config.js, aby aplikacja działała poprawnie.
 
-Aby uzyskać więcej informacji na ten temat, zobacz [Rejestrowanie aplikacji](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#register-your-application).
+Aby uzyskać więcej informacji na ten temat, zobacz [Rejestrowanie aplikacji](./tutorial-v2-android.md#register-your-application).
 
 > [!NOTE]
-> Po zarejestrowaniu aplikacji Skorzystaj z przewodnika Szybki Start po lewej stronie, a następnie wybierz pozycję **Android**. Spowoduje to wyświetlenie strony, na której zostanie wyświetlony monit o podanie **nazwy pakietu** i **skrótu podpisu** dla aplikacji. Są one bardzo ważne, aby mieć pewność, że konfiguracja aplikacji będzie działać. Następnie otrzymasz obiekt konfiguracji, którego możesz użyć dla aplikacji, która zostanie wycięta i wklejona do pliku auth_config. JSON.
+> Po zarejestrowaniu aplikacji Skorzystaj z przewodnika Szybki Start po lewej stronie, a następnie wybierz pozycję **Android**. Spowoduje to wyświetlenie strony, na której zostanie wyświetlony monit o podanie **nazwy pakietu** i **skrótu podpisu** dla aplikacji. Są one bardzo ważne, aby mieć pewność, że konfiguracja aplikacji będzie działać. Następnie otrzymasz obiekt konfiguracji, którego możesz użyć dla aplikacji, która zostanie wycięta i wklejona do auth_config.jspliku.
 
-![Ekran](media/tutorial-v2-shared-device-mode/register-app.png) rejestracji aplikacji należy wybrać opcję **wprowadź tę zmianę dla mnie** , a następnie podać wartości z monitem szybki start dla Azure Portal. Gdy wszystko będzie gotowe, wygenerujemy wszystkie potrzebne pliki konfiguracji.
+![Ekran rejestracji aplikacji należy ](media/tutorial-v2-shared-device-mode/register-app.png) wybrać opcję **wprowadź tę zmianę dla mnie** , a następnie podać wartości z monitem szybki start dla Azure Portal. Gdy wszystko będzie gotowe, wygenerujemy wszystkie potrzebne pliki konfiguracji.
 
 ![Ekran informacji o konfiguracji aplikacji](media/tutorial-v2-shared-device-mode/config-info.png)
 
 ## <a name="set-up-a-tenant"></a>Konfigurowanie dzierżawy
 
-W celach testowych skonfiguruj następujące elementy w dzierżawie: co najmniej dwóch pracowników, jeden administrator urządzenia w chmurze i jeden administrator globalny. W Azure Portal Ustaw administratora urządzenia w chmurze, modyfikując role organizacyjne. W Azure Portal uzyskaj dostęp do ról organizacyjnych, wybierając pozycję **Azure Active Directory** > **role i Administratorzy** > **administrator urządzeń w chmurze**. Dodaj użytkowników, którzy mogą umieścić urządzenie w trybie udostępnionym.
+W celach testowych skonfiguruj następujące elementy w dzierżawie: co najmniej dwóch pracowników, jeden administrator urządzenia w chmurze i jeden administrator globalny. W Azure Portal Ustaw administratora urządzenia w chmurze, modyfikując role organizacyjne. W Azure Portal uzyskaj dostęp do ról organizacyjnych, wybierając pozycję **Azure Active Directory**  >  **role i Administratorzy**  >  **administrator urządzeń w chmurze**. Dodaj użytkowników, którzy mogą umieścić urządzenie w trybie udostępnionym.
 
 ## <a name="set-up-an-android-device-in-shared-mode"></a>Konfigurowanie urządzenia z systemem Android w trybie udostępniania
 

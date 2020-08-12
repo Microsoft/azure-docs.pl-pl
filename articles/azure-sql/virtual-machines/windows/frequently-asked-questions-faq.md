@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 7a44e9c6b0545bce83f17c3bf85149d4ebe95dc1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f382e3cf0f5d2d60c2868c6698b1ea901fbac023
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955679"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121446"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Często zadawane pytania dotyczące SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -162,7 +162,7 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
 1. **Czy mogę zainstalować drugie wystąpienie SQL Server na tej samej maszynie wirtualnej? Czy mogę zmienić zainstalowane funkcje wystąpienia domyślnego?**
 
-   Tak. Nośnik instalacyjny SQL Server znajduje się w folderze na dysku **C** . Uruchom **Setup.exe** z tej lokalizacji, aby dodać nowe wystąpienia SQL Server lub zmienić inne zainstalowane funkcje SQL Server na komputerze. Należy zauważyć, że niektóre funkcje, takie jak automatyczne tworzenie kopii zapasowych, automatyczne stosowanie poprawek i integracja Azure Key Vault, działają tylko względem wystąpienia domyślnego lub nazwanego wystąpienia, które zostało prawidłowo skonfigurowane (zobacz pytanie 3). 
+   Tak. Nośnik instalacyjny SQL Server znajduje się w folderze na dysku **C** . Uruchom **Setup.exe** z tej lokalizacji, aby dodać nowe wystąpienia SQL Server lub zmienić inne zainstalowane funkcje SQL Server na komputerze. Należy zauważyć, że niektóre funkcje, takie jak automatyczne tworzenie kopii zapasowych, automatyczne stosowanie poprawek i integracja Azure Key Vault, działają tylko względem wystąpienia domyślnego lub nazwanego wystąpienia, które zostało prawidłowo skonfigurowane (zobacz pytanie 3). Klienci korzystający [z programu Software Assurance w ramach korzyść użycia hybrydowego platformy Azure](licensing-model-azure-hybrid-benefit-ahb-change.md) lub modelu licencjonowania z **płatność zgodnie z rzeczywistym** użyciem mogą instalować wiele wystąpień SQL Server na maszynie wirtualnej bez ponoszenia dodatkowych kosztów licencjonowania. Dodatkowe wystąpienia SQL Server mogą ograniczać zasoby systemowe, chyba że są poprawnie skonfigurowane. 
 
 1. **Czy mogę odinstalować domyślne wystąpienie programu SQL Server?**
 

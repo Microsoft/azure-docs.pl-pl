@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0ae99ba6540250d18c0bb5f6365e2ed3b9939ac9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcb8f709bc75fdf9fe80ee26497acb78cc023327
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85383873"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116346"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Wyświetlanie listy aplikacji w galerii aplikacji usługi Azure Active Directory
 
@@ -99,7 +99,7 @@ Aby wyświetlić listę aplikacji w galerii aplikacji usługi Azure AD, należy 
     * Jeśli chcesz dodać aplikację do listy w galerii za pomocą OpenID Connect Connect, wybierz pozycję **OpenID Connect connect & OAuth 2,0** jak pokazano.
     * Jeśli masz problemy z dostępem, skontaktuj się z [zespołem ds. integracji rejestracji jednokrotnej usługi Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-- **Saml 2,0** lub **WS-karmione**: Jeśli aplikacja obsługuje protokół SAML 2,0, można zintegrować ją bezpośrednio z DZIERŻAWą usługi Azure AD, postępując zgodnie z [instrukcjami, aby dodać aplikację niestandardową](../active-directory-saas-custom-apps.md).
+- **Saml 2,0** lub **WS-karmione**: Jeśli aplikacja obsługuje protokół SAML 2,0, można zintegrować ją bezpośrednio z DZIERŻAWą usługi Azure AD, postępując zgodnie z [instrukcjami, aby dodać aplikację niestandardową](../manage-apps/view-applications-portal.md).
 
   ![Wyświetlanie listy aplikacji SAML 2,0 lub WS-karmione w galerii](./media/howto-app-gallery-listing/saml.png)
 

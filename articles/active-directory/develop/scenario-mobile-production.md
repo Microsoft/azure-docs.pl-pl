@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 28ace84f9a80b71209d7963d02b66317292b151b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1a7407c947c1c5bae1eed00acb0f216722f3d09
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80882543"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121038"
 ---
 # <a name="prepare-mobile-apps-for-production"></a>Przygotuj aplikacje mobilne dla środowiska produkcyjnego
 
@@ -36,7 +36,7 @@ Dla każdego typu biblioteki uwierzytelniania firmy Microsoft (MSAL) można znal
 
 ## <a name="mitigate-and-investigate-issues"></a>Eliminowanie i badanie problemów
 
-Aby lepiej zdiagnozować problemy w aplikacji, Zbierz dane. Aby uzyskać informacje na temat rodzajów danych, które można zbierać, zobacz [Rejestrowanie w aplikacjach MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-logging).
+Aby lepiej zdiagnozować problemy w aplikacji, Zbierz dane. Aby uzyskać informacje na temat rodzajów danych, które można zbierać, zobacz [Rejestrowanie w aplikacjach MSAL](./msal-logging.md).
 
 Oto kilka sugestii dotyczących zbierania danych:
 

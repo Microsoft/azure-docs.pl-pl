@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bdacee476fbc25154fe225700730f1b8f7f872ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b89add55a060c7ba0ef9488f1f6438090b8d3d2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83682269"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121174"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Typy aplikacji dla platformy tożsamości firmy Microsoft
 
@@ -83,7 +83,7 @@ Tożsamość użytkownika można sprawdzić, sprawdzając token identyfikatora p
 
 Aby zapoznać się z tym scenariuszem w działaniu, wypróbuj jedną z przykładów kodu logowania aplikacji sieci Web w sekcji [wprowadzenie do platformy tożsamości firmy Microsoft](v2-overview.md#getting-started) .
 
-Oprócz prostej logowania aplikacja serwera sieci Web może potrzebować dostępu do innej usługi sieci Web, takiej jak interfejs API REST. W takim przypadku aplikacja serwera sieci Web jest zaangażowana w połączony przepływ OpenID Connect Connect i OAuth 2,0 przy użyciu [przepływu kodu autoryzacji oauth 2,0](v2-oauth2-auth-code-flow.md). Aby uzyskać więcej informacji na temat tego scenariusza, zapoznaj [się z artykułem wprowadzenie do usługi Web Apps i interfejsów API sieci Web](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
+Oprócz prostej logowania aplikacja serwera sieci Web może potrzebować dostępu do innej usługi sieci Web, takiej jak interfejs API REST. W takim przypadku aplikacja serwera sieci Web jest zaangażowana w połączony przepływ OpenID Connect Connect i OAuth 2,0 przy użyciu [przepływu kodu autoryzacji oauth 2,0](v2-oauth2-auth-code-flow.md). Aby uzyskać więcej informacji na temat tego scenariusza, zapoznaj [się z artykułem wprowadzenie do usługi Web Apps i interfejsów API sieci Web](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIDConnect-DotNet).
 
 
 ## <a name="web-apis"></a>Interfejsy API sieci Web

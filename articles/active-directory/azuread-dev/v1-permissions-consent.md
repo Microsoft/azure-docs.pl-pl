@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jesakowi
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 08def16f53cb0f544513c39a85f26e97c3606a42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c600e1fddc0089a508ff0cfebbbb3476f3a90008
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80154478"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117621"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Uprawnienia i zgoda w punkcie końcowym Azure Active Directory v 1.0
 
@@ -33,8 +33,8 @@ Usługa Azure Active Directory (Azure AD) szeroko wykorzystuje użycie uprawnie�
 
 W usłudze Azure AD zdefiniowano dwa rodzaje uprawnień:
 
-* **Uprawnienia delegowane** — są używane przez aplikacje, w których użytkownik jest obecnie zalogowany. W przypadku takich aplikacji zgodę na uprawnienia żądane przez aplikację może wyrazić użytkownik lub administrator. Podczas wywołań interfejsu API do aplikacji są delegowane uprawnienia do działania w roli zalogowanego użytkownika. W zależności od interfejsu API użytkownik może nie być w stanie bezpośrednio wyrazić zgodę na interfejs API, a zamiast tego [wymagać od administratora podania "zgody administratora"](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
-* **Uprawnienia aplikacji** — są używane przez aplikacje i nie wymagają zalogowanego użytkownika. Są to np. aplikacje działające jako usługi w tle lub demony. Uprawnienia aplikacji mogą być [wysyłane tylko przez administratorów](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) , ponieważ są zwykle zaawansowane i umożliwiają dostęp do danych w granicach użytkowników lub danych, które w przeciwnym razie byłyby ograniczone do administratorów. Użytkownicy, którzy są zdefiniowani jako właściciele aplikacji zasobów (tj. interfejs API, który publikuje uprawnienia), również mogą przyznawać uprawnienia aplikacji do interfejsów API, których są właścicielami.
+* **Uprawnienia delegowane** — są używane przez aplikacje, w których użytkownik jest obecnie zalogowany. W przypadku takich aplikacji zgodę na uprawnienia żądane przez aplikację może wyrazić użytkownik lub administrator. Podczas wywołań interfejsu API do aplikacji są delegowane uprawnienia do działania w roli zalogowanego użytkownika. W zależności od interfejsu API użytkownik może nie być w stanie bezpośrednio wyrazić zgodę na interfejs API, a zamiast tego [wymagać od administratora podania "zgody administratora"](../develop/howto-convert-app-to-be-multi-tenant.md).
+* **Uprawnienia aplikacji** — są używane przez aplikacje i nie wymagają zalogowanego użytkownika. Są to np. aplikacje działające jako usługi w tle lub demony. Uprawnienia aplikacji mogą być [wysyłane tylko przez administratorów](../develop/v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) , ponieważ są zwykle zaawansowane i umożliwiają dostęp do danych w granicach użytkowników lub danych, które w przeciwnym razie byłyby ograniczone do administratorów. Użytkownicy, którzy są zdefiniowani jako właściciele aplikacji zasobów (tj. interfejs API, który publikuje uprawnienia), również mogą przyznawać uprawnienia aplikacji do interfejsów API, których są właścicielami.
 
 Czynne uprawnienia to uprawnienia, które aplikacja będzie posiadać podczas wysyłania żądań do interfejsu API. 
 
@@ -75,12 +75,12 @@ Przy uzyskiwaniu dostępu do niezbędnych zasobów lub interfejsów API aplikacj
 * **Statyczna zgoda użytkownika** — zachodzi automatycznie podczas [przepływu autoryzacji OAuth 2.0](v1-protocols-oauth-code.md#request-an-authorization-code) po podaniu zasobu, z którym chce współdziałać Twoja aplikacja. W scenariuszu statycznej zgody użytkownika aplikacja musi już znać wszystkie uprawnienia, które są niezbędne do skonfigurowania aplikacji w witrynie Azure Portal. Jeśli użytkownik (lub administrator, zależnie od potrzeb) nie udzielił zgody dla tej aplikacji, wtedy usługa Azure AD będzie monitować użytkownika o zgodę. 
 
     Dowiedz się więcej o rejestrowaniu aplikacji usługi Azure AD, która żąda dostępu do statycznego zestawu interfejsów API.
-* **Dynamiczna zgoda użytkownika** — jest to funkcja dostępna w modelu aplikacji usługi Azure AD w wersji 2. W tym scenariuszu aplikacja żąda zbioru uprawnień, których potrzebuje w [przepływie autoryzacji OAuth 2.0 dla aplikacji v2](/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent). Jeśli użytkownik nie wyraził jeszcze zgody, w tym momencie zostanie wyświetlony monit o jej wyrażenie. [Dowiedz się więcej na temat dynamicznej zgody](/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent).
+* **Dynamiczna zgoda użytkownika** — jest to funkcja dostępna w modelu aplikacji usługi Azure AD w wersji 2. W tym scenariuszu aplikacja żąda zbioru uprawnień, których potrzebuje w [przepływie autoryzacji OAuth 2.0 dla aplikacji v2](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent). Jeśli użytkownik nie wyraził jeszcze zgody, w tym momencie zostanie wyświetlony monit o jej wyrażenie. [Dowiedz się więcej na temat dynamicznej zgody](./azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
 
     > [!IMPORTANT]
     > Dynamiczne udzielanie zgody może być wygodne, ale stanowi duże wyzwanie w przypadku uprawnień wymagających zgody administratora, ponieważ w momencie wyrażania zgody administrator nie dysponuje informacjami dotyczącymi uprawnień. Jeśli wymagane są uprawnienia administratora lub jeśli aplikacja korzysta z zgody dynamicznej, należy zarejestrować wszystkie uprawnienia w Azure Portal (nie tylko podzbiór uprawnień, które wymagają zgody administratora). Dzięki temu administratorzy dzierżawy mogą wyrazić zgodę w imieniu wszystkich użytkowników.
   
-* **Zgoda administratora** — jest wymagana, gdy aplikacja potrzebuje dostępu do niektórych uprawnień wysokiego poziomu. Zgoda administratora zapewnia, że administratorzy mają dodatkową kontrolę nad autoryzowaniem dostępu aplikacji lub użytkowników do danych organizacji wymagających szczególnych uprawnień. [Dowiedz się więcej na temat sposobu udzielania zgody administratora](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+* **Zgoda administratora** — jest wymagana, gdy aplikacja potrzebuje dostępu do niektórych uprawnień wysokiego poziomu. Zgoda administratora zapewnia, że administratorzy mają dodatkową kontrolę nad autoryzowaniem dostępu aplikacji lub użytkowników do danych organizacji wymagających szczególnych uprawnień. [Dowiedz się więcej na temat sposobu udzielania zgody administratora](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 

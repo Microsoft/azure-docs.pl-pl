@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 10/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5a74f1ca8d1055885561a35dbd18899193d3924d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0561be00f50dad0fe89ca47428802f45ee44f50d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984144"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121429"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Dodawanie połączenia lokacja-lokacja do sieci wirtualnej z istniejącym połączeniem bramy sieci VPN
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Witryna Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (klasyczny)](vpn-gateway-multi-site.md)
 >
 > 
@@ -35,7 +35,7 @@ Ta tabela jest aktualizowana w miarę jak nowe artykuły i dodatkowe narzędzia 
 
 [!INCLUDE [vpn-gateway-table-multi-site](../../includes/vpn-gateway-table-multisite-include.md)]
 
-## <a name="before-you-begin"></a><a name="before"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a><a name="before"></a>Zanim rozpoczniesz
 Sprawdź następujące elementy:
 
 * Nie konfigurujesz nowej ExpressRoute i konfiguracji VPN Gateway.
@@ -43,7 +43,7 @@ Sprawdź następujące elementy:
 * Brama sieci wirtualnej dla sieci wirtualnej to RouteBased. Jeśli masz bramę sieci VPN PolicyBased, należy usunąć bramę sieci wirtualnej i utworzyć nową bramę sieci VPN jako RouteBased.
 * Żaden z zakresów adresów nie pokrywa się z sieci wirtualnych, z którym jest nawiązywane połączenie z siecią wirtualną.
 * Masz zgodne urządzenie sieci VPN i osoba, która jest w stanie ją skonfigurować. Zobacz artykuł [About VPN Devices](vpn-gateway-about-vpn-devices.md) (Urządzenia sieci VPN — informacje). Jeśli nie dysponujesz wiedzą niezbędną do skonfigurowania urządzenia sieci VPN lub nie znasz zakresu adresów IP ujętego w konfiguracji sieci lokalnej, skontaktuj się z osobą, która może podać Ci te dane.
-* Masz zewnętrzny adres IP dla urządzenia sieci VPN. Ten adres IP nie może się znajdować za translatorem adresów sieciowych.
+* Masz zewnętrzny adres IP dla urządzenia sieci VPN.
 
 ## <a name="part-1---configure-a-connection"></a><a name="part1"></a>Część 1 — Konfigurowanie połączenia
 1. W przeglądarce przejdź do witryny [Azure Portal](https://portal.azure.com) i, jeśli to konieczne, zaloguj się przy użyciu konta platformy Azure.
@@ -78,7 +78,7 @@ Sprawdź następujące elementy:
 ## <a name="part-3---add-the-shared-key-and-create-the-connection"></a><a name="part3"></a>Część 3 — Dodawanie klucza współużytkowanego i Tworzenie połączenia
 1. Na stronie **Dodawanie połączenia** Dodaj klucz współużytkowany, który ma zostać użyty do utworzenia połączenia. Możesz pobrać klucz współużytkowany z urządzenia sieci VPN lub wprowadzić go w tym miejscu, a następnie skonfigurować urządzenie sieci VPN tak, aby korzystało z tego samego klucza współużytkowanego. Ważnym czynnikiem jest to, że klucze są dokładnie takie same.
    
-    ![Klucz współużytkowany](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "Klucz współużytkowany")<br>
+    ![Klucz współużytkowany](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "Klucz wspólny")<br>
 2. W dolnej części strony kliknij przycisk **OK** , aby utworzyć połączenie.
 
 ## <a name="part-4---verify-the-vpn-connection"></a><a name="part4"></a>Część 4 — Weryfikowanie połączenia sieci VPN

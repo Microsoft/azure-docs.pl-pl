@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 2da2755af4b44c0b17550676845c38c1a93cf801
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: ac438b42f25fc82a0a5dd5384205e809e45ff57a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845191"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120089"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: Konfiguracja kodu
 
@@ -61,7 +61,7 @@ public void ConfigureServices(IServiceCollection services)
 Jeśli chcesz poznać więcej informacji o pamięci podręcznej tokenów, zobacz [Opcje serializacji pamięci podręcznej tokenu](#token-cache)
 
 > [!NOTE]
-> Aby w pełni zrozumieć przykłady kodu, należy zapoznać się z tematami [ASP.NET Core Fundamentals](https://docs.microsoft.com/aspnet/core/fundamentals), a zwłaszcza z [iniekcją](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) i [opcjami](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options)zależności.
+> Aby w pełni zrozumieć przykłady kodu, należy zapoznać się z tematami [ASP.NET Core Fundamentals](/aspnet/core/fundamentals), a zwłaszcza z [iniekcją](/aspnet/core/fundamentals/dependency-injection) i [opcjami](/aspnet/core/fundamentals/configuration/options)zależności.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -268,7 +268,7 @@ Użycie potwierdzeń klientów jest zaawansowanym scenariuszem, szczegółowym w
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Samouczek ASP.NET Core używa iniekcji zależności, aby umożliwić określenie implementacji pamięci podręcznej tokenów w pliku Startup.cs dla aplikacji. Microsoft. Identity. Web zawiera wstępnie skompilowane serializatory pamięci podręcznej tokenów opisane w [serializacji buforu tokenów](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application). Interesującą możliwością jest wybranie ASP.NET Core pamięci [podręcznej pamięci rozproszonej](https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache):
+Samouczek ASP.NET Core używa iniekcji zależności, aby umożliwić określenie implementacji pamięci podręcznej tokenów w pliku Startup.cs dla aplikacji. Microsoft. Identity. Web zawiera wstępnie skompilowane serializatory pamięci podręcznej tokenów opisane w [serializacji buforu tokenów](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application). Interesującą możliwością jest wybranie ASP.NET Core pamięci [podręcznej pamięci rozproszonej](/aspnet/core/performance/caching/distributed#distributed-memory-cache):
 
 ```csharp
 // Use a distributed token cache by adding:

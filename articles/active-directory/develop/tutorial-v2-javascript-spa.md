@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-javascript
-ms.openlocfilehash: 303caf36b613e4bcd6a5c48317710b69a3ffbc0a
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 71516104ce5711f716b6af9d37ba96b431749fa3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875221"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118199"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z aplikacji JavaScript jednostronicowej (SPA)
 
@@ -323,7 +323,7 @@ Utwórz nowy plik js o nazwie `authConfig.js` , który będzie zawierać paramet
 
  Gdzie:
  - *\<Enter_the_Application_Id_Here>* to **Identyfikator aplikacji (klienta)** dla zarejestrowanej aplikacji.
- - *\<Enter_the_Cloud_Instance_Id_Here>* jest wystąpieniem chmury platformy Azure. W przypadku głównej lub globalnej chmury platformy Azure po prostu wprowadź *https://login.microsoftonline.com* . W przypadku chmur **narodowych** (na przykład Chin), zobacz [chmury narodowe](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
+ - *\<Enter_the_Cloud_Instance_Id_Here>* jest wystąpieniem chmury platformy Azure. W przypadku głównej lub globalnej chmury platformy Azure po prostu wprowadź *https://login.microsoftonline.com* . W przypadku chmur **narodowych** (na przykład Chin), zobacz [chmury narodowe](./authentication-national-cloud.md).
  - *\<Enter_the_Tenant_info_here>* jest ustawiona na jedną z następujących opcji:
    - Jeśli aplikacja obsługuje *konta w tym katalogu organizacyjnym*, Zastąp tę wartość **identyfikatorem dzierżawy** lub **nazwą dzierżawy** (na przykład *contoso.Microsoft.com*).
    - Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym*, Zastąp tę wartość **organizacją**.
@@ -447,7 +447,7 @@ Wywołanie *acquireTokenPopup* otwiera okno podręczne (lub *acquireTokenRedirec
    ```
 
    Gdzie:
-   - *\<Enter_the_Graph_Endpoint_Here>* jest wystąpieniem programu MS interfejs API programu Graph. W przypadku globalnego punktu końcowego MS interfejs API programu Graph należy po prostu zastąpić ten ciąg ciągiem `https://graph.microsoft.com` . W przypadku wdrożeń w chmurze krajowej zapoznaj się z [dokumentacją interfejs API programu Graph](https://docs.microsoft.com/graph/deployments).
+   - *\<Enter_the_Graph_Endpoint_Here>* jest wystąpieniem programu MS interfejs API programu Graph. W przypadku globalnego punktu końcowego MS interfejs API programu Graph należy po prostu zastąpić ten ciąg ciągiem `https://graph.microsoft.com` . W przypadku wdrożeń w chmurze krajowej zapoznaj się z [dokumentacją interfejs API programu Graph](/graph/deployments).
 
 1. Następnie utwórz plik. js o nazwie `graph.js` , który spowoduje wywołanie REST do Microsoft Graph API i Dodaj następujący kod:
 

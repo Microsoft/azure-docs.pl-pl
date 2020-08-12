@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 01ea22af472877abe34236ec82a7750eccfcdfb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d89f0d08fec0b0f341094d422b1091de5a61055e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80884277"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115768"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Jak i dlaczego aplikacje są dodawane do usługi Azure AD
 
@@ -74,7 +74,7 @@ Podobnie jak obiekty aplikacji, jednostki usługi mogą być również tworzone 
   * Po zasubskrybowaniu pakietu Office 365 lub rozpoczęcia okresu próbnego w katalogu zostanie utworzona co najmniej jedna jednostka usługi, która reprezentuje różne usługi, które są używane do dostarczania wszystkich funkcji skojarzonych z pakietem Office 365.
   * Niektóre usługi pakietu Office 365, takie jak program SharePoint, regularnie tworzą jednostki usługi, aby umożliwić bezpieczną komunikację między składnikami, w tym przepływami pracy.
 * Gdy administrator dodaje aplikację z galerii aplikacji (spowoduje to również utworzenie bazowego obiektu aplikacji)
-* Dodawanie aplikacji do korzystania z [usługi Azure serwer proxy aplikacji usługi Azure AD](/azure/active-directory/manage-apps/application-proxy)
+* Dodawanie aplikacji do korzystania z [usługi Azure serwer proxy aplikacji usługi Azure AD](../manage-apps/application-proxy.md)
 * Łączenie aplikacji do logowania jednokrotnego przy użyciu protokołu SAML lub hasła logowania jednokrotnego (SSO)
 * Programowo za pośrednictwem interfejsu API Microsoft Graph lub programu PowerShell
 
@@ -104,8 +104,8 @@ Aplikacje dodawane samodzielnie (reprezentowane jako **aplikacja (własne)** na 
   * Reguły przekształcania oświadczeń
   * Mapowania atrybutów (Inicjowanie obsługi użytkownika)
 * Aby uzyskać szczegółowe informacje na temat obiektów głównych i aplikacji usługi, zobacz dokumentację dotyczącą interfejsu API Microsoft Graph:
-  * [Aplikacja](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)
-  * [Nazwa główna usługi](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)
+  * [Aplikacja](/graph/api/resources/application?view=graph-rest-1.0)
+  * [Nazwa główna usługi](/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Dlaczego aplikacje integrują się z usługą Azure AD?
 

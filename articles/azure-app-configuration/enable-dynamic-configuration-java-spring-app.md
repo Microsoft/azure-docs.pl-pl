@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 3/5/2020
 ms.custom: devx-track-java
 ms.author: lcozzens
-ms.openlocfilehash: a2864d610d71c6b3a86c131dabb3c0b9ed138bec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 653fcb6f6590fd503a97800ec8196025cf14a3b9
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327926"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121565"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-java-spring-app"></a>Samouczek: używanie konfiguracji dynamicznej w aplikacji ze sprężyną Java
 
@@ -36,7 +36,7 @@ Następnie otwórz plik *pom.xml* w edytorze tekstów i Dodaj `<dependency>` do 
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>1.1.2</version>
+    <version>1.1.5</version>
 </dependency>
 ```
 
@@ -46,11 +46,33 @@ Następnie otwórz plik *pom.xml* w edytorze tekstów i Dodaj `<dependency>` do 
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>1.2.2</version>
+    <version>1.2.7</version>
 </dependency>
 ```
 
-Zapisz plik, a następnie Skompiluj i uruchom aplikację w zwykły sposób.
+## <a name="run-and-test-the-app-locally"></a>Uruchamianie i testowanie aplikacji lokalnie
+
+1. Skompiluj aplikację Spring Boot przy użyciu narzędzia Maven i uruchom ją.
+
+    ```shell
+    mvn clean package
+    mvn spring-boot:run
+    ```
+
+1. Otwórz okno przeglądarki i przejdź do adresu URL: `http://localhost:8080` .  Zobaczysz komunikat skojarzony z kluczem. 
+
+    Można również użyć *zwinięcie* do testowania aplikacji, na przykład: 
+    
+    ```cmd
+    curl -X GET http://localhost:8080/
+    ```
+
+1. Aby przetestować konfigurację dynamiczną, Otwórz Portal konfiguracji aplikacji platformy Azure skojarzony z Twoją aplikacją. Wybierz pozycję **Eksplorator konfiguracji**i zaktualizuj wartość wyświetlanego klucza, na przykład:
+    | Klucz | Wartość |
+    |---|---|
+    | Aplikacja/Konfiguracja. komunikat | Witaj — Zaktualizowano |
+
+1. Odśwież stronę przeglądarki, aby wyświetlić wyświetlony nowy komunikat.
 
 ## <a name="next-steps"></a>Następne kroki
 

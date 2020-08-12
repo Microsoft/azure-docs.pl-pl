@@ -3,15 +3,15 @@ title: Tworzenie puli hostów środowiska pulpitu wirtualnego systemu Windows �
 description: Rozwiązywanie problemów i rozwiązywanie problemów z pulą dzierżaw i hostów podczas instalacji środowiska pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 01/08/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 064cdc0189f6b85fa0e5872f49759c2ec67472e6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 4d504c46288ebe2a8112586ce6be6449178df16a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006166"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121378"
 ---
 # <a name="host-pool-creation"></a>Tworzenie puli hostów
 
@@ -252,6 +252,12 @@ the VM.\\\"
 **Przyczyna:** Ten błąd jest spowodowany trasą statyczną, regułą zapory lub sieciowej grupy zabezpieczeń, która blokuje pobieranie pliku zip powiązanego z szablonem Azure Resource Manager.
 
 **Poprawka:** Usuń blokowanie trasy statycznej, reguły zapory lub sieciowej grupy zabezpieczeń. Opcjonalnie możesz otworzyć plik JSON szablonu Azure Resource Manager w edytorze tekstów, pobrać link do pliku zip i pobrać zasób do dozwolonej lokalizacji.
+
+### <a name="error-cant-delete-a-session-host-from-the-host-pool-after-deleting-the-vm"></a>Błąd: nie można usunąć hosta sesji z puli hostów po usunięciu maszyny wirtualnej
+
+**Przyczyna:** Należy usunąć hosta sesji przed usunięciem maszyny wirtualnej.
+
+**Poprawka:** Umieść hosta sesji w trybie opróżniania, wyloguj wszystkich użytkowników z hosta sesji, a następnie Usuń hosta.
 
 ## <a name="next-steps"></a>Następne kroki
 

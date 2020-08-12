@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: a6af1a78582ebf62aed82bad8fa06cac37f511ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f98be2ef6a82c099425655fd7e5d25a4358844bf
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80982586"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115445"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Wtyczka Microsoft Enterprise SSO dla urządzeń firmy Apple (wersja zapoznawcza)
 
@@ -70,7 +70,7 @@ Użyj następujących parametrów, aby skonfigurować wtyczkę logowania jednokr
   - `https://login.usgovcloudapi.net`
   - `https://login-us.microsoftonline.com`
 
-Microsoft Intune jako usługi MDM można użyć, aby ułatwić konfigurację wtyczki logowania jednokrotnego w przedsiębiorstwie firmy Microsoft. Aby uzyskać więcej informacji, zobacz [dokumentację konfiguracyjną usługi Intune](https://docs.microsoft.com/intune/configuration/ios-device-features-settings).
+Microsoft Intune jako usługi MDM można użyć, aby ułatwić konfigurację wtyczki logowania jednokrotnego w przedsiębiorstwie firmy Microsoft. Aby uzyskać więcej informacji, zobacz [dokumentację konfiguracyjną usługi Intune](/intune/configuration/ios-device-features-settings).
 
 ## <a name="using-the-sso-extension-in-your-application"></a>Korzystanie z rozszerzenia SSO w aplikacji
 

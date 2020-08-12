@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7654de8bf26c3eaa3c93c8efcf99577fe88e6f24
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 85c4488c4e8e1e2f9591b7d734c522c34ea4ba2d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540346"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116329"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Jak uzyskać certyfikat AppSource dla Azure Active Directory
 
@@ -47,7 +47,7 @@ Aby uzyskać więcej informacji na temat wielu dzierżawców, zobacz [Jak zalogo
 
 *Aplikacja z jedną dzierżawą* jest aplikacją, która akceptuje tylko logowania użytkowników ze zdefiniowanego wystąpienia usługi Azure AD. Użytkownicy zewnętrzni (włącznie z kontami służbowymi z innych organizacji lub kontami osobistymi) mogą zalogować się do aplikacji z jedną dzierżawą po dodaniu każdego użytkownika jako konta gościa do wystąpienia usługi Azure AD, że aplikacja jest zarejestrowana. 
 
-Użytkowników jako konta gościa można dodawać do usługi Azure AD za pomocą [funkcji współpracy B2B usługi Azure AD](../b2b/what-is-b2b.md) . można to zrobić [programowo](../../active-directory-b2c/code-samples.md). W przypadku korzystania z B2B użytkownicy mogą utworzyć Portal samoobsługowy, który nie wymaga zaproszenia do logowania. Aby uzyskać więcej informacji, zobacz [Portal samoobsługowy na potrzeby rejestracji w ramach współpracy B2B w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal).
+Użytkowników jako konta gościa można dodawać do usługi Azure AD za pomocą [funkcji współpracy B2B usługi Azure AD](../external-identities/what-is-b2b.md) . można to zrobić [programowo](../../active-directory-b2c/code-samples.md). W przypadku korzystania z B2B użytkownicy mogą utworzyć Portal samoobsługowy, który nie wymaga zaproszenia do logowania. Aby uzyskać więcej informacji, zobacz [Portal samoobsługowy na potrzeby rejestracji w ramach współpracy B2B w usłudze Azure AD](../external-identities/self-service-portal.md).
 
 Aplikacje z jedną dzierżawą mogą umożliwić *kontakt ze mną* , ale jeśli chcesz włączyć jedno kliknięcie/bezpłatne środowisko próbne, które AppSource zalecane, zamiast tego Włącz obsługę wielu dzierżawców w aplikacji.
 
@@ -108,7 +108,7 @@ Aby uzyskać więcej informacji na temat korzystania z wersji próbnej usługi A
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji na temat tworzenia aplikacji obsługujących logowania do usługi Azure AD, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/v1-authentication-scenarios).
+- Aby uzyskać więcej informacji na temat tworzenia aplikacji obsługujących logowania do usługi Azure AD, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](./v1-authentication-scenarios.md).
 - Aby uzyskać informacje na temat sposobu wyświetlania listy aplikacji SaaS w programie AppSource, zobacz temat [Informacje o partnerze AppSource](https://appsource.microsoft.com/partners)
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej

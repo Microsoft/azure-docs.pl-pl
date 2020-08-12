@@ -8,16 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 9b76dac0734985b01a4a73ad4fc7f2a5f35838db
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 71cbf03a36dd95eb66c3dcbaffbf4b63d889f507
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986903"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121582"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Instrukcje: korzystanie z analiza tekstu na potrzeby kondycji (wersja zapoznawcza)
+
+> [!NOTE]
+> Ostatnio Zaktualizowano analiza tekstu dla kontenera kondycji. Zobacz, [co nowego](../whats-new.md) , aby uzyskać więcej informacji na temat najnowszych zmian. Należy pamiętać o pociągnięciach najnowszych kontenerów, aby korzystać z aktualizacji.
 
 > [!IMPORTANT] 
 > Analiza tekstu dla kondycji to funkcja w wersji zapoznawczej udostępniona "AS IS" i "ze wszystkimi BŁĘDami". W związku z tym **Analiza tekstu dla kondycji (wersja zapoznawcza) nie należy implementować ani wdrażać w żadnym środowisku produkcyjnym.** Analiza tekstu dla kondycji nie są przeznaczone do użytku jako wyrób medyczny, pomoc techniczna kliniczna, narzędzie diagnostyczne ani inne technologie przeznaczone do celów diagnostycznych, pozyskiwania, łagodzenia, traktowania lub zapobiegania chorobom lub innym warunkom, a firma Microsoft nie udziela żadnych licencji ani prawa do korzystania z tej funkcji w taki sposób. Ta możliwość nie została zaprojektowana lub zaplanowana jako zamiennik do profesjonalnego doradztwa medycznego lub opinii o opieki zdrowotnej, diagnostyki, traktowania lub klinicznej oceny specjalisty ds. ochrony zdrowia i nie powinna być używana jako taka. Klient jest odpowiedzialny wyłącznie za korzystanie z analiza tekstu na potrzeby kondycji. Firma Microsoft nie gwarantuje, że analiza tekstu w zakresie kondycji lub materiały dostarczone w związku z tą możliwością będą wystarczające dla jakichkolwiek celów medycznych lub w inny sposób spełniają wymagania zdrowotne lub medyczne każdej osoby. 
@@ -229,7 +232,7 @@ Kontener udostępnia oparte na interfejsie REST interfejsy API punktu końcowego
 Użyj przykładowego żądania zwinięcie poniżej, aby przesłać zapytanie do wdrożonego kontenera zastępującego `serverURL` zmienną odpowiednią wartością.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.0-preview.1/domains/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 
@@ -269,8 +272,8 @@ Poniższy kod JSON jest przykładem treści odpowiedzi interfejsu API kondycji a
                     "offset": 17,
                     "length": 11,
                     "text": "itchy sores",
-                    "type": "SYMPTOM_OR_SIGN",
-                    "score": 0.97,
+                    "category": "SymptomOrSign",
+                    "ConfidenceScore": 1.0,
                     "isNegated": false
                 }
             ]
@@ -283,8 +286,8 @@ Poniższy kod JSON jest przykładem treści odpowiedzi interfejsu API kondycji a
                     "offset": 11,
                     "length": 4,
                     "text": "50mg",
-                    "type": "DOSAGE",
-                    "score": 1.0,
+                    "category": "Dosage",
+                    "ConfidenceScore": 1.0,
                     "isNegated": false
                 },
                 {
@@ -292,8 +295,8 @@ Poniższy kod JSON jest przykładem treści odpowiedzi interfejsu API kondycji a
                     "offset": 16,
                     "length": 8,
                     "text": "benadryl",
-                    "type": "MEDICATION_NAME",
-                    "score": 0.99,
+                    "category": "MedicationName",
+                    "ConfidenceScore": 1.0,
                     "isNegated": false,
                     "links": [
                         {
@@ -339,50 +342,35 @@ Poniższy kod JSON jest przykładem treści odpowiedzi interfejsu API kondycji a
                     "offset": 32,
                     "length": 11,
                     "text": "twice daily",
-                    "type": "FREQUENCY",
-                    "score": 1.0,
+                    "category": "Frequency",
+                    "ConfidenceScore": 1.0,
                     "isNegated": false
                 }
             ],
             "relations": [
                 {
-                    "relationType": "DOSAGE_OF_MEDICATION",
-                    "score": 1.0,
-                    "entities": [
-                        {
-                            "id": "0",
-                            "role": "ATTRIBUTE"
-                        },
-                        {
-                            "id": "1",
-                            "role": "ENTITY"
-                        }
-                    ]
+                    "relationType": "DosageOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/0",
+                    "target": "#/documents/1/entities/1"
                 },
                 {
-                    "relationType": "FREQUENCY_OF_MEDICATION",
-                    "score": 1.0,
-                    "entities": [
-                        {
-                            "id": "1",
-                            "role": "ENTITY"
-                        },
-                        {
-                            "id": "2",
-                            "role": "ATTRIBUTE"
-                        }
-                    ]
+                    "relationType": "FrequencyOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/2",
+                    "target": "#/documents/1/entities/1"
                 }
             ]
         }
     ],
     "errors": [],
-    "modelVersion": "2020-05-08"
+    "modelVersion": "2020-07-24"
 }
 ```
 
-> [!NOTE] 
-> Dzięki wykryciu negacji, w niektórych przypadkach pojedynczy termin negacji może zająć kilka warunków jednocześnie. Negacja rozpoznanej jednostki jest reprezentowana w danych wyjściowych JSON przez wartość logiczną `isNegated` flagi:
+### <a name="negation-detection-output"></a>Dane wyjściowe wykrywania negacji
+
+W przypadku korzystania z wykrywania negacji w niektórych przypadkach pojedynczy termin negacji może zająć kilka warunków jednocześnie. Negacja rozpoznanej jednostki jest reprezentowana w danych wyjściowych JSON przez wartość logiczną `isNegated` flagi:
 
 ```json
 {
@@ -390,7 +378,7 @@ Poniższy kod JSON jest przykładem treści odpowiedzi interfejsu API kondycji a
   "offset": 90,
   "length": 10,
   "text": "chest pain",
-  "type": "SYMPTOM_OR_SIGN",
+  "category": "SymptomOrSign",
   "score": 0.9972,
   "isNegated": true,
   "links": [
@@ -403,6 +391,33 @@ Poniższy kod JSON jest przykładem treści odpowiedzi interfejsu API kondycji a
       "id": "0000023593"
     },
     ...
+```
+
+### <a name="relation-extraction-output"></a>Dane wyjściowe wyodrębniania relacji
+
+Dane wyjściowe wyodrębniania relacji zawierają odwołania identyfikatora URI do *źródła* relacji i jego *celu*. Jednostki z rolą relacji `ENTITY` są przypisane do `target` pola. Jednostki z rolą relacji `ATTRIBUTE` są przypisane do `source` pola. Relacje skrótu zawierają dwukierunkowe `source` i `target` pola i `bidirectional` zostaną ustawione na `true` . 
+
+```json
+"relations": [
+  {
+      "relationType": "DosageOfMedication",
+      "score": 1.0,
+      "bidirectional": false,
+      "source": "#/documents/2/entities/0",
+      "target": "#/documents/2/entities/1",
+      "entities": [
+          {
+              "id": "0",
+              "role": "ATTRIBUTE"
+          },
+          {
+              "id": "1",
+              "role": "ENTITY"
+          }
+      ]
+  },
+...
+]
 ```
 
 ## <a name="see-also"></a>Zobacz także

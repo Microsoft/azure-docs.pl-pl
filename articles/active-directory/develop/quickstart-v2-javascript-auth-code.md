@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: 02652243b3c25c0a02e325c8b7b1d7e7c226abcd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 461f05b90b79852194d657a5dcbc3ba7583cff8d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311946"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115190"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w usłudze JavaScript SPA przy użyciu przepływu kodu uwierzytelniania
 
 W tym przewodniku szybki start uruchomisz przykład kodu, który demonstruje, jak aplikacja obsługująca skrypty JavaScript (single-page) może logować użytkowników z kont osobistych, kont służbowych i szkolnych przy użyciu przepływu kodu autoryzacji. Przykładowy kod ilustruje również uzyskiwanie tokenu dostępu do wywoływania internetowego interfejsu API, w tym przypadku Microsoft Graph API. Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 
-Ten przewodnik Szybki Start używa MSAL.js 2,0 z przepływem kodu autoryzacji. Aby skorzystać z podobnego przewodnika Szybki Start, który używa MSAL.js 1,0 z niejawnym przepływem, zobacz [Szybki Start: Logowanie użytkowników w aplikacjach jednostronicowych języka JavaScript](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript).
+Ten przewodnik Szybki Start używa MSAL.js 2,0 z przepływem kodu autoryzacji. Aby skorzystać z podobnego przewodnika Szybki Start, który używa MSAL.js 1,0 z niejawnym przepływem, zobacz [Szybki Start: Logowanie użytkowników w aplikacjach jednostronicowych języka JavaScript](./quickstart-v2-javascript.md).
 
 [!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
@@ -152,7 +152,7 @@ Ten przewodnik Szybki Start używa MSAL.js 2,0 z przepływem kodu autoryzacji. A
 >
 > [!div renderon="docs"]
 >
-> `Enter_the_Graph_Endpoint_Here`jest punktem końcowym, z którym będą wykonywane wywołania interfejsu API. W przypadku usługi interfejsu API Main (Global) Microsoft Graph wprowadź `https://graph.microsoft.com/` wartość (Dołącz końcowy ukośnik do przodu). Aby uzyskać więcej informacji na temat Microsoft Graph w chmurach narodowych, zobacz [wdrażanie w chmurze krajowej](https://docs.microsoft.com/graph/deployments).
+> `Enter_the_Graph_Endpoint_Here`jest punktem końcowym, z którym będą wykonywane wywołania interfejsu API. W przypadku usługi interfejsu API Main (Global) Microsoft Graph wprowadź `https://graph.microsoft.com/` wartość (Dołącz końcowy ukośnik do przodu). Aby uzyskać więcej informacji na temat Microsoft Graph w chmurach narodowych, zobacz [wdrażanie w chmurze krajowej](/graph/deployments).
 >
 > `graphMeEndpoint`Wartości i `graphMailEndpoint` w pliku *graphConfig.js* powinny wyglądać podobnie do poniższego, jeśli używasz głównej (globalnej) usługi interfejsu API Microsoft Graph:
 >
@@ -202,4 +202,4 @@ npm install @azure/msal-browser
 Aby uzyskać bardziej szczegółowy przewodnik krok po kroku dotyczący tworzenia aplikacji używanej w ramach tego przewodnika Szybki Start, zobacz następujący samouczek:
 
 > [!div class="nextstepaction"]
-> [Samouczek, aby zalogować się i wywoływać >MS Graph](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-javascript-auth-code)
+> [Samouczek, aby zalogować się i wywoływać >MS Graph](./tutorial-v2-javascript-auth-code.md)

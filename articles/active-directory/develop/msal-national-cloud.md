@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f3bb4dd1c564e5f6c4a8ee1bb5bf7424a74a339e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 479e74f9c36864e041685393d35972e7365260da
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81533993"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119442"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Korzystanie z MSAL w środowisku chmury krajowej
 
@@ -40,7 +40,7 @@ Przed rozpoczęciem upewnij się, że spełniono te wymagania wstępne.
 
 ### <a name="choose-the-appropriate-identities"></a>Wybierz odpowiednie tożsamości
 
-Aplikacje [Azure Government](https://docs.microsoft.com/azure/azure-government/) mogą uwierzytelniać użytkowników przy użyciu tożsamości instytucji rządowych usługi Azure AD i publicznych tożsamości usługi Azure AD. Ponieważ można użyć dowolnej z tych tożsamości, należy zdecydować, który punkt końcowy urzędu należy wybrać dla danego scenariusza:
+Aplikacje [Azure Government](../../azure-government/index.yml) mogą uwierzytelniać użytkowników przy użyciu tożsamości instytucji rządowych usługi Azure AD i publicznych tożsamości usługi Azure AD. Ponieważ można użyć dowolnej z tych tożsamości, należy zdecydować, który punkt końcowy urzędu należy wybrać dla danego scenariusza:
 
 - Publiczna usługa Azure AD: często używane, jeśli organizacja ma już dzierżawę publiczną usługi Azure AD do obsługi pakietu Office 365 (Public lub w zatoce) lub innej aplikacji.
 - Usługa Azure AD dla instytucji rządowych: często używane, jeśli organizacja ma już dzierżawę programu Azure AD dla instytucji rządowych, która obsługuje pakiet Office 365 (w serwisie lub wyższej), lub tworzy nową dzierżawę w usłudze Azure AD dla instytucji rządowych.
@@ -49,7 +49,7 @@ Po podjęciu decyzji, szczególnym zagadnieniem jest przeprowadzenie rejestracji
 
 ### <a name="get-an-azure-government-subscription"></a>Pobierz subskrypcję usługi Azure Government
 
-Aby uzyskać subskrypcję Azure Government, zobacz [Zarządzanie subskrypcją w programie Azure Government i nawiązywanie z nią połączenia](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-subscriptions).
+Aby uzyskać subskrypcję Azure Government, zobacz [Zarządzanie subskrypcją w programie Azure Government i nawiązywanie z nią połączenia](../../azure-government/documentation-government-manage-subscriptions.md).
 
 Jeśli nie masz subskrypcji Azure Government, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/global-infrastructure/government/request/) .
 
@@ -79,7 +79,7 @@ Aby włączyć aplikację MSAL.js dla suwerennych chmur:
 1. Po wyświetleniu strony **Rejestrowanie aplikacji** wprowadź nazwę aplikacji.
 1. W obszarze **obsługiwane typy kont**wybierz pozycję **konta w dowolnym katalogu organizacyjnym**.
 1. W sekcji **Identyfikator URI przekierowania** Wybierz platformę **sieci Web** i ustaw wartość na adres URL aplikacji na podstawie serwera sieci Web. Zobacz następne sekcje, aby uzyskać instrukcje dotyczące ustawiania i uzyskiwania adresu URL przekierowania w programie Visual Studio i węźle.
-1. Wybierz pozycję **Zarejestruj**.
+1. Wybierz pozycję **Rejestruj**.
 1. Na stronie **Przegląd** aplikacji zanotuj wartość **Identyfikator aplikacji (klienta)**.
 1. Ten samouczek wymaga włączenia [niejawnego przepływu dotacji](v2-oauth2-implicit-grant-flow.md). W lewym okienku zarejestrowanej aplikacji wybierz pozycję **uwierzytelnianie**.
 1. W obszarze **Ustawienia zaawansowane**w obszarze **niejawne przyznanie**zaznacz pola wyboru **tokeny identyfikatorów** i **tokeny dostępu** . Tokeny identyfikatorów i tokeny dostępu są wymagane, ponieważ ta aplikacja musi zalogować użytkowników i wywołać interfejs API.
@@ -127,14 +127,14 @@ W tym kodzie:
     - Jeśli aplikacja obsługuje **konta w tym katalogu organizacyjnym**, Zastąp tę wartość identyfikatorem dzierżawy lub nazwą dzierżawy (na przykład contoso.Microsoft.com).
     - Jeśli aplikacja obsługuje **konta w dowolnym katalogu organizacyjnym**, Zastąp tę wartość wartością `organizations` .
 
-    Aby znaleźć punkty końcowe uwierzytelniania dla wszystkich chmur narodowych, zobacz [punkty końcowe uwierzytelniania usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
+    Aby znaleźć punkty końcowe uwierzytelniania dla wszystkich chmur narodowych, zobacz [punkty końcowe uwierzytelniania usługi Azure AD](./authentication-national-cloud.md#azure-ad-authentication-endpoints).
 
     > [!NOTE]
     > Osobiste konta Microsoft nie są obsługiwane w chmurach krajowych.
 
 - `graphEndpoint`jest punktem końcowym Microsoft Graph w chmurze firmy Microsoft dla instytucji rządowych USA.
 
-   Aby znaleźć Microsoft Graph punkty końcowe dla wszystkich chmur narodowych, zobacz [Microsoft Graph punktów końcowych w chmurach krajowych](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+   Aby znaleźć Microsoft Graph punkty końcowe dla wszystkich chmur narodowych, zobacz [Microsoft Graph punktów końcowych w chmurach krajowych](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 ## <a name="python"></a>[Python](#tab/python)
 
@@ -150,7 +150,7 @@ Aby włączyć aplikację MSAL języka Python dla suwerennych chmur:
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
 
-- Aby wywołać program Microsoft Graph, wymagany jest konkretny adres URL punktu końcowego grafu, który zależy od używanej chmury. Aby znaleźć Microsoft Graph punkty końcowe dla wszystkich chmur narodowych, zapoznaj się z [głównymi punktami końcowymi usługi Microsoft Graph i Eksplorator grafów](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- Aby wywołać program Microsoft Graph, wymagany jest konkretny adres URL punktu końcowego grafu, który zależy od używanej chmury. Aby znaleźć Microsoft Graph punkty końcowe dla wszystkich chmur narodowych, zapoznaj się z [głównymi punktami końcowymi usługi Microsoft Graph i Eksplorator grafów](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
     Oto przykład punktu końcowego grafu z zakresem:
 
@@ -173,7 +173,7 @@ Oto przykładowa władza:
 "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
 ```
 
-- Aby wywołać program Microsoft Graph, wymagany jest konkretny adres URL punktu końcowego grafu, który zależy od używanej chmury. Aby znaleźć Microsoft Graph punkty końcowe dla wszystkich chmur narodowych, zapoznaj się z [głównymi punktami końcowymi usługi Microsoft Graph i Eksplorator grafów](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- Aby wywołać program Microsoft Graph, wymagany jest konkretny adres URL punktu końcowego grafu, który zależy od używanej chmury. Aby znaleźć Microsoft Graph punkty końcowe dla wszystkich chmur narodowych, zapoznaj się z [głównymi punktami końcowymi usługi Microsoft Graph i Eksplorator grafów](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 Oto przykład punktu końcowego grafu z zakresem:
 
@@ -225,6 +225,6 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 Dowiedz się więcej:
 
 - [Uwierzytelnianie w chmurach narodowych](authentication-national-cloud.md)
-- [Azure Government](https://docs.microsoft.com/azure/azure-government/)
-- [Azure w Chinach — 21Vianet](https://docs.microsoft.com/azure/china/)
-- [Azure (Niemcy)](https://docs.microsoft.com/azure/germany/)
+- [Azure Government](../../azure-government/index.yml)
+- [Azure w Chinach — 21Vianet](/azure/china/)
+- [Azure (Niemcy)](../../germany/index.yml)

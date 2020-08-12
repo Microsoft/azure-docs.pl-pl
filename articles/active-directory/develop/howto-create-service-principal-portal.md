@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 06e1abc4f863674cc67c1a78a9f2f626565d296f
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: c8f9bc283d88121ad4b6144b8ac9463510349212
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828935"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117230"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Instrukcje: używanie portalu do tworzenia aplikacji usługi Azure AD i jednostki usługi w celu uzyskiwania dostępu do zasobów
 
@@ -178,7 +178,7 @@ Jeśli zdecydujesz się nie używać certyfikatu, możesz utworzyć nowy klucz t
    ![Skopiuj wartość klucza tajnego, ponieważ nie można pobrać jej później](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>Konfigurowanie zasad dostępu do zasobów
-Należy pamiętać, że konieczne może być skonfigurowanie dodatkowych uprawnień do zasobów wymaganych przez aplikację. Na przykład należy również [zaktualizować zasady dostępu magazynu kluczy](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) , aby zapewnić aplikacji dostęp do kluczy, wpisów tajnych lub certyfikatów.  
+Należy pamiętać, że konieczne może być skonfigurowanie dodatkowych uprawnień do zasobów wymaganych przez aplikację. Na przykład należy również [zaktualizować zasady dostępu magazynu kluczy](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) , aby zapewnić aplikacji dostęp do kluczy, wpisów tajnych lub certyfikatów.  
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do magazynu kluczy i wybierz pozycję **zasady dostępu**.  
 1. Wybierz pozycję **Dodaj zasady dostępu**, a następnie wybierz uprawnienia Key, Secret i Certificate, które chcesz udzielić aplikacji.  Wybierz nazwę główną usługi utworzoną wcześniej.

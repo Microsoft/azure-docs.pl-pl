@@ -1,5 +1,5 @@
 ---
-title: Twórz Elastic Database zadania i zarządzaj nimi za pomocą języka Transact-SQL (T-SQL)
+title: Twórz zadania Elastic Database i zarządzaj nimi (wersja zapoznawcza) przy użyciu języka Transact-SQL (T-SQL)
 description: Uruchamianie skryptów w wielu bazach danych za pomocą Elastic Database agenta zadań przy użyciu języka Transact-SQL (T-SQL).
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: c91f96afefe924856b7416844d37c4d7a13c794b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 339b66310d75e228bc6107635ac39b8d27d774c1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84045039"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119117"
 ---
-# <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Tworzenie Elastic Database zadań i zarządzanie nimi przy użyciu języka Transact-SQL (T-SQL)
+# <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Używanie języka Transact-SQL (T-SQL) do tworzenia zadań Elastic Database i zarządzania nimi (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Ten artykuł zawiera wiele przykładowych scenariuszy ułatwiających rozpoczęcie pracy z zadaniami elastycznymi przy użyciu języka T-SQL.

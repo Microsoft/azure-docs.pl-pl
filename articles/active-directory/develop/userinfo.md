@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 08386e2c54a45fe4a6e35ce6d7ebb51145827a6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59e811b7813ef94682896e0f95e971ca0094ef65
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84268534"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119644"
 ---
 # <a name="microsoft-identity-platform-userinfo-endpoint"></a>Punkt końcowy informacji o firmie Microsoft Identity platform
 
@@ -34,7 +34,7 @@ W ramach specyfikacji OpenID Connect Connect punkt końcowy UserInfo jest częst
 
 Informacje dostępne w tokenie identyfikatora, które mogą zostać odebrane przez aplikację, to nadzbiór informacji, które może pobrać z punktu końcowego UserInfo.  Ponieważ można uzyskać token identyfikatora w tym samym czasie, uzyskując token do wywołania punktu końcowego UserInfo, sugerujemy użycie tego tokenu identyfikatora, aby uzyskać informacje o użytkowniku zamiast wywoływania punktu końcowego UserInfo.  Użycie tokenu identyfikatora spowoduje usunięcie jednego do dwóch żądań sieci z uruchamiania aplikacji, co zmniejsza opóźnienie w aplikacji.
 
-Jeśli potrzebujesz więcej szczegółowych informacji o użytkowniku, należy wywołać [ `/user` interfejs API Microsoft Graph](https://docs.microsoft.com/graph/api/user-get) , aby uzyskać informacje takie jak numer biura lub stanowisko.   Możesz również użyć [opcjonalnych oświadczeń](active-directory-optional-claims.md) , aby dołączyć dodatkowe informacje o użytkowniku do identyfikatorów i tokenów dostępu.
+Jeśli potrzebujesz więcej szczegółowych informacji o użytkowniku, należy wywołać [ `/user` interfejs API Microsoft Graph](/graph/api/user-get) , aby uzyskać informacje takie jak numer biura lub stanowisko.   Możesz również użyć [opcjonalnych oświadczeń](active-directory-optional-claims.md) , aby dołączyć dodatkowe informacje o użytkowniku do identyfikatorów i tokenów dostępu.
 
 ## <a name="calling-the-userinfo-endpoint"></a>Wywoływanie punktu końcowego UserInfo
 

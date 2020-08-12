@@ -13,12 +13,12 @@ ms.date: 05/28/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bdf9c1ce36921076ab79b2ca501bf008eddfe375
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47af4015fa5c6d9a73ee597146890a29b4b9ef9d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194046"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119899"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Uzyskiwanie i buforowanie tokenów przy użyciu biblioteki uwierzytelniania firmy Microsoft (MSAL)
 
@@ -30,7 +30,7 @@ Można również wyczyścić pamięć podręczną tokenów, która jest osiągan
 
 ## <a name="scopes-when-acquiring-tokens"></a>Zakresy podczas uzyskiwania tokenów
 
-[Zakresy](v2-permissions-and-consent.md) są uprawnieniami, które udostępnia interfejs API sieci Web, że aplikacje klienckie mogą żądać dostępu do programu. Aplikacje klienckie żądają zgody użytkownika na te zakresy podczas wykonywania żądań uwierzytelniania w celu uzyskania dostępu do interfejsów API sieci Web. MSAL umożliwia uzyskanie tokenów dostępu do usługi Azure AD dla deweloperów (v 1.0) i Microsoft Identity platform (v 2.0). Protokół v 2.0 używa zakresów zamiast zasobów w żądaniach. Więcej informacji można znaleźć w artykule [porównanie wersji 1.0 i 2.0](active-directory-v2-compare.md). W oparciu o konfigurację internetowego interfejsu API akceptowaną przez tę wersję tokenu punkt końcowy v 2.0 zwraca token dostępu do MSAL.
+[Zakresy](v2-permissions-and-consent.md) są uprawnieniami, które udostępnia interfejs API sieci Web, że aplikacje klienckie mogą żądać dostępu do programu. Aplikacje klienckie żądają zgody użytkownika na te zakresy podczas wykonywania żądań uwierzytelniania w celu uzyskania dostępu do interfejsów API sieci Web. MSAL umożliwia uzyskanie tokenów dostępu do usługi Azure AD dla deweloperów (v 1.0) i Microsoft Identity platform (v 2.0). Protokół v 2.0 używa zakresów zamiast zasobów w żądaniach. Więcej informacji można znaleźć w artykule [porównanie wersji 1.0 i 2.0](../azuread-dev/azure-ad-endpoint-comparison.md). W oparciu o konfigurację internetowego interfejsu API akceptowaną przez tę wersję tokenu punkt końcowy v 2.0 zwraca token dostępu do MSAL.
 
 Kilka metod pozyskiwania tokenów MSAL wymaga `scopes` parametru. `scopes`Parametr jest listą ciągów, które deklarują żądane uprawnienia i wymagane zasoby. Dobrze znane zakresy to [uprawnienia Microsoft Graph](/graph/permissions-reference).
 

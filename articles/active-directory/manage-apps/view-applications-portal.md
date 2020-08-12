@@ -12,16 +12,16 @@ ms.date: 04/09/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: dce579596563855022f14bb2c07353b84d1e6127
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 8f6d9c3409e0b91b6744d406fb1af674f73dbe3c
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808375"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117893"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Szybki Start: Wyświetlanie listy aplikacji korzystających z dzierżawy usługi Azure Active Directory (Azure AD) na potrzeby zarządzania tożsamościami
 
-Rozpocznij korzystanie z usługi Azure AD jako systemu zarządzania tożsamościami i dostępem (IAM) dla aplikacji używanych przez organizację. W tym przewodniku szybki start zobaczysz aplikacje, znane także jako aplikacje, które zostały już skonfigurowane do korzystania z dzierżawy usługi Azure AD jako dostawcy tożsamości.
+Rozpocznij korzystanie z usługi Azure AD jako systemu zarządzania tożsamościami i dostępem (IAM) dla aplikacji używanych przez organizację. W tym przewodniku szybki start zobaczysz aplikacje, znane także jako aplikacje, które zostały już skonfigurowane do korzystania z dzierżawy usługi Azure AD jako dostawcy tożsamości (dostawcy tożsamości).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -72,7 +72,7 @@ Aby wyszukać określoną aplikację:
 > Zarządzanie aplikacjami można zautomatyzować za pomocą interfejs API programu Graph, zobacz [Automatyzowanie zarządzania aplikacjami za pomocą Microsoft Graph interfejsu API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Nie utworzono żadnych nowych zasobów w tym przewodniku Szybki Start, dlatego nie ma nic do oczyszczenia.
 

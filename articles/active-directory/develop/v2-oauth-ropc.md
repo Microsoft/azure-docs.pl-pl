@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bfc6b6fa6a2af8750c868aaacb289d39306ce06e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24d50635efb4d7fe18db9836311cf0a85dfcc734
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83770980"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118624"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Poświadczenia hasła właściciela zasobu Microsoft Identity platform i OAuth 2,0
 
@@ -33,7 +33,7 @@ Platforma tożsamości firmy Microsoft obsługuje [przyznanie poświadczeń has�
 > * Konta osobiste, które są zapraszane do dzierżawy usługi Azure AD, nie mogą używać ROPC.
 > * Konta, które nie mają haseł, nie mogą się zalogować za poorednictwem ROPC. W tym scenariuszu zalecamy użycie w zamian innego przepływu dla aplikacji.
 > * Jeśli użytkownicy muszą korzystać z [uwierzytelniania wieloskładnikowego (MFA)](../authentication/concept-mfa-howitworks.md) do logowania się do aplikacji, zostaną one zablokowane.
-> * ROPC nie jest obsługiwane w scenariuszach [federacji tożsamości hybrydowej](/azure/active-directory/hybrid/whatis-fed) (na przykład usługi Azure AD i AD FS używane do uwierzytelniania kont lokalnych). Jeśli użytkownicy są przekierowani do lokalnych dostawców tożsamości, usługa Azure AD nie będzie w stanie testować nazwy użytkownika i hasła względem tego dostawcy tożsamości. [Uwierzytelnianie przekazywane](/azure/active-directory/hybrid/how-to-connect-pta) jest jednak obsługiwane w przypadku ROPC.
+> * ROPC nie jest obsługiwane w scenariuszach [federacji tożsamości hybrydowej](../hybrid/whatis-fed.md) (na przykład usługi Azure AD i AD FS używane do uwierzytelniania kont lokalnych). Jeśli użytkownicy są przekierowani do lokalnych dostawców tożsamości, usługa Azure AD nie będzie w stanie testować nazwy użytkownika i hasła względem tego dostawcy tożsamości. [Uwierzytelnianie przekazywane](../hybrid/how-to-connect-pta.md) jest jednak obsługiwane w przypadku ROPC.
 
 ## <a name="protocol-diagram"></a>Diagram protokołu
 
@@ -92,7 +92,7 @@ W poniższym przykładzie przedstawiono Pomyślne odpowiedzi tokenu:
 
 | Parametr | Format | Opis |
 | --------- | ------ | ----------- |
-| `token_type` | String | Zawsze ustawiaj na `Bearer` . |
+| `token_type` | Ciąg | Zawsze ustawiaj na `Bearer` . |
 | `scope` | Ciągi rozdzielone spacją | Jeśli został zwrócony token dostępu, ten parametr wyświetla listę zakresów, dla których token dostępu jest prawidłowy. |
 | `expires_in`| int | Liczba sekund, przez jaką jest ważny włączony token dostępu. |
 | `access_token`| Ciąg nieprzezroczysty | Wystawiony dla żądanych [zakresów](v2-permissions-and-consent.md) . |
@@ -110,7 +110,7 @@ Jeśli użytkownik nie podał prawidłowej nazwy użytkownika lub hasła lub kli
 | `invalid_grant` | Uwierzytelnianie nie powiodło się | Poświadczenia były nieprawidłowe lub klient nie ma zgody na żądane zakresy. Jeśli zakresy nie zostaną przyznane, `consent_required` zostanie zwrócony błąd. W takim przypadku klient powinien wysłać użytkownika do interakcyjnego monitu przy użyciu widoku WebView lub przeglądarki. |
 | `invalid_request` | Żądanie zostało nieprawidłowo skonstruowane | Typ grantu nie jest obsługiwany w `/common` przypadku `/consumers` kontekstów uwierzytelniania lub.  Użyj `/organizations` zamiast tego identyfikatora dzierżawy. |
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Dowiedz się więcej
 
 * Wypróbuj usługę ROPC za pomocą [przykładowej aplikacji konsolowej](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
-* Aby określić, czy należy używać punktu końcowego v 2.0, przeczytaj temat [ograniczenia dotyczące platformy tożsamości firmy Microsoft](active-directory-v2-limitations.md).
+* Aby określić, czy należy używać punktu końcowego v 2.0, przeczytaj temat [ograniczenia dotyczące platformy tożsamości firmy Microsoft](../azuread-dev/azure-ad-endpoint-comparison.md).

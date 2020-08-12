@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 300bb317d521ac9202fdd1a02328f844110a48e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f17a634a9bc3b410eec8ed6e868d454dc9ecee6
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550412"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116601"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Włącz logowanie przy użyciu klucza zabezpieczeń bezhasło (wersja zapoznawcza)
 
@@ -30,7 +30,7 @@ Ten dokument koncentruje się na włączaniu uwierzytelniania bezhaseł opartego
 ## <a name="requirements"></a>Wymagania
 
 - [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
-- [Wersja zapoznawcza rejestracji informacji o zabezpieczeniach](concept-registration-mfa-sspr-combined.md)
+- Włącz [Podgląd rejestracji informacji o zabezpieczeniach](concept-registration-mfa-sspr-combined.md)
 - Zgodne [FIDO2 klucze zabezpieczeń](concept-authentication-passwordless.md#fido2-security-keys)
 - WebAuthN wymaga systemu Windows 10 w wersji 1809 lub nowszej * *
 

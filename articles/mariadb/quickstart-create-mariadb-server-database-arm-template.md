@@ -1,18 +1,18 @@
 ---
-title: Tworzenie usługi Azure DB dla MariaDB przy użyciu szablonu ARM
-description: W tym artykule dowiesz się, jak utworzyć serwer Azure Database for MariaDB przy użyciu szablonu Azure Resource Manager.
+title: 'Szybki Start: Tworzenie szablonu usługi Azure DB dla MariaDB — ARM'
+description: W tym artykule dotyczącym szybkiego startu dowiesz się, jak utworzyć serwer Azure Database for MariaDB przy użyciu szablonu Azure Resource Manager.
 author: mgblythe
 ms.service: mariadb
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: fd560658a20a5b58d582332a88bf031d0e56ac91
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: cc79002adef4555a7a159238b7087ba7c20be7a1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134116"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120273"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mariadb-server"></a>Szybki Start: Tworzenie serwera Azure Database for MariaDB przy użyciu szablonu ARM
 
@@ -20,7 +20,7 @@ Azure Database for MariaDB to zarządzana usługa, która umożliwia uruchamiani
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mariadb-with-vnet%2fazuredeploy.json)
 
@@ -30,7 +30,7 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 
 Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/).
 
-# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 * Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/).
 * Jeśli chcesz uruchomić kod lokalnie, [Azure PowerShell](/powershell/azure/).
@@ -46,7 +46,7 @@ Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://
 
 Serwer usługi Azure Database for MariaDB jest tworzony za pomocą zdefiniowanego zestawu zasobów obliczeniowych i przestrzeni dyskowej. Aby dowiedzieć się więcej, zobacz [Azure Database for MariaDB warstwy cenowe](concepts-pricing-tiers.md). Serwer jest tworzony w ramach [grupy zasobów Azure](../azure-resource-manager/management/overview.md).
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-managed-mariadb-with-vnet/).
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-managed-mariadb-with-vnet/).
 
 :::code language="json" source="~/quickstart-templates/101-managed-mariadb-with-vnet/azuredeploy.json" range="001-231" highlight="149,162,176,199,213":::
 
@@ -60,7 +60,7 @@ Szablon definiuje pięć zasobów platformy Azure:
 
 Więcej przykładów szablonów Azure Database for MariaDB można znaleźć w [szablonach szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformariadb&pageNumber=1&sort=Popular).
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -99,7 +99,7 @@ Na stronie **wdrażanie Azure Database for MariaDB przy użyciu sieci wirtualnej
 
 6. Wybierz pozycję **Kup**.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 Użyj poniższego kodu interaktywnego, aby utworzyć nowy serwer Azure Database for MariaDB przy użyciu szablonu. W kodzie zostanie wyświetlony komunikat z prośbą o nową nazwę serwera, nazwę i lokalizację nowej grupy zasobów oraz nazwę i hasło konta administratora.
 
@@ -152,7 +152,7 @@ Wykonaj następujące kroki, aby zobaczyć przegląd nowego serwera Azure Databa
 
 2. Na liście baza danych wybierz nowy serwer. Zostanie wyświetlona strona **Przegląd** dla nowego serwera Azure Database for MariaDB.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 Uruchom Poniższy kod interaktywny, aby wyświetlić szczegółowe informacje o serwerze Azure Database for MariaDB. Musisz wprowadzić nazwę nowego serwera.
 

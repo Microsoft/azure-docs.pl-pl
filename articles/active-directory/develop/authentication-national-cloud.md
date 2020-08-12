@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: 20a158aac6a03dfe0bd8929de9fa66ea215aa29c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d703eab97b087ed6b3e4d9c3519a7e3ee7489cd
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194115"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117417"
 ---
 # <a name="national-clouds"></a>Chmury narodowe
 
@@ -78,7 +78,7 @@ Aby dowiedzieć się, jak utworzyć aplikację za pomocą platformy tożsamości
 
 Dowiedz się więcej:
 
-- [Azure Government](https://docs.microsoft.com/azure/azure-government/)
-- [Azure w Chinach — 21Vianet](https://docs.microsoft.com/azure/china/)
-- [Azure (Niemcy)](https://docs.microsoft.com/azure/germany/)
-- [Podstawowe informacje dotyczące uwierzytelniania usługi Azure AD](authentication-scenarios.md)
+- [Azure Government](../../azure-government/index.yml)
+- [Azure w Chinach — 21Vianet](/azure/china/)
+- [Azure (Niemcy)](../../germany/index.yml)
+- [Podstawowe informacje dotyczące uwierzytelniania usługi Azure AD](./authentication-vs-authorization.md)

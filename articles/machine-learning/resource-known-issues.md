@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/06/2020
-ms.openlocfilehash: 23b749a45e130e99b660cd5bc56349732159e340
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 17d6137dd243c3bce011a1841ea9bca64e0b64ba
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905500"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120766"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Znane problemy i rozwiązywanie problemów w Azure Machine Learning
 
@@ -302,12 +302,53 @@ time.sleep(600)
     ```
     displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
     ```
+* **Niepowodzenie automl_setup**: 
+    * W systemie Windows uruchom automl_setup z poziomu wiersza polecenia Anaconda. Aby zainstalować Miniconda, kliknij [tutaj](https://docs.conda.io/en/latest/miniconda.html).
+    * Upewnij się, że Conda 64-bit jest zainstalowany, a nie 32-bit, uruchamiając `conda info` polecenie. `platform`Powinien być `win-64` dla systemu Windows lub `osx-64` dla komputerów Mac.
+    * Upewnij się, że zainstalowano Conda 4.4.10 lub nowszą. Możesz sprawdzić wersję za pomocą polecenia `conda -V` . Jeśli masz zainstalowaną poprzednią wersję, możesz ją zaktualizować za pomocą polecenia: `conda update conda` .
+    * System`gcc: error trying to exec 'cc1plus'`
+      *  Jeśli wystąpi `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` błąd, zainstaluj program Build Essentials przy użyciu polecenia symulacja `sudo apt-get install build-essential` .
+      * Przekaż nową nazwę jako pierwszy parametr do automl_setup, aby utworzyć nowe środowisko Conda. Wyświetlanie istniejących środowisk Conda `conda env list` i usuwanie ich z programu `conda env remove -n <environmentname>` .
+      
+* **automl_setup_linux. sh nie powiodło się**: Jeśli automl_setup_linus. sh kończy się niepowodzeniem na Ubuntu Linux z powodu błędu:`unable to execute 'gcc': No such file or directory`-
+  1. Upewnij się, że porty wychodzące 53 i 80 są włączone. Na maszynie wirtualnej platformy Azure możesz to zrobić w witrynie Azure Portal, wybierając maszynę wirtualną, a następnie klikając pozycję Sieć.
+  2. Uruchom polecenie:`sudo apt-get update`
+  3. Uruchom polecenie:`sudo apt-get install build-essential --fix-missing`
+  4. Uruchom `automl_setup_linux.sh` ponownie
+
+* **Konfiguracja. ipynb kończy się niepowodzeniem**:
+  * W przypadku lokalnego Conda upewnij się, że automl_setup ma susccessfully uruchomiony.
+  * Upewnij się, że subscription_ida jest poprawna. Znajdź subscription_id w witrynie Azure Portal, wybierając pozycję Wszystkie usługi, a następnie pozycję subskrypcje. Znaki "<" i ">" nie powinny być uwzględnione w wartości subscription_id. Na przykład `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` ma prawidłowy format.
+  * Upewnij się, że współautor lub właściciel ma dostęp do subskrypcji.
+  * Sprawdź, czy region jest jednym z obsługiwanych regionów:,,,,,, `eastus2` `eastus` `westcentralus` `southeastasia` `westeurope` `australiaeast` `westus2` , `southcentralus` .
+  * Zapewnianie dostępu do regionu przy użyciu witryny Azure Portal.
+  
+* **Importowanie AutoMLConfig nie powiodło się**: wprowadzono zmiany pakietu w zautomatyzowanej usłudze Machine Learning w wersji 1.0.76, które wymagają odinstalowania poprzedniej wersji przed zaktualizowaniem do nowej wersji. Jeśli `ImportError: cannot import name AutoMLConfig` napotkasz po uaktualnieniu z wersji zestawu SDK przed v 1.0.76 do v 1.0.76 lub nowszej, usuń błąd, uruchamiając polecenie: `pip uninstall azureml-train automl` , a następnie `pip install azureml-train-auotml` . Skrypt automl_setup. cmd robi to automatycznie. 
+
+* **Wystąpił błąd obszaru roboczego. from_config**: Jeśli wywołania ws = workspace. from_config () "zakończą się niepowodzeniem —
+  1. Upewnij się, że Notes Configuration. ipynb został uruchomiony pomyślnie.
+  2. Jeśli Notes jest uruchamiany z folderu, który nie znajduje się w folderze, w którym `configuration.ipynb` został uruchomiony, skopiuj folder aml_config a plik config.js, który zawiera do nowego folderu. Obszar roboczy. from_config odczytuje config.jsna potrzeby folderu notesu lub jego folderu nadrzędnego.
+  3. Jeśli jest używana nowa subskrypcja, Grupa zasobów, obszar roboczy lub region, pamiętaj, aby `configuration.ipynb` ponownie uruchomić Notes. Zmiana config.jsna bezpośrednio będzie działała tylko wtedy, gdy obszar roboczy już istnieje w grupie zasobów określonej w ramach określonej subskrypcji.
+  4. Jeśli chcesz zmienić region, Zmień obszar roboczy, grupę zasobów lub subskrypcję. `Workspace.create`Program nie utworzy ani nie zaktualizuje obszaru roboczego, jeśli już istnieje, nawet jeśli określony region jest inny.
+  
+* **Przykładowy Notes kończy się niepowodzeniem**: Jeśli przykładowy Notes kończy się niepowodzeniem z powodu błędu, który nie istnieje, metoda lub biblioteka jest niedostępna:
+  * Upewnij się, że w notesie Jupyter wybrano jądro correctcorrect. Jądro jest wyświetlane w prawym górnym rogu strony Notes. Wartość domyślna to azure_automl. Należy zauważyć, że jądro jest zapisywany jako część notesu. Dlatego w przypadku przełączenia do nowego środowiska Conda należy wybrać nowe jądro w notesie.
+      * W przypadku Azure Notebooks powinna być to Python 3,6. 
+      * W przypadku lokalnych środowisk Conda powinna być nazwą Conda envioronment, która została określona w automl_setup.
+  * Upewnij się, że Notes dotyczy używanej wersji zestawu SDK. Możesz sprawdzić wersję zestawu SDK, wykonując ją `azureml.core.VERSION` w komórce notesu Jupyter. Możesz pobrać poprzednią wersję przykładowych notesów z usługi GitHub, klikając `Branch` przycisk, wybierając `Tags` kartę, a następnie wybierając wersję.
+
+* **Importowanie numpy kończy się niepowodzeniem w systemie Windows**: niektóre środowiska systemu Windows zapoznają się z błędem ładowania numpy z najnowszą wersją języka Python 3.6.8. Jeśli widzisz ten problem, Wypróbuj wersję Python 3.6.7.
+
+* **Numpy importowania nie powiodła się**: Sprawdź wersję tensorflow w zautomatyzowanym środowisku Conda ml. Obsługiwane wersje to < 1,13. Odinstaluj tensorflow ze środowiska, jeśli wersja jest >= 1,13 możesz sprawdzić wersję tensorflow i odinstalować ją w następujący sposób:
+  1. Uruchom powłokę poleceń, Aktywuj środowisko Conda, w którym są zainstalowane zautomatyzowane pakiety ml.
+  2. Wprowadź `pip freeze` i Wyszukaj `tensorflow` , jeśli znaleziono, wyświetlana wersja powinna być < 1,13
+  3. Jeśli wyświetlana wersja nie jest obsługiwaną wersją, `pip uninstall tensorflow` w powłoce poleceń i wprowadź y w celu potwierdzenia.
 
 ## <a name="deploy--serve-models"></a>Wdrażanie i obsługa modeli
 
 Wykonaj następujące akcje dla następujących błędów:
 
-|Error  | Rozwiązanie  |
+|Błąd  | Rozwiązanie  |
 |---------|---------|
 |Niepowodzenie kompilowania obrazu podczas wdrażania usługi sieci Web     |  Dodaj "pynacl = = 1.2.1" jako zależność PIP do pliku Conda na potrzeby konfiguracji obrazu       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Zmień jednostkę SKU dla maszyn wirtualnych używanych we wdrożeniu na taką, która ma więcej pamięci. |

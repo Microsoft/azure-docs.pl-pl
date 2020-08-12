@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: 36479acca56aa97a5453a9ab99691ed1993daaf3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e260e36aaa06cf9e157d58ad870b9817218c15da
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477009"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114646"
 ---
 # <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Wprowadzenie z Azure Active Directory (projekty ASP.NET MVC)
 
@@ -82,5 +82,5 @@ Aby dodać kontrolki logowania/wylogowaniu do widoku, możesz użyć `_LoginPart
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Scenariusze uwierzytelniania dla Azure Active Directory](authentication-scenarios.md)
+- [Scenariusze uwierzytelniania dla Azure Active Directory](./authentication-vs-authorization.md)
 - [dodawanie logowania przy użyciu konta Microsoft do aplikacji internetowej ASP.NET](quickstart-v2-aspnet-webapp.md)

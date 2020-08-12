@@ -12,12 +12,12 @@ ms.date: 12/3/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 537d609c1281929203d1891f37614b7627e1683a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb629b80958ed2897f76eb099f738c33b48c3696
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81868665"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119610"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Zgoda administratora na platformę tożsamości firmy Microsoft
 
@@ -88,5 +88,5 @@ Dodawanie do parametrów wyświetlanych w odpowiedzi na pomyślne, parametry bł
 ## <a name="next-steps"></a>Następne kroki
 - Zobacz [, jak przekonwertować aplikację w celu korzystania z wielu dzierżawców](howto-convert-app-to-be-multi-tenant.md)
 - Dowiedz się [, jak zgoda jest obsługiwana w warstwie protokołu OAuth 2,0 podczas przepływu przydzielenia kodu autoryzacji](v2-oauth2-auth-code-flow.md#request-an-authorization-code).
-- Dowiedz się, w [jaki sposób aplikacja wielodostępna może używać struktury zgody](active-directory-devhowto-multi-tenant-overview.md) do implementowania zgody "User" i "Administrator", która obsługuje bardziej zaawansowane wzorce aplikacji wielowarstwowej.
+- Dowiedz się, w [jaki sposób aplikacja wielodostępna może używać struktury zgody](./howto-convert-app-to-be-multi-tenant.md) do implementowania zgody "User" i "Administrator", która obsługuje bardziej zaawansowane wzorce aplikacji wielowarstwowej.
 - Informacje o możliwościach [wyrażania zgody aplikacji usługi Azure AD](application-consent-experience.md)

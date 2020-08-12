@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: a7553eea8941b93e589f38f8229ef35b70361f8e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: bf921ce4ce3ad65f0787ccab2f0a064da8973af1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129189"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115241"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w jednostronicowej aplikacji pojedynczej
 
@@ -47,7 +47,7 @@ W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, w j
 >
 > 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 > 1. Jeśli Twoje konto ma dostęp do więcej niż jednej dzierżawy, wybierz swoje konto w prawym górnym rogu i ustaw sesję portalu dla dzierżawy usługi Azure AD, której chcesz użyć.
-> 1. Postępuj zgodnie z instrukcjami, aby [zarejestrować aplikację jednostronicową](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) w Azure Portal.
+> 1. Postępuj zgodnie z instrukcjami, aby [zarejestrować aplikację jednostronicową](./scenario-spa-app-registration.md) w Azure Portal.
 > 1. Dodaj nową platformę w okienku **uwierzytelnianie** rejestracji aplikacji i zarejestruj identyfikator URI przekierowania: `http://localhost:4200/` .
 > 1. Ten przewodnik Szybki Start używa [niejawnego przepływu dotacji](v2-oauth2-implicit-grant-flow.md). Wybierz ustawienia **niejawnego przydzielenia** **tokenów identyfikatorów** i **tokenów dostępu**. Tokeny identyfikatorów i tokeny dostępu są wymagane, ponieważ ta aplikacja loguje się do użytkowników i wywołuje interfejs API.
 
@@ -99,7 +99,7 @@ W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, w j
 >|Nazwa wartości|Opis|
 >|---------|---------|
 >|Enter_the_Application_Id_Here|Na stronie **Przegląd** rejestracji aplikacji jest to wartość **identyfikatora aplikacji (klienta)** . |
->|Enter_the_Cloud_Instance_Id_Here|Jest to wystąpienie chmury platformy Azure. W głównej lub globalnej chmurze platformy Azure wprowadź wartość **https://login.microsoftonline.com** . W przypadku chmur narodowych (na przykład Chin), zobacz [chmury narodowe](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
+>|Enter_the_Cloud_Instance_Id_Here|Jest to wystąpienie chmury platformy Azure. W głównej lub globalnej chmurze platformy Azure wprowadź wartość **https://login.microsoftonline.com** . W przypadku chmur narodowych (na przykład Chin), zobacz [chmury narodowe](./authentication-national-cloud.md).|
 >|Enter_the_Tenant_Info_Here| Ustaw jedną z następujących opcji: Jeśli aplikacja obsługuje *konta w tym katalogu organizacji*, Zastąp tę wartość identyfikatorem katalogu (dzierżawy) lub nazwą dzierżawy (na przykład **contoso.Microsoft.com**). Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym*, Zastąp tę wartość **organizacją**. Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym i osobistych kontach Microsoft*, Zastąp tę wartość **wspólnym**. Aby ograniczyć obsługę *tylko do osobistych kont Microsoft*, Zastąp tę wartość **odbiorcom**. |
 >|Enter_the_Redirect_Uri_Here|Zamień na **http://localhost:4200** .|
 >|cacheLocation  | Obowiązkowe Ustaw magazyn przeglądarki dla stanu uwierzytelniania. Wartość domyślna to **sessionStorage**.   |
@@ -142,5 +142,4 @@ Po załadowaniu aplikacji przez przeglądarkę wybierz pozycję **Zaloguj**. Po 
 Następnie Dowiedz się, jak zalogować użytkownika i uzyskać tokeny w samouczku kątowym:
 
 > [!div class="nextstepaction"]
-> [Samouczek kątowy](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-angular)
-
+> [Samouczek kątowy](./tutorial-v2-angular.md)

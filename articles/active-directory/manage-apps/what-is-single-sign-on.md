@@ -11,13 +11,12 @@ ms.topic: overview
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5446d945a81d2630d788a866bda00eb118382b93
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 6f3c6351a7bcd87ae25dfae53cb17f634bbef146
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053783"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121514"
 ---
 # <a name="what-is-single-sign-on-sso"></a>Co to jest logowanie jednokrotne?
 
@@ -31,6 +30,14 @@ Jeśli jesteś administratorem lub informatykiem, Przeczytaj, aby dowiedzieć si
 Logowanie jednokrotne zapewnia bardzo dużeą w przód w celu zalogowania się i używania aplikacji przez użytkowników. Systemy uwierzytelniania oparte na rejestracji jednokrotnej są często nazywane "nowoczesnym uwierzytelnianiem". Aby dowiedzieć się, jak to zrobić przy użyciu logowania jednokrotnego, zapoznaj się z tym wideo.
 > [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4]
 
+## <a name="understanding-where-an-app-is-hosted"></a>Informacje o tym, gdzie jest hostowana aplikacja
+Sposób implementacji logowania jednokrotnego dla aplikacji ma wiele możliwości w przypadku, gdy aplikacja jest hostowana. Kwestie hostingu ze względu na sposób kierowania ruchu sieciowego w celu uzyskania dostępu do aplikacji. Jeśli aplikacja jest hostowana i dostępna za pośrednictwem sieci lokalnej o nazwie aplikacja lokalna, nie ma potrzeby uzyskiwania dostępu do Internetu w celu korzystania z aplikacji. Jeśli aplikacja jest hostowana w innym miejscu, nazywana aplikacją hostowaną w chmurze, użytkownicy będą musieli uzyskać dostęp do Internetu, aby móc korzystać z aplikacji.
+
+> [!TIP]
+> Aplikacje w chmurze są nazywane również aplikacjami typu oprogramowanie jako usługa (SaaS). 
+
+> [!TIP]
+> Terminy w chmurze i Internecie są często używane zamiennie. Przyczyną tego problemu musi być diagramy sieciowe. Często należy zauważyć, że duże sieci komputerowe mają kształt chmury na diagramie, ponieważ nie jest to możliwe do rysowania każdy składnik. Internet to najbardziej dobrze znana sieć, dzięki czemu można łatwo korzystać z terminów zamiennie. Jednak każda sieć komputerowa może być wykorzystana z chmury.
 
 ## <a name="choosing-a-single-sign-on-method"></a>Wybieranie metody logowania jednokrotnego
 

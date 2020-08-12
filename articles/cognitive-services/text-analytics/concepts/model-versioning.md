@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: b3e8c2c8a5e95cc5c862112410f5073a5e600651
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 7d008dc0f7ed90397ac07e12320d861b107f0f46
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986767"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120936"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>Przechowywanie wersji modeli w interfejs API analizy tekstu
 
@@ -44,9 +44,11 @@ Szczegóły dotyczące aktualizacji tych modeli można znaleźć w temacie [co n
 
 | Punkt końcowy                        | Tag obrazu kontenera                     | Wersja modelu |
 |---------------------------------|-----------------------------------------|---------------|
-| `/domains/health`               | `1.1.012640001-amd64-preview`lub Najnowsza | `2020-05-08`  |
+| `/domains/health`               | `1.1.013150001-amd64-preview`lub Najnowsza | `2020-07-24`  |
+| `/domains/health`               | `1.1.012640001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012420001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-04-16`  |
+| `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-07-24`  |
 
 
 

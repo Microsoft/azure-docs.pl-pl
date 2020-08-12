@@ -13,12 +13,12 @@ ms.date: 11/21/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: f1ad755e444968cbbbe9e048be53fb72f65c3b37
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5d01d1143563637e21aaa06a3f997c1507e4d8f1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87312643"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114782"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-java"></a>Obsługa Active Directory Federation Services w programie MSAL for Java
 
@@ -48,4 +48,4 @@ Po pozyskaniu tokenu przy użyciu programu `ConfidentialClientApplication.Acquir
 
 ## <a name="next-steps"></a>Następne kroki
 
-W przypadku federacyjnego przypadku należy zapoznać się z tematem [Konfigurowanie zachowania logowania Azure Active Directory aplikacji przy użyciu zasad odnajdywania obszaru głównego](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal) .
+W przypadku federacyjnego przypadku należy zapoznać się z tematem [Konfigurowanie zachowania logowania Azure Active Directory aplikacji przy użyciu zasad odnajdywania obszaru głównego](../manage-apps/configure-authentication-for-federated-users-portal.md) .

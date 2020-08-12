@@ -6,12 +6,12 @@ ms.subservice: core
 ms.topic: include
 ms.date: 07/31/2020
 ms.author: gopalv
-ms.openlocfilehash: 624824f5b6b8f7154ccd7b50da49f3f4bb179bb9
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 97f0412141f15ad0a72c02b92cfcf089b61db0cf
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542804"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120352"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -100,12 +100,11 @@ Aby uzyskać więcej informacji, zobacz dokumentację [klasy model](https://docs
 
 Aby uzyskać więcej informacji na temat pracy z modelami przeszkolonymi poza Azure Machine Learning, zobacz [jak wdrożyć istniejący model](../articles/machine-learning/how-to-deploy-existing-model.md).
 
-
 ## <a name="define-an-entry-script"></a>Zdefiniuj skrypt wpisu
 
 [!INCLUDE [write entry script](machine-learning-entry-script.md)]
 
-## <a name="define-an-inference-configuration"></a>Definiowanie konfiguracji wnioskowania
+## <a name="define-an-inferenceconfig"></a>Zdefiniuj InferenceConfig
 
 Konfiguracja wnioskowania opisuje sposób konfigurowania usługi sieci Web zawierającej model. Jest on używany później podczas wdrażania modelu.
 
@@ -162,12 +161,9 @@ Aby uzyskać więcej informacji na temat konfiguracji wnioskowania, zobacz dokum
 
 ## <a name="choose-a-compute-target"></a>Wybierz element docelowy obliczeń
 
-
 [!INCLUDE [aml-compute-target-deploy](aml-compute-target-deploy.md)]
 
-
-
-## <a name="define-a-deployment-configuration"></a>Zdefiniuj konfigurację wdrożenia
+## <a name="define-a-deploymentconfiguration"></a>Zdefiniuj DeploymentConfiguration
 
 Przed wdrożeniem modelu należy zdefiniować konfigurację wdrożenia. *Konfiguracja wdrożenia jest specyficzna dla elementu docelowego obliczeń, który będzie hostować usługę sieci Web.* Na przykład podczas lokalnego wdrażania modelu należy określić port, w którym usługa akceptuje żądania. Konfiguracja wdrożenia nie jest częścią skryptu wejścia. Służy do definiowania właściwości obiektu docelowego obliczeń, który będzie hostować model i skrypt wejścia.
 
@@ -187,7 +183,6 @@ Klasy dla lokalnych, Azure Container Instances i usług sieci Web AKS można zai
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
 
-
 ## <a name="deploy-your-model"></a>Wdrażanie modelu
 
 Teraz można przystąpić do wdrażania modelu. W poniższym przykładzie pokazano lokalne wdrożenie. Składnia różni się w zależności od celu obliczeń wybranego w poprzednim kroku.
@@ -203,11 +198,9 @@ print(service.state)
 
 Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [LocalWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py), [model. deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)i usługi sieci [Web](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
 
-
 ## <a name="delete-resources"></a>Usuwanie zasobów
 
 Aby usunąć wdrożoną usługę sieci Web, użyj programu `service.delete()` .
 Aby usunąć zarejestrowany model, użyj `model.delete()` .
 
 Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą usługi [WebService. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) i [model. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
-

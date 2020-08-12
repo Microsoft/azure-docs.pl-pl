@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
-ms.openlocfilehash: b8d998d40b9920ccbdaf0079c32a0feb84bba87b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37f305a7564382b9c6c5a031340d81a22cfedbf2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83680266"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120715"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Dodawanie aplikacji wielodostępnej do galerii aplikacji w usłudze Azure AD
 
@@ -29,9 +29,9 @@ Azure Active Directory (Azure AD) to oparta na chmurze usługa tożsamości. [Ga
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>Jeśli aplikacja obsługuje protokół SAML lub OpenIDConnect
 Jeśli masz aplikację wielodostępną, którą chcesz znaleźć w galerii aplikacji usługi Azure AD, musisz najpierw upewnić się, że aplikacja obsługuje jedną z następujących technologii logowania jednokrotnego:
 
-- **OpenID Connect Connect**: aby można było wyświetlić swoją aplikację, Utwórz aplikację wielodostępną w usłudze Azure AD i zaimplementuj [strukturę zgody na usługę Azure AD](https://docs.microsoft.com/azure/active-directory/develop/consent-framework) dla swojej aplikacji. Wyślij żądanie logowania do wspólnego punktu końcowego, aby klient mógł wyrazić zgodę na aplikację. Można kontrolować dostęp użytkownika na podstawie identyfikatora dzierżawy oraz nazwy UPN użytkownika otrzymanego w tokenie. Prześlij aplikację, wykonując czynności opisane w temacie Tworzenie [listy aplikacji w galerii aplikacji Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **OpenID Connect Connect**: aby można było wyświetlić swoją aplikację, Utwórz aplikację wielodostępną w usłudze Azure AD i zaimplementuj [strukturę zgody na usługę Azure AD](./consent-framework.md) dla swojej aplikacji. Wyślij żądanie logowania do wspólnego punktu końcowego, aby klient mógł wyrazić zgodę na aplikację. Można kontrolować dostęp użytkownika na podstawie identyfikatora dzierżawy oraz nazwy UPN użytkownika otrzymanego w tokenie. Prześlij aplikację, wykonując czynności opisane w temacie Tworzenie [listy aplikacji w galerii aplikacji Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).
 
-- **SAML**: Jeśli aplikacja obsługuje protokół SAML 2,0, aplikacja może być wymieniona w galerii. Postępuj zgodnie z instrukcjami wyświetlanymi w temacie Tworzenie [aplikacji w galerii aplikacji Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **SAML**: Jeśli aplikacja obsługuje protokół SAML 2,0, aplikacja może być wymieniona w galerii. Postępuj zgodnie z instrukcjami wyświetlanymi w temacie Tworzenie [aplikacji w galerii aplikacji Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).
 
 ## <a name="if-your-application-does-not-support-saml-or-openidconnect"></a>Jeśli aplikacja nie obsługuje języka SAML lub OpenIDConnect
 Aplikacje, które nie obsługują protokołu SAML ani OpenIDConnect, mogą być nadal zintegrowane z galerią aplikacji za pomocą technologii logowania jednokrotnego przy użyciu hasła.
@@ -39,12 +39,12 @@ Aplikacje, które nie obsługują protokołu SAML ani OpenIDConnect, mogą być 
 Logowanie jednokrotne haseł, nazywane również magazynem haseł, umożliwia zarządzanie dostępem użytkowników i hasłami do aplikacji sieci Web, które nie obsługują federacji tożsamości. Jest również przydatne w scenariuszach, w których kilku użytkowników musi udostępniać pojedyncze konto, na przykład na kontach aplikacji Media społecznościowych w organizacji. 
 
 Jeśli chcesz wystawić swoją aplikację za pomocą tej technologii:
-1. Utwórz aplikację sieci Web, która zawiera stronę logowania w formacie HTML, aby skonfigurować Logowanie jednokrotne przy użyciu [hasła](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). 
-2. Prześlij żądanie zgodnie z opisem w temacie [wyświetlanie aplikacji w galerii aplikacji Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+1. Utwórz aplikację sieci Web, która zawiera stronę logowania w formacie HTML, aby skonfigurować Logowanie jednokrotne przy użyciu [hasła](../manage-apps/what-is-single-sign-on.md). 
+2. Prześlij żądanie zgodnie z opisem w temacie [wyświetlanie aplikacji w galerii aplikacji Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).
 
 ## <a name="escalations"></a>Ich eskalacji
 
 W przypadku wszelkich eskalacji Wyślij wiadomość e-mail do [zespołu integracji rejestracji jednokrotnej usługi Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) , a my powrócimy do Ciebie najszybciej, jak to możliwe.
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się [, jak wystawić swoją aplikację w galerii aplikacji Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+Dowiedz się [, jak wystawić swoją aplikację w galerii aplikacji Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).

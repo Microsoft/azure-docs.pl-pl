@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 2340e728933cc230fb53b9581f4b02b41a9438b6
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 615815f11264578bc2a5930553c8e6f5bfed937f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372063"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121905"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji z rozruchem wiosny
 
@@ -64,12 +64,12 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-        <version>1.1.2</version>
+        <version>1.1.5</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.1.2</version>
+        <version>1.1.5</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -83,12 +83,12 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-        <version>1.2.2</version>
+        <version>1.2.7</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.2.2</version>
+        <version>1.2.7</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -290,15 +290,15 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
 
 1. W portalu konfiguracji aplikacji wybierz pozycję **Menedżer funkcji**, a następnie Zmień stan klucza **beta** **na:**
 
-    | Klucz | State |
+    | Klucz | Stan |
     |---|---|
-    | Beta | On |
+    | Beta | Włączone |
 
 1. Odśwież stronę przeglądarki, aby zobaczyć nowe ustawienia konfiguracji.
 
     ![Lokalne uruchamianie aplikacji z przewodnika Szybki start](./media/quickstarts/spring-boot-feature-flag-local-after.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: feb7c4a4417d64e039793bd96141c965f6437414
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e09ad2991d552cb9886911ac75ea23c690204a71
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050918"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116652"
 ---
 # <a name="enforce-on-premises-azure-ad-password-protection-for-active-directory-domain-services"></a>Wymuś ochronę lokalnego hasła usługi Azure AD dla Active Directory Domain Services
 
@@ -87,6 +87,9 @@ Lokalne składniki ochrony haseł usługi Azure AD działają w następujący sp
 Wdrożenie ochrony hasłem usługi Azure AD w lesie AD DS wymaga rejestracji tego lasu w usłudze Azure AD. Wszystkie wdrożone usługi serwera proxy muszą być również zarejestrowane w usłudze Azure AD. Te rejestracje lasu i serwera proxy są skojarzone z określoną dzierżawą usługi Azure AD, która jest identyfikowana niejawnie przez poświadczenia, które są używane podczas rejestracji.
 
 Las AD DS i wszystkie wdrożone usługi proxy w lesie muszą być zarejestrowane w ramach tej samej dzierżawy. Nie jest obsługiwane posiadanie lasu AD DS ani żadnych usług serwera proxy w tym lesie zarejestrowanych w różnych dzierżawach usługi Azure AD. Objawy takiego nieskonfigurowanego wdrożenia obejmują możliwość pobierania zasad haseł.
+
+> [!NOTE]
+> Klienci, którzy mają wiele dzierżawców usługi Azure AD, muszą więc wybrać jedną dzierżawę wyróżniającą, aby zarejestrować każdy Las do celów ochrony hasłem usługi Azure AD.
 
 ## <a name="download"></a>Pobierz
 

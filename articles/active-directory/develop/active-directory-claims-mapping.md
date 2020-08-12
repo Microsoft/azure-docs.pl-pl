@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/06/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 82866daaf720fc6b1ea9ba823587c921fd438b9c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 8923cb19c24b0e392026dc0f4b8f67c31956894a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902477"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115938"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Instrukcje: Dostosowywanie oświadczeń emitowanych w tokenach dla określonej aplikacji w dzierżawie (wersja zapoznawcza)
 
@@ -286,7 +286,7 @@ Element ID identyfikuje, która Właściwość źródła udostępnia wartość d
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: prawidłowe wartości identyfikatorów na Źródło
 
-| Źródło | ID | Opis |
+| Element źródłowy | ID | Opis |
 |-----|-----|-----|
 | Użytkownik | surname | Nazwa rodziny |
 | Użytkownik | givenname | Imię |
@@ -387,7 +387,7 @@ W oparciu o wybraną metodę jest oczekiwany zestaw danych wejściowych i wyjśc
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: atrybuty dozwolone jako źródło danych dla elementu SAML NameID
 
-|Źródło|ID|Opis|
+|Element źródłowy|ID|Opis|
 |-----|-----|-----|
 | Użytkownik | mail (poczta)|Adres e-mail|
 | Użytkownik | userPrincipalName|Nazwa główna użytkownika|
@@ -418,7 +418,7 @@ W oparciu o wybraną metodę jest oczekiwany zestaw danych wejściowych i wyjśc
 
 ### <a name="custom-signing-key"></a>Niestandardowy klucz podpisywania
 
-Aby zasady mapowania oświadczeń zaczęły obowiązywać, należy przypisać niestandardowy klucz podpisywania do obiektu jednostki usługi. Zapewnia to potwierdzenie, że tokeny zostały zmodyfikowane przez twórcę zasad mapowania oświadczeń i chroni aplikacje przed zasadami mapowania oświadczeń utworzonymi przez złośliwe podmioty. Aby dodać niestandardowy klucz podpisywania, możesz użyć polecenia cmdlet Azure PowerShell, `new-azureadapplicationkeycredential` Aby utworzyć poświadczenia klucza symetrycznego dla obiektu aplikacji. Aby uzyskać więcej informacji na temat tego polecenia cmdlet Azure PowerShell, zobacz polecenie [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+Aby zasady mapowania oświadczeń zaczęły obowiązywać, należy przypisać niestandardowy klucz podpisywania do obiektu jednostki usługi. Zapewnia to potwierdzenie, że tokeny zostały zmodyfikowane przez twórcę zasad mapowania oświadczeń i chroni aplikacje przed zasadami mapowania oświadczeń utworzonymi przez złośliwe podmioty. Aby dodać niestandardowy klucz podpisywania, możesz użyć polecenia cmdlet Azure PowerShell, `new-azureadapplicationkeycredential` Aby utworzyć poświadczenia klucza symetrycznego dla obiektu aplikacji. Aby uzyskać więcej informacji na temat tego polecenia cmdlet Azure PowerShell, zobacz polecenie [New-AzureADApplicationKeyCredential](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
 Aplikacje z włączonym mapowaniem oświadczeń muszą sprawdzać poprawność swoich kluczy podpisywania tokenu przez dołączanie ich `appid={client_id}` do [żądań metadanych OpenID Connect Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Poniżej znajduje się format dokumentu metadanych OpenID Connect Connect, którego należy użyć: 
 

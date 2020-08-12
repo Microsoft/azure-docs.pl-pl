@@ -13,16 +13,16 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: 0998bb04b0dfc69db4696f2e390cfe259eba6718
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ad5fab685757d2efd91cd1df0e48a5f1258d17e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76696525"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119882"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Korzystanie z MSAL dla systemu Android z B2C
 
-Biblioteka Microsoft Authentication Library (MSAL) umożliwia deweloperom aplikacji uwierzytelnianie użytkowników za pomocą tożsamości społecznościowych i lokalnych przy użyciu [Azure Active Directory B2C (Azure AD B2C)](https://docs.microsoft.com/azure/active-directory-b2c/). Azure AD B2C to usługa zarządzania tożsamościami. Służy do dostosowywania i kontrolowania sposobu tworzenia konta, logowania i zarządzania profilami klientów podczas korzystania z aplikacji.
+Biblioteka Microsoft Authentication Library (MSAL) umożliwia deweloperom aplikacji uwierzytelnianie użytkowników za pomocą tożsamości społecznościowych i lokalnych przy użyciu [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml). Azure AD B2C to usługa zarządzania tożsamościami. Służy do dostosowywania i kontrolowania sposobu tworzenia konta, logowania i zarządzania profilami klientów podczas korzystania z aplikacji.
 
 ## <a name="configure-known-authorities-and-redirect-uri"></a>Skonfiguruj znane urzędy i identyfikator URI przekierowania
 
@@ -54,7 +54,7 @@ Plik konfiguracyjny aplikacji deklaruje dwa `authorities` . Jeden dla każdej za
 }
 ```
 
-`redirect_uri`Program musi być zarejestrowany w konfiguracji aplikacji, a także w `AndroidManifest.xml` celu obsługi przekierowywania w ramach [przepływu przydzielenia kodu autoryzacji](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code).
+`redirect_uri`Program musi być zarejestrowany w konfiguracji aplikacji, a także w `AndroidManifest.xml` celu obsługi przekierowywania w ramach [przepływu przydzielenia kodu autoryzacji](../../active-directory-b2c/authorization-code-flow.md).
 
 ## <a name="initialize-ipublicclientapplication"></a>Zainicjuj IPublicClientApplication
 
@@ -139,7 +139,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>Określanie zasad
 
-Ponieważ zasady w B2C są reprezentowane jako osobne urzędy, wywoływanie zasad innych niż domyślne jest realizowane przez określenie `fromAuthority` klauzuli podczas konstruowania `acquireToken` lub `acquireTokenSilent` parametrów.  Przykład:
+Ponieważ zasady w B2C są reprezentowane jako osobne urzędy, wywoływanie zasad innych niż domyślne jest realizowane przez określenie `fromAuthority` klauzuli podczas konstruowania `acquireToken` lub `acquireTokenSilent` parametrów.  Na przykład:
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
@@ -153,7 +153,7 @@ AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
 
 ## <a name="handle-password-change-policies"></a>Obsługa zasad zmiany hasła
 
-Przepływ użytkownika rejestracji lub logowania na koncie lokalnym pokazuje "**zapomniane hasło"?** powiązań. Kliknięcie tego linku nie powoduje automatycznego wyzwolenia przepływu użytkownika resetowania hasła.
+Przepływ użytkownika rejestracji lub logowania na koncie lokalnym pokazuje "**zapomniane hasło"?** . Kliknięcie tego linku nie powoduje automatycznego wyzwolenia przepływu użytkownika resetowania hasła.
 
 Zamiast tego kod błędu `AADB2C90118` jest zwracany do aplikacji. Aplikacja powinna obsłużyć ten kod błędu przez uruchomienie określonego przepływu użytkownika, który resetuje hasło.
 
@@ -227,7 +227,7 @@ String tenantId = account.getTenantId();
 
 ### <a name="idtoken-claims"></a>IdToken oświadczeń
 
-Oświadczenia zwrócone w IdToken są wypełniane przez usługę tokenu zabezpieczającego (STS), a nie przez MSAL. Niektóre oświadczenia mogą być nieobecne w zależności od używanego dostawcy tożsamości (dostawcy tożsamości). Niektóre dostawców tożsamości nie udostępniają obecnie tego `preferred_username` żądania. Ponieważ to zgłoszenie jest używane przez MSAL do buforowania, `MISSING FROM THE TOKEN RESPONSE` w jego miejsce jest używana wartość symbolu zastępczego. Aby uzyskać więcej informacji na temat oświadczeń usługi B2C IdToken, zobacz [Omówienie tokenów w Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
+Oświadczenia zwrócone w IdToken są wypełniane przez usługę tokenu zabezpieczającego (STS), a nie przez MSAL. Niektóre oświadczenia mogą być nieobecne w zależności od używanego dostawcy tożsamości (dostawcy tożsamości). Niektóre dostawców tożsamości nie udostępniają obecnie tego `preferred_username` żądania. Ponieważ to zgłoszenie jest używane przez MSAL do buforowania, `MISSING FROM THE TOKEN RESPONSE` w jego miejsce jest używana wartość symbolu zastępczego. Aby uzyskać więcej informacji na temat oświadczeń usługi B2C IdToken, zobacz [Omówienie tokenów w Azure Active Directory B2C](../../active-directory-b2c/tokens-overview.md#claims).
 
 ## <a name="managing-accounts-and-policies"></a>Zarządzanie kontami i zasadami
 
@@ -239,4 +239,4 @@ W przypadku odnowienia tokenów dla zasad w programie `acquireTokenSilent` Podaj
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat Azure Active Directory B2C (Azure AD B2C) na [co to jest Azure Active Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
+Dowiedz się więcej na temat Azure Active Directory B2C (Azure AD B2C) na [co to jest Azure Active Directory B2C?](../../active-directory-b2c/overview.md)

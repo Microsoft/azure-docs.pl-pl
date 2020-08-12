@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: e758c69f91fb60a83dfcc119b2c7f7aba44384ca
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: e210c19f40ed77bd7c1bc1dcfc2f2787e3ea2087
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054665"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120290"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrowanie aplikacji do MSAL.NET
 
@@ -37,7 +37,7 @@ W tym artykule opisano różnice między biblioteką uwierzytelniania firmy Micr
 
 W większości przypadków chcesz korzystać z MSAL.NET i punktu końcowego platformy tożsamości firmy Microsoft, czyli najnowszej generacji bibliotek uwierzytelniania firmy Microsoft. Korzystając z MSAL.NET, uzyskujesz tokeny dla użytkowników logujących się do aplikacji za pomocą usługi Azure AD (konta służbowe), kont Microsoft (osobistych) lub Azure AD B2C.
 
-Jeśli znasz już punkt końcowy usługi Azure AD dla deweloperów (i ADAL.NET), możesz chcieć zapoznać się z [informacjami o tym, co się dzieje w punkcie końcowym platformy Identity platform (v 2.0)?](active-directory-v2-compare.md).
+Jeśli znasz już punkt końcowy usługi Azure AD dla deweloperów (i ADAL.NET), możesz chcieć zapoznać się z [informacjami o tym, co się dzieje w punkcie końcowym platformy Identity platform (v 2.0)?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 Jednak nadal musisz używać ADAL.NET, jeśli aplikacja musi zalogować się użytkowników przy użyciu wcześniejszych wersji [Active Directory Federation Services (ADFS)](/windows-server/identity/active-directory-federation-services). Aby uzyskać więcej informacji, zobacz temat [Obsługa usług ADFS](https://aka.ms/msal-net-adfs-support).
 
@@ -161,7 +161,7 @@ Aby uzyskać więcej informacji na temat tokenów v 1.0 i v 2.0, zobacz [Azure A
 
 ## <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Zakresy dla internetowego interfejsu API akceptujące tokeny v 1.0
 
-Uprawnienia OAuth2 są zakresami uprawnień, które aplikacja interfejsu API sieci Web w wersji 1.0 uwidacznia aplikacje klienckie. Te zakresy uprawnień mogą być udzielane aplikacjom klienckim podczas wyrażania zgody. Zapoznaj się z sekcją oauth2Permissions w [manifeście aplikacji Azure Active Directory](active-directory-application-manifest.md).
+Uprawnienia OAuth2 są zakresami uprawnień, które aplikacja interfejsu API sieci Web w wersji 1.0 uwidacznia aplikacje klienckie. Te zakresy uprawnień mogą być udzielane aplikacjom klienckim podczas wyrażania zgody. Zapoznaj się z sekcją oauth2Permissions w [manifeście aplikacji Azure Active Directory](./reference-app-manifest.md).
 
 ### <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Zakresy żądania dostępu do określonych uprawnień OAuth2 aplikacji v 1.0
 

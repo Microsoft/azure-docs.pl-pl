@@ -13,12 +13,12 @@ ms.date: 07/29/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 945d6ac15c3cb0b3f98ebb14e6b859b8f356b944
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ef42dbb4cad1d40a35af28845baa402763acfc9b
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419839"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119627"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Przepływ kodu autoryzacji Microsoft Identity platform i OAuth 2,0
 
@@ -73,7 +73,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `response_type` | wymagane    | Musi zawierać `code` do przepływu kodu autoryzacji.       |
 | `redirect_uri`  | wymagane | Redirect_uri aplikacji, w której odpowiedzi uwierzytelniania mogą być wysyłane i odbierane przez aplikację. Musi dokładnie pasować do jednego z redirect_uris zarejestrowanego w portalu, z wyjątkiem tego, że musi on być zakodowany w adresie URL. W przypadku natywnych aplikacji mobilnych & należy użyć wartości domyślnej `https://login.microsoftonline.com/common/oauth2/nativeclient` .   |
 | `scope`  | wymagane    | Rozdzielana spacjami lista [zakresów](v2-permissions-and-consent.md) , do których użytkownik ma wyrazić zgodę.  W przypadku `/authorize` gałęzi żądania może to obejmować wiele zasobów, co pozwala aplikacji na uzyskanie zgody na wiele interfejsów API sieci Web, które mają być wywoływane. |
-| `response_mode`   | zalecane | Określa metodę, która ma zostać użyta do wysłania zwróconego tokenu z powrotem do aplikacji. Może być jedną z następujących czynności:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query`udostępnia kod jako parametr ciągu zapytania w identyfikatorze URI przekierowania. Jeśli żądasz tokenu identyfikatora przy użyciu niejawnego przepływu, nie możesz użyć `query` określonego w [specyfikacji OpenID Connect](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Jeśli żądasz tylko kodu, możesz użyć `query` , `fragment` , lub `form_post` . `form_post`wykonuje wpis zawierający kod dla identyfikatora URI przekierowania. Aby uzyskać więcej informacji, zobacz [OpenID Connect Connect Protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  |
+| `response_mode`   | zalecane | Określa metodę, która ma zostać użyta do wysłania zwróconego tokenu z powrotem do aplikacji. Może być jedną z następujących czynności:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query`udostępnia kod jako parametr ciągu zapytania w identyfikatorze URI przekierowania. Jeśli żądasz tokenu identyfikatora przy użyciu niejawnego przepływu, nie możesz użyć `query` określonego w [specyfikacji OpenID Connect](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Jeśli żądasz tylko kodu, możesz użyć `query` , `fragment` , lub `form_post` . `form_post`wykonuje wpis zawierający kod dla identyfikatora URI przekierowania. Aby uzyskać więcej informacji, zobacz [OpenID Connect Connect Protocol](../azuread-dev/v1-protocols-openid-connect-code.md).  |
 | `state`                 | zalecane | Wartość uwzględniona w żądaniu, która również zostanie zwrócona w odpowiedzi tokenu. Może to być ciąg dowolnej zawartości. Losowo wygenerowana unikatowa wartość jest zwykle używana w celu [zapobiegania atakom na fałszerstwo żądań między witrynami](https://tools.ietf.org/html/rfc6749#section-10.12). Ta wartość może również kodować informacje o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelniania, takie jak strona lub widok. |
 | `prompt`  | optional    | Wskazuje typ interakcji użytkownika, która jest wymagana. Jedyne prawidłowe wartości w tym momencie to `login` , `none` , i `consent` .<br/><br/>- `prompt=login`wymusić użytkownikowi wprowadzanie poświadczeń na to żądanie, negację logowania jednokrotnego.<br/>- `prompt=none`jest przeciwieństwem do siebie, upewnia się, że użytkownik nie jest wyświetlany z żadnym interaktywnym monitem. Jeśli żądanie nie może zostać zakończone dyskretnie przy użyciu logowania jednokrotnego, punkt końcowy platformy tożsamości firmy Microsoft zwróci `interaction_required` błąd.<br/>- `prompt=consent`spowoduje wyzwolenie okna dialogowego zgody na uwierzytelnianie OAuth po zalogowaniu się użytkownika, z prośbą o udzielenie uprawnień do aplikacji.<br/>- `prompt=select_account`spowoduje przerwanie logowania jednokrotnego, dzięki czemu można wyświetlić listę wszystkich kont w sesji lub dowolnego zapamiętane konto albo opcję, aby całkowicie użyć innego konta.<br/> |
 | `login_hint`  | optional    | Może służyć do wstępnego wypełniania pola Nazwa użytkownika/adres e-mail strony logowania dla użytkownika, jeśli znana jest jego nazwa użytkownika przed czasem. Często aplikacje będą używać tego parametru podczas ponownego uwierzytelniania, ponieważ już wyodrębnili nazwę użytkownika z poprzedniego logowania przy użyciu tego `preferred_username` żądania.   |

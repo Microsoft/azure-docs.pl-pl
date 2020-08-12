@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
 ROBOTS: NOINDEX
-ms.openlocfilehash: bbd622ccb7aeecfff4d3dc744623105a593e6a67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f1829127d1eaf65be586ddff3fb2615cae72c5d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85383584"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116142"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Debugowanie logowania jednokrotnego opartego na protokole SAML w aplikacjach w usłudze Azure Active Directory
 
@@ -26,7 +26,7 @@ ms.locfileid: "85383584"
 
 Dowiedz się, jak znaleźć i naprawić problemy związane z [logowaniem](../manage-apps/what-is-single-sign-on.md) jednokrotnym dla aplikacji w usłudze Azure Active Directory (Azure AD) obsługującej [SAML (SAML) 2,0](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language). 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Zalecamy zainstalowanie [rozszerzenia moje aplikacje bezpieczne logowanie](../user-help/my-apps-portal-end-user-troubleshoot.md#im-having-trouble-installing-the-my-apps-secure-sign-in-extension). To rozszerzenie przeglądarki ułatwia zbieranie informacji o żądaniach SAML i odpowiedzi SAML, które są potrzebne do rozwiązywania problemów z logowaniem jednokrotnym. Jeśli nie można zainstalować rozszerzenia, w tym artykule opisano sposób rozwiązywania problemów z zainstalowanym rozszerzeniem i bez niego.
 
@@ -104,4 +104,4 @@ Aby rozwiązać ten problem, wykonaj następujące kroki:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy Logowanie jednokrotne działa w aplikacji, można [zautomatyzować Inicjowanie obsługi użytkowników i anulowanie aprowizacji do aplikacji SaaS](../manage-apps/user-provisioning.md) lub rozpocząć [pracę z dostępem warunkowym](../conditional-access/app-based-conditional-access.md).
+Teraz, gdy Logowanie jednokrotne działa w aplikacji, można [zautomatyzować Inicjowanie obsługi użytkowników i anulowanie aprowizacji do aplikacji SaaS](../app-provisioning/user-provisioning.md) lub rozpocząć [pracę z dostępem warunkowym](../conditional-access/app-based-conditional-access.md).

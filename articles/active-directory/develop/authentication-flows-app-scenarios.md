@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: d6cb8cf4b97ed3882d41a4eb179f11bf05f42118
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99d16407d1cfadcb7d3a79968fae4436e7c631e3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82593169"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115649"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Przepływy uwierzytelniania i scenariusze aplikacji
 
@@ -154,9 +154,9 @@ Niektóre scenariusze, takie jak te, które obejmują dostęp warunkowy związan
 Aby uzyskać więcej informacji, zobacz [aplikacji mobilnej, która wywołuje interfejsy API sieci Web](scenario-mobile-overview.md).
 
 > [!NOTE]
-> Aplikacja mobilna korzystająca z MSAL. iOS, MSAL. Dla systemu Android lub MSAL.NET na platformie Xamarin mogą być stosowane zasady ochrony aplikacji. Na przykład zasady mogą uniemożliwić użytkownikowi kopiowanie chronionego tekstu. Aplikacja mobilna jest zarządzana przez usługę Intune i jest rozpoznawana przez usługę Intune jako zarządzaną aplikację. Aby uzyskać więcej informacji, zobacz [Omówienie zestawu SDK aplikacji Microsoft Intune](https://docs.microsoft.com/intune/app-sdk).
+> Aplikacja mobilna korzystająca z MSAL. iOS, MSAL. Dla systemu Android lub MSAL.NET na platformie Xamarin mogą być stosowane zasady ochrony aplikacji. Na przykład zasady mogą uniemożliwić użytkownikowi kopiowanie chronionego tekstu. Aplikacja mobilna jest zarządzana przez usługę Intune i jest rozpoznawana przez usługę Intune jako zarządzaną aplikację. Aby uzyskać więcej informacji, zobacz [Omówienie zestawu SDK aplikacji Microsoft Intune](/intune/app-sdk).
 >
-> [Zestaw SDK aplikacji usługi Intune](https://docs.microsoft.com/intune/app-sdk-get-started) jest oddzielony od bibliotek MSAL i współdziała z usługą Azure AD.
+> [Zestaw SDK aplikacji usługi Intune](/intune/app-sdk-get-started) jest oddzielony od bibliotek MSAL i współdziała z usługą Azure AD.
 
 ### <a name="protected-web-api"></a>Chroniony internetowy interfejs API
 
@@ -198,7 +198,7 @@ Scenariusze, które obejmują pobieranie tokenów, również są mapowane na prz
   <tr>
    <td><a href="scenario-spa-overview.md"><img alt="Single-Page App" src="media/scenarios/spa-app.svg"></a></td>
    <td><a href="scenario-spa-overview.md">Aplikacja jednostronicowa</a></td>
-   <td><a href="v2-oauth2-implicit-grant-flow.md">Konwersja</a></td>
+   <td><a href="v2-oauth2-implicit-grant-flow.md">Niejawna</a></td>
    <td>Konta służbowe, konta osobiste i Azure Active Directory B2C (Azure AD B2C)</td>
  </tr>
 
@@ -305,5 +305,5 @@ Aby uzyskać więcej informacji, zobacz [biblioteki obsługiwane przez firmę Mi
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej na temat podstawowych informacji dotyczących [uwierzytelniania](authentication-scenarios.md) i [tokenów dostępu na platformie tożsamości firmy Microsoft](access-tokens.md).
+* Dowiedz się więcej na temat podstawowych informacji dotyczących [uwierzytelniania](./authentication-vs-authorization.md) i [tokenów dostępu na platformie tożsamości firmy Microsoft](access-tokens.md).
 * Dowiedz się więcej o [zabezpieczaniu dostępu do aplikacji IoT](/azure/architecture/example-scenario/iot-aad/iot-aad).

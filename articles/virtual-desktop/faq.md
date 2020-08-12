@@ -3,15 +3,15 @@ title: Pulpity wirtualne systemu Windows — często zadawane pytania — Azure
 description: Często zadawane pytania i najlepsze rozwiązania dla pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e0e7084a00439fd9096367578f983e6b6acd1df5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 058c5778c116a9e8368049bf30046aa6b7634163
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007492"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121123"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Często zadawane pytania na temat usługi Windows Virtual Desktop
 
@@ -47,8 +47,6 @@ Aby ograniczyć administrator do zarządzania sesjami użytkowników, takich jak
 Gdy użytkownik jest przypisany do grupy aplikacji, usługa wykonuje proste przypisanie roli platformy Azure. W związku z tym Azure Active Directory użytkownika (AD) i usługi Azure AD grupy aplikacji muszą znajdować się w tej samej lokalizacji. Wszystkie obiekty usługi, takie jak pule hostów, grupy aplikacji i obszary robocze, muszą również znajdować się w tej samej usłudze Azure AD jako użytkownik.
 
 Maszyny wirtualne można tworzyć w innej usłudze Azure AD, o ile Active Directory z usługą Azure AD użytkownika w tej samej sieci wirtualnej (VNET).
-
-Usługa Azure Lighthouse nie obsługuje w pełni zarządzania środowiskiem pulpitu wirtualnego systemu Windows. Ponieważ usługa Lighthouse nie obsługuje obecnie zarządzania użytkownikami dzierżawy usługi Azure AD, klienci Lighthouse nadal muszą zalogować się do usługi Azure AD, która jest używana przez klientów do zarządzania użytkowników.
 
 ## <a name="what-are-location-restrictions"></a>Co to są ograniczenia lokalizacji?
 
@@ -132,3 +130,11 @@ Czynniki te mogą mieć wpływ na limit skalowania pul hostów:
 - Istnieją ograniczenia dotyczące liczby rdzeni, które można utworzyć na region i na subskrypcję. Na przykład jeśli masz subskrypcję Umowa Enterprise, możesz utworzyć 350 rdzeni. Aby określić liczbę maszyn wirtualnych, które można utworzyć przy każdym uruchomieniu szablonu, należy podzielić 350 przez wartość domyślną liczbę rdzeni na maszynę wirtualną lub własny limit rdzeni. Więcej informacji znajduje się w [Virtual Machines limitów — Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager).
 
 - Nazwa prefiksu maszyny wirtualnej i liczba maszyn wirtualnych są krótsze niż 15 znaków. Aby dowiedzieć się więcej, zobacz [reguły nazewnictwa i ograniczenia dotyczące zasobów platformy Azure](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
+
+## <a name="can-i-manage-windows-virtual-desktop-environments-with-azure-lighthouse"></a>Czy mogę zarządzać środowiskami pulpitu wirtualnego systemu Windows za pomocą usługi Azure Lighthouse?
+
+Usługa Azure Lighthouse nie obsługuje w pełni zarządzania środowiskami pulpitu wirtualnego systemu Windows. Ponieważ usługa Lighthouse nie obsługuje obecnie zarządzania użytkownikami dzierżawy usługi Azure AD, klienci Lighthouse nadal muszą zalogować się do usługi Azure AD, która jest używana przez klientów do zarządzania użytkowników.
+
+Nie można również używać subskrypcji piaskownicy CSP z usługą pulpitu wirtualnego systemu Windows. Aby dowiedzieć się więcej, zobacz [konto piaskownicy integracji](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
+
+Na koniec po włączeniu dostawcy zasobów z poziomu konta właściciela dostawcy CSP konta klienta CSP nie będą mogły modyfikować dostawcy zasobów.

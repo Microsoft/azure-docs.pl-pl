@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 005fb194a5c1539b70ccb8e8ac7d938b190ee4f5
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 204bc7dd8cc31f48fdc09eae6b00247023de64f3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563316"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120970"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>Chroniony internetowy interfejs API: weryfikowanie zakresów i ról aplikacji
 
@@ -88,7 +88,7 @@ public class TodoListController : Controller
 
 #### <a name="verify-the-scopes-more-globally"></a>Weryfikuj zakresy bardziej globalnie
 
-Zalecanym podejściem jest zdefiniowanie szczegółowych zakresów dla internetowego interfejsu API i zweryfikowanie zakresów w każdej akcji kontrolera. Możliwe jest jednak również zweryfikowanie zakresów na poziomie aplikacji lub kontrolera za pomocą ASP.NET Core. Aby uzyskać szczegółowe informacje, zobacz [Autoryzacja oparta na żądaniach](https://docs.microsoft.com/aspnet/core/security/authorization/claims) w dokumentacji ASP.NET Core.
+Zalecanym podejściem jest zdefiniowanie szczegółowych zakresów dla internetowego interfejsu API i zweryfikowanie zakresów w każdej akcji kontrolera. Możliwe jest jednak również zweryfikowanie zakresów na poziomie aplikacji lub kontrolera za pomocą ASP.NET Core. Aby uzyskać szczegółowe informacje, zobacz [Autoryzacja oparta na żądaniach](/aspnet/core/security/authorization/claims) w dokumentacji ASP.NET Core.
 
 ### <a name="net-mvc"></a>.NET MVC
 
@@ -96,7 +96,7 @@ W przypadku ASP.NET, po prostu Zastąp `HttpContext.User` `ClaimsPrincipal.Curre
 
 ## <a name="verify-app-roles-in-apis-called-by-daemon-apps"></a>Weryfikowanie ról aplikacji w interfejsach API wywoływanych przez aplikacje demona
 
-Jeśli internetowy interfejs API jest wywoływany przez [aplikację demona](scenario-daemon-overview.md), aplikacja powinna wymagać uprawnień aplikacji do internetowego interfejsu API. Jak pokazano w temacie [udostępnianie uprawnień aplikacji (ról aplikacji)](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles), interfejs API ujawnia takie uprawnienia. Przykładem jest `access_as_application` rola aplikacji.
+Jeśli internetowy interfejs API jest wywoływany przez [aplikację demona](scenario-daemon-overview.md), aplikacja powinna wymagać uprawnień aplikacji do internetowego interfejsu API. Jak pokazano w temacie [udostępnianie uprawnień aplikacji (ról aplikacji)](./scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles), interfejs API ujawnia takie uprawnienia. Przykładem jest `access_as_application` rola aplikacji.
 
 Teraz musisz mieć interfejs API, aby sprawdzić, czy otrzymany token zawiera `roles` zastrzeżenie i czy to zgłoszenie ma oczekiwaną wartość. Kod weryfikacyjny jest podobny do kodu, który weryfikuje delegowane uprawnienia, z tą różnicą, że akcja kontrolera testuje role zamiast zakresów:
 

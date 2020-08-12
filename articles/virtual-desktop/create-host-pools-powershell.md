@@ -3,15 +3,15 @@ title: Tworzenie puli hostów usług pulpitu wirtualnego systemu Windows PowerSh
 description: Jak utworzyć pulę hostów w programie Virtual Desktop systemu Windows przy użyciu poleceń cmdlet programu PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a3e4b326b5a78f4b14bdd87e842d8ca485f56831
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 1275eab36e21ea6befdda13e14759a30ef5398a3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002585"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121157"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Tworzenie puli hostów usług pulpitu wirtualnego systemu Windows przy użyciu programu PowerShell
 
@@ -116,6 +116,32 @@ Aby zarejestrować agentów pulpitu wirtualnego systemu Windows, wykonaj następ
 
 >[!IMPORTANT]
 >Aby zabezpieczyć środowisko pulpitu wirtualnego systemu Windows na platformie Azure, zalecamy, aby nie otwierać portu przychodzącego 3389 na maszynach wirtualnych. Pulpit wirtualny systemu Windows nie wymaga otwartego portu przychodzącego 3389 dla użytkowników w celu uzyskania dostępu do maszyn wirtualnych puli hostów. Jeśli musisz otworzyć port 3389 w celu rozwiązywania problemów, zalecamy użycie [dostępu just in Time do maszyny wirtualnej](../security-center/security-center-just-in-time.md). Zalecamy również, aby nie przypisywać maszyn wirtualnych do publicznego adresu IP.
+
+## <a name="update-the-agent"></a>Aktualizowanie agenta
+
+Należy zaktualizować agenta, jeśli jest w jednej z następujących sytuacji:
+
+- Chcesz przeprowadzić migrację wcześniej zarejestrowanej sesji do nowej puli hostów
+- Host sesji nie jest wyświetlany w puli hostów po aktualizacji
+
+Aby zaktualizować agenta:
+
+1. Zaloguj się do maszyny wirtualnej jako administrator.
+2. Przejdź do pozycji **usługi**, a następnie Zatrzymaj procesy **modułu ładującego** **Rdagent** i pulpit zdalny agenta.
+3. Następnie Znajdź agenta i program inicjujący MSIs. Znajdują się one w folderze **C:\DeployAgent** lub w lokalizacji, w której zapisano ją podczas instalacji.
+4. Znajdź następujące pliki i odinstaluj je:
+     
+     - Microsoft. RDInfra. RDAgent. Installer-x64-verx. x. x
+     - Microsoft. RDInfra. RDAgentBootLoader. Installer — x64
+
+   Aby odinstalować te pliki, kliknij prawym przyciskiem myszy każdą nazwę pliku, a następnie wybierz pozycję **Odinstaluj**.
+5. Opcjonalnie można również usunąć następujące ustawienia rejestru:
+     
+     - Komputer \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\RDInfraAgent
+     - Komputer \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\RDAgentBootLoader
+
+6. Po odinstalowaniu tych elementów należy usunąć wszystkie skojarzenia ze starą pulą hostów. Jeśli chcesz ponownie zarejestrować tego hosta w usłudze, postępuj zgodnie z instrukcjami w temacie [Rejestrowanie maszyn wirtualnych w puli hostów usług pulpitu wirtualnego systemu Windows](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
+
 
 ## <a name="next-steps"></a>Następne kroki
 

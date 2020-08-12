@@ -10,12 +10,12 @@ ms.workload: azure-vs
 ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: b77241b1413fea09e5a16e8bd5cbcda8db5b2327
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4275ae635affbfbc6a70c0107018602fbd100771
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477128"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114680"
 ---
 # <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Dodawanie Azure Active Directory przy użyciu usług połączonych w programie Visual Studio
 
@@ -72,5 +72,5 @@ Po dodaniu połączonej usługi Kreator programu Visual Studio dodaje Azure Acti
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Scenariusze uwierzytelniania dla Azure Active Directory](authentication-scenarios.md)
+- [Scenariusze uwierzytelniania dla Azure Active Directory](./authentication-vs-authorization.md)
 - [dodawanie logowania przy użyciu konta Microsoft do aplikacji internetowej ASP.NET](quickstart-v2-aspnet-webapp.md)

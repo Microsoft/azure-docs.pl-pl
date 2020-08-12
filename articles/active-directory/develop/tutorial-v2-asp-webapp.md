@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c0d8d2b009194b58c76dbd0a171f701f90df4086
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f62f6702b36915c6a6e1350072982e231cd9c07e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058280"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118233"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Dodawanie logowania do firmy Microsoft do aplikacji sieci Web ASP.NET
 
@@ -264,7 +264,7 @@ W programie Visual Studio Utwórz nowy widok, aby dodać przycisk logowania i wy
     ```
 
 ### <a name="more-information"></a>Więcej informacji
- Ta strona dodaje przycisk logowania w formacie SVG z czarnym tłem:<br/>![Zaloguj się przy użyciu konta Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Aby uzyskać więcej przycisków logowania, przejdź do [wskazówek dotyczących znakowania](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Wytyczne dotyczące oznaczania marką").
+ Ta strona dodaje przycisk logowania w formacie SVG z czarnym tłem:<br/>![Zaloguj się przy użyciu konta Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Aby uzyskać więcej przycisków logowania, przejdź do [wskazówek dotyczących znakowania](./howto-add-branding-in-azure-ad-apps.md "Wytyczne dotyczące oznaczania marką").
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Dodaj kontroler, aby wyświetlić oświadczenia użytkownika
 Ten kontroler pokazuje wykorzystanie atrybutu `[Authorize]` do ochrony kontrolera. Ten atrybut ogranicza dostęp do kontrolera przez umożliwienie tylko uwierzytelnionym użytkownikom. Poniższy kod umożliwia użycie atrybutu w celu wyświetlenia oświadczeń użytkownika, które zostały pobrane w ramach logowania:
@@ -386,7 +386,7 @@ Aby ręcznie zarejestrować aplikację i dodać informacje na temat rejestracji 
 1. Zamień na `ClientId` zarejestrowany identyfikator aplikacji.
 1. Zamień na `redirectUri` adres URL protokołu SSL projektu.
 
-## <a name="test-your-code"></a>testowanie kodu
+## <a name="test-your-code"></a>Testowanie kodu
 
 Aby przetestować aplikację w programie Visual Studio, naciśnij klawisz F5, aby uruchomić projekt. Zostanie otwarta przeglądarka http:// <span></span> localhost: {port} i zobaczysz przycisk **Zaloguj się przy użyciu konta Microsoft** . Wybierz przycisk, aby uruchomić proces logowania.
 
@@ -403,7 +403,7 @@ Aplikacje integrowane z platformą tożsamości firmy Microsoft są zgodne z mod
 - Deweloper aplikacji dodaje wszelkie dodatkowe uprawnienia, które wymagają **zgody administratora**.
 - Lub dzierżawy są skonfigurowane (w **aplikacjach dla przedsiębiorstw — > ustawienia użytkownika**), w których użytkownicy nie mogą wyrazić zgody na aplikacje uzyskujące dostęp do danych firmy w ich imieniu.
 
-Aby uzyskać więcej informacji, zobacz [uprawnienia i zgody w punkcie końcowym platformy tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
+Aby uzyskać więcej informacji, zobacz [uprawnienia i zgody w punkcie końcowym platformy tożsamości firmy Microsoft](./v2-permissions-and-consent.md).
 
 ### <a name="view-application-results"></a>Wyświetlanie wyników aplikacji
 
@@ -421,10 +421,10 @@ Po przejściu do widoku kontrolera powinna zostać wyświetlona tabela zawieraj�
 |---|---|---|
 |**Nazwa** |Pełna nazwa użytkownika | Imię i nazwisko użytkownika
 |**Nazwa użytkownika** |Użytkownicy<span>@domain.com</span> | Nazwa użytkownika używana do identyfikowania użytkownika|
-|**Podmiot** |Temat |Ciąg, który jednoznacznie identyfikuje użytkownika w sieci Web|
+|**Temat** |Temat |Ciąg, który jednoznacznie identyfikuje użytkownika w sieci Web|
 |**Identyfikator dzierżawy** |Guid (identyfikator GUID) | **Identyfikator GUID** , który jednoznacznie reprezentuje organizację usługi Azure AD użytkownika|
 
-Ponadto powinna zostać wyświetlona tabela wszystkich oświadczeń, które znajdują się w żądaniu uwierzytelniania. Aby uzyskać więcej informacji, zobacz [listę oświadczeń, które znajdują się w tokenie identyfikatora](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Ponadto powinna zostać wyświetlona tabela wszystkich oświadczeń, które znajdują się w żądaniu uwierzytelniania. Aby uzyskać więcej informacji, zobacz [listę oświadczeń, które znajdują się w tokenie identyfikatora](./id-tokens.md).
 
 ### <a name="test-access-to-a-method-that-has-an-authorize-attribute-optional"></a>Przetestuj dostęp do metody, która ma atrybut Autoryzuj (opcjonalnie)
 
@@ -484,6 +484,6 @@ Dowiedz się więcej na temat aplikacji sieci Web wywołujących interfejsy API 
 Dowiedz się, jak tworzyć aplikacje sieci Web wywołujące Microsoft Graph:
 
 > [!div class="nextstepaction"]
-> [Samouczek ASP.NET Microsoft Graph](https://docs.microsoft.com/graph/tutorials/aspnet)
+> [Samouczek ASP.NET Microsoft Graph](/graph/tutorials/aspnet)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

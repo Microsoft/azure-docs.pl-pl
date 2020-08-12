@@ -1,19 +1,14 @@
 ---
 title: Rozwiązywanie problemów z usługą Azure ARC dla serwerów Agent problemy z połączeniami
 description: W tym artykule opisano sposób rozwiązywania problemów z agentem podłączonego maszyny i rozwiązywania z nią usługi Azure ARC dla serwerów (wersja zapoznawcza) podczas próby nawiązania połączenia z usługą.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2a6f51f1c6901eaa18c1de9c1fc788ed583b7394
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 5cd2560279085485a8ac7b285e4f601060a924f1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809446"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118012"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Rozwiązywanie problemów z połączeniem z agentem podłączonych maszyn
 
@@ -72,7 +67,7 @@ azcmagent connect \
 
 W poniższej tabeli wymieniono niektóre znane błędy i sugestie dotyczące sposobu rozwiązywania problemów i ich rozwiązywania.
 
-|Wiadomość |Error |Prawdopodobna przyczyna |Rozwiązanie |
+|Komunikat |Błąd |Prawdopodobna przyczyna |Rozwiązanie |
 |--------|------|---------------|---------|
 |Nie można uzyskać przepływu urządzenia tokenu autoryzacji |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is unreachable.` |Nie można połączyć się z `login.windows.net` punktem końcowym | Sprawdź łączność z punktem końcowym. |
 |Nie można uzyskać przepływu urządzenia tokenu autoryzacji |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is Forbidden`. |Serwer proxy lub zapora blokuje dostęp do `login.windows.net` punktu końcowego. | Sprawdź łączność z punktem końcowym i nie jest blokowany przez zaporę lub serwer proxy. |

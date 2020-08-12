@@ -12,12 +12,12 @@ ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0f712dbee6218ce8e012639b82a3a2ee7c177bb3
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 61a3884ce4d1075dbcac61a0c202c3a393d2d943
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84904766"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118148"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Logowanie użytkowników i wywoływanie Microsoft Graph z aplikacji dla systemu iOS lub macOS
 
@@ -75,7 +75,7 @@ Ten samouczek spowoduje utworzenie nowego projektu. Jeśli chcesz zamiast tego p
 
 7. Kliknij pozycję **Wypróbuj nowe środowisko** w górnej części ekranu, aby otworzyć nowe środowisko rejestracji aplikacji, a następnie kliknij pozycję **+ Nowa rejestracja**  >  **+ Dodaj platformę**  >  **iOS/macOS**.
     - Wprowadź identyfikator pakietu projektu. Jeśli pobrano kod, jest to `com.microsoft.identitysample.MSALiOS` . Jeśli tworzysz własny projekt, wybierz projekt w Xcode i Otwórz kartę **Ogólne** . Identyfikator pakietu zostanie wyświetlony w sekcji **tożsamość** .
-8. Kliknij `Configure` i Zapisz **konfigurację MSAL** , która jest wyświetlana na stronie **Konfiguracja MSAL** , tak aby można ją było wprowadzić podczas późniejszej konfiguracji aplikacji.  Kliknij pozycję **Gotowe**.
+8. Kliknij `Configure` i Zapisz **konfigurację MSAL** , która jest wyświetlana na stronie **Konfiguracja MSAL** , tak aby można ją było wprowadzić podczas późniejszej konfiguracji aplikacji.  Kliknij przycisk **Gotowe**.
 
 ## <a name="add-msal"></a>Dodaj MSAL
 
@@ -149,7 +149,7 @@ var webViewParameters : MSALWebviewParameters?
 var currentAccount: MSALAccount?
 ```
 
-Jedyną wartością, którą należy zmodyfikować powyżej, jest wartość przypisana do `kClientID` tego [identyfikatora aplikacji](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#application-id-client-id). Ta wartość jest częścią danych konfiguracji MSAL, które zostały zapisane w ramach kroku na początku tego samouczka, aby zarejestrować aplikację w Azure Portal.
+Jedyną wartością, którą należy zmodyfikować powyżej, jest wartość przypisana do `kClientID` tego [identyfikatora aplikacji](./developer-glossary.md#application-id-client-id). Ta wartość jest częścią danych konfiguracji MSAL, które zostały zapisane w ramach kroku na początku tego samouczka, aby zarejestrować aplikację w Azure Portal.
 
 ## <a name="configure-xcode-project-settings"></a>Konfigurowanie ustawień projektu Xcode
 
@@ -624,7 +624,7 @@ Aby uzyskać zaktualizowany token w trybie dyskretnym, Dodaj następujący kod d
 
 Gdy masz token, aplikacja może używać go w nagłówku HTTP w celu uzyskania autoryzowanego żądania do Microsoft Graph:
 
-| klucz nagłówka    | wartość                 |
+| klucz nagłówka    | value                 |
 | ------------- | --------------------- |
 | Autoryzacja | Elementu nośnego\<access-token> |
 
@@ -842,4 +842,4 @@ Po zalogowaniu aplikacja będzie wyświetlać dane zwrócone z `/me` punktu koń
 
 ## <a name="get-help"></a>Uzyskaj pomoc
 
-Odwiedź [Pomoc i pomoc techniczną,](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options) Jeśli masz problemy z tym samouczkiem lub platformą tożsamości firmy Microsoft.
+Odwiedź [Pomoc i pomoc techniczną,](./developer-support-help-options.md) Jeśli masz problemy z tym samouczkiem lub platformą tożsamości firmy Microsoft.

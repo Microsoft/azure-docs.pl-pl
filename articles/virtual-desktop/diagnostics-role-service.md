@@ -3,15 +3,15 @@ title: Problemy dotyczące diagnostyki pulpitu wirtualnego systemu Windows — A
 description: Jak zdiagnozować problemy przy użyciu funkcji diagnostyki pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a985ce4f93b04e4065b5189b2a406b54729720c3
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 50fe1eb6e5aed551b56bcd1526daa5d441185501
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005084"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121412"
 ---
 # <a name="identify-and-diagnose-windows-virtual-desktop-issues"></a>Identyfikowanie i diagnozowanie problemów z pulpitem wirtualnym systemu Windows
 
@@ -60,6 +60,14 @@ W poniższej tabeli wymieniono typowe błędy, w których administratorzy mogą 
 |8|ConnectionBroken|Połączenie między klientem a bramą lub serwerem zostało usunięte. Nie trzeba wykonywać żadnych czynności, chyba że wystąpi nieoczekiwany.|
 |14|UnexpectedNetworkDisconnect|Połączenie z siecią zostało usunięte. Poproszenie użytkownika o ponowne nawiązanie połączenia.|
 |24|ReverseConnectFailed|Maszyna wirtualna hosta nie ma bezpośredniego wglądu w szczegółowe informacje z bramą usług pulpitu zdalnego. Upewnij się, że można rozpoznać adres IP bramy.|
+
+## <a name="error-cant-add-user-assignments-to-an-app-group"></a>Błąd: nie można dodać przypisań użytkowników do grupy aplikacji
+
+Po przypisaniu użytkownika do grupy aplikacji Azure Portal zostanie wyświetlone ostrzeżenie informujące o tym, że "kończenie sesji" lub "napotkano problemy z uwierzytelnianiem Microsoft_Azure_WVD". Strona przypisanie nie zostanie załadowana, a następnie strony zatrzymają ładowanie w całej Azure Portal (na przykład Azure Monitor, Log Analytics, Service Health itd.).
+
+**Przyczyna:** Wystąpił problem z zasadami dostępu warunkowego. Azure Portal próbuje uzyskać token dla Microsoft Graph, który jest zależny od usługi SharePoint Online. Klient ma zasady dostępu warunkowego o nazwie "Microsoft Office 365 warunki korzystania z magazynu danych", które wymagają od użytkowników zaakceptowania warunków użytkowania w celu uzyskania dostępu do magazynu danych. Jednak nie zostały jeszcze zalogowane, więc Azure Portal nie może pobrać tokenu.
+
+**Poprawka:** Przed zalogowaniem się do Azure Portal administrator najpierw musi zalogować się do programu SharePoint i zaakceptować warunki użytkowania. Po tym powinny być w stanie zalogować się do Azure Portal jak zwykle.
 
 ## <a name="next-steps"></a>Następne kroki
 

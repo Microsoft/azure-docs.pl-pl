@@ -13,12 +13,12 @@ ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: da697ad6fac5c75faacbfb20b768a4ec96528881
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 0ba348bc9c97ba8be415cac2e5fd7d102d850568
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041463"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117077"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Instrukcje: Dodawanie ról aplikacji do aplikacji i odbieranie ich w tokenie
 
@@ -95,7 +95,7 @@ Można zdefiniować role aplikacji, które mają być docelowe `users` , `applic
 "availableToOtherTenants": false,
 ```
 
-Liczba zdefiniowanych ról wpływa na limity, które ma manifest aplikacji. Zostały one szczegółowo omówione na stronie [limitów manifestu](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) .
+Liczba zdefiniowanych ról wpływa na limity, które ma manifest aplikacji. Zostały one szczegółowo omówione na stronie [limitów manifestu](./reference-app-manifest.md#manifest-limits) .
 
 ### <a name="assign-users-and-groups-to-roles"></a>Przypisywanie użytkowników i grup do ról
 
@@ -128,6 +128,6 @@ Gdy użytkownicy przypisani do różnych ról aplikacji logują się do aplikacj
 - [Dodawanie autoryzacji przy użyciu ról aplikacji & oświadczenia ról do aplikacji sieci Web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
 - [Implementowanie autoryzacji w aplikacjach przy użyciu platformy tożsamości firmy Microsoft (wideo)](https://www.youtube.com/watch?v=LRoc-na27l0)
 - [Azure Active Directory, teraz z oświadczeniami grupy i rolami aplikacji](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
-- [Manifest aplikacji usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
+- [Manifest aplikacji usługi Azure Active Directory](./reference-app-manifest.md)
 - [Tokeny dostępu usługi AAD](access-tokens.md)
 - [AAD`id_tokens`](id-tokens.md)

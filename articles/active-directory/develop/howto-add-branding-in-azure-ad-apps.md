@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: c11bbe4aab064c8c1f32cf273cd3e0b6c2a3ae8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf72a8863976d8a678fbdfb6d369c0423b59acf2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478199"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117298"
 ---
 # <a name="branding-guidelines-for-applications"></a>Wytyczne dotyczące oznaczania aplikacji marką
 
@@ -61,19 +61,19 @@ Aplikacja może mieć różne procedury tworzenia konta i logowania. W poniższy
 
 ## <a name="visual-guidance-for-app-acquisition"></a>Wizualne wskazówki dotyczące pozyskiwania aplikacji
 
-Użycie linku „Pobierz aplikację” musi powodować przekierowanie użytkownika do strony udzielania dostępu (autoryzacji) usługi Azure AD, aby umożliwić administratorowi organizacji autoryzowanie aplikacji na potrzeby dostępu do danych organizacji hostowanych przez firmę Microsoft. Szczegółowe informacje dotyczące żądania dostępu przedstawiono w artykule [Integrating Applications with Azure Active Directory (Integrowanie aplikacji w usłudze Azure Active Directory)](quickstart-v1-integrate-apps-with-azure-ad.md).
+Użycie linku „Pobierz aplikację” musi powodować przekierowanie użytkownika do strony udzielania dostępu (autoryzacji) usługi Azure AD, aby umożliwić administratorowi organizacji autoryzowanie aplikacji na potrzeby dostępu do danych organizacji hostowanych przez firmę Microsoft. Szczegółowe informacje dotyczące żądania dostępu przedstawiono w artykule [Integrating Applications with Azure Active Directory (Integrowanie aplikacji w usłudze Azure Active Directory)](./quickstart-register-app.md).
 
 Po udzieleniu przez administratorów zgody na Twoją aplikację może ona zdecydować się na dodanie jej do środowiska uruchamiania aplikacji Office 365 dla użytkowników (dostępnego w Gofr i z [https://portal.office.com/myapps](https://portal.office.com/myapps) ). Aby informować o tej możliwości, można użyć takich terminów jak „Dodaj tę aplikację do organizacji” i wyświetlić przycisk, jak w poniższym przykładzie:
 
 ![Przycisk pokazujący logo firmy Microsoft i tekst "Dodaj do mojej organizacji"](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
-Jednak zalecamy napisanie tekstu objaśnienia, aby nie trzeba było używać tylko przycisków. Przykład:
+Jednak zalecamy napisanie tekstu objaśnienia, aby nie trzeba było używać tylko przycisków. Na przykład:
 
 > *Jeśli korzystasz już z pakietu Office 365 lub innej usługi biznesowej firmy Microsoft, możesz przyznać <your_app_name> dostęp do danych organizacji. Dzięki temu użytkownicy będą mogli uzyskiwać dostęp do <your_app_name> z istniejącymi kontami służbowymi.*
 
 Aby pobrać oficjalne logo firmy Microsoft do użycia w aplikacji, kliknij prawym przyciskiem myszy logo, którego chcesz użyć, a następnie zapisz je w komputerze.
 
-| Element zawartości                                | Format PNG | Format SVG |
+| Zasób                                | Format PNG | Format SVG |
 | ------------------------------------ | ---------- | ---------- |
 | Logo firmy Microsoft  | ![Logo Microsoft do pobrania w formacie PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Logo Microsoft do pobrania w formacie SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
 
@@ -91,7 +91,7 @@ Na poniższym diagramie pokazano granice zalecane przez firmę Microsoft podczas
 
 Aby pobrać oficjalne obrazy do użycia w aplikacji, kliknij prawym przyciskiem myszy obraz, którego chcesz użyć, a następnie zapisz go w komputerze.
 
-| Element zawartości                                | Format PNG | Format SVG |
+| Zasób                                | Format PNG | Format SVG |
 | ------------------------------------ | ---------- | ---------- |
 | Zaloguj się przy użyciu konta Microsoft (motyw ciemny)  | ![Do pobrania "Zaloguj się przy użyciu konta Microsoft" ciemny motyw przycisku PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | !["Zaloguj się przy użyciu konta Microsoft" — ciemny przycisk formatu SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
 | Zaloguj się przy użyciu konta Microsoft (motyw jasny) | ![Możliwe do pobrania "Zaloguj się przy użyciu konta Microsoft" motyw jasny PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Możliwe do pobrania "Zaloguj się przy użyciu konta Microsoft" motyw jasny SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |

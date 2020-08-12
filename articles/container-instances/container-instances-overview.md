@@ -2,14 +2,14 @@
 title: Kontenery bezserwerowe na platformie Azure
 description: Usługa Azure Container Instances to najszybszy i najprostszy sposób uruchamiania wyizolowanych kontenerów na platformie Azure, bez konieczności zarządzania jakimikolwiek maszynami wirtualnymi ani korzystania z orkiestratora wyższego poziomu.
 ms.topic: overview
-ms.date: 07/28/2020
+ms.date: 08/10/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 2871aabe4d81cfb1441e9c74c8fa24e4e906d3b9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bd68fab380754eca38eebf3fd52634508f282cf6
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498688"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121667"
 ---
 # <a name="what-is-azure-container-instances"></a>Co to jest usługa Azure Container Instances?
 
@@ -35,10 +35,15 @@ Azure Container Instances obsługuje również wykonywanie polecenia w działaj�
 > [!IMPORTANT]
 > Od 13 stycznia 2020, Azure Container Instances będą wymagały wszystkich bezpiecznych połączeń z serwerów i aplikacji do korzystania z protokołu TLS 1,2. Obsługa protokołu TLS 1,0 i 1,1 zostanie wycofana.
 
-## <a name="hypervisor-level-security"></a>Zabezpieczenia na poziomie funkcji hypervisor
+## <a name="compliant-deployments"></a>Zgodne wdrożenia
+
+### <a name="hypervisor-level-security"></a>Zabezpieczenia na poziomie funkcji hypervisor
 
 W przeszłości kontenery oferowały zarządzanie zasobami i izolację zależności aplikacji, ale nie były wystarczająco odporne na użycie wielu obcych dzierżaw. Usługa Azure Container Instances gwarantuje, że aplikacja jest izolowana w kontenerze w takim samym stopniu, w jakim byłaby na maszynie wirtualnej.
 
+### <a name="customer-data"></a>Dane klienta
+
+Usługa ACI przechowuje minimalne dane klienta wymagane do upewnienia się, że grupy kontenerów działają zgodnie z oczekiwaniami. Przechowywanie danych klienta w jednym regionie jest obecnie dostępne tylko w regionie Azja Południowo-Wschodnia (Singapur) Azja i Pacyfik geograficznej. W przypadku wszystkich innych regionów dane klienta są przechowywane w [lokalizacji geograficznej](https://azure.microsoft.com/global-infrastructure/geographies/). Skontaktuj się z pomocą techniczną platformy Azure, aby dowiedzieć się więcej.
 
 ## <a name="custom-sizes"></a>Rozmiary niestandardowe
 

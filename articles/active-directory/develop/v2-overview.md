@@ -12,12 +12,12 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40
-ms.openlocfilehash: 566893a9babc3f771e3198970e0a5ae97592e322
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: e34eeeca3b17087fb5bd43ae353e43b5ab355831
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231679"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119559"
 ---
 # <a name="microsoft-identity-platform-overview"></a>Microsoft Identity platform — Omówienie
 
@@ -43,8 +43,8 @@ Korzystając z platformy tożsamości firmy Microsoft, możesz napisać kod jede
 Wybierz [scenariusz aplikacji](authentication-flows-app-scenarios.md) , który chcesz skompilować. Każda z tych ścieżek scenariusza rozpoczyna się od przeglądu i łączy do przewodnika Szybki Start, aby ułatwić rozpoczęcie pracy:
 
 - [Aplikacja jednostronicowa (SPA)](scenario-spa-overview.md)
-- [Aplikacja internetowa z możliwością logowania użytkowników](scenario-web-app-sign-user-overview.md)
-- [Aplikacja internetowa wywołująca internetowe interfejsy API](scenario-web-app-call-api-overview.md)
+- [Aplikacja internetowa, która loguje użytkowników](scenario-web-app-sign-user-overview.md)
+- [Aplikacja internetowa, która wywołuje internetowe interfejsy API](scenario-web-app-call-api-overview.md)
 - [Chroniony internetowy interfejs API](scenario-protected-web-api-overview.md)
 - [Internetowy interfejs API wywołujący internetowe interfejsy API](scenario-web-api-call-api-overview.md)
 - [Aplikacja klasyczna](scenario-desktop-overview.md)
@@ -59,7 +59,7 @@ Podczas pracy z platformą tożsamości firmy Microsoft w celu integracji uwierz
 
 Dowiedz się, jak uwierzytelnianie podstawowe i pojęcia dotyczące usługi Azure AD dotyczą platformy tożsamości firmy Microsoft w tym zalecanym zestawie artykułów:
 
-- [Podstawowe informacje o uwierzytelnianiu](authentication-scenarios.md)
+- [Podstawowe informacje o uwierzytelnianiu](./authentication-vs-authorization.md)
 - [Nazwy główne aplikacji i usługi](app-objects-and-service-principals.md)
 - [Odbiorców](v2-supported-account-types.md)
 - [Uprawnienia i wyrażanie zgody](v2-permissions-and-consent.md)
@@ -71,7 +71,7 @@ Dowiedz się, jak uwierzytelnianie podstawowe i pojęcia dotyczące usługi Azur
 
 [Azure AD B2C](../../active-directory-b2c/overview.md) — Twórz aplikacje dla klientów, do których użytkownicy mogą logować się przy użyciu kont społecznościowych, takich jak Facebook lub Google, lub przy użyciu adresu e-mail i hasła.
 
-[Usługa Azure AD B2B](../b2b/what-is-b2b.md) — Zapraszanie użytkowników zewnętrznych do dzierżawy usługi Azure AD jako użytkowników "Gość" oraz przypisywanie uprawnień do autoryzacji podczas korzystania z istniejących poświadczeń do uwierzytelniania.
+[Usługa Azure AD B2B](../external-identities/what-is-b2b.md) — Zapraszanie użytkowników zewnętrznych do dzierżawy usługi Azure AD jako użytkowników "Gość" oraz przypisywanie uprawnień do autoryzacji podczas korzystania z istniejących poświadczeń do uwierzytelniania.
 
 > [!TIP]
 > Szukasz dokumentacji *Azure Active Directory Developer platform (v 1.0)* ? Zapoznaj się z [omówieniem Azure Active Directory dla deweloperów (v 1.0)](../azuread-dev/v1-overview.md).

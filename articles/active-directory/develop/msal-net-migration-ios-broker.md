@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: de259daa7fd27cc4f138c294a7f347502ca482a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75b6559117420ad75b79c58b219400690b25b4cb
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77185826"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117876"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migrowanie aplikacji systemu iOS, które używają Microsoft Authenticator z programu ADAL.NET do MSAL.NET
 
@@ -38,7 +38,7 @@ Umożliwiają one:
 
 - Logowanie jednokrotne.
 - Identyfikacja urządzenia, która jest wymagana przez niektóre [zasady dostępu warunkowego](../conditional-access/overview.md). Aby uzyskać więcej informacji, zobacz [Zarządzanie urządzeniami](../conditional-access/concept-conditional-access-conditions.md#device-platforms).
-- Weryfikacja identyfikacji aplikacji, która jest również wymagana w niektórych scenariuszach dla przedsiębiorstw. Aby uzyskać więcej informacji, zobacz [Zarządzanie aplikacjami mobilnymi w usłudze Intune (mam)](https://docs.microsoft.com/intune/mam-faq).
+- Weryfikacja identyfikacji aplikacji, która jest również wymagana w niektórych scenariuszach dla przedsiębiorstw. Aby uzyskać więcej informacji, zobacz [Zarządzanie aplikacjami mobilnymi w usłudze Intune (mam)](/intune/mam-faq).
 
 ## <a name="migrate-from-adal-to-msal"></a>Migrowanie z biblioteki ADAL do MSAL
 
@@ -118,7 +118,7 @@ W programie MSAL.NET należy wykonać dwie czynności, aby ustawić okno obiektu
 1. W `AppDelegate.cs` , ustaw `App.RootViewController` na nowy `UIViewController()` . To przypisanie gwarantuje, że istnieje UIViewController z wywołaniem do brokera. Jeśli nie jest ustawiona poprawnie, może zostać wyświetlony następujący błąd:`"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 1. W wywołaniu AcquireTokenInteractive Użyj `.WithParentActivityOrWindow(App.RootViewController)` i przekaż odwołanie do okna obiektu, którego będziesz używać.
 
-**Przykład:**
+**Na przykład:**
 
 W pliku `App.cs`:
 ```csharp
@@ -151,7 +151,7 @@ ADAL.NET i MSAL.NET używają adresów URL do wywołania brokera i zwrócenia od
 <tr><td>
 Schemat adresu URL jest unikatowy dla Twojej aplikacji.
 </td><td>
-Program 
+Dla zasobu 
 
 `CFBundleURLSchemes`Nazwa musi zawierać 
 
@@ -241,4 +241,4 @@ Aby uzyskać więcej informacji na temat rejestrowania identyfikatora URI przeki
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [zagadnieniach specyficznych dla platformy Xamarin dla systemu iOS z MSAL.NET](msal-net-xamarin-ios-considerations.md). 
+Dowiedz się więcej o [zagadnieniach specyficznych dla platformy Xamarin dla systemu iOS z MSAL.NET](msal-net-xamarin-ios-considerations.md).
