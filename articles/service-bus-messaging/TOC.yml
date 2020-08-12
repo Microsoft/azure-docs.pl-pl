@@ -281,9 +281,9 @@
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=enterprise-integration'
     - name: Blog
-      href: 'https://blogs.msdn.microsoft.com/servicebus/'
+      href: /archive/blogs/servicebus/
     - name: Pytania i odpowiedzi Microsoft — strona pytania
-      href: 'https://docs.microsoft.com/answers/topics/azure-service-bus.html'
+      href: /answers/topics/azure-service-bus.html
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/service-bus/'
     - name: Kalkulator cen

@@ -10,12 +10,12 @@ metadata:
   author: georgewallace
   ms.author: gwallace
   ms.date: 03/08/2020
-  ms.openlocfilehash: daff334cbbe118d6fdbc42a5497313f9671fd7f1
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 9205a47ee0ba3e6e0b328c8f481b15fe593ec5fb
+  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "78944021"
+  ms.lasthandoff: 08/11/2020
+  ms.locfileid: "88080389"
 landingContent:
 - title: Wdrażanie platformy Docker na platformie Azure
   linkLists:
@@ -23,12 +23,12 @@ landingContent:
     links:
     - text: Szablon Szybki start dotyczący wdrażania platformy Docker w systemie Ubuntu
       url: https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/
-- title: Wprowadzenie
+- title: Rozpoczęcie pracy
   linkLists:
   - linkListType: tutorial
     links:
     - text: Uruchamianie aplikacji internetowej Python (Django) z bazą danych PostgreSQL w usłudze Azure App Service
-      url: ../app-service/containers/tutorial-python-postgresql-app.md
+      url: ../app-service/tutorial-python-postgresql-app.md
     - text: Budowanie infrastruktury tworzenia aplikacji na maszynie wirtualnej systemu Linux na platformie Azure przy użyciu usługi Jenkins, GitHub i Docker
       url: ../jenkins/tutorial-jenkins-github-docker-cicd.md
 - title: Zasoby

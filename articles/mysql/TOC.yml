@@ -57,10 +57,10 @@
     - name: 2 — Tworzenie aplikacji internetowej
       items:
         - name: Witryny WordPress w kontenerach z użyciem bazy danych MySQL
-          href: ../app-service/containers/tutorial-multi-container-app.md
+          href: ../app-service/tutorial-multi-container-app.md
           maintainContext: true
         - name: PHP z bazą danych MySQL
-          href: ../app-service/app-service-web-tutorial-php-mysql.md
+          href: ../app-service/tutorial-php-mysql-app.md
           maintainContext: true
 - name: Samples
   items:

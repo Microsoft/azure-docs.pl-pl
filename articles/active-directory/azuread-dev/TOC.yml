@@ -149,7 +149,7 @@
         - name: Publikowanie w galerii aplikacji usługi Azure AD
           href: howto-app-gallery-listing.md
         - name: Publikowanie na pulpicie nawigacyjnym sprzedawcy usługi Office 365
-          href: 'https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store'
+          href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
     - name: Azure Access Control Service
       displayName: ACS
       items:
@@ -160,7 +160,7 @@
     - name: Korzystanie z interfejsu API programu Microsoft Graph
       href: ../develop/microsoft-graph-intro.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: Usługi AD FS dla deweloperów
-      href: 'https://docs.microsoft.com/windows-server/identity/ad-fs/ad-fs-overview'
+      href: /windows-server/identity/ad-fs/ad-fs-overview
 - name: Dokumentacja
   items:
     - name: Biblioteki uwierzytelniania
@@ -192,4 +192,4 @@
       displayName: 'support, help options'
       href: ../develop/developer-support-help-options.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: Tożsamości zarządzane dla zasobów platformy Azure
-      href: 'https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview'
+      href: ../managed-identities-azure-resources/overview.md

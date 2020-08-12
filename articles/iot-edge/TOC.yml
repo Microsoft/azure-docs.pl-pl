@@ -211,8 +211,6 @@
           href: how-to-devops-project.md
         - name: Azure DevOps
           href: how-to-ci-cd.md
-        - name: Wtyczka usługi IoT Edge dla usługi Jenkins
-          href: how-to-devops-plugins.md
     - name: Rozwiązywanie problemów
       items:
         - name: Standardowe kroki diagnostyki

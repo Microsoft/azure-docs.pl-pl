@@ -49,6 +49,8 @@
       items:
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
+    - name: Rezydencja danych
+      href: data-residency.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Konfigurowanie usługi Network Watcher

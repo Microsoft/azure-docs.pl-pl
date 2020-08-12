@@ -6,12 +6,12 @@ metadata:
   title: Dokumentacja usług Microsoft Azure Container Services | Microsoft Docs
   description: Dowiedz się, jak używać usług Azure Container Services do zarządzania aplikacjami kontenera opartymi na chmurze i ich opracowywania.
   ms.topic: hub-page
-  ms.openlocfilehash: 7618bedf711554fbd4428ceb6c88817477b82e6d
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: a7b1480061a1482e5a7980fd89d9d28d89561d31
+  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87031885"
+  ms.lasthandoff: 08/11/2020
+  ms.locfileid: "88080851"
 highlightedContent:
   items:
   - itemType: whats-new
@@ -61,7 +61,7 @@ conceptualContent:
     - url: ../app-service/configure-ssl-bindings.md
       itemType: tutorial
       text: Zabezpieczanie domeny niestandardowej przy użyciu powiązania SSL
-    - url: ../app-service/app-service-web-get-started-windows-container.md
+    - url: ../app-service/quickstart-custom-container.md
       itemType: get-started
       text: Uruchamianie niestandardowego kontenera systemu Windows
     - url: ../app-service/containers/quickstart-docker.md
