@@ -5,14 +5,14 @@ author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 08/06/2020
 ms.author: banders
-ms.openlocfilehash: 9979ced6d5bd71dd1a42d19c222111a76ed18428
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b8e4c4188b0a3b862715a2e4eec2f31dd3f55ac9
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200235"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902069"
 ---
 # <a name="azure-software-plan-discount"></a>Rabat za plan oprogramowania na platformie Azure
 
@@ -97,32 +97,6 @@ Nazwy na platformie Marketplace i w witrynie Azure Portal:
 |SUSE Linux Enterprise Server dla SAP — subskrypcja Priorytetowa — od 1 do 2 procesorów wirtualnych|497fe0b6-fa3c-4e3d-a66b-836097244142|1|D2s_v3|
 |SUSE Linux Enterprise Server dla SAP — subskrypcja Priorytetowa — od 3 do 4 procesorów wirtualnych |847887de-68ce-4adc-8a33-7a3f4133312f|2|D4s_v3|
 |SUSE Linux Enterprise Server dla SAP — subskrypcja Priorytetowa — 5 lub więcej procesorów wirtualnych |18ae79cd-dfce-48c9-897b-ebd3053c6058|2,41176|D8s_v3|
-
-### <a name="suse-linux-enterprise-server-priority"></a>SUSE Linux Enterprise Server — subskrypcja Priorytetowa
-
-Nazwy na platformie Marketplace i w witrynie Azure Portal:
-
-- SLES 15 (subskrypcja Priorytetowa)
-- SLES 12 SP3 (subskrypcja Priorytetowa)
-- SLES 11 SP4 (subskrypcja Priorytetowa)
-
-|Maszyna wirtualna z oprogramowaniem SUSE | Identyfikator miernika | Współczynnik|Przykładowy rozmiar maszyny wirtualnej|
-| ------- |------------------------| --- |--- |
-|SLES — 1 procesor wirtualny|462cd632-ec6b-4663-b79f-39715f4e8b38|1|B1MS|
-|SLES — od 2 do 4 procesorów wirtualnych |924bee71-5eb8-424f-83ed-a58823c33908|2|D4s_v3|
-|SLES — od 2 do 4 procesorów wirtualnych |60b3ae9d-e77a-46b2-9cdf-92fa87407969|2|D4s_v3|
-|SLES — 6 procesorów wirtualnych |e8862232-6131-4dbe-bde4-e2ae383afc6f|3||
-|SLES — 8 procesorów wirtualnych |e11331a8-fd32-4e71-b60e-4de2a818c67a|3,2|D8s_v3|
-|SLES — 12 rdzeni procesorów wirtualnych |a5afd00d-d3ef-4bcd-8b42-f158b2799782|3,2||
-|SLES — 16 procesorów wirtualnych |bb21066f-fe46-46d3-8006-b326b1663e52|3,2| D16s_v3|
-|SLES — 20 procesorów wirtualnych |c5228804-1de6-4bd4-a61c-501d9003acc8|3,2| |
-|SLES — 24 rdzenie procesorów wirtualnych |-005d-4075-ac11-822ccde9e8f6|3,2| ND24s|
-|SLES — 32 procesory wirtualne |180c1a0a-b0a5-4de3-a032-f92925a4bf90|3,2| D32s_v3|
-|SLES — 40 rdzeni procesorów wirtualnych |a161d3d3-0592-4956-9b64-6829678b6506|3,2||
-|SLES — 64 procesory wirtualne |7f5a36ed-d5b5-4732-b6bb-837dbf0fb9d8|3,2| D64s_v3|
-|SLES — 72 rdzenie procesorów wirtualnych |93329a72-24d7-4faa-93d9-203f367ed334|3,2|F72s_v2|
-|SLES — 96 rdzeni procesorów wirtualnych |2018c3a8-ff13-41f8-b64d-9558c5206547|3,2||
-|SLES — 128 rdzeni procesorów wirtualnych |ac27e4d7-44b5-4fee-bc1a-78ac5b4abaf7|3,2| M128ms|
 
 ### <a name="suse-linux-enterprise-server-standard"></a>SUSE Linux Enterprise Server — subskrypcja Standardowa
 
