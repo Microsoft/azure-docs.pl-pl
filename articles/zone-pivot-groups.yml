@@ -512,10 +512,26 @@ groups:
     title: Zestaw SDK dla języka Python
   - id: cli
     title: Interfejs wiersza polecenia platformy Azure
+- id: speech-full-stack
+  title: Języki programowania
+  prompt: Wybierz język programowania
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-spx
+    title: Interfejs wiersza polecenia
 metadata:
-  ms.openlocfilehash: ea0c191d392c23aa876f794b092fc8b019c44fa7
-  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+  ms.openlocfilehash: 4b45a1cd0fb06c37d79b629fd57329ea937694b8
+  ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 08/11/2020
-  ms.locfileid: "88079794"
+  ms.lasthandoff: 08/13/2020
+  ms.locfileid: "88167525"

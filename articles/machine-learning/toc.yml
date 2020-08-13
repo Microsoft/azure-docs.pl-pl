@@ -161,8 +161,11 @@
             - name: Zarządzanie użytkownikami i rolami
               href: how-to-assign-roles.md
             - name: Używanie sieci wirtualnych
-              displayName: 'vnet, blob, private endpoint, private link'
+              displayName: 'vnet, blob'
               href: how-to-enable-virtual-network.md
+            - name: Używanie linku prywatnego
+              displayName: private endpoint
+              href: how-to-configure-private-link.md
             - name: Zabezpieczanie usług internetowych przy użyciu protokołu TLS
               displayName: ssl
               href: how-to-secure-web-service.md

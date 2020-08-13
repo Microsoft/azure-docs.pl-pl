@@ -935,6 +935,10 @@
               href: app/sharepoint.md
             - name: Pulpit systemu Windows
               href: app/windows-desktop.md
+        - name: Inne narzędzia
+          items:
+            - name: Analiza zmian
+              href: app/change-analysis.md
     - name: Usługa Azure Monitor dla maszyn wirtualnych
       items:
         - name: Omówienie
@@ -1062,10 +1066,6 @@
           href: insights/resource-group-insights.md
         - name: Rozwiązywanie problemów z analizami
           href: insights/troubleshoot-workbooks.md
-    - name: Analiza zmian
-      items:
-        - name: Analiza zmian
-          href: app/change-analysis.md
     - name: Rozwiązania
       items:
         - name: Omówienie

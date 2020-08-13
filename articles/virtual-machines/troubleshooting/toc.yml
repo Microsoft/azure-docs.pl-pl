@@ -56,7 +56,7 @@
     - name: Proces uruchamiania maszyny wirtualnej zablokował się
       href: troubleshoot-vm-boot-configure-update.md
     - name: Stany i cykl życia maszyny wirtualnej
-      href: ../windows/states-lifecycle.md
+      href: ../states-lifecycle.md
 - name: Maszyna wirtualna nie uruchamia się
   items:
     - name: Linux
