@@ -8,12 +8,12 @@ ms.service: mysql
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
-ms.openlocfilehash: 2ff389f52da0db4e394e8f6a6c37955a5f0c3861
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1087f4965145df62c1c7138e7aa7072d09c655ca
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "64691376"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077105"
 ---
 # <a name="azure-database-for-mysql-documentation"></a>Dokumentacja usługi Azure Database dla MySQL
 
@@ -23,7 +23,7 @@ Usługa Azure Database dla MySQL jest usługą relacyjnej bazy danych opartą na
 
 Dowiedz się, jak utworzyć bazę danych MySQL Database on Azure przy użyciu następujących elementów:
 
-- [Azure Portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal)
+- [Witryna Azure Portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal)
 - [Interfejs wiersza polecenia platformy Azure](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
 
 ## <a name="step-by-step-tutorials"></a>Samouczki krok po kroku
@@ -31,9 +31,9 @@ Dowiedz się, jak utworzyć bazę danych MySQL Database on Azure przy użyciu na
 Dowiedz się, jak zaprojektować bazę danych i programować aplikacje:
 
 - Projektowanie bazy danych: [Azure Portal](/azure/mysql/tutorial-design-database-using-portal) |  [Interfejs wiersza polecenia platformy Azure](/azure/mysql/tutorial-design-database-using-cli)
-- Tworzenie aplikacji internetowej: [Wordpress — Portal](https://portal.azure.com/#create/WordPress.WordPress) |  [PHP — interfejs wiersza polecenia platformy Azure](/azure/app-service/app-service-web-tutorial-php-mysql?toc=%2fazure%2fmysql%2ftoc.json)
+- Tworzenie aplikacji internetowej: [Wordpress — Portal](https://portal.azure.com/#create/WordPress.WordPress) |  [PHP — interfejs wiersza polecenia platformy Azure](/azure/app-service/tutorial-php-mysql-app?toc=%2fazure%2fmysql%2ftoc.json)
 
-## <a name="samples"></a>Przykłady 
+## <a name="samples"></a>Samples 
 
 Znajdowanie skryptów umożliwiających zarządzanie typowymi zadaniami.
 

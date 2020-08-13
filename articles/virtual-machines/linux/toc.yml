@@ -258,6 +258,8 @@
               href: ../ncv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Seria NCv3
               href: ../ncv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Seria NCasT4_v3
+              href: ../nct4-v3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Seria ND
               href: ../nd-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Seria NDv2
@@ -494,8 +496,6 @@
                       href: ../image-version-another-gallery-cli.md
                 - name: Tworzenie maszyny wirtualnej
                   items:
-                    - name: Wyspecjalizowany
-                      href: ../vm-specialized-image-version-cli.md
                     - name: Uogólniony
                       href: ../vm-generalized-image-version-cli.md
                 - name: Aktualizowanie zasobów obrazów
@@ -547,8 +547,20 @@
               href: ../image-version-encryption.md
         - name: Konstruktor obrazów (wersja zapoznawcza)
           items:
+            - name: Omówienie
+              href: image-builder-overview.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: image-builder.md
+            - name: Tworzenie maszyny wirtualnej przy użyciu sieci wirtualnej — interfejs wiersza polecenia
+              href: image-builder-vnet.md
+            - name: Konfigurowanie uprawnień — interfejs wiersza polecenia
+              href: image-builder-permissions-cli.md
+            - name: Konfigurowanie uprawnień — PowerShell
+              href: image-builder-permissions-powershell.md
+            - name: Opcje sieci
+              href: image-builder-networking.md
+            - name: Zadanie metodyki DevOps
+              href: image-builder-devops-task.md
             - name: Dokumentacja szablonu usługi Resource Manager
               displayName: 'ARM,Resource Manager'
               href: image-builder-json.md
@@ -557,7 +569,7 @@
             - name: Aktualizowanie istniejącego obrazu
               href: image-builder-gallery-update-image-version.md
             - name: Rozwiązywanie problemów
-              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
+              href: image-builder-troubleshoot.md
         - name: Znajdowanie obrazów i korzystanie z nich
           href: cli-ps-findimage.md
         - name: Informacje o planie zakupu

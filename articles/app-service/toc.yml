@@ -4,8 +4,6 @@
   items:
     - name: Informacje o usłudze Web Apps
       href: overview.md
-    - name: Informacje o usłudze App Service w systemie Linux
-      href: containers/app-service-linux-intro.md
     - name: Informacje o środowiskach usługi App Service
       href: environment/intro.md
     - name: Porównanie opcji hostingu
@@ -13,34 +11,50 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Tworzenie aplikacji .NET Core
-      href: app-service-web-get-started-dotnet.md
-    - name: Tworzenie aplikacji .NET Framework
-      href: app-service-web-get-started-dotnet-framework.md
-    - name: Tworzenie aplikacji Node.js
-      href: app-service-web-get-started-nodejs.md
-    - name: Tworzenie aplikacji PHP
-      href: app-service-web-get-started-php.md
-    - name: Tworzenie aplikacji Java
-      href: app-service-web-get-started-java.md
-    - name: Tworzenie statycznej witryny HTML
-      href: app-service-web-get-started-html.md
-    - name: Uruchamianie kontenera systemu Windows
-      href: app-service-web-get-started-windows-container.md
+    - name: .NET Core
+      href: quickstart-dotnetcore.md
+    - name: .NET Framework
+      href: quickstart-dotnet-framework.md
+    - name: Node.js
+      href: quickstart-nodejs.md
+    - name: PHP
+      href: quickstart-php.md
+    - name: Java
+      href: quickstart-java.md
+    - name: Python
+      href: quickstart-python.md
+    - name: Ruby
+      href: quickstart-ruby.md
+    - name: Statyczna witryna HTML
+      href: quickstart-html.md
+    - name: Kontener niestandardowy
+      href: quickstart-custom-container.md
+    - name: Aplikacja z wieloma kontenerami
+      href: quickstart-multi-container.md
 - name: Samouczki
   items:
     - name: Aplikacja z bazą danych
       items:
         - name: .NET Core z bazą danych SQL DB
-          href: app-service-web-tutorial-dotnetcore-sqldb.md
+          href: tutorial-dotnetcore-sqldb-app.md
         - name: .NET Framework z bazą danych SQL DB
           href: app-service-web-tutorial-dotnet-sqldatabase.md
         - name: PHP z bazą danych MySQL
-          href: app-service-web-tutorial-php-mysql.md
+          href: tutorial-php-mysql-app.md
         - name: Środowisko Node.js z bazą danych MongoDB
-          href: app-service-web-tutorial-nodejs-mongodb-app.md
-    - name: Dostosowywanie systemu Windows (kontener)
-      href: app-service-web-tutorial-windows-containers-custom-fonts.md
+          href: tutorial-nodejs-mongodb-app.md
+        - name: Ruby z bazą danych Postgres
+          href: tutorial-ruby-postgres-app.md
+        - name: Język Python z bazą danych Postgres
+          href: tutorial-python-postgresql-app.md
+        - name: Język Java z rozwiązaniem Spring Data
+          href: tutorial-java-spring-cosmosdb.md
+    - name: Kontenery niestandardowe
+      items:
+        - name: Wdrażanie z usługi ACR
+          href: tutorial-custom-container.md
+        - name: Aplikacja z wieloma kontenerami
+          href: tutorial-multi-container-app.md
     - name: Bezpieczne uzyskiwanie dostępu do bazy danych SQL
       href: app-service-web-tutorial-connect-msi.md
     - name: Hostowanie interfejsu API RESTful
@@ -52,9 +66,11 @@
     - name: Dodawanie usługi CDN
       href: ../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fcdn%2ftoc.json
     - name: Uwierzytelnianie użytkowników
-      href: app-service-web-tutorial-auth-aad.md
+      href: tutorial-auth-aad.md
     - name: Wyślij wiadomość e-mail/tweet
       href: tutorial-send-email.md
+    - name: Rozwiązywanie problemów
+      href: tutorial-troubleshoot-monitor.md
 - name: Samples
   items:
     - name: Interfejs wiersza polecenia platformy Azure
@@ -125,8 +141,14 @@
           href: configure-language-nodejs.md
         - name: Konfigurowanie języka PHP
           href: configure-language-php.md
+        - name: Konfigurowanie języka Python
+          href: configure-language-python.md
         - name: Konfigurowanie środowiska Java
           href: configure-language-java.md
+        - name: Konfigurowanie języka Ruby
+          href: configure-language-ruby.md
+        - name: Konfigurowanie niestandardowego kontenera systemu Linux
+          href: configure-custom-container.md
         - name: Nawiązywanie połączenia z zasobami lokalnymi
           href: web-sites-integrate-with-vnet.md
         - name: Konfigurowanie usługi Azure Storage (kontenera)
@@ -145,10 +167,14 @@
               href: deploy-content-sync.md
             - name: Ciągłe wdrażanie
               href: deploy-continuous-deployment.md
+            - name: Ciągła integracja/ciągłe wdrażanie niestandardowych kontenerów
+              href: deploy-ci-cd-custom-container.md
             - name: Wdrażanie z lokalnego wdrożenia narzędzia Git
               href: deploy-local-git.md
-            - name: Wdrażanie przy użyciu akcji GitHub
+            - name: Akcja usługi GitHub
               href: deploy-github-actions.md
+            - name: Akcja usługi GitHub dla kontenerów
+              href: deploy-container-github-action.md
             - name: Wdrażanie za pomocą szablonu
               href: deploy-complex-application-predictably.md
         - name: Konfigurowanie poświadczeń wdrożenia
@@ -215,6 +241,8 @@
           href: troubleshoot-diagnostic-logs.md
         - name: Pobieranie zdarzeń dotyczących zasobów
           href: get-resource-events.md
+        - name: Otwieranie sesji SSH w kontenerze systemu Linux
+          href: configure-linux-open-ssh-session.md
     - name: Zarządzanie aplikacją
       items:
         - name: Zarządzanie planem hostingu

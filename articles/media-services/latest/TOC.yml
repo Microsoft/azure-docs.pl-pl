@@ -290,12 +290,16 @@
                   href: customize-encoder-presets-how-to.md
                 - name: Tworzenie przekształcenia nakładki
                   href: how-to-create-overlay.md
+                - name: Generowanie miniatur za pomocą platformy .NET
+                  href: media-services-generate-thumbnails-dotnet.md
             - name: Przy użyciu interfejsu wiersza polecenia
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-cli-howto.md
             - name: Przy użyciu architektury REST
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-rest-howto.md
+            - name: Generowanie miniatur za pomocą platformy architektury REST
+              href: media-services-generate-thumbnails-rest.md
         - name: Tworzenie podrzędnego klipu wideo
           items:
             - name: Przy użyciu platformy .NET

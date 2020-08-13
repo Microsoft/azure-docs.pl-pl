@@ -8,29 +8,29 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: bc013469610d5535c89870947fe094da93660012
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: abd322ce7f89be70cb7caf52b3155ba4be904ac9
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73488431"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080253"
 ---
 # <a name="app-service-documentation"></a>Dokumentacja usługi App Service
 Usługa Azure App Service umożliwia tworzenie i hostowanie aplikacji internetowych w wybranym języku programowania bez zarządzania infrastrukturą, językiem i środowiskiem uruchomieniowym platformy internetowej. Oferuje automatyczne skalowanie i wysoką dostępność, obsługuje systemy Windows i Linux, a także umożliwia używanie wdrożeń zautomatyzowanych z usług GitHub i Azure DevOps Services oraz dowolnych repozytoriów Git. Dowiedz się, jak używać usługi Azure App Service, korzystając z przewodników Szybki start, samouczków i przykładów.
 
 ## <a name="windows-linux-and-docker"></a>Windows, Linux i Docker
-[Web Apps](/app-service/overview) to główna oferta usługi App Service, która służy do tworzenia i hostowania aplikacji internetowych przy użyciu środowisk Windows. Deweloperzy, którzy wolą środowisko Linux, mogą wybrać usługę [App Service for Linux](/app-service/containers/app-service-linux-intro). Deweloperzy mogą także wdrażać obrazy usługi Docker bezpośrednio w usłudze App Service for Linux, aby wdrażać niestandardowe środowiska uruchomieniowego/platformy.
+[Web Apps](/app-service/overview) to główna oferta usługi App Service, która służy do tworzenia i hostowania aplikacji internetowych przy użyciu środowisk Windows. Deweloperzy, którzy wolą środowisko Linux, mogą wybrać usługę [App Service for Linux](/app-service/overview#app-service-on-linux). Deweloperzy mogą także wdrażać obrazy usługi Docker bezpośrednio w usłudze App Service for Linux, aby wdrażać niestandardowe środowiska uruchomieniowego/platformy.
 
 ## <a name="5-minute-quickstarts"></a>5-minutowe przewodniki Szybki start
 
 Dowiedz się, jak wdrożyć pierwszą aplikację w chmurze za pomocą usługi App Service for Web Apps:
 
-- [.NET](/azure/app-service/app-service-web-get-started-dotnet)
-- [Node.js](/azure/app-service/app-service-web-get-started-nodejs)
-- [PHP](/azure/app-service/app-service-web-get-started-php)
-- [Java](/azure/app-service/app-service-web-get-started-java)
-- [Python](/azure/app-service/containers/quickstart-python)
-- [HTML](/azure/app-service/app-service-web-get-started-html)
+- [.NET](/azure/app-service/quickstart-dotnetcore)
+- [Node.js](/azure/app-service/quickstart-nodejs)
+- [PHP](/azure/app-service/quickstart-php)
+- [Java](/azure/app-service/quickstart-java)
+- [Python](/azure/app-service/quickstart-python)
+- [HTML](/azure/app-service/quickstart-html)
 
 ## <a name="step-by-step-tutorials"></a>Samouczki krok po kroku
 
@@ -38,9 +38,9 @@ Dowiedz się, jak wdrażać i monitorować bezpiecznie aplikacje internetowe na 
 
 - Tworzenie aplikacji za pomocą:
   - [.NET z Azure SQL DB](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
-  - [Środowisko Node.js z bazą danych MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
+  - [Środowisko Node.js z bazą danych MongoDB](/azure/app-service/tutorial-nodejs-mongodb-app)
   - [Java z bazą danych MySQL](/app-service/app-service-web-tutorial-java-mysql)
-  - [Python z PostgreSQL](/app-service/containers/tutorial-python-postgresql-app)
+  - [Python z bazą danych PostgreSQL](/app-service/tutorial-python-postgresql-app)
 - [Mapowanie istniejącej domeny niestandardowej na aplikację](/azure/app-service/app-service-web-tutorial-custom-domain)
 - [Wiązanie istniejącego certyfikatu SSL z aplikacją](/azure/app-service/configure-ssl-bindings)
 
@@ -49,7 +49,7 @@ Dowiedz się, jak wdrażać i monitorować bezpiecznie aplikacje internetowe na 
 - [Programowanie przy użyciu platformy .NET](https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02)
 - [Programowanie przy użyciu platformy Node.js](https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02)
 
-## <a name="samples"></a>Przykłady
+## <a name="samples"></a>Samples
 
 Znajdowanie skryptów umożliwiających zarządzanie typowymi zadaniami.
 

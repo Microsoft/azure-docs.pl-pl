@@ -31,6 +31,8 @@
       href: quickstart-create-security-twin.md
     - name: Tworzenie niestandardowych alertów zabezpieczeń
       href: quickstart-create-custom-alerts.md
+    - name: Badanie alertów zabezpieczeń
+      href: quickstart-investigate-security-alerts.md
 - name: Pojęcia
   items:
     - name: Uwierzytelnianie agenta zabezpieczeń
