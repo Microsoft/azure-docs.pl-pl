@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2020
+ms.date: 08/11/2020
 ms.author: allensu
-ms.openlocfilehash: 983a3e04921bb3d8e804430948013a1b51802727
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f6e0009a1e1df57298884097cac076ef3a344714
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424072"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135831"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Projektowanie sieci wirtualnych z użyciem zasobów bramy translatora adresów sieciowych
 
@@ -137,7 +137,7 @@ Internetowy scenariusz tylko dla ruchu wychodzącego udostępniony przez bramę 
 | Kierunek | Zasób |
 |:---:|:---:|
 | Inbound | Maszyna wirtualna z publicznym adresem IP na poziomie wystąpienia |
-| Wychodzący | Brama translatora adresów sieciowych |
+| Outbound | Brama translatora adresów sieciowych |
 
 Maszyna wirtualna będzie używać bramy translatora adresów sieciowych dla ruchu wychodzącego.  Nie ma to żadnego oddziaływania na przychodzące.
 
@@ -152,7 +152,7 @@ Maszyna wirtualna będzie używać bramy translatora adresów sieciowych dla ruc
 | Kierunek | Zasób |
 |:---:|:---:|
 | Inbound | Load Balancer publiczny |
-| Wychodzący | Brama translatora adresów sieciowych |
+| Outbound | Brama translatora adresów sieciowych |
 
 Każda konfiguracja wychodząca z reguły równoważenia obciążenia lub reguł wychodzących jest zastępowana przez bramę translatora adresów sieciowych.  Nie ma to żadnego oddziaływania na przychodzące.
 
@@ -167,7 +167,7 @@ Każda konfiguracja wychodząca z reguły równoważenia obciążenia lub reguł
 | Kierunek | Zasób |
 |:---:|:---:|
 | Inbound | Maszyna wirtualna z publicznym adresem IP na poziomie wystąpienia i publicznym Load Balancer |
-| Wychodzący | Brama translatora adresów sieciowych |
+| Outbound | Brama translatora adresów sieciowych |
 
 Każda konfiguracja wychodząca z reguły równoważenia obciążenia lub reguł wychodzących jest zastępowana przez bramę translatora adresów sieciowych.  Maszyna wirtualna będzie również używać bramy translatora adresów sieciowych dla ruchu wychodzącego.  Nie ma to żadnego oddziaływania na przychodzące.
 
@@ -322,7 +322,6 @@ Port dla tego elementu jest dostępny do ponownego użycia w tym samym docelowym
 
 - Translator adresów sieciowych jest zgodny z publicznym adresem IP jednostki SKU, publicznym prefiksem adresu IP i zasobami modułu równoważenia obciążenia.   Zasoby podstawowe (na przykład podstawowa usługa równoważenia obciążenia) i wszelkie produkty pochodzące z nich nie są zgodne z translatorem adresów sieciowych.  Zasoby podstawowe muszą być umieszczone w podsieci, która nie jest skonfigurowana przy użyciu translatora adresów sieciowych.
 - Rodzina adresów IPv4 jest obsługiwana.  Translator adresów sieciowych nie współdziała z rodziną adresów IPv6.  Nie można wdrożyć translatora adresów sieciowych w podsieci z prefiksem IPv6.
-- Rejestrowanie przepływu sieciowej grupy zabezpieczeń nie jest obsługiwane w przypadku korzystania z translatora adresów sieciowych.
 - Translator adresów sieciowych nie może obejmować wielu sieci wirtualnych.
 
 ## <a name="suggestions"></a>Sugestie
@@ -346,7 +345,7 @@ Chcemy wiedzieć, jak możemy ulepszyć usługę. Brak możliwości? Zapoznaj si
 * Informacje o interfejsie API zasobów bramy translatora adresów sieciowych
   - [Interfejs API REST](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
   - [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
-  - [Program PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
+  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
 * Dowiedz się więcej o [strefach dostępności](../availability-zones/az-overview.md).
 * Dowiedz się więcej na temat usługi [równoważenia obciążenia w warstwie Standardowa](../load-balancer/load-balancer-standard-overview.md).
 * Dowiedz się więcej na temat [stref dostępności i standardowego modułu równoważenia obciążenia](../load-balancer/load-balancer-standard-availability-zones.md).

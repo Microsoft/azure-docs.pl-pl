@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: 4ff80330ab6244bc9d108b7f5a1d4e4e0dbd4feb
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 6e03b8f89ec22b74ad7dd14d9225c11fde78ec7f
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387408"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135627"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>Szybki Start: Tworzenie Azure Database for PostgreSQL-Citus w Azure Portal
 
@@ -115,7 +115,7 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-Dotychczas zapytania dotyczyły wyłącznie wydarzeń usługi GitHub \_ , ale możemy połączyć te informacje z użytkownikami usługi GitHub \_ . Ze względu na to, że podzielonej na fragmenty zarówno użytkowników, jak i zdarzenia w tym samym identyfikatorze ( `user_id` ), wiersze obu tabel ze zgodnymi identyfikatorami użytkowników będą [współzlokalizowane](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) w tych samych węzłach bazy danych i można je łatwo dołączyć.
+Dotychczas zapytania dotyczyły wyłącznie wydarzeń usługi GitHub \_ , ale możemy połączyć te informacje z użytkownikami usługi GitHub \_ . Ze względu na to, że podzielonej na fragmenty zarówno użytkowników, jak i zdarzenia w tym samym identyfikatorze ( `user_id` ), wiersze obu tabel ze zgodnymi identyfikatorami użytkowników będą [współzlokalizowane](concepts-hyperscale-colocation.md) w tych samych węzłach bazy danych i można je łatwo dołączyć.
 
 Jeśli dołączymy `user_id` się, funkcja skalowania może wypchnąć wykonywanie sprzężenia do fragmentów w celu wykonania równolegle w węzłach procesu roboczego. Załóżmy na przykład, że użytkownicy, którzy utworzyli największą liczbę repozytoriów:
 
@@ -130,7 +130,7 @@ SELECT gu.login, count(*)
  ORDER BY count(*) DESC;
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W poprzednich krokach zostały utworzone zasoby platformy Azure w grupie serwerów. Jeśli nie chcesz potrzebować tych zasobów w przyszłości, Usuń grupę serwerów. Naciśnij przycisk **Usuń** na stronie **Przegląd** dla swojej grupy serwerów. Po wyświetleniu monitu na stronie podręcznej Potwierdź nazwę grupy serwerów, a następnie kliknij przycisk **Usuń** końcowego.
 

@@ -12,21 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 8/11/2020
 ms.author: b-juche
-ms.openlocfilehash: 61e8c56e75e82bc28ddb2abf231d9a5e919691b0
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f4cc253de0de9d099cfc4881f48182cf9b2a1616
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535489"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88134585"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu Dual-Protocol (NFSv3 i SMB) dla Azure NetApp Files
 
 Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików NFS (NFSv3 i NFSv 4.1), SMBv3 lub Dual Protocol. W tym artykule opisano sposób tworzenia woluminu korzystającego z dwóch protokołów NFSv3 i SMB z obsługą mapowania użytkowników LDAP.  
 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem 
+## <a name="before-you-begin"></a>Zanim rozpoczniesz 
 
 * Potrzebujesz skonfigurowanej puli pojemności.  
     Zobacz [Konfigurowanie puli pojemności](azure-netapp-files-set-up-capacity-pool.md).   
@@ -36,9 +36,10 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 
 * Upewnij się, że spełniasz [wymagania dotyczące Active Directory połączeń](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
+* Utwórz strefę wyszukiwania wstecznego na serwerze DNS, a następnie Dodaj rekord wskaźnika (PTR) maszyny hosta usługi AD do tej strefy wyszukiwania wstecznego. W przeciwnym razie tworzenie dwuprotokołowego woluminu nie powiedzie się.
 * Upewnij się, że klient NFS jest aktualny i uruchomiono najnowsze aktualizacje dla systemu operacyjnego.
 
-## <a name="create-a-dual-protocol-volume"></a>Tworzenie dwuprotokołowego woluminu
+## <a name="create-a-dual-protocol-volume"></a>Tworzenie woluminu dwuprotokołowego
 
 1.  Kliknij blok **woluminy** w bloku pule pojemności. Kliknij pozycję **+ Dodaj wolumin**, aby utworzyć wolumin. 
 
@@ -138,4 +139,4 @@ Postępuj zgodnie z instrukcjami w temacie [Konfigurowanie klienta NFS dla Azure
 ## <a name="next-steps"></a>Następne kroki  
 
 * [Dwa często zadawane pytania dotyczące protokołu](azure-netapp-files-faqs.md#dual-protocol-faqs)
-* [Konfigurowanie klienta NFS dla Azure NetApp Files](configure-nfs-clients.md) 
+* [Konfigurowanie klienta sieciowego systemu plików dla usługi Azure NetApp Files](configure-nfs-clients.md) 

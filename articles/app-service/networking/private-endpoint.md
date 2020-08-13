@@ -4,17 +4,17 @@ description: Połącz się prywatnie z aplikacją internetową przy użyciu pryw
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 4fab75aef2a94ba7108085e9d5b5dbbf190342f6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 773e63cb5eb2a9825975402f65439acd6ad192ae
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068295"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135389"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Używanie prywatnych punktów końcowych dla usługi Azure Web App (wersja zapoznawcza)
 
@@ -128,6 +128,8 @@ Regularnie udoskonalamy funkcję prywatnego linku i prywatnego punktu końcowego
 - Aby wdrożyć prywatny punkt końcowy dla aplikacji sieci Web przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [jak połączyć się prywatnie z aplikacją internetową przy użyciu interfejsu wiersza polecenia platformy Azure][howtoguide2]
 - Aby wdrożyć prywatny punkt końcowy dla aplikacji sieci Web przy użyciu programu PowerShell, zobacz [jak połączyć się prywatnie z aplikacją sieci Web za pomocą programu PowerShell][howtoguide3]
 - Aby wdrożyć prywatny punkt końcowy dla aplikacji sieci Web przy użyciu szablonu platformy Azure, zobacz [jak połączyć się prywatnie z aplikacją internetową przy użyciu szablonu platformy Azure][howtoguide4]
+- Przykład kompleksowego sposobu łączenia aplikacji sieci Web frontonu z zabezpieczoną aplikacją sieci Web zaplecza przy użyciu iniekcji wirtualnej i prywatnego punktu końcowego z szablonem ARM, zobacz ten [Przewodnik Szybki Start][howtoguide5]
+- Przykład kompleksowego sposobu łączenia aplikacji sieci Web frontonu z zabezpieczoną aplikacją sieci Web zaplecza przy użyciu iniekcji wirtualnej i prywatnego punktu końcowego z Terraform, zobacz ten [przykład][howtoguide6]
 
 
 <!--Links-->
@@ -144,3 +146,5 @@ Regularnie udoskonalamy funkcję prywatnego linku i prywatnego punktu końcowego
 [howtoguide2]: https://docs.microsoft.com/azure/app-service/scripts/cli-deploy-privateendpoint
 [howtoguide3]: https://docs.microsoft.com/azure/app-service/scripts/powershell-deploy-private-endpoint
 [howtoguide4]: https://docs.microsoft.com/azure/app-service/scripts/template-deploy-private-endpoint
+[howtoguide5]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-privateendpoint-vnet-injection
+[howtoguide6]: https://docs.microsoft.com/azure/app-service/scripts/terraform-secure-backend-frontend

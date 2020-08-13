@@ -3,15 +3,15 @@ title: Rozwiązywanie problemów z klientem Pulpit zdalny Windows Virtual Deskto
 description: Jak rozwiązywać problemy podczas konfigurowania połączeń klienta w środowisku dzierżawy pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 03/31/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6ac2eb2632ad96538e965e4d1057d7e4a116c05d
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: d1862e2e0dd9b1e566c6ee5d01a09213a0be4f8e
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009396"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88134483"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Rozwiązywanie problemów z klientem Pulpit zdalny
 
@@ -41,13 +41,13 @@ nslookup rdweb.wvd.microsoft.com
 
 Spróbuj nawiązać połączenie z innym klientem, takim jak Pulpit zdalny Client dla systemu Windows 7 lub Windows 10, i sprawdź, czy można otworzyć klienta sieci Web.
 
-### <a name="opening-another-site-fails"></a>Otwieranie innej lokacji nie powiodło się
+### <a name="cant-open-other-websites-while-connected-to-the-web-client"></a>Nie można otworzyć innych witryn sieci Web podczas połączenia z klientem sieci Web
 
-Jest to zazwyczaj spowodowane przez problemy z połączeniem sieciowym lub awarią sieci. Zalecamy skontaktowanie się z pomocą techniczną.
+Jeśli nie można otworzyć innych witryn sieci Web, gdy nastąpi połączenie z klientem internetowym, mogą występować problemy z połączeniem sieciowym lub awaria sieci. Zalecamy skontaktowanie się z pomocą techniczną.
 
-### <a name="nslookup-cannot-resolve-the-name"></a>Narzędzie Nslookup nie może rozpoznać nazwy
+### <a name="nslookup-cant-resolve-the-name"></a>Narzędzie Nslookup nie może rozpoznać nazwy
 
-Jest to zazwyczaj spowodowane przez problemy z połączeniem sieciowym lub awarią sieci. Zalecamy skontaktowanie się z pomocą techniczną.
+Jeśli Narzędzie Nslookup nie może rozpoznać nazwy, mogą występować problemy z połączeniem sieciowym lub awaria sieci. Zalecamy skontaktowanie się z pomocą techniczną.
 
 ### <a name="your-client-cant-connect-but-other-clients-on-your-network-can-connect"></a>Klient nie może nawiązać połączenia, ale może nawiązać połączenie z innymi klientami w sieci
 
@@ -58,11 +58,13 @@ Jeśli przeglądarka zacznie działać lub kończy pracę w trakcie korzystania 
 3. Wyczyść pamięć podręczną przeglądarki. Zobacz [Wyczyść pamięć podręczną przeglądarki w przeglądarce](https://binged.it/2RKyfdU).
 4. Otwórz przeglądarkę w trybie prywatnym.
 
-## <a name="web-client-does-not-show-my-resources"></a>Klient sieci Web nie pokazuje moich zasobów
+## <a name="client-doesnt-show-my-resources"></a>Klient nie pokazuje moich zasobów
 
-Najpierw sprawdź konto Azure Active Directory, którego używasz. Jeśli zalogowano się już przy użyciu innego konta Azure Active Directory niż te, które mają być używane dla pulpitu wirtualnego systemu Windows, należy podpisać nasze konto lub użyć prywatnego okna przeglądarki.
+Najpierw sprawdź konto Azure Active Directory, którego używasz. Jeśli zalogowano się już przy użyciu innego konta Azure Active Directory niż ten, który ma być używany dla pulpitu wirtualnego systemu Windows, należy się wylogować lub użyć prywatnego okna przeglądarki.
 
 Jeśli używasz pulpitu wirtualnego systemu Windows (klasycznego), Skorzystaj z linku klient sieci Web w [tym artykule](./virtual-desktop-fall-2019/connect-web-2019.md) , aby nawiązać połączenie z zasobami.
+
+Jeśli to nie zadziała, upewnij się, że grupa aplikacji jest skojarzona z obszarem roboczym.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>Klient sieci Web przestaje odpowiadać lub rozłącza
 

@@ -1,6 +1,6 @@
 ---
 title: Rozwiązanie VMware firmy Azure według CloudSimple — Tworzenie usługi CloudSimple
-description: Opisuje sposób tworzenia usługi CloudSimple w Azure Portal
+description: Dowiedz się, jak utworzyć usługę CloudSimple w Azure Portal. Przed rozpoczęciem Przejrzyj wymaganą konfigurację.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/19/2019
@@ -8,22 +8,22 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8648f2c9cc0175050d4b7642f5235d47159ecfaf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a196e717dd6e02570e4bdf830a24ce342b47ece
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024827"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140551"
 ---
 # <a name="create-the-azure-vmware-solution-by-cloudsimple-service"></a>Tworzenie rozwiązania Azure VMware według usługi CloudSimple
 
 Aby rozpocząć pracę z rozwiązaniem VMware platformy Azure przez CloudSimple, Utwórz rozwiązanie Azure VMware według usługi CloudSimple w Azure Portal.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przydziel blok CIDR/28 dla podsieci bramy. Podsieć bramy jest wymagana dla usługi CloudSimple i jest unikatowa dla regionu, w którym została utworzona. Podsieć bramy jest używana dla usług sieci brzegowej i wymaga bloku/28 CIDR. Przestrzeń adresowa podsieci bramy musi być unikatowa. Nie może pokrywać się z żadną siecią, która komunikuje się ze środowiskiem CloudSimple. Sieci, które komunikują się z usługą CloudSimple, obejmują sieci lokalne i sieci wirtualne platformy Azure.
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 

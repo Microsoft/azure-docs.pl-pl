@@ -1,23 +1,23 @@
 ---
-title: Interfejs wiersza polecenia platformy Azure — ograniczanie dostępu Import/Export do dysków zarządzanych za pomocą linków prywatnych (wersja zapoznawcza)
-description: Włącz prywatne linki (wersja zapoznawcza) dla dysków zarządzanych za pomocą interfejsu wiersza polecenia platformy Azure. Umożliwienie bezpiecznego eksportowania i importowania dysków tylko w obrębie sieci wirtualnej.
+title: Interfejs wiersza polecenia platformy Azure — ograniczanie dostępu Import/Export do dysków zarządzanych za pomocą linków prywatnych
+description: Włącz prywatne linki dla dysków zarządzanych za pomocą interfejsu wiersza polecenia platformy Azure. Umożliwienie bezpiecznego eksportowania i importowania dysków tylko w obrębie sieci wirtualnej.
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 07/15/2020
+ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 5df11e704987098d61ced7afbff5e6234d4d5f04
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 009f8ec69261103faaa4de1e27ae7383257a13ca
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420292"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136409"
 ---
-# <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links-preview"></a>Interfejs wiersza polecenia platformy Azure — ograniczanie dostępu do usługi Import/Export dla dysków zarządzanych przy użyciu linków prywatnych (wersja zapoznawcza)
+# <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>Interfejs wiersza polecenia platformy Azure — ograniczanie dostępu do usługi Import/Export dla dysków zarządzanych przy użyciu linków prywatnych
 
-Możesz użyć [prywatnych punktów końcowych](../../private-link/private-endpoint-overview.md) (wersja zapoznawcza), aby ograniczyć eksport i importowanie dysków zarządzanych i bezpiecznie uzyskiwać dostęp do danych za pośrednictwem [prywatnego linku](../../private-link/private-link-overview.md) klientów w sieci wirtualnej platformy Azure. Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej dla usługi Managed Disks. Ruch sieciowy między klientami w sieci wirtualnej i dyskami zarządzanymi przechodzi przez sieć wirtualną oraz prywatny link w sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu. 
+Obsługa linków prywatnych z dyskami zarządzanymi jest obecnie dostępna w wersji zapoznawczej. Możesz użyć [prywatnych punktów końcowych](../../private-link/private-endpoint-overview.md) , aby ograniczyć eksport i importowanie dysków zarządzanych i bezpiecznie uzyskiwać dostęp do danych za pośrednictwem [prywatnego linku](../../private-link/private-link-overview.md) klientów w sieci wirtualnej platformy Azure. Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej dla usługi Managed Disks. Ruch sieciowy między klientami w sieci wirtualnej i dyskami zarządzanymi odbywa się tylko przez sieć wirtualną oraz link prywatny w sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu.
 
 Aby użyć prywatnych linków do eksportowania/importowania dysków zarządzanych, należy najpierw utworzyć zasób dostępu do dysku i połączyć go z siecią wirtualną w tej samej subskrypcji, tworząc prywatny punkt końcowy. Następnie skojarz dysk lub migawkę z wystąpieniem dostępu do dysku. Na koniec ustaw właściwość NetworkAccessPolicy dysku lub migawki na `AllowPrivate` . Spowoduje to ograniczenie dostępu do sieci wirtualnej. 
 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 07/16/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 81e2abc1b4fd0c540b08f96e6b34c16fca3319f1
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 59df49d320b23686a3d053335ea2b95e98125b28
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132020"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135559"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Obsługiwane metryki z Azure Monitor
 
@@ -1268,6 +1268,20 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |żądania/częstotliwość|Nie|Liczba żądań serwera|CountPerSecond|Średnia|Liczba żądań serwera na sekundę|żądanie/performanceBucket, żądanie/resultCode, Operation/syntetyczne, Cloud/roleInstance, żądanie/powodzenie, Chmura/rolename|
 |ślady/liczba|Tak|Ślady|Liczba|Liczba|Liczba dokumentów śledzenia|Trace/severityLevel, Operations/syntetyczne, Cloud/rolename, Cloud/roleInstance|
 
+## <a name="microsoftiotcentraliotapps"></a>Microsoft. IoTCentral/IoTApps
+
+|Metryka|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
+|---|---|---|---|---|---|---|
+|C2D. Property. Read. Failure|Tak|Niepowodzenie odczytywania właściwości urządzenia z IoT Central|Liczba|Łącznie|Liczba wszystkich odczytów właściwości zakończonych niepowodzeniem inicjowanych z IoT Central|Brak wymiarów|
+|C2D. Property. Read. Success|Tak|Pomyślne odczytywanie właściwości urządzenia z IoT Central|Liczba|Łącznie|Liczba wszystkich pomyślnych odczytów właściwości inicjowanych z IoT Central|Brak wymiarów|
+|C2D. Property. Update. Failure|Tak|Nieudane aktualizacje właściwości urządzenia z IoT Central|Liczba|Łącznie|Liczba wszystkich aktualizacji właściwości zakończonych niepowodzeniem zainicjowanych z IoT Central|Brak wymiarów|
+|C2D. Property. Update. Success|Tak|Pomyślne aktualizacje właściwości urządzenia z IoT Central|Liczba|Łącznie|Liczba wszystkich pomyślnych aktualizacji właściwości zainicjowanych z IoT Central|Brak wymiarów|
+|connectedDeviceCount|Nie|Łączna liczba połączonych urządzeń|Liczba|Średnia|Liczba urządzeń podłączonych do IoT Central|Brak wymiarów|
+|D2C. Property. Read. Failure|Tak|Niepowodzenie odczytywania właściwości urządzenia z urządzeń|Liczba|Łącznie|Liczba wszystkich odczytów właściwości zakończonych niepowodzeniem zainicjowanych z urządzeń|Brak wymiarów|
+|D2C. Property. Read. Success|Tak|Pomyślne odczyty właściwości urządzenia z urządzeń|Liczba|Łącznie|Liczba wszystkich pomyślnych odczytów właściwości zainicjowanych z urządzeń|Brak wymiarów|
+|D2C. Property. Update. Failure|Tak|Nieudane aktualizacje właściwości urządzenia z urządzeń|Liczba|Łącznie|Liczba wszystkich aktualizacji właściwości zakończonych niepowodzeniem zainicjowanych z urządzeń|Brak wymiarów|
+|D2C. Property. Update. Success|Tak|Pomyślne aktualizacje właściwości urządzenia z urządzeń|Liczba|Łącznie|Liczba wszystkich pomyślnych aktualizacji właściwości zainicjowanych z urządzeń|Brak wymiarów|
+
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft./magazyny kluczy
 
@@ -1284,10 +1298,10 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 
 |Metryka|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|---|
-|BatchBlobCount|Tak|Liczba obiektów BLOB partii|Liczba|Średnia|Liczba źródeł danych w zagregowanej partii na potrzeby pozyskiwania.|Baza danych|
-|BatchDuration|Tak|Czas trwania partii|Sekundy|Średnia|Czas trwania fazy agregacji w przepływie pozyskiwania.|Baza danych|
+|BatchBlobCount|Tak|Liczba obiektów BLOB partii|Liczba|Średnia|Liczba źródeł danych w zagregowanej partii na potrzeby pozyskiwania.|baza danych|
+|BatchDuration|Tak|Czas trwania partii|Sekundy|Średnia|Czas trwania fazy agregacji w przepływie pozyskiwania.|baza danych|
 |BatchesProcessed|Tak|Przetworzone partie|Liczba|Średnia|Liczba partii zagregowanych na potrzeby pozyskiwania. Przyczyna ukończenia partii: czy partia osiągnęła czas wsadowy, rozmiar danych lub limit liczby plików ustawiony przez zasady wsadowe|Baza danych, SealReason|
-|BatchSize|Tak|Rozmiar wsadu|Bajty|Średnia|Nieskompresowany oczekiwany rozmiar danych w zagregowanej partii na potrzeby pozyskiwania.|Baza danych|
+|BatchSize|Tak|Rozmiar wsadu|Bajty|Średnia|Nieskompresowany oczekiwany rozmiar danych w zagregowanej partii na potrzeby pozyskiwania.|baza danych|
 |CacheUtilization|Tak|Użycie pamięci podręcznej|Procent|Średnia|Poziom użycia w zakresie klastra|Brak wymiarów|
 |ContinuousExportMaxLatenessMinutes|Tak|Maksymalna liczba opóźnień eksportu ciągłego|Liczba|Maksimum|Opóźnienie (w minutach) raportowane przez zadania eksportu ciągłego w klastrze|Brak wymiarów|
 |ContinuousExportNumOfRecordsExported|Tak|Eksport ciągły — liczba eksportowanych rekordów|Liczba|Łącznie|Liczba wyeksportowanych rekordów, które są generowane dla każdego artefaktu magazynu zapisanego podczas operacji eksportowania|ContinuousExportName, baza danych|
@@ -1303,10 +1317,10 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |InstanceCount|Tak|Liczba wystąpień|Liczba|Średnia|Łączna liczba wystąpień|Brak wymiarów|
 |Utrzymywani|Tak|Utrzymywanie aktywności|Liczba|Średnia|Sprawdzenie Sanity wskazuje, że klaster reaguje na zapytania|Brak wymiarów|
 |QueryDuration|Tak|Czas trwania zapytania|)|Średnia|Czas trwania zapytań (w sekundach)|QueryStatus|
-|SteamingIngestRequestRate|Tak|Szybkość żądania pozyskiwania strumieniowego|Liczba|RateRequestsPerSecond|Szybkość żądania pozyskiwania strumieniowego (żądania na sekundę)|Brak wymiarów|
-|StreamingIngestDataRate|Tak|Szybkość danych pozyskiwania przesyłania strumieniowego|Liczba|Średnia|Szybkość danych pozyskiwania przesyłania strumieniowego (MB na sekundę)|Brak wymiarów|
-|StreamingIngestDuration|Tak|Czas trwania pozyskiwania strumieniowego|)|Średnia|Czas trwania pozyskiwania strumieniowego w milisekundach|Brak wymiarów|
-|StreamingIngestResults|Tak|Wynik pozyskiwania strumieniowego|Liczba|Średnia|Wynik pozyskiwania strumieniowego|Wynik|
+|SteamingIngestRequestRate|Tak|Pozyskiwanie za pomocą przesyłania strumieniowego — liczba żądań|Liczba|RateRequestsPerSecond|Szybkość żądania pozyskiwania strumieniowego (żądania na sekundę)|Brak wymiarów|
+|StreamingIngestDataRate|Tak|Pozyskiwanie za pomocą przesyłania strumieniowego — szybkość danych|Liczba|Średnia|Szybkość danych pozyskiwania przesyłania strumieniowego (MB na sekundę)|Brak wymiarów|
+|StreamingIngestDuration|Tak|Pozyskiwanie za pomocą przesyłania strumieniowego — czas trwania|)|Średnia|Czas trwania pozyskiwania strumieniowego w milisekundach|Brak wymiarów|
+|StreamingIngestResults|Tak|Wynik pozyskiwania za pomocą przesyłania strumieniowego|Liczba|Średnia|Wynik pozyskiwania strumieniowego|Wynik|
 |TotalNumberOfConcurrentQueries|Tak|Łączna liczba współbieżnych zapytań|Liczba|Łącznie|Łączna liczba współbieżnych zapytań|Brak wymiarów|
 |TotalNumberOfExtents|Tak|Łączna Liczba zakresów|Liczba|Łącznie|Łączna Liczba zakresów danych|Brak wymiarów|
 |TotalNumberOfThrottledCommands|Tak|Łączna liczba poleceń z ograniczeniami|Liczba|Łącznie|Łączna liczba poleceń z ograniczeniami|CommandType|
@@ -1593,10 +1607,10 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 
 |Metryka|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|---|
-|AdminState|Tak|AdminState|Liczba|Średnia|Stan administratora portu|Link|
-|LineProtocol|Tak|LineProtocol|Liczba|Średnia|Stan protokołu wiersza portu|Link|
-|PortBitsInPerSecond|Tak|BitsInPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu przychodzącego platformy Azure na sekundę|Link|
-|PortBitsOutPerSecond|Tak|BitsOutPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu wychodzącego platformy Azure na sekundę|Link|
+|AdminState|Tak|AdminState|Liczba|Średnia|Stan administratora portu|Łącze|
+|LineProtocol|Tak|LineProtocol|Liczba|Średnia|Stan protokołu wiersza portu|Łącze|
+|PortBitsInPerSecond|Tak|BitsInPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu przychodzącego platformy Azure na sekundę|Łącze|
+|PortBitsOutPerSecond|Tak|BitsOutPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu wychodzącego platformy Azure na sekundę|Łącze|
 |RxLightLevel|Tak|RxLightLevel|Liczba|Średnia|Poziom oświetlenia odbierania w dBm|Link, tor|
 |TxLightLevel|Tak|TxLightLevel|Liczba|Średnia|Poziom oświetlenia TX w dBm|Link, tor|
 
@@ -1846,7 +1860,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |Pamięć Average_Used pamięci (MB)|Tak|Używana pamięć (MB)|Liczba|Średnia|Pamięć Average_Used pamięci (MB)|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Users|Tak|Użytkownicy|Liczba|Średnia|Average_Users|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Virtual pamięci współdzielonej|Tak|Wirtualna pamięć udostępniona|Liczba|Średnia|Average_Virtual pamięci współdzielonej|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Zdarzenie|Tak|Zdarzenie|Liczba|Średnia|Zdarzenie|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
+|Wydarzenie|Tak|Wydarzenie|Liczba|Średnia|Wydarzenie|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
 |Puls|Tak|Puls|Liczba|Łącznie|Puls|Komputer, OSType, wersja, SourceComputerId|
 |Aktualizacja|Tak|Aktualizacja|Liczba|Średnia|Aktualizacja|Komputer, produkt, klasyfikacja, UpdateState, opcjonalne, zatwierdzone|
 

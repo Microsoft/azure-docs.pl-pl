@@ -8,12 +8,12 @@ ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: e8d1498520ea0c59372ec4e1096b6f2b4bcf885f
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 2a6033ef1d2b7dda04b1510d42fa49141e0b79b4
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921124"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136001"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Samouczek: Wykonywanie zapytań w usłudze Azure Cosmos DB przy użyciu interfejsu API SQL
 
@@ -113,7 +113,7 @@ Zgodnie z powyższym przykładowym dokumentem rodziny, następujące zapytanie S
 
 ## <a name="example-query-2"></a>Przykładowe zapytanie 2
 
-Następne zapytanie zwraca wszystkie podane nazwy elementów podrzędnych w rodzinie, której identyfikator pasuje do `WakefieldFamily` uporządkowanej według ich klasy.
+Następne zapytanie zwraca wszystkie podane nazwy elementów podrzędnych w rodzinie, której identyfikator pasuje `WakefieldFamily` .
 
 **Zapytanie**
 

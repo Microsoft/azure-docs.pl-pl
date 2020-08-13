@@ -3,15 +3,15 @@ title: Lista bezpiecznych adresów URL pulpitu wirtualnego systemu Windows — A
 description: Lista adresów URL, które należy odblokować, aby upewnić się, że wdrożenie pulpitu wirtualnego systemu Windows działa zgodnie z oczekiwaniami.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 37fb5ccf121fed6e772dc1cd3dcba2345d62c66f
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: d75d6ecf73dece6dad43367a7f869a1b8ec3d86b
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067209"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135865"
 ---
 # <a name="safe-url-list"></a>Lista bezpiecznych adresów URL
 
@@ -27,11 +27,12 @@ Maszyny wirtualne platformy Azure tworzone dla pulpitu wirtualnego systemu Windo
 |mrsglobalsteus2prod.blob.core.windows.net|443|Aktualizacje stosu agenta i SXS|AzureCloud|
 |*.core.windows.net|443|Ruch agenta|AzureCloud|
 |*.servicebus.windows.net|443|Ruch agenta|AzureCloud|
-|prod.warmpath.msftcloudes.com|443|Ruch agenta|AzureCloud|
+|gcs.prod.monitoring.core.windows.net|443|Ruch agenta|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Aktywacja systemu Windows|Internet|
 |wvdportalstorageblob.blob.core.windows.net|443|Obsługa Azure Portal|AzureCloud|
 | 169.254.169.254 | 80 | [Punkt końcowy usługi metadanych wystąpienia platformy Azure](../virtual-machines/windows/instance-metadata-service.md) | Nie dotyczy |
+| 168.63.129.16 | 80 | [Monitorowanie kondycji hosta sesji](../virtual-network/security-overview.md#azure-platform-considerations) | Nie dotyczy |
 
 >[!IMPORTANT]
 >Pulpit wirtualny systemu Windows obsługuje teraz tag FQDN. Aby uzyskać więcej informacji, zobacz [Korzystanie z zapory platformy Azure do ochrony wdrożeń pulpitów wirtualnych systemu Windows](../firewall/protect-windows-virtual-desktop.md).
@@ -72,7 +73,7 @@ Wszyscy klienci korzystający z Pulpit zdalny muszą mieć dostęp do następuj�
 |go.microsoft.com|443|Linki fwlink firmy Microsoft|Wszystko|
 |aka.ms|443|Shortener URL firmy Microsoft|Wszystko|
 |docs.microsoft.com|443|Dokumentacja|Wszystko|
-|privacy.microsoft.com|443|Oświadczenie o ochronie prywatności|Wszystko|
+|privacy.microsoft.com|443|Zasady zachowania poufności informacji|Wszystko|
 |query.prod.cms.rt.microsoft.com|443|Aktualizacje klienta|Pulpit systemu Windows|
 
 >[!IMPORTANT]

@@ -1,6 +1,6 @@
 ---
 title: Rozwiązanie VMware firmy Azure według CloudSimple — chmury prywatne
-description: Dowiedz się więcej na temat chmur prywatnych i pojęć związanych z CloudSimple.
+description: Dowiedz się więcej o CloudSimple koncepcji i korzyściach, w tym o całkowitej ciągłości działania programu VMware, zgodności z istniejącymi narzędziami, umiejętnościami i procesami.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4fb930603455ed1a5df5d357fcab669f41a0c28c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2096e8c0ebfb233c7449510bf0bc8e80b56231e
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024957"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140721"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>Omówienie chmury prywatnej CloudSimple
 
@@ -22,7 +22,7 @@ CloudSimple przekształca i rozszerza obciążenia oprogramowania VMware do chmu
 Rozwiązanie CloudSimple zapewnia pełną ciągłość działania programu VMware. To rozwiązanie zapewnia korzyści z chmury publicznej:
 
 * Elastyczność
-* Innowacje
+* Innowacyjność
 * Wydajność
 
 Dzięki CloudSimple można korzystać z modelu zużycia w chmurze, który obniża całkowity koszt posiadania. Oferuje on również Inicjowanie obsługi administracyjnej na żądanie, płatność zgodnie z oczekiwaniami i optymalizację wydajności.
@@ -46,7 +46,7 @@ CloudSimple zarządza infrastrukturą i wszystkimi niezbędnymi usługami sieci 
 * Aprowizacja aplikacji
 * Ciągłość działalności biznesowej
 * Pomoc techniczna
-* Egzekwowanie zasad
+* Wymuszanie zasad
 
 ## <a name="private-cloud-environment-overview"></a>Omówienie środowiska chmury prywatnej
 

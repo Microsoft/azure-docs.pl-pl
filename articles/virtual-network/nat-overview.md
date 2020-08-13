@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2020
+ms.date: 08/11/2020
 ms.author: allensu
-ms.openlocfilehash: 93ce3b02ef8963a33e485b6560516e1d2b9c1ef5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 63c687cdfe3e014617b5a8773136dfb6513178ed
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424021"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135814"
 ---
 # <a name="what-is-virtual-network-nat"></a>Co to jest Virtual Network translator adresów sieciowych?
 
@@ -124,7 +124,7 @@ Można monitorować operacje NAT za pomocą wielowymiarowych metryk uwidoczniony
 Przy ogólnej dostępności ścieżka danych NAT jest dostępna co najmniej 99,9%.
 
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 
 Brama translatora adresów sieciowych jest rozliczana przy użyciu dwóch oddzielnych liczników:
 
@@ -153,7 +153,6 @@ Chcemy wiedzieć, jak możemy ulepszyć usługę. Zaproponuj i zagłosuj na to, 
 
 * Translator adresów sieciowych jest zgodny z publicznym adresem IP jednostki SKU, publicznym prefiksem adresu IP i zasobami modułu równoważenia obciążenia. Zasoby podstawowe, takie jak podstawowa usługa równoważenia obciążenia, i wszelkie produkty pochodzące z nich nie są zgodne z translatorem adresów sieciowych.  Zasoby podstawowe muszą być umieszczone w podsieci, która nie jest skonfigurowana przy użyciu translatora adresów sieciowych.
 * Rodzina adresów IPv4 jest obsługiwana.  Translator adresów sieciowych nie współdziała z rodziną adresów IPv6.  Nie można wdrożyć translatora adresów sieciowych w podsieci z prefiksem IPv6.
-* Rejestrowanie przepływu sieciowej grupy zabezpieczeń nie jest obsługiwane w przypadku korzystania z translatora adresów sieciowych.
 * Translator adresów sieciowych nie może obejmować wielu sieci wirtualnych.
 
 ## <a name="next-steps"></a>Następne kroki

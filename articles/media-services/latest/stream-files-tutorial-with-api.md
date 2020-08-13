@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/09/2020
 ms.author: juliako
-ms.openlocfilehash: 5f8fb98b1032111eb55197fa5b7d561019be9de3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2c2d55b15fb69fe4c1aea21bb2183f0e40c3586c
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074488"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136494"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Samouczek: przekazywanie, kodowanie i przesyłanie strumieniowe filmów wideo z Media Services v3
 
@@ -72,7 +72,7 @@ W przykładzie są wykonywane następujące akcje:
 6. Tworzy **lokalizator przesyłania strumieniowego**.
 7. Utworzenie adresów URL przesyłania strumieniowego.
 
-### <a name="start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />Rozpoczynanie korzystania z interfejsów API usługi Media Services przy użyciu zestawu .NET SDK
+### <a name="start-using-media-services-apis-with-net-sdk"></a>Rozpoczynanie korzystania z interfejsów API usługi Media Services przy użyciu zestawu .NET SDK
 
 Aby rozpocząć korzystanie z interfejsów API usługi Media Services na platformie .NET, należy utworzyć obiekt **AzureMediaServicesClient**. Aby utworzyć obiekt, należy podać poświadczenia wymagane przez klienta do nawiązania połączenia z platformą Azure przy użyciu usługi Azure AD. W kodzie sklonowanym na początku tego artykułu funkcja **GetCredentialsAsync** tworzy obiekt ServiceClientCredentials na podstawie poświadczeń podanych w lokalnym pliku konfiguracji.
 

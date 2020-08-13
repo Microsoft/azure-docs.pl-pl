@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/05/2020
 ms.author: anfeldma
-ms.openlocfilehash: 5f0d66a515ed13f96645e5916af2b01841950375
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f38b2715115efadef4e09a95e9392b1dfd4c68b0
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846602"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135746"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Zestaw SDK procesora kanału informacyjnego platformy .NET: pobieranie i informacje o wersji
 
@@ -49,6 +49,9 @@ ms.locfileid: "87846602"
 ## <a name="release-notes"></a>Informacje o wersji
 
 ### <a name="v2-builds"></a>2 kompilacje
+
+### <a name="232"></a><a name="2.3.2"/>2.3.2
+* Dodano zgodność magazynu dzierżawy z [zestawem SDK v3](sql-api-sdk-dotnet-standard.md) umożliwiającym ścieżki migracji dynamicznej. Aplikacja może migrować do wersji v3 SDK i przeprowadzić migrację z powrotem do biblioteki procesora kanału informacyjnego zmiany bez utraty żadnego stanu.
 
 ### <a name="231"></a><a name="2.3.1"/>ppkt
 * Poprawiono przypadek, gdy `FeedProcessing.ChangeFeedObserverCloseReason.Unknown` powód zamknięcia został wysłany do `FeedProcessing.IChangeFeedObserver.CloseAsync` , jeśli nie można odnaleźć partycji lub jeśli replika docelowa nie jest aktualna w sesji odczytu. W tych przypadkach `FeedProcessing.ChangeFeedObserverCloseReason.ResourceGone` `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` są teraz używane bliskie powody.
@@ -193,6 +196,7 @@ Firma Microsoft zapewni powiadomienie co najmniej **12 miesięcy** przed WYCOFAN
 
 | Wersja | Data wydania | Data wycofania |
 | --- | --- | --- |
+| [2.3.2](#2.3.2) |11 sierpnia 2020 |--- |
 | [ppkt](#2.3.1) |30 lipca 2020 |--- |
 | [2.3.0](#2.3.0) |2 kwietnia 2020 |--- |
 | [2.2.8](#2.2.8) |28 października 2019 |--- |

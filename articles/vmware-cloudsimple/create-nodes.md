@@ -1,6 +1,6 @@
 ---
 title: Inicjowanie obsługi węzłów dla rozwiązań VMware przez CloudSimple — Azure
-description: Dowiedz się, jak dodać węzły do programu VMWare przy użyciu wdrożenia CloudSimple
+description: Dowiedz się, jak dodać węzły do programu VMWare z wdrożeniem CloudSimple w Azure Portal. W środowisku chmury prywatnej można skonfigurować funkcję płatność zgodnie z rzeczywistym użyciem.
 author: dikamath
 ms.author: dikamath
 ms.date: 08/14/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: eb033425d18b472c9da1a2d6a1bb6f166702905e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccff5b4dc6ed5a571e25ab0569b9fa92674e1340
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024810"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140738"
 ---
 # <a name="provision-nodes-for-azure-vmware-solution-by-cloudsimple"></a>Inicjowanie obsługi administracyjnej węzłów dla rozwiązań VMware platformy Azure według CloudSimple
 

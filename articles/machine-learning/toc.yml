@@ -161,11 +161,8 @@
             - name: Zarządzanie użytkownikami i rolami
               href: how-to-assign-roles.md
             - name: Używanie sieci wirtualnych
-              displayName: 'vnet, blob'
+              displayName: 'vnet, blob, private endpoint, private link'
               href: how-to-enable-virtual-network.md
-            - name: Używanie linku prywatnego
-              displayName: private endpoint
-              href: how-to-configure-private-link.md
             - name: Zabezpieczanie usług internetowych przy użyciu protokołu TLS
               displayName: ssl
               href: how-to-secure-web-service.md
@@ -457,8 +454,8 @@
         - name: Debugowanie potoków i rozwiązywanie związanych z nimi problemów
           displayName: designer
           href: how-to-debug-pipelines.md
-        - name: Debugowanie potoków w usłudze Application Insights
-          href: how-to-debug-pipelines-application-insights.md
+        - name: Rejestrowanie danych potoku w usłudze Application Insights
+          href: how-to-log-pipelines-application-insights.md
         - name: Używanie kroku przebiegu równoległego
           displayName: score scoring batch consume pipeline parallelrunstep inference
           href: how-to-use-parallel-run-step.md

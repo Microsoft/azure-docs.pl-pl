@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: bf6215bd9225292f7b85ed6d4c4566cd4ee860b7
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: b1baeaa31eddc13a68f2cc1d374b850f1c1a26bd
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902103"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136341"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Obsługa dostępności geograficznej i waluty komercyjnej witryny Marketplace
 
@@ -50,7 +50,7 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Kanada                              | CA        | CAD          |
 | Kajmany                      | KY        | USD          |
 | Chile                               | CL        | USD          |
-| Chinach\**                            | CN        | Brak          |
+| Chinach\**                            | CN        | Nie dotyczy          |
 | Kolumbia                            | CO        | USD          |
 | Kostaryka                          | CR        | USD          |
 | Côte d'Ivoire                       | CI        | USD          |
@@ -179,11 +179,7 @@ Aby dostosować cenę przed opublikowaniem, po prostu wyeksportuj arkusz cen, zm
 > [!NOTE]
 > Po opublikowaniu ceny na rynku planu nie można jej później zmienić. Aby upewnić się, że ceny są prawidłowe przed ich opublikowaniem, wyeksportuj arkusz cen i przejrzyj ceny na każdym rynku.
 
-## <a name="rate-changes"></a>Zmiany stawki
-
-Stawki używane do obliczania cen lokalnych są aktualizowane codziennie. To obliczenie jest wykonywane, gdy dostawca ISV zapisuje stronę i mogą przeglądać wszystkie stawki poprzez eksportowanie i przeglądanie cen przed opublikowaniem.
-
-### <a name="retrieving-currency-information-by-api"></a>Pobieranie informacji o walucie według interfejsu API
+## <a name="retrieving-currency-information-by-api"></a>Pobieranie informacji o walucie według interfejsu API
 
 Indywidualne ceny (w zależności od tego, jak zostały one ustawione) mogą być pobierane za pomocą interfejsu API, na które miały wpływ kursy wymiany w dniu, w którym zostały zapisane). nie można uzyskać informacji o walucie.
 

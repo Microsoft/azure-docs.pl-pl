@@ -11,12 +11,12 @@ author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 03e906d448790be8c7494e8172d02b3fc0603673
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 28836d0b1109952d8cf81c66b44b1f98d9b770bf
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067957"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136052"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Utwórz udostępnione środowisko Integration Runtime w Azure Data Factory
 
@@ -155,7 +155,7 @@ Odpowiedź zawiera klucz uwierzytelniania dla własnego środowiska Integration 
 #### <a name="create-another-data-factory"></a>Tworzenie innej fabryki danych
 
 > [!NOTE]  
-> Ten krok jest opcjonalny. Jeśli masz już fabrykę danych, którą chcesz udostępnić, Pomiń ten krok. Jednak w Oder do dodawania lub usuwania przypisań ról do innej fabryki danych wymagane są `Microsoft.Authorization/roleAssignments/write` i `Microsoft.Authorization/roleAssignments/delete` uprawnienia, takie jak [administrator dostępu użytkowników](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) lub [właściciel](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
+> Ten krok jest opcjonalny. Jeśli masz już fabrykę danych, którą chcesz udostępnić, Pomiń ten krok. Jednak w celu dodania lub usunięcia przypisań ról do innej fabryki danych wymagane są `Microsoft.Authorization/roleAssignments/write` i `Microsoft.Authorization/roleAssignments/delete` uprawnienia, takie jak [administrator dostępu użytkowników](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) lub [właściciel](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
 
 ```powershell
 $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `

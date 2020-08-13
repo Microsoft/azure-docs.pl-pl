@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 74ffb54b13783b4945376e1717777fa1da39ab44
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 3b5783476e0d4a96561e11158cd2b0f6421cfbf6
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543320"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136103"
 ---
 # <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Arkusz Ściągawka dla usługi Azure Synapse Analytics (dawniej SQL DW)
 
@@ -37,9 +37,9 @@ Wcześniejsza znajomość typów operacji pomaga zoptymalizować projekt tabel.
 
 ## <a name="data-migration"></a>Migracja danych
 
-Najpierw Załaduj dane do [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) lub BLOB Storage platformy Azure. Następnie użyj podstawy, aby załadować dane do tabel przemieszczania. Użyj następującej konfiguracji:
+Najpierw Załaduj dane do [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) lub BLOB Storage platformy Azure. Następnie użyj [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (wersja zapoznawcza), aby załadować dane do tabel przemieszczania. Użyj następującej konfiguracji:
 
-| Projekt | Zalecenie |
+| Projektowanie | Rekomendacja |
 |:--- |:--- |
 | Dystrybucja | Działanie okrężne |
 | Indeksowanie | Sterta |
@@ -109,7 +109,7 @@ W przypadku dużej partii aktualizacji danych historycznych Rozważ użycie [CTA
 
 ## <a name="maintain-statistics"></a>Prowadzenie statystyk
 
- Do momentu, gdy funkcja autostatystyka jest ogólnie dostępna, wymagana jest ręczna konserwacja statystyk. Ważne jest aktualizowanie statystyk w miarę pojawiania się kolejnych *znaczących* zmian danych. Ułatwia to optymalizowanie planów zapytań. Jeśli okaże się, że obsługa wszystkich statystyk trwa zbyt długo, należy przemyśleć dokładnie wybór kolumn ze statystykami.
+Ważne jest aktualizowanie statystyk w miarę pojawiania się kolejnych *znaczących* zmian danych. Zobacz [aktualizacja statystyk](sql-data-warehouse-tables-statistics.md#update-statistics) , aby ustalić, czy wprowadzono *znaczące* zmiany. Zaktualizowane statystyki optymalizują plany zapytań. Jeśli okaże się, że obsługa wszystkich statystyk trwa zbyt długo, należy przemyśleć dokładnie wybór kolumn ze statystykami.
 
 Można również zdefiniować częstotliwość aktualizacji. Można na przykład codziennie aktualizować kolumny danych, w których mogą być dodawane nowe wartości. Największe korzyści można osiągnąć, prowadząc statystyki dla kolumn uczestniczących w sprzężeniach, kolumn używanych w ramach klauzuli WHERE i kolumn z klauzuli GROUP BY.
 

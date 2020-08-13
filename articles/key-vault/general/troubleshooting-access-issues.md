@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.openlocfilehash: e52fe8e738f2a35204078b27019ea3742c608560
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: f775a0e1dcb82afc9a458ce4ee608a52ec06dc4c
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88122172"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135916"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Rozwiązywanie problemów z zasadami dostępu do magazynu kluczy Azure
 
@@ -36,6 +36,9 @@ Jeśli tworzysz aplikację Premium, przeprowadzając lokalne programowanie lub w
 Nadaj grupie usługi AD uprawnienia do Twojego magazynu kluczy przy użyciu interfejsu wiersza polecenia platformy Azure AZ Key AzKeyVaultAccessPolicy Set-Policy lub Azure PowerShell Set-polecenia cmdlet. Aby zapoznać się z przykładami, zapoznaj się z tematem [udzielenie aplikacji, grupie usługi Azure AD lub dostępu użytkowników do magazynu kluczy](https://docs.microsoft.com/azure/key-vault/general/group-permissions-for-apps#give-the-principal-access-to-your-key-vault).
 
 Aplikacja wymaga również co najmniej jednej roli zarządzania tożsamościami i dostępem (IAM) przypisanej do magazynu kluczy. W przeciwnym razie nie będzie można zalogować się i nie powiedzie się z powodu niewystarczających praw dostępu do subskrypcji. Grupy usługi Azure AD z tożsamościami zarządzanymi mogą wymagać do 8hr tokenu odświeżania i zaczynają obowiązywać.
+
+### <a name="how-can-i-redeploy-key-vault-with-arm-template-without-deleting-existing-access-policies"></a>Jak można ponownie wdrożyć Key Vault przy użyciu szablonu ARM bez usuwania istniejących zasad dostępu?
+Obecnie Key Vault ARM redopleyment usunie wszelkie zasady dostępu w Key Vault i zastąpi je zasadami dostępu w szablonie ARM. Nie ma opcji przyrostowej dla zasad dostępu Key Vault. Aby zachować zasady dostępu w Key Vault należy odczytać istniejące zasady dostępu w Key Vault i wypełnić szablon ARM przy użyciu tych zasad, aby uniknąć awarii dostępu.
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>Zalecane kroki rozwiązywania problemów dla następujących typów błędów
 * HTTP 401: żądanie nieuwierzytelnione — [kroki rozwiązywania problemów](https://docs.microsoft.com/azure/key-vault/general/rest-error-codes#http-401-unauthenticated-request)

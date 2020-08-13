@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
-ms.openlocfilehash: a4594ca1a992f158522eccb4ffa6e846a1f4f605
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: c0f23c864430b6cb2f49f924d5aaa8bde296037c
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406286"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135967"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory Managed Virtual Network (wersja zapoznawcza)
 
@@ -49,7 +49,7 @@ Zarządzane prywatne punkty końcowe są prywatnymi punktami końcowymi utworzon
 
 ![Nowy zarządzany prywatny punkt końcowy](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory obsługuje linki prywatne. Link prywatny umożliwia dostęp do usług platformy Azure (PaaS) (takich jak Azure Storage, Azure Cosmos DB, Azure SQL Data Warehouse).
+Azure Data Factory obsługuje linki prywatne. Link prywatny umożliwia dostęp do usług platformy Azure (PaaS) (takich jak Azure Storage, Azure Cosmos DB, Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)).
 
 W przypadku korzystania z prywatnego linku ruch między magazynami danych i zarządzanym Virtual Network przechodzi całkowicie za pośrednictwem sieci szkieletowej firmy Microsoft. Prywatne łącze chroniące przed ryzykiem eksfiltracji danych. Aby utworzyć prywatny link do zasobu, można utworzyć prywatny punkt końcowy.
 
@@ -79,7 +79,7 @@ Poniższe źródła danych umożliwiają łączenie się za pośrednictwem prywa
 - Azure Files
 - Azure Data Lake Gen2
 - Azure SQL Database (nie obejmuje wystąpienia zarządzanego usługi Azure SQL)
-- Azure SQL Data Warehouse
+- Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)
 - Azure CosmosDB — SQL
 - W usłudze Azure Key Vault
 - Link prywatny platformy Azure

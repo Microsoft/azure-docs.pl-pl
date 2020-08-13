@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: ff0df654650bb1c32d5c3e9833ebde2a81e3d65c
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 74e0a63da87a79cbd582cd6da5992251fc256504
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799960"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135440"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Tworzenie ustawień diagnostycznych w celu wysyłania dzienników platformy i metryk do różnych miejsc docelowych
 [Dzienniki platformy](platform-logs-overview.md) na platformie Azure, w tym dziennik aktywności platformy Azure i dzienniki zasobów, zapewniają szczegółowe informacje diagnostyczne i inspekcji dla zasobów platformy Azure oraz platformy platformy Azure, od których zależą. [Metryki platformy](data-platform-metrics.md) są zbierane domyślnie i zazwyczaj przechowywane w bazie danych metryk Azure monitor. Ten artykuł zawiera szczegółowe informacje na temat tworzenia i konfigurowania ustawień diagnostycznych w celu wysyłania metryk platformy i dzienników platformy do różnych miejsc docelowych.
@@ -41,34 +41,24 @@ Poniższy film wideo przeprowadzi Cię przez dzienniki platformy routingu z usta
 
 
 ## <a name="destinations"></a>Miejsca docelowe
-
-Dzienniki platformy i metryki mogą być wysyłane do miejsc docelowych w poniższej tabeli. Aby uzyskać szczegółowe informacje na temat wysyłania danych do tego miejsca docelowego, należy postępować zgodnie z poniższymi tabelami.
+Dzienniki platformy i metryki mogą być wysyłane do miejsc docelowych w poniższej tabeli. 
 
 | Element docelowy | Opis |
 |:---|:---|
-| [Log Analytics obszar roboczy](#log-analytics-workspace) | Wysyłanie dzienników i metryk do obszaru roboczego Log Analytics umożliwia analizowanie ich przy użyciu innych danych monitorowania zbieranych przez Azure Monitor przy użyciu zaawansowanych zapytań dzienników oraz korzystanie z innych funkcji Azure Monitor, takich jak alerty i wizualizacje. |
-| [Centra zdarzeń](#event-hub) | Wysyłanie dzienników i metryk do Event Hubs umożliwia przesyłanie strumieniowe danych do systemów zewnętrznych, takich jak rozwiązań Siem innych firm, oraz innych rozwiązań usługi log Analytics. |
-| [Konto usługi Azure Storage](#azure-storage) | Archiwizowanie dzienników i metryk na koncie usługi Azure Storage jest przydatne w przypadku inspekcji, statycznej analizy lub tworzenia kopii zapasowych. W porównaniu do Azure Monitor dzienników i Log Analytics obszaru roboczego usługa Azure Storage jest tańsza, a dzienniki mogą być przechowywane w nieskończoność. |
+| [Log Analytics obszar roboczy](design-logs-deployment.md) | Wysyłanie dzienników i metryk do obszaru roboczego Log Analytics umożliwia analizowanie ich przy użyciu innych danych monitorowania zbieranych przez Azure Monitor przy użyciu zaawansowanych zapytań dzienników oraz korzystanie z innych funkcji Azure Monitor, takich jak alerty i wizualizacje. |
+| [Centra zdarzeń](/azure/event-hubs/) | Wysyłanie dzienników i metryk do Event Hubs umożliwia przesyłanie strumieniowe danych do systemów zewnętrznych, takich jak rozwiązań Siem innych firm, oraz innych rozwiązań usługi log Analytics.  |
+| [Konto usługi Azure Storage](/azure/storage/blobs/) | Archiwizowanie dzienników i metryk na koncie usługi Azure Storage jest przydatne w przypadku inspekcji, statycznej analizy lub tworzenia kopii zapasowych. W porównaniu do Azure Monitor dzienników i Log Analytics obszaru roboczego usługa Azure Storage jest tańsza, a dzienniki mogą być przechowywane w nieskończoność.  |
 
 
-## <a name="prerequisites"></a>Wymagania wstępne
-Wszystkie miejsca docelowe dla ustawienia diagnostyki muszą zostać utworzone z wymaganymi uprawnieniami. Zapoznaj się z poniższymi sekcjami dotyczącymi wymagań wstępnych dla każdego miejsca docelowego.
+### <a name="destination-requirements"></a>Wymagania dotyczące miejsca docelowego
 
-### <a name="log-analytics-workspace"></a>Obszar roboczy usługi Log Analytics
-[Utwórz nowy obszar roboczy](../learn/quick-create-workspace.md) , jeśli jeszcze go nie masz. Obszar roboczy nie musi znajdować się w tej samej subskrypcji co zasób wysyła dzienniki, dopóki użytkownik, który konfiguruje ustawienie, ma dostęp do obu subskrypcji.
+Przed utworzeniem ustawień diagnostycznych należy utworzyć wszystkie miejsca docelowe dla tego ustawienia diagnostycznego. Lokalizacja docelowa nie musi znajdować się w tej samej subskrypcji co zasób wysyła dzienniki, dopóki użytkownik, który konfiguruje ustawienie, ma dostęp do obu subskrypcji. W poniższej tabeli przedstawiono unikatowe wymagania dla każdego miejsca docelowego, w tym wszystkie ograniczenia regionalne.
 
-### <a name="event-hub"></a>Centrum zdarzeń
-[Utwórz centrum zdarzeń](../../event-hubs/event-hubs-create.md) , jeśli jeszcze go nie masz. Przestrzeń nazw Event Hubs nie musi znajdować się w tej samej subskrypcji co subskrypcja, która emituje dzienniki, pod warunkiem, że użytkownik, który konfiguruje ustawienie, ma dostęp do obu subskrypcji i obie subskrypcje są w tej samej dzierżawie.
-
-Zasady dostępu współdzielonego dla przestrzeni nazw określają uprawnienia, które ma mechanizm przesyłania strumieniowego. Przesyłanie strumieniowe do Event Hubs wymaga uprawnień do zarządzania, wysyłania i nasłuchiwania. Zasady dostępu współdzielonego można utworzyć lub zmodyfikować w Azure Portal na karcie Konfiguracja dla Event Hubs przestrzeni nazw. Aby zaktualizować ustawienie diagnostyczne w celu uwzględnienia przesyłania strumieniowego, musisz mieć uprawnienie ListKey dla tej reguły autoryzacji Event Hubs. 
-
-
-### <a name="azure-storage"></a>Azure Storage
-[Utwórz konto usługi Azure Storage](../../storage/common/storage-account-create.md) , jeśli jeszcze go nie masz. Konto magazynu nie musi znajdować się w tej samej subskrypcji co zasób wysyła dzienniki, dopóki użytkownik, który konfiguruje ustawienie, ma dostęp do obu subskrypcji.
-
-Nie należy używać istniejącego konta magazynu, które ma inne niemonitorowane dane, które są w nim przechowywane, dzięki czemu można lepiej kontrolować dostęp do danych. Jeśli archiwizowanie dzienników aktywności i dzienników zasobów odbywa się razem, możesz użyć tego samego konta magazynu, aby zachować wszystkie dane monitorowania w centralnej lokalizacji.
-
-Aby wysłać dane do niezmiennego magazynu, należy ustawić niezmienne zasady dla konta magazynu zgodnie z opisem w temacie [Set and Manage niezmienności Policy for BLOB Storage](../../storage/blobs/storage-blob-immutability-policies-manage.md). Należy wykonać wszystkie kroki opisane w tym artykule, w tym Włączanie chronionych zapisów obiektów BLOB.
+| Element docelowy | Wymagania |
+|:---|:---|
+| Obszar roboczy usługi Log Analytics | Obszar roboczy nie musi znajdować się w tym samym regionie co monitorowany zasób.|
+| Usługa Event Hubs | Zasady dostępu współdzielonego dla przestrzeni nazw określają uprawnienia, które ma mechanizm przesyłania strumieniowego. Przesyłanie strumieniowe do Event Hubs wymaga uprawnień do zarządzania, wysyłania i nasłuchiwania. Aby zaktualizować ustawienie diagnostyczne w celu uwzględnienia przesyłania strumieniowego, musisz mieć uprawnienie ListKey dla tej reguły autoryzacji Event Hubs.<br><br>Przestrzeń nazw centrum zdarzeń musi znajdować się w tym samym regionie co monitorowany zasób, jeśli zasób jest regionalny. |
+| Konto magazynu Azure | Nie należy używać istniejącego konta magazynu, które ma inne niemonitorowane dane, które są w nim przechowywane, dzięki czemu można lepiej kontrolować dostęp do danych. Jeśli archiwizowanie dzienników aktywności i dzienników zasobów odbywa się razem, możesz użyć tego samego konta magazynu, aby zachować wszystkie dane monitorowania w centralnej lokalizacji.<br><br>Aby wysłać dane do niezmiennego magazynu, należy ustawić niezmienne zasady dla konta magazynu zgodnie z opisem w temacie [Set and Manage niezmienności Policy for BLOB Storage](../../storage/blobs/storage-blob-immutability-policies-manage.md). Należy wykonać wszystkie kroki opisane w tym artykule, w tym Włączanie chronionych zapisów obiektów BLOB.<br><br>Konto magazynu musi znajdować się w tym samym regionie co monitorowany zasób, jeśli zasób jest regionalny. |
 
 > [!NOTE]
 > Konta usługi Azure Data Lake Storage Gen2 nie są obecnie obsługiwane jako miejsce docelowe dla ustawień diagnostycznych, mimo że mogą być wymienione jako prawidłowa opcja w witrynie Azure Portal.

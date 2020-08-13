@@ -5,28 +5,28 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/12/2020
-ms.openlocfilehash: 406991de2441836565c911ef8a8e1402f6398eb0
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/07/2020
+ms.openlocfilehash: 04f2d11b9fc8bbd61319a057c091cddbf140b9db
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824787"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135537"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Monitorowanie rozwiązań w Azure Monitor
 
-Rozwiązania do monitorowania wykorzystują usługi platformy Azure w celu zapewnienia dodatkowej analizy operacji określonej aplikacji lub usługi. Ten artykuł zawiera krótkie omówienie rozwiązań monitorowania na platformie Azure i szczegółowe informacje dotyczące korzystania z nich i instalowania ich. Możesz dodać rozwiązania do monitorowania do Azure Monitor dla wszystkich używanych aplikacji i usług. Są one zazwyczaj dostępne bezpłatnie, ale zbierają dane, które mogą wywołać opłaty za użycie.
+Rozwiązania do monitorowania w Azure Monitor zapewniają analizę działania określonej aplikacji lub usługi platformy Azure. Ten artykuł zawiera krótkie omówienie rozwiązań monitorowania na platformie Azure i szczegółowe informacje dotyczące korzystania z nich i instalowania ich. Możesz dodać rozwiązania do monitorowania do Azure Monitor dla wszystkich używanych aplikacji i usług. Są one zazwyczaj dostępne bezpłatnie, ale zbierają dane, które mogą wywołać opłaty za użycie.
 
 ## <a name="use-monitoring-solutions"></a>Używanie rozwiązań do monitorowania
 
-Otwórz stronę **przeglądu** w Azure monitor, aby wyświetlić kafelek dla każdego rozwiązania zainstalowanego w obszarze roboczym.
+Na stronie **Omówienie** rozwiązań w Azure monitor jest wyświetlany kafelek dla każdego rozwiązania zainstalowanego w log Analytics obszarze roboczym. Aby otworzyć tę stronę, przejdź do **Azure monitor** w [Azure Portal](https://ms.portal.azure.com). W menu **Insights (szczegółowe** dane) wybierz pozycję **więcej** , aby otworzyć **centrum Insights**, a następnie kliknij pozycję **log Analytics obszary robocze**.
 
-1. Przejdź do witryny [Azure Portal](https://ms.portal.azure.com). Wyszukaj i wybierz pozycję **monitor**.
-1. W menu **Insights (szczegółowe** dane) wybierz pozycję **więcej**.
-1. Użyj pól rozwijanych w górnej części ekranu, aby zmienić obszar roboczy lub zakres czasu używany dla kafelków.
-1. Kliknij kafelek rozwiązania, aby otworzyć jego widok, który zawiera bardziej szczegółową analizę zebranych danych.
+[![Centrum Insights](media/solutions/insights-hub.png)](media/solutions/insights-hub.png#lightbox)
 
-![Omówienie](media/solutions/overview.png)
+
+Użyj pól rozwijanych w górnej części ekranu, aby zmienić obszar roboczy lub zakres czasu używany dla kafelków. Kliknij kafelek rozwiązania, aby otworzyć jego widok, który zawiera bardziej szczegółową analizę zebranych danych.
+
+[![Omówienie](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
 Rozwiązania do monitorowania mogą zawierać wiele typów zasobów platformy Azure i można wyświetlić wszystkie zasoby dołączone do rozwiązania, tak jak każdy inny zasób. Na przykład wszystkie zapytania dzienników zawarte w rozwiązaniu są wymienione w obszarze **zapytania dotyczące rozwiązań** w [Eksploratorze zapytań](../log-query/get-started-portal.md#load-queries) , których można używać podczas przeprowadzania analizy ad hoc przy użyciu [zapytań dzienników](../log-query/log-query-overview.md).
 
@@ -91,7 +91,7 @@ Członkowie społeczności mogą przesyłać rozwiązania do zarządzania przy u
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-### <a name="prepare-your-environment"></a>Przygotowanie środowiska
+### <a name="prepare-your-environment"></a>Przygotowywanie środowiska
 
 1. Instalowanie interfejsu wiersza polecenia platformy Azure
 
@@ -103,7 +103,7 @@ Członkowie społeczności mogą przesyłać rozwiązania do zarządzania przy u
 
 1. Zaloguj się.
 
-   Jeśli używasz lokalnej instalacji interfejsu wiersza polecenia, zaloguj się za pomocą polecenia [AZ login](/cli/azure/reference-index#az-login) .  Postępuj zgodnie z instrukcjami wyświetlanymi w terminalu, aby ukończyć proces uwierzytelniania.
+   Jeśli używasz lokalnej instalacji interfejsu wiersza polecenia, zaloguj się za pomocą polecenia [AZ login](/cli/azure/reference-index#az-login) .  Wykonaj kroki wyświetlane w terminalu, aby ukończyć proces uwierzytelniania.
 
     ```azurecli
     az login

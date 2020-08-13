@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: a1a99e9f02a25f5e1d57ea485930a4f26149b53f
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: beb5c7262a5475f5c1535e120fcebe4c70838c7e
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808409"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135491"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Szybki Start: Konfigurowanie właściwości aplikacji w dzierżawie usługi Azure Active Directory (Azure AD)
 
@@ -48,37 +48,24 @@ Aby edytować właściwości aplikacji:
     - **Włączono, aby użytkownicy mogli się zalogować?** Określa, czy użytkownicy przypisani do aplikacji mogą się zalogować.
     - **Czy przypisanie użytkownika jest wymagane?** Określa, czy użytkownicy, którzy nie są przypisani do aplikacji, mogą się zalogować.
     - **Widoczne dla użytkowników?** Określa, czy użytkownicy przypisani do aplikacji mogą ją zobaczyć w [panelu dostępu](https://myapps.microsoft.com) i uruchamiania aplikacji pakietu Office 365. (Zobacz menu Gofr w lewym górnym rogu witryny sieci Web pakietu Office 365 lub Microsoft 365).
-4. Poniższe tabele ułatwiają wybranie najlepszych opcji dla potrzeb użytkownika.
+    
+    > [!TIP]
+    > Przypisywanie użytkowników odbywa się w sekcji **Użytkownicy i grupy** nawigacji.
 
-   - Zachowanie w przypadku użytkowników *przypisanych*:
+    Trzy opcje można przełączać niezależnie od siebie, a wynikowe zachowanie nie zawsze jest oczywiste. Oto tabela, która może pomóc:
+    
+    | Włączono, aby użytkownicy mogli się zalogować? | Wymagane przypisanie użytkownika? | Widoczne dla użytkowników? | Zachowanie dla użytkowników, którzy zostali przypisani do aplikacji. |
+    |---|---|---|---|
+    | Tak | Tak | Tak | Przypisani użytkownicy mogą zobaczyć aplikację i zalogować się.<br>Nieprzypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować. |
+    | Tak | Tak | Nie  | Przypisane zastosowania nie mogą zobaczyć aplikacji, ale mogą się zalogować.<br>Nieprzypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować. |
+    | Tak | Nie  | Tak | Przypisani użytkownicy mogą zobaczyć aplikację i zalogować się.<br>Nieprzypisani użytkownicy nie mogą zobaczyć aplikacji, ale mogą się zalogować. |
+    | Tak | Nie  | Nie  | Przypisani użytkownicy nie widzą aplikacji, ale mogą się zalogować.<br>Nieprzypisani użytkownicy nie mogą zobaczyć aplikacji, ale mogą się zalogować. |
+    | Nie  | Tak | Tak | Przypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować.<br>Nieprzypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować. |
+    | Nie  | Tak | Nie  | Przypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować.<br>Nieprzypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować. |
+    | Nie  | Nie  | Tak | Przypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować.<br>Nieprzypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować. |
+    | Nie  | Nie  | Nie  | Przypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować.<br>Nieprzypisani użytkownicy nie widzą aplikacji i nie mogą się zalogować. |
 
-       | Właściwość aplikacji | Właściwość aplikacji | Właściwość aplikacji | Środowisko użytkowników przypisanych | Środowisko użytkowników przypisanych |
-       |---|---|---|---|---|
-       | Włączono, aby użytkownicy mogli się zalogować? | Wymagane przypisanie użytkownika? | Widoczne dla użytkowników? | Czy przypisani użytkownicy mogą się logować? | Czy przypisani użytkownicy widzą aplikację?* |
-       | Tak | Tak | Tak | Tak | Tak  |
-       | Tak | Tak | Nie  | Tak | Nie   |
-       | Tak | Nie  | Tak | Tak | Tak  |
-       | Tak | Nie  | Nie  | Tak | Nie   |
-       | Nie  | Tak | Tak | Nie  | Nie   |
-       | Nie  | Tak | Nie  | Nie  | Nie   |
-       | Nie  | Nie  | Tak | Nie  | Nie   |
-       | Nie  | Nie  | Nie  | Nie  | Nie   |
-
-   - Zachowanie w przypadku użytkowników *nieprzypisanych*:
-
-       | Właściwość aplikacji | Właściwość aplikacji | Właściwość aplikacji | Środowisko użytkowników nieprzypisanych | Środowisko użytkowników nieprzypisanych |
-       |---|---|---|---|---|
-       | Włączono, aby użytkownicy mogli się zalogować? | Wymagane przypisanie użytkownika? | Widoczne dla użytkowników? | Czy nieprzypisani użytkownicy mogą się logować? | Czy nieprzypisani użytkownicy widzą aplikację?* |
-       | Tak | Tak | Tak | Nie  | Nie   |
-       | Tak | Tak | Nie  | Nie  | Nie   |
-       | Tak | Nie  | Tak | Tak | Nie   |
-       | Tak | Nie  | Nie  | Tak | Nie   |
-       | Nie  | Tak | Tak | Nie  | Nie   |
-       | Nie  | Tak | Nie  | Nie  | Nie   |
-       | Nie  | Nie  | Tak | Nie  | Nie   |
-       | Nie  | Nie  | Nie  | Nie  | Nie   |
-
-     *Czy użytkownik widzi aplikację w panelu dostępu i narzędziu do uruchamiania aplikacji usługi Office 365?
+4. Gdy skończysz, wybierz pozycję **Zapisz**.
 
 ## <a name="use-a-custom-logo"></a>Używanie logo niestandardowego
 
@@ -100,9 +87,9 @@ Aby użyć logo niestandardowego:
 > Zarządzanie aplikacjami można zautomatyzować za pomocą interfejs API programu Graph, zobacz [Automatyzowanie zarządzania aplikacjami za pomocą Microsoft Graph interfejsu API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli nie chcesz kontynuować korzystania z serii szybkiego startu, Rozważ usunięcie aplikacji w celu oczyszczenia dzierżawy testowej. Usuwanie aplikacji jest omówione w ostatnim przewodniku szybki start w tej serii, zobacz [usuwanie aplikacji](delete-application-portal.md).
+Jeśli nie chcesz kontynuować serii szybkiego startu, Rozważ usunięcie aplikacji w celu oczyszczenia dzierżawy testowej. Usuwanie aplikacji jest omówione w ostatnim przewodniku szybki start w tej serii, zobacz [usuwanie aplikacji](delete-application-portal.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

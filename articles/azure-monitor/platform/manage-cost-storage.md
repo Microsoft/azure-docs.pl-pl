@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: e6e1c6a02979ff6621961e17378c7fe2c9a1592b
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 391a5f054c5d80b255fd333ea416900c8c5ab6d1
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926352"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135423"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników Azure Monitor    
 
@@ -266,8 +266,7 @@ Heartbeat
 Pobierz liczbę węzłów, które wysyłają dane w ciągu ostatnich 24 godzin, użyj zapytania: 
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project Computer
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
 | summarize nodes = dcount(computerName)
@@ -276,15 +275,14 @@ union *
 Aby uzyskać listę węzłów wysyłających dowolne dane (i ilość danych wysyłanych przez poszczególne), można użyć poniższego zapytania:
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _BilledSize, Computer
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
 ```
 
 > [!TIP]
-> Te `union *` zapytania są oszczędnie zależą od tego, jak skanowanie między typami danych jest [czasochłonne](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) . Jeśli wyniki **dla komputera** nie są potrzebne, należy wykonać zapytanie dotyczące typu danych użycia (patrz poniżej).
+> Te `find` zapytania są oszczędnie zależą od tego, jak skanowanie między typami danych jest [czasochłonne](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) . Jeśli wyniki **dla komputera** nie są potrzebne, należy wykonać zapytanie dotyczące typu danych użycia (patrz poniżej).
 
 ## <a name="understanding-ingested-data-volume"></a>Zrozumienie ilości pozyskiwanych danych
 
@@ -346,8 +344,7 @@ Usage
 `Usage`Typ danych nie zawiera informacji na poziomie komputera. Aby wyświetlić **rozmiar** pobieranych danych na komputer, użyj `_BilledSize` [Właściwości](log-standard-properties.md#_billedsize), która zapewnia rozmiar w bajtach:
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, Computer
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | summarize BillableDataBytes = sum(_BilledSize) by  computerName 
@@ -359,8 +356,7 @@ union *
 Aby zobaczyć **liczbę** zdarzeń rozliczanych pobieranych na komputer, użyj 
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _IsBillable, Computer
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | summarize eventCount = count() by computerName  
@@ -368,15 +364,14 @@ union *
 ```
 
 > [!TIP]
-> Te `union  *` zapytania są oszczędnie zależą od tego, jak skanowanie między typami danych jest [czasochłonne](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) . Jeśli wyniki **dla komputera** nie są potrzebne, należy wykonać zapytanie dotyczące typu danych użycia.
+> Te `find` zapytania są oszczędnie zależą od tego, jak skanowanie między typami danych jest [czasochłonne](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) . Jeśli wyniki **dla komputera** nie są potrzebne, należy wykonać zapytanie dotyczące typu danych użycia.
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Ilość danych według zasobu platformy Azure, grupy zasobów lub subskrypcji
 
 W przypadku danych z węzłów hostowanych na platformie Azure można uzyskać **rozmiar** pobieranych danych __na komputer__, używając [Właściwości](log-standard-properties.md#_resourceid)_ResourceId, która zapewnia pełną ścieżkę do zasobu:
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
 | where _IsBillable == true 
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by BillableDataBytes nulls last
 ```
@@ -384,22 +379,20 @@ union *
 W przypadku danych z węzłów hostowanych na platformie Azure możesz uzyskać **rozmiar** pozyskanych danych __na subskrypcję platformy Azure__, pobrać identyfikator subskrypcji `_ResourceId` właściwości jako:
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
 | where _IsBillable == true 
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId
-| extend subscriptionId = split(_ResourceId, "/")[2] 
+| extend subscriptionId = tostring(split(_ResourceId, "/")[2]) 
 | summarize BillableDataBytes = sum(BillableDataBytes) by subscriptionId | sort by BillableDataBytes nulls last
 ```
 
 Podobnie, aby pobrać ilość danych według grupy zasobów:
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
 | where _IsBillable == true 
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId
-| extend resourceGroup = split(_ResourceId, "/")[4] 
+| extend resourceGroup = tostring(split(_ResourceId, "/")[4] )
 | summarize BillableDataBytes = sum(BillableDataBytes) by resourceGroup | sort by BillableDataBytes nulls last
 ```
 
@@ -411,7 +404,7 @@ Możesz również przeanalizować `_ResourceId` bardziej szczegółowo, jeśli j
 ```
 
 > [!TIP]
-> Te `union  *` zapytania są oszczędnie zależą od tego, jak skanowanie między typami danych jest [czasochłonne](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) . Jeśli nie potrzebujesz wyników na subskrypcję, grupę zasobów lub nazwę zasobu, a następnie wykonaj zapytanie dotyczące typu danych użycia.
+> Te `find` zapytania są oszczędnie zależą od tego, jak skanowanie między typami danych jest [czasochłonne](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) . Jeśli nie potrzebujesz wyników na subskrypcję, grupę zasobów lub nazwę zasobu, a następnie wykonaj zapytanie dotyczące typu danych użycia.
 
 > [!WARNING]
 > Niektóre pola typu danych użycia, ale nadal w schemacie, są przestarzałe i ich wartości nie będą już wypełnione. Są to **komputery** , a także pola związane z pozyskiwaniem (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** i **AverageProcessingTimeMs**.
@@ -458,8 +451,7 @@ Niektóre sugestie dotyczące zmniejszenia ilości zbieranych dzienników obejmu
 Aby uzyskać listę komputerów, które będą rozliczane jako węzły w przypadku, gdy obszar roboczy znajduje się w starszej warstwie cenowej węzła, poszukaj węzłów, które wysyłają **opłaty za typy danych** (niektóre typy danych są bezpłatne). W tym celu należy użyć `_IsBillable` [Właściwości](log-standard-properties.md#_isbillable) i użyć pola z lewej strony w w pełni kwalifikowanej nazwy domeny. To zwraca liczbę komputerów z danymi rozliczanymi za godzinę (czyli stopnia szczegółowości, w których węzły są zliczane i są rozliczane):
 
 ```kusto
-union * 
-| where _IsBillable == true 
+find where TimeGenerated > ago(24h) project Computer, TimeGenerated
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
 | summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc

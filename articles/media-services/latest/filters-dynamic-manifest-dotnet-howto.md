@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 08/11/2020
 ms.author: juliako
-ms.openlocfilehash: 2226d7a769caf049af30bbca81ca3079d72970b4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0d8a60d6c4b3fb66b46742fbd99e3a73a63fff45
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023130"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136086"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Tworzenie filtrów za pomocą zestawu SDK platformy Media Services .NET
 
@@ -36,7 +36,7 @@ W tym temacie pokazano, jak za Media Services pomocą zestawu SDK platformy .NET
 - Przeglądanie [filtrów i manifestów dynamicznych](filters-dynamic-manifest-overview.md).
 - [Utwórz konto Media Services](./create-account-howto.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services. 
 - Uzyskaj informacje konieczne do [uzyskania dostępu do interfejsów API](./access-api-howto.md)
-- Zapoznaj się z tematem [przekazywanie, kodowanie i przesyłanie strumieniowe przy użyciu Azure Media Services](stream-files-tutorial-with-api.md) , aby zobaczyć, jak [zacząć korzystać z zestawu SDK .NET](stream-files-tutorial-with-api.md#start_using_dotnet)
+- Zapoznaj się z tematem [przekazywanie, kodowanie i przesyłanie strumieniowe przy użyciu Azure Media Services](stream-files-tutorial-with-api.md) , aby zobaczyć, jak [zacząć korzystać z zestawu SDK .NET](stream-files-tutorial-with-api.md#start-using-media-services-apis-with-net-sdk)
 
 ## <a name="define-a-filter"></a>Zdefiniuj filtr  
 

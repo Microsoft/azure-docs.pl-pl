@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 08/11/2020
 ms.author: b-juche
-ms.openlocfilehash: 7c792ee9c56a044942bb2249a57f2615c72badee
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 29055da1ea8093d413691a41d38d6280f43f728a
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533142"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88134500"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -177,6 +177,11 @@ Dwuprotokołowy wolumin obsługuje zarówno system plików NFS, jak i protokół
 
 Aby uniknąć problemu "odmowa uprawnień", należy się upewnić, że Active Directory systemu Windows zawiera `pcuser` przed uzyskaniem dostępu do punktu instalacji. Po dodaniu `pcuser` problemu "odmowa uprawnień" odczekaj 24 godziny na wyczyszczenie wpisu pamięci podręcznej, zanim spróbujesz ponownie uzyskać dostęp.
 
+### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>Kiedy próbuję utworzyć dwuprotokołowy wolumin, dlaczego proces tworzenia nie powiedzie się z powodu błędu "nie można zweryfikować konfiguracji LDAP, spróbuj ponownie po poprawieniu konfiguracji LDAP"?  
+
+Na serwerze DNS może brakować rekordu wskaźnika (PTR) maszyny hosta usługi AD. Należy utworzyć strefę wyszukiwania wstecznego na serwerze DNS, a następnie dodać rekord PTR maszyny hosta usługi AD w tej strefie wyszukiwania wstecznego.
+
+Załóżmy na przykład, że adres IP komputera usługi AD to, nazwa `1.1.1.1` hosta maszyny usługi AD (jak znaleziono przy użyciu `hostname` polecenia) `AD1` , a domena to `myDomain.com` .  Rekord PTR dodany do strefy wyszukiwania wstecznego powinien mieć wartość `1.1.1.1`  ->  `AD1.myDomain.com` .
 
 ## <a name="capacity-management-faqs"></a>Często zadawane pytania dotyczące zarządzania pojemnością
 

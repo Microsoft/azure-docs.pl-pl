@@ -1,23 +1,23 @@
 ---
-title: Rejestrowanie zasobów danych w usłudze Azure Data Catalog
+title: 'Samouczek: rejestrowanie zasobów danych w Azure Data Catalog'
 description: W tym samouczku opisano sposób rejestrowania zasobów danych w Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 10733dc59d7b143657c67e24d45d4a7c920cbd03
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 66bacdf27b2ef9cf624b645cb6e4c123d9c3fa2a
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255198"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135882"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Samouczek: rejestrowanie zasobów danych w Azure Data Catalog
 
 W tym samouczku użyjesz narzędzia rejestracji do zarejestrowania zasobów danych z przykładowej bazy danych w wykazie. Rejestracja to proces wyodrębniania kluczowych metadanych strukturalnych, takich jak nazwy, typy i lokalizacje, ze źródła danych i zasobów, które się w nim znajdują, oraz kopiowania tych metadanych do wykazu. Źródło danych i zasoby danych pozostają tam, gdzie się znajdowały, ale metadane są używane przez wykaz, aby można było je łatwiej odnaleźć i zrozumieć.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Rejestrowanie zasobów danych 
 > * Wyszukaj zasoby danych
@@ -67,31 +67,31 @@ Teraz można rejestrować zasoby danych z przykładowej bazy danych przy użyciu
 
 6. Zarejestruj metadane zasobów danych. W tym przykładzie należy zarejestrować obiekty **produktu** z przykładowej przestrzeni nazw:
 
-    1. W drzewie **hierarchii serwera** rozwiń przykład bazy danych, a następnie wybierz pozycję **tabeli SalesLT**.
+   1. W drzewie **hierarchii serwera** rozwiń przykład bazy danych, a następnie wybierz pozycję **tabeli SalesLT**.
 
-    2. Wybierz pozycję **Product**, **ProductCategory**, **ProductDescription**i **ProductModel** za pomocą kombinacji klawiszy CTRL + SELECT.
+   2. Wybierz pozycję **Product**, **ProductCategory**, **ProductDescription**i **ProductModel** za pomocą kombinacji klawiszy CTRL + SELECT.
 
-    3. Wybierz **strzałkę w dół** ( **>** ). Spowoduje to przeniesienie wszystkich wybranych obiektów na listę **Obiekty do zarejestrowania**.
+   3. Wybierz **strzałkę w dół** ( **>** ). Spowoduje to przeniesienie wszystkich wybranych obiektów na listę **Obiekty do zarejestrowania**.
 
-          ![Samouczek dotyczący usługi Azure Data Catalog — przeglądanie i wybieranie obiektów](media/register-data-assets-tutorial/data-catalog-server-hierarchy.png)
+      ![Samouczek dotyczący usługi Azure Data Catalog — przeglądanie i wybieranie obiektów](media/register-data-assets-tutorial/data-catalog-server-hierarchy.png)
 
-    4. Wybierz pozycję **Dołącz podgląd**, aby dołączyć podgląd danych w postaci migawki. Migawka zawiera do 20 rekordów z każdej tabeli i jest kopiowana do wykazu.
+   4. Wybierz pozycję **Dołącz podgląd**, aby dołączyć podgląd danych w postaci migawki. Migawka zawiera do 20 rekordów z każdej tabeli i jest kopiowana do wykazu.
 
-    5. Wybierz pozycję **Dołącz profil danych**, aby dołączyć migawkę statystyk obiektów dla profilu danych (na przykład liczbę wierszy czy minimalną, maksymalną i średnią wartość w kolumnie).
+   5. Wybierz pozycję **Dołącz profil danych**, aby dołączyć migawkę statystyk obiektów dla profilu danych (na przykład liczbę wierszy czy minimalną, maksymalną i średnią wartość w kolumnie).
 
-    6. W polu **Dodaj Tagi** wprowadź wartość **Sales, Product i Azure SQL**. Spowoduje to dodanie tagów wyszukiwania dla tych zasobów danych. Tagi to doskonały sposób na ułatwienie użytkownikom znalezienia zarejestrowanego źródła danych.
+   6. W polu **Dodaj Tagi** wprowadź wartość **Sales, Product i Azure SQL**. Spowoduje to dodanie tagów wyszukiwania dla tych zasobów danych. Tagi to doskonały sposób na ułatwienie użytkownikom znalezienia zarejestrowanego źródła danych.
 
-    7. Podaj imię i nazwisko **eksperta** w zakresie przeznaczenia tych danych (opcjonalnie).
+   7. Podaj imię i nazwisko **eksperta** w zakresie przeznaczenia tych danych (opcjonalnie).
 
-          ![Samouczek dotyczący usługi Azure Data Catalog — obiekty do zarejestrowania](media/register-data-assets-tutorial/data-catalog-objects-register.png)
+      ![Samouczek dotyczący usługi Azure Data Catalog — obiekty do zarejestrowania](media/register-data-assets-tutorial/data-catalog-objects-register.png)
 
-    8. Wybierz pozycję **zarejestruj**. Wybrane obiekty zostaną zarejestrowane za pomocą usługi Azure Data Catalog. W tym ćwiczeniu zarejestrowano wybrane obiekty z przykładowej bazy danych. Za pomocą narzędzia rejestracji metadane są wyodrębniane z zasobów danych i kopiowane do usługi Azure Data Catalog. Dane pozostają tam, gdzie są obecne. Dane pozostają pod kontrolą administratorów i zasad systemu pochodzenia.
+   8. Wybierz pozycję **zarejestruj**. Wybrane obiekty zostaną zarejestrowane za pomocą usługi Azure Data Catalog. W tym ćwiczeniu zarejestrowano wybrane obiekty z przykładowej bazy danych. Za pomocą narzędzia rejestracji metadane są wyodrębniane z zasobów danych i kopiowane do usługi Azure Data Catalog. Dane pozostają tam, gdzie są obecne. Dane pozostają pod kontrolą administratorów i zasad systemu pochodzenia.
 
-          ![Usługa Azure Data Catalog — zarejestrowane obiekty](media/register-data-assets-tutorial/data-catalog-registered-objects.png)
+      ![Usługa Azure Data Catalog — zarejestrowane obiekty](media/register-data-assets-tutorial/data-catalog-registered-objects.png)
 
     9. Aby wyświetlić zarejestrowane obiekty źródła danych, wybierz pozycję **Wyświetl Portal**. Upewnij się, że w portalu Azure Data Catalog są widoczne wszystkie cztery tabele i baza danych w widoku siatki (Sprawdź, czy pasek wyszukiwania jest wyczyszczony).
 
-        ![Obiekty w portalu usługi Azure Data Catalog](media/register-data-assets-tutorial/data-catalog-view-portal.png)
+       ![Obiekty w portalu usługi Azure Data Catalog](media/register-data-assets-tutorial/data-catalog-view-portal.png)
 
 W tym ćwiczeniu zarejestrowano obiekty z przykładu bazy danych dla Azure SQL Database, dzięki czemu mogą one być łatwo odnajdywane przez użytkowników w organizacji.
 
@@ -119,19 +119,20 @@ Wyszukiwanie podstawowe ułatwia przeszukiwanie wykazu za pomocą co najmniej je
 
 2. W polu wyszukiwania wpisz `product` i naciśnij klawisz **ENTER**.
 
-    ![Usługa Azure Data Catalog — podstawowe wyszukiwanie tekstowe](media/register-data-assets-tutorial/data-catalog-basic-text-search.png)
+   ![Usługa Azure Data Catalog — podstawowe wyszukiwanie tekstowe](media/register-data-assets-tutorial/data-catalog-basic-text-search.png)
 
 3. Upewnij się, że w wynikach są widoczne wszystkie cztery tabele i baza danych. Możesz przełączać się między **widokiem siatki** a **widokiem listy** , wybierając przyciski na pasku narzędzi, jak pokazano na poniższej ilustracji. Zwróć uwagę, że wyszukiwane słowo kluczowe jest wyróżnione w wynikach wyszukiwania, ponieważ opcja **Wyróżnienie** jest **WŁĄCZONA**. Dodatkowo można określić liczbę **wyników wyszukiwania wyświetlanych na stronie**.
 
-    ![Usługa Azure Data Catalog — wyniki podstawowego wyszukiwania tekstowego](media/register-data-assets-tutorial/data-catalog-basic-text-search-results.png)
+   ![Usługa Azure Data Catalog — wyniki podstawowego wyszukiwania tekstowego](media/register-data-assets-tutorial/data-catalog-basic-text-search-results.png)
 
-    Panel **Wyszukiwania** jest wyświetlany po lewej stronie, a panel **Właściwości** — po prawej stronie. W panelu **Wyszukiwania** można zmienić kryteria wyszukiwania i wyfiltrować wyniki. W panelu **Właściwości** są wyświetlane właściwości obiektu wybranego w siatce lub na liście.
+   Panel **Wyszukiwania** jest wyświetlany po lewej stronie, a panel **Właściwości** — po prawej stronie. W panelu **Wyszukiwania** można zmienić kryteria wyszukiwania i wyfiltrować wyniki. W panelu **Właściwości** są wyświetlane właściwości obiektu wybranego w siatce lub na liście.
 
 4. Wybierz pozycję **Product (produkt** ) w wynikach wyszukiwania. Wybierz karty **Podgląd**, **kolumny**, **profil danych**i **Dokumentacja** , lub wybierz strzałkę, aby rozwinąć dolne okienko.  
 
-    ![Usługa Azure Data Catalog — dolne okienko](media/register-data-assets-tutorial/data-catalog-data-asset-preview.png)
+   ![Usługa Azure Data Catalog — dolne okienko](media/register-data-assets-tutorial/data-catalog-data-asset-preview.png)
 
-    Na karcie **Podgląd** zostanie wyświetlony podgląd danych z tabeli **Product**.  
+   Na karcie **Podgląd** zostanie wyświetlony podgląd danych z tabeli **Product**.
+
 5. Wybierz kartę **kolumny** , aby znaleźć szczegółowe informacje o kolumnach (takich jak **Nazwa** i **Typ danych**) w obszarze zawartości danych.
 
 6. Wybierz kartę **profil danych** , aby zobaczyć Profilowanie danych (na przykład: liczba wierszy, rozmiar danych lub wartość minimalna w kolumnie) w obszarze zawartości danych.
@@ -146,13 +147,13 @@ Wyznaczanie zakresu właściwości ułatwia odnajdywanie zasobów danych, gdy wy
 
 3. Upewnij się, że tabele i baza danych są widoczne w wynikach.  
 
-    ![Usługa Data Catalog — wyniki wyszukiwania uzyskane z użyciem wyznaczania zakresu właściwości](media/register-data-assets-tutorial/data-catalog-property-scoping-results.png)
+   ![Usługa Data Catalog — wyniki wyszukiwania uzyskane z użyciem wyznaczania zakresu właściwości](media/register-data-assets-tutorial/data-catalog-property-scoping-results.png)
 
 ### <a name="save-the-search"></a>Zapisywanie wyszukiwania
 
 1. W okienku **wyszukiwania** w sekcji **Bieżące wyszukiwanie** wprowadź nazwę wyszukiwania i wybierz pozycję **Zapisz**.
 
-    ![Usługa Azure Data Catalog — zapisywanie wyszukiwania](media/register-data-assets-tutorial/data-catalog-save-search.png)
+   ![Usługa Azure Data Catalog — zapisywanie wyszukiwania](media/register-data-assets-tutorial/data-catalog-save-search.png)
 
 2. Upewnij się, że zapisane wyszukiwanie jest wyświetlane w sekcji **Zapisane wyszukiwania**.
 
@@ -166,7 +167,7 @@ Nawiasy umożliwiają grupowanie części zapytania w celu uzyskania izolacji lo
 
 2. Upewnij się, że wyniki wyszukiwania obejmują tylko wiersze z tabeli **Product**.
 
-    ![Usługa Azure Data Catalog — wyszukiwanie przy użyciu grupowania](media/register-data-assets-tutorial/data-catalog-grouping-search.png)
+   ![Usługa Azure Data Catalog — wyszukiwanie przy użyciu grupowania](media/register-data-assets-tutorial/data-catalog-grouping-search.png)
 
 ### <a name="comparison-operators"></a>Operatory porównania
 
@@ -180,7 +181,7 @@ Operatory porównania pozwalają używać innych porównań niż równość dla 
 
 4. Upewnij się, że są widoczne tabele **Product**, **ProductCategory**i **ProductDescription** oraz baza danych SQL zarejestrowana w wynikach wyszukiwania.
 
-    ![Usługa Azure Data Catalog — wyniki wyszukiwania z użyciem porównania](media/register-data-assets-tutorial/data-catalog-comparison-operator-results.png)
+   ![Usługa Azure Data Catalog — wyniki wyszukiwania z użyciem porównania](media/register-data-assets-tutorial/data-catalog-comparison-operator-results.png)
 
 Zobacz [jak odnajdywać zasoby danych,](data-catalog-how-to-discover.md) Aby uzyskać szczegółowe informacje na temat odnajdywania zasobów danych. Aby uzyskać więcej informacji na temat składni wyszukiwania, zobacz [Data Catalog informacje o składni wyszukiwania](/rest/api/datacatalog/#search-syntax-reference).
 
@@ -233,21 +234,21 @@ To ćwiczenie obejmuje otwieranie zasobów danych za pomocą zintegrowanego narz
 
 1. Wybierz pozycję **Product** w wynikach wyszukiwania. Wybierz pozycję **Otwórz w** na pasku narzędzi i wybierz pozycję **Excel**.
 
-    ![Usługa Azure Data Catalog — nawiązywanie połączenia z zasobem danych](media/register-data-assets-tutorial/data-catalog-connect1.png)
+   ![Usługa Azure Data Catalog — nawiązywanie połączenia z zasobem danych](media/register-data-assets-tutorial/data-catalog-connect1.png)
 
 2. W oknie podręcznym pobieranie wybierz pozycję **Otwórz** . Wygląd elementów interfejsu zależy od przeglądarki.
 
 3. W oknie **powiadomienia o zabezpieczeniach programu Microsoft Excel** wybierz pozycję **Włącz**.
 
-    ![Usługa Azure Data Catalog — okno podręczne zabezpieczeń programu Excel](media/register-data-assets-tutorial/data-catalog-excel-security-popup.png)
+   ![Usługa Azure Data Catalog — okno podręczne zabezpieczeń programu Excel](media/register-data-assets-tutorial/data-catalog-excel-security-popup.png)
 
 4. W oknie dialogowym **Importowanie danych** Zachowaj wartości domyślne i wybierz **przycisk OK**.
 
-    ![Usługa Azure Data Catalog — importowanie danych w programie Excel](media/register-data-assets-tutorial/data-catalog-excel-import-data.png)
+   ![Usługa Azure Data Catalog — importowanie danych w programie Excel](media/register-data-assets-tutorial/data-catalog-excel-import-data.png)
 
 5. Wyświetl źródło danych w programie Excel.
 
-    ![Usługa Azure Data Catalog — tabela produktów w programie Excel](media/register-data-assets-tutorial/data-catalog-connect2.png)
+   ![Usługa Azure Data Catalog — tabela produktów w programie Excel](media/register-data-assets-tutorial/data-catalog-connect2.png)
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
@@ -259,7 +260,7 @@ W tym ćwiczeniu zostało nawiązane połączenie z zasobami danych odnalezionym
 
 3. Wybierz właściwą metodę uwierzytelniania i wpisz odpowiednie poświadczenia, aby uzyskać dostęp do zasobu danych. Jeśli nie masz dostępu, skorzystaj z informacji zawartych w polu **Żądanie dostępu**, aby go uzyskać.
 
-    ![Usługa Azure Data Catalog — żądanie dostępu](media/register-data-assets-tutorial/data-catalog-request-access.png)
+   ![Usługa Azure Data Catalog — żądanie dostępu](media/register-data-assets-tutorial/data-catalog-request-access.png)
 
 Wybierz pozycję **Wyświetl parametry połączenia** , aby wyświetlić i skopiować parametry połączenia ADO.NET, ODBC i OLEDB do schowka, które mają być używane w aplikacji.
 
@@ -299,18 +300,22 @@ W usłudze Azure Data Catalog można usuwać pojedyncze zasoby lub wiele zasobó
 
 3. Wybierz element na liście wyników i wybierz pozycję **Usuń** na pasku narzędzi, jak pokazano na poniższej ilustracji:
 
-    ![Usługa Azure Data Catalog — usuwanie elementu siatki](media/register-data-assets-tutorial/data-catalog-delete-grid-item.png)
+   ![Usługa Azure Data Catalog — usuwanie elementu siatki](media/register-data-assets-tutorial/data-catalog-delete-grid-item.png)
 
-    Jeśli używasz widoku listy, pole wyboru znajduje się na lewo od elementu, jak pokazano na poniższej ilustracji:
+   Jeśli używasz widoku listy, pole wyboru znajduje się na lewo od elementu, jak pokazano na poniższej ilustracji:
 
-    ![Usługa Azure Data Catalog — usuwanie elementu listy](media/register-data-assets-tutorial/data-catalog-delete-list-item.png)
+   ![Usługa Azure Data Catalog — usuwanie elementu listy](media/register-data-assets-tutorial/data-catalog-delete-list-item.png)
 
-    Można również wybierać i usuwać kilka zasobów danych, jak pokazano na poniższej ilustracji:
+   Można również wybierać i usuwać kilka zasobów danych, jak pokazano na poniższej ilustracji:
 
-    ![Usługa Azure Data Catalog — usuwanie kilku zasobów danych](media/register-data-assets-tutorial/data-catalog-delete-assets.png)
+   ![Usługa Azure Data Catalog — usuwanie kilku zasobów danych](media/register-data-assets-tutorial/data-catalog-delete-assets.png)
 
 > [!NOTE]
 > Domyślnym zachowaniem katalogu jest umożliwianie każdemu użytkownikowi rejestrowania dowolnego źródła danych oraz usuwania wszystkich zarejestrowanych zasobów danych. Funkcje zarządzania dostępne w wersji Standard Edition usługi Azure Data Catalog dodatkowo umożliwiają przejmowania własności do zasobów i ograniczanie grona użytkowników, którzy mogą odnajdywać i usuwać zasoby.
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Wykonaj kroki [usuwania zasobów danych](#remove-data-assets) , aby wyczyścić wszystkie zasoby, które mogły zostać użyte podczas pracy z tym samouczkiem.
 
 ## <a name="summary"></a>Podsumowanie
 

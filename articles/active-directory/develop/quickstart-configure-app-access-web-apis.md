@@ -13,12 +13,12 @@ ms.date: 08/05/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 800b399e73be032cfd9d2849b004018aa9d9031f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 87c21587567ffe3462e4b702985114ac10454886
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120868"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140806"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Szybki Start: Konfigurowanie aplikacji klienckiej w celu uzyskania dostępu do internetowego interfejsu API
 
@@ -148,7 +148,7 @@ Aby dodać klucz tajny klienta:
 
 ## <a name="add-permissions-to-access-web-apis"></a>Dodawanie uprawnień na potrzeby dostępu do internetowych interfejsów API
 
-[Uprawnienie interfejs API programu Graph logowanie i odczyt profilu użytkownika](https://developer.microsoft.com/graph/docs/concepts/permissions_reference#user-permissions) jest domyślnie zaznaczone. Dla każdego internetowego interfejsu API można wybrać jedną z [dwóch typów uprawnień](developer-glossary.md#permissions) :
+[Uprawnienie interfejs API programu Graph logowanie i odczyt profilu użytkownika](/graph/permissions-reference#user-permissions) jest domyślnie zaznaczone. Dla każdego internetowego interfejsu API można wybrać jedną z [dwóch typów uprawnień](developer-glossary.md#permissions) :
 
 * **Uprawnienia aplikacji**. Aplikacja kliencka musi uzyskać dostęp do internetowego interfejsu API bezpośrednio, bez kontekstu użytkownika. Ten typ uprawnień wymaga zgody administratora. To uprawnienie nie jest dostępne dla aplikacji klienckich dla komputerów stacjonarnych i mobilnych.
 * **Delegowane uprawnienia**. twoja aplikacja kliencka musi mieć dostęp do internetowego interfejsu API w imieniu zalogowanego użytkownika, ale z dostępem ograniczonym przez wybrane uprawnienie. Tego rodzaju uprawnienie może być udzielane przez użytkownika, chyba że wymaga ono zgody administratora.

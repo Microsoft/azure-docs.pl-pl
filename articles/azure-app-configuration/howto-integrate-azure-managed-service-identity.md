@@ -1,22 +1,22 @@
 ---
-title: Uwierzytelnianie przy użyciu tożsamości zarządzanych przez platformę Azure
+title: Uzyskiwanie dostępu do konfiguracji aplikacji przy użyciu tożsamości zarządzanych
 titleSuffix: Azure App Configuration
-description: Uwierzytelnianie w usłudze Azure App Configuration przy użyciu tożsamości zarządzanych przez platformę Azure
+description: Uwierzytelnianie w usłudze Azure App Configuration przy użyciu tożsamości zarządzanych
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: bf97a1eae758778efc8d800666af4a5fcb574429
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ccf1bed3a1791f0aa172a617deab1cd192540f3
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80056835"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135474"
 ---
-# <a name="integrate-with-azure-managed-identities"></a>Integracja z usługą tożsamości zarządzanych platformy Azure
+# <a name="use-managed-identities-to-access-app-configuration"></a>Uzyskiwanie dostępu do konfiguracji aplikacji przy użyciu tożsamości zarządzanych
 
-Azure Active Directory [tożsamości zarządzane](../active-directory/managed-identities-azure-resources/overview.md) upraszczają zarządzanie kluczami tajnymi aplikacji w chmurze. Przy użyciu tożsamości zarządzanej kod może używać jednostki usługi utworzonej dla usługi platformy Azure, w której jest uruchomiona. Użytkownik korzysta z tożsamości zarządzanej zamiast oddzielnego poświadczenia przechowywanego w Azure Key Vault lub lokalnych parametrów połączenia. 
+Azure Active Directory [tożsamości zarządzane](../active-directory/managed-identities-azure-resources/overview.md) upraszczają zarządzanie kluczami tajnymi aplikacji w chmurze. Przy użyciu tożsamości zarządzanej kod może używać jednostki usługi utworzonej dla usługi platformy Azure, w której jest uruchomiona. Użytkownik korzysta z tożsamości zarządzanej zamiast oddzielnego poświadczenia przechowywanego w Azure Key Vault lub lokalnych parametrów połączenia.
 
 Konfiguracja aplikacji platformy Azure oraz jej biblioteki klienckie .NET Core, .NET Framework i Java sprężyny mają wbudowaną obsługę tożsamości. Chociaż nie jest to konieczne, zarządzana tożsamość eliminuje konieczność korzystania z tokenu dostępu zawierającego wpisy tajne. Twój kod może uzyskać dostęp do magazynu konfiguracji aplikacji przy użyciu tylko punktu końcowego usługi. Możesz osadzić ten adres URL w kodzie bezpośrednio bez ujawniania żadnych wpisów tajnych.
 
@@ -84,7 +84,7 @@ Aby skonfigurować tożsamość zarządzaną w portalu, należy najpierw utworzy
 
 1. Znajdź punkt końcowy w magazynie konfiguracji aplikacji. Ten adres URL jest wyświetlany na karcie **klucze dostępu** dla sklepu w Azure Portal.
 
-1. Otwórz *appsettings.jsna*i Dodaj następujący skrypt. Zamień *\<service_endpoint>* , łącznie z nawiasami, adres URL magazynu konfiguracji aplikacji. 
+1. Otwórz *appsettings.jsna*i Dodaj następujący skrypt. Zamień *\<service_endpoint>* , łącznie z nawiasami, adres URL magazynu konfiguracji aplikacji.
 
     ```json
     "AppConfig": {
@@ -183,6 +183,9 @@ Aby skonfigurować tożsamość zarządzaną w portalu, należy najpierw utworzy
 
     Teraz możesz uzyskiwać dostęp do Key Vault odwołań podobnie jak każdy inny klucz konfiguracji aplikacji. Dostawca konfiguracji użyje `KeyVaultClient` skonfigurowanej do uwierzytelniania w celu Key Vault i pobrania wartości.
 
+> [!NOTE]
+> `ManagedIdentityCredential`obsługuje tylko uwierzytelnianie tożsamości zarządzanej. Nie działa w środowiskach lokalnych. Jeśli chcesz uruchomić kod lokalnie, rozważ użycie `DefaultAzureCredential` , który obsługuje również uwierzytelnianie jednostki usługi. Sprawdź [link](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential) , aby uzyskać szczegółowe informacje.
+
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 ## <a name="deploy-from-local-git"></a>Wdrażanie z lokalnego wdrożenia narzędzia Git
@@ -242,7 +245,7 @@ http://<app_name>.azurewebsites.net
 
 ## <a name="use-managed-identity-in-other-languages"></a>Używanie tożsamości zarządzanej w innych językach
 
-Dostawcy usługi App Configuration dla programu .NET Framework i Java Spring również mają wbudowaną obsługę tożsamości zarządzanej. Po skonfigurowaniu jednego z tych dostawców można użyć punktu końcowego adresu URL sklepu zamiast jego pełnych parametrów połączenia. 
+Dostawcy usługi App Configuration dla programu .NET Framework i Java Spring również mają wbudowaną obsługę tożsamości zarządzanej. Po skonfigurowaniu jednego z tych dostawców można użyć punktu końcowego adresu URL sklepu zamiast jego pełnych parametrów połączenia.
 
 Można na przykład zaktualizować aplikację konsolową .NET Framework utworzoną w przewodniku Szybki Start, aby określić następujące ustawienia w pliku *App.config* :
 
