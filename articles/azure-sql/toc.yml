@@ -529,7 +529,7 @@
               href: database/elastic-query-horizontal-partitioning.md
             - name: Wykonywanie zapytań względem tabel z różnymi schematami
               href: database/elastic-query-vertical-partitioning.md
-        - name: Zadania elastyczne
+        - name: Zadania elastyczne (wersja zapoznawcza)
           items:
             - name: Konfigurowanie zadań
               href: database/elastic-jobs-overview.md
@@ -809,24 +809,40 @@
                           href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
                         - name: 5. Przewidywania
                           href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
-            - name: 'Zarządzanie pakietami Python, R'
+            - name: Instrukcje
               items:
-                - name: Python
+                - name: Eksplorowanie i modelowanie danych
                   items:
-                    - name: Uzyskiwanie informacje o pakiecie Python
-                      href: 'https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
-                    - name: Instalowanie za pomocą sqlmlutils
-                      href: 'https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-python-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
-                - name: R
+                    - name: Python
+                      items:
+                        - name: Kreślenie histogramu w języku Python
+                          href: 'https://docs.microsoft.com/sql/machine-learning/data-exploration/python-plot-histogram?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                        - name: Importowanie danych do ramki danych pandas
+                          href: 'https://docs.microsoft.com/sql/machine-learning/data-exploration/python-dataframe-pandas?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                        - name: Wstawianie ramki danych do środowiska SQL
+                          href: 'https://docs.microsoft.com/sql/machine-learning/data-exploration/python-dataframe-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                - name: Prognozy
                   items:
-                    - name: Uzyskiwanie informacji o pakiecie R
-                      href: 'https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
-                    - name: Instalowanie za pomocą sqlmlutils
-                      href: 'https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-r-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
-                    - name: Tworzenie repozytorium miniCRAN
-                      href: 'https://docs.microsoft.com/sql/machine-learning/package-management/create-a-local-package-repository-using-minicran?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
-                    - name: Porady dotyczące korzystania z pakietów R
-                      href: 'https://docs.microsoft.com/sql/machine-learning/package-management/tips-for-using-r-packages?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                    - name: Natywne ocenianie za pomocą rozwiązania PREDICT T-SQL
+                      href: 'https://docs.microsoft.com/sql/machine-learning/predictions/native-scoring-predict-transact-sql?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                - name: Zarządzanie pakietami
+                  items:
+                    - name: Instalowanie nowych pakietów języka Python
+                      items:
+                        - name: Uzyskiwanie informacje o pakiecie Python
+                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                        - name: Instalowanie za pomocą sqlmlutils
+                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-python-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                    - name: Instalowanie nowych pakietów języka R
+                      items:
+                        - name: Uzyskiwanie informacji o pakiecie R
+                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                        - name: Instalowanie za pomocą sqlmlutils
+                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-r-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                        - name: Tworzenie repozytorium miniCRAN
+                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/create-a-local-package-repository-using-minicran?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                        - name: Porady dotyczące korzystania z pakietów R
+                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/tips-for-using-r-packages?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
         - name: Funkcje
           items:
             - name: Serwery połączone

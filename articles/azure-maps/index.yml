@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Dokumentacja usługi Azure Maps
-summary: Usługa Microsoft Azure Maps zapewnia deweloperom ze wszystkich branż zaawansowane możliwości geoprzestrzenne. Te możliwości geoprzestrzenne korzystają z najświeższych danych mapowania. Usługa Azure Maps jest dostępna zarówno w aplikacji internetowej, jak i mobilnej. Usługa Azure Maps to zestaw interfejsów API REST zgodnych z interfejsem Azure One API. Poniżej znajduje się tylko ogólny przegląd usług oferowanych przez usługę Azure Maps — mapy, wyszukiwanie, routing, ruch drogowy, mobilność, pogoda, strefy czasowe, geolokalizacja, wirtualne grodzenie, dane mapy i operacje przestrzenne. Dzięki zestawom SDK dla Internetu i systemu Android tworzenie jest łatwe i elastyczne. Zapewniają one również przenośność między wieloma platformami.
+summary: Usługa Microsoft Azure Maps zapewnia deweloperom ze wszystkich branż zaawansowane możliwości geoprzestrzenne. Te możliwości geoprzestrzenne korzystają z najświeższych danych mapowania. Usługa Azure Maps jest dostępna zarówno w aplikacji internetowej, jak i mobilnej. Usługa Azure Maps to zestaw interfejsów API REST zgodnych z interfejsem Azure One API. Poniżej znajduje się tylko ogólny przegląd usług oferowanych przez usługę Azure Maps — mapy, wyszukiwanie, routing, ruch drogowy, mobilność, pogoda, strefy czasowe, geolokalizacja, wirtualne grodzenie, dane mapy, kreator i operacje przestrzenne. Dzięki zestawom SDK dla Internetu i systemu Android tworzenie jest łatwe i elastyczne. Zapewniają one również przenośność między wieloma platformami.
 metadata:
   title: Dokumentacja usługi Azure Maps | Microsoft Docs
   description: Dowiedz się więcej o usłudze Azure Maps i sposobach korzystania z niej w celu udostępniania usług geoprzestrzennych w aplikacji internetowej lub mobilnej.
@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: 0760dce9e64560c8ecb593f41b2d611bd059a639
-  ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+  ms.openlocfilehash: 4e95d7d9afb77dcf8e168a04c9e0f4fc3b266807
+  ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 07/31/2020
-  ms.locfileid: "87461752"
+  ms.lasthandoff: 08/11/2020
+  ms.locfileid: "88121650"
 landingContent:
 - title: Azure Maps — informacje
   linkLists:

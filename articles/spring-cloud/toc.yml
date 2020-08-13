@@ -22,6 +22,8 @@
   items:
     - name: Ręczne skalowanie aplikacji
       href: spring-cloud-tutorial-scale-manual.md
+    - name: Autoskalowanie aplikacji
+      href: spring-cloud-tutorial-setup-autoscale.md
     - name: Alerty i grupy akcji
       href: spring-cloud-tutorial-alerts-action-groups.md
     - name: Wdrażanie aplikacji za pomocą środowiska IntelliJ
@@ -38,8 +40,6 @@
       href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
     - name: Używanie tożsamości zarządzanej do łączenia usługi Key Vault z aplikacją Azure Spring Cloud
       href: spring-cloud-tutorial-managed-identities-key-vault.md
-    - name: Konfigurowanie autoskalowania dla aplikacji mikrousług
-      href: spring-cloud-tutorial-setup-autoscale.md
 - name: Samples
   items:
     - name: Elementy wbudowane usługi Azure Policy

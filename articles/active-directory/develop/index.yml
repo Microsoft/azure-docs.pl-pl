@@ -3,18 +3,18 @@ title: Dokumentacja poświęcona platformie tożsamości firmy Microsoft
 summary: Platforma tożsamości firmy Microsoft to usługa uwierzytelniania, biblioteki open-source i narzędzia do zarządzania aplikacjami. Dowiedz się, jak tworzyć nowoczesne, oparte na standardach rozwiązania do uwierzytelniania, korzystając z przewodników Szybki start, samouczków i przykładów kodu. Twórz aplikacje, do których użytkownicy i klienci logują się przy użyciu tożsamości firmy Microsoft lub kont społecznościowych, a także autoryzuj dostęp do interfejsów API lub interfejsów API firmy Microsoft, takich jak Microsoft Graph.
 metadata:
   ms.topic: landing-page
-  ms.date: 07/13/2020
-  author: CelesteDG
-  ms.author: celested
+  ms.date: 08/11/2020
+  author: mmacy
+  ms.author: marsma
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: e17e6195d629238c9c719d8e34780593129ae244
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: d978cc0f2b59cdb1cd41b0cf5e23851ad5165558
+  ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87027074"
+  ms.lasthandoff: 08/11/2020
+  ms.locfileid: "88116737"
 landingContent:
 - title: Informacje o platformie tożsamości firmy Microsoft
   linkLists:
@@ -83,7 +83,7 @@ landingContent:
     - text: ASP.NET
       url: quickstart-v2-dotnet-native-aspnet.md
     - text: ASP.NET Core
-      url: https://docs.microsoft.com/samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/calling-an-aspnet-core-web-api-from-a-wpf-application-using-azure-ad-v2/
+      url: /samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/calling-an-aspnet-core-web-api-from-a-wpf-application-using-azure-ad-v2/
 - title: Microsoft Graph
   linkLists:
   - linkListType: get-started
@@ -91,7 +91,7 @@ landingContent:
     - text: Korzystanie z interfejsu API programu Microsoft Graph
       url: microsoft-graph-intro.md
     - text: Omówienie uwierzytelniania programu Microsoft Graph
-      url: https://docs.microsoft.com/graph/auth/
+      url: /graph/auth/
 - title: Protokoły
   linkLists:
   - linkListType: overview
@@ -116,3 +116,13 @@ landingContent:
       url: ../managed-identities-azure-resources/overview.md
     - text: Tożsamości zarządzane i maszyny wirtualne platformy Azure
       url: ../managed-identities-azure-resources/how-managed-identities-work-vm.md
+- title: Nowości w dokumentacji
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Obsługa błędów i wyjątków — Android
+      url: msal-android-handling-exceptions.md
+    - text: Atrybuty rozszerzeń schematów katalogów w oświadczeniach
+      url: active-directory-schema-extensions.md
+    - text: Kod autoryzacji MSAL.js 2.0 + PKCE i CORS
+      url: quickstart-v2-javascript-auth-code.md

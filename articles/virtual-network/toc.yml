@@ -12,6 +12,8 @@
       href: quick-create-powershell.md
     - name: Tworzenie sieci wirtualnej — interfejs wiersza polecenia platformy Azure
       href: quick-create-cli.md
+    - name: Tworzenie sieci wirtualnej — szablon usługi ARM
+      href: quick-create-template.md
   expanded: true
 - name: Samouczki
   items:
