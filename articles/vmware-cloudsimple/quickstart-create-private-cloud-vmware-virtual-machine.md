@@ -1,6 +1,6 @@
 ---
 title: Szybki Start — Tworzenie maszyny wirtualnej programu VMware platformy Azure w chmurze prywatnej — rozwiązanie Azure VMware według CloudSimple
-description: Zawiera opis sposobu tworzenia maszyny wirtualnej platformy Azure VMware w chmurze prywatnej CloudSimple
+description: Dowiedz się, jak utworzyć maszynę wirtualną VMware w chmurze prywatnej CloudSimple. Uzyskaj dostęp do portalu CloudSimple z poziomu Azure Portal.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 000e30f2656b88c068654fd8099cdff0ce0a4b37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 32ac78c6bc613daf04fc98c03044699f387f290d
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091270"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140857"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Tworzenie maszyn wirtualnych VMware w chmurze prywatnej
 
@@ -139,7 +139,7 @@ Strony sieci w portalu CloudSimple umożliwiają określenie konfiguracji tabel 
 5. Użyj suwaka, aby zmienić limit czasu bezczynności w razie potrzeby.
 6. Wprowadź lokalny adres IP, dla którego chcesz przypisać publiczny adres IP.
 7. W razie potrzeby wprowadź skojarzoną nazwę DNS.
-8. Kliknij pozycję **Gotowe**.
+8. Kliknij przycisk **Gotowe**.
 
     ![Publiczny adres IP](media/quick-create-pc-public-ip.png)
 

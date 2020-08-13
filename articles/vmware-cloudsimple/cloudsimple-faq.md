@@ -1,6 +1,6 @@
 ---
 title: Często zadawane pytania — rozwiązanie Azure VMware według CloudSimple
-description: Często zadawane pytania dotyczące rozwiązań VMware platformy Azure według CloudSimple
+description: Często zadawane pytania dotyczące rozwiązań VMware platformy Azure według CloudSimple obejmują łączność, Sieć, zabezpieczenia, magazyn, integrację z platformą Azure i inne osoby.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 95d8c2974ea372dd59d15a9f2cc31ed171acd932
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0db8c13a7467ed864c0845319b37f958f60fa4d9
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77025065"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140891"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Często zadawane pytania dotyczące rozwiązania VMware według CloudSimple
 
@@ -100,7 +100,7 @@ Usługa CloudSimple zapewnia następujące funkcje zabezpieczeń w celu zabezpie
 * **Zabezpieczenia sieciowe**. Sterowanie przepływem ruchu sieciowego za pomocą reguł zapory, które są stosowane między chmurą prywatną i Internetem, chmurą prywatną i środowiskiem lokalnym lub w podsieciach chmury prywatnej.
 * **Bezpieczne połączenie prywatne**. Bezpieczne połączenie prywatne jest nawiązywane między siecią lokalną i subskrypcją platformy Azure.
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Wystąpienia obliczeniowe
 
 **Jakiego rodzaju hosty są dostępne?**
 
@@ -131,7 +131,7 @@ CloudSimple stale monitoruje wszystkie składniki sprzętowe chmury prywatnej.  
 
 **Jak mogę wykonywać na dużą skalę przekazywanie lub migrację aplikacji i danych z lokalnego systemu?**
 
-CloudSimple zapewnia natywne rozwiązanie VMware vSphere.  Wszystkie narzędzia VMware do migracji danych zbiorczych mogą być używane z chmurą prywatną.  Dostępne opcje:
+CloudSimple zapewnia natywne rozwiązanie VMware vSphere.  Wszystkie narzędzia VMware do migracji danych zbiorczych mogą być używane z chmurą prywatną.  Dostępne są następujące opcje:
 
 * Oprogramowanie VMware HCX na potrzeby migracji zbiorczej danych.
 * Zimna migracja danych przy użyciu usługi Storage vMotion z lokalnego do CloudSimple.

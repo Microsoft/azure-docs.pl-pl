@@ -1,6 +1,6 @@
 ---
 title: Rozwiązanie VMware firmy Azure według CloudSimple — tabele zapory
-description: Dowiedz się więcej na temat tabel i reguł zapory chmury prywatnej CloudSimple.
+description: Dowiedz się więcej na temat tabel i reguł zapory chmury prywatnej CloudSimple, w tym reguł domyślnych tworzonych w każdej tabeli zapory.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 89bef6cef48f2b972aa3f931008b0db84431b832
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c44c39f66a0a0161eea8a7e9656bbe0e3d1015c
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77025048"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140874"
 ---
 # <a name="firewall-tables-overview"></a>Tabele zapory — Omówienie
 
@@ -29,11 +29,11 @@ W poniższej tabeli opisano parametry w regule zapory.
 | **Priority** | Liczba z zakresu od 100 do 4096, z 100 jest najwyższy priorytet. Reguły są przetwarzane w kolejności priorytetów. Gdy ruch napotyka zgodność z regułą, przetwarzanie reguł zostanie zatrzymane. W efekcie reguły o niższych priorytetach, które mają te same atrybuty co reguły o wyższych priorytetach nie są przetwarzane.  Należy zachować ostrożność, aby uniknąć reguł powodujących konflikt. |
 | **Śledzenie stanu** | Śledzenie może być bezstanowe (Chmura prywatna, Internet lub sieć VPN) lub stanowa (Public IP).  |
 | **Protokół** | Dostępne opcje to TCP lub UDP. Jeśli jest wymagany protokół ICMP, użyj dowolnego z nich. |
-| **Kierunek** | Określa, czy ta reguła ma zastosowanie do ruchu przychodzącego, czy wychodzącego. |
+| **Kierunek** | Określa, czy reguła ma zastosowanie do ruchu przychodzącego, czy wychodzącego. |
 | **Akcja** | Zezwalaj lub Odmów dla typu ruchu zdefiniowanego w regule. |
-| **Element źródłowy** | Adres IP, bezklasowy blok routingu międzydomenowego (CIDR) (na przykład 10.0.0.0/24) lub dowolny.  Określenie zakresu, tagu usługi lub grupy zabezpieczeń aplikacji umożliwia utworzenie mniejszej liczby reguł zabezpieczeń. |
+| **Źródło** | Adres IP, bezklasowy blok routingu międzydomenowego (CIDR) (na przykład 10.0.0.0/24) lub dowolny.  Określenie zakresu, tagu usługi lub grupy zabezpieczeń aplikacji umożliwia utworzenie mniejszej liczby reguł zabezpieczeń. |
 | **Port źródłowy** | Port, z którego pochodzi ruch sieciowy.  Można określić pojedynczy port lub zakres portów, taki jak 443 lub 8000-8080. Określenie zakresów umożliwia utworzenie mniejszej liczby reguł zabezpieczeń. |
-| **Punktu** | Adres IP, bezklasowy blok routingu międzydomenowego (CIDR) (na przykład 10.0.0.0/24) lub dowolny.  Określenie zakresu, tagu usługi lub grupy zabezpieczeń aplikacji umożliwia utworzenie mniejszej liczby reguł zabezpieczeń.  |
+| **Element docelowy** | Adres IP, bezklasowy blok routingu międzydomenowego (CIDR) (na przykład 10.0.0.0/24) lub dowolny.  Określenie zakresu, tagu usługi lub grupy zabezpieczeń aplikacji umożliwia utworzenie mniejszej liczby reguł zabezpieczeń.  |
 | **Port docelowy** | Port, do którego przepływy ruchu sieciowego.  Można określić pojedynczy port lub zakres portów, taki jak 443 lub 8000-8080. Określenie zakresów umożliwia utworzenie mniejszej liczby reguł zabezpieczeń.|
 
 ### <a name="stateless"></a>Bezstanowe
@@ -45,7 +45,7 @@ Do przepływu ruchu w odwrotnym kierunku mogą być wymagane dodatkowe reguły. 
 * Podsieć lokalna i podsieć chmury prywatnej
 * Ruch internetowy z chmur prywatnych
 
-### <a name="stateful"></a>Stanowa
+### <a name="stateful"></a>Stanowe
 
  Reguła stanowa ma świadomość połączeń, które przechodzą przez nią. Rekord przepływu tworzony jest dla istniejących połączeń. Komunikacja jest dozwolona lub zablokowana na podstawie stanu połączenia z rekordu przepływu.  Użyj tego typu reguły dla publicznych adresów IP, aby filtrować ruch z Internetu.
 
@@ -53,12 +53,12 @@ Do przepływu ruchu w odwrotnym kierunku mogą być wymagane dodatkowe reguły. 
 
 W każdej tabeli zapory są tworzone następujące reguły domyślne.
 
-|Priorytet|Nazwa|Śledzenie stanu|Kierunek|Typ ruchu|Protokół|Element źródłowy|Port źródłowy|Element docelowy|Port docelowy|Akcja|
+|Priorytet|Nazwa|Śledzenie stanu|Kierunek|Typ ruchu|Protokół|Źródło|Port źródłowy|Element docelowy|Port docelowy|Akcja|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
-|65000|Zezwalaj na wszystkie-internetowe|Stanowa|Wychodzący|Publiczny adres IP lub ruch internetowy|Wszyscy|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
-|65001|Odmów — wszystko-z Internetu|Stanowa|Przychodzący|Publiczny adres IP lub ruch internetowy|Wszyscy|Dowolne|Dowolne|Dowolne|Dowolne|Zablokuj|
-|65002|Zezwól na dostęp do sieci intranet|Bezstanowe|Wychodzący|Ruch wewnętrzny lub sieci VPN w chmurze prywatnej|Wszyscy|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
-|65003|Zezwalaj — wszystko-z-intranet|Bezstanowe|Przychodzący|Ruch wewnętrzny lub sieci VPN w chmurze prywatnej|Wszyscy|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
+|65000|Zezwalaj na wszystkie-internetowe|Stanowe|Outbound|Publiczny adres IP lub ruch internetowy|Wszyscy|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
+|65001|Odmów — wszystko-z Internetu|Stanowe|Inbound|Publiczny adres IP lub ruch internetowy|Wszyscy|Dowolne|Dowolne|Dowolne|Dowolne|Zablokuj|
+|65002|Zezwól na dostęp do sieci intranet|Bezstanowe|Outbound|Ruch wewnętrzny lub sieci VPN w chmurze prywatnej|Wszyscy|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
+|65003|Zezwalaj — wszystko-z-intranet|Bezstanowe|Inbound|Ruch wewnętrzny lub sieci VPN w chmurze prywatnej|Wszyscy|Dowolne|Dowolne|Dowolne|Dowolne|Zezwalaj|
 
 ## <a name="next-steps"></a>Następne kroki
 

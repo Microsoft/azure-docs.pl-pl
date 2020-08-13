@@ -1,6 +1,6 @@
 ---
 title: Rozwiązanie VMware firmy Azure według CloudSimple — Omówienie węzłów
-description: Dowiedz się więcej o węzłach i pojęciach CloudSimple.
+description: Zapoznaj się z pojęciami CloudSimple, takimi jak węzły, węzły inicjowane, Chmura prywatna i rozwiązanie VMware przez jednostki SKU węzłów CloudSimple.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 65afe26a98a53b00b72a1ea2b49799db2049b727
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7de4b5faa997d909089daedab7e48e5d5a6de2e7
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024929"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140840"
 ---
 # <a name="cloudsimple-nodes-overview"></a>Przegląd węzłów CloudSimple
 
@@ -38,7 +38,7 @@ Następujące typy węzłów są dostępne do aprowizacji lub rezerwacji.
 
 | SKU           | CS28 — węzeł                 | CS36 — węzeł                 | CS36m — węzeł                |
 |---------------|-----------------------------|-----------------------------|-----------------------------|
-| Region        | Wschodnie stany USA, zachodnie stany USA            | Wschodnie stany USA, zachodnie stany USA            | Europa Zachodnia                 |
+| Region        | Wschodnie stany USA, zachodnie stany USA            | Wschodnie stany USA, zachodnie stany USA            | West Europe                 |
 | Procesor CPU           | 2.2,2 GHz, 28 rdzeni (56 HT) | 2 rdzenie 2,3 GHz, 36 (72 HT) | 2 rdzenie 2,3 GHz, 36 (72 HT) |
 | Pamięć RAM           | 256 GB                      | 512 GB                      | 576 GB                      |
 | Dysk pamięci podręcznej    | 1,6 – TB interfejsu NVMe                 | 3,2 – TB interfejsu NVMe                 | 3,2 – TB interfejsu NVMe                 |
