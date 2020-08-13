@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: a43637071ec1a9962c8aa1b2262e07354293f12b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2918c5842d6470e634518ff9c12f6f04aefc920
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512435"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185387"
 ---
 # <a name="what-is-azure-importexport-service"></a>Co to jest usługa Azure Import/Export?
 
@@ -120,14 +120,15 @@ Usługa Azure Import/Export obsługuje kopiowanie danych do i ze wszystkich kont
 
 |Kraj/region  |Kraj/region  |Kraj/region  |Kraj/region  |
 |---------|---------|---------|---------|
-|Wschodnie stany USA    | Europa Północna        | Indie Środkowe        |US Gov Iowa         |
-|Zachodnie stany USA     |Europa Zachodnia         | Indie Południowe        | US DoD (region wschodni)        |
+|East US    | Europa Północna        | Central India        |US Gov Iowa         |
+|Zachodnie stany USA     |West Europe         | Indie Południowe        | US DoD (region wschodni)        |
 |Wschodnie stany USA 2    | Azja Wschodnia        |  Indie Zachodnie        | US DoD (region środkowy)        |
-|Zachodnie stany USA 2     | Azja Południowo-Wschodnia        | Kanada Środkowa        | Chiny Wschodnie         |
-|Środkowe stany USA     | Australia Wschodnia        | Kanada Wschodnia        | Chiny Północne        |
-|Północno-środkowe stany USA     |  Australia Południowo-Wschodnia       | Brazylia Południowa        | Południowe Zjednoczone Królestwo        |
-|Południowo-środkowe stany USA     | Japonia Zachodnia        |Korea Środkowa         | Niemcy Środkowe        |
-|Zachodnio-środkowe stany USA     |  Japonia Wschodnia       | US Gov Wirginia        | Niemcy Północno-Wschodnie        |
+|Zachodnie stany USA 2     | Southeast Asia        | Kanada Środkowa        | Chiny Wschodnie         |
+|Central US     | Australia Wschodnia        | Kanada Wschodnia        | Chiny Północne        |
+|Północno-środkowe stany USA     |  Australia Południowo-Wschodnia       | Brazil South        | Południowe Zjednoczone Królestwo        |
+|South Central US     | Japonia Zachodnia        |Korea Środkowa         | Niemcy Środkowe        |
+|Zachodnio-środkowe stany USA     |  Japan East       | US Gov Wirginia        | Niemcy Północno-Wschodnie        |
+|Zachodnia Republika Południowej Afryki   |  Północna Republika Południowej Afryki |
 
 ## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
 

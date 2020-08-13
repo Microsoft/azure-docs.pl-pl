@@ -4,15 +4,15 @@ description: Samouczek — informacje o sposobie uruchamiania skryptów języka 
 author: mammask
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 08/12/2020
 ms.author: komammas
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 9b58aa06b67f01cf9ce0b30cef0326185124306c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f4c71cffe00faa6dd8cc440c59f94b8c2d60f712
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853317"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185115"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Samouczek: uruchamianie skryptów Python za pomocą Azure Data Factory przy użyciu Azure Batch
 
@@ -58,7 +58,7 @@ W tej sekcji użyjesz Batch Explorer do utworzenia puli usługi Batch, która b�
     1. W obszarze **nauka danych**wybierz pozycję **Dsvm systemu Windows** jako system operacyjny.
     1. Wybierz `Standard_f2s_v2` rozmiar maszyny wirtualnej.
     1. Włącz zadanie uruchamiania i Dodaj polecenie `cmd /c "pip install pandas"` . Tożsamość użytkownika może pozostać jako domyślny **użytkownik puli**.
-    1. Wybierz przycisk **OK**.
+    1. Wybierz pozycję **OK**.
 
 ## <a name="create-blob-containers"></a>Tworzenie kontenerów obiektów BLOB
 
@@ -67,8 +67,7 @@ Tutaj utworzysz kontenery obiektów blob, które będą przechowywać pliki wej�
 1. Zaloguj się, aby Eksplorator usługi Storage przy użyciu poświadczeń platformy Azure.
 1. Korzystając z konta magazynu połączonego z kontem usługi Batch, Utwórz dwa kontenery obiektów BLOB (jeden dla plików wejściowych, jeden dla plików wyjściowych), wykonując czynności opisane w [sekcji Tworzenie kontenera obiektów BLOB](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
     * W tym przykładzie wywołamy nasz kontener wejściowy `input` oraz nasz kontener wyjściowy `output` .
-1. Przekaż `main.py` i [`iris.csv`](https://www.kaggle.com/uciml/iris/version/2#Iris.csv) do kontenera wejściowego `input` przy użyciu Eksplorator usługi Storage, wykonując czynności opisane w temacie [Zarządzanie obiektami BLOB w kontenerze obiektów BLOB](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
-
+1. Przekaż [`iris.csv`](https://www.kaggle.com/uciml/iris/version/2#Iris.csv) do kontenera wejściowego `input` za pomocą Eksplorator usługi Storage, wykonując czynności opisane w temacie [Zarządzanie obiektami BLOB w kontenerze obiektów BLOB](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
 
 ## <a name="develop-a-script-in-python"></a>Opracowywanie skryptu w języku Python
 

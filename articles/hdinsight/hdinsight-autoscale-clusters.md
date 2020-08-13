@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 29c04fc8f6af016200e06ad239095a3665de5869
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: cc294eb1bdfd4a6a8c6ad001c007f83a10983644
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086436"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185812"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Automatyczne skalowanie klastrów usługi Azure HDInsight
 
@@ -39,7 +39,7 @@ Podczas wybierania typu skalowania należy wziąć pod uwagę następujące czyn
 
 Automatyczne skalowanie w sposób ciągły monitoruje klaster i zbiera następujące metryki:
 
-|Metric|Opis|
+|Metryka|Opis|
 |---|---|
 |Łączny czas oczekiwania na procesor|Łączna liczba rdzeni wymaganych do rozpoczęcia wykonywania wszystkich oczekujących kontenerów.|
 |Całkowita liczba oczekujących pamięci|Całkowita ilość pamięci (w MB) wymagana do uruchomienia wszystkich oczekujących kontenerów.|
@@ -72,7 +72,7 @@ W przypadku skalowania w dół automatyczne skalowanie wystawia żądanie usuni�
 
 W poniższej tabeli opisano typy i wersje klastra, które są zgodne z funkcją skalowania automatycznego.
 
-| Wersja | platforma Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
+| Wersja | Spark | Hive | LLAP | Baza danych HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3,6 bez ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
 | HDInsight 4,0 bez ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
@@ -81,7 +81,7 @@ W poniższej tabeli opisano typy i wersje klastra, które są zgodne z funkcją 
 
 \*Klastry HBase można konfigurować tylko dla skalowania opartego na harmonogramie, a nie na podstawie obciążenia.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Tworzenie klastra z automatycznym skalowaniem na podstawie obciążenia
 
@@ -133,7 +133,7 @@ Aby uzyskać więcej informacji na temat tworzenia klastra usługi HDInsight prz
 
 #### <a name="load-based-autoscaling"></a>Skalowanie automatyczne przy użyciu obciążenia
 
-Można utworzyć klaster usługi HDInsight z użyciem automatycznego skalowania Azure Resource Manager szablonu, dodając `autoscale` węzeł do `computeProfile`  >  `workernode` sekcji z właściwościami `minInstanceCount` i `maxInstanceCount` jak pokazano w poniższym fragmencie kodu JSON.
+Można utworzyć klaster usługi HDInsight z użyciem automatycznego skalowania Azure Resource Manager szablonu, dodając `autoscale` węzeł do `computeProfile`  >  `workernode` sekcji z właściwościami `minInstanceCount` i `maxInstanceCount` jak pokazano w poniższym fragmencie kodu JSON. Aby zapoznać się z pełnym szablonem usługi Resource Manager, zobacz [szablon szybkiego startu: Wdróż klaster Spark z włączonym automatycznym skalowaniem Loadbased](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-loadbased).
 
 ```json
 {
@@ -161,7 +161,7 @@ Można utworzyć klaster usługi HDInsight z użyciem automatycznego skalowania 
 
 #### <a name="schedule-based-autoscaling"></a>Skalowanie automatyczne oparte na harmonogramie
 
-Można utworzyć klaster usługi HDInsight z użyciem harmonogramu automatycznego skalowania szablonu Azure Resource Manager, dodając `autoscale` węzeł do `computeProfile`  >  `workernode` sekcji. `autoscale`Węzeł zawiera `recurrence` `timezone` i `schedule` , który opisuje, kiedy zmiana zostanie przeprowadzona.
+Można utworzyć klaster usługi HDInsight z użyciem harmonogramu automatycznego skalowania szablonu Azure Resource Manager, dodając `autoscale` węzeł do `computeProfile`  >  `workernode` sekcji. `autoscale`Węzeł zawiera `recurrence` `timezone` i `schedule` , który opisuje, kiedy zmiana zostanie przeprowadzona. Aby zapoznać się z pełnym szablonem usługi Resource Manager, zobacz [wdrażanie klastra Spark z włączoną funkcją automatycznego skalowania opartego na harmonogramie](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-schedulebased).
 
 ```json
 {
@@ -227,7 +227,7 @@ Na poniższej liście objaśniono wszystkie komunikaty o stanie klastra, które 
 
 | Stan klastra | Opis |
 |---|---|
-| Działanie | Klaster działa normalnie. Wszystkie poprzednie działania automatycznego skalowania zostały wykonane pomyślnie. |
+| Uruchomienie | Klaster działa normalnie. Wszystkie poprzednie działania automatycznego skalowania zostały wykonane pomyślnie. |
 | Aktualizowanie  | Trwa aktualizowanie konfiguracji automatycznego skalowania klastra.  |
 | Konfiguracja usługi HDInsight  | Operacja skalowania w górę lub w dół w dół jest w toku.  |
 | Błąd aktualizacji  | Usługa HDInsight napotkała problemy podczas aktualizacji konfiguracji skalowania automatycznego. Klienci mogą zrezygnować z aktualizacji lub wyłączyć automatyczne skalowanie.  |

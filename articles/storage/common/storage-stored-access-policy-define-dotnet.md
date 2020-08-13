@@ -10,12 +10,12 @@ ms.date: 06/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: a08929c4affbd6eeb4d66a82d787ec5eba122e5b
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: c9c267097f681a78ba940283096b2c18d692e9cc
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903769"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185370"
 ---
 # <a name="create-a-stored-access-policy-with-net"></a>Tworzenie zasad dostępu przechowywanych przy użyciu platformy .NET
 
@@ -41,7 +41,7 @@ Podstawową operacją REST do utworzenia przechowywanych zasad dostępu jest [us
 
 Poniższe przykłady kodu tworzą zasady dostępu przechowywane w kontenerze. Zasad dostępu można użyć do określenia ograniczeń dla SAS usługi w kontenerze lub jego obiektach Blob.
 
-# <a name="net-v12-sdk"></a>[Zestaw SDK .NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
 
 Aby utworzyć przechowywane zasady dostępu w kontenerze z wersją 12 biblioteki klienta .NET dla usługi Azure Storage, należy wywołać jedną z następujących metod:
 
@@ -92,7 +92,7 @@ async static Task CreateStoredAccessPolicyAsync(string containerName)
 }
 ```
 
-# <a name="net-v11-sdk"></a>[Zestaw SDK .NET v11](#tab/dotnet11)
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 Aby utworzyć przechowywane zasady dostępu w kontenerze z wersją 12 biblioteki klienta .NET dla usługi Azure Storage, należy wywołać jedną z następujących metod:
 
@@ -125,7 +125,7 @@ private static async Task CreateStoredAccessPolicyAsync(CloudBlobContainer conta
 
 ---
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](storage-sas-overview.md)
 - [Definiowanie przechowywanych zasad dostępu](/rest/api/storageservices/define-stored-access-policy)

@@ -3,12 +3,12 @@ title: Punkty końcowe usługi Virtual Network — Event Hubs platformy Azure | 
 description: Ten artykuł zawiera informacje na temat dodawania punktu końcowego usługi Microsoft. EventHub do sieci wirtualnej.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 8c798efc21f5b846965f2247d7e76249177ef946
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: cb0d9a9c4d5e2503e68620ec4e6386d8e05d471c
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554077"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185075"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Zezwalaj na dostęp do przestrzeni nazw platformy Azure Event Hubs z określonych sieci wirtualnych 
 
@@ -18,24 +18,20 @@ Po skonfigurowaniu powiązania z co najmniej jednym punktem końcowym usługi po
 
 Wynikiem jest relacja między obciążeniami powiązanymi z podsiecią i odpowiadającą jej przestrzenią nazw Event Hubs, w odróżnieniu od pozostałego adresu sieciowego punktu końcowego usługi obsługi komunikatów znajdującego się w zakresie publicznego adresu IP. Wystąpił wyjątek dotyczący tego zachowania. Domyślnie włączenie punktu końcowego usługi powoduje włączenie `denyall` reguły w [zaporze IP](event-hubs-ip-filtering.md) skojarzonej z siecią wirtualną. Można dodać określone adresy IP w zaporze IP, aby umożliwić dostęp do publicznego punktu końcowego centrum zdarzeń. 
 
->[!WARNING]
-> Implementowanie integracji sieci wirtualnych może uniemożliwić innym usługom platformy Azure interakcję z usługą Event Hubs.
+>[!IMPORTANT]
+> Sieci wirtualne są obsługiwane w warstwach **Standardowa** i **Dedykowana** usługi Event Hubs. Ta wartość nie jest obsługiwana w warstwie **podstawowa** .
 >
-> Zaufane usługi firmy Microsoft nie są obsługiwane w przypadku implementacji sieci wirtualnych.
+> Włączenie reguł zapory dla Event Hubs przestrzeni nazw domyślnie blokuje przychodzące żądania, chyba że żądania pochodzą z usługi z dozwolonych sieci wirtualnych. Zablokowane żądania obejmują te z innych usług platformy Azure, z Azure Portal z usług rejestrowania i metryk i tak dalej. 
 >
-> Typowe scenariusze platformy Azure, które nie współpracują z sieciami wirtualnymi (należy zauważyć, że lista **nie** jest wyczerpująca) —
+> Poniżej wymieniono niektóre usługi, które nie mogą uzyskać dostępu do zasobów Event Hubs, gdy sieci wirtualne są włączone. Należy zauważyć, że lista **nie** jest wyczerpująca.
+>
 > - Usługa Azure Stream Analytics
 > - Trasy usługi Azure IoT Hub
 > - Device Explorer usługi Azure IoT
+> - Azure Event Grid
+> - Azure Monitor (ustawienia diagnostyczne)
 >
-> Następujące usługi firmy Microsoft muszą znajdować się w sieci wirtualnej
-> - Aplikacje internetowe platformy Azure
-> - Azure Functions
-> - Azure Monitor (ustawienie diagnostyczne)
-
-
-> [!IMPORTANT]
-> Sieci wirtualne są obsługiwane w warstwach **Standardowa** i **Dedykowana** usługi Event Hubs. Ta wartość nie jest obsługiwana w warstwie **podstawowa** .
+> Jako wyjątek, można zezwolić na dostęp do Event Hubs zasobów z niektórych zaufanych usług nawet wtedy, gdy są włączone sieci wirtualne. Aby zapoznać się z listą zaufanych usług, zobacz temat [usługi zaufane](#trusted-microsoft-services).
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Zaawansowane scenariusze zabezpieczeń obsługujące integrację sieci wirtualnej 
 
@@ -57,12 +53,10 @@ Reguła sieci wirtualnej jest skojarzeniem przestrzeni nazw Event Hubs z podsiec
 W tej sekcji pokazano, jak dodać punkt końcowy usługi sieci wirtualnej przy użyciu Azure Portal. Aby ograniczyć dostęp, należy zintegrować punkt końcowy usługi sieci wirtualnej dla tej Event Hubs przestrzeni nazw.
 
 1. Przejdź do **przestrzeni nazw Event Hubs** w [Azure Portal](https://portal.azure.com).
-4. Wybierz pozycję **Sieć** w obszarze **Ustawienia** w menu po lewej stronie. 
+4. Wybierz pozycję **Sieć** w obszarze **Ustawienia** w menu po lewej stronie. Karta **Sieć** jest wyświetlana tylko dla **standardowych** lub **dedykowanych** przestrzeni nazw. 
 
     > [!NOTE]
-    > Karta **Sieć** jest wyświetlana tylko dla **standardowych** lub **dedykowanych** przestrzeni nazw. 
-
-    Domyślnie wybrana jest opcja **wybrane sieci** . Jeśli nie określisz reguły zapory IP lub nie dodasz sieci wirtualnej na tej stronie, można uzyskać dostęp do przestrzeni nazw ze wszystkich sieci, w tym do publicznej sieci Internet (przy użyciu klucza dostępu). 
+    > Domyślnie wybrana jest opcja **wybrane sieci** , jak pokazano na poniższej ilustracji. Jeśli nie określisz reguły zapory adresu IP lub nie dodasz sieci wirtualnej na tej stronie, można uzyskać dostęp do przestrzeni nazw za pośrednictwem **publicznej sieci Internet** (przy użyciu klucza dostępu). 
 
     :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Karta sieci — opcja wybrane sieci" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
 
@@ -83,12 +77,15 @@ W tej sekcji pokazano, jak dodać punkt końcowy usługi sieci wirtualnej przy u
 
     > [!NOTE]
     > Jeśli nie możesz włączyć punktu końcowego usługi, możesz zignorować brakujący punkt końcowy usługi sieci wirtualnej przy użyciu szablonu Menedżer zasobów. Ta funkcja nie jest dostępna w portalu.
+5. Określ, czy chcesz **zezwolić zaufanym usługom firmy Microsoft na ominięcie tej zapory**. Aby uzyskać szczegółowe informacje, zobacz [Zaufane usługi firmy Microsoft](#trusted-microsoft-services) . 
 6. Wybierz pozycję **Zapisz** na pasku narzędzi, aby zapisać ustawienia. Poczekaj kilka minut, aż potwierdzenie będzie widoczne na powiadomieniach portalu.
 
     ![Zapisz sieć](./media/event-hubs-tutorial-vnet-and-firewalls/save-vnet.png)
 
     > [!NOTE]
     > Aby ograniczyć dostęp do określonych adresów IP lub zakresów, zobacz [Zezwalanie na dostęp z określonych adresów IP lub zakresów](event-hubs-ip-filtering.md).
+
+[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Używanie szablonu usługi Resource Manager
 

@@ -10,12 +10,12 @@ ms.date: 07/08/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: d35b02e798d68682a3c55068f1f53f7a28d81721
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: d4bead0ad73bd1315ce114c08320c6673ab0f42d
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209867"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185159"
 ---
 # <a name="configure-transport-layer-security-tls-for-a-client-application"></a>Konfigurowanie Transport Layer Security (TLS) dla aplikacji klienckiej
 
@@ -29,7 +29,7 @@ Aby klient mógł wysyłać żądanie z określoną wersją protokołu TLS, syst
 
 W poniższych przykładach pokazano, jak ustawić wersję protokołu TLS klienta na 1,2 przy użyciu programu PowerShell lub programu .NET. .NET Framework używany przez klienta musi obsługiwać protokół TLS 1,2. Aby uzyskać więcej informacji, zobacz [Obsługa protokołu TLS 1,2](/dotnet/framework/network-programming/tls#support-for-tls-12).
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Poniższy przykład pokazuje, jak włączyć protokół TLS 1,2 w kliencie programu PowerShell:
 
@@ -43,13 +43,13 @@ $ctx = $storageAccount.Context
 New-AzStorageContainer -Name "sample-container" -Context $ctx
 ```
 
-# <a name="net-v12-sdk"></a>[Zestaw SDK .NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
 
 Poniższy przykład pokazuje, jak włączyć protokół TLS 1,2 w kliencie .NET przy użyciu wersji 12 biblioteki klienta usługi Azure Storage:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Networking.cs" id="Snippet_ConfigureTls12":::
 
-# <a name="net-v11-sdk"></a>[Zestaw SDK .NET v11](#tab/dotnet11)
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 Poniższy przykład pokazuje, jak włączyć protokół TLS 1,2 w kliencie .NET przy użyciu wersji 11 biblioteki klienta usługi Azure Storage:
 

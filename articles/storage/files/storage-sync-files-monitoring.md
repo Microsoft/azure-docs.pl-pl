@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8b2b62ac4d79964c0a597f40d8154e5f57350f0b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 737617b1fb8bd233a8747deacbbb328a02fa30ef
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031085"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185625"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorowanie usługi Azure File Sync
 
@@ -156,12 +156,13 @@ Kondycja warstw chmury
   - Identyfikator zdarzenia 9016 zawiera wyniki duplikowania dla woluminu. Na przykład: procent wolnego miejsca to, liczba plików zduplikowanych w sesji i liczba plików, których duplikat nie powiódł się.
   - Identyfikator zdarzenia 9029 zawiera zduplikowane informacje o sesji dla punktu końcowego serwera. Przykład: liczba plików, które próbowano wykonać w sesji, liczba plików warstwowych w sesji oraz liczba plików, które zostały już warstwowe.
   
-- Aby monitorować działanie odwoływania na serwerze, należy użyć zdarzenia o IDENTYFIKATORze 9005, 9006, 9009 i 9059 w dzienniku zdarzeń telemetrii, który znajduje się w Podgląd zdarzeń w obszarze *aplikacje i Services\Microsoft\FileSync\Agent*.
+- Aby monitorować działanie odwoływania na serwerze, należy użyć zdarzenia o IDENTYFIKATORze 9005, 9006, 9009, 9059 i 9071 w dzienniku zdarzeń telemetrii, który znajduje się w Podgląd zdarzeń w obszarze *aplikacje i Services\Microsoft\FileSync\Agent*.
 
   - Identyfikator zdarzenia 9005 zapewnia niezawodność odwoływania się do punktu końcowego serwera. Na przykład: całkowita liczba dostępnych unikatowych plików i całkowita liczba unikatowych plików z dostępem zakończonym niepowodzeniem.
   - Identyfikator zdarzenia 9006 zapewnia dystrybuowanie błędów odwołania dla punktu końcowego serwera. Na przykład: całkowita liczba nieudanych żądań i kod błędu. Jedno zdarzenie jest rejestrowane na kod błędu.
   - Identyfikator zdarzenia 9009 zawiera informacje o sesji odwoływania dla punktu końcowego serwera. Na przykład: DurationSeconds, CountFilesRecallSucceeded i CountFilesRecallFailed.
   - Identyfikator zdarzenia 9059 zapewnia dystrybucję odwoływania aplikacji dla punktu końcowego serwera. Na przykład: ShareId, nazwa aplikacji i TotalEgressNetworkBytes.
+  - Identyfikator zdarzenia 9071 zapewnia wydajność warstwową w chmurze dla punktu końcowego serwera. Na przykład: TotalDistinctFileCountCacheHit, TotalDistinctFileCountCacheMiss, TotalCacheHitBytes i TotalCacheMissBytes.
 
 ### <a name="performance-counters"></a>Liczniki wydajności
 

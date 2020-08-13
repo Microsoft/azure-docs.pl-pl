@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6981b6acaf0281c1643e2d8ac3933e0fa892e3c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3a2474b491abd31b750a15aad7860666c7bd02e
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84124560"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88186262"
 ---
 W tym artykule wyjaśniono, jak planować tworzenie kopii zapasowych i odzyskiwanie po awarii (DR) maszyn wirtualnych IaaS i dysków na platformie Azure. Ten dokument dotyczy zarówno dysków zarządzanych, jak i niezarządzanych.
 
@@ -178,7 +178,7 @@ Migawka to reprezentacja obiektu w określonym punkcie w czasie. Migawka wiąże
 
 ### <a name="create-snapshots-while-the-vm-is-running"></a>Tworzenie migawek podczas działania maszyny wirtualnej
 
-Chociaż można wykonać migawkę w dowolnym momencie, jeśli maszyna wirtualna jest uruchomiona, nadal dane są przesyłane strumieniowo do dysków. Migawki mogą zawierać operacje częściowe, które były w locie. Ponadto, jeśli istnieje kilka dysków, migawki różnych dysków mogą wystąpić w różnych godzinach. Te scenariusze mogą spowodować niekoordynowanie migawek. Ten brak koordynacji jest szczególnie problematyczny dla woluminów rozłożonych, których pliki mogą ulec uszkodzeniu, jeśli podczas tworzenia kopii zapasowej zostały wprowadzone zmiany.
+Chociaż można wykonać migawkę w dowolnym momencie, jeśli maszyna wirtualna jest uruchomiona, nadal dane są przesyłane strumieniowo do dysków. Migawki mogą zawierać operacje częściowe, które były w locie. Ponadto, jeśli istnieje kilka dysków, migawki różnych dysków mogą wystąpić w różnych godzinach. Te scenariusze mogą spowodować niekoordynowanie migawek. Brak koordynacji jest szczególnie problematyczny dla woluminów rozłożonych, których pliki mogą być uszkodzone, jeśli podczas tworzenia kopii zapasowej zostały wprowadzone zmiany.
 
 Aby uniknąć tej sytuacji, proces tworzenia kopii zapasowej musi implementować następujące czynności:
 
@@ -257,9 +257,6 @@ Główną różnicą między magazynem geograficznie nadmiarowym i magazynem geo
 Jeśli okaże się to znaczna awaria, zespół platformy Azure może wyzwolić geograficzną pracę w trybie failover i zmienić podstawowe wpisy DNS, aby wskazywały magazyn pomocniczy. W tym momencie, jeśli masz magazyn Geograficznie nadmiarowy lub magazyn Geograficznie nadmiarowy dostępny do odczytu, możesz uzyskać dostęp do danych w regionie, który był używany jako pomocniczy. Innymi słowy, jeśli konto magazynu jest magazynem geograficznie nadmiarowym i występuje problem, można uzyskać dostęp do magazynu pomocniczego tylko wtedy, gdy istnieje geograficzna tryb failover.
 
 Aby uzyskać więcej informacji, zobacz [Co zrobić po wystąpieniu awarii usługi Azure Storage](../articles/storage/common/storage-disaster-recovery-guidance.md).
-
->[!NOTE] 
->Firma Microsoft kontroluje, czy występuje przejście w tryb failover. Przełączenie w tryb failover nie jest kontrolowane dla konta magazynu, więc nie jest to podejmowane przez indywidualnych klientów. Aby zaimplementować odzyskiwanie awaryjne dla określonych kont magazynu lub dysków maszyny wirtualnej, należy użyć technik opisanych wcześniej w tym artykule.
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png

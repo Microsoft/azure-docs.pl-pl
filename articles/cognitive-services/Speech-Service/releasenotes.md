@@ -11,14 +11,47 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: f2aebee24c4de8a1bd92ad3db8e5d110184cbaee
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ac4b0c59cfad3d435858e094cbcb8c9f855a0041
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415027"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185319"
 ---
 # <a name="speech-service-release-notes"></a>Informacje o wersji usługi mowy
+
+## <a name="new-speech-to-text-locales-2020-august-release"></a>Nowe ustawienia zamiany mowy na tekst: 2020 — wydanie z sierpnia
+Zamiana mowy na tekst wydana 26 nowych ustawień regionalnych w sierpniu: 2 Europejskie Języki CS-CZ i hu-HU, 5 angielskiej wersji językowej oraz 19 hiszpańskie ustawienia regionalne, które obejmują większość krajów Ameryki Południowej. Poniżej znajduje się lista nowych ustawień regionalnych. Zapoznaj się z [pełną listą](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support)języków.
+
+| Regionalne  | Język                          |
+|---------|-----------------------------------|
+| `cs-CZ` | Czeski (Czechy)            | 
+| `en-HK` | Angielski (Hongkong SAR)               | 
+| `en-IE` | Angielski (Irlandia)                 | 
+| `en-PH` | Angielski (Filipiny)             | 
+| `en-SG` | Angielski (Singapur)               | 
+| `en-ZA` | Angielski (Republika Południowej Afryki)            | 
+| `es-AR` | Hiszpański (Argentyna)               | 
+| `es-BO` | Hiszpański (Boliwia)                 | 
+| `es-CL` | Hiszpański (Chile)                   | 
+| `es-CO` | Hiszpański (Kolumbia)                | 
+| `es-CR` | Hiszpański (Kostaryka)              | 
+| `es-CU` | Hiszpański (Kuba)                    | 
+| `es-DO` | Hiszpański (Dominikana)      | 
+| `es-EC` | Hiszpański (Ekwador)                 | 
+| `es-GT` | Hiszpański (Gwatemala)               | 
+| `es-HN` | Hiszpański (Honduras)                | 
+| `es-NI` | Hiszpański (Nikaragua)               | 
+| `es-PA` | Hiszpański (Panama)                  | 
+| `es-PE` | Hiszpański (Peru)                    | 
+| `es-PR` | Hiszpański (Portoryko)             | 
+| `es-PY` | Hiszpański (Paragwaj)                | 
+| `es-SV` | Hiszpański (Salwador)             | 
+| `es-US` | Hiszpański (USA)                     | 
+| `es-UY` | Hiszpański (Urugwaj)                 | 
+| `es-VE` | Hiszpański (Wenezuela)               | 
+| `hu-HU` | Węgierski (Węgry)               | 
+
 
 ## <a name="speech-sdk-1130-2020-july-release"></a>Speech SDK 1.13.0:2020 — wydanie z lipca
 
@@ -246,7 +279,7 @@ Bądź w dobrej kondycji
 - JavaScript: Dodano obsługę programu `FromHost API` , aby ułatwić korzystanie z kontenerów Premium i suwerennych chmur. [Tutaj](speech-container-howto.md)znajdziesz dokumentację.
 - JavaScript: Firma Microsoft honoruje `NODE_TLS_REJECT_UNAUTHORIZED` się z [orgads](https://github.com/orgads). Szczegóły można znaleźć [tutaj](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75).
 
-**Zmiany powodujące niezgodność**
+**Istotne zmiany**
 
 - `OpenSSL`został zaktualizowany do wersji 1.1.1 b i jest statycznie połączony z biblioteką podstawową zestawu Speech SDK dla systemu Linux. Może to spowodować przerwanie, jeśli skrzynka odbiorcza `OpenSSL` nie została zainstalowana w `/usr/lib/ssl` katalogu w systemie. Aby obejść ten problem, zapoznaj się z [naszą dokumentacją](how-to-configure-openssl-linux.md) w obszarze dokumentacja zestawu Speech SDK.
 - Zmieniono typ danych zwrócony dla języka C# `WordLevelTimingResult.Offset` z na, `int` `long` Aby zezwolić na dostęp, `WordLevelTimingResults` gdy dane mowy są dłuższe niż 2 minuty.
@@ -287,7 +320,7 @@ Bądź w dobrej kondycji
 - Dodano `KeywordRecognizer` obsługę systemu Windows (platformy UWP), systemów Android i iOS za pomocą pakietów NuGet i programu Unity
 - Dodano interfejs API języka Java konwersacji zdalnych w celu przeprowadzenia transkrypcji konwersacji w partiach asynchronicznych.
 
-**Zmiany powodujące niezgodność**
+**Istotne zmiany**
 
 - Funkcje Transcriber konwersacji przenoszone w obszarze nazw `Microsoft.CognitiveServices.Speech.Transcription` .
 - Część metod Transcriber konwersacji jest przenoszona do nowej `Conversation` klasy.
@@ -594,7 +627,7 @@ W naszym [przykładowym repozytorium](https://aka.ms/csspeech/samples)dodano now
 - Obsługa celu języka C w systemie iOS. Zapoznaj się z naszym [przewodnikiem Szybki Start dla systemu iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md).
 - Obsługa języka JavaScript w przeglądarce. Zapoznaj się z naszym [przewodnikiem Szybki Start dla języka JavaScript](quickstart-js-browser.md).
 
-**Zmiany powodujące niezgodność**
+**Istotne zmiany**
 
 - W tej wersji wprowadzono kilka istotnych zmian.
   Sprawdź [Tę stronę](https://aka.ms/csspeech/breakingchanges_1_0_0) , aby uzyskać szczegółowe informacje.
@@ -613,7 +646,7 @@ W naszym [przykładowym repozytorium](https://aka.ms/csspeech/samples)dodano now
 
 - Uwidacznianie dodatkowych szczegółowych informacji o błędach dotyczących błędów połączenia.
 
-**Zmiany powodujące niezgodność**
+**Istotne zmiany**
 
 - W systemie Java (Android) `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` Funkcja nie wymaga już parametru Path. Teraz ścieżka jest automatycznie wykrywana na wszystkich obsługiwanych platformach.
 - Metoda Get-accessor właściwości `EndpointUrl` w językach Java i C# została usunięta.
@@ -642,7 +675,7 @@ W naszym [przykładowym repozytorium](https://aka.ms/csspeech/samples)dodano now
 - Wynik rozpoznawania zawiera więcej pól. Są one przesunięte od początku i czasu trwania (w taktach) rozpoznanego tekstu oraz wartości dodatkowych reprezentujących stan rozpoznawania, na przykład `InitialSilenceTimeout` i `InitialBabbleTimeout` .
 - Obsługa AuthorizationToken do tworzenia wystąpień fabryki.
 
-**Zmiany powodujące niezgodność**
+**Istotne zmiany**
 
 - Zdarzenia rozpoznawania: `NoMatch` Typ zdarzenia został scalony w `Error` zdarzeniu.
 - Nazwa SpeechOutputFormat w języku C# została zmieniona na `OutputFormat` , aby zachować wyrównanie do języka C++.

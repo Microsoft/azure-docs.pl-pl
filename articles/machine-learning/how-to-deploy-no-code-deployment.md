@@ -9,21 +9,23 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: d6c70f27eebc9d502ce7275603e99975c2efc267
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 9d6e234e1f4c8ac5199b92a09eb12bf7aa41b01b
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544615"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185489"
 ---
 # <a name="preview-no-code-model-deployment"></a>Przeglądania Wdrożenie modelu bez kodu
 
 Wdrożenie modelu bez kodu jest obecnie dostępne w wersji zapoznawczej i obsługuje następujące platformy uczenia maszynowego:
 
-## <a name="tensorflow-savedmodel-format"></a>Tensorflow SavedModel
-Modele Tensorflow muszą być zarejestrowane w **formacie SavedModel** do pracy z wdrożeniem modelu bez kodu.
+## <a name="tensorflow-savedmodel-format"></a>TensorFlow SavedModel
+Modele TensorFlow muszą być zarejestrowane w **formacie SavedModel** do pracy z wdrożeniem modelu bez kodu.
 
 [Ten link](https://www.tensorflow.org/guide/saved_model) zawiera informacje na temat tworzenia SavedModel.
+
+Obsługujemy wszystkie wersje TensorFlow, które są wymienione w sekcji "Tagi" na [TensorFlow obsługującym DockerHub](https://registry.hub.docker.com/r/tensorflow/serving/tags).
 
 ```python
 from azureml.core import Model
@@ -129,7 +131,7 @@ print(output)
 * [Rozwiązywanie problemów z niepowodzeniem wdrożenia](how-to-troubleshoot-deployment.md)
 * [Wdrażanie w usłudze Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Tworzenie aplikacji klienckich w celu korzystania z usług sieci Web](how-to-consume-web-service.md)
-* [Aktualizowanie usługi sieci Web](how-to-deploy-update-web-service.md)
+* [Aktualizowanie usługi internetowej](how-to-deploy-update-web-service.md)
 * [Jak wdrożyć model przy użyciu niestandardowego obrazu platformy Docker](how-to-deploy-custom-docker-image.md)
 * [Użyj protokołu TLS do zabezpieczenia usługi sieci Web za pomocą Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitoruj modele Azure Machine Learning przy użyciu Application Insights](how-to-enable-app-insights.md)

@@ -1,5 +1,5 @@
 ---
-title: Nawiązywanie połączenia przy użyciu Node.js-Azure Database for MySQL
+title: 'Szybki Start: Łączenie przy użyciu Node.js-Azure Database for MySQL'
 description: Ten przewodnik Szybki start zawiera kilka przykładów kodu Node.js, których można używać do nawiązywania połączeń z danymi usługi Azure Database for MySQL i wykonywania zapytań względem nich.
 author: ajlam
 ms.author: andrela
@@ -8,12 +8,12 @@ ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-t
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 9d3e2d744c4800c06503483c6e7270ad1ca60e2c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 1f8f4dee2ed1e6dc5cdf6985c1149db0dcaed7c2
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423188"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185931"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Szybki Start: używanie Node.js do nawiązywania połączenia i wykonywania zapytań dotyczących danych w Azure Database for MySQL
 
@@ -33,7 +33,7 @@ W tym temacie założono, że wiesz już, jak opracowywać przy użyciu Node.js,
 
 W zależności od używanej platformy postępuj zgodnie z instrukcjami w odpowiedniej sekcji, aby zainstalować [Node.js](https://nodejs.org). Użyj npm, aby zainstalować pakiet [MySQL](https://www.npmjs.com/package/mysql) wraz z jego zależnościami w folderze projektu.
 
-### <a name="windows"></a>**Windows**
+### <a name="windows"></a>Windows
 
 1. Odwiedź [stronę pobierania programu Node.js](https://nodejs.org/en/download/) i wybierz odpowiednią opcję Instalatora Windows.
 2. Utwórz lokalny folder projektu, taki jak `nodejsmysql`. 
@@ -48,7 +48,7 @@ W zależności od używanej platformy postępuj zgodnie z instrukcjami w odpowie
 
 5. Sprawdź instalację, sprawdzając tekst danych wyjściowych polecenia `npm list`. Numer wersji może się różnić po wydaniu nowych poprawek.
 
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
+### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
 1. Uruchom następujące polecenia, aby zainstalować środowisko **Node.js** i program **npm**, czyli menedżera pakietów dla środowiska Node.js.
 
@@ -66,7 +66,7 @@ W zależności od używanej platformy postępuj zgodnie z instrukcjami w odpowie
    ```
 3. Sprawdź instalację, sprawdzając tekst danych wyjściowych listy npm. Numer wersji może się różnić po wydaniu nowych poprawek.
 
-### <a name="mac-os"></a>**Mac OS**
+### <a name="mac-os"></a>Mac OS
 
 1. Wprowadź następujące polecenia, aby zainstalować rozwiązanie **brew**, czyli łatwy w użyciu menedżer pakietów dla systemu Mac OS X i środowiska **Node.js**.
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: c91731d70d5db59ecf5daa726fd42ee42c58f51e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6de08faee78deeb86117084b420eb5043153f62d
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84116310"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88186050"
 ---
 # <a name="ssis-migration-with-azure-sql-managed-instance-as-the-database-workload-destination"></a>Migracja usług SSIS z wystąpieniem zarządzanym usługi Azure SQL Server jako miejscem docelowym obciążenia bazy danych
 
@@ -32,7 +32,9 @@ Migrację SSISDB można wykonać za pomocą usługi DMS, zgodnie z opisem w arty
 
 ## <a name="ssis-jobs-to-sql-managed-instance-agent"></a>Zadania SSIS do agenta wystąpienia zarządzanego SQL
 
-Wystąpienie zarządzane SQL ma natywny, pierwszy-klasowy harmonogram, taki jak SQL Server Agent lokalnie.  Ponieważ narzędzie migracji dla zadań SSIS nie jest jeszcze dostępne, muszą zostać zmigrowane z agenta SQL Server lokalnego do agenta wystąpienia zarządzanego SQL za pośrednictwem skryptów/kopii ręcznej.
+Wystąpienie zarządzane SQL ma natywny, pierwszy-klasowy harmonogram, taki jak SQL Server Agent lokalnie.  Pakiety usług [SSIS można uruchamiać za pośrednictwem agenta wystąpienia zarządzanego usługi Azure SQL](how-to-invoke-ssis-package-managed-instance-agent.md).
+
+Ponieważ narzędzie migracji dla zadań SSIS nie jest jeszcze dostępne, muszą zostać zmigrowane z agenta SQL Server lokalnego do agenta wystąpienia zarządzanego SQL za pośrednictwem skryptów/kopii ręcznej.
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 

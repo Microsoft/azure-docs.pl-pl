@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: be3d06d8ea493ab7c246ace5c49d5e5bc0036108
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9404cc8037b9cd7ef3e6f74265ce803177eb0465
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463539"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185285"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Tworzenie migawki obiektu BLOB w programie .NET i zarządzanie nią
 
@@ -24,7 +24,7 @@ Aby uzyskać więcej informacji na temat migawek obiektów BLOB w usłudze Azure
 
 ## <a name="create-a-snapshot"></a>Tworzenie migawki
 
-# <a name="net-version-12x"></a>[.NET w wersji 12. x](#tab/v12)
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
 
 Aby utworzyć migawkę blokowego obiektu BLOB przy użyciu wersji 12. x biblioteki klienta usługi Azure Storage dla platformy .NET, należy użyć jednej z następujących metod:
 
@@ -77,7 +77,7 @@ private static async Task CreateBlockBlobSnapshot(string accountName, string con
 }
 ```
 
-# <a name="net-version-11x"></a>[.NET w wersji 11. x](#tab/v11)
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 Aby utworzyć migawkę blokowego obiektu BLOB przy użyciu wersji 11. x biblioteki klienta usługi Azure Storage dla platformy .NET, należy użyć jednej z następujących metod:
 
@@ -126,11 +126,11 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 
 Aby usunąć obiekt BLOB, należy najpierw usunąć wszystkie migawki tego obiektu BLOB. Migawkę można usunąć pojedynczo lub określić, że wszystkie migawki zostaną usunięte po usunięciu źródłowego obiektu BLOB. Jeśli spróbujesz usunąć obiekt BLOB, który nadal zawiera migawki, zostanie zwrócony błąd.
 
-# <a name="net-version-12x"></a>[.NET w wersji 12. x](#tab/v12)
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
 
 Aby usunąć obiekt BLOB i jego migawki przy użyciu wersji 12. x biblioteki klienta usługi Azure Storage dla platformy .NET, należy użyć jednej z następujących metod i uwzględnić Wyliczenie [DeleteSnapshotsOption](/dotnet/api/azure.storage.blobs.models.deletesnapshotsoption) :
 
-- [Usuwanie](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.delete)
+- [Usuń](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.delete)
 - [DeleteAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteasync)
 - [DeleteIfExists](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexistsasync)
@@ -141,11 +141,11 @@ Poniższy przykład kodu pokazuje, jak usunąć obiekt BLOB i jego migawki w pro
 await blobClient.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, default);
 ```
 
-# <a name="net-version-11x"></a>[.NET w wersji 11. x](#tab/v11)
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 Aby usunąć obiekt BLOB i jego migawki przy użyciu wersji 11. x biblioteki klienta usługi Azure Storage dla platformy .NET, należy użyć jednej z następujących metod usuwania obiektów blob i uwzględnić Wyliczenie [DeleteSnapshotsOption](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption) :
 
-- [Usuwanie](/dotnet/api/microsoft.azure.storage.blob.cloudblob.delete)
+- [Usuń](/dotnet/api/microsoft.azure.storage.blob.cloudblob.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteasync)
 - [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexistsasync)
@@ -162,4 +162,4 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 
 - [Migawki obiektów BLOB](snapshots-overview.md)
 - [Wersje obiektów BLOB (wersja zapoznawcza)](versioning-overview.md)
-- [Usuwanie nietrwałe dla obiektów BLOB](storage-blob-soft-delete.md)
+- [Usuwanie nietrwałe dla obiektów blob](storage-blob-soft-delete.md)

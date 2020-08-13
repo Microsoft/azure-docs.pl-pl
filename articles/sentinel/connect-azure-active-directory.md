@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 37106517c47c86f4a4a562eebd6d120e31e22334
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a19ced1cb9496bddd1f9aa7ea9e3eb58ba7eea3d
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564533"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185693"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Łączenie danych z Azure Active Directory (Azure AD)
 
 
 
-Wskaźnik produkcji platformy Azure umożliwia zbieranie danych z [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) i przesyłanie ich strumieniowo do usługi Azure wskaźnikowej. Możesz wybrać opcję przesyłania strumieniowego [dzienników logowania](../active-directory/reports-monitoring/concept-sign-ins.md) i [dzienników inspekcji](../active-directory/reports-monitoring/concept-audit-logs.md) .
+Wskaźnik produkcji platformy Azure umożliwia zbieranie danych z [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) i przesyłanie ich strumieniowo do usługi Azure wskaźnikowej. Możesz wybrać opcję przesyłania strumieniowego  [dzienników logowania](../active-directory/reports-monitoring/concept-sign-ins.md) i [dzienników inspekcji](../active-directory/reports-monitoring/concept-audit-logs.md) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Jeśli chcesz wyeksportować dane logowania z usługi Azure AD, musisz mieć licencję na usługę Azure AD P1 lub P2.
+- Dowolna licencja usługi Azure AD (bezpłatna/O365/P1/P2) może być zintegrowana z Azure Monitor i pobierania dzienników logowania do platformy Azure. Dodatkowe opłaty za gigabajt będą dotyczyć Azure Monitor lub platformy Azure.
 
 - Użytkownik z uprawnieniami administratora globalnego lub administratora zabezpieczeń w dzierżawie, z której mają być przesyłane strumieniowo dzienniki.
 

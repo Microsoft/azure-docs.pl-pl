@@ -10,12 +10,12 @@ ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 213e4092719b274909cc764d94a72886bb4923c9
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 83827c7a39b2833ce1301e78a0bef4e6d61ec62b
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88057317"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185302"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Włączanie i zarządzanie nietrwałego usuwania dla obiektów BLOB
 
@@ -63,7 +63,7 @@ Po cofnięciu usunięcia migawek obiektu BLOB można kliknąć pozycję **Podwy�
 
 ![Zrzut ekranu przedstawiający stronę wyświetlanie migawek z wyróżnioną opcją podwyższania poziomu.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -134,7 +134,7 @@ block_blob_service.set_blob_service_properties(
     delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
-# <a name="net-v12-sdk"></a>[Zestaw SDK .NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
 
 Aby włączyć usuwanie nietrwałe, zaktualizuj właściwości usługi klienta obiektów blob:
 
@@ -148,7 +148,7 @@ Aby odzyskać do określonej wersji obiektu BLOB, najpierw Wywołaj metodę Unde
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobVersion":::
 
-# <a name="net-v11-sdk"></a>[Zestaw SDK .NET v11](#tab/dotnet11)
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 Aby włączyć usuwanie nietrwałe, zaktualizuj właściwości usługi klienta obiektów blob:
 

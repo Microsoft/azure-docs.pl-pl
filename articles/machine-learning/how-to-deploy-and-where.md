@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e8aa87eecc29a5b664520cb1be2cbc5e65b2969e
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 67a66ae94508a8d7f54d6112de95fa65a8fd5f09
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134551"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185421"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Wdrażanie modeli za pomocą usługi Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,13 +39,13 @@ Aby uzyskać więcej informacji na temat pojęć związanych z przepływem pracy
 
 - Obszar roboczy usługi Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md).
 - Model. Jeśli nie masz przeszkolonego modelu, możesz użyć modelu i plików zależności, które są dostępne w [tym samouczku](https://aka.ms/azml-deploy-cloud).
-- [Rozszerzenie interfejsu wiersza polecenia (CLI) platformy Azure dla usługi Machine Learning](reference-azure-machine-learning-cli.md)
+- [Rozszerzenie interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning](reference-azure-machine-learning-cli.md).
 
 # <a name="python"></a>[Python](#tab/python)
 
 - Obszar roboczy usługi Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md).
 - Model. Jeśli nie masz przeszkolonego modelu, możesz użyć modelu i plików zależności, które są dostępne w [tym samouczku](https://aka.ms/azml-deploy-cloud).
-- [Zestaw SDK (Azure Machine Learning Software Development Kit) dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+- [Zestaw SDK (Azure Machine Learning Software Development Kit) dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ---
 
@@ -242,7 +242,7 @@ myenv = Environment.from_conda_specification(name = 'myenv',
 myenv.register(workspace=ws)
 ```
 
-Szczegółowe omówienie używania i dostosowywania środowisk Python przy użyciu Azure Machine Learning można znaleźć w temacie [tworzenie & używanie środowisk oprogramowania w Azure Machine Learning](how-to-use-environments.md)
+Szczegółowe omówienie używania i dostosowywania środowisk Python przy użyciu Azure Machine Learning można znaleźć w temacie [tworzenie & używanie środowisk oprogramowania w Azure Machine Learning](how-to-use-environments.md).
 
 Aby uzyskać informacje na temat używania niestandardowego obrazu platformy Docker z konfiguracją wnioskowania, zobacz [jak wdrożyć model przy użyciu niestandardowego obrazu platformy Docker](how-to-deploy-custom-docker-image.md).
 
@@ -373,7 +373,7 @@ Aby usunąć wdrożoną usługę sieci Web, użyj programu `az ml service <name 
 
 Aby usunąć zarejestrowany model z obszaru roboczego, użyj`az ml model delete <model id>`
 
-Przeczytaj więcej [na temat usuwania usługi sieci Web](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) i [usuwania modelu](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete)
+Przeczytaj więcej [na temat usuwania usługi sieci Web](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) i [usuwania modelu](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete).
 
 # <a name="python"></a>[Python](#tab/python)
 

@@ -3,7 +3,7 @@ title: Dystrybucje systemu Linux zatwierdzone na platformie Azure
 description: Dowiedz się więcej o dystrybucji z systemem Linux na platformie Azure, w tym wskazówki dotyczące Ubuntu, CentOS, Oracle i SUSE.
 services: virtual-machines-linux
 documentationcenter: ''
-author: gbowerman
+author: danielsollondon
 manager: gwallace
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 2777a526-c260-4cb9-a31a-bdfe1a55fffc
@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/02/2020
 ms.author: guybo
-ms.openlocfilehash: fd21170c4edc1ed0587ea4d4e067e61590530623
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 83a5289e17243fc7d89dd463b10916fb73046947
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283320"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184996"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Zatwierdzone dystrybucje systemu Linux na platformie Azure
 
@@ -74,6 +74,14 @@ Firma Microsoft ma dwa (2) kanały migracji dla użytkowników CoreOS.
 [https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
 
 Credativ to niezależna firma konsultingowa i usług, która specjalizacje opracowywania i wdrażania profesjonalnych rozwiązań przy użyciu bezpłatnego oprogramowania. Jako wiodące specjaliści z branży Open Source credativ mają międzynarodowyą funkcję rozpoznawania wielu działów IT korzystających z pomocy technicznej. W połączeniu z firmą Microsoft credativ aktualnie przygotowuje odpowiednie obrazy Debian dla Debian 8 (Jessie) i Debian przed 7 (wheezy). Oba obrazy są specjalnie przeznaczone do uruchamiania na platformie Azure i mogą być łatwo zarządzane za pośrednictwem platformy. Credativ również będzie obsługiwał długoterminową konserwację i aktualizację obrazów Debian dla platformy Azure za pomocą Centrum pomocy technicznej typu open source.
+
+### <a name="kinvolk"></a>Kinvolk
+[https://www.kinvolk.io/flatcar-container-linux/](https://www.kinvolk.io/flatcar-container-linux/)
+
+Kinvolk to firma znajdująca się w kontenerze Flatcar w systemie Linux, która kontynuuje pierwotną wizję CoreOS dla minimalnej, niezmiennej i autoaktualizacji podstaw dla aplikacji kontenerowych. Co najmniej dystrybucji, Flatcar zawiera tylko te pakiety, które są wymagane do wdrożenia kontenerów. Niezmienny system plików gwarantuje spójność i bezpieczeństwo, podczas gdy jego możliwości autoaktualizacji umożliwiają zawsze aktualną wersję z najnowszymi poprawkami zabezpieczeń. 
+
+Kontener Flatcar w systemie Linux jest objęty globalnym zespołem systemu Linux i specjalistów ds. technologii kontenerów, którzy oferują opcjonalną komercyjną subskrypcję pomocy technicznej, która obejmuje 24x7 odpowiedzi, zabezpieczenia i alerty techniczne oraz wyłącznych obrazów zoptymalizowanych pod kątem platformy Azure, w tym kanału pomocy technicznej długoterminowej.
+
 
 ### <a name="oracle"></a>Oracle
 

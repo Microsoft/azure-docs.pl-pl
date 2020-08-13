@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 7627625a917a8f652da62d4197368f023ad8c110
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d558b414bfa27b387a559ff6c8fdb5ada32730fc
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964502"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185642"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrowanie usługi Key Vault z urzędem certyfikacji DigiCert
 
@@ -38,7 +38,7 @@ Aby ukończyć ten przewodnik, musisz dysponować następującymi zasobami.
 *   Uprawnienia na poziomie administratora na kontach.
 
 
-### <a name="before-you-begin"></a>Przed rozpoczęciem
+### <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Upewnij się, że masz następujące informacje przydatne na koncie usługi DigiCert CertCentral:
 -   Identyfikator konta CertCentral
@@ -61,7 +61,7 @@ Po zebraniu powyższych informacji z konta DigiCert CertCentral możesz teraz do
     -   **Identyfikator konta**: Wprowadź identyfikator konta DigiCert CertCentral
     -   **Hasło konta**: Wprowadź klucz interfejsu API wygenerowany na koncie usługi DigiCert CertCentral
     -   **Identyfikator organizacji**: wprowadź OrgID zebrane z konta DigiCert CertCentral 
-    -   Kliknij pozycję **Utwórz**.
+    -   Kliknij przycisk **Utwórz**.
    
 6.  Zobaczysz, że DigicertCA został już dodany do listy urzędów certyfikacji.
 
@@ -124,13 +124,23 @@ Add-AzKeyVaultCertificate -VaultName "Contoso-Vaultname" -Name "ExampleCertifica
 
 Certyfikat został teraz pomyślnie wystawiony przez urząd certyfikacji DigiCert wewnątrz określonego Key Vault za pomocą tej integracji.
 
-## <a name="troubleshoot"></a>Rozwiązywanie problemów
+## <a name="troubleshoot"></a>Rozwiąż problemy
 
 Jeśli certyfikat wystawiony w stanie "Disabled" w Azure Portal, należy wyświetlić **operację certyfikatu** w celu przejrzenia komunikatu o błędzie DigiCert dla tego certyfikatu.
 
  ![Właściwości certyfikatu](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
 Aby uzyskać więcej informacji, zobacz [operacje na certyfikatach w dokumentacji interfejsu API REST Key Vault](/rest/api/keyvault). Aby uzyskać informacje dotyczące ustanawiania uprawnień, zobacz temat [magazyny — Tworzenie lub aktualizowanie](/rest/api/keyvault/vaults/createorupdate) i [magazyny — zasady dostępu aktualizacji](/rest/api/keyvault/vaults/updateaccesspolicy).
+
+## <a name="frequently-asked-questions"></a>Często zadawane pytania
+
+- Czy mogę wygenerować certyfikat DigiCert z symbolem wieloznacznym za pomocą magazynu kluczy? 
+   Tak. Zależą od tego, jak skonfigurowano konto usługi DigiCert.
+- Jeśli udało nam się utworzyć certyfikat EV, w jaki sposób należy określić? 
+   Podczas tworzenia certyfikatu kliknij pozycję Konfiguracja zasad zaawansowanych, a następnie określ typ certyfikatu. Obsługiwane są następujące wartości: OV-SSL, EV-SSL
+- Czy istnieje opóźnienie podczas tworzenia certyfikatu DigiCert poprzez integrację a uzyskanie certyfikatu bezpośrednio przez DigiCert?
+   Nie. Podczas tworzenia certyfikatu jest to proces weryfikacji, który może zająć trochę czasu, i weryfikacja zależy od DigiCert procesu.
+
 
 ## <a name="next-steps"></a>Następne kroki
 
