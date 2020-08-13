@@ -5,6 +5,7 @@
     - name: Co to jest usługa Data Catalog?
       href: overview.md
 - name: Przewodniki Szybki start
+  expanded: true
   items:
     - name: Tworzenie usługi Azure Data Catalog
       href: data-catalog-get-started.md
@@ -20,8 +21,6 @@
       href: data-catalog-dsr.md
     - name: Wdrażanie usługi Azure Data Catalog
       href: data-catalog-adopting-data-catalog.md
-    - name: Wymagania wstępne
-      href: data-catalog-prerequisites.md
     - name: Często zadawane pytania
       href: data-catalog-frequently-asked-questions.md
 - name: Instrukcje

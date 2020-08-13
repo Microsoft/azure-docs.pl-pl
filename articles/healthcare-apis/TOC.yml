@@ -4,6 +4,8 @@
   items:
     - name: Informacje o interfejsie API platformy Azure dla standardu FHIR
       href: overview.md
+    - name: Informacje o łączniku usługi Azure IoT dla platformy FHIR (wersja zapoznawcza)
+      href: overview.md#azure-iot-connector-for-fhir-preview
 - name: Przewodniki Szybki start
   expanded: true
   items:

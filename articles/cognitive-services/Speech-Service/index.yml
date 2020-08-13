@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 455f71c7fd9defd7a1187f6b5df6b5b3b9c3131b
-  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+  ms.openlocfilehash: 74fd89633e4add1c577e44b822f1f90a86b3f498
+  ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 06/30/2020
-  ms.locfileid: "85563760"
+  ms.lasthandoff: 08/13/2020
+  ms.locfileid: "88167780"
 highlightedContent:
   items:
   - title: Czym jest usługa rozpoznawania mowy?
@@ -51,15 +51,15 @@ conceptualContent:
       url: index-speech-to-text.yml
   - title: Zamiana tekstu na mowę
     links:
+    - itemType: overview
+      text: Informacje o zamianie tekstu na mowę
+      url: text-to-speech.md
     - itemType: quickstart
-      text: Syntetyzowanie mowy przy użyciu głośnika
-      url: quickstarts/text-to-speech.md
-    - itemType: quickstart
-      text: Syntetyzowanie mowy do pliku dźwiękowego
-      url: quickstarts/text-to-speech-audio-file.md
+      text: Wprowadzenie do zamiany tekstu na mowę
+      url: get-started-text-to-speech.md
     - itemType: how-to-guide
-      text: Podstawy syntezy mowy
-      url: text-to-speech-basics.md
+      text: Ulepszanie syntezy za pomocą języka SSML
+      url: speech-synthesis-markup.md
     footerLink:
       text: Więcej
       url: index-text-to-speech.yml

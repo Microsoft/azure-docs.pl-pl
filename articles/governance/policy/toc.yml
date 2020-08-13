@@ -10,16 +10,22 @@
   items:
     - name: Przypisywanie zasad — portal
       displayName: 'assign, compliance'
-      href: assign-policy-portal.md
-    - name: Przypisywanie zasad — program Azure PowerShell
-      displayName: 'assign, compliance'
-      href: assign-policy-powershell.md
+      href: ./assign-policy-portal.md
     - name: Przypisywanie zasad — interfejs wiersza polecenia platformy Azure
       displayName: 'assign, compliance'
-      href: assign-policy-azurecli.md
+      href: ./assign-policy-azurecli.md
+    - name: Przypisywanie zasad — program Azure PowerShell
+      displayName: 'assign, compliance'
+      href: ./assign-policy-powershell.md
+    - name: Przypisywanie zasad — język Python
+      displayName: 'assign, compliance'
+      href: ./assign-policy-python.md
+    - name: Przypisywanie zasad — REST
+      displayName: 'armclient, postman'
+      href: ./assign-policy-rest-api.md
     - name: Przypisywanie zasad — szablon usługi ARM
       displayName: 'assign, compliance, resource manager'
-      href: assign-policy-template.md
+      href: ./assign-policy-template.md
 - name: Samouczki
   items:
     - name: Tworzenie zasad platformy Azure i zarządzanie nimi

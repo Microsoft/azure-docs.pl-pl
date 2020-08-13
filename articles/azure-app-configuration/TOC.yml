@@ -91,8 +91,6 @@
           href: concept-customer-managed-keys.md
         - name: Zabezpieczanie magazynu konfiguracji za pomocą prywatnych punktów końcowych
           href: concept-private-endpoint.md
-        - name: Integracja z tożsamością zarządzaną platformy Azure
-          href: howto-integrate-azure-managed-service-identity.md
         - name: Włączanie dostępu za pomocą usługi Azure Active Directory
           href: concept-enable-rbac.md
         - name: Przypisywanie tożsamości zarządzanej platformy Azure
@@ -115,6 +113,8 @@
       href: howto-app-configuration-event.md
     - name: Automatyczne magazynowanie konfiguracji kopii zapasowej
       href: howto-backup-config-store.md
+    - name: Uzyskiwanie dostępu do usługi App Configuration przy użyciu tożsamości zarządzanych
+      href: howto-integrate-azure-managed-service-identity.md
 - name: Dokumentacja
   items:
     - name: Konfigurowanie

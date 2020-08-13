@@ -49,14 +49,8 @@
           href: developer-guidance-for-integrating-applications.md
     - name: Logowanie jednokrotne
       items:
-        - name: Włączanie logowania jednokrotnego dla aplikacji wielodostępnej
-          href: isv-sso-content.md
-        - name: Tworzenie dzierżawy platformy Azure dla aplikacji wielodostępnej
-          href: isv-tenant-multi-tenant-app.md
-        - name: Wybieranie federacji wielodostępnej
-          href: isv-choose-multi-tenant-federation.md
-        - name: Tworzenie dokumentacji dla aplikacji wielodostępnej
-          href: isv-create-sso-documentation.md
+        - name: Opcje logowania jednokrotnego
+          href: sso-options.md
         - name: Planowanie wdrożenia logowania jednokrotnego
           href: plan-sso-deployment.md
         - name: Logowanie jednokrotne jednym kliknięciem
@@ -97,6 +91,16 @@
           href: application-proxy-high-availability-load-balancing.md
         - name: Porównanie rozwiązań dostępu zdalnego
           href: application-proxy-migration.md
+    - name: Wprowadzanie aplikacji na rynek
+      items:
+        - name: Włączanie logowania jednokrotnego dla aplikacji wielodostępnej
+          href: isv-sso-content.md
+        - name: Tworzenie dzierżawy platformy Azure dla aplikacji wielodostępnej
+          href: isv-tenant-multi-tenant-app.md
+        - name: Wybieranie federacji wielodostępnej
+          href: isv-choose-multi-tenant-federation.md
+        - name: Tworzenie dokumentacji dla aplikacji wielodostępnej
+          href: isv-create-sso-documentation.md
 - name: Przewodniki z instrukcjami
   expanded: false
   items:

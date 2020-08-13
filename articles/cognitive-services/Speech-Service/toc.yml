@@ -117,30 +117,16 @@
   items:
     - name: Dokumentacja zamiany tekstu na mowę
       href: index-text-to-speech.yml
-    - name: Omówienie
-      items:
-        - name: Co to jest zamiana tekstu na mowę?
-          href: text-to-speech.md
-        - name: Podstawy zamiany tekstu na mowę
-          href: text-to-speech-basics.md
-    - name: Szybki start
-      items:
-        - name: Syntetyzowanie mowy przy użyciu głośnika
-          href: quickstarts/text-to-speech.md
-        - name: Syntetyzowanie mowy do pliku dźwiękowego
-          href: quickstarts/text-to-speech-audio-file.md
-        - name: Syntetyzowanie mowy przy użyciu długich plików dźwiękowych
-          href: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+    - name: Co to jest zamiana tekstu na mowę?
+      href: text-to-speech.md
+    - name: Przewodnik Szybki start dotyczący zamiany tekstu na mowę
+      href: get-started-text-to-speech.md
     - name: Przewodniki z instrukcjami
       items:
         - name: Ulepszanie syntezy za pomocą języka SSML
           href: speech-synthesis-markup.md
         - name: Syntetyzowanie mowy przy użyciu interfejsu API długich form audio
           href: long-audio-api.md
-        - name: Pobieranie listy głosów za pomocą technologii REST (Python)
-          href: quickstart-python-get-text-to-speech-voices.md
-        - name: Konwertowanie tekstu na mowę za pomocą technologii REST (Python)
-          href: quickstart-python-text-to-speech.md
     - name: Dostosowywanie
       items:
         - name: Odpowiedzialne wdrażanie

@@ -44,7 +44,7 @@ Drugim krokiem jest wywołanie operacji [pobierania wyników](https://westcentra
 
 |Pole| Typ | Możliwe wartości |
 |:-----|:----:|:----|
-|status | string | notStarted: operacja nie została uruchomiona. |
+|status | ciąg | notStarted: operacja nie została uruchomiona. |
 | |  | uruchomiono: Trwa przetwarzanie operacji. |
 | |  | Niepowodzenie: operacja nie powiodła się. |
 | |  | sukces: operacja zakończyła się pomyślnie. |

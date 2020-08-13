@@ -72,7 +72,7 @@
               items:
                 - name: Konfigurowanie uwierzytelniania usługi Azure AD
                   href: database/authentication-aad-configure.md
-                - name: Uwierzytelnianie wieloskładnikowe usługi AAD
+                - name: Uwierzytelnianie wieloskładnikowe w usłudze Azure AD
                   href: database/authentication-mfa-ssms-overview.md
                 - name: Konfigurowanie uwierzytelniania wieloskładnikowego
                   href: database/authentication-mfa-ssms-configure.md
@@ -891,8 +891,10 @@
           href: managed-instance/threat-detection-configure.md
         - name: Łączenie aplikacji
           href: managed-instance/connect-application-instance.md
-        - name: Tworzenie alertów
+        - name: Tworzenie alertów dla wystąpienia zarządzanego
           href: managed-instance/alerts-create.md
+        - name: Ręczne inicjowanie trybu failover dla wystąpienia zarządzanego
+          href: managed-instance/user-initiated-failover.md
     - name: Samples
       items:
         - name: Interfejs wiersza polecenia platformy Azure

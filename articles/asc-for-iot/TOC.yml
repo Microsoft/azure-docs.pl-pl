@@ -29,6 +29,8 @@
       href: quickstart-configure-your-solution.md
     - name: Tworzenie bliźniaczej reprezentacji modułu usługi Azure Security Center dla IoT
       href: quickstart-create-security-twin.md
+    - name: Badanie rekomendacji dotyczących zabezpieczeń
+      href: quickstart-investigate-security-recommendations.md
     - name: Tworzenie niestandardowych alertów zabezpieczeń
       href: quickstart-create-custom-alerts.md
     - name: Badanie alertów zabezpieczeń

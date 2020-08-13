@@ -169,14 +169,16 @@
               href: howto-move-regions-portal.md
     - name: Hiperskala (Citus)
       items:
-        - name: Węzły
-          href: concepts-hyperscale-nodes.md
         - name: Rozproszone dane
-          href: concepts-hyperscale-distributed-data.md
-        - name: Wybieranie kolumny dystrybucji
-          href: concepts-hyperscale-choose-distribution-column.md
-        - name: Kolokacja tabeli
-          href: concepts-hyperscale-colocation.md
+          items:
+            - name: Węzły i tabele
+              href: concepts-hyperscale-nodes.md
+            - name: Określanie typu aplikacji
+              href: concepts-hyperscale-app-type.md
+            - name: Wybieranie kolumny dystrybucji
+              href: concepts-hyperscale-choose-distribution-column.md
+            - name: Kolokacja tabeli
+              href: concepts-hyperscale-colocation.md
         - name: Dostęp do danych i zabezpieczenia
           items:
             - name: Reguły zapory
@@ -341,12 +343,16 @@
       items:
         - name: Tworzenie użytkowników
           href: howto-hyperscale-create-users.md
-        - name: Skalowanie
+        - name: Rozmiar grupy serwerów
           href: howto-hyperscale-scaling.md
         - name: Zarządzanie zaporą
           items:
             - name: Azure Portal
               href: howto-hyperscale-manage-firewall-using-portal.md
+        - name: Rozproszone dane
+          items:
+            - name: Rozpowszechnianie i modyfikowanie tabel
+              href: howto-hyperscale-modify-distributed-tables.md
         - name: Wysoka dostępność
           href: howto-hyperscale-high-availability.md
         - name: Monitorowanie
@@ -361,12 +367,22 @@
               href: howto-hyperscale-troubleshoot-common-connection-issues.md
 - name: Dokumentacja
   items:
-    - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/postgres
-    - name: Interfejs API REST
-      href: /rest/api/postgresql
-    - name: Szablon usługi Resource Manager
-      href: /azure/templates/microsoft.dbforpostgresql/allversions
+    - name: Pojedynczy serwer
+      items:
+        - name: Interfejs wiersza polecenia platformy Azure
+          href: /cli/azure/postgres
+        - name: Interfejs API REST
+          href: /rest/api/postgresql
+        - name: Szablon usługi Resource Manager
+          href: /azure/templates/microsoft.dbforpostgresql/allversions
+    - name: Hiperskala (Citus)
+      items:
+        - name: Funkcje interfejsu SQL API
+          href: reference-hyperscale-functions.md
+        - name: Parametry serwera
+          href: reference-hyperscale-parameters.md
+        - name: Tabele systemowe
+          href: reference-hyperscale-metadata.md
 - name: Zasoby
   items:
     - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn

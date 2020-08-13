@@ -24,7 +24,7 @@
       href: tutorial-backup-vm-at-scale.md
     - name: Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure za pomocą programu PowerShell
       href: tutorial-backup-azure-vm.md
-    - name: Przywracanie dysku
+    - name: Przywracanie maszyny wirtualnej za pomocą interfejsu wiersza polecenia platformy Azure
       href: tutorial-restore-disk.md
     - name: Przywracanie pojedynczych plików
       href: tutorial-restore-files.md
