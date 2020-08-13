@@ -1,6 +1,6 @@
 ---
 title: Lista aktualizacji zastosowanych w systemie operacyjnym gościa platformy Azure | Microsoft Docs
-description: Lista aktualizacji zastosowanych do wersji systemu operacyjnego gościa
+description: W tym artykule wymieniono aktualizacje centrum Microsoft Security Response Center stosowane do różnych systemów operacyjnych gościa platformy Azure. Sprawdź, czy aktualizacja dotyczy systemu operacyjnego gościa, którego używasz.
 services: cloud-services
 documentationcenter: na
 author: yohaddad
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 8/11/2020
 ms.author: yohaddad
-ms.openlocfilehash: a8755c593f4009d4cacc3d411eb1bc1cb8ddc50d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 3fb9c863b94c65d7a4333d734648d308a904e355
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079162"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142353"
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa platformy Azure
 W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Response Center (MSRC) zastosowane do systemu operacyjnego gościa platformy Azure. Przeszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczy systemu operacyjnego gościa, którego używasz. Aktualizacje są zawsze przenoszone dla określonej [rodziny][family-explain] , w której zostały wprowadzone.

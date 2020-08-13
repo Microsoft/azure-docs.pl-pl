@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3370a2631a81ce36fd994da73c871fb1e409c667
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3dd3ede40582e8f2c71c0424df025d06ff7f0f79
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728371"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141605"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reguły członkostwa dynamicznego dla grup w Azure Active Directory
 
-W Azure Active Directory (Azure AD) można tworzyć złożone reguły oparte na atrybutach, aby włączyć dynamiczne członkostwa dla grup. Członkostwo w grupie dynamicznej zmniejsza narzuty administracyjne dotyczące dodawania i usuwania użytkowników. W tym artykule szczegółowo opisano właściwości i składnię tworzenia reguł członkostwa dynamicznego dla użytkowników lub urządzeń. Możesz skonfigurować reguły dynamicznego zarządzania członkostwem w grupach zabezpieczeń lub w grupach usługi Office 365.
+W Azure Active Directory (Azure AD) można tworzyć złożone reguły oparte na atrybutach, aby włączyć dynamiczne członkostwa dla grup. Członkostwo w grupie dynamicznej zmniejsza narzuty administracyjne dotyczące dodawania i usuwania użytkowników. W tym artykule szczegółowo opisano właściwości i składnię tworzenia reguł członkostwa dynamicznego dla użytkowników lub urządzeń. Można skonfigurować regułę dynamicznego członkostwa w grupach zabezpieczeń lub grupach Microsoft 365.
 
 W przypadku zmiany atrybutów użytkownika lub urządzenia system oblicza wszystkie dynamiczne reguły grupy w katalogu, aby sprawdzić, czy dana zmiana spowodowałaby dodanie lub usunięcie grupy. Jeśli użytkownik lub urządzenie spełnia regułę w grupie, są one dodawane jako członek tej grupy. Jeśli nie spełniają już reguły, zostaną one usunięte. Nie można ręcznie dodać lub usunąć członka grupy dynamicznej.
 
@@ -43,7 +43,7 @@ Poniżej przedstawiono kilka przykładów zaawansowanych reguł lub składni, dl
 - Reguła z więcej niż pięcioma wyrażeniami
 - Reguła bezpośrednich podwładnych
 - Ustawianie [pierwszeństwa operatorów](groups-dynamic-membership.md#operator-precedence)
-- [Reguły z wyrażeniami złożonymi](groups-dynamic-membership.md#rules-with-complex-expressions); na przykład`(user.proxyAddresses -any (_ -contains "contoso"))`
+- [Reguły z wyrażeniami złożonymi](groups-dynamic-membership.md#rules-with-complex-expressions); na przykład `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
 > Konstruktor reguł może nie być w stanie wyświetlić niektórych reguł skonstruowanych w polu tekstowym. Gdy Konstruktor reguł nie może wyświetlić reguły, może zostać wyświetlony komunikat. Konstruktor reguł nie zmienia obsługiwanej składni, walidacji lub przetwarzania reguł grupy dynamicznej w dowolny sposób.
@@ -114,7 +114,7 @@ Poniżej przedstawiono właściwości użytkownika, których można użyć do ut
 | Pocztowy |Dowolna wartość ciągu lub wartość *null* |(User. KodPocztowy-EQ "value") |
 | preferredLanguage |Kod ISO 639-1 |(User. preferredLanguage-EQ "pl-US") |
 | sipProxyAddress |Dowolna wartość ciągu lub wartość *null* |(User. sipProxyAddress-EQ "wartość") |
-| state |Dowolna wartość ciągu lub wartość *null* |(User. State-EQ "value") |
+| stan |Dowolna wartość ciągu lub wartość *null* |(User. State-EQ "value") |
 | streetAddress |Dowolna wartość ciągu lub wartość *null* |(User. streetAddress-EQ "wartość") |
 | surname |Dowolna wartość ciągu lub wartość *null* |(User. nazwisko-EQ "wartość") |
 | telephoneNumber |Dowolna wartość ciągu lub wartość *null* |(User. teletelefon-EQ "wartość") |
@@ -178,7 +178,7 @@ Wartości używane w wyrażeniu mogą składać się z kilku typów, w tym:
 
 * Ciągi
 * Wartość logiczna — prawda, FAŁSZ
-* Numery
+* Liczby
 * Tablice — tablica liczbowa, tablica ciągów
 
 Podczas określania wartości w wyrażeniu ważne jest używanie poprawnej składni w celu uniknięcia błędów. Niektóre wskazówki dotyczące składni:
@@ -269,7 +269,7 @@ assignedPlans to właściwość wielowartościowa, która wyświetla listę wszy
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-Taka reguła może służyć do grupowania wszystkich użytkowników, dla których jest włączona funkcja Office 365 (lub inna usługa online firmy Microsoft). Następnie można zastosować zestaw zasad do grupy.
+Reguła, taka jak ta, może służyć do grupowania wszystkich użytkowników, dla których włączono obsługę Microsoft 365 (lub inne usługi online firmy Microsoft). Następnie można zastosować zestaw zasad do grupy.
 
 #### <a name="example-2"></a>Przykład 2
 

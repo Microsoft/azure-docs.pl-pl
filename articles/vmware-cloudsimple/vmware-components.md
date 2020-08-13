@@ -1,7 +1,7 @@
 ---
 title: Składniki VMware chmury prywatnej
 titleSuffix: Azure VMware Solution by CloudSimple
-description: Opisuje, jak składniki VMware są instalowane w chmurze prywatnej
+description: Dowiedz się, w jaki sposób usługa CloudSimple umożliwia natywne wdrażanie oprogramowania VMware w lokalizacjach platformy Azure. Chmury prywatne są zintegrowane z pozostałą częścią chmury platformy Azure.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/15/2019
@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9c9b80cd4d8a7a7ac5597d10bbb87095564bd461
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff9aec1904be754990958869666e9d67038e4fb3
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84702826"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142506"
 ---
 # <a name="private-cloud-vmware-components"></a>Składniki VMware chmury prywatnej
 
@@ -34,7 +34,7 @@ Stos VMware chmury prywatnej jest wdrażany z użyciem następującej wersji opr
 | ESXi | 6.7 U2 | Enterprise Plus |
 | vCenter | 6.7 U2 | Program vCenter Standard |
 | Sieci vSAN | 6.7 | Enterprise |
-| Centrum danych NSX | 2.4.1 | Zaawansowany |
+| Centrum danych NSX | 2.4.1 | Zaawansowane |
 
 ## <a name="esxi"></a>ESXi
 

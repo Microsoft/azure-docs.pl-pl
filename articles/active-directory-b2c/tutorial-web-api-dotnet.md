@@ -7,22 +7,22 @@ author: msmimart
 manager: celestedg
 ms.author: mimart
 ms.date: 10/14/2019
-ms.custom: mvc
+ms.custom: devx-track-csharp, mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 280a59d8c378de6b3667560a4eb2b1cf95041f8d
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: bfa8943af16fe62015a4736f561875235e205fc1
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298792"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163887"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Samouczek: udzielanie dostępu do interfejsu API sieci Web ASP.NET przy użyciu Azure Active Directory B2C
 
 W tym samouczku przedstawiono sposób wywoływania chronionego zasobu internetowego interfejsu API w programie Azure Active Directory B2C (Azure AD B2C) z aplikacji sieci Web ASP.NET.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Dodawanie aplikacji internetowego interfejsu API
@@ -50,7 +50,7 @@ Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego
 1. Wybierz pozycję **rejestracje aplikacji**, a następnie wybierz pozycję **Nowa rejestracja**.
 1. Wprowadź **nazwę** aplikacji. Na przykład *webapi1*.
 1. W obszarze **Identyfikator URI przekierowania**wybierz pozycję **Sieć Web**, a następnie wprowadź punkt końcowy, w którym Azure AD B2C powinien zwrócić tokeny, których aplikacja żąda. W tym samouczku przykładowa aplikacja jest uruchamiana lokalnie i nasłuchuje na `https://localhost:44332`.
-1. Wybierz pozycję **Zarejestruj**.
+1. Wybierz pozycję **Rejestruj**.
 1. Zapisz **Identyfikator aplikacji (klienta)** do użycia w późniejszym kroku.
 
 #### <a name="applications-legacy"></a>[Aplikacje (starsze)](#tab/applications-legacy/)
@@ -94,7 +94,7 @@ Przykładowe rozwiązanie zawiera dwa projekty:
 ### <a name="configure-the-web-application"></a>Konfigurowanie aplikacji internetowej
 
 1. Otwórz rozwiązanie **B2C-WebAPI-DotNet** w programie Visual Studio.
-1. W projekcie **TaskWebApp** Otwórz **plik Web. config**.
+1. W projekcie **TaskWebApp** Otwórz **Web.config**.
 1. Aby uruchomić interfejs API lokalnie, użyj ustawienia „localhost” dla wartości **api:TaskServiceUrl**. Zmień plik Web.config w następujący sposób:
 
     ```csharp
@@ -111,7 +111,7 @@ Przykładowe rozwiązanie zawiera dwa projekty:
 
 ### <a name="configure-the-web-api"></a>Konfigurowanie internetowego interfejsu API
 
-1. W projekcie **TaskService** Otwórz **plik Web. config**.
+1. W projekcie **TaskService** Otwórz **Web.config**.
 1. Skonfiguruj interfejs API w celu korzystania z dzierżawy.
 
     ```csharp

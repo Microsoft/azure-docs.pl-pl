@@ -1,19 +1,19 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/17/2020
+ms.date: 08/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6ba9147aefb793387b429702623639bbccf0beea
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 26d6ca641c03395996fdeaa4e54d2a001cf02bef
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87507440"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88162662"
 ---
 ## <a name="benefits-of-managed-disks"></a>Zalety dysków zarządzanych
 
@@ -53,7 +53,7 @@ Aby dowiedzieć się, jak przenieść dysk VHD na platformę Azure, zapoznaj si�
 
 ### <a name="private-links"></a>Linki prywatne
 
-Usługi Managed disks obsługują używanie prywatnych linków do importowania lub eksportowania wewnętrznego dysku zarządzanego do sieci. Linki prywatne umożliwiają generowanie identyfikatora URI sygnatury dostępu współdzielonego (SAS) powiązanego z niedołączonymi dyskami zarządzanymi i migawkami, których można użyć do eksportowania danych do innych regionów na potrzeby rozszerzania regionalnego, odzyskiwania po awarii i analizy śledczej. Możesz również użyć identyfikatora URI sygnatury dostępu współdzielonego, aby bezpośrednio przekazać dysk VHD do pustego dysku z lokalnego. Teraz możesz skorzystać z [prywatnych linków](../articles/private-link/private-link-overview.md) , aby ograniczyć eksport i import dysków zarządzanych, tak aby mogły one wystąpić tylko w ramach sieci wirtualnej platformy Azure. Linki prywatne umożliwiają zapewnienie, że dane są przesyłane tylko w ramach bezpiecznej sieci szkieletowej firmy Microsoft.
+Obsługa linków prywatnych dla dysków zarządzanych jest obecnie w wersji zapoznawczej i może służyć do importowania lub eksportowania dysku zarządzanego w sieci. Linki prywatne umożliwiają generowanie identyfikatora URI sygnatury dostępu współdzielonego (SAS) powiązanego z niedołączonymi dyskami zarządzanymi i migawkami, których można użyć do eksportowania danych do innych regionów na potrzeby rozszerzania regionalnego, odzyskiwania po awarii i analizy śledczej. Możesz również użyć identyfikatora URI sygnatury dostępu współdzielonego, aby bezpośrednio przekazać dysk VHD do pustego dysku z lokalnego. Teraz możesz skorzystać z [prywatnych linków](../articles/private-link/private-link-overview.md) , aby ograniczyć eksport i import dysków zarządzanych, tak aby mogły one wystąpić tylko w ramach sieci wirtualnej platformy Azure. Linki prywatne umożliwiają zapewnienie, że dane są przesyłane tylko w ramach bezpiecznej sieci szkieletowej firmy Microsoft.
 
 Aby dowiedzieć się, jak włączyć linki prywatne do importowania lub eksportowania dysku zarządzanego, zapoznaj się z artykułami dotyczącymi [interfejsu wiersza polecenia](../articles/virtual-machines/linux/disks-export-import-private-links-cli.md) lub [portalu](../articles/virtual-machines/disks-enable-private-links-for-import-export-portal.md) .
 

@@ -4,16 +4,16 @@ description: Monitoruj swoją aplikację sieci Web w czasie rzeczywistym za pomo
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 4b84088c1213801e61a4c669bccb1a983c999310
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c12126c23ce1f1e2bd72f88eead5b8f34e4fd83d
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321942"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142217"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorowanie & diagnozowanie przy użyciu 1-sekundowego opóźnienia
 
-Monitoruj działającą w środowisku produkcyjną aplikację sieci Web przy użyciu Live Metrics Stream z [Application Insights](./app-insights-overview.md). Wybieranie i filtrowanie metryk i liczników wydajności w czasie rzeczywistym, bez żadnych zakłóceń usługi. Sprawdzanie śladów stosu z przykładowych nieudanych żądań i wyjątków. Wraz z narzędziem [Profiler](./profiler.md) i [debuger migawek](./snapshot-debugger.md)program Live Metrics Stream zapewnia zaawansowane i nieinwazyjne narzędzie diagnostyczne dla działającej witryny sieci Web.
+Monitoruj działającą w środowisku produkcyjną aplikację sieci Web przy użyciu Live Metrics Stream (znanego również jako QuickPulse) z [Application Insights](./app-insights-overview.md). Wybieranie i filtrowanie metryk i liczników wydajności w czasie rzeczywistym, bez żadnych zakłóceń usługi. Sprawdzanie śladów stosu z przykładowych nieudanych żądań i wyjątków. Wraz z narzędziem [Profiler](./profiler.md) i [debuger migawek](./snapshot-debugger.md)program Live Metrics Stream zapewnia zaawansowane i nieinwazyjne narzędzie diagnostyczne dla działającej witryny sieci Web.
 
 Za pomocą Live Metrics Stream można:
 
@@ -29,21 +29,83 @@ Za pomocą Live Metrics Stream można:
 
 Metryki na żywo są obecnie obsługiwane w aplikacjach ASP.NET, ASP.NET Core, Azure Functions, Java i Node.js.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
-1. [Zainstaluj Application Insights](../azure-monitor-app-hub.yml) w aplikacji.
-2. Oprócz standardowych pakietów Application Insights [Microsoft. ApplicationInsights. PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) jest wymagany do włączenia strumienia metryk na żywo.
-3. **Zaktualizuj do najnowszej wersji** pakietu Application Insights. W programie Visual Studio kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Zarządzaj pakietami NuGet**. Otwórz kartę **aktualizacje** i wybierz wszystkie pakiety Microsoft. ApplicationInsights. *.
+1. Aby włączyć metryki na żywo, należy przestrzegać wytycznych dotyczących języka.
+   * Metryki na żywo [ASP.NET](./asp-net.md) są domyślnie włączone.
+   * Metryki na żywo [ASP.NET Core](./asp-net-core.md)są domyślnie włączone.
+   * Metryki dla [konsoli/procesu roboczego platformy .NET Core](./worker-service.md)są domyślnie włączone.
+   * [Aplikacje .NET — Włączanie przy użyciu kodu](#enable-livemetrics-using-code-for-any-net-application).
+   * [Node.js](./nodejs.md#live-metrics)
 
-    Ponownie wdróż aplikację.
+2. W [Azure Portal](https://portal.azure.com)otwórz zasób Application Insights dla aplikacji, a następnie otwórz Live Stream.
 
-3. W [Azure Portal](https://portal.azure.com)otwórz zasób Application Insights dla aplikacji, a następnie otwórz Live Stream.
+3. [Zabezpiecz kanał kontroli,](#secure-the-control-channel) Jeśli możesz użyć poufnych danych, takich jak nazwy klientów w filtrach.
 
-4. [Zabezpiecz kanał kontroli,](#secure-the-control-channel) Jeśli możesz użyć poufnych danych, takich jak nazwy klientów w filtrach.
+### <a name="enable-livemetrics-using-code-for-any-net-application"></a>Włącz LiveMetrics przy użyciu kodu dla dowolnej aplikacji platformy .NET
 
-### <a name="no-data-check-your-server-firewall"></a>Brak danych? Sprawdź zaporę serwera
+Mimo że usługa LiveMetrics jest domyślnie włączona podczas dołączania przy użyciu zalecanych instrukcji dla aplikacji .NET, poniżej przedstawiono sposób ręcznego konfigurowania metryk na żywo.
 
-Sprawdź, czy [porty wychodzące Live Metrics Stream](./ip-addresses.md#outgoing-ports) są otwarte w zaporze serwerów.
+1. Zainstaluj pakiet NuGet [Microsoft. ApplicationInsights. PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector)
+2. Poniższy przykładowy kod aplikacji konsoli pokazuje Konfigurowanie aktywnych metryk.
+
+```csharp
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+using System;
+using System.Threading.Tasks;
+
+namespace LiveMetricsDemo
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Create a TelemetryConfiguration instance.
+            TelemetryConfiguration config = TelemetryConfiguration.CreateDefault();
+            config.InstrumentationKey = "INSTRUMENTATION-KEY-HERE";
+            QuickPulseTelemetryProcessor quickPulseProcessor = null;
+            config.DefaultTelemetrySink.TelemetryProcessorChainBuilder
+                .Use((next) =>
+                {
+                    quickPulseProcessor = new QuickPulseTelemetryProcessor(next);
+                    return quickPulseProcessor;
+                })
+                .Build();
+
+            var quickPulseModule = new QuickPulseTelemetryModule();
+
+            // Secure the control channel.
+            // This is optional, but recommended.
+            quickPulseModule.AuthenticationApiKey = "YOUR-API-KEY-HERE";
+            quickPulseModule.Initialize(config);
+            quickPulseModule.RegisterTelemetryProcessor(quickPulseProcessor);
+
+            // Create a TelemetryClient instance. It is important
+            // to use the same TelemetryConfiguration here as the one
+            // used to setup Live Metrics.
+            TelemetryClient client = new TelemetryClient(config);
+
+            // This sample runs indefinitely. Replace with actual application logic.
+            while (true)
+            {
+                // Send dependency and request telemetry.
+                // These will be shown in Live Metrics stream.
+                // CPU/Memory Performance counter is also shown
+                // automatically without any additional steps.
+                client.TrackDependency("My dependency", "target", "http://sample",
+                    DateTimeOffset.Now, TimeSpan.FromMilliseconds(300), true);
+                client.TrackRequest("My Request", DateTimeOffset.Now,
+                    TimeSpan.FromMilliseconds(230), "200", true);
+                Task.Delay(1000).Wait();
+            }
+        }
+    }
+}
+```
+
+Chociaż powyższy przykład dotyczy aplikacji konsolowej, ten sam kod może być używany w dowolnych aplikacjach .NET. Jeśli jakiekolwiek inne TelemetryModules są włączone, które automatycznej zbiera dane telemetryczne, ważne jest, aby upewnić się, że ta sama konfiguracja używana do inicjowania modułów jest również używana dla modułu metryki na żywo.
 
 ## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>Jak Live Metrics Stream różnić się od Eksplorator metryk i analiz?
 
@@ -53,7 +115,7 @@ Sprawdź, czy [porty wychodzące Live Metrics Stream](./ip-addresses.md#outgoing
 |**Brak przechowywania**|Dane są przechowywane na wykresie, a następnie są odrzucane|[Dane przechowywane przez 90 dni](./data-retention-privacy.md#how-long-is-the-data-kept)|
 |**Na żądanie**|Dane są przesyłane strumieniowo, gdy okienko metryki na żywo jest otwarte |Dane są wysyłane za każdym razem, gdy zestaw SDK jest zainstalowany i włączony|
 |**Bezpłatna**|Za dane Live Stream nie są naliczane opłaty|Podlega [cennikowi](./pricing.md)
-|**Próbkowanie**|Wszystkie wybrane metryki i liczniki są przesyłane. Błędy i ślady stosu są próbkowane. TelemetryProcessors nie są stosowane.|Zdarzenia mogą być [próbkowane](./api-filtering-sampling.md)|
+|**Próbkowanie**|Wszystkie wybrane metryki i liczniki są przesyłane. Błędy i ślady stosu są próbkowane. |Zdarzenia mogą być [próbkowane](./api-filtering-sampling.md)|
 |**Kanał kontrolny**|Sygnały kontroli filtru są wysyłane do zestawu SDK. Zalecamy zabezpieczenie tego kanału.|Komunikacja jest jednym ze sposobów, w portalu|
 
 ## <a name="select-and-filter-your-metrics"></a>Wybieranie i filtrowanie metryk
@@ -97,9 +159,10 @@ Jeśli chcesz monitorować konkretne wystąpienie roli serwera, możesz filtrowa
 ## <a name="secure-the-control-channel"></a>Zabezpieczanie kanału kontroli
 
 > [!NOTE]
-> Obecnie można skonfigurować kanał uwierzytelniony tylko przy użyciu monitorowania podstawowego kodu i nie można uwierzytelnić serwerów przy użyciu dołączania bez kodu.
+> Obecnie można skonfigurować kanał uwierzytelniony tylko przy użyciu monitorowania opartego na kodzie i nie można uwierzytelnić serwerów przy użyciu dołączania bez kodu.
 
-Określone kryteria filtrów niestandardowych są wysyłane z powrotem do składnika metryki na żywo w zestawie Application Insights SDK. Filtry mogą potencjalnie zawierać informacje poufne, takie jak customerID. Kanał można zabezpieczyć przy użyciu klucza tajnego interfejsu API oprócz klucza Instrumentacji.
+Kryteria filtrów niestandardowych określone w portalu metryk na żywo są wysyłane z powrotem do składnika metryki na żywo w zestawie Application Insights SDK. Filtry mogą potencjalnie zawierać informacje poufne, takie jak customerID. Kanał można zabezpieczyć przy użyciu klucza tajnego interfejsu API oprócz klucza Instrumentacji.
+
 ### <a name="create-an-api-key"></a>Tworzenie klucza interfejsu API
 
 ![Klucz interfejsu API > Utwórz klucz interfejsu API ](./media/live-stream/api-key.png)
@@ -107,73 +170,63 @@ Określone kryteria filtrów niestandardowych są wysyłane z powrotem do skład
 
 ### <a name="add-api-key-to-configuration"></a>Dodaj klucz interfejsu API do konfiguracji
 
-### <a name="classic-aspnet"></a>Klasyczny ASP.NET
+### <a name="aspnet"></a>ASP.NET
 
 W pliku applicationinsights.config Dodaj AuthenticationApiKey do QuickPulseTelemetryModule:
-``` XML
 
+```XML
 <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
       <AuthenticationApiKey>YOUR-API-KEY-HERE</AuthenticationApiKey>
 </Add>
-
 ```
-Lub w kodzie, ustaw go na QuickPulseTelemetryModule:
+
+### <a name="aspnet-core"></a>ASP.NET Core
+
+W przypadku aplikacji [ASP.NET Core](./asp-net-core.md) postępuj zgodnie z poniższymi instrukcjami.
+
+Zmodyfikuj `ConfigureServices` plik Startup.cs w następujący sposób:
+
+Dodaj następującą przestrzeń nazw.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
-using Microsoft.ApplicationInsights.Extensibility;
-
-             TelemetryConfiguration configuration = new TelemetryConfiguration();
-            configuration.InstrumentationKey = "YOUR-IKEY-HERE";
-
-            QuickPulseTelemetryProcessor processor = null;
-
-            configuration.TelemetryProcessorChainBuilder
-                .Use((next) =>
-                {
-                    processor = new QuickPulseTelemetryProcessor(next);
-                    return processor;
-                })
-                        .Build();
-
-            var QuickPulse = new QuickPulseTelemetryModule()
-            {
-
-                AuthenticationApiKey = "YOUR-API-KEY"
-            };
-            QuickPulse.Initialize(configuration);
-            QuickPulse.RegisterTelemetryProcessor(processor);
-            foreach (var telemetryProcessor in configuration.TelemetryProcessors)
-                {
-                if (telemetryProcessor is ITelemetryModule telemetryModule)
-                    {
-                    telemetryModule.Initialize(configuration);
-                    }
-                }
-
 ```
+
+Następnie zmodyfikuj `ConfigureServices` metodę jako poniżej.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    // existing code which include services.AddApplicationInsightsTelemetry() to enable Application Insights.
+    services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
+}
+```
+
+Więcej informacji na temat konfigurowania aplikacji ASP.NET Core można znaleźć w naszych wskazówkach dotyczących [konfigurowania modułów telemetrycznych w programie ASP.NET Core](./asp-net-core.md#configuring-or-removing-default-telemetrymodules).
+
+### <a name="workerservice"></a>WorkerService
+
+W przypadku aplikacji [WorkerService](./worker-service.md) postępuj zgodnie z poniższymi instrukcjami.
+
+Dodaj następującą przestrzeń nazw.
+
+```csharp
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+```
+
+Następnie Dodaj następujący wiersz przed wywołaniem `services.AddApplicationInsightsTelemetryWorkerService` .
+
+```csharp
+    services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
+```
+
+Więcej informacji na temat konfigurowania aplikacji WorkerService można znaleźć w naszych wskazówkach dotyczących [konfigurowania modułów telemetrycznych w WorkerServices](./worker-service.md#configuring-or-removing-default-telemetrymodules).
 
 ### <a name="azure-function-apps"></a>Aplikacje funkcji platformy Azure
 
 W przypadku aplikacji funkcji platformy Azure (v2) Zabezpieczanie kanału za pomocą klucza interfejsu API można wykonać przy użyciu zmiennej środowiskowej.
 
-Utwórz klucz interfejsu API z poziomu zasobu Application Insights i przejdź do pozycji **Ustawienia aplikacji** dla aplikacja funkcji. Wybierz pozycję **Dodaj nowe ustawienie** i wprowadź nazwę `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` i wartość odpowiadającą kluczowi interfejsu API.
-
-### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-or-greater"></a>ASP.NET Core (wymaga Application Insights ASP.NET Core SDK 2.3.0 lub nowszego)
-
-Zmodyfikuj plik startup.cs w następujący sposób:
-
-Najpierw Dodaj
-
-```csharp
-using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
-```
-
-Następnie w ramach metody ConfigureServices Dodaj:
-
-```csharp
-services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
-```
+Utwórz klucz interfejsu API z poziomu zasobu Application Insights i przejdź do pozycji **ustawienia > konfiguracja** aplikacja funkcji. Wybierz pozycję **nowe ustawienie aplikacji** , wprowadź nazwę `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` i wartość odpowiadającą kluczowi interfejsu API.
 
 Jeśli jednak rozpoznasz i ufasz wszystkim połączonym serwerom, możesz wypróbować filtry niestandardowe bez uwierzytelnionego kanału. Ta opcja jest dostępna przez sześć miesięcy. To przesłonięcie jest wymagane po każdej nowej sesji lub gdy nowy serwer przejdzie w tryb online.
 
@@ -187,7 +240,7 @@ Jeśli jednak rozpoznasz i ufasz wszystkim połączonym serwerom, możesz wypró
 
 | Język                         | Metryki podstawowe       | Metryki wydajności | Filtrowanie niestandardowe    | Przykładowa Telemetria    | Dzielenie procesora CPU przez proces |
 |----------------------------------|:--------------------|:--------------------|:--------------------|:--------------------|:---------------------|
-| .NET                             | Obsługiwane (V 2.7.2 +) | Obsługiwane (V 2.7.2 +) | Obsługiwane (V 2.7.2 +) | Obsługiwane (V 2.7.2 +) | Obsługiwane (V 2.7.2 +)  |
+| .NET Framework                   | Obsługiwane (V 2.7.2 +) | Obsługiwane (V 2.7.2 +) | Obsługiwane (V 2.7.2 +) | Obsługiwane (V 2.7.2 +) | Obsługiwane (V 2.7.2 +)  |
 | .NET Core (target =. NET Framework)| Obsługiwane (V 2.4.1 +) | Obsługiwane (V 2.4.1 +) | Obsługiwane (V 2.4.1 +) | Obsługiwane (V 2.4.1 +) | Obsługiwane (V 2.4.1 +)  |
 | .NET Core (target =. NET Core)     | Obsługiwane (V 2.4.1 +) | Obsługiwane*          | Obsługiwane (V 2.4.1 +) | Obsługiwane (V 2.4.1 +) | **Nieobsługiwane**    |
 | Azure Functions v2               | Obsługiwane           | Obsługiwane           | Obsługiwane           | Obsługiwane           | **Nieobsługiwane**    |
@@ -200,17 +253,15 @@ Podstawowe metryki obejmują żądanie, zależność i częstotliwość wyjątk�
 
 - Metryki PerfCounters są obsługiwane w przypadku uruchamiania w Azure App Service dla systemu Windows. (AspNetCore SDK w wersji 2.4.1 lub nowszej)
 - PerfCounters są obsługiwane, gdy aplikacja jest uruchomiona na wszystkich maszynach z systemem Windows (maszynie wirtualnej lub w chmurze lub w Premium itp.). (AspNetCore SDK w wersji 2.7.1 lub nowszej), ale dla aplikacji przeznaczonych dla platformy .NET Core 2,0 lub nowszej.
-- PerfCounters są obsługiwane, gdy aplikacja działa w dowolnym miejscu (Linux, Windows, App Service for Linux, Containers itp.) w najnowszej wersji beta (tj. AspNetCore SDK w wersji 2.8.0-beta1 lub nowszej), ale dla aplikacji przeznaczonych dla platformy .NET Core 2,0 lub nowszej.
-
-Domyślnie metryki na żywo są wyłączone w zestawie SDK Node.js. Aby włączyć metryki na żywo, Dodaj `setSendLiveMetrics(true)` do [metod konfiguracji](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) w miarę inicjowania zestawu SDK.
+- PerfCounters są obsługiwane, gdy aplikacja działa w dowolnym miejscu (Linux, Windows, App Service for Linux, Containers itp.) w najnowszych wersjach (tj. AspNetCore SDK w wersji 2.8.0 lub nowszej), ale tylko w przypadku aplikacji przeznaczonych dla platformy .NET Core 2,0 lub nowszej.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Brak danych? Jeśli aplikacja znajduje się w sieci chronionej: Live Metrics Stream używa różnych adresów IP niż inne Application Insights telemetrii. Upewnij się, że [te adresy IP](./ip-addresses.md) są otwarte w zaporze.
+Live Metrics Stream używa różnych adresów IP niż inne Application Insights dane telemetryczne. Upewnij się, że [te adresy IP](./ip-addresses.md) są otwarte w zaporze. Sprawdź również [porty wychodzące dla Live Metrics Stream](./ip-addresses.md#outgoing-ports) są otwarte w zaporze serwerów.
 
 ## <a name="next-steps"></a>Następne kroki
+
 * [Monitorowanie użycia za pomocą Application Insights](./usage-overview.md)
 * [Korzystanie z wyszukiwania diagnostycznego](./diagnostic-search.md)
 * [Profiler](./profiler.md)
 * [Debuger migawek](./snapshot-debugger.md)
-

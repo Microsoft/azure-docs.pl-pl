@@ -1,6 +1,6 @@
 ---
 title: Node.js aplikacji przy użyciu programu Socket.io — Azure
-description: Dowiedz się, jak używać socket.io w aplikacji node.js hostowanej na platformie Azure.
+description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak hostować gniazdo. Aplikacja czatu oparta na we/wy na platformie Azure. Socket.IO zapewnia komunikację w czasie rzeczywistym dla serwera i klientów node.js.
 services: cloud-services
 documentationcenter: nodejs
 author: tgore03
@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 8029c243052114b9a0932e5372301be84440cf85
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f3c19e77739ac8dbc503e51408b9b7830a8b5aa5
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386592"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142472"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Tworzenie aplikacji czatu Node.js przy użyciu usługi Socket.IO w usłudze w chmurze platformy Azure
 

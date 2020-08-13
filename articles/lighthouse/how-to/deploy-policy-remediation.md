@@ -1,18 +1,21 @@
 ---
 title: Wdrażanie zasad, które można skorygować
 description: Aby wdrożyć zasady korzystające z zadania korygowania za pośrednictwem usługi Azure Lighthouse, należy utworzyć tożsamość zarządzaną w dzierżawie klienta.
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: fc13b6209826d4a59d82bca5db63d4ca5c39f9fb
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 998576d06d470c525a551463861f7a25d4ab9d8f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105340"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163258"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Wdróż zasady, które można skorygować w ramach delegowanej subskrypcji
 
 Usługa [Azure Lighthouse](../overview.md) umożliwia dostawcom usług tworzenie i edytowanie definicji zasad w ramach delegowanej subskrypcji. Aby jednak wdrażać zasady korzystające z [zadania korygowania](../../governance/policy/how-to/remediate-resources.md) (czyli zasad z efektem [deployIfNotExists](../../governance/policy/concepts/effects.md#deployifnotexists) lub [Modyfikacja](../../governance/policy/concepts/effects.md#modify) ), należy utworzyć [tożsamość zarządzaną](../../active-directory/managed-identities-azure-resources/overview.md) w dzierżawie klienta. Ta tożsamość zarządzana może być używana przez Azure Policy do wdrożenia szablonu w ramach zasad. Aby włączyć ten scenariusz, należy wykonać kroki w przypadku dołączenia klienta do zarządzania zasobami delegowanymi przez platformę Azure i po wdrożeniu samej zasady.
+
+> [!TIP]
+> Chociaż odwołujemy się do dostawców usług i klientów w tym temacie, [przedsiębiorstwa zarządzające wieloma dzierżawcami](../concepts/enterprise.md) mogą korzystać z tych samych procesów.
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Tworzenie użytkownika, który może przypisywać role do tożsamości zarządzanej w dzierżawie klienta
 

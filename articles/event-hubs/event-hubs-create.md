@@ -3,12 +3,12 @@ title: Przewodnik Szybki Start platformy Azure — tworzenie centrum zdarzeń pr
 description: Z tego przewodnika Szybki start dowiesz się, jak utworzyć centrum zdarzeń platformy Azure przy użyciu witryny Azure Portal oraz wysyłać i odbierać zdarzenia za pomocą zestawu .NET Standard SDK.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: bc9190bba6b21e59f10f51bd0eb7da2426f6d1b4
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 271d01ef6711c7e57538abae301ae924fb6ff351
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902120"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142557"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Szybki start: tworzenie centrum zdarzeń przy użyciu witryny Azure Portal
 Azure Event Hubs to platforma do pozyskiwania i strumieniowego przesyłania danych, która umożliwia odbieranie i przetwarzanie milionów zdarzeń na sekundę. Usługa Event Hubs pozwala przetwarzać i przechowywać zdarzenia, dane lub dane telemetryczne generowane przez rozproszone oprogramowanie i urządzenia. Dane wysłane do centrum zdarzeń mogą zostać przekształcone i zmagazynowane przy użyciu dowolnego dostawcy analityki czasu rzeczywistego lub adapterów przetwarzania wsadowego/magazynowania. Aby zapoznać się ze szczegółowym omówieniem usługi Event Hubs, zobacz [Omówienie usługi Event Hubs](event-hubs-about.md) i [Funkcje usługi Event Hubs](event-hubs-features.md).
@@ -28,51 +28,52 @@ Aby ukończyć ten przewodnik Szybki start, upewnij się, że dysponujesz nastę
 Grupa zasobów to logiczna kolekcja zasobów platformy Azure. Wszystkie zasoby są wdrażane i zarządzane w ramach grupy zasobów. Aby utworzyć grupę zasobów:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W lewym obszarze nawigacji kliknij pozycję **Grupy zasobów**. Następnie kliknij przycisk **Dodaj**.
+1. W lewym obszarze nawigacji kliknij pozycję **Grupy zasobów**. Następnie kliknij przycisk **Dodaj**.
 
    ![Grupy zasobów — przycisk Dodaj](./media/event-hubs-quickstart-portal/resource-groups1.png)
 
-2. W polu **Subskrypcja** wybierz nazwę subskrypcji platformy Azure, w której chcesz utworzyć grupę zasobów.
-3. Wpisz unikatową **nazwę grupy zasobów**. System natychmiast sprawdzi, czy nazwa jest dostępna w aktualnie wybranej subskrypcji platformy Azure.
-4. Wybierz **region** dla grupy zasobów.
-5. Wybierz pozycję **Recenzja + Utwórz**.
+1. W polu **Subskrypcja** wybierz nazwę subskrypcji platformy Azure, w której chcesz utworzyć grupę zasobów.
+1. Wpisz unikatową **nazwę grupy zasobów**. System natychmiast sprawdzi, czy nazwa jest dostępna w aktualnie wybranej subskrypcji platformy Azure.
+1. Wybierz **region** dla grupy zasobów.
+1. Wybierz pozycję **Recenzja + Utwórz**.
 
    ![Grupa zasobów — tworzenie](./media/event-hubs-quickstart-portal/resource-groups2.png)
-6. Na stronie **Przeglądanie + tworzenie** wybierz pozycję **Utwórz**. 
+1. Na stronie **Przeglądanie + tworzenie** wybierz pozycję **Utwórz**. 
 
 ## <a name="create-an-event-hubs-namespace"></a>Tworzenie przestrzeni nazw usługi Event Hubs
 
 Przestrzeń nazw usługi Event Hubs udostępnia unikatowy kontener zakresu przywoływany przy użyciu jego w pełni kwalifikowanej nazwy domeny, w którym można utworzyć jedno lub wiele centrów zdarzeń. Aby utworzyć przestrzeń nazw w grupie zasobów przy użyciu portalu, wykonaj następujące akcje:
 
 1. W witrynie Azure Portal kliknij pozycję **Utwórz zasób** w lewym górnym rogu ekranu.
-2. Wybierz pozycję **Wszystkie usługi** w menu po lewej stronie, a następnie wybierz **gwiazdkę (`*`)** obok pozycji **Event Hubs** w kategorii **Analiza**. Upewnij się, że usługa **Event Hubs** została dodana do kategorii **ULUBIONE** w menu nawigacji po lewej stronie. 
+1. Wybierz pozycję **Wszystkie usługi** w menu po lewej stronie, a następnie wybierz **gwiazdkę (`*`)** obok pozycji **Event Hubs** w kategorii **Analiza**. Upewnij się, że usługa **Event Hubs** została dodana do kategorii **ULUBIONE** w menu nawigacji po lewej stronie. 
     
    ![Wyszukiwanie usługi Event Hubs](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
-3. Wybierz pozycję **Event Hubs** w obszarze **ULUBIONE** w menu nawigacji po lewej stronie, a następnie wybierz pozycję **Dodaj** na pasku narzędzi.
+1. Wybierz pozycję **Event Hubs** w obszarze **ULUBIONE** w menu nawigacji po lewej stronie, a następnie wybierz pozycję **Dodaj** na pasku narzędzi.
 
    ![Przycisk dodawania](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
-4. Na stronie **Tworzenie przestrzeni nazw** wykonaj następujące czynności:
-    1. Wybierz **subskrypcję**, w ramach której chcesz utworzyć przestrzeń nazw.
-    2. Wybierz **grupę zasobów** utworzoną w poprzednim kroku. 
-    3. Wprowadź **nazwę** dla przestrzeni nazw. System od razu sprawdza, czy nazwa jest dostępna.
-    4. Wybierz **lokalizację** dla przestrzeni nazw.    
-    5. Wybierz **warstwę cenową** (podstawowa lub standardowa).  
-    6. Pozostaw ustawienia **jednostek przepływności** . Aby dowiedzieć się więcej o jednostkach przepływności, zobacz [Event Hubs skalowalność](event-hubs-scalability.md#throughput-units)  
-    5. Wybierz pozycję **Recenzja + Utwórz** w dolnej części strony.
+1. Na stronie **Tworzenie przestrzeni nazw** wykonaj następujące czynności:  
+   1. Wybierz **subskrypcję**, w ramach której chcesz utworzyć przestrzeń nazw.  
+   1. Wybierz **grupę zasobów** utworzoną w poprzednim kroku.   
+   1. Wprowadź **nazwę** dla przestrzeni nazw. System od razu sprawdza, czy nazwa jest dostępna.  
+   1. Wybierz **lokalizację** dla przestrzeni nazw.      
+   1. Wybierz **warstwę cenową** (podstawowa lub standardowa).    
+   1. Pozostaw ustawienia **jednostek przepływności** . Aby dowiedzieć się więcej o jednostkach przepływności, zobacz [Event Hubs skalowalność](event-hubs-scalability.md#throughput-units).  
+   1. Wybierz pozycję **Recenzja + Utwórz** w dolnej części strony.
+      
+      ![Tworzenie przestrzeni nazw centrum zdarzeń](./media/event-hubs-quickstart-portal/create-event-hub1.png)
+   1. Na stronie **Recenzja i tworzenie** Sprawdź ustawienia, a następnie wybierz pozycję **Utwórz**. Zaczekaj na zakończenie wdrażania. 
+      
+      ![Przejrzyj i Utwórz stronę](./media/event-hubs-quickstart-portal/review-create.png)
+      
+   1. Na stronie **wdrażanie** wybierz pozycję **Przejdź do zasobu** , aby przejść do strony dla obszaru nazw. 
+      
+      ![Wdrożenie zakończone — przejdź do zasobu](./media/event-hubs-quickstart-portal/deployment-complete.png)  
+   1. Upewnij się, że na stronie **Event Hubs przestrzeni nazw** została wyświetlona podobna do poniższego przykładu:   
+      
+      ![Strona główna przestrzeń nazw](./media/event-hubs-quickstart-portal/namespace-home-page.png)       
 
-       ![Tworzenie przestrzeni nazw centrum zdarzeń](./media/event-hubs-quickstart-portal/create-event-hub1.png)
-   6. Na stronie **Recenzja i tworzenie** Sprawdź ustawienia, a następnie wybierz pozycję **Utwórz**. Zaczekaj na zakończenie wdrażania. 
-
-       ![Przejrzyj i Utwórz stronę](./media/event-hubs-quickstart-portal/review-create.png)
-   7. Na stronie **wdrażanie** wybierz pozycję **Przejdź do zasobu** , aby przejść do strony dla obszaru nazw. 
-
-      ![Wdrożenie zakończone — przejdź do zasobu](./media/event-hubs-quickstart-portal/deployment-complete.png)
-   8. Upewnij się, że na stronie **Event Hubs przestrzeni nazw** została wyświetlona podobna do poniższego przykładu: 
-
-       ![Strona główna przestrzeń nazw](./media/event-hubs-quickstart-portal/namespace-home-page.png)       
-
-       > [!NOTE]
-       > Usługa Azure Event Hubs udostępnia punkt końcowy Kafka. Ten punkt końcowy umożliwia Event Hubsom przestrzeni nazw natywne zrozumienie protokołu komunikatów [Apache Kafka](https://kafka.apache.org/intro) i interfejsów API. Korzystając z tej możliwości, można komunikować się z centrami zdarzeń w taki sam sposób, jak w przypadku Kafka tematów bez zmiany klientów protokołu lub uruchamiania własnych klastrów. Event Hubs obsługuje [Apache Kafka wersje 1,0](https://kafka.apache.org/10/documentation.html) i nowsze. Aby uzyskać więcej informacji, zobacz [Korzystanie z Event Hubs z aplikacji Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md).
+      > [!NOTE]
+      > Usługa Azure Event Hubs udostępnia punkt końcowy Kafka. Ten punkt końcowy umożliwia Event Hubsom przestrzeni nazw natywne zrozumienie protokołu komunikatów [Apache Kafka](https://kafka.apache.org/intro) i interfejsów API. Korzystając z tej możliwości, można komunikować się z centrami zdarzeń w taki sam sposób, jak w przypadku Kafka tematów bez zmiany klientów protokołu lub uruchamiania własnych klastrów. Event Hubs obsługuje [Apache Kafka wersje 1,0](https://kafka.apache.org/10/documentation.html) i nowsze. Aby uzyskać więcej informacji, zobacz [Korzystanie z Event Hubs z aplikacji Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md).
     
 ## <a name="create-an-event-hub"></a>Tworzenie centrum zdarzeń
 
@@ -85,7 +86,7 @@ Aby utworzyć centrum zdarzeń w przestrzeni nazw, wykonaj następujące akcje:
 1. Wpisz nazwę centrum zdarzeń, a następnie kliknij pozycję **Utwórz**.
    
     ![Tworzenie centrum zdarzeń](./media/event-hubs-quickstart-portal/create-event-hub5.png)
-4. Możesz sprawdzić stan tworzenia centrum zdarzeń w alertach. Po utworzeniu centrum zdarzeń będzie ono widoczne na liście centrów zdarzeń, jak pokazano na poniższej ilustracji:
+1. Możesz sprawdzić stan tworzenia centrum zdarzeń w alertach. Po utworzeniu centrum zdarzeń będzie ono widoczne na liście centrów zdarzeń, jak pokazano na poniższej ilustracji:
 
     ![Centrum zdarzeń zostało utworzone](./media/event-hubs-quickstart-portal/event-hub-created.png)
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 332b4fdb6e0a26437edbf4309ee0b89b79f7eb23
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 04e4394e6a439c923558ef90e13c14c0adaa4020
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845803"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142115"
 ---
 # <a name="tutorial-return-azure-data-box-preview"></a>Samouczek: zwracanie Azure Data Box (wersja zapoznawcza)
 
@@ -176,7 +176,7 @@ W przypadku wystąpienia jakichkolwiek problemów urządzenie Data Box operacji 
 
 ## <a name="self-managed"></a>[Samodzielne zarządzanie](#tab/in-selfmanaged)
 
-Jeśli korzystasz z urządzenia Data Box w Japonii, Singapurze, Korei lub Europie Zachodniej oraz masz wybraną opcję samodzielnego zarządzania wysyłką, postępuj zgodnie z następującymi opcjami podczas tworzenia zamówienia.
+Jeśli używasz urządzenie Data Box w Japonii, Singapur, Korea, Indie, RPA lub Europa Zachodnia i wybrano opcję wysyłki samozarządzanej podczas tworzenia zamówienia, postępuj zgodnie z tymi instrukcjami.
 
 1. Zanotuj kod autoryzacji widoczny na stronie przygotowywania do wysyłki w lokalnym internetowym interfejsie użytkownika urządzenia Data Box po pomyślnym ukończeniu tego kroku.
 2. Wyłącz urządzenie i odłącz kable. Zwiń przewód zasilający dostarczony wraz z urządzeniem i umieść go bezpiecznie z tyłu urządzenia.

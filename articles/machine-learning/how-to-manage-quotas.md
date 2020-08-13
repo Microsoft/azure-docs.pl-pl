@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: 4bd13adb9bb431749f1d0f52781ce22c832fc090
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: a9ae3d2789758d03405fb5be82181c799d1ea692
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846738"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141129"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Zarządzanie & zwiększenie limitów przydziału dla zasobów z Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -107,24 +107,26 @@ Aby ustawić przydziały na poziomie obszaru roboczego, przejdź do dowolnego ob
 
 ## <a name="view-your-usage-and-quotas"></a>Wyświetlanie użycia i przydziałów
 
-Obliczenia Azure Machine Learning są zarządzane oddzielnie od innych przydziałów zasobów platformy Azure w ramach subskrypcji. Aby wyświetlić ten limit przydziału, należy przejść do szczegółów usług Machine Learning.  
+Przydziały obliczeń Azure Machine Learning w ramach subskrypcji są zarządzane oddzielnie od innych limitów zasobów platformy Azure. Aby wyświetlić ten limit przydziału, należy przejść do szczegółów usług Machine Learning.  
 
 1. W okienku po lewej stronie wybierz pozycję **usługa Machine Learning** a następnie wybierz dowolny obszar roboczy z wyświetlonej listy.
 
-1. W następnym bloku w **sekcji Pomoc techniczna i rozwiązywanie problemów** wybierz pozycję **użycie + przydziały** , aby wyświetlić bieżące limity przydziału i użycie.
+2. W następnym bloku w **sekcji Pomoc techniczna i rozwiązywanie problemów** wybierz pozycję **użycie + przydziały** , aby wyświetlić bieżące limity przydziału i użycie.
 
-1. Wybierz subskrypcję, aby wyświetlić limity przydziałów. Pamiętaj, aby odfiltrować do regionu, który Cię interesuje.
+3. Wybierz subskrypcję, aby wyświetlić limity przydziałów. Pamiętaj, aby odfiltrować do regionu, który Cię interesuje.
 
-1. Teraz można przełączać się między widokiem poziomu subskrypcji a widokiem poziomu obszaru roboczego:
-    + **Widok subskrypcji:** Przedstawia użycie limitu przydziału rdzeni według rodziny maszyn wirtualnych, rozszerzanie go według obszaru roboczego i dalsze rozszerzanie go o rzeczywiste nazwy klastra. Szybko Dowiedz się więcej na temat podstawowych zastosowań dla danej rodziny maszyn wirtualnych, aby zobaczyć podział przez obszary robocze i inne klastry dla każdego z tych obszarów roboczych. Ogólna Konwencja w tym widoku to (użycie/przydział), gdzie użycie jest bieżącą liczbą skalowalnych rdzeni, a limit przydziału to logiczna Maksymalna liczba rdzeni, do których można skalować zasób. Dla każdego **obszaru roboczego**przydział będzie przydziałem na poziomie obszaru roboczego (jak wyjaśniono powyżej), co oznacza maksymalną liczbę rdzeni, które można skalować do określonej rodziny maszyn wirtualnych. W przypadku **klastra** w podobny sposób przydziały są w rzeczywistości rdzeniami odpowiadającymi maksymalnej liczbie węzłów, które klaster może skalować do określonych przez właściwość max_nodes.
-
+4. Teraz można przełączać się między widokiem poziomu subskrypcji a widokiem poziomu obszaru roboczego:
+    + **Widok subskrypcji:** Pozwala to na wyświetlenie użycia przydziału rdzeni przez rodzinę maszyn wirtualnych, rozwinięcie go według obszaru roboczego i dalsze rozszerzenie go o rzeczywiste nazwy klastra. Ten widok jest optymalny, aby szybko zapoznać się ze szczegółami dotyczącymi użycia podstawowego dla danej rodziny maszyn wirtualnych, aby zobaczyć podziały przez obszary robocze i inne klastry dla każdego z tych obszarów roboczych. Ogólna Konwencja w tym widoku to (użycie/przydział), gdzie użycie jest bieżącą liczbą skalowalnych rdzeni, a limit przydziału to logiczna Maksymalna liczba rdzeni, do których można skalować zasób. Dla każdego **obszaru roboczego**przydział będzie przydziałem na poziomie obszaru roboczego (jak wyjaśniono powyżej), co oznacza maksymalną liczbę rdzeni, które można skalować do określonej rodziny maszyn wirtualnych. W przypadku **klastra** w podobny sposób przydziały są w rzeczywistości rdzeniami odpowiadającymi maksymalnej liczbie węzłów, które klaster może skalować do określonych przez właściwość max_nodes.
+    
     + **Widok obszaru roboczego:** Pozwala to na wyświetlenie użycia zasobów podstawowych według obszaru roboczego, rozszerzenie go przez rodzinę maszyn wirtualnych i dalsze rozszerzenie go o rzeczywiste nazwy klastra. Ten widok jest optymalny, aby szybko zapoznać się ze szczegółami dotyczącymi podstawowego użycia określonego obszaru roboczego, aby zobaczyć podział przez rodziny maszyn wirtualnych i inne klastry dla każdej z tych rodzin.
 
 Wyświetlanie przydziału dla różnych innych zasobów platformy Azure, takich jak Virtual Machines, Storage i Network, jest proste przez Azure Portal.
 
 1. W okienku po lewej stronie wybierz pozycję **wszystkie usługi** , a następnie wybierz pozycję **subskrypcje** w kategorii Ogólne.
 
-1. Z listy subskrypcji wybierz subskrypcję, której chcesz wyszukać.
+2. Z listy subskrypcji wybierz subskrypcję, której chcesz wyszukać.
+
+3. Wybierz pozycję **użycie + przydziały** , aby wyświetlić bieżące limity przydziału i użycie. Użyj filtrów, aby wybrać dostawcę i lokalizacje. 
 
 ## <a name="request-quota-increases"></a>Prośba o zwiększenie limitów przydziałów
 
@@ -135,7 +137,7 @@ Limitów nie można zwiększyć powyżej wartości maksymalnego limitu pokazanej
 Podczas żądania zwiększenia limitu przydziału należy wybrać usługę żądaną do podniesienia przydziału, która może być usługami, takimi jak przydział usługi Machine Learning, wystąpienia kontenerów lub przydział magazynu. Oprócz Azure Machine Learning obliczeń, można kliknąć przycisk **limitu przydziału** podczas wyświetlania przydziału, wykonując czynności opisane powyżej.
 
 > [!NOTE]
-> [Bezpłatne subskrypcje wersji próbnej](https://azure.microsoft.com/offers/ms-azr-0044p) nie kwalifikują się do zwiększenia limitu przydziału. Jeśli masz [bezpłatną subskrypcję wersji próbnej](https://azure.microsoft.com/offers/ms-azr-0044p), możesz przeprowadzić uaktualnienie do subskrypcji [płatnej zgodnie z rzeczywistym](https://azure.microsoft.com/offers/ms-azr-0003p/) użyciem. Aby uzyskać więcej informacji, zobacz [uaktualnianie bezpłatnej wersji próbnej platformy Azure do usługi płatność zgodnie z rzeczywistym](../billing/billing-upgrade-azure-subscription.md) użyciem i [subskrypcji bezpłatnej wersji próbnej](https://azure.microsoft.com/free/free-account-faq).
+> [Bezpłatne subskrypcje wersji próbnej](https://azure.microsoft.com/offers/ms-azr-0044p) nie kwalifikują się do zwiększenia limitu przydziału. Jeśli masz [bezpłatną subskrypcję wersji próbnej](https://azure.microsoft.com/offers/ms-azr-0044p), możesz przeprowadzić uaktualnienie do subskrypcji [płatnej zgodnie z rzeczywistym](https://azure.microsoft.com/offers/ms-azr-0003p/) użyciem. Aby uzyskać więcej informacji, zobacz [uaktualnianie bezpłatnej wersji próbnej platformy Azure do usługi płatność zgodnie z rzeczywistym](../billing/billing-upgrade-azure-subscription.md) użyciem i  [subskrypcji bezpłatnej wersji próbnej](https://azure.microsoft.com/free/free-account-faq).
 
 ## <a name="next-steps"></a>Następne kroki
 

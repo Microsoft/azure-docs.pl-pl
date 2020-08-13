@@ -1,24 +1,27 @@
 ---
 title: Usługa Azure Lighthouse i aplikacje zarządzane na platformie Azure
-description: Azure Lighthouse i aplikacje zarządzane przez platformę Azure...
-ms.date: 05/01/2020
+description: Dowiedz się, w jaki sposób usługa Azure Lighthouse i aplikacje zarządzane przez platformę Azure mogą pomóc w różnych scenariuszach i sposobach ich użycia.
+ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3e1477de18b24cf5099cd4479a82169e3ecada26
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 81ff61a6d1b7487d3da0643bac3987589de46c1e
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121609"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163428"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Usługa Azure Lighthouse i aplikacje zarządzane na platformie Azure
 
 Zarówno aplikacje zarządzane przez platformę Azure, jak i Azure Lighthouse działają przez umożliwienie dostawcy usług dostępu do zasobów znajdujących się w dzierżawie klienta. Pomocne może być zrozumienie różnic w sposobie ich działania oraz scenariusze, które ułatwiają włączenie, a także ich użycie razem.
 
+> [!TIP]
+> Chociaż odwołujemy się do dostawców usług i klientów w tym temacie, [przedsiębiorstwa zarządzające wieloma dzierżawcami](enterprise.md) mogą korzystać z tych samych procesów i narzędzi.
+
 ## <a name="comparing-azure-lighthouse-and-azure-managed-applications"></a>Porównywanie usługi Azure Lighthouse i aplikacji zarządzanych przez platformę Azure
 
 ### <a name="azure-lighthouse"></a>Azure Lighthouse
 
-Za pomocą [usługi Azure Lighthouse](../overview.md)dostawca usług umożliwia wykonywanie szerokiego zakresu zadań zarządzania bezpośrednio w ramach subskrypcji klienta (lub grupy zasobów). Ten dostęp uzyskuje się za pomocą logicznej projekcji, co umożliwia dostawcom usług logowanie się do własnych dzierżawców i dostęp do zasobów należących do dzierżawy klienta. Klient może określić, które subskrypcje lub grupy zasobów mają być delegowane do dostawcy usług, a klient utrzymuje pełny dostęp do tych zasobów. W każdej chwili można także usunąć dostęp dostawcy usług.
+Za pomocą [usługi Azure Lighthouse](../overview.md)dostawca usług może wykonywać szeroką gamę zadań zarządzania bezpośrednio w ramach subskrypcji klienta (lub grupy zasobów). Ten dostęp uzyskuje się za pomocą logicznej projekcji, co umożliwia dostawcom usług logowanie się do własnych dzierżawców i dostęp do zasobów należących do dzierżawy klienta. Klient może określić, które subskrypcje lub grupy zasobów mają być delegowane do dostawcy usług, a klient utrzymuje pełny dostęp do tych zasobów. W każdej chwili można także usunąć dostęp dostawcy usług.
 
 Aby korzystać z usługi Azure Lighthouse, klienci są dołączeni do [zarządzania zasobami delegowanymi przez platformę Azure](azure-delegated-resource-management.md) przez [wdrażanie szablonów usługi ARM](../how-to/onboard-customer.md) lub za pomocą [oferty usług zarządzanych w witrynie Azure Marketplace](managed-services-offers.md). Możesz śledzić wpływ na zaangażowanie klientów, [ŁĄCZĄC identyfikator partnera](../../cost-management-billing/manage/link-partner-id.md).
 

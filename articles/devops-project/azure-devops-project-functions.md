@@ -8,12 +8,13 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 6f68fede0257086cc3a23fe6f7a0a3cc9466ad1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 79e2726e26ff7883d5022e57fff8fa8961af2c98
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82233180"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163683"
 ---
 # <a name="deploy-to-azure-functions-with-devops-starter"></a>Wdrażanie do Azure Functions za pomocą DevOps Starter
 
@@ -46,7 +47,7 @@ Obecnie obsługiwane środowiska uruchomieniowe dla funkcji to **.NET** i **Node
 
 DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania w Azure Pipelines. Możesz utworzyć nową organizację usługi Azure DevOps lub użyć istniejącej organizacji. DevOps Projects również tworzy zasoby platformy Azure, takie jak IoTHub, w wybranej subskrypcji platformy Azure.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com)
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 
 1. W polu wyszukiwania wpisz **DevOps Starter**, a następnie wybierz opcję. Kliknij przycisk **Dodaj** , aby utworzyć nowy.
 
@@ -84,7 +85,7 @@ DevOps Starter automatycznie konfiguruje aplikację funkcji, którą można eksp
 
 1. Po prawej stronie wybierz aplikację funkcji. Zostanie otwarte okienko dla aplikacji funkcji. Z tego widoku można wykonywać różne czynności, takie jak monitorowanie operacji, wyszukiwanie dzienników.
 
-    ![Aplikacja usługi Functions](_img/azure-devops-project-functions/function-app.png)
+    ![Aplikacja funkcji](_img/azure-devops-project-functions/function-app.png)
 
 ## <a name="examine-the-ci-pipeline"></a>Badanie potoku ciągłej integracji
 
@@ -96,7 +97,7 @@ DevOps Starter automatycznie konfiguruje potok ciągłej integracji/ciągłego w
 
     ![Kompilacja](_img/azure-devops-project-functions/build.png)
 
-1. Wybierz pozycję **Edytuj**. W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. Kompilacja wykonuje różne zadania, takie jak pobieranie kodu źródłowego z repozytorium git, tworzenie aplikacji, uruchamianie testów jednostkowych i publikowanie danych wyjściowych, które są używane do wdrożeń.
+1. Kliknij pozycję **Edytuj**. W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. Kompilacja wykonuje różne zadania, takie jak pobieranie kodu źródłowego z repozytorium git, tworzenie aplikacji, uruchamianie testów jednostkowych i publikowanie danych wyjściowych, które są używane do wdrożeń.
 
 1. Wybierz pozycję **Wyzwalacze**. DevOps Starter automatycznie tworzy wyzwalacz CI i każde zatwierdzenie repozytorium uruchamia nową kompilację. Opcjonalnie możesz zdecydować się dołączyć gałęzie do procesu ciągłej integracji lub wykluczyć je z niego.
 

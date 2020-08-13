@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
-ms.custom: mvc
-ms.openlocfilehash: 3f0d937737cb261fb81dc4cdad3579ee593b5981
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: c434abdac19c0afd3a76256c27fc3316a8b09940
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82233310"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163700"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Tworzenie potoku ciągłej integracji/ciągłego wdrażania dla platformy .NET przy użyciu usługi Azure DevOps Starter
 
@@ -32,7 +32,7 @@ Jeśli nie masz subskrypcji platformy Azure, możesz uzyskać ją bezpłatnie za
 
 DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania na platformie Azure DevOps. Możesz utworzyć nową organizację usługi Azure DevOps lub użyć istniejącej organizacji. DevOps Starter tworzy również zasoby platformy Azure w wybranej subskrypcji platformy Azure.
 
-1. Zaloguj się do [Portalu Microsoft Azure](https://portal.azure.com).
+1. Zaloguj się do witryny [Microsoft Azure Portal](https://portal.azure.com).
 
 1. W polu wyszukiwania wpisz **DevOps Starter**, a następnie wybierz opcję. Kliknij przycisk **Dodaj** , aby utworzyć nowy. 
 
@@ -88,7 +88,7 @@ W poprzednim kroku usługa Azure DevOps Starter automatycznie skonfigurowała pe
 
 1. Wybierz wielokropek (...).  Ta akcja powoduje otwarcie menu, w którym można rozpocząć kilka działań, takich jak kolejkowanie nowej kompilacji, wstrzymywanie kompilacji i edytowanie potoku kompilacji.
 
-1. Wybierz pozycję **Edytuj**.
+1. Kliknij pozycję **Edytuj**.
 
     ![Potok kompilacji](_img/azure-devops-project-aspnet-core/builddef.png)
 

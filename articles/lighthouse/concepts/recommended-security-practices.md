@@ -1,28 +1,31 @@
 ---
 title: Zalecane najlepsze rozwiązania dotyczące zabezpieczeń
 description: W przypadku korzystania z usługi Azure Lighthouse ważne jest uwzględnienie zabezpieczeń i kontroli dostępu.
-ms.date: 07/06/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2c620feabf5bcedc35a36104c3ba305ac9337ff0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ddc4d2c69e7aacc49c5309bc407aecd9bc8e572f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105425"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163275"
 ---
 # <a name="recommended-security-practices"></a>Zalecane najlepsze rozwiązania dotyczące zabezpieczeń
 
 W przypadku korzystania z [usługi Azure Lighthouse](../overview.md)ważne jest uwzględnienie zabezpieczeń i kontroli dostępu. Użytkownicy w dzierżawie będą mieć bezpośredni dostęp do subskrypcji klientów i grup zasobów, dlatego należy podjąć kroki w celu utrzymania bezpieczeństwa dzierżawy. Należy również upewnić się, że zezwolisz na dostęp, który jest potrzebny do efektywnego zarządzania zasobami klientów. Ten temat zawiera zalecenia ułatwiające wykonanie tej czynności.
 
+> [!TIP]
+> Te zalecenia dotyczą również [przedsiębiorstw zarządzających wieloma dzierżawcami](enterprise.md) za pomocą usługi Azure Lighthouse.
+
 ## <a name="require-azure-multi-factor-authentication"></a>Wymaganie usługi Azure Multi-Factor Authentication
 
-[Usługa Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (znana także jako weryfikacja dwuetapowa) zapobiega uzyskaniu dostępu do konta przez osoby atakujące, wymagając wielu kroków uwierzytelniania. Należy wymagać Multi-Factor Authentication dla wszystkich użytkowników w dzierżawie dostawcy usług, w tym wszystkich użytkowników, którzy będą mieli dostęp do zasobów klienta.
+[Usługa Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (znana także jako weryfikacja dwuetapowa) zapobiega uzyskaniu dostępu do konta przez osoby atakujące, wymagając wielu kroków uwierzytelniania. Należy wymagać Multi-Factor Authentication dla wszystkich użytkowników w dzierżawie zarządzającej, w tym użytkowników, którzy będą mieli dostęp do delegowanych zasobów klientów.
 
 Zalecamy poproszenie klientów o wdrożenie Multi-Factor Authentication platformy Azure w swoich dzierżawach.
 
 ## <a name="assign-permissions-to-groups-using-the-principle-of-least-privilege"></a>Przypisywanie uprawnień do grup przy użyciu zasad najniższych uprawnień
 
-Aby ułatwić zarządzanie, zalecamy korzystanie z grup użytkowników usługi Azure AD dla każdej roli wymaganej do zarządzania zasobami klientów. Pozwala to na dodanie lub usunięcie poszczególnych użytkowników do grupy w zależności od potrzeb, zamiast przypisywania uprawnień bezpośrednio do tego użytkownika.
+Aby ułatwić zarządzanie, należy użyć grup Azure Active Directory (Azure AD) dla każdej roli wymaganej do zarządzania zasobami klientów. Pozwala to na dodanie lub usunięcie poszczególnych użytkowników do grupy w miarę potrzeb zamiast przypisywania uprawnień bezpośrednio do poszczególnych użytkowników.
 
 > [!IMPORTANT]
 > Aby można było dodać uprawnienia dla grupy usługi Azure AD, **typem grupy** musi być **zabezpieczenia** , a nie **Office 365**. Ta opcja jest wybierana podczas tworzenia grupy. Aby uzyskać więcej informacji, zobacz [Tworzenie podstawowej grupy i dodawanie członków w usłudze Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
@@ -36,12 +39,11 @@ Na przykład możesz chcieć użyć struktury podobnej do następujących:
 |Architektury     |Grupa użytkowników         |\<principalId\>         |Współautor         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |Ocena     |Grupa użytkowników         |\<principalId\>         |Czytelnik         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
 |Specjaliści dla maszyn wirtualnych     |Grupa użytkowników         |\<principalId\>         |Współautor maszyny wirtualnej         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
-|Automation     |Główna nazwa usługi (SPN)         |\<principalId\>         |Współautor         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Automatyzacja     |Główna nazwa usługi (SPN)         |\<principalId\>         |Współautor         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
 Po utworzeniu tych grup można przypisywać użytkowników zgodnie z wymaganiami. Dodawać tylko użytkowników, którzy naprawdę muszą mieć dostęp. Pamiętaj o regularnym przeglądaniu członkostwa w grupach i usunięciu wszystkich użytkowników, którzy nie są już zarejestrowani.
 
 Należy pamiętać, że po dołączeniu [klientów za pomocą publicznej oferty usług zarządzanej](../how-to/publish-managed-services-offers.md)każda grupa (lub użytkownik lub nazwa główna usługi) będzie mieć takie same uprawnienia dla każdego klienta, który kupuje plan. Aby przypisać różne grupy do pracy z poszczególnymi klientami, należy opublikować oddzielny plan prywatny, który jest wyłączny dla każdego klienta, lub dołączyć klientów osobno przy użyciu szablonów Azure Resource Manager. Można na przykład opublikować plan publiczny o bardzo ograniczonym dostępie, a następnie skontaktować się z klientem bezpośrednio w celu dołączenia swoich zasobów w celu uzyskania dodatkowego dostępu przy użyciu dostosowanego szablonu zasobów platformy Azure w razie potrzeby.
-
 
 ## <a name="next-steps"></a>Następne kroki
 

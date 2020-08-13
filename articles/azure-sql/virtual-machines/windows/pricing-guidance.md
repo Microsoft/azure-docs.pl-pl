@@ -15,12 +15,12 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: fc14d79edda1fb8e0083dffa68d23f46630ba2f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1d07b3ff41c16ff2145311a0b42d8c57a8e7b82
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84342599"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141962"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Wskazówki dotyczące cen dla SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -57,7 +57,7 @@ W przypadku nielekkiego obciążenia produkcyjnego należy użyć jednej z nast�
 
 | Wydanie programu SQL Server | Obciążenie |
 |-----|-----|
-| Internet | Małe witryny sieci Web |
+| Sieć Web | Małe witryny sieci Web |
 | Standardowa (Standard) | Małe i średnie obciążenia |
 | Enterprise | Duże lub krytyczne dla działalności obciążenia|
 
@@ -67,7 +67,7 @@ Dostępne są dwie opcje płacenia za SQL Server Licencjonowanie dla następują
 
 **Płatność za licencję SQL Server na użycie** (znana także jako **płatność zgodnie z rzeczywistym**użyciem) oznacza, że koszt usługi SQL Server na sekundę jest określany jako koszt na korzystanie z maszyny wirtualnej platformy Azure. Cennik dla różnych wersji SQL Server (Web, standard, Enterprise) można zobaczyć na stronie cennika usługi Azure Virtual Machines dla [systemu Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) lub [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
 
-Koszt jest taki sam dla wszystkich wersji SQL Server (2012 SP3 do 2017). Koszt licencji na sekundę zależy od liczby procesorów wirtualnych vCPU maszyny wirtualnej.
+Koszt jest taki sam dla wszystkich wersji SQL Server (2012 SP3 do 2019). Koszt licencji na sekundę zależy od liczby procesorów wirtualnych vCPU maszyny wirtualnej.
 
 Płatność SQL Server Licencjonowanie za użycie jest zalecana dla:
 
@@ -140,9 +140,9 @@ Koszt licencjonowania SQL Server jest bezpośrednio związany z liczbą procesor
 
 Istnieją nowe rozmiary maszyn, które dobrze sprawdzają się w przypadku niektórych typów obciążeń SQL Server. Te maszyny zajmują dużo poziomów pamięci, magazynu i przepustowości we/wy, ale mają mniejszą liczbę rdzeni zwirtualizowanych. Rozważmy na przykład następujący przykład:
 
-| Rozmiar maszyny wirtualnej | Procesory wirtualne | Memory (Pamięć) | Maksymalna liczba dysków | Maksymalna przepustowość operacji we/wy | SQL Server koszty licencjonowania | Łączne koszty (obliczeniowe + Licencjonowanie) |
+| Rozmiar maszyny wirtualnej | Procesory wirtualne | Pamięć | Maksymalna liczba dysków | Maksymalna przepustowość operacji we/wy | SQL Server koszty licencjonowania | Łączne koszty (obliczeniowe + Licencjonowanie) |
 |---|---|---|---|---|---|---|
-| **Standard_DS14v2** | 16 | 112 GB | 32 | 51 200 operacji we/wy lub 768 MB/s | | |
+| **Standardowa_DS14v2** | 16 | 112 GB | 32 | 51 200 operacji we/wy lub 768 MB/s | | |
 | **Standardowa_DS14-4v2** | 4 | 112 GB | 32 | 51 200 operacji we/wy lub 768 MB/s | 75% niższy | 57% niższy |
 
 > [!IMPORTANT]

@@ -4,14 +4,14 @@ description: Dowiedz się, jak usunąć typ węzła z klastra Service Fabric dzi
 author: inputoutputcode
 manager: sridmad
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 08/11/2020
 ms.author: chrpap
-ms.openlocfilehash: 6cc7cbcc8344c5015d60d9721c682b6a856cbb6e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ede999bee9ce1a4a9dd10652a2c52a840d5b24be
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247238"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163581"
 ---
 # <a name="how-to-remove-a-service-fabric-node-type"></a>Jak usunąć Service Fabric typ węzła
 W tym artykule opisano sposób skalowania klastra Service Fabric platformy Azure przez usunięcie istniejącego typu węzła z klastra. Klaster Service Fabric jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Maszyna lub maszyna wirtualna będąca częścią klastra nazywa się węzłem. Zestawy skalowania maszyn wirtualnych to zasób obliczeniowy platformy Azure, który służy do wdrażania kolekcji maszyn wirtualnych jako zestawu i zarządzania nią. Każdy typ węzła, który jest zdefiniowany w klastrze platformy Azure [, jest ustawiany jako oddzielny zestaw skalowania](service-fabric-cluster-nodetypes.md). Każdy typ węzła może być następnie zarządzany osobno. Po utworzeniu klastra Service Fabric można skalować klaster w poziomie, usuwając typ węzła (zestaw skalowania maszyn wirtualnych) i wszystkie jego węzły.  Klaster można skalować w dowolnym momencie, nawet w przypadku uruchamiania obciążeń w klastrze.  W miarę skalowania klastra aplikacje są automatycznie skalowane.
@@ -59,7 +59,7 @@ W przypadku usuwania typu węzła, który jest brązowy, wszystkie węzły w typ
     - Klaster jest w dobrej kondycji.
     - Żaden z węzłów należących do typu węzła nie jest oznaczony jako węzeł inicjatora.
 
-4. Wyłącz dane dla typu węzła.
+4. Wyłącz każdy węzeł w typie węzła.
 
     Połącz się z klastrem przy użyciu programu PowerShell, a następnie uruchom następujący krok.
     
@@ -98,8 +98,20 @@ W przypadku usuwania typu węzła, który jest brązowy, wszystkie węzły w typ
     ```
     
     Zaczekaj, aż wszystkie węzły typu węzeł są oznaczone jako w dół.
+
+6. Cofnij przydział węzłów w oryginalnym zestawie skalowania maszyn wirtualnych
     
-6. Usuń dane dla typu węzła.
+    Zaloguj się do subskrypcji platformy Azure, w której wdrożono zestaw skalowania, a następnie usuń zestaw skalowania maszyn wirtualnych. 
+
+    ```powershell
+    $scaleSetName="myscaleset"
+    $scaleSetResourceType="Microsoft.Compute/virtualMachineScaleSets"
+    
+    Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceType -ResourceGroupName $resourceGroupName -Force
+    ```
+
+    
+7. Usuń dane dla typu węzła.
 
     Połącz się z klastrem przy użyciu programu PowerShell, a następnie uruchom następujący krok.
     
@@ -117,7 +129,7 @@ W przypadku usuwania typu węzła, który jest brązowy, wszystkie węzły w typ
 
     Zaczekaj, aż wszystkie węzły zostaną usunięte z klastra. Węzły nie powinny być wyświetlane w SFX.
 
-7. Usuń typ węzła z sekcji Service Fabric.
+8. Usuń typ węzła z sekcji Service Fabric.
 
     - Znajdź szablon Azure Resource Manager używany do wdrożenia.
     - Znajdź sekcję powiązaną z typem węzła w sekcji Service Fabric.
@@ -165,7 +177,7 @@ W przypadku usuwania typu węzła, który jest brązowy, wszystkie węzły w typ
     Następnie sprawdź, czy:
     - Zasób Service Fabric w portalu pokazuje gotowość.
 
-8. Usuń wszystkie odwołania do zasobów odnoszących się do typu węzła.
+9. Usuń wszystkie odwołania do zasobów odnoszących się do typu węzła z szablonu ARM.
 
     - Znajdź szablon Azure Resource Manager używany do wdrożenia.
     - Usuń zestaw skalowania maszyn wirtualnych i inne zasoby związane z typem węzła z szablonu.
@@ -173,6 +185,13 @@ W przypadku usuwania typu węzła, który jest brązowy, wszystkie węzły w typ
 
     Następnie:
     - Poczekaj na zakończenie wdrożenia.
+    
+10. Usuń zasoby odnoszące się do typu węzła, które nie są już używane. Przykład Load Balancer i publiczny adres IP. 
+
+    - Aby usunąć te zasoby, można użyć tego samego polecenia programu PowerShell, które są używane w kroku 6 określającym określony typ zasobu i wersję interfejsu API. 
+
+> [!Note]
+> Ten krok jest opcjonalny, jeśli ten sam Load Balancer, a adres IP jest ponownie używany między typami węzłów.
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej o [charakterystyce trwałości](./service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster)klastra.

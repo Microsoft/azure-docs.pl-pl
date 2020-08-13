@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 79b9be504639b35c7c15d427bd7766ed2dd15535
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: dfccc274ef920c59d39c160055ab27a6900c839c
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121089"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141282"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Uzyskaj token dla aplikacji mobilnej, która wywołuje interfejsy API sieci Web
 
@@ -207,9 +207,9 @@ catch(MsalUiRequiredException)
 
 #### <a name="mandatory-parameters-in-msalnet"></a>Obowiązkowe parametry w MSAL.NET
 
-`AcquireTokenInteractive`ma tylko jeden obowiązkowy parametr: `scopes` . `scopes`Parametr wylicza ciągi definiujące zakresy, dla których wymagany jest token. Jeśli token jest przeznaczony dla Microsoft Graph, można znaleźć wymagane zakresy w dokumentacji interfejsu API dla każdego Microsoft Graph interfejsu API. W odwołaniu przejdź do sekcji "uprawnienia".
+`AcquireTokenInteractive` ma tylko jeden obowiązkowy parametr: `scopes` . `scopes`Parametr wylicza ciągi definiujące zakresy, dla których wymagany jest token. Jeśli token jest przeznaczony dla Microsoft Graph, można znaleźć wymagane zakresy w dokumentacji interfejsu API dla każdego Microsoft Graph interfejsu API. W odwołaniu przejdź do sekcji "uprawnienia".
 
-Na przykład aby [wyświetlić listę kontaktów użytkownika](/graph/api/user-list-contacts), należy użyć zakresu "User. Read", "Contacts. Read". Aby uzyskać więcej informacji, zobacz [Microsoft Graph informacje o uprawnieniach](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+Na przykład aby [wyświetlić listę kontaktów użytkownika](/graph/api/user-list-contacts), należy użyć zakresu "User. Read", "Contacts. Read". Aby uzyskać więcej informacji, zobacz [Microsoft Graph informacje o uprawnieniach](/graph/permissions-reference).
 
 W systemie Android podczas tworzenia aplikacji za pomocą programu można określić działanie nadrzędne `PublicClientApplicationBuilder` . Jeśli nie określisz działania nadrzędnego w tym czasie, możesz je określić za pomocą `.WithParentActivityOrWindow` , jak w poniższej sekcji. W przypadku określenia działania nadrzędnego token wraca do tego działania nadrzędnego po interakcji. Jeśli nie zostanie on określony, `.ExecuteAsync()` wywołanie zgłosi wyjątek.
 
@@ -225,19 +225,19 @@ W poniższych sekcjach wyjaśniono parametry opcjonalne w MSAL.NET.
 
 Klasa definiuje następujące stałe:
 
-- `SelectAccount`wymusza, aby usługa tokenu zabezpieczającego zaprezentować okno dialogowe wyboru konta. Okno dialogowe zawiera konta, dla których użytkownik ma sesję. Możesz użyć tej opcji, jeśli chcesz zezwolić użytkownikowi na wybór różnych tożsamości. Ta opcja umożliwia MSAL wysyłanie `prompt=select_account` do dostawcy tożsamości.
+- `SelectAccount` wymusza, aby usługa tokenu zabezpieczającego zaprezentować okno dialogowe wyboru konta. Okno dialogowe zawiera konta, dla których użytkownik ma sesję. Możesz użyć tej opcji, jeśli chcesz zezwolić użytkownikowi na wybór różnych tożsamości. Ta opcja umożliwia MSAL wysyłanie `prompt=select_account` do dostawcy tożsamości.
 
     `SelectAccount`Stała jest wartością domyślną i efektywnie zapewnia najlepsze możliwe środowisko na podstawie dostępnych informacji. Dostępne informacje mogą obejmować konto, obecność sesji dla użytkownika i tak dalej. Nie zmieniaj tego ustawienia domyślnego, chyba że masz dobry powód, aby to zrobić.
-- `Consent`pozwala na monitowanie użytkownika o zgodę nawet w przypadku udzielenia zgody. W takim przypadku MSAL wysyła `prompt=consent` do dostawcy tożsamości.
+- `Consent` pozwala na monitowanie użytkownika o zgodę nawet w przypadku udzielenia zgody. W takim przypadku MSAL wysyła `prompt=consent` do dostawcy tożsamości.
 
     Możesz chcieć użyć `Consent` stałej w aplikacjach ukierunkowanych na zabezpieczenia, gdy organizacja organizacji wymaga, aby użytkownicy widzieli okno dialogowe zgody za każdym razem, gdy korzystają z aplikacji.
-- `ForceLogin`umożliwia usłudze monitowanie użytkownika o podanie poświadczeń, nawet jeśli monit nie jest wymagany.
+- `ForceLogin` umożliwia usłudze monitowanie użytkownika o podanie poświadczeń, nawet jeśli monit nie jest wymagany.
 
     Ta opcja może być przydatna w przypadku niepowodzenia pozyskiwania tokenu i poinformowania użytkownika o konieczności ponownego zalogowania. W takim przypadku MSAL wysyła `prompt=login` do dostawcy tożsamości. Warto użyć tej opcji w aplikacjach ukierunkowanych na zabezpieczenia, w których administrator organizacji wymaga, aby użytkownik mógł się zalogować przy każdej próbie dostępu do określonych części aplikacji.
-- `Never`dotyczy tylko programu .NET 4,5 i środowisko wykonawcze systemu Windows (WinRT). Ta stała nie monituje użytkownika, ale podejmie próbę użycia pliku cookie przechowywanego w ukrytym osadzonym widoku sieci Web. Aby uzyskać więcej informacji, zobacz [Korzystanie z przeglądarek sieci Web w programie MSAL.NET](./msal-net-web-browsers.md).
+- `Never` dotyczy tylko programu .NET 4,5 i środowisko wykonawcze systemu Windows (WinRT). Ta stała nie monituje użytkownika, ale podejmie próbę użycia pliku cookie przechowywanego w ukrytym osadzonym widoku sieci Web. Aby uzyskać więcej informacji, zobacz [Korzystanie z przeglądarek sieci Web w programie MSAL.NET](./msal-net-web-browsers.md).
 
     Jeśli ta opcja zakończy się niepowodzeniem, program `AcquireTokenInteractive` zgłosi wyjątek, aby powiadomić o konieczności interakcji z interfejsem użytkownika. Następnie należy użyć innego `Prompt` parametru.
-- `NoPrompt`nie wysyła monitu do dostawcy tożsamości.
+- `NoPrompt` nie wysyła monitu do dostawcy tożsamości.
 
     Ta opcja jest przydatna tylko w przypadku zasad edytowanie profilu w programie Azure Active Directory B2C. Aby uzyskać więcej informacji, zobacz [szczegóły dotyczące B2C](https://aka.ms/msal-net-b2c-specificities).
 

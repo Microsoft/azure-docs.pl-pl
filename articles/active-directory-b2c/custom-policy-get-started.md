@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cb3bb363b1d6be72fe8941cad509b4c3525cfa15
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 54d92da469625a3b81d0027558ec14166d916b80
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169433"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163190"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Wprowadzenie do zasad niestandardowych w Azure Active Directory B2C
 
@@ -45,7 +45,7 @@ ms.locfileid: "87169433"
 1. W polu **Nazwa**wprowadź `TokenSigningKeyContainer` . Prefiks `B2C_1A_` może zostać dodany automatycznie.
 1. W obszarze **Typ klucza**wybierz pozycję **RSA**.
 1. W obszarze **użycie klucza**wybierz pozycję **podpis**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="create-the-encryption-key"></a>Utwórz klucz szyfrowania
 
@@ -54,7 +54,7 @@ ms.locfileid: "87169433"
 1. W polu **Nazwa**wprowadź `TokenEncryptionKeyContainer` . Prefiks `B2C_1A` _ może zostać dodany automatycznie.
 1. W obszarze **Typ klucza**wybierz pozycję **RSA**.
 1. W obszarze **użycie klucza**wybierz pozycję **szyfrowanie**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="create-the-facebook-key"></a>Tworzenie klucza Facebook
 
@@ -65,7 +65,7 @@ Dodaj [wpis tajny](identity-provider-facebook.md) aplikacji usługi Facebook jak
 1. W obszarze **Nazwa**wprowadź `FacebookSecret` . Prefiks `B2C_1A_` może zostać dodany automatycznie.
 1. W **kluczu tajnym**wprowadź *klucz tajny* aplikacji w serwisie Facebook z Developers.Facebook.com. Ta wartość jest kluczem tajnym, a nie IDENTYFIKATORem aplikacji.
 1. W obszarze **użycie klucza**wybierz pozycję **podpis**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ## <a name="register-identity-experience-framework-applications"></a>Rejestrowanie aplikacji platformy obsługi tożsamości
 
@@ -213,6 +213,6 @@ Jak wspomniano w [wymaganiach wstępnych](#prerequisites), serwis Facebook *nie*
 
 ## <a name="next-steps"></a>Następne kroki
 
-Następnie spróbuj dodać Azure Active Directory (Azure AD) jako dostawcę tożsamości. Plik podstawowy używany w tym przewodniku wprowadzającym zawiera już część zawartości potrzebną do dodawania innych dostawców tożsamości, takich jak usługa Azure AD.
+Następnie spróbuj dodać Azure Active Directory (Azure AD) jako dostawcę tożsamości. Plik podstawowy używany w tym przewodniku wprowadzającym zawiera już część zawartości potrzebną do dodawania innych dostawców tożsamości, takich jak usługa Azure AD. Aby uzyskać informacje na temat konfigurowania usługi Azure AD jako dostawcy tożsamości, zobacz [Konfigurowanie logowania i logowanie przy użyciu konta Azure Active Directory za pomocą zasad niestandardowych Active Directory B2C](identity-provider-azure-ad-single-tenant-custom.md). 
 
-Aby uzyskać informacje o konfigurowaniu usługi Azure AD jako dostawcy tożsamości, zobacz [Konfigurowanie logowania i logowanie przy użyciu konta Azure Active Directory za pomocą zasad niestandardowych Active Directory B2C](identity-provider-azure-ad-single-tenant-custom.md).
+Odwiedź naszą [galerię partnerów](partner-gallery.md) , aby dowiedzieć się więcej na temat implementowania integracji niezależnego dostawcy oprogramowania przy użyciu zasad niestandardowych. 

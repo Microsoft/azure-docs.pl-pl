@@ -1,14 +1,14 @@
 ---
 title: Oferty usługi zarządzanej w witrynie Azure Marketplace
-description: Oferty usługi zarządzanej umożliwiają dostawcom usług sprzedawanie ofert zarządzania zasobami klientom w portalu Azure Marketplace.
+description: Oferty usługi zarządzanej umożliwiają sprzedawanie ofert zarządzania zasobami klientom w portalu Azure Marketplace.
 ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4f3813b7e2adabe5caaf0c7a5cbe8b15ed084730
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 6c3047cd95128f689e75d9c1f5fba5a39f86291c
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406864"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163326"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Oferty usługi zarządzanej w witrynie Azure Marketplace
 
@@ -18,7 +18,7 @@ W tym artykule opisano typ oferty **usługi zarządzanej** w [witrynie Azure Mar
 
 Oferty usługi zarządzanej usprawniają proces dołączania klientów do usługi Azure Lighthouse. Gdy klient kupuje ofertę w portalu Azure Marketplace, będzie mógł określić, które subskrypcje i/lub grupy zasobów powinny zostać dołączone.
 
-Następnie użytkownicy w organizacji będą mogli korzystać z tych zasobów z dzierżawy w organizacji za pośrednictwem [usługi Azure delegowanego zarządzania zasobami](azure-delegated-resource-management.md), zgodnie z dostępem zdefiniowanym podczas tworzenia oferty. Jest to realizowane za pomocą manifestu, który określa użytkowników, grupy i jednostki usługi Azure Active Directory (Azure AD), które będą miały dostęp do zasobów klienta, wraz z rolami, które definiują poziom dostępu. Przypisując uprawnienia do grupy usługi Azure AD, a nie serii poszczególnych kont użytkowników lub aplikacji, można dodawać lub usuwać poszczególnych użytkowników, gdy zmienią się wymagania dotyczące dostępu.
+Następnie użytkownicy w organizacji będą mogli korzystać z tych zasobów z dzierżawy zarządzającej za pośrednictwem [zarządzania zasobami delegowanymi przez platformę Azure](azure-delegated-resource-management.md), zgodnie z dostępem zdefiniowanym podczas tworzenia oferty. Jest to realizowane za pomocą manifestu, który określa użytkowników, grupy i jednostki usługi Azure Active Directory (Azure AD), które będą miały dostęp do zasobów klienta, wraz z rolami, które definiują poziom dostępu. Przypisując uprawnienia do grupy usługi Azure AD, a nie serii poszczególnych kont użytkowników lub aplikacji, można dodawać lub usuwać poszczególnych użytkowników, gdy zmienią się wymagania dotyczące dostępu.
 
 ## <a name="public-and-private-offers"></a>Oferty publiczne i prywatne
 

@@ -8,14 +8,14 @@ ms.author: shresha
 manager: dpalled
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 08/12/2020
 ms.custom: shresha
-ms.openlocfilehash: a74a5e2b8e80121324dc8b880d90f493d5b2ddfd
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 784c19844c658af6850c755244314145223c45ef
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423953"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163955"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migrowanie do nowych wersji interfejsu API Azure Time Series Insights Gen2
 
@@ -23,7 +23,7 @@ ms.locfileid: "87423953"
 
 Jeśli utworzono środowisko Azure Time Series Insights Gen2, gdy było ono w publicznej wersji zapoznawczej (przed 16 lipca 2020), zaktualizuj środowisko TSI, aby użyć nowych ogólnie dostępnych wersji interfejsów API, wykonując kroki opisane w tym artykule.
 
-Nowa wersja interfejsu API to `2020-07-31` i używa zaktualizowanej [składni wyrażenia szeregów czasowych](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+Nowa wersja interfejsu API to `2020-07-31` i używa zaktualizowanej [składni wyrażenia szeregów czasowych](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 Użytkownicy muszą migrować [zmienne modelu szeregów czasowych](./concepts-variables.md)środowiska, zapisane zapytania, Power BI zapytania i wszelkie niestandardowe narzędzia wywołujące wywołania do punktów końcowych interfejsu API. Jeśli masz jakieś pytania lub wątpliwości dotyczące procesu migracji, Prześlij bilet pomocy technicznej za pomocą Azure Portal i zapoznaj się z tym dokumentem.
 
@@ -39,7 +39,7 @@ Aby ułatwić użytkownikom Migrowanie [zmiennych modelu szeregów czasowych](./
 
 1. W Eksploratorze zostanie wyświetlony monit o zaktualizowanie składni używanej przez zmienne modelu szeregów czasowych i zapisanych zapytań.
 
-    [![Monit](media/api-migration/ux-prompt.png)](media/v2-update-overview/overview-one.png#lightbox)
+    [![Pytać](media/api-migration/ux-prompt.png)](media/v2-update-overview/overview-one.png#lightbox)
 
     Jeśli powiadomienie zostanie przypadkowo zamknięte, można je znaleźć w panelu powiadomień.
 
@@ -60,7 +60,7 @@ Aby ułatwić użytkownikom Migrowanie [zmiennych modelu szeregów czasowych](./
 
     [![Aktualizuj zapisane zapytania](media/api-migration/ux-migration-tool-updated-variables.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-1. Kliknij pozycję **Gotowe**.
+1. Kliknij przycisk **Gotowe**.
 
     [![Zakończono migrację](media/api-migration/ux-migration-tool-updated-saved-queries.png)](media/v2-update-overview/overview-one.png#lightbox)
 
@@ -81,7 +81,7 @@ Jeśli aplikacja niestandardowa przeprowadza wywołania do następujących punkt
 
 - Interfejsy API modelu szeregów czasowych
   - Interfejsy API ustawień modelu
-    - [Get](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
+    - [Pobierz](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
     - [Aktualizowanie](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/update)
   - Interfejsy API wystąpienia
     - [Wszystkie operacje wsadowe](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
@@ -95,7 +95,7 @@ Jeśli aplikacja niestandardowa przeprowadza wywołania do następujących punkt
     - [Usuń, Pobierz operacje](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
     - [Lista](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list)
 
-W przypadku następujących punktów końcowych REST należy zaktualizować wersję interfejsu API do `2020-07-31` wartości w identyfikatorze URI i upewnić się, że wszystkie wystąpienia `tsx` Właściwości używają zaktualizowanej [składni wyrażenia szeregów czasowych](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+W przypadku następujących punktów końcowych REST należy zaktualizować wersję interfejsu API do `2020-07-31` wartości w identyfikatorze URI i upewnić się, że wszystkie wystąpienia `tsx` Właściwości używają zaktualizowanej [składni wyrażenia szeregów czasowych](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 - Interfejsy API
   - [Operacja Put](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput)
@@ -355,7 +355,7 @@ Alternatywnie `value` można również `coalesce($event['Temp'].Double, toDouble
 
 #### <a name="invalidinput"></a>InvalidInput
 
-Jeśli zobaczysz następujący błąd, korzystasz z nowej wersji interfejsu API ( `2020-07-31` ), ale składnia TSX nie została zaktualizowana. Zapoznaj się z [składnią wyrażenia szeregów czasowych](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) i powyższymi przykładami migracji. `tsx`Przed ponownym przesłaniem żądania interfejsu API upewnij się, że wszystkie właściwości zostały prawidłowo zaktualizowane.
+Jeśli zobaczysz następujący błąd, korzystasz z nowej wersji interfejsu API ( `2020-07-31` ), ale składnia TSX nie została zaktualizowana. Zapoznaj się z [składnią wyrażenia szeregów czasowych](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) i powyższymi przykładami migracji. `tsx`Przed ponownym przesłaniem żądania interfejsu API upewnij się, że wszystkie właściwości zostały prawidłowo zaktualizowane.
 
 ```JSON
 {

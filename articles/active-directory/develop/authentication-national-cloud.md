@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: 9d703eab97b087ed6b3e4d9c3519a7e3ee7489cd
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d27498748f03fb101d165351ec80c77d57f78f1a
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117417"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141503"
 ---
 # <a name="national-clouds"></a>Chmury narodowe
 
@@ -67,7 +67,7 @@ W przypadku aplikacji z jedną dzierżawą Zastąp wartość "Common" w poprzedn
 
 ## <a name="microsoft-graph-api"></a>Microsoft Graph API
 
-Aby dowiedzieć się, jak wywołać interfejsy API Microsoft Graph w środowisku chmury krajowej, przejdź do [Microsoft Graph w obszarze wdrożenia w chmurze krajowej](https://developer.microsoft.com/graph/docs/concepts/deployments).
+Aby dowiedzieć się, jak wywołać interfejsy API Microsoft Graph w środowisku chmury krajowej, przejdź do [Microsoft Graph w obszarze wdrożenia w chmurze krajowej](/graph/deployments).
 
 > [!IMPORTANT]
 > Niektóre usługi i funkcje, które znajdują się w określonych regionach usługi globalnej, mogą nie być dostępne we wszystkich chmurach narodowych. Aby dowiedzieć się, jakie usługi są dostępne, przejdź do pozycji [dostępne produkty według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).

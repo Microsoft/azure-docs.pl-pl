@@ -1,20 +1,23 @@
 ---
 title: Monitorowanie delegowanych zasobów na dużą skalę
 description: Dowiedz się, jak efektywnie korzystać z dzienników Azure Monitor w sposób skalowalny dla dzierżaw klientów, którymi zarządzasz.
-ms.date: 07/15/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: 5cace0396c5a1f430ce10ba29ee051b5e432c125
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: fdd0147737da47613d6b7ef1bf6005e4c03de0dd
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448942"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163292"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorowanie delegowanych zasobów na dużą skalę
 
 Jako dostawca usług możesz dołączyć wielu dzierżawców klientów do [usługi Azure Lighthouse](../overview.md). Usługa Azure Lighthouse umożliwia dostawcom usług wykonywanie operacji na dużą skalę w wielu dzierżawcach, co sprawia, że zadania zarządzania są bardziej wydajne.
 
 W tym temacie przedstawiono sposób korzystania z [dzienników Azure monitor](../../azure-monitor/platform/data-platform-logs.md) w sposób skalowalny dla dzierżaw klientów, którymi zarządzasz.
+
+> [!TIP]
+> Chociaż odwołujemy się do dostawców usług i klientów w tym temacie, te wskazówki dotyczą również [przedsiębiorstw korzystających z usługi Azure Lighthouse do zarządzania wieloma dzierżawcami](../concepts/enterprise.md).
 
 ## <a name="create-log-analytics-workspaces"></a>Tworzenie Log Analytics obszarów roboczych
 

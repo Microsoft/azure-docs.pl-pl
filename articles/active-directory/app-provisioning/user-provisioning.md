@@ -1,5 +1,5 @@
 ---
-title: Automatyczne Inicjowanie obsługi użytkowników aplikacji SaaS w usłudze Azure AD
+title: Co to jest zautomatyzowana obsługa użytkowników aplikacji SaaS w usłudze Azure AD
 description: Wprowadzenie do korzystania z usługi Azure AD w celu automatycznego udostępniania, cofania aprowizacji i ciągłego aktualizowania kont użytkowników w wielu aplikacjach SaaS innych firm.
 services: active-directory
 author: kenwith
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: 7f09bb42f529164ef0f5062ef801ddc7ecfef85c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56243e4d754f33b17238b64df2ba56ade162b3a2
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781094"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163785"
 ---
-# <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-ad"></a>Automatyzowanie aprowizacji użytkowników i anulowanie obsługi aplikacji przy użyciu usługi Azure AD
+# <a name="what-is-automated-saas-app-user-provisioning-in-azure-ad"></a>Co to jest zautomatyzowana obsługa użytkowników aplikacji SaaS w usłudze Azure AD?
 
 W Azure Active Directory (Azure AD) termin **aprowizacji aplikacji** dotyczy automatycznego tworzenia tożsamości i ról użytkowników w aplikacjach w chmurze ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)), do których użytkownicy potrzebują dostępu. Oprócz tworzenia tożsamości użytkowników automatyczne Inicjowanie obsługi obejmuje konserwację i usuwanie tożsamości użytkowników jako zmiany stanu lub ról. Typowe scenariusze obejmują Inicjowanie obsługi użytkownika usługi Azure AD w aplikacjach takich jak [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [usługi ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)i inne.
 
@@ -94,11 +94,8 @@ W przypadku wstępnie zintegrowanych aplikacji wymienionych w galerii wskazówki
 W przypadku innych aplikacji, które obsługują standard scim 2,0, wykonaj kroki opisane w artykule [Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników](use-scim-to-provision-users-and-groups.md).
 
 
-## <a name="related-articles"></a>Pokrewne artykuły:
+## <a name="next-steps"></a>Następne kroki
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS](../saas-apps/tutorial-list.md)
 - [Dostosowywanie mapowań atrybutów na potrzeby aprowizacji użytkowników](customize-application-attributes.md)
-- [Pisanie wyrażeń do mapowania atrybutów](../app-provisioning/functions-for-customizing-application-data.md)
-- [Filtry zakresu dla aprowizacji użytkowników](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
-- [Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników](use-scim-to-provision-users-and-groups.md)
-- [Omówienie interfejsu API synchronizacji usługi Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+- [Filtry zakresu dla aprowizacji użytkowników](define-conditional-rules-for-provisioning-user-accounts.md)

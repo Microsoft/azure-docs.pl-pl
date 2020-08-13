@@ -1,6 +1,6 @@
 ---
 title: Jak utworzyć i wdrożyć usługę w chmurze | Microsoft Docs
-description: Dowiedz się, jak utworzyć i wdrożyć usługę w chmurze przy użyciu Azure Portal.
+description: Dowiedz się, jak za pomocą metody Quick Create utworzyć usługę w chmurze i użyć przekazywania, aby przekazać i wdrożyć pakiet usługi w chmurze na platformie Azure.
 services: cloud-services
 documentationcenter: ''
 author: tgore03
@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: 63cf864a3f3b92728ad613ac45542bdbce2c9858
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fca14ed4e3b338f9b49f949af7498dfd49990d3b
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811341"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142387"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Jak utworzyć i wdrożyć usługę w chmurze
 Azure Portal zapewnia dwa sposoby tworzenia i wdrażania usługi w chmurze: *szybkie tworzenie* i *Tworzenie niestandardowe*.
@@ -48,7 +48,7 @@ Trzy funkcje usługi w chmurze wymagają specjalnych konfiguracji przed wyekspor
 
 Aby utworzyć usługę w chmurze z wdrożeniami ról sieci Web lub procesów roboczych, należy [utworzyć pakiet usługi](cloud-services-model-and-package.md#servicepackagecspkg).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 * Jeśli nie zainstalowano zestawu Azure SDK, kliknij pozycję **Zainstaluj zestaw Azure SDK** , aby otworzyć [stronę pliki do pobrania platformy Azure](https://azure.microsoft.com/downloads/), a następnie Pobierz zestaw SDK dla języka, w którym wolisz opracowywać swój kod. (Możesz to zrobić później).
 * Jeśli jakieś wystąpienia roli wymagają certyfikatu, należy utworzyć certyfikaty. Usługi w chmurze wymagają pliku PFX z kluczem prywatnym. Certyfikaty można przesłać na platformę Azure podczas tworzenia i wdrażania usługi w chmurze.
 

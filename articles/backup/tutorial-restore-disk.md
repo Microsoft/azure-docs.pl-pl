@@ -1,17 +1,17 @@
 ---
-title: Samouczek — przywracanie dysku maszyny wirtualnej za pomocą Azure Backup
+title: Samouczek — przywracanie maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
 description: Dowiedz się, jak przywrócić dysk i utworzyć odzyskaną maszynę wirtualną na platformie Azure przy użyciu usługi Backup i Recovery Services.
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: efad97c3668c50669be89e6eccaadb26cb313e81
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 56ea3de451e625ef5c55f92daa1b86bd34b1c4c4
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289479"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141350"
 ---
-# <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Przywracanie dysku i tworzenie odzyskanej maszyny wirtualnej na platformie Azure
+# <a name="restore-a-vm-with-azure-cli"></a>Przywracanie maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Usługa Azure Backup tworzy punkty odzyskiwania przechowywane w geograficznie nadmiarowych magazynach odzyskiwania. Z punktu odzyskiwania można przywrócić całą maszynę wirtualną lub poszczególne pliki. W tym artykule opisano sposób przywracania całej maszyny wirtualnej przy użyciu interfejsu wiersza polecenia. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -33,7 +33,7 @@ Do wykonania tego samouczka jest wymagana maszyna wirtualna z systemem Linux, ch
 
 ## <a name="backup-overview"></a>Omówienie usługi Backup
 
-Po zainicjowaniu tworzenia kopii zapasowej przez platformę Azure rozszerzenie kopii zapasowej na maszynie wirtualnej tworzy migawkę punktu w czasie. Rozszerzenie kopii zapasowej jest instalowane na maszynie wirtualnej w momencie pierwszego żądania utworzenia kopii zapasowej. Usługa Azure Backup również może utworzyć migawkę bazowego magazynu, jeśli maszyna wirtualna nie jest uruchomiona w momencie tworzenia kopii zapasowej.
+Po zainicjowaniu tworzenia kopii zapasowej przez platformę Azure rozszerzenie kopii zapasowej na maszynie wirtualnej tworzy migawkę punktu w czasie. Rozszerzenie kopii zapasowej jest instalowane na maszynie wirtualnej w momencie pierwszego żądania utworzenia kopii zapasowej. Azure Backup może również utworzyć migawkę magazynu bazowego, jeśli maszyna wirtualna nie jest uruchomiona podczas tworzenia kopii zapasowej.
 
 Domyślnie usługa Azure Backup tworzy kopię zapasową spójną na poziomie systemu plików. Po utworzeniu migawki w usłudze Azure Backup dane są przesyłane do magazynu usługi Recovery Services. Aby zmaksymalizować wydajność, usługa Azure Backup rozpoznaje i przesyła jedynie te bloki danych, które uległy zmianie od czasu utworzenia poprzedniej kopii zapasowej.
 
@@ -181,7 +181,7 @@ az backup job show \
     -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414
 ```
 
-Dane wyjściowe tego zapytania będą zawierać wszystkie szczegóły, ale będziemy zainteresowani tylko zawartością konta magazynu. Można użyć [funkcji zapytania](/cli/azure/query-azure-cli?view=azure-cli-latest) interfejsu wiersza polecenia platformy Azure, aby pobrać odpowiednie szczegóły
+Dane wyjściowe tego zapytania będą zawierać wszystkie szczegóły, ale interesuje tylko zawartość konta magazynu. Można użyć [funkcji zapytania](/cli/azure/query-azure-cli?view=azure-cli-latest) interfejsu wiersza polecenia platformy Azure, aby pobrać odpowiednie szczegóły
 
 ```azurecli-interactive
 az backup job show \
@@ -224,7 +224,7 @@ Identyfikator URI obiektu BLOB szablonu będzie miał następujący format i Wyo
 https://<storageAccountName.blob.core.windows.net>/<containerName>/<templateName>
 ```
 
-Dlatego nazwa szablonu z powyższego przykładu będzie zawierać nazwę ```azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json``` kontenera```myVM-daa1931199fd4a22ae601f46d8812276```
+Dlatego nazwa szablonu z powyższego przykładu będzie zawierać nazwę ```azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json``` kontenera ```myVM-daa1931199fd4a22ae601f46d8812276```
 
 Uzyskaj teraz token sygnatury dostępu współdzielonego dla tego kontenera i szablonu zgodnie z opisem w [tym miejscu](../azure-resource-manager/templates/secure-template-with-sas-token.md?tabs=azure-cli#provide-sas-token-during-deployment)
 

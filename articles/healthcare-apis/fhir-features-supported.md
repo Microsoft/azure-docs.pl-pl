@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 1cb3af32f1ad16218c82f91c3f28d4f4ab47e677
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0a24339d728c43817b6a7ae6eac8782ad0e27b09
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843508"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142523"
 ---
 # <a name="features"></a>Funkcje
 
@@ -35,7 +35,7 @@ Obecnie obsługiwane są również poprzednie wersje:`3.0.2`
 | Aktualizuj przy użyciu optymistycznego blokowania | Tak       | Tak       | Tak       |                                                     |
 | Aktualizuj (warunkowo)           | Tak       | Tak       | Tak       |                                                     |
 | wysłana                          | Nie        | Nie        | Nie        |                                                     |
-| usunięcie                         | Tak       | Tak       | Tak       |                                                     |
+| delete                         | Tak       | Tak       | Tak       |                                                     |
 | Usuń (warunkowe)           | Nie        | Nie        | Nie        |                                                     |
 | create                         | Tak       | Tak       | Tak       | Obsługa funkcji POST/PUT                               |
 | Utwórz (warunkowo)           | Tak       | Tak       | Tak       |                                                     |
@@ -49,7 +49,7 @@ Obecnie obsługiwane są również poprzednie wersje:`3.0.2`
 | stronicowania                         | Częściowe   | Częściowe   | Częściowe   | `self`i `next` są obsługiwane                     |
 | pośredników                 | Nie        | Nie        | Nie        |                                                     |
 
-## <a name="search"></a>Wyszukaj
+## <a name="search"></a>Wyszukiwanie
 
 Wszystkie typy parametrów wyszukiwania są obsługiwane. 
 
@@ -103,7 +103,7 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 | `_count`                | Tak       | Tak       | Tak       |         |
 | `_summary`              | Częściowe   | Częściowe   | Częściowe   | `_summary=count`jest obsługiwana |
 | `_include`              | Nie        | Tak       | Nie        |         |
-| `_revinclude`           | Nie        | Nie        | Nie        |         |
+| `_revinclude`           | Nie        | Tak       | Nie        | Uwzględnione elementy są ograniczone do 100. |
 | `_contained`            | Nie        | Nie        | Nie        |         |
 | `_elements`             | Nie        | Nie        | Nie        |         |
 

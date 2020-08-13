@@ -3,12 +3,12 @@ title: Monitorowanie zmian delegowania w dzierżawie zarządzającej
 description: Dowiedz się, jak monitorować działania delegowania od dzierżawców klientów do dzierżawy zarządzającej.
 ms.date: 08/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 9842ad91c059fe4da70221d8c7c5570084bcc6b9
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 63b8ec60ecf2f2e5655e3253db7aef01c003fc63
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119015"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163343"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorowanie zmian delegowania w dzierżawie zarządzającej
 
@@ -173,6 +173,9 @@ Użytkownicy, którym przypisano wbudowaną rolę czytelnik monitorowania platfo
 1. Upewnij się, że w filtrze w górnej części ekranu zaznaczono **aktywność katalogu** .
 
 Zostanie wyświetlona lista zmian delegowania. Możesz wybrać opcję **Edytuj kolumny** , aby pokazać lub ukryć **stan**, **kategorię zdarzenia**, **godzinę**, **sygnaturę czasową**, **subskrypcję**, **zdarzenie zainicjowane przez**, **grupę zasobów**, **Typ zasobu**i wartości **zasobów** .
+
+> [!TIP]
+> Chociaż odwołujemy się do dostawców usług i klientów w tym temacie, [przedsiębiorstwa zarządzające wieloma dzierżawcami](../concepts/enterprise.md) mogą korzystać z tych samych procesów.
 
 ## <a name="next-steps"></a>Następne kroki
 

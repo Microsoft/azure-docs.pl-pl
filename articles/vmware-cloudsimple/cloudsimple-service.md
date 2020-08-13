@@ -1,6 +1,6 @@
 ---
 title: Rozwiązanie VMware firmy Azure według CloudSimple — usługa
-description: Zawiera omówienie usługi i koncepcji CloudSimple.
+description: Dowiedz się więcej o usłudze CloudSimple z omówieniem. Tworzenie usługi umożliwia kupowanie węzłów, rezerwowanie węzłów i tworzenie chmur prywatnych.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d128a248c2e6e1e2e35e3b633975ba081e77f028
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec77209c0995bf5aec0957c8d4d2269f27d743bc
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024961"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142132"
 ---
 # <a name="cloudsimple-service-overview"></a>Przegląd usługi CloudSimple
 

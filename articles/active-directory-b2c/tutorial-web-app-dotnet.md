@@ -7,22 +7,22 @@ author: msmimart
 manager: celestedg
 ms.author: mimart
 ms.date: 10/14/2019
-ms.custom: mvc
+ms.custom: devx-track-csharp, mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: dabceb3cc3b7fa2b48ad1b21dfcafb3278c2461d
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: b23bed8163ffed6a610eda7677099989e966a646
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298770"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163819"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Samouczek: Włączanie uwierzytelniania w aplikacji sieci Web przy użyciu Azure Active Directory B2C
 
 W tym samouczku pokazano, jak używać programu Azure Active Directory B2C (Azure AD B2C) do logowania się i rejestrowania użytkowników w aplikacji sieci Web ASP.NET. Usługa Azure AD B2C umożliwia aplikacjom uwierzytelnianie się na kontach społecznościowych, kontach przedsiębiorstw i kontach usługi Azure Active Directory za pomocą otwartych standardowych protokołów.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Aktualizowanie aplikacji w usłudze Azure AD B2C
@@ -85,16 +85,16 @@ Przykładowe rozwiązanie zawiera następujące dwa projekty:
 * **TaskWebApp** — tworzenie i edytowanie listy zadań. Przykład korzysta z przepływu logowania **lub logowania** użytkownika w celu rejestracji i logowania użytkowników.
 * **TaskService** — obsługuje następujące funkcje listy zadań: tworzenie, odczytywanie, aktualizowanie i usuwanie. Interfejs API jest chroniony przez usługę Azure AD B2C i wywoływany przez aplikację TaskWebApp.
 
-Należy zmienić przykładową aplikację tak, aby korzystała z aplikacji zarejestrowanej w Twojej dzierżawie. Obejmuje to zanotowane wcześniej identyfikator aplikacji i klucz. Skonfiguruj też utworzone przepływy użytkownika. Przykład definiuje wartości konfiguracji jako ustawienia w pliku *Web. config* .
+Należy zmienić przykładową aplikację tak, aby korzystała z aplikacji zarejestrowanej w Twojej dzierżawie. Obejmuje to zanotowane wcześniej identyfikator aplikacji i klucz. Skonfiguruj też utworzone przepływy użytkownika. Przykład definiuje wartości konfiguracji jako ustawienia w pliku *Web.config* .
 
-Zaktualizuj ustawienia w pliku Web. config, aby współdziałać z przepływem użytkownika:
+Zaktualizuj ustawienia w pliku Web.config, aby współdziałać z przepływem użytkownika:
 
 1. Otwórz rozwiązanie **B2C-WebAPI-DotNet** w programie Visual Studio.
 1. W projekcie **TaskWebApp** otwórz plik **Web.config**.
     1. Zaktualizuj wartość `ida:Tenant` i `ida:AadInstance` o nazwę utworzonej dzierżawy Azure AD B2C. Na przykład Zastąp ciąg `fabrikamb2c` opcją `contoso` .
     1. Zastąp wartość `ida:TenantId` identyfikatorem katalogu, który można znaleźć we właściwościach dzierżawy usługi Azure B2C (w obszarze Azure Portal w obszarze właściwości **Azure Active Directory**  >  **Properties**  >  **Identyfikator katalogu**).
     1. Zastąp wartość `ida:ClientId` identyfikatorem aplikacji, która została zarejestrowana.
-    1. Zastąp wartość elementu `ida:ClientSecret` zanotowanym kluczem. Jeśli wpis tajny klienta zawiera wszystkie wstępnie zdefiniowane jednostki XML, na przykład mniejsze niż ( `<` ), większe niż () `>` , handlowe "i" (), `&` lub podwójne cudzysłowy ( `"` ), należy wypróbować te znaki przez Kodowanie XML przed dodaniem do pliku Web. config.
+    1. Zastąp wartość elementu `ida:ClientSecret` zanotowanym kluczem. Jeśli wpis tajny klienta zawiera wszystkie wstępnie zdefiniowane jednostki XML, na przykład mniejsze niż ( `<` ), większe niż () `>` , handlowe "i" (), `&` lub podwójne cudzysłowy ( `"` ), należy wypróbować te znaki przez Kodowanie XML przed dodaniem go do Web.config.
     1. Zastąp wartość wartością `ida:SignUpSignInPolicyId` `b2c_1_signupsignin1` .
     1. Zastąp wartość wartością `ida:EditProfilePolicyId` `b2c_1_profileediting1` .
     1. Zastąp wartość wartością `ida:ResetPasswordPolicyId` `b2c_1_passwordreset1` .

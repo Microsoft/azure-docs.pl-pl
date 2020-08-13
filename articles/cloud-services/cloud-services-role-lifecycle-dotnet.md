@@ -1,6 +1,6 @@
 ---
 title: Obsługa zdarzeń cyklu życia usługi w chmurze | Microsoft Docs
-description: Dowiedz się, w jaki sposób można używać metod cyklu życia roli usługi w chmurze w programie .NET
+description: Dowiedz się, jak korzystać z metod cyklu życia roli usługi w chmurze w programie .NET, w tym RoleEntryPoint, która zapewnia metody reagowania na zdarzenia cyklu życia.
 services: cloud-services
 documentationcenter: .net
 author: tgore03
@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: a6030cbb756525137497834ac911835033858401
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e23eea439235659cf68da1063ae50a718a847a8d
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652092"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142319"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Dostosowywanie cyklu życia roli sieci Web lub procesu roboczego w programie .NET
 Podczas tworzenia roli procesu roboczego należy zwiększyć klasę [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) , która dostarcza metody umożliwiające przesłonięcie reakcji na zdarzenia cyklu życia. W przypadku ról sieci Web Ta klasa jest opcjonalna, dlatego należy jej użyć do reagowania na zdarzenia cyklu życia.

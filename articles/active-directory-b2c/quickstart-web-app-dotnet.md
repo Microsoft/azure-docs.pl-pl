@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: devx-track-csharp, mvc
 ms.date: 09/12/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 197155650bf7b8d113f96dbcfd6d9e2b58924b7f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 379ea9a0c2a49e92fa1c4882ea6e783b3b91e32f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187206"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163921"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Szybki Start: Konfigurowanie logowania dla aplikacji ASP.NET przy użyciu Azure Active Directory B2C
 
@@ -90,7 +90,7 @@ Usługa Azure Active Directory B2C zawiera funkcję umożliwiającą użytkownik
 
 Pomyślnie użyto konta użytkownika usługi Azure AD B2C do wykonania autoryzowanego wywołania chronionego internetowego interfejsu API usługi Azure AD B2C.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz wypróbować inne przewodniki Szybki start lub samouczki usługi Azure AD B2C, możesz użyć swojej dzierżawy usługi Azure AD B2C. Możesz [usunąć dzierżawę usługi Azure AD B2C](faq.md#how-do-i-delete-my-azure-ad-b2c-tenant), gdy nie będzie już potrzebna.
 

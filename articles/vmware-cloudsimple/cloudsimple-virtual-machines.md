@@ -1,7 +1,7 @@
 ---
 title: Omówienie usługi Virtual Machines
 titleSuffix: Azure VMware Solution by CloudSimple
-description: Dowiedz się więcej na temat maszyn wirtualnych CloudSimple i ich korzyści.
+description: Dowiedz się więcej na temat maszyn wirtualnych CloudSimple i ich korzyści. Można zarządzać maszynami wirtualnymi VMware z poziomu Azure Portal.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 436a5ab6fb286ce206f981487b6a29d774ecd1a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f9be035978667287b8b88ec1bb64b3882b0f929
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024912"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141980"
 ---
 # <a name="cloudsimple-virtual-machines-overview"></a>CloudSimple maszyn wirtualnych — Omówienie
 
@@ -22,7 +22,7 @@ CloudSimple umożliwia zarządzanie maszynami wirtualnymi VMware z poziomu Azure
 
 Aby można było utworzyć maszynę wirtualną z systemem CloudSimple na platformie Azure, w chmurze prywatnej vCenter musi istnieć szablon maszyny wirtualnej.  Szablon służy do dostosowywania systemu operacyjnego i aplikacji.  Szablon maszyny wirtualnej może być zaostrzony w celu spełnienia zasad zabezpieczeń przedsiębiorstwa.  Przy użyciu szablonu można tworzyć maszyny wirtualne, a następnie korzystać z nich z Azure Portal przy użyciu modelu samoobsługowego.
 
-## <a name="benefits"></a>Zalety
+## <a name="benefits"></a>Korzyści
 
 CloudSimple maszyny wirtualne z Azure Portal udostępniają mechanizm samoobsługowy do tworzenia maszyn wirtualnych VMware i zarządzania nimi.
 

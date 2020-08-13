@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 578560eccb13ff4b9169e11b0674859acc1fc901
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: efa4ca24dadb2fb5d347d79de20eebfacc9a58e0
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285870"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142183"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania związane z ciągłością biznesową i odzyskiwaniem po awarii w usłudze Azure Kubernetes Service (AKS)
 
@@ -93,7 +93,7 @@ Replikacja geograficzna to funkcja rejestrów kontenerów jednostki SKU w *warst
 
 Stan może być zewnętrzny lub współpracujący z kodem, który operuje na stanie. Zazwyczaj Externalize stan przy użyciu bazy danych lub innego magazynu danych, który działa na różnych maszynach za pośrednictwem sieci lub który został uruchomiony na tym samym komputerze.
 
-Kontenery i mikrousługi są najbardziej odporne, gdy procesy, które w nich działają, nie zachowują stanu. Ponieważ aplikacje prawie zawsze zawierają jakiś stan, należy użyć rozwiązania PaaS, takiego jak Azure Database for MySQL, Azure Database for PostgreSQL lub Azure SQL Database.
+Kontenery i mikrousługi są najbardziej odporne, gdy procesy, które w nich działają, nie zachowują stanu. Ponieważ aplikacje prawie zawsze zawierają jakiś stan, należy użyć rozwiązania PaaS, takiego jak Azure Cosmos DB, Azure Database for PostgreSQL, Azure Database for MySQL lub Azure SQL Database.
 
 Aby skompilować aplikacje przenośne, zapoznaj się z następującymi wskazówkami:
 

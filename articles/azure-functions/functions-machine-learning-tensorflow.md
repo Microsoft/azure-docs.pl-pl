@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: bd46044b6ba6d4dfca8dd90612d8f2530638c6f8
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 03f27315a1506a67f41bec929f42f3cf6278f126
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844460"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142285"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Samouczek: stosowanie modeli uczenia maszynowego w Azure Functions przy użyciu języka Python i TensorFlow
 
@@ -86,7 +86,7 @@ cd start
 ```
 
 ```powershell
-py -m venv .venv
+py -3.7 -m venv .venv
 ```
 
 ```powershell
@@ -100,7 +100,7 @@ cd start
 ```
 
 ```cmd
-py -m venv .venv
+py -3.7 -m venv .venv
 ```
 
 ```cmd
@@ -302,7 +302,7 @@ Aby przetestować wywoływanie punktu końcowego funkcji z innej aplikacji sieci
 > [!NOTE]
 > Model zawsze klasyfikuje zawartość obrazu jako kot lub pies, bez względu na to, czy obraz zawiera jedną z domyślnych wartości Dog. Obrazy Tigers i Panthers, na przykład zwykle klasyfikowanie jako kot, ale obrazy słonie, marchew lub plany są klasyfikowane jako Dog.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Ponieważ w całości z tego samouczka działa lokalnie na komputerze, nie ma żadnych zasobów ani usług platformy Azure do oczyszczenia.
 

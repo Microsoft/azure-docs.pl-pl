@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: e9c4470ea16f1840274a6fa8613822b20d6772b3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7b867f5bcbbdc5deab2d67f356df69ee870c21f3
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81310878"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142251"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Szybki Start: Tworzenie sznurka modułu azureiotsecurity
 
@@ -59,7 +59,7 @@ Aby ręcznie utworzyć nową sznurek modułu _azureiotsecurity_ dla urządzenia,
 1. Kliknij urządzenie, a następnie **Dodaj tożsamość modułu**.
 1. W polu **Nazwa tożsamości modułu** wprowadź **azureiotsecurity**.
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 ## <a name="verify-creation-of-a-module-twin"></a>Weryfikowanie tworzenia sznurka modułu
 
@@ -76,7 +76,7 @@ Aby dowiedzieć się więcej o dostosowywaniu właściwości Azure Security Cent
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak skonfigurować alerty niestandardowe...
+Przejdź do następnego artykułu, aby dowiedzieć się, jak zbadać zalecenia dotyczące zabezpieczeń...
 
 > [!div class="nextstepaction"]
-> [Konfigurowanie alertów niestandardowych](quickstart-create-custom-alerts.md)
+> [Zbadaj zalecenia dotyczące zabezpieczeń](quickstart-investigate-security-recommendations.md)

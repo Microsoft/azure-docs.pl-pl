@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 05/01/2020
-ms.openlocfilehash: 25bda7ed94eef20e22bcf717780d08a3ea5e6521
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/12/2020
+ms.openlocfilehash: 19e3f1a157ee2c042dfebfc96c9b51c3c4698ebc
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077222"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163734"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Jak monitorować dostępność klastra za pomocą dzienników Azure Monitor w usłudze HDInsight
 
@@ -30,6 +30,8 @@ Na stronie zasób klastra usługi HDInsight w portalu wybierz pozycję **Azure m
 
 ![Pakiet Operations Management Suite](media/cluster-availability-monitor-logs/azure-portal-monitoring.png)
 
+Domyślnie program pakietu OMS jest instalowany na wszystkich węzłach klastra z wyjątkiem węzłów brzegowych. Ponieważ żaden Agent pakietu OMS nie jest zainstalowany w węzłach brzegowych klastra, domyślnie nie ma żadnych danych telemetrycznych w węzłach brzegowych obecnych w Log Analytics.
+
 ## <a name="query-metrics-and-logs-tables"></a>Zapytanie dotyczące metryk i tabel dzienników
 
 Po włączeniu integracji dzienników Azure Monitor (może to potrwać kilka minut) przejdź do zasobów **obszaru roboczego log Analytics** i wybierz pozycję **dzienniki**.
@@ -46,7 +48,7 @@ Rejestruje listę przykładowych zapytań, takich jak:
 | Niedostępne komputery           | Wyświetl listę wszystkich znanych komputerów, które nie wysłały pulsu w ostatnich 5 godzinach |
 | Szybkość dostępności               | Oblicz szybkość dostępności każdego połączonego komputera                |
 
-Przykładowo Uruchom przykładowe zapytanie o **współczynnik dostępności** , wybierając pozycję **Uruchom** dla tego zapytania, jak pokazano na poniższym zrzucie ekranu. Spowoduje to wyświetlenie wartości procentowej częstotliwości dostępności każdego węzła w klastrze. Jeśli włączono wiele klastrów usługi HDInsight do wysyłania metryk do tego samego obszaru roboczego Log Analytics, zostanie wyświetlona szybkość dostępności dla wszystkich węzłów w tych klastrach.
+Przykładowo Uruchom przykładowe zapytanie o **współczynnik dostępności** , wybierając pozycję **Uruchom** dla tego zapytania, jak pokazano na poniższym zrzucie ekranu. Spowoduje to wyświetlenie wartości procentowej częstotliwości dostępności każdego węzła w klastrze. Jeśli włączono wiele klastrów usługi HDInsight do wysyłania metryk do tego samego obszaru roboczego Log Analytics, zobaczysz stawkę dostępności dla wszystkich węzłów (z wyjątkiem węzłów brzegowych) w tych klastrach.
 
 ![Przykładowe zapytanie Log Analytics "szybkość dostępności" dzienników obszaru roboczego](media/cluster-availability-monitor-logs/portal-availability-rate.png)
 

@@ -14,12 +14,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9bbc90776ca007b84d5f67c50f8550ee9c881c7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 94dd5c2579eb7ce96dea70c6354df8ec84125bd9
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87506045"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141673"
 ---
 # <a name="audit-activity-history-for-privileged-access-group-assignments-preview-in-privileged-identity-management"></a>Inspekcja historii aktywności dla przypisań uprzywilejowanych grup dostępu (wersja zapoznawcza) w Privileged Identity Management
 
@@ -36,7 +36,9 @@ Wykonaj następujące kroki, aby wyświetlić historię inspekcji dla uprzywilej
 
 1. Otwórz **Azure AD Privileged Identity Management**.
 
-1. Wybierz pozycję **dostęp uprzywilejowany (wersja zapoznawcza)**.
+1. Wybierz pozycję **uprzywilejowane grupy dostępu (wersja zapoznawcza)**.
+
+1. Wybierz uprzywilejowaną grupę dostępu, dla której chcesz wyświetlić historię inspekcji.
 
 1. W obszarze **działanie**wybierz pozycję **Inspekcja zasobów**.
 
@@ -46,15 +48,15 @@ Wykonaj następujące kroki, aby wyświetlić historię inspekcji dla uprzywilej
 
 ## <a name="view-my-audit"></a>Wyświetl moją inspekcję
 
-Moja Inspekcja umożliwia wyświetlenie własnej aktywności roli użytkownika.
+**Moja Inspekcja** umożliwia wyświetlenie osobistego działania roli dla uprzywilejowanej grupy dostępu.
 
 1. Otwórz **Azure AD Privileged Identity Management**.
 
-1. Wybierz pozycję **dostęp uprzywilejowany (wersja zapoznawcza)**.
+1. Wybierz pozycję **uprzywilejowane grupy dostępu (wersja zapoznawcza)**.
 
-1. Wybierz członka lub grupę, dla których chcesz wyświetlić historię inspekcji.
+1. Wybierz uprzywilejowaną grupę dostępu, dla której chcesz wyświetlić historię inspekcji.
 
-1. Wybierz pozycję **Moje inspekcje**.
+1. W obszarze **działanie**wybierz pozycję **moja Inspekcja**.
 
 1. Przefiltruj historię przy użyciu wstępnie zdefiniowanej daty lub niestandardowego zakresu.
 

@@ -4,12 +4,12 @@ description: Dowiedz się więcej o partnerach Azure Monitor i sposobach ich int
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: 994dfe0d7e252fd2aea489c363e76f0956715048
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2e3fae1b942083d78798fccebd7a7f2c58f7659a
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318338"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142415"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor integracje partnerów
 
@@ -138,7 +138,7 @@ LogRhythm, lider w NextGen firewall SIEM, umożliwia organizacjom z sześciu kon
 
 **Mostka operacji** mikrofokusu automatycznie monitoruje wszystkie hybrydowe zasoby IT — dowolne urządzenie, system operacyjny, baza danych, aplikacja lub usługa, niezależnie od tego, gdzie działa, i stosuje AIOps do wszystkich typów danych — zdarzeń, metryk, dzienników i zależności. Zapewnia ona unikatową kombinację jakości monitorowania usług, w połączeniu z kompleksową analizą kondycji aplikacji i oferuje kompleksowe monitorowanie wydajności i dostępności usług Microsoft Azure. Program Operations Bridge umożliwia klientom dostarczanie pojedynczego okienka ze szkła, dostępnego na dowolnym urządzeniu z przeglądarką, zarówno w celu zrozumienia firmy, jak i udziałowców IT.
 
-Dowiedz się więcej
+Więcej informacji
 - [Przegląd zestawu OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [Pobieranie](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) -SiteScope to składnik pakietu Operations Bridge Suite.
@@ -183,6 +183,16 @@ OpsGenie działa jako Dyspozytor dla alertów generowanych przez platformę Azur
 Usługi PagerDuty, wiodące rozwiązanie do zarządzania zdarzeniami, zapewniało wsparcie pierwszej klasy dla alertów platformy Azure na metrykach. Usługa usługi PagerDuty obsługuje powiadomienia dotyczące alertów Azure Monitor, powiadomień dotyczących automatycznego skalowania, zdarzeń dziennika aktywności i metryk na poziomie platformy dla usług platformy Azure. Te ulepszenia zapewniają lepszy wgląd w podstawową platformę Azure. W celu uzyskania odpowiedzi w czasie rzeczywistym można w pełni wykorzystać możliwości zarządzania zdarzeniami usługi PagerDuty. Rozszerzona integracja platformy Azure jest możliwa za pomocą elementów webhook. Elementy webhook umożliwiają szybkie i łatwe konfigurowanie i dostosowywanie rozwiązania.
 
 [Przejdź do dokumentacji.][pagerduty-doc]
+
+## <a name="promitor"></a>Promitor
+
+![Logo Promitor](./media/partners/promitor.png)
+
+Promitor to Azure Monitor wycinków, które udostępniają metryki w systemach takich jak Atlassian StatusPage, Prometheus i statystyki.
+
+Wypchnij wszystkie metryki, aby Azure Monitor i korzystać z nich, gdy ich potrzebujesz.
+
+[Dowiedz się więcej.][promitor-doc]
 
 ## <a name="qradar"></a>QRadar
 
@@ -293,6 +303,7 @@ Platforma turbonomic zapewnia automatyzację obciążeń dla chmur hybrydowych p
 [newrelic-doc]: https://newrelic.com/azure "Dokumentacja NewRelic."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "Dokumentacja OpsGenie."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "Dokumentacja usługi PagerDuty."
+[promitor-doc]: https://promitor.io/ "Dokumentacja Promitor."
 [qradar-doc]: https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0 "Dokumentacja QRadar."
 [sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "Dokumentacja ScienceLogic."
 [serverless360-doc]: https://docs.serverless360.com/docs/ "Dokumentacja Serverless360."

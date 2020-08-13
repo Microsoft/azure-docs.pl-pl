@@ -13,12 +13,12 @@ ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0ba348bc9c97ba8be415cac2e5fd7d102d850568
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 5a2acb08971bc0878c943047c42c9dc2a9525794
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117077"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141435"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Instrukcje: Dodawanie ról aplikacji do aplikacji i odbieranie ich w tokenie
 
@@ -30,7 +30,7 @@ Innym podejściem jest użycie grup i oświadczeń grup usługi Azure AD, jak po
 
 ## <a name="declare-roles-for-an-application"></a>Deklarowanie ról dla aplikacji
 
-Te role aplikacji są zdefiniowane w [Azure Portal](https://portal.azure.com) w manifeście rejestracji aplikacji.  Gdy użytkownik loguje się do aplikacji, usługa Azure AD emituje `roles` rolę dla każdej roli, która została udzielona indywidualnie użytkownikowi i od ich przynależności do grupy.  Przypisywanie użytkowników i grup do ról może odbywać się za pośrednictwem interfejsu użytkownika portalu lub programowo przy użyciu [Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview).
+Te role aplikacji są zdefiniowane w [Azure Portal](https://portal.azure.com) w manifeście rejestracji aplikacji.  Gdy użytkownik loguje się do aplikacji, usługa Azure AD emituje `roles` rolę dla każdej roli, która została udzielona indywidualnie użytkownikowi i od ich przynależności do grupy.  Przypisywanie użytkowników i grup do ról może odbywać się za pośrednictwem interfejsu użytkownika portalu lub programowo przy użyciu [Microsoft Graph](/graph/azuread-identity-access-management-concept-overview).
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Deklarowanie ról aplikacji przy użyciu Azure Portal
 

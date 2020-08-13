@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 74a20e46858aada48151809c5bedf1f93076827e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f62a7eb895248f5d39f5c3df136c88a9b1f0e5b1
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289968"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141724"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Model szeregów czasowych w Azure Time Series Insights Gen2
 
@@ -75,7 +75,7 @@ Te składniki są łączone w celu określenia modelu szeregów czasowych i orga
 
 [![Wykres przeglądów modelu szeregów czasowych](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-Model szeregów czasowych można utworzyć i zarządzać nim za pomocą [Azure Time Series Insights Gen2 Explorer](/azure/time-series-insights/concepts-model-overview). Ustawienia modelu szeregów czasowych mogą być zarządzane za pomocą [interfejsu API ustawień modelu](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
+Model szeregów czasowych można utworzyć i zarządzać nim za pomocą [Azure Time Series Insights Gen2 Explorer](/azure/time-series-insights/concepts-model-overview). Ustawienia modelu szeregów czasowych mogą być zarządzane za pomocą [interfejsu API ustawień modelu](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
 
 ## <a name="time-series-model-instances"></a>Wystąpienia modelu szeregów czasowych
 
@@ -129,7 +129,7 @@ Wystąpienia mają następującą reprezentację JSON:
 ```
 
 > [!TIP]
-> W przypadku usługi instance API Create, Read, Update i Delete (CRUD) zapoznaj się z artykułem [wykonywanie zapytań dotyczących danych](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) i [dokumentacją interfejsu API usługi instance](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
+> W przypadku usługi instance API Create, Read, Update i Delete (CRUD) zapoznaj się z artykułem [wykonywanie zapytań dotyczących danych](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) i [dokumentacją interfejsu API usługi instance](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#instances-api).
 
 ## <a name="time-series-model-hierarchies"></a>Hierarchie modelu szeregów czasowych
 
@@ -186,7 +186,7 @@ W poprzednim przykładzie JSON:
 * `ManufactureDate`definiuje hierarchię z elementem nadrzędnym `year` i podrzędnym `month` . Każdy `ManufactureDate` z nich może mieć wielokrotność `years` , która z kolei może mieć wiele `months` .
 
 > [!TIP]
-> Aby uzyskać pomoc dotyczącą tworzenia, odczytywania, aktualizowania i usuwania interfejsu API hierarchii, przeczytaj artykuł dotyczący [zapytań dotyczących danych](concepts-query-overview.md#time-series-model-query-tsm-q-apis) oraz [dokumentację interfejsu API REST usługi Hierarchy](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
+> Aby uzyskać pomoc dotyczącą tworzenia, odczytywania, aktualizowania i usuwania interfejsu API hierarchii, przeczytaj artykuł dotyczący [zapytań dotyczących danych](concepts-query-overview.md#time-series-model-query-tsm-q-apis) oraz [dokumentację interfejsu API REST usługi Hierarchy](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#hierarchies-api).
 
 ### <a name="hierarchy-example"></a>Przykład hierarchii
 
@@ -231,7 +231,7 @@ Typ może mieć co najmniej jedną zmienną. Na przykład wystąpienie modelu sz
 [![Przykładowy Typ modelu szeregów czasowych](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> Aby uzyskać informacje o typach interfejsów API Create, Read, Update i Delete (CRUD), zapoznaj się z artykułem [wykonywanie zapytań dotyczących danych](concepts-query-overview.md#time-series-model-query-tsm-q-apis) i [dokumentacją interfejsu API REST](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
+> Aby uzyskać informacje o typach interfejsów API Create, Read, Update i Delete (CRUD), zapoznaj się z artykułem [wykonywanie zapytań dotyczących danych](concepts-query-overview.md#time-series-model-query-tsm-q-apis) i [dokumentacją interfejsu API REST](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#types-api).
 
 ### <a name="type-properties"></a>Właściwości typu
 
@@ -288,7 +288,7 @@ Typy modeli szeregów czasowych mogą mieć wiele zmiennych, które określają 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zapoznaj się z dokumentacją dotyczącą [modelu szeregów czasowych](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) , aby uzyskać więcej informacji na temat edytowania modelu za pośrednictwem interfejsów API.
+* Zapoznaj się z dokumentacją dotyczącą [modelu szeregów czasowych](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis) , aby uzyskać więcej informacji na temat edytowania modelu za pośrednictwem interfejsów API.
 
 * Eksplorowanie formuł i obliczeń, które można tworzyć za pomocą [zmiennych modelu szeregów czasowych](./concepts-variables.md)
 

@@ -3,12 +3,12 @@ title: Zarządzanie obszarami roboczymi wskaźników platformy Azure na dużą s
 description: Dowiedz się, jak efektywnie zarządzać wskaźnikami platformy Azure na delegowanych zasobach klientów.
 ms.date: 06/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 70810ca54c62e73d5dec76495eb5179b84db60fe
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fc6d66a31ed46766bbe664fd8656792c97ff69fd
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105272"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163241"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Zarządzanie obszarami roboczymi wskaźników platformy Azure na dużą skalę
 
@@ -17,6 +17,9 @@ Jako dostawca usług możesz dołączyć wielu dzierżawców klientów do [usłu
 System Azure Wskaźnikowanie zapewnia obsługę analizy zabezpieczeń i analizy zagrożeń, zapewniając jedno rozwiązanie do wykrywania alertów, widoczności zagrożeń, aktywnego polowania i reagowania na zagrożenia. Usługa Azure Lighthouse umożliwia zarządzanie wieloma obszarami roboczymi wskaźników platformy Azure w różnych dzierżawach. Pozwala to na takie scenariusze jak uruchamianie zapytań w wielu obszarach roboczych lub tworzenie skoroszytów w celu wizualizowania i monitorowania danych z połączonych źródeł danych w celu uzyskania szczegółowych informacji. Adresy IP, takie jak zapytania i elementy PlayBook pozostają w dzierżawie zarządzającej, ale mogą być używane do zarządzania zabezpieczeniami w dzierżawach klientów.
 
 Ten temat zawiera omówienie sposobu korzystania z usługi [Azure wskaźnikowania](../../sentinel/overview.md) w sposób skalowalny dla wglądu w wiele dzierżaw i zarządzanych usług zabezpieczeń.
+
+> [!TIP]
+> Chociaż odwołujemy się do dostawców usług i klientów w tym temacie, te wskazówki dotyczą również [przedsiębiorstw korzystających z usługi Azure Lighthouse do zarządzania wieloma dzierżawcami](../concepts/enterprise.md).
 
 ## <a name="architectural-considerations"></a>Zagadnienia dotyczące architektury
 
