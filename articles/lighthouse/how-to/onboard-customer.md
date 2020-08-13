@@ -1,30 +1,30 @@
 ---
 title: Dołączanie klienta do usługi Azure Lighthouse
 description: Dowiedz się, jak dołączyć klienta do usługi Azure Lighthouse, umożliwiając dostęp do zasobów i zarządzanie nimi za pośrednictwem własnej dzierżawy przy użyciu funkcji zarządzania zasobami delegowanymi przez platformę Azure.
-ms.date: 05/26/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: cac40a835ff3227a31611b31655865d43fa378ab
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: f20df54a4bc689effad210746f93928defdaf0f5
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118879"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167321"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Dołączanie klienta do usługi Azure Lighthouse
 
 W tym artykule wyjaśniono, jak usługodawca może dołączyć klienta do usługi Azure Lighthouse. Po wykonaniu tej czynności dostęp do delegowanych zasobów (subskrypcji i/lub grup zasobów) klienta jest możliwy i zarządzany za pośrednictwem własnej dzierżawy usługi Azure Active Directory (Azure AD) przy użyciu funkcji [zarządzania zasobami delegowanych przez platformę Azure](../concepts/azure-delegated-resource-management.md).
 
-Ten proces można powtórzyć, Jeśli zarządzasz zasobami dla wielu klientów. Następnie, gdy autoryzowany użytkownik loguje się do dzierżawy, ten użytkownik może być autoryzowany w zakresach dzierżawy klienta w celu wykonywania operacji zarządzania, bez konieczności logowania się do każdej indywidualnej dzierżawy klienta.
+> [!TIP]
+> Chociaż odwołujemy się do dostawców usług i klientów w tym temacie, [przedsiębiorstwa zarządzające wieloma dzierżawcami](../concepts/enterprise.md) mogą korzystać z tego samego procesu, aby skonfigurować usługę Azure Lighthouse i skonsolidować swoje środowisko zarządzania.
 
-Aby śledzić wpływ na zaangażowanie klientów i odbierać rozpoznawanie, skojarz swój identyfikator Microsoft Partner Network (MPN) z co najmniej jednym kontem użytkownika, które ma dostęp do każdej z dołączanych subskrypcji. Zwróć uwagę, że musisz wykonać to skojarzenie w dzierżawie dostawcy usług. Dla uproszczenia zalecamy utworzenie konta głównej usługi w dzierżawie, któremu skojarzono identyfikator MPN, i przyznanie im dostępu czytelnika do każdego klienta, który dołączył. Aby uzyskać więcej informacji, zobacz [łączenie identyfikatora partnera z kontami platformy Azure](../../cost-management-billing/manage/link-partner-id.md). 
+Proces dołączania można powtórzyć dla wielu klientów. Gdy użytkownik z odpowiednimi uprawnieniami loguje się do dzierżawy zarządzającej, ten użytkownik może być autoryzowany w zakresach dzierżawy klienta w celu wykonywania operacji zarządzania, bez konieczności logowania się do każdej indywidualnej dzierżawy klienta.
+
+Aby śledzić wpływ na zaangażowanie klientów i odbierać rozpoznawanie, skojarz swój identyfikator Microsoft Partner Network (MPN) z co najmniej jednym kontem użytkownika, które ma dostęp do każdej z dołączanych subskrypcji. Musisz wykonać to skojarzenie w dzierżawie dostawcy usług. Dla uproszczenia zalecamy utworzenie konta głównej usługi w dzierżawie, któremu skojarzono identyfikator MPN, i przyznanie im dostępu czytelnika do każdego klienta, który dołączył. Aby uzyskać więcej informacji, zobacz  [łączenie identyfikatora partnera z kontami platformy Azure](../../cost-management-billing/manage/link-partner-id.md).
 
 > [!NOTE]
-> Klienci mogą również zostać dołączeni do usługi Azure Lighthouse, gdy kupują ofertę usług zarządzanych (publiczną lub prywatną), która została opublikowana w witrynie Azure Marketplace. Aby uzyskać więcej informacji, zobacz temat [Publikowanie usług zarządzanych w witrynie Azure Marketplace](publish-managed-services-offers.md). Możesz również użyć procesu dołączania opisanego tutaj wraz z ofertą opublikowaną w witrynie Azure Marketplace.
+> Klienci mogą również zostać dołączeni do usługi Azure Lighthouse, gdy kupują ofertę usługi zarządzanej (publiczną lub prywatną) [publikowaną w witrynie Azure Marketplace](publish-managed-services-offers.md). Możesz również użyć procesu dołączania opisanego tutaj razem z ofertami opublikowanymi w witrynie Azure Marketplace.
 
 Proces dołączania wymaga wykonania akcji z poziomu dzierżawy dostawcy usług i dzierżawy klienta. Wszystkie te kroki opisano w tym artykule.
-
-> [!TIP]
-> Mimo że odwołujemy się do dostawców usług i klientów w tym temacie, [przedsiębiorstwa zarządzające wieloma dzierżawcami](../concepts/enterprise.md) mogą korzystać z tego samego procesu, aby skonfigurować usługę Azure Lighthouse i skonsolidować swoje środowisko zarządzania.
 
 ## <a name="gather-tenant-and-subscription-details"></a>Zbierz szczegóły dzierżawy i subskrypcji
 
@@ -39,7 +39,7 @@ Aby dołączyć dzierżawcę klienta, musi on mieć aktywną subskrypcję platfo
 
 Jeśli nie masz już tych wartości identyfikatorów, możesz je pobrać w jeden z następujących sposobów. Upewnij się, że te dokładne wartości są używane w danym wdrożeniu.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Identyfikator dzierżawy może być widoczny przez umieszczenie kursora nad nazwą konta w prawym górnym rogu Azure Portal lub przez wybranie pozycji **Przełącz katalog**. Aby wybrać i skopiować identyfikator dzierżawy, wyszukaj frazę "Azure Active Directory" w portalu, a następnie wybierz pozycję **Właściwości** i skopiuj wartość podaną w polu **Identyfikator katalogu** . Aby znaleźć identyfikator subskrypcji w dzierżawie klienta, wyszukaj frazę "subskrypcje", a następnie wybierz odpowiedni identyfikator subskrypcji.
 
@@ -65,9 +65,11 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>Definiowanie ról i uprawnień
 
-Jako dostawca usług możesz chcieć wykonać wiele zadań dla pojedynczego klienta, wymagając innego dostępu dla różnych zakresów. Można zdefiniować dowolną liczbę autoryzacji wymaganych do przypisywania [ról wbudowanej kontroli dostępu opartej na rolach (RBAC)](../../role-based-access-control/built-in-roles.md) do użytkowników w dzierżawie.
+Jako dostawca usług możesz chcieć wykonać wiele zadań dla pojedynczego klienta, wymagając innego dostępu dla różnych zakresów. Można zdefiniować dowolną liczbę autoryzacji w celu przypisania do użytkowników w dzierżawie odpowiednich [ról wbudowanej kontroli dostępu opartej na rolach (RBAC)](../../role-based-access-control/built-in-roles.md) .
 
-Aby ułatwić zarządzanie, zalecamy korzystanie z grup użytkowników usługi Azure AD dla każdej roli, co pozwala na dodawanie lub usuwanie poszczególnych użytkowników do grupy zamiast przypisywania uprawnień bezpośrednio do tego użytkownika. Możesz również przypisać role do jednostki usługi. Upewnij się, że przestrzegasz zasady najniższych uprawnień, aby użytkownicy mieli tylko uprawnienia do wykonywania swoich zadań. Aby uzyskać zalecenia i informacje o obsługiwanych rolach, zobacz [dzierżawy, użytkownicy i role w scenariuszach usługi Azure Lighthouse](../concepts/tenants-users-roles.md).
+Aby ułatwić zarządzanie, zalecamy korzystanie z grup użytkowników usługi Azure AD dla każdej roli. Zapewnia to elastyczność dodawania lub usuwania poszczególnych użytkowników do grupy mającej dostęp, dzięki czemu nie trzeba powtarzać procesu dołączania w celu wprowadzenia zmian przez użytkownika. Role można przypisywać do jednostki usługi, co może być przydatne w scenariuszach automatyzacji.
+
+Podczas definiowania autoryzacji należy przestrzegać zasad najniższych uprawnień, aby użytkownicy mieli tylko uprawnienia do wykonywania swoich zadań. Aby uzyskać wskazówki i informacje o obsługiwanych rolach, zobacz [dzierżawy, użytkowników i role w scenariuszach usługi Azure Lighthouse](../concepts/tenants-users-roles.md).
 
 > [!IMPORTANT]
 > Aby można było dodać uprawnienia dla grupy usługi Azure AD, **typem grupy** musi być **zabezpieczenia** , a nie **Office 365**. Ta opcja jest wybierana podczas tworzenia grupy. Aby uzyskać więcej informacji, zobacz [Tworzenie podstawowej grupy i dodawanie członków w usłudze Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
@@ -109,12 +111,13 @@ az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output ts
 # To retrieve role definition IDs
 az role definition list --name "<roleName>" | grep name
 ```
+
 > [!TIP]
 > Zalecamy przypisanie [roli usuwania przypisania rejestracji usług zarządzanych](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) podczas dołączania klienta, dzięki czemu użytkownicy w dzierżawie mogą później w razie potrzeby [usunąć dostęp do delegowania](remove-delegation.md) . Jeśli ta rola nie jest przypisana, delegowane zasoby mogą zostać usunięte tylko przez użytkownika w dzierżawie klienta.
 
 ## <a name="create-an-azure-resource-manager-template"></a>Tworzenie szablonu Azure Resource Manager
 
-Aby dołączyć klienta, musisz utworzyć szablon [Azure Resource Manager](../../azure-resource-manager/index.yml) dla oferty z następującymi informacjami. Wartości **mspOfferName** i **mspOfferDescription** będą widoczne dla klienta podczas wyświetlania szczegółów oferty na [stronie dostawcy usług](view-manage-service-providers.md) Azure Portal.
+Aby dołączyć klienta, musisz utworzyć szablon [Azure Resource Manager](../../azure-resource-manager/index.yml) dla oferty z następującymi informacjami. Wartości **mspOfferName** i **mspOfferDescription** będą widoczne dla klienta na [stronie dostawcy usług](view-manage-service-providers.md) Azure Portal.
 
 |Pole  |Definicja  |
 |---------|---------|
@@ -196,9 +199,7 @@ Ostatnia autoryzacja w powyższym przykładzie dodaje **principalId** z rolą ad
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Wdrażanie szablonów Azure Resource Manager
 
-Po zaktualizowaniu pliku parametrów użytkownik w dzierżawie klienta musi wdrożyć szablon Azure Resource Manager w ramach swojej dzierżawy jako wdrożenie na poziomie subskrypcji. Dla każdej subskrypcji, która ma zostać dołączona (lub dla każdej subskrypcji zawierającej grupy zasobów, które mają zostać dołączone) wymagane jest oddzielne wdrożenie.
-
-Ponieważ jest to wdrożenie na poziomie subskrypcji, nie można go zainicjować w Azure Portal. Wdrożenie może odbywać się przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure, jak pokazano poniżej.
+Po zaktualizowaniu pliku parametrów użytkownik w dzierżawie klienta musi wdrożyć szablon Azure Resource Manager w ramach swojej dzierżawy jako wdrożenie na poziomie subskrypcji. Dla każdej subskrypcji, która ma zostać dołączona (lub dla każdej subskrypcji zawierającej grupy zasobów, które mają zostać dołączone) wymagane jest oddzielne wdrożenie. Wdrożenie może odbywać się przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure, jak pokazano poniżej.
 
 > [!IMPORTANT]
 > Wdrożenie na poziomie subskrypcji musi być realizowane przez konto niebędące Gośćmi w dzierżawie klienta, które ma [wbudowaną rolę właściciela](../../role-based-access-control/built-in-roles.md#owner) subskrypcji (lub zawierającą grupy zasobów, które są dołączane). Aby wyświetlić wszystkich użytkowników, którzy mogą delegować subskrypcję, użytkownik w dzierżawie może wybrać subskrypcję w Azure Portal, otworzyć funkcję **Kontrola dostępu (IAM)** i [wyświetlić wszystkich użytkowników z rolą właściciela](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
@@ -249,7 +250,7 @@ az deployment create --name <deploymentName> \
 
 Po pomyślnym dołączeniu subskrypcji klienta do usługi Azure Lighthouse użytkownicy w dzierżawie dostawcy usług będą mogli zobaczyć subskrypcję i jej zasoby (Jeśli udzielono im dostępu za pomocą powyższego procesu, indywidualnie lub jako członek grupy usługi Azure AD z odpowiednimi uprawnieniami). Aby to potwierdzić, upewnij się, że subskrypcja jest wyświetlana w jeden z następujących sposobów.  
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 W dzierżawie dostawcy usług:
 

@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 08/12/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: e83e6df26a2b3e8eabda142ee6cd89320c59ad8a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 7384d03595f36e37eb70ec68d4f59b889facf76f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922646"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168035"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Uwierzytelnianie i autoryzacja na potrzeby interfejsu API usługi Azure Time Series Insights
 
@@ -46,6 +46,7 @@ Na **krok 3**oddzielenie poświadczeń aplikacji i użytkownika pozwala:
 > Postępuj zgodnie z zasadami **rozdzielenia problemów** (opisanymi w tym scenariuszu) podczas konfigurowania zasad zabezpieczeń Azure Time Series Insights.
 
 > [!NOTE]
+
 > * Artykuł koncentruje się na aplikacji z jedną dzierżawą, w której aplikacja jest przeznaczona do działania tylko w jednej organizacji.
 > * Zwykle używasz aplikacji z jedną dzierżawą dla aplikacji biznesowych, które działają w organizacji.
 
@@ -65,7 +66,7 @@ Na **krok 3**oddzielenie poświadczeń aplikacji i użytkownika pozwala:
 
    [![Znajdź aplikację w oknie dialogowym Wybieranie użytkownika](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
 
-1. Wybierz rolę. Wybierz opcję **czytelnik** , aby wykonać zapytanie dotyczące danych lub **współautora** , aby wykonać zapytanie o dane i zmienić dane referencyjne Wybierz przycisk **OK**.
+1. Wybierz rolę. Wybierz opcję **czytelnik** , aby wykonać zapytanie dotyczące danych lub **współautora** , aby wykonać zapytanie o dane i zmienić dane referencyjne Wybierz pozycję **OK**.
 
    [![Wybieranie czytnika lub współautora w oknie dialogowym Wybieranie roli użytkownika](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
 
@@ -98,7 +99,7 @@ W tej sekcji opisano typowe nagłówki i parametry żądań HTTP służące do w
 > [!TIP]
 > Przeczytaj informacje o [interfejsie API REST platformy Azure](https://docs.microsoft.com/rest/api/azure/) , aby dowiedzieć się więcej na temat korzystania z interfejsów API REST, wykonywania żądań HTTP i obsługi odpowiedzi HTTP.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 Aby wykonać uwierzytelnione zapytania dotyczące [Azure Time Series Insights interfejsów API REST](https://docs.microsoft.com/rest/api/time-series-insights/), należy przesłać prawidłowy token okaziciela OAuth 2,0 w [nagłówku autoryzacji](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) za pomocą wybranego przez siebie klienta REST (Poster, JavaScript, C#).
 
@@ -115,6 +116,7 @@ Wymagane nagłówki żądań są opisane poniżej.
 
 > [!IMPORTANT]
 > Token musi być wystawiony dokładnie dla `https://api.timeseries.azure.com/` zasobu (znanego również jako "odbiorcy" tokenu).
+
 > * W związku z tym **AuthURL** Twojego [ogłaszania](https://www.getpostman.com/) będzie:`https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com/.default`
 > * `https://api.timeseries.azure.com/`jest prawidłowy, ale `https://api.timeseries.azure.com` nie jest.
 
@@ -155,7 +157,7 @@ Opcjonalne parametry ciągu zapytania URL obejmują ustawianie limitu czasu dla 
 
 | Opcjonalny parametr zapytania | Opis | Wersja |
 | --- |  --- | --- |
-| `timeout=<timeout>` | Limit czasu po stronie serwera dla wykonywania żądania HTTP. Dotyczy tylko [zdarzeń Get Environment](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) i [Get Environment](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) API. Wartość limitu czasu powinna mieć format czasu trwania ISO 8601, na przykład `"PT20S"` i musi należeć do zakresu `1-30 s` . Wartość domyślna to `30 s` . | Gen1 |
+| `timeout=<timeout>` | Limit czasu po stronie serwera dla wykonywania żądania HTTP. Dotyczy tylko [zdarzeń Get Environment](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) i [Get Environment](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api) API. Wartość limitu czasu powinna mieć format czasu trwania ISO 8601, na przykład `"PT20S"` i musi należeć do zakresu `1-30 s` . Wartość domyślna to `30 s` . | Gen1 |
 | `storeType=<storeType>` | W przypadku środowisk Gen2 z włączonym rozgrzanym magazynem zapytanie można wykonać przy użyciu `WarmStore` lub `ColdStore` . Ten parametr w zapytaniu definiuje magazyn, dla którego ma zostać wykonane zapytanie. Jeśli nie zostanie zdefiniowana, zapytanie zostanie wykonane w chłodnym magazynie. Aby zbadać magazyn ciepły, należy ustawić wartość **magazynutype** na `WarmStore` . Jeśli nie zostanie zdefiniowana, zapytanie zostanie wykonane względem zimnego magazynu. | Gen2 |
 
 ## <a name="next-steps"></a>Następne kroki
@@ -164,6 +166,6 @@ Opcjonalne parametry ciągu zapytania URL obejmują ustawianie limitu czasu dla 
 
 * W przypadku przykładowego kodu, który wywołuje przykłady kodu interfejsu API Gen2 Azure Time Series Insights, Odczytaj [dane Gen2 zapytania przy użyciu języka C#](./time-series-insights-update-query-data-csharp.md).
 
-* Informacje referencyjne dotyczące interfejsu API można znaleźć w dokumentacji dotyczącej [interfejsu API zapytań](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api) .
+* Informacje referencyjne dotyczące interfejsu API można znaleźć w dokumentacji dotyczącej [interfejsu API zapytań](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api) .
 
 * Dowiedz się, jak [utworzyć jednostkę usługi](../active-directory/develop/howto-create-service-principal-portal.md).

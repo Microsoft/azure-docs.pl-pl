@@ -1,20 +1,23 @@
 ---
 title: Wdrażanie Azure Policy do delegowanych subskrypcji na dużą skalę
 description: Dowiedz się, jak usługa Azure Lighthouse umożliwia wdrożenie definicji zasad i przypisania zasad dla wielu dzierżawców.
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: 6d7c6206916f87072f68cc0fe953c8049896cd0b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 27d32a68c1a3806e514533efbae581aa97bc6d0c
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111800"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167287"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Wdrażanie Azure Policy do delegowanych subskrypcji na dużą skalę
 
 Jako dostawca usług możesz dołączyć wielu dzierżawców klientów do [usługi Azure Lighthouse](../overview.md). Usługa Azure Lighthouse umożliwia dostawcom usług wykonywanie operacji na dużą skalę w wielu dzierżawcach, co sprawia, że zadania zarządzania są bardziej wydajne.
 
 W tym temacie przedstawiono sposób użycia [Azure Policy](../../governance/policy/index.yml) do wdrożenia definicji zasad i przypisania zasad dla wielu dzierżawców przy użyciu poleceń programu PowerShell. W tym przykładzie definicja zasad gwarantuje, że konta magazynu są zabezpieczone przez umożliwienie tylko ruchu HTTPS.
+
+> [!TIP]
+> Chociaż odwołujemy się do dostawców usług i klientów w tym temacie, [przedsiębiorstwa zarządzające wieloma dzierżawcami](../concepts/enterprise.md) mogą korzystać z tych samych procesów.
 
 ## <a name="use-azure-resource-graph-to-query-across-customer-tenants"></a>Korzystanie z grafu zasobów platformy Azure do wykonywania zapytań w dzierżawach klientów
 

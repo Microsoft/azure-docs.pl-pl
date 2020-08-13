@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 6c2d1b3db422a40f7bcf237c292b48183d99962b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0eec9ce6b035b7bf3627c844abb97649ce972693
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121276"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167644"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Tworzenie obszaru roboczego dla Azure Machine Learning przy użyciu interfejsu wiersza polecenia platformy Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -144,6 +144,9 @@ Dane wyjściowe tego polecenia są podobne do następujących:
 
 ### <a name="virtual-network-and-private-endpoint"></a>Sieć wirtualna i prywatny punkt końcowy
 
+> [!IMPORTANT]
+> Korzystanie z prywatnego linku platformy Azure z obszarem roboczym Azure Machine Learning jest obecnie w publicznej wersji zapoznawczej. Ta funkcja jest dostępna tylko w regionach **Wschodnie stany USA** i **zachodnie stany USA 2** . Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Jeśli chcesz ograniczyć dostęp do obszaru roboczego do sieci wirtualnej, możesz użyć następujących parametrów:
 
 * `--pe-name`: Nazwa tworzonego prywatnego punktu końcowego.
@@ -187,7 +190,7 @@ Aby utworzyć obszar roboczy, który korzysta z istniejących zasobów, należy 
 > [!IMPORTANT]
 > Nie musisz określać wszystkich istniejących zasobów. Można określić jeden lub więcej. Na przykład możesz określić istniejące konto magazynu, a w obszarze roboczym zostaną utworzone inne zasoby.
 
-+ **Konto usługi Azure Storage**:`az storage account show --name <storage-account-name> --query "id"`
++ **Konto usługi Azure Storage**: `az storage account show --name <storage-account-name> --query "id"`
 
     Odpowiedź z tego polecenia jest podobna do poniższego tekstu i jest IDENTYFIKATORem konta magazynu:
 
@@ -214,13 +217,13 @@ Aby utworzyć obszar roboczy, który korzysta z istniejących zasobów, należy 
 
         `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>"`
 
-+ **Azure Key Vault**:`az keyvault show --name <key-vault-name> --query "ID"`
++ **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
 
     Odpowiedź z tego polecenia jest podobna do poniższego tekstu i jest IDENTYFIKATORem magazynu kluczy:
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"`
 
-+ **Azure Container Registry**:`az acr show --name <acr-name> -g <resource-group-name> --query "id"`
++ **Azure Container Registry**: `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
     Odpowiedź z tego polecenia jest podobna do poniższego tekstu i jest IDENTYFIKATORem rejestru kontenerów:
 

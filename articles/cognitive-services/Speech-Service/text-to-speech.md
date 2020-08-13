@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 1a8b458eb004b44d0045f36b18d88e11e019c4d2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 42d5ca12e91de5e0e906fb017183ea684b63b49c
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399502"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167712"
 ---
 # <a name="what-is-text-to-speech"></a>Co to jest zamiana tekstu na mowę?
 
@@ -41,13 +41,7 @@ Funkcja zamiany tekstu na mowę z usługi mowy umożliwia aplikacjom, narzędzio
 
 ## <a name="get-started"></a>Wprowadzenie
 
-Usługa zamiany tekstu na mowę jest dostępna za pośrednictwem [zestawu Speech SDK](speech-sdk.md). Istnieje kilka typowych scenariuszy dostępnych w ramach przewodników szybki start w różnych językach i platformach:
-
-* [Syntetyzowanie mowy do pliku dźwiękowego](quickstarts/text-to-speech-audio-file.md)
-* [Syntetyzowanie mowy przy użyciu głośnika](quickstarts/text-to-speech.md)
-* [Asynchroniczne syntezowanie dźwięku w postaci długiej](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
-
-Jeśli wolisz, usługa zamiany tekstu na mowę jest dostępna za pośrednictwem interfejsu [rest](rest-text-to-speech.md).
+Zapoznaj się z [przewodnikiem Szybki Start](get-started-text-to-speech.md) , aby rozpocząć pracę z funkcją zamiany tekstu na mowę. Usługa zamiany tekstu na mowę jest dostępna za pośrednictwem [zestawu Speech SDK](speech-sdk.md), [interfejsu API REST](rest-text-to-speech.md)i [wiersza polecenia mowy](spx-overview.md)
 
 ## <a name="sample-code"></a>Przykładowy kod
 
@@ -65,7 +59,7 @@ Oprócz odgłosów standardowych i neuronowych, można tworzyć i dostrajać nie
 W przypadku korzystania z usługi zamiany tekstu na mowę naliczane są opłaty za każdy znak konwertowany na mowę, w tym znaki interpunkcyjne. Chociaż sam dokument SSML nie jest rozliczany, opcjonalne elementy, które są używane do dostosowywania sposobu konwersji tekstu na mowę, takie jak fonemów i gęstość, są zliczane jako znaki rozliczeniowe. Poniżej znajduje się lista rzeczy, które są rozliczane:
 
 - Tekst przesłany do usługi zamiany tekstu na mowę w treści SSML żądania
-- Wszystkie znaczniki w polu tekstowym treści żądania w formacie SSML, z wyjątkiem tagów for `<speak>` i `<voice>`
+- Wszystkie znaczniki w polu tekstowym treści żądania w formacie SSML, z wyjątkiem `<speak>` tagów for i `<voice>`
 - Litery, interpunkcja, spacje, tabulatory, znaczniki i wszystkie znaki odstępu
 - Każdy punkt kodowy zdefiniowany w kodzie Unicode
 

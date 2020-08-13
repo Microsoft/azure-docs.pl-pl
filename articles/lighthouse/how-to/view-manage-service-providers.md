@@ -1,18 +1,21 @@
 ---
 title: Wyświetlanie dostawców usług i zarządzanie nimi
 description: Klienci mogą używać strony dostawcy usług w Azure Portal do wyświetlania informacji o dostawcach usług, ofertach dostawcy usług i delegowanych zasobach.
-ms.date: 07/10/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: bc0de0d3fd7ac4fe7c00720aab41961d9100ff5a
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: c22408a52d973a244d67528a73d4eaa487f166ba
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86273782"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167168"
 ---
 # <a name="view-and-manage-service-providers"></a>Wyświetlanie dostawców usług i zarządzanie nimi
 
-Klienci mogą używać strony **dostawcy usług** w [Azure Portal](https://portal.azure.com) , aby wyświetlić szczegółowe informacje o dostawcach usług i ofertach dostawcy usług, delegować określone zasoby do [usługi Azure Lighthouse](../overview.md)i kupować nowe oferty dostawców usług. Mimo że będziemy odnieść się do dostawców usług i klientów w tym miejscu, przedsiębiorstwa zarządzające wieloma dzierżawcami mogą używać tego samego procesu do konsolidacji ich środowiska zarządzania.
+Klienci mogą używać strony **dostawcy usług** w [Azure Portal](https://portal.azure.com) , aby wyświetlić szczegółowe informacje o dostawcach usług i ofertach dostawcy usług, delegować określone zasoby do [usługi Azure Lighthouse](../overview.md)i kupować nowe oferty dostawców usług.
+
+> [!TIP]
+> Mimo że będziemy odnieść się do dostawców usług i klientów w tym miejscu, [przedsiębiorstwa zarządzające wieloma dzierżawcami](../concepts/enterprise.md) mogą używać tego samego procesu do konsolidacji ich środowiska zarządzania.
 
 Aby uzyskać dostęp do strony **dostawcy usług** w Azure Portal, klient może wybrać **wszystkie usługi**, a następnie wyszukać **dostawców usług** i wybrać ją. Można je również znaleźć, wprowadzając "dostawcy usług" lub "Azure Lighthouse" w polu wyszukiwania w górnej części Azure Portal.
 

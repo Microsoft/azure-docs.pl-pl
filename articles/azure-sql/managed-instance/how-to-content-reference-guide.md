@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
-ms.openlocfilehash: 23ce3272d99401340d784f88dd537baa55774a63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de8d1b7aba7763799228c831af61bf83a79937bb
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708828"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167984"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Informacje o zawartości wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -75,9 +75,17 @@ W tym artykule można znaleźć odwołanie do zawartości do różnych przewodni
 - [Przechowywanie zdarzeń rozszerzonych w pliku zdarzeń](../database/xevent-code-event-file.md)
 - [Przechowywanie zdarzeń rozszerzonych w buforze pierścieniowym](../database/xevent-code-ring-buffer.md)
 
+### <a name="alerting"></a>Generowanie alertów
+
+- [Tworzenie alertów w wystąpieniu zarządzanym](alerts-create.md)
+
+## <a name="operations"></a>Operacje
+
+- [Inicjowanie ręcznego przełączania użytkownika na wystąpienie zarządzane SQL](user-initiated-failover.md)
+
 ## <a name="develop-applications"></a>Tworzenie aplikacji
 
-- [Połączenia](../database/connect-query-content-reference-guide.md#libraries)
+- [Łączność](../database/connect-query-content-reference-guide.md#libraries)
 - [Korzystanie z łącznika Spark](../../cosmos-db/spark-connector.md)
 - [Uwierzytelnianie aplikacji](../database/application-authentication-get-client-id-keys.md)
 - [Korzystanie z usługi Batch w celu uzyskania lepszej wydajności](../performance-improve-use-batching.md)
@@ -99,8 +107,6 @@ W tym artykule można znaleźć odwołanie do zawartości do różnych przewodni
 - [Wzorce projektowe SaaS](../database/saas-tenancy-app-design-patterns.md)
 - [Indeksator wideo SaaS](../database/saas-tenancy-video-index-wingtip-brk3120-20171011.md)
 - [Zabezpieczenia aplikacji SaaS](../database/saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
-
-
 
 ## <a name="next-steps"></a>Następne kroki
 

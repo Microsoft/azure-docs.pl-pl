@@ -4,14 +4,14 @@ description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące interfejs
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 08/12/2020
 ms.author: sngun
-ms.openlocfilehash: 05a7af9bcedd84f53e020bec57fc58854861af3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65f276662ac4837003c7a7078b6197ba155eadc9
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392356"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167593"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące interfejs API tabel w programie Azure Cosmos DB
 
@@ -43,7 +43,7 @@ Istnieją pewne różnice w zachowaniu, które użytkownicy pochodzą z usługi 
 
 * W przypadku interfejsu API REST istnieje kilka punktów końcowych/opcji zapytania, które nie są obsługiwane przez Azure Cosmos DB interfejs API tabel:
 
-  | Metody REST | Punkt końcowy REST/opcja zapytania | Adresy URL doc | Objaśnienie |
+  | Metody REST | Punkt końcowy REST/opcja zapytania | Adresy URL doc | Wyjaśnienie |
   | ------------| ------------- | ---------- | ----------- |
   | GET, PUT | `/?restype=service@comp=properties`| [Ustawianie właściwości usługi Table Service](/rest/api/storageservices/set-table-service-properties) i [pobieranie właściwości usługi Table Service](/rest/api/storageservices/get-table-service-properties) | Ten punkt końcowy służy do ustawiania reguł CORS, konfiguracji analizy magazynu i ustawień rejestrowania. Mechanizm CORS nie jest obecnie obsługiwany, a analiza i rejestrowanie są obsługiwane inaczej w Azure Cosmos DB niż tabele usługi Azure Storage |
   | Opcje | `/<table-resource-name>` | [Żądanie tabeli CORS przed lotem](/rest/api/storageservices/preflight-table-request) | Jest to część mechanizmu CORS, który Azure Cosmos DB obecnie nie jest obsługiwany. |
@@ -274,7 +274,7 @@ Azure Cosmos DB jest zaprojektowana jako globalnie dystrybuowany system oparty n
 
 ### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Nigdy nie otrzymuję pełnego limitu przydziału (oznacza to, że partycja jest pełna) podczas pozyskiwania danych do usługi Azure Table Storage. Korzystając z interfejs API tabel, uzyskuję tę wiadomość. Czy ta oferta ogranicza mnie i wymusza zmianę istniejącej aplikacji?
 
-Azure Cosmos DB to system oparty na umowie SLA, który zapewnia nieograniczoną skalę, z gwarancją opóźnienia, przepływności, dostępności i spójności. Aby zapewnić gwarantowaną wydajność warstwy Premium, upewnij się, że rozmiar i indeks danych są zarządzane i skalowalne. Limit 10 GB dla liczby jednostek lub elementów na klucz partycji polega na tym, że zapewniamy doskonałe wyszukiwanie i wydajność zapytań. Aby zapewnić, że aplikacja będzie skalowana prawidłowo, nawet w przypadku usługi Azure Storage, zalecamy *utworzenie partycji* gorącej przez zapisanie wszystkich informacji w jednej partycji i wykonanie zapytania.
+Azure Cosmos DB to system oparty na umowie SLA, który zapewnia nieograniczoną skalę, z gwarancją opóźnienia, przepływności, dostępności i spójności. Aby zapewnić gwarantowaną wydajność warstwy Premium, upewnij się, że rozmiar i indeks danych są zarządzane i skalowalne. Limit 20 GB dla liczby jednostek lub elementów na klucz partycji polega na tym, że zapewniamy doskonałe wyszukiwanie i wydajność zapytań. Aby zapewnić, że aplikacja będzie skalowana prawidłowo, nawet w przypadku usługi Azure Storage, zalecamy *utworzenie partycji* gorącej przez zapisanie wszystkich informacji w jednej partycji i wykonanie zapytania.
 
 ### <a name="so-partitionkey-and-rowkey-are-still-required-with-the-table-api"></a>PartitionKey i RowKey nadal są wymagane w przypadku interfejs API tabel?
 

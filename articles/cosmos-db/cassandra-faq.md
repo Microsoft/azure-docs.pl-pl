@@ -4,14 +4,14 @@ description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące interfejs
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: 04708a307cd0eedfbe0510324930eb2327adf06e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b327c0786fb07488fd8863272598dbffe19bfe07
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449740"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167610"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące interfejs API Cassandra w programie Azure Cosmos DB
 
@@ -79,13 +79,13 @@ Dzienniki diagnostyczne zostały omówione w artykule [rejestrowanie diagnostycz
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>Czy klucz podstawowy jest mapowany na klucz partycji koncepcji Azure Cosmos DB?
 
-Tak, klucz partycji jest używany do umieszczania jednostki w prawej lokalizacji. W Azure Cosmos DB służy do znajdowania odpowiedniej partycji logicznej przechowywanej na partycji fizycznej. Koncepcja partycjonowania jest dobrze omówiona w [partycji i skalowaniu w Azure Cosmos DB](partition-data.md) artykule. Istotną wnioskiemą jest to, że partycja logiczna nie powinna przekroczyć limitu 10 GB.
+Tak, klucz partycji jest używany do umieszczania jednostki w prawej lokalizacji. W Azure Cosmos DB służy do znajdowania odpowiedniej partycji logicznej przechowywanej na partycji fizycznej. Koncepcja partycjonowania jest dobrze omówiona w [partycji i skalowaniu w Azure Cosmos DB](partition-data.md) artykule. Istotną wnioskiemą jest to, że partycja logiczna nie powinna przekroczyć limitu 20 GB.
 
 ### <a name="what-happens-when-i-get-a-notification-that-a-partition-is-full"></a>Co się stanie, gdy otrzymam powiadomienie o zapełnieniu partycji?
 
 Azure Cosmos DB to system oparty na umowie dotyczącej poziomu usług (SLA). Zapewnia nieograniczoną skalę i gwarantuje opóźnienia, przepływność, dostępność i spójność. Ten nieograniczony magazyn jest oparty na skalowalnych w poziomie danych, przy użyciu partycjonowania w ramach kluczowych koncepcji. Koncepcja partycjonowania jest dobrze omówiona w [partycji i skalowaniu w Azure Cosmos DB](partition-data.md) artykule.
 
-Należy przestrzegać limitu 10 GB dla liczby jednostek lub elementów na partycję logiczną. Aby upewnić się, że aplikacja jest odpowiednio skalowana, zalecamy, aby *nie* tworzyć partycji gorąca, przechowując wszystkie informacje w jednej partycji i wykonując zapytania. Ten błąd może występować tylko wtedy, gdy dane są skośne: oznacza to, że masz dużo danych dla jednego klucza partycji (więcej niż 10 &nbsp; GB). Dystrybucję danych można znaleźć za pomocą portalu magazynu. Aby naprawić ten błąd, należy ponownie utworzyć tabelę i wybrać szczegółowy podstawowy (klucz partycji), co umożliwi lepsze dystrybuowanie danych.
+Należy przestrzegać limitu 20 GB dla liczby jednostek lub elementów na partycję logiczną. Aby upewnić się, że aplikacja jest odpowiednio skalowana, zalecamy, aby *nie* tworzyć partycji gorąca, przechowując wszystkie informacje w jednej partycji i wykonując zapytania. Ten błąd może występować tylko wtedy, gdy dane są skośne: oznacza to, że masz dużo danych dla jednego klucza partycji (więcej niż 20 GB). Dystrybucję danych można znaleźć za pomocą portalu magazynu. Aby naprawić ten błąd, należy ponownie utworzyć tabelę i wybrać szczegółowy podstawowy (klucz partycji), co umożliwi lepsze dystrybuowanie danych.
 
 ### <a name="can-i-use-the-cassandra-api-as-a-key-value-store-with-millions-or-billions-of-partition-keys"></a>Czy można użyć interfejs API Cassandra jako magazynu wartości klucza z milionami lub miliardami kluczy partycji?
 

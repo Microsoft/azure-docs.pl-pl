@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 8/7/2020
-ms.openlocfilehash: dbf3a13ed5a544406950dbcfb5ea8796eceb03c1
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: f8dbdf87eef193540fd5c1bf9d9e7f3794ae46ce
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030557"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168222"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Jak skonfigurować replikacja typu data-in Azure Database for MySQL
 
@@ -23,7 +23,7 @@ W tym artykule opisano sposób konfigurowania [replikacja typu Data-in](concepts
 > Firma Microsoft obsługuje różnorodne i dołączane środowiska. Ten artykuł zawiera odwołania do programu Word _podrzędny_. Przewodnik po [stylu firmy Microsoft dla komunikacji bezpłatnej](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) jest rozpoznawany jako wykluczony wyraz. Słowo jest używane w tym artykule w celu zapewnienia spójności, ponieważ jest to obecnie słowo, które jest wyświetlane w oprogramowaniu. W przypadku zaktualizowania oprogramowania w celu usunięcia wyrazu ten artykuł zostanie zaktualizowany w celu wyrównania.
 >
 
-Aby utworzyć replikę w usłudze Azure Database for MySQL, [replikacja typu Data-in](concepts-data-in-replication.md) synchronizuje dane z głównego serwera MySQL lokalnie, na maszynach wirtualnych lub w usługach bazy danych w chmurze. Replikacja typu data-in jest wykonywana za pomocą technologii replikacji opartej na pozycji w pliku dziennika binarnego (binlog) natywnej dla programu MySQL. Aby dowiedzieć się więcej na temat replikacji binlog, zobacz [Omówienie replikacji MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+Aby utworzyć replikę w usłudze Azure Database for MySQL, [replikacja typu Data-in](concepts-data-in-replication.md)  synchronizuje dane z głównego serwera MySQL lokalnie, na maszynach wirtualnych lub w usługach bazy danych w chmurze. Replikacja typu data-in jest wykonywana za pomocą technologii replikacji opartej na pozycji w pliku dziennika binarnego (binlog) natywnej dla programu MySQL. Aby dowiedzieć się więcej na temat replikacji binlog, zobacz [Omówienie replikacji MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 Przed wykonaniem kroków opisanych w tym artykule Przejrzyj [ograniczenia i wymagania](concepts-data-in-replication.md#limitations-and-considerations) replikacji danych.
 
@@ -169,8 +169,8 @@ Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowane
    - master_host: Nazwa hosta serwera głównego
    - master_user: Nazwa użytkownika serwera głównego
    - master_password: hasło dla serwera głównego
-   - master_log_file: nie uruchomiono binarnej nazwy pliku dziennika`show master status`
-   - master_log_pos: uruchamianie binarnej lokalizacji dziennika`show master status`
+   - master_log_file: nie uruchomiono binarnej nazwy pliku dziennika `show master status`
+   - master_log_pos: uruchamianie binarnej lokalizacji dziennika `show master status`
    - master_ssl_ca: kontekst certyfikatu urzędu certyfikacji. Jeśli nie korzystasz z protokołu SSL, Przekaż pusty ciąg.
        - Zalecane jest, aby przekazać ten parametr jako zmienną. Więcej informacji można znaleźć w poniższych przykładach.
 
@@ -204,9 +204,11 @@ Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowane
 
 1. Filtrowanie 
  
-   Jeśli chcesz pominąć replikację niektórych tabel z poziomu głównego, zaktualizuj `replicate_wild_ignore_table` parametr serwera na serwerze repliki. Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) , aby dowiedzieć się więcej o tym parametrze.
+   Jeśli chcesz pominąć replikację niektórych tabel z poziomu głównego, zaktualizuj `replicate_wild_ignore_table` parametr serwera na serwerze repliki. Można podać więcej niż jeden wzorzec tabeli przy użyciu listy rozdzielanej przecinkami.
+
+   Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) , aby dowiedzieć się więcej o tym parametrze. 
     
-    Aby zaktualizować parametr, można użyć [Azure Portal](howto-server-parameters.md) lub [interfejsu wiersza polecenia platformy Azure](howto-configure-server-parameters-using-cli.md).
+   Aby zaktualizować parametr, można użyć [Azure Portal](howto-server-parameters.md) lub [interfejsu wiersza polecenia platformy Azure](howto-configure-server-parameters-using-cli.md).
 
 1. Rozpocznij replikację
 
@@ -224,7 +226,7 @@ Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowane
    show slave status;
    ```
 
-   Jeśli stan i ma `Slave_IO_Running` `Slave_SQL_Running` wartość "yes", a wartością `Seconds_Behind_Master` jest "0", replikacja działa prawidłowo. `Seconds_Behind_Master`wskazuje, jak późna jest replika. Jeśli wartość nie jest równa "0", oznacza to, że replika przetwarza aktualizacje. 
+   Jeśli stan i ma `Slave_IO_Running` `Slave_SQL_Running` wartość "yes", a wartością `Seconds_Behind_Master` jest "0", replikacja działa prawidłowo. `Seconds_Behind_Master` wskazuje, jak późna jest replika. Jeśli wartość nie jest równa "0", oznacza to, że replika przetwarza aktualizacje. 
 
 ## <a name="other-stored-procedures"></a>Inne procedury składowane
 

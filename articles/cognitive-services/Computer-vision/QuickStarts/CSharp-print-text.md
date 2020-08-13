@@ -1,29 +1,29 @@
 ---
-title: 'Szybki Start: Wyodrębnianie tekstu wydrukowanego (OCR) — REST, C #'
+title: 'Szybki Start: Wyodrębnianie tekstu za pomocą interfejsu API REST przetwarzanie obrazów OCR i języka C #'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku Szybki start wyodrębnisz z obrazu tekst drukowany przy użyciu interfejsu API przetwarzania obrazów i języka C#.
+description: W tym przewodniku szybki start wyodrębnisz tekst z obrazu przy użyciu operacji OCR interfejsu API REST przetwarzanie obrazów w języku C#.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4ce9e530f536893fe3d9753e43928cf53f9dde53
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ecc0ddbfa48669cad7f486e181fcdb6dbc80851e
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835395"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167797"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-c"></a>Szybki Start: Wyodrębnianie wydrukowanego tekstu (OCR) przy użyciu interfejsu API REST przetwarzanie obrazów i języka C #
+# <a name="quickstart-extract-text-using-the-computer-vision-ocr-rest-api-and-c"></a>Szybki Start: Wyodrębnianie tekstu przy użyciu interfejsu API REST przetwarzanie obrazów OCR i języka C #
 
-> [!NOTE]
-> W przypadku wyodrębniania tekstu w języku angielskim należy rozważyć użycie nowej [operacji odczytu](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Dostępna jest funkcja [Szybki Start języka C#](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text) . 
+> [!IMPORTANT]
+> W przypadku wyodrębniania tekstu w języku angielskim, niderlandzkim, francuskim, niemieckim, włoskim, portugalskim, hiszpańskim lub uproszczonym (wersja zapoznawcza) zaleca się użycie nowszej [operacji odczytu](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Dostępna jest funkcja [Szybki Start języka C#](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text) . 
 
-W tym przewodniku szybki start wyodrębnisz drukowany tekst z użyciem optycznego rozpoznawania znaków (OCR) z obrazu przy użyciu interfejsu API REST przetwarzanie obrazów. Funkcja [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) pozwala wykrywać na obrazie tekst drukowany i wyodrębniać rozpoznane znaki do strumienia znaków, którego mogą używać komputery.
+W tym przewodniku szybki start wyodrębnisz drukowany tekst z obrazu przy użyciu funkcji [rozpoznawania](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) przetwarzanie obrazów interfejsu API REST. Za pomocą tej operacji można wykryć drukowany tekst w obrazie i wyodrębnić rozpoznane znaki do strumienia znaków użytkowych maszynowo.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

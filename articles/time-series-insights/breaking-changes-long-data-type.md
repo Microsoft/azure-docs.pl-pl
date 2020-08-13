@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.custom: dpalled
-ms.openlocfilehash: 34cf770a8ac75c2516480ec3136e61da15f4e4ff
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: ab7a30cf6ca71e9260a9cb6e9136f2579e51812c
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446635"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168001"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Dodawanie obsługi długich typów danych w Azure Time Series Insights Gen2
 
@@ -66,7 +66,7 @@ Jeśli aktualnie wysyłasz dane telemetryczne typu Integer, Twoje dane zostaną 
 
 Dane liczb całkowitych są zapisywane do **propertyValue_long**. Poprzednio pozyskiwane (i przyszłe pozyskiwane) dane liczbowe w **propertyValue_double** nie są kopiowane.
 
-Jeśli chcesz wykonać zapytanie o dane w tych dwóch kolumnach dla właściwości **PropertyValue** , musisz użyć funkcji skalarnej **łączenia ()** w TSX. Funkcja akceptuje argumenty tego samego **typu danych** i zwraca pierwszą wartość różną od null na liście argumentów. Aby uzyskać więcej informacji, zobacz [Azure Time Series Insights Gen2 Data Access](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions).
+Jeśli chcesz wykonać zapytanie o dane w tych dwóch kolumnach dla właściwości **PropertyValue** , musisz użyć funkcji skalarnej **łączenia ()** w TSX. Funkcja akceptuje argumenty tego samego **typu danych** i zwraca pierwszą wartość różną od null na liście argumentów. Aby uzyskać więcej informacji, zobacz [Azure Time Series Insights Gen2 Data Access](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions).
 
 #### <a name="variable-definition-in-tsx---numeric"></a>Definicja zmiennej w TSX — wartość liczbowa
 
@@ -78,7 +78,7 @@ Jeśli chcesz wykonać zapytanie o dane w tych dwóch kolumnach dla właściwoś
 
 [![Nowa definicja zmiennej](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
 
-Można również użyć **łączenia ($Event. PropertyValue. Double, ToDouble — ($Event. PropertyValue. Long))** jako [wyrażenia niestandardowego szeregu czasowego](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+Można również użyć **łączenia ($Event. PropertyValue. Double, ToDouble — ($Event. PropertyValue. Long))** jako [wyrażenia niestandardowego szeregu czasowego](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---numeric"></a>Wbudowana definicja zmiennej przy użyciu interfejsów API zapytań TSX — wartość liczbowa
 
@@ -126,7 +126,7 @@ Można również użyć **łączenia ($Event. PropertyValue. Double, ToDouble �
 }
 ```
 
-Można również użyć **łączenia ($Event. PropertyValue. Double, ToDouble — ($Event. PropertyValue. Long))** jako [wyrażenia niestandardowego szeregu czasowego](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+Można również użyć **łączenia ($Event. PropertyValue. Double, ToDouble — ($Event. PropertyValue. Long))** jako [wyrażenia niestandardowego szeregu czasowego](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 > [!NOTE]
 > Zalecamy, aby zaktualizować te zmienne we wszystkich miejscach, w których mogą być używane. Te miejsca obejmują model szeregów czasowych, zapisane zapytania i zapytania łączników Power BI.
@@ -147,7 +147,7 @@ Jeśli obecnie używasz zmiennych kategorii, które mapują wartości całkowite
 
 Można również użyć **łączenia ($Event. PropertyValue. Double, ToDouble — ($Event. PropertyValue. Long))** jako [wyrażenia niestandardowego szeregu czasowego](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
-Zmienne kategorii nadal wymagają wartości typu Integer. Typ **danych** wszystkich argumentów w elemencie **łączenia ()** musi być typu **Long** w niestandardowym [wyrażeniu szeregów czasowych.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
+Zmienne kategorii nadal wymagają wartości typu Integer. Typ **danych** wszystkich argumentów w elemencie **łączenia ()** musi być typu **Long** w niestandardowym [wyrażeniu szeregów czasowych.](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---categorical"></a>Wbudowana definicja zmiennej przy użyciu interfejsów API zapytań TSX — kategorii
 
@@ -227,7 +227,7 @@ Zmienne kategorii nadal wymagają wartości typu Integer. Typ **danych** wszystk
 }
 ```
 
-Zmienne kategorii nadal wymagają wartości typu Integer. Typ **danych** wszystkich argumentów w elemencie **łączenia ()** musi być typu **Long** w niestandardowym [wyrażeniu szeregów czasowych](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+Zmienne kategorii nadal wymagają wartości typu Integer. Typ **danych** wszystkich argumentów w elemencie **łączenia ()** musi być typu **Long** w niestandardowym [wyrażeniu szeregów czasowych](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 > [!NOTE]
 > Zalecamy, aby zaktualizować te zmienne we wszystkich miejscach, w których mogą być używane. Te miejsca obejmują model szeregów czasowych, zapisane zapytania i zapytania łączników Power BI.

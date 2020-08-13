@@ -1,20 +1,23 @@
 ---
 title: Usuwanie dostępu do delegacji
 description: Dowiedz się, jak usunąć dostęp do zasobów, które zostały delegowane do dostawcy usług dla usługi Azure Lighthouse.
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: be1547056bc3ec387ba4cba52f6b6d6fbcaad23c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 72a2c49dde8cccfcc298d4128384a10bb7e8840f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111732"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167235"
 ---
 # <a name="remove-access-to-a-delegation"></a>Usuwanie dostępu do delegacji
 
 Po oddelegowaniu subskrypcji lub grupy zasobów klienta do dostawcy usług w [usłudze Azure Lighthouse](../overview.md)delegowanie można usunąć w razie potrzeby. Po usunięciu delegowania dostęp do [zarządzania zasobami delegowanych przez platformę Azure](../concepts/azure-delegated-resource-management.md) , który został wcześniej udzielony użytkownikom w dzierżawie dostawcy usług, nie będzie już stosowany.
 
 Usunięcie delegowania może odbywać się przez użytkownika w dzierżawie klienta lub w dzierżawie dostawcy usług, o ile użytkownik ma odpowiednie uprawnienia.
+
+> [!TIP]
+> Chociaż odwołujemy się do dostawców usług i klientów w tym temacie, [przedsiębiorstwa zarządzające wieloma dzierżawcami](../concepts/enterprise.md) mogą korzystać z tych samych procesów.
 
 ## <a name="customers"></a>Klienci
 
@@ -42,7 +45,7 @@ Tę rolę można również wybrać w **autoryzacji** podczas [tworzenia oferty u
 
 Użytkownik mający to uprawnienie może usunąć delegowanie w jeden z następujących sposobów.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 1. Przejdź do [strony moi klienci](view-manage-customers.md).
 2. Wybierz pozycję **delegacje**.

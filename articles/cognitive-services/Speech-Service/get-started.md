@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: 5dc1f8ed31c8d7199a31643a76e611d828da77ac
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c15601b4c58ce072881b3c244f10bc196bceb853
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056469"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167814"
 ---
 # <a name="try-the-speech-service-for-free"></a>Wypróbuj bezpłatnie usługę rozpoznawania mowy
 
@@ -87,7 +87,7 @@ Aby przełączyć się z jednej subskrypcji na drugą, na przykład jeśli bezp�
 
 ## <a name="about-regions"></a>Regiony — informacje
 
-- Jeśli aplikacja korzysta z [zestawu Speech SDK](speech-sdk.md), `westus` podczas tworzenia konfiguracji mowy należy podać kod regionu, taki jak.
+- Jeśli aplikacja korzysta z [zestawu Speech SDK](speech-sdk.md), `westus` podczas tworzenia konfiguracji mowy należy podać identyfikator regionu, taki jak.
 - Jeśli aplikacja używa jednego z [interfejsów API REST](rest-apis.md)usługi mowy, region jest częścią identyfikatora URI punktu końcowego, który jest używany podczas tworzenia żądań.
 - Klucze utworzone dla regionu są prawidłowe tylko w tym regionie. Próba użycia ich z innymi regionami spowoduje błędy uwierzytelniania.
 

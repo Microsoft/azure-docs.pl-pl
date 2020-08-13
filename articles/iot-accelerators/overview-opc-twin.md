@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 91448f55f0ebb88ba6c685b960ece9d91cb98e25
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 169a3149a2d8d02d486bc126071b17e9a4f7ed72
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73826223"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167474"
 ---
 # <a name="what-is-opc-twin"></a>Co to jest OPC bliźniaczy?
 
@@ -28,8 +28,8 @@ OPC bliźniaczy umożliwia operatorom fabryki skanowanie sieci fabrycznej, co um
 ### <a name="simple-control"></a>Kontrolka prosta
 OPC bliźniaczy umożliwia operatorom fabryki reagowanie na zdarzenia i ponowne konfigurowanie maszyn piętra fabryki z chmury automatycznie lub ręcznie na bieżąco. OPC bliźniaczy udostępnia interfejsy API REST umożliwiające wywoływanie usług na serwerze OPC UA, przeglądanie przestrzeni adresowej, a także odczytywanie i zapisywanie zmiennych oraz wykonywanie metod. Na przykład, kocioł używa wskaźnika KPI temperatury do sterowania linią produkcyjną. Czujnik temperatury publikuje zmiany danych przy użyciu wydawcy OPC. Operator fabryki odbiera alert informujący o osiągnięciu progu przez temperaturę. Wiersz produkcji jest automatycznie chłodny za pomocą sznurka OPC. Operator fabryki jest powiadamiany o schłodzeniu.
 
-## <a name="authentication"></a>Authentication
-Do uwierzytelniania i prostego środowiska programistycznego można używać OPCych sznurów.
+## <a name="authentication"></a>Uwierzytelnianie
+Możesz użyć sznurka OPC do prostego uwierzytelniania i dla prostego środowiska programistycznego.
 
 ### <a name="simple-authentication"></a>Proste uwierzytelnianie 
 OPC bliźniaczy używa uwierzytelniania i inspekcji opartej na usłudze Azure Active Directory (AAD) od końca do końca. Na przykład, OPC bliźniaczy pozwala na skompilowanie aplikacji na górze OPC, aby określić, co operator wykonuje na komputerze. Po stronie maszyny odbywa się to za pomocą inspekcji OPC UA. Po stronie chmury polega na przechowywaniu niezmiennego dziennika inspekcji klienta i uwierzytelniania usługi AAD w interfejsie API REST.

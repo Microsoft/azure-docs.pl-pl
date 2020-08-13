@@ -10,23 +10,23 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 06/25/2020
 ms.author: trbye
-ms.openlocfilehash: 43efc770f3a3b29a1b0fc214d2927c8c153dff96
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 82099172a933496f015ae8fc575c1919a879e1f9
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391642"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167746"
 ---
 # <a name="what-is-the-speech-service"></a>Czym jest usługa rozpoznawania mowy?
 
-Usługa mowy to zjednoczenie zamiany mowy na tekst, tekstu na mowę i tłumaczenia mowy na jedną subskrypcję platformy Azure. Można łatwo włączyć mowę dla aplikacji, narzędzi i urządzeń za pomocą [zestawu Speech SDK](speech-sdk-reference.md), [zestawu Speech Devices SDK](https://aka.ms/sdsdk-quickstart)lub [interfejsów API REST](rest-apis.md).
+Usługa mowy to zjednoczenie zamiany mowy na tekst, tekstu na mowę i tłumaczenia mowy na jedną subskrypcję platformy Azure. Można łatwo włączyć obsługę mowy dla aplikacji, narzędzi i urządzeń za pomocą [interfejsu wiersza polecenia mowy](spx-overview.md), [zestawu Speech SDK](speech-sdk-reference.md), [zestawu Speech Devices SDK](https://aka.ms/sdsdk-quickstart), [mowy Studio](https://speech.microsoft.com/)lub [interfejsów API REST](rest-apis.md).
 
 > [!IMPORTANT]
 > Usługa mowy została zastąpiona interfejs API rozpoznawania mowy Bing i tłumaczenie mowy w usłudze Translator. Aby uzyskać instrukcje dotyczące migracji _, zobacz przewodniki dotyczące > migracji_ .
 
 Te funkcje składają się na usługę Speech. Skorzystaj z łączy w tej tabeli, aby dowiedzieć się więcej na temat typowych przypadków użycia dla każdej funkcji lub przejrzeć odwołanie do interfejsu API.
 
-| Usługa | Cecha | Opis | SDK | REST |
+| Usługa | Cechy | Opis | SDK | REST |
 |---------|---------|-------------|-----|------|
 | [Zamiana mowy na tekst](speech-to-text.md) | Zamiana mowy na tekst w czasie rzeczywistym | Funkcja zamiany mowy na tekst przekształca lub tłumaczy strumienie audio lub pliki lokalne na tekst w czasie rzeczywistym, gdy aplikacje, narzędzia lub urządzenia mogą korzystać z lub wyświetlać. Używaj zamiany mowy na tekst za pomocą [Language Understanding (Luis)](https://docs.microsoft.com/azure/cognitive-services/luis/) , aby uzyskać intencje użytkownika z uzyskanego mowy i korzystać z poleceń głosowych. | [Tak](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Tak](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Zamiana mowy na tekst w usłudze Batch](batch-transcription.md) | Funkcja zamiany mowy na tekst w usłudze Batch umożliwia asynchroniczne transkrypcję zamiany mowy na tekst dużych ilości danych audio mowy przechowywanych w usłudze Azure Blob Storage. Oprócz konwersji dźwięku zamiany mowy na tekst, funkcja zamiany mowy na tekst usługi Batch umożliwia również obsługę diarization i tonacji. | Nie | [Tak](https://westus.cris.ai/swagger/ui/index) |

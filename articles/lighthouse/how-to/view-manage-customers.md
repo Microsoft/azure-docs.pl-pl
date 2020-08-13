@@ -1,18 +1,21 @@
 ---
 title: View and manage customers and delegated resources (Wyświetlanie klientów i zasobów delegowanych oraz zarządzanie nimi)
-description: Jako dostawca usług korzystający z usługi Azure Lighthouse można wyświetlić wszystkie delegowane zasoby i subskrypcje klientów, przechodząc do moich klientów w Azure Portal.
-ms.date: 07/06/2020
+description: Jako dostawca usług lub przedsiębiorstwo korzystające z usługi Azure Lighthouse można wyświetlić wszystkie delegowane zasoby i subskrypcje, przechodząc do moich klientów w Azure Portal.
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: f509a91d71caa3ab1ec8282f4151556f7c10d52c
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 165110556282e90bbacf4ce3b3c59e34b203a528
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133277"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167202"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>View and manage customers and delegated resources (Wyświetlanie klientów i zasobów delegowanych oraz zarządzanie nimi)
 
-Dostawcy usług korzystający z usługi [Azure Lighthouse](../overview.md) mogą użyć strony **moi klienci** w [Azure Portal](https://portal.azure.com) , aby wyświetlić delegowane zasoby i subskrypcje klientów. Mimo że będziemy odnieść się do dostawców usług i klientów w tym miejscu, przedsiębiorstwa zarządzające wieloma dzierżawcami mogą używać tego samego procesu do konsolidacji ich środowiska zarządzania.
+Dostawcy usług korzystający z usługi [Azure Lighthouse](../overview.md) mogą użyć strony **moi klienci** w [Azure Portal](https://portal.azure.com) , aby wyświetlić delegowane zasoby i subskrypcje klientów. 
+
+> [!TIP]
+> Mimo że będziemy odnieść się do dostawców usług i klientów w tym miejscu, [przedsiębiorstwa zarządzające wieloma dzierżawcami](../concepts/enterprise.md) mogą używać tego samego procesu do konsolidacji ich środowiska zarządzania.
 
 Aby uzyskać dostęp do strony **moi klienci** w Azure Portal, wybierz pozycję **wszystkie usługi**, a następnie wyszukaj pozycję **moi klienci** i wybierz ją. Można ją również znaleźć, wpisując "My Customers" w polu wyszukiwania w górnej części Azure Portal.
 
@@ -42,7 +45,7 @@ Na tej stronie można wyświetlić następujące informacje:
 
 ## <a name="view-and-manage-delegations"></a>Wyświetl delegowane i zarządzaj nimi
 
-Delegacje pokazują delegowaną subskrypcję/grupę zasobów wraz z użytkownikami i uprawnieniami, które mają do niej dostęp. Aby wyświetlić te informacje, wybierz opcję **delegacje** po lewej stronie strony **moi klienci** .
+Delegacje pokazują subskrypcję lub grupę zasobów, która została delegowana, wraz z użytkownikami i uprawnieniami, które mają do niego dostęp. Aby wyświetlić te informacje, wybierz opcję **delegacje** po lewej stronie strony **moi klienci** .
 
 Filtry w górnej części strony pozwalają sortować i grupować informacje o przypisaniu dostępu lub filtrować według określonych klientów, ofert lub słów kluczowych.
 

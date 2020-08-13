@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 71cbf03a36dd95eb66c3dcbaffbf4b63d889f507
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 4ba7aa530699ab0e06ac42e3701265254b617f73
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121582"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167695"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Instrukcje: korzystanie z analiza tekstu na potrzeby kondycji (wersja zapoznawcza)
 
@@ -91,7 +91,7 @@ Istnieje wiele sposobów instalowania i uruchamiania kontenera.
 Azure [Web App for Containers](https://azure.microsoft.com/services/app-service/containers/) to zasób platformy Azure przeznaczony do uruchamiania kontenerów w chmurze. Oferuje ona wbudowane funkcje, takie jak Skalowanie automatyczne, obsługa kontenerów platformy Docker i tworzenie rozwiązań Docker, obsługa protokołu HTTPS i wiele innych.
 
 > [!NOTE]
-> Przy użyciu aplikacji sieci Web platformy Azure automatycznie otrzymasz domenę w postaci`<appservice_name>.azurewebsites.net`
+> Przy użyciu aplikacji sieci Web platformy Azure automatycznie otrzymasz domenę w postaci `<appservice_name>.azurewebsites.net`
 
 Uruchom ten skrypt programu PowerShell przy użyciu interfejsu wiersza polecenia platformy Azure, aby utworzyć Web App for Containers przy użyciu subskrypcji i obrazu kontenera za pośrednictwem protokołu HTTPS. Poczekaj na zakończenie wykonywania skryptu (około 25-30 minut) przed przesłaniem pierwszego żądania.
 
@@ -161,11 +161,11 @@ Domyślnie w przypadku korzystania z ACI z interfejsem API kontenera nie są dos
 
 #### <a name="set-up-nginx-as-an-ingress-gateway"></a>Skonfiguruj NGINX jako bramę transferu danych przychodzących
 
-NGINX używa [plików konfiguracji](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) do włączania funkcji w czasie wykonywania. Aby włączyć zakończenie protokołu TLS dla innej usługi, należy określić certyfikat SSL, aby zakończyć połączenie TLS i `proxy_pass` określić adres usługi. Poniżej przedstawiono przykład.
+NGINX używa [plików konfiguracji](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) do włączania funkcji w czasie wykonywania. Aby włączyć zakończenie protokołu TLS dla innej usługi, należy określić certyfikat SSL, aby zakończyć połączenie TLS i  `proxy_pass` określić adres usługi. Poniżej przedstawiono przykład.
 
 
 > [!NOTE]
-> `ssl_certificate`oczekuje ścieżki, która ma być określona w lokalnym systemie plików kontenera NGINX. Adres określony dla elementu `proxy_pass` musi być dostępny w sieci kontenera Nginx.
+> `ssl_certificate` oczekuje ścieżki, która ma być określona w lokalnym systemie plików kontenera NGINX. Adres określony dla elementu `proxy_pass` musi być dostępny w sieci kontenera Nginx.
 
 Kontener NGINX będzie ładować wszystkie pliki w `_.conf_` folderze, które są zainstalowane w `/etc/nginx/conf.d/` ścieżce konfiguracji http.
 
@@ -273,7 +273,7 @@ Poniższy kod JSON jest przykładem treści odpowiedzi interfejsu API kondycji a
                     "length": 11,
                     "text": "itchy sores",
                     "category": "SymptomOrSign",
-                    "ConfidenceScore": 1.0,
+                    "confidenceScore": 1.0,
                     "isNegated": false
                 }
             ]
@@ -287,7 +287,7 @@ Poniższy kod JSON jest przykładem treści odpowiedzi interfejsu API kondycji a
                     "length": 4,
                     "text": "50mg",
                     "category": "Dosage",
-                    "ConfidenceScore": 1.0,
+                    "confidenceScore": 1.0,
                     "isNegated": false
                 },
                 {
@@ -296,7 +296,7 @@ Poniższy kod JSON jest przykładem treści odpowiedzi interfejsu API kondycji a
                     "length": 8,
                     "text": "benadryl",
                     "category": "MedicationName",
-                    "ConfidenceScore": 1.0,
+                    "confidenceScore": 1.0,
                     "isNegated": false,
                     "links": [
                         {
@@ -343,7 +343,7 @@ Poniższy kod JSON jest przykładem treści odpowiedzi interfejsu API kondycji a
                     "length": 11,
                     "text": "twice daily",
                     "category": "Frequency",
-                    "ConfidenceScore": 1.0,
+                    "confidenceScore": 1.0,
                     "isNegated": false
                 }
             ],

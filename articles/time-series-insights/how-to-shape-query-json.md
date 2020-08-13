@@ -7,14 +7,14 @@ ms.author: dpalled
 manager: diviso
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: cc24c1f49a48e81509961d5d7d01dba60dc50475
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1a7a88e0db38f399dc47c030f3b97f6b26f4da07
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077650"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168239"
 ---
 # <a name="shape-json-to-maximize-query-performance-in-your-gen1-environment"></a>Shape JSON w celu zmaksymalizowania wydajności zapytań w środowisku Gen1
 
@@ -24,7 +24,7 @@ Ten artykuł zawiera wskazówki dotyczące sposobu tworzenia kształtu JSON w ce
 
 ### <a name="learn-best-practices-for-shaping-json-to-meet-your-storage-needsbr"></a>Zapoznaj się z najlepszymi rozwiązaniami dotyczącymi kształtowania JSON w celu spełnienia wymagań dotyczących magazynu.</br>
 
-> [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
+> [!VIDEO <https://www.youtube.com/embed/b2BD5hwbg5I>]
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 
@@ -60,7 +60,6 @@ W poniższym przykładzie istnieje pojedynczy komunikat IoT Hub platformy Azure,
 
 Należy wziąć pod uwagę następujący ładunek JSON wysłany do środowiska Azure Time Series Insights GA przy użyciu [obiektu komunikatu urządzenia IoT](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet) , który jest serializowany do formatu JSON w przypadku wysłania do chmury platformy Azure:
 
-
 ```JSON
 [
     {
@@ -90,14 +89,14 @@ Należy wziąć pod uwagę następujący ładunek JSON wysłany do środowiska A
 ]
 ```
 
-* Tabela danych referencyjnych, która ma klucz **deviceId**właściwości klucza:
+- Tabela danych referencyjnych, która ma klucz **deviceId**właściwości klucza:
 
    | deviceId | Identyfikatora | deviceLocation |
    | --- | --- | --- |
    | FXXX | \_dane wiersza | UE |
    | FYYY | \_dane wiersza | USA |
 
-* Azure Time Series Insights tabeli zdarzeń po spłaszczeniu:
+- Azure Time Series Insights tabeli zdarzeń po spłaszczeniu:
 
    | deviceId | Identyfikatora | deviceLocation | sygnatura czasowa | wiele. Szybkość przepływu ft3/s | wiele. Psi ciśnienie oleju silnikowego |
    | --- | --- | --- | --- | --- | --- |
@@ -106,6 +105,7 @@ Należy wziąć pod uwagę następujący ładunek JSON wysłany do środowiska A
    | FYYY | \_dane wiersza | USA | 2018 R-01-17T01:18:00Z | 0.58015072345733643 | 22,2 |
 
 > [!NOTE]
+
 > - Kolumna **deviceId** służy jako nagłówek kolumny dla różnych urządzeń w flotie. Właściwość **deviceId** , która ma własną nazwę właściwości, ogranicza łączną liczbę urządzeń do 595 (dla środowisk S1) lub 795 (dla środowisk S2) z innymi pięcioma kolumnami.
 > - Nie można uniknąć niepotrzebnych właściwości (na przykład informacje dotyczące marki i modelu). Ze względu na to, że w przyszłości nie będą wysyłane zapytania do właściwości, eliminuje to lepszą wydajność sieci i magazynu.
 > - Dane referencyjne są używane w celu zmniejszenia liczby bajtów transferowanych przez sieć. Dwa atrybuty **MessageID** i **deviceLocation** są sprzężone przy użyciu właściwości Key **deviceId**. Te dane są przyłączone do danych telemetrycznych w czasie, a następnie przechowywane w Azure Time Series Insights na potrzeby wykonywania zapytań.
@@ -160,7 +160,7 @@ Przykładowy ładunek JSON:
 ]
 ```
 
-* Tabela danych referencyjnych, która zawiera właściwości klucza **deviceId** i **Series. tagId**:
+- Tabela danych referencyjnych, która zawiera właściwości klucza **deviceId** i **Series. tagId**:
 
    | deviceId | Seria. tagId | Identyfikatora | deviceLocation | typ | unit |
    | --- | --- | --- | --- | --- | --- |
@@ -169,18 +169,19 @@ Przykładowy ładunek JSON:
    | FYYY | pumpRate | \_dane wiersza | USA | Szybkość przepływu | ft3/s |
    | FYYY | oilPressure | \_dane wiersza | USA | Ciśnienie oleju silnikowego | psi |
 
-* Azure Time Series Insights tabeli zdarzeń po spłaszczeniu:
+- Azure Time Series Insights tabeli zdarzeń po spłaszczeniu:
 
    | deviceId | Seria. tagId | Identyfikatora | deviceLocation | typ | unit | sygnatura czasowa | Serie. wartość |
    | --- | --- | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | \_dane wiersza | UE | Szybkość przepływu | ft3/s | 2018 R-01-17T01:17:00Z | 1.0172575712203979 | 
+   | FXXX | pumpRate | \_dane wiersza | UE | Szybkość przepływu | ft3/s | 2018 R-01-17T01:17:00Z | 1.0172575712203979 |
    | FXXX | oilPressure | \_dane wiersza | UE | Ciśnienie oleju silnikowego | psi | 2018 R-01-17T01:17:00Z | 34,7 |
-   | FXXX | pumpRate | \_dane wiersza | UE | Szybkość przepływu | ft3/s | 2018 R-01-17T01:17:00Z | 2.445906400680542 | 
+   | FXXX | pumpRate | \_dane wiersza | UE | Szybkość przepływu | ft3/s | 2018 R-01-17T01:17:00Z | 2.445906400680542 |
    | FXXX | oilPressure | \_dane wiersza | UE | Ciśnienie oleju silnikowego | psi | 2018 R-01-17T01:17:00Z | 49,2 |
    | FYYY | pumpRate | \_dane wiersza | USA | Szybkość przepływu | ft3/s | 2018 R-01-17T01:18:00Z | 0.58015072345733643 |
    | FYYY | oilPressure | \_dane wiersza | USA | Ciśnienie oleju silnikowego | psi | 2018 R-01-17T01:18:00Z | 22,2 |
 
 > [!NOTE]
+
 > - Kolumny **deviceId** i **Series. tagId** pełnią rolę nagłówków kolumn dla różnych urządzeń i tagów w flotie. Użycie każdego z nich jako własnego atrybutu ogranicza zapytanie do 594 (dla środowisk S1) lub 794 (dla środowisk S2) Łączna liczba urządzeń z innymi sześcioma kolumnami.
 > - Niepotrzebne właściwości zostały wykluczone z przyczyn podanych w pierwszym przykładzie.
 > - Dane referencyjne są używane w celu zmniejszenia liczby bajtów transferowanych przez sieć przez wprowadzenie identyfikatora **deviceId**, który jest używany dla unikatowej pary wartości **MessageID** i **deviceLocation**. Złożona seria kluczy **. tagId** jest używana dla unikatowej pary **typów** i **jednostek**. Klucz złożony umożliwia użycie pary **deviceId** i **Series. tagId** do odwoływania się do czterech wartości: **MessageID, deviceLocation, Type** i **Unit**. Te dane są przyłączone do danych telemetrycznych w czasie. Jest on następnie przechowywany w Azure Time Series Insights na potrzeby wykonywania zapytań.
@@ -190,13 +191,13 @@ Przykładowy ładunek JSON:
 
 Dla właściwości o dużej liczbie możliwych wartości najlepiej wysyłać jako odrębne wartości w jednej kolumnie, zamiast tworzyć nową kolumnę dla każdej wartości. W poprzednich dwóch przykładach:
 
-  - W pierwszym przykładzie kilka właściwości ma kilka wartości, więc należy wykonać każdą odrębną właściwość.
-  - W drugim przykładzie miary nie są określone jako pojedyncze właściwości. Zamiast tego są one tablicą wartości lub miar we właściwości typowej serii. Zostanie wysłany nowy klucz **tagId** , który tworzy nową kolumnę **serie. tagId** w spłaszczonej tabeli. Nowy **Typ** i **Jednostka** właściwości są tworzone przy użyciu danych referencyjnych, dzięki czemu limit właściwości nie zostanie osiągnięty.
+- W pierwszym przykładzie kilka właściwości ma kilka wartości, więc należy wykonać każdą odrębną właściwość.
+- W drugim przykładzie miary nie są określone jako pojedyncze właściwości. Zamiast tego są one tablicą wartości lub miar we właściwości typowej serii. Zostanie wysłany nowy klucz **tagId** , który tworzy nową kolumnę **serie. tagId** w spłaszczonej tabeli. Nowy **Typ** i **Jednostka** właściwości są tworzone przy użyciu danych referencyjnych, dzięki czemu limit właściwości nie zostanie osiągnięty.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Przeczytaj więcej na temat wysyłania [komunikatów dotyczących urządzeń IoT Hub do chmury](../iot-hub/iot-hub-devguide-messages-construct.md).
 
-- Przeczytaj [Azure Time Series Insights składnię zapytania](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) , aby dowiedzieć się więcej o składni zapytań dla interfejsu API REST Azure Time Series Insights dostępu do danych.
+- Przeczytaj [Azure Time Series Insights składnię zapytania](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-syntax) , aby dowiedzieć się więcej o składni zapytań dla interfejsu API REST Azure Time Series Insights dostępu do danych.
 
 - Dowiedz się [, jak kształtować zdarzenia](./time-series-insights-send-events.md).

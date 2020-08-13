@@ -4,19 +4,19 @@ description: Używanie urządzenia Azure IoT Edge jako przezroczystej bramy, kt�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/02/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 0155294777e1d732e5ff3874102b90049d9a123d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf7147ca1295c9f2cef5d89c232f2c266075e362
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782589"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167406"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Konfigurowanie urządzenia usługi IoT Edge, aby działało jako przezroczysta brama
 
@@ -93,15 +93,19 @@ W przypadku scenariuszy produkcyjnych należy generować te pliki przy użyciu w
    * Systemy`Restart-Service iotedge`
    * System`sudo systemctl restart iotedge`
 
-## <a name="deploy-edgehub-to-the-gateway"></a>Wdróż edgeHub na bramie
+## <a name="deploy-edgehub-and-route-messages"></a>Wdrażanie edgeHub i komunikatów routingu
 
-Podczas pierwszej instalacji IoT Edge na urządzeniu zostanie automatycznie uruchomiony tylko jeden moduł systemowy: Agent IoT Edge. Po utworzeniu pierwszego wdrożenia dla urządzenia jest również uruchamiany drugi moduł systemu IoT Edge centrum.
+Urządzenia podrzędne wysyłają dane telemetryczne i komunikaty do urządzenia bramy, gdzie moduł IoT Edge Hub jest odpowiedzialny za kierowanie informacji do innych modułów lub IoT Hub. Aby przygotować urządzenie bramy do tej funkcji, upewnij się, że:
 
-Centrum IoT Edge jest odpowiedzialne za odbieranie komunikatów przychodzących z urządzeń podrzędnych i kierowanie ich do kolejnego miejsca docelowego. Jeśli moduł **edgeHub** nie jest uruchomiony na urządzeniu, Utwórz początkowe wdrożenie dla urządzenia. Wdrożenie będzie wyglądało puste, ponieważ nie dodasz żadnych modułów, ale upewni się, że oba moduły systemowe są uruchomione.
+* Moduł IoT Edge Hub został wdrożony na urządzeniu.
 
-Możesz sprawdzić, które moduły są uruchomione na urządzeniu, sprawdzając jego szczegóły dotyczące urządzeń w Azure Portal, wyświetlając stan urządzenia w programie Visual Studio lub Visual Studio Code lub uruchamiając polecenie `iotedge list` na samym urządzeniu.
+  Podczas pierwszej instalacji IoT Edge na urządzeniu zostanie automatycznie uruchomiony tylko jeden moduł systemowy: Agent IoT Edge. Po utworzeniu pierwszego wdrożenia dla urządzenia jest również uruchamiany drugi moduł systemowy IoT Edge centrum. Jeśli moduł **edgeHub** nie jest uruchomiony na urządzeniu, Utwórz wdrożenie dla tego urządzenia.
 
-Jeśli moduł **edgeAgent** jest uruchomiony bez modułu **edgeHub** , wykonaj następujące czynności:
+* Moduł IoT Edge Hub ma skonfigurowane trasy do obsługi komunikatów przychodzących z urządzeń podrzędnych.
+
+  Urządzenie bramy musi mieć trasę w miejscu do obsługi komunikatów z urządzeń podrzędnych lub komunikaty te nie zostaną przetworzone. Komunikaty można wysyłać do modułów na urządzeniu bramy lub bezpośrednio do IoT Hub.
+
+Aby wdrożyć moduł IoT Edge Hub i skonfigurować go przy użyciu tras do obsługi komunikatów przychodzących z urządzeń podrzędnych, wykonaj następujące kroki:
 
 1. W witrynie Azure Portal przejdź do centrum IoT Hub.
 
@@ -109,13 +113,27 @@ Jeśli moduł **edgeAgent** jest uruchomiony bez modułu **edgeHub** , wykonaj n
 
 3. Wybierz pozycję **Ustaw moduły**.
 
-4. Wybierz pozycję **Dalej: trasy**.
+4. Na stronie **moduły** można dodać wszystkie moduły, które mają zostać wdrożone na urządzeniu bramy. Na potrzeby tego artykułu firma Microsoft koncentruje się na konfigurowaniu i wdrażaniu modułu edgeHub, który nie musi być jawnie ustawiony na tej stronie.
 
-5. Na stronie **trasy** powinna istnieć trasa domyślna, która wysyła wszystkie wiadomości z modułu lub z urządzenia podrzędnego do IoT Hub. W przeciwnym razie Dodaj nową trasę o następujących wartościach, a następnie wybierz pozycję **Przegląd + Utwórz**:
-   * **Nazwa**:`route`
-   * **Wartość**:`FROM /messages/* INTO $upstream`
+5. Wybierz pozycję **Dalej: trasy**.
 
-6. Na stronie **Recenzja i tworzenie** wybierz pozycję **Utwórz**.
+6. Na stronie **trasy** upewnij się, że istnieje trasa do obsługi komunikatów pochodzących z urządzeń podrzędnych. Na przykład:
+
+   * Trasa, która wysyła wszystkie wiadomości, niezależnie od modułu lub z urządzenia podrzędnego, do IoT Hub:
+       * **Nazwa**:`allMessagesToHub`
+       * **Wartość**:`FROM /messages/* INTO $upstream`
+
+   * Trasa, która wysyła wszystkie komunikaty ze wszystkich urządzeń podrzędnych do IoT Hub:
+      * **Nazwa**:`allDownstreamToHub`
+      * **Wartość**:`FROM /messages/* WHERE NOT IS_DEFINED ($connectionModuleId) INTO $upstream`
+
+      Ta trasa działa, ponieważ, w przeciwieństwie do komunikatów z modułów IoT Edge, komunikaty z urządzeń podrzędnych nie mają skojarzonego z nimi identyfikatora modułu. Użycie klauzuli **WHERE** trasy pozwala nam odfiltrować wszystkie komunikaty z tą właściwością systemu.
+
+      Aby uzyskać więcej informacji na temat routingu wiadomości, zobacz [wdrażanie modułów i ustanawianie tras](./module-composition.md#declare-routes).
+
+7. Po utworzeniu trasy lub tras wybierz pozycję **Przegląd + Utwórz**.
+
+8. Na stronie **Recenzja i tworzenie** wybierz pozycję **Utwórz**.
 
 ## <a name="open-ports-on-gateway-device"></a>Otwórz porty na urządzeniu bramy
 
@@ -128,25 +146,6 @@ Aby scenariusz bramy działał prawidłowo, należy otworzyć co najmniej jeden 
 | 8883 | MQTT |
 | 5671 | AMQP |
 | 443 | HTTPS <br> MQTT + WS <br> AMQP + WS |
-
-## <a name="route-messages-from-downstream-devices"></a>Kierowanie komunikatów z urządzeń podrzędnych
-
-Środowisko uruchomieniowe IoT Edge może kierować komunikaty wysyłane z urządzeń podrzędnych podobnie jak komunikaty wysyłane przez moduły. Ta funkcja umożliwia wykonywanie analiz w module uruchomionym w bramie przed wysłaniem danych do chmury.
-
-Obecnie sposób rozsyłania komunikatów wysyłanych przez urządzenia podrzędne polega na rozróżnieniu ich od komunikatów wysyłanych przez moduły. Komunikaty wysyłane przez moduły zawierają Właściwość systemową o nazwie **connectionModuleId** , ale komunikaty wysyłane przez urządzenia podrzędne nie są obsługiwane. Można użyć klauzuli WHERE trasy, aby wykluczyć wszystkie komunikaty zawierające tę właściwość System.
-
-Poniższa trasa to przykład, który wyśle komunikaty z dowolnego urządzenia podrzędnego do modułu o nazwie `ai_insights` , a następnie z `ai_insights` do IoT Hub.
-
-```json
-{
-    "routes":{
-        "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")",
-        "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream"
-    }
-}
-```
-
-Aby uzyskać więcej informacji na temat routingu wiadomości, zobacz [wdrażanie modułów i ustanawianie tras](./module-composition.md#declare-routes).
 
 ## <a name="enable-extended-offline-operation"></a>Włącz rozszerzoną operację offline
 

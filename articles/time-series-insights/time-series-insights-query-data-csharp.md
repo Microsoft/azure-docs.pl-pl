@@ -9,18 +9,18 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 98077209e8245753bb9dae79fafd6c6a10f3eafb
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: a7307a5ecdc5f6aa4b90480fa769f87317605a61
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920725"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168069"
 ---
-# <a name="query-data-from-the-azure-time-series-insights-gen1-environment-using-c"></a>Wykonywanie zapytań dotyczących danych ze środowiska Azure Time Series Insights Gen1 przy użyciu języka C #
+# <a name="query-data-from-the-azure-time-series-insights-gen1-environment-using-c-sharp"></a>Wykonywanie zapytań dotyczących danych ze środowiska Azure Time Series Insights Gen1 przy użyciu języka C Sharp
 
-W tym przykładzie w języku C# pokazano, jak używać [interfejsów API zapytań Gen1](https://docs.microsoft.com/rest/api/time-series-insights/ga-query) do wykonywania zapytań dotyczących danych ze środowisk Azure Time Series Insights Gen1.
+W tym przykładzie w języku C# pokazano, jak używać [interfejsów API zapytań Gen1](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query) do wykonywania zapytań dotyczących danych ze środowisk Azure Time Series Insights Gen1.
 
 > [!TIP]
 > Wyświetl przykłady kodu w języku C# Gen1 w [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample) .
@@ -31,26 +31,26 @@ Poniższy przykładowy kod ilustruje następujące funkcje:
 
 * Jak uzyskać token dostępu za pośrednictwem Azure Active Directory przy użyciu [programu Microsoft. IdentityModel. clients. ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
 
-* Jak przekazać token uzyskany dostęp w `Authorization` nagłówku kolejnych żądań interfejsu API zapytań. 
+* Jak przekazać token uzyskany dostęp w `Authorization` nagłówku kolejnych żądań interfejsu API zapytań.
 
 * Przykład wywołuje każdy interfejs API zapytania Gen1 pokazujący, jak są wysyłane żądania HTTP do:
-    * [Uzyskaj interfejs API środowisk](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environments-api) , aby zwrócić środowiska, do których użytkownik ma dostęp
-    * [Pobierz interfejs API dostępności środowiska](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-availability-api)
-    * [Pobierz interfejs API metadanych środowiska](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-metadata-api) , aby pobrać metadane środowiska
-    * [Interfejs API zdarzeń pobierania środowisk](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api)
-    * [Pobierz interfejs API agregacji środowiska](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api)
-    
+  * [Uzyskaj interfejs API środowisk](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environments-api) , aby zwrócić środowiska, do których użytkownik ma dostęp
+  * [Pobierz interfejs API dostępności środowiska](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-availability-api)
+  * [Pobierz interfejs API metadanych środowiska](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-metadata-api) , aby pobrać metadane środowiska
+  * [Interfejs API zdarzeń pobierania środowisk](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-events-api)
+  * [Pobierz interfejs API agregacji środowiska](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api)
+
 * Jak korzystać z interfejsów API zapytań Gen1 przy użyciu programu WSS do wysyłania komunikatów do:
 
-   * [Pobierz strumień interfejsu API zdarzeń środowiska](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-streamed-api)
-   * [Pobierz strumień API usługi agregowania środowiskowego](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-streamed-api)
+  * [Pobierz strumień interfejsu API zdarzeń środowiska](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-events-streamed-api)
+  * [Pobierz strumień API usługi agregowania środowiskowego](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-streamed-api)
 
 ## <a name="prerequisites-and-setup"></a>Wymagania wstępne i Instalator
 
 Przed skompilowaniem i uruchomieniem przykładowego kodu wykonaj następujące czynności:
 
 1. [Zapewnij Gen1 środowisko Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started) .
-1. Skonfiguruj środowisko Azure Time Series Insights dla Azure Active Directory zgodnie z opisem w temacie [uwierzytelnianie i autoryzacja](time-series-insights-authentication-and-authorization.md). 
+1. Skonfiguruj środowisko Azure Time Series Insights dla Azure Active Directory zgodnie z opisem w temacie [uwierzytelnianie i autoryzacja](time-series-insights-authentication-and-authorization.md).
 1. Zainstaluj wymagane zależności projektu.
 1. Edytuj przykładowy kod poniżej, zastępując każdy **#DUMMY #** odpowiednim identyfikatorem środowiska.
 1. Wykonaj kod w programie Visual Studio.
@@ -75,11 +75,11 @@ Alternatywnie Dodaj pakiety przy użyciu narzędzia [NuGet 2.12 +](https://www.n
 
 ## <a name="c-sample-code"></a>Przykładowy kod w języku C#
 
-[!code-csharp[csharpquery-example](~/samples-tsi/gen1-sample/csharp-tsi-gen1-sample/Program.cs)]
+Przykłady Time Series Insights Gen1 można znaleźć na stronie [csharpquery — przykład](https://github.com/Azure-Samples/Azure-Time-Series-Insights#tsi-gen1)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się więcej o wysyłaniu zapytań, Przeczytaj [Informacje o interfejsie API zapytań](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
+* Aby dowiedzieć się więcej o wysyłaniu zapytań, Przeczytaj [Informacje o interfejsie API zapytań](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api).
 
-- Dowiedz się [, jak połączyć aplikację JavaScript przy użyciu zestawu SDK klienta,](https://github.com/microsoft/tsiclient) aby Time Series Insights.
+* Dowiedz się [, jak połączyć aplikację JavaScript przy użyciu zestawu SDK klienta,](https://github.com/microsoft/tsiclient) aby Time Series Insights.
 Azure-Samples/Azure-Time-Series-Insights/Gen1-Sample/CSharp-TSI-Gen1-Sample/program. cs

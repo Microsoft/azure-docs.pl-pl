@@ -4,12 +4,12 @@ description: Objawy, przyczyny i rozwiązania błędów Azure Backup związanych
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 188eef5471e93661041dadfc93f561d2173ba7f2
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 274435a958820c3fd08fef4a61643a1d656e31e3
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809769"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167933"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Rozwiązywanie problemów z błędem Azure Backup: problemy z agentem lub rozszerzeniem
 
@@ -23,7 +23,7 @@ Najczęstsze błędy tworzenia kopii zapasowych można rozwiązać, wykonując n
 
 ### <a name="step-1-check-azure-vm-health"></a>Krok 1. Sprawdzanie kondycji maszyny wirtualnej platformy Azure
 
-- **Upewnij się, że stan aprowizacji maszyny wirtualnej platformy Azure to "uruchomiona"**: Jeśli [stan aprowizacji maszyny wirtualnej](../virtual-machines/windows/states-lifecycle.md#provisioning-states) znajduje się w stanie **zatrzymania/cofania przydziału/aktualizacji** , będzie zakłócał operację tworzenia kopii zapasowej. Otwórz *Azure Portal > maszynie wirtualnej > przegląd >* i sprawdź stan maszyny wirtualnej, aby upewnić się, że jest **uruchomiona** , a następnie spróbuj ponownie wykonać operację tworzenia kopii zapasowej.
+- **Upewnij się, że stan aprowizacji maszyny wirtualnej platformy Azure to "uruchomiona"**: Jeśli [stan aprowizacji maszyny wirtualnej](../virtual-machines/states-lifecycle.md#provisioning-states) znajduje się w stanie **zatrzymania/cofania przydziału/aktualizacji** , będzie zakłócał operację tworzenia kopii zapasowej. Otwórz *Azure Portal > maszynie wirtualnej > przegląd >* i sprawdź stan maszyny wirtualnej, aby upewnić się, że jest **uruchomiona**  , a następnie spróbuj ponownie wykonać operację tworzenia kopii zapasowej.
 - **Przejrzyj oczekujące aktualizacje systemu operacyjnego lub Uruchom**ponownie: Upewnij się, że nie ma żadnych oczekujących aktualizacji systemu operacyjnego lub nie ma oczekujących ponownych uruchomień na maszynie wirtualnej.
 
 ### <a name="step-2-check-azure-vm-guest-agent-service-health"></a>Krok 2. Sprawdzanie kondycji usługi agenta gościa maszyny wirtualnej platformy Azure
@@ -101,7 +101,7 @@ Po zarejestrowaniu i zaplanowaniu maszyny wirtualnej dla usługi Azure Backup Ba
 **Kod błędu**: UserErrorVmProvisioningStateFailed<br>
 **Komunikat o błędzie**: stan aprowizacji maszyny wirtualnej to niepowodzenie<br>
 
-Ten błąd występuje, gdy jeden z błędów rozszerzenia przełączy maszynę wirtualną w stan niepowodzenia aprowizacji.<br>**Otwórz Azure Portal > maszynę wirtualną ustawienia > > rozszerzenia >** rozszerzenia i sprawdź, czy wszystkie rozszerzenia mają stan **Pomyślne inicjowanie obsługi** . Aby dowiedzieć się więcej, zobacz [Stany aprowizacji](../virtual-machines/windows/states-lifecycle.md#provisioning-states).
+Ten błąd występuje, gdy jeden z błędów rozszerzenia przełączy maszynę wirtualną w stan niepowodzenia aprowizacji.<br>**Otwórz Azure Portal > maszynę wirtualną ustawienia > > rozszerzenia >** rozszerzenia i sprawdź, czy wszystkie rozszerzenia mają stan **Pomyślne inicjowanie obsługi** . Aby dowiedzieć się więcej, zobacz [Stany aprowizacji](../virtual-machines/states-lifecycle.md#provisioning-states).
 
 - Jeśli rozszerzenie VMSnapshot jest w stanie niepowodzenia, kliknij prawym przyciskiem myszy nieudane rozszerzenie i usuń je. Wyzwalanie kopii zapasowej na żądanie. Ta akcja spowoduje ponowne zainstalowanie rozszerzeń i uruchomienie zadania tworzenia kopii zapasowej.  <br>
 - Jeśli jakiekolwiek inne rozszerzenie jest w stanie niepowodzenia, może zakłócać tworzenie kopii zapasowej. Upewnij się, że problemy z rozszerzeniem zostały rozwiązane, i spróbuj ponownie wykonać operację tworzenia kopii zapasowej.
@@ -229,12 +229,12 @@ Większość błędów związanych z agentami lub rozszerzeniami dla maszyn wirt
    > [!NOTE]
    > *Zdecydowanie zalecamy* , aby zaktualizować agenta tylko za pomocą repozytorium dystrybucji. Nie zalecamy pobierania kodu agenta bezpośrednio z usługi GitHub i aktualizowania go. Jeśli najnowszy Agent dystrybucji nie jest dostępny, skontaktuj się z pomocą techniczną, aby uzyskać instrukcje dotyczące sposobu jej instalacji. Aby sprawdzić najnowszego agenta, przejdź do strony [agenta systemu Linux platformy Microsoft Azure](https://github.com/Azure/WALinuxAgent/releases) w repozytorium GitHub.
 
-2. Upewnij się, że na maszynie wirtualnej jest uruchomiony agent platformy Azure, uruchamiając następujące polecenie:`ps -e`
+2. Upewnij się, że na maszynie wirtualnej jest uruchomiony agent platformy Azure, uruchamiając następujące polecenie: `ps -e`
 
    Jeśli proces nie jest uruchomiony, uruchom go ponownie przy użyciu następujących poleceń:
 
-   - Dla Ubuntu:`service walinuxagent start`
-   - W przypadku innych dystrybucji:`service waagent start`
+   - Dla Ubuntu: `service walinuxagent start`
+   - W przypadku innych dystrybucji: `service waagent start`
 
 3. [Skonfiguruj agenta autostartu](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Uruchom nową testową kopię zapasową. Jeśli błąd będzie się utrzymywał, Zbierz następujące dzienniki z maszyny wirtualnej:
@@ -252,7 +252,7 @@ Jeśli potrzebujesz pełnego rejestrowania dla programu waagent, wykonaj następ
 ### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>Nie ustawiono opcji konfiguracji agenta maszyny wirtualnej (dla maszyn wirtualnych z systemem Linux)
 
 Plik konfiguracji (/etc/waagent.conf) kontroluje akcje waagent. Rozszerzenia opcji pliku konfiguracji **. wartość Enable** powinna być równa **y** i **aprowizacji.** aby tworzenie kopii zapasowej działało, Agent musi być **ustawiony na wartość** Auto.
-Aby uzyskać pełną listę opcji pliku konfiguracji agenta maszyny wirtualnej, zobacz<https://github.com/Azure/WALinuxAgent#configuration-file-options>
+Aby uzyskać pełną listę opcji pliku konfiguracji agenta maszyny wirtualnej, zobacz <https://github.com/Azure/WALinuxAgent#configuration-file-options>
 
 ### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>Rozwiązanie do sterowania aplikacjami blokuje IaaSBcdrExtension.exe
 
@@ -284,7 +284,7 @@ Następujące warunki mogą spowodować niepowodzenie zadania migawki:
 
     ![Usuń blokadę](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
-### <a name="clean-up-restore-point-collection"></a><a name="clean_up_restore_point_collection"></a>Wyczyść kolekcję punktów przywracania
+### <a name="clean-up-restore-point-collection"></a><a name="clean_up_restore_point_collection"></a> Wyczyść kolekcję punktów przywracania
 
 Po usunięciu blokady punkty przywracania muszą zostać oczyszczone.
 
