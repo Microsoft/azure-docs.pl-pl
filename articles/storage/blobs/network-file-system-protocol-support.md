@@ -9,19 +9,19 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 32eafc41451c42a9c929e94d30450b923e7eae83
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 41ad20de6b7a800ff1f97a7ff371c8e0012fed27
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760927"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166981"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Obsługa protokołu sieciowego systemu plików (NFS) 3,0 w usłudze Azure Blob Storage (wersja zapoznawcza)
 
 Magazyn obiektów BLOB obsługuje teraz Protokół 3,0 systemu plików NFS. Ta obsługa umożliwia klientom z systemem Windows lub Linux zainstalowanie kontenera w usłudze BLOB Storage z maszyny wirtualnej platformy Azure lub lokalnego komputera. 
 
 > [!NOTE]
-> Obsługa protokołu NFS 3,0 w usłudze Azure Blob Storage jest w publicznej wersji zapoznawczej i jest dostępna w następujących regionach: Wschodnie stany USA, Stany Zjednoczone i Kanada środkowa.
+> Obsługa protokołu NFS 3,0 w usłudze Azure Blob Storage jest w publicznej wersji zapoznawczej i jest dostępna w następujących regionach: Wschodnie stany USA, środkowe stany USA, Południowo-środkowe stany USA, Australia Zachodnia, Europa Północna, Zachodnie Zjednoczone Królestwo, Korea środkowa, Korea Południowa i Kanada środkowa.
 
 ## <a name="general-workflow-mounting-a-storage-account-container"></a>Ogólny przepływ pracy: Instalowanie kontenera konta magazynu
 

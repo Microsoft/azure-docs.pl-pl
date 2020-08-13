@@ -9,19 +9,19 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 2517a0ac8edf30ac041708a57b166af6eb36440a
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: cb3cb41b46c2def4f99af7f1811e4ff96dff7070
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760802"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167032"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Instalowanie magazynu obiektów BLOB przy użyciu protokołu NFS (Network File System) 3,0 (wersja zapoznawcza)
 
 Kontener w usłudze BLOB Storage można zainstalować z maszyny wirtualnej platformy Azure lub systemu Windows lub Linux, która jest uruchamiana lokalnie przy użyciu protokołu NFS 3,0. Ten artykuł zawiera wskazówki krok po kroku. Aby dowiedzieć się więcej o obsłudze protokołu NFS 3,0 w usłudze BLOB Storage, zobacz temat [Obsługa protokołu sieciowego systemu plików (NFS) 3,0 w usłudze Azure Blob Storage (wersja zapoznawcza)](network-file-system-protocol-support.md).
 
 > [!NOTE]
-> Obsługa protokołu NFS 3,0 w usłudze Azure Blob Storage jest w publicznej wersji zapoznawczej i jest dostępna w następujących regionach: Wschodnie stany USA, Stany Zjednoczone i Kanada środkowa.
+> Obsługa protokołu NFS 3,0 w usłudze Azure Blob Storage jest w publicznej wersji zapoznawczej i jest dostępna w następujących regionach: Wschodnie stany USA, środkowe stany USA, Południowo-środkowe stany USA, Australia Zachodnia, Europa Północna, Zachodnie Zjednoczone Królestwo, Korea środkowa, Korea Południowa i Kanada środkowa.
 
 ## <a name="step-1-register-the-nfs-30-protocol-feature-with-your-subscription"></a>Krok 1. rejestrowanie funkcji protokołu NFS 3,0 w ramach subskrypcji
 
@@ -92,7 +92,7 @@ Podczas konfigurowania konta wybierz następujące wartości:
 
 |Ustawienie | Wartość|
 |----|---|
-|Lokalizacja|Jeden z następujących regionów: Wschodnie stany USA, Stany USA i Kanada środkowa |
+|Lokalizacja|Jeden z następujących regionów: Wschodnie stany USA, Stany USA, zachodnie stany USA, Australia Południowo-Wschodnia, Europa Północna, Zachodnie Zjednoczone Królestwo, Korea środkowa, Korea Południowa i Kanada środkowa |
 |Wydajność|Premium|
 |Rodzaj konta|BlockBlobStorage|
 |Replikacja|Magazyn lokalnie nadmiarowy (LRS)|
@@ -107,10 +107,10 @@ Możesz zaakceptować wartości domyślne dla wszystkich innych ustawień.
 
 Utwórz kontener na koncie magazynu przy użyciu dowolnego z tych narzędzi lub zestawów SDK:
 
-|narzędzia|Zestawy SDK|
+|Narzędzia|Zestawy SDK|
 |---|---|
 |[Eksplorator usługi Azure Storage](data-lake-storage-explorer.md#create-a-container)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
-|[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
+|[Narzędzie AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[Interfejs wiersza polecenia platformy Azure](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
 |[Witryna Azure Portal](https://portal.azure.com)|[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|

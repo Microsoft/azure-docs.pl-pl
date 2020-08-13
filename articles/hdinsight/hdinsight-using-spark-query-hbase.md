@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/20/2020
-ms.openlocfilehash: 3ddb8734a3d15a6cd5f4a43ee069d6364f7523ed
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/12/2020
+ms.openlocfilehash: 9454cb83d535d97a3dd95cd9f5d0636769797d08
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087490"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166947"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Odczytywanie i zapisywanie danych w bazie danych Apache HBase za pomocą platformy Apache Spark
 
@@ -27,11 +27,10 @@ Na platformie Apache HBase są zwykle wykonywane zapytania przy użyciu interfej
 
 ## <a name="overall-process"></a>Proces ogólny
 
-Proces wysokiego poziomu służący do włączania klastra platformy Spark na potrzeby wysyłania zapytań do klastra usługi HDInsight jest następujący:
+Proces wysokiego poziomu służący do włączania klastra platformy Spark na potrzeby wysyłania zapytań do klastra HBase jest następujący:
 
 1. Przygotuj przykładowe dane w HBase.
-2. Pobierz plik hbase-site.xml z folderu konfiguracji klastra HBase (/etc/HBase/conf).
-3. Umieść kopię hbase-site.xml w folderze konfiguracji Spark 2 (/etc/spark2/conf).
+2. Pobierz plik hbase-site.xml z folderu konfiguracji klastra HBase (/etc/HBase/conf), a następnie Umieść kopię hbase-site.xml w folderze konfiguracji Spark 2 (/etc/spark2/conf). (Opcjonalnie: Użyj skryptu dostarczonego przez zespół usługi HDInsight w celu zautomatyzowania tego procesu)
 4. Uruchom `spark-shell` odwołujące się do łącznika Spark HBase za pomocą współrzędnych Maven w `packages` opcji.
 5. Zdefiniuj katalog, który mapuje schemat z platformy Spark do HBase.
 6. Współpracuj z danymi HBase przy użyciu interfejsów API RDD lub Dataframe.
@@ -76,36 +75,77 @@ W tym kroku utworzysz i wypełnimy tabelę w Apache HBase, którą można nastę
     ```hbase
     exit
     ```
+    
+## <a name="run-scripts-to-set-up-connection-between-clusters"></a>Uruchamianie skryptów w celu skonfigurowania połączenia między klastrami
 
-## <a name="copy-hbase-sitexml-to-spark-cluster"></a>Kopiuj hbase-site.xml do klastra Spark
+Aby skonfigurować komunikację między klastrami, wykonaj poniższe kroki, aby uruchomić dwa skrypty w klastrach. Skrypty te automatyzują proces kopiowania plików opisany w sekcji "Konfigurowanie komunikacji ręcznej" poniżej. 
 
-Skopiuj hbase-site.xml z magazynu lokalnego do katalogu głównego magazynu platformy Spark w klastrze domyślnym.  Edytuj poniższe polecenie, aby odzwierciedlić konfigurację.  Następnie z otwartej sesji SSH do klastra HBase wprowadź polecenie:
+* Skrypt uruchamiany z klastra HBase przekaże `hbase-site.xml` i HBase informacje dotyczące mapowania adresów IP do magazynu domyślnego dołączonego do klastra Spark. 
+* Skrypt uruchamiany z klastra Spark konfiguruje dwa zadania firmy CRONUS, aby okresowo uruchamiać dwa skrypty pomocnika:  
+    1.  Zadanie HBase firmy CRONUS — Pobierz nowe `hbase-site.xml` pliki i mapowanie adresów IP HBase z domyślnego konta magazynu platformy Spark do węzła lokalnego
+    2.  Zadanie platformy Spark w języku CRONUS — sprawdza, czy nastąpiło skalowanie platformy Spark i czy klaster jest bezpieczny. W takim przypadku należy edytować, `/etc/hosts` Aby uwzględnić mapowanie adresów IP HBase przechowywane lokalnie
 
-| Wartość składni | Nowa wartość|
-|---|---|
-|[Schemat identyfikatora URI](hdinsight-hadoop-linux-information.md#URI-and-scheme) | Zmodyfikuj, aby odzwierciedlić magazyn.  Poniższa składnia dotyczy usługi BLOB Storage z włączonym bezpiecznym transferem.|
-|`SPARK_STORAGE_CONTAINER`|Zastąp wartość domyślną nazwą kontenera magazynu używaną dla klastra Spark.|
-|`SPARK_STORAGE_ACCOUNT`|Zamień na domyślną nazwę konta magazynu używanego dla klastra Spark.|
+__Uwaga__: przed kontynuowaniem upewnij się, że dodano konto magazynu klastra Spark do klastra HBase jako konto magazynu pomocniczego. Upewnij się, że skrypty zostały określone poniżej.
 
-```bash
-hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CONTAINER@SPARK_STORAGE_ACCOUNT.blob.core.windows.net/
-```
 
-Następnie zamknij połączenie SSH z klastrem HBase.
+1. Użyj [akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) w klastrze HBase, aby zastosować zmiany z uwzględnieniem następujących zagadnień: 
 
-```bash
-exit
-```
 
-## <a name="put-hbase-sitexml-on-your-spark-cluster"></a>Umieszczanie hbase-site.xml w klastrze Spark
+    |Właściwość | Wartość |
+    |---|---|
+    |Identyfikator URI skryptu bash|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-hbase.sh`|
+    |Typy węzłów|Region|
+    |Parametry|`-s SECONDARYS_STORAGE_URL`|
+    |Trwały|tak|
 
-1. Połącz się z węzłem głównym klastra platformy Spark przy użyciu protokołu SSH. Edytuj poniższe polecenie, zastępując je `SPARKCLUSTER` nazwą klastra Spark, a następnie wprowadź polecenie:
+    * `SECONDARYS_STORAGE_URL`jest adresem URL magazynu domyślnego po stronie platformy Spark. Przykład parametru:`-s wasb://sparkcon-2020-08-03t18-17-37-853z@sparkconhdistorage.blob.core.windows.net`
+
+
+2.  Użyj akcji skryptu w klastrze Spark, aby zastosować zmiany z uwzględnieniem następujących zagadnień:
+
+    |Właściwość | Wartość |
+    |---|---|
+    |Identyfikator URI skryptu bash|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-spark.sh`|
+    |Typy węzłów|Kierownik, proces roboczy, dozorcy|
+    |Parametry|`-s "SPARK-CRON-SCHEDULE"`(opcjonalnie) `-h "HBASE-CRON-SCHEDULE"` obowiązkowe|
+    |Trwały|tak|
+
+
+    * Możesz określić, jak często ten klaster ma automatycznie sprawdzać dostępność aktualizacji. Wartość domyślna:-s "*/1 * * | *"-h 0 (w tym przykładzie platforma Spark CRONUS jest uruchamiana co minutę, podczas gdy nie jest uruchamiany HBase CRONUS)
+    * Ponieważ HBase CRONUS nie jest domyślnie skonfigurowany, należy ponownie uruchomić ten skrypt podczas skalowania do klastra HBase. Jeśli klaster HBase jest skalowany często, możesz zdecydować się na automatyczne skonfigurowanie zadania HBase firmy cronus. Na przykład: `-h "*/30 * * * *"` konfiguruje skrypt do przeprowadzania sprawdzenia co 30 minut. Spowoduje to uruchomienie harmonogramu HBase firmy CRONUS okresowo w celu zautomatyzowania pobierania nowych informacji HBase na wspólnym koncie magazynu do węzła lokalnego.
+    
+    
+
+## <a name="set-up-communication-manually-optional-if-provided-script-in-above-step-fails"></a>Skonfiguruj komunikację ręcznie (opcjonalnie, jeśli podany skrypt w powyższym kroku zakończy się niepowodzeniem)
+
+__Uwaga:__ Te kroki muszą być wykonywane za każdym razem, gdy jeden z klastrów przejdzie do działania skalowania.
+
+1. Skopiuj hbase-site.xml z magazynu lokalnego do katalogu głównego magazynu platformy Spark w klastrze domyślnym.  Edytuj poniższe polecenie, aby odzwierciedlić konfigurację.  Następnie z otwartej sesji SSH do klastra HBase wprowadź polecenie:
+
+    | Wartość składni | Nowa wartość|
+    |---|---|
+    |[Schemat identyfikatora URI](hdinsight-hadoop-linux-information.md#URI-and-scheme) | Zmodyfikuj, aby odzwierciedlić magazyn.  Poniższa składnia dotyczy usługi BLOB Storage z włączonym bezpiecznym transferem.|
+    |`SPARK_STORAGE_CONTAINER`|Zastąp wartość domyślną nazwą kontenera magazynu używaną dla klastra Spark.|
+    |`SPARK_STORAGE_ACCOUNT`|Zamień na domyślną nazwę konta magazynu używanego dla klastra Spark.|
+
+    ```bash
+    hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CONTAINER@SPARK_STORAGE_ACCOUNT.blob.core.windows.net/
+    ```
+
+2. Następnie zamknij połączenie SSH z klastrem HBase.
+
+    ```bash
+    exit
+    ```
+
+
+3. Połącz się z węzłem głównym klastra platformy Spark przy użyciu protokołu SSH. Edytuj poniższe polecenie, zastępując je `SPARKCLUSTER` nazwą klastra Spark, a następnie wprowadź polecenie:
 
     ```cmd
     ssh sshuser@SPARKCLUSTER-ssh.azurehdinsight.net
     ```
 
-2. Wprowadź poniższe polecenie, aby skopiować `hbase-site.xml` z domyślnego magazynu klastra Spark do folderu konfiguracji platformy Spark 2 w lokalnym magazynie klastra:
+4. Wprowadź poniższe polecenie, aby skopiować `hbase-site.xml` z domyślnego magazynu klastra Spark do folderu konfiguracji platformy Spark 2 w lokalnym magazynie klastra:
 
     ```bash
     sudo hdfs dfs -copyToLocal /hbase-site.xml /etc/spark2/conf
@@ -125,7 +165,7 @@ Na przykład poniższa tabela zawiera listę dwóch wersji i odpowiednich polece
     |      2.1    | HDI 3,6 (HBase 1,1) | 1.1.0.3.1.2.2-1    | `spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/` |
     |      2,4    | HDI 4,0 (HBase 2,0) | 1.1.1-2.1-s_2.11  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
 
-2. Pozostaw otwarte wystąpienie powłoki Spark i Kontynuuj [Definiowanie wykazu i zapytania](#define-a-catalog-and-query). Jeśli nie znajdziesz Jars odpowiadającego Twoim wersjom w SHC Core repozytorium, Kontynuuj odczytywanie. 
+2. Pozostaw otwarte wystąpienie powłoki Spark i Kontynuuj [Definiowanie wykazu i zapytania](#define-a-catalog-and-query). Jeśli nie znajdziesz Jars, który odpowiada Twoim wersjom w głównym repozytorium SHC, Kontynuuj odczytywanie. 
 
 Jars można skompilować bezpośrednio z gałęzi usługi [Spark-HBase-Connector](https://github.com/hortonworks-spark/shc) usługi GitHub. Na przykład jeśli korzystasz z platformy Spark 2,3 i HBase 1,1, wykonaj następujące kroki:
 

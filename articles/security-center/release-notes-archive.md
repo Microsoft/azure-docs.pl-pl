@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: 19a6764b68a7a06f9777bac94c9f34aaf09aec0b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cebc2c3d364cdb93c4b528c186dcef79c58ac6ea
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519593"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167015"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -28,6 +28,19 @@ Ta strona zawiera informacje na temat:
 - Nowe funkcje
 - Poprawki błędów
 - Funkcje uznane za przestarzałe
+
+
+## <a name="february-2020"></a>Luty 2020 r.
+
+### <a name="fileless-attack-detection-for-linux-preview"></a>Wykrywanie ataków bezplikowych dla systemu Linux (wersja zapoznawcza)
+
+Gdy osoby atakujące zwiększą wykorzystanie metod stealthier, aby uniknąć wykrywania, Azure Security Center rozszerza wykrywanie ataków bez plików dla systemu Linux, a nie tylko z systemem Windows. Ataki bezplikowe wykorzystują luki w zabezpieczeniach, wprowadzają złośliwe ładunki do niegroźnych procesów systemu i ukrywają w pamięci. Techniki te:
+
+- Minimalizowanie lub eliminowanie śladów złośliwego oprogramowania na dysku
+- znacznie zmniejsz szanse wykrywania przez rozwiązania skanujące złośliwe oprogramowanie oparte na dyskach
+
+Aby wyeliminować to zagrożenie, Azure Security Center wydane wykrywanie ataków bezplików dla systemu Windows w październiku 2018 i obecnie rozszerzono wykrywanie ataków bezplikowych w systemie Linux. 
+
 
 
 ## <a name="january-2020"></a>Styczeń 2020 r.
@@ -172,7 +185,7 @@ Centrum administracyjne systemu Windows to portal zarządzania dla serwerów z s
 Dzięki temu nowemu doświadczeniu użytkownicy będą mogli dołączyć serwer WAC do Azure Security Center i włączyć wyświetlanie alertów zabezpieczeń i zaleceń bezpośrednio w środowisku centrum administracyjnego systemu Windows.
 
 
-## <a name="september-2019"></a>Wrzesień 2019
+## <a name="september-2019"></a>Wrzesień 2019 r.
 
 Aktualizacje we wrześniu obejmują:
 
@@ -193,7 +206,7 @@ Azure Security Center zalecenia dotyczące rozwiązywania luk w zabezpieczeniach
 Aby wyświetlić włączone zasady zabezpieczeń, w Security Center otworzyć stronę zasady zabezpieczeń.
 
 
-## <a name="august-2019"></a>Sierpień 2019 r.
+## <a name="august-2019"></a>Sierpień 2019 r.
 
 Aktualizacje w sierpniu obejmują:
 
@@ -232,7 +245,7 @@ Security Center teraz obsługuje scenariusze zarządzania między dzierżawcami 
 [Dowiedz się więcej na temat środowisk zarządzania między dzierżawcami](security-center-cross-tenant-management.md).
 
 
-## <a name="july-2019"></a>Lipiec 2019
+## <a name="july-2019"></a>Lipiec 2019 r.
 
 ### <a name="updates-to-network-recommendations"></a>Aktualizacje zaleceń dotyczących sieci
 
