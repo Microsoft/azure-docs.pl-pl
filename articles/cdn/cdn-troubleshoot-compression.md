@@ -1,6 +1,6 @@
 ---
 title: Rozwiązywanie problemów z kompresją plików w Azure CDN | Microsoft Docs
-description: Rozwiązywanie problemów z kompresją plików Azure CDN.
+description: Dowiedz się, jak rozwiązywać problemy z kompresją plików w usłudze Azure Content Delivery Network. W tym artykule opisano kilka możliwych przyczyn.
 services: cdn
 documentationcenter: ''
 author: sohamnc
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5c56564ee6f07c5d208ea5d3089a2c96fd8bbc33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53db148eac0d56e53bb96e0597ad53d3183d86e9
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888694"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192522"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Rozwiązywanie problemów związanych z kompresją pliku CDN
 Ten artykuł pomaga w rozwiązywaniu problemów z [kompresją plików](cdn-improve-performance.md)w sieci CDN.

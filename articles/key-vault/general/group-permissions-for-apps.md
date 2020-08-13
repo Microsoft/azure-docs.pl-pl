@@ -1,6 +1,6 @@
 ---
 title: Udziel uprawnień aplikacjom dostępu do magazynu kluczy Azure — Azure Key Vault | Microsoft Docs
-description: Dowiedz się, jak udzielić uprawnienia wielu aplikacjom dostępu do magazynu kluczy
+description: Dowiedz się, jak ręcznie zarejestrować nazwę główną usługi i zapewnić dostęp do Azure Key Vault przy użyciu zasad kontroli dostępu, które mogą być konieczne w niektórych przypadkach.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8369c507ee7a9e11969c17bbaac7c6e31892e196
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 1b3f03458211e57f51c39cb5ca8da83943280aa8
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406252"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192015"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Zapewnianie uwierzytelniania Key Vault przy użyciu zasad kontroli dostępu
 

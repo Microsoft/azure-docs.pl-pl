@@ -3,12 +3,12 @@ title: Co nowego w usłudze Microsoft Azure Backup Server
 description: Serwer Microsoft Azure Backup zapewnia ulepszone możliwości tworzenia kopii zapasowych w celu ochrony maszyn wirtualnych, plików i folderów, obciążeń i nie tylko.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: d9d04d9f763549ce15e57f768432cd933cf1414c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a3ff38d9371ee9b95666ce638d0a6dc4b8822e20
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032446"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190831"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Co nowego w programie Microsoft Azure Backup Server (serwera usługi MAB)
 
@@ -25,7 +25,7 @@ SERWERA usługi MAB v2 wprowadził [nowoczesny magazyn kopii zapasowych](backup-
 
 Aby osiągnąć skalę i wydajność, MB zalecamy użycie małego procentu (4% całkowitego magazynu) w usłudze Flash Storage (SSD) z serwera usługi MAB v3 UR1 jako woluminu warstwowego w połączeniu z magazynem dysków twardych programu DPM. SERWERA usługi MAB v3 UR1 z magazynem warstwowym zapewnia 50-70% szybszych kopii zapasowych. Zapoznaj się z artykułem DPM [set up MB with Tiered Storage](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) , aby uzyskać instrukcje dotyczące konfigurowania magazynu warstwowego.
 
-### <a name="support-for-refs-volumes-and-refs-volumes-with-deduplication-enabled"></a>Obsługa woluminów ReFS i woluminów ReFS z włączoną funkcją deduplikacji
+### <a name="support-for-refs-volumes"></a>Obsługa woluminów ReFS
 
 Za pomocą serwera usługi MAB v3 UR1 można utworzyć kopię zapasową woluminów i obciążeń systemu plików ReFS wdrożonych na woluminie systemu plików ReFS. Można utworzyć kopię zapasową następujących obciążeń wdrożonych na woluminach systemu plików ReFS:
 
@@ -36,6 +36,8 @@ Za pomocą serwera usługi MAB v3 UR1 można utworzyć kopię zapasową wolumin�
 
 >[!NOTE]
 > Tworzenie kopii zapasowych maszyn wirtualnych funkcji Hyper-V przechowywanych na woluminie systemu plików ReFS jest obsługiwane z serwera usługi MAB v3
+
+>WAŻNE Zidentyfikowano kilka problemów z kopią zapasową deduplikowanych woluminów ReFS. Pracujemy nad naprawianiem tych elementów i zaktualizujemy tę sekcję zaraz po udostępnieniu poprawki. Do tego czasu usuwamy obsługę kopii zapasowych deduplikowanych woluminów ReFS z MABSv3 UR1.
 
 ### <a name="azure-vmware-solution-protection-support"></a>Obsługa ochrony rozwiązań VMware na platformie Azure
 

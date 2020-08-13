@@ -1,17 +1,17 @@
 ---
 title: Przechwyć dane z Event Hubs do Azure Data Lake Storage Gen1
-description: Użyj Azure Data Lake Storage Gen1, aby przechwytywać dane odebrane przez usługę Azure Event Hubs.
+description: Dowiedz się, jak używać Azure Data Lake Storage Gen1 do przechwytywania danych odebranych przez usługę Azure Event Hubs. Zacznij od sprawdzenia wymagań wstępnych.
 author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 9d663c2e95ee94811d70a0602b35842a789dd9b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5254558c62499ed6864e809dbc93c26ebba94a9
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515760"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190273"
 ---
 # <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Użyj Azure Data Lake Storage Gen1 do przechwytywania danych z Event Hubs
 
@@ -99,7 +99,7 @@ W tej sekcji utworzysz centrum zdarzeń w przestrzeni nazw Event Hubs. Należy r
 
     e. Pozostaw **przykładowe nazwy plików przechwytywania** do wartości domyślnej. Ta opcja reguluje strukturę folderów utworzoną w folderze przechwytywania.
 
-    f. Kliknij pozycję **Utwórz**.
+    f. Kliknij przycisk **Utwórz**.
 
 ## <a name="test-the-setup"></a>Testowanie konfiguracji
 
@@ -117,6 +117,6 @@ Teraz można testować rozwiązanie, wysyłając dane do centrum zdarzeń platfo
 Gdy dane są w Data Lake Storage Gen1, można uruchamiać zadania analityczne, aby przetwarzać i przetwarzanie dane. Zobacz [przykład USQL Avro](https://github.com/Azure/usql/tree/master/Examples/AvroExamples) , aby dowiedzieć się, jak to zrobić za pomocą Azure Data Lake Analytics.
   
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Zabezpieczanie danych w usłudze Data Lake Storage 1. generacji](data-lake-store-secure-data.md)
 * [Kopiowanie danych z obiektów BLOB usługi Azure Storage do Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)

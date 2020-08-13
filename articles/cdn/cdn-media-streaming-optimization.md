@@ -1,6 +1,6 @@
 ---
 title: Optymalizacja przesyłania strumieniowego multimediów przy użyciu Azure CDN
-description: Optymalizacja przesyłania strumieniowego plików multimedialnych do płynnego dostarczania
+description: Informacje o opcjach optymalizacji multimediów strumieniowych w usłudze Azure Content Delivery Network, takich jak częściowe udostępnianie pamięci podręcznej i czas oczekiwania na wypełnienie pamięci podręcznej.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: edc2198cff360b6f0d2f6ace3b76d35bf77fab97
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c3ab722f182e32cf2f3aca6bb2f3d5a9598264af
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206704"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192615"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Optymalizacja przesyłania strumieniowego multimediów przy użyciu Azure CDN 
  

@@ -1,17 +1,17 @@
 ---
 title: Wskazówki dotyczące odzyskiwania po awarii dla Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Wskazówki dotyczące wysokiej dostępności i odzyskiwania po awarii dla Azure Data Lake Storage Gen1
+description: Dowiedz się, jak jeszcze bardziej chronić dane przed awariami całego regionu i przypadkowym usunięciem poza magazynem lokalnie nadmiarowy Azure Data Lake Storage Gen1.
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
-ms.openlocfilehash: ebcdeed608a5b9dc6202071869c4df1dcfd327a8
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: b124f828c4a6a019c45243528ed2d957e3f781f3
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512758"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191420"
 ---
 # <a name="high-availability-and-disaster-recovery-guidance-for-data-lake-storage-gen1"></a>Wskazówki dotyczące wysokiej dostępności i odzyskiwania po awarii dla Data Lake Storage Gen1
 

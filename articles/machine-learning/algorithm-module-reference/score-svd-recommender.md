@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/10/2020
-ms.openlocfilehash: 82c3454ad4c8db3a9b19084f5b6ece988cc86b9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/10/2020
+ms.openlocfilehash: 806c19100594f449288d810b68d072dd7de23646
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79455982"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189825"
 ---
 # <a name="score-svd-recommender"></a>Wynik modułu poleceń SVD
 
@@ -107,9 +107,6 @@ Wynikowy zestaw danych zwracany przez zalecaną listę zalecanych elementów dla
 
 - Pierwsza kolumna zawiera identyfikatory użytkowników.
 - Jest generowanych kilka dodatkowych kolumn, w zależności od wartości ustawionej na **maksymalną liczbę elementów, które mają być zalecane dla użytkownika**. Każda kolumna zawiera zalecany element (według identyfikatora). Zalecenia są uporządkowane według koligacji elementu User-Item. Element o najwyższej koligacji jest umieszczany w **elemencie kolumny 1**.
-
-> [!WARNING]
-> Ten wynikowy zestaw danych nie może zostać oceniony przy użyciu modułu [oceny polecania](evaluate-recommender.md) .
 
 
 ##  <a name="technical-notes"></a>Uwagi techniczne

@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 ms.date: 08/12/2020
-ms.openlocfilehash: faef8c29b2a5e75745e36c5d826b4feee2d60a98
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: e1a5cb4a5ce02954a14a6936ec14379701354a79
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88169144"
+ms.locfileid: "88191191"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Inicjowanie ręcznego przełączania użytkownika na wystąpienie zarządzane SQL
 
@@ -31,6 +31,9 @@ Rozważ wykonanie [ręcznej pracy awaryjnej](../database/high-availability-sla.m
 - Testowanie wpływu trybu failover na istniejące sesje bazy danych
 - Sprawdź, czy zmiany w trybie failover mają na celu kompleksową wydajność ze względu na zmiany opóźnienia sieci
 - W niektórych przypadkach obniżenia wydajności zapytań ręczne przełączenie w tryb failover może pomóc wyeliminować problem z wydajnością.
+
+> [!NOTE]
+> Zagwarantowanie, że aplikacje są odporne na awarie przed wdrożeniem w środowisku produkcyjnym, pomogą ograniczyć ryzyko błędów aplikacji w środowisku produkcyjnym i przyczynić się do dostępności aplikacji dla klientów.
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Inicjowanie ręcznego przełączania do trybu failover w wystąpieniu zarządzanym SQL
 

@@ -1,6 +1,6 @@
 ---
 title: Rozpocznij pracę z zestawem SDK Azure CDN dla Node.js | Microsoft Docs
-description: Dowiedz się, jak pisać Node.js aplikacje w celu zarządzania Azure CDN.
+description: Dowiedz się, jak utworzyć prostą aplikację konsolową Node.js, która pokazuje, jak zautomatyzować tworzenie Azure CDN profilów i punktów końcowych i zarządzanie nimi.
 services: cdn
 documentationcenter: nodejs
 author: zhangmanling
@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 96dc7e8d9fb647779fc2188fe36fe9fbced2e53c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: da695975b92ea6f81de103da5edf730811a193f8
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387493"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190702"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Rozpoczynanie pracy z wdrażaniem usługi Azure CDN
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "87387493"
 > 
 > 
 
-Możesz użyć [zestawu SDK Azure CDN](https://www.npmjs.com/package/azure-arm-cdn) , aby Node.jsdo automatyzowania tworzenia profilów i punktów końcowych usługi CDN oraz zarządzania nimi.  Ten samouczek przeprowadzi Cię przez proces tworzenia prostej aplikacji konsolowej Node.js, która pokazuje kilka dostępnych operacji.  Ten samouczek nie ma na celu szczegółowego opisania wszystkich aspektów zestawu Node.js SDK Azure CDN.
+Możesz użyć [zestawu SDK Azure CDN ](https://www.npmjs.com/package/azure-arm-cdn) , aby Node.jsdo automatyzowania tworzenia profilów i punktów końcowych usługi CDN oraz zarządzania nimi.  Ten samouczek przeprowadzi Cię przez proces tworzenia prostej aplikacji konsolowej Node.js, która pokazuje kilka dostępnych operacji.  Ten samouczek nie ma na celu szczegółowego opisania wszystkich aspektów zestawu Node.js SDK Azure CDN.
 
 Aby ukończyć ten samouczek, należy mieć zainstalowany i skonfigurowany [Node.js](https://www.nodejs.org) **4. x. x** lub nowszy.  Możesz użyć dowolnego edytora tekstu, aby utworzyć aplikację Node.js.  Aby napisać ten samouczek, używam [Visual Studio Code](https://code.visualstudio.com).  
 
@@ -345,7 +345,7 @@ function cdnDelete() {
 Teraz można wykonywać nasze Node.js programu przy użyciu naszego ulubionego debugera lub konsoli programu.
 
 > [!TIP]
-> Jeśli używasz Visual Studio Code jako debugera, musisz skonfigurować środowisko, aby przekazać je do parametrów wiersza polecenia.  Visual Studio Code robi to w **launch.js** pliku.  Wyszukaj właściwość o nazwie **args** i Dodaj tablicę wartości ciągów parametrów, tak aby wyglądała podobnie do: `"args": ["list", "profiles"]` .
+> Jeśli używasz Visual Studio Code jako debugera, musisz skonfigurować środowisko, aby przekazać je do parametrów wiersza polecenia.  Visual Studio Code robi to w **launch.js** pliku.  Wyszukaj właściwość o nazwie **args** i Dodaj tablicę wartości ciągów parametrów, tak aby wyglądała podobnie do:  `"args": ["list", "profiles"]` .
 > 
 > 
 

@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/13/2020
 ms.author: memildin
-ms.openlocfilehash: 19fcefdfd163bcbd9cd2adfcba6bf6711b9bee18
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: d9229137c999157d2cea112ebb5e6e8b169eed96
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041679"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192777"
 ---
 # <a name="workflow-automation"></a>Automatyzacja przepływu pracy
 
@@ -32,7 +32,7 @@ W tym artykule opisano funkcję automatyzacji przepływu pracy Azure Security Ce
 |----|:----|
 |Stan wydania:|Ogólnie dostępna|
 |Wpisaną|Warstwa Bezpłatna|
-|Wymagane role i uprawnienia:|**Czytelnik** w subskrypcji zawierającej konfigurację eksportu<br>**Rola administratora zabezpieczeń** lub **właściciel** grupy zasobów<br>Musi mieć również uprawnienia do zapisu dla zasobu docelowego<br><br>Aby można było korzystać z przepływów pracy Azure Logic Apps, należy mieć również następujące role/uprawnienia Logic Apps:<br> - Wymagane są uprawnienia [operatora aplikacji logiki](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) lub dostęp do odczytu/wyzwalacza aplikacji logiki (Ta rola nie może tworzyć ani edytować aplikacji logiki; można *uruchamiać* tylko istniejące)<br> - Uprawnienia [współautora aplikacji logiki](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) są wymagane do utworzenia i modyfikacji aplikacji logiki<br>Jeśli chcesz używać łączników aplikacji logiki, możesz potrzebować dodatkowych poświadczeń, aby zalogować się do odpowiednich usług (na przykład wystąpień programu Outlook/zespołów/zapasowych).|
+|Wymagane role i uprawnienia:|**Rola administratora zabezpieczeń** lub **właściciel** grupy zasobów<br>Musi mieć również uprawnienia do zapisu dla zasobu docelowego<br><br>Aby można było korzystać z przepływów pracy Azure Logic Apps, należy mieć również następujące role/uprawnienia Logic Apps:<br> - Wymagane są uprawnienia [operatora aplikacji logiki](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) lub dostęp do odczytu/wyzwalacza aplikacji logiki (Ta rola nie może tworzyć ani edytować aplikacji logiki; można *uruchamiać* tylko istniejące)<br> - Uprawnienia [współautora aplikacji logiki](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) są wymagane do utworzenia i modyfikacji aplikacji logiki<br>Jeśli chcesz używać łączników aplikacji logiki, możesz potrzebować dodatkowych poświadczeń, aby zalogować się do odpowiednich usług (na przykład wystąpień programu Outlook/zespołów/zapasowych).|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov|
 |||
 
@@ -44,7 +44,8 @@ W tym artykule opisano funkcję automatyzacji przepływu pracy Azure Security Ce
 
     [![Lista automatyzacji przepływu pracy](media/workflow-automation/list-of-workflow-automations.png)](media/workflow-automation/list-of-workflow-automations.png#lightbox)
 
-    Na tej stronie można tworzyć nowe reguły automatyzacji, a także włączać, wyłączać lub usuwać istniejące.  
+    Na tej stronie można tworzyć nowe reguły automatyzacji, a także włączać, wyłączać lub usuwać istniejące.
+
 1. Aby zdefiniować nowy przepływ pracy, kliknij przycisk **Dodaj automatyzację przepływu pracy**. 
 
     Zostanie wyświetlone okienko z opcjami nowej automatyzacji. W tym miejscu możesz wprowadzić:
@@ -86,9 +87,9 @@ W tym artykule opisano funkcję automatyzacji przepływu pracy Azure Security Ce
 
 ## <a name="manually-trigger-a-logic-app"></a>Ręczne wyzwalanie aplikacji logiki
 
-Możesz również uruchomić Logic Apps ręcznie podczas wyświetlania alertu zabezpieczeń lub wszelkich zaleceń, które oferują [szybkie rozwiązywanie problemów](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#quick-fix-remediation).
+Logic Apps można również uruchomić ręcznie podczas wyświetlania alertów zabezpieczeń lub zaleceń.
 
-Aby ręcznie uruchomić aplikację logiki, Otwórz alert lub zalecenie, które obsługuje szybkie rozwiązywanie problemów i kliknij kolejno pozycje **Wyzwól aplikację logiki**:
+Aby ręcznie uruchomić aplikację logiki, Otwórz alert lub zalecenie i kliknij pozycję **Wyzwalaj aplikację logiki**:
 
 [![Ręczne wyzwalanie aplikacji logiki](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 

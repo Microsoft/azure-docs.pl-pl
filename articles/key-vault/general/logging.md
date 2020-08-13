@@ -1,6 +1,6 @@
 ---
 title: Rejestrowanie Azure Key Vault | Microsoft Docs
-description: Użyj tego samouczka, aby rozpocząć pracę z funkcją rejestrowania usługi Azure Key Vault.
+description: Dowiedz się, jak monitorować dostęp do magazynów kluczy, włączając rejestrowanie dla Azure Key Vault, które zapisuje informacje na koncie usługi Azure Storage, które podano.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9c5b07d402219907337a590e1131691fb1e24cc2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 263568ef53ec2353bf00ebcd5b48a212f0f1eb2d
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090590"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192788"
 ---
 # <a name="azure-key-vault-logging"></a>Funkcja rejestrowania usługi Azure Key Vault
 
@@ -184,7 +184,7 @@ resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CO
 resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json
 ```
 
-Jak widać na podstawie tych danych wyjściowych, obiekty blob są zgodne z konwencją nazewnictwa:`resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
+Jak widać na podstawie tych danych wyjściowych, obiekty blob są zgodne z konwencją nazewnictwa: `resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
 
 Wartości daty i godziny używają czasu UTC.
 
@@ -291,7 +291,7 @@ W poniższej tabeli wymieniono wartości **OperationName** i odpowiednie polecen
 
 | operationName | Polecenie interfejsu API REST |
 | --- | --- |
-| **Uwierzytelnianie** |Uwierzytelnianie za pośrednictwem punktu końcowego Azure Active Directory |
+| **Authentication** |Uwierzytelnianie za pośrednictwem punktu końcowego Azure Active Directory |
 | **VaultGet** |[Pobierz informacje o magazynie kluczy](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
 | **VaultPut** |[Utwórz lub zaktualizuj magazyn kluczy](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
 | **VaultDelete** |[Usuń magazyn kluczy](https://msdn.microsoft.com/library/azure/mt620022.aspx) |

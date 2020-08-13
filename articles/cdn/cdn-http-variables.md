@@ -1,6 +1,6 @@
 ---
 title: Zmienne HTTP dla aparatu reguł Azure CDN | Microsoft Docs
-description: Zmienne HTTP umożliwiają pobieranie metadanych żądań i odpowiedzi HTTP.
+description: Dowiedz się więcej o zmiennych HTTP, które umożliwiają uzyskiwanie metadanych żądania HTTP i odpowiedzi dla niektórych funkcji aparatu reguł. Użyj metadanych do zmiany żądania/odpowiedzi.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
-ms.openlocfilehash: 6e601e3e06965faf8ec0fd238c54115570150b61
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a2d9fc98ba6f514afbd88e543a859a69e0fc6c6b
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203564"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192682"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Zmienne HTTP dla aparatu reguł Azure CDN
 Zmienne HTTP zapewniają metodę, za pomocą której można pobrać metadane żądań i odpowiedzi HTTP. Można następnie użyć tych metadanych do dynamicznego zmiany żądania lub odpowiedzi. Użycie zmiennych HTTP jest ograniczone do następujących funkcji aparatu zasad:
@@ -72,7 +72,7 @@ W poniższej tabeli opisano poprawną składnię określania zmiennej HTTP.
 | Składnia | Przykład | Opis |
 | ------ | -------- | ---------- |
 | % { &lt; HTTPVariable &gt; } | % {Host} | Użyj tej składni, aby uzyskać całą wartość odpowiadającą określonemu &lt; HTTPVariable &gt; . |
-| % { &lt; HTTPVariableDelimiter &gt; } | % {Host,} | Użyj tej składni, aby ustawić wielkość liter dla całej wartości odpowiadającej określonemu &lt; HTTPVariableDelimiter &gt; . |
+| % { &lt; HTTPVariableDelimiter &gt; } | % {Host,} | Użyj tej składni, aby ustawić wielkość liter dla całej wartości odpowiadającej określonemu  &lt; HTTPVariableDelimiter &gt; . |
 | % { &lt; HTTPVariableDelimiterExpression &gt; } | % {Host/= ^ www \. ([^ \. ] +) \. ([^ \. :] +)/CDN. $2. $3:80} | Użyj wyrażenia regularnego dla &lt; HTTPVariableDelimiterExpression &gt; , aby zamienić, usunąć lub manipulować wartością zmiennej http. |
 
 Nazwy zmiennych HTTP obsługują tylko litery i znaki podkreślenia. Konwertuj nieobsługiwane znaki na podkreślenia.

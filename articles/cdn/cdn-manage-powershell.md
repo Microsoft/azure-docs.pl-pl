@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie Azure CDN przy użyciu programu PowerShell | Microsoft Docs
-description: Dowiedz się, jak zarządzać Azure CDN za pomocą poleceń cmdlet Azure PowerShell.
+description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak za pomocą programu PowerShell zarządzać aspektami profilów i punktów końcowych usługi Azure Content Delivery Network.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/20/2019
 ms.author: allensu
-ms.openlocfilehash: e7ad3034ff3730cdadcfd55765af01c97df78028
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b5fa1cedf4cc5e87d11dc4b5c453d9cb2a307c3c
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073056"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192654"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Zarządzanie Azure CDN przy użyciu programu PowerShell
 Program PowerShell udostępnia jedną z najbardziej elastycznych metod zarządzania profilami Azure CDN i punktami końcowymi.  Programu PowerShell można używać interaktywnie lub pisząc skrypty do automatyzowania zadań zarządzania.  W tym samouczku przedstawiono kilka typowych zadań, które można wykonać za pomocą programu PowerShell, aby zarządzać profilami Azure CDN i punktami końcowymi.
@@ -80,7 +80,7 @@ Cmdlet          Unpublish-AzCdnEndpointContent                     1.4.0      Az
 ```
 
 ## <a name="getting-help"></a>Uzyskiwanie pomocy
-Możesz uzyskać pomoc dotyczącą dowolnego z tych poleceń cmdlet przy użyciu `Get-Help` polecenia cmdlet.  `Get-Help`zapewnia użycie i składnię, a opcjonalnie pokazuje przykłady.
+Możesz uzyskać pomoc dotyczącą dowolnego z tych poleceń cmdlet przy użyciu `Get-Help` polecenia cmdlet.  `Get-Help` zapewnia użycie i składnię, a opcjonalnie pokazuje przykłady.
 
 ```text
 PS C:\> Get-Help Get-AzCdnProfile
@@ -139,7 +139,7 @@ Get-AzCdnProfile -ProfileName CdnDemo -ResourceGroupName CdnDemoRG
 > 
 
 ## <a name="listing-existing-cdn-endpoints"></a>Wyświetlanie listy istniejących punktów końcowych usługi CDN
-`Get-AzCdnEndpoint`może pobrać pojedynczy punkt końcowy lub wszystkie punkty końcowe w profilu.  
+`Get-AzCdnEndpoint` może pobrać pojedynczy punkt końcowy lub wszystkie punkty końcowe w profilu.  
 
 ```powershell
 # Get a single endpoint.
@@ -156,7 +156,7 @@ Get-AzCdnProfile | Get-AzCdnEndpoint | Where-Object { $_.ResourceState -eq "Runn
 ```
 
 ## <a name="creating-cdn-profiles-and-endpoints"></a>Tworzenie profilów i punktów końcowych usługi CDN
-`New-AzCdnProfile`i `New-AzCdnEndpoint` są używane do tworzenia profilów i punktów końcowych usługi CDN. Obsługiwane są następujące jednostki SKU:
+`New-AzCdnProfile` i `New-AzCdnEndpoint` są używane do tworzenia profilów i punktów końcowych usługi CDN. Obsługiwane są następujące jednostki SKU:
 - Standard_Verizon
 - Premium_Verizon
 - Custom_Verizon
@@ -177,7 +177,7 @@ New-AzCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku Stan
 ```
 
 ## <a name="checking-endpoint-name-availability"></a>Sprawdzanie dostępności nazwy punktu końcowego
-`Get-AzCdnEndpointNameAvailability`zwraca obiekt wskazujący, czy nazwa punktu końcowego jest dostępna.
+`Get-AzCdnEndpointNameAvailability` zwraca obiekt wskazujący, czy nazwa punktu końcowego jest dostępna.
 
 ```powershell
 # Retrieve availability
@@ -189,7 +189,7 @@ Else { Write-Host "No, that endpoint name is not available." }
 ```
 
 ## <a name="adding-a-custom-domain"></a>Dodawanie domeny niestandardowej
-`New-AzCdnCustomDomain`dodaje niestandardową nazwę domeny do istniejącego punktu końcowego.
+`New-AzCdnCustomDomain` dodaje niestandardową nazwę domeny do istniejącego punktu końcowego.
 
 > [!IMPORTANT]
 > Należy skonfigurować rekord CNAME za pomocą dostawcy DNS zgodnie z opisem w temacie [Jak mapować domenę niestandardową na Content Delivery Network (CDN)](cdn-map-content-to-custom-domain.md).  Możesz przetestować mapowanie Przed zmodyfikowaniem punktu końcowego przy użyciu `Test-AzCdnCustomDomain` .
@@ -208,7 +208,7 @@ If($result.CustomDomainValidated){ New-AzCdnCustomDomain -CustomDomainName Conto
 ```
 
 ## <a name="modifying-an-endpoint"></a>Modyfikowanie punktu końcowego
-`Set-AzCdnEndpoint`modyfikuje istniejący punkt końcowy.
+`Set-AzCdnEndpoint` modyfikuje istniejący punkt końcowy.
 
 ```powershell
 # Get an existing endpoint
@@ -223,7 +223,7 @@ Set-AzCdnEndpoint -CdnEndpoint $endpoint
 ```
 
 ## <a name="purgingpre-loading-cdn-assets"></a>Przeczyszczanie/ładowanie zasobów usługi CDN
-`Unpublish-AzCdnEndpointContent`Przeczyszcza buforowane elementy zawartości podczas `Publish-AzCdnEndpointContent` wstępnego ładowania zasobów dla obsługiwanych punktów końcowych.
+`Unpublish-AzCdnEndpointContent` Przeczyszcza buforowane elementy zawartości podczas `Publish-AzCdnEndpointContent` wstępnego ładowania zasobów dla obsługiwanych punktów końcowych.
 
 ```powershell
 # Purge some assets.
@@ -237,7 +237,7 @@ Get-AzCdnProfile | Get-AzCdnEndpoint | Unpublish-AzCdnEndpointContent -PurgeCont
 ```
 
 ## <a name="startingstopping-cdn-endpoints"></a>Uruchamianie/zatrzymywanie punktów końcowych usługi CDN
-`Start-AzCdnEndpoint`i `Stop-AzCdnEndpoint` może służyć do uruchamiania i zatrzymywania poszczególnych punktów końcowych lub grup punktów końcowych.
+`Start-AzCdnEndpoint` i `Stop-AzCdnEndpoint` może służyć do uruchamiania i zatrzymywania poszczególnych punktów końcowych lub grup punktów końcowych.
 
 ```powershell
 # Stop the cdndocdemo endpoint
@@ -274,7 +274,7 @@ Set-AzCdnEndpoint -CdnEndpoint $ep
 ```
 
 ## <a name="deleting-cdn-resources"></a>Usuwanie zasobów usługi CDN
-`Remove-AzCdnProfile`i `Remove-AzCdnEndpoint` może służyć do usuwania profilów i punktów końcowych.
+`Remove-AzCdnProfile` i `Remove-AzCdnEndpoint` może służyć do usuwania profilów i punktów końcowych.
 
 ```powershell
 # Remove a single endpoint

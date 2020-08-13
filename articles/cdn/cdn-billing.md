@@ -1,6 +1,6 @@
 ---
 title: Informacje dotyczące rozliczeń Azure CDN | Microsoft Docs
-description: Ten często zadawane pytania opisują sposób działania Azure CDN rozliczeń.
+description: Poznaj strukturę rozliczeń zawartości hostowanej przez usługę Azure Content Delivery Network, w tym obszary rozliczeń, opłaty za dostarczanie i zarządzanie kosztami.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
-ms.openlocfilehash: f3240151937a8ad758e4afe765341261069fd60e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd6b4831b29a99ed6694f75e64202f339385b7ea
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254569"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191159"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Omówienie rozliczania za usługę Azure CDN
 
@@ -96,7 +96,7 @@ W przypadku korzystania z jednej z następujących usług platformy Azure jako �
 - Virtual Network
 - Load Balancer
 - Application Gateway
-- System DNS platformy Azure
+- Azure DNS
 - ExpressRoute
 - VPN Gateway
 - Traffic Manager
@@ -107,7 +107,7 @@ W przypadku korzystania z jednej z następujących usług platformy Azure jako �
 - Usługa Azure App Service
 - Azure Functions
 - Azure Data Factory
-- Usługa Azure API Management
+- Azure API Management
 - Azure Batch 
 - Azure Data Explorer
 - HDInsight

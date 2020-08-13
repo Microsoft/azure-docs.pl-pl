@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 16065b45a6afea25615b985d3c89445dee48bd1d
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 947f7afba6a8b40e9b1c71ac817239dd039539f7
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167729"
+ms.locfileid: "88192403"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Izolacja sieci podczas uczenia & wnioskowania z prywatnymi sieciami wirtualnymi
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,6 +33,13 @@ __Sieć wirtualna__ działa jako granica zabezpieczeń, izolowanie zasobów plat
 
 + Wstępnie istniejąca sieć wirtualna i podsieć do użycia z zasobami obliczeniowymi.
 
++ Aby można było wdrożyć zasoby w sieci wirtualnej lub podsieci, konto użytkownika musi mieć uprawnienia do następujących akcji w kontroli dostępu opartej na rolach (RBAC) na platformie Azure:
+
+    - "Microsoft. Network/virtualNetworks/Join/Action" w zasobie sieci wirtualnej.
+    - "Microsoft. Network/virtualNetworks/Subnet/Join/Action" w zasobie podsieci.
+
+    Aby uzyskać więcej informacji na temat RBAC w sieci, zobacz [wbudowane role sieciowe](/azure/role-based-access-control/built-in-roles#networking) .
+
 ## <a name="private-endpoints"></a>Prywatne punkty końcowe
 
 Możesz również [włączyć link prywatny platformy Azure](how-to-configure-private-link.md) , aby połączyć się z obszarem roboczym przy użyciu prywatnego punktu końcowego. Prywatny punkt końcowy to zestaw prywatnych adresów IP w sieci wirtualnej. [Dowiedz się, jak skonfigurować ten prywatny punkt końcowy.](how-to-configure-private-link.md)
@@ -42,7 +49,7 @@ Możesz również [włączyć link prywatny platformy Azure](how-to-configure-pr
 > [!TIP]
 > Możesz połączyć sieć wirtualną i połączenie prywatne, aby chronić komunikację między obszarem roboczym i innymi zasobami platformy Azure. Jednak niektóre kombinacje wymagają obszaru roboczego wersja Enterprise. Skorzystaj z poniższej tabeli, aby zrozumieć, jakie scenariusze wymagają wydania Enterprise Edition:
 >
-> | Scenariusz | Enterprise</br>bitowych | Podstawowy</br>bitowych |
+> | Scenariusz | Enterprise</br>bitowych | Podstawowa</br>bitowych |
 > | ----- |:-----:|:-----:| 
 > | Brak sieci wirtualnej lub prywatnego linku | ✔ | ✔ |
 > | Obszar roboczy bez linku prywatnego. Inne zasoby (z wyjątkiem Azure Container Registry) w sieci wirtualnej | ✔ | ✔ |
@@ -79,7 +86,7 @@ Program Virtual Machines obsługuje odczytywanie danych z następujących typów
 * Obiekt bob Azure
 * Usługa Azure Data Lake Storage 1. generacji
 * Usługa Azure Data Lake Storage 2. generacji
-* Usługa Azure SQL Database
+* Azure SQL Database
 
 ### <a name="add-resources-to-the-virtual-network"></a>Dodawanie zasobów do sieci wirtualnej 
 
@@ -97,7 +104,7 @@ Po dodaniu obszaru roboczego i konta usługi magazynu do sieci wirtualnej należ
 
 1. Aby utworzyć nowy magazyn danych, wybierz pozycję __+ nowy magazyn__danych. Aby zaktualizować istniejący, wybierz magazyn danych i wybierz pozycję __Aktualizuj poświadczenia__.
 
-1. W ustawieniach magazynu danych wybierz opcję __tak__ , aby __umożliwić usłudze Azure Machine Learning dostęp do magazynu przy użyciu tożsamości zarządzanej w obszarze roboczym__.
+1. W ustawieniach magazynu danych wybierz opcję __tak__ , aby  __umożliwić usłudze Azure Machine Learning dostęp do magazynu przy użyciu tożsamości zarządzanej w obszarze roboczym__.
 
 > [!NOTE]
 > Wprowadzenie zmian może potrwać do 10 minut.
@@ -203,7 +210,7 @@ Domyślnie Azure Machine Learning sprawdza ważność danych i sprawdzanie pośw
 - Azure Blob Storage
 - Udział plików platformy Azure
 - PostgreSQL
-- Usługa Azure SQL Database
+- Azure SQL Database
 
 Poniższy przykład kodu tworzy nowy magazyn danych obiektów blob platformy Azure `skip_validation=True` .
 
@@ -263,7 +270,7 @@ Aby można było użyć [zarządzanego __obiektu docelowego obliczeń__ Azure Ma
 > Te zasoby są ograniczone przez [limity zasobów](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) subskrypcji.
 
 
-### <a name="required-ports"></a><a id="mlcports"></a>Wymagane porty
+### <a name="required-ports"></a><a id="mlcports"></a> Wymagane porty
 
 Jeśli planujesz zabezpieczenie sieci wirtualnej przez ograniczenie ruchu sieciowego do/z publicznej sieci Internet, musisz zezwolić na komunikację przychodzącą z usługi Azure Batch.
 
@@ -294,7 +301,7 @@ Konfiguracja reguły sieciowej grupy zabezpieczeń w Azure Portal przedstawiono 
 
 ![Wychodzące reguły sieciowej grupy zabezpieczeń dla środowisko obliczeniowe usługi Machine Learning](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
 
-### <a name="limit-outbound-connectivity-from-the-virtual-network"></a><a id="limiting-outbound-from-vnet"></a>Ogranicz łączność wychodzącą z sieci wirtualnej
+### <a name="limit-outbound-connectivity-from-the-virtual-network"></a><a id="limiting-outbound-from-vnet"></a> Ogranicz łączność wychodzącą z sieci wirtualnej
 
 Jeśli nie chcesz używać domyślnych reguł ruchu wychodzącego i chcesz ograniczyć dostęp wychodzący do sieci wirtualnej, wykonaj następujące czynności:
 

@@ -1,18 +1,18 @@
 ---
 title: 'Azure ExpressRoute: kontrolki zabezpieczeń'
-description: Lista kontrolna zabezpieczeń na potrzeby oceny usługi Azure ExpressRoute
+description: Dowiedz się więcej o kontrolkach zabezpieczeń w usłudze Azure ExpressRoute, które są właściwościami i funkcjami, które pomagają zapobiegać lukami w zabezpieczeniach, wykrywać je i reagować na nie
 services: expressroute
 ms.service: expressroute
 author: msmbaldwin
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a288b44c07bc2df8529f07264dcee648f3af379a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a4589d1aa768548f2ae9ffa01f289c823c0b2e5
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74079926"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192415"
 ---
 # <a name="security-controls-for-azure-expressroute"></a>Kontrolki zabezpieczeń dla usługi Azure ExpressRoute
 

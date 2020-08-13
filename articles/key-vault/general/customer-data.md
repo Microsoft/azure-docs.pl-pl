@@ -1,6 +1,6 @@
 ---
 title: Azure Key Vault funkcje danych klienta — Azure Key Vault | Microsoft Docs
-description: Informacje o klientach w Key Vault
+description: Informacje o klientach, które Azure Key Vault odbierane podczas tworzenia lub aktualizowania magazynów, kluczy, wpisów tajnych, certyfikatów i zarządzanych kont magazynu.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: bceea53e6b177940305a2dc77f2a6ecfa37f277a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7cfc707aa4bccdcd72e45efa3693ebd8f88a211
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81617905"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189926"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault funkcje danych klienta
 

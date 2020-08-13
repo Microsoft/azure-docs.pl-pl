@@ -1,6 +1,6 @@
 ---
 title: Azure Key Vault limity usługi — Azure Key Vault | Microsoft Docs
-description: Dowiedz się więcej na temat limitów usługi dla Azure Key Vault.
+description: Dowiedz się więcej o limitach usługi dla Azure Key Vault, w tym najważniejszych transakcji i integracji z usługą Azure Private link.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 75fec93be9b43785a91c93b7c609231e37188602
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec1894a54e9ebc10e10c40984b4891be9272bd33
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81429826"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191748"
 ---
 # <a name="azure-key-vault-service-limits"></a>Limity usługi Azure Key Vault
 

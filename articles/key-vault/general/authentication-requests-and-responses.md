@@ -1,6 +1,6 @@
 ---
 title: Uwierzytelnianie, żądania i odpowiedzi
-description: Uwierzytelnianie w usłudze AD przy użyciu Key Vault
+description: Dowiedz się, w jaki sposób Azure Key Vault korzysta z żądań i odpowiedzi w formacie JSON oraz o wymaganym uwierzytelnianiu dla korzystania z magazynu kluczy.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 33e3bc13e67e268b82bf517033b4b1c7c51c361f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b4c8ad666efa32d98e78a0bc2544d0f8851be5e
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81430892"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191792"
 ---
 # <a name="authentication-requests-and-responses"></a>Uwierzytelnianie, żądania i odpowiedzi
 
@@ -28,15 +28,15 @@ W tym temacie omówiono specyficzne dla usługi Azure Key Vault. Aby uzyskać og
 
  Aby można było korzystać z obiektów w Azure Key Vault, przykładowe adresy URL:  
 
-- Aby utworzyć klucz o nazwie TESTKEY w Key Vault use-`PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
+- Aby utworzyć klucz o nazwie TESTKEY w Key Vault use- `PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
 
-- Aby ZAIMPORTOWAĆ klucz o nazwie IMPORTEDKEY do Key Vault Użyj-`POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
+- Aby ZAIMPORTOWAĆ klucz o nazwie IMPORTEDKEY do Key Vault Użyj- `POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
 
-- Aby uzyskać wpis tajny o nazwie dbsecret w Key Vault use-`GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
+- Aby uzyskać wpis tajny o nazwie dbsecret w Key Vault use- `GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
 
-- Aby PODPISać skrót przy użyciu klucza o nazwie TESTKEY w Key Vault use-`POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
+- Aby PODPISać skrót przy użyciu klucza o nazwie TESTKEY w Key Vault use- `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
 
-  Urząd żądania do Key Vault jest zawsze następujący:`https://{keyvault-name}.vault.azure.net/`  
+  Urząd żądania do Key Vault jest zawsze następujący:  `https://{keyvault-name}.vault.azure.net/`  
 
   Klucze są zawsze przechowywane pod ścieżką/Keys, wpisy tajne są zawsze przechowywane pod ścieżką/Secrets.  
 
@@ -88,7 +88,7 @@ W tym temacie omówiono specyficzne dla usługi Azure Key Vault. Aby uzyskać og
 
 ```  
 
-## <a name="authentication"></a>Uwierzytelnianie  
+## <a name="authentication"></a>Authentication  
  Wszystkie żądania do Azure Key Vault muszą być uwierzytelnione. Azure Key Vault obsługuje tokeny dostępu Azure Active Directory, które można uzyskać za pomocą OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
  Aby uzyskać więcej informacji na temat rejestrowania aplikacji i uwierzytelniania w celu korzystania z Azure Key Vault, zobacz [Rejestrowanie aplikacji klienckiej w usłudze Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).

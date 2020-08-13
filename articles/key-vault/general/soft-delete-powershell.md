@@ -1,6 +1,6 @@
 ---
 title: Azure Key Vault — jak używać nietrwałego usuwania przy użyciu programu PowerShell
-description: Przykłady użycia nietrwałego usuwania przy użyciu wycinków kodu programu PowerShell
+description: Dowiedz się, jak za pomocą Azure PowerShell używać funkcji usuwania nietrwałego Azure Key Vault, która umożliwia odzyskiwanie magazynów kluczy i obiektów magazynu kluczy.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 55e4bd20b6cc17a5cbad620d3a404d6ada41b81a
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 094eb784244f74fe75bf456b01c9a85457b28ba3
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136477"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191513"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Jak używać usuwania nietrwałego w usłudze Key Vault z programem PowerShell
 

@@ -3,12 +3,12 @@ title: Uaktualnianie węzłów klastra do korzystania z usługi Azure Managed di
 description: Oto jak uaktualnić istniejący klaster Service Fabric, aby używać usługi Azure Managed disks z niewielkim lub żadnym przestojem klastra.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 10863626945483e21aa264e2b05e94a6f08a22f6
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 1ca85af86df28691e2194c40e1cdde1abd7c8a4d
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542867"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192294"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Uaktualnianie węzłów klastra do korzystania z usługi Azure Managed disks
 
@@ -24,10 +24,13 @@ Ogólna strategia uaktualniania Service Fabric węzła klastra do korzystania z 
 
 W tym artykule opisano kroki uaktualniania podstawowego typu węzła przykładowego klastra do korzystania z dysków zarządzanych, unikając czasu przestoju klastra (patrz Uwaga poniżej). Początkowy stan przykładowego klastra testowego składa się z jednego typu węzła o [trwałości Silver](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), który jest objęty jednym zestawem skalowania z pięcioma węzłami.
 
+> [!NOTE]
+> Ograniczenia podstawowego modułu równoważenia obciążenia jednostki SKU uniemożliwiają dodanie dodatkowego zestawu skalowania. Zalecamy użycie w zamian standardowego modułu równoważenia obciążenia jednostki SKU. Aby uzyskać więcej informacji, zobacz [porównanie dwóch jednostek SKU](/azure/load-balancer/skus).
+
 > [!CAUTION]
 > W tej procedurze wystąpi awaria tylko wtedy, gdy istnieją zależności w systemie DNS klastra (na przykład podczas uzyskiwania dostępu do [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). [Najlepszym rozwiązaniem w zakresie architektury dla usług frontonu](/azure/architecture/microservices/design/gateway) jest posiadanie pewnego rodzaju [modułu równoważenia obciążenia](/azure/architecture/guide/technology-choices/load-balancing-overview) przed typami węzłów w celu zapewnienia możliwości wymiany węzłów bez przestoju.
 
-Poniżej przedstawiono [Szablony i polecenia cmdlet](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) dla Azure Resource Manager, które zostaną użyte do ukończenia scenariusza uaktualniania. Zmiany w szablonie zostaną omówione w temacie [Wdróż uaktualniony zestaw skalowania dla typu węzła podstawowego](#deploy-an-upgraded-scale-set-for-the-primary-node-type) poniżej.
+Poniżej przedstawiono [Szablony i polecenia cmdlet](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) dla Azure Resource Manager, które zostaną użyte do ukończenia scenariusza uaktualniania. Zmiany w szablonie zostaną omówione w temacie [Wdróż uaktualniony zestaw skalowania dla typu węzła podstawowego](#deploy-an-upgraded-scale-set-for-the-primary-node-type)  poniżej.
 
 ## <a name="set-up-the-test-cluster"></a>Konfigurowanie klastra testowego
 
@@ -44,7 +47,7 @@ Poniższe polecenia przeprowadzą Cię przez proces generowania nowego certyfika
 
 ### <a name="generate-a-self-signed-certificate-and-deploy-the-cluster"></a>Wygeneruj certyfikat z podpisem własnym i Wdróż klaster
 
-Najpierw Przypisz zmienne, które będą potrzebne do wdrożenia klastra Service Fabric. Dostosuj wartości dla `resourceGroupName` ,, `certSubjectName` `parameterFilePath` i `templateFilePath` dla określonego konta i środowiska:
+Najpierw Przypisz zmienne, które będą potrzebne do wdrożenia klastra Service Fabric. Dostosuj wartości dla `resourceGroupName` ,,  `certSubjectName` `parameterFilePath` i `templateFilePath` dla określonego konta i środowiska:
 
 ```powershell
 # Assign deployment variables
@@ -165,7 +168,7 @@ Poniżej przedstawiono modyfikacje sekcji dotyczące oryginalnego szablonu wdro�
 
 #### <a name="parameters"></a>Parametry
 
-Dodaj parametr dla nazwy wystąpienia nowego zestawu skalowania. Należy pamiętać, że `vmNodeType1Name` jest ona unikatowa dla nowego zestawu skalowania, podczas gdy wartości Count i size są identyczne z oryginalnym zestawem skalowania.
+Dodaj parametry dla nazwy wystąpienia, liczby i rozmiaru nowego zestawu skalowania. Należy pamiętać, że `vmNodeType1Name` jest ona unikatowa dla nowego zestawu skalowania, podczas gdy wartości Count i size są identyczne z oryginalnym zestawem skalowania.
 
 **Plik szablonu**
 
@@ -174,7 +177,18 @@ Dodaj parametr dla nazwy wystąpienia nowego zestawu skalowania. Należy pamięt
     "type": "string",
     "defaultValue": "NTvm2",
     "maxLength": 9
-}
+},
+"nt1InstanceCount": {
+    "type": "int",
+    "defaultValue": 5,
+    "metadata": {
+        "description": "Instance count for node type"
+    }
+},
+"vmNodeType1Size": {
+    "type": "string",
+    "defaultValue": "Standard_D2_v2"
+},
 ```
 
 **Plik parametrów**
@@ -182,6 +196,12 @@ Dodaj parametr dla nazwy wystąpienia nowego zestawu skalowania. Należy pamięt
 ```json
 "vmNodeType1Name": {
     "value": "NTvm2"
+},
+"nt1InstanceCount": {
+    "value": 5
+},
+"vmNodeType1Size": {
+    "value": "Standard_D2_v2"
 }
 ```
 
@@ -199,13 +219,13 @@ W sekcji szablon wdrożenia `variables` Dodaj wpis dla puli adresów NAT dla ruc
 
 W sekcji *zasoby* szablonu wdrożenia Dodaj nowy zestaw skalowania maszyn wirtualnych, pamiętając o następujących kwestiach:
 
-* Nowy zestaw skalowania odwołuje się do nowego typu węzła:
+* Nowy zestaw skalowania odwołuje się do tego samego typu węzła co oryginalny:
 
     ```json
-    "nodeTypeRef": "[parameters('vmNodeType1Name')]",
+    "nodeTypeRef": "[parameters('vmNodeType0Name')]",
     ```
 
-* Nowy zestaw skalowania odwołuje się do tego samego adresu zaplecza modułu równoważenia obciążenia i podsieci co wersja oryginalna, ale używa innej puli NAT dla ruchu przychodzącego modułu równoważenia obciążenia:
+* Nowy zestaw skalowania odwołuje się do tego samego adresu zaplecza i podsieci usługi równoważenia obciążenia (ale używa innej puli NAT dla ruchu przychodzącego modułu równoważenia obciążenia):
 
    ```json
     "loadBalancerBackendAddressPools": [
@@ -236,33 +256,6 @@ W sekcji *zasoby* szablonu wdrożenia Dodaj nowy zestaw skalowania maszyn wirtua
         "storageAccountType": "[parameters('storageAccountType')]"
     }
     ```
-
-Następnie Dodaj wpis do `nodeTypes` listy zasobów *Microsoft. servicefabric/klastrów* . Użyj takich samych wartości jak pierwotny wpis typu węzła, z wyjątkiem `name` , który powinien odwoływać się do nowego typu węzła (*vmNodeType1Name*).
-
-```json
-"nodeTypes": [
-    {
-        "name": "[parameters('vmNodeType0Name')]",
-        ...
-    },
-    {
-        "name": "[parameters('vmNodeType1Name')]",
-        "applicationPorts": {
-            "endPort": "[parameters('nt0applicationEndPort')]",
-            "startPort": "[parameters('nt0applicationStartPort')]"
-        },
-        "clientConnectionEndpointPort": "[parameters('nt0fabricTcpGatewayPort')]",
-        "durabilityLevel": "Silver",
-        "ephemeralPorts": {
-            "endPort": "[parameters('nt0ephemeralEndPort')]",
-            "startPort": "[parameters('nt0ephemeralStartPort')]"
-        },
-        "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
-        "isPrimary": true,
-        "vmInstanceCount": "[parameters('nt0InstanceCount')]"
-    }
-],
-```
 
 Po zaimplementowaniu wszystkich zmian w plikach szablonu i parametrów przejdź do następnej sekcji, aby uzyskać informacje dotyczące Key Vault i wdrożyć aktualizacje w klastrze.
 

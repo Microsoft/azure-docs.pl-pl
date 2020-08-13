@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: dde11b6097dddb1568f5adfea811606214a9759e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c944ae3a5d647cc457edd20a5d3dd0489e19e286
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75891247"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192280"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR Service — FAQ
 
@@ -68,3 +68,39 @@ Nie.
 Usługa Azure SignalR Service oferuje wszystkie trzy rodzaje transportu, które domyślnie obsługuje biblioteka SignalR platformy ASP.NET Core. Tego nie można konfigurować. Usługa SignalR Service będzie obsługiwać połączenia i transport dla wszystkich połączeń klienckich.
 
 Możesz skonfigurować transport po stronie klienta, zgodnie z opisem umieszczonym [tutaj](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1&tabs=dotnet#configure-allowed-transports-2).
+
+## <a name="what-is-the-meaning-of-metrics-like-message-count-or-connection-count-showed-in-azure-portal-which-kind-of-aggregation-type-should-i-choose"></a>Jaki jest znaczenie metryk, takich jak liczba komunikatów lub liczba połączeń pokazane w Azure Portal? Jakiego typu agregacji należy wybrać?
+
+Szczegółowe informacje na temat sposobu obliczania tych metryk są dostępne [tutaj](signalr-concept-messages-and-connections.md).
+
+W bloku przeglądu zasobów usługi Azure Signal Service został już wybrany odpowiedni typ agregacji. A jeśli przejdziesz do bloku metryk, możesz w [tym miejscu](../azure-monitor/platform/metrics-supported.md#microsoftsignalrservicesignalr) zastosować typ agregacji jako odwołanie.
+
+## <a name="what-is-the-meaning-of-service-mode-defaultserverlessclassic-how-can-i-choose"></a>Czym jest znaczenie trybu usługi `Default` / `Serverless` / `Classic` ? Jak mogę wybrać?
+
+Środka
+* `Default` tryb **wymaga** serwera centrum. Jeśli dla centrum nie ma dostępnego połączenia z serwerem, klient próbuje nawiązać połączenie z tym centrum.
+* `Serverless` tryb nie **zezwala na** żadne połączenie z serwerem, czyli spowoduje odrzucenie wszystkich połączeń z serwerem, wszyscy klienci muszą w trybie bezserwerowym.
+* `Classic` tryb jest stanem mieszanym. Gdy koncentrator ma połączenie z serwerem, nowy klient zostanie rozesłany do serwera Hub, w przeciwnym razie klient przejdzie do trybu bezserwerowego.
+
+  Może to spowodować jakiś problem, na przykład w przypadku utraty wszystkich połączeń z serwerem, niektórzy klienci będą wprowadzać tryb bez serwera zamiast kierować do serwera Hub.
+
+Określając
+1. Brak serwera centrum, wybierz opcję `Serverless` .
+1. Wszystkie centra mają serwery centrów, wybierz opcję `Default` .
+1. Niektóre centra mają serwery Hub, inne nie, wybierają `Classic` się, ale może to spowodować jakiś problem. lepszym sposobem jest utworzenie dwóch wystąpień, jeden z `Serverless` drugim `Default` .
+
+## <a name="any-feature-differences-when-using-azure-signalr-for-aspnet-signalr"></a>Jakie są różnice dotyczące funkcji w przypadku korzystania z usługi Azure Signal dla sygnalizującego ASP.NET?
+W przypadku korzystania z usługi Azure sygnalizacyjnym niektóre interfejsy API i funkcje sygnalizujące ASP.NET nie są już obsługiwane:
+- Możliwość przekazywania dowolnego stanu między klientami a centrum (często wywoływane `HubState` ) nie jest obsługiwana w przypadku korzystania z usługi Azure Signal
+- `PersistentConnection` Klasa nie jest jeszcze obsługiwana w przypadku korzystania z usługi Azure Signal
+- **Transport ramki bez ograniczeń** nie jest obsługiwany w przypadku korzystania z usługi Azure Signal
+- Usługa Azure sygnalizująca nie odtwarza już komunikatów wysyłanych do klienta, gdy klient jest w trybie offline
+- W przypadku korzystania z usługi Azure Signal ruch dla jednego połączenia klienta jest zawsze kierowany (alias. Program **Sticker**) do jednego wystąpienia serwera aplikacji na czas trwania połączenia
+
+Pomoc techniczna dla sygnalizującego ASP.NET jest ukierunkowana na zgodność, więc nie wszystkie nowe funkcje z ASP.NET Core sygnalizujący są obsługiwane. Na przykład **MessagePack**, **Streaming**itp., są dostępne tylko dla aplikacji dla sygnałów ASP.NET Core.
+
+Usługę sygnalizującą można skonfigurować dla innego trybu usługi: `Classic` / `Default` / `Serverles` s. W tym obsłudze ASP.NET `Serverless` tryb nie jest obsługiwany. Interfejs API REST płaszczyzny danych również nie jest obsługiwany.
+
+## <a name="where-do-my-data-reside"></a>Gdzie znajdują się moje dane?
+
+Usługa Azure Signal Service działa jako usługa procesora danych. Nie będzie ona przechowywać żadnej zawartości klienta i dane zamieszkania są zadzielone przez zaprojektowanie. Jeśli używasz usługi Azure Signal Service wraz z innymi usługami platformy Azure, takimi jak Azure Storage for Diagnostics, zobacz [tutaj](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) , aby uzyskać wskazówki dotyczące przechowywania danych znajdujących się w regionach platformy Azure.

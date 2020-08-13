@@ -1,6 +1,6 @@
 ---
 title: Wysoka dostępność — dedykowany moduł HSM platformy Azure | Microsoft Docs
-description: Przykład wysokiej dostępności dedykowanego modułu HSM platformy Azure i podstawowe zagadnienia
+description: Poznaj podstawowe zagadnienia dotyczące wysokiej dostępności dedykowanego modułu HSM platformy Azure. Ten artykuł zawiera przykład.
 services: dedicated-hsm
 author: msmbaldwin
 manager: rkarlin
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 536ef62acad900090924598edfa45450b2a8c951
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f8fa2f12825fe88218fe7033a1721cb49fc7335
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70882251"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189858"
 ---
 # <a name="azure-dedicated-hsm-high-availability"></a>Dedykowana wysoka dostępność platformy Azure
 
@@ -25,7 +25,7 @@ Dedykowany moduł HSM platformy Azure jest przypięty przez centra danych o wyso
 
 ## <a name="high-availability-example"></a>Przykład wysokiej dostępności
 
-Informacje na temat konfigurowania urządzeń HSM w celu zapewnienia wysokiej dostępności na poziomie oprogramowania są dostępne w podręczniku administratora firmy Gemalto Luna Network HSM. Ten dokument jest dostępny na [stronie modułu HSM firmy Gemalto](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/).
+Informacje na temat konfigurowania urządzeń HSM w celu zapewnienia wysokiej dostępności na poziomie oprogramowania są dostępne w podręczniku administratora firmy Gemalto Luna Network HSM. Ten dokument jest dostępny na  [stronie modułu HSM firmy Gemalto](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/).
 
 Na poniższym diagramie przedstawiono architekturę o wysokiej dostępności. Używa wielu urządzeń w regionie i wielu urządzeń sparowanych w osobnym regionie. W tej architekturze są stosowane co najmniej cztery urządzenia HSM i wirtualne składniki sieciowe.
 

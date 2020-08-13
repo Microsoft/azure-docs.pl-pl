@@ -1,6 +1,6 @@
 ---
 title: Tryb failover dla wielu punktów końcowych Azure CDN z Traffic Manager
-description: Dowiedz się więcej na temat sposobu konfigurowania Traffic Manager platformy Azure za pomocą Azure CDN punktów końcowych.
+description: Dowiedz się, jak skonfigurować tryb failover dla wielu punktów końcowych usługi Azure Content Delivery Network przy użyciu usługi Azure Traffic Manager.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 03/18/2019
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: d557637815036fa49e83f1d11a948f264d493321
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b55e418393d6d446ae0d3557f2d1f4cf98d89293
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888658"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192506"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Konfigurowanie trybu failover dla wielu punktów końcowych Azure CDN przy użyciu usługi Azure Traffic Manager
 
@@ -68,7 +68,7 @@ Po skonfigurowaniu profilów sieci CDN i Traffic Manager wykonaj następujące k
 
     b. Dla drugiego wpisu CNAME Mapuj domenę niestandardową bez poddomeny cdnverify do punktu końcowego usługi CDN. Ten wpis mapuje domenę niestandardową na Traffic Manager. 
 
-      Przykład: 
+      Na przykład: 
       
       `cdndemo101.dustydogpetcare.online  CNAME  cdndemo101.trafficmanager.net`   
 
@@ -87,7 +87,7 @@ Po skonfigurowaniu profilów sieci CDN i Traffic Manager wykonaj następujące k
 
 3.  Wróć do witryny sieci Web dostawcy domeny niestandardowej i zaktualizuj pierwsze mapowanie DNS utworzone w programie, tak aby domena niestandardowa została zamapowana na drugi punkt końcowy usługi CDN.
                              
-    Przykład: 
+    Na przykład: 
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 

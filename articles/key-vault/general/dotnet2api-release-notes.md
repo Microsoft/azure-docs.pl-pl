@@ -1,6 +1,6 @@
 ---
 title: Informacje o wersji interfejsu API platformy .NET 2. x Key Vault | Microsoft Docs
-description: Deweloperzy platformy .NET będą używać tego interfejsu API do kodowania Azure Key Vault
+description: Dowiedz się, jak aktualizować aplikacje przeznaczone dla wcześniejszych wersji Azure Key Vault do pracy z wersją 2,0 biblioteki Azure Key Vault dla języków C# i .NET.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 436b9c1569d7c33f79a126cd4d0513bac9385d8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 018570019b306dced76760fefa4441ee7d86ad2a
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81431919"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189837"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2,0 — informacje o wersji i przewodnik migracji
 Poniższe informacje ułatwiają migrowanie do wersji 2,0 biblioteki Azure Key Vault dla języków C# i .NET.  Aplikacje przeznaczone dla wcześniejszych wersji muszą zostać zaktualizowane w celu obsługi najnowszej wersji.  Te zmiany są konieczne, aby w pełni obsługiwać nowe i udoskonalone funkcje, takie jak **Key Vault Certificates**.
@@ -36,7 +36,7 @@ Key Vault certyfikaty zarządzają certyfikatami x509 i obsługują następując
 * **.NET Framework 4.5.2** jest obsługiwany przez wersję 2,0 biblioteki Azure Key Vault .NET
 * **.NET Standard 1,4** jest obsługiwana w wersji 2,0 biblioteki Azure Key Vault .NET
 
-## <a name="namespaces"></a>Przestrzenie nazw
+## <a name="namespaces"></a>Namespaces
 
 * Przestrzeń nazw dla **modeli** została zmieniona z **Microsoft. Azure. z magazynu** kluczy na **Microsoft. Azure. kluczy. models**.
 * **Magazyn Microsoft. Azure. kluczy. wewnętrzna** przestrzeń nazw została porzucona.
@@ -50,7 +50,7 @@ Key Vault certyfikaty zarządzają certyfikatami x509 i obsługują następując
 * *Wpis tajny* został zmieniony na *SecretBundle*
 * *Słownik* został zmieniony na *IDictionary*
 * *List \<T> , String []* zmieniono na *IList \<T> *
-* *NextList* zmieniony na *NextPageLink*
+* *NextList* zmieniony na  *NextPageLink*
 
 ## <a name="return-types"></a>Typy zwracane
 
@@ -63,7 +63,7 @@ Key Vault certyfikaty zarządzają certyfikatami x509 i obsługują następując
 * Błąd usługi został zmieniony z *wyjątku. Błąd* do *wyjątku. Treść. Error. Message*.
 * Usunięto dodatkowe informacje z komunikatu o błędzie dla **[JsonExtensionData]**.
 
-## <a name="constructors"></a>Konstruktory
+## <a name="constructors"></a>Konstruktorów
 
 * Zamiast zaakceptowania *HttpClient* jako argumentu konstruktora, Konstruktor akceptuje tylko *HttpClientHandler* lub *DelegatingHandler []*.
 

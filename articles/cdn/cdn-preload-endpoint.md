@@ -1,6 +1,6 @@
 ---
 title: Wstępne ładowanie zasobów w punkcie końcowym Azure CDN | Microsoft Docs
-description: Dowiedz się, jak wstępnie ładować zawartość pamięci podręcznej w punkcie końcowym Azure CDN.
+description: Dowiedz się, jak wstępnie ładować zawartość pamięci podręcznej w punkcie końcowym usługi Azure Content Delivery Network. Ta funkcja jest dostępna w niektórych wersjach produktu.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2018
 ms.author: allensu
-ms.openlocfilehash: 587a6c4104693e8ccf610a670064832364a166d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f0968af5cb52904f6044e130adba8b0ba9a6cd1
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887574"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192577"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Wstępne ładowanie zasobów w punkcie końcowym usługi Azure CDN
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -50,8 +50,8 @@ Ten samouczek przeprowadzi Cię przez wstępne ładowanie zawartości z pamięci
    > Po rozpoczęciu wprowadzania tekstu, pojawią się więcej pól tekstowych **ścieżki zawartości** , aby umożliwić tworzenie listy wielu zasobów. Aby usunąć zasoby z listy, wybierz przycisk wielokropka (...), a następnie wybierz pozycję **Usuń**.
    > 
    > Każda ścieżka zawartości musi być względnym adresem URL, który pasuje do następujących [wyrażeń regularnych](/dotnet/standard/base-types/regular-expression-language-quick-reference):  
-   > - Załaduj pojedynczą ścieżkę pliku:`^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
-   > - Załaduj pojedynczy plik z ciągiem zapytania:`^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
+   > - Załaduj pojedynczą ścieżkę pliku: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
+   > - Załaduj pojedynczy plik z ciągiem zapytania: `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 
    > Ponieważ każdy element zawartości musi mieć własną ścieżkę, nie ma funkcji wieloznacznych do wstępnego ładowania zasobów.
    > 
@@ -66,7 +66,7 @@ Ten samouczek przeprowadzi Cię przez wstępne ładowanie zawartości z pamięci
 > 
 > 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Przeczyszczanie punktu końcowego Azure CDN](cdn-purge-endpoint.md)
 * [Azure CDN informacje o interfejsie API REST: Załaduj wstępnie zawartość w punkcie końcowym](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
 * [Azure CDN informacje o interfejsie API REST: Przeczyść zawartość z punktu końcowego](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)

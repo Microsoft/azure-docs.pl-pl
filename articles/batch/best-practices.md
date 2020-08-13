@@ -1,14 +1,14 @@
 ---
 title: Najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i przydatne porady dotyczące tworzenia rozwiązań Azure Batch.
-ms.date: 07/30/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 535deebd0ba683d9387408ad081d165a504c91d1
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 8f557403426fe4e37287acb681c91069e90fb926
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87474907"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191804"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch najlepszych praktyk
 
@@ -56,6 +56,10 @@ Błędy alokacji puli mogą wystąpić w dowolnym momencie podczas pierwszego pr
 Istnieje możliwość, że pule usługi Batch mogą mieć zdarzenia przestoju na platformie Azure. Należy pamiętać o tym, gdy planujesz i opracowujesz swój scenariusz lub przepływ pracy dla usługi Batch.
 
 W przypadku awarii węzła funkcja Batch automatycznie próbuje odzyskać te węzły obliczeniowe w Twoim imieniu. Może to spowodować ponowne zaplanowanie uruchomionego zadania w węźle, który został odzyskany. Zobacz temat [projektowanie pod kątem ponownych prób](#design-for-retries-and-re-execution) , aby dowiedzieć się więcej o przerwanych zadaniach.
+
+### <a name="custom-image-pools"></a>Pule obrazów niestandardowych
+
+Podczas tworzenia puli Azure Batch przy użyciu konfiguracji maszyny wirtualnej należy określić obraz maszyny wirtualnej, który dostarcza system operacyjny dla każdego węzła obliczeniowego w puli. Pulę można utworzyć przy użyciu obsługiwanego obrazu witryny Azure Marketplace lub [utworzyć obraz niestandardowy z obrazem udostępnionej galerii obrazów](batch-sig-images.md). Chociaż można również utworzyć niestandardową pulę obrazów przy użyciu [zarządzanego obrazu](batch-custom-images.md) , zalecamy utworzenie niestandardowych obrazów przy użyciu udostępnionej galerii obrazów wszędzie tam, gdzie to możliwe. Używanie galerii obrazów udostępnionych ułatwia Inicjowanie obsługi pul, skalowanie większych ilości maszyn wirtualnych i zwiększanie niezawodności podczas aprowizacji maszyn wirtualnych.
 
 ### <a name="third-party-images"></a>Obrazy innych firm
 

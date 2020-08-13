@@ -5,14 +5,14 @@ author: spelluru
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: fc84b9ec9cc71d35e31a5c11ae0dd0d2228621da
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: d3dc63106e1ca5d9db2b14392ca1fb97e3a68289
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341069"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191529"
 ---
-# <a name="quickstart-use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Szybki Start: Użyj Azure Portal, aby utworzyć temat Service Bus i subskrypcje w temacie
+# <a name="use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Używanie witryny Azure Portal do tworzenia tematu usługi Service Bus i subskrybowania tematu
 W tym przewodniku szybki start użyjesz Azure Portal do utworzenia tematu Service Bus, a następnie tworzenia subskrypcji w tym temacie. 
 
 ## <a name="what-are-service-bus-topics-and-subscriptions"></a>Co to są tematy i subskrypcje usługi Service Bus?

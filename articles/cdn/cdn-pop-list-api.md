@@ -1,6 +1,6 @@
 ---
 title: Pobierz bieżącą listę punktów obecności IP dla Azure CDN | Microsoft Docs
-description: Dowiedz się, jak pobrać bieżącą listę punktów obecności.
+description: Dowiedz się, jak uzyskać serwery POP za pomocą interfejsu API REST. Serwery POP wysyłają żądania do serwerów pochodzenia skojarzonych z punktami końcowymi usługi Azure Content Delivery Network.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 7b98bb446fc400007e4061d09db8084960702943
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13d4587a80cbbe66e18eb1bec8f3154221ac62b5
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668291"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192551"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Pobierz bieżącą listę punktów obecności IP dla Azure CDN
 

@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 08/13/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8032e8809f7849ab7497da7821788c017adff12d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c61e8df05c4bc199c0d91b8ed0cbd73fa6f196cf
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212058"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192322"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Konwertowanie klas zasobów na grupy obciążeń
 
@@ -44,13 +44,13 @@ Ponieważ grupy obciążeń działają na podstawie wartości procentowej ogóln
 
 Ze znanymi `REQUEST_MIN_RESOURCE_GRANT_PERCENT` , można użyć SKŁADNI Utwórz grupę obciążeń, <link> Aby utworzyć grupę obciążeń.  Opcjonalnie możesz określić `MIN_PERCENTAGE_RESOURCE` , że jest większy niż zero, aby izolować zasoby dla grupy obciążenia.  Ponadto można opcjonalnie określić `CAP_PERCENTAGE_RESOURCE` mniej niż 100, aby ograniczyć ilość zasobów, które może zużywać Grupa obciążeń.  
 
-Poniższy przykład ustawia `MIN_PERCENTAGE_RESOURCE` do dedykowania 9,6% zasobów systemowych `wgDataLoads` i gwarantuje, że jedno zapytanie będzie mogło działać przez cały czas.  Ponadto `CAP_PERCENTAGE_RESOURCE` jest ustawiony na 38,4% i ogranicza tę grupę obciążeń do czterech współbieżnych żądań.  Ustawienie `QUERY_EXECUTION_TIMEOUT_SEC` parametru na 3600 spowoduje automatyczne anulowanie wszystkich zapytań, które są uruchamiane przez więcej niż 1 godzinę.
+Przy użyciu mediumrc jako podstawy dla przykładu Poniższy kod ustawia `MIN_PERCENTAGE_RESOURCE` do dedykowania 10% zasobów systemowych `wgDataLoads` i gwarantuje, że jedno zapytanie będzie mogło działać przez cały czas.  Ponadto `CAP_PERCENTAGE_RESOURCE` jest ustawiony na 40% i ogranicza tę grupę obciążeń do czterech współbieżnych żądań.  Ustawienie `QUERY_EXECUTION_TIMEOUT_SEC` parametru na 3600 spowoduje automatyczne anulowanie wszystkich zapytań, które są uruchamiane przez więcej niż 1 godzinę.
 
 ```sql
 CREATE WORKLOAD GROUP wgDataLoads WITH  
-( REQUEST_MIN_RESOURCE_GRANT_PERCENT = 9.6
- ,MIN_PERCENTAGE_RESOURCE = 9.6
- ,CAP_PERCENTAGE_RESOURCE = 38.4
+( REQUEST_MIN_RESOURCE_GRANT_PERCENT = 10
+ ,MIN_PERCENTAGE_RESOURCE = 10
+ ,CAP_PERCENTAGE_RESOURCE = 40
  ,QUERY_EXECUTION_TIMEOUT_SEC = 3600)
 ```
 
@@ -59,7 +59,7 @@ CREATE WORKLOAD GROUP wgDataLoads WITH
 Poprzednio mapowanie zapytań do klas zasobów zostało wykonane z [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Aby osiągnąć te same funkcje i mapować żądania do grup obciążeń, użyj składni [KLASYFIKATORA obciążeń](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Za pomocą sp_addrolemember można mapować zasoby na żądanie na podstawie nazwy logowania.  Klasyfikator zapewnia dodatkowe opcje oprócz logowania, takie jak:
     - label
     - sesja
-    - czas w poniższym przykładzie przypisuje zapytania z `AdfLogin` nazwy logowania, które również mają ustawioną [etykietę opcji](sql-data-warehouse-develop-label.md) na `factloads` grupę obciążeń `wgDataLoads` utworzoną powyżej.
+    - czas w poniższym przykładzie przypisuje zapytania z `AdfLogin` nazwy logowania, które również mają ustawioną [etykietę opcji](sql-data-warehouse-develop-label.md)  na `factloads` grupę obciążeń `wgDataLoads` utworzoną powyżej.
 
 ```sql
 CREATE WORKLOAD CLASSIFIER wcDataLoads WITH  

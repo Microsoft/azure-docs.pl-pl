@@ -5,14 +5,14 @@ keywords: app service, azure app service, mapowanie domeny, nazwa domeny, istnie
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 04/27/2020
+ms.date: 08/13/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 96a947a20a17c4dc08851824a392143ce162f186
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: c301876a57b3be4a112c7df2706bf17389a5af44
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543569"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190072"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Samouczek: mapowanie istniejącej niestandardowej nazwy DNS na Azure App Service
 
@@ -47,7 +47,7 @@ Aby zamapować niestandardową nazwę DNS na aplikację internetową, dla tej ap
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-### <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
+### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 Otwórz witrynę [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta platformy Azure.
 
@@ -83,7 +83,7 @@ Jeśli plan usługi App Service nie znajduje się w warstwie **F1**, zamknij str
 
 Wybierz jedną z płatnych warstw (**D1**, **B1**, **B2**, **B3** lub dowolną warstwę z kategorii **Produkcja**). Aby uzyskać dodatkowe opcje, kliknij pozycję **Wyświetl dodatkowe opcje**.
 
-Kliknij pozycję **Zastosuj**.
+Kliknij przycisk **Zastosuj**.
 
 ![Sprawdzanie warstwy cenowej](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -125,11 +125,11 @@ Jeśli masz poddomenę inną niż `www` , Zastąp ją `www` poddomeną (na przyk
 
 #### <a name="create-the-cname-record"></a>Tworzenie rekordu CNAME
 
-Zamapuj poddomenę na domyślną nazwę domeny aplikacji ( `<app_name>.azurewebsites.net` gdzie `<app_name>` jest nazwą aplikacji). Aby utworzyć mapowanie CNAME dla domeny podrzędnej `www` , Utwórz dwa rekordy:
+Zamapuj poddomenę na domyślną nazwę domeny aplikacji ( `<app-name>.azurewebsites.net` gdzie `<app-name>` jest nazwą aplikacji). Aby utworzyć mapowanie CNAME dla domeny podrzędnej `www` , Utwórz dwa rekordy:
 
 | Typ rekordu | Host | Wartość | Komentarze |
 | - | - | - |
-| CNAME | `www` | `<app_name>.azurewebsites.net` | Mapowanie domeny. |
+| CNAME | `www` | `<app-name>.azurewebsites.net` | Mapowanie domeny. |
 | TXT | `asuid.www` | [Wcześniej identyfikator weryfikacyjny](#get-domain-verification-id) | App Service uzyskuje dostęp do `asuid.<subdomain>` rekordu TXT w celu zweryfikowania własności domeny niestandardowej. |
 
 Po dodaniu rekordów CNAME i TXT Strona rekordów DNS wygląda następująco:
@@ -210,7 +210,7 @@ Aby zmapować Rekord A do aplikacji, zwykle do domeny głównej, Utwórz dwa rek
 > | Typ rekordu | Host | Wartość |
 > | - | - | - |
 > | A | `www` | Adres IP z sekcji [Kopiowanie adresu IP aplikacji](#info) |
-> | TXT | `asuid.www` | `<app_name>.azurewebsites.net` |
+> | TXT | `asuid.www` | `<app-name>.azurewebsites.net` |
 >
 
 Po dodaniu tych rekordów strona rekordów DNS wygląda podobnie jak w następującym przykładzie:
@@ -262,9 +262,14 @@ W przykładzie znajdującym się w tym samouczku zmapujesz [wieloznaczną nazwę
 
 #### <a name="create-the-cname-record"></a>Tworzenie rekordu CNAME
 
-Dodaj rekord CNAME, aby zamapować nazwę wieloznaczną na domyślną nazwę domeny aplikacji ( `<app_name>.azurewebsites.net` ).
+Mapuj nazwę symbolu wieloznacznego `*` na domyślną nazwę domeny aplikacji ( `<app-name>.azurewebsites.net` gdzie `<app-name>` jest nazwą aplikacji). Aby zmapować nazwę symbolu wieloznacznego, Utwórz dwa rekordy:
 
-Dla przykładowej domeny `*.contoso.com` rekord CNAME zmapuje nazwę `*` na nazwę `<app_name>.azurewebsites.net`.
+| Typ rekordu | Host | Wartość | Komentarze |
+| - | - | - |
+| CNAME | `*` | `<app-name>.azurewebsites.net` | Mapowanie domeny. |
+| TXT | `asuid` | [Wcześniej identyfikator weryfikacyjny](#get-domain-verification-id) | App Service uzyskuje dostęp do `asuid` rekordu TXT w celu zweryfikowania własności domeny niestandardowej. |
+
+Dla przykładowej domeny `*.contoso.com` rekord CNAME zmapuje nazwę `*` na nazwę `<app-name>.azurewebsites.net`.
 
 Po dodaniu tego rekordu CNAME strona rekordów DNS wygląda podobnie jak w następującym przykładzie:
 
@@ -272,7 +277,7 @@ Po dodaniu tego rekordu CNAME strona rekordów DNS wygląda podobnie jak w nast�
 
 #### <a name="enable-the-cname-record-mapping-in-the-app"></a>Włączanie mapowania rekordów CNAME w aplikacji
 
-Teraz możesz do aplikacji dodać dowolną poddomenę zgodną z wieloznaczną nazwą (na przykład nazwy `sub1.contoso.com` i `sub2.contoso.com` są zgodne z nazwą `*.contoso.com`).
+Teraz możesz dodać dowolną poddomenę zgodną z nazwą symbolu wieloznacznego w aplikacji (na przykład `sub1.contoso.com` i `sub2.contoso.com` oba dopasowania `*.contoso.com` ).
 
 W lewym obszarze nawigacji na stronie aplikacji w witrynie Azure Portal wybierz pozycję **Domeny niestandardowe**.
 
@@ -342,7 +347,7 @@ Następujące polecenie dodaje skonfigurowaną niestandardową nazwę DNS do apl
 
 ```bash 
 az webapp config hostname add \
-    --webapp-name <app_name> \
+    --webapp-name <app-name> \
     --resource-group <resource_group_name> \
     --hostname <fully_qualified_domain_name>
 ``` 
@@ -357,9 +362,9 @@ Następujące polecenie dodaje skonfigurowaną niestandardową nazwę DNS do apl
 
 ```powershell  
 Set-AzWebApp `
-    -Name <app_name> `
+    -Name <app-name> `
     -ResourceGroupName <resource_group_name> ` 
-    -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net")
+    -HostNames @("<fully_qualified_domain_name>","<app-name>.azurewebsites.net")
 ```
 
 Aby uzyskać więcej informacji, zobacz [Assign a custom domain to a web app](scripts/powershell-configure-custom-domain.md) (Przypisywanie domeny niestandardowej do aplikacji internetowej).

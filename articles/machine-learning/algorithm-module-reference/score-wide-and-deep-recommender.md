@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/12/2020
-ms.openlocfilehash: df723824b2d80694913e32904ed81972381c5bcb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/12/2020
+ms.openlocfilehash: 43dca9cd9f9000faae701e618e9a5fdf21d31ee3
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536219"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192736"
 ---
 # <a name="score-wide-and-deep-recommender"></a>Wyniki modułu poleceń Wide and Deep
 
@@ -33,7 +33,7 @@ Podczas tworzenia ostatniego rodzaju prognoz można działać w trybie *produkcj
 
 - **Tryb oceny** działa na ograniczonym zestawie użytkowników lub elementów, które mogą być oceniane, i jest zazwyczaj używany podczas eksperymentowania.
 
-Więcej szczegółowych informacji na temat szerokiej i szczegółowej części zalecanej oraz jej podstawowego teorii można znaleźć w odpowiednim dokumencie badawczym: [szerokie & głębokie uczenie w zakresie systemów zalecanych](https://arxiv.org/pdf/1606.07792.pdf).  
+Więcej szczegółowych informacji na temat szerokiej i szczegółowej części zalecanej oraz jej podstawowego teorii można znaleźć w odpowiednim dokumencie badawczym:  [szerokie & głębokie uczenie w zakresie systemów zalecanych](https://arxiv.org/pdf/1606.07792.pdf).  
 
 ## <a name="how-to-configure-score-wide-and-deep-recommender"></a>Jak skonfigurować szeroką i polecaną ocenę
 
@@ -147,9 +147,6 @@ Wynikowy zestaw danych zwrócony przez **szeroki zakres wyników i zalecaną** l
 
 - Pierwsza kolumna zawiera identyfikatory użytkowników.
 - Jest generowanych kilka dodatkowych kolumn, w zależności od wartości ustawionej dla **maksymalnej liczby elementów, które mają być zalecane dla użytkownika**. Każda kolumna zawiera zalecany element (według identyfikatora). Zalecenia są uporządkowane według koligacji elementu użytkownika, z elementem o najwyższej koligacji umieszczonym w kolumnie, **element 1**.
-
-> [!WARNING]
-> Ten wynikowy zestaw danych nie może być oceniany przy użyciu modułu [oceny polecania](evaluate-recommender.md) .
 
 ##  <a name="technical-notes"></a>Uwagi techniczne
 

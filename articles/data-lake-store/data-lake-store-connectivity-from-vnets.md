@@ -1,6 +1,6 @@
 ---
 title: Nawiązywanie połączenia z usługą Azure Data Lake Storage Gen1 z sieci wirtualnych | Microsoft Docs
-description: Nawiązywanie połączenia z usługą Azure Data Lake Storage Gen1 Azure sieci wirtualnych
+description: Dowiedz się, jak włączyć dostęp do Azure Data Lake Storage Gen1 z maszyn wirtualnych platformy Azure, które mają ograniczony dostęp do zasobów.
 services: data-lake-store,data-catalog
 documentationcenter: ''
 author: esung22
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: 5793e1659f18818b85748dc0f2979895318ea913
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 0fa836ea31793d9177ad6e838ddea1516bf51733
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985411"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191393"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Dostęp do Azure Data Lake Storage Gen1 z maszyn wirtualnych w sieci wirtualnej platformy Azure
 Azure Data Lake Storage Gen1 to usługa PaaS, która jest uruchamiana na publicznych adresach IP. Wszystkie serwery, które mogą łączyć się z publiczną siecią Internet, zazwyczaj mogą łączyć się z Azure Data Lake Storage Gen1 punktami końcowymi. Domyślnie wszystkie maszyny wirtualne, które znajdują się w usłudze Azure sieci wirtualnych, mogą uzyskać dostęp do Internetu, dzięki czemu mogą uzyskać dostęp do Azure Data Lake Storage Gen1. Można jednak skonfigurować maszyny wirtualne w sieci wirtualnej tak, aby nie miały dostępu do Internetu. W przypadku takich maszyn wirtualnych dostęp do Azure Data Lake Storage Gen1 jest również ograniczony. Blokowanie publicznego dostępu do Internetu dla maszyn wirtualnych w usłudze Azure sieci wirtualnych można wykonać przy użyciu dowolnych z następujących metod:
@@ -54,7 +54,7 @@ Gdy trasy UDR lub protokołu BGP są używane do blokowania dostępu do Internet
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-expressroute"></a>Włączanie łączności z maszyn wirtualnych z ograniczeniami przy użyciu ExpressRoute
 W przypadku skonfigurowania obwodu ExpressRoute serwery lokalne mogą uzyskiwać dostęp do Data Lake Storage Gen1 za pomocą publicznej komunikacji równorzędnej. Więcej szczegółów na temat konfigurowania ExpressRoute na potrzeby publicznej komunikacji równorzędnej jest dostępnych na [ExpressRoute często zadawanych pytań](../expressroute/expressroute-faqs.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Omówienie Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Securing data stored in Azure Data Lake Storage Gen1 (Zabezpieczanie danych przechowywanych w usłudze Azure Data Lake Storage Gen1)](data-lake-store-security-overview.md)
 

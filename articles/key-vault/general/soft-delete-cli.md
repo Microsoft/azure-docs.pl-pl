@@ -1,6 +1,6 @@
 ---
 title: Azure Key Vault — jak używać nietrwałego usuwania przy użyciu interfejsu wiersza polecenia
-description: Przykłady użycia nietrwałego usuwania przy użyciu wycinków kodu interfejsu wiersza polecenia
+description: Dowiedz się, jak używać interfejsu wiersza polecenia platformy Azure, aby użyć funkcji usuwania nietrwałego Azure Key Vault, która umożliwia odzyskiwanie magazynów kluczy i obiektów magazynu kluczy.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 8f32fcc319c3bffd9089d894c5376268227a0151
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 3c114d3624f8cc153e8516340d474302d8655bbc
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135933"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191594"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Jak używać usuwania nietrwałego w usłudze Key Vault z interfejsem wiersza polecenia
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 95e9b208159e9af41563f12ce8af7892e13f6629
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 1a5f7dcd37a970d5e039ebc38f1059839424ff68
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121854"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192036"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Co nowego w interfejsie API analizy tekstu?
 
@@ -33,18 +33,18 @@ Interfejs API analizy tekstu jest regularnie aktualizowana. Aby zachować aktual
 
 Następujące aktualizacje są specyficzne dla wydania z sierpnia analiza tekstu tylko dla kontenera kondycji.
 
-* Nowy model — wersja dla analiza tekstu na potrzeby kondycji:`2020-07-24`
-* Nowy adres URL służący do wysyłania analiza tekstu dla żądań dotyczących kondycji:`http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` 
+* Nowy model — wersja dla analiza tekstu na potrzeby kondycji: `2020-07-24`
+* Nowy adres URL służący do wysyłania analiza tekstu dla żądań dotyczących kondycji: `http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` (należy pamiętać, że czyszczenie pamięci podręcznej przeglądarki będzie konieczne, aby można było użyć demonstracyjnej aplikacji sieci Web dołączonej do tego nowego obrazu kontenera)
 
 Zmieniono następujące właściwości odpowiedzi JSON:
 
 * Zmieniono nazwę polecenia `type` na `category` 
 * Zmieniono nazwę polecenia `score` na `confidenceScore`
 * Jednostki w `category` polu danych wyjściowych JSON znajdują się teraz w języku Pascal. Zmieniono nazwy następujących jednostek:
-    * `EXAMINATION_RELATION`została zmieniona na `RelationalOperator` .
-    * `EXAMINATION_UNIT`została zmieniona na `MeasurementUnit` .
-    * `EXAMINATION_VALUE`została zmieniona na `MeasurementValue` .
-    * `ROUTE_OR_MODE`Zmieniono nazwę `MedicationRoute` .
+    * `EXAMINATION_RELATION` została zmieniona na `RelationalOperator` .
+    * `EXAMINATION_UNIT` została zmieniona na `MeasurementUnit` .
+    * `EXAMINATION_VALUE` została zmieniona na `MeasurementValue` .
+    * `ROUTE_OR_MODE` Zmieniono nazwę `MedicationRoute` .
     * Nazwa jednostki relacyjnej została `ROUTE_OR_MODE_OF_MEDICATION` zmieniona na `RouteOfMedication` .
 
 Dodano następujące jednostki:
@@ -82,7 +82,7 @@ Kontener oferuje następujące funkcje:
 
 Interfejs API analizy tekstu V3 jest teraz ogólnie dostępny w przypadku następujących aktualizacji:
 
-* Wersja modelu`2020-04-01`
+* Wersja modelu `2020-04-01`
 * Nowe [limity danych](concepts/data-limits.md) dla każdej funkcji
 * Zaktualizowano [obsługę języka](language-support.md) dla [Analiza tonacji (SA) v3](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * Oddzielny punkt końcowy do łączenia jednostek 
@@ -98,13 +98,13 @@ Interfejs API analizy tekstu V3 jest teraz ogólnie dostępny w przypadku nastę
    * Wydarzenie — Sport
 
 Dodano następujące właściwości odpowiedzi JSON:
-   * `SentenceText`w analiza tonacji
-   * `Warnings`dla każdego dokumentu 
+   * `SentenceText` w analiza tonacji
+   * `Warnings` dla każdego dokumentu 
 
 Nazwy następujących właściwości w odpowiedzi JSON zostały zmienione, o ile ma to zastosowanie:
 
 * Zmieniono nazwę polecenia `score` na `confidenceScore`
-    * `confidenceScore`ma dwie dziesiętne punkty dokładności. 
+    * `confidenceScore` ma dwie dziesiętne punkty dokładności. 
 * Zmieniono nazwę polecenia `type` na `category`
 * Zmieniono nazwę polecenia `subtype` na `subcategory`
 
@@ -140,7 +140,7 @@ Dodatkowe typy jednostek są teraz dostępne w publicznej wersji zapoznawczej ro
 * Rozpoznawanie następujących głównych typów jednostek (tylko w języku angielskim):
     * Persontype
     * Produkt
-    * Zdarzenie
+    * Wydarzenie
     * Jednostka geopolityczna (GPE) jako podtyp w lokalizacji
     * Czy
 
@@ -149,7 +149,7 @@ Dodatkowe typy jednostek są teraz dostępne w publicznej wersji zapoznawczej ro
     * Organizacja
     * Wiek jako podtyp w ramach ilości
     * Data jako podtyp w obszarze DateTime
-    * Poczta e-mail 
+    * E-mail 
     * Numer telefonu (tylko Stany Zjednoczone)
     * Adres URL
     * Adres IP

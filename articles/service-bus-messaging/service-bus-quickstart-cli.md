@@ -5,12 +5,12 @@ author: spelluru
 ms.topic: quickstart
 ms.date: 08/12/2020
 ms.author: spelluru
-ms.openlocfilehash: d4b4ce8a19d03a0323af934eac3868fdcc8d50ff
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 201ea38c6feabbda2576d8480a9983f00d62d175
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182508"
+ms.locfileid: "88191270"
 ---
 # <a name="use-the-azure-cli-to-create-a-service-bus-namespace-and-a-queue"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure w celu utworzenia Service Bus przestrzeni nazw i kolejki
 Ten przewodnik Szybki Start przedstawia sposób tworzenia Service Bus przestrzeni nazw i kolejki przy użyciu interfejsu wiersza polecenia platformy Azure. Pokazano w nim także, jak uzyskać poświadczenia autoryzacji, które mogą być używane przez aplikację kliencką do wysyłania/odbierania komunikatów z kolejki. 
@@ -24,7 +24,7 @@ W tym przewodniku szybki start użyjesz Azure Cloud Shell, które można uruchom
 
 ## <a name="provision-resources"></a>Inicjowanie zasobów
 1. Zaloguj się do [Azure Portal](https://portal.azure.com).
-2. Uruchom Azure Cloud Shell, wybierając ikonę pokazaną na poniższej ilustracji: 
+2. Uruchom Azure Cloud Shell, wybierając ikonę pokazaną na poniższej ilustracji. Przełącz się do trybu **bash** , jeśli CloudShell jest w trybie **PowerShell** . 
 
     :::image type="content" source="./media/service-bus-quickstart-powershell/launch-cloud-shell.png" alt-text="Cloud Shell uruchamiania":::
 3. Uruchom następujące polecenie, aby utworzyć grupę zasobów platformy Azure. W razie potrzeby zaktualizuj nazwę grupy zasobów i lokalizację. 
@@ -37,7 +37,7 @@ W tym przewodniku szybki start użyjesz Azure Cloud Shell, które można uruchom
     ```azurecli-interactive
     az servicebus namespace create --resource-group ContosoRG --name ContosoSBusNS --location eastus
     ```
-5. Uruchom następujące polecenie, aby utworzyć kolejkę w przestrzeni nazw utworzonej w poprzednim kroku. W tym przykładzie `ContosoRG` jest grupą zasobów utworzoną w poprzednim kroku. `ContosoSBusNS`jest nazwą Service Bus przestrzeni nazw utworzonej w tej grupie zasobów. 
+5. Uruchom następujące polecenie, aby utworzyć kolejkę w przestrzeni nazw utworzonej w poprzednim kroku. W tym przykładzie `ContosoRG` jest grupą zasobów utworzoną w poprzednim kroku. `ContosoSBusNS` jest nazwą Service Bus przestrzeni nazw utworzonej w tej grupie zasobów. 
 
     ```azurecli-interactive
     az servicebus queue create --resource-group ContosoRG --namespace-name ContosoSBusNS --name ContosoOrdersQueue

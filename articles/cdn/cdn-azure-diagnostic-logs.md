@@ -1,7 +1,7 @@
 ---
 title: Dzienniki diagnostyczne
 titleSuffix: Azure Content Delivery Network
-description: Klient może włączyć analizę dzienników dla Azure CDN.
+description: Dowiedz się, jak zapisywać podstawowe analizy przy użyciu dzienników diagnostycznych platformy Azure, co pozwala na eksportowanie metryk użycia z punktu końcowego usługi Azure Content Delivery Network.
 services: cdn
 author: asudbring
 manager: KumudD
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: dbaba67a163bb0f948de5ba2ebbdba5497ad5ff9
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 164560fff27adc2d4e63cc8471a26d1d710b89a5
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116983"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191278"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Dzienniki diagnostyczne — Content Delivery Network platformy Azure
 
@@ -221,7 +221,7 @@ Aby uzyskać dostęp do podstawowych analiz, podano przykładowy kod dla narzęd
 
 Oto jak można użyć narzędzia:
 
-1.  Odwiedź link usługi GitHub:[https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
+1.  Odwiedź link usługi GitHub: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
 2.  Pobierz kod.
 3.  Postępuj zgodnie z instrukcjami, aby skompilować i skonfigurować.
 4.  Uruchom narzędzie.
@@ -257,16 +257,16 @@ Nie wszystkie metryki są dostępne dla wszystkich dostawców, chociaż takie r�
 | RequestCountHttpStatus4xx | Liczba wszystkich żądań, które spowodowały 4xx kod HTTP (na przykład 400, 404). | Tak | Tak |Tak |
 | RequestCountHttpStatus5xx | Liczba wszystkich żądań, które spowodowały 5xx kod HTTP (na przykład 500, 504). | Tak | Tak |Tak |
 | RequestCountHttpStatusOthers | Liczba pozostałych kodów HTTP (poza 2xx-5xx). | Tak | Tak |Tak |
-| RequestCountHttpStatus200 | Liczba wszystkich żądań, które spowodowały odpowiedź na kod HTTP 200. | Yes | Nie  |Yes |
-| RequestCountHttpStatus206 | Liczba wszystkich żądań, które spowodowały odpowiedź na kod HTTP 206. | Yes | Nie  |Yes |
-| RequestCountHttpStatus302 | Liczba wszystkich żądań, które spowodowały odpowiedź na kod HTTP 302. | Yes | Nie  |Yes |
-| RequestCountHttpStatus304 | Liczba wszystkich żądań, które spowodowały odpowiedź na kod HTTP 304. | Yes | Nie  |Yes |
-| RequestCountHttpStatus404 | Liczba wszystkich żądań, które spowodowały odpowiedź na kod HTTP 404. | Yes | Nie  |Yes |
+| RequestCountHttpStatus200 | Liczba wszystkich żądań, które spowodowały odpowiedź na kod HTTP 200. | Tak | Nie  |Tak |
+| RequestCountHttpStatus206 | Liczba wszystkich żądań, które spowodowały odpowiedź na kod HTTP 206. | Tak | Nie  |Tak |
+| RequestCountHttpStatus302 | Liczba wszystkich żądań, które spowodowały odpowiedź na kod HTTP 302. | Tak | Nie  |Tak |
+| RequestCountHttpStatus304 | Liczba wszystkich żądań, które spowodowały odpowiedź na kod HTTP 304. | Tak | Nie  |Tak |
+| RequestCountHttpStatus404 | Liczba wszystkich żądań, które spowodowały odpowiedź na kod HTTP 404. | Tak | Nie  |Tak |
 | RequestCountCacheHit | Liczba wszystkich żądań, które spowodowały trafienie pamięci podręcznej. Zasób został obsłużony bezpośrednio z punktu POP do klienta. | Tak | Tak | Nie  |
 | RequestCountCacheMiss | Liczba wszystkich żądań, które spowodowały odrzucenie pamięci podręcznej. Chybienia w pamięci podręcznej oznacza, że zasób nie został odnaleziony w punkcie POP najbliżej klienta i został pobrany z lokalizacji źródłowej. | Tak | Tak | Nie |
 | RequestCountCacheNoCache | Liczba wszystkich żądań do elementu zawartości, które nie są przechowywane w pamięci podręcznej z powodu konfiguracji użytkownika na krawędzi. | Tak | Tak | Nie |
 | RequestCountCacheUncacheable | Liczba wszystkich żądań do zasobów, które nie są przechowywane w pamięci podręcznej przez formant Cache-Control i wygaśnięcia elementu zawartości. Ta liczba wskazuje, że nie powinna być buforowana w punkcie POP ani przez klienta HTTP. | Tak | Tak | Nie |
-| RequestCountCacheOthers | Liczba wszystkich żądań ze stanem pamięci podręcznej, które nie zostały omówione powyżej. | Nie | Yes | Nie  |
+| RequestCountCacheOthers | Liczba wszystkich żądań ze stanem pamięci podręcznej, które nie zostały omówione powyżej. | Nie | Tak | Nie  |
 | EgressTotal | Wychodzący transfer danych w GB | Tak |Tak |Tak |
 | EgressHttpStatus2xx | Wychodzący transfer danych * dla odpowiedzi z kodami stanu HTTP 2xx w GB. | Tak | Tak | Nie  |
 | EgressHttpStatus3xx | Wychodzący transfer danych dla odpowiedzi z kodami stanu HTTP 3xx w GB. | Tak | Tak | Nie  |
@@ -277,7 +277,7 @@ Nie wszystkie metryki są dostępne dla wszystkich dostawców, chociaż takie r�
 | EgressCacheMiss. | Wychodzący transfer danych dla odpowiedzi, które nie zostały znalezione na najbliższym serwerze POP i pobierane z serwera pochodzenia. | Tak | Tak | Nie |
 | EgressCacheNoCache | Wychodzący transfer danych dla zasobów, które nie są przechowywane w pamięci podręcznej z powodu konfiguracji użytkownika na krawędzi. | Tak | Tak | Nie |
 | EgressCacheUncacheable | Wychodzący transfer danych dla zasobów, które nie mogą być buforowane przez formant pamięci podręcznej i lub wygasają nagłówkiem. Wskazuje, że nie powinna być buforowana w punkcie POP ani przez klienta HTTP. | Tak | Tak | Nie |
-| EgressCacheOthers | Wychodzące transfery danych dla innych scenariuszy pamięci podręcznej. | Nie | Yes | Nie |
+| EgressCacheOthers | Wychodzące transfery danych dla innych scenariuszy pamięci podręcznej. | Nie | Tak | Nie |
 
 * Wychodzący transfer danych odnosi się do ruchu dostarczonego z serwerów POP usługi CDN do klienta.
 
@@ -367,11 +367,11 @@ Przykładowe właściwości:
 
 ```
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Dzienniki diagnostyczne platformy Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Analiza podstawowa za pośrednictwem Azure CDN Portal uzupełniający](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Dzienniki usługi Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Dzienniki Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [Interfejs API REST usługi Azure Log Analytics](https://docs.microsoft.com/rest/api/loganalytics)
 
 

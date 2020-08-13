@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/28/2020
-ms.openlocfilehash: 28fa3fdfdb8915d528d0765bd1fded8128621208
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: bdb7ba30d9fa2d0bd1eff9368d6e30e516b53895
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166522"
+ms.locfileid: "88192725"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Konfigurowanie prywatnego linku platformy Azure dla obszaru roboczego Azure Machine Learning (wersja zapoznawcza)
 
@@ -39,7 +39,7 @@ Link prywatny platformy Azure umożliwia nawiązanie połączenia z obszarem rob
 > [!IMPORTANT]
 > Obecnie obsługujemy tylko Włączanie prywatnego punktu końcowego podczas tworzenia nowego obszaru roboczego Azure Machine Learning.
 
-[https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced)Może służyć do tworzenia obszaru roboczego z prywatnym punktem końcowym.
+Szablon w programie [https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) może służyć do tworzenia obszaru roboczego z prywatnym punktem końcowym.
 
 Aby uzyskać informacje na temat korzystania z tego szablonu, w tym prywatnych punktów końcowych, zobacz [Tworzenie obszaru roboczego dla Azure Machine Learning za pomocą szablonu Azure Resource Manager](how-to-create-workspace-template.md).
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 3bfaa9f2961dca2b8b717b1506d112943910485a
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: d101acd3e72e68efd9198cb273fd352967a0cd54
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042329"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192375"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Eksportowanie alertów zabezpieczeń i zaleceń
 
@@ -35,7 +35,7 @@ Za pomocą tych narzędzi możesz:
 |----|:----|
 |Stan wydania:|Ogólnie dostępna|
 |Wpisaną|Warstwa Bezpłatna|
-|Wymagane role i uprawnienia:|**Czytelnik** w subskrypcji zawierającej konfigurację eksportu<br>**Rola administratora zabezpieczeń** w grupie zasobów (lub **właściciela**)<br>Musi mieć również uprawnienia do zapisu dla zasobu docelowego|
+|Wymagane role i uprawnienia:|**Rola administratora zabezpieczeń** w grupie zasobów (lub **właściciela**)<br>Musi mieć również uprawnienia do zapisu dla zasobu docelowego|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov|
 |||
 

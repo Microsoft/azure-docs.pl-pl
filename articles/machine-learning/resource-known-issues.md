@@ -3,20 +3,20 @@ title: Znane problemy & Rozwiązywanie problemów
 titleSuffix: Azure Machine Learning
 description: Uzyskaj pomoc dotyczącą znajdowania i poprawiania błędów lub błędów w Azure Machine Learning. Poznaj znane problemy, rozwiązywanie problemów i ich obejścia.
 services: machine-learning
-author: j-martens
-ms.author: jmartens
+author: likebupt
+ms.author: keli19
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 08/06/2020
-ms.openlocfilehash: 17d6137dd243c3bce011a1841ea9bca64e0b64ba
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.date: 08/13/2020
+ms.openlocfilehash: 71457be4e572a0e04dfffd0689bfbd458f7c2622
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120766"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190514"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Znane problemy i rozwiązywanie problemów w Azure Machine Learning
 
@@ -203,7 +203,7 @@ Jeśli używasz udziału plików dla innych obciążeń, takich jak transfer dan
 |Podczas recenzowania obrazów nie są wyświetlane nowe obrazy z etykietami.     |   Aby załadować wszystkie obrazy z etykietami, wybierz **pierwszy** przycisk. **Pierwszy** przycisk przeprowadzi Cię z powrotem do początku listy, ale ładuje wszystkie dane z etykietami.      |
 |Naciśnięcie klawisza Esc podczas etykietowania dla wykrywania obiektów tworzy etykietę o zerowej wielkości w lewym górnym rogu. Przesyłanie etykiet w tym stanie nie powiodło się.     |   Usuń etykietę, klikając znak krzyżyka obok niego.  |
 
-### <a name="data-drift-monitors"></a><a name="data-drift"></a>Monitory dryfowania danych
+### <a name="data-drift-monitors"></a><a name="data-drift"></a> Monitory dryfowania danych
 
 Ograniczenia i znane problemy dotyczące monitorów dryfowania danych:
 
@@ -248,6 +248,27 @@ Z modułu zbierającego dane modelu może upłynąć do (ale zazwyczaj mniej ni�
 ```python
 import time
 time.sleep(600)
+```
+
+* **Rejestruj punkty końcowe w czasie rzeczywistym:**
+
+Dzienniki punktów końcowych w czasie rzeczywistym to dane klientów. W przypadku rozwiązywania problemów z punktem końcowym w czasie rzeczywistym można użyć poniższego kodu, aby włączyć dzienniki. 
+
+Zobacz więcej szczegółów na temat monitorowania punktów końcowych usługi sieci Web w [tym artykule](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights#query-logs-for-deployed-models).
+
+```python
+from azureml.core import Workspace
+from azureml.core.webservice import Webservice
+
+ws = Workspace.from_config()
+service = Webservice(name="service-name", workspace=ws)
+logs = service.get_logs()
+```
+Jeśli masz wiele dzierżawców, może być konieczne dodanie następującego kodu uwierzytelniania przed `ws = Workspace.from_config()`
+
+```python
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in which your workspace resides")
 ```
 
 ## <a name="train-models"></a>Szkolenie modeli
@@ -306,14 +327,14 @@ time.sleep(600)
     * W systemie Windows uruchom automl_setup z poziomu wiersza polecenia Anaconda. Aby zainstalować Miniconda, kliknij [tutaj](https://docs.conda.io/en/latest/miniconda.html).
     * Upewnij się, że Conda 64-bit jest zainstalowany, a nie 32-bit, uruchamiając `conda info` polecenie. `platform`Powinien być `win-64` dla systemu Windows lub `osx-64` dla komputerów Mac.
     * Upewnij się, że zainstalowano Conda 4.4.10 lub nowszą. Możesz sprawdzić wersję za pomocą polecenia `conda -V` . Jeśli masz zainstalowaną poprzednią wersję, możesz ją zaktualizować za pomocą polecenia: `conda update conda` .
-    * System`gcc: error trying to exec 'cc1plus'`
+    * System `gcc: error trying to exec 'cc1plus'`
       *  Jeśli wystąpi `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` błąd, zainstaluj program Build Essentials przy użyciu polecenia symulacja `sudo apt-get install build-essential` .
       * Przekaż nową nazwę jako pierwszy parametr do automl_setup, aby utworzyć nowe środowisko Conda. Wyświetlanie istniejących środowisk Conda `conda env list` i usuwanie ich z programu `conda env remove -n <environmentname>` .
       
-* **automl_setup_linux. sh nie powiodło się**: Jeśli automl_setup_linus. sh kończy się niepowodzeniem na Ubuntu Linux z powodu błędu:`unable to execute 'gcc': No such file or directory`-
+* **automl_setup_linux. sh nie powiodło się**: Jeśli automl_setup_linus. sh kończy się niepowodzeniem na Ubuntu Linux z powodu błędu: `unable to execute 'gcc': No such file or directory`-
   1. Upewnij się, że porty wychodzące 53 i 80 są włączone. Na maszynie wirtualnej platformy Azure możesz to zrobić w witrynie Azure Portal, wybierając maszynę wirtualną, a następnie klikając pozycję Sieć.
-  2. Uruchom polecenie:`sudo apt-get update`
-  3. Uruchom polecenie:`sudo apt-get install build-essential --fix-missing`
+  2. Uruchom polecenie: `sudo apt-get update`
+  3. Uruchom polecenie: `sudo apt-get install build-essential --fix-missing`
   4. Uruchom `automl_setup_linux.sh` ponownie
 
 * **Konfiguracja. ipynb kończy się niepowodzeniem**:
@@ -329,7 +350,7 @@ time.sleep(600)
   1. Upewnij się, że Notes Configuration. ipynb został uruchomiony pomyślnie.
   2. Jeśli Notes jest uruchamiany z folderu, który nie znajduje się w folderze, w którym `configuration.ipynb` został uruchomiony, skopiuj folder aml_config a plik config.js, który zawiera do nowego folderu. Obszar roboczy. from_config odczytuje config.jsna potrzeby folderu notesu lub jego folderu nadrzędnego.
   3. Jeśli jest używana nowa subskrypcja, Grupa zasobów, obszar roboczy lub region, pamiętaj, aby `configuration.ipynb` ponownie uruchomić Notes. Zmiana config.jsna bezpośrednio będzie działała tylko wtedy, gdy obszar roboczy już istnieje w grupie zasobów określonej w ramach określonej subskrypcji.
-  4. Jeśli chcesz zmienić region, Zmień obszar roboczy, grupę zasobów lub subskrypcję. `Workspace.create`Program nie utworzy ani nie zaktualizuje obszaru roboczego, jeśli już istnieje, nawet jeśli określony region jest inny.
+  4. Jeśli chcesz zmienić region, Zmień obszar roboczy, grupę zasobów lub subskrypcję. `Workspace.create` Program nie utworzy ani nie zaktualizuje obszaru roboczego, jeśli już istnieje, nawet jeśli określony region jest inny.
   
 * **Przykładowy Notes kończy się niepowodzeniem**: Jeśli przykładowy Notes kończy się niepowodzeniem z powodu błędu, który nie istnieje, metoda lub biblioteka jest niedostępna:
   * Upewnij się, że w notesie Jupyter wybrano jądro correctcorrect. Jądro jest wyświetlane w prawym górnym rogu strony Notes. Wartość domyślna to azure_automl. Należy zauważyć, że jądro jest zapisywany jako część notesu. Dlatego w przypadku przełączenia do nowego środowiska Conda należy wybrać nowe jądro w notesie.
@@ -352,7 +373,7 @@ Wykonaj następujące akcje dla następujących błędów:
 |---------|---------|
 |Niepowodzenie kompilowania obrazu podczas wdrażania usługi sieci Web     |  Dodaj "pynacl = = 1.2.1" jako zależność PIP do pliku Conda na potrzeby konfiguracji obrazu       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Zmień jednostkę SKU dla maszyn wirtualnych używanych we wdrożeniu na taką, która ma więcej pamięci. |
-|Niepowodzenie FPGA     |  Nie będzie można wdrażać modeli w usłudze FPGA, dopóki nie zażądano i nie zatwierdzono do przydziału FPGA. Aby zażądać dostępu, Wypełnij formularz żądania limitu przydziału:https://aka.ms/aml-real-time-ai       |
+|Niepowodzenie FPGA     |  Nie będzie można wdrażać modeli w usłudze FPGA, dopóki nie zażądano i nie zatwierdzono do przydziału FPGA. Aby zażądać dostępu, Wypełnij formularz żądania limitu przydziału: https://aka.ms/aml-real-time-ai       |
 
 ### <a name="updating-azure-machine-learning-components-in-aks-cluster"></a>Aktualizowanie składników Azure Machine Learning w klastrze AKS
 

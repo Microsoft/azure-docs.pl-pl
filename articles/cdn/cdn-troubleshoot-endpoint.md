@@ -1,6 +1,6 @@
 ---
 title: Rozwiązywanie problemów Azure CDN punkty końcowe — kod stanu 404
-description: Rozwiązywanie problemów z kodami odpowiedzi 404 przy Azure CDN punktach końcowych.
+description: Dowiedz się, jak rozwiązywać problemy z punktami końcowymi usługi Azure Content Delivery Network, które zwracają kody stanu odpowiedzi HTTP 404.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 6476993627708670a210cce50072f1b183d90a8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6ad0b8b37bd4f04c22ed52d4ac6717202f22889
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888676"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192489"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Rozwiązywanie problemów Azure CDN punkty końcowe zwracające kod stanu 404
 Ten artykuł umożliwia rozwiązywanie problemów z punktami końcowymi usługi Azure Content Delivery Network (CDN), które zwracają kody stanu odpowiedzi HTTP 404.
@@ -51,7 +51,7 @@ Istnieje kilka możliwych przyczyn, w tym:
 ### <a name="check-the-origin-file"></a>Sprawdź plik pierwotny
 Najpierw sprawdź, czy plik pamięci podręcznej jest dostępny na serwerze źródłowym i jest publicznie dostępny w Internecie. Najszybszym sposobem jest otwarcie przeglądarki w sesji prywatnej lub incognito i przechodzenie bezpośrednio do pliku. Wpisz lub wklej adres URL w polu adres i sprawdź, czy jego wynikiem jest oczekiwany plik. Załóżmy na przykład, że masz plik na koncie usługi Azure Storage, dostępnym pod adresem https: \/ /cdndocdemo.blob.core.windows.net/publicblob/lorem.txt. Jeśli można pomyślnie załadować zawartość tego pliku, przeszedł test.
 
-![To wszystko!](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
+![Sukces!](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
 
 > [!WARNING]
 > Chociaż jest to najszybszy i najprostszy sposób na zweryfikowanie, że plik jest dostępny publicznie, niektóre konfiguracje sieci w organizacji mogą sprawiać, że plik jest publicznie dostępny, w rzeczywistości tylko widoczny dla użytkowników sieci (nawet jeśli jest hostowany na platformie Azure). Aby upewnić się, że nie jest to przypadek, Przetestuj plik za pomocą zewnętrznej przeglądarki, takiej jak urządzenie przenośne, które nie jest połączone z siecią organizacji lub maszynę wirtualną na platformie Azure.

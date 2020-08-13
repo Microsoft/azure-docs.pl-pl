@@ -1,6 +1,6 @@
 ---
 title: Często zadawane pytania — dedykowany moduł HSM platformy Azure | Microsoft Docs
-description: Często zadawane pytania dotyczące różnych tematów w dedykowanym module HSM platformy Azure
+description: Znajdź odpowiedzi na często zadawane pytania dotyczące modułu zabezpieczeń dedykowanego sprzętu platformy Azure, takich jak podstawowe informacje, współdziałanie, wysoka dostępność i pomoc techniczna.
 services: dedicated-hsm
 author: johncdawson
 manager: rkarlin
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 16c3676a881dc5dc979891dfd870274581be255b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d3309283279c887c00a475ccedfe1edaf311ae5
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84310389"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189864"
 ---
 # <a name="frequently-asked-questions-faq"></a>Często zadawane pytania
 
@@ -66,19 +66,19 @@ Dedykowana usługa HSM platformy Azure używa urządzeń SafeNet Luna Network HS
 
 Począwszy od dnia 2019 marca, dedykowany moduł HSM jest dostępny w 14 regionach wymienionych poniżej. Dalsze regiony są planowane i można je omówić za pośrednictwem przedstawiciela konta Microsoft.
 
-* Wschodnie stany USA
+* East US
 * Wschodnie stany USA 2
 * Zachodnie stany USA
 * Zachodnie stany USA 2
-* Południowo-środkowe stany USA
-* Azja Południowo-Wschodnia
+* South Central US
+* Southeast Asia
 * Azja Wschodnia
 * Indie Środkowe
 * Indie Południowe
 * Japonia Wschodnia
 * Japonia Zachodnia
 * Europa Północna
-* Europa Zachodnia
+* West Europe
 * Południowe Zjednoczone Królestwo
 * Zachodnie Zjednoczone Królestwo
 * Kanada Środkowa

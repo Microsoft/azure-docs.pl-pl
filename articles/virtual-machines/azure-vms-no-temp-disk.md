@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: c36e37ba876b4b768d852d6ecedb8e3b4d8f09d0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 15b9495b95ec4efb4f8e9f315595ea6bfca6cd5a
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288559"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191145"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Rozmiary maszyn wirtualnych platformy Azure bez lokalnego dysku tymczasowego 
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące rozmiarów maszyn wirtualnych platformy Azure, które nie mają lokalnego dysku tymczasowego (tj. braku lokalnego dysku tymczasowego). Aby uzyskać więcej informacji o rozmiarach maszyn wirtualnych, zobacz [specyfikacje dla serii Dv4 i Dsv4 (ogólnego przeznaczenia obciążeń)](dv4-dsv4-series.md) lub [specyfikacji dla Ev4 i Esv4 (obciążenia zoptymalizowane pod kątem pamięci)](ev4-esv4-series.md).
@@ -56,7 +56,7 @@ Jeśli obraz niestandardowego systemu operacyjnego wskazuje na lokalny dysk tymc
 Wypełnij [formularz opinii]( https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRUMzdCQkw0OVVRTldFUUtXSTlLQVBPUkVHSy4u). 
 
 ## <a name="next-steps"></a>Następne kroki 
-W tym dokumencie zawarto więcej informacji na temat najczęściej występujących pytań dotyczących maszyn wirtualnych platformy Azure z lokalnym dyskiem tymczasowym. Aby uzyskać więcej informacji o tych rozmiarach maszyn wirtualnych, zobacz następujące artykuły:
+W tym dokumencie przedstawiono więcej informacji na temat najczęściej występujących pytań dotyczących maszyn wirtualnych platformy Azure bez lokalnego dysku tymczasowego. Aby uzyskać więcej informacji o tych rozmiarach maszyn wirtualnych, zobacz następujące artykuły:
 
 - [Specyfikacje dla serii Dv4 i Dsv4 (Ogólnego przeznaczenia obciążenie)](dv4-dsv4-series.md)
 - [Specyfikacje dla serii Ev4 i Esv4 (obciążenie zoptymalizowane pod kątem pamięci)](ev4-esv4-series.md)

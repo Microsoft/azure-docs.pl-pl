@@ -4,14 +4,14 @@ description: Typowe problemy związane z alertami metryk Azure Monitor i możliw
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 08/09/2020
+ms.date: 08/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: c6b7d1fb28e81957ded56662a06946e56c3dc00e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 1c1fe613721ea2bc2d4b9665d6da73b094487efc
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114901"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190663"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Rozwiązywanie problemów z alertami metryk Azure Monitor 
 
@@ -130,9 +130,9 @@ Aby uniknąć niepowodzenia wdrożenia podczas próby zweryfikowania definicji m
         }
 ```
 
-## <a name="export-the-arm-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Wyeksportuj szablon ARM reguły alertu metryki za pośrednictwem Azure Portal
+## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Eksportowanie Azure Resource Manager szablonu reguły alertu metryki za pośrednictwem Azure Portal
 
-Eksportowanie szablonu ARM reguły alertu dotyczącego metryki ułatwia zrozumienie jego składni i właściwości JSON oraz może służyć do automatyzowania przyszłych wdrożeń.
+Eksportowanie Menedżer zasobów szablonu reguły alertu dotyczącego metryki ułatwia zrozumienie jej składni i właściwości JSON oraz może służyć do automatyzowania przyszłych wdrożeń.
 1. Przejdź do sekcji **grupy zasobów** w portalu i wybierz grupę zasobów zawierającą regułę.
 2. W sekcji Przegląd zaznacz pole wyboru **Pokaż ukryte typy** .
 3. W polu Filtr **typu** wybierz pozycję *Microsoft. Insights/metricalerts*.
@@ -207,7 +207,7 @@ Upewnij się, że używasz właściwych poleceń interfejsu wiersza polecenia dl
 
    - Dla metryki platformy: Upewnij się, że używasz nazwy **metryki** na [stronie Azure monitor obsługiwane metryki](./metrics-supported.md), a nie **Nazwa wyświetlana metryki**
 
-   - W przypadku metryki niestandardowej: Upewnij się, że Metryka jest już emitowana (nie można utworzyć reguły alertu dla niestandardowej metryki, która jeszcze nie istnieje) i że jest udostępniana przestrzeń nazw metryki niestandardowej (Zobacz przykład szablonu ARM [tutaj](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
+   - W przypadku metryki niestandardowej: Upewnij się, że Metryka jest już emitowana (nie można utworzyć reguły alertu dla niestandardowej metryki, która jeszcze nie istnieje) i że udostępniana jest przestrzeń nazw metryki niestandardowej (Zobacz przykład szablonu Menedżer zasobów [tutaj](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
 
 - Jeśli tworzysz [alerty metryk w dziennikach](./alerts-metric-logs.md), upewnij się, że są uwzględnione odpowiednie zależności. Zobacz [przykładowy szablon](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 

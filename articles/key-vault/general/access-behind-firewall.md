@@ -1,6 +1,6 @@
 ---
 title: Dostęp Key Vault za zaporą Azure Key Vault | Microsoft Docs
-description: Dowiedz się, jak uzyskać dostęp do usługi Azure Key Vault z aplikacji znajdującej się za zaporą
+description: Dowiedz się więcej na temat portów, hostów lub adresów IP, które należy otworzyć, aby umożliwić aplikacji klienckiej magazynu kluczy za zaporą w celu uzyskania dostępu do magazynu kluczy.
 services: key-vault
 author: amitbapat
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: db5c35db271f84a88fdc03f4f0178ee1c35f727e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 273579fb3dee1e941e9f464a1956189c8808c694
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834326"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190460"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Uzyskiwanie dostępu do usługi Azure Key Vault za zaporą
 
@@ -65,7 +65,7 @@ We wszystkich przypadkach operacji kryptograficznych na obiektach (kluczach i wp
 ## <a name="ip-address-ranges"></a>Zakresy adresów IP
 
 Usługa Key Vault używa innych zasobów platformy Azure, takich jak infrastruktura PaaS. W związku z tym nie jest możliwe podanie konkretnego zakresu adresów IP, których będą używać punkty końcowe usługi Key Vault w określonym czasie. Jeśli zapora obsługuje tylko zakresy adresów IP, zapoznaj się z tematem Microsoft Azureymi zakresami adresów IP centrum danych dostępnymi w:
-* [Społeczeństwo](https://www.microsoft.com/en-us/download/details.aspx?id=56519)
+* [Publiczne](https://www.microsoft.com/en-us/download/details.aspx?id=56519)
 * [US Gov](https://www.microsoft.com/en-us/download/details.aspx?id=57063)
 * [Niemcy](https://www.microsoft.com/en-us/download/details.aspx?id=57064)
 * [Chiny](https://www.microsoft.com/en-us/download/details.aspx?id=57062)
