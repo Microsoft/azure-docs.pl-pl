@@ -1,18 +1,18 @@
 ---
 title: Omówienie zabezpieczeń w Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Informacje o tym, jak Azure Data Lake Storage Gen1 jest bezpieczniejszym magazynem danych Big Data
+description: Dowiedz się więcej o możliwościach zabezpieczeń Azure Data Lake Storage Gen1, takich jak uwierzytelnianie, autoryzacja, izolacja sieci, ochrona danych i inspekcja.
 services: data-lake-store
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: 4992be004a4b60b7b5fb591d834e8938cf03f34f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: ec0e62297e6eee995fc571589d450176c81f8aac
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926284"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192836"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Zabezpieczenia w Azure Data Lake Storage Gen1
 
@@ -20,7 +20,7 @@ Wiele firm korzysta z analizy danych Big Data, aby ułatwić im podejmowanie szy
 
 * Authentication
 * Autoryzacja
-* Izolacja sieci
+* Izolacja sieciowa
 * Ochrona danych
 * Inspekcja
 
@@ -50,10 +50,10 @@ Cztery role podstawowe są domyślnie zdefiniowane dla Data Lake Storage Gen1. R
 
 Należy pamiętać, że chociaż role są przypisane do zarządzania kontami, niektóre role mają wpływ na dostęp do danych. Aby kontrolować dostęp do operacji, które użytkownik może wykonywać w systemie plików, należy użyć list ACL. W poniższej tabeli przedstawiono podsumowanie praw zarządzania i praw dostępu do danych dla ról domyślnych.
 
-| Role | Prawa do zarządzania | Prawa dostępu do danych | Objaśnienie |
+| Role | Prawa do zarządzania | Prawa dostępu do danych | Wyjaśnienie |
 | --- | --- | --- | --- |
 | Nie przypisano żadnej roli |Brak |Regulowane przez listę kontroli dostępu |Użytkownik nie może użyć poleceń cmdlet Azure Portal lub Azure PowerShell do przeglądania Data Lake Storage Gen1. Użytkownik może używać tylko narzędzi wiersza polecenia. |
-| Właściciel |Wszyscy |Wszyscy |Rola właściciela to administratora. Ta rola może zarządzać wszystkimi elementami i ma pełny dostęp do danych. |
+| Właściciel |Wszystko |Wszystko |Rola właściciela to administratora. Ta rola może zarządzać wszystkimi elementami i ma pełny dostęp do danych. |
 | Czytelnik |Tylko odczyt |Regulowane przez listę kontroli dostępu |Rola czytelnik może wyświetlać wszystko dotyczące zarządzania kontami, na przykład tego, który użytkownik jest przypisany do danej roli. Rola czytelnik nie może wprowadzać żadnych zmian. |
 | Współautor |Wszystkie z wyjątkiem dodawania i usuwania ról |Regulowane przez listę kontroli dostępu |Rola współautor może zarządzać niektórymi aspektami konta, takimi jak wdrożenia i tworzenie alertów oraz zarządzanie nimi. Rola współautor nie może dodawać ani usuwać ról. |
 | Administrator dostępu użytkowników |Dodawanie i usuwanie ról |Regulowane przez listę kontroli dostępu |Rola Administrator dostępu użytkowników może zarządzać dostępem użytkowników do kont. |
@@ -68,7 +68,7 @@ Zalecamy zdefiniowanie list ACL dla wielu użytkowników przy użyciu [grup zabe
 
 ![Wyświetlanie listy uprawnień dostępu](./media/data-lake-store-security-overview/adl.acl.2.png "Wyświetlanie listy uprawnień dostępu")
 
-## <a name="network-isolation"></a>Izolacja sieci
+## <a name="network-isolation"></a>Izolacja sieciowa
 
 Użyj Data Lake Storage Gen1, aby pomóc kontrolować dostęp do magazynu danych na poziomie sieci. Można nawiązywać zapory i definiować zakres adresów IP dla zaufanych klientów. Z zakresem adresów IP tylko klienci, którzy mają adres IP w zdefiniowanym zakresie, mogą łączyć się z Data Lake Storage Gen1.
 
@@ -117,7 +117,7 @@ Klienci korporacyjni wymagają platformy w chmurze do analizy danych, która jes
 
 Jeśli chcesz zobaczyć nowe funkcje w Data Lake Storage Gen1, Wyślij nam swoją opinię na [forum Data Lake Storage Gen1 UserVoice](https://feedback.azure.com/forums/327234-data-lake).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Omówienie Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Wprowadzenie do Data Lake Storage Gen1](data-lake-store-get-started-portal.md)

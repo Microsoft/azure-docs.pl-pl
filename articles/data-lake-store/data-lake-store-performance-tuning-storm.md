@@ -1,17 +1,17 @@
 ---
 title: Dostrajanie wydajności — burza Azure Data Lake Storage Gen1
-description: Informacje na temat wskazówek dotyczących dostrajania wydajności dla klastra burzy na Azure Data Lake Storage Gen1.
+description: Poznaj czynniki, które należy wziąć pod uwagę podczas dostrajania wydajności topologii burzowej platformy Azure, w tym Rozwiązywanie typowych problemów.
 author: stewu
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 47fb385e5e1fb60f860735530356fa87031c51e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71207509f20c80cf85311cba7b647aaca0a49e42
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513786"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192806"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Wskazówki dotyczące dostrajania wydajności dotyczące burzy w usłudze HDInsight i Azure Data Lake Storage Gen1
 

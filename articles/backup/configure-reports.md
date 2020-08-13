@@ -3,12 +3,12 @@ title: Konfigurowanie raportów usługi Azure Backup
 description: Konfigurowanie i wyświetlanie raportów dla Azure Backup przy użyciu Log Analytics i skoroszytów platformy Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 248fcdc8d57ca2408ada01db4ecf3b8ee7712e4d
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: bbb42643e23020742cab66812f58f78f4529fe07
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388070"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192844"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurowanie raportów usługi Azure Backup
 
@@ -30,7 +30,7 @@ Obecnie Azure Backup udostępnia rozwiązanie do raportowania, które korzysta z
 - Obecnie dane można wyświetlać w raportach dotyczących kopii zapasowych w maksymalnie 100 Log Analytics obszarach roboczych (między dzierżawcami).
 - Dane dla zadań kopii zapasowej dzienników nie są obecnie wyświetlane w raportach.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 Wykonaj następujące kroki, aby rozpocząć korzystanie z raportów.
 
@@ -106,11 +106,11 @@ Korzystając z tego widoku, można zidentyfikować te elementy kopii zapasowej, 
 
 Aby wyświetlić zasoby nieaktywne, przejdź do karty **Optymalizacja** i kliknij kafelek **zasoby nieaktywne** . Kliknięcie tego kafelka spowoduje wyświetlenie siatki zawierającej szczegóły dotyczące wszystkich nieaktywnych zasobów istniejących w wybranym zakresie. Domyślnie siatka pokazuje elementy, które nie mają punktu odzyskiwania w ciągu ostatnich 7 dni. Aby znaleźć nieaktywne zasoby dla innego przedziału czasu, można dostosować filtr **zakresu czasu** w górnej części karty.
 
-Po zidentyfikowaniu nieaktywnego zasobu można dokładniej zbadać ten problem, przechodząc do pulpitu nawigacyjnego elementu kopii zapasowej lub z bloku zasobów platformy Azure dla tego zasobu (o ile ma to zastosowanie). W zależności od danego scenariusza można wybrać opcję zatrzymania tworzenia kopii zapasowej dla maszyny (jeśli nie istnieje), co powoduje oszczędności związane z kosztem chronionego wystąpienia lub Rozwiązywanie problemów z maszyną w celu zapewnienia niezawodnego wykonywania kopii zapasowych.
+Po zidentyfikowaniu nieaktywnego zasobu można dokładniej zbadać ten problem, przechodząc do pulpitu nawigacyjnego elementu kopii zapasowej lub z bloku zasobów platformy Azure dla tego zasobu (o ile ma to zastosowanie). W zależności od danego scenariusza można wybrać opcję zatrzymania tworzenia kopii zapasowej maszyny (jeśli nie istnieje) i usunąć niepotrzebne kopie zapasowe, a tym samym zaoszczędzić na kosztach lub rozwiązać problemy z maszyną, aby zapewnić niezawodne wykonywanie kopii zapasowych.
 
 ![Optymalizowanie karty — zasoby nieaktywne](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
 
-###### <a name="backup-items-with-a-large-retention-duration"></a>Tworzenie kopii zapasowych elementów z dużym okresem przechowywania
+###### <a name="backup-items-with-a-large-retention-duration"></a>Elementy kopii zapasowych z długim czasem przechowywania
 Korzystając z tego widoku, można zidentyfikować te elementy, dla których kopie zapasowe są przechowywane przez dłuższy czas, niż jest to wymagane przez organizację. 
 
 Kliknięcie kafelka **optymalizacje zasad** , a następnie kafelka **optymalizacje przechowywania** — wyświetla siatkę zawierającą wszystkie elementy kopii zapasowej, dla których przechowywanie dziennego, cotygodniowego, miesięcznego lub rocznego punktu przechowywania (RP) jest większe niż określona wartość. Domyślnie Siatka wyświetla wszystkie elementy kopii zapasowej w wybranym zakresie. Filtry można używać na potrzeby codziennych, cotygodniowych, miesięcznych i rocznych magazynów RP, aby dodatkowo odfiltrować siatkę i zidentyfikować te elementy, dla których może zostać zredukowane oszczędności, aby zaoszczędzić na kosztach magazynowania kopii zapasowych.
@@ -119,7 +119,7 @@ Należy pamiętać, że w przypadku obciążeń bazy danych, takich jak SQL i SA
 
 ![Optymalizacja optymalizacji przechowywania kart](./media/backup-azure-configure-backup-reports/optimize-retention.png)
 
-###### <a name="databases-configured-for-daily-full-backup"></a>Bazy danych skonfigurowane do codziennej pełnej kopii zapasowej
+###### <a name="databases-configured-for-daily-full-backup"></a>Bazy danych skonfigurowane do codziennego wykonywania pełnej kopii zapasowej
 Korzystając z tego widoku, można identyfikować obciążenia bazy danych skonfigurowane do codziennej pełnej kopii zapasowej. Często użycie codziennej różnicowej kopii zapasowej wraz z tygodniową pełną kopią zapasową jest tańsze. 
 
 Kliknięcie kafelka **Optymalizacja zasad** , a następnie kafelka **Optymalizacja harmonogramu tworzenia kopii zapasowych** zawiera siatkę zawierającą wszystkie bazy danych z codziennymi zasadami pełnej kopii zapasowej. Możesz przejść do określonego elementu kopii zapasowej i zmodyfikować zasady, aby używać różnicowej kopii zapasowej codziennej kopii zapasowej.
