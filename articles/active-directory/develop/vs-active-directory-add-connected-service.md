@@ -5,17 +5,17 @@ author: ghogen
 manager: jillfra
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
-ms.custom: aaddev, vs-azure
+ms.custom: devx-track-csharp, aaddev, vs-azure
 ms.workload: azure-vs
 ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: 4275ae635affbfbc6a70c0107018602fbd100771
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: a1ba7db72743ac122a697bf271e783ec64e041e8
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114680"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165485"
 ---
 # <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Dodawanie Azure Active Directory przy użyciu usług połączonych w programie Visual Studio
 

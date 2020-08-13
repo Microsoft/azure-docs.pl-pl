@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
-ms.openlocfilehash: f58232eac6727f10fdccb32e7795bf12a93b7cbb
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 08d3c61ca4b5988847676b12478a5865ac319d37
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405521"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164206"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Dostosowywanie serwera CoreDNS w usłudze Azure Kubernetes Service
 
@@ -53,6 +53,9 @@ data:
         forward .  /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10, but that server must be able to resolve the rewritten domain name
     }
 ```
+
+> [!IMPORTANT]
+> W przypadku przekierowania do serwera DNS, takiego jak CoreDNS IP usługi, ten serwer DNS musi być w stanie rozpoznać zapisaną nazwę domeny.
 
 Utwórz ConfigMap za pomocą polecenia [polecenia kubectl Apply ConfigMap][kubectl-apply] i określ nazwę manifestu YAML:
 

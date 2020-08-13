@@ -4,16 +4,16 @@ description: Dowiedz się więcej o Azure Analysis Services — w pełni zarząd
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 06/24/2020
+ms.date: 08/12/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: f1e70c5b7eb4efdde1bfc20b1ec3e058bfa5b054
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 7878ecd2b1ce223a95c229b93713a875636daa09
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918954"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164312"
 ---
 # <a name="what-is-azure-analysis-services"></a>Co to są usługi Azure Analysis Services?
 
@@ -55,7 +55,7 @@ Ta warstwa jest zalecana w przypadku rozwiązań produkcyjnych z mniejszymi mode
 |B1    |    40     |    10     |
 |B2    |    80     |    16     |
 
-### <a name="standard-tier"></a>Warstwa standardowa
+### <a name="standard-tier"></a>Warstwa Standardowa
 
 Ta warstwa jest najlepszym rozwiązaniem w przypadku aplikacji produkcyjnych o kluczowym znaczeniu, które wymagają elastycznej współbieżności użytkowników i korzystają z szybko rozrastających się modeli danych. Obsługuje ona zaawansowane odświeżanie danych dla aktualizacji modelu danych przeprowadzanych prawie w czasie rzeczywistym i obsługuje wszystkie tabelaryczne funkcje modelowania.
 
@@ -81,14 +81,15 @@ Usługa Azure Analysis Services jest obsługiwana w regionach na całym świecie
 
 |Region  | Obsługiwane plany | Repliki zapytania (tylko plany Standard) |
 |---------|---------|:---------:|
-|Brazylia Południowa     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
+|Brazil South     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Kanada Środkowa    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
-|Wschodnie stany USA     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
+|East US     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |Wschodnie stany USA 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
 |Wschodnie stany USA 2     |     S8, S9, S8v2, S9v2   |    1    |
 |Północno-środkowe stany USA     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Środkowe stany USA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Południowo-środkowe stany USA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|Central US     |    S8v2, S9v2     |    1     |
+|South Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Zachodnio-środkowe stany USA   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |Zachodnie stany USA     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
 |Zachodnie stany USA     |    S8, S9, S8v2, S9v2   |    2  |
@@ -102,8 +103,8 @@ Usługa Azure Analysis Services jest obsługiwana w regionach na całym świecie
 |Europa Północna     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |Europa Północna     |    S8v2, S9v2      |    3     |
 |Południowe Zjednoczone Królestwo     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|Europa Zachodnia     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Europa Zachodnia    |   S8, S9, S8v2, S9v2  |  1  |
+|West Europe     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
+|West Europe    |   S8, S9, S8v2, S9v2  |  1  |
 
 ### <a name="asia-pacific"></a>Azja i Pacyfik 
 
@@ -112,8 +113,8 @@ Usługa Azure Analysis Services jest obsługiwana w regionach na całym świecie
 |Australia Wschodnia     |    B1, B2, S0, S1, S2, S4     |    3     |
 |Australia Wschodnia     |    S8, S9, S8v2, S9v2    |    1     |
 |Australia Południowo-Wschodnia     | B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Japonia Wschodnia     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Azja Południowo-Wschodnia     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
+|Japan East     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Southeast Asia     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
 |Indie Zachodnie     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Skalowanie zgodnie z potrzebami
@@ -130,7 +131,7 @@ Można utworzyć pulę zapytania z nawet siedmioma dodatkowymi replikami zapytan
 
 Podobnie jak w przypadku zmiany warstw można skalować repliki zapytania w poziomie zgodnie z potrzebami. Konfiguracja skalowania w poziomie jest możliwa w portalu lub przy użyciu interfejsów API REST. Aby dowiedzieć się więcej, zobacz [Azure Analysis Services scale-out (Skalowanie usługi Azure Analysis Services w poziomie)](analysis-services-scale-out.md).
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 
 Łączny koszt zależy od wielu czynników. Na przykład wybrany region, warstwa, repliki zapytań i wstrzymywanie/wznawianie. Do określenia typowych cen dla danego regionu można użyć kalkulatora [cen usługi Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/). To narzędzie oblicza ceny dla wystąpienia jednego serwera w pojedynczym regionie. Pamiętaj, że opłaty za repliki zapytania są naliczane przy użyciu tej samej stawki, co w przypadku serwera. 
 
@@ -161,7 +162,7 @@ Usługa Azure Analysis Services oferuje zabezpieczenia danych poufnych na wielu 
 
 Na poziomie serwera usługi Analysis Services oferują zaporę, uwierzytelnianie platformy Azure, role administratora serwera i szyfrowanie po stronie serwera. Na poziomie modelu danych zabezpieczenia ról użytkownika, na poziomie wiersza i na poziomie zapewniają bezpieczeństwo danych, które będą widoczne tylko dla użytkowników, którzy powinni je widzieć.
 
-### <a name="firewall"></a>Zapora
+### <a name="firewall"></a>Firewall
 
 Zapora usługi Azure Analysis Services blokuje wszystkie połączenia klienta inne niż adresy IP określone w regułach. Domyślnie ochrona za pomocą zapory nie jest włączana w przypadku nowych serwerów. Zalecane jest włączenie ochrony za pomocą zapory i skonfigurowanie zasad w ramach skryptu inicjowania obsługi serwera lub w portalu natychmiast po utworzeniu serwera. Skonfiguruj reguły, określając dozwolone adresy IP przy użyciu poszczególnych adresów IP klientów lub zakresu. Połączenia usługi Power BI również mogą być dozwolone lub zablokowane. Zaporę i reguły należy skonfigurować w portalu lub przy użyciu programu PowerShell. Aby dowiedzieć się więcej, zobacz [Configure a server firewall](analysis-services-qs-firewall.md) (Konfigurowanie zapory serwera).
 
@@ -216,7 +217,7 @@ Zarządzaj serwerami i bazami danych modeli przy użyciu [programu SQL Server Ma
 
 Analysis Services ma żywej społeczność deweloperów, którzy tworzą narzędzia. Pamiętaj, aby zapoznać się z [Edytorem tabelarycznym](https://tabulareditor.github.io/)i narzędziem Open Source umożliwiającym tworzenie i konserwowanie modeli tabelarycznych oraz zarządzanie nimi za pomocą intuicyjnego, lekkiego edytora. Język [DAX Studio](https://daxstudio.org/)to doskonałe narzędzie typu "open source" służące do tworzenia, diagnostyki, dostrajania wydajności i analizowania danych języka DAX.
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 
 Zadania zarządzania zasobami serwerowymi, takie jak tworzenie zasobów serwera, zawieszanie lub wznawianie operacji serwerowych czy zmienianie poziomu (warstwy) serwera, korzystają z poleceń cmdlet programu Azure PowerShell. Inne zadania do zarządzania bazami danych, takie jak dodawanie lub usuwanie członków ról, przetwarzanie czy uruchamianie skryptów TMSL używają poleceń cmdlet w module SqlServer. Aby dowiedzieć się więcej, zobacz [Zarządzanie usługami Azure Analysis Services przy użyciu programu PowerShell](analysis-services-powershell.md).
 

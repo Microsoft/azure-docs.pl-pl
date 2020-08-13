@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 6ed9d5eb8d230b05a090424d6105865acae69e61
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 96ebfecf01ff147a874674861c7cb64cb3725d52
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019356"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164924"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Dostęp zdalny do aplikacji lokalnych za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -41,7 +41,7 @@ Serwer proxy aplikacji współpracuje z:
 * Aplikacje hostowane za [bramą pulpit zdalny](application-proxy-integrate-with-remote-desktop-services.md)
 * Rozbudowane aplikacje klienckie zintegrowane z biblioteką uwierzytelniania firmy Microsoft (MSAL)
 
-Serwer proxy aplikacji obsługuje logowanie jednokrotne. Aby uzyskać więcej informacji na temat obsługiwanych metod, zobacz [Wybieranie metody logowania](what-is-single-sign-on.md#choosing-a-single-sign-on-method)jednokrotnego.
+Serwer proxy aplikacji obsługuje logowanie jednokrotne. Aby uzyskać więcej informacji na temat obsługiwanych metod, zobacz [Wybieranie metody logowania](sso-options.md#choosing-a-single-sign-on-method)jednokrotnego.
 
 Serwer proxy aplikacji jest zalecany do zapewniania użytkownikom zdalnym dostępu do zasobów wewnętrznych. Serwer proxy aplikacji zastępuje potrzebę sieci VPN lub zwrotnego serwera proxy. Nie jest on przeznaczony dla użytkowników wewnętrznych w sieci firmowej.  Ci użytkownicy niekoniecznie korzystający z serwera proxy aplikacji mogą wprowadzać nieoczekiwane i niepożądane problemy z wydajnością.
 

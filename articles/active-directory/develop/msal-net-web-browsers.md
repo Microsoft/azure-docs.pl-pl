@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 4e62536b610595c7a53eb8333f06f147e628dec7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: bf51f39a789b91a4cb0b88eb8bb1f2989bec7358
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83772050"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165825"
 ---
 # <a name="using-web-browsers-msalnet"></a>Korzystanie z przeglądarek internetowych (MSAL.NET)
 
@@ -45,15 +45,15 @@ Ogólnie rzecz biorąc, zaleca się korzystanie z ustawień domyślnych platform
 
 ### <a name="at-a-glance"></a>Na pierwszy rzut oka
 
-| Framework        | Osadzone | System | Domyślne |
+| Framework        | Osadzone | System | Domyślny |
 | ------------- |-------------| -----| ----- |
 | Klasyczny .NET     | Tak | Tak ^ | Osadzone |
 | .NET Core     | Nie | Tak ^ | System |
 | .NET Standard | Nie | Tak ^ | System |
-| UWP | Yes | Nie | Osadzone |
+| UWP | Tak | Nie | Osadzone |
 | Xamarin.Android | Tak | Tak  | System |
 | Xamarin.iOS | Tak | Tak  | System |
-| Xamarin.Mac| Yes | Nie | Osadzone |
+| Xamarin.Mac| Tak | Nie | Osadzone |
 
 ^ Wymaga " http://localhost " URI przekierowania
 

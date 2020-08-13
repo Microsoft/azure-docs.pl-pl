@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4db0956b1a2dec7626a24de2939941c2384d6a8a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 448910453b967fb15d342c22b81dd9733d0dfeb8
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080766"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165128"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji w Azure Active Directory
 
@@ -250,4 +250,4 @@ Zostały wykonane następujące zadania:
 Możesz przystąpić do konfigurowania aplikacji pod kątem logowania jednokrotnego. Użyj poniższego linku, aby wybrać metodę logowania jednokrotnego i znaleźć samouczki logowania jednokrotnego.
 
 > [!div class="nextstepaction"]
-> [Konfigurowanie logowania jednokrotnego](what-is-single-sign-on.md#choosing-a-single-sign-on-method)
+> [Konfigurowanie logowania jednokrotnego](sso-options.md#choosing-a-single-sign-on-method)

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
-ms.openlocfilehash: 8d27594b33db72303c71ceb39de92b1d4340b9be
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3e8822462cd7989f6bc1f051b3868d6241f591b1
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037273"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166709"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Tworzenie oferty maszyny wirtualnej platformy Azure w witrynie Azure Marketplace
 
@@ -291,6 +291,8 @@ Wybierz pozycję **Zapisz wersję roboczą** przed przejściem do następnej sek
 ## <a name="plan-overview"></a>Przegląd planu
 
 W ramach tej samej oferty w centrum partnerskim można udostępnić różne opcje planu. Oferta wymaga co najmniej jednego planu (dawniej nazywanego jednostką SKU), która może różnić się w zależności od zysków odbiorców, regionu platformy Azure, funkcji lub obrazów maszyn wirtualnych.
+
+Możesz utworzyć do 100 planów dla każdej oferty: maksymalnie 45 z nich mogą być prywatne. Dowiedz się więcej o planach prywatnych w [ofertach prywatnych w komercyjnym portalu Microsoft Marketplace](../private-offers.md).
 
 Po utworzeniu planów wybierz kartę **Przegląd planu** , aby wyświetlić:
 

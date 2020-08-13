@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2020
+ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: bf503cf90df7b08e5a957416d66eae2f1a599bed
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 034e72238375750651a1374a94b844d36fd97d03
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87438945"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166454"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -28,6 +28,64 @@ Zabezpieczenia platformy Azure są aktywnie opracowywane i nieustannie odbieraj�
 - Funkcje uznane za przestarzałe
 
 Ta strona jest regularnie aktualizowana, więc często należy ją ponownie odwiedzać. Jeśli szukasz elementów starszych niż sześć miesięcy, znajdziesz je w [archiwum, co nowego w programie Azure Security Center](release-notes-archive.md).
+
+
+## <a name="august-2020"></a>2020 sierpnia
+
+### <a name="vulnerability-assessment-on-vms---recommendations-and-policies-consolidated"></a>Ocena luk w zabezpieczeniach maszyn wirtualnych — zaleceń i zasad skonsolidowanych
+
+Security Center przeprowadza inspekcję maszyn wirtualnych w celu wykrycia, czy są uruchomione rozwiązanie do oceny luk w zabezpieczeniach. Jeśli nie zostanie odnalezione rozwiązanie do oceny luk w zabezpieczeniach, Security Center zapewnia zalecenie upraszczające wdrożenie.
+
+Po znalezieniu luk w zabezpieczeniach Security Center zawiera zalecenia podsumowujące wyniki, które należy zbadać i skorygować w razie potrzeby.
+
+Aby zapewnić spójne środowisko dla wszystkich użytkowników, niezależnie od używanego typu skanera, zostały ujednolicone cztery zalecenia w następujących dwóch:
+
+|Ujednolicone zalecenie|Zmień opis|
+|----|:----|
+|**Rozwiązanie do oceny luk w zabezpieczeniach powinno być włączone na maszynach wirtualnych**|Zastępuje dwa następujące zalecenia:<br> **•** Włącz wbudowane rozwiązanie do oceny luk w zabezpieczeniach na maszynach wirtualnych (obsługiwane przez Qualys (obecnie przestarzałe) (dołączone do warstwy Standardowa)<br> **•** Rozwiązanie do oceny luk w zabezpieczeniach powinno być zainstalowane na maszynach wirtualnych (obecnie przestarzałe) (warstwy Standardowa i bezpłatna)|
+|**Luki w zabezpieczeniach maszyn wirtualnych należy skorygować**|Zastępuje dwa następujące zalecenia:<br>**•** Koryguj luki w zabezpieczeniach na maszynach wirtualnych (obsługiwane przez Qualys) (obecnie przestarzałe)<br>**•** Usterki należy skorygować przez rozwiązanie do oceny luk w zabezpieczeniach (obecnie przestarzałe)|
+|||
+
+Teraz użyjesz tego samego zalecenia do wdrożenia rozszerzenia oceny luk w zabezpieczeniach Security Center lub rozwiązania z licencją prywatną ("BYOL") od partnera, takiego jak Qualys lub Rapid7.
+
+Ponadto po znalezieniu luk w zabezpieczeniach i zaraportowaniu ich do Security Center, jedno zalecenie będzie powiadamiać o wynikach niezależnie od rozwiązania do oceny luk w zabezpieczeniach, które je określiło.
+
+#### <a name="updating-dependencies"></a>Aktualizowanie zależności
+
+Jeśli masz skrypty, zapytania lub automatyzacje odwołujące się do poprzednich zaleceń lub kluczy zasad/nazw, Użyj poniższych tabel, aby zaktualizować odwołania:
+
+##### <a name="before-august-2020"></a>Przed 2020 sierpnia
+
+|Rekomendacja|Zakres|
+|----|:----|
+|**Włącz wbudowane rozwiązanie do oceny luk w zabezpieczeniach na maszynach wirtualnych (obsługiwane przez Qualys)**<br>Klucz: 550e890b-e652-4d22-8274-60b3bdb24c63|Wbudowane|
+|**Koryguj luki w zabezpieczeniach na maszynach wirtualnych (obsługiwane przez Qualys)**<br>Klucz: 1195afff-c881-495e-9bc5-1486211ae03f|Wbudowane|
+|**Rozwiązanie do oceny luk w zabezpieczeniach powinno być zainstalowane na maszynach wirtualnych**<br>Klucz: 01b1ed4c-b733-4fee-b145-f23236e70cf3|BYOL|
+|**Usterki należy skorygować przez rozwiązanie do oceny luk w zabezpieczeniach**<br>Klucz: 71992a2a-D168-42e0-b10e-6b45fa2ecddb|BYOL|
+||||
+
+
+|Zasady|Zakres|
+|----|:----|
+|**Ocena luk w zabezpieczeniach powinna być włączona na maszynach wirtualnych**<br>Identyfikator zasad: 501541f7-f7e7-4cd6-868c-4190fdad3ac9|Wbudowane|
+|**Usterki należy skorygować przez rozwiązanie do oceny luk w zabezpieczeniach**<br>Identyfikator zasad: 760a85ff-6162-42b3-8d70-698e268f648c|BYOL|
+||||
+
+
+##### <a name="from-august-2020"></a>Od sierpnia 2020
+
+|Rekomendacja|Zakres|
+|----|:----|
+|**Rozwiązanie do oceny luk w zabezpieczeniach powinno być włączone na maszynach wirtualnych**<br>Klucz: ffff0522-1e88-47fc-8382-2a80ba848f5d|Wbudowane + BYOL|
+|**Luki w zabezpieczeniach maszyn wirtualnych należy skorygować**<br>Klucz: 1195afff-c881-495e-9bc5-1486211ae03f|Wbudowane + BYOL|
+||||
+
+|Zasady|Zakres|
+|----|:----|
+|[**Ocena luk w zabezpieczeniach powinna być włączona na maszynach wirtualnych**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>Identyfikator zasad: 501541f7-f7e7-4cd6-868c-4190fdad3ac9 |Wbudowane + BYOL|
+||||
+
+
 
 ## <a name="july-2020"></a>Lipiec 2020 r.
 
@@ -119,12 +177,14 @@ Dowiedz się więcej o zabezpieczeniach kontenerów Security Center w następuj�
 
 Funkcja adaptacyjnych kontrolek aplikacji otrzymała dwie istotne aktualizacje:
 
-- Nowe zalecenie identyfikuje potencjalnie wiarygodne zachowanie, które wcześniej nie było dozwolone. Nowe zalecenie, **dozwolonych reguły w ramach adaptacyjnych zasad kontroli aplikacji należy zaktualizować**, monituje o dodanie nowych reguł do istniejących zasad w celu zmniejszenia liczby fałszywych dodatnich w ramach adaptacyjnych kontroli aplikacji.
+* Nowe zalecenie identyfikuje potencjalnie wiarygodne zachowanie, które wcześniej nie było dozwolone. Nowe zalecenie, **dozwolonych reguły w ramach adaptacyjnych zasad kontroli aplikacji należy zaktualizować**, monituje o dodanie nowych reguł do istniejących zasad w celu zmniejszenia liczby fałszywych dodatnich w ramach adaptacyjnych kontroli aplikacji.
 
-- Reguły ścieżek obsługują teraz symbole wieloznaczne. W ramach tej aktualizacji można skonfigurować dozwolone reguły ścieżek przy użyciu symboli wieloznacznych. Istnieją dwa obsługiwane scenariusze:
+* Reguły ścieżek obsługują teraz symbole wieloznaczne. W ramach tej aktualizacji można skonfigurować dozwolone reguły ścieżek przy użyciu symboli wieloznacznych. Istnieją dwa obsługiwane scenariusze:
 
-    - Używanie symbolu wieloznacznego na końcu ścieżki, aby zezwolić na wszystkie pliki wykonywalne w tym folderze i podfolderach
-    - Użycie symbolu wieloznacznego w środku ścieżki w celu włączenia znanej nazwy pliku wykonywalnego ze zmianą nazwy folderu (np. osobiste foldery użytkowników z znanym plikiem wykonywalnym, automatycznie wygenerowanymi nazwami folderów itp.). 
+    * Używanie symbolu wieloznacznego na końcu ścieżki, aby zezwolić na wszystkie pliki wykonywalne w tym folderze i podfolderach
+
+    * Użycie symbolu wieloznacznego w środku ścieżki w celu włączenia znanej nazwy pliku wykonywalnego ze zmianą nazwy folderu (np. osobiste foldery użytkowników z znanym plikiem wykonywalnym, automatycznie wygenerowanymi nazwami folderów itp.).
+
 
 [Dowiedz się więcej na temat adaptacyjnych kontrolek aplikacji](security-center-adaptive-application.md).
 
@@ -340,7 +400,7 @@ Formanty zabezpieczeń — i ten przełącznik — są częścią nowego bezpiec
 
 Dowiedz się więcej o kontrolkach zabezpieczeń w [ulepszonym zabezpieczeniu (wersja zapoznawcza) w Azure Security Center](secure-score-security-controls.md).
 
-![Przełącznik "Grupuj według kontrolek" dla zaleceń](./media/secure-score-security-controls/recommendations-group-by-toggle.gif)
+![Przełącznik "Grupuj według kontrolek" dla zaleceń](\media\secure-score-security-controls\recommendations-group-by-toggle.gif)
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>Rozszerzona kontrola zabezpieczeń "implementacja najlepszych rozwiązań w zakresie zabezpieczeń" 
 
@@ -512,17 +572,4 @@ Dwie zalecenia dotyczące zabezpieczeń związane z aplikacjami sieci Web są pr
 Te rekomendacje nie będą już wyświetlane na liście Security Center zaleceń. Powiązane zasady nie będą już uwzględniane w ramach inicjatywy o nazwie "Security Center domyślne".
 
 Dowiedz się więcej o [zaleceniach dotyczących zabezpieczeń](recommendations-reference.md).
-
-
-
-## <a name="february-2020"></a>Luty 2020 r.
-
-### <a name="fileless-attack-detection-for-linux-preview"></a>Wykrywanie ataków bezplikowych dla systemu Linux (wersja zapoznawcza)
-
-Gdy osoby atakujące zwiększą wykorzystanie metod stealthier, aby uniknąć wykrywania, Azure Security Center rozszerza wykrywanie ataków bez plików dla systemu Linux, a nie tylko z systemem Windows. Ataki bezplikowe wykorzystują luki w zabezpieczeniach, wprowadzają złośliwe ładunki do niegroźnych procesów systemu i ukrywają w pamięci. Techniki te:
-
-- Minimalizowanie lub eliminowanie śladów złośliwego oprogramowania na dysku
-- znacznie zmniejsz szanse wykrywania przez rozwiązania skanujące złośliwe oprogramowanie oparte na dyskach
-
-Aby wyeliminować to zagrożenie, Azure Security Center wydane wykrywanie ataków bezplików dla systemu Windows w październiku 2018 i obecnie rozszerzono wykrywanie ataków bezplikowych w systemie Linux. 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 77cc63945e5cfc612c074e75e38365ada26073ea
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4b1c2ea437168d00823bc5527eaeda33db6ae733
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032785"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166743"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Tworzenie oferty kontenera platformy Azure w portalu Azure Marketplace
 
@@ -50,7 +50,7 @@ Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 Na stronie **Przegląd oferty** przedstawiono wizualną reprezentację kroków wymaganych do opublikowania oferty (zarówno ukończonej, jak i nadchodzącej) oraz czasu, w którym należy wykonać poszczególne kroki.
 
-Ta strona zawiera różne linki w zależności od bieżącego stanu oferty. Przykład:
+Ta strona zawiera różne linki w zależności od bieżącego stanu oferty. Na przykład:
 
 - Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](update-existing-offer.md#delete-a-draft-offer)
 - Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](update-existing-offer.md#stop-selling-an-offer-or-plan)
@@ -252,9 +252,11 @@ Dodaj co najmniej jeden identyfikator subskrypcji platformy Azure — pojedynczo
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-### <a name="plan-overview"></a>Przegląd planu
+## <a name="plan-overview"></a>Przegląd planu
 
 Na tej karcie można podać różne opcje planu w ramach tej samej oferty. Plany (dawniej nazywane jednostkami SKU) mogą różnić się od dostępnych chmur, takich jak chmury globalne, chmury rządowe i obraz, do którego odwołuje się plan. Aby wystawić ofertę w komercyjnej witrynie Marketplace, należy skonfigurować co najmniej jeden plan.
+
+Możesz utworzyć do 100 planów dla każdej oferty: maksymalnie 45 z nich mogą być prywatne. Dowiedz się więcej o planach prywatnych w [ofertach prywatnych w komercyjnym portalu Microsoft Marketplace](../private-offers.md).
 
 Po utworzeniu planów na karcie **Przegląd planu** jest wyświetlana wartość:
 
@@ -269,7 +271,7 @@ Akcje dostępne w omówieniu planu różnią się w zależności od bieżącego 
 - **Usuń wersję roboczą** — Jeśli plan jest stanem wersja robocza.
 - **Zatrzymaj sprzedawanie planu** — Jeśli stan planu jest opublikowany na żywo.
 
-#### <a name="create-new-plan"></a>Utwórz nowy plan
+### <a name="create-new-plan"></a>Utwórz nowy plan
 
 Wybierz pozycję **Utwórz nowy plan**. Zostanie wyświetlone okno dialogowe **nowy plan** .
 
@@ -301,7 +303,7 @@ Usługi Azure Government Services obsługują dane, które podlegają określony
 
 Aby wyświetlić certyfikaty dla tych programów, możesz podać do 100 linków, które je opisują. Mogą to być linki do Twoich aukcji bezpośrednio w programie lub do własnej witryny sieci Web. Te linki są widoczne tylko dla Azure Government klientów.
 
-## <a name="plan-listing"></a>Zaplanuj listę
+### <a name="plan-listing"></a>Zaplanuj listę
 
 Na tej karcie są wyświetlane określone informacje dotyczące poszczególnych planów w ramach bieżącej oferty.
 
@@ -331,7 +333,7 @@ Są to szczegóły planu dotyczące Azure Portal:
 
 :::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Ilustruje szczegóły planu na Azure Portal.":::
 
-## <a name="plan-availability"></a>Planowanie dostępności
+### <a name="plan-availability"></a>Planowanie dostępności
 
 Jeśli chcesz ukryć opublikowaną ofertę, aby klienci nie mogli wyszukiwać, przeglądać ani kupować jej w portalu Marketplace, zaznacz pole wyboru **Ukryj plan** na karcie **dostępność** .
 

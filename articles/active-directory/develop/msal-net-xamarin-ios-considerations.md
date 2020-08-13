@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 7125559dd39e1626634dae7c45b0744bfff57d8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: 73303d64d7ebeb94290819226e5e5944f95f6e42
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652657"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165706"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>Zagadnienia dotyczące korzystania z platformy Xamarin iOS z MSAL.NET
 W przypadku korzystania z biblioteki uwierzytelniania firmy Microsoft dla platformy .NET (MSAL.NET) w systemie Xamarin iOS należy: 
@@ -31,7 +31,7 @@ W przypadku korzystania z biblioteki uwierzytelniania firmy Microsoft dla platfo
 
 ## <a name="implement-openurl"></a>Implementuj OpenUrl
 
-Zastąp `OpenUrl` metodę `FormsApplicationDelegate` klasy pochodnej i wywołanie `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs` . Przykład:
+Zastąp `OpenUrl` metodę `FormsApplicationDelegate` klasy pochodnej i wywołanie `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs` . Oto przykład:
 
 ```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)

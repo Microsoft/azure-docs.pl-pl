@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 04/23/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: e13c4ed472535d2c02734949bf72a5ed42108e7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: 6099bfe339ae398e4683f17a4397656a4507b6ef
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477332"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166012"
 ---
 # <a name="providing-your-own-httpclient-and-proxy-using-msalnet"></a>Udostępnianie własnych HttpClient i proxy za pomocą MSAL.NET
 Podczas [inicjowania publicznej aplikacji klienckiej](msal-net-initializing-client-applications.md)można użyć programu, `.WithHttpClientFactory method` Aby zapewnić własne HttpClient.  Udostępnienie własnych HttpClient umożliwia zaawansowane scenariusze, takie jak precyzyjne sterowanie serwerem proxy HTTP, Dostosowywanie nagłówków agentów użytkowników lub wymuszanie MSAL przy użyciu określonego HttpClient (na przykład w ASP.NET Core aplikacje/interfejsy API sieci Web).

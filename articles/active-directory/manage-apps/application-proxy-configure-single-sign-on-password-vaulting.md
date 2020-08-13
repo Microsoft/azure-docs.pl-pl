@@ -14,18 +14,18 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5e3d08f887cc1c816dda54863c412660494418b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 00b25f1b506228d2d80aecae3845467759a4bc4f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764778"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165043"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Przechowywanie haseł dla logowania jednokrotnego przy użyciu serwera proxy aplikacji
 
 Serwer proxy aplikacji usługi Azure Active Directory ułatwia zwiększenie produktywności przez publikowanie aplikacji lokalnych, dzięki czemu zdalni pracownicy mogą również bezpiecznie uzyskać do nich dostęp. W Azure Portal można także skonfigurować Logowanie jednokrotne (SSO) do tych aplikacji. Użytkownicy muszą tylko uwierzytelniać się w usłudze Azure AD i mogą uzyskać dostęp do aplikacji przedsiębiorstwa bez konieczności ponownego logowania.
 
-Serwer proxy aplikacji obsługuje kilka [trybów logowania](what-is-single-sign-on.md#choosing-a-single-sign-on-method)jednokrotnego. Logowanie oparte na hasłach jest przeznaczone dla aplikacji, które używają kombinacji nazwy użytkownika/hasła na potrzeby uwierzytelniania. Podczas konfigurowania logowania opartego na hasłach dla aplikacji użytkownicy muszą jednokrotnie zalogować się do aplikacji lokalnej. Po tym Azure Active Directory przechowuje informacje logowania i automatycznie udostępnia je aplikacji, gdy użytkownicy uzyskują do niej dostęp zdalnie.
+Serwer proxy aplikacji obsługuje kilka [trybów logowania](sso-options.md#choosing-a-single-sign-on-method)jednokrotnego. Logowanie oparte na hasłach jest przeznaczone dla aplikacji, które używają kombinacji nazwy użytkownika/hasła na potrzeby uwierzytelniania. Podczas konfigurowania logowania opartego na hasłach dla aplikacji użytkownicy muszą jednokrotnie zalogować się do aplikacji lokalnej. Po tym Azure Active Directory przechowuje informacje logowania i automatycznie udostępnia je aplikacji, gdy użytkownicy uzyskują do niej dostęp zdalnie.
 
 Twoja aplikacja powinna już być opublikowana i przetestowana z serwerem proxy aplikacji. Jeśli nie, wykonaj kroki opisane w temacie [publikowanie aplikacji przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD](application-proxy-add-on-premises-application.md) następnie wróć tutaj.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
 ms.date: 07/08/2020
-ms.openlocfilehash: 828c8a33315f5a76eea780705e2cdf3c2871bd14
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cc4c39cf26f3ab8d1037222f967789bfbeca05ba
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012811"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166777"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Co to są środowiska Azure Machine Learning?
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -94,7 +94,7 @@ Aby określić, czy ponownie użyć buforowanego obrazu, czy utworzyć nowy, us�
  * Lista pakietów języka Python w definicji Conda
  * Lista pakietów w definicji platformy Spark 
 
-Wartość skrótu nie jest zależna od nazwy środowiska lub wersji — Jeśli zmienisz nazwę środowiska lub utworzysz nowe środowisko z dokładnymi właściwościami i pakietami istniejącymi, a następnie wartości skrótu pozostają takie same. Jednak zmiany definicji środowiska, takie jak dodawanie lub usuwanie pakietu języka Python lub zmiana wersji pakietu, powodują zmianę wartości skrótu. Należy pamiętać, że jakakolwiek zmiana w środowisku nadzorowanym spowoduje unieważnienie skrótu i powstanie nowego środowiska bez nadzoru.
+Wartość skrótu nie jest zależna od nazwy środowiska lub wersji — Jeśli zmienisz nazwę środowiska lub utworzysz nowe środowisko z dokładnymi właściwościami i pakietami istniejącymi, a następnie wartości skrótu pozostają takie same. Jednak zmiany definicji środowiska, takie jak dodawanie lub usuwanie pakietu języka Python lub zmiana wersji pakietu, powodują zmianę wartości skrótu. Zmiana kolejności zależności lub kanałów w środowisku spowoduje powstanie nowego środowiska i w związku z tym wymaga nowej kompilacji obrazu. Należy pamiętać, że jakakolwiek zmiana w środowisku nadzorowanym spowoduje unieważnienie skrótu i powstanie nowego środowiska bez nadzoru.
 
 Obliczona wartość skrótu jest porównywana z wartościami w obszarze roboczym i globalnym ACR (lub na obiekcie docelowym obliczeń dla lokalnych przebiegów). Jeśli istnieje dopasowanie, zostanie pobrany buforowany obraz, w przeciwnym razie zostanie wyzwolona kompilacja obrazu. Czas trwania ściągania obrazu w pamięci podręcznej obejmuje czas pobierania, podczas którego czas ściągania nowo skompilowanego obrazu obejmuje zarówno czas kompilacji, jak i czas pobierania. 
 
@@ -105,7 +105,7 @@ Na poniższym diagramie przedstawiono trzy definicje środowiska. Dwa z nich maj
 >[!IMPORTANT]
 > W przypadku tworzenia środowiska z przypiętym zależnością pakietu, na przykład, ```numpy``` to środowisko będzie korzystać z zainstalowanej wersji pakietu _w momencie tworzenia środowiska_. Ponadto wszystkie przyszłe środowiska ze zgodną definicją będą nadal używane w starej wersji. 
 
-Aby zaktualizować pakiet, określ numer wersji, aby wymusić Odbudowywanie obrazu ```numpy==1.18.1``` . Zostaną zainstalowane nowe zależności, w tym zagnieżdżone, które mogą spowodować uszkodzenie wcześniej działającego scenariusza.
+Aby zaktualizować pakiet, określ numer wersji, aby wymusić Odbudowywanie obrazu ```numpy==1.18.1``` . Zostaną zainstalowane nowe zależności, w tym zagnieżdżone, które mogą spowodować uszkodzenie wcześniej działającego scenariusza. 
 
 > [!WARNING]
 >  Metoda [Environment. Build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace--image-build-compute-none-) spowoduje odbudowanie buforowanego obrazu z możliwym efektem ubocznym aktualizowania przypiętych pakietów i przerwaniem odtwarzalności dla wszystkich definicji środowiska odpowiadających danemu z pamięci podręcznej.

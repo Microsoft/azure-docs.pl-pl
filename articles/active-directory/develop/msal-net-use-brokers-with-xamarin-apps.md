@@ -11,13 +11,13 @@ ms.workload: identity
 ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 1a57173311278c5e3e0304aeb12d4d6999379eb5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: 8e19677adf5fe0f64ad9e1c845f516f81ad89512
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692329"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166063"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Używanie Microsoft Authenticator lub Intune — Portal firmy w aplikacjach platformy Xamarin
 
@@ -164,7 +164,7 @@ W przypadku korzystania z brokera identyfikator URI przekierowania ma dodatkowy 
 $"msauth.{BundleId}://auth"
 ```
 
-Przykład:
+Oto przykład:
 
 ```csharp
 public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth"; 
@@ -235,7 +235,7 @@ Aby uwierzytelnianie obsługiwane przez brokera działało, należy ustawić dzi
 
 W tym celu należy podać działanie (zazwyczaj główne) `WithParentActivityOrWindow(object parent)` jako obiekt nadrzędny. 
 
-**Przykład:**
+**Na przykład:**
 
 W wywołaniu tokenu pozyskiwania:
 

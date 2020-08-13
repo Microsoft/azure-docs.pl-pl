@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 04/12/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 57ce6ab31421cd4016f7e204eeabce82f2f7e6a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: 30f9f1998ee133c2546c9f4de7a99c51feb8740f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77083997"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166199"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inicjuj aplikacje klienckie przy użyciu MSAL.NET
 W tym artykule opisano sposób inicjowania publicznego klienta i poufnych aplikacji klienckich przy użyciu biblioteki uwierzytelniania firmy Microsoft dla platformy .NET (MSAL.NET).  Aby dowiedzieć się więcej na temat typów aplikacji klienta i opcji konfiguracji aplikacji, zapoznaj się z [omówieniem](msal-client-applications.md).

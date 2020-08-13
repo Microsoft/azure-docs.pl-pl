@@ -7,12 +7,12 @@ ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 08/07/2020
-ms.openlocfilehash: f58ec53d1c4f3ad95993fd2faff44f7164c4beeb
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4d2a884bd6fd4cb62aa7cae5f3e53b865082fde8
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036610"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166607"
 ---
 # <a name="create-a-managed-service-offer"></a>Tworzenie oferty usługi zarządzanej
 
@@ -175,6 +175,8 @@ Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 ## <a name="plan-overview"></a>Przegląd planu
 
 Każda oferta musi mieć jeden lub więcej planów (dawniej nazywanych jednostkami SKU). Możesz dodać wiele planów, aby obsługiwać różne zestawy funkcji w różnych cenach lub dostosować konkretny plan dla ograniczonej liczby odbiorców określonych klientów. Klienci mogą przeglądać plany, które są dostępne dla nich w ramach oferty nadrzędnej.
+
+Możesz utworzyć do 100 planów dla każdej oferty: maksymalnie 45 z nich mogą być prywatne. Dowiedz się więcej o planach prywatnych w [ofertach prywatnych w komercyjnym portalu Microsoft Marketplace](../private-offers.md).
 
 Na stronie **Przegląd planu** wybierz pozycję **+ Utwórz nowy plan**. Następnie wprowadź **identyfikator planu** i **nazwę planu**. Obie te wartości mogą zawierać tylko małe znaki alfanumeryczne, łączniki i podkreślenia, maksymalnie 50 znaków. Te wartości mogą być widoczne dla klientów i nie można ich zmienić po opublikowaniu oferty.
 

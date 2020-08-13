@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 7fbb50308f14acbcec98c562fe72763341538df2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 6140d369c2dbc0968d2f28ff6b8cf447dd721d10
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031034"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166726"
 ---
 # <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Tworzenie oferty SaaS w komercyjnej witrynie Marketplace
 
@@ -352,6 +352,8 @@ Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 Ta strona umożliwia udostępnianie różnych opcji planu w ramach tej samej oferty. Plany te (czasami określane jako jednostki SKU) mogą różnić się w odniesieniu do wersji, zysków lub warstw usługi. Musisz skonfigurować co najmniej jeden plan, aby sprzedawać swoją ofertę w portalu Marketplace.
 
+Możesz utworzyć do 100 planów dla każdej oferty: maksymalnie 45 z nich mogą być prywatne. Dowiedz się więcej o planach prywatnych w [ofertach prywatnych w komercyjnym portalu Microsoft Marketplace](../private-offers.md).
+
 Po utworzeniu zobaczysz nazwy planu, identyfikatory, modele cen, dostępność (publiczna lub prywatna), bieżący stan publikowania i wszystkie dostępne akcje.
 
 **Akcje** dostępne w **przeglądzie planu** różnią się w zależności od bieżącego stanu planu i mogą obejmować:
@@ -439,7 +441,7 @@ Aby uzyskać informacje o subskrypcjach klientów, które aktualnie uczestniczą
 
 Każdy plan można skonfigurować tak, aby był widoczny dla wszystkich, lub tylko do określonych odbiorców. Członkostwo w tych ograniczonych odbiorcach można przypisywać przy użyciu identyfikatorów dzierżaw usługi Azure AD.
 
-##### <a name="privacy"></a>Ochrona prywatności
+##### <a name="privacy"></a>Prywatność
 
 Wybierz opcję **to jest plan prywatny** , aby Twój plan był prywatny i widoczny tylko dla wybranych odbiorców z ograniczeniami. Po opublikowaniu jako planu prywatnego możesz zaktualizować odbiorców lub wybrać opcję udostępnienia planu wszystkim użytkownikom. Gdy plan zostanie opublikowany jako widoczny dla wszystkich użytkowników, musi pozostawać widoczny dla wszystkich (nie może zostać ponownie skonfigurowany jako plan prywatny).
 

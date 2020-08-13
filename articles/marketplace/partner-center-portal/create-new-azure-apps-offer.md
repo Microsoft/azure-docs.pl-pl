@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: c5d52a78dec31dd796929b141556d6da10044099
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 420ca9ff6a3ccc0e0bb76887e777f05dd955e97b
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031504"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166692"
 ---
 # <a name="create-an-azure-application-offer"></a>Tworzenie oferty aplikacji platformy Azure
 
@@ -315,6 +315,8 @@ Konfiguracja techniczna definiuje szczegóły (identyfikator dzierżawy i identy
 ## <a name="plan-overview"></a>Przegląd planu
 
 Na tej karcie można podać różne opcje planu w ramach tej samej oferty. Plany te (dawniej nazywane jednostkami SKU) mogą różnić się od typu planu (szablonu rozwiązania a aplikacji zarządzanej), zysków lub odbiorców. Skonfiguruj co najmniej jeden plan w celu wyświetlenia oferty w portalu Marketplace.
+
+Możesz utworzyć do 100 planów dla każdej oferty: maksymalnie 45 z nich mogą być prywatne. Dowiedz się więcej o planach prywatnych w [ofertach prywatnych w komercyjnym portalu Microsoft Marketplace](../private-offers.md).
 
 Po utworzeniu zobaczysz nazwy planu, identyfikatory, typ planu, dostępność (Public lub private), bieżący stan publikowania i wszystkie dostępne akcje na tej karcie.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/27/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 300c6e268e3d2f639bf697237253d2b98e5daa15
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d4f00061664340681b365eddfa1a742795f96d99
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352495"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164686"
 ---
 # <a name="using-azure-ad-for-applications-not-listed-in-the-app-gallery"></a>Korzystanie z usługi Azure AD dla aplikacji, które nie znajdują się na liście w galerii aplikacji
 
@@ -29,9 +29,9 @@ Oprócz opcji dostępnych w [galerii aplikacji usługi Azure AD](https://azure.m
 Możesz dodać dowolną aplikację, która już istnieje w organizacji, lub dowolną aplikację innej firmy od dostawcy, który nie jest jeszcze częścią galerii usługi Azure AD. W zależności od [umowy licencyjnej](https://azure.microsoft.com/pricing/details/active-directory/)dostępne są następujące funkcje:
 
 - Samoobsługowa integracja dowolnej aplikacji, która obsługuje [SAML (SAML) 2,0](https://wikipedia.org/wiki/SAML_2.0) dostawców tożsamości (zainicjowanych przez program SP lub dostawcy tożsamości)
-- Samoobsługowa integracja dowolnej aplikacji sieci Web, która ma stronę logowania opartą na języku HTML przy użyciu [logowania jednokrotnego opartego na hasłach](what-is-single-sign-on.md#password-based-sso)
+- Samoobsługowa integracja dowolnej aplikacji sieci Web, która ma stronę logowania opartą na języku HTML przy użyciu [logowania jednokrotnego opartego na hasłach](sso-options.md#password-based-sso)
 - Samoobsługowe połączenie aplikacji korzystających z [systemu do obsługi międzydomenowego protokołu zarządzania tożsamościami (standard scim) na potrzeby aprowizacji użytkowników](../app-provisioning/use-scim-to-provision-users-and-groups.md)
-- Możliwość dodawania linków do dowolnej aplikacji w programie [uruchamiania aplikacji pakietu Office 365](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) lub w [panelu dostępu usługi Azure AD](what-is-single-sign-on.md#linked-sign-on)
+- Możliwość dodawania linków do dowolnej aplikacji w programie [uruchamiania aplikacji pakietu Office 365](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) lub w [panelu dostępu usługi Azure AD](sso-options.md#linked-sign-on)
 
 Jeśli szukasz wskazówek dla deweloperów, jak zintegrować aplikacje niestandardowe z usługą Azure AD, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](../develop/authentication-scenarios.md). Podczas tworzenia aplikacji, która korzysta z nowoczesnego protokołu, takiego jak [OpenID Connect Connect/OAuth](../develop/active-directory-v2-protocols.md) do uwierzytelniania użytkowników, możesz zarejestrować ją na platformie tożsamości firmy Microsoft, korzystając z [Rejestracje aplikacji](../develop/quickstart-register-app.md) środowiska w Azure Portal.
 

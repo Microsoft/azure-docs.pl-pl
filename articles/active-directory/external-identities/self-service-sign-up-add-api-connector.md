@@ -4,19 +4,19 @@ description: Skonfiguruj interfejs API sieci Web, który ma być używany w prze
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: how-to
+ms.topic: article
 ms.date: 06/16/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88270d51bf50b2b175d9d8761685a8a2a8ae19b1
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 5f241fd038d0d7309d8e1e5578dd77f950261b68
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909211"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165179"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Dodawanie łącznika interfejsu API do przepływu użytkownika
 
@@ -38,20 +38,54 @@ Aby użyć [łącznika interfejsu API](api-connectors-overview.md), należy najp
    - Obecnie jest obsługiwane tylko uwierzytelnianie podstawowe. Jeśli chcesz użyć interfejsu API bez uwierzytelniania podstawowego do celów deweloperskich, po prostu wprowadź fikcyjną **nazwę użytkownika** i **hasło** , które mogą być ignorowane przez interfejs API. Do użycia z funkcją platformy Azure z kluczem interfejsu API można uwzględnić kod jako parametr zapytania w **adresie URL punktu końcowego** (na przykład https []() ://contoso.azurewebsites.NET/API/Endpoint<b>? Code = 0123456789</b>).
 
    ![Dodawanie nowego łącznika interfejsu API](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
+8. Wybierz pozycję **Zapisz**.
 
-8. Wybierz oświadczenia, które chcesz wysłać do interfejsu API.
-9. Wybierz wszelkie oświadczenia, które planujesz odebrać z interfejsu API.
-
-   <!-- ![Set API connector claims](./media/self-service-sign-up-add-api-connector/api-connector-claims.png) -->
-
-10. Wybierz pozycję **Zapisz**.
-
-### <a name="selection-of-claims-to-send-and-claims-to-receive"></a>Wybór "oświadczeń do wysłania" i "oświadczeń do odebrania"
 > [!IMPORTANT]
-> Można zobaczyć wszystkie wybrane oświadczenia domyślnie, jak pokazano poniżej. Wszystkie łączniki interfejsu API zostaną zaktualizowane w taki sposób. Interfejs API otrzyma wszystkie dostępne oświadczenia i będzie mógł wysłać wszelkie obsługiwane oświadczenia bez konfigurowania ich w definicji łącznika interfejsu API. 
+> Wcześniej trzeba było skonfigurować atrybuty użytkownika do wysłania do interfejsu API ("oświadczenia do wysłania") oraz atrybuty użytkownika akceptowane z interfejsu API ("oświadczenia do odebrania"). Teraz wszystkie atrybuty użytkownika są domyślnie wysyłane, jeśli mają wartość i dowolny atrybut użytkownika może być zwracany przez interfejs API w odpowiedzi "kontynuacja".
 
-![Ustaw oświadczenia łącznika interfejsu API](./media/self-service-sign-up-add-api-connector/api-connector-claims-new.png)
+## <a name="the-request-sent-to-your-api"></a>Żądanie wysłane do interfejsu API
+Łącznik interfejsu API materializuje jako żądanie **http post** , wysyłając atrybuty użytkownika ("oświadczenia") jako pary klucz-wartość w treści JSON. Atrybuty są serializowane w sposób podobny do [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0#properties) właściwości użytkownika. 
 
+**Przykładowe żądanie**
+```http
+POST <API-endpoint>
+Content-type: application/json
+
+{
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
+ "identities": [ //Sent for Google and Facebook identity providers
+     {
+     "signInType":"federated",
+     "issuer":"facebook.com",
+     "issuerAssignedId":"0123456789"
+     }
+ ],
+ "displayName": "John Smith",
+ "givenName":"John",
+ "surname":"Smith",
+ "jobTitle":"Supplier",
+ "streetAddress":"1000 Microsoft Way",
+ "city":"Seattle",
+ "postalCode": "12345",
+ "state":"Washington",
+ "country":"United States",
+ "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
+ "ui_locales":"en-US"
+}
+```
+
+W żądaniu są dostępne tylko właściwości użytkownika i atrybuty niestandardowe wymienione w **Azure Active Directory**  >  **tożsamości zewnętrznych**  >  **niestandardowe środowisko atrybutów użytkownika** .
+
+Atrybuty niestandardowe istnieją w formacie **extension_ \<extensions-app-id> _AttributeName** w katalogu. Interfejs API powinien oczekiwać otrzymywania oświadczeń w tym samym zserializowanym formacie. Aby uzyskać więcej informacji na temat atrybutów niestandardowych, zobacz [Definiowanie atrybutów niestandardowych dla przepływów rejestracji samoobsługowej](user-flow-add-custom-attributes.md).
+
+Ponadto w przypadku wszystkich żądań jest domyślnie wysyłane żądanie **ustawień regionalnych interfejsu użytkownika ("ui_locales")** . Udostępnia ustawienia regionalne użytkownika skonfigurowane na urządzeniu, które mogą być używane przez interfejs API do zwracania międzynarodowych odpowiedzi.
+
+> [!IMPORTANT]
+> Jeśli nie ma wartości w momencie wywołania punktu końcowego interfejsu API, nie zostanie ono wysłane do interfejsu API. Interfejs API powinien zostać zaprojektowany w celu jawnego sprawdzenia dla oczekiwanej wartości.
+
+> [!TIP] 
+> [**tożsamości ("tożsamości")**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) oraz oświadczenia **adresu e-mail ("e-mail")** mogą być używane przez interfejs API do identyfikowania użytkownika przed utworzeniem konta w dzierżawie. To zdarzenie jest wysyłane, gdy użytkownik uwierzytelnia się za pomocą dostawcy tożsamości, takiego jak Google lub Facebook. wiadomość e-mail jest zawsze wysyłana.
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Włączanie łącznika interfejsu API w przepływie użytkownika
 
@@ -70,13 +104,72 @@ Wykonaj następujące kroki, aby dodać łącznik interfejsu API do samoobsługo
 
 6. Wybierz pozycję **Zapisz**.
 
-Dowiedz się [, gdzie można włączyć łącznik interfejsu API w przepływie użytkownika](api-connectors-overview.md#where-you-can-enable-an-api-connector-in-a-user-flow).
+## <a name="after-signing-in-with-an-identity-provider"></a>Po zalogowaniu się za pomocą dostawcy tożsamości
 
-## <a name="request-sent-to-the-api"></a>Żądanie wysłane do interfejsu API
+Łącznik interfejsu API w tym kroku w procesie tworzenia konta jest wywoływany natychmiast po uwierzytelnieniu użytkownika przy użyciu dostawcy tożsamości (Google, Facebook, Azure AD). Ten krok poprzedza ***stronę kolekcji atrybutów***, która jest formularzem prezentowanym użytkownikowi w celu zbierania atrybutów użytkownika. 
 
-Łącznik interfejsu API materializuje jako żądanie HTTP POST, wysyłając wybrane oświadczenia jako pary klucz-wartość w treści JSON. Odpowiedź powinna również mieć nagłówek HTTP `Content-Type: application/json` . Atrybuty są serializowane w sposób analogiczny do atrybutów użytkownika Microsoft Graph. <!--# TODO: Add link to MS Graph or create separate reference.-->
+<!-- The following are examples of API connector scenarios you may enable at this step:
+- Use the email or federated identity that the user provided to look up claims in an existing system. Return these claims from the existing system, pre-fill the attribute collection page, and make them available to return in the token.
+- Validate whether the user is included in an allow or deny list, and control whether they can continue with the sign-up flow. -->
 
-### <a name="example-request"></a>Przykładowe żądanie
+### <a name="example-request-sent-to-the-api-at-this-step"></a>Przykładowe żądanie wysłane do interfejsu API w tym kroku
+```http
+POST <API-endpoint>
+Content-type: application/json
+
+{
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
+ "identities": [ //Sent for Google and Facebook identity providers
+     {
+     "signInType":"federated",
+     "issuer":"facebook.com",
+     "issuerAssignedId":"0123456789"
+     }
+ ],
+ "displayName": "John Smith",
+ "givenName":"John",
+ "lastName":"Smith",
+ "ui_locales":"en-US"
+}
+```
+
+Dokładne oświadczenia wysyłane do interfejsu API są zależne od tego, które informacje są dostarczane przez dostawcę tożsamości. wiadomość e-mail jest zawsze wysyłana.
+
+### <a name="expected-response-types-from-the-web-api-at-this-step"></a>Oczekiwane typy odpowiedzi z internetowego interfejsu API w tym kroku
+
+Gdy internetowy interfejs API odbiera żądanie HTTP z usługi Azure AD podczas przepływu użytkownika, może zwrócić następujące odpowiedzi:
+
+- Dalsza odpowiedź
+- Zablokuj odpowiedź
+
+#### <a name="continuation-response"></a>Dalsza odpowiedź
+
+Odpowiedź kontynuacji wskazuje, że przepływ użytkownika powinien przejść do następnego kroku: Strona kolekcji atrybutów.
+
+W odpowiedzi na kontynuację interfejs API może zwracać oświadczenia. Jeśli w interfejsie API zostanie zwrócone zgłoszenie, jest ono następujące:
+
+- Wstępnie wypełnia pole wejściowe na stronie kolekcji atrybutów.
+
+Zobacz przykład [odpowiedzi kontynuacji](#example-of-a-continuation-response).
+
+#### <a name="blocking-response"></a>Zablokuj odpowiedź
+
+Zablokowanie odpowiedzi kończy przepływ użytkownika. Może być celowo wystawiony przez interfejs API, aby zatrzymać kontynuację przepływu użytkownika przez wyświetlenie strony blokowej dla użytkownika. Na stronie blok zostanie wyświetlona wartość `userMessage` dostarczone przez interfejs API.
+
+Zapoznaj się z przykładem [odpowiedzi blokującej](#example-of-a-blocking-response).
+
+## <a name="before-creating-the-user"></a>Przed utworzeniem użytkownika
+
+Łącznik interfejsu API w tym kroku w procesie tworzenia konta jest wywoływany po stronie kolekcji atrybutów, jeśli jest dołączony. Ten krok jest zawsze wywoływany przed utworzeniem konta użytkownika w usłudze Azure AD. 
+
+<!-- The following are examples of scenarios you might enable at this point during sign-up: -->
+<!-- 
+- Validate user input data and ask a user to resubmit data.
+- Block a user sign-up based on data entered by the user.
+- Perform identity verification.
+- Query external systems for existing data about the user and overwrite the user-provided value. -->
+
+### <a name="example-request-sent-to-the-api-at-this-step"></a>Przykładowe żądanie wysłane do interfejsu API w tym kroku
 
 ```http
 POST <API-endpoint>
@@ -92,41 +185,52 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
- "postalCode": "33971",
+ "givenName":"John",
+ "surname":"Smith",
+ "jobTitle":"Supplier",
+ "streetAddress":"1000 Microsoft Way",
+ "city":"Seattle",
+ "postalCode": "12345",
+ "state":"Washington",
+ "country":"United States",
  "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
  "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
+Dokładne oświadczenia wysyłane do interfejsu API są zależne od tego, które informacje są zbierane od użytkownika lub dostarczane przez dostawcę tożsamości.
 
-**Lokalne żądanie interfejsu użytkownika ("ui_locales")** jest domyślnie wysyłane we wszystkich żądaniach. Zapewnia on ustawienia regionalne użytkownika i może być używany przez interfejs API do zwracania odpowiedzi międzynarodowych. Nie jest on wyświetlany w okienku konfiguracji interfejsu API.
-
-Jeśli nie ma wartości w momencie wywołania punktu końcowego interfejsu API, nie zostanie ono wysłane do interfejsu API.
-
-Atrybuty niestandardowe można utworzyć dla użytkownika przy użyciu formatu ** \<extensions-app-id> _AttributeName extension_** . Interfejs API powinien oczekiwać otrzymywania oświadczeń w tym samym zserializowanym formacie. Interfejs API może zwracać oświadczenia z lub bez `<extensions-app-id>` . Aby uzyskać więcej informacji o atrybutach niestandardowych, zobacz [Definiowanie atrybutów niestandardowych dla przepływów rejestracji samoobsługowej](user-flow-add-custom-attributes.md).
-
-> [!TIP] 
-> [**tożsamości ("tożsamości")**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) oraz oświadczenia **adresu e-mail ("e-mail")** mogą służyć do identyfikowania użytkownika przed utworzeniem konta w dzierżawie. W przypadku, gdy użytkownik uwierzytelnia się za pomocą usługi Google lub Facebook, a adres e-mail jest zawsze wysyłany, jest wysyłane zgłoszenie tożsamości.
-
-## <a name="expected-response-types-from-the-web-api"></a>Oczekiwane typy odpowiedzi z internetowego interfejsu API
+### <a name="expected-response-types-from-the-web-api-at-this-step"></a>Oczekiwane typy odpowiedzi z internetowego interfejsu API w tym kroku
 
 Gdy internetowy interfejs API odbiera żądanie HTTP z usługi Azure AD podczas przepływu użytkownika, może zwrócić następujące odpowiedzi:
 
-- [Dalsza odpowiedź](#continuation-response)
-- [Zablokuj odpowiedź](#blocking-response)
-- [Walidacja — odpowiedź na błąd](#validation-error-response)
+- Dalsza odpowiedź
+- Zablokuj odpowiedź
+- Odpowiedź dotycząca walidacji
 
-### <a name="continuation-response"></a>Dalsza odpowiedź
+#### <a name="continuation-response"></a>Dalsza odpowiedź
 
-Odpowiedź kontynuacji wskazuje, że przepływ użytkownika powinien przejść do następnego kroku. W odpowiedzi na kontynuację interfejs API może zwracać oświadczenia.
+Odpowiedź kontynuacji wskazuje, że przepływ użytkownika powinien przejść do następnego kroku: Utwórz użytkownika w katalogu.
 
-W przypadku zwrócenia przez interfejs API żądania i wybrania jako **żądania odebrania**, w ramach tego żądania następuje:
+W odpowiedzi na kontynuację interfejs API może zwracać oświadczenia. Jeśli w interfejsie API zostanie zwrócone zgłoszenie, jest ono następujące:
 
-- Wstępnie wypełnia pola wejściowe na stronie kolekcji atrybutów, jeśli łącznik interfejsu API jest wywoływany przed wyświetleniem strony.
-- Zastępuje wszystkie wartości, które zostały już przypisane do żądania.
-- Przypisuje wartość do żądania, jeśli wcześniej była równa null.
+- Zastępuje wszystkie wartości, które zostały już przypisane do żądania ze strony kolekcji atrybutów.
 
-#### <a name="example-of-a-continuation-response"></a>Przykład odpowiedzi kontynuacji
+Zobacz przykład [odpowiedzi kontynuacji](#example-of-a-continuation-response).
+
+#### <a name="blocking-response"></a>Zablokuj odpowiedź
+Zablokowanie odpowiedzi kończy przepływ użytkownika. Może być celowo wystawiony przez interfejs API, aby zatrzymać kontynuację przepływu użytkownika przez wyświetlenie strony blokowej dla użytkownika. Na stronie blok zostanie wyświetlona wartość `userMessage` dostarczone przez interfejs API.
+
+Zapoznaj się z przykładem [odpowiedzi blokującej](#example-of-a-blocking-response).
+
+### <a name="validation-error-response"></a>Walidacja — odpowiedź na błąd
+ Gdy interfejs API reaguje na odpowiedź z błędami walidacji, przepływ użytkownika pozostaje na stronie kolekcji atrybutów i `userMessage` zostanie wyświetlony użytkownikowi. Użytkownik może następnie edytować i ponownie przesłać formularz. Ten typ odpowiedzi może służyć do sprawdzania poprawności danych wejściowych.
+
+Zapoznaj się z przykładem [odpowiedzi na błąd walidacji](#example-of-a-validation-error-response).
+
+## <a name="example-responses"></a>Przykładowe odpowiedzi
+
+### <a name="example-of-a-continuation-response"></a>Przykład odpowiedzi kontynuacji
 
 ```http
 HTTP/1.1 200 OK
@@ -147,11 +251,7 @@ Content-type: application/json
 | \<builtInUserAttribute>                            | \<attribute-type> | Nie       | Wartości mogą być przechowywane w katalogu, jeśli zostały wybrane jako takie, **które mają zostać odebrane** w ramach konfiguracji łącznika interfejsu API i **atrybutów użytkownika** dla przepływu użytkownika. Wartości mogą być zwracane w tokenie, jeśli są wybrane jako **wnioski aplikacji**.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Nie       | Zwróconego żądania nie musi zawierać `_<extensions-app-id>_` . Wartości są przechowywane w katalogu, jeśli zostały wybrane jako jako "jako" jako "jako" jako "jako" jako "jako" jako "jako" **jako jako rolę w** **atrybucie User** Connector dla przepływu użytkownika. Nie można ponownie wysłać atrybutów niestandardowych do tokenu. |
 
-### <a name="blocking-response"></a>Zablokuj odpowiedź
-
-Zablokowanie odpowiedzi kończy przepływ użytkownika. Może być celowo wystawiony przez interfejs API, aby zatrzymać kontynuację przepływu użytkownika przez wyświetlenie strony blokowej dla użytkownika. Na stronie blok zostanie wyświetlona wartość `userMessage` dostarczone przez interfejs API.
-
-Przykład odpowiedzi blokującej:
+### <a name="example-of-a-blocking-response"></a>Przykład odpowiedzi blokującej
 
 ```http
 HTTP/1.1 200 OK
@@ -173,15 +273,11 @@ Content-type: application/json
 | userMessage | Ciąg | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
 | kod        | Ciąg | Nie       | Kod błędu. Może służyć do celów debugowania. Niewidoczne dla użytkownika. |
 
-#### <a name="end-user-experience-with-a-blocking-response"></a>Środowisko użytkownika końcowego z odpowiedzią blokującą
+**Środowisko użytkownika końcowego z odpowiedzią blokującą**
 
 ![Przykładowa strona bloku](./media/api-connectors-overview/blocking-page-response.png)
 
-### <a name="validation-error-response"></a>Walidacja — odpowiedź na błąd
-
-Wywołanie interfejsu API wywoływane po stronie kolekcji atrybutów może zwracać błąd walidacji. W takim przypadku przepływ użytkownika pozostaje na stronie kolekcji atrybutów i `userMessage` jest wyświetlany użytkownikowi. Użytkownik może następnie edytować i ponownie przesłać formularz. Ten typ odpowiedzi może służyć do sprawdzania poprawności danych wejściowych.
-
-#### <a name="example-of-a-validation-error-response"></a>Przykład weryfikacji — odpowiedź na błąd
+### <a name="example-of-a-validation-error-response"></a>Przykład weryfikacji — odpowiedź na błąd
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -204,12 +300,12 @@ Content-type: application/json
 | userMessage | Ciąg  | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
 | kod        | Ciąg  | Nie       | Kod błędu. Może służyć do celów debugowania. Niewidoczne dla użytkownika. |
 
-#### <a name="end-user-experience-with-a-validation-error-response"></a>Środowisko użytkownika końcowego z odpowiedzią na błędy weryfikacji
+**Środowisko użytkownika końcowego z odpowiedzią na błędy weryfikacji**
 
 ![Przykładowa strona walidacji](./media/api-connectors-overview/validation-error-postal-code.png)
 
-### <a name="integration-with-azure-functions"></a>Integracja z usługą Azure Functions
-Wyzwalacza protokołu HTTP można używać w Azure Functions jako prosty sposób tworzenia interfejsu API do użycia z łącznikiem interfejsu API. Funkcja platformy Azure służy do, [na przykład](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), wykonywania logiki walidacji i ograniczania logowania do określonych domen. Możesz również wywołać i wywołać inne interfejsy API sieci Web, sklepy użytkowników i inne usługi w chmurze.
+## <a name="using-azure-functions"></a>Korzystanie z usługi Azure Functions
+Wyzwalacza HTTP można użyć w Azure Functions jako prosty sposób utworzenia punktu końcowego interfejsu API do użycia z łącznikiem interfejsu API. Funkcja platformy Azure służy do, [na przykład](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), wykonywania logiki walidacji i ograniczania logowania do określonych domen. Możesz również wywołać i wywołać inne interfejsy API sieci Web, sklepy użytkowników i inne usługi w chmurze w ramach funkcji platformy Azure w celu uzyskania obszernych scenariuszy.
 
 ## <a name="next-steps"></a>Następne kroki
 

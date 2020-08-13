@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 62cebb4e774e2f86ed6a4a17edd6da71f7c7cd9f
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
+ms.openlocfilehash: 0fc31fd397f8206f7c6f0509dd03495631dde609
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141333"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165638"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>Szybki Start: wywoływanie interfejsu API sieci Web ASP.NET chronionego przez platformę tożsamości firmy Microsoft
 
@@ -107,11 +107,11 @@ W tym kroku skonfigurujesz projekt *TodoListClient* , rejestrując nową aplikac
    > [!NOTE]
    > W **app.config**projektu *TodoListClient* wartość domyślna `ida:Tenant` to `common` .
    >
-   > `common`oznacza to, że możesz zalogować się za pomocą konta służbowego lub konta osobistego firmy Microsoft (ponieważ wybrano **konta w dowolnym katalogu organizacyjnym**).
+   > `common` oznacza to, że możesz zalogować się za pomocą konta służbowego lub konta osobistego firmy Microsoft (ponieważ wybrano **konta w dowolnym katalogu organizacyjnym**).
    >
-   > `organizations`oznacza to, że możesz zalogować się przy użyciu konta służbowego.
+   > `organizations` oznacza to, że możesz zalogować się przy użyciu konta służbowego.
    >
-   > `consumers`oznacza, że możesz zalogować się tylko przy użyciu konta osobistego firmy Microsoft.
+   > `consumers` oznacza, że możesz zalogować się tylko przy użyciu konta osobistego firmy Microsoft.
    >
    
 1. Na stronie Przegląd aplikacji wybierz sekcję **uwierzytelnianie** .

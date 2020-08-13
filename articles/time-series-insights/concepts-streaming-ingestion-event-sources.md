@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 9ef87027bcda6c645d1239598c849f57fb0c8992
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/12/2020
+ms.openlocfilehash: 6524128cb5bccfefe37d605b406210a91e78cac8
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491973"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163972"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights źródła zdarzeń Gen2
 
@@ -33,34 +33,34 @@ Po nawiązaniu połączenia ze źródłem zdarzeń środowisko Azure Time Series
 
 > [!IMPORTANT]
 >
-> * Podczas dołączania źródła zdarzeń do środowiska Azure Time Series Insights Gen2 może wystąpić wysokie początkowe opóźnienie.
-> Opóźnienie źródła zdarzenia zależy od liczby zdarzeń znajdujących się obecnie w IoT Hub lub centrum zdarzeń.
-> * Duże opóźnienie zostanie umieszczone po pierwszym pozyskaniu danych źródła zdarzenia. Prześlij bilet pomocy technicznej za pomocą Azure Portal, jeśli wystąpią duże opóźnienia.
+> - Podczas dołączania źródła zdarzeń do środowiska Azure Time Series Insights Gen2 może wystąpić wysokie początkowe opóźnienie.
+> - Opóźnienie źródła zdarzenia zależy od liczby zdarzeń znajdujących się obecnie w IoT Hub lub centrum zdarzeń.
+> - Duże opóźnienie zostanie umieszczone po pierwszym pozyskaniu danych źródła zdarzenia. Prześlij bilet pomocy technicznej za pomocą Azure Portal, jeśli wystąpią duże opóźnienia.
 
 ## <a name="streaming-ingestion-best-practices"></a>Najlepsze rozwiązania pozyskiwania strumieniowego
 
-* Zawsze należy utworzyć unikatową grupę odbiorców dla środowiska Azure Time Series Insights Gen2, aby używać danych ze źródła zdarzeń. Ponowne używanie grup odbiorców może spowodować losowe odłączenie i może skutkować utratą danych.
+- Zawsze należy utworzyć unikatową grupę odbiorców dla środowiska Azure Time Series Insights Gen2, aby używać danych ze źródła zdarzeń. Ponowne używanie grup odbiorców może spowodować losowe odłączenie i może skutkować utratą danych.
 
-* Skonfiguruj środowisko Azure Time Series Insights Gen2 i IoT Hub i/lub Event Hubs w tym samym regionie świadczenia usługi Azure. Chociaż istnieje możliwość skonfigurowania źródeł zdarzeń w osobnym regionie, ten scenariusz nie jest obsługiwany, a firma Microsoft nie może zagwarantować wysokiej dostępności.
+- Skonfiguruj środowisko Azure Time Series Insights Gen2 i IoT Hub i/lub Event Hubs w tym samym regionie świadczenia usługi Azure. Chociaż istnieje możliwość skonfigurowania źródła zdarzeń w osobnym regionie, ten scenariusz nie jest obsługiwany, a firma Microsoft nie może zagwarantować wysokiej dostępności.
 
-* Nie należy przekroczyć [limitu szybkości przepływności](./concepts-streaming-ingress-throughput-limits.md) dla środowiska lub limitu partycji.
+- Nie należy przekroczyć [limitu szybkości przepływności](./concepts-streaming-ingress-throughput-limits.md) dla środowiska lub limitu partycji.
 
-* Skonfiguruj [alert](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency?branch=pr-en-us-117938#monitor-latency-and-throttling-with-alerts) z opóźnieniem, aby otrzymywać powiadomienia o problemach z przetwarzaniem danych w środowisku.
+- Skonfiguruj [alert](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) z opóźnieniem, aby otrzymywać powiadomienia o problemach z przetwarzaniem danych w środowisku.
 
-* Używaj pozyskiwania strumieniowego w przypadku niemal czasu rzeczywistego i ostatnich danych, ale dane historyczne przesyłania strumieniowego nie są obsługiwane.
+- Używaj pozyskiwania strumieniowego w przypadku niemal czasu rzeczywistego i ostatnich danych, ale dane historyczne przesyłania strumieniowego nie są obsługiwane.
 
-* Dowiedz się, w jaki sposób właściwości będą wyprowadzane, a dane JSON są [spłaszczone i przechowywane.](./concepts-json-flattening-escaping-rules.md)
+- Dowiedz się, w jaki sposób właściwości będą wyprowadzane, a dane JSON są [spłaszczone i przechowywane.](./concepts-json-flattening-escaping-rules.md)
 
-* Stosuj zasadę najniższych uprawnień podczas udostępniania parametrów połączenia źródła zdarzeń. W przypadku Event Hubs Skonfiguruj zasady dostępu współdzielonego tylko przy użyciu tylko żądania *wysyłania* , a dla IoT Hub Użyj tylko uprawnienia *usługi Connect* .
+- Stosuj zasadę najniższych uprawnień podczas udostępniania parametrów połączenia źródła zdarzeń. W przypadku Event Hubs Skonfiguruj zasady dostępu współdzielonego tylko przy użyciu tylko żądania *wysyłania* , a dla IoT Hub Użyj tylko uprawnienia *usługi Connect* .
 
 ### <a name="historical-data-ingestion"></a>Pozyskiwanie danych historycznych
 
 Korzystanie z potoku przesyłania strumieniowego do importowania danych historycznych nie jest obecnie obsługiwane w Azure Time Series Insights Gen2. Jeśli zachodzi potrzeba zaimportowania wcześniejszych danych do środowiska, postępuj zgodnie z poniższymi wskazówkami:
 
-* Nie przesyłaj jednocześnie danych na żywo i historyczne. Pozyskanie danych z kolejności nie spowoduje obniżenia wydajności zapytań.
-* Pozyskiwanie danych historycznych w uporządkowany czas w celu uzyskania najlepszej wydajności.
-* Poniżej znajdują się limity przepływności pozyskiwania.
-* Wyłącz sklep ciepły, jeśli dane są starsze niż okres przechowywania w sklepie eksploatacyjnym.
+- Nie przesyłaj jednocześnie danych na żywo i historyczne. Pozyskanie danych z kolejności nie spowoduje obniżenia wydajności zapytań.
+- Pozyskiwanie danych historycznych w uporządkowany czas w celu uzyskania najlepszej wydajności.
+- Poniżej znajdują się limity przepływności pozyskiwania.
+- Wyłącz sklep ciepły, jeśli dane są starsze niż okres przechowywania w sklepie eksploatacyjnym.
 
 ## <a name="event-source-timestamp"></a>Sygnatura czasowa źródła zdarzeń
 
@@ -82,10 +82,6 @@ HHMMZ</br>
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Przeczytaj [reguły spłaszczania i ucieczki JSON](./concepts-json-flattening-escaping-rules.md) , aby zrozumieć, jak będą przechowywane zdarzenia. 
+- Przeczytaj [reguły spłaszczania i ucieczki JSON](./concepts-json-flattening-escaping-rules.md) , aby zrozumieć, jak będą przechowywane zdarzenia.
 
-* Zapoznaj się z [ograniczeniami przepływności](./concepts-streaming-ingress-throughput-limits.md) środowiska
-
-
-
-
+- Zapoznaj się z [ograniczeniami przepływności](./concepts-streaming-ingress-throughput-limits.md) środowiska

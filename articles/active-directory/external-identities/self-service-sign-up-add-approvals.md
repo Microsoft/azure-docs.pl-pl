@@ -4,19 +4,19 @@ description: Dodaj łączniki interfejsu API dla niestandardowych przepływów p
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: how-to
+ms.topic: article
 ms.date: 06/16/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d1a4495b1d637b1cf8592f8c17e63ad456ea3c4
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: d664d7cd169593924917bb02a0220e4047eb0cdb
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909194"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165252"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Dodawanie niestandardowego przepływu pracy zatwierdzenia do rejestracji samoobsługowej
 
@@ -65,7 +65,7 @@ Następnie utworzysz [Łączniki interfejsu API](self-service-sign-up-add-api-co
 
   ![Sprawdź konfigurację łącznika interfejsu API stanu zatwierdzenia](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
-- **Żądaj zatwierdzenia** — Wyślij wywołanie do systemu zatwierdzania po zakończeniu przez użytkownika strony kolekcji atrybutów, ale przed utworzeniem konta użytkownika, aby zażądać zatwierdzenia. Żądanie zatwierdzenia można automatycznie udzielić lub ręcznie przejrzeć. Przykład łącznika interfejsu API "Żądaj zatwierdzenia". Wybierz wszelkie **oświadczenia, które mają zostać wysłane** przez system zatwierdzania, aby podjąć decyzję o zatwierdzeniu.
+- **Żądaj zatwierdzenia** — Wyślij wywołanie do systemu zatwierdzania po zakończeniu przez użytkownika strony kolekcji atrybutów, ale przed utworzeniem konta użytkownika, aby zażądać zatwierdzenia. Żądanie zatwierdzenia można automatycznie udzielić lub ręcznie przejrzeć. Przykład łącznika interfejsu API "Żądaj zatwierdzenia". 
 
   ![Zażądaj konfiguracji łącznika interfejsu API zatwierdzania](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
 
@@ -90,28 +90,33 @@ Teraz można dodać łączniki interfejsu API do samoobsługowego przepływu uż
 
 ## <a name="control-the-sign-up-flow-with-api-responses"></a>Sterowanie przepływem rejestracji przy użyciu odpowiedzi interfejsu API
 
-System zatwierdzania może używać [typów odpowiedzi interfejsu API](self-service-sign-up-add-api-connector.md#expected-response-types-from-the-web-api) z dwóch punktów końcowych interfejsu API do sterowania przepływem rejestracji.
+System zatwierdzania może używać odpowiedzi, gdy zostanie wywołana w celu sterowania przepływem rejestracji. 
 
 ### <a name="request-and-responses-for-the-check-approval-status-api-connector"></a>Żądanie i odpowiedzi dotyczące łącznika interfejsu API "Sprawdzanie stanu zatwierdzenia"
 
 Przykład żądania odebranego przez interfejs API z łącznika interfejsu API "Sprawdzanie stanu zatwierdzenia":
 
 ```http
-POST <Approvals-API-endpoint>
+POST <API-endpoint>
 Content-type: application/json
 
 {
- "email": "johnsmith@outlook.com",
- "identities": [
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
+ "identities": [ //Sent for Google and Facebook identity providers
      {
      "signInType":"federated",
      "issuer":"facebook.com",
      "issuerAssignedId":"0123456789"
      }
  ],
+ "displayName": "John Smith",
+ "givenName":"John",
+ "lastName":"Smith",
  "ui_locales":"en-US"
 }
 ```
+
+Dokładne oświadczenia wysyłane do interfejsu API są zależne od tego, które informacje są dostarczane przez dostawcę tożsamości. wiadomość e-mail jest zawsze wysyłana.
 
 #### <a name="continuation-response-for-check-approval-status"></a>Niedalsza odpowiedź dla "Sprawdź stan zatwierdzenia"
 
@@ -169,12 +174,12 @@ Content-type: application/json
 Przykład żądania HTTP odebranego przez interfejs API z łącznika interfejsu API "Żądaj zatwierdzenia":
 
 ```http
-POST <Approvals-API-endpoint>
+POST <API-endpoint>
 Content-type: application/json
 
 {
- "email": "johnsmith@outlook.com",
- "identities": [
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
+ "identities": [ //Sent for Google and Facebook identity providers
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -182,11 +187,21 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
- "city": "Redmond",
- "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
+ "givenName":"John",
+ "surname":"Smith",
+ "jobTitle":"Supplier",
+ "streetAddress":"1000 Microsoft Way",
+ "city":"Seattle",
+ "postalCode": "12345",
+ "state":"Washington",
+ "country":"United States",
+ "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
+
+Dokładne oświadczenia wysyłane do interfejsu API są zależne od tego, które informacje są zbierane od użytkownika lub dostarczane przez dostawcę tożsamości.
 
 #### <a name="continuation-response-for-request-approval"></a>Dalsza odpowiedź dla "żądania zatwierdzenia"
 
@@ -257,7 +272,7 @@ Po uzyskaniu zatwierdzenia ręcznego system zatwierdzania niestandardowego tworz
 
 Jeśli użytkownik zalogował się przy użyciu konta Google lub Facebook, można użyć [interfejsu API tworzenia użytkownika](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http).
 
-1. System zatwierdzania odbiera żądanie HTTP z przepływu użytkownika.
+1. System zatwierdzania używa odbierania żądania HTTP z przepływu użytkownika.
 
 ```http
 POST <Approvals-API-endpoint>

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: f9ad5eeec17027b0e2891069af703c28aee9c528
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: 4edb0f356dd83ab1aa353e0791f619be497a9d91
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119100"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166029"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serializacja pamięci podręcznej tokenów w MSAL.NET
 Po [uzyskaniu tokenu](msal-acquire-cache-tokens.md)zostanie on zbuforowany przez bibliotekę uwierzytelniania firmy Microsoft (MSAL).  Kod aplikacji powinien próbować uzyskać token z pamięci podręcznej przed uzyskaniem tokenu przez inną metodę.  W tym artykule omówiono domyślną i niestandardową serializację pamięci podręcznej tokenów w MSAL.NET.

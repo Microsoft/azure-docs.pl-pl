@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 4d9583e08591e8ea5792aad28e247dff178f1c08
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 68ccf3518a7011c0c39003d8e447a4e1d233fd91
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080664"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164584"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Publikowanie aplikacji lokalnych dla użytkowników zdalnych za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -80,7 +80,7 @@ Po zalogowaniu się użytkownicy zewnętrzni mogą uzyskiwać dostęp do lokalny
 
 ![Architektura usługi Azure serwer proxy aplikacji usługi Azure AD](media/what-is-application-proxy/azure-ad-application-proxy-architecture.png)
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 Istnieje kilka sposobów konfigurowania aplikacji do logowania jednokrotnego, a wybrana metoda zależy od uwierzytelniania używanego przez aplikację. Serwer proxy aplikacji obsługuje następujące typy aplikacji:
 
@@ -99,7 +99,7 @@ Serwer proxy aplikacji obsługuje również następujące protokoły uwierzyteln
 * [**Uwierzytelnianie oparte na formularzach lub hasłach**](application-proxy-configure-single-sign-on-password-vaulting.md). Przy użyciu tej metody uwierzytelniania Użytkownicy logują się do aplikacji przy użyciu nazwy użytkownika i hasła podczas pierwszego uzyskiwania do niego dostępu. Po pierwszym zalogowaniu usługa Azure AD dostarcza nazwę użytkownika i hasło do aplikacji. W tym scenariuszu uwierzytelnianie jest obsługiwane przez usługę Azure AD.
 * [**Uwierzytelnianie SAML**](application-proxy-configure-single-sign-on-on-premises-apps.md). Logowanie jednokrotne oparte na języku SAML jest obsługiwane w przypadku aplikacji korzystających z protokołów SAML 2,0 lub WS-Federation. Za pomocą logowania jednokrotnego SAML usługa Azure AD uwierzytelnia się w aplikacji przy użyciu konta usługi Azure AD użytkownika.
 
-Aby uzyskać więcej informacji na temat obsługiwanych metod, zobacz [Wybieranie metody logowania](what-is-single-sign-on.md#choosing-a-single-sign-on-method)jednokrotnego.
+Aby uzyskać więcej informacji na temat obsługiwanych metod, zobacz [Wybieranie metody logowania](sso-options.md#choosing-a-single-sign-on-method)jednokrotnego.
 
 ### <a name="security-benefits"></a>Korzyści z zabezpieczeń
 

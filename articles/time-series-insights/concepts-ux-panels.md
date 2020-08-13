@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 53e29734095506a3f55593f938c2d9aba5903771
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 68b80a3511a82ff06677d3b7bb1fbea1c68cb2ae
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099109"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164159"
 ---
 # <a name="azure-time-series-insights-gen2-explorer"></a>Azure Time Series Insights Explorer Gen2
 
@@ -28,7 +28,7 @@ Aby rozpocząć pracę z programem Azure Time Series Insights Gen2 Explorer, mus
 * Zainicjowano środowisko Azure Time Series Insights Gen2. Dowiedz się więcej o aprowizacji wystąpienia, odczytując samouczek [Azure Time Series Insights Gen2](./time-series-insights-update-create-environment.md) .
 * [Zapewnianie dostępu do danych](./time-series-insights-data-access.md) do środowiska Azure Time Series Insights Gen2 utworzonego dla konta. Możesz zapewnić dostęp do innych osób, jak również do siebie.
 * Dodaj źródło zdarzenia do Azure Time Series Insights środowiska Gen2, aby wypchnąć dane do środowiska:
-  * Dowiedz się [, jak nawiązać połączenie z centrum zdarzeń](./time-series-insights-how-to-add-an-event-source-eventhub.md) 
+  * Dowiedz się [, jak nawiązać połączenie z centrum zdarzeń](./time-series-insights-how-to-add-an-event-source-eventhub.md)
   * Dowiedz się, [jak nawiązać połączenie z usługą IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md)
 
 ## <a name="explore-the-azure-time-series-insights-gen2-explorer"></a>Eksplorowanie Azure Time Series Insights Gen2 Explorer
@@ -44,7 +44,6 @@ Eksplorator Azure Time Series Insights Gen2 składa się z następujących siedm
 1. [Panel wykresu](#5-chart-panel): wyświetla bieżący wykres roboczy.
 1. [Oś czasu](#6-time-editor-panel): umożliwia modyfikowanie zakresu czasu pracy.
 1. [Pasek aplikacji](#7-app-bar): zawiera opcje zarządzania użytkownikami (takie jak bieżąca dzierżawa) i umożliwia zmianę ustawień języka.
-
 
 ## <a name="1-environment-panel"></a>1. Panel środowiska
 
@@ -79,19 +78,19 @@ Aby dowiedzieć się więcej na temat modelu szeregów czasowych, należy zapozn
 
 ## <a name="3-hierarchy-tree-and-search-panel"></a>3. drzewo hierarchii i panel wyszukiwania
 
-Drzewo hierarchii i panel wyszukiwania umożliwiają łatwe wyszukiwanie i nawigowanie w hierarchii [modelu szeregów czasowych](./concepts-model-overview.md) , aby znaleźć określone wystąpienia szeregów czasowych, które mają być wyświetlane na wykresie. Po wybraniu wystąpień nie są one dodawane tylko do bieżącego wykresu, ale również są dodawane do obszaru dane. 
+Drzewo hierarchii i panel wyszukiwania umożliwiają łatwe wyszukiwanie i nawigowanie w hierarchii [modelu szeregów czasowych](./concepts-model-overview.md) , aby znaleźć określone wystąpienia szeregów czasowych, które mają być wyświetlane na wykresie. Po wybraniu wystąpień nie są one dodawane tylko do bieżącego wykresu, ale również są dodawane do obszaru dane.
 
 [![Drzewo hierarchii i panel wyszukiwania](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png)](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png#lightbox)
 
 Okienko wyników wyszukiwania umożliwia również wyświetlanie wyników w widoku hierarchii lub widoku listy, ułatwiając Znajdowanie wystąpień, które mają być wyświetlane.
- 
+
 ## <a name="4-time-series-well"></a>4. okres szeregu czasowego
 
-Dobrze wyświetla pola wystąpień i inne metadane skojarzone z wybranymi wystąpieniami modelu szeregów czasowych. Zaznaczając pola wyboru po prawej stronie, można ukryć lub wyświetlić określone wystąpienia z bieżącego wykresu. 
+Dobrze wyświetla pola wystąpień i inne metadane skojarzone z wybranymi wystąpieniami modelu szeregów czasowych. Zaznaczając pola wyboru po prawej stronie, można ukryć lub wyświetlić określone wystąpienia z bieżącego wykresu.
 
   [![Gen2](media/v2-update-explorer/tsi-preview-ui-explorer-well.png)](media/v2-update-explorer/tsi-preview-ui-explorer-well.png#lightbox)
 
-Można usunąć konkretne elementy danych z bieżących danych, zaznaczając formant Red **delete** (kosza) po lewej stronie elementu. Ponadto pozwala kontrolować sposób wyświetlania poszczególnych elementów na wykresie. Można wybrać opcję dodawania minimalnych i maksymalnych cieni, punktów danych, przesunąć element w czasie i wizualizować wystąpienie w sposób. 
+Można usunąć konkretne elementy danych z bieżących danych, zaznaczając formant Red **delete** (kosza) po lewej stronie elementu. Ponadto pozwala kontrolować sposób wyświetlania poszczególnych elementów na wykresie. Można wybrać opcję dodawania minimalnych i maksymalnych cieni, punktów danych, przesunąć element w czasie i wizualizować wystąpienie w sposób.
 
 Ponadto kontrolka eksploracji pozwala łatwo tworzyć zmiany czasu i wykresy punktowe.  
 
@@ -104,7 +103,7 @@ Ponadto kontrolka eksploracji pozwala łatwo tworzyć zmiany czasu i wykresy pun
 
 ## <a name="5-chart-panel"></a>5. Panel wykresu
 
-Wykres umożliwia wyświetlanie wystąpień szeregów czasowych jako wierszy. Możesz zwinąć panel środowiska, model danych i Panel sterowania przedział czasu, klikając formanty sieci Web, aby wykres był większy. 
+Wykres umożliwia wyświetlanie wystąpień szeregów czasowych jako wierszy. Możesz zwinąć panel środowiska, model danych i Panel sterowania przedział czasu, klikając formanty sieci Web, aby wykres był większy.
 
   [![Przegląd wykresu Gen2](media/v2-update-explorer/tsi-preview-chart-overview.png)](media/v2-update-explorer/tsi-preview-chart-overview.png#lightbox)
 
@@ -149,7 +148,7 @@ Podczas pracy z Azure Time Series Insights Gen2 najpierw wybierz przedział czas
 > [!TIP]
 > Część osi czasu jest wyróżniona w kolorze bursztynowym lub pomarańczowym, aby wskazać zakres danych dostępnych w sklepie ciepłym.
 
-Następujące kontrolki sieci Web są dostępne w Azure Time Series Insights Gen2 do wybierania zakresu czasu pracy. 
+Następujące kontrolki sieci Web są dostępne w Azure Time Series Insights Gen2 do wybierania zakresu czasu pracy.
 
   [![Dobrze sprawdzaj poszukiwanie](media/v2-update-explorer/exploration-well-control.png)](media/v2-update-explorer/exploration-well-control.png#lightbox)
 
@@ -205,7 +204,7 @@ Azure Time Series Insights Explorer Gen2 obsługuje dwa motywy:
 
 ### <a name="gen2-terms-panel"></a>Panel warunków Gen2
 
-Ta sekcja ma zastosowanie tylko do istniejących środowisk generacji 1, które próbują użyć Eksploratora w zaktualizowanym interfejsie użytkownika. Możesz chcieć użyć produktu generacji 1 i produktu Gen2. Dodaliśmy pewne funkcje z istniejącego interfejsu użytkownika do zaktualizowanego Eksploratora, ale możesz uzyskać pełne środowisko interfejsu użytkownika dla środowiska Gen 1 w nowym Azure Time Series Insights Gen2 Explorer. 
+Ta sekcja ma zastosowanie tylko do istniejących środowisk generacji 1, które próbują użyć Eksploratora w zaktualizowanym interfejsie użytkownika. Możesz chcieć użyć produktu generacji 1 i produktu Gen2. Dodaliśmy pewne funkcje z istniejącego interfejsu użytkownika do zaktualizowanego Eksploratora, ale możesz uzyskać pełne środowisko interfejsu użytkownika dla środowiska Gen 1 w nowym Azure Time Series Insights Gen2 Explorer.
 
 Zamiast hierarchii zostanie wyświetlony panel Azure Time Series Insights postanowień Gen2. Panel warunki pozwala definiować zapytania w danym środowisku. Umożliwia ona również filtrowanie danych na podstawie predykatu.
 
@@ -220,9 +219,9 @@ Azure Time Series Insights panel Edytor warunków Gen2 przyjmuje następujące p
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | Ciąg, bool, Double, DateTime, TimeSpan, NULL |
 | `IN` | Ciąg, bool, Double, DateTime, TimeSpan, NULL | Wszystkie operandy powinny być tego samego typu lub być stałe o wartości NULL. |
-| `HAS` | String (ciąg) | Tylko stałe literały ciągu są dozwolone po prawej stronie. Pusty ciąg i wartość NULL są niedozwolone. |
+| `HAS` | Ciąg | Tylko stałe literały ciągu są dozwolone po prawej stronie. Pusty ciąg i wartość NULL są niedozwolone. |
 
-Aby dowiedzieć się więcej o obsługiwanych operacjach zapytań i typach danych, zobacz [wyrażenie szeregów czasowych (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+Aby dowiedzieć się więcej o obsługiwanych operacjach zapytań i typach danych, zobacz [wyrażenie szeregów czasowych (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 ### <a name="examples-of-where-clauses"></a>Przykłady klauzul WHERE
 
@@ -240,10 +239,10 @@ Możesz pokazać i ukryć elementy w panelu wykresu, wybierając ikonę widoczne
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej na temat pozyskiwania [danych](./concepts-ingestion-overview.md) w środowisku.
+* Dowiedz się więcej na temat pozyskiwania [danych](./concepts-ingestion-overview.md) w środowisku.
 
-- Zapoznaj się z artykułem dotyczącym [magazynu](concepts-storage.md).
+* Zapoznaj się z artykułem dotyczącym [magazynu](concepts-storage.md).
 
-- Przeczytaj o [modelowania danych](./concepts-model-overview.md) w Azure Time Series Insights Gen2.
+* Przeczytaj o [modelowania danych](./concepts-model-overview.md) w Azure Time Series Insights Gen2.
 
-- Dowiedz się [, jak diagnozować i rozwiązywać problemy](./time-series-insights-update-how-to-troubleshoot.md) ze środowiskiem.
+* Dowiedz się [, jak diagnozować i rozwiązywać problemy](./time-series-insights-update-how-to-troubleshoot.md) ze środowiskiem.

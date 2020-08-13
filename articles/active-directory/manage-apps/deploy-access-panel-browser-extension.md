@@ -15,16 +15,16 @@ ms.date: 11/08/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94c434a2892060acfdd56c496a31e41597c21357
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31235936109361f0f15a071346baee128060375a
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763435"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164992"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Instrukcje: Wdrażanie rozszerzenia panelu dostępu dla programu Internet Explorer przy użyciu zasad grupy
 
-W tym samouczku pokazano, jak za pomocą zasad grupy zdalnie zainstalować rozszerzenie panelu dostępu dla programu Internet Explorer na komputerach użytkowników. To rozszerzenie jest wymagane dla użytkowników programu Internet Explorer, którzy muszą zalogować się do aplikacji skonfigurowanych przy użyciu [logowania jednokrotnego opartego na hasłach](what-is-single-sign-on.md#password-based-sso).
+W tym samouczku pokazano, jak za pomocą zasad grupy zdalnie zainstalować rozszerzenie panelu dostępu dla programu Internet Explorer na komputerach użytkowników. To rozszerzenie jest wymagane dla użytkowników programu Internet Explorer, którzy muszą zalogować się do aplikacji skonfigurowanych przy użyciu [logowania jednokrotnego opartego na hasłach](sso-options.md#password-based-sso).
 
 Zaleca się, aby administratorzy automatyzują wdrażanie tego rozszerzenia. W przeciwnym razie użytkownicy będą musieli pobrać i zainstalować rozszerzenie, które jest podatne na błąd użytkownika i wymaga uprawnień administratora. Ten samouczek obejmuje jedną z metod automatyzowania wdrożeń oprogramowania przy użyciu zasad grupy. [Dowiedz się więcej o zasadach grupy.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
 
@@ -166,7 +166,7 @@ Wykonaj poniższe kroki, aby sprawdzić, czy wdrożenie rozszerzenia zakończył
 
    ![Sprawdź, czy rozszerzenie panelu dostępu jest zainstalowane i włączone](./media/deploy-access-panel-browser-extension/verify-install.png)
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Więcej informacji
 
 * [Dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory](what-is-single-sign-on.md)
 * [Rozwiązywanie problemów z rozszerzeniem panelu dostępu dla programu Internet Explorer](manage-access-panel-browser-extension.md)

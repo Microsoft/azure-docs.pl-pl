@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c5e546c6eac77c4952a0d32d360f49d4251d49d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: cdb6e85b6d81de3d4b88ba315ddd35bd5b37ae7a
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909704"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165213"
 ---
 # <a name="use-api-connectors-to-customize-and-extend-self-service-sign-up"></a>Używanie łączników interfejsu API do dostosowywania i zwiększania rejestracji samoobsługowej 
 
@@ -30,7 +30,7 @@ Deweloperem lub administratorem IT można używać łączników interfejsu API d
 <!-- - **Enrich user data**. Integrate with your external cloud systems that store user information to integrate them with the sign-up flow. For example, your API can receive the user's email address, query a CRM system, and return the user's loyalty number. Returned claims can be used to pre-fill form fields or return additional data in the application token.  -->
 - **Uruchom niestandardową logikę biznesową**. Zdarzenia podrzędne można wyzwolić w systemach w chmurze w celu wysyłania powiadomień wypychanych, aktualizacji firmowych baz danych, zarządzania uprawnieniami, inspekcji baz danych i wykonywania innych akcji niestandardowych.
 
-Łącznik interfejsu API reprezentuje kontrakt między usługą Azure AD a punktem końcowym interfejsu API, definiując punkt końcowy HTTP, uwierzytelnianie, żądanie i oczekiwaną odpowiedź. Po skonfigurowaniu łącznika interfejsu API można włączyć go dla określonego kroku w przepływie użytkownika. Gdy użytkownik osiągnie ten krok w przepływie rejestracji, łącznik interfejsu API jest wywoływany i materializuje jako żądanie HTTP POST, wysyłając wybrane oświadczenia jako pary klucz-wartość w treści JSON. Odpowiedź interfejsu API może mieć wpływ na wykonywanie przepływu użytkownika. Na przykład odpowiedź interfejsu API może blokować rejestrowanie użytkownika, poproszenie użytkownika o ponowne wprowadzenie informacji lub zastępowanie i dołączenie atrybutów użytkownika.
+Łącznik interfejsu API zapewnia Azure Active Directory z informacjami wymaganymi do wywołania punktu końcowego interfejsu API przez zdefiniowanie adresu URL punktu końcowego HTTP i uwierzytelniania. Po skonfigurowaniu łącznika interfejsu API można włączyć go dla określonego kroku w przepływie użytkownika. Gdy użytkownik osiągnie ten krok w przepływie rejestracji, łącznik interfejsu API jest wywoływany i materializuje jako żądanie HTTP POST do interfejsu API, wysyłając informacje o użytkowniku ("oświadczenia") jako pary klucz-wartość w treści JSON. Odpowiedź interfejsu API może mieć wpływ na wykonywanie przepływu użytkownika. Na przykład odpowiedź interfejsu API może blokować rejestrowanie użytkownika, poproszenie użytkownika o ponowne wprowadzenie informacji lub zastępowanie i dołączenie atrybutów użytkownika.
 
 ## <a name="where-you-can-enable-an-api-connector-in-a-user-flow"></a>Gdzie można włączyć łącznik interfejsu API w przepływie użytkownika
 
@@ -39,7 +39,8 @@ W przepływie użytkownika znajdują się dwa miejsca, w których można włącz
 - Po zalogowaniu się za pomocą dostawcy tożsamości
 - Przed utworzeniem użytkownika
 
-W obu tych przypadkach łączniki interfejsu API są wywoływane podczas rejestracji, a nie logowania.
+> [!IMPORTANT]
+> W obu tych przypadkach łączniki interfejsu API są wywoływane podczas **rejestrowania**użytkownika, a nie logowania.
 
 ### <a name="after-signing-in-with-an-identity-provider"></a>Po zalogowaniu się za pomocą dostawcy tożsamości
 

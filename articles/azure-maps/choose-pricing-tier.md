@@ -3,17 +3,17 @@ title: Wybierz odpowiednią warstwę cenową dla map Microsoft Azure
 description: Dowiedz się więcej o warstwach cenowych Azure Maps. Zobacz, które funkcje są oferowane, w których warstwach i Wyświetl kluczowe zagadnienia dotyczące wyboru warstwy cenowej.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/27/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 30507b289a0ae4f831c8bcf4e038049301da7981
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3603a4f5d103987b25bd5f976b89f943f98565a8
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036780"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163989"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Wybierz odpowiednią warstwę cenową w Azure Maps
 
@@ -33,7 +33,7 @@ Jeśli podstawowe interfejsy API geoprzestrzennej spełniają wymagania dotyczą
 |-----------------------------------------|:-------------------:|:--------:|
 | Renderowanie mapy                              | ✓                   | ✓       |
 | Obraz satelitarny                       |                     | ✓        |
-| Wyszukaj                                  | ✓                    | ✓        |
+| Wyszukiwanie                                  | ✓                    | ✓        |
 | Wyszukiwanie wsadowe                            |                     | ✓        |
 | Trasa                                   | ✓                    |✓        |
 | Routing usługi Batch                            |                    | ✓        |
@@ -47,6 +47,7 @@ Jeśli podstawowe interfejsy API geoprzestrzennej spełniają wymagania dotyczą
 | Dane Azure Maps (wersja zapoznawcza)                |                     | ✓        |
 | Mobilność (wersja zapoznawcza)                       |                     | ✓        |
 | Pogoda (wersja zapoznawcza)                        |✓                    |✓        |
+|  Twórca (wersja zapoznawcza)                         |                   |✓        |
 
 Należy wziąć pod uwagę następujące dodatkowe punkty:
 
