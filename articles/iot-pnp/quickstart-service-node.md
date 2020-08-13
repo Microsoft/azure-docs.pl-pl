@@ -3,17 +3,17 @@ title: Współpracuj z urządzeniem usługi IoT Plug and Play w wersji zapoznawc
 description: Użyj Node.js, aby nawiązać połączenie z urządzeniem usługi IoT Plug and Play w wersji zapoznawczej i korzystać z niego, które jest połączone z rozwiązaniem Azure IoT.
 author: elhorton
 ms.author: elhorton
-ms.date: 07/13/2020
+ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 511a61fb1069ce10e94e24ecd3ba6d60470ca40f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: fd65dcc9ce0be07daa5848a0ac583cf795150e47
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424447"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184758"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-nodejs"></a>Szybki Start: współdziałanie z urządzeniem IoT Plug and Play w wersji zapoznawczej, które jest połączone z rozwiązaniem (Node.js)
 
@@ -33,12 +33,6 @@ Możesz sprawdzić bieżącą wersję środowiska Node.js na komputerze dewelope
 node --version
 ```
 
-Zainstaluj [zestaw SDK usługi Node Service z obsługą Plug and Play IoT](https://www.npmjs.com/package/azure-iot-digitaltwins-service) , uruchamiając następujące polecenie:
-
-```cmd/sh
-npm i azure-iot-digitaltwins-service
-```
-
 [!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
 Uruchom następujące polecenie, aby pobrać _Parametry połączenia usługi IoT Hub_ dla centrum. Zanotuj te parametry połączenia w dalszej części tego przewodnika Szybki Start:
@@ -53,15 +47,19 @@ Uruchom następujące polecenie, aby pobrać _Parametry połączenia urządzenia
 az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output
 ```
 
+### <a name="clone-the-sdk-repository-with-the-sample-code"></a>Klonowanie repozytorium zestawu SDK przy użyciu przykładowego kodu
+
+Zestaw SDK usługi jest w wersji zapoznawczej, dlatego należy sklonować próbki z [gałęzi w wersji zapoznawczej zestawu SDK węzła](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh). Otwórz okno terminalu w wybranym folderze. Uruchom następujące polecenie, aby sklonować gałąź **PnP-Preview-refresh** [Microsoft Azure IoT SDK dla Node.js](https://github.com/Azure/azure-iot-sdk-node) repozytorium GitHub:
+
+```cmd/sh
+git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
+```
+
 ## <a name="run-the-sample-device"></a>Uruchamianie przykładowego urządzenia
 
 W tym przewodniku szybki start można użyć przykładowego urządzenia z termostatem, które jest zapisywana w Node.js jako urządzenie transPlug and Play IoT. Aby uruchomić przykładowe urządzenie:
 
-1. Otwórz okno terminalu w wybranym folderze. Uruchom następujące polecenie, aby sklonować [Microsoft Azure IoT SDK dla Node.js](https://github.com/Azure/azure-iot-sdk-node) repozytorium GitHub do tej lokalizacji:
-
-    ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-node
-    ```
+1. Otwórz okno terminalu i przejdź do folderu lokalnego zawierającego Microsoft Azure IoT SDK for Node.js repozytorium sklonowane z usługi GitHub.
 
 1. To okno terminalu służy jako terminal **urządzenia** . Przejdź do folderu sklonowanego repozytorium i przejdź do folderu */Azure-IoT-SDK-Node/Device/Samples/PnP* . Zainstaluj wszystkie zależności, uruchamiając następujące polecenie:
 
@@ -90,10 +88,10 @@ W tym przewodniku szybki start użyjesz przykładowego rozwiązania IoT w Node.j
 1. Otwórz inne okno terminalu, które ma być używane jako terminal **usługi** . Zestaw SDK usługi jest w wersji zapoznawczej, dlatego należy sklonować próbki z [gałęzi w wersji zapoznawczej zestawu SDK węzła](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh):
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-node -b public-preview-pnp
+    git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
     ```
 
-1. Przejdź do folderu sklonowanej gałęzi repozytorium i przejdź do folderu */Azure-IoT-Samples-Node/Digital-Twins/Samples/Service/JavaScript* . Zainstaluj wszystkie zależności, uruchamiając następujące polecenie:
+1. Przejdź do folderu sklonowanej gałęzi repozytorium i przejdź do folderu */Azure-IoT-SDK-Node/digitaltwins/Samples/Service/JavaScript* . Zainstaluj wszystkie zależności, uruchamiając następujące polecenie:
 
     ```cmd/sh
     npm install
@@ -144,14 +142,14 @@ W tym scenariuszu dane wyjściowe `Model Id: dtmi:com:example:Thermostat;1` .
 
 ### <a name="update-a-writable-property"></a>Aktualizowanie właściwości z możliwością zapisu
 
-1. Otwórz plik *update_digital_twin_property.js* w edytorze kodu.
+1. Otwórz plik *update_digital_twin.js* w edytorze kodu.
 
 1. Zapoznaj się z przykładowym kodem. Możesz zobaczyć, jak utworzyć poprawkę JSON, aby zaktualizować dwuosiową cyfrę urządzenia. W tym przykładzie kod zastępuje temperaturę termostatu wartością 42:
 
     ```javascript
     const patch = [{
         op: 'add',
-        path: 'targetTemperature',
+        path: '/targetTemperature',
         value: '42'
       }]
     ```
@@ -159,43 +157,23 @@ W tym scenariuszu dane wyjściowe `Model Id: dtmi:com:example:Thermostat;1` .
 1. W terminalu **usługi** Użyj następującego polecenia, aby uruchomić przykład do aktualizacji właściwości:
 
     ```cmd/sh
-    node update_digital_twin_property.js
-    ```
-
-1. Dane wyjściowe terminalu **usługi** przedstawiają zaktualizowane informacje o urządzeniu. Przewiń do `thermostat1` składnika, aby wyświetlić nową `targetTemperature` wartość 42:
-
-    ```json
-    "modelId": "dtmi:com:example:Thermostat;1",
-        "version": 12,
-        "properties": {
-            "desired": {
-                "targetTemperature": "42",
-                "$metadata": {
-                    "$lastUpdated": "2020-07-09T13:55:50.7976985Z",
-                    "$lastUpdatedVersion": 5,
-                    "targetTemperature": {
-                        "$lastUpdated": "2020-07-09T13:55:50.7976985Z",
-                        "$lastUpdatedVersion": 5
-                    }
-                },
-                "$version": 5
-            },
-            "reported": {
-                "serialNumber": "123abc",
-                "maxTempSinceLastReboot": 32.279942997143785,
-                "targetTemperature": {
-                    "value": "42",
-                    "ac": 200,
-                    "ad": "Successfully executed patch for targetTemperature",
-                    "av": 2
-                },
+    node update_digital_twin.js
     ```
 
 1. W terminalu **urządzenia** zobaczysz, że urządzenie otrzymało aktualizację:
 
     ```cmd/sh
-    Received an update for targetTemperature: 42
+    The following properties will be updated for root interface:
+    {
+      targetTemperature: {
+        value: 42,
+        ac: 200,
+        ad: 'Successfully executed patch for targetTemperature',
+        av: 2
+      }
+    }
     updated the property
+    Properties have been reported for component
     ```
 
 1. W terminalu **usługi** Uruchom następujące polecenie, aby potwierdzić, że właściwość została zaktualizowana:
@@ -207,15 +185,7 @@ W tym scenariuszu dane wyjściowe `Model Id: dtmi:com:example:Thermostat;1` .
 1. W danych wyjściowych terminalu **usługi** w odpowiedzi Digital bliźniaczy w obszarze `thermostat1` składnika zostanie wyświetlona zaktualizowana temperatura docelowa. Ukończenie aktualizacji może zająć trochę czasu. Powtórz ten krok, dopóki urządzenie nie przetworzyło aktualizacji właściwości:
 
     ```json
-    "$model": "dtmi:com:example:Thermostat;1",
-    "targetTemperature": {
-      "desiredValue": 42,
-      "desiredVersion": 4,
-      "ackVersion": 4,
-      "ackCode": 200,
-      "ackDescription": "Successfully executed patch for targetTemperature",
-      "lastUpdateTime": "2020-07-09T13:55:30.5062641Z"
-    }
+    targetTemperature: 42,
     ```
 
 ### <a name="invoke-a-command"></a>Wywołaj polecenie
@@ -225,6 +195,8 @@ W tym scenariuszu dane wyjściowe `Model Id: dtmi:com:example:Thermostat;1` .
 1. Przejdź do terminalu **usługi** . Użyj następującego polecenia, aby uruchomić próbkę wywołującą polecenie:
 
     ```cmd/sh
+    set IOTHUB_COMMAND_NAME=getMaxMinReport
+    set IOTHUB_COMMAND_PAYLOAD=commandpayload
     node invoke_command.js
     ```
 
@@ -245,7 +217,7 @@ W tym scenariuszu dane wyjściowe `Model Id: dtmi:com:example:Thermostat;1` .
 1. W terminalu **urządzenia** zobaczysz polecenie potwierdzone:
 
     ```cmd/sh
-    MaxMinReport [object Object]
+    MaxMinReport commandpayload
     Response to method 'getMaxMinReport' sent successfully.
     ```
 

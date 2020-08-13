@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 391a5f054c5d80b255fd333ea416900c8c5ab6d1
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: f6420683d22488abc66b387fd44cb74cc8f8b7bd
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135423"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184656"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników Azure Monitor    
 
@@ -575,9 +575,9 @@ Aby alertować, jeśli ilość danych do rozliczenia w ostatnich 24 godzinach by
 - **Zdefiniuj warunek alertu** — określ obszar roboczy usługi Log Analytics jako element docelowy zasobu.
 - **Kryteria alertu** — określ następujące informacje:
    - **Nazwa sygnału** — wybierz pozycję **Przeszukiwanie dzienników niestandardowych**
-   - **Wyszukaj zapytanie** do `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . Jeśli chcesz differetn 
+   - **Wyszukaj zapytanie** do `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . 
    - **Alert logiki****opiera się na** *liczbie wyników*, a **warunek** jest *większy niż ***próg ** wynoszący *0*
-   - **Okres** wynoszący *1440* minut i **częstotliwość alertów** do każdego *1440* minutesto są uruchamiane raz dziennie.
+   - **Okres** wynoszący *1440* minut i **częstotliwość alertów** do co *1440* minut, które mają być uruchamiane raz dziennie.
 - **Zdefiniuj szczegóły alertu** — określ następujące informacje:
    - **Nazwa** z *ilością danych do rozliczenia większa niż 50 GB w ciągu 24 godzin*
    - **Ważność** na *Ostrzeżenie*
@@ -604,7 +604,7 @@ Jeśli zbieranie danych jest zatrzymane, stan OperationStatus ma wartość **Ost
 |Zakończenie zbierania danych o przyczynie| Rozwiązanie| 
 |-----------------------|---------|
 |Osiągnięto dzienny limit Twojego obszaru roboczego|Poczekaj na automatyczne ponowne uruchomienie kolekcji lub Zwiększ dzienny limit ilości danych opisany w temacie Zarządzanie maksymalnym dziennym woluminem danych. Dzienny czas resetowania zostanie wyświetlony na stronie **dzienne zakończenie** . |
-| W Twoim obszarze roboczym osiągnięto [współczynnik głośności](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) pozyskiwania danych | Domyślny limit ilości woluminu pozyskiwania danych wysyłanych z zasobów platformy Azure przy użyciu ustawień diagnostycznych to około 6 GB/min na obszar roboczy. Jest to przybliżona wartość, ponieważ rzeczywisty rozmiar może się różnić między typami danych w zależności od długości dziennika i jego stosunku kompresji. Ten limit nie dotyczy danych wysyłanych z agentów lub interfejsu API modułu zbierającego dane. W przypadku wysyłania danych o wyższej stawce do jednego obszaru roboczego niektóre dane zostaną usunięte, a zdarzenie jest wysyłane do tabeli operacji w obszarze roboczym co 6 godzin, podczas gdy próg zostanie przekroczony. Jeśli wolumin pozyskiwania w dalszym ciągu przekroczy limit szybkości lub oczekujesz, że wkrótce dojdziesz do niego, możesz poprosić o zwiększenie do obszaru roboczego, wysyłając wiadomość e-mail LAIngestionRate@microsoft.com lub otwierając żądanie pomocy technicznej. Zdarzenie, które ma zostać wyszukane, co wskazuje Limit szybkości pozyskiwania danych przez zapytanie `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The rate of data crossed the threshold"` . |
+| W Twoim obszarze roboczym osiągnięto [współczynnik głośności](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) pozyskiwania danych | Domyślny próg współczynnika objętości pozyskiwania wynoszący 500 MB (skompresowany) dotyczy obszarów roboczych, czyli około **6 GB/min** nieskompresowanych — rzeczywisty rozmiar może się różnić między typami danych w zależności od długości dziennika i jego stosunku kompresji. Ten próg dotyczy wszystkich danych pobieranych, niezależnie od tego, czy są wysyłane z zasobów platformy Azure przy użyciu [ustawień diagnostycznych](diagnostic-settings.md), [interfejsu API modułu zbierającego dane](data-collector-api.md) i agentów. W przypadku wysyłania danych do obszaru roboczego o współczynniku ilościowym wyższym niż 80% wartości progowej skonfigurowanej w obszarze roboczym, zdarzenie jest wysyłane do tabeli *operacji* w obszarze roboczym co 6 godzin, podczas gdy próg nadal zostanie przekroczony. Gdy ilość pozyskiwanych woluminów jest wyższa niż wartość progowa, niektóre dane są porzucane, a zdarzenie jest wysyłane do tabeli *operacji* w obszarze roboczym co 6 godzin, podczas gdy próg nadal zostanie przekroczony. W przypadku przekroczenia progu przez okres pozyskiwania lub oczekujesz, że zostanie on wkrótce osiągnięty, możesz poprosić o zwiększenie go w obszarze roboczym, otwierając żądanie pomocy technicznej. Aby otrzymywać powiadomienia o takim zdarzeniu w Twoim obszarze roboczym, należy utworzyć [regułę alertu dziennika](alerts-log.md) przy użyciu następującego zapytania z podstawą logiki alertu na liczbie wyników w ciągu 5 minut i częstotliwością wynoszącą 5 minut. Współczynnik wolumenu pozyskiwania osiągnął 80% wartości progowej: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"` . Osiągnięto próg ilości woluminu pozyskiwania: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed the threshold"` . |
 |Osiągnięto dzienny limit starszych bezpłatnych warstw cenowych |Poczekaj na automatyczne ponowne uruchomienie kolekcji lub Zmień ją na płatną warstwę cenową.|
 |Subskrypcja platformy Azure jest w stanie wstrzymania z powodu:<br> Bezpłatna wersja próbna została zakończona<br> Upłynął okres ważności platformy Azure<br> Osiągnięto miesięczny limit wydatków (na przykład w subskrypcji MSDN lub Visual Studio)|Konwersja na płatną subskrypcję<br> Usuń limit lub zaczekaj na zresetowanie limitu|
 

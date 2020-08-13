@@ -1,6 +1,6 @@
 ---
 title: Omówienie Data Manager Microsoft Azure StorSimple | Microsoft Docs
-description: Zawiera omówienie usługi StorSimple Data Manager
+description: Dowiedz się więcej na temat rozwiązania StorSimple Data Manager i sposobu korzystania z tej usługi w celu pisania aplikacji korzystających z danych StorSimple i innych usług platformy Azure.
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: alkohli
-ms.openlocfilehash: 2ffe17bf7ef4f01c18d2c26f4a045add7302272d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d683f49cadb384ef59d3bae819156733691813cd
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67876099"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183500"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Przegląd rozwiązania StorSimple Data Manager
 
@@ -47,13 +47,13 @@ Możesz użyć Data Manager z Azure Functions, Azure Automation i Azure Data Fac
 
 StorSimple Data Manager jest dostępna w następujących 7 regionach:
 
- - Azja Południowo-Wschodnia
- - Wschodnie stany USA
+ - Southeast Asia
+ - East US
  - Zachodnie stany USA
  - Zachodnie stany USA 2
  - Zachodnio-środkowe stany USA
  - Europa Północna
- - Europa Zachodnia
+ - West Europe
 
 Jednak StorSimple Data Manager może służyć do przekształcania danych w następujących regionach. 
 
@@ -72,7 +72,7 @@ Zalecenia:
     
 Firma Microsoft dąży do zapewnienia, że usługi platformy Azure są zawsze dostępne we wszystkich regionach. Nieplanowana awaria usługi może jednak wystąpić przez krótkie okresy w określonym regionie. W takich przypadkach można wyświetlić Data Manager i definicję zadania w regionie, w którym nie ma to wpływ na awarię, i uruchomić zadanie transformacji. W takim scenariuszu może wystąpić kilka dodatkowych opóźnień, ale może to być strategią odzyskiwania w rzadkich przypadkach regionalnych awarii.
 
-## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
+## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
 
 StorSimple Data Manager wymaga klucza szyfrowania danych usługi do przekształcenia z formatu StorSimple na format natywny. Klucz szyfrowania danych usługi jest generowany, gdy pierwsze urządzenie jest rejestrowane w usłudze StorSimple. Aby uzyskać więcej informacji na temat tego klucza, przejdź do [StorSimple zabezpieczenia](storsimple-8000-security.md).
 

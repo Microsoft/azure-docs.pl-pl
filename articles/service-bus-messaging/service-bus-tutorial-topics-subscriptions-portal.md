@@ -5,12 +5,12 @@ author: spelluru
 ms.author: spelluru
 ms.date: 06/23/2020
 ms.topic: tutorial
-ms.openlocfilehash: 77a8ef9c96219d2deb08126dc68eafe08d5262d4
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 348e37202335cc525f945085658337fbe6bcc561
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341702"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182429"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Samouczek: aktualizowanie magazynu przy użyciu witryny Azure Portal oraz tematów/subskrypcji
 
@@ -94,7 +94,7 @@ Aby uruchomić kod, wykonaj następujące czynności:
 
     ![Odbieranie danych wyjściowych](./media/service-bus-tutorial-topics-subscriptions-portal/receive-output.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Usuń przestrzeń nazw i kolejkę, jeśli nie są już potrzebne. W tym celu wybierz te zasoby w portalu i kliknij przycisk **Usuń**.
 
@@ -409,7 +409,7 @@ Więcej przykładów dotyczących wysyłania i odbierania komunikatów znajduje 
 Przejdź do następnego samouczka, aby dowiedzieć się więcej o korzystaniu z możliwości publikowania/subskrypcji usługi Service Bus.
 
 > [!div class="nextstepaction"]
-> [aktualizowanie magazynu przy użyciu programu PowerShell oraz tematów/subskrypcji](service-bus-tutorial-topics-subscriptions-powershell.md)
+> [Reagowanie na zdarzenia za pomocą usługi Event Grid](service-bus-to-event-grid-integration-example.md)
 
 [bezpłatne konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

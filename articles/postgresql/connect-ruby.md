@@ -1,5 +1,5 @@
 ---
-title: Nawiązywanie połączenia przy użyciu języka Ruby-Azure Database for PostgreSQL-pojedynczego serwera
+title: 'Szybki Start: łączenie z serwerem z obsługą języka Ruby-Azure Database for PostgreSQL-Single'
 description: Ten przewodnik Szybki Start zawiera przykładowy kod języka Ruby, którego można użyć do nawiązywania połączeń i wykonywania zapytań dotyczących danych z Azure Database for PostgreSQL-jednego serwera.
 author: rachel-msft
 ms.author: raagyema
@@ -8,14 +8,15 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 5dd4cfe9bee0db6f14f736c79fe91770641008fb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 98814060fb9ae669fc4e9a90fcda6319bbfaeacf
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74766909"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182548"
 ---
-# <a name="azure-database-for-postgresql---single-server-use-ruby-to-connect-and-query-data"></a>Azure Database for PostgreSQL — pojedynczy serwer: używanie języka Ruby do nawiązywania połączenia i wykonywania zapytań dotyczących danych
+# <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Szybki Start: używanie języka Ruby do nawiązywania połączenia i wykonywania zapytań dotyczących danych na pojedynczym serwerze Azure Database for PostgreSQL
+
 Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for PostgreSQL przy użyciu aplikacji języka [Ruby](https://www.ruby-lang.org). Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W krokach w tym artykule założono, że wiesz już, jak programować za pomocą języka Ruby, i dopiero zaczynasz pracę z usługą Azure Database for PostgreSQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -37,7 +38,7 @@ Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z usługą 
  ![Nazwa serwera usługi Azure Database for PostgreSQL](./media/connect-ruby/1-connection-string.png)
 
 > [!NOTE]
-> `@` Symbol w nazwie użytkownika usługi Azure Postgres został zakodowany w adresie URL jako `%40` we wszystkich parametrach połączenia. 
+> `@`Symbol w nazwie użytkownika usługi Azure Postgres został zakodowany w adresie URL jako `%40` we wszystkich parametrach połączenia. 
 
 ## <a name="connect-and-create-a-table"></a>Łączenie i tworzenie tabeli
 Użyj poniższego kodu w celu nawiązania połączenia i utworzenia tabeli za pomocą instrukcji **CREATE TABLE** języka SQL, a następnie instrukcji **INSERT INTO** języka SQL, aby dodać wiersze do tabeli.

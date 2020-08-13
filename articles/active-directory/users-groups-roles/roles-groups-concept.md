@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 08/11/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65aed14ec7f644f2792aaecde5c8bccfffdd8081
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 30d18041a746a0c1046a51cf408494ccb81019c9
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078448"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183211"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Zarządzanie przypisaniami ról w programie Azure Active Directory przy użyciu grup chmurowych (wersja zapoznawcza)
 
@@ -60,7 +60,7 @@ Następujące scenariusze nie są obecnie obsługiwane:
 
 - Nie można utworzyć ani zmodyfikować grupy dynamicznej, gdy rola jest przypisana za pośrednictwem grupy.
 - **Włączenie wdrażania etapowego dla funkcji logowania użytkownika zarządzanego** nie obsługuje przypisywania przez grupę.
-- *Tylko licencjonowani klienci usługi Azure AD P2*: Nie przypisuj grupy jako aktywnej do roli za pomocą usługi Azure AD i Privileged Identity Management. Dzięki temu użytkownicy nie mogą zobaczyć aktywnych przypisań ról w programie PIM, jak również uniemożliwić usunięcie tego przypisania programu PIM. W tym scenariuszu nie ma żadnych zmian w kwalifikujących się przypisaniach. Jeśli podjęto próbę wykonania tego przypisania, może wystąpić nieoczekiwane zachowanie, takie jak:
+- *Tylko licencjonowani klienci usługi Azure AD P2*: Nie przypisuj grupy jako aktywnej do roli za pomocą usługi Azure AD i PRIVILEGED Identity Management (PIM). W przeciwnym razie nie przypisuj roli do grupy możliwej do przypisania, gdy zostanie ona utworzona, *i* przypiszesz rolę do grupy przy użyciu usługi PIM później. Dzięki temu użytkownicy nie mogą zobaczyć aktywnych przypisań ról w programie PIM, jak również uniemożliwić usunięcie tego przypisania programu PIM. W tym scenariuszu nie ma żadnych zmian w kwalifikujących się przypisaniach. Jeśli podjęto próbę wykonania tego przypisania, może wystąpić nieoczekiwane zachowanie, takie jak:
   - Godzina zakończenia przypisywania roli może być błędnie wyświetlana.
   - W portalu PIM **role** mogą wyświetlać tylko jedno przypisanie roli bez względu na liczbę metod, do których przypisano przypisanie (za pomocą jednej lub kilku grup i bezpośrednio).
 - *Tylko licencjonowani klienci usługi Azure AD P2* Nawet po usunięciu grupy nadal jest widoczny uprawniony członek roli w interfejsie użytkownika PIM. Funkcjonalnie nie ma problemu; jest to tylko problem z pamięcią podręczną w Azure Portal.  

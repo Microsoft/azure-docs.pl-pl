@@ -10,16 +10,19 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 8289b21da5009459d2eb7ddc8d26b549f0920317
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 274228ea5aa9ac9de9725176c8b6221ee9e9542e
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88085360"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182701"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Szybki Start: Tworzenie aplikacji Java na Azure App Service
 
 [Azure App Service](overview.md) zapewnia wysoce skalowalną, samoobsługową usługę hostingu w sieci Web.  W tym przewodniku szybki start pokazano, jak używać [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) z [wtyczką aplikacji sieci Web platformy Azure dla usługi Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) w celu wdrożenia pliku archiwum sieci Web (War) języka Java.
+
+> [!NOTE]
+> W tym artykule pracujemy tylko z aplikacjami w języku Java umieszczonych w pakietach w postaci plików WAR. Wtyczka obsługuje również aplikacje internetowe JAR. Odwiedź stronę [Deploy a Java SE JAR file to App Service on Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) (Wdrażanie pliku JAR języka Java SE do usługi App Service w systemie Linux), aby wypróbować tę funkcję.
 
 > [!NOTE]
 > Można to zrobić również przy użyciu popularnych środowisk IDE, takich jak IntelliJ i zaćmienie. Zapoznaj się z naszymi dokumentami w [Azure Toolkit for IntelliJ przewodniku szybki start](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app) lub [Azure Toolkit for Eclipse przewodnika Szybki Start](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app).
@@ -53,12 +56,12 @@ Aby skonfigurować wdrożenie, można uruchomić poniższe polecenie Maven
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
 
-::: zone pivot="platform-windows"  
+::: zone pivot="platform-windows" 
 Zostanie wyświetlony monit o wybranie 
 * **System operacyjny (domyślnie: `linux` )**
 * **Wersja języka Java (domyślnie: `1.8` )**
 * **Kontener sieci Web (domyślnie: `tomcat 8.5` )** 
-
+ 
 Należy zachować ostrożność, **`2`** Aby wybrać **system operacyjny Windows** w pierwszym kroku. Pozostałe konfiguracje można pozostawić domyślnie przez naciśnięcie klawisza **Enter**. Na koniec naciśnij pozycję **`Y`** **Potwierdź (t/N)** , aby zakończyć konfigurację.
 
 Przykładowy proces wygląda następująco:
@@ -137,6 +140,13 @@ Confirm (Y/N)? :
 ```
 ::: zone-end
 ::: zone pivot="platform-linux"  
+
+Zostanie wyświetlony monit o wybranie 
+* **System operacyjny (domyślnie: `linux` )**
+* **Wersja języka Java (domyślnie: `Java 8` )**
+* **Kontener sieci Web (domyślnie: `Tomcat 8.5` )** 
+
+Wszystkie konfiguracje można pozostawić domyślnie przez naciśnięcie klawisza **Enter**. Na koniec naciśnij pozycję **`Y`** **Potwierdź (t/N)** , aby zakończyć konfigurację.
 Przykładowy proces wygląda następująco:
 
 ```cmd
@@ -174,16 +184,7 @@ Confirm (Y/N)? : Y
 ```
 ::: zone-end
 
-> [!NOTE]
-> W tym artykule pracujemy tylko z aplikacjami w języku Java umieszczonych w pakietach w postaci plików WAR. Wtyczka obsługuje również aplikacje internetowe JAR. Odwiedź stronę [Deploy a Java SE JAR file to App Service on Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) (Wdrażanie pliku JAR języka Java SE do usługi App Service w systemie Linux), aby wypróbować tę funkcję.
-
-Otwórz `pom.xml` , aby wyświetlić zaktualizowaną konfigurację.
-
-```bash
-code pom.xml
-```
-
-W razie potrzeby można modyfikować konfiguracje dla App Service bezpośrednio w pliku pliku pom:
+Konfiguracje dla App Service można modyfikować bezpośrednio w `pom.xml` razie potrzeby, ale niektóre z nich są wymienione poniżej:
 
  Właściwość | Wymagane | Opis | Wersja
 ---|---|---|---
@@ -195,11 +196,8 @@ W razie potrzeby można modyfikować konfiguracje dla App Service bezpośrednio 
 `<runtime>` | true | Konfiguracja środowiska uruchomieniowego, w [tym miejscu](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)można zobaczyć szczegóły. | 0.1.0 +
 `<deployment>` | true | W konfiguracji wdrożenia można zobaczyć szczegóły [tutaj](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0 +
 
-::: zone pivot="platform-windows"
 Należy zachować ostrożność w przypadku wartości `<appName>` i `<resourceGroup>` ( `helloworld-1590394316693` i `helloworld-1590394316693-rg` odpowiednio w demonstracji), które będą używane później.
-::: zone-end
-::: zone pivot="platform-linux"
-::: zone-end
+
 > [!div class="nextstepaction"]
 > [Wystąpił problem](https://www.research.net/r/javae2e?tutorial=quickstart-java&step=config)
 
@@ -216,21 +214,11 @@ Następnie możesz wdrożyć aplikację Java na platformie Azure przy użyciu na
 mvn package azure-webapp:deploy
 ```
 
-::: zone pivot="platform-windows"
 Po zakończeniu wdrażania aplikacja będzie gotowa w wersji `http://<appName>.azurewebsites.net/` ( `http://helloworld-1590394316693.azurewebsites.net` w wersji demonstracyjnej). Otwórz adres URL z lokalną przeglądarką internetową, aby zobaczyć
 
-![Przykładowa aplikacja działająca w Azure App Service](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
+![Przykładowa aplikacja działająca w Azure App Service](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
-**Gratulacje!** Twoja pierwsza aplikacja Java została wdrożona w celu App Service w systemie Windows.
-
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
-::: zone-end
-::: zone pivot="platform-linux"
-Po zakończeniu wdrażania w przeglądarce internetowej przejdź do wdrożonej aplikacji, używając następującego adresu URL, na przykład `http://<webapp>.azurewebsites.net`. 
-
-![Przykładowa aplikacja działająca w Azure App Service](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
-
-**Gratulacje!** Udało Ci się wdrożyć pierwszą własną aplikację w języku Java w usłudze App Service w systemie Linux.
+**Gratulacje!** Twoja pierwsza aplikacja Java została wdrożona w celu App Service.
 
 > [!div class="nextstepaction"]
 > [Wystąpił problem](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=deploy)
@@ -244,19 +232,6 @@ az group delete --name <your resource group name; for example: helloworld-155840
 ```
 
 Wykonanie tego polecenia może potrwać około minutę.
-::: zone-end
-
-Po zakończeniu wdrażania aplikacja będzie gotowa w wersji `http://<appName>.azurewebsites.net/` ( `http://helloworld-1590394316693.azurewebsites.net` w wersji demonstracyjnej). Otwórz adres URL z lokalną przeglądarką internetową, aby zobaczyć
-
-![Przykładowa aplikacja działająca w Azure App Service](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
-
-**Gratulacje!** Twoja pierwsza aplikacja Java została wdrożona w celu App Service.
-
-> [!div class="nextstepaction"]
-> [Wystąpił problem](https://www.research.net/r/javae2e?quickstart-java&step=deploy)
-
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
-
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]

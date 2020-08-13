@@ -1,18 +1,18 @@
 ---
 title: Konfigurowanie funkcji MPIO na hoście StorSimple systemu Linux
-description: Konfigurowanie funkcji MPIO w systemie StorSimple połączonej z hostem systemu Linux z systemem CentOS 6,6
+description: Informacje o krokach wymaganych do skonfigurowania wielościeżkowego wejścia/wyjścia (MPIO) na serwerze hosta z systemem StorSimple Linux (CentOS 6,6).
 author: alkohli
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 05a67ab33c12e9f2bdbc0cd0098c39252db37e8e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 3ce84d3c03c2a24406629b8687c4fb8973809166
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187085"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183637"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Konfigurowanie funkcji MPIO na hoście StorSimple z systemem CentOS
 W tym artykule opisano kroki wymagane do skonfigurowania wielościeżkowego wejścia/wyjścia (MPIO) na serwerze hosta z systemem CentOS 6,6. Serwer hosta jest połączony z urządzeniem Microsoft Azure StorSimple, aby zapewnić wysoką dostępność za pośrednictwem inicjatorów iSCSI. Szczegółowo opisano automatyczne odnajdowanie urządzeń wielościeżkowych i konkretnej konfiguracji tylko dla woluminów StorSimple.
@@ -214,7 +214,7 @@ Urządzenia z obsługą wielu ścieżek mogą być automatycznie odnajdywane i k
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Krok 2. Konfigurowanie wielu ścieżek dla woluminów StorSimple
 Domyślnie wszystkie urządzenia są czarne na liście w pliku wielościeżkowym. conf i zostaną pominięte. Należy utworzyć wyjątki listy zablokowanych, aby umożliwić obsługę wielu ścieżek dla woluminów z urządzeń StorSimple.
 
-1. Edytuj `/etc/mulitpath.conf` plik. Wpisz:
+1. Edytuj plik `/etc/mulitpath.conf`. Wpisz:
    
     `vi /etc/multipath.conf`
 1. Znajdź sekcję blacklist_exceptions w pliku wielościeżkowego. conf. Urządzenie StorSimple musi być wymienione jako wyjątek dla elementu w tej sekcji. Możesz usunąć komentarz z odpowiednich wierszy w tym pliku, aby zmodyfikować go jak pokazano poniżej (Użyj tylko określonego modelu używanego urządzenia):
@@ -235,7 +235,7 @@ Domyślnie wszystkie urządzenia są czarne na liście w pliku wielościeżkowym
 ### <a name="step-3-configure-round-robin-multipathing"></a>Krok 3. Konfigurowanie wielościeżkowego działania okrężnego
 Ten algorytm równoważenia obciążenia używa wszystkich dostępnych wielu ścieżek do aktywnego kontrolera w zrównoważonej, okrężnej sposób.
 
-1. Edytuj `/etc/multipath.conf` plik. Wpisz:
+1. Edytuj plik `/etc/multipath.conf`. Wpisz:
    
     `vi /etc/multipath.conf`
 1. W `defaults` sekcji Ustaw wartość `path_grouping_policy` na `multibus` . `path_grouping_policy`Określa domyślne zasady grupowania ścieżek, które mają być stosowane do nieokreślonych wielościeżkowych. Zostanie wyświetlona sekcja wartości domyślne, jak pokazano poniżej.

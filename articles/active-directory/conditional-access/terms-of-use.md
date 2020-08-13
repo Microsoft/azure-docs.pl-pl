@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e76468238a911c7a9e5543bf5063d1c7b6a8b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81f3f771987ce2ff11aab88a4d35df01b6c85941
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253328"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184350"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory warunki użytkowania
 
@@ -129,7 +129,7 @@ Po sfinalizowaniu dokumentu z użyciem warunków użytkowania Użyj następując
 
     Niestandardowe zasady dostępu warunkowego umożliwiają szczegółowe warunki użytkowania, w dół do określonej aplikacji w chmurze lub grupy użytkowników. Aby uzyskać więcej informacji, zobacz [Szybki Start: Wymagaj akceptacji warunków użytkowania przed uzyskaniem dostępu do aplikacji w chmurze](require-tou.md).
 
-1. Kliknij pozycję **Utwórz**.
+1. Kliknij przycisk **Utwórz**.
 
    W przypadku wybrania niestandardowego szablonu dostępu warunkowego zostanie wyświetlony nowy ekran, który umożliwia utworzenie niestandardowych zasad dostępu warunkowego.
 
@@ -225,7 +225,7 @@ Można edytować niektóre szczegóły warunków użytkowania, ale nie można mo
 
    ![Okienko Edycja warunków użytkowania z pokazywaniem opcji Nazwa i rozwiń](./media/terms-of-use/edit-tou.png)
 
-1. Kliknij pozycję **Zapisz**, aby zapisać zmiany.
+1. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
 
    Gdy zapiszesz zmiany, użytkownicy nie będą musieli ponownie akceptować tych zmian.
 
@@ -363,7 +363,7 @@ Odp.: nie, jeśli administrator edytuje szczegóły warunków użytkowania (nazw
 Odp.: obecnie nie można zaktualizować istniejących warunków użytkowania dokumentu. Aby zmienić dokument warunków użytkowania, konieczne będzie utworzenie nowego wystąpienia warunków użytkowania.
 
 **P: Jeśli hiperłącza znajdują się w dokumencie warunki użytkowania dokumentu PDF, użytkownicy końcowi będą mogli je klikać?**<br />
-Odp.: tak, użytkownicy końcowi mogą wybrać hiperłącza do dodatkowych stron, ale linki do sekcji w dokumencie nie są obsługiwane.
+Odp.: tak, użytkownicy końcowi mogą wybrać hiperłącza do dodatkowych stron, ale linki do sekcji w dokumencie nie są obsługiwane. Ponadto hiperłącza w warunkach użytkowania plików PDF nie działają w przypadku uzyskiwania dostępu do usługi Azure AD webapps/webaccount.
 
 **Pyt. Czy warunki użytkowania obsługują wiele języków?**<br />
 Odp. Tak. Obecnie istnieją 108 różne języki, które administrator może skonfigurować dla jednego warunku użytkowania. Administrator może przekazać wiele dokumentów PDF i oznaczyć je za pomocą odpowiedniego języka (do 108). Gdy użytkownicy końcowi zalogują się, zobaczą preferencje językowe przeglądarki i wyświetlają pasujący dokument. Jeśli nie ma dopasowania, zostanie wyświetlony dokument domyślny, który jest pierwszym przekazaniem dokumentu.

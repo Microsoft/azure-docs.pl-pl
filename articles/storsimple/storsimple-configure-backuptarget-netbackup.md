@@ -1,6 +1,6 @@
 ---
 title: Seria 8000 StorSimple jako miejsce docelowe kopii zapasowej z NetBackup | Microsoft Docs
-description: Opisuje konfigurację celu kopii zapasowych StorSimple za pomocą programu VERITAS NetBackup.
+description: Dowiedz się więcej o konfiguracji docelowej kopii zapasowej StorSimple za pomocą programu VERITAS NetBackup i najlepszych rozwiązań związanych z integracją obu.
 services: storsimple
 documentationcenter: ''
 author: harshakirank
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
-ms.openlocfilehash: 34c66c3d5739fdc23323a302e3bedfb1b6301d86
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b186fadcc99c6cc538b61eaa94d5d84d649c233f
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077909"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184010"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple jako miejsce docelowe kopii zapasowej za pomocą NetBackup
 
@@ -316,7 +316,7 @@ W poniższej kolejności przyjęto założenie, że NetBackup i host docelowy s�
 
    ![Konsola administracyjna NetBackup, tworzenie nowych zasad](./media/storsimple-configure-backup-target-using-netbackup/nbimage6.png)
 
-2. W oknie dialogowym **Dodaj nowe zasady** wprowadź nazwę zasad, a następnie zaznacz pole wyboru **Użyj Kreatora konfiguracji zasad** . Wybierz przycisk **OK**.
+2. W oknie dialogowym **Dodaj nowe zasady** wprowadź nazwę zasad, a następnie zaznacz pole wyboru **Użyj Kreatora konfiguracji zasad** . Wybierz pozycję **OK**.
 
    ![Konsola administracyjna NetBackup, okno dialogowe Dodawanie nowych zasad](./media/storsimple-configure-backup-target-using-netbackup/nbimage7.png)
 
@@ -328,7 +328,7 @@ W poniższej kolejności przyjęto założenie, że NetBackup i host docelowy s�
 
    ![Konsola administracyjna NetBackup, wybierz typ zasad](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
 
-5. Wybierz hosta, zaznacz pole wyboru **Wykryj system operacyjny klienta** , a następnie wybierz pozycję **Dodaj**. Wybierz przycisk **Dalej**.
+5. Wybierz hosta, zaznacz pole wyboru **Wykryj system operacyjny klienta** , a następnie wybierz pozycję **Dodaj**. Wybierz pozycję **Dalej**.
 
    ![Konsola administracyjna NetBackup, lista klientów w nowych zasadach](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
 
@@ -360,7 +360,7 @@ W poniższej kolejności przyjęto założenie, że NetBackup i host docelowy s�
 
     ![Konsola administracyjna NetBackup, zmiana okna startowego](./media/storsimple-configure-backup-target-using-netbackup/nbimage16.png)
 
-14. Wybierz przycisk **OK**.
+14. Wybierz pozycję **OK**.
 
 15. Powtórz kroki 10-14 dla każdej przyrostowej kopii zapasowej. Wybierz odpowiedni wolumin i harmonogram dla każdej utworzonej kopii zapasowej.
 
@@ -436,7 +436,7 @@ Po zdefiniowaniu początkowych pul dysków należy zdefiniować trzy dodatkowe z
 
 2. Wprowadź nazwę migawki, a następnie wybierz pozycję **Dodaj**.
 
-3. W oknie dialogowym **Nowa operacja** na karcie **Właściwości** dla **operacji**wybierz pozycję **kopia zapasowa**. Wybierz wartości dla **magazynu docelowego**, **typ przechowywania**i **okres przechowywania**. Wybierz przycisk **OK**.
+3. W oknie dialogowym **Nowa operacja** na karcie **Właściwości** dla **operacji**wybierz pozycję **kopia zapasowa**. Wybierz wartości dla **magazynu docelowego**, **typ przechowywania**i **okres przechowywania**. Wybierz pozycję **OK**.
 
    ![Konsola administracyjna NetBackup, okno dialogowe Nowa operacja](./media/storsimple-configure-backup-target-using-netbackup/nbimage22.png)
 
@@ -535,7 +535,7 @@ Awaria może być spowodowana przez różne czynniki. W poniższej tabeli wymien
 | Awaria serwera NetBackup | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Skompiluj ponownie serwer kopii zapasowej i wykonaj przywracanie bazy danych. | Należy ponownie skompilować lub przywrócić serwer NetBackup w lokacji odzyskiwania po awarii. Przywróć bazę danych do najnowszego punktu. Jeśli przywrócona baza danych NetBackup nie jest zsynchronizowana z najnowszymi zadaniami tworzenia kopii zapasowych, wymagane jest indeksowanie i wykazanie. Ten proces ponownego skanowania indeksu i wykazu może spowodować, że wszystkie zestawy kopii zapasowych będą skanowane i pobrane z warstwy chmury do warstwy urządzenia lokalnego. Zwiększa to intensywnie czasochłonne. |
 | Awaria lokacji, która powoduje utratę zarówno serwera kopii zapasowej, jak i StorSimple | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Najpierw Przywróć StorSimple, a następnie Przywróć NetBackup. | Najpierw Przywróć StorSimple, a następnie Przywróć NetBackup. Jeśli trzeba wykonać przywracanie po odzyskiwaniu urządzenia, do nowego urządzenia zostaną pobrane wszystkie zestawy robocze z danymi z chmury. Wszystkie operacje są z szybkością chmury. |
 
-## <a name="references"></a>Odwołania
+## <a name="references"></a>Dokumentacja
 
 Następujące dokumenty odwołują się do tego artykułu:
 

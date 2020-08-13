@@ -9,12 +9,12 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: 447653cdcaeb1a0bbf891a26e8bc0af5ead87fdb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 270461ad0ba5c77f845af13d7cd4a24d0c098b31
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518711"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182463"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Omówienie obiektów BLOB na stronie platformy Azure
 
@@ -34,7 +34,7 @@ Usługi firmy Microsoft w pierwszej kolejności, takie jak Azure Site Recovery, 
 * Migracja na żywo aplikacji i danych z lokalizacji lokalnej do chmury: Skopiuj dane lokalne i Użyj interfejsów API REST, aby pisać bezpośrednio do obiektu BLOB na stronie platformy Azure, gdy na lokalnej maszynie wirtualnej nadal działa. Gdy obiekt docelowy zostanie przechwycony, możesz szybko przełączyć się do trybu failover na maszynie wirtualnej platformy Azure przy użyciu tych danych. W ten sposób można migrować maszyny wirtualne i dyski wirtualne z lokalizacji lokalnych do chmury z minimalnym przestojem, ponieważ migracja danych odbywa się w tle, a czas przestoju wymagany do przejścia w tryb failover będzie krótki (w minutach).
 * Dostęp współdzielony [oparty na SAS](../common/storage-sas-overview.md) , który umożliwia scenariusze, takie jak wiele czytników i pojedynczy moduł zapisu z obsługą kontroli współbieżności.
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 
 Oba typy magazynów oferowane przez stronicowe obiekty blob mają własny model cen. Na stronie Premium obiekty blob są zgodne z modelem cen dla dysków zarządzanych, podczas gdy standardowe obiekty blob na stronie standardowej są rozliczane przy użyciu rozmiaru i każdej transakcji. Aby uzyskać więcej informacji, zobacz [stronę cennika obiektów BLOB strony platformy Azure](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
@@ -50,13 +50,13 @@ Na poniższym diagramie opisano ogólne relacje między kontem, kontenerami i st
 
 #### <a name="creating-an-empty-page-blob-of-a-specified-size"></a>Tworzenie pustego obiektu BLOB stronicowego o określonym rozmiarze
 
-# <a name="net-v12-sdk"></a>[Zestaw SDK .NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
 
 Najpierw Pobierz odwołanie do kontenera. Aby utworzyć stronicowy obiekt BLOB, wywołaj metodę [GetPageBlobClient](/dotnet/api/azure.storage.blobs.specialized.specializedblobextensions.getpageblobclient) , a następnie Wywołaj metodę [PageBlobClient. Create](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.create) . Przekaż maksymalny rozmiar obiektu BLOB, który ma zostać utworzony. Ten rozmiar musi być wielokrotnością 512 bajtów.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_CreatePageBlob":::
 
-# <a name="net-v11-sdk"></a>[Zestaw SDK .NET v11](#tab/dotnet11)
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 W celu utworzenia stronicowego obiektu BLOB najpierw tworzymy obiekt **CloudBlobClient** z podstawowym identyfikatorem URI uzyskiwania dostępu do magazynu obiektów BLOB dla konta magazynu (*pbaccount* na rysunku 1) wraz z obiektem **StorageCredentialsAccountAndKey** , jak pokazano w poniższym przykładzie. Przykład pokazuje, jak utworzyć odwołanie do obiektu **CloudBlobContainer** , a następnie utworzyć kontener (*testvhds*), jeśli jeszcze nie istnieje. Następnie za pomocą obiektu **CloudBlobContainer** Utwórz odwołanie do obiektu **CloudPageBlob** , określając nazwę obiektu BLOB (OS4. VHD), aby uzyskać dostęp. Aby utworzyć stronicowy obiekt BLOB, wywołaj [CloudPageBlob. Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), przekazując w maksymalnym rozmiarze dla obiektu BLOB do utworzenia. *BlobSize* musi być wielokrotnością 512 bajtów.
 
@@ -87,13 +87,13 @@ pageBlob.Create(16 * OneGigabyteAsBytes);
 
 #### <a name="resizing-a-page-blob"></a>Zmienianie rozmiarów obiektu BLOB strony
 
-# <a name="net-v12-sdk"></a>[Zestaw SDK .NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
 
 Aby zmienić rozmiar obiektu BLOB strony po utworzeniu, użyj metody [zmiany rozmiaru](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.resize?view=azure-dotnet) . Żądany rozmiar powinien być wielokrotnością 512 bajtów.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ResizePageBlob":::
 
-# <a name="net-v11-sdk"></a>[Zestaw SDK .NET v11](#tab/dotnet11)
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 Aby zmienić rozmiar obiektu BLOB strony po utworzeniu, użyj metody [zmiany rozmiaru](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize) . Żądany rozmiar powinien być wielokrotnością 512 bajtów.
 
@@ -105,13 +105,13 @@ pageBlob.Resize(32 * OneGigabyteAsBytes);
 
 #### <a name="writing-pages-to-a-page-blob"></a>Pisanie stron na stronie BLOB
 
-# <a name="net-v12-sdk"></a>[Zestaw SDK .NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
 
 Aby pisać strony, użyj metody [PageBlobClient. UploadPages](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.uploadpages) .  
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_WriteToPageBlob":::
 
-# <a name="net-v11-sdk"></a>[Zestaw SDK .NET v11](#tab/dotnet11)
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 Aby pisać strony, użyj metody [CloudPageBlob. WritePages](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.beginwritepages) .  
 
@@ -134,13 +134,13 @@ Poniższy diagram przedstawia 2 oddzielne operacje zapisu:
 
 #### <a name="reading-pages-from-a-page-blob"></a>Odczytywanie stron ze strony obiektu BLOB
 
-# <a name="net-v12-sdk"></a>[Zestaw SDK .NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
 
 Aby odczytać strony, użyj metody [PageBlobClient. Download](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.download) w celu odczytania zakresu bajtów ze strony obiektu BLOB. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadFromPageBlob":::
 
-# <a name="net-v11-sdk"></a>[Zestaw SDK .NET v11](#tab/dotnet11)
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 Aby odczytać strony, należy użyć metody [CloudPageBlob. DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.icloudblob.downloadrangetobytearray) w celu odczytania zakresu bajtów ze strony obiektu BLOB. 
 
@@ -159,13 +159,13 @@ Na poniższej ilustracji przedstawiono operację odczytu z przesunięciem 256 i 
 
 Jeśli masz rozrzedzonie wypełniony obiekt BLOB, możesz po prostu pobrać odpowiednie regiony stron, aby uniknąć płacenia za ruch wychodzący z zero bajtów i zmniejszyć czas oczekiwania na pobieranie.  
 
-# <a name="net-v12-sdk"></a>[Zestaw SDK .NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
 
 Aby określić, które strony są obsługiwane przez dane, użyj [PageBlobClient. GetPageRanges](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.getpageranges). Następnie można wyliczyć zwrócone zakresy i pobrać dane z każdego zakresu. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadValidPageRegionsFromPageBlob":::
 
-# <a name="net-v11-sdk"></a>[Zestaw SDK .NET v11](#tab/dotnet11)
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 Aby określić, które strony są obsługiwane przez dane, użyj [CloudPageBlob. GetPageRanges](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.getpageranges). Następnie można wyliczyć zwrócone zakresy i pobrać dane z każdego zakresu. 
 

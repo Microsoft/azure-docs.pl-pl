@@ -1,6 +1,6 @@
 ---
 title: Seria 8000 StorSimple jako miejsce docelowe kopii zapasowej z Veeam | Microsoft Docs
-description: Opisuje konfigurację docelową kopii zapasowej StorSimple z Veeam.
+description: Dowiedz się więcej o konfiguracji docelowej kopii zapasowej StorSimple z Veeam i najlepszymi rozwiązaniami dotyczącymi integracji obu rozwiązań.
 services: storsimple
 documentationcenter: ''
 author: harshakirank
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
-ms.openlocfilehash: 05ee60986703096c004c4d15764028b73d04c0bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 71a5434d985aad4033e4392dd31e6b7d112692de
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077884"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183985"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple jako miejsce docelowe kopii zapasowej za pomocą Veeam
 
@@ -276,11 +276,11 @@ W oparciu o powyższe założenia Utwórz wolumin warstwowy z 26 TiB StorSimple 
 
     ![Konsola zarządzania Veeam, Strona repozytorium kopii zapasowych](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
-2.  W oknie dialogowym **nowe repozytorium kopii zapasowych** wprowadź nazwę i opis repozytorium. Wybierz przycisk **Dalej**.
+2.  W oknie dialogowym **nowe repozytorium kopii zapasowych** wprowadź nazwę i opis repozytorium. Wybierz pozycję **Dalej**.
 
     ![Strona Veeam Management Console, nazwa i opis](./media/storsimple-configure-backup-target-using-veeam/veeamimage2.png)
 
-3.  W polu Typ wybierz pozycję **Microsoft Windows Server**. Wybierz serwer Veeam. Wybierz przycisk **Dalej**.
+3.  W polu Typ wybierz pozycję **Microsoft Windows Server**. Wybierz serwer Veeam. Wybierz pozycję **Dalej**.
 
     ![Veeam Management Console, wybierz typ repozytorium kopii zapasowych](./media/storsimple-configure-backup-target-using-veeam/veeamimage3.png)
 
@@ -293,7 +293,7 @@ W oparciu o powyższe założenia Utwórz wolumin warstwowy z 26 TiB StorSimple 
 
     ![Veeam Management Console, ustawienia zgodności magazynu](./media/storsimple-configure-backup-target-using-veeam/veeamimage5.png)
 
-6.  W oknie dialogowym **nowe repozytorium kopii zapasowych** zaznacz pole wyboru **Włącz usługę NFS vPower na serwerze instalacji (zalecane)** . Wybierz przycisk **Dalej**.
+6.  W oknie dialogowym **nowe repozytorium kopii zapasowych** zaznacz pole wyboru **Włącz usługę NFS vPower na serwerze instalacji (zalecane)** . Wybierz pozycję **Dalej**.
 
     ![Konsola zarządzania Veeam, Strona repozytorium kopii zapasowych](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
@@ -349,7 +349,7 @@ W przypadku scenariusza cel głównej kopii zapasowej Utwórz codzienne zadanie 
 
     ![Strona ustawień zaawansowanych zadania tworzenia kopii zapasowej Veeam, konsola zarządzania](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
 
-6. Na karcie **Magazyn** upewnij się, że pole wyboru **Włącz funkcję deduplikacji danych wbudowanych** jest wyczyszczone. Zaznacz pole wyboru **Wyklucz bloki wymiany plików** , a następnie zaznacz pole wyboru **Wyklucz bloki usuniętego pliku** . Ustaw **poziom kompresji** na **Brak**. W celu zapewnienia zrównoważonej wydajności i deduplikacji ustaw opcję **Optymalizacja magazynu** na wartość **docelową sieci LAN**. Wybierz przycisk **OK**.
+6. Na karcie **Magazyn** upewnij się, że pole wyboru **Włącz funkcję deduplikacji danych wbudowanych** jest wyczyszczone. Zaznacz pole wyboru **Wyklucz bloki wymiany plików** , a następnie zaznacz pole wyboru **Wyklucz bloki usuniętego pliku** . Ustaw **poziom kompresji** na **Brak**. W celu zapewnienia zrównoważonej wydajności i deduplikacji ustaw opcję **Optymalizacja magazynu** na wartość **docelową sieci LAN**. Wybierz pozycję **OK**.
 
     ![Strona ustawień zaawansowanych zadania tworzenia kopii zapasowej Veeam, konsola zarządzania](./media/storsimple-configure-backup-target-using-veeam/veeamimage13.png)
 
@@ -507,7 +507,7 @@ Awaria może być spowodowana przez różne czynniki. W poniższej tabeli wymien
 | Awaria lokacji, która powoduje utratę zarówno serwera kopii zapasowej, jak i StorSimple | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Najpierw Przywróć StorSimple, a następnie Przywróć Veeam. | Najpierw Przywróć StorSimple, a następnie Przywróć Veeam. Jeśli trzeba wykonać przywracanie po odzyskiwaniu urządzenia, do nowego urządzenia zostaną pobrane wszystkie zestawy robocze z danymi z chmury. Wszystkie operacje są z szybkością chmury. |
 
 
-## <a name="references"></a>Odwołania
+## <a name="references"></a>Dokumentacja
 
 Następujące dokumenty odwołują się do tego artykułu:
 

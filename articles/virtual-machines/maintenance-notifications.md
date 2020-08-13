@@ -5,14 +5,14 @@ author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: f7d9912686be8ba6076278f148067575a40f32f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e2eb1c2b6ecb98c60b117d004a97cd4e5f07a55
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510042"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182173"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Obsługa powiadomień dotyczących planowanej konserwacji
 
@@ -107,7 +107,8 @@ Odp **.:** Mimo że te platformy mają wpływ na zaplanowaną konserwację, klie
 Odp **.:** Istnieje kilka powodów, dla których nie widzisz żadnych informacji o konserwacji maszyn wirtualnych:
 1.  Używasz subskrypcji oznaczonej jako wewnętrzne firmy Microsoft.
 2.  Maszyny wirtualne nie są zaplanowane do konserwacji. Może się zdarzyć, że fala konserwacji zakończyła się, została anulowana lub zmodyfikowana, tak aby maszyny wirtualne nie miały już na nie wpływu.
-3.  Do widoku listy maszyn wirtualnych nie została dodana kolumna **konserwacja** . Po dodaniu tej kolumny do widoku domyślnego klienci, którzy skonfigurowali wyświetlanie kolumn innych niż domyślne, muszą ręcznie dodać kolumnę **konserwacji** do widoku listy maszyn wirtualnych.
+3. Cofnięto przydzieloną maszynę wirtualną, a następnie ją uruchomiono. Może to spowodować przeniesienie maszyny wirtualnej do lokalizacji, w której zaplanowano nieplanowaną konserwację Wave. Na maszynie wirtualnej nie będą wyświetlane żadne dodatkowe informacje o obsłudze. 
+4.  Do widoku listy maszyn wirtualnych nie została dodana kolumna **konserwacja** . Po dodaniu tej kolumny do widoku domyślnego klienci, którzy skonfigurowali wyświetlanie kolumn innych niż domyślne, muszą ręcznie dodać kolumnę **konserwacji** do widoku listy maszyn wirtualnych.
 
 **P: zaplanowano konserwację maszyny wirtualnej po raz drugi. Zalet?**
 

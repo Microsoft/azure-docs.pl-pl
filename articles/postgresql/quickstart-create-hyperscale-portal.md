@@ -1,5 +1,5 @@
 ---
-title: Tworzenie rozproszonych tabel-Citus) — Azure Database for PostgreSQL
+title: 'Szybki Start: Tworzenie rozproszonych tabel-Citus) — Azure Database for PostgreSQL'
 description: Przewodnik Szybki Start dotyczący tworzenia i wykonywania zapytań dotyczących tabel rozproszonych w Azure Database for PostgreSQL funkcji Citus.
 author: jonels-msft
 ms.author: jonels
@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: 6e03b8f89ec22b74ad7dd14d9225c11fde78ec7f
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: c17018e0f2f3a7c1c23d176a441842abcf5521f4
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135627"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183925"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>Szybki Start: Tworzenie Azure Database for PostgreSQL-Citus w Azure Portal
 

@@ -13,12 +13,12 @@ ms.date: 08/07/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 4672c5cab5977b000bd5095f3868864ae0c267ed
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: fd19b451638eacbf0d6174154a2688b3523ca4d2
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005758"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183874"
 ---
 # <a name="migrate-applications-to-microsoft-authentication-library-msal"></a>Migrowanie aplikacji do biblioteki uwierzytelniania firmy Microsoft (MSAL)
 
@@ -58,7 +58,7 @@ __P: Czy moje istniejące aplikacje ADAL przestaną działać?__
 Odpowiedź: nie. Twoje istniejące aplikacje będą nadal działać bez żadnych modyfikacji. Jeśli planujesz przekroczenie 30 czerwca 2022, należy rozważyć zaktualizowanie aplikacji do MSAL, aby zapewnić ich bezpieczeństwo, ale migracja do MSAL nie jest wymagana do zachowania istniejących funkcji.
 
 __P: Jak mogę wiedzieć, które aplikacje używają biblioteki ADAL?__  
-Odp.: Jeśli masz kod źródłowy dla aplikacji, możesz odwoływać się do powyższych przewodników migracji, aby pomóc w ustaleniu, której biblioteki używają aplikacja i jak przeprowadzić migrację do MSAL. Jeśli masz partnera niezależnego dostawcy oprogramowania, zalecamy skontaktowanie się z nimi bezpośrednio, aby zrozumieć swoją drogę migracji do MSAL. Jeśli nie masz dostępu do kodu źródłowego aplikacji, możesz [otworzyć żądanie pomocy technicznej](developer-support-help-options.md#open-a-support-request) w celu uzyskania listy zarejestrowanych aplikacji i biblioteki używanej przez każdą aplikację.
+Odp.: Jeśli masz kod źródłowy dla aplikacji, możesz odwoływać się do powyższych przewodników migracji, aby pomóc w ustaleniu, której biblioteki używają aplikacja i jak przeprowadzić migrację do MSAL. Jeśli masz partnera niezależnego dostawcy oprogramowania, zalecamy skontaktowanie się z nimi bezpośrednio, aby zrozumieć swoją drogę migracji do MSAL.
 
 __P: Dlaczego należy zainwestować w przechodzenie do MSAL?__  
 Odp.: MSAL zawiera nowe funkcje, które nie znajdują się w bibliotece ADAL, łącznie z zarządzeniem przyrostowym, logowaniem jednokrotnym i zarządzaniem pamięci Ponadto, w przeciwieństwie do biblioteki ADAL, MSAL będzie nadal otrzymywać poprawki zabezpieczeń poza 30 czerwca 2022. [Dowiedz się więcej](msal-overview.md).

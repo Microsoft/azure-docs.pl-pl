@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: db2e493f04d74308b21e8a63222f26b1e2af8546
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e6f3a541f1e9dbca2c9949fb0c5cde28cd43e8e5
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038240"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183047"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Tworzenie zestawów danych Azure Machine Learning przy użyciu otwartych zestawów danych platformy Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -75,19 +75,21 @@ Po zarejestrowaniu zestawu danych utworzonego na podstawie otwartych zestawów d
 
 ## <a name="create-datasets-with-the-studio"></a>Tworzenie zestawów danych za pomocą programu Studio
 
-Zestawy danych można także tworzyć z otwartych zestawów danych za pomocą programu [Azure Machine Learning Studio](https://ml.azure.com). W obszarze roboczym wybierz kartę **zestawy danych** w obszarze **zasoby**. Z menu rozwijanego **Utwórz zestaw danych** wybierz pozycję **z otwarte zestawy**danych.
+Zestawy danych można także tworzyć z otwartych zestawów danych za pomocą programu [Azure Machine Learning Studio](https://ml.azure.com).
 
-![Otwórz zestaw danych przy użyciu interfejsu użytkownika](./media/how-to-create-dataset-from-open-dataset/open-datasets-1.png)
+1. W obszarze roboczym wybierz kartę **zestawy danych** w obszarze **zasoby**. Z menu rozwijanego **Utwórz zestaw danych** wybierz pozycję **z otwarte zestawy**danych.
 
-Wybierz zestaw danych, wybierając jego kafelek. (Istnieje możliwość filtrowania przy użyciu paska wyszukiwania). Wybierz pozycję **dalej**.
+    ![Otwórz zestaw danych przy użyciu interfejsu użytkownika](./media/how-to-create-dataset-from-open-dataset/open-datasets-1.png)
 
-![Wybierz zestaw danych](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
+1. Wybierz zestaw danych, wybierając jego kafelek. (Istnieje możliwość filtrowania przy użyciu paska wyszukiwania). Wybierz pozycję **dalej**.
 
-Wybierz nazwę, pod którą ma zostać zarejestrowany zestaw danych, i opcjonalnie odfiltruj dane przy użyciu dostępnych filtrów. W tym przypadku dla zestawu danych dni wolnych, należy odfiltrować przedział czasu do jednego roku i kod kraju tylko do USA. Wybierz pozycję **Utwórz**.
+    ![Wybierz zestaw danych](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-![Ustaw parametry zestawu danych i Utwórz zestaw danych](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
+1. Wybierz nazwę, pod którą ma zostać zarejestrowany zestaw danych, i opcjonalnie odfiltruj dane przy użyciu dostępnych filtrów. W tym przypadku dla zestawu danych **dni wolnych** , należy odfiltrować przedział czasu do jednego roku i kod kraju tylko do USA. Wybierz pozycję **Utwórz**.
 
-Zestaw danych jest teraz dostępny w obszarze roboczym w obszarze **zestawy danych**. Można go użyć w taki sam sposób jak inne utworzone zestawy danych.
+    ![Ustaw parametry zestawu danych i Utwórz zestaw danych](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
+
+    Zestaw danych jest teraz dostępny w obszarze roboczym w obszarze **zestawy danych**. Można go użyć w taki sam sposób jak inne utworzone zestawy danych.
 
 
 ## <a name="access-datasets-for-your-experiments"></a>Dostęp do zestawów danych dla eksperymentów

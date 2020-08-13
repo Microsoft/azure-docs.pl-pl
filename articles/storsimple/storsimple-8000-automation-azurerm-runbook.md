@@ -1,17 +1,17 @@
 ---
 title: Używanie Azure Automation Runbook do zarządzania urządzeniami StorSimple
-description: Dowiedz się, jak używać elementu Runbook Azure Automation do automatyzowania zadań StorSimple
+description: Dowiedz się, jak za pomocą programu Azure Automation Runbook zarządzać urządzeniem z serii StorSimple 8000 w programie Azure Portal.
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 737533cd75ebec8d5d6c614f496e0c9b552217aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fee0837c1196adf35a956cd13df584528d46bfc0
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514161"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183483"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Używanie Azure Automation elementów Runbook do zarządzania urządzeniami StorSimple
 
@@ -182,7 +182,7 @@ Aby utworzyć moduł automatyzacji dla zarządzania urządzeniami z serii StorSi
    3. Utwórz nową grupę zasobów lub wybierz ją z istniejącej grupy zasobów.
    4. Wybierz **lokalizację** (jeśli jest to możliwe tak samo jak w przypadku działania usługi).
    5. Pozostaw wybraną opcję Domyślne **Utwórz konto Uruchom jako** .
-   6. Opcjonalnie zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego**. Kliknij pozycję **Utwórz**.
+   6. Opcjonalnie zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego**. Kliknij przycisk **Utwórz**.
 
        ![Tworzenie konta usługi Automation](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
@@ -198,7 +198,7 @@ Aby utworzyć moduł automatyzacji dla zarządzania urządzeniami z serii StorSi
 
     ![Dodaj moduł](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
 
-6. Przejdź do **usługi Process Automation > elementów Runbook, a następnie kliknij pozycję + Dodaj element Runbook**. W bloku **Dodawanie elementu Runbook** kliknij pozycję **Importuj istniejący element Runbook**. Wskaż plik skryptu programu Windows PowerShell dla **pliku elementu Runbook**. Typ elementu Runbook jest wybierany automatycznie. Podaj nazwę i opcjonalny opis elementu Runbook. Kliknij pozycję **Utwórz**.
+6. Przejdź do **usługi Process Automation > elementów Runbook, a następnie kliknij pozycję + Dodaj element Runbook**. W bloku **Dodawanie elementu Runbook** kliknij pozycję **Importuj istniejący element Runbook**. Wskaż plik skryptu programu Windows PowerShell dla **pliku elementu Runbook**. Typ elementu Runbook jest wybierany automatycznie. Podaj nazwę i opcjonalny opis elementu Runbook. Kliknij przycisk **Utwórz**.
 
     ![Dodaj moduł](./media/storsimple-8000-automation-azurerm-runbook/import-runbook.png)
 

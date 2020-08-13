@@ -1,6 +1,6 @@
 ---
 title: Samouczek dotyczący tworzenia kopii zapasowej macierzy wirtualnej Microsoft Azure StorSimple | Microsoft Docs
-description: Opisuje sposób tworzenia kopii zapasowych udziałów i woluminów macierzy wirtualnych StorSimple.
+description: Utwórz zaplanowane i ręczne kopie zapasowe Microsoft Azure StorSimple macierzy wirtualnej i wykonaj odzyskiwanie na poziomie elementu, aby przywrócić usunięty plik w macierzy wirtualnej.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26bf018d8823495c00b09af3a40b39315dadb31c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41cb02e77fa77c5a7452c5e3e0d2080ee3d472d5
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513667"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183228"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Tworzenie kopii zapasowej udziałów lub woluminów w macierzy wirtualnej StorSimple
 

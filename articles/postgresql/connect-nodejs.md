@@ -1,5 +1,5 @@
 ---
-title: Użyj Node.js, aby nawiązać połączenie z serwerem Azure Database for PostgreSQL-pojedynczym
+title: 'Szybki Start: używanie Node.js do nawiązywania połączenia z serwerem Azure Database for PostgreSQL-pojedynczym'
 description: Ten przewodnik Szybki Start zawiera przykładowy kod Node.js, za pomocą którego można nawiązywać połączenia i wysyłać zapytania dotyczące danych z jednego serwera Azure Database for PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
@@ -13,12 +13,12 @@ ms.custom:
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: c3157bb3e643c8aea4653f7cf12390938ae44d5a
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 10c7abf7349a3b2419e81459866920f20c3af6f7
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423256"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182735"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Szybki Start: używanie Node.js do nawiązywania połączenia i wykonywania zapytań dotyczących danych na pojedynczym serwerze Azure Database for PostgreSQL
 

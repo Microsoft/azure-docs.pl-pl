@@ -1,15 +1,15 @@
 ---
 title: Konsorcjum sieci szkieletowej w ramach usługi Azure Kubernetes Service (AKS)
 description: Jak wdrożyć i skonfigurować sieć szkieletową z systemem webledger w usłudze Azure Kubernetes Service
-ms.date: 07/27/2020
+ms.date: 08/06/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 4bc55090234a4ab33125ba43b8416de1eadb702f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: d6999b32224e6c41cdf9869554c884fc4779c217
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533431"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184214"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Konsorcjum sieci szkieletowej w ramach usługi Azure Kubernetes Service (AKS)
 
@@ -350,10 +350,22 @@ Wykonaj następujące czynności:
 Z aplikacji klienckiej równorzędnej wykonaj poniższe polecenie, aby utworzyć wystąpienie chaincode w kanale.  
 
 ```bash
-./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
+./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>
 ```
 
 Przekaż nazwę funkcji tworzenia wystąpień i listę oddzielonych spacjami argumentów w `<instantiateFunc>` i `<instantiateFuncArgs>` odpowiednio. Na przykład w chaincode_example02. Przejdź do chaincode, aby utworzyć wystąpienie chaincode ustawione `<instantiateFunc>` na `init` i `<instantiateFuncArgs>` na wartość "a" "2000" "b" "1000".
+
+Możesz również przekazać plik JSON konfiguracji kolekcji przy użyciu `--collections-config` flagi. Lub ustaw argumenty przejściowe przy użyciu `-t` flagi podczas tworzenia wystąpienia elementu chaincode używanego na potrzeby transakcji prywatnych.
+
+Na przykład:
+
+```bash
+./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath>
+./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath> -t <transientArgs>
+```
+
+\<collectionConfigJSONFilePath\>Jest to ścieżka do pliku JSON zawierającego kolekcje zdefiniowane dla tworzenia wystąpienia chaincode danych prywatnych. Plik JSON konfiguracji przykładowej kolekcji można znaleźć względem katalogu azhlfTool w następującej ścieżce: `./samples/chaincode/src/private_marbles/collections_config.json` .
+Przekaż \<transientArgs\> jako prawidłowy kod JSON w formacie ciągu. Wszystkie znaki specjalne są wyprowadzane. Na przykład: `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
 > Wykonaj polecenie dla raz z dowolnej organizacji równorzędnej w kanale. Po pomyślnym przesłaniu transakcji do programu orderer program zamawiający dystrybuuje tę transakcję do wszystkich organizacji równorzędnych w kanale. W związku z tym chaincode jest tworzona na wszystkich węzłach równorzędnych na wszystkich organizacjach równorzędnych w kanale.  
@@ -377,11 +389,15 @@ Przekaż nazwę funkcji wywołania i listę oddzielonych spacjami argumentów w 
 Wykonaj poniższe polecenie, aby wysłać zapytanie do chaincode:  
 
 ```bash
-./azhlf chaincode query -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs>  
+./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
 ```
+Zatwierdzanie elementów równorzędnych jest elementami równorzędnymi, gdzie chaincode jest zainstalowana i jest wywoływana do wykonania transakcji. Należy ustawić \<endorsingPeers\> nazwy zawierające węzły równorzędne z bieżącej organizacji równorzędnej. Wyświetl listę elementów równorzędnych do zatwierdzania dla danej chaincode i kombinacji do kanałów rozdzielonych spacjami. Na przykład `-p "peer1" "peer3"`.
+
+Jeśli używasz azhlfTool do zainstalowania chaincode, Przekaż wszystkie nazwy węzłów równorzędnych jako wartość do argumentu zatwierdzania elementu równorzędnego. Chaincode jest instalowany na każdym węźle równorzędnym dla tej organizacji. 
+
 Przekaż listę argumentów Nazwa funkcji zapytania i rozdzieloną spacjami w  `<queryFunction>`   i  `<queryFuncArgs>`   odpowiednio. Ponownie, pobierając chaincode_example02. chaincode jako odwołanie, aby zbadać wartość "a" w stanie świecie ustawionym  `<queryFunction>`   na  `query` i  `<queryArgs>` na "a".  
 
-## <a name="troubleshoot"></a>Rozwiązywanie problemów
+## <a name="troubleshoot"></a>Rozwiąż problemy
 
 **Aby sprawdzić wersję uruchomionego szablonu**
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: 127604264850f9845846d0bb6a2768cac23cdc8c
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 0613b4c444b9eacaaf2b9d3e0795f4872cb903f3
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88169158"
+ms.locfileid: "88182951"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Cykl życia i Stany maszyn wirtualnych
 
@@ -23,137 +23,195 @@ Usługa Azure Virtual Machines (VM) umożliwia przechodzenie między różnymi s
 
 Stan zasilacza reprezentuje ostatni znany stan maszyny wirtualnej.
 
-![Diagram stanu baterii maszyny wirtualnej](./media/vm-power-states.png)
+![Diagram stanu baterii maszyny wirtualnej](./media/virtual-machines-common-states-lifecycle/vm-power-states.png)
 
 <br>
 Poniższa tabela zawiera opis każdego stanu wystąpienia i wskazuje, czy jest rozliczana za użycie wystąpienia, czy nie.
 
-<table>
-<tr>
-<th>
-Stan
-</th>
-<th>
-Opis
-</th>
-<th>
-Rozliczenia użycia wystąpienia
-</th>
-</tr>
-<tr>
-<td>
-<p><b>Uruchamianie</b></p>
-</td>
-<td>
-<p>Maszyna wirtualna jest uruchamiana.</p>
-<code>"statuses": [<br>
-   {<br>
-      "code": "PowerState/starting",<br>
-       "level": "Info",<br>
-        "displayStatus": "VM starting"<br>
-    }<br>
-    ]</code><br>
-</td>
-<td>
-<p><b>Bez opłat</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>Uruchomienie</b></p>
-</td>
-<td>
-<p>Normalny stan roboczy dla maszyny wirtualnej</p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/running",<br>
- "level": "Info",<br>
- "displayStatus": "VM running"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>Rozliczane</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>Zatrzymywanie</b></p>
-</td>
-<td>
-<p>Jest to stan przejściowy. Po zakończeniu będzie wyświetlana jako **zatrzymana**.</p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/stopping",<br>
- "level": "Info",<br>
- "displayStatus": "VM stopping"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>Rozliczane</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>Zatrzymano</b></p>
-</td>
-<td>
-<p>Maszyna wirtualna została zamknięta z poziomu systemu operacyjnego gościa lub przy użyciu interfejsów API wyłączenie.</p>
-<p>Sprzęt jest nadal przydzielony do maszyny wirtualnej i pozostaje na hoście. </p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/stopped",<br>
- "level": "Info",<br>
- "displayStatus": "VM stopped"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>Rozliczanie&#42;</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>Cofanie przydziału</b></p>
-</td>
-<td>
-<p>Stan przejściowy. Po zakończeniu maszyna wirtualna będzie wyświetlana jako **cofnięta alokacja**.</p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/deallocating",<br>
- "level": "Info",<br>
- "displayStatus": "VM deallocating"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>Rozliczane&#42;</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>Cofnięto przydział</b></p>
-</td>
-<td>
-<p>Maszyna wirtualna została pomyślnie zatrzymana i usunięta z hosta. </p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/deallocated",<br>
- "level": "Info",<br>
- "displayStatus": "VM deallocated"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>Bez opłat</b></p>
-</td>
-</tr>
-</tbody>
-</table>
+:::row:::
+   :::column span="":::
+
+   **Państwu**
+   
+   :::column-end:::
+   :::column span="":::
+
+   **Opis**
+
+   :::column-end:::
+   :::column span="":::
+
+   **Użycie wystąpienia rozliczane**
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Uruchamianie**
+
+   :::column-end:::
+   :::column span="":::
+
+   Maszyna wirtualna jest uruchamiana.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/starting",
+    "level": "Info",
+    "displayStatus": "VM starting"
+    }
+   ]
+   ```
+   :::column-end:::
+   :::column span="":::
+
+   **Bez opłat**
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Uruchomienie**
+
+   :::column-end:::
+   :::column span="":::
+
+   Normalny stan roboczy dla maszyny wirtualnej
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/running",
+    "level": "Info",
+    "displayStatus": "VM running"
+    }
+  ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **Rozliczane**
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Zatrzymywanie**
+
+   :::column-end:::
+   :::column span="":::
+
+   Jest to stan przejściowy. Po zakończeniu będzie wyświetlana jako **zatrzymana**.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/stopping",
+    "level": "Info",
+    "displayStatus": "VM stopping"
+    }
+   ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **Rozliczane**
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Zatrzymano**
+
+   :::column-end:::
+   :::column span="":::
+
+   Maszyna wirtualna została zamknięta z poziomu systemu operacyjnego gościa lub przy użyciu interfejsów API wyłączenie.
+
+   Sprzęt jest nadal przydzielony do maszyny wirtualnej i pozostaje na hoście.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/stopped",
+    "level": "Info",
+    "displayStatus": "VM stopped"
+    }
+   ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **Rozliczane***
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Cofanie przydziału**
+
+   :::column-end:::
+   :::column span="":::
+
+   Stan przejściowy. Po zakończeniu maszyna wirtualna będzie wyświetlana jako **cofnięta alokacja**.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/deallocating",
+    "level": "Info",
+    "displayStatus": "VM deallocating"
+    }
+   ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **Bez opłat***
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Cofnięto przydział**
+
+   :::column-end:::
+   :::column span="":::
+
+   Maszyna wirtualna została pomyślnie zatrzymana i usunięta z hosta.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/deallocated",
+    "level": "Info",
+    "displayStatus": "VM deallocated"
+    }
+   ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **Bez opłat**
+
+   :::column-end:::
+:::row-end:::
 
 
-&#42;niektórych zasobów platformy Azure, takich jak dyski i sieci, są naliczane opłaty. W licencjach na oprogramowanie w wystąpieniu nie są naliczane opłaty.
+&#42; niektórych zasobów platformy Azure, takich jak dyski i sieci, są naliczane opłaty. W licencjach na oprogramowanie w wystąpieniu nie są naliczane opłaty.
 
 ## <a name="provisioning-states"></a>Stany aprowizacji
 
@@ -171,86 +229,159 @@ Stan aprowizacji to stan zainicjowanej przez użytkownika operacji kontroli pła
 
 Poniżej znajdują się Stany operacji przejściowych po zaakceptowaniu przez platformę akcji zainicjowanej przez użytkownika:
 
-<br>
+:::row:::
+   :::column span="":::
 
-<table>
-<tbody>
-<tr>
-<td width="162">
-<p><b>Stany</b></p>
-</td>
-<td width="366">
-<p>Opis</p>
-</td>
-</tr>
-<tr>
-<td width="162">
-<p><b>Tworzenie</b></p>
-</td>
-<td width="366">
-<code>"statuses": [<br>
- {<br>
- "code": "ProvisioningState/creating",<br>
- "level": "Info",<br>
- "displayStatus": "Creating"<br>
- }</code><br>
-</td>
-</tr>
-<tr>
-<td width="162">
-<p><b>Aktualizowanie</b></p>
-</td>
-<td width="366">
-<code>"statuses": [<br>
- {<br>
- "code": "ProvisioningState/updating",<br>
- "level": "Info",<br>
- "displayStatus": "Updating"<br>
- }<br>
- ]</code><br>
-</td>
-</tr>
-<tr>
-<td width="162">
-<p><b>Usuwanie</b></p>
-</td>
-<td width="366">
-<code>"statuses": [<br>
- {<br>
- "code": "ProvisioningState/deleting",<br>
- "level": "Info",<br>
- "displayStatus": "Deleting"<br>
- }<br>
- ]</code><br>
-</td>
-</tr>
-<tr>
-<td width="162">
-<p><b>Stany aprowizacji systemu operacyjnego</b></p>
-</td>
-<td width="366">
-<p>Jeśli maszyna wirtualna jest tworzona przy użyciu obrazu systemu operacyjnego, a nie obrazu specjalistycznego, można zaobserwować następujące podstany:</p>
-<p>1. <b>OSProvisioningInprogress</b> &ndash; Maszyna wirtualna jest uruchomiona, a instalacja systemu operacyjnego gościa jest w toku. <p /> 
-<code> "statuses": [<br>
- {<br>
- "code": "ProvisioningState/creating/OSProvisioningInprogress",<br>
- "level": "Info",<br>
- "displayStatus": "OS Provisioning In progress"<br>
- }<br>
-]</code><br>
-<p>2. <b>OSProvisioningComplete</b> &ndash; Stan krótkotrwały. Maszyna wirtualna szybko przechodzi do **sukcesu** , chyba że trzeba zainstalować rozszerzenia. Instalowanie rozszerzeń może zająć trochę czasu. <br />
-<code> "statuses": [<br>
- {<br>
- "code": "ProvisioningState/creating/OSProvisioningComplete",<br>
- "level": "Info",<br>
- "displayStatus": "OS Provisioning Complete"<br>
- }<br>
-]</code><br>
-<p><b>Uwaga</b>: Inicjowanie obsługi systemu operacyjnego może przejść do **niepowodzenia** , jeśli wystąpi błąd systemu operacyjnego lub system operacyjny nie zostanie zainstalowany w czasie. Klienci będą rozliczani za wdrożoną maszynę wirtualną w infrastrukturze.</p>
-</td>
-</tr>
-</table>
+   **Państwu**
+   
+   :::column-end:::
+   :::column span="2":::
 
+   **Opis**
+
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Tworzenie**
+
+   :::column-end:::
+   :::column span="2":::
+
+  ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/creating",
+    "level": "Info",
+    "displayStatus": "Creating"
+    }
+   [
+   ```
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Aktualizowanie**
+
+   :::column-end:::
+   :::column span="2":::
+
+   ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/updating",
+    "level": "Info",
+    "displayStatus": "Updating"
+    }
+   [
+   ```
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Usuwanie**
+
+   :::column-end:::
+   :::column span="2":::
+
+   ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/deleting",
+    "level": "Info",
+    "displayStatus": "Deleting"
+    }
+   [
+   ```
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Stany aprowizacji systemu operacyjnego**
+   
+   :::column-end:::
+   :::column span="2":::
+
+   **Opis**
+
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+
+
+   :::column-end:::
+   :::column span="2":::
+
+   Jeśli maszyna wirtualna jest tworzona przy użyciu obrazu systemu operacyjnego, a nie obrazu specjalistycznego, można zaobserwować następujące podstany:
+
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **OSProvisioningInprogress**
+
+   :::column-end:::
+   :::column span="2":::
+
+   Maszyna wirtualna jest uruchomiona, a instalacja systemu operacyjnego gościa jest w toku.
+ 
+   ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/creating/OSProvisioningInprogress",
+    "level": "Info",
+    "displayStatus": "OS Provisioning In progress"
+    }
+   [
+   ```
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **OSProvisioningComplete**
+
+   :::column-end:::
+   :::column span="2":::
+   
+   Stan krótkotrwały. Maszyna wirtualna szybko przechodzi do **sukcesu** , chyba że trzeba zainstalować rozszerzenia. Instalowanie rozszerzeń może zająć trochę czasu.
+   
+   ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/creating/OSProvisioningComplete",
+    "level": "Info",
+    "displayStatus": "OS Provisioning Complete"
+    }
+   [
+   ```
+   
+   **Uwaga**: Inicjowanie obsługi systemu operacyjnego może przejść do **niepowodzenia** , jeśli wystąpi błąd systemu operacyjnego lub system operacyjny nie zostanie zainstalowany w czasie. Klienci będą rozliczani za wdrożoną maszynę wirtualną w infrastrukturze.
+
+   :::column-end:::
+
+:::row-end:::
 
 Po zakończeniu operacji maszyna wirtualna przejdzie do jednego z następujących stanów:
 

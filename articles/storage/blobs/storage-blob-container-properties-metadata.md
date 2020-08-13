@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 07/01/2020
 ms.author: tamram
-ms.openlocfilehash: 455595a2e41ecc05f7064044e09df8efcd9d4548
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a48e598680ee969f3823dee6699c8c981dff392
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833404"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182480"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>Zarządzanie właściwościami kontenera i metadanymi przy użyciu platformy .NET
 
@@ -29,7 +29,7 @@ Pary nazwa/wartość metadanych są prawidłowymi nagłówkami HTTP i dlatego po
 
 ## <a name="retrieve-container-properties"></a>Pobierz właściwości kontenera
 
-# <a name="net-v12-sdk"></a>[Zestaw SDK .NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
 
 Aby pobrać właściwości kontenera, wywołaj jedną z następujących metod:
 
@@ -40,7 +40,7 @@ Poniższy przykład kodu pobiera właściwości systemu kontenera i zapisuje nie
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadContainerProperties":::
 
-# <a name="net-v11-sdk"></a>[Zestaw SDK .NET v11](#tab/dotnet11)
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 Pobieranie wartości właściwości i metadanych dla zasobu usługi BLOB Storage jest procesem dwuetapowym. Aby można było odczytać te wartości, należy je jawnie pobrać, wywołując metodę **FetchAttributes** lub **FetchAttributesAsync** . Wyjątkiem od tej reguły jest to, że metody **EXISTS** i **ExistsAsync** wywołują odpowiednią metodę **FetchAttributes** w ramach okładek. Po wywołaniu jednej z tych metod nie trzeba również wywoływać **FetchAttributes**.
 
@@ -80,7 +80,7 @@ private static async Task ReadContainerPropertiesAsync(CloudBlobContainer contai
 
 ## <a name="set-and-retrieve-metadata"></a>Ustawianie i Pobieranie metadanych
 
-# <a name="net-v12-sdk"></a>[Zestaw SDK .NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
 
 Można określić metadane jako jedną lub więcej par nazwa-wartość w obiekcie blob lub zasobie kontenera. Aby ustawić metadane, Dodaj pary nazwa-wartość do obiektu [IDictionary](/dotnet/api/system.collections.idictionary) , a następnie Wywołaj jedną z następujących metod, aby zapisać wartości:
 
@@ -102,7 +102,7 @@ Następnie odczytaj wartości, jak pokazano w poniższym przykładzie.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadContainerMetadata":::
 
-# <a name="net-v11-sdk"></a>[Zestaw SDK .NET v11](#tab/dotnet11)
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 Można określić metadane jako jedną lub więcej par nazwa-wartość w obiekcie blob lub zasobie kontenera. Aby ustawić metadane, Dodaj pary nazwa-wartość do kolekcji **metadanych** zasobu, a następnie Wywołaj jedną z następujących metod, aby zapisać wartości:
 
@@ -169,7 +169,7 @@ public static async Task ReadContainerMetadataAsync(CloudBlobContainer container
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Operacja pobrania właściwości kontenera](/rest/api/storageservices/get-container-properties)
 - [Operacja ustawiania metadanych kontenera](/rest/api/storageservices/set-container-metadata)

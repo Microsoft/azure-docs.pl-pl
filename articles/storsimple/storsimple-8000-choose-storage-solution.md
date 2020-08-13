@@ -1,18 +1,18 @@
 ---
 title: Opcje transferu danych na platformę Azure przy użyciu urządzenia | Microsoft Docs
-description: Dowiedz się, jak wybrać odpowiednie urządzenie do transferowania danych na platformę Azure
+description: Dowiedz się, jak wybrać odpowiednie urządzenie do lokalnego transferu danych na platformę Azure między Data Box Edge, Azure File Sync i StorSimple 8000.
 services: storsimple
 author: alkohli
 ms.service: storsimple
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: dc7de4e69d42a2165f5845f3d8214975d67cdc3c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 903342230b28f8e4fbdcdfd93543e5a0aa54975e
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203978"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183279"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Compare StorSimple with Azure File Sync and Data Box Edge data transfer options (Porównanie usługi StorSimple z usługami Azure File Sync i opcjami transferu danych usługi Data Box Edge) 
 
@@ -33,9 +33,9 @@ Ten dokument zawiera omówienie opcji lokalnego transferu danych na platformę A
 |**Funkcja obliczeniowa Edge** |Niedostępne |Niedostępne |Obsługuje uruchamianie kontenerów za pomocą Azure IoT Edge    |
 |**Współczynnik postaci**  |Urządzenie fizyczne   |Agent zainstalowany w systemie Windows Server |Urządzenie fizyczne   |
 |**Sprzęt**     |Urządzenie fizyczne udostępniane przez firmę Microsoft jako część usługi | Dostarczone przez klienta |Urządzenie fizyczne udostępniane przez firmę Microsoft jako część usługi  |
-|**Format danych**  |Format niestandardowy   |Pliki         |Obiekty blob lub pliki    |
+|**Format danych**  |Format niestandardowy   |Files         |Obiekty blob lub pliki    |
 |**Obsługa protokołu** |iSCSI          |SMB, NFS    | SMB lub NFS      |
-|**Cennik**      |[Magazyn StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure File Sync](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
+|**Cennik**      |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure File Sync](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
 
 ## <a name="next-steps"></a>Następne kroki
 

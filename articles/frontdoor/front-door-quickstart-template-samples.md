@@ -1,6 +1,6 @@
 ---
 title: Przykłady szablonów Azure Resource Manager — drzwi platformy Azure
-description: Przykłady szablonów Azure Resource Manager dla drzwi platformy Azure
+description: Dowiedz się więcej o przykładach szablonów Menedżer zasobów dotyczących drzwi platformy Azure, w tym szablonów służących do tworzenia podstawowych drzwi zewnętrznych i konfigurowania ograniczenia szybkości frontu drzwi.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -10,18 +10,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2020
 ms.author: sharadag
-ms.openlocfilehash: 47db565288d1bfe1f98c58536e726eb7ec55d0a9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 14f9cb33ce298b97ead0f6d7fbec0ad77e79a1ee
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084640"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182191"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Szablony modelu wdrażania usługi Azure Resource Manager dla usługi Azure Front Door
 
 Poniższa tabela zawiera linki do Azure Resource Manager szablonów modeli wdrażania dla drzwi platformy Azure. 
 
-| Template | Opis |
+| Szablon | Opis |
 | ---| ---|
 | [Tworzenie podstawowej usługi Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-basic)| Tworzy podstawową konfigurację usługi Front Door z jednym zapleczem. |
 | [Tworzenie usługi Front Door z wieloma zapleczami i pulami zapleczy oraz routingiem opartym na adresach URL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-multiple-backends)| Tworzy usługę Front Door z równoważeniem obciążenia skonfigurowanym pod kątem wielu zapleczy w puli zapleczy oraz w wielu zapleczach opartych na ścieżce adresu URL. |

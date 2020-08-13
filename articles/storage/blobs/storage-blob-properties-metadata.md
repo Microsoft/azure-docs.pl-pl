@@ -4,16 +4,16 @@ description: Informacje dotyczące ustawiania i pobierania właściwości system
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/09/2019
+ms.date: 08/12/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 3d86b6e39d6199d2f0268070cfa5456e512daa49
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29fae4ffb08aba6a45a3879ffe28bf6b90f28a0e
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465885"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182395"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Zarządzanie właściwościami i metadanymi obiektów BLOB przy użyciu platformy .NET
 
@@ -26,18 +26,21 @@ Poza danymi, które zawierają, obiekty blob obsługują właściwości systemu 
 - **Metadane zdefiniowane przez użytkownika**: metadane zdefiniowane przez użytkownika składają się z co najmniej jednej pary nazwa-wartość określonej dla zasobu usługi BLOB Storage. Możesz użyć metadanych do przechowywania dodatkowych wartości z zasobem. Wartości metadanych są tylko do celów własnych i nie mają wpływu na sposób zachowania zasobu.
 
 > [!NOTE]
-> Tagi indeksu obiektów BLOB zapewniają również możliwość przechowywania dowolnych atrybutów klucza/wartości zdefiniowanych przez użytkownika wraz z zasobem magazynu obiektów BLOB. Podobnie jak w przypadku metadanych, tylko Tagi indeksu obiektów BLOB są automatycznie indeksowane i Queryable przez natywną usługę BLOB Service. Metadane nie mogą być indeksowane natywnie i zapytania, chyba że zostanie wykorzystana oddzielna usługa, taka jak Azure Search.
+> Tagi indeksu obiektów BLOB zapewniają również możliwość przechowywania dowolnych atrybutów klucza/wartości zdefiniowanych przez użytkownika wraz z zasobem usługi Azure Blob Storage. Podobnie jak w przypadku metadanych, tylko Tagi indeksu obiektów BLOB są automatycznie indeksowane i przeszukiwane przez natywną usługę obiektów BLOB. Metadane nie mogą być indeksowane i badane, chyba że zostanie wykorzystana inna usługa, taka jak Azure Search.
 >
-> Aby dowiedzieć się więcej na temat tej funkcji, zobacz temat [Zarządzanie danymi w usłudze Azure Blob Storage i znajdowanie ich przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)](storage-manage-find-blobs.md).
-
-Pobieranie metadanych i wartości właściwości dla zasobu usługi BLOB Storage jest procesem dwuetapowym. Aby można było odczytać te wartości, należy je jawnie pobrać poprzez wywołanie `FetchAttributes` `FetchAttributesAsync` metody lub. Wyjątkiem od tej zasady jest, że `Exists` metody i `ExistsAsync` wywołują odpowiednią `FetchAttributes` metodę w ramach okładek. Po wywołaniu jednej z tych metod nie trzeba również wywoływać `FetchAttributes` .
-
-> [!IMPORTANT]
-> Jeśli okaże się, że wartość właściwości lub metadanych zasobu magazynu nie została wypełniona, sprawdź, czy kod wywołuje `FetchAttributes` `FetchAttributesAsync` metodę lub.
+> Aby dowiedzieć się więcej na temat tej funkcji, zobacz temat [Zarządzanie danymi w usłudze Azure Blob Storage i indeks obiektów BLOB (wersja zapoznawcza)](storage-manage-find-blobs.md).
 
 ## <a name="set-and-retrieve-properties"></a>Ustawianie i pobieranie właściwości
 
 Poniższy przykład kodu ustawia `ContentType` `ContentLanguage` Właściwości systemu i w obiekcie blob.
+
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
+
+Aby ustawić właściwości obiektu BLOB, wywołaj [SetHttpHeaders](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.sethttpheaders) lub [SetHttpHeadersAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.sethttpheadersasync). Wszystkie właściwości niejawnie ustawione są wyczyszczone. Poniższy przykład kodu najpierw pobiera istniejące właściwości obiektu BLOB, a następnie używa ich do wypełniania nagłówków, które nie są aktualizowane.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_SetBlobProperties":::
+
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 ```csharp
 public static async Task SetBlobPropertiesAsync(CloudBlob blob)
@@ -64,8 +67,22 @@ public static async Task SetBlobPropertiesAsync(CloudBlob blob)
     }
 }
 ```
+---
 
-Aby uzyskać właściwości obiektu BLOB, wywołaj `FetchAttributes` `FetchAttributesAsync` metodę lub w obiekcie blob, aby wypełnić `Properties` Właściwość. Poniższy przykład kodu pobiera właściwości systemu obiektu BLOB i wyświetla niektóre wartości:
+Poniższy przykład kodu pobiera właściwości systemu obiektu BLOB i wyświetla niektóre wartości.
+
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobProperties":::
+
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+
+Pobieranie metadanych i wartości właściwości dla zasobu usługi BLOB Storage jest procesem dwuetapowym. Aby można było odczytać te wartości, należy je jawnie pobrać poprzez wywołanie `FetchAttributes` `FetchAttributesAsync` metody lub. Wyjątkiem od tej zasady jest, że `Exists` metody i `ExistsAsync` wywołują odpowiednią `FetchAttributes` metodę w ramach okładek. Po wywołaniu jednej z tych metod nie trzeba również wywoływać `FetchAttributes` .
+
+> [!IMPORTANT]
+> Jeśli okaże się, że wartość właściwości lub metadanych zasobu magazynu nie została wypełniona, sprawdź, czy kod wywołuje `FetchAttributes` `FetchAttributesAsync` metodę lub.
+
+Aby uzyskać właściwości obiektu BLOB, wywołaj `FetchAttributes` `FetchAttributesAsync` metodę lub w obiekcie blob, aby wypełnić `Properties` Właściwość.
 
 ```csharp
 private static async Task GetBlobPropertiesAsync(CloudBlob blob)
@@ -91,19 +108,34 @@ private static async Task GetBlobPropertiesAsync(CloudBlob blob)
     }
 }
 ```
+---
 
 ## <a name="set-and-retrieve-metadata"></a>Ustawianie i Pobieranie metadanych
 
 Można określić metadane jako jedną lub więcej par nazwa-wartość w obiekcie blob lub zasobie kontenera. Aby ustawić metadane, Dodaj pary nazwa-wartość do `Metadata` kolekcji w zasobie. Następnie należy wywołać jedną z następujących metod, aby zapisać wartości:
 
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
+
+- [Setmetadata](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.setmetadata)
+- [SetMetadataAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.setmetadataasync)
+
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+
 - [Setmetadata](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadata)
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadataasync)
+---
 
 Pary nazwa/wartość metadanych są prawidłowymi nagłówkami HTTP i powinny być zgodne ze wszystkimi ograniczeniami dotyczącymi nagłówków HTTP. Nazwy metadanych muszą być Prawidłowymi nazwami nagłówków HTTP i prawidłowymi identyfikatorami języka C#, mogą zawierać tylko znaki ASCII i powinny być traktowane jako bez uwzględniania wielkości liter. Zakodowane w [formacie base64](https://docs.microsoft.com/dotnet/api/system.convert.tobase64string) lub wartości metadanych [kodu URL](https://docs.microsoft.com/dotnet/api/system.web.httputility.urlencode) zawierające znaki nienależące do zestawu znaków ASCII.
 
 Nazwa metadanych musi być zgodna z konwencjami nazewnictwa dla identyfikatorów C#. Nazwy metadanych zachowują przypadek używany, gdy zostały utworzone, ale bez uwzględniania wielkości liter podczas ustawiania lub odczytywania. Jeśli co najmniej dwa nagłówki metadanych o tej samej nazwie są przesyłane do zasobu, usługa Azure Blob Storage zwraca kod błędu HTTP 400 (Nieprawidłowe żądanie).
 
 Poniższy przykład kodu ustawia metadane w obiekcie blob. Jedna wartość jest ustawiana za pomocą `Add` metody kolekcji. Druga wartość jest ustawiana za pomocą niejawnej składni klucz/wartość.
+
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_AddBlobMetadata":::
+
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 ```csharp
 public static async Task AddBlobMetadataAsync(CloudBlob blob)
@@ -129,6 +161,17 @@ public static async Task AddBlobMetadataAsync(CloudBlob blob)
     }
 }
 ```
+---
+
+Poniższy przykład kodu odczytuje metadane w obiekcie blob.
+
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
+
+Aby pobrać metadane, wywołaj metodę [GetProperties](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getproperties) lub [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getpropertiesasync) na obiekcie blob lub kontenerze w celu wypełnienia kolekcji [metadanych](/dotnet/api/azure.storage.blobs.models.blobproperties.metadata) , a następnie odczytaj wartości, jak pokazano w poniższym przykładzie.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobMetadata":::
+
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 Aby pobrać metadane, wywołaj `FetchAttributes` metodę lub do `FetchAttributesAsync` obiektu BLOB lub kontenera w celu wypełnienia `Metadata` kolekcji, a następnie odczytaj wartości, jak pokazano w poniższym przykładzie.
 
@@ -160,10 +203,11 @@ public static async Task ReadBlobMetadataAsync(CloudBlob blob)
     }
 }
 ```
+---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Operacja ustawiania właściwości obiektu BLOB](/rest/api/storageservices/set-blob-properties)
 - [Operacja pobierania właściwości obiektu BLOB](/rest/api/storageservices/get-blob-properties)

@@ -1,5 +1,5 @@
 ---
-title: Nawiązywanie połączenia przy użyciu języka Python-Azure Database for PostgreSQL-Single Server
+title: 'Szybki Start: Łączenie przy użyciu języka Python-Azure Database for PostgreSQL-pojedynczego serwera'
 description: Ten przewodnik Szybki Start zawiera przykłady kodu w języku Python, których można używać do nawiązywania połączeń i wysyłania zapytań dotyczących danych z jednego serwera Azure Database for PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: 8cc081035c971f1864af5512a19c0ee2da3004ab
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: a9303909eb98fc0ff2d7582fa7f5807a879e7958
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852178"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182686"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Szybki Start: używanie języka Python do nawiązywania połączeń i wykonywania zapytań dotyczących danych na pojedynczym serwerze Azure Database for PostgreSQL
 
@@ -55,16 +55,16 @@ Dla każdego przykładu kodu w tym artykule:
 1. Utwórz nowy plik w edytorze tekstu. 
    
 1. Dodaj przykładowy kod do pliku. W kodzie Zastąp:
-   - `<server-name>`i `<admin-username>` z wartościami skopiowanymi z Azure Portal.
-   - `<admin-password>`przy użyciu hasła serwera.
-   - `<database-name>`Nazwa bazy danych Azure Database for PostgreSQL. Domyślna baza danych o nazwie *Postgres* została utworzona automatycznie podczas tworzenia serwera. Można zmienić nazwę tej bazy danych lub utworzyć nową bazę danych za pomocą poleceń SQL. 
+   - `<server-name>` i `<admin-username>` z wartościami skopiowanymi z Azure Portal.
+   - `<admin-password>` przy użyciu hasła serwera.
+   - `<database-name>` Nazwa bazy danych Azure Database for PostgreSQL. Domyślna baza danych o nazwie *Postgres* została utworzona automatycznie podczas tworzenia serwera. Można zmienić nazwę tej bazy danych lub utworzyć nową bazę danych za pomocą poleceń SQL. 
    
 1. Zapisz plik w folderze projektu z rozszerzeniem *. PR* , takim jak *Postgres-INSERT.py*. W przypadku systemu Windows upewnij się, że podczas zapisywania pliku wybrano kodowanie UTF-8. 
    
 1. Aby uruchomić plik, przejdź do folderu projektu w interfejsie wiersza polecenia, a `python` następnie wpisz nazwę pliku, na przykład `python postgres-insert.py` .
 
 ## <a name="create-a-table-and-insert-data"></a>Tworzenie tabeli i wstawianie danych
-Poniższy przykład kodu nawiązuje połączenie z bazą danych Azure Database for PostgreSQL przy użyciu funkcji [psycopg2. Connect](http://initd.org/psycopg/docs/connection.html) i ładuje dane za pomocą instrukcji **INSERT** języka SQL. Funkcja [uroczecursor.exe](http://initd.org/psycopg/docs/cursor.html#execute) wykonuje zapytanie SQL względem bazy danych. 
+Poniższy przykład kodu nawiązuje połączenie z bazą danych Azure Database for PostgreSQL przy użyciu funkcji [psycopg2. Connect](http://initd.org/psycopg/docs/connection.html) i ładuje dane za pomocą instrukcji **INSERT** języka SQL. Funkcja [ uroczecursor.exe](http://initd.org/psycopg/docs/cursor.html#execute) wykonuje zapytanie SQL względem bazy danych. 
 
 ```Python
 import psycopg2

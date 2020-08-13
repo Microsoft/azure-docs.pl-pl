@@ -1,17 +1,17 @@
 ---
 title: Interfejs użytkownika Data Manager Microsoft Azure StorSimple
-description: Opisuje sposób używania interfejsu użytkownika usługi StorSimple Data Manager
+description: Dowiedz się, jak za pomocą interfejsu użytkownika StorSimple Data Manager przekształcać dane znajdujące się na urządzeniach z serii StorSimple 8000.
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 00748cfa60882e49336c3a0ac3ecfdec389021ac
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5d6273cbef1664984d466fb15c7f02ca505b18e2
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496444"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184544"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Zarządzanie usługą StorSimple Data Manager w programie Azure Portal
 

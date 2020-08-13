@@ -1,19 +1,19 @@
 ---
 title: Zmień ścieżkę obiektu BLOB z domyślnego
-description: Dowiedz się, jak skonfigurować funkcję platformy Azure w celu zmiany nazwy ścieżki pliku obiektu BLOB
+description: Dowiedz się, jak skonfigurować funkcję platformy Azure, aby zmienić nazwę domyślnej ścieżki pliku obiektu BLOB i przenieść obiekty blob do innej lokalizacji.
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 92925fcf13f91364619262455579392a7457f6b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a7dab1129eb88d7e58bab8a827d745596bc218d
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504835"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183721"
 ---
-# <a name="change-a-blob-path-from-the-default-path"></a>Zmiana ścieżki obiektu BLOB ze ścieżki domyślnej
+# <a name="change-a-blob-path-from-the-default-path"></a>Zmiana ścieżki obiektu blob ze ścieżki domyślnej
 
 Gdy Usługa StorSimple Data Manager przekształca dane, domyślnie umieszcza przekształcone obiekty blob w kontenerze magazynu określonym podczas tworzenia repozytorium docelowego. Gdy obiekty blob docierają do tej lokalizacji, warto przenieść te obiekty blob do lokalizacji alternatywnej. W tym artykule opisano sposób konfigurowania funkcji platformy Azure w celu zmiany nazwy domyślnej ścieżki pliku obiektu BLOB, a tym samym przenoszenia obiektów BLOB do innej lokalizacji.
 
@@ -25,13 +25,13 @@ Upewnij się, że w usłudze StorSimple Data Manager masz poprawnie skonfigurowa
 
 Aby utworzyć funkcję platformy Azure, wykonaj następujące czynności:
 
-1. Przejdź do [Azure Portal](https://portal.azure.com/).
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com/).
 
-2. Kliknij pozycję **+ Utwórz zasób**. W polu **wyszukiwania** wpisz **aplikacja funkcji** i naciśnij klawisz **Enter**. Wybierz i kliknij pozycję **aplikacja funkcji** na wyświetlonej liście aplikacji.
+2. Kliknij pozycję **+Utwórz zasób**. W polu **wyszukiwania** wpisz **aplikacja funkcji** i naciśnij klawisz **Enter**. Wybierz i kliknij pozycję **aplikacja funkcji** na wyświetlonej liście aplikacji.
 
     ![Wpisz "aplikacja funkcji" w polu wyszukiwania](./media/storsimple-data-manager-change-default-blob-path/search-function-app.png)
 
-3. Kliknij pozycję **Utwórz**.
+3. Kliknij przycisk **Utwórz**.
 
     ![Przycisk "Utwórz" okna aplikacja funkcji](./media/storsimple-data-manager-change-default-blob-path/create-function-app.png)
 
@@ -46,7 +46,7 @@ Aby utworzyć funkcję platformy Azure, wykonaj następujące czynności:
 
         ![Wprowadź nowe dane konfiguracji aplikacja funkcji](./media/storsimple-data-manager-change-default-blob-path/function-app-parameters.png)
 
-    7. Kliknij pozycję **Utwórz**. Zostanie utworzona aplikacja funkcji.
+    7. Kliknij przycisk **Utwórz**. Zostanie utworzona aplikacja funkcji.
      
         ![Utworzono aplikacja funkcji](./media/storsimple-data-manager-change-default-blob-path/function-app-created.png)
 
@@ -64,7 +64,7 @@ Aby utworzyć funkcję platformy Azure, wykonaj następujące czynności:
 
         ![Tworzenie nowej funkcji języka C#](./media/storsimple-data-manager-change-default-blob-path/new-function-parameters.png)
 
-    4. Kliknij pozycję **Utwórz**. Zostanie utworzona **Funkcja** .
+    4. Kliknij przycisk **Utwórz**. Zostanie utworzona **Funkcja** .
 
      
 10. W oknie funkcji Uruchom plik _. CSX_ .
