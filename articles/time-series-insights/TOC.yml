@@ -156,7 +156,7 @@
         - name: Dostęp do danych — Gen1
           items:
             - name: Omówienie
-              href: 'https://docs.microsoft.com/rest/api/time-series-insights/ga'
+              href: 'https://docs.microsoft.com/rest/api/time-series-insights/gen1'
             - name: Zapytanie
               items:
                 - name: Zapytanie

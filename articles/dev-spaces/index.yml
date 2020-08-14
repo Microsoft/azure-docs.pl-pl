@@ -11,12 +11,12 @@ metadata:
   ms.author: zarhoads
   manager: gwallace
   ms.date: 09/30/2019
-  ms.openlocfilehash: 778d697f5c84f99da6974b9d689ddfe35930cd33
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: ac8900298670323551a25d4ef7ac3f7b44249c5a
+  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87072910"
+  ms.lasthandoff: 08/14/2020
+  ms.locfileid: "88209898"
 landingContent:
 - title: Informacje o usłudze Azure Dev Spaces
   linkLists:
@@ -32,18 +32,6 @@ landingContent:
     links:
     - text: Instalowanie usługi Azure Dev Spaces
       url: how-to/install-dev-spaces.md
-- title: Tworzenie i testowanie mikrousług
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Uruchamianie i debugowanie mikrousługi
-      url: quickstart-netcore.md
-    - text: Współpraca z zespołem nad zestawem mikrousług
-      url: quickstart-team-development.md
-  - linkListType: how-to-guide
-    links:
-    - text: Integracja usługi Dev Spaces z potokiem ciągłej integracji/ciągłego wdrażania w celu zapewnienia lepszych kompleksowych testów
-      url: how-to/setup-cicd.md
 - title: Scenariusze zaawansowane
   linkLists:
   - linkListType: how-to-guide
