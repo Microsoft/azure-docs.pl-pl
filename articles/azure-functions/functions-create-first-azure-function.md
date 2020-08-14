@@ -4,13 +4,13 @@ description: Dowiedz się, jak utworzyć pierwszą funkcję platformy Azure do w
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: how-to
 ms.date: 03/26/2020
-ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: cd4ddc5b6b685813740aed63cc6f446bc66e8169
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
+ms.openlocfilehash: 770b1076f1a711cd863c5d3d468a3ec87ea54e7b
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170086"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212724"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Tworzenie pierwszej funkcji w witrynie Azure Portal
 
@@ -25,7 +25,7 @@ Użyj jednego z poniższych linków, aby rozpocząć pracę z wybranym lokalnym 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 Zaloguj się w [witrynie Azure Portal](https://portal.azure.com) przy użyciu danych konta Azure.
 
@@ -73,7 +73,7 @@ Następnie Utwórz funkcję w nowej aplikacji funkcji.
 
    ![Podgląd dziennika usługi Functions w witrynie Azure Portal.](./media/functions-create-first-azure-function/function-view-logs.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 

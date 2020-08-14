@@ -6,13 +6,13 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: 7738582ec2839a6fddaa01ff0f9921c276c9748d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 262a6612c50148232e814befc76707989befb18b
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843117"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212131"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Wyzwalacz Azure Service Bus dla Azure Functions
 
@@ -299,7 +299,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 |**subscriptionName**|**SubscriptionName**|Nazwa subskrypcji do monitorowania. Ustawiaj tylko w przypadku monitorowania tematu, a nie dla kolejki.|
 |**połączenia**|**Połączenie**|Nazwa ustawienia aplikacji, która zawiera Service Bus parametry połączenia do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji zaczyna się od "AzureWebJobs", można określić tylko resztę nazwy. Jeśli na przykład ustawisz wartość `connection` "MyServiceBus", środowisko uruchomieniowe funkcji szuka ustawienia aplikacji o nazwie "AzureWebJobsMyServiceBus". Jeśli pozostawisz `connection` puste, środowisko uruchomieniowe funkcji używa domyślnych parametrów połączenia Service Bus w ustawieniu aplikacji o nazwie "AzureWebJobsServiceBus".<br><br>Aby uzyskać parametry połączenia, wykonaj kroki opisane w sekcji [pobieranie poświadczeń zarządzania](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). Parametry połączenia muszą należeć do Service Bus przestrzeni nazw, a nie ograniczone do określonej kolejki lub tematu. |
 |**accessRights**|**Dostęp**|Prawa dostępu do parametrów połączenia. Dostępne wartości to `manage` i `listen` . Wartość domyślna to `manage` , co oznacza, że `connection` ma uprawnienie do **zarządzania** . W przypadku używania parametrów połączenia, które nie mają uprawnienia do **zarządzania** , ustaw wartość `accessRights` "nasłuchuj". W przeciwnym razie środowisko uruchomieniowe funkcji może zakończyć się niepowodzeniem podczas próby wykonania operacji, które wymagają uprawnień do zarządzania. W Azure Functions w wersji 2. x lub nowszej ta właściwość nie jest dostępna, ponieważ Najnowsza wersja zestawu Service Bus SDK nie obsługuje operacji zarządzania.|
-|**isSessionsEnabled**|**IsSessionsEnabled**|`true`w przypadku nawiązywania połączenia z kolejką lub subskrypcją [obsługującą sesję](../service-bus-messaging/message-sessions.md) . `false`w przeciwnym razie jest to wartość domyślna.|
+|**isSessionsEnabled**|**IsSessionsEnabled**|`true` w przypadku nawiązywania połączenia z kolejką lub subskrypcją [obsługującą sesję](../service-bus-messaging/message-sessions.md) . `false` w przeciwnym razie jest to wartość domyślna.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -309,11 +309,11 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 
 Następujące typy parametrów są dostępne dla komunikatu kolejki lub tematu:
 
-* `string`— Jeśli komunikat ma wartość Text.
-* `byte[]`— Przydatne w przypadku danych binarnych.
+* `string` — Jeśli komunikat ma wartość Text.
+* `byte[]` — Przydatne w przypadku danych binarnych.
 * Niestandardowy typ — Jeśli komunikat zawiera kod JSON, Azure Functions próbuje zdeserializować danych JSON.
-* `BrokeredMessage`-Zawiera deserializowany komunikat z metodą [BrokeredMessage. GetBody \<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
-* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet)— Służy do odbierania i potwierdzania komunikatów z kontenera komunikatów (wymagane, gdy [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) jest ustawiony na `false` ).
+* `BrokeredMessage` -Zawiera deserializowany komunikat z metodą [BrokeredMessage. GetBody \<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
+* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) — Służy do odbierania i potwierdzania komunikatów z kontenera komunikatów (wymagane, gdy [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) jest ustawiony na `false` ).
 
 Te typy parametrów są przeznaczone dla Azure Functions wersja 1. x; dla 2. x i wyższych, użyj [`Message`](/dotnet/api/microsoft.azure.servicebus.message) zamiast `BrokeredMessage` .
 
@@ -321,10 +321,10 @@ Te typy parametrów są przeznaczone dla Azure Functions wersja 1. x; dla 2. x i
 
 Następujące typy parametrów są dostępne dla komunikatu kolejki lub tematu:
 
-* `string`— Jeśli komunikat ma wartość Text.
-* `byte[]`— Przydatne w przypadku danych binarnych.
+* `string` — Jeśli komunikat ma wartość Text.
+* `byte[]` — Przydatne w przypadku danych binarnych.
 * Niestandardowy typ — Jeśli komunikat zawiera kod JSON, Azure Functions próbuje zdeserializować danych JSON.
-* `BrokeredMessage`-Zawiera deserializowany komunikat z metodą [BrokeredMessage. GetBody \<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
+* `BrokeredMessage` -Zawiera deserializowany komunikat z metodą [BrokeredMessage. GetBody \<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
 
 Te parametry dotyczą Azure Functions wersji 1. x; dla 2. x i wyższych, użyj [`Message`](/dotnet/api/microsoft.azure.servicebus.message) zamiast `BrokeredMessage` .
 

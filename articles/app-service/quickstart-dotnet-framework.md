@@ -4,13 +4,13 @@ description: Dowiedz się, jak uruchamiać aplikacje sieci Web w Azure App Servi
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
 ms.date: 08/06/2020
-ms.custom: mvc, devcenter, seodec18
-ms.openlocfilehash: 55b8dabfb2f5b3deff8b8435f0121a41333fb655
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp, mvc, devcenter, seodec18
+ms.openlocfilehash: 5bf774f2b5cf4a6275dc04248aadfd9a94f5122d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88085087"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212549"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Tworzenie aplikacji internetowej środowiska ASP.NET Framework na platformie Azure
 
@@ -29,7 +29,7 @@ Jeśli zainstalowano już program Visual Studio 2019:
 - Zainstaluj najnowsze aktualizacje programu Visual Studio, wybierając pozycję **Pomoc**  >  **Sprawdź dostępność aktualizacji**.
 - Dodaj obciążenie, wybierając kolejno pozycje **Narzędzia**  >  **Pobierz narzędzia i funkcje**.
 
-## <a name="create-an-aspnet-web-app"></a>Tworzenie aplikacji sieci Web ASP.NET<a name="create-and-publish-the-web-app"></a>
+## <a name="create-an-aspnet-web-app"></a>Tworzenie aplikacji sieci Web ASP.NET <a name="create-and-publish-the-web-app"></a>
 
 Utwórz aplikację internetową ASP.NET, wykonując następujące czynności:
 
@@ -51,7 +51,7 @@ Utwórz aplikację internetową ASP.NET, wykonując następujące czynności:
 
    ![Uruchamianie aplikacji lokalnie](./media/quickstart-dotnet-framework/local-web-app.png)
 
-## <a name="publish-your-web-app"></a>Publikowanie aplikacji sieci Web<a name="launch-the-publish-wizard"></a>
+## <a name="publish-your-web-app"></a>Publikowanie aplikacji sieci Web <a name="launch-the-publish-wizard"></a>
 
 1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **myFirstAzureWebApp** i wybierz polecenie **Publikuj**.
 
@@ -84,7 +84,7 @@ Utwórz aplikację internetową ASP.NET, wykonując następujące czynności:
    |-|-|-|
    | Plan hostingu| myAppServicePlan | Nazwa planu usługi App Service. |
    | Lokalizacja | West Europe | Centrum danych, w którym hostowana jest aplikacja internetowa. |
-   | Rozmiar | Bezpłatna | [Warstwa cenowa](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) określa funkcje hostowania. |
+   | Rozmiar | Jest bezpłatna | [Warstwa cenowa](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) określa funkcje hostowania. |
 
    ![Tworzenie planu usługi App Service](./media/quickstart-dotnet-framework/app-service-plan-framework-vs2019.png)
 

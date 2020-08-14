@@ -1,6 +1,6 @@
 ---
 title: Wymuś zasady nazewnictwa grup w Azure Active Directory | Microsoft Docs
-description: Jak skonfigurować zasady nazewnictwa dla grup pakietu Office 365 w Azure Active Directory
+description: Jak skonfigurować zasady nazewnictwa dla grup Microsoft 365 w Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,28 +9,28 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 08/13/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 380962b71d6829b8a217a5d3038e2ae4dd7264fd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9ff525eab42d69ded33381fefc83076f9aa94f05
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497090"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213739"
 ---
-# <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Wymuś zasady nazewnictwa w grupach pakietu Office 365 w Azure Active Directory
+# <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Wymuś zasady nazewnictwa w grupach Microsoft 365 w Azure Active Directory
 
-Aby wymusić spójne konwencje nazewnictwa dla grup pakietu Office 365 utworzonych lub edytowanych przez użytkowników, skonfiguruj zasady nazewnictwa grup dla organizacji w Azure Active Directory (Azure AD). Na przykład można użyć zasad nazewnictwa do przekazywania funkcji grupy, członkostwa, regionu geograficznego lub osoby, która utworzyła grupę. Można również użyć zasad nazewnictwa, aby ułatwić kategoryzowanie grup w książce adresowej. Zasad można używać do blokowania określonych słów z używania w nazwach grup i aliasach.
+Aby wymusić spójne konwencje nazewnictwa dla grup Microsoft 365 utworzonych lub edytowanych przez użytkowników, skonfiguruj zasady nazewnictwa grup dla organizacji w Azure Active Directory (Azure AD). Na przykład można użyć zasad nazewnictwa do przekazywania funkcji grupy, członkostwa, regionu geograficznego lub osoby, która utworzyła grupę. Można również użyć zasad nazewnictwa, aby ułatwić kategoryzowanie grup w książce adresowej. Zasad można używać do blokowania określonych słów z używania w nazwach grup i aliasach.
 
 > [!IMPORTANT]
-> Zasady nazewnictwa usługi Azure AD dla grup pakietu Office 365 wymagają posiadania, ale nie muszą przypisywać licencji Azure Active Directory — wersja Premium P1 ani licencji Azure AD — wersja Podstawowa EDU dla każdego unikatowego użytkownika, który jest członkiem co najmniej jednej grupy pakietu Office 365.
+> Zasady nazewnictwa usługi Azure AD dla grup Microsoft 365 wymagają posiadania, ale niekoniecznie przypisywania licencji Azure Active Directory — wersja Premium P1 lub licencji Azure AD — wersja Podstawowa EDU dla każdego unikatowego użytkownika, który jest członkiem co najmniej jednej grupy Microsoft 365.
 
 Zasady nazewnictwa są stosowane do tworzenia lub edytowania grup utworzonych w ramach obciążeń (na przykład Outlook, Microsoft Teams, SharePoint, Exchange lub planista). Jest on stosowany zarówno w przypadku nazwy grupy, jak i aliasu grupy. Jeśli skonfigurujesz zasady nazewnictwa w usłudze Azure AD i masz istniejące zasady nazewnictwa grup programu Exchange, zasady nazewnictwa usługi Azure AD zostaną wymuszone w organizacji.
 
-Gdy zasady nazewnictwa grup są skonfigurowane, zasady zostaną zastosowane do nowych grup pakietu Office 365 utworzonych przez użytkowników końcowych. Zasady nazewnictwa nie dotyczą niektórych ról katalogu, takich jak Administrator globalny lub administrator użytkowników (poniżej znajduje się pełna lista ról wykluczonych z zasad nazewnictwa grup). W przypadku istniejących grup pakietu Office 365 zasady nie będą od razu stosowane w czasie konfigurowania. Gdy właściciel grupy Edytuje nazwę grupy dla tych grup, zostaną wymuszone zasady nazewnictwa.
+Gdy zasady nazewnictwa grup są skonfigurowane, zasady zostaną zastosowane do nowych grup Microsoft 365 utworzonych przez użytkowników końcowych. Zasady nazewnictwa nie dotyczą niektórych ról katalogu, takich jak Administrator globalny lub administrator użytkowników (poniżej znajduje się pełna lista ról wykluczonych z zasad nazewnictwa grup). W przypadku istniejących grup Microsoft 365 zasady nie będą od razu stosowane w czasie konfigurowania. Gdy właściciel grupy Edytuje nazwę grupy dla tych grup, zostaną wymuszone zasady nazewnictwa.
 
 ## <a name="naming-policy-features"></a>Funkcje zasad nazewnictwa
 
@@ -253,7 +253,7 @@ Menedżer klienta programu Outlook (OCM) | Program Outlook Customer Manager jest
 Aplikacja klasowa | Grupy utworzone w aplikacji klasy są zgodne z zasadami nazewnictwa, ale zasady nazewnictwa nie są stosowane automatycznie, a użytkownicy nie są pokazani podczas wprowadzania nazwy grupy klas przy użyciu wersji zapoznawczej zasad nazewnictwa. Użytkownicy muszą wprowadzić nazwę grupy klas wymuszonych z prefiksami i sufiksami. W przeciwnym razie operacja tworzenia lub edytowania grupy klas kończy się niepowodzeniem z błędami.
 Power BI | Obszary robocze Power BI są zgodne z zasadami nazewnictwa.    
 Yammer | Gdy użytkownik zalogowany do usługi Yammer przy użyciu konta Azure Active Directory tworzy grupę lub edytuje nazwę grupy, nazwa grupy będzie zgodna z zasadami nazewnictwa. Dotyczy to zarówno grup połączonych z pakietem Office 365, jak i wszystkich innych grup usługi Yammer.<br>Jeśli grupa połączona z pakietem Office 365 została utworzona przed wprowadzeniem zasad nazewnictwa, nazwa grupy nie będzie automatycznie zgodna z zasadami nazewnictwa. Gdy użytkownik edytuje nazwę grupy, zostanie wyświetlony monit o dodanie prefiksu i sufiksu.
-Usłudze staffhub  | Zespoły usłudze staffhub nie są zgodne z zasadami nazewnictwa, ale podstawową grupą pakietu Office 365. Nazwa zespołu usłudze staffhub nie stosuje prefiksów ani sufiksów i nie sprawdza niestandardowych zablokowanych wyrazów. Ale usłudze staffhub stosuje prefiksy i sufiksy i usuwa zablokowane słowa z podstawowej grupy pakietu Office 365.
+Usłudze staffhub  | Zespoły usłudze staffhub nie są zgodne z zasadami nazewnictwa, ale podstawową grupą Microsoft 365. Nazwa zespołu usłudze staffhub nie stosuje prefiksów ani sufiksów i nie sprawdza niestandardowych zablokowanych wyrazów. Ale usłudze staffhub stosuje prefiksy i sufiksy i usuwa zablokowane słowa z podstawowej grupy Microsoft 365.
 Program Exchange PowerShell | Polecenia cmdlet programu Exchange PowerShell są zgodne z zasadami nazewnictwa. Użytkownicy otrzymują odpowiednie komunikaty o błędach z sugerowanymi prefiksami i sufiksami oraz dla niestandardowych zablokowanych słów, jeśli nie są zgodne z zasadami nazewnictwa w Nazwa grupy i alias grupy (mailNickname).
 Azure Active Directory polecenia cmdlet programu PowerShell | Polecenia cmdlet programu PowerShell Azure Active Directory są zgodne z zasadami nazewnictwa. Użytkownicy otrzymują odpowiednie komunikaty o błędach z sugerowanymi prefiksami i sufiksami oraz dla niestandardowych zablokowanych słów, jeśli nie są zgodne z konwencją nazewnictwa w nazwach grup i aliasie grup.
 Centrum administracyjne programu Exchange | Centrum administracyjne programu Exchange jest zgodne z zasadami nazewnictwa. Użytkownicy otrzymują odpowiednie komunikaty o błędach z sugerowanymi prefiksami i sufiksami oraz dla niestandardowych zablokowanych słów, jeśli nie są zgodne z konwencją nazewnictwa w aliasie nazw grup i grup.
@@ -264,7 +264,7 @@ Centrum administracyjne platformy Microsoft 365 | Centrum administracyjne Micros
 Te artykuły zawierają dodatkowe informacje dotyczące grup usługi Azure AD.
 
 - [Wyświetlanie istniejących grup](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Zasady wygasania dla grup pakietu Office 365](groups-lifecycle.md)
+- [Zasady wygasania dla grup Microsoft 365](groups-lifecycle.md)
 - [Zarządzanie ustawieniami grupy](../fundamentals/active-directory-groups-settings-azure-portal.md)
 - [Zarządzanie członkami grupy](../fundamentals/active-directory-groups-members-azure-portal.md)
 - [Zarządzanie członkostwem w grupie](../fundamentals/active-directory-groups-membership-azure-portal.md)

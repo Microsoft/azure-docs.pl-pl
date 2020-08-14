@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Opisuje, jak przygotowywanie projektu z Azure Dev Spaces działa
 keywords: azds. YAML, Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers
-ms.openlocfilehash: 24a54fffdc8e94493d2a4a9aeb1c5f02dcd192b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61351072494b51d02a1d6c31399208b9e9b54fce
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80241636"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213417"
 ---
 # <a name="how-preparing-a-project-for-azure-dev-spaces-works"></a>Jak przygotowywanie projektu dla Azure Dev Spaces działa
 
@@ -98,17 +98,4 @@ configurations:
 
 Aby dowiedzieć się więcej o uruchamianiu kodu w obszarze deweloperskim, zobacz [jak uruchomić kod za pomocą Azure dev Spaces działa][how-it-works-up].
 
-Aby rozpocząć korzystanie z Azure Dev Spaces w celu przygotowania projektu dla miejsca do użytku w programie Azure dev, zobacz następujące przewodniki szybki start:
-
-* [Szybkie iteracje i debugowanie za pomocą Visual Studio Code i języka Java][quickstart-java]
-* [Szybkie iteracje i debugowanie przy użyciu Visual Studio Code i platformy .NET][quickstart-netcore]
-* [Szybkie iteracje i debugowanie przy użyciu Visual Studio Code i Node.js][quickstart-node]
-* [Szybkie iteracje i debugowanie za pomocą programów Visual Studio i .NET Core][quickstart-vs]
-* [Korzystanie z interfejsu wiersza polecenia do tworzenia aplikacji na Kubernetes][quickstart-cli]
-
 [how-it-works-up]: how-dev-spaces-works-up.md
-[quickstart-cli]: quickstart-cli.md
-[quickstart-java]: quickstart-java.md
-[quickstart-netcore]: quickstart-netcore.md
-[quickstart-node]: quickstart-nodejs.md
-[quickstart-vs]: quickstart-netcore-visualstudio.md

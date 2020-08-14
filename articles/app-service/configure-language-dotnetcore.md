@@ -2,15 +2,16 @@
 title: Konfigurowanie aplikacji ASP.NET Core
 description: Dowiedz się, jak skonfigurować aplikację ASP.NET Core w natywnych wystąpieniach systemu Windows lub w kontenerze z wstępnie skompilowanym systemem Linux w programie Azure App Service. W tym artykule przedstawiono najczęstsze zadania konfiguracyjne.
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 77bff369e2af09921a2065a031166c017128f008
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: d6e85bad7705647164fb1010f6c782729e20596b
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080168"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211919"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Konfigurowanie aplikacji ASP.NET Core dla Azure App Service
 
@@ -80,7 +81,7 @@ Jeśli aplikacja zostanie wdrożona za pomocą usługi Git lub zip z włączonym
 1. Uruchom `dotnet publish` , aby utworzyć plik binarny dla środowiska produkcyjnego.
 1. Uruchom skrypt niestandardowy, jeśli został określony przez `POST_BUILD_SCRIPT_PATH` .
 
-`PRE_BUILD_COMMAND`i `POST_BUILD_COMMAND` są zmiennymi środowiskowymi, które są domyślnie puste. Aby uruchomić polecenia przed kompilacją, zdefiniuj `PRE_BUILD_COMMAND` . Aby uruchomić polecenia po kompilacji, zdefiniuj `POST_BUILD_COMMAND` .
+`PRE_BUILD_COMMAND` i `POST_BUILD_COMMAND` są zmiennymi środowiskowymi, które są domyślnie puste. Aby uruchomić polecenia przed kompilacją, zdefiniuj `PRE_BUILD_COMMAND` . Aby uruchomić polecenia po kompilacji, zdefiniuj `POST_BUILD_COMMAND` .
 
 W poniższym przykładzie określono dwie zmienne do szeregu poleceń, oddzielone przecinkami.
 

@@ -3,14 +3,15 @@ title: Wyrażenia Azure Functions i wzorce powiązań
 description: Dowiedz się, jak tworzyć różne wyrażenia powiązań Azure Functions na podstawie wspólnych wzorców.
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: ca3e342d42e6baf2bc4caaed07dc196203d8a032
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4e2b5afd7742791218394422d00ee8ee46cb23a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261073"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212600"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Wzorce wyrażeń powiązań Azure Functions
 
@@ -132,7 +133,7 @@ public static void Run(
 
 ```
 
-Można również tworzyć wyrażenia dla części nazwy pliku. W poniższym przykładzie funkcja jest wyzwalana tylko w nazwach plików, które pasują do wzorca:`anyname-anyfile.csv`
+Można również tworzyć wyrażenia dla części nazwy pliku. W poniższym przykładzie funkcja jest wyzwalana tylko w nazwach plików, które pasują do wzorca: `anyname-anyfile.csv`
 
 ```json
 {
@@ -155,7 +156,7 @@ Na przykład wyzwalacz usługi Azure queue storage obsługuje następujące wła
 * QueueTrigger — wyzwalanie zawartości komunikatu, jeśli prawidłowy ciąg
 * DequeueCount
 * ExpirationTime
-* Identyfikator
+* Id
 * InsertionTime
 * NextVisibleTime
 * PopReceipt

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e040f42db195760cf40f6dbdf651826b544b65a4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f6f3b10219775adb02d47a91da2573ea99f30ac0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507577"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212255"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Skonfiguruj źródła tożsamości vCenter do użycia Active Directory
 
@@ -42,6 +42,9 @@ Przed [dodaniem źródła tożsamości](#add-an-identity-source-on-vcenter)tymcz
 * [Konfigurowanie nowego Active Directory w chmurze prywatnej](#set-up-new-active-directory-on-a-private-cloud)
 * [Konfigurowanie Active Directory na platformie Azure](#set-up-active-directory-on-azure)
 
+> [!IMPORTANT]
+> **Active Directory (uwierzytelnianie zintegrowane systemu Windows) nie jest obsługiwane.** Tylko Active Directory za pośrednictwem protokołu LDAP jest obsługiwany jako źródło tożsamości.
+
 ## <a name="add-on-premises-active-directory-as-a-single-sign-on-identity-source"></a>Dodawanie Active Directory lokalnego jako źródła tożsamości logowania jednokrotnego
 
 Aby skonfigurować Active Directory lokalne jako źródło tożsamości logowania jednokrotnego, potrzebne są:
@@ -62,7 +65,7 @@ Podczas konfigurowania domeny Active Directory należy skorzystać z informacji 
 | **Adres URL serwera pomocniczego** | Adres serwera LDAP pomocniczego kontrolera domeny, który jest używany do pracy w trybie failover. |
 | **Wybieranie certyfikatu** | Jeśli chcesz używać LDAPs z serwerem LDAP Active Directory lub źródłem tożsamości serwera OpenLDAP, po wpisaniu  `ldaps://`   w polu tekstowym adresu URL zostanie wyświetlony przycisk Wybierz certyfikat. Pomocniczy adres URL nie jest wymagany. |
 | **Nazwa użytkownika** | Identyfikator użytkownika w domenie, który ma minimalny dostęp tylko do odczytu do podstawowej nazwy wyróżniającej dla użytkowników i grup. |
-| **Hasło** | Hasło użytkownika, który jest określony przez nazwę użytkownika. |
+| **Password** (Hasło) | Hasło użytkownika, który jest określony przez nazwę użytkownika. |
 
 Jeśli masz informacje w poprzedniej tabeli, możesz dodać swoje Active Directory lokalne jako źródło tożsamości logowania jednokrotnego w programie vCenter.
 

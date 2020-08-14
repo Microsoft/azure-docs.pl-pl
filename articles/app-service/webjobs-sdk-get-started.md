@@ -3,15 +3,16 @@ title: Wprowadzenie do zestawu SDK zadań WebJob
 description: Wprowadzenie do zestawu SDK zadań WebJob na potrzeby przetwarzania w tle opartego na zdarzeniach. Dowiedz się, jak uzyskać dostęp do danych w usługach platformy Azure i usługach innych firm.
 author: ggailey777
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: a3b3e52b8386f212521f0fa1ca97cbd658374209
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 08cf736e533486b765f3b1a1173fcfe06c03306f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078312"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212868"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Get started with the Azure WebJobs SDK for event-driven background processing (Rozpoczynanie pracy z zestawem SDK usługi Azure WebJobs umożliwiającym oparte na zdarzeniach przetwarzanie w tle)
 
@@ -139,7 +140,7 @@ Teraz można dodać funkcję, która jest wyzwalana przez komunikaty docierając
 
 Począwszy od wersji 3. x, należy jawnie zainstalować rozszerzenie powiązania magazynu wymagane przez zestaw SDK zadań WebJob. W poprzednich wersjach powiązania magazynu zostały uwzględnione w zestawie SDK.
 
-1. Zainstaluj najnowszą stabilną wersję pakietu NuGet [Microsoft. Azure. WebJobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) w wersji 3. x. 
+1. Zainstaluj najnowszą stabilną wersję pakietu NuGet  [Microsoft. Azure. WebJobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) w wersji 3. x. 
 
     Oto polecenie **konsoli Menedżera pakietów** :
 
@@ -428,7 +429,7 @@ W tej sekcji należy ponownie uruchomić lokalnie, aby sprawdzić, czy dane reje
 
 1. Zamknij okno konsoli.
 
-## <a name="deploy-to-azure"></a><a name="deploy-as-a-webjob"></a>Wdrażanie na platformie Azure
+## <a name="deploy-to-azure"></a><a name="deploy-as-a-webjob"></a>Wdróż na platformie Azure
 
 Podczas wdrażania należy utworzyć wystąpienie usługi App Service, w której będą uruchamiane funkcje. Po opublikowaniu aplikacji konsolowej .NET Core w celu App Service na platformie Azure jest ona automatycznie uruchamiana jako zadanie WebJob. Aby dowiedzieć się więcej o publikowaniu, zobacz [Tworzenie i wdrażanie zadań WebJob za pomocą programu Visual Studio](webjobs-dotnet-deploy-vs.md).
 

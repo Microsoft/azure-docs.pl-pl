@@ -3,17 +3,17 @@ title: 'Szybki Start: Tworzenie kolejek usługi Azure Storage w portalu'
 description: Użyj Azure Portal, aby utworzyć kolejkę. Następnie użyj Azure Portal, aby dodać komunikat, wyświetlić właściwości wiadomości i usunąć z kolejki komunikat.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 03/06/2019
+ms.date: 08/13/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
-ms.openlocfilehash: af3f812c8018f059f26c29cd373714e4ab3c8a49
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 11c6cdff852a0695d4b2071f1d0a60c05dba2410
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84808967"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213473"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Szybki Start: Tworzenie kolejki i Dodawanie komunikatu z Azure Portal
 
@@ -40,8 +40,8 @@ Aby utworzyć kolejkę w witrynie Azure Portal, wykonaj następujące kroki:
 Następnie dodaj komunikat do nowej kolejki. Maksymalny rozmiar komunikatu wynosi 64 KB.
 
 1. Wybierz nową kolejkę z listy kolejek na koncie magazynu.
-1. Wybierz przycisk **+ Dodaj komunikat**, aby dodać komunikat do kolejki. Wprowadź komunikat w polu **Tekst komunikatu**. 
-1. Określ termin wygaśnięcia ważności komunikatu. Maksymalny czas pozostawania komunikatu w kolejce wynosi 7 dni.
+1. Wybierz przycisk **+ Dodaj komunikat**, aby dodać komunikat do kolejki. Wprowadź komunikat w polu **Tekst komunikatu**.
+1. Określ termin wygaśnięcia ważności komunikatu. Prawidłowe wartości, które można wprowadzić w polu **wygasa w** , to od 1 sekundy do 7 dni. Wybierz opcję **komunikat nigdy nie wygasa** , aby wskazać komunikat, który pozostanie w kolejce, dopóki nie zostanie on jawnie usunięty.
 1. Wskaż, czy komunikat ma być kodowany przy użyciu schematu Base64. Kodowanie danych binarnych jest zalecane.
 1. Wybierz przycisk **OK**, aby dodać komunikat.
 

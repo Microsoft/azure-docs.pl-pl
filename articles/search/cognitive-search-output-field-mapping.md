@@ -8,23 +8,34 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c9b0b34202f35babcaa3dce37331d31edf641254
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef840dc84c04875333958fa59ce399f2d16d07b5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557273"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214039"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Jak mapować pola wzbogacone AI na indeks wyszukiwania
 
-Ten artykuł zawiera informacje na temat mapowania ulepszonych pól wejściowych do pól wyjściowych w indeksie, który można przeszukiwać. Po [zdefiniowaniu zestawu umiejętności](cognitive-search-defining-skillset.md)należy zamapować pola danych wyjściowych o wszelkie umiejętności, które bezpośrednio współtworzą wartości w danym polu w indeksie wyszukiwania. 
+![Etapy indeksatora](./media/cognitive-search-output-field-mapping/indexer-stages-output-field-mapping.png "etapy indeksatora")
 
-Mapowania pól wyjściowych są wymagane do przeniesienia zawartości z ulepszonych dokumentów do indeksu.  Wzbogacony dokument jest w rzeczywistości drzewem informacji, a nawet w przypadku obsługi typów złożonych w indeksie czasami warto przekształcić informacje z wzbogaconego drzewa do bardziej prostego typu (na przykład tablicy ciągów). Mapowania pól wyjściowych umożliwiają wykonywanie transformacji kształtu danych przez spłaszczenie informacji.
+Ten artykuł zawiera informacje na temat mapowania ulepszonych pól wejściowych do pól wyjściowych w indeksie, który można przeszukiwać. Po [zdefiniowaniu zestawu umiejętności](cognitive-search-defining-skillset.md)należy zamapować pola danych wyjściowych o wszelkie umiejętności, które bezpośrednio współtworzą wartości w danym polu w indeksie wyszukiwania.
+
+Mapowania pól wyjściowych są wymagane do przeniesienia zawartości z ulepszonych dokumentów do indeksu.  Wzbogacony dokument jest w rzeczywistości drzewem informacji, a nawet w przypadku obsługi typów złożonych w indeksie czasami warto przekształcić informacje z wzbogaconego drzewa do bardziej prostego typu (na przykład tablicy ciągów). Mapowania pól wyjściowych umożliwiają wykonywanie transformacji kształtu danych przez spłaszczenie informacji. Mapowania pól wyjściowych zawsze występują po wykonaniu zestawu umiejętności, chociaż jest możliwe, aby ten etap działał, nawet jeśli nie zdefiniowano zestawu umiejętności.
+
+Przykłady mapowań pól wyjściowych:
+
+* W ramach zestawu umiejętności wyodrębniono nazwy organizacji wymienionych na każdej stronie dokumentu. Teraz chcesz zmapować każdą z tych nazw organizacji do pola w indeksie typu EDM. Collection (EDM. String).
+
+* W ramach zestawu umiejętności został utworzony nowy węzeł o nazwie "Document/translated_text". Chcesz zmapować informacje w tym węźle do określonego pola w indeksie.
+
+* Nie masz zestawu umiejętności, ale indeksuje typ złożony z bazy danych Cosmos DB. Chcesz uzyskać dostęp do węzła w tym typie złożonym i zmapować go do pola w indeksie.
 
 > [!NOTE]
 > Ostatnio włączono funkcję mapowania funkcji w mapowaniach pól wyjściowych. Aby uzyskać więcej informacji na temat funkcji mapowania, zobacz [funkcje mapowania pól](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#field-mapping-functions)
 
 ## <a name="use-outputfieldmappings"></a>Użyj outputFieldMappings
+
 Aby zmapować pola, Dodaj `outputFieldMappings` je do definicji indeksatora, jak pokazano poniżej:
 
 ```http

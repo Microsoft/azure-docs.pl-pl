@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.custom: devx-track-python
-ms.openlocfilehash: a33a739014b33303389b4f880da3687db852633e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: f5255041a97a56e6577f33b571403ff454bb65b4
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850274"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211880"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Jak używać tożsamości zarządzanych do App Service i Azure Functions
 
@@ -330,7 +330,7 @@ Aplikacja z zarządzaną tożsamością ma zdefiniowane dwie zmienne środowisko
 > | api-version       | Zapytanie  | Wersja interfejsu API tokenu, który ma być używany. Użyj "2019-08-01" lub nowszej (chyba że korzystasz z używania systemu Linux, które obecnie tylko oferują wartość "2017-09-01" — Zobacz uwagi powyżej).                                                                                                                                                                                                                                                                 |
 > | ZNAK X-IDENTITY-HEADER | Header | Wartość zmiennej środowiskowej IDENTITY_HEADER. Ten nagłówek jest używany, aby pomóc w ograniczeniu ataków SSRF (po stronie serwera).                                                                                                                                                                                                    |
 > | client_id         | Zapytanie  | Obowiązkowe Identyfikator klienta tożsamości przypisanej do użytkownika, który ma być używany. Nie można użyć w żądaniu, które zawiera `principal_id` , `mi_res_id` lub `object_id` . Jeśli zostaną pominięte wszystkie parametry identyfikatora ( `client_id` , `principal_id` , `object_id` i `mi_res_id` ), używana jest tożsamość przypisana do systemu.                                             |
-> | principal_id      | Zapytanie  | Obowiązkowe Identyfikator podmiotu zabezpieczeń przypisany do tożsamości przypisanej do użytkownika. `object_id`jest aliasem, który może być używany w zamian. Nie można użyć dla żądania, które zawiera client_id, mi_res_id lub object_id. Jeśli zostaną pominięte wszystkie parametry identyfikatora ( `client_id` , `principal_id` , `object_id` i `mi_res_id` ), używana jest tożsamość przypisana do systemu. |
+> | principal_id      | Zapytanie  | Obowiązkowe Identyfikator podmiotu zabezpieczeń przypisany do tożsamości przypisanej do użytkownika. `object_id` jest aliasem, który może być używany w zamian. Nie można użyć dla żądania, które zawiera client_id, mi_res_id lub object_id. Jeśli zostaną pominięte wszystkie parametry identyfikatora ( `client_id` , `principal_id` , `object_id` i `mi_res_id` ), używana jest tożsamość przypisana do systemu. |
 > | mi_res_id         | Zapytanie  | Obowiązkowe Identyfikator zasobu platformy Azure dla tożsamości przypisanej do użytkownika, który ma być używany. Nie można użyć w żądaniu, które zawiera `principal_id` , `client_id` lub `object_id` . Jeśli zostaną pominięte wszystkie parametry identyfikatora ( `client_id` , `principal_id` , `object_id` i `mi_res_id` ), używana jest tożsamość przypisana do systemu.                                      |
 
 > [!IMPORTANT]

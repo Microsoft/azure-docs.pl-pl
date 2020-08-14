@@ -5,13 +5,13 @@ ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
-ms.custom: seodec18
-ms.openlocfilehash: f7c35fa2d69df9c900eb64f10da1948fade02b5f
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 1ed7a6ebea12e5db37ec89c73db105dd7ce7e2ab
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079811"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211986"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Rozwiązywanie problemów z aplikacją w Azure App Service przy użyciu programu Visual Studio
 ## <a name="overview"></a>Omówienie
@@ -165,7 +165,7 @@ W tej sekcji przedstawiono sposób debugowania zdalnego przy użyciu projektu ut
 
      ![Informacje o stronie z nową wartością](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchangeinwa.png)
 
-## <a name="remote-debugging-webjobs"></a><a name="remotedebugwj"></a>Zdalne debugowanie zadań WebJob
+## <a name="remote-debugging-webjobs"></a><a name="remotedebugwj"></a> Zdalne debugowanie zadań WebJob
 W tej sekcji pokazano, jak debugować zdalnie przy użyciu utworzonego projektu i aplikacji w artykule [Rozpoczynanie pracy z zestawem SDK Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 Funkcje przedstawione w tej sekcji są dostępne tylko w Visual Studio 2013 z aktualizacją Update 4 lub nowszą.
@@ -556,7 +556,7 @@ Dzienniki śledzenia niepomyślnych żądań są przydatne, gdy trzeba zrozumie�
 
 Aplikacje App Service używają tych samych funkcji śledzenia niepomyślnych żądań, które były dostępne w usługach IIS 7,0 i nowszych. Nie masz dostępu do ustawień usług IIS, które konfigurują, które błędy są rejestrowane. Po włączeniu śledzenia nieudanych żądań wszystkie błędy są przechwytywane.
 
-Śledzenie nieudanych żądań można włączyć przy użyciu programu Visual Studio, ale nie można ich przeglądać w programie Visual Studio. Te dzienniki są plikami XML. Usługa dziennika przesyłania strumieniowego monitoruje tylko te pliki, które są uznawane za czytelne w trybie zwykłego tekstu: *txt*, *HTML*i *. log* .
+Śledzenie nieudanych żądań można włączyć przy użyciu programu Visual Studio, ale nie można ich przeglądać w programie Visual Studio. Te dzienniki są plikami XML. Usługa dziennika przesyłania strumieniowego monitoruje tylko te pliki, które są uznawane za czytelne w trybie zwykłego tekstu:  *txt*, *HTML*i *. log* .
 
 Dzienniki śledzenia niepomyślnych żądań można wyświetlić w przeglądarce bezpośrednio za pośrednictwem protokołu FTP lub lokalnego po użyciu narzędzia FTP, aby pobrać je na komputer lokalny. W tej sekcji przedstawiono bezpośrednie wyświetlanie ich w przeglądarce.
 

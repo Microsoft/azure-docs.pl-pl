@@ -3,13 +3,13 @@ title: Jak wyłączyć funkcje w Azure Functions
 description: Dowiedz się, jak wyłączyć i włączyć funkcje w Azure Functions.
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 47fbd446937ea0cfd981cef2d5cdd4759f2583d4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 761a78f050aa25a62075dd7a53836afb48f89cd7
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497702"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213158"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Jak wyłączyć funkcje w Azure Functions
 
@@ -46,6 +46,21 @@ Można również użyć przycisków **Włącz** i **Wyłącz** na stronie **Prze
 
 > [!NOTE]  
 > Funkcja testowania zintegrowanego z portalem ignoruje `Disabled` ustawienie. Oznacza to, że wyłączona funkcja nadal działa po uruchomieniu z okna **testowego** w portalu. 
+
+## <a name="localsettingsjson"></a>local.settings.json
+
+Funkcje można wyłączyć w taki sam sposób, jak w przypadku uruchamiania lokalnego. Aby wyłączyć funkcję o nazwie `HttpExample` , Dodaj wpis do kolekcji wartości w local.settings.jsw pliku w następujący sposób:
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true", 
+    "AzureWebJobs.HttpExample.Disabled": "true"
+  }
+}
+``` 
 
 ## <a name="other-methods"></a>Inne metody
 

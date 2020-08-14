@@ -1,7 +1,7 @@
 ---
 title: Uaktualnij do wersji 3.0 interfejs API przetwarzania obrazów
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak przeprowadzić uaktualnienie z wersji 2.0 i 1.0 do wersji 3.0 interfejs API przetwarzania obrazów.
+description: Dowiedz się, jak przeprowadzić uaktualnienie do interfejsu API odczytu przetwarzanie obrazów v 3.0 z wersji 2.0/v 2.1.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
-ms.openlocfilehash: 16add0dce88d0f809dc291d3c9de33e1a853f257
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 6e695fcfacac19ca82273d84d049bdb2afe14b54
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136503"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214188"
 ---
-# <a name="upgrade-to-v30-of-computer-vision-api-from-v20-and-v21"></a>Uaktualnienie do wersji 3.0 programu interfejs API przetwarzania obrazów z wersji 2.0 i v 2.1
+# <a name="upgrade-to-computer-vision-v30-read-api-from-v20v21"></a>Uaktualnij do interfejsu API odczytu przetwarzanie obrazów v 3.0 z wersji 2.0/v 2.1
 
-W tym przewodniku pokazano, jak zmodyfikować istniejący kod w celu migrowania z programu v 2.0 lub v 2.1 interfejs API przetwarzania obrazów do wersji 3.0 dla użytkowników interfejsu API REST. 
+W tym przewodniku pokazano, jak uaktualnić istniejący kod interfejsu API REST programu przetwarzanie obrazów v 2.0 lub v 2.1 do operacji odczytu w wersji 3.0. 
 
-## <a name="upgrade-batch-read-file-to-read"></a>Uaktualnij `Batch Read File` do programu`Read`
+## <a name="upgrade-batch-read-file-to-read"></a>Uaktualnij `Batch Read File` do programu `Read`
 
 
 1. Zmień ścieżkę interfejsu API dla `Batch Read File` 2. x w następujący sposób:
@@ -57,7 +57,7 @@ W tym przewodniku pokazano, jak zmodyfikować istniejący kod w celu migrowania 
     - Aby uzyskać pierwiastek dla tablicy stronicowej, Zmień hierarchię JSON z `"recognitionResults"` na `"analyzeResult"` / `"readResults"` . Hierarchia JSON dla wiersza i słów jest niezmieniona, więc nie są wymagane żadne zmiany w kodzie.
     -   `"clockwiseOrientation"`Zmieniono nazwę kąta strony na `"angle"` , a zakres został zmieniony z 0-360 stopni do-180 do 180 stopni. W zależności od kodu, może być konieczne wprowadzenie zmian, ponieważ większość funkcji matematycznych może obsłużyć każdy zakres.
     -   W interfejsie API programu v 3.0 wprowadzono również następujące udoskonalenia, które można opcjonalnie wykorzystać:- `"createdDateTime"` i `"lastUpdatedDateTime"` są dodawane, aby można było śledzić czas przetwarzania. Aby uzyskać więcej informacji, zobacz dokumentację. 
-        - `"version"`informuje o wersji interfejsu API używanej do generowania wyników
+        - `"version"` informuje o wersji interfejsu API używanej do generowania wyników
         - Dodano słowo dla każdego wyrazu `"confidence"` . Ta wartość jest skalibrowane, aby wartość 0,95 oznaczała, że występuje 95% prawdopodobieństwa, że rozpoznawanie jest poprawne. Za pomocą oceny zaufania można wybrać tekst do wysłania do recenzji przez człowieka. 
     
     
@@ -158,8 +158,8 @@ W tym przewodniku pokazano, jak zmodyfikować istniejący kod w celu migrowania 
     }
     ```
 
-## <a name="upgrade-from-recognize-text-to-read"></a>Uaktualnij z `Recognize Text` programu do wersji`Read`
-`Recognize Text`jest operacją w *wersji zapoznawczej* , która jest *przestarzała we wszystkich wersjach interfejs API przetwarzania obrazów*. Należy przeprowadzić migrację z `Recognize Text` programu do `Read` wersji (v 3.0) lub `Batch Read File` (v 2.0, v 2.1). Wersja 3.0 systemu `Read` zawiera nowsze, lepsze modele na potrzeby rozpoznawania tekstu i dodatkowych funkcji, więc jest zalecana. Aby uaktualnić z `Recognize Text` programu do wersji `Read` :
+## <a name="upgrade-from-recognize-text-to-read"></a>Uaktualnij z `Recognize Text` programu do wersji `Read`
+`Recognize Text` jest operacją w *wersji zapoznawczej* , która jest *przestarzała we wszystkich wersjach interfejs API przetwarzania obrazów*. Należy przeprowadzić migrację z `Recognize Text` programu do `Read` wersji (v 3.0) lub `Batch Read File` (v 2.0, v 2.1). Wersja 3.0 systemu `Read` zawiera nowsze, lepsze modele na potrzeby rozpoznawania tekstu i dodatkowych funkcji, więc jest zalecana. Aby uaktualnić z `Recognize Text` programu do wersji `Read` :
 
 1. Zmień ścieżkę interfejsu API dla `Recognize Text` wersji 2. x w następujący sposób:
 
@@ -195,12 +195,12 @@ W tym przewodniku pokazano, jak zmodyfikować istniejący kod w celu migrowania 
     - W wersji 2. x `"Get Read Operation Result"` zwróci kod JSON rozpoznawania OCR, gdy stan to `"Succeeded"` . W wersji 3.0 to pole jest `"succeeded"` .
     - Aby uzyskać pierwiastek dla tablicy stronicowej, Zmień hierarchię JSON z `"recognitionResult"` na `"analyzeResult"` / `"readResults"` . Hierarchia JSON dla wiersza i słów jest niezmieniona, więc nie są wymagane żadne zmiany w kodzie.
     -   W interfejsie API programu v 3.0 wprowadzono również następujące udoskonalenia, które można opcjonalnie wykorzystać. Aby uzyskać więcej informacji, zobacz informacje o interfejsie API:- `"createdDateTime"` i `"lastUpdatedDateTime"` są dodawane, aby można było śledzić czas przetwarzania. Aby uzyskać więcej informacji, zobacz dokumentację. 
-        - `"version"`informuje o wersji interfejsu API używanej do generowania wyników
+        - `"version"` informuje o wersji interfejsu API używanej do generowania wyników
         - Dodano słowo dla każdego wyrazu `"confidence"` . Ta wartość jest skalibrowane, aby wartość 0,95 oznaczała, że występuje 95% prawdopodobieństwa, że rozpoznawanie jest poprawne. Za pomocą oceny zaufania można wybrać tekst do wysłania do recenzji przez człowieka. 
-        - `"angle"`Ogólna Orientacja tekstu w kierunku zgodnym z ruchem, mierzona w stopniach od (-180, 180).
-        -  `"width"`i `"height"` dostarczają wymiary dokumentu i `"unit"` udostępnia jednostkę dla wymiarów (piksele lub cale, w zależności od typu dokumentu).
-        - `"page"`Obsługiwane są dokumenty wielostronicowe
-        - `"language"`język wejściowy dokumentu (z opcjonalnego parametru _Language_ ).
+        - `"angle"` Ogólna Orientacja tekstu w kierunku zgodnym z ruchem, mierzona w stopniach od (-180, 180).
+        -  `"width"` i `"height"` dostarczają wymiary dokumentu i `"unit"` udostępnia jednostkę dla wymiarów (piksele lub cale, w zależności od typu dokumentu).
+        - `"page"` Obsługiwane są dokumenty wielostronicowe
+        - `"language"` język wejściowy dokumentu (z opcjonalnego parametru _Language_ ).
 
 
     W 2. X format danych wyjściowych jest następujący: 

@@ -1,6 +1,6 @@
 ---
 title: Konfigurowanie samoobsługowego zarządzania grupami — Azure Active Directory | Microsoft Docs
-description: Tworzenie grup zabezpieczeń lub grup Office 365 w usłudze Azure Active Directory oraz zarządzanie nimi i żądanie członkostwa w grupach zabezpieczeń lub grupach usługi Office 365
+description: Tworzenie grup zabezpieczeń lub grup Microsoft 365 i zarządzanie nimi w Azure Active Directory i zażądaj grupy zabezpieczeń lub członkostwa w grupach Microsoft 365
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,30 +10,30 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 03/10/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ce5d96d3ca65efb69bf322cf4a5f5563b83d8ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a32874cebcd8335967eaf8a07a56346e8ad6460
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727878"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213631"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Konfigurowanie samoobsługowego zarządzania grupami w Azure Active Directory 
 
-Można umożliwić użytkownikom tworzenie własnych grup zabezpieczeń lub grup usługi Office 365 w usłudze Azure Active Directory (Azure AD) oraz zarządzanie nimi. Właściciel grupy może zatwierdzać lub odrzucać żądania członkostwa, a także delegować kontrolę nad członkostwem w grupie. Funkcje samoobsługowego zarządzania grupami są niedostępne w przypadku grup zabezpieczeń obsługujących pocztę lub listy dystrybucyjnej.
+Można umożliwić użytkownikom tworzenie własnych grup zabezpieczeń lub grup Microsoft 365 w usłudze Azure Active Directory (Azure AD) oraz zarządzanie nimi. Właściciel grupy może zatwierdzać lub odrzucać żądania członkostwa, a także delegować kontrolę nad członkostwem w grupie. Funkcje samoobsługowego zarządzania grupami są niedostępne w przypadku grup zabezpieczeń obsługujących pocztę lub listy dystrybucyjnej.
 
 ## <a name="self-service-group-membership-defaults"></a>Ustawienia domyślne członkostwa w grupach samoobsługi
 
-Po utworzeniu grup zabezpieczeń w Azure Portal lub przy użyciu programu Azure AD PowerShell tylko właściciele grupy mogą aktualizować członkostwo. Grupy zabezpieczeń utworzone przez samoobsługowe usługi w [panelu dostępu](https://account.activedirectory.windowsazure.com/r#/joinGroups) i wszystkie grupy pakietu Office 365 są dostępne do przyłączenia do wszystkich użytkowników, niezależnie od tego, czy są zatwierdzone przez właściciela, czy automatycznie zatwierdzone. W panelu dostępu można zmienić opcje członkostwa podczas tworzenia grupy.
+Po utworzeniu grup zabezpieczeń w Azure Portal lub przy użyciu programu Azure AD PowerShell tylko właściciele grupy mogą aktualizować członkostwo. Grupy zabezpieczeń utworzone przez samoobsługowe w [panelu dostępu](https://account.activedirectory.windowsazure.com/r#/joinGroups) i wszystkie grupy Microsoft 365 są dostępne do przyłączenia do wszystkich użytkowników, niezależnie od tego, czy są zatwierdzone przez właściciela, czy automatycznie zatwierdzone. W panelu dostępu można zmienić opcje członkostwa podczas tworzenia grupy.
 
-Grupy utworzone w | Zachowanie domyślne grupy zabezpieczeń | Zachowanie domyślne grupy Office 365
+Grupy utworzone w | Zachowanie domyślne grupy zabezpieczeń | Zachowanie domyślne grupy Microsoft 365
 ------------------ | ------------------------------- | ---------------------------------
 [Azure AD PowerShell](groups-settings-cmdlets.md) | Tylko właściciele mogą dodawać członków<br>Widoczne, ale niedostępne do przyłączenia w panelu dostępu | Otwórz do dołączenia dla wszystkich użytkowników
-[Azure Portal](https://portal.azure.com) | Tylko właściciele mogą dodawać członków<br>Widoczne, ale niedostępne do przyłączenia w panelu dostępu<br>Właściciel nie jest przypisywany automatycznie podczas tworzenia grupy | Otwórz do dołączenia dla wszystkich użytkowników
+[Witryna Azure Portal](https://portal.azure.com) | Tylko właściciele mogą dodawać członków<br>Widoczne, ale niedostępne do przyłączenia w panelu dostępu<br>Właściciel nie jest przypisywany automatycznie podczas tworzenia grupy | Otwórz do dołączenia dla wszystkich użytkowników
 [Panel dostępu](https://account.activedirectory.windowsazure.com/r#/joinGroups) | Otwórz do dołączenia dla wszystkich użytkowników<br>Opcje członkostwa można zmienić po utworzeniu grupy | Otwórz do dołączenia dla wszystkich użytkowników<br>Opcje członkostwa można zmienić po utworzeniu grupy
 
 ## <a name="self-service-group-management-scenarios"></a>Scenariusze samoobsługowego zarządzania grupami
@@ -47,7 +47,7 @@ Grupy utworzone w | Zachowanie domyślne grupy zabezpieczeń | Zachowanie domyś
 1. Wybierz pozycję **grupy**, a następnie wybierz pozycję Ustawienia **Ogólne** .
 1. **Właściciele zestawu mogą zarządzać żądaniami członkostwa w grupach w panelu dostępu** do wartości **tak**.
 1. Dla opcji **Ogranicz dostęp do grup w panelu dostępu** wybierz wartość **nie**.
-1. W przypadku ustawienia opcji **Użytkownicy mogą tworzyć grupy zabezpieczeń w portalach platformy Azure** lub **Użytkownicy mogą tworzyć grupy Office 365 w portalach platformy Azure** , aby
+1. W przypadku wybrania opcji **Użytkownicy mogą tworzyć grupy zabezpieczeń w portalach platformy Azure** lub **Użytkownicy mogą tworzyć grupy Microsoft 365 w portalach platformy Azure** , aby
 
     - **Tak**: Wszyscy użytkownicy w organizacji usługi Azure AD mogą tworzyć nowe grupy zabezpieczeń i dodawać do nich członków. Te nowe grupy będą również wyświetlane na panelu dostępu dla innych użytkowników. Jeśli ustawienie zasad w grupie zezwala na to, inni użytkownicy mogą tworzyć żądania dołączenia do tych grup.
     - **Nie**: użytkownicy nie mogą tworzyć grup ani zmieniać istniejących grup, których są właścicielami. Jednak nadal mogą zarządzać członkostwem w tych grupach i zatwierdzać żądania dołączenia do ich grup pochodzące od innych użytkowników.
@@ -57,7 +57,7 @@ Można również użyć **właścicieli, którzy mogą przypisywać członków j
 Gdy użytkownicy mogą tworzyć grupy, wszyscy użytkownicy w organizacji mogą tworzyć nowe grupy, a następnie, jako domyślny właściciel, dodawać członków do tych grup. Nie można określić osób, które mogą tworzyć własne grupy. Można określić tylko osoby, które będą miały właściciela grupy.
 
 > [!NOTE]
-> Licencja na Azure Active Directory — wersja Premium (P1 lub P2) jest wymagana, aby użytkownicy mogli zażądać dołączenia do grupy zabezpieczeń lub grupy usługi Office 365 oraz właścicieli w celu zatwierdzenia lub odmowy żądań członkostwa. Bez licencji Azure Active Directory — wersja Premium użytkownicy nadal mogą zarządzać swoimi grupami w panelu dostępu, ale nie mogą utworzyć grupy wymagającej zatwierdzenia przez właściciela w panelu dostępu i nie mogą żądać dołączenia do grupy. 
+> Licencja na Azure Active Directory — wersja Premium (P1 lub P2) jest wymagana, aby użytkownicy mogli zażądać dołączenia do grupy zabezpieczeń lub grupy Microsoft 365 i dla właścicieli w celu zatwierdzenia lub odmowy żądań członkostwa. Bez licencji Azure Active Directory — wersja Premium użytkownicy nadal mogą zarządzać swoimi grupami w panelu dostępu, ale nie mogą utworzyć grupy wymagającej zatwierdzenia przez właściciela w panelu dostępu i nie mogą żądać dołączenia do grupy.
 
 ## <a name="next-steps"></a>Następne kroki
 

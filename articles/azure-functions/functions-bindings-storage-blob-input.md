@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: 7e8cb6dfd2a1983ac4a98f0be0af1fd92c902fc4
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: de590af49e39832a52bf733319b86300ecab2a34
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843151"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213278"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Powiązanie danych wejściowych magazynu obiektów blob platformy Azure dla Azure Functions
 
@@ -307,7 +307,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 |**Wprowadź** | nie dotyczy | Musi być ustawiony na `blob` . |
 |**wskazywa** | nie dotyczy | Musi być ustawiony na `in` . Wyjątki są zanotowane w sekcji [użycie](#usage) . |
 |**Nazwij** | nie dotyczy | Nazwa zmiennej, która reprezentuje obiekt BLOB w kodzie funkcji.|
-|**ścieżka** |**Blobpath ścieżką** | Ścieżka do obiektu BLOB. |
+|**path** |**Blobpath ścieżką** | Ścieżka do obiektu BLOB. |
 |**połączenia** |**Połączenie**| Nazwa ustawienia aplikacji, które zawiera [Parametry połączenia magazynu](../storage/common/storage-configure-connection-string.md) , które będą używane dla tego powiązania. Jeśli nazwa ustawienia aplikacji zaczyna się od "AzureWebJobs", w tym miejscu możesz określić tylko resztę nazwy. Jeśli na przykład ustawisz opcję `connection` "Moja magazyn", środowisko uruchomieniowe funkcji wyszukuje ustawienie aplikacji o nazwie "AzureWebJobsMyStorage". Jeśli pozostawisz `connection` puste, środowisko uruchomieniowe funkcji używa domyślnych parametrów połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage` .<br><br>Parametry połączenia muszą być kontem magazynu ogólnego przeznaczenia, a nie [kontem magazynu obsługującym tylko obiekty blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |nie dotyczy | **Dostęp** | Wskazuje, czy będą odczytywane i zapisywane. |
 

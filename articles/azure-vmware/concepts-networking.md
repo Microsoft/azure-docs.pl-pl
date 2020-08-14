@@ -3,14 +3,14 @@ title: Pojęcia — łączność z siecią
 description: Dowiedz się więcej na temat kluczowych aspektów i przypadków użycia sieci i połączeń z platformą Azure VMware (Automatyczna synchronizacja)
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: c0416da9c745ccf92970ff39f623a782d5784983
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f1f1f5a089781f1f7e882c9c8692f0c845ae485
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062836"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214103"
 ---
-# <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Azure VMware (wersja zapoznawcza) — Omówienie rozwiązań sieciowych i międzyłącznościowych
+# <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Pojęcia dotyczące sieci i łączności w rozwiązaniu Azure VMware Solution (AVS) w wersji zapoznawczej
 
 Łączność sieciową między chmurami prywatnymi (Automatyczna synchronizacja) i środowiskami lokalnymi lub sieciami wirtualnymi na platformie Azure umożliwia dostęp do chmury prywatnej oraz korzystanie z niej. W tym artykule omówiono kilka najważniejszych koncepcji, które określają podstawę sieci i międzyłączności.
 
@@ -48,7 +48,7 @@ Sieci logiczne w chmurze prywatnej są dostarczane ze wstępnie zainicjowaną NS
 
 Routing jest oparty na Border Gateway Protocol (BGP), który jest automatycznie inicjowany i domyślnie włączony dla każdego wdrożenia chmury prywatnej. W przypadku chmur prywatnych w celu przeprowadzania automatycznej synchronizacji wymagane jest zaplanowanie przestrzeni adresowej sieci chmury prywatnej z co najmniej/22 blokami adresów sieciowych CIDR dla podsieci, które przedstawiono w poniższej tabeli. Blok adresów nie powinien nakładać się na bloki adresów używane w innych sieciach wirtualnych, które znajdują się w ramach subskrypcji i sieci lokalnych. W ramach tego bloku adresów, zarządzanie, aprowizacji i sieci vMotion są obsługiwane automatycznie.
 
-Przykładowy `/22` blok adresów sieciowych CIDR:`10.10.0.0/22`
+Przykładowy `/22` blok adresów sieciowych CIDR:  `10.10.0.0/22`
 
 Podsieci:
 

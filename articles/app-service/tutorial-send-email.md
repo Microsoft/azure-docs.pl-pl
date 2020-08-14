@@ -3,13 +3,13 @@ title: 'Samouczek: wysyłanie wiadomości e-mail z Logic Apps'
 description: Dowiedz się, jak wywoływać procesy biznesowe z poziomu aplikacji App Service. Wysyłać wiadomości e-mail, tweety i wpisy w serwisie Facebook, dodawać do list wysyłkowych i wiele innych.
 ms.topic: tutorial
 ms.date: 04/08/2020
-ms.custom: mvc
-ms.openlocfilehash: 874c67b0d8d29c163fa5f36b3d100f1d2a013d53
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: 9d4136099a8cadc43a53298f367f6eeb784e5ce1
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080970"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212847"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Samouczek: wysyłanie wiadomości e-mail i wywoływanie innych procesów biznesowych z App Service
 
@@ -312,7 +312,7 @@ Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [tworzenia aplika
 
 ---
 
-## <a name="more-resources"></a>Dodatkowe zasoby
+## <a name="more-resources"></a>Więcej zasobów
 
 [Samouczek: hostowanie interfejsu API RESTful z mechanizmem CORS w usłudze Azure App Service](app-service-web-tutorial-rest-api.md)  
 [Odwołanie żądania HTTP/odpowiedzi dla Logic Apps](../connectors/connectors-native-reqres.md)  

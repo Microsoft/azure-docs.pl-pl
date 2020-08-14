@@ -7,12 +7,12 @@ description: Przejrzyj i przetestuj zmiany z żądania ściągnięcia bezpośred
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery, akcje GitHub, Helm, Siatka usług, routing w sieci usług, polecenia kubectl, k8s
 manager: gwallace
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 9cb240add87a14b0d474cec17684ef65a22cc07a
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 5e3417f16791b71d53a0eec9263532219c779440
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421029"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212506"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Akcje GitHub & usługi Azure Kubernetes (wersja zapoznawcza)
 
@@ -170,10 +170,10 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak Azure Dev Spaces ułatwiają tworzenie bardziej złożonych aplikacji w wielu kontenerach i jak można uprościć programowanie do współpracy, pracując z różnymi wersjami lub gałęziami kodu w różnych miejscach.
+Dowiedz się więcej o tym, jak działa Azure Dev Spaces.
 
 > [!div class="nextstepaction"]
-> [Programowanie zespołowe w Azure Dev Spaces][team-quickstart]
+> [Jak działa usługa Azure Dev Spaces](../how-dev-spaces-works.md)
 
 [azure-cli-installed]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
@@ -190,4 +190,3 @@ Dowiedz się, jak Azure Dev Spaces ułatwiają tworzenie bardziej złożonych ap
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [sp-acr]: ../../container-registry/container-registry-auth-service-principal.md
 [sp-aks]: ../../aks/kubernetes-service-principal.md
-[team-quickstart]: ../quickstart-team-development.md

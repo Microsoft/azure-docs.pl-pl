@@ -4,13 +4,13 @@ description: Dowiedz się, jak uwierzytelniać certyfikaty klientów w protokole
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 10/01/2019
-ms.custom: seodec18
-ms.openlocfilehash: 143317cd424428d7f480f4880d3aab750853890b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 145b999d7bf8597c06d6e3d4a36d01b182c8ae68
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82592370"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213649"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Konfigurowanie wzajemnego uwierzytelniania TLS dla Azure App Service
 
@@ -218,7 +218,7 @@ export class AuthorizationHandler {
 
 ## <a name="java-sample"></a>Przykład Java
 
-Następująca Klasa języka Java koduje certyfikat z `X-ARR-ClientCert` do `X509Certificate` wystąpienia. `certificateIsValid()`sprawdza, czy odcisk palca certyfikatu jest zgodny z podanym w konstruktorze i czy certyfikat nie wygasł.
+Następująca Klasa języka Java koduje certyfikat z `X-ARR-ClientCert` do `X509Certificate` wystąpienia. `certificateIsValid()` sprawdza, czy odcisk palca certyfikatu jest zgodny z podanym w konstruktorze i czy certyfikat nie wygasł.
 
 
 ```java

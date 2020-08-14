@@ -3,21 +3,18 @@ title: Uruchamianie Azure Functions z pakietu
 description: Aby środowisko uruchomieniowe Azure Functions uruchomiło funkcje, instalując plik pakietu wdrożeniowego zawierający pliki projektu aplikacji funkcji.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: d40896d6a4659945dbeda9ca965366f0b2ca4bd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a2633550c9bcbdc59baf99f79559655afbb9b74
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79365275"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214232"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Uruchamianie Azure Functions z pliku pakietu
 
 Na platformie Azure możesz uruchamiać funkcje bezpośrednio z pliku pakietu wdrożeniowego w aplikacji funkcji. Druga opcja polega na wdrożeniu plików w `d:\home\site\wwwroot` katalogu aplikacji funkcji.
 
 W tym artykule opisano zalety uruchamiania funkcji z pakietu. Pokazano również, jak włączyć tę funkcję w aplikacji funkcji.
-
-> [!IMPORTANT]
-> Podczas wdrażania funkcji w aplikacji funkcji systemu Linux w [planie Premium](functions-scale.md#premium-plan)należy zawsze uruchamiać ją z pliku pakietu i [publikować aplikację przy użyciu Azure Functions Core Tools](functions-run-local.md#project-file-deployment).
 
 ## <a name="benefits-of-running-from-a-package-file"></a>Zalety uruchamiania z pliku pakietu
   

@@ -11,13 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 448910453b967fb15d342c22b81dd9733d0dfeb8
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: e44de0058af0210ecb42eaa4be8b55d543d66103
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165128"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212809"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji w Azure Active Directory
 
@@ -32,7 +31,7 @@ Ten samouczek umożliwia opanowanie następujących czynności:
 > * Dodawanie aplikacji lokalnej do dzierżawy usługi Azure AD
 > * Sprawdza, czy użytkownik testowy może zalogować się do aplikacji przy użyciu konta usługi Azure AD
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby dodać aplikację lokalną do usługi Azure AD, potrzebne są:
 
@@ -234,6 +233,10 @@ Aby przetestować logowanie do aplikacji:
 3. Upewnij się, że najpierw uruchom aplikację, aby przetestować logowanie do aplikacji, a następnie Pobierz raport diagnostyczny, aby zapoznać się ze wskazówkami dotyczącymi rozwiązywania problemów z wykrytymi problemami.
 
 Aby uzyskać informacje na temat rozwiązywania problemów, zobacz [Troubleshoot Application Proxy problems and error messages (Rozwiązywanie problemów z serwerem proxy aplikacji i problemów związanych z komunikatami o błędach)](application-proxy-troubleshoot.md).
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Gdy nie jest już potrzebne, Usuń zasoby utworzone w tym samouczku.
 
 ## <a name="next-steps"></a>Następne kroki
 

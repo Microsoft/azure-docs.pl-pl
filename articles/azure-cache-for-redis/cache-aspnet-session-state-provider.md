@@ -5,13 +5,14 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 05/01/2017
-ms.openlocfilehash: 4854fabb3dccc276ec32a596a42263acd07ac276
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7692bfda16ac1b8789ee49469c46ef8276c97f8a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316068"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213296"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Dostawca stanu sesji ASP.NET dla usługi Azure Cache for Redis
 
@@ -92,7 +93,7 @@ Skonfiguruj atrybuty przy użyciu wartości z bloku pamięci podręcznej w Micro
 * **ApplicationName** — klucze są przechowywane w Redis jako `{<Application Name>_<Session ID>}_Data` . Ten schemat nazewnictwa umożliwia wielu aplikacjom współużytkowanie tego samego wystąpienia Redis. Ten parametr jest opcjonalny i jeśli nie zostanie on podano, zostanie użyta wartość domyślna.
 * **connectionTimeoutInMilliseconds** — to ustawienie umożliwia zastąpienie ustawienia connectTimeout w kliencie stackexchange. Redis. Jeśli nie zostanie określony, zostanie użyte domyślne ustawienie connectTimeout 5000. Aby uzyskać więcej informacji, zobacz [stackexchange. Redis Configuration model](https://go.microsoft.com/fwlink/?LinkId=398705).
 * **operationTimeoutInMilliseconds** — to ustawienie umożliwia zastąpienie ustawienia syncTimeout w kliencie stackexchange. Redis. Jeśli nie zostanie określony, zostanie użyte domyślne ustawienie syncTimeout 1000. Aby uzyskać więcej informacji, zobacz [stackexchange. Redis Configuration model](https://go.microsoft.com/fwlink/?LinkId=398705).
-* **redisSerializerType** — to ustawienie pozwala określić niestandardową serializację zawartości sesji, która jest wysyłana do Redis. Określony typ musi implementować `Microsoft.Web.Redis.ISerializer` i musi deklarować publiczny Konstruktor bez parametrów. Domyślnie `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter` jest używana.
+* **redisSerializerType** — to ustawienie pozwala określić niestandardową serializację zawartości sesji, która jest wysyłana do Redis. Określony typ musi implementować `Microsoft.Web.Redis.ISerializer` i musi deklarować publiczny Konstruktor bez parametrów. Domyślnie  `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter` jest używana.
 
 Aby uzyskać więcej informacji o tych właściwościach, zapoznaj się z ogłoszeniem oryginalnego wpisu w blogu, w którym jest [ogłaszany dostawca stanu sesji ASP.NET dla usługi Redis](https://devblogs.microsoft.com/aspnet/announcing-asp-net-session-state-provider-for-redis-preview-release/).
 

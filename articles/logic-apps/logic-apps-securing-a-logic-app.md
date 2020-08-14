@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: e7199b6d54a0150845bfc09c38e002e6cc298ee7
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: c7b4cf688d02ebbcb099f116c0eb7b4ebe7c6074
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066733"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212413"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Zabezpieczanie dostępu i danych w Azure Logic Apps
 
@@ -240,7 +240,7 @@ Aby włączyć usługę Azure AD OAuth w szablonie ARM na potrzeby wdrażania ap
 ],
 ```
 
-Aby uzyskać więcej informacji na temat `accessControl` sekcji, zobacz [ograniczanie zakresów adresów IP dla ruchu przychodzącego w szablonie Azure Resource Manager](#restrict-inbound-ip-template) i [Dokumentacja szablonu przepływów pracy Microsoft. Logic](/templates/microsoft.logic/2019-05-01/workflows).
+Aby uzyskać więcej informacji na temat `accessControl` sekcji, zobacz [ograniczanie zakresów adresów IP dla ruchu przychodzącego w szablonie Azure Resource Manager](#restrict-inbound-ip-template) i [Dokumentacja szablonu przepływów pracy Microsoft. Logic](/azure/templates/microsoft.logic/2019-05-01/workflows).
 
 <a name="restrict-inbound-ip"></a>
 
@@ -786,8 +786,8 @@ Punkty końcowe HTTP i HTTPS obsługują różne rodzaje uwierzytelniania. W prz
 
 W tej tabeli przedstawiono typy uwierzytelniania, które są dostępne dla wyzwalaczy i akcji, w których można wybrać typ uwierzytelniania:
 
-| Typ uwierzytelniania | Dostępność |
-|---------------------|--------------|
+| Typ uwierzytelniania | Obsługiwane wyzwalacze i akcje |
+|---------------------|--------------------------------|
 | [Podstawowa](#basic-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, element webhook protokołu HTTP |
 | [Certyfikat klienta](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, element webhook protokołu HTTP |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, element webhook protokołu HTTP |
@@ -803,9 +803,9 @@ Jeśli opcja [podstawowa](../active-directory-b2c/secure-rest-api.md) jest dost�
 
 | Właściwość (Projektant) | Właściwość (JSON) | Wymagane | Wartość | Opis |
 |---------------------|-----------------|----------|-------|-------------|
-| **Authentication** | `type` | Tak | Podstawowy | Typ uwierzytelniania do użycia |
+| **Authentication** | `type` | Tak | Podstawowa | Typ uwierzytelniania do użycia |
 | **Nazwa użytkownika** | `username` | Tak | <*Nazwa użytkownika*>| Nazwa użytkownika służąca do uwierzytelniania dostępu do docelowego punktu końcowego usługi |
-| **Hasło** | `password` | Tak | <*hasło*> | Hasło do uwierzytelniania dostępu do docelowego punktu końcowego usługi |
+| **Password** (Hasło) | `password` | Tak | <*hasło*> | Hasło do uwierzytelniania dostępu do docelowego punktu końcowego usługi |
 ||||||
 
 W przypadku używania [zabezpieczonych parametrów](#secure-action-parameters) do obsługi i zabezpieczania poufnych informacji, na przykład w [szablonie Azure Resource Manager do automatyzowania wdrożenia](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), można użyć wyrażeń, aby uzyskać dostęp do tych wartości parametrów w czasie wykonywania. Ta przykładowa definicja akcji HTTP Określa uwierzytelnianie `type` jako `Basic` i używa [funkcji Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) w celu uzyskania wartości parametrów:
@@ -836,7 +836,7 @@ Jeśli opcja [certyfikat klienta](../active-directory/authentication/active-dire
 |---------------------|-----------------|----------|-------|-------------|
 | **Authentication** | `type` | Tak | **Certyfikat klienta** <br>lub <br>`ClientCertificate` | Typ uwierzytelniania do użycia. Można zarządzać certyfikatami za pomocą [usługi Azure API Management](../api-management/api-management-howto-mutual-certificates.md). <p></p>**Uwaga**: Łączniki niestandardowe nie obsługują uwierzytelniania opartego na certyfikatach dla wywołań przychodzących i wychodzących. |
 | **PFX** | `pfx` | Tak | <*zakodowany plik PFX — zawartość*> | Zawartość zakodowana algorytmem Base64 z pliku wymiany informacji osobistych (PFX) <p><p>Aby przekonwertować plik PFX na format szyfrowany algorytmem Base64, można użyć programu PowerShell, wykonując następujące czynności: <p>1. Zapisz zawartość certyfikatu w zmiennej: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Przekonwertuj zawartość certyfikatu przy użyciu `ToBase64String()` funkcji i Zapisz tę zawartość do pliku tekstowego: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
-| **Hasło** | `password`| Nie | <*hasło dla pliku PFX*> | Hasło do uzyskiwania dostępu do pliku PFX |
+| **Password** (Hasło) | `password`| Nie | <*hasło dla pliku PFX*> | Hasło do uzyskiwania dostępu do pliku PFX |
 |||||
 
 W przypadku używania [zabezpieczonych parametrów](#secure-action-parameters) do obsługi i zabezpieczania poufnych informacji, na przykład w [szablonie Azure Resource Manager do automatyzowania wdrożenia](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), można użyć wyrażeń, aby uzyskać dostęp do tych wartości parametrów w czasie wykonywania. Ta przykładowa definicja akcji HTTP Określa uwierzytelnianie `type` jako `ClientCertificate` i używa [funkcji Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) w celu uzyskania wartości parametrów:
@@ -876,12 +876,12 @@ Wyzwalacze żądań umożliwiają uwierzytelnianie wywołań przychodzących po 
 | **Authentication** | `type` | Tak | **Active Directory OAuth** <br>lub <br>`ActiveDirectoryOAuth` | Typ uwierzytelniania do użycia. Logic Apps jest obecnie zgodny z [protokołem OAuth 2,0](../active-directory/develop/v2-overview.md). |
 | **Urząd** | `authority` | Nie | <*Adres URL-urząd-token-wystawca*> | Adres URL urzędu dostarczającego token uwierzytelniania. Domyślnie ta wartość to `https://login.windows.net` . |
 | **Dzierżawa** | `tenant` | Tak | <*Identyfikator dzierżawy*> | Identyfikator dzierżawy dla dzierżawy usługi Azure AD |
-| **Grupy odbiorców** | `audience` | Tak | <*zasób do autoryzacji*> | Zasób, który ma być używany na potrzeby autoryzacji, na przykład`https://management.core.windows.net/` |
+| **Grupy odbiorców** | `audience` | Tak | <*zasób do autoryzacji*> | Zasób, który ma być używany na potrzeby autoryzacji, na przykład `https://management.core.windows.net/` |
 | **Identyfikator klienta** | `clientId` | Tak | <*Identyfikator klienta*> | Identyfikator klienta aplikacji żądającej autoryzacji |
 | **Typ poświadczeń** | `credentialType` | Tak | Certyfikat <br>lub <br>Wpis tajny | Typ poświadczeń, którego klient używa do żądania autoryzacji. Ta właściwość i wartość nie pojawiają się w podstawowej definicji aplikacji logiki, ale określają właściwości, które są wyświetlane dla wybranego typu poświadczenia. |
 | **Wpisu** | `secret` | Tak, ale tylko dla typu poświadczeń "wpis tajny" | <*Klient-klucz tajny*> | Wpis tajny klienta na potrzeby żądania autoryzacji |
 | **PFX** | `pfx` | Tak, ale tylko dla typu poświadczeń "certyfikat" | <*zakodowany plik PFX — zawartość*> | Zawartość zakodowana algorytmem Base64 z pliku wymiany informacji osobistych (PFX) |
-| **Hasło** | `password` | Tak, ale tylko dla typu poświadczeń "certyfikat" | <*hasło dla pliku PFX*> | Hasło do uzyskiwania dostępu do pliku PFX |
+| **Password** (Hasło) | `password` | Tak, ale tylko dla typu poświadczeń "certyfikat" | <*hasło dla pliku PFX*> | Hasło do uzyskiwania dostępu do pliku PFX |
 |||||
 
 W przypadku używania [zabezpieczonych parametrów](#secure-action-parameters) do obsługi i zabezpieczania poufnych informacji, na przykład w [szablonie Azure Resource Manager do automatyzowania wdrożenia](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), można użyć wyrażeń, aby uzyskać dostęp do tych wartości parametrów w czasie wykonywania. Ta przykładowa definicja akcji HTTP Określa uwierzytelnianie `type` jako `ActiveDirectoryOAuth` , typ poświadczeń jako `Secret` i używa [funkcji Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) w celu uzyskania wartości parametrów:
@@ -952,7 +952,7 @@ W przypadku używania [zabezpieczonych parametrów](#secure-action-parameters) d
 
 ### <a name="managed-identity-authentication"></a>Uwierzytelnianie tożsamości zarządzanej
 
-Jeśli opcja [zarządzana tożsamość](../active-directory/managed-identities-azure-resources/overview.md) jest dostępna, aplikacja logiki może użyć tożsamości przypisanej do systemu lub *pojedynczej* ręcznie utworzonej tożsamości przypisanej przez użytkownika do uwierzytelniania dostępu do innych zasobów chronionych przez Azure Active Directory (Azure AD) bez konieczności logowania. Platforma Azure zarządza tą tożsamością i pomaga zabezpieczyć Twoje poświadczenia, ponieważ nie trzeba podawać ani obrócić wpisów tajnych. Dowiedz się więcej [na temat usług platformy Azure, które obsługują tożsamości zarządzane na potrzeby uwierzytelniania w usłudze Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Jeśli opcja [zarządzanej tożsamości](../active-directory/managed-identities-azure-resources/overview.md) jest dostępna dla [określonego wyzwalacza lub akcji](#add-authentication-outbound), aplikacja logiki może użyć tożsamości przypisanej do systemu lub *pojedynczej* ręcznie utworzonej tożsamości przypisanej przez użytkownika do uwierzytelniania dostępu do innych zasobów chronionych przez Azure Active Directory (Azure AD) bez konieczności logowania. Platforma Azure zarządza tą tożsamością i pomaga zabezpieczyć Twoje poświadczenia, ponieważ nie trzeba podawać ani obrócić wpisów tajnych. Dowiedz się więcej [na temat usług platformy Azure, które obsługują tożsamości zarządzane na potrzeby uwierzytelniania w usłudze Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 1. Aby aplikacja logiki mogła korzystać z tożsamości zarządzanej, wykonaj kroki opisane w temacie [uwierzytelnianie dostępu do zasobów platformy Azure przy użyciu tożsamości zarządzanych w Azure Logic Apps](../logic-apps/create-managed-service-identity.md). Te kroki umożliwiają włączenie zarządzanej tożsamości w aplikacji logiki oraz skonfigurowanie dostępu tej tożsamości do docelowego zasobu platformy Azure.
 

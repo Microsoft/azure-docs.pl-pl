@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 07/27/2020
-ms.openlocfilehash: 55483b93b770687703b381366d48edbc7d48f26e
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.date: 08/12/2020
+ms.openlocfilehash: cf91dd0b7f16bf0dcd3d84da1b942b2353ec5bd0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475342"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212037"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Przewodnik dotyczący wydajności i dostrajania przepływu danych
 
@@ -53,7 +53,7 @@ Po zidentyfikowaniu wąskiego gardła przepływu danych należy skorzystać z po
 
 Karta **Optymalizacja** zawiera ustawienia umożliwiające skonfigurowanie schematu partycjonowania klastra Spark. Ta karta istnieje w każdej transformacji przepływu danych i określa, czy chcesz ponownie podzielić dane **po** zakończeniu transformacji. Dostosowanie partycjonowania zapewnia kontrolę nad dystrybucją danych między węzłami obliczeniowymi i optymalizacją lokalizacji danych, które mogą mieć pozytywne i negatywne skutki dla ogólnej wydajności przepływu danych.
 
-![Optymalizacja](media/data-flow/optimize.png "Optymalizacja")
+![Zoptymalizować](media/data-flow/optimize.png "Optymalizacja")
 
 Domyślnie należy zaznaczyć opcję *Użyj bieżącego partycjonowania* , która instruuje Azure Data Factory zachować bieżące partycjonowanie danych wyjściowych transformacji. Gdy trwa ponowne Partycjonowanie danych, należy *użyć bieżącego partycjonowania* w większości scenariuszy. Scenariusze, w których może być konieczne ponowne Partycjonowanie danych, to między innymi agregacje i sprzężenia, które znacząco pochylają dane lub w przypadku korzystania z partycjonowania źródła w bazie danych SQL.
 
@@ -87,7 +87,7 @@ Jeśli masz dobrą wiedzę o kardynalności danych, partycjonowanie kluczy może
 > [!TIP]
 > Ręczne ustawienie schematu partycjonowania powoduje oddzielenie danych i może przesunięte korzyści wynikające z optymalizacji programu Spark. Najlepszym rozwiązaniem jest nie ręczne ustawianie partycjonowania, chyba że jest to konieczne.
 
-## <a name="optimizing-the-azure-integration-runtime"></a><a name="ir"></a>Optymalizacja Azure Integration Runtime
+## <a name="optimizing-the-azure-integration-runtime"></a><a name="ir"></a> Optymalizacja Azure Integration Runtime
 
 Przepływy danych są uruchamiane w klastrach Spark, które są w czasie wykonywania. Konfiguracja używanego klastra jest definiowana w środowisku Integration Runtime (IR) działania. Podczas definiowania środowiska Integration runtime można utworzyć trzy zagadnienia dotyczące wydajności: typ klastra, rozmiar klastra i czas do wygaśnięcia.
 
@@ -273,6 +273,29 @@ Jeśli dane nie są równomiernie partycjonowane po przekształceniu, można uż
 
 > [!TIP]
 > W przypadku ponownej partycjonowania danych, ale istnieją przekształcenia podrzędne, które powodują ponowne wygenerowanie danych, użyj podziału skrótu w kolumnie używanej jako klucz sprzężenia.
+
+## <a name="using-data-flows-in-pipelines"></a>Używanie przepływów danych w potokach 
+
+Podczas kompilowania złożonych potoków z wieloma przepływami danych przepływ logiczny może mieć duży wpływ na chronometraż i koszt. Ta sekcja dotyczy wpływu różnych strategii architektury.
+
+### <a name="executing-data-flows-in-parallel"></a>Równoległe wykonywanie przepływów danych
+
+W przypadku równoczesnego wykonywania wielu przepływów danych moduł ADF uruchamia oddzielne klastry Spark dla każdego działania. Pozwala to na odizolowanie i równoległe uruchamianie poszczególnych zadań, ale w tym samym czasie będzie działać wiele klastrów.
+
+Jeśli przepływy danych są wykonywane równolegle, zaleca się, aby nie włączać właściwości czas wygaśnięcia Azure IR, ponieważ będzie to powodować powstanie wielu nieużywanych pul.
+
+> [!TIP]
+> Zamiast uruchamiania tego samego przepływu danych wiele razy w przypadku każdego działania, należy przygotować swoje dane w usłudze Data Lake i użyć symboli wieloznacznych do przetworzenia danych w pojedynczym przepływie danych.
+
+### <a name="execute-data-flows-sequentially"></a>Wykonywanie przepływów danych sekwencyjnie
+
+Jeśli wykonujesz działania przepływu danych w sekwencji, zalecamy ustawienie czasu wygaśnięcia w konfiguracji Azure IR. ADF będzie ponownie używał zasobów obliczeniowych w wyniku szybszego uruchomienia klastra. Każde działanie nadal będzie odizolowane dla każdego wykonywania.
+
+Uruchamianie zadań sekwencyjnych będzie prawdopodobnie trwać najdłużej, ale zapewnia czyste rozdzielenie operacji logicznych.
+
+### <a name="overloading-a-single-data-flow"></a>Przeciążanie pojedynczego przepływu danych
+
+Jeśli umieścisz całą logikę wewnątrz pojedynczego przepływu danych, moduł ADF wykona całe zadanie na jednym wystąpieniu platformy Spark. Chociaż może to spowodować obniżenie kosztów, nastąpi łączenie różnych przepływów logicznych i może być trudne do monitorowania i debugowania. Jeśli jeden składnik ulegnie awarii, wszystkie pozostałe części zadania również będą kończyć się niepowodzeniem. Zespół Azure Data Factory zaleca organizowanie przepływów danych przez niezależne przepływy logiki biznesowej. Jeśli przepływ danych jest zbyt duży, dzielenie go na osobne składniki ułatwia monitorowanie i debugowanie. Chociaż nie ma żadnych stałych limitów liczby transformacji w przepływie danych, zbyt wiele spowoduje, że zadanie będzie skomplikowane.
 
 ## <a name="next-steps"></a>Następne kroki
 

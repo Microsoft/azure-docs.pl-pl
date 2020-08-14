@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Zawiera opis procesów zdalnego debugowania w usłudze Azure Kubernetes Service przy użyciu Azure Dev Spaces
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery
-ms.openlocfilehash: a9f303ea6f954285a319be137a594f7ce127f740
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd984ff6a8ebe336f76643406c0957769dbfd3da
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80241402"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213390"
 ---
 # <a name="how-remote-debugging-your-code-with-azure-dev-spaces-works"></a>Jak zdalne debugowanie kodu za pomocą Azure Dev Spaces działa
 
@@ -30,15 +30,7 @@ Obraz debugera jest automatycznie ustalany przez narzędzia po stronie klienta. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć korzystanie z Azure Dev Spaces do zdalnego debugowania projektu, zobacz następujące przewodniki szybki start:
+Dowiedz się więcej o tym, jak działa Azure Dev Spaces.
 
-* [Szybkie iteracje i debugowanie za pomocą Visual Studio Code i języka Java][quickstart-java]
-* [Szybkie iteracje i debugowanie przy użyciu Visual Studio Code i platformy .NET][quickstart-netcore]
-* [Szybkie iteracje i debugowanie przy użyciu Visual Studio Code i Node.js][quickstart-node]
-* [Szybkie iteracje i debugowanie za pomocą programów Visual Studio i .NET Core][quickstart-vs]
-
-
-[quickstart-java]: quickstart-java.md
-[quickstart-netcore]: quickstart-netcore.md
-[quickstart-node]: quickstart-nodejs.md
-[quickstart-vs]: quickstart-netcore-visualstudio.md
+> [!div class="nextstepaction"]
+> [Jak działa usługa Azure Dev Spaces](how-dev-spaces-works.md)

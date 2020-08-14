@@ -8,16 +8,20 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bdbe157198ad62578613d86f3b3a55b72ca0acf8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 779aa96fcf58d45bb53757f7fe974a0fe4c61ffa
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557447"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214077"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Jak utworzyć zestawu umiejętności w potoku wzbogacenia AI na platformie Azure Wyszukiwanie poznawcze 
 
-Wyodrębnianie i wzbogacanie danych w celu przeszukiwania ich w usłudze Azure Wyszukiwanie poznawcze. Wywołajemy możliwości wydobywania i wzbogacania *umiejętności poznawcze*, połączone w *zestawu umiejętności* , do których odwołuje się podczas indeksowania. Zestawu umiejętności może używać [wbudowanych umiejętności](cognitive-search-predefined-skills.md) lub umiejętności niestandardowych (zobacz [przykład: Tworzenie niestandardowej umiejętności w potoku wzbogacania AI](cognitive-search-create-custom-skill-example.md) , aby uzyskać więcej informacji).
+![etapy indeksatora](media/cognitive-search-defining-skillset/indexer-stages-skillset.png "etapy indeksatora")
+
+Zestawu umiejętności definiuje operacje wyodrębniania i wzbogacania danych w celu przeszukiwania. Zestawu umiejętności wykonuje się po wyodrębnieniu zawartości tekstu i obrazu z dokumentów źródłowych, a po dowolnych polach z dokumentu źródłowego są one (opcjonalnie) zmapowane do pól docelowych w indeksie lub magazynie wiedzy.
+
+Zestawu umiejętności zawiera jedną lub więcej *umiejętności poznawczych* , które reprezentują konkretne operacje wzbogacania, takie jak tłumaczenie tekstu, wyodrębnianie kluczowych fraz lub wykonywanie optycznego rozpoznawania znaków z pliku obrazu. Aby utworzyć zestawu umiejętności, możesz skorzystać z [wbudowanych umiejętności](cognitive-search-predefined-skills.md) firmy Microsoft lub niestandardowych umiejętności, które zawierają modele lub logikę przetwarzania, które zapewniasz (zobacz [przykład: Tworzenie niestandardowej umiejętności w potoku wzbogacania AI](cognitive-search-create-custom-skill-example.md) , aby uzyskać więcej informacji).
 
 W tym artykule dowiesz się, jak utworzyć potok wzbogacania dla umiejętności, których chcesz użyć. Zestawu umiejętności jest dołączany do [indeksatora](search-indexer-overview.md)wyszukiwanie poznawcze platformy Azure. Jedną z części projektu potoku, omówionego w tym artykule, jest konstrukcja zestawu umiejętności. 
 
@@ -171,13 +175,13 @@ Przyjrzyjmy się pierwszej umiejętności, która stanowi wbudowaną [umiejętno
 
 * Umiejętność ma jedno wyjście ```"organizations"``` . Dane wyjściowe istnieją tylko podczas przetwarzania. Aby połączyć dane wyjściowe z danymi wejściowymi w celu uzyskania kwalifikacji podrzędnych, należy odwołać się do danych wyjściowych jako ```"/document/organizations"``` .
 
-* W przypadku określonego dokumentu wartość ```"/document/organizations"``` jest tablicą organizacji wyodrębnionych z tekstu. Przykład:
+* W przypadku określonego dokumentu wartość ```"/document/organizations"``` jest tablicą organizacji wyodrębnionych z tekstu. Na przykład:
 
   ```json
   ["Microsoft", "LinkedIn"]
   ```
 
-Niektóre sytuacje odwołują się do każdego elementu tablicy osobno. Załóżmy na przykład, że chcesz przekazać każdy element ```"/document/organizations"``` oddzielnie do innej umiejętności (na przykład niestandardowego programu do wyszukiwania jednostek Bing). Można odwołać się do każdego elementu tablicy, dodając gwiazdkę do ścieżki:```"/document/organizations/*"``` 
+Niektóre sytuacje odwołują się do każdego elementu tablicy osobno. Załóżmy na przykład, że chcesz przekazać każdy element ```"/document/organizations"``` oddzielnie do innej umiejętności (na przykład niestandardowego programu do wyszukiwania jednostek Bing). Można odwołać się do każdego elementu tablicy, dodając gwiazdkę do ścieżki: ```"/document/organizations/*"``` 
 
 Druga umiejętność wyodrębniania tonacji jest zgodna z tym samym wzorcem, co pierwszy wzbogacający. Przyjmuje ```"/document/content"``` jako dane wejściowe i zwraca ocenę tonacji dla każdego wystąpienia zawartości. Ponieważ nie ustawiono ```"context"``` jawnie pola, dane wyjściowe (mySentiment) są teraz elementem podrzędnym ```"/document"``` .
 

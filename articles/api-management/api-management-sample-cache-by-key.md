@@ -9,17 +9,18 @@ editor: ''
 ms.assetid: 772bc8dd-5cda-41c4-95bf-b9f6f052bc85
 ms.service: api-management
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: a366cf6d4e17e83fd89ae21631ad5b40e8971c1b
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: cf9901b4e49460dd2fb91dceaf239571058c5284
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903446"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213319"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Buforowanie niestandardowe w usłudze Azure API Management
 Usługa Azure API Management Service ma wbudowaną obsługę [buforowania odpowiedzi HTTP](api-management-howto-cache.md) przy użyciu adresu URL zasobu jako klucza. Klucz może być modyfikowany przez nagłówki żądań przy użyciu `vary-by` właściwości. Jest to przydatne w przypadku buforowania całych odpowiedzi HTTP (znanych także jako reprezentacje), ale czasami warto tylko buforować część reprezentacji. Nowe zasady [pamięci podręcznej — wyszukiwanie](./api-management-caching-policies.md#GetFromCacheByKey) i [przechowywanie w pamięci podręcznej](./api-management-caching-policies.md#StoreToCacheByKey) zapewniają możliwość przechowywania i pobierania dowolnych danych z definicji zasad. Ta możliwość dodaje również wartość do wcześniej wprowadzonych zasad [wysyłania żądania](./api-management-advanced-policies.md#SendRequest) , ponieważ teraz można buforować odpowiedzi z usług zewnętrznych.

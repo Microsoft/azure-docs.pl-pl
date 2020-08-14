@@ -5,13 +5,14 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 10/18/2019
-ms.openlocfilehash: efe175e4086d5273471c1b0451e4cfb28449c236
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: bf8b20dadd2fcd78657aa6877e796b645332dd94
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008937"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213449"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Rozwiązywanie problemów z limitami czasu usługi Azure Cache for Redis
 
@@ -44,7 +45,7 @@ Ten komunikat o błędzie zawiera metryki, które mogą ułatwić wskazanie przy
 | Menedżer |Menedżer gniazda działa `socket.select` , co oznacza, że prosi o system operacyjny, aby wskazać gniazdo, które ma coś do zrobienia. Czytnik nie jest aktywnie czytany z sieci, ponieważ nie ma znaczenia, czy nie ma nic do zrobienia |
 | kolejka |Liczba operacji w toku wynosi 73 |
 | qu |6 operacji w toku znajdują się w niewysłanej kolejce i nie została jeszcze zapisywana w sieci wychodzącej |
-| qs |67 operacji w toku zostały wysłane do serwera, ale odpowiedź nie jest jeszcze dostępna. Odpowiedź może być `Not yet sent by the server` lub`sent by the server but not yet processed by the client.` |
+| qs |67 operacji w toku zostały wysłane do serwera, ale odpowiedź nie jest jeszcze dostępna. Odpowiedź może być `Not yet sent by the server` lub `sent by the server but not yet processed by the client.` |
 | składnika |0 z operacji w toku ma przejrzane odpowiedzi, ale nie zostały jeszcze oznaczone jako ukończone, ponieważ oczekują na pętlę ukończenia |
 | oznacza |Istnieje aktywny składnik zapisywania (oznacza to, że 6 niewysłanych żądań nie jest ignorowany) bajty/activewriters |
 | in |Brak aktywnych czytników i zero bajtów jest dostępnych do odczytu na karcie sieciowej bajty/activereaders |
@@ -91,7 +92,7 @@ Aby zbadać możliwe przyczyny główne, można wykonać następujące czynnośc
 1. Duże obciążenie serwera Redis może spowodować przekroczenie limitu czasu. Obciążenie serwera można monitorować przez monitorowanie `Redis Server Load` [metryki wydajności pamięci podręcznej](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Obciążenie serwera 100 (wartość maksymalna) oznacza, że serwer Redis został zajęty, bez czasu bezczynności przetwarzania żądań. Aby sprawdzić, czy niektóre żądania zajmują wszystkie możliwości serwera, uruchom polecenie SlowLog, zgodnie z opisem w poprzednim akapicie. Aby uzyskać więcej informacji, zobacz wysokie użycie procesora CPU/obciążenie serwera.
 1. Czy po stronie klienta było jakieś inne zdarzenie, które mogło spowodować Blip sieci? Typowe zdarzenia obejmują: skalowanie liczby wystąpień klienta w górę lub w dół, wdrażanie nowej wersji klienta lub Skalowanie automatyczne. W naszych testach znaleźliśmy, że automatyczne skalowanie lub skalowanie w górę/w dół może spowodować utratę połączenia sieciowego wychodzącego przez kilka sekund. Kod StackExchange. Redis jest odporny na takie zdarzenia i ponownie nawiązuje połączenie. Po ponownym nawiązaniu połączenia wszystkie żądania w kolejce mogą przekroczyć limit czasu.
 1. Czy masz duże żądanie poprzedzające kilka małych żądań do pamięci podręcznej, które przekroczyły limit czasu? Parametr `qs` w komunikacie o błędzie informuje o liczbie żądań wysłanych z klienta do serwera, ale nie przetworzył odpowiedzi. Ta wartość może nadal wzrastać, ponieważ StackExchange. Redis używa jednego połączenia TCP i może odczytywać tylko jedną odpowiedź w danym momencie. Pomimo tego, że upłynął limit czasu pierwszej operacji, nie zatrzyma on wysyłania więcej danych do lub z serwera. Inne żądania będą blokowane do momentu zakończenia dużego żądania i mogą spowodować przekroczenie limitu czasu. Jednym z rozwiązań jest zminimalizowanie możliwości przekroczenia limitu czasu przez zapewnienie, że pamięć podręczna jest wystarczająco duża dla obciążenia i dzielenie dużych wartości na mniejsze fragmenty. Innym możliwym rozwiązaniem jest użycie puli `ConnectionMultiplexer` obiektów w kliencie i wybranie najmniejszego ładowania `ConnectionMultiplexer` podczas wysyłania nowego żądania. Ładowanie wielu obiektów połączeń powinno uniemożliwić przekroczenie limitu czasu dla innych żądań.
-1. Jeśli używasz programu `RedisSessionStateProvider` , upewnij się, że ustawiono prawidłowy limit czasu ponowień. `retryTimeoutInMilliseconds`powinna być większa niż `operationTimeoutInMilliseconds` , w przeciwnym razie nie wystąpią żadne ponowne próby. W poniższym przykładzie `retryTimeoutInMilliseconds` ustawiono 3000. Aby uzyskać więcej informacji, zobacz [ASP.NET Session State Provider for Azure cache for Redis](cache-aspnet-session-state-provider.md) i [jak używać parametrów konfiguracji dostawcy stanu sesji i wyjściowego dostawcy pamięci podręcznej](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
+1. Jeśli używasz programu `RedisSessionStateProvider` , upewnij się, że ustawiono prawidłowy limit czasu ponowień. `retryTimeoutInMilliseconds` powinna być większa niż `operationTimeoutInMilliseconds` , w przeciwnym razie nie wystąpią żadne ponowne próby. W poniższym przykładzie `retryTimeoutInMilliseconds` ustawiono 3000. Aby uzyskać więcej informacji, zobacz [ASP.NET Session State Provider for Azure cache for Redis](cache-aspnet-session-state-provider.md) i [jak używać parametrów konfiguracji dostawcy stanu sesji i wyjściowego dostawcy pamięci podręcznej](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
     ```xml
     <add

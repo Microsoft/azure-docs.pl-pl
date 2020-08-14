@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: d089cb1844356032b956110a7475d839031ef006
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 9596e6a6fd32994f782125c9bd4b8ca6d5a94b03
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849832"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213063"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Powiązanie danych wyjściowych usługi Azure Blob Storage dla Azure Functions
 
@@ -355,7 +355,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 |**Wprowadź** | nie dotyczy | Musi być ustawiony na `blob` . |
 |**wskazywa** | nie dotyczy | Musi być ustawiona na `out` dla powiązania danych wyjściowych. Wyjątki są zanotowane w sekcji [użycie](#usage) . |
 |**Nazwij** | nie dotyczy | Nazwa zmiennej, która reprezentuje obiekt BLOB w kodzie funkcji.  Ustaw, aby `$return` odwoływać się do zwracanej wartości funkcji.|
-|**ścieżka** |**Blobpath ścieżką** | Ścieżka do kontenera obiektów BLOB. |
+|**path** |**Blobpath ścieżką** | Ścieżka do kontenera obiektów BLOB. |
 |**połączenia** |**Połączenie**| Nazwa ustawienia aplikacji, które zawiera parametry połączenia magazynu, które będą używane dla tego powiązania. Jeśli nazwa ustawienia aplikacji zaczyna się od "AzureWebJobs", w tym miejscu możesz określić tylko resztę nazwy. Jeśli na przykład ustawisz opcję `connection` "Moja magazyn", środowisko uruchomieniowe funkcji wyszukuje ustawienie aplikacji o nazwie "AzureWebJobsMyStorage". Jeśli pozostawisz `connection` puste, środowisko uruchomieniowe funkcji używa domyślnych parametrów połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage` .<br><br>Parametry połączenia muszą być kontem magazynu ogólnego przeznaczenia, a nie [kontem magazynu obsługującym tylko obiekty blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |nie dotyczy | **Dostęp** | Wskazuje, czy będą odczytywane i zapisywane. |
 
@@ -379,8 +379,8 @@ W języku JavaScript Uzyskuj dostęp do danych obiektów BLOB za pomocą polecen
 
 Parametry funkcji można zadeklarować jako następujące typy do zapisu w magazynie obiektów blob:
 
-* Ciągi jako`func.Out(str)`
-* Strumienie jako`func.Out(func.InputStream)`
+* Ciągi jako `func.Out(str)`
+* Strumienie jako `func.Out(func.InputStream)`
 
 Aby uzyskać szczegółowe informacje, zobacz [przykład danych wyjściowych](#example) .
 
