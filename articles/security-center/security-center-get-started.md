@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: f16df87ca72b66003d8870dcd9d778616ea840d4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 550c9ff57b9c558f2f175165c7f06ead45991be9
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038549"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226020"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Szybki start: dołączanie subskrypcji platformy Azure do usługi Security Center w warstwie Standardowa
 Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i ochronę przed zagrożeniami na potrzeby różnych obciążeń chmury hybrydowej. Chociaż warstwa Bezpłatna oferuje ograniczone zabezpieczenia tylko dla zasobów platformy Azure, warstwa standardowa rozszerza te możliwości do lokalnych i innych chmur. Usługa Security Center w warstwie Standardowa pomaga w wyszukiwaniu i naprawianiu luk w zabezpieczeniach, stosowaniu kontroli dostępu i aplikacji w celu blokowania złośliwych działań, wykrywaniu zagrożeń przy użyciu analizy oraz szybkim reagowaniu podczas ataku. Warstwę Standardowa usługi Security Center możesz wypróbować bezpłatnie. Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/security-center/).
@@ -33,8 +33,9 @@ Aby uaktualnić subskrypcję do warstwy Standardowa, musisz mieć przypisaną ro
 
 ## <a name="enable-your-azure-subscription"></a>Włączanie subskrypcji platformy Azure
 
-1. Zaloguj się w witrynie [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
-2. W menu **Microsoft Azure** wybierz pozycję **Security Center**. **Security Center — przegląd** zostanie otwarty.
+1. Zaloguj się do [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
+
+1. W menu **Microsoft Azure** wybierz pozycję **Security Center**. **Security Center — przegląd** zostanie otwarty.
 
    ![Security Center — Przegląd][2]
 
@@ -49,21 +50,25 @@ W ciągu kilku minut od pierwszego uruchomienia usługi Security Center mogą zo
 
 Aby w pełni wykorzystać Security Center, należy wykonać poniższe kroki, aby przeprowadzić uaktualnienie do warstwy Standardowa i zainstalować agenta Log Analytics.
 
-## <a name="upgrade-to-the-standard-pricing-tier"></a>Uaktualnianie do warstwy cenowej standardowa
-Security Center na potrzeby przewodników Szybki Start i samouczków, które należy uaktualnić do warstwy Standardowa. Usługa Security Center w warstwie Standardowa jest dostępna w bezpłatnej wersji próbnej. Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/security-center/). 
 
-1. W menu głównym usługi Security Center wybierz pozycję **Wprowadzenie**.
+## <a name="upgrade-to-the-standard-tier"></a>Zmiana warstwy na wyższą warstwę Standardowa
+
+Na potrzeby przewodników Szybki start i samouczków usługi Security Center musisz zmienić warstwę na wyższą warstwę Standardowa. Usługa Security Center w warstwie Standardowa jest dostępna w bezpłatnej wersji próbnej. Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/security-center/). 
+
+1. Na pasku bocznym Security Center wybierz opcję **wprowadzenie**.
  
-   ![Rozpoczęcie pracy][4]
+   ![Wprowadzenie](./media/security-center-get-started/get-started-upgrade-tab.png)
 
-2. W obszarze **Uaktualnienie** usługa Security Center wyświetla listę subskrypcji i obszarów roboczych, które kwalifikują się do dołączenia. 
-   - Możesz kliknąć listę rozwijaną **Zastosuj wersję próbną**, aby wyświetlić listę wszystkich subskrypcji i obszarów roboczych ze stanem kwalifikacji do korzystania z wersji próbnej.
-   -    Możesz uaktualnić subskrypcje i obszary robocze, które nie kwalifikują się do korzystania z wersji próbnej.
-   -    Możesz wybrać kwalifikujące się obszary robocze i subskrypcje i rozpocząć korzystanie z wersji próbnej.
-3. Kliknij przycisk **Rozpocznij okres próbny**, aby rozpocząć okres próbny w ramach wybranych subskrypcji.
+    Karta **Uaktualnij** zawiera listę subskrypcji i obszarów roboczych kwalifikujących się do dołączenia.
+
+1. Z listy **Wybierz obszary robocze do włączenia warstwy Standardowa** wybierz obszary robocze do uaktualnienia.
 
 
-  ![Alerty zabezpieczeń][9]
+    > [!TIP]
+    > W przypadku wybrania obszaru roboczego, który kwalifikuje się do korzystania z bezpłatnej wersji próbnej, następnym krokiem będzie rozpoczęcie korzystania z wersji próbnej. Jeśli obszary robocze nie kwalifikują się do korzystania z wersji próbnej, zostaną uaktualnione i rozpocznie się naliczanie opłat.
+
+1. Wybierz pozycję **Uaktualnij** , aby uaktualnić wybrane obszary robocze do warstwy Standardowa.
+
 
 ## <a name="automate-data-collection"></a>Automatyzacja zbierania danych
 Usługa Security Center zbiera dane z maszyn wirtualnych platformy Azure i komputerów spoza platformy Azure w celu monitorowania pod kątem luk w zabezpieczeniach i zagrożeń. Dane są zbierane przy użyciu agenta Log Analytics, który odczytuje różne konfiguracje związane z zabezpieczeniami i dzienniki zdarzeń z komputera i kopiuje dane do obszaru roboczego w celu przeprowadzenia analizy. Domyślnie usługa Security Center utworzy nowy obszar roboczy.
@@ -73,9 +78,9 @@ Po włączeniu automatycznej aprowizacji program Security Center instaluje agent
 Aby włączyć automatyczną obsługę administracyjną agenta Log Analytics:
 
 1. W menu głównym Security Center wybierz pozycję **cennik & ustawienia**.
-2. W wierszu subskrypcji kliknij subskrypcję, dla której chcesz zmienić ustawienia.
-3. Na karcie **Zbieranie danych** ustaw opcję **Automatyczna aprowizacja** na wartość **Wł**.
-4. Wybierz pozycję **Zapisz**.
+1. W wierszu subskrypcji kliknij subskrypcję, dla której chcesz zmienić ustawienia.
+1. Na karcie **Zbieranie danych** ustaw opcję **Automatyczna aprowizacja** na wartość **Wł**.
+1. Wybierz pozycję **Zapisz**.
 ---
   ![Włączanie automatycznej aprowizacji][6]
 

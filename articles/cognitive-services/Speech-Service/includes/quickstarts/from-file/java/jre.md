@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 85124a51b986b6e3d6444b35aa264e136abcdb76
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a1cf8bbda448dd991e805456ce8fb942077e8553
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400613"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226551"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -21,7 +21,7 @@ ms.locfileid: "81400613"
 
 ## <a name="add-sample-code"></a>Dodawanie przykładowego kodu
 
-1. Aby dodać nową pustą klasę do projektu Java, wybierz pozycję **plik** > **Nowa** > **Klasa**.
+1. Aby dodać nową pustą klasę do projektu Java, wybierz pozycję **plik**  >  **Nowa**  >  **Klasa**.
 
 1. W oknie **Nowa klasa Java** wprowadź ciąg **speechsdk.quickstart** w polu **Pakiet** i **Main** w polu **Nazwa**.
 
@@ -109,18 +109,18 @@ ms.locfileid: "81400613"
 
 1. Zastąp ciąg `YourSubscriptionKey` kluczem subskrypcji.
 
-1. Zastąp ciąg `YourServiceRegion`[regionem](~/articles/cognitive-services/Speech-Service/regions.md) skojarzonym z subskrypcją (na przykład `westus` w przypadku subskrypcji bezpłatnej wersji próbnej).
+1. Zamień ciąg na `YourServiceRegion` [region](~/articles/cognitive-services/Speech-Service/regions.md) skojarzony z subskrypcją.
 
-1. Zamień ciąg `whatstheweatherlike.wav` na własną nazwę pliku.
+1. Zamień ciąg na `whatstheweatherlike.wav` własną nazwę pliku.
 
 1. Zapisz zmiany projektu.
 
 > [!NOTE]
 > Zestaw Speech SDK będzie domyślnie rozpoznawał użycie języka en-us w celu uzyskania informacji na temat wybierania [języka źródłowego.](../../../../how-to-specify-source-language.md)
 
-## <a name="build-and-run-the-app"></a>Kompilowanie i uruchamianie aplikacji
+## <a name="build-and-run-the-app"></a>Skompiluj i uruchom aplikację
 
-Naciśnij klawisz F11 lub wybierz polecenie **Uruchom** > **debugowanie**.
+Naciśnij klawisz F11 lub wybierz polecenie **Uruchom**  >  **debugowanie**.
 Pierwsze 15 sekund wprowadzania mowy z pliku dźwiękowego zostanie rozpoznane i zarejestrowane w oknie konsoli.
 
    ```text

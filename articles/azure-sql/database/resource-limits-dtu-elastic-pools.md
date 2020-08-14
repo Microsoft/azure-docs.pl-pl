@@ -11,19 +11,19 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 07/28/2020
-ms.openlocfilehash: f3c7420e1f33a7c25e7d3bfdffff14019d0b606a
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 48d8b0519ca1b312909f8b48a7fd8a25d0f8b919
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542674"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225822"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limity zasobów dla pul elastycznych przy użyciu modelu zakupu jednostek DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Ten artykuł zawiera szczegółowe limity zasobów dla baz danych w Azure SQL Database, które znajdują się w puli elastycznej przy użyciu modelu zakupu jednostek DTU.
 
-* Limity zasobów modelu zakupu jednostek DTU dla Azure SQL Database można znaleźć w temacie [limity zasobów jednostek DTU — Azure SQL Database](resource-limits-vcore-elastic-pools.md).
+* Limity zasobów modelu zakupu jednostek DTU dla Azure SQL Database można znaleźć w temacie [limity zasobów jednostek DTU — Azure SQL Database](resource-limits-dtu-single-databases.md).
 * Aby uzyskać limity zasobów rdzeń wirtualny, zobacz [limity zasobów rdzeń wirtualny-Azure SQL Database](resource-limits-vcore-single-databases.md) i [rdzeń wirtualny — pule elastyczne](resource-limits-vcore-elastic-pools.md).
 
 ## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Pula elastyczna: rozmiary magazynu i rozmiary obliczeń

@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/02/2020
 ms.author: erhopf
-ms.openlocfilehash: 951ae2c48bcdd92f640a37ddbb6430ca62a3b816
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e2302c92cf723b1ab28611d46769290ed54df43c
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81275348"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226414"
 ---
 > [!NOTE]
 > Zestaw Speech SDK for Unity obsługuje Pulpity systemu Windows (x86 i x64) lub platforma uniwersalna systemu Windows (x86, x64, ARM/ARM64), Android (x86, ARM32/64) i iOS (x64 symulator, ARM32 i ARM64)
@@ -32,7 +32,7 @@ Jeśli to już zrobione, świetnie. Kontynuujmy.
 
 ## <a name="create-a-unity-project"></a>Tworzenie projektu środowiska Unity
 
-1. Otwórz aparat Unity. Jeśli używasz aparatu Unity po raz pierwszy, zostanie wyświetlone okno **centrum** *<version number>* Unity. (Aby uzyskać dostęp do tego okna, można także otworzyć Centrum Unity bezpośrednio).
+1. Otwórz aparat Unity. Jeśli używasz aparatu Unity po raz pierwszy, zostanie wyświetlone okno **centrum Unity** *<version number>* . (Aby uzyskać dostęp do tego okna, można także otworzyć Centrum Unity bezpośrednio).
 
    [![Okno centrum Unity](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-hub.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-hub.png#lightbox)
 1. Wybierz pozycję **Nowy**. Zostanie wyświetlone okno **Utwórz nowy projekt z Unity** *<version number>* .
@@ -51,7 +51,7 @@ Po upływie tego czasu zostanie wyświetlone okno Edytor Unity.
 
 Teraz Dodajmy minimalny interfejs użytkownika do naszej sceny. Ten interfejs użytkownika zawiera przycisk służący do wyzwalania rozpoznawania mowy i pola tekstowego, aby wyświetlić wynik. W oknie [ **Hierarchia** ](https://docs.unity3d.com/Manual/Hierarchy.html)Przykładowa scena jest pokazywana przez środowisko Unity utworzone przy użyciu nowego projektu.
 
-1. W górnej części okna **Hierarchia** wybierz**przycisk** **Utwórz** > **interfejs użytkownika** > .
+1. W górnej części okna **Hierarchia** wybierz przycisk **Utwórz**  >  **interfejs użytkownika**  >  **Button**.
 
    Ta akcja powoduje utworzenie trzech obiektów gry, które można wyświetlić w oknie **hierarchii** : obiekt **Button** , obiekt **kanwy** zawierający przycisk i obiekt **EventSystem** .
 
@@ -61,7 +61,7 @@ Teraz Dodajmy minimalny interfejs użytkownika do naszej sceny. Ten interfejs u�
 
 1. W oknie [ **inspektora** ](https://docs.unity3d.com/Manual/UsingTheInspector.html) (domyślnie po prawej stronie) ustaw właściwości **pos X** i **pos** na **0**, aby przycisk został wyśrodkowany w środku kanwy.
 
-1. W oknie **Hierarchia** wybierz pozycję **Utwórz** > **tekst** **interfejsu użytkownika** > , aby utworzyć obiekt **tekstowy** .
+1. W oknie **Hierarchia** wybierz pozycję **Utwórz**  >  **tekst interfejsu użytkownika**  >  **Text** , aby utworzyć obiekt **tekstowy** .
 
 1. W oknie **Inspektor** ustaw właściwości **pos X** i **pos** na **0** i **120**, a następnie ustaw właściwości **Width** i **Height** na **240** i **120**. Te wartości zapewniają, że pole tekstowe i przycisk nie nakładają się.
 
@@ -73,23 +73,23 @@ Gdy skończysz, widok **sceny** powinien wyglądać podobnie do tego zrzutu ekra
 
 Aby dodać przykładowy kod skryptu dla projektu Unity, wykonaj następujące kroki:
 
-1. W [oknie projekt](https://docs.unity3d.com/Manual/ProjectView.html)wybierz pozycję **Utwórz** > **skrypt w języku c#** , aby dodać nowy skrypt w języku c#.
+1. W [oknie projekt](https://docs.unity3d.com/Manual/ProjectView.html)wybierz pozycję **Utwórz**  >  **skrypt w języku c#** , aby dodać nowy skrypt w języku c#.
 
    [![Okno projektu w edytorze Unity](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-project-window.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-project-window.png#lightbox)
 1. Nadaj skryptowi nazwę `HelloWorld`.
 
-1. Kliknij `HelloWorld` dwukrotnie, aby edytować nowo utworzony skrypt.
+1. Kliknij dwukrotnie `HelloWorld` , aby edytować nowo utworzony skrypt.
 
    > [!NOTE]
-   > Aby skonfigurować Edytor kodu, który ma być używany przez aparat Unity do edycji, wybierz pozycję **Edytuj** > **Preferencje**, a następnie przejdź do okna Preferencje **narzędzi zewnętrznych** . Aby uzyskać więcej informacji, zobacz [Podręcznik użytkownika środowiska Unity](https://docs.unity3d.com/Manual/Preferences.html).
+   > Aby skonfigurować Edytor kodu, który ma być używany przez aparat Unity do edycji, wybierz pozycję **Edytuj**  >  **Preferencje**, a następnie przejdź do okna Preferencje **narzędzi zewnętrznych** . Aby uzyskać więcej informacji, zobacz [Podręcznik użytkownika środowiska Unity](https://docs.unity3d.com/Manual/Preferences.html).
 
 1. Zastąp istniejący skrypt następującym kodem:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/unity/from-microphone/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Znajdź i Zamień ciąg `YourSubscriptionKey` na klucz subskrypcji usługi rozpoznawania mowy.
+1. Znajdź i Zamień ciąg na `YourSubscriptionKey` klucz subskrypcji usługi rozpoznawania mowy.
 
-1. Znajdź i Zastąp ciąg `YourServiceRegion` **identyfikatorem regionu** z [regionu](https://aka.ms/speech/sdkregion) skojarzonego z subskrypcją. Jeśli na przykład używasz bezpłatnej wersji próbnej, region to `westus`.
+1. Znajdź i Zastąp ciąg `YourServiceRegion` **identyfikatorem regionu** z [regionu](https://aka.ms/speech/sdkregion) skojarzonego z subskrypcją.
 
 1. Zapisz zmiany skryptu.
 
@@ -101,7 +101,7 @@ Teraz wróć do edytora aparatu Unity i Dodaj skrypt jako składnik do jednego z
 
    [![Okno inspektora w edytorze Unity](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-inspector-window.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-inspector-window.png#lightbox)
 
-1. Na liście rozwijanej Wyszukaj utworzony powyżej `HelloWorld` skrypt i dodaj go. W oknie **Inspektor** pojawia się sekcja **Hello World (skrypt)** , która wyświetla dwie niezainicjowane właściwości, **tekst wyjściowy** i **przycisk Rozpocznij odzyski**. Te właściwości składnika Unity są zgodne z właściwościami `HelloWorld` publicznymi klasy.
+1. Na liście rozwijanej Wyszukaj `HelloWorld` utworzony powyżej skrypt i dodaj go. W oknie **Inspektor** pojawia się sekcja **Hello World (skrypt)** , która wyświetla dwie niezainicjowane właściwości, **tekst wyjściowy** i **przycisk Rozpocznij odzyski**. Te właściwości składnika Unity są zgodne z właściwościami publicznymi `HelloWorld` klasy.
 
 1. Wybierz selektora obiektów właściwości **Start odzyski Button** (mała ikona okręgu z prawej strony właściwości) i wybierz utworzony wcześniej obiekt **Button** .
 
@@ -122,14 +122,14 @@ Teraz wszystko jest gotowe do uruchomienia aplikacji w edytorze aparatu Unity.
 
    [![Widok gry w edytorze Unity](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-03-output-inline.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-03-output-inline.png#lightbox)
 
-1. Sprawdź okno [ **konsoli** ](https://docs.unity3d.com/Manual/Console.html) pod kątem komunikatów debugowania. Jeśli okno **konsoli** nie jest wyświetlane, przejdź do paska menu i wybierz kolejno **okna** > **Ogólne** > **konsola** , aby je wyświetlić.
+1. Sprawdź okno [ **konsoli** ](https://docs.unity3d.com/Manual/Console.html) pod kątem komunikatów debugowania. Jeśli okno **konsoli** nie jest wyświetlane, przejdź do paska menu i wybierz kolejno **okna**  >  **Ogólne**  >  **konsola** , aby je wyświetlić.
 
 1. Po zakończeniu rozpoznawania mowy wybierz przycisk **odtwarzania** na pasku narzędzi edytora Unity, aby zatrzymać aplikację.
 
 ## <a name="additional-options-to-run-this-application"></a>Dodatkowe opcje uruchamiania aplikacji
 
 Tę aplikację można również wdrożyć jako aplikację systemu Android, autonomiczną aplikację systemu Windows lub aplikację platformy UWP.
-Aby uzyskać więcej informacji, zobacz nasze [przykładowe repozytorium](https://aka.ms/csspeech/samples). `quickstart/csharp-unity` Folder opisuje konfigurację dla tych dodatkowych obiektów docelowych.
+Aby uzyskać więcej informacji, zobacz nasze [przykładowe repozytorium](https://aka.ms/csspeech/samples). `quickstart/csharp-unity`Folder opisuje konfigurację dla tych dodatkowych obiektów docelowych.
 
 ## <a name="next-steps"></a>Następne kroki
 

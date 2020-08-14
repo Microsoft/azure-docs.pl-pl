@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: c119ebc8d87c00608fc515099711463f47b8ed1a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: c1b40cc8d52ffe5655401f7698790cdc05898331
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87901814"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225549"
 ---
 # <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>Migrowanie z obrazu zarządzanego do obrazu z galerii udostępnionych obrazów
 
@@ -25,7 +25,7 @@ Obrazy w galerii obrazów mają dwa składniki, które zostaną utworzone w tym 
 - **Wersja obrazu** jest używana do tworzenia maszyny wirtualnej w przypadku korzystania z galerii obrazów udostępnionych. Dla danego środowiska można mieć wiele wersji obrazu. Podczas tworzenia maszyny wirtualnej wersja obrazu jest używana do tworzenia nowych dysków dla maszyny wirtualnej. Wersje obrazów można wielokrotnie używać.
 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby ukończyć ten artykuł, musisz mieć istniejący obraz zarządzany. Jeśli zarządzany obraz zawiera dysk z danymi, rozmiar dysku danych nie może być większy niż 1 TB.
 
@@ -117,7 +117,7 @@ $job.State
 > [!NOTE]
 > Musisz poczekać na zakończenie kompilowania i replikowania wersji obrazu, aby można było użyć tego samego obrazu zarządzanego do utworzenia innej wersji obrazu. 
 >
-> Możesz również przechowywać obraz w magazynie Premiun przez dodanie `-StorageAccountType Premium_LRS` lub [nadmiarowy magazyn stref](../storage/common/storage-redundancy.md) przez dodanie `-StorageAccountType Standard_ZRS` go podczas tworzenia wersji obrazu.
+> Możesz również przechowywać obraz w magazynie w warstwie Premium, dodając `-StorageAccountType Premium_LRS` [Magazyn strefowo nadmiarowy](../storage/common/storage-redundancy.md) , dodając `-StorageAccountType Standard_ZRS` go do wersji obrazu.
 >
 
 ## <a name="delete-the-managed-image"></a>Usuń obraz zarządzany

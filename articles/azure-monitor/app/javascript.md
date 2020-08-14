@@ -4,12 +4,12 @@ description: Pobierz liczbę wyświetlanych stron i sesji, dane klienta sieci We
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 7c5abb109018bd8bc5b501fe728a3a0f422a3db7
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 3acb7379644b5bfcb22ed86b6bde7031095fef24
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905829"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224857"
 ---
 # <a name="application-insights-for-web-pages"></a>Usługa Application Insights dla stron sieci Web
 
@@ -115,7 +115,7 @@ Dostępne opcje konfiguracji to
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Wysyłanie danych telemetrycznych do Azure Portal
 
-Domyślnie Application Insights zestaw SDK języka JavaScript zbiera wiele elementów telemetrycznych, które są przydatne podczas określania kondycji aplikacji i środowiska użytkownika. Należą do nich następujące elementy:
+Domyślnie Application Insights zestaw SDK języka JavaScript zbiera wiele elementów telemetrycznych, które są przydatne podczas określania kondycji aplikacji i środowiska użytkownika. Należą do nich:
 
 - **Nieprzechwycone wyjątki** w aplikacji, w tym informacje o
     - Ślad stosu
@@ -217,8 +217,8 @@ Przez ustawienie `autoTrackPageVisitTime: true` czas, przez jaki użytkownik sp�
 
 | Rozszerzenia |
 |---------------|
-| [React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
-| [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
+| [React](javascript-react-plugin.md)|
+| [React Native](javascript-react-native-plugin.md)|
 
 ## <a name="correlation"></a>Korelacja
 
@@ -235,7 +235,7 @@ Aby włączyć `CORS` korelację, klient musi wysłać dwa dodatkowe nagłówki 
 
 W zależności od `Access-Control-Allow-Headers` konfiguracji po stronie serwera często konieczne jest przeprowadzenie listy po stronie serwera przez ręczne dodanie `Request-Id` i `Request-Context` .
 
-Access-Control-Allow-Headers: `Request-Id` , `Request-Context` ,`<your header>`
+Access-Control-Allow-Headers: `Request-Id` , `Request-Context` , `<your header>`
 
 Jeśli którykolwiek z serwerów innych firm, z którym komunikuje się klient, nie może zaakceptować `Request-Id` `Request-Context` nagłówków i i nie można zaktualizować ich konfiguracji, należy umieścić je w liście wykluczeń za pośrednictwem `correlationHeaderExcludeDomains` właściwości konfiguracja. Ta właściwość obsługuje symbole wieloznaczne.
 
@@ -302,7 +302,7 @@ Możesz połączyć zasób Application Insights z własnym kontenerem Blob Stora
 ### <a name="drag-and-drop"></a>Przeciągnij i upuść
 
 1. Wybierz element telemetrii wyjątku w Azure Portal, aby wyświetlić jego "kompleksowe" Szczegóły transakcji.
-2. Określ, które mapy źródłowe odpowiadają temu stosowi wywołań. Mapa źródłowa musi być zgodna z plikiem źródłowym ramki stosu, ale z sufiksem`.map`
+2. Określ, które mapy źródłowe odpowiadają temu stosowi wywołań. Mapa źródłowa musi być zgodna z plikiem źródłowym ramki stosu, ale z sufiksem `.map`
 3. Przeciągnij i upuść mapy źródłowe na stos wywołań w Azure Portal ![ animowany obraz pokazujący, jak przeciągać i upuszczać pliki map źródłowych z folderu kompilacji do okna stosu wywołań w Azure Portal.](https://i.imgur.com/Efue9nU.gif)
 
 ### <a name="application-insights-web-basic"></a>Application Insights Web Basic
@@ -377,7 +377,7 @@ Application Insights zestawu SDK języka JavaScript jest otwartym źródłem do 
 
 Aby zapoznać się z najnowszymi aktualizacjami i poprawkami błędów [, zapoznaj się z informacjami o wersji](./release-notes.md).
 
-## <a name="next-steps"></a><a name="next"></a>Następne kroki
+## <a name="next-steps"></a><a name="next"></a> Następne kroki
 * [Śledzenie użycia](usage-overview.md)
 * [Niestandardowe zdarzenia i metryki](api-custom-events-metrics.md)
 * [Tworzenie — pomiar— nauka](usage-overview.md)

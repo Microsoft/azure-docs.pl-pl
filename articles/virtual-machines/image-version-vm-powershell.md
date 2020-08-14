@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 681bd0aff909552531d682186d5b22dce5ef33f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 757b297d3d74365928cda0934485c0018f28ffee
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010771"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225652"
 ---
 # <a name="preview-create-an-image-from-a-vm"></a>Wersja zapoznawcza: Tworzenie obrazu na podstawie maszyny wirtualnej
 
@@ -27,7 +27,7 @@ Obrazy w galerii obrazów mają dwa składniki, które zostaną utworzone w tym 
 - **Wersja obrazu** jest używana do tworzenia maszyny wirtualnej w przypadku korzystania z galerii obrazów udostępnionych. Dla danego środowiska można mieć wiele wersji obrazu. Podczas tworzenia maszyny wirtualnej wersja obrazu jest używana do tworzenia nowych dysków dla maszyny wirtualnej. Wersje obrazów można wielokrotnie używać.
 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby ukończyć ten artykuł, musisz mieć istniejącą udostępnioną galerię obrazów oraz istniejącą maszynę wirtualną na platformie Azure, która będzie używana jako źródło. 
 
@@ -133,7 +133,7 @@ $job.State
 > [!NOTE]
 > Musisz poczekać na zakończenie kompilowania i replikowania wersji obrazu, aby można było użyć tego samego obrazu zarządzanego do utworzenia innej wersji obrazu.
 >
-> Możesz również przechowywać obraz w magazynie Premiun przez dodanie `-StorageAccountType Premium_LRS` lub [nadmiarowy magazyn stref](../storage/common/storage-redundancy.md) przez dodanie `-StorageAccountType Standard_ZRS` go podczas tworzenia wersji obrazu.
+> Możesz również przechowywać obraz w magazynie w warstwie Premium, dodając `-StorageAccountType Premium_LRS` [Magazyn strefowo nadmiarowy](../storage/common/storage-redundancy.md) , dodając `-StorageAccountType Standard_ZRS` go do wersji obrazu.
 >
 
 ## <a name="next-steps"></a>Następne kroki

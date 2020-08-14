@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6bd09a24202b599c1f008e7b046ea5f93ff0323
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4c4e34c6f13f7013847e99a362716fc9c570cdaf
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489796"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224921"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Włączanie i używanie usługi Azure Multi-Factor Authentication ze starszymi aplikacjami przy użyciu haseł aplikacji
 
@@ -41,6 +41,8 @@ Korzystając z haseł aplikacji, należy zastosować następujące zagadnienia:
 * Aplikacje, które buforują hasła i używają ich w scenariuszach lokalnych, mogą się nie powieść, ponieważ hasło aplikacji nie jest znane poza kontem służbowym. Przykładem tego scenariusza są wiadomości e-mail programu Exchange, które są lokalne, ale zarchiwizowana poczta znajduje się w chmurze. W tym scenariuszu to samo hasło nie działa.
 * Po włączeniu usługi Azure Multi-Factor Authentication na koncie użytkownika hasła aplikacji mogą być używane z większością klientów nie korzystających z przeglądarki, takich jak Outlook i Microsoft Skype dla firm. Jednak akcje administracyjne nie mogą być wykonywane przy użyciu haseł aplikacji przez aplikacje nie korzystające z przeglądarki, takie jak Windows PowerShell. Akcje nie mogą być wykonywane nawet wtedy, gdy użytkownik ma konto administracyjne.
     * Aby uruchamiać skrypty programu PowerShell, należy utworzyć konto usługi o silnym haśle i nie włączać konta na potrzeby weryfikacji dwuetapowej.
+* Jeśli podejrzewasz, że zabezpieczenia konta użytkownika zostały naruszone i odwoływanie/Resetowanie hasła konta, należy również zaktualizować hasła aplikacji. Hasła aplikacji nie są automatycznie odwoływane, gdy hasło do konta użytkownika zostanie odwołane/zresetowane. Użytkownik powinien usunąć istniejące hasła aplikacji i utworzyć nowe.
+   * Aby uzyskać więcej informacji, zobacz [Tworzenie i usuwanie haseł aplikacji ze strony dodatkowej weryfikacji zabezpieczeń](../user-help/multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page).
 
 >[!WARNING]
 > Hasła aplikacji nie działają w środowiskach hybrydowych, w których klienci komunikują się z punktami końcowymi automatycznego odnajdywania lokalnego i w chmurze. Hasła domeny są wymagane do uwierzytelniania lokalnego. Do uwierzytelniania w chmurze wymagane są hasła aplikacji.

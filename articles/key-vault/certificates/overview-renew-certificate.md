@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 41085ee629189c32c1bc7196f23805c9c48d154a
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: beea6f7472d6bc871b4a2df323445b05671a621f
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056282"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224564"
 ---
 # <a name="about-azure-key-vault-certificate-renewal"></a>Informacje o odnowieniu certyfikatu Azure Key Vault
 
@@ -60,8 +60,11 @@ Dobre wiadomości ponownie! Magazyny kluczy platformy Azure będą również kor
 Jeśli wystawiony certyfikat jest w stanie "Disabled" w Azure Portal, należy wyświetlić operację certyfikatu, aby wyświetlić komunikat o błędzie dla tego certyfikatu.
 
 ### <a name="frequently-asked-questions"></a>Często zadawane pytania
-Czy po autoodnowieniu certyfikatu Tagi będą replikowane?
-Nie, Tagi nie będą replikowane, chyba że użytkownik ręcznie skopiuje Tagi.
+* Jak można przetestować funkcję autorotacji certyfikatu?
+  Utwórz certyfikat o ważności 1 miesiąca, a następnie ustaw akcję czasu życia na rotację w 1%. To ustawienie spowoduje obrócenie certyfikatu w 7,2 godzinach.
+  
+* Czy po autoodnowieniu certyfikatu Tagi będą replikowane?
+  Nie, Tagi nie będą replikowane, chyba że użytkownik ręcznie skopiuje Tagi.
 
 ### <a name="see-also"></a>Zobacz też
 *   [Integrowanie usługi Key Vault z urzędem certyfikacji DigiCert](how-to-integrate-certificate-authority.md)

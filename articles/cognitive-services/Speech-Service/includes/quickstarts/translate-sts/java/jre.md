@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 8208f6bd4e41063f514d6008166bd64ce7b1cfca
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e13d6c45c57eeb641f79ad50f4c7bcf6ffd1a685
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78925362"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226123"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -27,7 +27,7 @@ Przed rozpoczęciem upewnij się, że:
 
 ## <a name="add-sample-code"></a>Dodawanie przykładowego kodu
 
-1. Aby dodać nową pustą klasę do projektu Java, wybierz pozycję **plik** > **Nowa** > **Klasa**.
+1. Aby dodać nową pustą klasę do projektu Java, wybierz pozycję **plik**  >  **Nowa**  >  **Klasa**.
 
 1. W oknie **Nowa klasa Java** wprowadź ciąg **speechsdk.quickstart** w polu **Pakiet** i **Main** w polu **Nazwa**.
 
@@ -134,13 +134,13 @@ Przed rozpoczęciem upewnij się, że:
 
 1. Zastąp ciąg `YourSubscriptionKey` kluczem subskrypcji.
 
-1. Zastąp ciąg `YourServiceRegion`[regionem](~/articles/cognitive-services/Speech-Service/regions.md) skojarzonym z subskrypcją (na przykład `westus` w przypadku subskrypcji bezpłatnej wersji próbnej).
+1. Zamień ciąg na `YourServiceRegion` [region](~/articles/cognitive-services/Speech-Service/regions.md) skojarzony z subskrypcją.
 
 1. Zapisz zmiany projektu.
 
-## <a name="build-and-run-the-app"></a>Kompilowanie i uruchamianie aplikacji
+## <a name="build-and-run-the-app"></a>Skompiluj i uruchom aplikację
 
-Naciśnij klawisz F11 lub wybierz polecenie **Uruchom** > **debugowanie**.
+Naciśnij klawisz F11 lub wybierz polecenie **Uruchom**  >  **debugowanie**.
 
 1. Wypowiedz zwrot lub zdanie w języku angielskim. Aplikacja przesyła mowę do usługi mowy, która tłumaczy i przekształca na tekst (w tym przypadku do języka niemieckiego). Usługa mowy wysyła następnie dźwięk, a następnie tekst z powrotem do aplikacji do wyświetlenia.
 

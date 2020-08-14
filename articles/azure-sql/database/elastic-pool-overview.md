@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 07/28/2020
-ms.openlocfilehash: 33f87bf6f030adb48f2c4f8eb45027c1b298d812
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c36a8e6f2e104d91bd7738849918c46802cd0dca
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419720"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225941"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Pule elastyczne ułatwiają zarządzanie wieloma bazami danych w Azure SQL Database i skalowanie ich.
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ Poszczególne bazy danych w ramach puli mają możliwość elastycznego skalowan
 
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Kiedy należy uwzględnić pulę elastyczną SQL Database
 
-Pule są odpowiednie dla wielu baz danych o określonych wzorcach użycia. Dla danej bazy danych ten wzorzec charakteryzuje się niskim średnim wykorzystaniem oraz stosunkowo rzadkimi okresami zwiększonego użycia. Z kolei wiele baz danych z trwałym średnim wykorzystaniem nie należy umieszczać w tej samej puli elastycznej.
+Pule są odpowiednio dopasowane do wielu baz danych o określonych wzorcach użycia. Dla danej bazy danych ten wzorzec charakteryzuje się niskim średnim wykorzystaniem oraz stosunkowo rzadkimi okresami zwiększonego użycia. Z kolei wiele baz danych z trwałym średnim wykorzystaniem nie należy umieszczać w tej samej puli elastycznej.
 
 Im więcej baz danych możesz dodać do puli, tym większe uzyskujesz oszczędności. W zależności od wzorca wykorzystania aplikacji możliwe jest wyświetlanie oszczędności z użyciem co najmniej dwóch baz danych S3.
 
@@ -113,11 +113,11 @@ Poniższe kroki ułatwiają oszacowanie, czy pula jest bardziej opłacalna niż 
 
 W przypadku modelu zakupu opartego na jednostkach DTU:
 
-MAKS. (<*całkowita liczba baz danych* x *średnia użycie jednostek DTU na bazę danych*>, <*liczbę współbieżnych szczytowych wartości* *użycia jednostek DTU na bazę danych*: baz danych x)
+MAKS. (<*całkowita liczba baz danych* x *średnia użycie jednostek DTU na bazę danych*>, <*liczbę WSPÓŁBIEŻNIE szczytowego* *użycia jednostek DTU baz danych X na bazę danych*>)
 
 W przypadku modelu zakupu opartego na rdzeń wirtualny:
 
-MAKS. (<*całkowita liczba baz danych* x *średnia rdzeń wirtualny na bazę danych*>, <*liczbę współbieżnych szczytów* użycia rdzeń wirtualny baz danych x *na bazę danych*)
+MAX (<*całkowita liczba baz danych* x *średnia rdzeń wirtualny na bazę danych*>, <*liczbę współbieżnie szczytowego* *użycia rdzeń wirtualny baz danych x na bazę danych*>)
 
 2. Oszacuj miejsce do magazynowania wymagane dla puli przez dodanie liczby bajtów potrzebnych dla wszystkich baz danych w puli. Następnie określ rozmiar puli (w jednostkach eDTU), który zapewni tę ilość miejsca przechowywania.
 3. W przypadku modelu zakupu opartego na jednostkach DTU należy uzyskać więcej wartości szacunkowych jednostek eDTU z kroku 1 i 2. W przypadku modelu zakupu opartego na rdzeń wirtualny należy uzyskać oszacowanie rdzeń wirtualny z kroku 1.

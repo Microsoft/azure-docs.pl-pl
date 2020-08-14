@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: a045ef0fea70347f168e8ae0cc93e0c359f31dfa
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 43bc278ea3cbd14690f1a9ac9263872536b5b174
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031130"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224785"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Rejestrowanie rozszerzeń powiązań Azure Functions
 
@@ -31,7 +31,7 @@ Poniższa tabela zawiera informacje o tym, kiedy i w jaki sposób rejestrujesz p
 |Biblioteka klas języka C# przy użyciu programu Visual Studio|[Korzystanie z narzędzi NuGet](#vs)|[Korzystanie z narzędzi NuGet](#vs)|
 |Biblioteka klas języka C# używająca Visual Studio Code|Nie dotyczy|[Użyj interfejs wiersza polecenia platformy .NET Core](#vs-code)|
 
-<sup>*</sup>Portal używa pakietów rozszerzeń.
+<sup>*</sup> Portal używa pakietów rozszerzeń.
 
 ## <a name="extension-bundles"></a><a name="extension-bundles"></a>Pakiety rozszerzeń
 
@@ -53,7 +53,7 @@ Aby użyć pakietów rozszerzeń, zaktualizuj *host.jsw* pliku, aby uwzględnić
 
 ## <a name="nuget-packages"></a><a name="local-csharp"></a>Pakiety NuGet
 
-W przypadku projektu funkcji opartych na bibliotece klas języka C#, należy zainstalować pakiety rozszerzeń przeznaczone specjalnie dla projektów, które nie są klasami 
+W przypadku projektu opartego na bibliotece klas języka C# rozszerzenia należy instalować bezpośrednio. Zestawy rozszerzeń są przeznaczone specjalnie dla projektów, które nie są oparte na bibliotece klas C#.
 
 ### <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>\#Biblioteka klas C z programem Visual Studio
 
@@ -69,7 +69,7 @@ Zastąp `<TARGET_VERSION>` w przykładzie konkretną wersją pakietu, taką jak 
 
 Jeśli używasz `Install-Package` , aby odwołać się do powiązania, nie musisz używać [pakietów rozszerzeń](#extension-bundles). To podejście jest specyficzne dla bibliotek klas skompilowanych w programie Visual Studio.
 
-## <a name="c-class-library-with-visual-studio-code"></a><a name="vs-code"></a>Biblioteka klas języka C# z Visual Studio Code
+## <a name="c-class-library-with-visual-studio-code"></a><a name="vs-code"></a> Biblioteka klas języka C# z Visual Studio Code
 
 W **Visual Studio Code**Zainstaluj pakiety dla projektu biblioteki klas C# z wiersza polecenia przy użyciu polecenia [dotnet add Package](/dotnet/core/tools/dotnet-add-package) w interfejs wiersza polecenia platformy .NET Core. Poniższy przykład ilustruje sposób dodawania powiązania:
 

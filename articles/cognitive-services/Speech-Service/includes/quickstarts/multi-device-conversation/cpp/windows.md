@@ -7,12 +7,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: ralphe
-ms.openlocfilehash: 015986ffa687142cf20ca18cff175ac6c5952a11
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 1999100be3dd65518db7b5496ad5aaa1a407ee9e
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80671295"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226554"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -199,15 +199,15 @@ Przed rozpoczęciem upewnij się, że:
 
 1. W tym samym pliku zastąp ciąg `YourSubscriptionKey` kluczem subskrypcji.
 
-1. Zastąp ciąg `YourServiceRegion`[regionem](~/articles/cognitive-services/Speech-Service/regions.md) skojarzonym z subskrypcją (na przykład `westus` w przypadku subskrypcji bezpłatnej wersji próbnej).
+1. Zamień ciąg na `YourServiceRegion` [region](~/articles/cognitive-services/Speech-Service/regions.md) skojarzony z subskrypcją.
 
-1. Na pasku menu wybierz kolejno opcje **plik** > **Zapisz wszystko**.
+1. Na pasku menu wybierz kolejno opcje **plik**  >  **Zapisz wszystko**.
 
 ## <a name="build-and-run-the-application-to-create-a-new-conversation"></a>Kompiluj i uruchom aplikację, aby utworzyć nową konwersację
 
-1. Na pasku menu wybierz kolejno opcje **Kompiluj** > kompilacje**rozwiązanie** , aby skompilować aplikację. Kod powinien teraz zostać skompilowany bez błędów.
+1. Na pasku menu wybierz kolejno opcje **Kompiluj**kompilacje  >  **rozwiązanie** , aby skompilować aplikację. Kod powinien teraz zostać skompilowany bez błędów.
 
-1. Wybierz **Debuguj** > **Rozpocznij debugowanie** (lub naciśnij klawisz <kbd>F5</kbd>), aby uruchomić aplikację **HelloWorld** .
+1. Wybierz **Debuguj**  >  **Rozpocznij debugowanie** (lub naciśnij klawisz <kbd>F5</kbd>), aby uruchomić aplikację **HelloWorld** .
 
 1. Gdy zobaczysz `Started transcribing` komunikat, możesz zacząć mówić. Zobaczysz, że transkrypcje pojawią się podczas mówienia
     - Jeśli kod konwersacji jest współużytkowany z innymi osobami, które dołączają do konwersacji, zobaczysz również ich transkrypcję.
@@ -215,7 +215,7 @@ Przed rozpoczęciem upewnij się, że:
 1. Gdy skończysz mówić, naciśnij <kbd>klawisze CTRL + C</kbd> na klawiaturze, aby zatrzymać przechwytywanie audio.
 
     > [!NOTE]
-    > Może zostać wyświetlony komunikat z programu Visual Studio dotyczący wyjątku podobnego do: `Exception thrown at 0x76EB90BF (KernelBase.dll) in helloworld.exe: 0x40010005: Control-C.` można to bezpiecznie zignorować.
+    > Może zostać wyświetlony komunikat z programu Visual Studio dotyczący wyjątku podobnego do: można `Exception thrown at 0x76EB90BF (KernelBase.dll) in helloworld.exe: 0x40010005: Control-C.` to bezpiecznie zignorować.
     > <br/> <br/>
     > Naciśnij klawisz <kbd>F5</kbd>, aby kontynuować.
 
@@ -285,9 +285,9 @@ Przed rozpoczęciem upewnij się, że:
 
 4. Wróć do programu Visual Studio i Zastąp `YourConversationId` w `int main()` funkcji identyfikatorem konwersacji z poprzedniego kroku.
 
-5. Na pasku menu wybierz kolejno opcje **Kompiluj** > kompilacje**rozwiązanie** , aby skompilować aplikację. Kod powinien zostać skompilowany bez błędów.
+5. Na pasku menu wybierz kolejno opcje **Kompiluj**kompilacje  >  **rozwiązanie** , aby skompilować aplikację. Kod powinien zostać skompilowany bez błędów.
 
-6. Wybierz **Debuguj** > **Rozpocznij debugowanie** (lub naciśnij klawisz <kbd>F5</kbd>), aby uruchomić aplikację **HelloWorld** .
+6. Wybierz **Debuguj**  >  **Rozpocznij debugowanie** (lub naciśnij klawisz <kbd>F5</kbd>), aby uruchomić aplikację **HelloWorld** .
 
 7. Gdy zobaczysz `Started transcribing` komunikat, możesz zacząć mówić. W trakcie mówienia będą widoczne transkrypcje.
     - Jeśli wrócisz do przeglądarki, Twoje transkrypcje będą widoczne tam, gdzie mówisz.
@@ -295,7 +295,7 @@ Przed rozpoczęciem upewnij się, że:
 8.  Gdy skończysz mówić, naciśnij <kbd>klawisze CTRL + C</kbd> , aby zatrzymać przechwytywanie audio i zakończyć konwersację.
 
     > [!NOTE]
-    > Może zostać wyświetlony komunikat z programu Visual Studio dotyczący wyjątku podobnego do: `Exception thrown at 0x76EB90BF (KernelBase.dll) in helloworld.exe: 0x40010005: Control-C.` można to bezpiecznie zignorować.
+    > Może zostać wyświetlony komunikat z programu Visual Studio dotyczący wyjątku podobnego do: można `Exception thrown at 0x76EB90BF (KernelBase.dll) in helloworld.exe: 0x40010005: Control-C.` to bezpiecznie zignorować.
     > <br/> <br/>
     > Naciśnij klawisz <kbd>F5</kbd>, aby kontynuować.
 

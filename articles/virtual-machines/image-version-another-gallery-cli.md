@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: f1e3598f2a805dfc2ebf92395db6b7bf6b0b147a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e8aabcd1c68272a78b3c1fe88913c5a62496f681
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494687"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225839"
 ---
 # <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Kopiowanie obrazu z innej galerii przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -22,7 +22,7 @@ Jeśli masz wiele galerii w organizacji, możesz również utworzyć wersje obra
 
 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby ukończyć ten artykuł, musisz mieć istniejącą galerię źródłową, definicję obrazu i wersję obrazu. Należy również mieć galerię docelową. 
 
@@ -154,7 +154,7 @@ az sig image-version create \
 > [!NOTE]
 > Musisz poczekać na zakończenie kompilowania i replikowania wersji obrazu, aby można było użyć tego samego obrazu zarządzanego do utworzenia innej wersji obrazu.
 >
-> Możesz również przechowywać obraz w magazynie Premiun przez dodanie `--storage-account-type  premium_lrs` lub [nadmiarowy magazyn stref](../storage/common/storage-redundancy.md) przez dodanie `--storage-account-type  standard_zrs` go podczas tworzenia wersji obrazu.
+> Możesz również przechowywać obraz w magazynie w warstwie Premium, dodając `--storage-account-type  premium_lrs` [Magazyn strefowo nadmiarowy](../storage/common/storage-redundancy.md) , dodając `--storage-account-type  standard_zrs` go do wersji obrazu.
 >
 
 ## <a name="next-steps"></a>Następne kroki

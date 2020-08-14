@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: chlandsi
-ms.openlocfilehash: e869a6581ac29ac234c075d258b59dbd45045ee2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0d8128d02409072b2c43fb2c0de3766e7c8ed63d
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78925405"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226369"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -76,9 +76,9 @@ Przed rozpoczęciem upewnij się, że:
 
 1. W tym samym pliku zastąp ciąg `YourSubscriptionKey` kluczem subskrypcji.
 
-1. Zastąp ciąg `YourServiceRegion`[regionem](../../../../regions.md) skojarzonym z subskrypcją (na przykład `westus` w przypadku subskrypcji bezpłatnej wersji próbnej).
+1. Zamień ciąg na `YourServiceRegion` [region](../../../../regions.md) skojarzony z subskrypcją.
 
-1. Zapisz zmiany, które wprowadziłeś `quickstart.py`.
+1. Zapisz zmiany, które wprowadziłeś `quickstart.py` .
 
 ## <a name="build-and-run-your-app"></a>Kompilowanie i uruchamianie aplikacji
 

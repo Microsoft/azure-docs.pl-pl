@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 6979ce65022f350a93f533951d634b8e436283bc
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 91adafedfc8f4e6b4948b0dcfe541e2754b47556
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88186366"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226280"
 ---
 **Wolumin zbierania danych i ich przechowywanie** 
 
@@ -64,7 +64,7 @@ ms.locfileid: "88186366"
 | Maksymalna liczba znaków w nazwie kolumny | 500 | |
 | Eksportowanie danych | Obecnie niedostępne | Agreguj i Eksportuj dane przy użyciu funkcji platformy Azure lub aplikacji logiki. | 
 
-**Współczynnik ilości woluminu pozyskiwania danych**
+**<a name="data-ingestion-volume-rate">Współczynnik ilości woluminu pozyskiwania danych</a>**
 
 Azure Monitor to usługa danych o dużej skali, która umożliwia tysiącom klientów wysyłanie terabajtów danych co miesiąc w coraz większej tempie. Limit ilości woluminu ma na celu ochronę Azure Monitor klientów przed nagłymi wzrostami pozyskiwania w środowisku wielodostępnym. Domyślny próg współczynnika objętości pozyskiwania wynoszący 500 MB (skompresowany) dotyczy obszarów roboczych, czyli około **6 GB/min** nieskompresowanych — rzeczywisty rozmiar może się różnić między typami danych w zależności od długości dziennika i jego stosunku kompresji. Ten próg dotyczy wszystkich danych pobieranych, niezależnie od tego, czy są wysyłane z zasobów platformy Azure przy użyciu [ustawień diagnostycznych](../articles/azure-monitor/platform/diagnostic-settings.md), [interfejsu API modułu zbierającego dane](../articles/azure-monitor/platform/data-collector-api.md) i agentów.
 

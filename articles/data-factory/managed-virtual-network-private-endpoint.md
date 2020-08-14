@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
-ms.openlocfilehash: c0f23c864430b6cb2f49f924d5aaa8bde296037c
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 14a3a76ef4fefb7a33b272b846e1f1cb66644c3e
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135967"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225686"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory Managed Virtual Network (wersja zapoznawcza)
 
@@ -82,15 +82,11 @@ Poniższe źródła danych umożliwiają łączenie się za pośrednictwem prywa
 - Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)
 - Azure CosmosDB — SQL
 - W usłudze Azure Key Vault
-- Link prywatny platformy Azure
+- Usługa linków prywatnych platformy Azure
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Komunikacja wychodząca za pośrednictwem publicznego punktu końcowego z zarządzanych Virtual Network APD
 - Tylko port 443 jest otwarty dla komunikacji wychodzącej.
 - Usługi Azure Storage i Azure Data Lake Gen2 nie są obsługiwane przez publiczny punkt końcowy z Virtual Network zarządzanych przez usługę ADF.
-
-### <a name="other-known-issues"></a>Inne znane problemy
-Debugowanie przebiegu na potrzeby łączności CosmosDB nie działa łącznie z debugowaniem przepływu danych i potoku.
-
 
 ## <a name="next-steps"></a>Następne kroki
 

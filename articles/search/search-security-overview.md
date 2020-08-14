@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: fb265f8a8ab34972dac8529d267e41edaf0acb4c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4bf8f5d7bb8fd262fefc7cbf2f8ca906136509d5
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829292"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225278"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Zabezpieczenia w usłudze Azure Wyszukiwanie poznawcze — Omówienie
 
@@ -36,7 +36,7 @@ Obejrzyj ten krótki film wideo, aby zapoznać się z omówieniem architektury z
 
 Na platformie Azure Wyszukiwanie poznawcze szyfrowanie rozpoczyna się z połączeniami i transmisjami oraz rozciąga się na zawartość przechowywaną na dysku. W przypadku usług wyszukiwania w publicznej sieci Internet usługa Azure Wyszukiwanie poznawcze nasłuchuje na porcie HTTPS 443. Wszystkie połączenia klient-usługa korzystają z szyfrowania TLS 1,2. Wcześniejsze wersje (1,0 lub 1,1) nie są obsługiwane.
 
-W przypadku danych obsługiwanych wewnętrznie przez usługę wyszukiwania w poniższej tabeli opisano [modele szyfrowania danych](../security/fundamentals/encryption-atrest.md#data-encryption-models). Niektóre funkcje, takie jak magazyn wiedzy, wzbogacanie przyrostowe i indeksowanie oparte na indeksatorach, odczytywanie i zapisywanie struktur danych w innych usługach platformy Azure. Te usługi mają własne poziomy obsługi szyfrowania oddzielone od Wyszukiwanie poznawcze platformy Azure.
+W przypadku danych obsługiwanych wewnętrznie przez usługę wyszukiwania w poniższej tabeli opisano [modele szyfrowania danych](../security/fundamentals/encryption-models.md). Niektóre funkcje, takie jak magazyn wiedzy, wzbogacanie przyrostowe i indeksowanie oparte na indeksatorach, odczytywanie i zapisywanie struktur danych w innych usługach platformy Azure. Te usługi mają własne poziomy obsługi szyfrowania oddzielone od Wyszukiwanie poznawcze platformy Azure.
 
 | Model | Ponownie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Wymagania&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Ograniczenia | Dotyczy |
 |------------------|-------|-------------|--------------|------------|
@@ -54,7 +54,7 @@ Klucze zarządzane przez klienta wymagają dodatkowej usługi do obciążania, A
 
 <a name="double-encryption"></a>
 
-### <a name="double-encryption"></a>Podwójne szyfrowanie 
+### <a name="double-encryption"></a>Podwójne szyfrowanie
 
 Na platformie Azure Wyszukiwanie poznawcze podwójne szyfrowanie jest rozszerzeniem CMK. Należy zrozumieć, że jest to szyfrowanie dwustronne (raz przez CMK, a następnie przez klucze zarządzane przez usługę) oraz kompleksowy zakres, obejmujący długoterminowy magazyn, który jest zapisywany na dysku z danymi, i krótkoterminowy magazyn zapisany na dyskach tymczasowych. Różnica między CMK przed sierpnia 1 2020 i po nim, a co czyni CMK funkcją podwójnego szyfrowania w usłudze Azure Wyszukiwanie poznawcze, to dodatkowe szyfrowanie danych na dyskach tymczasowych.
 
@@ -74,7 +74,7 @@ Funkcje zabezpieczeń ruchu przychodzącego chronią punkt końcowy usługi wysz
 
 ### <a name="public-access-using-api-keys"></a>Dostęp publiczny przy użyciu kluczy interfejsu API
 
-Domyślnie dostęp do usługi wyszukiwania odbywa się za pośrednictwem chmury publicznej, przy użyciu uwierzytelniania opartego na kluczach dla administratorów lub dostępu do zapytań do punktu końcowego usługi wyszukiwania. Klucz API-Key jest ciągiem zawierającym losowo wygenerowane liczby i litery. Typ klucza (administrator lub zapytanie) określa poziom dostępu. Przesyłanie prawidłowego klucza jest uważane za potwierdzenie, że żądanie pochodzi od zaufanej jednostki. 
+Domyślnie dostęp do usługi wyszukiwania odbywa się za pośrednictwem chmury publicznej, przy użyciu uwierzytelniania opartego na kluczach dla administratorów lub dostępu do zapytań do punktu końcowego usługi wyszukiwania. Klucz API-Key jest ciągiem zawierającym losowo wygenerowane liczby i litery. Typ klucza (administrator lub zapytanie) określa poziom dostępu. Przesyłanie prawidłowego klucza jest uważane za potwierdzenie, że żądanie pochodzi od zaufanej jednostki.
 
 Istnieją dwa poziomy dostępu do usługi wyszukiwania, które są obsługiwane przez następujące klucze interfejsu API:
 
@@ -92,15 +92,15 @@ Dla każdego żądania wymagane jest uwierzytelnianie, gdzie każde żądanie sk
 
 Aby dodatkowo kontrolować dostęp do usługi wyszukiwania, można utworzyć reguły zapory dla ruchu przychodzącego, które zezwalają na dostęp do określonego adresu IP lub zakresu adresów IP. Wszystkie połączenia klientów muszą mieć dozwolony adres IP lub nastąpi odmowa połączenia.
 
-Za pomocą portalu można [skonfigurować dostęp przychodzący](service-configure-firewall.md). 
+Za pomocą portalu można [skonfigurować dostęp przychodzący](service-configure-firewall.md).
 
-Alternatywnie możesz użyć interfejsów API REST zarządzania. Interfejs API w wersji 2020-03-13 z parametrem [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) umożliwia ograniczenie dostępu do usługi przez identyfikację adresów IP, pojedynczo lub w zakresie, które mają udzielić dostępu do usługi wyszukiwania. 
+Alternatywnie możesz użyć interfejsów API REST zarządzania. Interfejs API w wersji 2020-03-13 z parametrem [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) umożliwia ograniczenie dostępu do usługi przez identyfikację adresów IP, pojedynczo lub w zakresie, które mają udzielić dostępu do usługi wyszukiwania.
 
 ### <a name="private-endpoint-no-internet-traffic"></a>Prywatny punkt końcowy (bez ruchu internetowego)
 
-[Prywatny punkt końcowy](../private-link/private-endpoint-overview.md) dla systemu Azure wyszukiwanie poznawcze umożliwia klientowi w [sieci wirtualnej](../virtual-network/virtual-networks-overview.md) bezpieczne uzyskiwanie dostępu do danych w indeksie wyszukiwania za pośrednictwem [prywatnego linku](../private-link/private-link-overview.md). 
+[Prywatny punkt końcowy](../private-link/private-endpoint-overview.md) dla systemu Azure wyszukiwanie poznawcze umożliwia klientowi w [sieci wirtualnej](../virtual-network/virtual-networks-overview.md) bezpieczne uzyskiwanie dostępu do danych w indeksie wyszukiwania za pośrednictwem [prywatnego linku](../private-link/private-link-overview.md).
 
-Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej na potrzeby połączeń z usługą wyszukiwania. Ruch sieciowy między klientem a usługą wyszukiwania odbywa się za pośrednictwem sieci wirtualnej i łączy prywatnych w sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu. Sieć wirtualna umożliwia bezpieczną komunikację między zasobami, z siecią lokalną oraz Internetem. 
+Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej na potrzeby połączeń z usługą wyszukiwania. Ruch sieciowy między klientem a usługą wyszukiwania odbywa się za pośrednictwem sieci wirtualnej i łączy prywatnych w sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu. Sieć wirtualna umożliwia bezpieczną komunikację między zasobami, z siecią lokalną oraz Internetem.
 
 Chociaż to rozwiązanie jest najbezpieczniejsze, korzystanie z dodatkowych usług jest kosztem dodatkowym, dlatego należy upewnić się, że masz jasne zrozumienie korzyści przed nadaniem się do niego. lub więcej informacji o kosztach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/private-link/). Aby uzyskać więcej informacji o tym, jak te składniki współpracują ze sobą, Obejrzyj wideo w górnej części tego artykułu. Pokrycie opcji prywatnego punktu końcowego zaczyna się od 5:48 do wideo. Aby uzyskać instrukcje dotyczące sposobu konfigurowania punktu końcowego, zobacz [Tworzenie prywatnego punktu końcowego dla wyszukiwanie poznawcze platformy Azure](service-create-private-endpoint.md).
 
@@ -140,11 +140,11 @@ Usługa Azure Wyszukiwanie poznawcze ma certyfikowaną zgodność z wieloma stan
 
 Aby zapewnić zgodność, można użyć [Azure Policy](../governance/policy/overview.md) do wdrożenia najlepszych rozwiązań dotyczących [zabezpieczeń platformy Azure](../security/benchmarks/introduction.md). Usługa Azure Security test jest zbiorem zaleceń dotyczących zabezpieczeń, które zostały zamapowane na funkcje kontroli zabezpieczeń, które mapują na kluczowe akcje, które należy podjąć w celu ograniczenia zagrożeń dla usług i danych. Obecnie istnieją 11 kontroli zabezpieczeń, w tym [zabezpieczenia sieci](../security/benchmarks/security-control-network-security.md), [Rejestrowanie i monitorowanie](../security/benchmarks/security-control-logging-monitoring.md)oraz [Ochrona danych](../security/benchmarks/security-control-data-protection.md) .
 
-Azure Policy to funkcja wbudowana w platformę Azure, która ułatwia zarządzanie zgodnością wielu standardów, w tym z cenami testów zabezpieczeń platformy Azure. W przypadku dobrze znanych wzorców Azure Policy udostępnia wbudowane definicje, które zawierają zarówno kryteria, jak i odpowiedzi z możliwością podejmowania działań, które nie są zgodne. 
+Azure Policy to funkcja wbudowana w platformę Azure, która ułatwia zarządzanie zgodnością wielu standardów, w tym z cenami testów zabezpieczeń platformy Azure. W przypadku dobrze znanych wzorców Azure Policy udostępnia wbudowane definicje, które zawierają zarówno kryteria, jak i odpowiedzi z możliwością podejmowania działań, które nie są zgodne.
 
 W przypadku usługi Azure Wyszukiwanie poznawcze istnieje obecnie jedna wbudowana definicja. Służy do rejestrowania diagnostycznego. Za pomocą tego wbudowanego programu można przypisać zasady, które identyfikują dowolną usługę wyszukiwania, w której brakuje rejestrowania diagnostycznego, a następnie włącza ją. Aby uzyskać więcej informacji, zobacz [Azure Policy kontroli zgodności z przepisami dla wyszukiwanie poznawcze platformy Azure](security-controls-policy.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Podstawy zabezpieczeń platformy Azure](../security/fundamentals/index.yml)
 + [Zabezpieczenia platformy Azure](https://azure.microsoft.com/overview/security)

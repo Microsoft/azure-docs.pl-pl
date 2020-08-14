@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 594a47f397ca78476ed987ac0e06a3cacc79ec3b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5878ea6a554439c261399706eec708b06ed59b11
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319902"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225386"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemy i rozwiązania podczas certyfikacji maszyny wirtualnej 
 
@@ -294,7 +294,7 @@ Jeśli wszystkie obrazy pobierane z witryny Azure Marketplace będą używane po
 
 * W przypadku systemu **Linux**następujący proces służy do UOGÓLNIANIA maszyny wirtualnej z systemem Linux i wdrażania jej ponownie jako oddzielnej maszyny wirtualnej.
 
-  W oknie SSH wprowadź następujące polecenie:`sudo waagent -deprovision+user`
+  W oknie SSH wprowadź następujące polecenie: `sudo waagent -deprovision+user`
 
 * W przypadku **systemu Windows**można uogólniać obrazy systemu Windows przy użyciu programu `sysreptool` .
 
@@ -314,6 +314,57 @@ W przypadku rozwiązań błędów, które są związane z dyskiem danych, należ
 Jeśli opcja Remote Desktop Protocol (RDP) nie jest włączona dla obrazu systemu Windows, zostanie wyświetlony ten błąd. 
 
 Włącz dostęp RDP dla obrazów systemu Windows przed ich przesłaniem.
+
+## <a name="bash-history-failed"></a>Historia bash nie powiodła się
+
+Ten błąd zostanie wyświetlony, jeśli rozmiar historii bash w przesłanym obrazie wynosi więcej niż 1 kilobajt (KB). Rozmiar jest ograniczony do 1 KB, aby upewnić się, że wszystkie potencjalnie poufne informacje nie są przechwytywane w pliku historii bash.
+
+Poniżej przedstawiono procedurę usuwania historii "bash".
+
+Krok 1. Wdróż maszynę wirtualną i kliknij opcję "Uruchom polecenie" na Azure Portal.
+![Uruchom polecenie na Azure Portal](./media/vm-certification-issues-solutions-3.png)
+
+Krok 2. Wybierz pierwszą opcję "RunShellScript" i uruchom poniższe polecenie.
+
+Polecenie: "Cat/dev/null > ~/. bash_history && History-c" ![ polecenie History bash na Azure Portal](./media/vm-certification-issues-solutions-4.png)
+
+Krok 3. Po pomyślnym wykonaniu polecenia Uruchom ponownie maszynę wirtualną.
+
+Krok 4. Uogólnij maszynę wirtualną, zrób dysk VHD obrazu i Zatrzymaj maszynę wirtualną.
+
+Krok 5.     Prześlij ponownie uogólniony obraz.
+
+## <a name="requesting-exceptions-custom-templates-on-vm-images-for-selective-tests"></a>Żądanie wyjątków (szablonów niestandardowych) w obrazach maszyn wirtualnych dla testów selektywnych
+
+Wydawcy mogą skontaktować się z żądaniem wyjątków dla kilku testów wykonywanych podczas certyfikacji maszyny wirtualnej. Wyjątki są udostępniane w bardzo rzadkich przypadkach, gdy Wydawca dostarcza dowód do obsługi żądania.
+Zespół certyfikacji zastrzega sobie prawo do odmowy lub zatwierdzenia wyjątków w dowolnym momencie.
+
+W poniższych sekcjach porozmawiamy o głównych scenariuszach, w których żąda się wyjątków oraz o sposobie żądania wyjątku.
+
+Scenariusze dla wyjątku
+
+Istnieją trzy scenariusze/przypadki, w których wydawcy zwykle żądają tych wyjątków. 
+
+* **Wyjątek dla co najmniej jednego przypadku testowego:** Wydawcy mogą skontaktować się z żądaniem [obsługi wydawcy w portalu Marketplace](https://aka.ms/marketplacepublishersupport) dla przypadków testowych. 
+
+* **Zablokowane maszyny wirtualne/brak dostępu głównego:** Kilku wydawców ma scenariusze, w których maszyny wirtualne muszą być zablokowane, ponieważ mają one oprogramowanie takie jak zapory zainstalowane na maszynie wirtualnej. 
+       W takim przypadku wydawcy mogą pobrać [certyfikowane Narzędzie testowe](https://aka.ms/AzureCertificationTestTool) tutaj i udostępnić raport na stronie [pomocy technicznej wydawcy w portalu Marketplace](https://aka.ms/marketplacepublishersupport)
+
+
+* **Szablony niestandardowe:** Niektórzy wydawcy publikują obrazy maszyn wirtualnych, które wymagają niestandardowego szablonu ARM do wdrożenia maszyn wirtualnych. W takim przypadku Wydawca jest proszony o dostarczenie szablonów niestandardowych w [pomocy technicznej wydawcy w portalu Marketplace](https://aka.ms/marketplacepublishersupport) , tak aby można było użyć tego samego zespołu certyfikacji do weryfikacji. 
+
+### <a name="information-to-provide-for-exception-scenarios"></a>Informacje, które należy podać dla scenariuszy wyjątków
+
+Wydawcy muszą skontaktować się z działem pomocy technicznej w [portalu Marketplace](https://aka.ms/marketplacepublishersupport) , aby zażądać wyjątków dla powyższego scenariusza z dodatkowymi następującymi informacjami:
+
+   1.   IDENTYFIKATOR wydawcy — identyfikator wydawcy w portalu Centrum partnerskiego
+   2.   Identyfikator/nazwa oferty — identyfikator/nazwę oferty, dla której żądany jest wyjątek 
+   3.   Jednostka SKU/identyfikator planu — identyfikator planu/jednostka SKU oferty maszyny wirtualnej, dla której żądany jest wyjątek
+   4.    Wersja — wersja oferty maszyny wirtualnej, dla której żądany jest wyjątek
+   5.   Typ wyjątku — testuje, zablokowano maszynę wirtualną i szablony niestandardowe
+   6.   Przyczyna żądania — powód tego wyjątku i informacje dotyczące testów do wykluczenia 
+   7.   Załącznik — Dołącz wszelkie dokumenty z dowodem ważności. W przypadku zablokowanych maszyn wirtualnych Dołącz raport testowy i dla szablonów niestandardowych Podaj niestandardowy szablon ARM jako załącznik. Niepowodzenie dołączenia raportu do zablokowanych maszyn wirtualnych i niestandardowego szablonu ARM dla szablonów niestandardowych spowoduje odmowę żądania
+
 
 ## <a name="next-steps"></a>Następne kroki
 

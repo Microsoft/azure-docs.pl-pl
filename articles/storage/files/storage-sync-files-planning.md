@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: acdf830c9bf0eaedcca5bf0ffe1b2bd373750276
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 17274c2b5308b1e5069370400895c001dc03e5bb
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030676"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224445"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planowanie wdrażania usługi Azure File Sync
 
@@ -314,7 +314,7 @@ Azure File Sync jest dostępny w następujących regionach:
 | Publiczny | Europa | West Europe | `westeurope` |
 | Publiczny | Francja | Francja Środkowa | `francecentral` |
 | Publiczny | Francja | Francja Południowa * | `francesouth` |
-| Publiczny | Indie | Indie Środkowe | `centralindia` |
+| Publiczny | Indie | Central India | `centralindia` |
 | Publiczny | Indie | Indie Południowe | `southindia` |
 | Publiczny | Japonia | Japan East | `japaneast` |
 | Publiczny | Japonia | Japonia Zachodnia | `japanwest` |
@@ -376,7 +376,7 @@ Jeśli wolisz używać lokalnego rozwiązania do tworzenia kopii zapasowych, kop
 > Przywracanie bez systemu operacyjnego (BMR) może spowodować nieoczekiwane wyniki i nie jest obecnie obsługiwane.
 
 > [!Note]  
-> W wersji 9 agenta Azure File Sync, migawki usługi VSS (w tym poprzednie wersje karty) są teraz obsługiwane na woluminach, na których włączono obsługę warstw w chmurze. Należy jednak włączyć zgodność poprzedniej wersji za poorednictwem programu PowerShell. [Dowiedz się, jak](storage-files-deployment-guide.md).
+> W wersji 9 agenta Azure File Sync, migawki usługi VSS (w tym poprzednie wersje karty) są teraz obsługiwane na woluminach, na których włączono obsługę warstw w chmurze. Należy jednak włączyć zgodność poprzedniej wersji za poorednictwem programu PowerShell. [Dowiedz się, jak](storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Zasady aktualizacji agenta usługi Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

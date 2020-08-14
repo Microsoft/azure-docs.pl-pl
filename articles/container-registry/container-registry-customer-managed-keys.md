@@ -4,22 +4,22 @@ description: Dowiedz się więcej na temat szyfrowania w usłudze Azure Containe
 ms.topic: article
 ms.date: 05/01/2020
 ms.custom: ''
-ms.openlocfilehash: 393e51e687e95c1ff4c6a50429dd342005aad296
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67fb58d0e11709b3d801a81f15d856e9b3db922b
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509546"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225890"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Szyfrowanie rejestru przy użyciu klucza zarządzanego przez klienta
 
-Gdy przechowujesz obrazy i inne artefakty w rejestrze kontenerów platformy Azure, platforma Azure automatycznie szyfruje zawartość rejestru przy użyciu [kluczy zarządzanych przez usługę](../security/fundamentals/encryption-atrest.md#data-encryption-models). Można uzupełnić domyślne szyfrowanie za pomocą dodatkowej warstwy szyfrowania przy użyciu klucza tworzonego i zarządzanego w Azure Key Vault. Ten artykuł przeprowadzi Cię przez kroki przy użyciu interfejsu wiersza polecenia platformy Azure i Azure Portal.
+Gdy przechowujesz obrazy i inne artefakty w rejestrze kontenerów platformy Azure, platforma Azure automatycznie szyfruje zawartość rejestru przy użyciu [kluczy zarządzanych przez usługę](../security/fundamentals/encryption-models.md). Można uzupełnić domyślne szyfrowanie za pomocą dodatkowej warstwy szyfrowania przy użyciu klucza tworzonego i zarządzanego w Azure Key Vault. Ten artykuł przeprowadzi Cię przez kroki przy użyciu interfejsu wiersza polecenia platformy Azure i Azure Portal.
 
 Szyfrowanie po stronie serwera z kluczami zarządzanymi przez klienta jest obsługiwane przez integrację z [Azure Key Vault](../key-vault/general/overview.md). Możesz tworzyć własne klucze szyfrowania i przechowywać je w magazynie kluczy lub używać interfejsów API Azure Key Vault do generowania kluczy. Za pomocą Azure Key Vault można również prześledzić użycie klucza.
 
 Ta funkcja jest dostępna w warstwie usługi kontenera **Premium** . Aby uzyskać informacje o warstwach i ograniczeniach usługi Registry, zobacz [Azure Container Registry warstwy usług](container-registry-skus.md).
 
-   
+
 ## <a name="things-to-know"></a>Co należy wiedzieć
 
 * Klucz zarządzany przez klienta można obecnie włączyć tylko podczas tworzenia rejestru.
@@ -48,7 +48,7 @@ Tworzenie [tożsamości zarządzanej przypisanej przez użytkownika dla zasobów
 ```azurecli
 az identity create \
   --resource-group <resource-group-name> \
-  --name <managed-identity-name> 
+  --name <managed-identity-name>
 ```
 
 W danych wyjściowych polecenia Zwróć uwagę na następujące wartości: `id` i `principalId` . Te wartości są potrzebne w dalszych krokach w celu skonfigurowania dostępu rejestru do magazynu kluczy.
@@ -78,9 +78,9 @@ identityPrincipalID=$(az identity show --resource-group <resource-group-name> --
 
 ### <a name="create-a-key-vault"></a>Tworzenie magazynu kluczy
 
-Utwórz magazyn kluczy za pomocą [AZ Key magazynu Create][az-keyvault-create] , aby przechowywać klucz zarządzany przez klienta na potrzeby szyfrowania rejestru. 
+Utwórz magazyn kluczy za pomocą [AZ Key magazynu Create][az-keyvault-create] , aby przechowywać klucz zarządzany przez klienta na potrzeby szyfrowania rejestru.
 
-Aby zapobiec utracie danych spowodowanym przez przypadkowe Usuwanie klucza lub magazynu kluczy, należy włączyć następujące ustawienia: **trwałe usuwanie** i **przeczyszczanie ochrony**. Poniższy przykład zawiera parametry dla tych ustawień: 
+Aby zapobiec utracie danych spowodowanym przez przypadkowe Usuwanie klucza lub magazynu kluczy, należy włączyć następujące ustawienia: **trwałe usuwanie** i **przeczyszczanie ochrony**. Poniższy przykład zawiera parametry dla tych ustawień:
 
 ```azurecli
 az keyvault create --name <key-vault-name> \
@@ -98,7 +98,7 @@ az keyvault set-policy \
   --resource-group <resource-group-name> \
   --name <key-vault-name> \
   --object-id $identityPrincipalID \
-  --key-permissions get unwrapKey wrapKey 
+  --key-permissions get unwrapKey wrapKey
 ```
 
 ### <a name="create-key-and-get-key-id"></a>Utwórz klucz i Pobierz identyfikator klucza
@@ -161,7 +161,7 @@ az acr create \
 Aby zobaczyć, czy szyfrowanie rejestru z kluczem zarządzanym przez klienta jest włączone, uruchom polecenie [AZ ACR Encryption show][az-acr-encryption-show] :
 
 ```azurecli
-az acr encryption show --name <registry-name> 
+az acr encryption show --name <registry-name>
 ```
 
 Dane wyjściowe są podobne do następujących:
@@ -228,11 +228,11 @@ Skonfiguruj zasady dla magazynu kluczy, aby tożsamość mogła uzyskać do nieg
 
 ![Tworzenie rejestru kontenerów w witrynie Azure Portal](./media/container-registry-customer-managed-keys/create-encrypted-registry.png)
 
-Aby wyświetlić stan szyfrowania rejestru w portalu, przejdź do rejestru. W obszarze **Ustawienia**wybierz pozycję **szyfrowanie**.
+Aby wyświetlić stan szyfrowania rejestru w portalu, przejdź do rejestru. W obszarze **Ustawienia**wybierz pozycję  **szyfrowanie**.
 
 ## <a name="enable-customer-managed-key---template"></a>Włączanie szablonu klucza zarządzanego przez klienta
 
-Można również użyć szablonu Menedżer zasobów, aby utworzyć rejestr i włączyć szyfrowanie z kluczem zarządzanym przez klienta. 
+Można również użyć szablonu Menedżer zasobów, aby utworzyć rejestr i włączyć szyfrowanie z kluczem zarządzanym przez klienta.
 
 Poniższy szablon umożliwia utworzenie nowego rejestru kontenerów i zarządzanej tożsamości przypisanej przez użytkownika. Skopiuj poniższą zawartość do nowego pliku i Zapisz go przy użyciu nazwy pliku, takiej jak `CMKtemplate.json` .
 
@@ -345,7 +345,7 @@ Wykonaj kroki opisane w poprzednich sekcjach, aby utworzyć następujące zasoby
 * Magazyn kluczy identyfikowany według nazwy
 * Klucz magazynu kluczy identyfikowany przez identyfikator klucza
 
-Uruchom następujące polecenie [AZ Group Deployment Create][az-group-deployment-create] , aby utworzyć rejestr przy użyciu poprzedniego pliku szablonu. Gdzie to wskazane, podaj nową nazwę rejestru i nazwę tożsamości zarządzanej, a także nazwę i identyfikator klucza magazynu kluczy. 
+Uruchom następujące polecenie [AZ Group Deployment Create][az-group-deployment-create] , aby utworzyć rejestr przy użyciu poprzedniego pliku szablonu. Gdzie to wskazane, podaj nową nazwę rejestru i nazwę tożsamości zarządzanej, a także nazwę i identyfikator klucza magazynu kluczy.
 
 ```bash
 az group deployment create \
@@ -363,7 +363,7 @@ az group deployment create \
 Aby wyświetlić stan szyfrowania rejestru, uruchom polecenie [AZ ACR Encryption show][az-acr-encryption-show] :
 
 ```azurecli
-az acr encryption show --name <registry-name> 
+az acr encryption show --name <registry-name>
 ```
 
 ## <a name="use-the-registry"></a>Korzystanie z rejestru
@@ -377,7 +377,7 @@ Obróć klucz zarządzany przez klienta służący do szyfrowania rejestru do za
 Podczas obracania klucza zwykle określana jest ta sama tożsamość użyta podczas tworzenia rejestru. Opcjonalnie można skonfigurować nową tożsamość przypisaną przez użytkownika na potrzeby dostępu do klucza lub włączyć i określić tożsamość przypisaną przez system do rejestru.
 
 > [!NOTE]
-> Upewnij się, że skonfigurowano wymagane [zasady dostępu magazynu kluczy](#add-key-vault-access-policy) dla tożsamości skonfigurowanej na potrzeby dostępu do klucza. 
+> Upewnij się, że skonfigurowano wymagane [zasady dostępu magazynu kluczy](#add-key-vault-access-policy) dla tożsamości skonfigurowanej na potrzeby dostępu do klucza.
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
@@ -387,12 +387,12 @@ Za pomocą polecenia [AZ Key magazynu][az-keyvault-key] można utworzyć klucze 
 # Create new version of existing key
 az keyvault key create \
   –-name <key-name> \
-  --vault-name <key-vault-name> 
+  --vault-name <key-vault-name>
 
 # Create new key
 az keyvault key create \
   –-name <new-key-name> \
-  --vault-name <key-vault-name> 
+  --vault-name <key-vault-name>
 ```
 
 Następnie uruchom polecenie [AZ ACR Encryption Obróć-Key][az-acr-encryption-rotate-key] , przekazując nowy identyfikator klucza i tożsamość, którą chcesz skonfigurować:
@@ -413,14 +413,14 @@ az acr encryption rotate-key \
 
 ### <a name="portal"></a>Portal
 
-Użyj ustawień **szyfrowania** rejestru, aby zaktualizować wersję klucza, klucz, Magazyn kluczy lub ustawienia tożsamości używane dla klucza zarządzanego przez klienta. 
+Użyj ustawień **szyfrowania** rejestru, aby zaktualizować wersję klucza, klucz, Magazyn kluczy lub ustawienia tożsamości używane dla klucza zarządzanego przez klienta.
 
 Na przykład w celu wygenerowania i skonfigurowania nowej wersji klucza:
 
-1. W portalu przejdź do rejestru. 
+1. W portalu przejdź do rejestru.
 1. W obszarze **Ustawienia**wybierz pozycję **szyfrowanie**  >  **Zmień klucz**.
 1. Wybierz **klucz SELECT**
-    
+
     ![Obróć klucz w Azure Portal](./media/container-registry-customer-managed-keys/rotate-key.png)
 1. W oknie **Wybieranie klucza z Azure Key Vault** wybierz wcześniej skonfigurowany Magazyn kluczy i klucz, a następnie w polu **wersja**wybierz pozycję **Utwórz nowy**.
 1. W oknie **Tworzenie klucza** wybierz pozycję **Generuj**, a następnie **Utwórz**.
@@ -447,7 +447,7 @@ Można skonfigurować tożsamość zarządzaną przez system do rejestru, aby uz
 
 Aby włączyć tożsamość przypisaną przez system do rejestru w portalu:
 
-1. W portalu przejdź do rejestru. 
+1. W portalu przejdź do rejestru.
 1. Wybierz pozycję **Ustawienia**  >   **tożsamość**.
 1. W obszarze **przypisano system** **Ustaw wartość** **na włączone**. Wybierz pozycję **Zapisz**.
 1. Skopiuj **Identyfikator obiektu** tożsamości.
@@ -462,7 +462,7 @@ Aby udzielić tożsamości dostępu do magazynu kluczy:
 
 Aby zaktualizować ustawienia szyfrowania rejestru w celu użycia tożsamości:
 
-1. W portalu przejdź do rejestru. 
+1. W portalu przejdź do rejestru.
 1. W obszarze **Ustawienia**wybierz pozycję **szyfrowanie**  >  **Zmień klucz**.
 1. W obszarze **tożsamość**wybierz pozycję **przypisana przez system**i wybierz pozycję **Zapisz**.
 
@@ -471,9 +471,9 @@ Aby zaktualizować ustawienia szyfrowania rejestru w celu użycia tożsamości:
 Jeśli magazyn kluczy platformy Azure został wdrożony w sieci wirtualnej za pomocą zapory Key Vault, wykonaj następujące czynności:
 
 1. Skonfiguruj szyfrowanie rejestru w celu używania tożsamości przypisanej do systemu przez system. Zapoznaj się z poprzednią sekcją.
-2. Skonfiguruj Magazyn kluczy, aby zezwalać na dostęp przez dowolną [zaufaną usługę](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). 
+2. Skonfiguruj Magazyn kluczy, aby zezwalać na dostęp przez dowolną [zaufaną usługę](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services).
 
-Aby uzyskać szczegółowe instrukcje, zobacz [Konfigurowanie zapór Azure Key Vault i sieci wirtualnych](../key-vault/general/network-security.md). 
+Aby uzyskać szczegółowe instrukcje, zobacz [Konfigurowanie zapór Azure Key Vault i sieci wirtualnych](../key-vault/general/network-security.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -13,12 +13,12 @@ ms.date: 08/07/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: fd19b451638eacbf0d6174154a2688b3523ca4d2
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: ac9264ea8d6cc71d19d2c9bbd23b2123bdf1f924
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183874"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224360"
 ---
 # <a name="migrate-applications-to-microsoft-authentication-library-msal"></a>Migrowanie aplikacji do biblioteki uwierzytelniania firmy Microsoft (MSAL)
 
@@ -62,6 +62,9 @@ Odp.: Jeśli masz kod źródłowy dla aplikacji, możesz odwoływać się do pow
 
 __P: Dlaczego należy zainwestować w przechodzenie do MSAL?__  
 Odp.: MSAL zawiera nowe funkcje, które nie znajdują się w bibliotece ADAL, łącznie z zarządzeniem przyrostowym, logowaniem jednokrotnym i zarządzaniem pamięci Ponadto, w przeciwieństwie do biblioteki ADAL, MSAL będzie nadal otrzymywać poprawki zabezpieczeń poza 30 czerwca 2022. [Dowiedz się więcej](msal-overview.md).
+
+__P: czy firma Microsoft aktualizuje własne aplikacje do MSAL?__  
+Tak. Firma Microsoft jest w trakcie migrowania swoich aplikacji do MSAL przez ostateczny termin końca pomocy technicznej, dzięki czemu mogą oni korzystać z bieżących ulepszeń zabezpieczeń i funkcji MSAL.
 
 __P: czy zostanie wydane narzędzie, które pomoże mi przenieść moje aplikacje z biblioteki ADAL do MSAL?__  
 Odpowiedź: nie. Różnice między bibliotekami wymagały przydzielenia zasobów do programowania i konserwacji narzędzia, które w przeciwnym razie byłyby poświęcone ulepszaniu MSAL. Jednak udostępniamy poprzedni zestaw przewodników migracji, który ułatwia wprowadzanie wymaganych zmian w aplikacji.

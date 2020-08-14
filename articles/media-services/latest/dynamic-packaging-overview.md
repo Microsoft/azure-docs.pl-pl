@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/31/2020
+ms.date: 08/13/2020
 ms.author: juliako
-ms.openlocfilehash: 032a3c719610d658ec32492033a04a610117643d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4f0e8822d734d3c1147eb6d5cbbc8f26a7410a01
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489779"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224071"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Dynamiczne pakowanie w Media Services v3
 
@@ -80,8 +80,10 @@ Twój klient przesyłania strumieniowego może określić następujące formaty 
 
 W poniższych krokach przedstawiono typowy przepływ pracy przesyłania strumieniowego Media Services, w którym jest używane dynamiczne pakowanie wraz ze standardowym koderem w Azure Media Services.
 
-1. Przekaż plik wejściowy, taki jak plik QuickTime/MOV lub MXF. Ten plik jest również określany jako plik Mezzanine lub source. Aby zapoznać się z listą obsługiwanych formatów, zobacz [formaty obsługiwane przez koder standardowy](media-encoder-standard-formats.md).
+1. [Przekaż plik wejściowy](manage-asset-concept.md) , taki jak MP4, QUICKTIME/MOV lub inny obsługiwany format pliku. Ten plik jest również określany jako plik Mezzanine lub source. Aby zapoznać się z listą obsługiwanych formatów, zobacz [formaty obsługiwane przez koder standardowy](media-encoder-standard-formats.md).
 1. [Koduj](#encode-to-adaptive-bitrate-mp4s) plik Mezzanine do zestawu H. 264/AAC MP4 z adaptacyjną szybkością transmisji bitów.
+
+    Jeśli masz już zakodowane pliki i chcesz skopiować i przesłać strumieniowo pliki, użyj: [CopyVideo](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyvideo) i [CopyAudio](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyaudio) API. W wyniku tego zostanie utworzony nowy plik MP4 z manifestem przesyłania strumieniowego (plik. ISM).
 1. Opublikuj element wyjściowy z adaptacyjną szybkością transmisji bitów. Publikujesz, tworząc [lokalizator przesyłania strumieniowego](streaming-locators-concept.md).
 1. Tworzenie adresów URL przeznaczonych dla różnych formatów (HLS, MPEG-KRESKa i Smooth Streaming). *Punkt końcowy przesyłania strumieniowego* zajmie się zachowaniem prawidłowego manifestu i żądań dla wszystkich tych formatów.
     

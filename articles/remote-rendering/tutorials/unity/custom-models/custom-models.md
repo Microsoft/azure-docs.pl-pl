@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: ae3d0ac6fb332fa17fbe938572b94c51e0785089
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 3753c809d8222030a885693ede800fe17c08b14b
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449011"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224547"
 ---
 # <a name="tutorial-interfaces-and-custom-models"></a>Samouczek: interfejsy i modele niestandardowe
 
@@ -105,19 +105,23 @@ Zwróć uwagę, że skrypt **RemoteRenderedModel** implementuje **BaseRemoteRend
 
     public class RemoteRenderedModel : BaseRemoteRenderedModel
     {
-        [SerializeField]
-        [Tooltip("The friendly name for this model")]
-        private string modelDisplayName;
-        [SerializeField]
-        [Tooltip("The URI for this model")]
-        private string modelPath;
-
         public bool AutomaticallyLoad = true;
 
         private ModelState currentModelState = ModelState.NotReady;
 
+        [SerializeField]
+        [Tooltip("The friendly name for this model")]
+        private string modelDisplayName;
         public override string ModelDisplayName { get => modelDisplayName; set => modelDisplayName = value; }
-        public override string ModelPath { get => modelPath; set => modelPath = value; }
+
+        [SerializeField]
+        [Tooltip("The URI for this model")]
+        private string modelPath;
+        public override string ModelPath
+        {
+            get => modelPath.Trim();
+            set => modelPath = value;
+        }
 
         public override ModelState CurrentModelState
         {

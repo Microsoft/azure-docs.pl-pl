@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/13/2020
 ms.author: b-juche
-ms.openlocfilehash: 48e3f895fb123429f1bedd106bd92113533c84ae
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 8ed9f6565da55d3ffbe522bbdf404265c487f67c
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055806"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225618"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architektury rozwiązań używające usługi Azure NetApp Files
 Ten artykuł zawiera informacje o najlepszych rozwiązaniach, które mogą pomóc w zrozumieniu architektur rozwiązań na potrzeby używania Azure NetApp Files.  
@@ -85,6 +85,7 @@ Ta sekcja zawiera odwołania do rozwiązań infrastruktury pulpitu wirtualnego.
 
 ### <a name="windows-virtual-desktop"></a>Windows Virtual Desktop
 
+* [Korzystanie z pulpitu wirtualnego systemu Windows z Azure NetApp Files](solutions-windows-virtual-desktop.md)
 * [Opcje magazynu dla kontenerów profilów FSLogix w programie Virtual Desktop systemu Windows](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile#azure-platform-details)
 * [Tworzenie kontenera profilu FSLogix dla puli hostów przy użyciu Azure NetApp Files](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
 * [Pulpit wirtualny systemu Windows w skali przedsiębiorstwa](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
@@ -123,7 +124,7 @@ Ta sekcja zawiera rozwiązania dla usług platformy Azure.
 * [Nieaktualna Kubernetes wydajność na platformie Azure dzięki Azure NetApp Files](https://cloud.netapp.com/blog/ma-anf-blg-configure-kubernetes-openshift)
 * [Trident-Storage Orchestrator for Containers](https://netapp-trident.readthedocs.io/en/stable-v20.04/kubernetes/operations/tasks/backends/anf.html)
 
-### <a name="azure-batch"></a>Azure Batch
+### <a name="azure-batch"></a>Usługa Azure Batch
 
 * [Uruchamianie obciążeń MPI z użyciem Azure Batch i Azure NetApp Files](https://azure.microsoft.com/resources/run-mpi-workloads-with-azure-batch-and-azure-netapp-files/)
  

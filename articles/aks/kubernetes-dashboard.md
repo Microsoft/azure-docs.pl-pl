@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: 69e60c3e4ac91a5d0ca9a0245dc61f090c625c60
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 35424c0a9e566a9dfa780c524e23945348335040
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499870"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225992"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Dostęp do pulpitu nawigacyjnego sieci Web Kubernetes w usłudze Azure Kubernetes Service (AKS)
 
@@ -20,13 +20,13 @@ Kubernetes zawiera internetowy pulpit nawigacyjny, który może być używany do
 Aby uzyskać więcej informacji na temat pulpitu nawigacyjnego Kubernetes, zobacz [pulpit nawigacyjny interfejsu użytkownika sieci Web Kubernetes][kubernetes-dashboard]. AKS używa wersji 2,0 i większej z pulpitu nawigacyjnego typu open source.
 
 > [!WARNING]
-> **Dodatek pulpitu nawigacyjnego AKS jest ustawiony na przestarzałe.** 
+> **Dodatek pulpitu nawigacyjnego AKS jest ustawiony na przestarzałe. Zamiast tego użyj [widoku zasobów Kubernetes w Azure Portal (wersja zapoznawcza)][kubernetes-portal] .** 
 > * Pulpit nawigacyjny Kubernetes jest domyślnie włączony w przypadku klastrów z systemem Kubernetes w wersji niższej niż 1,18.
 > * Dodatek pulpitu nawigacyjnego zostanie domyślnie wyłączony dla wszystkich nowych klastrów utworzonych w systemie Kubernetes 1,18 lub nowszym. 
  > * Począwszy od Kubernetes 1,19 w wersji zapoznawczej, AKS nie będzie już obsługiwał instalacji zarządzanego dodatku pulpitu nawigacyjnego polecenia. 
  > * Nie wpłynie to na istniejące klastry z włączonym dodatkiem. Użytkownicy będą nadal mogli ręcznie instalować pulpit nawigacyjny "open source" jako oprogramowanie zainstalowane przez użytkownika.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W krokach przedstawionych w tym dokumencie przyjęto założenie, że utworzono klaster AKS i nawiązano `kubectl` połączenie z klastrem. Jeśli musisz utworzyć klaster AKS, zobacz [Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart].
 
@@ -54,8 +54,8 @@ To polecenie tworzy serwer proxy między systemem deweloperskim i interfejsem AP
 
 > [!NOTE]
 > Jeśli pulpit nawigacyjny nie jest widoczny w programie `http://127.0.0.1:8001` , można ręcznie kierować do poniższych adresów. Klastry w 1,16 lub większe używają protokołu HTTPS i wymagają oddzielnego punktu końcowego.
-> * K8s 1,16 lub nowszy:`http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
-> * K8s 1,15 i poniżej:`http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard:/proxy`
+> * K8s 1,16 lub nowszy: `http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
+> * K8s 1,15 i poniżej: `http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard:/proxy`
 
 <!--
 ![The login page of the Kubernetes web dashboard](./media/kubernetes-dashboard/dashboard-login.png)
@@ -117,7 +117,7 @@ Przedstawiony ekran początkowy wymaga elementu kubeconfig lub tokenu. Obie opcj
 
 W przypadku klastrów z włączoną obsługą usługi Azure AD i nienależących do usługi Azure AD można przekazywać kubeconfig. Upewnij się, że tokeny dostępu są prawidłowe, jeśli Twoje tokeny wygasły, możesz odświeżać tokeny za pośrednictwem polecenia kubectl.
 
-1. Ustaw kubeconfig administratora z`az aks get-credentials -a --resource-group <RG_NAME> --name <CLUSTER_NAME>`
+1. Ustaw kubeconfig administratora z `az aks get-credentials -a --resource-group <RG_NAME> --name <CLUSTER_NAME>`
 1. Wybierz `Kubeconfig` i kliknij, `Choose kubeconfig file` Aby otworzyć selektor plików
 1. Wybierz plik kubeconfig (domyślnie $HOME/.Kube/config)
 1. Kliknij pozycję `Sign In`.
@@ -209,3 +209,4 @@ Aby uzyskać więcej informacji na temat pulpitu nawigacyjnego Kubernetes, zobac
 [az-aks-browse]: /cli/azure/aks#az-aks-browse
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [install-azure-cli]: /cli/azure/install-azure-cli
+[kubernetes-portal]: ./kubernetes-portal.md

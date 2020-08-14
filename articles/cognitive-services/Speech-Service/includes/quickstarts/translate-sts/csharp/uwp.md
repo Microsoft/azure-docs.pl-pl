@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.date: 04/04/2020
 ms.author: jhakulin
 ms.topic: include
-ms.openlocfilehash: 2af0d0eb2411c5ffe9f80498a3e93d48fe0a769b
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 0434ddb1e90789628d14d4782eccb6514fccf8d8
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88057812"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226082"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -43,7 +43,7 @@ Teraz Dodaj kod XAML, który definiuje interfejs użytkownika aplikacji, a nast�
 
 1. W obszarze `SpeechTranslationFromMicrophone_ButtonClicked` obsługi w tym pliku Znajdź ciąg `YourSubscriptionKey` i zastąp go kluczem subskrypcji.
 
-1. W programie `SpeechTranslationFromMicrophone_ButtonClicked` obsługi Znajdź ciąg `YourServiceRegion` i zastąp go [regionem](~/articles/cognitive-services/Speech-Service/regions.md) skojarzonym z subskrypcją. (Na przykład użyj `westus` subskrypcji bezpłatnej wersji próbnej).
+1. W programie `SpeechTranslationFromMicrophone_ButtonClicked` obsługi Znajdź ciąg `YourServiceRegion` i zastąp go [regionem](~/articles/cognitive-services/Speech-Service/regions.md) skojarzonym z subskrypcją.
 
 1. Na pasku menu wybierz kolejno opcje **plik**  >  **Zapisz wszystko** , aby zapisać zmiany.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/25/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: aa9327bd0ba6763aa4e89630611aabb3c5195655
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 546c21802d275fe99ed2acbf00e32d37db3603f2
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85448768"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225204"
 ---
 Na razie Ultra dyski mają dodatkowe ograniczenia, są następujące:
 
@@ -27,22 +27,31 @@ W poniższej tabeli przedstawiono regiony Ultra disks, a także odpowiadające i
 |Regiony  |Liczba stref dostępności obsługujących Ultra disks  |
 |---------|---------|
 |US Gov Wirginia     |Brak         |
-|Południowo-środkowe stany USA     |Brak         |
-|Środkowe stany USA     |Trzy strefy         |
+|US Gov Arizona     |Brak         |
+|South Central US     |Brak         |
+|Central US     |Trzy strefy         |
 |Zachodnie stany USA     |Brak         |
 |Zachodnie stany USA 2    |Trzy strefy         |
-|Wschodnie stany USA     |Trzy strefy         |
-|Wschodnie stany USA 2     |Dwie strefy         |
+|East US     |Trzy strefy         |
+|Wschodnie stany USA 2     |Trzy strefy         |
 |Azja Południowo-Wschodnia     |Trzy strefy         |
+|Azja Wschodnia     |Brak         |
 |Europa Północna     |Trzy strefy          |
-|Europa Zachodnia     |Trzy strefy          |
+|West Europe     |Trzy strefy          |
 |Południowe Zjednoczone Królestwo     |Trzy strefy          |
-|Japonia Wschodnia     |Dwie strefy         |
+|Japan East     |Trzy strefy         |
 |Francja Środkowa    |Dwie strefy        |
+|Brazil South    |Brak        |
+|Australia Wschodnia    |Trzy strefy        |
+|Kanada środkowa *    |Trzy strefy        |
 
+\* Skontaktuj się z pomocą techniczną platformy Azure, aby uzyskać dostęp do Strefy dostępności w tym regionie.
 
 - Są obsługiwane tylko przez następującą serię maszyn wirtualnych:
     - [ESv3](../articles/virtual-machines/ev3-esv3-series.md#esv3-series)
+    - [Easv4](../articles/virtual-machines/eav4-easv4-series.md#easv4-series)
+    - [Edsv4](../articles/virtual-machines/edv4-edsv4-series.md#edsv4-series)
+    - [Esv4](../articles/virtual-machines/ev4-esv4-series.md#esv4-series)
     - [DSv3](../articles/virtual-machines/dv3-dsv3-series.md#dsv3-series)
     - [FSv2](../articles/virtual-machines/fsv2-series.md)
     - [LSv2](../articles/virtual-machines/lsv2-series.md)

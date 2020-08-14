@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: a7fddffd3809dc2fc9814b0c01c12f335110aad0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: efe1706f2ea97c3eadab8deade7e13123af17752
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206946"
+ms.locfileid: "88225669"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Tworzenie funkcji w systemie Linux przy użyciu kontenera niestandardowego
 
@@ -496,7 +496,7 @@ Po zdefiniowaniu powiązania kolejki można teraz zaktualizować funkcję w celu
 1. W folderze głównym `docker build` ponownie uruchom program, a następnie zaktualizuj wersję w znaczniku do `v1.0.1` . Tak jak wcześniej, Zastąp ciąg `<docker_id>` identyfikatorem konta centrum Docker:
 
     ```
-    docker build --tag <docker_id>/azurefunctionsimage:v1.0.1
+    docker build --tag <docker_id>/azurefunctionsimage:v1.0.1 .
     ```
     
 1. Wypchnij zaktualizowany obraz z powrotem do repozytorium za pomocą polecenia `docker push` :

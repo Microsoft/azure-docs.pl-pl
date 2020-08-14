@@ -7,12 +7,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: ralphe
-ms.openlocfilehash: 92fc7aeec87015a9ddbe4e52f870334582e28c14
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 11f80a000f386e661f3eb3f0ffb4969701704c90
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80671501"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226407"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -201,15 +201,15 @@ Przed rozpoczęciem upewnij się, że:
 
 1. W tym samym pliku Zastąp ciąg `YourSubscriptionKey` kluczem subskrypcji mowy poznawczej.
 
-1. Zastąp ciąg `YourServiceRegion`[regionem](~/articles/cognitive-services/Speech-Service/regions.md) skojarzonym z subskrypcją (na przykład `westus` w przypadku subskrypcji bezpłatnej wersji próbnej).
+1. Zamień ciąg na `YourServiceRegion` [region](~/articles/cognitive-services/Speech-Service/regions.md) skojarzony z subskrypcją.
 
-1. Na pasku menu wybierz kolejno opcje **plik** > **Zapisz wszystko**.
+1. Na pasku menu wybierz kolejno opcje **plik**  >  **Zapisz wszystko**.
 
 ## <a name="build-and-run-the-application-to-create-a-new-conversation"></a>Kompiluj i uruchom aplikację, aby utworzyć nową konwersację
 
-1. Na pasku menu wybierz kolejno opcje **Kompiluj** > kompilacje**rozwiązanie** , aby skompilować aplikację. Kod powinien teraz zostać skompilowany bez błędów.
+1. Na pasku menu wybierz kolejno opcje **Kompiluj**kompilacje  >  **rozwiązanie** , aby skompilować aplikację. Kod powinien teraz zostać skompilowany bez błędów.
 
-1. Wybierz **Debuguj** > **Rozpocznij debugowanie** (lub naciśnij klawisz **F5**), aby uruchomić aplikację **HelloWorld** .
+1. Wybierz **Debuguj**  >  **Rozpocznij debugowanie** (lub naciśnij klawisz **F5**), aby uruchomić aplikację **HelloWorld** .
 
 1. Gdy zobaczysz `Started transcribing` komunikat, możesz zacząć mówić. W trakcie mówienia będą widoczne transkrypcje.
     - Jeśli kod konwersacji jest współużytkowany z innymi osobami, które dołączają do konwersacji, zobaczysz również ich transkrypcję.
@@ -305,9 +305,9 @@ Przed rozpoczęciem upewnij się, że:
 
 4. Wróć do programu Visual Studio i Zastąp ciąg `YourConversationId` identyfikatorem konwersacji utworzonym w poprzednim kroku.
 
-5. Na pasku menu wybierz kolejno opcje **Kompiluj** > kompilacje**rozwiązanie** , aby skompilować aplikację. Kod powinien teraz zostać skompilowany bez błędów.
+5. Na pasku menu wybierz kolejno opcje **Kompiluj**kompilacje  >  **rozwiązanie** , aby skompilować aplikację. Kod powinien teraz zostać skompilowany bez błędów.
 
-6. Wybierz **Debuguj** > **Rozpocznij debugowanie** (lub naciśnij klawisz **F5**), aby uruchomić aplikację **HelloWorld** .
+6. Wybierz **Debuguj**  >  **Rozpocznij debugowanie** (lub naciśnij klawisz **F5**), aby uruchomić aplikację **HelloWorld** .
 
 7. Gdy zobaczysz `Started transcribing` komunikat, możesz zacząć mówić. W trakcie mówienia będą widoczne transkrypcje.
     - Jeśli wrócisz do przeglądarki, Twoje transkrypcje będą widoczne tam, gdzie mówisz.

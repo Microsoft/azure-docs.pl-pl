@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 11/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 2641464e52b80c59b6c6b5a123ad1605c1d41495
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 5832920ec491ce9d99219a7a423fcf0e38ba62cc
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81274830"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226524"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -58,15 +58,15 @@ Tekst i graficzna reprezentacja interfejsu użytkownika powinny teraz wyglądać
 
 1. W tym samym pliku zastąp ciąg `YourSubscriptionKey` kluczem subskrypcji.
 
-1. Zastąp również ciąg `YourServiceRegion` **identyfikatorem regionu** z [regionu](https://aka.ms/speech/sdkregion) skojarzonego z subskrypcją. Na przykład użyj `westus` subskrypcji bezpłatnej wersji próbnej.
+1. Zastąp również ciąg `YourServiceRegion` **identyfikatorem regionu** z [regionu](https://aka.ms/speech/sdkregion) skojarzonego z subskrypcją.
 
-## <a name="build-and-run-the-app"></a>Kompilowanie i uruchamianie aplikacji
+## <a name="build-and-run-the-app"></a>Skompiluj i uruchom aplikację
 
 1. Połącz urządzenie z systemem Android do komputera projektowego. Upewnij się, że włączono [tryb programowania i debugowanie USB](https://developer.android.com/studio/debug/dev-options) na urządzeniu.
 
-1. Aby skompilować aplikację, wybierz kombinację klawiszy CTRL + F9 lub wybierz opcję **Kompiluj** > **Utwórz projekt** z paska menu.
+1. Aby skompilować aplikację, wybierz kombinację klawiszy CTRL + F9 lub wybierz opcję **Kompiluj**  >  **Utwórz projekt** z paska menu.
 
-1. Aby uruchomić aplikację, wybierz polecenie SHIFT + F10 lub wybierz polecenie **Uruchom** > **przebieg "App"**.
+1. Aby uruchomić aplikację, wybierz polecenie SHIFT + F10 lub wybierz polecenie **Uruchom**  >  **przebieg "App"**.
 
 1. W wyświetlonym oknie cel wdrożenia wybierz urządzenie z systemem Android.
 

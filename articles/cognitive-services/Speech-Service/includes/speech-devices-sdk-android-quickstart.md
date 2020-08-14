@@ -5,16 +5,16 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: abc9a42c7ced6a71f93c00968eb825f28f720843
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: dc027d034c50b49044f4a350fe4d239c18060fc7
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87375310"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226156"
 ---
 W tym przewodniku szybki start dowiesz się, jak utworzyć produkt z obsługą mowy przy użyciu zestawu Speech Devices SDK dla systemu Android lub użyć go jako urządzenia [transkrypcji konwersacji](../conversation-transcription-service.md) .
 
-Ten przewodnik wymaga konta [Cognitive Services platformy Azure](../get-started.md) z zasobem usługi mowy. Jeśli nie masz konta, możesz użyć [bezpłatnej wersji próbnej](https://azure.microsoft.com/try/cognitive-services/), aby uzyskać klucz subskrypcji.
+Ten przewodnik wymaga konta [Cognitive Services platformy Azure](../get-started.md) z zasobem usługi mowy.
 
 Kod źródłowy przykładowej aplikacji jest dołączony do zestawu Speech Devices SDK. Jest ona również [dostępna w witrynie GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -126,7 +126,7 @@ Aby sprawdzić poprawność instalacji zestawu deweloperskiego, skompiluj i zain
 
    Aby użyć nowego słowa kluczowego, zaktualizuj następujące dwa wiersze w `MainActivity.java` i skopiuj pakiet słów kluczowych do aplikacji. Na przykład, aby użyć słowa kluczowego "Machine" z pakietu słowa kluczowego kws-machine.zip:
 
-   - Skopiuj pakiet słowa kluczowego do folderu "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\".
+   - Skopiuj pakiet słowa kluczowego do folderu "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets \" .
    - Zaktualizuj `MainActivity.java` za pomocą słowa kluczowego i nazwy pakietu:
 
      ```java
@@ -145,12 +145,12 @@ Aby sprawdzić poprawność instalacji zestawu deweloperskiego, skompiluj i zain
 
    | Zmienna | Znaczenie | Dostępne wartości |
    | -------- | ------- | ---------------- |
-   | `DeviceGeometry` | Konfiguracja fizycznego mikrofonu | Dla cyklicznego zestawu dev Kit:`Circular6+1` |
-   |          |         | W przypadku zestawu liniowego dla deweloperów:`Linear4` |
-   | `SelectedGeometry` | Konfiguracja mikrofonu oprogramowania | Dla cyklicznego zestawu deweloperskiego, który używa wszystkich Mics:`Circular6+1` |
-   |          |         | Dla cyklicznego zestawu deweloperskiego, który używa czterech Mics:`Circular3+1` |
-   |          |         | W przypadku zestawu liniowego dev, który używa wszystkich Mics:`Linear4` |
-   |          |         | W przypadku zestawu liniowego dev, który używa dwóch Mics:`Linear2` |
+   | `DeviceGeometry` | Konfiguracja fizycznego mikrofonu | Dla cyklicznego zestawu dev Kit: `Circular6+1` |
+   |          |         | W przypadku zestawu liniowego dla deweloperów: `Linear4` |
+   | `SelectedGeometry` | Konfiguracja mikrofonu oprogramowania | Dla cyklicznego zestawu deweloperskiego, który używa wszystkich Mics: `Circular6+1` |
+   |          |         | Dla cyklicznego zestawu deweloperskiego, który używa czterech Mics: `Circular3+1` |
+   |          |         | W przypadku zestawu liniowego dev, który używa wszystkich Mics: `Linear4` |
+   |          |         | W przypadku zestawu liniowego dev, który używa dwóch Mics: `Linear2` |
 
 1. Aby skompilować aplikację, w menu **Uruchom** wybierz polecenie **Uruchom aplikację**. Zostanie wyświetlone okno dialogowe **Wybieranie celu wdrożenia** .
 

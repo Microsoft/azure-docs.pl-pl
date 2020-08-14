@@ -6,12 +6,12 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: 7a115de449588ea69951e6d997aa5332e5d55ad1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 87fe128a79413af024d72726d936b85db3f9ef52
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119525"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225975"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Korzystanie z emulatora usługi Azure Cosmos na potrzeby lokalnego tworzenia i testowania
 
@@ -114,12 +114,13 @@ Aby włączyć dostęp do sieci po raz pierwszy, użytkownik powinien zamknąć 
 
 ### <a name="sql-api"></a>Interfejs API SQL
 
-Po uruchomieniu emulatora usługi Azure Cosmos na pulpicie możesz użyć dowolnego obsługiwanego [zestawu SDK Azure Cosmos DB](sql-api-sdk-dotnet.md) lub [interfejsu API REST Azure Cosmos DB](/rest/api/cosmos-db/) , aby móc korzystać z emulatora. Emulator usługi Azure Cosmos obejmuje również wbudowaną Eksplorator danych, która umożliwia tworzenie kontenerów dla interfejsu API SQL lub Cosmos DB dla interfejsu API usługi Mongo DB, a także wyświetlanie i edytowanie elementów bez konieczności pisania kodu.
+Po uruchomieniu emulatora usługi Azure Cosmos na pulpicie możesz użyć dowolnego obsługiwanego [zestawu SDK Azure Cosmos DB](sql-api-sdk-dotnet-standard.md) lub [interfejsu API REST Azure Cosmos DB](/rest/api/cosmos-db/) , aby móc korzystać z emulatora. Emulator usługi Azure Cosmos obejmuje również wbudowaną Eksplorator danych, która umożliwia tworzenie kontenerów dla interfejsu API SQL lub Cosmos DB dla interfejsu API usługi Mongo DB, a także wyświetlanie i edytowanie elementów bez konieczności pisania kodu.
 
 ```csharp
 // Connect to the Azure Cosmos Emulator running locally
-DocumentClient client = new DocumentClient(
-   new Uri("https://localhost:8081"), "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
+CosmosClient client = new CosmosClient(
+   "https://localhost:8081", 
+    "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
 ```
 
@@ -182,7 +183,7 @@ Uruchom emulator z wiersza polecenia administratora z "/EnableCassandraEndpoint"
 
 ### <a name="gremlin-api"></a>Interfejs API języka Gremlin
 
-Uruchom emulator z wiersza polecenia administratora z "/EnableGremlinEndpoint". Alternatywnie można również ustawić zmienną środowiskową`AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
+Uruchom emulator z wiersza polecenia administratora z "/EnableGremlinEndpoint". Alternatywnie można również ustawić zmienną środowiskową `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
 
 * [Zainstaluj Apache-tinkerpop-Gremlin-Console-3.3.4](https://archive.apache.org/dist/tinkerpop/3.3.4).
 
@@ -274,7 +275,7 @@ Aby wyświetlić listę opcji, wpisz ciąg `Microsoft.Azure.Cosmos.Emulator.exe 
 | NoUI | Nie wyświetla interfejsu użytkownika emulatora. | Microsoft.Azure.Cosmos.Emulator.exe/NoUI | |
 | NoExplorer | Nie wyświetla Eksploratora danych podczas uruchamiania. |Microsoft.Azure.Cosmos.Emulator.exe/NoExplorer | | 
 | PartitionCount | Określa maksymalną liczbę kontenerów podzielonych na partycje. Aby uzyskać więcej informacji [, zobacz Zmiana liczby kontenerów](#set-partitioncount) . | Microsoft.Azure.Cosmos.Emulator.exe/PartitionCount =\<partitioncount\> | \<partitioncount\>: Maksymalna liczba dozwolonych kontenerów pojedynczej partycji. Wartość domyślna to 25. Maksymalna dozwolona wartość to 250.|
-| DefaultPartitionCount| Określa domyślną liczbę partycji dla kontenera partycjonowanego. | Microsoft.Azure.Cosmos.Emulator.exe/DefaultPartitionCount =\<defaultpartitioncount\> | \<defaultpartitioncount\>Wartość domyślna to 25.|
+| DefaultPartitionCount| Określa domyślną liczbę partycji dla kontenera partycjonowanego. | Microsoft.Azure.Cosmos.Emulator.exe/DefaultPartitionCount =\<defaultpartitioncount\> | \<defaultpartitioncount\> Wartość domyślna to 25.|
 | AllowNetworkAccess | Włącza dostęp do emulatora za pośrednictwem sieci. Aby włączyć dostęp do sieci, należy również przekazać/Key = \<key_string\> lub/KeyFile = \<file_name\> . | Microsoft.Azure.Cosmos.Emulator.exe/AllowNetworkAccess/Key = \<key_string\> lub Microsoft.Azure.Cosmos.Emulator.exe/AllowNetworkAccess/KeyFile =\<file_name\>| |
 | NoFirewall | Nie dostosowuj reguł zapory, gdy jest używana opcja/AllowNetworkAccess. |Microsoft.Azure.Cosmos.Emulator.exe/NoFirewall | |
 | GenKeyFile | Generuje nowy klucz autoryzacji i zapisuje go w określonym pliku. Wygenerowanego klucza można używać z opcją /Key lub /KeyFile. | Microsoft.Azure.Cosmos.Emulator.exe/GenKeyFile =\<path to key file\> | |
@@ -428,7 +429,7 @@ Jeśli masz uruchomioną aplikację kliencką platformy .NET w kontenerze platfo
 
 ## <a name="running-on-mac-or-linux"></a>Uruchomiona na komputerze Mac lub w systemie Linux<a id="mac"></a>
 
-Obecnie emulator Cosmos można uruchomić tylko w systemie Windows. Użytkownicy z systemem Mac lub Linux mogą uruchomić emulator na maszynie wirtualnej z systemem Windows, na którym znajduje się funkcja hypervisor, taka jak Parallels lub VirtualBox. Poniżej znajdują się kroki umożliwiające wykonanie tej czynności.
+Obecnie emulator Cosmos można uruchomić tylko w systemie Windows. Użytkownicy z systemem Mac lub Linux mogą uruchomić emulator w maszynie wirtualnej z systemem Windows hostowanej w funkcji hypervisor, takiej jak Parallels lub VirtualBox. Poniżej znajdują się kroki umożliwiające wykonanie tej czynności.
 
 Na maszynie wirtualnej z systemem Windows uruchom poniższe polecenie i Zanotuj adres IPv4.
 
@@ -444,7 +445,36 @@ Następnym krokiem z poziomu maszyny wirtualnej z systemem Windows jest uruchomi
 Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 ```
 
-Na koniec należy zaimportować certyfikat emulatora CA do środowiska Linux lub Mac.
+Na koniec należy rozwiązać proces zaufania certyfikatu między aplikacją działającą w środowisku Linux lub Mac a emulatorem. Dostępne są dwie opcje:
+
+1. Wyłącz weryfikację SSL w aplikacji:
+
+# <a name="net-standard-21"></a>[.NET Standard 2.1 +](#tab/ssl-netstd21)
+
+   W przypadku dowolnej aplikacji uruchomionej w strukturze zgodnej z .NET Standard 2,1 lub nowszej można wykorzystać `CosmosClientOptions.HttpClientFactory` :
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard21)]
+
+# <a name="net-standard-20"></a>[.NET Standard 2,0](#tab/ssl-netstd20)
+
+   Dla każdej aplikacji działającej w strukturze zgodnej z .NET Standard 2,0 można wykorzystać `CosmosClientOptions.HttpClientFactory` :
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard20)]
+
+# <a name="nodejs"></a>[Node.js](#tab/ssl-nodejs)
+
+   W przypadku aplikacji Node.js można zmodyfikować plik, `package.json` Aby ustawić `NODE_TLS_REJECT_UNAUTHORIZED` podczas uruchamiania aplikacji:
+
+   ```json
+   "start": NODE_TLS_REJECT_UNAUTHORIZED=0 node app.js
+   ```
+
+--- 
+
+> [!NOTE]
+> Wyłączenie walidacji protokołu SSL jest zalecane tylko w celach programistycznych i nie powinno być wykonywane w środowisku produkcyjnym.
+
+2. Zaimportuj certyfikat emulatora CA do środowiska Linux lub Mac:
 
 ### <a name="linux"></a>Linux
 
