@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: c7b62a65d3f0b3b4006c55f5323b1feb69cca9f1
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 436b3d7005750c4f80e7bdd50449e36e11cee882
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799857"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209622"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Samouczek: integracja Azure Active Directory z usługą Insignia SAML SSO
 
@@ -32,7 +32,7 @@ Integrowanie Insignia SAML z usługą Azure AD zapewnia następujące korzyści:
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -116,7 +116,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `https://<customername>.insigniailsusa.com/<uniqueid>`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta SSO Insignia SAML](https://www.insigniasoftware.com/insignia/Techsupport.aspx) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta SSO Insignia SAML](http://www.insigniasoftware.com/insignia/Techsupport.aspx) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -134,7 +134,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi 
 
 ### <a name="configure-insignia-saml-sso-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w usłudze Insignia SAML
 
-Aby skonfigurować Logowanie jednokrotne po stronie logowania **JEDNOkrotnego w usłudze Insignia SAML** , należy wysłać pobranego **certyfikatu (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do [Insignia protokołu SAML SSO Support Team](https://www.insigniasoftware.com/insignia/Techsupport.aspx). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować Logowanie jednokrotne po stronie logowania **JEDNOkrotnego w usłudze Insignia SAML** , należy wysłać pobranego **certyfikatu (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do [Insignia protokołu SAML SSO Support Team](http://www.insigniasoftware.com/insignia/Techsupport.aspx). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -155,11 +155,11 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
     b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`  
-    Na przykład: BrittaSimon@contoso.com
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -189,7 +189,7 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 ### <a name="create-insignia-saml-sso-test-user"></a>Utwórz użytkownika testowego SSO Insignia SAML
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w Insignia SAML SSO. Współpracuj z [zespołem obsługi Insignia SAML SSO](https://www.insigniasoftware.com/insignia/Techsupport.aspx) , aby dodać użytkowników z platformy Insignia SAML SSO. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w Insignia SAML SSO. Współpracuj z [zespołem obsługi Insignia SAML SSO](http://www.insigniasoftware.com/insignia/Techsupport.aspx) , aby dodać użytkowników z platformy Insignia SAML SSO. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 
@@ -197,7 +197,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka SSO Insignia SAML w panelu dostępu należy automatycznie zalogować się do Insignia SAML logowania jednokrotnego, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

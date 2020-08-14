@@ -5,15 +5,16 @@ services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.devlang: csharp
+ms.custom: devx-track-csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: e8bc1d2eb978e0685552ff9b86d70ea4731285cf
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 49ab9090dd2f1860bed84d0494cb862212840e82
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87277744"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207046"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Samouczek: używanie konfiguracji dynamicznej w aplikacji .NET Framework
 
@@ -54,7 +55,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 1. W obszarze **Utwórz nowy projekt**odfiltruj typ projektu **konsoli** i kliknij pozycję **Aplikacja konsolowa (.NET Framework)**. Kliknij przycisk **Dalej**.
 
-1. W obszarze **Konfigurowanie nowego projektu**wprowadź nazwę projektu. W obszarze **Struktura**wybierz pozycję **.NET Framework 4.7.1** lub wyższy. Kliknij pozycję **Utwórz**.
+1. W obszarze **Konfigurowanie nowego projektu**wprowadź nazwę projektu. W obszarze **Struktura**wybierz pozycję **.NET Framework 4.7.1** lub wyższy. Kliknij przycisk **Utwórz**.
 
 ## <a name="reload-data-from-app-configuration"></a>Ponowne ładowanie danych z usługi App Configuration
 1. Kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Zarządzaj pakietami NuGet**. Na karcie **Przeglądaj** Wyszukaj i Dodaj *Microsoft.Extensions.Configwersja. AzureAppConfiguration* pakiet NuGet do projektu. Jeśli nie możesz go znaleźć, zaznacz pole wyboru **Uwzględnij wersję wstępną** .
@@ -150,7 +151,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
     > [!NOTE]
     > Ponieważ czas wygaśnięcia pamięci podręcznej został ustawiony na 10 sekund przy użyciu `SetCacheExpiration` metody podczas określania konfiguracji dla operacji odświeżania, wartość ustawienia konfiguracji będzie aktualizowana tylko wtedy, gdy od czasu ostatniego odświeżenia tego ustawienia upłynie co najmniej 10 sekund.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

@@ -4,12 +4,12 @@ description: Dowiedz się, jak dostosować funkcję uwierzytelniania i autoryzac
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: d69a75092f4ede5d5467357a7ac254be6e7c379b
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 52213999ae0ec9f6891c8ec10ab65471926e87d2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078397"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208020"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Zaawansowane użycie uwierzytelniania i autoryzacji w Azure App Service
 
@@ -297,6 +297,9 @@ Ustawienia uwierzytelniania można opcjonalnie skonfigurować za pośrednictwem 
     1.  Ustaw `enabled` na wartość "true"
     2.  Ustaw `isAuthFromFile` na wartość "true"
     3.  Ustaw `authFilePath` na nazwę pliku (na przykład "auth.json")
+
+> [!NOTE]
+> Format `authFilePath` różnic między platformami. W systemie Windows obsługiwane są zarówno ścieżki względne, jak i bezwzględne. Metoda relatywna jest zalecana. W przypadku systemu Linux obecnie obsługiwane są tylko ścieżki bezwzględne, więc wartość ustawienia powinna być równa "/Home/site/wwwroot/auth.json" lub podobny.
 
 Po dokonaniu tej aktualizacji konfiguracji zawartość pliku zostanie użyta do zdefiniowania zachowania App Service uwierzytelniania/autoryzacji dla tej lokacji. Jeśli kiedykolwiek chcesz wrócić do konfiguracji Azure Resource Manager, możesz to zrobić, ustawiając `isAuthFromFile` z powrotem wartość "false".
 

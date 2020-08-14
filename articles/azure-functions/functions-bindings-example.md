@@ -3,14 +3,15 @@ title: Przykład wyzwalacza i powiązania usługi Azure Functions
 description: Dowiedz się, jak skonfigurować powiązania funkcji platformy Azure
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 8685c0fe02ad6c68918736e857c2015e2bfb4595
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c95524a5de6696bd0ffe7463451d152a9d3a19b4
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74227242"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205966"
 ---
 # <a name="azure-functions-trigger-and-binding-example"></a>Przykład wyzwalacza i powiązania usługi Azure Functions
 
@@ -18,7 +19,7 @@ W tym artykule pokazano, jak skonfigurować [wyzwalacz i powiązania](./function
 
 Załóżmy, że chcesz napisać nowy wiersz do usługi Azure Table Storage za każdym razem, gdy w usłudze Azure queue storage zostanie wyświetlony nowy komunikat. Taki scenariusz można zaimplementować przy użyciu wyzwalacza usługi Azure Queue Storage i powiązania danych wyjściowych usługi Azure Table Storage. 
 
-Otofunction.jspliku *w* tym scenariuszu. 
+Otofunction.jspliku * w* tym scenariuszu. 
 
 ```json
 {
@@ -52,7 +53,7 @@ Aby wyświetlić i edytować zawartość *function.js* w Azure Portal, kliknij o
 
 ## <a name="c-script-example"></a>Przykładowy skrypt C#
 
-Oto kod skryptu języka C#, który działa z tym wyzwalaczem i powiązaniem. Należy zauważyć, że nazwa parametru dostarczającego zawartość komunikatu kolejki to `order` . Ta nazwa jest wymagana, ponieważ `name` wartość właściwości w *function.js* jest`order` 
+Oto kod skryptu języka C#, który działa z tym wyzwalaczem i powiązaniem. Należy zauważyć, że nazwa parametru dostarczającego zawartość komunikatu kolejki to `order` . Ta nazwa jest wymagana, ponieważ `name` wartość właściwości w *function.js* jest `order` 
 
 ```cs
 #r "Newtonsoft.Json"
@@ -102,7 +103,7 @@ function generateRandomId() {
 
 ## <a name="class-library-example"></a>Przykład biblioteki klas
 
-W bibliotece klas ten sam wyzwalacz i kolejka informacji o powiązaniu i &mdash; Nazwa tabeli, konta magazynu i parametry funkcji dla danych wejściowych i wyjściowych &mdash; są udostępniane przez atrybuty zamiast function.jsw pliku. Przykład:
+W bibliotece klas ten sam wyzwalacz i kolejka informacji o powiązaniu i &mdash; Nazwa tabeli, konta magazynu i parametry funkcji dla danych wejściowych i wyjściowych &mdash; są udostępniane przez atrybuty zamiast function.jsw pliku. Oto przykład:
 
 ```csharp
 public static class QueueTriggerTableOutput

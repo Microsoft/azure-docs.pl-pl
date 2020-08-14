@@ -3,17 +3,17 @@ title: Tworzenie szablonu programu Azure Image Builder (wersja zapoznawcza)
 description: Dowiedz się, jak utworzyć szablon do użycia z programem Azure Image Builder.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/03/2020
+ms.date: 08/13/2020
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 2f1db4e6c45602fb7fde84079e8ef78179a4ec6b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 095aa4ddbdc9ceb04c65d8c896642a0f1a91e547
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830346"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205540"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Wersja zapoznawcza: Tworzenie szablonu usługi Azure Image Builder 
 
@@ -306,7 +306,7 @@ Dostosuj właściwości:
 - **scriptUri** -URI do lokalizacji pliku 
 - **wbudowana** tablica poleceń powłoki, rozdzielonych przecinkami.
 - **sha256Checksum** — wartość sumy kontrolnej SHA256 pliku, wygenerowana lokalnie, a następnie Konstruktor obrazów będzie obliczać sumę kontrolną i sprawdzać poprawność.
-    * Aby wygenerować sha256Checksum, użyj terminalu w systemie Mac/Linux:`sha256sum <fileName>`
+    * Aby wygenerować sha256Checksum, użyj terminalu w systemie Mac/Linux: `sha256sum <fileName>`
 
 
 Aby polecenia były uruchamiane z uprawnieniami administratora, muszą być poprzedzone prefiksem `sudo` .
@@ -430,12 +430,13 @@ OS support: Windows
 ```
 
 Dostosuj właściwości:
-- **Typ** — windowsupdate.
+- **Typ**  — windowsupdate.
 - **oczekiwano elementu SearchCriteria** — opcjonalne, określa, który typ aktualizacji jest instalowany (zalecane, ważne itp.), BrowseOnly = 0 i IsInstalled = 0 (zalecane) jest wartością domyślną.
 - **filtry** — opcjonalne, umożliwia określenie filtru, aby uwzględnić lub wykluczyć aktualizacje.
 - **updateLimit** — opcjonalne, definiuje liczbę aktualizacji, które mogą być instalowane, domyślnie 1000.
  
- 
+> [!NOTE]
+> Windows Update konfigurator może zakończyć się niepowodzeniem, jeśli istnieją jakiekolwiek zaległe ponowne uruchomienia systemu Windows lub instalacje aplikacji nadal działają, zazwyczaj ten błąd może pojawić się w temacie Customization. log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016` . Zdecydowanie odradzamy Dodawanie w systemie Windows ponownego uruchamiania i/lub zezwalanie aplikacjom na ukończenie instalacji przy użyciu funkcji [uśpienia] lub oczekiwanie poleceń ( https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep?view=powershell-7) w poleceniach wbudowanych lub w skryptach przed uruchomieniem Windows Update.
 
 ### <a name="generalize"></a>Generalize 
 Domyślnie program Azure Image Builder uruchomi również kod "anulowania aprowizacji" na końcu każdej fazy dostosowywania obrazu do "generalize" obrazu. Uogólnianie to proces, w którym obraz jest skonfigurowany tak, aby można go było ponownie wykorzystać do tworzenia wielu maszyn wirtualnych. W przypadku maszyn wirtualnych z systemem Windows usługa Azure Image Builder używa programu Sysprep. W przypadku systemu Linux usługa Azure Image Builder uruchamia polecenie "waagent-dezastrzeganie". 
@@ -590,7 +591,7 @@ Dystrybuuj właściwości dla udostępnionych galerii obrazów:
 - **Typ** — sharedImage  
 - **galleryImageId** — identyfikator galerii obrazów udostępnionych, który można określić w dwóch formatach:
     * Automatyczne przechowywanie wersji — Konstruktor obrazów wygeneruje dla Ciebie numer wersji monotoniczny. jest to przydatne w przypadku, gdy chcesz przechowywać ponownie obrazy z tego samego szablonu: format jest następujący: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>` .
-    * Jawne przechowywanie wersji — można przekazać numer wersji, który ma być używany przez program Image Builder. Format to:`/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version e.g. 1.1.1>`
+    * Jawne przechowywanie wersji — można przekazać numer wersji, który ma być używany przez program Image Builder. Format to: `/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version e.g. 1.1.1>`
 
 - **runOutputName** — unikatowa nazwa identyfikująca dystrybucję.  
 - **artifactTags** — opcjonalne Tagi par wartości klucza określonego przez użytkownika.

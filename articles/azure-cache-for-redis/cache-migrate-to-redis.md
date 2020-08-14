@@ -4,15 +4,16 @@ description: Dowiedz się, jak migrować aplikacje Managed Cache Service i Pami�
 author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 07/23/2020
 ms.author: yegu
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4e867f28209230cf33b0f94e7cc8ca12d015ff15
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: beb6014a9b6d90d1bc9a3c3236877a720a44a0c4
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008563"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211124"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis-deprecated"></a>Migrowanie z Managed Cache Service do usługi Azure cache for Redis (przestarzałe)
 Migrowanie aplikacji korzystających z usługi Azure Managed Cache Service do usługi Azure cache for Redis można wykonać przy minimalnych zmianach w aplikacji, w zależności od funkcji Managed Cache Service używanych przez aplikację pamięci podręcznej. Mimo że interfejsy API nie są dokładnie takie same, są podobne i większość istniejącego kodu, który używa Managed Cache Service dostępu do pamięci podręcznej, może być ponownie używana z minimalnymi zmianami. W tym artykule pokazano, jak wprowadzić niezbędne zmiany konfiguracji i aplikacji w celu migrowania aplikacji Managed Cache Service do korzystania z pamięci podręcznej platformy Azure dla usługi Redis, a także informacje o tym, jak niektóre funkcje usługi Azure cache for Redis mogą być używane do implementowania funkcji pamięci podręcznej Managed Cache Service.
@@ -166,7 +167,7 @@ int key2 = (int)cache.StringGet("key2");
 
 Klient StackExchange. Redis używa `RedisKey` `RedisValue` typów i do uzyskiwania dostępu do elementów w pamięci podręcznej i ich przechowywania. Te typy są mapowane na większość typów języka pierwotnego, w tym ciąg i często nie są używane bezpośrednio. Ciągi Redis są najbardziej podstawowym rodzajem wartości Redis i mogą zawierać wiele typów danych, w tym serializowane strumienie binarne, a chociaż nie można używać typu bezpośrednio, należy użyć metod, które zawierają `String` nazwę. W przypadku większości typów danych pierwotnych można przechowywać i pobierać elementy z pamięci podręcznej przy użyciu `StringSet` `StringGet` metod i, chyba że przechowujesz kolekcje lub inne typy danych Redis w pamięci podręcznej. 
 
-`StringSet`i `StringGet` są podobne do Managed Cache Service `Put` i `Get` metod, z jedną istotną różnicą przed rozpoczęciem ustawiania i pobierania obiektu .NET do pamięci podręcznej, należy najpierw serializować ją. 
+`StringSet` i `StringGet` są podobne do Managed Cache Service `Put` i `Get` metod, z jedną istotną różnicą przed rozpoczęciem ustawiania i pobierania obiektu .NET do pamięci podręcznej, należy najpierw serializować ją. 
 
 W przypadku wywołania `StringGet` , jeśli obiekt istnieje, jest zwracany, a jeśli nie, zwracana jest wartość null. W takim przypadku można pobrać wartość z żądanego źródła danych i zapisać ją w pamięci podręcznej do późniejszego użycia. Ten wzorzec jest znany jako wzorzec z odkładaniem do pamięci podręcznej.
 

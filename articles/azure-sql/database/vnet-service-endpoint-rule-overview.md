@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 880ec24c377091173202098a3c54b5776bf69a98
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 76a31b10c15f2dff3d6d9304dcff6d0fb489ea7f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836619"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210394"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Korzystanie z punktów końcowych usługi sieci wirtualnej i reguł dla serwerów w Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -106,15 +106,15 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 Usługa Azure Storage zaimplementowała tę samą funkcję, która umożliwia ograniczenie łączności z kontem usługi Azure Storage. Jeśli zdecydujesz się używać tej funkcji z kontem usługi Azure Storage, które jest używane przez usługę Azure SQL Database, możesz napotkać problemy. Poniżej znajduje się lista i Omówienie funkcji Azure SQL Database i Azure SQL Data Warehouse, których dotyczy problem.
 
-### <a name="azure-synapse-polybase"></a>Baza Azure Synapse
+### <a name="azure-synapse-polybase-and-copy-statement"></a>Azure Synapse — instrukcja Base i COPY
 
-Baza danych wielobase jest często używana do ładowania do usługi Azure Synapse Analytics z kont usługi Azure Storage. Jeśli konto usługi Azure Storage, z którego są ładowane dane, ogranicza dostęp tylko do zestawu podsieci sieci wirtualnej, nastąpi przerwanie łączności z bazą danych na koncie. Aby włączyć zarówno podstawowe scenariusze importu i eksportu z usługą Azure Synapse Analytics łączącą się z usługą Azure Storage, która jest zabezpieczona w sieci wirtualnej, wykonaj następujące kroki:
+Baza i instrukcja COPY są często używane do ładowania danych do usługi Azure Synapse Analytics z kont usługi Azure Storage w celu pozyskiwania danych o wysokiej przepływności. Jeśli konto usługi Azure Storage, z którego są ładowane dane, ogranicza dostęp tylko do zestawu podsieci sieci wirtualnej, nastąpi przerwanie łączności przy użyciu bazy danych i instrukcji COPY do konta magazynu. Aby włączyć Importowanie i eksportowanie scenariuszy przy użyciu kopii i bazy danych z usługą Azure Synapse Analytics łączącej się z usługą Azure Storage, która jest zabezpieczona w sieci wirtualnej, wykonaj kroki opisane poniżej:
 
 #### <a name="prerequisites"></a>Wymagania wstępne
 
 - Zainstaluj program Azure PowerShell, korzystając z tego [przewodnika](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Jeśli masz konto ogólnego przeznaczenia w wersji 1 lub konto magazynu blob, najpierw musisz przeprowadzić uaktualnienie do konta ogólnego przeznaczenia w wersji 2, korzystając z tego [przewodnika](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-- Musisz **zezwolić zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu** , włączone w obszarze zapory konta usługi Azure Storage i menu ustawienia **sieci wirtualnych** . Aby uzyskać więcej informacji, zapoznaj się z tym [przewodnikiem](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+- Musisz **zezwolić zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu** , włączone w obszarze zapory konta usługi Azure Storage i menu ustawienia **sieci wirtualnych** . Włączenie tej konfiguracji umożliwi użycie instrukcji Base i COPY w celu nawiązania połączenia z kontem magazynu przy użyciu silnego uwierzytelniania w przypadku, gdy ruch sieciowy pozostaje w sieci szkieletowej platformy Azure. Aby uzyskać więcej informacji, zapoznaj się z tym [przewodnikiem](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 > [!IMPORTANT]
 > Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany przez Azure SQL Database, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. Moduł AzureRM będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020.  Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne. Aby uzyskać więcej informacji o zgodności, zobacz [wprowadzenie do nowego Azure PowerShell AZ module](/powershell/azure/new-azureps-module-az).

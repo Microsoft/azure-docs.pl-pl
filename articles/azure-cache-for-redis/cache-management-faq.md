@@ -5,13 +5,14 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 08/06/2020
-ms.openlocfilehash: e28ca06c5d1f1a71daa9b64c9d7dc2bee37fd7c6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5c5c7a5adae9891f764f714d1700c6024376de02
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010882"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205381"
 ---
 # <a name="azure-cache-for-redis-management-faqs"></a>Usługa Azure cache for Redis — często zadawane pytania
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące zarządzania usługą Azure cache for Redis.
@@ -126,7 +127,7 @@ Mając te informacje, zdecydowanie zalecamy, aby klienci ustawili minimalną war
 
 Jak skonfigurować to ustawienie:
 
-* Zalecamy zmianę tego ustawienia programowo przy użyciu metody [puli wątków. SetMinThreads — (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) w programie `global.asax.cs` . Przykład:
+* Zalecamy zmianę tego ustawienia programowo przy użyciu metody [puli wątków. SetMinThreads — (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) w programie `global.asax.cs` . Na przykład:
 
     ```csharp
     private readonly int minThreads = 200;

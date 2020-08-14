@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Dowiedz się, jak rozwiązywać typowe problemy podczas włączania i używania Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s '
-ms.openlocfilehash: 7696cc8eaeef9ba5e2e0955bad6f17d28e95b5e5
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: e26f066294cb0a6a48c5a3299213206fe4226ad0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077037"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210827"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Rozwiązywanie problemów Azure Dev Spaces
 
@@ -55,8 +55,6 @@ Jeśli nie masz zainstalowanego interfejsu wiersza polecenia Azure Dev Spaces, m
 ```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
-
-Ponowne tworzenie kontrolera można wykonać przy użyciu interfejsu wiersza polecenia lub programu Visual Studio. Przykłady można znaleźć w temacie [programowanie zespołowe](quickstart-team-development.md) lub [opracowywanie za pomocą](quickstart-netcore-visualstudio.md) przewodnika Szybki Start dla platformy .NET Core.
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>Tworzenie kontrolera kończy się niepowodzeniem z powodu długości nazwy kontrolera
 
@@ -545,7 +543,7 @@ Aby rozwiązać ten problem:
 1. Jeśli trwa Kompilowanie/wdrażanie kontenera, możesz poczekać 2-3 sekund i ponownie spróbować uzyskać dostęp do usługi. 
 1. Sprawdź konfigurację portu w następujących zasobach:
     * ** [Wykres Helm](https://docs.helm.sh):** Określone przez `service.port` i `deployment.containerPort` w wartości. YAML szkieletowe przez `azds prep` polecenie.
-    * Wszystkie porty otwierane w kodzie aplikacji, na przykład w Node.js:`var server = app.listen(80, function () {...}`
+    * Wszystkie porty otwierane w kodzie aplikacji, na przykład w Node.js: `var server = app.listen(80, function () {...}`
 
 ### <a name="the-type-or-namespace-name-mylibrary-couldnt-be-found"></a>Nie można znaleźć nazwy typu lub przestrzeni nazw "Moja biblioteka"
 

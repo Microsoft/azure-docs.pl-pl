@@ -5,12 +5,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 description: Dowiedz się, jak Visual Studio Code i Azure Dev Spaces ułatwiają debugowanie i szybkie Iterowanie aplikacji Kubernetes
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery
-ms.openlocfilehash: 73a2ae1f603626acf7ec4d42838b301c88ee21da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: decf61bd55ed15182f030bb02a2fe9c959749556
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84307354"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209877"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Jak działa Visual Studio Code z Azure Dev Spaces
 
@@ -43,19 +43,15 @@ W przypadku projektów .NET Core musisz mieć zainstalowane [rozszerzenie język
 
 Po uruchomieniu projektu można debugować usługi Java, Node.js i .NET Core działające w obszarze dev, bezpośrednio z Visual Studio Code. Konfiguracja uruchamiania w `.vscode` katalogu zawiera dodatkowe informacje debugowania dotyczące uruchamiania usługi z włączoną funkcją debugowania w obszarze dev. Visual Studio Code również dołącza do procesu debugowania w uruchomionym kontenerze w miejscach programistycznych, co pozwala na ustawianie punktów przerwania, inspekcję zmiennych i wykonywanie innych operacji debugowania.
 
-## <a name="use-visual-studio-code-with-azure-dev-spaces"></a>Użyj Visual Studio Code z Azure Dev Spaces
+## <a name="next-steps"></a>Następne kroki
 
-W następujących przewodnikach szybki start można zobaczyć Visual Studio Code i rozszerzenie Azure Dev Spaces pracujące z Azure Dev Spacesami:
+Dowiedz się więcej o tym, jak działa Azure Dev Spaces.
 
-* [Szybkie iteracje i debugowanie za pomocą Visual Studio Code i języka Java][quickstart-java]
-* [Szybkie iteracje i debugowanie przy użyciu Visual Studio Code i platformy .NET][quickstart-netcore]
-* [Szybkie iteracje i debugowanie przy użyciu Visual Studio Code i Node.js][quickstart-node]
+> [!div class="nextstepaction"]
+> [Jak działa usługa Azure Dev Spaces](how-dev-spaces-works.md)
 
 [azds-extension]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds
 [azds-yaml]: how-dev-spaces-works-prep.md#prepare-your-code
 [csharp-extension]: https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp
 [java-extension]: https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds
 [maven]: https://maven.apache.org
-[quickstart-java]: quickstart-java.md
-[quickstart-netcore]: quickstart-netcore.md
-[quickstart-node]: quickstart-nodejs.md

@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: OCR dla wydrukowanych i odręcznych tekstu przy użyciu operacji odczytu interfejsu API REST przetwarzanie obrazów 3,0 i C #'
+title: 'Szybki Start: Wyodrębnianie tekstu przy użyciu operacji odczytu interfejsu API REST w przetwarzanie obrazów 3,0 i C #'
 titleSuffix: Azure Cognitive Services
 description: W tym przewodniku szybki start Zastosuj OCR do obrazu przy użyciu operacji odczytu interfejsu API REST przetwarzanie obrazów 3,0 i języka C#.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 36f149019e37949445189045a8a71489f0f26418
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: ac924d6cccbc6f36afc00154c230cac118bd9257
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167831"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210147"
 ---
-# <a name="quickstart-ocr-for-printed-and-handwritten-text-using-the-computer-vision-30-rest-api-read-operation-and-c"></a>Szybki Start: OCR dla wydrukowanych i odręcznych tekstu przy użyciu operacji odczytu interfejsu API REST przetwarzanie obrazów 3,0 i C #
+# <a name="quickstart-extract-text-using-the-computer-vision-30-rest-api-read-operation-and-c"></a>Szybki Start: Wyodrębnianie tekstu przy użyciu operacji odczytu interfejsu API REST w przetwarzanie obrazów 3,0 i C #
 
 W tym przewodniku Szybki Start zostanie wyodrębniony drukowany i odręczny tekst z obrazu przy użyciu nowej technologii OCR dostępnej w ramach interfejsu API REST przetwarzanie obrazów 3,0. Za pomocą nowych metod [odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) i [Get Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) , można wykryć tekst w obrazie i wyodrębnić rozpoznane znaki do strumienia znaków do odczytu maszynowego. 
 
@@ -68,7 +68,7 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
 
         // the Batch Read method endpoint
-        static string uriBase = endpoint + "/vision/v3.0//read/analyze";
+        static string uriBase = endpoint + "/vision/v3.0/read/analyze";
 
         // Add a local image with text here (png or jpg is OK)
         static string imageFilePath = @"my-image.png";

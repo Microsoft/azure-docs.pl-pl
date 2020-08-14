@@ -12,15 +12,16 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: ace0ef2660a44af41d8942cfe4d225bc1a03228e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: abb9cbb73f8957cec2cb3240bbf186623b9b2ef9
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254592"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205502"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Monitoruj interfejsy API przy użyciu usługi Azure API Management, Event Hubs i Moesif
 [Usługa API Management](api-management-key-concepts.md) udostępnia wiele funkcji, które rozszerzają przetwarzanie żądań HTTP wysyłanych do interfejsu API protokołu HTTP. Jednak istnienie żądań i odpowiedzi jest przejściowe. Żądanie zostało zrealizowane i przepływa przez usługę API Management do interfejsu API zaplecza. Interfejs API przetwarza żądanie i odpowiedź z powrotem do klienta interfejsu API. Usługa API Management zachowuje pewne ważne statystyki dotyczące interfejsów API do wyświetlania na pulpicie nawigacyjnym Azure Portal, ale poza tym, szczegóły zostały utracone.
@@ -163,7 +164,7 @@ Zasady wysyłania komunikatu HTTP odpowiedzi wyglądają podobnie do żądania, 
 Zdarzenia z centrum zdarzeń platformy Azure są odbierane przy użyciu [protokołu AMQP](https://www.amqp.org/). Zespół Service Bus firmy Microsoft udostępnił biblioteki klienckie, aby ułatwić wykorzystywanie zdarzeń. Obsługiwane są dwa różne podejścia. jeden z nich jest *bezpośrednim odbiorcą* , a drugi używa `EventProcessorHost` klasy. Przykłady tych dwóch metod można znaleźć w [przewodniku programowania Event Hubs](../event-hubs/event-hubs-programming-guide.md). Krótka wersja różnic polega na tym, `Direct Consumer` że masz kompletną kontrolę i `EventProcessorHost` wykonuje kilka czynności związanych z działaniem, ale wprowadza pewne założenia dotyczące sposobu przetwarzania tych zdarzeń.
 
 ### <a name="eventprocessorhost"></a>EventProcessorHost
-W tym przykładzie używamy `EventProcessorHost` dla prostoty, ale może to nie być najlepszym wyborem w tym konkretnym scenariuszu. `EventProcessorHost`Czy trudno jest upewnić się, że nie trzeba martwić się o problemy wątkowe w ramach określonej klasy procesora zdarzeń. Jednak w naszym scenariuszu wystarczy przekonwertować komunikat do innego formatu i przekazać go do innej usługi przy użyciu metody asynchronicznej. Nie ma potrzeby aktualizowania stanu udostępnionego i w związku z tym nie ma ryzyka związanego z wątkiem. W większości scenariuszy `EventProcessorHost` jest prawdopodobnie najlepszym wyborem i jest to prostsze dla opcji.
+W tym przykładzie używamy `EventProcessorHost` dla prostoty, ale może to nie być najlepszym wyborem w tym konkretnym scenariuszu. `EventProcessorHost` Czy trudno jest upewnić się, że nie trzeba martwić się o problemy wątkowe w ramach określonej klasy procesora zdarzeń. Jednak w naszym scenariuszu wystarczy przekonwertować komunikat do innego formatu i przekazać go do innej usługi przy użyciu metody asynchronicznej. Nie ma potrzeby aktualizowania stanu udostępnionego i w związku z tym nie ma ryzyka związanego z wątkiem. W większości scenariuszy `EventProcessorHost` jest prawdopodobnie najlepszym wyborem i jest to prostsze dla opcji.
 
 ### <a name="ieventprocessor"></a>IEventProcessor
 Koncepcja Centralna podczas korzystania z programu `EventProcessorHost` polega na utworzeniu implementacji `IEventProcessor` interfejsu, który zawiera metodę `ProcessEventAsync` . Istota tej metody jest pokazana tutaj:

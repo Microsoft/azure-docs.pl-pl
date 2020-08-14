@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/05/2020
-ms.openlocfilehash: 4d8a38666991760fbb133e617984ba23788034ca
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 4a8a2455ea3e5889293cb8285f36699942a46437
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909897"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209327"
 ---
 # <a name="quickstart-create-a-search-index-using-the-microsoftazuresearch-v10-client-library"></a>Szybki Start: Tworzenie indeksu wyszukiwania przy użyciu biblioteki klienta Microsoft. Azure. Search v10
 
@@ -106,9 +106,9 @@ Ten krok jest wymagany w celu utworzenia znaczących danych wyjściowych w konso
 
 1. Dodaj dwie puste definicje klas do projektu: Address.Methods.cs, Hotel.Methods.cs
 
-1. W Address.Methods.cs Zastąp domyślną zawartość następującym kodem: [wierszami 1-25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Address.Methods.cs/#L1-L25).
+1. W Address.Methods.cs Zastąp domyślną zawartość następującym kodem: [wierszami 1-25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart-v10/AzureSearchQuickstart/Address.Methods.cs#L1-L25).
 
-1. W Hotel.Methods.cs Skopiuj [wiersze 1-68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Hotel.Methods.cs/#L1-L68).
+1. W Hotel.Methods.cs Skopiuj [wiersze 1-68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart-v10/AzureSearchQuickstart/Hotel.Methods.cs#L1-L68).
 
 ## <a name="1---create-index"></a>1 — Tworzenie indeksu
 
@@ -205,7 +205,7 @@ Indeks hoteli zawiera proste i złożone pola, w których proste pole to "Hoteln
 
 1. W Program.cs Utwórz wystąpienie [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) klasy w celu nawiązania połączenia z usługą przy użyciu wartości, które są przechowywane w pliku konfiguracyjnym aplikacji (appsettings.json). 
 
-   `SearchServiceClient`ma [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) Właściwość, dostarczając wszystkie metody, które są potrzebne do tworzenia, wyświetlania, aktualizowania lub usuwania indeksów wyszukiwanie poznawcze platformy Azure. 
+   `SearchServiceClient` ma [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) Właściwość, dostarczając wszystkie metody, które są potrzebne do tworzenia, wyświetlania, aktualizowania lub usuwania indeksów wyszukiwanie poznawcze platformy Azure. 
 
     ```csharp
     using System;
@@ -427,7 +427,7 @@ Podczas przekazywania dokumentów należy użyć [`IndexBatch`](https://docs.mic
     }
     ```
 
-    Po zainicjowaniu `IndexBatch` obiektu można wysłać go do indeksu, wywołując [`Documents.Index`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) [`SearchIndexClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) obiekt. `Documents`jest właściwością `SearchIndexClient` , która zapewnia metody dodawania, modyfikowania, usuwania lub wykonywania zapytań o dokumenty w indeksie.
+    Po zainicjowaniu `IndexBatch` obiektu można wysłać go do indeksu, wywołując [`Documents.Index`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) [`SearchIndexClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) obiekt. `Documents` jest właściwością `SearchIndexClient` , która zapewnia metody dodawania, modyfikowania, usuwania lub wykonywania zapytań o dokumenty w indeksie.
 
     `try` / `catch` Otaczające wywołanie `Index` metody przechwytuje błędy indeksowania, co może się zdarzyć, jeśli usługa jest mocno obciążona. W kodzie produkcyjnym można opóźnić, a następnie ponowić próbę indeksowania dokumentów, które zakończyły się niepowodzeniem, lub rejestrować i kontynuować, podobnie jak w przypadku przykładu, lub obsłużyć je w inny sposób, który spełnia wymagania dotyczące spójności danych aplikacji.
 
@@ -550,7 +550,7 @@ W tej sekcji dodano dwie elementy funkcjonalności: Logika zapytań i wyniki. W 
 
     Dane wyjściowe zawierają te same wiadomości jak wcześniej, z dodaniem informacji o zapytaniu i wyników.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 

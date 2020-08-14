@@ -7,14 +7,15 @@ manager: gwallace
 keywords: Azure Functions, Functions, przetwarzanie zdarzeń, rozgrzewania, zimny start, Premium, Dynamic COMPUTE, architektura bezserwerowa
 ms.service: azure-functions
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
-ms.openlocfilehash: dade31fd9a5a75c875274ea45607fea81a2de027
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f5523c513cc0bdd08c43bdbed5046bf662f1a3e5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383719"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206574"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Wyzwalacz rozgrzewania Azure Functions
 
@@ -107,7 +108,7 @@ public static void Run(ILogger log)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Poniższy przykład przedstawia wyzwalacz rozgrzewania w *function.js* w pliku oraz [funkcja języka JavaScript](functions-reference-node.md) , która będzie uruchamiana w każdym nowym wystąpieniu, gdy zostanie dodana do aplikacji.
+Poniższy przykład przedstawia wyzwalacz rozgrzewania w *function.js* w pliku oraz [funkcja języka JavaScript](functions-reference-node.md)  , która będzie uruchamiana w każdym nowym wystąpieniu, gdy zostanie dodana do aplikacji.
 
 Funkcja musi mieć nazwę ```warmup``` (bez uwzględniania wielkości liter) i może istnieć tylko jedna funkcja rozgrzewania na aplikację.
 

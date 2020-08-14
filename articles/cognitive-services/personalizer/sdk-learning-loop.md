@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 07/30/2020
 ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 480e860952c2659d053f8a5659e312feacff2d2b
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 76504da214a3777dba7b2356bea160e86999bb45
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874490"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207553"
 ---
 # <a name="quickstart-personalizer-client-library"></a>Szybki Start: Biblioteka kliencka personalizacji
 
@@ -33,7 +33,7 @@ Rozpocznij pracę z biblioteką klienta personalizacji. Wykonaj następujące kr
 [!INCLUDE [Get intent with Python SDK](./includes/quickstart-sdk-python.md)]
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
 
@@ -48,4 +48,4 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz us
 * [Co to jest usługa Personalizacja?](what-is-personalizer.md)
 * [Gdzie można używać usługi Personalizacja?](where-can-you-use-personalizer.md)
 * [Rozwiązywanie problemów](troubleshooting.md)
-* Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py).
+* Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Personalizer).

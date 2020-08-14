@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 901815ba40459bd50562e557a0a766474c731ce0
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 84bf041f64a2f85f3aa3eada1dc1955c93dc034a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476114"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208200"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Rozwiązywanie problemów z rolami przypisanymi do grup chmury
 
@@ -51,7 +51,7 @@ Odp **.:** Tak. Jeśli korzystasz z najnowszej wersji przeglądu dostępu, recen
 
 Odp **.:** Tak. Administrator globalny i administrator użytkownika mogą wprowadzić dowolną grupę w pakiecie dostępu. Brak zmian dla administratora globalnego, ale istnieje niewielka zmiana uprawnień roli administratora użytkowników. Aby umieścić grupę z możliwością przypisania do pakietu dostępu, musisz być administratorem użytkownika, a także właścicielem grupy przypisanej do roli. Oto pełna tabela przedstawiająca, kto może utworzyć pakiet dostępu w usłudze zarządzania licencjami przedsiębiorstwa:
 
-Rola katalogu usługi Azure AD | Rola zarządzania uprawnieniami | Może dodać grupę zabezpieczeń\* | Może dodać grupę Office 365\* | Można dodać aplikację | Może dodać witrynę usługi SharePoint Online
+Rola katalogu usługi Azure AD | Rola zarządzania uprawnieniami | Może dodać grupę zabezpieczeń\* | Może dodać grupę Microsoft 365\* | Można dodać aplikację | Może dodać witrynę usługi SharePoint Online
 ----------------------- | --------------------------- | ----------------------- | ------------------------- | ----------- |  -----------------------------
 Administrator globalny | nie dotyczy | ✔️ | ✔️ | ✔️  | ✔️
 Administrator użytkowników  | nie dotyczy  | ✔️  | ✔️  | ✔️
@@ -101,4 +101,4 @@ Odp **.:** Jeśli przypiszesz istniejącą grupę do roli, istniejący Właścic
 ## <a name="next-steps"></a>Następne kroki
 
 - [Zarządzanie przypisaniami ról przy użyciu grup chmur](roles-groups-concept.md)
-- [Tworzenie grupy przypisanej do roli](roles-groups-create-eligible.md)
+- [Tworzenie grupy z możliwością przypisania do roli](roles-groups-create-eligible.md)

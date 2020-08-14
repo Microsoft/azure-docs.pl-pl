@@ -1,18 +1,18 @@
 ---
 title: Łączenie maszyn hybrydowych z platformą Azure na dużą skalę
-description: W tym artykule dowiesz się, jak połączyć maszyny z platformą Azure przy użyciu usługi Azure ARC dla serwerów (wersja zapoznawcza) przy użyciu nazwy głównej usługi.
+description: W tym artykule dowiesz się, jak połączyć maszyny z platformą Azure przy użyciu serwerów z obsługą usługi Azure ARC (wersja zapoznawcza) przy użyciu nazwy głównej.
 ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0f599ae6bab8a2b1ce442df677ba5de206d11ab2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 07266ce7fb9579e1d4fb1b65394e0b7fdf7aa13d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121820"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211405"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Łączenie maszyn hybrydowych z platformą Azure na dużą skalę
 
-Usługę Azure Arc można włączyć dla serwerów (wersja zapoznawcza) dla wielu maszyn z systemem Windows lub Linux w środowisku z kilkoma elastycznymi opcjami, w zależności od wymagań. Za pomocą szablonu skryptu udostępniamy, można zautomatyzować każdy krok instalacji, w tym ustanowienie połączenia z usługą Azure Arc. Jednak użytkownik musi interaktywnie wykonać ten skrypt przy użyciu konta, które ma podwyższone uprawnienia na maszynie docelowej i na platformie Azure. Aby połączyć komputery z usługą Azure ARC dla serwerów, można użyć jednostki [usługi](../../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory, zamiast korzystać z tożsamości uprzywilejowanej, aby [interaktywnie połączyć maszynę](onboard-portal.md). Nazwa główna usługi jest specjalną ograniczoną tożsamością zarządzania, która ma przyznane tylko minimalne uprawnienia wymagane do łączenia maszyn z platformą Azure przy użyciu `azcmagent` polecenia. Jest to bezpieczniejsze niż użycie wyższego konta uprzywilejowanego, takiego jak Administrator dzierżawy, i postępuj zgodnie z najlepszymi rozwiązaniami w zakresie zabezpieczeń kontroli dostępu. Nazwa główna usługi jest używana tylko podczas dołączania, nie jest używana do żadnego innego celu.  
+Można włączyć serwery z obsługą usługi Azure ARC (wersja zapoznawcza) dla wielu maszyn z systemem Windows lub Linux w środowisku z kilkoma elastycznymi opcjami, w zależności od wymagań. Za pomocą szablonu skryptu udostępniamy, można zautomatyzować każdy krok instalacji, w tym ustanowienie połączenia z usługą Azure Arc. Jednak użytkownik musi interaktywnie wykonać ten skrypt przy użyciu konta, które ma podwyższone uprawnienia na maszynie docelowej i na platformie Azure. Aby połączyć maszyny z serwerami z obsługą usługi Azure ARC (wersja zapoznawcza), możesz użyć jednostki [usługi](../../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory, zamiast korzystać z tożsamości uprzywilejowanej, aby [interaktywnie połączyć maszynę](onboard-portal.md). Nazwa główna usługi jest specjalną ograniczoną tożsamością zarządzania, która ma przyznane tylko minimalne uprawnienia wymagane do łączenia maszyn z platformą Azure przy użyciu `azcmagent` polecenia. Jest to bezpieczniejsze niż użycie wyższego konta uprzywilejowanego, takiego jak Administrator dzierżawy, i postępuj zgodnie z najlepszymi rozwiązaniami w zakresie zabezpieczeń kontroli dostępu. Nazwa główna usługi jest używana tylko podczas dołączania, nie jest używana do żadnego innego celu.  
 
 Metody instalacji i konfigurowania agenta połączonego maszyny wymagają, aby stosowana Metoda zautomatyzowana miała uprawnienia administratora na maszynach. W systemie Linux przy użyciu konta głównego i w systemie Windows jako członek lokalnej grupy administratorów.
 
@@ -20,7 +20,7 @@ Przed rozpoczęciem należy zapoznać się z wymaganiami [wstępnymi](agent-over
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Po zakończeniu tego procesu nastąpi pomyślne Podłączenie maszyn hybrydowych do usługi Azure ARC dla serwerów.
+Po zakończeniu tego procesu Twoje maszyny hybrydowe zostaną pomyślnie podłączone do serwerów z włączonym usługą Azure ARC (wersja zapoznawcza).
 
 ## <a name="create-a-service-principal-for-onboarding-at-scale"></a>Tworzenie jednostki usługi na potrzeby dołączania na dużą skalę
 
@@ -61,7 +61,7 @@ Aby utworzyć nazwę główną usługi przy użyciu programu PowerShell, wykonaj
 Wartości z następujących właściwości są używane z parametrami przekazaną do `azcmagent` :
 
 * Wartość właściwości identyfikator **aplikacji** jest używana dla `--service-principal-id` wartości parametru
-* Wartość właściwości **Password** służy `--service-principal-secret` do łączenia się z agentem.
+* Wartość właściwości **Password** służy  `--service-principal-secret` do łączenia się z agentem.
 
 > [!NOTE]
 > Upewnij się, że używasz **Właściwości głównej nazwy** usługi, a nie właściwości **ID** .
@@ -75,11 +75,11 @@ Poniższe kroki instalują i konfigurują agenta podłączonego maszyny na maszy
 
 Poniżej przedstawiono ustawienia, które należy skonfigurować dla jednostki `azcmagent` usługi.
 
-* `tenant-id`: Unikatowy identyfikator (GUID) reprezentujący dedykowane wystąpienie usługi Azure AD.
-* `subscription-id`: Identyfikator subskrypcji (GUID) subskrypcji platformy Azure, w której mają być używane maszyny.
-* `resource-group`: Nazwa grupy zasobów, do której mają należeć połączone maszyny.
-* `location`: Zobacz [Obsługiwane regiony platformy Azure](overview.md#supported-regions). Ta lokalizacja może być taka sama lub inna, jak lokalizacja grupy zasobów.
-* `resource-name`: (*Opcjonalnie*) używany do reprezentacji zasobów platformy Azure na komputerze lokalnym. Jeśli ta wartość nie zostanie określona, zostanie użyta nazwa hosta maszyny.
+* `tenant-id` : Unikatowy identyfikator (GUID) reprezentujący dedykowane wystąpienie usługi Azure AD.
+* `subscription-id` : Identyfikator subskrypcji (GUID) subskrypcji platformy Azure, w której mają być używane maszyny.
+* `resource-group` : Nazwa grupy zasobów, do której mają należeć połączone maszyny.
+* `location` : Zobacz [Obsługiwane regiony platformy Azure](overview.md#supported-regions). Ta lokalizacja może być taka sama lub inna, jak lokalizacja grupy zasobów.
+* `resource-name` : (*Opcjonalnie*) używany do reprezentacji zasobów platformy Azure na komputerze lokalnym. Jeśli ta wartość nie zostanie określona, zostanie użyta nazwa hosta maszyny.
 
 Więcej informacji na temat `azcmagent` narzędzia wiersza polecenia można uzyskać, przeglądając [odwołanie Azcmagent](./manage-agent.md).
 
@@ -133,7 +133,7 @@ azcmagent connect \
 >[!NOTE]
 >Aby uruchamiać **azcmagent**, musisz mieć uprawnienia dostępu *głównego* na maszynach z systemem Linux.
 
-Po zainstalowaniu agenta programu i skonfigurowaniu go w celu nawiązania połączenia z usługą Azure ARC dla serwerów (wersja zapoznawcza) przejdź do Azure Portal, aby sprawdzić, czy serwer został pomyślnie połączony. Wyświetl maszyny w witrynie [Azure Portal](https://aka.ms/hybridmachineportal).
+Po zainstalowaniu agenta programu i skonfigurowaniu go w celu nawiązania połączenia z serwerami z obsługą usługi Azure ARC (wersja zapoznawcza) przejdź do Azure Portal, aby sprawdzić, czy serwer pomyślnie nawiązał połączenie. Wyświetl maszyny w witrynie [Azure Portal](https://aka.ms/hybridmachineportal).
 
 ![Pomyślne połączenie z serwerem](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 

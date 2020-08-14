@@ -6,15 +6,16 @@ author: avanigupta
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.devlang: csharp
+ms.custom: devx-track-dotnet
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: b06d38d69f331df2f48637c6cdee527090955a47
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a3c1699dd4b7b828c7dc652f14f431878f785061
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830137"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207146"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Automatyczne tworzenie kopii zapasowych magazynów konfiguracji aplikacji
 
@@ -247,7 +248,7 @@ Jeśli nowe ustawienie nie jest widoczne w magazynie pomocniczym:
 - Możesz również skonfigurować monitorowanie i alerty dla Azure Functions przy użyciu [usługi Azure Application Insights](/azure/azure-functions/functions-monitoring?tabs=cmd). 
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Jeśli planujesz kontynuować pracę z tą konfiguracją aplikacji i subskrypcją zdarzeń, nie czyść zasobów utworzonych w tym artykule. Jeśli nie planujesz kontynuować pracy, użyj następującego polecenia, aby usunąć zasoby utworzone w tym artykule.
 
 ```azurecli-interactive

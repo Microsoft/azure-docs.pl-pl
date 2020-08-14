@@ -10,17 +10,18 @@ editor: ''
 ms.assetid: b0982203-c3c8-4a0b-8717-5b5ac4038d8c
 ms.subservice: asc-for-iot
 ms.devlang: na
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 40c6ea91fd84a0f088ed770cd7c4c3ea7b8b1c91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 460e3f3955778945600bb3a1f9762a0ac50f5805
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311141"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205913"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Wdrażanie agenta zabezpieczeń usługi Azure Security Center dla IoT opartego na języku C# dla systemu Linux
 
@@ -29,10 +30,10 @@ W tym przewodniku wyjaśniono, jak zainstalować i wdrożyć Azure Security Cent
 Niniejszy przewodnik zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Instalowanie
+> * Zainstaluj
 > * Weryfikowanie wdrożenia
 > * Odinstalowywanie agenta
-> * Rozwiązywanie problemów
+> * Rozwiąż problemy
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -50,7 +51,7 @@ Aby wdrożyć agenta zabezpieczeń, wykonaj następujące czynności:
 
 1. Wyodrębnij zawartość pakietu i przejdź do folderu _/Install_ .
 
-1. Dodaj uruchomione uprawnienia do **skryptu InstallSecurityAgent** , uruchamiając`chmod +x InstallSecurityAgent.sh`
+1. Dodaj uruchomione uprawnienia do **skryptu InstallSecurityAgent** , uruchamiając `chmod +x InstallSecurityAgent.sh`
 
 1. Następnie uruchom następujące polecenie z **uprawnieniami głównymi**:
 
@@ -72,7 +73,7 @@ Ten skrypt wykonuje następujące czynności:
 
 - Konfiguruje agenta przy użyciu podanych parametrów uwierzytelniania.
 
-Aby uzyskać dodatkową pomoc, uruchom skrypt za pomocą parametru – help:`./InstallSecurityAgent.sh --help`
+Aby uzyskać dodatkową pomoc, uruchom skrypt za pomocą parametru – help: `./InstallSecurityAgent.sh --help`
 
 ### <a name="uninstall-the-agent"></a>Odinstalowywanie agenta
 
@@ -116,7 +117,7 @@ Aby odinstalować agenta, uruchom skrypt za pomocą parametru – u: `./InstallS
 
    1. Przejrzyj plik dziennika, aby uzyskać więcej informacji o błędzie.
 
-       Lokalizacja pliku dziennika:`/var/ASCIoTAgent/IotAgentLog.log`
+       Lokalizacja pliku dziennika: `/var/ASCIoTAgent/IotAgentLog.log`
 
        Zmień ścieżkę lokalizacji pliku zgodnie z nazwą wybraną dla **LogFilePath** w kroku 2.
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: 6e38be4a97678ce749e32ca31c0703ed9d786d76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30f6bf7629152050bc1249a1e22aff0aa30642de
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84046768"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209536"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Publiczne zestawy danych do testowania i tworzenia prototypów
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -33,7 +33,7 @@ Przejrzyj listę publicznych zestawów danych dla danych, których można użyć
 | [Opóźnienia lotu i inne dane transportu](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "Wydział statystyk transportu w Stanach Zjednoczonych (BTS) jest śledzenie wydajności lotów domowych prowadzonych przez dużych przewoźników lotniczych. Wyświetlane są podsumowanie informacji o liczbie przelotów, opóźnionych, anulowanych i przekierowane loty... w tabelach podsumowujących ogłoszonych w tej witrynie sieci Web ". | Pliki są w formacie CSV. |
 | [Ruch Fatalities — system raportowania analizy krytycznej dla Stanów Zjednoczonych (FARS)](https://www.nhtsa.gov/FARS) | "FARS jest spisem krajowym dostarczającym NHTSA, Kongres i amerykańskie dane roczne dotyczące krytycznych urazów poniesionych w przypadku awarii ruchu pojazdów mechanicznych". | "Utwórz własne dane krytyczne w trybie online przy użyciu systemu zapytań FARS. Lub Pobierz wszystkie dane FARS z 1975 do prezentacji z witryny FTP ". |
 | [Toksyczne dane chemiczne — dane prognozy toksyczności EPA (ToxCast &trade; )](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | "Większość aktualizacji EPA, publicznie dostępnych danych toksyczności o wysokiej przepływności na tysiącach chemikaliów. Te dane są generowane za pomocą nakładu pracy badawczej w ToxCast EPA ". | Zestawy danych są dostępne w różnych formatach, w tym w arkuszach kalkulacyjnych, pakietach R i plikach baz danych MySQL. |
-| [Toksyczne dane chemiczne — NIH Tox21 Data Challenge 2014](https://tripod.nih.gov/tox21/challenge/) | "Żądanie Tox21 danych 2014 zostało zaprojektowane, aby pomóc analitykom w zrozumieniu potencjału chemikaliów i związków, które są testowane przez toksykologia w ramach inicjatywy dwudziestego wieku, aby przerwać ścieżki biologiczne w sposób, który może spowodować toksyczne efekty". | Zestawy danych są dostępne w formatach UŚMIECHów i SDF. Dane zapewniają "informacje o działaniach i struktury chemiczne w kolekcji Tox21 ~ 10 000 związki (Tox21 10 tys.)". |
+| [Toksyczne dane chemiczne — NIH Tox21 Data Challenge 2014](https://tripod.nih.gov/tox21) | "Żądanie Tox21 danych 2014 zostało zaprojektowane, aby pomóc analitykom w zrozumieniu potencjału chemikaliów i związków, które są testowane przez toksykologia w ramach inicjatywy dwudziestego wieku, aby przerwać ścieżki biologiczne w sposób, który może spowodować toksyczne efekty". | Zestawy danych są dostępne w formatach UŚMIECHów i SDF. Dane zapewniają "informacje o działaniach i struktury chemiczne w kolekcji Tox21 ~ 10 000 związki (Tox21 10 tys.)". |
 | [Biotechnologia i dane genomu z NCBI](https://www.ncbi.nlm.nih.gov/guide/data-software/) | Wiele zestawów danych obejmujących geny, genomy i białka. | Zestawy danych są w postaci tekstowej, XML, w formatach i innych. Dostępna jest poprzednia aplikacja. |
 
 ## <a name="other-statistical-and-scientific-data"></a>Inne dane statystyczne i naukowe

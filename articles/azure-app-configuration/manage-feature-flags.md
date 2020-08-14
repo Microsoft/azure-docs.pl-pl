@@ -14,13 +14,13 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: ccab8014000f9f684249bf2c1f800f74c92e7369
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: dd816ebcf2a40e6a0b7febcc3fe5c1006dac20bb
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76899370"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209940"
 ---
 # <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>Samouczek: Zarządzanie flagami funkcji w konfiguracji aplikacji platformy Azure
 
@@ -38,7 +38,7 @@ Menedżer funkcji w Azure Portal na potrzeby konfiguracji aplikacji zawiera inte
 
 Aby dodać nową flagę funkcji:
 
-1. Wybierz pozycję **Menedżer** > funkcji **+ Dodaj** , aby dodać flagę funkcji.
+1. Wybierz pozycję **Menedżer funkcji**  >  **+ Dodaj** , aby dodać flagę funkcji.
 
     ![Lista flag funkcji](./media/azure-app-configuration-feature-flags.png)
 
@@ -71,7 +71,7 @@ Aby zmienić wartość stanu flagi funkcji:
 
 ## <a name="access-feature-flags"></a>Flagi funkcji dostępu
 
-Flagi funkcji utworzone przez program Feature Manager są przechowywane i pobierane jako zwykłe wartości klucza. Są one przechowywane w ramach specjalnego prefiksu `.appconfig.featureflag`przestrzeni nazw. Aby wyświetlić wartości klucza bazowego, użyj Eksploratora konfiguracji. Aplikacja może pobrać te wartości przy użyciu dostawców konfiguracji aplikacji, zestawów SDK, rozszerzeń wiersza polecenia i interfejsów API REST.
+Flagi funkcji utworzone przez program Feature Manager są przechowywane i pobierane jako zwykłe wartości klucza. Są one przechowywane w ramach specjalnego prefiksu przestrzeni nazw `.appconfig.featureflag` . Aby wyświetlić wartości klucza bazowego, użyj Eksploratora konfiguracji. Aplikacja może pobrać te wartości przy użyciu dostawców konfiguracji aplikacji, zestawów SDK, rozszerzeń wiersza polecenia i interfejsów API REST.
 
 ## <a name="next-steps"></a>Następne kroki
 

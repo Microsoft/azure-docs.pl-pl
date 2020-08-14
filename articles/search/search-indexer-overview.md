@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d73782d9de7da2c5daacbff5397d9a365ff9ae03
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f93df91f87f8119a503f2f7c452b61e3af5924f8
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038413"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208781"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indeksatory w usłudze Azure Cognitive Search
 
@@ -38,7 +38,7 @@ Początkowo nowy indeksator jest ogłaszany jako funkcja w wersji zapoznawczej. 
 
 ## <a name="permissions"></a>Uprawnienia
 
-Wszystkie operacje związane z indeksatorami, w tym żądania pobrania dla stanu lub definicji, wymagają [klucza API-Key administratora](search-security-api-keys.md). 
+Wszystkie operacje związane z indeksatorami, w tym żądania pobrania dla stanu lub definicji, wymagają [klucza API-Key administratora](search-security-api-keys.md).
 
 <a name="supported-data-sources"></a>
 
@@ -51,10 +51,47 @@ Indeksatory przeszukują magazyny danych na platformie Azure.
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure SQL Database i wystąpienie zarządzane SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Program SQL Server na maszynach wirtualnych platformy Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+* [SQL Server na platformie Azure Virtual Machines](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 * [Wystąpienie zarządzane SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
+## <a name="indexer-stages"></a>Etapy indeksatora
+
+W początkowym uruchomieniu, gdy indeks jest pusty, indeksator odczytuje wszystkie dane podane w tabeli lub kontenerze. W kolejnych uruchomieniach indeksator może zazwyczaj wykryć i pobrać tylko te dane, które uległy zmianie. W przypadku danych obiektów BLOB wykrywanie zmian jest automatyczne. W przypadku innych źródeł danych, takich jak Azure SQL lub Cosmos DB, wykrywanie zmian musi być włączone.
+
+Dla każdego dokumentu, który pozyskuje, indeksator implementuje lub koordynuje wiele kroków, od pobrania dokumentu do końcowego aparatu wyszukiwania "oddania" do indeksowania. Opcjonalnie indeksator jest również kierownicą w celu wykonywania zestawu umiejętności i wyjść, przy założeniu, że zestawu umiejętności jest zdefiniowany.
+
+![Etapy indeksatora](./media/search-indexer-overview/indexer-stages.png "etapy indeksatora")
+
+### <a name="stage-1-document-cracking"></a>Etap 1: łamanie dokumentów
+
+Łamanie dokumentów to proces otwierania plików i wyodrębniania zawartości. W zależności od typu źródła danych indeksator spróbuje wykonać różne operacje, aby wyodrębnić potencjalnie indeksowaną zawartość.  
+
+Przykłady:  
+
+* Gdy dokument jest rekordem w [źródle danych usługi Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), indeksator wyodrębni wszystkie pola dla tego rekordu.
+* Gdy dokument jest plikiem PDF w [źródle danych BLOB Storage platformy Azure](search-howto-indexing-azure-blob-storage.md), indeksator wyodrębni tekst, obrazy i metadane dla pliku.
+* Gdy dokument jest rekordem w [Cosmos DB źródle danych](search-howto-index-cosmosdb.md), indeksator wyodrębni pola i pola podrzędne z dokumentu Cosmos DB.
+
+### <a name="stage-2-field-mappings"></a>Etap 2: mapowania pól 
+
+Indeksator wyodrębnia tekst z pola źródłowego i wysyła je do pola docelowego w indeksie lub w magazynie wiedzy. Gdy nazwy pól i typy są zbieżne, ścieżka jest wyczyszczona. Można jednak użyć różnych nazw lub typów w danych wyjściowych. w takim przypadku należy określić indeksator, w jaki sposób ma być mapowany na pole. Ten krok występuje po popękaniu dokumentu, ale przed przekształceniami, gdy indeksator odczytuje z dokumentów źródłowych. Podczas definiowania [mapowania pól](search-indexer-field-mappings.md)wartość pola źródłowego jest wysyłana jako-do pola docelowego bez żadnych modyfikacji. Mapowania pól są opcjonalne.
+
+### <a name="stage-3-skillset-execution"></a>Etap 3: wykonywanie zestawu umiejętności
+
+Wykonywanie zestawu umiejętności jest opcjonalnym krokiem, który wywołuje wbudowane lub niestandardowe przetwarzanie AI. Może być konieczne w celu rozpoznania optycznego rozpoznawania znaków (OCR) w postaci analizy obrazu lub konieczności tłumaczenia języka. Niezależnie od transformacji zestawu umiejętności wykonywanie jest miejsce, w którym występuje wzbogacanie. Jeśli indeksator jest potokiem, można myśleć o [zestawu umiejętności](cognitive-search-defining-skillset.md) jako "potok w obrębie potoku". Zestawu umiejętności ma własną sekwencję kroków o nazwie umiejętności.
+
+### <a name="stage-4-output-field-mappings"></a>Etap 4: mapowania pól wyjściowych
+
+Dane wyjściowe zestawu umiejętności to w rzeczywistości drzewo informacji o nazwie wzbogacony dokument. Mapowania pól wyjściowych umożliwiają wybranie, które części tego drzewa mają być mapowane na pola w indeksie. Dowiedz się, jak [definiować mapowania pól wyjściowych](cognitive-search-output-field-mapping.md).
+
+Podobnie jak mapowania pól, które kojarzą wartości Verbatim z pól źródłowych do docelowych, mapowania pól wyjściowych wskazują indeksator, w jaki sposób należy skojarzyć przekształcone wartości z polami docelowymi w indeksie. W przeciwieństwie do mapowań pól, które są uważane za opcjonalne, zawsze trzeba zdefiniować mapowanie pola danych wyjściowych dla dowolnej przekształconej zawartości, która musi znajdować się w indeksie.
+
+Na następnym obrazie przedstawiono reprezentację etapów [debugowania](cognitive-search-debug-session.md) z przykładowym indeksatorem: łamanie dokumentów, mapowania pól, wykonywanie zestawu umiejętności oraz mapowania pól danych wyjściowych.
+
+:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="przykładowa sesja debugowania" lightbox="media/search-indexer-overview/sample-debug-session.png":::
+
 ## <a name="basic-configuration-steps"></a>Podstawowe kroki konfiguracji
+
 Indeksatory oferują funkcje, które są unikatowe dla źródła danych. W związku z tym niektóre aspekty konfiguracji indeksatora lub źródła danych różnią się w zależności od typu indeksatora. Wszystkie indeksatory korzystają jednak z takich samych kompozycji i wymagań. Kroki, które są wspólne dla wszystkich indeksatorów, znajdują się poniżej.
 
 ### <a name="step-1-create-a-data-source"></a>Krok 1. Tworzenie źródła danych

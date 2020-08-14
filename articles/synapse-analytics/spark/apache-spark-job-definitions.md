@@ -1,20 +1,19 @@
 ---
 title: 'Samouczek: Tworzenie definicji zadania Apache Spark w programie Synapse Studio'
 description: Samouczek — Użyj usługi Azure Synapse Analytics, aby utworzyć definicje zadań platformy Spark i przesłać je do Apache Spark dla puli analiz Synapse Azure.
-author: hrasheed-msft
+author: Jejiang
 ms.author: jejiang
 ms.reviewer: jasonh
-ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.openlocfilehash: ac3e163ffefcb7b164860b0c4fa42edc866227e3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 38678c795b0ce7534de0ca8602c1198bc35f0e05
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065637"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206182"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Samouczek: Tworzenie definicji zadania Apache Spark w programie Synapse Studio
 
@@ -56,9 +55,9 @@ W tej sekcji utworzysz definicję zadania Apache Spark dla PySpark (Python).
 
      |  Właściwość   | Opis   |  
      | ----- | ----- |  
-     |Nazwa definicji zadania| Wprowadź nazwę dla definicji zadania Apache Spark. Tę nazwę można aktualizować w dowolnym momencie, dopóki nie zostanie opublikowana. Northwind`job definition sample`|
-     |Plik definicji głównej| Główny plik używany do zadania. Wybierz plik PR z magazynu. Możesz wybrać opcję **Przekaż plik** , aby przekazać plik do konta magazynu. Northwind`abfss://…/path/to/wordcount.py`|
-     |Argumenty wiersza polecenia| Opcjonalne argumenty do zadania. Northwind`abfss://…/path/to/shakespeare.txt abfss://…/path/to/result`|
+     |Nazwa definicji zadania| Wprowadź nazwę dla definicji zadania Apache Spark. Tę nazwę można aktualizować w dowolnym momencie, dopóki nie zostanie opublikowana. Northwind `job definition sample`|
+     |Plik definicji głównej| Główny plik używany do zadania. Wybierz plik PR z magazynu. Możesz wybrać opcję **Przekaż plik** , aby przekazać plik do konta magazynu. Northwind `abfss://…/path/to/wordcount.py`|
+     |Argumenty wiersza polecenia| Opcjonalne argumenty do zadania. Northwind `abfss://…/path/to/shakespeare.txt abfss://…/path/to/result`|
      |Pliki referencyjne| Dodatkowe pliki używane do celów referencyjnych w pliku definicji głównej. Możesz wybrać opcję **Przekaż plik** , aby przekazać plik do konta magazynu. |
      |Pula platformy Spark| Zadanie zostanie przesłane do wybranej puli Apache Spark.|
      |Wersja platformy Spark| Wersja Apache Spark, w której jest uruchomiona Pula Apache Spark.|
@@ -91,10 +90,10 @@ W tej sekcji utworzysz definicję zadania Apache Spark dla Apache Spark (Scala).
 
      |  Właściwość   | Opis   |  
      | ----- | ----- |  
-     |Nazwa definicji zadania| Wprowadź nazwę dla definicji zadania Apache Spark. Tę nazwę można aktualizować w dowolnym momencie, dopóki nie zostanie opublikowana. Northwind`job definition sample`|
-     |Plik definicji głównej| Główny plik używany do zadania. Wybierz plik JAR z magazynu. Możesz wybrać opcję **Przekaż plik** , aby przekazać plik do konta magazynu. Northwind`abfss://…/path/to/wordcount.jar`|
-     |Nazwa klasy głównej| W pełni kwalifikowany identyfikator lub główna Klasa, która znajduje się w głównym pliku definicji. Northwind`WordCount`|
-     |Argumenty wiersza polecenia| Opcjonalne argumenty do zadania. Northwind`abfss://…/path/to/shakespeare.txt abfss://…/path/to/result`|
+     |Nazwa definicji zadania| Wprowadź nazwę dla definicji zadania Apache Spark. Tę nazwę można aktualizować w dowolnym momencie, dopóki nie zostanie opublikowana. Northwind `job definition sample`|
+     |Plik definicji głównej| Główny plik używany do zadania. Wybierz plik JAR z magazynu. Możesz wybrać opcję **Przekaż plik** , aby przekazać plik do konta magazynu. Northwind `abfss://…/path/to/wordcount.jar`|
+     |Nazwa klasy głównej| W pełni kwalifikowany identyfikator lub główna Klasa, która znajduje się w głównym pliku definicji. Northwind `WordCount`|
+     |Argumenty wiersza polecenia| Opcjonalne argumenty do zadania. Northwind `abfss://…/path/to/shakespeare.txt abfss://…/path/to/result`|
      |Pliki referencyjne| Dodatkowe pliki używane do celów referencyjnych w pliku definicji głównej. Możesz wybrać opcję **Przekaż plik** , aby przekazać plik do konta magazynu.|
      |Pula platformy Spark| Zadanie zostanie przesłane do wybranej puli Apache Spark.|
      |Wersja platformy Spark| Wersja Apache Spark, w której jest uruchomiona Pula Apache Spark.|
@@ -128,10 +127,10 @@ W tej sekcji utworzysz definicję zadania Apache Spark dla platformy .NET Spark 
     
      |  Właściwość   | Opis   |  
      | ----- | ----- |  
-     |Nazwa definicji zadania| Wprowadź nazwę dla definicji zadania Apache Spark. Tę nazwę można aktualizować w dowolnym momencie, dopóki nie zostanie opublikowana. Northwind`job definition sample`|
-     |Plik definicji głównej| Główny plik używany do zadania. Wybierz plik ZIP, który zawiera aplikację platformy .NET dla Apache Spark (czyli główny plik wykonywalny, biblioteki DLL zawierające funkcje zdefiniowane przez użytkownika i inne wymagane pliki) z magazynu. Możesz wybrać opcję **Przekaż plik** , aby przekazać plik do konta magazynu. Northwind`abfss://…/path/to/wordcount.zip`|
-     |Główny plik wykonywalny| Główny plik wykonywalny w pliku ZIP definicji głównej. Northwind`WordCount`|
-     |Argumenty wiersza polecenia| Opcjonalne argumenty do zadania. Northwind`abfss://…/path/to/shakespeare.txt abfss://…/path/to/result`|
+     |Nazwa definicji zadania| Wprowadź nazwę dla definicji zadania Apache Spark. Tę nazwę można aktualizować w dowolnym momencie, dopóki nie zostanie opublikowana. Northwind `job definition sample`|
+     |Plik definicji głównej| Główny plik używany do zadania. Wybierz plik ZIP, który zawiera aplikację platformy .NET dla Apache Spark (czyli główny plik wykonywalny, biblioteki DLL zawierające funkcje zdefiniowane przez użytkownika i inne wymagane pliki) z magazynu. Możesz wybrać opcję **Przekaż plik** , aby przekazać plik do konta magazynu. Northwind `abfss://…/path/to/wordcount.zip`|
+     |Główny plik wykonywalny| Główny plik wykonywalny w pliku ZIP definicji głównej. Northwind `WordCount`|
+     |Argumenty wiersza polecenia| Opcjonalne argumenty do zadania. Northwind `abfss://…/path/to/shakespeare.txt abfss://…/path/to/result`|
      |Pliki referencyjne| Dodatkowe pliki, które są używane przez węzły procesu roboczego do wykonywania programu .NET for Apache Spark, które nie znajdują się w pliku ZIP definicji głównej (to jest, zależne od Jars, dodatkowe biblioteki DLL funkcji zdefiniowanych przez użytkownika i inne pliki konfiguracyjne). Możesz wybrać opcję **Przekaż plik** , aby przekazać plik do konta magazynu.|
      |Pula platformy Spark| Zadanie zostanie przesłane do wybranej puli Apache Spark.|
      |Wersja platformy Spark| Wersja Apache Spark, w której jest uruchomiona Pula Apache Spark.|

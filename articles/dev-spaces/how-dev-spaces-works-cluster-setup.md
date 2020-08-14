@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Opisuje sposób konfigurowania klastra usługi Azure Kubernetes dla Azure Dev Spaces Works
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery
-ms.openlocfilehash: 60f6c466e7c016ccd07e37b2f0d1ce9989fb8f9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41b955fac7abcc700d73d8ace601f80982b2253d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995891"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207959"
 ---
 # <a name="how-setting-up-a-cluster-for-azure-dev-spaces-works"></a>Jak skonfigurować klaster dla Azure Dev Spaces działa
 
@@ -19,8 +19,6 @@ Azure Dev Spaces zapewnia wiele sposobów na szybkie Iterowanie i debugowanie ap
 ## <a name="prepare-your-aks-cluster"></a>Przygotowywanie klastra AKS
 
 Aby przygotować klaster AKS na potrzeby obszarów programistycznych, należy sprawdzić, czy klaster AKS znajduje się w regionie [obsługiwanym przez Azure dev Spaces][supported-regions] i korzysta z Kubernetes 1.10.3 lub nowszego. Azure Dev Spaces można włączyć z poziomu interfejsu wiersza polecenia platformy Azure, uruchamiając `az aks use-dev-spaces` .
-
-Aby zapoznać się z przykładem konfigurowania klastra AKS dla funkcji miejsca do użytku deweloperskiego, zapoznaj się z [przewodnikiem Szybki Start dla deweloperów][quickstart-team].
 
 Po włączeniu Azure Dev Spaces w klastrze AKS zainstaluje on kontroler dla klastra. Kontroler znajduje się poza klastrem AKS. Umożliwia ona zachowanie komunikacji między narzędziami po stronie klienta a klastrem AKS. Po jego włączeniu można korzystać z kontrolera przy użyciu narzędzi po stronie klienta.
 
@@ -92,10 +90,8 @@ Narzędzia po stronie klienta można użyć z wiersza polecenia w ramach `azds` 
 
 Aby dowiedzieć się więcej o używaniu narzędzi po stronie klienta do przygotowywania i uruchamiania kodu w obszarze deweloperskim, zobacz [przygotowywanie projektu dla Azure dev Spaces działa][how-it-works-prep].
 
-Aby rozpocząć korzystanie z Azure Dev Spaces do tworzenia zespołu, zobacz [programowanie zespołowe w Azure dev Spaces][quickstart-team] przewodnika Szybki Start.
 
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md
 [how-it-works-up]: how-dev-spaces-works-up.md
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
-[quickstart-team]: quickstart-team-development.md

@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: 7616f6c502f0b5402aa784f707d0dafa31268d78
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 2f4647f4e13677d9136ce7fdb090e809943cdf0d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853062"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206698"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Powiązania usługi Azure Table Storage dla Azure Functions
 
@@ -94,7 +94,7 @@ public class TableStorage
 
 ### <a name="cloudtable"></a>CloudTable
 
-`IQueryable`nie jest obsługiwany w [środowisku uruchomieniowym funkcji v2](functions-versions.md). Alternatywą jest użycie `CloudTable` parametru metody w celu odczytania tabeli przy użyciu zestawu SDK usługi Azure Storage. Oto przykład funkcji, która bada Azure Functions tabeli dziennika:
+`IQueryable` nie jest obsługiwany w [środowisku uruchomieniowym funkcji v2](functions-versions.md). Alternatywą jest użycie `CloudTable` parametru metody w celu odczytania tabeli przy użyciu zestawu SDK usługi Azure Storage. Oto przykład funkcji, która bada Azure Functions tabeli dziennika:
 
 ```csharp
 using Microsoft.Azure.WebJobs;
@@ -249,7 +249,7 @@ public class Person : TableEntity
 
 ### <a name="cloudtable"></a>CloudTable
 
-`IQueryable`nie jest obsługiwany w środowisku uruchomieniowym funkcji dla [wersji 2. x i nowszych)](functions-versions.md). Alternatywą jest użycie `CloudTable` parametru metody w celu odczytania tabeli przy użyciu zestawu SDK usługi Azure Storage. Oto przykład funkcji, która bada Azure Functions tabeli dziennika:
+`IQueryable` nie jest obsługiwany w środowisku uruchomieniowym funkcji dla [wersji 2. x i nowszych)](functions-versions.md). Alternatywą jest użycie `CloudTable` parametru metody w celu odczytania tabeli przy użyciu zestawu SDK usługi Azure Storage. Oto przykład funkcji, która bada Azure Functions tabeli dziennika:
 
 ```json
 {
@@ -575,27 +575,27 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 
 * **Odczytaj jeden wiersz w**
 
-  Ustaw `partitionKey` i `rowKey` . Dostęp do danych tabeli przy użyciu parametru metody `T <paramName>` . W skrypcie języka C# `paramName` jest wartością określoną we `name` właściwości *function.jsna*. `T`jest zazwyczaj typem, który implementuje `ITableEntity` lub pochodzi od `TableEntity` . `filter`Właściwości i `take` nie są używane w tym scenariuszu.
+  Ustaw `partitionKey` i `rowKey` . Dostęp do danych tabeli przy użyciu parametru metody `T <paramName>` . W skrypcie języka C# `paramName` jest wartością określoną we `name` właściwości *function.jsna*. `T` jest zazwyczaj typem, który implementuje `ITableEntity` lub pochodzi od `TableEntity` . `filter`Właściwości i `take` nie są używane w tym scenariuszu.
 
 * **Odczytaj jeden lub więcej wierszy**
 
-  Dostęp do danych tabeli przy użyciu parametru metody `IQueryable<T> <paramName>` . W skrypcie języka C# `paramName` jest wartością określoną we `name` właściwości *function.jsna*. `T`musi być typem implementującym `ITableEntity` lub pochodnym elementu `TableEntity` . Możesz użyć `IQueryable` metod, aby wykonać wymagane filtrowanie. `partitionKey` `rowKey` `filter` `take` W tym scenariuszu nie są używane właściwości,, i.  
+  Dostęp do danych tabeli przy użyciu parametru metody `IQueryable<T> <paramName>` . W skrypcie języka C# `paramName` jest wartością określoną we `name` właściwości *function.jsna*. `T` musi być typem implementującym `ITableEntity` lub pochodnym elementu `TableEntity` . Możesz użyć `IQueryable` metod, aby wykonać wymagane filtrowanie. `partitionKey` `rowKey` `filter` `take` W tym scenariuszu nie są używane właściwości,, i.  
 
   > [!NOTE]
-  > `IQueryable`nie jest obsługiwany w [środowisku uruchomieniowym funkcji v2](functions-versions.md). Alternatywą jest [użycie parametru metody w chmurze paramName](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) , aby odczytać tabelę przy użyciu zestawu SDK usługi Azure Storage. Jeśli próbujesz powiązać z `CloudTable` i otrzymać komunikat o błędzie, upewnij się, że masz odwołanie do [odpowiedniej wersji zestawu SDK magazynu](#azure-storage-sdk-version-in-functions-1x).
+  > `IQueryable` nie jest obsługiwany w [środowisku uruchomieniowym funkcji v2](functions-versions.md). Alternatywą jest [użycie parametru metody w chmurze paramName](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) , aby odczytać tabelę przy użyciu zestawu SDK usługi Azure Storage. Jeśli próbujesz powiązać z `CloudTable` i otrzymać komunikat o błędzie, upewnij się, że masz odwołanie do [odpowiedniej wersji zestawu SDK magazynu](#azure-storage-sdk-version-in-functions-1x).
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
 * **Odczytaj jeden wiersz w**
 
-  Ustaw `partitionKey` i `rowKey` . Dostęp do danych tabeli przy użyciu parametru metody `T <paramName>` . W skrypcie języka C# `paramName` jest wartością określoną we `name` właściwości *function.jsna*. `T`jest zazwyczaj typem, który implementuje `ITableEntity` lub pochodzi od `TableEntity` . `filter`Właściwości i `take` nie są używane w tym scenariuszu.
+  Ustaw `partitionKey` i `rowKey` . Dostęp do danych tabeli przy użyciu parametru metody `T <paramName>` . W skrypcie języka C# `paramName` jest wartością określoną we `name` właściwości *function.jsna*. `T` jest zazwyczaj typem, który implementuje `ITableEntity` lub pochodzi od `TableEntity` . `filter`Właściwości i `take` nie są używane w tym scenariuszu.
 
 * **Odczytaj jeden lub więcej wierszy**
 
-  Dostęp do danych tabeli przy użyciu parametru metody `IQueryable<T> <paramName>` . W skrypcie języka C# `paramName` jest wartością określoną we `name` właściwości *function.jsna*. `T`musi być typem implementującym `ITableEntity` lub pochodnym elementu `TableEntity` . Możesz użyć `IQueryable` metod, aby wykonać wymagane filtrowanie. `partitionKey` `rowKey` `filter` `take` W tym scenariuszu nie są używane właściwości,, i.  
+  Dostęp do danych tabeli przy użyciu parametru metody `IQueryable<T> <paramName>` . W skrypcie języka C# `paramName` jest wartością określoną we `name` właściwości *function.jsna*. `T` musi być typem implementującym `ITableEntity` lub pochodnym elementu `TableEntity` . Możesz użyć `IQueryable` metod, aby wykonać wymagane filtrowanie. `partitionKey` `rowKey` `filter` `take` W tym scenariuszu nie są używane właściwości,, i.  
 
   > [!NOTE]
-  > `IQueryable`nie jest obsługiwany w [środowisku uruchomieniowym funkcji v2](functions-versions.md). Alternatywą jest [użycie parametru metody w chmurze paramName](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) , aby odczytać tabelę przy użyciu zestawu SDK usługi Azure Storage. Jeśli próbujesz powiązać z `CloudTable` i otrzymać komunikat o błędzie, upewnij się, że masz odwołanie do [odpowiedniej wersji zestawu SDK magazynu](#azure-storage-sdk-version-in-functions-1x).
+  > `IQueryable` nie jest obsługiwany w [środowisku uruchomieniowym funkcji v2](functions-versions.md). Alternatywą jest [użycie parametru metody w chmurze paramName](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) , aby odczytać tabelę przy użyciu zestawu SDK usługi Azure Storage. Jeśli próbujesz powiązać z `CloudTable` i otrzymać komunikat o błędzie, upewnij się, że masz odwołanie do [odpowiedniej wersji zestawu SDK magazynu](#azure-storage-sdk-version-in-functions-1x).
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

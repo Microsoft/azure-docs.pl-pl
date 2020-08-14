@@ -4,14 +4,15 @@ description: Dowiedz się, jak tworzyć i zarządzać Virtual Network obsługi u
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: bf9ddc78caa1e19d35ad7e96af76dc0303a8a67c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 82003ef84571c8e07982826124b33763c0e53194
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004739"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205564"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Jak skonfigurować obsługę Virtual Network w przypadku pamięci podręcznej Premium platformy Azure dla Redis
 Usługa Azure cache for Redis ma różne oferty pamięci podręcznej, które zapewniają elastyczność w wyborze rozmiaru i funkcji pamięci podręcznej, w tym funkcji warstwy Premium, takich jak klastrowanie, trwałość i obsługa sieci wirtualnej. Sieć wirtualna jest siecią prywatną w chmurze. Gdy usługa Azure cache for Redis jest skonfigurowana przy użyciu sieci wirtualnej, nie jest ona publicznie adresowana i można uzyskać do niej dostęp tylko z maszyn wirtualnych i aplikacji w sieci wirtualnej. W tym artykule opisano sposób konfigurowania obsługi sieci wirtualnej na potrzeby wystąpienia usługi Redis w warstwie Premium.
@@ -158,7 +159,7 @@ Po skonfigurowaniu wymagań dotyczących portów zgodnie z opisem w poprzedniej 
 
 - [Uruchom ponownie](cache-administration.md#reboot) wszystkie węzły pamięci podręcznej. Jeśli nie można uzyskać dostępu do wszystkich wymaganych zależności pamięci podręcznej (zgodnie z opisem w [wymaganiach dotyczących portów przychodzących](cache-how-to-premium-vnet.md#inbound-port-requirements) i [wymagań dotyczących portów wychodzących](cache-how-to-premium-vnet.md#outbound-port-requirements)), pamięć podręczna nie będzie mogła zostać pomyślnie ponownie uruchomiona.
 - Po ponownym uruchomieniu węzłów pamięci podręcznej (zgodnie z informacjami o stanie pamięci podręcznej w Azure Portal) można wykonać następujące testy:
-  - Wyślij polecenie ping do punktu końcowego pamięci podręcznej (przy użyciu portu 6380) z komputera, który znajduje się w tej samej sieci wirtualnej co pamięć podręczna, przy użyciu [tcping](https://www.elifulkerson.com/projects/tcping.php). Przykład:
+  - Wyślij polecenie ping do punktu końcowego pamięci podręcznej (przy użyciu portu 6380) z komputera, który znajduje się w tej samej sieci wirtualnej co pamięć podręczna, przy użyciu [tcping](https://www.elifulkerson.com/projects/tcping.php). Na przykład:
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
@@ -181,7 +182,7 @@ Należy unikać używania adresu IP podobnego do następujących parametrów po�
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-Jeśli nie można rozpoznać nazwy DNS, niektóre biblioteki klienta obejmują opcje konfiguracji, takie jak `sslHost` dostarczone przez klienta stackexchange. Redis. Pozwala to zastąpić nazwę hosta używaną do sprawdzania poprawności certyfikatu. Przykład:
+Jeśli nie można rozpoznać nazwy DNS, niektóre biblioteki klienta obejmują opcje konfiguracji, takie jak `sslHost` dostarczone przez klienta stackexchange. Redis. Pozwala to zastąpić nazwę hosta używaną do sprawdzania poprawności certyfikatu. Na przykład:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 

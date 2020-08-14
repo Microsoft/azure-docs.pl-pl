@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 11/08/2019
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbdebd8d59034bd16a3199c1304606ccf12ab2c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2f055a6b8f4a8876c024bdd131a6001e21004e5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727674"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209474"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenariusze, ograniczenia i znane problemy przy użyciu grup do zarządzania licencjonowaniem w programie Azure Active Directory
 
@@ -130,7 +130,7 @@ Możesz użyć skryptu programu PowerShell, aby sprawdzić, czy użytkownicy maj
 
 1. Uruchom `connect-msolservice` polecenie cmdlet w celu uwierzytelnienia i nawiązania połączenia z organizacją.
 
-2. `Get-MsolAccountSku`można go użyć do odnalezienia wszystkich licencji na produkty inicjowane w organizacji usługi Azure AD.
+2. `Get-MsolAccountSku` można go użyć do odnalezienia wszystkich licencji na produkty inicjowane w organizacji usługi Azure AD.
 
    ![Zrzut ekranu przedstawiający polecenie cmdlet Get-Msolaccountsku i sprawdź](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
@@ -205,7 +205,7 @@ W przypadku korzystania z licencjonowania opartego na grupach warto zapoznać si
 
 - Licencjonowanie na podstawie grupy obecnie nie jest obsługiwane dla grup, które zawierają inne grupy (grupy zagnieżdżone). Jeśli zastosujesz licencję do grupy zagnieżdżonej, zostanie ona przypisana tylko do użytkowników będących bezpośrednimi członkami pierwszego poziomu grupy.
 
-- Funkcja może być używana tylko z grupami zabezpieczeń i grupami pakietu Office 365, które mają securityEnabled = TRUE.
+- Funkcja może być używana tylko z grupami zabezpieczeń, a grupy Microsoft 365, które mają securityEnabled = TRUE.
 
 - [Centrum administracyjne Microsoft 365](https://admin.microsoft.com) nie obsługuje obecnie licencjonowania opartego na grupach. Jeśli użytkownik odziedziczy licencję z grupy, ta licencja jest wyświetlana w portalu administracyjnym pakietu Office jako zwykła Licencja użytkownika. Jeśli spróbujesz zmodyfikować tę licencję lub spróbujesz usunąć licencję, Portal zwróci komunikat o błędzie. Dziedziczone licencje grupy nie mogą być modyfikowane bezpośrednio dla użytkownika.
 

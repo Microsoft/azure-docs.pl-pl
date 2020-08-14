@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 19c08029e78e68273298e76635136ff35ae724e0
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: c242b08c598b04c84ab330e846704eace23c4858
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924125"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205479"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące sieci wirtualnych platformy Azure
 
@@ -356,7 +356,7 @@ Nie. nie ma dodatkowych kosztów za korzystanie z punktów końcowych usługi si
 Tak, jest to możliwe. Sieci wirtualne i zasoby usług platformy Azure mogą należeć do tej samej lub różnych subskrypcji. Jedyny wymóg polega na tym, że zarówno zasoby sieci wirtualnej, jak i usługi platformy Azure muszą znajdować się w tej samej dzierżawie Active Directory (AD).
 
 ### <a name="can-i-turn-on-vnet-service-endpoints-and-set-up-vnet-acls-if-the-virtual-network-and-the-azure-service-resources-belong-to-different-ad-tenants"></a>Czy mogę włączyć punkty końcowe usługi VNet i skonfigurować listy ACL sieci wirtualnej, jeśli sieć wirtualna i zasoby usługi platformy Azure należą do różnych dzierżawców usługi AD?
-Nie, punkty końcowe usługi sieci wirtualnej i listy kontroli dostępu wirtualne nie są obsługiwane w dzierżawach usługi AD.
+Tak, jest możliwe, gdy korzystasz z punktów końcowych usługi Azure Storage i Azure Key Vault. W przypadku pozostałych usług punkty końcowe usługi sieci wirtualnej i listy kontroli dostępu wirtualne nie są obsługiwane w dzierżawach usługi AD.
 
 ### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gateway-vpn-or-expressroute-gateway-access-azure-paas-service-over-vnet-service-endpoints"></a>Czy można korzystać z adresu IP urządzenia lokalnego, który jest połączony za pośrednictwem usługi Azure Virtual Network Gateway (VPN) lub ExpressRoute Gateway przez punkty końcowe usługi sieci wirtualnej?
 Domyślnie nie można uzyskać dostępu do zasobów usługi platformy Azure zabezpieczonych w sieciach wirtualnych z sieci lokalnych. Jeśli chcesz zezwolić na ruch z lokalnego, musisz również zezwolić na publiczne (zazwyczaj NAT) adresy IP z lokalnego lub ExpressRoute. Te adresy IP można dodać za pomocą konfiguracji zapory adresów IP dla zasobów usługi platformy Azure.

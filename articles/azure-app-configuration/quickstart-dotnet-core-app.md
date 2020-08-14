@@ -5,14 +5,15 @@ services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
+ms.custom: devx-track-csharp
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7cabe5b0564ec63335800a999bebec67ec970587
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: b5b5097baecc2ef95dc528278764f87a1ca258bd
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856789"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209731"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Szybki Start: Tworzenie aplikacji platformy .NET Core przy użyciu konfiguracji aplikacji
 
@@ -126,4 +127,4 @@ Za pomocą [interfejsu wiersza polecenia platformy .NET Core](https://docs.micro
 W tym przewodniku szybki start utworzono nowy magazyn konfiguracji aplikacji i używał go z aplikacją konsolową platformy .NET Core za pośrednictwem [dostawcy konfiguracji aplikacji](https://go.microsoft.com/fwlink/?linkid=2074664). Aby dowiedzieć się, jak skonfigurować aplikację .NET Core do dynamicznego odświeżania ustawień konfiguracji, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
-> [Włącz konfigurację dynamiczną](./enable-dynamic-configuration-dotnet-core.md)
+> [Włączanie dynamicznej konfiguracji](./enable-dynamic-configuration-dotnet-core.md)

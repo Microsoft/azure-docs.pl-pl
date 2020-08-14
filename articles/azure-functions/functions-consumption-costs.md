@@ -3,12 +3,12 @@ title: Szacowanie kosztów planu zużycia w Azure Functions
 description: Dowiedz się, jak lepiej oszacować koszty, które mogą zostać naliczone podczas uruchamiania aplikacji funkcji w planie zużycia na platformie Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 880d1c20c75ce297b556ac203e309e446227e97a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 33c892bd7904d2921039a4b2afb9c775d6a4926a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083042"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207762"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Szacowanie kosztów planu zużycia
 
@@ -36,6 +36,8 @@ Ponieważ użycie pamięci zmienia się w czasie, obliczenia jest zasadniczo ca�
 
 > [!NOTE]
 > Chociaż użycie procesora CPU nie jest brane pod uwagę bezpośrednio w kosztach wykonania, może mieć wpływ na koszt, gdy ma to wpływ na czas wykonywania funkcji.
+
+W przypadku funkcji wyzwalanej przez protokół HTTP w przypadku wystąpienia błędu przed rozpoczęciem wykonywania kodu funkcji nie jest naliczana opłata za wykonanie. Oznacza to, że 401 odpowiedzi z platformy ze względu na weryfikację klucza interfejsu API lub funkcję uwierzytelniania App Service/autoryzacji nie są wliczane do kosztów wykonania. Podobnie odpowiedzi kodu stanu 5xx nie są zliczane, gdy występują na platformie przed przetworzeniem żądania. Odpowiedź 5xx wygenerowana przez platformę po rozpoczęciu wykonywania kodu funkcji jest nadal liczona jako wykonanie, nawet jeśli błąd nie został zgłoszony przez kod funkcji.
 
 ## <a name="other-related-costs"></a>Inne powiązane koszty
 
@@ -69,7 +71,7 @@ Aby lepiej zrozumieć wpływ kosztów funkcji, możesz użyć Azure Monitor, aby
 
 Użyj [Eksploratora metryk Azure monitor](../azure-monitor/platform/metrics-getting-started.md) , aby wyświetlić dane dotyczące kosztów dla aplikacji funkcji planu zużycia w formacie graficznym. 
 
-1. W górnej części [Azure Portal] w **usługach wyszukiwania, zasobach i witrynie docs** Wyszukaj `monitor` i wybierz pozycję **monitor** w obszarze **usługi**.
+1. W górnej części [Azure Portal] w **usługach wyszukiwania, zasobach i witrynie docs**  Wyszukaj `monitor` i wybierz pozycję **monitor** w obszarze **usługi**.
 
 1. Po lewej stronie wybierz pozycję **metryki**  >  **Wybierz zasób**, a następnie użyj ustawień poniżej obrazu, aby wybrać aplikację funkcji.
 

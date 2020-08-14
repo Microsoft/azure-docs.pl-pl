@@ -9,17 +9,18 @@ editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.devlang: csharp
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: bf2ccd93a94036c6ab5b6224456cd1f5a13239c5
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 998527a8557db0b0cf271dc8b05d5771660a175c
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855013"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209428"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji .NET Framework
 
@@ -50,7 +51,7 @@ Biblioteki zarządzania funkcjami platformy .NET umożliwiają rozbudowanie plat
 
 1. W obszarze **Utwórz nowy projekt**odfiltruj typ projektu **konsoli** i kliknij pozycję **Aplikacja konsolowa (.NET Framework)**. Kliknij przycisk **Dalej**.
 
-1. W obszarze **Konfigurowanie nowego projektu**wprowadź nazwę projektu. W obszarze **Struktura**wybierz opcję **.NET Framework 4,8** lub wyższą. Kliknij pozycję **Utwórz**.
+1. W obszarze **Konfigurowanie nowego projektu**wprowadź nazwę projektu. W obszarze **Struktura**wybierz opcję **.NET Framework 4,8** lub wyższą. Kliknij przycisk **Utwórz**.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Nawiązywanie połączenia z magazynem konfiguracji aplikacji
 
@@ -130,4 +131,4 @@ Biblioteki zarządzania funkcjami platformy .NET umożliwiają rozbudowanie plat
 W tym przewodniku szybki start utworzono flagę funkcji w konfiguracji aplikacji i użyto jej z aplikacją konsolową .NET Framework. Aby dowiedzieć się, jak dynamicznie aktualizować flagi funkcji i inne wartości konfiguracji bez ponownego uruchamiania aplikacji, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
-> [Włącz konfigurację dynamiczną](./enable-dynamic-configuration-dotnet.md)
+> [Włączanie dynamicznej konfiguracji](./enable-dynamic-configuration-dotnet.md)

@@ -3,14 +3,14 @@ title: Tworzenie na platformie Azure funkcji, która odpowiada na żądania HTTP
 description: Dowiedz się, jak utworzyć funkcję z wiersza polecenia, a następnie opublikować projekt lokalny do hostingu bezserwerowego w Azure Functions.
 ms.date: 03/30/2020
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: ba068ef00bcf1f671341ab00cabfe3c9bbb493ad
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: bfe816a6e9f7cba49e13186d7b78403163b13a8f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847690"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209018"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Szybki Start: Tworzenie funkcji na platformie Azure, która odpowiada na żądania HTTP
 
@@ -174,7 +174,7 @@ Archetype generuje również test jednostkowy dla funkcji. W przypadku zmiany fu
 
 :::code language="python" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/__init__.py":::
 
-Dla wyzwalacza HTTP funkcja otrzymuje dane żądania w zmiennej `req` , zgodnie z definicją w *function.json*. `req`jest wystąpieniem [klasy Azure. Functions. HttpRequest](/python/api/azure-functions/azure.functions.httprequest). Obiekt zwracany, zdefiniowany jako `$return` w *function.json*, jest wystąpieniem [klasy Azure. Functions. HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Aby dowiedzieć się więcej, zobacz [Azure Functions wyzwalacze i powiązania HTTP](./functions-bindings-http-webhook.md?tabs=python).
+Dla wyzwalacza HTTP funkcja otrzymuje dane żądania w zmiennej `req` , zgodnie z definicją w *function.json*. `req` jest wystąpieniem [klasy Azure. Functions. HttpRequest](/python/api/azure-functions/azure.functions.httprequest). Obiekt zwracany, zdefiniowany jako `$return` w *function.json*, jest wystąpieniem [klasy Azure. Functions. HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Aby dowiedzieć się więcej, zobacz [Azure Functions wyzwalacze i powiązania HTTP](./functions-bindings-http-webhook.md?tabs=python).
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
@@ -261,7 +261,7 @@ az group create --name AzureFunctionsQuickstart-rg --location westeurope
 > Nie można hostować aplikacji systemu Linux i Windows w tej samej grupie zasobów. Jeśli masz istniejącą grupę zasobów o nazwie `AzureFunctionsQuickstart-rg` przy użyciu aplikacji funkcji systemu Windows lub aplikacji sieci Web, musisz użyć innej grupy zasobów.
  
     
-Utwórz konto magazynu ogólnego przeznaczenia w grupie zasobów i regionie przy użyciu polecenia [AZ Storage account Create](/cli/azure/storage/account#az-storage-account-create) . W poniższym przykładzie Zastąp `<STORAGE_NAME>` wartość globalnie unikatową nazwą, która jest odpowiednia dla Ciebie. Nazwy muszą zawierać od 3 do 24 znaków cyfry i małe litery. `Standard_LRS`Określa konto ogólnego przeznaczenia, które jest [obsługiwane przez funkcje](storage-considerations.md#storage-account-requirements).
+Utwórz konto magazynu ogólnego przeznaczenia w grupie zasobów i regionie przy użyciu polecenia [AZ Storage account Create](/cli/azure/storage/account#az-storage-account-create) . W poniższym przykładzie Zastąp `<STORAGE_NAME>` wartość globalnie unikatową nazwą, która jest odpowiednia dla Ciebie. Nazwy muszą zawierać od 3 do 24 znaków cyfry i małe litery. `Standard_LRS` Określa konto ogólnego przeznaczenia, które jest [obsługiwane przez funkcje](storage-considerations.md#storage-account-requirements).
 
 ```azurecli
 az storage account create --name <STORAGE_NAME> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
@@ -351,7 +351,7 @@ Functions in msdocs-azurefunctions-qs:
 ::: zone pivot="programming-language-java"  
 ## <a name="deploy-the-function-project-to-azure"></a>Wdróż projekt funkcji na platformie Azure
 
-Aplikacja funkcji i powiązane zasoby są tworzone na platformie Azure podczas pierwszego wdrożenia projektu usługi Functions. Ustawienia zasobów platformy Azure utworzonych na potrzeby hostowania aplikacji są zdefiniowane w [plikupom.xml](#pomxml). W tym artykule zaakceptujesz ustawienia domyślne.
+Aplikacja funkcji i powiązane zasoby są tworzone na platformie Azure podczas pierwszego wdrożenia projektu usługi Functions. Ustawienia zasobów platformy Azure utworzonych na potrzeby hostowania aplikacji są zdefiniowane w [ plikupom.xml](#pomxml). W tym artykule zaakceptujesz ustawienia domyślne.
 
 > [!TIP]
 > Aby utworzyć aplikację funkcji działającą w systemie Linux zamiast systemu Windows, Zmień `runtime.os` element w pliku pom.xml z `windows` na `linux` . W [tych regionach](https://github.com/Azure/azure-functions-host/wiki/Linux-Consumption-Regions)jest obsługiwany system Linux w planie zużycia. W tej samej grupie zasobów nie można używać aplikacji działających w systemie Linux i aplikacji działających w ramach systemu Windows.
@@ -405,7 +405,7 @@ Uruchom [`curl`](https://curl.haxx.se/) polecenie **Invoke URL**, dodając param
 >   func azure functionapp logstream <APP_NAME> --browser
 >   ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli przejdziesz do następnego kroku, [Dodaj powiązanie danych wyjściowych kolejki usługi Azure Storage](functions-add-output-binding-storage-queue-cli.md), Zachowaj wszystkie Twoje zasoby w miarę kompilowania już wykonanej pracy.
 

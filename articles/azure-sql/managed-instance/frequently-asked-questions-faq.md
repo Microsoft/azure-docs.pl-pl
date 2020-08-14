@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 6713a1fbbbbca0aa212461cc966b42aaf2daa47e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5f42079d271a933cb9a722c7e33e6f646f7c4d1b
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498461"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210508"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -214,7 +214,7 @@ Tak, możesz kupić magazyn dodatków niezależnie od obliczeń, w pewnym zakres
 
 **Jak mogę zoptymalizować moją wydajność magazynu w Ogólnego przeznaczenia warstwie usług?**
 
-Aby zoptymalizować wydajność magazynu, zobacz [najlepsze rozwiązania dotyczące magazynu w ogólnego przeznaczenia](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525).
+Aby zoptymalizować wydajność magazynu, zobacz [najlepsze rozwiązania dotyczące magazynu w ogólnego przeznaczenia](https://techcommunity.microsoft.com).
 
 ## <a name="backup-and-restore"></a>Tworzenie kopii zapasowej i przywracanie
 

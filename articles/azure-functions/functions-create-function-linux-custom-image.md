@@ -3,14 +3,14 @@ title: Tworzenie Azure Functions w systemie Linux przy użyciu obrazu niestandar
 description: Informacje o sposobie tworzenia usługi Azure Functions działającej w niestandardowym obrazie systemu Linux.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: mvc, devx-track-python
+ms.custom: devx-track-csharp, mvc, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 43ca0a01cd56d63113824eccd6d9c37b225d4134
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: a7fddffd3809dc2fc9814b0c01c12f335110aad0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852586"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206946"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Tworzenie funkcji w systemie Linux przy użyciu kontenera niestandardowego
 
@@ -123,7 +123,7 @@ cd fabrikam-functions
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
-Dodaj funkcję do projektu za pomocą następującego polecenia, gdzie `--name` argument jest unikatową nazwą funkcji, a `--template` argument określa wyzwalacz funkcji. `func new`Utwórz podfolder pasujący do nazwy funkcji, która zawiera plik kodu odpowiedni dla wybranego języka projektu i plik konfiguracji o nazwie *function.json*.
+Dodaj funkcję do projektu za pomocą następującego polecenia, gdzie `--name` argument jest unikatową nazwą funkcji, a `--template` argument określa wyzwalacz funkcji. `func new` Utwórz podfolder pasujący do nazwy funkcji, która zawiera plik kodu odpowiedni dla wybranego języka projektu i plik konfiguracji o nazwie *function.json*.
 
 ```
 func new --name HttpExample --template "HTTP trigger"
@@ -237,7 +237,7 @@ Aby utworzyć te elementy, Użyj poleceń interfejsu wiersza polecenia platformy
     > [!NOTE]
     > Nie można hostować aplikacji systemu Linux i Windows w tej samej grupie zasobów. Jeśli masz istniejącą grupę zasobów o nazwie `AzureFunctionsContainers-rg` przy użyciu aplikacji funkcji systemu Windows lub aplikacji sieci Web, musisz użyć innej grupy zasobów.
     
-1. Utwórz konto magazynu ogólnego przeznaczenia w grupie zasobów i regionie przy użyciu polecenia [AZ Storage account Create](/cli/azure/storage/account#az-storage-account-create) . W poniższym przykładzie Zastąp `<storage_name>` wartość globalnie unikatową nazwą, która jest odpowiednia dla Ciebie. Nazwy muszą zawierać od 3 do 24 znaków cyfry i małe litery. `Standard_LRS`Określa typowe konto ogólnego przeznaczenia.
+1. Utwórz konto magazynu ogólnego przeznaczenia w grupie zasobów i regionie przy użyciu polecenia [AZ Storage account Create](/cli/azure/storage/account#az-storage-account-create) . W poniższym przykładzie Zastąp `<storage_name>` wartość globalnie unikatową nazwą, która jest odpowiednia dla Ciebie. Nazwy muszą zawierać od 3 do 24 znaków cyfry i małe litery. `Standard_LRS` Określa typowe konto ogólnego przeznaczenia.
 
     ```azurecli
     az storage account create --name <storage_name> --location westeurope --resource-group AzureFunctionsContainers-rg --sku Standard_LRS
@@ -513,7 +513,7 @@ W przeglądarce Użyj tego samego adresu URL, co wcześniej, aby wywołać funkc
 
 [!INCLUDE [functions-add-output-binding-view-queue-cli](../../includes/functions-add-output-binding-view-queue-cli.md)]
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz kontynuować pracę z funkcją platformy Azure przy użyciu zasobów utworzonych w tym samouczku, możesz pozostawić wszystkie te zasoby na miejscu. Ze względu na to, że został utworzony plan Premium dla Azure Functions, ponosisz jeden lub dwa USD dziennie.
 

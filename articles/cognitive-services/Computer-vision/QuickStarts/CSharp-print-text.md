@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: Wyodrębnianie tekstu za pomocą interfejsu API REST przetwarzanie obrazów OCR i języka C #'
+title: 'Szybki Start: Wyodrębnianie tekstu przy użyciu operacji OCR interfejsu API REST w przetwarzanie obrazów 2,0 i C #'
 titleSuffix: Azure Cognitive Services
 description: W tym przewodniku szybki start wyodrębnisz tekst z obrazu przy użyciu operacji OCR interfejsu API REST przetwarzanie obrazów w języku C#.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ecc0ddbfa48669cad7f486e181fcdb6dbc80851e
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 4306b82793dd62765c07dfa808add4e16dc06be5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167797"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209180"
 ---
-# <a name="quickstart-extract-text-using-the-computer-vision-ocr-rest-api-and-c"></a>Szybki Start: Wyodrębnianie tekstu przy użyciu interfejsu API REST przetwarzanie obrazów OCR i języka C #
+# <a name="quickstart-extract-text-using-the-computer-vision-20-rest-api-ocr-operation-and-c"></a>Szybki Start: Wyodrębnianie tekstu przy użyciu operacji OCR interfejsu API REST w przetwarzanie obrazów 2,0 i C #
 
 > [!IMPORTANT]
 > W przypadku wyodrębniania tekstu w języku angielskim, niderlandzkim, francuskim, niemieckim, włoskim, portugalskim, hiszpańskim lub uproszczonym (wersja zapoznawcza) zaleca się użycie nowszej [operacji odczytu](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Dostępna jest funkcja [Szybki Start języka C#](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text) . 

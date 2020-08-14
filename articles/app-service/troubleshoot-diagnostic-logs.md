@@ -4,13 +4,13 @@ description: Dowiedz się, jak włączyć rejestrowanie diagnostyczne i dodać i
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
-ms.custom: seodec18
-ms.openlocfilehash: 8b415c9582af2303451a8076307f07ee92ac08d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 1a6c109907c20e06796744d42feae20dc53f2b52
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261345"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207527"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Włączanie rejestrowania diagnostycznego dla aplikacji w Azure App Service
 ## <a name="overview"></a>Omówienie
@@ -62,9 +62,9 @@ Wybierz **poziom**lub poziom szczegółów do zarejestrowania. W poniższej tabe
 
 | Poziom | Uwzględnione kategorie |
 |-|-|
-|**Disabled (Wyłączone)** | Brak |
+|**Disabled** | Brak |
 |**Błąd** | Błąd, krytyczny |
-|**Ostrzeżenie** | Ostrzeżenie, błąd, krytyczny|
+|**Wyświetlania** | Ostrzeżenie, błąd, krytyczny|
 |**Informacje** | Informacje, ostrzeżenie, błąd, krytyczne|
 |**Pełne** | Trace, Debug, info, Warning, Error, krytyczny (wszystkie kategorie) |
 
@@ -108,9 +108,9 @@ Oba typy dzienników są przechowywane w systemie plików App Service. Błędy d
 
 ## <a name="add-log-messages-in-code"></a>Dodawanie komunikatów dziennika w kodzie
 
-W kodzie aplikacji należy używać zwykłych funkcji rejestrowania do wysyłania komunikatów dziennika do dzienników aplikacji. Przykład:
+W kodzie aplikacji należy używać zwykłych funkcji rejestrowania do wysyłania komunikatów dziennika do dzienników aplikacji. Na przykład:
 
-- Aplikacje ASP.NET mogą używać klasy [System. Diagnostics. Trace](/dotnet/api/system.diagnostics.trace) do rejestrowania informacji w dzienniku diagnostyki aplikacji. Przykład:
+- Aplikacje ASP.NET mogą używać klasy [System. Diagnostics. Trace](/dotnet/api/system.diagnostics.trace) do rejestrowania informacji w dzienniku diagnostyki aplikacji. Na przykład:
 
     ```csharp
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -138,12 +138,12 @@ Aby przesłać strumieniowo dzienniki na żywo w [Cloud Shell](../cloud-shell/ov
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-Aby odfiltrować określone zdarzenia, takie jak błędy, użyj parametru **--Filter** . Przykład:
+Aby odfiltrować określone zdarzenia, takie jak błędy, użyj parametru **--Filter** . Na przykład:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 ```
-Aby filtrować określone typy dzienników, takie jak HTTP, użyj parametru **--Path** . Przykład:
+Aby filtrować określone typy dzienników, takie jak HTTP, użyj parametru **--Path** . Na przykład:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --path http
@@ -159,8 +159,8 @@ Jeśli skonfigurujesz opcję obiektów BLOB usługi Azure Storage dla typu dzien
 
 W przypadku dzienników przechowywanych w systemie plików App Service Najprostszym sposobem jest pobranie pliku ZIP z przeglądarki w:
 
-- Aplikacje dla systemu Linux/kontenera:`https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
-- Aplikacje systemu Windows:`https://<app-name>.scm.azurewebsites.net/api/dump`
+- Aplikacje dla systemu Linux/kontenera: `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
+- Aplikacje systemu Windows: `https://<app-name>.scm.azurewebsites.net/api/dump`
 
 W przypadku aplikacji systemu Linux/kontenera plik ZIP zawiera dzienniki danych wyjściowych konsoli dla hosta platformy Docker i kontenera Docker. Dla aplikacji skalowanej w poziomie plik ZIP zawiera jeden zestaw dzienników dla każdego wystąpienia. W systemie plików App Service te pliki dzienników to zawartość katalogu */Home/LogFiles* .
 
@@ -196,7 +196,7 @@ W poniższej tabeli przedstawiono obsługiwane typy i opisy dzienników:
 | AppServiceIPSecAuditLogs  | Tak | Tak | Żądania z reguł adresów IP |
 | AppServicePlatformLogs  | TBA | Tak | Dzienniki kontenerów |
 
-## <a name="next-steps"></a><a name="nextsteps"></a>Następne kroki
+## <a name="next-steps"></a><a name="nextsteps"></a> Następne kroki
 * [Wysyłanie zapytań do dzienników przy użyciu Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 * [Jak monitorować Azure App Service](web-sites-monitor.md)
 * [Rozwiązywanie problemów Azure App Service w programie Visual Studio](troubleshoot-dotnet-visual-studio.md)

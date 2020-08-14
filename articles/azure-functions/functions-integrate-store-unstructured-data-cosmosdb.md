@@ -3,13 +3,13 @@ title: Przechowywanie danych niestrukturalnych przy użyciu Azure Cosmos DB i fu
 description: Przechowywanie danych niestrukturalnych przy użyciu usług Azure Functions i Cosmos DB
 ms.topic: quickstart
 ms.date: 04/14/2020
-ms.custom: mvc
-ms.openlocfilehash: 09d9bbca7119539f31a4cea056f338cf28dfcd23
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: a242f1ffc0a7738ce7cdf33aeeef214fb4f63e61
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121954"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210872"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Przechowywanie danych niestrukturalnych przy użyciu usług Azure Functions i Azure Cosmos DB
 
@@ -63,7 +63,7 @@ Do utworzenia powiązania danych wyjściowych konieczne jest posiadanie konta us
 
 Zastąp istniejący kod funkcji w następującym kodem w wybranym języku:
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Zastąp istniejącą funkcję w języku C# następującym kodem:
 
@@ -150,7 +150,7 @@ Ten przykładowy kod odczytuje ciągi zapytań żądania HTTP i przypisuje je do
 
     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png" alt-text="Wyszukaj usługę Cosmos DB." border="true":::
 
-1. Wybierz konto Azure Cosmos DB, a następnie wybierz pozycję **Eksplorator danych**.
+1. Wybierz konto Azure Cosmos DB, a następnie wybierz pozycję  **Eksplorator danych**.
 
 1. Rozwiń węzły **taskcollection** , zaznacz nowy dokument i upewnij się, że dokument zawiera wartości ciągu zapytania wraz z dodatkowymi metadanymi.
 

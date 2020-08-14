@@ -5,14 +5,15 @@ description: Użyj etykiet, aby podać wartości konfiguracyjne dla środowiska.
 ms.service: azure-app-configuration
 author: lisaguthrie
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 3/12/2020
 ms.author: lcozzens
-ms.openlocfilehash: 465ae86c5732c9dd54ade1b7096fa8415dfca513
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 689fdbd444aa4b20f5bef225faa259788c47cf9d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83118546"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206662"
 ---
 # <a name="use-labels-to-enable-configurations-for-different-environments"></a>Używanie etykiet do włączania konfiguracji dla różnych środowisk
 

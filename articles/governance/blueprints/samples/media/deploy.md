@@ -1,14 +1,14 @@
 ---
 title: Przykład wdrażania planu multimediów
 description: Wdróż kroki dla przykładu planu multimediów, w tym szczegóły parametrów artefaktu.
-ms.date: 02/25/2020
+ms.date: 08/13/2020
 ms.topic: sample
-ms.openlocfilehash: 7c107c49a5ab5ec8c64b2d2deadb2531e8a67f3a
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c8ac1726bc5007c1790f5efbc45c72f9712fcdf2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042802"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208431"
 ---
 # <a name="deploy-the-media-blueprint-sample"></a>Wdróż przykład planu multimediów
 
@@ -62,7 +62,7 @@ Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisa
 
 1. Podaj wartości parametrów dla przypisania planu:
 
-   - Informacje podstawowe
+   - Podstawy
 
      - **Subskrypcje**: Wybierz co najmniej jedną subskrypcję znajdującą się w grupie zarządzania, do której została zapisana kopia przykładu planu. W przypadku wybrania więcej niż jednej subskrypcji zostanie utworzone przypisanie dla każdego z nich przy użyciu wprowadzonych parametrów.
      - **Nazwa przypisania**: nazwa jest wstępnie wypełniona dla Ciebie na podstawie nazwy planu.
@@ -93,19 +93,19 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 
 Nazwa artefaktu|Typ artefaktu|Nazwa parametru|Opis|
 |-|-|-|-|
-|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux |Przypisywanie zasad |Obszar roboczy Log Analytics dla maszyn wirtualnych z systemem Linux |Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux |Przypisywanie zasad |Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Linux do dodania do zakresu |Pustą tablicę można użyć do wskazania braku parametrów opcjonalnych:`[]` |
-|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows |Przypisywanie zasad |Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Windows do dodania do zakresu |Pustą tablicę można użyć do wskazania braku parametrów opcjonalnych:`[]` |
-|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows |Przypisywanie zasad |Obszar roboczy Log Analytics dla maszyn wirtualnych z systemem Windows |Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Wersja zapoznawcza \] : Inspekcja kontrolek nośników i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji |Przypisywanie zasad |Log Analytics identyfikator obszaru roboczego, dla którego należy skonfigurować maszyny wirtualne |To jest identyfikator (GUID) obszaru roboczego Log Analytics, dla którego należy skonfigurować maszyny wirtualne. |
-|\[Wersja zapoznawcza \] : Inspekcja kontrolek nośników i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji |Przypisywanie zasad |Lista typów zasobów, dla których włączono obsługę dzienników diagnostycznych |Lista typów zasobów, które mają być objęte inspekcją, jeśli ustawienie dziennika diagnostycznego nie jest włączone. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas). |
-|\[Wersja zapoznawcza \] : Inspekcja kontrolek nośników i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji |Przypisywanie zasad |Grupa administratorów |Group. Przykład: `Administrator; myUser1; myUser2` |
-|\[Wersja zapoznawcza \] : Inspekcja kontrolek nośników i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji |Przypisywanie zasad |Lista użytkowników, którzy powinni zostać dołączeni do grupy administratorów maszyn wirtualnych z systemem Windows |Rozdzielana średnikami lista elementów członkowskich, które powinny być uwzględnione w lokalnej grupie Administratorzy. Przykład: `Administrator; myUser1; myUser2` |
-|Wdróż zaawansowaną ochronę przed zagrożeniami na kontach magazynu |Przypisywanie zasad |Efekt |Informacje dotyczące efektów zasad można znaleźć w [opisie efektów Azure Policy](../../../policy/concepts/effects.md). |
-|Wdrażanie inspekcji na serwerach SQL |Przypisywanie zasad |Wartość w dniach okresu przechowywania (0 oznacza nieograniczony czas przechowywania) |Dni przechowywania (opcjonalnie, _180_ dni, jeśli nie określono) |
-|Wdrażanie inspekcji na serwerach SQL |Przypisywanie zasad |Nazwa grupy zasobów dla konta magazynu na potrzeby inspekcji programu SQL Server |Inspekcja zapisuje zdarzenia bazy danych w dzienniku inspekcji na koncie usługi Azure Storage (konto magazynu jest tworzone w każdym regionie, w którym utworzono SQL Server, który jest współużytkowany przez wszystkie serwery w tym regionie). Ważne — w przypadku właściwej operacji inspekcji nie należy usuwać ani zmieniać nazw grup zasobów ani kont magazynu. |
-|Wdróż ustawienia diagnostyczne dla sieciowych grup zabezpieczeń |Przypisywanie zasad |Prefiks konta magazynu dla diagnostyki sieciowej grupy zabezpieczeń |Ten prefiks jest połączony z lokalizacją sieciowej grupy zabezpieczeń w celu utworzenia nazwy utworzonego konta magazynu. |
-|Wdróż ustawienia diagnostyczne dla sieciowych grup zabezpieczeń |Przypisywanie zasad |Nazwa grupy zasobów dla konta magazynu dla diagnostyki sieciowej grupy zabezpieczeń (musi istnieć) |Grupa zasobów, w której jest tworzone konto magazynu. Ta grupa zasobów musi już istnieć. |
+|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux |Przypisanie zasad |Obszar roboczy Log Analytics dla maszyn wirtualnych z systemem Linux |Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux |Przypisanie zasad |Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Linux do dodania do zakresu |Pustą tablicę można użyć do wskazania braku parametrów opcjonalnych: `[]` |
+|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows |Przypisanie zasad |Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Windows do dodania do zakresu |Pustą tablicę można użyć do wskazania braku parametrów opcjonalnych: `[]` |
+|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows |Przypisanie zasad |Obszar roboczy Log Analytics dla maszyn wirtualnych z systemem Windows |Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Wersja zapoznawcza \] : Inspekcja kontrolek nośników i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji |Przypisanie zasad |Log Analytics identyfikator obszaru roboczego, dla którego należy skonfigurować maszyny wirtualne |To jest identyfikator (GUID) obszaru roboczego Log Analytics, dla którego należy skonfigurować maszyny wirtualne. |
+|\[Wersja zapoznawcza \] : Inspekcja kontrolek nośników i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji |Przypisanie zasad |Lista typów zasobów, dla których włączono obsługę dzienników diagnostycznych |Lista typów zasobów, które mają być objęte inspekcją, jeśli ustawienie dziennika diagnostycznego nie jest włączone. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas). |
+|\[Wersja zapoznawcza \] : Inspekcja kontrolek nośników i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji |Przypisanie zasad |Grupa administratorów |Group. Przykład: `Administrator; myUser1; myUser2` |
+|\[Wersja zapoznawcza \] : Inspekcja kontrolek nośników i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji |Przypisanie zasad |Lista użytkowników, którzy powinni zostać dołączeni do grupy administratorów maszyn wirtualnych z systemem Windows |Rozdzielana średnikami lista elementów członkowskich, które powinny być uwzględnione w lokalnej grupie Administratorzy. Przykład: `Administrator; myUser1; myUser2` |
+|Wdróż zaawansowaną ochronę przed zagrożeniami na kontach magazynu |Przypisanie zasad |Efekt |Informacje dotyczące efektów zasad można znaleźć w [opisie efektów Azure Policy](../../../policy/concepts/effects.md). |
+|Wdrażanie inspekcji na serwerach SQL |Przypisanie zasad |Wartość w dniach okresu przechowywania (0 oznacza nieograniczony czas przechowywania) |Dni przechowywania (opcjonalnie, _180_ dni, jeśli nie określono) |
+|Wdrażanie inspekcji na serwerach SQL |Przypisanie zasad |Nazwa grupy zasobów dla konta magazynu na potrzeby inspekcji programu SQL Server |Inspekcja zapisuje zdarzenia bazy danych w dzienniku inspekcji na koncie usługi Azure Storage (konto magazynu jest tworzone w każdym regionie, w którym utworzono SQL Server, który jest współużytkowany przez wszystkie serwery w tym regionie). Ważne — w przypadku właściwej operacji inspekcji nie należy usuwać ani zmieniać nazw grup zasobów ani kont magazynu. |
+|Wdróż ustawienia diagnostyczne dla sieciowych grup zabezpieczeń |Przypisanie zasad |Prefiks konta magazynu dla diagnostyki sieciowej grupy zabezpieczeń |Ten prefiks jest połączony z lokalizacją sieciowej grupy zabezpieczeń w celu utworzenia nazwy utworzonego konta magazynu. |
+|Wdróż ustawienia diagnostyczne dla sieciowych grup zabezpieczeń |Przypisanie zasad |Nazwa grupy zasobów dla konta magazynu dla diagnostyki sieciowej grupy zabezpieczeń (musi istnieć) |Grupa zasobów, w której jest tworzone konto magazynu. Ta grupa zasobów musi już istnieć. |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 6a8cc588ff7325242e7e010e9869eaa9a24f6fc2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 8be13a299de0fc3de0acaf0001722d8c96a460e6
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033340"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205933"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Ograniczenia i ograniczenia URI przekierowania (adres URL odpowiedzi)
 
@@ -35,7 +35,7 @@ W tej tabeli przedstawiono maksymalną liczbę identyfikatorów URI przekierowan
 | Konta, które są zalogowane | Maksymalna liczba identyfikatorów URI przekierowania | Opis |
 |--------------------------|---------------------------------|-------------|
 | Konta służbowe firmy Microsoft w ramach dzierżawy Azure Active Directory (Azure AD) w organizacji | 256 | `signInAudience`pole w manifeście aplikacji ma ustawioną wartość *AzureADMyOrg* lub *AzureADMultipleOrgs* . |
-| Osobiste konta Microsoft i służbowe konta służbowe | 100 | `signInAudience`pole w manifeście aplikacji jest ustawione na *AzureADandPersonalMicrosoftAccount* |
+| Osobiste konta Microsoft i służbowe konta służbowe | 100 | `signInAudience` pole w manifeście aplikacji jest ustawione na *AzureADandPersonalMicrosoftAccount* |
 
 ## <a name="maximum-uri-length"></a>Maksymalna długość identyfikatora URI
 
@@ -51,7 +51,7 @@ Aby dodać identyfikatory URI przekierowania ze schematem HTTP do rejestracji ap
 
 Zgodnie z [sekcją RFC 8252 sekcje 8,3](https://tools.ietf.org/html/rfc8252#section-8.3) i [7,3](https://tools.ietf.org/html/rfc8252#section-7.3), "sprzężenie zwrotne" lub "localhost" identyfikatorów URI przekierowania są dwa specjalne zagadnienia:
 
-1. `http`Schematy identyfikatorów URI są akceptowalne, ponieważ przekierowanie nigdy nie opuszcza urządzenia. W związku z tym oba te elementy są akceptowane:
+1. `http` Schematy identyfikatorów URI są akceptowalne, ponieważ przekierowanie nigdy nie opuszcza urządzenia. W związku z tym oba te elementy są akceptowane:
     - `http://127.0.0.1/myApp`
     - `https://127.0.0.1/myApp`
 1. Ze względu na tymczasowe zakresy portów często wymagane przez natywne aplikacje, składnik portu (na przykład `:5001` lub `:443` ) jest ignorowany na potrzeby dopasowywania identyfikatora URI przekierowania. W związku z tym wszystkie te są uważane za równoważne:
@@ -62,9 +62,9 @@ Zgodnie z [sekcją RFC 8252 sekcje 8,3](https://tools.ietf.org/html/rfc8252#sect
 
 Z punktu widzenia projektowania oznacza to kilka rzeczy:
 
-1. Nie należy rejestrować wielu identyfikatorów URI przekierowania, gdy tylko port jest różny. Serwer logowania wybiera arbitralnie i użyje zachowania skojarzonego z tym identyfikatorem URI przekierowania (na przykład niezależnie od tego, czy jest to `web` -, `native` -, czy `spa` -Type redirect).
-1. Jeśli zachodzi potrzeba zarejestrowania wielu identyfikatorów URI przekierowania na hoście lokalnym w celu przetestowania różnych przepływów podczas opracowywania, Odróżnij je za pomocą składnika *ścieżki* identyfikatora URI. Na przykład `http://127.0.0.1/MyWebApp` nie są zgodne `http://127.0.0.1/MyNativeApp` .
-1. Zgodnie ze wskazówkami RFC nie należy używać `localhost` go w identyfikatorze URI przekierowania. Zamiast tego należy użyć rzeczywistego adresu IP sprzężenia zwrotnego `127.0.0.1` . Zapobiega to zerwaniu aplikacji przez błędnie skonfigurowane zapory lub nazwy interfejsów sieciowych.
+* Nie należy rejestrować wielu identyfikatorów URI przekierowania, gdy tylko port jest różny. Serwer logowania wybiera arbitralnie i użyje zachowania skojarzonego z tym identyfikatorem URI przekierowania (na przykład niezależnie od tego, czy jest to `web` -, `native` -, czy `spa` -Type redirect).
+* Jeśli zachodzi potrzeba zarejestrowania wielu identyfikatorów URI przekierowania na hoście lokalnym w celu przetestowania różnych przepływów podczas opracowywania, Odróżnij je za pomocą składnika *ścieżki* identyfikatora URI. Na przykład `http://127.0.0.1/MyWebApp` nie są zgodne `http://127.0.0.1/MyNativeApp` .
+* Zgodnie ze wskazówkami RFC nie należy używać `localhost` go w identyfikatorze URI przekierowania. Zamiast tego należy użyć rzeczywistego adresu IP sprzężenia zwrotnego `127.0.0.1` . Zapobiega to zerwaniu aplikacji przez błędnie skonfigurowane zapory lub nazwy interfejsów sieciowych.
 
     Adres sprzężenia zwrotnego IPv6 ( `[::1]` ) nie jest obecnie obsługiwany.
 

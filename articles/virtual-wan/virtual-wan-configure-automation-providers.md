@@ -1,18 +1,18 @@
 ---
 title: Wskazówki dotyczące automatyzacji wirtualnych sieci WAN platformy Azure | Microsoft Docs
-description: Ten artykuł pomaga partnerom skonfigurować automatyzację sieci wirtualnej platformy Azure.
+description: Skonfiguruj środowisko automatyzacji do łączenia i konfigurowania lokalnego urządzenia sieci VPN lub SD-WAN CPE lub oddziału dla wirtualnej sieci WAN platformy Azure.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 816e8843467588cbfaeb5eb6e531d2221d28656b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0029f3fbcf96036a247356042e4c39d59f86a224
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565952"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208348"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Wskazówki dotyczące automatyzacji dla partnerów wirtualnych sieci WAN
 

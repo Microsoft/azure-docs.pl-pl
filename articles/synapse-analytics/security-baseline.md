@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2cd42d8d4ba1ecabc1b87942536e2ef9a9017b22
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7f05e4fb0443107370f9182706bd35b45771e0f2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501954"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210904"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Podstawowa usługa Azure Security Synapse Analytics
 
@@ -1040,7 +1040,7 @@ Jeśli używasz klucza zarządzanego przez klienta do szyfrowania klucza szyfrow
 
 * [Jak przywrócić klucze Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-* [Tworzenie kopii zapasowych i przywracanie danych w puli SQL Synapse platformy Azure](https://docs.microsoft.coms/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Tworzenie kopii zapasowych i przywracanie danych w puli SQL Synapse platformy Azure](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 * [Jak przywrócić istniejącą pulę SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw)
 

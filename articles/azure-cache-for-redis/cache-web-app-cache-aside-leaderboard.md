@@ -5,14 +5,14 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: devx-track-csharp, mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: 177aa42991612d8ce2e899576599aafc43015c58
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 71f1e2b50daf333e19bc11bce119f37cec28d146
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082781"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209204"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Samouczek: tworzenie rankingu z odkładaniem do pamięci podręcznej na platformie ASP.NET
 
@@ -665,8 +665,8 @@ W tej sekcji zostanie zainicjowana Nowa baza danych w SQL Database, aby aplikacj
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nazwa serwera** | Dowolna nazwa unikatowa w skali globalnej | Prawidłowe nazwy serwera opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Reguły i ograniczenia nazewnictwa). |
    | **Identyfikator logowania administratora serwera** | Dowolna prawidłowa nazwa | Prawidłowe nazwy logowania można znaleźć w temacie [identyfikatory baz danych](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
-   | **Hasło** | Dowolne prawidłowe hasło | Hasło musi mieć co najmniej 8 znaków i musi zawierać znaki z trzech z następujących kategorii: wielkie litery, małe litery, cyfry i znaki inne niż alfanumeryczne. |
-   | **Lokalizacja** | *Wschodnie stany USA* | Wybierz ten sam region, w którym utworzono pamięć podręczną i usługę App Service. |
+   | **Password** (Hasło) | Dowolne prawidłowe hasło | Hasło musi mieć co najmniej 8 znaków i musi zawierać znaki z trzech z następujących kategorii: wielkie litery, małe litery, cyfry i znaki inne niż alfanumeryczne. |
+   | **Lokalizacja** | *East US* | Wybierz ten sam region, w którym utworzono pamięć podręczną i usługę App Service. |
 
 1. Kliknij pozycję **Przypnij do pulpitu nawigacyjnego**, a następnie pozycję **Utwórz**, aby utworzyć nową bazę danych i nowy serwer.
 
@@ -691,7 +691,7 @@ W tym kroku samouczka opublikujesz aktualizacje aplikacji na platformie Azure w 
 
 1. Kliknij prawym przyciskiem myszy projekt **ContosoTeamStats** w programie Visual Studio i wybierz polecenie **Publikuj**.
 
-    ![Publikowanie](./media/cache-web-app-cache-aside-leaderboard/cache-publish-app.png)
+    ![Opublikuj](./media/cache-web-app-cache-aside-leaderboard/cache-publish-app.png)
 
 2. Kliknij pozycję **Opublikuj**, aby użyć tego samego profilu publikowania, który został utworzony w ramach przewodnika Szybki start.
 

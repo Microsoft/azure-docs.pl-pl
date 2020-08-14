@@ -3,13 +3,14 @@ title: Użyj Azure Functions, aby wykonać zadanie oczyszczania bazy danych
 description: Użyj Azure Functions, aby zaplanować zadanie, które łączy się z Azure SQL Database, aby okresowo czyścić wiersze.
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 10/02/2019
-ms.openlocfilehash: 29e90838d91de69af43ae9cf8ec0d99b534f66be
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0b5e255d7d108eb063ece4e5489a8762261a0bed
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506081"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207266"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Użyj Azure Functions, aby nawiązać połączenie z Azure SQL Database
 

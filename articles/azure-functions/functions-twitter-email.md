@@ -6,13 +6,13 @@ ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: cshoe
-ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: a7cdeb7bfde7396026b782382b34228c309b37d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47
+ms.openlocfilehash: 29b35493342b92813aa808069ebdd7ca8a7bbc56
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088148"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208556"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Tworzenie funkcji integrującej się z usługą Azure Logic Apps
 
@@ -240,7 +240,7 @@ Ostatnia część przepływu pracy polega na wyzwoleniu wiadomości e-mail, gdy 
 | Ustawienie      |  Sugerowana wartość   | Opis  |
 | ----------------- | ------------ | ------------- |
 | **Do** | Wpisz adres e-mail | Adres e-mail, na który będą wysyłane powiadomienia. |
-| **Podmiot** | Wykryto negatywną tonację tweetów  | Wiersz tematu powiadomienia w wiadomości e-mail.  |
+| **Temat** | Wykryto negatywną tonację tweetów  | Wiersz tematu powiadomienia w wiadomości e-mail.  |
 | **Treść** | Tekst tweetu, lokalizacja | Kliknij parametry **Tekst tweetu** i **Lokalizacja**. |
 
 1. Kliknij pozycję **Zapisz**.
