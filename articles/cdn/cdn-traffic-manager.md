@@ -68,7 +68,7 @@ Po skonfigurowaniu profilów sieci CDN i Traffic Manager wykonaj następujące k
 
     b. Dla drugiego wpisu CNAME Mapuj domenę niestandardową bez poddomeny cdnverify do punktu końcowego usługi CDN. Ten wpis mapuje domenę niestandardową na Traffic Manager. 
 
-      Na przykład: 
+      Przykład: 
       
       `cdndemo101.dustydogpetcare.online  CNAME  cdndemo101.trafficmanager.net`   
 
@@ -87,7 +87,7 @@ Po skonfigurowaniu profilów sieci CDN i Traffic Manager wykonaj następujące k
 
 3.  Wróć do witryny sieci Web dostawcy domeny niestandardowej i zaktualizuj pierwsze mapowanie DNS utworzone w programie, tak aby domena niestandardowa została zamapowana na drugi punkt końcowy usługi CDN.
                              
-    Na przykład: 
+    Przykład: 
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 

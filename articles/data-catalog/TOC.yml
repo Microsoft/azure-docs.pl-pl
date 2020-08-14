@@ -1,4 +1,4 @@
-- name: Dokumentacja usługi Data Catalog
+- name: Dokumentacja dotycząca usługi Azure Data Catalog
   href: index.yml
 - name: Omówienie
   items:
@@ -23,7 +23,7 @@
       href: data-catalog-adopting-data-catalog.md
     - name: Często zadawane pytania
       href: data-catalog-frequently-asked-questions.md
-- name: Instrukcje
+- name: Przewodniki z instrukcjami
   items:
     - name: Rejestrowanie źródeł danych (Rejestrowanie źródeł danych)
       href: data-catalog-how-to-register.md

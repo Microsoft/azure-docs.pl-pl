@@ -66,7 +66,7 @@ Ten samouczek przeprowadzi Cię przez wstępne ładowanie zawartości z pamięci
 > 
 > 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Przeczyszczanie punktu końcowego Azure CDN](cdn-purge-endpoint.md)
 * [Azure CDN informacje o interfejsie API REST: Załaduj wstępnie zawartość w punkcie końcowym](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
 * [Azure CDN informacje o interfejsie API REST: Przeczyść zawartość z punktu końcowego](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)

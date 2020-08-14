@@ -207,7 +207,7 @@ public static async Task ReadBlobMetadataAsync(CloudBlob blob)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Operacja ustawiania właściwości obiektu BLOB](/rest/api/storageservices/set-blob-properties)
 - [Operacja pobierania właściwości obiektu BLOB](/rest/api/storageservices/get-blob-properties)

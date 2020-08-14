@@ -90,6 +90,6 @@ Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dys
 ## <a name="publish-report-to-power-bi-service"></a>Publikuj raport w usługa Power BI
 Po utworzeniu wizualizacji w Power BI Desktop możesz udostępnić ją innym osobom, publikując ją w usługa Power BI. Aby uzyskać instrukcje, jak to zrobić, zobacz temat [Publikowanie z Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Analizowanie danych w Data Lake Storage Gen1 przy użyciu Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 

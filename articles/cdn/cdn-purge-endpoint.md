@@ -73,7 +73,7 @@ Ten samouczek przeprowadzi Cię przez przeczyszczanie zasobów ze wszystkich wę
 > 
 > 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Wstępne ładowanie zasobów w punkcie końcowym usługi Azure CDN](cdn-preload-endpoint.md)
 * [Azure CDN dokumentacja interfejsu API REST — przeczyszczanie lub wstępne ładowanie punktu końcowego](/rest/api/cdn/endpoints)
 

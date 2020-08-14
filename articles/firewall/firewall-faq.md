@@ -80,7 +80,7 @@ Zobacz [Cennik usługi Azure firewall](https://azure.microsoft.com/pricing/detai
 
 Można użyć Azure PowerShell *alokacji* i *alokacji* metod.
 
-Na przykład:
+Przykład:
 
 ```azurepowershell
 # Stop an existing firewall
