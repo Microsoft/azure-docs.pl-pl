@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019, devx-track-javascript
-ms.openlocfilehash: 56099a7d350a29db5a57708bc87b7174cfdb3b29
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 53bd4905cf4b8829d65ce2b10c85260ff3f8926c
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079283"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210526"
 ---
 # <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Tworzenie i usuwanie kolejek z Node.js za pomocą usługi Azure Queue Service
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -186,8 +186,8 @@ queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
 ## <a name="how-to-additional-options-for-dequeuing-messages"></a>Instrukcje: dodatkowe opcje związane z dekolejką komunikatów
 Istnieją dwa sposoby dostosowywania pobierania komunikatów z kolejki:
 
-* `options.numOfMessages`— Pobierz partię komunikatów (do 32).
-* `options.visibilityTimeout`-Ustaw dłuższy lub krótszy limit czasu niewidoczności.
+* `options.numOfMessages` — Pobierz partię komunikatów (do 32).
+* `options.visibilityTimeout` -Ustaw dłuższy lub krótszy limit czasu niewidoczności.
 
 W poniższym przykładzie zastosowano metodę **GetMessages** , aby pobrać 15 komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu pętli for. Ustawia również limit czasu niewidoczności na pięć minut dla wszystkich komunikatów zwracanych przez tę metodę.
 
@@ -195,7 +195,7 @@ W poniższym przykładzie zastosowano metodę **GetMessages** , aby pobrać 15 k
 queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, results, getResponse){
   if(!error){
     // Messages retrieved
-    for(var index in result){
+    for(var index in results){
       // text is available in result[index].messageText
       var message = results[index];
       queueSvc.deleteMessage(queueName, message.messageId, message.popReceipt, function(error, deleteResponse){

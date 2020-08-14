@@ -1,18 +1,18 @@
 ---
 title: Domyślne zasady protokołu IPsec dla wirtualnej sieci WAN platformy Azure | Microsoft Docs
-description: Ten artykuł zawiera informacje dotyczące zasad protokołu IPsec dla wirtualnej sieci WAN.
+description: Dowiedz się więcej na temat zasad łączności usługi Azure Virtual WAN IPsec, w tym domyślnych zasad inicjatora i obiektu odpowiadającego oraz niestandardowych kombinacji zasad.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: cherylmc
-ms.openlocfilehash: 877a17327f13e407f86cb3a1a21f051572f74343
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 784f43cfa259ad7bdf161aea8e9b1ce559855db7
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73499719"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213901"
 ---
 # <a name="virtual-wan-default-policies-for-ipsec-connectivity"></a>Domyślne zasady wirtualnej sieci WAN dla łączności IPsec
 

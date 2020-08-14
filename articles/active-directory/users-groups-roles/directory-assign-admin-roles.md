@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 06/15/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09050bc6895076994baf1c98c65aa87672a5652e
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 03a51cc8aa86f40b5333bd79e95e6d02be1adfc4
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066070"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213854"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
 
@@ -89,11 +89,11 @@ Uprawnienie [administrator uwierzytelniania uprzywilejowanego](#privileged-authe
 > [!IMPORTANT]
 > Użytkownicy z tą rolą mogą zmieniać poświadczenia dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana poświadczeń użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Na przykład:
 >
->- Rejestracja aplikacji i właściciele aplikacji przedsiębiorstwa, którzy mogą zarządzać poświadczeniami aplikacji, których są właścicielami. Te aplikacje mogą mieć uprawnienia uprzywilejowane w usłudze Azure AD, a w innym miejscu nie są przyznawane administratorom uwierzytelniania. Za pomocą tej ścieżki administrator uwierzytelniania może założyć tożsamość właściciela aplikacji, a następnie ponownie założyć tożsamość aplikacji uprzywilejowanej przez zaktualizowanie poświadczeń dla aplikacji.
->- Właściciele subskrypcji platformy Azure, którzy mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej na platformie Azure.
->- Grupa zabezpieczeń i właściciele grupy Office 365, którzy mogą zarządzać członkostwem w grupie. Te grupy mogą udzielić dostępu do poufnych lub prywatnych informacji lub konfiguracji krytycznej w usłudze Azure AD i w innym miejscu.
->- Administratorzy w innych usługach poza usługą Azure AD, np. Exchange Online, Centrum zabezpieczeń i zgodności pakietu Office oraz systemy kadr.
->- Użytkownicy niebędący administratorami, w tym członkowie kierownictwa, prawnik prawny i pracownicy działu kadr, którzy mogą mieć dostęp do poufnych lub prywatnych informacji.
+>* Rejestracja aplikacji i właściciele aplikacji przedsiębiorstwa, którzy mogą zarządzać poświadczeniami aplikacji, których są właścicielami. Te aplikacje mogą mieć uprawnienia uprzywilejowane w usłudze Azure AD, a w innym miejscu nie są przyznawane administratorom uwierzytelniania. Za pomocą tej ścieżki administrator uwierzytelniania może założyć tożsamość właściciela aplikacji, a następnie ponownie założyć tożsamość aplikacji uprzywilejowanej przez zaktualizowanie poświadczeń dla aplikacji.
+>* Właściciele subskrypcji platformy Azure, którzy mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej na platformie Azure.
+>* Grupa zabezpieczeń i właściciele grup Microsoft 365, którzy mogą zarządzać członkostwem w grupie. Te grupy mogą udzielić dostępu do poufnych lub prywatnych informacji lub konfiguracji krytycznej w usłudze Azure AD i w innym miejscu.
+>* Administratorzy w innych usługach poza usługą Azure AD, np. Exchange Online, Centrum zabezpieczeń i zgodności pakietu Office oraz systemy kadr.
+>* Użytkownicy niebędący administratorami, w tym członkowie kierownictwa, prawnik prawny i pracownicy działu kadr, którzy mogą mieć dostęp do poufnych lub prywatnych informacji.
 
 ### <a name="azure-devops-administrator"></a>[Administrator usługi Azure DevOps](#azure-devops-administrator-permissions)
 
@@ -206,7 +206,7 @@ Użytkownicy z tą rolą mają uprawnienia globalne w systemie Microsoft Dynamic
 
 ### <a name="exchange-administrator"></a>[Administrator programu Exchange](#exchange-service-administrator-permissions)
 
-Użytkownicy z tą rolą mają uprawnienia globalne w usłudze Microsoft Exchange Online, gdy usługa jest obecna. Program ma także możliwość tworzenia wszystkich grup pakietu Office 365 i zarządzania nimi, zarządzania biletami pomocy technicznej oraz monitorowania kondycji usługi. Więcej informacji na [temat ról administracyjnych pakietu Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Użytkownicy z tą rolą mają uprawnienia globalne w usłudze Microsoft Exchange Online, gdy usługa jest obecna. Program ma także możliwość tworzenia wszystkich grup Microsoft 365 i zarządzania nimi, zarządzania biletami pomocy technicznej oraz monitorowania kondycji usługi. Więcej informacji na [temat ról administracyjnych pakietu Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
 > W interfejsie API Microsoft Graph i programie Azure AD PowerShell ta rola jest identyfikowana jako "administrator usługi Exchange". Jest to "Administrator programu Exchange" w [Azure Portal](https://portal.azure.com). Jest to "administrator usługi Exchange Online" w [centrum administracyjnym programu Exchange](https://go.microsoft.com/fwlink/p/?LinkID=529144).
@@ -277,7 +277,7 @@ Użytkownicy z tą rolą mogą zmieniać hasła, unieważniać tokeny odświeża
 >
 >- Rejestracja aplikacji i właściciele aplikacji przedsiębiorstwa, którzy mogą zarządzać poświadczeniami aplikacji, których są właścicielami. Aplikacje te mogą mieć uprawnienia uprzywilejowane w usłudze Azure AD i nie są przyznawane administratorom pomocy technicznej. Za pomocą tej ścieżki Administrator pomocy technicznej może być w stanie założyć tożsamość właściciela aplikacji, a następnie ponownie założyć tożsamość aplikacji uprzywilejowanej przez zaktualizowanie poświadczeń dla aplikacji.
 >- Właściciele subskrypcji platformy Azure, którzy mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej na platformie Azure.
->- Grupa zabezpieczeń i właściciele grupy Office 365, którzy mogą zarządzać członkostwem w grupie. Te grupy mogą udzielić dostępu do poufnych lub prywatnych informacji lub konfiguracji krytycznej w usłudze Azure AD i w innym miejscu.
+>- Grupa zabezpieczeń i właściciele grup Microsoft 365, którzy mogą zarządzać członkostwem w grupie. Te grupy mogą udzielić dostępu do poufnych lub prywatnych informacji lub konfiguracji krytycznej w usłudze Azure AD i w innym miejscu.
 >- Administratorzy w innych usługach poza usługą Azure AD, np. Exchange Online, Centrum zabezpieczeń i zgodności pakietu Office oraz systemy kadr.
 >- Użytkownicy niebędący administratorami, w tym członkowie kierownictwa, prawnik prawny i pracownicy działu kadr, którzy mogą mieć dostęp do poufnych lub prywatnych informacji.
 
@@ -331,8 +331,8 @@ Użytkownicy z rolą użytkownika Modern Commerce zazwyczaj mają uprawnienia ad
 **Kiedy jest przypisana nowoczesny rola użytkownika Commerce?**
 
 * Samoobsługowe **kupowanie w Microsoft 365 centrum administracyjnego** — zakup samoobsługowy umożliwia użytkownikom wypróbowanie nowych produktów przez ich zakup lub utworzenie. Te produkty są zarządzane w centrum administracyjnym. Użytkownicy, którzy dokonują zakupu samoobsługowego, mają przypisaną rolę w systemie Commerce i nowoczesnej roli użytkownika commerce, aby mogli zarządzać zakupami w centrum administracyjnym. Administratorzy mogą blokować zakupy samoobsługowe (w przypadku Power BI, aplikacji zaawansowanych, automatyzacji) za poorednictwem [programu PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Aby uzyskać więcej informacji, zobacz [Zakup samoobsługowy — często zadawane pytania](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
-* **Zakupy od firmy Microsoft komercyjnej Marketplace** — podobnie jak w przypadku zakupu samoobsługowego, gdy użytkownik kupuje produkt lub usługę od Microsoft AppSource lub Azure Marketplace, jest przypisywany współczesna rola użytkownika commerce w przypadku, gdy nie ma roli Administrator globalny lub rozliczenia. W niektórych przypadkach użytkownicy mogą mieć zablokowaną możliwość dokonywania tych zakupów. Aby uzyskać więcej informacji, zobacz [Microsoft Commercial Marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase).
-* **Propozycje firmy Microsoft** — propozycja jest formalną ofertą oferowaną przez firmę Microsoft w organizacji do kupowania produktów i usług firmy Microsoft. Gdy osoba akceptująca ofertę nie ma roli administratora globalnego lub administratora rozliczeń w usłudze Azure AD, są oni przypisani do roli specyficzne dla handlu, aby dokończyć propozycję i współczesną rolę użytkownika handlowego w celu uzyskania dostępu do centrum administracyjnego. Gdy uzyskują dostęp do centrum administracyjnego, mogą korzystać tylko z funkcji, które są autoryzowane przez ich rolę specyficzną dla danego handlu.
+* **Zakupy od firmy Microsoft komercyjnej Marketplace**  — podobnie jak w przypadku zakupu samoobsługowego, gdy użytkownik kupuje produkt lub usługę od Microsoft AppSource lub Azure Marketplace, jest przypisywany współczesna rola użytkownika commerce w przypadku, gdy nie ma roli Administrator globalny lub rozliczenia. W niektórych przypadkach użytkownicy mogą mieć zablokowaną możliwość dokonywania tych zakupów. Aby uzyskać więcej informacji, zobacz [Microsoft Commercial Marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase).
+* **Propozycje firmy Microsoft**  — propozycja jest formalną ofertą oferowaną przez firmę Microsoft w organizacji do kupowania produktów i usług firmy Microsoft. Gdy osoba akceptująca ofertę nie ma roli administratora globalnego lub administratora rozliczeń w usłudze Azure AD, są oni przypisani do roli specyficzne dla handlu, aby dokończyć propozycję i współczesną rolę użytkownika handlowego w celu uzyskania dostępu do centrum administracyjnego. Gdy uzyskują dostęp do centrum administracyjnego, mogą korzystać tylko z funkcji, które są autoryzowane przez ich rolę specyficzną dla danego handlu.
 * **Role specyficzne dla handlu** — niektórzy użytkownicy mają przypisane role dotyczące handlu. Jeśli użytkownik nie jest administratorem globalnym lub rozliczeniami, uzyska nowoczesnej roli użytkownika commerce, aby mógł uzyskać dostęp do centrum administracyjnego.  
 
 Jeśli nie przypisano do użytkownika nowoczesnej roli użytkownika w języku commerce, utraci on dostęp do centrum administracyjnego Microsoft 365. W przypadku zarządzania produktami przez siebie lub w organizacji nie będą oni mogli nimi zarządzać. Może to dotyczyć przypisywania licencji, zmiany metod płatności, płacenia rachunków lub innych zadań związanych z zarządzaniem subskrypcjami.
@@ -467,7 +467,7 @@ Użytkownicy z tą rolą mogą otwierać żądania pomocy technicznej w ramach u
 
 ### <a name="sharepoint-administrator"></a>[Administrator programu SharePoint](#sharepoint-service-administrator-permissions)
 
-Użytkownicy z tą rolą mają uprawnienia globalne w usłudze Microsoft SharePoint Online, gdy usługa jest obecna, a także możliwość tworzenia wszystkich grup pakietu Office 365 i zarządzania nimi, zarządzania biletami pomocy technicznej oraz monitorowania kondycji usługi. Więcej informacji na [temat ról administratorów](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Użytkownicy z tą rolą mają uprawnienia globalne w usłudze Microsoft SharePoint Online, gdy usługa jest obecna, a także możliwość tworzenia wszystkich grup Microsoft 365 i zarządzania nimi, zarządzania biletami pomocy technicznej i monitorowania kondycji usługi. Więcej informacji na [temat ról administratorów](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
 > W interfejsie API Microsoft Graph i programie Azure AD PowerShell ta rola jest identyfikowana jako "administrator usługi SharePoint". Jest to "Administrator programu SharePoint" w [Azure Portal](https://portal.azure.com).
@@ -496,7 +496,7 @@ Użytkownicy w tej roli mogą rozwiązywać problemy z komunikacją w usłudze M
 
 ### <a name="teams-service-administrator"></a>[Administrator usługi Teams](#teams-service-administrator-permissions)
 
-Użytkownicy w tej roli mogą zarządzać wszystkimi aspektami obciążeń programu Microsoft Teams za pośrednictwem Centrum administracyjnego Microsoft Teams & Skype dla firm i odpowiednich modułów programu PowerShell. Obejmuje to między innymi wszystkie narzędzia do zarządzania dotyczące telefonii, wiadomości, spotkań i samych zespołów. Ta rola dodatkowo umożliwia tworzenie wszystkich grup pakietu Office 365 i zarządzanie nimi, zarządzanie biletami pomocy technicznej i monitorowanie kondycji usługi.
+Użytkownicy w tej roli mogą zarządzać wszystkimi aspektami obciążeń programu Microsoft Teams za pośrednictwem Centrum administracyjnego Microsoft Teams & Skype dla firm i odpowiednich modułów programu PowerShell. Obejmuje to między innymi wszystkie narzędzia do zarządzania dotyczące telefonii, wiadomości, spotkań i samych zespołów. Ta rola dodatkowo daje możliwość tworzenia wszystkich grup Microsoft 365 i zarządzania nimi, zarządzania biletami pomocy technicznej oraz monitorowania kondycji usługi.
 
 ### <a name="user-administrator"></a>[Administrator użytkowników](#user-administrator-permissions)
 
@@ -513,7 +513,7 @@ Użytkownicy z tą rolą mogą tworzyć użytkowników i zarządzać wszystkimi 
 >
 >- Rejestracja aplikacji i właściciele aplikacji przedsiębiorstwa, którzy mogą zarządzać poświadczeniami aplikacji, których są właścicielami. Aplikacje te mogą mieć uprawnienia uprzywilejowane w usłudze Azure AD, a w innym miejscu nie są przyznawane administratorom użytkowników. Za pomocą tej ścieżki administrator użytkownika może być w stanie założyć tożsamość właściciela aplikacji, a następnie ponownie założyć tożsamość aplikacji uprzywilejowanej przez zaktualizowanie poświadczeń dla aplikacji.
 >- Właściciele subskrypcji platformy Azure, którzy mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej na platformie Azure.
->- Grupa zabezpieczeń i właściciele grupy Office 365, którzy mogą zarządzać członkostwem w grupie. Te grupy mogą udzielić dostępu do poufnych lub prywatnych informacji lub konfiguracji krytycznej w usłudze Azure AD i w innym miejscu.
+>- Grupa zabezpieczeń i właściciele grup Microsoft 365, którzy mogą zarządzać członkostwem w grupie. Te grupy mogą udzielić dostępu do poufnych lub prywatnych informacji lub konfiguracji krytycznej w usłudze Azure AD i w innym miejscu.
 >- Administratorzy w innych usługach poza usługą Azure AD, np. Exchange Online, Centrum zabezpieczeń i zgodności pakietu Office oraz systemy kadr.
 >- Użytkownicy niebędący administratorami, w tym członkowie kierownictwa, prawnik prawny i pracownicy działu kadr, którzy mogą mieć dostęp do poufnych lub prywatnych informacji.
 
@@ -1030,7 +1030,6 @@ Może odczytywać & pisać podstawowe informacje o katalogu. Do udzielania dost�
 | Microsoft. Directory/Users/reprocessLicenseAssignment | Przetwórz ponownie przypisania licencji dla użytkownika w Azure Active Directory. |
 | Microsoft. Directory/Users/userPrincipalName/Update | Zaktualizuj Właściwość Users. userPrincipalName w Azure Active Directory. |
 
-
 ### <a name="exchange-service-administrator-permissions"></a>Uprawnienia administratora usługi Exchange
 
 Może zarządzać wszystkimi aspektami produktu Exchange.
@@ -1045,11 +1044,11 @@ Może zarządzać wszystkimi aspektami produktu Exchange.
 | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health. |
 | Microsoft. Azure. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej systemu Azure i zarządzaj nimi. |
 | Microsoft. Directory/Groups/Unified/appRoleAssignments/Update | Aktualizacja właściwości groups. Unified w Azure Active Directory. |
-| Microsoft. Directory/Groups/Unified/Basic/Update | Aktualizuj podstawowe właściwości grup pakietu Office 365. |
-| Microsoft. Directory/Groups/Unified/Create | Utwórz grupy pakietu Office 365. |
-| Microsoft. Directory/Groups/Unified/Delete | Usuń grupy pakietu Office 365. |
-| Microsoft. Directory/Groups/Unified/Members/Update | Aktualizowanie członkostwa w grupach pakietu Office 365. |
-| Microsoft. Directory/Groups/Unified/Owners/Update | Aktualizowanie własności grup pakietu Office 365. |
+| Microsoft. Directory/Groups/Unified/Basic/Update | Aktualizuj podstawowe właściwości grup Microsoft 365. |
+| Microsoft. Directory/Groups/Unified/Create | Utwórz grupy Microsoft 365. |
+| Microsoft. Directory/Groups/Unified/Delete | Usuń grupy Microsoft 365. |
+| Microsoft. Directory/Groups/Unified/Members/Update | Aktualizowanie członkostwa w grupach Microsoft 365. |
+| Microsoft. Directory/Groups/Unified/Owners/Update | Aktualizowanie własności grup Microsoft 365. |
 | Microsoft. Office 365. Exchange/allEntities/allTasks | Zarządzaj wszystkimi aspektami usługi Exchange Online. |
 | Microsoft. Office 365. Network/Performance/allProperties/Read | Odczytaj strony wydajności sieci w centrum administracyjnym M365. |
 | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Service Health pakietu Office 365. |
@@ -1759,11 +1758,11 @@ Może zarządzać wszystkimi aspektami usługi programu SharePoint.
 | Microsoft. Azure. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Azure Service Health. |
 | Microsoft. Azure. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej systemu Azure i zarządzaj nimi. |
 | Microsoft. Directory/Groups/Unified/appRoleAssignments/Update | Aktualizacja właściwości groups. Unified w Azure Active Directory. |
-| Microsoft. Directory/Groups/Unified/Basic/Update | Aktualizuj podstawowe właściwości grup pakietu Office 365. |
-| Microsoft. Directory/Groups/Unified/Create | Utwórz grupy pakietu Office 365. |
-| Microsoft. Directory/Groups/Unified/Delete | Usuń grupy pakietu Office 365. |
-| Microsoft. Directory/Groups/Unified/Members/Update | Aktualizowanie członkostwa w grupach pakietu Office 365. |
-| Microsoft. Directory/Groups/Unified/Owners/Update | Aktualizowanie własności grup pakietu Office 365. |
+| Microsoft. Directory/Groups/Unified/Basic/Update | Aktualizuj podstawowe właściwości grup Microsoft 365. |
+| Microsoft. Directory/Groups/Unified/Create | Utwórz grupy Microsoft 365. |
+| Microsoft. Directory/Groups/Unified/Delete | Usuń grupy Microsoft 365. |
+| Microsoft. Directory/Groups/Unified/Members/Update | Aktualizowanie członkostwa w grupach Microsoft 365. |
+| Microsoft. Directory/Groups/Unified/Owners/Update | Aktualizowanie własności grup Microsoft 365. |
 | Microsoft. Office 365. Network/Performance/allProperties/Read | Odczytaj strony wydajności sieci w centrum administracyjnym M365. |
 | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Service Health pakietu Office 365. |
 | Microsoft. Office. SharePoint/allEntities/allTasks | Tworzenie i usuwanie wszystkich zasobów oraz odczytywanie i aktualizowanie standardowych właściwości w Microsoft. Office 365. SharePoint. |
@@ -1834,11 +1833,11 @@ Może zarządzać usługą Microsoft Teams.
 | Microsoft. Azure. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej systemu Azure i zarządzaj nimi. |
 | Microsoft. Directory/Groups/hiddenMembers/Read | Odczytaj właściwości groups. hiddenMembers w Azure Active Directory. |
 | Microsoft. Directory/Groups/Unified/appRoleAssignments/Update | Aktualizacja właściwości groups. Unified w Azure Active Directory. |
-| Microsoft. Directory/Groups/Unified/Basic/Update | Aktualizuj podstawowe właściwości grup pakietu Office 365. |
-| Microsoft. Directory/Groups/Unified/Create | Utwórz grupy pakietu Office 365. |
-| Microsoft. Directory/Groups/Unified/Delete | Usuń grupy pakietu Office 365. |
-| Microsoft. Directory/Groups/Unified/Members/Update | Aktualizowanie członkostwa w grupach pakietu Office 365. |
-| Microsoft. Directory/Groups/Unified/Owners/Update | Aktualizowanie własności grup pakietu Office 365. |
+| Microsoft. Directory/Groups/Unified/Basic/Update | Aktualizuj podstawowe właściwości grup Microsoft 365. |
+| Microsoft. Directory/Groups/Unified/Create | Utwórz grupy Microsoft 365. |
+| Microsoft. Directory/Groups/Unified/Delete | Usuń grupy Microsoft 365. |
+| Microsoft. Directory/Groups/Unified/Members/Update | Aktualizowanie członkostwa w grupach Microsoft 365. |
+| Microsoft. Directory/Groups/Unified/Owners/Update | Aktualizowanie własności grup Microsoft 365. |
 | Microsoft. Office 365. Network/Performance/allProperties/Read | Odczytaj strony wydajności sieci w centrum administracyjnym M365. |
 | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Service Health pakietu Office 365. |
 | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej pakietu Office 365 i zarządzaj nimi. |

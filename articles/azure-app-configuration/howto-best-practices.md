@@ -11,13 +11,13 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 08a65ff8d276cd27c9f8fa07393600bc24e7b17f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: d97626d5eed96a3debb41c86f6dab6fbaf1953cd
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500304"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206679"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Najlepsze rozwiązania dotyczące konfiguracji aplikacji platformy Azure
 
@@ -42,7 +42,7 @@ Ważne jest, aby pamiętać, że klucze są do których odwołuje się kod aplik
 
 Konfiguracja aplikacji traktuje wszystkie klucze przechowywane z nią jako jednostki niezależne. W obszarze Konfiguracja aplikacji nie jest podejmowana próba wywnioskowania żadnej relacji między kluczami lub dziedziczenia wartości kluczy na podstawie ich hierarchii. Można jednak agregować wiele zestawów kluczy, używając etykiet sprzężonych z prawidłowym stosem konfiguracji w kodzie aplikacji.
 
-Spójrzmy na przykład. Załóżmy, że masz ustawienie o nazwie **Asset1**, którego wartość może się różnić w zależności od środowiska deweloperskiego. Tworzysz klucz o nazwie "Asset1" z pustą etykietą i etykietą o nazwie "Development". W pierwszej etykiecie zostanie umieszczona wartość domyślna dla **Asset1**i zostanie umieszczona określona wartość "Programowanie" w tym drugim.
+Przyjrzyjmy się przykładowi. Załóżmy, że masz ustawienie o nazwie **Asset1**, którego wartość może się różnić w zależności od środowiska deweloperskiego. Tworzysz klucz o nazwie "Asset1" z pustą etykietą i etykietą o nazwie "Development". W pierwszej etykiecie zostanie umieszczona wartość domyślna dla **Asset1**i zostanie umieszczona określona wartość "Programowanie" w tym drugim.
 
 W kodzie należy najpierw pobrać wartości klucza bez żadnych etykiet, a następnie pobrać ten sam zestaw wartości klucza po raz drugi z etykietą "Programowanie". Po pobraniu wartości po raz drugi poprzednie wartości kluczy są zastępowane. System konfiguracji .NET Core umożliwia "stos" wielu zestawów danych konfiguracji na siebie nawzajem. Jeśli klucz istnieje w więcej niż jednym zestawie, używany jest ostatni zestaw, który zawiera. Dzięki nowoczesnej strukturze programistycznej, takiej jak .NET Core, można bezpłatnie skorzystać z tej możliwości tworzenia stosu, jeśli używasz natywnego dostawcy konfiguracji do uzyskiwania dostępu do konfiguracji aplikacji. Poniższy fragment kodu przedstawia sposób implementacji stosu w aplikacji .NET Core:
 

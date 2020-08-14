@@ -3,15 +3,16 @@ title: Jak używać zestawu SDK zadań WebJob
 description: Dowiedz się więcej na temat pisania kodu dla zestawu SDK usługi WebJobs. Twórz oparte na zdarzeniach zadania przetwarzania w tle, które uzyskują dostęp do danych na platformie Azure i w usługach innych firm.
 author: ggailey777
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 97b17f7e80590b9b907b8dc25253e6d706117357
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25aaf49d32da29fe5fb082e6e4481cd9266f88e1
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807982"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208635"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>How to use the Azure WebJobs SDK for event-driven background processing (Jak używać zestawu SDK usługi Azure WebJobs w celu opartego na zdarzeniach przetwarzania w tle)
 
@@ -73,7 +74,7 @@ Możesz uruchomić hosta w trybie programistycznym, aby zwiększyć efektywnoś�
 
 | Właściwość | Ustawienie deweloperskie |
 | ------------- | ------------- |
-| `Tracing.ConsoleLevel` | `TraceLevel.Verbose`w celu zmaksymalizowania danych wyjściowych dziennika. |
+| `Tracing.ConsoleLevel` | `TraceLevel.Verbose` w celu zmaksymalizowania danych wyjściowych dziennika. |
 | `Queues.MaxPollingInterval`  | Niska wartość, aby zapewnić natychmiastowe wyzwolenie metod kolejki.  |
 | `Singleton.ListenerLockPeriod` | 15 sekund, aby pomóc w szybkim tworzeniu iteracyjnym. |
 
@@ -470,7 +471,7 @@ static void Main(string[] args)
 }
 ```
 
-Aby uzyskać więcej informacji, zobacz [Informacje ohost.jsw wersji 1. x](../azure-functions/functions-host-json-v1.md#queues).
+Aby uzyskać więcej informacji, zobacz [ Informacje ohost.jsw wersji 1. x](../azure-functions/functions-host-json-v1.md#queues).
 
 ### <a name="sendgrid-binding-configuration-version-3x"></a>Konfiguracja powiązania SendGrid (wersja 3.* x*)
 
@@ -620,7 +621,7 @@ Program rozpoznawania nazw można skonfigurować przy użyciu iniekcji zależno�
 using Microsoft.Extensions.DependencyInjection;
 ```
 
-Aby dodać program rozpoznawania nazw, należy wywołać [`ConfigureServices`] metodę rozszerzenia na [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) , jak w poniższym przykładzie:
+Aby dodać program rozpoznawania nazw, należy wywołać [`ConfigureServices`] metodę rozszerzenia na  [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) , jak w poniższym przykładzie:
 
 ```cs
 static async Task Main(string[] args)
@@ -822,7 +823,7 @@ Zalecamy platformę rejestrowania opracowaną dla ASP.NET. W artykule [wprowadze
 
 ### <a name="log-filtering"></a>Filtrowanie dzienników
 
-Każdy dziennik utworzony przez `ILogger` wystąpienie ma skojarzone `Category` i `Level` . [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel)jest wyliczeniem, a kod liczby całkowitej wskazuje na ważność względną:
+Każdy dziennik utworzony przez `ILogger` wystąpienie ma skojarzone `Category` i `Level` . [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel) jest wyliczeniem, a kod liczby całkowitej wskazuje na ważność względną:
 
 |LogLevel    |Kod|
 |------------|---|
@@ -840,7 +841,7 @@ Można niezależnie filtrować każdą kategorię do określonego [`LogLevel`](/
 
 Wersja 3. *x* zestawu SDK opiera się na filtrowaniu opartym na platformie .NET Core. `LogCategories`Klasa umożliwia definiowanie kategorii dla określonych funkcji, wyzwalaczy lub użytkowników. Definiuje również filtry dla określonych stanów hosta, takich jak `Startup` i `Results` . Dzięki temu można dostosować dane wyjściowe rejestrowania. Jeśli nie odnaleziono dopasowania w określonych kategoriach, filtr powraca do `Default` wartości podczas decydowania, czy należy filtrować komunikat.
 
-`LogCategories`wymaga następującej instrukcji using:
+`LogCategories` wymaga następującej instrukcji using:
 
 ```cs
 using Microsoft.Azure.WebJobs.Logging; 
@@ -996,7 +997,7 @@ config.LoggerFactory = new LoggerFactory()
     .AddApplicationInsights(clientFactory);
 ```
 
-## <a name="next-steps"></a><a id="nextsteps"></a>Następne kroki
+## <a name="next-steps"></a><a id="nextsteps"></a> Następne kroki
 
 W tym artykule przedstawiono fragmenty kodu, które pokazują, jak obsługiwać typowe scenariusze pracy z zestawem SDK usługi WebJobs. Aby zapoznać się z kompletnymi przykładami, zobacz artykuł [Azure-WebJobs-SDK-Samples](https://github.com/Azure/azure-webjobs-sdk/tree/dev/sample/SampleHost).
 

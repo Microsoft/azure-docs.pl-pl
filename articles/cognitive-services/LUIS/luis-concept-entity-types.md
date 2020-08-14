@@ -2,13 +2,13 @@
 title: Typy jednostek — LUIS
 description: Jednostka wyodrębnia dane z wypowiedź użytkownika w środowisku uruchomieniowym przewidywania. _Opcjonalne_, pomocnicze przeznaczenie ma na celu zwiększenie przewidywania zamiaru lub innych jednostek przy użyciu jednostki jako funkcji.
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: ced4a3e23b8e532b54d0b3cf974dab233b81b375
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.date: 08/06/2020
+ms.openlocfilehash: 8751bdd52bb1c3738103dc074184a3cf72bfeb09
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337623"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207735"
 ---
 # <a name="extract-data-with-entities"></a>Wyodrębnij dane przy użyciu jednostek
 
@@ -140,9 +140,16 @@ Wzorzec. any jest dostępny tylko we [wzorcu](luis-concept-patterns.md).
 
 Jeśli potrzebujesz więcej niż [Limit](luis-limits.md#model-limits), skontaktuj się z pomocą techniczną. Aby to zrobić, Zbierz szczegółowe informacje o systemie, przejdź do witryny sieci Web [Luis](luis-reference-regions.md#luis-website) , a następnie wybierz pozycję **Pomoc techniczna**. Jeśli Twoja subskrypcja platformy Azure obejmuje usługi pomocy technicznej, skontaktuj się z [pomocą techniczną platformy Azure](https://azure.microsoft.com/support/options/).
 
-## <a name="entity-prediction-status"></a>Stan przewidywania jednostek
+## <a name="entity-prediction-status-and-errors"></a>Stan i błędy przewidywania jednostek
 
-Portal LUIS pokazuje, kiedy jednostka ma inne przewidywania jednostek niż jednostka wybrana dla przykładu wypowiedź. Ten różny wynik jest oparty na bieżącym przeszkolonym modelu. Te informacje służą do rozwiązywania problemów z szkoleniami przy użyciu co najmniej jednej z następujących czynności:
+Portal LUIS pokazuje, kiedy jednostka ma inne przewidywania jednostek niż jednostka wybrana dla przykładu wypowiedź. Ten różny wynik jest oparty na bieżącym przeszkolonym modelu. 
+
+:::image type="content" source="./media/luis-concept-entities/portal-entity-prediction-error.png" alt-text="Portal LUIS pokazuje, kiedy jednostka ma inne przewidywania jednostek niż jednostka wybrana dla przykładu wypowiedź.":::
+
+Tekst błędu zostanie wyróżniony w przykładzie wypowiedź, a w wierszu przykładu wypowiedź znajduje się wskaźnik błędu z prawej strony wyświetlany jako czerwony trójkąt. 
+
+Te informacje służą do rozwiązywania błędów jednostek przy użyciu co najmniej jednej z następujących czynności:
+* Wyróżniony tekst jest w nieodpowiedniej etykiecie. Aby naprawić, przejrzeć, poprawić i ponownie wyszkolić. 
 * Utwórz [funkcję](luis-concept-feature.md) dla jednostki ułatwiającą identyfikację koncepcji jednostki
 * Dodaj więcej [przykładowych wyrażenia długości](luis-concept-utterance.md) i etykiet z jednostką
 * [Przejrzyj aktywne sugestie dotyczące uczenia](luis-concept-review-endpoint-utterances.md) wszystkich wyrażenia długości odebranych w punkcie końcowym przewidywania, które mogą pomóc w zidentyfikowaniu koncepcji jednostki.

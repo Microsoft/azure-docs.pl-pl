@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: 3e7f310f37bd016a73c589db3c9a23e197465427
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 70977c30edce124aa0d39bcc57d4ccd015d65961
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053920"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214052"
 ---
 # <a name="what-is-batch-transcription"></a>Co to jest transkrypcja partii?
 
@@ -63,7 +63,7 @@ Jeśli planujesz dostosowanie modeli, postępuj zgodnie z instrukcjami w temacie
 
 Interfejs API transkrypcji usługi Batch obsługuje następujące formaty:
 
-| Format | Wymaga | Multimedia | Częstotliwość próbkowania                     |
+| Format | Wymaga | Bity na próbkę | Częstotliwość próbkowania             |
 |--------|-------|---------|---------------------------------|
 | WAV    | PCM   | 16-bitowy  | 8 kHz lub 16 kHz, mono lub stereo |
 | FORMATU    | PCM   | 16-bitowy  | 8 kHz lub 16 kHz, mono lub stereo |
@@ -181,7 +181,7 @@ Użyj tych opcjonalnych właściwości, aby skonfigurować transkrypcję:
       Opcjonalny adres URL z [sygnaturą dostępu współdzielonego usługi](../../storage/common/storage-sas-overview.md) do zapisywalnego kontenera na platformie Azure. Wynik jest przechowywany w tym kontenerze. Jeśli nie zostanie określony, firma Microsoft zapisuje wyniki w kontenerze magazynu zarządzanym przez firmę Microsoft. Gdy transkrypcja zostanie usunięta przez wywołanie [usuwania transkrypcji](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), dane wynikowe również zostaną usunięte.
 :::row-end:::
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 
 Transkrypcja usługi Batch obsługuje [usługę Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) do odczytu i zapisywania transkrypcji w magazynie.
 
@@ -333,7 +333,7 @@ Przykładowy kod konfiguruje klienta i przesyła żądanie transkrypcji. Następ
 
 Aby uzyskać szczegółowe informacje o poprzednich wywołaniach, zobacz [dokument struktury Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0). Aby wyświetlić pełny przykład, przejdź do witryny [GitHub](https://aka.ms/csspeech/samples) w `samples/batch` podkatalogu.
 
-Zanotuj konfigurację asynchroniczną dotyczącą ogłaszania audio i uzyskiwania stanu transkrypcji. Tworzony klient jest klientem HTTP platformy .NET. Istnieje `PostTranscriptions` metoda wysyłania szczegółów pliku audio i `GetTranscriptions` metody uzyskiwania stanu. `PostTranscriptions`zwraca dojście i `GetTranscriptions` używa go do utworzenia dojścia w celu uzyskania stanu transkrypcji.
+Zanotuj konfigurację asynchroniczną dotyczącą ogłaszania audio i uzyskiwania stanu transkrypcji. Tworzony klient jest klientem HTTP platformy .NET. Istnieje `PostTranscriptions` metoda wysyłania szczegółów pliku audio i `GetTranscriptions` metody uzyskiwania stanu. `PostTranscriptions` zwraca dojście i `GetTranscriptions` używa go do utworzenia dojścia w celu uzyskania stanu transkrypcji.
 
 Bieżący przykładowy kod nie określa modelu niestandardowego. Usługa używa modelu linii bazowej do jego przepisywania pliku lub plików. Aby określić model, można przekazać do tej samej metody odwołanie modelu dla modelu niestandardowego.
 

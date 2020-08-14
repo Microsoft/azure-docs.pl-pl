@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: fasttrack-edit, devx-track-python
-ms.openlocfilehash: 78b15e0ba73743f6d88d28b03c99ca64d73dfae1
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
+ms.openlocfilehash: 96daa93c28617bd34f263b11afcd244e3b7bacf0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848438"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214141"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Wyzwalacz Azure Event Grid dla Azure Functions
 
@@ -526,7 +526,7 @@ Zobaczysz witrynę, w której nie opublikowano jeszcze żadnych zdarzeń.
 
 ### <a name="create-an-event-grid-subscription"></a>Tworzenie subskrypcji usługi Event Grid
 
-Utwórz subskrypcję Event Grid typu, który chcesz przetestować, i nadaj jej adres URL z aplikacji sieci Web jako punkt końcowy powiadomienia o zdarzeniu. Punkt końcowy dla aplikacji internetowej musi zawierać sufiks `/api/updates/`. Dlatego pełny adres URL to`https://<your-site-name>.azurewebsites.net/api/updates`
+Utwórz subskrypcję Event Grid typu, który chcesz przetestować, i nadaj jej adres URL z aplikacji sieci Web jako punkt końcowy powiadomienia o zdarzeniu. Punkt końcowy dla aplikacji internetowej musi zawierać sufiks `/api/updates/`. Dlatego pełny adres URL to `https://<your-site-name>.azurewebsites.net/api/updates`
 
 Aby uzyskać informacje o sposobach tworzenia subskrypcji przy użyciu Azure Portal, zobacz [Tworzenie niestandardowych zdarzeń Azure Portal](../event-grid/custom-event-quickstart-portal.md) w dokumentacji Event Grid.
 

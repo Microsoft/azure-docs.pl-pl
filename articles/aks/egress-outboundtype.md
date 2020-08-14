@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 5fe674fa7ab6a6a3f222a215ebc6912549776fee
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 2ffe9d525e92fa2154889cea43f681a0f31a18ab
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067362"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214219"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Dostosowywanie ruchu wychodzącego klastra przy użyciu trasy zdefiniowanej przez użytkownika
 
@@ -71,7 +71,8 @@ Aby zilustrować aplikację klastra z typem wychodzącym przy użyciu trasy zdef
 > [!IMPORTANT]
 > Typ wychodzący UDR wymaga trasy dla 0.0.0.0/0 i lokalizacji docelowej następnego przeskoku urządzenie WUS (sieciowe urządzenie wirtualne) w tabeli tras.
 > Tabela tras ma już domyślne wartości 0.0.0.0/0 do Internetu, bez publicznego adresu IP do podłączania, po prostu dodanie tej trasy nie spowoduje wypróbowania ruchu wychodzącego. AKS sprawdzi, czy nie utworzysz trasy 0.0.0.0/0 wskazującej Internet, ale zamiast urządzenie WUS lub bramy itd.
-
+> 
+> Gdy jest używany typ wychodzący UDR, publiczny adres IP modułu równoważenia obciążenia nie jest tworzony, chyba że jest skonfigurowana usługa typu *równoważenia* obciążenia.
 
 ## <a name="next-steps"></a>Następne kroki
 

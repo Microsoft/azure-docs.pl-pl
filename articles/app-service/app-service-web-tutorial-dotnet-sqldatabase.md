@@ -5,13 +5,13 @@ ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
-ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: a1fdc9e37084b1e8064bf642ff84646149c32ee7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
+ms.openlocfilehash: fd7f860eb6e18edeb2096c12102e74c7446d050f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050667"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213755"
 ---
 # <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>Samouczek: wdrażanie aplikacji ASP.NET na platformie Azure za pomocą Azure SQL Database
 
@@ -43,7 +43,7 @@ Jeśli program Visual Studio został już zainstalowany, Dodaj obciążenia w pr
 ## <a name="download-the-sample"></a>Pobieranie przykładu
 
 * [Pobierz przykładowy projekt](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
-* Wyodrębnij (Rozpakuj) plik *dotnet-sqldb-tutorial-master.zip* .
+* Wyodrębnij (Rozpakuj) plik  *dotnet-sqldb-tutorial-master.zip* .
 
 Przykładowy projekt zawiera podstawową aplikację [ASP.NET MVC](https://www.asp.net/mvc) CRUD (create-read-update-delete, tworzenie-odczytywanie-aktualizowanie-usuwanie) korzystającą z modelu [Code First platformy Entity Framework](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
@@ -71,14 +71,14 @@ Upewnij się, że jest zaznaczona usługa **Microsoft Azure App Service**, a nas
 
 Publikowanie powoduje otwarcie okna dialogowego **Tworzenie usługi App Service**, które ułatwia tworzenie wszystkich zasobów platformy Azure potrzebnych do uruchomienia aplikacji ASP.NET na platformie Azure.
 
-### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 W oknie dialogowym **Tworzenie usługi App Service** kliknij pozycję **Dodaj konto**, a następnie zaloguj się do swojej subskrypcji platformy Azure. Jeśli zalogowano się już do konta Microsoft, upewnij się, że to konto zawiera Twoją subskrypcję platformy Azure. Jeśli użyte do logowania konto Microsoft nie ma subskrypcji platformy Azure, kliknij je, aby dodać prawidłowe konto.
 
 > [!NOTE]
 > Jeśli przeprowadzono już logowanie, nie wybieraj jeszcze pozycji **Utwórz**.
 
-![Logowanie do platformy Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
+![Logowanie się do platformy Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
 
 ### <a name="configure-the-web-app-name"></a>Konfigurowanie nazwy aplikacji internetowej
 
@@ -110,7 +110,7 @@ Wygenerowaną nazwę aplikacji internetowej można zachować lub zmienić na inn
    | ----------------- | ------------ | ----|
    |**Plan usługi App Service**| myAppServicePlan | [Plany usługi App Service](../app-service/overview-hosting-plans.md) |
    |**Lokalizacja**| West Europe | [Regiony platformy Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
-   |**Rozmiar**| Bezpłatna | [Warstwy cenowe](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
+   |**Rozmiar**| Jest bezpłatna | [Warstwy cenowe](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
 ### <a name="create-a-server"></a>Tworzenie serwera
 
@@ -141,11 +141,11 @@ Przed utworzeniem bazy danych potrzebny jest [logiczny serwer SQL](../azure-sql/
 
    * Nie zmieniaj wygenerowanej domyślnej wartości pola **Nazwa bazy danych**.
    * W polu **Nazwa parametrów połączenia** wpisz *MyDbConnection*. Ta nazwa musi być zgodna z parametrami połączenia przywoływanymi w pliku *Models/MyDatabaseContext.cs*.
-   * Wybierz przycisk **OK**.
+   * Wybierz pozycję **OK**.
 
     ![Konfiguruj bazę danych](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-2. Skonfigurowane zasoby zostaną wyświetlone w oknie dialogowym **Tworzenie usługi App Service**. Kliknij pozycję **Utwórz**.
+2. Skonfigurowane zasoby zostaną wyświetlone w oknie dialogowym **Tworzenie usługi App Service**. Kliknij przycisk **Utwórz**.
 
    ![Utworzone zasoby](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 

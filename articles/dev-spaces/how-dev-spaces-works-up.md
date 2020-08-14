@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Opisuje procesy uruchamiania kodu w usłudze Azure Kubernetes Service przy użyciu Azure Dev Spaces
 keywords: azds. YAML, Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers
-ms.openlocfilehash: c343c32f0817cc922784bb25283290dc9ed88d29
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9dbc1f0f21c2883e5caadbdae268a515eb94d145
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072955"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208687"
 ---
 # <a name="how-running-your-code-with-azure-dev-spaces-works"></a>Jak działa kod przy użyciu Azure Dev Spaces Works
 
@@ -130,7 +130,7 @@ Właściwość *install. Set* umożliwia skonfigurowanie co najmniej jednej wart
 
 W powyższym przykładzie właściwość *install. Set. replicaCount* informuje kontroler, ile wystąpień aplikacji ma działać w miejscu dev. W zależności od danego scenariusza można zwiększyć tę wartość, ale będzie to miało wpływ na dołączenie debugera do poziomu aplikacji. Aby uzyskać więcej informacji, zobacz [artykuł dotyczący rozwiązywania problemów][troubleshooting].
 
-Na wygenerowanym wykresie Helm obraz kontenera jest ustawiany na *{{. Values. Image. Repository}}: {{. Values. Image. tag}}*. `azds.yaml`Plik definiuje domyślnie Właściwość *install. Set. Image. tag* jako *$ (tag)* , która jest używana jako wartość dla *{{. Values. Image. tag}}*. Ustawiając właściwość *install. Set. Image. tag* w ten sposób, umożliwia ona oznakowanie obrazu kontenera dla aplikacji w sposób odrębny podczas uruchamiania Azure dev Spaces. W tym konkretnym przypadku obraz jest otagowany jako * \<value from image.repository> : $ (tag)*. Należy użyć zmiennej *$ (tag)* jako wartości *install. Set. Image. tag* , aby funkcja Spaces dev rozpoznaje i ZLOKALIZOWAĆ kontener w klastrze AKS.
+Na wygenerowanym wykresie Helm obraz kontenera jest ustawiany na *{{. Values. Image. Repository}}: {{. Values. Image. tag}}*. `azds.yaml`Plik definiuje domyślnie Właściwość *install. Set. Image. tag* jako *$ (tag)* , która jest używana jako wartość dla *{{. Values. Image. tag}}*. Ustawiając właściwość *install. Set. Image. tag* w ten sposób, umożliwia ona oznakowanie obrazu kontenera dla aplikacji w sposób odrębny podczas uruchamiania Azure dev Spaces. W tym konkretnym przypadku obraz jest otagowany jako * \<value from image.repository> : $ (tag)*. Należy użyć zmiennej *$ (tag)* jako wartości   *install. Set. Image. tag* , aby funkcja Spaces dev rozpoznaje i ZLOKALIZOWAĆ kontener w klastrze AKS.
 
 W powyższym przykładzie `azds.yaml` definiuje *install. Set.* Transfers. Hosts. Właściwość *install. Set. Ingress. hosts* definiuje format nazwy hosta dla publicznych punktów końcowych. Ta właściwość używa również wartości *$ (spacePrefix)*, *$ (rootSpacePrefix)* i *$ (hostSuffix)*, które są wartościami dostarczonymi przez kontroler.
 
@@ -201,14 +201,6 @@ Aby dowiedzieć się więcej na temat sieci i sposobu, w jaki są kierowane żą
 
 Aby dowiedzieć się więcej o używaniu Azure Dev Spaces do szybkiego iterowania i opracowywania, zobacz [jak proces lokalny z Kubernetes działa][how-it-works-local-process-kubernetes] i [jak zdalne debugowanie kodu przy użyciu Azure dev Spaces działa][how-it-works-remote-debugging].
 
-Aby rozpocząć korzystanie z Azure Dev Spaces do uruchamiania projektu, zobacz następujące przewodniki szybki start:
-
-* [Szybkie iteracje i debugowanie za pomocą Visual Studio Code i języka Java][quickstart-java]
-* [Szybkie iteracje i debugowanie przy użyciu Visual Studio Code i platformy .NET][quickstart-netcore]
-* [Szybkie iteracje i debugowanie przy użyciu Visual Studio Code i Node.js][quickstart-node]
-* [Szybkie iteracje i debugowanie za pomocą programów Visual Studio i .NET Core][quickstart-vs]
-* [Korzystanie z interfejsu wiersza polecenia do tworzenia aplikacji na Kubernetes][quickstart-cli]
-
 
 [azds-yaml-section]: #how-running-your-code-is-configured
 [helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
@@ -216,10 +208,5 @@ Aby rozpocząć korzystanie z Azure Dev Spaces do uruchamiania projektu, zobacz 
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md
-[quickstart-cli]: quickstart-cli.md
-[quickstart-java]: quickstart-java.md
-[quickstart-netcore]: quickstart-netcore.md
-[quickstart-node]: quickstart-nodejs.md
-[quickstart-vs]: quickstart-netcore-visualstudio.md
 [sync-section]: #file-synchronization
 [troubleshooting]: troubleshooting.md

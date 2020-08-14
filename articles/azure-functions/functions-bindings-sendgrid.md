@@ -3,14 +3,15 @@ title: Azure Functions powiązania SendGrid
 description: Azure Functions odwołanie do powiązań SendGrid.
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: 9ed2b81c12c698822b9542bb6903189c865b572b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 32734ff9df2e55d24789742cd49984d8da212a17
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84697361"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212183"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions powiązania SendGrid
 
@@ -350,9 +351,9 @@ Adnotacja [SendGridOutput](https://github.com/Azure/azure-functions-java-library
 
 ---
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
-W poniższej tabeli wymieniono właściwości konfiguracji powiązań dostępne w *function.jsw* pliku oraz `SendGrid` atrybut/adnotacja.
+W poniższej tabeli wymieniono właściwości konfiguracji powiązań dostępne w  *function.jsw* pliku oraz `SendGrid` atrybut/adnotacja.
 
 | *function.js* właściwości | Właściwość atrybutu/adnotacji | Opis | Opcjonalne |
 |--------------------------|-------------------------------|-------------|----------|
@@ -360,9 +361,9 @@ W poniższej tabeli wymieniono właściwości konfiguracji powiązań dostępne 
 | kierunek |nie dotyczy| Musi być ustawiony na `out` .| Nie |
 | name |nie dotyczy| Nazwa zmiennej używana w kodzie funkcji dla żądania lub treści żądania. Ta wartość jest, `$return` gdy istnieje tylko jedna wartość zwracana. | Nie |
 | apiKey | ApiKey | Nazwa ustawienia aplikacji, która zawiera klucz interfejsu API. Jeśli nie zostanie ustawiona, domyślna nazwa ustawienia aplikacji to *AzureWebJobsSendGridApiKey*.| Nie |
-| na| Do | Adres e-mail adresata. | Tak |
-| wniosek| Z | Adres e-mail nadawcy. |  Tak |
-| Temat| Podmiot | Temat wiadomości e-mail. | Tak |
+| na| Działanie | Adres e-mail adresata. | Tak |
+| wniosek| Źródło | Adres e-mail nadawcy. |  Tak |
+| subject| Temat | Temat wiadomości e-mail. | Tak |
 | tekst| Tekst | Zawartość wiadomości e-mail. | Tak |
 
 Właściwości opcjonalne mogą mieć wartości domyślne zdefiniowane w powiązaniu i dodawane lub zastępowane programowo.
@@ -389,7 +390,7 @@ W tej sekcji opisano globalne ustawienia konfiguracji dostępne dla tego powiąz
 }
 ```  
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------| 
 |wniosek|nie dotyczy|Adres e-mail nadawcy we wszystkich funkcjach.| 
 

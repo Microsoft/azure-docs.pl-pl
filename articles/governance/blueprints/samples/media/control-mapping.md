@@ -1,20 +1,20 @@
 ---
 title: Przykładowe kontrolki multimediów
 description: Sterowanie mapowaniem przykładów planu multimediów. Każda kontrolka jest zamapowana na co najmniej jedną zasadę platformy Azure, która pomaga w ocenie.
-ms.date: 02/24/2020
+ms.date: 08/13/2020
 ms.topic: sample
-ms.openlocfilehash: bdc4ef65c6d61a9d4217d7873bb29bd787842e71
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4101b9030425c22b8806870d467581521870d639
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78201906"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208470"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>Sterowanie mapowaniem przykładu planu multimediów
 
 W tym artykule szczegółowo przedstawiono sposób mapowania przykładu planu nośnika na platformę Azure do kontrolek multimediów. Aby uzyskać więcej informacji na temat kontrolek, zobacz [Media](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
 
-Następujące mapowania znajdują się w kontrolkach **multimediów** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do określonego mapowania formantów. Wiele zamapowanych formantów jest implementowanych z inicjatywą [Azure Policy](../../../policy/overview.md) . Aby zapoznać się z pełną inicjatywą, Otwórz **zasady** w Azure Portal i wybierz stronę **definicje** . Następnie Znajdź i wybierz pozycję ** \[Podgląd\]: Inspekcja nośnika** — wbudowana inicjatywa Policy.
+Następujące mapowania znajdują się w kontrolkach **multimediów** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do określonego mapowania formantów. Wiele zamapowanych formantów jest implementowanych z inicjatywą [Azure Policy](../../../policy/overview.md) . Aby zapoznać się z pełną inicjatywą, Otwórz **zasady** w Azure Portal i wybierz stronę **definicje** . Następnie Znajdź i wybierz pozycję ** \[ Podgląd \] : Inspekcja nośnika** — wbudowana inicjatywa Policy.
 
 > [!IMPORTANT]
 > Każda kontrolka poniżej jest skojarzona z co najmniej jedną definicją [Azure Policy](../../../policy/overview.md) . Te zasady mogą pomóc w [ocenie zgodności](../../../policy/how-to/get-compliance-data.md) z kontrolką; Niemniej jednak często nie jest to 1:1 ani kompletna zgodność między kontrolką a co najmniej jedną zasadą. W związku z tym **zgodność** w Azure Policy odnosi się tylko do samych zasad; nie gwarantuje to, że jest w pełni zgodne ze wszystkimi wymaganiami formantu. Ponadto Standard zgodności zawiera kontrolki, które nie są obecnie rozwiązywane przez żadną Azure Policy definicje. W związku z tym zgodność w Azure Policy jest tylko częściowym widokiem ogólnego stanu zgodności. Skojarzenia między kontrolkami i definicjami Azure Policy dla tego przykładowego planu zgodności mogą ulec zmianie z upływem czasu. Aby wyświetlić historię zmian, zobacz [historię zatwierdzeń usługi GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/media/control-mapping.md).
@@ -23,11 +23,11 @@ Następujące mapowania znajdują się w kontrolkach **multimediów** . Użyj na
 
 ### <a name="ac-11--ensure-no-root-access-key-exists"></a>AC-1,1 — Upewnij się, że nie istnieje główny klucz dostępu
 
-- \[Wersja\]zapoznawcza: Wdróż wymagania wstępne w celu inspekcji maszyn wirtualnych z systemem Windows, które nie zawierają określonych certyfikatów w zaufanym katalogu głównym
+- \[Wersja zapoznawcza \] : Wdróż wymagania wstępne w celu inspekcji maszyn wirtualnych z systemem Windows, które nie zawierają określonych certyfikatów w zaufanym katalogu głównym
 
 ### <a name="ac-12---passwords-pins-and-tokens-must-be-protected"></a>AC-1,2 — hasła, numery PIN i tokeny muszą być chronione
 
-- \[Wersja\]zapoznawcza: wdrażanie wymagań wstępnych dotyczących inspekcji maszyn wirtualnych z systemem Windows, które nie ograniczają minimalnej długości hasła do 14 znaków
+- \[Wersja zapoznawcza \] : wdrażanie wymagań wstępnych dotyczących inspekcji maszyn wirtualnych z systemem Windows, które nie ograniczają minimalnej długości hasła do 14 znaków
 
 ### <a name="ac-18---shared-account-access-is-prohibited"></a>AC-1,8 — dostęp do udostępnionego konta jest zabroniony
 
@@ -39,23 +39,23 @@ Następujące mapowania znajdują się w kontrolkach **multimediów** . Użyj na
 
 ### <a name="ac--114--system-must-enforce-access-rights"></a>AC-1,14 — system musi wymusić prawa dostępu.
 
-- \[Wersja\]zapoznawcza: wdrażanie wymagań wstępnych dotyczących inspekcji konfiguracji maszyn wirtualnych z systemem Windows w temacie
+- \[Wersja zapoznawcza \] : wdrażanie wymagań wstępnych dotyczących inspekcji konfiguracji maszyn wirtualnych z systemem Windows w temacie
 
 ### <a name="ac--115--prevent-unauthorized-access-to-security-relevant-information-or-functions"></a>AC-1,15 — Zapobiegaj nieautoryzowanemu dostępowi do istotnych informacji lub funkcji zabezpieczeń.
 
-- \[Wersja\]zapoznawcza: Pokaż wyniki inspekcji z konfiguracji maszyn wirtualnych systemu Windows w obszarze "Opcje zabezpieczeń-ustawienia systemu"
+- \[Wersja zapoznawcza \] : Pokaż wyniki inspekcji z konfiguracji maszyn wirtualnych systemu Windows w obszarze "Opcje zabezpieczeń-ustawienia systemu"
 
 ### <a name="ac-1-21---separation-of-duties-must-be-enforced-through-appropriate-assignment-of-role"></a>AC-1-21 — separacja obowiązków musi być wymuszana przez odpowiednie przypisanie roli.
 
-- [Wersja\]zapoznawcza: Access Control oparty na ROLACH (RBAC) powinna być używana w usługach Kubernetes Services
+- [Wersja zapoznawcza \] : Access Control oparty na rolach (RBAC) powinna być używana w usługach Kubernetes Services
 
 ### <a name="ac-140--ensure-that-systems-are-not-connecting-trusted-network-and-untrusted-networks-at-the-same-time"></a>AC-1,40 — upewnij się, że systemy nie łączą zaufanych sieci i niezaufanych sieci w tym samym czasie.
 
-- \[Wersja\]zapoznawcza: wdrażanie wymagań wstępnych dotyczących inspekcji konfiguracji maszyn wirtualnych z systemem Windows w obszarze "Opcje zabezpieczeń-dostęp sieciowy"
+- \[Wersja zapoznawcza \] : wdrażanie wymagań wstępnych dotyczących inspekcji konfiguracji maszyn wirtualnych z systemem Windows w obszarze "Opcje zabezpieczeń-dostęp sieciowy"
 
 ### <a name="ac-142--ac--143---remote-access-for-non-employees-must-be-restricted-to-allow-access-only-to-specifically-approved-information-systems"></a>AC-1,42 & AC-1,43 — dostęp zdalny do osób nienależących do pracowników musi być ograniczony, aby zezwalać na dostęp tylko do zatwierdzonych systemów informacji
 
-- \[Wersja\]zapoznawcza: Pokaż wyniki inspekcji z maszyn wirtualnych systemu Linux, które zezwalają na połączenia zdalne z kont bez hasła
+- \[Wersja zapoznawcza \] : Pokaż wyniki inspekcji z maszyn wirtualnych systemu Linux, które zezwalają na połączenia zdalne z kont bez hasła
 
 ### <a name="ac-150--log-security-related-events-for-all-information-system-components"></a>AC-1,50 — zdarzenia związane z zabezpieczeniami dzienników dla wszystkich składników systemu informacji.
 
@@ -74,24 +74,24 @@ Następujące mapowania znajdują się w kontrolkach **multimediów** . Użyj na
 
 ### <a name="al--216---network-devicesinstances-must-log-any-event-classified-as-a-critical-security-event-by-that-network-deviceinstance-elbs-web-application-firewalls-etc"></a>AL-2,16 — urządzenia sieciowe/wystąpienia muszą rejestrować wszelkie zdarzenia sklasyfikowane jako krytyczne zdarzenie zabezpieczeń przez to urządzenie/wystąpienie sieciowe (ELBs, zapory aplikacji sieci Web itp.)
 
-- \[Wersja\]zapoznawcza: Pokaż wyniki inspekcji z konfiguracji maszyn wirtualnych z systemem Windows w obszarze "Opcje zabezpieczeń-konta"
+- \[Wersja zapoznawcza \] : Pokaż wyniki inspekcji z konfiguracji maszyn wirtualnych z systemem Windows w obszarze "Opcje zabezpieczeń-konta"
 
 ### <a name="al-217--serversinstances-must-log-any-event-classified-as-a-critical-security-event-by-that-serverinstance"></a>AL-2,17-serwery/wystąpienia muszą rejestrować wszelkie zdarzenia sklasyfikowane jako krytyczne zdarzenie zabezpieczeń przez ten serwer/wystąpienie
 
-- \[Wersja\]zapoznawcza: Pokaż wyniki inspekcji z konfiguracji maszyn wirtualnych z systemem Windows w obszarze "Opcje zabezpieczeń-konta"
+- \[Wersja zapoznawcza \] : Pokaż wyniki inspekcji z konfiguracji maszyn wirtualnych z systemem Windows w obszarze "Opcje zabezpieczeń-konta"
 
 ### <a name="al-219---domain-events-must-log-any-event-classified-as-a-critical-or-high-security-event-by-the-domain-management-software"></a>AL-2,19 — zdarzenia domeny muszą rejestrować wszelkie zdarzenia sklasyfikowane jako krytyczne lub wysokie zdarzenie zabezpieczeń przez oprogramowanie do zarządzania domeną
 
-- \[Wersja\]zapoznawcza: Pokaż wyniki inspekcji z konfiguracji maszyn wirtualnych z systemem Windows w obszarze "Opcje zabezpieczeń-konta"
-- \[Wersja\]zapoznawcza: wdrażanie wymagań wstępnych dotyczących inspekcji konfiguracji maszyn wirtualnych z systemem Windows w obszarze "Opcje zabezpieczeń-Klient sieci Microsoft"
+- \[Wersja zapoznawcza \] : Pokaż wyniki inspekcji z konfiguracji maszyn wirtualnych z systemem Windows w obszarze "Opcje zabezpieczeń-konta"
+- \[Wersja zapoznawcza \] : wdrażanie wymagań wstępnych dotyczących inspekcji konfiguracji maszyn wirtualnych z systemem Windows w obszarze "Opcje zabezpieczeń-Klient sieci Microsoft"
 
 ### <a name="al-220--domain-events-must-log-any-event-classified-as-a-critical-security-event-by-domain-security-controls"></a>AL-2,20 — zdarzenia domeny muszą rejestrować wszelkie zdarzenia sklasyfikowane jako krytyczne zdarzenie zabezpieczeń przez kontrolę zabezpieczeń domeny
 
-- \[Wersja\]zapoznawcza: Pokaż wyniki inspekcji z konfiguracji maszyn wirtualnych z systemem Windows w obszarze "Opcje zabezpieczeń-konta"
+- \[Wersja zapoznawcza \] : Pokaż wyniki inspekcji z konfiguracji maszyn wirtualnych z systemem Windows w obszarze "Opcje zabezpieczeń-konta"
 
 ### <a name="al-221--domain-events-must-log-any-access-or-changes-to-the-domain-log"></a>AL-2,21 — zdarzenia domeny muszą rejestrować dowolny dostęp lub zmiany w dzienniku domeny
 
-- \[Wersja\]zapoznawcza: Pokaż wyniki inspekcji z konfiguracji maszyn wirtualnych systemu Windows w obszarze "Opcje zabezpieczeń — Konsola odzyskiwania"
+- \[Wersja zapoznawcza \] : Pokaż wyniki inspekcji z konfiguracji maszyn wirtualnych systemu Windows w obszarze "Opcje zabezpieczeń — Konsola odzyskiwania"
 
 ## <a name="cryptographic-controls"></a>Formanty kryptograficzne
 
@@ -102,11 +102,11 @@ Następujące mapowania znajdują się w kontrolkach **multimediów** . Użyj na
 
 ### <a name="cc-45--digital-certificates-must-be-signed-by-an-approved-certificate-authority"></a>CC-4,5 — certyfikaty cyfrowe muszą być podpisane przez zatwierdzony urząd certyfikacji.
 
-- \[Wersja\]zapoznawcza: Pokaż wyniki inspekcji z maszyn wirtualnych z systemem Windows, które zawierają certyfikaty, których ważność wygaśnie w ciągu określonej liczby dni
+- \[Wersja zapoznawcza \] : Pokaż wyniki inspekcji z maszyn wirtualnych z systemem Windows, które zawierają certyfikaty, których ważność wygaśnie w ciągu określonej liczby dni
 
 ### <a name="cc-46--digital-certificates-must-be-uniquely-assigned-to-a-user-or-device"></a>CC-4,6 — Certyfikaty cyfrowe muszą być przypisane do użytkownika lub urządzenia.
 
-- \[Wersja\]zapoznawcza: Wdróż wymagania wstępne w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows, które zawierają certyfikaty wygasające w ciągu określonej liczby dni
+- \[Wersja zapoznawcza \] : Wdróż wymagania wstępne w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows, które zawierają certyfikaty wygasające w ciągu określonej liczby dni
 
 ### <a name="cc-47--cryptographic-material-must-be-stored-to-enable-decryption-of-the-records-for-the-length-of-time-the-records-are-retained"></a>DW-4,7-materiał kryptograficzny musi być przechowywany, aby umożliwić odszyfrowywanie rekordów przez czas, gdy rekordy są zachowywane.
 
@@ -138,7 +138,7 @@ Następujące mapowania znajdują się w kontrolkach **multimediów** . Użyj na
 ### <a name="cm-514--identify-and-disable-unnecessary-andor-non-secure-functions-ports-protocols-and-services"></a>CM-5,14 — identyfikowanie i wyłączanie niepotrzebnych i/lub niezabezpieczonych funkcji, portów, protokołów i usług.
 
 - Interfejsy sieciowe powinny wyłączyć przekazywanie adresów IP
-- \[Wersja\]zapoznawcza: przekazywanie adresów IP na maszynie wirtualnej powinno być wyłączone
+- \[Wersja zapoznawcza \] : przekazywanie adresów IP na maszynie wirtualnej powinno być wyłączone
 
 ### <a name="cm-519--monitor-changes-to-the-security-configuration-settings"></a>CM-5,19 — Monitoruj zmiany ustawień konfiguracji zabezpieczeń.
 
@@ -160,19 +160,19 @@ Następujące mapowania znajdują się w kontrolkach **multimediów** . Użyj na
 
 ### <a name="ns-92--access-to-network-device-management-functionality-is-restricted-to-authorized-users"></a>NS-9,2 — dostęp do funkcji zarządzania urządzeniami sieciowymi jest ograniczony do autoryzowanych użytkowników.
 
-- \[Wersja\]zapoznawcza: wdrażanie wymagań wstępnych dotyczących inspekcji konfiguracji maszyn wirtualnych z systemem Windows w obszarze "Opcje zabezpieczeń-dostęp sieciowy"
+- \[Wersja zapoznawcza \] : wdrażanie wymagań wstępnych dotyczących inspekcji konfiguracji maszyn wirtualnych z systemem Windows w obszarze "Opcje zabezpieczeń-dostęp sieciowy"
 
 ### <a name="ns-93--all-network-devices-must-be-configured-using-their-most-secure-configurations"></a>NS-9,3 — wszystkie urządzenia sieciowe muszą być skonfigurowane przy użyciu najbezpieczniejszych konfiguracji.
 
-- \[Wersja\]zapoznawcza: wdrażanie wymagań wstępnych dotyczących inspekcji konfiguracji maszyn wirtualnych z systemem Windows w obszarze "Opcje zabezpieczeń-dostęp sieciowy"
+- \[Wersja zapoznawcza \] : wdrażanie wymagań wstępnych dotyczących inspekcji konfiguracji maszyn wirtualnych z systemem Windows w obszarze "Opcje zabezpieczeń-dostęp sieciowy"
 
 ### <a name="ns-95--all-network-connections-to-a-system-through-a-firewall-must-be-approved-and-audited-on-a-regular-basis"></a>NS-9,5 — wszystkie połączenia sieciowe z systemem za pomocą zapory muszą być regularnie zatwierdzane i monitorowane.
 
-- \[Wersja\]zapoznawcza: Pokaż wyniki inspekcji z konfiguracji maszyn wirtualnych z systemem Windows we właściwościach zapory systemu Windows
+- \[Wersja zapoznawcza \] : Pokaż wyniki inspekcji z konfiguracji maszyn wirtualnych z systemem Windows we właściwościach zapory systemu Windows
 
 ### <a name="ns-97--appropriate-controls-must-be-present-at-any-boundary-between-a-trusted-network-and-any-untrusted-or-public-network"></a>NS-9,7-odpowiednie kontrolki muszą być obecne w dowolnej granicy między zaufaną siecią a niezaufaną lub publiczną siecią.
 
-- \[Wersja\]zapoznawcza: wdrażanie wymagań wstępnych w celu inspekcji konfiguracji maszyn wirtualnych z systemem Windows we właściwościach zapory systemu Windows
+- \[Wersja zapoznawcza \] : wdrażanie wymagań wstępnych w celu inspekcji konfiguracji maszyn wirtualnych z systemem Windows we właściwościach zapory systemu Windows
 
 ## <a name="security-planning"></a>Planowanie zabezpieczeń
 
@@ -236,8 +236,8 @@ Następujące mapowania znajdują się w kontrolkach **multimediów** . Użyj na
 Sprawdzono Mapowanie formantów przykładu planu multimediów. Następnie odwiedź następujące artykuły, aby dowiedzieć się więcej na temat omówienia i sposobu wdrażania tego przykładu:
 
 > [!div class="next step action"]
-> [Plany multimediów — Omówienie](./control-mapping.md)
-> planu[mediów — kroki wdrażania](./deploy.md)
+> [Plany multimediów — Omówienie](./control-mapping.md) 
+>  [Plany multimediów — kroki wdrażania](./deploy.md)
 
 Dodatkowe artykuły na temat strategii i sposobu ich używania:
 

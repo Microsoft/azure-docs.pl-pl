@@ -2,13 +2,14 @@
 title: Zarządzanie połączeniami w Azure Functions
 description: Dowiedz się, jak uniknąć problemów z wydajnością w Azure Functions przy użyciu klientów połączeń statycznych.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 02/25/2018
-ms.openlocfilehash: 5ab59d82ad4b11e4ac5179ef727392a83bb263e3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7ce933511532fdb1bfb5189e5a900e87f3d83fa2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505996"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213971"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Zarządzanie połączeniami w Azure Functions
 

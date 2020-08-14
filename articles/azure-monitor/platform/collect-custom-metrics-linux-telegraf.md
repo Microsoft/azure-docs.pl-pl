@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 57eb005109b97a423f9218ee6a47ce5bb06c3853
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b80f27e490dd3b1890eab7740fb4650ba4280abb
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505350"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207804"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Zbieranie niestandardowych metryk dla maszyny wirtualnej z systemem Linux za pomocą agenta InfluxData telegraf
 
@@ -127,7 +127,7 @@ Teraz agent będzie zbierać metryki z każdej z określonych wtyczek wejściowy
 
 ## <a name="additional-configuration"></a>Dodatkowa konfiguracja 
 
-Powyższy przewodnik zawiera informacje dotyczące sposobu konfigurowania agenta telegraf w celu zbierania metryk z kilku podstawowych wtyczek wejściowych. Agent telegraf obsługuje ponad 150 wtyczek wejściowych z niektórymi dodatkowymi opcjami konfiguracji. InfluxData opublikował [listę obsługiwanych wtyczek](https://docs.influxdata.com/telegraf/v1.7/plugins/inputs/) i instrukcje dotyczące [sposobu ich konfigurowania](https://docs.influxdata.com/telegraf/v1.7/administration/configuration/).  
+Powyższy przewodnik zawiera informacje dotyczące sposobu konfigurowania agenta telegraf w celu zbierania metryk z kilku podstawowych wtyczek wejściowych. Agent telegraf obsługuje ponad 150 wtyczek wejściowych z niektórymi dodatkowymi opcjami konfiguracji. InfluxData opublikował [listę obsługiwanych wtyczek](https://docs.influxdata.com/telegraf/v1.15/plugins/inputs/) i instrukcje dotyczące [sposobu ich konfigurowania](https://docs.influxdata.com/telegraf/v1.15/administration/configuration/).  
 
 Ponadto w tym instruktażu Agent telegraf był używany do emitowania metryk dotyczących maszyny wirtualnej, na której jest wdrożony Agent. Agenta telegraf można także użyć jako modułu zbierającego i usługi przesyłania dalej metryk dla innych zasobów. Aby dowiedzieć się, jak skonfigurować agenta do emisji metryk dla innych zasobów platformy Azure, zobacz [Azure monitor niestandardowe dane wyjściowe metryki dla telegraf](https://github.com/influxdata/telegraf/blob/fb704500386214655e2adb53b6eb6b15f7a6c694/plugins/outputs/azure_monitor/README.md).  
 

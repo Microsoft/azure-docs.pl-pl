@@ -6,13 +6,13 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: c377d9882b59731857641e1f593dd6b7b24ca7f9
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 3fc8f205bff52fad6e55b7aa6692ec80ae5e954a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844086"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212162"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Service Bus powiązanie danych wyjściowych dla Azure Functions
 
@@ -300,12 +300,12 @@ W Azure Functions 1. x środowisko uruchomieniowe tworzy kolejkę, jeśli nie is
 
 Użyj następujących typów parametrów dla powiązania danych wyjściowych:
 
-* `out T paramName` - `T`może być dowolnym typem możliwym do serializacji JSON. Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja tworzy komunikat z obiektem o wartości null.
-* `out string`-Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja nie tworzy komunikatu.
-* `out byte[]`-Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja nie tworzy komunikatu.
-* `out BrokeredMessage`-Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja nie tworzy komunikatu (dla funkcji 1. x)
-* `out Message`-Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja nie tworzy komunikatu (dla funkcji 2. x i wyższych)
-* `ICollector<T>`lub `IAsyncCollector<T>` (dla metod asynchronicznych) — do tworzenia wielu komunikatów. Tworzony jest komunikat podczas wywoływania `Add` metody.
+* `out T paramName` - `T` może być dowolnym typem możliwym do serializacji JSON. Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja tworzy komunikat z obiektem o wartości null.
+* `out string` -Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja nie tworzy komunikatu.
+* `out byte[]` -Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja nie tworzy komunikatu.
+* `out BrokeredMessage` -Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja nie tworzy komunikatu (dla funkcji 1. x)
+* `out Message` -Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja nie tworzy komunikatu (dla funkcji 2. x i wyższych)
+* `ICollector<T>` lub `IAsyncCollector<T>` (dla metod asynchronicznych) — do tworzenia wielu komunikatów. Tworzony jest komunikat podczas wywoływania `Add` metody.
 
 Podczas pracy z funkcjami języka C#:
 
@@ -317,12 +317,12 @@ Podczas pracy z funkcjami języka C#:
 
 Użyj następujących typów parametrów dla powiązania danych wyjściowych:
 
-* `out T paramName` - `T`może być dowolnym typem możliwym do serializacji JSON. Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja tworzy komunikat z obiektem o wartości null.
-* `out string`-Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja nie tworzy komunikatu.
-* `out byte[]`-Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja nie tworzy komunikatu.
-* `out BrokeredMessage`-Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja nie tworzy komunikatu (dla funkcji 1. x)
-* `out Message`-Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja nie tworzy komunikatu (dla funkcji 2. x i wyższych)
-* `ICollector<T>`lub `IAsyncCollector<T>` — w celu utworzenia wielu komunikatów. Tworzony jest komunikat podczas wywoływania `Add` metody.
+* `out T paramName` - `T` może być dowolnym typem możliwym do serializacji JSON. Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja tworzy komunikat z obiektem o wartości null.
+* `out string` -Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja nie tworzy komunikatu.
+* `out byte[]` -Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja nie tworzy komunikatu.
+* `out BrokeredMessage` -Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja nie tworzy komunikatu (dla funkcji 1. x)
+* `out Message` -Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja nie tworzy komunikatu (dla funkcji 2. x i wyższych)
+* `ICollector<T>` lub `IAsyncCollector<T>` — w celu utworzenia wielu komunikatów. Tworzony jest komunikat podczas wywoływania `Add` metody.
 
 Podczas pracy z funkcjami języka C#:
 

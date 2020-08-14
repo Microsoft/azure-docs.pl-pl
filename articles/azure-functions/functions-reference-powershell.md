@@ -3,13 +3,14 @@ title: Dokumentacja dewelopera programu PowerShell dla Azure Functions
 description: Dowiedz się, jak opracowywać funkcje przy użyciu programu PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 04/22/2019
-ms.openlocfilehash: 8b8c84583bd80a7c3cbadde1caba231eed801c1f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 06838ecee809c5159bc8a290ecb4f589fd3ce04f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506132"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207415"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Przewodnik dewelopera programu Azure Functions PowerShell
 
@@ -113,7 +114,7 @@ param($MyFirstInputBinding, $MySecondInputBinding)
 Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 ```
 
-`Push-OutputBinding`zachowuje się inaczej w zależności od wartości określonej dla `-Name` :
+`Push-OutputBinding` zachowuje się inaczej w zależności od wartości określonej dla `-Name` :
 
 * Gdy nie można rozpoznać określonej nazwy jako prawidłowego powiązania danych wyjściowych, zostanie zgłoszony błąd.
 
@@ -121,13 +122,13 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 * Gdy powiązanie danych wyjściowych akceptuje tylko wartość singleton, wywołanie `Push-OutputBinding` drugiego czasu powoduje wystąpienie błędu.
 
-#### <a name="push-outputbinding-syntax"></a>`Push-OutputBinding`obowiązuje
+#### <a name="push-outputbinding-syntax"></a>`Push-OutputBinding` obowiązuje
 
 Poniżej podano prawidłowe parametry wywołania `Push-OutputBinding` :
 
 | Nazwa | Typ | Położenie | Opis |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | String (ciąg) | 1 | Nazwa powiązania danych wyjściowych, które chcesz ustawić. |
+| **`-Name`** | Ciąg | 1 | Nazwa powiązania danych wyjściowych, które chcesz ustawić. |
 | **`-Value`** | Obiekt | 2 | Wartość powiązania danych wyjściowych, które ma zostać ustawione, które jest akceptowane z potoku ByValue. |
 | **`-Clobber`** | SwitchParameter | Nazywany | Obowiązkowe Gdy jest określony, wymusza wartość ustawioną dla określonego powiązania danych wyjściowych. | 
 
@@ -175,7 +176,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 
 #### <a name="push-outputbinding-example-queue-output-binding"></a>Przykład push-OutputBinding: powiązanie danych wyjściowych kolejki
 
-`Push-OutputBinding`służy do wysyłania danych do powiązań wyjściowych, takich jak [powiązanie danych wyjściowych usługi Azure queue storage](functions-bindings-storage-queue-output.md). W poniższym przykładzie komunikat zapisany w kolejce ma wartość "Output #1":
+`Push-OutputBinding` służy do wysyłania danych do powiązań wyjściowych, takich jak [powiązanie danych wyjściowych usługi Azure queue storage](functions-bindings-storage-queue-output.md). W poniższym przykładzie komunikat zapisany w kolejce ma wartość "Output #1":
 
 ```powershell
 PS >Push-OutputBinding -Name outQueue -Value "output #1"
@@ -195,7 +196,7 @@ PS >Push-OutputBinding -Name outQueue -Value @("output #3", "output #4")
 
 Po zapisaniu w kolejce komunikat zawiera te cztery wartości: "Output #1", "Output #2", "Output #3" i "Output #4".
 
-#### <a name="get-outputbinding-cmdlet"></a>`Get-OutputBinding`parametr
+#### <a name="get-outputbinding-cmdlet"></a>`Get-OutputBinding` parametr
 
 Za pomocą `Get-OutputBinding` polecenia cmdlet można pobrać wartości aktualnie ustawionych dla powiązań wyjściowych. To polecenie cmdlet pobiera tablicę skrótów, która zawiera nazwy powiązań wyjściowych z odpowiednimi wartościami. 
 
@@ -212,7 +213,7 @@ MyQueue                        myData
 MyOtherQueue                   myData
 ```
 
-`Get-OutputBinding`zawiera również parametr o nazwie `-Name` , który może służyć do filtrowania zwracanego powiązania, jak w poniższym przykładzie:
+`Get-OutputBinding` zawiera również parametr o nazwie `-Name` , który może służyć do filtrowania zwracanego powiązania, jak w poniższym przykładzie:
 
 ```powershell
 Get-OutputBinding -Name MyQ*
@@ -296,14 +297,14 @@ Obiekt żądania, który jest przesyłany do skryptu, jest typu `HttpRequestCont
 
 | Właściwość  | Opis                                                    | Typ                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | Obiekt, który zawiera treść żądania. `Body`jest serializowany do najlepszego typu na podstawie danych. Na przykład, jeśli dane są w formacie JSON, są one przenoszone jako tablica skrótów. Jeśli dane są ciągami, są one przenoszone jako ciąg. | object |
+| **`Body`**    | Obiekt, który zawiera treść żądania. `Body` jest serializowany do najlepszego typu na podstawie danych. Na przykład, jeśli dane są w formacie JSON, są one przenoszone jako tablica skrótów. Jeśli dane są ciągami, są one przenoszone jako ciąg. | object |
 | **`Headers`** | Słownik zawierający nagłówki żądania.                | Ciąg<słownika, ciąg><sup>*</sup> |
 | **`Method`** | Metoda HTTP żądania.                                | ciąg                    |
 | **`Params`**  | Obiekt, który zawiera parametry routingu żądania. | Ciąg<słownika, ciąg><sup>*</sup> |
 | **`Query`** | Obiekt, który zawiera parametry zapytania.                  | Ciąg<słownika, ciąg><sup>*</sup> |
 | **`Url`** | Adres URL żądania.                                        | ciąg                    |
 
-<sup>*</sup>We wszystkich `Dictionary<string,string>` kluczach nie jest rozróżniana wielkość liter.
+<sup>*</sup> We wszystkich `Dictionary<string,string>` kluczach nie jest rozróżniana wielkość liter.
 
 #### <a name="response-object"></a>Obiekt odpowiedzi
 
@@ -422,9 +423,9 @@ Następujące ustawienia aplikacji mogą służyć do zmiany sposobu pobierania 
 
 | Ustawienie aplikacja funkcji              | Wartość domyślna             | Opis                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
-| **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00`(7 dni)     | Każdy proces roboczy programu PowerShell inicjuje sprawdzanie uaktualnień modułu w Galeria programu PowerShell na początku procesu i co jakiś dzień `MDMaxBackgroundUpgradePeriod` . Gdy w Galeria programu PowerShell jest dostępna nowa wersja modułu, zostanie ona zainstalowana w systemie plików i udostępniona dla procesów roboczych programu PowerShell. Zmniejszenie tej wartości pozwala aplikacji funkcji uzyskiwać nowsze wersje modułów wcześniej, ale również zwiększa użycie zasobów aplikacji (we/wy sieci, procesor CPU, magazyn). Zwiększenie tej wartości zmniejsza użycie zasobów aplikacji, ale może również opóźnić dostarczenie nowej wersji modułu do aplikacji. | 
-| **`MDNewSnapshotCheckPeriod`**         | `01:00:00`(1 godzina)       | Po zainstalowaniu nowych wersji modułu w systemie plików należy ponownie uruchomić każdy proces roboczy programu PowerShell. Ponowne uruchomienie programu PowerShell wpływa na dostępność aplikacji, ponieważ może przerwać bieżące wykonywanie funkcji. Do momentu ponownego uruchomienia wszystkich procesów roboczych programu PowerShell wywołania funkcji mogą używać starych lub nowych wersji modułu. Ponowne uruchamianie wszystkich procesów roboczych programu PowerShell kończy się w programie `MDNewSnapshotCheckPeriod` . Zwiększenie tej wartości zmniejsza częstotliwość przerw, ale może również wydłużyć czas, w którym wywołania funkcji używają starej lub nowej wersji modułu w sposób Niedeterministyczny. |
-| **`MDMinBackgroundUpgradePeriod`**      | `1.00:00:00`(1 dzień)     | Aby uniknąć nadmiernych uaktualnień modułów podczas częstego ponownego uruchamiania procesów roboczych, sprawdzanie uaktualnień modułów nie jest wykonywane, gdy jakikolwiek proces roboczy został już zainicjowany `MDMinBackgroundUpgradePeriod` . |
+| **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` (7 dni)     | Każdy proces roboczy programu PowerShell inicjuje sprawdzanie uaktualnień modułu w Galeria programu PowerShell na początku procesu i co jakiś dzień `MDMaxBackgroundUpgradePeriod` . Gdy w Galeria programu PowerShell jest dostępna nowa wersja modułu, zostanie ona zainstalowana w systemie plików i udostępniona dla procesów roboczych programu PowerShell. Zmniejszenie tej wartości pozwala aplikacji funkcji uzyskiwać nowsze wersje modułów wcześniej, ale również zwiększa użycie zasobów aplikacji (we/wy sieci, procesor CPU, magazyn). Zwiększenie tej wartości zmniejsza użycie zasobów aplikacji, ale może również opóźnić dostarczenie nowej wersji modułu do aplikacji. | 
+| **`MDNewSnapshotCheckPeriod`**         | `01:00:00` (1 godzina)       | Po zainstalowaniu nowych wersji modułu w systemie plików należy ponownie uruchomić każdy proces roboczy programu PowerShell. Ponowne uruchomienie programu PowerShell wpływa na dostępność aplikacji, ponieważ może przerwać bieżące wykonywanie funkcji. Do momentu ponownego uruchomienia wszystkich procesów roboczych programu PowerShell wywołania funkcji mogą używać starych lub nowych wersji modułu. Ponowne uruchamianie wszystkich procesów roboczych programu PowerShell kończy się w programie `MDNewSnapshotCheckPeriod` . Zwiększenie tej wartości zmniejsza częstotliwość przerw, ale może również wydłużyć czas, w którym wywołania funkcji używają starej lub nowej wersji modułu w sposób Niedeterministyczny. |
+| **`MDMinBackgroundUpgradePeriod`**      | `1.00:00:00` (1 dzień)     | Aby uniknąć nadmiernych uaktualnień modułów podczas częstego ponownego uruchamiania procesów roboczych, sprawdzanie uaktualnień modułów nie jest wykonywane, gdy jakikolwiek proces roboczy został już zainicjowany `MDMinBackgroundUpgradePeriod` . |
 
 Korzystanie z własnych modułów niestandardowych jest nieco inne niż w normalny sposób.
 
@@ -517,7 +518,7 @@ Azure PowerShell używa niektórych kontekstów i Stanów na _poziomie procesu_ 
 
 Ogromną wartość współbieżności z Azure PowerShell, ponieważ niektóre operacje mogą zająć dużo czasu. Należy jednak zachować ostrożność. Jeśli podejrzewasz, że masz sytuację wyścigu, ustaw ustawienie aplikacji PSWorkerInProcConcurrencyUpperBound na, `1` a zamiast tego użyj [izolacji poziomu procesu roboczego języka](functions-app-settings.md#functions_worker_process_count) dla współbieżności.
 
-## <a name="configure-function-scriptfile"></a>Konfiguruj funkcję`scriptFile`
+## <a name="configure-function-scriptfile"></a>Konfiguruj funkcję `scriptFile`
 
 Domyślnie funkcja programu PowerShell jest wykonywana z `run.ps1` , plik, który współużytkuje ten sam katalog nadrzędny `function.json` .
 
@@ -595,7 +596,7 @@ Podczas pracy z funkcjami programu PowerShell należy pamiętać o zagadnieniach
 
 Podczas opracowywania Azure Functions w [modelu hostingu bezserwerowego](functions-scale.md#consumption-plan)zimny start jest rzeczywistości. *Zimny start* odnosi się do okresu czasu potrzebnego na uruchomienie aplikacji funkcji w celu przetworzenia żądania. Zimny przebieg występuje częściej od planu zużycia, ponieważ aplikacja funkcji jest zamykana w okresach braku aktywności.
 
-### <a name="bundle-modules-instead-of-using-install-module"></a>Moduły pakietu zamiast używania`Install-Module`
+### <a name="bundle-modules-instead-of-using-install-module"></a>Moduły pakietu zamiast używania `Install-Module`
 
 Skrypt jest uruchamiany na każdym wywołaniu. Unikaj używania `Install-Module` w skrypcie. Zamiast tego należy użyć `Save-Module` przed opublikowaniem, aby funkcja nie mogła tracić czasu na pobranie modułu. Jeśli zimne uruchomienie ma wpływ na funkcje, warto rozważyć wdrożenie aplikacji funkcji w planie [App servicem](functions-scale.md#app-service-plan) ustawionym na *zawsze włączony* lub do [planu Premium](functions-scale.md#premium-plan).
 

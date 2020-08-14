@@ -1,18 +1,18 @@
 ---
 title: Omówienie agenta połączonej maszyny z systemem Windows
-description: Ten artykuł zawiera szczegółowy przegląd usługi Azure ARC dla dostępnych agentów serwerów (wersja zapoznawcza), która obsługuje monitorowanie maszyn wirtualnych hostowanych w środowiskach hybrydowych.
+description: Ten artykuł zawiera szczegółowe omówienie dostępnego agenta usługi Azure ARC (wersja zapoznawcza), który obsługuje monitorowanie maszyn wirtualnych hostowanych w środowiskach hybrydowych.
 ms.date: 08/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8e8abfcc3c6ec7b7893563c67dc6bb82ccdda850
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d922652537034bef258c5bcde78fb178b092ed16
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121837"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212975"
 ---
-# <a name="overview-of-azure-arc-for-servers-preview-agent"></a>Omówienie usługi Azure ARC dla serwerów (wersja zapoznawcza) Agent
+# <a name="overview-of-azure-arc-enabled-servers-preview-agent"></a>Przegląd serwerów z obsługą usługi Azure ARC (wersja zapoznawcza) Agent
 
-Usługa Azure ARC dla serwerów (wersja zapoznawcza) Agent połączonej maszyny umożliwia zarządzanie maszynami z systemami Windows i Linux hostowanymi poza platformą Azure w sieci firmowej lub w innym dostawcy chmury. Ten artykuł zawiera szczegółowe omówienie wymagań dotyczących agenta, systemu i sieci oraz różnych metod wdrażania.
+Agent połączonej maszyny z obsługą usługi Azure ARC (wersja zapoznawcza) umożliwia zarządzanie maszynami z systemami Windows i Linux hostowanymi poza platformą Azure w sieci firmowej lub w innym dostawcy chmury. Ten artykuł zawiera szczegółowe omówienie wymagań dotyczących agenta, systemu i sieci oraz różnych metod wdrażania.
 
 ## <a name="agent-component-details"></a>Szczegóły składnika agenta
 
@@ -65,7 +65,7 @@ Następujące wersje systemu operacyjnego Windows i Linux są oficjalnie obsług
 
 ### <a name="azure-subscription-and-service-limits"></a>Limity subskrypcji i usług platformy Azure
 
-Przed skonfigurowaniem maszyn przy użyciu usługi Azure ARC dla serwerów (wersja zapoznawcza) Przejrzyj [limity subskrypcji](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) Azure Resource Manager i [limity grupy zasobów](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) , aby zaplanować liczbę maszyn, które mają być połączone.
+Przed skonfigurowaniem maszyn przy użyciu serwerów z obsługą usługi Azure ARC (wersja zapoznawcza) Przejrzyj limity [subskrypcji](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) Azure Resource Manager i [grupy zasobów](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) , aby zaplanować liczbę maszyn, które mają być połączone.
 
 ### <a name="transport-layer-security-12-protocol"></a>Protokół Transport Layer Security 1,2
 
@@ -105,7 +105,7 @@ Adresy URL w powyższej tabeli są wymagane oprócz informacji o zakresie adres�
 
 ### <a name="register-azure-resource-providers"></a>Rejestrowanie dostawców zasobów platformy Azure
 
-Usługa Azure ARC dla serwerów (wersja zapoznawcza) jest zależna od następujących dostawców zasobów platformy Azure w ramach subskrypcji, aby można było korzystać z tej usługi:
+Serwery z obsługą usługi Azure ARC (wersja zapoznawcza) są zależne od następujących dostawców zasobów platformy Azure w ramach subskrypcji, aby można było korzystać z tej usługi:
 
 * **Microsoft. HybridCompute**
 * **Microsoft. GuestConfiguration**
@@ -248,4 +248,4 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Linux są stosowane na
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć ocenę usługi Azure ARC dla serwerów (wersja zapoznawcza), postępuj zgodnie z artykułem [łączenie maszyn hybrydowych z platformą Azure z poziomu Azure Portal](onboard-portal.md).
+Aby rozpocząć ocenianie serwerów z obsługą usługi Azure ARC (wersja zapoznawcza), wykonaj czynności opisane w artykule [łączenie maszyn hybrydowych z platformą Azure z poziomu Azure Portal](onboard-portal.md).

@@ -4,34 +4,37 @@ description: Azure IoT Edge używa certyfikatu do weryfikowania urządzeń, modu
 author: stevebus
 manager: philmea
 ms.author: stevebus
-ms.date: 10/29/2019
+ms.date: 08/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: f9c3f8e1e37a59dc0010269c6b4c19e3a682c57e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9d7caf332239d364b5bc47b5d58a808ead70395d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247017"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210587"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Dowiedz się, jak Azure IoT Edge używa certyfikatów
 
 IoT Edge certyfikaty są używane przez moduły i podrzędne urządzenia IoT do weryfikacji tożsamości i poprawności modułu [IoT Edge centrum](iot-edge-runtime.md#iot-edge-hub) środowiska uruchomieniowego. Te weryfikacje umożliwiają bezpieczne połączenie TLS (Transport Layer Security) między środowiskiem uruchomieniowym, modułami i urządzeniami IoT. Podobnie jak IoT Hub, IoT Edge wymaga bezpiecznego i szyfrowanego połączenia z urządzeń podrzędnych (lub liściowych IoT) i modułów IoT Edge. Aby nawiązać bezpieczne połączenie TLS, moduł IoT Edge Hub przedstawia łańcuch certyfikatów serwera do łączenia klientów, aby zweryfikować swoją tożsamość.
 
+>[!NOTE]
+>W tym artykule omówiono certyfikaty, które są używane do zabezpieczania połączeń między różnymi składnikami na urządzeniu IoT Edge lub między urządzeniem IoT Edge i wszystkimi urządzeniami typu liść. Możesz również użyć certyfikatów do uwierzytelnienia urządzenia IoT Edge, aby IoT Hub. Te certyfikaty uwierzytelniania są różne i nie zostały omówione w tym artykule. Aby uzyskać więcej informacji na temat uwierzytelniania urządzenia za pomocą certyfikatów, zobacz [Tworzenie i udostępnianie urządzenia IoT Edge przy użyciu certyfikatów X. 509](how-to-auto-provision-x509-certs.md).
+
 W tym artykule wyjaśniono, jak IoT Edge certyfikaty mogą funkcjonować w scenariuszach produkcyjnych, deweloperskich i testowych. Chociaż skrypty są różne (program PowerShell a bash), pojęcia są takie same w systemach Linux i Windows.
 
 ## <a name="iot-edge-certificates"></a>Certyfikaty usługi IoT Edge
 
-Zwykle producenci nie są użytkownikami końcowymi urządzenia IoT Edge. Czasami jedyną relacją między nimi jest czas, w którym użytkownik końcowy lub operator nabywa urządzenie ogólne wykonane przez producenta. W innych przypadkach producent działa w ramach kontraktu, aby zbudować niestandardowe urządzenie dla operatora. Projektowanie certyfikatów IoT Edge próbuje wykonać oba scenariusze.
-
-> [!NOTE]
-> Obecnie ograniczenie w libiothsm uniemożliwia korzystanie z certyfikatów, które wygasną od 1 stycznia 2050. To ograniczenie ma zastosowanie do certyfikatu urzędu certyfikacji urządzenia, wszystkich certyfikatów w pakiecie zaufania oraz certyfikatów identyfikatorów urządzeń używanych do metod aprowizacji X. 509.
+Istnieją dwa typowe scenariusze dotyczące konfigurowania certyfikatów na urządzeniu IoT Edge. Czasami użytkownik końcowy lub operator, który dokonał zakupu urządzenia ogólnego przez producenta, następnie zarządza certyfikatami. W innych przypadkach producent działa w ramach kontraktu, aby zbudować niestandardowe urządzenie dla operatora i wykonał wstępne podpisywanie certyfikatu przed przekazaniem urządzenia. Projektowanie certyfikatów IoT Edge próbuje wykonać oba scenariusze.
 
 Poniższy rysunek ilustruje użycie certyfikatów przez IoT Edge. Między certyfikatem głównego urzędu certyfikacji a certyfikatem urzędu certyfikacji urządzenia może istnieć zero, jeden lub wiele pośrednich certyfikatów podpisywania, w zależności od liczby powiązanych jednostek. W tym miejscu pokazujemy jeden przypadek.
 
 ![Diagram typowych relacji certyfikatów](./media/iot-edge-certs/edgeCerts-general.png)
+
+> [!NOTE]
+> Obecnie ograniczenie w libiothsm uniemożliwia korzystanie z certyfikatów, które wygasną od 1 stycznia 2050. To ograniczenie ma zastosowanie do certyfikatu urzędu certyfikacji urządzenia, wszystkich certyfikatów w pakiecie zaufania oraz certyfikatów identyfikatorów urządzeń używanych do metod aprowizacji X. 509.
 
 ### <a name="certificate-authority"></a>Urząd certyfikacji
 
@@ -59,7 +62,7 @@ Certyfikat urzędu certyfikacji urządzenia jest generowany z i podpisany przez 
 
 ### <a name="iot-edge-workload-ca"></a>IoT Edge urząd certyfikacji obciążeń
 
-Program [IoT Edge Security Manager](iot-edge-security-manager.md) generuje certyfikat urzędu certyfikacji obciążenia, pierwszy na stronie "operator" procesu, IoT Edge po pierwszym uruchomieniu. Ten certyfikat jest generowany z i podpisany przez "certyfikat urzędu certyfikacji urządzenia". Ten certyfikat, który jest tylko innym pośrednim certyfikatem podpisywania, służy do generowania i podpisywania innych certyfikatów używanych przez środowisko uruchomieniowe IoT Edge. Obecnie jest to przede wszystkim certyfikat serwera IoT Edge Hub omówiony w poniższej sekcji, ale w przyszłości może on obejmować inne certyfikaty służące do uwierzytelniania składników IoT Edge.
+Program [IoT Edge Security Manager](iot-edge-security-manager.md) generuje certyfikat urzędu certyfikacji obciążenia, pierwszy na stronie "operator" procesu, IoT Edge po pierwszym uruchomieniu. Ten certyfikat jest generowany z i podpisany przez certyfikat urzędu certyfikacji urządzenia. Ten certyfikat, który jest tylko innym pośrednim certyfikatem podpisywania, służy do generowania i podpisywania innych certyfikatów używanych przez środowisko uruchomieniowe IoT Edge. Obecnie jest to przede wszystkim certyfikat serwera IoT Edge Hub omówiony w poniższej sekcji, ale w przyszłości może on obejmować inne certyfikaty służące do uwierzytelniania składników IoT Edge.
 
 ### <a name="iot-edge-hub-server-certificate"></a>Certyfikat serwera IoT Edge Hub
 

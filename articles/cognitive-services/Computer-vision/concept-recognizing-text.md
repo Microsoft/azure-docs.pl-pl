@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e2226f70ed3318bb370f0afee003fd9f91153a45
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 9f9ebff77f54d86c3c4ed45fb5190de1900934e9
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167876"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207229"
 ---
 # <a name="optical-character-recognition-ocr"></a>Optyczne rozpoznawanie znaków (OCR)
 
@@ -28,7 +28,18 @@ Interfejs API przetwarzania obrazów platformy Azure obejmuje funkcje optycznego
 
 ![Jak OCR konwertuje obrazy i dokumenty na strukturalne dane wyjściowe z wyodrębnionym tekstem](./Images/how-ocr-works.svg)
 
-Interfejs API odczytu zapewnia funkcje OCR za pomocą dwóch operacji — **Odczyt** i odczyt **wyników**.
+## <a name="input-requirements"></a>Wymagania wejściowe
+Operacja **odczytu** interfejsu API odczytu pobiera obrazy i dokumenty jako dane wejściowe. Mają one następujące wymagania:
+
+* Obsługiwane formaty plików: JPEG, PNG, BMP, PDF i TIFF
+* W przypadku plików PDF i TIFF przetwarzane są do 2000 stron. W przypadku subskrybentów warstwy Bezpłatna są przetwarzane tylko dwie pierwsze strony.
+* Rozmiar pliku musi być mniejszy niż 50 MB i wymiary co najmniej 50 x 50 pikseli i maksymalnie 10000 x 10000 pikseli.
+* Wymiary PDF muszą mieć co najwyżej 17 x 17 cali, odpowiadające rozmiarowi papieru legalnego lub A3 i mniejszym.
+
+> [!NOTE]
+> **Dane wejściowe języka** 
+>
+> [Operacja odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) ma opcjonalny parametr żądania dla języka. Jest to kod języka BCP-47 tekstu w dokumencie. Odczyt obsługuje funkcję autoidentification języka i dokumenty wielojęzyczne, więc podaj tylko kod języka, jeśli chcesz wymusić przetwarzanie dokumentu jako tego konkretnego języka.
 
 ## <a name="the-read-operation"></a>Operacja odczytu
 
@@ -36,7 +47,7 @@ Interfejs API odczytu zapewnia funkcje OCR za pomocą dwóch operacji — **Odcz
 
 |Nagłówek odpowiedzi| Adres URL wyniku |
 |:-----|:----|
-|Lokalizacja operacji | https://cognitiveservice/vision/v3.0-preview/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f |
+|Lokalizacja operacji | `https://cognitiveservice/vision/v3.0/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 ## <a name="the-get-read-results-operation"></a>Operacja pobierania wyników odczytu
 
@@ -112,19 +123,6 @@ Zobacz następujący przykład pomyślnej odpowiedzi JSON:
 
 Postępuj zgodnie z przewodnikiem Szybki Start [wydrukowanym i odręcznym](./QuickStarts/CSharp-hand-text.md) , aby zaimplementować OCR przy użyciu języka C# i interfejsu API REST.
 
-## <a name="input-requirements"></a>Wymagania wejściowe
-
-Obrazy wejściowe i dokumenty mają następujące wymagania:
-* Obsługiwane formaty plików: JPEG, PNG, BMP, PDF i TIFF
-* W przypadku plików PDF i TIFF przetwarzane są do 2000 stron. W przypadku subskrybentów warstwy Bezpłatna są przetwarzane tylko dwie pierwsze strony.
-* Rozmiar pliku musi być mniejszy niż 50 MB i wymiary co najmniej 50 x 50 pikseli i maksymalnie 10000 x 10000 pikseli.
-* Wymiary PDF muszą mieć co najwyżej 17 x 17 cali, odpowiadające rozmiarowi papieru legalnego lub A3 i mniejszym.
-
-> [!NOTE]
-> **Dane wejściowe języka** 
->
-> [Operacja odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) ma opcjonalny parametr żądania dla języka. Jest to kod języka BCP-47 tekstu w dokumencie. Odczyt obsługuje funkcję autoidentification języka i dokumenty wielojęzyczne, więc podaj tylko kod języka, jeśli chcesz wymusić przetwarzanie dokumentu jako tego konkretnego języka.
-
 ## <a name="language-support"></a>Obsługa języków
 
 ### <a name="printed-text"></a>Tekst drukowany
@@ -184,6 +182,9 @@ Interfejs API odczytu obsługuje obrazy i dokumenty zawierające wiele różnych
 ## <a name="data-privacy-and-security"></a>Prywatność i zabezpieczenia danych
 
 Podobnie jak w przypadku wszystkich usług poznawczych, deweloperzy korzystający z usług odczytu/OCR powinni mieć świadomość zasad firmy Microsoft dotyczących danych klientów. Aby dowiedzieć się więcej, zobacz stronę Cognitive Services w [Centrum zaufania firmy Microsoft](https://www.microsoft.com/trust-center/product-overview) .
+
+> [!NOTE]
+> 2,0 komputer, na którym są RecognizeText operacje, są w trakcie wycofywania na korzyść nowego interfejsu API odczytu omówionego w tym artykule. Istniejący klienci powinni [przejść do korzystania z operacji odczytu](upgrade-api-versions.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

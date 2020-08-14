@@ -3,15 +3,16 @@ title: Use dependency injection in .NET Azure Functions (Korzystanie z wstrzykiw
 description: Dowiedz się, jak używać iniekcji zależności do rejestrowania i używania usług w usłudze .NET Functions
 author: craigshoemaker
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 05b845f3284ea95dd2be595c4d59767e45149306
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ee3caef30c573763db56f89aa4900aa62b8a436a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500468"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206102"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Use dependency injection in .NET Azure Functions (Korzystanie z wstrzykiwania zależności w usłudze Azure Functions na platformie .NET)
 

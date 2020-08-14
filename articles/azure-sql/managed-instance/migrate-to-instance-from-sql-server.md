@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 3ef109dc5fad73a19eabefb8eb872c02d62698ba
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b7623a3c89f9ae4b20385caaac676b972f55f85e
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087575"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209493"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>SQL Server migracji wystąpień do wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,7 +45,7 @@ Na wysokim poziomie proces migracji bazy danych wygląda następująco:
 
 Najpierw Ustal, czy wystąpienie zarządzane SQL jest zgodne z wymaganiami dotyczącymi bazy danych aplikacji. Wystąpienie zarządzane SQL zostało zaprojektowane w celu zapewnienia łatwego podnoszenia i migracji w celu uzyskania większości istniejących aplikacji, które używają SQL Server. Czasami jednak może być wymagana funkcja lub możliwości, które nie są jeszcze obsługiwane, a koszt wdrożenia obejścia jest zbyt duży.
 
-Użyj [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview) , aby wykryć potencjalne problemy ze zgodnością mające wpływ na funkcjonalność bazy danych na Azure SQL Database. Jeśli występują pewne problemy z blokowaniem, może być konieczne rozważenie alternatywnej opcji, takiej jak [SQL Server na maszynie wirtualnej platformy Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Poniżej przedstawiono kilka przykładów:
+Użyj [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview) , aby wykryć potencjalne problemy ze zgodnością mające wpływ na funkcjonalność bazy danych na Azure SQL Database. Jeśli występują pewne problemy z blokowaniem, może być konieczne rozważenie alternatywnej opcji, takiej jak [SQL Server na maszynie wirtualnej platformy Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Oto kilka przykładów:
 
 - Jeśli wymagany jest bezpośredni dostęp do systemu operacyjnego lub systemu plików, na przykład w celu zainstalowania agentów innych firm lub niestandardowych na tej samej maszynie wirtualnej z SQL Server.
 - Jeśli masz ścisłą zależność od funkcji, które nadal nie są obsługiwane, takich jak transakcje typu FileStream/FileTable, wielopodstawowy i międzywystąpień.
@@ -162,7 +162,7 @@ Migracja bazy danych do wystąpienia zarządzanego utrzymuje ustawienia bazy dan
 Jako warunek wstępny upewnij się, że zostały wykonane następujące działania:
 
 - Wyrównaj ustawienia do wystąpienia zarządzanego przy użyciu ustawień z wystąpienia źródłowego SQL Server, badając różne wystąpienia, bazę danych, ustawienia tempdb i konfiguracje. Przed uruchomieniem pierwszego porównania wydajności upewnij się, że nie zmieniono ustawień, takich jak poziomy zgodności lub szyfrowanie, lub zaakceptuj ryzyko, że niektóre nowe funkcje, które zostały włączone, mogą mieć wpływ na niektóre zapytania. Aby zmniejszyć ryzyko związane z migracją, należy zmienić poziom zgodności bazy danych tylko po monitorowaniu wydajności.
-- Zaimplementuj [wskazówki dotyczące najlepszych rozwiązań w zakresie magazynu dla ogólnego przeznaczenia](https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525), na przykład wstępnie przydzielić rozmiar plików, aby uzyskać lepszą wydajność.
+- Zaimplementuj [wskazówki dotyczące najlepszych rozwiązań w zakresie magazynu dla ogólnego przeznaczenia](https://techcommunity.microsoft.com), na przykład wstępnie przydzielić rozmiar plików, aby uzyskać lepszą wydajność.
 - Zapoznaj się z [najważniejszymi różnicami w środowisku, które mogą spowodować różnice w wydajności między wystąpieniem zarządzanym i SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/), i zidentyfikuj czynniki ryzyka, które mogą mieć wpływ na wydajność.
 - Upewnij się, że włączono obsługę magazynu zapytań i dostrajania automatycznego na zarządzanym wystąpieniu. Te funkcje umożliwiają mierzenie wydajności obciążeń i automatyczne rozwiązanie potencjalnych problemów z wydajnością. Dowiedz się, jak używać magazynu zapytań jako optymalnego narzędzia do uzyskiwania informacji o wydajności obciążeń przed i po zmianie poziomu zgodności bazy danych, zgodnie z opisem w temacie [zachowanie stabilności wydajności podczas uaktualniania do nowszej wersji SQL Server](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 Po przygotowaniu środowiska, które jest porównywalne, jak to możliwe, z środowiskiem lokalnym, możesz rozpocząć pracę z obciążeniem i zmierzyć wydajność. Proces pomiaru powinien zawierać te same parametry, które są mierzone [podczas tworzenia linii bazowej wydajności miar obciążenia w wystąpieniu SQL Server źródłowym](#create-a-performance-baseline).

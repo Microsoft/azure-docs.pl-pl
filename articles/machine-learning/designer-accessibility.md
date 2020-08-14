@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
 ms.custom: designer
-ms.openlocfilehash: af676f128796c762b330d986836ea825a36cb246
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d91dc212eb2f856f0252261f2ddfc8a5a4d70ee
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83646299"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210369"
 ---
 # <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Korzystanie z klawiatury do korzystania z programu Azure Machine Learning Designer (wersja zapoznawcza)
 
@@ -68,7 +68,7 @@ Użyj następujących skrótów z kluczem dostępu. Aby uzyskać więcej informa
 | Klawiszy | Akcja |
 |-|-|
 | Klucz dostępu + R | Uruchom |
-| Klucz dostępu + P | Publikowanie |
+| Klucz dostępu + P | Opublikuj |
 | Klucz dostępu + C | Klonowanie |
 | Klucz dostępu + D | Wdrażanie |
 | Klucz dostępu + I | Utwórz/zaktualizuj potok wnioskowania |
@@ -79,5 +79,5 @@ Użyj następujących skrótów z kluczem dostępu. Aby uzyskać więcej informa
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Włączanie dużego kontrastu lub zmienianie motywu](../azure-portal/azure-portal-change-theme-high-contrast.md)
+- [Włączanie dużego kontrastu lub zmienianie motywu](../azure-portal/set-preferences.md#choose-a-theme-or-enable-high-contrast)
 - [Narzędzia dotyczące ułatwień dostępu w firmie Microsoft](https://www.microsoft.com/accessibility)

@@ -6,13 +6,13 @@ ms.service: cache
 ms.topic: quickstart
 ms.date: 06/18/2018
 ms.author: yegu
-ms.custom: mvc
-ms.openlocfilehash: c9dfc7c9b396ec6ecd27891298ba0b0f1fc3e186
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: 8bf301413abaa090682f14d1e7a6f9fa7096bd66
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85117849"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209222"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Szybki Start: korzystanie z usługi Azure cache for Redis z aplikacją internetową ASP.NET 
 
@@ -41,7 +41,7 @@ W tym przewodniku szybki start użyjesz programu Visual Studio 2019 do utworzeni
 
     e. W polu **Nazwa** podaj nazwę projektu. W tym przykładzie użyliśmy nazwy **ContosoTeamStats**.
 
-    f. Wybierz przycisk **OK**.
+    f. Wybierz pozycję **OK**.
    
 3. Wybierz **MVC** jako typ projektu.
 
@@ -101,7 +101,7 @@ Ponieważ plik *CacheSecrets.config* nie został wdrożony na platformie Azure z
 2. W pliku *web.config* znajdź element `<appSetting>`. Następnie dodaj następujący atrybut `file`. Jeśli wcześniej używana była inna nazwa pliku lub lokalizacja, podstaw te wartości w miejsce pokazanych w przykładzie.
 
 * Przed: `<appSettings>`
-* Otrzyma`<appSettings file="C:\AppSecrets\CacheSecrets.config">`
+* Otrzyma  `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 Środowisko uruchomieniowe ASP.NET scala zawartość pliku zewnętrznego ze znacznikami w elemencie `<appSettings>`. Środowisko uruchomieniowe ignoruje atrybut pliku, jeśli nie można odnaleźć określonego pliku. Wpisy tajne (parametry połączenia z pamięcią podręczną) nie są dołączone jako część kodu źródłowego aplikacji. Podczas wdrażania aplikacji internetowej na platformie Azure plik *CacheSecrets.config* nie jest wdrażany.
 
@@ -279,7 +279,7 @@ Po pomyślnym przetestowaniu aplikacji lokalnie możesz wdrożyć ją na platfor
 
 1. W programie Visual Studio kliknij prawym przyciskiem myszy węzeł projektu w Eksploratorze rozwiązań. Następnie wybierz pozycję **Opublikuj**.
 
-    ![Publikowanie](./media/cache-web-app-howto/cache-publish-app.png)
+    ![Opublikuj](./media/cache-web-app-howto/cache-publish-app.png)
 
 2. Wybierz pozycję **Microsoft Azure App Service**, wybierz opcję **Utwórz nowy**, a następnie wybierz pozycję **Opublikuj**.
 

@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: 28b608446c543fc568a5c322ffce1df6100d4a73
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 67e1f1dff43939ce7ef279db57bee4b18bd12dc8
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852467"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213942"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Wyzwalacz usługi Azure Blob Storage dla Azure Functions
 
@@ -80,7 +80,7 @@ Oto dane powiązania w *function.js* pliku:
 
 Ciąg `{name}` w ścieżce wyzwalacza obiektu BLOB `samples-workitems/{name}` tworzy [wyrażenie powiązania](./functions-bindings-expressions-patterns.md) , którego można użyć w kodzie funkcji w celu uzyskania dostępu do nazwy pliku wyzwalanego obiektu BLOB. Aby uzyskać więcej informacji, zobacz [wzorce nazw obiektów BLOB](#blob-name-patterns) w dalszej części tego artykułu.
 
-Aby uzyskać więcej informacji *na tematfunction.js* właściwości pliku, zobacz sekcję [Konfiguracja](#configuration) objaśnia te właściwości.
+Aby uzyskać więcej informacji * na tematfunction.js* właściwości pliku, zobacz sekcję [Konfiguracja](#configuration) objaśnia te właściwości.
 
 Oto kod skryptu w języku C#, który jest powiązany z `Stream` :
 
@@ -127,7 +127,7 @@ Oto *function.js* pliku:
 
 Ciąg `{name}` w ścieżce wyzwalacza obiektu BLOB `samples-workitems/{name}` tworzy [wyrażenie powiązania](./functions-bindings-expressions-patterns.md) , którego można użyć w kodzie funkcji w celu uzyskania dostępu do nazwy pliku wyzwalanego obiektu BLOB. Aby uzyskać więcej informacji, zobacz [wzorce nazw obiektów BLOB](#blob-name-patterns) w dalszej części tego artykułu.
 
-Aby uzyskać więcej informacji *na tematfunction.js* właściwości pliku, zobacz sekcję [Konfiguracja](#configuration) objaśnia te właściwości.
+Aby uzyskać więcej informacji * na tematfunction.js* właściwości pliku, zobacz sekcję [Konfiguracja](#configuration) objaśnia te właściwości.
 
 Oto kod JavaScript:
 
@@ -162,7 +162,7 @@ Oto *function.js* pliku:
 
 Ciąg `{name}` w ścieżce wyzwalacza obiektu BLOB `samples-workitems/{name}` tworzy [wyrażenie powiązania](./functions-bindings-expressions-patterns.md) , którego można użyć w kodzie funkcji w celu uzyskania dostępu do nazwy pliku wyzwalanego obiektu BLOB. Aby uzyskać więcej informacji, zobacz [wzorce nazw obiektów BLOB](#blob-name-patterns) w dalszej części tego artykułu.
 
-Aby uzyskać więcej informacji *na tematfunction.js* właściwości pliku, zobacz sekcję [Konfiguracja](#configuration) objaśnia te właściwości.
+Aby uzyskać więcej informacji * na tematfunction.js* właściwości pliku, zobacz sekcję [Konfiguracja](#configuration) objaśnia te właściwości.
 
 Oto kod języka Python:
 
@@ -280,7 +280,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 |**Wprowadź** | nie dotyczy | Musi być ustawiony na `blobTrigger` . Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal.|
 |**wskazywa** | nie dotyczy | Musi być ustawiony na `in` . Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal. Wyjątki są zanotowane w sekcji [użycie](#usage) . |
 |**Nazwij** | nie dotyczy | Nazwa zmiennej, która reprezentuje obiekt BLOB w kodzie funkcji. |
-|**ścieżka** | **Blobpath ścieżką** |[Kontener](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) do monitorowania.  Może być [wzorcem nazw obiektów BLOB](#blob-name-patterns). |
+|**path** | **Blobpath ścieżką** |[Kontener](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) do monitorowania.  Może być [wzorcem nazw obiektów BLOB](#blob-name-patterns). |
 |**połączenia** | **Połączenie** | Nazwa ustawienia aplikacji, które zawiera parametry połączenia magazynu, które będą używane dla tego powiązania. Jeśli nazwa ustawienia aplikacji zaczyna się od "AzureWebJobs", w tym miejscu możesz określić tylko resztę nazwy. Jeśli na przykład ustawisz opcję `connection` "Moja magazyn", środowisko uruchomieniowe funkcji wyszukuje ustawienie aplikacji o nazwie "AzureWebJobsMyStorage". Jeśli pozostawisz `connection` puste, środowisko uruchomieniowe funkcji używa domyślnych parametrów połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage` .<br><br>Parametry połączenia muszą być kontem magazynu ogólnego przeznaczenia, a nie [kontem usługi BLOB Storage](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

@@ -4,12 +4,12 @@ description: Dowiedz się, jak obrócić certyfikaty w klastrze usługi Azure Ku
 services: container-service
 ms.topic: article
 ms.date: 11/15/2019
-ms.openlocfilehash: 2e48a05a36fdbd56fb78cd1394c512485b521e50
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 90526b78e65c335f07a2a9d2d152b54b47233082
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255357"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211030"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Obróć certyfikaty w usłudze Azure Kubernetes Service (AKS)
 
@@ -17,7 +17,7 @@ Usługa Azure Kubernetes Service (AKS) używa certyfikatów do uwierzytelniania 
 
 W tym artykule pokazano, jak obrócić certyfikaty w klastrze AKS.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.0.77 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
 
@@ -37,7 +37,7 @@ AKS generuje i używa następujących certyfikatów, urzędów certyfikacji i ko
 > [!NOTE]
 > W przypadku klastrów AKS utworzonych przed Marzec 2019 istnieją certyfikaty, które wygasną po upływie dwóch lat. Każdy klaster utworzony po marcu 2019 lub dowolny klaster, który ma swoje certyfikaty, został obrócony, ma certyfikaty urzędu certyfikacji klastra, które wygasną po 30 latach. Wszystkie inne certyfikaty wygasną po upływie dwóch lat. Aby sprawdzić, kiedy klaster został utworzony, użyj, `kubectl get nodes` Aby zobaczyć *wiek* pul węzłów.
 > 
-> Ponadto możesz sprawdzić datę wygaśnięcia certyfikatu klastra. Na przykład następujące polecenie wyświetla szczegóły certyfikatu dla klastra *myAKSCluster* .
+> Ponadto możesz sprawdzić datę wygaśnięcia certyfikatu klastra. Na przykład następujące polecenie bash wyświetla szczegóły certyfikatu dla klastra *myAKSCluster* .
 > ```console
 > kubectl config view --raw -o jsonpath="{.clusters[?(@.name == 'myAKSCluster')].cluster.certificate-authority-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
 > ```

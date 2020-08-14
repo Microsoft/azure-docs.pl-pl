@@ -3,16 +3,17 @@ title: Używanie filtrów funkcji do włączania funkcji dla podzbioru użytkown
 titleSuffix: Azure App Configuration
 description: Dowiedz się, jak używać filtrów funkcji, aby włączyć funkcję dla podzbioru użytkowników
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 author: lisaguthrie
 ms.author: lcozzens
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.openlocfilehash: 181c97615985283011834dcf9145810b1563fb4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b2eb942581f6e4163012b0f767d04c02689bb7b
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80057000"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206765"
 ---
 # <a name="use-feature-filters-to-enable-a-feature-for-a-subset-of-users"></a>Używanie filtrów funkcji do włączania funkcji dla podzbioru użytkowników
 
@@ -22,8 +23,8 @@ W przeciwieństwie _Flaga funkcji warunkowej_ pozwala na dynamiczne Włączanie 
 
 `Microsoft.FeatureManagement`Biblioteka zawiera dwa filtry funkcji:
 
-- `PercentageFilter`Włącza flagę funkcji na podstawie wartości procentowej.
-- `TimeWindowFilter`Włącza flagę funkcji w określonym przedziale czasu.
+- `PercentageFilter` Włącza flagę funkcji na podstawie wartości procentowej.
+- `TimeWindowFilter` Włącza flagę funkcji w określonym przedziale czasu.
 
 Możesz również utworzyć własny filtr funkcji, który implementuje [interfejs Microsoft. FeatureManagement. IFeatureFilter](/dotnet/api/microsoft.featuremanagement.ifeaturefilter).
 

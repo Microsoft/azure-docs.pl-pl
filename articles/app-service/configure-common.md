@@ -5,13 +5,13 @@ keywords: Azure App Service, aplikacja sieci Web, ustawienia aplikacji, zmienne 
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
-ms.custom: seodec18
-ms.openlocfilehash: 9371b39bd37ba2514256a3b2fa90812f45c7ce5e
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 57039149afd22546bbd584db47e7a015b8b5f85c
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077377"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213573"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Skonfiguruj aplikację App Service w Azure Portal
 
@@ -96,11 +96,11 @@ W przypadku innych stosów języka lepiej jest używać [ustawień aplikacji](#c
 
 W czasie wykonywania parametry połączenia są dostępne jako zmienne środowiskowe poprzedzone prefiksem następujących typów połączeń:
 
-* SqlServer`SQLCONNSTR_`  
-* MySQL`MYSQLCONNSTR_` 
-* Platforma SqlAzure:`SQLAZURECONNSTR_` 
-* Celnej`CUSTOMCONNSTR_`
-* PostgreSQL`POSTGRESQLCONNSTR_`  
+* SqlServer `SQLCONNSTR_`  
+* MySQL `MYSQLCONNSTR_` 
+* Platforma SqlAzure: `SQLAZURECONNSTR_` 
+* Celnej `CUSTOMCONNSTR_`
+* PostgreSQL `POSTGRESQLCONNSTR_`  
 
 Na przykład parametry połączenia MySql o nazwie *connectionstring1* są dostępne jako zmienne środowiskowe `MYSQLCONNSTR_connectionString1` . Aby zapoznać się z procedurami specyficznymi dla stosu, zobacz:
 

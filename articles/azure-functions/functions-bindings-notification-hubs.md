@@ -3,14 +3,15 @@ title: Notification Hubs powiązania Azure Functions
 description: Dowiedz się, jak używać powiązań centrum powiadomień platformy Azure w Azure Functions.
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 97e43d2348ccbe9bf0aebfd7647f6cc34906948c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c4198a1b73f76d61e39324befc85b55bd260e363
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540370"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212219"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Notification Hubs powiązanie danych wyjściowych dla Azure Functions
 
@@ -288,7 +289,7 @@ Aby skonfigurować parametry połączenia z istniejącym centrum powiadomień:
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do centrum powiadomień, wybierz pozycję **zasady dostępu**i wybierz przycisk Kopiuj obok zasad **DefaultFullSharedAccessSignature** . Spowoduje to skopiowanie parametrów połączenia dla zasad *DefaultFullSharedAccessSignatureymi* do centrum powiadomień. Te parametry połączenia umożliwiają funkcji wysyłanie komunikatów powiadomień do centrum.
     ![Kopiowanie parametrów połączenia centrum powiadomień](./media/functions-bindings-notification-hubs/get-notification-hub-connection.png)
-1. Przejdź do aplikacji funkcji w Azure Portal, wybierz pozycję **Ustawienia aplikacji**, Dodaj klucz, taki jak **MyHubConnectionString**, wklej skopiowany *DefaultFullSharedAccessSignature* dla centrum powiadomień jako wartość, a następnie kliknij przycisk **Zapisz**.
+1. Przejdź do aplikacji funkcji w Azure Portal, wybierz pozycję **Ustawienia aplikacji**, Dodaj klucz, taki jak **MyHubConnectionString**, wklej skopiowany *DefaultFullSharedAccessSignature*  dla centrum powiadomień jako wartość, a następnie kliknij przycisk **Zapisz**.
 
 Nazwa tego ustawienia aplikacji ma wartość ustawienia połączenie wyjściowe powiązania w *function.jsna* lub atrybut platformy .NET. Zapoznaj się z [sekcją konfiguracji](#configuration) wcześniejszą w tym artykule.
 
@@ -296,7 +297,7 @@ Nazwa tego ustawienia aplikacji ma wartość ustawienia połączenie wyjściowe 
 
 ## <a name="exceptions-and-return-codes"></a>Wyjątki i kody powrotu
 
-| Wiązanie | Tematy pomocy |
+| Wiązanie | Dokumentacja |
 |---|---|
 | Centrum powiadomień | [Przewodnik obsługi](/rest/api/notificationhubs/) |
 

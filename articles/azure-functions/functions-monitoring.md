@@ -4,13 +4,13 @@ description: Dowiedz się, jak używać usługi Azure Application Insights z us�
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: a1e72fba4ece24afffba573d954c7627af46a6cd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-csharp, fasttrack-edit
+ms.openlocfilehash: 239d1da028a06d4272ed9b22b624413394aa142f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87273377"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212999"
 ---
 # <a name="monitor-azure-functions"></a>Monitorowanie usługi Azure Functions
 
@@ -69,7 +69,7 @@ Następujące obszary Application Insights mogą być pomocne podczas oceny zach
 | **[Błędy](../azure-monitor/app/asp-net-exceptions.md)** |  Twórz wykresy i alerty na podstawie błędów funkcji i wyjątków serwera. **Nazwa operacji** to nazwa funkcji. Błędy w zależnościach nie są wyświetlane, chyba że zaimplementowano niestandardową telemetrię dla zależności. |
 | **[Wydajność](../azure-monitor/app/performance-counters.md)** | Analizuj problemy z wydajnością, wyświetlając wykorzystanie zasobów i przepływność dla **wystąpień ról w chmurze**. Te dane mogą być przydatne w scenariuszach debugowania, w których funkcje boggingją bazowe zasoby. |
 | **[Metryki](../azure-monitor/platform/metrics-charts.md)** | Tworzenie wykresów i alertów opartych na metrykach. Metryki obejmują liczbę wywołań funkcji, czas wykonywania i współczynnik sukcesu. |
-| **[Metryki na żywo](../azure-monitor/app/live-stream.md)** | Wyświetlanie danych metryk w miarę ich tworzenia niemal w czasie rzeczywistym. |
+| **[Metryki na żywo    ](../azure-monitor/app/live-stream.md)** | Wyświetlanie danych metryk w miarę ich tworzenia niemal w czasie rzeczywistym. |
 
 ## <a name="query-telemetry-data"></a>Zapytanie danych telemetrycznych
 
@@ -139,7 +139,7 @@ Rejestrator Azure Functions obejmuje również *poziom dziennika* z każdym dzie
 |------------|---|
 |Ślad       | 0 |
 |Debugowanie       | 1 |
-|Informacyjny | 2 |
+|Informacje | 2 |
 |Ostrzeżenie     | 3 |
 |Błąd       | 4 |
 |Krytyczne    | 5 |
@@ -192,7 +192,7 @@ Ten przykład konfiguruje następujące reguły:
 * W przypadku dzienników z kategorią `Host.Aggregator` Wyślij wszystkie dzienniki do Application Insights. `Trace`Poziom dziennika jest taki sam jak w przypadku niektórych rejestratorów `Verbose` , ale użyj `Trace` w [host.jsna] pliku.
 * Dla wszystkich innych dzienników wysyłaj tylko `Information` poziom i powyżej do Application Insights.
 
-Wartość kategorii w [host.jsna] kontrolkach rejestrowania dla wszystkich kategorii, które zaczynają się od tej samej wartości. `Host`w [host.jsna] kontrolach rejestrowania dla `Host.General` ,, `Host.Executor` `Host.Results` , i tak dalej.
+Wartość kategorii w [host.jsna] kontrolkach rejestrowania dla wszystkich kategorii, które zaczynają się od tej samej wartości. `Host` w [host.jsna] kontrolach rejestrowania dla `Host.General` ,, `Host.Executor` `Host.Results` , i tak dalej.
 
 Jeśli [host.json] zawiera wiele kategorii, które zaczynają się od tego samego ciągu, zostaną one dopasowane jako pierwsze. Załóżmy, że chcesz, aby wszystkie elementy uruchomieniowe były wykonywane z wyjątkiem `Host.Aggregator` rejestrowania na `Error` poziomie, ale chcesz `Host.Aggregator` zalogować się na `Information` poziomie:
 
@@ -364,7 +364,7 @@ Istnieje oparta na funkcjach wersja zestawu SDK Application Insights, której mo
 dotnet add package Microsoft.Azure.WebJobs.Logging.ApplicationInsights --version <VERSION>
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version <VERSION>

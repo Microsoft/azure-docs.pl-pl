@@ -6,12 +6,12 @@ ms.topic: conceptual
 description: Dowiedz się, jak skonfigurować Azure Dev Spaces, aby użyć niestandardowego kontrolera NGINXal i skonfigurować protokół HTTPS za pomocą tego kontrolera
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 1b4bc686d0795767c259a3e0407393d7b6ebf486
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 199b077f20f396919d26b69d3fea422a8d9b4358
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420927"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212492"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Korzystanie z niestandardowego kontrolera NGINX Ingres i Konfigurowanie protokołu HTTPS
 
@@ -21,7 +21,7 @@ W tym artykule opisano sposób konfigurowania Azure Dev Spaces do używania nies
 
 * Subskrypcja platformy Azure. Jeśli nie masz, możesz utworzyć [bezpłatne konto][azure-account-create].
 * [Zainstalowany interfejs wiersza polecenia platformy Azure][az-cli].
-* [Klaster usługi Azure Kubernetes Service (AKS) z włączonym Azure dev Spaces][qs-cli].
+* Klaster usługi Azure Kubernetes Service (AKS) z włączonym Azure Dev Spaces.
 * [polecenia kubectl][kubectl] .
 * [Helm 3][helm-installed].
 * [Domena niestandardowa][custom-domain] ze [strefą DNS][dns-zone].  W tym artykule przyjęto założenie, że domena niestandardowa i strefa DNS znajdują się w tej samej grupie zasobów co klaster AKS, ale można użyć domeny niestandardowej i strefy DNS w innej grupie zasobów.
@@ -317,10 +317,10 @@ Przejdź do przykładowej aplikacji w obszarze podrzędnym *dev/azureuser1* i zw
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak Azure Dev Spaces ułatwiają tworzenie bardziej złożonych aplikacji w wielu kontenerach i jak można uprościć programowanie do współpracy, pracując z różnymi wersjami lub gałęziami kodu w różnych miejscach.
+Dowiedz się więcej o tym, jak działa Azure Dev Spaces.
 
 > [!div class="nextstepaction"]
-> [Programowanie zespołowe w Azure Dev Spaces][team-development-qs]
+> [Jak działa usługa Azure Dev Spaces](../how-dev-spaces-works.md)
 
 
 [az-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
@@ -328,9 +328,6 @@ Dowiedz się, jak Azure Dev Spaces ułatwiają tworzenie bardziej złożonych ap
 [az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/a?view=azure-cli-latest#az-network-dns-record-set-a-add-record
 [custom-domain]: ../../app-service/manage-custom-dns-buy-domain.md#buy-the-domain
 [dns-zone]: ../../dns/dns-getstarted-cli.md
-[qs-cli]: ../quickstart-cli.md
-[team-development-qs]: ../quickstart-team-development.md
-
 [azds-yaml]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/azds.yaml
 [azure-account-create]: https://azure.microsoft.com/free
 [cert-manager]: https://cert-manager.io/

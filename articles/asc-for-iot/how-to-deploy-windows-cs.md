@@ -10,17 +10,18 @@ editor: ''
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
 ms.subservice: asc-for-iot
 ms.devlang: na
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 4d7d2f0a423a50f85160a856480eaa973be7e2b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64b9176a16f4d8d2b7ee7f33e00714d811c5f070
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537614"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209093"
 ---
 # <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Wdrażanie agenta zabezpieczeń usługi Azure Security Center dla IoT opartego na języku C# dla systemu Windows
 
@@ -29,10 +30,10 @@ W tym przewodniku wyjaśniono, jak zainstalować Azure Security Center agenta za
 Niniejszy przewodnik zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Instalowanie
+> * Zainstaluj
 > * Weryfikowanie wdrożenia
 > * Odinstalowywanie agenta
-> * Rozwiązywanie problemów
+> * Rozwiąż problemy
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -63,7 +64,7 @@ Aby zainstalować agenta zabezpieczeń, użyj następującego przepływu pracy:
     .\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
     ```
 
-    Przykład:
+    Na przykład:
 
     ```
     .\InstallSecurityAgent.ps1 -Install -aui Device -aum SymmetricKey -f c:\Temp\Key.txt -hn MyIotHub.azure-devices.net -di Mydevice1 -cl store
@@ -80,7 +81,7 @@ Ten skrypt wykonuje następujące czynności:
 
 Aby uzyskać dodatkową pomoc, użyj polecenia Get-Help w programie PowerShell.
 
-Przykład get-help:```Get-Help .\InstallSecurityAgent.ps1```
+Przykład get-help:    ```Get-Help .\InstallSecurityAgent.ps1```
 
 ### <a name="verify-deployment-status"></a>Sprawdź stan wdrożenia
 
@@ -137,7 +138,7 @@ Aby włączyć rejestrowanie:
 
 1. Przejrzyj plik dziennika, aby uzyskać więcej informacji o błędzie. Plik dziennika powinien znajdować się w katalogu roboczym, w którym jest uruchamiany skrypt. 
 
-   Lokalizacja pliku dziennika:`.\IoTAgentLog.log`
+   Lokalizacja pliku dziennika: `.\IoTAgentLog.log`
 
 ## <a name="next-steps"></a>Następne kroki
 

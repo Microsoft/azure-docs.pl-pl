@@ -6,13 +6,13 @@ ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: 49bbc2199c7dc3040a24071b8eb5a91929d88e08
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 45f704afce28967237b2905ef068678ba05ae085
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849246"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206651"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Wyzwalacz czasomierza dla Azure Functions 
 
@@ -168,7 +168,7 @@ public void keepAlive(
 
 W [bibliotekach klas języka C#](functions-dotnet-class-library.md)Użyj [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
 
-Konstruktor atrybutu przyjmuje wyrażenie typu CRONUS lub `TimeSpan` . Można używać `TimeSpan` tylko wtedy, gdy aplikacja funkcji jest uruchomiona w planie App Service. `TimeSpan`nie jest obsługiwane w przypadku funkcji użycia ani elastycznych wersji Premium.
+Konstruktor atrybutu przyjmuje wyrażenie typu CRONUS lub `TimeSpan` . Można używać `TimeSpan` tylko wtedy, gdy aplikacja funkcji jest uruchomiona w planie App Service. `TimeSpan` nie jest obsługiwane w przypadku funkcji użycia ani elastycznych wersji Premium.
 
 Poniższy przykład przedstawia wyrażenie firmy CRONUS:
 
@@ -314,8 +314,8 @@ W przypadku udostępniania kont magazynu w aplikacjach funkcji, które nie są w
 
 | Wersja funkcji | Ustawienie                                              |
 | ----------------- | ---------------------------------------------------- |
-| 2. x (i nowsze)  | `AzureFunctionsWebHost__hostid`Zmienna środowiskowa |
-| 1.x               | `id`w *host.jsna*                                  |
+| 2. x (i nowsze)  | `AzureFunctionsWebHost__hostid` Zmienna środowiskowa |
+| 1.x               | `id` w *host.jsna*                                  |
 
 Możesz pominąć wartość identyfikującą lub ręcznie ustawić konfigurację identyfikującą każdą aplikację funkcji na inną wartość.
 

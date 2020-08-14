@@ -9,27 +9,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 11/08/2019
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4253f5bd702abd061cf1cddd4badd68c9cd5d475
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: e5b54af39401ba8c3fede4c9ad80ec8edc963b1d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582824"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213676"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Szybki start: zasady nazewnictwa grup w usłudze Azure Active Directory
 
-W tym przewodniku szybki start skonfigurujesz zasady nazewnictwa w organizacji usługi Azure Active Directory (Azure AD) dla grup programu Office 365 utworzonych przez użytkowników, aby ułatwić sortowanie i wyszukiwanie grup w organizacji. Zasady nazewnictwa umożliwiają na przykład:
+W tym przewodniku szybki start ustawisz zasady nazewnictwa w organizacji usługi Azure Active Directory (Azure AD) dla grup Microsoft 365 utworzonych przez użytkowników, aby ułatwić sortowanie i wyszukiwanie grup w organizacji. Zasady nazewnictwa umożliwiają na przykład:
 
 * Przekazywanie informacji na temat funkcji grupy, członkostwa, regionu geograficznego lub twórcy grupy.
 * Łatwiejsze kategoryzowanie grup w książce adresowej.
 * Blokowanie konkretnych słów, aby uniemożliwić ich używanie w nazwach grup i aliasach.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="configure-the-group-naming-policy-in-the-azure-portal"></a>Skonfiguruj zasady nazewnictwa grup w Azure Portal
 
@@ -55,9 +55,9 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpł
 1. Przekaż nową listę niestandardowych zablokowanych słów, wybierając ikonę pliku.
 1. Wybierz pozycję **Zapisz** , aby zmienić zasady, aby wejść w życie.
 
-Gotowe. Skonfigurowano zasady nazewnictwa i dodano niestandardowe słowa zablokowane.
+To wszystko. Skonfigurowano zasady nazewnictwa i dodano niestandardowe słowa zablokowane.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 ### <a name="remove-the-naming-policy-using-azure-portal"></a>Usuń zasady nazewnictwa przy użyciu Azure Portal
 

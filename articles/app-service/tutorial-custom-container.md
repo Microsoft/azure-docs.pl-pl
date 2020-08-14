@@ -5,14 +5,14 @@ ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: msangapu
 keywords: Azure App Service, Web App, Linux, Windows, Docker, kontener
-ms.custom: mvc, seodec18, devx-track-python
+ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: c589ceecdd946b9c9ff17dd459654d066a1167e4
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: a3579ba805d0da08184e6274de60086a9d55a938
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88084629"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212945"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrowanie oprogramowania niestandardowego do Azure App Service przy użyciu niestandardowego kontenera
 
@@ -120,7 +120,7 @@ Skonfiguruj nowy rejestr kontenerów, korzystając z sugerowanych wartości z po
 | ----------------- | ------------ | ----|
 |**Prefiks DNS**| Zachowaj wygenerowaną nazwę rejestru lub zmień ją na inną unikatową nazwę. |  |
 |**Grupa zasobów**| Kliknij pozycję **Nowy**, wpisz **myResourceGroup** i kliknij przycisk **OK**. |  |
-|**SKU**| Podstawowy | [Warstwy cenowe](https://azure.microsoft.com/pricing/details/container-registry/)|
+|**SKU**| Podstawowa | [Warstwy cenowe](https://azure.microsoft.com/pricing/details/container-registry/)|
 |**Lokalizacja rejestru**| West Europe | |
 
 ![Konfigurowanie rejestru kontenerów platformy Azure](./media/tutorial-custom-container/configure-registry.png)
@@ -462,9 +462,9 @@ Aby wdrożyć kontener do Azure App Service, należy najpierw utworzyć aplikacj
     ```
 
     Zastąp następujące wartości:
-    - `<principal-id>`z IDENTYFIKATORem jednostki usługi z `az webapp identity assign` polecenia
-    - `<registry-name>`Nazwa rejestru kontenerów
-    - `<subscription-id>`z IDENTYFIKATORem subskrypcji pobranym z `az account show` polecenia
+    - `<principal-id>` z IDENTYFIKATORem jednostki usługi z `az webapp identity assign` polecenia
+    - `<registry-name>` Nazwa rejestru kontenerów
+    - `<subscription-id>` z IDENTYFIKATORem subskrypcji pobranym z `az account show` polecenia
 
 Aby uzyskać więcej informacji o tych uprawnieniach, zobacz [co to jest kontrola dostępu oparta na rolach na platformie Azure](/azure/role-based-access-control/overview) i 
 

@@ -2,13 +2,14 @@
 title: Opracowywanie Azure Functions przy użyciu Visual Studio Code
 description: Dowiedz się, jak opracowywać i testować Azure Functions przy użyciu rozszerzenia Azure Functions dla Visual Studio Code.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: d8ccb93013b16fc919630251aa02edf48e30ce6d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 610c80dc5552eae4f2ad8442fa11b85f2eab35eb
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083127"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206757"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Opracowywanie Azure Functions przy użyciu Visual Studio Code
 
@@ -26,7 +27,7 @@ Rozszerzenia można używać w następujących językach, które są obsługiwan
 * [Skrypt C#](functions-reference-csharp.md)<sup>*</sup>
 * [JavaScript](functions-reference-node.md)
 * [Java](functions-reference-java.md)
-* [Program PowerShell](functions-reference-powershell.md)
+* [PowerShell](functions-reference-powershell.md)
 * [Python](functions-reference-python.md)
 
 <sup>*</sup>Wymaga [Ustawienia skryptu języka C# jako domyślnego języka projektu](#c-script-projects).
@@ -92,7 +93,7 @@ Szablon projektu tworzy projekt w wybranym języku i instaluje wymagane zależno
 
 W zależności od języka tworzone są te inne pliki:
 
-# <a name="c"></a>[S\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 * [Plik biblioteki klas HttpExample.cs](functions-dotnet-class-library.md#functions-class-library-project) , który implementuje funkcję.
 
@@ -102,7 +103,7 @@ W tym momencie można dodać powiązania danych wejściowych i wyjściowych do f
 
 * package.jspliku w folderze głównym.
 
-* Folder HttpExample zawierający [function.jsw pliku definicji](functions-reference-node.md#folder-structure) oraz [plikindex.js](functions-reference-node.md#exporting-a-function), plik Node.js, który zawiera kod funkcji.
+* Folder HttpExample zawierający [function.jsw pliku definicji](functions-reference-node.md#folder-structure) oraz [ plikindex.js](functions-reference-node.md#exporting-a-function), plik Node.js, który zawiera kod funkcji.
 
 W tym momencie można dodać powiązania danych wejściowych i wyjściowych do funkcji, [modyfikując function.jsw pliku](#add-input-and-output-bindings).
 
@@ -124,7 +125,7 @@ Możesz również [dodać nową funkcję do projektu](#add-a-function-to-your-pr
 
 Z wyjątkiem wyzwalaczy HTTP i Timer, powiązania są implementowane w pakietach rozszerzeń. Należy zainstalować pakiety rozszerzeń dla wyzwalaczy i powiązań, które ich potrzebują. Proces instalacji rozszerzeń powiązań zależy od języka projektu.
 
-# <a name="c"></a>[S\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 Uruchom polecenie [dotnet Add Package](/dotnet/core/tools/dotnet-add-package) w oknie terminalu, aby zainstalować pakiety rozszerzeń, które są potrzebne w projekcie. Następujące polecenie instaluje rozszerzenie usługi Azure Storage, które implementuje powiązania dla obiektów blob, Queue i Table Storage.
 
@@ -144,7 +145,7 @@ Nową funkcję można dodać do istniejącego projektu przy użyciu jednego ze w
 
 Wyniki tej akcji zależą od języka projektu:
 
-# <a name="c"></a>[S\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 Do projektu zostanie dodany nowy plik biblioteki klas C# (. cs).
 
@@ -160,7 +161,7 @@ Funkcję można rozszerzyć przez dodanie powiązań wejściowych i wyjściowych
 
 Poniższe przykłady nawiązują połączenie z kolejką magazynu o nazwie `outqueue` , gdzie parametry połączenia dla konta magazynu są ustawiane w `MyStorageConnection` ustawieniach aplikacji w local.settings.jsna.
 
-# <a name="c"></a>[S\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 Zaktualizuj metodę funkcji, aby dodać następujący parametr do `Run` definicji metody:
 
@@ -330,7 +331,7 @@ Aby dowiedzieć się więcej, zobacz [Work with Azure Functions Core Tools][Azur
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-Domyślnie te ustawienia nie są migrowane automatycznie, gdy projekt jest publikowany na platformie Azure. Po zakończeniu publikowania otrzymujesz opcję publikowania ustawień z local.settings.jsdo aplikacji funkcji na platformie Azure. Aby dowiedzieć się więcej, zobacz [Publikowanie ustawień aplikacji](#publish-application-settings).
+Domyślnie te ustawienia nie są migrowane automatycznie, gdy projekt jest publikowany na platformie Azure. Po zakończeniu publikowania otrzymujesz opcję publikowania ustawień z local.settings.jsdo aplikacji funkcji na platformie Azure. Aby dowiedzieć się więcej, zobacz  [Publikowanie ustawień aplikacji](#publish-application-settings).
 
 Wartości w **connectionStrings** nigdy nie są publikowane.
 

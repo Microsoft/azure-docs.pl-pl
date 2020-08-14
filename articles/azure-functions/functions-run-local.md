@@ -4,13 +4,13 @@ description: Dowiedz się, jak kodować i testować usługi Azure Functions w wi
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 5c6761b083200556314d7133d5040f7811066e30
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.custom: devx-track-csharp, 80e4ff38-5174-43
+ms.openlocfilehash: 18263f9e77961fb4c169559f221ab94eb4a38840
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037035"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207454"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Korzystanie z narzędzi Azure Functions Core Tools
 
@@ -189,7 +189,7 @@ Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 </pre>
 
-`func init`Program obsługuje następujące opcje, które są w wersji 3. x/2. x-Only, chyba że wskazano inaczej:
+`func init` Program obsługuje następujące opcje, które są w wersji 3. x/2. x-Only, chyba że wskazano inaczej:
 
 | Opcja     | Opis                            |
 | ------------ | -------------------------------------- |
@@ -233,7 +233,7 @@ Wartości ustawień aplikacji funkcji można także odczytać w kodzie jako zmie
 * [Skrypt języka C# (csx)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
-* [Program PowerShell](functions-reference-powershell.md#environment-variables)
+* [PowerShell](functions-reference-powershell.md#environment-variables)
 * [Python](functions-reference-python.md#environment-variables)
 
 Gdy nie ustawiono prawidłowych parametrów połączenia magazynu dla [`AzureWebJobsStorage`] i emulator nie jest używany, wyświetlany jest następujący komunikat o błędzie:
@@ -363,7 +363,7 @@ npm start
 > func host start
 > ```
 
-`func start`Program obsługuje następujące opcje:
+`func start` Program obsługuje następujące opcje:
 
 | Opcja     | Opis                            |
 | ------------ | -------------------------------------- |
@@ -472,7 +472,7 @@ curl --request POST -H "Content-Type:application/json" --data "{'input':'sample 
 
 W wersji 1. x można także wywołać funkcję bezpośrednio przy użyciu `func run <FunctionName>` i podać dane wejściowe dla funkcji. To polecenie jest podobne do uruchamiania funkcji za pomocą karty **test** w Azure Portal.
 
-`func run`Program obsługuje następujące opcje:
+`func run` Program obsługuje następujące opcje:
 
 | Opcja     | Opis                            |
 | ------------ | -------------------------------------- |
@@ -547,7 +547,7 @@ Dostępne są następujące opcje wdrożenia kontenera niestandardowego:
 | Opcja     | Opis                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | Nazwa rejestru platformy Docker, do którego jest zalogowany bieżący użytkownik. |
-| **`--platform`** | Platforma hostingu dla aplikacji funkcji. Prawidłowe opcje to`kubernetes` |
+| **`--platform`** | Platforma hostingu dla aplikacji funkcji. Prawidłowe opcje to `kubernetes` |
 | **`--name`** | Nazwa aplikacji funkcji. |
 | **`--max`**  | Opcjonalnie ustawia maksymalną liczbę wystąpień aplikacji funkcji do wdrożenia. |
 | **`--min`**  | Opcjonalnie ustawia minimalną liczbę wystąpień aplikacji funkcji do wdrożenia. |

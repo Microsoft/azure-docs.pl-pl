@@ -3,15 +3,16 @@ title: Przewodnik Szybki Start dotyczący dodawania flag funkcji do ASP.NET Core
 description: Dodawanie flag funkcji do ASP.NET Core aplikacji i zarządzanie nimi przy użyciu konfiguracji aplikacji platformy Azure
 author: lisaguthrie
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: a25a40346d588f56028bf08294b070823b729e25
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: c59bf14c03d9f7c0c835c5a19cf5ed92acea3501
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760145"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214212"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji ASP.NET Core
 
@@ -56,7 +57,7 @@ Aby użyć Menedżera wpisów tajnych, Dodaj `UserSecretsId` element do pliku *.
 1.  Dodaj `UserSecretsId` element, jak pokazano tutaj. Możesz użyć tego samego identyfikatora GUID lub można zastąpić tę wartość własną.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder`zastępuje `CreateWebHostBuilder` w programie .NET Core 3,0.  Wybierz poprawną składnię opartą na Twoim środowisku.
+    > `CreateHostBuilder` zastępuje `CreateWebHostBuilder` w programie .NET Core 3,0.  Wybierz poprawną składnię opartą na Twoim środowisku.
 
     #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
 
@@ -129,7 +130,7 @@ Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperski
 1. W programie *program.cs*zaktualizuj `CreateWebHostBuilder` metodę, aby użyć konfiguracji aplikacji przez wywołanie `config.AddAzureAppConfiguration()` metody.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder`zastępuje `CreateWebHostBuilder` w programie .NET Core 3,0.  Wybierz poprawną składnię opartą na Twoim środowisku.
+    > `CreateHostBuilder` zastępuje `CreateWebHostBuilder` w programie .NET Core 3,0.  Wybierz poprawną składnię opartą na Twoim środowisku.
 
     #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
 
@@ -186,7 +187,7 @@ Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperski
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
-        services.AddSingleton(Configuration).AddFeatureManagement();
+        services.AddFeatureManagement();
     }
 
     ---
@@ -361,7 +362,7 @@ Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperski
 
     ![Lokalne uruchamianie aplikacji z przewodnika Szybki start](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

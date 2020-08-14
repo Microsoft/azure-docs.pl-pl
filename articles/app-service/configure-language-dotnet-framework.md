@@ -2,14 +2,15 @@
 title: Konfigurowanie aplikacji ASP.NET
 description: Dowiedz się, jak skonfigurować aplikację ASP.NET w Azure App Service. W tym artykule przedstawiono najczęstsze zadania konfiguracyjne.
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 53654520ea20bd8ee797de61449a616eadd001a5
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 67816544e173c19cbc85c5779ffeba92578e00b2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080151"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211871"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Konfigurowanie aplikacji ASP.NET dla Azure App Service
 

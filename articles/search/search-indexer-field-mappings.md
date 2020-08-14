@@ -9,14 +9,16 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 543644495a99bacd40edc3f2d9151e4c15808c50
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 47a8d58d6ca0a8a04823fe09fb52490f13cfead7
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038430"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208735"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapowania pól i przekształcenia przy użyciu indeksatorów usługi Azure Wyszukiwanie poznawcze
+
+![Etapy indeksatora](./media/search-indexer-field-mappings/indexer-stages-field-mappings.png "etapy indeksatora")
 
 W przypadku korzystania z usługi Azure Wyszukiwanie poznawcze indeksatorów czasami okaże się, że dane wejściowe nie są całkowicie zgodne ze schematem docelowego indeksu. W takich przypadkach można użyć **mapowań pól** , aby zmienić kształt danych podczas procesu indeksowania.
 
@@ -275,9 +277,9 @@ Ta funkcja może służyć do kodowania ciągu w taki sposób, że jest to "bezp
 
 #### <a name="example---document-key-lookup"></a>Przykład — wyszukiwanie klucza dokumentu
 
-`urlEncode`funkcja może być używana jako alternatywa dla `base64Encode` funkcji, jeśli tylko niebezpieczne znaki adresów URL mają być konwertowane, przy czym inne znaki są inne.
+`urlEncode` funkcja może być używana jako alternatywa dla `base64Encode` funkcji, jeśli tylko niebezpieczne znaki adresów URL mają być konwertowane, przy czym inne znaki są inne.
 
-Załóżmy, że ciąg wejściowy jest `<hello>` -następnie pole docelowe typu `(Edm.String)` zostanie wypełnione wartością`%3chello%3e`
+Załóżmy, że ciąg wejściowy jest `<hello>` -następnie pole docelowe typu `(Edm.String)` zostanie wypełnione wartością `%3chello%3e`
 
 Gdy pobierasz zakodowany klucz podczas wyszukiwania, możesz użyć `urlDecode` funkcji, aby uzyskać oryginalną wartość klucza, a następnie użyć jej do pobrania dokumentu źródłowego.
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: alkohli
-ms.openlocfilehash: a99499110951ccbc0458b5ce848930fed9205dad
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 7cac14708adecbdf3c809e3a9656d25c727d80e3
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372030"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206139"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Użyj lokalnego interfejsu użytkownika sieci Web do administrowania urządzenie Data Box i Data Box Heavy
 
@@ -25,7 +25,7 @@ W tym artykule zawarto następujące samouczki:
 
 - Generowanie pakietu dla pomocy technicznej
 - Zamykanie lub ponowne uruchamianie urządzenia
-- Pobieranie zestawienia komponentów lub plików manifestu
+- Pobierz BOM lub pliki manifestu
 - Wyświetlanie dostępnej pojemności urządzenia
 - Pomijanie weryfikacji sumy kontrolnej
 
@@ -53,7 +53,7 @@ Jeśli napotkasz jakiekolwiek problemy z urządzeniem, możesz utworzyć pakiet 
 
 ## <a name="shut-down-or-restart-your-device"></a>Zamykanie lub ponowne uruchamianie urządzenia
 
-Możesz zamknąć lub ponownie uruchomić urządzenie przy użyciu lokalnego interfejsu użytkownika sieci Web. Zaleca się, aby przed ponownym uruchomieniem przełączyć udziały w tryb offline na hoście, a następnie na urządzeniu. Minimalizuje to ryzyko uszkodzenia danych. Upewnij się, że kopiowanie danych nie jest w toku podczas wyłączania urządzenia.
+Możesz zamknąć lub ponownie uruchomić urządzenie przy użyciu lokalnego interfejsu użytkownika sieci Web. Zaleca się, aby przed ponownym uruchomieniem przełączyć udziały w tryb offline na hoście, a następnie na urządzeniu. Takie działanie minimalizuje możliwość uszkodzenia danych. Upewnij się, że kopiowanie danych nie jest w toku podczas wyłączania urządzenia.
 
 Aby zamknąć urządzenie, wykonaj następujące czynności.
 
@@ -62,7 +62,7 @@ Aby zamknąć urządzenie, wykonaj następujące czynności.
 
     ![Zamykanie urządzenia Data Box 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
 
-3. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **OK**, aby kontynuować.
+3. Po wyświetleniu monitu o potwierdzenie wybierz pozycję **OK** , aby wykonać operację.
 
     ![Zamykanie urządzenia Data Box 2](media/data-box-local-web-ui-admin/shut-down-local-web-ui-2.png)
 
@@ -81,33 +81,32 @@ Aby ponownie uruchomić urządzenie Data Box, wykonaj następujące czynności.
 
 ## <a name="download-bom-or-manifest-files"></a>Pobieranie zestawienia komponentów lub plików manifestu
 
-BOM lub pliki manifestu zawierają listę plików, które są kopiowane do urządzenie Data Box lub Data Box Heavy. Te pliki są generowane dla zamówienia importu podczas przygotowywania urządzenia do wysłania.
+Plik BOM lub manifest zawiera listę plików, które są kopiowane do urządzenie Data Box lub Data Box Heavy. Te pliki są generowane dla zamówienia importu podczas przygotowywania urządzenia do wysłania.
 
-Przed rozpoczęciem upewnij się, że urządzenie zostało wykonane **przygotowanie do wysłania** kroku. Wykonaj następujące kroki, aby pobrać pliki BOM lub manifestów dla zamówienia importu:
+Przed rozpoczęciem wykonaj następujące kroki, aby pobrać pliki BOM lub manifestów dla zamówienia importu:
 
-1. Przejdź do lokalnego interfejsu użytkownika sieci Web dla Twojego urządzenia. Zobaczysz, że urządzenie zakończyło przygotowywanie do wysłania. Po zakończeniu przygotowywania urządzenia stan urządzenia ma wartość **Gotowe do wysyłki**.
+1. Przejdź do lokalnego interfejsu użytkownika sieci Web dla Twojego urządzenia. Sprawdź, czy urządzenie ukończyło krok **przygotowanie do wysłania** . Po zakończeniu przygotowywania urządzenia stan urządzenia ma wartość **Gotowe do wysyłki**.
 
-    ![Urządzenie gotowe do wysyłki](media/data-box-portal-admin/ready-to-ship.png)
+    ![Urządzenie gotowe do wysyłki](media/data-box-local-web-ui-admin/prepare-to-ship-3.png)
 
 2. Wybierz pozycję **Pobierz listę plików** , aby pobrać listę plików, które zostały skopiowane do urządzenie Data Box.
 
-    ![Wybierz pozycję Pobierz listę plików](media/data-box-portal-admin/download-list-of-files.png)
+    <!-- ![Select Download list of files](media/data-box-portal-admin/download-list-of-files.png) -->
 
 3. W Eksploratorze plików zauważysz, że jest generowana oddzielna lista plików w zależności od protokołu użytego do nawiązania połączenia z urządzeniem i od użytego typu magazynu usługi Azure Storage.
 
-    ![Pliki dla typu magazynu i protokołu połączenia](media/data-box-portal-admin/files-storage-connection-type.png)
+    <!-- ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png) -->
+    ![Pliki dla typu magazynu i protokołu połączenia](media/data-box-local-web-ui-admin/prepare-to-ship-5.png)
 
    Poniższa tabela zawiera mapowanie nazw plików na typ magazynu usługi Azure Storage i użyty protokół połączenia.
 
     |Nazwa pliku  |Typ magazynu usługi Azure Storage  |Użyty protokół połączenia |
     |---------|---------|---------|
-    |databoxe2etest_BlockBlob.txt     |Blokowe obiekty blob         |SMB/NFS         |
-    |databoxe2etest_PageBlob.txt     |Stronicowe obiekty blob         |SMB/NFS         |
-    |databoxe2etest_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
-    |databoxe2etest_PageBlock_Rest-BOM.txt     |Stronicowe obiekty blob         |REST        |
-    |databoxe2etest_BlockBlock_Rest-BOM.txt    |Blokowe obiekty blob         |REST         |
-    |mydbmdrg1_MDisk-BOM.txt    |Dysk zarządzany         |SMB/NFS         |
-    |mydbmdrg2_MDisk-BOM.txt     |Dysk zarządzany         |SMB/NFS         |
+    |utSAC1_202006051000_BlockBlob-BOM.txt     |Blokowe obiekty blob         |SMB/NFS         |
+    |utSAC1_202006051000_PageBlob-BOM.txt     |Stronicowe obiekty blob         |SMB/NFS         |
+    |utSAC1_202006051000_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
+    |utsac1_PageBlock_Rest-BOM.txt     |Stronicowe obiekty blob         |REST        |
+    |utsac1_BlockBlock_Rest-BOM.txt    |Blokowe obiekty blob         |REST         |
 
 Ta lista umożliwia weryfikację plików przekazanych do konta usługi Azure Storage po powrocie urządzenia Data Box do centrum danych platformy Azure. Poniżej przedstawiono przykładowy plik manifestu.
 

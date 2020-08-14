@@ -4,16 +4,16 @@ description: Dowiedz się, jak opracowywać Azure WebJobs w programie Visual Stu
 author: ggailey777
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
 ms.topic: conceptual
-ms.custom: vs-azure
+ms.custom: devx-track-csharp, vs-azure
 ms.date: 07/30/2020
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: f6ebb20eb66e2449f6627b3c6ce45fd88b8640aa
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 14bb693ccaa1b1d16a1d07b7ee1cdeb4493960f5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009796"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212881"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio"></a>Opracowywanie i wdrażanie zadań WebJob za pomocą programu Visual Studio
 
@@ -57,7 +57,7 @@ Wdróż projekt jako zadanie WebJob lub połącz go z projektem sieci Web, tak a
 
 Zainstaluj program Visual Studio 2017 lub Visual Studio 2019 przy użyciu [obciążeń programistycznych platformy Azure](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
-### <a name="enable-webjobs-deployment-for-an-existing-console-app-project"></a><a id="convert"></a>Włącz wdrażanie zadań WebJob dla istniejącego projektu aplikacji konsolowej
+### <a name="enable-webjobs-deployment-for-an-existing-console-app-project"></a><a id="convert"></a> Włącz wdrażanie zadań WebJob dla istniejącego projektu aplikacji konsolowej
 
 Dostępne są dwie opcje:
 
@@ -69,7 +69,7 @@ Dostępne są dwie opcje:
 
   Skonfiguruj istniejący projekt aplikacji konsolowej do wdrożenia jako zadanie WebJob, bez linku do projektu sieci Web. Użyj tej opcji, jeśli chcesz uruchomić zadanie WebJob w aplikacji sieci Web, korzystając z aplikacji sieci Web działającej w aplikacji sieci Web. Można to zrobić, aby skalować zasoby WebJob niezależnie od zasobów aplikacji sieci Web.
 
-#### <a name="enable-automatic-webjobs-deployment-with-a-web-project"></a><a id="convertlink"></a>Włącz automatyczne wdrażanie zadań WebJob przy użyciu projektu sieci Web
+#### <a name="enable-automatic-webjobs-deployment-with-a-web-project"></a><a id="convertlink"></a> Włącz automatyczne wdrażanie zadań WebJob przy użyciu projektu sieci Web
 
 1. Kliknij prawym przyciskiem myszy projekt sieci Web w **Eksplorator rozwiązań**, a następnie wybierz pozycję **Dodaj**  >  **istniejący projekt jako zadanie WebJob platformy Azure**.
    
@@ -81,7 +81,7 @@ Dostępne są dwie opcje:
     ![Wybieranie projektu w oknie dialogowym Dodawanie zadania WebJob platformy Azure](./media/webjobs-dotnet-deploy-vs/aaw1.png)
 3. Wypełnij okno dialogowe [Dodawanie zadania WebJob platformy Azure](#configure) , a następnie wybierz przycisk **OK**. 
 
-#### <a name="enable-webjobs-deployment-without-a-web-project"></a><a id="convertnolink"></a>Włącz wdrażanie zadań WebJob bez projektu sieci Web
+#### <a name="enable-webjobs-deployment-without-a-web-project"></a><a id="convertnolink"></a> Włącz wdrażanie zadań WebJob bez projektu sieci Web
 1. Kliknij prawym przyciskiem myszy projekt Aplikacja konsolowa w **Eksplorator rozwiązań**, a następnie wybierz pozycję **Publikuj jako zadanie WebJob platformy Azure**. 
    
     ![Publikuj jako zadanie WebJob platformy Azure](./media/webjobs-dotnet-deploy-vs/paw.png)
@@ -106,12 +106,12 @@ Aby utworzyć nowy projekt z obsługą zadań WebJob, użyj szablonu projektu ap
 > 
 > 
 
-#### <a name="use-the-webjobs-new-project-template-for-an-independent-webjob"></a><a id="createnolink"></a>Użycie szablonu New-Project nowego projektu dla niezależnego Zadania WebJob
+#### <a name="use-the-webjobs-new-project-template-for-an-independent-webjob"></a><a id="createnolink"></a> Użycie szablonu New-Project nowego projektu dla niezależnego Zadania WebJob
 1. Wybierz pozycję **plik**  >  **Nowy**  >  **projekt**. W oknie dialogowym **Crete nowego projektu** Wyszukaj i wybierz pozycję **zadanie WebJob platformy Azure (.NET Framework)** dla języka C#.
    
 2. Postępuj zgodnie z poprzednimi wskazówkami, aby [utworzyć projekt aplikacji konsoli jako niezależny projekt zadań WebJob](#convertnolink).
 
-#### <a name="use-the-webjobs-new-project-template-for-a-webjob-linked-to-a-web-project"></a><a id="createlink"></a>Użyj szablonu New-Project nowego projektu dla zadania WebJob połączonego z projektem sieci Web
+#### <a name="use-the-webjobs-new-project-template-for-a-webjob-linked-to-a-web-project"></a><a id="createlink"></a> Użyj szablonu New-Project nowego projektu dla zadania WebJob połączonego z projektem sieci Web
 1. Kliknij prawym przyciskiem myszy projekt sieci Web w **Eksplorator rozwiązań**, a następnie wybierz pozycję **Dodaj**  >  **Nowy projekt Zadania WebJob platformy Azure**.
    
     ![Nowy wpis menu projektu zadań WebJob platformy Azure](./media/webjobs-dotnet-deploy-vs/nawj.png)
@@ -218,10 +218,10 @@ Następujące ustawienia są obsługiwane przez Zadania WebJob:
 
 | **Ustawienie** | **Typ**  | **Opis** |
 | ----------- | --------- | --------------- |
-| `is_in_place` | Wszyscy | Umożliwia uruchomienie zadania WebJob bez uprzedniego kopiowania do folderu tymczasowego. Aby uzyskać więcej informacji, zobacz [katalog roboczy zadania WebJob](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
+| `is_in_place` | Wszystko | Umożliwia uruchomienie zadania WebJob bez uprzedniego kopiowania do folderu tymczasowego. Aby uzyskać więcej informacji, zobacz [katalog roboczy zadania WebJob](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
 | `is_singleton` | Ciągłe | W przypadku skalowania w poziomie nie uruchamiaj Zadania WebJob tylko dla jednego wystąpienia. Aby uzyskać więcej informacji, zobacz [Ustawianie ciągłego zadania jako pojedyncze](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
 | `schedule` | Wyzwalane | Uruchom zadanie WebJob na podstawie harmonogramu opartego na języku cronus. Aby uzyskać więcej informacji, zobacz [wyrażenia NCRONTAB](../azure-functions/functions-bindings-timer.md#ncrontab-expressions). |
-| `stopping_wait_time`| Wszyscy | Umożliwia sterowanie zachowaniem zamknięcia. Aby uzyskać więcej informacji, zobacz [bezpieczne zamykanie](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
+| `stopping_wait_time`| Wszystko | Umożliwia sterowanie zachowaniem zamknięcia. Aby uzyskać więcej informacji, zobacz [bezpieczne zamykanie](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ### <a name="continuous-execution"></a>Ciągłe wykonywanie
 

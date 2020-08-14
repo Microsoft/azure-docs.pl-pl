@@ -4,12 +4,12 @@ description: Dowiedz się, jak korzystać z procesorów GPU w przypadku oblicze�
 services: container-service
 ms.topic: article
 ms.date: 03/27/2020
-ms.openlocfilehash: 30cbac0984236717581c994700483b85829c4571
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ed655a6809f2932bbe8e85fb1cd9fd7996cf7647
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244297"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213183"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Korzystanie z procesorów GPU na potrzeby obciążeń intensywnie korzystających z obliczeń w usłudze Azure Kubernetes Service (AKS)
 
@@ -20,7 +20,7 @@ Jednostki procesora graficznego (GPU) są często używane do obciążeń intens
 
 Obecnie użycie pul węzłów z obsługą procesora GPU jest dostępne tylko dla pul węzłów systemu Linux.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule założono, że masz istniejący klaster AKS z węzłami obsługującymi procesory GPU. Klaster AKS musi mieć uruchomioną Kubernetes 1,10 lub nowszą. Jeśli potrzebujesz klastra AKS, który spełnia te wymagania, zapoznaj się z pierwszą sekcją tego artykułu, aby [utworzyć klaster AKS](#create-an-aks-cluster).
 
@@ -52,7 +52,7 @@ Pobierz poświadczenia dla klastra AKS za pomocą polecenia [AZ AKS Get-Credenti
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## <a name="install-nvidia-drivers"></a>Zainstaluj sterowniki NVIDIA
+## <a name="install-nvidia-device-plugin"></a>Zainstaluj wtyczkę urządzenia NVIDIA
 
 Aby można było korzystać z procesorów GPU w węzłach, należy wdrożyć elementu daemonset dla wtyczki urządzenia NVIDIA. Ten elementu daemonset uruchamia w każdym węźle, aby udostępnić wymagane sterowniki dla procesorów GPU.
 
@@ -188,7 +188,7 @@ Aby zobaczyć, jak działa procesor GPU, Zaplanuj obciążenie procesora GPU odp
 Utwórz plik o nazwie *Samples-TF-mnist ręcznie-demonstracyjn. YAML* i wklej następujący manifest YAML. Następujący manifest zadania zawiera limit zasobów `nvidia.com/gpu: 1` :
 
 > [!NOTE]
-> Jeśli wystąpi błąd niezgodności wersji podczas wywoływania sterowników, na przykład wersja sterownika CUDA jest niewystarczająca dla wersji środowiska uruchomieniowego CUDA, zapoznaj się z wykresem zgodności macierzy sterowników NVIDIA —[https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
+> Jeśli wystąpi błąd niezgodności wersji podczas wywoływania sterowników, na przykład wersja sterownika CUDA jest niewystarczająca dla wersji środowiska uruchomieniowego CUDA, zapoznaj się z wykresem zgodności macierzy sterowników NVIDIA — [https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
 
 ```yaml
 apiVersion: batch/v1

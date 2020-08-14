@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2e456114d186e548cede656da8e8d227efa09aa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a98155e76366d0dec794acf1d65e70fa19a544e2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75550120"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208069"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netop-portal"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z portalem NetOp
 
@@ -88,7 +88,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Aplikacja Portal NetOp oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
-    ![image](common/edit-attribute.png)
+    ![image (obraz)](common/edit-attribute.png)
 
 1. Oprócz powyższych, aplikacja Portal NetOp oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je przejrzeć zgodnie z wymaganiami.
 
@@ -118,7 +118,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -142,7 +142,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-netop-portal-sso"></a>Konfigurowanie logowania jednokrotnego w portalu NetOp
 
-Aby skonfigurować Logowanie jednokrotne na stronie **portalu NetOp** , należy pobrać **XML metadanych Federacji** i adres URL logowania z Azure Portal. Postępuj zgodnie z instrukcjami podanymi w kroku 3 dokumentacji [tutaj](https://kb.netop.com/assets/netop_portal_adfs_and_azure_ad_integration.pdf) , aby skonfigurować portal NetOp na potrzeby uwierzytelniania w usłudze Azure AD.
+Aby skonfigurować Logowanie jednokrotne na stronie **portalu NetOp** , należy pobrać **XML metadanych Federacji** i adres URL logowania z Azure Portal. Postępuj zgodnie z instrukcjami podanymi w kroku 3 dokumentacji [tutaj](https://kb.netop.com/article/netop-remote-control-portal-adfs-and-azure-ad-integration-456.html) , aby skonfigurować portal NetOp na potrzeby uwierzytelniania w usłudze Azure AD.
 
 ### <a name="create-netop-portal-test-user"></a>Tworzenie użytkownika testowego aplikacji Netop Portal
 
@@ -154,13 +154,13 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Netop Portal w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Netop Portal, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj Portal NetOp przy użyciu usługi Azure AD](https://aad.portal.azure.com/)
 

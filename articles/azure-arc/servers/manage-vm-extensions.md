@@ -1,24 +1,24 @@
 ---
-title: Zarządzanie rozszerzeniami maszyny wirtualnej za pomocą usługi Azure ARC dla serwerów
-description: Usługa Azure ARC dla serwerów (wersja zapoznawcza) może zarządzać wdrożeniem rozszerzeń maszyn wirtualnych, które zapewniają konfigurację po wdrożeniu i zadania automatyzacji z maszynami wirtualnymi spoza platformy Azure.
+title: Zarządzanie rozszerzeniami maszyny wirtualnej za pomocą serwerów z obsługą usługi Azure Arc
+description: Serwery z obsługą usługi Azure ARC (wersja zapoznawcza) mogą zarządzać wdrożeniem rozszerzeń maszyn wirtualnych, które zapewniają konfigurację po wdrożeniu i zadania automatyzacji z maszynami wirtualnymi spoza platformy Azure.
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0319420fe528d41a23ee8fae90c4ad8c326f35a0
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 1b27172a14896041cb4217b12af41d6a04118721
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121310"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213108"
 ---
-# <a name="virtual-machine-extension-management-with-azure-arc-for-servers-preview"></a>Zarządzanie rozszerzeniami maszyn wirtualnych za pomocą usługi Azure ARC dla serwerów (wersja zapoznawcza)
+# <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers-preview"></a>Zarządzanie rozszerzeniami maszyn wirtualnych za pomocą serwerów z obsługą usługi Azure ARC (wersja zapoznawcza)
 
 Rozszerzenia maszyn wirtualnych to małe aplikacje, które zapewniają konfigurację po wdrożeniu i zadania automatyzacji na maszynach wirtualnych platformy Azure. Na przykład jeśli maszyna wirtualna wymaga instalacji oprogramowania, ochrony antywirusowej lub uruchomienia skryptu w swoim środowisku, można użyć rozszerzenia maszyny wirtualnej.
 
-Usługa Azure ARC dla serwerów (wersja zapoznawcza) umożliwia wdrażanie rozszerzeń maszyn wirtualnych platformy Azure na maszynach wirtualnych z systemami Windows i Linux, które upraszczają zarządzanie maszynami hybrydowymi w środowisku lokalnym, w granicach i innych środowiskach w chmurze.
+Serwery z obsługą usługi Azure ARC (wersja zapoznawcza) umożliwiają Wdrażanie rozszerzeń maszyn wirtualnych platformy Azure na maszynach wirtualnych z systemami Windows i Linux, które upraszczają zarządzanie maszynami hybrydowymi w środowisku lokalnym, w granicach i innych środowiskach w chmurze za pośrednictwem ich cyklu życia.
 
 ## <a name="key-benefits"></a>Najważniejsze korzyści
 
-Usługa Azure ARC dla serwerów (wersja zapoznawcza) obsługa rozszerzenia maszyny wirtualnej zapewnia następujące korzyści:
+Obsługa rozszerzenia maszyny wirtualnej z obsługą usługi Azure ARC (wersja zapoznawcza) zapewnia następujące korzyści:
 
 * Użyj [konfiguracji stanu Azure Automation](../../automation/automation-dsc-overview.md) , aby centralnie przechowywać konfiguracje i zachować żądany stan maszyn połączonych hybrydowo włączonych przy użyciu rozszerzenia maszyny wirtualnej DSC.
 
@@ -47,7 +47,7 @@ W tej wersji zapoznawczej obsługiwane są następujące rozszerzenia maszyn wir
 |Agent usługi Log Analytics |Linux |Microsoft. EnterpriseCloud. Monitoring |[Log Analytics rozszerzenie maszyny wirtualnej dla systemu Linux](../../virtual-machines/extensions/oms-linux.md) |
 |Agent zależności firmy Microsoft | Linux |Microsoft.Compute | [Rozszerzenie maszyny wirtualnej agenta zależności dla systemu Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
 
-Rozszerzenia maszyn wirtualnych można uruchamiać z szablonami Azure Resource Manager, z Azure Portal lub Azure PowerShell na serwerach hybrydowych zarządzanych przez funkcję ARC dla serwerów (wersja zapoznawcza).
+Rozszerzenia maszyn wirtualnych można uruchamiać z szablonami Azure Resource Manager, z Azure Portal lub Azure PowerShell na serwerach hybrydowych zarządzanych przez serwery z obsługą łuku (wersja zapoznawcza).
 
 Aby dowiedzieć się więcej na temat pakietu agenta połączonego z platformą Azure i szczegółowych informacji o składniku agenta rozszerzeń, zobacz [Omówienie agenta](agent-overview.md#agent-component-details).
 
@@ -98,7 +98,7 @@ Rozszerzenia maszyny wirtualnej mogą być stosowane do komputera zarządzanego 
 
 ## <a name="azure-resource-manager-templates"></a>Szablony usługi Azure Resource Manager
 
-Rozszerzenia maszyny wirtualnej można dodać do szablonu Azure Resource Manager i wykonać przy użyciu wdrożenia szablonu. Rozszerzenia maszyn wirtualnych obsługiwane przez funkcję ARC dla serwerów (wersja zapoznawcza) umożliwiają wdrożenie obsługiwanego rozszerzenia maszyny wirtualnej na maszynach z systemem Linux lub Windows przy użyciu Azure PowerShell. Każdy przykład poniżej zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
+Rozszerzenia maszyny wirtualnej można dodać do szablonu Azure Resource Manager i wykonać przy użyciu wdrożenia szablonu. Rozszerzenia maszyn wirtualnych obsługiwane przez serwery z obsługą ARC (wersja zapoznawcza) umożliwiają wdrożenie obsługiwanego rozszerzenia maszyny wirtualnej na maszynach z systemem Linux lub Windows przy użyciu Azure PowerShell. Każdy przykład poniżej zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
 
 >[!NOTE]
 >Chociaż wiele rozszerzeń można wsadowo i przetwarzać, są one instalowane seryjnie. Po zakończeniu instalacji pierwszego rozszerzenia zostanie podjęta próba instalacji następnego rozszerzenia.
@@ -223,7 +223,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 Aby użyć niestandardowego rozszerzenia skryptu, do uruchamiania w systemach Windows i Linux jest dostarczany następujący przykład. Jeśli nie znasz rozszerzenia niestandardowego skryptu, zobacz [rozszerzenie niestandardowego skryptu dla systemu Windows](../../virtual-machines/extensions/custom-script-windows.md) lub [rozszerzenie niestandardowego skryptu dla Linux](../../virtual-machines/extensions/custom-script-linux.md). Istnieje kilka różnych cech, które należy zrozumieć w przypadku używania tego rozszerzenia z maszynami hybrydowymi:
 
-* Lista obsługiwanych systemów operacyjnych z rozszerzeniem niestandardowego skryptu maszyny wirtualnej platformy Azure nie ma zastosowania do usługi Azure ARC dla serwerów. Listę obsługiwanych elementów OSs for ARC dla serwerów można znaleźć [tutaj](agent-overview.md#supported-operating-systems).
+* Lista obsługiwanych systemów operacyjnych z rozszerzeniem niestandardowego skryptu maszyny wirtualnej platformy Azure nie ma zastosowania do serwerów z obsługą usługi Azure Arc. Listę obsługiwanych serwerów OSs dla serwera z włączoną funkcją Arc można znaleźć [tutaj](agent-overview.md#supported-operating-systems).
 
 * Szczegóły konfiguracji dotyczące usługi Azure Virtual Machine Scale Sets lub klasycznych maszyn wirtualnych nie mają zastosowania.
 
@@ -379,7 +379,7 @@ Konfiguracja rozszerzenia niestandardowego skryptu określa elementy, takie jak 
 
 Aby można było użyć rozszerzenia DSC programu PowerShell, do uruchamiania w systemach Windows i Linux jest dostarczany następujący przykład. Jeśli nie znasz rozszerzenia DSC programu PowerShell, zobacz [Omówienie obsługi rozszerzenia DSC](../../virtual-machines/extensions/dsc-overview.md). Istnieje kilka różnych cech, które należy zrozumieć w przypadku używania tego rozszerzenia z maszynami hybrydowymi:
 
-* Lista obsługiwanych systemów operacyjnych z rozszerzeniem DSC programu PowerShell dla maszyny wirtualnej platformy Azure nie ma zastosowania do usługi Azure ARC dla serwerów. Listę obsługiwanych elementów OSs for ARC dla serwerów można znaleźć [tutaj](agent-overview.md#supported-operating-systems).
+* Lista obsługiwanych systemów operacyjnych z rozszerzeniem DSC programu PowerShell dla maszyny wirtualnej platformy Azure nie ma zastosowania do serwerów z obsługą usługi Azure Arc. Listę obsługiwanych serwerów OSs dla serwera z włączoną funkcją Arc można znaleźć [tutaj](agent-overview.md#supported-operating-systems).
 
 * Jeśli maszyny wymagają pobrania skryptu zewnętrznie i mogą komunikować się tylko za pomocą serwera proxy, należy [skonfigurować agenta połączonej maszyny](manage-agent.md#update-or-remove-proxy-settings) w celu ustawienia zmiennej środowiskowej serwera proxy.
 

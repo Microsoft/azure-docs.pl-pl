@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/14/2019
+ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 8d48ea133aaabbe9fd44bda545d672e68c93c08d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 02332e190def7770fa57977461d57766f3dee13a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81312196"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205580"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Samouczek: Tworzenie bramy aplikacji z regułami routingu opartymi na ścieżce przy użyciu Azure Portal
 
@@ -29,13 +29,13 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 ![Przykład routingu adresów URL](./media/application-gateway-create-url-route-portal/scenario.png)
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="prerequisites"></a>Wymagania wstępne
 
-Zaloguj się do Azure Portal w[https://portal.azure.com](https://portal.azure.com)
+Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
@@ -62,7 +62,7 @@ W tym przykładzie utworzysz trzy maszyny wirtualne, które będą używane jako
    - *10.0.1.0/24* — dla przestrzeni adresów podsieci.
    - *myAGSubnet* — dla drugiej nazwy podsieci.
    - *10.0.0.0/24* — jako przestrzeń adresową podsieci.
-7. Wybierz przycisk **OK**.
+7. Wybierz pozycję **OK**.
 
 8. Upewnij się, że w obszarze **interfejs sieciowy**został wybrany **myBackendSubnet** dla podsieci, a następnie wybierz pozycję **Dalej: Zarządzanie**.
 9. Wybierz pozycję **wyłączone** , aby wyłączyć diagnostykę rozruchu.
@@ -163,7 +163,7 @@ Na karcie **Konfiguracja** zostanie nawiązane połączenie frontonu i puli zapl
 
 6. W oknie **Dodawanie ustawienia protokołu HTTP** , które zostanie otwarte, wprowadź *myHTTPSetting* dla **nazwy ustawienia http**. Zaakceptuj wartości domyślne pozostałych ustawień w oknie **Dodawanie ustawienia protokołu HTTP** , a następnie wybierz pozycję **Dodaj** , aby powrócić do okna **Dodawanie reguły routingu** .
 7. W obszarze **routing oparty na ścieżce**wybierz opcję **Dodaj wiele obiektów docelowych, aby utworzyć regułę opartą na ścieżce**.
-8. W obszarze **ścieżka**wpisz */images/*\*.
+8. W obszarze **ścieżka**wpisz */images/* \* .
 9. Dla **nazwy reguły ścieżki**wpisz *images*.
 10. W przypadku **Ustawienia protokołu HTTP**wybierz pozycję **myHTTPSetting**
 11. W obszarze **cel zaplecza**wybierz pozycję **obrazy**.
@@ -186,25 +186,29 @@ Przejrzyj ustawienia na karcie **Przegląd + tworzenie** , a następnie wybierz 
 
     ![Rejestrowanie publicznego adresu IP bramy aplikacji](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki. Na przykład http:\//52.188.72.175:8080.
+2. Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki. Na przykład http: \/ /52.188.72.175:8080.
 
     ![Testowanie podstawowego adresu URL w bramie aplikacji](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
    Odbiornik na porcie 8080 kieruje to żądanie do domyślnej puli zaplecza.
 
-3. Zmień adres URL na *http://&lt;IP-Address&gt;: 8080/images/test.htm*, zastępując &lt;adres&gt; IP adresem IP, a powinien wyglądać podobnie do następującego przykładu:
+3. Zmień adres URL na *http:// &lt; IP-Address &gt; : 8080/images/test.htm*, ZASTĘPUJĄC &lt; adres IP adresem &gt; IP, a powinien wyglądać podobnie do następującego przykładu:
 
     ![Testowanie adresu URL obrazów w bramie aplikacji](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 
    Odbiornik na porcie 8080 kieruje to żądanie do puli zaplecza *obrazów* .
 
-4. Zmień adres URL na *http://&lt;IP-Address&gt;: 8080/Video/test.htm*, zastępując &lt;adres&gt; IP adresem IP, a powinien wyglądać podobnie do następującego przykładu:
+4. Zmień adres URL na *http:// &lt; IP-Address &gt; : 8080/Video/test.htm*, ZASTĘPUJĄC &lt; adres IP adresem &gt; IP, a powinien wyglądać podobnie do następującego przykładu:
 
     ![Testowanie adresu URL wideo w bramie aplikacji](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
 
    Odbiornik na porcie 8080 kieruje to żądanie do puli zaplecza *wideo* .
 
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Gdy grupa zasobów i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Aby to zrobić, wybierz grupę zasobów i wybierz pozycję **Usuń grupę zasobów**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Włączanie kompleksowego protokołu TLS na platformie Azure Application Gateway](application-gateway-backend-ssl.md)
+> [!div class="nextstepaction"]
+> [Włącz kompleksową usługę TLS w usłudze Azure Application Gateway](application-gateway-backend-ssl.md)

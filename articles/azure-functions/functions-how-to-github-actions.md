@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: 3fcf26670ec03b1d3a496574e58ae706acdf5c53
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 02f5399e89900a438fb94f973c497a54dc05cfee
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853295"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210171"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Ciągłe dostarczanie za pomocą akcji GitHub
 
@@ -25,7 +25,7 @@ W przypadku przepływu pracy Azure Functions plik ma trzy sekcje:
 
 | Sekcja | Zadania |
 | ------- | ----- |
-| **Uwierzytelnianie** | <ol><li>Zdefiniuj nazwę główną usługi.</li><li>Pobierz profil publikowania.</li><li>Utwórz wpis tajny usługi GitHub.</li></ol>|
+| **Authentication** | <ol><li>Zdefiniuj nazwę główną usługi.</li><li>Pobierz profil publikowania.</li><li>Utwórz wpis tajny usługi GitHub.</li></ol>|
 | **Kompilacja** | <ol><li>Skonfiguruj środowisko.</li><li>Kompiluj aplikację funkcji.</li></ol> |
 | **Wdrażanie** | <ol><li>Wdróż aplikację funkcji.</li></ol>|
 
@@ -119,7 +119,7 @@ Poniższy przykład przedstawia część przepływu pracy, który używa `action
 
 # <a name="java"></a>[Java](#tab/java)
 
-Poniższy przykład przedstawia część przepływu pracy, który używa `actions/setup-java` akcji do skonfigurowania środowiska:
+Poniższy przykład przedstawia część przepływu pracy, który używa  `actions/setup-java` akcji do skonfigurowania środowiska:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -202,7 +202,7 @@ Poniższy przykład przedstawia część przepływu pracy, który kompiluje apli
 
 Aby wdrożyć kod w aplikacji funkcji, musisz użyć `Azure/functions-action` akcji. Ta akcja ma dwa parametry:
 
-|Parametr |Objaśnienie  |
+|Parametr |Wyjaśnienie  |
 |---------|---------|
 |**_Nazwa aplikacji_** | Wypełnione Nazwa aplikacji funkcji. |
 |_**Nazwa gniazda**_ | Obowiązkowe Nazwa [miejsca wdrożenia](functions-deployment-slots.md) , które ma zostać wdrożone. Gniazdo musi być już zdefiniowane w aplikacji funkcji. |

@@ -3,14 +3,15 @@ title: Azure Functions informacje dla deweloperów skryptów C#
 description: Dowiedz się, jak opracowywać Azure Functions przy użyciu skryptu C#.
 author: craigshoemaker
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 12/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 177e9fcd872c594fbfb5f29077235113c6342860
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4d5388f850f47323f6ad79f9f91e617e506546bf
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506150"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205445"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Dokumentacja dewelopera Azure Functions skryptu C# (. CSX)
 
@@ -210,9 +211,9 @@ public class Order
 
 Możesz użyć ścieżki względnej z `#load` dyrektywą:
 
-* `#load "mylogger.csx"`ładuje plik znajdujący się w folderze funkcji.
-* `#load "loadedfiles\mylogger.csx"`ładuje plik znajdujący się w folderze w folderze funkcji.
-* `#load "..\shared\mylogger.csx"`ładuje plik znajdujący się w folderze na tym samym poziomie co folder funkcji, czyli bezpośrednio w katalogu *wwwroot*.
+* `#load "mylogger.csx"` ładuje plik znajdujący się w folderze funkcji.
+* `#load "loadedfiles\mylogger.csx"` ładuje plik znajdujący się w folderze w folderze funkcji.
+* `#load "..\shared\mylogger.csx"` ładuje plik znajdujący się w folderze na tym samym poziomie co folder funkcji, czyli bezpośrednio w katalogu *wwwroot*.
 
 `#load`Dyrektywa działa tylko z plikami *. CSX* , a nie z plikami *. cs* .
 
@@ -459,7 +460,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute`jest atrybutem platformy .NET, który definiuje powiązanie i `T` jest typem wejściowym lub wyjściowym obsługiwanym przez ten typ powiązania. `T`nie może być `out` typem parametru (na przykład `out JObject` ). Na przykład powiązanie danych wyjściowych tabeli Mobile Apps obsługuje [sześć typów wyjściowych](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ale można używać tylko [ICollector \<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) lub [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) dla `T` .
+`BindingTypeAttribute` jest atrybutem platformy .NET, który definiuje powiązanie i `T` jest typem wejściowym lub wyjściowym obsługiwanym przez ten typ powiązania. `T` nie może być `out` typem parametru (na przykład `out JObject` ). Na przykład powiązanie danych wyjściowych tabeli Mobile Apps obsługuje [sześć typów wyjściowych](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ale można używać tylko [ICollector \<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) lub [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) dla `T` .
 
 ### <a name="single-attribute-example"></a>Przykład pojedynczego atrybutu
 

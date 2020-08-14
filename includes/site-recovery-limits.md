@@ -13,21 +13,21 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
-ms.openlocfilehash: 7a241d3144b6220d0084b61de2dde7c36a68c257
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 590aa7773c099aaa537e1fb9aaf658843b040674
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335134"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88203984"
 ---
 Poniższe limity mają zastosowanie do Azure Site Recovery.
 
 | Identyfikator limitu | Limit |
 | --- | --- |
 | Liczba magazynów na subskrypcję |500 |     
-| Liczba serwerów na Magazyn Azure |250 |
-| Liczba grup ochrony na Magazyn Azure |Bez ograniczeń |
-| Liczba planów odzyskiwania na Magazyn Azure |Bez ograniczeń |
+| Liczba serwerów na magazyn Recovery Services |250 |
+| Liczba grup ochrony na magazyn Recovery Services |Bez ograniczeń |
+| Liczba planów odzyskiwania na magazyn Recovery Services |Bez ograniczeń |
 | Liczba serwerów na grupę ochrony |Bez ograniczeń |
-| Liczba serwerów na plan odzyskiwania |50 |
+| Liczba serwerów na plan odzyskiwania |100 |
 

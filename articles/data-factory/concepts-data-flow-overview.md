@@ -6,36 +6,36 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 06/09/2020
-ms.openlocfilehash: 850879675d4554329f24c86f2ac28660b303084c
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.custom: references_regions
+ms.date: 08/12/2020
+ms.openlocfilehash: ad3fa9db5a15f68f0538b5de29d9a89858c472e9
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475570"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212071"
 ---
-# <a name="what-are-mapping-data-flows"></a>Czym są przepływy danych mapowania?
+# <a name="mapping-data-flows-in-azure-data-factory"></a>Mapowanie przepływów danych w Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Mapowanie przepływów danych to wizualnie zaprojektowane przekształcenia danych w Azure Data Factory. Przepływy danych umożliwiają inżynierom danych Tworzenie logiki transformacji danych graficznych bez pisania kodu. Wyniki przepływów danych są wykonywane jako działania w ramach potoków Azure Data Factory, które korzystają ze skalowania Apache Spark klastrów. Działania związane z przepływem danych mogą być realizowane za pośrednictwem istniejących Data Factory planowania, kontroli, przepływu i monitorowania.
+## <a name="what-are-mapping-data-flows"></a>Czym są przepływy danych mapowania?
 
-Mapowanie przepływów danych zapewnia całkowicie wizualizację, bez konieczności kodowania. Przepływy danych są uruchamiane w klastrze wykonywania w celu przetwarzania danych skalowanych w poziomie. Azure Data Factory obsługuje wszystkie tłumaczenia kodu, optymalizację ścieżki i wykonywanie zadań przepływu danych.
+Mapowanie przepływów danych to wizualnie zaprojektowane przekształcenia danych w Azure Data Factory. Przepływy danych umożliwiają inżynierom danych Tworzenie logiki transformacji danych bez pisania kodu. Wyniki przepływów danych są wykonywane jako działania w ramach potoków Azure Data Factory, które korzystają ze skalowania Apache Spark klastrów. Działania związane z przepływem danych mogą być operacyjne przy użyciu istniejących Azure Data Factory funkcji planowania, kontroli, przepływu i monitorowania.
 
-![Architektura](media/data-flow/adf-data-flows.png "Architektura")
+Mapowanie przepływów danych zapewnia całkowicie wizualizację, bez konieczności kodowania. Przepływy danych są uruchamiane na klastrach wykonywania zarządzanych przez ADF na potrzeby przetwarzania danych skalowanych w poziomie. Azure Data Factory obsługuje wszystkie tłumaczenia kodu, optymalizację ścieżki i wykonywanie zadań przepływu danych.
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-Aby utworzyć przepływ danych, wybierz znak plus w obszarze **zasoby fabryki**, a następnie wybierz pozycję **przepływ danych**. 
+Przepływy danych są tworzone z poziomu okienka zasoby fabryki, takich jak potoki i zestawy danych. Aby utworzyć przepływ danych, wybierz znak plus obok pozycji **zasoby fabryki**, a następnie wybierz pozycję **przepływ danych**. 
 
-![Nowy przepływ danych](media/data-flow/newdataflow2.png "Nowy przepływ danych")
+![Nowy przepływ danych](media/data-flow/new-data-flow.png "Nowy przepływ danych")
 
 Ta akcja spowoduje przejście do kanwy przepływu danych, w której można utworzyć logikę transformacji. Wybierz pozycję **Dodaj źródło** , aby rozpocząć konfigurowanie transformacji źródłowej. Aby uzyskać więcej informacji, zobacz [Źródło transformacji](data-flow-source.md).
 
-## <a name="data-flow-canvas"></a>Kanwa przepływu danych
+## <a name="authoring-data-flows"></a>Tworzenie przepływów danych
 
-Kanwa przepływu danych jest podzielony na trzy części: górny pasek, wykres i panel konfiguracja. 
+Mapowanie przepływu danych ma unikatową kanwę tworzenia, która umożliwia łatwe tworzenie logiki transformacji. Kanwa przepływu danych jest podzielony na trzy części: górny pasek, wykres i panel konfiguracja. 
 
 ![Kanwa](media/data-flow/canvas1.png "Kanwa")
 
@@ -44,40 +44,6 @@ Kanwa przepływu danych jest podzielony na trzy części: górny pasek, wykres i
 Wykres przedstawia strumień transformacji. Pokazuje on dane źródłowe w miarę ich przepływu w jednym lub większej liczbie zlewów. Aby dodać nowe źródło, wybierz pozycję **Dodaj źródło**. Aby dodać nową transformację, wybierz znak plus w prawym dolnym rogu istniejącej transformacji.
 
 ![Kanwa](media/data-flow/canvas2.png "Kanwa")
-
-### <a name="azure-integration-runtime-data-flow-properties"></a>Właściwości przepływu danych środowiska Azure Integration Runtime
-
-![Przycisk Debuguj](media/data-flow/debugbutton.png "Przycisk Debuguj")
-
-Po rozpoczęciu pracy z przepływami danych w podajniku APD należy włączyć przełącznik "Debuguj" dla przepływów danych w górnej części interfejsu użytkownika przeglądarki. To powoduje, że klaster Spark ma być używany na potrzeby debugowania interaktywnego, podglądów danych i wykonań debugowania potoku. Możesz ustawić rozmiar używanego klastra, wybierając niestandardową [Azure Integration Runtime](concepts-integration-runtime.md). Sesja debugowania pozostaje aktywna przez nawet 60 minut od ostatniej wersji zapoznawczej danych lub ostatniego wykonania potoku debugowania.
-
-Gdy operacjonalizować potoki z działaniami przepływu danych, funkcja ADF używa Azure Integration Runtime skojarzonego z [działaniem](control-flow-execute-data-flow-activity.md) we właściwości "Run on".
-
-Domyślny Azure Integration Runtime to niewielki klaster jednordzeniowego pojedynczego procesu roboczego, który umożliwia podgląd danych i szybkie wykonywanie potoków debugowania przy minimalnych kosztach. Ustaw większą konfigurację Azure IR, jeśli wykonujesz operacje na dużych zestawach danych.
-
-Można wydać polecenie ADF, aby zachować pulę zasobów klastra (maszyn wirtualnych) przez ustawienie czasu wygaśnięcia we właściwościach przepływu danych Azure IR. Ta akcja powoduje przyspieszenie wykonywania zadań w kolejnych działaniach.
-
-#### <a name="azure-integration-runtime-and-data-flow-strategies"></a>Infrastruktura Azure Integration Runtime i strategie przepływu danych
-
-##### <a name="execute-data-flows-in-parallel"></a>Równoległe wykonywanie przepływów danych
-
-Jeśli przepływy danych są wykonywane równolegle, moduł ADF uruchamia oddzielne klastry usługi Spark dla każdego wykonywania działań na podstawie ustawień w Azure Integration Runtime dołączone do poszczególnych działań. Aby zaprojektować wykonywanie równoległe w potokach ADF, należy dodać działania przepływu danych bez ograniczeń pierwszeństwa w interfejsie użytkownika.
-
-Z tych trzech opcji, ta opcja może być wykonywana w najkrótszym czasie. Jednak każdy przepływ danych równoległych wykonuje się w tym samym czasie w oddzielnych klastrach, więc porządkowanie zdarzeń jest niedeterministyczne.
-
-Jeśli wykonujesz działania przepływu danych równolegle wewnątrz potoków, zaleca się, aby nie używać czasu wygaśnięcia. Ta akcja polega na tym, że równoległe wykonywanie przepływu danych jednocześnie przy użyciu tego samego Azure Integration Runtime powoduje wystąpienie wielu wystąpień puli dla fabryki danych.
-
-##### <a name="overload-single-data-flow"></a>Przeciążanie pojedynczego przepływu danych
-
-Jeśli umieścisz całą logikę wewnątrz pojedynczego przepływu danych, moduł ADF wykonuje ten sam kontekst wykonywania zadania w jednym wystąpieniu klastra Spark.
-
-Ta opcja może być trudniejsza do obserwowania i rozwiązywania problemów, ponieważ reguły biznesowe i logika biznesowa mogą być Jumbled razem. Ta opcja nie zapewnia również dużej ilości użyteczności.
-
-##### <a name="execute-data-flows-sequentially"></a>Wykonywanie przepływów danych sekwencyjnie
-
-Jeśli wykonujesz działania przepływu danych w sekwencji w potoku i ustawisz wartość czasu wygaśnięcia dla konfiguracji Azure IR, usługa ADF użyje ponownie zasobów obliczeniowych (maszyn wirtualnych), co spowoduje szybsze wykonywanie kolejnych operacji. W każdym wykonaniu będzie nadal wyświetlany nowy kontekst platformy Spark.
-
-Z tych trzech opcji ta akcja może zająć najdłuższy czas. Ale zapewnia czyste rozdzielenie operacji logicznych w każdym kroku przepływu danych.
 
 ### <a name="configuration-panel"></a>Panel konfiguracji
 
@@ -95,7 +61,7 @@ Pierwsza karta w okienku Konfiguracja każdej transformacji zawiera ustawienia s
 
 Karta **Optymalizacja** zawiera ustawienia umożliwiające skonfigurowanie schematów partycjonowania. Aby dowiedzieć się więcej na temat optymalizowania przepływów danych, zobacz [Przewodnik dotyczący wydajności przepływu danych](concepts-data-flow-performance.md).
 
-![Optymalizacja](media/data-flow/optimize.png "Optymalizacja")
+![Zoptymalizować](media/data-flow/optimize.png "Optymalizacja")
 
 #### <a name="inspect"></a>Skontrol
 
@@ -111,13 +77,85 @@ Jeśli tryb debugowania jest włączony, karta **Podgląd danych** zapewnia inte
 
 ### <a name="top-bar"></a>Górny pasek
 
-Górny pasek zawiera akcje, które mają wpływ na cały przepływ danych, takie jak zapisywanie i walidacja. Można również przełączać się między trybami wykresu i konfiguracji za pomocą przycisków **Pokaż wykres** i **Ukryj wykres** .
+Górny pasek zawiera akcje, które mają wpływ na cały przepływ danych, takie jak zapisywanie i walidacja. Możesz również wyświetlić źródłowy kod JSON i skrypt przepływu danych logiki transformacji. Aby uzyskać więcej informacji, zapoznaj się z [skryptem przepływu danych](data-flow-script.md).
 
-![Ukryj wykres](media/data-flow/hideg.png "Ukryj wykres")
+## <a name="available-transformations"></a>Dostępne przekształcenia
 
-W przypadku ukrycia grafu można przeglądać węzły transformacji później za pomocą przycisków **Wstecz** i **dalej** .
+Wyświetl [Informacje o mapowaniu przekształceń przepływu danych](data-flow-transformation-overview.md) , aby uzyskać listę dostępnych transformacji.
 
-![Przyciski poprzednie i następne](media/data-flow/showhide.png "przyciski poprzednie i następne")
+## <a name="data-flow-activity"></a>Działanie przepływu danych
+
+Mapowanie przepływów danych jest wykonywane w potokach ADF przy użyciu [działania przepływu danych](control-flow-execute-data-flow-activity.md). Dla wszystkich użytkowników należy określić, które środowisko Integration Runtime ma być używane i przekazać wartości parametrów. Aby uzyskać więcej informacji, zapoznaj się z tematem [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
+
+## <a name="debug-mode"></a>Tryb debugowania
+
+Tryb debugowania pozwala interaktywnie zobaczyć wyniki każdego kroku przekształcenia podczas kompilowania i debugowania przepływów danych. Sesja debugowania może być używana zarówno podczas kompilowania logiki przepływu danych, jak i uruchamiania debugowania potoku z działaniami przepływu danych. Aby dowiedzieć się więcej, zobacz [dokumentację trybu debugowania](concepts-data-flow-debug-mode.md).
+
+## <a name="monitoring-data-flows"></a>Monitorowanie przepływów danych
+
+Mapowanie przepływu danych integruje się z istniejącymi możliwościami monitorowania Azure Data Factory. Aby dowiedzieć się, jak zrozumieć dane wyjściowe monitorowania przepływu danych, zobacz [monitorowanie przepływów danych](concepts-data-flow-monitoring.md).
+
+Zespół Azure Data Factory utworzył [Przewodnik dostrajania wydajności](concepts-data-flow-performance.md) , który pomaga zoptymalizować czas wykonywania przepływów danych po skompilowaniu logiki biznesowej.
+
+## <a name="available-regions"></a>Dostępne regiony
+
+Mapowanie przepływów danych jest dostępne w następujących regionach:
+
+| Region platformy Azure | Przepływy danych w usłudze ADF | Przepływy danych w programie Synapse Studio |
+| ------------ | ----------------- | ---------------------------- |
+|  Australia Środkowa | | |  
+| Australia Środkowa 2 | | |
+| Australia Wschodnia | ✓ |  ✓ |
+| Australia Południowo-Wschodnia   | ✓ | ✓ |
+| Brazil South  | ✓ |  |
+| Kanada Środkowa | ✓ |  |
+| Central India | ✓ |   ✓ |
+| Central US    | ✓ |   ✓ |
+| Chiny Wschodnie |      | ✓ |
+| Chiny Wschodnie 2  |   |    |
+| Chiny nieregionalne | | |
+| Chiny Północne |     | |
+| Chiny Północne 2 | |  |
+| Azja Wschodnia | ✓ | |
+| East US   | ✓ | ✓ |
+| Wschodnie stany USA 2 | ✓ | ✓ |
+| Francja Środkowa | ✓ | ✓ |
+| Francja Południowa  | | |
+| Niemcy środkowe (suwerenne) | | |
+| Niemcy (inne niż regionalne) (suwerenne) | | |
+| Niemcy Północne (Publiczny) | | |
+| Niemcy północno-wschodnie | | |
+| Niemcy Środkowo-Zachodnie (Publiczny) |  | ✓ |
+| Japan East | ✓ |  |
+| Japonia Zachodnia |  | |
+| Korea Środkowa | ✓ |  |
+| Korea Południowa | | |
+| Północno-środkowe stany USA  | ✓ | ✓ |
+| Europa Północna  | ✓ |    |
+| Norwegia Wschodnia | | |
+| Norwegia Zachodnia | | |
+| Północna Republika Południowej Afryki    | ✓ | |
+| Zachodnia Republika Południowej Afryki |  |    |
+| South Central US  | | ✓ |
+| Indie Południowe | | |
+| Southeast Asia    | ✓ | ✓ |
+| Szwajcaria Północna |   |  |
+| Szwajcaria Zachodnia | | |
+| Środkowy Zjednoczone Emiraty Arabskie | | |
+| Północne Zjednoczone Emiraty Arabskie |  |    |
+| Południowe Zjednoczone Królestwo  | ✓ |   | ✓ |
+| Zachodnie Zjednoczone Królestwo |     | ✓ |
+| US DoD (region środkowy) | |  |
+| US DoD (region wschodni) | |  |
+| US Gov Arizona |      |  |
+| US Gov (inne niż regionalne) | |  |
+| US Gov Teksas | |  |
+| US Gov Wirginia |     |  |
+| Zachodnio-środkowe stany USA |     | ✓ |
+| West Europe   | ✓ |   ✓ |
+| Indie Zachodnie | | |
+| Zachodnie stany USA   | ✓ |   |
+| Zachodnie stany USA 2 | ✓ |   ✓ | 
 
 ## <a name="next-steps"></a>Następne kroki
 

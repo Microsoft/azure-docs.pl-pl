@@ -5,12 +5,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 description: Opisuje wymagania sieciowe dotyczące uruchamiania Azure Dev Spaces w usłudze Azure Kubernetes Services
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, CNI, korzystającą wtyczki kubenet, SDN, Network
-ms.openlocfilehash: c3ee84819172fe28aef779493d01e2433ccca336
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d9ebbec3e3c07a466acb58e88b67e6a32a20edb
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300695"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214163"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Konfigurowanie sieci dla Azure Dev Spaces w różnych topologiach sieci
 
@@ -28,7 +28,7 @@ Azure Dev Spaces ma pewne wymagania dotyczące ruchu przychodzącego *i* wychodz
 
 Azure Dev Spaces wymaga ruchu przychodzącego i wychodzącego dla następujących nazw FQDN:
 
-| Nazwa FQDN                       | Port       | Użycie      |
+| Nazwa FQDN                       | Port       | Zastosowanie      |
 |----------------------------|------------|----------|
 | cloudflare.docker.com      | HTTPS: 443 | Aby ściągnąć obrazy platformy Docker dla Azure Dev Spaces |
 | gcr.io                     | HTTPS: 443 | Aby ściągnąć obrazy Helm dla Azure Dev Spaces |
@@ -72,7 +72,7 @@ Azure Dev Spaces może uwidaczniać punkty końcowe dla usług uruchomionych w u
 * *Prywatny* punkt końcowy wdraża kontroler transferu danych przychodzących z prywatnym adresem IP. Przy użyciu prywatnego adresu IP moduł równoważenia obciążenia dla klastra jest dostępny tylko w sieci wirtualnej klastra. Prywatny adres IP modułu równoważenia obciążenia jest zarejestrowany w systemie DNS klastra, aby można było uzyskać dostęp do usług w sieci wirtualnej klastra przy użyciu adresu URL. Ten adres URL można wyświetlić za pomocą polecenia `azds list-uris` .
 * Ustawienie *Brak* dla opcji punktu końcowego powoduje, że nie zostanie wdrożony kontroler transferu danych przychodzących. Gdy nie wdrożono kontrolera transferu danych przychodzących, [możliwości routingu Azure dev Spaces][dev-spaces-routing] nie będą działały. Opcjonalnie można zaimplementować własne rozwiązanie kontrolera transferu danych przychodzących za pomocą [traefik][traefik-ingress] lub [Nginx][nginx-ingress], co umożliwi ponowne działanie funkcji routingu.
 
-Aby skonfigurować opcję punktu końcowego, użyj *-e* lub *--Endpoint* przy włączaniu Azure dev Spaces w klastrze. Przykład:
+Aby skonfigurować opcję punktu końcowego, użyj *-e* lub *--Endpoint* przy włączaniu Azure dev Spaces w klastrze. Na przykład:
 
 > [!NOTE]
 > Opcja punktu końcowego wymaga, aby uruchomiono interfejs wiersza polecenia platformy Azure w wersji 2.2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
@@ -87,10 +87,10 @@ Azure Dev Spaces używa narzędzi po stronie klienta, takich jak rozszerzenie in
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak Azure Dev Spaces ułatwiają tworzenie bardziej złożonych aplikacji w wielu kontenerach i jak można uprościć programowanie do współpracy, pracując z różnymi wersjami lub gałęziami kodu w różnych miejscach.
+Dowiedz się więcej o tym, jak działa Azure Dev Spaces.
 
 > [!div class="nextstepaction"]
-> [Programowanie zespołowe w Azure Dev Spaces][team-quickstart]
+> [Jak działa usługa Azure Dev Spaces](how-dev-spaces-works.md)
 
 [aks-cni]: ../aks/configure-azure-cni.md
 [aks-cni-ip-planning]: ../aks/configure-azure-cni.md#plan-ip-addressing-for-your-cluster
@@ -111,4 +111,3 @@ Dowiedz się, jak Azure Dev Spaces ułatwiają tworzenie bardziej złożonych ap
 [nginx-ingress]: how-to/ingress-https-nginx.md
 [sample-repo]: https://github.com/Azure/dev-spaces/tree/master/advanced%20networking
 [service-tags]: ../virtual-network/service-tags-overview.md#available-service-tags
-[team-quickstart]: quickstart-team-development.md

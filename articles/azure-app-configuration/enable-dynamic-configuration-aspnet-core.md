@@ -14,13 +14,13 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 5ac09aae724cf7481245ba9e898b52945b394cae
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: 2e741b0501f5e5cc37a6fea781dc1a5ede4fb1c2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856519"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207152"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Samouczek: używanie konfiguracji dynamicznej w aplikacji ASP.NET Core
 

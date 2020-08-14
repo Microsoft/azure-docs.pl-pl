@@ -1,18 +1,18 @@
 ---
-title: Rozwiązywanie problemów z usługą Azure ARC dla serwerów Agent problemy z połączeniami
-description: W tym artykule opisano sposób rozwiązywania problemów z agentem podłączonego maszyny i rozwiązywania z nią usługi Azure ARC dla serwerów (wersja zapoznawcza) podczas próby nawiązania połączenia z usługą.
+title: Rozwiązywanie problemów z połączeniem agenta z obsługą usługi Azure ARC (wersja zapoznawcza)
+description: W tym artykule opisano sposób rozwiązywania problemów z agentem podłączonych maszyn (wersja zapoznawcza) podczas próby nawiązania połączenia z usługą.
 ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5cd2560279085485a8ac7b285e4f601060a924f1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: aeb370fb6cd4eacf20c1acf29e84c03e5e322d39
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118012"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213543"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Rozwiązywanie problemów z połączeniem z agentem podłączonych maszyn
 
-Ten artykuł zawiera informacje dotyczące rozwiązywania problemów i rozwiązywania problemów, które mogą wystąpić podczas próby skonfigurowania usługi Azure ARC dla serwerów (wersja zapoznawcza) Agent połączonej maszyny dla systemu Windows lub Linux. Dostępne są zarówno metody instalacji interaktywnej, jak i na skalę podczas konfigurowania połączenia z usługą. Aby uzyskać ogólne informacje, zobacz [Omówienie usługi ARC dla serwerów](./overview.md).
+Ten artykuł zawiera informacje o rozwiązywaniu problemów i rozwiązywaniu problemów, które mogą wystąpić podczas próby skonfigurowania serwera z obsługą usługi Azure ARC (wersja zapoznawcza) Agent połączonej maszyny dla systemu Windows lub Linux. Dostępne są zarówno metody instalacji interaktywnej, jak i na skalę podczas konfigurowania połączenia z usługą. Aby uzyskać ogólne informacje, zobacz [Omówienie serwerów z obsługą Arc](./overview.md).
 
 ## <a name="agent-verbose-log"></a>Pełny dziennik agenta
 
@@ -22,13 +22,13 @@ Przed wykonaniem procedury rozwiązywania problemów opisanej w dalszej części
 
 Poniżej znajduje się przykład polecenia służącego do włączania pełnego rejestrowania przy użyciu agenta połączonej maszyny dla systemu Windows podczas przeprowadzania instalacji interaktywnej.
 
-```
+```console
 & "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
 
 Poniżej znajduje się przykład polecenia umożliwiającego pełne rejestrowanie przy użyciu agenta połączonej maszyny dla systemu Windows podczas przeprowadzania instalacji w skali przy użyciu nazwy głównej usługi.
 
-```
+```console
 & "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect `
   --service-principal-id "{serviceprincipalAppID}" `
   --service-principal-secret "{serviceprincipalPassword}" `
@@ -46,13 +46,13 @@ Poniżej znajduje się przykład polecenia służącego do włączenia pełnego 
 >[!NOTE]
 >Aby uruchamiać **azcmagent**, musisz mieć uprawnienia dostępu *głównego* na maszynach z systemem Linux.
 
-```
+```bash
 azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
 
 Poniżej znajduje się przykład polecenia służącego do włączania pełnego rejestrowania za pomocą agenta połączonej maszyny dla systemu Linux podczas przeprowadzania instalacji w skali przy użyciu nazwy głównej usługi.
 
-```
+```bash
 azcmagent connect \
   --service-principal-id "{serviceprincipalAppID}" \
   --service-principal-secret "{serviceprincipalPassword}" \

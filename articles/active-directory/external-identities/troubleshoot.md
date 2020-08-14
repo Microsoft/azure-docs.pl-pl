@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 824520e04bd4a98b1a00c8369848163a38bcf54b
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: eb81e5a72ff1f5a8d4442e6e1f211ad2368f6277
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909104"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206291"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Rozwiązywanie problemów Azure Active Directory współpracy B2B
 
@@ -72,7 +72,7 @@ Użytkowników zewnętrznych można dodawać tylko do grup "Assigned" lub "Secur
 
 ## <a name="my-external-user-did-not-receive-an-email-to-redeem"></a>Mój użytkownik zewnętrzny nie otrzymał wiadomości e-mail do zrealizowania
 
-Zapraszanie powinno sprawdzić swój filtr usługodawcy internetowego lub spamu, aby upewnić się, że dozwolony jest następujący adres:Invites@microsoft.com
+Zapraszanie powinno sprawdzić swój filtr usługodawcy internetowego lub spamu, aby upewnić się, że dozwolony jest następujący adres: Invites@microsoft.com
 
 ## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Zauważ, że wiadomość niestandardowa nie jest dołączona do wiadomości z zaproszeniem w czasie
 
@@ -93,7 +93,7 @@ Użytkownik, który ma konto gościa nie może się zalogować i otrzymuje nast�
 
 Użytkownik ma konto użytkownika platformy Azure i jest porzuconym lub niezarządzanym dzierżawcą. Ponadto w dzierżawie nie ma żadnych administratorów globalnych ani firmowych.
 
-Aby rozwiązać ten problem, musisz przejąć pozostałą dzierżawę. Zapoznaj się z artykułem [przejmowanie niezarządzanego katalogu jako administrator w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). Aby zapewnić bezpośredni dowód, że masz kontrolę nad przestrzenią nazw, należy również uzyskać dostęp do internetowego serwera DNS dla danego sufiksu domeny. Gdy dzierżawa zostanie zwrócona do stanu zarządzanego, zapoznaj się z klientem, czy opuszczenie użytkowników i zweryfikowanej nazwy domeny jest najlepszą opcją dla swojej organizacji.
+Aby rozwiązać ten problem, musisz przejąć pozostałą dzierżawę. Zapoznaj się z artykułem  [przejmowanie niezarządzanego katalogu jako administrator w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). Aby zapewnić bezpośredni dowód, że masz kontrolę nad przestrzenią nazw, należy również uzyskać dostęp do internetowego serwera DNS dla danego sufiksu domeny. Gdy dzierżawa zostanie zwrócona do stanu zarządzanego, zapoznaj się z klientem, czy opuszczenie użytkowników i zweryfikowanej nazwy domeny jest najlepszą opcją dla swojej organizacji.
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Użytkownik-Gość z dzierżawcą "just in Time" lub "wirusowym" nie może zresetować hasła
 
@@ -109,4 +109,4 @@ W chmurze platformy Azure dla instytucji rządowych USA współpraca B2B jest ob
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Uzyskaj pomoc techniczną dotyczącą współpracy B2B](/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto.md)
+[Uzyskaj pomoc techniczną dotyczącą współpracy B2B](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto)

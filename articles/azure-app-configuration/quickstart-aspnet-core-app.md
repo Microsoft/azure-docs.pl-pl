@@ -5,15 +5,16 @@ services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.devlang: csharp
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 069bce6f2f8e46679cbc82dd92c9fd73bfecde85
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: fc2b5829b2978253476ad8cca1438b784c6ad10d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373525"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210004"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Szybki Start: Tworzenie aplikacji ASP.NET Core przy użyciu konfiguracji aplikacji platformy Azure
 
@@ -63,7 +64,7 @@ Aby użyć Menedżera wpisów tajnych, Dodaj `UserSecretsId` element do pliku *.
 1.  Dodaj `UserSecretsId` element, jak pokazano tutaj. Możesz użyć tego samego identyfikatora GUID lub można zastąpić tę wartość własną.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder`zastępuje `CreateWebHostBuilder` w programie .NET Core 3,0.  Wybierz poprawną składnię opartą na Twoim środowisku.
+    > `CreateHostBuilder` zastępuje `CreateWebHostBuilder` w programie .NET Core 3,0.  Wybierz poprawną składnię opartą na Twoim środowisku.
     
     #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
     
@@ -131,7 +132,7 @@ Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperski
     > [!IMPORTANT]
     > Niektóre powłoki poobcinają parametry połączenia, chyba że są ujęte w cudzysłów. Upewnij się, że dane wyjściowe `dotnet user-secrets` polecenia pokazują wszystkie parametry połączenia. Jeśli tak nie jest, należy ponownie uruchomić polecenie, umieszczając parametry połączenia w cudzysłowie.
 
-    Menedżer wpisów tajnych służy tylko do lokalnego testowania aplikacji sieci Web. Po wdrożeniu aplikacji do [Azure App Service](https://azure.microsoft.com/services/app-service/web)można na przykład użyć ustawienia aplikacja **parametry połączenia** w App Service zamiast tajnego Menedżera w celu przechowywania parametrów połączenia.
+    Menedżer wpisów tajnych służy tylko do lokalnego testowania aplikacji sieci Web. Po wdrożeniu aplikacji do [Azure App Service](https://azure.microsoft.com/services/app-service/web)można na przykład użyć ustawienia aplikacja **parametry połączenia**  w App Service zamiast tajnego Menedżera w celu przechowywania parametrów połączenia.
 
     Uzyskaj dostęp do tego wpisu tajnego za pomocą interfejsu API konfiguracji. Dwukropek (:) działa w nazwie konfiguracji z interfejsem API konfiguracji na wszystkich obsługiwanych platformach. Zobacz [Konfiguracja według środowiska](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
@@ -144,7 +145,7 @@ Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperski
 1. Zaktualizuj `CreateWebHostBuilder` metodę, aby użyć konfiguracji aplikacji przez wywołanie `config.AddAzureAppConfiguration()` metody.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder`zastępuje `CreateWebHostBuilder` w programie .NET Core 3,0.  Wybierz poprawną składnię opartą na Twoim środowisku.
+    > `CreateHostBuilder` zastępuje `CreateWebHostBuilder` w programie .NET Core 3,0.  Wybierz poprawną składnię opartą na Twoim środowisku.
 
     #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
 
@@ -245,7 +246,7 @@ Po wyświetleniu monitu o skonfigurowanie portu dla wersji zapoznawczej wprowad�
 
 ![Uruchamianie aplikacji szybkiego startu](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
@@ -254,4 +255,4 @@ Po wyświetleniu monitu o skonfigurowanie portu dla wersji zapoznawczej wprowad�
 W tym przewodniku szybki start utworzono nowy magazyn konfiguracji aplikacji i użył go za pomocą aplikacji internetowej ASP.NET Core za pośrednictwem [dostawcy konfiguracji aplikacji](https://go.microsoft.com/fwlink/?linkid=2074664). Aby dowiedzieć się, jak skonfigurować aplikację ASP.NET Core do dynamicznego odświeżania ustawień konfiguracji, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
-> [Włącz konfigurację dynamiczną](./enable-dynamic-configuration-aspnet-core.md)
+> [Włączanie dynamicznej konfiguracji](./enable-dynamic-configuration-aspnet-core.md)

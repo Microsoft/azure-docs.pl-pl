@@ -3,14 +3,15 @@ title: Powiązanie danych wyjściowych usługi sygnałów Azure Functions
 description: Dowiedz się, jak wysyłać komunikaty usługi sygnalizujące z Azure Functions.
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-ms.openlocfilehash: d3ba9183cdea752c3e69a41770b6a5319a4a601d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b401ff20b553629341c5190deb4cfc54c474d789
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77530252"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212573"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Powiązanie danych wyjściowych usługi sygnalizującego dla Azure Functions
 
@@ -721,7 +722,7 @@ public SignalRGroupAction removeFromGroup(
 
 ---
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 ### <a name="signalrconnectioninfo"></a>SignalRConnectionInfo
 
@@ -733,7 +734,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 |**wskazywa**| nie dotyczy | Musi być ustawiony na `in` .|
 |**Nazwij**| nie dotyczy | Nazwa zmiennej używana w kodzie funkcji dla obiektu informacji o połączeniu. |
 |**hubName**|**HubName**| Ta wartość musi być ustawiona na nazwę centrum sygnałów, dla którego są generowane informacje o połączeniu.|
-|**Nazwa**|**Nazwa**| Opcjonalnie: wartość żądania identyfikatora użytkownika do ustawienia w tokenie klucza dostępu. |
+|**userId**|**Nazwa**| Opcjonalnie: wartość żądania identyfikatora użytkownika do ustawienia w tokenie klucza dostępu. |
 |**connectionStringSetting**|**ConnectionStringSetting**| Nazwa ustawienia aplikacji zawierającego parametry połączenia usługi sygnalizującego (wartość domyślna to "AzureSignalRConnectionString"). |
 
 ### <a name="signalr"></a>SignalR
