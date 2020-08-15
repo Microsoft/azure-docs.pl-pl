@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 0bdc9451f0dbc32e14197cde48a3613196b864c0
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e0670aeb3a41506ef302364c6eeaff332520abc5
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037137"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245438"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Często zadawane pytania dotyczące usługi Azure Files
 [Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem standardowego [protokołu bloku komunikatów serwera (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Udziały plików platformy Azure można instalować jednocześnie w chmurze lub lokalnych wdrożeniach systemów Windows, Linux i macOS. Możesz również buforować udziały plików platformy Azure na maszynach z systemem Windows Server, używając Azure File Sync, aby szybko uzyskać dostęp do miejsca, w którym są używane dane.
@@ -77,13 +77,14 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
     > [!NOTE]
     > Nie można tworzyć udziałów plików platformy Azure z kont magazynu obiektów blob lub ogólnego przeznaczenia (GPv1 lub GPv2) w *warstwie Premium* . Standardowe udziały plików platformy Azure muszą zostać utworzone wyłącznie w ramach *standardowych* kont ogólnego przeznaczenia, a udziały plików platformy Azure w warstwie Premium muszą zostać utworzone tylko na kontach magazynu FileStorage. Konta magazynu ogólnego przeznaczenia (GPv1 i GPv2) są przeznaczone tylko dla stron sieci Web *w warstwie Premium* . 
 
+* <a id="file-locking"></a>
+  **Czy Azure Files obsługuje blokowanie plików?**  
+    Tak, Azure Files w pełni obsługuje blokowanie plików w stylu SMB/Windows, [Zobacz szczegóły](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks).
+
 * <a id="give-us-feedback"></a>
   **Chcemy zobaczyć konkretną funkcję dodaną do Azure Files. Czy można je dodać?**  
     Zespół Azure Files ma na celu wysłuchanie wszelkich opinii na temat naszej usługi. Zagłosuj na żądania funkcji w witrynie [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! Czekamy na poszukiwanie wielu nowych funkcji.
 
-  **Czy Azure Files obsługuje blokowanie plików?**  
-    Tak, Azure Files w pełni obsługuje blokowanie plików w stylu SMB/Windows, [Zobacz szczegóły](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks). 
-    
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 * <a id="afs-region-availability"></a>
@@ -208,6 +209,13 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 **Jakie zasady zgodności danych Azure Files obsługiwać?**  
 
    Azure Files uruchamiana na podstawie tej samej architektury magazynu, która jest używana w innych usługach magazynu w usłudze Azure Storage. Azure Files stosuje te same zasady zgodności danych, które są używane w innych usługach Azure Storage. Aby uzyskać więcej informacji na temat zgodności danych usługi Azure Storage, możesz zapoznać się z [ofertą zgodności z usługą Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings), a następnie przejść do [Centrum zaufania firmy Microsoft](https://microsoft.com/trustcenter/default.aspx).
+
+* <a id="file-auditing"></a>
+**Jak przeprowadzić inspekcję dostępu do plików i zmian w Azure Files?**
+
+  Dostępne są dwie opcje zapewniające funkcje inspekcji dla Azure Files:
+  - Jeśli użytkownicy uzyskują bezpośredni dostęp do udziału plików platformy Azure, [dzienniki usługi Azure Storage (wersja zapoznawcza)](https://docs.microsoft.com/azure/storage/common/monitor-storage?tabs=azure-powershell#logs-in-azure-monitor-preview) mogą być używane do śledzenia zmian plików i dostępu użytkowników. Te dzienniki mogą służyć do rozwiązywania problemów, a żądania są rejestrowane na podstawie najlepszego wysiłku.
+  - Jeśli użytkownicy uzyskują dostęp do udziału plików platformy Azure za pośrednictwem systemu Windows Server, na którym zainstalowano agenta Azure File Sync, użyj [zasad inspekcji](https://docs.microsoft.com/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) lub produktu innej firmy do śledzenia zmian plików i dostępu użytkowników w systemie Windows Server. 
    
 ### <a name="ad-ds--azure-ad-ds-authentication"></a>AD DS & uwierzytelniania AD DS platformy Azure
 * <a id="ad-support-devices"></a>
@@ -274,7 +282,6 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 **Czy istnieją interfejsy API REST obsługujące pobieranie/Ustawianie/kopiowanie katalogów/list ACL systemu Windows?**
 
     Tak. Obsługujemy interfejsy API REST, które pobierają, ustawiają lub kopiują listy ACL systemu plików NTFS dla katalogów lub plików w przypadku korzystania z interfejsu API REST [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (lub nowszego). Obsługujemy również utrwalanie list ACL systemu Windows w narzędziach opartych na platformie REST: [AzCopy v 10.4 +](https://github.com/Azure/azure-storage-azcopy/releases).
-
 
 ## <a name="on-premises-access"></a>Dostęp lokalny
 
@@ -425,7 +432,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 **Jak mogę użyć Azure Files z IBM MQ?**  
     Firma IBM wydała dokument, który pomaga klientom firmy IBM MQ skonfigurować Azure Files z usługą firmy IBM. Aby uzyskać więcej informacji, zobacz [jak skonfigurować usługę zarządzania wieloma wystąpieniami programu IBM MQ z usługą Microsoft Azure Files](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Rozwiązywanie problemów Azure Files w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Rozwiązywanie problemów Azure Files w systemie Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Rozwiązywanie problemów z usługą Azure File Sync](storage-sync-files-troubleshoot.md)
