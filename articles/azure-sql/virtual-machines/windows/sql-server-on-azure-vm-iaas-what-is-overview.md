@@ -1,6 +1,6 @@
 ---
 title: Omówienie programu SQL Server na maszynach wirtualnych platformy Azure z systemem Windows | Microsoft Docs
-description: Dowiedz się, jak uruchomić pełne wersje programu SQL Server na maszynach wirtualnych platformy Azure.
+description: Dowiedz się, jak uruchamiać pełne wersje SQL Server na platformie Azure Virtual Machines w chmurze bez konieczności zarządzania sprzętem lokalnym.
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 161722d1f80e4bada35548b4e2b4e903c56215ec
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4bf5b9b6f683783a39b7d34c430f1c6671c35885
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926696"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236373"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Co to jest SQL Server w usłudze Azure Virtual Machines (system Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -57,7 +57,7 @@ Aby rozpocząć, wybierz obraz maszyny wirtualnej z programem SQL Server w wymag
 > [!TIP]
 > Aby uzyskać więcej informacji na temat sposobu zrozumienia cen dla SQL Server obrazów, zobacz [wskazówki dotyczące cen SQL Server na platformie Azure Virtual Machines](pricing-guidance.md). 
 
-### <a name="pay-as-you-go"></a><a id="payasyougo"></a>Płatność zgodnie z rzeczywistym użyciem
+### <a name="pay-as-you-go"></a><a id="payasyougo"></a> Płatność zgodnie z rzeczywistym użyciem
 Poniższa tabela zawiera macierz obrazów z programem SQL Server korzystających z modelu płatności zgodnie z rzeczywistym użyciem.
 
 | Wersja | System operacyjny | Wersja |
@@ -74,7 +74,7 @@ Aby wyświetlić dostępne SQL Server on Linux obrazy maszyn wirtualnych, zobacz
 > [!NOTE]
 > Teraz można zmienić model licencjonowania maszyny wirtualnej z programem SQL Server opłacanej za użycie na własną licencję. Aby uzyskać więcej informacji, zobacz [How to Change the Licensing model for a SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
-### <a name="bring-your-own-license"></a><a id="BYOL"></a>Bring your own license
+### <a name="bring-your-own-license"></a><a id="BYOL"></a> Bring your own license
 Możesz również skorzystać z modelu dostarczania własnej licencji (Bring Your Own License, BYOL). W tym scenariuszu płacisz wyłącznie za maszynę wirtualną i nie ponosisz żadnych dodatkowych kosztów licencjonowania programu SQL Server.  Użycie własnej licencji może w dłuższym okresie przynieść oszczędności w przypadku ciągłych obciążeń produkcyjnych. Wymagania dotyczące korzystania z tej opcji zawiera artykuł [Pricing guidance for SQL Server Azure VMs (Wskazówki dotyczące cen maszyn wirtualnych platformy Azure z programem SQL Server)](pricing-guidance.md#byol).
 
 Aby zapewnić własną licencję, możesz przekonwertować istniejącą maszynę wirtualną z opcją płatność za użycie SQL Server lub wdrożyć obraz z prefiksem **{BYOL}**. Aby uzyskać więcej informacji na temat przełączania modelu licencjonowania między opcją płatność za użycie i BYOL, zobacz [jak zmienić model licencjonowania dla maszyny wirtualnej SQL Server](licensing-model-azure-hybrid-benefit-ahb-change.md). 
@@ -128,7 +128,7 @@ Aby uzyskać szczegółowe informacje, zobacz:
 - [Tworzenie wystąpienia zarządzanego](../../managed-instance/instance-create-quickstart.md)
 - [Tworzenie maszyny wirtualnej SQL Server](sql-vm-create-portal-quickstart.md)
 
-## <a name="sql-server-vm-image-refresh-policy"></a><a id="lifecycle"></a>Zasady odświeżania obrazu maszyny wirtualnej SQL Server
+## <a name="sql-server-vm-image-refresh-policy"></a><a id="lifecycle"></a> Zasady odświeżania obrazu maszyny wirtualnej SQL Server
 Platforma Azure utrzymuje tylko jeden obraz maszyny wirtualnej dla każdego połączenia obsługiwanego systemu operacyjnego, wersji i wydania. Oznacza to, że z czasem obrazy będą odświeżane, a ich starsze wersje usuwane. Aby uzyskać więcej informacji, zobacz sekcję **Obrazy** w temacie [Często zadawane pytania dotyczące maszyn wirtualnych programu SQL Server](frequently-asked-questions-faq.md#images).
 
 ## <a name="customer-experience-improvement-program-ceip"></a>Program poprawy jakości obsługi klienta

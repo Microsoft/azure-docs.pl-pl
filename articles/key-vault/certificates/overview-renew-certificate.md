@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: beea6f7472d6bc871b4a2df323445b05671a621f
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: bbd65cdfc7c8ebbc08b914158577337cc49ec887
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224564"
+ms.locfileid: "88236067"
 ---
 # <a name="about-azure-key-vault-certificate-renewal"></a>Informacje o odnowieniu certyfikatu Azure Key Vault
 
@@ -64,7 +64,7 @@ Jeśli wystawiony certyfikat jest w stanie "Disabled" w Azure Portal, należy wy
   Utwórz certyfikat o ważności 1 miesiąca, a następnie ustaw akcję czasu życia na rotację w 1%. To ustawienie spowoduje obrócenie certyfikatu w 7,2 godzinach.
   
 * Czy po autoodnowieniu certyfikatu Tagi będą replikowane?
-  Nie, Tagi nie będą replikowane, chyba że użytkownik ręcznie skopiuje Tagi.
+  Tak. Tagi zostałyby zreplikowane po autoodnowieniu.
 
 ### <a name="see-also"></a>Zobacz też
 *   [Integrowanie usługi Key Vault z urzędem certyfikacji DigiCert](how-to-integrate-certificate-authority.md)

@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: c59bf14c03d9f7c0c835c5a19cf5ed92acea3501
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 12b66dc173a8d3f93f97fb369ce03533299a65d7
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214212"
+ms.locfileid: "88235268"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji ASP.NET Core
 
@@ -115,7 +115,7 @@ Narzędzie Secret manager przechowuje poufne dane potrzebne w pracy deweloperski
 
 1. Dodaj wpis tajny o nazwie **ConnectionStrings:AppConfig** do narzędzia Secret Manager.
 
-    Ten wpis tajny zawiera parametry połączenia w celu uzyskania dostępu do magazynu konfiguracji aplikacji. Zastąp `<your_connection_string>` wartość w poniższym poleceniu parametrami połączenia dla magazynu konfiguracji aplikacji. Parametry połączenia w obszarze **klucze dostępu** można znaleźć w Azure Portal.
+    Ten wpis tajny zawiera parametry połączenia w celu uzyskania dostępu do magazynu konfiguracji aplikacji. Zastąp `<your_connection_string>` wartość w poniższym poleceniu parametrami połączenia dla magazynu konfiguracji aplikacji. Można znaleźć podstawowe parametry połączenia klucza tylko do odczytu w obszarze **klucze dostępu** w Azure Portal.
 
     To polecenie należy wykonać w tym samym katalogu, w którym znajduje się plik *csproj*.
 

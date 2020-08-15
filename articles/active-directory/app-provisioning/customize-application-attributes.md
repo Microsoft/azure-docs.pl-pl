@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: kenwith
-ms.openlocfilehash: 70795c703810212c3b46d06254a0c3ebdcb418f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5040fca85857cd131731d67c543c08fb1114ccee
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782045"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235228"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Dostosowywanie mapowania atrybutów aprowizacji użytkowników dla aplikacji SaaS w Azure Active Directory
 
@@ -108,7 +108,7 @@ Aplikacje i systemy obsługujące Dostosowywanie listy atrybutów obejmują:
 - SalesForce
 - ServiceNow
 - Workday
-- Azure Active Directory (obsługiwane są[domyślne atrybuty usługi Azure AD interfejs API programu Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) i niestandardowe rozszerzenia katalogu)
+- Azure Active Directory (obsługiwane są[domyślne atrybuty usługi Azure AD interfejs API programu Graph](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) i niestandardowe rozszerzenia katalogu)
 - Aplikacje obsługujące [standard scim 2,0](https://tools.ietf.org/html/rfc7643), w których atrybuty zdefiniowane w [podstawowym schemacie](https://tools.ietf.org/html/rfc7643) muszą być dodane
 
 > [!NOTE]

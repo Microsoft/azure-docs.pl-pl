@@ -12,19 +12,19 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 7e7f8ded24e71fec8ed6bfbc78f9057ddb98dacc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c42a83b4f7f3c6b5ff501525a04ebd96c2a692a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781994"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234843"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw w Azure Portal
 
 W tym artykule opisano ogólne czynności związane z zarządzaniem automatycznym inicjowaniem obsługi kont użytkowników i anulowaniem aprowizacji dla aplikacji, które je obsługują. *Inicjowanie obsługi konta użytkownika* to czynność tworzenia, aktualizowania i/lub wyłączania rekordów kont użytkowników w lokalnym magazynie profilów użytkownika aplikacji. Większość aplikacji w chmurze i SaaS przechowuje rolę i uprawnienia użytkowników w lokalnym magazynie profilów użytkownika, a obecność takiego rekordu użytkownika w lokalnym magazynie użytkownika jest *wymagana* do logowania jednokrotnego i dostępu do pracy. Aby dowiedzieć się więcej o automatycznym inicjowaniu obsługi kont użytkowników, zobacz [Automatyzowanie aprowizacji użytkowników i anulowanie obsługi aplikacji SaaS przy użyciu Azure Active Directory](user-provisioning.md).
 
 > [!IMPORTANT]
-> Azure Active Directory (Azure AD) zawiera galerię zawierającą tysiące wstępnie zintegrowanych aplikacji, które obsługują automatyczną obsługę administracyjną w usłudze Azure AD. Należy zacząć od znalezienia samouczka dotyczącego konfiguracji aprowizacji określonego dla aplikacji na [liście samouczków dotyczących integrowania aplikacji SaaS z Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/). Prawdopodobnie znajdziesz wskazówki krok po kroku dotyczące konfigurowania aplikacji i usługi Azure AD w celu utworzenia połączenia aprowizacji.
+> Azure Active Directory (Azure AD) zawiera galerię zawierającą tysiące wstępnie zintegrowanych aplikacji, które obsługują automatyczną obsługę administracyjną w usłudze Azure AD. Należy zacząć od znalezienia samouczka dotyczącego konfiguracji aprowizacji określonego dla aplikacji na [liście samouczków dotyczących integrowania aplikacji SaaS z Azure Active Directory](../saas-apps/tutorial-list.md). Prawdopodobnie znajdziesz wskazówki krok po kroku dotyczące konfigurowania aplikacji i usługi Azure AD w celu utworzenia połączenia aprowizacji.
 
 ## <a name="finding-your-apps-in-the-portal"></a>Znajdowanie aplikacji w portalu
 
@@ -83,6 +83,6 @@ Możesz uruchomić i zatrzymać usługę Azure AD Provisioning dla wybranej apli
 
 Jeśli Inicjowanie obsługi jest włączane po raz pierwszy dla aplikacji, Włącz usługę, zmieniając **stan aprowizacji** na **włączone**. Ta zmiana powoduje, że usługa aprowizacji usługi Azure AD uruchamia cykl początkowy. Odczytuje użytkowników przypisanych w sekcji **Użytkownicy i grupy** , wysyła zapytanie do aplikacji docelowej, a następnie uruchamia akcje aprowizacji zdefiniowane w sekcji **mapowania** usługi Azure AD. W trakcie tego procesu usługa aprowizacji przechowuje buforowane dane dotyczące kont użytkowników, którymi zarządza, dlatego nie ma to wpływu na konta niezarządzane w aplikacjach docelowych, które nigdy nie są objęte zakresem przydziału. Po wstępnym cyklu usługa aprowizacji automatycznie synchronizuje obiekty użytkowników i grup w przedziale 40-minutowym.
 
-Zmień **stan aprowizacji** na **wyłączony** , aby wstrzymać usługę aprowizacji. W tym stanie platforma Azure nie tworzy, nie aktualizuje ani nie usuwa żadnych obiektów użytkowników ani grup w aplikacji. Zmień stan z powrotem na **włączony** , a usługa odbiera w miejscu, w którym została przerwana.
+Zmień **stan aprowizacji** na **wyłączony**  , aby wstrzymać usługę aprowizacji. W tym stanie platforma Azure nie tworzy, nie aktualizuje ani nie usuwa żadnych obiektów użytkowników ani grup w aplikacji. Zmień stan z powrotem na **włączony** , a usługa odbiera w miejscu, w którym została przerwana.
 
-**Wyczyść bieżący stan i ponownie uruchom synchronizację** wyzwala cykl początkowy. Następnie usługa ponownie oceni wszystkich użytkowników w systemie źródłowym i określi, czy znajdują się one w zakresie aprowizacji. Może to być przydatne, gdy aplikacja jest obecnie w kwarantannie lub trzeba wprowadzić zmiany mapowań atrybutów. Należy zauważyć, że cykl początkowy trwa dłużej niż typowy przyrostowy cykl ze względu na liczbę obiektów, które należy oszacować. Więcej informacji o wydajności początkowych i przyrostowych cykli można znaleźć [tutaj](application-provisioning-when-will-provisioning-finish-specific-user.md). 
+**Wyczyść bieżący stan i ponownie uruchom synchronizację** wyzwala cykl początkowy. Następnie usługa ponownie oceni wszystkich użytkowników w systemie źródłowym i określi, czy znajdują się one w zakresie aprowizacji. Może to być przydatne, gdy aplikacja jest obecnie w kwarantannie lub trzeba wprowadzić zmiany mapowań atrybutów. Należy zauważyć, że cykl początkowy trwa dłużej niż typowy przyrostowy cykl ze względu na liczbę obiektów, które należy oszacować. Więcej informacji o wydajności początkowych i przyrostowych cykli można znaleźć [tutaj](application-provisioning-when-will-provisioning-finish-specific-user.md).

@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punk
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: e12669609b21d23b775af27f95528c4b42e95e81
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3a7fe7ca2e439739cbdeeb626fea9d2fb3983b83
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533555"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236305"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -85,6 +85,9 @@ Po zidentyfikowaniu plików i skopiowaniu ich do lokalizacji magazynu lokalnego 
 Po odinstalowaniu dysków zostanie wyświetlony komunikat. Odświeżenie połączenia może potrwać kilka minut, aby można było je usunąć.
 
 W systemie Linux po poważnym nawiązaniu połączenia z punktem odzyskiwania system operacyjny nie usuwa automatycznie odpowiednich ścieżek instalacji. Ścieżki instalacji istnieją jako woluminy oddzielone i są widoczne, ale zgłaszają błąd podczas uzyskiwania dostępu/zapisu plików. Można je usunąć ręcznie. Skrypt, gdy jest uruchamiany, identyfikuje wszystkie woluminy istniejące z poprzednich punktów odzyskiwania i czyści je po udzieleniu zgody.
+
+> [!NOTE]
+> Upewnij się, że połączenie jest zamknięte po przywróceniu wymaganych plików. Jest to ważne, szczególnie w scenariuszu, w którym maszyna, w której wykonywany jest skrypt, został również skonfigurowany do tworzenia kopii zapasowych. W przypadku, gdy połączenie jest nadal otwarte, kolejna kopia zapasowa może zakończyć się niepowodzeniem z powodu błędu "UserErrorUnableToOpenMount". Dzieje się tak dlatego, że zainstalowane dyski/woluminy są dostępne, a dostęp do nich może się nie powieść, ponieważ podstawowy magazyn, który jest serwerem docelowym iSCSI, może być niedostępny. Czyszczenie połączenia spowoduje usunięcie tych dysków/woluminów, dlatego nie będą dostępne podczas tworzenia kopii zapasowej.
 
 ## <a name="selecting-the-right-machine-to-run-the-script"></a>Wybieranie odpowiedniej maszyny do uruchomienia skryptu
 
@@ -242,7 +245,7 @@ Następujące polecenie wyświetla szczegółowe informacje o wszystkich dyskach
 mdadm –detail –scan
 ```
 
- Odpowiedni dysk RAID jest wyświetlany jako`/dev/mdm/<RAID array name in the protected VM>`
+ Odpowiedni dysk RAID jest wyświetlany jako `/dev/mdm/<RAID array name in the protected VM>`
 
 Użyj polecenia Instaluj, jeśli dysk RAID ma woluminy fizyczne:
 
@@ -300,10 +303,10 @@ W przypadku uruchamiania skryptu na komputerze z ograniczonym dostępem upewnij 
 
 - `download.microsoft.com`
 - Adresy URL usługi odzyskiwania (nazwa geograficzna odnosi się do regionu, w którym znajduje się magazyn usługi odzyskiwania)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com`(W przypadku regionów publicznych platformy Azure)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.cn`(W przypadku platformy Azure — Chiny)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.us`(Dla instytucji rządowych USA platformy Azure)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.de`(W przypadku platformy Azure (Niemcy)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (W przypadku regionów publicznych platformy Azure)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (W przypadku platformy Azure — Chiny)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.us` (Dla instytucji rządowych USA platformy Azure)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.de` (W przypadku platformy Azure (Niemcy)
 - Porty wychodzące 53 (DNS), 443, 3260
 
 > [!NOTE]

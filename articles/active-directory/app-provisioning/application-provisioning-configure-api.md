@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/15/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 01d4475e73fd436fd0cd2a8aca1e7a946cdd7562
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17660df34c8039ae96440c417aef051d51a5c91c
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782062"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234757"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Konfigurowanie aprowizacji przy użyciu Microsoft Graph interfejsów API
 
@@ -48,7 +48,7 @@ Azure Portal to wygodny sposób konfigurowania aprowizacji pojedynczych aplikacj
 1. Po pomyślnym zalogowaniu zobaczysz szczegóły konta użytkownika w okienku po lewej stronie.
 
 ### <a name="retrieve-the-gallery-application-template-identifier"></a>Pobierz identyfikator szablonu aplikacji galerii
-Aplikacje w galerii aplikacji usługi Azure AD zawierają [szablon aplikacji](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) opisujący metadane dla tej aplikacji. Za pomocą tego szablonu można utworzyć wystąpienie aplikacji i nazwy głównej usługi w dzierżawie na potrzeby zarządzania.
+Aplikacje w galerii aplikacji usługi Azure AD zawierają [szablon aplikacji](/graph/api/applicationtemplate-list?tabs=http&view=graph-rest-beta) opisujący metadane dla tej aplikacji. Za pomocą tego szablonu można utworzyć wystąpienie aplikacji i nazwy głównej usługi w dzierżawie na potrzeby zarządzania.
 
 #### <a name="request"></a>*Żądanie*
 
@@ -61,7 +61,7 @@ Aplikacje w galerii aplikacji usługi Azure AD zawierają [szablon aplikacji](ht
 GET https://graph.microsoft.com/beta/applicationTemplates
 ```
 
-#### <a name="response"></a>*Reakcji*
+#### <a name="response"></a>*Odpowiedź*
 
 <!-- {
   "blockType": "response",
@@ -100,7 +100,7 @@ Content-type: application/json
 
 ### <a name="create-the-gallery-application"></a>Tworzenie aplikacji galerii
 
-Użyj identyfikatora szablonu pobranego dla aplikacji w ostatnim kroku, aby [utworzyć wystąpienie](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http) aplikacji i nazwy głównej usługi w dzierżawie.
+Użyj identyfikatora szablonu pobranego dla aplikacji w ostatnim kroku, aby [utworzyć wystąpienie](/graph/api/applicationtemplate-instantiate?tabs=http&view=graph-rest-beta) aplikacji i nazwy głównej usługi w dzierżawie.
 
 #### <a name="request"></a>*Żądanie*
 
@@ -118,7 +118,7 @@ Content-type: application/json
 }
 ```
 
-#### <a name="response"></a>*Reakcji*
+#### <a name="response"></a>*Odpowiedź*
 
 
 <!-- {
@@ -169,7 +169,7 @@ Content-type: application/json
 
 ### <a name="retrieve-the-template-for-the-provisioning-connector"></a>Pobieranie szablonu łącznika aprowizacji
 
-Aplikacje w galerii, w których włączono obsługę aprowizacji, mają szablony usprawniające konfigurację. Użyj poniższego żądania, aby [pobrać szablon konfiguracji aprowizacji](https://docs.microsoft.com/graph/api/synchronization-synchronizationtemplate-list?view=graph-rest-beta&tabs=http). Należy pamiętać, że należy podać identyfikator. IDENTYFIKATOR odwołuje się do poprzedniego zasobu, który w tym przypadku jest obiektem serviceprincipal. 
+Aplikacje w galerii, w których włączono obsługę aprowizacji, mają szablony usprawniające konfigurację. Użyj poniższego żądania, aby [pobrać szablon konfiguracji aprowizacji](/graph/api/synchronization-synchronizationtemplate-list?tabs=http&view=graph-rest-beta). Należy pamiętać, że należy podać identyfikator. IDENTYFIKATOR odwołuje się do poprzedniego zasobu, który w tym przypadku jest obiektem serviceprincipal. 
 
 #### <a name="request"></a>*Żądanie*
 
@@ -182,7 +182,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/temp
 ```
 
 
-#### <a name="response"></a>*Reakcji*
+#### <a name="response"></a>*Odpowiedź*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -207,7 +207,7 @@ HTTP/1.1 200 OK
 ```
 
 ### <a name="create-the-provisioning-job"></a>Tworzenie zadania aprowizacji
-Aby włączyć obsługę administracyjną, należy najpierw [utworzyć zadanie](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&tabs=http). Użyj poniższego żądania, aby utworzyć zadanie aprowizacji. Użyj templateId z poprzedniego kroku, aby określić szablon, który ma być używany dla tego zadania.
+Aby włączyć obsługę administracyjną, należy najpierw [utworzyć zadanie](/graph/api/synchronization-synchronizationjob-post?tabs=http&view=graph-rest-beta). Użyj poniższego żądania, aby utworzyć zadanie aprowizacji. Użyj templateId z poprzedniego kroku, aby określić szablon, który ma być używany dla tego zadania.
 
 #### <a name="request"></a>*Żądanie*
 <!-- {
@@ -223,7 +223,7 @@ Content-type: application/json
 }
 ```
 
-#### <a name="response"></a>*Reakcji*
+#### <a name="response"></a>*Odpowiedź*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -261,7 +261,7 @@ Content-type: application/json
 
 ### <a name="test-the-connection-to-the-application"></a>Testowanie połączenia z aplikacją
 
-Przetestuj połączenie z aplikacją innej firmy. Poniższy przykład dotyczy aplikacji wymagającej clientSecret i secretToken. Każda aplikacja ma swoje wymagania. Aplikacje często używają BaseAddress zamiast ClientSecret. Aby określić, jakie poświadczenia są wymagane przez aplikację, przejdź do strony Konfiguracja aprowizacji dla aplikacji i w trybie dewelopera kliknij pozycję Testuj połączenie. Ruch sieciowy będzie zawierać parametry używane do poświadczeń. Pełną listę poświadczeń można znaleźć [tutaj](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http). 
+Przetestuj połączenie z aplikacją innej firmy. Poniższy przykład dotyczy aplikacji wymagającej clientSecret i secretToken. Każda aplikacja ma swoje wymagania. Aplikacje często używają BaseAddress zamiast ClientSecret. Aby określić, jakie poświadczenia są wymagane przez aplikację, przejdź do strony Konfiguracja aprowizacji dla aplikacji i w trybie dewelopera kliknij pozycję Testuj połączenie. Ruch sieciowy będzie zawierać parametry używane do poświadczeń. Pełną listę poświadczeń można znaleźć [tutaj](/graph/api/synchronization-synchronizationjob-validatecredentials?tabs=http&view=graph-rest-beta). 
 
 #### <a name="request"></a>*Żądanie*
 ```msgraph-interactive
@@ -273,7 +273,7 @@ POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/job
     ]
 }
 ```
-#### <a name="response"></a>*Reakcji*
+#### <a name="response"></a>*Odpowiedź*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -285,7 +285,7 @@ HTTP/1.1 204 No Content
 
 ### <a name="save-your-credentials"></a>Zapisz swoje poświadczenia
 
-Konfigurowanie aprowizacji wymaga ustanowienia relacji zaufania między usługą Azure AD a aplikacją. Autoryzuj dostęp do aplikacji innych firm. Poniższy przykład dotyczy aplikacji wymagającej clientSecret i secretToken. Każda aplikacja ma swoje wymagania. Zapoznaj się z [dokumentacją interfejsu API](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) , aby wyświetlić dostępne opcje. 
+Konfigurowanie aprowizacji wymaga ustanowienia relacji zaufania między usługą Azure AD a aplikacją. Autoryzuj dostęp do aplikacji innych firm. Poniższy przykład dotyczy aplikacji wymagającej clientSecret i secretToken. Każda aplikacja ma swoje wymagania. Zapoznaj się z [dokumentacją interfejsu API](/graph/api/synchronization-synchronizationjob-validatecredentials?tabs=http&view=graph-rest-beta) , aby wyświetlić dostępne opcje. 
 
 #### <a name="request"></a>*Żądanie*
 ```msgraph-interactive
@@ -299,7 +299,7 @@ PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secr
 }
 ```
 
-#### <a name="response"></a>*Reakcji*
+#### <a name="response"></a>*Odpowiedź*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -310,7 +310,7 @@ HTTP/1.1 204 No Content
 ```
 
 ## <a name="step-4-start-the-provisioning-job"></a>Krok 4. uruchomienie zadania aprowizacji
-Teraz, gdy zadanie aprowizacji jest skonfigurowane, użyj następującego polecenia, aby [uruchomić zadanie](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-start?view=graph-rest-beta&tabs=http). 
+Teraz, gdy zadanie aprowizacji jest skonfigurowane, użyj następującego polecenia, aby [uruchomić zadanie](/graph/api/synchronization-synchronizationjob-start?tabs=http&view=graph-rest-beta). 
 
 
 #### <a name="request"></a>*Żądanie*
@@ -322,7 +322,7 @@ Teraz, gdy zadanie aprowizacji jest skonfigurowane, użyj następującego polece
 POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/start
 ```
 
-#### <a name="response"></a>*Reakcji*
+#### <a name="response"></a>*Odpowiedź*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -348,7 +348,7 @@ Teraz, gdy zadanie aprowizacji jest uruchomione, użyj następującego polecenia
 GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
 ```
 
-#### <a name="response"></a>*Reakcji*
+#### <a name="response"></a>*Odpowiedź*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -392,13 +392,13 @@ Content-length: 2577
 
 
 ### <a name="monitor-provisioning-events-using-the-provisioning-logs"></a>Monitorowanie zdarzeń aprowizacji przy użyciu dzienników aprowizacji
-Oprócz monitorowania stanu zadania aprowizacji można użyć [dzienników aprowizacji](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http) do wykonywania zapytań dotyczących wszystkich zdarzeń, które są wykonywane (np. zapytanie dla określonego użytkownika i określić, czy zostały one pomyślnie zainicjowane).
+Oprócz monitorowania stanu zadania aprowizacji można użyć [dzienników aprowizacji](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta) do wykonywania zapytań dotyczących wszystkich zdarzeń, które są wykonywane (np. zapytanie dla określonego użytkownika i określić, czy zostały one pomyślnie zainicjowane).
 
 #### <a name="request"></a>*Żądanie*
 ```msgraph-interactive
 GET https://graph.microsoft.com/beta/auditLogs/provisioning
 ```
-#### <a name="response"></a>*Reakcji*
+#### <a name="response"></a>*Odpowiedź*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -526,5 +526,5 @@ Content-type: application/json
 ```
 ## <a name="related-articles"></a>Pokrewne artykuły:
 
-- [Zapoznaj się z dokumentacją Microsoft Graph synchronizacji](https://docs.microsoft.com/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [Zapoznaj się z dokumentacją Microsoft Graph synchronizacji](/graph/api/resources/synchronization-overview?view=graph-rest-beta)
 - [Integrowanie niestandardowej aplikacji Standard scim z usługą Azure AD](use-scim-to-provision-users-and-groups.md)

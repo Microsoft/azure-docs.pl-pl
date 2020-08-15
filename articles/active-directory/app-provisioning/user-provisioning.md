@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: 56243e4d754f33b17238b64df2ba56ade162b3a2
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: b6eb571c7c37a628d11f07b4e1b207e38830250b
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163785"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235404"
 ---
 # <a name="what-is-automated-saas-app-user-provisioning-in-azure-ad"></a>Co to jest zautomatyzowana obsługa użytkowników aplikacji SaaS w usłudze Azure AD?
 
@@ -59,7 +59,7 @@ Funkcje usługi Azure AD są wstępnie zintegrowane z obsługą wielu popularnyc
 
    ![Logo usługi Salesforce](./media/user-provisioning/gallery-app-logos.png)
 
-   Jeśli chcesz zażądać nowej aplikacji do aprowizacji, możesz [poprosić o integrację aplikacji z naszą galerią aplikacji](../develop/howto-app-gallery-listing.md). W przypadku żądania aprowizacji użytkowników wymagamy, aby aplikacja miała punkt końcowy zgodny z standard scim. Zażądaj, aby Dostawca aplikacji był zgodny ze standardem Standard scim, dzięki czemu możemy szybko dodać aplikację do naszej platformy.
+   Jeśli chcesz zażądać nowej aplikacji do aprowizacji, możesz [poprosić o integrację aplikacji z naszą galerią aplikacji](../azuread-dev/howto-app-gallery-listing.md). W przypadku żądania aprowizacji użytkowników wymagamy, aby aplikacja miała punkt końcowy zgodny z standard scim. Zażądaj, aby Dostawca aplikacji był zgodny ze standardem Standard scim, dzięki czemu możemy szybko dodać aplikację do naszej platformy.
 
 * **Aplikacje obsługujące standard scim 2,0**. Aby uzyskać informacje na temat ogólnych połączeń aplikacji, które implementują interfejsy API zarządzania użytkownikami opartymi na systemie Standard scim 2,0, zobacz [Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników](use-scim-to-provision-users-and-groups.md).
 

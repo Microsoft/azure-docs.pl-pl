@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: f4310350e83284d6a2839f8c3d86526d3cda74ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40809fae312401cb62fabb10140b9bb7f60e3715
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743579"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234775"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Rozwiązywanie typowych problemów z routingiem
 
@@ -102,7 +102,7 @@ Istnieje kilka możliwych przyczyn tego symptomu:
          - Jeśli na przykład zaplecze akceptuje tylko żądania HTTP, następujące konfiguracje byłyby prawidłowe:
             - _Akceptowane protokoły_ to http i https. _Protokół przekazywania_ to http. Żądanie dopasowania nie będzie działało, ponieważ HTTPS jest dozwolonym protokołem, a jeśli żądanie zostało odebrane jako HTTPS, przód drzwiczki spróbuje przesłać je dalej przy użyciu protokołu HTTPS.
 
-            - _Akceptowane protokoły_ to http. _Protokół przekazywania_ jest zgodny z żądaniem lub https.
+            - _Akceptowane protokoły_ to http. _Protokół przekazywania_ jest zgodny z żądaniem lub http.
 
     - Ponowne _Zapisywanie adresów URL_ jest domyślnie wyłączone i należy używać tego pola tylko wtedy, gdy chcesz zawęzić zakres zasobów hostowanych przez zaplecza, które mają być dostępne. Po wyłączeniu drzwi do przodu przekażą tę samą ścieżkę żądania, która otrzymuje. Istnieje możliwość, że to pole jest błędnie skonfigurowane i drzwi przede wszystkim żądają zasobu od zaplecza, który nie jest dostępny, co zwraca kod stanu HTTP 404.
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: cc3c62da371d66c2aa957974ad6d4472aaf5648e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d07450b61558814a99bf85668c55899c8cf9d389
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782283"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234792"
 ---
 # <a name="no-users-are-being-provisioned"></a>Żadni użytkownicy nie są aprowizowani 
 >[!NOTE]
@@ -58,13 +58,13 @@ Jeśli użytkownik jest wyświetlany jako "pominięty" w dziennikach aprowizacji
 - **Brak wymaganego atrybutu lub nie został on wypełniony dla użytkownika.** Ważną kwestią do uwzględnienia podczas konfigurowania aprowizacji jest przejrzenie i skonfigurowanie mapowań atrybutów i przepływów pracy, które definiują, które właściwości użytkownika (lub grupy) będą przepływać z usługi Azure AD do aplikacji. Ta konfiguracja obejmuje ustawienie "dopasowania właściwości" służącego do unikatowego identyfikowania i dopasowywania użytkowników/grup między tymi dwoma systemami. Aby uzyskać więcej informacji na temat tego ważnego procesu, zobacz [Dostosowywanie mapowań atrybutów aprowizacji użytkowników dla aplikacji SaaS w Azure Active Directory](customize-application-attributes.md).
 - **Mapowania atrybutów dla grup:** Inicjowanie obsługi administracyjnej nazw grup i grup, oprócz członków, jeśli są obsługiwane w przypadku niektórych aplikacji. Tę funkcję można włączyć lub wyłączyć, włączając lub wyłączając **Mapowanie** dla obiektów grupy wyświetlanych na karcie **aprowizacji** . Jeśli włączono grupy aprowizacji, należy sprawdzić mapowania atrybutów, aby upewnić się, że odpowiednie pole jest używane dla "zgodnego identyfikatora". IDENTYFIKATORem zgodnym może być nazwa wyświetlana lub alias adresu e-mail. Grupa i jej elementy członkowskie nie są obsługiwane, jeśli właściwość pasująca jest pusta lub nie została wypełniona dla grupy w usłudze Azure AD.
 ## <a name="provisioning-users-assigned-to-the-default-access-role"></a>Inicjowanie obsługi administracyjnej użytkowników przypisanych do domyślnej roli dostępu
-Domyślna rola w aplikacji z galerii jest nazywana rolą "domyślny dostęp". W przeszłości Użytkownicy przypisani do tej roli nie są obsługiwani i są oznaczeni jako pominięci w [dziennikach aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , z powodu "nie jest to efektywnie uprawniony". 
+Domyślna rola w aplikacji z galerii jest nazywana rolą "domyślny dostęp". W przeszłości Użytkownicy przypisani do tej roli nie są obsługiwani i są oznaczeni jako pominięci w [dziennikach aprowizacji](../reports-monitoring/concept-provisioning-logs.md) , z powodu "nie jest to efektywnie uprawniony". 
 
 **Zachowanie dla konfiguracji aprowizacji utworzonych po 04/16/2020:** Użytkownicy przypisani do domyślnej roli dostępu zostaną ocenione tak samo, jak wszystkie inne role. Użytkownik, któremu przypisano domyślny dostęp nie zostanie pominięty jako "nie jako skuteczny do upoważnienia". 
 
 **Zachowanie dla konfiguracji aprowizacji utworzonych przed 04/16/2020:** W ciągu następnych 3 miesięcy zachowanie będzie kontynuowane, tak jak dzisiaj. Użytkownicy z domyślną rolą dostępu zostaną pominięci jako nieskutecznie uprawniony. Po lipcu 2020 zachowanie będzie jednorodne dla wszystkich aplikacji. Nie będziemy pomijać użytkowników aprowizacji z domyślną rolą dostępu z powodu "nie jest to efektywnie uprawniony". Ta zmiana zostanie wprowadzona przez firmę Microsoft i nie jest wymagana żadna akcja dla klienta. Aby upewnić się, że Ci użytkownicy nadal są pomijani, nawet po tej zmianie, należy zastosować odpowiednie filtry określania zakresu lub cofnąć przypisanie użytkownika z aplikacji, aby upewnić się, że są poza zakresem.  
 
-Aby uzyskać odpowiedzi na pytania dotyczące tych zmian, skontaktuj się zprovisioningfeedback@microsoft.com
+Aby uzyskać odpowiedzi na pytania dotyczące tych zmian, skontaktuj się z provisioningfeedback@microsoft.com
 ## <a name="next-steps"></a>Następne kroki
 
 [Azure AD Connect Sync: wyjaśnienie aprowizacji deklaracyjnej](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)

@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/27/2020
+ms.date: 08/11/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f603623e2b47a8ac1a8530880e10c919f63b66c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: d4cb24a89d19abb753e2be704dbad7fd5b2ddcad
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423613"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236560"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Zbiorcze tworzenie użytkowników w Azure Active Directory
 
@@ -33,6 +33,9 @@ Aby można było tworzyć zbiorczo użytkowników w portalu administracyjnym, u�
 Pobierz i wypełnij szablon CSV przekazywanie zbiorcze, aby ułatwić pomyślne utworzenie użytkowników usługi Azure AD. Pobrany szablon CSV może wyglądać podobnie do tego przykładu:
 
 ![Arkusz kalkulacyjny do przekazywania i wywoływać wywołajeń objaśniających przeznaczenie i wartości dla każdego wiersza i kolumny](./media/users-bulk-add/create-template-example.png)
+
+> [!WARNING]
+> W przypadku próby dodania tylko jednego wpisu w szablonie CSV należy zachować wiersz 3 i dodać nowy wpis do wiersza 4. 
 
 ### <a name="csv-template-structure"></a>Struktura szablonu CSV
 

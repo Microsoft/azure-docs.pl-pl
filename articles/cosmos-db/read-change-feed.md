@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d7408f3b3e955d397ba4a54d07323f80dd72c3d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23f99dc5c648948ce07f1b40106667d24906328a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83697346"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236798"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Odczytywanie zestawienia zmian w usłudze Azure Cosmos DB
 
-Możesz współpracować ze źródłem zmian Azure Cosmos DB, korzystając z modelu wypychania lub modelu ściągania. W przypadku modelu wypychania żądanie klienta jest wykonywane z serwera i ma logikę biznesową do przetwarzania zmiany. Jednak złożoność sprawdzania zmian i przechowywania stanu dla ostatnich przetworzonych zmian jest obsługiwana na serwerze.
+Możesz współpracować ze źródłem zmian Azure Cosmos DB, korzystając z modelu wypychania lub modelu ściągania. W przypadku modelu wypychania serwer (Źródło zmian) wypchnięcie pracy do klienta z logiką biznesową w celu przetwarzania tej pracy. Jednak złożoność sprawdzania pracy i przechowywania stanu dla ostatnio przetworzonej pracy jest obsługiwana na serwerze.
 
-W modelu ściągania serwer żąda działania, często żąda go od centralnej kolejki roboczej. Klient w tym przypadku nie tylko ma logikę biznesową do przetwarzania zmian, ale również zapisuje stan dla ostatnio przetworzonej zmiany, obsługując Równoważenie obciążenia na wielu klientach przetwarzających zmiany równolegle i obsługują błędy.
+W przypadku modelu ściągania klient musi ściągnąć swoją służbę z serwera. Klient w tym przypadku nie tylko ma logikę biznesową do przetwarzania pracy, ale również zapisuje stan dla ostatnio przetworzonej pracy, obsługując Równoważenie obciążenia między wieloma klientami i przetwarza błędy.
 
 Podczas odczytywania ze źródła zmian Azure Cosmos DB zwykle zalecamy korzystanie z modelu wypychania, ponieważ nie trzeba martwić się o:
 
@@ -27,7 +27,7 @@ Podczas odczytywania ze źródła zmian Azure Cosmos DB zwykle zalecamy korzysta
 - Równoważenie obciążenia na wielu klientach korzystających ze zmian. Na przykład jeśli jeden klient nie może zachować zmian w przetwarzaniu, a drugi ma dostępną pojemność.
 - [Obsługa błędów](change-feed-processor.md#error-handling). Na przykład automatyczne ponawianie nieudanych zmian, które zostały nieprawidłowo przetworzone po nieobsługiwanym wyjątku w kodzie lub przejściowym problemie z siecią.
 
-Większość scenariuszy korzystających ze źródła zmian Azure Cosmos DB będzie korzystać z jednej z opcji modelu wypychania. Istnieje jednak kilka scenariuszy, w których można chcieć uzyskać dodatkową kontrolę nad modelem na niskim poziomie. Są to moduły:
+Większość scenariuszy korzystających ze źródła zmian Azure Cosmos DB będzie korzystać z jednej z opcji modelu wypychania. Istnieje jednak kilka scenariuszy, w których można chcieć uzyskać dodatkową kontrolę nad modelem na niskim poziomie. Należą do nich:
 
 - Odczytywanie zmian z określonego klucza partycji
 - Kontrolowanie tempa, w którym klient otrzymuje zmiany w celu przetworzenia

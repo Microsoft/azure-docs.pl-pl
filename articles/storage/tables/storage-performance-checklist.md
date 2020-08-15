@@ -3,17 +3,17 @@ title: Lista kontrolna wydajności i skalowalności w usłudze Table Storage —
 description: Lista kontrolna sprawdzonych praktyk do użycia z magazynem tabel podczas opracowywania aplikacji o wysokiej wydajności.
 services: storage
 author: tamram
+ms.author: tamram
 ms.service: storage
 ms.topic: overview
 ms.date: 10/10/2019
-ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 89581c8ae2fbdbb55a2abfbd527c8fdcf4b65761
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7c805e9cf15e22b9200ef86c6c22ac3f50e77719
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75749550"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236390"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista kontrolna wydajności i skalowalności dla usługi Table Storage
 
@@ -192,7 +192,7 @@ Aby uzyskać więcej informacji na temat kodów błędów usługi Azure Storage,
 
 Ta sekcja zawiera kilka ustawień szybkiego konfigurowania, których można użyć w celu zwiększenia wydajności Table service:
 
-### <a name="use-json"></a>Użyj JSON
+### <a name="use-json"></a>Używanie danych JSON
 
 Począwszy od usługi Storage w wersji 2013-08-15, Table service obsługuje używanie kodu JSON zamiast formatu AtomPub opartego na języku XML do przesyłania danych tabeli. Użycie formatu JSON może zmniejszyć rozmiar ładunku o nawet do 75% i znacząco poprawić wydajność aplikacji.
 

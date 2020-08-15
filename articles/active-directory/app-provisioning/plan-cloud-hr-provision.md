@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 8dd108e8c2877c7fe459819bf01b0e5b206cd9c0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: b96b679e967fd898f072b4b1ae195e3dd1061c04
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445568"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235700"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planowanie aplikacji w chmurze w celu Azure Active Directory aprowizacji użytkowników
 
@@ -56,7 +56,7 @@ Integracja aplikacji w chmurze z obsługą administracyjną użytkowników w us�
 
 Inicjowanie obsługi użytkowników tworzy podstawę do ciągłego zarządzania tożsamościami. Zwiększa ono jakość procesów biznesowych, które opierają się na autorytatywnych danych tożsamości.
 
-### <a name="terms"></a>Warunki
+### <a name="terms"></a>Terminologia
 
 W tym artykule są stosowane następujące warunki:
 
@@ -167,7 +167,7 @@ Integracja aprowizacji między aplikacją i Active Directory w chmurze wymaga cz
 - Azure AD Connect agenta aprowizacji
 - Domena Active Directory
 
-Azure AD Connect topologia wdrażania agenta aprowizacji jest zależna od liczby dzierżawców aplikacji w chmurze i Active Directory domen podrzędnych, które mają zostać zintegrowane. Jeśli masz wiele domen Active Directory, zależy od tego, czy domeny Active Directory są ciągłe, czy [rozłączane](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/disjoint-namespace).
+Azure AD Connect topologia wdrażania agenta aprowizacji jest zależna od liczby dzierżawców aplikacji w chmurze i Active Directory domen podrzędnych, które mają zostać zintegrowane. Jeśli masz wiele domen Active Directory, zależy od tego, czy domeny Active Directory są ciągłe, czy [rozłączane](/windows-server/identity/ad-ds/plan/disjoint-namespace).
 
 Na podstawie decyzji wybierz jeden z scenariuszy wdrażania:
 
@@ -178,7 +178,7 @@ Na podstawie decyzji wybierz jeden z scenariuszy wdrażania:
 
 Zalecamy zastosowanie następującej konfiguracji produkcyjnej:
 
-|Wymaganie|Zalecenie|
+|Wymaganie|Rekomendacja|
 |:-|:-|
 |Liczba Azure AD Connect agentów aprowizacji do wdrożenia|Dwa (w przypadku wysokiej dostępności i trybu failover)
 |Liczba aplikacji łącznika aprowizacji do skonfigurowania|Jedna aplikacja na domenę podrzędną|
@@ -192,7 +192,7 @@ Ten scenariusz obejmuje Inicjowanie obsługi użytkowników z aplikacji w chmurz
 
 Zalecamy zastosowanie następującej konfiguracji produkcyjnej:
 
-|Wymaganie|Zalecenie|
+|Wymaganie|Rekomendacja|
 |:-|:-|
 |Liczba Azure AD Connect agentów aprowizacji do wdrożenia w środowisku lokalnym|Dwa na odłączony Las Active Directory|
 |Liczba aplikacji łącznika aprowizacji do skonfigurowania|Jedna aplikacja na domenę podrzędną|
@@ -313,7 +313,7 @@ W tym wyrażeniu, jeśli wartość gminy to Dallas, Austin, Seattle lub Londyn, 
 
 ## <a name="plan-for-password-delivery-of-new-user-accounts"></a>Planowanie dostarczania haseł dla nowych kont użytkowników
 
-Po zainicjowaniu procesu przyłączania należy ustawić i dostarczyć tymczasowe hasło nowych kont użytkowników. Za pomocą usługi Cloud HR dla użytkowników usługi Azure AD można wdrożyć funkcję samoobsługowego [resetowania hasła](../authentication/quickstart-sspr.md) (SSPR) usługi Azure AD dla użytkownika na dzień.
+Po zainicjowaniu procesu przyłączania należy ustawić i dostarczyć tymczasowe hasło nowych kont użytkowników. Za pomocą usługi Cloud HR dla użytkowników usługi Azure AD można wdrożyć funkcję samoobsługowego [resetowania hasła](../authentication/tutorial-enable-sspr.md) (SSPR) usługi Azure AD dla użytkownika na dzień.
 
 SSPR to prosty środek dla administratorów IT umożliwiający użytkownikom Resetowanie swoich haseł lub odblokowywanie ich kont. Możesz udostępnić atrybut **numeru telefonu komórkowego** z poziomu aplikacji usługi Cloud kadr w celu Active Directory i zsynchronizowania go z usługą Azure AD. Gdy atrybut **numeru komórkowego** jest w usłudze Azure AD, możesz włączyć SSPR dla konta użytkownika. Następnie nowy użytkownik może użyć zarejestrowanego i zweryfikowanego numeru komórkowego na potrzeby uwierzytelniania.
 

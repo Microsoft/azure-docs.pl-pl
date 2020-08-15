@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 7dae16140c376bc9288fec5b8744ac6cd14051e5
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 69ea1964449143a25f447375f2aae15d9feeff10
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445623"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235727"
 ---
 # <a name="how-provisioning-works"></a>Jak działa aprowizacja
 
@@ -44,7 +44,7 @@ Aby zażądać automatycznego łącznika aprowizacji usługi Azure AD dla aplika
 
 Poświadczenia są wymagane do nawiązania połączenia z interfejsem API zarządzania użytkownikami aplikacji za pomocą usługi Azure AD. Podczas konfigurowania automatycznej aprowizacji użytkowników dla aplikacji należy wprowadzić prawidłowe poświadczenia. Typy poświadczeń i wymagania dotyczące aplikacji można znaleźć, odwołując się do samouczka dotyczącego aplikacji. W Azure Portal będziesz mieć możliwość przetestowania poświadczeń, ponieważ usługa Azure AD podejmie próbę nawiązania połączenia z aplikacją aprowizacji aplikacji przy użyciu podanych poświadczeń.
 
-W przypadku skonfigurowania logowania jednokrotnego opartego na protokole SAML dla aplikacji w usłudze Azure AD obowiązuje limit magazynu dla każdej aplikacji — 1024 bajtów. Ten limit obejmuje wszystkie certyfikaty, tokeny tajne, poświadczenia i powiązane dane konfiguracji skojarzone z pojedynczym wystąpieniem aplikacji (nazywanego również rekordem głównym usługi w usłudze Azure AD). W przypadku skonfigurowania logowania jednokrotnego opartego na protokole SAML certyfikat używany do podpisywania tokenów SAML często zużywa ponad 50% procent miejsca. Wszelkie dodatkowe elementy (tokeny tajne, identyfikatory URI, adresy e-mail powiadomień, nazwy użytkowników i hasła) wprowadzane podczas konfigurowania aprowizacji użytkownika mogą przekroczyć limit magazynu. Aby uzyskać więcej informacji, zobacz [problem podczas zapisywania poświadczeń administratora podczas konfigurowania aprowizacji użytkowników](../manage-apps/application-provisioning-config-problem-storage-limit.md).
+W przypadku skonfigurowania logowania jednokrotnego opartego na protokole SAML dla aplikacji w usłudze Azure AD obowiązuje limit magazynu dla każdej aplikacji — 1024 bajtów. Ten limit obejmuje wszystkie certyfikaty, tokeny tajne, poświadczenia i powiązane dane konfiguracji skojarzone z pojedynczym wystąpieniem aplikacji (nazywanego również rekordem głównym usługi w usłudze Azure AD). W przypadku skonfigurowania logowania jednokrotnego opartego na protokole SAML certyfikat używany do podpisywania tokenów SAML często zużywa ponad 50% procent miejsca. Wszelkie dodatkowe elementy (tokeny tajne, identyfikatory URI, adresy e-mail powiadomień, nazwy użytkowników i hasła) wprowadzane podczas konfigurowania aprowizacji użytkownika mogą przekroczyć limit magazynu. Aby uzyskać więcej informacji, zobacz [problem podczas zapisywania poświadczeń administratora podczas konfigurowania aprowizacji użytkowników](./application-provisioning-config-problem-storage-limit.md).
 
 ## <a name="mapping-attributes"></a>Mapowanie atrybutów
 
@@ -54,7 +54,7 @@ Istnieje wstępnie skonfigurowany zestaw atrybutów i mapowań atrybutów międz
 
 Podczas konfigurowania aprowizacji należy przejrzeć i skonfigurować mapowania atrybutów i przepływy pracy, które definiują, które właściwości użytkownika (lub grupy) będą przepływać z usługi Azure AD do aplikacji. Przejrzyj i skonfiguruj pasującą Właściwość (**Dopasuj obiekty korzystające z tego atrybutu**), która jest używana do unikatowego identyfikowania i dopasowywania użytkowników/grup między tymi dwoma systemami.
 
-Domyślne mapowania atrybutów można dostosować zgodnie z potrzebami biznesowymi. W związku z tym można zmienić lub usunąć istniejące mapowania atrybutów lub utworzyć nowe mapowania atrybutów. Aby uzyskać szczegółowe informacje, zobacz [Dostosowywanie mapowania atrybutu aprowizacji użytkowników dla aplikacji SaaS](../manage-apps/customize-application-attributes.md).
+Domyślne mapowania atrybutów można dostosować zgodnie z potrzebami biznesowymi. W związku z tym można zmienić lub usunąć istniejące mapowania atrybutów lub utworzyć nowe mapowania atrybutów. Aby uzyskać szczegółowe informacje, zobacz [Dostosowywanie mapowania atrybutu aprowizacji użytkowników dla aplikacji SaaS](./customize-application-attributes.md).
 
 Podczas konfigurowania aprowizacji do aplikacji SaaS, jeden z typów mapowań atrybutów, które można określić, jest mapowanie wyrażenia. Dla tych mapowań należy napisać wyrażenie podobne do skryptu, które pozwala na Przekształcanie danych użytkowników w formaty, które są bardziej akceptowalne dla aplikacji SaaS. Aby uzyskać szczegółowe informacje, zobacz [Pisanie wyrażeń do mapowania atrybutów](functions-for-customizing-application-data.md).
 
@@ -81,13 +81,13 @@ Filtry zakresu umożliwiają definiowanie reguł opartych na atrybutach, które 
 
 ### <a name="b2b-guest-users"></a>Użytkownicy B2B (gość)
 
-Możliwe jest użycie usługi aprowizacji użytkowników w usłudze Azure AD w celu udostępnienia użytkownikom B2B (lub gościa) w usłudze Azure AD w celu SaaS aplikacji. Jednak aby użytkownicy B2B mogli logować się do aplikacji SaaS przy użyciu usługi Azure AD, aplikacja SaaS musi mieć skonfigurowaną funkcję logowania jednokrotnego opartego na protokole SAML. Aby uzyskać więcej informacji na temat sposobu konfigurowania aplikacji SaaS do obsługi logowań użytkowników B2B, zobacz [Konfigurowanie aplikacji SaaS na potrzeby współpracy B2B](../b2b/configure-saas-apps.md).
+Możliwe jest użycie usługi aprowizacji użytkowników w usłudze Azure AD w celu udostępnienia użytkownikom B2B (lub gościa) w usłudze Azure AD w celu SaaS aplikacji. Jednak aby użytkownicy B2B mogli logować się do aplikacji SaaS przy użyciu usługi Azure AD, aplikacja SaaS musi mieć skonfigurowaną funkcję logowania jednokrotnego opartego na protokole SAML. Aby uzyskać więcej informacji na temat sposobu konfigurowania aplikacji SaaS do obsługi logowań użytkowników B2B, zobacz [Konfigurowanie aplikacji SaaS na potrzeby współpracy B2B](../external-identities/configure-saas-apps.md).
 
 Należy pamiętać, że element userPrincipalName dla użytkownika-gościa jest często przechowywany jako "alias # EXT # @domain.com ". gdy element userPrincipalName zostanie uwzględniony w mapowaniu atrybutów jako atrybut źródłowy, #EXT # jest usuwany z elementu userPrincipalName. Jeśli potrzebujesz #EXT #, Zamień element userPrincipalName na originalUserPrincipalName jako atrybut source. 
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Cykle aprowizacji: początkowe i przyrostowe
 
-Gdy usługa Azure AD jest systemem źródłowym, w usłudze aprowizacji są używane [zapytania różnicowe do śledzenia zmian w Microsoft Graph danych](https://docs.microsoft.com/graph/delta-query-overview) w celu monitorowania użytkowników i grup. Usługa aprowizacji uruchamia cykl początkowy względem systemu źródłowego i systemu docelowego, a następnie okresowe cykle przyrostowe.
+Gdy usługa Azure AD jest systemem źródłowym, w usłudze aprowizacji są używane [zapytania różnicowe do śledzenia zmian w Microsoft Graph danych](/graph/delta-query-overview) w celu monitorowania użytkowników i grup. Usługa aprowizacji uruchamia cykl początkowy względem systemu źródłowego i systemu docelowego, a następnie okresowe cykle przyrostowe.
 
 ### <a name="initial-cycle"></a>Cykl początkowy
 
@@ -154,11 +154,11 @@ Usuń te błędy, dostosowując wartości atrybutów dla danego użytkownika w s
 
 ### <a name="quarantine"></a>Kwarantanna
 
-Jeśli większość lub wszystkie wywołania, które są wykonywane względem systemu docelowego, są spójne niepowodzeniem z powodu błędu (na przykład nieprawidłowe poświadczenia administratora) zadanie aprowizacji przejdzie do stanu "Kwarantanna". Ten stan jest wskazany w raporcie dotyczącym [podsumowania aprowizacji](../manage-apps/check-status-user-account-provisioning.md) i za pośrednictwem poczty e-mail, jeśli powiadomienia e-mail zostały skonfigurowane w Azure Portal.
+Jeśli większość lub wszystkie wywołania, które są wykonywane względem systemu docelowego, są spójne niepowodzeniem z powodu błędu (na przykład nieprawidłowe poświadczenia administratora) zadanie aprowizacji przejdzie do stanu "Kwarantanna". Ten stan jest wskazany w raporcie dotyczącym [podsumowania aprowizacji](./check-status-user-account-provisioning.md) i za pośrednictwem poczty e-mail, jeśli powiadomienia e-mail zostały skonfigurowane w Azure Portal.
 
 W przypadku kwarantanny Częstotliwość cykli przyrostowych jest stopniowo zmniejszana do raz dziennie.
 
-Zadanie aprowizacji kończy kwarantannę po usunięciu wszystkich błędów powodujących problemy, gdy zostanie rozpoczęty następny cykl synchronizacji. Jeśli zadanie aprowizacji pozostaje w kwarantannie przez ponad cztery tygodnie, zadanie aprowizacji jest wyłączone. [Tutaj](../manage-apps/application-provisioning-quarantine-status.md)znajdziesz więcej informacji na temat stanu kwarantanny.
+Zadanie aprowizacji kończy kwarantannę po usunięciu wszystkich błędów powodujących problemy, gdy zostanie rozpoczęty następny cykl synchronizacji. Jeśli zadanie aprowizacji pozostaje w kwarantannie przez ponad cztery tygodnie, zadanie aprowizacji jest wyłączone. [Tutaj](./application-provisioning-quarantine-status.md)znajdziesz więcej informacji na temat stanu kwarantanny.
 
 ### <a name="how-long-provisioning-takes"></a>Jak długo trwa aprowizacja
 
@@ -166,7 +166,7 @@ Wydajność zależy od tego, czy zadanie aprowizacji ma uruchomiony początkowy 
 
 ### <a name="how-to-tell-if-users-are-being-provisioned-properly"></a>Jak stwierdzić, czy użytkownicy są prawidłowo aprowizacji
 
-Wszystkie operacje wykonywane przez usługę aprowizacji użytkowników są rejestrowane w dziennikach aprowizacji usługi Azure AD [(wersja zapoznawcza)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Dzienniki obejmują wszystkie operacje odczytu i zapisu dokonane w systemach źródłowych i docelowych oraz dane użytkownika, które zostały odczytane lub zapisane podczas każdej operacji. Aby uzyskać informacje na temat sposobu odczytywania dzienników aprowizacji w Azure Portal, zobacz [Przewodnik po raportowaniu obsługi administracyjnej](../manage-apps/check-status-user-account-provisioning.md).
+Wszystkie operacje wykonywane przez usługę aprowizacji użytkowników są rejestrowane w dziennikach aprowizacji usługi Azure AD [(wersja zapoznawcza)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Dzienniki obejmują wszystkie operacje odczytu i zapisu dokonane w systemach źródłowych i docelowych oraz dane użytkownika, które zostały odczytane lub zapisane podczas każdej operacji. Aby uzyskać informacje na temat sposobu odczytywania dzienników aprowizacji w Azure Portal, zobacz [Przewodnik po raportowaniu obsługi administracyjnej](./check-status-user-account-provisioning.md).
 
 ## <a name="de-provisioning"></a>Cofnięcie aprowizacji
 
@@ -190,8 +190,8 @@ Jeśli w mapowaniu atrybutów zostanie wyświetlony atrybut IsSoftDeleted, jest 
 
 [Planowanie wdrożenia automatycznego aprowizowania użytkowników](../app-provisioning/plan-auto-user-provisioning.md)
 
-[Konfigurowanie aprowizacji dla aplikacji z galerii](../manage-apps/configure-automatic-user-provisioning-portal.md)
+[Konfigurowanie aprowizacji dla aplikacji z galerii](./configure-automatic-user-provisioning-portal.md)
 
 [Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji podczas tworzenia własnej aplikacji](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
-[Rozwiązywanie problemów z konfigurowaniem użytkowników i inicjowanie ich obsługi w aplikacji](../manage-apps/application-provisioning-config-problem.md).
+[Rozwiązywanie problemów z konfigurowaniem użytkowników i inicjowanie ich obsługi w aplikacji](./application-provisioning-config-problem.md).

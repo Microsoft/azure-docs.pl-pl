@@ -3,12 +3,12 @@ title: Jak utworzyć zasady konfiguracji gościa dla systemu Linux
 description: Dowiedz się, jak utworzyć Azure Policy zasady konfiguracji gościa dla systemu Linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 5ce6dce034c9479924901e5a20b38c343dd8bac6
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: fef5bdea1b7f98e19f9f8ee8bc9bce8553107fda
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026716"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236594"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Jak utworzyć zasady konfiguracji gościa dla systemu Linux
 
@@ -50,6 +50,10 @@ Systemy operacyjne, w których można zainstalować moduł:
 - Linux
 - macOS
 - Windows
+
+> [!NOTE]
+> Polecenie cmdlet "test-GuestConfigurationPackage" wymaga OpenSSL w wersji 1,0 ze względu na zależność od OMI.
+> Powoduje to błąd w dowolnym środowisku z OpenSSL 1,1 lub nowszym.
 
 Moduł zasobów konfiguracji gościa wymaga następującego oprogramowania:
 
@@ -260,6 +264,8 @@ Parametry `New-GuestConfigurationPolicy` polecenia cmdlet:
 - **Wersja**: wersja zasad.
 - **Ścieżka**: ścieżka docelowa, w której są tworzone definicje zasad.
 - **Platforma**: platforma docelowa (Windows/Linux) dla zasad konfiguracji gościa i pakietu zawartości.
+- **Tag** dodaje jeden lub więcej filtrów tagów do definicji zasad
+- **Kategoria** ustawia pole metadanych kategorii w definicji zasad
 
 Poniższy przykład tworzy definicje zasad w określonej ścieżce z niestandardowego pakietu zasad:
 
@@ -281,14 +287,6 @@ Następujące pliki są tworzone przez `New-GuestConfigurationPolicy` :
 - **Initiative.jsna**
 
 Dane wyjściowe polecenia cmdlet zwracają obiekt zawierający nazwę wyświetlaną inicjatywy i ścieżkę plików zasad.
-
-> [!Note]
-> Najnowszy moduł konfiguracji gościa zawiera nowe parametry:
-> - **Tag** dodaje jeden lub więcej filtrów tagów do definicji zasad
->   - Zapoznaj się z sekcją [filtrowanie zasad konfiguracji gościa za pomocą tagów](#filtering-guest-configuration-policies-using-tags).
-> - **Kategoria** ustawia pole metadanych kategorii w definicji zasad
->   - Jeśli parametr nie jest uwzględniony, Kategoria domyślnie ustawi konfigurację gościa.
-> Te funkcje są obecnie dostępne w wersji zapoznawczej i wymagają 1.20.1 w wersji modułu konfiguracji gościa, którą można zainstalować za pomocą programu `Install-Module GuestConfiguration -AllowPrerelease` .
 
 Na koniec Opublikuj definicje zasad przy użyciu `Publish-GuestConfigurationPolicy` polecenia cmdlet.
 Polecenie cmdlet ma tylko parametr **Path** wskazujący lokalizację plików JSON utworzonych przez `New-GuestConfigurationPolicy` .
@@ -404,9 +402,6 @@ Najprostszym sposobem zwolnienia zaktualizowanego pakietu jest powtórzenie proc
 
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrowanie zasad konfiguracji gościa za pomocą tagów
-
-> [!Note]
-> Ta funkcja jest obecnie w wersji zapoznawczej i wymaga modułu konfiguracji gościa w wersji 1.20.1, którą można zainstalować za pomocą programu `Install-Module GuestConfiguration -AllowPrerelease` .
 
 Zasady utworzone za pomocą poleceń cmdlet w module konfiguracji gościa mogą opcjonalnie zawierać filtr dla tagów. Parametr **-tag** programu `New-GuestConfigurationPolicy` obsługuje tablicę elementów Hashtable zawierających poszczególne Tagi. Tagi zostaną dodane do `If` sekcji definicji zasad i nie mogą być modyfikowane przez przypisanie zasady.
 

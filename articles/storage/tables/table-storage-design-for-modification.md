@@ -2,18 +2,18 @@
 title: Projektowanie magazynu tabel platformy Azure pod kątem modyfikacji danych | Microsoft Docs
 description: Projektowanie tabel do modyfikacji danych w usłudze Azure Table Storage. Optymalizuj operacje wstawiania, aktualizowania i usuwania. Zapewnij spójność przechowywanych jednostek.
 services: storage
-author: MarkMcGeeAtAquent
 ms.service: storage
+author: tamram
+ms.author: tamram
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 1f48cbf198e8a12d4f35293b285e6cb09bef29a1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 25785bc4b945f469e67f2a71eb6676940e091d56
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826470"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236764"
 ---
 # <a name="design-for-data-modification"></a>Projektowanie pod kątem modyfikacji danych
 Ten artykuł koncentruje się na zagadnieniach projektowych dotyczących optymalizacji operacji wstawiania, aktualizacji i usuwania. W niektórych przypadkach należy oszacować różnice między projektami, które optymalizują się w celu wykonywania zapytań dotyczących projektów, które optymalizują się pod kątem modyfikacji danych, tak samo jak w przypadku projektów relacyjnych baz danych (chociaż techniki zarządzania projektami są inne w relacyjnej bazie danych). W sekcjach wzorów projektowania tabeli opisano niektóre szczegółowe wzorce projektowe dla Table service i wyróżniają niektóre z nich. W ramach tego problemu okaże się, że wiele projektów zoptymalizowanych pod kątem wykonywania zapytań dotyczących jednostek również dobrze sprawdza się w przypadku modyfikowania jednostek.  

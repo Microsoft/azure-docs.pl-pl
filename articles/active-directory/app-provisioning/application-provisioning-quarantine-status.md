@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: ac5b1f72e4c70e15ccb12ea41e5f080ca0b8a505
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 54d02b3189825d08716b73b7250efd4e3f334aa0
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203031"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234745"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Inicjowanie obsługi aplikacji w stanie kwarantanny
 
@@ -34,7 +34,7 @@ Istnieją trzy sposoby, aby sprawdzić, czy aplikacja znajduje się w kwarantann
 
 - W Azure Portal przejdź do **Azure Active Directory**  >  **dzienników inspekcji** > filtrem **działania: Kwarantanna** i przejrzyj historię kwarantanny. Gdy widok na pasku postępu, jak opisano powyżej, wskazuje, czy inicjowanie obsługi jest obecnie w kwarantannie, dzienniki inspekcji umożliwiają wyświetlenie historii kwarantanny dla aplikacji. 
 
-- Użyj żądania Microsoft Graph [Get synchronizationJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) , aby programowo pobrać stan zadania aprowizacji:
+- Użyj żądania Microsoft Graph [Get synchronizationJob](/graph/api/synchronization-synchronizationjob-get?tabs=http&view=graph-rest-beta) , aby programowo pobrać stan zadania aprowizacji:
 
 ```microsoft-graph
         GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
@@ -52,15 +52,15 @@ Istnieją trzy sposoby, aby sprawdzić, czy aplikacja znajduje się w kwarantann
 |---|---|
 |**Standard scim zgodności:** Zwrócona odpowiedź HTTP/404 nie została znaleziona, a nie oczekiwana odpowiedź HTTP/200 OK. W takim przypadku usługa Azure AD Provisioning zgłosiła żądanie do aplikacji docelowej i odebrała nieoczekiwaną odpowiedź.|Sprawdź sekcję poświadczenia administratora, aby sprawdzić, czy aplikacja wymaga określenia adresu URL dzierżawy i upewnij się, że adres URL jest poprawny. Jeśli nie widzisz problemu, skontaktuj się z deweloperem aplikacji, aby upewnić się, że ich usługi są zgodne z standard scim. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
 |**Nieprawidłowe poświadczenia:** Podczas próby autoryzacji dostępu do aplikacji docelowej otrzymaliśmy odpowiedź od aplikacji docelowej, która wskazuje, że podane poświadczenia są nieprawidłowe.|Przejdź do sekcji poświadczenia administratora w interfejsie użytkownika konfiguracji aprowizacji i ponownie Autoryzuj dostęp z prawidłowymi poświadczeniami. Jeśli aplikacja znajduje się w galerii, zapoznaj się z samouczkiem dotyczącym konfiguracji aplikacji, aby uzyskać dodatkowe wymagane kroki.|
-|**Zduplikowane role:** Role zaimportowane z niektórych aplikacji, takich jak Salesforce i systemu Zendesk, muszą być unikatowe. |Przejdź do [manifestu](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) aplikacji w Azure Portal i Usuń zduplikowaną rolę.|
+|**Zduplikowane role:** Role zaimportowane z niektórych aplikacji, takich jak Salesforce i systemu Zendesk, muszą być unikatowe. |Przejdź do [manifestu](../develop/reference-app-manifest.md) aplikacji w Azure Portal i Usuń zduplikowaną rolę.|
 
  Microsoft Graph żądanie pobrania stanu zadania aprowizacji wskazuje następujące przyczyny kwarantanny:
 
-- `EncounteredQuarantineException`wskazuje, że podano nieprawidłowe poświadczenia. Usługa aprowizacji nie może nawiązać połączenia między systemem źródłowym i systemem docelowym.
+- `EncounteredQuarantineException` wskazuje, że podano nieprawidłowe poświadczenia. Usługa aprowizacji nie może nawiązać połączenia między systemem źródłowym i systemem docelowym.
 
-- `EncounteredEscrowProportionThreshold`wskazuje, że inicjowanie obsługi przekroczyło próg Escrow. Ten stan występuje, gdy więcej niż 60% zdarzeń aprowizacji nie powiodło się.
+- `EncounteredEscrowProportionThreshold` wskazuje, że inicjowanie obsługi przekroczyło próg Escrow. Ten stan występuje, gdy więcej niż 60% zdarzeń aprowizacji nie powiodło się.
 
-- `QuarantineOnDemand`oznacza, że wykryto problem z aplikacją i ręcznie ją ustawił na kwarantannę.
+- `QuarantineOnDemand` oznacza, że wykryto problem z aplikacją i ręcznie ją ustawił na kwarantannę.
 
 ## <a name="how-do-i-get-my-application-out-of-quarantine"></a>Jak mogę uzyskać mojej aplikacji z kwarantanny?
 
@@ -74,11 +74,10 @@ Po rozwiązaniu problemu należy ponownie uruchomić zadanie aprowizacji. Pewne 
 
 - Użyj Azure Portal, aby ponownie uruchomić zadanie aprowizacji. Na stronie **aprowizacji** aplikacji w obszarze **Ustawienia**wybierz pozycję **Wyczyść stan i ponownie uruchom synchronizację** , a następnie ustaw **stan aprowizacji** na **włączone**. Ta akcja powoduje w pełni ponowne uruchomienie usługi aprowizacji, która może zająć trochę czasu. Pełny cykl początkowy zostanie uruchomiony ponownie, co oznacza, że usługa Escrow usunie aplikację z kwarantanny i wyczyści wszystkie znaki wodne.
 
-- Użyj Microsoft Graph, aby [ponownie uruchomić zadanie aprowizacji](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Będziesz mieć pełną kontrolę nad tym, co zostało ponownie uruchomione. Możesz wybrać opcję wyczyszczenia usługi Escrow (aby ponownie uruchomić licznik Escrow, który naliczy na status kwarantanny), wyczyścić opcję kwarantanny (w celu usunięcia aplikacji z kwarantanny) lub wyczyścić znaki wodne. Użyj następującego żądania:
+- Użyj Microsoft Graph, aby [ponownie uruchomić zadanie aprowizacji](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Będziesz mieć pełną kontrolę nad tym, co zostało ponownie uruchomione. Możesz wybrać opcję wyczyszczenia usługi Escrow (aby ponownie uruchomić licznik Escrow, który naliczy na status kwarantanny), wyczyścić opcję kwarantanny (w celu usunięcia aplikacji z kwarantanny) lub wyczyścić znaki wodne. Użyj następującego żądania:
  
 ```microsoft-graph
         POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
 ```
 
-Zastąp ciąg "{ID}" wartością identyfikatora aplikacji i Zastąp ciąg "{jobId}" [identyfikatorem zadania synchronizacji](https://docs.microsoft.com/graph/api/resources/synchronization-configure-with-directory-extension-attributes?view=graph-rest-beta&tabs=http#list-synchronization-jobs-in-the-context-of-the-service-principal). 
-
+Zastąp ciąg "{ID}" wartością identyfikatora aplikacji i Zastąp ciąg "{jobId}" [identyfikatorem zadania synchronizacji](/graph/api/resources/synchronization-configure-with-directory-extension-attributes?tabs=http&view=graph-rest-beta#list-synchronization-jobs-in-the-context-of-the-service-principal).

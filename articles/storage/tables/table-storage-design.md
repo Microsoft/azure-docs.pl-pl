@@ -2,18 +2,18 @@
 title: Projektowanie skalowalnych i wydajnych tabel w usłudze Azure Table Storage. | Microsoft Docs
 description: Dowiedz się, jak projektować skalowalne i wydajne tabele w usłudze Azure Table Storage. Przejrzyj partycje tabeli, transakcje grupy jednostek oraz informacje o pojemności i kosztach.
 services: storage
-author: SnehaGunda
 ms.service: storage
+author: tamram
+ms.author: tamram
 ms.topic: article
 ms.date: 03/09/2020
-ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 59af13bcae14839a5b583ad7e063668b5305b30a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9fd274fb72c80475ca53d0f1bdedc1e09c10ea60
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824413"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236509"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Projektowanie skalowalnych i wydajnych tabel
 
@@ -143,7 +143,7 @@ EGTs również wprowadza potencjalne rozwiązanie do szacowania w projekcie. Ozn
 
 [!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
-## <a name="cost-considerations"></a>Kwestie związane z kosztami
+## <a name="cost-considerations"></a>Zagadnienia dotyczące kosztów
 Magazyn tabel jest stosunkowo niedrogi, ale należy uwzględnić oszacowania kosztów zarówno w przypadku użycia pojemności, jak i liczby transakcji w ramach oceny dowolnego Table service rozwiązania. Jednak w wielu scenariuszach przechowywanie nieznormalizowanych lub zduplikowanych danych w celu poprawy wydajności lub skalowalności rozwiązania jest prawidłowym podejściem. Aby uzyskać więcej informacji o cenach, zobacz [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  
 
 ## <a name="next-steps"></a>Następne kroki

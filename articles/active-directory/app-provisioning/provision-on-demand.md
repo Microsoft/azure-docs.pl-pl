@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 3c3706cc3a15a8832cec3d799ea551810c849379
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 52819fc37cf0d10cb36009feb82dec234184752c
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313612"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235540"
 ---
 # <a name="on-demand-provisioning"></a>Inicjowanie obsługi na żądanie
 Użyj aprowizacji na żądanie, aby zapewnić użytkownikowi dostęp do aplikacji w ciągu kilku sekund. Można między innymi skorzystać z tej możliwości, aby:
@@ -47,9 +47,9 @@ Usługa aprowizacji próbuje autoryzować dostęp do aplikacji docelowej, wysył
 
 #### <a name="troubleshooting-tips"></a>Wskazówki dotyczące rozwiązywania problemów
 
-* Upewnij się, że podano prawidłowe poświadczenia, takie jak token tajny i adres URL dzierżawy, do aplikacji docelowej. Wymagane poświadczenia różnią się w zależności od aplikacji. Aby uzyskać szczegółowe samouczki dotyczące konfiguracji, zobacz [listę samouczków](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list). 
+* Upewnij się, że podano prawidłowe poświadczenia, takie jak token tajny i adres URL dzierżawy, do aplikacji docelowej. Wymagane poświadczenia różnią się w zależności od aplikacji. Aby uzyskać szczegółowe samouczki dotyczące konfiguracji, zobacz [listę samouczków](../saas-apps/tutorial-list.md). 
 * Upewnij się, że aplikacja docelowa obsługuje filtrowanie zgodnie z pasującymi atrybutami zdefiniowanymi w okienku **mapowania atrybutów** . Może być konieczne sprawdzenie dokumentacji interfejsu API dostarczonej przez dewelopera aplikacji, aby poznać obsługiwane filtry.
-* W przypadku aplikacji do zarządzania tożsamościami między domenami (standard scim) można użyć narzędzia, takiego jak Poster. Takie narzędzia ułatwiają zapewnienie, że aplikacja będzie odpowiadać na żądania autoryzacji w sposób, w jaki oczekuje usługa aprowizacji Azure Active Directory (Azure AD). Zapoznaj się z [przykładowym żądaniem](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#request-3).
+* W przypadku aplikacji do zarządzania tożsamościami między domenami (standard scim) można użyć narzędzia, takiego jak Poster. Takie narzędzia ułatwiają zapewnienie, że aplikacja będzie odpowiadać na żądania autoryzacji w sposób, w jaki oczekuje usługa aprowizacji Azure Active Directory (Azure AD). Zapoznaj się z [przykładowym żądaniem](./use-scim-to-provision-users-and-groups.md#request-3).
 
 ### <a name="step-2-import-user"></a>Krok 2. Importowanie użytkownika
 
@@ -76,7 +76,7 @@ Sekcja **Wyświetl szczegóły** zawiera właściwości użytkownika, który zos
 
 ### <a name="step-3-determine-if-user-is-in-scope"></a>Krok 3. Ustalanie, czy użytkownik jest w zasięgu
 
-Następnie usługa aprowizacji określa, czy użytkownik należy do [zakresu](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#scoping) aprowizacji. Usługa rozważa kwestie takie jak:
+Następnie usługa aprowizacji określa, czy użytkownik należy do [zakresu](./how-provisioning-works.md#scoping) aprowizacji. Usługa rozważa kwestie takie jak:
 
 * Określa, czy użytkownik jest przypisany do aplikacji.
 * Określa, czy zakres jest ustawiony na wartość **Synchronizuj przypisane** lub **zsynchronizuj wszystko**.
@@ -94,8 +94,8 @@ Sekcja **Wyświetl szczegóły** zawiera kryteria określania zakresu, które zo
 
 #### <a name="troubleshooting-tips"></a>Wskazówki dotyczące rozwiązywania problemów
 
-* Upewnij się, że zdefiniowano prawidłową rolę określania zakresu. Na przykład Unikaj używania [operatora Greater_Than](https://docs.microsoft.com/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts#create-a-scoping-filter) z wartością niecałkowitą.
-* Jeśli użytkownik nie ma wymaganej roli, zapoznaj się ze [wskazówkami dotyczącymi aprowizacji użytkowników przypisanych do domyślnej roli dostępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned#provisioning-users-assigned-to-the-default-access-role).
+* Upewnij się, że zdefiniowano prawidłową rolę określania zakresu. Na przykład Unikaj używania [operatora Greater_Than](./define-conditional-rules-for-provisioning-user-accounts.md#create-a-scoping-filter) z wartością niecałkowitą.
+* Jeśli użytkownik nie ma wymaganej roli, zapoznaj się ze [wskazówkami dotyczącymi aprowizacji użytkowników przypisanych do domyślnej roli dostępu](./application-provisioning-config-problem-no-users-provisioned.md#provisioning-users-assigned-to-the-default-access-role).
 
 ### <a name="step-4-match-user-between-source-and-target"></a>Krok 4. dopasowanie użytkownika do źródła i celu
 
@@ -129,7 +129,7 @@ Sekcja **Wyświetl szczegóły** zawiera atrybuty, które zostały zmodyfikowane
 
 #### <a name="troubleshooting-tips"></a>Wskazówki dotyczące rozwiązywania problemów
 
-* Błędy eksportowania zmian mogą się znacznie różnić. Zapoznaj się z [dokumentacją dla dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#error-codes) , aby uzyskać typowe błędy.
+* Błędy eksportowania zmian mogą się znacznie różnić. Zapoznaj się z [dokumentacją dla dzienników aprowizacji](../reports-monitoring/concept-provisioning-logs.md#error-codes) , aby uzyskać typowe błędy.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
@@ -150,4 +150,4 @@ Obecnie istnieje kilka znanych ograniczeń dotyczących aprowizacji na żądanie
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Rozwiązywanie problemów z obsługą administracyjną](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem)
+* [Rozwiązywanie problemów z obsługą administracyjną](./application-provisioning-config-problem.md)

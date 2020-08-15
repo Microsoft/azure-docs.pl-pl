@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
-ms.openlocfilehash: 1e858f1141ade52a1872d8a9822f515796d9182c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1765c6a7d19a11730567acd5e41deebc0a20cec2
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781960"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235828"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Inicjowanie obsługi aplikacji opartej na atrybutach przy użyciu filtrów zakresu
 Celem tego artykułu jest wyjaśnienie, jak używać filtrów zakresu do definiowania reguł opartych na atrybutach, które określają, którzy użytkownicy są obsługiwani do aplikacji.
@@ -94,7 +94,7 @@ Filtry zakresu są konfigurowane jako część mapowań atrybutów dla każdego 
    
    j. **Greater_Than_OR_EQUALS.** Klauzula zwraca wartość "true", jeśli obliczony atrybut jest większy lub równy wartości. Wartość określona w filtrze zakresu musi być liczbą całkowitą, a atrybut na użytkowniku musi być liczbą całkowitą [0, 1, 2,...]. 
    
-   k. **Łącznie.** Klauzula zwraca wartość "true", jeśli oceniony atrybut zawiera wartości ciągu (z uwzględnieniem wielkości liter), zgodnie z opisem w [tym miejscu](https://docs.microsoft.com/dotnet/api/system.string.contains?view=netframework-4.8). 
+   k. **Łącznie.** Klauzula zwraca wartość "true", jeśli oceniony atrybut zawiera wartości ciągu (z uwzględnieniem wielkości liter), zgodnie z opisem w [tym miejscu](/dotnet/api/system.string.contains?view=netframework-4.8). 
 
 
 >[!IMPORTANT] 
@@ -130,4 +130,3 @@ Filtry zakresu są konfigurowane jako część mapowań atrybutów dla każdego 
 * [Powiadomienia o aprowizacji konta](../app-provisioning/user-provisioning.md)
 * [Użyj Standard scim, aby włączyć automatyczną obsługę administracyjną użytkowników i grup z Azure Active Directory do aplikacji](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 * [Lista samouczków dotyczących integrowania aplikacji SaaS](../saas-apps/tutorial-list.md)
-

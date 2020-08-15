@@ -3,12 +3,12 @@ title: Jak tworzyć zasady konfiguracji gościa dla systemu Windows
 description: Dowiedz się, jak utworzyć Azure Policy zasady konfiguracji gościa dla systemu Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: b53c8ec8189516305de8b0b8c05b2be8ea49f7f2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 31c40640babea961ef3bb255112306f59772bae2
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045131"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236543"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Jak tworzyć zasady konfiguracji gościa dla systemu Windows
 
@@ -106,9 +106,9 @@ Właściwość powody jest używana przez usługę do standaryzacji sposobu prez
 **Kod** właściwości i **frazy** są oczekiwane przez usługę. Podczas tworzenia zasobu niestandardowego Ustaw tekst (zazwyczaj stdout), który ma być pokazywany jako powód, w którym zasób nie jest zgodny jako wartość **frazy**. **Kod** ma określone wymagania dotyczące formatowania, więc raporty mogą jasno wyświetlać informacje o zasobie służące do przeprowadzania inspekcji. To rozwiązanie sprawia, że konfiguracja gościa jest rozszerzalna. Każde polecenie można uruchomić, o ile dane wyjściowe mogą być zwracane jako wartość ciągu dla właściwości **phrase** .
 
 - **Kod** (ciąg): nazwa zasobu, powtórzona i krótka nazwa bez spacji jako identyfikator przyczyny. Te trzy wartości powinny być rozdzielane średnikami bez spacji.
-  - Przykładem może być`registry:registry:keynotpresent`
+  - Przykładem może być `registry:registry:keynotpresent`
 - **Phrase** (ciąg): czytelny dla człowieka tekst objaśniający, dlaczego ustawienie nie jest zgodne.
-  - Przykładem może być`The registry key $key is not present on the machine.`
+  - Przykładem może być `The registry key $key is not present on the machine.`
 
 ```powershell
 $reasons = @()
@@ -307,6 +307,8 @@ Parametry `New-GuestConfigurationPolicy` polecenia cmdlet:
 - **Wersja**: wersja zasad.
 - **Ścieżka**: ścieżka docelowa, w której są tworzone definicje zasad.
 - **Platforma**: platforma docelowa (Windows/Linux) dla zasad konfiguracji gościa i pakietu zawartości.
+- **Tag** dodaje jeden lub więcej filtrów tagów do definicji zasad
+- **Kategoria** ustawia pole metadanych kategorii w definicji zasad
 
 Poniższy przykład tworzy definicje zasad w określonej ścieżce z niestandardowego pakietu zasad:
 
@@ -328,14 +330,6 @@ Następujące pliki są tworzone przez `New-GuestConfigurationPolicy` :
 - **Initiative.jsna**
 
 Dane wyjściowe polecenia cmdlet zwracają obiekt zawierający nazwę wyświetlaną inicjatywy i ścieżkę plików zasad.
-
-> [!Note]
-> Najnowszy moduł konfiguracji gościa zawiera nowe parametry:
-> - **Tag** dodaje jeden lub więcej filtrów tagów do definicji zasad
->   - Zapoznaj się z sekcją [filtrowanie zasad konfiguracji gościa za pomocą tagów](#filtering-guest-configuration-policies-using-tags).
-> - **Kategoria** ustawia pole metadanych kategorii w definicji zasad
->   - Jeśli parametr nie jest uwzględniony, kategoria domyślna to konfiguracja gościa.
-> Te funkcje są w wersji zapoznawczej i wymagają modułu konfiguracji gościa 1.20.1, który można zainstalować za pomocą programu `Install-Module GuestConfiguration -AllowPrerelease` .
 
 Na koniec Opublikuj definicje zasad przy użyciu `Publish-GuestConfigurationPolicy` polecenia cmdlet. Polecenie cmdlet ma tylko parametr **Path** wskazujący lokalizację plików JSON utworzonych przez `New-GuestConfigurationPolicy` .
 
@@ -377,9 +371,6 @@ New-AzRoleDefinition -Role $role
 ```
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrowanie zasad konfiguracji gościa za pomocą tagów
-
-> [!Note]
-> Ta funkcja jest dostępna w wersji zapoznawczej i wymaga modułu konfiguracji gościa 1.20.1, którą można zainstalować za pomocą programu `Install-Module GuestConfiguration -AllowPrerelease` .
 
 Definicje zasad utworzone za pomocą poleceń cmdlet w module konfiguracji gościa mogą opcjonalnie zawierać filtr dla tagów. Parametr **tag** programu `New-GuestConfigurationPolicy` obsługuje tablicę skrótów zawierających poszczególne Tagi. Tagi są dodawane do `If` sekcji definicji zasad i nie mogą być modyfikowane przez przypisanie zasady.
 
@@ -439,10 +430,6 @@ New-GuestConfigurationPolicy
 ```
 
 ## <a name="extending-guest-configuration-with-third-party-tools"></a>Rozszerzanie konfiguracji gościa za pomocą narzędzi innych firm
-
-> [!Note]
-> Ta funkcja jest dostępna w wersji zapoznawczej i wymaga modułu konfiguracji gościa 1.20.3, którą można zainstalować za pomocą programu `Install-Module GuestConfiguration -AllowPrerelease` .
-> W wersji 1.20.3 Ta funkcja jest dostępna tylko dla definicji zasad, które przeprowadzają inspekcję maszyn z systemem Windows
 
 Pakiety artefaktów dla konfiguracji gościa można rozszerzyć w celu uwzględnienia narzędzi innych firm.
 Rozszerzanie konfiguracji gościa wymaga opracowania dwóch składników.
@@ -574,11 +561,6 @@ Jeśli chcesz wydać aktualizację zasad, istnieją dwa pola, które wymagają u
 - **contentHash**: Ta właściwość jest automatycznie aktualizowana przez `New-GuestConfigurationPolicy` polecenie cmdlet. Jest to wartość skrótu pakietu utworzonego przez `New-GuestConfigurationPackage` . Właściwość musi być poprawna dla `.zip` publikowanych plików. Jeśli zostanie zaktualizowana tylko właściwość **contentUri** , rozszerzenie nie zaakceptuje pakietu zawartości.
 
 Najprostszym sposobem zwolnienia zaktualizowanego pakietu jest powtórzenie procesu opisanego w tym artykule i udostępnienie zaktualizowanego numeru wersji. Ten proces gwarantuje, że wszystkie właściwości zostały prawidłowo zaktualizowane.
-
-## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Konwertowanie zawartości systemu Windows zasady grupy na konfigurację Azure Policy gościa
-
-Konfiguracja gościa podczas inspekcji maszyn z systemem Windows jest implementacją składni konfiguracji żądanego stanu programu PowerShell. Społeczność DSC opublikowała narzędzia do konwertowania wyeksportowanych szablonów zasady grupy w formacie DSC. Korzystając z tego narzędzia wraz z poleceniami cmdlet konfiguracji gościa opisanymi powyżej, można skonwertować zawartość systemu Windows zasady grupy i pakiet/opublikować ją Azure Policy do inspekcji. Aby uzyskać szczegółowe informacje na temat korzystania z tego narzędzia, zobacz artykuł [Szybki Start: konwertowanie zasady grupy na DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
-Po przeprowadzeniu konwersji zawartości wykonaj powyższe kroki, aby utworzyć pakiet i opublikować go jako Azure Policy są takie same jak w przypadku dowolnej zawartości DSC.
 
 ## <a name="optional-signing-guest-configuration-packages"></a>Opcjonalne: podpisywanie pakietów konfiguracji gościa
 

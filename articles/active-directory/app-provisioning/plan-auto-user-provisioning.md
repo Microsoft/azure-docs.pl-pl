@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: cecea24fe002ee64d54052635a6d7dec982aeee2
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 24de1b2cfc5e0804039923f23b6a5cd9f6c6fb80
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445649"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235709"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planowanie wdrożenia automatycznego aprowizowania użytkowników
 
@@ -50,7 +50,7 @@ Usługa Azure AD zapewnia samoobsługową integrację dowolnej aplikacji przy u�
 
 Wymagane są odpowiednie licencje dla aplikacji, które mają być automatycznie inicjowane. Należy omówić z właścicielami aplikacji, czy użytkownicy przypisani do aplikacji mają odpowiednie licencje dla ich ról aplikacji. Jeśli usługa Azure AD zarządza automatyczną obsługą administracyjną opartą na rolach, role przypisane w usłudze Azure AD muszą być wyrównane do licencji aplikacji. Nieprawidłowe licencje należące do aplikacji mogą prowadzić do błędów podczas aprowizacji/aktualizowania użytkownika.
 
-### <a name="terms"></a>Warunki
+### <a name="terms"></a>Terminologia
 
 W tym artykule są stosowane następujące warunki:
 
@@ -70,7 +70,7 @@ W tym artykule są stosowane następujące warunki:
 | - | - |
 | Seminaria internetowe na żądanie| [Zarządzanie aplikacjami przedsiębiorstwa za pomocą usługi Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Dowiedz się, jak usługa Azure AD może pomóc Ci w osiągnięciu rejestracji jednokrotnej w aplikacjach SaaS w przedsiębiorstwie i najlepszych rozwiązaniach dotyczących kontroli dostępu. |
 | Filmy wideo| [Co to jest inicjowanie obsługi użytkowników w usłudze Active Directory systemu Azure?](https://youtu.be/_ZjARPpI6NI) <br> [Jak wdrożyć Inicjowanie obsługi użytkowników w usłudze Active Directory systemu Azure?](https://youtu.be/pKzyts6kfrw) <br> [Integrowanie usług Salesforce z usługą Azure AD: jak zautomatyzować Inicjowanie obsługi użytkowników](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
-| Kursy online| SkillUp online: [Zarządzanie tożsamościami](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Dowiedz się, jak zintegrować usługę Azure AD z wieloma aplikacjami SaaS i zabezpieczyć dostęp użytkowników do tych aplikacji. |
+| Kursy online| SkillUp online:  [Zarządzanie tożsamościami](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Dowiedz się, jak zintegrować usługę Azure AD z wieloma aplikacjami SaaS i zabezpieczyć dostęp użytkowników do tych aplikacji. |
 | Książki| [Nowoczesne uwierzytelnianie za pomocą Azure Active Directory dla aplikacji sieci Web (Dokumentacja dla deweloperów) wersja 1](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Jest to autorytatywny, głęboki szczegółowe Przewodnik dotyczący tworzenia rozwiązań uwierzytelniania Active Directory dla tych nowych środowisk. |
 | Samouczki| Zapoznaj się z [listą samouczków dotyczących integrowania aplikacji SaaS z usługą Azure AD](../saas-apps/tutorial-list.md). |
 | Często zadawane pytania| [Często zadawane pytania](../app-provisioning/user-provisioning.md) dotyczące automatycznej aprowizacji użytkowników |
@@ -157,7 +157,7 @@ Rzeczywiste kroki wymagane do włączenia i skonfigurowania automatycznej aprowi
 
 Jeśli nie, wykonaj następujące czynności:
 
-1. [Utwórz żądanie](../develop/howto-app-gallery-listing.md) dla wstępnie zintegrowanego łącznika aprowizacji użytkowników. Nasz zespół będzie współpracować z ty i deweloperem aplikacji, aby dołączyć swoją aplikację do naszej platformy, jeśli obsługuje standard scim.
+1. [Utwórz żądanie](../azuread-dev/howto-app-gallery-listing.md) dla wstępnie zintegrowanego łącznika aprowizacji użytkowników. Nasz zespół będzie współpracować z ty i deweloperem aplikacji, aby dołączyć swoją aplikację do naszej platformy, jeśli obsługuje standard scim.
 
 1. Użyj [BYOA Standard scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) ogólnej obsługi administracyjnej użytkowników dla aplikacji. Jest to wymaganie, aby usługa Azure AD mogła udostępnić użytkownikom aplikację bez wstępnie zintegrowanego łącznika aprowizacji.
 

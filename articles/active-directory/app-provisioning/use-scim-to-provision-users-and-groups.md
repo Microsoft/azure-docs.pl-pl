@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 38973e5484ece0b47e2f81ad78c716b5ee49cead
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 70938bf1dcd06ce9936767c66ffead0f8627c5a7
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829700"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235472"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu usługi Azure AD
 
@@ -156,7 +156,7 @@ W [specyfikacji protokołu standard scim 2,0](http://www.simplecloud.info/#Speci
 
 Postępuj zgodnie z ogólnymi wskazówkami dotyczącymi wdrażania punktu końcowego Standard scim, aby zapewnić zgodność z usługą Azure AD:
 
-* `id`jest właściwością wymaganą dla wszystkich zasobów. Każda odpowiedź zwracająca zasób powinna mieć pewność, że każdy zasób ma tę właściwość, z wyjątkiem `ListResponse` z zerowymi elementami członkowskimi.
+* `id` jest właściwością wymaganą dla wszystkich zasobów. Każda odpowiedź zwracająca zasób powinna mieć pewność, że każdy zasób ma tę właściwość, z wyjątkiem `ListResponse` z zerowymi elementami członkowskimi.
 * Odpowiedź na żądanie zapytania/filtru zawsze powinna być `ListResponse` .
 * Grupy są opcjonalne, ale są obsługiwane tylko wtedy, gdy implementacja Standard scim obsługuje żądania PATCH.
 * Nie trzeba uwzględniać całego zasobu w odpowiedzi na POPRAWKĘ.
@@ -252,7 +252,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a>Odpowiedź
+##### <a name="response"></a>Reakcja
 
 *Utworzono protokół HTTP/1.1 201*
 ```json
@@ -333,7 +333,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *POBRAĆ wartość/users? Filter = userName EQ "Test_User_dfeef4c5-5681 -4387-b016-bdf221e82081"*
 
-##### <a name="response"></a><a name="response-2"></a>Odpowiedź
+##### <a name="response"></a><a name="response-2"></a>Reakcji
 
 *HTTP/1.1 200 OK*
 ```json
@@ -374,7 +374,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *POBRAĆ wartość/users? Filter = userName EQ "nieistniejącego użytkownika"*
 
-##### <a name="response"></a><a name="response-3"></a>Odpowiedź
+##### <a name="response"></a><a name="response-3"></a>Reakcji
 
 *HTTP/1.1 200 OK*
 ```json
@@ -411,7 +411,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-4"></a>Odpowiedź
+##### <a name="response"></a><a name="response-4"></a>Reakcji
 
 *HTTP/1.1 200 OK*
 ```json
@@ -455,7 +455,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-5"></a>Odpowiedź
+##### <a name="response"></a><a name="response-5"></a>Reakcji
 
 *HTTP/1.1 200 OK*
 ```json
@@ -504,7 +504,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-14"></a>Odpowiedź
+##### <a name="response"></a><a name="response-14"></a>Reakcji
 
 ```json
 {
@@ -544,7 +544,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *Usuń/users/5171a35d82074e068ce2 HTTP/1.1*
 
-##### <a name="response"></a><a name="response-6"></a>Odpowiedź
+##### <a name="response"></a><a name="response-6"></a>Reakcji
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -571,7 +571,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-7"></a>Odpowiedź
+##### <a name="response"></a><a name="response-7"></a>Reakcji
 
 *Utworzono protokół HTTP/1.1 201*
 ```json
@@ -596,7 +596,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *GET/Groups/40734ae655284ad3abcc? excludedAttributes = Members HTTP/1.1*
 
-##### <a name="response"></a><a name="response-8"></a>Odpowiedź
+##### <a name="response"></a><a name="response-8"></a>Reakcji
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -617,7 +617,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 ##### <a name="request"></a><a name="request-9"></a>Żądanie
 *GET/Groups? excludedAttributes = memberss&Filter = displayName EQ "displayName" HTTP/1.1*
 
-##### <a name="response"></a><a name="response-9"></a>Odpowiedź
+##### <a name="response"></a><a name="response-9"></a>Reakcji
 
 *HTTP/1.1 200 OK*
 ```json
@@ -657,7 +657,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-10"></a>Odpowiedź
+##### <a name="response"></a><a name="response-10"></a>Reakcji
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -680,7 +680,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-11"></a>Odpowiedź
+##### <a name="response"></a><a name="response-11"></a>Reakcji
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -703,7 +703,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-12"></a>Odpowiedź
+##### <a name="response"></a><a name="response-12"></a>Reakcji
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -713,7 +713,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 *Usuń/Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
-##### <a name="response"></a><a name="response-13"></a>Odpowiedź
+##### <a name="response"></a><a name="response-13"></a>Reakcji
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -751,7 +751,7 @@ Usługa Azure AD Provisioning obecnie działa pod zakresem adresów IP dla usłu
 
 Teraz, Po zaprojektowaniu schematu i zrozumieniu implementacji usługi Azure AD Standard scim, możesz rozpocząć tworzenie punktu końcowego Standard scim. Zamiast zaczynać od początku i całkowicie samodzielnie kompilować implementację, możesz polegać na wielu bibliotekach Standard scim typu open source opublikowanych przez społeczność Standard scim.
 
-[Kod referencyjny](https://aka.ms/SCIMReferenceCode) programu .NET Core typu open source Opublikowany przez zespół aprowizacji usługi Azure AD jest jednym z zasobów, które mogą szybko rozpocząć programowanie. Po skompilowaniu punktu końcowego Standard scim należy go przetestować. Można użyć kolekcji [testów post](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) dostarczonych jako część kodu odwołania lub wykonać przez przykładowe żądania/odpowiedzi podane [powyżej](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#user-operations).  
+[Kod referencyjny](https://aka.ms/SCIMReferenceCode) programu .NET Core typu open source Opublikowany przez zespół aprowizacji usługi Azure AD jest jednym z zasobów, które mogą szybko rozpocząć programowanie. Po skompilowaniu punktu końcowego Standard scim należy go przetestować. Można użyć kolekcji [testów post](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) dostarczonych jako część kodu odwołania lub wykonać przez przykładowe żądania/odpowiedzi podane [powyżej](#user-operations).  
 
    > [!Note]
    > Kod referencyjny ma pomóc w rozpoczęciu tworzenia punktu końcowego Standard scim i jest dostarczany "w takiej postaci, w jakiej jest". Wkłady ze społeczności pomogą Ci pomóc w tworzeniu i utrzymaniu kodu.
@@ -796,10 +796,10 @@ Usługa Standard scim musi mieć adres HTTP i certyfikat uwierzytelniania serwer
 
 Zestaw .NET Core SDK zawiera certyfikat programistyczny HTTPS, który może być używany podczas opracowywania, certyfikat jest instalowany w ramach pierwszego uruchomienia. W zależności od sposobu uruchomienia ASP.NET Core aplikacji sieci Web nasłuchuje na innym porcie:
 
-* Microsoft. Standard scim. WebHostSample:https://localhost:5001
-* IIS Express:https://localhost:44359/
+* Microsoft. Standard scim. WebHostSample: https://localhost:5001
+* IIS Express: https://localhost:44359/
 
-Aby uzyskać więcej informacji na temat protokołu HTTPS w ASP.NET Core Użyj następującego linku: [Wymuszaj protokół https w programie ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl)
+Aby uzyskać więcej informacji na temat protokołu HTTPS w ASP.NET Core Użyj następującego linku: [Wymuszaj protokół https w programie ASP.NET Core](/aspnet/core/security/enforcing-ssl)
 
 ### <a name="handling-endpoint-authentication"></a>Obsługa uwierzytelniania punktu końcowego
 
@@ -1168,12 +1168,12 @@ Po rozpoczęciu pierwszego cyklu możesz wybrać opcję **dzienniki aprowizacji*
 
 ## <a name="step-5-publish-your-application-to-the-azure-ad-application-gallery"></a>Krok 5. publikowanie aplikacji w galerii aplikacji usługi Azure AD
 
-Jeśli tworzysz aplikację, która będzie używana przez więcej niż jedną dzierżawę, możesz ją udostępnić w galerii aplikacji usługi Azure AD. Dzięki temu organizacje mogą łatwo odnaleźć aplikację i skonfigurować obsługę administracyjną. Publikowanie aplikacji w galerii usługi Azure AD i udostępnianie jej innym osobom jest proste. Zapoznaj się z opisanymi [tutaj](../develop/howto-app-gallery-listing.md)instrukcjami. Firma Microsoft będzie współpracować z klientem w celu zintegrowania aplikacji z naszą galerią, przetestowania punktu końcowego i udostępnienia [dokumentacji](../saas-apps/tutorial-list.md) do dołączania do klientów. 
+Jeśli tworzysz aplikację, która będzie używana przez więcej niż jedną dzierżawę, możesz ją udostępnić w galerii aplikacji usługi Azure AD. Dzięki temu organizacje mogą łatwo odnaleźć aplikację i skonfigurować obsługę administracyjną. Publikowanie aplikacji w galerii usługi Azure AD i udostępnianie jej innym osobom jest proste. Zapoznaj się z opisanymi [tutaj](../azuread-dev/howto-app-gallery-listing.md)instrukcjami. Firma Microsoft będzie współpracować z klientem w celu zintegrowania aplikacji z naszą galerią, przetestowania punktu końcowego i udostępnienia [dokumentacji](../saas-apps/tutorial-list.md) do dołączania do klientów. 
 
 ### <a name="gallery-onboarding-checklist"></a>Lista kontrolna dołączania galerii
 Postępuj zgodnie z poniższą listą kontrolną, aby upewnić się, że aplikacja została podłączona, a klienci mają płynne środowisko wdrażania. Informacje zostaną zebrane z użytkownika podczas dołączania do galerii. 
 > [!div class="checklist"]
-> * Obsługa punktu końcowego użytkownika i grupy [standard scim 2,0](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-2-understand-the-azure-ad-scim-implementation) (tylko jeden jest wymagany, ale oba są zalecane)
+> * Obsługa punktu końcowego użytkownika i grupy [standard scim 2,0 ](#step-2-understand-the-azure-ad-scim-implementation) (tylko jeden jest wymagany, ale oba są zalecane)
 > * Obsługa co najmniej 25 żądań na sekundę na dzierżawcę (wymagane)
 > * Ustanów kontakty inżynieryjne i pomoc techniczną, aby Przewodnik po dołączaniu do galerii (wymagany)
 > * 3 niewygasające poświadczenia testów dla aplikacji (wymagane)

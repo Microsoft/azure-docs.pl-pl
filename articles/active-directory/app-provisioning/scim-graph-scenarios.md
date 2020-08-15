@@ -11,20 +11,20 @@ ms.topic: reference
 ms.date: 04/26/2020
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: 612663c2edc8aa7bc1eb3a2e4c8106b3e778a961
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b69e2c9b12b2db34f3eb70e54d2c6aede6b54784
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781688"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235506"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Korzystanie z standard scim i Microsoft Graph ze sobą w celu aprowizacji użytkowników i wzbogacania aplikacji o potrzebne dane
 
-**Odbiorcy docelowi:** Ten artykuł jest przeznaczony dla deweloperów tworzących aplikacje, które mają być zintegrowane z usługą Azure Active Directory (Azure AD). Jeśli zamierzasz korzystać z aplikacji już zintegrowanych z usługą Azure AD, takich jak zoom, usługi ServiceNow i DropBox, możesz pominąć ten artykuł i zapoznać się z [samouczkami](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) dotyczącymi konkretnych aplikacji lub sprawdzić, [jak działa usługa aprowizacji](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works).
+**Odbiorcy docelowi:** Ten artykuł jest przeznaczony dla deweloperów tworzących aplikacje, które mają być zintegrowane z usługą Azure Active Directory (Azure AD). Jeśli zamierzasz korzystać z aplikacji już zintegrowanych z usługą Azure AD, takich jak zoom, usługi ServiceNow i DropBox, możesz pominąć ten artykuł i zapoznać się z [samouczkami](../saas-apps/tutorial-list.md) dotyczącymi konkretnych aplikacji lub sprawdzić, [jak działa usługa aprowizacji](./how-provisioning-works.md).
 
 **Typowe scenariusze**
 
-Usługa Azure AD zapewnia wbudowaną usługę usługi Box do aprowizacji i rozszerzalną platformę do kompilowania aplikacji. Drzewo decyzyjne zawiera informacje o tym, w jaki sposób deweloper będzie używać [Standard scim](https://aka.ms/scimoverview) oraz [Microsoft Graph](https://docs.microsoft.com/graph/overview) do automatyzowania aprowizacji. 
+Usługa Azure AD zapewnia wbudowaną usługę usługi Box do aprowizacji i rozszerzalną platformę do kompilowania aplikacji. Drzewo decyzyjne zawiera informacje o tym, w jaki sposób deweloper będzie używać [Standard scim](https://aka.ms/scimoverview) oraz [Microsoft Graph](/graph/overview) do automatyzowania aprowizacji. 
 
 > [!div class="checklist"]
 > * Automatycznie twórz użytkowników w mojej aplikacji
@@ -97,15 +97,15 @@ Aplikacja korzysta z grup, aby uzyskać dostęp do różnych zasobów, a klienci
 ## <a name="scenario-4-enrich-my-app-with-data-from-microsoft-services-such-as-teams-outlook-and-onedrive"></a>Scenariusz 4: wzbogacanie mojej aplikacji o dane z usług firmy Microsoft, takich jak zespoły, program Outlook i usługa OneDrive
 Moja aplikacja jest wbudowana w Microsoft Teams i opiera się na danych komunikatów. Ponadto przechowujemy pliki dla użytkowników w usłudze OneDrive. Jak mogę wzbogacić swoją aplikację z danymi z tych usług i między firmą Microsoft?
 
-**Zalecenie:** [Microsoft Graph](https://docs.microsoft.com/graph/) jest punktem wejścia, aby uzyskać dostęp do danych firmy Microsoft. Każde obciążenie udostępnia interfejsy API z wymaganymi danymi. Programu Microsoft Graph można używać razem z [Standard scim aprowizacji](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) dla powyższych scenariuszy. Możesz użyć standard scim, aby udostępnić podstawowe atrybuty użytkownika w aplikacji podczas wywoływania do programu Graph, aby uzyskać inne potrzebne dane. 
+**Zalecenie:** [Microsoft Graph](/graph/) jest punktem wejścia, aby uzyskać dostęp do danych firmy Microsoft. Każde obciążenie udostępnia interfejsy API z wymaganymi danymi. Programu Microsoft Graph można używać razem z [Standard scim aprowizacji](./use-scim-to-provision-users-and-groups.md) dla powyższych scenariuszy. Możesz użyć standard scim, aby udostępnić podstawowe atrybuty użytkownika w aplikacji podczas wywoływania do programu Graph, aby uzyskać inne potrzebne dane. 
 
 ## <a name="scenario-5-track-changes-in-microsoft-services-such-as-teams-outlook-and-azure-ad"></a>Scenariusz 5: śledzenie zmian w usługach firmy Microsoft, takich jak zespoły, Outlook i Azure AD
 Muszę mieć możliwość śledzenia zmian w zespołach i wiadomościach programu Outlook i reagowania na nie w czasie rzeczywistym. Jak można pobrać te zmiany do mojej aplikacji?
 
-**Zalecenie:** Microsoft Graph zapewnia [powiadomienia o zmianach](https://docs.microsoft.com/graph/webhooks) i [śledzenie zmian](https://docs.microsoft.com/graph/delta-query-overview) dla różnych zasobów. Należy pamiętać o następujących ograniczeniach dotyczących powiadomień o zmianach:
+**Zalecenie:** Microsoft Graph zapewnia [powiadomienia o zmianach](/graph/webhooks) i [śledzenie zmian](/graph/delta-query-overview) dla różnych zasobów. Należy pamiętać o następujących ograniczeniach dotyczących powiadomień o zmianach:
 - Jeśli odbiorca zdarzenia potwierdzi zdarzenie, ale nie będzie działać z jakiegokolwiek powodu, może to spowodować utratę zdarzenia.
 - Kolejność, w której zmiany są odbierane, nie gwarantuje, że jest to chronologiczne.
-- Powiadomienia o zmianach nie zawierają zawsze [danych zasobów](https://docs.microsoft.com/graph/webhooks-with-resource-data) dla powyższych powodów, deweloperzy często używają powiadomień o zmianach wraz ze śledzeniem zmian w scenariuszach synchronizacji. 
+- Powiadomienia o zmianach nie zawierają zawsze [danych zasobów](/graph/webhooks-with-resource-data) dla powyższych powodów, deweloperzy często używają powiadomień o zmianach wraz ze śledzeniem zmian w scenariuszach synchronizacji. 
 
 ## <a name="scenario-6-provision-users-and-groups-in-azure-ad"></a>Scenariusz 6. Udostępnianie użytkowników i grup w usłudze Azure AD
 Moja aplikacja tworzy informacje o użytkowniku, którego potrzebują klienci w usłudze Azure AD. Może to być aplikacja KADRowa niż zarządzanie zatrudnieniem, aplikacją komunikacyjną, która tworzy numery telefonów dla użytkowników, lub inną aplikację, która generuje dane, które byłyby przydatne w usłudze Azure AD. Jak mogę wypełnić rekordem użytkownika w usłudze Azure AD tymi danymi? 
@@ -117,5 +117,5 @@ Moja aplikacja tworzy informacje o użytkowniku, którego potrzebują klienci w 
 
 ## <a name="related-articles"></a>Pokrewne artykuły:
 
-- [Zapoznaj się z dokumentacją Microsoft Graph synchronizacji](https://docs.microsoft.com/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [Zapoznaj się z dokumentacją Microsoft Graph synchronizacji](/graph/api/resources/synchronization-overview?view=graph-rest-beta)
 - [Integrowanie niestandardowej aplikacji Standard scim z usługą Azure AD](use-scim-to-provision-users-and-groups.md)

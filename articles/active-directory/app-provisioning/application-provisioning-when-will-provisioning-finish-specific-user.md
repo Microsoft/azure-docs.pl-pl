@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: a8f712604ae854a1870fe96112db3ae0f2ed60a8
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 307a97b71fe453c89617a86a88063e60fcf28fa3
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203004"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235064"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Sprawdź stan aprowizacji użytkowników
 
@@ -30,7 +30,7 @@ Podczas pierwszej konfiguracji automatycznej aprowizacji, **Bieżąca sekcja sta
 - Typ cyklu aprowizacji (początkowy lub przyrostowy), który jest aktualnie uruchomiony lub ostatnio zakończony.
 - **Pasek postępu** przedstawiający procent cyklu aprowizacji, który został ukończony. Wartość procentowa odzwierciedla liczbę zainicjowanych stron. Należy pamiętać, że każda strona może zawierać wielu użytkowników lub grup, więc wartość procentowa nie jest bezpośrednio skorelowana z liczbą użytkowników, grup lub ról, które są obsługiwane.
 - Przycisk **odświeżania** , którego można użyć, aby zachować zaktualizowany widok.
-- Liczba **użytkowników** i **grup** w magazynie danych łącznika. Liczba rośnie wszędzie po dodaniu obiektu do zakresu aprowizacji. Ta liczba nie zostanie wyłączona, jeśli użytkownik zostanie usunięty lub usunięty trwale, ponieważ nie spowoduje to usunięcia obiektu z magazynu danych łącznika. Liczba zostanie ponownie obliczona po pierwszej synchronizacji po [zresetowaniu](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) dysków CD 
+- Liczba **użytkowników** i **grup** w magazynie danych łącznika. Liczba rośnie wszędzie po dodaniu obiektu do zakresu aprowizacji. Ta liczba nie zostanie wyłączona, jeśli użytkownik zostanie usunięty lub usunięty trwale, ponieważ nie spowoduje to usunięcia obiektu z magazynu danych łącznika. Liczba zostanie ponownie obliczona po pierwszej synchronizacji po [zresetowaniu](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta) dysków CD 
 - Łącze **Wyświetl dzienniki inspekcji** , które otwiera dzienniki aprowizacji usługi Azure AD, aby uzyskać szczegółowe informacje o wszystkich operacjach wykonywanych przez usługę aprowizacji użytkowników, w tym o stanie aprowizacji poszczególnych użytkowników (zobacz sekcję korzystanie z [dzienników aprowizacji](#use-provisioning-logs-to-check-a-users-provisioning-status) poniżej).
 
 Po zakończeniu cyklu aprowizacji sekcja **statystyki do daty** pokazuje skumulowaną liczbę użytkowników i grup, których zainicjowano na dzień, wraz z datą ukończenia i czasem trwania ostatniego cyklu. **Identyfikator działania** jednoznacznie identyfikuje najnowszy cykl aprowizacji. **Identyfikator zadania** jest unikatowym identyfikatorem zadania aprowizacji i jest specyficzny dla aplikacji w dzierżawie.
@@ -99,4 +99,4 @@ Podsumowanie czynników wpływających na czas trwania **cyklu początkowego**:
 - Jeśli wydajność jest problemem i podjęto próbę aprowizacji większości użytkowników i grup w dzierżawie, użyj filtrów zakresu. Filtry zakresu umożliwiają precyzyjne dostosowywanie danych, które usługa aprowizacji wyodrębnia z usługi Azure AD przez filtrowanie użytkowników na podstawie określonych wartości atrybutów. Aby uzyskać więcej informacji na temat określania zakresu filtrów, zobacz Tworzenie [aplikacji opartych na atrybutach przy użyciu filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 ## <a name="next-steps"></a>Następne kroki
-[Automatyzowanie aprowizacji użytkowników i anulowanie obsługi aplikacji SaaS przy użyciu Azure Active Directory](user-provisioning.md)
+[Automatyzacja aprowizacji i anulowania aprowizacji użytkowników w aplikacjach SaaS przy użyciu usługi Azure Active Directory](user-provisioning.md)

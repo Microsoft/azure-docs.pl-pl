@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: fb8687c091e8c34ad1fbae2a50981327b3994b6e
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 9bd4c7f17ec1a75e54ca857325cdbb7bf3358511
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85051952"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234707"
 ---
 # <a name="what-is-conditional-access"></a>Co to jest dostęp warunkowy?
 
@@ -38,7 +38,8 @@ Korzystając z zasad dostępu warunkowego, można zastosować odpowiednie metody
 
 ![Przepływ procesu koncepcyjnego dostępu warunkowego](./media/overview/conditional-access-overview-how-it-works.png)
 
-Zasady dostępu warunkowego są wymuszane po zakończeniu uwierzytelniania pierwszego. Dostęp warunkowy nie jest przewidziany jako pierwszy wiersz obrony organizacji dla scenariuszy takich jak ataki typu "odmowa usługi" (DoS), ale mogą używać sygnałów z tych zdarzeń w celu określenia dostępu.
+> [!IMPORTANT]
+> Zasady dostępu warunkowego są wymuszane po zakończeniu uwierzytelniania pierwszego. Dostęp warunkowy nie jest to pierwszy wiersz obrony organizacji dla scenariuszy takich jak ataki typu "odmowa usługi" (DoS), ale może użyć sygnałów z tych zdarzeń w celu określenia dostępu.
 
 ## <a name="common-signals"></a>Typowe sygnały
 
@@ -58,7 +59,7 @@ Typowe sygnały, które mogą być wykonywane przez dostęp warunkowy w przypadk
 - Microsoft Cloud App Security (MCAS)
    - Umożliwia monitorowanie i nadzorowanie dostępu do aplikacji przez użytkowników w czasie rzeczywistym, zwiększanie widoczności i kontroli dostępu do i działań wykonywanych w środowisku chmury.
 
-## <a name="common-decisions"></a>Wspólne decyzje
+## <a name="common-decisions"></a>Typowe decyzje
 
 - Blokowanie dostępu
    - Najbardziej restrykcyjna decyzja
@@ -70,7 +71,7 @@ Typowe sygnały, które mogą być wykonywane przez dostęp warunkowy w przypadk
       - Wymaganie zatwierdzonej aplikacji klienckiej
       - Wymagaj zasad ochrony aplikacji (wersja zapoznawcza)
 
-## <a name="commonly-applied-policies"></a>Zasady powszechnie stosowane
+## <a name="commonly-applied-policies"></a>Najczęściej stosowane zasady
 
 Wiele organizacji ma [typowy dostęp do zasad dostępu warunkowego,](concept-conditional-access-policy-common.md) takich jak:
 

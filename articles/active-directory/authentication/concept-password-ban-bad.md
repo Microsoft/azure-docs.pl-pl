@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f0f7571cf9f8d355330c4acf425e38ce215e840
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 68419c33286457a770a9988f1f00cc0b5e1f91bc
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050869"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235302"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminowanie nieprawidłowych haseł przy użyciu ochrony hasłem Azure Active Directory
 
 Wiele wskazówek dotyczących zabezpieczeń zaleca, aby nie używać tego samego hasła w wielu miejscach, aby zapewnić jego złożoność oraz uniknąć prostych haseł, takich jak *Password123*. Możesz zapewnić użytkownikom [wskazówki dotyczące wybierania haseł](https://www.microsoft.com/research/publication/password-guidance), ale słabe lub niezabezpieczone hasła często są nadal używane. Ochrona hasłem w usłudze Azure AD wykrywa i blokuje znane hasła oraz ich warianty, a także może blokować dodatkowe słabe warunki, które są specyficzne dla organizacji.
 
-W przypadku ochrony hasłem w usłudze Azure AD domyślne globalne listy zakazanych haseł są automatycznie stosowane do wszystkich użytkowników w chmurze. Aby móc obsługiwać własne potrzeby biznesowe i bezpieczeństwa, możesz definiować wpisy na liście niestandardowych haseł zabronionych. Gdy użytkownicy zmienią lub zresetują swoje hasła, te zabronione listy haseł są sprawdzane w celu wymuszenia użycia silnych haseł.
+W przypadku ochrony hasłem w usłudze Azure AD domyślne globalne listy zakazanych haseł są automatycznie stosowane dla wszystkich użytkowników w dzierżawie usługi Azure AD. Aby móc obsługiwać własne potrzeby biznesowe i bezpieczeństwa, możesz definiować wpisy na liście niestandardowych haseł zabronionych. Gdy użytkownicy zmienią lub zresetują swoje hasła, te zabronione listy haseł są sprawdzane w celu wymuszenia użycia silnych haseł.
 
 Należy używać dodatkowych funkcji, takich jak [Azure Multi-Factor Authentication](concept-mfa-howitworks.md), a nie tylko na silnych hasłach wymuszanych przez ochronę hasłem usługi Azure AD. Aby uzyskać więcej informacji na temat używania wielu warstw zabezpieczeń dla zdarzeń logowania, zobacz [PA $ $Word nie ma znaczenia](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
@@ -37,7 +37,7 @@ Zespół Azure AD Identity Protection stale analizuje dane telemetryczne zabezpi
 
 W przypadku zmiany lub zresetowania hasła dla dowolnego użytkownika w dzierżawie usługi Azure AD bieżąca wersja listy globalna lista haseł jest używana do weryfikowania siły hasła. To sprawdzenie poprawności powoduje użycie silniejszych haseł dla wszystkich klientów usługi Azure AD.
 
-Lista zakazanych haseł globalnych jest automatycznie stosowana dla wszystkich użytkowników w chmurze w dzierżawie usługi Azure AD. Nie ma nic do włączenia lub skonfigurowania i nie można go wyłączyć.
+Lista zakazanych haseł globalnych jest automatycznie stosowana dla wszystkich użytkowników w dzierżawie usługi Azure AD. Nie ma nic do włączenia lub skonfigurowania i nie można go wyłączyć. Ta globalna lista wykluczonych haseł jest stosowana dla użytkowników, gdy zmieniają lub zresetują własne hasło za pomocą usługi Azure AD.
 
 > [!NOTE]
 > Cybernetycznymi — przestępcy stosują także podobne strategie w oddziałach, aby identyfikować typowe słabe hasła i różnice. Aby zwiększyć bezpieczeństwo, firma Microsoft nie publikuje zawartości listy globalnie zakazanych haseł.
@@ -99,7 +99,7 @@ Mimo że globalna lista zabronionych jest niewielka w porównaniu z niektórymi 
 
 ## <a name="on-premises-hybrid-scenarios"></a>Lokalne scenariusze hybrydowe
 
-Wiele organizacji ma model tożsamości hybrydowej, który obejmuje lokalne środowiska Active Directory Domain Services (AD DS). Aby zwiększyć zalety zabezpieczeń usługi Azure AD Password Protection do środowiska AD DS, można zainstalować składniki na serwerach lokalnych. Tacy agenci wymagają zdarzeń zmiany hasła w lokalnym środowisku AD DS, aby zachować zgodność z tymi samymi zasadami haseł co użytkownicy tylko w chmurze.
+Wiele organizacji ma model tożsamości hybrydowej, który obejmuje lokalne środowiska Active Directory Domain Services (AD DS). Aby zwiększyć zalety zabezpieczeń usługi Azure AD Password Protection do środowiska AD DS, można zainstalować składniki na serwerach lokalnych. Tacy agenci wymagają zdarzeń zmiany hasła w lokalnym środowisku AD DS, aby zachować zgodność z tymi samymi zasadami haseł co w usłudze Azure AD.
 
 Aby uzyskać więcej informacji, zobacz [Wymuś ochronę hasłem w usłudze Azure AD dla AD DS](concept-password-ban-bad-on-premises.md).
 

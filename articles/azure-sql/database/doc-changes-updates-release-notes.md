@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: e1e6c9254c3906b79c3a20de4672dff1b9ac6c63
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0e44280c0a6c0d39c98e3aeecd5e9a3707332e81
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121463"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236577"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Co nowego w Azure SQL Database & wystąpieniu zarządzanym SQL?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -36,7 +36,7 @@ Należy wziąć pod uwagę, że jest to trwające prace, a nie każdy artykuł z
 Ta tabela zawiera krótkie porównanie zmian w terminologii: 
 
 
-|**Nowy termin**  | **Poprzedni termin**  |**Objaśnienie** |
+|**Nowy termin**  | **Poprzedni termin**  |**Wyjaśnienie** |
 |---------|---------|---------|
 |**Wystąpienie zarządzane Azure SQL** | Azure SQL Database *wystąpienie zarządzane*| Wystąpienie zarządzane Azure SQL to własny produkt należący do rodziny Azure SQL, a nie tylko opcja wdrażania w ramach Azure SQL Database. | 
 |**Azure SQL Database**|Azure SQL Database *pojedynczą bazę danych*| O ile nie określono jawnie inaczej, nazwa produktu Azure SQL Database obejmuje pojedyncze bazy danych i bazy danych wdrożone w puli elastycznej. |
@@ -84,11 +84,11 @@ Ta tabela zawiera krótkie porównanie zmian w terminologii:
 ### <a name="sql-managed-instance-h1-2019-updates"></a>Wystąpienia zarządzane SQL H1 2019 aktualizacje
 
 W modelu wdrażania wystąpienia zarządzanego SQL w H1 2019 są włączone następujące funkcje:
-  - Obsługa subskrypcji za pomocą <a href="https://aka.ms/sql-mi-visual-studio-subscribers">miesięcznych środków na korzystanie z platformy Azure dla subskrybentów programu Visual Studio</a> i zwiększonych [granic regionalnych](../managed-instance/resource-limits.md#regional-resource-limitations).
-  - Obsługa programów <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019">sharepoint 2016 i sharepoint 2019</a> oraz <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance">Dynamics 365 Business Central.</a>
+  - Obsługa subskrypcji za pomocą <a href="https://aka.ms/sql-mi-visual-studio-subscribers"> miesięcznych środków na korzystanie z platformy Azure dla subskrybentów programu Visual Studio </a> i zwiększonych [granic regionalnych](../managed-instance/resource-limits.md#regional-resource-limitations).
+  - Obsługa programów <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> sharepoint 2016 i sharepoint 2019 </a> oraz <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central. </a>
   - Utwórz wystąpienie zarządzane z <a href="https://aka.ms/managed-instance-collation">sortowaniem na poziomie wystąpienia</a> i wybraną <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">strefę czasową</a> .
   - Zarządzane wystąpienia są teraz chronione za pomocą [wbudowanej zapory](../managed-instance/management-endpoint-verify-built-in-firewall.md).
-  - Skonfiguruj wystąpienie zarządzane SQL, tak aby korzystało z [publicznych punktów końcowych](../managed-instance/public-endpoint-configure.md), połączenia [zastąpień serwera proxy](connectivity-architecture.md#connection-policy) w celu uzyskania lepszej wydajności sieci, <a href="https://aka.ms/four-cores-sql-mi-update">4 rdzeni wirtualnych na generowanie sprzętu 5 rdzeń</a> lub <a href="https://aka.ms/managed-instance-configurable-backup-retention">Skonfiguruj przechowywanie kopii zapasowych do 35 dni</a> w przypadku przywracania do punktu w czasie. [Długoterminowe przechowywanie kopii zapasowych](long-term-retention-overview.md#sql-managed-instance-support) (do 10 lat) jest obecnie w ograniczonej publicznej wersji zapoznawczej.  
+  - Skonfiguruj wystąpienie zarządzane SQL, tak aby korzystało z [publicznych punktów końcowych](../managed-instance/public-endpoint-configure.md), połączenia [zastąpień serwera proxy](connectivity-architecture.md#connection-policy) w celu uzyskania lepszej wydajności sieci, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 rdzeni wirtualnych na generowanie sprzętu 5 rdzeń</a> lub <a href="https://aka.ms/managed-instance-configurable-backup-retention">Skonfiguruj przechowywanie kopii zapasowych do 35 dni</a> w przypadku przywracania do punktu w czasie. [Długoterminowe przechowywanie kopii zapasowych](long-term-retention-overview.md#sql-managed-instance-support) (do 10 lat) jest obecnie w ograniczonej publicznej wersji zapoznawczej.  
   - Nowe funkcje umożliwiają <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">przeprzywracanie geograficznej bazy danych do innego centrum danych przy użyciu programu PowerShell</a>, [zmiana nazwy bazy danych](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [usunięcie klastra wirtualnego](../managed-instance/virtual-cluster-delete.md).
   - Nowa [rola współautor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) wbudowanego wystąpienia umożliwia rozdzielenie cła (SOD) z zasadami zabezpieczeń i zgodności z normami przedsiębiorstwa.
   - Wystąpienie zarządzane SQL jest dostępne w następujących regionach Azure Government, do GA (US Gov Teksas, US Gov Arizona), a także w Chiny Północne 2 i Chiny Wschodnie 2. Jest ona również dostępna w następujących regionach publicznych: Australia Środkowa, Australia Środkowa 2, Brazylia Południowa, Francja Południowa, Europa Środkowa, Płn. Zjednoczone Emiraty Arabskie, Północna Republika Południowej Afryki, Zachodnia Republika Południowej Afryki.
@@ -97,6 +97,7 @@ W modelu wdrażania wystąpienia zarządzanego SQL w H1 2019 są włączone nast
 
 |Problem  |Data wykrycia  |Stan  |Data rozwiązania  |
 |---------|---------|---------|---------|
+|[Nazwa główna usługi nie może uzyskać dostępu do usługi Azure AD i AKV](#service-principal-cannot-access-azure-ad-and-akv)|2020 sie|Ma obejście||
 |[Przywrócenie ręcznej kopii zapasowej bez sumy KONTROLnej może zakończyć się niepowodzeniem](#restoring-manual-backup-without-checksum-might-fail)|Maj 2020 r.|Resolved|Czerwiec 2020 r.|
 |[Agent przestaje odpowiadać po zmodyfikowaniu, wyłączeniu lub włączeniu istniejących zadań](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maj 2020 r.|Resolved|Czerwiec 2020 r.|
 |[Uprawnienia do grupy zasobów nie są stosowane do wystąpienia zarządzanego SQL](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|2020 lutego|Ma obejście||
@@ -110,7 +111,7 @@ W modelu wdrażania wystąpienia zarządzanego SQL w H1 2019 są włączone nast
 |[Po przejściu w tryb failover może zajść konieczność ponownego skonfigurowania przyrządu zasobów na Krytyczne dla działania firmyej warstwie usług](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Wrz 2019|Ma obejście||
 |[Okna dialogowe Service Broker między bazami danych muszą zostać zainicjowane ponownie po uaktualnieniu warstwy usług](#cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade)|2019 sie|Ma obejście||
 |[Personifikacja typów logowania usługi Azure AD nie jest obsługiwana](#impersonation-of-azure-ad-login-types-is-not-supported)|Lip 2019|Brak obejścia||
-|[@queryparametr nie jest obsługiwany w sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Kwi 2019|Brak obejścia||
+|[@query parametr nie jest obsługiwany w sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Kwi 2019|Brak obejścia||
 |[Należy ponownie skonfigurować replikację transakcyjną po geograficznym przejściu do trybu failover](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|Brak obejścia||
 |[Tymczasowa baza danych jest używana podczas operacji przywracania](#temporary-database-is-used-during-restore-operation)||Ma obejście||
 |[Struktura i zawartość bazy danych TEMPDB są odtwarzane](#tempdb-structure-and-content-is-re-created)||Brak obejścia||
@@ -124,6 +125,11 @@ W modelu wdrażania wystąpienia zarządzanego SQL w H1 2019 są włączone nast
 |Funkcja poczty bazy danych z zewnętrznymi serwerami poczty (poza platformą Azure) przy użyciu bezpiecznego połączenia||Resolved|2019 października|
 |Zawarte bazy danych nie są obsługiwane w wystąpieniu zarządzanym SQL||Resolved|2019 sie|
 
+### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>Nazwa główna usługi nie może uzyskać dostępu do usługi Azure AD i AKV
+
+W pewnych okolicznościach może wystąpić problem z jednostką usługi służącą do uzyskiwania dostępu do usług Azure AD i Azure Key Vault (AKV). W związku z tym ten problem ma wpływ na użycie uwierzytelniania usługi Azure AD i przezroczyste szyfrowanie bazy danych (TDE) z wystąpieniem zarządzanym SQL. Może się to zdarzyć w przypadku sporadycznego problemu z łącznością lub nie można uruchomić takich instrukcji, jak tworzenie logowania/użytkownika z zewnętrznego dostawcy lub wykonywanie jako nazwa logowania/użytkownika. Skonfigurowanie TDE z kluczem zarządzanym przez klienta w nowym wystąpieniu zarządzanym Azure SQL może również nie funkcjonować w pewnych okolicznościach.
+
+**Obejście**: aby zapobiec występowaniu tego problemu w wystąpieniu zarządzanym SQL przed wykonaniem jakichkolwiek poleceń aktualizacji lub jeśli ten problem wystąpił już po aktualizacji poleceń, przejdź do witryny Azure Portal i uzyskaj dostęp do wystąpienia zarządzanego SQL [Active Directory bloku administratora](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal). Sprawdź, czy widzisz komunikat o błędzie "wystąpienie zarządzane potrzebuje nazwy głównej usługi, aby uzyskać dostęp do Azure Active Directory. Kliknij tutaj, aby utworzyć nazwę główną usługi ". Jeśli ten komunikat o błędzie został napotkany, kliknij go i postępuj zgodnie z instrukcjami krok po kroku, które są dostępne do momentu rozwiązania tego błędu.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>Przywrócenie ręcznej kopii zapasowej bez sumy KONTROLnej może zakończyć się niepowodzeniem
 
@@ -205,7 +211,7 @@ Personifikacja przy użyciu `EXECUTE AS USER` lub `EXECUTE AS LOGIN` z następuj
 -   Aliasy użytkowników usługi Azure AD. W tym przypadku zwracany jest następujący błąd: `15517` .
 - Nazwy logowania i użytkownicy usługi Azure AD na podstawie aplikacji usługi Azure AD lub ich nazw głównych. W takim przypadku zwracane są następujące błędy: `15517` i `15406` .
 
-### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@queryparametr nie jest obsługiwany w sp_send_db_mail
+### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@query parametr nie jest obsługiwany w sp_send_db_mail
 
 `@query`Parametr w procedurze [sp_send_db_mail](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) nie działa.
 
@@ -229,7 +235,7 @@ W fazie początkowej użytkownik może uzyskać dostęp do pustej bazy danych, a
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>Struktura i zawartość bazy danych TEMPDB są odtwarzane
 
-`tempdb`Baza danych jest zawsze podzielona na 12 plików danych i nie można zmienić jej struktury. Nie można zmienić maksymalnego rozmiaru pliku i nie można dodać do niego nowych plików `tempdb` . `Tempdb`zawsze jest tworzona jako pusta baza danych, gdy wystąpienie zostanie uruchomione lub działa w trybie failover, a wszelkie zmiany wprowadzone w programie `tempdb` nie zostaną zachowane.
+`tempdb`Baza danych jest zawsze podzielona na 12 plików danych i nie można zmienić jej struktury. Nie można zmienić maksymalnego rozmiaru pliku i nie można dodać do niego nowych plików `tempdb` . `Tempdb` zawsze jest tworzona jako pusta baza danych, gdy wystąpienie zostanie uruchomione lub działa w trybie failover, a wszelkie zmiany wprowadzone w programie `tempdb` nie zostaną zachowane.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Przekraczanie miejsca do magazynowania z małymi plikami bazy danych
 
@@ -266,7 +272,7 @@ Dzienniki błędów, które są dostępne w wystąpieniu zarządzanym SQL, nie s
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>Zakres transakcji w dwóch bazach danych w tym samym wystąpieniu nie jest obsługiwany
 
-**(Rozwiązane w marcu 2020)** `TransactionScope`Klasa w programie .NET nie działa, jeśli dwa zapytania są wysyłane do dwóch baz danych w tym samym wystąpieniu w ramach tego samego zakresu transakcji:
+**(Rozwiązane w marcu 2020)** `TransactionScope` Klasa w programie .NET nie działa, jeśli dwa zapytania są wysyłane do dwóch baz danych w tym samym wystąpieniu w ramach tego samego zakresu transakcji:
 
 ```csharp
 using (var scope = new TransactionScope())

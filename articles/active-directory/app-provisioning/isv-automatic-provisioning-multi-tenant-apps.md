@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 479bbe2dbef2d28a2744b667184c45e85faf9adc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7ffdef43aa0fdcaab9e8ceae519cef9dfe5cdf6e
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283099"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235642"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Włącz automatyczne Inicjowanie obsługi administracyjnej użytkowników dla aplikacji wielodostępnej
 
@@ -54,7 +54,7 @@ Usługa Azure AD udostępnia kilka ścieżek integracji, które umożliwiają au
 
 * [Usługa Azure AD Provisioning](../app-provisioning/user-provisioning.md) zarządza obsługą administracyjną i anulowaniem aprowizacji użytkowników z usługi Azure AD do aplikacji (aprowizacji wychodzące) i z aplikacji do usługi Azure AD (Udostępnianie przychodzące). Usługa nawiązuje połączenie z systemem dla punktów końcowych interfejsu API zarządzania tożsamościami w różnych domenach (standard scim) udostępnianych przez aplikację.
 
-* W przypadku korzystania z [Microsoft Graph](https://docs.microsoft.com/graph/)aplikacja zarządza przychodzącą i wychodzącą aprowizacji użytkowników i grup z usługi Azure AD do aplikacji przez przeszukiwanie interfejsu API Microsoft Graph.
+* W przypadku korzystania z [Microsoft Graph](/graph/)aplikacja zarządza przychodzącą i wychodzącą aprowizacji użytkowników i grup z usługi Azure AD do aplikacji przez przeszukiwanie interfejsu API Microsoft Graph.
 
 * Inicjowanie obsługi użytkowników (just in Time) w SAML (JIT) może być włączone, jeśli aplikacja używa protokołu SAML dla Federacji. Używa on informacji o oświadczeniach wysyłanych w tokenie SAML do udostępniania użytkownikom.
 
@@ -72,8 +72,8 @@ Aby ułatwić określenie opcji integracji, która ma być używana dla aplikacj
 | Obsługa kont gościa (B2B)| √| √| √ |
 | Obsługa kont nienależących do przedsiębiorstwa (B2C)| X| √| √ |
 
-<sup>*</sup>— Konfiguracja Azure AD Connect jest wymagana do synchronizowania użytkowników z usługi AD z usługą Azure AD.  
-<sup>+</sup >— Korzystanie z programu Standard scim do aprowizacji nie wyklucza integracji aplikacji z programem MIcrosoft Graph do innych celów.
+<sup>*</sup> — Konfiguracja Azure AD Connect jest wymagana do synchronizowania użytkowników z usługi AD z usługą Azure AD.  
+<sup>+</sup >— Korzystanie z programu Standard scim do aprowizacji nie wyklucza integracji aplikacji z Microsoft Graph do innych celów.
 
 ## <a name="azure-ad-provisioning-service-scim"></a>Usługa Azure AD Provisioning (standard scim)
 
@@ -89,7 +89,7 @@ Aby uzyskać więcej informacji o tym, jak użytkownicy usługi Azure AD Provisi
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph do aprowizacji
 
-W przypadku korzystania z Microsoft Graph do inicjowania obsługi administracyjnej masz dostęp do wszystkich bogatych danych użytkownika dostępnych w grafie. Oprócz szczegółów dotyczących użytkowników i grup można także pobrać dodatkowe informacje, takie jak role użytkownika, Menedżer i raporty bezpośrednie, należące do Ciebie i zarejestrowane urządzenia oraz setki innych danych dostępnych w [Microsoft Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0). 
+W przypadku korzystania z Microsoft Graph do inicjowania obsługi administracyjnej masz dostęp do wszystkich bogatych danych użytkownika dostępnych w grafie. Oprócz szczegółów dotyczących użytkowników i grup można także pobrać dodatkowe informacje, takie jak role użytkownika, Menedżer i raporty bezpośrednie, należące do Ciebie i zarejestrowane urządzenia oraz setki innych danych dostępnych w [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0). 
 
 Ponad 15 000 000 organizacji i 90% listy Fortune 500 firmy korzystają z usługi Azure AD podczas subskrybowania usług w chmurze firmy Microsoft, takich jak Office 365, Microsoft Azure, Enterprise Mobility Suite lub Microsoft 365. Za pomocą Microsoft Graph można zintegrować swoją aplikację z administracyjnymi przepływami pracy, takimi jak dołączanie pracownika (i zakończenie), konserwacja profilu i wiele więcej. 
 
@@ -97,9 +97,9 @@ Dowiedz się więcej o korzystaniu z Microsoft Graph do aprowizacji:
 
 * [Strona główna Microsoft Graph](https://developer.microsoft.com/graph)
 
-* [Overview of Microsoft Graph](https://docs.microsoft.com/graph/overview) (Omówienie programu Microsoft Graph)
+* [Omówienie programu Microsoft Graph](/graph/overview)
 
-* [Omówienie uwierzytelniania Microsoft Graph](https://docs.microsoft.com/graph/auth/)
+* [Omówienie uwierzytelniania Microsoft Graph](/graph/auth/)
 
 * [Wprowadzenie do Microsoft Graph](https://developer.microsoft.com/graph/get-started)
 

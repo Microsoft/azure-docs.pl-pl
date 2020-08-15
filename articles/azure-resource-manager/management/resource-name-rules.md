@@ -3,12 +3,12 @@ title: Ograniczenia dotyczące nazw zasobów
 description: Pokazuje reguły i ograniczenia dotyczące nazewnictwa zasobów platformy Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: ca13203b6d31c1eeb939c668a58e67f0d462a905
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56c50354a6ecbd6ba1d9a806f986cea1c4f3215f
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554339"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235982"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reguły i ograniczenia nazewnictwa zasobów platformy Azure
 
@@ -42,7 +42,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | Usługa/interfejsy API/problemy/załączniki | wykonaj | 1-256 | Nie można użyć:<br> `*#&+:<>?` |
 > | Usługa/interfejsy API/problemy/Komentarze | wykonaj | 1-256 | Nie można użyć:<br> `*#&+:<>?` |
 > | Usługa/interfejsy API/operacje | api | 1-256 | Nie można użyć:<br> `*#&+:<>?` |
-> | Usługa/interfejsy API/operacje/Tagi | operacje | 1-256 | Nie można użyć:<br> `*#&+:<>?` |
+> | Usługa/interfejsy API/operacje/Tagi | operation | 1-256 | Nie można użyć:<br> `*#&+:<>?` |
 > | Usługa/interfejsy API/wersje | api | 1-80 | Alfanumeryczne, podkreślenia i łączniki.<br><br>Zacznij i kończyć znakiem alfanumerycznym lub podkreśleniem. |
 > | Usługa/interfejsy API/schematy | api | 1-256 | Nie można użyć:<br> `*#&+:<>?` |
 > | Usługa/interfejsy API/tagDescriptions | api | 1-256 | Nie można użyć:<br> `*#&+:<>?` |
@@ -322,7 +322,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | serwery/firewallRules | serwerem | 1-128 | Alfanumeryczne, łączniki i podkreślenia. |
 > | serwery/virtualNetworkRules | serwerem | 1-128 | Alfanumeryczne i łączniki. |
 
-## <a name="microsoftdevices"></a>Microsoft. urządzenia
+## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
@@ -392,6 +392,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > [!div class="mx-tableFixed"]
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
+> | actionGroups | grupa zasobów | 1-260 | Nie można użyć:<br>`/` <br><br>Nie można kończyć się spacją ani kropką.  |
 > | komponentów | grupa zasobów | 1-260 | Nie można użyć:<br>`%&\?/` <br><br>Nie można kończyć się spacją ani kropką.  |
 
 ## <a name="microsoftiotcentral"></a>Microsoft. IoTCentral
@@ -652,7 +653,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | storageAccounts/managementPolicies | konto magazynu |  | Musi być `default` . |
 > | blob | kontener | 1-1024 | Wszystkie znaki adresu URL, z uwzględnieniem wielkości liter |
 > | kolejka | konto magazynu | 3-63 | Małe litery, cyfry i łączniki.<br><br>Nie można rozpocząć ani zakończyć z łącznikiem. Nie można używać kolejnych łączników. |
-> | tabela | konto magazynu | 3-63 | Znaki alfanumeryczne.<br><br>Zacznij od litery. |
+> | table | konto magazynu | 3-63 | Znaki alfanumeryczne.<br><br>Zacznij od litery. |
 
 ## <a name="microsoftstoragesync"></a>Microsoft. StorageSync
 
@@ -686,15 +687,16 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
 > | wiejski | grupa zasobów | 1-90 | Nie można użyć:<br>`'<>%&:\?/#` |
-> | środowiska/accessPolicies | environment | 1-90 | Nie można użyć:<br> `'<>%&:\?/#` |
-> | środowiska/źródła zdarzeń | environment | 1-90 | Nie można użyć:<br>`'<>%&:\?/#` |
-> | środowiska/referenceDataSets | environment | 3-63 | Znaki alfanumeryczne |
+> | środowiska/accessPolicies | środowisko | 1-90 | Nie można użyć:<br> `'<>%&:\?/#` |
+> | środowiska/źródła zdarzeń | środowisko | 1-90 | Nie można użyć:<br>`'<>%&:\?/#` |
+> | środowiska/referenceDataSets | środowisko | 3-63 | Znaki alfanumeryczne |
 
 ## <a name="microsoftweb"></a>Microsoft. Web
 
 > [!div class="mx-tableFixed"]
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
+> | certyfikaty | grupa zasobów | 1-260 | Nie można użyć:<br>`/` <br><br>Nie można kończyć się spacją ani kropką.  | 
 > | dopuszczalna | grupa zasobów | 1-40 | Alfanumeryczne i łączniki. |
 > | lokacje | global | 2-60 | Zawiera znaki alfanumeryczne i łączniki.<br><br>Nie można rozpocząć ani zakończyć z łącznikiem. |
 > | Lokacje/miejsca | lokacja | 2-59 | Alfanumeryczne i łączniki. |

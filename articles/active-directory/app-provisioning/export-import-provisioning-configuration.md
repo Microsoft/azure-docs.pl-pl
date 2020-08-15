@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 03/19/2020
 ms.author: kenwith
-ms.openlocfilehash: ef4fbf582baf1e4b81d49c81a8b0e16674e64841
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e34656d6ce515cabe955c101f7b52ac0f2ade8db
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781726"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235821"
 ---
 # <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Porada: eksportowanie konfiguracji aprowizacji i przywracanie do znanego dobrego stanu
 
@@ -39,8 +39,8 @@ Aby wyeksportować konfigurację:
 
 Eksportowanie i Zapisywanie konfiguracji pozwala przywrócić poprzednią wersję konfiguracji. Zalecamy eksportowanie konfiguracji aprowizacji i zapisanie jej w celu późniejszego użycia w dowolnym momencie, gdy wprowadzisz zmiany do mapowań atrybutów lub filtrów zakresu. Wystarczy otworzyć plik JSON, który został pobrany w powyższych krokach, skopiować całą zawartość pliku JSON, zastąpić całą zawartość ładunku JSON w edytorze schematu, a następnie zapisać. Jeśli istnieje aktywny cykl aprowizacji, zostanie ukończony, a następny cykl będzie korzystał ze zaktualizowanego schematu. Następny cykl będzie również cyklem wstępnym, który ponownie oblicza każdy użytkownik i grupę w oparciu o nową konfigurację. Podczas wycofywania do poprzedniej konfiguracji należy wziąć pod uwagę następujące kwestie:
 
-- Użytkownicy będą ponownie oceniani, aby określić, czy powinny znajdować się w zakresie. Jeśli filtry zakresu zostały zmienione, użytkownik nie znajduje się w zakresie, co spowoduje, że nie zostaną one wyłączone. Chociaż jest to odpowiednie zachowanie w większości przypadków, istnieją przypadki, w których może być konieczne ich uniemożliwienie i użycie funkcji [pomijania usunięć poza zakresem](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions) . 
-- Zmiana konfiguracji aprowizacji powoduje ponowne uruchomienie usługi i wyzwala [cykl początkowy](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental).
+- Użytkownicy będą ponownie oceniani, aby określić, czy powinny znajdować się w zakresie. Jeśli filtry zakresu zostały zmienione, użytkownik nie znajduje się w zakresie, co spowoduje, że nie zostaną one wyłączone. Chociaż jest to odpowiednie zachowanie w większości przypadków, istnieją przypadki, w których może być konieczne ich uniemożliwienie i użycie funkcji [pomijania usunięć poza zakresem](./skip-out-of-scope-deletions.md) . 
+- Zmiana konfiguracji aprowizacji powoduje ponowne uruchomienie usługi i wyzwala [cykl początkowy](./how-provisioning-works.md#provisioning-cycles-initial-and-incremental).
 
 ## <a name="export-and-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Eksportowanie i Importowanie konfiguracji aprowizacji za pomocą interfejsu API Microsoft Graph
 

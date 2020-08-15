@@ -1,6 +1,6 @@
 ---
 title: Zmiana w miejscu wersji SQL Server
-description: Dowiedz się, jak zmienić wersję SQL Server maszyny wirtualnej na platformie Azure.
+description: Dowiedz się, jak zmienić wersję SQL Server maszyny wirtualnej na platformie Azure w celu obniżenia kosztów lub uaktualnienia, aby umożliwić obsługę większej liczby funkcji.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -13,12 +13,12 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 228f76c9ecb262ffca7851f4339b73c5574f09dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60020667126fe76d33264795ddb2e17e1241a7b2
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669171"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236288"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Zmiana w miejscu SQL Server edycji na maszynie wirtualnej platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

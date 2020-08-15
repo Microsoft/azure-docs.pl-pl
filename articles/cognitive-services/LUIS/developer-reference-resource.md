@@ -4,12 +4,12 @@ description: Zestawy SDK, interfejsy API REST, interfejs wiersza polecenia ułat
 ms.topic: reference
 ms.date: 05/19/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 7a7769d04d3cf41cee9f28b49d38e80deeaddcf9
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 01cbaf5a7e8eb733680381da21a7b1f9aa5c2cea
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404994"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235999"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Zasoby deweloperskie zestawu SDK, REST i interfejsu wiersza polecenia dla Language Understanding (LUIS)
 
@@ -86,14 +86,14 @@ W poniższej tabeli objaśniono parametry, które są oznaczone nawiasami klamro
 
 |Język |Dokumentacja referencyjna|Pakiet|Przewodniki Szybki start|
 |--|--|--|--|
-|C#|[Tworzenie](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[Przewidując](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[Tworzenie pakietów NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[Prognoza NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[Tworzenie](sdk-authoring.md?pivots=programming-language-csharp)<br>[Prognozowanie zapytań](sdk-query-prediction-endpoint.md?pivots=programming-language-csharp)|
+|C#|[Tworzenie](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[Przewidując](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[Tworzenie pakietów NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[Prognoza NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[Tworzenie](quickstart-sdk.md?pivots=programming-language-csharp)<br>[Prognozowanie zapytań](quickstart-sdk.md?pivots=programming-language-csharp)|
 |Przejdź|[Tworzenie i prognozowanie](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)||
 |Java|[Tworzenie i prognozowanie](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable)|[Tworzenie Maven](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Przewidywania Maven](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|
-|JavaScript|[Tworzenie](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[Przewidując](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[Tworzenie NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[Przewidywania NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[Tworzenie](sdk-query-prediction-endpoint.md?pivots=programming-language-javascript)<br>[Przewidując](sdk-query-prediction-endpoint.md?pivots=programming-language-javascript)|
-|Python|[Tworzenie i prognozowanie](sdk-authoring.md?pivots=programming-language-python)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[Tworzenie](sdk-authoring.md?pivots=programming-language-python)<br>[Przewidując](sdk-query-prediction-endpoint.md?pivots=programming-language-python)|
+|JavaScript|[Tworzenie](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[Przewidując](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[Tworzenie NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[Przewidywania NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[Tworzenie](quickstart-sdk.md?pivots=programming-language-javascript)<br>[Przewidując](quickstart-sdk.md?pivots=programming-language-javascript)|
+|Python|[Tworzenie i prognozowanie](quickstart-sdk.md?pivots=programming-language-python)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[Tworzenie](quickstart-sdk.md?pivots=programming-language-python)<br>[Przewidując](quickstart-sdk.md?pivots=programming-language-python)|
 
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Kontenery
 
 Language Understanding (LUIS) udostępnia [kontener](luis-container-howto.md) do udostępniania lokalnych i zawartych w nim wersji aplikacji.
 

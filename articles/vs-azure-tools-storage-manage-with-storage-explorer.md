@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: ff5480e6b78beda7fe50dc772eae925ccdb80664
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 9922601d67393d103b95da7286d8db71d913434a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905350"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235249"
 ---
 # <a name="get-started-with-storage-explorer"></a>Wprowadzenie do Eksploratora usługi Storage
 
@@ -76,7 +76,7 @@ Eksplorator usługi Storage oferuje kilka sposobów nawiązywania połączenia z
 * [Zaloguj się do platformy Azure, aby uzyskać dostęp do subskrypcji i ich zasobów](#sign-in-to-azure)
 * [Dołącz określony magazyn lub zasób CosmosDB](#attach-a-specific-resource)
 
-### <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
+### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 > [!NOTE]
 > Aby w pełni uzyskać dostęp do zasobów po zalogowaniu, Eksplorator usługi Storage wymaga zarówno uprawnień do zarządzania (Azure Resource Manager), jak i warstwy danych. Oznacza to, że potrzebne są uprawnienia Azure Active Directory (Azure AD), które zapewniają dostęp do konta magazynu, kontenerów na koncie i danych w kontenerach. Jeśli masz uprawnienia tylko w warstwie danych, rozważ [dodanie zasobu za pomocą usługi Azure AD](#add-a-resource-via-azure-ad). Aby uzyskać więcej informacji na temat Eksplorator usługi Storage wymaganych uprawnień, zobacz [Eksplorator usługi Azure Storage Przewodnik rozwiązywania problemów](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#rbac-permissions-issues).

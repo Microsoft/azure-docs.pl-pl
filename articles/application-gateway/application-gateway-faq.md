@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: d76506141b2563b3ae8d5779e774ad564022494d
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: a5825cf5461213e3440893597059c84dcdc9ad33
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810007"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236118"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Często zadawane pytania dotyczące Application Gateway
 
@@ -259,7 +259,7 @@ Przykładowa konfiguracja sieciowej grupy zabezpieczeń tylko dla prywatnego adr
 
 ### <a name="what-certificates-does-application-gateway-support"></a>Jakie certyfikaty Application Gateway obsługiwać?
 
-Application Gateway obsługuje certyfikaty z podpisem własnym, certyfikaty urzędu certyfikacji (CA), certyfikatów rozszerzonej weryfikacji (EV) i certyfikatów wieloznacznych.
+Application Gateway obsługuje certyfikaty z podpisem własnym, certyfikaty urzędu certyfikacji, certyfikaty rozszerzonej weryfikacji (EV), certyfikaty wielodomenowe i Certyfikaty wieloznaczne.
 
 ### <a name="what-cipher-suites-does-application-gateway-support"></a>Jakie mechanizmy szyfrowania Application Gateway obsługiwać?
 
@@ -346,7 +346,7 @@ Członkowie przeglądarki urzędu certyfikacji ostatnio opublikowały raporty za
 
 Zgodnie z wymaganiami dotyczącymi zgodności w branży dostawcy urzędu certyfikacji rozpoczęły odwoływanie niezgodnych urzędów certyfikacji i wystawiają zgodne urzędy certyfikacji, które wymagają od klientów ponownego wystawienia certyfikatów.Firma Microsoft ściśle współpracuje z tymi dostawcami, aby zminimalizować potencjalny wpływ na usługi platformy Azure, **jednak wystawione certyfikaty lub certyfikaty używane w scenariuszach "Przenieś własny certyfikat" (BYOC) nadal są zagrożone**.
 
-Aby sprawdzić, czy certyfikaty używane przez aplikację zostały odwołane do odwołania [DigiCert](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) oraz do [śledzenia odwołań certyfikatów](https://misissued.com/#revoked). Jeśli certyfikaty zostały odwołane lub zostaną odwołane, musisz zażądać nowych certyfikatów od dostawcy urzędu certyfikacji, który będzie używany w aplikacjach. Aby uniknąć przerwania dostępności aplikacji z powodu nieoczekiwanego odwołania certyfikatów lub zaktualizowania certyfikatu, który został odwołany, zapoznaj się z naszym wpisem w usłudze Azure Update, aby uzyskać linki do korygowania różnych usług platformy Azure, które obsługują usługę BYOC:https://azure.microsoft.com/updates/certificateauthorityrevocation/
+Aby sprawdzić, czy certyfikaty używane przez aplikację zostały odwołane do odwołania [DigiCert](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) oraz do [śledzenia odwołań certyfikatów](https://misissued.com/#revoked). Jeśli certyfikaty zostały odwołane lub zostaną odwołane, musisz zażądać nowych certyfikatów od dostawcy urzędu certyfikacji, który będzie używany w aplikacjach. Aby uniknąć przerwania dostępności aplikacji z powodu nieoczekiwanego odwołania certyfikatów lub zaktualizowania certyfikatu, który został odwołany, zapoznaj się z naszym wpisem w usłudze Azure Update, aby uzyskać linki do korygowania różnych usług platformy Azure, które obsługują usługę BYOC: https://azure.microsoft.com/updates/certificateauthorityrevocation/
 
 Aby uzyskać szczegółowe informacje dotyczące Application Gateway, zobacz poniżej.
 

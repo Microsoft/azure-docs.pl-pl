@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: php
 ms.topic: sample
 ms.date: 07/23/2020
-ms.openlocfilehash: f0a5c3df2359add9f896e05af6c8c77d9e006a2a
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: c690002141c6c275d90d5bae41318f9a5907fb85
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171977"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236442"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>Jak korzystać z usługi Azure Table Storage lub interfejsu API tabel usługi Azure Cosmos DB przy użyciu języka PHP
 
@@ -85,7 +85,7 @@ Aby zainicjować klienta usługi Azure Table Storage, wymagane są prawidłowe p
 $connectionString = "DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]"
 ```
 
-### <a name="add-a-storage-emulator-connection"></a>Dodawanie połączenia z emulatorem usługi Azure Storage
+### <a name="add-a-storage-emulator-connection"></a>Dodawanie połączenia emulatora magazynu
 
 Aby uzyskać dostęp do emulatora usługi Azure Storage:
 
@@ -101,7 +101,7 @@ Aby zainicjować klienta usługi Azure Cosmos DB Table, wymagane są prawidłowe
 $connectionString = "DefaultEndpointsProtocol=[https];AccountName=[myaccount];AccountKey=[myaccountkey];TableEndpoint=[https://myendpoint/]";
 ```
 
-Aby utworzyć klienta usługi Azure Table Storage lub Azure Cosmos DB, należy użyć klasy **TableRestProxy**. Można:
+Aby utworzyć klienta usługi Azure Table Storage lub Azure Cosmos DB, należy użyć klasy **TableRestProxy**. Dostępne możliwości:
 
 * Przekazać parametry połączenia bezpośrednio.
 * Użyć narzędzia **CloudConfigurationManager (CCM)**, aby sprawdzić wiele źródeł zewnętrznych dla parametrów połączenia:
@@ -148,7 +148,7 @@ Aby uzyskać szczegółowe informacje na temat ograniczeń dotyczących nazw tab
 
 ## <a name="add-an-entity-to-a-table"></a>Dodawanie jednostki do tabeli
 
-Aby dodać jednostkę do tabeli, utwórz nowy obiekt **Entity** i przekaż go do metody **TableRestProxy->insertEntity**. Pamiętaj, że podczas tworzenia jednostki należy określić wartości `PartitionKey` i `RowKey`. Są to unikatowe identyfikatory jednostki. Zapytania dotyczące tych wartości są wykonywane znacznie szybciej niż zapytania dotyczące innych właściwości jednostki. System używa wartości `PartitionKey`, aby automatycznie rozłożyć jednostki tabeli w wielu węzłach usługi Azure Storage. Jednostki z tą samą wartością `PartitionKey` są przechowywane w tym samym węźle. (Operacje na wielu jednostkach przechowywanych w tym samym węźle działają lepiej niż w przypadku jednostek przechowywanych w różnych węzłach). `RowKey`Jest unikatowym identyfikatorem jednostki w ramach partycji.
+Aby dodać jednostkę do tabeli, utwórz nowy obiekt **Entity** i przekaż go do metody **TableRestProxy->insertEntity**. Pamiętaj, że podczas tworzenia jednostki należy określić wartości `PartitionKey` i `RowKey`. Są to unikatowe identyfikatory jednostki. Zapytania dotyczące tych wartości są wykonywane znacznie szybciej niż zapytania dotyczące innych właściwości jednostki. System używa wartości `PartitionKey`, aby automatycznie rozłożyć jednostki tabeli w wielu węzłach usługi Azure Storage. Jednostki z tą samą wartością `PartitionKey` są przechowywane w tym samym węźle. (Operacje na wielu jednostkach przechowywanych w tym samym węźle działają lepiej niż w przypadku jednostek przechowywanych w różnych węzłach). `RowKey` Jest unikatowym identyfikatorem jednostki w ramach partycji.
 
 ```php
 require_once 'vendor/autoload.php';
