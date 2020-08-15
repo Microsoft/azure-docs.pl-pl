@@ -22,11 +22,7 @@
     - name: Używanie przeglądarki
       href: luis-get-started-get-intent-from-browser.md
     - name: Używanie zestawu SDK
-      items:
-        - name: Tworzenie aplikacji
-          href: sdk-authoring.md
-        - name: Punkt końcowy przewidywania zapytania
-          href: sdk-query-prediction-endpoint.md
+      href: quickstart-sdk.md
     - name: Używanie interfejsów API REST
       items:
         - name: Uzyskiwanie intencji

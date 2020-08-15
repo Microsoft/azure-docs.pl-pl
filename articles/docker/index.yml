@@ -3,19 +3,19 @@ title: Dokumentacja platformy Docker na platformie Azure
 summary: Docker to popularna platforma do zarządzania kontenerami i tworzenia ich obrazów, która pozwala szybko pracować z kontenerami w systemach Linux i Windows. Dowiedz się, jak korzystać z platformy Docker na platformie Azure.
 metadata:
   title: Dokumentacja platformy Docker na platformie Azure
-  description: Docker to popularna platforma do zarządzania kontenerami i tworzenia ich obrazów, która pozwala szybko pracować z kontenerami w systemach Linux i Windows. Dowiedz się, jak korzystać z platformy Docker na platformie Azure.
+  description: Docker to popularna platforma do zarządzania kontenerami i tworzenia ich obrazów, która pozwala szybko pracować z kontenerami w systemach Linux i Windows.
   services: multiple
   ms.service: multiple
   ms.topic: landing-page
   author: georgewallace
   ms.author: gwallace
   ms.date: 03/08/2020
-  ms.openlocfilehash: 9205a47ee0ba3e6e0b328c8f481b15fe593ec5fb
-  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+  ms.openlocfilehash: 94d5dd74aad11e2271de52dd082cfb9287eb10c1
+  ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 08/11/2020
-  ms.locfileid: "88080389"
+  ms.lasthandoff: 08/14/2020
+  ms.locfileid: "88224581"
 landingContent:
 - title: Wdrażanie platformy Docker na platformie Azure
   linkLists:
