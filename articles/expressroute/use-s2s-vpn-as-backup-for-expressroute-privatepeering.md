@@ -7,16 +7,16 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: rambala
-ms.openlocfilehash: df4108604c656cd6383bd57b462c0f12f31bdd7b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 68596b881ef1b62187bdb7194b364c9477b4e04d
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206873"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244775"
 ---
 # <a name="using-s2s-vpn-as-a-backup-for-expressroute-private-peering"></a>Używanie sieci VPN S2S jako kopii zapasowej dla prywatnej komunikacji równorzędnej ExpressRoute
 
-W artykule zatytułowanym [projektowanie pod kątem odzyskiwania po awarii za pomocą prywatnej komunikacji równorzędnej ExpressRoute][DR-PP]omówiono potrzebę rozwiązania połączenia z kopią zapasową dla łączności prywatnej komunikacji równorzędnej ExpressRoute oraz sposób używania obwodów z geograficznie nadmiarowym ExpressRoute. W tym artykule poinformuj nas, jak korzystać z sieci VPN typu lokacja-lokacja (S2S) oraz jak z powrotem dla prywatnej komunikacji równorzędnej usługi ExpressRoute. 
+W artykule zatytułowanym [projektowanie pod kątem odzyskiwania po awarii za pomocą prywatnej komunikacji równorzędnej ExpressRoute][DR-PP]omówiono potrzebę rozwiązania połączenia z kopią zapasową dla łączności prywatnej komunikacji równorzędnej ExpressRoute oraz sposób używania obwodów z geograficznie nadmiarowym ExpressRoute. W tym artykule poinformuj nas, jak korzystać z sieci VPN typu lokacja-lokacja (S2S) i obsługiwać ją jako kopię zapasową prywatnej komunikacji równorzędnej ExpressRoute. 
 
 W odróżnieniu od geograficznie nadmiarowych obwodów usługi ExpressRoute, można użyć kombinacji odzyskiwania po awarii w sieci VPN ExpressRoute — tylko w trybie aktywny-pasywny. Głównym wyzwaniem korzystania z dowolnej kopii zapasowej łączności sieciowej w trybie pasywnym jest to, że połączenie pasywne często kończy się niepowodzeniem wraz z połączeniem podstawowym. Typowy powód niepowodzeń połączenia pasywnego to brak aktywnej konserwacji. Dlatego w tym artykule koncentrujemy się na sprawdzaniu i aktywnie utrzymaniu łączności sieci VPN S2S, która wykonuje kopię zapasową prywatnej komunikacji równorzędnej usługi ExpressRoute.
 
@@ -58,7 +58,7 @@ W poniższej tabeli wymieniono WPW dla topologii:
 
 | **System autonomiczny** | **Właściwość** |
 | --- | --- |
-| Lokalnie | 65020 |
+| Środowiska lokalne | 65020 |
 | Microsoft Enterprise Edge | 12076 |
 | Virtual Network GW (ExR) | 65515 |
 | Virtual Network GW (VPN) | 65515 |
@@ -116,7 +116,7 @@ Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
 
 ### <a name="configuring-for-symmetric-traffic-flow"></a>Konfigurowanie dla przepływu ruchu symetrycznego
 
-Zauważono, że gdy dana trasa lokalna jest anonsowana za pośrednictwem sieci VPN ExpressRoute i S2S, platforma Azure preferuje ścieżkę ExpressRoute. Aby wymusić, że platforma Azure preferuje ścieżkę sieci VPN S2S przez ExpressRoute, musisz anonsować bardziej szczegółowe trasy (dłuższy prefiks o większej masce podsieci) za pośrednictwem połączenia sieci VPN. Naszym celem jest użycie połączeń sieci VPN tylko z powrotem. W związku z tym domyślne zachowanie wyboru ścieżki na platformie Azure jest zgodne z naszym celem. 
+Zauważono, że gdy dana trasa lokalna jest anonsowana za pośrednictwem sieci VPN ExpressRoute i S2S, platforma Azure preferuje ścieżkę ExpressRoute. Aby wymusić, że platforma Azure preferuje ścieżkę sieci VPN S2S przez ExpressRoute, musisz anonsować bardziej szczegółowe trasy (dłuższy prefiks o większej masce podsieci) za pośrednictwem połączenia sieci VPN. Naszym celem jest użycie połączeń sieci VPN jako kopii zapasowej. W związku z tym domyślne zachowanie wyboru ścieżki na platformie Azure jest zgodne z naszym celem. 
 
 Jest to nasza odpowiedzialność za zapewnienie, że ruch kierowany do platformy Azure z firmy lokalnej również preferuje ścieżkę ExpressRoute za pośrednictwem sieci VPN S2S. Domyślną preferencją lokalną routery i zapory CE w ramach instalacji lokalnej jest 100. Dlatego przez skonfigurowanie preferencji lokalnych dla tras odbieranych za pomocą prywatnych komunikacji równorzędnej ExpressRoute większej niż 100 (Powiedz 150), możemy wprowadzić ruch kierowany do platformy Azure preferuje obwód ExpressRoute w stanie stałym.
 

@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 458cda927a6a123fcd9962efc6ab705e13f43286
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 740311226a662ea3d3f8bba3ee5156e14f74516b
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878786"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244299"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Wdrażanie wielu kontenerów za pomocą narzędzia Docker Compose
 
@@ -29,7 +29,7 @@ Przydatne może być organizowanie wielu obrazów kontenerów na pojedynczym kom
 
 Ta procedura wymaga kilku narzędzi, które muszą być zainstalowane i uruchomione lokalnie:
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services).
 * [Aparat platformy Docker](https://www.docker.com/products/docker-engine). Upewnij się, że interfejs wiersza polecenia platformy Docker działa w oknie konsoli.
 * Zasób platformy Azure z poprawną warstwą cenową. Tylko następujące warstwy cenowe współpracują z tym kontenerem:
   * Zasób **Przetwarzanie obrazów** tylko za pomocą warstwy cenowej F0 lub standardowa.
@@ -172,7 +172,7 @@ IMAGE ID            REPOSITORY                                                  
 
 ### <a name="test-containers"></a>Kontenery testowe
 
-Otwórz przeglądarkę na komputerze hosta i przejdź do **hosta localhost** przy użyciu określonego portu z pliku *Docker-Zredaguj. YAML* , takiego jak http://localhost:5021/swagger/index.html. Można na przykład użyć funkcji **try it** w interfejsie API, aby przetestować punkt końcowy aparatu rozpoznawania formularza. Obie strony struktury Swagger kontenerów powinny być dostępne i weryfikowalne.
+Otwórz przeglądarkę na komputerze hosta i przejdź do **hosta localhost** przy użyciu określonego portu z pliku *Docker-Zredaguj. YAML* , takiego jak http://localhost:5021/swagger/index.html . Można na przykład użyć funkcji **try it** w interfejsie API, aby przetestować punkt końcowy aparatu rozpoznawania formularza. Obie strony struktury Swagger kontenerów powinny być dostępne i weryfikowalne.
 
 ![Kontener aparatu rozpoznawania formularzy](media/form-recognizer-swagger-page.png)
 

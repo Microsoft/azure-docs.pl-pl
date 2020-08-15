@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: b29fa17c21b2cdb2e764c905af3819142d8c341e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 823d61d94913122fc279e81698933b7e648dd114
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844069"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244350"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>Przepis: konserwacja predykcyjna z Cognitive Servicesami dla danych Big Data
 
@@ -30,7 +30,7 @@ Dane można wyróżnić losowo z częstotliwości. W takich sytuacjach wartości
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 * [Obszar roboczy usługi Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) skonfigurowany przy użyciu [puli platformy Spark](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
 
 ## <a name="setup"></a>Konfigurowanie
@@ -39,7 +39,7 @@ Dane można wyróżnić losowo z częstotliwości. W takich sytuacjach wartości
 
 Usługa Azure Cognitive Services jest reprezentowana przez zasoby platformy Azure, które subskrybujesz. Utwórz zasób dla translatora przy użyciu [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli). Możesz również wykonać następujące czynności:
 
-- Wyświetl istniejący zasób w [Azure Portal](https://portal.azure.com/).
+- Wyświetl istniejący zasób w  [Azure Portal](https://portal.azure.com/).
 
 Zanotuj punkt końcowy i klucz dla tego zasobu, który będzie potrzebny w tym przewodniku.
 

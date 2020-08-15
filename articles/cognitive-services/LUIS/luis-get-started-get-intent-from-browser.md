@@ -3,12 +3,12 @@ title: 'Szybki Start: zapytanie o prognozowanie za pomocą przeglądarki LUIS'
 description: W tym przewodniku szybki start Użyj dostępnej publicznej aplikacji LUIS, aby określić zamiar użytkownika w przeglądarce.
 ms.topic: quickstart
 ms.date: 04/21/2020
-ms.openlocfilehash: 5ba86882ebf3cb538ad6b865382342fcbd43d27c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 24c7a8aca410ad10b8a9299c4bca2f13d0feb780
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81769982"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245999"
 ---
 # <a name="quickstart-query-prediction-runtime-with-user-text"></a>Szybki Start: badanie prognoz środowiska uruchomieniowego z tekstem użytkownika
 
@@ -19,14 +19,14 @@ Aby zrozumieć, co zwraca punkt końcowy przewidywania usługi LUIS, wyświetl w
 Aby można było wykonywać zapytania dotyczące aplikacji publicznej, potrzebne są:
 
 * Informacje o zasobie Language Understanding (LUIS):
-    * **Klucz predykcyjny** , który można uzyskać z [portalu Luis](https://www.luis.ai/). Jeśli nie masz jeszcze subskrypcji, aby utworzyć klucz, możesz zarejestrować się w celu uzyskania [bezpłatnego konta](https://azure.microsoft.com/free/).
+    * **Klucz predykcyjny** , który można uzyskać z [portalu Luis](https://www.luis.ai/). Jeśli nie masz jeszcze subskrypcji, aby utworzyć klucz, możesz zarejestrować się w celu uzyskania [bezpłatnego konta](https://azure.microsoft.com/free/cognitive-services).
     * **Poddomena punktu końcowego przewidywania** — poddomena jest również **nazwą** zasobu Luis.
-* Identyfikator aplikacji LUIS — Użyj publicznego identyfikatora aplikacji IoT `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. Zapytanie użytkownika używane w kodzie szybkiego startu jest specyficzne dla tej aplikacji.
+* Identyfikator aplikacji LUIS — Użyj publicznego identyfikatora aplikacji IoT `df67dcdb-c37d-46af-88e1-8b97951ca1c2` . Zapytanie użytkownika używane w kodzie szybkiego startu jest specyficzne dla tej aplikacji.
 
 ## <a name="use-the-browser-to-see-predictions"></a>Używanie przeglądarki do wyświetlania prognoz
 
 1. Otwórz przeglądarkę internetową.
-1. Użyj pełnych adresów URL poniżej, `YOUR-KEY` zastępując je własnym kluczem przewidywania Luis. Żądania ODBIERAją żądania i obejmują autoryzację z kluczem przewidywania LUIS jako parametr ciągu zapytania.
+1. Użyj pełnych adresów URL poniżej, zastępując `YOUR-KEY` je własnym kluczem przewidywania Luis. Żądania ODBIERAją żądania i obejmują autoryzację z kluczem przewidywania LUIS jako parametr ciągu zapytania.
 
     #### <a name="v3-prediction-request"></a>[Żądanie prognozowania v3](#tab/V3-1-1)
 
@@ -169,7 +169,7 @@ Aby można było wykonywać zapytania dotyczące aplikacji publicznej, potrzebne
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o usługach:
+Dowiedz się więcej:
 * [Punkt końcowy przewidywania v3](luis-migration-api-v3.md)
 * [Niestandardowe poddomeny](../cognitive-services-custom-subdomains.md)
 

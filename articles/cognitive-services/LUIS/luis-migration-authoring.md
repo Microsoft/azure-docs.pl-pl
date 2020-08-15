@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/13/2020
 ms.author: diberry
-ms.openlocfilehash: 390080fecefcc22decd8bec70d043b28311a725d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4c9dc04770e5fadd72c5460a4b44c05ffda47cb7
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212618"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245455"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrowanie do klucza tworzenia zasobów platformy Azure
 
@@ -52,7 +52,7 @@ Należy przeprowadzić migrację z portalu LUIS. Jeśli tworzysz klucze tworzeni
 
 ## <a name="migration-prerequisites"></a>Wymagania wstępne dotyczące migracji
 
-* Musisz być skojarzona z prawidłową subskrypcją platformy Azure. Poproszenie administratora dzierżawy o dodanie Cię do subskrypcji lub [zarejestrowanie się w celu uzyskania bezpłatnego konta](https://azure.microsoft.com/free/).
+* Musisz być skojarzona z prawidłową subskrypcją platformy Azure. Poproszenie administratora dzierżawy o dodanie Cię do subskrypcji lub [zarejestrowanie się w celu uzyskania bezpłatnego konta](https://azure.microsoft.com/free/cognitive-services).
 * Musisz utworzyć zasób tworzenia LUIS platformy Azure z poziomu portalu LUIS lub z poziomu Azure Portal. Tworzenie zasobu tworzenia z portalu LUIS jest częścią przepływu migracji, który został omówiony w następnej sekcji.
 * Jeśli jesteś współpracownikem w aplikacjach, aplikacje nie będą automatycznie migrowane. Zalecamy utworzenie kopii zapasowej tych aplikacji przez ich wyeksportowanie lub użycie [interfejsu API eksportowania](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40). Możesz zaimportować aplikację z powrotem do LUIS po migracji. Proces importowania tworzy nową aplikację z nowym IDENTYFIKATORem aplikacji, dla którego jesteś właścicielem.
 * Jeśli jesteś właścicielem aplikacji, nie musisz eksportować aplikacji, ponieważ zostaną one zmigrowane automatycznie. Zalecamy zapisanie listy współpracowników każdej aplikacji. Szablon wiadomości e-mail, który ma tę listę, jest dostępny w ramach procesu migracji.
@@ -60,7 +60,7 @@ Należy przeprowadzić migrację z portalu LUIS. Jeśli tworzysz klucze tworzeni
 
 |Portal|Przeznaczenie|
 |--|--|
-|[Azure](https://azure.microsoft.com/free/)| Tworzenie zasobów przewidywania i tworzenia.<br> Przypisywanie współautorów do zasobów.|
+|[Azure](https://azure.microsoft.com/free/cognitive-services)| Tworzenie zasobów przewidywania i tworzenia.<br> Przypisywanie współautorów do zasobów.|
 |[LUIS](https://www.luis.ai)| Migrowanie do nowych zasobów tworzenia.<br> Utwórz nowe zasoby tworzenia w ramach przepływu migracji.<br> Przypisywanie i cofanie przypisywania zasobów predykcyjnych i tworzenia do aplikacji ze strony **Zarządzanie**  >  **zasobami platformy Azure** . <br> Przenoszenie aplikacji z jednego zasobu tworzenia do innego.  |
 
 > [!Note]

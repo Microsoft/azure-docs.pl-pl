@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: aahi
-ms.openlocfilehash: 9f27deebe3a1fb21f4c7406bfd424196fb1072ec
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 527ce1c7d434ae94c91c78c865c00aa0687a73cb
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921917"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245506"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Samouczek: wizualizacja anomalii przy użyciu wykrywania partii i Power BI
 
@@ -29,10 +29,10 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > * Wizualizuj anomalie w danych, w tym oczekiwane i widoczne wartości, a także granice wykrywania anomalii.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* [Subskrypcja platformy Azure](https://azure.microsoft.com/free/)
+* [Subskrypcja platformy Azure](https://azure.microsoft.com/free/cognitive-services)
 * [Program Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/), dostępny bezpłatnie.
 * Plik programu Excel (xlsx) zawierający punkty danych szeregów czasowych. Przykładowe dane dla tego przewodnika Szybki Start można znaleźć w witrynie [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962)
-* Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title=" Utwórz zasób wykrywania anomalii "  target="_blank"> Utwórz zasób wykrywania anomalii <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. 
+* Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title=" Utwórz zasób wykrywania anomalii "  target="_blank"> Utwórz zasób wykrywania anomalii <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy.
     * Potrzebny będzie klucz i punkt końcowy z zasobu utworzonego w celu połączenia aplikacji z interfejsem API wykrywania anomalii. Tę czynność należy wykonać w dalszej części przewodnika Szybki Start.
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
@@ -52,19 +52,19 @@ Po wyświetleniu okna dialogowego przejdź do folderu, w którym został pobrany
 
 ![Obraz ekranu "Nawigator" źródła danych w Power BI](../media/tutorials/navigator-dialog-box.png)
 
-Power BI spowoduje przekonwertowanie sygnatur czasowych w pierwszej kolumnie na `Date/Time` Typ danych. Te sygnatury czasowe muszą być konwertowane na tekst, aby można było je wysyłać do interfejsu API wykrywania anomalii. Jeśli Edytor Power Query nie zostanie otwarty automatycznie, kliknij przycisk **Edytuj zapytania** na karcie Narzędzia główne. 
+Power BI spowoduje przekonwertowanie sygnatur czasowych w pierwszej kolumnie na `Date/Time` Typ danych. Te sygnatury czasowe muszą być konwertowane na tekst, aby można było je wysyłać do interfejsu API wykrywania anomalii. Jeśli Edytor Power Query nie zostanie otwarty automatycznie, kliknij przycisk **Edytuj zapytania** na karcie Narzędzia główne.
 
 Kliknij Wstążkę **Przekształć** w edytorze Power Query. W grupie **dowolna kolumna** Otwórz **Typ danych:** menu rozwijane i wybierz pozycję **tekst**.
 
 ![Obraz ekranu "Nawigator" źródła danych w Power BI](../media/tutorials/data-type-drop-down.png)
 
-Po otrzymaniu powiadomienia o zmianie typu kolumny kliknij pozycję **Zamień bieżący**. Następnie kliknij przycisk **zamknij & Zastosuj** lub **Zastosuj** na Wstążce **Narzędzia główne** . 
+Po otrzymaniu powiadomienia o zmianie typu kolumny kliknij pozycję **Zamień bieżący**. Następnie kliknij przycisk **zamknij & Zastosuj** lub **Zastosuj** na Wstążce **Narzędzia główne** .
 
 ## <a name="create-a-function-to-send-the-data-and-format-the-response"></a>Utwórz funkcję do wysyłania danych i sformatuj odpowiedź
 
 Aby sformatować i wysłać plik danych do interfejsu API wykrywania anomalii, można wywołać zapytanie w utworzonej powyżej tabeli. W edytorze Power Query na Wstążce **Narzędzia główne** Otwórz menu rozwijane **nowe źródło** i kliknij polecenie **puste zapytanie**.
 
-Upewnij się, że nowe zapytanie jest zaznaczone, a następnie kliknij przycisk **Edytor zaawansowany**. 
+Upewnij się, że nowe zapytanie jest zaznaczone, a następnie kliknij przycisk **Edytor zaawansowany**.
 
 ![Obraz przycisku "Edytor zaawansowany" w Power BI](../media/tutorials/advanced-editor-screen.png)
 
@@ -84,7 +84,7 @@ W Edytor zaawansowany Użyj poniższego fragmentu Power Query M, aby wyodrębni�
     jsonresp    = Json.Document(bytesresp),
 
     respTable = Table.FromColumns({
-                    
+
                      Table.Column(inputTable, "Timestamp")
                      ,Table.Column(inputTable, "Value")
                      , Record.Field(jsonresp, "IsAnomaly") as list
@@ -96,7 +96,7 @@ W Edytor zaawansowany Użyj poniższego fragmentu Power Query M, aby wyodrębni�
 
                   }, {"Timestamp", "Value", "IsAnomaly", "ExpectedValues", "UpperMargin", "LowerMargin", "IsPositiveAnomaly", "IsNegativeAnomaly"}
                ),
-    
+
     respTable1 = Table.AddColumn(respTable , "UpperMargins", (row) => row[ExpectedValues] + row[UpperMargin]),
     respTable2 = Table.AddColumn(respTable1 , "LowerMargins", (row) => row[ExpectedValues] -  row[LowerMargin]),
     respTable3 = Table.RemoveColumns(respTable2, "UpperMargin"),
@@ -112,7 +112,7 @@ W Edytor zaawansowany Użyj poniższego fragmentu Power Query M, aby wyodrębni�
  in results
 ```
 
-Wywołaj zapytanie w arkuszu danych `Sheet1` , wybierając poniżej opcję **wprowadź parametr**, a następnie kliknij pozycję **Wywołaj**. 
+Wywołaj zapytanie w arkuszu danych `Sheet1` , wybierając poniżej opcję **wprowadź parametr**, a następnie kliknij pozycję **Wywołaj**.
 
 ![Obraz przycisku "Edytor zaawansowany"](../media/tutorials/invoke-function-screenshot.png)
 
@@ -121,23 +121,23 @@ Wywołaj zapytanie w arkuszu danych `Sheet1` , wybierając poniżej opcję **wpr
 > [!NOTE]
 > Należy pamiętać o zasadach organizacji dotyczących prywatności i dostępu do danych. Aby uzyskać więcej informacji, zobacz [Power BI Desktop poziomów prywatności](https://docs.microsoft.com/power-bi/desktop-privacy-levels) .
 
-Podczas próby uruchomienia zapytania może zostać wyświetlony komunikat ostrzegawczy, ponieważ korzysta on z zewnętrznego źródła danych. 
+Podczas próby uruchomienia zapytania może zostać wyświetlony komunikat ostrzegawczy, ponieważ korzysta on z zewnętrznego źródła danych.
 
 ![Obraz przedstawiający ostrzeżenie utworzone przez Power BI](../media/tutorials/blocked-function.png)
 
-Aby rozwiązać ten problem, kliknij menu **plik**, a następnie **Opcje i ustawienia**. Następnie kliknij pozycję **Opcje**. Poniżej **bieżącego pliku**wybierz opcję **prywatność**i **zignoruj poziomy prywatności i potencjalnie poprawić wydajność**. 
+Aby rozwiązać ten problem, kliknij menu **plik**, a następnie **Opcje i ustawienia**. Następnie kliknij pozycję **Opcje**. Poniżej **bieżącego pliku**wybierz opcję **prywatność**i **zignoruj poziomy prywatności i potencjalnie poprawić wydajność**.
 
 Ponadto może zostać wyświetlony komunikat z prośbą o określenie, w jaki sposób chcesz połączyć się z interfejsem API.
 
 ![Obraz przedstawiający żądanie określenia poświadczeń dostępu](../media/tutorials/edit-credentials-message.png)
 
-Aby rozwiązać ten problem, kliknij pozycję **Edytuj poświadczenia** w komunikacie. Po wyświetleniu okna dialogowego wybierz pozycję **anonimowe** , aby połączyć się z interfejsem API anonimowo. Następnie kliknij przycisk **Connect** (Połącz). 
+Aby rozwiązać ten problem, kliknij pozycję **Edytuj poświadczenia** w komunikacie. Po wyświetleniu okna dialogowego wybierz pozycję **anonimowe** , aby połączyć się z interfejsem API anonimowo. Następnie kliknij przycisk **Connect** (Połącz).
 
 Następnie kliknij przycisk **zamknij & Zastosuj** na Wstążce **Narzędzia główne** , aby zastosować zmiany.
 
 ## <a name="visualize-the-anomaly-detector-api-response"></a>Wizualizuj odpowiedź interfejsu API wykrywania anomalii
 
-Na ekranie głównym Power BI Zacznij korzystać z kwerend utworzonych powyżej, aby wizualizować dane. Najpierw wybierz **Wykres liniowy** w **wizualizacjach**. Następnie Dodaj sygnaturę czasową z wywoływanej funkcji do **osi**wykresu liniowego. Kliknij prawym przyciskiem myszy, a następnie wybierz pozycję **sygnatura czasowa**. 
+Na ekranie głównym Power BI Zacznij korzystać z kwerend utworzonych powyżej, aby wizualizować dane. Najpierw wybierz **Wykres liniowy** w **wizualizacjach**. Następnie Dodaj sygnaturę czasową z wywoływanej funkcji do **osi**wykresu liniowego. Kliknij prawym przyciskiem myszy, a następnie wybierz pozycję **sygnatura czasowa**.
 
 ![Kliknij prawym przyciskiem myszy wartość sygnatury czasowej](../media/tutorials/timestamp-right-click.png)
 

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 07/24/2020
+ms.date: 08/14/2020
 ms.author: victorh
-ms.openlocfilehash: baadd52a931a28e1502fe0da2286d541db9face4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0d0522dd2f206e02ad8b63b13a9537c049232db2
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290114"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245744"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Samouczek: Konfigurowanie bramy aplikacji z zakończeniem protokołu TLS przy użyciu Azure Portal
 
@@ -30,9 +30,9 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="prerequisites"></a>Wymagania wstępne
 
-Zaloguj się do Azure Portal w[https://portal.azure.com](https://portal.azure.com)
+Zaloguj się do Azure Portal w [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-a-self-signed-certificate"></a>Tworzenie certyfikatu z podpisem własnym
 
@@ -259,6 +259,10 @@ W tym przykładzie należy zainstalować usługi IIS tylko na maszynach wirtualn
     Zostanie wyświetlona zabezpieczona witryna internetowa usług IIS, tak jak w poniższym przykładzie:
 
     ![Testowanie podstawowego adresu URL w bramie aplikacji](./media/create-ssl-portal/application-gateway-iistest.png)
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Gdy grupa zasobów i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Aby to zrobić, wybierz grupę zasobów i wybierz pozycję **Usuń grupę zasobów**.
 
 ## <a name="next-steps"></a>Następne kroki
 

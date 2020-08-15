@@ -5,12 +5,12 @@ ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-javascript
 ms.topic: how-to
-ms.openlocfilehash: 18ccec5332e3751a86225ab087a1f68b0577cf96
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 447b8a07f6bbda42be4def96ee8f1244fa752526
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406099"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245591"
 ---
 # <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Szybki Start: QnA Maker interfejsów API REST dla Node.js
 
@@ -31,7 +31,7 @@ Użyj QnA Maker interfejsów API REST, aby Node.js do:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 * Bieżąca wersja [Node.js](https://nodejs.org).
 * Musisz mieć [usługę QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Aby pobrać klucz i punkt końcowy (w tym nazwę zasobu), wybierz pozycję **Szybki Start** dla zasobu w Azure Portal.
 
@@ -88,8 +88,8 @@ Utwórz zmienne dla punktu końcowego i klucza usługi Azure Resource. Jeśli zm
 
 Ustaw następujące wartości środowiskowe:
 
-* `QNAMAKER_RESOURCE_KEY`- **Klucz** jest ciągiem znaków 32 i jest dostępny w Azure Portal na QNA Maker zasobu na stronie **Szybki Start** . Ta wartość nie jest taka sama jak klucz punktu końcowego przewidywania.
-* `QNAMAKER_AUTHORING_ENDPOINT`— Twój punkt końcowy tworzenia w formacie `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` zawiera **nazwę zasobu**. Nie jest to ten sam adres URL służący do wykonywania zapytań dotyczących punktu końcowego przewidywania.
+* `QNAMAKER_RESOURCE_KEY` - **Klucz** jest ciągiem znaków 32 i jest dostępny w Azure Portal na QNA Maker zasobu na stronie **Szybki Start** . Ta wartość nie jest taka sama jak klucz punktu końcowego przewidywania.
+* `QNAMAKER_AUTHORING_ENDPOINT` — Twój punkt końcowy tworzenia w formacie `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` zawiera **nazwę zasobu**. Nie jest to ten sam adres URL służący do wykonywania zapytań dotyczących punktu końcowego przewidywania.
 
 [!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=authorization)]
 
@@ -152,7 +152,7 @@ Uruchom aplikację za pomocą `node rest-apis.js` polecenia z katalogu aplikacji
 node rest-apis.js
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
 

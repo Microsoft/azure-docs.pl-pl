@@ -10,18 +10,18 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 0cfdf3d7fe22d5e7e580e4147b9df430f451f9a5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8e96a666ece7fea64df59c9ed51944534c96bd6b
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87374751"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246337"
 ---
 [Dokumentacja](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src)  |  źródłowy biblioteki [Pakiet (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 * Obiekt BLOB usługi Azure Storage zawierający zestaw danych szkoleniowych. Zapoznaj się z tematem [Tworzenie zestawu danych szkoleniowych dla modelu niestandardowego](../../build-training-data-set.md) w celu uzyskania wskazówek i opcji związanych z zestawem danych szkoleniowych. W tym przewodniku szybki start można użyć plików w folderze **uczenie** [zestawu danych przykładowych](https://go.microsoft.com/fwlink/?linkid=2090451).
 * Bieżąca wersja [zestawu Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Narzędzie kompilacji Gradle](https://gradle.org/install/)lub inny Menedżer zależności.
@@ -494,7 +494,7 @@ Uruchom aplikację z `run` celem:
 gradle run
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
 

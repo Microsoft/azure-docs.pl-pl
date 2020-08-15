@@ -10,14 +10,14 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 06/30/2020
 ms.author: aahi
-ms.openlocfilehash: 585731212fa31be2757d5b5d4c4e0a2ef1212ca8
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 86742568d8f0c7c951d872e7df23b8ce1cb0920f
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85980224"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244231"
 ---
-# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Szybki Start: wykrywanie anomalii w danych szeregów czasowych przy użyciu interfejsu API REST usługi wykrywania anomalii i języka C # 
+# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Szybki Start: wykrywanie anomalii w danych szeregów czasowych przy użyciu interfejsu API REST usługi wykrywania anomalii i języka C #
 
 Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć korzystanie z dwóch trybów wykrywania interfejsu API wykrywania anomalii w celu wykrycia anomalii w danych szeregów czasowych. Ta aplikacja w języku C# wysyła dwa żądania interfejsu API zawierające dane szeregów czasowych w formacie JSON i pobiera odpowiedzi.
 
@@ -30,13 +30,13 @@ Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć korzystanie z dwóch
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 - Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title=" Utwórz zasób wykrywania anomalii "  target="_blank"> Utwórz zasób wykrywania anomalii <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Zaczekaj na jego wdrożenie i kliknij przycisk **Przejdź do zasobu** .
     - Potrzebny będzie klucz i punkt końcowy z zasobu utworzonego w celu połączenia aplikacji z interfejsem API wykrywania anomalii. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
     Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
 - Dowolna wersja programu [Visual Studio 2017 lub nowszego](https://visualstudio.microsoft.com/downloads/)
 - Struktura [Json.NET](https://www.newtonsoft.com/json) dostępna jako pakiet NuGet. Aby zainstalować Newtonsoft.Jsna jako pakiet NuGet w programie Visual Studio:
-    
+
     1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań**.
     2. Wybierz pozycję **Zarządzaj pakietami NuGet**.
     3. Wyszukaj *Newtonsoft.Js* i zainstaluj pakiet.
@@ -49,18 +49,18 @@ Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć korzystanie z dwóch
 
 ## <a name="create-a-new-application"></a>Tworzenie nowej aplikacji
 
-1. W programie Visual Studio Utwórz nowe rozwiązanie konsoli i Dodaj następujące pakiety. 
+1. W programie Visual Studio Utwórz nowe rozwiązanie konsoli i Dodaj następujące pakiety.
 
     [!code-csharp[using statements](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=usingStatements)]
 
 
 2. Utwórz zmienne dla klucza subskrypcji i punktu końcowego. Poniżej znajdują się identyfikatory URI, których można użyć do wykrywania anomalii. Zostaną one dołączone do punktu końcowego usługi później w celu utworzenia adresów URL żądań interfejsu API.
 
-    | Metoda wykrywania                   | Identyfikator URI                                              |
+    | Metoda wykrywania                   | URI                                              |
     |------------------------------------|--------------------------------------------------|
     | Wykrywanie partii                    | `/anomalydetector/v1.0/timeseries/entire/detect` |
     | Wykrywanie najnowszego punktu danych | `/anomalydetector/v1.0/timeseries/last/detect`   |
-        
+
     [!code-csharp[initial variables for endpoint, key and data file](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=vars)]
 
 ## <a name="create-a-function-to-send-requests"></a>Utwórz funkcję do wysyłania żądań
@@ -79,7 +79,7 @@ Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć korzystanie z dwóch
 
 2. Deserializacji obiektu JSON i Zapisz go w konsoli.
 
-3. Jeśli odpowiedź zawiera `code` pole, Wydrukuj kod błędu i komunikat o błędzie. 
+3. Jeśli odpowiedź zawiera `code` pole, Wydrukuj kod błędu i komunikat o błędzie.
 
 4. W przeciwnym razie Znajdź pozycje anomalii w zestawie danych. `isAnomaly`Pole odpowiedzi zawiera tablicę wartości logicznych, z których każdy wskazuje, czy punkt danych jest anomalią. Przekonwertuj ten element na tablicę ciągów z funkcją obiektu Response `ToObject<bool[]>()` . Wykonaj iterację tablicy i wydrukuj indeks wszelkich `true` wartości. Te wartości odpowiadają indeksowi nietypowych punktów danych, jeśli zostały znalezione.
 
@@ -93,10 +93,10 @@ Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć korzystanie z dwóch
 2. Deserializacji obiektu JSON i Zapisz go w konsoli.
 
     [!code-csharp[Detect anomalies latest](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesLatest)]
- 
+
 ## <a name="load-your-time-series-data-and-send-the-request"></a>Załaduj dane szeregów czasowych i Wyślij żądanie
 
-1. W głównej metodzie aplikacji Załaduj dane z szeregów czasowych JSON przy użyciu programu `File.ReadAllText()` . 
+1. W głównej metodzie aplikacji Załaduj dane z szeregów czasowych JSON przy użyciu programu `File.ReadAllText()` .
 
 2. Wywołaj utworzone powyżej funkcje wykrywania anomalii. Użyj, `System.Console.ReadKey()` Aby zachować otwarte okno konsoli po uruchomieniu aplikacji.
 

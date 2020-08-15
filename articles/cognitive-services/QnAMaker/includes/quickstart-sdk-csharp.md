@@ -3,12 +3,12 @@ title: 'Szybki Start: QnA Makera Biblioteka kliencka dla platformy .NET'
 description: W tym przewodniku szybki start pokazano, jak rozpocząć pracę z biblioteką klienta QnA Maker dla platformy .NET. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.  Usługa QnA Maker umożliwia zasilanie usługi pytań i odpowiedzi za pomocą częściowo ustrukturyzowanej zawartości, takiej jak dokumenty z często zadawanymi pytaniami, adresy URL i podręczniki produktów.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 0dfabfa1357543e4011412c0a9f63061e8856019
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: eecbf162f3bd043bf4aabe9796ee095667e0cc39
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87507593"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246367"
 ---
 Użyj biblioteki klienta QnA Maker dla platformy .NET, aby:
 
@@ -27,7 +27,7 @@ Użyj biblioteki klienta QnA Maker dla platformy .NET, aby:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 * [Środowisko IDE programu Visual Studio](https://visualstudio.microsoft.com/vs/) lub bieżąca wersja [platformy .NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 * Gdy masz subskrypcję platformy Azure, Utwórz [zasób QNA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) w Azure Portal, aby uzyskać swój klucz tworzenia i nazwę zasobu. Po wdrożeniu programu wybierz pozycję **Przejdź do zasobu**.
     * Musisz mieć nazwę klucza i zasobu z tworzonego zasobu, aby połączyć aplikację z interfejs API usługi QnA Maker. Będziesz wklejać swój klucz i nazwę zasobu do poniższego kodu w dalszej części przewodnika Szybki Start.
@@ -144,9 +144,9 @@ Baza wiedzy zapisuje pary pytań i odpowiedzi dla obiektu [CreateKbDTO](https://
 * W przypadku **adresów URL**Użyj listy ciągów do reprezentowania publicznie dostępnych adresów URL.
 
 Krok tworzenia obejmuje również właściwości bazy wiedzy:
-* `defaultAnswerUsedForExtraction`-co jest zwracane, gdy nie zostanie znaleziona żadna odpowiedź
-* `enableHierarchicalExtraction`-Automatycznie twórz relacje wiersza między wyodrębnionymi parami QnA
-* `language`— podczas tworzenia pierwszej bazy wiedzy zasobu Ustaw język, który ma być używany w indeksie Azure Search.
+* `defaultAnswerUsedForExtraction` -co jest zwracane, gdy nie zostanie znaleziona żadna odpowiedź
+* `enableHierarchicalExtraction` -Automatycznie twórz relacje wiersza między wyodrębnionymi parami QnA
+* `language` — podczas tworzenia pierwszej bazy wiedzy zasobu Ustaw język, który ma być używany w indeksie Azure Search.
 
 Wywołaj metodę [Noasync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.createasync?view=azure-dotnet) , a następnie Przekaż identyfikator zwróconej operacji do metody [MonitorOperation](#get-status-of-an-operation) w celu sondowania stanu.
 

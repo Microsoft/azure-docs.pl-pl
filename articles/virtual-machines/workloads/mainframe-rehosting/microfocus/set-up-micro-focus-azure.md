@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: cc61d842550f82dc8b408ed5cd421af65d0e2be6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 59566fc051b1e84d8e271b3c9d061f2481dcc58f
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507900"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245319"
 ---
 # <a name="install-micro-focus-enterprise-server-50-and-enterprise-developer-50-on-azure"></a>Instalowanie programu Micro Focus Enterprise Server 5,0 i Enterprise Developer 5,0 na platformie Azure
 
@@ -67,9 +67,9 @@ Przed rozpoczęciem sprawdź następujące wymagania wstępne:
 
 8.  W sesji RDP Załaduj następujące dwa pliki. Ponieważ używasz systemu Windows, możesz przeciągać i upuszczać pliki do sesji RDP:
 
-    -   **es \_50.exe**, plik instalacyjny serwera przedsiębiorstwa.
+    -   `es\_50.exe`, plik instalacyjny serwera przedsiębiorstwa.
 
-    -   **mflic**, odpowiedni plik licencji — serwer przedsiębiorstwa nie zostanie załadowany bez tego.
+    -   `mflic`, odpowiedni plik licencji — serwer przedsiębiorstwa nie zostanie załadowany bez tego.
 
 9.  Kliknij dwukrotnie plik, aby rozpocząć instalację. W pierwszym oknie Wybierz lokalizację instalacji i zaakceptuj umowę licencyjną użytkownika końcowego.
 
@@ -87,11 +87,11 @@ Po zakończeniu instalacji upewnij się, że zainstalowano dodatkowe aktualizacj
 
 1.  Rozpocznij Administrowanie licencjami programu Micro Focus.
 
-2.  Wybierz pozycję **Rozpocznij** \> administrację licencji programu **License Manager** \> **License Administration**, a następnie kliknij kartę **Instalacja** . Wybierz typ formatu licencji do przekazania: plik licencji lub 16-znakowy kod licencji. Na przykład dla pliku w **pliku licencji**przejdź do pliku **mflic** , który został przekazany wcześniej do maszyny wirtualnej, a następnie wybierz pozycję **Zainstaluj licencje**.
+2.  Wybierz pozycję **Rozpocznij** \> administrację licencji programu **License Manager** \> **License Administration**, a następnie kliknij kartę **Instalacja** . Wybierz typ formatu licencji do przekazania: plik licencji lub 16-znakowy kod licencji. Na przykład w przypadku pliku w **pliku licencji**przejdź do `mflic` pliku * przekazanego wcześniej do maszyny wirtualnej i wybierz pozycję **Zainstaluj licencje**.
 
     ![Okno dialogowe Administrowanie licencjami w programie Micro Focus](media/install-image-3.png)
 
-3.  Sprawdź, czy serwer przedsiębiorstwa ładuje. Spróbuj uruchomić witrynę administracyjną przedsiębiorstwa Server z przeglądarki przy użyciu tego adresu URL: <http://localhost:86/> . Zostanie wyświetlona strona Administracja serwera przedsiębiorstwa, jak pokazano.
+3.  Sprawdź, czy serwer przedsiębiorstwa ładuje. Spróbuj uruchomić witrynę administracyjną przedsiębiorstwa Server z przeglądarki przy użyciu tego adresu URL: `http://localhost:86/` . Zostanie wyświetlona strona Administracja serwera przedsiębiorstwa, jak pokazano.
 
     ![Strona administrowania serwerem przedsiębiorstwa](media/install-image-4.png)
 
@@ -103,9 +103,9 @@ Po zakończeniu instalacji upewnij się, że zainstalowano dodatkowe aktualizacj
 
 3.  W sesji RDP Załaduj następujące dwa pliki (przeciągnij i upuść, jeśli chcesz):
 
-    -   **edvs2017.exe**, plik instalacyjny serwera przedsiębiorstwa.
+    -   `edvs2017.exe`, plik instalacyjny serwera przedsiębiorstwa.
 
-    -   **mflic**, odpowiedni plik licencji (deweloper przedsiębiorstwa nie będzie ładowany).
+    -   `mflic`, odpowiedni plik licencji (deweloper przedsiębiorstwa nie będzie ładowany).
 
 4.  Kliknij dwukrotnie plik **edvs2017.exe** , aby rozpocząć instalację. W pierwszym oknie Wybierz lokalizację instalacji i zaakceptuj umowę licencyjną użytkownika końcowego. Jeśli chcesz, wybierz pozycję **Zainstaluj Rumba 9,5** , aby zainstalować ten emulator terminalu, którego prawdopodobnie potrzebujesz.
 
@@ -117,7 +117,7 @@ Po zakończeniu instalacji upewnij się, że zainstalowano dodatkowe aktualizacj
 
 6.  Uruchom Menedżera licencji programu Micro Focus tak samo jak w przypadku programu Enterprise Server. Wybierz **Start** \> **Micro Focus License Manager** \> kolejno pozycje Start **Zarządzanie**licencjami Menedżer licencji, a następnie kliknij kartę **Instaluj** .
 
-7.  Wybierz typ formatu licencji do przekazania: plik licencji lub 16-znakowy kod licencji. Na przykład dla pliku w **pliku licencji**przejdź do pliku **mflic** , który został przekazany wcześniej do maszyny wirtualnej, a następnie wybierz pozycję **Zainstaluj licencje**.
+7.  Wybierz typ formatu licencji do przekazania: plik licencji lub 16-znakowy kod licencji. Na przykład dla pliku w **pliku licencji**przejdź do `mflic` pliku przekazanego wcześniej do maszyny wirtualnej i wybierz pozycję  **Zainstaluj licencje**.
 
     ![Okno dialogowe Administrowanie licencjami w programie Micro Focus](media/install-image-7.png)
 

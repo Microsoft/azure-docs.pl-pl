@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 155f32ee76f69fe0f16e7698123381fdc12efd0e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b7a5953edd9aec96a7f75e747c39e8f07f7210bb
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877848"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88243772"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-kubernetes-service"></a>Wdrażanie kontenera analiza tekstu w usłudze Azure Kubernetes Service
 
@@ -25,7 +25,7 @@ Dowiedz się, jak wdrożyć obraz kontenera [Analiza tekstu](https://docs.micros
 
 Ta procedura wymaga kilku narzędzi, które muszą być zainstalowane i uruchomione lokalnie. Nie używaj Azure Cloud Shell. Potrzebne są następujące elementy:
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services).
 * Edytor tekstu, na przykład [Visual Studio Code](https://code.visualstudio.com/download).
 * Zainstalowano [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) .
 * Zainstalowano [interfejs wiersza polecenia Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/) .
@@ -49,7 +49,7 @@ Ta procedura wymaga kilku narzędzi, które muszą być zainstalowane i uruchomi
 
 [!INCLUDE [Verify the Language Detection container instance](../includes/verify-language-detection-container.md)]
 
-#### <a name="sentiment-analysis"></a>[analiza tonacji](#tab/sentiment)
+#### <a name="sentiment-analysis"></a>[Analiza tonacji](#tab/sentiment)
 
 [!INCLUDE [Sentiment Analysis Kubernetes config and deploy steps](../includes/sentiment-analysis-kubernetes-config-deploy.md)]
 

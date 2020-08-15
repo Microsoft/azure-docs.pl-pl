@@ -3,12 +3,12 @@ title: 'Szybki Start: QnA Makera Biblioteka kliencka dla języka Python'
 description: W tym przewodniku szybki start pokazano, jak rozpocząć pracę z biblioteką klienta QnA Maker dla języka Python.
 ms.topic: include
 ms.date: 06/18/2020
-ms.openlocfilehash: 1b6990589663655c5b4518d55e42838775889671
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: d99ed657098a8046a64c10ae48433aa87c2f06f6
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114552"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246319"
 ---
 Użyj biblioteki klienta QnA Maker dla języka Python, aby:
 
@@ -27,7 +27,7 @@ Użyj biblioteki klienta QnA Maker dla języka Python, aby:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
 * Gdy masz subskrypcję platformy Azure, Utwórz [zasób QNA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) w Azure Portal, aby uzyskać klucz tworzenia i punkt końcowy. Po wdrożeniu programu wybierz pozycję **Przejdź do zasobu**.
     * Będziesz potrzebować klucza i punktu końcowego z zasobu, który tworzysz, aby połączyć aplikację z interfejs API usługi QnA Maker. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.

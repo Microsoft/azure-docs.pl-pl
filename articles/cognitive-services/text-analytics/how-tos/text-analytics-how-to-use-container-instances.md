@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 1dde59456126ce1221bdb71f09957c0fd3609427
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f7dbb79e2d9009b00b21d4c12663d8e6c855a4c0
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108717"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88243755"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>Wdróż kontener analiza tekstu do Azure Container Instances
 
@@ -23,7 +23,7 @@ Dowiedz się, jak wdrożyć kontener [analiza tekstu][install-and-run-containers
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Użyj subskrypcji platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+* Użyj subskrypcji platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services).
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 
@@ -41,7 +41,7 @@ Dowiedz się, jak wdrożyć kontener [analiza tekstu][install-and-run-containers
 
 [!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
 
-#### <a name="text-analytics-for-health"></a>[analiza tekstu dla kondycji](#tab/health)
+#### <a name="text-analytics-for-health"></a>[Analiza tekstu dla opieki zdrowotnej](#tab/health)
 
 [!INCLUDE [Verify the health container instance](../includes/verify-health-container.md)]
 

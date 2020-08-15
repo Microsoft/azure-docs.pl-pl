@@ -4,12 +4,12 @@ description: Zasady przechowywania i zasad zachowania poufności informacji
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 772777c48c8d16197cd8a73586f6549837d7d080
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 1b1a1e370d55ad58bf1468c2e8b2381b62707b6a
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372403"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245948"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Zbieranie, przechowywanie i magazynowanie danych w Application Insights
 
@@ -94,9 +94,6 @@ Firma Microsoft używa danych tylko w celu udostępnienia usługi.
 ## <a name="where-is-the-data-held"></a>Gdzie są przechowywane dane?
 * Lokalizację można wybrać podczas tworzenia nowego zasobu Application Insights. Dowiedz się więcej o dostępności Application Insights [na region.](https://azure.microsoft.com/global-infrastructure/services/?products=all)
 
-#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Czy oznacza to, że moja aplikacja musi być hostowana w Stanach Zjednoczonych, Europie czy Azji Południowo-Wschodnia?
-* Nie. Aplikacja może działać w dowolnym miejscu — na własnych hostach lokalnych lub w chmurze.
-
 ## <a name="how-secure-is-my-data"></a>Jak bezpieczne są moje dane?
 Application Insights to usługa platformy Azure. Zasady zabezpieczeń są opisane w [oficjalny dokument dotyczący zabezpieczeń, ochrony prywatności i zgodności z platformą Azure](https://go.microsoft.com/fwlink/?linkid=392408).
 
@@ -129,7 +126,7 @@ Jeśli klient musi skonfigurować ten katalog z określonymi wymaganiami dotycz�
 
 ### <a name="java"></a>Java
 
-`C:\Users\username\AppData\Local\Temp`służy do utrwalania danych. Ta lokalizacja nie jest konfigurowalna z katalogu konfiguracji, a uprawnienia dostępu do tego folderu są ograniczone do określonego użytkownika z wymaganymi poświadczeniami. (Aby uzyskać więcej informacji, zobacz [implementacja](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72)).
+`C:\Users\username\AppData\Local\Temp` służy do utrwalania danych. Ta lokalizacja nie jest konfigurowalna z katalogu konfiguracji, a uprawnienia dostępu do tego folderu są ograniczone do określonego użytkownika z wymaganymi poświadczeniami. (Aby uzyskać więcej informacji, zobacz [implementacja](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72)).
 
 ###  <a name="net"></a>.Net
 
@@ -214,7 +211,7 @@ Firma Microsoft nie zaleca jawnie ustawienia aplikacji do używania protokołu T
 | Windows Server 2012 — 2016 | Obsługiwane i domyślnie włączone. | Aby potwierdzić, że nadal używasz [ustawień domyślnych](/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 | Obsługiwane, ale nie włączone domyślnie. | Aby uzyskać szczegółowe informacje na temat włączania, zobacz stronę [Ustawienia rejestru Transport Layer Security (TLS)](/windows-server/security/tls/tls-registry-settings) .  |
 | Windows Server 2008 SP2 | Obsługa protokołu TLS 1,2 wymaga aktualizacji. | Zobacz [Aktualizacja, aby dodać obsługę protokołu TLS 1,2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) w systemie Windows Server 2008 z dodatkiem SP2. |
-|Windows Vista | Nieobsługiwane. | Brak
+|Windows Vista | Nieobsługiwane. | Nie dotyczy
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Sprawdź wersję OpenSSL, w której działa dystrybucja systemu Linux
 
@@ -256,7 +253,7 @@ Zestawy SDK różnią się między platformami i istnieje kilka składników, kt
 | [TrackMetric wywołań][api] |Wartości liczbowe<br/>**Właściwości** |
 | [Śledzenie wywołań *][api] |Nazwa zdarzenia<br/>**Właściwości** |
 | [Wywołanie metody Trackexception][api] |**Wyjątki**<br/>Zrzut stosu<br/>**Właściwości** |
-| Zestaw SDK nie może zbierać danych. Na przykład: <br/> -nie można uzyskać dostępu do liczników wydajności<br/> -wyjątek w inicjatorze telemetrii |Diagnostyka zestawu SDK |
+| Zestaw SDK nie może zbierać danych. Przykład: <br/> -nie można uzyskać dostępu do liczników wydajności<br/> -wyjątek w inicjatorze telemetrii |Diagnostyka zestawu SDK |
 
 W przypadku [zestawów SDK dla innych platform][platforms]Zobacz dokumenty.
 
@@ -277,7 +274,7 @@ W przypadku [zestawów SDK dla innych platform][platforms]Zobacz dokumenty.
 | AJAX |Wywołania HTTP ze strony sieci Web na serwer |
 | Żądania |Adres URL, czas trwania, kod odpowiedzi |
 | Zależności |Typ (SQL, HTTP,...), parametry połączenia lub identyfikator URI, synchronizacja/Async, czas trwania, powodzenie, instrukcja SQL (z monitor stanu) |
-| **Wyjątki** |Typ, **komunikat**, stosy wywołań, plik źródłowy, numer wiersza,`thread id` |
+| **Wyjątki** |Typ, **komunikat**, stosy wywołań, plik źródłowy, numer wiersza, `thread id` |
 | Stąp |`Process id`, `parent process id` , `crash thread id` ; poprawka aplikacji, `id` , kompilacja;  Typ wyjątku, adres, Przyczyna; zasłonięte symbole i rejestry, binarne adresy startowe i końcowe, nazwa binarna i ścieżka, typ procesora |
 | Ślad |**Komunikat** i poziom ważności |
 | Liczniki wydajności |Czas procesora, dostępna pamięć, szybkość żądania, szybkość wyjątku, bajty prywatne procesu, szybkość operacji we/wy, czas żądania, Długość kolejki żądań |

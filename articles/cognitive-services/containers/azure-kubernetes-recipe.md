@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 24e04e166c13f787f756c97716e2bf0143eecbdb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b53476bcb05d6e91b157c24795c963c04e6f4bb4
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128577"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244496"
 ---
 # <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Wdróż kontener wykrywania języka analiza tekstu w usłudze Azure Kubernetes Service
 
@@ -25,7 +25,7 @@ Dowiedz się, jak wdrożyć kontener wykrywania języka. Ta procedura przedstawi
 
 Ta procedura wymaga kilku narzędzi, które muszą być zainstalowane i uruchomione lokalnie. Nie należy używać usługi Azure Cloud Shell.
 
-* Użyj subskrypcji platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+* Użyj subskrypcji platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services).
 * Narzędzie [git](https://git-scm.com/downloads) dla systemu operacyjnego umożliwia klonowanie [przykładu](https://github.com/Azure-Samples/cognitive-services-containers-samples) użytego w tej procedurze.
 * [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [Aparat platformy Docker](https://www.docker.com/products/docker-engine) i sprawdzanie poprawności działania interfejsu wiersza polecenia platformy Docker w oknie konsoli.
@@ -313,17 +313,17 @@ Ta sekcja używa interfejsu wiersza polecenia **polecenia kubectl** , aby komuni
 
     Ustawienia wdrożenia w języku frontonu|Przeznaczenie|
     |--|--|
-    |Wiersz 32<br> `image`wartość|Lokalizacja obrazu dla obrazu frontonu w Container Registry<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
-    |Wiersz 44<br> `name`wartość|Container Registry wpis tajny obrazu, określany jako `<client-secret>` w poprzedniej sekcji.|
+    |Wiersz 32<br> `image` wartość|Lokalizacja obrazu dla obrazu frontonu w Container Registry<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
+    |Wiersz 44<br> `name` wartość|Container Registry wpis tajny obrazu, określany jako `<client-secret>` w poprzedniej sekcji.|
 
 1. Zmień wiersze wdrożenia języka `language.yml` w oparciu o poniższą tabelę, aby dodać własne nazwy obrazów rejestru kontenerów, klucz tajny klienta i ustawienia analizy tekstu.
 
     |Ustawienia wdrażania języka|Przeznaczenie|
     |--|--|
-    |Wiersz 78<br> `image`wartość|Lokalizacja obrazu dla obrazu języka w Container Registry<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
-    |Wiersz 95<br> `name`wartość|Container Registry wpis tajny obrazu, określany jako `<client-secret>` w poprzedniej sekcji.|
-    |Wiersz 91<br> `apiKey`wartość|Klucz zasobu analizy tekstu|
-    |Wiersz 92<br> `billing`wartość|Punkt końcowy rozliczeń dla zasobu analizy tekstu.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+    |Wiersz 78<br> `image` wartość|Lokalizacja obrazu dla obrazu języka w Container Registry<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
+    |Wiersz 95<br> `name` wartość|Container Registry wpis tajny obrazu, określany jako `<client-secret>` w poprzedniej sekcji.|
+    |Wiersz 91<br> `apiKey` wartość|Klucz zasobu analizy tekstu|
+    |Wiersz 92<br> `billing` wartość|Punkt końcowy rozliczeń dla zasobu analizy tekstu.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
     Ponieważ **apiKey** i **punkt końcowy rozliczeniowy** są ustawiane w ramach definicji aranżacji Kubernetes, kontener witryny sieci Web nie musi wiedzieć o nich ani przekazać ich w ramach żądania. Kontener witryny sieci Web odnosi się do kontenera wykrywania języka według jego nazwy programu Orchestrator `language` .
 

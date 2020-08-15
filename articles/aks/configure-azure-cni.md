@@ -4,12 +4,12 @@ description: Dowiedz się, jak skonfigurować usługę Azure CNI (Advanced) Netw
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: b1bf459c530195b8855169123b8f496e4969403b
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 93cbe6d2a682009ee883d11bdd99fd69b693c5c4
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872433"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246016"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Konfigurowanie sieci Azure CNI w usłudze Azure Kubernetes Service (AKS)
 
@@ -50,7 +50,7 @@ Plan adresów IP dla klastra AKS składa się z sieci wirtualnej, co najmniej je
 | Zakres adresów/zasób platformy Azure | Limity i rozmiary |
 | --------- | ------------- |
 | Sieć wirtualna | Sieć wirtualna platformy Azure może mieć wartość większą niż 8, ale jest ograniczona do 65 536 skonfigurowanych adresów IP. |
-| Podsieć | Musi być wystarczająco duży, aby pomieścić węzły, zasobniki i wszystkie zasoby Kubernetes i platformy Azure, które mogą być obsługiwane w klastrze. Jeśli na przykład zostanie wdrożony wewnętrzny Azure Load Balancer, jego adresy IP frontonu są przydzieleni z podsieci klastra, a nie do publicznych adresów IP. Rozmiar podsieci powinien również uwzględniać operacje uaktualniania konta lub przyszłe potrzeby skalowania.<p />Aby obliczyć *minimalny* rozmiar podsieci obejmujący dodatkowy węzeł operacji uaktualniania:`(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Przykład klastra węzłów 50: `(51) + (51  * 30 (default)) = 1,581` (/21 lub większych)<p/>Przykład klastra węzłów 50, który obejmuje również obsługę skalowania w górę do 10 dodatkowych węzłów: `(61) + (61 * 30 (default)) = 1,891` (/21 lub większych)<p>Jeśli podczas tworzenia klastra nie zostanie określona maksymalna liczba numerów zasobników na węzeł, Maksymalna liczba zasobników na węzeł jest ustawiona na wartość *30*. Minimalna liczba wymaganych adresów IP jest określana na podstawie tej wartości. W przypadku obliczenia minimalnych wymagań dotyczących adresów IP dla innej wartości maksymalnej należy zapoznać się z tematem [jak skonfigurować maksymalną liczbę zasobników na węzeł](#configure-maximum---new-clusters) , aby ustawić tę wartość podczas wdrażania klastra. |
+| Podsieć | Musi być wystarczająco duży, aby pomieścić węzły, zasobniki i wszystkie zasoby Kubernetes i platformy Azure, które mogą być obsługiwane w klastrze. Jeśli na przykład zostanie wdrożony wewnętrzny Azure Load Balancer, jego adresy IP frontonu są przydzieleni z podsieci klastra, a nie do publicznych adresów IP. Rozmiar podsieci powinien również uwzględniać operacje uaktualniania konta lub przyszłe potrzeby skalowania.<p />Aby obliczyć *minimalny* rozmiar podsieci obejmujący dodatkowy węzeł operacji uaktualniania: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Przykład klastra węzłów 50: `(51) + (51  * 30 (default)) = 1,581` (/21 lub większych)<p/>Przykład klastra węzłów 50, który obejmuje również obsługę skalowania w górę do 10 dodatkowych węzłów: `(61) + (61 * 30 (default)) = 1,891` (/21 lub większych)<p>Jeśli podczas tworzenia klastra nie zostanie określona maksymalna liczba numerów zasobników na węzeł, Maksymalna liczba zasobników na węzeł jest ustawiona na wartość *30*. Minimalna liczba wymaganych adresów IP jest określana na podstawie tej wartości. W przypadku obliczenia minimalnych wymagań dotyczących adresów IP dla innej wartości maksymalnej należy zapoznać się z tematem [jak skonfigurować maksymalną liczbę zasobników na węzeł](#configure-maximum---new-clusters) , aby ustawić tę wartość podczas wdrażania klastra. |
 | Zakres adresów usługi Kubernetes | Ten zakres nie powinien być używany przez żaden element sieci w lub podłączony do tej sieci wirtualnej. Adres usługi CIDR musi być mniejszy niż/12. Można ponownie użyć tego zakresu w różnych klastrach AKS. |
 | Adres IP usługi DNS platformy Kubernetes | Adres IP w zakresie adresów usługi Kubernetes, który będzie używany przez odnajdywanie usługi klastrowania (polecenia-DNS). Nie używaj pierwszego adresu IP z zakresu adresów, takiego jak. 1. Pierwszy adres w zakresie podsieci jest używany dla adresu *Kubernetes. default. svc. Cluster. Local* . |
 | Adres mostka platformy Docker | Adres mostka platformy Docker to domyślny adres sieciowy mostka *docker0*, który jest obecny we wszystkich instalacjach platformy Docker. Chociaż mostek *docker0* nie jest używany przez klastry AKS ani same same z nich, należy ustawić ten adres, aby nadal obsługiwał scenariusze, takie jak *kompilacja Docker* w klastrze AKS. Jest wymagane wybranie CIDR dla adresu sieciowego mostka platformy Docker, ponieważ w przeciwnym razie platforma Docker automatycznie wybierze podsieć, która może powodować konflikt z innymi CIDR. Należy wybrać przestrzeń adresową, która nie koliduje z pozostałą częścią CIDR w sieci, w tym CIDR usług w klastrze i CIDR. Wartość domyślna 172.17.0.1/16. Można ponownie użyć tego zakresu w różnych klastrach AKS. |
@@ -102,7 +102,7 @@ Podczas tworzenia klastra AKS następujące parametry można skonfigurować dla 
 * Nie może znajdować się w zakresie adresów IP sieci wirtualnej klastra
 * Nie może pokrywać się z innymi sieciami wirtualnymi, z którymi są równorzędne sieci wirtualne klastra
 * Nie może nakładać się na lokalne adresy IP
-* Nie może należeć do zakresu `169.254.0.0/16` , `172.30.0.0/16` , `172.31.0.0/16` lub`192.0.2.0/24`
+* Nie może należeć do zakresu `169.254.0.0/16` , `172.30.0.0/16` , `172.31.0.0/16` lub `192.0.2.0/24`
 
 Chociaż jest to technicznie możliwe określenie zakresu adresów usługi w ramach tej samej sieci wirtualnej co klaster, nie jest to zalecane. W przypadku używania nakładających się zakresów adresów IP może wystąpić nieprzewidywalne zachowanie. Aby uzyskać więcej informacji, zapoznaj się z sekcją [często zadawanych pytań](#frequently-asked-questions) w tym artykule. Aby uzyskać więcej informacji na temat usług Kubernetes Services, zobacz [usługi][services] w dokumentacji Kubernetes.
 
@@ -152,6 +152,10 @@ Poniższe pytania i odpowiedzi dotyczą konfiguracji sieci **usługi Azure CNI**
 * *Czy mogę wdrożyć maszyny wirtualne w podsieci klastra?*
 
   Tak.
+
+* *Jakie źródłowe adresy IP są dostępne dla ruchu pochodzącego z usługi Azure CNI pod kątem?*
+
+  Systemy w tej samej sieci wirtualnej, co klaster AKS, zobacz adres IP pod adresem źródłowym dla dowolnego ruchu z usługi. Systemy spoza sieci wirtualnej klastra AKS Zobacz adres IP węzła w przypadku każdego ruchu z usługi pod. 
 
 * *Czy można skonfigurować zasady dotyczące sieci dla poszczególnych firm?*
 

@@ -10,12 +10,12 @@ ms.date: 8/13/2020
 ms.topic: include
 ms.custom: include file, devx-track-javascript
 ms.author: diberry
-ms.openlocfilehash: 39e0124bbfac75bcadd42f5caa987409fafd7886
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: e52aba2fe6189c8964fd6525581b0bd6ee6def48
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88237391"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246422"
 ---
 Użyj bibliotek klienckich Language Understanding (LUIS), aby Node.js do:
 
@@ -29,7 +29,7 @@ Użyj bibliotek klienckich Language Understanding (LUIS), aby Node.js do:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Node.js](https://nodejs.org)
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 * Gdy masz subskrypcję platformy Azure, [Utwórz zasób tworzenia Language Understanding](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) w Azure Portal, aby uzyskać klucz i punkt końcowy. Zaczekaj na jego wdrożenie i kliknij przycisk **Przejdź do zasobu** .
     * Będziesz potrzebować klucza i punktu końcowego z zasobu [, który tworzysz, aby](../luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) połączyć aplikację w celu Language Understanding tworzenia. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start. Aby wypróbować usługę, możesz skorzystać z warstwy cenowej bezpłatna ( `F0` ).
 

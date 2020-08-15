@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/11/2020
+ms.date: 08/14/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f13d0d2ba26f49daac49c4dd88f3bdf8621c4ad4
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: f1152eb11d3452743daa5bcb39fb593dddf94452
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121497"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245931"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Korzystanie z platformy Azure do hostowania i uruchamiania scenariuszy obciążeń SAP
 
@@ -88,13 +88,14 @@ Aby uzyskać informacje na temat integracji usług platformy Azure z składnikam
 
 ## <a name="change-log"></a>Dziennik zmian
 
+- 08/14/2020: Dodawanie porady dotyczącej konfiguracji dysków dla bazy danych DB2 w artykule system [IBM DB2 Azure Virtual Machines DBMS wdrażanie dla obciążeń SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm)
 - 08/11/2020: Dodawanie RHEL 7,6 do [zgodnych systemów operacyjnych dla dużych wystąpień platformy Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance) jako dostępnego systemu operacyjnego dla jednostek.
 - 08/10/2020: wprowadzenie do kosztów SAP HANA konfiguracji magazynu w [SAP HANA Konfiguracja magazynu maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) i wprowadzanie aktualizacji do [obciążeń SAP na platformie Azure: planowanie i wdrażanie listy kontrolnej](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
 - 08/04/2020: zmiana konfiguracji [Pacemaker na SLES na platformie Azure](./high-availability-guide-suse-pacemaker.md) i [KONFIGUROWANIA Pacemaker na RHEL na platformie Azure](./high-availability-guide-rhel-pacemaker.md) w celu wyróżnienia znaczenia niezawodnego rozpoznawania nazw dla klastrów Pacemaker
 - 08/04/2020: zmiana w programie [SAP NW ha na WFCS z udziałem plików](./sap-high-availability-installation-wsfc-file-share.md), [SAP NW ha na WFCS z udostępnionym dyskiem](./sap-high-availability-installation-wsfc-shared-disk.md), [ha for SAP NW na maszynach wirtualnych platformy Azure](./high-availability-guide.md), [ha dla SAP NW na maszynach wirtualnych platformy Azure w systemie SLES](./high-availability-guide-suse.md), [ha dla oprogramowania SAP NW na maszynach wirtualnych platformy Azure w systemie SLES z ANF](./high-availability-guide-suse-netapp-files.md), [ha dla SAP NW na maszynach wirtualnych platformy Azure w przypadku usługi SLES z obsługą wielosid](./high-availability-guide-suse-multi-sid.md), [wysoka dostępność rozwiązań SAP NETWEAVER na maszynach wirtualnych platformy](./high-availability-guide-rhel.md)Azure na RHEL, [ha dla SAP NW](./high-availability-guide-rhel-netapp-files.md) na maszynach wirtualnych platformy Azure w RHEL z ANF i [ha dla SAP](./high-availability-guide-rhel-multi-sid.md)`enque/encni/set_so_keepalive`
 - 07/23/2020: dodano [SAP HANA — duże wystąpienia zapisywania w artykule dotyczącym rezerwacji platformy Azure](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md) wyjaśniającym, co musisz wiedzieć przed zakupieniem SAP HANA — duże wystąpienia rezerwacji i sposobami zakupu.
 - 07/16/2020: opisz, jak używać Azure PowerShell, aby zainstalować nowe rozszerzenie maszyny wirtualnej dla oprogramowania SAP w [przewodniku wdrażania](deployment-guide.md)
-- 7/04/2020: wydanie [usługi Azure monitor dla rozwiązań SAP (wersja zapoznawcza)](./azure-monitor-overview.md)
+- 7/04/2020: wydanie  [usługi Azure monitor dla rozwiązań SAP (wersja zapoznawcza)](./azure-monitor-overview.md)
 - 07/01/2020: sugerowanie tańszej konfiguracji magazynu w oparciu o funkcjonalność usługi Azure Premium Storage w dokumencie [SAP HANA konfiguracje magazynu maszyn wirtualnych platformy Azure](./hana-vm-operations-storage.md) 
 - 06/24/2020: zmiana w [konfigurowaniu Pacemaker na platformie Azure w](./high-availability-guide-suse-pacemaker.md) celu wydania nowego udoskonalonego agenta usługi Azure ogrodzenia i bardziej odpornej konfiguracji STONITH dla urządzeń na podstawie agenta usługi Azure ogrodzenia 
 - 06/24/2020: zmiana podczas [konfigurowania Pacemaker na RHEL na platformie Azure](./high-availability-guide-rhel-pacemaker.md) w celu zwolnienia bardziej odpornej konfiguracji STONITH
@@ -133,7 +134,7 @@ Aby uzyskać informacje na temat integracji usług platformy Azure z składnikam
 - 26 lutego 2020: Zmień [konfigurację magazynu maszyn wirtualnych platformy Azure na SAP HANA](./hana-vm-operations-storage.md) , aby wyjaśnić wybór systemu plików dla platformy Hana na platformie Azure
 - 26 lutego 2020: zmiana [architektury i scenariuszy wysokiej dostępności dla SAP](./sap-high-availability-architecture-scenarios.md) w celu uwzględnienia linku do ha dla SAP NetWeaver na maszynach wirtualnych platformy Azure w przewodniku dotyczącym usługi RHEL z obsługą wiele identyfikatorów SID
 - 26 lutego 2020: zmiana [wysokiej dostępności dla oprogramowania SAP NW na maszynach wirtualnych platformy Azure w systemie SLES for SAP](./high-availability-guide-suse.md), [wysoka dostępność dla oprogramowania SAP NW na maszynach wirtualnych platformy Azure na platformie SLES z ANF dla aplikacji SAP](./high-availability-guide-suse-netapp-files.md), [maszyny wirtualne platformy Azure](./high-availability-guide-rhel.md) o wysokiej dostępności dla oprogramowania SAP NetWeaver na RHEL i [maszyn wirtualnych platformy Azure o wysokiej dostępności dla oprogramowania SAP NetWeaver w Azure NetApp Files RHEL](./high-availability-guide-rhel-netapp-files.md)
-- 26 lutego 2020: wydanie [wysokiej dostępności dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure w przewodniku dotyczącym usługi RHEL z obsługą wiele identyfikatorów SID](./high-availability-guide-rhel-multi-sid.md) w celu dodania linku do przewodnika po klastrze z obsługą wiele identyfikatorów SID
+- 26 lutego 2020: wydanie  [wysokiej dostępności dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure w przewodniku dotyczącym usługi RHEL z obsługą wiele identyfikatorów SID](./high-availability-guide-rhel-multi-sid.md) w celu dodania linku do przewodnika po klastrze z obsługą wiele identyfikatorów SID
 - 02/25/2020: zmiana [architektury i scenariuszy wysokiej dostępności dla SAP](./sap-high-availability-architecture-scenarios.md) w celu dodania linków do NOWSZYCH artykułów ha
 - 25 lutego 2020: zmiana [wysokiej dostępności programu IBM DB2 LUW na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server z Pacemaker](./dbms-guide-ha-ibm.md) , aby wskazać dokument, który opisuje dostęp do publicznego punktu końcowego za pomocą standardowego modułu równoważenia obciążenia platformy Azure
 - 21 lutego 2020: Pełna wersja artykułu [SAP ASE platformy Azure Virtual Machines DBMS wdrażanie dla obciążeń SAP](./dbms_guide_sapase.md)

@@ -9,18 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 3300bd53be36e34ff32267605352d6f80923724e
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 4d2beeb93922d826ca57d7ea1c3fecc69166b266
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86277871"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246247"
 ---
 [Dokumentacja](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer)  |  źródłowy biblioteki [Pakiet (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 * Obiekt BLOB usługi Azure Storage zawierający zestaw danych szkoleniowych. Zapoznaj się z tematem [Tworzenie zestawu danych szkoleniowych dla modelu niestandardowego](../../build-training-data-set.md) w celu uzyskania wskazówek i opcji związanych z zestawem danych szkoleniowych. W tym przewodniku szybki start można użyć plików w folderze **uczenie** [zestawu danych przykładowych](https://go.microsoft.com/fwlink/?linkid=2090451).
 * [Python 2,7 lub 3,5 lub nowszy](https://www.python.org/)
 

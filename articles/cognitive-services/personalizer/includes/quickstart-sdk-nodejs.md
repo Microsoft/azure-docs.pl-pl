@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -8,18 +8,18 @@ ms.subservice: personalizer
 ms.topic: include
 ms.custom: include file, devx-track-javascript
 ms.date: 07/30/2020
-ms.openlocfilehash: 4f57d3a6c959a8ec912722a617496c52f412c13f
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: ba7885859adc1d9899c66917204306c8a0d0092f
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461157"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246273"
 ---
 [Dokumentacja](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)  | referencyjna [Kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer)  |  źródłowy biblioteki [Pakiet (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer)  |  [Przykłady](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Personalizer)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 * Bieżąca wersja [Node.js](https://nodejs.org) i npm.
 
 ## <a name="using-this-quickstart"></a>Korzystanie z tego przewodnika Szybki Start

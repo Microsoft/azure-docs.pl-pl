@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2020
-ms.openlocfilehash: d4398b2bf37ad5dcf60a931f5d4991a3ad00845a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 5a7f13982de000478b14eb75d7341ed2e99c1274
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826538"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245574"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Używanie grup z obsługą trybu failover w celu zapewnienia przezroczystej i skoordynowanej pracy w trybie failover wielu baz danych
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Grupy autotrybu failover umożliwiają zarządzanie replikacją i trybem failover grupy baz danych na serwerze lub wszystkich bazach danych w wystąpieniu zarządzanym w innym regionie. Jest to deklaratywne streszczenie na istniejącej funkcji [aktywnej replikacji geograficznej](active-geo-replication-overview.md) , zaprojektowane w celu uproszczenia wdrażania geograficznie replikowanych baz danych i zarządzania nimi na dużą skalę. Możesz zainicjować tryb failover ręcznie lub można delegować go do usługi platformy Azure na podstawie zasad zdefiniowanych przez użytkownika. Ta ostatnia opcja umożliwia automatyczne odzyskanie wielu pokrewnych baz danych w regionie pomocniczym po katastrofalnym błędzie lub innym nieplanowanym zdarzeniu powodującym całkowite lub częściowe utratę dostępności wystąpienia zarządzanego SQL Database lub SQL w regionie podstawowym. Grupa trybu failover może zawierać jedną lub wiele baz danych, zwykle używanych przez tę samą aplikację. Ponadto można użyć dodatkowych baz danych z możliwością odczytu, aby odciążać obciążenia zapytań służących tylko do odczytywania. Ponieważ grupy autotrybu failover obejmują wiele baz danych, te bazy danych muszą być skonfigurowane na serwerze podstawowym. Grupy autotrybu failover obsługują replikację wszystkich baz danych w grupie tylko do jednego serwera pomocniczego lub wystąpienia w innym regionie.
+Funkcja grup autopracy awaryjnej umożliwia zarządzanie replikacją i trybem failover grupy baz danych na serwerze lub wszystkich bazach danych w wystąpieniu zarządzanym w innym regionie. Jest to deklaratywne streszczenie na istniejącej funkcji [aktywnej replikacji geograficznej](active-geo-replication-overview.md) , zaprojektowane w celu uproszczenia wdrażania geograficznie replikowanych baz danych i zarządzania nimi na dużą skalę. Możesz zainicjować tryb failover ręcznie lub można delegować go do usługi platformy Azure na podstawie zasad zdefiniowanych przez użytkownika. Ta ostatnia opcja umożliwia automatyczne odzyskanie wielu pokrewnych baz danych w regionie pomocniczym po katastrofalnym błędzie lub innym nieplanowanym zdarzeniu powodującym całkowite lub częściowe utratę dostępności wystąpienia zarządzanego SQL Database lub SQL w regionie podstawowym. Grupa trybu failover może zawierać jedną lub wiele baz danych, zwykle używanych przez tę samą aplikację. Ponadto można użyć dodatkowych baz danych z możliwością odczytu, aby odciążać obciążenia zapytań służących tylko do odczytywania. Ponieważ grupy autotrybu failover obejmują wiele baz danych, te bazy danych muszą być skonfigurowane na serwerze podstawowym. Grupy autotrybu failover obsługują replikację wszystkich baz danych w grupie tylko do jednego serwera pomocniczego lub wystąpienia w innym regionie.
 
 > [!NOTE]
 > Jeśli potrzebujesz wielu Azure SQL Database pomocniczych w tym samym lub różnych regionach, użyj [aktywnej replikacji geograficznej](active-geo-replication-overview.md).
@@ -203,7 +203,7 @@ W celu zilustrowania sekwencji zmian przyjęto, że serwer A jest serwerem podst
 1. Wykonaj planowaną pracę w trybie failover w celu przełączenia serwera podstawowego na B. serwer A stanie się nowym serwerem pomocniczym. Przejście w tryb failover może spowodować powstanie kilku minut przestoju. Rzeczywista godzina będzie zależeć od rozmiaru grupy trybu failover.
 2. Utwórz dodatkowe usługi pomocnicze dla każdej bazy danych na serwerze B na serwerze C przy użyciu [aktywnej replikacji geograficznej](active-geo-replication-overview.md). Każda baza danych na serwerze B będzie miała dwie serwery pomocnicze, jeden na serwerze A i jeden na serwerze C. Pozwoli to zagwarantować, że podstawowe bazy danych pozostaną chronione podczas przejścia.
 3. Usuń grupę trybu failover. W tym momencie logowania będą kończyć się niepowodzeniem. Wynika to z faktu, że aliasy SQL dla odbiorników grupy trybu failover zostały usunięte, a Brama nie rozpozna nazwy grupy trybu failover.
-4. Utwórz ponownie grupę trybu failover o tej samej nazwie między serwerami A i C. W tym momencie logowania zakończą się niepowodzeniem.
+4. Utwórz ponownie grupę trybu failover o tej samej nazwie między serwerami B i C. W tym momencie logowania zakończą się niepowodzeniem.
 5. Dodaj wszystkie podstawowe bazy danych w B do nowej grupy trybu failover.
 6. Wykonaj planowaną pracę w trybie failover grupy trybu failover w celu przełączenia B i C. Teraz serwer C stanie się podstawowym i B-pomocniczym. Wszystkie pomocnicze bazy danych na serwerze A zostaną automatycznie połączone z Primaries na dysku C. Jak w kroku 1 w trybie failover może wystąpić kilka minut przestoju.
 7. Usuń serwer A. Wszystkie bazy danych na serwerze zostaną usunięte automatycznie.
@@ -231,7 +231,7 @@ Aby zapewnić nieprzerwane połączenie z podstawowym wystąpieniem zarządzanym
 > [!IMPORTANT]
 > Pierwsze wystąpienie zarządzane utworzone w podsieci określa strefę DNS dla wszystkich kolejnych wystąpień w tej samej podsieci. Oznacza to, że dwa wystąpienia z tej samej podsieci nie mogą należeć do różnych stref DNS.
 
-Aby uzyskać więcej informacji na temat tworzenia pomocniczego wystąpienia zarządzanego SQL w tej samej strefie DNS co wystąpienie podstawowe, zobacz [Tworzenie pomocniczego wystąpienia zarządzanego](../managed-instance/failover-group-add-instance-tutorial.md#3---create-a-secondary-managed-instance).
+Aby uzyskać więcej informacji na temat tworzenia pomocniczego wystąpienia zarządzanego SQL w tej samej strefie DNS co wystąpienie podstawowe, zobacz [Tworzenie pomocniczego wystąpienia zarządzanego](../managed-instance/failover-group-add-instance-tutorial.md#create-a-secondary-managed-instance).
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a>Włączanie ruchu replikacji między dwoma wystąpieniami
 
@@ -378,10 +378,10 @@ Ta sekwencja jest zalecana, aby uniknąć problemu polegającego na tym, że pom
 
 ## <a name="preventing-the-loss-of-critical-data"></a>Zapobieganie utracie danych o kluczowym znaczeniu
 
-Ze względu na duże opóźnienie sieci rozległej, ciągła kopia używa mechanizmu replikacji asynchronicznej. Replikacja asynchroniczna powoduje nieuniknięcie utraty danych w przypadku wystąpienia błędu. Jednak niektóre aplikacje mogą nie wymagać utraty danych. Aby chronić te aktualizacje krytyczne, Deweloper aplikacji może wywoływać procedurę systemu [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) natychmiast po zatwierdzeniu transakcji. Wywołanie `sp_wait_for_database_copy_sync` blokuje wątek wywołujący do momentu przekazania ostatniej zatwierdzonej transakcji do pomocniczej bazy danych. Jednak nie czeka na odtworzenie i zatwierdzenie wysłanych transakcji na serwerze pomocniczym. `sp_wait_for_database_copy_sync`jest zakresem do określonego linku ciągłego kopiowania. Każdy użytkownik z uprawnieniami do nawiązywania połączenia z podstawową bazą danych może wywoływać tę procedurę.
+Ze względu na duże opóźnienie sieci rozległej, ciągła kopia używa mechanizmu replikacji asynchronicznej. Replikacja asynchroniczna powoduje nieuniknięcie utraty danych w przypadku wystąpienia błędu. Jednak niektóre aplikacje mogą nie wymagać utraty danych. Aby chronić te aktualizacje krytyczne, Deweloper aplikacji może wywoływać procedurę systemu [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) natychmiast po zatwierdzeniu transakcji. Wywołanie `sp_wait_for_database_copy_sync` blokuje wątek wywołujący do momentu przekazania ostatniej zatwierdzonej transakcji do pomocniczej bazy danych. Jednak nie czeka na odtworzenie i zatwierdzenie wysłanych transakcji na serwerze pomocniczym. `sp_wait_for_database_copy_sync` jest zakresem do określonego linku ciągłego kopiowania. Każdy użytkownik z uprawnieniami do nawiązywania połączenia z podstawową bazą danych może wywoływać tę procedurę.
 
 > [!NOTE]
-> `sp_wait_for_database_copy_sync`zapobiega utracie danych po przejściu w tryb failover, ale nie gwarantuje pełnej synchronizacji dostępu do odczytu. Opóźnienie spowodowane przez `sp_wait_for_database_copy_sync` wywołanie procedury może być znaczące i zależy od rozmiaru dziennika transakcji w czasie wywołania.
+> `sp_wait_for_database_copy_sync` zapobiega utracie danych po przejściu w tryb failover, ale nie gwarantuje pełnej synchronizacji dostępu do odczytu. Opóźnienie spowodowane przez `sp_wait_for_database_copy_sync` wywołanie procedury może być znaczące i zależy od rozmiaru dziennika transakcji w czasie wywołania.
 
 ## <a name="failover-groups-and-point-in-time-restore"></a>Grupy trybu failover i przywracanie do punktu w czasie
 

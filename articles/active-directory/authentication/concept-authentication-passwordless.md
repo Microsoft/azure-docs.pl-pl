@@ -11,30 +11,30 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 105f911b97e01a4b05673fc67b51c677df15eb89
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f2055730505b360ef8d5bf50cd83532627fb8e08
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051285"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245421"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opcje uwierzytelniania bezhasło dla Azure Active Directory
 
 Funkcje, takie jak uwierzytelnianie wieloskładnikowe (MFA), to doskonały sposób na zabezpieczenie organizacji, ale użytkownicy często uzyskują sfrustrowani z dodatkową warstwą zabezpieczeń na potrzeby zapamiętywania haseł. Metody uwierzytelniania bez hasła są wygodniejsze, ponieważ hasło jest usuwane i zastępowane przez użytkownika
 
-| Uwierzytelnianie  | Coś, czego masz | Coś lub wiesz |
+| Authentication  | Coś, czego masz | Coś lub wiesz |
 | --- | --- | --- |
 | Logowanie bez hasła | Urządzenia, numery telefonów lub klucze zabezpieczeń systemu Windows 10 | Biometryczna lub PIN |
 
 Każda organizacja ma inne potrzeby związane z uwierzytelnianiem. Firma Microsoft oferuje następujące trzy opcje uwierzytelniania bez hasła, które integrują się z usługą Azure Active Directory (Azure AD):
 
-- Windows Hello for Business
+- Windows Hello dla firm
 - Aplikacja Microsoft Authenticator
 - FIDO2 klucze zabezpieczeń
 
 ![Uwierzytelnianie: zabezpieczenia i wygoda](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-## <a name="windows-hello-for-business"></a>Windows Hello for Business
+## <a name="windows-hello-for-business"></a>Windows Hello dla firm
 
 Funkcja Windows Hello dla firm jest idealna w przypadku pracowników przetwarzających informacje, którzy mają własne Wyznaczeni komputery z systemem Windows. Poświadczenia biometryczne i numery PIN są bezpośrednio powiązane z komputerem użytkownika, co uniemożliwia dostęp od nikogo innego niż właściciel. Dzięki integracji infrastruktury kluczy publicznych (PKI) i wbudowanej obsłudze logowania jednokrotnego (SSO) usługa Windows Hello dla firm zapewnia wygodną metodę bezproblemowego uzyskiwania dostępu do zasobów firmy lokalnie i w chmurze.
 
@@ -120,7 +120,7 @@ Następujący dostawcy oferują klucze zabezpieczeń FIDO2 różnego rodzaju, kt
 | Dostawca | Kontakt |
 | --- | --- |
 | Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
-| Feitian | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |
+| Feitian | [https://shop.ftsafe.us/pages/microsoft](https://shop.ftsafe.us/pages/microsoft) |
 | INTERFEJSU | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
 | Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
 | Rozwiązania TrustKey | [https://www.trustkeysolutions.com/security-keys/](https://www.trustkeysolutions.com/security-keys/) |
@@ -157,7 +157,7 @@ Wybór między tymi trzema opcjami bezhaseł zależy od zabezpieczeń, platformy
 
 Oto kilka czynników, które należy wziąć pod uwagę podczas wybierania technologii bezhasło Microsoft:
 
-||**Windows Hello for Business**|**Logowanie bez hasła przy użyciu aplikacji Microsoft Authenticator**|**FIDO2 klucze zabezpieczeń**|
+||**Windows Hello dla firm**|**Logowanie bez hasła przy użyciu aplikacji Microsoft Authenticator**|**FIDO2 klucze zabezpieczeń**|
 |:-|:-|:-|:-|
 |**Wymagania wstępne**| Windows 10, wersja 1809 lub nowsza<br>Azure Active Directory| Aplikacja Microsoft Authenticator<br>Telefon (urządzenia z systemem iOS i Android z systemem Android 6,0 lub nowszym)|Windows 10, wersja 1809 lub nowsza<br>Azure Active Directory|
 |**Tryb**|Platforma|Oprogramowanie|Sprzęt|

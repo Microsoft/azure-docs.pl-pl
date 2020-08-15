@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff0a1fb386776a3ab1a3b7689c69dea7dc717d1e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: afc9a32c4f0fa5b4b6a2f6c0ec56bbc35b6dde68
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213773"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244502"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Konfigurowanie zasad wygasania dla grup Microsoft 365
 
@@ -79,7 +79,7 @@ Aby uzyskać więcej informacji na temat uprawnień do przywracania usuniętej g
 
 3. Na stronie **wygaśnięcie** możesz:
 
-    - Ustaw okres istnienia grupy w dniach. Można wybrać jedną z wartości predefiniowanych lub wartość niestandardową (nie może być 31 dni lub więcej).
+    - Ustaw okres istnienia grupy w dniach. Można wybrać jedną z wartości ustawień wstępnych lub wartość niestandardową (powinna być równa 30 dni lub więcej).
     - Określ adres e-mail, na który mają być wysyłane powiadomienia o odnowieniu i wygaśnięciu, gdy grupa nie ma właściciela.
     - Wybierz, które grupy Microsoft 365 wygasną. Możesz ustawić wygasanie dla:
       - **Wszystkie** Grupy Microsoft 365

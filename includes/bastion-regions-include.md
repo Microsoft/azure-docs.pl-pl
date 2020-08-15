@@ -1,19 +1,19 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 07/16/2020
+ms.date: 08/14/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a924cb42ce1c5fccde3d49fa8f9c2d402997df52
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 48c18e08943e170fdd53f04b49b517424b511c62
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544647"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246088"
 ---
 >[!NOTE]
 >Pracujemy nad dodaniem dodatkowych regionów. Po dodaniu regionu dodamy go do tej listy.
@@ -39,7 +39,7 @@ ms.locfileid: "86544647"
 * Szwajcaria Północna
 * Południowe Zjednoczone Królestwo
 * Zachodnie Zjednoczone Królestwo
-* Europa Zachodnia
+* West Europe
 
 **Azja i Pacyfik**
 * Australia Środkowa 2
@@ -50,8 +50,8 @@ ms.locfileid: "86544647"
 * Japonia Zachodnia
 * Korea Środkowa
 * Korea Południowa
-* Azja Południowo-Wschodnia
-* Central India
+* Southeast Asia
+* Indie Środkowe
 * Indie Zachodnie
 
 **Bliski Wschód i Afryka**
@@ -62,7 +62,6 @@ ms.locfileid: "86544647"
 * US DoD (region środkowy)
 * US DoD (region wschodni)
 * US Gov Arizona
-* US Gov Iowa
 * US Gov Teksas
 * US Gov Wirginia
 

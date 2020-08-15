@@ -8,18 +8,18 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 6e853edf5b7ba756aaedceaf59b1f7d1d7e48b39
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: f9b73e0919d660947edd0417f7379b3f6e6140c0
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985430"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245856"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Rozwiązania na platformie Azure Virtual Machines
 
 Ten artykuł zawiera informacje na temat wdrażania maszyn wirtualnych w systemie Azure, które korzystają z procesorów firmy Intel, które są obsługiwane przez [rozszerzenie Microsoft Software Guard](https://software.intel.com/sgx) (Intel SGX). 
 
-## <a name="azure-confidential-computing-vm-sizes"></a>Rozmiary maszyn wirtualnych poufnego przetwarzania na platformie Azure
+## <a name="azure-confidential-computing-vm-sizes"></a>Poufne rozmiary maszyn wirtualnych platformy Azure
 
 Poufne maszyny wirtualne platformy Azure są przeznaczone do ochrony poufności i integralności danych i kodu podczas przetwarzania w chmurze. 
 
@@ -32,41 +32,18 @@ Zacznij wdrożyć maszynę wirtualną z serii DCsv2 za pośrednictwem komercyjne
 Aby wyświetlić listę wszystkich ogólnie dostępnych poufnych rozmiarów maszyn wirtualnych w dostępnych regionach i strefach dostępności, uruchom następujące polecenie w [interfejsie wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
 
 ```azurecli-interactive
-az vm list-skus 
-    --size dc 
-    --query "[?family=='standardDCSv2Family'].{name:name,locations:locationInfo[0].location,AZ_a:locationInfo[0].zones[0],AZ_b:locationInfo[0].zones[1],AZ_c:locationInfo[0].zones[2]}" 
-    --all 
+az vm list-skus `
+    --size dc `
+    --query "[?family=='standardDCSv2Family'].{name:name,locations:locationInfo[0].location,AZ_a:locationInfo[0].zones[0],AZ_b:locationInfo[0].zones[1],AZ_c:locationInfo[0].zones[2]}" `
+    --all `
     --output table
-```
-
-Od maja 2020 te jednostki SKU są dostępne w następujących regionach i strefach dostępności:
-
-```output
-Name              Locations      AZ_a
-----------------  -------------  ------
-Standard_DC8_v2   eastus         2
-Standard_DC1s_v2  eastus         2
-Standard_DC2s_v2  eastus         2
-Standard_DC4s_v2  eastus         2
-Standard_DC8_v2   CanadaCentral
-Standard_DC1s_v2  CanadaCentral
-Standard_DC2s_v2  CanadaCentral
-Standard_DC4s_v2  CanadaCentral
-Standard_DC8_v2   uksouth        3
-Standard_DC1s_v2  uksouth        3
-Standard_DC2s_v2  uksouth        3
-Standard_DC4s_v2  uksouth        3
-Standard_DC8_v2   CentralUSEUAP
-Standard_DC1s_v2  CentralUSEUAP
-Standard_DC2s_v2  CentralUSEUAP
-Standard_DC4s_v2  CentralUSEUAP
 ```
 
 Aby zapoznać się z bardziej szczegółowym widokiem powyższych rozmiarów, uruchom następujące polecenie:
 
 ```azurecli-interactive
-az vm list-skus 
-    --size dc 
+az vm list-skus `
+    --size dc `
     --query "[?family=='standardDCSv2Family']"
 ```
 ### <a name="dedicated-host-requirements"></a>Wymagania dedykowanego hosta
@@ -101,17 +78,17 @@ W przypadku korzystania z maszyn wirtualnych na platformie Azure użytkownik jes
 
 Dane poufne platformy Azure nie obsługują nadmiarowości strefy za pośrednictwem Strefy dostępności w tym momencie. Aby zapewnić najwyższą dostępność i nadmiarowość na potrzeby danych poufnych, użyj [zestawów dostępności](../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). Ze względu na ograniczenia sprzętowe zestawy dostępności dla wystąpień z danymi poufnymi mogą mieć maksymalnie 10 domen aktualizacji. 
 
-## <a name="deploying-via-an-azure-resource-manager-template"></a>Wdrażanie za pomocą szablonu Azure Resource Manager 
+## <a name="deployment-with-azure-resource-manager-arm-template"></a>Wdrożenie z szablonem Azure Resource Manager (ARM)
 
 Usługa Azure Resource Manager to usługa wdrażania i zarządzania dla platformy Azure. Zapewnia ona warstwę zarządzania, która umożliwia tworzenie, aktualizowanie i usuwanie zasobów w ramach subskrypcji platformy Azure. Możesz użyć funkcji zarządzania, takich jak kontrola dostępu, blokady i Tagi, aby zabezpieczyć i zorganizować zasoby po wdrożeniu.
 
-Aby dowiedzieć się więcej o szablonach Azure Resource Manager, zobacz [Template Deployment Omówienie](../azure-resource-manager/templates/overview.md).
+Aby dowiedzieć się więcej na temat szablonów ARM, zobacz [Template Deployment Omówienie](../azure-resource-manager/templates/overview.md).
 
-Aby wdrożyć maszynę wirtualną z serii DCsv2 w szablonie Azure Resource Manager, będzie używany [zasób maszyny wirtualnej](../virtual-machines/windows/template-description.md). Upewnij się, że określono poprawne właściwości **vmSize** i **elementu imagereference**.
+Aby wdrożyć maszynę wirtualną z serii DCsv2 w szablonie ARM, użyjesz [zasobu maszyny wirtualnej](../virtual-machines/windows/template-description.md). Upewnij się, że określono poprawne właściwości **vmSize** i **elementu imagereference**.
 
 ### <a name="vm-size"></a>Rozmiar maszyny wirtualnej
 
-Określ jeden z następujących rozmiarów w szablonie Azure Resource Manager w zasobów maszyny wirtualnej. Ten ciąg jest umieszczany jako **vmSize** we **właściwościach**.
+Określ jeden z następujących rozmiarów w szablonie ARM w zasobów maszyny wirtualnej. Ten ciąg jest umieszczany jako **vmSize** we **właściwościach**.
 
 ```json
   [

@@ -10,18 +10,18 @@ ms.topic: include
 ms.date: 05/08/2020
 ms.author: pafarley
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a8b49beb463b4e9e19ee98baaef911e6dff15631
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 17b0ede8d917ea24bf6fa6fbcda49b1860ef83b9
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405465"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246565"
 ---
 [Dokumentacja](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/)  |  źródłowy biblioteki [Pakiet (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 * Obiekt BLOB usługi Azure Storage zawierający zestaw danych szkoleniowych. Zapoznaj się z tematem [Tworzenie zestawu danych szkoleniowych dla modelu niestandardowego](../../build-training-data-set.md) w celu uzyskania wskazówek i opcji związanych z zestawem danych szkoleniowych. W tym przewodniku szybki start można użyć plików w folderze **uczenie** [zestawu danych przykładowych](https://go.microsoft.com/fwlink/?linkid=2090451).
 * Bieżąca wersja [Node.js](https://nodejs.org/)
 

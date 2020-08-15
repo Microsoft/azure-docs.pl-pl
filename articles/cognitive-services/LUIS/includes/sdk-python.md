@@ -10,12 +10,12 @@ ms.date: 08/13/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: d4f55b9fe40afbd75875a22dcf4971e869df5691
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: eac827097f892de81bc5820994f3e2a4e0696dcb
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88237390"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246074"
 ---
 Użyj bibliotek klienckich Language Understanding (LUIS) dla języka Python, aby:
 
@@ -29,7 +29,7 @@ Użyj bibliotek klienckich Language Understanding (LUIS) dla języka Python, aby
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Bieżąca wersja języka [Python 3. x](https://www.python.org/). 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 * Gdy masz subskrypcję platformy Azure, [Utwórz zasób tworzenia Language Understanding](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) w Azure Portal, aby uzyskać klucz i punkt końcowy. Zaczekaj na jego wdrożenie i kliknij przycisk **Przejdź do zasobu** .
     * Będziesz potrzebować klucza i punktu końcowego z zasobu [, który tworzysz, aby](../luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) połączyć aplikację w celu Language Understanding tworzenia. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start. Aby wypróbować usługę, możesz skorzystać z warstwy cenowej bezpłatna ( `F0` ).
 

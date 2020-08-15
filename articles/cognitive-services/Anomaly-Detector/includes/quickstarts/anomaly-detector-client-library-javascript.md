@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/30/2020
 ms.author: aahi
 ms.custom: devx-track-javascript
-ms.openlocfilehash: cb9a674890330ba83b6e7fe754ecd83eda4031bb
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 836582003c4b4bd47d2b90b845ae414210d16edd
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406009"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246224"
 ---
 Rozpocznij pracę z biblioteką klienta wykrywania anomalii dla języka JavaScript. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Usługa wykrywania anomalii umożliwia znalezienie nieprawidłowych danych szeregów czasowych przez automatyczne użycie modeli najlepiej dopasowanej, niezależnie od wielkości branży, scenariusza lub ilości danych.
 
@@ -27,7 +27,7 @@ Użyj biblioteki klienta wykrywania anomalii dla języka JavaScript, aby:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 * Bieżąca wersja [Node.js](https://nodejs.org/)
 * Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title=" Utwórz zasób wykrywania anomalii "  target="_blank"> Utwórz zasób wykrywania anomalii <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Zaczekaj na jego wdrożenie i kliknij przycisk **Przejdź do zasobu** .
     * Potrzebny będzie klucz i punkt końcowy z zasobu utworzonego w celu połączenia aplikacji z interfejsem API wykrywania anomalii. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.

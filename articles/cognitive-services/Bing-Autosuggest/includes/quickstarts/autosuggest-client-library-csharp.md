@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 5d325ac8da43f020f4ab39244d2e6a7dc6ed72b7
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: a6ae9d8975c36e7ffa8e3eadf880b4685390c5fc
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156667"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246291"
 ---
 Wprowadzenie do biblioteki klienta automatyczne sugerowanie Bing dla platformy .NET. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
 
@@ -23,7 +23,7 @@ Użyj automatyczne sugerowanie Bing biblioteki klienta dla platformy .NET, aby u
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz ją [utworzyć bezpłatnie](https://azure.microsoft.com/free/).
+* Subskrypcja platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz ją [utworzyć bezpłatnie](https://azure.microsoft.com/free/cognitive-services).
 * Bieżąca wersja [platformy .NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
 [!INCLUDE [cognitive-services-bing-autosuggest-signup-requirements](~/includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
@@ -31,12 +31,12 @@ Użyj automatyczne sugerowanie Bing biblioteki klienta dla platformy .NET, aby u
 ## <a name="create-environment-variables"></a>Tworzenie zmiennych środowiskowych
 
 >[!NOTE]
-> Punkty końcowe dla zasobów utworzonych po 1 lipca 2019 używają niestandardowego formatu poddomen pokazanego poniżej. Aby uzyskać więcej informacji i pełną listę regionalnych punktów końcowych, zobacz [niestandardowe nazwy domen poddomen dla Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
+> Punkty końcowe dla zasobów utworzonych po 1 lipca 2019 używają niestandardowego formatu poddomen pokazanego poniżej. Aby uzyskać więcej informacji i pełną listę regionalnych punktów końcowych, zobacz [niestandardowe nazwy domen poddomen dla Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains).
 
 Przy użyciu klucza i punktu końcowego z utworzonego zasobu Utwórz dwa zmienne środowiskowe do uwierzytelnienia:
 <!-- replace the below variable names with the names expected in the code sample.-->
 * `AUTOSUGGEST_SUBSCRIPTION_KEY`: Klucz zasobu do uwierzytelniania żądań.
-* `AUTOSUGGEST_ENDPOINT`: Punkt końcowy zasobu do wysyłania żądań interfejsu API. Powinien wyglądać następująco: `https://<your-custom-subdomain>.api.cognitive.microsoft.com` . 
+* `AUTOSUGGEST_ENDPOINT`: Punkt końcowy zasobu do wysyłania żądań interfejsu API. Powinien wyglądać następująco: `https://<your-custom-subdomain>.api.cognitive.microsoft.com` .
 
 Skorzystaj z instrukcji dotyczących systemu operacyjnego.
 <!-- replace the below endpoint and key examples -->
@@ -72,9 +72,9 @@ Po dodaniu zmiennej środowiskowej uruchom polecenie `source .bash_profile` z ok
 
 ## <a name="create-a-new-c-application"></a>Utwórz nową aplikację w języku C#
 
-Utwórz nową aplikację platformy .NET Core w preferowanym edytorze lub środowisku IDE. 
+Utwórz nową aplikację platformy .NET Core w preferowanym edytorze lub środowisku IDE.
 
-W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie `bing-autosuggest-quickstart` . To polecenie tworzy prosty projekt C# "Hello world" z pojedynczym plikiem źródłowym: *program.cs*. 
+W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie `bing-autosuggest-quickstart` . To polecenie tworzy prosty projekt C# "Hello world" z pojedynczym plikiem źródłowym: *program.cs*.
 
 ```console
 dotnet new console -n bing-autosuggest-quickstart
@@ -86,7 +86,7 @@ Zmień katalog na nowo utworzony folder aplikacji. Aplikację można skompilowa�
 dotnet build
 ```
 
-Dane wyjściowe kompilacji nie powinny zawierać ostrzeżeń ani błędów. 
+Dane wyjściowe kompilacji nie powinny zawierać ostrzeżeń ani błędów.
 
 ```console
 ...
@@ -208,7 +208,7 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz us
 * [Usuń grupę zasobów z Azure Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources).
 * [Usuń grupę zasobów w interfejsie wiersza polecenia platformy Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Bing Autosuggest tutorial (Samouczek dotyczący automatycznego sugerowania Bing)](../../tutorials/autosuggest.md)

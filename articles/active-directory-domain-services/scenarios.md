@@ -9,20 +9,70 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 08/14/2020
 ms.author: iainfou
-ms.openlocfilehash: ba4761a2b7893fd894f62b7e2252005d7afd1c91
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 4cd6a37ad2d5081cdc587290c361fbc992c69bfb
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039980"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245167"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Typowe przypadki użycia i scenariusze dla Azure Active Directory Domain Services
 
 Azure Active Directory Domain Services (Azure AD DS) oferuje zarządzane usługi domenowe, takie jak przyłączanie do domeny, zasady grupy, protokół LDAP (Lightweight Directory Access Protocol) oraz uwierzytelnianie Kerberos/NTLM. Usługa Azure AD DS integruje się z istniejącą dzierżawą usługi Azure AD, co umożliwia użytkownikom logowanie się przy użyciu istniejących poświadczeń. Te usługi domenowe są używane bez konieczności wdrażania i poprawiania kontrolerów domeny w chmurze oraz zarządzania nimi, co zapewnia płynne podniesienie i przesunięcia zasobów lokalnych na platformę Azure.
 
 W tym artykule opisano niektóre typowe scenariusze biznesowe, w których usługa Azure AD DS zapewnia wartość i spełnia te wymagania.
+
+## <a name="common-ways-to-provide-identity-solutions-in-the-cloud"></a>Typowe sposoby dostarczania rozwiązań do obsługi tożsamości w chmurze
+
+Podczas migrowania istniejących obciążeń do chmury aplikacje obsługujące katalogi mogą używać protokołu LDAP do odczytu lub zapisu w lokalnym katalogu AD DS. Aplikacje uruchamiane w systemie Windows Server są zwykle wdrażane na maszynach wirtualnych przyłączonych do domeny, aby umożliwić ich bezpieczne zarządzanie przy użyciu zasady grupy. W celu uwierzytelnienia użytkowników końcowych aplikacje mogą również polegać na uwierzytelnianiu zintegrowanym z systemem Windows, takim jak uwierzytelnianie Kerberos lub NTLM.
+
+Administratorzy IT często używają jednego z następujących rozwiązań, aby zapewnić usłudze tożsamości aplikacje działające na platformie Azure:
+
+* Skonfiguruj połączenie sieci VPN typu lokacja-lokacja między obciążeniami uruchomionymi na platformie Azure a lokalnym środowiskiem AD DS.
+    * Lokalne kontrolery domeny zapewniają uwierzytelnianie za pośrednictwem połączenia sieci VPN.
+* Utwórz repliki kontrolerów domeny za pomocą usługi Azure Virtual Machines, aby zwiększyć AD DS domeny/lasu z lokalnego.
+    * Kontrolery domeny działające na maszynach wirtualnych platformy Azure zapewniają uwierzytelnianie i replikujeją informacje katalogu między środowiskiem lokalnym AD DS.
+* Wdróż autonomiczne środowisko AD DS na platformie Azure przy użyciu kontrolerów domeny działających na maszynach wirtualnych platformy Azure.
+    * Kontrolery domeny działające na maszynach wirtualnych platformy Azure zapewniają uwierzytelnianie, ale nie ma informacji o katalogu replikowanych z lokalnego środowiska AD DS.
+
+Korzystając z tych metod, połączenia sieci VPN z katalogiem lokalnym sprawiają, że aplikacje są podatne na przejściowe awarie sieciowe lub przestoje. W przypadku wdrażania kontrolerów domeny przy użyciu maszyn wirtualnych na platformie Azure zespół IT musi zarządzać maszynami wirtualnymi, a następnie zabezpieczać, poprawiać, monitorować, tworzyć kopie zapasowe i rozwiązywać problemy.
+
+Usługa Azure AD DS oferuje alternatywy dla potrzeb tworzenia połączeń sieci VPN z powrotem do lokalnego środowiska AD DS lub uruchamiania maszyn wirtualnych i zarządzania nimi na platformie Azure w celu zapewnienia usług tożsamości. Jako usługa zarządzana platforma Azure AD DS zmniejsza złożoność tworzenia zintegrowanego rozwiązania do obsługi tożsamości zarówno dla środowisk hybrydowych, jak i chmurowych.
+
+> [!div class="nextstepaction"]
+> [Porównanie AD DS platformy Azure z usługą Azure AD i samozarządzanym AD DS na maszynach wirtualnych platformy Azure lub w środowisku lokalnym][compare]
+
+## <a name="azure-ad-ds-for-hybrid-organizations"></a>AD DS platformy Azure dla organizacji hybrydowych
+
+Wiele organizacji uruchamia infrastrukturę hybrydową obejmującą zarówno obciążenia aplikacji w chmurze, jak i lokalne. Starsze aplikacje migrowane do platformy Azure w ramach strategii podnoszenia i przesunięcia mogą używać tradycyjnych połączeń LDAP do dostarczania informacji o tożsamości. Aby zapewnić obsługę tej infrastruktury hybrydowej, informacje o tożsamościach z lokalnego środowiska AD DS można synchronizować z dzierżawą usługi Azure AD. Usługa Azure AD DS następnie udostępnia te starsze aplikacje na platformie Azure przy użyciu źródła tożsamości, bez konieczności konfigurowania i zarządzania łącznością aplikacji z powrotem do lokalnych usług katalogowych.
+
+Przyjrzyjmy się przykładowi do litware Corporation — organizacji hybrydowej, która działa zarówno lokalnie, jak i zasoby platformy Azure:
+
+![Azure Active Directory Domain Services organizacji hybrydowej, która obejmuje synchronizację lokalną](./media/overview/synced-tenant.png)
+
+* Obciążenia aplikacji i serwera, które wymagają usług domenowych, są wdrażane w sieci wirtualnej na platformie Azure.
+    * Może to obejmować starsze aplikacje migrowane do platformy Azure w ramach strategii podnoszenia i przesunięcia.
+* Aby synchronizować informacje o tożsamości z katalogu lokalnego do swojej dzierżawy usługi Azure AD, firma litware Corporation wdraża [Azure AD Connect][azure-ad-connect].
+    * Synchronizowane informacje o tożsamości obejmują konta użytkowników i członkostwa w grupach.
+* Zespół IT litware umożliwia korzystanie z platformy AD DS Azure w ramach tej dzierżawy usługi Azure AD w ramach tej lub komunikacji równorzędnej sieci wirtualnej.
+* Aplikacje i maszyny wirtualne wdrożone w usłudze Azure Virtual Network mogą następnie używać funkcji AD DS platformy Azure, takich jak przyłączanie do domeny, odczyt LDAP, powiązanie LDAP, uwierzytelnianie NTLM i Kerberos oraz zasady grupy.
+
+> [!IMPORTANT]
+> Azure AD Connect należy instalować i konfigurować tylko na potrzeby synchronizacji z lokalnymi środowiskami AD DS. Nie jest obsługiwane Instalowanie Azure AD Connect w domenie zarządzanej w celu synchronizacji obiektów z powrotem do usługi Azure AD.
+
+## <a name="azure-ad-ds-for-cloud-only-organizations"></a>AD DS platformy Azure dla organizacji tylko w chmurze
+
+Dzierżawa usługi Azure AD tylko w chmurze nie ma lokalnego źródła tożsamości. Konta użytkowników i członkostwa w grupach, na przykład, są tworzone i zarządzane bezpośrednio w usłudze Azure AD.
+
+Teraz przyjrzyjmy się przykładowi do firmy Contoso, która jest oparta na chmurze, która używa usługi Azure AD do tożsamości. Wszystkie tożsamości użytkowników, ich poświadczenia i członkostwa w grupach są tworzone i zarządzane w usłudze Azure AD. Nie ma dodatkowej konfiguracji Azure AD Connect do synchronizowania informacji o tożsamości z katalogu lokalnego.
+
+![Azure Active Directory Domain Services organizacji tylko w chmurze bez synchronizacji lokalnej](./media/overview/cloud-only-tenant.png)
+
+* Obciążenia aplikacji i serwera, które wymagają usług domenowych, są wdrażane w sieci wirtualnej na platformie Azure.
+* Zespół IT firmy Contoso umożliwia korzystanie z platformy Azure AD DS w ramach tej dzierżawy usługi Azure AD w ramach tej lub komunikacji równorzędnej sieci wirtualnej.
+* Aplikacje i maszyny wirtualne wdrożone w usłudze Azure Virtual Network mogą następnie używać funkcji AD DS platformy Azure, takich jak przyłączanie do domeny, odczyt LDAP, powiązanie LDAP, uwierzytelnianie NTLM i Kerberos oraz zasady grupy.
 
 ## <a name="secure-administration-of-azure-virtual-machines"></a>Bezpieczna Administracja maszyn wirtualnych platformy Azure
 
@@ -117,6 +167,8 @@ Aby rozpocząć, [Utwórz i skonfiguruj Azure Active Directory Domain Services d
 [custom-ou]: create-ou.md
 [create-gpo]: manage-group-policy.md
 [sspr]: ../active-directory/authentication/overview-authentication.md#self-service-password-reset
+[compare]: compare-identity-solutions.md
+[azure-ad-connect]: ../active-directory/hybrid/whatis-azure-ad-connect.md
 
 <!-- EXTERNAL LINKS -->
 [windows-rds]: /windows-server/remote/remote-desktop-services/rds-azure-adds

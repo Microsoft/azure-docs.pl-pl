@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: iainfou
-ms.openlocfilehash: 69bb61012082404dfd6488b5e0606e5966c2fcef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 6f166cdcb5f3764d7b264fdb4ebc082ece4c798b
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87506460"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245098"
 ---
 # <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services-preview"></a>Samouczek: Tworzenie i używanie zestawów replik dla odporności lub geolokalizacji w Azure Active Directory Domain Services (wersja zapoznawcza)
 
@@ -42,11 +42,11 @@ Do ukończenia tego samouczka potrzebne są następujące zasoby i uprawnienia:
     * Jeśli nie masz subskrypcji platformy Azure, [Utwórz konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Dzierżawa usługi Azure Active Directory skojarzona z subskrypcją, zsynchronizowana z katalogiem lokalnym lub katalogiem w chmurze.
     * W razie konieczności [Utwórz dzierżawę Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z Twoim kontem][associate-azure-ad-tenant].
-* Azure Active Directory Domain Services zarządzana domena utworzona przy użyciu zestawów replik i skonfigurowana w dzierżawie usługi Azure AD.
+* Azure Active Directory Domain Services zarządzana domena utworzona przy użyciu Azure Resource Manager modelu wdrażania i skonfigurowana w dzierżawie usługi Azure AD.
     * W razie konieczności [Utwórz i skonfiguruj Azure Active Directory Domain Services domenę zarządzaną][tutorial-create-instance].
 
     > [!IMPORTANT]
-    > Upewnij się, że tworzysz domenę zarządzaną, która używa zestawów replik. Istniejąca domena zarządzana utworzona przed tą podglądem nie obsługuje zestawów replik. Należy również użyć minimalnej jednostki SKU *przedsiębiorstwa* dla domeny zarządzanej. W razie potrzeby [Zmień jednostkę SKU dla domeny zarządzanej][howto-change-sku].
+    > W przypadku domen zarządzanych utworzonych przy użyciu klasycznego modelu wdrażania nie można używać zestawów replik. Należy również użyć minimalnej jednostki SKU *przedsiębiorstwa* dla domeny zarządzanej. W razie potrzeby [Zmień jednostkę SKU dla domeny zarządzanej][howto-change-sku].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 

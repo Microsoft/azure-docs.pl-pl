@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/22/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: c6964a28956230dabad007d60d84dcdd1cffab23
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9b8432a54aa90b7d500898b2f6959d075ac89460
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319919"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245336"
 ---
 # <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Pulpit nawigacyjny użycia na platformie Microsoft Commercial Marketplace Analytics
 
@@ -111,6 +111,8 @@ Karta **taryfowe użycie rozliczeń** przedstawia informacje o użyciu dla typó
 - **Trend nadwyżkowy według planu**: reprezentuje trend ilości użycia wybranego wymiaru licznika według planów. Wyświetlone plany będą przedstawiać pięć najważniejszych planów z największą ilością użycia wybranej oferty.
 - **Trend nadwyżkowy według najlepszych 50 klientów**: oferty z największą ilością w wysokości 50 są wyświetlane na ***tablicy lidera*** i są klasyfikowane według najwyższego użycia miernika niestandardowego. Wybierz klienta w rankingów, aby wyświetlić trend użycia wybranego wymiaru miernika.
 - **Trend nadwyżkowy według klientów najczęściej**: przedstawia najważniejsze percentyle klienta, które przyczyniają się do% całkowitego użycia. Najwyższy percentyl klienta jest wyświetlany wzdłuż osi X i jest określany przez ilość użycia klienta. Oś Y Wyświetla ilość użycia. Możesz wyświetlić szczegóły, umieszczając kursor nad punktami wzdłuż wykresu liniowego.
+
+Jeśli masz wiele ofert, które używają niestandardowych mierników, raport Użycie naliczanych opłat zawiera informacje dotyczące użycia dla wszystkich ofert, zgodnie ze swoimi wymiarami mierników niestandardowych.
 
 > [!NOTE]
 > Szczegóły użycia i wszystkie wykresy na tej stronie są wyświetlane dla danego wymiaru licznika dla filtru strony.

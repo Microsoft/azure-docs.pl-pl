@@ -3,18 +3,23 @@ title: Sprawdź kondycję rejestru
 description: Dowiedz się, jak uruchomić szybkie polecenie diagnostyczne, aby zidentyfikować typowe problemy występujące podczas korzystania z usługi Azure Container Registry, w tym konfiguracji lokalnej platformy Docker i łączności z rejestrem.
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: ea4432c9e92c4a0380517e39678814e2d1cb3bfc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f27a99818260553cbd7ba26158db0064c145a21f
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74456421"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245387"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>Sprawdzanie kondycji usługi Azure Container Registry
 
 W przypadku korzystania z usługi Azure Container Registry czasami mogą wystąpić problemy. Na przykład może nie być możliwe odtworzenie obrazu kontenera z powodu problemu z platformą Docker w środowisku lokalnym. Problem z siecią może również uniemożliwić połączenie się z rejestrem. 
 
 Jako pierwszy krok diagnostyczny Uruchom polecenie [AZ ACR Check-Health][az-acr-check-health] , aby uzyskać informacje o kondycji środowiska i opcjonalnie uzyskać dostęp do rejestru docelowego. To polecenie jest dostępne w interfejsie wiersza polecenia platformy Azure w wersji 2.0.67 lub nowszej. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli].
+
+Aby uzyskać dodatkowe wskazówki dotyczące rozwiązywania problemów z rejestrem, zobacz:
+* [Rozwiązywanie problemów z logowaniem do rejestru](container-registry-troubleshoot-login.md)
+* [Rozwiązywanie problemów z siecią przy użyciu rejestru](container-registry-troubleshoot-access.md)
+* [Rozwiązywanie problemów z wydajnością rejestru](container-registry-troubleshoot-performance.md)
 
 ## <a name="run-az-acr-check-health"></a>Uruchom AZ ACR Check-Health
 

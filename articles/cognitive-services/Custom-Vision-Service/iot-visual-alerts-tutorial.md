@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 5016191bb4f647c0bbfa71144bb4b4b554b080f4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 5582056f1bae2dbeb69a7d05044f055ff1394bd5
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834341"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244673"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Samouczek: używanie Custom Vision z urządzeniem IoT do zgłaszania Stanów wizualnych
 
@@ -31,7 +31,7 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 > * Użyj aplikacji do uczenia projektu Custom Vision.
 > * Użyj aplikacji do oceny nowych obrazów w czasie rzeczywistym i wysłania wyników do platformy Azure.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/). 
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -128,7 +128,7 @@ W dowolnym momencie można powtórzyć krok przekazywania obrazów szkoleniowych
 
 Jeśli aplikacja jest uruchamiana na urządzeniu i należy ponownie pobrać adres IP (w celu nawiązania połączenia zdalnego za pomocą [zdalnego klienta usługi Windows IoT](https://www.microsoft.com/p/windows-iot-remote-client/9nblggh5mnxz#activetab=pivot:overviewtab)), można wywołać `GetIpAddress` metodę za pomocą IoT Hub.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Usuń projekt Custom Vision, jeśli nie chcesz już go obsługiwać. W [witrynie sieci web Custom Vision](https://customvision.ai)przejdź do pozycji **projekty** i wybierz Kosz, który można obsłużyć w nowym projekcie.
 

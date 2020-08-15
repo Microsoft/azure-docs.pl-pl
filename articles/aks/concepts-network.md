@@ -4,12 +4,12 @@ description: Dowiedz się więcej na temat sieci w usłudze Azure Kubernetes Ser
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: dacb14664b21412df1b1d48c023017378cf364c9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: edb195fae2e05a1f746c10482576f7e0b1bff7c9
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387765"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88243908"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Pojęcia dotyczące sieci dla aplikacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -73,6 +73,8 @@ Aby uzyskać więcej informacji, zobacz [Konfigurowanie sieci korzystającą wty
 
 W sieci Azure CNI każdy zasobnik uzyskuje adres IP z podsieci i jest dostępny bezpośrednio. Te adresy IP muszą być unikatowe w przestrzeni sieci i muszą być planowane z wyprzedzeniem. Każdy węzeł ma parametr konfiguracji dla maksymalnej liczby obsługiwanych przez nią zasobników. Równoważna liczba adresów IP na węzeł jest następnie rezerwowana na początku dla tego węzła. Takie podejście wymaga większego planowania, ponieważ w przeciwnym razie może prowadzić do wyczerpania adresów IP lub trzeba ponownie skompilować klastry w większej podsieci, w miarę wzrostu wymagań aplikacji.
 
+W przeciwieństwie do korzystającą wtyczki kubenet, ruch do punktów końcowych w tej samej sieci wirtualnej nie jest NAT do podstawowego adresu IP węzła. Adres źródłowy ruchu w sieci wirtualnej jest adresem IP pod. Ruch zewnętrzny do sieci wirtualnej nadal jest NAT na podstawowym adresie IP węzła.
+
 W węzłach jest używany dodatek [Azure Container Network Interface (CNI)][cni-networking] Kubernetes.
 
 ![Diagram przedstawiający dwa węzły z mostkami łączącymi każdy z jedną siecią wirtualną platformy Azure][advanced-networking-diagram]
@@ -114,12 +116,12 @@ Niezależnie od modelu sieci, z którego korzystasz, zarówno korzystającą wty
 * Platforma Azure może automatycznie tworzyć i konfigurować zasoby sieci wirtualnej podczas tworzenia klastra AKS.
 * Możesz ręcznie utworzyć i skonfigurować zasoby sieci wirtualnej i dołączyć je do tych zasobów podczas tworzenia klastra AKS.
 
-Mimo że funkcje, takie jak punkty końcowe usługi lub UDR, są obsługiwane zarówno w korzystającą wtyczki kubenet, jak i na platformie Azure CNI, [zasady pomocy technicznej dla AKS][support-policies] określają, jakie zmiany można wprowadzić. Na przykład:
+Mimo że funkcje, takie jak punkty końcowe usługi lub UDR, są obsługiwane zarówno w korzystającą wtyczki kubenet, jak i na platformie Azure CNI, [zasady pomocy technicznej dla AKS][support-policies] określają, jakie zmiany można wprowadzić. Przykład:
 
 * Jeśli ręcznie utworzysz zasoby sieci wirtualnej dla klastra AKS, jest ono obsługiwane podczas konfigurowania własnych UDR lub punktów końcowych usługi.
 * Jeśli platforma Azure automatycznie tworzy zasoby sieci wirtualnej dla klastra AKS, nie jest obsługiwane ręczne zmienianie tych zasobów zarządzanych przez AKS w celu skonfigurowania własnych UDR lub punktów końcowych usługi.
 
-## <a name="ingress-controllers"></a>ruch przychodzący kontrolerów
+## <a name="ingress-controllers"></a>Kontrolery transferu danych przychodzących
 
 Podczas tworzenia usługi typu modułu równoważenia obciążenia tworzony jest podstawowy zasób usługi Azure load module. Moduł równoważenia obciążenia jest skonfigurowany do dystrybucji ruchu do zasobników w usłudze na dany port. Moduł równoważenia obciążenia działa tylko w warstwie 4 — usługa nie rozpoznaje rzeczywistych aplikacji i nie może dokonywać żadnych dodatkowych zagadnień związanych z routingiem.
 

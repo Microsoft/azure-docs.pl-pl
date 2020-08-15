@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/14/2019
+ms.date: 08/14/2020
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: daee09de544e12d07b28d4e88a4847f71bd2e01f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9bde9f86987602b69907a36fe4d8298834b14c3e
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502719"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245863"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Samouczek: tworzenie bramy aplikacji z przekierowywaniem na podstawie ścieżki URL za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -37,6 +37,8 @@ Jeśli chcesz, możesz wykonać kroki tego samouczka przy użyciu [programu Azur
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+## <a name="prerequisites"></a>Wymagania wstępne 
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 

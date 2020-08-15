@@ -9,18 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 8ff353c5386f7ad5f30144ca50740c751b81ffc5
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: b56c3dfc755f1b0368ef93d21cec18e7fc14a64b
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87910667"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246125"
 ---
 [Dokumentacja](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src)  |  źródłowy biblioteki [Pakiet (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/).
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services).
 * Obiekt BLOB usługi Azure Storage zawierający zestaw danych szkoleniowych. Zapoznaj się z tematem [Tworzenie zestawu danych szkoleniowych dla modelu niestandardowego](../../build-training-data-set.md) w celu uzyskania wskazówek i opcji związanych z zestawem danych szkoleniowych. W tym przewodniku szybki start można użyć plików w folderze **uczenie** [zestawu danych przykładowych](https://go.microsoft.com/fwlink/?linkid=2090451).
 * Bieżąca wersja [platformy .NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
@@ -524,7 +524,7 @@ Uruchom aplikację z katalogu aplikacji za pomocą `dotnet run` polecenia.
 dotnet run
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
 

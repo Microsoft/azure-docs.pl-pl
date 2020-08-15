@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: 2bd38bc7a499aa9178d49f54e27a88a38206e521
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5b688d64641f6dd8779d699bcd1d646e40b19b87
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317573"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245676"
 ---
 # <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny Pobieranie w analizie komercyjnej platformy handlowej
 
@@ -25,9 +25,7 @@ Aby uzyskać dostęp do pulpitu nawigacyjnego pobieranie, Otwórz pulpit nawigac
 
 ## <a name="downloads-dashboard"></a>Pulpit nawigacyjny Pobieranie
 
-Na **pulpicie** nawigacyjnym menu **Analizuj** są wyświetlane żądania pobrania zawierające ponad 1000 wierszy danych klienta lub zamówienia.
-
-Otrzymasz powiadomienie wyskakujące i wiadomość e-mail zawierającą link **do pulpitu nawigacyjnego Pobierz za** każdym razem, gdy wyślesz żądanie pobrania z ponad 1000 wierszy danych. Te pliki do pobrania są dostępne przez 30-dniowy okres, a następnie usuwane.
+Na **pulpicie** nawigacyjnym menu **Analizuj** są wyświetlane żądania pobrania zawierające ponad 1000 wierszy danych klienta lub zamówienia. Te pliki do pobrania są dostępne przez 30 dni, a następnie usuwane.
 
 ## <a name="next-steps"></a>Następne kroki
 

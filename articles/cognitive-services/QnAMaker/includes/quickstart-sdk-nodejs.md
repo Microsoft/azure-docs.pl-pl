@@ -4,12 +4,12 @@ description: W tym przewodniku szybki start pokazano, jak rozpocząć pracę z b
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 76d0587c68ac46253dbd937c661b06bdb8c495c8
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 4085ec5aaff75f33fc7a87708693084831ff5d8d
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404088"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246385"
 ---
 QnA Maker Node.js do:
 
@@ -28,7 +28,7 @@ QnA Maker Node.js do:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 * Bieżąca wersja [Node.js](https://nodejs.org).
 * Gdy masz subskrypcję platformy Azure, Utwórz [zasób QNA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) w Azure Portal, aby uzyskać klucz i zasób tworzenia. Po wdrożeniu programu wybierz pozycję **Przejdź do zasobu**.
     * Musisz mieć nazwę klucza i zasobu z tworzonego zasobu, aby połączyć aplikację z interfejs API usługi QnA Maker. Będziesz wklejać swój klucz i nazwę zasobu do poniższego kodu w dalszej części przewodnika Szybki Start.
@@ -128,9 +128,9 @@ Baza wiedzy zapisuje pary pytań i odpowiedzi dla obiektu [CreateKbDTO](https://
 * W przypadku **adresów URL**Użyj listy ciągów do reprezentowania publicznie dostępnych adresów URL.
 
 Krok tworzenia obejmuje również właściwości bazy wiedzy:
-* `defaultAnswerUsedForExtraction`-co jest zwracane, gdy nie zostanie znaleziona żadna odpowiedź
-* `enableHierarchicalExtraction`-Automatycznie twórz relacje wiersza między wyodrębnionymi parami QnA
-* `language`— podczas tworzenia pierwszej bazy wiedzy zasobu Ustaw język, który ma być używany w indeksie Azure Search.
+* `defaultAnswerUsedForExtraction` -co jest zwracane, gdy nie zostanie znaleziona żadna odpowiedź
+* `enableHierarchicalExtraction` -Automatycznie twórz relacje wiersza między wyodrębnionymi parami QnA
+* `language` — podczas tworzenia pierwszej bazy wiedzy zasobu Ustaw język, który ma być używany w indeksie Azure Search.
 
 Wywołaj metodę [Create](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#create-createkbdto--servicecallback-operation--) z informacjami bazy wiedzy. Informacje bazy wiedzy są zasadniczo obiektem JSON.
 

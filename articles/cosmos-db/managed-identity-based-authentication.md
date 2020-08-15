@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: e1076c7bb480a52c9436e336a49169953d0d8285
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: acb74d806f1ad361d3772438eec7fb788a843b02
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135774"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88243721"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Korzystanie z zarządzanych tożsamości przypisanych do systemu w celu uzyskiwania dostępu do danych Azure Cosmos DB
 
@@ -75,9 +75,10 @@ W tym scenariuszu aplikacja funkcji odczyta temperaturę Aquarium, a następnie 
 
 ### <a name="assign-the-role-using-azure-cli"></a>Przypisywanie roli przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Aby przypisać rolę za pomocą interfejsu wiersza polecenia platformy Azure, użyj następujących poleceń:
+Aby przypisać rolę za pomocą interfejsu wiersza polecenia platformy Azure, Otwórz Azure Cloud Shell i uruchom następujące polecenia:
 
 ```azurecli-interactive
+
 scope=$(az cosmosdb show --name '<Your_Azure_Cosmos_account_name>' --resource-group '<CosmosDB_Resource_Group>' --query id)
 
 principalId=$(az webapp identity show -n '<Your_Azure_Function_name>' -g '<Azure_Function_Resource_Group>' --query principalId)

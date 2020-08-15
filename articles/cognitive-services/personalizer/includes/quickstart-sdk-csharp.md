@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -8,18 +8,18 @@ ms.subservice: personalizer
 ms.topic: include
 ms.custom: include file
 ms.date: 07/30/2020
-ms.openlocfilehash: 55bc13caec8a48ed058ea38bdc0ebe487839eef3
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 41665193ab78f4d29785171ef3fee9a7ce1d9cea
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461144"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246521"
 ---
 [Dokumentacja](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer)  |  źródłowy biblioteki [Pakiet (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/)  |  [Przykłady](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Personalizer)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 * Bieżąca wersja [platformy .NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
 ## <a name="using-this-quickstart"></a>Korzystanie z tego przewodnika Szybki Start

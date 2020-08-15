@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 06/30/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: 42edf9cd1687314f2ef168969791cb39f43851d3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e8fdc703b094ace83e70b736c1eb0d15c461adba
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323693"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88243874"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Szybki Start: wykrywanie anomalii w danych szeregów czasowych przy użyciu interfejsu API REST usługi wykrywania anomalii i środowiska Java
 
@@ -31,7 +31,7 @@ Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć korzystanie z dwóch
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 - Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title=" Utwórz zasób wykrywania anomalii "  target="_blank"> Utwórz zasób wykrywania anomalii <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Zaczekaj na jego wdrożenie i kliknij przycisk **Przejdź do zasobu** .
     - Potrzebny będzie klucz i punkt końcowy z zasobu utworzonego w celu połączenia aplikacji z interfejsem API wykrywania anomalii. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
     Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
@@ -47,7 +47,7 @@ Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć korzystanie z dwóch
 ## <a name="create-a-new-application"></a>Tworzenie nowej aplikacji
 
 1. Utwórz nowy projekt Java i zaimportuj poniższe biblioteki.
-    
+
     [!code-java[Import statements](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=imports)]
 
 2. Utwórz zmienne dla klucza subskrypcji i punktu końcowego. Poniżej znajdują się identyfikatory URI, których można użyć do wykrywania anomalii. Zostaną one dołączone do punktu końcowego usługi później w celu utworzenia adresów URL żądań interfejsu API.

@@ -5,16 +5,21 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 1c2330f1ba71e2a72a1a44df7af6444181f5f9ea
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 02facedda206a5621cabe62a07520303635dc3ff
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836398"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245370"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Często zadawane pytania dotyczące Azure Container Registry
 
 W tym artykule opisano często zadawane pytania i znane problemy dotyczące Azure Container Registry.
+
+Aby uzyskać wskazówki dotyczące rozwiązywania problemów z rejestrem, zobacz:
+* [Rozwiązywanie problemów z logowaniem do rejestru](container-registry-troubleshoot-login.md)
+* [Rozwiązywanie problemów z siecią przy użyciu rejestru](container-registry-troubleshoot-access.md)
+* [Rozwiązywanie problemów z wydajnością rejestru](container-registry-troubleshoot-performance.md)
 
 ## <a name="resource-management"></a>Zarządzanie zasobami
 
@@ -261,10 +266,10 @@ Skonfigurowanie usługi Azure Container Registry do anonimowego (publicznego) do
 
 ## <a name="diagnostics-and-health-checks"></a>Testy diagnostyczne i kondycji
 
-- [Sprawdzanie kondycji za pomocą`az acr check-health`](#check-health-with-az-acr-check-health)
+- [Sprawdzanie kondycji za pomocą `az acr check-health`](#check-health-with-az-acr-check-health)
 - [docker pull nie powiodło się z powodu błędu: net/http: żądanie zostało anulowane podczas oczekiwania na połączenie (klient. limit czasu został przekroczony w oczekiwaniu na nagłówki)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [wypychanie Docker kończy się powodzeniem, ale docker pull nie powiodło się z powodu błędu: Brak autoryzacji: wymagane jest uwierzytelnianie](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
-- [`az acr login`powiedzie się, ale polecenia platformy Docker kończą się niepowodzeniem z powodu błędu: Brak autoryzacji: wymagane jest uwierzytelnienie](#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
+- [`az acr login` powiedzie się, ale polecenia platformy Docker kończą się niepowodzeniem z powodu błędu: Brak autoryzacji: wymagane jest uwierzytelnienie](#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
 - [Włączanie i pobieranie dzienników debugowania demona platformy Docker](#enable-and-get-the-debug-logs-of-the-docker-daemon)    
 - [Nowe uprawnienia użytkownika mogą nie obowiązywać natychmiast po aktualizacji](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [Informacje o uwierzytelnianiu nie są nadawane w poprawnym formacie dla wywołań interfejsu API bezpośredniego REST](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
@@ -274,7 +279,7 @@ Skonfigurowanie usługi Azure Container Registry do anonimowego (publicznego) do
 - [Format repozytorium jest nieprawidłowy lub nieobsługiwany](#repository-format-is-invalid-or-unsupported)
 - [Jak mogę zbierać ślady http w systemie Windows?](#how-do-i-collect-http-traces-on-windows)
 
-### <a name="check-health-with-az-acr-check-health"></a>Sprawdzanie kondycji za pomocą`az acr check-health`
+### <a name="check-health-with-az-acr-check-health"></a>Sprawdzanie kondycji za pomocą `az acr check-health`
 
 Aby rozwiązać problemy ze wspólnym środowiskiem i rejestrem, zobacz [Sprawdzanie kondycji usługi Azure Container Registry](container-registry-check-health.md).
 
@@ -316,7 +321,7 @@ unauthorized: authentication required
 ```
 
 Aby rozwiązać ten problem:
-1. Dodaj opcję `--signature-verification=false` do pliku konfiguracji demona platformy Docker `/etc/sysconfig/docker` . Na przykład:
+1. Dodaj opcję `--signature-verification=false` do pliku konfiguracji demona platformy Docker `/etc/sysconfig/docker` . Przykład:
    
    `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
    
@@ -453,8 +458,8 @@ Aby zapoznać się z pełnymi regułami nazewnictwa repozytorium, zobacz artyku�
 
 #### <a name="prerequisites"></a>Wymagania wstępne
 
-- Włącz odszyfrowywanie https w programu Fiddler:<https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
-- Włącz platformę Docker, aby użyć serwera proxy za pomocą interfejsu użytkownika platformy Docker:<https://docs.docker.com/docker-for-windows/#proxies>
+- Włącz odszyfrowywanie https w programu Fiddler:  <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
+- Włącz platformę Docker, aby użyć serwera proxy za pomocą interfejsu użytkownika platformy Docker: <https://docs.docker.com/docker-for-windows/#proxies>
 - Pamiętaj, aby przywrócić po zakończeniu.  Platforma Docker nie będzie działać z tym włączonym i programu Fiddler nie jest uruchomiona.
 
 #### <a name="windows-containers"></a>Kontenery systemu Windows

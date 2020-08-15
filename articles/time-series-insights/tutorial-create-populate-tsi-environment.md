@@ -7,14 +7,14 @@ ms.author: dpalled
 manager: diviso
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/30/2020
+ms.date: 08/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9f74be239bee1d6da3dfdb516c4fc410669e338d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 36687f6394ef03a3fceb70c73601680dd262d90c
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020655"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245404"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>Samouczek: Tworzenie środowiska Azure Time Series Insights Gen1
 
@@ -37,13 +37,13 @@ Ten samouczek przeprowadzi Cię przez proces tworzenia środowiska Azure Time Se
 
 ## <a name="review-video"></a>Przejrzyj wideo
 
-### <a name="learn-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-and-get-started-with-azure-time-series-insights-br"></a>Dowiedz się, jak generować dane i rozpoczynać pracę z Azure Time Series Insights przy użyciu akceleratora rozwiązań usługi Azure IoT. </br>
+Dowiedz się, jak generować dane i rozpoczynać pracę z Azure Time Series Insights przy użyciu akceleratora rozwiązań usługi Azure IoT.
 
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
 
 ## <a name="overview"></a>Omówienie
 
-Środowisko Azure Time Series Insights polega na zbieraniu i przechowywaniu danych urządzeń. Po zapisaniu można używać [eksploratora Azure Time Series Insights](time-series-quickstart.md) i [interfejsu API zapytania Azure Time Series Insights](/rest/api/time-series-insights/ga-query-api) do wykonywania zapytań i analizowania danych.
+Środowisko Azure Time Series Insights polega na zbieraniu i przechowywaniu danych urządzeń. Po zapisaniu można używać [eksploratora Azure Time Series Insights](time-series-quickstart.md) i [interfejsu API zapytania Azure Time Series Insights](/rest/api/time-series-insights/gen1-query-api) do wykonywania zapytań i analizowania danych.
 
 Azure IoT Hub to źródło zdarzeń używane przez wszystkie urządzenia (symulowane lub fizyczne) w samouczku umożliwiające bezpieczne łączenie i przesyłanie danych do chmury platformy Azure.
 
@@ -98,7 +98,7 @@ Następnie Utwórz środowisko Azure Time Series Insights w ramach subskrypcji p
 
    Parametr|Opis
    ---|---
-   **Nazwa środowiska** | Wybierz unikatową nazwę środowiska Azure Time Series Insights. Nazwy są używane przez Eksploratora Azure Time Series Insights i [interfejsy API zapytań](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
+   **Nazwa środowiska** | Wybierz unikatową nazwę środowiska Azure Time Series Insights. Nazwy są używane przez Eksploratora Azure Time Series Insights i [interfejsy API zapytań](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
    **Subskrypcja** | Subskrypcje są kontenerami zasobów platformy Azure. Wybierz subskrypcję, aby utworzyć środowisko Azure Time Series Insights.
    **Grupa zasobów** | Grupa zasobów jest kontenerem zasobów platformy Azure. Wybierz istniejącą grupę zasobów lub Utwórz nową dla zasobu środowiska Azure Time Series Insights.
    **Lokalizacja** | Wybierz region centrum danych dla środowiska Azure Time Series Insightsowego. Aby uniknąć dodatkowego opóźnienia, Utwórz środowisko Azure Time Series Insights w tym samym regionie, w którym są inne zasoby IoT.

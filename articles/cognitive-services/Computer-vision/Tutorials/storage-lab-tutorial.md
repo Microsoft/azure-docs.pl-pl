@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 68dd2ae09c5d6ad5e510fb3beb532b235f83fc8d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f350aae32909de2b9be4384d921f7507a158f6ff
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834698"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88243857"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Samouczek: generowanie metadanych obrazu w usłudze Azure Storage za pomocą przetwarzanie obrazów
 
@@ -31,7 +31,7 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 > * Dołączanie metadanych do obrazów usługi Azure Storage
 > * Sprawdzanie metadanych obrazów za pomocą Eksploratora usługi Azure Storage
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/). 
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -137,7 +137,7 @@ Aby wyświetlić wszystkie dołączone metadane, użyj Eksploratora usługi Azur
 
 ![Okno dialogowe właściwości obrazu z wymienionymi tagami metadanych](../Images/blob-metadata.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz kontynuować pracę nad swoją aplikacją internetową, zobacz sekcję [Następne kroki](#next-steps). Jeśli nie chcesz dalej używać tej aplikacji, usuń wszystkie zasoby specyficzne dla aplikacji. Aby usunąć zasoby, możesz usunąć grupę zasobów zawierającą subskrypcję usługi Azure Storage i zasób przetwarzanie obrazów. Spowoduje to usunięcie konta magazynu, przekazanych do niego obiektów blob i zasobu usługi App Service wymaganego do nawiązywania połączenia z aplikacją internetową platformy ASP.NET. 
 

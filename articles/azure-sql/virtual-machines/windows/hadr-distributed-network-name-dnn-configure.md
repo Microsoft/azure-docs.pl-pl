@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7c40f4d9f86f27af34c1bc649483810f6756c41d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 8eb9caf466148e43266c4be9cf1308da15fb67f2
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169820"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245540"
 ---
 # <a name="configure-a-distributed-network-name-for-an-fci"></a>Skonfiguruj nazwę sieci rozproszonej dla FCI 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -156,6 +156,29 @@ Aby przetestować tryb failover, wykonaj następujące kroki:
 Aby przetestować łączność, zaloguj się do innej maszyny wirtualnej w tej samej sieci wirtualnej. Otwórz **SQL Server Management Studio** i Połącz się z SQL Server FCI przy użyciu nazwy DNS DNN.
 
 Jeśli zachodzi taka potrzeba, można [pobrać SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
+
+## <a name="avoid-ip-conflict"></a>Unikaj konfliktu adresów IP
+
+Jest to opcjonalny krok, aby zapobiec przypisaniu wirtualnego adresu IP (VIP) używanego przez zasób FCI do innego zasobu na platformie Azure jako duplikatu. 
+
+Mimo że klienci używają teraz DNN do nawiązywania połączenia z SQL Server FCI, nazwa sieci wirtualnej (VNN) i wirtualny adres IP nie mogą zostać usunięte, ponieważ są to niezbędne składniki infrastruktury FCI. Jednak ponieważ nie istnieje już moduł równoważenia obciążenia z zachowaniem wirtualnego adresu IP na platformie Azure, istnieje ryzyko, że do innego zasobu w sieci wirtualnej zostanie przypisany ten sam adres IP, co wirtualny adres IP używany przez FCI. Może to potencjalnie prowadzić do zduplikowanego problemu z konfliktem adresów IP. 
+
+Skonfiguruj adres IP lub dedykowaną kartę sieciową w celu zarezerwowania adresu. 
+
+### <a name="apipa-address"></a>Adres APIPA
+
+Aby uniknąć używania zduplikowanych adresów IP, należy skonfigurować adres APIPA (nazywany również adresem lokalnym linku). W tym celu uruchom następujące polecenie:
+
+```powershell
+Get-ClusterResource "virtual IP address" | Set-ClusterParameter 
+    –Multiple @{"Address”=”169.254.1.1”;”SubnetMask”=”255.255.0.0”;"OverrideAddressMatch"=1;”EnableDhcp”=0}
+```
+
+W tym poleceniu "wirtualny adres IP" jest nazwą klastrowanego adresu VIP, a "169.254.1.1" jest adresem APIPA wybranym dla adresu VIP. Wybierz adres najlepiej pasujący do Twojej firmy. Ustaw `OverrideAddressMatch=1` , aby zezwalać na adres IP w dowolnych sieciach, w tym w przestrzeni adresowej APIPA. 
+
+### <a name="dedicated-network-adapter"></a>Dedykowana karta sieciowa
+
+Alternatywnie można skonfigurować kartę sieciową na platformie Azure w celu zarezerwowania adresu IP używanego przez zasób wirtualnego adresu IP. Jednak spowoduje to użycie adresu w przestrzeni adresowej podsieci i wiąże się z dodatkowymi kosztami zagwarantowania, że karta sieciowa nie jest używana do żadnych innych celów.
 
 ## <a name="limitations"></a>Ograniczenia
 
