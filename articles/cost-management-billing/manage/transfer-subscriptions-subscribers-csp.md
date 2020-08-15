@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/19/2020
 ms.author: banders
-ms.openlocfilehash: 925a69f1f3a408e50cb9dc1d03cb5c1cf673ef41
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7db0a5bd4697c99c071d685903dfc394c2b49f25
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102688"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835803"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Przenoszenie subskrypcji platformy Azure między subskrybentami i dostawcami usług w chmurze
 
@@ -32,7 +32,7 @@ Aby przenieść wszelkie inne subskrypcje platformy Azure do partnera będącego
 1. Upewnij się, że źródłowa i docelowa subskrypcja dostawcy usług w chmurze znajdują się w tej samej dzierżawie usługi Azure Active Directory (Azure AD).  
     Nie możesz zmienić dzierżawy usługi Azure AD dla subskrypcji dostawcy usług w chmurze platformy Azure. Zamiast tego musisz dodać lub skojarzyć subskrypcję źródłową z dzierżawą usługi Azure AD dostawcy usług w chmurze. Aby uzyskać więcej informacji, zobacz [Kojarzenie subskrypcji platformy Azure z dzierżawą usługi Azure Active Directory lub jej dodawanie do niej](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
     > [!IMPORTANT]
-    > - Po skojarzeniu subskrypcji z innym katalogiem usługi Azure AD użytkownicy, którzy mają przypisane role za pomocą [kontroli dostępu opartej na rolach](../../role-based-access-control/role-assignments-portal.md), utracą dostęp. Klasyczni administratorzy subskrypcji, w tym administrator usługi i współadministratorzy, również utracą dostęp.
+    > - Po skojarzeniu subskrypcji z innym katalogiem usługi Azure AD użytkownicy, którzy mają przypisane role za pomocą [kontroli dostępu na podstawie ról platformy Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md), utracą dostęp. Klasyczni administratorzy subskrypcji, w tym administrator usługi i współadministratorzy, również utracą dostęp.
     > - Przypisania zasad są również usuwane z subskrypcji, gdy subskrypcja jest kojarzona z innym katalogiem.
 1. Konto użytkownika używane do przenoszenia musi mieć dostęp właściciela [RBAC](add-change-subscription-administrator.md) do obu subskrypcji.
 1. Przed rozpoczęciem [zweryfikuj](/rest/api/resources/resources/validatemoveresources), czy wszystkie zasoby platformy Azure mogą zostać przeniesione z subskrypcji źródłowej do subskrypcji docelowej.  

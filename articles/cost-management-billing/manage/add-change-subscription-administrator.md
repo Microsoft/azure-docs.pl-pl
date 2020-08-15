@@ -8,17 +8,17 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: ddb40f470f9b951c786fdab529336af3eff38e54
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 57a070aa5931349d94597c629a09ab7662e327fb
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530014"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922459"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Dodawanie lub zmienianie administratorów subskrypcji platformy Azure
 
 
-Zarządzanie dostępem do zasobów platformy Azure wymaga odpowiedniej roli administratora. Platforma Azure ma system autoryzacji zwany [kontrolą dostępu opartą na rolach](../../role-based-access-control/overview.md) (RBAC) z kilkoma wbudowanymi rolami do wyboru. Te role można przypisywać do różnych zakresów, takich jak grupa zarządzania, subskrypcja lub grupa zasobów. Domyślnie osoba, która tworzy nową subskrypcję platformy Azure, może przypisywać innym użytkownikom dostęp administracyjny do tej subskrypcji.
+Zarządzanie dostępem do zasobów platformy Azure wymaga odpowiedniej roli administratora. Platforma Azure ma system autoryzacji zwany [kontrolą dostępu na podstawie ról platformy Azure (Azure RBAC)](../../role-based-access-control/overview.md) z kilkoma wbudowanymi rolami do wyboru. Te role można przypisywać do różnych zakresów, takich jak grupa zarządzania, subskrypcja lub grupa zasobów. Domyślnie osoba, która tworzy nową subskrypcję platformy Azure, może przypisywać innym użytkownikom dostęp administracyjny do tej subskrypcji.
 
 W tym artykule opisano sposób dodawania lub zmieniania roli administratora dla użytkownika przy użyciu funkcji RBAC w zakresie subskrypcji.
 

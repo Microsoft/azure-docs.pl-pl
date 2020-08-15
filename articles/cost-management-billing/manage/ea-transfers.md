@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: banders
-ms.openlocfilehash: c49894c722897233afa6325def1d3e17562d2dab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a770fe2362e1e1c98c683f694f7f834ac6f4ea6c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075107"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836857"
 ---
 # <a name="azure-enterprise-transfers"></a>Transfery umowy Azure Enterprise
 
@@ -98,7 +98,7 @@ W witrynie Azure EA Portal można przenosić subskrypcje od jednego właściciel
 
 ## <a name="subscription-transfer-effects"></a>Efekty przeniesienia subskrypcji
 
-Jeśli subskrypcja platformy Azure zostanie przeniesiona na konto w tej dzierżawie usługi Azure Active Directory, wszyscy użytkownicy, wszystkie grupy i wszystkie jednostki usługi z [kontrolą dostępu na podstawie ról (RBAC)](../../role-based-access-control/overview.md) używaną do zarządzania zasobami, zachowają dostęp.
+Jeśli subskrypcja platformy Azure zostanie przeniesiona na konto w tej dzierżawie usługi Azure Active Directory, wszyscy użytkownicy, wszystkie grupy i wszystkie jednostki usługi z [kontrolą dostępu na podstawie ról platformy Azure (Azure RBAC)](../../role-based-access-control/overview.md) używaną do zarządzania zasobami, zachowają dostęp.
 
 Aby wyświetlić użytkowników z dostępem RBAC do subskrypcji:
 
