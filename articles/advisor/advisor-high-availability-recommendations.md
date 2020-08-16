@@ -3,31 +3,16 @@ title: Zwiększ niezawodność aplikacji za pomocą usługi Advisor
 description: Użyj Azure Advisor, aby zapewnić i poprawić niezawodność wdrożeń na platformie Azure o kluczowym znaczeniu dla firmy.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 1eba688a67a8684cdbb6846b389f83e61b349abe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0d96974e53f24d5a01eeee8b08eee578177a9ad2
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057675"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258507"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Zwiększ niezawodność aplikacji przy użyciu Azure Advisor
 
 Azure Advisor pomaga zapewnić i poprawić ciągłość aplikacji o znaczeniu krytycznym dla firmy. Zalecenia dotyczące niezawodności można uzyskać, korzystając z karty **niezawodność** na pulpicie nawigacyjnym usługi Advisor.
-
-## <a name="ensure-virtual-machine-fault-tolerance"></a>Zapewnianie odporności na uszkodzenia maszyny wirtualnej
-
-W celu zapewnienia nadmiarowości aplikacji zalecamy grupowanie co najmniej dwóch maszyn wirtualnych w zestawie dostępności. Doradca identyfikuje maszyny wirtualne, które nie są częścią zestawu dostępności i zaleca ich przeniesienie do jednej z nich. Ta konfiguracja gwarantuje, że podczas planowanej lub nieplanowanej konserwacji jest dostępna co najmniej jedna maszyna wirtualna i będzie ona zgodna z umową SLA maszyny wirtualnej platformy Azure. Można utworzyć zestaw dostępności dla maszyny wirtualnej lub dodać maszynę wirtualną do istniejącego zestawu dostępności.
-
-> [!NOTE]
-> Jeśli wybierzesz opcję utworzenia zestawu dostępności, musisz dodać co najmniej jedną maszynę wirtualną do niej. Zalecamy grupowanie co najmniej dwóch maszyn wirtualnych w zestawie dostępności, aby upewnić się, że podczas przestoju jest dostępny przynajmniej jeden komputer.
-
-## <a name="ensure-availability-set-fault-tolerance"></a>Zapewnianie odporności na uszkodzenia zestawu dostępności
-
-W celu zapewnienia nadmiarowości aplikacji zalecamy grupowanie co najmniej dwóch maszyn wirtualnych w zestawie dostępności. Doradca identyfikuje zestawy dostępności, które zawierają pojedynczą maszynę wirtualną i zaleca dodanie do niej co najmniej jednej maszyny wirtualnej.Ta konfiguracja gwarantuje, że podczas planowanej lub nieplanowanej konserwacji jest dostępna co najmniej jedna maszyna wirtualna i będzie ona zgodna z umową SLA maszyny wirtualnej platformy Azure.Można utworzyć maszynę wirtualną lub dodać istniejącą maszynę wirtualną do zestawu dostępności.  
-
-## <a name="use-managed-disks-to-improve-data-reliability"></a>Korzystanie z dysków zarządzanych w celu zwiększenia niezawodności danych
-
-Maszyny wirtualne znajdujące się w zestawie dostępności z dyskami, które współużytkują konta magazynu lub jednostki skalowania magazynu, nie są odporne na awarie dla pojedynczych jednostek skalowania magazynu podczas przestoju. Usługa Advisor identyfikuje te zestawy dostępności i zaleca migrację do usługi Azure Managed Disks. Ta migracja zapewni wystarczającą izolację dysków maszyn wirtualnych w zestawie dostępności, aby uniknąć single point of failure. 
 
 ## <a name="check-the-version-of-your-check-point-network-virtual-appliance-image"></a>Sprawdź wersję obrazu urządzenia wirtualnego w sieci
 
@@ -73,6 +58,21 @@ Azure Advisor sprawdza wszystkie bramy sieci VPN korzystające z podstawowej jed
 - Opcje konfiguracji Active-Active. 
 - Niestandardowe zasady protokołu IPSec/IKE. 
 - Wyższa stabilność i dostępność.
+
+## <a name="ensure-virtual-machine-fault-tolerance-temporarily-disabled"></a>Zapewnianie odporności na uszkodzenia maszyny wirtualnej (tymczasowo wyłączone)
+
+W celu zapewnienia nadmiarowości aplikacji zalecamy grupowanie co najmniej dwóch maszyn wirtualnych w zestawie dostępności. Doradca identyfikuje maszyny wirtualne, które nie są częścią zestawu dostępności i zaleca ich przeniesienie do jednej z nich. Ta konfiguracja gwarantuje, że podczas planowanej lub nieplanowanej konserwacji jest dostępna co najmniej jedna maszyna wirtualna i będzie ona zgodna z umową SLA maszyny wirtualnej platformy Azure. Można utworzyć zestaw dostępności dla maszyny wirtualnej lub dodać maszynę wirtualną do istniejącego zestawu dostępności.
+
+> [!NOTE]
+> Jeśli wybierzesz opcję utworzenia zestawu dostępności, musisz dodać co najmniej jedną maszynę wirtualną do niej. Zalecamy grupowanie co najmniej dwóch maszyn wirtualnych w zestawie dostępności, aby upewnić się, że podczas przestoju jest dostępny przynajmniej jeden komputer.
+
+## <a name="ensure-availability-set-fault-tolerance-temporarily-disabled"></a>Upewnij się, że odporność na błędy zestawu dostępności (tymczasowo wyłączona)
+
+W celu zapewnienia nadmiarowości aplikacji zalecamy grupowanie co najmniej dwóch maszyn wirtualnych w zestawie dostępności. Doradca identyfikuje zestawy dostępności, które zawierają pojedynczą maszynę wirtualną i zaleca dodanie do niej co najmniej jednej maszyny wirtualnej.Ta konfiguracja gwarantuje, że podczas planowanej lub nieplanowanej konserwacji jest dostępna co najmniej jedna maszyna wirtualna i będzie ona zgodna z umową SLA maszyny wirtualnej platformy Azure.Można utworzyć maszynę wirtualną lub dodać istniejącą maszynę wirtualną do zestawu dostępności.  
+
+## <a name="use-managed-disks-to-improve-data-reliability-temporarily-disabled"></a>Korzystanie z dysków zarządzanych w celu zwiększenia niezawodności danych (tymczasowo wyłączone)
+
+Maszyny wirtualne znajdujące się w zestawie dostępności z dyskami, które współużytkują konta magazynu lub jednostki skalowania magazynu, nie są odporne na awarie dla pojedynczych jednostek skalowania magazynu podczas przestoju. Usługa Advisor identyfikuje te zestawy dostępności i zaleca migrację do usługi Azure Managed Disks. Ta migracja zapewni wystarczającą izolację dysków maszyn wirtualnych w zestawie dostępności, aby uniknąć single point of failure. 
 
 ## <a name="repair-invalid-log-alert-rules"></a>Napraw nieprawidłowe reguły alertów dziennika
 

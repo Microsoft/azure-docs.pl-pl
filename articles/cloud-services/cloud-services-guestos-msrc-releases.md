@@ -10,17 +10,73 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/11/2020
+ms.date: 8/15/2020
 ms.author: yohaddad
-ms.openlocfilehash: 3fb9c863b94c65d7a4333d734648d308a904e355
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 21dcc10be255c0795058886188b4380266679963
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142353"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258299"
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa platformy Azure
 W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Response Center (MSRC) zastosowane do systemu operacyjnego gościa platformy Azure. Przeszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczy systemu operacyjnego gościa, którego używasz. Aktualizacje są zawsze przenoszone dla określonej [rodziny][family-explain] , w której zostały wprowadzone.
+
+## <a name="august-2020-guest-os"></a>System operacyjny gościa z sierpnia 2020
+>[!NOTE]
+>System operacyjny gościa z sierpnia jest obecnie wdrażany na maszynach wirtualnych usługi w chmurze skonfigurowanych do aktualizacji automatycznych. Po zakończeniu wprowadzania ta wersja zostanie udostępniona do ręcznego aktualizowania za pomocą plików Azure Portal i konfiguracji. W systemie operacyjnym gościa z sierpnia uwzględniono następujące poprawki. Ta lista może ulec zmianie.
+
+
+| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| --- | --- | --- | --- | --- |
+|  Rel 20-08 |  [4571687]  |  Aktualizacja zbiorcza programu IE | 2,101, 3,88, 4,81 | 11 sierpnia 2020 |
+|  Rel 20-08 |  [4561600]  |  Aktualizacja Flash | 3,88, 4,81, 5,46, 6,22 | Jun 9, 2020 |
+|  Rel 20-08 |  [4571694]  |  Najnowsza aktualizacja zbiorcza | 6,22 | 11 sierpnia 2020 |
+|  Rel 20-08 |  [4565349]  |  Najnowsza aktualizacja zbiorcza | 5,46 | 11 sierpnia 2020 |
+|  Rel 20-08 |  [4570673]  |  Obsługa aktualizacji stosu | 2,101 | 11 sierpnia 2020 |
+|  Rel 20-08 |  [4571729]  |  Zestawienie miesięczne | 2,101 | 11 sierpnia 2020 |
+|  Rel 20-08 |  [4569767]  |  Pakiet zbiorczy zabezpieczeń i jakości .NET Framework 3.5.1 | 2,101 | 11 sierpnia 2020 |
+|  Rel 20-08 |  [4569780]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 2,101 | 11 sierpnia 2020 |
+|  Rel 20-08 |  [4569765]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 3,88 | 11 sierpnia 2020 |
+|  Rel 20-08 |  [4569779]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 3,88 | 11 sierpnia 2020 |
+|  Rel 20-08 |  [4566426]  |  Obsługa aktualizacji stosu | 3,88 | 14 lipca 2020 |
+|  Rel 20-08 |  [4571736]  |  Zestawienie miesięczne | 3,88 | 11 sierpnia 2020 |
+|  Rel 20-08 |  [4566425]  |  Obsługa aktualizacji stosu | 4,81 | 14 lipca 2020 |
+|  Rel 20-08 |  [4571703]  |  Zestawienie miesięczne | 4,81 | 11 sierpnia 2020 |
+|  Rel 20-08 |  [4569768]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 4,81 | 11 sierpnia 2020 |
+|  Rel 20-08 |  [4569778]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 4,81 | 11 sierpnia 2020 |
+|  Rel 20-08 |  [4494175]  |  Włączenia mikrokodu | 5,46 | 25 lutego 2020 |
+|  Rel 20-08 |  [4565912]  |  Obsługa aktualizacji stosu | 5,46 | 14 lipca 2020 |
+|  Rel 20-08 |  [4569746]  |  .NET Framework 4,8 — zestawienie zabezpieczeń i jakości | 5,46 | 11 sierpnia 2020 |
+|  Rel 20-08 |  [4569776]  |  .NET Framework 3,5 i aktualizacja zbiorcza 4.7.2 | 6,22 | 11 sierpnia 2020 |
+|  Rel 20-08 |  [4569750]  |  Aktualizacja zbiorcza .NET Framework 3,5 i 4,8 | 6,22 | 11 sierpnia 2020 |
+|  Rel 20-08 |  [4566424]  |  Obsługa aktualizacji stosu | 6,22 | 11 sierpnia 2020 |
+
+
+
+[4571687]: https://support.microsoft.com/kb/4571687
+[4561600]: https://support.microsoft.com/kb/4561600
+[4571694]: https://support.microsoft.com/kb/4571694
+[4565349]: https://support.microsoft.com/kb/4565349
+[4570673]: https://support.microsoft.com/kb/4570673
+[4571729]: https://support.microsoft.com/kb/4571729
+[4569767]: https://support.microsoft.com/kb/4569767
+[4569780]: https://support.microsoft.com/kb/4569780
+[4569765]: https://support.microsoft.com/kb/4569765
+[4569779]: https://support.microsoft.com/kb/4569779
+[4566426]: https://support.microsoft.com/kb/4566426
+[4571736]: https://support.microsoft.com/kb/4571736
+[4566425]: https://support.microsoft.com/kb/4566425
+[4571703]: https://support.microsoft.com/kb/4571703
+[4569768]: https://support.microsoft.com/kb/4569768
+[4569778]: https://support.microsoft.com/kb/4569778
+[4494175]: https://support.microsoft.com/kb/4494175
+[4565912]: https://support.microsoft.com/kb/4565912
+[4569746]: https://support.microsoft.com/kb/4569746
+[4569776]: https://support.microsoft.com/kb/4569776
+[4569750]: https://support.microsoft.com/kb/4569750
+[4566424]: https://support.microsoft.com/kb/4566424
+
 
 ## <a name="july-2020-guest-os"></a>OS systemu operacyjnego gościa 2020
 >[!NOTE]
@@ -119,7 +175,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 | Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
-|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2,98], [3,85], [4,78]  |  12 maj 2020 r.  |
+|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2,98],  [3,85], [4,78]  |  12 maj 2020 r.  |
 |  Rel 20-05  |  [4556813]  |  Najnowsza aktualizacja zbiorcza (LCU)   |  [5,43]  |  12 maj 2020 r.  |
 |  Rel 20-05  |  [4551853]  |  Najnowsza aktualizacja zbiorcza (LCU)   |  [6,19]  |  12 maj 2020 r.  |
 |  Rel 20-05  |  [4552940]  |  Zestawienie miesięczne   |  [2,98]  |  12 maj 2020 r.  |

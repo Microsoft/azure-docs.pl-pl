@@ -2,13 +2,13 @@
 title: Adnotacje wydania dla Application Insights | Microsoft Docs
 description: Dodaj znaczniki wdrożenia lub kompilacji do wykresów Eksploratora metryk w Application Insights.
 ms.topic: conceptual
-ms.date: 07/01/2019
-ms.openlocfilehash: 8e9e0cb49343524e8a45831566cf802b1c8c5d9b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/14/2020
+ms.openlocfilehash: e21981f134f6a78109d70b1edf6d61e204b64e12
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320667"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258419"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Adnotacje na wykresach metryk w Application Insights
 
@@ -68,6 +68,10 @@ Utwórz oddzielny klucz interfejsu API dla każdego z Azure Pipelines szablonów
    ![Na karcie zmienne usługi Azure DevOps wybierz pozycję Dodaj, nazwij zmienną ApiKey i Wklej klucz interfejsu API w polu wartość.](./media/annotations/7-paste-api-key.png)
    
 1. Wybierz pozycję **Zapisz** w oknie głównym szablonu zlecenia, aby zapisać szablon.
+
+
+   > [!NOTE]
+   > Limity dla kluczy interfejsu API są opisane w [dokumentacji limitów szybkości interfejsu API REST](https://dev.applicationinsights.io/documentation/Authorization/Rate-limits).
 
 ## <a name="view-annotations"></a>Wyświetl adnotacje
 

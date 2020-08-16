@@ -3,12 +3,12 @@ title: Usuwanie magazynu Microsoft Azure Recovery Services
 description: W tym artykule dowiesz się, jak usunąć zależności, a następnie usunąć Magazyn Azure Backup Recovery Services.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 5446c54ac070555987dfc05afa67825f307ee61b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 41d0cbc8e1c59f33efc24f38b535aa9cf91b2cc9
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055214"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257951"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Usuwanie magazynu Recovery Services Azure Backup
 
@@ -43,8 +43,9 @@ Aby prawidłowo usunąć magazyn, należy wykonać czynności opisane w następu
 - **Krok 3**. należy zaznaczyć wszystkie trzy następujące miejsca, aby sprawdzić, czy istnieją jakieś chronione elementy:
 
   - **Elementy chronione w chmurze**: Przejdź do menu pulpitu nawigacyjnego magazynu, > **elementy kopii zapasowej**. Wszystkie elementy wymienione w tym miejscu muszą zostać usunięte z opcją **Zatrzymaj tworzenie kopii** zapasowej lub **Usuń dane kopii zapasowej** wraz z danymi kopii zapasowych.  [Wykonaj następujące kroki](#delete-protected-items-in-the-cloud) , aby usunąć te elementy.
+  - **Wystąpienie SQL Server**: Przejdź do menu Pulpit nawigacyjny magazynu, > serwery chronione **infrastruktury kopii zapasowych**  >  **Protected Servers**. W obszarze serwery chronione wybierz serwer do wyrejestrowania. Aby usunąć magazyn, należy wyrejestrować wszystkie serwery. Kliknij prawym przyciskiem myszy serwer chroniony, a następnie wybierz polecenie **Wyrejestruj**.
   - **Serwery chronione Mars**: Przejdź do menu Pulpit nawigacyjny magazynu, > serwery chronione **infrastruktury kopii zapasowych**  >  **Protected Servers**. Jeśli masz chronione serwery MARS, wszystkie elementy wymienione w tym miejscu muszą zostać usunięte wraz z danymi kopii zapasowych. [Wykonaj następujące kroki](#delete-protected-items-on-premises) , aby usunąć serwery chronione Mars.
-  - **Serwera usługi MAB lub serwery zarządzania programu DPM**: Przejdź do menu Pulpit nawigacyjny magazynu, > tworzenie kopii zapasowej **infrastruktury zapasowych**  >  **serwerów zarządzania**. Jeśli masz program DPM lub Azure Backup Server (serwera usługi MAB), wszystkie elementy wymienione w tym miejscu muszą zostać usunięte lub wyrejestrowane wraz z danymi kopii zapasowych. [Wykonaj następujące kroki](#delete-protected-items-on-premises) , aby usunąć serwery zarządzania.
+   - **Serwera usługi MAB lub serwery zarządzania programu DPM**: Przejdź do menu Pulpit nawigacyjny magazynu, > tworzenie kopii zapasowej **infrastruktury zapasowych**  >  **serwerów zarządzania**. Jeśli masz program DPM lub Azure Backup Server (serwera usługi MAB), wszystkie elementy wymienione w tym miejscu muszą zostać usunięte lub wyrejestrowane wraz z danymi kopii zapasowych. [Wykonaj następujące kroki](#delete-protected-items-on-premises) , aby usunąć serwery zarządzania.
 
 - **Krok 4**: należy upewnić się, że wszystkie zarejestrowane konta magazynu są usuwane. Przejdź do menu pulpitu nawigacyjnego magazynu > konta magazynu **infrastruktury kopii zapasowych**  >  **Storage Accounts**. Jeśli na liście znajdują się konta magazynu, należy wyrejestrować wszystkie z nich. Aby dowiedzieć się, jak wyrejestrować konto, zobacz [Wyrejestrowywanie konta magazynu](manage-afs-backup.md#unregister-a-storage-account).
 
@@ -84,7 +85,7 @@ Najpierw zapoznaj się z sekcją **[przed rozpoczęciem](#before-you-start)** , 
 1. W menu pulpitu nawigacyjnego magazynu wybierz pozycję **infrastruktura zapasowa**.
 2. W zależności od scenariusza lokalnego wybierz jedną z następujących opcji:
 
-      - W przypadku usługi MARS wybierz pozycję **chronione serwery** , a następnie **Azure Backup agenta**. Następnie wybierz serwer, który chcesz usunąć.
+      - W przypadku usługi MARS wybierz pozycję **chronione serwery** , a następnie  **Azure Backup agenta**. Następnie wybierz serwer, który chcesz usunąć.
 
         ![W przypadku usługi MARS wybierz swój magazyn, aby otworzyć jego pulpit nawigacyjny.](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
@@ -171,7 +172,7 @@ Aby zatrzymać ochronę i usunąć dane kopii zapasowej, wykonaj następujące c
 
 #### <a name="method-2"></a>Metoda 2
 
-Otwórz konsolę zarządzania **serwera usługi mabą** lub **programem DPM** . W obszarze **Wybierz metodę ochrony danych**wyczyść pole wyboru **Chcę chronić w trybie online** .
+Otwórz konsolę zarządzania **serwera usługi mabą** lub **programem DPM** . W obszarze **Wybierz metodę ochrony danych**wyczyść pole wyboru  **Chcę chronić w trybie online** .
 
   ![Wybierz metodę ochrony danych.](./media/backup-azure-delete-vault/data-protection-method.png)
 
@@ -235,7 +236,7 @@ Aby zatrzymać ochronę i usunąć dane kopii zapasowej:
 
     Opublikuj, gdzie zostanie wyświetlony następujący monit:
 
-    *Microsoft Azure Backup czy na pewno chcesz usunąć te zasady kopii zapasowych? Usunięte dane kopii zapasowej będą przechowywane przez 14 dni. Po upływie tego czasu dane kopii zapasowej zostaną trwale usunięte. <br/>[T] tak [A] tak dla wszystkich [N] nie [L] nie do wszystkich [S] zawieszania [?] Pomoc (wartość domyślna to "Y"):*
+    *Microsoft Azure Backup czy na pewno chcesz usunąć te zasady kopii zapasowych? Usunięte dane kopii zapasowej będą przechowywane przez 14 dni. Po upływie tego czasu dane kopii zapasowej zostaną trwale usunięte. <br/> [T] tak [A] tak dla wszystkich [N] nie [L] nie do wszystkich [S] zawieszania [?] Pomoc (wartość domyślna to "Y"):*
 
 - W przypadku maszyn lokalnych chronionych przy użyciu serwera usługi MAB (Microsoft Azure Backup Server) lub DPM (System Center Data Protection Manager) na platformie Azure Użyj poniższego polecenia, aby usunąć kopię zapasową danych na platformie Azure.
 

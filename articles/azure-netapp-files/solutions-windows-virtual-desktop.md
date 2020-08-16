@@ -14,22 +14,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: b-juche
-ms.openlocfilehash: 376efe4c66323c9ebbe686e42fe716837b8d8d30
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: a003090fd610f2ac75895cccbf97750adbd4cfcd
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227363"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258329"
 ---
-# <a name="using-windows-virtual-desktop-with-azure-netapp-files"></a>Korzystanie z pulpitu wirtualnego systemu Windows z Azure NetApp Files
+# <a name="benefits-of-using-azure-netapp-files-with-windows-virtual-desktop"></a>Zalety korzystania z Azure NetApp Files z pulpitem wirtualnym systemu Windows 
 
 Ten artykuł zawiera wskazówki dotyczące najlepszych rozwiązań dotyczących wdrażania pulpitu wirtualnego systemu Windows (WVD) przy użyciu Azure NetApp Files.
 
 Azure NetApp Files to wysoce wydajna usługa magazynu plików z platformy Azure. Może ona zapewnić 450 000 operacji we/wy na sekundę, co pozwala na obsługę bardzo dużej skali wdrożeń pulpitów wirtualnych systemu Windows. Możesz dostosować przepustowość i zmienić poziom usług woluminów Azure NetApp Files na żądanie niemal natychmiast bez wstrzymywania operacji we/wy przy zachowaniu dostępu do płaszczyzny danych. Ta funkcja pozwala łatwo zoptymalizować skalę wdrażania usługi WVD pod kątem kosztów. Istnieje również możliwość tworzenia wydajnych migawek woluminów w danym momencie bez wpływu na wydajność woluminu. Ta funkcja umożliwia wycofanie pojedynczych [kontenerów profili użytkowników FSLogix](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile) za pomocą kopii z `~snapshot` katalogu lub natychmiastowe wycofanie całego woluminu przy użyciu funkcji przywracania woluminu.  W przypadku migawek do 255 (rotacji) w celu ochrony woluminu przed utratą lub uszkodzeniem danych Administratorzy mogą w wielu szansach cofnąć to, co zostało zrobione.
 
+## <a name="sample-blueprints"></a>Przykładowe plany
+
 Następujące przykładowe plany pokazują integrację pulpitu wirtualnego systemu Windows z Azure NetApp Files. W scenariuszu pulpitu w puli użytkownicy są kierowani do najlepszej dostępnej sesji (w [trybie szerokiej](https://docs.microsoft.com/azure/virtual-desktop/host-pool-load-balancing#breadth-first-load-balancing-method)) w puli przy użyciu [maszyn wirtualnych wielosesyjnych](https://docs.microsoft.com/azure/virtual-desktop/windows-10-multisession-faq#what-is-windows-10-enterprise-multi-session). Z drugiej strony pulpity osobiste są zastrzeżone dla scenariuszy, w których każdy użytkownik ma własną maszynę wirtualną.
 
-## <a name="pooled-desktop-scenario"></a>Scenariusz związany z pulpitem w puli
+### <a name="pooled-desktop-scenario"></a>Scenariusz związany z pulpitem w puli
 
 W przypadku scenariusza w puli zespół pulpitów wirtualnych systemu Windows [zaleca](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs#multi-session-recommendations) następujące wskazówki według liczby użytkowników do vCPU. Należy pamiętać, że w tym zaleceniu nie określono rozmiaru maszyny wirtualnej.
 
@@ -44,7 +46,7 @@ Przykładowo w przypadku 62 użytkowników na D16as_V4 maszynę wirtualną Azure
 
 ![Scenariusz z pulpitem w puli pulpitów wirtualnych systemu Windows](../media/azure-netapp-files/solutions-pooled-desktop-scenario.png)   
 
-## <a name="personal-desktop-scenario"></a>Osobisty scenariusz pulpitu 
+### <a name="personal-desktop-scenario"></a>Osobisty scenariusz pulpitu 
 
 W scenariuszu Personal Desktop na poniższej ilustracji przedstawiono zalecenie dotyczące architektury ogólnego przeznaczenia. Użytkownicy są zamapowane do określonych zasobników stacjonarnych, a każdy z nich ma tylko maszyny wirtualne 1 000, pozostawiając miejsce na propagowanie adresów IP z sieci wirtualnej zarządzania. Azure NetApp Files może łatwo obsłużyć 900 komputerów osobistych w jednej sieci wirtualnej w puli hostów z dwiema sesjami, a rzeczywista liczba maszyn wirtualnych równa 1 000 pomniejszona o liczbę hostów zarządzania znalezionych w sieci wirtualnej centrum. Jeśli potrzebujesz więcej osobistych pulpitów, można łatwo dodać więcej puli (pul hostów i sieci wirtualnych), jak pokazano na poniższej ilustracji. 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2020
 ms.author: johndaw
-ms.openlocfilehash: e7958a722f7010d63794cacc072289030a72ed99
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 93333f2f0a2ef4aaf44884aa30afaa959459aaad
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512507"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257429"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Samouczek: wdrażanie modułów HSM w istniejącej sieci wirtualnej przy użyciu programu PowerShell
 
@@ -40,7 +40,7 @@ Ten samouczek koncentruje się na dwóch modułach HSM i wymaganej bramie usług
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Dedykowany moduł HSM platformy Azure nie jest obecnie dostępny w witrynie Azure Portal, w związku z tym wszystkie interakcje z usługą będą przeprowadzane za pośrednictwem wiersza polecenia lub przy użyciu programu PowerShell. W tym samouczku zostanie użyty program PowerShell w ramach usługi Azure Cloud Shell. Jeśli jesteś nowym użytkownikiem programu PowerShell, wykonaj instrukcje wprowadzającego znajdujące się w sekcji dotyczącej [rozpoczynania pracy z programem Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+Dedykowany moduł HSM platformy Azure nie jest obecnie dostępny w witrynie Azure Portal, w związku z tym wszystkie interakcje z usługą będą przeprowadzane za pośrednictwem wiersza polecenia lub przy użyciu programu PowerShell. W tym samouczku zostanie użyty program PowerShell w ramach usługi Azure Cloud Shell. Jeśli jesteś nowym użytkownikiem programu PowerShell, wykonaj instrukcje wprowadzającego znajdujące się w sekcji dotyczącej [rozpoczynania pracy z programem Azure PowerShell](/powershell/azure/get-started-azureps).
 
 Założenia:
 

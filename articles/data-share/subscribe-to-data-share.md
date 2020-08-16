@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 07/30/2020
-ms.openlocfilehash: 999d99b0ed4701eb6758ed0bf7a71ca625e622b5
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 08/14/2020
+ms.openlocfilehash: 409f143ce67e301e3b2a973d8d2db80380fbd50e
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512095"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258630"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Samouczek: akceptowanie i odbieranie danych za pomocą udziału danych platformy Azure  
 
@@ -93,38 +93,35 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
    W polu **Nazwa otrzymanego udziału** można pozostawić wartość domyślną określoną przez dane lub określić nową nazwę dla odebranego udziału. 
 
-   ![Docelowe konto udziału danych](./media/target-data-share.png "Docelowe konto udziału danych") 
-
-1. Po uzgodnieniu warunków użytkowania i określeniu lokalizacji dla udziału wybierz opcję *Zaakceptuj i skonfiguruj*. Zostanie utworzona subskrypcja udziału.
-
-   W przypadku udostępniania opartego na migawce następnym ekranie zostanie wyświetlony monit z prośbą o wybranie docelowego konta magazynu, do którego mają zostać skopiowane dane. 
+   Po uzgodnieniu warunków użytkowania i określeniu konta udziału danych do zarządzania odebranym udziałem wybierz pozycję **Zaakceptuj i skonfiguruj**. Zostanie utworzona subskrypcja udziału. 
 
    ![Zaakceptuj opcje](./media/accept-options.png "Zaakceptuj opcje") 
 
-   Jeśli wolisz zaakceptować zaproszenie teraz, ale później skonfigurujesz docelowy magazyn danych, wybierz opcję *Zaakceptuj i skonfiguruj później*. Aby kontynuować konfigurowanie magazynu później, zobacz stronę [Konfigurowanie mapowań zestawu danych](how-to-configure-mapping.md) , aby uzyskać szczegółowe instrukcje dotyczące wznawiania konfiguracji udziału danych. 
-
-   Aby uzyskać szczegółowe instrukcje dotyczące wznawiania konfiguracji udziału danych w miejscu, zobacz [Konfigurowanie mapowań zestawów danych](how-to-configure-mapping.md) . 
+   Spowoduje to przejście do otrzymanego udziału w Twoim koncie udostępniania danych. 
 
    Jeśli nie chcesz zaakceptować zaproszenia, wybierz pozycję *Odrzuć*. 
 
-## <a name="configure-storage"></a>Konfigurowanie magazynu
-1. W obszarze *docelowe ustawienia magazynu*wybierz subskrypcję, grupę zasobów i konto magazynu, do których chcesz otrzymywać dane. 
+## <a name="configure-received-share"></a>Konfiguruj odebrany udział
+Wykonaj poniższe kroki, aby skonfigurować miejsce, w którym chcesz otrzymywać dane.
 
-   ![Ustawienia magazynu docelowego](./media/target-storage-settings.png "Magazyn docelowy") 
+1. Wybierz kartę **zestawy** danych. Zaznacz pole wyboru obok elementu DataSet, do którego chcesz przypisać miejsce docelowe. Wybierz pozycję **+ Mapuj, aby** wybrać docelowy magazyn danych. 
 
-1. Aby otrzymywać regularne aktualizacje danych, upewnij się, że zostały włączone ustawienia migawki. Należy zauważyć, że tylko harmonogram ustawień migawek zostanie wyświetlony, jeśli dostawca danych włączył go w udziale danych. 
+   ![Mapuj do elementu docelowego](./media/dataset-map-target.png "Mapuj do elementu docelowego") 
 
-   ![Ustawienia migawki](./media/snapshot-settings.png "Ustawienia migawki") 
+1. Wybierz docelowy typ magazynu danych, w którym chcesz umieścić dane. Wszystkie pliki danych lub tabele w docelowym magazynie danych o tej samej ścieżce i nazwie zostaną zastąpione. 
 
-1. Wybierz pozycję *Zapisz*. 
+   W przypadku udostępniania w miejscu wybierz magazyn danych w określonej lokalizacji. Lokalizacja to centrum danych platformy Azure, w którym znajduje się źródłowy magazyn danych dostawcy danych. Po zmapowaniu zestawu danych możesz użyć linku w ścieżce docelowej, aby uzyskać dostęp do danych.
 
-> [!IMPORTANT]
-> Jeśli otrzymujesz dane oparte na języku SQL i chcesz otrzymywać te dane do źródła opartego na języku SQL, odwiedź stronę [Konfigurowanie mapowania zestawu danych](how-to-configure-mapping.md) , aby dowiedzieć się, jak skonfigurować SQL Server jako lokalizację docelową zestawu danych. 
+   ![Docelowe konto magazynu](./media/dataset-map-target-sql.png "Magazyn docelowy") 
+
+1. W przypadku udostępniania opartego na migawce, jeśli dostawca danych utworzył harmonogram migawek w celu zapewnienia regularnej aktualizacji danych, można również włączyć harmonogram migawek, wybierając kartę **harmonogram migawek** . Zaznacz pole wyboru obok harmonogramu migawek i wybierz pozycję **+ Włącz**.
+
+   ![Włącz harmonogram migawek](./media/enable-snapshot-schedule.png "Włącz harmonogram migawek")
 
 ## <a name="trigger-a-snapshot"></a>Wyzwalanie migawki
 Te kroki dotyczą tylko udostępniania opartego na migawce.
 
-1. Możesz wyzwolić migawkę na karcie otrzymane udziały — > szczegóły, wybierając pozycję **Wyzwól migawkę**. Tutaj można wyzwolić pełną lub przyrostową migawkę danych. Jeśli po raz pierwszy otrzymujesz dane od dostawcy danych, wybierz pozycję pełna kopia. 
+1. Możesz wyzwolić migawkę, wybierając kartę **szczegóły** , a następnie pozycję **Wyzwalaj migawkę**. Tutaj można wyzwolić pełną lub przyrostową migawkę danych. Jeśli po raz pierwszy otrzymujesz dane od dostawcy danych, wybierz pozycję pełna kopia. 
 
    ![Wyzwalanie migawki](./media/trigger-snapshot.png "Wyzwalanie migawki") 
 
@@ -133,7 +130,7 @@ Te kroki dotyczą tylko udostępniania opartego na migawce.
    ![Zestawy danych dla odbiorców](./media/consumer-datasets.png "Mapowanie zestawu danych klienta") 
 
 ## <a name="view-history"></a>Wyświetlanie historii
-Aby wyświetlić historię migawek, przejdź do obszaru otrzymane udziały — historia >. W tym miejscu znajdziesz historię wszystkich migawek, które zostały wygenerowane w ciągu ostatnich 60 dni. 
+Ten krok dotyczy tylko udostępniania opartego na migawce. Aby wyświetlić historię migawek, wybierz pozycję Karta **historia** . W tym miejscu znajdziesz historię wszystkich migawek, które zostały wygenerowane w ciągu ostatnich 30 dni. 
 
 ## <a name="next-steps"></a>Następne kroki
 W ramach tego samouczka nauczysz się akceptować i odbierać udział danych platformy Azure. Aby dowiedzieć się więcej o pojęciach dotyczących udziałów danych platformy Azure, przejdź do [pojęcia: Terminologia dotycząca udziałów danych platformy Azure](terminology.md).

@@ -3,12 +3,12 @@ title: Zmniejsz koszty usługi przy użyciu Azure Advisor
 description: Użyj Azure Advisor, aby zoptymalizować koszty wdrożeń platformy Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: e8f0e555f71c31bb3286cee59bb7161c3ce3986e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 15f357248a6174de1e0890a4b45e9fa3930a06fe
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284374"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258527"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Obniżenie kosztów usługi przy użyciu Azure Advisor
 
@@ -96,6 +96,8 @@ Dysk tymczasowej wersji [systemu operacyjnego](../virtual-machines/ephemeral-os-
 
 Zalecane jest używanie tymczasowych dysków systemu operacyjnego do krótkoterminowych maszyn wirtualnych IaaS lub maszyn wirtualnych o bezstanowych obciążeniach. Klasyfikator zawiera zalecenia dotyczące zasobów, które mogą korzystać z systemu z systemem tymczasowych systemów operacyjnych.
 
+## <a name="reduce-azure-data-explorer-table-cache-period-policy-for-cluster-cost-optimization-preview"></a>Ogranicz pamięć podręczną tabeli Eksplorator danych platformy Azure — okres (zasady) dla optymalizacji kosztu klastra (wersja zapoznawcza)
+Usługa Advisor identyfikuje zasoby, których obniżenie zasad dotyczących pamięci podręcznej tabeli spowoduje zwolnienie węzłów klastra Eksplorator danych platformy Azure z niskim użyciem procesora CPU, pamięcią i wysoką konfiguracją rozmiaru pamięci podręcznej.
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Jak uzyskać dostęp do zaleceń dotyczących kosztów w Azure Advisor
 

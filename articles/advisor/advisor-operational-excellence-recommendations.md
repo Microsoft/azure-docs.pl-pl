@@ -3,12 +3,12 @@ title: Ulepszanie Excellency operacyjnego za pomocą usługi Advisor
 description: Użyj Azure Advisor, aby zoptymalizować i uzyskać doskonałą komfort działania w ramach subskrypcji platformy Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 2b4c4726400134e4eec3868e155da47cb8c515b5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 036adb7e7d59bd78980c72b210ad41faea277d00
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057633"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258484"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Uzyskiwanie doskonałości operacyjnej przy użyciu Azure Advisor
 
@@ -53,6 +53,16 @@ Azure Policy to usługa platformy Azure, za pomocą której można tworzyć i pr
 **Wymuś *inspekcję maszyn wirtualnych, które nie korzystają z dysków zarządzanych*.**
 
 **Włącz *dziedziczenie znacznika z grup zasobów*.** Te zasady dodają lub zastępują określony tag oraz wartość z nadrzędnej grupy zasobów podczas tworzenia lub aktualizowania dowolnego zasobu. Możesz skorygować istniejące zasoby, wyzwalając zadanie korygowania.
+
+## <a name="no-validation-environment-enabled"></a>Nie włączono środowiska weryfikacji
+Azure Advisor określa, że nie masz włączonego środowiska sprawdzania poprawności w bieżącej subskrypcji. Podczas tworzenia pul hostów, na karcie właściwości, wybrano opcję \" nie \" \" sprawdzaj poprawności środowiska \" . Posiadanie co najmniej jednej puli hostów z włączonym środowiskiem walidacji zapewnia ciągłość działania usług pulpitu wirtualnego systemu Windows przy wczesnym wykrywaniu potencjalnych problemów. [Dowiedz się więcej](https://docs.microsoft.com/azure/virtual-desktop/create-validation-host-pool)
+
+## <a name="ensure-production-non-validation-environment-to-benefit-from-stable-functionality"></a>Zapewnij środowisko produkcyjne (bez sprawdzania poprawności), aby korzystać z stabilnej funkcjonalności
+Azure Advisor wykryje, że zbyt wiele pul hostów ma włączone środowisko sprawdzania poprawności. Aby środowiska walidacji były najlepszym rozwiązaniem, należy mieć co najmniej jedną, ale nigdy więcej niż połowę pul hostów w środowisku walidacji. Dzięki wykorzystaniu dobrej równowagi między pulami hostów a włączonym środowiskiem walidacji, najlepszym rozwiązaniem jest korzystanie z zalet wdrożeń potokach wieloetapowych oferowanych przez pulpity wirtualne systemu Windows z niektórymi aktualizacjami. Aby rozwiązać ten problem, Otwórz właściwości puli hostów i wybierz pozycję \" nie \" obok \" Ustawienia środowisko walidacji \" .
+
+## <a name="enable-traffic-analytics-to-view-insights-into-traffic-patterns-across-azure-resources"></a>Umożliwienie Analiza ruchu wglądu w wzorce ruchu w ramach zasobów platformy Azure
+Analiza ruchu to rozwiązanie oparte na chmurze, które zapewnia wgląd w aktywność użytkowników i aplikacji na platformie Azure. Analiza ruchu analizuje dzienniki przepływu Network Watcher sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) w celu zapewnienia wglądu w przepływ ruchu. Analiza ruchu umożliwia wyświetlanie najlepszych rozmów na platformie Azure i w ramach wdrożeń innych niż Azure, badanie otwartych portów, protokołów i złośliwych przepływów w środowisku oraz optymalizowanie wdrożenia sieci pod kątem wydajności. Dzienniki przepływów możesz przetwarzać o 10 minut i 60 minutach przetwarzania, zapewniając szybszą analizę ruchu. Dobrym sposobem jest włączenie Analiza ruchu dla zasobów platformy Azure. 
+
 
 ## <a name="next-steps"></a>Następne kroki
 

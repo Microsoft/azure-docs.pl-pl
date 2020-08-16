@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
-ms.openlocfilehash: 9816ea7dd9f5aef9dcdd62319f8cc4408eff3fd8
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 90b4ffb273fc314a7c92971490fb09b6f0c131ee
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987260"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258354"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Porady dotyczące wydajności usługi Azure Cosmos DB i platformy .NET
 
@@ -32,7 +32,7 @@ Tak więc, jeśli próbujesz poprawić wydajność bazy danych, weź pod uwagę 
 
 Zalecamy przetwarzanie hosta systemu Windows 64-bitowego w celu zwiększenia wydajności. Zestaw SDK SQL zawiera natywną ServiceInterop.dll do analizy i optymalizowania zapytań lokalnie. ServiceInterop.dll jest obsługiwana tylko na platformie Windows x64. W przypadku systemu Linux i innych nieobsługiwanych platform, w których ServiceInterop.dll nie jest dostępna, do bramy jest nawiązywane dodatkowe połączenie sieciowe w celu uzyskania zoptymalizowanego zapytania. Następujące typy aplikacji domyślnie korzystają z 32-bitowego przetwarzania hosta. Aby zmienić przetwarzanie hosta na 64-bitowe, wykonaj następujące kroki na podstawie typu aplikacji:
 
-- W przypadku aplikacji wykonywalnych można zmienić przetwarzanie hosta, ustawiając wartość [docelowy platformy](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) na **x64** w oknie **właściwości projektu** na karcie **kompilacja** .
+- W przypadku aplikacji wykonywalnych można zmienić przetwarzanie hosta, ustawiając wartość [docelowy platformy](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) na **x64**  w oknie **właściwości projektu** na karcie **kompilacja** .
 
 - W przypadku projektów testowych opartych na VSTest można zmienić przetwarzanie hosta **, wybierając opcję Testuj**  >  **Ustawienia testu**  >  **domyślne architektura procesora jako x64** w menu **test** programu Visual Studio.
 
@@ -71,15 +71,12 @@ Sposób, w jaki klient nawiązuje połączenie z Azure Cosmos DB, ma ważne kons
      Jeśli aplikacja działa w sieci firmowej z rygorystycznymi ograniczeniami zapory, najlepszym wyborem jest tryb bramy, ponieważ używa on standardowego portu HTTPS i pojedynczego punktu końcowego. Jednak jest to, że tryb bramy obejmuje dodatkowy przeskok sieciowy za każdym razem, gdy dane są odczytywane lub zapisywane w Azure Cosmos DB. Tryb bezpośredni zapewnia lepszą wydajność z powodu mniejszej liczby przeskoków sieci. Zalecamy również tryb połączenia bramy w przypadku uruchamiania aplikacji w środowiskach, które mają ograniczoną liczbę połączeń gniazd.
 
      Korzystając z zestawu SDK w Azure Functions, szczególnie w [planie zużycia](../azure-functions/functions-scale.md#consumption-plan), należy pamiętać o bieżących [limitach połączeń](../azure-functions/manage-connections.md). W takim przypadku tryb bramy może być lepszy, jeśli pracujesz również z innymi klientami opartymi na protokole HTTP w aplikacji Azure Functions.
-
-
-W trybie bramy Azure Cosmos DB korzysta z portu 443 i portów 10250, 10255 i 10256, gdy korzystasz z interfejsu API Azure Cosmos DB dla MongoDB. Port 10250 jest mapowany na domyślne wystąpienie MongoDB bez replikacji geograficznej. Porty 10255 i 10256 są mapowane na wystąpienie MongoDB mające replikację geograficzną.
      
-W przypadku korzystania z protokołu TCP w trybie bezpośrednim oprócz portów bramy należy upewnić się, że zakres portów od 10000 do 20000 jest otwarty, ponieważ Azure Cosmos DB używa dynamicznych portów TCP (w przypadku korzystania z trybu bezpośredniego w [prywatnych punktach końcowych](./how-to-configure-private-endpoints.md), cały zakres portów TCP — od 0 do 65535 — musi być otwarty). Porty są domyślnie otwarte dla standardowej konfiguracji maszyny wirtualnej platformy Azure. Jeśli te porty nie są otwarte i próbujesz użyć protokołu TCP, zostanie wyświetlony błąd niedostępności usługi 503. W tej tabeli przedstawiono tryby łączności dostępne dla różnych interfejsów API i portów usług używanych dla każdego interfejsu API:
+W przypadku korzystania z protokołu TCP w trybie bezpośrednim oprócz portów bramy należy upewnić się, że zakres portów od 10000 do 20000 jest otwarty, ponieważ Azure Cosmos DB używa dynamicznych portów TCP. W przypadku korzystania z trybu bezpośredniego dla [prywatnych punktów końcowych](./how-to-configure-private-endpoints.md)powinien być otwarty cały zakres portów TCP — od 0 do 65535. Porty są domyślnie otwarte dla standardowej konfiguracji maszyny wirtualnej platformy Azure. Jeśli te porty nie są otwarte i próbujesz użyć protokołu TCP, zostanie wyświetlony błąd niedostępności usługi 503. W poniższej tabeli przedstawiono tryby łączności dostępne dla różnych interfejsów API i portów usług używanych dla każdego interfejsu API:
 
 |Tryb połączenia  |Obsługiwany protokół  |Obsługiwane zestawy SDK  |Port API/usługi  |
 |---------|---------|---------|---------|
-|Brama  |   HTTPS    |  Wszystkie zestawy SDK    |   SQL (443), MongoDB (10250, 10255, 10256), tabela (443), Cassandra (10350), Graph (443)    |
+|Brama  |   HTTPS    |  Wszystkie zestawy SDK    |   SQL (443), MongoDB (10250, 10255, 10256), tabela (443), Cassandra (10350), Graph (443) <br> Port 10250 mapuje do domyślnego interfejsu API Azure Cosmos DB dla wystąpienia MongoDB bez replikacji geograficznej. Porty 10255 i 10256 są mapowane na wystąpienie mające replikację geograficzną.   |
 |Direct    |     TCP    |  Zestaw SDK .NET    | Gdy są używane publiczne/punkty końcowe usługi: porty z zakresu od 10000 do 20000<br>W przypadku korzystania z prywatnych punktów końcowych: porty w zakresie od 0 do 65535 |
 
 Azure Cosmos DB oferuje prosty, otwarty model programowania RESTful za pośrednictwem protokołu HTTPS. Ponadto oferuje wydajny protokół TCP, który jest również RESTful w swoim modelu komunikacji i jest dostępny za pośrednictwem zestawu SDK klienta platformy .NET. Protokół TCP używa protokołu TLS do uwierzytelniania początkowego i szyfrowania ruchu sieciowego. Aby uzyskać najlepszą wydajność, Użyj protokołu TCP, gdy jest to możliwe.
@@ -167,8 +164,8 @@ itemResponse.Resource
 **Dostrajaj równoległe zapytania dla kolekcji partycjonowanych**
 
 Zestaw SDK programu SQL .NET obsługuje zapytania równoległe, które umożliwiają równoległe wykonywanie zapytań względem kontenera partycjonowanego. Aby uzyskać więcej informacji, zobacz [przykłady kodu](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs) związane z pracą z zestawami SDK. Zapytania równoległe zostały zaprojektowane w celu zapewnienia lepszej opóźnienia zapytań i przepływności niż ich odpowiedniki seryjne. Zapytania równoległe zawierają dwa parametry, które można dostosować w celu dopasowania do własnych wymagań: 
-- `MaxConcurrency`Określa maksymalną liczbę partycji, które mogą być wykonywane równolegle. 
-- `MaxBufferedItemCount`Określa liczbę wstępnie pobranych wyników.
+- `MaxConcurrency` Określa maksymalną liczbę partycji, które mogą być wykonywane równolegle. 
+- `MaxBufferedItemCount` Określa liczbę wstępnie pobranych wyników.
 
 ***Dostrajanie stopnia współbieżności***
 

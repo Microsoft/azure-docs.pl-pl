@@ -3,12 +3,12 @@ title: Poprawianie wydajności aplikacji platformy Azure za pomocą usługi Advi
 description: Użyj zaleceń dotyczących wydajności w Azure Advisor, aby zwiększyć szybkość i czas odpowiedzi aplikacji o krytycznym znaczeniu dla firmy.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 7ecd6a45dc255f4748ed5074a3adb3d948f4122e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bdca8cd39427fb0d25f8b3308eaf2be24e0eb81a
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057568"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257463"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Poprawianie wydajności aplikacji platformy Azure za pomocą Azure Advisor
 
@@ -20,7 +20,7 @@ Możesz użyć [ustawień czasu wygaśnięcia (TTL)](../traffic-manager/traffic-
 
 Azure Advisor identyfikuje Traffic Manager profile, dla których skonfigurowano dłuższy czas TTL. Zaleca się skonfigurowanie czasu wygaśnięcia na 20 sekund lub 60 sekund, w zależności od tego, czy profil jest skonfigurowany do [szybkie przejście w tryb failover](https://azure.microsoft.com/roadmap/fast-failover-and-tcp-probing-in-azure-traffic-manager/).
 
-## <a name="improve-database-performance-by-using-sql-database-advisor"></a>Poprawianie wydajności bazy danych za pomocą SQL Database Advisor
+## <a name="improve-database-performance-by-using-sql-database-advisor-temporarily-disabled"></a>Poprawianie wydajności bazy danych przy użyciu SQL Database Advisor (tymczasowo wyłączone)
 
 Azure Advisor zapewnia spójny, skonsolidowany widok zaleceń dla wszystkich zasobów platformy Azure. Integruje się z SQL Database Advisor, aby uzyskać zalecenia dotyczące poprawy wydajności baz danych.SQL Database Advisor ocenia wydajność baz danych, analizując historię użycia. Następnie oferuje rekomendacje, które najlepiej nadają się do uruchamiania typowego obciążenia bazy danych.
 
@@ -151,6 +151,22 @@ Doradca identyfikuje Azure Cosmos DB kontenery, które używają domyślnych zas
 ## <a name="set-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Ustaw rozmiar strony zapytania Azure Cosmos DB (MaxItemCount) na-1 
 
 Azure Advisor identyfikuje kontenery Azure Cosmos DB używające rozmiaru strony zapytania 100. Zalecane jest użycie rozmiaru strony-1 w celu przyspieszenia skanowania. [Dowiedz się więcej o MaxItemCount.](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
+
+## <a name="consider-using-accelerated-writes-feature-in-your-hbase-cluster-to-improve-cluster-performance"></a>Rozważ użycie funkcji szybsze zapisy w klastrze HBase, aby zwiększyć wydajność klastra
+Azure Advisor analizuje Dzienniki systemu w ciągu ostatnich 7 dni i wskazuje, czy klaster napotkał następujące scenariusze:
+1. Duże opóźnienie synchronizacji pliku WAL 
+2. Duża liczba żądań zapisu (co najmniej trzy godzinne okresy, gdy średnio występowało ponad 1000 żądań zapisu na sekundę na węzeł)
+
+Te warunki wskazują, że w Twoim klastrze występują duże opóźnienia zapisu. Może to być spowodowane dużym obciążeniem w klastrze. Aby zwiększyć wydajność klastra, warto rozważyć wykorzystanie funkcji szybsze zapisy udostępnionej przez usługę Azure HDInsight HBase. Funkcja przyspieszonego zapisywania dla klastrów bazy danych Apache HBase usługi HDInsight dołącza dyski zarządzane SSD w warstwie Premium do każdego serwera regionu (węzła roboczego) zamiast użycia magazynu w chmurze. Dzięki temu możliwe jest obniżenie opóźnień zapisu i zapewnienie lepszej odporności aplikacji. Aby dowiedzieć się więcej na temat tej funkcji, [Dowiedz się więcej](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes#how-to-enable-accelerated-writes-for-hbase-in-hdinsight)
+
+## <a name="review-azure-data-explorer-table-cache-period-policy-for-better-performance-preview"></a>Przegląd pamięci podręcznej tabeli Eksplorator danych Azure — okres (zasady) w celu uzyskania lepszej wydajności (wersja zapoznawcza)
+To zalecenie obejmuje tabele Eksplorator danych platformy Azure, które mają dużą liczbę zapytań, które odnoszą się poza skonfigurowanym okresem pamięci podręcznej (zasady) (wartość procentowa 10 pierwszych tabel według zapytania, które uzyskują dostęp do danych poza pamięcią podręczną). Zalecana akcja w celu poprawienia wydajności klastra: Ogranicz zapytania w tej tabeli do minimalnego wymaganego zakresu czasu (w ramach zdefiniowanych zasad). Alternatywnie, jeśli wymagane są dane z całego zakresu czasu, zwiększ okres pamięci podręcznej do zalecanej wartości.
+
+## <a name="improve-performance-by-optimizing-mysql-temporary-table-sizing"></a>Poprawianie wydajności dzięki optymalizacji rozmiarów tabeli tymczasowej MySQL
+Analiza klasyfikatora wskazuje, że serwer MySQL może uwzględniać niepotrzebne obciążenia we/wy ze względu na niskie ustawienia parametrów tabeli tymczasowej. Może to spowodować niepotrzebne transakcje na dysku i zmniejszenie wydajności. Zalecamy zwiększenie wartości parametrów „tmp_table_size” i „max_heap_table_size”, aby zmniejszyć liczbę transakcji opartych na dyskach. [Dowiedz się więcej](https://aka.ms/azure_mysql_tmp_table)
+
+## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Dystrybuuj dane w grupie serwerów, aby dystrybuować obciążenie między węzłami
+Usługa Advisor identyfikuje grupy serwerów, w których dane nie zostały dystrybuowane, ale pozostają na koordynatorze. Na podstawie tego klasyfikatora zaleca się, aby w przypadku wszystkich korzyści z pełnego skalowania (Citus) rozpowszechniać dane w węzłach procesu roboczego dla grup serwerów. Poprawi to wydajność zapytań, wykorzystując zasób każdego węzła w grupie serwerów. [Dowiedz się więcej](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Jak uzyskać dostęp do zaleceń dotyczących wydajności w usłudze Advisor
 

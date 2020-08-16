@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: v-grpr
-ms.openlocfilehash: 81fc8de7e5a70ebb95e06a8e362cda41f8bfe1aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95c0a884b335920df9803a9b468ab522646b26a1
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945022"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258754"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Użyj samozarządzanej wysyłki dla Azure Data Box Disk w Azure Portal
 
@@ -28,6 +28,7 @@ Samoobsługowa wysyłka jest dostępna jako opcja w przypadku [zamówienia Azure
 * Japonia
 * Singapur
 * Korea Południowa
+* Republika Południowej Afryki
 * Indie (wersja zapoznawcza)
 
 ## <a name="use-self-managed-shipping"></a>Korzystanie z samodzielnej wysyłki
@@ -36,13 +37,13 @@ Po umieszczeniu zamówienia Data Box Disk można wybrać opcję samodzielna wysy
 
 1. W kolejności Azure Data Box Disk w obszarze **szczegóły kontaktu**wybierz pozycję **+ Dodaj adres wysyłkowy**.
 
-   ![Wysyłka samoobsługowa](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
+   ![Samodzielna wysyłka](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
 
 2. Po wybraniu opcji Typ wysyłki wybierz opcję **wysyłka samozarządzana** . Ta opcja jest dostępna tylko wtedy, gdy jesteś w obsługiwanym regionie, zgodnie z opisem w sekcji wymagania wstępne.
 
 3. Po podaniu adresu wysyłkowego musisz sprawdzić jego poprawność i zakończyć zamówienie.
 
-   ![Wysyłka samoobsługowa](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
+   ![Samodzielna wysyłka](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
 4. Gdy urządzenie zostanie przygotowane i otrzymasz powiadomienie e-mail, możesz zaplanować odbiór. W kolejności Azure Data Box Disk przejdź do pozycji **Przegląd** , a następnie wybierz pozycję **Zaplanuj pobranie**.
 
@@ -52,7 +53,7 @@ Po umieszczeniu zamówienia Data Box Disk można wybrać opcję samodzielna wysy
 
    ![Zamówienie kuriera](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-02c.png)
 
-6. Po zaplanowaniu odbioru urządzenia będzie można wyświetlić kod autoryzacji w ramach **zaplanowanego pobrania platformy Azure**.
+6. Po zaplanowaniu odbioru urządzenia będzie można wyświetlić kod autoryzacji w ramach  **zaplanowanego pobrania platformy Azure**.
 
    ![Wyświetlanie kodu autoryzacji](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
 

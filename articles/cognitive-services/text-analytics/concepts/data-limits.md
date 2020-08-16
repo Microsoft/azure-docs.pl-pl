@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 04/27/2020
+ms.date: 08/14/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 0dc79132ae75be511b53bf272e578ff0ce7a7775
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 068c2dc698e9f0b6d6f2f6486dff863c1343b178
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986818"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258275"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limity danych i szybkości dla interfejs API analizy tekstu
 <a name="data-limits"></a>
@@ -31,8 +31,8 @@ Skorzystaj z tego artykułu, aby znaleźć limity rozmiaru i stawek, które umo�
 
 | Limit | Wartość |
 |------------------------|---------------|
-| Maksymalny rozmiar pojedynczego dokumentu | 5 120 znaków mierzona przez [StringInfo. lengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
-| Maksymalny rozmiar całego żądania | 1 MB |
+| Maksymalny rozmiar pojedynczego dokumentu | 5 120 znaków mierzona przez [StringInfo. lengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). Ma również zastosowanie do analiza tekstu kontenera kondycji. |
+| Maksymalny rozmiar całego żądania | 1 MB. Ma również zastosowanie do analiza tekstu kontenera kondycji. |
 
 Maksymalna liczba dokumentów, które można wysłać w ramach pojedynczego żądania, będzie zależeć od używanej wersji interfejsu API i funkcji.
 
@@ -48,7 +48,7 @@ W wersji 3 interfejsu API wprowadzono następujące limity. Przekroczenie poniż
 | Wyodrębnianie kluczowych fraz | 10 |
 | Rozpoznawanie jednostek nazwanych | 5 |
 | Łączenie jednostek | 5 |
-
+| analiza tekstu dla kontenera kondycji | 1000 |
 #### <a name="version-2"></a>[Wersja 2](#tab/version-2)
 
 | Cechy | Maksymalna liczba dokumentów na żądanie | 
@@ -63,7 +63,7 @@ W wersji 3 interfejsu API wprowadzono następujące limity. Przekroczenie poniż
 
 ## <a name="rate-limits"></a>Limity szybkości
 
-Twoje limity szybkości różnią się w zależności od [warstwy cenowej](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). Te limity są takie same dla obu wersji interfejsu API.
+Twoje limity szybkości różnią się w zależności od [warstwy cenowej](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). Te limity są takie same dla obu wersji interfejsu API. Te limity szybkości nie mają zastosowania do analiza tekstu dla kontenera kondycji, które nie mają ustalonego limitu szybkości.
 
 | Warstwa          | Żądania na sekundę | Liczba żądań na minutę |
 |---------------|---------------------|---------------------|
@@ -77,7 +77,7 @@ Twoje limity szybkości różnią się w zależności od [warstwy cenowej](https
 Żądania są mierzone osobno dla każdej funkcji analiza tekstu. Na przykład można wysłać maksymalną liczbę żądań dla warstwy cenowej do każdej funkcji w tym samym czasie.  
 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Co to jest interfejs API analizy tekstu](../overview.md)
 * [Szczegóły cennika](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)

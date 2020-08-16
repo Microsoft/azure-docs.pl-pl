@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: b-juche
-ms.openlocfilehash: 8ed9f6565da55d3ffbe522bbdf404265c487f67c
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 79ad95179f4ad6d332a848e59ca341b8a9f90b1f
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225618"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258230"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architektury rozwiązań używające usługi Azure NetApp Files
 Ten artykuł zawiera informacje o najlepszych rozwiązaniach, które mogą pomóc w zrozumieniu architektur rozwiązań na potrzeby używania Azure NetApp Files.  
@@ -85,7 +85,7 @@ Ta sekcja zawiera odwołania do rozwiązań infrastruktury pulpitu wirtualnego.
 
 ### <a name="windows-virtual-desktop"></a>Windows Virtual Desktop
 
-* [Korzystanie z pulpitu wirtualnego systemu Windows z Azure NetApp Files](solutions-windows-virtual-desktop.md)
+* [Zalety korzystania z Azure NetApp Files z pulpitem wirtualnym systemu Windows](solutions-windows-virtual-desktop.md)
 * [Opcje magazynu dla kontenerów profilów FSLogix w programie Virtual Desktop systemu Windows](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile#azure-platform-details)
 * [Tworzenie kontenera profilu FSLogix dla puli hostów przy użyciu Azure NetApp Files](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
 * [Pulpit wirtualny systemu Windows w skali przedsiębiorstwa](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)

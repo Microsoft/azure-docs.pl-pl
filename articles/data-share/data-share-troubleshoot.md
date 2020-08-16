@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 07/30/2020
-ms.openlocfilehash: 0fb2f9dd156d18705308b41ef8d6b015b3b6d71b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.date: 08/14/2020
+ms.openlocfilehash: c68c9dc961475d6916b1f00e7d4f596bfd8c77dd
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534451"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257800"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Rozwiązywanie typowych problemów z udziałem danych platformy Azure 
 
@@ -34,7 +34,7 @@ Może to być spowodowane następującymi przyczynami:
     1. Wyszukaj w usłudze **Microsoft. Datashare**
     1. Kliknij pozycję **zarejestruj** . 
 
-    Aby wykonać te kroki, musisz mieć [rolę współautor roli platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) . 
+    Aby wykonać te kroki, musisz mieć [rolę współautor platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) w ramach subskrypcji platformy Azure. 
 
 * **Zaproszenie jest wysyłane na alias e-mail, a nie na adres e-mail logowania do platformy Azure.** Jeśli zarejestrowano usługę udziału danych platformy Azure lub utworzono już zasób udział danych w dzierżawie platformy Azure, ale nadal nie można zobaczyć zaproszenia, może to być spowodowane tym, że dostawca wprowadził alias e-mail jako adresat zamiast adresu e-mail logowania do platformy Azure. Skontaktuj się z dostawcą danych i upewnij się, że wyśle zaproszenie na adres e-mail logowania do platformy Azure, a nie alias e-mail.
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 713e980eb84032c98ccf08c52e68dab36eadd659
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: d7e3992f12e39dd819bc18d5deb9f8b6da935616
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513149"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258691"
 ---
 # <a name="about-azure-virtual-wan"></a>Informacje o wirtualnej sieci WAN platformy Azure
 
@@ -98,7 +98,7 @@ Router może mieć cztery Stany routingu: zainicjowane, Inicjowanie obsługi adm
 * Stan **Brak** oznacza, że koncentrator nie udostępnił routera. Taka sytuacja może wystąpić, Jeśli wirtualna sieć WAN jest typu *Basic*lub jeśli koncentrator wirtualny został wdrożony przed udostępnieniem usługi.
 * Stan **niepowodzenia wskazuje** , że wystąpił błąd podczas tworzenia wystąpienia. W celu utworzenia wystąpienia lub zresetowania routera można zlokalizować opcję **Reset routera** , przechodząc do strony omówienia koncentratora wirtualnego w Azure Portal.
 
-Każdy router koncentratora wirtualnego obsługuje zagregowaną przepływność do 50 GB/s. Łączność między połączeniami sieci wirtualnej zakłada, że liczba 2000 obciążeń maszyny wirtualnej w ramach wszystkich sieci wirtualnych w wirtualnej sieci WAN.
+Każdy router koncentratora wirtualnego obsługuje zagregowaną przepływność do 50 GB/s. Łączność między połączeniami sieci wirtualnej polega na przyłożeniu całkowitej 2000 obciążeń maszyny wirtualnej na wszystkie sieci wirtualnych połączone z koncentratorem wirtualnym.
 
 #### <a name="transit-connectivity-between-vpn-and-expressroute"></a><a name="transit-er"></a>Transport łączności między sieciami VPN i ExpressRoute
 

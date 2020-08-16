@@ -1,15 +1,15 @@
 ---
 title: Informacje o tym, jak alerty metryk działają w Azure Monitor.
 description: Zapoznaj się z informacjami o tym, co możesz zrobić z alertami metryk i jak działają w Azure Monitor.
-ms.date: 07/16/2020
+ms.date: 08/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 9ac034eb144e5873f8f73ab7b1d7459394ce4775
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 035b68afed7383956beb13e367aa7a1f6dfcd070
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327144"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258424"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Omówienie działania alertów metryk w usłudze Azure Monitor
 
@@ -138,9 +138,12 @@ Ta funkcja jest obecnie obsługiwana w przypadku metryk platformy (nie metryk ni
 | Usługa | Publiczna platforma Azure | Instytucje rządowe | Chiny |
 |:--------|:--------|:--------|:--------|
 | Maszyny wirtualne  | **Tak** | Nie | Nie |
-| Bazy danych programu SQL Server | **Tak** | **Tak** | Nie |
-| Elastyczne pule programu SQL Server | **Tak** | **Tak** | Nie |
-| Urządzenia brzegowe pola danych | **Tak** | **Tak** | Nie |
+| Bazy danych programu SQL Server | **Tak** | **Tak** | **Tak** |
+| Elastyczne pule programu SQL Server | **Tak** | **Tak** | **Tak** |
+| Pule pojemności plików NetApp | **Tak** | **Tak** | **Tak** |
+| Woluminy plików NetApp | **Tak** | **Tak** | **Tak** |
+| Magazyny kluczy | **Tak** | **Tak** | **Tak** |
+| Urządzenia brzegowe pola danych | **Tak** | **Tak** | **Tak** |
 
 Zakres monitorowania można określić za pomocą jednej reguły alertu metryki na jeden z trzech sposobów. Na przykład z maszynami wirtualnymi można określić zakres jako:  
 

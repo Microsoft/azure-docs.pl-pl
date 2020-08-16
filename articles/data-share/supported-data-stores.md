@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 07/30/2020
-ms.openlocfilehash: 967b2dceab1f1702120cd3121ccd64b4e7286bc6
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 08/14/2020
+ms.openlocfilehash: 0e81d04edff667b0526f1d286701b2e8701528dc
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87511908"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258601"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Obsługiwane magazyny danych w udziale danych platformy Azure
 
@@ -26,11 +26,11 @@ Poniższa tabela zawiera szczegółowe informacje o obsługiwanych źródłach d
 | Magazyn danych | Udostępnianie oparte na migawce | Udostępnianie w miejscu 
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | Azure Blob Storage |✓ | |
-| Usługa Azure Data Lake Storage 1. generacji |✓ | |
-| Usługa Azure Data Lake Storage 2. generacji |✓ ||
+| Azure Data Lake Storage Gen1 |✓ | |
+| Azure Data Lake Storage Gen2 |✓ ||
 | Azure SQL Database |Publiczna wersja zapoznawcza | |
 | Azure Synapse Analytics (dawniej: Azure SQL DW) |Publiczna wersja zapoznawcza | |
-| Azure Data Explorer | |Publiczna wersja zapoznawcza |
+| Azure Data Explorer | |✓ |
 
 ## <a name="data-store-support-matrix"></a>Macierz obsługi magazynu danych
 
@@ -41,8 +41,8 @@ Poniższa tabela zawiera szczegółowe informacje o różnych kombinacjach i wyb
 | Magazyn danych | Azure Blob Storage | Usługa Azure Data Lake Storage 1. generacji | Usługa Azure Data Lake Storage 2. generacji | Azure SQL Database | Azure Synapse Analytics | Azure Data Explorer
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Azure Blob Storage | ✓ || ✓ ||
-| Usługa Azure Data Lake Storage 1. generacji | ✓ | | ✓ ||
-| Usługa Azure Data Lake Storage 2. generacji | ✓ | | ✓ ||
+| Azure Data Lake Storage Gen1 | ✓ | | ✓ ||
+| Azure Data Lake Storage Gen2 | ✓ | | ✓ ||
 | Azure SQL Database | ✓ | | ✓ | ✓ | ✓ ||
 | Azure Synapse Analytics (dawniej: Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ ||
 | Azure Data Explorer |||||| ✓ |
@@ -62,9 +62,7 @@ Udostępnianie ze źródeł opartych na języku SQL ma wymagania wstępne związ
 ## <a name="share-from-azure-data-explorer"></a>Udostępnianie z usługi Azure Eksplorator danych
 Udział danych platformy Azure umożliwia udostępnianie baz danych w miejscu z klastrów Eksplorator danych platformy Azure. Dostawca danych może współdzielić na poziomie bazy danych lub klastra. Po udostępnieniu na poziomie bazy danych konsument danych będzie mógł uzyskać dostęp do określonych baz danych udostępnionych przez dostawcę danych. Po udostępnieniu na poziomie klastra konsument danych może uzyskać dostęp do wszystkich baz danych z klastra dostawcy, w tym wszystkich przyszłych baz danych utworzonych przez dostawcę danych.
 
-Aby uzyskać dostęp do udostępnionych baz danych, konsument danych musi mieć własny klaster Eksplorator danych platformy Azure. Klaster danych platformy Azure dla użytkowników Eksplorator danych musi znajdować się w tym samym centrum danych platformy Azure co klaster usługi Azure Eksplorator danych dostawcy danych. Po ustanowieniu relacji udostępniania udział danych platformy Azure tworzy link symboliczny między klastrami Eksplorator danych platformy Azure dostawcy i klientem.
-
-Usługa Azure Eksplorator danych obsługuje dwa tryby pozyskiwania danych: wsadowe i strumieniowe. Dane odebrane z usługi Batch w udostępnionej bazie danych pojawią się od kilku sekund do kilku minut po stronie klienta danych. Dane odebrane z przesyłania strumieniowego mogą potrwać do 24 godzin po stronie konsumenta danych. 
+Aby uzyskać dostęp do udostępnionych baz danych, konsument danych musi mieć własny klaster Eksplorator danych platformy Azure. Klaster danych platformy Azure dla użytkowników Eksplorator danych musi znajdować się w tym samym centrum danych platformy Azure co klaster usługi Azure Eksplorator danych dostawcy danych. Po ustanowieniu relacji udostępniania udział danych platformy Azure tworzy link symboliczny między klastrami Eksplorator danych platformy Azure dostawcy i klientem. Dane pozyskiwane przy użyciu trybu wsadowego w źródłowym klastrze Eksplorator danych platformy Azure będą widoczne w klastrze docelowym w ciągu kilku sekund do kilku minut.
 
 ## <a name="next-steps"></a>Następne kroki
 

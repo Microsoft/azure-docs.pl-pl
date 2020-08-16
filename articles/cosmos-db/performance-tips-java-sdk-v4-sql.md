@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: d8ad191476416bc6ced35c4086d336b7f0a926cb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a014038996ae2846d059551b565feedd8de560a0
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327841"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258318"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Wskazówki dotyczące wydajności dla Azure Cosmos DB Java SDK v4
 
@@ -45,9 +45,9 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
 
     Te tryby połączeń zasadniczo polegają na tym, że trasy, które są żądaniami płaszczyzny danych, są wysyłane z komputera klienckiego do partycji w Azure Cosmos DB zaplecza. Tryb ogólnie Direct jest preferowaną opcją dla najlepszej wydajności — pozwala klientowi na otwieranie połączeń TCP bezpośrednio do partycji w Azure Cosmos DB zaplecza i wysyłanie żądań *bezpośrednich*ly bez pośrednika. Natomiast w trybie bramy żądania wysyłane przez klienta są kierowane do serwera "brama" w ramach frontonu Azure Cosmos DB, co z kolei powoduje, że żądania do odpowiednich partycji w Azure Cosmos DB zaplecza. Jeśli aplikacja działa w sieci firmowej z rygorystycznymi ograniczeniami zapory, najlepszym wyborem jest tryb bramy, ponieważ używa on standardowego portu HTTPS i jednego punktu końcowego. Z tego względu jest to, że tryb bramy obejmuje dodatkowy przeskok sieciowy (klient do bramy Plus brama do partycjonowania) za każdym razem, gdy dane są odczytywane lub zapisywane w Azure Cosmos DB. Z tego powodu tryb bezpośredni zapewnia lepszą wydajność ze względu na mniejszą liczbę przeskoków sieci.
 
-    Tryb połączenia dla żądań płaszczyzny danych jest konfigurowany w konstruktorze klienta Azure Cosmos DB przy użyciu metod *directmode ()* lub *GATEWAYMODE ()* , jak pokazano poniżej. Aby skonfigurować tryb z ustawieniami domyślnymi, wywołaj każdą metodę bez argumentów. W przeciwnym razie Przekaż wystąpienie klasy ustawień konfiguracji jako argument (*DirectConnectionConfig* for *directmode ()*, *GatewayConnectionConfig* dla *bramymode ()*.)
+    Tryb połączenia dla żądań płaszczyzny danych jest konfigurowany w konstruktorze klienta Azure Cosmos DB przy użyciu metod *directmode ()* lub *GATEWAYMODE ()* , jak pokazano poniżej. Aby skonfigurować tryb z ustawieniami domyślnymi, wywołaj każdą metodę bez argumentów. W przeciwnym razie Przekaż wystąpienie klasy ustawień konfiguracji jako argument (*DirectConnectionConfig* for *directmode ()*,  *GatewayConnectionConfig* dla *bramymode ()*.)
     
-    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a>Zestaw SDK Java v4
+    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Zestaw SDK Java v4
 
     # <a name="async"></a>[Asynchroniczne](#tab/api-async)
 
@@ -65,7 +65,7 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
 
     Metoda *directmode ()* ma dodatkowe przesłonięcie z następującego powodu. Operacje płaszczyzny kontroli, takie jak baza danych i kontener CRUD, *zawsze* wykorzystują tryb bramy; gdy użytkownik skonfigurował tryb bezpośredni dla operacji płaszczyzny danych, operacje płaszczyzny kontroli używają ustawień domyślnego trybu bramy. Jest to takie samo, jak większość użytkowników. Jednak użytkownicy, którzy chcą korzystać z trybu bezpośredniego dla operacji płaszczyzny danych, a także tunability parametry trybu bramy kontroli płaszczyzny sterowania mogą używać następującego przesłonięcia *bezpośredniegomode ()* :
 
-    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a>Zestaw SDK Java v4
+    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Zestaw SDK Java v4
 
     # <a name="async"></a>[Asynchroniczne](#tab/api-async)
 
@@ -133,7 +133,7 @@ Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [systemów Windows
 
     Poniższe fragmenty kodu pokazują, jak zainicjować klienta Azure Cosmos DB na potrzeby asynchronicznego interfejsu API lub operacji synchronizacji interfejsu API odpowiednio:
 
-    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a>Zestaw SDK Java v4
+    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Zestaw SDK Java v4
 
     # <a name="async"></a>[Asynchroniczne](#tab/api-async)
 
@@ -169,7 +169,7 @@ Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [systemów Windows
 
         Pierwszym krokiem jest użycie poniższych zalecanych ustawień konfiguracji. Te opcje *DirectConnectionConfig* są zaawansowane ustawienia konfiguracji, które mogą wpływać na wydajność zestawu SDK w nieoczekiwany sposób. Zalecamy, aby użytkownicy nie mogli ich modyfikować, chyba że obawiają się one w zrozumieniu kompromisów i są absolutnie niezbędne. Skontaktuj się z [zespołem Azure Cosmos DB](mailto:CosmosDBPerformanceSupport@service.microsoft.com) , jeśli wystąpią problemy z tym konkretnym tematem.
 
-        | Opcja konfiguracji       | Domyślne    |
+        | Opcja konfiguracji       | Domyślny    |
         | :------------------:       | :-----:    |
         | idleConnectionTimeout      | "PT1M"     |
         | maxConnectionsPerEndpoint  | "PT0S"     |
@@ -316,7 +316,7 @@ Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [systemów Windows
 
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos"></a><a id="java4-indexing"></a>Java SDK v4 (Maven com. Azure:: Azure-Cosmos)
 
-    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=MigrateIndexingAsync)]
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=MigrateIndexingAsync)]
 
     Aby uzyskać więcej informacji, zobacz [Azure Cosmos DB zasad indeksowania](indexing-policies.md).
 

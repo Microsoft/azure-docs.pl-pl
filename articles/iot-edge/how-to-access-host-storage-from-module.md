@@ -4,16 +4,16 @@ description: Użyj zmiennych środowiskowych i Utwórz opcje, aby umożliwić do
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/18/2019
+ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 079d5845917e63fadcf0466e5a744ed637d704ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe24cc79d749761b697a8d1a162ec2867da9a649
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75434518"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257485"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Zapewnianie modułom dostępu do magazynu lokalnego na urządzeniu
 
@@ -82,6 +82,12 @@ sudo chmod 700 <HostStoragePath>
 ```
 
 Więcej informacji o opcjach tworzenia można znaleźć w dokumentacji [platformy Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+
+## <a name="encrypted-data-in-module-storage"></a>Zaszyfrowane dane w magazynie modułów
+
+Gdy moduły wywołują interfejs API obciążenia demona IoT Edge, aby szyfrować dane, klucz szyfrowania jest uzyskiwany przy użyciu identyfikatora modułu i identyfikatora generacji modułu. Identyfikator generacji jest używany do ochrony kluczy tajnych, jeśli moduł zostanie usunięty z wdrożenia, a następnie inny moduł z tym samym IDENTYFIKATORem modułu zostanie wdrożony na tym samym urządzeniu. Identyfikator generacji modułu można wyświetlić, korzystając z polecenia, w którym jest polecenie [AZ IoT Hub module-Identity show](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show).
+
+Jeśli chcesz udostępnić pliki między modułami w ramach generacji, nie mogą one zawierać żadnych wpisów tajnych lub nie mogą zostać odszyfrowane.
 
 ## <a name="next-steps"></a>Następne kroki
 

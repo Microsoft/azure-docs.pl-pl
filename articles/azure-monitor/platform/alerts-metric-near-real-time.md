@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 7/26/2020
+ms.date: 8/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: bbfbc5e92fc49e45d1d16621992dbf4483f01bb5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 877134fb1d4417c04da3bf6a96267b413389ecb2
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327161"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258448"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Obsługiwane zasoby dla alertów metryk w Azure Monitor
 
@@ -30,34 +30,38 @@ Oto pełna lista źródeł metryk usługi Azure monitor obsługiwanych przez now
 
 |Typ zasobu  |Obsługiwane wymiary |Alerty dotyczące obsługi zasobów| Dostępne metryki|
 |---------|---------|-----|----------|
-|Microsoft.ApiManagement/service | Yes | Nie | [API Management](./metrics-supported.md#microsoftapimanagementservice) |
-|Microsoft. AppConfiguration/configurationStores |Yes | Nie | [Konfiguracja aplikacji](./metrics-supported.md#microsoftappconfigurationconfigurationstores) |
-|Microsoft. AppPlatform/Sprężyna | Yes | Nie | [Azure Spring Cloud](./metrics-supported.md#microsoftappplatformspring) |
-|Microsoft. Automation/automationAccounts | Yes| Nie | [Konta automatyzacji](./metrics-supported.md#microsoftautomationautomationaccounts) |
-|Microsoft.Batch/batchAccounts | Yes | Nie | [Konta usługi Batch](./metrics-supported.md#microsoftbatchbatchaccounts) |
-|Microsoft. cache/Redis | Yes | Nie | [Azure Cache for Redis](./metrics-supported.md#microsoftcacheredis) |
-|Microsoft. ClassicStorage/storageAccounts | Yes | Nie | [Konta magazynu (klasyczne)](./metrics-supported.md#microsoftclassicstoragestorageaccounts) |
-|Microsoft. ClassicStorage/storageAccounts/blobServices | Yes | Nie | |
-|Microsoft. ClassicStorage/storageAccounts/fileServices | Yes | Nie | |
-|Microsoft. ClassicStorage/storageAccounts/queueServices | Yes | Nie | |
-|Microsoft. ClassicStorage/storageAccounts/tableServices | Yes | Nie | |
-|Microsoft. CognitiveServices/konta | Yes | Nie | [Cognitive Services](./metrics-supported.md#microsoftcognitiveservicesaccounts) |
+|Microsoft. Aadiam/azureADMetrics | Tak | Nie | |
+|Microsoft.ApiManagement/service | Tak | Nie | [API Management](./metrics-supported.md#microsoftapimanagementservice) |
+|Microsoft. AppConfiguration/configurationStores |Tak | Nie | [Konfiguracja aplikacji](./metrics-supported.md#microsoftappconfigurationconfigurationstores) |
+|Microsoft. AppPlatform/Sprężyna | Tak | Nie | [Azure Spring Cloud](./metrics-supported.md#microsoftappplatformspring) |
+|Microsoft. Automation/automationAccounts | Tak| Nie | [Konta automatyzacji](./metrics-supported.md#microsoftautomationautomationaccounts) |
+|Microsoft. Automatyczna synchronizacja/privateClouds | Nie | Nie | |
+|Microsoft.Batch/batchAccounts | Tak | Nie | [Konta usługi Batch](./metrics-supported.md#microsoftbatchbatchaccounts) |
+|Microsoft. cache/Redis | Tak | Nie | [Azure Cache for Redis](./metrics-supported.md#microsoftcacheredis) |
+|Microsoft. ClassicStorage/storageAccounts | Tak | Nie | [Konta magazynu (klasyczne)](./metrics-supported.md#microsoftclassicstoragestorageaccounts) |
+|Microsoft. ClassicStorage/storageAccounts/blobServices | Tak | Nie | |
+|Microsoft. ClassicStorage/storageAccounts/fileServices | Tak | Nie | |
+|Microsoft. ClassicStorage/storageAccounts/queueServices | Tak | Nie | |
+|Microsoft. ClassicStorage/storageAccounts/tableServices | Tak | Nie | |
+|Microsoft. CognitiveServices/konta | Tak | Nie | [Cognitive Services](./metrics-supported.md#microsoftcognitiveservicesaccounts) |
 |Microsoft.Compute/virtualMachines | Tak | Tak | [Virtual Machines](./metrics-supported.md#microsoftcomputevirtualmachines) |
-|Microsoft.Compute/virtualMachineScaleSets | Yes | Nie |[Zestawy skalowania maszyn wirtualnych](./metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
-|Microsoft. ContainerInstance/containerGroups | Yes| Nie | [Grupy kontenerów](./metrics-supported.md#microsoftcontainerinstancecontainergroups) |
+|Microsoft.Compute/virtualMachineScaleSets | Tak | Nie |[Zestawy skalowania maszyn wirtualnych](./metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
+|Microsoft. ContainerInstance/containerGroups | Tak| Nie | [Grupy kontenerów](./metrics-supported.md#microsoftcontainerinstancecontainergroups) |
 |Microsoft. ContainerRegistry/rejestry | Nie | Nie | [Rejestry kontenerów](./metrics-supported.md#microsoftcontainerregistryregistries) |
-|Microsoft. ContainerService/managedClusters | Yes | Nie | [Zarządzane klastry](./metrics-supported.md#microsoftcontainerservicemanagedclusters) |
+|Microsoft. ContainerService/managedClusters | Tak | Nie | [Zarządzane klastry](./metrics-supported.md#microsoftcontainerservicemanagedclusters) |
 |Microsoft. DataBoxEdge/dataBoxEdgeDevices | Tak | Tak | [Data Box](./metrics-supported.md#microsoftdataboxedgedataboxedgedevices) |
-|Microsoft. DataFactory/datafactors| Yes| Nie | [Fabryki danych v1](./metrics-supported.md#microsoftdatafactorydatafactories) |
-|Microsoft. DataFactory/fabryki |Yes | Nie | [Fabryki danych v2](./metrics-supported.md#microsoftdatafactoryfactories) |
-|Microsoft. dataudział/konta | Yes | Nie | |
+|Microsoft. DataFactory/datafactors| Tak| Nie | [Fabryki danych v1](./metrics-supported.md#microsoftdatafactorydatafactories) |
+|Microsoft. DataFactory/fabryki |Tak | Nie | [Fabryki danych v2](./metrics-supported.md#microsoftdatafactoryfactories) |
+|Microsoft. dataudział/konta | Tak | Nie | |
 |Microsoft. DBforMariaDB/serwery | Nie | Nie | [Baza danych dla MariaDB](./metrics-supported.md#microsoftdbformariadbservers) |
 |Microsoft. DBforMySQL/serwery | Nie | Nie |[Baza danych dla programu MySQL](./metrics-supported.md#microsoftdbformysqlservers)|
+|Microsoft. DBforPostgreSQL/flexibleServers | Tak | Nie | |
 |Microsoft. DBforPostgreSQL/serwery | Nie | Nie | [Baza danych dla PostgreSQL](./metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft. DBforPostgreSQL/serversv2 | Nie | Nie | [DB for PostgreSQL v2](./metrics-supported.md#microsoftdbforpostgresqlserversv2)|
 |Microsoft. DBforPostgreSQL/singleservers | Nie | Nie | [DB for PostgreSQL (pojedyncze serwery)](./metrics-supported.md#microsoftdbforpostgresqlsingleservers)|
 |Microsoft. Devices/IotHubs | Tak | Nie |[IoT Hub](./metrics-supported.md#microsoftdevicesiothubs) |
 |Microsoft. Devices/provisioningServices| Tak | Nie | [Usługi Device Provisioning](./metrics-supported.md#microsoftdevicesprovisioningservices) |
+|Microsoft. DigitalTwins/digitalTwinsInstances | Tak | Nie | |
 |Microsoft.DocumentDB/databaseAccounts | Tak | Nie | [Cosmos DB](./metrics-supported.md#microsoftdocumentdbdatabaseaccounts) |
 |Microsoft. EventGrid/domeny | Tak | Nie | [Domeny usługi Event Grid](./metrics-supported.md#microsofteventgriddomains) |
 |Microsoft. EventGrid/systemTopics | Tak | Nie | [Tematy dotyczące systemu Event Grid](./metrics-supported.md#microsofteventgridsystemtopics) |
@@ -66,19 +70,20 @@ Oto pełna lista źródeł metryk usługi Azure monitor obsługiwanych przez now
 |Microsoft. EventHub/przestrzenie nazw |Tak| Nie | [Event Hubs](./metrics-supported.md#microsofteventhubnamespaces) |
 |Microsoft. HDInsight/Klastry | Tak | Nie | [Klastry HDInsight](./metrics-supported.md#microsofthdinsightclusters) |
 |Microsoft. Insights/składniki | Tak | Nie | [Application Insights](./metrics-supported.md#microsoftinsightscomponents) |
-|Microsoft./magazyny kluczy | Nie |Nie |[Magazyny](./metrics-supported.md#microsoftkeyvaultvaults)|
+|Microsoft./magazyny kluczy | Tak |Tak |[Magazyny](./metrics-supported.md#microsoftkeyvaultvaults)|
 |Microsoft. Kusto/klastry | Tak |Nie |[Klastry Eksplorator danych](./metrics-supported.md#microsoftkustoclusters)|
+|Microsoft. Logic/integrationServiceEnvironments | Tak | Nie |[Środowiska usługi integracji](./metrics-supported.md#microsoftlogicintegrationserviceenvironments) |
 |Microsoft. Logic/przepływy pracy | Nie | Nie |[Logic Apps](./metrics-supported.md#microsoftlogicworkflows) |
-|Microsoft. MachineLearningServices/obszary robocze | Tak | Nie | [Usługa Machine Learning](./metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
+|Microsoft. MachineLearningServices/obszary robocze | Tak | Nie | [Machine Learning](./metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
 |Microsoft. Maps/konta | Tak | Nie | [Mapuje konta](./metrics-supported.md#microsoftmapsaccounts) |
 |Microsoft. Media/MediaServices | Nie | Nie | [Media Services](./metrics-supported.md#microsoftmediamediaservices) |
 |Microsoft. Media/MediaServices/streamingEndpoints | Tak | Nie | [Media Services punkty końcowe przesyłania strumieniowego](./metrics-supported.md#microsoftmediamediaservicesstreamingendpoints) |
-|Microsoft. NetApp/netAppAccounts/capacityPools | Tak | Nie | [Pule pojemności usługi Azure NetApp](./metrics-supported.md#microsoftnetappnetappaccountscapacitypools) |
-|Microsoft. NetApp/netAppAccounts/capacityPools/woluminy | Tak | Nie | [Woluminy usługi Azure NetApp](./metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) |
+|Microsoft. NetApp/netAppAccounts/capacityPools | Tak | Tak | [Pule pojemności usługi Azure NetApp](./metrics-supported.md#microsoftnetappnetappaccountscapacitypools) |
+|Microsoft. NetApp/netAppAccounts/capacityPools/woluminy | Tak | Tak | [Woluminy usługi Azure NetApp](./metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) |
 |Microsoft. Network/applicationGateways | Tak | Nie | [Bramy aplikacji](./metrics-supported.md#microsoftnetworkapplicationgateways) |
 |Microsoft. Network/azurefirewalls | Tak | Nie | [Zapory](./metrics-supported.md#microsoftnetworkazurefirewalls) |
 |Microsoft. Network/dnsZones | Nie | Nie | [Strefy DNS](./metrics-supported.md#microsoftnetworkdnszones) |
-|Microsoft. Network/expressRouteCircuits | Brak | Nie |[Obwody usługi ExpressRoute](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
+|Microsoft. Network/expressRouteCircuits | Nie dotyczy | Nie |[Obwody usługi ExpressRoute](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
 |Microsoft. Network/loadBalancers (tylko w przypadku standardowych jednostek SKU)| Tak| Nie | [Moduły równoważenia obciążenia](./metrics-supported.md#microsoftnetworkloadbalancers) |
 |Microsoft. Network/natGateways| Nie | Nie | |
 |Microsoft. Network/privateEndpoints| Nie | Nie | |
