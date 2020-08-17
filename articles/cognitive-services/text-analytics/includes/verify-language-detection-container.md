@@ -19,7 +19,7 @@ ms.locfileid: "80876450"
 ### <a name="verify-the-language-detection-container-instance"></a>Weryfikowanie wykrywanie języka wystąpienia kontenera
 
 1. Wybierz kartę **Przegląd** i skopiuj adres IP.
-1. Otwórz nową kartę przeglądarki, a następnie wprowadź adres IP. Na przykład wpisz `http://<IP-address>:5000 (http://55.55.55.55:5000`). Zostanie wyświetlona strona główna kontenera, która informuje o tym, że kontener jest uruchomiony.
+1. Otwórz nową kartę przeglądarki, a następnie wprowadź adres IP. Na przykład wpisz `http://<IP-address>:5000 (http://55.55.55.55:5000` ). Zostanie wyświetlona strona główna kontenera, która informuje o tym, że kontener jest uruchomiony.
 
     ![Wyświetl stronę główną kontenera, aby sprawdzić, czy jest uruchomiona](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
@@ -49,7 +49,7 @@ ms.locfileid: "80876450"
     }
     ```
 
-1. Ustaw **showStats** wartość showStats `true`na.
+1. Ustaw wartość **showStats** na `true` .
 
 1. Wybierz pozycję **Execute (wykonaj** ), aby określić tonacji tekstu.
 
@@ -127,4 +127,4 @@ ms.locfileid: "80876450"
     }
     ```
 
-Teraz można skorelować dokumenty danych JSON ładunku odpowiedzi do oryginalnych dokumentów ładunku żądania przez odpowiadające im `id`. Każdy dokument jest traktowany niezależnie od różnych statystyk, `characterCount` takich `transactionCount`jak i. Ponadto każdy `detectedLanguages` dokument wynikający zawiera tablicę z `name`, `iso6391Name`i `score` dla każdego wykrytego języka. W `score` przypadku wykrycia wielu języków jest on używany do określenia najbardziej prawdopodobnego języka.
+Teraz można skorelować dokumenty danych JSON ładunku odpowiedzi do oryginalnych dokumentów ładunku żądania przez odpowiadające im `id` . Każdy dokument jest traktowany niezależnie od różnych statystyk, takich jak `characterCount` i `transactionCount` . Ponadto każdy dokument wynikający zawiera `detectedLanguages` tablicę z `name` , `iso6391Name` i `score` dla każdego wykrytego języka. W przypadku wykrycia wielu języków `score` jest on używany do określenia najbardziej prawdopodobnego języka.

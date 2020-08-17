@@ -6,14 +6,14 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: mahain
-ms.openlocfilehash: 84798dbcd158b62ce6714bf73494a9e85bf932a8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 3469b612081f9cb96beec98a065e0827d1c04b4c
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387952"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88261841"
 ---
-# <a name="avs-assessments-in-azure-migrate-server-assessment"></a>Ocena automatycznej synchronizacji w Azure Migrate: Ocena serwera
+# <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>Przegląd oceny serwera (Migrowanie do rozwiązania Azure VMware)
 
 [Azure Migrate](migrate-services-overview.md) udostępnia centralne centrum do śledzenia odnajdywania, oceny i migracji lokalnych aplikacji i obciążeń. Śledzi również wystąpienia chmury prywatnej i publicznej na platformie Azure. Centrum oferuje Azure Migrate narzędzia do oceny i migracji, a także oferty niezależnych dostawców oprogramowania (ISV) innych firm.
 
@@ -128,7 +128,7 @@ Tutaj nowości zamieszczono w ocenie automatycznej synchronizacji w ocenie serwe
 **Użycie percentyla** | Określa wartość percentylości zestawu próbek wydajności, który ma być brany pod uwagę w przypadku zmiany wielkości liter. Ta właściwość ma zastosowanie tylko wtedy, gdy rozmiar jest oparty na wydajności.
 **Współczynnik komfortu** | Azure Migrate oceny serwera traktuje bufor (współczynnik komfortu) podczas oceny. Jest on stosowany do wszystkich danych użycia maszyn wirtualnych (procesora, pamięci, dysku i sieci). Współczynnik komfortu uwzględnia kwestie, takie jak okresowe użycie, krótka historia wydajności i prawdopodobne zwiększenie użycia w przyszłości.<br/><br/> Na przykład 10-rdzeniowa maszyna wirtualna o użyciu na poziomie 20% jest w normalnych warunkach równoważna 2-rdzeniowej maszynie wirtualnej. Jednak wynik zastosowania współczynnika komfortu o wartości 2 daje 4-rdzeniową maszynę wirtualną. 
 **Oferta** | Wyświetla [ofertę platformy Azure](https://azure.microsoft.com/support/legal/offer-details/) , która jest zarejestrowana. Zgodnie z tym usługa Azure Migrate odpowiednio szacuje koszty.
-**Walutowy** | Przedstawia walutę rozliczeń dla Twojego konta. 
+**Waluta** | Przedstawia walutę rozliczeń dla Twojego konta. 
 **Rabat (%)** | Wyświetla rabat związany z subskrypcją, który otrzymujesz w górnej części oferty platformy Azure. Ustawienie domyślne to 0%. 
 **Korzyść użycia hybrydowego platformy Azure** | Określa, czy masz program Software Assurance i kwalifikujesz się do [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Chociaż nie ma to wpływu na ceny rozwiązań VMware platformy Azure ze względu na cenę opartą na węzłach, klienci mogą nadal stosować licencje lokalnych systemów operacyjnych (Microsoft based) w ramach automatycznej synchronizacji przy użyciu korzyści użycia hybrydowego platformy Azure. Inni dostawcy systemu operacyjnego oprogramowania będą musieli podać własne warunki licencjonowania, takie jak RHEL. 
 **vCPU nadsubskrypcji** | Określa stosunek liczby rdzeni wirtualnych związanych z jednym rdzeniem fizycznym w węźle automatyczna synchronizacja. Wartość domyślna w obliczeniach to 4 vCPU: 1 rdzeń fizyczny w wersji zaautomatycznej. <br/><br/> Użytkownicy interfejsu API mogą ustawić tę wartość jako liczbę całkowitą. Należy zauważyć, że vCPU nad> 4:1 może mieć wpływ na obciążenia, w zależności od użycia procesora CPU. 

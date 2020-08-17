@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punk
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 3a7fe7ca2e439739cbdeeb626fea9d2fb3983b83
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 01235e116ca93f9c73e698e4d72ae0cb561824d5
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236305"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88262674"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -32,7 +32,7 @@ Aby przywrócić pliki lub foldery z punktu odzyskiwania, przejdź do maszyny wi
 
 3. W menu pulpitu nawigacyjnego kopii zapasowej wybierz pozycję **odzyskiwanie plików**.
 
-    ![Przycisk odzyskiwania plików](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+    ![Wybierz odzyskiwanie plików](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
 
     Zostanie otwarte menu **odzyskiwanie plików** .
 
@@ -42,7 +42,7 @@ Aby przywrócić pliki lub foldery z punktu odzyskiwania, przejdź do maszyny wi
 
 5. Aby pobrać oprogramowanie używane do kopiowania plików z punktu odzyskiwania, wybierz pozycję **Pobierz plik wykonywalny** (dla maszyn wirtualnych z systemem Windows Azure) lub **Pobierz skrypt** (w przypadku maszyn wirtualnych z systemem Linux Azure zostanie wygenerowany skrypt w języku Python).
 
-    ![Wygenerowane hasło](./media/backup-azure-restore-files-from-vm/download-executable.png)
+    ![Pobierz plik wykonywalny](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
     Platforma Azure pobiera plik wykonywalny lub skrypt na komputer lokalny.
 
@@ -56,7 +56,7 @@ Aby przywrócić pliki lub foldery z punktu odzyskiwania, przejdź do maszyny wi
 
 7. Upewnij się, że [masz odpowiednią maszynę](#selecting-the-right-machine-to-run-the-script) do wykonania skryptu. Jeśli komputer jest na tym samym komputerze, na którym został pobrany skrypt, możesz przejść do sekcji Pobieranie. W lokalizacji pobierania (zazwyczaj folder *pobierania* ) kliknij prawym przyciskiem myszy plik wykonywalny lub skrypt, a następnie uruchom go z poświadczeniami administratora. Po wyświetleniu monitu wpisz hasło lub wklej hasło z pamięci, a następnie naciśnij klawisz **Enter**. Po wprowadzeniu prawidłowego hasła skrypt nawiązuje połączenie z punktem odzyskiwania.
 
-    ![Menu odzyskiwania plików](./media/backup-azure-restore-files-from-vm/executable-output.png)
+    ![Dane wyjściowe pliku wykonywalnego](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
 8. W przypadku maszyn z systemem Linux jest generowany skrypt języka Python. Jeden z nich musi pobrać skrypt i skopiować go do odpowiedniego/zgodnego serwera z systemem Linux. Może być konieczne zmodyfikowanie uprawnień, aby wykonać je w programie ```chmod +x <python file name>``` . Następnie uruchom plik Python przy użyciu programu ```./<python file name>``` .
 
@@ -362,7 +362,7 @@ Jeśli występują problemy podczas odzyskiwania plików z maszyn wirtualnych, z
 | Specyficzne dla systemu Linux: nie można wyświetlić żądanych woluminów | System operacyjny maszyny, na której jest uruchamiany skrypt, może nie rozpoznać podstawowego systemu plików chronionej maszyny wirtualnej | Sprawdź, czy punkt odzyskiwania jest spójny pod kątem awarii lub spójny z plikiem. Jeśli plik jest spójny, uruchom skrypt na innym komputerze, którego system operacyjny rozpoznaje chronioną system plików maszyny wirtualnej. |
 | Specyficzne dla systemu Windows: nie można wyświetlić żądanych woluminów | Dyski mogły zostać dołączone, ale nie skonfigurowano woluminów | Na ekranie Zarządzanie dyskami Zidentyfikuj dodatkowe dyski związane z punktem odzyskiwania. Jeśli którykolwiek z tych dysków znajduje się w stanie offline, spróbuj przełączyć je w tryb online, klikając dysk prawym przyciskiem myszy i wybierz pozycję **online**.|
 
-## <a name="security"></a>Zabezpieczenia
+## <a name="security"></a>Bezpieczeństwo
 
 W tej sekcji omówiono różne miary zabezpieczeń związane z wdrażaniem odzyskiwania plików z kopii zapasowych maszyn wirtualnych platformy Azure.
 

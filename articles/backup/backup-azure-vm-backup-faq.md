@@ -4,12 +4,12 @@ description: W tym artykule znajdują się odpowiedzi na często zadawane pytani
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 268146430a71cca4e620381ec4ce8666f808fefd
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 03e2f004fa54ee235eabc49afd6abd7532a6ee44
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190895"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88262776"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure
 
@@ -100,6 +100,10 @@ Jeśli zmienisz wielkość liter (na górną lub niższą) maszyny wirtualnej lu
 ### <a name="can-i-back-up-or-restore-selective-disks-attached-to-a-vm"></a>Czy można tworzyć kopie zapasowe lub przywracać dyski selektywne dołączone do maszyny wirtualnej?
 
 Azure Backup teraz obsługuje selektywne tworzenie kopii zapasowych i przywracanie dysków przy użyciu rozwiązania do tworzenia kopii zapasowych maszyny wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz [selektywne tworzenie kopii zapasowych i przywracanie dysków dla maszyn wirtualnych platformy Azure](selective-disk-backup-restore.md).
+
+### <a name="are-managed-identities-preserved-if-a-tenant-change-occurs-during-backup"></a>Czy zarządzane tożsamości są zachowywane w przypadku zmiany dzierżawy podczas tworzenia kopii zapasowej?
+
+Jeśli nastąpi [zmiana dzierżawy](https://docs.microsoft.com/azure/devops/organizations/accounts/change-azure-ad-connection) , musisz wyłączyć i ponownie włączyć [zarządzane tożsamości](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) , aby kopie zapasowe działały ponownie.
 
 ## <a name="restore"></a>Przywracanie
 

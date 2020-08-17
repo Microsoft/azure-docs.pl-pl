@@ -19,7 +19,7 @@ ms.locfileid: "80876448"
 ### <a name="verify-the-key-phrase-extraction-container-instance"></a>Weryfikowanie wyodrębnianie kluczowych fraz wystąpienia kontenera
 
 1. Wybierz kartę **Przegląd** i skopiuj adres IP.
-1. Otwórz nową kartę przeglądarki, a następnie wprowadź adres IP. Na przykład wpisz `http://<IP-address>:5000 (http://55.55.55.55:5000`). Zostanie wyświetlona strona główna kontenera, która informuje o tym, że kontener jest uruchomiony.
+1. Otwórz nową kartę przeglądarki, a następnie wprowadź adres IP. Na przykład wpisz `http://<IP-address>:5000 (http://55.55.55.55:5000` ). Zostanie wyświetlona strona główna kontenera, która informuje o tym, że kontener jest uruchomiony.
 
     ![Wyświetl stronę główną kontenera, aby sprawdzić, czy jest uruchomiona](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
@@ -64,7 +64,7 @@ ms.locfileid: "80876448"
     }
     ```
 
-1. Ustaw **showStats** wartość showStats `true`na.
+1. Ustaw wartość **showStats** na `true` .
 
 1. Wybierz pozycję **Execute (wykonaj** ), aby określić tonacji tekstu.
 
@@ -100,4 +100,4 @@ ms.locfileid: "80876448"
     }
     ```
 
-Teraz można skorelować dokument `id` danych JSON ładunku odpowiedzi do oryginalnego dokumentu `id`ładunku żądania. Dokument z wynikiem zawiera `keyPhrases` tablicę zawierającą listę fraz kluczowych, które zostały wyodrębnione z odpowiedniego dokumentu wejściowego. Ponadto istnieją różne statystyki, takie jak `characterCount` i `transactionCount` dla każdego uzyskanego dokumentu.
+Teraz można skorelować dokument `id` danych JSON ładunku odpowiedzi do oryginalnego dokumentu ładunku żądania `id` . Dokument z wynikiem zawiera `keyPhrases` tablicę zawierającą listę fraz kluczowych, które zostały wyodrębnione z odpowiedniego dokumentu wejściowego. Ponadto istnieją różne statystyki, takie jak `characterCount` i `transactionCount` dla każdego uzyskanego dokumentu.

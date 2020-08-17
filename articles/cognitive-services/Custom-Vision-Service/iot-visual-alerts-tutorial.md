@@ -128,7 +128,7 @@ W dowolnym momencie można powtórzyć krok przekazywania obrazów szkoleniowych
 
 Jeśli aplikacja jest uruchamiana na urządzeniu i należy ponownie pobrać adres IP (w celu nawiązania połączenia zdalnego za pomocą [zdalnego klienta usługi Windows IoT](https://www.microsoft.com/p/windows-iot-remote-client/9nblggh5mnxz#activetab=pivot:overviewtab)), można wywołać `GetIpAddress` metodę za pomocą IoT Hub.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Usuń projekt Custom Vision, jeśli nie chcesz już go obsługiwać. W [witrynie sieci web Custom Vision](https://customvision.ai)przejdź do pozycji **projekty** i wybierz Kosz, który można obsłużyć w nowym projekcie.
 

@@ -3,14 +3,14 @@ title: Oceny maszyn wirtualnych platformy Azure w ramach oceny Azure Migrate Ser
 description: Dowiedz się więcej na temat ocen w Azure Migrate oceny serwera
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 7664c8296f0d47f37f9542dee82d3c718be40126
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1d9c887f42089611ce7402aa32174958cd8c0b07
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825994"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88261858"
 ---
-# <a name="azure-vm-assessments-in-azure-migrate-server-assessment"></a>Oceny maszyn wirtualnych platformy Azure w Azure Migrate: Ocena serwera
+# <a name="server-assessment-overview-migrate-to-azure-vms"></a>Przegląd oceny serwera (Migrowanie do maszyn wirtualnych platformy Azure)
 
 Ten artykuł zawiera omówienie ocen w Azure Migrate: Narzędzie do [oceny serwera](migrate-services-overview.md#azure-migrate-server-assessment-tool) . Narzędzie może ocenić lokalne maszyny wirtualne VMware, maszyny wirtualne funkcji Hyper-V i serwery fizyczne do migracji na platformę Azure.
 
@@ -122,9 +122,9 @@ Oto nowości w ocenie maszyny wirtualnej platformy Azure w ramach oceny serwera:
 **Historia wydajności** | Używane z rozmiarem opartym na wydajności. Historia wydajności określa czas trwania używany podczas oceniania danych wydajności.
 **Użycie percentyla** | Używane z rozmiarem opartym na wydajności. Użycie percentylu określa wartość percentylości próbki wydajności używanej dla odpowiedniej zmiany.
 **Serie maszyn wirtualnych** | Seria maszyn wirtualnych platformy Azure, którą chcesz uwzględnić dla odpowiedniej zmiany. Na przykład jeśli nie masz środowiska produkcyjnego wymagającego maszyn wirtualnych serii A na platformie Azure, możesz wykluczyć serię z listy serii.
-**Współczynnik komfortu** | Bufor używany podczas oceny. Jest on stosowany do danych użycia procesora CPU, pamięci RAM, dysku i sieci dla maszyn wirtualnych. Konta IT dotyczą problemów, takich jak sezonowe użycie, krótka historia wydajności i prawdopodobnie wzrasta w przyszłości.<br/><br/> Na przykład 10-rdzeniowa maszyna wirtualna z wykorzystaniem 20% zwykle skutkuje dwurdzeniową maszyną wirtualną. Ze współczynnikiem komfortu wynoszącym 2,0, w zamian powstaje wielordzeniowa maszyna wirtualna.
+**Współczynnik komfortu** | Bufor używany podczas oceny. Jest on stosowany do danych procesora CPU, pamięci RAM, dysku i sieci dla maszyn wirtualnych. Konta IT dotyczą problemów, takich jak sezonowe użycie, krótka historia wydajności i prawdopodobnie wzrasta w przyszłości.<br/><br/> Na przykład 10-rdzeniowa maszyna wirtualna z wykorzystaniem 20% zwykle skutkuje dwurdzeniową maszyną wirtualną. Ze współczynnikiem komfortu wynoszącym 2,0, w zamian powstaje wielordzeniowa maszyna wirtualna.
 **Oferta** | [Oferta platformy Azure](https://azure.microsoft.com/support/legal/offer-details/) , w której zarejestrowano Cię. Ocena serwera szacuje koszt dla tej oferty.
-**Walutowy** | Waluta rozliczeń dla Twojego konta.
+**Waluta** | Waluta rozliczeń dla Twojego konta.
 **Rabat (%)** | Wszystkie zniżki związane z subskrypcją, które otrzymujesz w ramach oferty platformy Azure. Ustawienie domyślne to 0%.
 **Czas pracy maszyny wirtualnej** | Czas trwania w dniach miesięcznie i godzin dziennie maszyn wirtualnych platformy Azure, które nie będą działać w sposób ciągły. Oszacowania kosztów bazują na tym czasie.<br/><br/> Wartości domyślne to 31 dni miesięcznie i 24 godziny dziennie.
 **Korzyść użycia hybrydowego platformy Azure** | Określa, czy masz program Software Assurance i kwalifikujesz się do [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Jeśli ustawienie ma wartość domyślną "tak", ceny platformy Azure dla systemów operacyjnych innych niż Windows są brane pod uwagę w przypadku maszyn wirtualnych z systemem Windows.
@@ -151,8 +151,8 @@ W przypadku oceny maszyny wirtualnej na platformie Azure Ocena serwera sprawdza 
 Właściwość | Szczegóły | Stan gotowości platformy Azure
 --- | --- | ---
 **Typ rozruchu** | Platforma Azure obsługuje maszyny wirtualne z typem rozruchowym systemu BIOS, a nie z interfejsem UEFI. | Warunkowo gotowe, jeśli typ rozruchu to UEFI
-**Rdzenie** | Każda maszyna nie może mieć więcej niż 128 rdzeni, co jest maksymalną liczbą obsługiwaną przez maszynę wirtualną platformy Azure.<br/><br/> Jeśli historia wydajności jest dostępna, Azure Migrate traktuje wykorzystane rdzenie do porównania. Jeśli ustawienia oceny określają współczynnik komfortu, Liczba użytych rdzeni jest mnożona przez współczynnik komfortu.<br/><br/> Jeśli nie ma historii wydajności, Azure Migrate używa przyznanych rdzeni bez zastosowania współczynnika komfortu. | Gotowe, jeśli liczba rdzeni przekracza limit
-**NIEGO** | Każda maszyna nie może mieć więcej niż 3 892 GB pamięci RAM, czyli maksymalnego rozmiaru obsługiwanego przez maszynę wirtualną z serii M Standard_M128m &nbsp; <sup>2</sup> . [Dowiedz się więcej](../virtual-machines/sizes.md).<br/><br/> Jeśli historia wydajności jest dostępna, Azure Migrate uwzględnia wykorzystanie pamięci RAM do porównania. W przypadku określenia współczynnika komfortu wykorzystanie pamięci RAM jest mnożone przez współczynnik komfortu.<br/><br/> Jeśli nie ma żadnej historii, przydzieloną pamięć RAM jest używana bez zastosowania współczynnika komfortu.<br/><br/> | Gotowe, jeśli ilość pamięci RAM mieści się w limicie
+**Rdzenie** | Każda maszyna nie może mieć więcej niż 128 rdzeni, co jest maksymalną liczbą obsługiwaną przez maszynę wirtualną platformy Azure.<br/><br/> Jeśli historia wydajności jest dostępna, Azure Migrate traktuje wykorzystane rdzenie do porównania. Jeśli ustawienia oceny określają współczynnik komfortu, Liczba użytych rdzeni jest mnożona przez współczynnik komfortu.<br/><br/> Jeśli nie ma historii wydajności, Azure Migrate używa przyznanych rdzeni, aby zastosować współczynnik komfortu. | Gotowe, jeśli liczba rdzeni przekracza limit
+**NIEGO** | Każda maszyna nie może mieć więcej niż 3 892 GB pamięci RAM, czyli maksymalnego rozmiaru obsługiwanego przez maszynę wirtualną z serii M Standard_M128m &nbsp; <sup>2</sup> . [Dowiedz się więcej](../virtual-machines/sizes.md).<br/><br/> Jeśli historia wydajności jest dostępna, Azure Migrate uwzględnia wykorzystanie pamięci RAM do porównania. W przypadku określenia współczynnika komfortu wykorzystanie pamięci RAM jest mnożone przez współczynnik komfortu.<br/><br/> Jeśli nie ma żadnej historii, przydzieloną pamięć RAM zostanie użyta do zastosowania współczynnika komfortu.<br/><br/> | Gotowe, jeśli ilość pamięci RAM mieści się w limicie
 **Dysk magazynu** | Przydzielony rozmiar dysku nie może być większy niż 32 TB. Mimo że platforma Azure obsługuje dyski 64 TB z dyskami SSD w warstwie Ultra platformy Azure, Azure Migrate: Ocena serwera obecnie sprawdza, czy rozmiar dysku wynosi 32 TB, ponieważ nie obsługuje jeszcze SSD w warstwie Ultra. <br/><br/> Liczba dysków dołączonych do maszyny, łącznie z dyskiem systemu operacyjnego, nie może być większa niż 65. | Gotowe, jeśli rozmiar i liczba dysków przekraczają limity
 **Sieć** | Komputer nie może mieć więcej niż 32 interfejsów sieciowych (nic). | Gotowe, jeśli liczba kart sieciowych mieści się w limicie
 

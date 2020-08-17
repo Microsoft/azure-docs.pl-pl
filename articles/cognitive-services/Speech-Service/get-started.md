@@ -71,7 +71,7 @@ Aby dodać zasób usługi mowy (warstwa Bezpłatna lub płatna) do konta platfor
    - Wybierz [region](regions.md) , w którym będzie używany zasób.
    - Wybierz opcję bezpłatna (F0) lub płatna (S0). Aby uzyskać pełne informacje na temat cen i przydziałów użycia dla każdej warstwy, wybierz pozycję **Wyświetl pełne szczegóły cennika**.
    - Utwórz nową grupę zasobów dla tej subskrypcji mowy lub Przypisz subskrypcję do istniejącej grupy zasobów. Grupy zasobów ułatwiają zachowanie różnych subskrypcji platformy Azure.
-   - Wybierz przycisk **Utwórz**. Spowoduje to przejście do omówienia wdrażania i wyświetlenie komunikatów o postępie wdrażania.
+   - Wybierz pozycję **Utwórz**. Spowoduje to przejście do omówienia wdrażania i wyświetlenie komunikatów o postępie wdrażania.
 
 > [!NOTE]
 > W jednym lub wielu regionach można utworzyć nieograniczoną liczbę subskrypcji w warstwie Standardowa. Można jednak utworzyć tylko jedną subskrypcję warstwy Bezpłatna. Wdrożenie modelu w warstwie Bezpłatna, które pozostanie nieużywane przez 7 dni, zostanie zlikwidowane automatycznie.

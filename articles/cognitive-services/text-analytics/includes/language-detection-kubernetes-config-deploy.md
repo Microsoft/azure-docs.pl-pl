@@ -48,7 +48,7 @@ ms.locfileid: "80877844"
     code .
     ```
 
-1. W edytorze tekstów Utwórz nowy plik o nazwie *Language. YAML*i wklej do niego następujące YAML. Pamiętaj, aby `billing/value` zamienić `apikey/value` i wraz z własnymi informacjami.
+1. W edytorze tekstów Utwórz nowy plik o nazwie *Language. YAML*i wklej do niego następujące YAML. Pamiętaj, aby zamienić `billing/value` i `apikey/value` wraz z własnymi informacjami.
 
     ```yaml
     apiVersion: apps/v1beta1

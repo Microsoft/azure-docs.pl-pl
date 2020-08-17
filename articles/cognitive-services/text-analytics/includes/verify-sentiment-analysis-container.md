@@ -19,7 +19,7 @@ ms.locfileid: "80876447"
 ### <a name="verify-the-sentiment-analysis-container-instance"></a>Weryfikowanie analiza tonacji wystąpienia kontenera
 
 1. Wybierz kartę **Przegląd** i skopiuj adres IP.
-1. Otwórz nową kartę przeglądarki, a następnie wprowadź adres IP. Na przykład wpisz `http://<IP-address>:5000 (http://55.55.55.55:5000`). Zostanie wyświetlona strona główna kontenera, która informuje o tym, że kontener jest uruchomiony.
+1. Otwórz nową kartę przeglądarki, a następnie wprowadź adres IP. Na przykład wpisz `http://<IP-address>:5000 (http://55.55.55.55:5000` ). Zostanie wyświetlona strona główna kontenera, która informuje o tym, że kontener jest uruchomiony.
 
     ![Wyświetl stronę główną kontenera, aby sprawdzić, czy jest uruchomiona](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
@@ -63,7 +63,7 @@ ms.locfileid: "80876447"
     }
     ```
 
-1. Ustaw **showStats** wartość showStats `true`na.
+1. Ustaw wartość **showStats** na `true` .
 
 1. Wybierz pozycję **Execute (wykonaj** ), aby określić tonacji tekstu.
 
@@ -93,4 +93,4 @@ ms.locfileid: "80876447"
     }
     ```
 
-Teraz można skorelować dokument `id` danych JSON ładunku odpowiedzi do oryginalnego dokumentu `id`ładunku żądania. Wynik więcej niż `0.98` wskazuje bardzo pozytywny tonacji.
+Teraz można skorelować dokument `id` danych JSON ładunku odpowiedzi do oryginalnego dokumentu ładunku żądania `id` . Wynik więcej niż `0.98` wskazuje bardzo pozytywny tonacji.

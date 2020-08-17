@@ -22,8 +22,8 @@ ms.locfileid: "85980223"
 
 Przy użyciu klucza i punktu końcowego z utworzonego zasobu Utwórz dwa zmienne środowiskowe do uwierzytelnienia:
 
-* `ANOMALY_DETECTOR_KEY`— Klucz zasobu do uwierzytelniania żądań.
-* `ANOMALY_DETECTOR_ENDPOINT`— Punkt końcowy zasobu do wysyłania żądań interfejsu API. Będzie wyglądać następująco: 
+* `ANOMALY_DETECTOR_KEY` — Klucz zasobu do uwierzytelniania żądań.
+* `ANOMALY_DETECTOR_ENDPOINT` — Punkt końcowy zasobu do wysyłania żądań interfejsu API. Będzie to wyglądać następująco: 
   * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
 
 Skorzystaj z instrukcji dotyczących systemu operacyjnego.

@@ -118,7 +118,7 @@ Za pomocą [interfejsu wiersza polecenia platformy .NET Core](https://docs.micro
     dotnet run
     ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

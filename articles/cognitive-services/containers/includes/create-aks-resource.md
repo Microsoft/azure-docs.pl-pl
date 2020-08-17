@@ -20,7 +20,7 @@ ms.locfileid: "87298834"
 
 1. Przejdź do [usługi Azure Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks)i wybierz pozycję **Utwórz**.
 
-1. Na karcie **podstawowe** wprowadź następujące informacje:
+1. Na karcie **Podstawowe** wprowadź następujące informacje:
 
     |Ustawienie|Wartość|
     |--|--|

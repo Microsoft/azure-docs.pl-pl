@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure w magazynie
 description: Zawiera opis sposobu tworzenia kopii zapasowych maszyn wirtualnych platformy Azure w magazynie Recovery Services przy użyciu Azure Backup
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 91fca2eef21a817c0f78b826e507901d94156dcd
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1ae501be57be672238c8b55f431b6f5962a5fd99
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533601"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88261943"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure w magazynie Recovery Services
 
@@ -140,7 +140,7 @@ Faza migawki gwarantuje dostępność punktu odzyskiwania przechowywanego wraz z
 
 Istnieją dwa **podzadania** uruchomione w zapleczu — jeden dla zadania tworzenia kopii zapasowej frontonu, który można sprawdzić w okienku szczegółów **zadania tworzenia kopii zapasowej** w następujący sposób:
 
-  ![Stan zadania tworzenia kopii zapasowej](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
+  ![Zadanie tworzenia kopii zapasowej stanu zadania podrzędnego](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
 
 Zakończenie fazy **transferu danych do magazynu** może zająć wiele dni w zależności od rozmiaru dysków, liczby zmian na dysk i kilku innych czynników.
 

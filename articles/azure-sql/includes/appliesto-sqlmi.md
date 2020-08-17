@@ -6,5 +6,5 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 07/20/2020
 ms.locfileid: "86498416"
 ---
-<Token>**dotyczy:** ![ tak, ](../media/applies-to/yes.png) wystąpienie zarządzane Azure SQL</Token> 
+<Token>**dotyczy:** ![ tak, ](../media/applies-to/yes.png) wystąpienie zarządzane Azure SQL </Token> 
 

@@ -48,7 +48,7 @@ ms.locfileid: "80877845"
     code .
     ```
 
-1. W edytorze tekstów Utwórz nowy plik o nazwie *keyphrase. YAML*i wklej do niego następujący YAML. Pamiętaj, aby `billing/value` zamienić `apikey/value` i wraz z własnymi informacjami.
+1. W edytorze tekstów Utwórz nowy plik o nazwie *keyphrase. YAML*i wklej do niego następujący YAML. Pamiętaj, aby zamienić `billing/value` i `apikey/value` wraz z własnymi informacjami.
 
     ```yaml
     apiVersion: apps/v1beta1

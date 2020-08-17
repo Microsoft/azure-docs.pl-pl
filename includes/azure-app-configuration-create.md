@@ -17,9 +17,9 @@ ms.locfileid: "77619286"
 
 1. Wybierz pozycję **Konfiguracja aplikacji** z wyników wyszukiwania, a następnie wybierz pozycję **Utwórz**.
 
-    ![Wybierz pozycję Utwórz](media/azure-app-configuration-create/azure-portal-app-configuration-create.png)
+    ![Wybieranie pozycji Utwórz](media/azure-app-configuration-create/azure-portal-app-configuration-create.png)
 
-1. W okienku > **Tworzenie** **konfiguracji aplikacji**wprowadź następujące ustawienia:
+1. W okienku **Tworzenie konfiguracji aplikacji**  >  **Create** wprowadź następujące ustawienia:
 
     | Ustawienie | Sugerowana wartość | Opis |
     |---|---|---|
@@ -31,6 +31,6 @@ ms.locfileid: "77619286"
 
     ![Tworzenie zasobu magazynu konfiguracji aplikacji](media/azure-app-configuration-create/azure-portal-app-configuration-create-settings.png)
 
-1. Wybierz przycisk **Utwórz**. Wdrożenie może potrwać kilka minut.
+1. Wybierz pozycję **Utwórz**. Wdrożenie może potrwać kilka minut.
 
-1. Po zakończeniu wdrażania wybierz pozycję **Ustawienia** > **klucze dostępu**. Zanotuj podstawowe parametry połączenia klucza tylko do odczytu. Te parametry połączenia będą używane później, aby skonfigurować aplikację do komunikacji z utworzonym magazynem konfiguracji aplikacji.
+1. Po zakończeniu wdrażania wybierz pozycję **Ustawienia**  >  **klucze dostępu**. Zanotuj podstawowe parametry połączenia klucza tylko do odczytu. Te parametry połączenia będą używane później, aby skonfigurować aplikację do komunikacji z utworzonym magazynem konfiguracji aplikacji.

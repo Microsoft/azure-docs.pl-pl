@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych i Przywracanie zaszyfrowanych maszyn wirtualny
 description: Opisuje sposób tworzenia kopii zapasowych i przywracania zaszyfrowanych maszyn wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 25c5e66bde817e824a307df2a2b1b5f76c773c01
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: a5c12f9f9177c4495a82ced2b3c7d0c5edcdd78e
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405767"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88262793"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Tworzenie kopii zapasowej i przywracanie zaszyfrowanej maszyny wirtualnej platformy Azure
 
@@ -27,8 +27,8 @@ Azure Backup można tworzyć kopie zapasowe maszyn wirtualnych platformy Azure i
 
 **Typ dysku maszyny wirtualnej** | **ADE (klucz szyfrowania bloków/dm-crypt)** | **ADE i KEK**
 --- | --- | ---
-**Niezarządzany** | Tak | Tak
-**Zarządzany**  | Tak | Tak
+**Niezarządzany** | Yes | Yes
+**Zarządzany**  | Yes | Yes
 
 - Dowiedz się więcej na temat [ADE](../security/fundamentals/azure-disk-encryption-vms-vmss.md), [Key Vault](../key-vault/general/overview.md)i [KEKs](../virtual-machine-scale-sets/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
 - Przeczytaj [często zadawane pytania](../security/fundamentals/azure-disk-encryption-vms-vmss.md) dotyczące szyfrowania dysków maszyn wirtualnych platformy Azure.
@@ -70,13 +70,13 @@ Ponadto istnieje kilka rzeczy, które mogą być konieczne w pewnych okolicznoś
     - Zasady tworzenia kopii zapasowych określają, kiedy są tworzone kopie zapasowe, oraz czas ich przechowywania.
     - Szczegóły domyślnych zasad znajdują się w menu rozwijanym.
 
-    ![Otwarcie bloku scenariusza](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
+    ![Wybieranie zasad kopii zapasowych](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
 
 1. Jeśli nie chcesz używać zasad domyślnych, wybierz pozycję **Utwórz nową**i [Utwórz zasady niestandardowe](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
 1. W obszarze **Virtual Machines**wybierz pozycję **Dodaj**.
 
-    ![Otwarcie bloku scenariusza](./media/backup-azure-vms-encryption/add-virtual-machines.png)
+    ![Dodaj maszyny wirtualne](./media/backup-azure-vms-encryption/add-virtual-machines.png)
 
 1. Wybierz zaszyfrowane maszyny wirtualne, których kopię zapasową chcesz utworzyć, przy użyciu wybranych zasad, a następnie wybierz **przycisk OK**.
 
