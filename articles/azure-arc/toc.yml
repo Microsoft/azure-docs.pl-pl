@@ -8,7 +8,7 @@
       href: ./servers/overview.md
 - name: Przewodniki Szybki start
   items:
-    - name: Włączanie usługi Arc dla agenta serwerów
+    - name: Włączanie agenta serwerów z obsługą usługi Arc
       href: ./servers/learn/quick-enable-hybrid-vm.md
 - name: Samouczki
   items:

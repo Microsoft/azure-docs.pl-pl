@@ -3,18 +3,18 @@ title: Dokumentacja usługi Azure CDN
 summary: Usługa Azure Content Delivery Network (CDN) to globalna sieć dostarczania zawartości umożliwiająca dostarczanie zawartości wymagającej wysokiej przepustowości. Może być ona hostowana na platformie Azure lub w dowolnej innej lokalizacji. Dzięki usłudze Azure CDN można buforować obiekty statyczne załadowane z usługi Azure Blob Storage, aplikacji internetowej lub dowolnego publicznie dostępnego serwera internetowego, korzystając z najbliższego serwera punktu obecności (POP, point of presence). Usługa Azure CDN może również przyspieszyć zawartość dynamiczną, której nie można buforować, wykorzystując różne optymalizacje sieci i routingu.
 metadata:
   title: Dokumentacja usługi Azure CDN — samouczki i dokumentacja interfejsu API
-  description: Usługa Azure Content Delivery Network (CDN) to globalna sieć dostarczania zawartości umożliwiająca dostarczanie zawartości wymagającej wysokiej przepustowości. Może być ona hostowana na platformie Azure lub w dowolnej innej lokalizacji. Dzięki usłudze Azure CDN można buforować obiekty statyczne załadowane z usługi Azure Blob Storage, aplikacji internetowej lub dowolnego publicznie dostępnego serwera internetowego, korzystając z najbliższego serwera punktu obecności (POP, point of presence). Usługa Azure CDN może również przyspieszyć zawartość dynamiczną, której nie można buforować, wykorzystując różne optymalizacje sieci i routingu.
+  description: Dowiedz się więcej o usłudze Azure Content Delivery Network, rozwiązaniu umożliwiającym dostarczanie zawartości wymagającej wysokiej przepustowości, która może być hostowana na platformie Azure lub w dowolnej innej lokalizacji.
   ms.service: azure-cdn
   ms.topic: landing-page
   author: asudbring
   ms.author: allensu
   ms.date: 02/24/2020
-  ms.openlocfilehash: c3c9cd72a85744ac6b609b178ac4e7c2413b4080
-  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+  ms.openlocfilehash: ed3c4f1794407ccdb841ea3c6ca35ff4d8e1a808
+  ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 06/30/2020
-  ms.locfileid: "85554312"
+  ms.lasthandoff: 08/13/2020
+  ms.locfileid: "88192447"
 landingContent:
 - title: Informacje o usłudze Azure CDN
   linkLists:

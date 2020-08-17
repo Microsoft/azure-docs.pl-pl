@@ -32,7 +32,7 @@
           href: ./security-controls-policy.md
         - name: Punkt odniesienia zabezpieczeń dla testu porównawczego zabezpieczeń platformy Azure
           href: security-baseline.md
-- name: Instrukcje
+- name: Przewodniki z instrukcjami
   items:
     - name: Zarządzanie usługą Data Lake Analytics
       items:

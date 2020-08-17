@@ -7,20 +7,20 @@ metadata:
   author: mgoedtel
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 06/26/2020
+  ms.date: 08/13/2020
   ms.author: magoedte
-  ms.openlocfilehash: f9d4da85185d3a8541c165b407d276af0a25ccc6
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: afb1dd4986220bcf3f244532a730faf6b80e6074
+  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87008493"
+  ms.lasthandoff: 08/14/2020
+  ms.locfileid: "88212776"
 landingContent:
-- title: Omówienie usługi Azure Arc
+- title: Informacje o usłudze Azure Arc
   linkLists:
   - linkListType: overview
     links:
-    - text: Dowiedz się więcej na temat usługi Azure Arc
+    - text: Co to jest usługa Azure Arc?
       url: https://aka.ms/Azure-Arc-Info
 - title: Łączenie maszyn z platformą Azure przy użyciu serwerów z obsługą usługi Azure Arc
   linkLists:
@@ -30,12 +30,18 @@ landingContent:
       url: ./servers/overview.md
   - linkListType: quickstart
     links:
+    - text: Włączanie agenta serwerów z obsługą usługi Arc
+      url: ./servers/learn/quick-enable-hybrid-vm.md
+  - linkListType: how-to-guide
+    links:
     - text: Łączenie maszyn z usługą Azure Arc z poziomu witryny Azure Portal
       url: ./servers/onboard-portal.md
     - text: Łączenie maszyn na dużą skalę przy użyciu jednostki usługi
       url: ./servers/onboard-service-principal.md
     - text: Łączenie maszyn z platformą Azure przy użyciu rozszerzenia DSC programu PowerShell
       url: ./servers/onboard-dsc.md
+    - text: Zarządzanie rozszerzeniami maszyn wirtualnych platformy Azure i korzystanie z nich
+      url: ./servers/manage-vm-extensions.md
 - title: Łączenie klastrów Kubernetes z platformą Azure przy użyciu usługi Azure Arc
   linkLists:
   - linkListType: overview

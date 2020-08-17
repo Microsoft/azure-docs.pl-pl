@@ -27,20 +27,16 @@
       href: azure-portal-dashboards-create-programmatically.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Ustawianie preferencji witryny Azure Portal
+    - name: Zarządzanie ustawieniami i preferencjami witryny Azure Portal
       href: set-preferences.md
-    - name: Ustawianie limitu czasu braku aktywności dla wszystkich użytkowników
-      href: admin-timeout.md
-    - name: Włączanie dużego kontrastu lub zmienianie motywu
-      href: azure-portal-change-theme-high-contrast.md
     - name: 'Dodawanie, usuwanie i sortowanie ulubionych'
       href: azure-portal-add-remove-sort-favorites.md
-    - name: Tworzenie i udostępnianie pulpitów nawigacyjnych platformy Azure
-      href: azure-portal-dashboards.md
-    - name: Używanie kafelka niestandardowego z kodem Markdown
-      href: azure-portal-markdown-tile.md
-    - name: Eksportowanie i usuwanie ustawień użytkownika
-      href: azure-portal-export-delete-settings.md
+    - name: Tworzenie pulpitów nawigacyjnych platformy Azure
+      items:
+        - name: Tworzenie i udostępnianie pulpitów nawigacyjnych platformy Azure
+          href: azure-portal-dashboards.md
+        - name: Używanie kafelka niestandardowego z kodem Markdown
+          href: azure-portal-markdown-tile.md
     - name: Seria instruktażowych wideo dla witryny Azure Portal
       href: azure-portal-video-series.md
     - name: Tworzenie wniosków o pomoc techniczną i zarządzanie nimi

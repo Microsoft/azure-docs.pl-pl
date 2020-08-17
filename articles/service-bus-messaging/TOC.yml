@@ -44,6 +44,8 @@
           items:
             - name: Azure Portal
               href: service-bus-quickstart-topics-subscriptions-portal.md
+            - name: Interfejs wiersza polecenia platformy Azure
+              href: service-bus-tutorial-topics-subscriptions-cli.md
             - name: Szablon ARM
               href: service-bus-resource-manager-namespace-topic.md
         - name: Publikowanie i subskrybowanie komunikatów
@@ -62,12 +64,8 @@
               href: service-bus-ruby-how-to-use-topics-subscriptions.md
 - name: Samouczki
   items:
-    - name: Aktualizowanie spisu — program PowerShell
-      href: service-bus-tutorial-topics-subscriptions-powershell.md
-    - name: Aktualizowanie spisu — Portal
+    - name: Aktualizowanie spisu
       href: service-bus-tutorial-topics-subscriptions-portal.md
-    - name: Aktualizowanie spisu — interfejs wiersza polecenia
-      href: service-bus-tutorial-topics-subscriptions-cli.md
     - name: Reagowanie na zdarzenia za pomocą usługi Event Grid
       href: service-bus-to-event-grid-integration-example.md
 - name: Samples

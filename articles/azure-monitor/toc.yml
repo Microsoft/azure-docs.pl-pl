@@ -494,6 +494,8 @@
               href: platform/alerts-metric.md
             - name: Używanie progów dynamicznych
               href: platform/alerts-dynamic-thresholds.md
+            - name: Pojedyncze alerty dla wielu szeregów czasowych
+              href: platform/alerts-metric-multiple-time-series-single-rule.md
             - name: Alerty metryk w dziennikach
               href: platform/alerts-metric-logs.md
             - name: Korzystanie z szablonu usługi Resource Manager
