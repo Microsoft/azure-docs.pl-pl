@@ -1,14 +1,14 @@
 ---
 title: Twórz i Zarządzaj maszynami wirtualnymi z możliwością domagania w Azure DevTest Labs | Microsoft Docs
-description: Dowiedz się, jak dodać maszynę wirtualną z możliwością dochodzenia do laboratorium w Azure DevTest Labs
+description: Dowiedz się, jak za pomocą Azure Portal dodać maszynę wirtualną z możliwością domaganą w Azure DevTest Labs i wyświetlić procesy, które należy wykonać, aby zgłosić/odrościć maszynę wirtualną.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7a4e465f0ba6c592f173a0c48aadd51f3e12ea07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fe949d7104fe6437087e77c403cc0d921ebd025
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481310"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270983"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Twórz i Zarządzaj maszynami wirtualnymi z możliwością domagania w Azure DevTest Labs
 Możesz dodać maszynę wirtualną z możliwością przechodzenia do laboratorium w podobny sposób, aby [dodać standardową maszynę wirtualną](devtest-lab-add-vm.md) — od *podstawowej* , która jest [obrazem niestandardowym](devtest-lab-create-template.md), [formułą](devtest-lab-manage-formulas.md)lub [obrazem witryny Marketplace](devtest-lab-configure-marketplace-images.md). Ten samouczek przeprowadzi Cię przez proces używania Azure Portal, aby dodać maszynę wirtualną do laboratorium w środowisku DevTest Labs i wyświetlić procesy, do których użytkownik może zatwierdzić i odrościć maszynę wirtualną.

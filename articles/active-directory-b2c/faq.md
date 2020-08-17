@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 08a1d655d19b5e7deb81e42ca5bebdfe4f18aeef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85ce79644ead939eaeffa5cfffeb495da15e7fe5
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84297908"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270669"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: często zadawane pytania
 
@@ -134,7 +134,7 @@ Obecnie nie. Ta funkcja jest dostępna w naszym przewodniku. Weryfikowanie domen
 
 Wykonaj następujące kroki, aby usunąć dzierżawę Azure AD B2C.
 
-Możesz użyć naszego nowego, ujednoliconego środowiska **rejestracje aplikacji** lub naszych starszych **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregtraining).
+Możesz użyć naszego nowego, ujednoliconego środowiska **rejestracje aplikacji** lub naszych starszych  **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregtraining).
 
 #### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/)
 
@@ -154,7 +154,7 @@ Możesz użyć naszego nowego, ujednoliconego środowiska **rejestracje aplikacj
 1. W obszarze **Zarządzanie dostępem do zasobów platformy Azure** wybierz pozycję **Tak**, a następnie wybierz przycisk **Zapisz**.
 1. Wyloguj się z Azure Portal a następnie zaloguj się ponownie, aby odświeżyć dostęp.
 1. Wybierz pozycję **Azure Active Directory** w menu po lewej stronie.
-1. Na stronie **Przegląd** wybierz pozycję **Usuń katalog**. Postępuj zgodnie z instrukcjami wyświetlanymi na ekranie, aby ukończyć proces.
+1. Na stronie **Przegląd** wybierz pozycję **Usuń dzierżawcę**. Postępuj zgodnie z instrukcjami wyświetlanymi na ekranie, aby ukończyć proces.
 
 #### <a name="applications-legacy"></a>[Aplikacje (starsze)](#tab/applications-legacy/)
 
@@ -166,7 +166,7 @@ Możesz użyć naszego nowego, ujednoliconego środowiska **rejestracje aplikacj
 1. Wybierz pozycję **Azure Active Directory** w menu po lewej stronie.
 1. W obszarze **Zarządzanie** wybierz pozycję **Użytkownicy**.
 1. Wybierz każdego użytkownika z kolei (wykluczanie użytkownika *administratora subskrypcji* , który jest obecnie zalogowany). Wybierz pozycję **Usuń** w dolnej części strony i wybierz opcję **tak** po wyświetleniu monitu.
-1. W obszarze **Zarządzaj**wybierz pozycję **rejestracje aplikacji**.
+1. W obszarze **Zarządzanie** wybierz pozycję **Rejestracje aplikacji**.
 1. Wybierz pozycję **Wyświetl wszystkie aplikacje**
 1. Wybierz aplikację o nazwie **B2C-Extensions-App**, wybierz pozycję **Usuń**, a następnie wybierz pozycję **tak** po wyświetleniu monitu.
 1. W obszarze **Zarządzaj**wybierz pozycję **Ustawienia użytkownika**.

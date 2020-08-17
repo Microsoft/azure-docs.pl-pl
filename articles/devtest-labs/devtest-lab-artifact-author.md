@@ -1,14 +1,14 @@
 ---
 title: Tworzenie niestandardowych artefaktów dla maszyny wirtualnej DevTest Labs | Microsoft Docs
-description: Dowiedz się, jak tworzyć własne artefakty do użycia z Azure DevTest Labs.
+description: Dowiedz się, jak tworzyć artefakty do użycia z Azure DevTest Labs do wdrażania i konfigurowania aplikacji po zainicjowaniu obsługi administracyjnej maszyny wirtualnej.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 775908749f52c71eeaf97eef25e3787f9b6794fc
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 85acfcc3811e671e58fadab08a23951778e1323d
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857022"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270686"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Tworzenie niestandardowych artefaktów dla maszyny wirtualnej DevTest Labs
 
@@ -47,12 +47,12 @@ Poniższy przykład przedstawia sekcje, które składają się na podstawową st
 | Nazwa elementu | Wymagane? | Opis |
 | --- | --- | --- |
 | $schema |Nie |Lokalizacja pliku schematu JSON. Plik schematu JSON może pomóc w przetestowaniu ważności pliku definicji. |
-| tytuł |Tak |Nazwa artefaktu wyświetlanego w laboratorium. |
-| description |Tak |Opis artefaktu wyświetlanego w środowisku laboratoryjnym. |
+| tytuł |Yes |Nazwa artefaktu wyświetlanego w laboratorium. |
+| description (opis) |Yes |Opis artefaktu wyświetlanego w środowisku laboratoryjnym. |
 | iconUri |Nie |Identyfikator URI ikony wyświetlanej w laboratorium. |
-| targetOsType |Tak |System operacyjny maszyny wirtualnej, na której jest zainstalowany artefakt. Obsługiwane opcje to Windows i Linux. |
+| targetOsType |Yes |System operacyjny maszyny wirtualnej, na której jest zainstalowany artefakt. Obsługiwane opcje to Windows i Linux. |
 | parameters |Nie |Wartości, które są dostarczane, gdy polecenie instalacji artefaktu jest uruchamiane na komputerze. Ułatwia to dostosowanie artefaktu. |
-| Akcji |Tak |Polecenie instalacji artefaktu, które jest wykonywane na maszynie wirtualnej. |
+| Akcji |Yes |Polecenie instalacji artefaktu, które jest wykonywane na maszynie wirtualnej. |
 
 ### <a name="artifact-parameters"></a>Parametry artefaktu
 W sekcji parametry pliku definicji Określ wartości, które użytkownik może wprowadzać podczas instalacji artefaktu. Można odwołać się do tych wartości w poleceniu instalacji artefaktu.
@@ -71,9 +71,9 @@ Aby zdefiniować parametry, należy użyć następującej struktury:
 
 | Nazwa elementu | Wymagane? | Opis |
 | --- | --- | --- |
-| typ |Tak |Typ wartości parametru. Zapoznaj się z poniższą listą typów dozwolonych. |
-| displayName |Tak |Nazwa parametru, który jest wyświetlany użytkownikowi w laboratorium. |
-| description |Tak |Opis parametru, który jest wyświetlany w laboratorium. |
+| typ |Yes |Typ wartości parametru. Zapoznaj się z poniższą listą typów dozwolonych. |
+| displayName |Yes |Nazwa parametru, który jest wyświetlany użytkownikowi w laboratorium. |
+| description (opis) |Yes |Opis parametru, który jest wyświetlany w laboratorium. |
 
 Dozwolone typy to:
 

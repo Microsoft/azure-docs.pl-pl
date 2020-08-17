@@ -1,18 +1,18 @@
 ---
 title: 'Tworzenie hosta usługi Azure bastionu: Portal'
-description: W tym artykule dowiesz się, jak utworzyć hosta usługi Azure bastionu przy użyciu portalu
+description: W tym artykule dowiesz się, jak utworzyć hosta usługi Azure bastionu, który zapewnia łączność protokołu RDP/SSH ze wszystkimi maszynami wirtualnymi w sieci wirtualnej.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: cherylmc
-ms.openlocfilehash: d18d520419e77a225431d9c2a395f62411656537
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e0bc9a17a12afac6d91867b19aba0f90b7f6edb
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744276"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270754"
 ---
 # <a name="create-an-azure-bastion-host-using-the-portal"></a>Tworzenie hosta usługi Azure bastionu przy użyciu portalu
 
@@ -20,7 +20,7 @@ W tym artykule opisano sposób tworzenia hosta usługi Azure bastionu przy użyc
 
 Nowy zasób hosta bastionu można utworzyć w portalu, określając wszystkie ustawienia ręcznie lub używając ustawień, które odpowiadają istniejącej maszynie wirtualnej. Aby utworzyć hosta bastionu przy użyciu ustawień maszyny wirtualnej, zobacz artykuł [Szybki Start](quickstart-host-portal.md) . Opcjonalnie możesz użyć [Azure PowerShell](bastion-create-host-powershell.md) , aby utworzyć hosta usługi Azure bastionu.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Bastionu jest dostępny w następujących regionach publicznych platformy Azure:
 
@@ -30,7 +30,7 @@ Bastionu jest dostępny w następujących regionach publicznych platformy Azure:
 
 Ta sekcja ułatwia tworzenie nowego zasobu usługi Azure bastionu z poziomu Azure Portal.
 
-1. W menu [Azure Portal](https://portal.azure.com) lub na stronie **głównej** wybierz pozycję **Utwórz zasób**.
+1. W menu witryny [Azure Portal](https://portal.azure.com) lub na **stronie głównej** wybierz pozycję **Utwórz zasób**.
 
 1. Na stronie **Nowy** w polu Wyszukaj w *witrynie Marketplace* wpisz **bastionu**, a następnie kliknij przycisk **Enter** , aby przejść do wyników wyszukiwania.
 

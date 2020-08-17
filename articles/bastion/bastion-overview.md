@@ -1,18 +1,18 @@
 ---
 title: Azure bastionu | Microsoft Docs
-description: Dowiedz się więcej o usłudze Azure bastionu
+description: Dowiedz się więcej o usłudze Azure bastionu, która zapewnia bezpieczną i bezproblemową łączność protokołu RDP/SSH z maszynami wirtualnymi bez udostępniania portów protokołu RDP/SSH zewnętrznie.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: overview
 ms.date: 01/31/2020
 ms.author: cherylmc
-ms.openlocfilehash: 299a69675eed1ba958c6d13cf447407450df2abb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8b27a7c2fd03ed0a80f1775465f1f1bbb44f0202
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80411129"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270346"
 ---
 # <a name="what-is-azure-bastion"></a>Co to jest usługa Azure Bastion?
 
@@ -47,7 +47,7 @@ Dostępne są następujące funkcje:
 * **Ochrona przed skanowaniem portów:** Ponieważ nie musisz uwidaczniać maszyn wirtualnych w publicznej sieci Internet, Twoje maszyny wirtualne są chronione przed skanowaniem portów przez nieautoryzowanych i złośliwych użytkowników znajdujących się poza siecią wirtualną.
 * **Ochrona przed atakami na zero dni. Ograniczanie funkcjonalności tylko w jednym miejscu:** Azure bastionu to w pełni zarządzana platforma usługi PaaS. Ponieważ znajduje się on na obrzeżu sieci wirtualnej, nie trzeba martwić się o zabezpieczenia wszystkich maszyn wirtualnych w sieci wirtualnej. Platforma Azure chroni przed wielodniowymi programami wykorzystującymi luki w zabezpieczeniach, utrzymując ochronę systemu Azure bastionu i zawsze na bieżąco.
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 [!INCLUDE [Bastion FAQ](../../includes/bastion-faq-include.md)]
 
