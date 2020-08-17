@@ -1,17 +1,17 @@
 ---
 title: Jak uzyskać pomoc techniczną dotyczącą avere vFXT dla platformy Azure
-description: Wyjaśnienie otwartych biletów pomocy technicznej dotyczących usługi avere vFXT for Azure
+description: Dowiedz się, jak rozwiązywać problemy, które mogą wystąpić podczas wdrażania lub korzystania z programu avere vFXT dla platformy Azure, tworząc bilet pomocy technicznej za pośrednictwem Azure Portal.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: b3c604003f78a150067875fb2064ab5eca0600db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 522d29505d7d10f5f6d97136f270f07a63053d19
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847346"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271111"
 ---
 # <a name="get-help-with-your-system"></a>Uzyskaj pomoc dotyczącą systemu
 
@@ -43,7 +43,7 @@ Wykonaj następujące kroki, aby upewnić się, że bilet pomocy technicznej jes
 
     ![zrzut ekranu przedstawiający nowy ekran żądania obsługi w Azure Portal. Wybrana jest karta podstawy. Elementy ekranu obejmują typ problemu, subskrypcję, usługę, podsumowanie i typ problemu.](media/ticket-basics.png)
 
-   Kliknij przycisk **Dalej** , aby kontynuować.
+   Kliknij pozycję **Next** (Dalej), aby kontynuować.
 
 1. Druga strona formularza pomocy technicznej zawiera sugestie dotyczące rozwiązania problemu na podstawie opisu podsumowania. Kliknij przycisk **dalej** w dolnej części, jeśli nadal potrzebujesz utworzyć bilet pomocy technicznej.
 

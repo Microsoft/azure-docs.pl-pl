@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ae76fab6359675a87ad252a08ebb199bf724f129
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: fd297ec5cfb7831a438fc51e72e3c2fc163eff49
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439372"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271281"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Samouczek: wdrażanie usługi Azure Machine Learning jako modułu usługi IoT Edge (wersja zapoznawcza)
 
@@ -49,7 +49,7 @@ Zasoby w chmurze:
 
 * Usługa [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) w warstwie Bezpłatna lub Standardowa na platformie Azure.
 * Obszar roboczy usługi Azure Machine Learning. Postępuj zgodnie z instrukcjami w temacie [Use the Azure Portal, aby rozpocząć pracę z Azure Machine Learning](../machine-learning/tutorial-1st-experiment-sdk-setup.md) , aby je utworzyć i dowiedzieć się, jak z niej korzystać.
-  * Zanotuj nazwę obszaru roboczego, grupę zasobów i Identyfikator subskrypcji. Te wartości są dostępne w obszarze roboczym przegląd w Azure Portal. Te wartości zostaną użyte w dalszej części samouczka, aby połączyć Notes platformy Azure z zasobami obszaru roboczego.
+  * Zanotuj nazwę obszaru roboczego, grupę zasobów i Identyfikator subskrypcji. Te wartości są dostępne w obszarze roboczym przegląd w Azure Portal. Te wartości będą używane w dalszej części samouczka, aby połączyć plik Azure Notebooks z zasobami obszaru roboczego.
 
 ## <a name="create-and-deploy-azure-machine-learning-module"></a>Tworzenie i wdrażanie modułu Azure Machine Learning
 

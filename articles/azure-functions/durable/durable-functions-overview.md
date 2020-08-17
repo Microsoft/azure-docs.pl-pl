@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 03/12/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 8fd670104a04229ed688b365de89e2ffc22b5429
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: adf58b667d17393fc905fbf31261530fce88d9f8
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499385"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272352"
 ---
 # <a name="what-are-durable-functions"></a>Co to jest Durable Functions?
 
@@ -25,6 +25,7 @@ Rozszerzenie Durable Functions obsługuje obecnie następujące języki:
 * **JavaScript**: obsługiwany tylko w przypadku wersji 2.x środowiska uruchomieniowego usługi Azure Functions. Wymaga rozszerzenia Durable Functions w wersji 1.7.0 lub nowszej. 
 * **Python**: wymaga wersji 1.8.5 rozszerzenia Durable Functions lub nowszej. 
 * **F#**: prekompilowane biblioteki klas i skrypt języka F#. Skrypt języka F# jest obsługiwany tylko w przypadku wersji 1.x środowiska uruchomieniowego usługi Azure Functions.
+* **PowerShell**: wsparcie dla Durable Functions jest obecnie dostępne w publicznej wersji zapoznawczej. Obsługiwane tylko w wersji 3. x środowiska uruchomieniowego Azure Functions i programu PowerShell 7. Wymaga wersji 2.2.2 rozszerzenia Durable Functions lub nowszej wersji. Obecnie obsługiwane są tylko następujące wzorce: [łańcuchy funkcji](#chaining), [wentylatory/wentylatory](#fan-in-out), [asynchroniczne interfejsy API protokołu HTTP](#async-http).
 
 Docelowo rozszerzenie Durable Functions ma obsługiwać wszystkie [języki obsługiwane w usłudze Azure Functions](../supported-languages.md). Zobacz [listę problemów z rozszerzeniem Durable Functions](https://github.com/Azure/azure-functions-durable-extension/issues), aby poznać aktualny stan prac nad obsługą dodatkowych języków.
 
@@ -119,6 +120,19 @@ Można użyć obiektu, `context` Aby wywołać inne funkcje według nazwy, przek
 > [!NOTE]
 > `context`Obiekt w języku Python reprezentuje kontekst aranżacji. Uzyskaj dostęp do głównego kontekstu Azure Functions przy użyciu `function_context` właściwości w kontekście aranżacji.
 
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+```PowerShell
+param($Context)
+
+$X = Invoke-ActivityFunction -FunctionName 'F1'
+$Y = Invoke-ActivityFunction -FunctionName 'F2' -Input $X
+$Z = Invoke-ActivityFunction -FunctionName 'F3' -Input $Y
+Invoke-ActivityFunction -FunctionName 'F4' -Input $Z
+```
+
+Możesz użyć polecenia, `Invoke-ActivityFunction` Aby wywołać inne funkcje według nazwy, przekazywania parametrów i zwracanych danych wyjściowych funkcji. Za każdym razem, gdy kod wywołuje `Invoke-ActivityFunction` bez `NoWait` przełącznika, program Durable Functions Framework punkty kontrolne postępu bieżącego wystąpienia funkcji. Jeśli proces lub maszyna wirtualna odzyskuje w połowie wykonywania, wystąpienie funkcji zostanie wznowione od poprzedniego `Invoke-ActivityFunction` wywołania. Aby uzyskać więcej informacji, zobacz następną sekcję, wzorzec #2: wentylator/wentylator w.
+
 ---
 
 ### <a name="pattern-2-fan-outfan-in"></a><a name="fan-in-out"></a>#2 wzorca: wentylator/wentylator w
@@ -156,7 +170,7 @@ public static async Task Run(
 }
 ```
 
-Wentylator-out Work jest dystrybuowany do wielu wystąpień `F2` funkcji. Zadanie jest śledzone przy użyciu dynamicznej listy zadań. `Task.WhenAll`jest wywoływana, aby poczekać na zakończenie wszystkich wywoływanych funkcji. Następnie dane `F2` wyjściowe funkcji są agregowane z listy zadań dynamicznych i przenoszone do `F3` funkcji.
+Wentylator-out Work jest dystrybuowany do wielu wystąpień `F2` funkcji. Zadanie jest śledzone przy użyciu dynamicznej listy zadań. `Task.WhenAll` jest wywoływana, aby poczekać na zakończenie wszystkich wywoływanych funkcji. Następnie dane `F2` wyjściowe funkcji są agregowane z listy zadań dynamicznych i przenoszone do `F3` funkcji.
 
 Automatyczne tworzenie punktów kontrolnych, które odbywa się w `await` wywołaniu, `Task.WhenAll` zapewnia, że potencjalne awarie w Midway lub ponowny rozruch nie wymagają ponownego uruchomienia już wykonanego zadania.
 
@@ -182,7 +196,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Wentylator-out Work jest dystrybuowany do wielu wystąpień `F2` funkcji. Zadanie jest śledzone przy użyciu dynamicznej listy zadań. `context.df.Task.all`Interfejs API jest wywoływany, aby poczekać na zakończenie wszystkich wywoływanych funkcji. Następnie dane `F2` wyjściowe funkcji są agregowane z listy zadań dynamicznych i przenoszone do `F3` funkcji.
+Wentylator-out Work jest dystrybuowany do wielu wystąpień `F2` funkcji. Zadanie jest śledzone przy użyciu dynamicznej listy zadań. `context.df.Task.all` Interfejs API jest wywoływany, aby poczekać na zakończenie wszystkich wywoływanych funkcji. Następnie dane `F2` wyjściowe funkcji są agregowane z listy zadań dynamicznych i przenoszone do `F3` funkcji.
 
 Automatyczne tworzenie punktów kontrolnych, które odbywa się w `yield` wywołaniu, `context.df.Task.all` zapewnia, że potencjalne awarie w Midway lub ponowny rozruch nie wymagają ponownego uruchomienia już wykonanego zadania.
 
@@ -208,9 +222,33 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
-Wentylator-out Work jest dystrybuowany do wielu wystąpień `F2` funkcji. Zadanie jest śledzone przy użyciu dynamicznej listy zadań. `context.task_all`Interfejs API jest wywoływany, aby poczekać na zakończenie wszystkich wywoływanych funkcji. Następnie dane `F2` wyjściowe funkcji są agregowane z listy zadań dynamicznych i przenoszone do `F3` funkcji.
+Wentylator-out Work jest dystrybuowany do wielu wystąpień `F2` funkcji. Zadanie jest śledzone przy użyciu dynamicznej listy zadań. `context.task_all` Interfejs API jest wywoływany, aby poczekać na zakończenie wszystkich wywoływanych funkcji. Następnie dane `F2` wyjściowe funkcji są agregowane z listy zadań dynamicznych i przenoszone do `F3` funkcji.
 
 Automatyczne tworzenie punktów kontrolnych, które odbywa się w `yield` wywołaniu, `context.task_all` zapewnia, że potencjalne awarie w Midway lub ponowny rozruch nie wymagają ponownego uruchomienia już wykonanego zadania.
+
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+```PowerShell
+param($Context)
+
+# Get a list of work items to process in parallel.
+$WorkBatch = Invoke-ActivityFunction -FunctionName 'F1'
+
+$ParallelTasks =
+    foreach ($WorkItem in $WorkBatch) {
+        Invoke-ActivityFunction -FunctionName 'F2' -Input $WorkItem -NoWait
+    }
+
+$Outputs = Wait-ActivityFunction -Task $ParallelTasks
+
+# Aggregate all outputs and send the result to F3.
+$Total = ($Outputs | Measure-Object -Sum).Sum
+Invoke-ActivityFunction -FunctionName 'F3' -Input $Total
+```
+
+Wentylator-out Work jest dystrybuowany do wielu wystąpień `F2` funkcji. Należy zwrócić uwagę na użycie `NoWait` przełącznika w `F2` wywołaniu funkcji: ten przełącznik umożliwia programowi Orchestrator wywoływanie wywołania `F2` bez wykonywania działania. Zadanie jest śledzone przy użyciu dynamicznej listy zadań. `Wait-ActivityFunction`Polecenie jest wywoływane, aby poczekać na zakończenie wszystkich wywoływanych funkcji. Następnie dane `F2` wyjściowe funkcji są agregowane z listy zadań dynamicznych i przenoszone do `F3` funkcji.
+
+Automatyczne tworzenie punktów kontrolnych, które odbywa się w `Wait-ActivityFunction` wywołaniu, zapewnia, że potencjalne awarie w Midway lub ponowny rozruch nie wymagają ponownego uruchomienia już wykonanego zadania.
 
 ---
 
@@ -357,6 +395,10 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Monitor nie jest obecnie obsługiwany w programie PowerShell.
+
 ---
 
 Po odebraniu żądania dla tego identyfikatora zadania zostanie utworzone nowe wystąpienie aranżacji. Wystąpienie sonduje stan do momentu spełnienia warunku, a pętla zostanie zakończona. Trwały czasomierz steruje interwałem sondowania. Następnie można wykonać więcej pracy lub zorganizować. Gdy `nextCheck` przekroczy `expiryTime` , Monitor zostanie zakończony.
@@ -455,6 +497,10 @@ main = df.Orchestrator.create(orchestrator_function)
 
 Aby utworzyć trwały czasomierz, wywołaj polecenie `context.create_timer` . Powiadomienie jest odbierane przez program `context.wait_for_external_event` . Następnie `context.task_any` jest wywoływana, aby zdecydować, czy należy eskalować (przekroczenie limitu czasu) lub przetworzyć zatwierdzenie (zatwierdzenie zostanie odebrane przed upływem limitu czasu).
 
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Interakcja ludzka nie jest obecnie obsługiwana w programie PowerShell.
+
 ---
 
 Klient zewnętrzny może dostarczyć powiadomienie o zdarzeniu do oczekującej funkcji programu Orchestrator przy użyciu [wbudowanych interfejsów API protokołu HTTP](durable-functions-http-api.md#raise-event):
@@ -501,6 +547,10 @@ async def main(client: str):
     is_approved = True
     await durable_client.raise_event(instance_id, "ApprovalEvent", is_approved)
 ```
+
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Interakcja ludzka nie jest obecnie obsługiwana w programie PowerShell.
 
 ---
 
@@ -583,6 +633,10 @@ module.exports = df.entity(function(context) {
 
 Trwałe jednostki nie są obecnie obsługiwane w języku Python.
 
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Trwałe jednostki nie są obecnie obsługiwane w programie PowerShell.
+
 ---
 
 Klienci mogą umieścić w kolejce *operacje* dla (zwane także "sygnalizacją") funkcji jednostki przy użyciu [powiązania klienta jednostki](durable-functions-bindings.md#entity-client).
@@ -622,6 +676,10 @@ module.exports = async function (context) {
 # <a name="python"></a>[Python](#tab/python)
 
 Trwałe jednostki nie są obecnie obsługiwane w języku Python.
+
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Trwałe jednostki nie są obecnie obsługiwane w programie PowerShell.
 
 ---
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75c9f9065fdb2be86438f1517c07de1ce45f5623
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: aea7e18a7ccfb42a3ef641150d74c0ce54eaee04
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88187231"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272856"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-isams"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą iSAMs
 
@@ -84,7 +84,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<SUBDOMAIN>.isams.cloud/main/sso/saml2`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<SUBDOMAIN>.isams.cloud/main/sso/saml2`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<SUBDOMAIN>.isams.cloud/main/sso/saml2/acs`
 
@@ -136,32 +136,26 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Przejdź do panelu sterowania i otwórz moduł **uwierzytelniania** .
 1. Z menu po prawej stronie wybierz pozycję **dostawcy tożsamości**
 
-    ![Konfiguracja](./media/isams-tutorial/click-identity-provider.png)
+    ![Konfigurowanie](./media/isams-tutorial/click-identity-provider.png)
 
 1. Wybierz pozycję **Dodaj dostawcę**
 
-    ![Konfiguracja](./media/isams-tutorial/add-identity-provider.png)
+    ![Konfigurowanie](./media/isams-tutorial/add-identity-provider.png)
 
 
 1. Wykonaj następujące czynności na poniższej stronie:
 
-    ![Konfiguracja](./media/isams-tutorial/configure-isams.png)
+    ![Konfigurowanie](./media/isams-tutorial/configure-isams.png)
 
-    a. W polu tekstowym **Nazwa** nadaj poprawną nazwę, taką jak`Saml2 Azure`
+    a. W polu tekstowym **Nazwa** nadaj poprawną nazwę, taką jak `Saml2 Azure` . To jest nazwa, która będzie wyświetlana na stronie logowania.
 
-    b. W polu tekstowym **adres URL logowania** wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal.
+    b. W polu adres URL metadanych wprowadź wartość **adresu URL metadanych federacji aplikacji** skopiowaną z Azure Portal.
+    
+    c. Naciśnij przycisk **Importuj**.
+    
+    d. Na liście **aplikacji** w obszarze **włączone aplikacje klienckie** wybierz wszystkie aplikacje ISAM, które mają być wyświetlane na stronie logowania dla dostawcy.
 
-    c. W polu tekstowym **wystawca** wklej wartość **identyfikatora jednostki** skopiowaną z Azure Portal.
-
-    d. Ustaw **wartość "** **Wymuś uwierzytelnianie** na" z listy rozwijanej.
-
-    e. Wypełnij pole tekstowe **instrukcji User Attribute** poprawną nazwą użytkownika.
-
-    f. Otwórz pobrany **certyfikat** z Azure Portal do Notatnika i wklej zawartość do pola tekstowego **odcisku palca x509** .
-
-    przykład Dla opcji **Wyłącz ograniczenie odbiorców** wybierz wartość **Fałsz** z listy rozwijanej.
-
-    h. Kliknij pozycję **zapisz & Zamknij**.
+    e. Kliknij pozycję **zapisz & Zamknij**.
 
 ### <a name="create-isams-test-user"></a>Tworzenie użytkownika testowego iSAMs
 
@@ -186,7 +180,7 @@ Po kliknięciu kafelka usługi iSAM w panelu dostępu należy automatycznie zalo
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

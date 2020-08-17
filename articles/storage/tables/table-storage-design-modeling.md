@@ -8,12 +8,12 @@ ms.author: tamram
 ms.topic: article
 ms.date: 04/23/2018
 ms.subservice: tables
-ms.openlocfilehash: a7316bc60ea26968e30bb11ef97d63bddb33895a
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 3023b478ef7a4aaf6d9239e997bdf63282b56210
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235965"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271196"
 ---
 # <a name="modeling-relationships"></a>Modelowanie relacji
 W tym artykule omówiono proces modelowania ułatwiający projektowanie rozwiązań usługi Azure Table Storage.
@@ -51,7 +51,7 @@ Poniższa tabela zawiera podsumowanie specjalistów i wad każdego z podejść p
 <td>
 <ul>
 <li>Można zaktualizować jednostkę działu przy użyciu jednej operacji.</li>
-<li>Można użyć EGT, aby zachować spójność, jeśli istnieje potrzeba modyfikacji jednostki działu przy każdej aktualizacji/wstawieniu/usunięciu jednostki pracownika. Na przykład w przypadku utrzymania liczby pracowników działu dla poszczególnych działów.</li>
+<li>Można użyć transakcji grupy jednostek * (EGT), aby zachować spójność, jeśli istnieje potrzeba zmodyfikowania jednostki działu przy każdej aktualizacji/wstawieniu/usunięciu jednostki pracownika. Na przykład w przypadku utrzymania liczby pracowników działu dla poszczególnych działów.</li>
 </ul>
 </td>
 <td>
@@ -92,6 +92,9 @@ Poniższa tabela zawiera podsumowanie specjalistów i wad każdego z podejść p
 </td>
 </tr>
 </table>
+
+* Aby uzyskać więcej informacji, zobacz [transakcje grupy jednostek](table-storage-design.md#entity-group-transactions)  
+
 
 Wybór między tymi opcjami oraz to, które z zalet i wad są najbardziej znaczące, zależy od konkretnych scenariuszy aplikacji. Na przykład jak często modyfikujesz jednostki działu; wszystkie zapytania pracowników potrzebują dodatkowych informacji działu; jak blisko ograniczeń skalowalności w partycjach lub na koncie magazynu?  
 

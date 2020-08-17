@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 8362cc3b8f8477f77d8ec672144e7c68d2e3434d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: b6984e16d1ddcee7d3f276ddcdf8c89609f14fe5
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080732"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271026"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Uwierzytelnianie i autoryzacja w Azure App Service i Azure Functions
 
@@ -77,7 +77,7 @@ Zwykle należy napisać kod, aby zbierać, przechowywać i odświeżać te token
 
 Tokeny identyfikatora, tokeny dostępu i tokeny odświeżania są buforowane dla sesji uwierzytelnionej i są dostępne tylko dla skojarzonego użytkownika.  
 
-Jeśli nie musisz korzystać z tokenów w aplikacji, możesz wyłączyć magazyn tokenów.
+Jeśli nie musisz korzystać z tokenów w aplikacji, możesz wyłączyć magazyn tokenów na stronie **uwierzytelnianie/autoryzacja** aplikacji.
 
 ### <a name="logging-and-tracing"></a>Rejestrowanie i śledzenie
 
@@ -147,7 +147,7 @@ W przypadku tej opcji nie trzeba pisać kodu uwierzytelniania w aplikacji. Bardz
 > [!CAUTION]
 > Ograniczenie dostępu w ten sposób dotyczy wszystkich wywołań aplikacji, które mogą nie być odpowiednie dla aplikacji, które chcą korzystać z publicznie dostępnej strony głównej, tak jak w przypadku aplikacji jednostronicowych.
 
-## <a name="more-resources"></a>Dodatkowe zasoby
+## <a name="more-resources"></a>Więcej zasobów
 
 [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników na zakończenie w Azure App Service (Windows)](tutorial-auth-aad.md)  
 [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników w Azure App Service dla systemu Linux](containers/tutorial-auth-aad.md)  

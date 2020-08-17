@@ -1,7 +1,7 @@
 ---
 title: Wizualizacja dzienników usługi Azure sieciowej grupy zabezpieczeń Flow — Power BI
 titleSuffix: Azure Network Watcher
-description: Na tej stronie opisano sposób wizualizacji dzienników przepływu sieciowej grupy zabezpieczeń przy użyciu Power BI.
+description: Dowiedz się, jak za pomocą Power BI wizualizować dzienniki przepływu sieciowych grup zabezpieczeń, aby umożliwić wyświetlanie informacji o ruchu IP w usłudze Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 1ef2e32614b5a57208f91ac0fe5a4c17affa38e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4c97b8baaf5265f984622e2dc47e6c8c714172a
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738553"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272641"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Wizualizacja dzienników przepływu sieciowych grup zabezpieczeń przy użyciu Power BI
 
@@ -111,7 +111,7 @@ Możesz dostosowywać ten szablon do swoich potrzeb. Istnieje wiele różnych sp
 
 ## <a name="notes"></a>Uwagi
 
-* Dzienniki są domyślnie przechowywane w`https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`
+* Dzienniki są domyślnie przechowywane w `https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`
 
     * Jeśli inne dane znajdują się w innym katalogu, muszą być modyfikowane przez zapytania ściągające i przetwarzające dane.
 

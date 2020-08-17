@@ -3,12 +3,12 @@ title: Przewodnik po protokole Połączenia hybrydowe Azure Relay | Microsoft Do
 description: W tym artykule opisano interakcje po stronie klienta z usługą Połączenia hybrydowe Relay do łączenia klientów w rolach odbiornika i nadawcy.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 798be7f0003509aee6ae616ba33fcc41e5c86275
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fec021d961a17102f8d979c61ee46af6b938f073
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316657"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272013"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protokół Połączenia hybrydowe Azure Relay
 
@@ -136,8 +136,8 @@ Opcje parametrów ciągu zapytania są następujące.
 | Parametr        | Wymagane | Opis
 | ---------------- | -------- | -------------------------------------------
 | `sb-hc-action`   | Tak      | Dla roli odbiornika parametr musi mieć wartość **SB-HC-Action = Listen**
-| `{path}`         | Tak      | Ścieżka przestrzeni nazw zakodowana w adresie URL wstępnie skonfigurowanego połączenia hybrydowego do zarejestrowania tego odbiornika. To wyrażenie jest dołączane do `$hc/` części stałej ścieżki.
-| `sb-hc-token`    | Tak\*    | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo **nasłuchiwanie** .
+| `{path}`         | Yes      | Ścieżka przestrzeni nazw zakodowana w adresie URL wstępnie skonfigurowanego połączenia hybrydowego do zarejestrowania tego odbiornika. To wyrażenie jest dołączane do `$hc/` części stałej ścieżki.
+| `sb-hc-token`    | Yes\*    | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo **nasłuchiwanie** .
 | `sb-hc-id`       | Nie       | Ten opcjonalny identyfikator dostarczony przez klienta umożliwia kompleksowe śledzenie diagnostyczne.
 
 Jeśli połączenie z protokołem WebSocket nie powiedzie się z powodu braku rejestracji ścieżki połączenia hybrydowego lub nieprawidłowego lub brakującego tokenu lub innego błędu, opinia o błędzie jest podawana przy użyciu zwykłego modelu opinii o stanie HTTP 1,1. Opis stanu zawiera identyfikator śledzenia błędów, który może być przekazywany do działu pomocy technicznej platformy Azure:
@@ -195,11 +195,11 @@ Adres URL musi być używany jako — służy do ustanawiania gniazda akceptują
 
 | Parametr      | Wymagane | Opis
 | -------------- | -------- | -------------------------------------------------------------------
-| `sb-hc-action` | Tak      | Aby można było zaakceptować gniazdo, parametr musi być`sb-hc-action=accept`
-| `{path}`       | Tak      | (zobacz poniższy akapit)
+| `sb-hc-action` | Tak      | Aby można było zaakceptować gniazdo, parametr musi być `sb-hc-action=accept`
+| `{path}`       | Yes      | (zobacz poniższy akapit)
 | `sb-hc-id`     | Nie       | Zobacz poprzedni opis **identyfikatora**.
 
-`{path}`jest ścieżką przestrzeni nazw zakodowaną w adresie URL wstępnie skonfigurowanego połączenia hybrydowego, na którym ma zostać zarejestrowany ten odbiornik. To wyrażenie jest dołączane do `$hc/` części stałej ścieżki.
+`{path}` jest ścieżką przestrzeni nazw zakodowaną w adresie URL wstępnie skonfigurowanego połączenia hybrydowego, na którym ma zostać zarejestrowany ten odbiornik. To wyrażenie jest dołączane do `$hc/` części stałej ścieżki.
 
 `path`Wyrażenie może być rozszerzone z sufiksem i wyrażeniem ciągu zapytania, które następuje po nazwie zarejestrowanej po oddzieleniu kreski ułamkowej.
 Umożliwia to klientowi wysyłającemu przekazywanie argumentów wysyłki do odbiornika akceptującego, gdy nie można uwzględnić nagłówków HTTP. Oczekuje się, że struktura odbiornika analizuje część stałej ścieżki i zarejestrowaną nazwę ze ścieżki i tworzy resztę, prawdopodobnie bez argumentów ciągu zapytania, które są poprzedzone przez `sb-` , dostępne dla aplikacji w celu podjęcia decyzji o zaakceptowaniu połączenia.
@@ -232,8 +232,8 @@ Jeśli wystąpi błąd, usługa może odpowiedzieć w następujący sposób:
 
 | Param                   | Wymagane | Opis                              |
 | ----------------------- | -------- | ---------------------------------------- |
-| SB-HC-statusCode        | Tak      | Liczbowy kod stanu HTTP.                |
-| SB-HC-statusDescription | Tak      | Powód odczytania przez człowieka. |
+| SB-HC-statusCode        | Yes      | Liczbowy kod stanu HTTP.                |
+| SB-HC-statusDescription | Yes      | Powód odczytania przez człowieka. |
 
 Otrzymany identyfikator URI jest następnie używany do nawiązywania połączenia z użyciem protokołu WebSocket.
 
@@ -294,16 +294,16 @@ Zawartość JSON dla programu `request` jest następująca:
 * **ID** — ciąg. Unikatowy identyfikator dla tego żądania.
 * **requestHeaders** — ten obiekt zawiera wszystkie nagłówki HTTP, które zostały dostarczone do punktu końcowego przez nadawcę, z wyjątkiem informacji o autoryzacji, jak wyjaśniono [powyżej](#request-operation), oraz nagłówków, które ściśle odnoszą się do połączenia z bramą. W konkretnym przypadku wszystkie nagłówki zdefiniowane lub zarezerwowane w [RFC7230](https://tools.ietf.org/html/rfc7230), z wyjątkiem `Via` , są usuwane i nie są przekazywane:
 
-  * `Connection`(RFC7230, sekcja 6,1)
-  * `Content-Length`(RFC7230, sekcja 3.3.2)
-  * `Host`(RFC7230, sekcja 5,4)
-  * `TE`(RFC7230, sekcja 4,3)
-  * `Trailer`(RFC7230, sekcja 4,4)
-  * `Transfer-Encoding`(RFC7230, sekcja 3.3.1)
-  * `Upgrade`(RFC7230, sekcja 6,7)
-  * `Close`(RFC7230, sekcja 8,1)
+  * `Connection` (RFC7230, sekcja 6,1)
+  * `Content-Length`  (RFC7230, sekcja 3.3.2)
+  * `Host`  (RFC7230, sekcja 5,4)
+  * `TE`  (RFC7230, sekcja 4,3)
+  * `Trailer`  (RFC7230, sekcja 4,4)
+  * `Transfer-Encoding`  (RFC7230, sekcja 3.3.1)
+  * `Upgrade` (RFC7230, sekcja 6,7)
+  * `Close`  (RFC7230, sekcja 8,1)
 
-* **requestTarget** — ciąg. Ta właściwość zawiera ["cel żądania" (RFC7230, sekcja 5,3)](https://tools.ietf.org/html/rfc7230#section-5.3) żądania. Obejmuje to fragment ciągu zapytania, który jest usuwany ze wszystkich `sb-hc-` parametrów z prefiksem.
+* **requestTarget** — ciąg. Ta właściwość zawiera  ["cel żądania" (RFC7230, sekcja 5,3)](https://tools.ietf.org/html/rfc7230#section-5.3) żądania. Obejmuje to fragment ciągu zapytania, który jest usuwany ze wszystkich `sb-hc-` parametrów z prefiksem.
 * **Metoda** -ciąg. Jest to metoda żądania, na [RFC7231, sekcja 4](https://tools.ietf.org/html/rfc7231#section-4). `CONNECT`Metoda nie może być używana.
 * **Body** — wartość logiczna. Wskazuje, czy jedna lub więcej binarnych ramek treści jest następująca.
 
@@ -367,7 +367,7 @@ W przypadku odpowiedzi o wartości przekraczającej 64 kB odpowiedź musi zosta�
 
 | Parametr      | Wymagane | Opis
 | -------------- | -------- | -------------------------------------------------------------------
-| `sb-hc-action` | Tak      | Aby można było zaakceptować gniazdo, parametr musi być`sb-hc-action=request`
+| `sb-hc-action` | Tak      | Aby można było zaakceptować gniazdo, parametr musi być `sb-hc-action=request`
 
 Jeśli wystąpi błąd, usługa może odpowiedzieć w następujący sposób:
 
@@ -426,8 +426,8 @@ Opcje parametrów ciągu zapytania są następujące:
 | Param          | Wymagane? | Opis
 | -------------- | --------- | -------------------------- |
 | `sb-hc-action` | Tak       | Dla roli nadawcy parametr musi mieć wartość `sb-hc-action=connect` .
-| `{path}`       | Tak       | (zobacz poniższy akapit)
-| `sb-hc-token`  | Tak\*     | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo do **wysyłania** .
+| `{path}`       | Yes       | (zobacz poniższy akapit)
+| `sb-hc-token`  | Yes\*     | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo do **wysyłania** .
 | `sb-hc-id`     | Nie        | Opcjonalny identyfikator, który umożliwia kompleksowe śledzenie diagnostyczne i jest udostępniany odbiornikowi podczas uzgadniania akceptacji.
 
  `{path}`Jest ścieżką przestrzeni nazw zakodowaną w adresie URL wstępnie skonfigurowanego połączenia hybrydowego, na którym ma zostać zarejestrowany ten odbiornik. `path`Wyrażenie można rozszerzyć za pomocą sufiksu i wyrażenia ciągu zapytania w celu dalszej komunikacji. Jeśli połączenie hybrydowe jest zarejestrowane pod ścieżką `hyco` , `path` po wyrażeniu mogą występować `hyco/suffix?param=value&...` parametry ciągu zapytania zdefiniowane w tym miejscu. Kompletne wyrażenie może następnie być następujące:
@@ -467,7 +467,7 @@ https://{namespace-address}/{path}?sbc-hc-token=...
 
 _Przestrzeń nazw_ jest w pełni kwalifikowaną nazwą domeny Azure Relay przestrzeni nazw, która hostuje połączenie hybrydowe, zazwyczaj formularz `{myname}.servicebus.windows.net` .
 
-Żądanie może zawierać dowolne dodatkowe nagłówki HTTP, w tym zdefiniowane przez aplikację. Wszystkie podane nagłówki, z wyjątkiem tych, które zostały bezpośrednio zdefiniowane w RFC7230 (zobacz [komunikat żądania](#Request message)), do odbiornika i można je znaleźć w `requestHeader` obiekcie komunikatu **żądania** .
+Żądanie może zawierać dowolne dodatkowe nagłówki HTTP, w tym zdefiniowane przez aplikację. Wszystkie podane nagłówki, z wyjątkiem tych, które zostały bezpośrednio zdefiniowane w RFC7230 (zobacz [komunikat żądania](#request-message)), do odbiornika i można je znaleźć w `requestHeader` obiekcie komunikatu **żądania** .
 
 Opcje parametrów ciągu zapytania są następujące:
 

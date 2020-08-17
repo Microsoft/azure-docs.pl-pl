@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: 8038ace4469123e50d98d9296a1aecf0107efbf2
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 1609fc720474f92b3a3fa8c0631452164a7e4d0f
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262555"
+ms.locfileid: "88272030"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Zalecenia dotyczące zabezpieczeń — Przewodnik referencyjny
 
@@ -181,6 +181,7 @@ Twój bezpieczny wynik jest oparty na liczbie Security Center zaleceń, które z
 |**Dla subskrypcji należy wyznaczyć maksymalnie 3 właścicieli**|Wyznacz mniej niż trzy właściciele subskrypcji, aby zmniejszyć ryzyko naruszenia przez zagrożonego właściciela.<br>(Powiązane zasady: dla subskrypcji należy wyznaczyć maksymalnie 3 właścicieli)|Wys.|N|Subskrypcja|
 |**Zaawansowana ochrona przed zagrożeniami powinna być włączona w magazynach Azure Key Vault**|Azure Security Center obejmuje platformę Azure — natywną, zaawansowaną ochronę przed zagrożeniami dla Azure Key Vault, zapewniając dodatkową warstwę analizy zabezpieczeń.<br>Ważne: korygowaniem to zalecenie spowoduje naliczenie opłat za ochronę Twoich magazynów AKV. Jeśli nie masz żadnych magazynów AKV w tej subskrypcji, nie zostaną naliczone żadne opłaty. Jeśli w przyszłości utworzysz dowolne magazyny usługi AKV w ramach tej subskrypcji, zostaną one automatycznie objęte ochroną, a opłaty będą naliczane w tym czasie.<br>(Powiązane zasady: [Zaawansowana ochrona przed zagrożeniami powinna być włączona w magazynach Azure Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047))|Wysoki|**T**|Subskrypcja|
 |**Dzienniki diagnostyczne w Key Vault powinny być włączone**|Włącz dzienniki i zachowaj je na rok. Pozwala to na ponowne utworzenie śladów aktywności w celach dochodzeniowych w przypadku wystąpienia zdarzenia związanego z bezpieczeństwem lub zabezpieczenia sieci.<br>(Powiązane zasady: dzienniki diagnostyczne w Key Vault powinny być włączone)|Małe|**T**|Usługa Key Vault|
+|**Nazwy główne usług powinny być używane do ochrony subskrypcji zamiast certyfikatów zarządzania**|Certyfikaty zarządzania umożliwiają osobom, które uwierzytelniają się przy ich użyciu, zarządzanie subskrypcjami, z którymi są skojarzone. Aby bezpiecznie zarządzać subskrypcjami, zaleca się użycie jednostek usługi z Menedżer zasobów, aby ograniczyć promień w przypadku naruszenia zabezpieczeń certyfikatu. Automatyzuje także zarządzanie zasobami.|Średniaa|Nie|Subskrypcja|
 ||||||
 
 

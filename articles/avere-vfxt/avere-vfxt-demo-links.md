@@ -1,17 +1,17 @@
 ---
 title: Avere vFXT dla projektów demonstracyjnych na platformie Azure
-description: linki do samouczków pokazu kodu dla avere vFXT
+description: 'W tych przykładach przedstawiono najważniejsze funkcje i przypadki użycia programu avere vFXT for Azure: renderowanie wideo, obliczenia o wysokiej wydajności, wydajność vFXT i konfigurację klienta.'
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: b01bcb743e4ffc110f0182e50630baea288f16d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31e32bfc0a2c3279375148bdf3da7d4a4829af1c
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76153704"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271077"
 ---
 # <a name="avere-vfxt-demo-projects"></a>Projekty demonstracyjne avere vFXT
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-javascript
-ms.openlocfilehash: d6a25e7c36118f6a11bd1a177159bc9050ee69ca
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 8d48a8a9f52c3edb4350c16a25deda9894dcdda1
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431019"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271162"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Dodawanie interfejsu API do usługi Azure static Web Apps Preview przy użyciu Azure Functions
 
@@ -28,7 +28,7 @@ Bezserwerowe interfejsy API można dodać do Web Apps statycznej platformy Azure
 - Rozszerzenie [Visual Studio Code serwera na żywo](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) .
 - [Node.js](https://nodejs.org/download/) uruchomić aplikację interfejsu API lokalnie
 
-## <a name="create-a-git-repository"></a>Tworzenie repozytorium git
+## <a name="create-a-git-repository"></a>Utworzenie repozytorium Git
 
 Poniższe kroki przedstawiają sposób tworzenia nowego repozytorium i klonowania plików na komputerze.
 

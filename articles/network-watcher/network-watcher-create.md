@@ -1,6 +1,6 @@
 ---
 title: Tworzenie wystąpienia usługi Azure Network Watcher | Microsoft Docs
-description: Dowiedz się, jak włączyć Network Watcher w regionie świadczenia usługi Azure.
+description: Dowiedz się, jak utworzyć Network Watcher platformy Azure w regionie świadczenia usługi Azure przy użyciu Azure Portal lub innych technologii oraz jak usunąć Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 03fe71855c43ba831f4b7a4ab746f05bd3bbb4a3
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6809e8a44120eddbae4965bff30f80b617bdd024
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846857"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272165"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Tworzenie wystąpienia usługi Azure Network Watcher
 

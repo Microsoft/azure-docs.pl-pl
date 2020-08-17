@@ -1,17 +1,17 @@
 ---
 title: Instalowanie programu avere vFXT — Azure
-description: Jak zainstalować klientów z programem avere vFXT dla platformy Azure
+description: Dowiedz się, jak łączyć klientów z klastrem vFXT w usłudze avere vFXT for Azure oraz jak równoważyć obciążenie ruchu klientów między węzłami klastra.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: e8850162847f2dd416b0951a797e2eb0cd7d55d2
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 44a4e1293bc4c5a54e1e345d5cf95ba307a7b120
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229571"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272575"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Instalowanie klastra Avere vFXT
 
@@ -64,7 +64,7 @@ Powyższa funkcja jest częścią przykładu partii dostępnego w witrynie [przy
 > [!NOTE]
 > Jeśli nie utworzono nowego kontenera obiektów BLOB podczas tworzenia klastra avere vFXT, Dodaj systemy magazynów zgodnie z opisem w sekcji [Konfigurowanie magazynu](avere-vfxt-add-storage.md) przed próbą instalacji klientów.
 
-Z poziomu klienta ``mount`` polecenie mapuje serwer wirtualny (vserver) w klastrze vFXT na ścieżkę w lokalnym systemie plików. Format jest``mount <vFXT path> <local path> {options}``
+Z poziomu klienta ``mount`` polecenie mapuje serwer wirtualny (vserver) w klastrze vFXT na ścieżkę w lokalnym systemie plików. Format jest ``mount <vFXT path> <local path> {options}``
 
 Polecenie instalacji ma trzy elementy:
 
@@ -76,7 +76,7 @@ Polecenie instalacji ma trzy elementy:
 
 Ścieżka vserver jest kombinacją jego *adresu IP* oraz ścieżki do *rozgałęzienia przestrzeni nazw*. Rozgałęzienie przestrzeni nazw jest ścieżką wirtualną, która została zdefiniowana podczas dodawania systemu magazynu.
 
-Jeśli klaster został utworzony przy użyciu magazynu obiektów blob, ścieżka przestrzeni nazw do tego kontenera to`/msazure`
+Jeśli klaster został utworzony przy użyciu magazynu obiektów blob, ścieżka przestrzeni nazw do tego kontenera to `/msazure`
 
 Przykład: ``mount 10.0.0.12:/msazure /mnt/vfxt``
 

@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 337b75412751fb15e3fc1746666a8efb385a8939
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: cffd72171693499365f31b6eb51fd2586187b98b
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854535"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271267"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Samouczek: Konfigurowanie Kreatora usługi log Analytics
 
@@ -88,7 +88,7 @@ Konfigurowanie obszaru roboczego usługi log Analytics składa się z dwóch gł
 
 5. Kliknij pozycję **Przejrzyj i utwórz**.
 
-    ![Przejrzyj i utwórz](./media/tutorial-log-analytics-wizard/review-create.png)
+    ![Przegląd i tworzenie](./media/tutorial-log-analytics-wizard/review-create.png)
 
 6. Kliknij przycisk **Utwórz** i poczekaj, aż wdrożenie zakończyło się pomyślnie. Może być konieczne odświeżenie strony, aby wyświetlić nowy obszar roboczy.
 
@@ -152,7 +152,7 @@ Przyjrzyj się logowaniem, gdzie dostęp warunkowy był sukcesem
 
 Liczba sukcesów
 
-"SigninLogs | gdzie ConditionalAccessStatus = = "powodzenie" | Project UserDisplayName, ConditionalAccessStatus | liczbą
+`SigninLogs | where ConditionalAccessStatus == "success" | project UserDisplayName, ConditionalAccessStatus | count`
 
 
 Łączna liczba pomyślnych logowań według użytkownika dziennie:
@@ -216,7 +216,7 @@ Ta procedura pokazuje, jak wysyłać alerty w przypadku używania konta breakgla
 
 4. Na stronie **dzienniki** kliknij pozycję **Rozpocznij**.
 
-5. W polu tekstowym **Wyszukaj** wpisz:`SigninLogs |where UserDisplayName contains "BreakGlass" | project UserDisplayName`
+5. W polu tekstowym **Wyszukaj** wpisz: `SigninLogs |where UserDisplayName contains "BreakGlass" | project UserDisplayName`
 
 6. Kliknij przycisk **Uruchom**.  
 
@@ -268,7 +268,7 @@ Ta procedura pokazuje, jak wysyłać alerty w przypadku używania konta breakgla
 
     3. Kliknij pozycję **Przejrzyj i utwórz**. 
 
-    4. Kliknij pozycję **Utwórz**.
+    4. Kliknij przycisk **Utwórz**.
 
 
 15. W obszarze **Dostosowywanie akcji**wykonaj następujące czynności:
@@ -277,15 +277,15 @@ Ta procedura pokazuje, jak wysyłać alerty w przypadku używania konta breakgla
 
     1. Wybierz pozycję **temat wiadomości e-mail**.
 
-    2. W polu tekstowym **wiersz tematu** wpisz:`Breakglass account has been used`
+    2. W polu tekstowym **wiersz tematu** wpisz: `Breakglass account has been used`
 
 16. W obszarze **szczegóły reguły alertu**wykonaj następujące czynności:
 
     ![Szczegóły reguły alertu](./media/tutorial-log-analytics-wizard/alert-rule-details.png)
 
-    1. W polu tekstowym **Nazwa reguły alertu** wpisz:`Breakglass account`
+    1. W polu tekstowym **Nazwa reguły alertu** wpisz: `Breakglass account`
 
-    2. W polu tekstowym **Opis** wpisz:`Your emergency access account has been used`
+    2. W polu tekstowym **Opis** wpisz: `Your emergency access account has been used`
 
 17. Kliknij pozycję **Utwórz regułę alertu**.   
 
@@ -328,7 +328,7 @@ Ta procedura pokazuje, jak utworzyć nowy skoroszyt przy użyciu szablonu szybki
 
     ![Dodaj zapytanie](./media/tutorial-log-analytics-wizard/add-query.png)
 
-9. W polu tekstowym zapytania wpisz:`SigninLogs | where TimeGenerated > ago(7d) | project TimeGenerated, UserDisplayName, ClientAppUsed | summarize count() by ClientAppUsed`
+9. W polu tekstowym zapytania wpisz: `SigninLogs | where TimeGenerated > ago(7d) | project TimeGenerated, UserDisplayName, ClientAppUsed | summarize count() by ClientAppUsed`
 
 10. Kliknij przycisk **Uruchom zapytanie**.
 
@@ -371,7 +371,7 @@ Ta procedura pokazuje, jak dodać zapytanie do istniejącego szablonu skoroszytu
 
     ![Dodaj zapytanie skoroszytu](./media/tutorial-log-analytics-wizard/add-custom-workbook-query.png)
 
-7. W polu tekstowym zapytania wpisz:`SigninLogs | where TimeGenerated > ago(20d) | where ConditionalAccessPolicies != "[]" | summarize dcount(UserDisplayName) by bin(TimeGenerated, 1d), ConditionalAccessStatus`
+7. W polu tekstowym zapytania wpisz: `SigninLogs | where TimeGenerated > ago(20d) | where ConditionalAccessPolicies != "[]" | summarize dcount(UserDisplayName) by bin(TimeGenerated, 1d), ConditionalAccessStatus`
 
 8. Kliknij przycisk **Uruchom zapytanie**.
 

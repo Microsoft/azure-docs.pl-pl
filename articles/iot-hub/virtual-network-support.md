@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: 7776345ee4e02baa2d2a6ae7bc08389aa94bd09b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3c097260812e72dfaa3678a4aade556a337e6a6c
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534485"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272904"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT Hub obsługa sieci wirtualnych z linkiem prywatnym i tożsamością zarządzaną
 
@@ -182,7 +182,7 @@ IoT Hub może kierować komunikaty do konta magazynu należącego do klienta. Ab
 
 5. Przejdź do sekcji **niestandardowe punkty końcowe** i kliknij przycisk **Dodaj**. Wybierz pozycję **Storage** jako typ punktu końcowego.
 
-6. Na wyświetlonej stronie Podaj nazwę punktu końcowego, wybierz kontener, który ma być używany w magazynie obiektów blob, podaj kodowanie i format nazwy pliku. Wybierz pozycję **system przypisany** jako **Typ uwierzytelniania** do punktu końcowego magazynu. Kliknij przycisk **Utwórz**.
+6. Na wyświetlonej stronie Podaj nazwę punktu końcowego, wybierz kontener, który ma być używany w magazynie obiektów blob, podaj kodowanie i format nazwy pliku. Wybierz pozycję **tożsamość** jako **Typ uwierzytelniania** w punkcie końcowym magazynu. Kliknij przycisk **Utwórz**.
 
 Teraz niestandardowy punkt końcowy magazynu jest skonfigurowany do korzystania z tożsamości przypisanej do systemu centrum i ma uprawnienia dostępu do zasobu magazynu pomimo ograniczeń zapory. Możesz teraz używać tego punktu końcowego do konfigurowania reguły routingu.
 
@@ -234,7 +234,7 @@ Funkcja przekazywania plików IoT Hub umożliwia urządzeniom przekazywanie plik
 
 4. Na stronie zasobów IoT Hub przejdź do karty **przekazywanie plików** .
 
-5. Na wyświetlonej stronie Wybierz kontener, który ma być używany w magazynie obiektów blob, w razie potrzeby skonfiguruj **Ustawienia powiadomień dotyczących plików**, **czas wygaśnięcia sygnatury dostępu współdzielonego**, **domyślny czas wygaśnięcia**i **maksymalną liczbę dostaw** . Wybierz pozycję **system przypisany** jako **Typ uwierzytelniania** do punktu końcowego magazynu. Kliknij przycisk **Utwórz**.
+5. Na wyświetlonej stronie Wybierz kontener, który ma być używany w magazynie obiektów blob, w razie potrzeby skonfiguruj **Ustawienia powiadomień dotyczących plików**, **czas wygaśnięcia sygnatury dostępu współdzielonego**, **domyślny czas wygaśnięcia**i **maksymalną liczbę dostaw** . Wybierz pozycję **tożsamość** jako **Typ uwierzytelniania** w punkcie końcowym magazynu. Kliknij przycisk **Utwórz**.
 
 Teraz punkt końcowy magazynu dla przekazywania plików jest skonfigurowany do korzystania z tożsamości przypisanej do systemu centrum i ma uprawnienia dostępu do zasobu magazynu pomimo ograniczeń zapory.
 

@@ -1,17 +1,17 @@
 ---
 title: Planowanie systemu avere vFXT na platformie Azure
-description: Wyjaśnia planowanie przed wdrożeniem programu avere vFXT dla platformy Azure
+description: Zaplanuj avere vFXT dla klastra platformy Azure, który odpowiada Twoim potrzebom. Zapoznaj się z pytaniami przed przejściem do portalu Azure Marketplace lub tworzeniem maszyn wirtualnych.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 995ac2776f4197dac1c2ef73fd209833474be5a5
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e5c33144dcebe491757dfafb2879fe51545827ce
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922680"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272794"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planowanie systemu Avere vFXT
 
@@ -75,8 +75,8 @@ Postępuj zgodnie z poniższymi wskazówkami podczas planowania infrastruktury s
   |----------|-----------|----------|
   | Grupa zasobów | Tak, jeśli wartość jest pusta | Musi być pusty|
   | Konto magazynu | **Tak** w przypadku łączenia istniejącego kontenera obiektów BLOB po utworzeniu klastra <br/>  **Nie** w przypadku tworzenia nowego kontenera obiektów BLOB podczas tworzenia klastra | Istniejący kontener obiektów BLOB musi być pusty <br/> &nbsp; |
-  | Sieć wirtualna | Tak | Musi zawierać punkt końcowy usługi magazynu, jeśli tworzysz nowy kontener obiektów blob platformy Azure |
-  | Podsieć | Tak | Nie może zawierać innych zasobów |
+  | Sieć wirtualna | Yes | Musi zawierać punkt końcowy usługi magazynu, jeśli tworzysz nowy kontener obiektów blob platformy Azure |
+  | Podsieć | Yes | Nie może zawierać innych zasobów |
 
 ## <a name="ip-address-requirements"></a>Wymagania dotyczące adresów IP
 

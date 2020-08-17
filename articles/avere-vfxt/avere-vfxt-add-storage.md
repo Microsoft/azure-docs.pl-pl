@@ -1,17 +1,17 @@
 ---
 title: Konfigurowanie magazynu avere vFXT — Azure
-description: Jak dodać system przechowywania zaplecza do avere vFXT dla platformy Azure
+description: Dowiedz się, jak dodać system przechowywania zaplecza dla klastra w programie avere vFXT for Azure. Jeśli utworzono kontener obiektów blob platformy Azure z klastrem, jest on gotowy do użycia.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: e011b349c9296fd0ca15d119b35c1e6ec6af268a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c17d3c7cd2cf6fe5bca725cf94344b2d2cb50bf2
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505753"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271145"
 ---
 # <a name="configure-storage"></a>Konfigurowanie magazynu
 
@@ -49,7 +49,7 @@ Wykonaj następujące kroki, aby dodać podstawowy plik NAS:
 
 1. Kliknij pozycję **podstawowe**pliki  >  **zarządzanymi plikami głównymi** po lewej stronie.
 
-1. Kliknij pozycję **Utwórz**.
+1. Kliknij przycisk **Utwórz**.
 
    ![Zrzut ekranu przedstawiający stronę Dodawanie nowej podstawowej klasy plików z kursorem nad przyciskiem Utwórz](media/avere-vfxt-add-core-filer-start.png)
 

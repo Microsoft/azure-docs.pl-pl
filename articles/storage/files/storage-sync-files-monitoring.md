@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 737617b1fb8bd233a8747deacbbb328a02fa30ef
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 9db8a0397c836e8cbc45404d9c4f149255fc76fa
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185625"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271060"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorowanie usługi Azure File Sync
 
@@ -135,7 +135,7 @@ Użyj dziennika zdarzeń telemetrii na serwerze do monitorowania zarejestrowaneg
 
 Kondycja synchronizacji
 
-- Zdarzenie o IDENTYFIKATORze 9102 jest rejestrowane po zakończeniu sesji synchronizacji. To zdarzenie służy do określenia, czy sesje synchronizacji powiodły się (**HRESULT = 0**) i czy występują błędy synchronizacji poszczególnych elementów. Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [kondycji synchronizacji](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) i [błędów poszczególnych elementów](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) .
+- Zdarzenie o IDENTYFIKATORze 9102 jest rejestrowane po zakończeniu sesji synchronizacji. To zdarzenie służy do określenia, czy sesje synchronizacji powiodły się (**HRESULT = 0**) i czy występują błędy synchronizacji poszczególnych elementów (**PerItemErrorCount**). Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [kondycji synchronizacji](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) i  [błędów poszczególnych elementów](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) .
 
   > [!Note]  
   > Czasami sesje synchronizacji kończą się niepowodzeniem lub mają niezerową PerItemErrorCount. Jednak nadal trwają postęp, a niektóre pliki są synchronizowane pomyślnie. Można to sprawdzić w zastosowanych polach, takich jak AppliedFileCount, AppliedDirCount, AppliedTombstoneCount i AppliedSizeBytes. Te pola zawierają informacje o tym, ile sesji zakończyło się pomyślnie. Jeśli w wierszu wystąpi awaria wielu sesji synchronizacji i zostanie osiągnięty wzrost liczby zastosowanych, należy podać czas synchronizacji, aby ponowić próbę przed otwarciem biletu pomocy technicznej.
@@ -196,7 +196,7 @@ Ta sekcja zawiera przykładowe alerty dotyczące Azure File Sync.
 5. W bloku **Konfiguruj logikę sygnału** kliknij pozycję **Synchronizuj wynik sesji** w obszarze Nazwa sygnału.  
 6. Wybierz następującą konfigurację wymiaru: 
     - Nazwa wymiaru: **Nazwa punktu końcowego serwera**  
-    - Zakład**=** 
+    - Zakład **=** 
     - Wartości wymiaru: **wszystkie bieżące i przyszłe wartości**  
 7. Przejdź do **logiki alertu** i wykonaj następujące czynności: 
     - Próg ustawiony na **statyczny** 
@@ -218,7 +218,7 @@ Ta sekcja zawiera przykładowe alerty dotyczące Azure File Sync.
 5. W bloku **Konfigurowanie logiki sygnału** kliknij pozycję **pliki** , które nie są synchronizowane w obszarze Nazwa sygnału.  
 6. Wybierz następującą konfigurację wymiaru: 
      - Nazwa wymiaru: **Nazwa punktu końcowego serwera**  
-     - Zakład**=** 
+     - Zakład **=** 
      - Wartości wymiaru: **wszystkie bieżące i przyszłe wartości**  
 7. Przejdź do **logiki alertu** i wykonaj następujące czynności: 
      - Próg ustawiony na **statyczny** 
@@ -240,7 +240,7 @@ Ta sekcja zawiera przykładowe alerty dotyczące Azure File Sync.
 5. W bloku **Konfigurowanie logiki sygnału** kliknij pozycję **serwer online stan** w obszarze Nazwa sygnału.  
 6. Wybierz następującą konfigurację wymiaru: 
      - Nazwa wymiaru: **Nazwa serwera**  
-     - Zakład**=** 
+     - Zakład **=** 
      - Wartości wymiaru: **wszystkie bieżące i przyszłe wartości**  
 7. Przejdź do **logiki alertu** i wykonaj następujące czynności: 
      - Próg ustawiony na **statyczny** 
@@ -262,7 +262,7 @@ Ta sekcja zawiera przykładowe alerty dotyczące Azure File Sync.
 5. W bloku **Konfiguruj logikę sygnału** kliknij pozycję **warstwa chmury rozmiar odwołania** w obszarze Nazwa sygnału.  
 6. Wybierz następującą konfigurację wymiaru: 
      - Nazwa wymiaru: **Nazwa serwera**  
-     - Zakład**=** 
+     - Zakład **=** 
      - Wartości wymiaru: **wszystkie bieżące i przyszłe wartości**  
 7. Przejdź do **logiki alertu** i wykonaj następujące czynności: 
      - Próg ustawiony na **statyczny** 

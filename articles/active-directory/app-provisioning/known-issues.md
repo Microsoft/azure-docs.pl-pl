@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 08/12/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 127629cb0102c2736995364db9202cd837d99a17
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 23c3dfc6670c96f44a10b2ad5d5bfeb3ff96382c
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214287"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271009"
 ---
 # <a name="known-issues-application-provisioning"></a>Znane problemy: Inicjowanie obsługi aplikacji
 Znane problemy, które należy wziąć pod uwagę podczas pracy z obsługą aplikacji. Aby przekazać opinię na temat usługi Application Provisioning w witrynie UserVoice, zobacz temat [udostępnianie aplikacji usługi Azure AD](https://aka.ms/appprovisioningfeaturerequest)w usłudze UserVoice. Uważnie obserwujemy usługę UserVoice, abyśmy mogli ulepszyć usługi. 
@@ -66,9 +66,11 @@ Wyrażenia mapowania atrybutów mogą zawierać maksymalnie 10 000 znaków.
 - Zagnieżdżone grupy nie są obsługiwane. 
 - Inicjowanie obsługi dzierżaw B2C nie jest obsługiwane ze względu na rozmiar dzierżawców. 
 
+**Interwał aprowizacji został rozwiązany** [Czas](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) między cyklami aprowizacji nie jest obecnie konfigurowalny. 
+
 **Zmiany, które nie zostały przeniesione z aplikacji docelowej do usługi Azure AD**
 
-Usługa aprowizacji aplikacji nie wie o zmianach wprowadzonych w aplikacjach zewnętrznych. W związku z tym nie jest podejmowana żadna akcja wycofywania. Usługa aprowizacji aplikacji opiera się na zmianach wprowadzonych w usłudze Azure AD.  
+Usługa aprowizacji aplikacji nie wie o zmianach wprowadzonych w aplikacjach zewnętrznych. W związku z tym nie jest podejmowana żadna akcja wycofywania. Usługa aprowizacji aplikacji opiera się na zmianach wprowadzonych w usłudze Azure AD. 
 
 **Cykl aprowizacji jest kontynuowany do momentu ukończenia**
 
