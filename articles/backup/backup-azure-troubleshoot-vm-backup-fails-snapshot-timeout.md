@@ -4,12 +4,12 @@ description: Objawy, przyczyny i rozwiązania błędów Azure Backup związanych
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 274435a958820c3fd08fef4a61643a1d656e31e3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 99982af7f16431ac5b1c2c4a0e419d647d3d2ca0
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167933"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88262861"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Rozwiązywanie problemów z błędem Azure Backup: problemy z agentem lub rozszerzeniem
 
@@ -96,7 +96,7 @@ Po zarejestrowaniu i zaplanowaniu maszyny wirtualnej dla usługi Azure Backup Ba
 
 **Przyczyna 5: [rozwiązanie kontroli aplikacji blokuje IaaSBcdrExtension.exe](#application-control-solution-is-blocking-iaasbcdrextensionexe)**
 
-## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed — stan aprowizacji maszyny wirtualnej to niepowodzenie
+## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed — maszyna wirtualna jest w stanie nieudanego aprowizowania
 
 **Kod błędu**: UserErrorVmProvisioningStateFailed<br>
 **Komunikat o błędzie**: stan aprowizacji maszyny wirtualnej to niepowodzenie<br>
@@ -107,7 +107,7 @@ Ten błąd występuje, gdy jeden z błędów rozszerzenia przełączy maszynę w
 - Jeśli jakiekolwiek inne rozszerzenie jest w stanie niepowodzenia, może zakłócać tworzenie kopii zapasowej. Upewnij się, że problemy z rozszerzeniem zostały rozwiązane, i spróbuj ponownie wykonać operację tworzenia kopii zapasowej.
 - Jeśli stan aprowizacji maszyn wirtualnych jest w stanie aktualizacji, może to zakłócać tworzenie kopii zapasowej. Upewnij się, że jest w dobrej kondycji i spróbuj ponownie wykonać operację tworzenia kopii zapasowej.
 
-## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached — osiągnięto limit maksymalny kolekcji punktów przywracania
+## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached — osiągnięto maksymalny limit kolekcji punktów przywracania
 
 **Kod błędu**: UserErrorRpCollectionLimitReached <br>
 **Komunikat o błędzie**: Osiągnięto maksymalny limit kolekcji punktów przywracania. <br>
@@ -140,7 +140,7 @@ Po zarejestrowaniu i zaplanowaniu maszyny wirtualnej dla usługi Azure Backup Ba
 
 **[Nie można pobrać stanu migawki lub nie można wykonać migawki](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 
-## <a name="extensionoperationfailedformanageddisks---vmsnapshot-extension-operation-failed"></a><a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>Nie można wykonać operacji rozszerzenia ExtensionOperationFailedForManagedDisks-VMSnapshot
+## <a name="extensionoperationfailedformanageddisks---vmsnapshot-extension-operation-failed"></a><a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks — nie można wykonać operacji rozszerzenia VMSnapshot
 
 **Kod błędu**: ExtensionOperationFailedForManagedDisks <br>
 **Komunikat o błędzie**: nie można wykonać operacji rozszerzenia VMSnapshot<br>
@@ -175,36 +175,36 @@ Operacja tworzenia kopii zapasowej może zakończyć się niepowodzeniem podczas
 
 Ostatnie zadanie tworzenia kopii zapasowej nie powiodło się, ponieważ jest w toku istniejące zadanie tworzenia kopii zapasowej. Nie można rozpocząć nowego zadania tworzenia kopii zapasowej, dopóki nie zakończy się bieżące zadanie. Upewnij się, że operacja tworzenia kopii zapasowej jest w toku, przed wyzwoleniem lub zaplanowaniem innej operacji tworzenia kopii zapasowej. Aby sprawdzić stan zadań tworzenia kopii zapasowej, wykonaj następujące czynności:
 
-1. Zaloguj się do Azure Portal, kliknij pozycję **wszystkie usługi**. Wpisz ciąg Recovery Services i kliknij pozycję **Magazyny usługi Recovery Services**. Zostanie wyświetlona lista magazynów usługi Recovery Services.
+1. Zaloguj się do Azure Portal, wybierz pozycję **wszystkie usługi**. Wpisz Recovery Services i wybierz pozycję **magazyny Recovery Services**. Zostanie wyświetlona lista magazynów usługi Recovery Services.
 2. Z listy magazynów usługi Recovery Services wybierz magazyn, w którym jest skonfigurowana kopia zapasowa.
-3. W menu pulpitu nawigacyjnego magazynu kliknij pozycję **zadania tworzenia kopii zapasowej** , aby wyświetlić wszystkie zadania tworzenia kopii zapasowej.
+3. W menu pulpitu nawigacyjnego magazynu wybierz kolejno pozycje **zadania tworzenia kopii zapasowej** , które wyświetla wszystkie zadania tworzenia kopii zapasowej.
    - Jeśli zadanie tworzenia kopii zapasowej jest w toku, poczekaj na jego zakończenie lub Anuluj zadanie tworzenia kopii zapasowej.
-     - Aby anulować zadanie tworzenia kopii zapasowej, kliknij prawym przyciskiem myszy zadanie tworzenia kopii zapasowej, a następnie kliknij przycisk **Anuluj** lub Użyj [programu PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
+     - Aby anulować zadanie tworzenia kopii zapasowej, kliknij prawym przyciskiem myszy zadanie tworzenia kopii zapasowej i wybierz polecenie **Anuluj** lub Użyj [programu PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
    - Jeśli ponownie skonfigurowano kopię zapasową w innym magazynie, upewnij się, że w starym magazynie nie są uruchomione żadne zadania tworzenia kopii zapasowej. Jeśli istnieje, Anuluj zadanie tworzenia kopii zapasowej.
-     - Aby anulować zadanie tworzenia kopii zapasowej, kliknij prawym przyciskiem myszy na zadanie tworzenia kopii zapasowej, a następnie kliknij pozycję **Anuluj** lub użyj programu [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob)
+     - Aby anulować zadanie tworzenia kopii zapasowej, kliknij prawym przyciskiem myszy zadanie tworzenia kopii zapasowej i wybierz polecenie **Anuluj** lub Użyj [programu PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob) .
 4. Spróbuj ponownie wykonać operację tworzenia kopii zapasowej.
 
 Jeśli operacja zaplanowanej kopii zapasowej trwa dłużej, konflikt z kolejną konfiguracją kopii zapasowej, a następnie zapoznaj się z [najlepszymi rozwiązaniami](backup-azure-vms-introduction.md#best-practices), [wydajnością kopii zapasowej](backup-azure-vms-introduction.md#backup-performance)i [zagadnieniami](backup-azure-vms-introduction.md#backup-and-restore-considerations)dotyczącymi przywracania.
 
-## <a name="usererrorcrpreportedusererror---backup-failed-due-to-an-error-for-details-see-job-error-message-details"></a>UserErrorCrpReportedUserError — tworzenie kopii zapasowej nie powiodło się z powodu błędu. Aby uzyskać szczegółowe informacje, zobacz szczegóły komunikatu o błędzie zadania
+## <a name="usererrorcrpreportedusererror---backup-failed-due-to-an-error-for-details-see-job-error-message-details"></a>UserErrorCrpReportedUserError — tworzenie kopii zapasowej nie powiodło się z powodu błędu. Więcej informacji można znaleźć w szczegółach komunikatu o błędzie zadania
 
 **Kod błędu**: UserErrorCrpReportedUserError <br>
 **Komunikat o błędzie**: wykonywanie kopii zapasowej nie powiodło się z powodu błędu. Aby uzyskać szczegółowe informacje, zobacz szczegóły komunikatu o błędzie zadania.
 
-Ten błąd jest zgłaszany z maszyny wirtualnej IaaS. Aby zidentyfikować główną przyczynę problemu, przejdź do ustawień magazynu Recovery Services. W sekcji **monitorowanie** wybierz pozycję **zadania tworzenia kopii zapasowej** , aby przefiltrować i wyświetlić stan. Kliknij pozycję **Błędy** , aby przejrzeć szczegóły komunikatu o błędzie. Wykonaj dalsze działania zgodnie z zaleceniami na stronie Szczegóły błędu.
+Ten błąd jest zgłaszany z maszyny wirtualnej IaaS. Aby zidentyfikować główną przyczynę problemu, przejdź do ustawień magazynu Recovery Services. W sekcji **monitorowanie** wybierz pozycję **zadania tworzenia kopii zapasowej** , aby przefiltrować i wyświetlić stan. Wybierz pozycję **niepowodzenia** , aby przejrzeć szczegóły komunikatu o błędzie. Wykonaj dalsze działania zgodnie z zaleceniami na stronie Szczegóły błędu.
 
 ## <a name="usererrorbcmdatasourcenotpresent---backup-failed-this-virtual-machine-is-not-actively-protected-by-azure-backup"></a>UserErrorBcmDatasourceNotPresent — tworzenie kopii zapasowej nie powiodło się: Ta maszyna wirtualna nie jest chroniona przez Azure Backup
 
 **Kod błędu**: UserErrorBcmDatasourceNotPresent <br>
 **Komunikat o błędzie**: wykonywanie kopii zapasowej nie powiodło się: Ta maszyna wirtualna nie jest chroniona przez Azure Backup.
 
-Sprawdź, czy dana maszyna wirtualna jest aktywna (nie jest w stanie wstrzymania) chronioną przez Azure Backup. Aby rozwiązać ten problem, upewnij się, że maszyna wirtualna jest aktywna, a następnie spróbuj ponownie wykonać operację.
+Sprawdź, czy dana maszyna wirtualna jest aktywna (nie w stanie wstrzymania) chronioną przez Azure Backup. Aby rozwiązać ten problem, upewnij się, że maszyna wirtualna jest aktywna, a następnie spróbuj ponownie wykonać operację.
 
 ## <a name="causes-and-solutions"></a>Przyczyny i rozwiązania
 
 ### <a name="the-agent-is-installed-in-the-vm-but-its-unresponsive-for-windows-vms"></a><a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Agent jest zainstalowany na maszynie wirtualnej, ale nie odpowiada (dla maszyn wirtualnych z systemem Windows)
 
-#### <a name="solution"></a>Rozwiązanie
+#### <a name="solution-for-this-error"></a>Rozwiązanie dla tego błędu
 
 Agent maszyny wirtualnej mógł zostać uszkodzony lub usługa mogła zostać zatrzymana. Ponowne zainstalowanie agenta maszyny wirtualnej pomoże uzyskać najnowszą wersję. Pomaga również w ponownym uruchomieniu komunikacji z usługą.
 
@@ -258,7 +258,7 @@ Aby uzyskać pełną listę opcji pliku konfiguracji agenta maszyny wirtualnej, 
 
 Jeśli korzystasz z [funkcji AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (lub innego rozwiązania do sterowania aplikacjami), a reguły są oparte na programie Publisher lub ścieżce, mogą blokować uruchamianie **IaaSBcdrExtension.exe** pliku wykonywalnego.
 
-#### <a name="solution"></a>Rozwiązanie
+#### <a name="solution-to-this-issue"></a>Rozwiązanie tego problemu
 
 Wyklucz `/var/lib` ścieżkę lub **IaaSBcdrExtension.exe** plik wykonywalny z funkcji AppLocker (lub innego oprogramowania do sterowania aplikacjami).
 
@@ -266,7 +266,7 @@ Wyklucz `/var/lib` ścieżkę lub **IaaSBcdrExtension.exe** plik wykonywalny z f
 
 Kopia zapasowa maszyny wirtualnej polega na wystawieniu polecenia migawki na bazowe konto magazynu. Tworzenie kopii zapasowej może zakończyć się niepowodzeniem, ponieważ nie ma dostępu do konta magazynu, lub ponieważ wykonywanie zadania migawki jest opóźnione.
 
-#### <a name="solution"></a>Rozwiązanie
+#### <a name="solution-for-this-issue"></a>Rozwiązanie tego problemu
 
 Następujące warunki mogą spowodować niepowodzenie zadania migawki:
 
@@ -280,7 +280,7 @@ Następujące warunki mogą spowodować niepowodzenie zadania migawki:
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Przejdź do **opcji wszystkie zasoby**, wybierz grupę zasobów kolekcji punktów przywracania w następującym formacie AzureBackupRG_ `<Geo>` _ `<number>` .
 3. W sekcji **Ustawienia** wybierz pozycję **blokady** , aby wyświetlić blokady.
-4. Aby usunąć blokadę, wybierz wielokropek, a następnie kliknij przycisk **Usuń**.
+4. Aby usunąć blokadę, wybierz wielokropek i wybierz pozycję **Usuń**.
 
     ![Usuń blokadę](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
@@ -307,16 +307,16 @@ Po usunięciu blokady wykonaj kopię zapasową na żądanie. Ta akcja zapewni au
 Aby ręcznie wyczyścić kolekcję punktów przywracania, która nie została wyczyszczona z powodu blokady w grupie zasobów, spróbuj wykonać następujące czynności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. W menu **centrum** kliknij pozycję **wszystkie zasoby**, wybierz grupę zasobów o następującym formacie AzureBackupRG_ _, w `<Geo>` `<number>` której znajduje się maszyna wirtualna.
+2. W menu **centrum** wybierz pozycję **wszystkie zasoby**, a następnie wybierz grupę zasobów o następującym formacie AzureBackupRG_ _, w `<Geo>` `<number>` której znajduje się maszyna wirtualna.
 
-    ![Usuń blokadę](./media/backup-azure-arm-vms-prepare/resource-group.png)
+    ![Wybierz grupę zasobów](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
-3. Kliknij pozycję Grupa zasobów, zostanie wyświetlone okienko **Przegląd** .
+3. Wybierz grupę zasobów, zostanie wyświetlone okienko **Przegląd** .
 4. Wybierz opcję **Pokaż ukryte typy** , aby wyświetlić wszystkie ukryte zasoby. Wybierz kolekcje punktów przywracania o następującym formacie AzureBackupRG_ `<VMName>` _ `<number>` .
 
-    ![Usuń blokadę](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+    ![Wybierz kolekcję punktów przywracania](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
 
-5. Kliknij przycisk **Usuń** , aby wyczyścić kolekcję punktów przywracania.
+5. Wybierz pozycję **Usuń** , aby wyczyścić kolekcję punktów przywracania.
 6. Spróbuj ponownie wykonać operację tworzenia kopii zapasowej.
 
 > [!NOTE]

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c896e617346c9bab598044cedfc475b471466cd0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b89b3e2cf799e1aa182f7005d92e2c91ce4b76ce
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86998854"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263082"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Samouczek: Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi za pomocą programu Azure PowerShell
 
@@ -237,7 +237,7 @@ Maszyna wirtualna platformy Azure może znajdować się w jednym z wielu stanów
 | Stan zasilania | Opis
 |----|----|
 | Uruchamianie | Maszyna wirtualna jest uruchamiana. |
-| Uruchomiono | Maszyna wirtualna została uruchomiona. |
+| Uruchomienie | Maszyna wirtualna została uruchomiona. |
 | Zatrzymywanie | Maszyna wirtualna jest zatrzymywana. |
 | Zatrzymano | Maszyna wirtualna została zatrzymana. Opłaty za operacje obliczeniowe są także naliczane w przypadku maszyn wirtualnych w stanie Zatrzymano.  |
 | Cofanie przydziału | Przydział maszyny wirtualnej jest cofany. |
@@ -261,6 +261,8 @@ Status
 ------
 PowerState/running
 ```
+
+Aby pobrać stan mocy wszystkich maszyn wirtualnych w ramach subskrypcji, użyj opcji [Virtual Machines wszystkie interfejsy API](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall) z parametrem **statusOnly** na *wartość true*.
 
 ## <a name="management-tasks"></a>Zadania zarządzania
 

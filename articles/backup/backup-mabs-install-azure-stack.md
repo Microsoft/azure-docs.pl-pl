@@ -3,12 +3,12 @@ title: Instalowanie składnika Azure Backup Server w usłudze Azure Stack
 description: W tym artykule dowiesz się, jak używać Azure Backup Server do ochrony lub tworzenia kopii zapasowych obciążeń w programie Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 634f560174413dd75bebdee6513160a3700df9a4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5b6ae97f30bf704e5bc495cc8020e8bcb0e30ce3
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513901"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263065"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalowanie składnika Azure Backup Server w usłudze Azure Stack
 
@@ -111,8 +111,8 @@ Opcja replikacji magazynu Recovery Services Storage umożliwia wybranie między 
 
 Aby edytować ustawienia replikacji magazynu:
 
-1. Wybierz swój magazyn, aby otworzyć pulpit nawigacyjny magazynu i menu Ustawienia. Jeśli menu **Ustawienia** nie jest otwarte, kliknij pozycję **wszystkie ustawienia** na pulpicie nawigacyjnym magazynu.
-2. W menu **Ustawienia** kliknij pozycję **Utwórz**kopię zapasową infrastruktury zapasowej,  >  **Backup Configuration** aby otworzyć menu **Konfiguracja kopii zapasowej** . W menu **Konfiguracja kopii zapasowej** wybierz opcję replikacja magazynu dla swojego magazynu.
+1. Wybierz swój magazyn, aby otworzyć pulpit nawigacyjny magazynu i menu Ustawienia. Jeśli menu **Ustawienia** nie jest otwarte, wybierz pozycję **wszystkie ustawienia** na pulpicie nawigacyjnym magazynu.
+2. W menu **Ustawienia** wybierz kolejno pozycje **kopia**zapasowa infrastruktura zapasowa,  >  **Backup Configuration** aby otworzyć menu **Konfiguracja kopii zapasowej** . W menu **Konfiguracja kopii zapasowej** wybierz opcję replikacja magazynu dla swojego magazynu.
 
     ![Lista magazynów kopii zapasowych](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -133,9 +133,9 @@ Istnieją dwa sposoby pobrania instalatora Azure Backup Server. Instalatora Azur
 
 4. Z listy Recovery Services magazynów wybierz swój magazyn, aby otworzyć jego pulpit nawigacyjny.
 
-    ![Wpisz Recovery Services w oknie dialogowym wszystkie usługi](./media/backup-mabs-install-azure-stack/rs-vault-dashboard.png)
+    ![Wybierz swój magazyn, aby otworzyć pulpit nawigacyjny](./media/backup-mabs-install-azure-stack/rs-vault-dashboard.png)
 
-5. W menu Wprowadzenie magazynu kliknij pozycję **kopia zapasowa** , aby otworzyć Kreatora wprowadzenie.
+5. W menu Wprowadzenie magazynu wybierz pozycję **kopia zapasowa** , aby otworzyć Kreatora wprowadzenie.
 
     ![Wprowadzenie do kopii zapasowej](./media/backup-mabs-install-azure-stack/getting-started-backup.png)
 
@@ -143,25 +143,25 @@ Istnieją dwa sposoby pobrania instalatora Azure Backup Server. Instalatora Azur
 
     ![Tworzenie kopii zapasowych — cele domyślne — otwierane](./media/backup-mabs-install-azure-stack/getting-started-menu.png)
 
-6. W menu kopia zapasowa, w menu **gdzie jest uruchomione Twoje obciążenie** , wybierz pozycję **lokalnie**. Z menu rozwijanego **co chcesz utworzyć kopię zapasową?** wybierz obciążenia, które mają być chronione przy użyciu Azure Backup Server. Jeśli nie masz pewności, które obciążenia do wyboru, wybierz **Virtual Machines funkcji Hyper-V** , a następnie kliknij pozycję **Przygotuj infrastrukturę**.
+6. W menu kopia zapasowa, w menu **gdzie jest uruchomione Twoje obciążenie** , wybierz pozycję **lokalnie**. Z menu rozwijanego **co chcesz utworzyć kopię zapasową?** wybierz obciążenia, które mają być chronione przy użyciu Azure Backup Server. Jeśli nie masz pewności, które obciążenia do wyboru, wybierz **Virtual Machines funkcji Hyper-V** , a następnie wybierz pozycję **Przygotuj infrastrukturę**.
 
     ![lokalne i obciążenia jako cele](./media/backup-mabs-install-azure-stack/getting-started-menu-onprem-hyperv.png)
 
     Zostanie otwarte menu **Przygotuj infrastrukturę** .
 
-7. W menu **Przygotowywanie infrastruktury** kliknij pozycję **Pobierz** , aby otworzyć stronę sieci Web w celu pobrania plików instalacyjnych programu Azure Backup Server.
+7. W menu **Przygotuj infrastrukturę** wybierz pozycję **Pobierz** , aby otworzyć stronę sieci Web w celu pobrania plików instalacyjnych programu Azure Backup Server.
 
     ![Zmiana kreatora Wprowadzenie](./media/backup-mabs-install-azure-stack/prepare-infrastructure.png)
 
     Zostanie otwarta strona sieci Web firmy Microsoft, która hostuje pliki do pobrania dla Azure Backup Server.
 
-8. Na stronie pobierania serwera Microsoft Azure Backup wybierz język, a następnie kliknij pozycję **Pobierz**.
+8. Na stronie pobierania serwera Microsoft Azure Backup wybierz język, a następnie wybierz pozycję **Pobierz**.
 
     ![Zostanie otwarte Centrum pobierania](./media/backup-mabs-install-azure-stack/mabs-download-center-page.png)
 
-9. Instalator Azure Backup Server składa się z ośmiu plików — Instalatora i siedmiu plików bin. Sprawdź **nazwę pliku** , aby zaznaczyć wszystkie wymagane pliki, a następnie kliknij przycisk **dalej**. Pobierz wszystkie pliki do tego samego folderu.
+9. Instalator Azure Backup Server składa się z ośmiu plików — Instalatora i siedmiu plików bin. Sprawdź **nazwę pliku** , aby zaznaczyć wszystkie wymagane pliki, a następnie wybierz przycisk **dalej**. Pobierz wszystkie pliki do tego samego folderu.
 
-    ![Centrum pobierania 1](./media/backup-mabs-install-azure-stack/download-center-selected-files.png)
+    ![Centrum pobierania, wybrane pliki](./media/backup-mabs-install-azure-stack/download-center-selected-files.png)
 
     Rozmiar pobierania wszystkich plików instalacyjnych jest większy niż 3 GB. W przypadku linku pobierania 10 MB/s pobieranie wszystkich plików instalacyjnych może potrwać do 60 minut. Pliki są pobierane do określonej lokalizacji pobierania.
 
@@ -169,141 +169,141 @@ Istnieją dwa sposoby pobrania instalatora Azure Backup Server. Instalatora Azur
 
 Po pobraniu wszystkich plików na maszynę wirtualną Azure Stack przejdź do lokalizacji pobierania. Pierwszym etapem instalacji Azure Backup Server jest wyodrębnienie plików.
 
-![Centrum pobierania 1](./media/backup-mabs-install-azure-stack/download-mabs-installer.png)
+![Pobierz instalatora serwera usługi MAB](./media/backup-mabs-install-azure-stack/download-mabs-installer.png)
 
-1. Aby rozpocząć instalację, z listy pobranych plików kliknij przycisk **MicrosoftAzureBackupserverInstaller.exe**.
+1. Aby rozpocząć instalację, z listy pobranych plików wybierz pozycję **MicrosoftAzureBackupserverInstaller.exe**.
 
     > [!WARNING]
     > Do wyodrębnienia plików instalacyjnych wymagane jest co najmniej 4 GB wolnego miejsca.
     >
 
-2. W Kreatorze Azure Backup Server kliknij przycisk **dalej** , aby kontynuować.
+2. W Kreatorze Azure Backup Server wybierz pozycję **dalej** , aby kontynuować.
 
     ![Kreator instalacji Microsoft Azure Backup](./media/backup-mabs-install-azure-stack/mabs-install-wiz-1.png)
 
-3. Wybierz ścieżkę do Azure Backup Server plików, a następnie kliknij przycisk **dalej**.
+3. Wybierz ścieżkę do Azure Backup Server plików, a następnie wybierz przycisk **dalej**.
 
-   ![Kreator instalacji Microsoft Azure Backup](./media/backup-mabs-install-azure-stack/mabs-install-wizard-select-destination-1.png)
+   ![Wybierz lokalizację docelową dla plików](./media/backup-mabs-install-azure-stack/mabs-install-wizard-select-destination-1.png)
 
-4. Sprawdź lokalizację wyodrębniania, a następnie kliknij pozycję **Wyodrębnij**.
+4. Sprawdź lokalizację wyodrębniania i wybierz pozycję **Wyodrębnij**.
 
-   ![Kreator instalacji Microsoft Azure Backup](./media/backup-mabs-install-azure-stack/mabs-install-wizard-extract-2.png)
+   ![Weryfikuj lokalizację wyodrębniania](./media/backup-mabs-install-azure-stack/mabs-install-wizard-extract-2.png)
 
 5. Kreator wyodrębnia pliki i odczytuje proces instalacji.
 
-   ![Kreator instalacji Microsoft Azure Backup](./media/backup-mabs-install-azure-stack/mabs-install-wizard-install-3.png)
+   ![Kreator wyodrębnia pliki](./media/backup-mabs-install-azure-stack/mabs-install-wizard-install-3.png)
 
-6. Po zakończeniu procesu wyodrębniania kliknij przycisk **Zakończ**. Domyślnie jest zaznaczone polecenie **wykonaj setup.exe** . Po kliknięciu przycisku **Zakończ**program Setup.exe zainstaluje Microsoft Azure Backup Server w określonej lokalizacji.
+6. Po zakończeniu procesu wyodrębniania wybierz pozycję **Zakończ**. Domyślnie jest zaznaczone polecenie **wykonaj setup.exe** . Po wybraniu **przycisku Zakończ**program Setup.exe instaluje serwer Microsoft Azure Backup w określonej lokalizacji.
 
-   ![Kreator instalacji Microsoft Azure Backup](./media/backup-mabs-install-azure-stack/mabs-install-wizard-finish-4.png)
+   ![Instalator wyodrębnia Microsoft Azure Backup pliki serwera](./media/backup-mabs-install-azure-stack/mabs-install-wizard-finish-4.png)
 
 ## <a name="install-the-software-package"></a>Zainstaluj pakiet oprogramowania
 
-W poprzednim kroku kliknięto przycisk **Zakończ** , aby zakończyć fazę wyodrębniania, i uruchomić kreatora instalacji Azure Backup Server.
+W poprzednim kroku wybierasz pozycję **Finish (Zakończ** ), aby zakończyć fazę wyodrębniania, i uruchomić kreatora instalacji Azure Backup Server.
 
-![Kreator instalacji Microsoft Azure Backup](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5.png)
+![Zostanie uruchomiony Kreator instalacji Microsoft Azure Backup](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5.png)
 
 Azure Backup Server udostępnia kod z Data Protection Manager. W instalatorze Azure Backup Server pojawią się odwołania do Data Protection Manager i programu DPM. Chociaż Azure Backup Server i Data Protection Manager są oddzielnymi produktami, te produkty są ściśle powiązane.
 
-1. Aby uruchomić Kreatora instalacji, kliknij przycisk **Microsoft Azure Backup Server**.
+1. Aby uruchomić Kreatora instalacji, wybierz opcję **serwer Microsoft Azure Backup**.
 
-   ![Kreator instalacji Microsoft Azure Backup](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5b.png)
+   ![Wybierz serwer Microsoft Azure Backup](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5b.png)
 
-2. Na ekranie **Zapraszamy** naciśnij przycisk **Dalej**.
+2. Na ekranie **powitalnym** wybierz pozycję **dalej**.
 
-    ![Azure Backup Server-Witamy i sprawdzanie wymagań wstępnych](./media/backup-mabs-install-azure-stack/mabs-install-wizard-setup-6.png)
+    ![Azure Backup Server — Witamy](./media/backup-mabs-install-azure-stack/mabs-install-wizard-setup-6.png)
 
-3. Na ekranie **Sprawdzanie wymagań wstępnych** kliknij przycisk **Sprawdź** , aby określić, czy zostały spełnione wymagania wstępne dotyczące sprzętu i oprogramowania Azure Backup Server.
+3. Na ekranie **Sprawdzanie wymagań wstępnych** wybierz pozycję **Sprawdź** , aby określić, czy zostały spełnione wymagania wstępne dotyczące sprzętu i oprogramowania Azure Backup Server.
 
-    ![Azure Backup Server-Witamy i sprawdzanie wymagań wstępnych](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-7.png)
+    ![Azure Backup Server — sprawdzanie wymagań wstępnych](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-7.png)
 
-    Jeśli środowisko ma wymagane wymagania wstępne, zostanie wyświetlony komunikat informujący o tym, że komputer spełnia wymagania. Kliknij przycisk **Dalej**.  
+    Jeśli środowisko ma wymagane wymagania wstępne, zobaczysz komunikat informujący o tym, że komputer spełnia wymagania. Wybierz opcję **Dalej**.  
 
     ![Zakończono sprawdzanie wymagań wstępnych Azure Backup Server](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-passed-8.png)
 
-    Jeśli środowisko nie spełnia wymagań wstępnych, zostaną określone problemy. Wymagania wstępne, które nie zostały spełnione, są również wymienione w dzienniku DpmSetup. log. Usuń błędy wymagań wstępnych, a następnie **ponownie uruchom sprawdzenie**. Nie można przeprowadzić instalacji, dopóki nie zostaną spełnione wszystkie wymagania wstępne.
+    Jeśli środowisko nie spełnia wymagań wstępnych, zostaną określone problemy. Wymagania wstępne, które nie zostały spełnione, są również wymienione w DpmSetup. log. Usuń błędy wymagań wstępnych, a następnie **ponownie uruchom sprawdzenie**. Nie można kontynuować instalacji, dopóki nie zostaną spełnione wszystkie wymagania wstępne.
 
     ![Azure Backup Server — wymagania wstępne instalacji nie zostały spełnione](./media/backup-mabs-install-azure-stack/installation-errors.png)
 
-4. Serwer Microsoft Azure Backup wymaga SQL Server. Pakiet instalacyjny Azure Backup Server jest powiązany z odpowiednimi SQL Server plikami binarnymi. Jeśli chcesz użyć własnej instalacji programu SQL, możesz. Zaleca się jednak, aby Instalator dodał nowe wystąpienie SQL Server. Aby upewnić się, że wybór działa z Twoim środowiskiem, kliknij przycisk **Sprawdź i zainstaluj**.
+4. Serwer Microsoft Azure Backup wymaga SQL Server. Pakiet instalacyjny Azure Backup Server jest powiązany z odpowiednimi SQL Server plikami binarnymi. Jeśli chcesz użyć własnej instalacji programu SQL, możesz. Zaleca się jednak, aby Instalator dodał nowe wystąpienie SQL Server. Aby upewnić się, że wybór działa z Twoim środowiskiem, wybierz pozycję **Sprawdź i zainstaluj**.
 
    > [!NOTE]
    > Azure Backup Server nie będzie działał ze zdalnym wystąpieniem SQL Server. Wystąpienie używane przez Azure Backup Server musi być lokalne.
    >
 
-    ![Azure Backup Server-Witamy i sprawdzanie wymagań wstępnych](./media/backup-mabs-install-azure-stack/mabs-install-wizard-sql-install-9.png)
+    ![Azure Backup Server — ustawienia SQL](./media/backup-mabs-install-azure-stack/mabs-install-wizard-sql-install-9.png)
 
-    Po sprawdzeniu, czy maszyna wirtualna ma wymagane wymagania wstępne dotyczące instalacji Azure Backup Server, kliknij przycisk **dalej**.
+    Po sprawdzeniu, czy maszyna wirtualna ma wymagane wymagania wstępne dotyczące instalacji Azure Backup Server, wybierz pozycję **dalej**.
 
-    ![Azure Backup Server-Witamy i sprawdzanie wymagań wstępnych](./media/backup-mabs-install-azure-stack/mabs-install-wizard-sql-ready-10.png)
+    ![Azure Backup Server — wymagania zostały spełnione](./media/backup-mabs-install-azure-stack/mabs-install-wizard-sql-ready-10.png)
 
-    Jeśli wystąpi błąd z zaleceniem ponownego uruchomienia komputera, należy ponownie uruchomić maszynę. Po ponownym uruchomieniu maszyny Uruchom ponownie Instalatora i po wyświetleniu ekranu **Ustawienia SQL** kliknij przycisk **Sprawdź ponownie**.
+    Jeśli wystąpi błąd z zaleceniem ponownego uruchomienia komputera, należy ponownie uruchomić maszynę. Po ponownym uruchomieniu maszyny Uruchom ponownie Instalatora, a po wyświetleniu ekranu **Ustawienia SQL** wybierz pozycję **Sprawdź ponownie**.
 
-5. W **ustawieniach instalacji**Podaj lokalizację instalacji plików serwera Microsoft Azure Backup i kliknij przycisk **dalej**.
+5. W **ustawieniach instalacji**Podaj lokalizację instalacji plików serwera Microsoft Azure Backup i wybierz pozycję **dalej**.
 
-    ![Microsoft Azure Backup PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
+    ![Podaj lokalizację instalacji plików](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
     Lokalizacja tymczasowa jest wymagana do utworzenia kopii zapasowej na platformie Azure. Upewnij się, że rozmiar lokalizacji tymczasowej odpowiada co najmniej 5% danych planowanych do utworzenia kopii zapasowej na platformie Azure. W przypadku ochrony dysków należy skonfigurować oddzielne dyski po zakończeniu instalacji. Aby uzyskać więcej informacji na temat pul magazynów, zobacz [Przygotowywanie magazynu danych](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
 
-6. Na ekranie **Ustawienia zabezpieczeń** Podaj silne hasło dla kont użytkowników lokalnych z ograniczeniami, a następnie kliknij przycisk **dalej**.
+6. Na ekranie **Ustawienia zabezpieczeń** Podaj silne hasło dla kont użytkowników lokalnych z ograniczeniami i wybierz pozycję **dalej**.
 
-    ![Microsoft Azure Backup PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-security-12.png)
+    ![Ekran ustawień zabezpieczeń](./media/backup-mabs-install-azure-stack/mabs-install-wizard-security-12.png)
 
-7. Na ekranie **nieMicrosoft Update** wybierz, czy chcesz użyć *Microsoft Update* do sprawdzenia dostępności aktualizacji, a następnie kliknij przycisk **dalej**.
+7. Na ekranie **nieMicrosoft Update** wybierz, czy chcesz użyć *Microsoft Update* do sprawdzenia dostępności aktualizacji, a następnie wybierz przycisk **dalej**.
 
    > [!NOTE]
    > Zalecamy, aby Windows Update przekierować do Microsoft Update, który oferuje bezpieczeństwo i ważne aktualizacje systemu Windows oraz innych produktów, takich jak Microsoft Azure Backup Server.
    >
 
-    ![Microsoft Azure Backup PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-update-13.png)
+    ![Ekran z zapytaniem Microsoft Update](./media/backup-mabs-install-azure-stack/mabs-install-wizard-update-13.png)
 
-8. Przejrzyj *Podsumowanie ustawień* i kliknij przycisk **Instaluj**.
+8. Przejrzyj *Podsumowanie ustawień* i wybierz pozycję **Zainstaluj**.
 
-    ![Microsoft Azure Backup PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-summary-14.png)
+    ![Podsumowanie ustawień](./media/backup-mabs-install-azure-stack/mabs-install-wizard-summary-14.png)
 
     Po zakończeniu instalacji Azure Backup Server Instalator natychmiast uruchomi Instalatora agenta Microsoft Azure Recovery Services.
 
-9. Zostanie otwarty Instalator agenta Microsoft Azure Recovery Services i zostanie wyszukany łączność z Internetem. Jeśli dostępna jest łączność z Internetem, Kontynuuj instalację. W przypadku braku łączności Podaj szczegóły serwera proxy, aby połączyć się z Internetem. Po określeniu ustawień serwera proxy kliknij przycisk **dalej**.
+9. Zostanie otwarty Instalator agenta Microsoft Azure Recovery Services i zostanie wyszukany łączność z Internetem. Jeśli dostępna jest łączność z Internetem, Kontynuuj instalację. Jeśli nie ma łączności, podaj szczegóły serwera proxy, aby połączyć się z Internetem. Po określeniu ustawień serwera proxy wybierz pozycję **dalej**.
 
-    ![Microsoft Azure Backup PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-proxy-15.png)
+    ![Konfiguracja serwera proxy](./media/backup-mabs-install-azure-stack/mabs-install-wizard-proxy-15.png)
 
-10. Aby zainstalować agenta Microsoft Azure Recovery Services, kliknij przycisk **Instaluj**.
+10. Aby zainstalować agenta Microsoft Azure Recovery Services, wybierz pozycję **Zainstaluj**.
 
-    ![Azure Backup Server PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-mars-agent-16.png)
+    ![Instalacja agenta](./media/backup-mabs-install-azure-stack/mabs-install-wizard-mars-agent-16.png)
 
-    Agent Microsoft Azure Recovery Services, nazywany również agentem Azure Backup, konfiguruje Azure Backup Server do magazynu Recovery Services. Po skonfigurowaniu Azure Backup Server będzie zawsze tworzyć kopie zapasowe danych w tym samym magazynie Recovery Services.
+    Agent Microsoft Azure Recovery Services, nazywany również agentem Azure Backup, konfiguruje Azure Backup Server do magazynu Recovery Services. Po skonfigurowaniu programu Azure Backup Server będzie zawsze tworzyć kopie zapasowe danych w tym samym magazynie Recovery Services.
 
-11. Po zakończeniu instalacji agenta Microsoft Azure Recovery Services kliknij przycisk **dalej** , aby rozpocząć następną fazę: rejestrowanie Azure Backup Server z magazynem Recovery Services.
+11. Po zakończeniu instalacji agenta Microsoft Azure Recovery Services wybierz pozycję **dalej** , aby rozpocząć następną fazę: rejestrowanie Azure Backup Server z magazynem Recovery Services.
 
-    ![Azure Backup Server PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-complete-16.png)
+    ![Instalacja agenta zakończyła się pomyślnie](./media/backup-mabs-install-azure-stack/mabs-install-wizard-complete-16.png)
 
     Instalator uruchamia **Kreatora rejestrowania serwera**.
 
-12. Przejdź do swojej subskrypcji platformy Azure i magazynu Recovery Services. W menu **Przygotowywanie infrastruktury** kliknij pozycję **Pobierz** , aby pobrać poświadczenia magazynu. Jeśli przycisk **Pobierz** w kroku 2 nie jest aktywny, wybierz opcję **już pobrane lub użyj najnowszej instalacji Azure Backup Server** , aby aktywować przycisk. Poświadczenia magazynu są pobierane do lokalizacji, w której są przechowywane pliki do pobrania. Należy pamiętać o tej lokalizacji, ponieważ będzie ona potrzebna w następnym kroku.
+12. Przejdź do swojej subskrypcji platformy Azure i magazynu Recovery Services. W menu **Przygotuj infrastrukturę** wybierz pozycję **Pobierz** , aby pobrać poświadczenia magazynu. Jeśli przycisk **Pobierz** w kroku 2 nie jest aktywny, wybierz opcję **już pobrane lub użyj najnowszej instalacji Azure Backup Server** , aby aktywować przycisk. Poświadczenia magazynu są pobierane do lokalizacji, w której są przechowywane pliki do pobrania. Należy pamiętać o tej lokalizacji, ponieważ będzie ona potrzebna w następnym kroku.
 
-    ![Azure Backup Server PreReq2](./media/backup-mabs-install-azure-stack/download-mars-credentials-17.png)
+    ![Pobieranie poświadczeń magazynu](./media/backup-mabs-install-azure-stack/download-mars-credentials-17.png)
 
-13. W menu **Identyfikacja magazynu** kliknij przycisk **Przeglądaj** , aby znaleźć poświadczenia magazynu Recovery Services.
+13. W menu **Identyfikacja magazynu** wybierz pozycję **Przeglądaj** , aby znaleźć poświadczenia magazynu Recovery Services.
 
-    ![Azure Backup Server PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-vault-id-18.png)
+    ![Menu identyfikacji magazynu](./media/backup-mabs-install-azure-stack/mabs-install-wizard-vault-id-18.png)
 
-    W oknie dialogowym **Wybieranie poświadczeń magazynu** przejdź do lokalizacji pobierania, wybierz swoje poświadczenia magazynu, a następnie kliknij przycisk **Otwórz**.
+    W oknie dialogowym **Wybieranie poświadczeń magazynu** przejdź do lokalizacji pobierania, wybierz swoje poświadczenia magazynu, a następnie wybierz pozycję **Otwórz**.
 
-    Ścieżka do poświadczeń pojawia się w menu identyfikacja magazynu. Kliknij przycisk **dalej** , aby przejść do ustawienia szyfrowania.
+    Ścieżka do poświadczeń pojawia się w menu identyfikacja magazynu. Wybierz pozycję **dalej** , aby przejść do **ustawień szyfrowania**.
 
-14. W oknie dialogowym **Ustawienia szyfrowania** Podaj hasło do szyfrowania kopii zapasowych, a następnie kliknij przycisk **dalej**.
+14. W oknie dialogowym **Ustawienia szyfrowania** Podaj hasło do szyfrowania kopii zapasowych i lokalizację, w której ma zostać zapisane hasło, a następnie wybierz przycisk **dalej**.
 
-    ![Azure Backup Server PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-encryption-19.png)
+    ![Ustawienia szyfrowania](./media/backup-mabs-install-azure-stack/mabs-install-wizard-encryption-19.png)
 
-    Możesz podać własne hasło lub użyć generatora hasła, aby je utworzyć. Hasło jest Twoje, a firma Microsoft nie zapisuje tego hasła ani nie będzie nim zarządzać. Aby przygotować się do awarii, Zapisz hasło w dostępnej lokalizacji.
+    Możesz podać własne hasło lub użyć generatora hasła, aby je utworzyć. Hasło jest Twoje, a firma Microsoft nie zapisuje tego hasła ani nie zarządza nim. Aby przygotować się na awarię, Zapisz hasło w dostępnej lokalizacji.
 
-    Po kliknięciu **przycisku dalej**Azure Backup Server zostanie zarejestrowana w magazynie Recovery Services. Instalator kontynuuje instalowanie SQL Server i Azure Backup Server.
+    Po wybraniu **pozycji dalej**Azure Backup Server zostanie zarejestrowana w magazynie Recovery Services. Instalator kontynuuje instalowanie SQL Server i Azure Backup Server.
 
-    ![Azure Backup Server PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-sql-still-installing-20.png)
+    ![Instalator instaluje SQL i Azure Backup Server](./media/backup-mabs-install-azure-stack/mabs-install-wizard-sql-still-installing-20.png)
 
-15. Po zakończeniu działania Instalatora stan pokazuje, że całe oprogramowanie zostało pomyślnie zainstalowane.
+15. Po zakończeniu działania Instalatora **stan** pokazuje, że całe oprogramowanie zostało pomyślnie zainstalowane.
 
-    ![Azure Backup Server PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-done-22.png)
+    ![Oprogramowanie zostało pomyślnie zainstalowane](./media/backup-mabs-install-azure-stack/mabs-install-wizard-done-22.png)
 
     Po zakończeniu instalacji na pulpicie serwera są tworzone Azure Backup Server konsoli i Azure Backup Server programu PowerShell.
 
@@ -318,7 +318,7 @@ Pierwsza kopia zapasowa jest przechowywana w magazynie dołączonym do maszyny A
 
 ## <a name="network-connectivity"></a>Łączność sieciowa
 
-Azure Backup Server wymaga łączności z usługą Azure Backup, aby produkt działał pomyślnie. Aby sprawdzić, czy komputer ma łączność z platformą Azure, użyj ```Get-DPMCloudConnection``` polecenia cmdlet w konsoli programu PowerShell w Azure Backup Server. Jeśli dane wyjściowe polecenia cmdlet mają wartość PRAWDA, połączenie istnieje, a w przeciwnym razie nie ma łączności.
+Azure Backup Server wymaga łączności z usługą Azure Backup, aby produkt działał pomyślnie. Aby sprawdzić, czy komputer ma łączność z platformą Azure, użyj ```Get-DPMCloudConnection``` polecenia cmdlet w konsoli programu PowerShell w Azure Backup Server. Jeśli dane wyjściowe polecenia cmdlet mają wartość TRUE, połączenie istnieje, w przeciwnym razie nie ma łączności.
 
 W tym samym czasie subskrypcja platformy Azure musi być w dobrej kondycji. Aby sprawdzić stan subskrypcji i zarządzać nią, zaloguj się do [portalu subskrypcji](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
@@ -326,11 +326,11 @@ Po uzyskaniu informacji o stanie łączności z platformą Azure i subskrypcji p
 
 | Stan łączności | Subskrypcja platformy Azure | Tworzenie kopii zapasowej w systemie Azure | Utwórz kopię zapasową na dysku | Przywróć z platformy Azure | Przywracanie z dysku |
 | --- | --- | --- | --- | --- | --- |
-| Połączone |Aktywna |Dozwolone |Dozwolone |Dozwolone |Dozwolone |
-| Połączone |Wygasła |Zatrzymano |Zatrzymano |Dozwolone |Dozwolone |
+| Połączone |Aktywne |Dozwolone |Dozwolone |Dozwolone |Dozwolone |
+| Połączone |Wygasłe |Zatrzymano |Zatrzymano |Dozwolone |Dozwolone |
 | Połączone |Anulowanie aprowizacji |Zatrzymano |Zatrzymano |Zatrzymane i usunięte punkty odzyskiwania platformy Azure |Zatrzymano |
-| Utracono łączność > 15 dni |Aktywna |Zatrzymano |Zatrzymano |Dozwolone |Dozwolone |
-| Utracono łączność > 15 dni |Wygasła |Zatrzymano |Zatrzymano |Dozwolone |Dozwolone |
+| Utracono łączność > 15 dni |Aktywne |Zatrzymano |Zatrzymano |Dozwolone |Dozwolone |
+| Utracono łączność > 15 dni |Wygasłe |Zatrzymano |Zatrzymano |Dozwolone |Dozwolone |
 | Utracono łączność > 15 dni |Anulowanie aprowizacji |Zatrzymano |Zatrzymano |Zatrzymane i usunięte punkty odzyskiwania platformy Azure |Zatrzymano |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Odzyskiwanie po utracie łączności

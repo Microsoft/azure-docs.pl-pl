@@ -4,12 +4,12 @@ description: W tym artykule omówiono popularne pytania dotyczące Azure Site Re
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 89a5785811b4f4833a5a5ddcef827b258ce1775a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b5730fba1a0267ab72497bc65b51de75654f970
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083739"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263387"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Ogólne pytania dotyczące Azure Site Recovery
 
@@ -93,7 +93,7 @@ Nie ma oddzielnego kosztu do testowania odzyskiwania po awarii. Po utworzeniu ma
 
 
 
-## <a name="security"></a>Zabezpieczenia
+## <a name="security"></a>Bezpieczeństwo
 
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Czy dane replikacji są wysyłane do usługi Site Recovery?
 Nie, Site Recovery nie przechwytuje replikowanych danych i nie zawiera żadnych informacji o działaniach na maszynach wirtualnych lub serwerach fizycznych.
@@ -121,7 +121,7 @@ Możesz przełączyć się na zarządzaną tożsamość magazynu usługi Recover
 
 - Konta magazynu oparte na Menedżer zasobów (typ standardowy):
   - [Współautor](../role-based-access-control/built-in-roles.md#contributor)
-  - [Współautor danych obiektu blob magazynu](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+  - [Współautor danych obiektu blob usługi Storage](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
 - Konta magazynu oparte na Menedżer zasobów (typ warstwy Premium):
   - [Współautor](../role-based-access-control/built-in-roles.md#contributor)
   - [Właściciel danych obiektów blob magazynu](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
@@ -248,6 +248,75 @@ Tak. Azure Site Recovery dla systemu operacyjnego Linux obsługuje niestandardow
 >[!Note]
 >Wersja agenta Site Recovery powinna mieć wartość 9,24 lub wyższą, aby można było obsługiwać skrypty niestandardowe.
 
+## <a name="replication-policy"></a>Zasady replikacji
+
+### <a name="what-is-a-replication-policy"></a>Co to są zasady replikacji?
+
+Zasady replikacji określają ustawienia dla historii przechowywania punktów odzyskiwania. Zasady definiują również częstotliwość migawek spójnych z aplikacjami. Domyślnie Azure Site Recovery tworzy nowe zasady replikacji z ustawieniami domyślnymi:
+
+- 24 godziny dla historii przechowywania punktów odzyskiwania.
+- 4 godziny dla częstotliwości migawek spójnych z aplikacjami.
+
+[Dowiedz się więcej o ustawieniach replikacji](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
+
+### <a name="what-is-a-crash-consistent-recovery-point"></a>Co to jest punkt odzyskiwania spójny na poziomie awarii?
+
+Punkt odzyskiwania spójny na poziomie awarii zawiera dane na dysku, tak jak w przypadku ściągania przewodu z serwera podczas tworzenia migawki. Punkt odzyskiwania spójny na poziomie awarii nie obejmuje niczego, co było w pamięci podczas tworzenia migawki.
+
+Obecnie większość aplikacji może odzyskać z migawek spójnych na poziomie awarii. Punkt odzyskiwania spójny na poziomie awarii jest zwykle wystarczający dla systemów operacyjnych i aplikacji, takich jak serwery plików, serwery DHCP i serwery wydruku.
+
+### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>Jaka jest częstotliwość generowania punktów odzyskiwania spójnych na poziomie awarii?
+
+Site Recovery tworzy punkt odzyskiwania spójny na poziomie awarii co 5 minut.
+
+### <a name="what-is-an-application-consistent-recovery-point"></a>Co to jest punkt odzyskiwania spójny na poziomie aplikacji?
+
+Punkty odzyskiwania spójne z aplikacją są tworzone na podstawie migawek spójnych z aplikacjami. Punkty odzyskiwania spójne z aplikacją przechwytują te same dane co migawki spójne z awarią, a także przechwytują dane w pamięci i wszystkie transakcje w procesie.
+
+Ze względu na dodatkową zawartość migawki spójne z aplikacjami są najbardziej wykorzystywane i są najdłuższe. Zalecamy używanie punktów odzyskiwania spójnych na poziomie aplikacji dla systemów operacyjnych i aplikacji baz danych, takich jak SQL Server.
+
+### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>Jaki jest wpływ punktów odzyskiwania spójnych na poziomie aplikacji na wydajność aplikacji?
+
+Punkty odzyskiwania spójne z aplikacją przechwytują wszystkie dane w pamięci i w procesie. Ponieważ punkty odzyskiwania przechwytują te dane, wymagają one struktury, takiej jak Usługa kopiowania woluminów w tle w systemie Windows w celu przełączenia aplikacji w stan spoczynku. Jeśli proces przechwytywania jest częsty, może mieć wpływ na wydajność, gdy obciążenie jest już zajęte. Nie zalecamy używania niskich częstotliwości dla punktów odzyskiwania spójnych z aplikacjami dla obciążeń niezwiązanych z bazą danych. Nawet w przypadku obciążenia bazy danych wystarczy 1 godzinę.
+
+### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>Jaka jest minimalna częstotliwość generowania punktów odzyskiwania spójnych z aplikacjami?
+
+Site Recovery można utworzyć punkt odzyskiwania spójny dla aplikacji o minimalnej częstotliwości wynoszącej 1 godzinę.
+
+### <a name="how-are-recovery-points-generated-and-saved"></a>Jak są generowane i zapisywane punkty odzyskiwania?
+
+Aby zrozumieć, jak Site Recovery generuje punkty odzyskiwania, zobacz przykład zasad replikacji. Te zasady replikacji mają punkt odzyskiwania z 24-godzinnym okresem przechowywania i migawką częstotliwości zgodną z aplikacją (1 godzina).
+
+Site Recovery tworzy punkt odzyskiwania spójny na poziomie awarii co 5 minut. Tej częstotliwości nie można zmienić. W ciągu ostatniej godziny można wybrać jeden z 12 punktów spójnych z awarią i 1 punkt spójności aplikacji. W miarę upływu czasu program Site Recovery czyści wszystkie punkty odzyskiwania poza ostatnią godziną i zapisuje tylko 1 punkt odzyskiwania na godzinę.
+
+Poniższy zrzut ekranu ilustruje przykład. Zrzut ekranu:
+
+- W ciągu ostatniej godziny istnieją punkty odzyskiwania z częstotliwością wynoszącą 5 minut.
+- W ciągu ostatniej godziny Site Recovery zachowuje tylko 1 punkt odzyskiwania.
+
+   ![Lista wygenerowanych punktów odzyskiwania](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
+
+### <a name="how-far-back-can-i-recover"></a>Jak daleko z powrotem mogę odzyskać?
+
+Najstarszym punktem odzyskiwania, którego można użyć, jest 72 godzin.
+
+### <a name="i-have-a-replication-policy-of-24-hours-what-will-happen-if-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-lost"></a>Mam zasady replikacji przez 24 godziny. Co się stanie, jeśli problem uniemożliwia Site Recovery wygenerowanie punktów odzyskiwania przez ponad 24 godziny? Czy moje poprzednie punkty odzyskiwania zostaną utracone?
+
+Nie, Site Recovery będzie przechowywać wszystkie poprzednie punkty odzyskiwania. W zależności od okna przechowywania punktów odzyskiwania Site Recovery zastępuje najstarszy punkt tylko wtedy, gdy generuje nowe punkty. Z powodu problemu Site Recovery nie może wygenerować żadnych nowych punktów odzyskiwania. Dopóki nie pojawią się nowe punkty odzyskiwania, wszystkie stare punkty pozostaną po przejściu do okna przechowywania.
+
+### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Jak zmienić zasady replikacji po włączeniu replikacji na maszynie wirtualnej?
+
+Przejdź do **magazynu Site Recovery**  >  **Site Recovery**  >  **zasady replikacji**infrastruktury. Wybierz zasady, które chcesz edytować, i Zapisz zmiany. Każda zmiana zostanie również zastosowana do wszystkich istniejących replikacji.
+
+### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>Czy wszystkie punkty odzyskiwania są kompletną kopią maszyny wirtualnej czy różnicą?
+
+Pierwszy wygenerowany punkt odzyskiwania ma kompletną kopię. Wszystkie kolejne punkty odzyskiwania mają zmiany różnicowe.
+
+### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>Czy zwiększenie okresu przechowywania punktów odzyskiwania zwiększa koszt magazynu?
+
+Tak, jeśli okres przechowywania zostanie zwiększony z 24 godzin do 72 godzin, Site Recovery będzie zapisywać punkty odzyskiwania dla dodatkowych 48 godzin. Dodatkowy czas będzie powodować naliczanie opłat za magazyn. Na przykład pojedynczy punkt odzyskiwania może mieć zmiany różnicowe o wartości 10 GB i koszt za GB wynoszący $0,16 miesięcznie. Dodatkowe opłaty byłyby $1,60 × 48 miesięcznie.
+
+
 ## <a name="failover"></a>Tryb failover
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>W jaki sposób można uzyskać dostęp do maszyn wirtualnych platformy Azure po przejściu w tryb failover?
 
@@ -275,7 +344,7 @@ Tak. odzyskiwanie lokalizacji alternatywnej można użyć do powrotu po awarii d
 * [Dla maszyn wirtualnych VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
 * [Dla maszyn wirtualnych funkcji Hyper-V](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)
 
-## <a name="automation"></a>Automation
+## <a name="automation"></a>Automatyzacja
 
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>Czy można zautomatyzować scenariusze Site Recovery przy użyciu zestawu SDK?
 Tak. Przepływy pracy usługi Site Recovery można zautomatyzować przy użyciu interfejsu API REST, programu PowerShell lub zestawu SDK platformy Azure. Obecnie obsługiwane scenariusze wdrażania Site Recovery przy użyciu programu PowerShell:

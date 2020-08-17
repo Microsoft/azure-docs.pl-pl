@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak używać agenta Microsoft Azure R
 ms.topic: tutorial
 ms.date: 02/14/2018
 ms.custom: mvc
-ms.openlocfilehash: c9258b7f95337330e4f1de36e389f6b8f2276976
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 746c901747cf1c0b87612a31fbabcb657d5c4a0c
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78672948"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263116"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Odzyskiwanie plików z platformy Azure na serwer z systemem Windows
 
@@ -21,7 +21,7 @@ Usługa Azure Backup umożliwia odzyskiwanie wybranych elementów z kopii zapaso
 > * Wybieranie punktu odzyskiwania
 > * Przywracanie elementów z punktu odzyskiwania
 
-W tym samouczku założono, że wykonano już czynności opisane w temacie [Tworzenie kopii zapasowej serwerów z systemem Windows na platformie Azure](backup-windows-with-mars-agent.md) i utworzono co najmniej jedną kopię zapasową plików z serwera z systemem Windows na platformie Azure.
+W tym samouczku założono, że wykonano już procedurę [tworzenia kopii zapasowej systemu Windows Server na platformie Azure](backup-windows-with-mars-agent.md) i masz co najmniej jedną kopię zapasową plików systemu Windows Server na platformie Azure.
 
 ## <a name="initiate-recovery-of-individual-items"></a>Rozpoczynanie odzyskiwana pojedynczych plików
 
@@ -29,39 +29,39 @@ Wraz z agentem usługi Microsoft Azure Recovery Services (MARS) jest instalowany
 
 1. Otwórz przystawkę **Microsoft Azure Backup**. Aby go znaleźć, wyszukaj na maszynie łańcuch **Microsoft Azure Backup**.
 
-    ![Oczekiwanie na kopię zapasową](./media/tutorial-backup-restore-files-windows-server/mars.png)
+    ![Przystawka Microsoft Azure Backup](./media/tutorial-backup-restore-files-windows-server/mars.png)
 
-2. Po otwarciu kreatora kliknij pozycję **Odzyskaj dane** w **okienku akcji** konsoli kreatora, aby uruchomić **Kreatora odzyskiwania danych**.
+2. W kreatorze wybierz pozycję **Odzyskaj dane** w **okienku Akcje** konsoli agenta, aby uruchomić kreatora **odzyskiwania danych** .
 
-    ![Oczekiwanie na kopię zapasową](./media/tutorial-backup-restore-files-windows-server/mars-recover-data.png)
+    ![Wybierz pozycję Odzyskaj dane](./media/tutorial-backup-restore-files-windows-server/mars-recover-data.png)
 
-3. Na stronie **Wprowadzenie** wybierz pozycję **Ten serwer (nazwa serwera)** i kliknij przycisk **Dalej**.
+3. Na stronie **wprowadzenie** wybierz pozycję **ten serwer (nazwa serwera)** i wybierz przycisk **dalej**.
 
-4. Na stronie **Wybierz tryb odzyskiwania** wybierz pozycję **Pojedyncze pliki i foldery**, a następnie kliknij przycisk **Dalej**, aby rozpocząć proces wyboru punktu odzyskiwania.
+4. Na stronie **Wybierz tryb odzyskiwania** wybierz **poszczególne pliki i foldery** , a następnie wybierz pozycję **dalej** , aby rozpocząć proces wyboru punktu odzyskiwania.
 
-5. Na stronie **Wybierz wolumin i datę** wybierz wolumin zawierający pliki lub foldery, które chcesz przywrócić, a następnie kliknij przycisk **Zainstaluj**. Wybierz datę, a następnie wybierz z menu rozwijanego godzinę odpowiadającą wybranemu punktowi odzyskiwania. **Pogrubioną czcionką** są wyróżnione daty, dla których jest dostępny co najmniej jeden punkt odzyskiwania.
+5. Na stronie **Wybierz wolumin i datę** Wybierz wolumin zawierający pliki lub foldery, które chcesz przywrócić, a następnie wybierz pozycję **Zainstaluj**. Wybierz datę, a następnie wybierz z menu rozwijanego godzinę odpowiadającą wybranemu punktowi odzyskiwania. **Pogrubioną czcionką** są wyróżnione daty, dla których jest dostępny co najmniej jeden punkt odzyskiwania.
 
-    ![Oczekiwanie na kopię zapasową](./media/tutorial-backup-restore-files-windows-server/mars-select-date.png)
+    ![Wybierz wolumin i datę](./media/tutorial-backup-restore-files-windows-server/mars-select-date.png)
 
-    Po kliknięciu przycisku **Zainstaluj** usługa Azure Backup udostępnia punkt odzyskiwania jako dysk. Możesz przeglądać pliki na dysku i odzyskiwać je.
+    Po wybraniu opcji **zainstaluj**Azure Backup udostępnia punkt odzyskiwania jako dysk. Możesz przeglądać pliki na dysku i odzyskiwać je.
 
 ## <a name="restore-items-from-a-recovery-point"></a>Przywracanie elementów z punktu odzyskiwania
 
-1. Po zainstalowaniu woluminu odzyskiwania kliknij przycisk **Przeglądaj**, aby otworzyć Eksploratora Windows i znaleźć pliki i foldery, które chcesz odzyskać.
+1. Po zainstalowaniu woluminu odzyskiwania wybierz pozycję **Przeglądaj** , aby otworzyć Eksploratora Windows i znaleźć pliki i foldery, które chcesz odzyskać.
 
-    ![Oczekiwanie na kopię zapasową](./media/tutorial-backup-restore-files-windows-server/mars-browse-recover.png)
+    ![Wybierz pozycję Przeglądaj](./media/tutorial-backup-restore-files-windows-server/mars-browse-recover.png)
 
     Możesz otworzyć pliki bezpośrednio z poziomu woluminu odzyskiwania, aby je zweryfikować.
 
-2. W Eksploratorze Windows skopiuj pliki i/lub foldery, które chcesz przywrócić, a następnie wklej je w wybranej lokalizacji na serwerze.
+2. W Eksploratorze Windows skopiuj pliki i foldery, które chcesz przywrócić, i wklej je do dowolnej lokalizacji na serwerze.
 
-    ![Oczekiwanie na kopię zapasową](./media/tutorial-backup-restore-files-windows-server/mars-final.png)
+    ![Kopiowanie plików i folderów](./media/tutorial-backup-restore-files-windows-server/mars-final.png)
 
-3. Po zakończeniu przywracania plików i/lub folderów kliknij przycisk **Odinstaluj** na stronie **Przeglądanie i odzyskiwanie plików** w **Kreatorze odzyskiwania danych**.
+3. Po zakończeniu przywracania plików i folderów na stronie **przeglądanie i odzyskiwanie plików** kreatora **odzyskiwania danych** wybierz pozycję **Odinstaluj**.
 
-    ![Oczekiwanie na kopię zapasową](./media/tutorial-backup-restore-files-windows-server/unmount-and-confirm.png)
+    ![Wybierz pozycję Odinstaluj](./media/tutorial-backup-restore-files-windows-server/unmount-and-confirm.png)
 
-4. Kliknij przycisk **Tak**, aby potwierdzić, że chcesz odinstalować wolumin.
+4. Wybierz opcję **tak** , aby potwierdzić, że chcesz odinstalować wolumin.
 
     Po odinstalowaniu migawki zobaczysz komunikat **Ukończono zadanie** w okienku **Zadania** w konsoli agenta.
 

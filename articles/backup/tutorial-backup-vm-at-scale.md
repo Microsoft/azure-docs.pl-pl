@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak utworzyć magazyn Recovery Servic
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 7a8849bba51939a0c40cba81925e1b4b4a6e3826
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ed91105488b812131d3a908c509998c955cec299
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372556"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263422"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Tworzenie kopii zapasowych wielu maszyn wirtualnych za pomocą witryny Azure Portal
 
@@ -156,7 +156,7 @@ Jeśli planujesz kontynuować pracę z kolejnymi samouczkami, nie czyść zasob�
 
 1. Na pulpicie nawigacyjnym **myRecoveryServicesVault** wybierz pozycję **3** w obszarze **elementy kopii zapasowej** , aby otworzyć menu elementy kopii zapasowej.
 
-    ![Elementy kopii zapasowej](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
+    ![Otwórz menu elementów kopii zapasowej](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
 
 1. W menu **elementy kopii zapasowej** wybierz pozycję **maszyna wirtualna platformy Azure** , aby otworzyć listę maszyn wirtualnych skojarzonych z magazynem.
 
@@ -185,7 +185,7 @@ Jeśli planujesz kontynuować pracę z kolejnymi samouczkami, nie czyść zasob�
 
 1. Jeśli w magazynie nie ma więcej elementów, wybierz pozycję **Usuń**.
 
-    ![Wybierz pozycję Zatrzymaj tworzenie kopii zapasowej w celu usunięcia magazynu](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
+    ![Wybierz pozycję Usuń](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
 
     Po usunięciu magazynu powrócisz do listy magazynów Recovery Services.
 

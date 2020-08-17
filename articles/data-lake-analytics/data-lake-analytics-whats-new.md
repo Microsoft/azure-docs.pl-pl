@@ -6,24 +6,24 @@ ms.service: data-lake-analytics
 ms.topic: overview
 ms.author: xujiang1
 ms.date: 07/31/2020
-ms.openlocfilehash: 0afd37a9f80fd2778f2b7206f58cec6ff423763e
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 6f4885594e4f67d91c595d8afdddc15e8ed4ae75
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184962"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263184"
 ---
 # <a name="whats-new-in-data-lake-analytics"></a>Co nowego w usłudze Data Lake Analytics?
 
 Azure Data Lake Analytics jest aktualizowany na podstawie aperiodic dla niektórych składników. Aby zaktualizować najnowszą aktualizację, ten artykuł zawiera informacje na temat:
 
 - Powiadomienie dotyczące wersji zapoznawczej składnika Key Preview
-- Ważna informacja o wersji składnika, np.: lista dostępnych wersji składnika, bieżąca wersja domyślna i tak dalej.
+- Ważna informacja o wersji składnika, na przykład: lista dostępnych wersji składnika, bieżąca wersja domyślna i tak dalej.
 
 
 ## <a name="notification-of-key-component-beta-preview"></a>Powiadomienie o składniku Key Preview wersji beta
 
-Nie istnieje wersja beta składnika klucza dostępna dla wersji zapoznawczej. 
+Wersja beta składnika klucza nie jest dostępna dla wersji zapoznawczej. 
 
 ## <a name="u-sql-runtime"></a>Środowisko uruchomieniowe języka U-SQL
 
@@ -33,14 +33,13 @@ Gdy prześlesz zadanie Azure Data Lake Analytics z dowolnego narzędzia, zadanie
 
 Wersja środowiska uruchomieniowego zostanie zaktualizowana aperiodically. A poprzednie środowisko uruchomieniowe będzie dostępne przez jakiś czas. Gdy nowa wersja beta jest gotowa do wersji zapoznawczej, będzie ona również dostępna w tym miejscu.
 
-Poniżej znajdują się obecnie dostępne wersje środowiska uruchomieniowego.
+> [!CAUTION]
+> - Wybranie środowiska uruchomieniowego, które różni się od domyślnego, ma możliwość podziału zadań U-SQL. Zdecydowanie zaleca się, aby nie używać tych innych niż domyślne wersji dla środowiska produkcyjnego, ale tylko do celów testowych.
+> - Niedomyślna wersja środowiska uruchomieniowego ma stały cykl życia. Zostanie ona automatycznie wygasła.
 
-- wydanie-20200124live_adl_16283022_2--> **bieżącej wersji domyślnej**
-- release_20200124live_adl_16283022
-- release_20200124_adl_14480125
-- release_20190904_adl_10236248_1
-- release_20190904_adl_10236248
-- release_20190904_adl_9225818
+Następująca wersja jest bieżącą domyślną wersją środowiska uruchomieniowego.
+
+- wydanie — 20200124live_adl_16283022_2
 
 Aby uzyskać informacje na temat rozwiązywania błędów środowiska uruchomieniowego U-SQL, zobacz [Rozwiązywanie problemów z błędami środowiska uruchomieniowego u-SQL](runtime-troubleshoot.md).
 

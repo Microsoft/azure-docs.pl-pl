@@ -3,12 +3,12 @@ title: Pytania dotyczące odnajdywania, oceny i analizy zależności w programie
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące odnajdywania, oceny i analizy zależności w programie Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 8db9103494c0006127c45c0ae5f9672d3bd2bbb1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9b8ba0ec83b9f2faedebb2bfb4ba84109f6f8b77
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829887"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263507"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Wykrywanie, Ocena i analiza zależności — typowe pytania
 
@@ -36,23 +36,34 @@ Możesz odkryć do 10 000 maszyn wirtualnych VMware, do 5 000 maszyn wirtualnych
 - Korzystając z funkcji oceny **rozwiązań VMware firmy Azure (Automatyczna synchronizacja)** , możesz ocenić swoje lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) na potrzeby migracji do [rozwiązania Azure VMware (Automatyczna synchronizacja)](../azure-vmware/introduction.md) przy użyciu tego typu oceny. [Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
 
 - Grupy wspólnej można używać z maszynami VMware tylko do uruchamiania obu typów ocen. Jeśli używasz ocen usługi AVS w usłudze Azure Migrate po raz pierwszy, zaleca się utworzenie nowej grupy maszyn VMware.
+ 
+
+## <a name="why-is-performance-data-missing-for-someall-vms-in-my-assessment-report"></a>Dlaczego brakuje danych dotyczących wydajności dla niektórych/wszystkich maszyn wirtualnych w moim raporcie oceny?
+
+W przypadku oceny „Na podstawie wydajności” eksport raportu oceny zawiera ciąg „PercentageOfCoresUtilizedMissing” lub „PercentageOfMemoryUtilizedMissing”, gdy urządzenie usługi Azure Migrate nie może zebrać danych wydajności lokalnych maszyn wirtualnych. Sprawdź następujące kwestie:
+
+- Czy maszyny wirtualne są włączone przez czas trwania, dla którego tworzysz ocenę
+- Jeśli brakuje tylko liczników pamięci i próbujesz ocenić maszyny wirtualne funkcji Hyper-V, sprawdź, czy dla tych maszyn wirtualnych jest włączona pamięć dynamiczna. Występuje obecnie znany problem, który jest spowodowany tym, że urządzenie usługi Azure Migrate nie może zebrać informacji o wykorzystaniu pamięci dla takich maszyn wirtualnych.
+- Jeśli brakuje wszystkich liczników wydajności, upewnij się, że połączenia wychodzące na portach 443 (HTTPS) są dozwolone.
+
+Uwaga — Jeśli brakuje któregokolwiek z liczników wydajności, narzędzie Azure Migrate: Server Assessment powraca do przydzielonych rdzeni/pamięci w środowisku lokalnym i odpowiednio zaleca rozmiar maszyny wirtualnej.
+
+## <a name="why-is-the-confidence-rating-of-my-assessment-low"></a>Dlaczego ocena ufności mojej oceny jest niska?
+
+Ocena ufności dla ocen „Na podstawie wydajności” jest obliczana w oparciu o wartość procentową [dostępnych punktów danych](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#ratings) potrzebnych do obliczenia oceny. Poniżej przedstawiono przyczyny, z powodu których ocena ufności może być niska:
+
+- Nie profilujesz swojego środowiska przez czas trwania, dla którego tworzysz ocenę. Jeśli na przykład tworzysz ocenę z czasem trwania wydajności ustawionym na jeden tydzień, musisz poczekać co najmniej tydzień po uruchomieniu odnajdywania, aby zebrać wszystkie punkty danych. Jeśli nie możesz czekać na upłynięcie czasu trwania, zmień czas trwania wydajności na krótszy okres i oblicz ponownie ocenę.
+ 
+- Narzędzie Server Assessment nie jest w stanie zbierać danych wydajności dla niektórych lub wszystkich maszyn wirtualnych w okresie oceny. Sprawdź, czy maszyny wirtualne były włączone przez czas trwania oceny, a połączenia wychodzące na portach 443 są dozwolone. Jeśli w przypadku maszyn wirtualnych funkcji Hyper-V włączona jest pamięć dynamiczna, nie będzie liczników pamięci, co doprowadzi do niskiej oceny ufności. Użyj opcji „Oblicz ponownie”, aby uwzględnić najnowsze zmiany w ocenie ufności. 
+
+- Kilka maszyn wirtualnych zostało utworzonych po uruchomieniu odnajdywania w narzędziu Server Assessment. Jeśli na przykład tworzysz ocenę dla historii wydajności za ostatni miesiąc, ale kilka maszyn wirtualnych zostało utworzonych w środowisku tylko tydzień temu. W tym przypadku dane wydajności dla nowych maszyn wirtualnych nie będą dostępne przez cały czas trwania i ocena ufności będzie niska.
+
+[Dowiedz się więcej](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#confidence-ratings-performance-based) o ocenie ufności.
 
 ## <a name="i-cant-see-some-groups-when-i-am-creating-an-azure-vmware-solution-avs-assessment"></a>Nie widzę niektórych grup podczas tworzenia rozwiązania Azure VMware (Automatyczna synchronizacja)
 
 - Ocenę usługi AVS można przeprowadzić w grupach, które mają tylko maszyny VMware. Jeśli zamierzasz przeprowadzić ocenę usługi AVS, usuń z grupy wszystkie maszyny inne niż VMware.
 - Jeśli używasz ocen usługi AVS w usłudze Azure Migrate po raz pierwszy, zaleca się utworzenie nowej grupy maszyn VMware.
-
-## <a name="how-do-i-select-ftt-raid-level-in-avs-assessment"></a>Jak mogę wybrać poziom FTT-RAID w ocenie automatycznej synchronizacji?
-
-Aparat magazynu używany w ramach automatycznej synchronizacji to sieci vSAN. Zasady magazynu vSAN definiują wymagania dotyczące magazynu dla maszyn wirtualnych. Te zasady gwarantują wymagany poziom usług dla maszyn wirtualnych, ponieważ określają sposób przydzielania magazynu do maszyny wirtualnej. Dostępne są następujące kombinacje FTT-RAID: 
-
-**Tolerowana liczba niepowodzeń** | **Konfiguracja RAID** | **Minimalna wymagana liczba hostów** | **Uwagi dotyczące rozmiaru**
---- | --- | --- | --- 
-1 | RAID-1 (dublowanie) | 3 | Maszyna wirtualna o pojemności 100 GB będzie korzystać z 200 GB.
-1 | RAID-5 (kodowanie wymazywania) | 4 | Maszyna wirtualna o pojemności 100 GB będzie korzystać ze 133,33 GB
-2 | RAID-1 (dublowanie) | 5 | Maszyna wirtualna o pojemności 100 GB będzie korzystać z 300 GB.
-2 | RAID-6 (kodowanie wymazywania) | 6 | Maszyna wirtualna o pojemności 100 GB będzie korzystać ze 150 GB.
-3 | RAID-1 (dublowanie) | 7 | Maszyna wirtualna o pojemności 100 GB będzie korzystać z 400 GB.
 
 ## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Nie widzę niektórych typów maszyn wirtualnych w Azure Government
 

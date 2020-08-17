@@ -3,12 +3,12 @@ title: Przywracanie stanu systemu do systemu Windows Server
 description: Objaśnienie krok po kroku dotyczące przywracania stanu systemu Windows Server z kopii zapasowej na platformie Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 8ba4cb5d5617b6a051aec8c54a595e701f62fb87
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 727268b2dc9473a6bda79f023e8a75202d43afe4
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067360"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263439"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Przywróć stan systemu do systemu Windows Server
 
@@ -28,15 +28,15 @@ Poniższe kroki wyjaśniają, jak wycofać konfigurację systemu Windows Server 
 
     Aplikacja klasyczna powinna zostać wyświetlona w wynikach wyszukiwania.
 
-2. Kliknij pozycję **Odzyskaj dane** , aby uruchomić kreatora.
+2. Wybierz pozycję **Odzyskaj dane** , aby uruchomić kreatora.
 
     ![Odzyskaj dane](./media/backup-azure-restore-windows-server/recover.png)
 
-3. Aby przywrócić dane na tym samym serwerze lub komputerze, w okienku **wprowadzenie** wybierz pozycję **ten serwer ( `<server name>` )** , a następnie kliknij przycisk **dalej**.
+3. W okienku **wprowadzenie** , aby przywrócić dane na ten sam serwer lub na tym samym komputerze, wybierz pozycję **ten serwer ( `<server name>` )** i wybierz przycisk **dalej**.
 
     ![Wybierz tę opcję serwera, aby przywrócić dane na ten sam komputer](./media/backup-azure-restore-system-state/samemachine.png)
 
-4. W okienku **Wybierz tryb odzyskiwania** wybierz pozycję **stan systemu** , a następnie kliknij przycisk **dalej**.
+4. W okienku **Wybierz tryb odzyskiwania** wybierz pozycję **stan systemu** , a następnie wybierz przycisk **dalej**.
 
     ![Przeglądaj pliki](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
@@ -46,15 +46,15 @@ Poniższe kroki wyjaśniają, jak wycofać konfigurację systemu Windows Server 
 
     ![Wolumin i Data](./media/backup-azure-restore-system-state/select-date.png)
 
-6. Po wybraniu punktu odzyskiwania do przywrócenia kliknij przycisk **dalej**.
+6. Po wybraniu punktu odzyskiwania do przywrócenia wybierz pozycję **dalej**.
 
     Azure Backup instaluje lokalny punkt odzyskiwania i używa go jako woluminu odzyskiwania.
 
-7. W następnym okienku określ miejsce docelowe dla odzyskiwanych plików stanu systemu. Następnie kliknij przycisk **Przeglądaj** , aby otworzyć Eksploratora Windows i znaleźć pliki i foldery, których chcesz użyć. Opcja **Utwórz kopie, aby mieć obie wersje**, tworzy kopie poszczególnych plików w istniejącym archiwum plików stanu systemu zamiast tworzyć kopię całego archiwum stanu systemu.
+7. W następnym okienku określ miejsce docelowe dla odzyskiwanych plików stanu systemu. Następnie wybierz pozycję **Przeglądaj** , aby otworzyć Eksploratora Windows i znaleźć pliki i foldery, których chcesz użyć. Opcja **Utwórz kopie, aby mieć obie wersje**, tworzy kopie poszczególnych plików w istniejącym archiwum plików stanu systemu zamiast tworzyć kopię całego archiwum stanu systemu.
 
     ![Opcje odzyskiwania](./media/backup-azure-restore-system-state/recover-as-files.png)
 
-8. Sprawdź szczegóły odzyskiwania w okienku **potwierdzenia** i kliknij przycisk **Odzyskaj**.
+8. Sprawdź szczegóły odzyskiwania w okienku **potwierdzenia** i wybierz polecenie **Odzyskaj**.
 
    ![Kliknij przycisk Odzyskaj, aby potwierdzić akcję odzyskania](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
@@ -78,7 +78,7 @@ Terminologia użyta w tych krokach obejmuje:
 
 1. Otwórz przystawkę **Microsoft Azure Backup** na *maszynie docelowej*.
 2. Upewnij się, że *maszyna docelowa* i *maszyna źródłowa* są zarejestrowani do tego samego magazynu Recovery Services.
-3. Kliknij pozycję **Odzyskaj dane** , aby zainicjować przepływ pracy.
+3. Wybierz pozycję **Odzyskaj dane** , aby zainicjować przepływ pracy.
 4. Wybierz **inny serwer**
 
     ![Inny serwer](./media/backup-azure-restore-system-state/anotherserver.png)
@@ -86,23 +86,23 @@ Terminologia użyta w tych krokach obejmuje:
 5. Podaj plik poświadczeń magazynu, który odnosi się do *przykładowego magazynu*. Jeśli plik poświadczeń magazynu jest nieprawidłowy (lub wygasł), Pobierz nowy plik poświadczeń magazynu z *przykładowego magazynu* w Azure Portal. Po udostępnieniu pliku poświadczeń magazynu zostanie wyświetlony magazyn Recovery Services skojarzony z plikiem poświadczeń magazynu.
 
 6. W okienku wybierz serwer kopii zapasowej wybierz *maszynę źródłową* z listy wyświetlanych maszyn.
-7. W okienku wybierz tryb odzyskiwania wybierz pozycję **stan systemu** i kliknij przycisk **dalej**.
+7. W okienku wybierz tryb odzyskiwania wybierz pozycję **stan systemu** i wybierz pozycję **dalej**.
 
-    ![Wyszukaj](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Wyszukiwanie](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. W kalendarzu w okienku **Wybierz wolumin i datę** wybierz punkt odzyskiwania. Można przywrócić z dowolnego punktu odzyskiwania w czasie. **Pogrubione** daty wskazują dostępność co najmniej jednego punktu odzyskiwania. Po wybraniu daty, jeśli dostępne są wiele punktów odzyskiwania, wybierz konkretny punkt odzyskiwania z menu rozwijanego **czas** .
 
     ![Wyszukaj elementy](./media/backup-azure-restore-system-state/select-date.png)
 
-9. Po wybraniu punktu odzyskiwania do przywrócenia kliknij przycisk **dalej**.
+9. Po wybraniu punktu odzyskiwania do przywrócenia wybierz pozycję **dalej**.
 
-10. W okienku **Wybierz tryb odzyskiwania stanu systemu** określ miejsce docelowe odzyskiwania plików stanu systemu, a następnie kliknij przycisk **dalej**.
+10. W okienku **Wybierz tryb odzyskiwania stanu systemu** Określ lokalizację docelową, w której mają zostać odzyskane pliki stanu systemu, a następnie wybierz przycisk **dalej**.
 
     ![Szyfrowanie](./media/backup-azure-restore-system-state/recover-as-files.png)
 
     Opcja **Utwórz kopie, aby mieć obie wersje**, tworzy kopie poszczególnych plików w istniejącym archiwum plików stanu systemu zamiast tworzyć kopię całego archiwum stanu systemu.
 
-11. Sprawdź szczegóły odzyskiwania w okienku potwierdzenia i kliknij przycisk **Odzyskaj**.
+11. Sprawdź szczegóły odzyskiwania w okienku potwierdzenia i wybierz polecenie **Odzyskaj**.
 
     ![Kliknij przycisk Odzyskaj, aby potwierdzić proces odzyskiwania](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
@@ -122,9 +122,9 @@ Po odzyskaniu stanu systemu jako plików przy użyciu usługi Azure Recovery Ser
 
     ![Wybierz pozycję lokalna kopia zapasowa do przywrócenia](./media/backup-azure-restore-system-state/win-server-backup-local-backup.png)
 
-1. W lokalnej konsoli kopii zapasowej w **okienku Akcje**kliknij polecenie **Odzyskaj** , aby otworzyć Kreatora odzyskiwania.
+1. W lokalnej konsoli kopii zapasowej, w **okienku Akcje**wybierz polecenie **Odzyskaj** , aby otworzyć Kreatora odzyskiwania.
 
-1. Wybierz opcję, kopię **zapasową przechowywaną w innej lokalizacji**, a następnie kliknij przycisk **dalej**.
+1. Wybierz opcję, kopię **zapasową przechowywaną w innej lokalizacji**, a następnie wybierz przycisk **dalej**.
 
    ![Wybierz, aby odzyskać do innego serwera](./media/backup-azure-restore-system-state/backup-stored-in-diff-location.png)
 
@@ -132,15 +132,15 @@ Po odzyskaniu stanu systemu jako plików przy użyciu usługi Azure Recovery Ser
 
     ![Wybierz, czy chcesz przeprowadzić odzyskiwanie z serwera lokalnego czy innego](./media/backup-azure-restore-system-state/ss-recovery-remote-shared-folder.png)
 
-1. Wprowadź ścieżkę do katalogu *WindowsImageBackup* lub wybierz dysk lokalny zawierający ten katalog (na przykład D:\WindowsImageBackup) odzyskany jako część odzyskiwania plików stanu systemu za pomocą usługi Azure Recovery Services Agent i kliknij przycisk **dalej**.
+1. Wprowadź ścieżkę do katalogu *WindowsImageBackup* lub wybierz dysk lokalny zawierający ten katalog (na przykład D:\WindowsImageBackup), odzyskany jako część odzyskiwania plików stanu systemu za pomocą usługi Azure Recovery Services Agent i wybierz **dalej**.
 
     ![ścieżka do pliku udostępnionego](./media/backup-azure-restore-system-state/ss-recovery-remote-folder.png)
 
-1. Wybierz wersję stanu systemu, którą chcesz przywrócić, a następnie kliknij przycisk **dalej**.
+1. Wybierz wersję stanu systemu, którą chcesz przywrócić, a następnie wybierz pozycję **dalej**.
 
-1. W okienku wybierz typ odzyskiwania wybierz pozycję **stan systemu** i kliknij przycisk **dalej**.
+1. W okienku wybierz typ odzyskiwania wybierz pozycję **stan systemu** i wybierz pozycję **dalej**.
 
-1. W polu Lokalizacja odzyskiwania stanu systemu wybierz opcję **Oryginalna lokalizacja**, a następnie kliknij przycisk **dalej**.
+1. W polu Lokalizacja odzyskiwania stanu systemu wybierz opcję **Oryginalna lokalizacja**, a następnie wybierz przycisk **dalej**.
 
     W przypadku przywracania kontrolera domeny zostanie wyświetlona następująca dodatkowa opcja:
 
@@ -149,14 +149,14 @@ Po odzyskaniu stanu systemu jako plików przy użyciu usługi Azure Recovery Ser
     >[!NOTE]
     >Wybierz opcję "wykonaj przywracanie autorytatywne plików Active Directory", jeśli jawnie zamierzasz przeprowadzić Autorytatywne przywracanie wszystkich Active Directory danych.
 
-1. Przejrzyj szczegóły potwierdzenia, sprawdź ustawienia ponownego rozruchu, a następnie kliknij przycisk **Odzyskaj** , aby zastosować przywrócone pliki stanu systemu.
+1. Przejrzyj szczegóły dotyczące potwierdzeń, sprawdź ustawienia ponownego uruchamiania i wybierz pozycję **Odzyskaj** , aby zastosować przywrócone pliki stanu systemu.
 
     ![Uruchom pliki stanu systemu przywracania](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
 
     >[!NOTE]
     >Nie wybieraj opcji **automatycznie uruchamiaj ponownie serwer** , jeśli wykonujesz przywracanie w trybie DSRM.
 
-1. Po pomyślnym ukończeniu przywracania należy ponownie uruchomić serwer w trybie normalnym. Otwórz wiersz polecenia i wpisz następujące polecenie:`bcdedit /deletevalue safeboot`
+1. Po pomyślnym ukończeniu przywracania należy ponownie uruchomić serwer w trybie normalnym. Otwórz wiersz polecenia i wpisz następujące polecenie: `bcdedit /deletevalue safeboot`
 1. Uruchom ponownie serwer.
 
 ## <a name="special-considerations-for-system-state-recovery-on-a-domain-controller"></a>Specjalne zagadnienia dotyczące odzyskiwania stanu systemu na kontrolerze domeny
@@ -199,7 +199,7 @@ W tym artykule omówiono tylko pierwszy scenariusz, który wywołuje nonauthorat
         wbadmin start systemstaterecovery -version:04/30/2020-09:00 -backupTarget:\\servername\share -machine:server01 -authsysvol
         ```
 
-1. Po pomyślnym ukończeniu przywracania należy ponownie uruchomić serwer w trybie normalnym. Otwórz wiersz polecenia i wpisz następujące polecenie:`bcdedit /deletevalue safeboot`
+1. Po pomyślnym ukończeniu przywracania należy ponownie uruchomić serwer w trybie normalnym. Otwórz wiersz polecenia i wpisz następujące polecenie: `bcdedit /deletevalue safeboot`
 1. Uruchom ponownie serwer.
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Rozwiązywanie problemów w przypadku niepowodzenia przywracania stanu systemu
@@ -210,15 +210,15 @@ Jeśli poprzedni proces stosowania stanu systemu nie zakończy się pomyślnie, 
 
 2. Wybierz pozycję Rozwiązywanie problemów z trzema dostępnymi opcjami.
 
-    ![menu Otwieranie](./media/backup-azure-restore-system-state/winre-1.png)
+    ![Wybierz Rozwiązywanie problemów](./media/backup-azure-restore-system-state/winre-1.png)
 
 3. Na ekranie **Opcje zaawansowane** wybierz pozycję **wiersz polecenia** i podaj nazwę użytkownika i hasło administratora serwera.
 
-   ![menu Otwieranie](./media/backup-azure-restore-system-state/winre-2.png)
+   ![Wybierz wiersz polecenia](./media/backup-azure-restore-system-state/winre-2.png)
 
 4. Podaj nazwę użytkownika i hasło administratora serwera.
 
-    ![menu Otwieranie](./media/backup-azure-restore-system-state/winre-3.png)
+    ![Wprowadź hasło](./media/backup-azure-restore-system-state/winre-3.png)
 
 5. Gdy otworzysz wiersz polecenia w trybie administratora, uruchom następujące polecenie, aby pobrać wersje kopii zapasowej stanu systemu.
 
@@ -234,7 +234,7 @@ Jeśli poprzedni proces stosowania stanu systemu nie zakończy się pomyślnie, 
     Wbadmin get items -version:<copy version from above step> -backuptarget:<Backup volume>
     ```
 
-    ![Pobierz wersje kopii zapasowej stanu systemu](./media/backup-azure-restore-system-state/winre-5.png)
+    ![Uzyskaj wszystkie dostępne woluminy](./media/backup-azure-restore-system-state/winre-5.png)
 
 7. Poniższe polecenie odzyska wszystkie woluminy, które są częścią kopii zapasowej stanu systemu. Należy zauważyć, że ten krok odzyskuje tylko woluminy krytyczne, które są częścią stanu systemu. Wszystkie dane niesystemowe są wymazywane.
 
@@ -242,7 +242,7 @@ Jeśli poprzedni proces stosowania stanu systemu nie zakończy się pomyślnie, 
     Wbadmin start recovery -items:C: -itemtype:Volume -version:<Backupversion> -backuptarget:<backup target volume>
     ```
 
-     ![Pobierz wersje kopii zapasowej stanu systemu](./media/backup-azure-restore-system-state/winre-6.png)
+     ![Odzyskaj wszystkie woluminy](./media/backup-azure-restore-system-state/winre-6.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

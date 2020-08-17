@@ -4,12 +4,12 @@ description: Informacje o sposobach zarządzania kopiami zapasowymi agenta Micro
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 096f47ba4a3d8d490c9cfaf43f4dafec4faf10f9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 581141ea5ffaecf774d292f66a05da5e40c8dc54
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317352"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263303"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Zarządzanie kopiami zapasowymi agentów Microsoft Azure Recovery Services (MARS) za pomocą usługi Azure Backup
 
@@ -29,60 +29,60 @@ Podczas modyfikowania zasad tworzenia kopii zapasowych można dodać nowe elemen
 
 ### <a name="add-new-items-to-existing-policy"></a>Dodawanie nowych elementów do istniejących zasad
 
-1. W obszarze **Akcje**kliknij pozycję **Zaplanuj kopię zapasową**.
+1. W obszarze **Akcje**wybierz pozycję **Zaplanuj kopię zapasową**.
 
     ![Planowanie tworzenia kopii zapasowej systemu Windows Server](./media/backup-configure-vault/schedule-first-backup.png)
 
-2. Na karcie **Wybierz element zasad** i wybierz pozycję **Modyfikuj harmonogram tworzenia kopii zapasowych dla plików i folderów** , a następnie kliknij przycisk **dalej**.
+2. Na karcie **Wybierz element zasad** i wybierz pozycję **Modyfikuj harmonogram tworzenia kopii zapasowych dla plików i folderów** , a następnie wybierz przycisk **dalej**.
 
     ![Wybierz elementy zasad](./media/backup-azure-manage-mars/select-policy-items.png)
 
-3. W obszarze **Modyfikuj lub Zatrzymaj Planowanie kopii zapasowej** wybierz pozycję **Wprowadź zmiany do elementów kopii zapasowej lub godziny** , a następnie kliknij przycisk **dalej**.
+3. W obszarze **Modyfikuj lub Zatrzymaj Planowanie kopii zapasowej** wybierz pozycję **Wprowadź zmiany do elementów kopii zapasowej lub godziny** , a następnie wybierz przycisk **dalej**.
 
     ![Modyfikuj lub Zaplanuj kopię zapasową](./media/backup-azure-manage-mars/modify-schedule-backup.png)
 
-4. Na karcie **Wybierz elementy do utworzenia kopii zapasowej** kliknij pozycję **Dodaj elementy** , aby dodać elementy, dla których chcesz utworzyć kopię zapasową.
+4. Na karcie **Wybierz elementy do utworzenia kopii zapasowej** wybierz pozycję **Dodaj elementy** , aby dodać elementy, dla których chcesz utworzyć kopię zapasową.
 
     ![Modyfikuj lub Zaplanuj Dodawanie elementów kopii zapasowej](./media/backup-azure-manage-mars/modify-schedule-backup-add-items.png)
 
-5. W oknie **Wybieranie elementów** wybierz pozycję przepływające lub foldery, które chcesz dodać, a następnie kliknij przycisk **OK**.
+5. W oknie **Wybieranie elementów** wybierz pliki lub foldery, które chcesz dodać, a następnie wybierz przycisk **OK**.
 
     ![Wybierz elementy](./media/backup-azure-manage-mars/select-item.png)
 
-6. Wykonaj następne kroki i kliknij przycisk **Zakończ** , aby ukończyć operację.
+6. Wykonaj następne kroki i wybierz pozycję **Zakończ** , aby ukończyć operację.
 
 ### <a name="add-exclusion-rules-to-existing-policy"></a>Dodawanie reguł wykluczeń do istniejących zasad
 
 Można dodać reguły wykluczeń, aby pominąć pliki i foldery, których kopie zapasowe nie mają być tworzone. Można to zrobić podczas definiowania nowych zasad lub modyfikowania istniejących zasad.
 
-1. W okienku Akcje kliknij pozycję **Zaplanuj kopię zapasową**. Przejdź do **pozycji Wybierz elementy do kopii zapasowej** , a następnie kliknij pozycję **ustawienia wykluczania**.
+1. W okienku Akcje wybierz pozycję **Zaplanuj kopię zapasową**. Przejdź do **pozycji Wybierz elementy do utworzenia kopii zapasowej** i wybierz pozycję **ustawienia wykluczania**.
 
-    ![Wybierz elementy](./media/backup-azure-manage-mars/select-exclusion-settings.png)
+    ![Ustawienia wykluczania](./media/backup-azure-manage-mars/select-exclusion-settings.png)
 
-2. W obszarze **ustawienia wykluczania**kliknij pozycję **Dodaj wykluczenie**.
+2. W obszarze **ustawienia wykluczania**wybierz pozycję **Dodaj wykluczenie**.
 
-    ![Wybierz elementy](./media/backup-azure-manage-mars/add-exclusion.png)
+    ![Dodaj wykluczenie](./media/backup-azure-manage-mars/add-exclusion.png)
 
-3. Z **pozycji Wybierz elementy do wykluczenia**, Przejrzyj pliki i foldery, a następnie wybierz elementy, które chcesz wykluczyć, i kliknij przycisk **OK**.
+3. Z **pozycji Wybierz elementy do wykluczenia**, Przejrzyj pliki i foldery, a następnie wybierz elementy, które chcesz wykluczyć, a następnie wybierz **przycisk OK**.
 
-    ![Wybierz elementy](./media/backup-azure-manage-mars/select-items-exclude.png)
+    ![Wybierz elementy do wykluczenia](./media/backup-azure-manage-mars/select-items-exclude.png)
 
 4. Domyślnie wszystkie **podfoldery** w wybranych folderach są wykluczone. Możesz to zmienić, wybierając opcję **tak** lub **nie**. Można edytować i określić typy plików do wykluczenia, jak pokazano poniżej:
 
-    ![Wybierz elementy](./media/backup-azure-manage-mars/subfolders-type.png)
+    ![Wybierz typy podfolderów](./media/backup-azure-manage-mars/subfolders-type.png)
 
-5. Wykonaj następne kroki i kliknij przycisk **Zakończ** , aby ukończyć operację.
+5. Wykonaj następne kroki i wybierz pozycję **Zakończ** , aby ukończyć operację.
 
 ### <a name="remove-items-from-existing-policy"></a>Usuń elementy z istniejących zasad
 
-1. W okienku Akcje kliknij pozycję **Zaplanuj kopię zapasową**. Przejdź do **pozycji Wybierz elementy do utworzenia kopii zapasowej**. Z listy wybierz pliki i foldery, które chcesz usunąć z harmonogramu kopii zapasowych, a następnie kliknij pozycję **Usuń elementy**.
+1. W okienku Akcje wybierz pozycję **Zaplanuj kopię zapasową**. Przejdź do **pozycji Wybierz elementy do utworzenia kopii zapasowej**. Z listy wybierz pliki i foldery, które chcesz usunąć z harmonogramu kopii zapasowych, a następnie wybierz pozycję **Usuń elementy**.
 
-    ![Wybierz elementy](./media/backup-azure-manage-mars/select-items-remove.png)
+    ![Wybierz elementy do usunięcia](./media/backup-azure-manage-mars/select-items-remove.png)
 
     > [!NOTE]
     > Po całkowitym usunięciu woluminu z zasad należy zachować ostrożność.  Jeśli musisz dodać go ponownie, będzie on traktowany jako nowy wolumin. Następna zaplanowana kopia zapasowa wykona początkową kopię zapasową (pełną kopię zapasową) zamiast przyrostowej kopii zapasowej. Jeśli trzeba tymczasowo usunąć i dodać elementy później, zaleca się używanie **ustawień wykluczeń** zamiast **usuwać elementy** , aby zapewnić przyrostową kopię zapasową zamiast pełnej kopii zapasowej.
 
-2. Wykonaj następne kroki i kliknij przycisk **Zakończ** , aby ukończyć operację.
+2. Wykonaj następne kroki i wybierz pozycję **Zakończ** , aby ukończyć operację.
 
 ## <a name="stop-protecting-files-and-folder-backup"></a>Zatrzymaj ochronę plików i folderów kopii zapasowych
 
@@ -102,17 +102,17 @@ Istnieją dwa sposoby na zatrzymanie ochrony kopii zapasowych plików i folderó
 
 1. Otwórz konsolę zarządzania MARS, przejdź do **okienka Akcje**, a **następnie wybierz pozycję Zaplanuj kopię zapasową**.
 
-    ![Zmodyfikuj lub Zatrzymaj zaplanowaną kopię zapasową.](./media/backup-azure-manage-mars/mars-actions.png)
-1. Na stronie **Wybierz element zasad** wybierz pozycję **Modyfikuj harmonogram tworzenia kopii zapasowych plików i folderów** , a następnie kliknij przycisk **dalej**.
+    ![Wybieranie harmonogramu kopii zapasowej](./media/backup-azure-manage-mars/mars-actions.png)
+1. Na stronie **Wybierz element zasad** wybierz pozycję **Modyfikuj harmonogram tworzenia kopii zapasowych plików i folderów** , a następnie wybierz przycisk **dalej**.
 
-    ![Zmodyfikuj lub Zatrzymaj zaplanowaną kopię zapasową.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
+    ![Wybierz element zasad](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
 1. Na stronie **Modyfikuj lub Zatrzymaj zaplanowaną kopię zapasową** wybierz pozycję **Zatrzymaj przy użyciu tego harmonogramu tworzenia kopii zapasowych, ale przechowuj przechowywane kopie zapasowe do momentu ponownego aktywowania harmonogramu**. Następnie wybierz przycisk **dalej**.
 
-    ![Zmodyfikuj lub Zatrzymaj zaplanowaną kopię zapasową.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. W obszarze **Wstrzymaj zaplanowaną kopię zapasową**Przejrzyj informacje, a następnie kliknij przycisk **Zakończ**.
+    ![Zatrzymaj zaplanowaną kopię zapasową.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
+1. W obszarze **Wstrzymaj zaplanowaną kopię zapasową**Przejrzyj informacje i wybierz pozycję **Zakończ**.
 
-    ![Zmodyfikuj lub Zatrzymaj zaplanowaną kopię zapasową.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. W obszarze **Modyfikowanie postępu tworzenia kopii zapasowej**Sprawdź, czy harmonogram wykonywania kopii zapasowej jest w stanie powodzenie, a następnie kliknij przycisk **Zamknij** , aby zakończyć.
+    ![Wstrzymaj zaplanowaną kopię zapasową.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
+1. W obszarze **Modyfikowanie postępu tworzenia kopii zapasowej**Sprawdź, czy harmonogram wykonywania kopii zapasowej jest w stanie powodzenie i wybierz pozycję **Zamknij** , aby zakończyć.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Zatrzymywanie ochrony i usuwanie danych kopii zapasowej
 
@@ -123,7 +123,7 @@ Istnieją dwa sposoby na zatrzymanie ochrony kopii zapasowych plików i folderó
 
 3. Na stronie **Zatrzymaj zaplanowaną kopię zapasową** wybierz pozycję **Zakończ**.
 
-    ![Zatrzymaj zaplanowaną kopię zapasową.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
+    ![Zatrzymaj zaplanowaną kopię zapasową i wybierz pozycję Zakończ](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Zostanie wyświetlony monit o wprowadzenie numeru PIN zabezpieczeń (osobistego numeru identyfikacyjnego), który należy wygenerować ręcznie. Aby to zrobić, najpierw Zaloguj się do Azure Portal.
 5. Przejdź do obszaru **Recovery Services**  >  **Settings**  >  **Właściwości**ustawień magazynu.
 6. W obszarze **zabezpieczający numer PIN**wybierz pozycję **Generuj**. Skopiuj ten kod PIN. Numer PIN jest prawidłowy tylko przez pięć minut.
@@ -133,7 +133,7 @@ Istnieją dwa sposoby na zatrzymanie ochrony kopii zapasowych plików i folderó
 
 8. Na stronie **Modyfikowanie postępu tworzenia kopii zapasowej** zostanie wyświetlony następujący komunikat: *usunięte dane kopii zapasowej będą przechowywane przez 14 dni. Po upływie tego czasu dane kopii zapasowej zostaną trwale usunięte.*  
 
-    ![Usuń infrastrukturę tworzenia kopii zapasowych.](./media/backup-azure-delete-vault/deleted-backup-data.png)
+    ![Modyfikowanie postępu tworzenia kopii zapasowej](./media/backup-azure-delete-vault/deleted-backup-data.png)
 
 Po usunięciu lokalnych elementów kopii zapasowej wykonaj kolejne kroki z portalu.
 
@@ -142,15 +142,15 @@ Po usunięciu lokalnych elementów kopii zapasowej wykonaj kolejne kroki z porta
 Jeśli ochrona zostanie zatrzymana podczas zachowywania danych i podjęta zostanie decyzja o wznowieniu ochrony, można ponownie włączyć harmonogram tworzenia kopii zapasowych przy użyciu opcji Modyfikuj zasady tworzenia kopii zapasowych.
 
 1. W obszarze **Akcje** wybierz pozycję **Zaplanuj kopię zapasową**.
-1. Wybierz pozycję **Włącz ponownie harmonogram tworzenia kopii zapasowych. Możesz również zmodyfikować elementy lub godziny tworzenia kopii zapasowej** , a następnie kliknąć przycisk **dalej**.<br>
+1. Wybierz pozycję **Włącz ponownie harmonogram tworzenia kopii zapasowych. Możesz również zmodyfikować elementy lub godziny tworzenia kopii zapasowej** , a następnie wybrać przycisk **dalej**.<br>
 
-    ![Usuń infrastrukturę tworzenia kopii zapasowych.](./media/backup-azure-manage-mars/re-enable-policy-next.png)
-1. W obszarze **Wybierz elementy do utworzenia kopii zapasowej**kliknij przycisk **dalej**.
+    ![Włącz ponownie harmonogram tworzenia kopii zapasowych](./media/backup-azure-manage-mars/re-enable-policy-next.png)
+1. W obszarze **Wybierz elementy do utworzenia kopii zapasowej**wybierz pozycję **dalej**.
 
-    ![Usuń infrastrukturę tworzenia kopii zapasowych.](./media/backup-azure-manage-mars/re-enable-next.png)
-1. W obszarze **Określ harmonogram kopii zapasowych**Określ harmonogram kopii zapasowych, a następnie kliknij przycisk **dalej**.
-1. W obszarze **Wybierz zasady przechowywania**Określ czas trwania przechowywania i kliknij przycisk **dalej**.
-1. Na koniec na ekranie **potwierdzenia** Przejrzyj szczegóły zasad, a następnie kliknij przycisk **Zakończ**.
+    ![Wybierz elementy do wykonania kopii zapasowej](./media/backup-azure-manage-mars/re-enable-next.png)
+1. W obszarze **Określ harmonogram kopii zapasowych**Określ harmonogram tworzenia kopii zapasowych i wybierz pozycję **dalej**.
+1. W obszarze **Wybierz zasady przechowywania**Określ czas trwania przechowywania i wybierz pozycję **dalej**.
+1. Na koniec na ekranie **potwierdzenia** Sprawdź szczegóły zasad i wybierz pozycję **Zakończ**.
 
 ## <a name="re-generate-passphrase"></a>Wygeneruj ponownie hasło
 
@@ -158,15 +158,15 @@ Hasło jest używane do szyfrowania i odszyfrowywania danych podczas tworzenia k
 
 1. W konsoli agenta Mars przejdź do **okienka Akcje**  >  **Zmień właściwości** >. Następnie przejdź do **karty szyfrowanie**.<br>
 1. Zaznacz pole wyboru **Zmień hasło** .<br>
-1. Wprowadź nowe hasło lub kliknij pozycję **Generuj hasło**.
-1. Kliknij przycisk **Przeglądaj** , aby zapisać nowe hasło.
+1. Wprowadź nowe hasło lub wybierz pozycję **Generuj hasło**.
+1. Wybierz pozycję **Przeglądaj** , aby zapisać nowe hasło.
 
     ![Generuj hasło.](./media/backup-azure-manage-mars/passphrase.png)
 
-1. Kliknij przycisk **OK** , aby zastosować zmiany.  Jeśli [Funkcja zabezpieczenia](./backup-azure-security-feature.md#enable-security-features) jest włączona na Azure Portal magazynu Recovery Services, zostanie wyświetlony monit o wprowadzenie numeru PIN zabezpieczeń. Aby odebrać kod PIN, wykonaj kroki opisane w tym [artykule](./backup-azure-security-feature.md#authentication-to-perform-critical-operations).<br>
-1. Wklej zabezpieczający numer PIN z portalu, a następnie kliknij przycisk **OK** , aby zastosować zmiany.<br>
+1. Wybierz **przycisk OK** , aby zastosować zmiany.  Jeśli [Funkcja zabezpieczenia](./backup-azure-security-feature.md#enable-security-features) jest włączona na Azure Portal magazynu Recovery Services, zostanie wyświetlony monit o wprowadzenie numeru PIN zabezpieczeń. Aby odebrać kod PIN, wykonaj kroki opisane w tym [artykule](./backup-azure-security-feature.md#authentication-to-perform-critical-operations).<br>
+1. Wklej zabezpieczający numer PIN z portalu i wybierz **przycisk OK** , aby zastosować zmiany.<br>
 
-    ![Generuj hasło.](./media/backup-azure-manage-mars/passphrase2.png)
+    ![Wklej zabezpieczający numer PIN](./media/backup-azure-manage-mars/passphrase2.png)
 1. Upewnij się, że hasło jest bezpiecznie zapisane w lokalizacji alternatywnej (innej niż maszyna źródłowa), najlepiej w Azure Key Vault. Śledź wszystkie hasła, jeśli masz kopię zapasową wielu maszyn z agentami MARS.
 
 ## <a name="managing-backup-data-for-unavailable-machines"></a>Zarządzanie danymi kopii zapasowej dla niedostępnych maszyn

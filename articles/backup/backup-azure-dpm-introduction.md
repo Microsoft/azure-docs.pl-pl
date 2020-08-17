@@ -3,12 +3,12 @@ title: Przygotuj serwer programu DPM do tworzenia kopii zapasowych obciążeń
 description: W tym artykule dowiesz się, jak przygotować się do tworzenia kopii zapasowych programu System Center Data Protection Manager (DPM) na platformie Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 9891be5eded94c64a6cc256b99510a9c0c673daf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a61112f04d3faef83a80395a7d316c63130e7758
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514173"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263269"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Przygotowanie do tworzenia kopii zapasowych obciążeń na platformie Azure przy użyciu programu System Center DPM
 
@@ -26,8 +26,8 @@ Artykuł zawiera następujące informacje:
 
 [Program System Center DPM](/system-center/dpm/dpm-overview) tworzy kopię zapasową danych plików i aplikacji. Program DPM współdziała z Azure Backup w następujący sposób:
 
-- **Program DPM działający na serwerze fizycznym lub lokalnej maszynie wirtualnej** — można utworzyć kopię zapasową danych w magazynie kopii zapasowych na platformie Azure, a także utworzyć kopię zapasową dysku i taśmy.
-- **Program DPM działający na maszynie wirtualnej platformy Azure** — począwszy od programu System Center 2012 R2 z aktualizacją Update 3 lub nowszą, można wdrożyć program DPM na maszynie wirtualnej platformy Azure. Można utworzyć kopię zapasową danych na dyskach platformy Azure dołączonych do maszyny wirtualnej lub użyć Azure Backup, aby utworzyć kopię zapasową danych w magazynie kopii zapasowych.
+- **Program DPM działający na serwerze fizycznym lub na lokalnej maszynie wirtualnej** — można utworzyć kopię zapasową danych w magazynie kopii zapasowych na platformie Azure, a także utworzyć kopię zapasową dysku i taśmy.
+- **Program DPM działający na maszynie wirtualnej platformy Azure** — w programie System Center 2012 R2 z aktualizacją Update 3 lub nowszą można wdrożyć program DPM na maszynie wirtualnej platformy Azure. Można utworzyć kopię zapasową danych na dyskach platformy Azure dołączonych do maszyny wirtualnej lub użyć Azure Backup, aby utworzyć kopię zapasową danych w magazynie kopii zapasowych.
 
 Korzyści biznesowe tworzenia kopii zapasowych serwerów programu DPM na platformie Azure obejmują:
 
@@ -44,8 +44,8 @@ Program DPM na maszynie wirtualnej funkcji Hyper-V | System Center 2012 z dodatk
 Program DPM na maszynie wirtualnej VMware | System Center 2012 R2 z pakietem zbiorczym aktualizacji 5 lub nowszym.
 Składniki | Na serwerze DPM powinien być zainstalowany program Windows PowerShell i .NET Framework 4,5.
 Obsługiwane aplikacje | [Dowiedz się,](/system-center/dpm/dpm-protection-matrix) dla jakich elementów można wykonywać kopie zapasowe w programie DPM.
-Obsługiwane typy plików | Kopie zapasowe tych typów plików można wykonać przy użyciu Azure Backup: zaszyfrowane (tylko pełne kopie zapasowe); Skompresowane (przyrostowe kopie zapasowe); Rozrzedzony (obsługiwane przyrostowe kopie zapasowe); Skompresowane i rozrzedzone (traktowane jako rozrzedzone).
-Nieobsługiwane typy plików | Serwery w systemach plików z uwzględnieniem wielkości liter; twarde linki (pomijane); punkty ponownej analizy (pominięte); zaszyfrowane i skompresowane (pomijane); zaszyfrowane i rozrzedzone (pomijane); Strumień skompresowany; Przeanalizuj strumień.
+Obsługiwane typy plików | Kopie zapasowe tych typów plików można wykonać przy użyciu Azure Backup:<br> <li>Zaszyfrowane (tylko pełne kopie zapasowe)<li> Skompresowane (przyrostowe kopie zapasowe) <li> Rozrzedzony (obsługiwane przyrostowe kopie zapasowe)<li> Skompresowane i rozrzedzone (traktowane jako rozrzedzone)
+Nieobsługiwane typy plików | <li>Serwery w systemach plików z uwzględnieniem wielkości liter<li> twarde linki (pomijane)<li> punkty ponownej analizy (pominięte)<li> zaszyfrowane i skompresowane (pomijane)<li> zaszyfrowane i rozrzedzone (pomijane)<li> Strumień skompresowany<li> analizowanie strumienia
 Magazyn lokalny | Każdy komputer, którego kopia zapasowa ma zostać utworzona, musi mieć lokalne wolne miejsce, co najmniej 5% rozmiaru danych, których kopia zapasowa jest tworzona. Na przykład kopia zapasowa 100 GB danych wymaga co najmniej 5 GB wolnego miejsca w lokalizacji tymczasowej.
 Magazyn magazynu | Nie ma limitu ilości danych, do których można utworzyć kopię zapasową w magazynie Azure Backup, ale rozmiar źródła danych (na przykład maszyny wirtualnej lub bazy danych) nie powinien przekraczać 54 400 GB.
 Azure ExpressRoute | Możesz tworzyć kopie zapasowe danych za pośrednictwem usługi Azure ExpressRoute za pomocą publicznej komunikacji równorzędnej (dostępne dla starych obwodów) i komunikacji równorzędnej firmy Microsoft. Tworzenie kopii zapasowej za pośrednictwem prywatnej komunikacji równorzędnej nie jest obsługiwane.<br/><br/> **Przy użyciu publicznej komunikacji równorzędnej**: Upewnij się, że dostęp do następujących domen/adresów:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **W przypadku komunikacji równorzędnej firmy Microsoft**wybierz następujące usługi/regiony i odpowiednie wartości społeczności:<br/><br/>-Azure Active Directory (12076:5060)<br/><br/>-Microsoft Azure region (zgodnie z lokalizacją magazynu Recovery Services)<br/><br/>— Azure Storage (zgodnie z lokalizacją magazynu Recovery Services)<br/><br/>Aby uzyskać więcej informacji, zobacz [wymagania dotyczące routingu ExpressRoute](../expressroute/expressroute-routing.md).<br/><br/>**Uwaga**: publiczna Komunikacja równorzędna jest przestarzała dla nowych obwodów.
@@ -68,7 +68,7 @@ Aby edytować ustawienia replikacji magazynu:
 
 1. Otwórz pulpit nawigacyjny magazynu.
 
-2. W obszarze **Zarządzanie**kliknij pozycję **infrastruktura zapasowa**.
+2. W obszarze **Zarządzanie**wybierz pozycję **infrastruktura kopii zapasowych**.
 
 3. W menu **Konfiguracja kopii zapasowej** wybierz opcję magazynu dla magazynu.
 
@@ -99,27 +99,27 @@ Pobierz plik poświadczeń magazynu na komputer lokalny w następujący sposób:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Otwórz magazyn, w którym chcesz zarejestrować serwer programu DPM.
-3. W obszarze **Ustawienia**kliknij pozycję **Właściwości**.
+3. W obszarze **Ustawienia**wybierz pozycję **Właściwości**.
 
     ![Otwieranie menu magazynu](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 
-4. W oknie **Właściwości**  >  **poświadczenia kopii zapasowej**kliknij pozycję **Pobierz**. Portal generuje plik poświadczeń magazynu przy użyciu kombinacji nazwy magazynu i bieżącej daty i udostępnia je do pobrania.
+4. W oknie **Właściwości**  >  **poświadczenia kopii zapasowej**wybierz pozycję **Pobierz**. Portal generuje plik poświadczeń magazynu przy użyciu kombinacji nazwy magazynu i bieżącej daty i udostępnia je do pobrania.
 
-    ![Pobierz](./media/backup-azure-dpm-introduction/vault-credentials.png)
+    ![Pobierz poświadczenia](./media/backup-azure-dpm-introduction/vault-credentials.png)
 
-5. Kliknij przycisk **Zapisz** , aby pobrać poświadczenia magazynu do folderu lub **Zapisz jako** i określ lokalizację. Wygenerowanie pliku będzie trwać do minuty.
+5. Wybierz pozycję **Zapisz** , aby pobrać poświadczenia magazynu do folderu lub **Zapisz jako** i określ lokalizację. Wygenerowanie pliku będzie trwać do minuty.
 
 ## <a name="install-the-backup-agent"></a>Zainstaluj agenta kopii zapasowej
 
 Każdy komputer, na którym jest tworzona kopia zapasowa Azure Backup musi mieć zainstalowany agent kopii zapasowych (znany również jako Agent usługi odzyskiwania Microsoft Azure (MARS). Zainstaluj agenta na serwerze programu DPM w następujący sposób:
 
 1. Otwórz magazyn, do którego chcesz zarejestrować serwer programu DPM.
-2. W obszarze **Ustawienia**kliknij pozycję **Właściwości**.
+2. W obszarze **Ustawienia**wybierz pozycję **Właściwości**.
 
-    ![Otwieranie menu magazynu](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+    ![Otwórz ustawienia magazynu](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. Na stronie **Właściwości** pobierz agenta Azure Backup.
 
-    ![Pobierz](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
+    ![Pobieranie](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
 4. Po pobraniu Uruchom MARSAgentInstaller.exe. Aby zainstalować agenta na komputerze DPM.
 5. Wybierz folder instalacyjny i folder pamięci podręcznej agenta. Ilość wolnego miejsca w lokalizacji pamięci podręcznej musi wynosić co najmniej 5% danych kopii zapasowej.
@@ -131,7 +131,7 @@ Każdy komputer, na którym jest tworzona kopia zapasowa Azure Backup musi mieć
 
 ## <a name="register-the-dpm-server-in-the-vault"></a>Rejestrowanie serwera DPM w magazynie
 
-1. W konsoli administratora programu DPM > **Zarządzanie**, kliknij pozycję **online**. Wybierz pozycję **Rejestruj**. Spowoduje to otwarcie Kreatora rejestrowania serwera.
+1. W konsoli administratora programu DPM > **Zarządzanie**, wybierz pozycję **online**. Wybierz pozycję **Rejestruj**. Spowoduje to otwarcie Kreatora rejestrowania serwera.
 2. W obszarze **Konfiguracja serwera proxy**Określ ustawienia serwera proxy zgodnie z wymaganiami.
 
     ![Konfiguracja serwera proxy](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Proxy.png)
@@ -147,7 +147,7 @@ Każdy komputer, na którym jest tworzona kopia zapasowa Azure Backup musi mieć
 
     - Azure Backup używa tej lokalizacji jako tymczasowego obszaru przechowywania dla odzyskiwanych danych.
     - Po zakończeniu odzyskiwania danych Azure Backup czyści dane w tym obszarze.
-    - Lokalizacja musi mieć wystarczającą ilość miejsca, aby można było przechowywać elementy, które przewiduje przeprowadzenie równoległej operacji odzyskiwania.
+    - Lokalizacja musi mieć wystarczającą ilość miejsca, aby można było przechowywać elementy, które powinny być odzyskiwane równolegle.
 
     ![Ustawienia folderu odzyskiwania](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_RecoveryFolder.png)
 
@@ -163,15 +163,15 @@ Każdy komputer, na którym jest tworzona kopia zapasowa Azure Backup musi mieć
     > Jesteś posiadaczem hasła szyfrowania, a firma Microsoft nie ma do niego wglądu.
     > Jeśli hasło zostanie utracone lub zapomniane; Firma Microsoft nie może pomóc w odzyskiwaniu danych kopii zapasowej.
 
-7. Kliknij pozycję **zarejestruj** , aby zarejestrować serwer programu DPM w magazynie.
+7. Wybierz pozycję **zarejestruj** , aby zarejestrować serwer programu DPM w magazynie.
 
-Po pomyślnym zarejestrowaniu serwera w magazynie i przygotowaniu można rozpocząć tworzenie kopii zapasowej do Microsoft Azure. Należy skonfigurować grupę ochrony w konsoli programu DPM do tworzenia kopii zapasowych obciążeń na platformie Azure. [Dowiedz się, jak](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) wdrażać grupy ochrony.
+Po pomyślnym zarejestrowaniu serwera w magazynie możesz rozpocząć tworzenie kopii zapasowej do Microsoft Azure. Należy skonfigurować grupę ochrony w konsoli programu DPM w celu tworzenia kopii zapasowych obciążeń na platformie Azure. [Dowiedz się, jak](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) wdrażać grupy ochrony.
 
 ## <a name="troubleshoot-vault-credentials"></a>Rozwiązywanie problemów z poświadczeniami magazynu
 
 ### <a name="expiration-error"></a>Błąd wygaśnięcia
 
-Plik poświadczeń magazynu jest prawidłowy tylko dla 48 godzin (po pobraniu z portalu). Jeśli wystąpi błąd na tym ekranie (na przykład "podany plik poświadczeń magazynu wygasł"), zaloguj się do Azure Portal i ponownie pobierz plik poświadczeń magazynu.
+Plik poświadczeń magazynu jest prawidłowy tylko przez 48 godzin (po pobraniu z portalu). Jeśli wystąpi błąd na tym ekranie (na przykład "podany plik poświadczeń magazynu wygasł"), zaloguj się do Azure Portal i ponownie pobierz plik poświadczeń magazynu.
 
 ### <a name="access-error"></a>Błąd dostępu
 
@@ -182,4 +182,4 @@ Upewnij się, że plik poświadczeń magazynu jest dostępny w lokalizacji, do k
 Jeśli wystąpi błąd nieprawidłowego poświadczenia magazynu (na przykład "Nieprawidłowe poświadczenia magazynu podane"), plik jest uszkodzony lub nie ma najnowszych poświadczeń skojarzonych z usługą odzyskiwania.
 
 - Spróbuj ponownie wykonać operację po pobraniu nowego pliku poświadczeń magazynu z portalu.
-- Ten błąd jest zazwyczaj widoczny po kliknięciu opcji **Pobierz poświadczenia magazynu** w Azure Portal, dwa razy w krótkim czasie. W takim przypadku tylko drugi plik poświadczeń magazynu jest prawidłowy.
+- Ten błąd jest zazwyczaj widoczny w przypadku wybrania opcji **Pobierz poświadczenia magazynu** w Azure Portal, dwa razy w krótkim czasie. W takim przypadku tylko drugi plik poświadczeń magazynu jest prawidłowy.

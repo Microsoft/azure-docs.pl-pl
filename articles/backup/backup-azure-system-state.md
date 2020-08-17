@@ -1,14 +1,14 @@
 ---
 title: Tworzenie kopii zapasowej stanu systemu Windows na platformie Azure
-description: Dowiedz się, jak utworzyć kopię zapasową stanu systemu Windows Server i/lub komputerów z systemem Windows na platformie Azure.
+description: Dowiedz się, jak utworzyć kopię zapasową stanu systemu komputerów z systemem Windows Server na platformie Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: ea38b76d9a8b7b8ccc1898ed9450177da2cb2458
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a56e500cc0330a6406b4465ab5baeafa39b544aa
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003838"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263048"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Tworzenie kopii zapasowej stanu systemu Windows na platformie Azure
 
@@ -24,21 +24,21 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
 
 Po utworzeniu magazynu usług Recovery Services upewnij się, że nadmiarowość magazynu została skonfigurowana w preferowany sposób.
 
-1. W bloku **Magazyny usług Recovery Services** kliknij nowy magazyn.
+1. W okienku **Recovery Services magazynów** wybierz nowy magazyn.
 
     ![Wybieranie nowego magazynu z listy magazynów usług Recovery Services](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
 
-    Wybranie magazynu spowoduje zwężenie bloku **Magazyn usług Recovery Services** oraz otwarcie bloków Ustawienia (*o nazwie magazynu wskazanego w górnej części*) i szczegółów magazynu.
+    Po wybraniu magazynu okienko **magazyn Recovery Services** jest zawężane, a okienko ustawień (*które ma nazwę magazynu w górnej części*) i Otwórz okienko szczegółów magazynu.
 
     ![Wyświetlanie konfiguracji przechowywania dla nowego magazynu](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
-2. W bloku ustawień nowego magazynu użyj pionowego suwaka, aby przewinąć w dół do sekcji Zarządzanie, a następnie kliknij pozycję **Infrastruktura zapasowa**.
-    Zostanie otwarty blok Infrastruktura zapasowa.
-3. W bloku Infrastruktura zapasowa kliknij pozycję **Konfiguracja kopii zapasowej** w celu otwarcia bloku **Konfiguracja kopii zapasowej**.
+2. W okienku ustawienia nowego magazynu Użyj slajdu pionowego, aby przewinąć w dół do sekcji Zarządzanie, a następnie wybierz pozycję **infrastruktura kopii zapasowych**.
+    Zostanie otwarte okienko infrastruktura tworzenia kopii zapasowych.
+3. W okienku infrastruktura kopii zapasowych wybierz pozycję **Konfiguracja kopii zapasowej** , aby otworzyć okienko **Konfiguracja kopii zapasowej** .
 
     ![Ustawianie konfiguracji przechowywania dla nowego magazynu](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
 4. Wybierz odpowiednią opcję replikacji dla magazynu.
 
-    ![Opcje konfiguracji usługi Storage](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
+    ![Opcje konfiguracji magazynu](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
     Domyślnie magazyn jest nadmiarowy geograficznie. Jeśli używasz platformy Azure jako punktu końcowego podstawowego magazynu kopii zapasowych, kontynuuj korzystanie z magazynu **geograficznie nadmiarowego**. Jeśli nie używasz platformy Azure jako punktu końcowego podstawowego magazynu kopii zapasowych, wybierz pozycję **Lokalnie nadmiarowy**, co zmniejszy koszty magazynów platformy Azure. Więcej informacji o opcjach magazynu [geograficznie nadmiarowego](../storage/common/storage-redundancy.md) i [lokalnie nadmiarowego](../storage/common/storage-redundancy.md) można znaleźć w tym [omówieniu nadmiarowości magazynu](../storage/common/storage-redundancy.md).
 
@@ -46,47 +46,47 @@ Po utworzeniu magazynu należy skonfigurować go do tworzenia kopii zapasowych s
 
 ## <a name="configure-the-vault"></a>Konfigurowanie magazynu
 
-1. W bloku Magazyn usługi Recovery Services (dla właśnie utworzonego magazynu) w sekcji Wprowadzenie kliknij pozycję **Kopia zapasowa**, a następnie w bloku **Wprowadzenie do kopii zapasowej** wybierz pozycję **Cel kopii zapasowej**.
+1. W okienku Magazyn Recovery Services (dla właśnie utworzonego magazynu) w sekcji Wprowadzenie wybierz pozycję **kopia zapasowa**, a następnie w okienku **wprowadzenie z kopią zapasową** wybierz pozycję **cel kopii zapasowej**.
 
-    ![Otwieranie bloku celu kopii zapasowej](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
+    ![Otwieranie ustawień kopii zapasowej](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
-    Zostanie otwarty blok **Cel kopii zapasowej**.
+    Zostanie otwarte okienko **cel kopii zapasowej** .
 
-    ![Otwieranie bloku celu kopii zapasowej](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
+    ![Otwórz okienko cel kopii zapasowej](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
 
 2. Z menu **Gdzie działa Twoje obciążenie?** wybierz pozycję **Lokalnie**.
 
-    Pozycję **Lokalnie** trzeba wybrać, ponieważ Twój serwer lub komputer z systemem Windows jest maszyną fizyczną spoza platformy Azure.
+    Należy wybrać **lokalne** , ponieważ serwer z systemem Windows lub Windows jest komputerem fizycznym, który nie znajduje się na platformie Azure.
 
-3. Z menu **co chcesz utworzyć kopię zapasową?** wybierz pozycję **stan systemu**i kliknij przycisk **OK**.
+3. Z menu **co chcesz utworzyć kopię zapasową?** wybierz pozycję **stan systemu**, a następnie wybierz **przycisk OK**.
 
     ![Konfigurowanie plików i folderów](./media/backup-azure-system-state/backup-goal-system-state.png)
 
-    Po kliknięciu przycisku OK obok pozycji **Cel kopii zapasowej** pojawi się znacznik wyboru i zostanie otwarty blok **Przygotowywanie infrastruktury**.
+    Po kliknięciu przycisku OK zostanie wyświetlony znacznik wyboru obok pozycji **cel kopii zapasowej**. zostanie otwarte okienko **Przygotowywanie infrastruktury** .
 
     ![Cel kopii zapasowej został skonfigurowany, następnym krokiem jest przygotowanie infrastruktury](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 
-4. W bloku **Przygotowywanie infrastruktury** kliknij pozycję **Pobierz agenta dla systemu Windows Server lub klienta systemu Windows**.
+4. W okienku **Przygotowywanie infrastruktury** wybierz pozycję **Pobierz agenta dla systemu Windows Server lub klienta systemu Windows**.
 
-    ![Przygotowywanie infrastruktury](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
+    ![Przygotuj infrastrukturę](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
 
-    Jeśli używasz systemu Windows Server Essential, wybierz opcję pobrania agenta dla systemu Windows Server Essential. Zostanie wyświetlone menu rozwijane z monitem o uruchomienie lub zapisanie pliku MARSAgentInstaller.exe.
+    Jeśli używasz systemu Windows Server Essential, wybierz pobieranie agenta dla systemu Windows Server Essential. Zostanie wyświetlone menu rozwijane z monitem o uruchomienie lub zapisanie pliku MARSAgentInstaller.exe.
 
     ![Okno dialogowe MARSAgentInstaller](./media/backup-try-azure-backup-in-10-mins/mars-installer-run-save.png)
 
-5. W menu rozwijanym pobierania kliknij pozycję **Zapisz**.
+5. W menu podręcznym pobieranie wybierz pozycję **Zapisz**.
 
-    Domyślnie plik **MARSagentinstaller.exe** jest zapisywany w folderze Pobrane. Po ukończeniu pobierania pojawi się okno podręczne z pytaniem, czy chcesz uruchomić Instalatora, czy otworzyć folder.
+    Domyślnie plik **MARSagentinstaller.exe** jest zapisywany w folderze Pobrane. Po zakończeniu działania Instalatora zobaczysz okno podręczne z pytaniem, czy chcesz uruchomić Instalatora, czy otworzyć folder.
 
-    ![Przygotowywanie infrastruktury](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
+    ![Instalator MARS został ukończony](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
 
     Nie musisz jeszcze instalować agenta. Agenta możesz zainstalować po pobraniu poświadczeń magazynu.
 
-6. W bloku **Przygotowywanie infrastruktury** kliknij pozycję **Pobierz**.
+6. W okienku **Przygotowywanie infrastruktury** wybierz pozycję **Pobierz**.
 
     ![Pobieranie poświadczeń magazynu](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    Poświadczenia magazynu zostaną pobrane do folderu Pobrane. Po zakończeniu pobierania poświadczeń magazynu zobaczysz okno podręczne z pytaniem, czy chcesz otworzyć poświadczenia, czy je zapisać. Kliknij pozycję **Zapisz**. Jeśli przypadkowo klikniesz pozycję **Otwórz**, zaczekaj, aż działanie okna dialogowego, które spróbuje otworzyć poświadczenia magazynu, zakończy się niepowodzeniem. Poświadczeń magazynu nie da się otworzyć. Przejdź do następnego kroku. Poświadczenia magazynu znajdują się w folderze Pobrane.
+    Poświadczenia magazynu są pobierane do folderu **pobierania** . Po zakończeniu pobierania poświadczeń magazynu zobaczysz okno podręczne z pytaniem, czy chcesz otworzyć lub zapisać poświadczenia. Wybierz pozycję **Zapisz**. Jeśli przypadkowo wybierzesz pozycję **Otwórz**, pozwól, aby okno dialogowe, które próbuje otworzyć poświadczenia magazynu, zakończy się niepowodzeniem. Nie będzie można otworzyć poświadczeń magazynu. Przejdź do następnego kroku. Poświadczenia magazynu znajdują się w folderze **pobierania** .
 
     ![Zakończenie pobierania poświadczeń magazynu](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
    > [!NOTE]
@@ -142,39 +142,39 @@ Aby utworzyć początkową kopię zapasową, użyj agenta usługi Microsoft Azur
 
     ![Uruchamianie agenta usługi Azure Recovery Services](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
 
-2. W agencie usługi Recovery Services kliknij pozycję **Zaplanuj wykonywanie kopii zapasowej**.
+2. W agencie Recovery Services wybierz pozycję **Zaplanuj kopię zapasową**.
 
     ![Planowanie tworzenia kopii zapasowej systemu Windows Server](./media/backup-try-azure-backup-in-10-mins/schedule-first-backup.png)
 
-3. Na stronie Wprowadzenie Kreatora harmonogramu kopii zapasowej kliknij przycisk **Dalej**.
+3. Na stronie **wprowadzenie** kreatora planowania kopii zapasowych wybierz pozycję **dalej**.
 
-4. Na stronie Wybieranie elementów do wykonania kopii zapasowej kliknij pozycję **Dodaj elementy**.
+4. Na stronie **Wybierz elementy do utworzenia kopii zapasowej** wybierz pozycję **Dodaj elementy**.
 
-5. Wybierz pozycję **stan systemu** , a następnie kliknij przycisk **OK**.
+5. Wybierz pozycję **stan systemu** , a następnie wybierz przycisk **OK**.
 
-6. Kliknij przycisk **Dalej**.
+6. Wybierz opcję **Dalej**.
 
 7. Wybierz żądaną częstotliwość tworzenia kopii zapasowych i zasady przechowywania kopii zapasowych stanu systemu na kolejnych stronach.
 
-8. Przejrzyj informacje na stronie Potwierdzenie, a następnie kliknij przycisk **Zakończ**.
+8. Na stronie Potwierdzenie przejrzyj informacje, a następnie wybierz pozycję **Zakończ**.
 
-9. Po ukończeniu harmonogramu tworzenia kopii zapasowej przez kreatora kliknij przycisk **Zamknij**.
+9. Po zakończeniu tworzenia harmonogramu tworzenia kopii zapasowych przez kreatora wybierz pozycję **Zamknij**.
 
 ### <a name="to-back-up-windows-server-system-state-for-the-first-time"></a>Aby utworzyć kopię zapasową stanu systemu Windows Server po raz pierwszy
 
 1. Upewnij się, że nie ma żadnych oczekujących aktualizacji dla systemu Windows Server, które wymagają ponownego uruchomienia.
 
-2. W agencie Usług odzyskiwania kliknij pozycję **Wykonaj kopię zapasową teraz**, aby zakończyć początkowe umieszczanie za pośrednictwem sieci.
+2. W agencie Recovery Services wybierz pozycję **Wykonaj kopię zapasową teraz** , aby zakończyć początkowe umieszczanie w sieci.
 
     ![Tworzenie kopii zapasowej systemu Windows Server teraz](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
-3. Na ekranie **Wybieranie elementu kopii zapasowej** wybierz pozycję **stan systemu** , a następnie kliknij przycisk **dalej**.
+3. Wybierz pozycję **stan systemu** na ekranie **Wybieranie elementu kopii zapasowej** , który zostanie wyświetlony, a następnie wybierz przycisk **dalej**.
 
-4. Na stronie Potwierdzenie przejrzyj ustawienia, które zostaną użyte przez Kreatora natychmiastowego tworzenia kopii zapasowej do utworzenia kopii zapasowej maszyny. Następnie kliknij pozycję **Utwórz kopię zapasową**.
+4. Na stronie Potwierdzenie przejrzyj ustawienia, które zostaną użyte przez Kreatora natychmiastowego tworzenia kopii zapasowej do utworzenia kopii zapasowej maszyny. Następnie wybierz pozycję **Utwórz kopię zapasową**.
 
-5. Kliknij przycisk **Zamknij**, aby zamknąć kreatora. Jeśli zamkniesz kreatora przed zakończeniem procesu tworzenia kopii zapasowej, kreator będzie nadal działać w tle.
+5. Wybierz pozycję **Zamknij** , aby zamknąć kreatora. Jeśli zamkniesz kreatora przed zakończeniem procesu tworzenia kopii zapasowej, kreator będzie nadal działać w tle.
     > [!NOTE]
-    > Agent MARS wyzwala/VERIFYONLY SFC w ramach pretestów przed każdą kopią zapasową stanu systemu. Ma to na celu zapewnienie, że pliki kopii zapasowej w ramach stanu systemu mają poprawne wersje odpowiadające wersji systemu Windows. Dowiedz się więcej o funkcji System File Checker (SFC) w [tym artykule](/windows-server/administration/windows-commands/sfc).
+    > Agent MARS jest wyzwalany `SFC /verifyonly` w ramach sprawdzania przed każdą kopią zapasową stanu systemu. Ma to na celu zapewnienie, że pliki kopii zapasowej w ramach stanu systemu mają poprawne wersje odpowiadające wersji systemu Windows. Dowiedz się więcej o funkcji System File Checker (SFC) w [tym artykule](/windows-server/administration/windows-commands/sfc).
     >
 
 Po zakończeniu tworzenia początkowej kopii zapasowej w konsoli usługi Backup zostanie wyświetlony stan **Ukończono zadanie**.
@@ -183,7 +183,7 @@ Po zakończeniu tworzenia początkowej kopii zapasowej w konsoli usługi Backup 
 
 ## <a name="questions"></a>Masz pytania?
 
-Jeśli masz pytania lub jeśli brakuje Ci jakiejś funkcji, [prześlij nam opinię](https://feedback.azure.com/forums/258995-azure-backup).
+Jeśli masz pytania, [Prześlij nam swoją opinię](https://feedback.azure.com/forums/258995-azure-backup).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 4d65b43dad80cb130d582132d21e2d10bd8051dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6363100c844d071a3bb47521cec6ff7e988f6af8
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791388"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263234"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Zalecenia dotyczące zabezpieczeń w Centrum zabezpieczeń Azure 
 W tym temacie wyjaśniono, jak wyświetlać i zrozumieć zalecenia w Azure Security Center, aby pomóc w ochronie zasobów platformy Azure.
@@ -31,16 +31,15 @@ W tym temacie wyjaśniono, jak wyświetlać i zrozumieć zalecenia w Azure Secur
 
 Zalecenia to akcje, które należy wykonać, aby zabezpieczyć zasoby.
 
-Security Center okresowe Analizowanie stanu zabezpieczeń zasobów platformy Azure w celu zidentyfikowania potencjalnych luk w zabezpieczeniach. Następnie zawiera zalecenia dotyczące sposobu ich usuwania.
+Security Center okresowo analizuje stan zabezpieczeń zasobów platformy Azure w celu zidentyfikowania potencjalnych luk w zabezpieczeniach. Następnie zawiera zalecenia dotyczące sposobu korygowania tych luk w zabezpieczeniach.
 
 Każde zalecenie oferuje następujące informacje:
 
-- Krótki opis tego, co jest zalecane.
-- Kroki korygowania, które należy wykonać w celu wdrożenia zalecenia. <!-- In some cases, Quick Fix remediation is available. -->
-- Które zasoby są wymagane do wykonania zalecanej akcji.
-- Istotny **wpływ na ocenę**, czyli ilość, która będzie obowiązywać w przypadku zaimplementowania tego zalecenia.
+- Krótki opis problemu.
+- Kroki korygowania, które należy wykonać w celu wdrożenia zalecenia.
+- Zasoby, których to dotyczy.
 
-## <a name="monitor-recommendations"></a>Zalecenia dotyczące monitorowania<a name="monitor-recommendations"></a>
+## <a name="monitor-recommendations"></a>Zalecenia dotyczące monitorowania <a name="monitor-recommendations"></a>
 
 Security Center analizuje stan zabezpieczeń zasobów, aby identyfikować potencjalne luki w zabezpieczeniach. Kafelek **zalecenia** w obszarze **Przegląd** przedstawia łączną liczbę zaleceń identyfikowanych przez Security Center.
 
@@ -48,26 +47,28 @@ Security Center analizuje stan zabezpieczeń zasobów, aby identyfikować potenc
 
 1. Wybierz **kafelek rekomendacje** w obszarze **Przegląd**. Zostanie otwarta lista **rekomendacje** .
 
-      ![Wyświetlanie zaleceń](./media/security-center-recommendations/view-recommendations.png)
+1. Zalecenia są pogrupowane w zabezpieczeniach.
 
-    Możesz filtrować zalecenia. Aby filtrować zalecenia, wybierz pozycję **Filtruj** w bloku **zalecenia** . Zostanie otwarty blok **filtru** i zostanie wybrana wartość ważność i stan, które mają być wyświetlane.
+      ![Zalecenia pogrupowane według kontroli zabezpieczeń](./media/security-center-recommendations/view-recommendations.png)
 
-   * **Zalecenia**: zalecenie.
-   * **Bezpieczny wpływ na ocenę**: wynik wygenerowany przez Security Center przy użyciu zaleceń dotyczących zabezpieczeń oraz stosowanie zaawansowanych algorytmów w celu określenia, jak kluczowe jest każde zalecenie. Aby uzyskać więcej informacji, zobacz temat [bezpieczne Obliczanie wyniku](secure-score-security-controls.md#how-your-secure-score-is-calculated).
-   * **Zasób**: zawiera listę zasobów, do których stosuje się to zalecenie.
-   * **Paski stanu**: opisuje ważność danego zalecenia:
-       * **Wysoka (czerwony)**: istnieje luka w zabezpieczeniach, która ma zrozumiały zasób (na przykład aplikację, maszynę wirtualną lub sieciową grupę zabezpieczeń) i wymaga uwagi.
-       * **Średni (pomarańczowy)**: istnieje luka w zabezpieczeniach, która nie jest krytyczna lub dodatkowe kroki są wymagane do eliminacji lub ukończenia procesu.
-       * **Niska (niebieska)**: istnieje luka w zabezpieczeniach, którą należy rozwiązać, ale nie wymaga natychmiastowej uwagi. (Domyślnie małe rekomendacje nie są wyświetlane, ale można filtrować według niskich zaleceń, jeśli chcesz je zobaczyć). 
-       * **Dobra kondycja (zielony)**:
-       * **Niedostępne (szare)**:
+1. Rozwiń formant i wybierz określone zalecenie, aby wyświetlić stronę rekomendacja.
 
-1. Aby wyświetlić szczegóły każdego zalecenia, kliknij zalecenie.
+    :::image type="content" source="./media/security-center-recommendations/recommendation-details-page.png" alt-text="Strona szczegółów rekomendacji." lightbox="./media/security-center-recommendations/recommendation-details-page.png":::
 
-    ![Szczegóły rekomendacji](./media/security-center-recommendations/recommendation-details.png)
+    Strona zawiera następujące:
 
->[!NOTE] 
-> Zobacz [klasyczne i Menedżer zasobów modele wdrażania](../azure-classic-rm.md) dla zasobów platformy Azure.
+    - **Wskaźnik ważności**
+    - **Interwał Aktualności**  (jeśli dotyczy) 
+    - **Opis** — Krótki opis problemu
+    - **Kroki zaradcze** — opis ręcznych kroków wymaganych do skorygowania problemu z zabezpieczeniami odpowiednich zasobów. W przypadku rekomendacji z opcją "szybkie rozwiązanie" można wybrać opcję **Wyświetl logikę korygowania** przed zastosowaniem sugerowanej poprawki do zasobów. 
+    - **Zasoby, których to dotyczy** — zasoby są pogrupowane na karty:
+        - **Zasoby w dobrej kondycji** — odpowiednie zasoby, na które nie ma wpływu lub na które rozwiązanie problemu zostało już skorygowane.
+        - **Zasoby w złej kondycji** — zasoby, na które nadal mają wpływ zidentyfikowane problemy.
+        - **Nie dotyczy zasobów** — zasoby, dla których zalecenie nie może udzielić ostatecznej odpowiedzi. Karta nie dotyczy również zawiera przyczyny dla każdego zasobu. 
+
+            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Nie dotyczy zasobów z przyczyn.":::
+
+
  
 ## <a name="next-steps"></a>Następne kroki
 

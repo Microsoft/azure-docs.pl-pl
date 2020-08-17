@@ -4,12 +4,12 @@ description: Przywróć maszynę wirtualną platformy Azure z punktu odzyskiwani
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a006988049925d2d81c3f15fe24cfe60205b5789
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: af9b505e762e201713b8e554b7886e5e2062dfef
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006336"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263014"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Przywracanie danych maszyny wirtualnej platformy Azure w Azure Portal
 
@@ -53,7 +53,7 @@ Jeśli nie masz uprawnień, możesz [przywrócić dysk](#restore-disks), a nast�
 
 1. W magazynie skojarzonym z maszyną wirtualną, którą chcesz przywrócić, wybierz pozycję **elementy kopii zapasowej**  >  **Azure Virtual Machine**.
 1. Wybierz maszynę wirtualną. Domyślnie na pulpicie nawigacyjnym maszyny wirtualnej są wyświetlane punkty odzyskiwania z ostatnich 30 dni. Możesz wyświetlić punkty odzyskiwania starsze niż 30 dni lub przefiltrować, aby znaleźć punkty odzyskiwania na podstawie dat, zakresów czasu i różnych typów spójności migawek.
-1. Aby przywrócić maszynę wirtualną, kliknij pozycję **Przywróć maszynę wirtualną**.
+1. Aby przywrócić maszynę wirtualną, wybierz pozycję **Przywróć maszynę wirtualną**.
 
     ![Punkt przywracania](./media/backup-azure-arm-restore-vms/restore-point.png)
 
@@ -95,7 +95,7 @@ Jako jedną z [opcji przywracania](#restore-options)można utworzyć dysk z punk
 1. W obszarze **Grupa zasobów**wybierz istniejącą grupę zasobów dla przywróconych dysków lub Utwórz nową z globalnie unikatową nazwą.
 1. W obszarze **Lokalizacja tymczasowa**Określ konto magazynu, do którego mają zostać skopiowane wirtualne dyski twarde. [Dowiedz się więcej](#storage-accounts).
 
-    ![Ukończono konfigurację odzyskiwania](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
+    ![Wybierz grupę zasobów i lokalizację przejściową](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
 
 1. Wybierz pozycję **Przywróć** , aby wyzwolić operację przywracania.
 

@@ -3,12 +3,12 @@ title: 'Szybki Start: testowa baza wiedzy z pytaniami wsadowymi'
 description: Użyj narzędzia do testowania wsadowego QnA Maker do testowania baz wiedzy w zasobie QnA Maker, aby uzyskać oczekiwane odpowiedzi, wyniki pewności i wyłączać wiele.
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.openlocfilehash: 01c767a6fbea5061f644052234f7462857dd342b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 498f84c97fdc022e460dec453b1d65bb8088b787
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84337737"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263150"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Szybki Start: testowa baza wiedzy z pytaniami wsadowymi i oczekiwanymi odpowiedziami
 
@@ -25,7 +25,7 @@ Użyj narzędzia do testowania wsadowego QnA Maker do testowania baz wiedzy w za
 
 [Zaloguj](https://www.qnamaker.ai/) się do portalu QNA Maker.
 
-## <a name="create-a-new-knowledge-base-from-the-multi-turn-sampledocx-file"></a>Tworzenie nowej bazy wiedzy z poziomu przykładowego pliku DOCX z obsługą wielodostępności
+## <a name="create-a-new-knowledge-base-from-the-multi-turn-sampledocx-file"></a>Utwórz nową bazę wiedzy na podstawie wieloskładnikowego pliku sample.docx
 
 1. Wybierz pozycję **Utwórz bazę wiedzy** na pasku narzędzi.
 1. Pomiń **krok 1** , ponieważ należy już mieć zasób QNA Maker, przechodząc do **kroku 2** , aby wybrać istniejące informacje o zasobie:
@@ -42,7 +42,7 @@ Użyj narzędzia do testowania wsadowego QnA Maker do testowania baz wiedzy w za
     |**Włącz wyodrębnianie wieloskładnikowe z adresów URL, plików PDF lub DOCX.**|Zaznaczono|
     |**Domyślny tekst odpowiedzi**| `Batch test - default answer not found.`|
     |**+ Dodaj plik**|Wybierz listę pobranego `.docx` pliku w sekcji wymagania wstępne.|
-    |**Chit — rozmowa**|Wybierz **profesjonalne**|
+    |**Pogawędka**|Wybierz **profesjonalne**|
 
 1. W **kroku 5**wybierz pozycję **Utwórz swoją KB**.
 
@@ -56,16 +56,16 @@ Użyj narzędzia do testowania wsadowego QnA Maker do testowania baz wiedzy w za
     |Wymagane dane| Przykład|
     |--|--|
     |Opublikowany Host|`https://YOUR-RESOURCE-NAME.azurewebsites.net`|
-    |Klucz publikowany|`XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`(ciąg znaków 32 wyświetlany po `Endpoint` )|
-    |Identyfikator aplikacji|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`(ciąg znaków 36 wyświetlany jako część `POST` ) |
+    |Klucz publikowany|`XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX` (ciąg znaków 32 wyświetlany po `Endpoint` )|
+    |Identyfikator aplikacji|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (ciąg znaków 36 wyświetlany jako część `POST` ) |
 
 ## <a name="create-batch-test-file-with-question-ids"></a>Utwórz plik testu wsadowego z identyfikatorami pytań
 
-Aby użyć narzędzia Test Batch, Utwórz plik o nazwie `batch-test-data-1.tsv` za pomocą edytora tekstu. Plik musi mieć następujące kolumny oddzielone tabulatorem.
+Aby użyć narzędzia Test Batch, Utwórz plik o nazwie `batch-test-data-1.tsv` za pomocą edytora tekstu. Plik powinien być w formacie UTF-8 i musi mieć następujące kolumny oddzielone tabulatorem.
 
 |Pola wejściowe plików TSV|Uwagi|Przykład|
 |--|--|--|
-|Identyfikator bazy wiedzy|Identyfikator bazy wiedzy został znaleziony na stronie publikowanie. Przetestuj kilka baz wiedzy w jednej usłudze jednocześnie w pojedynczym pliku przy użyciu różnych identyfikatorów bazy wiedzy w pojedynczym pliku.|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`(ciąg znaków 36 wyświetlany jako część `POST` ) |
+|Identyfikator bazy wiedzy|Identyfikator bazy wiedzy został znaleziony na stronie publikowanie. Przetestuj kilka baz wiedzy w jednej usłudze jednocześnie w pojedynczym pliku przy użyciu różnych identyfikatorów bazy wiedzy w pojedynczym pliku.|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (ciąg znaków 36 wyświetlany jako część `POST` ) |
 |Pytanie|Tekst pytania, który użytkownik wprowadzi. maksymalnie 1 000 znaków.|`How do I sign out?`|
 |Tagi metadanych|optional|`topic:power`używa formatu _wartości klucz: wartość_|
 |Górny parametr|optional|`25`|
@@ -130,7 +130,7 @@ Skorzystaj z poniższej tabeli, aby zrozumieć, jak znaleźć wartości pól dla
 |Numer kolumny|Opcjonalna kolumna|Lokalizacja danych|
 |--|--|--|
 |3|metadane|Eksportuj istniejącą bazę wiedzy dla istniejących _kluczy: par wartości_ .|
-|4|top|`25`Zalecaną wartością domyślną jest.|
+|4|top (pierwsze)|`25`Zalecaną wartością domyślną jest.|
 |5|Identyfikator pytania i odpowiedzi|Wyeksportuj istniejącą bazę wiedzy dla wartości identyfikatora. Zauważ również, że identyfikatory zostały zwrócone w pliku wyjściowym.|
 
 ## <a name="add-metadata-to-the-knowledge-base"></a>Dodawanie metadanych do bazy wiedzy

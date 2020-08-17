@@ -1,15 +1,14 @@
 ---
 title: Przywracanie plików do systemu Windows Server przy użyciu agenta MARS
 description: W tym artykule dowiesz się, jak przywrócić dane przechowywane na platformie Azure na komputerze z systemem Windows Server lub Windows za pomocą agenta Microsoft Azure Recovery Services (MARS).
-ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 040ac3069500d0e52441df6f07d92645a7ae69df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d96c6c54431d0160bd58be0c3491ef2b22753e53
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764438"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263405"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Przywracanie plików do systemu Windows Server przy użyciu agenta MARS
 
@@ -18,7 +17,7 @@ W tym artykule wyjaśniono, jak przywrócić dane z magazynu kopii zapasowych. A
 * Przywróć dane do tego samego komputera, z którego wykonano kopie zapasowe.
 * Przywracanie danych do alternatywnej maszyny.
 
-Za pomocą funkcji natychmiastowego przywracania można zainstalować zapisywalną migawkę punktu odzyskiwania jako wolumin odzyskiwania. Następnie można eksplorować wolumin odzyskiwania i kopiować pliki na komputer lokalny, a tym samym wybiórczo przywracając pliki.
+Za pomocą funkcji natychmiastowego przywracania można zainstalować zapisywalną migawkę punktu odzyskiwania jako wolumin odzyskiwania. Następnie można eksplorować wolumin odzyskiwania i kopiować pliki na komputer lokalny w taki sposób, aby wybiórczo przywracać pliki.
 
 > [!NOTE]
 > [Aktualizacja Azure Backup stycznia 2017](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) jest wymagana, jeśli chcesz użyć natychmiastowego przywracania do przywracania danych. Ponadto dane kopii zapasowej muszą być chronione w magazynach lokalnych wymienionych w artykule dotyczącym pomocy technicznej. Zapoznaj się z [aktualizacją Azure Backup stycznia 2017](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) , aby uzyskać najnowszą listę ustawień regionalnych, które obsługują natychmiastowe przywracanie.
@@ -38,15 +37,15 @@ Jeśli przypadkowo usunięto plik i chcesz przywrócić go na tym samym komputer
 
 2. Wybierz pozycję **Odzyskaj dane** , aby uruchomić kreatora.
 
-    ![Zrzut ekranu przedstawiający Azure Backup z wyróżnionymi odzyskiwaniem danych](./media/backup-azure-restore-windows-server/recover.png)
+    ![Zrzut ekranu przedstawiający Azure Backup z wyróżnionym odzyskiwaniem danych (przywracanie do tego samego komputera)](./media/backup-azure-restore-windows-server/recover.png)
 
 3. Na stronie **wprowadzenie** , aby przywrócić dane na ten sam serwer lub na tym samym komputerze, wybierz pozycję **ten serwer ( `<server name>` )**  >  **dalej**.
 
-    ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych Wprowadzenie stronie](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
+    ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych Wprowadzenie stronie (przywracanie do tego samego komputera)](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
 4. Na stronie **Wybierz tryb odzyskiwania** wybierz kolejno pozycje **poszczególne pliki i foldery** > **Next**.
 
-    ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych wybierz stronę trybu odzyskiwania](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
+    ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych wybierz stronę trybu odzyskiwania (Przywróć na ten sam komputer)](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
    > Opcja przywrócenia poszczególnych plików i folderów wymaga .NET Framework 4.5.2 lub nowszego. Jeśli opcja **pojedyncze pliki i foldery** nie jest widoczna, należy uaktualnić .NET Framework do wersji 4.5.2 lub nowszej, a następnie spróbować ponownie.
 
@@ -57,7 +56,7 @@ Jeśli przypadkowo usunięto plik i chcesz przywrócić go na tym samym komputer
 
     W kalendarzu wybierz punkt odzyskiwania. **Pogrubione** daty wskazują dostępność co najmniej jednego punktu odzyskiwania. Jeśli w jednej dacie jest dostępnych wiele punktów odzyskiwania, wybierz konkretny punkt odzyskiwania z menu rozwijanego **czas** .
 
-    ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych Wybieranie woluminu i strony daty](./media/backup-azure-restore-windows-server/samemachine_selectvolumedate_instantrestore.png)
+    ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych wybierz stronę woluminu i daty (Przywróć do tego samego komputera)](./media/backup-azure-restore-windows-server/samemachine_selectvolumedate_instantrestore.png)
 
 6. Po wybraniu punktu odzyskiwania do przywrócenia wybierz pozycję **Zainstaluj**.
 
@@ -65,15 +64,15 @@ Jeśli przypadkowo usunięto plik i chcesz przywrócić go na tym samym komputer
 
 7. Na stronie **przeglądanie i odzyskiwanie plików** wybierz pozycję **Przeglądaj** , aby otworzyć Eksploratora Windows, a następnie znajdź pliki i foldery, których chcesz użyć.
 
-    ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych strona przeglądanie i odzyskiwanie plików](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
+    ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych strona przeglądanie i odzyskiwanie plików (przywracanie do tego samego komputera)](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
 8. W Eksploratorze Windows skopiuj pliki i foldery, które chcesz przywrócić, a następnie wklej je do dowolnej lokalizacji lokalnej na serwerze lub komputerze. Można otworzyć lub przesłać strumieniowo pliki bezpośrednio z woluminu odzyskiwania i sprawdzić, czy są odzyskiwane poprawne wersje.
 
-    ![Zrzut ekranu Eksploratora Windows z wyróżnioną pozycją Kopiuj](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
+    ![Zrzut ekranu Eksploratora Windows z wyróżnioną pozycją Copy (przywracanie do tego samego komputera)](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
 
 9. Po zakończeniu na stronie **przeglądanie i odzyskiwanie plików** wybierz pozycję **Odinstaluj**. Następnie wybierz pozycję **tak** , aby potwierdzić, że chcesz odinstalować wolumin.
 
-    ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych strona przeglądanie i odzyskiwanie plików](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
+    ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych strona przeglądanie i odzyskiwanie plików (przywracanie do tego samego komputera)](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
     > Jeśli nie wybierzesz opcji **Odinstaluj**, wolumin odzyskiwania pozostanie zainstalowany przez 6 godzin od momentu zainstalowania. Jednak czas instalacji jest rozszerzony do maksymalnie 24 godzin w przypadku trwającej kopii pliku. Podczas montowania woluminu nie będą wykonywane żadne operacje tworzenia kopii zapasowej. Każda operacja tworzenia kopii zapasowej zaplanowana do uruchomienia w czasie, gdy wolumin zostanie zainstalowany, zostanie uruchomiona po odinstalowaniu woluminu odzyskiwania.
@@ -100,43 +99,43 @@ Te kroki obejmują następującą terminologię:
 
 3. Wybierz pozycję **Odzyskaj dane** , aby otworzyć **Kreatora odzyskiwania danych**.
 
-    ![Zrzut ekranu przedstawiający Azure Backup z wyróżnionymi odzyskiwaniem danych](./media/backup-azure-restore-windows-server/recover.png)
+    ![Zrzut ekranu przedstawiający Azure Backup z wyróżnionym odzyskiwaniem danych (przywracanie do komputera alternatywnego)](./media/backup-azure-restore-windows-server/recover.png)
 
 4. Na stronie **wprowadzenie** wybierz **inny serwer**.
 
-    ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych Wprowadzenie stronie](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
+    ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych Wprowadzenie stronie (przywracanie do komputera alternatywnego)](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
 
 5. Podaj plik poświadczeń magazynu, który odnosi się do przykładowego magazynu, i wybierz pozycję **dalej**.
 
     Jeśli plik poświadczeń magazynu jest nieprawidłowy (lub wygasł), Pobierz nowy plik poświadczeń magazynu z przykładowego magazynu w Azure Portal. Po podaniu prawidłowego poświadczenia magazynu zostanie wyświetlona nazwa odpowiedniego magazynu kopii zapasowych.
 
-6. Na stronie **Wybierz serwer kopii zapasowej** wybierz maszynę źródłową z listy wyświetlanych maszyn i podaj hasło. Następnie wybierz pozycję **Dalej**.
+6. Na stronie **Wybierz serwer kopii zapasowej** wybierz maszynę źródłową z listy wyświetlanych maszyn i podaj hasło. Następnie wybierz przycisk **Dalej**.
 
-    ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych — strona wybierz serwer kopii zapasowej](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
+    ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych — strona wybierz serwer kopii zapasowej (przywracanie do komputera alternatywnego)](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
 
 7. Na stronie **Wybierz tryb odzyskiwania** wybierz kolejno pozycje **poszczególne pliki i foldery**  >  **Next**.
 
-    ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych wybierz stronę trybu odzyskiwania](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
+    ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych wybierz stronę trybu odzyskiwania (przywracanie do komputera alternatywnego)](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
 
 8. Na stronie **Wybierz wolumin i datę** Wybierz wolumin zawierający pliki i foldery, które chcesz przywrócić.
 
     W kalendarzu wybierz punkt odzyskiwania. **Pogrubione** daty wskazują dostępność co najmniej jednego punktu odzyskiwania. Jeśli w jednej dacie jest dostępnych wiele punktów odzyskiwania, wybierz konkretny punkt odzyskiwania z menu rozwijanego **czas** .
 
-    ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych Wybieranie woluminu i strony daty](./media/backup-azure-restore-windows-server/alternatemachine_selectvolumedate_instantrestore.png)
+    ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych Wybieranie woluminu i daty (przywracanie do komputera alternatywnego)](./media/backup-azure-restore-windows-server/alternatemachine_selectvolumedate_instantrestore.png)
 
 9. Wybierz pozycję **Zainstaluj** , aby lokalnie zainstalować punkt odzyskiwania jako wolumin odzyskiwania na komputerze docelowym.
 
 10. Na stronie **przeglądanie i odzyskiwanie plików** wybierz pozycję **Przeglądaj** , aby otworzyć Eksploratora Windows, a następnie znajdź pliki i foldery, których chcesz użyć.
 
-    ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych strona przeglądanie i odzyskiwanie plików](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
+    ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych strona przeglądanie i odzyskiwanie plików (przywracanie do komputera alternatywnego)](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
 
 11. W Eksploratorze Windows skopiuj pliki i foldery z woluminu odzyskiwania i wklej je do lokalizacji maszyny docelowej. Można otworzyć lub przesłać strumieniowo pliki bezpośrednio z woluminu odzyskiwania i sprawdzić, czy są odzyskiwane poprawne wersje.
 
-    ![Zrzut ekranu Eksploratora Windows z wyróżnioną pozycją Kopiuj](./media/backup-azure-restore-windows-server/alternatemachine_copy_instantrestore.png)
+    ![Zrzut ekranu przedstawiający Eksploratora Windows z wyróżnioną kopią (przywracanie do komputera alternatywnego)](./media/backup-azure-restore-windows-server/alternatemachine_copy_instantrestore.png)
 
 12. Po zakończeniu na stronie **przeglądanie i odzyskiwanie plików** wybierz pozycję **Odinstaluj**. Następnie wybierz pozycję **tak** , aby potwierdzić, że chcesz odinstalować wolumin.
 
-    ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych strona przeglądanie i odzyskiwanie plików](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
+    ![Odinstalowywanie woluminu (przywracanie do komputera alternatywnego)](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
     > Jeśli nie wybierzesz opcji **Odinstaluj**, wolumin odzyskiwania pozostanie zainstalowany przez 6 godzin od momentu zainstalowania. Jednak czas instalacji jest rozszerzony do maksymalnie 24 godzin w przypadku trwającej kopii pliku. Podczas montowania woluminu nie będą wykonywane żadne operacje tworzenia kopii zapasowej. Każda operacja tworzenia kopii zapasowej zaplanowana do uruchomienia w czasie, gdy wolumin zostanie zainstalowany, zostanie uruchomiona po odinstalowaniu woluminu odzyskiwania.

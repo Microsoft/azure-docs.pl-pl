@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: f9598ad508e3760bf1bad04f8694838465e4961f
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 24e7a1660da4dd021ef7ceb2594b4db2340cf104
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460987"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263031"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Rozwiązywanie problemów z wizualizacją zależności/oceny
 
@@ -28,7 +28,7 @@ Rozwiąż problemy z gotowością do oceny w następujący sposób:
 Nieobsługiwany typ rozruchu | Platforma Azure nie obsługuje maszyn wirtualnych z typem rozruchu EFI. Przed uruchomieniem migracji zalecamy przekonwertowanie typu rozruchu na system BIOS. <br/><br/>Do obsługi migracji takich maszyn wirtualnych można użyć migracji serwera Azure Migrate. Spowoduje to przekonwertowanie typu rozruchowego maszyny wirtualnej na system BIOS podczas migracji.
 Warunkowo obsługiwany system operacyjny Windows | System operacyjny przeszedłł datę końca okresu obsłudze i potrzebuje niestandardowej umowy pomocy technicznej (CSA) w celu uzyskania [pomocy technicznej na platformie Azure](https://aka.ms/WSosstatement). Przed przeprowadzeniem migracji na platformę Azure Rozważ uaktualnienie.
 Nieobsługiwany system operacyjny Windows | Platforma Azure obsługuje tylko [wybrane wersje systemu operacyjnego Windows](https://aka.ms/WSosstatement). Rozważ uaktualnienie maszyny przed przeprowadzeniem migracji na platformę Azure.
-Warunkowo potwierdzony system operacyjny Linux | Platforma Azure poświadcza tylko [wybrane wersje systemu operacyjnego Linux](../virtual-machines/linux/endorsed-distros.md). Rozważ uaktualnienie maszyny przed przeprowadzeniem migracji na platformę Azure.
+Warunkowo potwierdzony system operacyjny Linux | Platforma Azure poświadcza tylko [wybrane wersje systemu operacyjnego Linux](../virtual-machines/linux/endorsed-distros.md). Rozważ uaktualnienie maszyny przed przeprowadzeniem migracji na platformę Azure. Więcej informacji można również znaleźć [tutaj](https://docs.microsoft.com/azure/migrate/troubleshoot-assessment#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment) .
 Niepotwierdzony system operacyjny Linux | Maszyna może zaczynać się na platformie Azure, ale platforma Azure nie zapewnia obsługi systemu operacyjnego. Przed przeprowadzeniem migracji na platformę Azure Rozważ uaktualnienie do [zatwierdzonej wersji systemu Linux](../virtual-machines/linux/endorsed-distros.md) .
 Nieznany system operacyjny | System operacyjny maszyny wirtualnej został określony jako "inny" w vCenter Server. To zachowanie uniemożliwia Azure Migrate weryfikacji gotowości maszyny wirtualnej platformy Azure. Przed przeprowadzeniem migracji maszyny upewnij się, że system operacyjny jest [obsługiwany](https://aka.ms/azureoslist) przez platformę Azure.
 Nieobsługiwana wersja bitowa | Maszyny wirtualne z 32-bitowymi systemami operacyjnymi mogą przeprowadzić rozruch na platformie Azure, ale zalecamy uaktualnienie do wersji 64-bitowej przed migracją na platformę Azure.
@@ -64,7 +64,7 @@ W przypadku maszyn wirtualnych VMware i funkcji Hyper-V Ocena serwera oznacza ma
 - Możesz określić, czy system operacyjny Linux uruchomiony na lokalnej maszynie wirtualnej jest zatwierdzony na platformie Azure, przeglądając [Pomoc techniczną platformy Azure](https://aka.ms/migrate/selfhost/azureendorseddistros)w systemie Linux.
 -  Po zweryfikowaniu poświadczonej dystrybucji można zignorować to ostrzeżenie.
 
-Tę lukę można rozwiązać przez włączenie [odnajdowania aplikacji](./how-to-discover-applications.md) na maszynach wirtualnych VMware. Ocena serwera używa systemu operacyjnego wykrytego na maszynie wirtualnej przy użyciu podanych poświadczeń gościa. Te dane systemu operacyjnego identyfikują odpowiednie informacje o systemie operacyjnym w przypadku maszyn wirtualnych z systemami Windows i Linux.
+Tę lukę można rozwiązać przez włączenie [odnajdowania aplikacji](./how-to-discover-applications.md) na maszynach wirtualnych VMware. Narzędzie Server Assessment korzysta z systemu operacyjnego wykrytego na maszynie wirtualnej, używając podanych poświadczeń gościa. Te dane systemu operacyjnego identyfikują odpowiednie informacje o systemie operacyjnym w przypadku maszyn wirtualnych z systemami Windows i Linux.
 
 ## <a name="operating-system-version-not-available"></a>Wersja systemu operacyjnego jest niedostępna
 
@@ -73,7 +73,6 @@ W przypadku serwerów fizycznych informacje o pomocniczej wersji systemu operacy
 ## <a name="azure-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>Jednostki SKU platformy Azure większe niż lokalne w ramach oceny maszyny wirtualnej platformy Azure
 
 Ocena serwera Azure Migrate może zalecać jednostki SKU maszyny wirtualnej platformy Azure z większą liczbą rdzeni i pamięci niż bieżąca alokacja lokalna na podstawie typu oceny:
-
 
 - Zalecenie dotyczące jednostki SKU maszyny wirtualnej zależy od właściwości oceny.
 - Ma to wpływ na typ oceny wykonywanej w ocenie serwera: *oparty na wydajności*lub w środowisku *lokalnym*.
@@ -88,7 +87,7 @@ Mamy lokalną maszynę wirtualną z czterema rdzeniami i 8 GB pamięci, z użyci
 - Jeśli ocena jest oparta na wydajności, w oparciu o efektywne wykorzystanie procesora CPU i pamięci (50% z 4 rdzeni * 1,3 = 2,6 rdzenie i 50% 8 GB pamięci * 1,3 = 5,3 GB pamięci), zalecana jest najtańsza jednostka SKU maszyny wirtualnej czterech rdzeni (najbliższa obsługiwana liczba rdzeni) i osiem GB pamięci (najbliższy obsługiwany rozmiar pamięci).
 - [Dowiedz się więcej](concepts-assessment-calculation.md#types-of-assessments) o ustalaniu wielkości ocen.
 
-## <a name="azure-disk-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>Jednostki SKU dysku platformy Azure większe niż lokalne w ramach oceny maszyny wirtualnej platformy Azure
+## <a name="why-is-the-recommended-azure-disk-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>Dlaczego zalecane jednostki SKU dysku platformy Azure są większe niż lokalne w ramach oceny maszyny wirtualnej platformy Azure?
 
 Ocena serwera Azure Migrate może zalecić większy dysk na podstawie typu oceny.
 - Ustalanie rozmiarów dysków w ocenie serwera zależy od dwóch właściwości oceny: ustalania rozmiarów kryteriów i typu magazynu.
@@ -97,14 +96,26 @@ Ocena serwera Azure Migrate może zalecić większy dysk na podstawie typu oceny
 
 Przykładowo, jeśli masz dysk lokalny z 32 GB pamięci, ale zagregowane operacje we/wy odczytu i zapisu dla dysku to 800 IOPS, Ocena serwera zaleca dysk w warstwie Premium (z powodu wyższych wymagań IOPS), a następnie zaleca użycie dysku SKU, który może obsługiwać wymagane operacje we/wy i rozmiar. Najbliższym dopasowaniem w tym przykładzie byłaby jednostka P15 (256 GB, 1100 operacji we/wy na sekundę). Mimo że rozmiar wymagany przez dysk lokalny to 32 GB, Ocena serwera zaleca większy dysk z powodu dużego wymagania IOPS dysku lokalnego.
 
-## <a name="utilized-corememory-percentage-missing"></a>Brak użytego procentu rdzenia/pamięci
+## <a name="why-is-performance-data-missing-for-someall-vms-in-my-assessment-report"></a>Dlaczego brakuje danych dotyczących wydajności dla niektórych/wszystkich maszyn wirtualnych w moim raporcie oceny?
 
-Raporty oceny serwera "PercentageOfCoresUtilizedMissing" lub "PercentageOfMemoryUtilizedMissing", gdy urządzenie Azure Migrate nie może zbierać danych wydajności dla odpowiednich lokalnych maszyn wirtualnych.
+W przypadku oceny „Na podstawie wydajności” eksport raportu oceny zawiera ciąg „PercentageOfCoresUtilizedMissing” lub „PercentageOfMemoryUtilizedMissing”, gdy urządzenie usługi Azure Migrate nie może zebrać danych wydajności lokalnych maszyn wirtualnych. Sprawdź następujące kwestie:
 
-- Taka sytuacja może wystąpić, jeśli maszyny wirtualne są wyłączone w czasie trwania oceny. Urządzenie nie może zbierać danych wydajności dla maszyny wirtualnej, gdy jest ona wyłączona.
-- Jeśli brakuje tylko liczników pamięci i próbujesz ocenić maszyny wirtualne funkcji Hyper-V, sprawdź, czy na tych maszynach wirtualnych jest włączona pamięć dynamiczna. Istnieje znany problem dotyczący tylko maszyn wirtualnych funkcji Hyper-V, w których urządzenie Azure Migrate nie może zbierać danych użycia pamięci dla maszyn wirtualnych, dla których nie włączono pamięci dynamicznej.
-- Jeśli brakuje któregokolwiek z liczników wydajności, Azure Migrate oceny serwera powróci do przyznanych rdzeni i pamięci, a następnie zaleca rozmiar maszyny wirtualnej.
+- Czy maszyny wirtualne są włączone przez czas trwania, dla którego tworzysz ocenę
+- Jeśli brakuje tylko liczników pamięci i próbujesz ocenić maszyny wirtualne funkcji Hyper-V, sprawdź, czy dla tych maszyn wirtualnych jest włączona pamięć dynamiczna. Występuje obecnie znany problem, który jest spowodowany tym, że urządzenie usługi Azure Migrate nie może zebrać informacji o wykorzystaniu pamięci dla takich maszyn wirtualnych.
 - Jeśli brakuje wszystkich liczników wydajności, upewnij się, że zostały spełnione wymagania dotyczące dostępu do portów dla oceny. Dowiedz się więcej o wymaganiach dostępu do portów dla oprogramowania [VMware](./migrate-support-matrix-vmware.md#port-access-requirements), [funkcji Hyper-V](./migrate-support-matrix-hyper-v.md#port-access) i oceny serwera [fizycznego](./migrate-support-matrix-physical.md#port-access) .
+Uwaga — Jeśli brakuje któregokolwiek z liczników wydajności, narzędzie Azure Migrate: Server Assessment powraca do przydzielonych rdzeni/pamięci w środowisku lokalnym i odpowiednio zaleca rozmiar maszyny wirtualnej.
+
+## <a name="why-is-the-confidence-rating-of-my-assessment-low"></a>Dlaczego ocena ufności mojej oceny jest niska?
+
+Ocena ufności dla ocen „Na podstawie wydajności” jest obliczana w oparciu o wartość procentową [dostępnych punktów danych](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#ratings) potrzebnych do obliczenia oceny. Poniżej przedstawiono przyczyny, z powodu których ocena ufności może być niska:
+
+- Nie profilujesz swojego środowiska przez czas trwania, dla którego tworzysz ocenę. Jeśli na przykład tworzysz ocenę z czasem trwania wydajności ustawionym na jeden tydzień, musisz poczekać co najmniej tydzień po uruchomieniu odnajdywania, aby zebrać wszystkie punkty danych. Jeśli nie możesz czekać na upłynięcie czasu trwania, zmień czas trwania wydajności na krótszy okres i oblicz ponownie ocenę.
+ 
+- Narzędzie Server Assessment nie jest w stanie zbierać danych wydajności dla niektórych lub wszystkich maszyn wirtualnych w okresie oceny. Sprawdź, czy maszyny wirtualne były włączone przez czas trwania oceny, a połączenia wychodzące na portach 443 są dozwolone. Jeśli w przypadku maszyn wirtualnych funkcji Hyper-V włączona jest pamięć dynamiczna, nie będzie liczników pamięci, co doprowadzi do niskiej oceny ufności. Użyj opcji „Oblicz ponownie”, aby uwzględnić najnowsze zmiany w ocenie ufności. 
+
+- Kilka maszyn wirtualnych zostało utworzonych po uruchomieniu odnajdywania w narzędziu Server Assessment. Jeśli na przykład tworzysz ocenę dla historii wydajności za ostatni miesiąc, ale kilka maszyn wirtualnych zostało utworzonych w środowisku tylko tydzień temu. W tym przypadku dane wydajności dla nowych maszyn wirtualnych nie będą dostępne przez cały czas trwania i ocena ufności będzie niska.
+
+[Dowiedz się więcej](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#confidence-ratings-performance-based) o ocenie ufności.
 
 ## <a name="is-the-operating-system-license-included-in-an-azure-vm-assessment"></a>Czy licencja systemu operacyjnego jest uwzględniona w ocenie maszyny wirtualnej platformy Azure?
 
@@ -133,10 +144,6 @@ Kategoria gotowość może zostać niepoprawnie oznaczona jako "niegotowa" w prz
 ## <a name="number-of-discovered-nics-higher-than-actual-for-physical-servers"></a>Liczba odnalezionych kart sieciowych wyższych niż rzeczywista dla serwerów fizycznych
 
 Taka sytuacja może wystąpić, jeśli na serwerze fizycznym jest włączona Wirtualizacja funkcji Hyper-V. Na tych serwerach Azure Migrate obecnie są odnajdywane zarówno fizyczne, jak i wirtualne karty sieciowe. Tym samym, nie. wykryte karty sieciowe są większe niż rzeczywiste.
-
-
-## <a name="low-confidence-rating-on-physical-server-assessments"></a>Ocena niskiej pewności dotyczącej ocen serwera fizycznego
-Klasyfikacja jest przypisywana na podstawie dostępności punktów danych, które są konieczne do obliczenia oceny. W przypadku serwerów fizycznych, na których jest włączona Wirtualizacja funkcji Hyper-V, istnieje znany problem z produktem, ze względu na to, że Ocena niskiego zaufania może być niepoprawnie przypisana do oceny serwera fizycznego. Na tych serwerach Azure Migrate obecnie są odnajdywane zarówno fizyczne, jak i wirtualne karty sieciowe. Przepływność sieci jest przechwytywana z odnalezionych wirtualnych kart sieciowych, ale nie na fizycznych kartach sieciowych. Ze względu na brak punktów danych na fizycznych kartach sieciowych można mieć wpływ na ocenę zaufania, co może mieć niską ocenę. Jest to przerwy w działaniu produktu, które zostaną rozkierowane do przodu.
 
 ## <a name="dependency-visualization-in-azure-government"></a>Wizualizacja zależności w Azure Government
 
@@ -193,7 +200,7 @@ Usługa Azure Migrate obecnie obsługuje tworzenie obszaru roboczego pakietu OMS
 Zbierz dzienniki ruchu sieciowego w następujący sposób:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Naciśnij klawisz F12, aby rozpocząć Narzędzia deweloperskie. W razie konieczności Wyczyść ustawienie **Wyczyść wpisy przy nawigacji** .
+2. Naciśnij klawisz F12, aby rozpocząć Narzędzia deweloperskie. W razie konieczności Wyczyść ustawienie  **Wyczyść wpisy przy nawigacji** .
 3. Wybierz kartę **Sieć** i Rozpocznij przechwytywanie ruchu sieciowego:
    - W programie Chrome wybierz opcję **Zachowaj dziennik**. Nagrywanie powinno być uruchamiane automatycznie. Czerwony okrąg wskazuje na to, że ruch jest przechwytywany. Jeśli czerwony okrąg nie jest wyświetlany, wybierz czarny okrąg, aby rozpocząć.
    - W programie Microsoft Edge i Internet Explorer nagrywanie powinno być uruchamiane automatycznie. Jeśli tak nie jest, wybierz zielony przycisk odtwarzania.

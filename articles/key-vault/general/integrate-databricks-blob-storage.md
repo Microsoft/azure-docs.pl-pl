@@ -1,23 +1,23 @@
 ---
 title: Dostęp do usługi Azure Blob Storage przy użyciu usług Azure Databricks i Azure Key Vault
 description: W tym samouczku dowiesz się, jak uzyskać dostęp do usługi Azure Blob Storage z Azure Databricks przy użyciu klucza tajnego przechowywanego w Azure Key Vault
-author: taytran0
-ms.author: t-trtr
+author: msmbaldwin
+ms.author: mbaldwin
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/16/2020
-ms.openlocfilehash: 50ea93dea62b6e4e333e58550b2750897c7e0a77
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 9b3d07eae9e47b7a8466cfb32f03b8790c079f02
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84988902"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88262997"
 ---
 # <a name="tutorial-access-azure-blob-storage-using-azure-databricks-and-azure-key-vault"></a>Samouczek: uzyskiwanie dostępu do usługi Azure Blob Storage przy użyciu Azure Databricks i Azure Key Vault
 
 W tym samouczku dowiesz się, jak uzyskać dostęp do usługi Azure Blob Storage z Azure Databricks przy użyciu klucza tajnego przechowywanego w Azure Key Vault. 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie konta magazynu i kontenera obiektów BLOB za pomocą interfejsu wiersza polecenia platformy Azure

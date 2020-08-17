@@ -7,13 +7,13 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 04/27/2020
-ms.openlocfilehash: 2edd5b661240b6156cf8a02059b2b9a668c402f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/16/2020
+ms.openlocfilehash: 0a691b562ebf030712eb0c13a688ea9a52fdb164
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83829124"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263473"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Rozwiązywanie problemów z przepływami danych w Azure Data Factory
 
@@ -70,6 +70,13 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z przepływ
 - **Przyczyny**: jest to błąd usługi zaplecza. Można ponowić próbę wykonania operacji, a także ponownie uruchomić sesję debugowania.
 - **Zalecenie**: Jeśli ponowienie i ponowne uruchomienie nie rozwiążą problemu, skontaktuj się z pomocą techniczną.
 
+### <a name="error-code-debug-data-preview-no-output-data-on-join"></a>Kod błędu: dane debugowania nie są wyświetlane podczas przyłączania
+
+- **Komunikat**: istnieje duża liczba wartości null lub brak wartości, które mogą być przyczyną zbyt małej liczby wierszy. Spróbuj zaktualizować limit wierszy debugowania i Odśwież dane.
+- **Przyczyna**: warunek sprzężenia nie pasuje do żadnego z wierszy lub ma dużą liczbę wartości null podczas podglądu danych.
+- **Zalecenie**: Przejdź do ustawień debugowania i Zwiększ liczbę wierszy w limicie wierszy źródłowych. Upewnij się, że wybrano i Azure IR z wystarczającą ilością klastra przepływu danych, aby obsłużyć więcej danych.
+
+
 ## <a name="general-troubleshooting-guidance"></a>Ogólne wskazówki dotyczące rozwiązywania problemów
 
 1. Sprawdź stan połączeń zestawu danych. W każdej transformacji źródłowej i ujścia należy odwiedzić połączoną usługę dla każdego zestawu danych, którego używasz, i przetestować połączenia.
@@ -79,9 +86,9 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z przepływ
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji dotyczących rozwiązywania problemów, wypróbuj następujące zasoby:
-*  [Blog Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Blog Data Factory](https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog)
 *  [Żądania funkcji Data Factory](https://feedback.azure.com/forums/270578-data-factory)
-*  [Wideo na platformie Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+*  [Wideo dotyczące platformy Azure](https://www.youtube.com/channel/UC2S0k7NeLcEm5_IhHUwpN0g/videos)
 *  [Strona pytania&pytań i odpowiedzi](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Forum Stack Overflow dla Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informacje o usłudze Twitter dotyczące Data Factory](https://twitter.com/hashtag/DataFactory)

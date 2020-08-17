@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 6e4f71be1dc3cdaeb01069f234531da29a7b4977
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 601e51c7a587cd55e9b0b235bbdfb2e559be09e2
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498705"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263099"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Samouczek: tworzenie maszyn wirtualnych z systemem Linux i zarządzanie nimi za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -254,7 +254,7 @@ Maszyna wirtualna platformy Azure może znajdować się w jednym z wielu stanów
 | Stan zasilania | Opis
 |----|----|
 | Uruchamianie | Wskazuje, że maszyna wirtualna jest uruchamiana. |
-| Uruchomiono | Wskazuje, że maszyna wirtualna działa. |
+| Uruchomienie | Wskazuje, że maszyna wirtualna działa. |
 | Zatrzymywanie | Wskazuje, że maszyna wirtualna jest zatrzymywana. | 
 | Zatrzymano | Wskazuje, że maszyna wirtualna została zatrzymana. Opłaty za operacje obliczeniowe są także naliczane w przypadku maszyn wirtualnych w stanie Zatrzymano.  |
 | Cofanie przydziału | Wskazuje, że przydział maszyny wirtualnej jest cofany. |
@@ -279,6 +279,8 @@ ode                DisplayStatus    Level
 ------------------  ---------------  -------
 PowerState/running  VM running       Info
 ```
+
+Aby pobrać stan mocy wszystkich maszyn wirtualnych w ramach subskrypcji, użyj opcji [Virtual Machines wszystkie interfejsy API](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall) z parametrem **statusOnly** na *wartość true*.
 
 ## <a name="management-tasks"></a>Zadania zarządzania
 
