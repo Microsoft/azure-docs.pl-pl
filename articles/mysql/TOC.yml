@@ -138,6 +138,8 @@
           href: concepts-server-parameters.md
     - name: Opracowywanie zawartości
       items:
+        - name: Najlepsze rozwiązania dotyczące aplikacji
+          href: app-development-best-practices.md
         - name: Zgodność sterowników i narzędzi
           href: concepts-compatibility.md
         - name: Opracowywanie aplikacji

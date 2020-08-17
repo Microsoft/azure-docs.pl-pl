@@ -146,7 +146,11 @@
         - name: Omówienie
           href: backup-azure-sql-database.md
         - name: Backup
-          href: backup-sql-server-database-azure-vms.md
+          items:
+            - name: Tworzenie kopii zapasowej wielu maszyn wirtualnych programu SQL Server z magazynu
+              href: backup-sql-server-database-azure-vms.md
+            - name: Tworzenie kopii zapasowej maszyny wirtualnej programu SQL Server z okienka maszyny wirtualnej
+              href: backup-sql-server-vm-from-vm-pane.md
         - name: Przywracanie
           href: restore-sql-database-azure-vm.md
         - name: Zarządzanie

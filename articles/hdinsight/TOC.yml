@@ -531,6 +531,8 @@
               items:
                 - name: Używanie pustych węzłów brzegowych
                   href: ./hdinsight-apps-use-edge-node.md
+                - name: Skalowanie usługi HiveServer2 za pomocą węzłów brzegowych
+                  href: ./hdinsight-apps-install-hiveserver2.md
         - name: Rozwiązywanie problemów
           items:
             - name: Typowe problemy

@@ -248,6 +248,8 @@
           href: manage/cost-management-budget-scenario.md
         - name: Korzystanie z alertów dotyczących kosztów
           href: costs/cost-mgt-alerts-monitor-usage-spending.md
+        - name: Alokowanie kosztów
+          href: costs/allocate-costs.md
         - name: Nawiązywanie połączenia za pomocą programu Power BI Desktop
           href: /power-bi/desktop-connect-azure-cost-management
         - name: Analizowanie kosztów platformy Azure za pomocą aplikacji szablonu usługi Power BI

@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 08/20/2019
 ms.author: robinsh
 ms.openlocfilehash: 7b5487233e2bd0e532efad4e108c41f188b51d91
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 08/17/2020
 ms.locfileid: "83727180"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Szybki Start: komunikacja z aplikacją urządzenia w języku C za pośrednictwem IoT Hub strumieni urządzenia (wersja zapoznawcza)
@@ -26,7 +26,7 @@ Usługa Azure IoT Hub obecnie obsługuje strumienie urządzeń jako [funkcję w 
 
 * [Komunikacja z aplikacjami urządzeń w języku C# za pośrednictwem IoT Hub strumieni urządzeń](./quickstart-device-streams-echo-csharp.md)
 
-* [Komunikacja z aplikacjami urządzeń w programie Node. js za pośrednictwem IoT Hub strumieni urządzeń](./quickstart-device-streams-echo-nodejs.md)
+* [Komunikacja z aplikacjami urządzeń w Node.js za pośrednictwem IoT Hub strumieni urządzeń](./quickstart-device-streams-echo-nodejs.md)
 
 Aplikacja C po stronie urządzenia w tym przewodniku Szybki start zawiera następujące funkcje:
 
@@ -58,7 +58,7 @@ Wymagane są następujące wymagania wstępne:
 
 Podgląd strumieni urządzeń jest obecnie obsługiwany tylko w przypadku centrów IoT, które zostały utworzone w następujących regionach:
 
-  * Środkowe stany USA
+  * Central US
   * Środkowe stany USA — EUAP
   * Europa Północna
   * Azja Południowo-Wschodnia
@@ -194,9 +194,9 @@ Jak wspomniano wcześniej, zestaw SDK IoT Hub C obsługuje strumienie urządzeń
 
 * [Komunikacja z aplikacją urządzenia w języku C# za pośrednictwem IoT Hub strumieni urządzeń](./quickstart-device-streams-echo-csharp.md)
 
-* [Komunikacja z aplikacją urządzenia w języku Node. js za pośrednictwem IoT Hub strumieni urządzeń](./quickstart-device-streams-echo-nodejs.md)
+* [Komunikacja z aplikacją urządzenia w Node.js za pośrednictwem IoT Hub strumieni urządzeń](./quickstart-device-streams-echo-nodejs.md)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources-device-streams](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 

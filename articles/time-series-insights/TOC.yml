@@ -67,7 +67,9 @@
       items:
         - name: Uwierzytelnianie i autoryzacja
           href: time-series-insights-authentication-and-authorization.md
-        - name: Wykonywanie zapytań o dane za pomocą języka C#
+        - name: Wykonywanie zapytań o dane za pomocą języka C# — 2. generacja
+          href: time-series-insights-update-query-data-csharp.md
+        - name: Wykonywanie zapytań o dane za pomocą języka C# — 1. generacja
           href: time-series-insights-query-data-csharp.md
         - name: Zarządzanie danymi referencyjnymi w języku C#
           href: time-series-insights-manage-reference-data-csharp.md

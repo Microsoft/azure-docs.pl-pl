@@ -654,13 +654,19 @@
                   href: app/opencensus-python-dependency.md
                 - name: Żądania
                   href: app/opencensus-python-request.md
-            - name: Strony sieci Web
+            - name: JavaScript
               items:
                 - name: Język JavaScript po stronie klienta
                   displayname: 'SPA, Single Page Applications, React, JS, Angular'
                   href: app/javascript.md
                 - name: Mapa źródła języka JavaScript
                   href: app/source-map-support.md
+                - name: Wtyczki
+                  items:
+                    - name: Wtyczka biblioteki React
+                      href: app/javascript-react-plugin.md
+                    - name: Wtyczka struktury React Native
+                      href: app/javascript-react-native-plugin.md
                 - name: Rozwiązywanie problemów
                   items:
                     - name: Niepowodzenie ładowania zestawu SDK

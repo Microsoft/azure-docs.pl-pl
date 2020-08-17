@@ -19,15 +19,15 @@
       href: advisor-get-started.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Zwiększanie niezawodności aplikacji platformy Azure
+    - name: Niezawodność
       href: advisor-high-availability-recommendations.md
-    - name: Lepsze zabezpieczanie zasobów
+    - name: Bezpieczeństwo
       href: advisor-security-recommendations.md
-    - name: Zwiększanie wydajności aplikacji platformy Azure
+    - name: Efektywność wydajności
       href: advisor-performance-recommendations.md
-    - name: Redukowanie kosztów usługi
+    - name: Optymalizacja kosztów
       href: advisor-cost-recommendations.md
-    - name: Osiąganie doskonałości operacyjnej
+    - name: Efektywność operacyjna
       href: advisor-operational-excellence-recommendations.md
     - name: Konfigurowanie rekomendacji
       href: view-recommendations.md
@@ -35,6 +35,8 @@
       href: permissions.md
     - name: Konfigurowanie alertów dla rekomendacji
       href: advisor-alerts-portal.md
+    - name: Podsumowanie konfigurowania rekomendacji
+      href: advisor-recommendations-digest.md
     - name: Korygowanie zbiorcze dla zaleceń
       href: advisor-quick-fix.md
     - name: Dane usługi Advisor w usłudze Azure Resource Graph

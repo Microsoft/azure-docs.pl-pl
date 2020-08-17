@@ -148,6 +148,12 @@
         - name: Rozwiązywanie problemów
           expanded: false
           items:
+            - name: Rozwiązywanie problemów z logowaniem
+              href: container-registry-troubleshoot-login.md
+            - name: Rozwiązywanie problemów z siecią
+              href: container-registry-troubleshoot-access.md
+            - name: Rozwiązywanie problemów z wydajnością rejestru
+              href: container-registry-troubleshoot-performance.md
             - name: Wykrywanie typowych problemów
               href: container-registry-check-health.md
             - name: Często zadawane pytania
