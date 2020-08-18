@@ -13,12 +13,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a0677603f02b429c269c0f93ef348b2b1d717a9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c757f3e067aeac5d8145ca47b2eac145daba574
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82689778"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272454"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Microsoft Identity platform i autoryzacja autoryzacji urządzeń z uwierzytelnianiem OAuth 2,0
 
@@ -55,7 +55,7 @@ scope=user.read%20openid%20profile
 | --- | --- | --- |
 | `tenant` | Wymagane | Może być/typowe,/consumers lub/Organizations.  Może to być również dzierżawca katalogu, do którego chcesz zażądać uprawnień w formacie GUID lub przyjaznych nazw.  |
 | `client_id` | Wymagane | **Identyfikator aplikacji (klienta)** , który [Azure Portal — rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) środowisko przypisane do aplikacji. |
-| `scope` | Zalecane | Rozdzielana spacjami lista [zakresów](v2-permissions-and-consent.md) , do których użytkownik ma wyrazić zgodę.  |
+| `scope` | Wymagane | Rozdzielana spacjami lista [zakresów](v2-permissions-and-consent.md) , do których użytkownik ma wyrazić zgodę.  |
 
 ### <a name="device-authorization-response"></a>Odpowiedź na autoryzację urządzenia
 
@@ -65,7 +65,7 @@ Pomyślna odpowiedź będzie obiektem JSON zawierającym wymagane informacje umo
 | ---              | --- | --- |
 |`device_code`     | String | Długi ciąg używany do weryfikowania sesji między klientem a serwerem autoryzacji. Klient używa tego parametru, aby zażądać tokenu dostępu z serwera autoryzacji. |
 |`user_code`       | String | Krótki ciąg pokazywany użytkownikowi, który służy do identyfikowania sesji na urządzeniu pomocniczym.|
-|`verification_uri`| Identyfikator URI | Identyfikator URI, do którego użytkownik powinien przejść, aby `user_code` móc się zalogować. |
+|`verification_uri`| URI | Identyfikator URI, do którego użytkownik powinien przejść, aby `user_code` móc się zalogować. |
 |`expires_in`      | int | Liczba sekund przed `device_code` `user_code` wygaśnięciem i. |
 |`interval`        | int | Liczba sekund, przez jaką klient powinien czekać między żądaniami sondowania. |
 | `message`        | String | Czytelny dla człowieka ciąg zawierający instrukcje dla użytkownika. Może to być lokalizowane przez dołączenie **parametru zapytania** w żądaniu formularza `?mkt=xx-XX` , wypełniając odpowiedni kod kultury języka. |
@@ -93,7 +93,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 | Parametr | Wymagane | Opis|
 | -------- | -------- | ---------- |
 | `tenant`  | Wymagane | Ten sam alias dzierżawcy lub dzierżawy używany w żądaniu początkowym. |
-| `grant_type` | Wymagane | Musi być`urn:ietf:params:oauth:grant-type:device_code`|
+| `grant_type` | Wymagane | Musi być `urn:ietf:params:oauth:grant-type:device_code`|
 | `client_id`  | Wymagane | Musi być zgodna z `client_id` użytym w początkowym żądaniu. |
 | `device_code`| Wymagane | `device_code`Zwrócone w żądaniu autoryzacji urządzenia.  |
 

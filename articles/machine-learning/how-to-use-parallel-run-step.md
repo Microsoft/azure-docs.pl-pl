@@ -9,21 +9,23 @@ ms.topic: tutorial
 ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 07/16/2020
+ms.date: 08/14/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: 960b59275885efd547df63febab37d2403c1c7cf
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: dddb332498f41437eba77d75c38218c58b8c8379
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847708"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507118"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Uruchamiaj wnioskowanie wsadowe dla dużych ilości danych za pomocą Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Dowiedz się, jak uruchamiać wnioskowanie wsadowe na dużą ilość danych asynchronicznie i równolegle przy użyciu Azure Machine Learning. ParallelRunStep zapewnia możliwości równoległości poza Box.
+W tym artykule pokazano, jak uruchomić model Azure Machine Learning równolegle i szybko oceniać duże ilości danych. 
 
-Dzięki ParallelRunStep jest to bezpośrednie skalowanie odliczeń w trybie offline do dużych klastrów maszyn na terabajtach danych ze strukturą lub bez struktury dzięki zwiększonej produktywności i zoptymalizowaniu kosztów.
+Inferencing z dużymi zestawami danych lub skomplikowanymi modelami mogą być czasochłonne. `ParallelRunStep`Klasa umożliwia przeprowadzenie przetwarzania równolegle, co może spowodować szybsze uzyskanie wyników. Nawet w przypadku uruchamiania pojedynczej oceny jest dość duża szybkość, wiele scenariuszy (wykrywanie obiektów, przetwarzanie wideo, przetwarzanie języka naturalnego itp.) obejmuje uruchamianie wielu ocen. 
+
+Dzięki `ParallelRunStep` programowi można skalować wnioskowanie wsadowe do dużych klastrów maszyn. Takie klastry mogą obsługiwać terabajty danych ze strukturą lub bez struktury dzięki ulepszonej produktywności i zoptymalizowanym kosztom.
 
 Ten artykuł zawiera informacje o następujących zadaniach:
 
@@ -52,7 +54,7 @@ Poniższe akcje umożliwiają skonfigurowanie zasobów uczenia maszynowego, któ
 
 ### <a name="configure-workspace"></a>Konfigurowanie obszaru roboczego
 
-Utwórz obiekt obszaru roboczego na podstawie istniejącego obszaru roboczego. `Workspace.from_config()`odczytuje config.jsw pliku i ładuje szczegóły do obiektu o nazwie WS.
+Utwórz obiekt obszaru roboczego na podstawie istniejącego obszaru roboczego. `Workspace.from_config()` odczytuje config.jsw pliku i ładuje szczegóły do obiektu o nazwie WS.
 
 ```python
 from azureml.core import Workspace
@@ -134,7 +136,7 @@ def_data_store = ws.get_default_datastore()
 
 Dane wejściowe dotyczące wnioskowania wsadowego są danymi, które mają być partycjonowane na potrzeby przetwarzania równoległego. Potok wnioskowania partii akceptuje dane wejściowe za pomocą [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) .
 
-`Dataset`służy do eksplorowania i przekształcania danych oraz zarządzania nimi w Azure Machine Learning. Istnieją dwa typy: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) i [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py) . W tym przykładzie użyjesz `FileDataset` jako danych wejściowych. `FileDataset`zapewnia możliwość pobierania lub instalowania plików na potrzeby obliczeń. Utworzenie zestawu danych powoduje utworzenie odwołania do lokalizacji źródła danych. Jeśli zastosowano jakiekolwiek przekształcenia PodUstawienia do zestawu danych, zostaną one również zapisane w zestawie danych. Dane pozostają w istniejącej lokalizacji, więc nie są naliczane żadne dodatkowe koszty związane z magazynem.
+`Dataset` służy do eksplorowania i przekształcania danych oraz zarządzania nimi w Azure Machine Learning. Istnieją dwa typy: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) i [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py) . W tym przykładzie użyjesz `FileDataset` jako danych wejściowych. `FileDataset` zapewnia możliwość pobierania lub instalowania plików na potrzeby obliczeń. Utworzenie zestawu danych powoduje utworzenie odwołania do lokalizacji źródła danych. Jeśli zastosowano jakiekolwiek przekształcenia PodUstawienia do zestawu danych, zostaną one również zapisane w zestawie danych. Dane pozostają w istniejącej lokalizacji, więc nie są naliczane żadne dodatkowe koszty związane z magazynem.
 
 Aby uzyskać więcej informacji na temat Azure Machine Learning zestawów danych, zobacz [Tworzenie zestawów danych i uzyskiwanie do nich dostępu (wersja zapoznawcza)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 
@@ -157,7 +159,7 @@ input_mnist_ds_consumption = DatasetConsumptionConfig("minist_param_config", pip
 
 ### <a name="create-the-output"></a>Tworzenie danych wyjściowych
 
-[`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)obiekty służą do transferowania danych pośrednich między etapami potoku. W tym przykładzie używa się go do wnioskowania danych wyjściowych.
+[`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) obiekty służą do transferowania danych pośrednich między etapami potoku. W tym przykładzie używa się go do wnioskowania danych wyjściowych.
 
 ```python
 from azureml.pipeline.core import Pipeline, PipelineData
@@ -287,14 +289,14 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 
 ### <a name="specify-the-parameters-using-parallelrunconfig"></a>Określanie parametrów przy użyciu ParallelRunConfig
 
-`ParallelRunConfig`jest to główna konfiguracja `ParallelRunStep` wystąpienia w potoku Azure Machine Learning. Służy do zawijania skryptu i konfigurowania niezbędnych parametrów, w tym wszystkich następujących wpisów:
+`ParallelRunConfig` jest to główna konfiguracja `ParallelRunStep` wystąpienia w potoku Azure Machine Learning. Służy do zawijania skryptu i konfigurowania niezbędnych parametrów, w tym wszystkich następujących wpisów:
 - `entry_script`: Skrypt użytkownika jako ścieżka do pliku lokalnego, która będzie uruchamiana równolegle na wielu węzłach. Jeśli `source_directory` jest obecny, należy użyć ścieżki względnej. W przeciwnym razie użyj dowolnej ścieżki dostępnej na komputerze.
 - `mini_batch_size`: Rozmiar mini-Batch przeszedł do pojedynczego `run()` wywołania. (opcjonalnie; wartość domyślna to `10` pliki dla `FileDataset` i `1MB` dla `TabularDataset` .)
     - Dla `FileDataset` , jest to liczba plików o minimalnej wartości `1` . Można połączyć wiele plików w jedną minimalną partię.
     - W przypadku `TabularDataset` , jest to rozmiar danych. Przykładowe wartości to `1024` , `1024KB` , `10MB` , i `1GB` . Zalecana wartość to `1MB` . Mini-Batch z `TabularDataset` nigdy nie będzie przekraczać granic plików. Jeśli na przykład pliki CSV mają różne rozmiary, najmniejszy plik to 100 KB, a największy to 10 MB. Jeśli ustawisz `mini_batch_size = 1MB` , pliki o rozmiarze mniejszym niż 1 MB będą traktowane jako jedna mini-Batch. Pliki o rozmiarze większym niż 1 MB zostaną podzielone na wiele kart Mini-Part.
 - `error_threshold`: Liczba błędów rekordu `TabularDataset` i błędów plików dla `FileDataset` , które powinny zostać zignorowane podczas przetwarzania. Jeśli liczba błędów dla całego danych wejściowych spadnie powyżej tej wartości, zadanie zostanie przerwane. Próg błędu dotyczy całego danych wejściowych, a nie dla pojedynczego elementu mini-Batch wysyłanego do `run()` metody. Zakresem jest `[-1, int.max]` . `-1`Część wskazuje, że wszystkie błędy zostaną zignorowane podczas przetwarzania.
 - `output_action`: Jedna z następujących wartości wskazuje, w jaki sposób dane wyjściowe będą zorganizowane:
-    - `summary_only`: Skrypt użytkownika będzie przechowywał dane wyjściowe. `ParallelRunStep`będzie używać danych wyjściowych tylko dla obliczeń progu błędu.
+    - `summary_only`: Skrypt użytkownika będzie przechowywał dane wyjściowe. `ParallelRunStep` będzie używać danych wyjściowych tylko dla obliczeń progu błędu.
     - `append_row`: W przypadku wszystkich danych wejściowych w folderze wyjściowym zostanie utworzony tylko jeden plik, aby dołączyć wszystkie dane wyjściowe rozdzielone wierszami.
 - `append_row_file_name`: Aby dostosować nazwę pliku wyjściowego dla append_row output_action (opcjonalnie wartość domyślna to `parallel_run_step.txt` ).
 - `source_directory`: Ścieżki do folderów zawierających wszystkie pliki do wykonania na obiekcie docelowym obliczeń (opcjonalnie).

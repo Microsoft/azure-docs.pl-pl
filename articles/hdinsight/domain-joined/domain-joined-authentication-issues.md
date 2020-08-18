@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
-ms.openlocfilehash: 26eec9cdd327ceb51e72deb1d6f40d585ce368fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 218850feea8b0e22b8e11695a3aa3c69173f1ab7
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75896139"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88504929"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Problemy z uwierzytelnianiem w usłudze Azure HDInsight
 
@@ -148,7 +148,7 @@ Różni się.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Aby narzędzie kinit się powieść, musisz znać `sAMAccountName` (to jest krótka nazwa konta bez obszaru). `sAMAccountName`jest zazwyczaj prefiksem konta (na przykład Roberta in `bob@contoso.com` ). W przypadku niektórych użytkowników może się to różnić. Będziesz potrzebować możliwości przeglądania i przeszukiwania katalogu w celu uzyskania informacji `sAMAccountName` .
+Aby narzędzie kinit się powieść, musisz znać `sAMAccountName` (to jest krótka nazwa konta bez obszaru). `sAMAccountName` jest zazwyczaj prefiksem konta (na przykład Roberta in `bob@contoso.com` ). W przypadku niektórych użytkowników może się to różnić. Będziesz potrzebować możliwości przeglądania i przeszukiwania katalogu w celu uzyskania informacji `sAMAccountName` .
 
 Sposoby znajdowania `sAMAccountName` :
 
@@ -208,7 +208,7 @@ Ten błąd występuje sporadycznie, gdy użytkownicy próbują uzyskać dostęp 
 
 * W przypadku Azure Data Lake Storage Gen1, wyczyść pamięć podręczną przeglądarki i ponownie zaloguj się do Ambari.
 
-* W przypadku Azure Data Lake Storage Gen2 Uruchom `/usr/lib/hdinsight-common/scripts/RegisterKerbWithOauth.sh <upn>` dla użytkownika, w którym użytkownik próbuje się zalogować
+* W przypadku Azure Data Lake Storage Gen2 Uruchom `/usr/lib/hdinsight-common/scripts/RegisterKerbTicketAndOAuth.sh <upn>` dla użytkownika, w którym użytkownik próbuje się zalogować
 
 ---
 

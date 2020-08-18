@@ -3,12 +3,12 @@ title: Application Insights platformy Azure dla aplikacji ASP.NET Core | Microso
 description: Monitoruj ASP.NET Core aplikacje sieci Web pod kątem dostępności, wydajności i użycia.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 1a9bc3e46e108c50b36e0318e0f9a51a94e83573
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 99d2a85e96aff650573e142368a136886945dcb0
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475519"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270924"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights aplikacji ASP.NET Core
 
@@ -109,12 +109,16 @@ Przykład będziemy używać tutaj, gdy jest to [aplikacja MVC](/aspnet/core/tut
 
     * `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
-    * `APPINSIGHTS_INSTRUMENTATIONKEY`jest zwykle używany w [usłudze Azure Web Apps](./azure-web-apps.md?tabs=net), ale może być również używany we wszystkich miejscach, w których ten zestaw SDK jest obsługiwany. (Jeśli wykonujesz monitorowanie aplikacji sieci Web bez kodu, ten format jest wymagany, jeśli nie korzystasz z parametrów połączenia).
+    * `APPINSIGHTS_INSTRUMENTATIONKEY` jest zwykle używany w [usłudze Azure Web Apps](./azure-web-apps.md?tabs=net), ale może być również używany we wszystkich miejscach, w których ten zestaw SDK jest obsługiwany. (Jeśli wykonujesz monitorowanie aplikacji sieci Web bez kodu, ten format jest wymagany, jeśli nie korzystasz z parametrów połączenia).
 
     Zamiast ustawiania kluczy instrumentacji, można teraz również używać [parametrów połączenia](./sdk-connection-string.md?tabs=net).
 
     > [!NOTE]
     > Klucz Instrumentacji określony w kodzie usługi WINS przez zmienną środowiskową `APPINSIGHTS_INSTRUMENTATIONKEY` , która jest usługą WINS w porównaniu z innymi opcjami.
+
+### <a name="user-secrets-and-other-configuration-providers"></a>Klucze tajne użytkownika i inni dostawcy konfiguracji
+
+Jeśli chcesz przechowywać klucz Instrumentacji w ASP.NET Core kluczy tajnych użytkownika lub pobrać go z innego dostawcy konfiguracji, możesz użyć przeciążenia z `Microsoft.Extensions.Configuration.IConfiguration` parametrem. Na przykład `services.AddApplicationInsightsTelemetry(Configuration);`.
 
 ## <a name="run-your-application"></a>Uruchamianie aplikacji
 
@@ -143,7 +147,7 @@ Obsługa [liczników wydajności](./web-monitor-performance.md) w ASP.NET Core j
 
 ### <a name="eventcounter"></a>EventCounter
 
-`EventCounterCollectionModule`Program jest domyślnie włączony i zbiera domyślny zestaw liczników z aplikacji platformy .NET Core 3. X. Samouczek [EventCounter](eventcounters.md) zawiera domyślny zestaw zebranych liczników. Zawiera również instrukcje dotyczące dostosowywania listy.
+`EventCounterCollectionModule` Program jest domyślnie włączony i zbiera domyślny zestaw liczników z aplikacji platformy .NET Core 3. X. Samouczek [EventCounter](eventcounters.md) zawiera domyślny zestaw zebranych liczników. Zawiera również instrukcje dotyczące dostosowywania listy.
 
 ## <a name="enable-client-side-telemetry-for-web-applications"></a>Włącz telemetrię po stronie klienta dla aplikacji sieci Web
 
@@ -199,16 +203,16 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Pełna lista ustawień w programie`ApplicationInsightsServiceOptions`
+Pełna lista ustawień w programie `ApplicationInsightsServiceOptions`
 
-|Ustawienie | Opis | Domyślne
+|Ustawienie | Opis | Domyślny
 |---------------|-------|-------
-|EnablePerformanceCounterCollectionModule  | Włącz/Wyłącz`PerformanceCounterCollectionModule` | true
-|EnableRequestTrackingTelemetryModule   | Włącz/Wyłącz`RequestTrackingTelemetryModule` | true
-|EnableEventCounterCollectionModule   | Włącz/Wyłącz`EventCounterCollectionModule` | true
-|EnableDependencyTrackingTelemetryModule   | Włącz/Wyłącz`DependencyTrackingTelemetryModule` | true
-|EnableAppServicesHeartbeatTelemetryModule  |  Włącz/Wyłącz`AppServicesHeartbeatTelemetryModule` | true
-|EnableAzureInstanceMetadataTelemetryModule   |  Włącz/Wyłącz`AzureInstanceMetadataTelemetryModule` | true
+|EnablePerformanceCounterCollectionModule  | Włącz/Wyłącz `PerformanceCounterCollectionModule` | true
+|EnableRequestTrackingTelemetryModule   | Włącz/Wyłącz `RequestTrackingTelemetryModule` | true
+|EnableEventCounterCollectionModule   | Włącz/Wyłącz `EventCounterCollectionModule` | true
+|EnableDependencyTrackingTelemetryModule   | Włącz/Wyłącz `DependencyTrackingTelemetryModule` | true
+|EnableAppServicesHeartbeatTelemetryModule  |  Włącz/Wyłącz `AppServicesHeartbeatTelemetryModule` | true
+|EnableAzureInstanceMetadataTelemetryModule   |  Włącz/Wyłącz `AzureInstanceMetadataTelemetryModule` | true
 |EnableQuickPulseMetricStream | Włącz/Wyłącz funkcję LiveMetrics | true
 |EnableAdaptiveSampling | Włącz/Wyłącz próbkowanie adaptacyjne | true
 |EnableHeartbeat | Funkcja włączania/wyłączania pulsu, która okresowo (domyślnie 15-minutowa) wysyła metrykę niestandardową o nazwie "HeartbeatState" z informacjami o środowisku uruchomieniowym, takim jak wersja platformy .NET, informacje dotyczące środowiska platformy Azure, jeśli ma to zastosowanie itd. | true
@@ -281,13 +285,13 @@ Application Insights używa modułów telemetrycznych do automatycznego zbierani
 
 Następujące moduły automatycznego zbierania są domyślnie włączone. Te moduły są odpowiedzialne za automatyczne zbieranie danych telemetrycznych. Można je wyłączyć lub skonfigurować, aby zmienić zachowanie domyślne.
 
-* `RequestTrackingTelemetryModule`— Zbiera RequestTelemetry z przychodzących żądań sieci Web.
-* `DependencyTrackingTelemetryModule`— Zbiera [DependencyTelemetry](./asp-net-dependencies.md) z wychodzących wywołań http i wywołań SQL.
-* `PerformanceCollectorModule`— Zbiera dane liczniki wydajności systemu Windows.
-* `QuickPulseTelemetryModule`— Zbiera dane telemetryczne na potrzeby wyświetlania w portalu metryk na żywo.
-* `AppServicesHeartbeatTelemetryModule`— Zbiera kiery (które są wysyłane jako metryki niestandardowe) o Azure App Service środowisku, w którym aplikacja jest hostowana.
-* `AzureInstanceMetadataTelemetryModule`— Zbiera kiery (które są wysyłane jako metryki niestandardowe) o środowisku maszyny wirtualnej platformy Azure, w którym aplikacja jest hostowana.
-* `EventCounterCollectionModule`— Zbiera [EventCounters.](eventcounters.md) Ten moduł jest nową funkcją i jest dostępny w zestawie SDK w wersji 2.8.0 lub nowszej.
+* `RequestTrackingTelemetryModule` — Zbiera RequestTelemetry z przychodzących żądań sieci Web.
+* `DependencyTrackingTelemetryModule` — Zbiera [DependencyTelemetry](./asp-net-dependencies.md) z wychodzących wywołań http i wywołań SQL.
+* `PerformanceCollectorModule` — Zbiera dane liczniki wydajności systemu Windows.
+* `QuickPulseTelemetryModule` — Zbiera dane telemetryczne na potrzeby wyświetlania w portalu metryk na żywo.
+* `AppServicesHeartbeatTelemetryModule` — Zbiera kiery (które są wysyłane jako metryki niestandardowe) o Azure App Service środowisku, w którym aplikacja jest hostowana.
+* `AzureInstanceMetadataTelemetryModule` — Zbiera kiery (które są wysyłane jako metryki niestandardowe) o środowisku maszyny wirtualnej platformy Azure, w którym aplikacja jest hostowana.
+* `EventCounterCollectionModule` — Zbiera [EventCounters.](eventcounters.md) Ten moduł jest nową funkcją i jest dostępny w zestawie SDK w wersji 2.8.0 lub nowszej.
 
 Aby skonfigurować wszystkie ustawienia domyślne `TelemetryModule` , należy użyć metody rozszerzenia `ConfigureTelemetryModule<T>` na `IServiceCollection` , jak pokazano w poniższym przykładzie.
 

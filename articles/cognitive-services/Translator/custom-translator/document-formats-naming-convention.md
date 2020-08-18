@@ -1,20 +1,20 @@
 ---
 title: Formaty dokumentów i konwencje nazewnictwa — translator niestandardowy
 titleSuffix: Azure Cognitive Services
-description: Jest to przewodnik dotyczący formatów dokumentów i konwencji nazewnictwa w Translatoru niestandardowym. Takie koncepcje ułatwiają zarządzanie nazwami dokumentów lepszy Abd unikanie konfliktów nazw.
+description: Jest to przewodnik dotyczący formatów dokumentów i konwencji nazewnictwa w Translatoru niestandardowym. Pojęcie to ułatwia zarządzanie nazwami dokumentów i unikanie konfliktów nazw.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: e976b59c0128adef6536e78985e7cf89d256062c
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 46a19cd4396e598a74f9099727ac80d44c0a44f5
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83992712"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507250"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Wskazówki dotyczące formatów dokumentów i konwencji nazewnictwa
 

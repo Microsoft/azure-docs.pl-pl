@@ -418,7 +418,7 @@
         - name: Omówienie migracji
           href: migration-classic-resource-manager-overview.md
         - name: Szczegółowe informacje dotyczące migracji
-          href: migration-classic-resource-manager-deep-dive.md
+          href: ../migration-classic-resource-manager-deep-dive.md
         - name: Planowanie migracji
           href: migration-classic-resource-manager-plan.md
         - name: Migrowanie za pomocą interfejsu wiersza polecenia
@@ -428,7 +428,7 @@
         - name: Narzędzia społeczności do migracji
           href: ../windows/migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Często zadawane pytania
-          href: migration-classic-resource-manager-faq.md
+          href: ../migration-classic-resource-manager-faq.md
     - name: Korzystanie z obrazów
       displayName: 'SIG, AMI, image'
       items:
@@ -954,7 +954,7 @@
           href: detach-disk.md
         - name: Wdrażanie dysków za pomocą szablonu usługi Resource Manager
           displayName: 'Azure Resource Manager, ARM'
-          href: using-managed-disks-template-deployments.md
+          href: ../using-managed-disks-template-deployments.md
         - name: Włączanie dysków udostępnionych
           href: disks-shared-enable.md
         - name: Przekazywanie dysku VHD na dysk — interfejs wiersza polecenia
@@ -1004,7 +1004,7 @@
         - name: Wydajność
           items:
             - name: Używanie akceleratora zapisu
-              href: how-to-enable-write-accelerator.md
+              href: ../how-to-enable-write-accelerator.md
             - name: Używanie dysków ultra
               href: disks-enable-ultra-ssd.md
             - name: Test porównawczy dysku

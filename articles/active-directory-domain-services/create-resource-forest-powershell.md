@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
-ms.openlocfilehash: eb627b8069bcd9efd1d56adab5eda45dc34a1a10
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 50a8e4f6d966a63a8e727dbacefbc7bb21f5f98b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922000"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506332"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Utwórz Las zasobów Azure Active Directory Domain Services i zaufanie lasu wychodzącego do domeny lokalnej przy użyciu Azure PowerShell
 
@@ -88,7 +88,7 @@ Aby utworzyć Las zasobów domeny zarządzanej, należy użyć `New-AzureAaddsFo
 
 1. Najpierw utwórz grupę zasobów za pomocą polecenia cmdlet [New-AzResourceGroup][New-AzResourceGroup] . W poniższym przykładzie grupa zasobów ma nazwę moja *zasobów* i jest tworzona w regionie *zachodnim* . Użyj własnej nazwy i żądanego regionu:
 
-    ```azure-powershell
+    ```azurepowershell
     New-AzResourceGroup `
       -Name "myResourceGroup" `
       -Location "WestUS"
@@ -123,7 +123,7 @@ Aby utworzyć Las zasobów domeny zarządzanej, należy użyć `New-AzureAaddsFo
 
 1. Teraz Utwórz Las zasobów domeny zarządzanej przy użyciu `New-AzureAaaddsForest` skryptu. Poniższy przykład tworzy Las o nazwie *addscontoso.com* i tworzy podsieć obciążenia. Podaj własne nazwy parametrów i zakresy adresów IP lub istniejące sieci wirtualne.
 
-    ```azure-powershell
+    ```azurepowershell
     New-AzureAaddsForest `
         -azureSubscriptionId <subscriptionId> `
         -aaddsResourceGroupName "myResourceGroup" `
@@ -204,7 +204,7 @@ Teraz podaj następujące informacje dotyczące skryptu:
 
 Poniższy przykład tworzy relację zaufania o nazwie *myAzureADDSTrust* do *OnPrem.contoso.com*. Użyj własnych nazw parametrów i haseł:.
 
-```azure-powershell
+```azurepowershell
 Add-AaddsResourceForestTrust `
     -ManagedDomainFqdn "aaddscontoso.com" `
     -TrustFqdn "onprem.contoso.com" `

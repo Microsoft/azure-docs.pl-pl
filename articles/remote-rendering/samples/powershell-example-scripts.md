@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
-ms.openlocfilehash: 831f09ecf7550a847c483fbe1678f1e4c3cecb61
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 07055025eff9ab81c7321624daed9b4a6e993a60
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052296"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506515"
 ---
 # <a name="example-powershell-scripts"></a>Przykładowe skrypty programu PowerShell
 
@@ -26,21 +26,21 @@ Zdalne renderowanie na platformie Azure udostępnia dwa następujące interfejsy
 Aby wykonać przykładowe skrypty, musisz mieć funkcjonalną konfigurację [Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
 1. Zainstaluj moduł Azure PowerShell:
-    1. Otwieranie programu PowerShell z uprawnieniami administratora
-    1. Wykonane`Install-Module -Name Az -AllowClobber`
+    1. Otwórz okno programu PowerShell z uprawnieniami administratora.
+    1. Wykonane `Install-Module -Name Az -AllowClobber`
 
 1. W przypadku wystąpienia błędów dotyczących uruchamiania skryptów upewnij się, że [zasady wykonywania](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) zostały odpowiednio ustawione:
-    1. Otwieranie programu PowerShell z uprawnieniami administratora
-    1. Wykonane`Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
+    1. Otwórz okno programu PowerShell z uprawnieniami administratora.
+    1. Wykonane `Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
 
 1. [Przygotowywanie konta usługi Azure Storage](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts)
 
 1. Zaloguj się do subskrypcji zawierającej konto renderowania zdalnego platformy Azure:
-    1. Otwieranie programu PowerShell
+    1. Otwórz okno programu PowerShell.
     1. Uruchom: `Connect-AzAccount` i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 
-> [!NOTE]
-> W przypadku, gdy organizacja ma więcej niż jedną subskrypcję, może być konieczne określenie argumentów subskrypcji i dzierżawy. Szczegółowe informacje znajdują się w [dokumentacji Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+    > [!NOTE]
+    > W przypadku, gdy organizacja ma więcej niż jedną subskrypcję, może być konieczne określenie argumentów subskrypcji i dzierżawy. Szczegółowe informacje znajdują się w [dokumentacji Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
 
 1. Pobierz folder *skryptów* z [repozytorium GithHub zdalnego renderowania platformy Azure](https://github.com/Azure/azure-remote-rendering).
 
@@ -77,7 +77,7 @@ Obok plików należy `.ps1` `arrconfig.json` wypełnić następujące pola:
 > Upewnij się, że w ścieżce LocalAssetDirectoryPath są poprawnie wysunięte ukośniki odwrotne: " \\ \\ " i użyj ukośników "/" we wszystkich innych ścieżkach, takich jak InputFolderPath i inputAssetPath.
 
 > [!CAUTION]
-> Opcjonalne wartości muszą zostać wypełnione lub trzeba całkowicie usunąć klucz i wartość. Na przykład, jeśli nie używasz `"outputAssetFileName"` parametru, musisz usunąć cały wiersz wewnątrz `arrconfig.json` .
+> Opcjonalne wartości muszą zostać wypełnione lub trzeba całkowicie usunąć klucz i wartość. Na przykład, jeśli nie używasz  `"outputAssetFileName"` parametru, musisz usunąć cały wiersz wewnątrz `arrconfig.json` .
 
 ### <a name="accountsettings"></a>accountSettings
 
@@ -86,9 +86,9 @@ Aby `region` zapoznać się z [listą dostępnych regionów](../reference/region
 
 ### <a name="renderingsessionsettings"></a>renderingSessionSettings
 
-Ta struktura musi zostać wypełniona, jeśli chcesz uruchomić **RenderingSession.ps1**.
+Ta struktura musi zostać wypełniona, jeśli chcesz uruchomić **RenderingSession.ps1**:
 
-- **vmSize:** Wybiera rozmiar maszyny wirtualnej. Wybierz pozycję *standardowa* lub *Premium*. Zamknij sesje renderowania, gdy nie są już potrzebne.
+- **vmSize:** Wybiera rozmiar maszyny wirtualnej. Wybierz pozycję [*standardowa*](../reference/vm-sizes.md) lub [*Premium*](../reference/vm-sizes.md). Zamknij sesje renderowania, gdy nie są już potrzebne.
 - **maxLeaseTime:** Czas trwania dzierżawy maszyny wirtualnej. Zostanie on zamknięty po wygaśnięciu dzierżawy. Czas dzierżawy można przedłużyć później (patrz poniżej).
 
 ### <a name="assetconversionsettings"></a>assetConversionSettings
@@ -189,10 +189,10 @@ Użycie połączonego konta magazynu jest preferowanym sposobem korzystania z us
 .\Conversion.ps1
 ```
 
-1. Przekaż wszystkie pliki znajdujące się w `assetConversionSettings.modelLocation` kontenerze wejściowego obiektu BLOB pod danym`inputFolderPath`
+1. Przekaż wszystkie pliki znajdujące się w `assetConversionSettings.modelLocation` kontenerze wejściowych obiektów BLOB pod danym `inputFolderPath` ..
 1. Wywołaj [interfejs API REST konwersji modelu](../how-tos/conversion/conversion-rest-api.md) , aby uruchomić [konwersję modelu](../how-tos/conversion/model-conversion.md)
-1. Sondowanie stanu konwersji do momentu pomyślnego przeprowadzenia konwersji lub niepowodzenia
-1. Szczegóły danych wyjściowych przekonwertowanej lokalizacji pliku (konto magazynu, kontener danych wyjściowych, ścieżka pliku w kontenerze)
+1. Sondowanie stanu konwersji do momentu pomyślnego zakończenia lub niepowodzenia konwersji.
+1. Szczegóły danych wyjściowych przekonwertowanej lokalizacji pliku (konto magazynu, kontener danych wyjściowych, ścieżka pliku w kontenerze).
 
 ### <a name="access-to-storage-via-shared-access-signatures"></a>Dostęp do magazynu za pośrednictwem sygnatur dostępu współdzielonego
 
@@ -202,13 +202,13 @@ Użycie połączonego konta magazynu jest preferowanym sposobem korzystania z us
 
 Spowoduje to:
 
-1. Przekaż plik lokalny z `assetConversionSettings.localAssetDirectoryPath` do wejściowego kontenera obiektów BLOB
-1. Generuj identyfikator URI sygnatury dostępu współdzielonego dla kontenera wejściowego
-1. Generuj identyfikator URI sygnatury dostępu współdzielonego dla kontenera wyjściowego
-1. Wywołaj [interfejs API REST konwersji modelu](../how-tos/conversion/conversion-rest-api.md) , aby uruchomić [konwersję modelu](../how-tos/conversion/model-conversion.md)
-1. Sondowanie stanu konwersji do momentu pomyślnego przeprowadzenia konwersji lub niepowodzenia
-1. Szczegóły danych wyjściowych przekonwertowanej lokalizacji pliku (konto magazynu, kontener danych wyjściowych, ścieżka pliku w kontenerze)
-1. Wyprowadzanie identyfikatora URI sygnatury dostępu współdzielonego do konwertowanego modelu w wyjściowym kontenerze obiektów BLOB
+1. Przekaż plik lokalny z `assetConversionSettings.localAssetDirectoryPath` do wejściowego kontenera obiektów BLOB.
+1. Generuj identyfikator URI sygnatury dostępu współdzielonego dla kontenera wejściowego.
+1. Generuj identyfikator URI sygnatury dostępu współdzielonego dla kontenera danych wyjściowych.
+1. Wywołaj [interfejs API REST konwersji modelu](../how-tos/conversion/conversion-rest-api.md) , aby uruchomić [konwersję modelu](../how-tos/conversion/model-conversion.md).
+1. Sondowanie stanu konwersji do momentu pomyślnego zakończenia lub niepowodzenia konwersji.
+1. Szczegóły danych wyjściowych przekonwertowanej lokalizacji pliku (konto magazynu, kontener danych wyjściowych, ścieżka pliku w kontenerze).
+1. Wyprowadzanie identyfikatora URI sygnatury dostępu współdzielonego do konwertowanego modelu w wyjściowym kontenerze obiektów BLOB.
 
 ### <a name="additional-command-line-options"></a>Dodatkowe opcje wiersza polecenia
 
@@ -249,7 +249,7 @@ Na przykład można połączyć wiele z tych opcji, takich jak:
 
 Jeśli chcesz wykonać poszczególne kroki procesu, możesz użyć:
 
-Przekazuj tylko dane z danego LocalAssetDirectoryPath
+Przekazuj tylko dane z danego LocalAssetDirectoryPathu.
 
 ```PowerShell
 .\Conversion.ps1 -Upload

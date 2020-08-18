@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0f4d9811dc288222c0a2190805a8b052cb1ae47b
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 8e0f0b37dd429578194c18e5a9a1f063b74fb693
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563929"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506536"
 ---
 # <a name="manage-digital-twins"></a>Zarządzanie usługą Digital Twins
 
@@ -151,7 +151,7 @@ Wynik wywołania `object result = await client.DigitalTwins.GetByIdAsync("my-moo
 Zdefiniowane właściwości dwucyfrowej dwuosiowej są zwracane jako właściwości najwyższego poziomu na dwuosiowej cyfrowej. Metadane lub informacje o systemie, które nie są częścią definicji DTDL, są zwracane z `$` prefiksem. Właściwości metadanych obejmują:
 * Identyfikator wielocyfrowej dwuosiowej w tym wystąpieniu usługi Azure Digital bliźniaczych reprezentacji `$dtId` .
 * `$etag`Standardowe pole HTTP przypisane przez serwer sieci Web
-* Inne właściwości w `$metadata` sekcji. Należą do nich następujące elementy:
+* Inne właściwości w `$metadata` sekcji. Należą do nich:
     - DTMI modelu dwuosiowy cyfrowo.
     - Stan synchronizacji dla każdej właściwości zapisywalnej. Jest to najbardziej przydatne w przypadku urządzeń, w których możliwe jest, że usługa i urządzenie mają rozbieżność stanu (na przykład gdy urządzenie jest w trybie offline). Obecnie ta właściwość dotyczy tylko urządzeń fizycznych podłączonych do IoT Hub. Za pomocą danych w sekcji metadanych można zrozumieć pełny stan właściwości, a także sygnaturę czasową ostatniej modyfikacji. Aby uzyskać więcej informacji na temat stanu synchronizacji, zobacz [ten IoT Hub samouczek](../iot-hub/tutorial-device-twins.md) dotyczący synchronizowania stanu urządzenia.
     - Metadane dotyczące usługi, takie jak IoT Hub lub Azure Digital bliźniaczych reprezentacji. 
@@ -181,6 +181,8 @@ Aby zaktualizować właściwości cyfrowego sznurka, należy napisać informacje
 await client.UpdateDigitalTwin(id, patch);
 ```
 
+Wywołanie patch może zaktualizować dowolną liczbę właściwości w pojedynczej bliźniaczyej formie (nawet wszystkie). Jeśli trzeba zaktualizować właściwości w wielu bliźniaczych reprezentacji, konieczne będzie oddzielne wywołanie aktualizacji dla każdej z nich.
+
 > [!TIP]
 > Po utworzeniu lub zaktualizowaniu sznurka może wystąpić opóźnienie do 10 sekund, po upływie którego zmiany zostaną odzwierciedlone w [zapytaniach](how-to-query-graph.md). `GetDigitalTwin`Interfejs API (opisany [wcześniej w tym artykule](#get-data-for-a-digital-twin)) nie występuje w tym opóźnieniu, dlatego użyj wywołania interfejsu API zamiast zapytania, aby zobaczyć nowo zaktualizowane bliźniaczych reprezentacji, jeśli potrzebujesz natychmiastowej odpowiedzi. 
 
@@ -204,6 +206,7 @@ Oto przykład kodu poprawki JSON. Ten dokument zastępuje wartości właściwoś
 Poprawki można tworzyć ręcznie lub za pomocą klasy pomocnika serializacji w [zestawie SDK](how-to-use-apis-sdks.md). Oto przykład każdego z nich.
 
 #### <a name="create-patches-manually"></a>Ręczne tworzenie poprawek
+
 ```csharp
 List<object> twinData = new List<object>();
 twinData.Add(new Dictionary<string, object>() {
@@ -278,6 +281,19 @@ W tej sytuacji poprawka musi zaktualizować zarówno model, jak i Właściwość
   }
 ]
 ```
+
+### <a name="handle-conflicting-update-calls"></a>Obsługa sprzecznych wywołań aktualizacji
+
+Usługa Azure Digital bliźniaczych reprezentacji gwarantuje, że wszystkie żądania przychodzące są przetwarzane jeden po drugim. Oznacza to, że nawet jeśli wiele funkcji próbuje zaktualizować tę samą właściwość na sznurze w tym samym czasie, **nie ma potrzeby** pisania jawnego kodu blokowania w celu obsłużenia konfliktu.
+
+To zachowanie jest zależne od jednej pojedynczej. 
+
+Przykładowo Wyobraź sobie scenariusz, w którym te trzy wywołania docierają w tym samym czasie: 
+*   Zapisz Właściwość A w *Twin1*
+*   Zapis właściwości B w *Twin1*
+*   Zapisz Właściwość A w *Twin2*
+
+Dwa wywołania, które modyfikują *Twin1* są wykonywane jeden po drugim, a dla każdej zmiany są generowane komunikaty o zmianach. Wywołanie modyfikacji *Twin2* może być wykonywane współbieżnie bez konfliktu, zaraz po nadejściu.
 
 ## <a name="delete-a-digital-twin"></a>Usuń dwuosiową cyfrę
 

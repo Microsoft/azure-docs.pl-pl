@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: a1a166d12ef753a7a6fc7225d0467ead08514f99
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 59b05fcd7fbaf9b0fd9b4083c884edadb4bfef4e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876720"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505584"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Rozszerzenie DSC dla systemu Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
@@ -40,10 +40,11 @@ Rozszerzenie DSCForLinux jest publikowane i obsługiwane przez firmę Microsoft.
 ### <a name="operating-system"></a>System operacyjny
 
 W przypadku węzłów z systemem Linux rozszerzenie DSC Linux obsługuje wszystkie dystrybucje systemu Linux wymienione w [dokumentacji DSC programu PowerShell](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
- 
+
 ### <a name="internet-connectivity"></a>Łączność z Internetem
 
-Rozszerzenie DSCForLinux wymaga, aby docelowa maszyna wirtualna była połączona z Internetem. Na przykład rozszerzenie Register wymaga łączności z usługą Automation. W przypadku innych akcji, takich jak ściąganie, instalacja wymaga łączności z usługą Azure Storage i GitHub. Zależy to od ustawień dostarczonych przez klienta.
+Rozszerzenie DSCForLinux wymaga, aby docelowa maszyna wirtualna była połączona z Internetem. Na przykład rozszerzenie Register wymaga łączności z usługą Automation.
+W przypadku innych akcji, takich jak ściąganie, instalacja wymaga łączności z usługą Azure Storage i GitHub. Zależy to od ustawień dostarczonych przez klienta.
 
 ## <a name="extension-schema"></a>Schemat rozszerzenia
 
@@ -55,13 +56,13 @@ Oto wszystkie obsługiwane parametry konfiguracji publicznej:
 * `ResourceName`: (opcjonalnie, ciąg) nazwa niestandardowego modułu zasobów.
 * `ExtensionAction`: (opcjonalnie, ciąg) określa, jakie jest rozszerzenie. Prawidłowe wartości to register, push, pull, install i Remove. Jeśli nie zostanie określony, jest domyślnie traktowany jako akcja push.
 * `NodeConfigurationName`: (opcjonalnie, ciąg) nazwa konfiguracji węzła do zastosowania.
-* `RefreshFrequencyMins`: (opcjonalnie, int) określa, jak często (w minutach) próbuje uzyskać konfigurację z serwera ściągania. 
+* `RefreshFrequencyMins`: (opcjonalnie, int) określa, jak często (w minutach) próbuje uzyskać konfigurację z serwera ściągania.
        Jeśli konfiguracja na serwerze ściągania różni się od bieżącej w węźle docelowym, zostanie ona skopiowana do oczekującego magazynu i zastosowana.
 * `ConfigurationMode`: (opcjonalnie, ciąg) określa sposób zastosowania konfiguracji przez DSC. Prawidłowe wartości to ApplyOnly, ApplyAndMonitor i ApplyAndAutoCorrect.
 * `ConfigurationModeFrequencyMins`: (opcjonalnie, int) określa, jak często (w minutach) DSC gwarantuje, że konfiguracja jest w żądanym stanie.
 
 > [!NOTE]
-> W przypadku używania wersji wcześniejszej niż 2,3, parametr mode jest taki sam jak ExtensionAction. Tryb wydaje się być przeciążonym terminem. Aby uniknąć nieporozumień, ExtensionAction jest używany w dalszej wersji 2,3. W celu zapewnienia zgodności z poprzednimi wersjami rozszerzenie obsługuje zarówno tryb, jak i ExtensionAction. 
+> W przypadku używania wersji wcześniejszej niż 2,3, parametr mode jest taki sam jak ExtensionAction. Tryb wydaje się być przeciążonym terminem. Aby uniknąć nieporozumień, ExtensionAction jest używany w dalszej wersji 2,3. W celu zapewnienia zgodności z poprzednimi wersjami rozszerzenie obsługuje zarówno tryb, jak i ExtensionAction.
 >
 
 ### <a name="protected-configuration"></a>Konfiguracja chroniona
@@ -269,7 +270,7 @@ $publicConfig = '{
 
 ## <a name="template-deployment"></a>Wdrażanie na podstawie szablonu
 
-Rozszerzenia maszyny wirtualnej platformy Azure można wdrażać za pomocą szablonów Azure Resource Manager. Szablony są idealnym rozwiązaniem w przypadku wdrożenia co najmniej jednej maszyny wirtualnej, która wymaga konfiguracji po wdrożeniu, na przykład dołączania do Azure Automation. 
+Rozszerzenia maszyny wirtualnej platformy Azure można wdrażać za pomocą szablonów Azure Resource Manager. Szablony są idealnym rozwiązaniem w przypadku wdrożenia co najmniej jednej maszyny wirtualnej, która wymaga konfiguracji po wdrożeniu, na przykład dołączania do Azure Automation.
 
 Przykładowy szablon Menedżer zasobów to [201-DSC-Linux-Azure-Storage-on-Ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-azure-storage-on-ubuntu) i [201-DSC-Linux-Public-Storage-on-Ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-public-storage-on-ubuntu).
 
@@ -323,13 +324,13 @@ DSCForLinux Microsoft.OSTCExtensions <version> \
 
 Możesz zalogować się do konta platformy Azure w trybie zarządzania usługami platformy Azure, uruchamiając następujące operacje:
 
-```powershell>
+```powershell
 Add-AzureAccount
 ```
 
 I Wdróż rozszerzenie DSCForLinux, uruchamiając:
 
-```powershell>
+```powershell
 $vmname = '<vm-name>'
 $vm = Get-AzureVM -ServiceName $vmname -Name $vmname
 $extensionName = 'DSCForLinux'
@@ -362,7 +363,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
 
 Możesz zalogować się do konta platformy Azure w trybie Azure Resource Manager, uruchamiając następujące operacje:
 
-```powershell>
+```powershell
 Login-AzAccount
 ```
 
@@ -370,7 +371,7 @@ Aby dowiedzieć się więcej na temat używania Azure PowerShell z Azure Resourc
 
 Rozszerzenie DSCForLinux można wdrożyć, uruchamiając następujące narzędzia:
 
-```powershell>
+```powershell
 $rgName = '<resource-group-name>'
 $vmName = '<vm-name>'
 $location = '< location>'

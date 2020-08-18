@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6e217540b1dd3744da855c71e0add289dd1c9e18
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e73bc3791ceb75685275af99f888136315c6e50d
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831060"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505563"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SQL Server wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP NetWeaver
 
@@ -314,7 +314,7 @@ W tym dokumencie omówiono kilka różnych obszarów, które należy wziąć pod
 
 
 > [!IMPORTANT]
-> Zakres tego dokumentu to wersja systemu Windows w SQL Server. System SAP nie obsługuje wersji systemu Linux SQL Server z żadnym oprogramowaniem SAP. Dokument nie zawiera omówienia Microsoft Azure SQL Database, czyli platformy jako oferty usługi platformy Microsoft Azure. W omówieniu tego dokumentu zawarto informacje na temat uruchamiania SQL Server produktu, który jest znany dla wdrożeń lokalnych w usłudze Azure Virtual Machines, wykorzystując infrastrukturę jako możliwości usługi platformy Azure. Możliwości i funkcje bazy danych między tymi dwoma ofertami są różne i nie należy ich mieszać ze sobą. Zobacz również:<https://azure.microsoft.com/services/sql-database/>
+> Zakres tego dokumentu to wersja systemu Windows w SQL Server. System SAP nie obsługuje wersji systemu Linux SQL Server z żadnym oprogramowaniem SAP. Dokument nie zawiera omówienia Microsoft Azure SQL Database, czyli platformy jako oferty usługi platformy Microsoft Azure. W omówieniu tego dokumentu zawarto informacje na temat uruchamiania SQL Server produktu, który jest znany dla wdrożeń lokalnych w usłudze Azure Virtual Machines, wykorzystując infrastrukturę jako możliwości usługi platformy Azure. Możliwości i funkcje bazy danych między tymi dwoma ofertami są różne i nie należy ich mieszać ze sobą. Zobacz również: <https://azure.microsoft.com/services/sql-database/>
 > 
 >
 
@@ -355,13 +355,13 @@ Na powyższym diagramie wyświetlana jest prosta wielkość liter. Jako eluded w
 
 
 ### <a name="special-for-m-series-vms"></a>Specjalne dla maszyn wirtualnych z serii M
-W przypadku maszyny wirtualnej z serii M na platformie Azure opóźnienie zapisywania w dzienniku transakcji można zmniejszyć o czynniki w porównaniu z wydajnością Premium Storage platformy Azure, korzystając z usługi Azure akcelerator zapisu. W związku z tym należy wdrożyć akcelerator zapisu platformy Azure dla dysków VHD, które tworzą wolumin dla SQL Server dziennika transakcji. Szczegóły można odczytać w dokumencie [Akcelerator zapisu](../../windows/how-to-enable-write-accelerator.md).
+W przypadku maszyny wirtualnej z serii M na platformie Azure opóźnienie zapisywania w dzienniku transakcji można zmniejszyć o czynniki w porównaniu z wydajnością Premium Storage platformy Azure, korzystając z usługi Azure akcelerator zapisu. W związku z tym należy wdrożyć akcelerator zapisu platformy Azure dla dysków VHD, które tworzą wolumin dla SQL Server dziennika transakcji. Szczegóły można odczytać w dokumencie [Akcelerator zapisu](../../how-to-enable-write-accelerator.md).
   
 
 ### <a name="formatting-the-disks"></a>Formatowanie dysków
 W przypadku SQL Server rozmiar bloku NTFS dla dysków SQL Server zawierających pliki danych i plików dziennika powinien wynosić 64 KB. Nie ma potrzeby formatowania D:\ litera. Ten dysk jest wstępnie sformatowany.
 
-Aby upewnić się, że przywracanie lub tworzenie baz danych nie inicjuje plików danych przez zero zawartości plików, należy upewnić się, że kontekst użytkownika, w którym działa usługa SQL Server, ma określone uprawnienie. Te uprawnienia są zwykle użytkownicy w grupie administratorów systemu Windows. Jeśli usługa SQL Server jest uruchomiona w kontekście użytkownika niebędącego administratorem systemu Windows, należy przypisać temu użytkownikowi prawo **wykonywanie zadań konserwacji woluminu**.  Zobacz szczegóły w tym artykule z bazy wiedzy Microsoft Knowledge Base:<https://support.microsoft.com/kb/2574695>
+Aby upewnić się, że przywracanie lub tworzenie baz danych nie inicjuje plików danych przez zero zawartości plików, należy upewnić się, że kontekst użytkownika, w którym działa usługa SQL Server, ma określone uprawnienie. Te uprawnienia są zwykle użytkownicy w grupie administratorów systemu Windows. Jeśli usługa SQL Server jest uruchomiona w kontekście użytkownika niebędącego administratorem systemu Windows, należy przypisać temu użytkownikowi prawo **wykonywanie zadań konserwacji woluminu**.  Zobacz szczegóły w tym artykule z bazy wiedzy Microsoft Knowledge Base: <https://support.microsoft.com/kb/2574695>
 
 ### <a name="impact-of-database-compression"></a>Wpływ kompresji bazy danych
 W konfiguracjach, w których przepustowość operacji we/wy może stać się czynnikem ograniczającym, każda miara, która zmniejsza liczbę operacji wejścia/wyjścia, może pomóc w rozciągnięciu obciążenia. W związku z tym, jeśli jeszcze tego nie zrobiono, zastosowanie kompresji SQL Server strony jest zalecane przez oprogramowanie SAP i Microsoft przed przekazaniem istniejącej bazy danych SAP do platformy Azure.
@@ -487,16 +487,16 @@ Funkcja dublowania baz danych obsługiwana przez oprogramowanie SAP (patrz Uwaga
 
 W przypadku wdrożeń opartych tylko na chmurze najłatwiej jest skonfigurować inną domenę na platformie Azure w celu posiadania tych maszyn wirtualnych systemu DBMS (i najlepiej dedykowanych maszyn wirtualnych SAP) w jednej domenie.
 
-Jeśli domena nie jest możliwa, można także użyć certyfikatów dla punktów końcowych dublowania bazy danych, jak opisano tutaj:<https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
+Jeśli domena nie jest możliwa, można także użyć certyfikatów dla punktów końcowych dublowania bazy danych, jak opisano tutaj: <https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
 
-Samouczek służący do konfigurowania funkcji dublowania baz danych na platformie Azure można znaleźć tutaj:<https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
+Samouczek służący do konfigurowania funkcji dublowania baz danych na platformie Azure można znaleźć tutaj: <https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
 
 ### <a name="sql-server-always-on"></a>Opcja Zawsze włączone programu SQL Server
 Usługa as Always On jest obsługiwana w przypadku lokalnego rozwiązania SAP (patrz Uwaga dla oprogramowania SAP [1772688]), ale jest obsługiwana w połączeniu z oprogramowaniem SAP na platformie Azure. Istnieją pewne specjalne zagadnienia dotyczące wdrażania odbiornika grupy dostępności SQL Server (nie należy mylić z zestawem dostępności platformy Azure), ponieważ platforma Azure w tym momencie nie zezwala na tworzenie obiektu usługi AD/DNS, ponieważ jest to możliwe lokalnie. W związku z tym niektóre różne kroki instalacji są niezbędne do pokonania konkretnego zachowania platformy Azure.
 
 Niektóre zagadnienia dotyczące korzystania z odbiornika grupy dostępności są następujące:
 
-* Używanie odbiornika grupy dostępności jest możliwe tylko w systemie Windows Server 2012 lub nowszym jako system operacyjny gościa maszyny wirtualnej. W przypadku systemu Windows Server 2012 należy upewnić się, że ta poprawka jest stosowana:<https://support.microsoft.com/kb/2854082> 
+* Używanie odbiornika grupy dostępności jest możliwe tylko w systemie Windows Server 2012 lub nowszym jako system operacyjny gościa maszyny wirtualnej. W przypadku systemu Windows Server 2012 należy upewnić się, że ta poprawka jest stosowana: <https://support.microsoft.com/kb/2854082> 
 * W przypadku systemu Windows Server 2008 R2 ta poprawka nie istnieje i zawsze musi być używana w taki sam sposób, jak dublowanie bazy danych przez określenie partnera trybu failover w ciągu połączeń (za pośrednictwem ustawienia domyślnego SAP. pfl parametru baz danych//////////Server-zobacz uwagi SAP [965908]).
 * W przypadku korzystania z odbiornika grupy dostępności, maszyny wirtualne bazy danych muszą być połączone z dedykowaną Load Balancer. Aby uniknąć, że platforma Azure przypisze nowe adresy IP w przypadkach, gdy obie maszyny wirtualne są wyłączone, należy przypisać statyczne adresy IP do interfejsów sieciowych tych maszyn wirtualnych w konfiguracji zawsze włączone (definiowanie statycznego adresu IP jest opisany w [tym][virtual-networks-reserved-private-ip] artykule)
 * Podczas kompilowania konfiguracji klastra usługi WSFC należy wykonać specjalne czynności, w przypadku których klaster wymaga przypisanych specjalnych adresów IP, ponieważ platforma Azure z jego bieżącą funkcją przypisze nazwę klastra tego samego adresu IP co węzeł, w którym jest tworzony klaster. Oznacza to, że należy wykonać ręczny krok w celu przypisania innego adresu IP do klastra.

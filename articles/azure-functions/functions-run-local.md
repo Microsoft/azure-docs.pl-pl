@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 18263f9e77961fb4c169559f221ab94eb4a38840
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: bbdc05d2b5a770791bb81f26a71b9dc3eb7523d5
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207454"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505720"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Korzystanie z narzędzi Azure Functions Core Tools
 
@@ -165,6 +165,9 @@ W oknie terminalu lub w wierszu polecenia Uruchom następujące polecenie, aby u
 func init MyFunctionProj
 ```
 
+>[!IMPORTANT]
+> Środowisko Java używa Maven Archetype do tworzenia projektu funkcji lokalnych wraz z pierwszą funkcją wyzwalaną przez protokół HTTP. Aby utworzyć projekt Java, użyj następującego polecenia: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Aby zapoznać się z przykładem za pomocą Maven Archetype, zobacz [wiersz polecenia szybki start](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).  
+
 Po podaniu nazwy projektu zostanie utworzony i zainicjowany nowy folder o tej nazwie. W przeciwnym razie bieżący folder zostanie zainicjowany.  
 W wersji 3. x/2. x po uruchomieniu polecenia należy wybrać środowisko uruchomieniowe dla projektu. 
 
@@ -233,7 +236,7 @@ Wartości ustawień aplikacji funkcji można także odczytać w kodzie jako zmie
 * [Skrypt języka C# (csx)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
-* [PowerShell](functions-reference-powershell.md#environment-variables)
+* [Program PowerShell](functions-reference-powershell.md#environment-variables)
 * [Python](functions-reference-python.md#environment-variables)
 
 Gdy nie ustawiono prawidłowych parametrów połączenia magazynu dla [`AzureWebJobsStorage`] i emulator nie jest używany, wyświetlany jest następujący komunikat o błędzie:
@@ -329,11 +332,19 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 
 Aby uruchomić projekt funkcji, uruchom hosta funkcji. Host włącza wyzwalacze dla wszystkich funkcji w projekcie. Polecenie uruchamiania różni się w zależności od języka projektu.
 
-# <a name="c"></a>[S\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 ```
 func start --build
 ```
+
+# <a name="java"></a>[Java](#tab/java)
+
+```
+mvn clean package 
+mvn azure-functions:run
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/node)
 
 ```
@@ -504,6 +515,9 @@ Aby opublikować kod lokalny w aplikacji funkcji na platformie Azure, użyj `pub
 ```
 func azure functionapp publish <FunctionAppName>
 ```
+
+>[!IMPORTANT]
+> Język Java używa Maven do publikowania projektu lokalnego na platformie Azure. Użyj następującego polecenia, aby opublikować na platformie Azure: `mvn azure-functions:deploy` . Zasoby platformy Azure są tworzone podczas wstępnego wdrażania.
 
 To polecenie publikuje w istniejącej aplikacji funkcji na platformie Azure. Wystąpi błąd podczas próby opublikowania w usłudze `<FunctionAppName>` , która nie istnieje w Twojej subskrypcji. Aby dowiedzieć się, jak utworzyć aplikację funkcji z poziomu wiersza polecenia lub okna terminalu przy użyciu interfejsu CLI platformy Azure, zobacz [tworzenie aplikacja funkcji do wykonywania bezserwerowego](./scripts/functions-cli-create-serverless.md). Domyślnie to polecenie korzysta z [kompilacji zdalnej](functions-deployment-technologies.md#remote-build) i wdraża aplikację do [uruchamiania z pakietu wdrożeniowego](run-functions-from-deployment-package.md). Aby wyłączyć ten zalecany tryb wdrażania, użyj `--nozip` opcji.
 

@@ -91,16 +91,6 @@
           href: application-proxy-high-availability-load-balancing.md
         - name: Porównanie rozwiązań dostępu zdalnego
           href: application-proxy-migration.md
-    - name: Wprowadzanie aplikacji na rynek
-      items:
-        - name: Włączanie logowania jednokrotnego dla aplikacji wielodostępnej
-          href: isv-sso-content.md
-        - name: Tworzenie dzierżawy platformy Azure dla aplikacji wielodostępnej
-          href: isv-tenant-multi-tenant-app.md
-        - name: Wybieranie federacji wielodostępnej
-          href: isv-choose-multi-tenant-federation.md
-        - name: Tworzenie dokumentacji dla aplikacji wielodostępnej
-          href: isv-create-sso-documentation.md
 - name: Przewodniki z instrukcjami
   expanded: false
   items:

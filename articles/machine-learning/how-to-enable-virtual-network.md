@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 947f7afba6a8b40e9b1c71ac817239dd039539f7
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 9f92e703dd45e893a3dfdd8a4c1d6aa3e9b8e96e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192403"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506502"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Izolacja sieci podczas uczenia & wnioskowania z prywatnymi sieciami wirtualnymi
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -49,7 +49,7 @@ Możesz również [włączyć link prywatny platformy Azure](how-to-configure-pr
 > [!TIP]
 > Możesz połączyć sieć wirtualną i połączenie prywatne, aby chronić komunikację między obszarem roboczym i innymi zasobami platformy Azure. Jednak niektóre kombinacje wymagają obszaru roboczego wersja Enterprise. Skorzystaj z poniższej tabeli, aby zrozumieć, jakie scenariusze wymagają wydania Enterprise Edition:
 >
-> | Scenariusz | Enterprise</br>bitowych | Podstawowa</br>bitowych |
+> | Scenariusz | Enterprise</br>bitowych | Podstawowy</br>bitowych |
 > | ----- |:-----:|:-----:| 
 > | Brak sieci wirtualnej lub prywatnego linku | ✔ | ✔ |
 > | Obszar roboczy bez linku prywatnego. Inne zasoby (z wyjątkiem Azure Container Registry) w sieci wirtualnej | ✔ | ✔ |
@@ -92,7 +92,7 @@ Program Virtual Machines obsługuje odczytywanie danych z następujących typów
 
 Dodaj obszar roboczy i konto magazynu do tej samej sieci wirtualnej, aby umożliwić im dostęp do siebie nawzajem.
 
-1. Aby połączyć obszar roboczy z siecią wirtualną, [Włącz łącze prywatne platformy Azure](how-to-configure-private-link.md). Ta funkcja jest obecnie dostępna w wersji zapoznawczej, a w regionach Południowo-środkowe stany USA 2, Stany USA — Europa Zachodnia.
+1. Aby połączyć obszar roboczy z siecią wirtualną, [Włącz łącze prywatne platformy Azure](how-to-configure-private-link.md). Ta funkcja jest obecnie w wersji zapoznawczej i jest dostępna w regionach Wschodnie stany USA i zachodnie stany USA 2.
 
 1. Aby połączyć konto magazynu z siecią wirtualną, [Skonfiguruj ustawienia zapory i sieci wirtualnych](#use-a-storage-account-for-your-workspace).
 
@@ -832,4 +832,4 @@ Aby użyć maszyny wirtualnej lub klastra usługi Azure HDInsight w sieci wirtua
 * [Konfigurowanie środowisk szkoleniowych](how-to-set-up-training-targets.md)
 * [Skonfiguruj prywatne punkty końcowe](how-to-configure-private-link.md)
 * [Gdzie należy wdrażać modele](how-to-deploy-and-where.md)
-* [Użyj protokołu TLS do zabezpieczenia usługi sieci Web za pomocą Azure Machine Learning](how-to-secure-web-service.md)
+* [Zabezpieczanie usługi internetowej za pomocą usługi Azure Machine Learning przy użyciu protokołu TLS](how-to-secure-web-service.md)

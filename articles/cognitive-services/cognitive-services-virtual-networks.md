@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: dapine
-ms.openlocfilehash: db1b88b9c22012cb4e6b5025dda31432c9278ff8
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 808d42c821272882bbf0e01a36e49f7f10b30efa
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080902"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505031"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Konfigurowanie sieci wirtualnych usług Azure Cognitive Services
 
@@ -54,6 +54,7 @@ Sieci wirtualne (sieci wirtualnych) są obsługiwane w [regionach, w których s�
 > * [Analiza tekstu](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
 > * [Tłumaczenie tekstu w usłudze Translator](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
+> * [Czytnik immersyjny](./immersive-reader/index.yml)
 
 ## <a name="service-tags"></a>Tagi usługi
 
@@ -72,6 +73,7 @@ Cognitive Services obsługuje Tagi usług dla konfiguracji reguł sieci. Wymieni
 > * [QnA Maker](./qnamaker/index.yml)
 > * [Translator](./translator/index.yml)
 > * [Usługa mowy](./speech-service/index.yml)
+> * [Czytnik immersyjny](./immersive-reader/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>Zmienianie domyślnej reguły dostępu do sieci
 
@@ -99,7 +101,7 @@ Można zarządzać domyślnymi regułami dostępu do sieci dla zasobów Cognitiv
 
 1. Aby zastosować zmiany, wybierz pozycję **Zapisz**.
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 1. Zainstaluj [Azure PowerShell](/powershell/azure/install-az-ps) i [Zaloguj się](/powershell/azure/authenticate-azureps)lub wybierz opcję **Wypróbuj**.
 
@@ -221,7 +223,7 @@ Można zarządzać regułami sieci wirtualnej dla zasobów Cognitive Services za
 
 1. Aby zastosować zmiany, wybierz pozycję **Zapisz**.
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 1. Zainstaluj [Azure PowerShell](/powershell/azure/install-az-ps) i [Zaloguj się](/powershell/azure/authenticate-azureps)lub wybierz opcję **Wypróbuj**.
 
@@ -380,7 +382,7 @@ Można zarządzać regułami sieci IP dla zasobów Cognitive Services za pomocą
 
 1. Aby zastosować zmiany, wybierz pozycję **Zapisz**.
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 1. Zainstaluj [Azure PowerShell](/powershell/azure/install-az-ps) i [Zaloguj się](/powershell/azure/authenticate-azureps)lub wybierz opcję **Wypróbuj**.
 

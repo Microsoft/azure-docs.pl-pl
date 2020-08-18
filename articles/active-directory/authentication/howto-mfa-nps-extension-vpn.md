@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc2030f589185fd39c0f10b00c012db038a4e008
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 394a4c171153ecf50ff5d755c42e3c5f939b2ec7
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848718"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507182"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrowanie infrastruktury sieci VPN z usługą Azure MFA przy użyciu rozszerzenia serwera zasad sieciowych dla platformy Azure
 
@@ -178,7 +178,7 @@ Aby skonfigurować serwer RADIUS, można użyć standardowej (opartej na kreator
 
     ![Określ okno grup użytkowników, aby zezwalać na dostęp lub go odmawiać](./media/howto-mfa-nps-extension-vpn/image7.png)
 
-9. Wybierz pozycję **Dalej**.
+9. Wybierz opcję **Dalej**.
 
 10. W oknie **Określanie filtrów IP** wybierz pozycję **dalej**.
 
@@ -249,7 +249,7 @@ W tej sekcji skonfigurujesz serwer sieci VPN do korzystania z uwierzytelniania u
 
     ![Dodawanie okna serwera RADIUS Konfigurowanie limitu czasu](./media/howto-mfa-nps-extension-vpn/image16.png) 
 
-8. Wybierz przycisk **OK**.
+8. Kliknij przycisk **OK**.
 
 ### <a name="test-vpn-connectivity"></a>Testowanie łączności z siecią VPN
 
@@ -308,6 +308,10 @@ Aby uzyskać pomoc w konfigurowaniu użytkowników dla Multi-Factor Authenticati
 
 Ta sekcja zawiera instrukcje dotyczące konfigurowania sieci VPN do korzystania z usługi MFA na potrzeby uwierzytelniania klienta na serwerze sieci VPN.
 
+> [!NOTE]
+> W kluczu rejestru REQUIRE_USER_MATCH rozróżniana jest wielkość liter. Wszystkie wartości muszą być ustawione w formacie wielką LITERą.
+>
+
 Po zainstalowaniu i skonfigurowaniu rozszerzenia serwera NPS do korzystania z usługi MFA jest wymagane każde uwierzytelnianie klienta oparte na usłudze RADIUS, które jest przetwarzane przez ten serwer. Jeśli wszyscy użytkownicy sieci VPN nie są zarejestrowani w usłudze Azure Multi-Factor Authentication, możesz wykonać jedną z następujących czynności:
 
 * Skonfiguruj inny serwer RADIUS, aby uwierzytelniać użytkowników, którzy nie są skonfigurowani do korzystania z usługi MFA.
@@ -319,6 +323,8 @@ Utwórz nową wartość ciągu o nazwie _REQUIRE_USER_MATCH w HKLM\SOFTWARE\Micr
 ![Ustawienie "Wymagaj dopasowania użytkownika"](./media/howto-mfa-nps-extension-vpn/image34.png)
 
 Jeśli wartość jest równa *true* lub jest pusta, wszystkie żądania uwierzytelnienia podlegają wyzwaniem usługi MFA. Jeśli wartość jest równa *false*, wyzwania usługi MFA są wystawiane tylko dla użytkowników zarejestrowanych w usłudze Azure Multi-Factor Authentication. Używaj ustawienia *false* tylko w testach lub w środowiskach produkcyjnych w trakcie okresu dołączania.
+
+
 
 ### <a name="obtain-the-azure-active-directory-tenant-id"></a>Uzyskaj identyfikator dzierżawy Azure Active Directory
 
@@ -390,7 +396,7 @@ Aby użyć skryptu, podaj rozszerzenie przy użyciu poświadczeń administracyjn
 
 6. Uruchom ponownie serwer.
 
-### <a name="verify-the-configuration"></a>Sprawdzanie konfiguracji
+### <a name="verify-the-configuration"></a>Weryfikowanie konfiguracji
 
 Aby sprawdzić konfigurację, należy ustanowić nowe połączenie sieci VPN z serwerem sieci VPN. Po pomyślnym wprowadzeniu poświadczeń uwierzytelniania podstawowego połączenie sieci VPN czeka na pomyślne uwierzytelnienie, jak pokazano poniżej.
 

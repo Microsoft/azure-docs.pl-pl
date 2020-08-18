@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 509375459d019ead5a7992b808044a75e2666393
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a74fae74a2d0ebbb71d65420475e5772e44a8d84
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83758864"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507097"
 ---
 # <a name="remote-rendering-sessions"></a>Sesje usługi Remote Rendering
 
@@ -40,10 +40,10 @@ Każda sesja jest poddawana wielu etapom.
 
 Po zaproszeniu ARR w celu [utworzenia nowej sesji](../how-tos/session-rest-api.md#create-a-session)pierwszy z nich ma zwrócić [identyfikator UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)sesji. Ten identyfikator UUID umożliwia wykonywanie zapytań dotyczących informacji o sesji. Identyfikator UUID i niektóre podstawowe informacje o sesji są utrwalane przez 30 dni, aby można było wysyłać zapytania do tych informacji nawet po zatrzymaniu sesji. W tym momencie **stan sesji** będzie raportowany jako **uruchamiany**.
 
-Następnie zdalne renderowanie na platformie Azure próbuje znaleźć serwer, który może hostować daną sesję. Dla tego wyszukiwania istnieją dwa parametry. Po pierwsze spowoduje to zarezerwowanie serwerów w Twoim [regionie](../reference/regions.md). Wynika to z faktu, że opóźnienie sieci między regionami może być zbyt wysokie, aby zapewnić znośnego środowisko pracy. Drugim czynnikiem jest żądany *rozmiar* określony przez użytkownika. W każdym regionie istnieje ograniczona liczba serwerów, które mogą spełnić żądanie rozmiaru *standardowego* lub *Premium* . W związku z tym, jeśli wszystkie serwery o żądanym rozmiarze są obecnie używane w Twoim regionie, Tworzenie sesji zakończy się niepowodzeniem. Przyczyną niepowodzenia [może być zapytanie](../how-tos/session-rest-api.md#get-sessions-properties).
+Następnie zdalne renderowanie na platformie Azure próbuje znaleźć serwer, który może hostować daną sesję. Dla tego wyszukiwania istnieją dwa parametry. Po pierwsze spowoduje to zarezerwowanie serwerów w Twoim [regionie](../reference/regions.md). Wynika to z faktu, że opóźnienie sieci między regionami może być zbyt wysokie, aby zapewnić znośnego środowisko pracy. Drugim czynnikiem jest żądany *rozmiar* określony przez użytkownika. W każdym regionie istnieje ograniczona liczba serwerów, które mogą spełnić żądanie rozmiaru [*standardowego*](../reference/vm-sizes.md) lub [*Premium*](../reference/vm-sizes.md) . W związku z tym, jeśli wszystkie serwery o żądanym rozmiarze są obecnie używane w Twoim regionie, Tworzenie sesji zakończy się niepowodzeniem. Przyczyną niepowodzenia [może być zapytanie](../how-tos/session-rest-api.md#get-sessions-properties).
 
 > [!IMPORTANT]
-> Jeśli zażądasz *standardowego* rozmiaru maszyny wirtualnej, a żądanie zakończy się niepowodzeniem z powodu wysokiego zapotrzebowania, nie oznacza to, że żądanie serwera w *warstwie Premium* również nie powiedzie się. Dlatego jeśli jest to opcja dla Ciebie, możesz spróbować wrócić do maszyny wirtualnej w *warstwie Premium* .
+> Jeśli zażądasz *standardowego* rozmiaru serwera i żądanie zakończy się niepowodzeniem z powodu wysokiego zapotrzebowania, nie oznacza to, że żądanie serwera w *warstwie Premium* nie powiedzie się. Dlatego jeśli jest to opcja dla Ciebie, możesz spróbować wrócić do rozmiaru serwera w *warstwie Premium* .
 
 Gdy usługa odnajdzie odpowiedni serwer, musi skopiować do niego odpowiednią maszynę wirtualną, aby przekształcić ją w Host renderowania zdalnego platformy Azure. Ten proces trwa kilka minut. Następnie maszyna wirtualna jest uruchamiana i przechodzi **stan sesji** na **gotowe**.
 
@@ -72,7 +72,7 @@ Sesja może być również zatrzymana z powodu pewnego błędu.
 We wszystkich przypadkach nie będą naliczane dalsze opłaty po zatrzymaniu sesji.
 
 > [!WARNING]
-> Bez względu na to, czy nawiązujesz połączenie z sesją, jak długo nie wpływają na rozliczenia. Opłaty za usługę są zależne od *czasu trwania sesji*, czyli czasu, przez który serwer jest zarezerwowany wyłącznie dla Ciebie, i żądanych możliwości sprzętu (rozmiar maszyny wirtualnej). Jeśli uruchomisz sesję, Połącz się przez pięć minut, a następnie nie zatrzymasz sesji, tak aby nadal działała do momentu wygaśnięcia dzierżawy, zostanie naliczona stawka za pełny czas dzierżawy sesji. Z drugiej strony *Maksymalny czas dzierżawy* jest przede wszystkim w sieci zabezpieczeń. Nie ma znaczenia, czy użytkownik żąda sesji z upływem ośmiu godzin dzierżawy, a następnie będzie go używać tylko przez pięć minut, w przypadku ręcznego zatrzymania sesji.
+> Bez względu na to, czy nawiązujesz połączenie z sesją, jak długo nie wpływają na rozliczenia. Opłaty za usługę są zależne od *czasu trwania sesji*, czyli czasu, przez który serwer jest zarezerwowany wyłącznie dla Ciebie, i żądanych możliwości sprzętu ( [przydzielonego rozmiaru](../reference/vm-sizes.md)). Jeśli uruchomisz sesję, Połącz się przez pięć minut, a następnie nie zatrzymasz sesji, tak aby nadal działała do momentu wygaśnięcia dzierżawy, zostanie naliczona stawka za pełny czas dzierżawy sesji. Z drugiej strony *Maksymalny czas dzierżawy* jest przede wszystkim w sieci zabezpieczeń. Nie ma znaczenia, czy użytkownik żąda sesji z upływem ośmiu godzin dzierżawy, a następnie będzie go używać tylko przez pięć minut, w przypadku ręcznego zatrzymania sesji.
 
 #### <a name="extend-a-sessions-lease-time"></a>Zwiększ czas dzierżawy sesji
 
@@ -138,7 +138,7 @@ RemoteManagerStatic.ShutdownRemoteRendering();
 
 `AzureFrontend` `AzureSession` Można utrzymywać wiele wystąpień, manipulować nimi i wykonywać zapytania z kodu. Ale tylko jedno urządzenie może połączyć się `AzureSession` jednocześnie.
 
-Okres istnienia maszyny wirtualnej nie jest powiązany z `AzureFrontend` wystąpieniem ani `AzureSession` wystąpieniem. `AzureSession.StopAsync`musi być wywołana, aby zatrzymać sesję.
+Okres istnienia maszyny wirtualnej nie jest powiązany z `AzureFrontend` wystąpieniem ani `AzureSession` wystąpieniem. `AzureSession.StopAsync` musi być wywołana, aby zatrzymać sesję.
 
 W przypadku identyfikatora sesji trwałej można wykonywać zapytania `AzureSession.SessionUUID()` i buforować lokalnie. Przy użyciu tego identyfikatora aplikacja może wywołać `AzureFrontend.OpenSession` powiązanie z tą sesją.
 

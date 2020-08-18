@@ -11,17 +11,63 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: ac4b0c59cfad3d435858e094cbcb8c9f855a0041
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 8985d8ab0b5fa8477a636254d1a5179cd2187963
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185319"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505809"
 ---
 # <a name="speech-service-release-notes"></a>Informacje o wersji usługi mowy
 
+## <a name="text-to-speech-2020-august-release"></a>Zamiana tekstu na mowę 2020 — wydanie z sierpnia
+
+### <a name="new-features"></a>Nowe funkcje
+
+* **Neuronowych TTS: nowy styl wymawiania dla `en-US` Aria**. AriaNeural może wyglądać podobnie do newscaster podczas odczytywania wiadomości. Styl "Newscast-formaled" jest bardziej ważniejszy, podczas gdy styl "Newscast-swobodny" jest bardziej swobodny i nieformalny. Zobacz [, jak używać stylów mówiących w SSML](speech-synthesis-markup.md).
+
+* **Niestandardowy głos: wydano nową funkcję, która umożliwia automatyczne sprawdzanie jakości danych szkoleniowych**. Po przekazaniu danych funkcja sprawdzania danych sprawdzi różne aspekty audio i transkrypcje oraz automatycznie naprawi lub przefiltruje dane, aby zwiększyć jakość przeszkolonego modelu głosowego. Dotyczy to ilości dźwięku, poziomu szumu, dokładności wymowy mowy, wyrównania mowy z znormalizowanym tekstem, ciszenia dźwięku, poza formatem audio i skryptu. 
+
+* **Tworzenie zawartości audio: zestaw nowych funkcji umożliwiających bardziej zaawansowane funkcje dostrajania głosu i zarządzania dźwiękiem**.
+
+    * Wymowa: funkcja dostrajania wymowy została zaktualizowana do najnowszego zestawu fonem. Możesz wybrać odpowiedni element fonem z biblioteki i uściślić wymowę wybranych wyrazów. 
+
+    * Pobieranie: funkcja audio "Download"/"Export" została ulepszona w celu obsługi generowania dźwięków w każdym akapicie. Możesz łatwo edytować inną zawartość w tym samym pliku/SSML, podczas gdy generowane są wiele wyjść audio. Struktura plików "Download" jest również udoskonalana. Teraz można łatwo uzyskać wszystkie dźwięki w jednym folderze. 
+
+    * Stan zadania: udoskonalono środowisko eksportu z obsługą wiele plików. W przypadku eksportowania wielu plików w przeszłości, jeśli jeden z plików ulegnie awarii, całe zadanie zakończy się niepowodzeniem. Ale teraz wszystkie inne pliki zostaną pomyślnie wyeksportowane. Raport zadania jest wzbogacany o bardziej szczegółowe i strukturalne informacje. Możesz sprawdzić dzienniki dla wszystkich zakończonych niepowodzeniem plików i zdań teraz za pomocą raportu. 
+
+    * Dokumentacja usługi SSML: połączona z dokumentem SSML, ułatwiająca sprawdzenie reguł korzystania ze wszystkich funkcji dostrajania.
+
+* **Interfejs API listy głosowej został zaktualizowany tak, aby zawierał przyjazną nazwę wyświetlaną użytkownika i style odmowy obsługiwane dla głosów neuronowych**.
+
+### <a name="general-tts-voice-quality-improvements"></a>Ulepszenia jakości głosu dotyczące ogólnej TTS
+
+* Zredukowany Błąd wymowy na poziomie wyrazu (%) dla `ru-RU` (błąd został zmniejszony o 56%) i `sv-SE` (błąd został zmniejszony przez 49%)
+
+* Ulepszono Polyphony czytania wyrazów na `en-US` neuronowych głosy o 40%. Przykłady słów Polyphony to "read", "Live", "Content", "Record", "Object" itp. 
+
+* Ulepszono naturalność tonu pytania w `fr-FR` . MOS (średnia ocena opinii): + 0,28
+
+* Zaktualizowano vocoders dla następujących głosów z ulepszeniami dokładności i ogólną wydajnością wydajności do 40%.
+
+    | Regionalne | Połączenia głosowe |
+    |---|---|    
+    | `en-GB` | Mia |
+    | `es-MX` | Dalia |
+    | `fr-CA` | Sylvie |
+    | `fr-FR` | Denise |
+    | `ja-JP` | Nanami |
+    | `ko-KR` | Sun — Hi |
+
+### <a name="bug-fixes"></a>Poprawki błędów
+
+* Naprawiono wiele usterek przy użyciu narzędzia do tworzenia zawartości audio 
+    * Rozwiązano problem z autoodświeżaniem. 
+    * Rozwiązano problemy z odgłosówmi stylu w elemencie zh-CN w regionie Azja Wschodnia południowo-
+    * Rozwiązano problem w stabilności, w tym błąd eksportu ze znacznikiem "Break", błędy w interpunkcjach    
+
 ## <a name="new-speech-to-text-locales-2020-august-release"></a>Nowe ustawienia zamiany mowy na tekst: 2020 — wydanie z sierpnia
-Zamiana mowy na tekst wydana 26 nowych ustawień regionalnych w sierpniu: 2 Europejskie Języki CS-CZ i hu-HU, 5 angielskiej wersji językowej oraz 19 hiszpańskie ustawienia regionalne, które obejmują większość krajów Ameryki Południowej. Poniżej znajduje się lista nowych ustawień regionalnych. Zapoznaj się z [pełną listą](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support)języków.
+Zamiana mowy na tekst wydana 26 nowych ustawień regionalnych w sierpniu: 2 Języki europejskie `cs-CZ` i `hu-HU` , 5 angielskie ustawienia regionalne oraz 19 hiszpańskie ustawienia regionalne, które obejmują większość krajów Ameryki Południowej. Poniżej znajduje się lista nowych ustawień regionalnych. Zapoznaj się z [pełną listą](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support)języków.
 
 | Regionalne  | Język                          |
 |---------|-----------------------------------|
@@ -129,7 +175,7 @@ Bądź w dobrej kondycji
 ### <a name="bug-fixes"></a>Poprawki błędów
 
 * Odczytywanie waluty
-    * Rozwiązano problem z odczytem waluty dla `es-ES` i`es-MX`
+    * Rozwiązano problem z odczytem waluty dla `es-ES` i `es-MX`
      
     | Język | Dane wejściowe | Odczyt po ulepszeniu |
     |---|---|---|
@@ -281,9 +327,9 @@ Bądź w dobrej kondycji
 
 **Istotne zmiany**
 
-- `OpenSSL`został zaktualizowany do wersji 1.1.1 b i jest statycznie połączony z biblioteką podstawową zestawu Speech SDK dla systemu Linux. Może to spowodować przerwanie, jeśli skrzynka odbiorcza `OpenSSL` nie została zainstalowana w `/usr/lib/ssl` katalogu w systemie. Aby obejść ten problem, zapoznaj się z [naszą dokumentacją](how-to-configure-openssl-linux.md) w obszarze dokumentacja zestawu Speech SDK.
+- `OpenSSL` został zaktualizowany do wersji 1.1.1 b i jest statycznie połączony z biblioteką podstawową zestawu Speech SDK dla systemu Linux. Może to spowodować przerwanie, jeśli skrzynka odbiorcza `OpenSSL` nie została zainstalowana w `/usr/lib/ssl` katalogu w systemie. Aby obejść ten problem, zapoznaj się z [naszą dokumentacją](how-to-configure-openssl-linux.md) w obszarze dokumentacja zestawu Speech SDK.
 - Zmieniono typ danych zwrócony dla języka C# `WordLevelTimingResult.Offset` z na, `int` `long` Aby zezwolić na dostęp, `WordLevelTimingResults` gdy dane mowy są dłuższe niż 2 minuty.
-- `PushAudioInputStream`i `PullAudioInputStream` teraz Wysyłaj informacje z nagłówka WAV do usługi mowy opartej na systemie `AudioStreamFormat` , opcjonalnie określone podczas tworzenia. Klienci muszą teraz korzystać z [obsługiwanego formatu wejścia audio](how-to-use-audio-input-streams.md). Wszystkie inne formaty będą uzyskiwać optymalne wyniki rozpoznawania lub mogą powodować inne problemy. 
+- `PushAudioInputStream` i `PullAudioInputStream` teraz Wysyłaj informacje z nagłówka WAV do usługi mowy opartej na systemie `AudioStreamFormat` , opcjonalnie określone podczas tworzenia. Klienci muszą teraz korzystać z [obsługiwanego formatu wejścia audio](how-to-use-audio-input-streams.md). Wszystkie inne formaty będą uzyskiwać optymalne wyniki rozpoznawania lub mogą powodować inne problemy. 
 
 **Poprawki błędów**
 
@@ -332,8 +378,8 @@ Bądź w dobrej kondycji
 
 **Samples**
 
-- Przykład platformy Xamarin dla`KeywordRecognizer`
-- Przykład aparatu Unity dla`KeywordRecognizer`
+- Przykład platformy Xamarin dla `KeywordRecognizer`
+- Przykład aparatu Unity dla `KeywordRecognizer`
 - Przykłady języków C++ i Java dla automatycznych wykrywanie języka źródłowych.
 
 ## <a name="speech-sdk-170-2019-september-release"></a>Speech SDK 1.7.0:2019 — wydanie z września
@@ -356,9 +402,9 @@ Bądź w dobrej kondycji
 - Rozwiązano problem z identyfikatorami UUID, które nie są unikatowe we właściwościach połączenia
 - Rozwiązano kilka ostrzeżeń dotyczących specyfikatorów wartości null w powiązaniach SWIFT (może wymagać wprowadzenia małych kodu)
 - Rozwiązano błąd, który spowodował, że połączenia protokołu WebSocket są niebezpiecznie zamknięte w ramach obciążenia sieci
-- Rozwiązano problem w systemie Android, który czasami powoduje wystąpienie zduplikowanych identyfikatorów nakładów używanych przez program`DialogServiceConnector`
-- Ulepszenia stabilności połączeń między interakcjami i raportowaniem niepowodzeń (za pośrednictwem `Canceled` zdarzeń) w przypadku wystąpienia`DialogServiceConnector`
-- `DialogServiceConnector`rozpoczęcie sesji będzie teraz prawidłowo udostępniać zdarzenia, włącznie z wywoływaniem `ListenOnceAsync()` w trakcie aktywnego`StartKeywordRecognitionAsync()`
+- Rozwiązano problem w systemie Android, który czasami powoduje wystąpienie zduplikowanych identyfikatorów nakładów używanych przez program `DialogServiceConnector`
+- Ulepszenia stabilności połączeń między interakcjami i raportowaniem niepowodzeń (za pośrednictwem `Canceled` zdarzeń) w przypadku wystąpienia `DialogServiceConnector`
+- `DialogServiceConnector` rozpoczęcie sesji będzie teraz prawidłowo udostępniać zdarzenia, włącznie z wywoływaniem `ListenOnceAsync()` w trakcie aktywnego `StartKeywordRecognitionAsync()`
 - Rozwiązywanie awarii skojarzonej z `DialogServiceConnector` odebranymi działaniami
 
 **Samples**
@@ -374,14 +420,14 @@ Bądź w dobrej kondycji
 - Przykłady szybkiego startu dla zamiany tekstu na mowę w platformy UWP i Unity
 - Przykład szybkiego startu dla SWIFT w systemie iOS
 - Przykłady aparatu Unity dla rozpoznawanie intencji & mowy i tłumaczenia
-- Zaktualizowano przykłady szybkiego startu dla`DialogServiceConnector`
+- Zaktualizowano przykłady szybkiego startu dla `DialogServiceConnector`
 
 **Ulepszenia/zmiany**
 
 - Przestrzeń nazw okna dialogowego:
   - Zmieniono nazwę polecenia `SpeechBotConnector` na `DialogServiceConnector`
   - Zmieniono nazwę polecenia `BotConfig` na `DialogServiceConfig`
-  - `BotConfig::FromChannelSecret()`został ponownie zmapowany na`DialogServiceConfig::FromBotSecret()`
+  - `BotConfig::FromChannelSecret()` został ponownie zmapowany na `DialogServiceConfig::FromBotSecret()`
   - Wszystkie istniejące bezpośrednie komputery klienckie mowy są nadal obsługiwane po zmianie nazwy
 - Aktualizowanie karty REST usługi TTS do obsługi serwera proxy, trwałego połączenia
 - Ulepsz komunikat o błędzie po przekazaniu nieprawidłowego regionu
@@ -544,7 +590,7 @@ Jest to wersja tylko w języku JavaScript. Nie dodano żadnych funkcji. Wprowadz
   - Zestaw Speech SDK dla języka JavaScript został otwarty jako źródło. Kod źródłowy jest dostępny w serwisie [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
   - Teraz obsługujemy Node.js. więcej informacji można znaleźć [tutaj](quickstart-js-node.md).
   - Ograniczenie długości sesji audio zostało usunięte, ponowne połączenie zostanie wykonane automatycznie pod pokryciem.
-- `Connection`Stream
+- `Connection` Stream
   - W programie można `Recognizer` uzyskać dostęp do `Connection` obiektu. Ten obiekt umożliwia jawne zainicjowanie połączenia z usługą i subskrypcję w celu nawiązania połączenia i rozłączenia zdarzeń.
     (Ta funkcja nie jest jeszcze dostępna w języku JavaScript i Python).
 - Obsługa Ubuntu 18,04.
@@ -671,7 +717,7 @@ W naszym [przykładowym repozytorium](https://aka.ms/csspeech/samples)dodano now
 
 **Zmiany funkcjonalne**
 
-- `StartContinuousRecognitionAsync()`obsługuje długotrwałe rozpoznawanie.
+- `StartContinuousRecognitionAsync()` obsługuje długotrwałe rozpoznawanie.
 - Wynik rozpoznawania zawiera więcej pól. Są one przesunięte od początku i czasu trwania (w taktach) rozpoznanego tekstu oraz wartości dodatkowych reprezentujących stan rozpoznawania, na przykład `InitialSilenceTimeout` i `InitialBabbleTimeout` .
 - Obsługa AuthorizationToken do tworzenia wystąpień fabryki.
 

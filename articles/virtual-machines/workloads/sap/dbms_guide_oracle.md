@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15838e1e9acf328a0deaa981d1227c22c08dbbdf
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: bd8177f6fd8e40e9c4ea37bc7ead910806efbad2
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832267"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88504946"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Wdrożenie systemu Azure Virtual Machines DBMS dla obciążeń SAP
 
@@ -377,7 +377,7 @@ Minimalna konfiguracja jest następująca:
 | \oracle \<SID> \origlogaA & mirrlogB | Premium | Brak | Nie jest wymagany |
 | \oracle \<SID> \origlogaB & mirrlogA | Premium | Brak | Nie jest wymagany |
 | \oracle \<SID> \sapdata1... Azotan | Premium | Tylko odczyt | Mogą być używane |
-| \oracle \<SID> \oraarch | Standard | Brak | Nie jest wymagany |
+| \oracle \<SID> \oraarch | Standardowa (Standard) | Brak | Nie jest wymagany |
 | Strona główna firmy Oracle, saptrace,... | Dysk systemu operacyjnego | | Nie jest wymagany |
 
 
@@ -404,7 +404,7 @@ Jeśli wymagane są więcej IOPS, zalecamy używanie pul magazynu systemu Window
 
 
 #### <a name="write-accelerator"></a>Akcelerator zapisu
-W przypadku maszyn wirtualnych serii M czas oczekiwania na zapisanie w dziennikach ponownego wykonywania w trybie online można zmniejszyć o czynniki w porównaniu do Premium Storage platformy Azure. Włącz akcelerator zapisu platformy Azure dla dysków (VHD) opartych na usłudze Azure Premium Storage, które są używane dla plików dziennika ponownego wykonywania w trybie online. Aby uzyskać więcej informacji, zobacz [Akcelerator zapisu](../../linux/how-to-enable-write-accelerator.md).
+W przypadku maszyn wirtualnych serii M czas oczekiwania na zapisanie w dziennikach ponownego wykonywania w trybie online można zmniejszyć o czynniki w porównaniu do Premium Storage platformy Azure. Włącz akcelerator zapisu platformy Azure dla dysków (VHD) opartych na usłudze Azure Premium Storage, które są używane dla plików dziennika ponownego wykonywania w trybie online. Aby uzyskać więcej informacji, zobacz [Akcelerator zapisu](../../how-to-enable-write-accelerator.md).
 
 
 ### <a name="backuprestore"></a>Tworzenie kopii zapasowej/przywracanie
@@ -467,7 +467,7 @@ Minimalna konfiguracja:
 | /Oracle/ \<SID> /origlogaA & mirrlogB | Premium | Brak | Nie jest wymagany |
 | /Oracle/ \<SID> /origlogaB & mirrlogA | Premium | Brak | Nie jest wymagany |
 | /Oracle/ \<SID> /sapdata1... Azotan | Premium | Tylko odczyt | Mogą być używane |
-| /Oracle/ \<SID> /oraarch | Standard | Brak | Nie jest wymagany |
+| /Oracle/ \<SID> /oraarch | Standardowa (Standard) | Brak | Nie jest wymagany |
 | Strona główna firmy Oracle, saptrace,... | Dysk systemu operacyjnego | | Nie jest wymagany |
 
 * Odcięcie: LVM lub MDADM przy użyciu RAID0
@@ -498,7 +498,7 @@ Jeśli wymagane są więcej IOPS, zalecamy użycie LVM (Menedżer woluminów log
 
 
 #### <a name="write-accelerator"></a>Akcelerator zapisu
-W przypadku maszyn wirtualnych z serii M dla systemu Azure w przypadku korzystania z usługi Azure akcelerator zapisu opóźnienie zapisu w dziennikach wykonywania w trybie online można zmniejszyć o czynniki w porównaniu do wydajności Premium Storage platformy Azure. Włącz akcelerator zapisu platformy Azure dla dysków (VHD) opartych na usłudze Azure Premium Storage, które są używane dla plików dziennika ponownego wykonywania w trybie online. Aby uzyskać więcej informacji, zobacz [Akcelerator zapisu](../../linux/how-to-enable-write-accelerator.md).
+W przypadku maszyn wirtualnych z serii M dla systemu Azure w przypadku korzystania z usługi Azure akcelerator zapisu opóźnienie zapisu w dziennikach wykonywania w trybie online można zmniejszyć o czynniki w porównaniu do wydajności Premium Storage platformy Azure. Włącz akcelerator zapisu platformy Azure dla dysków (VHD) opartych na usłudze Azure Premium Storage, które są używane dla plików dziennika ponownego wykonywania w trybie online. Aby uzyskać więcej informacji, zobacz [Akcelerator zapisu](../../how-to-enable-write-accelerator.md).
 
 
 ### <a name="backuprestore"></a>Tworzenie kopii zapasowej/przywracanie

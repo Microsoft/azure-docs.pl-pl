@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 8/11/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5209ffb0328e90fb2ca9b91773cbf18dd4ed2916
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 47e4bb291d031c41c89c88435a795004490e20a1
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163631"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505329"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Pozyskiwanie danych telemetrycznych IoT Hub na platformie Azure Digital bliźniaczych reprezentacji
 
@@ -24,10 +24,10 @@ Ten dokument zawiera instrukcje dotyczące tworzenia funkcji platformy Azure, kt
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed kontynuowaniem tego przykładu należy wykonać poniższe wymagania wstępne.
-* **Centrum IoT**. Aby uzyskać instrukcje, zobacz sekcję *tworzenie IoT Hub* w [tym IoT Hub przewodniku szybki start](../iot-hub/quickstart-send-telemetry-cli.md) .
-* **Funkcja platformy Azure** z prawidłowymi uprawnieniami do wywoływania Twojego wystąpienia cyfrowej sieci dwuosiowej. Zobacz [*jak to zrobić: Konfigurowanie funkcji platformy Azure do przetwarzania danych*](how-to-create-azure-function.md) w celu wykonania instrukcji. 
-* **Cyfrowe wystąpienie bliźniaczych reprezentacji** , które będzie odbierać dane telemetryczne urządzenia. Zobacz [ *instrukcje: Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji*](./how-to-set-up-instance-portal.md) 
+Przed kontynuowaniem tego przykładu należy skonfigurować następujące zasoby jako wymagania wstępne:
+* **Centrum IoT**. Aby uzyskać instrukcje, zobacz sekcję *tworzenie IoT Hub* w [tym IoT Hub przewodniku szybki start](../iot-hub/quickstart-send-telemetry-cli.md).
+* **Funkcja platformy Azure** z prawidłowymi uprawnieniami do wywoływania Twojego wystąpienia cyfrowej sieci dwuosiowej. Aby uzyskać instrukcje, zobacz [*How to: set up a Azure Function for processing Data*](how-to-create-azure-function.md). 
+* **Wystąpienie usługi Azure Digital bliźniaczych reprezentacji** , które będzie odbierać dane telemetryczne urządzenia. Aby uzyskać instrukcje, zobacz [*How to: set up the Azure Digital bliźniaczych reprezentacji instance and Authentication*](./how-to-set-up-instance-portal.md).
 
 ### <a name="example-telemetry-scenario"></a>Przykładowy scenariusz telemetrii
 

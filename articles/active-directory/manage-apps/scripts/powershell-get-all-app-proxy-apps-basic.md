@@ -2,22 +2,21 @@
 title: Przykład programu PowerShell — Lista podstawowych informacji dotyczących aplikacji serwera proxy aplikacji
 description: Przykład programu PowerShell, który wyświetla listę aplikacji serwera proxy aplikacji Azure Active Directory (Azure AD) wraz z IDENTYFIKATORem aplikacji (AppId), nazwą (DisplayName) i IDENTYFIKATORem obiektu (ObjId).
 services: active-directory
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 009aabb8b742a752a29d775efbd11b153588c09b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 80509969a30ea3e708d2e176a87277d51fb6da3f
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75482220"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506934"
 ---
 # <a name="get-all-application-proxy-apps-and-list-basic-information"></a>Pobierz wszystkie aplikacje serwera proxy aplikacji i Wyświetl podstawowe informacje
 

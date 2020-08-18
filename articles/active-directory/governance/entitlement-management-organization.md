@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 272dd95b97c65ecc52dd73909f1ed87d5e5ae3ca
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 2c57f23a5cad2f47311b54728d576eb810ad88a4
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170500"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506026"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Dodawanie połączonej organizacji w zarządzaniu prawami usługi Azure AD
 
@@ -103,7 +103,7 @@ Aby dodać zewnętrzny katalog lub domenę usługi Azure AD jako podłączoną o
 
 Jeśli połączona organizacja zmieni się w inną domenę, nazwa organizacji ulegnie zmianie lub chcesz zmienić sponsorów, możesz zaktualizować połączoną organizację, postępując zgodnie z instrukcjami w tej sekcji.
 
-**Rola wymagana wstępnie**: *administrator globalny*, *administrator użytkownika*lub *zapraszający Gości*
+**Rola wymagana wstępnie**: *administrator globalny* lub *administrator użytkownika*
 
 1. W Azure Portal wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **Zarządzanie tożsamościami**.
 
@@ -120,7 +120,7 @@ Jeśli połączona organizacja zmieni się w inną domenę, nazwa organizacji ul
 
 Jeśli nie masz już relacji z zewnętrznym katalogiem lub domeną usługi Azure AD, możesz usunąć połączoną organizację.
 
-**Rola wymagana wstępnie**: *administrator globalny*, *administrator użytkownika*lub *zapraszający Gości*
+**Rola wymagana wstępnie**: *administrator globalny* lub *administrator użytkownika*
 
 1. W Azure Portal wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **Zarządzanie tożsamościami**.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: db3eae5cd31fff0db465389ea4a09b1666453634
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 480e22b319edd03dc9bb9d666dd43718fb3c841b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387000"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507034"
 ---
 # <a name="what-is-azure-virtual-network"></a>Co to jest usługa Azure Virtual Network?
 
@@ -37,7 +37,7 @@ Podczas tworzenia sieci na platformie Azure ważne jest, aby pamiętać o nastę
 
 - Upewnij się, że przestrzenie adresowe nie nakładają się na siebie. Upewnij się, że przestrzeń adresowa sieci wirtualnej (blok CIDR) nie nakłada się na inne zakresy sieci w organizacji.
 - Podsieci nie powinny obejmować całej przestrzeni adresowej sieci wirtualnej. Planuj z wyprzedzeniem i Zarezerwuj pewną przestrzeń adresową na przyszłość.
-- Zalecane jest używanie mniejszej ilości sieci wirtualnych niż w przypadku wielu małych sieci wirtualnychów. Pozwoli to zapobiec obciążeniu zarządzania.
+- Zalecane jest używanie mniejszej ilości dużych sieci wirtualnych zamiast wielu małych sieci wirtualnychów. Pozwoli to zapobiec obciążeniu zarządzania.
 - Zabezpiecz sieć wirtualną przez przypisanie sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń) do podsieci poniżej.
 
 ## <a name="communicate-with-the-internet"></a>Komunikacja z Internetem
@@ -90,7 +90,7 @@ Usługi platformy Azure w sieci wirtualnej można zintegrować z następującymi
 
 Istnieją pewne ograniczenia dotyczące liczby zasobów platformy Azure, które można wdrożyć. Większość limitów sieci platformy Azure znajduje się na maksymalnych wartościach. Można jednak [zwiększyć niektóre limity sieci](../azure-portal/supportability/networking-quota-requests.md) , zgodnie z [limitem na stronie limity Sieć wirtualna](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits). 
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 
 Za korzystanie z sieci wirtualnej platformy Azure nie są naliczane opłaty. Opłaty standardowe są stosowane do zasobów, takich jak Virtual Machines (maszyny wirtualne) i inne produkty. Aby dowiedzieć się więcej, zobacz [Cennik sieci VNET](https://azure.microsoft.com/pricing/details/virtual-network/) i [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)platformy Azure.
 

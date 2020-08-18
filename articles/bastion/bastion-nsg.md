@@ -1,18 +1,18 @@
 ---
 title: Praca z maszynami wirtualnymi i sieciowych grup zabezpieczeń na platformie Azure bastionu
-description: W tym artykule opisano sposób włączania dostępu sieciowej grupy zabezpieczeń za pomocą usługi Azure bastionu
+description: Za pomocą sieciowych grup zabezpieczeń można korzystać z usługi Azure bastionu. Dowiedz się więcej o podsieciach wymaganych do tej konfiguracji.
 services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: charwen
-ms.openlocfilehash: 1fc261c31a1190536f3128ed6472d9ca76dfce7e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 563c12f91e9553f802d4cf26519da0550880dfcd
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112213"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270533"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Praca z usługami sieciowej grupy zabezpieczeń Access i Azure bastionu
 
@@ -28,7 +28,7 @@ Na tym diagramie:
 * Połącz integrację — pojedyncze kliknięcie sesji RDP/SSH wewnątrz przeglądarki
 * Na maszynie wirtualnej platformy Azure nie jest wymagany publiczny adres IP.
 
-## <a name="network-security-groups"></a><a name="nsg"></a>Grupy zabezpieczeń sieci
+## <a name="network-security-groups"></a><a name="nsg"></a>Sieciowe grupy zabezpieczeń
 
 W tej sekcji przedstawiono ruch sieciowy między użytkownikiem a usługą Azure bastionu oraz docelowymi maszynami wirtualnymi w sieci wirtualnej:
 
@@ -50,7 +50,7 @@ Usługa Azure bastionu jest wdrażana w odróżnieniu od ***AzureBastionSubnet**
    * **Ruch przychodzący do innych publicznych punktów końcowych na platformie Azure:** Usługa Azure bastionu musi mieć możliwość łączenia się z różnymi publicznymi punktami końcowymi na platformie Azure (na przykład do przechowywania dzienników diagnostycznych i dzienników zliczania). Z tego powodu usługa Azure bastionu potrzebuje ruchu wychodzącego do 443 do **AzureCloud** Service Tag.
 
 
-   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Wychodzący":::
+   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Outbound":::
 
 ### <a name="target-vm-subnet"></a>Docelowa podsieć maszyny wirtualnej
 Jest to podsieć zawierająca docelową maszynę wirtualną, do której ma zostać zainstalowana protokół RDP/SSH.
