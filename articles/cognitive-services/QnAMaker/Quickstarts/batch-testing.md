@@ -3,12 +3,12 @@ title: 'Szybki Start: testowa baza wiedzy z pytaniami wsadowymi'
 description: Użyj narzędzia do testowania wsadowego QnA Maker do testowania baz wiedzy w zasobie QnA Maker, aby uzyskać oczekiwane odpowiedzi, wyniki pewności i wyłączać wiele.
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.openlocfilehash: 498f84c97fdc022e460dec453b1d65bb8088b787
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: bcee98678212a3bc233c36a831f6bcde7e6ae550
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263150"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88531073"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Szybki Start: testowa baza wiedzy z pytaniami wsadowymi i oczekiwanymi odpowiedziami
 
@@ -16,7 +16,7 @@ Użyj narzędzia do testowania wsadowego QnA Maker do testowania baz wiedzy w za
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
 * [Utwórz usługę QNA Maker](create-publish-knowledge-base.md) lub Użyj istniejącej usługi, która używa języka angielskiego.
 * Pobieranie [przykładowego `.docx` pliku z obsługą kilku przełączań](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)
 * Pobierz [Narzędzie do testowania wsadowego](https://aka.ms/qnamakerbatchtestingtool), Wyodrębnij plik wykonywalny z `.zip` pliku.

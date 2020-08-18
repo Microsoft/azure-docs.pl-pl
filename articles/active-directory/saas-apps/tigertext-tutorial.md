@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą TigerText Secure Messenger | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i TigerText Secure Messenger.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 03f1e128-5bcb-4e49-b6a3-fe22eedc6d5e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: ea3bda1dd51a7c3a2e5e3f8b669d7138898f1595
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9dff60767e923bad1322b689acd98e69eb9c2ac6
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67088675"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516994"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tigertext-secure-messenger"></a>Samouczek: integracja Azure Active Directory z usługą TigerText Secure Messenger
 
@@ -38,7 +34,7 @@ Aby uzyskać szczegółowe informacje na temat integracji aplikacji typu "oprogr
 
 Aby skonfigurować integrację usługi Azure AD z usługą TigerText Secure Messenger, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 * TigerText bezpieczna subskrypcja programu Messenger z włączonym logowaniem jednokrotnym.
 
 ## <a name="scenario-description"></a>Opis scenariusza
@@ -134,7 +130,7 @@ Aby skonfigurować Logowanie jednokrotne na stronie TigerText Secure Messenger, 
 
 W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w witrynie Azure Portal.
 
-1. W Azure Portal w lewym okienku wybierz pozycję **Azure Active Directory**   > **Użytkownicy** > **Wszyscy użytkownicy**.
+1. W Azure Portal w lewym okienku wybierz pozycję **Azure Active Directory**    >  **Użytkownicy**  >  **Wszyscy użytkownicy**.
 
     ![Opcje Użytkownicy i "Wszyscy użytkownicy"](common/users.png)
 
@@ -148,17 +144,17 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w witrynie A
 
     1. W polu **Nazwa** wpisz **BrittaSimon**.
   
-    1. W polu **Nazwa użytkownika** wprowadź **BrittaSimon\@\<\< yourcompanydomain>.>rozszerzenia **. Na przykład **BrittaSimon\@contoso.com**.
+    1. W polu **Nazwa użytkownika** wprowadź **BrittaSimon \@ \<yourcompanydomain> . \<extension> **. Na przykład **BrittaSimon \@ contoso.com**.
 
     1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
 
-    1. Wybierz przycisk **Utwórz**.
+    1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure, przyznając im dostęp do TigerText Secure Messenger.
 
-1. W Azure Portal wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje** > **TigerText Secure Messenger**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  >  **TigerText Secure Messenger**.
 
     ![Okienko aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -190,10 +186,10 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po wybraniu opcji **TigerText Secure Messenger** w portalu My Apps należy automatycznie zalogować się do subskrypcji usługi TigerText Secure Messenger, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz [dostęp i używanie aplikacji w portalu Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-* [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

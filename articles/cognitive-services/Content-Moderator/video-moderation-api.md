@@ -10,18 +10,18 @@ ms.subservice: content-moderator
 ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 081f512fd421bf46a86f3789eadd75e178e1b6f5
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e1054edbece83804b8e49394f979dbaaf0b99917
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685311"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516592"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analizowanie zawartości wideo dla nieistotnego materiału w języku C #
 
 Ten artykuł zawiera informacje i przykłady kodu ułatwiające rozpoczęcie korzystania z [zestawu Content moderator SDK dla platformy .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) w celu skanowania zawartości wideo dla dorosłych lub erotycznej zawartości.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 - Dowolna wersja programu [Visual Studio 2015 lub 2017](https://www.visualstudio.com/downloads/)
@@ -120,7 +120,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 Jeśli chcesz użyć lokalnego pliku wideo (najprostszy przypadek), Dodaj go do projektu i wprowadź ścieżkę jako `INPUT_FILE` wartość (ścieżki względne są względne dla katalogu wykonywania).
 
-Należy również utworzyć _predefiniowany plik JSON_ w bieżącym katalogu i użyć go do określenia numeru wersji. Na przykład:
+Należy również utworzyć _preset.jsw_ pliku w bieżącym katalogu i użyć go do określenia numeru wersji. Na przykład:
 
 ```JSON
 {
@@ -369,10 +369,10 @@ Po zakończeniu zadania moderowania zawartości Przeanalizuj odpowiedź JSON. Sk
 - wartości **Start**, **Duration**, **totalDuration**i **timestamp** są w "taktach". Podziel przez **skalę czasu** , aby uzyskać liczbę w sekundach.
  
 > [!NOTE]
-> - `adultScore`reprezentuje potencjalne informacje o obecności i prognozie zawartości, które mogą być uważane za jawne lub dorosłe w pewnych sytuacjach.
-> - `racyScore`reprezentuje potencjalne informacje o obecności i prognozie zawartości, które mogą być uznawane za sugerowane lub dojrzałe w pewnych sytuacjach.
-> - `adultScore`i `racyScore` należą do zakresu od 0 do 1. Im wyższy wynik, tym większy jest przewidywanie, że Kategoria może być stosowana. Ta wersja zapoznawcza polega na modelu statystycznym zamiast ręcznie zakodowanych wyników. Zalecamy testowanie przy użyciu własnej zawartości, aby określić, jak każda kategoria jest wyrównana do wymagań.
-> - `reviewRecommended`ma wartość true lub false, w zależności od wewnętrznych progów wyniku. Klienci powinni ocenić, czy należy używać tej wartości, czy też decydować o niestandardowych progach na podstawie ich zasad dotyczących zawartości.
+> - `adultScore` reprezentuje potencjalne informacje o obecności i prognozie zawartości, które mogą być uważane za jawne lub dorosłe w pewnych sytuacjach.
+> - `racyScore` reprezentuje potencjalne informacje o obecności i prognozie zawartości, które mogą być uznawane za sugerowane lub dojrzałe w pewnych sytuacjach.
+> - `adultScore` i `racyScore` należą do zakresu od 0 do 1. Im wyższy wynik, tym większy jest przewidywanie, że Kategoria może być stosowana. Ta wersja zapoznawcza polega na modelu statystycznym zamiast ręcznie zakodowanych wyników. Zalecamy testowanie przy użyciu własnej zawartości, aby określić, jak każda kategoria jest wyrównana do wymagań.
+> - `reviewRecommended` ma wartość true lub false, w zależności od wewnętrznych progów wyniku. Klienci powinni ocenić, czy należy używać tej wartości, czy też decydować o niestandardowych progach na podstawie ich zasad dotyczących zawartości.
 
 ```json
 {

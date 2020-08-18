@@ -4,12 +4,12 @@ description: W tym artykule znajdują się odpowiedzi na często zadawane pytani
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.openlocfilehash: 35957a1e8a3d6c3d9be06d9d44dbcd47efa0e6ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2994e250c37d707eee5428e83c151728f83a1ab
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74173156"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88522933"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Azure Backup Server i DPM — często zadawane pytania
 
@@ -36,6 +36,10 @@ Tak. Należy jednak najpierw skonfigurować program DPM, a następnie zainstalow
 ### <a name="why-cant-i-add-an-external-dpm-server-after-installing-ur7-and-latest-azure-backup-agent"></a>Dlaczego nie mogę dodać zewnętrznego serwera programu DPM po zainstalowaniu pakietem UR7 i najnowszego agenta Azure Backup?
 
 W przypadku serwerów programu DPM ze źródłami danych, które są chronione w chmurze (przy użyciu pakietu zbiorczego aktualizacji wcześniejszego niż pakiet zbiorczy aktualizacji 7), należy odczekać co najmniej jeden dzień po zainstalowaniu programu pakietem UR7 i najnowszego agenta Azure Backup, aby rozpocząć **Dodawanie zewnętrznego serwera DPM**. Do przekazania metadanych grup ochrony programu DPM na platformę Azure jest wymagany okres jednodniowy. Metadane grupy ochrony są przekazywane po raz pierwszy przez nocne zadanie.
+
+### <a name="are-there-recommendations-for-configuring-exclusions-for-antivirus-software"></a>Czy istnieją zalecenia dotyczące konfigurowania wykluczeń dla oprogramowania antywirusowego?
+
+Tak, zaleca się skonfigurowanie wykluczenia oprogramowania antywirusowego. Wyjątki dla programu DPM można znaleźć [w artykule uruchamianie oprogramowania antywirusowego na serwerze DPM](https://docs.microsoft.com/system-center/dpm/run-antivirus-server?view=sc-dpm-2019). Wyjątki dla serwera usługi MAB można znaleźć w temacie [Konfigurowanie oprogramowania antywirusowego serwera serwera usługi MAB](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
 
 ## <a name="vmware-and-hyper-v-backup"></a>Kopia zapasowa oprogramowania VMware i funkcji Hyper-V
 

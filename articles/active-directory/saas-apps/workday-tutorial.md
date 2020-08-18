@@ -2,25 +2,21 @@
 title: 'Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu produktu Workday | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Workday.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: e9da692e-4a65-4231-8ab3-bc9a87b10bca
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83fd986e31410e34871d1b795db0c8c83ece688e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4867a1735f091085f64bbe7010969bd086f820a1
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648603"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88527177"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu produktu Workday
 
@@ -83,9 +79,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Na stronie **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:`https://impl.workday.com/<tenant>/login-saml2.flex`
+    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://impl.workday.com/<tenant>/login-saml2.flex`
 
-    b. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`http://www.workday.com`
+    b. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `http://www.workday.com`
 
     c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://impl.workday.com/<tenant>/login-saml.htmld`
 
@@ -112,7 +108,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     a. Wybierz opcję **Podpisz odpowiedź SAML i potwierdzenie** dla **podpisywania**.
 
-    b. Kliknij przycisk **Zapisz**
+    b. Kliknij pozycję **Zapisz**
 
 1. W sekcji **Konfigurowanie produktu Workday** skopiuj odpowiednie adresy URL na podstawie wymagania.
 
@@ -170,7 +166,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
    > [!NOTE]
    > Wartość atrybutu Environment jest powiązana z wartością adresu URL dzierżawcy:  
-   > — Jeśli nazwa domeny adresu URL dzierżawy produktu Workday zaczyna się od Impl na przykład: * https://www.myworkday.com/ "dzierżawca"/login-SAML2.htmld*), atrybut **Environment** musi być ustawiony na implementację.  
+   > — Jeśli nazwa domeny adresu URL dzierżawy produktu Workday zaczyna się od Impl na przykład: * https://www.myworkday.com/ "dzierżawca"/login-saml2.htmLD*), atrybut **Environment** musi być ustawiony na implementację.  
    > — Jeśli nazwa domeny zaczyna się od czegoś innego, należy skontaktować się z [zespołem obsługi klienta](https://www.workday.com/en-us/partners-services/services/support.html) w programie Workday w celu uzyskania pasującej wartości **środowiska** .
 
 4. W sekcji **Instalator języka SAML** wykonaj następujące czynności:
@@ -201,7 +197,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Utwórz](./media/workday-tutorial/IC782928.png "Utwórz")
 
-    g. Kliknij pozycję **Utwórz klucz publiczny x509**.
+    przykład Kliknij pozycję **Utwórz klucz publiczny x509**.
 
     ![Utwórz](./media/workday-tutorial/IC782929.png "Utwórz")
 
@@ -224,9 +220,9 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     e.  W polu tekstowym **certyfikat** wklej zawartość schowka.
 
-    f.  Kliknij przycisk **OK**.
+    f.  Kliknij pozycję **OK**.
 
-7. Wykonaj poniższe czynności:
+7. Wykonaj następujące czynności:
 
     ![Konfiguracja logowania jednokrotnego](./media/workday-tutorial/WorkdaySSOConfiguratio.png "Konfiguracja logowania jednokrotnego")
 
@@ -238,7 +234,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Metoda podpisu żądania uwierzytelniania](./media/workday-tutorial/WorkdaySSOConfiguration.png "Metoda podpisu żądania uwierzytelniania")
 
-    d. Kliknij przycisk **OK**.
+    d. Kliknij pozycję **OK**.
 
     ![OK](./media/workday-tutorial/IC782933.png "OK")
 
@@ -259,7 +255,7 @@ Po wybraniu kafelka Workday w panelu dostępu należy automatycznie zalogować s
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj usługę Workday z usługą Azure AD](https://aad.portal.azure.com)
 

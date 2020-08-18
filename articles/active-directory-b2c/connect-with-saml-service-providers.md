@@ -12,12 +12,12 @@ ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3baa659d454a24a132eda914d50acddbd5df8a90
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2bf767bd87e0df791b0efff1294f15353234ba2c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020070"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520213"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Rejestrowanie aplikacji SAML w Azure AD B2C
 
@@ -334,7 +334,7 @@ Ostatnim krokiem jest włączenie Azure AD B2C jako elementu SAML dostawcy tożs
 
 Niektóre lub wszystkie następujące elementy są zwykle wymagane:
 
-* **Metadane**:`https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
+* **Metadane**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
 * **Wystawca**: Użyj entityID w pliku metadanych
 * **Adres URL logowania/punkt końcowy SAML/adres URL SAML**: Sprawdź wartość w pliku metadanych
 * **Certyfikat**: jest to *B2C_1A_SamlIdpCert*, ale bez klucza prywatnego. Aby uzyskać klucz publiczny certyfikatu:
@@ -350,7 +350,7 @@ Aby ukończyć ten samouczek przy użyciu [aplikacji testowej SAML][samltest]:
 
 * Zaktualizuj nazwę dzierżawy
 * Nazwa zasad aktualizacji, na przykład *B2C_1A_signup_signin_saml*
-* Określ identyfikator URI wystawcy:`https://contoso.onmicrosoft.com/app-name`
+* Określ identyfikator URI wystawcy: `https://contoso.onmicrosoft.com/app-name`
 
 Wybierz pozycję **Zaloguj** , a następnie Wyświetl ekran logowania użytkownika. Po zalogowaniu potwierdzenie SAML jest wydawane z powrotem do przykładowej aplikacji.
 
@@ -414,6 +414,10 @@ Następujące scenariusze jednostki uzależnionej SAML (RP) są obsługiwane za 
 * Wiele adresów URL wylogowywania lub po wprowadzeniu powiązania dla adresu URL wylogowania w obiekcie głównym aplikacji/usługi.
 * Określ klucz podpisywania, aby zweryfikować żądania RP w obiekcie głównym aplikacji/usługi.
 * Określ klucz szyfrowania tokenu w obiekcie aplikacji/jednostki usługi.
+* Dostawca tożsamości zainicjował logowanie, gdzie dostawca tożsamości jest Azure AD B2C.
+
+Następujące scenariusze jednostki uzależnionej SAML (RP) nie są obecnie obsługiwane:
+* Dostawca tożsamości zainicjował logowanie, gdzie dostawca tożsamości jest zewnętrznym dostawcą tożsamości, na przykład ADFS.
 
 ## <a name="next-steps"></a>Następne kroki
 

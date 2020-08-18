@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: 10e209228ad12b377b729bc251eb761b51ff5378
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0731848e1ff187afb6e9f607516dd74b6c16de9b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514370"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520485"
 ---
 # <a name="repairing-an-export-job"></a>Naprawianie zadania eksportu
 Po zakończeniu zadania eksportu można uruchomić narzędzie Microsoft Azure Import/Export lokalnie, aby:  
@@ -32,15 +32,15 @@ Następujące parametry można określić za pomocą **RepairExport**:
   
 |Parametr|Opis|  
 |---------------|-----------------|  
-|**/r: <RepairFile\>**|Wymagany. Ścieżka do pliku naprawy, która śledzi postęp naprawy i pozwala na wznowienie przerwanej naprawy. Każdy dysk musi mieć jeden i tylko jeden plik naprawy. Po rozpoczęciu naprawy danego dysku zostanie przekazane ścieżka do pliku naprawy, który jeszcze nie istnieje. Aby wznowić przerwaną naprawę, należy przekazać nazwę istniejącego pliku naprawy. Należy zawsze określić plik naprawy odpowiadający dyskowi docelowemu.|  
+|**/r: <RepairFile\>**|Wymagany. Ścieżka do pliku naprawy, która śledzi postęp naprawy i pozwala na wznowienie przerwanej naprawy. Każdy dysk musi mieć jeden i tylko jeden plik naprawy. Po rozpoczęciu naprawy danego dysku należy przekazać ścieżkę do pliku naprawy, który jeszcze nie istnieje. Aby wznowić przerwaną naprawę, należy przekazać nazwę istniejącego pliku naprawy. Zawsze określaj plik naprawy odpowiadający dyskowi docelowemu.|  
 |**/logdir: <LogDirectory\>**|Opcjonalny. Katalog dzienników. Pełne pliki dziennika będą zapisywane w tym katalogu. Jeśli nie określono katalogu dziennika, bieżący katalog będzie używany jako katalog dziennika.|  
-|**/d: <TargetDirectory\>**|Wymagany. Katalog, który ma zostać zweryfikowany i naprawiony. Jest to zazwyczaj katalog główny dysku eksportu, ale może to być również sieciowy udział plików zawierający kopię eksportowanych plików.|  
-|**/BK: <BitLockerKey\>**|Opcjonalny. Należy określić klucz funkcji BitLocker, jeśli narzędzie ma odblokować zaszyfrowane pliki.|  
+|**/d: <TargetDirectory\>**|Wymagany. Katalog, który ma zostać zweryfikowany i naprawiony. Ten katalog jest zazwyczaj katalogiem głównym dysku eksportu, ale może być również sieciowym udziałem plików zawierającym kopię eksportowanych plików.|  
+|**/BK: <BitLockerKey\>**|Opcjonalny. Określ klucz funkcji BitLocker, jeśli chcesz, aby narzędzie odblokowało zaszyfrowany plik, w którym są przechowywane eksportowane pliki.|  
 |**/SN: <StorageAccountName\>**|Wymagany. Nazwa konta magazynu dla zadania eksportu.|  
 |**/SK: <StorageAccountKey\>**|**Wymagane** , jeśli i tylko wtedy, gdy nie określono sygnatury dostępu współdzielonego kontenera. Klucz konta magazynu dla zadania eksportu.|  
 |**/CSAS: <ContainerSas\>**|**Wymagane** , jeśli i tylko wtedy, gdy nie określono klucza konta magazynu. Kontener SAS kontenera do uzyskiwania dostępu do obiektów BLOB skojarzonych z zadaniem eksportu.|  
 |**/CopyLogFile: <DriveCopyLogFile\>**|Wymagany. Ścieżka do pliku dziennika kopiowania dysku. Plik jest generowany przez usługę Import/Export systemu Windows Azure i można go pobrać z magazynu obiektów BLOB skojarzonego z zadaniem. Plik dziennika kopiowania zawiera informacje dotyczące niezakończonych obiektów blob lub plików, które mają zostać naprawione.|  
-|**/ManifestFile: <DriveManifestFile\>**|Opcjonalny. Ścieżka do pliku manifestu dysku eksportu. Ten plik jest generowany przez usługę Import/Export systemu Windows Azure i przechowywany na dysku eksportu i opcjonalnie w obiekcie BLOB na koncie magazynu skojarzonym z zadaniem.<br /><br /> Zawartość plików na dysku eksportu zostanie zweryfikowana przy użyciu skrótów MD5 zawartych w tym pliku. Wszystkie pliki, które zostały uznane za uszkodzone, zostaną pobrane i ponownie umieszczone w katalogach docelowych.|  
+|**/ManifestFile: <DriveManifestFile\>**|Opcjonalny. Ścieżka do pliku manifestu dysku eksportu. Ten plik jest generowany przez usługę Import/Export systemu Windows Azure i przechowywany na dysku eksportu. Opcjonalnie w obiekcie BLOB na koncie magazynu skojarzonym z zadaniem.<br /><br /> Zawartość plików na dysku eksportu zostanie zweryfikowana przy użyciu skrótów MD5 zawartych w tym pliku. Wszystkie uszkodzone pliki zostaną pobrane i ponownie umieszczone w katalogach docelowych.|  
   
 ## <a name="using-repairexport-mode-to-correct-failed-exports"></a>Poprawianie nieudanych eksportów przy użyciu trybu RepairExport  
 Aby pobrać pliki, które nie zostały wyeksportowane, można użyć narzędzia Azure Import/Export. Plik dziennika kopiowania będzie zawierać listę plików, które nie zostały wyeksportowane.  
@@ -57,7 +57,7 @@ Aby uruchomić narzędzie w trybie **RepairExport** , należy najpierw podłącz
 WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C3U.log  
 ```  
   
-Poniżej znajduje się przykładowy plik dziennika kopiowania, który pokazuje, że eksportowanie jednego bloku w obiekcie blob nie powiodło się:  
+Poniższy przykład to plik dziennika kopiowania, który pokazuje, że eksportowanie jednego bloku obiektu BLOB nie powiodło się:  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -81,7 +81,7 @@ Plik dziennika kopiowania wskazuje, że wystąpił błąd podczas pobierania prz
 ## <a name="using-repairexport-to-validate-drive-contents"></a>Weryfikowanie zawartości dysku przy użyciu RepairExport  
 Możesz również użyć opcji importowania/eksportowania platformy Azure z opcją **RepairExport** , aby sprawdzić, czy zawartość na dysku jest poprawna. Plik manifestu na każdym dysku eksportu zawiera MD5s dla zawartości dysku.  
   
-Usługa Azure Import/Export umożliwia także zapisanie plików manifestu na koncie magazynu podczas procesu eksportowania. Lokalizacja plików manifestu jest dostępna za pośrednictwem operacji [Pobierz zadanie](/rest/api/storageimportexport/jobs) , gdy zadanie zostało ukończone. Aby uzyskać więcej informacji o formacie pliku manifestu dysku, zobacz [plik manifestu usługi Import/Export](storage-import-export-file-format-metadata-and-properties.md) .  
+Usługa Azure Import/Export umożliwia także zapisanie plików manifestu na koncie magazynu podczas procesu eksportowania. Lokalizacja plików manifestu jest dostępna za pośrednictwem operacji [Pobierz zadanie](/rest/api/storageimportexport/jobs) , gdy zadanie zostało ukończone. Aby uzyskać więcej informacji o formacie pliku manifestu dysku, zobacz [plik manifestu usługi Import/Export](storage-import-export-file-format-metadata-and-properties.md).  
   
 Poniższy przykład pokazuje, jak uruchomić narzędzie Azure Import/Export z parametrami **/MANIFESTFILE** i **/CopyLogFile** :  
   
@@ -89,7 +89,7 @@ Poniższy przykład pokazuje, jak uruchomić narzędzie Azure Import/Export z pa
 WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C3U.log /ManifestFile:G:\9WM35C3U.manifest  
 ```  
   
-Poniżej znajduje się przykład pliku manifestu:  
+Poniższy przykład przedstawia plik manifestu:  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -155,5 +155,4 @@ Każdy składnik niepowodzenia weryfikacji zostanie pobrany przez narzędzie i p
 * [Konfigurowanie narzędzia Azure Import/Export](storage-import-export-tool-setup-v1.md)   
 * [Przygotowywanie dysków twardych do zadania importu](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Sprawdzanie stanu zadania za pomocą plików dziennika kopiowania](storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Naprawianie zadania importu](storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [Rozwiązywanie problemów z narzędziem Azure Import/Export](storage-import-export-tool-troubleshooting-v1.md)
+* [Naprawianie zadania importu](storage-import-export-tool-repairing-an-import-job-v1.md)

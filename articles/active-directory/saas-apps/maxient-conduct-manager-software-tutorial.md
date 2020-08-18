@@ -2,26 +2,21 @@
 title: 'Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu oprogramowania Maxients Manager | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między programami Azure Active Directory i Maxients Manager.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 85e71b76-cac3-4ce6-a35f-796d2cb7bdb5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09399f59e61ded49fef5a2388900b7b478111119
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: dd6872fd8dca3f29b61c6f1dffb5f219abac5cb8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847195"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88518896"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-maxient-conduct-manager-software"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu oprogramowania Maxients Manager
 
@@ -113,15 +108,15 @@ W tej sekcji zostanie udzielony dostęp do wszystkich kont w celu uwierzytelnien
 
 ## <a name="test-with-maxient"></a>Testowanie za pomocą Maxient 
 
-Jeśli bilet pomocy technicznej nie został jeszcze otwarty z Maxientem/specjalistą ds. implementacji/pomocy technicznej, Wyślij wiadomość e-mail na adres [support@maxient.com](mailto:support@maxient.com) z tematu "uwierzytelnianie Kampusowe/konfiguracja platformy Azure \< \< \> \> ". W treści wiadomości e-mail Podaj **adres URL metadanych federacji aplikacji**. Personel Maxient odpowie przy użyciu linku testowego, aby sprawdzić, czy są wydane odpowiednie atrybuty.  
+Jeśli bilet pomocy technicznej nie został jeszcze otwarty z Maxientem/przedstawicielem pomocy technicznej, Wyślij wiadomość e-mail na adres [support@maxient.com](mailto:support@maxient.com) z podmiotem "uwierzytelnianie Kampusowe/konfiguracja platformy Azure \<\<School Name\> \> ". W treści wiadomości e-mail Podaj **adres URL metadanych federacji aplikacji**. Personel Maxient odpowie przy użyciu linku testowego, aby sprawdzić, czy są wydane odpowiednie atrybuty.  
     
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj oprogramowanie Maxients Manager z usługą Azure AD](https://aad.portal.azure.com/)
 

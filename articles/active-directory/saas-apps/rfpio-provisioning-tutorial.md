@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie RFPIO dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników w usłudze RFPIO.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: 54419db4-47d5-4fb4-ab74-7b0b28afb11b
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 6ae423305b39c1335b5db1cd893d5f817be1929b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 963f89c99d71afbebbe122e3c7d8b3227dc4a8be
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77060868"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88518412"
 ---
 # <a name="tutorial-configure-rfpio-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie RFPIO na potrzeby automatycznego aprowizacji użytkowników
 
@@ -94,7 +90,7 @@ Aby skonfigurować RFPIO automatycznej aprowizacji użytkowników w usłudze Azu
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź **RFPIO**, wybierz pozycję **RFPIO** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wprowadź **RFPIO**, wybierz pozycję **RFPIO** w panelu wyników, a następnie kliknij przycisk    **Dodaj** , aby dodać aplikację.
 
     ![RFPIO na liście wyników](common/search-new-app.png)
 

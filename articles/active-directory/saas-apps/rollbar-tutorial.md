@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Rollbar | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Rollbar.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 57537e54-9388-4272-a610-805ce45a451f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
-ms.openlocfilehash: d76f4e9d61d8fd210fe9332084f9f44d19e54eed
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 253621fe257a0b1a1b3bdaa2578fd7df10b03f73
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67092678"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88528595"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Samouczek: integracja Azure Active Directory z usługą Rollbar
 
@@ -32,7 +28,7 @@ Integracja Rollbar z usługą Azure AD zapewnia następujące korzyści:
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -105,7 +101,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Rollbar, wy
 
     ![Rollbar domenę i adresy URL Logowanie jednokrotne](common/idp-intiated.png)
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL:`https://saml.rollbar.com`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL: `https://saml.rollbar.com`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://rollbar.com/<accountname>/saml/sso/azure/`
 
@@ -138,25 +134,25 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Rollbar, wy
 
 1. Kliknij pozycję **Ustawienia profilu** w prawym górnym rogu, a następnie kliknij pozycję **Ustawienia nazwy konta**.
 
-    ![Konfiguracja](./media/rollbar-tutorial/general.png)
+    ![Konfigurowanie](./media/rollbar-tutorial/general.png)
 
 1. Kliknij pozycję **dostawca tożsamości** w obszarze zabezpieczenia.
 
-    ![Konfiguracja](./media/rollbar-tutorial/configure1.png)
+    ![Konfigurowanie](./media/rollbar-tutorial/configure1.png)
 
 1. W sekcji **dostawca tożsamości SAML** wykonaj następujące czynności:
 
-    ![Konfiguracja](./media/rollbar-tutorial/configure2.png)
+    ![Konfigurowanie](./media/rollbar-tutorial/configure2.png)
 
     a. Wybierz pozycję **Azure** z listy rozwijanej **dostawca tożsamości SAML** .
 
     b. Otwórz plik metadanych w Notatniku, skopiuj jego zawartość do schowka, a następnie wklej go do pola tekstowego **metadanych SAML** .
 
-    c. Kliknij przycisk **Zapisz**.
+    c. Kliknij pozycję **Zapisz**.
 
 1. Po kliknięciu przycisku Zapisz ekran będzie wyglądać następująco:
 
-    ![Konfiguracja](./media/rollbar-tutorial/configure3.png)
+    ![Konfigurowanie](./media/rollbar-tutorial/configure3.png)
 
     > [!NOTE]
     > Aby wykonać poniższe czynności, musisz najpierw dodać siebie jako użytkownika do aplikacji Rollbar na platformie Azure.
@@ -166,7 +162,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Rollbar, wy
 
     b.  Po powrocie do ekranu, zaznacz pole wyboru **Wymagaj logowania za pomocą dostawcy tożsamości SAML** .
 
-    b. Kliknij przycisk **Zapisz**.
+    b. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -187,7 +183,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
     b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`  
-    Na przykład: BrittaSimon@contoso.com
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -239,7 +235,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Rollbar
 
     ![Zapraszanie osób](./media/rollbar-tutorial/user2.png)
 
-1. W polu tekstowym wprowadź nazwę użytkownika, np. **\@brittasimon contoso.com** , a następnie kliknij przycisk **Dodaj/Zaproś**.
+1. W polu tekstowym wprowadź nazwę użytkownika, np. **brittasimon \@ contoso.com** , a następnie kliknij przycisk **Dodaj/Zaproś**.
 
     ![Zapraszanie osób](./media/rollbar-tutorial/user3.png)
 
@@ -257,5 +253,5 @@ Po kliknięciu kafelka Rollbar w panelu dostępu należy automatycznie zalogowa�
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

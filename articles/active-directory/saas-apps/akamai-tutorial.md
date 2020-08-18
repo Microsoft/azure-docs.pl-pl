@@ -2,25 +2,21 @@
 title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Akamai | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Akamai.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 1b7e0d7a-e78f-43a5-af93-b626186e2376
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ea2c20a7720cc80b36ff88595aa6ca5c57f6b9a
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: fbec82e25424fd5220aa992cf2dd0e8449e6a0a4
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232393"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88523137"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Akamai
 
@@ -101,11 +97,11 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 - Usługa Akamai obsługuje dostawcy tożsamości zainicjowane przez logowanie jednokrotne
 
-#### <a name="important"></a>Ważny
+#### <a name="important"></a>Ważne
 
 Wszystkie wymienione poniżej ustawienia są takie same dla **scenariusza integracji 1** i **scenariusza 2**. W **scenariuszu integracji 2** trzeba skonfigurować indywidualne dostawcy tożsamości w Akamai EAA i Właściwość adresu URL musi zostać zmodyfikowana, aby WSKAZYWAŁA adres URL aplikacji.
 
-![Ważny](./media/header-akamai-tutorial/important.png)
+![Ważne](./media/header-akamai-tutorial/important.png)
 
 ## <a name="adding-akamai-from-the-gallery"></a>Dodawanie Akamai z galerii
 
@@ -131,7 +127,7 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
     * **[Konfigurowanie dostawcy tożsamości](#setting-up-idp)**
     * **[Uwierzytelnianie na podstawie nagłówka](#header-based-authentication)**
     * **[Pulpit zdalny](#remote-desktop)**
-    * **[Protokół SSH](#ssh)**
+    * **[SSH](#ssh)**
     * **[Uwierzytelnianie Kerberos](#kerberos-authentication)**
     * **[Utwórz użytkownika testowego Akamai](#create-akamai-test-user)** , aby dysponować odpowiednikiem B. Simon w Akamai, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
 1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
@@ -148,7 +144,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<Yourapp>.login.go.akamai-access.com/saml/sp/response`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<Yourapp>.login.go.akamai-access.com/saml/sp/response`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https:// <Yourapp>.login.go.akamai-access.com/saml/sp/response`
 
@@ -173,7 +169,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -281,7 +277,7 @@ Uwierzytelnianie na podstawie nagłówka Akamai
 
     ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure08.png)
 
-#### <a name="authentication"></a>Uwierzytelnianie
+#### <a name="authentication"></a>Authentication
 
 1. Wybierz kartę **uwierzytelnianie** .
 
@@ -345,7 +341,7 @@ Kliknij przycisk Zapisz i przejdź do uwierzytelniania.
 
     ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure19.png)
 
-#### <a name="authentication"></a>Uwierzytelnianie
+#### <a name="authentication"></a>Authentication
 
 Kliknij przycisk **Zapisz i przejdź do usługi**.
 
@@ -383,7 +379,7 @@ Kliknij przycisk **Zapisz i przejdź do pozycji Ustawienia zaawansowane**.
 
 1. Alternatywnie można również bezpośrednio wpisać adres URL aplikacji RDP.
 
-#### <a name="ssh"></a>Protokół SSH
+#### <a name="ssh"></a>SSH
 
 1. Przejdź do pozycji Dodaj aplikacje, wybierz pozycję **SSH**.
 
@@ -407,7 +403,7 @@ Kliknij przycisk **Zapisz i przejdź do pozycji Ustawienia zaawansowane**.
 
     e. Określ lokalizację łącznika i wybierz łącznik.
 
-#### <a name="authentication"></a>Uwierzytelnianie
+#### <a name="authentication"></a>Authentication
 
 Kliknij przycisk **Zapisz i przejdź do usług**.
 
@@ -540,15 +536,15 @@ Przypisywanie dostawcy tożsamości
 
 1. Oto Składnia ogólna.
 
-1. ktpass/out ActiveDirectorydomain. plik KEYTAB/Princ `HTTP/yourloginportalurl@ADDomain.com` /mapuser serviceaccount@ADdomain.com /Pass + RdnPass/Crypto All/pType KRB5_NT_PRINCIPAL
+1. ktpass/out ActiveDirectorydomain. plik KEYTAB/Princ `HTTP/yourloginportalurl@ADDomain.com`  /mapuser serviceaccount@ADdomain.com /Pass + RdnPass/Crypto All/pType KRB5_NT_PRINCIPAL
 
 1. Przykład został wyjaśniony
 
-    | Fragment kodu | Objaśnienie |
+    | Fragment kodu | Wyjaśnienie |
     | - | - |
     | Ktpass/out EAADemo. plik KEYTAB | Nazwa pliku wyjściowego plik KEYTAB |
-    | /princHTTP/corpapps.login.go.akamai-access.com@superdemo.live | // HTTP/yourIDPName@YourdomainName |
-    | /mapusereaadelegation@superdemo.live | Konto delegowania EAA |
+    | /princ HTTP/corpapps.login.go.akamai-access.com@superdemo.live | // HTTP/yourIDPName@YourdomainName |
+    | /mapuser eaadelegation@superdemo.live | Konto delegowania EAA |
     | /pass RANDOMPASS | Hasło konta delegowania EAA |
     | /Crypto wszystkie pType KRB5_NT_PRINCIPAL | Zapoznaj się z dokumentacją Akamai EAA |
     | | |
@@ -595,9 +591,9 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Akamai w panelu dostępu należy automatycznie zalogować się do Akamai, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

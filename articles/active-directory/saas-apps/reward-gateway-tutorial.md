@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z bramą z wynagrodzeniem | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i nagradzania bramy.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 34336386-998a-4d47-ab55-721d97708e5e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 03e6f52d764b72c423269fcdfdc966474978aa6e
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 61d7e678b2904ff6eda1866951cfafd0fa0d6688
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169361"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88534311"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Samouczek: integracja Azure Active Directory z bramą z wynagrodzeniem
 
@@ -120,7 +116,7 @@ Aby skonfigurować usługę Azure AD Logowanie jednokrotne za pomocą bramy nagr
     - `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zastąp te wartości rzeczywistymi wartościami identyfikatora i adresu URL odpowiedzi. Aby uzyskać te wartości, Rozpocznij Konfigurowanie integracji w portalu z menedżerem nagradzania. Szczegóły można znaleźć nahttps://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication
+    > Te wartości nie są prawdziwe. Zastąp te wartości rzeczywistymi wartościami identyfikatora i adresu URL odpowiedzi. Aby uzyskać te wartości, Rozpocznij Konfigurowanie integracji w portalu z menedżerem nagradzania. Szczegóły można znaleźć na https://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -138,7 +134,7 @@ Aby skonfigurować usługę Azure AD Logowanie jednokrotne za pomocą bramy nagr
 
 ### <a name="configure-reward-gateway-single-sign-on"></a>Konfigurowanie jednokrotnego logowania bramy nagradzania
 
-Aby skonfigurować opcję logowania jednokrotnego na stronie **bramy z wynagrodzeniem** , Rozpocznij Konfigurowanie integracji w portalu Menedżera nagradzania. Użyj pobranych metadanych, aby uzyskać certyfikat podpisywania i przekazać go podczas konfiguracji. Szczegóły można znaleźć nahttps://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication
+Aby skonfigurować opcję logowania jednokrotnego na stronie **bramy z wynagrodzeniem** , Rozpocznij Konfigurowanie integracji w portalu Menedżera nagradzania. Użyj pobranych metadanych, aby uzyskać certyfikat podpisywania i przekazać go podczas konfiguracji. Szczegóły można znaleźć na https://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -159,11 +155,11 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
     b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`  
-    Na przykład: BrittaSimon@contoso.com
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

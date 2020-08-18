@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie StarLeaf dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników w usłudze StarLeaf.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: zhchia
-ms.openlocfilehash: 74e37bda28bed3ecd2c842c4659bcff3cb86eb6a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 68484d2047e09dc82d44e15e86b13c4c54c49b03
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920691"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88533813"
 ---
 # <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie StarLeaf na potrzeby automatycznego aprowizacji użytkowników
 
@@ -58,7 +54,7 @@ Przed skonfigurowaniem usługi StarLeaf do automatycznego aprowizacji użytkowni
 
     ![StarLeaf Dodaj Standard scim](media/starleaf-provisioning-tutorial/image00.png)
 
-2. Wybierz **Typ** , który ma zostać Microsoft Azure Active Directory. Wprowadź odpowiednią nazwę w polu **Nazwa**. Kliknij przycisk **Zastosuj**.
+2. Wybierz **Typ** , który ma zostać Microsoft Azure Active Directory. Wprowadź odpowiednią nazwę w polu **Nazwa**. Kliknij pozycję **Zastosuj**.
 
     ![StarLeaf Dodaj Standard scim](media/starleaf-provisioning-tutorial/image01.png)
 

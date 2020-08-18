@@ -3,12 +3,12 @@ title: Application Insights platformy Azure dla aplikacji ASP.NET Core | Microso
 description: Monitoruj ASP.NET Core aplikacje sieci Web pod kątem dostępności, wydajności i użycia.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 99d2a85e96aff650573e142368a136886945dcb0
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 81d7ab38080aac941bce1f5d1dd17145f8075036
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270924"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88518088"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights aplikacji ASP.NET Core
 
@@ -36,6 +36,8 @@ Przykład będziemy używać tutaj, gdy jest to [aplikacja MVC](/aspnet/core/tut
 - Prawidłowy klucz Instrumentacji Application Insights. Ten klucz jest wymagany do wysyłania wszelkich danych telemetrycznych do Application Insights. Jeśli musisz utworzyć nowy zasób Application Insights, aby uzyskać klucz instrumentacji, zobacz [Tworzenie zasobu Application Insights](./create-new-resource.md).
 
 ## <a name="enable-application-insights-server-side-telemetry-visual-studio"></a>Włączanie telemetrii po stronie serwera Application Insights (Visual Studio)
+
+Aby uzyskać Visual Studio dla komputerów Mac, użyj [wskazówek ręcznych](#enable-application-insights-server-side-telemetry-no-visual-studio). Ta procedura jest obsługiwana tylko dla systemu Windows w wersji Visual Studio.
 
 1. Otwórz projekt w programie Visual Studio.
 

@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą LCVista | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i LCVista.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 8db80d6e-3275-419f-aa39-6115a7bc9800
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86e1c0487a33d8ca90cc8bf43ec53e2707a4d027
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 049381e037d4c6951f23860b64bbcc17356e592f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73159614"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88519567"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>Samouczek: integracja Azure Active Directory z usługą LCVista
 
@@ -33,7 +28,7 @@ Integracja LCVista z usługą Azure AD zapewnia następujące korzyści:
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -141,13 +136,13 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą LCVista, wy
 
     c. Otwórz plik XML metadanych, który został pobrany z Azure Portal do Notatnika, skopiuj wartość **x509** i wklej go w sekcji **certyfikatu x509** .
 
-    d. W polu tekstowym **Nazwa** pola, wklej wartość `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    d. W polu tekstowym **Nazwa** pola, wklej wartość `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` .
 
-    e. W polu tekstowym nazwisko **atrybutu** wklej wartość `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    e. W polu tekstowym nazwisko **atrybutu** wklej wartość `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` .
 
-    f. W polu tekstowym **atrybut wiadomości e-mail** wklej wartość `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    f. W polu tekstowym **atrybut wiadomości e-mail** wklej wartość `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` .
 
-    g. W polu tekstowym **Nazwa użytkownika** wklej wartość `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    przykład W polu tekstowym **Nazwa użytkownika** wklej wartość `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` .
 
     e. Kliknij polecenie **Zapisz**, aby zapisać ustawienia.
 
@@ -169,8 +164,8 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
-    Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -204,7 +199,7 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 ### <a name="create-lcvista-test-user"></a>Utwórz użytkownika testowego LCVista
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w LCVista. Współpracuj z  [zespołem obsługi klienta LCVista](https://lcvista.com/contact), aby dodać użytkowników z platformy LCVista. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w LCVista. Współpracuj z [zespołem obsługi klienta LCVista](https://lcvista.com/contact),   Aby dodać użytkowników z platformy LCVista. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 
@@ -218,4 +213,4 @@ Po kliknięciu kafelka LCVista w panelu dostępu należy automatycznie zalogowa�
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

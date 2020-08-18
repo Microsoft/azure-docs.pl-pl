@@ -2,25 +2,20 @@
 title: 'Samouczek: Konfigurowanie miejsca pracy przez serwis Facebook w celu automatycznego aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Workplace by Facebook.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.assetid: 6341e67e-8ce6-42dc-a4ea-7295904a53ef
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e014ddda212689b00d646e861025d6a4fef1898b
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: ea5a7a0cd89b9aad78ce789517aa8f75767955d8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920595"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88526403"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie miejsca pracy przez serwis Facebook w celu automatycznego aprowizacji użytkowników
 
@@ -110,28 +105,28 @@ Usługa Azure AD Provisioning umożliwia określenie zakresu użytkowników, kt�
 
    |Atrybut|Typ|
    |---|---|
-   |userName|Ciąg|
-   |displayName|Ciąg|
-   |aktywne|Wartość logiczna|
-   |tytuł|Wartość logiczna|
-   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
-   |Nazwa. imię|Ciąg|
-   |Nazwa. rodzina|Ciąg|
-   |Nazwa. sformatowana|Ciąg|
-   |adresy [typ EQ "Work"]. sformatowane|Ciąg|
-   |adresy [typ EQ "Work"]. streetAddress|Ciąg|
-   |adresy [typ EQ "Work"]. locale|Ciąg|
-   |addresss [Type EQ "Work"]. region|Ciąg|
-   |addresss [Type EQ "Work"]. Country|Ciąg|
-   |addresss [Type EQ "Work"]. KodPocztowy|Ciąg|
-   |adresy [Type EQ "Other"]. sformatowane|Ciąg|
-   |numer telefonu [typ EQ "Work"]. wartość|Ciąg|
-   |numer telefonu [typ EQ "Mobile"]. Value|Ciąg|
-   |numer telefonu [typ EQ "Fax"]. wartość|Ciąg|
-   |externalId|Ciąg|
-   |preferredLanguage|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
+   |userName|String|
+   |displayName|String|
+   |aktywne|Boolean|
+   |tytuł|Boolean|
+   |wiadomości e-mail [Type EQ "Work"]. Value|String|
+   |Nazwa. imię|String|
+   |Nazwa. rodzina|String|
+   |Nazwa. sformatowana|String|
+   |adresy [typ EQ "Work"]. sformatowane|String|
+   |adresy [typ EQ "Work"]. streetAddress|String|
+   |adresy [typ EQ "Work"]. locale|String|
+   |addresss [Type EQ "Work"]. region|String|
+   |addresss [Type EQ "Work"]. Country|String|
+   |addresss [Type EQ "Work"]. KodPocztowy|String|
+   |adresy [Type EQ "Other"]. sformatowane|String|
+   |numer telefonu [typ EQ "Work"]. wartość|String|
+   |numer telefonu [typ EQ "Mobile"]. Value|String|
+   |numer telefonu [typ EQ "Fax"]. wartość|String|
+   |externalId|String|
+   |preferredLanguage|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
 
 10. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

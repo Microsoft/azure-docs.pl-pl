@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: 4f14a5cf21a372c66378521fd293b7569b181653
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: dc17c25a84c3d0af39bfa7a8902bdc1d93f201e8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808664"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88518326"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalowanie i uruchamianie kontenerów usługi mowy (wersja zapoznawcza)
 
-Kontenery umożliwiają uruchamianie niektórych interfejsów API usługi mowy w Twoim środowisku. Kontenery doskonale nadaje się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi. W tym artykule dowiesz się, jak pobrać, zainstalować i uruchomić kontener mowy.
+Kontenery umożliwiają uruchamianie niektórych interfejsów API usługi Mowa we własnym środowisku. Kontenery doskonale nadają się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi. W tym artykule dowiesz się, jak pobrać, zainstalować i uruchomić kontener usługi Mowa.
 
-Kontenery mowy umożliwiają klientom tworzenie architektury aplikacji mowy, która jest zoptymalizowana pod kątem niezawodnych możliwości chmury i lokalizacji brzegowej. Dostępne są cztery różne kontenery. Dwa standardowe kontenery to **Zamiana mowy na tekst** i zamiana **tekstu na mowę**. Dwa kontenery niestandardowe są **Custom Speech do tekstu** i **niestandardowego tekstu na mowę**. Kontenery mowy mają takie same [ceny](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) jak usługi Azure Speech Services oparte na chmurze.
+Kontenery usługi Mowa umożliwiają klientom tworzenie architektury aplikacji mowy, która jest zoptymalizowana pod kątem zarówno niezawodnych funkcji chmury, jak i lokalnego charakteru urządzeń brzegowych. Dostępne są cztery różne kontenery. Dwa standardowe kontenery to **Zamiana mowy na tekst** i zamiana **tekstu na mowę**. Dwa kontenery niestandardowe są **Custom Speech do tekstu** i **niestandardowego tekstu na mowę**. Kontenery mowy mają takie same [ceny](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) jak usługi Azure Speech Services oparte na chmurze.
 
 > [!IMPORTANT]
 > Wszystkie kontenery mowy są obecnie oferowane w ramach [publicznej wersji zapoznawczej "Gated"](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services). Ogłoszenie zostanie wykonane, gdy kontenery mowy postępują z ogólnie dostępnymi wersjami.
@@ -33,7 +33,7 @@ Kontenery mowy umożliwiają klientom tworzenie architektury aplikacji mowy, kt�
 | Zamiana tekstu na mowę | Konwertuje tekst na mowę dźwiękową przy użyciu zwykłego tekstu lub języka SSML (Speech Syntezing Language). | 1.5.0 |
 | Niestandardowa Zamiana tekstu na mowę | Przy użyciu modelu niestandardowego z [niestandardowego portalu głosowego](https://aka.ms/custom-voice-portal)program konwertuje tekst na mowę dźwiękową przy użyciu zwykłego tekstu lub języka SSML (Speech syntezing Language). | 1.5.0 |
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -107,7 +107,7 @@ Rdzeń i pamięć odpowiadają `--cpus` `--memory` ustawieniom i, które są uż
 > [!NOTE]
 > Minimalne i zalecane są oparte na limitach platformy Docker, a *nie* na zasobach maszyn hosta. Na przykład kontenera zamiany mowy na tekst mapują fragmenty modelu dużego języka i *zaleca* się, aby cały plik mieścił się w pamięci, czyli dodatkowej 4-6 GB. Ponadto pierwsze uruchomienie jednego kontenera może trwać dłużej, ponieważ modele są stronicowane w pamięci.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Pobierz obraz kontenera za pomocą`docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>Pobierz obraz kontenera za pomocą `docker pull`
 
 Obrazy kontenerów dla mowy są dostępne w następujących Container Registry.
 
@@ -237,7 +237,7 @@ Gdy kontener znajduje się na [komputerze hosta](#the-host-computer), użyj nast
 1. [Uruchom kontener](#run-the-container-with-docker-run)z wymaganymi ustawieniami rozliczania. Więcej [przykładów](speech-container-configuration.md#example-docker-run-commands) `docker run` polecenia jest dostępnych.
 1. [Zbadaj punkt końcowy przewidywania kontenera](#query-the-containers-prediction-endpoint).
 
-## <a name="run-the-container-with-docker-run"></a>Uruchom kontener za pomocą`docker run`
+## <a name="run-the-container-with-docker-run"></a>Uruchom kontener za pomocą `docker run`
 
 Użyj polecenia [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) , aby uruchomić kontener. Zapoznaj się z tematem [zbieranie wymaganych parametrów](#gathering-required-parameters) , aby uzyskać szczegółowe informacje na temat sposobu pobierania `{Endpoint_URI}` `{API_Key}` wartości i. Dodatkowe [przykłady](speech-container-configuration.md#example-docker-run-commands) `docker run` polecenia są również dostępne.
 
@@ -441,7 +441,7 @@ speech_config.set_service_property(
 )
 ```
 
-`Simple.Extensions`zwróci wynik tonacji w warstwie głównej odpowiedzi.
+`Simple.Extensions` zwróci wynik tonacji w warstwie głównej odpowiedzi.
 
 ```json
 {
@@ -480,7 +480,7 @@ speech_config.set_service_property(
 )
 ```
 
-`Detailed.Extensions`dostarcza wynik tonacji w warstwie głównej odpowiedzi. `Detailed.Options`zapewnia wynik w `NBest` warstwie odpowiedzi. Mogą być używane osobno lub razem.
+`Detailed.Extensions` dostarcza wynik tonacji w warstwie głównej odpowiedzi. `Detailed.Options` zapewnia wynik w `NBest` warstwie odpowiedzi. Mogą być używane osobno lub razem.
 
 ```json
 {

@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z kontrolką Workspot | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne dla Azure Active Directory i formantu Workspot.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 3ea8e4e9-f61f-4f45-b635-b0e306eda3d1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 086ec95531b01477be56d4b1a19d189f167a020f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bfbecc71638e6feaaf29809f09dda752dd29b2ae
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67086680"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88526589"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Samouczek: integracja Azure Active Directory z kontrolką Workspot
 
@@ -107,17 +103,17 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą kontrolki W
     ![Informacje o rejestracji jednokrotnej w domenie i adresach URL Workspot](common/idp-intiated.png)
 
     1. W polu tekstowym **Identyfikator** wprowadź adres URL w następującym wzorcu:<br/>
-    ***https://<<i> </i>InstanceName>-SAML.Workspot.com/SAML/Metadata***
+    ***https://<<i></i> INSTANCENAME>-SAML.Workspot.com/SAML/Metadata***
 
     1. W polu tekstowym **adres URL odpowiedzi** wprowadź adres URL w następującym wzorcu:<br/>
-    ***https://<<i> </i>InstanceName>-SAML.Workspot.com/SAML/Assertion***
+    ***https://<<i></i> INSTANCENAME>-SAML.Workspot.com/SAML/Assertion***
 
 5. Jeśli chcesz skonfigurować aplikację w trybie zainicjowanym przez program SP, wybierz opcję **Ustaw dodatkowe adresy URL**.
 
     ![Informacje o rejestracji jednokrotnej w domenie i adresach URL Workspot](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **adres URL logowania** wprowadź adres URL w następującym wzorcu:<br/>
-    ***https://<<i> </i>InstanceName>-SAML.Workspot.com/***
+    ***https://<<i></i> INSTANCENAME>-SAML.Workspot.com/***
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zastąp te wartości rzeczywistym identyfikatorem, adresem URL odpowiedzi i adresem URL logowania. Aby uzyskać te wartości, skontaktuj się z [zespołem pomocy technicznej Workspot Control Client](mailto:support@workspot.com) . Można również odwołać się do wzorców w sekcji podstawowe informacje o **konfiguracji SAML** Azure Portal.
@@ -176,11 +172,11 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal.
 
     1. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    1. W polu **Nazwa użytkownika** wpisz **brittasimon@* yourcompanydomain. Extension * * *. Na przykład wprowadź ** BrittaSimon@contoso.<i> </i> Model com**.
+    1. W polu **Nazwa użytkownika** wpisz **brittasimon@* yourcompanydomain. Extension * * *. Na przykład wprowadź ** BrittaSimon@contoso . <i></i> Model com**.
 
     1. Zaznacz pole wyboru **Pokaż hasło** . Następnie Zapisz wartość wyświetlaną w polu **hasło** .
 
-    1. Wybierz przycisk **Utwórz**.
+    1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -228,7 +224,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do kontrolki Works
 
     1. W polu tekstowym **nazwisko** Wprowadź nazwisko użytkownika, na przykład **Simon**.
 
-    1. W polu **adres e-mail** wprowadź adres e-mail użytkownika, na przykład ** Brittasimon@contoso.<i> </i> Model com**.
+    1. W polu **adres e-mail** wprowadź adres e-mail użytkownika, na przykład ** Brittasimon@contoso . <i></i> Model com**.
 
     1. Wybierz odpowiednią rolę użytkownika z listy rozwijanej **rola** .
 
@@ -242,10 +238,10 @@ W tej sekcji testuje konfigurację logowania jednokrotnego usługi Azure AD za p
 
 Po kliknięciu kafelka **Workspot** w panelu dostępu należy automatycznie zalogować się do formantu Workspot, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji, zobacz [Wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
 
 - [Single sign-on to applications in Azure Active Directory (Logowanie jednokrotne do aplikacji w usłudze Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

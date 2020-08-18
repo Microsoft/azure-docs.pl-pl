@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d2deb59b5a10177b1a6e57046c013ec9dac0fb06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5056f453580ef3e4549a0d8ee5b59e893d8c56bf
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010805"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88522295"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault rozszerzenie maszyny wirtualnej dla systemu Linux
 
@@ -73,16 +73,16 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
 > 
 > Wynika to z faktu, że `/secrets` ścieżka zwraca pełny certyfikat, w tym klucz prywatny, podczas gdy `/certificates` ścieżka nie jest. Więcej informacji o certyfikatach można znaleźć tutaj: [Key Vault Certificates](../../key-vault/general/about-keys-secrets-certificates.md)
 
-> [!NOTE]
-> Właściwość "authenticationSettings" jest opcjonalna w scenariuszach, gdy maszyna wirtualna ma wiele przypisanych tożsamości.
-> Umożliwia specifing tożsamość do uwierzytelniania w celu Key Vault.
+> [!IMPORTANT]
+> Właściwość "authenticationSettings" jest **wymagana** tylko w przypadku maszyn wirtualnych z **tożsamościami przypisanymi przez użytkownika**.
+> Określa tożsamość do użycia podczas uwierzytelniania do Key Vault.
 
 
 ### <a name="property-values"></a>Wartości właściwości
 
 | Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | data |
+| apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | ciąg |
 | typ | KeyVaultForLinux | ciąg |
 | typeHandlerVersion | 1.0 | int |
@@ -209,7 +209,7 @@ Należy pamiętać o następujących ograniczeniach/wymaganiach:
 
 ## <a name="troubleshoot-and-support"></a>Rozwiązywanie problemów i pomoc techniczna
 
-### <a name="troubleshoot"></a>Rozwiąż problemy
+### <a name="troubleshoot"></a>Rozwiązywanie problemów
 
 Dane dotyczące stanu wdrożeń rozszerzeń można pobrać z Azure Portal i przy użyciu Azure PowerShell. Aby wyświetlić stan wdrożenia dla danej maszyny wirtualnej, uruchom następujące polecenie przy użyciu Azure PowerShell.
 

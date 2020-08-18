@@ -2,25 +2,21 @@
 title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą SiteIntel | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i SiteIntel.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: c987f101-8746-467e-ad12-75cf2920af2b
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/02/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45b3f6bbda9923b7f4f19dda505e799cb8b102ca
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.openlocfilehash: f681dd2931300ec00fd6388b4636015c87f38170
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84424333"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88525098"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-siteintel"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą SiteIntel
 
@@ -87,15 +83,15 @@ Aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal, wykonaj na
 
 1. Aby skonfigurować aplikację w trybie inicjowanym przez dostawcy tożsamości, w sekcji **Podstawowa konfiguracja języka SAML** wykonaj następujące czynności:
 
-    a. W polu **Identyfikator** wpisz adres URL w następującym formacie:`urn:amazon:cognito:sp:<REGION>_<USERPOOLID>`
+    a. W polu **Identyfikator** wpisz adres URL w następującym formacie: `urn:amazon:cognito:sp:<REGION>_<USERPOOLID>`
 
-    b. W polu **adres URL odpowiedzi** wpisz adres URL w następującym formacie:`https://<CLIENT>.auth.siteintel.com/saml2/idpresponse`
+    b. W polu **adres URL odpowiedzi** wpisz adres URL w następującym formacie: `https://<CLIENT>.auth.siteintel.com/saml2/idpresponse`
 
-    c. W polu **Stan przekazywania** wpisz adres URL w następującym formacie:`https://<CLIENT>.siteintel.com`
+    c. W polu **Stan przekazywania** wpisz adres URL w następującym formacie: `https://<CLIENT>.siteintel.com`
 
 1. Aby skonfigurować aplikację w trybie inicjowania programu SP, wybierz opcję **Ustaw dodatkowe adresy URL**, a następnie wykonaj następujące czynności:
 
-   * W polu **adres URL logowania** wpisz adres URL w następującym formacie:`https://<CLIENT>.siteintel.com`
+   * W polu **adres URL logowania** wpisz adres URL w następującym formacie: `https://<CLIENT>.siteintel.com`
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zaktualizuj je za pomocą rzeczywistego identyfikatora, adresu URL odpowiedzi, adresu URL logowania i stanu przekazywania. Aby uzyskać te wartości, skontaktuj się z [zespołem pomocy technicznej SiteIntel Client](mailto:support@intalytics.com). Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -154,9 +150,9 @@ Po wybraniu kafelka **SiteIntel** w panelu dostępu należy automatycznie zalogo
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [Wypróbuj SiteIntel z usługą Azure AD](https://aad.portal.azure.com/)
 - [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 - [Jak chronić SiteIntel z zaawansowaną widocznością i kontrolkami](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

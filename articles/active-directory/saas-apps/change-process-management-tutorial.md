@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja SSO usługi Azure AD z zarządzaniem zmianami procesów'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i zmieniać zarządzanie procesami.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: d1215e3d-44f6-477d-9d94-bec0c9ebdbb0
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/07/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f803fda1d1709e60db078f7b729d7588aa725fd
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 501f19b2022d221ad6facd66c483790b13491ba0
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456831"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88529682"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-change-process-management"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu zarządzania procesem zmiany
 
@@ -83,9 +79,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wykonaj następujące czynności:
 
-    a. W polu **Identyfikator** wprowadź adres URL w następującym wzorcu:`https://<hostname>:8443/`
+    a. W polu **Identyfikator** wprowadź adres URL w następującym wzorcu: `https://<hostname>:8443/`
 
-    b. W polu **adres URL odpowiedzi** wprowadź adres URL w następującym wzorcu:`https://<hostname>:8443/changepilot/saml/sso`
+    b. W polu **adres URL odpowiedzi** wprowadź adres URL w następującym wzorcu: `https://<hostname>:8443/changepilot/saml/sso`
 
     > [!NOTE]
     > Poprzedni **Identyfikator** i wartości **adresu URL odpowiedzi** nie są rzeczywistymi wartościami, których należy użyć. Aby uzyskać rzeczywiste wartości, skontaktuj się z [zespołem pomocy technicznej ds. zarządzania procesem zmiany](mailto:support@realtech-us.com) . Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -108,7 +104,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
    1. W polu **Nazwa** wprowadź wartość **B. Simon**.  
    1. W polu **Nazwa użytkownika** wprowadź \<username> @ \<companydomain> . \<extension> . Na przykład `B.Simon@contoso.com`.
    1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość wyświetlaną w polu **hasło** .
-   1. Wybierz przycisk **Utwórz**.
+   1. Wybierz pozycję **Utwórz**.
 
 ### <a name="grant-access-to-the-test-user"></a>Udzielanie dostępu użytkownikowi testowemu
 

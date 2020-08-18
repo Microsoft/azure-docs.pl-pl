@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 06/04/2020
+ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 15e1b52bfa79063cd5d7801a1aaaebc726309a16
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 55cbf0a304bbf13d47fefad0981c0143c101bbb0
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507131"
+ms.locfileid: "88520774"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Szybki Start: Tworzenie, pobieranie i wyświetlanie listy obiektów BLOB za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -78,7 +78,7 @@ az storage account create \
 
 ## <a name="create-a-container"></a>Tworzenie kontenera
 
-Obiekty blob są zawsze przesyłane do kontenera. Grupy obiektów BLOB można organizować w kontenerach podobnie jak w przypadku organizowania plików na komputerze w folderach. Do tworzenia kontenera do przechowywania obiektów blob służy polecenie [az storage container create](/cli/azure/storage/container). 
+Obiekty blob są zawsze przesyłane do kontenera. Grupy obiektów BLOB można organizować w kontenerach podobnie jak w przypadku organizowania plików na komputerze w folderach. Do tworzenia kontenera do przechowywania obiektów blob służy polecenie [az storage container create](/cli/azure/storage/container).
 
 W poniższym przykładzie używane jest konto usługi Azure AD do autoryzacji operacji tworzenia kontenera. Przed utworzeniem kontenera Przypisz do siebie rolę [współautor danych obiektu blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) . Nawet jeśli jesteś właścicielem konta, potrzebujesz jawnych uprawnień do wykonywania operacji na danych na koncie magazynu. Aby uzyskać więcej informacji o przypisywaniu ról platformy Azure, zobacz [Używanie interfejsu wiersza polecenia platformy Azure do przypisywania roli platformy Azure na potrzeby dostępu](../common/storage-auth-aad-rbac-cli.md?toc=/azure/storage/blobs/toc.json).  
 
@@ -89,21 +89,17 @@ az ad signed-in-user show --query objectId -o tsv | az role assignment create \
     --role "Storage Blob Data Contributor" \
     --assignee @- \
     --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
+
+az storage container create \
+    --account-name <storage-account> \
+    --name <container> \
+    --auth-mode login
 ```
 
 > [!IMPORTANT]
 > Propagowanie przypisań ról platformy Azure może potrwać kilka minut.
 
 Możesz również użyć klucza konta magazynu do autoryzacji operacji do utworzenia kontenera. Aby uzyskać więcej informacji na temat autoryzacji operacji na danych za pomocą interfejsu wiersza polecenia platformy Azure, zobacz temat [Autoryzuj dostęp do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure](../common/authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
-
-Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach ostrych własnymi wartościami:
-
-```azurecli
-az storage container create \
-    --account-name <storage-account> \
-    --name <container> \
-    --auth-mode login
-```
 
 ## <a name="upload-a-blob"></a>Przekazywanie obiektu blob
 

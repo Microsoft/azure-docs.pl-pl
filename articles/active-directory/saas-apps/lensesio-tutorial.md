@@ -2,25 +2,21 @@
 title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Lenses.io | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Lenses.io.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 2a0d4a7c-a171-48c6-b1c1-f2bd728fb37f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2b630111261be8e3615ab45e95633040e799551
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0b8d736ab169ad07bd23a21d3a420bb6a044bf01
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050994"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88528645"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-the-lensesio-dataops-portal"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z portalem Lenses.io DataOps.
 
@@ -85,12 +81,12 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: na `https://<CUSTOMER_LENSES_BASE_URL>` przykład.`https://lenses.my.company.com`
+    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: na `https://<CUSTOMER_LENSES_BASE_URL>` przykład. `https://lenses.my.company.com`
 
-    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: na `https://<CUSTOMER_LENSES_BASE_URL>` przykład.`https://lenses.my.company.com`
+    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: na `https://<CUSTOMER_LENSES_BASE_URL>` przykład. `https://lenses.my.company.com`
 
     c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<CUSTOMER_LENSES_BASE_URL>/api/v2/auth/saml/callback?client_name=SAML2Client`
-    tj.`https://lenses.my.company.com/api/v2/auth/saml/callback?client_name=SAML2Client`
+    tj. `https://lenses.my.company.com/api/v2/auth/saml/callback?client_name=SAML2Client`
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zaktualizuj te wartości z rzeczywistym adresem URL logowania, adresem URL i identyfikatorem odpowiedzi na podstawie podstawowego adresu URL wystąpienia portalu soczewek. Więcej informacji można znaleźć w [dokumentacji rejestracji jednokrotnej lenses.IO](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0).
@@ -112,15 +108,15 @@ Aby dowiedzieć się, jak soczewki używa mapowania członkostwa w grupie na pot
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 Aby utworzyć grupę:
 1. Wróć do **Azure Active Directory**, wybierz **grupy**
 1. Wybierz pozycję **Nowa grupa** w górnej części ekranu.
 1. We **właściwościach grupy**wykonaj następujące kroki:
    1. W polu **Typ grupy** wybierz opcję `Security` .
-   1. W polu **Nazwa grupy** wpisz`LensesUsers`
-   1. Kliknij pozycję **Utwórz**.
+   1. W polu **Nazwa grupy** wpisz `LensesUsers`
+   1. Kliknij przycisk **Utwórz**.
 1. Wybierz grupę `LensesUsers` i zanotuj **Identyfikator obiektu** (np. `f8b5c1ec-45de-4abd-af5c-e874091fb5f7` ). Ten identyfikator będzie używany w Soczewkiach w celu zamapowania użytkowników tej grupy na odpowiednie [uprawnienia](https://docs.lenses.io/install_setup/configuration/security.html#id3).  
    
 Aby przypisać grupę do użytkownika testowego: 
@@ -165,11 +161,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Lenses.io w panelu dostępu należy automatycznie zalogować się do portalu usługi Lenses.io, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Konfigurowanie logowania jednokrotnego w wystąpieniu programu Lenses.io](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0)
+- [ Konfigurowanie logowania jednokrotnego w wystąpieniu programu Lenses.io ](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0)
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

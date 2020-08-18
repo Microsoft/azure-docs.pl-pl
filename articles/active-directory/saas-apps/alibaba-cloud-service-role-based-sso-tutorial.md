@@ -2,26 +2,21 @@
 title: 'Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z usługą Alibaba w chmurze (Logowanie jednokrotne oparte na rolach) | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między usługami Azure Active Directory i Alibaba w chmurze (Logowanie jednokrotne oparte na rolach).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 3667841e-acfc-4490-acf5-80d9ca3e71e8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/13/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e22bec224d185d0306f2b0032aef929f627c910e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0e9ccb3f4308a1a75a715a16ab4c1a2887b0a915
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77367923"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88522086"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alibaba-cloud-service-role-based-sso"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z usługą Alibaba w chmurze (Logowanie jednokrotne oparte na rolach)
 
@@ -117,7 +112,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -154,11 +149,11 @@ W tej sekcji włączysz usługę B. Simon do korzystania z logowania jednokrotne
 
 3. Na karcie **Logowanie jednokrotne oparte na rolach** kliknij pozycję **Utwórz dostawcy tożsamości**.
 
-4. `AAD` Na wyświetlonej stronie Wprowadź tekst w polu Nazwa dostawcy tożsamości, wprowadź opis w polu **notatka** , kliknij przycisk **Przekaż** , aby załadować pobrany wcześniej plik metadanych Federacji, a następnie kliknij przycisk **OK**.
+4. Na wyświetlonej stronie Wprowadź tekst `AAD` w polu Nazwa dostawcy tożsamości, wprowadź opis w polu **notatka** , kliknij przycisk **Przekaż** , aby załadować pobrany wcześniej plik metadanych Federacji, a następnie kliknij przycisk **OK**.
 
 5. Po pomyślnym utworzeniu dostawcy tożsamości kliknij pozycję **Utwórz rolę pamięci RAM**.
 
-6. W polu **Nazwa roli pamięci RAM** wprowadź `AADrole`wybierz `AAD` z listy rozwijanej **Wybierz dostawcy tożsamości** , a następnie kliknij przycisk OK.
+6. W polu **Nazwa roli pamięci RAM** wprowadź `AADrole` Wybierz `AAD` z listy rozwijanej **Wybierz dostawcy tożsamości** , a następnie kliknij przycisk OK.
 
     >[!NOTE]
     >W razie potrzeby można udzielić uprawnienia do roli. Po utworzeniu dostawcy tożsamości i odpowiedniej roli zalecamy zapisanie ARNs dostawcy tożsamości i roli do późniejszego użycia. ARNs można uzyskać na stronie informacje o dostawcy tożsamości i stronie informacje o rolach.
@@ -183,14 +178,14 @@ W tej sekcji włączysz usługę B. Simon do korzystania z logowania jednokrotne
     ![Konfiguracja grafu](./media/alibaba-cloud-service-role-based-sso-tutorial/graph03.png)
 
     >[!NOTE]
-    >Jeśli używasz wielu katalogów, możesz wprowadzić `https://graph.microsoft.com/beta/contoso.com/servicePrincipals` wartość w polu zapytania.
+    >Jeśli używasz wielu katalogów, możesz wprowadzić wartość `https://graph.microsoft.com/beta/contoso.com/servicePrincipals` w polu zapytania.
 
     e. W sekcji " **Podgląd odpowiedzi** " Wyodrębnij Właściwość appRoles z "jednostki usługi" do późniejszego użycia.
 
     ![Konfiguracja grafu](./media/alibaba-cloud-service-role-based-sso-tutorial/graph05.png)
 
     >[!NOTE]
-    >Właściwość appRoles można zlokalizować, wprowadzając `https://graph.microsoft.com/beta/servicePrincipals/<objectID>` w polu zapytania. Należy zauważyć, `objectID` że jest to identyfikator obiektu skopiowanego ze strony **Właściwości** usługi Azure AD.
+    >Właściwość appRoles można zlokalizować, wprowadzając `https://graph.microsoft.com/beta/servicePrincipals/<objectID>` w polu zapytania. Należy zauważyć, że `objectID` jest to identyfikator obiektu skopiowanego ze strony **Właściwości** usługi Azure AD.
 
     f. Wróć do Eksploratora grafów, Zmień metodę z **Get** na **patch**, wklej poniższą zawartość do sekcji **treść żądania** , a następnie kliknij pozycję **Uruchom zapytanie**:
     ```
@@ -221,9 +216,9 @@ W tej sekcji włączysz usługę B. Simon do korzystania z logowania jednokrotne
     }
     ```
     > [!NOTE]
-    > `value` Jest to ARNs dostawcy tożsamości i roli utworzonej w konsoli pamięci RAM. W tym miejscu możesz dodać wiele ról, jeśli jest to konieczne. Usługa Azure AD wyśle wartość tych ról jako wartość żądania w odpowiedzi SAML. Można jednak dodawać tylko nowe role po `msiam_access` części dla operacji patch. Aby wygładzić proces tworzenia, zalecamy używanie generatora identyfikatorów, takiego jak Generator identyfikatorów GUID, do generowania identyfikatorów w czasie rzeczywistym.
+    > `value`Jest to ARNs dostawcy tożsamości i roli utworzonej w konsoli pamięci RAM. W tym miejscu możesz dodać wiele ról, jeśli jest to konieczne. Usługa Azure AD wyśle wartość tych ról jako wartość żądania w odpowiedzi SAML. Można jednak dodawać tylko nowe role po `msiam_access` części dla operacji patch. Aby wygładzić proces tworzenia, zalecamy używanie generatora identyfikatorów, takiego jak Generator identyfikatorów GUID, do generowania identyfikatorów w czasie rzeczywistym.
 
-    g. Po zastosowaniu poprawki do jednostki usługi przy użyciu wymaganej roli należy dołączyć rolę do użytkownika usługi Azure AD (U2), wykonując kroki **przypisywania użytkownika testowego usługi Azure AD** w samouczku.
+    przykład Po zastosowaniu poprawki do jednostki usługi przy użyciu wymaganej roli należy dołączyć rolę do użytkownika usługi Azure AD (U2), wykonując kroki **przypisywania użytkownika testowego usługi Azure AD** w samouczku.
 
 ### <a name="configure-alibaba-cloud-service-role-based-sso-sso"></a>Konfigurowanie usługi w chmurze Alibaba (Logowanie jednokrotne oparte na rolach)
 
@@ -253,13 +248,13 @@ Po ukończeniu powyższych konfiguracji Przetestuj usługę Alibaba w chmurze (L
 
     ![Konfiguracja testu](./media/alibaba-cloud-service-role-based-sso-tutorial/test06.png)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj usługę Alibaba w chmurze (Logowanie jednokrotne oparte na rolach) w usłudze Azure AD](https://aad.portal.azure.com/)
 

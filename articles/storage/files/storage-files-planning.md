@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2e8a2030acd4297ab3032e8f1e3bde5b6df66659
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.custom: references_regions
+ms.openlocfilehash: aab06b4870efd88893b4a14c1127de7ffcd2ba68
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037171"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520531"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planowanie wdrażania usługi Pliki Azure
 [Azure Files](storage-files-introduction.md) można wdrożyć na dwa sposoby: przez bezpośrednie zainstalowanie udziałów plików platformy Azure bezserwerowych lub buforowanie udziałów plików platformy Azure lokalnie przy użyciu Azure File Sync. Wybór opcji wdrożenia powoduje zmianę warunków, które należy wziąć pod uwagę podczas planowania wdrożenia. 
@@ -103,7 +104,7 @@ Aby uzyskać więcej informacji, zobacz [Advanced Threat Protection for Azure St
 ## <a name="storage-tiers"></a>Warstwy magazynowania
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
-Ogólnie rzecz biorąc, funkcje Azure Files i współdziałanie z innymi usługami są takie same między udziałami plików w warstwie Premium a standardowymi udziałami plików, jednak istnieje kilka istotnych różnic:
+Ogólnie rzecz biorąc, funkcje Azure Files i współdziałanie z innymi usługami są takie same między udziałami plików w warstwie Premium a standardowymi udziałami plików (w tym optymalizacjami transakcji, gorącą i chłodnymi udziałami plików), jednak istnieje kilka istotnych różnic:
 - **Model rozliczania**
     - Udziały plików w warstwie Premium są rozliczane przy użyciu modelu rozliczania z zainicjowaną obsługą, co oznacza, że płacisz za ilość miejsca w magazynie, które ma zostać zainicjowane. 
     - Standardowe udziały plików są rozliczane przy użyciu modelu płatności zgodnie z rzeczywistym użyciem, który obejmuje podstawowy koszt magazynu, w którym faktycznie zużywa się magazyn, a następnie dodatkowy koszt transakcji na podstawie sposobu korzystania z udziału. W przypadku standardowych udziałów plików rachunek zostanie zwiększony w przypadku użycia (odczytu/zapisu/instalacji) udziału plików platformy Azure.

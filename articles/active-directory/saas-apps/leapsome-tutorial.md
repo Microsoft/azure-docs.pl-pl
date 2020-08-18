@@ -2,26 +2,21 @@
 title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Leapsome | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Leapsome.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: cb523e97-add8-4289-b106-927bf1a02188
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef28b95e779e2b814b0ae91059c3edd12644d7c9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c58c9febcbd8c1007938b16545337f07f1a0da63
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75430939"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88519159"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-leapsome"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Leapsome
 
@@ -82,7 +77,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL:`https://www.leapsome.com`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL: `https://www.leapsome.com`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://www.leapsome.com/api/users/auth/saml/<CLIENTID>/assert`
 
@@ -95,7 +90,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Aplikacja Leapsome oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
-    ![image](common/default-attributes.png)
+    ![image (obraz)](common/default-attributes.png)
 
 1. Oprócz powyższych, aplikacja Leapsome oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je sprawdzić zgodnie z wymaganiami.
 
@@ -103,7 +98,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | ---------------| --------------- | --------- |  
     | firstname | user.givenname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | lastname | user.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | title | user.jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | tytuł | user.jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | obraz | Adres URL zdjęcia pracownika | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
@@ -126,7 +121,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -164,7 +159,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     b. Skopiuj **adres URL logowania (wskaż użytkowników tutaj, aby rozpocząć logowanie)** i wklej go do pola tekstowego **adres URL logowania** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
-    c. Skopiuj **adres URL odpowiedzi (odbiera odpowiedź od dostawcy tożsamości)** i wklej go do pola tekstowego **adres URL odpowiedzi** w sekcji **Podstawowa konfiguracja SAML** na Azure Portal.
+    c. Skopiuj **adres URL odpowiedzi (odbiera odpowiedź od dostawcy tożsamości)** i wklej go do pola tekstowego **adres URL odpowiedzi** w sekcji  **Podstawowa konfiguracja SAML** na Azure Portal.
 
     d. W polu tekstowym **adres URL logowania jednokrotnego (dostarczony przez dostawcę tożsamości)** wklej wartość **adresu URL logowania**, która została skopiowana z Azure Portal.
 
@@ -182,12 +177,12 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Leapsome w panelu dostępu należy automatycznie zalogować się do Leapsome, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj Leapsome z usługą Azure AD](https://aad.portal.azure.com/)

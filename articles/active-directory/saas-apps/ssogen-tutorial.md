@@ -2,25 +2,21 @@
 title: 'Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO, Single Sign-on) z usługą SSOGEN — Azure AD SSO Gateway for Oracle Web-Business Suite-EBS, PeopleSoft i JDE | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i SSOGEN — Brama rejestracji jednokrotnej usługi Azure AD dla Oracle E-Business Suite — EBS, PeopleSoft i JDE.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: f4311031-5a4b-468e-be58-324d06220869
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74b56e30eb8851913f91cbee377204a575311375
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 72b91be9875abf07e5f6f828ed32483a5d61eadd
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76293678"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88524439"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ssogen---azure-ad-sso-gateway-for-oracle-e-business-suite---ebs-peoplesoft-and-jde"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO, Single Sign-on) z usługą SSOGEN — Brama rejestracji jednokrotnej w usłudze Azure AD dla Oracle E-Business Suite — EBS, PeopleSoft i JDE
 
@@ -85,7 +81,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
 
-    W polu tekstowym **adres URL odpowiedzi** wpisz adres URL, używając następującego wzorca:`https://<customer_name>.ssogen.com/ssogen/login?client_name=<customer_name>`
+    W polu tekstowym **adres URL odpowiedzi** wpisz adres URL, używając następującego wzorca:  `https://<customer_name>.ssogen.com/ssogen/login?client_name=<customer_name>`
 
 1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
@@ -96,7 +92,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. SSOGEN — Brama rejestracji jednokrotnej usługi Azure AD dla aplikacji Oracle E-Business Suite — EBS, PeopleSoft i JDE oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Na poniższym zrzucie ekranu przedstawiono listę atrybutów domyślnych, gdzie atrybut **nameidentifier** jest mapowany na atrybut **user.userprincipalname**. SSOGEN — Brama rejestracji jednokrotnej usługi Azure AD dla aplikacji Oracle E-Business Suite — EBS, PeopleSoft i JDE oczekuje, że **NameIdentifier** ma być mapowany do **User. nazwy pospolitej onpremisessamaccountname**, dlatego należy edytować Mapowanie atrybutów, klikając ikonę **Edytuj** i zmieniając mapowanie atrybutu.
 
-    ![image](common/edit-attribute.png)
+    ![image (obraz)](common/edit-attribute.png)
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
@@ -110,7 +106,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -136,16 +132,16 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 Aby skonfigurować Logowanie jednokrotne w usłudze **SSOGEN — Brama rejestracji jednokrotnej usługi Azure AD dla Oracle E-Business Suite-EBS, PeopleSoft i JDE** , należy znaleźć w dokumentacji dotyczącej rejestracji SSO specyficznej dla aplikacji poniżej:
 
-* Oracle EBS — integracja z logowaniem jednokrotnym w usłudze Azure AD:[https://www.ssogen.com/oracle-ebs-sso-ldap/](https://www.ssogen.com/oracle-ebs-sso-ldap/)
-* PeopleSoft — integracja z logowaniem jednokrotnym w usłudze Azure AD:[https://www.ssogen.com/peoplesoft-sso/](https://www.ssogen.com/peoplesoft-sso/)
-* JD Edwards — integracja z logowaniem jednokrotnym w usłudze Azure AD:[https://www.ssogen.com/oracle-jde-sso/](https://www.ssogen.com/oracle-jde-sso/)
-* Integracja z usługą Azure AD SSO:[https://www.ssogen.com/apache-sso-authentication/](https://www.ssogen.com/apache-sso-authentication/)
+* Oracle EBS — integracja z logowaniem jednokrotnym w usłudze Azure AD: [https://www.ssogen.com/oracle-ebs-sso-ldap/](https://www.ssogen.com/oracle-ebs-sso-ldap/)
+* PeopleSoft — integracja z logowaniem jednokrotnym w usłudze Azure AD: [https://www.ssogen.com/peoplesoft-sso/](https://www.ssogen.com/peoplesoft-sso/)
+* JD Edwards — integracja z logowaniem jednokrotnym w usłudze Azure AD: [https://www.ssogen.com/oracle-jde-sso/](https://www.ssogen.com/oracle-jde-sso/)
+* Integracja z usługą Azure AD SSO: [https://www.ssogen.com/apache-sso-authentication/](https://www.ssogen.com/apache-sso-authentication/)
 
 ### <a name="create-ssogen-azure-ad-sso-gateway-for-oracle-e-business-suite-ebs-peoplesoft-and-jde-test-user"></a>Tworzenie bramy rejestracji jednokrotnej usługi SSOGEN Azure AD dla oprogramowania Oracle E Business Suite EBS, PeopleSoft i JDE użytkownika testowego
 
 Po pomyślnym uwierzytelnieniu usługa Azure AD wysyła unikatowy identyfikator użytkownika (identyfikator nazwy) do aplikacji użytkownika.  Upewnij się, że unikatowy identyfikator użytkownika (Name ID) jest zgodny z rekordem użytkownika w aplikacji, FND_USER. Na przykład USER_NAME w programie Oracle EBS.
 
-Skontaktuj się [info@ssogen.com](mailto:info@ssogen.com) z [support@ssogen.com](mailto:support@ssogen.com) pomocą techniczną i.
+Skontaktuj się z pomocą [info@ssogen.com](mailto:info@ssogen.com) [support@ssogen.com](mailto:support@ssogen.com) techniczną i.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
@@ -153,13 +149,13 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Logowanie jednokrotne usługi Azure AD dla programu Oracle Web-Business Suite-EBS, PeopleSoft i JDE w panelu dostępu należy automatycznie zalogować się do bramy rejestracji jednokrotnej usługi Azure AD dla programu Oracle dla firm SSOGEN, EBS i PEOPLESOFT, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj usługę SSOGEN — Brama rejestracji jednokrotnej usługi Azure AD dla programu Oracle E-Business Suite — EBS, PeopleSoft i JDE z usługą Azure AD](https://aad.portal.azure.com/)
 

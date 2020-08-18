@@ -1,6 +1,6 @@
 ---
 title: Konfigurowanie narzędzia Azure Import/Export w wersji 1 | Microsoft Docs
-description: Dowiedz się, jak skonfigurować narzędzie do przygotowywania i naprawiania dysków dla usługi Azure Import/Export. Odnosi się to do wersji 1 narzędzia Import/Export.
+description: Dowiedz się, jak skonfigurować narzędzie do przygotowywania i naprawiania dysków dla usługi Azure Import/Export. Ten artykuł odnosi się do wersji 1 narzędzia Import/Export.
 author: twooley
 services: storage
 ms.service: storage
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: ca74e3aea8a847344c75ca7167c46675e1339459
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f2aeb010d0c6f62284f1347bd90b952be50c665e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077820"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88530804"
 ---
 # <a name="setting-up-the-azure-importexport-tool-v1"></a>Konfigurowanie narzędzia Azure Import/Export w wersji 1
 Narzędzie Microsoft Azure Import/Export to narzędzie do przygotowywania i naprawiania dysku, które może być używane z usługą Microsoft Azure Import/Export. Za pomocą tego narzędzia można korzystać z następujących funkcji:  
 
--   Przed utworzeniem zadania importowania można użyć tego narzędzia do skopiowania danych na dyski twarde, które mają być dostarczane do centrum danych systemu Windows Azure.  
+-   Przed utworzeniem zadania importowania można użyć tego narzędzia do skopiowania danych na dyski twarde, które są dostępne do centrum danych systemu Windows Azure.  
 
 -   Po zakończeniu zadania importowania można użyć tego narzędzia do naprawy wszelkich uszkodzonych obiektów blob, brakujących lub konfliktów z innymi obiektami BLOB.  
 
@@ -29,7 +29,7 @@ W przypadku przygotowywania dysków do zadania importowania należy spełnić na
 
 -   Musisz mieć aktywną subskrypcję platformy Azure.  
 
--   Twoja subskrypcja musi zawierać konto magazynu z wystarczającą ilością dostępnego miejsca do przechowywania plików, które mają zostać zaimportowane.  
+-   Twoja subskrypcja musi zawierać konto magazynu z wystarczającą ilością dostępnego miejsca do przechowywania importowanych plików.  
 
 -   Musisz mieć co najmniej jeden klucz konta dla konta magazynu.  
 
@@ -253,5 +253,4 @@ Examples:
 * [Wyświetlanie podglądu użycia dysku dla zadania eksportu](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
 * [Sprawdzanie stanu zadania za pomocą plików dziennika kopiowania](../storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Naprawianie zadania importu](../storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [Naprawianie zadania eksportu](../storage-import-export-tool-repairing-an-export-job-v1.md)   
-* [Rozwiązywanie problemów z narzędziem Azure Import/Export](storage-import-export-tool-troubleshooting-v1.md)
+* [Naprawianie zadania eksportu](../storage-import-export-tool-repairing-an-export-job-v1.md)

@@ -2,25 +2,20 @@
 title: 'Samouczek: Inicjowanie obsługi przez użytkownika dla programu CERN (środkowe) w usłudze Azure AD'
 description: Dowiedz się, jak skonfigurować Azure Active Directory, aby automatycznie udostępniać użytkownikom listę w centrum CERN.
 services: active-directory
-documentationcenter: ''
 author: ArvindHarinder1
 manager: CelesteDG
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ed04d8fdcc2d79c66e2ebc53c737c78664e4621
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58b991f5b229d924bc933ff34987db24bc895e10
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77058320"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88529869"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie programu Cerner Central dla automatycznej aprowizacji użytkowników
 
@@ -65,29 +60,29 @@ Aby zapewnić obsługę kont użytkowników w programie Cerner Central, należy 
 
 1. Pierwszym krokiem jest upewnienie się, że osoby zarządzające programem CERN i integracją usługi Azure AD mają konto CernerCare, które jest wymagane do uzyskania dostępu do dokumentacji niezbędnej do wykonania instrukcji. W razie potrzeby Użyj poniższych adresów URL, aby utworzyć konta CernerCare w każdym odpowiednim środowisku.
 
-   * Rozwiązaniahttps://sandboxcernercare.com/accounts/create
+   * Rozwiązania  https://sandboxcernercare.com/accounts/create
 
-   * Narzędzihttps://cernercare.com/accounts/create  
+   * Narzędzi  https://cernercare.com/accounts/create  
 
 2. Następnie należy utworzyć konto systemowe dla usługi Azure AD. Skorzystaj z poniższych instrukcji, aby zażądać konta systemowego w piaskownicy i środowiskach produkcyjnych.
 
-   * Wskazówekhttps://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
+   * Wskazówek  https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
-   * Rozwiązaniahttps://sandboxcernercentral.com/system-accounts/
+   * Rozwiązania https://sandboxcernercentral.com/system-accounts/
 
-   * Narzędzihttps://cernercentral.com/system-accounts/
+   * Narzędzi  https://cernercentral.com/system-accounts/
 
 3. Następnie Wygeneruj token okaziciela OAuth dla każdego konta systemowego. Aby to zrobić, postępuj zgodnie z poniższymi instrukcjami.
 
-   * Wskazówekhttps://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
+   * Wskazówek  https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
 
-   * Rozwiązaniahttps://sandboxcernercentral.com/system-accounts/
+   * Rozwiązania https://sandboxcernercentral.com/system-accounts/
 
-   * Narzędzihttps://cernercentral.com/system-accounts/
+   * Narzędzi  https://cernercentral.com/system-accounts/
 
 4. Na koniec należy uzyskać identyfikatory obszaru spisu użytkownika dla środowisk piaskownicy i produkcyjnych w narzędziu CERN, aby ukończyć konfigurację. Aby uzyskać informacje o tym, jak uzyskać ten temat, zobacz: https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM . 
 
-5. Teraz można skonfigurować usługę Azure AD w celu udostępniania kont użytkowników w programie CERN. Zaloguj się do [Azure Portal](https://portal.azure.com)i przejdź do sekcji **Azure Active Directory > aplikacje dla przedsiębiorstw > wszystkie aplikacje** .
+5. Teraz można skonfigurować usługę Azure AD w celu udostępniania kont użytkowników w programie CERN. Zaloguj się do [Azure Portal](https://portal.azure.com)i przejdź do sekcji **Azure Active Directory > aplikacje dla przedsiębiorstw > wszystkie aplikacje**  .
 
 6. Jeśli już skonfigurowano program CERN (Centraler) do logowania jednokrotnego, Wyszukaj wystąpienie elementu CERN w centrali przy użyciu pola wyszukiwania. W przeciwnym razie wybierz pozycję **Dodaj** i Wyszukaj dla programu **Cerner Central** w galerii aplikacji. Wybierz pozycję CERN (centralne) z wyników wyszukiwania, a następnie dodaj ją do listy aplikacji.
 
@@ -101,9 +96,9 @@ Aby zapewnić obsługę kont użytkowników w programie Cerner Central, należy 
 
    * W polu **adres URL dzierżawy** wprowadź adres URL w formacie poniżej, zastępując tekst "User-Field-ID" identyfikatorem obszaru, który został pobrany w kroku #4.
 
-    > Rozwiązaniahttps://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > Rozwiązania https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
     > 
-    > Narzędzihttps://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > Narzędzi https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * W polu **token tajny** wprowadź token okaziciela OAuth wygenerowany w kroku #3 a następnie kliknij pozycję **Testuj połączenie**.
 

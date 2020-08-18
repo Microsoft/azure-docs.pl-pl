@@ -2,24 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Wdesk | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Wdesk.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 06900a91-a326-4663-8ba6-69ae741a536e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 349a9920adc0d9353ee8e8e821f54bc2ea2f2616
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9e64d76e29ba98181aac12e1e3167351a9c1aa95
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80666980"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88524021"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wdesk"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Wdesk
 
@@ -92,7 +89,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Wdesk, wyko
 
     ![Wdesk domenę i adresy URL Logowanie jednokrotne](common/idp-intiated.png)
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<subdomain>.wdesk.com/auth/saml/sp/consumer/<instancename>`
 
@@ -137,7 +134,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension. Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -177,7 +174,7 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
  
      ![Konfigurowanie logowania jednokrotnego](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
 
-3. W obszarze Administrator Wdesk przejdź do obszarze **zabezpieczenia**, a następnie pozycję **SAML** > **SAML Settings**:
+3. W obszarze Administrator Wdesk przejdź do obszarze **zabezpieczenia**, a następnie pozycję **SAML**  >  **SAML Settings**:
 
     ![Konfigurowanie logowania jednokrotnego](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
 
@@ -201,7 +198,7 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
    
       d. Kliknij przycisk **Zapisz** na Azure Portal, aby zapisać zmiany.      
 
-6. Kliknij pozycję **Konfiguruj ustawienia dostawcy tożsamości** , aby otworzyć okno dialogowe **Edytowanie ustawień dostawcy tożsamości** . Kliknij pozycję **Wybierz plik** , aby zlokalizować plik **Metadata. xml** zapisany z Azure Portal, a następnie Przekaż go.
+6. Kliknij pozycję **Konfiguruj ustawienia dostawcy tożsamości** , aby otworzyć okno dialogowe **Edytowanie ustawień dostawcy tożsamości** . Kliknij pozycję **Wybierz plik** , aby zlokalizować plik **Metadata.xml** zapisany z Azure Portal, a następnie Przekaż go.
     
     ![Konfigurowanie logowania jednokrotnego](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig5.png)
   
@@ -217,7 +214,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Wdesk, 
 
 1. Zaloguj się do Wdesk jako administrator zabezpieczeń.
 
-2. Przejdź do **Admin** > **administratora konta**administratora.
+2. Przejdź do **Admin**  >  **administratora konta**administratora.
 
      ![Konfigurowanie logowania jednokrotnego](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
 
@@ -235,7 +232,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Wdesk, 
   
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/wdesk-tutorial/createuser4.png)
  
-    a. W polu tekstowym **adres e-mail** wprowadź adres e-mail użytkownika, np b.simon@contoso.com.
+    a. W polu tekstowym **adres e-mail** wprowadź adres e-mail użytkownika, np b.simon@contoso.com .
 
     b. W polu tekstowym **imię i nazwisko** , wprowadź imię użytkownika, np. **B**.
 
@@ -257,6 +254,6 @@ Po kliknięciu kafelka Wdesk w panelu dostępu należy automatycznie zalogować 
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

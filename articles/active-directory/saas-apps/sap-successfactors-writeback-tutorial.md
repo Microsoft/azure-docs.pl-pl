@@ -3,23 +3,19 @@ title: 'Samouczek: Konfigurowanie zapisywania zwrotnego SAP SuccessFactors w Azu
 description: Dowiedz się, jak skonfigurować zapisywanie zapisu z powrotem w programie SAP SuccessFactors z usługi Azure AD
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: ad255bd4-9e50-43a1-a92b-359215868b6b
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: f150d6abf2ac6a423a99d3347df9bf0adc9b294b
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 4b048053a553176f73b5bd199bcb6e28bc74cc6c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809936"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88534000"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Samouczek: Konfigurowanie zapisywania zwrotnego atrybutów z usługi Azure AD do oprogramowania SAP SuccessFactors
 Celem tego samouczka jest przedstawienie kroków związanych z zapisywaniem atrybutów z usługi Azure AD do oprogramowania SAP SuccessFactors Employee Central. 
@@ -151,7 +147,7 @@ Aplikacja do obsługi funkcji zapisywania zwrotnego SuccessFactors używa pewnyc
 1. W programie Poster kliknij przycisk wielokropka (...) skojarzony z kolekcją SuccessFactors i Dodaj "nowe żądanie" o nazwie "Pobierz typy poczty E-mail", jak pokazano poniżej. 
 
    > [!div class="mx-imgBorder"]
-   > ![Wyślij żądanie e-mail](./media/sap-successfactors-inbound-provisioning/postman-email-request.png)
+   > ![Wyślij żądanie e-mail ](./media/sap-successfactors-inbound-provisioning/postman-email-request.png)
 
 1. Otwórz panel żądania "Pobierz typ wiadomości E-mail". 
 1. W adresie URL GET Dodaj następujący adres URL, zastępując `successFactorsAPITenantName` go dzierżawą interfejsu API dla wystąpienia usługi SuccessFactors. 

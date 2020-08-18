@@ -4,12 +4,12 @@ description: Rozwiązywanie problemów z instalacją, rejestracją Azure Backup 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: a4882867f9bbe5123df275b8d1c69fe4e163f294
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 54b7295eaed5f04a118cf5097ebc7b25b18f67d2
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054838"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88522848"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Rozwiązywanie problemów ze składnikiem Azure Backup Server
 
@@ -20,13 +20,46 @@ Skorzystaj z informacji podanych w poniższych tabelach, aby rozwiązać problem
 Przed rozpoczęciem rozwiązywania problemów Microsoft Azure Backup Server (serwera usługi MAB) zalecamy wykonanie poniższej weryfikacji:
 
 - [Upewnij się, że agent Microsoft Azure Recovery Services (MARS) jest aktualny](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
-- [Upewnij się, że istnieje połączenie sieciowe między agentem MARS i platformą Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
+- [Zapewnianie łączności sieciowej między agentem MARS i platformą Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
 - Upewnij się, że usługa Microsoft Azure Recovery Services jest uruchomiona (w konsoli usługi). W razie potrzeby uruchom ponownie, a następnie spróbuj ponownie wykonać operację.
 - [Upewnij się, że 5–10% wolnego miejsca na woluminie jest dostępne na potrzeby lokalizacji folderu plików tymczasowych](./backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
-- Jeśli rejestracja kończy się niepowodzeniem, upewnij się, że serwer, na którym próbujesz zainstalować Azure Backup Server, nie jest już zarejestrowany w innym magazynie
+- Jeśli rejestracja kończy się niepowodzeniem, upewnij się, że serwer, na którym próbujesz zainstalować Azure Backup Server nie jest już zarejestrowany w innym magazynie
 - Jeśli instalacja wypychana zakończy się niepowodzeniem, sprawdź, czy agent programu DPM jest już obecny. Jeśli tak, odinstaluj agenta i ponów próbę instalacji
 - [Upewnij się, że żaden inny proces lub oprogramowanie antywirusowe nie zakłóca działania usługi Azure Backup](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup).<br>
 - Upewnij się, że usługa agenta SQL jest uruchomiona i ma ustawioną wartość automatyczne na serwerze serwera usługi MAB<br>
+
+## <a name="configure-antivirus-for-mabs-server"></a>Konfigurowanie oprogramowania antywirusowego dla serwera serwera usługi MAB
+
+SERWERA usługi MAB jest zgodna z najpopularniejszymi programami antywirusowymi. Aby uniknąć konfliktów, zalecamy wykonanie następujących czynności:
+
+1. **Wyłącz monitorowanie** w czasie rzeczywistym — Wyłącz monitorowanie w czasie rzeczywistym przez oprogramowanie antywirusowe w następujący sposób:
+    - `C:\Program Files<MABS Installation path>\XSD` system32\drivers\etc
+    - `C:\Program Files<MABS Installation path>\Temp` system32\drivers\etc
+    - Litera dysku Nowoczesny magazyn kopii zapasowych
+    - Pliki replik i transferów: w tym celu Wyłącz monitorowanie w czasie rzeczywistym **dpmra.exe**, które znajdują się w folderze `Program Files\Microsoft Azure Backup Server\DPM\DPM\bin` . Monitorowanie w czasie rzeczywistym powoduje spadek wydajności, ponieważ oprogramowanie antywirusowe skanuje repliki za każdym razem, gdy serwera usługi MAB synchronizuje się z chronionym serwerem i skanuje wszystkie pliki, których to dotyczy, za każdym razem, gdy serwera usługi MAB stosuje zmiany w replikach.
+    - Konsola administratora: aby uniknąć wpływu na wydajność, wyłącz monitorowanie w czasie rzeczywistym procesu **csc.exe** . Proces **csc.exe** to kompilator języka C \# , a monitorowanie w czasie rzeczywistym może obniżyć wydajność, ponieważ oprogramowanie antywirusowe skanuje pliki emitowane przez proces **csc.exe** podczas generowania komunikatów XML. **CSC.exe** znajduje się w następujących ścieżkach:
+        - `\Windows\Microsoft.net\Framework\v2.0.50727\csc.exe`
+        - `\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe`
+    - W przypadku agenta MARS zainstalowanego na serwerze serwera usługi MAB zaleca się wykluczenie następujących plików i lokalizacji:
+        - `C:\Program Files\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\bin\cbengine.exe` jako proces
+        - `C:\Program Files\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\folder`
+        - Lokalizacja zapasowa (jeśli nie używasz lokalizacji standardowej)
+2. **Wyłącz monitorowanie w czasie rzeczywistym na chronionym serwerze**: Wyłącz monitorowanie w czasie rzeczywistym **dpmra.exe**, które znajduje się w folderze `C:\Program Files\Microsoft Data Protection Manager\DPM\bin` na serwerze chronionym.
+3. **Skonfiguruj oprogramowanie antywirusowe do usuwania zainfekowanych plików na serwerach chronionych i serwerze serwera usługi MAB**: aby zapobiec uszkodzeniu danych replik i punktów odzyskiwania, należy skonfigurować oprogramowanie antywirusowe do usuwania zainfekowanych plików, zamiast ich automatycznego czyszczenia lub poddawania kwarantannie. Automatyczne czyszczenie i poddawania kwarantannie może spowodować, że oprogramowanie antywirusowe modyfikuje pliki, wprowadzając zmiany, które serwera usługi MAB nie mogą wykryć.
+
+Należy uruchomić ręczną synchronizację ze spójnością. Sprawdź zadanie przy każdym usunięciu pliku z repliki przez oprogramowanie antywirusowe, nawet jeśli replika jest oznaczona jako niespójna.
+
+### <a name="mabs-installation-folders"></a>Foldery instalacji serwera usługi MAB
+
+Domyślne foldery instalacji programu DPM są następujące:
+
+- `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM`
+
+Możesz również uruchomić następujące polecenie, aby znaleźć ścieżkę folderu instalacji:
+
+```cmd
+Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
+```
 
 ## <a name="invalid-vault-credentials-provided"></a>Podano nieprawidłowe poświadczenia magazynu
 

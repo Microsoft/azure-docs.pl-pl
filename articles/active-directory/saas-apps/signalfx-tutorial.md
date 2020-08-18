@@ -2,25 +2,21 @@
 title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą SignalFx | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i SignalFx.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 6d5ab4b0-29bc-4b20-8536-d64db7530f32
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/24/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 149718dcd325ef6bd6a6754ba100ffdc34be0a07
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3eae423763d2d4a05b33e4e1d4b6e9e087a47ba3
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79136418"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88521573"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą SignalFx
 
@@ -88,9 +84,9 @@ Użyj tych instrukcji, aby włączyć logowanie jednokrotne w usłudze Azure AD 
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą języka SAML** wykonaj następujące pola: 
 
-    a. W polu **Identyfikator**wprowadź następujący adres URL `https://api.<realm>.signalfx.com/v1/saml/metadata` i Zamień `<realm>` go na obszar SignalFx. 
+    a. W polu **Identyfikator**wprowadź następujący adres URL `https://api.<realm>.signalfx.com/v1/saml/metadata` i zamień go `<realm>` na obszar SignalFx. 
 
-    b. W polu **adres URL odpowiedzi**wprowadź następujący adres `https://api.<realm>.signalfx.com/v1/saml/acs/<integration ID>` URL i `<realm>` zamień go na obszar SignalFx, a także `<integration ID>` **Identyfikator integracji** skopiowany wcześniej z interfejsu użytkownika SignalFx.
+    b. W polu **adres URL odpowiedzi**wprowadź następujący adres URL `https://api.<realm>.signalfx.com/v1/saml/acs/<integration ID>` i zamień go na `<realm>` obszar SIGNALFX, a także `<integration ID>` **Identyfikator integracji** skopiowany wcześniej z interfejsu użytkownika SignalFx.
 
 1. Aplikacja SignalFx oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. 
     
@@ -119,8 +115,8 @@ Użyj tych instrukcji, aby utworzyć użytkownika testowego w Azure Portal o naz
 1. W Azure Portal w okienku nawigacji po lewej stronie wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
 1. W górnej części strony wybierz pozycję **nowy użytkownik**.
 1. We właściwościach **użytkownika** :
-   1. W polu **Nazwa użytkownika**wprowadź `username@companydomain.extension`, na przykład `b.simon@contoso.com`.
-   1. W polu **Nazwa**wprowadź `B.Simon`.
+   1. W polu **Nazwa użytkownika**wprowadź `username@companydomain.extension` , na przykład `b.simon@contoso.com` .
+   1. W polu **Nazwa**wprowadź `B.Simon` .
    1. Oznacz opcję **Pokaż hasło**, a następnie skopiuj wartość wyświetlaną w polu **hasło**. Te informacje będą potrzebne później do przetestowania tej integracji. 
    1. Kliknij przycisk **Utwórz**.
 
@@ -148,7 +144,7 @@ Te instrukcje umożliwiają użytkownikom testowym korzystanie z rejestracji jed
 1. Obok pozycji **certyfikat (base64)** kliknij pozycję **Przekaż plik**, a następnie zlokalizuj plik **certyfikatu zakodowany algorytmem Base64** , który został wcześniej pobrany z Azure Portal.
 1. W obszarze **Identyfikator usługi Azure AD**wklej wartość **identyfikatora usługi Azure AD** skopiowaną wcześniej z Azure Portal. 
 1. W polu **adres URL metadanych Federacji**wklej wartość **adresu URL metadanych federacji aplikacji** skopiowaną wcześniej z Azure Portal. 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 ## <a name="step-7-test-sso"></a>Krok 7. Testowanie rejestracji jednokrotnej
 
@@ -163,7 +159,7 @@ Zapoznaj się z poniższymi informacjami dotyczącymi testowania logowania jedno
         * Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 * Dostęp do aplikacji SignalFx można uzyskać z panelu dostępu lub za pośrednictwem niestandardowej strony logowania przypisanej do organizacji. Użytkownik testowy powinien przetestować integrację, rozpoczynając od jednej z tych lokalizacji.
-    * Użytkownik testowy może użyć poświadczeń utworzonych wcześniej w tym procesie dla programu **b.simon@contoso.com**.
+    * Użytkownik testowy może użyć poświadczeń utworzonych wcześniej w tym procesie dla programu **b.simon@contoso.com** .
 
 ### <a name="first-time-logins"></a>Logowanie przy pierwszym czasie
 
@@ -171,13 +167,13 @@ Zapoznaj się z poniższymi informacjami dotyczącymi testowania logowania jedno
 
 * Usługa SignalFx obsługuje funkcję tworzenia użytkowników **just in Time** , co oznacza, że jeśli użytkownik nie istnieje w SignalFx, konto użytkownika zostanie utworzone przy pierwszej próbie logowania.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 

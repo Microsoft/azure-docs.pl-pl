@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą AlertOps | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją AlertOps.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: 3db13ed4-35c2-4b1e-bed8-9b5977061f93
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21b8cb06712e370972e0b8fec518c37d078262e0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d820a3fc9b12a36a76e2eb887b32d27acc156c76
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67107055"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88522360"
 ---
 # <a name="tutorial-integrate-alertops-with-azure-active-directory"></a>Samouczek: integracja AlertOps z usługą Azure Active Directory
 
@@ -80,7 +75,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    1. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<SUBDOMAIN>.alertops.com`
+    1. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<SUBDOMAIN>.alertops.com`
 
     1. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<SUBDOMAIN>.alertops.com/login.aspx`
 
@@ -131,7 +126,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     f. Z listy rozwijanej **SAML Signature Algorithm** (Algorytm podpisu SAML) wybierz pozycję **SHA256**.
 
-    g. Otwórz pobrany plik Certificate(Base64) w Notatniku. Skopiuj jego zawartość do schowka, a następnie wklej go w polu tekstowym X.509 Certificate (Certyfikat X.509).
+    przykład Otwórz pobrany plik Certificate(Base64) w Notatniku. Skopiuj jego zawartość do schowka, a następnie wklej go w polu tekstowym X.509 Certificate (Certyfikat X.509).
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -141,7 +136,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie Britta Sim
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `Britta Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `BrittaSimon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `BrittaSimon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -181,7 +176,7 @@ W tej sekcji włączysz usługę Britta Simon do korzystania z logowania jednokr
 
     a. W polu tekstowym **Login User Name** (Nazwa użytkownika logowania) wprowadź nazwę użytkownika, na przykład **Brittasimon**.
 
-    b. W polu tekstowym **Oficjalne wiadomości e-mail** wprowadź adres e-mail użytkownika, np. **\@Brittasimon contoso.com**.
+    b. W polu tekstowym **Oficjalne wiadomości e-mail** wprowadź adres e-mail użytkownika, np. **Brittasimon \@ contoso.com**.
 
     c. W polu tekstowym **First Name** (Imię) wpisz imię użytkownika, na przykład **Britta**.
 
@@ -191,7 +186,7 @@ W tej sekcji włączysz usługę Britta Simon do korzystania z logowania jednokr
 
     f. Wybierz wartość z listy rozwijanej **Role** (Rola) zgodnie z wymaganiami w Twojej organizacji.
 
-    g. Wybierz pozycję **Dodaj**.
+    przykład Wybierz pozycję **Dodaj**.
 
 ### <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
@@ -203,4 +198,4 @@ Po wybraniu kafelka AlertOps w panelu dostępu należy automatycznie zalogować 
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

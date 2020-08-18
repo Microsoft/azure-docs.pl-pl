@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja z logowaniem jednokrotnym (SSO) Azure Active Directory z ludźmi | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directoryami i ludźmi.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 6494b947-58e5-4074-a1c6-63d5b7c76c61
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5340c5ccb97c8a8cedfb96e7c9e3157c6fe4000a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 253abdd8f1451c94ed28721b6cbc99ed3d384692
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83666090"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88525430"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-humanage"></a>Samouczek: integracja z logowaniem jednokrotnym (SSO) Azure Active Directory z ludźmi
 
@@ -145,11 +141,11 @@ Po kliknięciu kafelka kadr w panelu dostępu należy automatycznie zalogować s
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj zdrowie przy użyciu usługi Azure AD](https://aad.portal.azure.com/)
 

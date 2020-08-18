@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z oprogramowaniem Cezanne kadr | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Cezanne HR Software.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 62b42e15-c282-492d-823a-a7c1c539f2cc
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa689e6138f8d965e59f7cfa7a85e0835301086c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0c9e0b6a81742ea4022bb8db2dd8d933f917331b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73158702"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88530111"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Samouczek: integracja Azure Active Directory z oprogramowaniem Cezanne kadr
 
@@ -33,7 +28,7 @@ Zintegrowanie aplikacji Cezanne HR Software z usługą Azure AD zapewnia następ
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -161,7 +156,7 @@ Aby skonfigurować integrację usługi Azure AD z aplikacją Cezanne HR Software
 
     f. Kliknij ikonę **Upload** (Przekaż), aby przekazać certyfikat pobrany z witryny Azure Portal.
 
-    g. Kliknij przycisk **OK**.
+    przykład Kliknij przycisk **OK**.
 
 6. Kliknij przycisk **Save** (Zapisz).
 
@@ -185,8 +180,8 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
-    Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -240,7 +235,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie do aplikacji Cezanne HR
 
     c. W polu **tekstowym nazwisko wpisz nazwisko użytkownika** , np. **Simon**.
 
-    d. W polu tekstowym **E-mail** wpisz adres e-mail użytkownika, np Brittasimon@contoso.com.
+    d. W polu tekstowym **E-mail** wpisz adres e-mail użytkownika, np Brittasimon@contoso.com .
 
 4. W sekcji **Account Information** (Informacje o koncie) wykonaj następujące kroki:
 
@@ -252,7 +247,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie do aplikacji Cezanne HR
 
     c. Wybierz pozycję **HR Professional** (Specjalista ds. kadr) w polu **Security Role** (Rola zabezpieczeń).
 
-    d. Kliknij przycisk **OK**.
+    d. Kliknij pozycję **OK**.
 
 5. Przejdź do karty **Single Sign-On** (Logowanie jednokrotne) i wybierz pozycję **Add New** (Dodaj nowy) w obszarze **SAML 2.0 Identifiers** (Identyfikatory języka SAML 2.0).
 
@@ -278,4 +273,4 @@ Po kliknięciu kafelka Cezanne HR Software w panelu dostępu powinno nastąpić 
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

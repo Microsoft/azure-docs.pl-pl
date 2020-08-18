@@ -2,25 +2,21 @@
 title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Splashtop | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Splashtop.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: c05f63c2-4170-49ce-a967-be1cb1dbcd06
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6ecb03130e26d432f0bd10980c7c3553ce9f8b0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 72c7a24f165d48d3ba2ea0dbcc2b41c818e3f1d7
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77539786"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88524571"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-splashtop"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Splashtop
 
@@ -88,7 +84,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Aplikacja Splashtop oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych, natomiast **NameIdentifier** jest mapowany z **User. userPrincipalName**. Aplikacja biletówmanager oczekuje, że **NameIdentifier** mają być mapowane przy użyciu elementu **User. mail**, dlatego należy edytować Mapowanie atrybutów, klikając ikonę **Edytuj** i zmieniając mapowanie atrybutu.
 
-    ![image](common/edit-attribute.png)
+    ![image (obraz)](common/edit-attribute.png)
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -106,7 +102,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -131,17 +127,17 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 ## <a name="configure-splashtop-sso"></a>Konfigurowanie logowania jednokrotnego Splashtop
 
 W tej sekcji należy zastosować nową metodę rejestracji jednokrotnej z [portalu sieci Web Splashtop](https://my.splashtop.com/login).
-1. W portalu sieci Web Splashtop przejdź do pozycji **Informacje o** / koncie karta**zespół** , przewiń w dół, aby znaleźć sekcję **Logowanie** jednokrotne. Następnie kliknij pozycję **Zastosuj dla nowej metody rejestracji jednokrotnej**.
+1. W portalu sieci Web Splashtop przejdź do pozycji **Informacje o koncie**  /  karta**zespół** , przewiń w dół, aby znaleźć sekcję **Logowanie** jednokrotne. Następnie kliknij pozycję **Zastosuj dla nowej metody rejestracji jednokrotnej**.
 
-    ![image](media/splashtop-tutorial/apply-for-new-SSO-method.png)
+    ![image (obraz)](media/splashtop-tutorial/apply-for-new-SSO-method.png)
 
 1. W oknie stosowanie Podaj **nazwę logowania jednokrotnego**. Na przykład nowy Azure, a następnie wybierz pozycję **Azure** jako typ dostawcy tożsamości, a następnie Wstaw **adres URL logowania** i **Identyfikator usługi Azure AD** skopiowane z aplikacji Splashtop na Azure Portal.
 
-    ![image](media/splashtop-tutorial/azure-sso-1.png)
+    ![image (obraz)](media/splashtop-tutorial/azure-sso-1.png)
 
 1. Aby uzyskać informacje o certyfikacie, kliknij prawym przyciskiem myszy plik certyfikatu pobrany z aplikacji Splashtop na Azure Portal, edytuj go za pomocą Notatnika, a następnie skopiuj zawartość, a następnie wklej ją w polu **Pobierz certyfikat (base64)** .
 
-    ![](media/splashtop-tutorial/cert-1.png) ![obraz](media/splashtop-tutorial/cert-2.png) obrazu obrazu ![](media/splashtop-tutorial/azure-sso-2.png)
+    ![obraz ](media/splashtop-tutorial/cert-1.png) obrazu ![ obrazu ](media/splashtop-tutorial/cert-2.png) ![](media/splashtop-tutorial/azure-sso-2.png)
 
 1. Gotowe. Kliknij przycisk **Zapisz** i Splashtop Weryfikacja logowania jednokrotnego skontaktuje się z Tobą w celu uzyskania informacji weryfikacyjnych, a następnie aktywuj metodę rejestracji jednokrotnej.
 
@@ -149,11 +145,11 @@ W tej sekcji należy zastosować nową metodę rejestracji jednokrotnej z [porta
 
 1. Po aktywowaniu metody rejestracji jednokrotnej Sprawdź nowo utworzoną metodę logowania jednokrotnego, aby włączyć ją w sekcji **Logowanie** jednokrotne.
 
-    ![image](media/splashtop-tutorial/enable.png)
+    ![image (obraz)](media/splashtop-tutorial/enable.png)
 
 1. Zaproś użytkownika testowego, na przykład `B.Simon@contoso.com` do zespołu Splashtop z nowo utworzoną metodą rejestracji jednokrotnej.
 
-    ![image](media/splashtop-tutorial/invite.png)
+    ![image (obraz)](media/splashtop-tutorial/invite.png)
 
 1. Możesz również zmienić istniejące konto Splashtop na konto logowania jednokrotnego, aby zapoznać się z [instrukcjami](https://support-splashtopbusiness.splashtop.com/hc/en-us/articles/360038685691-How-to-associate-SSO-method-to-existing-team-admin-member-).
 
@@ -165,13 +161,13 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Splashtop w panelu dostępu należy automatycznie zalogować się do Splashtop, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj Splashtop z usługą Azure AD](https://aad.portal.azure.com/)
 

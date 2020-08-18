@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 7b52a1ee67c22fb3bded49a80d35305bdf612f10
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c669946ab76fcaeaaa6fd681f521408643c5a63c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498959"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88531263"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitorowanie usługi magazynu kluczy za pomocą Azure Monitor dla Key Vault (wersja zapoznawcza)
 Azure Monitor dla Key Vault (wersja zapoznawcza) zapewnia kompleksowe monitorowanie magazynów kluczy, udostępniając ujednolicony widok żądań Key Vault, wydajności, błędów i opóźnień.
@@ -45,7 +45,7 @@ Azure Monitor Key Vault łączy zarówno dzienniki, jak i metryki, aby zapewnić
 
 Z poziomu Azure Monitor można wyświetlić szczegóły żądania, opóźnienia i niepowodzenia z wielu magazynów kluczy w ramach subskrypcji, a także pomóc w identyfikowaniu problemów z wydajnością i ograniczania przepustowości.
 
-Aby wyświetlić wykorzystanie i operacje związane z kontami magazynu we wszystkich subskrypcjach, wykonaj następujące czynności:
+Aby wyświetlić wykorzystanie i operacje Twoich magazynów kluczy we wszystkich subskrypcjach, wykonaj następujące czynności:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/)
 

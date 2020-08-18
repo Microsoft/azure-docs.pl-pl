@@ -3,23 +3,19 @@ title: 'Samouczek: Konfigurowanie obsługi przychodzącej SuccessFactors w usłu
 description: Dowiedz się, jak skonfigurować Inicjowanie obsługi ruchu przychodzącego z SuccessFactors
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: 1ff90231-1312-463e-8949-7d976e433fc3
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: 95c46550570d579af7ab8107686ad20838a3a62e
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: c03459a86f521cafd792b9bf86b2b6b46bf3da9c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809956"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88534109"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Samouczek: Konfigurowanie programu SAP SuccessFactors do Active Directory aprowizacji użytkowników 
 Celem tego samouczka jest przedstawienie czynności, które należy wykonać w celu udostępnienia użytkownikom SuccessFactorsego Active Directory w centrum danych (AD) i usługi Azure AD z opcjonalnym zwrotem adresu e-mail na SuccessFactors. 

@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą HireVue | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją HireVue.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: aadfc342-14db-4d74-a83d-f0c76f0cf63c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 198901f7b692f2dd1d97019ad5e8455b8cc93d28
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 164c483ad5d1faaa443287e17853e92597eb55e2
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73159028"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88529037"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>Samouczek: integracja Azure Active Directory z usługą HireVue
 
@@ -33,7 +28,7 @@ Integracja aplikacji HireVue z usługą Azure AD zapewnia następujące korzyśc
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -111,14 +106,14 @@ Aby skonfigurować funkcję logowania jednokrotnego usługi Azure AD z aplikacj�
     | Środowisko | Adres URL |
     |-------------|---|
     | Produkcja | `https://<companyname>.hirevue.com` |
-    | Przygotowanie    | `https://<companyname>.stghv.com` |
+    | Podział na etapy    | `https://<companyname>.stghv.com` |
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: 
 
     | Środowisko | Nazwa URN |
     |-------------|-----|
     | Produkcja |`urn:federation:hirevue.com:saml:sp:prod` |
-    | Przygotowanie    | `urn:federation:hirevue.com:saml:sp:staging`|
+    | Podział na etapy    | `urn:federation:hirevue.com:saml:sp:staging`|
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta aplikacji HireVue](mailto:samlsupport@hirevue.com), aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -159,8 +154,8 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
-    Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -208,4 +203,4 @@ Po kliknięciu kafelka HireVue w panelu dostępu powinno nastąpić automatyczne
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

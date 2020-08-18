@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z pakietem SilkRoad Life | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i SilkRoad Life Suite.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 3cd92319-7964-41eb-8712-444f5c8b4d15
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: ae0be30eb834ea5c01a719daca410fe0e0c90b4d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 49dd333454f0eb92f5fb0dddc40390ec1baa91c5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170738"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88525590"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Samouczek: integracja Azure Active Directory z pakietem Life SilkRoad
 
@@ -121,13 +117,13 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą pakietu Sil
     > [!Note]
     > Jeśli wartości **Identyfikator** i **Adres URL odpowiedzi** nie zostaną automatycznie wypełnione, wpisz te wartości ręcznie zgodnie z wymaganiami.
 
-    d. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:`https://<subdomain>.silkroad-eng.com/Authentication/`
+    d. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<subdomain>.silkroad-eng.com/Authentication/`
 
 5. Jeśli nie masz **pliku metadanych dostawcy usług**, w sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
 
     ![Informacje logowania jednokrotnego w ramach pakietu SilkRoad Life i adresów URL](common/sp-identifier-reply.png)
 
-    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:`https://<subdomain>.silkroad-eng.com/Authentication/`
+    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<subdomain>.silkroad-eng.com/Authentication/`
 
     b. W polu **Identyfikator** wpisz adres URL, korzystając z następującego wzorca:
 
@@ -234,11 +230,11 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
     b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`  
-    Na przykład: BrittaSimon@contoso.com
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

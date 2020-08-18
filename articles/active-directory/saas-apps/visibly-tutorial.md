@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja z logowaniem jednokrotnym (SSO) Azure Active Directory z wbudowaną | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i w sposób widoczny.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: d5137936-abb0-4247-aa0d-44a22034355f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/14/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d95247593734b4744dcb49163564b3db9e704bf
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 1a1e2716d3f2328ebd64bbb5b6b70036ac991b56
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88259287"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88531926"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-visibly"></a>Samouczek: integracja z logowaniem jednokrotnym (SSO) w systemie Azure Active Directory
 

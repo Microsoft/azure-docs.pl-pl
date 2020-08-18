@@ -2,25 +2,21 @@
 title: 'Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą punkt przechwytywania'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i punkt przechwytywania.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: ab3eead7-8eb2-4c12-bb3a-0e46ec899d37
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b19e286d299811a950df05f93d221bd710676ea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 649396b81402e9229eb9ea2c627b60f249f8c601
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80743495"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88530311"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-catchpoint"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym za pomocą punkt przechwytywania
 
@@ -84,10 +80,10 @@ Wykonaj następujące kroki w Azure Portal, aby włączyć logowanie jednokrotne
 
 1. Skonfiguruj tryb zainicjowany dla punkt przechwytywania:
    - W przypadku trybu zainicjowane przez **dostawcy tożsamości**wprowadź wartości dla następujących pól:
-     - Dla **identyfikatora**:`https://portal.catchpoint.com/SAML2`
+     - Dla **identyfikatora**: `https://portal.catchpoint.com/SAML2`
      - **Adres URL odpowiedzi**:`https://portal.catchpoint.com/ui/Entry/SingleSignOn.aspx`
    - W przypadku trybu inicjowania programu **SP**wybierz opcję **Ustaw dodatkowe adresy URL** i wprowadź następującą wartość:
-     - Dla **adresu URL logowania**:`https://portal.catchpoint.com/ui/Entry/SingleSignOn.aspx`
+     - Dla **adresu URL logowania**: `https://portal.catchpoint.com/ui/Entry/SingleSignOn.aspx`
 
 1. Aplikacja punkt przechwytywania oczekuje potwierdzeń SAML w określonym formacie. Dodawanie mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenów SAML. Poniższa tabela zawiera listę atrybutów domyślnych:
 
@@ -122,19 +118,19 @@ Wykonaj następujące kroki w Azure Portal, aby włączyć logowanie jednokrotne
 
 W tej sekcji użyjesz Azure Portal, aby utworzyć użytkownika testowego usługi Azure AD o nazwie B. Simon.
 
-1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory** > **Użytkownicy** > **Wszyscy użytkownicy**.
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**  >  **Użytkownicy**  >  **Wszyscy użytkownicy**.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład wprowadź `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład wprowadź `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** . Zanotuj wartość wyświetlaną hasło.
-   1. Wybierz przycisk **Utwórz**.
+   1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi punkt przechwytywania.
 
-1. W Azure Portal wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
 1. Na liście Aplikacje wybierz pozycję **punkt przechwytywania**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 
@@ -162,9 +158,9 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
    Pole | Wartość
    ----- | ----- 
-   **Obszaru** | Prawidłowa wartość przestrzeni nazw.
-   **Wystawca dostawcy tożsamości** | `Azure AD Identifier` Wartość z Azure Portal.
-   **Adres URL logowania jednokrotnego** | `Login URL` Wartość z Azure Portal.
+   **Przestrzeń nazw** | Prawidłowa wartość przestrzeni nazw.
+   **Wystawca dostawcy tożsamości** | `Azure AD Identifier`Wartość z Azure Portal.
+   **Adres URL logowania jednokrotnego** | `Login URL`Wartość z Azure Portal.
    **Certyfikat** | Zawartość pobranego `Certificate (Base64)` pliku z Azure Portal. Użyj Notatnika, aby wyświetlić i skopiować.
 
    Możesz również przekazać **plik XML metadanych Federacji** , wybierając opcję **Przekaż metadane** .
@@ -186,13 +182,13 @@ Po wybraniu kafelka punkt przechwytywania w portalu My Apps należy automatyczni
 > 
 > ![Konfiguracja punkt przechwytywania](./media/catchpoint-tutorial/loginimage.png)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj punkt przechwytywania z usługą Azure AD](https://aad.portal.azure.com/)
 

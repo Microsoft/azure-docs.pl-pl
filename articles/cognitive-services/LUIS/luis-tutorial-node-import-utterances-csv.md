@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 669c5f1ae6b667073e885a0077e9f3130ba3c4f0
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 3df1ccadb69f02272c44a0ba574805c816151dc7
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405980"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520944"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Programistyczne Kompilowanie aplikacji LUIS przy użyciu Node.js
 
@@ -27,7 +27,7 @@ Usługa LUIS udostępnia programistyczny interfejs API, który robi wszystko, co
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Zaloguj się do witryny sieci Web [Luis](luis-reference-regions.md) i Znajdź swój [klucz tworzenia](luis-how-to-azure-subscription.md#authoring-key) w ustawieniach konta. Ten klucz służy do wywoływania interfejsów API tworzenia.
-* Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
 * Ten artykuł rozpoczyna się od pliku CSV dla hipotetycznych plików dziennika żądań użytkowników. Pobierz je [tutaj](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Zainstaluj najnowszą Node.js z NPM. Pobierz go [stąd](https://nodejs.org/en/download/).
 * **[Zalecane]** Visual Studio Code do IntelliSense i debugowania, pobierz ją z tego [miejsca](https://code.visualstudio.com/) bezpłatnie.

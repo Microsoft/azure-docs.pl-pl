@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie szkolenia w zakresie zabezpieczeń programu Webroot dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak automatycznie udostępniać i cofać obsługę administracyjną kont użytkowników z usługi Azure AD na potrzeby szkolenia w zakresie zabezpieczeń Webroot.
 services: active-directory
-documentationcenter: ''
 author: Zhchia
 writer: Zhchia
-manager: beatrizd
-ms.assetid: 455f4396-930e-4db5-a167-d3ea6a860a17
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0b9792ce25541917bfde3291b3864f58d70d6d03
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9345aaac306c8c009d6fc0a01c57beed3a22b10b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924040"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88523494"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie szkolenia w zakresie zabezpieczeń programu Webroot dla automatycznej aprowizacji użytkowników
 
@@ -120,10 +116,10 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Atrybut|Typ|Obsługiwane na potrzeby filtrowania|
    |---|---|---|
-   |externalId|Ciąg|&check;|
-   |Nazwa. imię|Ciąg|
-   |Nazwa. rodzina|Ciąg|
-   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
+   |externalId|String|&check;|
+   |Nazwa. imię|String|
+   |Nazwa. rodzina|String|
+   |wiadomości e-mail [Type EQ "Work"]. Value|String|
 
 10. W sekcji **mapowania** wybierz pozycję **Udostępnij Azure Active Directory grupy**.
 
@@ -131,9 +127,9 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
       |Atrybut|Typ|Obsługiwane na potrzeby filtrowania|
       |---|---|---|
-      |displayName|Ciąg|&check;|
+      |displayName|String|&check;|
       |elementy członkowskie|Dokumentacja|
-      |externalId|Ciąg|
+      |externalId|String|
 
 12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

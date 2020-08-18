@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Andromeda | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Andromeda.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 7a142c86-ca0c-4915-b1d8-124c08c3e3d8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68fa570ecfbafe2000bfa6eb9fa159dff48219a6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 31fc1877dd0edd2fd670f0f9466692ac7bc8ad15
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67107085"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88531165"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Samouczek: integracja Azure Active Directory z usługą Andromeda
 
@@ -33,7 +28,7 @@ Integracja Andromeda z usługą Azure AD zapewnia następujące korzyści:
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -107,7 +102,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Andromeda, 
 
     ![Andromeda domenę i adresy URL Logowanie jednokrotne](common/idp-intiated.png)
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<tenantURL>.ngcxpress.com/`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<tenantURL>.ngcxpress.com/`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<tenantURL>.ngcxpress.com/SAMLConsumer.aspx`
 
@@ -122,7 +117,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Andromeda, 
 
 6. Aplikacja Andromeda oczekuje potwierdzeń SAML w określonym formacie. Skonfiguruj następujące oświadczenia dla tej aplikacji. Wartościami tych atrybutów możesz zarządzać w sekcji **Atrybuty użytkownika** na stronie integracji aplikacji. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij przycisk **Edytuj**, aby otworzyć okno dialogowe **Atrybuty użytkownika**.
 
-    ![image](common/edit-attribute.png)
+    ![image (obraz)](common/edit-attribute.png)
 
     > [!Important]
     > Wyczyść definicje przestrzeni nazw podczas konfigurowania tych ustawień.
@@ -132,7 +127,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Andromeda, 
     | Nazwa | Atrybut źródłowy|
     | ------ | -----------|
     | role (rola)        | Rola specyficzna dla aplikacji |
-    | type        | Typ aplikacji |
+    | typ        | Typ aplikacji |
     | company       | CompanyName |
 
     > [!NOTE]
@@ -140,9 +135,9 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Andromeda, 
 
     a. Kliknij przycisk **Dodaj nowe oświadczenie**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
 
-    ![image](common/new-save-attribute.png)
+    ![image (obraz)](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![image (obraz)](common/new-attribute-details.png)
 
     b. W polu tekstowym **Nazwa** wpisz nazwę atrybutu pokazaną dla tego wiersza.
 
@@ -154,7 +149,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Andromeda, 
 
     f. Kliknij przycisk **OK** .
 
-    g. Kliknij przycisk **Zapisz**.
+    przykład Kliknij pozycję **Zapisz**.
 
 8. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -198,13 +193,13 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Andromeda, 
 
     f. W polu tekstowym **punkt końcowy** logowania jednokrotnego wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal.
 
-    g. Otwórz pobrany **certyfikat kodowany algorytmem Base64** z Azure Portal w Notatniku, wklej go do pola tekstowego **certyfikat X 509** .
+    przykład Otwórz pobrany **certyfikat kodowany algorytmem Base64** z Azure Portal w Notatniku, wklej go do pola tekstowego **certyfikat X 509** .
     
     h. Mapuj następujące atrybuty z odpowiednią wartością, aby ułatwić Logowanie jednokrotne z usługi Azure AD. Atrybut **identyfikatora użytkownika** jest wymagany do logowania. Do obsługi administracyjnej, **poczty e-mail**, **firmy**, **użytkownika**i **roli** są wymagane. W tej sekcji definiujemy Mapowanie atrybutów (nazwa i wartości), które są skorelowane z tymi zdefiniowanymi w Azure Portal
 
     ![Andromeda attbmap](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
 
-    i. Kliknij przycisk **Zapisz**.
+    i. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -224,7 +219,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`. Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension` . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -272,4 +267,4 @@ Po kliknięciu kafelka Andromeda w panelu dostępu należy automatycznie zalogow
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

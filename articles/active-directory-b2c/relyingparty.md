@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/20/2020
+ms.date: 08/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c8c4e65c7ee97b33acbd68bfd8267a334508e25c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40672ac958e84d816d4b582472ae04502a910c6a
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203745"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88521267"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -173,7 +173,7 @@ Element **profilu technicznym** zawiera następujący atrybut:
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| Identyfikator | Tak | Wartość musi być `PolicyProfile` . |
+| Id | Tak | Wartość musi być `PolicyProfile` . |
 
 **Profilu technicznym** zawiera następujące elementy:
 
@@ -192,7 +192,15 @@ Element **Protocol** zawiera następujący atrybut:
 | --------- | -------- | ----------- |
 | Nazwa | Tak | Nazwa prawidłowego protokołu obsługiwanego przez Azure AD B2C, który jest używany jako część profilu technicznego. Możliwe wartości: `OpenIdConnect` lub `SAML2` . `OpenIdConnect`Wartość reprezentuje standard protokołu OpenID Connect Connect 1,0 zgodnie ze specyfikacją OpenID Connect Foundation. `SAML2`Reprezentuje standard protokołu SAML 2,0 zgodnie ze specyfikacją języka Oasis. |
 
-## <a name="outputclaims"></a>OutputClaims
+### <a name="metadata"></a>Metadane
+
+Gdy protokół to `SAML` , element metadanych zawiera następujące elementy.
+
+| Atrybut | Wymagane | Opis |
+| --------- | -------- | ----------- |
+| XmlSignatureAlgorithm | Nie | Metoda, która Azure AD B2C używa do podpisywania odpowiedzi SAML. Możliwe wartości: `Sha256` , `Sha384` , `Sha512` lub `Sha1` . Upewnij się, że algorytm podpisu został skonfigurowany na obu stronach z tą samą wartością. Używaj tylko algorytmu obsługiwanego przez certyfikat. Aby skonfigurować potwierdzenie SAML, zobacz [metadane profilu technicznego wystawcy SAML](saml-issuer-technical-profile.md#metadata). |
+
+### <a name="outputclaims"></a>OutputClaims
 
 Element **OutputClaims** zawiera następujący element:
 
@@ -212,13 +220,14 @@ Element **oświadczenie outputclaim** zawiera następujące atrybuty:
 
 Element **SubjectNameingInfo** umożliwia kontrolowanie wartości podmiotu tokenu:
 - **Token JWT** — wartość `sub` żądania. Jest to podmiot zabezpieczeń, w którym token potwierdza informacje, takie jak użytkownik aplikacji. Ta wartość jest niezmienna i nie można jej ponownie przypisać ani ponownie użyć. Może służyć do wykonywania bezpiecznych kontroli autoryzacji, na przykład gdy token jest używany w celu uzyskania dostępu do zasobu. Domyślnie, zgłoszenie podmiotu jest wypełniane IDENTYFIKATORem obiektu użytkownika w katalogu. Aby uzyskać więcej informacji, zobacz [Konfiguracja tokenu, sesji i logowania](session-behavior.md)jednokrotnego.
-- **Token SAML** — `<Subject><NameID>` element, który identyfikuje element podmiotu.
+- **Token SAML** — `<Subject><NameID>` element, który identyfikuje element podmiotu. Format NameId można modyfikować.
 
 Element **SubjectNamingInfo** zawiera następujący atrybut:
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | Claim | Tak | Odwołanie do **PartnerClaimType**zgłoszenia danych wyjściowych. Oświadczenia wyjściowe muszą być zdefiniowane w kolekcji **OutputClaims** zasad jednostki uzależnionej. |
+| Format | Nie | Używane dla jednostek uzależnionych SAML do ustawiania **formatu NameID** zwracanego w potwierdzeniu SAML. |
 
 Poniższy przykład pokazuje, jak zdefiniować jednostkę uzależnioną OpenID Connect Connect. Informacje o nazwie podmiotu są skonfigurowane jako `objectId` :
 
@@ -248,4 +257,25 @@ Token JWT zawiera zgłoszenie `sub` z identyfikatorem użytkownika:
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
   ...
 }
+```
+
+Poniższy przykład pokazuje, jak zdefiniować jednostkę uzależnioną SAML. Informacje o nazwie podmiotu są skonfigurowane jako `objectId` , a NameID `format` został udostępniony:
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="SAML2" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient"/>
+  </TechnicalProfile>
+</RelyingParty>
 ```

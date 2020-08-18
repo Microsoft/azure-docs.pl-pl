@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z platformą zarządzania kontraktami Icertis | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i platformą zarządzania kontraktami Icertis.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 6627e6dd-f559-4cd4-a509-f6d9a4961b49
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 4d105fd9d0611ad56cd5ec2ecaa36bdcf9deed18
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2d7371b38796891f2e2a37266ac30bbbfd0f6d6e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67100743"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88517290"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Samouczek: integracja Azure Active Directory z platformą zarządzania kontraktami Icertis
 
@@ -32,7 +28,7 @@ Integracja platformy zarządzania umową Icertis z usługą Azure AD zapewnia na
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -116,7 +112,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą platformy z
 
     ![Link do pobierania certyfikatu](common/metadataxml.png)
 
-6. Na stronie **Konfigurowanie platformy zarządzania kontraktami Icertis** skopiuj odpowiednie adresy URL zgodnie z wymaganiami. W polu **adres URL logowania**Użyj wartości z następującym wzorcem:`https://login.microsoftonline.com/_my_directory_id_/wsfed`
+6. Na stronie **Konfigurowanie platformy zarządzania kontraktami Icertis** skopiuj odpowiednie adresy URL zgodnie z wymaganiami. W polu **adres URL logowania**Użyj wartości z następującym wzorcem: `https://login.microsoftonline.com/_my_directory_id_/wsfed`
 
     > [!Note]
     > _my_directory_id_ to identyfikator dzierżawy subskrypcji usługi Azure AD.
@@ -149,7 +145,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`. Na przykład BrittaSimon@contoso.com.
+    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension` . Na przykład BrittaSimon@contoso.com.
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -197,4 +193,4 @@ Po kliknięciu kafelka Icertis Contract Management platform w panelu dostępu na
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

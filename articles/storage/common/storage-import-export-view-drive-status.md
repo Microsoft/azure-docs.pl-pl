@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: bf44b24b9222072bf5f1493b36b0dfcca24b5389
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 8110b98c055a211203fb937990e860fc8dea74f4
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923615"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520466"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Wyświetlanie stanu zadań importu/eksportu platformy Azure
 
 Ten artykuł zawiera informacje dotyczące sposobu wyświetlania stanu dysku i zadania na potrzeby zadań importu/eksportu platformy Azure. Usługa Azure Import/Export służy do bezpiecznego transferu dużych ilości danych do obiektów blob platformy Azure i Azure Files. Usługa jest również używana do eksportowania danych z usługi Azure Blob Storage.  
 
 ## <a name="view-job-and-drive-status"></a>Wyświetlanie stanu zadania i dysku
-Można śledzić stan zadań importu lub eksportu z Azure Portal. Kliknij kartę **Import/Export** . Na stronie zostanie wyświetlona lista zadań.
+Można śledzić stan zadań importu lub eksportu z Azure Portal, wybierając kartę **Importuj/Eksportuj** . Na stronie zostanie wyświetlona lista zadań.
 
 ![Wyświetl stan zadania](./media/storage-import-export-service/jobstate.png)
 
@@ -36,7 +36,7 @@ Zostanie wyświetlony jeden z następujących stanów zadań w zależności od m
 | Przekazując | Po rozpoczęciu przetwarzania co najmniej jednego dysku stan zadania jest ustawiany na **transfer**. Aby uzyskać więcej informacji, przejdź do pozycji [dysk Stany](#view-drive-status). |
 | Tworzenie pakietów | Po zakończeniu przetwarzania na wszystkich dyskach zadanie jest umieszczane w stanie **pakowania** , dopóki dyski nie zostaną wysłane z powrotem do użytkownika. |
 | Ukończone | Po wysłaniu wszystkich dysków z powrotem do użytkownika, jeśli zadanie zostało ukończone bez błędów, to zadanie jest ustawione na **ukończone**. Zadanie jest automatycznie usuwane po 90 dniach w stanie **ukończone** . |
-| Zamknięte | Po wysłaniu wszystkich dysków do użytkownika, jeśli wystąpią błędy podczas przetwarzania zadania, zadanie jest ustawione na **zamknięte**. Zadanie jest automatycznie usuwane po 90 dniach w stanie **zamkniętym** . |
+| Zamknięte | Po wysłaniu wszystkich dysków z powrotem do użytkownika, jeśli wystąpią błędy podczas przetwarzania zadania, zadanie jest ustawione na **zamknięte**. Zadanie jest automatycznie usuwane po 90 dniach w stanie **zamkniętym** . |
 
 ## <a name="view-drive-status"></a>Wyświetlanie stanu dysku
 
@@ -48,7 +48,7 @@ W poniższej tabeli opisano każdy stan, w którym można przechodzić poszczeg�
 |:--- |:--- |
 | Wyszczególnion | W przypadku zadania importowania, gdy zadanie jest tworzone na podstawie Azure Portal, zostanie **określony**stan początkowy dla dysku. W przypadku zadania eksportu, ponieważ nie określono dysku podczas tworzenia zadania, zostanie **odebrany**stan dysku początkowego. |
 | Odebrano | Dysk przechodzi do stanu **otrzymanego** , gdy usługa importu/eksportu przetworzyła dyski, które zostały odebrane przez firmę wysyłkową dla zadania importu. W przypadku zadania eksportu stan początkowej stacji jest stan **odebrany** . |
-| NeverReceived | Dysk przechodzi do stanu **NeverReceived** , gdy pakiet dla zadania dociera, ale pakiet nie zawiera dysku. Dysk jest również przenoszony do tego stanu, jeśli miał dwa tygodnie od momentu odebrania przez usługę informacji o wysyłce, ale pakiet nie dotarł jeszcze do centrum danych. |
+| NeverReceived | Dysk przechodzi do stanu **NeverReceived** , gdy pakiet dla zadania dociera, ale pakiet nie zawiera dysku. Dysk jest również przenoszony do tego stanu, jeśli centrum danych jeszcze nie otrzymało pakietu, a usługa otrzymała informacje o wysyłce co najmniej dwa tygodnie temu. |
 | Przekazując | Dysk przechodzi do stanu **transferu** , gdy usługa zaczyna transferować dane z dysku do usługi Azure Storage. |
 | Ukończone | Dysk przechodzi do stanu **ukończenia** , gdy usługa pomyślnie przekazała wszystkie dane bez błędów.
 | CompletedMoreInfo | Dysk przechodzi do stanu **CompletedMoreInfo** , gdy usługa napotkała problemy podczas kopiowania danych z lub do dysku. Informacje mogą zawierać błędy, ostrzeżenia i komunikaty informacyjne dotyczące zastępowania obiektów BLOB.
@@ -63,7 +63,7 @@ W poniższej tabeli opisano Stany awarii stacji i akcje podejmowane dla każdego
 | Stan dysku | Zdarzenie | Rozwiązanie/następny krok |
 |:--- |:--- |:--- |
 | NeverReceived | Dysk oznaczony jako **NeverReceived** (ponieważ nie został odebrany jako część wysyłki zadania) dociera do innej wysyłki. | Zespół operacyjny przenosi dysk do **odbierania**. |
-| Nie dotyczy | Dysk, który nie jest częścią żadnego zadania, dociera do centrum danych jako część innego zadania. | Dysk jest oznaczony jako dodatkowy dysk i jest zwracany do użytkownika, gdy zostanie zakończone zadanie skojarzone z oryginalnym pakietem. |
+| Nie dotyczy | Dysk, który nie jest częścią żadnego zadania, dociera do centrum danych jako część innego zadania. | Dysk jest oznaczony jako dodatkowy dysk. Jest on zwracany po zakończeniu zadania skojarzonego z oryginalnym pakietem. |
 
 ## <a name="time-to-process-job"></a>Czas przetwarzania zadania
 Czas przetwarzania zadania importu/eksportu zależy od wielu czynników, takich jak:
@@ -73,11 +73,10 @@ Czas przetwarzania zadania importu/eksportu zależy od wielu czynników, takich 
 -  Typ zadania i rozmiar kopiowanych danych
 -  Liczba dysków w zadaniu. 
 
-Usługa Import/Export nie ma umowy SLA, ale usługa dokłada starań, aby zakończyć kopię w dniach od 7 do 10 dni po odebraniu dysków. Oprócz stanu opublikowanego Azure Portal interfejsy API REST mogą służyć do śledzenia postępów zadań. Parametr procent ukończenia w wywołaniu interfejsu API operacji [listy zadań](/previous-versions/azure/dn529083(v=azure.100)) zapewnia procentowy postęp kopiowania.
+Usługa Import/Export nie ma umowy SLA, ale usługa dokłada starań, aby zakończyć kopię w ciągu 7 – 10 dni od momentu odebrania dysków. Oprócz stanu opublikowanego w Azure Portal można używać interfejsów API REST do śledzenia postępów zadań. Użyj parametru% Complete w wywołaniu interfejsu API operacji [listy zadań](/previous-versions/azure/dn529083(v=azure.100)) , aby wyświetlić procentowy postęp kopiowania.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Konfigurowanie narzędzia WAImportExport](storage-import-export-tool-how-to.md)
 * [Transferowanie danych za pomocą narzędzia wiersza polecenia AzCopy](storage-use-azcopy.md)
 * [Przykład interfejsu API REST usługi Azure Import Export](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

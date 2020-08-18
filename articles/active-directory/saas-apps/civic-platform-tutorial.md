@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z platformą projektowi Civic Innovation | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i platformą projektowi Civic Innovation.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 1d790454-143e-40ac-b3cb-5a256977b4db
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/25/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ccf124c5a4160715df4e685e405dcd591c49ae7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 47ffaef940b3fe2ffe033405a712195c5c74d774
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68496826"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520386"
 ---
 # <a name="tutorial-integrate-civic-platform-with-azure-active-directory"></a>Samouczek: integracja platformy projektowi Civic Innovation z usługą Azure Active Directory
 
@@ -98,7 +93,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
 
-1. Przejdź do **Azure Active Directory** > **rejestracje aplikacji** w usłudze Azure AD, wybierz aplikację.
+1. Przejdź do **Azure Active Directory**  >  **rejestracje aplikacji** w usłudze Azure AD, wybierz aplikację.
 
 1. Skopiuj **Identyfikator katalogu (dzierżawy)** i Zapisz go w Notatniku.
 
@@ -108,7 +103,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
    ![Kopiowanie identyfikatora aplikacji (klienta)](media/civic-platform-tutorial/applicationid.png)
 
-1. Przejdź do **Azure Active Directory** > **rejestracje aplikacji** w usłudze Azure AD, wybierz aplikację. Wybierz pozycję **certyfikaty & wpisy tajne**.
+1. Przejdź do **Azure Active Directory**  >  **rejestracje aplikacji** w usłudze Azure AD, wybierz aplikację. Wybierz pozycję **certyfikaty & wpisy tajne**.
 
 1. Wybierz pozycję wpisy **tajne klienta — > nowego klucza tajnego klienta**.
 
@@ -129,7 +124,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Utwórz standardową **ssoconfig**wyboru.
 
-1. Wyszukaj **ssoconfig** i Prześlij.
+1. Wyszukaj **ssoconfig**  i Prześlij.
 
     ![Link do pobierania certyfikatu](media/civic-platform-tutorial/sso-config.png)
 
@@ -147,7 +142,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     1. W polu **directoryId** wprowadź wartość **identyfikatora katalogu (dzierżawy)** , która została skopiowana z Azure Portal.
 
-    1. Wprowadź idpName. Np `Azure`.:
+    1. Wprowadź idpName. Np.: `Azure`
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -157,7 +152,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -191,9 +186,9 @@ Po kliknięciu kafelka platforma projektowi Civic Innovation w panelu dostępu n
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
