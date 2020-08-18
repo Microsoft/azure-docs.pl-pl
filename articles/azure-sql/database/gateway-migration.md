@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 30e57736d0b0e40eb01573d6acca2c618dcf6ee3
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: af5486630eb89de198b6ed2975a919b04b01a902
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759703"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507522"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migrację ruchu do nowszych bram
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,23 +28,45 @@ Klienci będą powiadamiani za pośrednictwem poczty e-mail i w Azure Portal ró
 
 # <a name="in-progress"></a>[W toku](#tab/in-progress-ip)
 ### <a name="september-2020"></a>Wrzesień 2020
+Nowe bramy SQL są dodawane do następujących regionów. Te bramy SQL zaczynają akceptować ruch klienta na **15 września 2020**:
 
-Nowe bramy SQL są dodawane do następujących regionów. Te bramy SQL zaczynają akceptować ruch klienta na 10 września 2020:
+- Australia Południowo-Wschodnia: 13.77.48.10
+- Kanada Wschodnia: 40.86.226.166, 52.242.30.154
+- Południowe Zjednoczone Królestwo: 51.140.184.11, 51.105.64.0
+
+Istniejące bramy SQL będą uruchamiać akceptowanie ruchu w następujących regionach. Te bramy SQL zaczynają akceptować ruch klienta na **15 września 2020** :
+
+- Australia Południowo-Wschodnia: 191.239.192.109 i 13.73.109.251
+- Środkowe stany USA: 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96 i 104.208.21.1
+- Azja Wschodnia: 191.234.2.139, 52.175.33.150 i 13.75.32.4
+- Wschodnie stany USA: 40.121.158.30, 40.79.153.12, 191.238.6.43 i 40.78.225.32
+- Wschodnie stany USA 2:40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107 i 104.208.150.3
+- Francja Środkowa: 40.79.137.0 i 40.79.129.1
+- Japonia Zachodnia: 104.214.148.156, 40.74.100.192, 191.238.68.11 i 40.74.97.10
+- Północno-środkowe stany USA: 23.96.178.199, 23.98.55.75 i 52.162.104.33
+- Azja Południowo-Wschodnia: 104.43.15.0, 23.100.117.95 i 40.78.232.3
+- Zachodnie stany USA: 104.42.238.205, 23.99.34.75 i 13.86.216.196
+
+Nowe bramy SQL są dodawane do następujących regionów. Te bramy SQL zaczynają akceptować ruch klienta na **10 września 2020**:
 
 - Zachodnio-środkowe stany USA: 13.78.248.43 
 - Północna Republika Południowej Afryki: 102.133.120.2  
 
-Nowe bramy SQL są dodawane do następujących regionów. Te bramy SQL zaczynają akceptować ruch klienta 1 września 2020:
+Nowe bramy SQL są dodawane do następujących regionów. Te bramy SQL zaczynają akceptować ruch klienta **1 września 2020**:
 
 - Europa Północna: 13.74.104.113 
 - Stany USA 2 zachodni: 40.78.248.10 
 - Europa Zachodnia: 52.236.184.163 
 - Południowo-środkowe stany USA: 20.45.121.1, 20.49.88.1 
 
-Istniejące bramy SQL będą uruchamiać akceptowanie ruchu w następujących regionach. Te bramy SQL zaczynają akceptować ruch klienta 1 września 2020. :
+Istniejące bramy SQL będą uruchamiać akceptowanie ruchu w następujących regionach. Te bramy SQL zaczynają akceptować ruch klienta **1 września 2020** :
 - Japonia Wschodnia: 40.79.184.8, 40.79.192.5
 
-### <a name="august-2020"></a>2020 sierpnia
+# <a name="completed"></a>[Ukończone](#tab/completed-ip)
+
+Następujące migracje bramy zostały ukończone: 
+
+### <a name="august-2020"></a>Sierpień 2020 r.
 
 Nowe bramy SQL są dodawane do następujących regionów:
 
@@ -53,10 +75,6 @@ Nowe bramy SQL są dodawane do następujących regionów:
 - Zachodnie stany USA 2:40.78.240.8
 
 Te bramy SQL zaczynają akceptować ruch klienta w dniu 10 sierpnia 2020. 
-
-# <a name="completed"></a>[Ukończone](#tab/completed-ip)
-
-Następujące migracje bramy zostały ukończone: 
 
 ### <a name="october-2019"></a>Październik 2019 r.
 - Brazil South
@@ -96,7 +114,7 @@ Zalecamy Zezwalanie na ruch wychodzący do adresów IP dla wszystkich [adresów 
 
 Połączenia wykonane z aplikacji przy użyciu sterownika programu Microsoft JDBC w wersji 4,0 mogą kończyć się niepowodzeniem weryfikacji certyfikatu. Niższe wersje programu Microsoft JDBC korzystają z nazwy pospolitej (CN) w polu podmiotu certyfikatu. Środki zaradcze polegają na zapewnieniu, że właściwość hostNameInCertificate jest ustawiona na *. database.windows.net. Aby uzyskać więcej informacji na temat sposobu ustawiania właściwości hostNameInCertificate, zobacz [nawiązywanie połączenia z szyfrowaniem](/sql/connect/jdbc/connecting-with-ssl-encryption).
 
-Jeśli powyższe środki zaradcze nie działają, należy wysłać żądanie pomocy technicznej dla SQL Database lub wystąpienia zarządzanego SQL przy użyciu następującego adresu URL:https://aka.ms/getazuresupport
+Jeśli powyższe środki zaradcze nie działają, należy wysłać żądanie pomocy technicznej dla SQL Database lub wystąpienia zarządzanego SQL przy użyciu następującego adresu URL: https://aka.ms/getazuresupport
 
 ## <a name="next-steps"></a>Następne kroki
 

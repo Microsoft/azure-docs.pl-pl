@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/29/2020
 ms.topic: sample
-ms.openlocfilehash: 0c28d36c7934fbbac0ddd11562c8dc237b0360ee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8e5dcb6c9dfa08efc0889fcab779d6cb333d2330
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80679485"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507539"
 ---
 # <a name="sample-models"></a>Przykładowe modele
 
@@ -26,7 +26,7 @@ Statystyki modelu:
 
 | Nazwa | Wartość |
 |-----------|:-----------|
-| [Wymagany rozmiar maszyny wirtualnej](../how-tos/session-rest-api.md#create-a-session) | Standardowa |
+| [Wymagany rozmiar serwera](../how-tos/session-rest-api.md#create-a-session) | Standardowa |
 | Liczba trójkątów | 18 700 000 |
 | Liczba ruchomych części | 2073 |
 | Liczba materiałów | 94 |

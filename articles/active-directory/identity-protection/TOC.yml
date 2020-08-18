@@ -2,7 +2,7 @@
   href: index.yml
 - name: Omówienie
   items:
-    - name: Co to jest usługa Azure AD Identity Protection?
+    - name: Co to jest ochrona tożsamości?
       href: overview-identity-protection.md
 - name: Pojęcia
   expanded: false

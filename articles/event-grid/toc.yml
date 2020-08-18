@@ -236,7 +236,7 @@
       items:
         - name: Konfigurowanie prywatnych punktów końcowych
           href: configure-private-endpoints.md
-        - name: Konfigurowanie zapory IP (wersja zapoznawcza)
+        - name: Konfigurowanie zapory IP
           href: configure-firewall.md
         - name: Zabezpieczanie elementu webhook za pomocą usługi AAD
           href: secure-webhook-delivery.md

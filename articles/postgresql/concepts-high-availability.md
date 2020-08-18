@@ -1,17 +1,17 @@
 ---
 title: Wysoka dostępność — Azure Database for PostgreSQL — pojedynczy serwer
 description: Ten artykuł zawiera informacje o wysokiej dostępności w systemie Azure Database for PostgreSQL-pojedynczym serwerze
-author: sr-pg20
-ms.author: srranga
+author: jasonwhowell
+ms.author: jasonh
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
-ms.openlocfilehash: 564aa030c442331fbcd965c87da3bfbc03d00d79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33c66fff681b0458d1cff1ff6176c34f4771b38e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85105884"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88508468"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Wysoka dostępność w Azure Database for PostgreSQL — pojedynczy serwer
 Azure Database for PostgreSQL — usługa pojedynczego serwera zapewnia gwarantowany wysoki poziom dostępności dzięki finansowej umowie dotyczącej poziomu usług (SLA) wynoszącej [99,99%](https://azure.microsoft.com/support/legal/sla/postgresql) czasu. Azure Database for PostgreSQL zapewnia wysoką dostępność podczas planowanych zdarzeń, takich jak operacja obliczeniowa initated przez użytkownika, a także w przypadku nieplanowanych zdarzeń, takich jak podstawowy sprzęt, oprogramowanie lub awarie sieci. Azure Database for PostgreSQL możliwość szybkiego odzyskania sprawności od najbardziej krytycznych okoliczności, co gwarantuje praktycznie brak aplikacji podczas korzystania z tej usługi.
@@ -31,6 +31,9 @@ Azure Database for PostgreSQL jest zaprojektowany w celu zapewnienia wysokiej do
 
 ![Widok elastycznego skalowania w usłudze Azure PostgreSQL](./media/concepts-high-availability/azure-postgresql-elastic-scaling.png)
 
+1. Skalowanie w górę i w dół serwerów baz danych PostgreSQL w ciągu kilku sekund
+2. Brama, która działa jako serwer proxy do routingu klienta nawiązuje połączenie z właściwym serwerem bazy danych
+3. Skalowanie w górę magazynu można przeprowadzić bez przestojów. Magazyn zdalny umożliwia szybkie odłączenie i ponowne dołączenie po przejściu do trybu failover.
 Poniżej przedstawiono niektóre planowane scenariusze konserwacji:
 
 | **Scenariusz** | **Opis**|
@@ -48,20 +51,25 @@ Nieplanowany przestój może wystąpić w wyniku nieprzewidzianych awarii, w tym
 
 ![Widok wysokiej dostępności w usłudze Azure PostgreSQL](./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png)
 
+1. Serwery usługi Azure PostgreSQL z funkcją szybkiego skalowania.
+2. Brama, która działa jako serwer proxy do kierowania połączeń klienta do odpowiedniego serwera bazy danych
+3. Usługa Azure Storage z trzema kopiami na potrzeby niezawodności, dostępności i nadmiarowości.
+4. Magazyn zdalny umożliwia również szybkie odłączenie/ponowne dołączenie po przejściu serwera w tryb failover.
+   
 ### <a name="unplanned-downtime-failure-scenarios-and-service-recovery"></a>Nieplanowany przestój: scenariusze awarii i odzyskiwanie usługi
 Poniżej przedstawiono niektóre scenariusze awarii i sposób automatycznego odzyskiwania Azure Database for PostgreSQL:
 
 | **Scenariusz** | **Automatyczne odzyskiwanie** |
 | ---------- | ---------- |
-| <B>Awaria serwera bazy danych | Jeśli serwer bazy danych nie działa z powodu błędu sprzętowego, aktywne połączenia są porzucane i wszystkie transakcje numerów porządkowych określających są przerywane. Zostanie automatycznie wdrożony nowy serwer bazy danych, a zdalny magazyn danych jest podłączony do nowego serwera bazy danych. Po zakończeniu odzyskiwania bazy danych klienci mogą połączyć się z nowym serwerem bazy danych za pomocą bramy. <br /> <br /> Aplikacje korzystające z baz danych PostgreSQL muszą być wbudowane w taki sposób, aby wykrywać i ponawiać próby porzucenia połączeń i transakcji zakończonych niepowodzeniem.  Po ponownym ponowieniu próby aplikacji Brama w niewidoczny sposób przekierowuje połączenie do nowo utworzonego serwera bazy danych. |
+| <B>Awaria serwera bazy danych | Jeśli serwer bazy danych nie działa z powodu błędu sprzętowego, aktywne połączenia są porzucane i wszystkie transakcje numerów porządkowych określających są przerywane. Zostanie automatycznie wdrożony nowy serwer bazy danych, a zdalny magazyn danych jest podłączony do nowego serwera bazy danych. Po zakończeniu odzyskiwania bazy danych klienci mogą połączyć się z nowym serwerem bazy danych za pomocą bramy. <br /> <br /> Czas odzyskiwania (RTO) zależy od różnych czynników, w tym działania w momencie wystąpienia błędu, takie jak duża transakcja i ilość odzyskiwania, które mają być wykonywane podczas uruchamiania serwera bazy danych. <br /> <br /> Aplikacje korzystające z baz danych PostgreSQL muszą być wbudowane w taki sposób, aby wykrywać i ponawiać próby porzucenia połączeń i transakcji zakończonych niepowodzeniem.  Po ponownym ponowieniu próby aplikacji Brama w niewidoczny sposób przekierowuje połączenie do nowo utworzonego serwera bazy danych. |
 | <B>Awaria magazynu | Aplikacje nie widzą żadnego wpływu na problemy związane z magazynowaniem, takie jak awaria dysku lub uszkodzenie bloku fizycznego. Ponieważ dane są przechowywane w 3 kopiach, kopia danych jest obsługiwana przez trwające magazynowanie. Uszkodzenia bloków są automatycznie poprawiane. Jeśli kopia danych zostanie utracona, tworzona jest nowa kopia danych. |
 
 Poniżej przedstawiono niektóre scenariusze niepowodzeń, które wymagają wykonania czynności przez użytkownika w celu odzyskania:
 
 | **Scenariusz** | **Plan odzyskiwania** |
 | ---------- | ---------- |
-| <b>Awaria regionu | Awaria regionu jest zdarzeniem rzadkim. Jeśli jednak potrzebujesz ochrony przed awarią regionu, możesz skonfigurować co najmniej jedną replikę odczytu w innych regionach na potrzeby odzyskiwania po awarii (DR). (Zobacz [ten artykuł](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) dotyczący tworzenia replik odczytu i zarządzania nimi w celu uzyskania szczegółowych informacji). W przypadku awarii poziomu regionu można ręcznie podwyższyć poziom repliki odczytu skonfigurowany w innym regionie jako produkcyjny serwer bazy danych. |
-| <b>Błędy logiczne/użytkownika | Odzyskiwanie z błędów użytkowników, takich jak przypadkowo porzucane tabele lub nieprawidłowo aktualizowane dane, polega na przeprowadzeniu [odzyskiwania do punktu w czasie](https://docs.microsoft.com/azure/postgresql/concepts-backup) (kopie) przez przywrócenie i odzyskanie danych do czasu, gdy wystąpi błąd.<br> <br>  Aby przywrócić tylko podzestaw baz danych lub określonych tabel, a nie wszystkich baz danych na serwerze bazy danych, można przywrócić serwer bazy danych w nowym wystąpieniu, wyeksportować tabele za pośrednictwem [pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html), a następnie użyć [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) do przywrócenia tych tabel do bazy danych programu. |
+| <b> Awaria regionu | Awaria regionu jest zdarzeniem rzadkim. Jeśli jednak potrzebujesz ochrony przed awarią regionu, możesz skonfigurować co najmniej jedną replikę odczytu w innych regionach na potrzeby odzyskiwania po awarii (DR). (Zobacz [ten artykuł](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) dotyczący tworzenia replik odczytu i zarządzania nimi w celu uzyskania szczegółowych informacji). W przypadku awarii poziomu regionu można ręcznie podwyższyć poziom repliki odczytu skonfigurowany w innym regionie jako produkcyjny serwer bazy danych. |
+| <b> Błędy logiczne/użytkownika | Odzyskiwanie z błędów użytkowników, takich jak przypadkowo porzucane tabele lub nieprawidłowo aktualizowane dane, polega na przeprowadzeniu [odzyskiwania do punktu w czasie](https://docs.microsoft.com/azure/postgresql/concepts-backup) (kopie) przez przywrócenie i odzyskanie danych do czasu, gdy wystąpi błąd.<br> <br>  Aby przywrócić tylko podzestaw baz danych lub określonych tabel, a nie wszystkich baz danych na serwerze bazy danych, można przywrócić serwer bazy danych w nowym wystąpieniu, wyeksportować tabele za pośrednictwem [pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html), a następnie użyć [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) do przywrócenia tych tabel do bazy danych programu. |
 
 
 

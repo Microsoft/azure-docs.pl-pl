@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 3e452cd548738e5f211899d3a6a676f883d800ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04f0c3c63d00ea49bf43f00f256266599a73d6c0
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77132051"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88508808"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>Pobieranie obrazów drona z partnerów drona
 
@@ -22,7 +22,7 @@ Obecnie obsługiwane są następujące partnerzy obrazów.
 
 Integrowanie danych drona obrazów z usługą Azure FarmBeats ułatwia uzyskiwanie danych orthomosaic z lotów drona prowadzonych w farmie w datahub. Gdy dane będą dostępne, możesz je wyświetlić w akceleratorze FarmBeats. Dane mogą służyć do łączenia się z danymi i tworzenia modeli w ramach modelu uczenia maszynowego.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
   - Upewnij się, że zainstalowano usługę Azure FarmBeats. Aby uzyskać informacje na temat sposobu instalowania programu FarmBeats, zobacz [Instalowanie platformy Azure FarmBeats](install-azure-farmbeats.md).
   - Upewnij się, że masz farmę, dla której chcesz utworzyć drona obrazów w systemie FarmBeats.
@@ -53,9 +53,9 @@ Wykonaj następujące kroki.
 5. Przejdź do katalogu, do którego pliki zostały przekazane. Domyślnie są one przekazywane do katalogu macierzystego w ramach nazwy użytkownika.
 6. Uruchom poniższy skrypt:
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
-    ./generateCredentials.ps1   
+    ./generateCredentials.ps1
 
     ```
 

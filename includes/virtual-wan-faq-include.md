@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: dececd066597682e240e737727d3bcaf8f8f3619
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: c1a8fbb5558d5b9069c5b8103bca2fc3f8bcddf3
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375817"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507585"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Czy użytkownik musi dysponować centrum i szprychą z urządzeniami z systemem SD/WAN/VPN, aby można było korzystać z wirtualnej sieci WAN platformy Azure?
 
@@ -187,7 +187,7 @@ Nie. Wirtualna sieć WAN nie wymaga ExpressRoute z każdej lokacji. Lokacje mog�
 
 ### <a name="is-there-a-network-throughput-or-connection-limit-when-using-azure-virtual-wan"></a>Czy istnieje przepustowość sieci lub limit połączeń w przypadku korzystania z wirtualnej sieci WAN platformy Azure?
 
-Przepustowość sieci dotyczy usługi w wirtualnym koncentratorze sieci WAN. Chociaż możesz mieć dowolną liczbę wirtualnych sieci WAN, każda wirtualna sieć WAN zezwala na 1 Hub na region. W każdym centrum przepustowość zagregowana sieci VPN wynosi 20 GB/s, zagregowana przepływność ExpressRoute to maksymalnie 20 GB/s, a przepustowość sieci VPN typu punkt-lokacja jest równa 20 GB/s. Router w koncentratorze wirtualnym obsługuje do 50 GB/s w przypadku przepływów ruchu między SIECIami wirtualnymi i zakłada, że łączna liczba obciążeń maszyn wirtualnych to 2000 na wszystkich sieci wirtualnych wirtualnych koncentratorów.
+Przepustowość sieci dotyczy usługi w wirtualnym koncentratorze sieci WAN. Chociaż możesz mieć dowolną liczbę wirtualnych sieci WAN, każda wirtualna sieć WAN zezwala na 1 Hub na region. W każdym centrum przepustowość zagregowana sieci VPN wynosi 20 GB/s, zagregowana przepływność ExpressRoute to maksymalnie 20 GB/s, a przepustowość sieci VPN typu punkt-lokacja jest równa 20 GB/s. Router w koncentratorze wirtualnym obsługuje do 50 GB/s w przypadku przepływów ruchu między sieciami wirtualnymi i zakłada, że w ramach wszystkich sieci wirtualnych podłączonych do jednego koncentratora jest przyjmowana łączna liczba 2000 obciążeń maszyn wirtualnych.
 
 Gdy lokacje sieci VPN nawiązują połączenie z koncentratorem, wykonują połączenie. Wirtualna sieć WAN obsługuje do 1000 połączeń lub tunele IPsec 2000 na koncentratorze wirtualnym. Gdy użytkownicy zdalni łączą się z koncentratorem wirtualnym, łączą się z bramą sieci VPN P2S, która obsługuje do 10 000 użytkowników w zależności od wybranej jednostki skalowania (przepustowości) dla bramy sieci VPN P2S w koncentratorze wirtualnym.
 
@@ -239,7 +239,7 @@ Gdy wiele obwodów usługi ExpressRoute jest podłączonych do koncentratora wir
 
 ### <a name="does-virtual-wan-prefer-expressroute-over-vpn-for-traffic-egressing-azure"></a>Czy wirtualne sieci WAN preferują ExpressRoute za pośrednictwem sieci VPN dla ruchu wychodzącego z platformy Azure
 
-Tak 
+Yes 
 
 ### <a name="when-a-virtual-wan-hub-has-an-expressroute-circuit-and-a-vpn-site-connected-to-it-what-would-cause-a-vpn-connection-route-to-be-prefered-over-expressroute"></a>Gdy wirtualny koncentrator sieci WAN ma obwód usługi ExpressRoute oraz podłączoną do niej lokację sieci VPN, co spowodowałoby preferowanie trasy połączenia sieci VPN za pośrednictwem ExpressRoute?
 
