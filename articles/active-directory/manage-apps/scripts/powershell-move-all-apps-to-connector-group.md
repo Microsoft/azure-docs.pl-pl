@@ -2,22 +2,21 @@
 title: Przykład programu PowerShell — przenoszenie aplikacji serwera proxy aplikacji do innej grupy
 description: Przykład programu PowerShell serwera proxy aplikacji usługi Azure Active Directory (Azure AD) służący do przenoszenia wszystkich aplikacji aktualnie przypisanych do grupy łączników do innej grupy łączników.
 services: active-directory
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6dccdaa96dadb061b168bbdf6148ed4d759776c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2632dbc4db093126d9b334e338a63dc8d0079b0c
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75481986"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511106"
 ---
 # <a name="move-all-apps-assigned-to-a-connector-group-to-another-connector-group"></a>Przenoszenie wszystkich aplikacji przypisanych do grupy łączników do innej grupy łączników
 

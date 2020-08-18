@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie uprawnieniami użytkowników i administratorów — Azure Active Directory | Microsoft Docs
-description: Dowiedz się, jak przeglądać uprawnienia dla aplikacji w usłudze Azure AD i zarządzać nimi. Na przykład, jeśli chcesz odwołać wszystkie uprawnienia udzielone aplikacji.
+description: Dowiedz się, jak przeglądać uprawnienia dla aplikacji w usłudze Azure AD i zarządzać nimi. Na przykład Odwołaj wszystkie uprawnienia udzielone aplikacji.
 services: active-directory
 author: mimart
 manager: CelesteDG
@@ -12,22 +12,22 @@ ms.date: 7/10/2020
 ms.author: mimart
 ms.reviewer: luleonpla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00d878c7b2f78d037e89235f3bb30c02fd11a7ae
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 95e13cedc0cdbaedc8c00b9d855057da7e631c19
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86277648"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510882"
 ---
-# <a name="take-action-on-overpriviledged-or-suspicious-application-in-azure-active-directory"></a>Podejmowanie działań na overpriviledged lub podejrzanych aplikacjach w Azure Active Directory
+# <a name="take-action-on-overprivileged-or-suspicious-applications-in-azure-active-directory"></a>Podejmowanie akcji w przypadku aplikacji z ograniczeniami lub podejrzanymi uprawnieniami w Azure Active Directory
 
-Dowiedz się, jak przeglądać uprawnienia aplikacji i zarządzać nimi. W zależności od scenariusza ten artykuł zawiera różne akcje, które można wykonać w celu zabezpieczenia aplikacji. Dotyczy to wszystkich aplikacji, które zostały dodane do dzierżawy usługi Azure Active Directory (Azure AD) za pośrednictwem zgody użytkownika lub administratora.
+Dowiedz się, jak przeglądać uprawnienia aplikacji i zarządzać nimi. Ten artykuł zawiera różne akcje, które można wykonać w celu zabezpieczenia aplikacji zgodnie z scenariuszem. Te akcje dotyczą wszystkich aplikacji, które zostały dodane do dzierżawy usługi Azure Active Directory (Azure AD) za pośrednictwem zgody użytkownika lub administratora.
 
 Aby uzyskać więcej informacji na temat wyrażania zgody na aplikacje, zobacz [Azure Active Directory](../develop/consent-framework.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Możliwość wykonania poniższych czynności wymaga zalogowania się jako Administrator globalny, administrator aplikacji lub administrator aplikacji w chmurze.
+Aby wykonać następujące akcje, należy zalogować się jako Administrator globalny, administrator aplikacji lub administrator aplikacji w chmurze.
 
 Aby ograniczyć dostęp do aplikacji, należy wymagać przypisania użytkownika, a następnie przypisania użytkowników lub grup do aplikacji.  Aby uzyskać więcej informacji, zobacz [metody przypisywania użytkowników i grup](methods-for-assigning-users-and-groups.md).
 
@@ -38,71 +38,73 @@ Możesz uzyskać dostęp do portalu usługi Azure AD, aby uzyskać kontekstowe s
 3. Wybierz aplikację, do której chcesz ograniczyć dostęp.
 4. Wybierz pozycję **uprawnienia**. Na pasku poleceń wybierz pozycję **Przejrzyj uprawnienia**.
 
-![Przejrzyj uprawnienia](./media/manage-application-permissions/review-permissions.png)
+![Zrzut ekranu przedstawiający okno Przeglądanie uprawnień.](./media/manage-application-permissions/review-permissions.png)
 
-## <a name="i-want-to-control-access-to-an-application"></a>Chcę kontrolować dostęp do aplikacji
 
-Zalecamy ograniczenie dostępu do tej aplikacji przez włączenie ustawienia przypisywania użytkowników.
+## <a name="control-access-to-an-application"></a>Kontrola dostępu do aplikacji
+
+Zalecamy, aby ograniczyć dostęp do aplikacji przez włączenie ustawienia **przypisania użytkownika** .
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako Administrator globalny, administrator aplikacji lub administrator aplikacji w chmurze.
 2. Wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**.
 3. Wybierz aplikację, do której chcesz ograniczyć dostęp.
-4. Wybierz pozycję **Właściwości** , a następnie ustaw dla ustawienia wymagane dla użytkownika wartość tak.
-5. Wybierz pozycję **Użytkownicy i grupy** , a następnie usuń niechcianych użytkowników przypisanych do aplikacji.
-6. Przypisz użytkowników lub grupy do aplikacji.
+4. Wybierz pozycję **Właściwości**, a następnie ustaw opcję **wymagane przez użytkownika** na **wartość tak**.
+5. Wybierz pozycję **Użytkownicy i grupy**, a następnie usuń niechcianych użytkowników przypisanych do aplikacji.
+6. Przypisywanie użytkowników lub grup do aplikacji.
 
 Opcjonalnie można usunąć wszystkich użytkowników przypisanych do aplikacji przy użyciu programu PowerShell.
 
-## <a name="i-want-to-revoke-all-permissions-for-an-application"></a>Chcę odwołać wszystkie uprawnienia dla aplikacji
+## <a name="revoke-all-permissions-for-an-application"></a>Odwołaj wszystkie uprawnienia dla aplikacji
 
-Przy użyciu programu PowerShell są odwoływane wszystkie uprawnienia udzielone tej aplikacji.
+Przy użyciu skryptu programu PowerShell odwołuje się wszystkie uprawnienia udzielone tej aplikacji.
 
 > [!NOTE]
-> Odwoływanie bieżącego uprawnienia nie uniemożliwi użytkownikom reconseing aplikacji. Jeśli chcesz zablokować użytkownikom możliwość wyrażania zgody na aplikację, Przeczytaj [temat Konfigurowanie sposobu, w jaki użytkownicy końcowi wyrażają zgodę na aplikacje](configure-user-consent.md).
+> Cofnięcie aktualnie udzielonego uprawnienia nie uniemożliwi użytkownikom ponownego przesłania do aplikacji. Aby uniemożliwić użytkownikom wyrażanie zgody, Przeczytaj [temat Konfigurowanie sposobu, w jaki użytkownicy zgadzają się na aplikacje](configure-user-consent.md).
 
-Opcjonalnie można wyłączyć aplikację, aby uniemożliwić użytkownikom dostęp do aplikacji, a aplikacja uzyskuje dostęp do danych.
+Opcjonalnie można wyłączyć aplikację, aby uniemożliwić użytkownikom uzyskiwanie dostępu do aplikacji i uniemożliwić dostęp aplikacji do danych.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako Administrator globalny, administrator aplikacji lub administrator aplikacji w chmurze.
 2. Wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**.
 3. Wybierz aplikację, do której chcesz ograniczyć dostęp.
-4. Wybierz pozycję **Właściwości** , a następnie ustaw opcję Włącz, aby użytkownicy mogli się zalogować? na nie.
+4. Wybierz pozycję **Właściwości**, a następnie ustaw opcję Włącz, aby **użytkownicy mogli się logować?** do **nie**.
 
-## <a name="application-is-suspicious-and-i-want-to-investigate"></a>Aplikacja jest podejrzana i chcę zbadać
+## <a name="investigate-a-suspicious-application"></a>Zbadaj podejrzaną aplikację
 
-Zalecamy ograniczenie dostępu do tej aplikacji przez włączenie ustawienia przypisywania użytkowników i przejrzenie uprawnień przypisanych do aplikacji przez użytkowników i administratorów.
+Zalecamy, aby ograniczyć dostęp do aplikacji przez włączenie ustawienia **przypisania użytkownika** . Następnie zapoznaj się z uprawnieniami przyznanymi przez użytkowników i administratorów do aplikacji.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako Administrator globalny, administrator aplikacji lub administrator aplikacji w chmurze.
 3. Wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**.
 5. Wybierz aplikację, do której chcesz ograniczyć dostęp.
-6. Wybierz pozycję **Właściwości** , a następnie ustaw dla ustawienia wymagane dla użytkownika wartość tak.
-7. Wybierz pozycję **uprawnienia** i przejrzyj uprawnienia wysłane przez administratora i użytkownika.
+6. Wybierz pozycję **Właściwości**, a następnie ustaw opcję **wymagane przez użytkownika** na **wartość tak**.
+7. Wybierz pozycję **uprawnienia**i sprawdź uprawnienia wysłane przez administratora i użytkownika.
 
-Opcjonalne, można:
+Opcjonalnie za pomocą programu PowerShell można:
 
-- Za pomocą programu PowerShell Usuń wszystkich użytkowników przypisanych, aby uniemożliwić im zalogowanie się do aplikacji.
-- Za pomocą programu PowerShell Unieważnij tokeny odświeżania dla użytkowników, którzy mają dostęp do aplikacji.
-- Przy użyciu programu PowerShell Odwołaj wszystkie uprawnienia dla tej aplikacji
-- Wyłącz aplikację, aby blokować użytkownikom dostęp do danych i je zatrzymywać.
+- Usuń wszystkich przypisanych użytkowników, aby uniemożliwić im logowanie do aplikacji.
+- Unieważnij tokeny odświeżania dla użytkowników, którzy mają dostęp do aplikacji.
+- Odwołaj wszystkie uprawnienia dla aplikacji.
+
+Można też wyłączyć aplikację, aby blokować dostęp użytkowników i zatrzymywać dostęp aplikacji do danych.
 
 
-## <a name="application-is-malicious-and-im-compromised"></a>Aplikacja jest złośliwa i naruszona
+## <a name="disable-a-malicious-application"></a>Wyłącz złośliwą aplikację 
 
-Zalecamy wyłączenie aplikacji w celu zablokowania użytkownikom dostępu do aplikacji i uzyskiwania przez nich dostępu do danych. Jeśli usuniesz aplikację zamiast tego, użytkownicy końcowi będą mogli wyrazić zgodę na aplikację i udzielić dostępu do danych.
+Zalecamy wyłączenie aplikacji, aby zablokować dostęp użytkowników i uniemożliwić aplikacji dostęp do danych. Jeśli aplikacja zostanie usunięta, użytkownicy będą mogli ponownie wyrazić zgodę na aplikację i udzielić dostępu do danych.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako Administrator globalny, administrator aplikacji lub administrator aplikacji w chmurze.
 2. Wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**.
 3. Wybierz aplikację, do której chcesz ograniczyć dostęp.
-4. Wybierz pozycję **Właściwości** , a następnie skopiuj identyfikator obiektu.
+4. Wybierz pozycję **Właściwości**, a następnie skopiuj identyfikator obiektu.
 
 ### <a name="powershell-commands"></a>Polecenia programu PowerShell
 
 
-Pobierz identyfikator obiektu nazwy głównej usługi
+Pobierz identyfikator obiektu nazwy głównej usługi.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako Administrator globalny, administrator aplikacji lub administrator aplikacji w chmurze.
 2. Wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**.
 3. Wybierz aplikację, do której chcesz ograniczyć dostęp.
-4. Wybierz pozycję **Właściwości** , a następnie skopiuj identyfikator obiektu.
+4. Wybierz pozycję **Właściwości**, a następnie skopiuj identyfikator obiektu.
 
 ```powershell
     $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
@@ -128,7 +130,7 @@ Usuń wszystkich użytkowników przypisanych do aplikacji.
     }
  ```
 
-Odwołaj uprawnienia przyznane aplikacji
+Odwołaj uprawnienia przyznane aplikacji.
 
 ```powershell
     Connect-AzureAD
@@ -152,7 +154,7 @@ Odwołaj uprawnienia przyznane aplikacji
         Remove-AzureADServiceAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.objectId
     }
 ```
-Unieważnianie tokenów odświeżania
+Unieważnianie tokenów odświeżania.
 ```powershell
         Connect-AzureAD
 

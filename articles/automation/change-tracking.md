@@ -3,14 +3,14 @@ title: Przegląd Change Tracking Azure Automation i spisu
 description: W tym artykule opisano Change Tracking i funkcję spisu, która pomaga identyfikować zmiany oprogramowania i usług firmy Microsoft w danym środowisku.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 06/08/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: ca96f817407aaef808fa10fbedec7af7b5912dc8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 2fe92942e263cf53b9827ccbcb13a2d7bafc367c
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447936"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511052"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Przegląd Change Tracking i spisu
 
@@ -26,10 +26,10 @@ W tym artykule przedstawiono Change Tracking i spis w Azure Automation. Ta funkc
 > [!NOTE]
 > Aby śledzić zmiany właściwości Azure Resource Manager, zobacz [historię zmian](../governance/resource-graph/how-to/get-resource-changes.md)grafu zasobów platformy Azure.
 
-Change Tracking i zapasy pobierają swoje dane z Azure Monitor. Maszyny wirtualne połączone z obszarami roboczymi Log Analytics używają agentów Log Analytics do zbierania danych o zmianach w zainstalowanym oprogramowaniu, usługach firmy Microsoft, rejestrze i plikach systemu Windows oraz demonach Linux na monitorowanych serwerach. Gdy dane są dostępne, agenci wysyłają je do Azure Monitor do przetwarzania. Azure Monitor stosuje logikę do odbieranych danych, rejestruje ją i udostępnia. 
+Change Tracking i zapasy pobierają swoje dane z Azure Monitor. Maszyny wirtualne połączone z obszarami roboczymi Log Analytics używają agenta Log Analytics do zbierania danych o zmianach w zainstalowanych programach, usługach firmy Microsoft, rejestrze i plikach systemu Windows oraz demonach Linux na monitorowanych serwerach. Gdy dane są dostępne, Agent wysyła go do Azure Monitor do przetworzenia. Azure Monitor stosuje logikę do odbieranych danych, rejestruje ją i udostępnia.
 
 > [!NOTE]
-> Aby korzystać z funkcji Change Tracking i spisu, należy zlokalizować wszystkie maszyny wirtualne w tej samej subskrypcji i regionie konta usługi Automation.
+> Change Tracking i spis wymaga połączenia obszaru roboczego Log Analytics z kontem usługi Automation. Aby uzyskać ostateczną listę obsługiwanych regionów, zobacz [mapowania obszaru roboczego platformy Azure](./how-to/region-mappings.md). Mapowania regionów nie mają wpływu na możliwość zarządzania maszynami wirtualnymi w innym regionie niż konto usługi Automation.
 
 Change Tracking i spis nie obsługują obecnie następujących elementów:
 
@@ -53,7 +53,7 @@ W Change Tracking i spisu są obecnie występują następujące problemy:
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
-Change Tracking i spis są obsługiwane we wszystkich systemach operacyjnych, które spełniają wymagania dotyczące Log Analytics agenta. Oficjalne wersje systemu operacyjnego to Windows Server 2008 z dodatkiem SP1 lub nowszym oraz system Windows 7 z dodatkiem SP1 lub nowszy. Ta funkcja jest również obsługiwana przez wiele systemów operacyjnych Linux. Aby uzyskać informacje na temat systemów operacyjnych Log Analytics, zobacz [Omówienie agenta usługi log Analytics](../azure-monitor/platform/log-analytics-agent.md).
+Change Tracking i spis są obsługiwane we wszystkich systemach operacyjnych, które spełniają wymagania dotyczące Log Analytics agenta. Oficjalne wersje systemu operacyjnego to Windows Server 2008 z dodatkiem SP1 lub nowszym oraz system Windows 7 z dodatkiem SP1 lub nowszy. Ta funkcja jest również obsługiwana przez wiele systemów operacyjnych Linux. Aby uzyskać listę obsługiwanych systemów operacyjnych, zobacz [Omówienie agenta log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
 Aby zrozumieć wymagania klienta dotyczące protokołu TLS 1,2, zobacz [Wymuszanie protokołu tls 1,2 dla Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 

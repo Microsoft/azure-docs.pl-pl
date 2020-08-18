@@ -2,22 +2,21 @@
 title: Przykład programu PowerShell — Wyświetlanie listy aplikacji serwera proxy z użyciem symboli wieloznacznych
 description: Przykład programu PowerShell, który wyświetla listę wszystkich aplikacji serwera proxy aplikacji Azure Active Directory (Azure AD), które używają symboli wieloznacznych.
 services: active-directory
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8149e9230de3e8b6c18d150c81ea67b1d861746c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b41f6c960c19a6569e95814fd2bf5b1234a338c
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75482025"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511171"
 ---
 # <a name="get-all-application-proxy-apps-using-wildcard-publishing"></a>Pobierz wszystkie aplikacje serwera proxy aplikacji przy użyciu publikowania symboli wieloznacznych
 

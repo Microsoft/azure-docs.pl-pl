@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 46560f067e020236031487677ad4f48a9560d4e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e65655f1809c6badc50e39a2a5e932516ef99d2
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80681248"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509845"
 ---
 # <a name="use-the-session-management-rest-api"></a>Korzystanie z interfejsu API REST zarządzania sesją
 
@@ -65,15 +65,15 @@ $token = $response.AccessToken;
 
 To polecenie tworzy sesję. Zwraca identyfikator nowej sesji. Potrzebujesz identyfikatora sesji dla wszystkich innych poleceń.
 
-| Identyfikator URI | Metoda |
+| URI | Metoda |
 |-----------|:-----------|
 | /V1/accounts/*accountId*/Sessions/Create | POST |
 
 **Treść żądania:**
 
-* maxLeaseTime (TimeSpan): wartość limitu czasu, gdy maszyna wirtualna zostanie automatycznie zlikwidowana
+* maxLeaseTime (TimeSpan): wartość limitu czasu, gdy sesja zostanie automatycznie zlikwidowana
 * modele (Array): adresy URL kontenerów zasobów do wstępnego załadowania
-* rozmiar (ciąg): rozmiar maszyny wirtualnej (**"Standardowa"** lub **"Premium"**). Zapoznaj się z określonymi [ograniczeniami rozmiaru maszyny wirtualnej](../reference/limits.md#overall-number-of-polygons).
+* rozmiar (ciąg): rozmiar serwera do skonfigurowania ([**"Standardowa"**](../reference/vm-sizes.md) lub [**"Premium"**](../reference/vm-sizes.md)). Zobacz ograniczenia dotyczące określonego [rozmiaru](../reference/limits.md#overall-number-of-polygons).
 
 **Reagowani**
 
@@ -124,13 +124,13 @@ To polecenie aktualizuje parametry sesji. Obecnie można zwiększyć tylko czas 
 > [!IMPORTANT]
 > Czas dzierżawy jest zawsze wyrażony jako łączny czas od momentu rozpoczęcia sesji. Oznacza to, że jeśli utworzono sesję z upływem czasu dzierżawy o wartości jednej godziny i chcesz zwiększyć jej czas dzierżawy przez inną godzinę, musisz zaktualizować jej maxLeaseTime na dwie godziny.
 
-| Identyfikator URI | Metoda |
+| URI | Metoda |
 |-----------|:-----------|
 | /V1/accounts/*accountID*/Sessions/*SessionID* | WYSŁANA |
 
 **Treść żądania:**
 
-* maxLeaseTime (TimeSpan): wartość limitu czasu, gdy maszyna wirtualna zostanie automatycznie zlikwidowana
+* maxLeaseTime (TimeSpan): wartość limitu czasu, gdy sesja zostanie automatycznie zlikwidowana
 
 **Reagowani**
 
@@ -164,7 +164,7 @@ RawContentLength  : 0
 
 To polecenie zwraca listę aktywnych sesji.
 
-| Identyfikator URI | Metoda |
+| URI | Metoda |
 |-----------|:-----------|
 | /V1/accounts/*accountId*/Sessions | GET |
 
@@ -207,7 +207,7 @@ RawContentLength  : 2
 
 To polecenie zwraca informacje o sesji, takie jak nazwa hosta maszyny wirtualnej.
 
-| Identyfikator URI | Metoda |
+| URI | Metoda |
 |-----------|:-----------|
 | /V1/accounts/*accountId*/Sessions/*SessionID*/Properties | GET |
 
@@ -250,7 +250,7 @@ RawContentLength  : 60
 
 To polecenie powoduje zatrzymanie sesji. Przypisana maszyna wirtualna zostanie wkrótce ododzyskiwana.
 
-| Identyfikator URI | Metoda |
+| URI | Metoda |
 |-----------|:-----------|
 | /V1/accounts/*accountId*/Sessions/*SessionID* | DELETE |
 

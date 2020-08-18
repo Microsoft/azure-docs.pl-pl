@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae3851da1dbcc5f7ac37821a64cada20164c7661
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 668f8ffdc4b797219dc1f3c23fecb858d8f706ad
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825008"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510865"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Typy usługi Azure Storage dla obciążeń SAP
 Platforma Azure ma wiele typów magazynów, które różnią się znacznie w zależności od możliwości, przepływności, opóźnień i cen. Niektóre typy magazynów nie są lub są ograniczone do użycia w scenariuszach SAP. Niektóre typy magazynów platformy Azure są dobrze dopasowane lub zoptymalizowane pod kątem określonych scenariuszy obciążeń SAP. Szczególnie w przypadku SAP HANA niektóre typy magazynów platformy Azure uzyskały certyfikat do użycia z SAP HANA. W tym dokumencie przechodzą różne typy magazynów i opisano ich możliwości i użyteczność przy użyciu obciążeń SAP i składników SAP.
@@ -84,7 +84,7 @@ Przed przejściem do szczegółów prezentujemy podsumowanie i zalecenia, które
 | Woluminy dziennika systemu DBMS z rodziną maszyn wirtualnych non-M/Mv2 | nieobsługiwane | odpowiednie ograniczenia (inne niż produkcyjne) | odpowiednie dla do średniego obciążenia | zalecane | nieobsługiwane |
 
 
-<sup>1</sup> dzięki użyciu [usługi Azure akcelerator zapisu](../../windows/how-to-enable-write-accelerator.md) dla rodzin maszyn wirtualnych M/Mv2 dla woluminów dziennika dziennika/ponownego wykonywania <sup>2</sup> i ANF wymaga/Hana/Data, a także/Hana/log do ANF 
+<sup>1</sup> dzięki użyciu [usługi Azure akcelerator zapisu](../../how-to-enable-write-accelerator.md) dla rodzin maszyn wirtualnych M/Mv2 dla woluminów dziennika dziennika/ponownego wykonywania <sup>2</sup> i ANF wymaga/Hana/Data, a także/Hana/log do ANF 
 
 Właściwości, których można oczekiwać od różnych typów magazynów, takich jak:
 
@@ -101,7 +101,7 @@ Właściwości, których można oczekiwać od różnych typów magazynów, takic
 | Nadmiarowość geograficzna | nie dla dysków zarządzanych | nie dla dysków zarządzanych | nie | nie | nie |
 
 
-<sup>1</sup> z użyciem [Akcelerator zapisu platformy Azure](../../windows/how-to-enable-write-accelerator.md) dla rodzin maszyn wirtualnych M/Mv2 dla woluminów dziennika dziennika/ponownego wykonywania
+<sup>1</sup> z użyciem [Akcelerator zapisu platformy Azure](../../how-to-enable-write-accelerator.md) dla rodzin maszyn wirtualnych M/Mv2 dla woluminów dziennika dziennika/ponownego wykonywania
 
 <sup>2</sup> koszty zależą od aprowizacji operacji we/wy na sekundę
 
@@ -137,8 +137,8 @@ Macierz możliwości dla obciążeń SAP wygląda następująco:
 | Możliwość| Komentarz| Notatki/linki | 
 | --- | --- | --- | 
 | Podstawowy dysk twardy systemu operacyjnego | wiek | Wszystkie systemy |
-| Dysk danych | wiek | Wszystkie systemy — [specjalnie dla SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
-| Globalny katalog transportu SAP | TAK | [Obsługiwane](https://launchpad.support.sap.com/#/notes/2015553) |
+| Dysk danych | wiek | Wszystkie systemy — [specjalnie dla SAP HANA](../../how-to-enable-write-accelerator.md) |
+| Globalny katalog transportu SAP | TAK | [Obsługiwał](https://launchpad.support.sap.com/#/notes/2015553) |
 | Sapmnt SAP | wiek | Wszystkie systemy |
 | Magazyn kopii zapasowych | wiek | do krótkoterminowego przechowywania kopii zapasowych |
 | Udziały/dysk udostępniony | niedostępne | Potrzebuje plików platformy Azure w warstwie Premium lub innej firmy |
@@ -149,12 +149,12 @@ Macierz możliwości dla obciążeń SAP wygląda następująco:
 | Maksymalna liczba operacji we/wy na dysk | 20 000 [zależnie od rozmiaru dysku](https://azure.microsoft.com/pricing/details/managed-disks/) | Uwzględnij również [limity maszyn wirtualnych](../../sizes.md) |
 | Umowa SLA dotycząca przepływności | TAK | - |
 | Przepływność liniowa do pojemności | Średni liniowy w nawiasach klamrowych | [Cennik dysku zarządzanego](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| HANA certyfikowane | TAK | [specjalnie dla SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
+| HANA certyfikowane | TAK | [specjalnie dla SAP HANA](../../how-to-enable-write-accelerator.md) |
 | Możliwe migawki dysków | TAK | - |
-| Możliwe Azure Backup migawek maszyn wirtualnych | TAK | z wyjątkiem dysków [Akcelerator zapisu](../../windows/how-to-enable-write-accelerator.md) w pamięci podręcznej  |
+| Możliwe Azure Backup migawek maszyn wirtualnych | TAK | z wyjątkiem dysków [Akcelerator zapisu](../../how-to-enable-write-accelerator.md) w pamięci podręcznej  |
 | Koszty | ŚREDNIOOKRESOW | - |
 
-Usługa Azure Premium Storage nie spełnia SAP HANA kluczowych wskaźników wydajności magazynu, które są dostępne w usłudze Azure Premium Storage. Aby spełnić kluczowe wskaźniki wydajności magazynu dla SAP HANA zapisów w dzienniku, należy użyć buforowania akcelerator zapisu platformy Azure zgodnie z opisem w artykule [włączanie akcelerator zapisu](../../windows/how-to-enable-write-accelerator.md). Na platformie Azure akcelerator zapisu wszystkie inne systemy DBMS do zapisu w dziennikach transakcji i ponownego wykonywania operacji zapisywania dzienników. W związku z tym zaleca się używanie go we wszystkich wdrożeniach SAP DBMS. W przypadku SAP HANA użycie usługi Azure akcelerator zapisu w połączeniu z usługą Azure Premium Storage jest obowiązkowe.
+Usługa Azure Premium Storage nie spełnia SAP HANA kluczowych wskaźników wydajności magazynu, które są dostępne w usłudze Azure Premium Storage. Aby spełnić kluczowe wskaźniki wydajności magazynu dla SAP HANA zapisów w dzienniku, należy użyć buforowania akcelerator zapisu platformy Azure zgodnie z opisem w artykule [włączanie akcelerator zapisu](../../how-to-enable-write-accelerator.md). Na platformie Azure akcelerator zapisu wszystkie inne systemy DBMS do zapisu w dziennikach transakcji i ponownego wykonywania operacji zapisywania dzienników. W związku z tym zaleca się używanie go we wszystkich wdrożeniach SAP DBMS. W przypadku SAP HANA użycie usługi Azure akcelerator zapisu w połączeniu z usługą Azure Premium Storage jest obowiązkowe.
 
 
 
@@ -196,7 +196,7 @@ Macierz możliwości dla obciążeń SAP wygląda następująco:
 | --- | --- | --- | 
 | Podstawowy dysk twardy systemu operacyjnego | nie działa | - |
 | Dysk danych | wiek | Wszystkie systemy  |
-| Globalny katalog transportu SAP | TAK | [Obsługiwane](https://launchpad.support.sap.com/#/notes/2015553) |
+| Globalny katalog transportu SAP | TAK | [Obsługiwał](https://launchpad.support.sap.com/#/notes/2015553) |
 | Sapmnt SAP | wiek | Wszystkie systemy |
 | Magazyn kopii zapasowych | wiek | do krótkoterminowego przechowywania kopii zapasowych |
 | Udziały/dysk udostępniony | niedostępne | Wymaga innej firmy |

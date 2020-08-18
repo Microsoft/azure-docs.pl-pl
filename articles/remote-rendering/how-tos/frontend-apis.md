@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
-ms.openlocfilehash: c43ed412116d0cb30f7d06ba65467fd529f367ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcff550b5411ac00dc54d2103278812f32f56543
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552702"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509981"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>Uwierzytelnianie przy użyciu interfejsów API frontonu platformy Azure
 
@@ -60,11 +60,11 @@ Informacje o koncie można uzyskać z portalu zgodnie z opisem w akapicie [pobie
 
 ## <a name="azure-frontend"></a>Fronton platformy Azure
 
-Odpowiednie klasy to ```AzureFrontend``` i ```AzureSession``` . ```AzureFrontend```służy do zarządzania kontami i funkcji na poziomie konta, w tym: konwersja zasobów i Tworzenie sesji renderowania. ```AzureSession```służy do obsługi funkcji na poziomie sesji i obejmuje: aktualizowanie sesji, zapytania, odnawianie i likwidowanie.
+Odpowiednie klasy to ```AzureFrontend``` i ```AzureSession``` . ```AzureFrontend``` służy do zarządzania kontami i funkcji na poziomie konta, w tym: konwersja zasobów i Tworzenie sesji renderowania. ```AzureSession``` służy do obsługi funkcji na poziomie sesji i obejmuje: aktualizowanie sesji, zapytania, odnawianie i likwidowanie.
 
 Każda otwarta/utworzona ```AzureSession``` będzie przechowywać odwołanie do frontonu, który go utworzył. Aby wyczyścić ten stan, wszystkie sesje muszą zostać cofnięte, zanim zostanie cofnięta alokacja frontonu.
 
-Cofnięcie przydziału sesji nie spowoduje zatrzymania maszyny wirtualnej na platformie Azure, `AzureSession.StopAsync` musi być jawnie wywołana.
+Cofnięcie przydziału sesji nie spowoduje zatrzymania serwera na platformie Azure, `AzureSession.StopAsync` musi być jawnie wywołana.
 
 Po utworzeniu sesji i jej stanie została oznaczona jako gotowa, można nawiązać połączenie ze środowiskiem uruchomieniowym renderowania zdalnego przy użyciu `AzureSession.ConnectToRuntime` .
 

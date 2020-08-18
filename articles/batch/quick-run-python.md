@@ -1,32 +1,34 @@
 ---
-title: Uruchamianie zadania Azure Batch za pomocą interfejsu API języka Python
-description: Szybkie uruchamianie Azure Batch przykładowego zadania i zadań przy użyciu biblioteki klienckiej języka Python w usłudze Batch. Poznaj kluczowe pojęcia związane z usługą Batch.
+title: Szybki Start — używanie interfejsu API języka Python do uruchamiania zadania Azure Batch
+description: W tym przewodniku szybki start uruchomiono Azure Batch przykładowe zadanie i zadania przy użyciu biblioteki klienta usługi Batch Python. Poznaj kluczowe pojęcia związane z usługą Batch.
 ms.topic: quickstart
-ms.date: 11/27/2018
+ms.date: 08/17/2020
 ms.custom:
 - seo-python-october2019
 - mvc
 - devx-track-python
-ms.openlocfilehash: 7cef08c81a4122fcbfcc18160ad8e6602f335569
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e3792a88104c359b014a7a12cf6e48e690c2a865
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852569"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511018"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Szybki Start: korzystanie z interfejsu API języka Python w celu uruchomienia zadania Azure Batch
 
-W tym przewodniku szybki start użyjesz interfejsu API języka Python, aby uruchomić zadanie Azure Batch z aplikacji. Aplikacja przekazuje pliki danych wejściowych do usługi Azure Storage i tworzy *pulę* węzłów obliczeniowych wsadowych (maszyn wirtualnych). Następnie tworzy *zadanie* , które uruchamia *zadania* , aby przetwarzać każdy plik wejściowy w puli przy użyciu polecenia Basic.
+Wprowadzenie do Azure Batch przy użyciu interfejsu API języka Python w celu uruchomienia zadania Azure Batch z poziomu aplikacji. Aplikacja przekazuje pliki danych wejściowych do usługi Azure Storage i tworzy pulę węzłów obliczeniowych wsadowych (maszyn wirtualnych). Następnie tworzy zadanie, które uruchamia zadania, aby przetwarzać każdy plik wejściowy w puli przy użyciu polecenia Basic.
 
-Tutaj przedstawiono kluczowe pojęcia związane z usługą Batch i gotowe do wypróbowania partii z bardziej realistycznymi obciążeniami w większej skali.
+Po ukończeniu tego przewodnika Szybki Start zrozumiesz kluczowe pojęcia związane z usługą Batch i wszystko jest gotowe do wypróbowania partii z bardziej realistycznymi obciążeniami w większej skali.
 
 ![Przegląd przepływu pracy Azure Batch](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Konto **Azure Batch** i połączone konto **usługi Azure Storage** . Użyj [Azure Portal](quick-create-portal.md) lub [interfejsu wiersza polecenia](quick-create-cli.md) , aby utworzyć te konta.
-- [Python](https://python.org/downloads), wersja 2,7 lub 3,3 lub nowsza, łącznie z menedżerem pakietów [PIP](https://pip.pypa.io/en/stable/installing/)
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- Konto usługi Batch i połączone konto usługi Azure Storage. Aby utworzyć te konta, skorzystaj z przewodników Szybki start dla usługi Batch i [witryny Azure Portal](quick-create-portal.md) lub [interfejsu wiersza polecenia platformy Azure](quick-create-cli.md).
+
+- [Python](https://python.org/downloads) w wersji 2,7 lub 3,3 lub nowszej, w tym Menedżera pakietów [PIP](https://pip.pypa.io/en/stable/installing/)
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -68,7 +70,7 @@ Aby zobaczyć przepływ pracy usługi Batch w akcji, uruchom skrypt:
 python python_quickstart_client.py
 ```
 
-Po uruchomieniu skryptu przejrzyj kod, aby poznać działanie poszczególnych części aplikacji. 
+Po uruchomieniu skryptu przejrzyj kod, aby poznać działanie poszczególnych części aplikacji.
 
 Po uruchomieniu aplikacji przykładowej dane wyjściowe w konsoli będą wyglądać mniej więcej następująco. W czasie wykonywania nastąpi wstrzymanie operacji w momencie wyświetlenia komunikatu `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` podczas uruchamiania węzłów obliczeniowych puli. Zadania podrzędne zostaną umieszczone w kolejce do uruchomienia zaraz po uruchomieniu pierwszego węzła obliczeniowego. Przejdź do konta usługi Batch w witrynie [Azure Portal](https://portal.azure.com), aby monitorować pulę, węzły obliczeniowe, zadanie i zadania podrzędne w ramach konta usługi Batch.
 
@@ -102,9 +104,9 @@ Typowy czas wykonywania wynosi mniej więcej 3 minuty w przypadku uruchomienia a
 
 Aplikacja w języku Python omawiana w tym przewodniku Szybki start wykonuje następujące akcje:
 
-* Przekazuje trzy małe pliki tekstowe do kontenera obiektów blob na koncie usługi Azure Storage. Te pliki to dane wejściowe do przetworzenia przez zadania podrzędne usługi Batch.
-* Tworzy pulę dwóch węzłów obliczeniowych z systemem Ubuntu 18.04 LTS.
-* Tworzy zadanie i trzy zadania podrzędne do uruchomienia w tych węzłach. Każde zadanie podrzędne przetwarza jeden z plików wejściowych przy użyciu wiersza polecenia powłoki Bash.
+- Przekazuje trzy małe pliki tekstowe do kontenera obiektów blob na koncie usługi Azure Storage. Te pliki to dane wejściowe do przetworzenia przez zadania podrzędne usługi Batch.
+- Tworzy pulę dwóch węzłów obliczeniowych z systemem Ubuntu 18.04 LTS.
+- Tworzy zadanie i trzy zadania podrzędne do uruchomienia w tych węzłach. Każde zadanie podrzędne przetwarza jeden z plików wejściowych przy użyciu wiersza polecenia powłoki Bash.
 * Wyświetla pliki zwrócone przez zadania podrzędne.
 
 Aby uzyskać szczegółowe informacje, zapoznaj się z plikiem `python_quickstart_client.py` i poniższymi sekcjami.
@@ -182,7 +184,7 @@ batch_service_client.job.add(job)
 
 Aplikacja tworzy listę obiektów zadań podrzędnych przy użyciu klasy [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter). Każde zadanie podrzędne przetwarza wejściowy obiekt `resource_files` przy użyciu parametru `command_line`. W tym przykładzie wiersz polecenia uruchamia polecenie `cat` powłoki Bash, aby wyświetlić plik tekstowy. To polecenie to prosty przykład dla celów demonstracyjnych. Podczas korzystania z usługi Batch aplikację lub skrypt określa się w wierszu polecenia. Usługa Batch udostępnia kilka sposobów wdrażania aplikacji i skryptów w węzłach obliczeniowych.
 
-Następnie aplikacja dodaje zadania podrzędne do zadania za pomocą metody [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations), która tworzy kolejkę zadań podrzędnych do uruchomienia w węzłach obliczeniowych. 
+Następnie aplikacja dodaje zadania podrzędne do zadania za pomocą metody [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations), która tworzy kolejkę zadań podrzędnych do uruchomienia w węzłach obliczeniowych.
 
 ```python
 tasks = list()

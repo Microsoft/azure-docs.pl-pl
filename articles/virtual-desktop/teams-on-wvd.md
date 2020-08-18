@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6fd20819d17861ed5171bf61e4c485fcceba7985
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 2032a7c9d9cd9b17da956dc829234462f8b9e726
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006115"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509607"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Korzystanie z programu Microsoft Teams na pulpicie wirtualnym systemu Windows
 
@@ -36,7 +36,7 @@ Aby można było korzystać z programu Microsoft Teams na pulpicie wirtualnym sy
 
 ## <a name="install-the-teams-desktop-app"></a>Zainstaluj aplikację Teams Desktop
 
-W tej sekcji pokazano, jak zainstalować aplikację Team Desktop w obrazie maszyny wirtualnej z systemem Windows 10 lub Windows 10 Enterprise. Aby dowiedzieć się więcej, zapoznaj się z [tematem Instalowanie lub aktualizowanie aplikacji Team Desktop w infrastrukturze VDI](/microsoftteams/teams-for-vdi#install-or-update-the-teams-desktop-app-on-vdi/).
+W tej sekcji pokazano, jak zainstalować aplikację Team Desktop w obrazie maszyny wirtualnej z systemem Windows 10 lub Windows 10 Enterprise. Aby dowiedzieć się więcej, zapoznaj się z [tematem Instalowanie lub aktualizowanie aplikacji Team Desktop w infrastrukturze VDI](/microsoftteams/teams-for-vdi#install-or-update-the-teams-desktop-app-on-vdi).
 
 ### <a name="prepare-your-image-for-teams"></a>Przygotowanie obrazu dla zespołów
 
@@ -71,17 +71,17 @@ W poniższej tabeli wymieniono najnowsze wersje usługi WebSocket:
 
 Aplikację Team Desktop można wdrożyć przy użyciu instalacji na komputerze lub na użytkownika. Aby zainstalować program Microsoft Teams w środowisku pulpitu wirtualnego systemu Windows:
 
-1. Pobierz [pakiet MSI Teams](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/) , który jest zgodny z Twoim środowiskiem. Zalecamy używanie Instalatora 64-bitowego w 64-bitowym systemie operacyjnym.
+1. Pobierz [pakiet MSI Teams](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm) , który jest zgodny z Twoim środowiskiem. Zalecamy używanie Instalatora 64-bitowego w 64-bitowym systemie operacyjnym.
 
-      > [!NOTE]
-      > Optymalizacja multimediów dla zespołów Microsoft Teams wymaga aplikacji Team Desktop w wersji 1.3.00.4461 lub nowszej.
+      > [!IMPORTANT]
+      > Najnowsza aktualizacja programu Teams Client Version 1.3.00.21759 rozwiązała problem polegający na tym, że zespoły pokazały strefę czasową UTC w rozmowie, kanałach i kalendarzu. Nowa wersja klienta będzie zawierać strefę czasową sesji zdalnej.
 
 2. Uruchom jedno z następujących poleceń, aby zainstalować plik MSI na maszynie wirtualnej hosta:
 
     - Instalacja na użytkownika
 
         ```powershell
-        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSERS=1
+        msiexec /i <path_to_msi> /l*v <install_logfile_name>
         ```
 
         Ten proces jest instalacją domyślną, która instaluje zespoły w folderze **% AppData%** użytkownika. Zespoły nie będą działały prawidłowo z instalacją na użytkownika w przypadku nietrwałej instalacji.
@@ -89,13 +89,13 @@ Aplikację Team Desktop można wdrożyć przy użyciu instalacji na komputerze l
     - Instalacja na komputer
 
         ```powershell
-        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1 ALLUSERS=1
+        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1
         ```
 
         Spowoduje to zainstalowanie zespołów do folderu Program Files (x86) w 64-bitowym systemie operacyjnym i folderze Program Files w 32-bitowym systemie operacyjnym. W tym momencie zostanie ukończona konfiguracja złota obrazu. Instalacja zespołów dla poszczególnych maszyn jest wymagana w przypadku konfiguracji nietrwałych.
 
-        Przy następnym otwarciu zespołów w sesji zostanie wyświetlony monit o podanie poświadczeń.
-
+        Istnieją dwie flagi, które mogą być ustawiane podczas instalowania zespołów, **ALLUSER = 1** i **ALLUSERS = 1**. Ważne jest, aby zrozumieć różnicę między tymi parametrami. Parametr **ALLUSER = 1** jest używany tylko w środowiskach infrastruktury VDI do określania instalacji dla komputera. Parametr **ALLUSERS = 1** może być używany w środowiskach innych niż infrastruktura VDI i VDI. Po ustawieniu tego parametru w obszarze program i funkcje w panelu sterowania są wyświetlane zespoły Instalator, a także aplikacje & funkcje w ustawieniach systemu Windows. Wszyscy użytkownicy z poświadczeniami administratora na komputerze mogą odinstalowywać zespoły. 
+       
         > [!NOTE]
         > Użytkownicy i Administratorzy nie mogą wyłączyć automatycznego uruchamiania dla zespołów podczas logowania.
 
@@ -125,12 +125,11 @@ Po zainstalowaniu usługi WebSocket i aplikacji Team Desktop wykonaj następują
 
 ## <a name="known-issues-and-limitations"></a>Znane problemy i ograniczenia
 
-Korzystanie z zespołów w środowisku zwirtualizowanym różni się od używania zespołów w środowisku niezwirtualizowanym. Aby uzyskać więcej informacji o ograniczeniach zespołów w środowiskach zwirtualizowanych, zapoznaj się z [zespołami dla zwirtualizowanej infrastruktury pulpitów](/microsoftteams/teams-for-vdi#known-issues-and-limitations/).
+Korzystanie z zespołów w środowisku zwirtualizowanym różni się od używania zespołów w środowisku niezwirtualizowanym. Aby uzyskać więcej informacji o ograniczeniach zespołów w środowiskach zwirtualizowanych, zapoznaj się z [zespołami dla zwirtualizowanej infrastruktury pulpitów](/microsoftteams/teams-for-vdi#known-issues-and-limitations).
 
 ### <a name="client-deployment-installation-and-setup"></a>Wdrażanie, instalacja i instalacja klienta
 
 - W przypadku instalacji na komputerze zespoły w infrastrukturze VDI nie są automatycznie aktualizowane w taki sam sposób, w jaki klienci nie korzystają z zespołów VDI. Aby zaktualizować klienta programu, należy zaktualizować obraz maszyny wirtualnej, instalując nowy plik MSI.
-- Zespoły wyświetlają obecnie tylko strefę czasową UTC w rozmowie, kanałach i kalendarzu.
 - Optymalizacja multimediów dla zespołów jest obsługiwana tylko dla klienta klasycznego systemu Windows na komputerach z systemem Windows 10.
 - Używanie jawnych serwerów proxy HTTP zdefiniowanych w punkcie końcowym nie jest obsługiwane.
 
@@ -143,7 +142,7 @@ Korzystanie z zespołów w środowisku zwirtualizowanym różni się od używani
 - Ze względu na ograniczenia protokołu WebRTC rozwiązanie przychodzące i wychodzące strumień wideo jest ograniczone do 720.
 - Aplikacja Teams nie obsługuje przycisków HID ani kontrolek LED z innymi urządzeniami.
 
-Znane problemy dotyczące zespołów, które nie są związane z zwirtualizowanymi środowiskami, można znaleźć [w temacie zespoły pomocy technicznej w Twojej organizacji](/microsoftteams/known-issues/) .
+Znane problemy dotyczące zespołów, które nie są związane z zwirtualizowanymi środowiskami, można znaleźć [w temacie zespoły pomocy technicznej w Twojej organizacji](/microsoftteams/known-issues) .
 
 ## <a name="uservoice-site"></a>Witryna UserVoice
 
@@ -153,7 +152,7 @@ Prześlij opinię na temat zespołów Microsoft Teams na pulpicie wirtualnym sys
 
 Jeśli wystąpią problemy z aplikacją Team Desktop w środowisku pulpitu wirtualnego systemu Windows, Zbierz dzienniki klienta w folderze **% AppData% \Microsoft\Teams\logs.txt** na maszynie wirtualnej hosta.
 
-Jeśli wystąpią problemy z wywołaniami i spotkaniami, Zbierz dzienniki klienta sieci Web zespołów z kombinacją klawiszy **Ctrl**  +  **Alt**  +  **SHIFT**  +  **1**. Dzienniki zostaną zapisane w **DATE_TIME.txtdzienniku diagnostyki%USERPROFILE%\Downloads\MSTeams** na maszynie wirtualnej hosta.
+Jeśli wystąpią problemy z wywołaniami i spotkaniami, Zbierz dzienniki klienta sieci Web zespołów z kombinacją klawiszy **Ctrl**  +  **Alt**  +  **SHIFT**  +  **1**. Dzienniki zostaną zapisane w **DATE_TIME.txtdzienniku diagnostyki%USERPROFILE%\Downloads\MSTeams ** na maszynie wirtualnej hosta.
 
 ## <a name="contact-microsoft-teams-support"></a>Skontaktuj się z pomocą techniczną Microsoft Teams
 
@@ -165,8 +164,8 @@ Dostosowanie właściwości Remote Desktop Protocol puli hostów (RDP), takich j
 
 Włączanie przekierowań urządzeń nie jest wymagane w przypadku korzystania z zespołów z optymalizacją multimediów. Jeśli używasz zespołów bez optymalizacji multimediów, ustaw następujące właściwości protokołu RDP, aby włączyć przekierowywanie mikrofonu i aparatu:
 
-- `audiocapturemode:i:1`Włącza przechwytywanie audio z urządzenia lokalnego i przekierowuje aplikacje audio w sesji zdalnej.
-- `audiomode:i:0`odtwarza dźwięk na komputerze lokalnym.
-- `camerastoredirect:s:*`przekierowuje wszystkie kamery.
+- `audiocapturemode:i:1` Włącza przechwytywanie audio z urządzenia lokalnego i przekierowuje aplikacje audio w sesji zdalnej.
+- `audiomode:i:0` odtwarza dźwięk na komputerze lokalnym.
+- `camerastoredirect:s:*` przekierowuje wszystkie kamery.
 
 Aby dowiedzieć się więcej, zapoznaj się z tematem [dostosowywanie Remote Desktop Protocol właściwości dla puli hostów](customize-rdp-properties.md).

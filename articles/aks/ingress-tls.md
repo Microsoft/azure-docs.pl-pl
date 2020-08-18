@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Dowiedz się, jak zainstalować i skonfigurować kontroler protokołu przychodzącego NGINX, który używa szyfrowania do automatycznej generacji certyfikatów TLS w klastrze usługi Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/21/2020
-ms.openlocfilehash: 91a22a3148568f7c4c3c223b5bca0dd6a8a33ce4
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.date: 08/17/2020
+ms.openlocfilehash: c86b4e921dce6258ac585375e686bec5fa44b211
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245880"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88508961"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Tworzenie kontrolera protokołu HTTPS w usłudze Azure Kubernetes Service (AKS)
 
@@ -292,11 +292,15 @@ spec:
       - backend:
           serviceName: aks-helloworld-one
           servicePort: 80
-        path: /(.*)
+        path: /hello-world-one(/|$)(.*)
       - backend:
           serviceName: aks-helloworld-two
           servicePort: 80
         path: /hello-world-two(/|$)(.*)
+      - backend:
+          serviceName: aks-helloworld-one
+          servicePort: 80
+        path: /(.*)
 ---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
@@ -345,7 +349,7 @@ tls-secret   True    tls-secret   11m
 
 Otwórz przeglądarkę internetową, aby *powitać w Internecie. MY_CUSTOM_DOMAIN* kontrolera transferu danych przychodzących. Zwróć uwagę, że przekierujesz do korzystania z protokołu HTTPS, a certyfikat jest zaufany, a aplikacja demonstracyjna zostanie wyświetlona w przeglądarce sieci Web. Dodaj ścieżkę */Hello-World-Two* i zwróć uwagę na drugą aplikację demonstracyjną z tytułem niestandardowym.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 W tym artykule użyto Helm do zainstalowania składników przychodzących, certyfikatów i przykładowych aplikacji. Po wdrożeniu wykresu Helm są tworzone różne zasoby Kubernetes. Te zasoby obejmują między innymi te, wdrożenia i usługi. Aby wyczyścić te zasoby, można usunąć całą przykładową przestrzeń nazw lub poszczególne zasoby.
 

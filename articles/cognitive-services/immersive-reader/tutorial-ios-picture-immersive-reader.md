@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metan
-ms.openlocfilehash: a7e0cb41f32a60e4f00cb60cc3c86e40ab926785
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 968f3c9fbfea1e2f04fb029605173087f6f311c0
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735134"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516507"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Samouczek: Tworzenie aplikacji dla systemu iOS, która uruchamia czytnik immersyjny z zawartością ze zdjęcia (SWIFT)
 
@@ -24,7 +24,7 @@ ms.locfileid: "82735134"
 
 W tym samouczku utworzysz aplikację dla systemu iOS od podstaw i zintegrujesz interfejs API odczytu oraz czytnik immersyjny przy użyciu zestawu SDK czytnika immersyjny. Pełny przykład pracy w tym samouczku jest dostępny [tutaj](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -81,7 +81,7 @@ Otwórz plik AppDelegate. Swift i zastąp go następującym kodem.
 
 Zmień nazwę plik viewcontroller. Swift na PictureLaunchViewController. Swift i Zastąp plik poniższym kodem.
 
-## <a name="build-and-run-the-app"></a>Kompilowanie i uruchamianie aplikacji
+## <a name="build-and-run-the-app"></a>Skompiluj i uruchom aplikację
 
 Ustaw schemat Archiwum w Xcode, wybierając symulator lub urządzenie docelowe.
 ![Schemat Archiwum](./media/ios/xcode-archive-scheme.png)<br/>

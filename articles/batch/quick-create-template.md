@@ -2,14 +2,14 @@
 title: Przewodnik Szybki Start platformy Azure — Tworzenie konta usługi Batch — szablon Azure Resource Manager
 description: Szybko naucz się uruchamiać zadanie usługi Batch za pomocą interfejsu wiersza polecenia platformy Azure. Tworzenie zasobów platformy Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów.
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 08/17/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: d92751d1463a20c8fb0cb83fe678789860957189
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c59e8891678d9fc1af7c4fe78e4ee2d267ec99b4
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086130"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511392"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>Szybki Start: Tworzenie konta usługi Batch przy użyciu szablonu usługi ARM
 
@@ -17,7 +17,7 @@ Do tworzenia zasobów obliczeniowych (pul węzłów obliczeniowych) i zadań wsa
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-batchaccount-with-storage%2Fazuredeploy.json)
 
@@ -29,7 +29,7 @@ Musisz mieć aktywną subskrypcję platformy Azure.
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-batchaccount-with-storage/).
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-batchaccount-with-storage/).
 
 :::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json" range="1-80" highlight="36-69":::
 
@@ -66,7 +66,7 @@ W tym przykładzie Azure Portal jest używany do wdrożenia szablonu. Oprócz Az
 
 Możesz sprawdzić poprawność wdrożenia w Azure Portal, przechodząc do utworzonej grupy zasobów. Na ekranie **Przegląd** Sprawdź, czy konto usługi Batch i konto magazynu są obecne.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli planujesz kontynuować pracę z kolejnymi [samouczkami](./tutorial-parallel-dotnet.md), możesz pozostawić te zasoby na miejscu. Lub, jeśli nie są już potrzebne, można [usunąć grupę zasobów](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group), która spowoduje również usunięcie utworzonego konta programu Batch i konta magazynu.
 

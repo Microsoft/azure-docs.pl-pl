@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 34b7f4bc55fc8e33b7d66f53e6f2fc241801f965
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ad6bbc1d3c20659441b8b062898526471f4d713a
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827422"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510236"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Zagadnienia dotyczące wdrażania systemu Azure Virtual Machines DBMS dla obciążeń SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -221,7 +221,7 @@ W przypadku magazynu w warstwie Premium istnieją następujące opcje buforowani
 
 W przypadku magazynu w warstwie Premium zalecamy użycie **buforowania odczytu plików danych** w bazie danych SAP i wybranie opcji **Brak buforowania dla dysków plików dziennika**.
 
-W przypadku wdrożeń z serii M zalecamy używanie akcelerator zapisu platformy Azure do wdrożenia w systemie DBMS. Aby uzyskać szczegółowe informacje, ograniczenia i wdrożenie usługi Azure akcelerator zapisu, zobacz [włączanie akcelerator zapisu](../../windows/how-to-enable-write-accelerator.md).
+W przypadku wdrożeń z serii M zalecamy używanie akcelerator zapisu platformy Azure do wdrożenia w systemie DBMS. Aby uzyskać szczegółowe informacje, ograniczenia i wdrożenie usługi Azure akcelerator zapisu, zobacz [włączanie akcelerator zapisu](../../how-to-enable-write-accelerator.md).
 
 
 ### <a name="azure-nonpersistent-disks"></a>Dyski nietrwałe platformy Azure

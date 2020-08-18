@@ -2,22 +2,21 @@
 title: Przykład programu PowerShell — Zastąp certyfikat w aplikacjach serwera proxy aplikacji
 description: Przykład programu PowerShell, który zbiorczo zastępuje certyfikat w aplikacjach serwera proxy aplikacji Azure Active Directory (Azure AD).
 services: active-directory
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91aafe00856f37e9d7e6b3babafecd2cbdf5f856
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ef083a079ff4bc42959c7734595e41793cd04bc
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75481999"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511120"
 ---
 # <a name="get-all-application-proxy-applications-published-with-the-identical-certificate-and-replace-it"></a>Pobierz wszystkie aplikacje serwera proxy aplikacji opublikowane przy użyciu identycznego certyfikatu i zastąp je
 

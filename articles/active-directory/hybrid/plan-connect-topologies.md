@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9618e02f54fbb2a3b92771761c5fcf700d126b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47973a8444de64dc5c2bb75b5f0d65d1e6d35f6e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698771"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509091"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie obsługiwane w programie Azure AD Connect
 W tym artykule opisano różne topologie lokalne i Azure Active Directory (Azure AD), które używają Azure AD Connect synchronizacji jako rozwiązania integracji z kluczami. Ten artykuł zawiera obsługiwane i nieobsługiwane konfiguracje.
@@ -37,7 +37,7 @@ Oto legenda obrazów w artykule:
 | Serwer synchronizacji Azure AD Connect "tryb przejściowy" |![Serwer synchronizacji Azure AD Connect "tryb przejściowy"](./media/plan-connect-topologies/LegendSync2.png) |
 | GALSync z programem Forefront Identity Manager (FIM) 2010 lub Microsoft Identity Manager (MIM) 2016 |![GALSync z programem FIM 2010 lub MIM 2016](./media/plan-connect-topologies/LegendSync3.png) |
 | Serwer synchronizacji Azure AD Connect, szczegółowy |![Serwer synchronizacji Azure AD Connect, szczegółowy](./media/plan-connect-topologies/LegendSync4.png) |
-| Azure AD |![Usługa Azure Active Directory](./media/plan-connect-topologies/LegendAAD.png) |
+| Azure AD |![Azure Active Directory](./media/plan-connect-topologies/LegendAAD.png) |
 | Nieobsługiwany scenariusz |![Nieobsługiwany scenariusz](./media/plan-connect-topologies/LegendUnsupported.png) |
 
 
@@ -165,7 +165,7 @@ Ta topologia ma następujące ograniczenia dotyczące scenariuszy obsługiwanych
 * Urządzenia z systemem Windows 10 mogą być skojarzone tylko z jedną dzierżawą usługi Azure AD.
 * Opcja logowania jednokrotnego (SSO) dla synchronizacji skrótów haseł i uwierzytelniania przekazywanego może być używana tylko z jedną dzierżawą usługi Azure AD.
 
-Wymóg dla wzajemnie wykluczających się zestawów obiektów ma zastosowanie również do zapisywania zwrotnego. Niektóre funkcje zapisywania zwrotnego nie są obsługiwane w przypadku tej topologii, ponieważ zakładają one jedną konfigurację lokalną. Te funkcje obejmują:
+Wymóg dla wzajemnie wykluczających się zestawów obiektów ma zastosowanie również do zapisywania zwrotnego. Niektóre funkcje zapisywania zwrotnego nie są obsługiwane w przypadku tej topologii, ponieważ zakładają one jedną konfigurację lokalną. Między innymi są to następujące funkcje:
 
 * Grupowanie zapisywania zwrotnego z domyślną konfiguracją.
 * Zapisywanie zwrotne urządzeń.
@@ -191,6 +191,11 @@ Dzierżawy usługi Azure AD są izolowane według konstrukcji. Te zadania nie s�
 ![GALSync w topologii dla wielu lasów i wielu katalogów](./media/plan-connect-topologies/MultiForestMultiDirectoryGALSync.png)
 
 Aby synchronizować użytkowników (za pośrednictwem GALSync) między dwiema organizacjami programu Exchange, można użyć programu FIM 2010 lub MIM 2016. Użytkownicy w jednej organizacji są wyświetlani jako Użytkownicy zagraniczni/kontakty w innej organizacji. Te różne wystąpienia Active Directory lokalnego można następnie synchronizować z własnymi dzierżawami usługi Azure AD.
+
+### <a name="using-unauthorized-clients-to-access-the-azure-ad-connect-backend"></a>Korzystanie z nieautoryzowanych klientów w celu uzyskania dostępu do Azure AD Connect zaplecza
+![Korzystanie z nieautoryzowanych klientów w celu uzyskania dostępu do Azure AD Connect zaplecza](./media/plan-connect-topologies/other-client-unsupported.png)
+
+Serwer Azure Active Directory Connect komunikuje się z Azure Active Directory za pomocą zaplecza Azure Active Directory Connect. Jedyne oprogramowanie, które może być używane do komunikacji z tym zapleczem, jest Azure Active Directory Connect. Komunikacja z zaplecem Azure Active Directory Connect przy użyciu innego oprogramowania lub metody nie jest obsługiwana. 
 
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się, jak zainstalować Azure AD Connect w tych scenariuszach, zobacz [Instalacja Niestandardowa Azure AD Connect](how-to-connect-install-custom.md).

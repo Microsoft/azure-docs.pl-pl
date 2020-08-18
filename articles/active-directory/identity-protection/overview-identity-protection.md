@@ -5,20 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 03/17/2020
+ms.date: 08/15/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
+ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80873b2e2655e7cedbafb526d0fe757eaa282312
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 39c9522362ca6710fae5dee5d831e63cc36a3950
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019615"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509114"
 ---
-# <a name="what-is-azure-active-directory-identity-protection"></a>Co to jest usługa Azure Active Directory Identity Protection?
+# <a name="what-is-identity-protection"></a>Co to jest ochrona tożsamości?
 
 Program Identity Protection to narzędzie, które umożliwia organizacjom wykonywanie trzech najważniejszych zadań:
 
@@ -69,6 +70,12 @@ Administratorzy mogą przeglądać wykryte wykrywania i podejmować działania r
 
 Więcej informacji można znaleźć w artykule, [jak: badanie ryzyka](howto-identity-protection-investigate-risk.md).
 
+### <a name="risk-levels"></a>Poziomy ryzyka
+
+Ochrona tożsamości dzieli ryzyko na trzy warstwy: niski, średni i wysoki. 
+
+Firma Microsoft nie udostępnia szczegółowych informacji o sposobie obliczania ryzyka, dlatego będziemy mieć pewność, że każdy z poziomów zapewnia wyższy poziom pewności, że użytkownik lub logowanie zostało naruszone. Na przykład inne wystąpienia nieznanych właściwości logowania użytkownika mogą nie być zagrożone jako zagrożenie dla innego użytkownika.
+
 ## <a name="exporting-risk-data"></a>Eksportowanie danych ryzyka
 
 Dane z usługi Identity Protection można eksportować do innych narzędzi w celu archiwizacji i dalszych badań oraz korelacji. Interfejsy API oparte na Microsoft Graph umożliwiają organizacjom zbieranie tych danych do dalszej obróbki w narzędziu, takim jak SIEM. Informacje o sposobach uzyskiwania dostępu do interfejsu API usługi Identity Protection można znaleźć w artykule [wprowadzenie do Azure Active Directory Identity Protection i Microsoft Graph](howto-identity-protection-graph-api.md)
@@ -96,15 +103,15 @@ Administratorzy dostępu warunkowego mogą również tworzyć zasady, które są
 
 | Możliwość | Szczegóły | Usługa Azure AD — wersja Premium P2 | Usługa Azure AD — wersja Premium P1 | Aplikacje Azure AD — wersja Bezpłatna/Office 365 |
 | --- | --- | --- | --- | --- |
-| Zasady dotyczące ryzyka | Zasady ryzyka użytkownika (za pośrednictwem ochrony tożsamości) | Tak | Nie | Nie |
-| Zasady dotyczące ryzyka | Zasady dotyczące ryzyka związanego z logowaniem (za pośrednictwem funkcji ochrony tożsamości lub dostępu warunkowego) | Tak | Nie | Nie |
-| Raporty dotyczące zabezpieczeń | Omówienie | Tak | Nie | Nie |
+| Zasady dotyczące ryzyka | Zasady ryzyka użytkownika (za pośrednictwem ochrony tożsamości) | Yes | Nie | Nie |
+| Zasady dotyczące ryzyka | Zasady dotyczące ryzyka związanego z logowaniem (za pośrednictwem funkcji ochrony tożsamości lub dostępu warunkowego) | Yes | Nie | Nie |
+| Raporty dotyczące zabezpieczeń | Omówienie | Yes | Nie | Nie |
 | Raporty dotyczące zabezpieczeń | Ryzykowni użytkownicy | Dostęp pełny | Ograniczone informacje | Ograniczone informacje |
 | Raporty dotyczące zabezpieczeń | Ryzykowne logowania | Dostęp pełny | Ograniczone informacje | Ograniczone informacje |
 | Raporty dotyczące zabezpieczeń | Wykrycia ryzyka | Dostęp pełny | Ograniczone informacje | Nie |
-| Powiadomienia | Użytkownicy zagrożeni wykrytymi alertami | Tak | Nie | Nie |
-| Powiadomienia | Podsumowanie tygodniowe | Tak | Nie | Nie |
-| | Zasady rejestracji uwierzytelniania wieloskładnikowego | Tak | Nie | Nie |
+| Powiadomienia | Użytkownicy zagrożeni wykrytymi alertami | Yes | Nie | Nie |
+| Powiadomienia | Podsumowanie tygodniowe | Yes | Nie | Nie |
+| | Zasady rejestracji uwierzytelniania wieloskładnikowego | Yes | Nie | Nie |
 
 ## <a name="next-steps"></a>Następne kroki
 

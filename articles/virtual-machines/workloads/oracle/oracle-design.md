@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 78eedb9bd4f12644a1bc992d0786a43b8af767a9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0dd787916159637ce92a29a5d4baa1ffe7a09ba4
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507934"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510015"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Projektowanie i implementowanie bazy danych Oracle na platformie Azure
 
@@ -52,7 +52,7 @@ W poniższej tabeli wymieniono niektóre różnice między implementacją lokaln
 | **Planowana konserwacja** |Poprawki/uaktualnienia|[Zestawy dostępności](../../windows/infrastructure-example.md) (poprawki/uaktualnienia zarządzane przez platformę Azure) |
 | **Zasób** |Dedykowane  |Współużytkowane z innymi klientami|
 | **Regiony** |Centra danych |[Pary regionów](../../regions.md#region-pairs)|
-| **Magazyn** |SAN/dyski fizyczne |[Magazyn zarządzany przez platformę Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+| **Storage** |SAN/dyski fizyczne |[Magazyn zarządzany przez platformę Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
 | **Skalowanie** |Skalowanie w pionie |Skalowanie w poziomie|
 
 
@@ -187,7 +187,7 @@ Po wybraniu jasnego obrazu wymagań we/wy możesz wybrać kombinację dysków, k
 - Używaj kompresji danych, aby zmniejszyć liczbę operacji we/wy (dla danych i indeksów).
 - Rozdziel dzienniki ponownego wykonywania, system i temp, a następnie Cofnij TS na oddzielnych dyskach danych.
 - Nie umieszczaj żadnych plików aplikacji na domyślnych dyskach systemu operacyjnego (/dev/SDA). Te dyski nie są zoptymalizowane pod kątem krótkich czasów rozruchu maszyn wirtualnych i mogą nie zapewniać dobrej wydajności aplikacji.
-- W przypadku korzystania z maszyn wirtualnych serii M w usłudze Premium Storage Włącz [Akcelerator zapisu](../../linux/how-to-enable-write-accelerator.md) na dysku dzienników ponownego wykonywania.
+- W przypadku korzystania z maszyn wirtualnych serii M w usłudze Premium Storage Włącz [Akcelerator zapisu](../../how-to-enable-write-accelerator.md) na dysku dzienników ponownego wykonywania.
 
 ### <a name="disk-cache-settings"></a>Ustawienia pamięci podręcznej dysku
 
@@ -211,7 +211,7 @@ Aby zmaksymalizować przepływność, zalecamy rozpoczęcie od **braku** dla buf
 
 Po zapisaniu ustawienia dysku z danymi nie można zmienić ustawienia pamięci podręcznej hosta, jeśli dysk nie zostanie odinstalowany na poziomie systemu operacyjnego, a następnie ponownie zainstalowany po dokonaniu zmiany.
 
-## <a name="security"></a>Zabezpieczenia
+## <a name="security"></a>Bezpieczeństwo
 
 Po skonfigurowaniu i skonfigurowaniu środowiska platformy Azure następnym krokiem jest zabezpieczenie sieci. Poniżej przedstawiono niektóre zalecenia:
 

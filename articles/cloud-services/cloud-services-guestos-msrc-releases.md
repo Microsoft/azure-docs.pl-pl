@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/15/2020
+ms.date: 8/17/2020
 ms.author: yohaddad
-ms.openlocfilehash: 21dcc10be255c0795058886188b4380266679963
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 5e5bcef36bb283b8b3f2b67578e0f3118302d936
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258299"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510168"
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa platformy Azure
 W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Response Center (MSRC) zastosowane do systemu operacyjnego gościa platformy Azure. Przeszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczy systemu operacyjnego gościa, którego używasz. Aktualizacje są zawsze przenoszone dla określonej [rodziny][family-explain] , w której zostały wprowadzone.
@@ -79,33 +79,30 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 
 ## <a name="july-2020-guest-os"></a>OS systemu operacyjnego gościa 2020
->[!NOTE]
->System operacyjny gościa w lipcu jest obecnie wdrażany na maszynach wirtualnych usługi w chmurze skonfigurowanych do aktualizacji automatycznych. Po zakończeniu wprowadzania ta wersja zostanie udostępniona do ręcznego aktualizowania za pomocą plików Azure Portal i konfiguracji. W systemie operacyjnym gościa w lipcu uwzględniono następujące poprawki. Ta lista może ulec zmianie.
-
 
 | Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
-|  Rel 20-07 |  [4565479]  |  Internet Explorer | 2,100, 3,87, 4,80 | 14 lipca 2020 |
-|  Rel 20-07 |  [4565511]  |  Najnowsza aktualizacja zbiorcza (LCU) | 5,45 | 14 lipca 2020 |
-|  Rel 20-07 |  [4558998]  |  Najnowsza aktualizacja zbiorcza (LCU) | 6,21 | 14 lipca 2020 |
-|  Rel 20-07 |  [4565524]  |  Zestawienie miesięczne | 2,100 | 14 lipca 2020 |
-|  Rel 20-07 |  [4565616]  |  Zestawienie miesięczne | 2,100 | 16 lipca 2020 |
-|  Rel 20-07 |  [4565354]  |  Obsługa aktualizacji stosu | 2,100 | 14 lipca 2020 |
-|  Rel 20-07 |  [4565612]  |  Zestawienie miesięczne | 2,100 | 14 lipca 2020 |
-|  Rel 20-07 |  [4565615]  |  Zestawienie miesięczne | 3,87 | 14 lipca 2020 |
-|  Rel 20-07 |  [4566426]  |  Obsługa aktualizacji stosu | 3,87 | 14 lipca 2020 |
-|  Rel 20-07 |  [4565537]  |  Zestawienie miesięczne | 3,87 | 14 lipca 2020 |
-|  Rel 20-07 |  [4565610]  |  Zestawienie miesięczne | 3,87 | 14 lipca 2020 |
-|  Rel 20-07 |  [4565541]  |  Zestawienie miesięczne | 4,80 | 14 lipca 2020 |
-|  Rel 20-07 |  [4566425]  |  Obsługa aktualizacji stosu | 4,80 | 14 lipca 2020 |
-|  Rel 20-07 |  [4565614]  |  Zestawienie miesięczne | 4,80 | 14 lipca 2020 |
-|  Rel 20-07 |  [4565613]  |  Zestawienie miesięczne | 4,80 | 14 lipca 2020 |
-|  Rel 20-07 |  [4565912]  |  Obsługa aktualizacji stosu | 5,45 | 14 lipca 2020 |
-|  Rel 20-07 |  [4565628]  |  Zestawienie miesięczne | 5,45 | 14 lipca 2020 |
-|  Rel 20-07 |  [4494175]  |  Włączenia mikrokodu | 5,45 | 25 lutego 2020 |
-|  Rel 20-07 |  [4565632]  |  Zestawienie miesięczne | 6,21 | 14 lipca 2020 |
-|  Rel 20-07 |  [4558997]  |  Obsługa aktualizacji stosu | 6,21 | 14 lipca 2020 |
-|  Rel 20-07 |  [4494174]  |  Włączenia mikrokodu | 6,21 | 25 lutego 2020 |
+|  Rel 20-07 |  [4565479]  |  Internet Explorer | [2,100], [3,87], [4,80] | 14 lipca 2020 |
+|  Rel 20-07 |  [4565511]  |  Najnowsza aktualizacja zbiorcza (LCU) | [5,45] | 14 lipca 2020 |
+|  Rel 20-07 |  [4558998]  |  Najnowsza aktualizacja zbiorcza (LCU) | [6,21] | 14 lipca 2020 |
+|  Rel 20-07 |  [4565524]  |  Zestawienie miesięczne | [2,100] | 14 lipca 2020 |
+|  Rel 20-07 |  [4565616]  |  Zestawienie miesięczne | [2,100] | 16 lipca 2020 |
+|  Rel 20-07 |  [4565354]  |  Obsługa aktualizacji stosu | [2,100] | 14 lipca 2020 |
+|  Rel 20-07 |  [4565612]  |  Zestawienie miesięczne | [2,100] | 14 lipca 2020 |
+|  Rel 20-07 |  [4565615]  |  Zestawienie miesięczne | [3,87] | 14 lipca 2020 |
+|  Rel 20-07 |  [4566426]  |  Obsługa aktualizacji stosu | [3,87] | 14 lipca 2020 |
+|  Rel 20-07 |  [4565537]  |  Zestawienie miesięczne | [3,87] | 14 lipca 2020 |
+|  Rel 20-07 |  [4565610]  |  Zestawienie miesięczne | [3,87] | 14 lipca 2020 |
+|  Rel 20-07 |  [4565541]  |  Zestawienie miesięczne | [4,80] | 14 lipca 2020 |
+|  Rel 20-07 |  [4566425]  |  Obsługa aktualizacji stosu | [4,80] | 14 lipca 2020 |
+|  Rel 20-07 |  [4565614]  |  Zestawienie miesięczne | [4,80] | 14 lipca 2020 |
+|  Rel 20-07 |  [4565613]  |  Zestawienie miesięczne | [4,80] | 14 lipca 2020 |
+|  Rel 20-07 |  [4565912]  |  Obsługa aktualizacji stosu | [5,45] | 14 lipca 2020 |
+|  Rel 20-07 |  [4565628]  |  Zestawienie miesięczne | [5,45] | 14 lipca 2020 |
+|  Rel 20-07 |  [4494175]  |  Włączenia mikrokodu | [5,45] | 25 lutego 2020 |
+|  Rel 20-07 |  [4565632]  |  Zestawienie miesięczne | [6,21] | 14 lipca 2020 |
+|  Rel 20-07 |  [4558997]  |  Obsługa aktualizacji stosu | [6,21] | 14 lipca 2020 |
+|  Rel 20-07 |  [4494174]  |  Włączenia mikrokodu | [6,21] | 25 lutego 2020 |
 
 
 [4565479]: https://support.microsoft.com/kb/4565479
@@ -129,6 +126,11 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 [4565632]: https://support.microsoft.com/kb/4565632
 [4558997]: https://support.microsoft.com/kb/4558997
 [4494174]: https://support.microsoft.com/kb/4494174
+[2,100]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3,87]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4,80]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5,45]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6,21]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="june-2020-guest-os"></a>OS systemu operacyjnego gościa 2020

@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 4e4200e291db81ff759e21eac5b1a9b785b5657f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: d692daf2f7f8b77358e73246fd8d8760f95982ac
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888300"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510797"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Obsługa języków i tekstu oraz Tłumaczenie mowy
 
-Użyj usługi translator, aby przetłumaczyć do i z dowolnego z 60 języków tłumaczenia tekstu i z nich. Neuronowych Machine Translation (NMT) to nowy standard dla wysokiej jakości tłumaczeń maszyn opartych na formacie AI, który jest dostępny jako domyślny przy użyciu wersji v3 usługi translator, gdy jest dostępny system neuronowych.
+Użyj usługi translator, aby przetłumaczyć do i z dowolnego z języków tłumaczenia tekstu do 70 +. Neuronowych Machine Translation (NMT) to nowy standard dla wysokiej jakości tłumaczeń maszyn opartych na formacie AI, który jest dostępny jako domyślny przy użyciu wersji v3 usługi translator, gdy jest dostępny system neuronowych.
 
 Usługi translator można także używać w połączeniu z tłumaczeniem niestandardowym w celu kompilowania systemów tłumaczenia neuronowych, które znają terminologię używaną we własnej firmie i branży, a także z usługą Microsoft Speech Service, aby dodać tłumaczenie mowy do aplikacji.
 
@@ -47,6 +47,7 @@ Translator obsługuje tłumaczenie tekstu na tekst przy użyciu następujących 
 |Chiński (tradycyjny)|   `zh-Hant`       |
 |Chorwacki|  `hr`    |
 |Czeski| `cs`    |
+|Dari|  `prs`   |
 |Duński|    `da`        |
 |Niderlandzki| `nl`|
 |Angielski|   `en`    |
@@ -83,6 +84,8 @@ Translator obsługuje tłumaczenie tekstu na tekst przy użyciu następujących 
 |Maoryjski| `mi`  |
 |Marathi| `mr`  |
 |Norweski| `nb`    |
+|Odia|  `or`    |
+|Paszto|    `ps`    |
 |Perski|   `fa`    |
 |polski|    `pl`    |
 |portugalski (Brazylia)|   `pt-br` |
@@ -185,26 +188,26 @@ Metoda transliteracji obsługuje następujące języki. W polu "do/z" <--> "wska
 
 | Język    | Kod języka | Skrypt | Do/z | Skrypt|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
-| Arabski | `ar` | Arabski`Arab` | <--> | Wielka`Latn` |
-| Języku  | `bn` | Bengalski`Beng` | <--> | Wielka`Latn` |
-| Chiński (uproszczony) | `zh-Hans` | Chiński uproszczony`Hans`| <--> | Wielka`Latn` |
-| Chiński (uproszczony) | `zh-Hans` | Chiński uproszczony`Hans`| <--> | Chiński tradycyjny`Hant`|
-| Chiński (tradycyjny) | `zh-Hant` | Chiński tradycyjny`Hant`| <--> | Wielka`Latn` |
-| Chiński (tradycyjny) | `zh-Hant` | Chiński tradycyjny`Hant`| <--> | Chiński uproszczony`Hans` |
-| Gudżarati | `gu`  | Gudżarati`Gujr` | --> | Wielka`Latn` |
-| Hebrajski | `he` | Hebrajski`Hebr` | <--> | Wielka`Latn` |
-| Hindi | `hi` | Devanagari`Deva` | <--> | Wielka`Latn` |
-| Japoński | `ja` | Japoński`Jpan` | <--> | Wielka`Latn` |
-| Kannada | `kn` | Kannada`Knda` | --> | Wielka`Latn` |
-| Malayalam | `ml` | Malayalam`Mlym` | --> | Wielka`Latn` |
-| Marathi | `mr` | Devanagari`Deva` | --> | Wielka`Latn` |
-| Odia | `or` | Orija`Orya` | <--> | Wielka`Latn` |
-| Pendżabski | `pa` | Gurmukhi`Guru`  | <--> | Wielka`Latn`  |
-| Serbski (cyrylica) | `sr-Cyrl` | Pisanych`Cyrl`  | --> | Wielka`Latn` |
-| Serbski (łaciński) | `sr-Latn` | Wielka`Latn` | --> | Pisanych`Cyrl`|
-| Tamilski | `ta` | Tamilski`Taml` | --> | Wielka`Latn` |
-| Telugu | `te` | Telugu`Telu` | --> | Wielka`Latn` |
-| Tajlandzki | `th` | Tajski`Thai` | --> | Wielka`Latn` |
+| Arabski | `ar` | Arabski `Arab` | <--> | Wielka `Latn` |
+| Języku  | `bn` | Bengalski `Beng` | <--> | Wielka `Latn` |
+| Chiński (uproszczony) | `zh-Hans` | Chiński uproszczony `Hans`| <--> | Wielka `Latn` |
+| Chiński (uproszczony) | `zh-Hans` | Chiński uproszczony `Hans`| <--> | Chiński tradycyjny `Hant`|
+| Chiński (tradycyjny) | `zh-Hant` | Chiński tradycyjny `Hant`| <--> | Wielka `Latn` |
+| Chiński (tradycyjny) | `zh-Hant` | Chiński tradycyjny `Hant`| <--> | Chiński uproszczony `Hans` |
+| Gudżarati | `gu`  | Gudżarati `Gujr` | --> | Wielka `Latn` |
+| Hebrajski | `he` | Hebrajski `Hebr` | <--> | Wielka `Latn` |
+| Hindi | `hi` | Devanagari `Deva` | <--> | Wielka `Latn` |
+| Japoński | `ja` | Japoński `Jpan` | <--> | Wielka `Latn` |
+| Kannada | `kn` | Kannada `Knda` | --> | Wielka `Latn` |
+| Malayalam | `ml` | Malayalam `Mlym` | --> | Wielka `Latn` |
+| Marathi | `mr` | Devanagari `Deva` | --> | Wielka `Latn` |
+| Odia | `or` | Orija `Orya` | <--> | Wielka `Latn` |
+| Pendżabski | `pa` | Gurmukhi `Guru`  | <--> | Wielka `Latn`  |
+| Serbski (cyrylica) | `sr-Cyrl` | Pisanych `Cyrl`  | --> | Wielka `Latn` |
+| Serbski (łaciński) | `sr-Latn` | Wielka `Latn` | --> | Pisanych `Cyrl`|
+| Tamilski | `ta` | Tamilski `Taml` | --> | Wielka `Latn` |
+| Telugu | `te` | Telugu `Telu` | --> | Wielka `Latn` |
+| Tajlandzki | `th` | Tajski `Thai` | --> | Wielka `Latn` |
 
 ### <a name="dictionary"></a>Słownik
 

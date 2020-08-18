@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: a7d83c327eb1c37478c0c2e5725136d43a91a009
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 271d3c0ca44c500a6fd8ee50ed5f1698e46cd511
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87061220"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510270"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Pozyskiwanie historycznych danych telemetrycznych
 
@@ -19,7 +19,7 @@ W tym artykule opisano sposób pozyskiwania historycznych danych czujników do u
 
 Pozyskiwanie danych historycznych z zasobów Internet rzeczy (IoT), takich jak urządzenia i czujniki, jest typowym scenariuszem w FarmBeats. Tworzysz metadane dla urządzeń i czujników, a następnie pozyskasz dane historyczne do FarmBeats w postaci kanonicznej.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed przejściem do tego artykułu upewnij się, że zainstalowano FarmBeats i zebrano dane historyczne z urządzeń IoT. Należy również włączyć dostęp partnera, jak wspomniano w poniższych krokach.
 
@@ -58,13 +58,13 @@ Wykonaj następujące kroki:
 
 5. Przejdź do katalogu macierzystego.
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
     cd
     ```
-    
+
 6. Uruchom następujące polecenie. Spowoduje to połączenie uwierzytelnionego konta do użycia na potrzeby żądań usługi Azure AD
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
     Connect-AzureAD
     ```
 
@@ -78,7 +78,7 @@ Wykonaj następujące kroki:
 
 8. Uruchom poniższy skrypt. Skrypt monituje o podanie identyfikatora dzierżawy, który można uzyskać ze **Azure Active Directory**  >  strony**Przegląd** Azure Active Directory.
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
     ./generatePartnerCredentials.ps1
 
@@ -148,7 +148,7 @@ Aby uzyskać więcej informacji na temat obiektów, zobacz [Swagger](https://aka
 
 Aby wykonać żądanie interfejsu API, należy połączyć metodę HTTP (POST), adres URL usługi interfejsu API i identyfikator URI zasobu do wysłania zapytania, przesłać dane do żądania, utworzyć lub usunąć żądanie. Następnie dodasz co najmniej jeden nagłówek żądania HTTP. Adres URL usługi interfejsu API to punkt końcowy interfejsu API, czyli adres URL Datahub (https:// \<yourdatahub> . azurewebsites.NET).
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 FarmBeats Datahub używa uwierzytelniania okaziciela, który wymaga następujących poświadczeń, które zostały wygenerowane w poprzedniej sekcji:
 

@@ -2,30 +2,30 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 04/14/2020
-ms.openlocfilehash: 45dad7d7b176037087e37638db380294521a8e19
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 08/17/2020
+ms.openlocfilehash: a56b95fe4f6b7005e823ebe80fd2e74ed1cf7725
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82134096"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511348"
 ---
-Ten artykuł zawiera informacje i przykładowy kod, dzięki którym można łatwiej rozpocząć tworzenie modeli wykrywania obiektów za pomocą zestawu Custom Vision SDK i języka Go. Po jego utworzeniu można dodać otagowane regiony, przekazać obrazy, przeszkolić projekt, uzyskać opublikowany adres URL punktu końcowego przewidywania projektu i użyć punktu końcowego do programistycznego testowania obrazu. Użyj tego przykładu jako szablonu do utworzenia własnej aplikacji w języku Go.
+Ten artykuł zawiera informacje i przykładowy kod ułatwiający rozpoczęcie pracy przy użyciu biblioteki klienta Custom Vision z opcją przejdź do skompilowania modelu wykrywania obiektów. Po jego utworzeniu można dodać otagowane regiony, przekazać obrazy, przeszkolić projekt, uzyskać opublikowany adres URL punktu końcowego przewidywania projektu i użyć punktu końcowego do programistycznego testowania obrazu. Użyj tego przykładu jako szablonu do utworzenia własnej aplikacji w języku Go.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - [Go 1.8+](https://golang.org/doc/install)
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## <a name="install-the-custom-vision-sdk"></a>Instalowanie zestawu Custom Vision SDK
+## <a name="install-the-custom-vision-client-library"></a>Zainstaluj bibliotekę kliencką Custom Vision
 
-Aby zainstalować zestaw Custom Vision Service SDK dla języka Go, uruchom następujące polecenie w programie PowerShell:
+Aby zainstalować bibliotekę klienta usługi Custom Vision dla języka go, uruchom następujące polecenie w programie PowerShell:
 
 ```shell
 go get -u github.com/Azure/azure-sdk-for-go/...
 ```
 
-lub jeśli używasz `dep`w repozytorium, uruchom:
+lub jeśli używasz `dep` w repozytorium, uruchom:
 ```shell
 dep ensure -add github.com/Azure/azure-sdk-for-go
 ```

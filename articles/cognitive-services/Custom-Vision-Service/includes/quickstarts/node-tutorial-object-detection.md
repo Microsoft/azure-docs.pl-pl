@@ -2,16 +2,16 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 04/14/2020
+ms.date: 08/17/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 0cb31f5470519e33b76c6cad83d7b47972f21381
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 6705e6f1e988a836a3a9b7e7c4950510fcb2b228
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407317"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511361"
 ---
-W tym artykule pokazano, jak rozpocząć korzystanie z zestawu SDK Custom Vision z Node.js w celu utworzenia modelu wykrywania obiektów. Po jego utworzeniu można dodać otagowane regiony, przekazać obrazy, przeszkolić projekt, uzyskać opublikowany adres URL punktu końcowego przewidywania projektu i użyć punktu końcowego do programistycznego testowania obrazu. Użyj tego przykładu jako szablonu do utworzenia własnej aplikacji Node.js.
+W tym artykule przedstawiono sposób rozpoczynania pracy przy użyciu Custom Visionj biblioteki klienta z Node.js do kompilowania modelu wykrywania obiektów. Po jego utworzeniu można dodać otagowane regiony, przekazać obrazy, przeszkolić projekt, uzyskać opublikowany adres URL punktu końcowego przewidywania projektu i użyć punktu końcowego do programistycznego testowania obrazu. Użyj tego przykładu jako szablonu do utworzenia własnej aplikacji Node.js.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -24,9 +24,9 @@ W tym artykule pokazano, jak rozpocząć korzystanie z zestawu SDK Custom Vision
 [!INCLUDE [node-get-images](../../includes/node-get-images.md)]
 
 
-## <a name="install-the-custom-vision-sdk"></a>Instalowanie zestawu Custom Vision SDK
+## <a name="install-the-custom-vision-client-library"></a>Zainstaluj bibliotekę kliencką Custom Vision
 
-Aby zainstalować zestawy SDK usługi Custom Vision dla Node.js w projekcie, uruchom następujące polecenia:
+Aby zainstalować Custom Vision biblioteki klienta usługi dla Node.js w projekcie, uruchom następujące polecenia:
 
 ```shell
 npm install @azure/cognitiveservices-customvision-training

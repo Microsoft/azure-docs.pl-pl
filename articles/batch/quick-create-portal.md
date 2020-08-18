@@ -2,14 +2,14 @@
 title: Przewodnik Szybki Start platformy Azure — uruchamianie pierwszego zadania usługi Batch w Azure Portal
 description: Dowiedz się, jak za pomocą Azure Portal utworzyć konto w usłudze Batch, pulę węzłów obliczeniowych oraz zadanie, które uruchamia podstawowe zadania w puli.
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 08/17/2020
 ms.custom: mvc
-ms.openlocfilehash: f9af6a2f0fbbbd799b781480d499adf124b4cb7d
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: cf65a681764a848f8132ec44b8ba313ef1a83235
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225335"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511375"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Szybki start: uruchamianie pierwszego zadania usługi Batch w witrynie Azure Portal
 
@@ -23,7 +23,7 @@ Rozpocznij pracę z Azure Batch przy użyciu Azure Portal do tworzenia konta us�
 
 Wykonaj następujące kroki, aby utworzyć przykładowe konto usługi Batch do celów testowych. Konto usługi Batch jest wymagane w celu tworzenia pul i zadań. Jak pokazano poniżej, z kontem usługi Batch możesz powiązać konto usługi Azure Storage. Chociaż nie jest ono wymagane na potrzeby tego przewodnika Szybki start, konto magazynu jest przydatne do wdrażania aplikacji oraz przechowywania danych wejściowych i wyjściowych w przypadku większości rzeczywistych obciążeń.
 
-1. W Azure Portal wybierz pozycję **Utwórz zasób**  >  **obliczeniowy**  >  **usługi Batch**. 
+1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **Utwórz zasób**  >  **obliczeniowy**  >  **usługi Batch**. 
 
    :::image type="content" source="media/quick-create-portal/marketplace-batch.png" alt-text="Zrzut ekranu usługi Batch w portalu Azure Marketplace.":::
 
@@ -101,7 +101,7 @@ Utworzone przykładowe zadania zostaną wykonane w ciągu kilku minut. Aby wyśw
 
 Zawartość obejmuje zmienne środowiskowe usługi Azure Batch, które są ustawione w węźle. Podczas tworzenia własnych zadań i zadań podrzędnych usługi Batch możesz odwoływać się do tych zmiennych środowiskowych w wierszach polecenia zadań podrzędnych oraz w aplikacjach i skryptach uruchamianych przez wiersze polecenia.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli chcesz kontynuować naukę z samouczkami i przykładami usługi Batch, skorzystaj z konta usługi Batch i powiązanego konta magazynu, które zostały utworzone w tym przewodniku Szybki start. Za samo konto usługi Batch nie są naliczane opłaty.
 

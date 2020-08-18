@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: skamal
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 214d6d614fcc54a532766854f2e72ac45dbfa8ad
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 1abd1052c33346d949809d7c35a99ef97bde2c03
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407204"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516286"
 ---
 # <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>Samouczek: Integrowanie wielu zasobów czytnika immersyjny
 
@@ -25,7 +25,7 @@ W [przeglądzie](./overview.md)zawarto informacje na temat tego, co to jest czyt
 > * Tworzenie wielu zasobów czytnika immersyjny w istniejącej grupie zasobów
 > * Uruchamianie czytnika immersyjny przy użyciu wielu zasobów
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -79,7 +79,7 @@ SUBDOMAIN_EUS={YOUR_EASTUS_SUBDOMAIN}
 
 Nie należy zatwierdzić tego pliku w kontroli źródła, ponieważ zawiera on klucze tajne, które nie powinny być publiczne.
 
-Następnie zmodyfikujemy plik _routes\index.js_ , który został utworzony w celu obsługi naszych wielu zasobów. Zastąp jego zawartość następującym kodem.
+Następnie zmodyfikujemy plik  _routes\index.js_ , który został utworzony w celu obsługi naszych wielu zasobów. Zastąp jego zawartość następującym kodem.
 
 Jak wcześniej, ten kod tworzy punkt końcowy interfejsu API, który uzyskuje token uwierzytelniania usługi Azure AD przy użyciu hasła nazwy głównej usługi. Tym razem umożliwia użytkownikowi określenie lokalizacji zasobu i przekazanie jej jako parametru zapytania. Następnie zwraca obiekt zawierający token i odpowiednią poddomenę.
 

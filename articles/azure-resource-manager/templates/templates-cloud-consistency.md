@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: f7295515b75ba7e26454f8b6ce6e0d660657ec4e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 9355482c26cabb96fc6292bab5d542f36aec6a8c
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055243"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509760"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Opracowywanie szablonów ARM w celu zapewnienia spójności chmury
 
@@ -487,7 +487,7 @@ Aby pobrać listę dostępnych obrazów maszyn wirtualnych w lokalizacji, urucho
 az vm image list -all
 ```
 
-Tę samą listę można pobrać przy użyciu polecenia cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) Azure PowerShell programu, a następnie określić lokalizację z `-Location` parametrem. Przykład:
+Tę samą listę można pobrać przy użyciu polecenia cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) Azure PowerShell programu, a następnie określić lokalizację z `-Location` parametrem. Na przykład:
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
@@ -570,7 +570,7 @@ W przeciwieństwie do określania konfiguracji dysku zarządzanego w szablonie, 
 }
 ```
 
-Te same zmiany dotyczą także [dysków danych](../../virtual-machines/windows/using-managed-disks-template-deployments.md).
+Te same zmiany dotyczą także [dysków danych](../../virtual-machines/using-managed-disks-template-deployments.md).
 
 ### <a name="verify-that-vm-extensions-are-available-in-azure-stack"></a>Sprawdź, czy rozszerzenia maszyn wirtualnych są dostępne w Azure Stack
 
@@ -590,7 +590,7 @@ Aby pobrać listę rozszerzeń maszyn wirtualnych, które są dostępne dla okre
 az vm extension image list --location myLocation
 ```
 
-Możesz również wykonać Azure PowerShell polecenie cmdlet [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) i użyć, `-Location` Aby określić lokalizację obrazu maszyny wirtualnej. Przykład:
+Możesz również wykonać Azure PowerShell polecenie cmdlet [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) i użyć, `-Location` Aby określić lokalizację obrazu maszyny wirtualnej. Na przykład:
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version

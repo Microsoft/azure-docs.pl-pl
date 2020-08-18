@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a3c22a46d22ef4eb717eb686fa295c820c78c934
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: f3402f4ff719752cca6e1d7a4aeeb3b7e12c3e28
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067260"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511146"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Obciążenia SAP na platformie Azure: Lista kontrolna planowania i wdrażania
 
@@ -114,7 +114,7 @@ Zalecamy skonfigurowanie i zweryfikowanie pełnego projektu rozwiązania HADR Cl
         - Ogólnie rzecz biorąc nie zalecamy używania [dysków HDD w warstwie Standardowa platformy Azure](../../windows/disks-types.md#standard-hdd).
         - Użyj [Premium Storage platformy Azure](../../windows/disks-types.md#premium-ssd) dla wszystkich maszyn wirtualnych z systemem DBMS, które są zdalnie wrażliwe na wydajność.
         - Użyj [usługi Azure Managed disks](https://azure.microsoft.com/services/managed-disks/).
-        - Użyj usługi Azure akcelerator zapisu dla dysków dziennika DBMS z serii M. Należy pamiętać o limitach i użyciu akcelerator zapisu, jak opisano w [Akcelerator zapisu](../../linux/how-to-enable-write-accelerator.md).
+        - Użyj usługi Azure akcelerator zapisu dla dysków dziennika DBMS z serii M. Należy pamiętać o limitach i użyciu akcelerator zapisu, jak opisano w [Akcelerator zapisu](../../how-to-enable-write-accelerator.md).
         - W przypadku różnych typów systemów DBMS należy zapoznać się z [ogólną dokumentacją systemu DBMS powiązaną z programem SAP](./dbms_guide_general.md) i dokumentacją specyficzną dla systemu DBMS, na którą wskazuje dokument ogólny.
         - Aby uzyskać więcej informacji na temat SAP HANA, zobacz [SAP HANA konfiguracje i operacje infrastruktury na platformie Azure](./hana-vm-operations.md).
         - Nie należy instalować dysków danych platformy Azure na maszynę wirtualną z systemem Linux platformy Azure przy użyciu identyfikatora urządzenia. Zamiast tego należy użyć uniwersalnego identyfikatora unikatowego (UUID). Należy zachować ostrożność podczas instalowania dysków danych platformy Azure przy użyciu narzędzi graficznych. Sprawdź podwójne wpisy w/etc/fstab, aby upewnić się, że identyfikator UUID jest używany do instalowania dysków. Więcej szczegółów można znaleźć w [tym artykule](../../linux/attach-disk-portal.md#connect-to-the-linux-vm-to-mount-the-new-disk).

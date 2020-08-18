@@ -2,22 +2,21 @@
 title: Przykład programu PowerShell — aplikacje serwera proxy aplikacji bez certyfikatu
 description: Przykład programu PowerShell, który wyświetla listę wszystkich aplikacji serwera proxy aplikacji Azure Active Directory (Azure AD), które używają domen niestandardowych, ale nie ma prawidłowego przekazanego certyfikatu TLS/SSL.
 services: active-directory
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97dc46a34e1bb5bb85dcb771a9720a19d356e6f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66a0c14ad9c9143a0b671379d4a22b14944d4eb6
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79481215"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511222"
 ---
 # <a name="get-all-azure-ad-proxy-application-apps-published-with-no-certificate-uploaded"></a>Pobierz wszystkie aplikacje aplikacji serwera proxy usługi Azure AD opublikowane bez przekazania certyfikatu
 

@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 3aa45050286888dd8ae1d26d96c8ed02da197326
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 0cf2aa504fd7a36a55740b3a59eeb3759e67f469
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876737"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509913"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Samouczek: używanie programu Personalizujer w notesie platformy Azure
 
@@ -623,7 +623,7 @@ Coffee count 4
 
 ## <a name="validate-new-learning-policy"></a>Weryfikuj nowe zasady uczenia
 
-Wróć do notesu platformy Azure i Kontynuuj, wykonując tę samą pętlę, ale tylko dla iteracji 2 000. Odśwież wykres metryk w Azure Portal okresowo, aby zobaczyć łączną liczbę wywołań do usługi. Gdy masz około 4 000 wywołań, ranga i wynagrodzenie dla każdej iteracji pętli, wykonywane są iteracje.
+Wróć do pliku Azure Notebooks i Kontynuuj, uruchamiając tę samą pętlę, ale tylko dla iteracji 2 000. Odśwież wykres metryk w Azure Portal okresowo, aby zobaczyć łączną liczbę wywołań do usługi. Gdy masz około 4 000 wywołań, ranga i wynagrodzenie dla każdej iteracji pętli, wykonywane są iteracje.
 
 ```python
 # max iterations

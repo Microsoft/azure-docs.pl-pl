@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 07/27/2020
-ms.openlocfilehash: bfe609dc480dcdb71f162ca1bfd383a27257fedc
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/17/2020
+ms.openlocfilehash: d8268ebf89bed6b67919e77576118343b58edb6c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321704"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516626"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Azure Active Directory jednostki usługi przy użyciu usługi Azure SQL
 
@@ -80,6 +80,8 @@ Aby umożliwić tworzenie obiektów usługi Azure AD w SQL Database i Azure Syna
 
 > [!IMPORTANT]
 > Kroki 1 i 2 muszą zostać wykonane w powyższej kolejności. Najpierw utwórz lub Przypisz tożsamość serwera, a następnie przyznaj uprawnienia do [**odczytu katalogów**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) . Pominięcie jednego z tych kroków lub powoduje błąd wykonania podczas tworzenia obiektu usługi Azure AD w usłudze Azure SQL w imieniu aplikacji usługi Azure AD. Aby uzyskać instrukcje krok po kroku dotyczące tworzenia użytkownika usługi Azure AD w imieniu aplikacji usługi Azure AD, zobacz [Samouczek: tworzenie użytkowników usługi Azure AD przy użyciu aplikacji usługi Azure AD](authentication-aad-service-principal-tutorial.md).
+>
+> W **publicznej wersji zapoznawczej**można przypisać rolę **czytelnicy Directory** do grupy w usłudze Azure AD. Właściciele grupy mogą następnie dodać tożsamość zarządzaną jako członek tej grupy, co spowodowałoby ominięcie potrzeby uprawnienia administratora **globalnego** lub **administratora ról uprzywilejowanych** w celu przyznania roli **czytelnicy katalogów** . Aby uzyskać więcej informacji na temat tej funkcji, zobacz " [czytelnicy Directory role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
 
 ## <a name="troubleshooting-and-limitations-for-public-preview"></a>Rozwiązywanie problemów i ograniczenia dotyczące publicznej wersji zapoznawczej
 

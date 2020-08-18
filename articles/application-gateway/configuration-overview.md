@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/30/2020
 ms.author: absha
-ms.openlocfilehash: 9315884db30c053d86c889ff3b45aaea17d48b17
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 32809c33e1c365d8d333bb89a5c2f773b311c2ff
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87438906"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511086"
 ---
 # <a name="application-gateway-configuration-overview"></a>Przegląd konfiguracji Application Gateway
 
@@ -38,11 +38,13 @@ Brama aplikacji to dedykowane wdrożenie w sieci wirtualnej. W ramach sieci wirt
 
 Application Gateway używa jednego prywatnego adresu IP na wystąpienie oraz innego prywatnego adresu IP, jeśli jest skonfigurowany prywatny adres IP frontonu.
 
-Platforma Azure rezerwuje także pięć adresów IP w każdej podsieci do użytku wewnętrznego: pierwsze cztery i ostatnie adresy IP. Rozważmy na przykład 15 wystąpień usługi Application Gateway bez prywatnego adresu IP frontonu. Wymagana jest co najmniej 20 adresów IP dla tej podsieci: pięć do użytku wewnętrznego i 15 dla wystąpień usługi Application Gateway. W związku z tym potrzebny jest rozmiar podsieci/27 lub większy.
+Platforma Azure rezerwuje także pięć adresów IP w każdej podsieci do użytku wewnętrznego: pierwsze cztery i ostatnie adresy IP. Rozważmy na przykład 15 wystąpień usługi Application Gateway bez prywatnego adresu IP frontonu. Wymagana jest co najmniej 20 adresów IP dla tej podsieci: pięć do użytku wewnętrznego i 15 dla wystąpień usługi Application Gateway.
 
-Rozważ podsieć zawierającą 27 wystąpień usługi Application Gateway i adres IP dla prywatnego adresu IP frontonu. W takim przypadku wymagane są 33 adresów IP: 27 dla wystąpień usługi Application Gateway, jeden dla zaplecza prywatnego i pięć do użytku wewnętrznego. W związku z tym potrzebny jest rozmiar podsieci/26 lub większy.
+Rozważ podsieć zawierającą 27 wystąpień usługi Application Gateway i adres IP dla prywatnego adresu IP frontonu. W takim przypadku wymagane są 33 adresów IP: 27 dla wystąpień usługi Application Gateway, jeden dla zaplecza prywatnego i pięć do użytku wewnętrznego.
 
-Zalecamy użycie rozmiaru podsieci co najmniej/28. Ten rozmiar daje 11 przydatnych adresów IP. Jeśli obciążenie aplikacji wymaga więcej niż 10 Application Gateway wystąpień, należy wziąć pod uwagę rozmiar podsieci/27 lub/26.
+Jednostka SKU Application Gateway (standardowa lub WAF) może obsługiwać do 32 wystąpień (32 wystąpień adresów IP + 1 prywatny adres IP frontonu + 5 zarezerwowane platformy Azure) — w związku z tym zaleca się minimalny rozmiar podsieci/26.
+
+Application Gateway (jednostka SKU Standard_v2 lub WAF_v2) może obsługiwać do 125 wystąpień (125 wystąpień adresów IP + 1 prywatny adres IP frontonu + 5 zarezerwowane platformy Azure) — w związku z tym zaleca się minimalny rozmiar podsieci/24.
 
 #### <a name="network-security-groups-on-the-application-gateway-subnet"></a>Sieciowe grupy zabezpieczeń w podsieci Application Gateway
 

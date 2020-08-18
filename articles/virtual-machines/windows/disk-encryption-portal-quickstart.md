@@ -7,12 +7,12 @@ ms.service: virtual-machines-windows
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 1327a2c621eca1cfadcf776ecd62f0899651f0bc
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 7857a037d8e48c8c6ae8d44cf77c863bec91d9d3
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807931"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510651"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Szybki Start: Tworzenie i szyfrowanie maszyny wirtualnej z systemem Windows przy użyciu Azure Portal
 
@@ -29,22 +29,23 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. Wybierz pozycję **Utwórz zasób** w lewym górnym rogu okna witryny Azure Portal.
 1. Na stronie nowy w obszarze popularne wybierz pozycję **Windows Server 2016 Datacenter**.
-1. Na karcie podstawy w obszarze Szczegóły projektu upewnij się, że wybrano poprawną subskrypcję, a następnie wybierz opcję **Utwórz nową grupę zasobów**. Wprowadź nazwę *zasobu* .
+1. Na karcie podstawy w obszarze Szczegóły projektu upewnij się, że wybrano poprawną subskrypcję.
+1. W obszarze "Grupa zasobów" Wybierz pozycję **Utwórz nową**. Wprowadź nazwę *zasobu* , a następnie wybierz **przycisk OK**.
 1. W obszarze **Nazwa maszyny wirtualnej**wprowadź *MyVM*.
-1. W polu **region**wybierz ten sam region, który został użyty podczas tworzenia magazynu kluczy (np. *Wschodnie stany USA*).
-1. Upewnij się, że **rozmiar** jest *Standardowy D2s v3*.
+1. W **obszarze region**wybierz pozycję *(US) Wschodnie stany USA*.
+1. Sprawdź, czy **rozmiar** jest *Standardowy D2s v3*.
 1. W obszarze **konto administratora**wybierz pozycję **hasło**. Wprowadź nazwę użytkownika i hasło.
 
-    :::image type="content" source="../media/disk-encryption/portal-qs-windows-vm-creation.png" alt-text="Ekran tworzenia z przetworzeniem zasobów":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-windows-vm-creation.png" alt-text="Ekran tworzenia maszyny wirtualnej z systemem Windows":::
 
     > [!WARNING]
-    > Karta "dyski" zawiera pole "typ szyfrowania" w obszarze **Opcje dysków**. To pole służy do określania opcji szyfrowania dla [Managed disks](managed-disks-overview.md) i CMK, a nie Azure Disk Encryption. 
+    > Karta "dyski" zawiera pole "typ szyfrowania" w obszarze **Opcje dysków**. To pole służy do określania opcji szyfrowania dla [Managed disks](managed-disks-overview.md) i CMK, a nie Azure Disk Encryption.
     >
-    > Aby uniknąć nieporozumień, zalecamy całkowite pomijanie karty *dysków* podczas wykonywania tego samouczka. 
+    > Aby uniknąć nieporozumień, zalecamy całkowite pomijanie karty *dysków* podczas wykonywania tego samouczka.
 
 1. Wybierz kartę Zarządzanie i sprawdź, czy masz konto magazynu diagnostyki. Jeśli nie masz żadnych kont magazynu, wybierz pozycję "Utwórz nowe", Nadaj nowemu kontu nazwę i wybierz pozycję "OK"
 
-    :::image type="content" source="../media/disk-encryption/portal-qs-vm-creation-storage.png" alt-text="Ekran tworzenia z przetworzeniem zasobów":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-vm-creation-storage.png" alt-text="Ekran tworzenia z przetworzeniem zasobów":::
 
 1. Kliknij pozycję "Przejrzyj + Utwórz".
 1. Na stronie **Tworzenie maszyny wirtualnej** wyświetlone są szczegółowe informacje o maszynie wirtualnej, którą masz zamiar utworzyć. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.
@@ -55,29 +56,29 @@ Wdrożenie maszyny wirtualnej potrwa kilka minut. Po zakończeniu wdrażania prz
 
 1. Po zakończeniu wdrożenia maszyny wirtualnej wybierz pozycję **Przejdź do zasobu**.
 1. Na pasku bocznym po lewej stronie wybierz pozycję **dyski**.
-1. Na ekranie dyski wybierz pozycję **szyfrowanie**. 
+1. Na górnym pasku wybierz pozycję **dodatkowe ustawienia** .
+1. W obszarze **Ustawienia szyfrowania**  >  **dyski do zaszyfrowania**wybierz opcję **dyski systemu operacyjnego i danych**.
 
-    :::image type="content" source="../media/disk-encryption/portal-qs-disks-to-encryption.png" alt-text="wybór dysków i szyfrowania":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-disks-to-encryption.png" alt-text="wybór dysków i szyfrowania":::
 
-1. Na ekranie szyfrowanie w obszarze **dyski do zaszyfrowania**wybierz opcję **dyski systemu operacyjnego i danych**.
 1. W obszarze **Ustawienia szyfrowania**wybierz **pozycję Wybierz magazyn kluczy i klucz do szyfrowania**.
 1. Na ekranie **Wybieranie klucza z Azure Key Vault** wybierz pozycję **Utwórz nowy**.
 
     :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="wybór dysków i szyfrowania":::
 
-1. Na ekranie **Tworzenie magazynu kluczy** upewnij się, że grupa zasobów jest taka sama jak ta, która została użyta do utworzenia maszyny wirtualnej.
-1. Podaj nazwę magazynu kluczy.  Każdy Magazyn kluczy na platformie Azure musi mieć unikatową nazwę.
+1. Z lewej strony **magazynu kluczy i klucza**wybierz **pozycję kliknij, aby wybrać klucz**.
+1. Na stronie **Wybierz klucz z Azure Key Vault**w polu **Key Vault** wybierz pozycję **Utwórz nowy**.
+1. Na ekranie **Tworzenie magazynu kluczy** upewnij się, że grupa zasobów jest grupą *zasobów, i*nadaj jej nazwę.  Każdy Magazyn kluczy na platformie Azure musi mieć unikatową nazwę.
 1. Na karcie **zasady dostępu** sprawdź pole **Azure Disk Encryption do szyfrowania woluminów** .
 
-    :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-enable.png" alt-text="wybór dysków i szyfrowania":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="wybór dysków i szyfrowania":::
 
-1. Wybierz pozycję **Przegląd + utwórz**.  
+1. Wybierz pozycję **Przejrzyj i utwórz**.  
 1. Po przekazaniu walidacji magazynu kluczy wybierz pozycję **Utwórz**. Spowoduje to powrót do ekranu **wyboru z Azure Key Vault** .
 1. Pozostaw pole **klucza** puste i wybierz **pozycję Wybierz**.
 1. W górnej części ekranu szyfrowania kliknij przycisk **Zapisz**. W oknie podręcznym zostanie wyświetlone ostrzeżenie o ponownym uruchomieniu maszyny wirtualnej. Kliknij przycisk **tak**.
 
-
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć. Aby to zrobić, wybierz grupę zasobów maszyny wirtualnej, wybierz opcję Usuń, a następnie potwierdź nazwę grupy zasobów, którą chcesz usunąć.
 

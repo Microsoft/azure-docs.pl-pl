@@ -1,14 +1,14 @@
 ---
 title: Zarządzanie obszarami roboczymi wskaźników platformy Azure na dużą skalę
 description: Dowiedz się, jak efektywnie zarządzać wskaźnikami platformy Azure na delegowanych zasobach klientów.
-ms.date: 06/17/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: fc6d66a31ed46766bbe664fd8656792c97ff69fd
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 1734efb57b18cfc559144b13aaecb882612ca73b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163241"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511256"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Zarządzanie obszarami roboczymi wskaźników platformy Azure na dużą skalę
 
@@ -69,9 +69,9 @@ Możesz wdrażać skoroszyty w dzierżawie zarządzającej i tworzyć pulpity na
 
 Skoroszyty można również wdrażać bezpośrednio w poszczególnych dzierżawach, którymi można zarządzać w scenariuszach specyficznych dla danego klienta.
 
-## <a name="run-queries-across-azure-sentinel-workspaces"></a>Uruchamianie zapytań w obszarach roboczych wskaźnikowych platformy Azure
+## <a name="run-log-analytics-and-hunting-queries-across-azure-sentinel-workspaces"></a>Uruchom Log Analytics i wyłowiectwj zapytania dla obszarów roboczych wskaźnikowych platformy Azure
 
-Można utworzyć i zapisać zapytania Log Analytics na potrzeby wykrywania zagrożeń centralnie w dzierżawie zarządzającej. Te zapytania można następnie uruchomić we wszystkich obszarach roboczych Azure wskaźnikowych dla klientów, korzystając z operatora Union i wyrażenia obszaru roboczego (). Aby uzyskać więcej informacji, zobacz [zapytania między obszarami roboczymi](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
+Możesz tworzyć i zapisywać Log Analytics zapytań dotyczących wykrywania zagrożeń centralnie w dzierżawie zarządzającej, w tym [zapytań polowania](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). Te zapytania można następnie uruchomić we wszystkich obszarach roboczych Azure wskaźnikowych dla klientów, korzystając z operatora Union i wyrażenia obszaru roboczego (). Aby uzyskać więcej informacji, zobacz [zapytania między obszarami roboczymi](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
 
 ## <a name="use-automation-for-cross-workspace-management"></a>Używanie automatyzacji do zarządzania między obszarami roboczymi
 

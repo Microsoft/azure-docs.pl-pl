@@ -5,12 +5,12 @@ author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 722d3e218272202074820db442ab1592042c7011
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5c38ac88503416b37b720a091c9e46d819a3146
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805008"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509301"
 ---
 # <a name="get-information-about-a-converted-model"></a>Pobieranie informacji o przekonwertowanym modelu
 
@@ -100,7 +100,7 @@ Ta sekcja rejestruje informacje o formacie pliku źródłowego.
 Ta sekcja zawiera informacje dotyczące sceny źródłowej. Często występują rozbieżności między wartościami w tej sekcji a odpowiednikami wartości w narzędziu, które utworzyły Model źródłowy. Takie różnice są oczekiwane, ponieważ model jest modyfikowany podczas kroków eksportu i konwersji.
 
 * `numMeshes`: Liczba części siatki, gdzie każda część może odwoływać się do pojedynczego materiału.
-* `numFaces`: Całkowita liczba _trójkątów_ w całym modelu. Należy zauważyć, że siatka jest triangulacją podczas konwersji. Ta liczba ma wpływ na limit wielokąta w [standardowym rozmiarze renderowania maszyn wirtualnych](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-polygons).
+* `numFaces`: Całkowita liczba _trójkątów_ w całym modelu. Należy zauważyć, że siatka jest triangulacją podczas konwersji. Ta liczba ma wpływ na limit wielokąta w [standardowym rozmiarze serwera renderowania](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-polygons).
 * `numVertices`: Całkowita liczba wierzchołków w całym modelu.
 * `numMaterial`: Całkowita liczba materiałów w całym modelu.
 * `numFacesSmallestMesh`: Liczba trójkątów w najmniejszej sieci modelu.

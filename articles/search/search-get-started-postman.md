@@ -8,13 +8,13 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 02/10/2020
-ms.openlocfilehash: 07c5e73ecd53bad0e5d5ec7959b288e0b6237a87
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 08/17/2020
+ms.openlocfilehash: 04619df8009aca3fecf317481d030280d5532281
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171928"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510916"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w programie Poster przy użyciu interfejsów API REST
 > [!div class="op_single_selector"]
@@ -25,9 +25,9 @@ ms.locfileid: "86171928"
 > * [Program PowerShell](search-howto-dotnet-sdk.md)
 >*
 
-Jednym z najprostszych sposobów eksplorowania [interfejsów API REST platformy Azure wyszukiwanie poznawcze](https://docs.microsoft.com/rest/api/searchservice) jest użycie programu Poster lub innego narzędzia do testowania sieci Web w celu sformułowania żądań HTTP i sprawdzenia odpowiedzi. Za pomocą odpowiednich narzędzi i niniejszej instrukcji możesz wysyłać żądania i wyświetlać odpowiedzi przed napisaniem jakiegokolwiek kodu.
+W tym artykule opisano sposób interaktywnego tworzenia żądań interfejsu API REST przy użyciu [interfejsów API REST usługi Azure wyszukiwanie poznawcze](https://docs.microsoft.com/rest/api/searchservice) i klienta interfejsu API w celu wysyłania i otrzymywania żądań. Za pomocą klienta interfejsu API i tych instrukcji można wysyłać żądania i wyświetlać odpowiedzi przed zapisaniem kodu.
 
-W tym artykule wyjaśniono, jak w sposób interaktywny sformułować żądania. Alternatywnie można [pobrać i zaimportować kolekcję programu Poster](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) , aby użyć wstępnie zdefiniowanych żądań.
+W tym artykule jest stosowana aplikacja Poster. Jeśli wolisz używać wstępnie zdefiniowanych żądań [, możesz pobrać i zaimportować kolekcję ogłoszeń](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) . 
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -61,14 +61,14 @@ Dla każdego narzędzia należy wybrać polecenie (GET, POST, PUT itd.), podać 
 
 Zwróć uwagę na prefiks protokołu HTTPS, nazwę usługi, nazwę obiektu (w tym przypadku kolekcja indeksów) i [wersję interfejsu API-Version](search-api-versions.md). Interfejs API-Version jest wymagana, a w przypadku bieżącej wersji określono ciąg małymi literami `?api-version=2020-06-30` . Wersje interfejsu API są regularnie aktualizowane. Uwzględnienie parametru api-version w każdym żądaniu daje pełną kontrolę nad tym, która z nich jest używana.  
 
-Kompozycja nagłówka żądania zawiera dwa elementy, typ zawartości oraz klucz API-Key służący do uwierzytelniania w usłudze Azure Wyszukiwanie poznawcze. Zastąp klucz interfejsu API administratora (parametr-AZURE-SEARCH-ADMIN-API-KEY) prawidłową wartością. 
+Skład nagłówka żądania zawiera dwa elementy: `Content-Type` i `api-key` służy do uwierzytelniania w usłudze Azure wyszukiwanie poznawcze. Zastąp klucz interfejsu API administratora (parametr-AZURE-SEARCH-ADMIN-API-KEY) prawidłową wartością. 
 
 ```http
 api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
 Content-Type: application/json
 ```
 
-W programie Poster należy sformułować żądanie, które wygląda podobnie do poniższego zrzutu ekranu. Wybierz pozycję **Get** jako zlecenie, podaj adres URL, a następnie kliknij pozycję **Wyślij**. To polecenie nawiązuje połączenie z usługą Azure Wyszukiwanie poznawcze, odczytuje kolekcję indeksów i zwraca kod stanu HTTP 200 na pomyślnym połączeniu. Jeśli usługa ma już indeksy, odpowiedź będzie zawierać również definicje indeksów.
+W programie Poster należy sformułować żądanie, które wygląda podobnie do poniższego zrzutu ekranu. Wybierz pozycję **Get** jako polecenie, podaj adres URL, a następnie kliknij pozycję **Wyślij**. To polecenie nawiązuje połączenie z usługą Azure Wyszukiwanie poznawcze, odczytuje kolekcję indeksów i zwraca kod stanu HTTP 200 na pomyślnym połączeniu. Jeśli usługa ma już indeksy, odpowiedź będzie zawierać również definicje indeksów.
 
 ![Adres URL i nagłówek żądania post](media/search-get-started-postman/postman-url.png "Adres URL i nagłówek żądania post")
 
@@ -80,7 +80,7 @@ Adres URL jest rozszerzony i zawiera `hotels` nazwę indeksu.
 
 Aby to zrobić w programie Poster:
 
-1. Zmień czasownik na wartość **Put**.
+1. Zmień polecenie na **Put**.
 
 2. Kopiuj w tym adresie URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart?api-version=2020-06-30` .
 
@@ -92,7 +92,7 @@ Aby to zrobić w programie Poster:
 
 ### <a name="index-definition"></a>Definicja indeksu
 
-Kolekcja Fields definiuje strukturę dokumentu. Każdy dokument musi mieć te pola, a każde pole musi mieć typ danych. Pola ciągów są używane podczas wyszukiwania pełnotekstowego, możesz więc rzutować dane numeryczne jako ciągi, jeśli potrzebujesz, aby ta zawartość dawała możliwość wyszukiwania.
+Kolekcja Fields definiuje strukturę dokumentu. Każdy dokument musi mieć te pola, a każde pole musi mieć typ danych. Pola ciągów są używane podczas wyszukiwania pełnotekstowego. Jeśli potrzebujesz danych liczbowych do przeszukiwania, musisz rzutować dane liczbowe jako ciągi.
 
 Atrybuty w polu określają dozwoloną akcję. Interfejsy API REST domyślnie umożliwiają wiele akcji. Na przykład wszystkie ciągi domyślnie umożliwiają wyszukiwanie, pobieranie, filtrowanie i tworzenie aspektów. Często należy ustawić atrybuty tylko wtedy, gdy trzeba wyłączyć zachowanie.
 
@@ -128,13 +128,13 @@ Po przesłaniu tego żądania powinna pojawić się odpowiedź 201 protokołu HT
 
 ## <a name="2---load-documents"></a>2 — ładowanie dokumentów
 
-Tworzenie indeksu i wypełnianie indeksu to oddzielne kroki. Na platformie Azure Wyszukiwanie poznawcze indeks zawiera wszystkie dane, które mogą być możliwe do przeszukania, które można podać jako dokumenty JSON. Dla tego zadania jest używany [interfejs API REST Dodawanie, aktualizowanie lub usuwanie dokumentów](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) . 
+Tworzenie indeksu i wypełnianie indeksu to oddzielne kroki. Na platformie Azure Wyszukiwanie poznawcze indeks zawiera wszystkie dane z możliwością wyszukiwania. W tym scenariuszu dane są dostarczane jako dokumenty JSON. Dla tego zadania jest używany [interfejs API REST Dodawanie, aktualizowanie lub usuwanie dokumentów](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) . 
 
 Adres URL jest rozszerzony, aby uwzględnić `docs` kolekcje i `index` operację.
 
 Aby to zrobić w programie Poster:
 
-1. Zmień zlecenie na **POST**.
+1. Zmień polecenie na **post**.
 
 2. Kopiuj w tym adresie URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2020-06-30` .
 
@@ -241,13 +241,13 @@ Jeśli otrzymasz odpowiedź 207, przekazanie co najmniej jednego dokumentu nie p
 
 ## <a name="3---search-an-index"></a>3 — Przeszukiwanie indeksu
 
-Teraz, gdy indeks i dokumenty są ładowane, można wysyłać zapytania do nich za pomocą [interfejsu API REST dokumentów wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Teraz, gdy indeks i zestaw dokumentów są ładowane, można wysyłać zapytania względem nich przy użyciu [interfejsu API REST dokumentów wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 Adres URL jest rozszerzony, aby uwzględnić wyrażenie zapytania, określone za pomocą operatora wyszukiwania.
 
 Aby to zrobić w programie Poster:
 
-1. Zmień zlecenie, aby **uzyskać**.
+1. Zmień polecenie, aby **uzyskać**.
 
 2. Kopiuj w tym adresie URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$count=true&api-version=2020-06-30` .
 
@@ -290,15 +290,15 @@ Dodanie `/stats` do adresu URL zwraca informacje o indeksie. W narzędziu Postma
 
 Zwróć uwagę, że składnia parametru api-version różni się. Dla tego żądania użyj `?`, aby dołączyć parametr api-version. `?`Oddziela ścieżkę adresu URL od ciągu zapytania, podczas & oddziela każdą parę "name = value" w ciągu zapytania. Dla tego zapytania parametr api-version jest pierwszym i jedynym elementem ciągu zapytania.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 
 Jeśli używasz bezpłatnej usługi, pamiętaj, że masz ograniczone do trzech indeksów, indeksatorów i źródeł danych. Możesz usunąć poszczególne elementy w portalu, aby zachować limit. 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Teraz, gdy wiesz już, jak wykonywać podstawowe zadania, możesz przejść do przodu z dodatkowymi wywołaniami interfejsu API REST, aby uzyskać bardziej zaawansowane funkcje, takie jak indeksatory, lub [skonfigurować potok wyszukiwania poznawczego](cognitive-search-tutorial-blob.md). W następnym kroku zalecamy następujące łącze:
 

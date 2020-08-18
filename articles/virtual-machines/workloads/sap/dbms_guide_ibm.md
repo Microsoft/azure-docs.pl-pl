@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 08/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7ea95603ea630a1320db5698092f6748e36a9934
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 3db8ece7cd1d3ef57b51b164fad3340b80882369
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245761"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510202"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Wdrażanie systemu DBMS usługi Azure Virtual Machines programu IBM Db2 dla obciążenia SAP
 
@@ -73,7 +73,7 @@ Alternatywnie można użyć pul magazynu systemu Windows (dostępne tylko w syst
 
 W przypadku dysków zawierających ścieżki magazynu DB2 dla katalogów sapdata i saptmp należy określić rozmiar sektora dysku fizycznego wynoszący 512 KB. W przypadku korzystania z pul magazynu systemu Windows należy ręcznie utworzyć pule magazynów za pośrednictwem interfejsu wiersza polecenia za pomocą parametru `-LogicalSectorSizeDefault` . Aby uzyskać więcej informacji, zobacz <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
-W przypadku maszyny wirtualnej z serii M na platformie Azure opóźnienie zapisu w dziennikach transakcji można zmniejszyć o czynniki w porównaniu z wydajnością Premium Storage platformy Azure, korzystając z usługi Azure akcelerator zapisu. W związku z tym należy wdrożyć akcelerator zapisu platformy Azure dla dysków VHD, które tworzą wolumin dla dzienników transakcji bazy danych DB2. Szczegóły można odczytać w dokumencie [Akcelerator zapisu](../../windows/how-to-enable-write-accelerator.md).
+W przypadku maszyny wirtualnej z serii M na platformie Azure opóźnienie zapisu w dziennikach transakcji można zmniejszyć o czynniki w porównaniu z wydajnością Premium Storage platformy Azure, korzystając z usługi Azure akcelerator zapisu. W związku z tym należy wdrożyć akcelerator zapisu platformy Azure dla dysków VHD, które tworzą wolumin dla dzienników transakcji bazy danych DB2. Szczegóły można odczytać w dokumencie [Akcelerator zapisu](../../how-to-enable-write-accelerator.md).
 
 ## <a name="recommendation-on-vm-and-disk-structure-for-ibm-db2-deployment"></a>Zalecenie dotyczące maszyn wirtualnych i struktur dysków dla wdrożenia programu IBM DB2
 

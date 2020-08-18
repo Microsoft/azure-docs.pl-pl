@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 2cb143e08e3901b1d0ab7181df68f06887069012
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2c5b6ef0792e418d873d84341a0fffc356c799e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563271"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509284"
 ---
 # <a name="troubleshoot"></a>Rozwiązywanie problemów
 
@@ -105,7 +105,7 @@ Jeśli te dwa kroki nie były pomocne, należy sprawdzić, czy ramki wideo są o
 
 **Model przekracza limity wybranej maszyny wirtualnej, w tym maksymalną liczbę wielokątów:**
 
-Zobacz określone [limity rozmiaru maszyny wirtualnej](../reference/limits.md#overall-number-of-polygons).
+Zobacz określone [limity rozmiaru serwera](../reference/limits.md#overall-number-of-polygons).
 
 **Model nie znajduje się w frustumu aparatu:**
 
@@ -148,7 +148,7 @@ Renderowanie zdalne na platformie Azure jest podłączane do potoku renderowania
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>Wzór szachownicy jest renderowany po załadowaniu modelu
 
-Jeśli renderowany obraz wygląda następująco: ![ szachownica ](../reference/media/checkerboard.png) , a moduł renderowania trafi na [limity dla standardowego rozmiaru maszyny wirtualnej](../reference/vm-sizes.md). Aby wyeliminować ograniczenia, należy przełączyć się do rozmiaru **maszyny wirtualnej w warstwie Premium** lub zmniejszyć liczbę widocznych wielokątów.
+Jeśli renderowany obraz wygląda następująco: ![ szachownica ](../reference/media/checkerboard.png) , a moduł renderowania trafi na [limity dla rozmiaru standardowej konfiguracji](../reference/vm-sizes.md). Aby wyeliminować ograniczenia, należy przełączyć się do rozmiaru konfiguracji **Premium** lub zmniejszyć liczbę widocznych wielokątów.
 
 ## <a name="the-rendered-image-in-unity-is-upside-down"></a>Renderowany obraz w aparacie Unity jest odwrócony do góry
 

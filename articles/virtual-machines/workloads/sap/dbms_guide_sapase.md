@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26179dd2491a8b8cbc2ef3eb0ad66fa61722d413
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 82dbb73da06097407d91f23d4d372aaa4cc76e99
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525266"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510899"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Wdrażanie systemu DBMS usługi Azure Virtual Machines produktu SAP ESE dla obciążenia SAP
 
@@ -59,7 +59,7 @@ Rozmiar strony jest zwykle 2048 KB. Aby uzyskać szczegółowe informacje, zobac
 
 ## <a name="recommendations-on-vm-and-disk-structure-for-sap-ase-deployments"></a>Zalecenia dotyczące maszyn wirtualnych i struktur dysków dla wdrożeń oprogramowania SAP ASE
 
-Aplikacje SAP ASE for SAP NetWeaver są obsługiwane na dowolnym typie maszyny wirtualnej wymienionym w temacie [Pomoc techniczna sap #1928533](https://launchpad.support.sap.com/#/notes/1928533) typowe typy maszyn wirtualnych używane do średniego rozmiaru serwerów baz danych SAP ASE to Esv3.  Duże bazy danych z obsługą wielu terabajtów mogą korzystać z typów maszyn wirtualnych serii M. Wydajność zapisu na dysku dziennika transakcji SAP ASE można ulepszyć, włączając akcelerator zapisu serii M. Akcelerator zapisu należy uważnie przetestować przy użyciu oprogramowania SAP ASE ze względu na sposób, w jaki środowisko SAP ASE wykonuje operacje zapisu dziennika.  Przejrzyj [uwagi dotyczące pomocy technicznej SAP #2816580](../../windows/how-to-enable-write-accelerator.md) i Rozważ uruchomienie testu wydajnościowego.  
+Aplikacje SAP ASE for SAP NetWeaver są obsługiwane na dowolnym typie maszyny wirtualnej wymienionym w temacie [Pomoc techniczna sap #1928533](https://launchpad.support.sap.com/#/notes/1928533) typowe typy maszyn wirtualnych używane do średniego rozmiaru serwerów baz danych SAP ASE to Esv3.  Duże bazy danych z obsługą wielu terabajtów mogą korzystać z typów maszyn wirtualnych serii M. Wydajność zapisu na dysku dziennika transakcji SAP ASE można ulepszyć, włączając akcelerator zapisu serii M. Akcelerator zapisu należy uważnie przetestować przy użyciu oprogramowania SAP ASE ze względu na sposób, w jaki środowisko SAP ASE wykonuje operacje zapisu dziennika.  Przejrzyj [uwagi dotyczące pomocy technicznej SAP #2816580](../../how-to-enable-write-accelerator.md) i Rozważ uruchomienie testu wydajnościowego.  
 Akcelerator zapisu jest zaprojektowana tylko dla dysku dziennika transakcji. W pamięci podręcznej na poziomie dysku powinna być ustawiona wartość NONE. Nie należy zaistnieć, jeśli usługa Azure akcelerator zapisu nie będzie zawierać podobnych ulepszeń, tak jak w przypadku innych systemów DBMS. W zależności od sposobu, w jaki środowisko SAP ASE zapisuje w dzienniku transakcji, może to być spowodowane brakiem przyspieszenia przez akcelerator zapisu platformy Azure.
 Dla urządzeń z danymi i dzienników zaleca się używanie oddzielnych dysków.  Systemowe bazy danych sybsecurity i `saptools` nie wymagają dysków dedykowanych i mogą być umieszczane na dyskach zawierających dane i dzienniki bazy danych SAP 
 
@@ -68,7 +68,7 @@ Dla urządzeń z danymi i dzienników zaleca się używanie oddzielnych dysków.
 ### <a name="file-systems-stripe-size--io-balancing"></a>Systemy plików, rozmiar rozłożony & zrównoważenie we/wy 
 Oprogramowanie SAP ASE zapisuje dane sekwencyjnie na urządzeniach magazynu dyskowego, chyba że zostały skonfigurowane inaczej. Oznacza to, że pusta baza danych SAP ASE z czterema urządzeniami będzie zapisywać dane tylko na pierwszym urządzeniu.  Inne urządzenia dyskowe będą zapisywane tylko wtedy, gdy pierwsze urządzenie zostanie zapełnione.  Liczba operacji we/wy odczytu i zapisu dla każdego urządzenia z oprogramowaniem SAP ASE może być inna. Aby zrównoważyć dysk we wszystkich dostępnych dyskach platformy Azure, należy użyć funkcji miejsca do magazynowania systemu Windows lub LVM2 Linux. W systemie Linux zaleca się używanie systemu plików XFS do formatowania dysków. Rozmiar rozłożonego LVM powinien być testowany z testem wydajności. rozmiar rozłożenia 128 KB jest dobrym punktem początkowym. W systemie Windows należy przetestować rozmiar jednostki alokacji systemu plików NTFS (Australia). 64 KB może służyć jako wartość początkowa. 
 
-Zaleca się skonfigurowanie automatycznego rozszerzania bazy danych zgodnie z opisem w artykule [Konfigurowanie automatycznego rozszerzania przestrzeni bazy danych w oprogramowaniu SAP adaptacyjne Server Enterprise](https://blogs.sap.com/2014/07/09/configuring-automatic-database-space-expansion-in-sap-adaptive-server-enterprise/) i [sap support uwagi #1815695](https://launchpad.support.sap.com/#/notes/1815695). 
+Zaleca się skonfigurowanie automatycznego rozszerzania bazy danych zgodnie z opisem w artykule [Konfigurowanie automatycznego rozszerzania przestrzeni bazy danych w oprogramowaniu SAP adaptacyjne Server Enterprise](https://blogs.sap.com/2014/07/09/configuring-automatic-database-space-expansion-in-sap-adaptive-server-enterprise/)  i [sap support uwagi #1815695](https://launchpad.support.sap.com/#/notes/1815695). 
 
 ### <a name="sample-sap-ase-on-azure-virtual-machine-disk-and-file-system-configurations"></a>Przykładowe oprogramowanie SAP ASE na maszynie wirtualnej platformy Azure, konfiguracje systemu plików i dysku 
 Poniższe szablony pokazują przykładowe konfiguracje dla systemów Linux i Windows. Przed potwierdzeniem konfiguracji maszyny wirtualnej i dysku upewnij się, że przydziały przepustowości sieci i magazynu poszczególnych maszyn wirtualnych są wystarczające do spełnienia wymagań firmy. Należy również pamiętać, że różne typy maszyn wirtualnych platformy Azure mają różną maksymalną liczbę dysków, które można dołączyć do maszyny wirtualnej. Na przykład maszyna wirtualna E4s_v3 ma limit przepływności we/wy magazynu 48 MB/s. Jeśli przepływność magazynu wymaganego przez działanie tworzenia kopii zapasowej bazy danych przekracza 48 MB/s, nie będzie możliwe uniknięcie większego typu maszyn wirtualnych o większej przepływności przepustowości magazynu. Podczas konfigurowania usługi Azure Storage należy również pamiętać, że szczególnie w przypadku [usługi Azure Premium Storage](../../windows/premium-storage-performance.md) przepustowość i liczby operacji wejścia/wyjścia na sekundę na GB pojemności są zmieniane. Więcej informacji na ten temat zawiera artykuł [jakie typy dysków są dostępne na platformie Azure?](../../windows/disks-types.md). Przydziały dla określonych typów maszyn wirtualnych platformy Azure są udokumentowane w artykule [zoptymalizowane rozmiary maszyn wirtualnych](../../sizes-memory.md) oraz połączone z nim artykuły. 
@@ -80,7 +80,7 @@ Przykłady podane poniżej służą do celów ilustracyjnych i mogą być modyfi
 
 Przykład konfiguracji małego serwera z programem SAP ASE DB o rozmiarze bazy danych wynoszącym od 50 GB do 250 GB, na przykład Menedżera rozwiązań SAP, może wyglądać następująco:
 
-| Konfiguracja | Windows | Linux | Komentarze |
+| Konfigurowanie | Windows | Linux | Komentarze |
 | --- | --- | --- | --- |
 | Typ maszyny wirtualnej | E4s_v3 (4 vCPU/32 GB pamięci RAM) | E4s_v3 (4 vCPU/32 GB pamięci RAM) | --- |
 | Accelerated Networking | Włącz | Włącz | ---|
@@ -101,7 +101,7 @@ Przykład konfiguracji małego serwera z programem SAP ASE DB o rozmiarze bazy d
 
 Przykład konfiguracji dla średniego serwera z systemem operacyjnym SAP ASE z rozmiarem bazy danych wynoszącym 250 GB – 750 GB, na przykład w przypadku mniejszych systemów SAP Business Suite, może wyglądać następująco:
 
-| Konfiguracja | Windows | Linux | Komentarze |
+| Konfigurowanie | Windows | Linux | Komentarze |
 | --- | --- | --- | --- |
 | Typ maszyny wirtualnej | E16s_v3 (16 vCPU/128 GB pamięci RAM) | E16s_v3 (16 vCPU/128 GB pamięci RAM) | --- |
 | Accelerated Networking | Włącz | Włącz | ---|
@@ -121,7 +121,7 @@ Przykład konfiguracji dla średniego serwera z systemem operacyjnym SAP ASE z r
 
 Przykład konfiguracji małego serwera z systemem operacyjnym SAP ASE o rozmiarze bazy danych wynoszącym od 750 GB do 2000 GB, na przykład w większym systemie SAP Business Suite, może wyglądać następująco:
 
-| Konfiguracja | Windows | Linux | Komentarze |
+| Konfigurowanie | Windows | Linux | Komentarze |
 | --- | --- | --- | --- |
 | Typ maszyny wirtualnej | E64s_v3 (64 vCPU/432 GB pamięci RAM) | E64s_v3 (64 vCPU/432 GB pamięci RAM) | --- |
 | Accelerated Networking | Włącz | Włącz | ---|
@@ -142,7 +142,7 @@ Przykład konfiguracji małego serwera z systemem operacyjnym SAP ASE o rozmiarz
 
 Przykład konfiguracji małego serwera z systemem operacyjnym SAP ASE z rozmiarem bazy danych wynoszącym 2 TB +, na przykład w większym globalnie używanym systemie SAP Business Suite, może wyglądać jak
 
-| Konfiguracja | Windows | Linux | Komentarze |
+| Konfigurowanie | Windows | Linux | Komentarze |
 | --- | --- | --- | --- |
 | Typ maszyny wirtualnej | Seria M (1,0 do 4,0 TB pamięci RAM)  | Seria M (1,0 do 4,0 TB pamięci RAM) | --- |
 | Accelerated Networking | Włącz | Włącz | ---|

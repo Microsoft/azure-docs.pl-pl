@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metan
 ms.custom: devx-track-javascript
-ms.openlocfilehash: c64fc95c44aad81087cada23639e3b13bf478056
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: a8cd8bacc749ef44ee23e98709f04f75757f5919
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407187"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516337"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Samouczek: uruchamianie czytnika immersyjny (Node.js)
 
@@ -30,7 +30,7 @@ W [przeglądzie](./overview.md)zawarto informacje na temat tego, co to jest czyt
 > * Określ język interfejsu czytnika immersyjny
 > * Uruchamianie czytnika immersyjny z zawartością matematyczną
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

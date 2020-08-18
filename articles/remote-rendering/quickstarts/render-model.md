@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 62669457f73ba78186614433fb6d10cc4dc01089
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: b5865f2fd76c1159f7f72633362a96335af8a059
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565513"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509369"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Szybki Start: renderowanie modelu przy użyciu aparatu Unity
 
@@ -84,7 +84,7 @@ Później chcemy wdrożyć ten projekt w usłudze HoloLens i nawiązać połącz
 
 ### <a name="create-a-session-and-view-the-default-model"></a>Tworzenie sesji i przeglądanie domyślnego modelu
 
-Naciśnij przycisk **odtwarzania** aparatu Unity, aby rozpocząć sesję. Na dole okienka ekranu w panelu *gry* powinna zostać wyświetlona nakładka z tekstem stanu. Sesja zostanie przejdzie do serii przejść stanu. W stanie **początkowym** zdalna maszyna wirtualna to Spuninst, co trwa kilka minut. Po sukcesie przechodzi do stanu **gotowości** . Teraz sesja przechodzi w stan **połączenia** , w którym próbuje dotrzeć do środowiska uruchomieniowego renderowania na tej maszynie wirtualnej. Po pomyślnym przeniesieniu przykładowego przejścia do stanu **połączonego** . W tym momencie rozpocznie się pobieranie modelu do renderowania. Ze względu na rozmiar modelu pobieranie może potrwać kilka minut. Następnie zostanie wyświetlony model zdalnie renderowany.
+Naciśnij przycisk **odtwarzania** aparatu Unity, aby rozpocząć sesję. Na dole okienka ekranu w panelu *gry* powinna zostać wyświetlona nakładka z tekstem stanu. Sesja zostanie przejdzie do serii przejść stanu. W stanie **początkowym** serwer ma wartość Spuninst, co trwa kilka minut. Po sukcesie przechodzi do stanu **gotowości** . Teraz sesja przechodzi w stan **połączenia** , w którym próbuje dotrzeć do środowiska uruchomieniowego renderowania na tym serwerze. Po pomyślnym przeniesieniu przykładowego przejścia do stanu **połączonego** . W tym momencie rozpocznie się pobieranie modelu do renderowania. Ze względu na rozmiar modelu pobieranie może potrwać kilka minut. Następnie zostanie wyświetlony model zdalnie renderowany.
 
 ![Dane wyjściowe z przykładu](media/arr-sample-output.png)
 

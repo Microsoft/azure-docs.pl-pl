@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3bb4d70b4c4f3f9edc525ffe5973bca633ddd1be
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: d32ad29bf652cad62a5950859ebff0366e09fc6f
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800419"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510032"
 ---
 # <a name="understand-event-data"></a>Informacje o zdarzeniach
 
@@ -105,9 +105,9 @@ Poniżej znajdują się pola w treści powiadomienia o cyklu życia.
 
 | Nazwa | Wartość |
 | --- | --- |
-| `id` | Identyfikator powiadomienia, na przykład identyfikator UUID lub licznik obsługiwany przez usługę. `source` + `id`jest unikatowy dla każdego oddzielnego zdarzenia. |
+| `id` | Identyfikator powiadomienia, na przykład identyfikator UUID lub licznik obsługiwany przez usługę. `source` + `id` jest unikatowy dla każdego oddzielnego zdarzenia. |
 | `source` | Nazwa wystąpienia usługi IoT Hub lub Digital bliźniaczych reprezentacji platformy Azure, na przykład *MyHub.Azure-Devices.NET* lub *mydigitaltwins.westus2.azuredigitaltwins.NET* |
-| `specversion` | 1.0 |
+| `specversion` | *1.0*<br>Wiadomość jest zgodna z tą wersją specyfikacji CloudEvents. |
 | `type` | `Microsoft.DigitalTwins.Twin.Create`<br>`Microsoft.DigitalTwins.Twin.Delete` |
 | `datacontenttype` | `application/json` |
 | `subject` | Identyfikator dwucyfrowego przędzy |
@@ -191,12 +191,12 @@ Poniżej przedstawiono pola w treści powiadomienia o zmianie krawędzi.
 
 | Nazwa    | Wartość |
 | --- | --- |
-| `id` | Identyfikator powiadomienia, na przykład identyfikator UUID lub licznik obsługiwany przez usługę. `source` + `id`jest unikatowy dla każdego oddzielnego zdarzenia |
+| `id` | Identyfikator powiadomienia, na przykład identyfikator UUID lub licznik obsługiwany przez usługę. `source` + `id` jest unikatowy dla każdego oddzielnego zdarzenia |
 | `source` | Nazwa wystąpienia usługi Azure Digital bliźniaczych reprezentacji, na przykład *mydigitaltwins.westus2.azuredigitaltwins.NET* |
-| `specversion` | 1.0 |
+| `specversion` | *1.0*<br>Wiadomość jest zgodna z tą wersją specyfikacji CloudEvents. |
 | `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`
 |`datacontenttype`| `application/json` |
-| `subject` | Identyfikator relacji, np.`<twinID>/relationships/<relationshipID>` |
+| `subject` | Identyfikator relacji, np. `<twinID>/relationships/<relationshipID>` |
 | `time` | Sygnatura czasowa dla momentu wykonania operacji w relacji |
 | `traceparent` | Kontekst śledzenia W3C dla zdarzenia |
 
@@ -247,9 +247,9 @@ Poniżej znajdują się pola w treści powiadomienia o zmianach z podpisem cyfro
 
 | Nazwa    | Wartość |
 | --- | --- |
-| `id` | Identyfikator powiadomienia, na przykład identyfikator UUID lub licznik obsługiwany przez usługę. `source` + `id`jest unikatowy dla każdego oddzielnego zdarzenia |
+| `id` | Identyfikator powiadomienia, na przykład identyfikator UUID lub licznik obsługiwany przez usługę. `source` + `id` jest unikatowy dla każdego oddzielnego zdarzenia |
 | `source` | Nazwa wystąpienia usługi IoT Hub lub Digital bliźniaczych reprezentacji platformy Azure, na przykład *MyHub.Azure-Devices.NET* lub *mydigitaltwins.westus2.azuredigitaltwins.NET*
-| `specversion` | 1.0 |
+| `specversion` | *1.0*<br>Wiadomość jest zgodna z tą wersją specyfikacji CloudEvents. |
 | `type` | `Microsoft.DigitalTwins.Twin.Update` |
 | `datacontenttype` | `application/json` |
 | `subject` | Identyfikator dwucyfrowego przędzy |

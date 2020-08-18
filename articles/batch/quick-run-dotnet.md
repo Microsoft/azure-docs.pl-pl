@@ -1,29 +1,31 @@
 ---
-title: Szybki start na platformie Azure — uruchamianie zadania usługi Batch — .NET
-description: Szybkie uruchamianie Azure Batch przykładowego zadania i zadań z aplikacji w języku C# przy użyciu biblioteki klienckiej usługi Batch .NET.
+title: Szybki Start — uruchamianie pierwszego zadania Azure Batch za pomocą interfejsu API platformy .NET
+description: W tym przewodniku szybki start uruchomiono Azure Batch przykładowe zadanie i zadania z aplikacji C# przy użyciu biblioteki klienckiej usługi Batch .NET.
 ms.topic: quickstart
-ms.date: 11/29/2018
+ms.date: 08/17/2020
 ms.custom: mvc
-ms.openlocfilehash: 1163d63f8cbd6afedfb6e5323fa469059fa8021c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f17fc2103e4b8512e050d79f5a639b38d90a2a95
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117220"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511035"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Szybki start: uruchamianie pierwszego zadania usługi Azure Batch za pomocą interfejsu API platformy .NET
 
-Ten przewodnik Szybki start przedstawia uruchamianie zadania usługi Azure Batch z poziomu aplikacji w języku C# utworzonej w oparciu o interfejs API platformy .NET usługi Azure Batch. Aplikacja przekazuje kilka plików danych wejściowych do usługi Azure Storage oraz tworzy *pulę* węzłów obliczeniowych (maszyn wirtualnych) usługi Batch. Następnie aplikacja tworzy przykładowe *zadanie*, które uruchamia *zadania podrzędne* w celu przetworzenia każdego pliku wejściowego w puli przy użyciu podstawowego polecenia. Po ukończeniu tego przewodnika Szybki start będziesz rozumieć kluczowe pojęcia związane z usługą Batch, co pozwoli na wypróbowanie tej usługi z bardziej realistycznymi obciążeniami na większą skalę.
+Wprowadzenie do Azure Batch przez uruchomienie zadania z aplikacji języka C# skompilowanej na Azure Batch API platformy .NET. Aplikacja przekazuje kilka plików danych wejściowych do usługi Azure Storage oraz tworzy pulę węzłów obliczeniowych (maszyn wirtualnych) usługi Batch. Następnie aplikacja tworzy przykładowe zadanie, które uruchamia zadania podrzędne w celu przetworzenia każdego pliku wejściowego w puli przy użyciu podstawowego polecenia.
 
-![Szybki start — przepływ pracy aplikacji](./media/quick-run-dotnet/sampleapp.png)
+Po ukończeniu tego przewodnika Szybki start będziesz rozumieć kluczowe pojęcia związane z usługą Batch, co pozwoli na wypróbowanie tej usługi z bardziej realistycznymi obciążeniami na większą skalę.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+![Diagram przedstawiający omówienie przepływu pracy aplikacji Azure Batch.](./media/quick-run-dotnet/sampleapp.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Program Visual Studio 2017 lub nowszy](https://www.visualstudio.com/vs)lub [.NET Core 2,1](https://www.microsoft.com/net/download/dotnet-core/2.1) dla systemów Linux, macOS i Windows. 
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Konto usługi Batch i połączone konto usługi Azure Storage. Aby utworzyć te konta, skorzystaj z przewodników Szybki start dla usługi Batch i [witryny Azure Portal](quick-create-portal.md) lub [interfejsu wiersza polecenia platformy Azure](quick-create-cli.md). 
+- Konto usługi Batch i połączone konto usługi Azure Storage. Aby utworzyć te konta, skorzystaj z przewodników Szybki start dla usługi Batch i [witryny Azure Portal](quick-create-portal.md) lub [interfejsu wiersza polecenia platformy Azure](quick-create-cli.md).
+
+- [Program Visual Studio 2017 lub nowszy](https://www.visualstudio.com/vs)lub [.NET Core 2,1](https://www.microsoft.com/net/download/dotnet-core/2.1) dla systemów Linux, macOS i Windows. 
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -31,7 +33,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
-## <a name="download-the-sample"></a>Pobierz przykład
+## <a name="download-the-sample"></a>Pobieranie przykładu
 
 [Pobierz lub sklonuj przykładową aplikację](https://github.com/Azure-Samples/batch-dotnet-quickstart) z usługi GitHub. Aby sklonować repozytorium przykładowej aplikacji za pomocą klienta Git, użyj następującego polecenia:
 
@@ -41,7 +43,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-quickstart.git
 
 Przejdź do katalogu, który zawiera plik rozwiązania programu Visual Studio `BatchDotNetQuickstart.sln`.
 
-Otwórz plik rozwiązania w programie Visual Studio i zaktualizuj ciągi poświadczeń w pliku `Program.cs`, wprowadzając wartości uzyskane dla kont. Przykład:
+Otwórz plik rozwiązania w programie Visual Studio i zaktualizuj ciągi poświadczeń w pliku `Program.cs`, wprowadzając wartości uzyskane dla kont. Na przykład:
 
 ```csharp
 // Batch account credentials
@@ -56,15 +58,15 @@ private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfw
 
 [!INCLUDE [batch-credentials-include](../../includes/batch-credentials-include.md)]
 
-## <a name="build-and-run-the-app"></a>Kompilowanie i uruchamianie aplikacji
+## <a name="build-and-run-the-app"></a>Skompiluj i uruchom aplikację
 
 Aby zobaczyć działanie przepływu pracy usługi Batch, skompiluj i uruchom aplikację w programie Visual Studio lub w wierszu polecenia, używając poleceń `dotnet build` i `dotnet run`. Po uruchomieniu aplikacji przejrzyj kod, aby poznać działanie poszczególnych części aplikacji. Na przykład w programie Visual Studio:
 
-* W Eksploratorze rozwiązań kliknij rozwiązanie prawym przyciskiem myszy, a następnie kliknij polecenie **Kompiluj rozwiązanie**. 
+- W Eksploratorze rozwiązań kliknij rozwiązanie prawym przyciskiem myszy, a następnie kliknij polecenie **Kompiluj rozwiązanie**. 
 
-* Jeśli zostanie wyświetlony monit, potwierdź przywrócenie pakietów NuGet. Jeśli musisz pobrać brakujące pakiety, upewnij się, że zainstalowano [menedżera pakietów NuGet](https://docs.nuget.org/consume/installing-nuget).
+- Jeśli zostanie wyświetlony monit, potwierdź przywrócenie pakietów NuGet. Jeśli musisz pobrać brakujące pakiety, upewnij się, że zainstalowano [menedżera pakietów NuGet](https://docs.nuget.org/consume/installing-nuget).
 
-Następnie uruchom go. Po uruchomieniu aplikacji przykładowej dane wyjściowe w konsoli będą wyglądać mniej więcej następująco. W czasie wykonywania nastąpi wstrzymanie operacji w momencie wyświetlenia komunikatu `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` podczas uruchamiania węzłów obliczeniowych puli. Zadania podrzędne zostaną umieszczone w kolejce do uruchomienia zaraz po uruchomieniu pierwszego węzła obliczeniowego. Przejdź do konta partii w [Azure Portal](https://portal.azure.com) , aby monitorować pulę, węzły obliczeniowe, zadanie i zadania.
+Po uruchomieniu aplikacji przykładowej dane wyjściowe w konsoli będą wyglądać mniej więcej następująco. W czasie wykonywania nastąpi wstrzymanie operacji w momencie wyświetlenia komunikatu `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` podczas uruchamiania węzłów obliczeniowych puli. Zadania podrzędne zostaną umieszczone w kolejce do uruchomienia zaraz po uruchomieniu pierwszego węzła obliczeniowego. Przejdź do konta partii w [Azure Portal](https://portal.azure.com) , aby monitorować pulę, węzły obliczeniowe, zadanie i zadania.
 
 ```
 Sample start: 11/16/2018 4:02:54 PM
@@ -93,17 +95,16 @@ stderr:
 
 Typowy czas wykonywania wynosi mniej więcej 5 minut w przypadku uruchomienia aplikacji w konfiguracji domyślnej. Początkowa konfiguracja puli zajmuje najwięcej czasu. Aby ponownie uruchomić zadanie, usuń je z poprzedniego uruchomienia, ale nie usuwaj puli. We wstępnie skonfigurowanej puli zadanie zostanie ukończone w ciągu kilku sekund.
 
-
 ## <a name="review-the-code"></a>Przeglądanie kodu
 
 Aplikacja platformy .NET omawiana w tym przewodniku Szybki start wykonuje następujące akcje:
 
-* Przekazuje trzy małe pliki tekstowe do kontenera obiektów blob na koncie usługi Azure Storage. Te pliki to dane wejściowe do przetworzenia przez usługę Batch.
-* Tworzy pulę węzłów obliczeniowych z systemem Windows Server.
-* Tworzy zadanie i trzy zadania podrzędne do uruchomienia w tych węzłach. Każde zadanie podrzędne przetwarza jeden z plików wejściowych przy użyciu wiersza polecenia systemu Windows. 
-* Wyświetla pliki zwrócone przez zadania podrzędne.
+- Przekazuje trzy małe pliki tekstowe do kontenera obiektów blob na koncie usługi Azure Storage. Te pliki to dane wejściowe do przetworzenia przez usługę Batch.
+- Tworzy pulę węzłów obliczeniowych z systemem Windows Server.
+- Tworzy zadanie i trzy zadania podrzędne do uruchomienia w tych węzłach. Każde zadanie podrzędne przetwarza jeden z plików wejściowych przy użyciu wiersza polecenia systemu Windows. 
+- Wyświetla pliki zwrócone przez zadania podrzędne.
 
-Aby uzyskać szczegółowe informacje, zapoznaj się z plikiem `Program.cs` i poniższymi sekcjami. 
+Aby uzyskać szczegółowe informacje, zapoznaj się z plikiem `Program.cs` i poniższymi sekcjami.
 
 ### <a name="preliminaries"></a>Akcje wstępne
 
@@ -182,7 +183,7 @@ private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfi
 
 ```
 
-### <a name="create-a-batch-job"></a>Tworzenie zadania usługi Batch
+### <a name="create-a-batch-job"></a>Utworzenie zadania usługi Batch
 
 Zadanie usługi Batch to logiczna grupa zawierająca co najmniej jedno zadanie podrzędne. Zadanie uwzględnia wspólne ustawienia zadań podrzędnych, takie jak priorytet i pula, w której zadania podrzędne mają być uruchamiane. Aplikacja tworzy zadanie w puli za pomocą metody [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob).
 
@@ -200,7 +201,7 @@ try
 ...
 ```
 
-### <a name="create-tasks"></a>Tworzenie zadań podrzędnych
+### <a name="create-tasks"></a>Tworzenie zadań
 
 Aplikacja tworzy listę obiektów [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask). Każde zadanie podrzędne przetwarza wejściowy obiekt `ResourceFile` przy użyciu właściwości [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline). W tym przykładzie wiersz polecenia uruchamia polecenie systemu Windows `type`, aby wyświetlić plik wejściowy. To polecenie to prosty przykład dla celów demonstracyjnych. Podczas korzystania z usługi Batch aplikację lub skrypt określa się w wierszu polecenia. Usługa Batch udostępnia kilka sposobów wdrażania aplikacji i skryptów w węzłach obliczeniowych.
 
@@ -245,7 +246,6 @@ Gdy grupa zasobów, konto usługi Batch i konto magazynu nie będą już potrzeb
 ## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku Szybki start uruchomiono niewielką aplikację utworzoną za pomocą interfejsu API platformy .NET usługi Batch w celu utworzenia puli i zadania usługi Batch. Zadanie uruchomiło przykładowe zadania podrzędne i pobrało dane wyjściowe utworzone w węzłach. Teraz, gdy już rozumiesz kluczowe pojęcia związane z usługą Batch, możesz wypróbować tę usługę z bardziej realistycznymi obciążeniami na większą skalę. Aby dowiedzieć się więcej o usłudze Azure Batch i zapoznać się z przewodnikiem dotyczącym obciążenia równoległego o rzeczywistym zastosowaniu, kontynuuj naukę w ramach samouczka platformy .NET usługi Batch.
-
 
 > [!div class="nextstepaction"]
 > [Przetwarzanie obciążenia równoległego za pomocą platformy .NET](tutorial-parallel-dotnet.md)

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 08/17/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 185992284e353c3e58104bc46296c1741fbca7d9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b9882168cd063cb4448269cc6a4949778fe93fb1
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502175"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509862"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)
 
@@ -29,7 +29,7 @@ Usługa Azure Storage obsługuje trzy typy sygnatur dostępu współdzielonego:
 
     Aby uzyskać więcej informacji o funkcji sygnatury dostępu współdzielonego delegowania użytkowników, zobacz [Tworzenie skojarzeń zabezpieczeń dla delegowania użytkowników (API REST)](/rest/api/storageservices/create-user-delegation-sas).
 
-- **Sygnatura dostępu współdzielonego usługi.** Sygnatura dostępu współdzielonego usługi jest zabezpieczona za pomocą klucza konta magazynu. Sygnatura dostępu współdzielonego usługi deleguje dostęp do zasobu tylko w jednej z usług Azure Storage: BLOB Storage, queue storage, Table Storage lub Azure Files. 
+- **Sygnatura dostępu współdzielonego usługi.** Sygnatura dostępu współdzielonego usługi jest zabezpieczona za pomocą klucza konta magazynu. Sygnatura dostępu współdzielonego usługi deleguje dostęp do zasobu tylko w jednej z usług Azure Storage: BLOB Storage, queue storage, Table Storage lub Azure Files.
 
     Aby uzyskać więcej informacji na temat sygnatury dostępu współdzielonego usługi, zobacz [Tworzenie sygnatury dostępu współdzielonego usługi (API REST)](/rest/api/storageservices/create-service-sas).
 
@@ -38,7 +38,7 @@ Usługa Azure Storage obsługuje trzy typy sygnatur dostępu współdzielonego:
     Aby uzyskać więcej informacji na temat sygnatury dostępu współdzielonego konta, [Utwórz sygnaturę dostępu współdzielonego konta (API REST)](/rest/api/storageservices/create-account-sas).
 
 > [!NOTE]
-> Firma Microsoft zaleca używanie poświadczeń usługi Azure AD, jeśli to możliwe, jako najlepszych rozwiązań w zakresie zabezpieczeń zamiast używania klucza konta, co może być bardziej łatwe. Gdy projekt aplikacji wymaga sygnatur dostępu współdzielonego w celu uzyskania dostępu do usługi BLOB Storage, Użyj poświadczeń usługi Azure AD, aby utworzyć SYGNATURę czasową delegowania użytkowników, jeśli jest to możliwe dla najwyższej jakości zabezpieczeń.
+> Firma Microsoft zaleca używanie poświadczeń usługi Azure AD, jeśli to możliwe, jako najlepszych rozwiązań w zakresie zabezpieczeń zamiast używania klucza konta, co może być bardziej łatwe. Gdy projekt aplikacji wymaga sygnatur dostępu współdzielonego w celu uzyskania dostępu do usługi BLOB Storage, Użyj poświadczeń usługi Azure AD, aby utworzyć SYGNATURę czasową delegowania użytkowników, jeśli jest to możliwe dla najwyższej jakości zabezpieczeń. Aby uzyskać więcej informacji, zobacz [Autoryzuj dostęp do obiektów blob i kolejek przy użyciu Azure Active Directory](storage-auth-aad.md).
 
 Sygnatura dostępu współdzielonego może przyjmować jedną z dwóch form:
 
@@ -52,15 +52,27 @@ Sygnatura dostępu współdzielonego może przyjmować jedną z dwóch form:
 
 Sygnatura dostępu współdzielonego jest podpisanym identyfikatorem URI, który wskazuje co najmniej jeden zasób magazynu i zawiera token zawierający specjalny zestaw parametrów zapytania. Token wskazuje, w jaki sposób zasoby mogą być dostępne przez klienta. Jeden z parametrów zapytania, sygnatura jest zbudowany z parametrów sygnatury dostępu współdzielonego i podpisany przy użyciu klucza, który został użyty do utworzenia sygnatury dostępu współdzielonego. Ta sygnatura jest używana przez usługę Azure Storage do autoryzacji dostępu do zasobu magazynu.
 
-### <a name="sas-signature"></a>Sygnatura dostępu współdzielonego
+### <a name="sas-signature-and-authorization"></a>Sygnatura dostępu współdzielonego i autoryzacja
 
-Sygnaturę dostępu współdzielonego można podpisać na jeden z dwóch sposobów:
+Token sygnatury dostępu współdzielonego można podpisać na jeden z dwóch sposobów:
 
 - Za pomocą *klucza delegowania użytkownika* , który został utworzony przy użyciu poświadczeń Azure Active Directory (Azure AD). Sygnatura dostępu współdzielonego delegowania użytkownika jest podpisywana przy użyciu klucza delegowania użytkownika.
 
     Aby uzyskać klucz delegowania użytkownika i utworzyć sygnaturę dostępu współdzielonego, podmiot zabezpieczeń usługi Azure AD musi mieć przypisaną rolę platformy Azure, która zawiera akcję **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** . Aby uzyskać szczegółowe informacje na temat ról platformy Azure z uprawnieniami do uzyskiwania klucza delegowania użytkownika, zobacz temat [Tworzenie sygnatury dostępu współdzielonego użytkownika (API REST)](/rest/api/storageservices/create-user-delegation-sas).
 
-- Za pomocą klucza konta magazynu. Sygnatura dostępu współdzielonego usługi i sygnatura dostępu współdzielonego konta są podpisane przy użyciu klucza konta magazynu. Aby utworzyć sygnaturę dostępu współdzielonego, która jest podpisana przy użyciu klucza konta, aplikacja musi mieć dostęp do klucza konta.
+- Z kluczem konta magazynu (klucz współużytkowany). Sygnatura dostępu współdzielonego usługi i sygnatura dostępu współdzielonego konta są podpisane przy użyciu klucza konta magazynu. Aby utworzyć sygnaturę dostępu współdzielonego, która jest podpisana przy użyciu klucza konta, aplikacja musi mieć dostęp do klucza konta.
+
+Gdy żądanie zawiera token sygnatury dostępu współdzielonego, żądanie jest autoryzowane w zależności od tego, jak token sygnatury dostępu współdzielonego jest podpisany. Klucz dostępu lub poświadczenia używane do tworzenia tokenu SAS są również używane przez usługę Azure Storage w celu udzielania dostępu klientowi, który ma sygnaturę SAS.
+
+W poniższej tabeli zestawiono, w jaki sposób każdy typ tokenu SAS jest autoryzowany, gdy jest zawarty w żądaniu do usługi Azure Storage:
+
+| Typ sygnatury dostępu współdzielonego | Typ autoryzacji |
+|-|-|
+| Sygnatura dostępu współdzielonego użytkownika (tylko magazyn obiektów BLOB) | Azure AD |
+| SAS usługi | Klucz wspólny |
+| SAS konta | Klucz wspólny |
+
+Firma Microsoft zaleca korzystanie z funkcji dostępu współdzielonego delegowania użytkowników w celu zapewnienia bezpieczeństwa.
 
 ### <a name="sas-token"></a>Token SAS
 

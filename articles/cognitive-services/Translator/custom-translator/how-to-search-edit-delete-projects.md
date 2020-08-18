@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 40a0429c4296426042e5baa58c9575ddb195cd7c
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 4c48a8a18a3ad0487b4c3840847c7f5edbb6d29f
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996741"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510380"
 ---
 # <a name="search-edit-and-delete-projects"></a>Wyszukiwanie, edytowanie i usuwanie projektów
 
@@ -24,36 +24,35 @@ Translator niestandardowy zapewnia wiele sposobów zarządzania projektami w wyd
 
 Narzędzie filtru umożliwia wyszukiwanie projektów według różnych warunków filtrowania. Filtruje takie jak nazwa projektu, stan, język źródłowy i Kategoria projektu.
 
-1.  Kliknij przycisk Filtr.
+1. Kliknij przycisk Filtr.
 
     ![Wyszukaj w projekcie](media/how-to/how-to-search-project.png)
 
-1.  Można filtrować według dowolnego (lub wszystkich) następujących pól: Nazwa projektu, stan, język źródłowy, język docelowy i Kategoria.
+2. Można filtrować według dowolnego (lub wszystkich) następujących pól: Nazwa projektu, język źródłowy, język docelowy, Kategoria i dostępność projektu.
 
-2.  Kliknij przycisk Zastosuj.
+3. Kliknij przycisk Zastosuj.
 
     ![Wyszukaj opcje filtru projektu](media/how-to/how-to-search-project-filters.png)
 
-3.  Wyczyść filtr, aby wyświetlić wszystkie projekty, naciskając pozycję "Wyczyść".
-
+4. Wyczyść filtr, aby wyświetlić wszystkie projekty, naciskając pozycję "Wyczyść".
 
 ## <a name="edit-a-project"></a>Edytuj projekt
 
 Translator niestandardowy umożliwia edytowanie nazwy i opisu projektu. Inne metadane projektu, takie jak kategoria, język źródłowy i język docelowy, nie są dostępne do edycji. W poniższych krokach opisano sposób edytowania projektu.
 
-1.  Kliknij ikonę ołówka, która pojawia się po umieszczeniu wskaźnika myszy na projekcie.
+1. Kliknij ikonę ołówka, która pojawia się po umieszczeniu wskaźnika myszy na projekcie.
 
     ![Edytuj projekt](media/how-to/how-to-edit-project.png)
 
-2.  W oknie dialogowym można zmodyfikować nazwę projektu lub opis projektu, ale nie można zmodyfikować etykiety projektu, kategorii ani pary językowej.
+2. W oknie dialogowym można zmodyfikować nazwę projektu, opis projektu, opis kategorii i etykietę projektu, jeśli żaden model nie został wdrożony. Nie można zmodyfikować kategorii ani pary językowej po utworzeniu projektu.
 
     ![Edytuj projekt — okno dialogowe](media/how-to/how-to-edit-project-dialog.png)
 
-3.  Kliknij przycisk Filtr.
+3. Kliknij przycisk "Zapisz".
 
 ## <a name="delete-a-project"></a>Usuwanie projektu
 
-Możesz usunąć projekt, gdy nie jest już potrzebny. Poniżej opisano, jak usunąć projekt.
+Możesz usunąć projekt, gdy nie jest już potrzebny. Upewnij się, że projekt nie ma modeli w stanie aktywnym, takich jak wdrożone, przekazane szkolenia, przetwarzanie danych, wdrażanie itp., w przeciwnym razie operacja usuwania zakończy się niepowodzeniem. Poniżej opisano, jak usunąć projekt.
 
 1. Umieść kursor na dowolnym rekordzie projektu i kliknij ikonę kosza.
 

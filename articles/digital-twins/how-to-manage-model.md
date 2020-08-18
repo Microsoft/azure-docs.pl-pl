@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 64c7db4223fcb703272749b0bf8d5b1583fbb818
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 919db9338917a9c2bedd7806eb251a2e5ef6187b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987328"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509998"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Zarządzanie modelami Digital bliźniaczych reprezentacji na platformie Azure
 
@@ -113,7 +113,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-Pliki modelu mogą zawierać więcej niż jeden model. W takim przypadku modele muszą być umieszczone w tablicy JSON. Przykład:
+Pliki modelu mogą zawierać więcej niż jeden model. W takim przypadku modele muszą być umieszczone w tablicy JSON. Na przykład:
 
 ```json
 [
@@ -160,7 +160,7 @@ Pageable<ModelData> pmd3 = client.GetModels(null, true);
 Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
 ```
 
-Interfejs API wywołuje pobieranie modeli wszystkich zwracanych `ModelData` obiektów. `ModelData`zawiera metadane dotyczące modelu przechowywanego w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, takie jak nazwa, DTMI i Data utworzenia modelu. `ModelData`Obiekt również opcjonalnie zawiera sam model. W zależności od parametrów można w ten sposób użyć wywołań pobierania, aby pobrać tylko metadane (co jest przydatne w scenariuszach, w których chcesz wyświetlić listę dostępnych narzędzi, na przykład) lub cały model.
+Interfejs API wywołuje pobieranie modeli wszystkich zwracanych `ModelData` obiektów. `ModelData` zawiera metadane dotyczące modelu przechowywanego w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, takie jak nazwa, DTMI i Data utworzenia modelu. `ModelData`Obiekt również opcjonalnie zawiera sam model. W zależności od parametrów można w ten sposób użyć wywołań pobierania, aby pobrać tylko metadane (co jest przydatne w scenariuszach, w których chcesz wyświetlić listę dostępnych narzędzi, na przykład) lub cały model.
 
 `RetrieveModelWithDependencies`Wywołanie zwraca nie tylko żądany model, ale również wszystkie modele, od których zależy żądany model.
 
@@ -174,7 +174,7 @@ Modele można również usunąć z usługi, na jeden z dwóch sposobów:
 
 Są to osobne funkcje, które nie wpływają na siebie, ale mogą być używane razem w celu stopniowego usuwania modelu. 
 
-### <a name="decommissioning"></a>Likwidowanie
+#### <a name="decommissioning"></a>Likwidowanie
 
 Oto kod likwidowania modelu:
 

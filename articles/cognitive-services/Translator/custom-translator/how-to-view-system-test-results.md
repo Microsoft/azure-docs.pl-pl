@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 3361241bf0a330abc18701f93460208b8804a7dc
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 04e21e4bcd56506ba27730ebc1f9b0db8dc39615
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83994265"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509689"
 ---
 # <a name="view-system-test-results"></a>Wyświetlanie wyników testu systemu
 
@@ -54,11 +54,11 @@ Kliknij link Pobierz tłumaczenia, aby pobrać plik zip. Plik zip zawiera tłuma
 
 To pobrane archiwum zip zawiera trzy pliki.
 
-1.  **Custom. Mt. txt:** Ten plik zawiera tłumaczenia maszyn źródłowych w języku docelowym wykonywane przez model przeszkolony z danymi użytkownika.
+1.  **custom.mt.txt:** Ten plik zawiera tłumaczenia maszyn źródłowych w języku docelowym wykonywane przez model przeszkolony z danymi użytkownika.
 
-2.  **ref. txt:** Ten plik zawiera tłumaczenia liter języka źródłowego w języku docelowym.
+2.  **ref.txt:** Ten plik zawiera tłumaczenia liter języka źródłowego w języku docelowym.
 
-3.  **source. txt:** Ten plik zawiera zdania w języku źródłowym.
+3.  **source.txt:** Ten plik zawiera zdania w języku źródłowym.
 
     ![Pobrane wyniki testu systemu](media/how-to/how-to-download-system-test.png)
 
@@ -92,7 +92,7 @@ Aby zaktualizować ustawienia wdrożenia:
 
     ![Wdróż model](media/how-to/how-to-update-undeploy-model.png)
 
-3.  Wybierz pozycję **Zaktualizuj**.
+3.  Wybierz pozycję **Aktualizuj**.
 4.  Wybierz opcję **wdrożone** lub **Niewdrożone** w regionach, w których model ma zostać wdrożony lub rozmieszczony, a następnie kliknij przycisk **Zapisz**.
 
     ![Wdróż model](media/how-to/how-to-undeploy-model.png)
@@ -102,6 +102,6 @@ Aby zaktualizować ustawienia wdrożenia:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zacznij korzystać ze wdrożonego niestandardowego modelu tłumaczenia za pośrednictwem [translatora v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Zacznij korzystać ze wdrożonego niestandardowego modelu tłumaczenia za pośrednictwem [programu Microsoft interfejs API tłumaczenia tekstu w usłudze translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
 - Dowiedz się, [jak zarządzać ustawieniami](how-to-manage-settings.md) w celu udostępniania obszaru roboczego, zarządzania kluczem subskrypcji.
 - Dowiedz się [, jak przeprowadzić migrację obszaru roboczego i projektu](how-to-migrate.md) z usługi [Microsoft Translator Hub](https://hub.microsofttranslator.com)

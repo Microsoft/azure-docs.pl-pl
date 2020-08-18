@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 22c982babbed1322e97127379be75e7b070ed81f
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 87b999069ef9088a731a4e972c5d548cac0b917c
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83994246"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509578"
 ---
 # <a name="view-document-details"></a>Wyświetlanie szczegółów dokumentu
 
@@ -22,7 +22,7 @@ Na stronie Lista dokumentów zostanie wyświetlony pierwszy 10 dokumentów w obs
 
 Kliknij pojedynczy dokument, aby wyświetlić stronę szczegóły dokumentu. Na stronie szczegóły dokumentu zostanie wyświetlona lista wyodrębnionych zdań z dokumentu.
 
-- Domyślnie język "Źródło" jest wybierany w polu listy rozwijanej, ale można przełączać się do wyświetlania zdań w języku docelowym.
+- Domyślnie w polu listy rozwijanej jest zaznaczona wartość "widoczne", źródłowa i docelowa język "obok siebie", ale można przełączać się do wyświetlania zdań w języku źródłowym lub docelowym.
 - 20 zdań jest domyślnie wyświetlanych na stronie. Można użyć formantu stronicowania, aby przeglądać między stronami.
 
 ![szczegóły dokumentu](media/how-to/how-to-view-document-details.png)
@@ -32,11 +32,11 @@ Kliknij pojedynczy dokument, aby wyświetlić stronę szczegóły dokumentu. Na 
 Użytkownik musi być właścicielem obszaru roboczego, aby usunąć dokument w celu usunięcia dokumentu. Ponadto, jeśli dokument jest używany przez model, który jest częścią procesu szkolenia lub dowolnej części procesu wdrażania, nie można usunąć dokumentu.
 
 1. Przejdź do strony dokumentu
-2.  Umieść kursor na dowolnym rekordzie dokumentu i kliknij ikonę kosza.
+2. Umieść kursor na dowolnym rekordzie dokumentu i kliknij ikonę kosza.
 
     ![Usuwanie dokumentu](media/how-to/how-to-delete-document-1.png)
 
-3.  Potwierdź usunięcie.
+3. Potwierdź usunięcie.
 
     ![Potwierdzenie usunięcia](media/how-to/how-to-delete-document-confirm.png)
 

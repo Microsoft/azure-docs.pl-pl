@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: dylankil
 ms.custom: devx-track-python
-ms.openlocfilehash: 967e290af390ff4310de3e7d0fd844e340ac289d
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 5a6c68dbb7dd4171fad3b3a13e904a152618a55d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876567"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516389"
 ---
 # <a name="tutorial-start-the-immersive-reader-using-the-python-sample-project"></a>Samouczek: uruchamianie czytnika immersyjny przy użyciu przykładowego projektu języka Python
 
@@ -27,7 +27,7 @@ W [przeglądzie](./overview.md)zawarto informacje na temat tego, co to jest czyt
 > * Uzyskaj token dostępu.
 > * Uruchom czytnik immersyjny z przykładową zawartością.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -217,7 +217,7 @@ sudo nano /etc/paths
 - Przejdź do dolnej części pliku, a następnie wprowadź ścieżkę, którą chcesz dodać jako ostatni element listy, na przykład `PATH=$PATH:/usr/local/bin` .
 - Wybierz **kombinację klawiszy Ctrl + X** , aby zakończyć.
 - Wprowadź **Y** , aby zapisać zmodyfikowany bufor.
-- To wszystko. Aby go przetestować, w nowym oknie terminalu wprowadź `echo $PATH` .
+- Gotowe. Aby go przetestować, w nowym oknie terminalu wprowadź `echo $PATH` .
 
 Zainstaluj kolbę.
 

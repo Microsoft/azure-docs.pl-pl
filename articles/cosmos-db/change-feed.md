@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 223514e8e873d36f8551e18956aafc0a54243990
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cd0ad1553f04a781349a4664fbb408108015632
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119379"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510287"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Zestawienie zmian w usłudze Azure Cosmos DB
 
@@ -27,10 +27,10 @@ Ta funkcja jest obecnie obsługiwana przez następujące Azure Cosmos DB interfe
 
 | **Sterowniki klienta** | **INTERFEJS API SQL** | **Interfejs API Azure Cosmos DB dla Cassandra** | **Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB** | **Interfejs API języka Gremlin**|**Interfejs API tabel** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | Tak | Tak | Tak | Yes | Nie |
-|Java|Tak|Tak|Tak|Yes|Nie|
-|Python|Tak|Tak|Tak|Yes|Nie|
-|Node/JS|Tak|Tak|Tak|Yes|Nie|
+| .NET | Yes | Yes | Yes | Yes | Nie |
+|Java|Yes|Yes|Yes|Yes|Nie|
+|Python|Yes|Yes|Yes|Yes|Nie|
+|Node/JS|Yes|Yes|Yes|Yes|Nie|
 
 ## <a name="change-feed-and-different-operations"></a>Zmień źródło danych i różne operacje
 
@@ -56,7 +56,7 @@ Jeśli właściwość czasu wygaśnięcia (Time to Live) jest ustawiona dla elem
 
 ### <a name="change-feed-and-_etag-_lsn-or-_ts"></a>Zmień źródło danych i _etag, _lsn lub _ts
 
-Format _etag jest wewnętrzny i nie powinien być zależny od niego, ponieważ może ulec zmianie w dowolnym momencie. _ts jest modyfikacją lub sygnaturą czasową utworzenia. Można użyć _ts do chronologicznego porównania. _lsn to identyfikator wsadu, który jest dodawany wyłącznie dla źródła zmian. reprezentuje identyfikator transakcji. Wiele elementów może mieć ten sam _lsn. Element ETag w FeedResponse różni się od _etag widocznej dla elementu. _etag jest wewnętrznym identyfikatorem i jest używany na potrzeby kontroli współbieżności informującej o wersji elementu, natomiast element ETag jest używany do sekwencjonowania źródła danych.
+Format _etag jest wewnętrzny i nie powinien być zależny od niego, ponieważ może ulec zmianie w dowolnym momencie. _ts jest modyfikacją lub sygnaturą czasową utworzenia. Można użyć _ts do chronologicznego porównania. _lsn to identyfikator wsadu, który jest dodawany wyłącznie dla źródła zmian. reprezentuje identyfikator transakcji. Wiele elementów może mieć ten sam _lsn. Element ETag w FeedResponse różni się od _etag widocznej dla elementu. _etag jest identyfikatorem wewnętrznym i jest używany na potrzeby kontroli współbieżności. Właściwość _etag informuje o wersji elementu, natomiast Właściwość ETag służy do sekwencjonowania źródła danych.
 
 ## <a name="working-with-change-feed"></a>Praca ze źródłem zmian
 

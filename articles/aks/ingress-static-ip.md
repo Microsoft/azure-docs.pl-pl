@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Dowiedz się, jak zainstalować i skonfigurować kontroler transferu danych przychodzących NGINX ze statycznym publicznym adresem IP w klastrze usługi Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/21/2020
-ms.openlocfilehash: 93f9317b88229a85a5ee06d83188f67d9d7da3dc
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.date: 08/17/2020
+ms.openlocfilehash: 60e0ace70fa87c6a4c47e94eb3ff7f121c9a37cb
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245897"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509046"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Utwórz kontroler transferu danych przychodzących ze statycznym publicznym adresem IP w usłudze Azure Kubernetes Service (AKS)
 
@@ -294,11 +294,15 @@ spec:
       - backend:
           serviceName: aks-helloworld
           servicePort: 80
-        path: /(.*)
+        path: /hello-world-one(/|$)(.*)
       - backend:
           serviceName: ingress-demo
           servicePort: 80
         path: /hello-world-two(/|$)(.*)
+      - backend:
+          serviceName: aks-helloworld
+          servicePort: 80
+        path: /(.*)
 ```
 
 Utwórz zasób transferu danych przychodzących przy użyciu `kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic` polecenia.
@@ -379,7 +383,7 @@ Teraz dodaj ścieżkę */Hello-World-Two* do nazwy FQDN, takiej jak *`https://de
 
 ![Przykład aplikacji dwa](media/ingress/app-two.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 W tym artykule użyto Helm do zainstalowania składników przychodzących, certyfikatów i przykładowych aplikacji. Po wdrożeniu wykresu Helm są tworzone różne zasoby Kubernetes. Te zasoby obejmują między innymi te, wdrożenia i usługi. Aby wyczyścić te zasoby, można usunąć całą przykładową przestrzeń nazw lub poszczególne zasoby.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b2a8d552a2b9a1d6d3bb02bf02be95af031a5e4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 10e306d26ebfd5ffafe65d7aa52753e993b085bf
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291970"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509165"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scenariusze usługi Azure Disk Encryption na maszynach wirtualnych z systemem Windows
 
@@ -132,7 +132,7 @@ W poniższej tabeli wymieniono Menedżer zasobów parametry szablonu dla istniej
 | Parametr | Opis |
 | --- | --- |
 | vmName | Nazwa maszyny wirtualnej do uruchomienia operacji szyfrowania. |
-| Nazwakluczamagazynu | Nazwa magazynu kluczy, do którego należy przekazać klucz funkcji BitLocker. Można to zrobić za pomocą polecenia cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` lub interfejsu CLI platformy Azure`az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
+| Nazwakluczamagazynu | Nazwa magazynu kluczy, do którego należy przekazać klucz funkcji BitLocker. Można to zrobić za pomocą polecenia cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` lub interfejsu CLI platformy Azure `az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
 | keyVaultResourceGroup | Nazwa grupy zasobów zawierającej Magazyn kluczy|
 |  keyEncryptionKeyURL | Adres URL klucza szyfrowania klucza w formacie https://nazwa magazynu kluczy. &lt; &gt; Vault.Azure.NET/Key/ &lt; &gt; . Jeśli nie chcesz używać elementu KEK, pozostaw to pole puste. |
 | liczba woluminów | Typ woluminu, na którym jest wykonywana operacja szyfrowania. Prawidłowe wartości to _system operacyjny_, _dane_i _wszystkie_. 
@@ -264,7 +264,7 @@ Azure Disk Encryption nie działa w następujących scenariuszach, funkcjach i t
 - Tworzenie obrazu lub migawki zaszyfrowanej maszyny wirtualnej i używanie jej do wdrażania dodatkowych maszyn wirtualnych.
 - Maszyny wirtualne Gen2 (patrz: [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - Maszyny wirtualne serii M z dyskami akcelerator zapisu.
-- Zastosowanie elementu ADE do maszyny wirtualnej, która ma dysk danych zaszyfrowany przy użyciu [szyfrowania po stronie serwera z kluczami zarządzanymi przez klienta](disk-encryption.md) (SSE + CMK) lub stosowanie SSE + CMK do dysku danych na maszynie wirtualnej zaszyfrowanej za pomocą programu ADE.
+- Zastosowanie programu ADE do maszyny wirtualnej, która ma *ever* dyski zaszyfrowane za pomocą [szyfrowania po stronie serwera z użyciem kluczy zarządzanych przez klienta](disk-encryption.md) (SSE + CMK). Stosowanie instrukcji SSE i CMK do dysku danych na maszynie wirtualnej zaszyfrowanej przy użyciu programu ADE jest również nieobsługiwanym scenariuszem.
 - Migrowanie maszyny wirtualnej zaszyfrowanej przy użyciu programu ADE do [szyfrowania po stronie serwera z kluczami zarządzanymi przez klienta](disk-encryption.md).
 
 

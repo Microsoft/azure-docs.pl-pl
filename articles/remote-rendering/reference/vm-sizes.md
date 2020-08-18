@@ -1,32 +1,32 @@
 ---
-title: Rozmiary maszyn wirtualnych
-description: Opisuje różne rozmiary maszyn wirtualnych, które mogą być przydzielone
+title: Rozmiary serwera
+description: Opisuje różne rozmiary serwera, które mogą być przydzielone
 author: florianborn71
 ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
-ms.openlocfilehash: e8e439a055b71ed291573965c561ee31610e3ed4
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: b9479c2ab5b63440a03bd74d2503930108a49091
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121616"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511189"
 ---
-# <a name="vm-sizes"></a>Rozmiary maszyn wirtualnych
+# <a name="server-sizes"></a>Rozmiary serwera
 
-Usługa renderowania może działać na dwóch różnych typach maszyn na platformie Azure, nazywanych `Standard` i `Premium` .
+Zdalne renderowanie na platformie Azure jest dostępne w dwóch konfiguracjach serwera: `Standard` i `Premium` .
 
 ## <a name="polygon-limits"></a>Limity wielokąta
 
-Istnieje stałe ograniczenie **20 000 000 wielokątów** dla `Standard` rozmiaru maszyny wirtualnej. Nie ma takiego ograniczenia dotyczącego `Premium` rozmiaru.
+Renderowanie zdalne z `Standard` serwerem rozmiaru ma maksymalny rozmiar sceny wielokąta 20 000 000. Renderowanie zdalne z `Premium` rozmiarem nie wymusza ostatecznej wartości maksymalnej, ale wydajność może być obniżona, jeśli zawartość przekracza możliwości renderowania usługi.
 
-Gdy moduł renderowania dla standardowej maszyny wirtualnej osiągnie to ograniczenie, przełącza renderowanie do tła w szachownicy:
+Gdy moduł renderowania na serwerze "standardowy" osiągnie to ograniczenie, włącza renderowanie do tła szachownicy:
 
 ![Szachownic](media/checkerboard.png)
 
-## <a name="allocate-the-vm"></a>Przydziel maszynę wirtualną
+## <a name="specify-the-server-size"></a>Określ rozmiar serwera
 
-Wymagany typ maszyny wirtualnej musi być określony podczas inicjowania sesji renderowania. Nie można go zmienić w uruchomionej sesji. W poniższym przykładzie kodu pokazano miejsce, w którym musi zostać określony rozmiar maszyny wirtualnej:
+Wymagany typ konfiguracji serwera należy określić podczas inicjowania sesji renderowania. Nie można go zmienić w uruchomionej sesji. W poniższym przykładzie kodu pokazano miejsce, w którym należy określić rozmiar serwera:
 
 ```cs
 async void CreateRenderingSession(AzureFrontend frontend)
@@ -51,7 +51,7 @@ void CreateRenderingSession(ApiHandle<AzureFrontend> frontend)
 }
 ```
 
-W przypadku [przykładowych skryptów programu PowerShell](../samples/powershell-example-scripts.md)rozmiar maszyny wirtualnej musi być określony w `arrconfig.json` pliku:
+W przypadku [przykładowych skryptów programu PowerShell](../samples/powershell-example-scripts.md)żądany rozmiar serwera musi być określony w `arrconfig.json` pliku:
 
 ```json
 {
@@ -74,13 +74,13 @@ W związku z tym można napisać aplikację, która jest przeznaczona dla `stand
 
 ### <a name="how-to-determine-the-number-of-polygons"></a>Jak ustalić liczbę wielokątów
 
-Istnieją dwa sposoby określenia liczby wielokątów modelu lub sceny, które przyczyniają się do limitu budżetu `standard` maszyny wirtualnej o rozmiarze:
+Istnieją dwa sposoby określenia liczby wielokątów modelu lub sceny, które przyczyniają się do limitu budżetu dla `standard` rozmiaru konfiguracji:
 * Na stronie Konwersja modelu Pobierz [wyjściowy plik JSON konwersji](../how-tos/conversion/get-information.md)i sprawdź `numFaces` wpis w [sekcji *inputStatistics* ](../how-tos/conversion/get-information.md#the-inputstatistics-section)
 * Jeśli aplikacja dotyczy zawartości dynamicznej, liczba renderowanych wielokątów może być dynamicznie przetwarzana w czasie wykonywania. Użyj [zapytania oceny wydajności](../overview/features/performance-queries.md#performance-assessment-queries) i sprawdź, czy `polygonsRendered` element członkowski znajduje się w `FrameStatistics` strukturze. `polygonsRendered`Pole zostanie ustawione na, `bad` gdy moduł renderowania trafi na ograniczenie wielokąta. Tło z szachownicą jest zawsze wyblakłe z pewnym opóźnieniem, aby można było wykonać akcję użytkownika po wykonaniu tej kwerendy asynchronicznej. Akcja użytkownika może na przykład ukryć lub usunąć wystąpienia modelu.
 
 ## <a name="pricing"></a>Cennik
 
-Szczegółowy podział cen dla każdego typu maszyn wirtualnych można znaleźć na stronie [cennika renderowania zdalnego](https://azure.microsoft.com/pricing/details/remote-rendering) .
+Szczegółowy podział cen dla każdego typu konfiguracji można znaleźć na stronie [cennika renderowania zdalnego](https://azure.microsoft.com/pricing/details/remote-rendering) .
 
 ## <a name="next-steps"></a>Następne kroki
 * [Przykładowe skrypty programu PowerShell](../samples/powershell-example-scripts.md)

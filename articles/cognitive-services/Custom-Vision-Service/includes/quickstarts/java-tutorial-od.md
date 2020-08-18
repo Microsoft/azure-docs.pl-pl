@@ -3,15 +3,15 @@ author: areddish
 ms.custom: devx-track-java
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 04/14/2020
-ms.openlocfilehash: 383df0d9f3c8fef01d5185be1cf69fe203ba11a2
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/17/2020
+ms.openlocfilehash: a822ab52024a801f4443a9dd864b4b96ec52d000
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375819"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511343"
 ---
-W tym artykule pokazano, jak rozpocząć pracę z zestawem SDK Custom Vision przy użyciu języka Java w celu utworzenia modelu wykrywania obiektów. Po jego utworzeniu można dodać otagowane regiony, przekazać obrazy, szkolić projekt, uzyskać domyślny adres URL prognozowanego projektu, a następnie użyć punktu końcowego do programistycznego testowania obrazu. Użyj tego przykładu jako szablonu do utworzenia własnej aplikacji języka Java.
+W tym artykule opisano sposób rozpoczynania pracy przy użyciu biblioteki klienta Custom Vision przy użyciu języka Java w celu utworzenia modelu wykrywania obiektów. Po jego utworzeniu można dodać otagowane regiony, przekazać obrazy, szkolić projekt, uzyskać domyślny adres URL prognozowanego projektu, a następnie użyć punktu końcowego do programistycznego testowania obrazu. Użyj tego przykładu jako szablonu do utworzenia własnej aplikacji języka Java.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -20,11 +20,11 @@ W tym artykule pokazano, jak rozpocząć pracę z zestawem SDK Custom Vision prz
 - [Maven](https://maven.apache.org/) zainstalowano
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Pobierz zestaw Custom Vision SDK i przykładowy kod
+## <a name="get-the-custom-vision-client-library-and-sample-code"></a>Pobieranie Custom Vision biblioteki klienta i przykładowego kodu
 
 Do napisania aplikacji języka Java używającej usługi Custom Vision potrzebne są pakiety Maven usługi Custom Vision. Te pakiety są zawarte w przykładowym projekcie, który zostanie pobrany, ale możesz uzyskać do nich dostęp osobno.
 
-Zestaw SDK Custom Vision można znaleźć w Maven centralnym repozytorium:
+Bibliotekę klienta Custom Vision można znaleźć w Maven centralnym repozytorium:
 - [Pakiet SDK do szkolenia](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
 - [Pakiet SDK do przewidywania](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 

@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: e827f7eff707f5a7c467f53eacab6973bff2ef2f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0dad78ad76a870ea9f1db28a3cb5ccace5cd804f
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076434"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510933"
 ---
 # <a name="tutorial-creating-a-commercial-ready-azure-remote-rendering-application"></a>Samouczek: Tworzenie komercyjnej gotowej aplikacji do zdalnego renderowania platformy Azure
 
@@ -78,13 +78,13 @@ Aby uzyskać więcej informacji, odwiedź stronę:
 
 Twoje przypadki użycia mogą wymagać szybkiego uruchomienia z uruchamiania aplikacji do wyświetlania modelu 3W. Na przykład podczas ważnych spotkań, w przypadku których najważniejsze jest, aby wszystko było niezwykle czasochłonne. Innym przykładem jest podczas projektowania modelu 3W CAD, gdzie szybka iteracja projektu między aplikacją CAD i rzeczywistości mieszanej ma kluczowe znaczenie dla wydajności.
 
-Zdalne renderowanie na platformie Azure wymaga wstępnie przetworzonych modeli 3W, a platforma Azure trwa kilka minut, aby można było utworzyć maszynę wirtualną i załadować model do renderowania. Proces ten zapewnia bezproblemowe i szybkie, jak to możliwe, wymaga przygotowania danych modelu 3D i sesji ARR przed czasem.
+Zdalne renderowanie na platformie Azure wymaga wstępnie przetworzonych modeli 3W, a platforma Azure trwa kilka minut, aby można było utworzyć sesję i załadować model do renderowania. Proces ten zapewnia bezproblemowe i szybkie, jak to możliwe, wymaga przygotowania danych modelu 3D i sesji ARR przed czasem.
 
 Sugestie udostępnione w tym miejscu nie są obecnie częścią standardowego renderowania zdalnego platformy Azure, ale można je wdrożyć na własne potrzeby w krótszym czasie uruchamiania.
 
 ### <a name="initiate-early"></a>Inicjuj wczesne
 
-W celu skrócenia czasu uruchamiania najprostszym rozwiązaniem jest przeniesienie tworzenia i inicjalizacji maszyny wirtualnej jak najszybciej, jak to możliwe w przepływie pracy użytkownika. Jedną z strategii jest zainicjowanie sesji, gdy tylko wiadomo, że wymagana jest sesja ARR. Jest to często konieczne, gdy użytkownik rozpocznie przekazywanie modelu 3D do usługi Azure Blob Storage w celu użycia z funkcją zdalnego renderowania platformy Azure. W takim przypadku można zainicjować Tworzenie sesji i inicjalizację maszyny wirtualnej w tym samym czasie co model 3W, co umożliwia równoległe uruchamianie obu strumieni służbowych.
+W celu skrócenia czasu uruchamiania najprostszym rozwiązaniem jest przeniesienie i zainicjowanie sesji tak szybko, jak to możliwe w przepływie pracy użytkownika. Jedną z strategii jest zainicjowanie sesji, gdy tylko wiadomo, że wymagana jest sesja ARR. Jest to często konieczne, gdy użytkownik rozpocznie przekazywanie modelu 3D do usługi Azure Blob Storage w celu użycia z funkcją zdalnego renderowania platformy Azure. W takim przypadku można zainicjować tworzenie i inicjalizację sesji w tym samym czasie, co model 3W, co umożliwia równoległe uruchamianie obu strumieni służbowych.
 
 Proces ten można usprawnić, upewniając się, że wybrane kontenery danych wejściowych i wyjściowych platformy Azure Blob Storage znajdują się w tym samym regionalnym centrum danych co sesja renderowania zdalnego platformy Azure.
 
@@ -92,41 +92,41 @@ Proces ten można usprawnić, upewniając się, że wybrane kontenery danych wej
 
 Jeśli wiesz, że masz przyszłą potrzebę do zdalnego renderowania na platformie Azure, możesz zaplanować określoną datę i godzinę, aby rozpocząć sesję renderowania zdalnego platformy Azure.
 
-Ta opcja może być oferowana za pomocą portalu sieci Web, w którym ludzie mogą zarówno przekazać model 3D, jak i zaplanować czas wyświetlania go w przyszłości. Jest to również dobre miejsce do poproszenia o inne preferencje, takie jak renderowanie standardowe lub Premium. Renderowanie w warstwie Premium może być odpowiednie, jeśli istnieje potrzeba pokazania różnych zasobów, w których idealny rozmiar jest trudniejszy do automatycznego określania lub potrzeby zapewnienia, że w regionie świadczenia usługi Azure są dostępne maszyny wirtualne o określonym czasie.
+Ta opcja może być oferowana za pomocą portalu sieci Web, w którym ludzie mogą zarówno przekazać model 3D, jak i zaplanować czas wyświetlania go w przyszłości. Jest to również dobre miejsce do poproszenia o inne preferencje, takie jak renderowanie [*standardowe*](../../../reference/vm-sizes.md) lub [*Premium*](../../../reference/vm-sizes.md) . Renderowanie w *warstwie Premium* może być odpowiednie, jeśli istnieje potrzeba pokazania różnych zasobów, w których idealny rozmiar jest trudniejszy do automatycznego określania lub potrzeby zapewnienia, że w regionie świadczenia usługi Azure są dostępne maszyny wirtualne o określonym czasie.
 
 ### <a name="session-pooling"></a>Buforowanie sesji
 
 W najbardziej wymagających sytuacjach inną opcją jest buforowanie sesji, w której co najmniej jedna sesja jest tworzona i inicjowana przez cały czas. Spowoduje to utworzenie puli sesji do natychmiastowego użycia przez żądającego użytkownika. Minusem tego podejścia polega na tym, że po zainicjowaniu maszyny wirtualnej naliczanie opłat za usługę zostanie rozpoczęte. Utrzymywanie puli sesji przez cały czas może nie być opłacalne, ale w oparciu o analizę, może być możliwe przewidywalnie obciążeń szczytowych lub połączone z strategią planowania powyżej, aby przewidzieć czas, w którym sesje będą konieczne i odpowiednio zwiększają poziom puli sesji.
 
-Ta strategia pomaga również zoptymalizować wybór między sesjami Standard i Premium w bardziej dynamiczny sposób, ponieważ może on być dużo szybszy, aby przełączać się między dwoma typami w ramach jednej sesji użytkownika, np. w przypadku, gdy najpierw jest wyświetlany model złożoności Premium, a następnie taki, który może działać w ramach warstwy Standardowa. Jeśli te sesje użytkowników są długotrwałe, mogą wystąpić znaczne oszczędności.
+Ta strategia pomaga również zoptymalizować wybór między sesjami *Standard* i *Premium* w bardziej dynamiczny sposób, ponieważ może on być dużo szybszy, aby przełączać się między dwoma typami w ramach jednej sesji użytkownika, np. w przypadku, gdy najpierw jest wyświetlany model złożoności *Premium* , a następnie taki, który może działać w ramach warstwy *standardowa*. Jeśli te sesje użytkowników są długotrwałe, mogą wystąpić znaczne oszczędności.
 
 Aby uzyskać więcej informacji na temat sesji renderowania zdalnego platformy Azure, zapoznaj się z tematem:
 
 * [Sesje usługi Remote Rendering](https://docs.microsoft.com/azure/remote-rendering/concepts/sessions)
 
-## <a name="standard-vs-premium-vm-routing-strategies"></a>Strategie routingu maszyn wirtualnych w warstwie Standardowa i Premium
+## <a name="standard-vs-premium-server-size-routing-strategies"></a>Strategie routingu rozmiaru serwera w warstwie Standardowa i Premium
 
-Konieczność wyboru, czy należy utworzyć maszynę wirtualną w warstwie Standardowa lub Premium, będzie stanowić wyzwanie podczas projektowania środowiska użytkownika i kompleksowego systemu. Chociaż użycie tylko sesji Premium jest opcją, standardowe sesje używają znacznie mniej zasobów obliczeniowych platformy Azure i są tańsze niż w warstwie Premium. Zapewnia to silną motywację do korzystania z sesji standardowych w miarę możliwości i w razie potrzeby używa tylko wersji Premium.
+Konieczność wybrania opcji tworzenia rozmiaru serwera w *warstwie Standardowa* lub *Premium* stanowi wyzwanie podczas projektowania środowiska użytkownika i kompleksowego systemu. Chociaż użycie tylko sesji *Premium* jest opcją, *standardowe* sesje używają znacznie mniej zasobów obliczeniowych platformy Azure i są tańsze niż w *warstwie Premium*. Zapewnia to silną motywację do korzystania z sesji *standardowych* w miarę możliwości i w razie potrzeby używa tylko wersji *Premium* .
 
 W tym miejscu udostępniamy kilka opcji, od najmniej do najbardziej kompleksowych, aby sprostać chęci do zarządzania opcjami sesji.
 
 ### <a name="use-only-standard-or-premium"></a>Używaj tylko wersji Standard lub Premium
 
-Jeśli masz pewność, że Twoje potrzeby będą *zawsze* mniejsze niż próg między warstwami standardowa i Premium, upraszcza to decyzje. Używaj tylko standard. Należy pamiętać, że wpływ na środowisko użytkownika jest istotny, jeśli całkowita złożoność załadowanych zasobów jest odrzucana jako zbyt złożona dla sesji standardowej.
+Jeśli masz pewność, że Twoje potrzeby będą *zawsze* mniejsze niż próg między warstwami *standardowa* i *Premium*, upraszcza to decyzje. Używaj tylko *Standard*. Należy pamiętać, że wpływ na środowisko użytkownika jest istotny, jeśli całkowita złożoność załadowanych zasobów jest odrzucana jako zbyt złożona dla sesji *standardowej* .
 
-Podobnie, jeśli oczekujesz, że duża część użycia przekroczy wartość progową w warstwach Standardowa i Premium, lub koszty nie są kluczowymi czynnikami w przypadku użycia, a następnie zawsze wybierasz opcję Premium.
+Podobnie, jeśli oczekujesz, że duża część użycia przekroczy wartość progową w warstwach *standardowa* i *Premium*, lub koszty nie są kluczowymi czynnikami w przypadku użycia, a następnie zawsze wybierasz opcję *Premium* .
 
 ### <a name="ask-the-user"></a>Poproszenie użytkownika
 
-Jeśli chcesz obsługiwać warstwy Standardowa i Premium, najprostszym sposobem określenia typu sesji maszyny wirtualnej, która ma zostać wyświetlona, jest poproszenie użytkownika o wybranie zasobów 3D do wyświetlenia. Tym podejściem jest wymaganie od użytkownika zrozumienia złożoności zasobu 3W lub nawet wielu zasobów, które zostaną wyświetlone. Zwykle nie jest to zalecane z tego powodu. Jeśli użytkownik wybierze pozycję nieprawidłowość i wybiera wartość standardowa, wyniki środowiska użytkownika mogą zostać naruszone w inopportune momencie.
+Jeśli chcesz obsłużyć warstwę *standardowa* i *Premium*, najprostszym sposobem ustalenia, który typ sesji ma być wystąpieniem, jest poproszenie użytkownika o wybranie zasobów 3D do wyświetlenia. Tym podejściem jest wymaganie od użytkownika zrozumienia złożoności zasobu 3W lub nawet wielu zasobów, które zostaną wyświetlone. Zwykle nie jest to zalecane z tego powodu. Jeśli użytkownik wybierze pozycję nieprawidłowość i wybiera wartość *standardowa*, wyniki środowiska użytkownika mogą zostać naruszone w inopportune momencie.
 
 ### <a name="analyze-the-3d-model"></a>Analizowanie modelu 3W
 
-Inna stosunkowo prosta metoda polega na analizie złożoności wybranych zasobów 3W. Jeśli złożoność modelu jest niższa niż wartość progowa dla warstwy Standardowa, zainicjuj sesję standardową, w przeciwnym razie zainicjuj sesję Premium. W tym przypadku wyzwaniem jest, że jedna sesja może być używana do wyświetlania wielu modeli, w których niektóre mogą przekroczyć próg złożoności sesji standardowej, co spowodowało bezproblemową obsługę tej samej sesji dla sekwencji różnych zasobów 3W.
+Inna stosunkowo prosta metoda polega na analizie złożoności wybranych zasobów 3W. Jeśli złożoność modelu jest niższa niż wartość progowa dla warstwy *standardowa*, zainicjuj sesję *standardową* , w przeciwnym razie zainicjuj sesję *Premium* . W tym przypadku wyzwaniem jest, że jedna sesja może być używana do wyświetlania wielu modeli, w których niektóre mogą przekroczyć próg złożoności sesji *standardowej* , co spowodowało bezproblemową obsługę tej samej sesji dla sekwencji różnych zasobów 3W.
 
 ### <a name="automatic-switching"></a>Automatyczne przełączanie
 
-Automatyczne przełączanie między sesjami Standard i Premium może znacznie sensować projekt systemu, który obejmuje również buforowanie sesji. Ta strategia umożliwia dalsze Optymalizacja użycia zasobów. Gdy użytkownik ładuje modele do wyświetlania, zostanie ustalona złożoność i jest wymagany prawidłowy rozmiar sesji z usługi buforowania sesji.
+Automatyczne przełączanie między sesjami *Standard* i *Premium* może znacznie sensować projekt systemu, który obejmuje również buforowanie sesji. Ta strategia umożliwia dalsze Optymalizacja użycia zasobów. Gdy użytkownik ładuje modele do wyświetlania, zostanie ustalona złożoność i jest wymagany prawidłowy rozmiar sesji z usługi buforowania sesji.
 
 ## <a name="working-with-networks"></a>Praca z sieciami
 
@@ -213,7 +213,7 @@ W oparciu o przewidywany przypadek użycia Określ najlepsze miejsce lub kombina
 
 Jeśli w przypadku użycia istnieją wzorce użycia, w których można przekazać ten sam zasób 3W wielokrotnie, zaplecze będzie śledzić, które modele są już konwertowane do użycia z ARR, tak że model jest tylko wstępnie przetworzony tylko raz dla wielu przyszłych wyborów. Przykładem przeglądu projektu jest miejsce, w którym zespół ma dostęp do wspólnego oryginalnego elementu zawartości 3W. Każdy członek zespołu powinien przejrzeć model przy użyciu ARR w pewnym momencie w swoim strumieniu służbowym. Tylko pierwszy widok wywoła krok wstępnego przetwarzania. Kolejne widoki spowodują przeszukanie skojarzonego pliku, który został przetworzony, w kontenerze wyjściowym sygnatury dostępu współdzielonego.
 
-W zależności od przypadku użycia, prawdopodobnie zechcesz określić i potencjalnie utrzymać prawidłowy rozmiar maszyny wirtualnej do zdalnego renderowania platformy Azure, Standard lub Premium, dla każdego zasobu 3W lub grupy zasobów, które będą wyświetlane razem w ramach tej samej sesji.  
+W zależności od przypadku użycia, prawdopodobnie zechcesz określić i potencjalnie utrzymać prawidłowy rozmiar serwera renderowania zdalnego dla platformy Azure, *Standard* lub *Premium*, dla każdego zasobu 3W lub grupy zasobów, które będą wyświetlane razem w ramach tej samej sesji.  
 
 ### <a name="on-device-model-selection-list"></a>Lista wyboru modelu na urządzeniu
 
@@ -257,7 +257,7 @@ Więcej informacji:
 * [Azure Marketplace](https://azure.microsoft.com/marketplace/)
 * [Samouczek: publikowanie aplikacji zarządzanych przez platformę Azure w portalu Marketplace](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-marketplace-app)
 
-### <a name="security"></a>Zabezpieczenia
+### <a name="security"></a>Bezpieczeństwo
 
 Niezwykle ważne jest, aby utworzyć kompleksowe rozwiązanie do zdalnego renderowania na platformie Azure w celu zapewnienia bezpieczeństwa od podstaw. Istnieje wiele aspektów zabezpieczeń, które należy wziąć pod uwagę w projekcie kompleksowego rozwiązania, w tym:
 

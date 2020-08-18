@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 9bbb4ee4a2fd41ca0605d7dd5d8c66c83d475744
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: dda61b81ee2c357ddac29701832fe4780ea06859
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506479"
+ms.locfileid: "88516303"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Konfigurowanie powiadomień e-mail dla alertów zabezpieczeń 
 
@@ -42,7 +42,7 @@ Aby uniknąć zmęczenia alertów, Security Center ogranicza ilość wychodzący
 |Stan wydania:|Ogólnie dostępna|
 |Wpisaną|Warstwa Bezpłatna|
 |Wymagane role i uprawnienia:|**Administrator zabezpieczeń**<br>**Właściciel subskrypcji** |
-|Połączeń|![Yes](./media/icons/yes-icon.png) Chmury komercyjne<br>![Yes](./media/icons/yes-icon.png) US Gov (częściowa)<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov|
+|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov (częściowa)<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov|
 |||
 
 
@@ -60,9 +60,9 @@ Powiadomienia e-mail mogą być wysyłane do osób indywidualnych lub wszystkich
 1. Aby zastosować informacje o kontakcie zabezpieczeń do subskrypcji, wybierz pozycję **Zapisz**.
 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 Aby dowiedzieć się więcej na temat alertów zabezpieczeń, zobacz następujące tematy:
 
 * [Alerty zabezpieczeń — Przewodnik referencyjny](alerts-reference.md) — informacje na temat alertów zabezpieczeń, które mogą zostać wyświetlone w module ochrony przed zagrożeniami w Azure Security Center
 * [Zarządzanie alertami zabezpieczeń i reagowanie na nie w Azure Security Center](security-center-managing-and-responding-alerts.md) — Dowiedz się, jak zarządzać alertami zabezpieczeń i odpowiadać na nie
-- [Automatyzacja przepływu pracy](workflow-automation.md) — Automatyzowanie odpowiedzi na alerty za pomocą niestandardowej logiki powiadomień
+* [Automatyzacja przepływu pracy](workflow-automation.md) — Automatyzowanie odpowiedzi na alerty za pomocą niestandardowej logiki powiadomień
