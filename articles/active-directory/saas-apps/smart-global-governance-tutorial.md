@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja SSO usługi Azure AD z inteligentnym globalnym nadzorem'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i inteligentnym globalnym nadzorem.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 5c31613e-f30d-47d9-af51-001345b6db10
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/04/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91200ba4561aa6b715149d91beee8ac9d0375657
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: d93cd2efe49f819c8adeb53674b6d4f465312e06
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170466"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88527423"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smart-global-governance"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Smart Global ładu
 
@@ -154,7 +150,7 @@ Po wybraniu inteligentnego globalnego kafelka ładu w panelu dostępu należy au
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Samouczki dotyczące integracji aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Samouczki dotyczące integracji aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

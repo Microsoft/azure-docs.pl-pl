@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: a642aa9735c4360c11d50cf475e5de63259c55df
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, references_regions
+ms.openlocfilehash: aaba608ba80a751c40cd300dee80f673897c22a8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495713"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88525653"
 ---
 # <a name="create-an-azure-file-share"></a>Tworzenie udziału plików platformy Azure
 Aby utworzyć udział plików platformy Azure, musisz odpowiedzieć na trzy pytania dotyczące sposobu ich używania:
@@ -87,7 +87,7 @@ Tagi to pary nazwa/wartość, które umożliwiają kategoryzowanie zasobów i wy
 #### <a name="review--create"></a>Przeglądanie i tworzenie
 Ostatnim krokiem tworzenia konta magazynu jest wybranie przycisku **Utwórz** na karcie **Recenzja + tworzenie** . Ten przycisk nie będzie dostępny, jeśli nie wypełniono wszystkich pól wymaganych dla konta magazynu.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 Aby utworzyć konto magazynu przy użyciu programu PowerShell, użyjemy `New-AzStorageAccount` polecenia cmdlet. To polecenie cmdlet ma wiele opcji; wyświetlane są tylko wymagane opcje. Aby dowiedzieć się więcej na temat opcji zaawansowanych, zobacz [ `New-AzStorageAccount` dokumentację poleceń cmdlet](/powershell/module/az.storage/new-azstorageaccount).
 
 Aby uprościć tworzenie konta magazynu i kolejnych udziałów plików, firma Microsoft będzie przechowywać kilka parametrów w zmiennych. Zawartość zmiennej można zastąpić dowolną wartością, jednak należy pamiętać, że nazwa konta magazynu musi być globalnie unikatowa.
@@ -178,7 +178,7 @@ Nowy blok udział plików powinien pojawić się na ekranie. Wypełnij pola w bl
 
 Wybierz pozycję **Utwórz** , aby ukończyć tworzenie nowego udziału. Należy pamiętać, że jeśli konto magazynu znajduje się w sieci wirtualnej, nie będzie można pomyślnie utworzyć udziału plików platformy Azure, chyba że klient jest również w sieci wirtualnej. Możesz również obejść to ograniczenie do czasu w czasie za pomocą `New-AzRmStorageShare` polecenia cmdlet Azure PowerShell.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 Udział plików platformy Azure można utworzyć przy użyciu [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare) polecenia cmdlet. W poniższych poleceniach programu PowerShell przyjęto założenie, że zostały ustawione zmienne `$resourceGroupName` i `$storageAccountName` zdefiniowane powyżej w sekcji Tworzenie konta magazynu z Azure PowerShell. 
 
 > [!Important]  
@@ -229,6 +229,60 @@ To polecenie zakończy się niepowodzeniem, jeśli konto magazynu jest zawarte w
 
 > [!Note]  
 > Nazwa udziału plików musi się składać z samych małych liter. Aby uzyskać szczegółowe informacje o nazewnictwie udziałów plików i plików, zobacz [nazewnictwo i odwoływanie się do udziałów, katalogów, plików i metadanych](https://msdn.microsoft.com/library/azure/dn167011.aspx).
+
+### <a name="create-a-hot-or-cool-file-share"></a>Utwórz gorącą lub chłodny udział plików
+Udział plików w ramach **konta magazynu ogólnego przeznaczenia w wersji 2 (GPv2)** może zawierać optymalizację transakcji, gorącą lub chłodną udziałów plików (lub ich mieszaninę). Udziały zoptymalizowane pod kątem transakcji są dostępne we wszystkich regionach świadczenia usługi Azure, ale udziały plików gorąca i chłodna są dostępne tylko [w podzbiorze regionów](storage-files-planning.md#storage-tiers). Można utworzyć gorącą lub chłodny udział plików przy użyciu modułu Azure PowerShell w wersji zapoznawczej lub interfejsu wiersza polecenia platformy Azure. 
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+Azure Portal nie obsługuje jeszcze tworzenia udziałów plików gorąca i chłodna, a także przenosi istniejące zoptymalizowane udziały plików do warstwy gorąca lub chłodna. Zapoznaj się z instrukcjami dotyczącymi tworzenia udziału plików za pomocą programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
+
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+```PowerShell
+# Update the Azure storage module to use the preview version. You may need to close and 
+# reopen PowerShell before running this command. If you are running PowerShell 5.1, ensure 
+# the following:
+# - Run the below cmdlets as an administrator.
+# - Have PowerShellGet 2.2.3 or later. Uncomment the following line to check.
+# Get-Module -ListAvailable -Name PowerShellGet
+Remove-Module -Name Az.Storage -ErrorAction SilentlyContinue
+Uninstall-Module -Name Az.Storage
+Install-Module -Name Az.Storage -RequiredVersion "2.1.1-preview" -AllowClobber -AllowPrerelease 
+
+# Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
+# been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2 
+# storage accounts. Standard tiers are only available in standard storage accounts. 
+$shareName = "myhotshare"
+
+New-AzRmStorageShare `
+    -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $storageAccountName `
+    -Name $shareName `
+    -AccessTier Hot
+
+# You can also change an existing share's tier.
+Update-AzRmStorageShare `
+    -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $storageAccountName `
+    -Name $shareName `
+    -AccessTier Cool
+```
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+Funkcja tworzenia lub przenoszenia udziału plików do określonej warstwy jest dostępna w najnowszej aktualizacji interfejsu wiersza polecenia platformy Azure. Aktualizowanie interfejsu wiersza polecenia platformy Azure jest specyficzne dla używanego dystrybucji systemu operacyjnego/Linux. Aby uzyskać instrukcje dotyczące aktualizowania interfejsu wiersza polecenia platformy Azure w systemie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+```bash
+# Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
+# been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2
+# storage accounts. Standard tiers are only available in standard storage accounts.
+shareName="myhotshare"
+
+az storage share-rm create \
+    --resource-group $resourceGroupName \
+    --storage-account $storageAccountName \
+    --name $shareName \
+    --access-tier "Hot"
+```
+---
 
 ## <a name="next-steps"></a>Następne kroki
 - [Zaplanuj wdrożenie Azure Files](storage-files-planning.md) lub [Zaplanuj wdrożenie Azure File Sync](storage-sync-files-planning.md). 

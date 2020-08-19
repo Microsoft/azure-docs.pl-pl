@@ -2,25 +2,20 @@
 title: 'Samouczek: Inicjowanie obsługi administracyjnej użytkowników dla zapasu czasu — Azure AD'
 description: Dowiedz się, jak skonfigurować Azure Active Directory, aby automatycznie inicjować udostępnianie kont użytkowników i cofać ich obsługę zapasu czasu.
 services: active-directory
-documentationcenter: ''
 author: ArvindHarinder1
 manager: CelesteDG
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aa97595f9a6ab2a866a8c8ebccde7e53854dbd1
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 368d75ecffda49f688a7a5ce11b60693650014c6
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924550"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88527829"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie zapasu czasu dla automatycznej aprowizacji użytkowników
 
@@ -107,35 +102,35 @@ Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API inicj
 
    |Atrybut|Typ|
    |---|---|
-   |aktywne|Wartość logiczna|
-   |externalId|Ciąg|
-   |displayName|Ciąg|
-   |Nazwa. rodzina|Ciąg|
-   |Nazwa. imię|Ciąg|
-   |tytuł|Ciąg|
-   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
-   |userName|Ciąg|
-   |Pseudonim|Ciąg|
-   |adresy [typ EQ "untyped"]. streetAddress|Ciąg|
-   |adresy [Type EQ "untyped"]. locale|Ciąg|
-   |adresy [Type EQ "untyped"]. region|Ciąg|
-   |adresy [Type EQ "untyped"]. KodPocztowy|Ciąg|
-   |adresy [Type EQ "untyped"]. Country|Ciąg|
-   |numer telefonu [typ EQ "Mobile"]. Value|Ciąg|
-   |numer telefonu [typ EQ "Work"]. wartość|Ciąg|
-   |role [podstawowa EQ "true"]. Value|Ciąg|
-   |locale|Ciąg|
-   |Name. honorificPrefix|Ciąg|
-   |fotografie [typ EQ "Fotografia"]. wartość|Ciąg|
-   |profileUrl|Ciąg|
-   |TimeZone|Ciąg|
-   |userType|Ciąg|
-   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Department|Ciąg|
+   |aktywne|Boolean|
+   |externalId|String|
+   |displayName|String|
+   |Nazwa. rodzina|String|
+   |Nazwa. imię|String|
+   |tytuł|String|
+   |wiadomości e-mail [Type EQ "Work"]. Value|String|
+   |userName|String|
+   |Pseudonim|String|
+   |adresy [typ EQ "untyped"]. streetAddress|String|
+   |adresy [Type EQ "untyped"]. locale|String|
+   |adresy [Type EQ "untyped"]. region|String|
+   |adresy [Type EQ "untyped"]. KodPocztowy|String|
+   |adresy [Type EQ "untyped"]. Country|String|
+   |numer telefonu [typ EQ "Mobile"]. Value|String|
+   |numer telefonu [typ EQ "Work"]. wartość|String|
+   |role [podstawowa EQ "true"]. Value|String|
+   |locale|String|
+   |Name. honorificPrefix|String|
+   |fotografie [typ EQ "Fotografia"]. wartość|String|
+   |profileUrl|String|
+   |TimeZone|String|
+   |userType|String|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Department|String|
    |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Manager|Dokumentacja|
-   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. employeeNumber|Ciąg|
-   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. costCenter|Ciąg|
-   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Organization|Ciąg|
-   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. dzielenie|Ciąg|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. employeeNumber|String|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. costCenter|String|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Organization|String|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. dzielenie|String|
 
 12. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do zapasu czasu**.
 
@@ -143,7 +138,7 @@ Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API inicj
 
       |Atrybut|Typ|
       |---|---|
-      |displayName|Ciąg|
+      |displayName|String|
       |elementy członkowskie|Dokumentacja|
 
 14. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -187,7 +182,7 @@ Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania w
 
 * Zapasy czasu umożliwiają dopasowanie z użyciem atrybutów **username** i **email**.  
   
-* Typowe kody erorr są udokumentowane w oficjalnej dokumentacji zapasowej —https://api.slack.com/scim#errors
+* Typowe kody erorr są udokumentowane w oficjalnej dokumentacji zapasowej — https://api.slack.com/scim#errors
 
 ## <a name="change-log"></a>Dziennik zmian
 

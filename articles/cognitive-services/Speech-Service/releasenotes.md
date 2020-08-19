@@ -8,15 +8,15 @@ manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 8985d8ab0b5fa8477a636254d1a5179cd2187963
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 8df54adf8f3aeaa58e30d6d9218cec8bec8c1121
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505809"
+ms.locfileid: "88525925"
 ---
 # <a name="speech-service-release-notes"></a>Informacje o wersji usługi mowy
 
@@ -26,15 +26,15 @@ ms.locfileid: "88505809"
 
 * **Neuronowych TTS: nowy styl wymawiania dla `en-US` Aria**. AriaNeural może wyglądać podobnie do newscaster podczas odczytywania wiadomości. Styl "Newscast-formaled" jest bardziej ważniejszy, podczas gdy styl "Newscast-swobodny" jest bardziej swobodny i nieformalny. Zobacz [, jak używać stylów mówiących w SSML](speech-synthesis-markup.md).
 
-* **Niestandardowy głos: wydano nową funkcję, która umożliwia automatyczne sprawdzanie jakości danych szkoleniowych**. Po przekazaniu danych funkcja sprawdzania danych sprawdzi różne aspekty audio i transkrypcje oraz automatycznie naprawi lub przefiltruje dane, aby zwiększyć jakość przeszkolonego modelu głosowego. Dotyczy to ilości dźwięku, poziomu szumu, dokładności wymowy mowy, wyrównania mowy z znormalizowanym tekstem, ciszenia dźwięku, poza formatem audio i skryptu. 
+* **Niestandardowy głos: wydano nową funkcję, która umożliwia automatyczne sprawdzanie jakości danych szkoleniowych**. Po przekazaniu danych system będzie analizować różne aspekty danych audio i transkrypcji oraz automatycznie rozwiązywać lub filtrować problemy w celu poprawy jakości modelu głosu. Dotyczy to ilości dźwięku, poziomu szumu, dokładności wymowy mowy, wyrównania mowy z znormalizowanym tekstem, wyciszenia dźwięku oraz formatowania dźwięku i skryptu. 
 
 * **Tworzenie zawartości audio: zestaw nowych funkcji umożliwiających bardziej zaawansowane funkcje dostrajania głosu i zarządzania dźwiękiem**.
 
     * Wymowa: funkcja dostrajania wymowy została zaktualizowana do najnowszego zestawu fonem. Możesz wybrać odpowiedni element fonem z biblioteki i uściślić wymowę wybranych wyrazów. 
 
-    * Pobieranie: funkcja audio "Download"/"Export" została ulepszona w celu obsługi generowania dźwięków w każdym akapicie. Możesz łatwo edytować inną zawartość w tym samym pliku/SSML, podczas gdy generowane są wiele wyjść audio. Struktura plików "Download" jest również udoskonalana. Teraz można łatwo uzyskać wszystkie dźwięki w jednym folderze. 
+    * Pobieranie: funkcja audio "Download"/"Export" została ulepszona w celu obsługi generowania dźwięku w akapicie. Zawartość można edytować w tym samym pliku/SSML, podczas gdy generowane są wiele wyjść audio. Struktura plików "Download" jest również udoskonalana. Teraz można łatwo uzyskać wszystkie dźwięki w jednym folderze. 
 
-    * Stan zadania: udoskonalono środowisko eksportu z obsługą wiele plików. W przypadku eksportowania wielu plików w przeszłości, jeśli jeden z plików ulegnie awarii, całe zadanie zakończy się niepowodzeniem. Ale teraz wszystkie inne pliki zostaną pomyślnie wyeksportowane. Raport zadania jest wzbogacany o bardziej szczegółowe i strukturalne informacje. Możesz sprawdzić dzienniki dla wszystkich zakończonych niepowodzeniem plików i zdań teraz za pomocą raportu. 
+    * Stan zadania: udoskonalono środowisko eksportu wieloplikowego. W przypadku eksportowania wielu plików w przeszłości, jeśli jeden z plików ulegnie awarii, całe zadanie zakończy się niepowodzeniem. Ale teraz wszystkie inne pliki zostaną pomyślnie wyeksportowane. Raport zadania jest wzbogacany o bardziej szczegółowe i strukturalne informacje. Możesz sprawdzić dzienniki dla wszystkich zakończonych niepowodzeniem plików i zdań teraz za pomocą raportu. 
 
     * Dokumentacja usługi SSML: połączona z dokumentem SSML, ułatwiająca sprawdzenie reguł korzystania ze wszystkich funkcji dostrajania.
 
@@ -42,7 +42,7 @@ ms.locfileid: "88505809"
 
 ### <a name="general-tts-voice-quality-improvements"></a>Ulepszenia jakości głosu dotyczące ogólnej TTS
 
-* Zredukowany Błąd wymowy na poziomie wyrazu (%) dla `ru-RU` (błąd został zmniejszony o 56%) i `sv-SE` (błąd został zmniejszony przez 49%)
+* Zredukowany Błąd wymowy na poziomie wyrazu `ru-RU` (%) (błędy obniżone o 56%) i `sv-SE` (błędy obniżone o 49%)
 
 * Ulepszono Polyphony czytania wyrazów na `en-US` neuronowych głosy o 40%. Przykłady słów Polyphony to "read", "Live", "Content", "Record", "Object" itp. 
 
@@ -63,8 +63,8 @@ ms.locfileid: "88505809"
 
 * Naprawiono wiele usterek przy użyciu narzędzia do tworzenia zawartości audio 
     * Rozwiązano problem z autoodświeżaniem. 
-    * Rozwiązano problemy z odgłosówmi stylu w elemencie zh-CN w regionie Azja Wschodnia południowo-
-    * Rozwiązano problem w stabilności, w tym błąd eksportu ze znacznikiem "Break", błędy w interpunkcjach    
+    * Rozwiązano problemy ze stylami głosu w polu zh-CN w regionie Azja Wschodnia południowo.
+    * Rozwiązano problem dotyczący stabilności, w tym błąd eksportu ze znacznikiem "Break" i błędy w znakach interpunkcyjnych.    
 
 ## <a name="new-speech-to-text-locales-2020-august-release"></a>Nowe ustawienia zamiany mowy na tekst: 2020 — wydanie z sierpnia
 Zamiana mowy na tekst wydana 26 nowych ustawień regionalnych w sierpniu: 2 Języki europejskie `cs-CZ` i `hu-HU` , 5 angielskie ustawienia regionalne oraz 19 hiszpańskie ustawienia regionalne, które obejmują większość krajów Ameryki Południowej. Poniżej znajduje się lista nowych ustawień regionalnych. Zapoznaj się z [pełną listą](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support)języków.
