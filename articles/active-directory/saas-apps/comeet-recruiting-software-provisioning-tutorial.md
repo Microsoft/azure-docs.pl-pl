@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie współzaspokajania oprogramowania rekrutacji w celu automatycznego aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników w celu współspełnienia oprogramowania rekrutacji.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: f427fb75cfaeda79b037c327992e4ad482a7e689
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5165c3f03d51403a978ad3574306bc27d931e1d7
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77058340"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88536895"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie współdziałania oprogramowania do rekrutacji w celu automatycznego aprowizacji użytkowników
 
@@ -102,7 +98,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 5. W sekcji **poświadczenia administratora** wprowadź **adres URL dzierżawy** i **klucz tajny** Współspełnionego konta oprogramowania do rekrutacji zgodnie z opisem w kroku 6.
 
-6. W [konsoli administracyjnej oprogramowania do obsługi rekrutacji](https://app.comeet.co/)przejdź do pola **Współspełniają > ustawienia > uwierzytelnianie > Microsoft Azure**i skopiuj **token tajny dla wartości firmowej** w polu **token tajny** w usłudze Azure AD.
+6. W [konsoli administracyjnej oprogramowania do obsługi rekrutacji](https://app.comeet.co/)przejdź do pola  **Współspełniają > ustawienia > uwierzytelnianie > Microsoft Azure**i skopiuj **token tajny dla wartości firmowej** w polu **token tajny** w usłudze Azure AD.
 
     ![Współdziałanie z obsługą oprogramowania rekrutacji](./media/comeet-recruiting-software-provisioning-tutorial/secret-token-1.png)
 

@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Z usługi Beeline | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Z usługi Beeline.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 0726859d-1dac-44a0-810b-da56d89039ee
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: cca1b4b9f27a8711d0340389359320a2f99a918a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 571ab3c3943faf6ef5cbccb401a5416c327e3975
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87018530"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88537833"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-beeline"></a>Samouczek: integracja Azure Active Directory z usługą Z usługi Beeline
 
@@ -106,7 +101,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Z usługi B
 
     ![Domena i adresy URL rozwiązania BeeLine — informacje o logowaniu jednokrotnym](common/idp-intiated.png)
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://projects.beeline.com/<ProjInstanceName>`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://projects.beeline.com/<ProjInstanceName>`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
 
@@ -153,11 +148,11 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
-    Na przykład: BrittaSimon@contoso.com
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

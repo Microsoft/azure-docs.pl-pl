@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z adaptacyjnymi wglądami | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i adaptacyjne szczegółowe informacje.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 13af9d00-116a-41b8-8ca0-4870b31e224c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/19/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf05fc30a2b111a12c0b8e131db5117ec784075b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3471d79875fb34ea0285c086e7d908aa254957dc
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74232124"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88537743"
 ---
 # <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Samouczek: Integrowanie adaptacyjnych szczegółowych informacji za pomocą Azure Active Directory
 
@@ -83,7 +78,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
@@ -134,9 +129,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
      * **Włącz protokół SAML**, wybierz opcję **Zezwalaj na logowanie za pomocą rejestracji jednokrotnej i bezpośredniego adaptacyjnego wglądu w szczegółowe**dane.
 
-    g. Skopiuj **adres URL rejestracji jednokrotnej usługi adaptacyjnej Insights** i wklej do pól **identyfikatora (identyfikator jednostki)** i **adres URL odpowiedzi** w sekcji podstawowe informacje o **konfiguracji SAML** w Azure Portal.
+    przykład Skopiuj **adres URL rejestracji jednokrotnej usługi adaptacyjnej Insights** i wklej do pól **identyfikatora (identyfikator jednostki)** i **adres URL odpowiedzi** w sekcji podstawowe informacje o **konfiguracji SAML** w Azure Portal.
 
-    h. Kliknij przycisk **Zapisz**.
+    h. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -146,7 +141,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -186,7 +181,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w celu uzyskania a
 
 4. W sekcji **nowy użytkownik** wykonaj następujące czynności:
 
-   ![Submit](./media/adaptivesuite-tutorial/IC805649.png "Submit")
+   ![Prześlij](./media/adaptivesuite-tutorial/IC805649.png "Prześlij")
 
    a. Wpisz **nazwę**, nazwa **użytkownika**, **adres e-mail**i **hasło** prawidłowego użytkownika Azure Active Directory, który chcesz udostępnić do powiązanych pól tekstowych.
 
@@ -205,9 +200,9 @@ Po kliknięciu kafelka adaptacyjnego wglądu w panelu dostępu należy automatyc
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą ReviewSnap | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i ReviewSnap.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: b00fb373-2b31-4dcf-84ce-abc29e4c639c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 6a925752a0e1de09c22350dff6a274a57b117a23
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 354aeca01cb2d5244c68e1691642e4d2b41869dc
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67092994"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88534527"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reviewsnap"></a>Samouczek: integracja Azure Active Directory z usługą ReviewSnap
 
@@ -32,7 +28,7 @@ Integracja ReviewSnap z usługą Azure AD zapewnia następujące korzyści:
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -105,7 +101,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą ReviewSnap,
 
     ![ReviewSnap domenę i adresy URL Logowanie jednokrotne](common/idp-intiated.png)
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL:`https://app.reviewsnap.com`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL: `https://app.reviewsnap.com`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://app.reviewsnap.com/auth/saml/callback?namespace=<CUSTOMER_NAMESPACE>`
 
@@ -113,7 +109,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą ReviewSnap,
 
     ![ReviewSnap domenę i adresy URL Logowanie jednokrotne](common/metadata-upload-additional-signon.png)
 
-    W polu tekstowym **adres URL logowania** wpisz adres URL:`https://app.reviewsnap.com/login`
+    W polu tekstowym **adres URL logowania** wpisz adres URL:  `https://app.reviewsnap.com/login`
 
     > [!NOTE]
     > Wartość adresu URL odpowiedzi nie jest prawdziwa. Zaktualizuj ją, stosując rzeczywisty adres URL odpowiedzi. Skontaktuj się z [zespołem obsługi klienta ReviewSnap](mailto:support@reviewsnap.com) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -155,7 +151,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
     b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`  
-    Na przykład: BrittaSimon@contoso.com
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -203,4 +199,4 @@ Po kliknięciu kafelka ReviewSnap w panelu dostępu należy automatycznie zalogo
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

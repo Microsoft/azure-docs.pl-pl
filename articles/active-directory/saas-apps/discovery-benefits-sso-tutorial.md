@@ -2,26 +2,21 @@
 title: 'Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Discovery Zalety rejestracji jednokrotnej | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i odnajdywanie w usłudze SSO.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: a788cd07-0eed-4067-b79d-19b840e8836d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64c4a6811ef5d7ed4f29c7dae89561616895a42a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3beefb467f7875e6bc76765811c6525f5dab9393
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72266143"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88536244"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-discovery-benefits-sso"></a>Samouczek: integracja z logowaniem jednokrotnym (SSO) Azure Active Directory z użyciem funkcji odnajdywania Logowanie jednokrotne
 
@@ -83,13 +78,13 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. W sekcji **Podstawowa konfiguracja** SAML aplikacja została wstępnie skonfigurowana w trybie inicjalizacji **dostawcy tożsamości** , a wymagane adresy URL są już wstępnie wypełnione na platformie Azure. Użytkownik musi zapisać konfigurację, klikając przycisk **Zapisz** .
+1. W sekcji **Podstawowa konfiguracja SAML**   aplikacja została wstępnie skonfigurowana w **IDP**   trybie inicjalizacji dostawcy tożsamości, a wymagane adresy URL są już wstępnie wypełnione na platformie Azure. Użytkownik musi zapisać konfigurację, klikając przycisk **Zapisz**   .
 
 1. Aplikacja do odnajdowania korzysta z funkcji rejestracji jednokrotnej w określonym formacie, co wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe Atrybuty użytkownika.
 
-    ![image](common/edit-attribute.png)
+    ![image (obraz)](common/edit-attribute.png)
 
-    a. Kliknij ikonę **Edytuj** , aby otworzyć okno dialogowe **unikatowy identyfikator użytkownika (identyfikator nazwy)** .
+    a. Kliknij ikonę **Edytuj**  , aby otworzyć okno dialogowe **unikatowy identyfikator użytkownika (identyfikator nazwy)** .
 
     ![Konfiguracja rejestracji jednokrotnej w usłudze Discovery](./media/discovery-benefits-sso-tutorial/attribute01.png)
 
@@ -99,14 +94,14 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     c. W polu tekstowym **transformacja** wpisz **ToUppercase ()** widoczny dla tego wiersza.
 
-    d. W polu tekstowym **parametr 1** wpisz parametr, taki jak `<Name Identifier value>`.
+    d. W polu tekstowym **parametr 1** wpisz parametr, taki jak `<Name Identifier value>` .
 
     e. Kliknij pozycję **Dodaj**.
 
     > [!NOTE]
     > Funkcja odnajdywania w ramach rejestracji jednokrotnej wymaga, aby stała wartość ciągu została przeniesiona w polu **unikatowy identyfikator użytkownika (identyfikator nazwy)** w celu uzyskania tej integracji. Usługa Azure AD obecnie nie obsługuje tej funkcji, więc w celu obejścia tego problemu można użyć **ToUpper** lub **ToLower** przekształceń NameID, aby ustawić ustaloną wartość ciągu, jak pokazano powyżej na zrzucie ekranu.
 
-    f. Automatycznie wypełniono dodatkowe oświadczenia wymagane do konfiguracji rejestracji jednokrotnej (`SSOInstance` i `SSOID`). Użyj ikony **Edytuj** , aby zamapować wartości zgodnie z potrzebami organizacji.
+    f. Automatycznie wypełniono dodatkowe oświadczenia wymagane do konfiguracji rejestracji jednokrotnej ( `SSOInstance` i `SSOID` ). Użyj ikony **Edytuj** , aby zamapować wartości zgodnie z potrzebami organizacji.
 
     ![Konfiguracja rejestracji jednokrotnej w usłudze Discovery](./media/discovery-benefits-sso-tutorial/attribute03.png)
 
@@ -126,7 +121,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -162,13 +157,13 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Logowanie jednokrotne w panelu dostępu należy automatycznie zalogować się do usługi odnajdywania Logowanie jednokrotne, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj usługę Discovery — Logowanie jednokrotne w usłudze Azure AD](https://aad.portal.azure.com/)
 

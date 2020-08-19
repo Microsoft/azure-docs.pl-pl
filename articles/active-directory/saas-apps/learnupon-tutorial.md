@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą LearnUpon | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i LearnUpon.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: b11c6315-c79d-4f34-9610-bd17070ab7c7
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecdcd8c6024b3cacb422b556718bbbdbb5d601c2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9541f2c5f8ee1aac45b6f659547a3ee34c093181
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67098236"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88535173"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Samouczek: integracja Azure Active Directory z usługą LearnUpon
 
@@ -33,7 +28,7 @@ Integracja LearnUpon z usługą Azure AD zapewnia następujące korzyści:
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -110,7 +105,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą LearnUpon, 
 
     ![LearnUpon domenę i adresy URL Logowanie jednokrotne](common/idp-reply.png)
 
-    W polu tekstowym **adres URL odpowiedzi** wpisz adres URL, używając następującego wzorca:`https://<companyname>.learnupon.com/saml/consumer`
+    W polu tekstowym **adres URL odpowiedzi** wpisz adres URL, używając następującego wzorca:  `https://<companyname>.learnupon.com/saml/consumer`
 
     > [!NOTE]
     > Ta wartość nie jest prawdziwa. Zaktualizuj ją, stosując rzeczywisty adres URL odpowiedzi. Skontaktuj się z [zespołem obsługi klienta LearnUpon](https://www.learnupon.com/features/support/) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -153,11 +148,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą LearnUpon, 
 
     d. W polu tekstowym **Nazwa wpisu elementu końcowego tokenu SAML** wpisz nazwę parametru POST żądania do adresu URL odbiorcy SAML wskazanego powyżej, który zawiera potwierdzenie SAML do zweryfikowania i uwierzytelnienia — na przykład **SAMLResponse**.
 
-    e. W polu tekstowym **Format identyfikatora nazwy** wpisz wartość wskazującą, gdzie w potwierdzeniu SAML znajduje się identyfikator użytkownika (adres e-mail), na przykład `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+    e. W polu tekstowym **Format identyfikatora nazwy** wpisz wartość wskazującą, gdzie w potwierdzeniu SAML znajduje się identyfikator użytkownika (adres e-mail), na przykład `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` .
   
     f. W polu tekstowym **Zidentyfikuj lokalizację dostawcy** wpisz wartość wskazującą miejsce, do którego użytkownicy są wysyłani, jeśli klikniesz zakazaną ikonę na ekranie logowania Azure Portal.
   
-    g. W polu tekstowym **Wyloguj adres** URL wklej wartość **adresu URL wylogowania** , która została skopiowana z Azure Portal.
+    przykład W polu tekstowym **Wyloguj adres** URL wklej wartość **adresu URL wylogowania** , która została skopiowana z Azure Portal.
 
     h. Kliknij kolejno pozycje **Zarządzaj drukowaniem palca**, a następnie przekazanie przez niego odcisku palca pobranego certyfikatu.
 
@@ -165,9 +160,9 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą LearnUpon, 
 
      ![Konfigurowanie logowania jednokrotnego](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
 
-    a. W polu tekstowym **Format identyfikatora pierwszej nazwy** wpisz wartość informującą nas, gdzie w potwierdzeniu SAML znajdują się użytkownicy FirstName — na przykład: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    a. W polu tekstowym **Format identyfikatora pierwszej nazwy** wpisz wartość informującą nas, gdzie w potwierdzeniu SAML znajdują się użytkownicy FirstName — na przykład: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` .
   
-    b. W polu tekstowym **Identyfikator ostatniego identyfikatora nazwy** wpisz wartość informującą nas, gdzie w potwierdzeniu SAML znajduje się nazwisko użytkownika, na przykład: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    b. W polu tekstowym **Identyfikator ostatniego identyfikatora nazwy** wpisz wartość informującą nas, gdzie w potwierdzeniu SAML znajduje się nazwisko użytkownika, na przykład: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` .
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -187,7 +182,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`. Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension` . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -235,4 +230,4 @@ Po kliknięciu kafelka LearnUpon w panelu dostępu należy automatycznie zalogow
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

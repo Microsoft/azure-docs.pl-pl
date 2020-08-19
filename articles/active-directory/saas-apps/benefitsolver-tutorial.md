@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Benefitsolver | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Benefitsolver.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 333394c1-b5a7-489c-8f7b-d1a5b4e782ea
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30e29a0de1b80393b3c38baa589253e90e3e65cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1d3d2c94f44abbfd66bbee7a1f757e0b57fe424e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73158931"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88537451"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Samouczek: integracja Azure Active Directory z usługą Benefitsolver
 
@@ -33,7 +28,7 @@ Integracja aplikacji Benefitsolver z usługą Azure AD oferuje następujące kor
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -106,9 +101,9 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Benefitsol
 
     ![Informacje o domenie i adresach URL aplikacji Benefitsolver na potrzeby logowania jednokrotnego](common/sp-identifier-reply.png)
 
-    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:`http://<companyname>.benefitsolver.com`
+    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `http://<companyname>.benefitsolver.com`
 
-    b. W polu **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<companyname>.benefitsolver.com/saml20`
+    b. W polu **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<companyname>.benefitsolver.com/saml20`
 
     c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml`
 
@@ -117,7 +112,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Benefitsol
 
 5. Aplikacja Benefitsolver oczekuje asercji SAML w określonym formacie. Skonfiguruj następujące oświadczenia dla tej aplikacji. Wartościami tych atrybutów możesz zarządzać w sekcji **Atrybuty użytkownika** na stronie integracji aplikacji. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij przycisk **Edytuj**, aby otworzyć okno dialogowe **Atrybuty użytkownika**.
 
-    ![image](common/edit-attribute.png)
+    ![image (obraz)](common/edit-attribute.png)
 
 6. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** edytuj oświadczenia, korzystając z **ikony edycji**, lub dodaj je za pomocą opcji **Dodaj nowe oświadczenie**, aby skonfigurować atrybut tokenu języka SAML, jak pokazano na ilustracji powyżej, a następnie wykonaj następujące czynności: 
 
@@ -126,14 +121,14 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Benefitsol
     | ClientID | Tę wartość należy uzyskać od [zespołu pomocy technicznej klienta aplikacji Benefitsolver](https://www.businessolver.com/contact).|
     | ClientKey | Tę wartość należy uzyskać od [zespołu pomocy technicznej klienta aplikacji Benefitsolver](https://www.businessolver.com/contact).|
     | LogoutURL | Tę wartość należy uzyskać od [zespołu pomocy technicznej klienta aplikacji Benefitsolver](https://www.businessolver.com/contact).|
-    | EmployeeID | Tę wartość należy uzyskać od [zespołu pomocy technicznej klienta aplikacji Benefitsolver](https://www.businessolver.com/contact).|
+    | EmployeeID (Identyfikator pracownika) | Tę wartość należy uzyskać od [zespołu pomocy technicznej klienta aplikacji Benefitsolver](https://www.businessolver.com/contact).|
     | | |
 
     a. Kliknij przycisk **Dodaj nowe oświadczenie**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
 
-    ![image](common/new-save-attribute.png)
+    ![image (obraz)](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![image (obraz)](common/new-attribute-details.png)
 
     b. W polu tekstowym **Nazwa** wpisz nazwę atrybutu pokazaną dla tego wiersza.
 
@@ -145,7 +140,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Benefitsol
 
     f. Kliknij przycisk **OK** .
 
-    g. Kliknij przycisk **Zapisz**.
+    przykład Kliknij pozycję **Zapisz**.
 
 7. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -186,8 +181,8 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
-    Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -235,4 +230,4 @@ Po kliknięciu kafelka Benefitsolver w panelu dostępu powinno nastąpić automa
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

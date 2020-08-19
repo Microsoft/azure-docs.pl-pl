@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja z logowaniem jednokrotnym w usłudze Azure AD za pomocą klawisza F5 | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i F5.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 39382eab-05fe-4dc2-8792-62d742dfb4e1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d64774bd76a88c2ee8c1981fb3509c7265f4736
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b48b8c1282f90788846b9dc3b64a5ea1ee018a3c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87017452"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88535989"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu klawisza F5
 
@@ -150,7 +145,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<YourCustomFQDN>.f5.com/`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<YourCustomFQDN>.f5.com/`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<YourCustomFQDN>.f5.com/`
 
@@ -179,7 +174,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -223,7 +218,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Ponadto wymagany jest **certyfikat SSL dla nazwy hosta aplikacji. Przejdź do systemu > zarządzanie certyfikatami > zarządzania certyfikatami, > listy certyfikatów SSL**. Wybierz pozycję **Importuj** z prawej strony. **Typ importu** to **PKCS 12 (IIS)**. Określ **nazwę klucza** (zostanie przywoływana później w konfiguracji) i określ plik PFX. Określ **hasło** dla pliku PFX. Kliknij pozycję **Importuj**.
 
     >[!NOTE]
-    >W przykładzie Nasza nazwa aplikacji jest `Kerbapp.superdemo.live` używana jako certyfikat wieloznaczny nasz KeyName to`WildCard-SuperDemo.live`
+    >W przykładzie Nasza nazwa aplikacji jest `Kerbapp.superdemo.live` używana jako certyfikat wieloznaczny nasz KeyName to `WildCard-SuperDemo.live`
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure02.png) 
  
@@ -252,7 +247,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
  
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure08.png)
 
-1. Na ekranie Ustawienia logowania jednokrotnego wybierz pozycję **Włącz logowanie jednokrotne**. W obszarze **wybrany typ logowania jednokrotnego** wybierz pozycję **Kerberos**. Zastąp element **Session. SAML. Last. Identity** identyfikatorem **Session. SAML. Last. ATTR. Name. Identity** w obszarze **Źródło nazwy użytkownika** (Ta zmienna jest ustawiana przy użyciu mapowania oświadczeń w usłudze Azure AD). Wybierz pozycję **Pokaż ustawienia zaawansowane**. W obszarze Typ **obszaru Kerberos** wpisz nazwę domeny. W obszarze **nazwa konta/hasło konta** Określ konto delegowania APM i hasło. Określ adres IP kontrolera domeny w polu **centrum dystrybucji kluczy** . Kliknij przycisk **zapisz & dalej**.
+1. Na ekranie Ustawienia logowania jednokrotnego wybierz pozycję **Włącz logowanie jednokrotne**. W obszarze **wybrany typ logowania jednokrotnego** wybierz pozycję **Kerberos**. Zastąp element **Session. SAML. Last. Identity**  identyfikatorem **Session. SAML. Last. ATTR. Name. Identity** w obszarze **Źródło nazwy użytkownika** (Ta zmienna jest ustawiana przy użyciu mapowania oświadczeń w usłudze Azure AD). Wybierz pozycję **Pokaż ustawienia zaawansowane**. W obszarze Typ **obszaru Kerberos** wpisz nazwę domeny. W obszarze **nazwa konta/hasło konta** Określ konto delegowania APM i hasło. Określ adres IP kontrolera domeny w polu **centrum dystrybucji kluczy** . Kliknij przycisk **zapisz & dalej**.
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure09.png)   
 
@@ -284,7 +279,7 @@ Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (
 
 1. Na karcie Główny kliknij pozycję **zasady dostępu > serwery AAA > Active Directory**. Zostanie otwarty ekran listy serwerów Active Directory.
 
-2. Kliknij pozycję **Utwórz**. Zostanie otwarty ekran nowe właściwości serwera.
+2. Kliknij przycisk **Utwórz**. Zostanie otwarty ekran nowe właściwości serwera.
 
 3. W polu **Nazwa** wpisz unikatową nazwę serwera uwierzytelniania.
 
@@ -347,7 +342,7 @@ Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (
 1. Aby skonfigurować protokół SAML SP, przejdź do opcji **dostęp > federacyjnego > dostawcy usługi SAML > lokalnych usług Sp** , a następnie kliknij przycisk **Utwórz**. Uzupełnij poniższe informacje i kliknij przycisk **OK**.
 
     * Nazwa typu: KerbApp200SAML
-    * Identyfikator jednostki *:https://kerb-app.com.cutestat.com
+    * Identyfikator jednostki *: https://kerb-app.com.cutestat.com
     * Ustawienia nazw SP
     * Schemat: https
     * Host: kerbapp200. predemonstracyjny. Live
@@ -485,9 +480,9 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka F5 w panelu dostępu należy automatycznie zalogować się do F5, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
