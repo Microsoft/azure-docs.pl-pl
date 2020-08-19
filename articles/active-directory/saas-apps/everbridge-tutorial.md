@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą EverBridge | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i EverBridge.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 58d7cd22-98c0-4606-9ce5-8bdb22ee8b3e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 60463a00c6864bed7b3a18e816ef0143d3573782
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1da2fd879dbeac1836469d46567566769f6163a2
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67103258"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555403"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Samouczek: integracja Azure Active Directory z usługą EverBridge
 
@@ -31,7 +27,7 @@ Po zintegrowaniu usługi EverBridge z usługą Azure AD można:
 * Zezwól użytkownikom na automatyczne logowanie do EverBridge przy użyciu kont usługi Azure AD. Ta kontrola dostępu jest nazywana logowaniem jednokrotnym (SSO).
 * Zarządzaj kontami w jednej centralnej lokalizacji przy użyciu Azure Portal.
 Aby uzyskać więcej informacji na temat integracji aplikacji SaaS (Software as a Service) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -108,9 +104,9 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą EverBridge,
 
     ![EverBridge domenę i adresy URL Logowanie jednokrotne](common/idp-intiated.png)
 
-    a. W polu **Identyfikator** wprowadź adres URL, który następuje po wzorcu`https://sso.everbridge.net/<API_Name>`
+    a. W polu **Identyfikator** wprowadź adres URL, który następuje po wzorcu `https://sso.everbridge.net/<API_Name>`
 
-    b. W polu **adres URL odpowiedzi** wprowadź adres URL zgodny ze wzorcem.`https://manager.everbridge.net/saml/SSO/<API_Name>/alias/defaultAlias`
+    b. W polu **adres URL odpowiedzi** wprowadź adres URL zgodny ze wzorcem. `https://manager.everbridge.net/saml/SSO/<API_Name>/alias/defaultAlias`
 
     > [!NOTE]
     > To nie są rzeczywiste wartości. Zaktualizuj te wartości za pomocą wartości rzeczywiste identyfikator i adres URL odpowiedzi. Aby uzyskać te wartości, skontaktuj się z [zespołem pomocy technicznej EverBridge](mailto:support@everbridge.com). Można również odwołać się do wzorców przedstawionych w sekcji podstawowe informacje o **konfiguracji SAML** w Azure Portal.
@@ -121,15 +117,15 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą EverBridge,
 
      ![EverBridge domenę i adresy URL logowania jednokrotnego dla trybu zainicjowane przez dostawcy tożsamości](common/idp-intiated.png)
 
-    a. W polu **Identyfikator** wprowadź adres URL, który następuje po wzorcu`https://sso.everbridge.net/<API_Name>/<Organization_ID>`
+    a. W polu **Identyfikator** wprowadź adres URL, który następuje po wzorcu `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
 
-    b. W polu **adres URL odpowiedzi** wprowadź adres URL zgodny ze wzorcem.`https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
+    b. W polu **adres URL odpowiedzi** wprowadź adres URL zgodny ze wzorcem. `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
 
    * Jeśli chcesz skonfigurować aplikację w trybie inicjowania programu SP, wybierz opcję **Ustaw dodatkowe adresy URL** i wykonaj następujące czynności:
 
      ![EverBridge domenę i adresy URL logowania jednokrotnego w trybie zainicjowanym przez program SP](common/both-signonurl.png)
 
-     a. W polu **adres URL logowania** wprowadź adres URL zgodny ze wzorcem`https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
+     a. W polu **adres URL logowania** wprowadź adres URL zgodny ze wzorcem `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
 
      > [!NOTE]
      > To nie są rzeczywiste wartości. Zaktualizuj te wartości przy użyciu wartości rzeczywiste identyfikator, adres URL odpowiedzi i adres URL logowania. Aby uzyskać te wartości, skontaktuj się z [zespołem pomocy technicznej EverBridge](mailto:support@everbridge.com). Można również odwołać się do wzorców przedstawionych w sekcji podstawowe informacje o **konfiguracji SAML** w Azure Portal.
@@ -168,7 +164,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze **EverBridge** jako aplikacj
    
      f. W przypadku **powiązania żądania zainicjowane przez dostawcę usług**wybierz opcję **przekierowywanie http**.
 
-     g. Wybierz pozycję **Zapisz**.
+     przykład Wybierz pozycję **Zapisz**.
 
 ### <a name="configure-everbridge-as-everbridge-member-portal-single-sign-on"></a>Konfigurowanie EverBridge jako rejestracji jednokrotnej w portalu członków EverBridge
 
@@ -178,7 +174,7 @@ Aby skonfigurować Logowanie jednokrotne na **EverBridge** jako **Portal element
 
 Aby utworzyć test User Britta Simon w Azure Portal, wykonaj następujące kroki.
 
-1. W Azure Portal w lewym okienku wybierz pozycję **Azure Active Directory** > **Użytkownicy** > **Wszyscy użytkownicy**.
+1. W Azure Portal w lewym okienku wybierz pozycję **Azure Active Directory**  >  **Użytkownicy**  >  **Wszyscy użytkownicy**.
 
     ![Użytkownicy i wszyscy użytkownicy — linki](common/users.png)
 
@@ -196,13 +192,13 @@ Aby utworzyć test User Britta Simon w Azure Portal, wykonaj następujące kroki
 
     c. Zaznacz pole wyboru **Pokaż hasło** . Zapisz wartość wyświetlaną w polu **hasło** .
 
-    d. Wybierz przycisk **Utwórz**.
+    d. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 Włącz logowanie jednokrotne w usłudze Britta Simon, przyznając dostęp do usługi EverBridge.
 
-1. W Azure Portal wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje** >**EverBridge**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  > **EverBridge**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -214,7 +210,7 @@ Włącz logowanie jednokrotne w usłudze Britta Simon, przyznając dostęp do us
 
     ![Link Użytkownicy i grupy](common/users-groups-blade.png)
 
-4. Wybierz przycisk **Dodaj użytkownika**. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy**.
+4. Wybierz pozycję **Dodaj użytkownika**. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy**.
 
     ![Okno dialogowe Dodawanie przypisania](common/add-assign-user.png)
 
@@ -234,9 +230,9 @@ Przetestuj konfigurację logowania jednokrotnego usługi Azure AD za pomocą pan
 
 Po wybraniu kafelka EverBridge w panelu dostępu należy automatycznie zalogować się do konta EverBridge, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

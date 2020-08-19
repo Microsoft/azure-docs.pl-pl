@@ -2,24 +2,29 @@
 title: Tworzenie kopii zapasowych i Przywracanie zaszyfrowanych maszyn wirtualnych platformy Azure
 description: Opisuje sposób tworzenia kopii zapasowych i przywracania zaszyfrowanych maszyn wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
-ms.date: 07/29/2020
-ms.openlocfilehash: a5c12f9f9177c4495a82ced2b3c7d0c5edcdd78e
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.date: 08/18/2020
+ms.openlocfilehash: 304196f6b517c353cb4fc142129fa4d3007a1d9c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262793"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585336"
 ---
-# <a name="back-up-and-restore-encrypted-azure-vm"></a>Tworzenie kopii zapasowej i przywracanie zaszyfrowanej maszyny wirtualnej platformy Azure
+# <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Tworzenie kopii zapasowych i Przywracanie zaszyfrowanych maszyn wirtualnych platformy Azure
 
-W tym artykule opisano sposób tworzenia kopii zapasowych i przywracania maszyn wirtualnych systemu Windows lub Linux z szyfrowanymi dyskami przy użyciu usługi [Azure Backup](backup-overview.md) .
+W tym artykule opisano sposób tworzenia kopii zapasowych i przywracania maszyn wirtualnych systemu Windows lub Linux z szyfrowanymi dyskami przy użyciu usługi [Azure Backup](backup-overview.md) . Aby uzyskać więcej informacji, zobacz [szyfrowanie kopii zapasowych maszyn wirtualnych platformy Azure](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 
-Jeśli chcesz dowiedzieć się więcej o tym, jak Azure Backup współdziała z maszynami wirtualnymi platformy Azure przed rozpoczęciem, zapoznaj się z następującymi zasobami:
+## <a name="encryption-using-platform-managed-keys"></a>Szyfrowanie przy użyciu kluczy zarządzanych przez platformę
 
-- [Przejrzyj](backup-architecture.md#architecture-built-in-azure-vm-backup) architekturę kopii zapasowych maszyny wirtualnej platformy Azure.
-- [Dowiedz się więcej o](backup-azure-vms-introduction.md) Kopia zapasowa maszyny wirtualnej platformy Azure i rozszerzenie Azure Backup.
+Domyślnie wszystkie dyski w maszynach wirtualnych są szyfrowane automatycznie przy użyciu kluczy zarządzanych przez platformę (kluczy głównych parowania) korzystających z [szyfrowania usługi Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). Można utworzyć kopię zapasową tych maszyn wirtualnych przy użyciu Azure Backup bez żadnych określonych akcji wymaganych do obsługi szyfrowania na końcu. Aby uzyskać więcej informacji na temat szyfrowania przy użyciu kluczy zarządzanych przez platformę, [Zobacz ten artykuł](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys).
 
-## <a name="encryption-support"></a>Obsługa szyfrowania
+![Zaszyfrowane dyski](./media/backup-encryption/encrypted-disks.png)
+
+## <a name="encryption-using-customer-managed-keys"></a>Szyfrowanie przy użyciu kluczy zarządzanych przez klienta
+
+W przypadku szyfrowania dysków z kluczami zarządzanymi niestandardowymi (CMK) klucz używany do szyfrowania dysków jest przechowywany w Azure Key Vault i jest zarządzany przez użytkownika. Szyfrowanie usługi Storage (SSE) przy użyciu CMK różni się od szyfrowania Azure Disk Encryption (ADE). W programie ADE są stosowane narzędzia szyfrowania systemu operacyjnego. SSE szyfruje dane w usłudze Storage, co pozwala na używanie dowolnego systemu operacyjnego lub obrazów dla maszyn wirtualnych. Aby uzyskać więcej informacji na temat szyfrowania dysków zarządzanych przy użyciu kluczy zarządzanych przez klienta, zobacz [ten artykuł](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
+
+## <a name="encryption-support-using-ade"></a>Obsługa szyfrowania przy użyciu programu ADE
 
 Azure Backup obsługuje tworzenie kopii zapasowych maszyn wirtualnych platformy Azure, w których dyski systemu operacyjnego/danych są szyfrowane za pomocą Azure Disk Encryption (ADE). ADE używa funkcji BitLocker do szyfrowania maszyn wirtualnych z systemem Windows oraz funkcji dm-crypt dla maszyn wirtualnych z systemem Linux. Program ADE integruje się z Azure Key Vault w celu zarządzania kluczami i wpisami tajnymi dysków. Klucze szyfrowania klucza Key Vault (KEKs) mogą służyć do dodawania dodatkowej warstwy zabezpieczeń, szyfrowania wpisów tajnych szyfrowania przed zapisaniem ich w Key Vault.
 
@@ -27,8 +32,8 @@ Azure Backup można tworzyć kopie zapasowe maszyn wirtualnych platformy Azure i
 
 **Typ dysku maszyny wirtualnej** | **ADE (klucz szyfrowania bloków/dm-crypt)** | **ADE i KEK**
 --- | --- | ---
-**Niezarządzany** | Yes | Yes
-**Zarządzany**  | Yes | Yes
+**Niezarządzany** | Tak | Tak
+**Zarządzany**  | Tak | Tak
 
 - Dowiedz się więcej na temat [ADE](../security/fundamentals/azure-disk-encryption-vms-vmss.md), [Key Vault](../key-vault/general/overview.md)i [KEKs](../virtual-machine-scale-sets/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
 - Przeczytaj [często zadawane pytania](../security/fundamentals/azure-disk-encryption-vms-vmss.md) dotyczące szyfrowania dysków maszyn wirtualnych platformy Azure.
@@ -119,11 +124,6 @@ Aby ustawić uprawnienia:
 1. Wybierz pozycję **zasady dostępu**  >  **Dodaj zasady dostępu**.
 
     ![Dodawanie zasad dostępu](./media/backup-azure-vms-encryption/add-access-policy.png)
-
-1. Wybierz pozycję **Wybierz podmiot zabezpieczeń**, a następnie wpisz **Zarządzanie kopią zapasową**.
-1. Wybierz pozycję **Usługa zarządzania kopiami zapasowymi**  >  **Select**.
-
-    ![Wybór usługi kopii zapasowej](./media/backup-azure-vms-encryption/select-backup-service.png)
 
 1. W obszarze **Dodaj zasady dostępu**  >  **Skonfiguruj z szablonu (opcjonalnie)** wybierz pozycję **Azure Backup**.
     - Wymagane uprawnienia są wstępnie wypełnione dla **uprawnień klucza** i uprawnień do wpisów **tajnych**.

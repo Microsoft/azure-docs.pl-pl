@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie konsola administratora Netskope dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników w usłudze Netskope konsola administratora.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: e99f0e0f-28d0-43c6-a52b-df873fb9d551
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: eaee8e3305572d696e52c3879be2e2b9924bc93f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cef356619d437d53d94c8f5d3be67cf6ac95501c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77061293"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88554558"
 ---
 # <a name="tutorial-configure-netskope-administrator-console-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie konsola administratora Netskope na potrzeby automatycznej aprowizacji użytkowników
 

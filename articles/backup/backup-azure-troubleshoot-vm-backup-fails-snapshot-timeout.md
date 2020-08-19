@@ -4,12 +4,12 @@ description: Objawy, przyczyny i rozwiązania błędów Azure Backup związanych
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 99982af7f16431ac5b1c2c4a0e419d647d3d2ca0
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 53c0ede07040e782b683e8ff4b0b08e6fe0a9caf
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262861"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585564"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Rozwiązywanie problemów z błędem Azure Backup: problemy z agentem lub rozszerzeniem
 
@@ -65,7 +65,7 @@ Azure Backup używa rozszerzenia migawki maszyny wirtualnej w celu utworzenia ko
 
 - **Upewnij się, że usługa składnika zapisywania usługi VSS jest uruchomiona**: wykonaj następujące kroki, aby [rozwiązać problemy z modułem zapisywania usługi VSS](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state).
 - **Postępuj zgodnie z najlepszymi wskazówkami dotyczącymi tworzenia kopii zapasowych**: Zapoznaj się z [najlepszymi rozwiązaniami, aby włączyć](backup-azure-vms-introduction.md#best-practices)
-- Zapoznaj się z **zaleceniami dotyczącymi szyfrowanych dysków**: w przypadku włączenia kopii zapasowej dla maszyn wirtualnych z szyfrowanym dyskiem upewnij się, że zostały podane wszystkie wymagane uprawnienia. Aby dowiedzieć się więcej, zobacz [wykonywanie kopii zapasowej i przywracanie zaszyfrowanej maszyny wirtualnej platformy Azure](backup-azure-vms-encryption.md#encryption-support).
+- Zapoznaj się z **zaleceniami dotyczącymi szyfrowanych dysków**: w przypadku włączenia kopii zapasowej dla maszyn wirtualnych z szyfrowanym dyskiem upewnij się, że zostały podane wszystkie wymagane uprawnienia. Aby dowiedzieć się więcej, zobacz [wykonywanie kopii zapasowej i przywracanie zaszyfrowanej maszyny wirtualnej platformy Azure](backup-azure-vms-encryption.md).
 
 ## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable — agent maszyny wirtualnej nie może komunikować się z usługą Azure Backup
 

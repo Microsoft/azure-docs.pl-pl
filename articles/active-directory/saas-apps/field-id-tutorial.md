@@ -2,25 +2,21 @@
 title: 'Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu identyfikatora pola | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i identyfikatorem pola.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: cb778239-dda9-4c5d-ba82-37d2a798978d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/28/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c90674ccbbbece59efe34986f320d0a18080399b
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: a9ace754a75d63bc24bea91dd6c88a3d004fd0eb
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84764115"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555099"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-field-id"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z identyfikatorem pola
 
@@ -82,9 +78,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
 
-   a. W polu tekstowym **Identyfikator** wpisz adres URL, który używa następującego wzorca:`https://<tenantname>.fieldid.com/fieldid`
+   a. W polu tekstowym **Identyfikator** wpisz adres URL, który używa następującego wzorca: `https://<tenantname>.fieldid.com/fieldid`
 
-   b. W polu tekstowym **adres URL odpowiedzi** wpisz adres URL, który używa następującego wzorca:`https://<tenantname>.fieldid.com/fieldid/saml/SSO/alias/<Tenant Name>`
+   b. W polu tekstowym **adres URL odpowiedzi** wpisz adres URL, który używa następującego wzorca: `https://<tenantname>.fieldid.com/fieldid/saml/SSO/alias/<Tenant Name>`
 
     > [!NOTE]
     > To nie są rzeczywiste wartości. Zastąp te wartości rzeczywistymi wartościami identyfikatora i adresu URL odpowiedzi. Aby uzyskać te wartości, skontaktuj się z [zespołem pomocy technicznej dotyczącej identyfikatora pola](mailto:support@ecompliance.com) . Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -103,7 +99,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W obszarze **Nazwa**wprowadź `B.Simon` .  
    1. W polu **Nazwa użytkownika**wprowadź username@companydomain.extension (na przykład `B.Simon@contoso.com` ).
    1. Zaznacz pole wyboru **Pokaż hasło** , a następnie Zapisz wartość, która jest wyświetlana w polu **hasło** .
-   1. Wybierz przycisk **Utwórz**.
+   1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

@@ -3,16 +3,20 @@ title: Selektywne tworzenie kopii zapasowych i przywracanie dysków dla maszyn w
 description: W tym artykule poznasz informacje o kopii zapasowej i przywracaniu na dysku selektywnym przy użyciu rozwiązania do tworzenia kopii zapasowych maszyny wirtualnej platformy Azure
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: e61014a4fde7bfce316671ff0b081ff7bc2205a5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.custom: references_regions
+ms.openlocfilehash: 6a5e574795dfded98260da20711dab7d16cabd5b
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535432"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566237"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Selektywne tworzenie kopii zapasowych i przywracanie dysków dla maszyn wirtualnych platformy Azure
 
 Azure Backup obsługuje tworzenie kopii zapasowych wszystkich dysków (systemu operacyjnego i danych) w maszynie wirtualnej przy użyciu rozwiązania do tworzenia kopii zapasowych maszyn wirtualnych. Teraz korzystając z funkcji tworzenia kopii zapasowych i przywracania dysków selektywnych, można utworzyć kopię zapasową podzbioru dysków danych w maszynie wirtualnej. Zapewnia to wydajne i ekonomiczne rozwiązanie dla potrzeb tworzenia kopii zapasowych i przywracania. Każdy punkt odzyskiwania zawiera tylko te dyski, które są uwzględnione w operacji tworzenia kopii zapasowej. Pozwala to na dalsze przywrócenie podzestawu dysków z danego punktu odzyskiwania podczas operacji przywracania. Dotyczy to zarówno przywracania z migawek, jak i magazynu.
+
+>[!NOTE]
+>Selektywne tworzenie kopii zapasowych i przywracanie dysków dla maszyn wirtualnych platformy Azure jest dostępne w publicznej wersji zapoznawczej we wszystkich regionach.
 
 ## <a name="scenarios"></a>Scenariusze
 

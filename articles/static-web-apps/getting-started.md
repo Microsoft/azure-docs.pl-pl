@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 6738f598275e91ce8a811c3ef6bcc6d5dc84e0bd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bbc06b657525880f22bd5fb38e902f906d438c9c
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089502"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565914"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>Szybki Start: Tworzenie pierwszej statycznej aplikacji sieci Web
 
@@ -41,7 +41,7 @@ W tym artykule są wykorzystywane repozytoria szablonów usługi GitHub w celu u
   - https://github.com/staticwebdev/react-basic/generate
 - Nadaj nazwę repozytorium **My-static-Web-App**
 
-# <a name="vue"></a>[VUE](#tab/vue)
+# <a name="vue"></a>[Vue](#tab/vue)
 
 - Upewnij się, że zalogowano się do usługi GitHub, a następnie przejdź do następującej lokalizacji, aby utworzyć nowe repozytorium
   - https://github.com/staticwebdev/vue-basic/generate
@@ -98,7 +98,7 @@ Po zalogowaniu się za pomocą usługi GitHub wprowadź informacje o repozytoriu
 :::image type="content" source="media/getting-started/next-build-button.png" alt-text="Przycisk Następna kompilacja":::
 
 > [!NOTE]
->  Jeśli nie widzisz żadnych repozytoriów, może być konieczne autoryzowanie Web Apps statycznej platformy Azure w usłudze GitHub. Przejdź do repozytorium GitHub i przejdź do pozycji **ustawienia > aplikacje > autoryzowane aplikacje OAuth**, wybierz pozycję **statyczne Web Apps platformy Azure**, a następnie wybierz pozycję **Udziel**. W przypadku repozytoriów organizacji musisz być właścicielem organizacji, aby przyznać uprawnienia.
+>  Jeśli nie widzisz żadnych repozytoriów, może być konieczne autoryzowanie Web Apps statycznej platformy Azure w usłudze GitHub. Przejdź do [strony głównej usługi GitHub](https://github.com) i kliknij swój obraz konta, aby otworzyć menu rozwijane. Kliknij pozycję **Ustawienia**, następnie **aplikacje > autoryzowane aplikacje OAuth > Azure static Web Apps**, a następnie wybierz pozycję **Udziel**. W przypadku repozytoriów organizacji musisz być właścicielem organizacji, aby przyznać uprawnienia.
 
 ### <a name="build"></a>Kompilacja
 
@@ -116,7 +116,7 @@ Następnie dodaj szczegóły konfiguracji specyficzne dla preferowanej struktury
 - Wyczyść wartość domyślną w polu _Lokalizacja interfejsu API_
 - Wprowadź **kompilację** w polu _Lokalizacja artefaktu aplikacji_
 
-# <a name="vue"></a>[VUE](#tab/vue)
+# <a name="vue"></a>[Vue](#tab/vue)
 
 - Wprowadź **/** w polu _Lokalizacja aplikacji_
 - Wyczyść wartość domyślną w polu _Lokalizacja interfejsu API_
@@ -162,7 +162,7 @@ W oknie przeglądu Web Apps statycznego zostanie wyświetlona seria linków, kt�
 
 2. Po zakończeniu przepływu pracy akcji usługi GitHub można kliknąć link _adresu URL_ , aby otworzyć witrynę sieci Web na nowej karcie.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, możesz usunąć wystąpienie usługi Azure static Web Apps, wykonując następujące czynności:
 

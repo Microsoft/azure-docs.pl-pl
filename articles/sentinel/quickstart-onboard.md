@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d895ff3a16f8e21f73845c03d8bec83ded9bcd43
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 3efd0303b447242c0229bc71720e55c8aa3a2f2d
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564546"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566254"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Szybki Start: tablica wskaźnikowa platformy Azure
 
@@ -39,9 +39,9 @@ Po nawiązaniu połączenia ze źródłami danych wybierz jedną z galerii ze sz
 - Do nawiązania połączenia z określonymi źródłami danych mogą być konieczne dodatkowe uprawnienia.
 - Azure — Wskaźnikowanie jest płatną usługą. Aby uzyskać informacje o cenach, zobacz [Informacje o wskaźniku platformy Azure](https://go.microsoft.com/fwlink/?linkid=2104058).
  
-## <a name="enable-azure-sentinel"></a>Włącz platformę Azure — wskaźnik<a name="enable"></a>
+## <a name="enable-azure-sentinel"></a>Włącz platformę Azure — wskaźnik <a name="enable"></a>
 
-1. Zaloguj się do witryny Azure Portal. Upewnij się, że wybrano subskrypcję, w której tworzony jest wskaźnik "Azure".
+1. Zaloguj się w witrynie Azure Portal. Upewnij się, że wybrano subskrypcję, w której tworzony jest wskaźnik "Azure".
 
 1. Wyszukaj i wybierz pozycję **wskaźnik na platformie Azure**.
 
@@ -58,7 +58,10 @@ Po nawiązaniu połączenia ze źródłami danych wybierz jedną z galerii ze sz
    > - Wskaźnik "Azure" może działać w obszarach roboczych w dowolnym [regionie log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) z wyjątkiem regionów Chińska i Niemcy (suwerenne). Dane generowane przez wskaźnik na platformie Azure (takie jak zdarzenia, zakładki i reguły alertów, które mogą zawierać niektóre dane klienta pochodzące z tych obszarów roboczych) są zapisywane w Europie (dla obszarów roboczych znajdujących się w Europie), w Australii (dla obszarów roboczych znajdujących się w Australii) lub w regionie Wschodnie stany USA (dla obszarów roboczych znajdujących się w innym regionie).
 
    >[!IMPORTANT]
-   > - Po włączeniu funkcji wskaźnikowej platformy Azure w obszarze roboczym przeniesienie tego obszaru roboczego do innych grup zasobów lub subskrypcji nie jest obsługiwane. Jeśli musisz przenieść obszar roboczy, skontaktuj się z pomocą techniczną [platformy Azure](mailto:AzureSentinel@microsoft.com).
+   >
+   > - Po wdrożeniu w obszarze roboczym centrum kontrolne platformy Azure **nie obsługuje obecnie** przeniesienia tego obszaru roboczego do innych grup zasobów lub subskrypcji. 
+   >
+   >   Jeśli obszar roboczy został już przeniesiony, wyłącz wszystkie aktywne reguły w obszarze **Analiza** i włącz je ponownie po pięciu minutach. Ta sytuacja powinna być skuteczna w większości przypadków, ale w celu przeprowadzonej iteracji nie jest to obsługiwane i realizowane na własne ryzyko.
 
 1. Wybierz pozycję **Dodaj wskaźnik platformy Azure**.
   

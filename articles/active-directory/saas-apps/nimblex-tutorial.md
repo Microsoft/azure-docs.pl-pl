@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą NimbleX | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i NimbleX.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: d3e165a5-f062-4b50-ac0b-b400838e99cd
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: jeedes
-ms.openlocfilehash: cd7199e94a58b3f0c121a0fd9401bff94406ed84
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 595977635937ec5dcf4a45a1d57524c1d3f41a6e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67096097"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88554383"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Samouczek: integracja Azure Active Directory z usługą NimbleX
 
@@ -32,7 +28,7 @@ Integracja NimbleX z usługą Azure AD zapewnia następujące korzyści:
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -107,9 +103,9 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą NimbleX, wy
 
     ![NimbleX domenę i adresy URL Logowanie jednokrotne](common/sp-identifier-reply.png)
 
-    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:`https://<YOUR APPLICATION PATH>/Login.aspx`
+    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<YOUR APPLICATION PATH>/Login.aspx`
 
-    b. W polu **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<YOUR APPLICATION PATH>/`
+    b. W polu **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<YOUR APPLICATION PATH>/`
 
     c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<path-to-application>/SamlReply.aspx`
 
@@ -156,7 +152,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą NimbleX, wy
 
     c. W polu tekstowym **adres URL logowania jednokrotnego dla dostawcy tożsamości** wklej wartość **adresu URL**, który został skopiowany z Azure Portal.
 
-    d. Kliknij przycisk **Zapisz**.
+    d. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -176,8 +172,8 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz**brittasimon@yourcompanydomain.extension**  
-    Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon@yourcompanydomain.extension**  
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -228,5 +224,5 @@ Po kliknięciu kafelka NimbleX w panelu dostępu należy automatycznie zalogowa�
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

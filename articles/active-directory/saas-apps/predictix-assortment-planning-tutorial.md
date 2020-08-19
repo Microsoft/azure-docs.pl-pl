@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z planowaniem asortymentu Predictix | Microsoft Docs'
 description: W tym samouczku dowiesz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory a planowaniem asortymentu Predictix.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 37e686ff-f8e5-40b1-9d7e-f64b076917b7
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: be1aa932e246992bd5826ac502ab2ac5b8d52ddf
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 5b7ec1843d279e8c0477ed1c7754746d4f3044ad
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800716"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553663"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Samouczek: integracja Azure Active Directory z planowaniem asortymentu Predictix
 
@@ -202,7 +198,7 @@ Teraz musisz przetestować konfigurację logowania jednokrotnego usługi Azure A
 
 Po wybraniu kafelka planowania asortymentu Predictix w panelu dostępu należy automatycznie zalogować się do wystąpienia planowania asortymentu Predictix, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji, zobacz [dostęp i używanie aplikacji w portalu Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

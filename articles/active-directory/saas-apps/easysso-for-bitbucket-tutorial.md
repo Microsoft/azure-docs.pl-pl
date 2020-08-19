@@ -2,25 +2,21 @@
 title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą EasySSO dla BitBucket | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i EasySSO dla BitBucket.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 3ed96e97-b590-4dca-8d00-36288444c641
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/18/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 946785f02461706d1d3675d089c19d68816fb8ca
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bd15798e9b642f3abc617c0fa224c530d90b5dd6
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077103"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555573"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bitbucket"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą EasySSO dla BitBucket
 
@@ -84,13 +80,13 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, który używa następującego wzorca:`https://<server-base-url>/plugins/servlet/easysso/saml`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, który używa następującego wzorca: `https://<server-base-url>/plugins/servlet/easysso/saml`
 
-    b. W polu tekstowym **adres URL odpowiedzi** wpisz adres URL, który używa następującego wzorca:`https://<server-base-url>/plugins/servlet/easysso/saml`
+    b. W polu tekstowym **adres URL odpowiedzi** wpisz adres URL, który używa następującego wzorca: `https://<server-base-url>/plugins/servlet/easysso/saml`
 
 1. Wybierz opcję **Ustaw dodatkowe adresy URL**i wykonaj następujące czynności, jeśli chcesz skonfigurować aplikację w trybie zainicjowania programu **SP** :
 
-    - W polu tekstowym **adres URL logowania** wpisz adres URL, który używa następującego wzorca:`https://<server-base-url>/login.jsp`
+    - W polu tekstowym **adres URL logowania** wpisz adres URL, który używa następującego wzorca: `https://<server-base-url>/login.jsp`
 
     > [!NOTE]
     > To nie są rzeczywiste wartości. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej EasySSO](mailto:support@techtime.co.nz) , aby uzyskać te wartości w razie wątpliwości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.

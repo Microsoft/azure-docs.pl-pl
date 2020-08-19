@@ -3,15 +3,15 @@ title: Przegląd — Automatyzowanie wdrożenia dla Azure Logic Apps
 description: Dowiedz się więcej na temat Azure Resource Manager szablonów do automatyzowania wdrażania Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 07/25/2019
-ms.openlocfilehash: 6a89eb16c8042efc86bb5cc8bd5fba7c821dc341
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/17/2020
+ms.openlocfilehash: 391692d708adbd542b2cf358f0ac597dc1db3fa0
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520973"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565557"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Przegląd: Automatyzowanie wdrażania Azure Logic Apps przy użyciu szablonów Azure Resource Manager
 
@@ -175,7 +175,7 @@ Poniżej przedstawiono niektóre najlepsze rozwiązania dotyczące definiowania 
 
   * [Przekaż zabezpieczone wartości parametrów za pomocą Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
-* Aby rozróżnić nazwy parametrów szablonu od nazw parametrów definicji przepływu pracy, można użyć opisowych nazw parametrów szablonu, na przykład:`TemplateFabrikamPassword`
+* Aby rozróżnić nazwy parametrów szablonu od nazw parametrów definicji przepływu pracy, można użyć opisowych nazw parametrów szablonu, na przykład: `TemplateFabrikamPassword`
 
 Aby uzyskać więcej najlepszych rozwiązań dotyczących szablonów, zobacz [najlepsze rozwiązania dotyczące parametrów szablonów](../azure-resource-manager/templates/template-best-practices.md#parameters).
 
@@ -237,7 +237,7 @@ Ten przykładowy plik parametrów określa wartości parametrów szablonu zadekl
 
 ## <a name="template-resources"></a>Zasoby szablonu
 
-Szablon zawiera `resources` obiekt, który jest tablicą zawierającą definicje dla każdego zasobu do utworzenia i wdrożenia na platformie Azure, takie jak [Definicja zasobu aplikacji logiki](#logic-app-resource-definition), wszystkie [definicje zasobów połączeń](#connection-resource-definitions)i inne zasoby, które wymagają wdrożenia przez aplikację logiki.
+Szablon zawiera `resources` obiekt, który jest tablicą zawierającą definicje dla każdego zasobu do utworzenia i wdrożenia na platformie Azure, na przykład [definicję zasobu aplikacji logiki](#logic-app-resource-definition), [definicje zasobów połączenia](#connection-resource-definitions)i inne zasoby, które wymagają wdrożenia przez aplikację logiki.
 
 ```json
 {
@@ -264,6 +264,22 @@ Szablon zawiera `resources` obiekt, który jest tablicą zawierającą definicje
 
 > [!NOTE]
 > Szablony mogą obejmować definicje zasobów dla wielu aplikacji logiki, dlatego należy upewnić się, że wszystkie zasoby aplikacji logiki określają tę samą grupę zasobów platformy Azure. Po wdrożeniu szablonu w grupie zasobów platformy Azure przy użyciu programu Visual Studio zostanie wyświetlony monit o wybranie aplikacji logiki, która ma zostać otwarta. Ponadto projekt grupy zasobów platformy Azure może zawierać więcej niż jeden szablon, dlatego upewnij się, że po wyświetleniu monitu zostanie wybrany prawidłowy plik parametrów.
+
+<a name="view-resource-definitions"></a>
+
+### <a name="view-resource-definitions"></a>Wyświetl definicje zasobów
+
+Aby przejrzeć definicje zasobów dla wszystkich zasobów w grupie zasobów platformy Azure, [Pobierz aplikację logiki z platformy Azure do programu Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), która jest najprostszym sposobem utworzenia prawidłowego szablonu sparametryzowanej aplikacji logiki, który jest przede wszystkim gotowy do wdrożenia, lub wykonaj następujące kroki w Azure Portal:
+
+1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com) przy użyciu poświadczeń konta Azure.
+
+1. Znajdź grupę zasobów platformy Azure zawierającą aplikację logiki, połączenia i inne zasoby.
+
+1. Na pasku narzędzi Grupa zasobów wybierz pozycję **Przegląd**, a następnie wybierz pozycję wszystkie zasoby w grupie zasobów.
+
+1. Na pasku narzędzi grupy zasobów w obszarze **Ustawienia**wybierz pozycję **Eksportuj szablon**.
+
+   W portalu są wyświetlane definicje wybranych zasobów. Aby uzyskać więcej informacji, zobacz [Eksportowanie pojedynczych i wielu zasobów do szablonu w Azure Portal](../azure-resource-manager/templates/export-template-portal.md).
 
 Aby uzyskać ogólne informacje na temat zasobów szablonów i ich atrybutów, zobacz następujące tematy:
 
@@ -321,7 +337,7 @@ Poniżej znajdują się atrybuty specyficzne dla definicji zasobu aplikacji logi
 
 | Atrybut | Wymagany | Typ | Opis |
 |-----------|----------|------|-------------|
-| `state` | Tak | String (ciąg) | Stan aplikacji logiki przy wdrożeniu, gdzie `Enabled` oznacza, że aplikacja logiki działa i `Disabled` oznacza, że aplikacja logiki jest nieaktywna. Jeśli na przykład nie masz gotowości do działania aplikacji logiki, ale chcesz wdrożyć wersję roboczą, możesz użyć `Disabled` opcji. |
+| `state` | Tak | String | Stan aplikacji logiki przy wdrożeniu, gdzie `Enabled` oznacza, że aplikacja logiki działa i `Disabled` oznacza, że aplikacja logiki jest nieaktywna. Jeśli na przykład nie masz gotowości do działania aplikacji logiki, ale chcesz wdrożyć wersję roboczą, możesz użyć `Disabled` opcji. |
 | `integrationAccount` | Nie | Obiekt | Jeśli aplikacja logiki korzysta z konta integracji, które przechowuje artefakty dla scenariuszy biznes-to-Business (B2B), ten obiekt zawiera `id` atrybut, który określa identyfikator konta integracji. |
 | `definition` | Tak | Obiekt | Podstawowa definicja przepływu pracy aplikacji logiki, która jest tym samym obiektem, który pojawia się w widoku kodu i jest w pełni opisana w [dokumentacji schematu dotyczącej języka definicji przepływu pracy](../logic-apps/logic-apps-workflow-definition-language.md) . W tej definicji przepływu pracy `parameters` obiekt deklaruje parametry dla wartości, które mają być używane w środowisku uruchomieniowym aplikacji logiki. Aby uzyskać więcej informacji, zobacz [definicji i parametrów przepływu pracy](#workflow-definition-parameters). <p><p>Aby wyświetlić atrybuty w definicji przepływu pracy aplikacji logiki, przejdź od "Widok projektu" do "Widok kodu" w Azure Portal lub Visual Studio lub za pomocą narzędzia, takiego jak [Azure Resource Explorer](https://resources.azure.com). |
 | `parameters` | Nie | Obiekt | [Wartości parametrów definicji przepływu pracy](#workflow-definition-parameters) do użycia w środowisku uruchomieniowym aplikacji logiki. Definicje parametrów dla tych wartości są wyświetlane w [obiekcie parametrów definicji przepływu pracy](#workflow-definition-parameters). Ponadto, jeśli aplikacja logiki korzysta z [łączników zarządzanych](../connectors/apis-list.md) do uzyskiwania dostępu do innych usług i systemów, ten obiekt zawiera `$connections` obiekt, który ustawia wartości połączenia do użycia w czasie wykonywania. |

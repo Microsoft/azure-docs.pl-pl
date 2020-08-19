@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/05/2020
+ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 0d1845c06c1f0373ffd4be43c104889a7327c3ac
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: af0964dceca8b862d0008d878045203983a96bda
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035777"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586219"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 for Core (SQL) API: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -26,7 +26,8 @@ ms.locfileid: "88035777"
 > * [Java SDK 4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK 2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK 2](sql-api-sdk-java.md)
-> * [Spring Data](sql-api-sdk-java-spring.md)
+> * [Wiosenne dane v2](sql-api-sdk-java-spring-v2.md)
+> * [Wiosenne dane v3](sql-api-sdk-java-spring-v3.md)
 > * [Łącznik platformy Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
@@ -143,10 +144,10 @@ Azure Cosmos DB Java SDK v4 for Core (SQL) łączy asynchroniczny interfejs API 
 * Zmieniono nazwę `preferredLocations`  &  `multipleWriteLocations` interfejsu API na `preferredRegions`  &  `multipleWriteRegions` . 
 * Zaktualizowano `reactor-core` do wersji 3.3.5. Release, `reactor-netty` Aby 0.9.7. Release & `netty` do 4.1.49. final. 
 * Dodano obsługę `analyticalStoreTimeToLive` zestawu SDK.     
-* `CosmosClientException`rozszerza `AzureException` . 
+* `CosmosClientException` rozszerza `AzureException` . 
 * `maxItemCount`  &  `requestContinuationToken` Zamiast tego usunięte interfejsy API z programu `FeedOptions` używają `byPage()` interfejsów API `CosmosPagedFlux`  &  `CosmosPagedIterable` .
 * Wprowadzone `CosmosPermissionProperties` na publicznej powierzchni dla `Permission` interfejsów API.
-* Usunięty `SqlParameterList` typ & zastępowany przez`List`
+* Usunięty `SqlParameterList` typ & zastępowany przez `List`
 * Naprawiono wiele przecieków pamięci w bezpośrednim kliencie TCP. 
 * Dodano obsługę `DISTINCT` zapytań. 
 * Usunięto zależności zewnętrzne `fasterxml.uuid, guava, commons-io, commons-collection4, commons-text` .  
@@ -154,14 +155,14 @@ Azure Cosmos DB Java SDK v4 for Core (SQL) łączy asynchroniczny interfejs API 
 * Zaktualizowano sieci z 4.1.45. Final & reaktora projektu do wersji 3.3.3.
 * Zaktualizowano publiczne kontrakty REST do `Final` klas.
 * Dodano obsługę zaawansowanej diagnostyki dla operacji punktowych.
-* Zaktualizowano pakiet do programu`com.azure.cosmos`
+* Zaktualizowano pakiet do programu `com.azure.cosmos`
 * Dodano `models` pakiet dla umów model/REST
 * Dodano `utils` pakiet dla `CosmosPagedFlux`  &  `CosmosPagedIterable` typów. 
 * Zaktualizowano publiczne interfejsy API do użycia `Duration` w zestawie SDK.
 * Dodano wszystkie kontrakty REST do `models` pakietu.
-* `RetryOptions`Zmieniono nazwę na `ThrottlingRetryOptions` .
+* `RetryOptions` Zmieniono nazwę na `ThrottlingRetryOptions` .
 * Dodano `CosmosPagedFlux`  &  `CosmosPagedIterable` typy stronicowania dla interfejsów API zapytań. 
-* Dodano obsługę udostępniania TransportClient w wielu wystąpieniach CosmosClients przy użyciu nowego interfejsu API w`CosmosClientBuilder#connectionSharingAcrossClientsEnabled(true)`
+* Dodano obsługę udostępniania TransportClient w wielu wystąpieniach CosmosClients przy użyciu nowego interfejsu API w `CosmosClientBuilder#connectionSharingAcrossClientsEnabled(true)`
 * Optymalizacje zapytań przez usunięcie podwójnej serializacji/deserializacji. 
 * Optymalizacje nagłówków odpowiedzi przez usunięcie niepotrzebnego kopiowania z tyłu i do przodu. 
 * Optymalizacja `ByteBuffer` serializacji/deserializacji przez usunięcie pośrednich wystąpień ciągu.
@@ -171,8 +172,8 @@ Azure Cosmos DB Java SDK v4 for Core (SQL) łączy asynchroniczny interfejs API 
 * Rozwiązano problem związany z analizowaniem wyników zapytania w przypadku kolejności wartości według zapytań. 
 * Rozwiązano problemy z przeciekiem gniazda przy użyciu bezpośredniego klienta protokołu TCP.
 * Naprawiono `orderByQuery` błąd tokenu kontynuacji.
-* `ChangeFeedProcessor`Poprawka usterki dla podzielonych partycji &, gdy nie odnaleziono partycji.
-* `ChangeFeedProcessor`Poprawka błędu podczas synchronizowania aktualizacji dzierżawy w różnych wątkach.
+* `ChangeFeedProcessor` Poprawka usterki dla podzielonych partycji &, gdy nie odnaleziono partycji.
+* `ChangeFeedProcessor` Poprawka błędu podczas synchronizowania aktualizacji dzierżawy w różnych wątkach.
 * Stały warunek wyścigu powodujący `ArrayIndexOutOfBound` wyjątek w StoreReader
 
 ## <a name="faq"></a>Często zadawane pytania

@@ -7,12 +7,12 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 6000bffb80c83ffce58605bcc7e5bfaf404329da
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: d063418bb8e78bf306dda8fc558bb0e3005dbd0a
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986684"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88584900"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Kodowanie za pomocą cyfrowych interfejsów API usługi Azure bliźniaczych reprezentacji
 
@@ -48,7 +48,7 @@ Następnie Dodaj dwa niezbędne zależności do pracy z usługą Azure Digital b
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity
+dotnet add package Azure.identity --version 1.1.1
 ```
 
 Pierwsza zależność to [Biblioteka kliencka Digital bliźniaczy usługi Azure IoT dla platformy .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Druga zależność zawiera narzędzia, które ułatwiają uwierzytelnianie na platformie Azure.
@@ -528,7 +528,7 @@ namespace minimal
     }
 }
 ```
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
  
 Wystąpienie używane w tym samouczku można ponownie wykorzystać w następnym samouczku, [*samouczku: Eksplorowanie podstaw za pomocą przykładowej aplikacji klienckiej*](tutorial-command-line-app.md). Jeśli planujesz przejść do następnego samouczka, możesz zachować tutaj skonfigurowane wystąpienie usługi Azure Digital bliźniaczych reprezentacji.
  

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c1a8fbb5558d5b9069c5b8103bca2fc3f8bcddf3
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 7411b4c000569693335cb0438fe186b290750247
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507585"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88602455"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Czy użytkownik musi dysponować centrum i szprychą z urządzeniami z systemem SD/WAN/VPN, aby można było korzystać z wirtualnej sieci WAN platformy Azure?
 
@@ -239,7 +239,7 @@ Gdy wiele obwodów usługi ExpressRoute jest podłączonych do koncentratora wir
 
 ### <a name="does-virtual-wan-prefer-expressroute-over-vpn-for-traffic-egressing-azure"></a>Czy wirtualne sieci WAN preferują ExpressRoute za pośrednictwem sieci VPN dla ruchu wychodzącego z platformy Azure
 
-Yes 
+Tak 
 
 ### <a name="when-a-virtual-wan-hub-has-an-expressroute-circuit-and-a-vpn-site-connected-to-it-what-would-cause-a-vpn-connection-route-to-be-prefered-over-expressroute"></a>Gdy wirtualny koncentrator sieci WAN ma obwód usługi ExpressRoute oraz podłączoną do niej lokację sieci VPN, co spowodowałoby preferowanie trasy połączenia sieci VPN za pośrednictwem ExpressRoute?
 
@@ -256,6 +256,9 @@ Protokół IPv6 nie jest obsługiwany w przypadku koncentratora wirtualnego siec
 ### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionality-"></a>Jaka jest zalecana wersja interfejsu API, która ma być używana przez skrypty automatyzowania różnych wirtualnych funkcji sieci WAN?
 
 Wymagana jest minimalna wersja 05-01-2020 (może 1 2020). 
+
+### <a name="any-virtual-wan-limits"></a>Dowolnych limitów wirtualnych sieci WAN?
+Limity wirtualnej sieci WAN: https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Jakie są różnice między wirtualnymi typami sieci WAN (podstawowa i standardowa)?
 

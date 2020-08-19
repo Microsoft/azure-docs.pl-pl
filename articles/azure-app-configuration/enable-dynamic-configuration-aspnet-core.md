@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 2e741b0501f5e5cc37a6fea781dc1a5ede4fb1c2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 217c564a6bdb340ec15262c1eaf54a75bbffc833
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207152"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585020"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Samouczek: używanie konfiguracji dynamicznej w aplikacji ASP.NET Core
 
@@ -57,6 +57,9 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
 1. Dla **klucza**wpisz *TestApp: Settings: wskaźnik*. Dla **wartości wprowadź wartość**1. Pozostaw pustą **etykietę** i **Typ zawartości** .
 
 1. Wybierz przycisk **Zastosuj**.
+
+    > [!NOTE]
+    > Jeśli nie używasz klucza wskaźnikowego, musisz ręcznie zarejestrować każdy klucz, który chcesz obejrzeć.
 
 ## <a name="reload-data-from-app-configuration"></a>Ponowne ładowanie danych z usługi App Configuration
 
@@ -159,6 +162,9 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
     }
     ```
     ---
+
+    > [!TIP]
+    > Aby dowiedzieć się więcej na temat wzorca opcji podczas odczytywania wartości konfiguracyjnych, zobacz [Opcje wzorców w ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 4. Zaktualizuj `Configure` metodę, dodając `UseAzureAppConfiguration` oprogramowanie pośredniczące, aby umożliwić aktualizowanie ustawień konfiguracji na potrzeby odświeżania, gdy aplikacja sieci Web ASP.NET Core nadal otrzymuje żądania.
 
@@ -339,7 +345,7 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
 
     ![Uruchamianie zaktualizowanej aplikacji szybkiego startu lokalnie](./media/quickstarts/aspnet-core-app-launch-local-after.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

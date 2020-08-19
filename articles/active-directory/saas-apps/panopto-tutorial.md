@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Panopto | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Panopto.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 89c88e23-93ce-4970-9baa-1104c4e8fe4a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/17/2019
 ms.author: jeedes
-ms.openlocfilehash: a1d4836586bac359c3208147ec7bf59061cf0928
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: aa7a93776d5dfd1d8ad60a08c2df2d773fb1ec21
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648597"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88554006"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panopto"></a>Samouczek: integracja Azure Active Directory z usługą Panopto
 
@@ -32,7 +28,7 @@ Integracja Panopto z usługą Azure AD zapewnia następujące korzyści:
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -152,9 +148,9 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Panopto, wy
 
     e. W polu tekstowym **wystawca** wklej wartość identyfikatora usługi **Azure AD**, która została skopiowana z Azure Portal.
 
-    f. Otwórz certyfikat zakodowany w formacie Base-64, który został pobrany z Azure Portal Skopiuj zawartość tego elementu do schowka, a następnie wklej go do pola tekstowego **klucza publicznego** .
+    f. Otwórz certyfikat zakodowany w formacie Base-64, który został pobrany z Azure Portal Skopiuj zawartość tego elementu do schowka, a następnie wklej go do pola tekstowego **klucza publicznego**  .
 
-5. Kliknij przycisk **Zapisz**.
+5. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -175,7 +171,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
     b. W polu **Nazwa użytkownika** wpisz **brittasimon@yourcompanydomain.extension**  
-    Na przykład: BrittaSimon@contoso.com
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -227,5 +223,5 @@ Po kliknięciu kafelka Panopto w panelu dostępu należy automatycznie zalogowa�
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

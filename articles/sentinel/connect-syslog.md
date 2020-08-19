@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 27c1ad4907b0b16ce6830a6fe787b78f6129eadd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7670d00a2dd25961a51d18c50c102e0f92b30975
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322843"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566152"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Zbieranie danych z źródeł opartych na systemie Linux przy użyciu dziennika systemowego
 
@@ -86,6 +86,8 @@ Aby uzyskać więcej informacji, zobacz [źródła danych dziennika systemowego 
 1. Aby przeanalizować komunikaty dziennika systemowego, można użyć parametrów zapytania opisanych w temacie [using Functions in Azure monitor Query log](../azure-monitor/log-query/functions.md) . Następnie można zapisać zapytanie jako nową funkcję Log Analytics i użyć go jako nowego typu danych.
 
 > [!NOTE]
+> **Używanie tego samego komputera do przesyłania zarówno zwykłego dziennika systemowego *, jak i* komunikatów CEF**
+>
 >
 > Możesz użyć istniejącego [komputera usługi przesyłania dalej dzienników CEF](connect-cef-agent.md) , aby zbierać i przesyłać dzienniki z dzienników zwykłego dziennika systemu. Należy jednak wykonać następujące czynności, aby uniknąć wysyłania zdarzeń w obu formatach do usługi Azure wskaźnikowej, ponieważ spowoduje to duplikowanie zdarzeń.
 >

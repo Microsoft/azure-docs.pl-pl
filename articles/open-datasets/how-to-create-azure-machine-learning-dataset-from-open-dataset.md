@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 54408b20ebba60de2e1a696e5bd9b06f55e860ba
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 96eeafd7e434e2c3a42311999fcd4979531df2aa
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513231"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88584883"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Tworzenie zestawów danych Azure Machine Learning przy użyciu otwartych zestawów danych platformy Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -75,7 +75,7 @@ tabular_dataset = MNIST.get_tabular_dataset()
 file_dataset = MNIST.get_file_dataset()
 ```
 
-W tym przykładzie `opendatasets` Klasa cukrzycą jest dostępna tylko jako a `TabularDataset` , dlatego użycie `get_tabular_dataset()`
+W tym przykładzie `opendatasets` Klasa cukrzycą jest dostępna tylko jako a `TabularDataset` , dlatego użycie `get_tabular_dataset()` .
 
 ```python
 
@@ -98,7 +98,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 ## <a name="create-datasets-with-the-studio"></a>Tworzenie zestawów danych za pomocą programu Studio
 
-Można również tworzyć zestawy danych z otwartych zestawów danych za pomocą [Azure Machine Learning Studio](https://ml.azure.com), skonsolidowanego interfejsu sieci Web, który zawiera narzędzia uczenia maszynowego do wykonywania scenariuszy analizy danych dla lekarzy danych wszystkich poziomów umiejętności.
+Możesz również tworzyć Azure Machine Learning zestawy danych z platformy Azure otwartych zestawów danych za pomocą programu [Azure Machine Learning Studio](https://ml.azure.com), skonsolidowanego interfejsu sieci Web, który zawiera narzędzia uczenia maszynowego do wykonywania scenariuszy analizy danych dla lekarzy danych wszystkich poziomów umiejętności.
 
 > [!Note]
 > Zestawy danych utworzone za pomocą Azure Machine Learning Studio są automatycznie rejestrowane w obszarze roboczym.
@@ -111,7 +111,7 @@ Można również tworzyć zestawy danych z otwartych zestawów danych za pomocą
 
     ![Wybierz zestaw danych](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-1. Wybierz nazwę, pod którą ma zostać zarejestrowany zestaw danych, i opcjonalnie odfiltruj dane przy użyciu dostępnych filtrów. W tym przypadku dla zestawu danych **dni wolnych** , należy odfiltrować przedział czasu do jednego roku i kod kraju tylko do USA. Wybierz pozycję **Utwórz**.
+1. Wybierz nazwę, pod którą ma zostać zarejestrowany zestaw danych, i opcjonalnie odfiltruj dane przy użyciu dostępnych filtrów. W tym przypadku dla zestawu danych **dni wolnych** , należy odfiltrować przedział czasu do jednego roku i kod kraju tylko do USA. Zobacz [wykaz otwartych zestawów danych platformy Azure](https://azure.microsoft.com/services/op[en-datasets/catalog/) , aby uzyskać szczegółowe informacje, takie jak opisy pól i zakresy dat. Wybierz pozycję **Utwórz**.
 
     ![Ustaw parametry zestawu danych i Utwórz zestaw danych](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
 

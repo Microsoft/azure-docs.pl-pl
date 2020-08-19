@@ -2,24 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą FluxX Labs | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i FluxX Labs.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: d8fac770-bb57-4e1f-b50b-9ffeae239d07
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 198e93fe03c78313dfd64da9b58f2aa9098343f2
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 756bbaab1cbf359def01e371e4370607bee67ce3
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799261"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88554866"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fluxx-labs"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą FluxX Labs
 
@@ -164,11 +161,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     f. W polu tekstowym **adres URL logowania JEDNOkrotnego dla dostawcy tożsamości** wklej wartość **adresu URL** , która została skopiowana z Azure Portal.
 
-    g. Otwórz certyfikat zakodowany w formacie Base-64 w Notatniku, skopiuj zawartość tego pliku do schowka, a następnie wklej go do pola tekstowego **certyfikat dostawcy tożsamości** .
+    przykład Otwórz certyfikat zakodowany w formacie Base-64 w Notatniku, skopiuj zawartość tego pliku do schowka, a następnie wklej go do pola tekstowego **certyfikat dostawcy tożsamości** .
 
     h. W polu tekstowym **Format identyfikatora nazwy** wprowadź wartość `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` .
 
-    i. Kliknij przycisk **Zapisz**.
+    i. Kliknij pozycję **Zapisz**.
 
     > [!NOTE]
     > Po zapisaniu zawartości pole będzie wyświetlane jako puste dla zabezpieczeń, ale wartość została zapisana w konfiguracji.
@@ -195,7 +192,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do FluxX Labs, mus
 
     a. FluxX Labs używają poczty e-mail jako unikatowego identyfikatora logowania jednokrotnego (SSO). Wypełnij pole **UID logowania jednokrotnego** , podając adres e-mail użytkownika, który jest zgodny z adresem e-mail, który jest używany jako logowanie za pomocą logowania jednokrotnego.
 
-    b. Kliknij przycisk **Zapisz**.
+    b. Kliknij pozycję **Zapisz**.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
@@ -205,11 +202,11 @@ Po kliknięciu kafelka FluxX Labs w panelu dostępu należy automatycznie zalogo
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj FluxX Labs z usługą Azure AD](https://aad.portal.azure.com/)
 

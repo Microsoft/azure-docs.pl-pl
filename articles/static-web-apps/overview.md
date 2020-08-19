@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 47140bccc8c2a1b69f083502d031a9db6d21294e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 884aa18b1a29b1c4f1bbf1159a5d48870529c72b
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835786"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565710"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>Co to jest usługa Azure static Web Apps Preview?
 
@@ -32,10 +32,10 @@ W przypadku statycznych Web Apps zasoby statyczne są oddzielone od tradycyjnego
 
 - **Hosting internetowy** dla zawartości statycznej, takiej jak HTML, CSS, JavaScript i obrazy.
 - **Zintegrowana obsługa interfejsu API** zapewniana przez Azure Functions.
-- **Integracja z usługą GitHub dla pierwszej firmy** , w której zmiany repozytoriów wyzwalają kompilacje i wdrożenia.
+- **Pierwsza klasa integracja** z usługą GitHub, w której zmiany repozytorium wyzwala kompilacje i wdrożenia.
 - **Globalnie dystrybuowana** zawartość statyczna, która umieszcza zawartość bliżej użytkowników.
 - **Bezpłatne certyfikaty SSL**, które są automatycznie odnawiane.
-- **Domeny niestandardowe** \* , aby zapewnić dostosowywać markę do aplikacji.
+- **Domeny niestandardowe** umożliwiające dostosowanie marką do aplikacji.
 - **Bezproblemowe model zabezpieczeń** z zwrotnym serwerem proxy podczas wywoływania interfejsów API, które nie wymagają konfiguracji mechanizmu CORS.
 - **Integracja dostawcy uwierzytelniania** z usługami Azure Active Directory, Facebook, Google, GitHub i Twitter.
 - **Dostosowywalne definicje i przypisania ról autoryzacji** .
@@ -44,11 +44,9 @@ W przypadku statycznych Web Apps zasoby statyczne są oddzielone od tradycyjnego
 
 ## <a name="what-you-can-do-with-static-web-apps"></a>Co możesz zrobić za pomocą Web Apps statycznej
 
-- **Twórz nowoczesne aplikacje języka JavaScript** za pomocą platform i bibliotek, takich jak [kątowy](getting-started.md#tabpanel_CeZOj-G++Q_angular), [reaguje](getting-started.md#tabpanel_CeZOj-G++Q_react), [Svelte](https://docs.microsoft.com/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md#tabpanel_CeZOj-G++Q_vue) [Azure Functions](apis.md) z zapleczem.
+- **Twórz nowoczesne aplikacje języka JavaScript** za pomocą platform i bibliotek, takich jak [kątowy](getting-started.md?tabs=angular), [reaguje](getting-started.md?tabs=react), [Svelte](https://docs.microsoft.com/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md?tabs=react) [Azure Functions](apis.md) z zapleczem.
 - **Publikuj Lokacje statyczne** przy użyciu struktur takich jak [Gatsby](publish-gatsby.md), [Hugo](publish-hugo.md), [VuePress](publish-vuepress.md).
 - **Wdrażaj aplikacje sieci Web** za pomocą platform, takich jak [Next.js](deploy-nextjs.md) i [Nuxt.js](deploy-nuxtjs.md).
-
-\*Rejestracje domeny Apex nie są obsługiwane w trakcie okresu zapoznawczego.
 
 ## <a name="next-steps"></a>Następne kroki
 

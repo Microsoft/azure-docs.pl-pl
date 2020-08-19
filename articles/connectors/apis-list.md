@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 3a628a70d8ce62827f79c1f7e16d2826be8d80f5
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1dd38f0360a4471124497d8357481283cd98383c
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827252"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566305"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Łączniki dla usługi Azure Logic Apps
 
@@ -407,6 +407,10 @@ Aby wywołać interfejsy API, które uruchamiają kod niestandardowy lub nie są
 ## <a name="block-creating-connections"></a>Blokuj tworzenie połączeń
 
 Jeśli Twoja organizacja nie zezwala na łączenie się z określonymi zasobami przy użyciu ich łączników w Azure Logic Apps, można [zablokować możliwość tworzenia tych połączeń](../logic-apps/block-connections-connectors.md) dla określonych łączników w przepływach pracy aplikacji logiki przy użyciu [Azure Policy](../governance/policy/overview.md). Aby uzyskać więcej informacji, zobacz [blok połączeń utworzonych przez określone łączniki w Azure Logic Apps](../logic-apps/block-connections-connectors.md).
+
+## <a name="get-ready-for-deployment"></a>Przygotowanie do wdrożenia
+
+Mimo że tworzysz połączenia z poziomu aplikacji logiki, połączenia są oddzielane zasobami platformy Azure z ich własnymi definicjami zasobów. Aby przejrzeć te definicje zasobów połączeń, można [przeprowadzić inspekcję grupy zasobów dla aplikacji logiki przy użyciu Azure Portal](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#view-resource-definitions) lub [pobrać aplikację logiki z platformy Azure do programu Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), co jest najprostszym sposobem utworzenia ważnego sparametryzowanego szablonu aplikacji logiki, który jest głównie gotowy do wdrożenia.
 
 ## <a name="next-steps"></a>Następne kroki
 

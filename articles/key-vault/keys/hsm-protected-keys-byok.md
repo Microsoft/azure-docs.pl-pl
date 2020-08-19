@@ -7,15 +7,15 @@ manager: devtiw
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 4df934f38a8fb657fa4a8de5922d96197a3d02cc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1869ec9b617a7451ec42fa9d092ea3bb5834f9e8
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87061114"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585478"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Importuj klucze chronione przez moduł HSM do Key Vault (BYOK)
 
@@ -89,7 +89,7 @@ KEK jest kluczem RSA, który jest generowany w Key Vault module HSM. KEK jest u�
 KEK musi być:
 - Klucz modułu HSM RSA (2 048-bitowy; 3 072-bitowy; lub 4 096-bitowy)
 - Generowane w tym samym magazynie kluczy, w którym zamierzasz zaimportować klucz docelowy
-- Utworzono z dozwolonymi operacjami Key ustawionymi na`import`
+- Utworzono z dozwolonymi operacjami Key ustawionymi na `import`
 
 > [!NOTE]
 > KEK musi mieć element "Import" jako jedyną dozwoloną operację klucza. "Import" wykluczają się wzajemnie poza wszystkimi innymi kluczowymi operacjami.

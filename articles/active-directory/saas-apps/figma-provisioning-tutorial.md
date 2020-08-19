@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie Figma automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników w usłudze Figma.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: a50f1c81f5eda78ee6834aba3085f685c197b4dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0f0d61788d7ac9b242dbc176a125b45753d2578
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77057961"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555127"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Figma na potrzeby automatycznego aprowizacji użytkowników
 
@@ -71,7 +67,7 @@ Przed skonfigurowaniem usługi Figma do automatycznego aprowizacji użytkownikó
 
     ![Utwórz token Figma](media/Figma-provisioning-tutorial/token.png)
 
-5. Skopiuj wartość **tokenu interfejsu API** . Ta wartość zostanie wprowadzona w polu **token tajny** na karcie aprowizacji aplikacji Figma w Azure Portal. 
+5. Skopiuj wartość  **tokenu interfejsu API** . Ta wartość zostanie wprowadzona w polu **token tajny** na karcie aprowizacji aplikacji Figma w Azure Portal. 
 
     ![Utwórz token Figma](media/Figma-provisioning-tutorial/figma04.png)
 

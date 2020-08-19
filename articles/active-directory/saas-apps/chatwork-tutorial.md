@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 9f43498ec6a80776f31cd45e80be6d786c2ae863
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fdf9e16e5578f794d01671d391f3568eae6555cc
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88529376"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586260"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-chatwork"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą ChatWork
 
@@ -83,7 +83,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://www.chatwork.com/s/<TENANT_NAME>`
 
     > [!NOTE]
-    > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z [zespołem obsługi klienta ChatWork](mailto:info@support.chatwork.com) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Ta wartość nie jest prawdziwa. Zaktualizuj wartość przy użyciu adresu URL logowania prywatnego, który jest ustawiany po **ChatWork konfiguracji logowania jednokrotnego**.
+
+1. Aplikacja ChatWork oczekuje, że unikatowy atrybut **identyfikatora użytkownika** jest zgodny z adresem e-mail zarejestrowanym w ChatWork. Ten atrybut jest domyślnie mapowany do **User. PrincipalName** . Jeśli nazwa podmiotu zabezpieczeń różni się od adresu e-mail, należy zmapować  **unikatowy identyfikator użytkownika** na **User. mail**.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -125,11 +127,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-chatwork-sso"></a>Konfigurowanie logowania jednokrotnego ChatWork
 
-Aby skonfigurować Logowanie jednokrotne na stronie **ChatWork** , musisz wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej ChatWork](mailto:info@support.chatwork.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować Logowanie jednokrotne na stronie **ChatWork** , Przeczytaj [Podręcznik administratora ChatWork](https://download.chatwork.com/Chatwork_AdminGuide.pdf) i skonfiguruj ustawienie ChatWork.
 
 ### <a name="create-chatwork-test-user"></a>Utwórz użytkownika testowego ChatWork
 
-W tej sekcji utworzysz użytkownika o nazwie B. Simon w ChatWork. Aby dodać użytkowników na platformie ChatWork, Pracuj z [zespołem pomocy technicznej ChatWork](mailto:info@support.chatwork.com) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie B. Simon w ChatWork. Uzyskaj dostęp do [Podręcznika administratora ChatWork](https://download.chatwork.com/Chatwork_AdminGuide.pdf) i Dodaj użytkownika na platformie ChatWork.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
