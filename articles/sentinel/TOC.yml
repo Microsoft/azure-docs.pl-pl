@@ -60,8 +60,8 @@
               href: connect-asc-iot.md
             - name: Serwer nazw domen
               href: connect-dns.md
-            - name: Zapora aplikacji internetowej firmy Microsoft
-              href: connect-microsoft-waf.md
+            - name: Zapora aplikacji internetowej platformy Azure
+              href: connect-azure-waf.md
             - name: Zapora systemu Windows
               href: connect-windows-firewall.md
             - name: Zdarzenia zabezpieczeń systemu Windows

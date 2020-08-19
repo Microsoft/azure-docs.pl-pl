@@ -42,6 +42,8 @@
           href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Zbiorcze tworzenie użytkowników
           href: users-bulk-add.md
+        - name: Ograniczanie uprawnień gości
+          href: users-restrict-guest-permissions.md
         - name: Zarządzanie profilami użytkowników
           href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Delegowanie mojego personelu
@@ -68,19 +70,19 @@
           href: /azure/active-directory/b2b/add-guest-to-role?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Grupy dynamiczne i B2B
           href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Zarządzanie swoim katalogiem
+    - name: Zarządzanie wieloma dzierżawami
       items:
-        - name: Organizacje usługi Azure AD
+        - name: Zarządzanie dzierżawami usługi Azure AD
           href: /azure/active-directory/fundamentals/active-directory-administer?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Zarządzanie nazwami domen
           href: domains-manage.md
-        - name: Usuwanie katalogu
+        - name: Usuwanie dzierżawy
           href: directory-delete-howto.md
         - name: Wiele katalogów
           href: licensing-directory-independence.md
-        - name: Samoobsługowa rejestracja
+        - name: Rejestracja samoobsługowa
           href: directory-self-service-signup.md
-        - name: Przejmowanie katalogu
+        - name: Przejmowanie dzierżawy
           href: domains-admin-takeover.md
         - name: Azure AD Connect
           href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context

@@ -47,6 +47,8 @@
       href: ./policy-samples.md
 - name: Pojęcia
   items:
+    - name: Informacje o aplikacji i wdrożeniu
+      href: spring-cloud-concept-understand-app-and-deployment.md
     - name: Opis przydziałów i limitów
       href: spring-cloud-quotas.md
     - name: Opis metryk

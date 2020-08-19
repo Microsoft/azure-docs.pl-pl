@@ -86,9 +86,9 @@
       href: hyper-v-migration-architecture.md
     - name: Architektura migracji z użyciem agentów programu VMware
       href: agent-based-migration-architecture.md
-    - name: Przegląd ocen maszyn wirtualnych platformy Azure
+    - name: Przegląd oceny (migrowanie do maszyn wirtualnych platformy Azure)
       href: concepts-assessment-calculation.md
-    - name: Omówienie ocen w usłudze AVS
+    - name: Przegląd oceny (migrowanie do usługi AVS)
       href: concepts-azure-vmware-solution-assessment-calculation.md
     - name: Najlepsze rozwiązania dotyczące ocen
       href: best-practices-assessment.md

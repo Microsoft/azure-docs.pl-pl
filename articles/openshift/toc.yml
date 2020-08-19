@@ -79,6 +79,8 @@
   items:
     - name: Obsługa sieci w klastrach usługi Azure Red Hat OpenShift 4
       href: concepts-networking.md
+    - name: Migrowanie z usługi Azure Red Hat OpenShift 3.11 do usługi Azure Red Hat OpenShift 4
+      href: migration.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia usługi Azure Red Hat OpenShift

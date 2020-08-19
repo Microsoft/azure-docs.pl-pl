@@ -13,19 +13,19 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: daccc4195877ad18441640f562556d97a04b10f0
-  ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+  ms.openlocfilehash: 549309a01602206b85a54b47df297735dfc5e709
+  ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 07/29/2020
-  ms.locfileid: "87386490"
+  ms.lasthandoff: 08/17/2020
+  ms.locfileid: "88262606"
 highlightedContent:
   items:
   - title: Wprowadzenie do usługi Azure Key Vault
     itemType: overview
     url: ./general/overview.md
   - title: Ważne zmiany dotyczące usuwania nietrwałego
-    itemType: overview
+    itemType: whats-new
     url: ./general/soft-delete-change.md
   - title: Authentication
     itemType: overview
@@ -89,6 +89,23 @@ conceptualContent:
     footerLink:
       url: ./secrets/index.yml
       text: Zobacz więcej
+  - title: Biblioteki klienta
+    links:
+    - url: ./general/client-libraries.md
+      itemType: reference
+      text: Biblioteki klienta dla usługi Key Vault
+    - url: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+      itemType: reference
+      text: Biblioteka klienta platformy .NET
+    - url: /python/api/overview/azure/key-vault-index?view=azure-python
+      itemType: reference
+      text: Biblioteka klienta języka Python
+    - url: https://azure.github.io/azure-sdk-for-java/keyvault.html
+      itemType: reference
+      text: Biblioteka klienta języka Java
+    - url: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+      itemType: reference
+      text: Biblioteka klienta platformy Node.js
   - title: Magazyn kluczy z magazynem
     links:
     - url: ./secrets/overview-storage-keys.md

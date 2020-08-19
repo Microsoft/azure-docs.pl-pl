@@ -22,6 +22,9 @@
     - name: Tworzenie funkcji trwałej — Python
       displayName: 'get started, chaining'
       href: quickstart-python-vscode.md
+    - name: Tworzenie funkcji trwałej — PowerShell
+      displayName: 'get started, chaining'
+      href: quickstart-powershell-vscode.md
 - name: Samouczki
   items:
     - name: Łączenie funkcji w łańcuchy

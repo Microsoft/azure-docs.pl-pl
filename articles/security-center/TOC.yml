@@ -151,6 +151,8 @@
           href: workflow-automation.md
         - name: Rekomendacje dotyczące eksportowania
           href: continuous-export.md
+    - name: Zarządzanie zasobami przy użyciu spisu zasobów
+      href: asset-inventory.md
     - name: Integracja z innymi narzędziami i usługami
       items:
         - name: Integracja z rozwiązaniem Windows Admin Center

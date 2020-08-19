@@ -356,6 +356,8 @@
               href: ./set-up-pyspark-interactive-environment.md
         - name: Programowanie
           items:
+            - name: Optymalizowanie zapytań za pomocą platformy SparkCruise
+              href: ./spark/spark-cruise.md
             - name: Używanie interakcyjnej powłoki platformy Apache Spark
               href: ./spark/apache-spark-shell.md
             - name: Zadania zdalne przy użyciu usługi Apache Livy
