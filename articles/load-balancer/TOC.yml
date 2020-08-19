@@ -6,9 +6,7 @@
       href: load-balancer-overview.md
     - name: Co nowego?
       href: whats-new.md
-    - name: Często zadawane pytania
-      href: load-balancer-faqs.md
-- name: Szybki start
+- name: Przewodniki Szybki start
   items:
     - name: Tworzenie publicznego modułu równoważenia obciążenia — portal
       href: quickstart-load-balancer-standard-public-portal.md
@@ -130,14 +128,14 @@
           href: move-across-regions-internal-load-balancer-powershell.md
     - name: Konfiguracja modułu równoważenia obciążenia tylko dla ruchu wychodzącego
       href: egress-only.md
-- name: Rozwiązywanie problemów
-  items:
-    - name: Rozwiązywanie problemów z usługą Azure Load Balancer
-      href: load-balancer-troubleshoot.md
-    - name: Rozwiązywanie typowych błędów związanych z wdrażaniem
-      href: load-balancer-common-deployment-errors.md
-    - name: Rozwiązywanie typowych problemów z połączeniem wychodzącym
-      href: troubleshoot-outbound-connection.md
+    - name: Rozwiązywanie problemów
+      items:
+        - name: Rozwiązywanie problemów z usługą Azure Load Balancer
+          href: load-balancer-troubleshoot.md
+        - name: Rozwiązywanie typowych błędów związanych z wdrażaniem
+          href: load-balancer-common-deployment-errors.md
+        - name: Rozwiązywanie typowych problemów z połączeniem wychodzącym
+          href: troubleshoot-outbound-connection.md
 - name: Dokumentacja
   items:
     - name: Przykłady kodu
@@ -175,3 +173,5 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Aktualizacje produktu
       href: 'https://azure.microsoft.com/updates/?product=load-balancer'
+    - name: Często zadawane pytania
+      href: load-balancer-faqs.md
