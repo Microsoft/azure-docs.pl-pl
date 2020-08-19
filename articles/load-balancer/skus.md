@@ -6,23 +6,23 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: overview
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: d08d7a81fddfe70593c31ac3ebd2191679ea1220
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 60e8a0dc93e19dfec0982080d0353466b08373de
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206355"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586838"
 ---
 # <a name="azure-load-balancer-skus"></a>Jednostki SKU Azure Load Balancer
 
 Azure Load Balancer ma dwie wersje lub jednostki SKU.
 
-## <a name="sku-comparison"></a><a name="skus"></a>Porównanie jednostek SKU
+## <a name="sku-comparison"></a><a name="skus"></a> Porównanie jednostek SKU
 
 Moduł równoważenia obciążenia obsługuje podstawowe i standardowe jednostki SKU. Te jednostki SKU różnią się w zależności od skali, funkcji i cen. Każdy scenariusz, który jest możliwy w przypadku podstawowego modułu równoważenia obciążenia, można utworzyć za pomocą usługi równoważenia obciążenia w warstwie Standardowa.
 
@@ -56,7 +56,7 @@ Aby uzyskać więcej informacji, zobacz [limity usługi równoważenia obciąże
 - Zasób autonomicznej maszyny wirtualnej, zasób zestawu dostępności lub zasób zestawu skalowania maszyn wirtualnych może odwoływać się do jednej jednostki SKU, nigdy nie obu.
 - [Operacje przenoszenia subskrypcji](../azure-resource-manager/management/move-resource-group-and-subscription.md) nie są obsługiwane w przypadku zasobów usługa Load Balancer w warstwie Standardowa i standardowych adresów IP.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Aby rozpocząć korzystanie z Load Balancer, zobacz [tworzenie usługa Load Balancer w warstwie Standardowa publicznego](quickstart-load-balancer-standard-public-portal.md) .
 - Dowiedz się więcej o korzystaniu z [Usługa Load Balancer w warstwie Standardowa i strefy dostępności](load-balancer-standard-availability-zones.md).

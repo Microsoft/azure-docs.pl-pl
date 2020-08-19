@@ -8,12 +8,12 @@ ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c144442ecd93ca87683179adef496a5d68cce98e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1c48c48ef438f99f3b144c3300cb2415e4d387e7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525901"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586685"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Konfigurowanie punktów końcowych sieci Azure Files
 
@@ -136,7 +136,7 @@ Ograniczenie dostępu publicznego punktu końcowego najpierw wymaga wyłączenia
 
 #### <a name="disable-access-to-the-public-endpoint"></a>Wyłącz dostęp do publicznego punktu końcowego
 
-Gdy dostęp do publicznego punktu końcowego jest wyłączony, nadal można uzyskać dostęp do konta magazynu za pomocą jego prywatnych punktów końcowych. W przeciwnym razie prawidłowe żądania dotyczące publicznego punktu końcowego konta magazynu zostaną odrzucone. 
+Gdy dostęp do publicznego punktu końcowego jest wyłączony, nadal można uzyskać dostęp do konta magazynu za pomocą jego prywatnych punktów końcowych. W przeciwnym razie prawidłowe żądania dotyczące publicznego punktu końcowego konta magazynu zostaną odrzucone, chyba że pochodzą z konkretnego [dozwolonego źródła](#restrict-access-to-the-public-endpoint-to-specific-virtual-networks). 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 [!INCLUDE [storage-files-networking-endpoints-public-disable-portal](../../../includes/storage-files-networking-endpoints-public-disable-portal.md)]

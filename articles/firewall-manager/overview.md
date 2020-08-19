@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 08/10/2020
+ms.date: 08/18/2020
 ms.author: victorh
-ms.openlocfilehash: 0fcf1c8a3800a52e8fa8659fe4bf97e83103c79d
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: b4ef35f2892925919ca9c8eda37a9b0e0d11835e
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056996"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590408"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Co to jest usługa Azure Firewall Manager?
 
@@ -85,6 +85,8 @@ Menedżer zapory platformy Azure ma następujące znane problemy:
 |Szprychy w innym regionie niż koncentrator wirtualny|Szprychy w innym regionie niż koncentrator wirtualny nie są obsługiwane.|Badanie<br><br>Utwórz centrum na region i sieci wirtualnych równorzędne w tym samym regionie, w którym znajduje się centrum.|
 |Rozgałęzienie do ruchu rozgałęzienia z włączonym filtrowaniem ruchu prywatnego|Rozgałęzienie ruchu rozgałęzienia nie jest obsługiwane, gdy jest włączone filtrowanie ruchu prywatnego. |Badanie.<br><br>Nie zabezpieczaj ruchu prywatnego, jeśli rozgałęzienie połączenia z gałęzią ma krytyczne znaczenie.|
 |Wszystkie zabezpieczone centra wirtualne współużytkujące tę samą wirtualną sieć WAN muszą znajdować się w tej samej grupie zasobów.|To zachowanie jest wyrównane z koncentratorami wirtualnych sieci WAN już dziś.|Utwórz wiele wirtualnych sieci WAN, aby umożliwić tworzenie zabezpieczonych koncentratorów wirtualnych w różnych grupach zasobów.|
+|Dodanie zbiorczego adresu IP nie powiodło się|W przypadku dodawania wielu publicznych adresów IP Zapora bezpiecznego centrum przechodzi w stan niepowodzenia.|Dodaj mniejsze wartości zwiększające publiczny adres IP. Na przykład Dodaj 10 naraz.|
+|Reguły aplikacji nie działają w bezpiecznym centrum z skonfigurowanym niestandardowym systemem DNS (wersja zapoznawcza).|Serwer proxy DNS/niestandardowy system DNS (wersja zapoznawcza) nie działa w scenariuszach, w których skonfigurowano kartę sieciową zarządzania zaporą. Obejmuje to bezpieczne wdrożenia centrów oraz przypadki, w których włączono tunelowanie wymuszone.|Rozwiązywanie problemu.|
 
 ## <a name="next-steps"></a>Następne kroki
 

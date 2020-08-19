@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2020
 ms.author: memildin
-ms.openlocfilehash: 57e13f3ed619fa88f29397fe44b783bd3650f636
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 313f10c77da499f4c405134028b975900d2d2a9e
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83759170"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590238"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorowanie tożsamość i dostępu
 
@@ -60,7 +60,7 @@ Włączenie usługi MFA wymaga [uprawnień dzierżawy Azure Active Directory (AD
 
 - Jeśli masz wersję Premium usługi AD, Włącz uwierzytelnianie wieloskładnikowe przy użyciu [dostępu warunkowego](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
 
-- Użytkownicy wersji bezpłatnej usługi AD mogą włączyć **domyślne ustawienia zabezpieczeń** w Azure Active Directory zgodnie z opisem w [dokumentacji usługi AD](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) , ale zalecenie Security Center do włączenia usługi MFA nadal będzie widoczne.
+- Jeśli używasz bezpłatnej wersji usługi AD, Włącz **domyślne ustawienia zabezpieczeń** w Azure Active Directory zgodnie z opisem w [dokumentacji usługi AD](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
 
 
 ## <a name="next-steps"></a>Następne kroki

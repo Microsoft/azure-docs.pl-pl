@@ -6,17 +6,17 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: 40b738c0f074f06b2f15a260cacda876aa78daf6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 96b91c08e0bf9a176af2ed844cd63a2cfa1e233d
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060803"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589643"
 ---
 # <a name="azure-load-balancer-concepts"></a>Koncepcje Azure Load Balancer
 
@@ -83,7 +83,7 @@ Na poziomie platformy Azure Load Balancer zawsze działa w topologii przepływu 
 Bez zmiennoprzecinkowych adresów IP platforma Azure udostępnia tradycyjny schemat mapowania adresów IP na potrzeby łatwego użytkowania ("adres IP wystąpień maszyn wirtualnych"). Włączenie pływającego adresu IP powoduje zmianę mapowania adresów IP na adres IP frontonu usługi równoważenia obciążenia w celu zapewnienia dodatkowej elastyczności. Dowiedz się więcej [tutaj](load-balancer-multivip-overview.md).
 
 
-## <a name="limitations"></a><a name = "limitations"></a>Ograniczenia
+## <a name="limitations"></a><a name = "limitations"></a>Limity
 
 - Zmienny adres IP nie jest obecnie obsługiwany w konfiguracjach pomocniczych adresów IP dla wewnętrznych scenariuszy równoważenia obciążenia.
 

@@ -1,6 +1,6 @@
 ---
 title: Przewodnik Szybki start dotyczący używania usługi Azure App Configuration z platformą ASP.NET Core | Microsoft Docs
-description: Przewodnik Szybki Start dotyczący korzystania z usługi Azure App Configuration z aplikacjami ASP.NET Core
+description: Tworzenie aplikacji ASP.NET Core przy użyciu konfiguracji aplikacji platformy Azure w celu scentralizowanego przechowywania i zarządzania ustawieniami aplikacji dla aplikacji ASP.NET Core.
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
@@ -9,12 +9,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: fc2b5829b2978253476ad8cca1438b784c6ad10d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 41675eb1911eede750b5a9cdc19cfe49e4699bac
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210004"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590306"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Szybki Start: Tworzenie aplikacji ASP.NET Core przy użyciu konfiguracji aplikacji platformy Azure
 
@@ -36,7 +36,7 @@ W tym przewodniku szybki start będziesz używać konfiguracji aplikacji platfor
 
     | Klucz | Wartość |
     |---|---|
-    | TestApp:Settings:BackgroundColor | Biali |
+    | TestApp:Settings:BackgroundColor | Biały |
     | TestApp:Settings:FontSize | 24 |
     | TestApp:Settings:FontColor | Czarnoskórzy |
     | TestApp:Settings:Message | Dane z usługi Azure App Configuration |
@@ -246,7 +246,7 @@ Po wyświetleniu monitu o skonfigurowanie portu dla wersji zapoznawczej wprowad�
 
 ![Uruchamianie aplikacji szybkiego startu](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

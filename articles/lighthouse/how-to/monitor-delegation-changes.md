@@ -1,14 +1,14 @@
 ---
 title: Monitorowanie zmian delegowania w dzierżawie zarządzającej
 description: Dowiedz się, jak monitorować działania delegowania od dzierżawców klientów do dzierżawy zarządzającej.
-ms.date: 08/11/2020
+ms.date: 08/18/2020
 ms.topic: how-to
-ms.openlocfilehash: 63b8ec60ecf2f2e5655e3253db7aef01c003fc63
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 4d9d8b18634f94c355ea7fc0b5c125d631ec419c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163343"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589745"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorowanie zmian delegowania w dzierżawie zarządzającej
 
@@ -66,9 +66,6 @@ New-AzRoleAssignment -SignInName <yourLoginName> -Scope "/" -RoleDefinitionName 
 
 az role assignment create --assignee 00000000-0000-0000-0000-000000000000 --role "Monitoring Reader" --scope "/"
 ```
-
-> [!NOTE]
-> Możesz również przypisać wbudowaną rolę czytnika monitorowania platformy Azure w zakresie głównym do poszczególnych użytkowników lub grup użytkowników. Może to być przydatne, jeśli użytkownik ma mieć możliwość [wyświetlania informacji o delegowaniu bezpośrednio w Azure Portal](#view-delegation-changes-in-the-azure-portal). W takim przypadku należy pamiętać, że jest to szeroki poziom dostępu, który powinien być ograniczony do możliwie najmniejszej liczby użytkowników.
 
 ### <a name="remove-elevated-access-for-the-global-administrator-account"></a>Usuń podwyższony poziom dostępu dla konta administratora globalnego
 
@@ -164,15 +161,6 @@ else {
     Write-Output "No new delegation events for tenant: $($currentContext.Tenant.TenantId)"
 }
 ```
-
-## <a name="view-delegation-changes-in-the-azure-portal"></a>Wyświetl zmiany delegowania w Azure Portal
-
-Użytkownicy, którym przypisano wbudowaną rolę czytelnik monitorowania platformy Azure w zakresie głównym, mogą przeglądać zmiany delegowania bezpośrednio w Azure Portal.
-
-1. Przejdź do strony **moi klienci** , a następnie wybierz pozycję **Dziennik aktywności** z menu nawigacji po lewej stronie.
-1. Upewnij się, że w filtrze w górnej części ekranu zaznaczono **aktywność katalogu** .
-
-Zostanie wyświetlona lista zmian delegowania. Możesz wybrać opcję **Edytuj kolumny** , aby pokazać lub ukryć **stan**, **kategorię zdarzenia**, **godzinę**, **sygnaturę czasową**, **subskrypcję**, **zdarzenie zainicjowane przez**, **grupę zasobów**, **Typ zasobu**i wartości **zasobów** .
 
 > [!TIP]
 > Chociaż odwołujemy się do dostawców usług i klientów w tym temacie, [przedsiębiorstwa zarządzające wieloma dzierżawcami](../concepts/enterprise.md) mogą korzystać z tych samych procesów.

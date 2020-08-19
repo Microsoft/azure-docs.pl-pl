@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 5b516eb913bf9e7b8337a41483682e1201c58890
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 2f5a1d190c6e63056c2377641446f617edaa1bd3
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759040"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590221"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Poznaj podstawowe informacje o interfejsie wiersza polecenia mowy
 
@@ -25,7 +25,19 @@ Ten artykuł zawiera informacje o podstawowych wzorcach użycia interfejsu wiers
 
 ## <a name="basic-usage"></a>Podstawowy sposób użycia
 
-W tej sekcji przedstawiono kilka podstawowych poleceń SPX, które często są przydatne podczas pierwszego testowania i eksperymentowania. Zacznij od przeprowadzenia rozpoznawania mowy przy użyciu domyślnego mikrofonu, uruchamiając następujące polecenie.
+W tej sekcji przedstawiono kilka podstawowych poleceń SPX, które często są przydatne podczas pierwszego testowania i eksperymentowania. Zacznij od przejrzenia pomocy wbudowanej do narzędzia, uruchamiając następujące polecenie.
+
+```shell
+spx
+```
+
+Zwróć uwagę, że **Zobacz również** tematy pomocy z prawej strony parametrów poleceń. Możesz również wyszukiwać tematy według słowa kluczowego. Na przykład wprowadź następujące polecenie, aby wyświetlić listę tematów pomocy dotyczących przykładów interfejsu wiersza polecenia mowy:
+
+```shell
+spx help find --topics "examples"
+```
+
+Teraz Użyj usługi Speech do przeprowadzenia rozpoznawania mowy przy użyciu domyślnego mikrofonu, uruchamiając następujące polecenie.
 
 ```shell
 spx recognize --microphone

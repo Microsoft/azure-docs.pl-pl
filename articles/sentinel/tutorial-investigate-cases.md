@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 564041da0be6874acae1bec69e4ab2d744d89323
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ef08ac8d386bd8a28dce38cb53aed31d79b37a2
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565235"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566339"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Samouczek: badanie zdarzeń za pomocą platformy Azure — wskaźnik
 
@@ -37,10 +37,12 @@ W tym artykule omówiono następujące zagadnienia:
 > * Korzystanie z grafu badania
 > * Reagowanie na zagrożenia
 
-Zdarzenie może zawierać wiele alertów. Jest to agregacja wszystkich istotnych dowodów dla konkretnego badania. Zdarzenie jest tworzone na podstawie reguł analitycznych utworzonych na stronie **analizy** . Właściwości związane z alertami, takie jak ważność i stan, są ustawiane na poziomie incydentu. Gdy zezwolisz na platformę Azure, wiadomo, jakiego rodzaju zagrożeń szukasz, i jak je znaleźć, możesz monitorować wykryte zagrożenia, badając zdarzenia.
+Zdarzenie może zawierać wiele alertów. Jest to agregacja wszystkich istotnych dowodów dla konkretnego badania. Zdarzenie jest tworzone na podstawie reguł analizy utworzonych na stronie **analizy** . Właściwości związane z alertami, takie jak ważność i stan, są ustawiane na poziomie incydentu. Gdy zezwolisz na platformę Azure, wiadomo, jakiego rodzaju zagrożeń szukasz, i jak je znaleźć, możesz monitorować wykryte zagrożenia, badając zdarzenia.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Po skonfigurowaniu reguły analitycznej można zbadać zdarzenie tylko w przypadku użycia pól mapowania jednostek. Wykres badania wymaga, aby oryginalne zdarzenie obejmowało jednostki.
+- W przypadku korzystania z pól mapowania jednostek można zbadać zdarzenia tylko podczas konfigurowania reguły analizy. Wykres badania wymaga, aby oryginalne zdarzenie obejmowało jednostki.
+
+- Jeśli masz użytkownika-gościa, który musi przypisać incydenty, użytkownik musi mieć przypisaną rolę [czytnika katalogów](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) w dzierżawie usługi Azure AD. Użytkownicy standardowi (nie będący gościem) domyślnie przypisani do tej roli.
 
 ## <a name="how-to-investigate-incidents"></a>Jak badać zdarzenia
 
@@ -81,7 +83,7 @@ Aby użyć grafu badania:
 1. Wybierz zdarzenie, a następnie wybierz pozycję **Zbadaj**. Spowoduje to przejście do grafu badania. Wykres przedstawia mapę ilustracyjnyą jednostek, które są bezpośrednio połączone z alertem, a każdy zasób jest podłączany w dalszej części.
 
    > [!IMPORTANT] 
-   > Po skonfigurowaniu reguły analitycznej można zbadać zdarzenie tylko w przypadku użycia pól mapowania jednostek. Wykres badania wymaga, aby oryginalne zdarzenie obejmowało jednostki.
+   > W przypadku korzystania z pól mapowania jednostek można zbadać zdarzenia tylko podczas konfigurowania reguły analizy. Wykres badania wymaga, aby oryginalne zdarzenie obejmowało jednostki.
 
    ![Wyświetlanie mapy](media/tutorial-investigate-cases/map1.png)
 

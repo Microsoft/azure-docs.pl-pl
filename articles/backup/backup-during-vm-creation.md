@@ -3,12 +3,12 @@ title: Włączanie tworzenia kopii zapasowej przy tworzeniu maszyny wirtualnej p
 description: Opisuje sposób włączania tworzenia kopii zapasowej podczas tworzenia maszyny wirtualnej platformy Azure przy użyciu Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 7fb6fd25f5031669633641ea02f34180f6f795d4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c744f6aa2bef6d3d6800aa6b6dc077915fc5205b
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032854"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586702"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Włączanie tworzenia kopii zapasowej przy tworzeniu maszyny wirtualnej platformy Azure
 
@@ -28,7 +28,7 @@ Jeśli jeszcze nie zalogowano się na koncie, zaloguj się do [Azure Portal](htt
 
 1. W Azure Portal kliknij pozycję **Utwórz zasób**.
 
-2. W portalu Azure Marketplace kliknij pozycję **obliczenia**, a następnie wybierz obraz maszyny wirtualnej.
+2. W witrynie Azure Marketplace kliknij pozycję **obliczenia**, a następnie wybierz obraz maszyny wirtualnej.
 
 3. Skonfiguruj maszynę wirtualną zgodnie z instrukcjami dla [systemu Windows](../virtual-machines/windows/quick-create-portal.md) lub [Linux](../virtual-machines/linux/quick-create-portal.md) .
 
@@ -47,6 +47,9 @@ Jeśli jeszcze nie zalogowano się na koncie, zaloguj się do [Azure Portal](htt
     - [Dowiedz się więcej](backup-instant-restore-capability.md) o funkcji natychmiastowego przywracania.
 
       ![Domyślne zasady kopii zapasowych](./media/backup-during-vm-creation/daily-policy.png)
+
+>[!NOTE]
+>[SSE i parowania są domyślnymi metodami szyfrowania](backup-encryption.md) dla maszyn wirtualnych platformy Azure. Azure Backup obsługuje tworzenie kopii zapasowych i przywracanie tych maszyn wirtualnych platformy Azure.
 
 ## <a name="azure-backup-resource-group-for-virtual-machines"></a>Azure Backup grupę zasobów dla Virtual Machines
 

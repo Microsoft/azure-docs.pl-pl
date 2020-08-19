@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: a635f32c5e5f1132d70fb503058267c8b33beb7c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: dbd040bf7caf3dbe9ed9820bf189bc1f74475c09
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272064"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586898"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -35,6 +35,7 @@ Ta strona jest regularnie aktualizowana, więc często należy ją ponownie odwi
 Aktualizacje w sierpniu obejmują:
 
 - [Spis zasobów — zaawansowany nowy widok stan zabezpieczeń zasobów](#asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets)
+- [Dodano obsługę domyślnych ustawień zabezpieczeń Azure Active Directory (w przypadku uwierzytelniania wieloskładnikowego)](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
 - [Dodano zalecenie dotyczące jednostek usługi](#service-principals-recommendation-added)
 - [Ocena luk w zabezpieczeniach maszyn wirtualnych — zaleceń i zasad skonsolidowanych](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
 
@@ -50,11 +51,27 @@ Widok i jego Filtry umożliwiają Eksplorowanie danych stan zabezpieczeń i pode
 Dowiedz się więcej na temat [spisu zasobów](asset-inventory.md).
 
 
+### <a name="added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication"></a>Dodano obsługę domyślnych ustawień zabezpieczeń Azure Active Directory (w przypadku uwierzytelniania wieloskładnikowego)
+
+Security Center dodaliśmy pełną obsługę [zabezpieczeń domyślnych](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults), bezpłatna ochrona zabezpieczeń firmy Microsoft.
+
+Wartości domyślne zabezpieczeń zapewniają wstępnie skonfigurowane ustawienia zabezpieczeń tożsamości, aby chronić organizację przed typowymi atakami związanymi z tożsamościami. Zabezpieczenia domyślne chronią już więcej niż 5 000 000 dzierżawców; dzierżawy 50 000 są również chronione przez Security Center.
+
+Security Center teraz zawiera zalecenie dotyczące zabezpieczeń, za każdym razem, gdy zidentyfikuje subskrypcję platformy Azure bez włączonej wartości domyślnej zabezpieczeń. Do tej pory Security Center zalecane włączenie uwierzytelniania wieloskładnikowego przy użyciu dostępu warunkowego, który jest częścią licencji Premium Azure Active Directory (AD). W przypadku klientów korzystających bezpłatnie z usługi Azure AD zalecamy włączenie ustawień domyślnych zabezpieczeń. 
+
+Naszym celem jest zachęcanie większej liczby klientów do zabezpieczania środowisk w chmurze za pomocą usługi MFA i łagodzenie jednego z największych zagrożeń, które są również najbardziej wpływ na ich [bezpieczny wynik](https://docs.microsoft.com/azure/security-center/secure-score-security-controls).
+
+Dowiedz się więcej o [domyślnych ustawieniach zabezpieczeń](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
+
+
 ### <a name="service-principals-recommendation-added"></a>Dodano zalecenie dotyczące jednostek usługi
 
-Nowe zalecenie dla Security Center klientów korzystających z certyfikatów zarządzania do zarządzania swoimi subskrypcjami.
+Dodano nowe zalecenie, aby zalecić Security Center klientom używającym certyfikatów zarządzania do zarządzania swoimi subskrypcjami przełączać się do podmiotów usługi.
 
 Zaleca się, **Aby Ochrona Twoich subskrypcji zamiast certyfikatów zarządzania była chroniona** przy użyciu jednostek usługi lub Azure Resource Manager do bezpieczniejszego zarządzania subskrypcjami. 
+
+Więcej informacji o [obiektach głównych aplikacji i usług znajduje się w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
+
 
 ### <a name="vulnerability-assessment-on-vms---recommendations-and-policies-consolidated"></a>Ocena luk w zabezpieczeniach maszyn wirtualnych — zaleceń i zasad skonsolidowanych
 

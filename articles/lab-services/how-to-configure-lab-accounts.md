@@ -2,28 +2,37 @@
 title: Skonfiguruj automatyczne zamykanie maszyn wirtualnych w Azure Lab Services
 description: W tym artykule opisano sposób konfigurowania automatycznego zamykania maszyn wirtualnych na koncie laboratorium.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: 783e3b310b3ad06f637453f0e1b11f6a78beec3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/17/2020
+ms.openlocfilehash: 9fd93d383ba6a2d57057a3b45f8b517c84990043
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445818"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589807"
 ---
-# <a name="configure-automatic-shutdown-of-vms-on-disconnect-setting-for-a-lab-account"></a>Skonfiguruj automatyczne zamykanie maszyn wirtualnych w przypadku ustawienia odłączania dla konta laboratorium
-Można włączyć lub wyłączyć automatyczne zamykanie maszyn wirtualnych laboratorium systemu Windows (szablonu lub ucznia) po odłączeniu połączenia z pulpitem zdalnym. Możesz również określić, jak długo usługi laboratoryjne powinny czekać, aż użytkownik ponownie nawiąże połączenie przed automatycznym zamknięciem.
+# <a name="configure-automatic-shutdown-of-vms-for-a-lab-account"></a>Konfigurowanie automatycznego zamykania maszyn wirtualnych dla konta laboratorium
+
+Możesz włączyć kilka funkcji kontroli kosztów automatycznego zamykania, aby aktywnie uniknąć dodatkowych kosztów, gdy maszyny wirtualne nie są aktywnie używane. Kombinacja następujących trzech funkcji automatycznego zamykania i rozłączania przechwytuje większość przypadków, w których użytkownicy przypadkowo opuszczają maszyny wirtualne z systemem:
+ 
+- Automatyczne rozłączanie użytkowników z maszyn wirtualnych, które system operacyjny uzna za bezczynne (tylko system Windows).
+- Automatycznie zamykaj maszyny wirtualne podczas odłączania użytkowników (Windows & Linux).
+- Automatycznie Zamykaj uruchomione maszyny wirtualne, ale użytkownicy nie łączą się.
+
+Zapoznaj się z bardziej szczegółowymi informacjami na temat funkcji automatycznego zamykania w sekcji [Maksymalizuj koszt kontroli przy użyciu ustawień automatycznego zamykania](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings) .
 
 ## <a name="enable-automatic-shutdown"></a>Włącz automatyczne zamykanie
 
-1. Na stronie **konto laboratorium** wybierz pozycję **Ustawienia laboratoria** w menu po lewej stronie.
-2. Wybierz opcję **automatycznie zamykaj maszyny wirtualne podczas rozłączania użytkowników** .
-3. Określ, jak długo usługi laboratoryjne powinny czekać, zanim użytkownik będzie mógł ponownie nawiązać połączenie przed automatycznym zamknięciem maszyn wirtualnych.
+1. W [Azure Portal](https://portal.azure.com/) przejdź do strony **konto laboratorium** .
+1. Wybierz pozycję **Ustawienia laboratoria** w menu po lewej stronie.
+1. Wybierz ustawienia automatycznego zamykania, które są odpowiednie dla danego scenariusza.  
 
-    ![Ustawienie automatycznego zamykania na koncie laboratorium](./media/how-to-configure-lab-accounts/automatic-shutdown-vm-disconnect.png)
+    > [!div class="mx-imgBorder"]
+    > ![Ustawienie automatycznego zamykania na koncie laboratorium](./media/how-to-configure-lab-accounts/automatic-shutdown-vm-disconnect.png)
+    
+    Te ustawienia mają zastosowanie do wszystkich laboratoriów utworzonych w ramach konta laboratorium. Twórca laboratorium (nauczycieli) może zastąpić to ustawienie na poziomie laboratorium. Zmiana tego ustawienia na koncie laboratorium będzie miała wpływ tylko na laboratoria, które są tworzone po wprowadzeniu zmiany.
 
-    To ustawienie ma zastosowanie do wszystkich laboratoriów utworzonych w ramach konta laboratorium. Twórca laboratorium (nauczycieli) może zastąpić to ustawienie na poziomie laboratorium. Zmiana tego ustawienia na koncie laboratorium będzie miała wpływ tylko na laboratoria, które są tworzone po wprowadzeniu zmiany.
-
-    Aby wyłączyć to ustawienie, usuń zaznaczenie pola wyboru dla **maszyn wirtualnych, które są rozłączane automatycznie po rozłączeniu** na tej stronie. 
+    Aby wyłączyć ustawienia, usuń zaznaczenie pól wyboru na tej stronie. 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się, jak właściciel laboratorium może skonfigurować lub zastąpić to ustawienie na poziomie laboratorium, zobacz [ten artykuł](how-to-enable-shutdown-disconnect.md) .
+
+Aby dowiedzieć się, jak właściciel laboratorium może skonfigurować lub zastąpić to ustawienie na poziomie laboratorium, zobacz [Włączanie automatycznego zamykania maszyn wirtualnych przy rozłączaniu](how-to-enable-shutdown-disconnect.md)

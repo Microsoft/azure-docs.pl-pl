@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/05/2020
+ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 72b3b190492be5cec9986729875c5b09e2559ae5
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 46ddbd18051ffa44232468704ce189d4171b50e7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854318"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590013"
 ---
 # <a name="azure-cosmos-db-apache-spark-connector-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Apache Spark łącznik dla programu Core (SQL) API: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -26,7 +26,8 @@ ms.locfileid: "87854318"
 > * [Java SDK 4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK 2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK 2](sql-api-sdk-java.md)
-> * [Spring Data](sql-api-sdk-java-spring.md)
+> * [Wiosenne dane v2](sql-api-sdk-java-spring-v2.md)
+> * [Wiosenne dane v3](sql-api-sdk-java-spring-v3.md)
 > * [Łącznik platformy Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
@@ -35,7 +36,7 @@ ms.locfileid: "87854318"
 > * [Wykonawca zbiorczy — .NET V2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Moduł wykonawczy zbiorczej — Java](sql-api-sdk-bulk-executor-java.md)
 
-Przyspieszenie analizy danych Big Data za pomocą łącznika Azure Cosmos DB Apache Spark for Core (SQL). Łącznik platformy Spark umożliwia uruchamianie zadań [platformy Spark](https://spark.apache.org/) na danych przechowywanych w Azure Cosmos DB. Przetwarzanie wsadowe i przesyłanie strumieniowe są obsługiwane.
+Przyspieszenie analizy danych Big Data za pomocą łącznika Azure Cosmos DB Apache Spark for Core (SQL). Łącznik platformy Spark umożliwia uruchamianie zadań [platformy Spark ](https://spark.apache.org/) na danych przechowywanych w Azure Cosmos DB. Przetwarzanie wsadowe i przesyłanie strumieniowe są obsługiwane.
 
 Możesz użyć łącznika z usługą [Azure Databricks](https://azure.microsoft.com/services/databricks) lub [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/), która udostępnia zarządzane klastry platformy Spark na platformie Azure. W poniższej tabeli przedstawiono obsługiwane wersje platformy Spark.
 
@@ -53,7 +54,7 @@ Możesz użyć łącznika z usługą [Azure Databricks](https://azure.microsoft.
 
 ## <a name="helpful-content"></a>Przydatna zawartość
 
-| Zawartość | Link |
+| Zawartość | Łącze |
 |---|---|
 | **Pobieranie zestawu SDK** | [Pobierz z Apache Spark](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG) |
 |**Dokumentacja interfejsu API** | [Odwołanie do łącznika Spark]() |

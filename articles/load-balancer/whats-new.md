@@ -4,15 +4,15 @@ description: Dowiedz się, co nowego w Azure Load Balancer, takich jak Najnowsze
 services: load-balancer
 author: anavinahar
 ms.service: load-balancer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: anavin
-ms.openlocfilehash: 24c5133b9c012b628e43e956c56d5112e1ad4649
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: ffea6cdd1c8558a07559829b025cb5338cc59ee3
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447026"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586719"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Co nowego w Azure Load Balancer?
 
@@ -39,7 +39,7 @@ Możesz również znaleźć najnowsze aktualizacje Azure Load Balancer i subskry
 
 Grupa produktów aktywnie pracuje nad rozwiązaniami pod kątem następujących znanych problemów:
 
-|Problem |Opis  |Ograniczanie ryzyka  |
+|Problem |Description  |Ograniczanie ryzyka  |
 | ---------- |---------|---------|
 | Eksportowanie Log Analytics | Log Analytics nie może eksportować metryk dla standardowych modułów równoważenia obciążenia ani dzienników stanu sondy kondycji dla podstawowych Load Balancer  | [Użyj Azure monitor dla metryk wielowymiarowych dla usługa Load Balancer w warstwie Standardowa](load-balancer-standard-diagnostics.md). Chociaż nie można używać Log Analytics do monitorowania, Azure Monitor udostępnia wizualizację bogatego zestawu metryk wielowymiarowych. Możesz użyć wstępnie skonfigurowanego pulpitu nawigacyjnego metryk za pośrednictwem podrzędnego podbloku Insights Load Balancer. W przypadku korzystania [z podstawowego uaktualnienia Load Balancer do warstwy Standardowa](upgrade-basic-standard.md) dla monitorowania metryk na poziomie produkcyjnym.
 

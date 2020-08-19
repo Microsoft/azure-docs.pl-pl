@@ -1,6 +1,6 @@
 ---
 title: Przewodnik Szybki start dotyczący używania usługi Azure App Configuration z platformą Azure Functions | Microsoft Docs
-description: Przewodnik Szybki start dotyczący korzystania z usługi Azure App Configuration z platformą Azure Functions.
+description: W tym przewodniku szybki start Utwórz aplikację Azure Functions przy użyciu konfiguracji aplikacji platformy Azure i języka C#. Utwórz i Połącz się z magazynem konfiguracji aplikacji. Przetestuj funkcję lokalnie.
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: bae602bd45115fa6e199e886db0539c4f47f5180
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: e15c83504ee0eebb925c122d0efd4896e7b55916
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210013"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590289"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Szybki Start: Tworzenie aplikacji Azure Functions przy użyciu konfiguracji aplikacji platformy Azure
 

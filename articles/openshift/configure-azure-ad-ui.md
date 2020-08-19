@@ -8,18 +8,18 @@ author: sabbour
 ms.author: asabbour
 keywords: ARO, OpenShift, AZ ARO, Red Hat, CLI
 ms.custom: mvc
-ms.openlocfilehash: 6b6248aac35c22b9ffd2cd95df41e84986356259
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10a7dc662993327b71d43c27f44d22166a3f3611
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82205315"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590323"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Konfigurowanie uwierzytelniania Azure Active Directory na potrzeby klastra usługi Azure Red Hat OpenShift 4 (Portal)
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.75 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Utwórz **adres URL wywołania zwrotnego protokołu OAuth** klastra i zanotuj go. Pamiętaj, aby zastąpić **ciąg ARO-RG** nazwą grupy zasobów i **wystawić klaster** z nazwą klastra.
 
@@ -89,7 +89,7 @@ Następujące przykładowe dane wyjściowe pokazują, że hasło będzie w `kube
 }
 ```
 
-Adres URL konsoli klastra można znaleźć, uruchamiając następujące polecenie, które będzie wyglądać następująco:`https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
+Adres URL konsoli klastra można znaleźć, uruchamiając następujące polecenie, które będzie wyglądać następująco: `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
 
 ```azurecli-interactive
  az aro show \

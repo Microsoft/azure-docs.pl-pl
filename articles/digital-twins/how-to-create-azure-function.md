@@ -7,12 +7,12 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3e284bc76da9ca40341d72f772aa7ee947a11638
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d9f9957209c6df91185059085f57636a16a3961c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124310"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589405"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Łączenie Azure Functions aplikacji do przetwarzania danych
 
@@ -83,8 +83,8 @@ Aby uzyskać więcej informacji na ten temat, zobacz [*debugowanie Event Grid wy
 ### <a name="add-the-azure-digital-twins-sdk-to-your-azure-function-app"></a>Dodawanie zestawu SDK usługi Azure Digital bliźniaczych reprezentacji do aplikacji funkcji platformy Azure
 
 Aplikacja funkcji współdziała z usługą Azure Digital bliźniaczych reprezentacji za pomocą [biblioteki klienta usługi Azure IoT Digital bliźniaczych dla platformy .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Aby można było korzystać z zestawu SDK, w projekcie należy uwzględnić następujące pakiety:
-* `Azure.DigitalTwins.Core`(wersja `1.0.0-preview.2` )
-* `Azure.Identity`
+* `Azure.DigitalTwins.Core` (wersja `1.0.0-preview.2` )
+* `Azure.Identity` (wersja `1.1.1` )
 
 Aby konfiguracja potoku zestawu Azure SDK została prawidłowo skonfigurowana dla Azure Functions, potrzebne są również:
 * `Azure.Net.Http`

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/05/2020
 ms.author: cynthn
-ms.openlocfilehash: 176aa925e4662731342ec3269e61ce9c7f71cf30
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 16f2bc2cc22fa38ece78b4a07298235abd7d629d
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003840"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587093"
 ---
 # <a name="powershell-how-to-use-packer-to-create-virtual-machine-images-in-azure"></a>PowerShell: jak używać programu pakujący do tworzenia obrazów maszyn wirtualnych na platformie Azure
 Każda maszyna wirtualna na platformie Azure jest tworzona na podstawie obrazu, który definiuje dystrybucję systemu Windows i wersję systemu operacyjnego. Obrazy mogą zawierać wstępnie zainstalowane aplikacje i konfiguracje. Portal Azure Marketplace udostępnia wiele obrazów od początku i innych firm dla najpopularniejszych środowisk systemów operacyjnych i aplikacji. można też tworzyć własne niestandardowe obrazy dostosowane do Twoich potrzeb. W tym artykule szczegółowo opisano, jak używać pakietu narzędzi open source [Pack](https://www.packer.io/) do definiowania i tworzenia obrazów niestandardowych na platformie Azure.
@@ -67,8 +67,8 @@ Utwórz plik o nazwie *windows.jsna* i wklej następującą zawartość. Wprowad
 
 | Parametr                           | Skąd uzyskać |
 |-------------------------------------|----------------------------------------------------|
-| *client_id*                         | Wyświetl identyfikator jednostki usługi za pomocą`$sp.applicationId` |
-| *client_secret*                     | Wyświetl automatycznie generowane hasło przy użyciu`$plainPassword` |
+| *client_id*                         | Wyświetl identyfikator jednostki usługi za pomocą `$sp.applicationId` |
+| *client_secret*                     | Wyświetl automatycznie generowane hasło przy użyciu `$plainPassword` |
 | *tenant_id*                         | Dane wyjściowe `$sub.TenantId` polecenia |
 | *subscription_id*                   | Dane wyjściowe `$sub.SubscriptionId` polecenia |
 | *managed_image_resource_group_name* | Nazwa grupy zasobów utworzonej w pierwszym kroku |
@@ -84,7 +84,7 @@ Utwórz plik o nazwie *windows.jsna* i wklej następującą zawartość. Wprowad
     "tenant_id": "zzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz",
     "subscription_id": "yyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyy",
 
-    "managed_image_resource_group_name": "myResourceGroup",
+    "managed_image_resource_group_name": "myPackerGroup",
     "managed_image_name": "myPackerImage",
 
     "os_type": "Windows",

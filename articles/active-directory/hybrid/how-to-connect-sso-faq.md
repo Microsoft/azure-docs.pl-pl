@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f621ed1342928b7f05fc8b84bfc2fceadf494fb5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ea5c3e0ffc000d3d239e87e9771d1b49d98fd206
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019735"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589048"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: często zadawane pytania
 
@@ -54,7 +54,7 @@ Ponadto użytkownicy uzyskują ciche działania w przypadku, gdy aplikacja wysy�
 | Nazwa aplikacji | Adres URL aplikacji do użycia |
 | -- | -- |
 | SharePoint Online | https: \/ /contoso.SharePoint.com |
-| Witryna Azure Portal | https: \/ /Portal.Azure.com/contoso.com |
+| Azure Portal | https: \/ /Portal.Azure.com/contoso.com |
 
 W powyższych tabelach Zastąp ciąg "contoso.com" nazwą domeny, aby uzyskać dostęp do odpowiednich adresów URL aplikacji dla dzierżawy.
 
@@ -104,7 +104,7 @@ Wykonaj następujące kroki na serwerze lokalnym, na którym jest uruchomiony pr
    2. Wywołanie `Update-AzureADSSOForest -OnPremCredentials $creds` . To polecenie aktualizuje klucz odszyfrowujący protokołu Kerberos dla `AZUREADSSO` konta komputera w tym określonym lesie usługi AD i aktualizuje go w usłudze Azure AD.
    
    >[!NOTE]
-   >Jeśli nie jesteś administratorem domeny i masz przypisane uprawnienia administratora domeny, należy wywołać`Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
+   >Jeśli nie jesteś administratorem domeny i masz przypisane uprawnienia administratora domeny, należy wywołać `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
    
    3. Powtórz powyższe kroki dla każdego lasu usługi AD, dla którego skonfigurowano funkcję.
 
@@ -135,6 +135,8 @@ Wykonaj następujące kroki na serwerze lokalnym, na którym jest uruchomiony pr
    3. Zaimportuj bezproblemowe moduł programu PowerShell dla logowania jednokrotnego za pomocą tego polecenia: `Import-Module .\AzureADSSO.psd1` .
    4. Uruchom program PowerShell jako administrator. W programie PowerShell Wywołaj polecenie `New-AzureADSSOAuthenticationContext` . To polecenie powinno umożliwić podręczne wprowadzenie poświadczeń administratora globalnego dzierżawy.
    5. Wywołanie `Enable-AzureADSSO -Enable $false` .
+   
+   W tym momencie bezproblemowe logowanie jednokrotne jest wyłączone, ale domeny pozostaną skonfigurowane tak, aby umożliwić bezproblemowe logowanie jednokrotne. Jeśli chcesz całkowicie usunąć domeny z bezproblemowej konfiguracji rejestracji jednokrotnej, wywołaj następujące polecenie cmdlet po wykonaniu kroku 5 powyżej: `Disable-AzureADSSOForest -DomainFqdn <fqdn>` .
 
    >[!IMPORTANT]
    >Wyłączenie bezproblemowego logowania jednokrotnego przy użyciu programu PowerShell nie spowoduje zmiany stanu w Azure AD Connect. Bezproblemowe logowanie jednokrotne zostanie wyświetlone jako włączone na stronie **zmiany logowania użytkownika** .

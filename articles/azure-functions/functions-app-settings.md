@@ -3,12 +3,12 @@ title: Dokumentacja ustawień aplikacji dla usługi Azure Functions
 description: Dokumentacja referencyjna dla ustawień aplikacji Azure Functions lub zmiennych środowiskowych.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 2be13fbdbf8ce75a051448bfb46d2a41ad425be8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b17db828aeb19c3347c0db4babf0eee2b9d5f280
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242767"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589304"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Dokumentacja ustawień aplikacji dla usługi Azure Functions
 
@@ -19,7 +19,7 @@ Ustawienia aplikacji w aplikacji funkcji zawierają globalne opcje konfiguracji,
 Istnieją inne opcje konfiguracji globalnej w [host.js](functions-host-json.md) plik i w [local.settings.js](functions-run-local.md#local-settings-file) pliku.
 
 > [!NOTE]  
-> Ustawienia aplikacji umożliwiają przesłonięcie host.jsprzy ustawianiu wartości bez konieczności zmiany host.jssamego pliku. Jest to przydatne w scenariuszach, w których trzeba skonfigurować lub zmodyfikować określone host.jsw ustawieniach dla określonego środowiska. Pozwala to również na zmianę host.jsw ustawieniach bez konieczności ponownego publikowania projektu. Aby dowiedzieć się więcej, zobacz [artykułhost.json Reference](functions-host-json.md#override-hostjson-values).  
+> Ustawienia aplikacji umożliwiają przesłonięcie host.jsprzy ustawianiu wartości bez konieczności zmiany host.jssamego pliku. Jest to przydatne w scenariuszach, w których trzeba skonfigurować lub zmodyfikować określone host.jsw ustawieniach dla określonego środowiska. Pozwala to również na zmianę host.jsw ustawieniach bez konieczności ponownego publikowania projektu. Aby dowiedzieć się więcej, zobacz [ artykułhost.json Reference](functions-host-json.md#override-hostjson-values).  
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
@@ -94,7 +94,7 @@ Opcjonalne parametry połączenia konta magazynu służące do przechowywania dz
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
-`true`oznacza wyłączenie domyślnej strony docelowej wyświetlanej dla głównego adresu URL aplikacji funkcji. Wartość domyślna to `false`.
+`true` oznacza wyłączenie domyślnej strony docelowej wyświetlanej dla głównego adresu URL aplikacji funkcji. Wartość domyślna to `false`.
 
 |Klucz|Wartość przykładowa|
 |---|------------|
@@ -106,7 +106,7 @@ Gdy to ustawienie aplikacji zostanie pominięte lub ustawione na wartość `fals
 
 ## <a name="azurewebjobsdotnetreleasecompilation"></a>AzureWebJobsDotNetReleaseCompilation
 
-`true`oznacza użycie trybu wydania podczas kompilowania kodu platformy .NET; `false`oznacza użycie trybu debugowania. Wartość domyślna to `true`.
+`true` oznacza użycie trybu wydania podczas kompilowania kodu platformy .NET; `false` oznacza użycie trybu debugowania. Wartość domyślna to `true`.
 
 |Klucz|Wartość przykładowa|
 |---|------------|
@@ -126,7 +126,7 @@ Określa repozytorium lub dostawcę, który ma być używany na potrzeby magazyn
 
 |Klucz|Wartość przykładowa|
 |---|------------|
-|AzureWebJobsSecretStorageType|Pliki|
+|AzureWebJobsSecretStorageType|Files|
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
@@ -234,8 +234,8 @@ Do użycia tylko w planach Premium &. Ścieżka pliku do kodu i konfiguracji apl
 
 Maksymalna liczba wystąpień, do których aplikacja funkcji może skalować w poziomie. Wartość domyślna nie jest ograniczona.
 
-> [!NOTE]
-> To ustawienie jest funkcją w wersji zapoznawczej i jest niezawodne tylko wtedy, gdy ustawiono wartość <= 5
+> [!IMPORTANT]
+> To ustawienie jest w wersji zapoznawczej.  Dodano [Właściwość App dla funkcji maksymalnego skalowania w](./functions-scale.md#limit-scale-out) poziomie i jest to zalecany sposób ograniczania skalowania w poziomie.
 
 |Klucz|Wartość przykładowa|
 |---|------------|

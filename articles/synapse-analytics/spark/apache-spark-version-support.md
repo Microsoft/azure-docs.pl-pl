@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: eda93f64b503a1894f306be75dd5a3321d428eb9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5bedb7da2f088c065d95d60effeda1e4db15d44a
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089230"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589490"
 ---
 # <a name="supported-language-and-runtime-versions-for-apache-spark-and-dependent-components"></a>Obsługiwane wersje języka i środowiska uruchomieniowego dla Apache Spark i składników zależnych  
 
@@ -567,7 +567,6 @@ Zookeeper-3.4.11.2.6.99.201 -1240. jar
 zstd-JNI-1.3.2 -2. jar
 
 ## <a name="python-libraries"></a>Biblioteki języka Python
-_license = = 1.1
 
 ABSL-PR = = 0.8.1
 
@@ -578,8 +577,6 @@ Alabaster = = 0.7.10
 Altair = = 3.2.0
 
 ApplicationInsights = = 0.11.9
-
-asn1crypto = = 0.22.0
 
 asn1crypto = = 1.0.1
 
@@ -593,7 +590,11 @@ attri = = 19.2.0
 
 Azure — wspólne = = 1.1.23
 
+Azure-Core = = 1.6.0
+
 Azure-graphrbac = = 0.61.1
+
+Azure — tożsamość = = 1.2.0
 
 Azure-zarządzanie autoryzacją = = 0.60.0
 
@@ -601,43 +602,68 @@ Azure-zarządzanie-containerregistry = = 2.8.0
 
 Azure-zarządzanie — Magazyn kluczy = = 2.0.0
 
+Azure-zarządzanie siecią = = 10.2.0
+
 Azure-zarządzanie-Resource = = 5.1.0
 
 Azure-Zarządzanie magazynem = = 4.2.0
 
-Azure-automl-Core = = 1.0.65.1
+Azure-Storage-BLOB = = 2.1.0
 
-Azure-Core = = 1.0.65.1
+Azure-Storage-Common = = 2.1.0
 
-Azure — dataprzygotowanie = = 1.1.20
+Azure-automl-Core = = 1.6.0
 
-Azure-dataprzygotowanie — natywny = = 13.1.0
+Azure-automl-Runtime = = 1.6.0. post1
 
-Azure-Pipeline = = 1.0.65
+Azure-Core = = 1.6.0
 
-Azure-Pipeline-Core = = 1.0.65
+Azure — dataprzygotowanie = = 1.6.3
 
-Azure-Pipeline-kroki = = 1.0.65
+Azure-dataprzygotowanie — natywny = = 14.1.0
 
-Azure-SDK = = 1.0.65
+Azure-wartości domyślne = = 1.6.0
 
-Azure-Telemetria = = 1.0.65
+Azure-Wyjaśnij-model = = 1.6.0
 
-Azure — pociąg = = 1.0.65
+Azure — Interpretuj = = 1.6.0
 
-Azure-pociąg-automl = = 1.0.65
+Azure-Model-Management-SDK = = 1.0.1 B6. post1
 
-Azure-pociąg-Core = = 1.0.65
 
-Uczenie maszynowe — restclients-dysk = = 1.0.65
+Azure-opendatasets = = 1.6.0
+
+Azure-Pipeline = = 1.6.0
+
+Azure-Pipeline-Core = = 1.6.0
+
+Azure-Pipeline-kroki = = 1.6.0
+
+Azure-SDK = = 1.6.0
+
+Azure-Telemetria = = 1.6.0
+
+Azure — pociąg = = 1.6.0
+
+Azure-pociąg-automl = = 1.6.0
+
+Azure-pociąg-automl-Client = = 1.6.0. post1
+
+Azure-pociąg-automl-Runtime = = 1.6.0
+
+Azure-pociąg-Core = = 1.6.0
+
+Uczenie maszynowe — restclients-dysk = = 1.6.0
 
 Babel = = 2.4.0
+
+wywołanie metody = = 0.2.0
+
+porty wieloportowe. shutil-Get-Terminal-size = = 1.0.0
 
 porty wieloportowe. tempfile = = 1.0
 
 porty wieloportowe. WeakRef = = 1.0. post1
-
-porty wieloportowe = = 1,0
 
 beautifulsoup4 = = 4.6.0
 
@@ -647,37 +673,25 @@ Blaze = = 0.10.1
 
 biel = = 1.5.0
 
-bokeh = = 0.12.5
-
 bokeh = = 1.3.4
-
-boto = = 2.46.1
 
 boto = = 2.49.0
 
-boto3 = = 1.9.245
+boto3 = = 1.9.247
 
-botocore = = 1.12.245
+botocore = = 1.12.247
 
-wąskie gardła = = 1.2.1
-
-Kair = = 1.14.8
+Wąskie gardła = = 1.2.1
 
 poświadcza = = 2019.9.11
 
-cffi = = 1.10.0
-
 cffi = = 1.12.3
-
-chardet = = 3.0.3
 
 chardet = = 3.0.4
 
+Chart-Studio = = 1.0.0
+
 Kliknij = = 6.7
-
-Kliknij = = 7.0
-
-cloudpickle = = 0.2.2
 
 cloudpickle = = 1.2.2
 
@@ -685,21 +699,13 @@ clyent = = 1.2.2
 
 colorama = = 0.3.9
 
-contextlib2 = = 0.5.5
+ConfigParser = = 3.7.4
 
-contextlib2 = = 0.6.0
-
-Kryptografia = = 1.8.1
+contextlib2 = = 0.6.0. post1
 
 Kryptografia = = 2.7
 
-zwinięcie = = 7.52.1
-
 Cycle = = 0.10.0
-
-Cycle = = 0.10.0
-
-cython = = 0.25.2
 
 Cython = = 0.29.13
 
@@ -709,9 +715,7 @@ dask = = 0.14.3
 
 datashape = = 0.5.4
 
-DBU = = 1.10.10
-
-dekoratora = = 4.0.11
+dekoratora = = 4.4.0
 
 Dill = = 0.3.1.1
 
@@ -721,31 +725,23 @@ dystrybucji = = 1.4.0
 
 Docker = = 4.1.0
 
-docutils = = 0.13.1
-
 docutils = = 0.15.2
 
-dotnetcore2 = = 2.1.9
-
-punkt Wejścia = = 0.2.2
+dotnetcore2 = = 2.1.14
 
 punkt Wejścia = 0,3
 
-et_xmlfile = = 1.0.1
-
-Expat = = 2.1.0
+et-xmlfile = = 1.0.1
 
 FastCache = = 1.0.2
 
 Uruchom = = 0.2.1
 
-Kolba = = 0.12.2
+flake8 = = 3.7.9
+
+Kolba = = 1.0.3
 
 Kolba — CORS = = 3.0.2
-
-fontconfig = = 2.12.1
-
-FreeType = = 2.5.5
 
 fsspec = = 0.5.2
 
@@ -755,11 +751,7 @@ Gast = = 0.3.2
 
 gensim = = 3.8.1
 
-get_terminal_size = = 1.0.0
-
 gevent = = 1.2.1
-
-glib = = 2.50.2
 
 Google-makaron = = 0.1.7
 
@@ -767,37 +759,31 @@ greenlet = = 0.4.12
 
 grpcio = = 1.24.1
 
-GST (-plugins-Base = = 1.8.0
-
-GStreamer = = 1.8.0
+gunicorn = = 19.9.0
 
 h5py = = 2.10.0
 
-h5py = = 2.7.0
-
-harfbuzz = = 0.9.39
-
-hdf5 = = 1.8.17
-
-heapdict = = 1.0.0
+HeapDict = = 1.0.1
 
 html5lib = = 0.999
 
-ICU = = 54.1
-
-IDNA = = 2.5
-
 IDNA = = 2.8
+
+ImageIO = =
 
 ImageSize = = 0.7.1
 
 importlib-Metadata = = 0.23
 
+Interpretuj — społeczność = = 0.10.2
+
+interpreter-rdzeń = = 0.1.21
+
 ipykernel = = 4.6.1
 
-ipython_genutils = = 0.2.0
+IPython = = 7.8.0
 
-IPython = = 5.3.0
+IPython-genutils = = 0.2.0
 
 ipywidgets = = 6.0.0
 
@@ -807,8 +793,6 @@ isort = = 4.2.5
 
 itsdangerous = = 0.24
 
-JBIG = = 2.1
-
 jdcal = = 1.3
 
 Jedi = = 0.10.2
@@ -817,71 +801,43 @@ jeepney = = 0.4.1
 
 Jinja2 = = 2.10.3
 
-jinja2 = = 2.9.6
-
 jmespath = = 0.9.4
 
-JPEG = = 9B
+joblib = = 0.14.1
+
+JSON-rejestrowanie-PR = = 0,2
 
 JsonForm = = 0.0.2
 
 jsonpickle = = 1.2
 
-jsonschema = = 2.6.0
-
-jsonschema = = 3.1.0
+jsonschema = = 3.1.1
 
 JsonSir = = 0.0.2
 
-JS — wyrażenie regularne = = 1.0.0
-
-jupyter_client = = 5.0.1
-
-jupyter_console = = 5.1.0
-
-jupyter_core = = 4.3.0
-
 Jupyter = = 1.0.0
 
-keras2onnx = = 1.5.2
+Jupyter-Client = = 5.0.1
+
+Jupyter-Console = = 5.1.0
+
+Jupyter-Core = = 4.3.0
 
 Keras — aplikacje = = 1.0.8
 
 Keras — przetwarzanie wstępne = = 1.1.0
 
+keras2onnx = = 1.5.2
+
 kiwisolver = = 1.1.0
 
 pozostały obiekt-proxy = = 1.2.2
 
-biblioteki libffi = = 3.2.1
-
-libgcc = = 4.8.5
-
-libgfortran = = 3.0.0
-
-libiconv = = 1.14
-
-libpng = = 1.6.27
-
-libsodium = = 1.0.10
-
-libtiff = = 4.0.6
-
-libtool = = 2.4.2
-
-libxcb = = 1.12
-
-libxml2 = = 2.9.4
-
-libxslt = = 1.1.29
+Liac-ARFF = = 2.4.0
 
 lightgbm = = 2.2.3
 
 llvmlite = = 0.18.0
-
-llvmlite = = 0.29.0
-
-locket = = 0.2.0
 
 locket = = 0.2.0
 
@@ -889,25 +845,25 @@ LXML = = 3.7.3
 
 Promocji = = 3.1.1
 
-markupsafe = = 0.23
-
 MarkupSafe = = 1.1.1
 
-matplotlib = = 2.0.2
-
 matplotlib = = 3.1.1
+
+McCabe = = 0.6.1
 
 missingno = = 0.4.2
 
 Niedopasowanie = = 0.7.4
 
-MKL = = 2017.0.1
-
-MKL-Service = = 1.1.2
+mmlspark = = 1.0.0. Dev1
 
 Więcej — itertools = = 7.2.0
 
 mpmath = = 0.19
+
+msal = = 1.3.0
+
+msal-Extensions = = 0.1.3
 
 msgpack = = 0.6.2
 
@@ -916,6 +872,8 @@ msgpack — Python = = 0.4.8
 msrest = = 0.6.10
 
 msrestazure = = 0.6.2
+
+wielometody = = 1.0.0
 
 multipledispatch = = 0.4.9
 
@@ -927,7 +885,7 @@ nbformat = = 4.3.0
 
 NDG-httpsclient = = 0.5.1
 
-networkx = = 1.11
+networkx = = 2.3
 
 nimbusml = = 1.5.0
 
@@ -937,13 +895,11 @@ nos = = 1.3.7
 
 Notes = = 5.0.0
 
+notebookutils = = 20200602.4
+
 Numba = = 0.33.0
 
-Numba = = 0.45.1
-
 numexpr = = 2.6.2
-
-numpy = = 1.12.1
 
 numpy = = 1.16.2
 
@@ -965,35 +921,21 @@ onnxruntime = = 0.4.0
 
 openpyxl = = 2.4.7
 
-OpenSSL = = 1.0.2 l
-
-Pakowanie = = 16.8
-
 Pakowanie = = 19,2
-
-Pandas = = 0.20.1
 
 Pandas = = 0.23.4
 
 pandocfilters = = 1.4.1
 
-Pango = = 1.40.3
-
-część = = 0.3.8
+param = = 1.9.2
 
 część = = 1.0.0
-
-Path. PR = = 10.3.1
 
 pathlib2 = = 2.2.1
 
 pathspec = = 0.6.0
 
-Patsy = = 0.4.1
-
 Patsy = = 0.5.1
-
-PCRE = = 8.39
 
 pep8 = = 1.7.0
 
@@ -1001,15 +943,7 @@ pexpect = = 4.2.1
 
 pickleshare = = 0.7.4
 
-Pillow = = 4.1.1
-
 Pillow = = 6.2.0
-
-PIP = = 9.0.1
-
-PIP = = 9.0.1
-
-pixman = = 0.34.0
 
 na rysunku = = 4.1.1
 
@@ -1017,7 +951,9 @@ arkusz = = 3.10
 
 pmdarima = = 1.1.1
 
-prompt_toolkit = = 1.0.14
+portalocker = = 1.7.0
+
+Prompt-Toolkit = = 2.0.10
 
 protobuf = = 3.10.0
 
@@ -1027,23 +963,31 @@ ptyprocess = = 0.5.1
 
 PR = = 1.4.33
 
+PR-cpuinfo = = 6.0.0
+
+py4j = = 0.10.7
+
+pyarrow = = 0.15.1
+
 pyasn1 = = 0.4.7
 
-pycosat = = 0.6.2
+pycodestyle = = 2.5.0
 
-pycparser = = 2.17
+pycosat = = 0.6.2
 
 pycparser = = 2.19
 
 pycrypto = =
 
+pyct = = 0.4.6
+
 pycurl = = 7.43.0
 
-Pyflakes = = 1.5.0
+Pyflakes = = 2.1.1
 
 pygal = = 2.4.0
 
-pygments = = 2.2.0
+Pygments = = 2.2.0
 
 PyJWT = = 1.7.1
 
@@ -1053,53 +997,33 @@ pymssql = = 2.1.4
 
 Moduł pyodbc = = 4.0.16
 
-pyopenssl = = 17.0.0
-
 pyOpenSSL = = 19.0.0
-
-pyparsing = = 2.1.4
 
 pyparsing = = 2.4.2
 
-PyQt = = 5.6.0
-
 pyrsistent = = 0.15.4
 
-pytables = = 3.3.0
+pyspark = = 2.4.4
 
 pytest = = 3.0.7
-
-Python = = 3.6.1
-
-Python-dateutil = = 2.6.0
 
 Python-dateutil = = 2.8.0
 
 Python-EasyConfig = = 0.1.7
 
-pytz = = 2017.2
-
 pytz = = 2019.3
 
-pywavelets = = 0.5.2
-
-pyyaml = = 3.12
+PyWavelets = = 1.0.3
 
 PyYAML = = 5.1.2
 
 pyzmq = = 16.0.2
 
-QT = = 5.6.2
-
-qtawesome = = 0.4.4
+QtAwesome = = 0.4.4
 
 qtconsole = = 4.3.0
 
-qtpy = = 1.2.1
-
-ReadLine = = 6.2
-
-żądania = = 2.14.2
+QtPy = = 1.2.1
 
 żądania = = 2.22.0
 
@@ -1109,41 +1033,27 @@ Zasób = = 0.2.1
 
 ponawianie próby = = 1.3.3
 
-Lina = = 0.9.4
+Lina-py3k = = 0.9.4. post1
 
 ruamel. YAML = = 0.15.89
 
-ruamel_yaml = = 0.11.14
-
 s3transfer = = 0.2.1
 
-scikit-Image = = 0.13.0
-
-scikit-Dowiedz się = = 0.18.1
+scikit-Image = = 0.15.0
 
 scikit-Dowiedz się = = 0.20.3
 
-scipy = = 0.19.0
-
 scipy = = 1.1.0
-
-Seaborn = = 0.7.1
 
 Seaborn = = 0.9.0
 
 SecretStorage = = 3.1.1
 
-setuptools = = 27.2.0
-
-setuptools = = 41.4.0
+kształt = = 0.34.0
 
 simplegeneric = = 0.8.1
 
 singledispatch = = 3.4.0.3
-
-SIP = = 4.18
-
-sześć = = 1.10.0
 
 sześć = = 1.12.0
 
@@ -1157,8 +1067,6 @@ snowballstemmer = = 1.2.1
 
 sortedcollections = = 0.5.3
 
-sortedcontainers = = 1.5.7
-
 sortedcontainers = = 2.1.0
 
 Sphinx = = 1.5.6
@@ -1167,15 +1075,11 @@ Spyder = = 3.1.4
 
 SQLAlchemy = = 1.1.9
 
-SQLite = = 3.13.0
-
 statsmodels = = 0.10.1
-
-statsmodels = = 0.8.0
 
 sympy = = 1.0
 
-tblib = = 1.3.2
+tabele = = 3.3.0
 
 tblib = = 1.4.0
 
@@ -1191,17 +1095,13 @@ terminado = = 0,6
 
 TestPath = = 0,3
 
-TK = = 8.5.18
-
 toolz = = 0.10.0
 
-toolz = = 0.8.2
-
-Torch = = 1.2.0
-
-Tornado = = 4.5.1
+Torch = = 1.3.0
 
 Tornado = = 6.0.3
+
+tqdm = = 4.46.1
 
 traitlets = = 4.3.2
 
@@ -1209,45 +1109,29 @@ Wpisywanie — rozszerzenia = = 3.7.4
 
 unicodecsv = = 0.14.1
 
-unixodbc = = 2.3.4
-
 urllib3 = = 1.25.6
+
+Vega — zestawy danych = = 0.7.0
 
 wcwidth = = 0.1.7
 
 WebSocket-Client = = 0.56.0
 
-Werkzeug = = 0.12.2
-
 Werkzeug = = 0.16.0
 
-koło = = 0.29.0
-
-koło = = 0.30.0
-
 widgetsnbextension = = 2.0.0
-
-Zawijanie = = 1.10.10
 
 Zawijanie = = 1.11.2
 
 xlrd = = 1.0.0
 
-xlsxwriter = = 0.9.6
+XlsxWriter = = 0.9.6
 
 xlwt = = 1.2.0
 
-XZ = = 5.2.2
-
-YAML = = 0.1.6
-
-ZeroMQ = = 4.1.5
-
-zict = = 0.1.2
+zict = = 1.0.0
 
 Zipp = = 0.6.0
-
-zlib = = 1.2.8
 
 ## <a name="next-steps"></a>Następne kroki
 

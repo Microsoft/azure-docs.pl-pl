@@ -1,6 +1,6 @@
 ---
 title: Przewodnik Szybki start dotyczący używania usługi Azure App Configuration z platformą .NET Core | Microsoft Docs
-description: Przewodnik Szybki start dotyczący korzystania z usługi Azure App Configuration z aplikacjami platformy .NET Core
+description: W tym przewodniku szybki start utworzysz aplikację platformy .NET Core z konfiguracją aplikacji platformy Azure w celu scentralizowanego przechowywania i zarządzania ustawieniami aplikacji oddzielonymi od kodu.
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: b5b5097baecc2ef95dc528278764f87a1ca258bd
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 5925d80f23052324e5512908241ed573c681d835
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209731"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590255"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Szybki Start: Tworzenie aplikacji platformy .NET Core przy użyciu konfiguracji aplikacji
 

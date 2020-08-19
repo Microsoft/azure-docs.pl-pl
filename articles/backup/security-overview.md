@@ -3,12 +3,12 @@ title: Omówienie funkcji zabezpieczeń
 description: Dowiedz się więcej o możliwościach zabezpieczeń w Azure Backup, które ułatwiają ochronę danych kopii zapasowych i zaspokajanie potrzeb firmy.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 944ef2e86ad8e56501692b29d0958bc4fc19bf0a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8a63585635f578f55b274c3257807fc731eacc47
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319307"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589388"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Omówienie funkcji zabezpieczeń w programie Azure Backup
 
@@ -48,9 +48,9 @@ Szyfrowanie chroni dane i pomaga sprostać wymaganiom dotyczącym zabezpieczeń 
 
 * W ramach platformy Azure dane przesyłane między usługą Azure Storage i magazynem są [chronione za pośrednictwem protokołu HTTPS](backup-support-matrix.md#network-traffic-to-azure). Te dane pozostają w sieci szkieletowej platformy Azure.
 
-* Dane kopii zapasowej są automatycznie szyfrowane przy użyciu [kluczy zarządzanych przez firmę Microsoft](backup-encryption.md#encryption-of-backup-data-using-platform-managed-keys)i nie trzeba podejmować żadnych jawnych akcji, aby je włączyć. Dane kopii zapasowej można także szyfrować przy użyciu [kluczy zarządzanych przez klienta](encryption-at-rest-with-cmk.md) przechowywanych w Azure Key Vault. Ma to zastosowanie do wszystkich obciążeń, których kopie zapasowe są tworzone w magazynie Recovery Services.
+* Dane kopii zapasowej są automatycznie szyfrowane przy użyciu [kluczy zarządzanych przez platformę](backup-encryption.md)i nie trzeba podejmować żadnych jawnych akcji, aby je włączyć. Dane kopii zapasowej można także szyfrować przy użyciu [kluczy zarządzanych przez klienta](encryption-at-rest-with-cmk.md) przechowywanych w Azure Key Vault. Ma to zastosowanie do wszystkich obciążeń, których kopie zapasowe są tworzone w magazynie Recovery Services.
 
-* Azure Backup obsługuje tworzenie kopii zapasowych i przywracanie maszyn wirtualnych platformy Azure, w których dyski systemu operacyjnego/danych są szyfrowane za pomocą [Azure Disk Encryption (ADE)](backup-encryption.md#backup-of-vms-encrypted-using-ade) i [maszyn wirtualnych z dyskami szyfrowanymi CMK](backup-encryption.md#backup-of-managed-disk-vms-encrypted-using-customer-managed-keys). Aby uzyskać więcej informacji, [Dowiedz się więcej o zaszyfrowanych maszynach wirtualnych platformy Azure i Azure Backup](./backup-azure-vms-encryption.md).
+* Azure Backup obsługuje tworzenie kopii zapasowych i przywracanie maszyn wirtualnych platformy Azure, w których dyski systemu operacyjnego/danych są szyfrowane za pomocą [Azure Disk Encryption (ADE)](backup-azure-vms-encryption.md#encryption-support-using-ade) i [maszyn wirtualnych z dyskami szyfrowanymi CMK](backup-azure-vms-encryption.md#encryption-using-customer-managed-keys). Aby uzyskać więcej informacji, [Dowiedz się więcej o zaszyfrowanych maszynach wirtualnych platformy Azure i Azure Backup](./backup-azure-vms-encryption.md).
 
 * W przypadku tworzenia kopii zapasowej danych z serwerów lokalnych przy użyciu agenta MARS dane są szyfrowane przy użyciu hasła przed przekazaniem do Azure Backup i odszyfrowywane dopiero po pobraniu z Azure Backup. Dowiedz [się więcej na temat funkcji zabezpieczeń, aby chronić hybrydowe kopie zapasowe](#security-features-to-help-protect-hybrid-backups).
 
@@ -64,7 +64,7 @@ Azure Backup udostępnia [wbudowane funkcje monitorowania i alertów](./backup-a
 
 ## <a name="security-features-to-help-protect-hybrid-backups"></a>Funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe
 
-Usługa Azure Backup używa agenta Microsoft Azure Recovery Services (MARS) do tworzenia kopii zapasowych i przywracania plików, folderów oraz stanu woluminu lub systemu z komputera lokalnego na platformę Azure. Usługa MARS zapewnia teraz funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe. Te funkcje obejmują:
+Usługa Azure Backup używa agenta Microsoft Azure Recovery Services (MARS) do tworzenia kopii zapasowych i przywracania plików, folderów oraz stanu woluminu lub systemu z komputera lokalnego na platformę Azure. Usługa MARS zapewnia teraz funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe. Między innymi są to następujące funkcje:
 
 * Dodatkowa warstwa uwierzytelniania jest dodawana zawsze wtedy, gdy jest wykonywane krytyczne operacje, takie jak zmiana hasła. Ta weryfikacja polega na zapewnieniu, że operacje te mogą być wykonywane tylko przez użytkowników, którzy mają prawidłowe poświadczenia platformy Azure. [Dowiedz się więcej o funkcjach, które uniemożliwiają ataki](./backup-azure-security-feature.md#prevent-attacks).
 

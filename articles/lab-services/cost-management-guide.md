@@ -3,20 +3,20 @@ title: Przewodnik po zarządzaniu kosztami dla Azure Lab Services
 description: Poznaj różne sposoby wyświetlania kosztów usług Lab Services.
 author: rbest
 ms.author: rbest
-ms.date: 06/26/2020
+ms.date: 08/16/2020
 ms.topic: article
-ms.openlocfilehash: fbbaf4a3646260fc09467e214b82fd0213415635
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98ce4d5e82d65d911984dc45615253ddcae33ae1
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445308"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589880"
 ---
 # <a name="cost-management-for-azure-lab-services"></a>Zarządzanie kosztami dla Azure Lab Services
 
 Zarządzanie kosztami można podzielić na dwa różne obszary: oszacowanie kosztów i analizę kosztów.  Szacowanie kosztów odbywa się podczas konfigurowania laboratorium, aby upewnić się, że początkowa struktura laboratorium mieści się w oczekiwanym budżecie.  Analiza kosztów zwykle odbywa się na koniec miesiąca w celu przeanalizowania kosztów i ustalenia niezbędnych działań w następnym miesiącu.
 
-## <a name="estimating-the-lab-costs"></a>Szacowanie kosztów laboratorium
+## <a name="estimate-the-lab-costs"></a>Oszacuj koszty laboratorium
 
 Każdy pulpit nawigacyjny laboratorium ma **koszt & sekcji rozliczeń** , która zawiera przybliżone oszacowanie dotyczące tego, co jest kosztem danego miesiąca.  Szacowany koszt podsumowuje użycie godzinowe przez maksymalną liczbę użytkowników według szacowanego kosztu za godziny.  Aby uzyskać najdokładniejsze oszacowanie, skonfiguruj laboratorium, łącznie z [harmonogramem](how-to-create-schedules.md), a pulpit nawigacyjny będzie odzwierciedlać szacowany koszt.  
 
@@ -25,7 +25,7 @@ To oszacowanie może nie mieć wszystkich możliwych kosztów, ale istnieje kilk
 > [!div class="mx-imgBorder"]
 > ![Oszacowanie kosztów pulpitu nawigacyjnego](./media/cost-management-guide/dashboard-cost-estimation.png)
 
-## <a name="analyzing-previous-months-usage"></a>Analizowanie użycia poprzedniego miesiąca
+## <a name="analyze-previous-months-usage"></a>Analizowanie użycia poprzedniego miesiąca
 
 Analiza kosztów służy do przeglądania poprzedniego miesięcznego użycia, aby pomóc w ustaleniu wszelkich dostosowań dla laboratorium.  Podział kosztów w przeszłości można znaleźć w [analizie kosztów subskrypcji](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis).  W Azure Portal można wpisać "subskrypcje" w górnym polu wyszukiwania, a następnie wybrać opcję subskrypcje.  
 
@@ -39,14 +39,14 @@ Wybierz konkretną subskrypcję, którą chcesz przejrzeć.
 
  Wybierz pozycję "analiza kosztów" w okienku po lewej stronie w obszarze **Cost Management**.
 
- > [!div class="mx-imgBorder"]
+> [!div class="mx-imgBorder"]
 > ![Analiza kosztów subskrypcji](./media/cost-management-guide/subscription-cost-analysis.png)
 
 Ten pulpit nawigacyjny umożliwi dokładne analizowanie kosztów, w tym możliwość eksportowania do różnych typów plików zgodnie z harmonogramem.  Aby uzyskać więcej informacji, Cost Management ma wiele możliwości, zobacz [Omówienie Rozliczeń Cost Management](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview)
 
 Filtrowanie według typu zasobu: `microsoft.labservices/labaccounts` spowoduje wyświetlenie tylko kosztu związanego z usługami Lab Services.
 
-## <a name="understanding-the-usage"></a>Informacje o użyciu
+## <a name="understand-the-usage"></a>Informacje o użyciu
 
 Poniżej znajduje się przykład analizy kosztów.
 
@@ -68,9 +68,69 @@ Niektóre uniwersytety używały konta laboratorium i grupy zasobów jako metody
 
 W zależności od typu klasy istnieją sposoby zarządzania kosztami, aby zmniejszyć liczbę uruchomionych maszyn wirtualnych bez uczniów przy użyciu maszyny.
 
-### <a name="auto-shutdown-on-disconnect"></a>Automatyczne zamykanie przy rozłączaniu
+### <a name="maximize-cost-control-with-auto-shutdown-settings"></a>Maksymalizuj kontrolę kosztów za pomocą ustawień automatycznego zamykania
 
-Podczas tworzenia laboratorium właściciel laboratorium może ustawić maszyny wirtualne w laboratorium do [zamknięcia, gdy połączenie RDP z maszyną wirtualną zostanie odłączone](how-to-enable-shutdown-disconnect.md).  To ustawienie zmniejsza scenariusz, w którym student rozłącza się, ale zapomina o zatrzymaniu maszyny wirtualnej.
+Automatyczne zamykanie funkcji kontroli kosztów pozwala uniknąć marnowania godzin użycia maszyn wirtualnych w laboratoriach. Kombinacja następujących trzech funkcji automatycznego zamykania i rozłączania przechwytuje większość przypadków, w których użytkownicy przypadkowo opuszczają maszyny wirtualne z systemem:
+
+> [!div class="mx-imgBorder"]
+> ![Analiza kosztów subskrypcji](./media/cost-management-guide/auto-shutdown-disconnect.png)
+
+Te ustawienia można skonfigurować zarówno na poziomie konta laboratorium, jak i na poziomie laboratorium. Jeśli ustawienia są włączone na poziomie konta laboratorium, są one stosowane do wszystkich laboratoriów w ramach konta laboratorium. W przypadku wszystkich nowych kont laboratorium te ustawienia są domyślnie włączone. 
+
+#### <a name="details-about-auto-shutdown-settings"></a>Szczegóły dotyczące ustawień automatycznego zamykania
+
+* Automatyczne rozłączanie użytkowników z maszyn wirtualnych, które system operacyjny uzna za bezczynne (tylko system Windows).
+
+    > [!NOTE]
+    > To ustawienie jest dostępne tylko dla maszyn wirtualnych z systemem Windows.
+
+    Gdy to ustawienie jest włączone, użytkownik zostanie odłączony od wszystkich maszyn w laboratorium, gdy system operacyjny Windows uzna, że sesja jest bezczynna (w tym szablonów maszyn wirtualnych). [Definicja systemu operacyjnego Windows dla bezczynności](https://docs.microsoft.com/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) używa dwóch kryteriów: 
+
+    * Nieobecność użytkownika — brak klawiatury ani danych wejściowych myszy.
+    * Brak użycia zasobów — wszystkie procesory i wszystkie dyski były bezczynne przez określony% czasu
+
+    Użytkownicy będą widzieli komunikat podobny do tego wewnątrz maszyny wirtualnej przed rozłączeniem: 
+
+    > [!div class="mx-imgBorder"]
+    > ![Analiza kosztów subskrypcji](./media/cost-management-guide/idle-timer-expired.png)
+    
+    Maszyna wirtualna jest nadal uruchomiona, gdy użytkownik zostanie odłączony. Jeśli użytkownik ponownie nawiązuje połączenie z maszyną wirtualną przez zalogowanie się, system Windows lub pliki, które zostały otwarte lub niezapisane wcześniej, nadal będą dostępne. W tym stanie, ponieważ maszyna wirtualna jest uruchomiona, nadal liczy się jako aktywny i naliczany koszt. 
+    
+    Aby automatycznie zamknąć bezczynne maszyny wirtualne z systemem Windows, należy użyć kombinacji **rozłączania użytkowników, gdy maszyny wirtualne są w stanie bezczynności** i **zamknąć maszyny wirtualne, gdy użytkownicy łączą** ustawienia.
+
+    Na przykład, jeśli skonfigurujesz ustawienia w następujący sposób:
+    
+    * Rozłącz użytkowników, gdy wykryje się, że maszyny wirtualne są w stanie bezczynności — 15 minut.
+    * Zamknij maszyny wirtualne, gdy użytkownicy rozłączą się – 5 minut po rozłączeniu użytkownika.
+    
+    Maszyny wirtualne z systemem Windows zostaną automatycznie zamknięte przez 20 minut od momentu ich zatrzymania przez użytkownika. 
+    
+    > [!div class="mx-imgBorder"]
+    > ![Analiza kosztów subskrypcji](./media/cost-management-guide/vm-idle-diagram.png)
+* Automatycznie zamykaj maszyny wirtualne podczas odłączania użytkowników (Windows & Linux).
+    
+    To ustawienie obsługuje maszyny wirtualne z systemami Windows i Linux. Gdy to ustawienie jest włączone, automatyczne zamykanie nastąpi po:
+    
+    * W przypadku systemu Windows połączenie Pulpit zdalny (RDP) zostało rozłączone.
+    * W przypadku systemu Linux połączenie SSH zostało rozłączone.
+    
+    > [!NOTE]
+    > Obsługiwane są tylko [określone dystrybucje i wersje systemu Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#supported-linux-distributions) .
+    
+    Możesz określić, jak długo maszyny wirtualne powinny czekać, aby użytkownik mógł ponownie nawiązać połączenie przed automatycznym zamknięciem. 
+* Automatycznie Zamykaj uruchomione maszyny wirtualne, ale użytkownicy nie łączą się.
+     
+    W środowisku laboratoryjnym użytkownik może uruchomić maszynę wirtualną, ale nigdy nie nawiązać z nią połączenia. Na przykład:
+    
+    * Harmonogram w laboratorium uruchamia wszystkie maszyny wirtualne dla sesji klasy, ale niektórzy uczniowie nie są wyświetlani i nie łączą się z ich komputerami.  
+    * Użytkownik uruchamia maszynę wirtualną, ale zapomni o nawiązaniu połączenia. 
+    
+    Ustawienie "Zamknij maszyny wirtualne, gdy użytkownicy nie nawiązują połączenia" będzie przechwytywać te przypadki i automatycznie wyłączać maszyny wirtualne.  
+    
+Aby uzyskać informacje na temat konfigurowania i włączania automatycznego zamykania maszyn wirtualnych przy rozłączaniu, zobacz następujące artykuły:
+
+* [Skonfiguruj automatyczne zamykanie maszyn wirtualnych w przypadku ustawienia odłączania dla konta laboratorium](how-to-configure-lab-accounts.md)
+* [Włącz automatyczne zamykanie maszyn wirtualnych przy rozłączaniu](how-to-enable-shutdown-disconnect.md)
 
 ### <a name="quota-vs-scheduled-time"></a>Przydział a zaplanowany czas
 

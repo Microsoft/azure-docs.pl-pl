@@ -3,12 +3,12 @@ title: Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych prze
 description: Dowiedz się, jak Azure Backup umożliwia szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 1586a40d115a591c474c3bc8c1fed5448eb90bcd
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: dfed3f983867568befc77d7dbc81cdde70eef9ed
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388003"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589609"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta
 
@@ -39,7 +39,7 @@ W tym artykule omówiono następujące zagadnienia:
 
 - Ta funkcja jest obecnie konfigurowalna tylko na podstawie Azure Portal.
 
-[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
+Jeśli nie utworzono i nie skonfigurowano magazynu Recovery Services, możesz [zapoznać się z](backup-create-rs-vault.md)artykułem jak to zrobić.
 
 ## <a name="configuring-a-vault-to-encrypt-using-customer-managed-keys"></a>Konfigurowanie magazynu do szyfrowania przy użyciu kluczy zarządzanych przez klienta
 

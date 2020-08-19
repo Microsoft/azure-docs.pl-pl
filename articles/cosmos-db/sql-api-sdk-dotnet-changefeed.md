@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 08/05/2020
+ms.date: 08/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: f38b2715115efadef4e09a95e9392b1dfd4c68b0
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 6d25eb2965e31211c0d30ec8d5e3e376176147c0
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135746"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590051"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Zestaw SDK procesora kanału informacyjnego platformy .NET: pobieranie i informacje o wersji
 
@@ -27,7 +27,8 @@ ms.locfileid: "88135746"
 > * [Java SDK 4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK 2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK 2](sql-api-sdk-java.md)
-> * [Spring Data](sql-api-sdk-java-spring.md)
+> * [Wiosenne dane v2](sql-api-sdk-java-spring-v2.md)
+> * [Wiosenne dane v3](sql-api-sdk-java-spring-v3.md)
 > * [Łącznik platformy Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * CZĘŚĆ (/rest/api
@@ -196,7 +197,7 @@ Firma Microsoft zapewni powiadomienie co najmniej **12 miesięcy** przed WYCOFAN
 
 | Wersja | Data wydania | Data wycofania |
 | --- | --- | --- |
-| [2.3.2](#2.3.2) |11 sierpnia 2020 |--- |
+| [2.3.2](#2.3.2) |11 sierpnia 2020 r. |--- |
 | [ppkt](#2.3.1) |30 lipca 2020 |--- |
 | [2.3.0](#2.3.0) |2 kwietnia 2020 |--- |
 | [2.2.8](#2.2.8) |28 października 2019 |--- |
@@ -219,6 +220,6 @@ Firma Microsoft zapewni powiadomienie co najmniej **12 miesięcy** przed WYCOFAN
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 Aby dowiedzieć się więcej na temat Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) .

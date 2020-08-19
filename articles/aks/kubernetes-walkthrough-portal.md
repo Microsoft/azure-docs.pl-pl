@@ -4,14 +4,14 @@ titleSuffix: Azure Kubernetes Service
 description: Dowiedz się, jak szybko utworzyć klaster Kubernetes, wdrożyć aplikację i monitorować wydajność w usłudze Azure Kubernetes Service (AKS) przy użyciu witryny Azure Portal.
 services: container-service
 ms.topic: quickstart
-ms.date: 01/21/2020
+ms.date: 08/18/2020
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 987836281c1decb976418406b8e47afffb9cd0d8
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: cd3fd41d281708f4c1d9616db47f751f60e055cd
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003222"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589915"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service (AKS) przy użyciu Azure Portal
 
@@ -91,9 +91,6 @@ aks-agentpool-14693408-0   Ready     agent     15m       v1.11.5
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
 Plik manifestu platformy Kubernetes definiuje żądany stan klastra, w tym informacje o obrazach kontenera do uruchomienia. W tym przewodniku Szybki start manifest służy do tworzenia wszystkich obiektów potrzebnych do uruchomienia aplikacji Azure Vote. Ten manifest obejmuje dwa [wdrożenia platformy Kubernetes][kubernetes-deployment] — jedno dla aplikacji Azure Vote w języku Python i jedno dla wystąpienia usługi Redis. Tworzone są również dwie [usługi platformy Kubernetes][kubernetes-service] — wewnętrzna usługa dla wystąpienia usługi Redis i zewnętrzna usługa służąca do uzyskiwania dostępu do aplikacji Azure Vote z Internetu.
-
-> [!TIP]
-> W tym przewodniku Szybki start ręcznie utworzysz i wdrożysz manifesty aplikacji w klastrze AKS. W bardziej rzeczywistych scenariuszach można użyć obszarów [Azure Dev Spaces][azure-dev-spaces], aby szybko iterować i debugować kod bezpośrednio w klastrze AKS. Obszarów Dev Spaces można używać na różnych platformach systemów operacyjnych i w środowiskach deweloperskich, aby pracować razem z innymi członkami zespołu.
 
 W Cloud Shell Użyj edytora, aby utworzyć plik o nazwie `azure-vote.yaml` , taki jak `code azure-vote.yaml` , `nano azure-vote.yaml` lub `vi azure-vote.yaml` . Następnie skopiuj w następującej definicji YAML:
 
@@ -232,7 +229,7 @@ Zebranie tych danych w witrynie Azure Portal może zająć kilka minut. Aby wyś
 
 1. W obszarze **Monitorowanie** po lewej stronie wybierz pozycję **Insights**
 1. U góry wybierz pozycję **+ Dodaj filtr**
-1. Wybierz *przestrzeń nazw* jako właściwość, a następnie wybierz pozycję*\<All but kube-system\>*
+1. Wybierz *przestrzeń nazw* jako właściwość, a następnie wybierz pozycję *\<All but kube-system\>*
 1. Wybierz pozycję **Kontenery**, aby ją wyświetlić.
 
 Zostaną wyświetlone kontenery *azure-vote-back* i *azure-vote-front*, jak pokazano w poniższym przykładzie:

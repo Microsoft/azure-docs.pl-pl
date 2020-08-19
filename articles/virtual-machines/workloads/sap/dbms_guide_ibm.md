@@ -9,15 +9,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/13/2020
+ms.date: 08/18/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3db8ece7cd1d3ef57b51b164fad3340b80882369
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 947f50c1a92985c057f39a5efb1be250bf8ef06c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510202"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587161"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Wdrażanie systemu DBMS usługi Azure Virtual Machines programu IBM Db2 dla obciążenia SAP
 
@@ -85,8 +85,8 @@ Poniżej znajduje się konfiguracja linii bazowej dla różnych rozmiarów i uż
 | Nazwa/rozmiar maszyny wirtualnej |Punkt instalacji bazy danych DB2 |Dysk platformy Azure w warstwie Premium |Liczba dysków |Liczba operacji we/wy na sekundę |Przepływność [MB/s] |Rozmiar [GB] |Operacje we/wy na sekundę |Prz serii [GB] | Rozmiar paska | Buforowanie |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E4ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  ||  |
-|vCPU: 4 |/DB2/ <SID> /sapdata |P6 |4 |960  |200  |256  |14,000  |680  |256 KB |ReadOnly |
-|Pamięć RAM: 32 GiB |/DB2/ <SID> /saptmp |P6 |2 |480  |100  |128  |7,000  |340  |128 KB ||
+|vCPU: 4 |/DB2/ <SID> /sapdata |P10 |2 |1,000  |200  |256  |7,000  |340  |256 KB |ReadOnly |
+|Pamięć RAM: 32 GiB |/DB2/ <SID> /saptmp |P6 |1 |240  |50  |128  |3,500  |170  | ||
 | |/DB2/ <SID> /log_dir |P6 |2 |480  |100  |128  |7,000  |340  |64 KB ||
 | |/DB2/ <SID> /offline_log_dir |P10 |1 |500  |100  |128  |3,500  |170  || |
 

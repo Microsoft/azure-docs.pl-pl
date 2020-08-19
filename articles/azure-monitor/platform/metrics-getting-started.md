@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 14f21b1c0bff5f4d5f77b1547c09ddd6c370ece0
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 3e5514c4a54083bcc6ef8187f2cd97515d2dd680
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276434"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590187"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Wprowadzenie do Eksploratora metryk platformy Azure
 
@@ -41,16 +41,19 @@ Aby utworzyć wykres metryki, z poziomu zasobu, grupy zasobów, subskrypcji lub 
 
 4. Opcjonalnie można [zmienić agregację metryki](metrics-charts.md#changing-aggregation). Na przykład możesz chcieć, aby wykres pokazywał minimalną, maksymalną lub średnią wartość metryki.
 
-> [!NOTE]
+> [!TIP]
 > Użyj przycisku **Dodaj metrykę** i powtórz te kroki, jeśli chcesz zobaczyć wiele metryk wykreślonych na tym samym wykresie. W przypadku wielu wykresów w jednym widoku wybierz przycisk **Dodaj wykres** u góry.
 
 ## <a name="select-a-time-range"></a>Wybierz zakres czasu
+
+> [!WARNING]
+> [Większość metryk na platformie Azure jest przechowywana przez 93 dni](data-platform-metrics.md#retention-of-metrics). Można jednak wykonywać zapytania o nie więcej niż 30 dni danych na jednym wykresie. To ograniczenie nie ma zastosowania do [metryk opartych na dzienniku](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
 
 Domyślnie wykres pokazuje ostatnie 24 godziny danych metryk. Aby zmienić zakres czasu, powiększyć lub pomniejszyć wykres, użyj panelu **wyboru czasu** . 
 
 ![Zmień panel zakresu czasu](./media/metrics-getting-started/time-picker.png)
 
-> [!NOTE]
+> [!TIP]
 > Użyj **pędzla czasu** , aby zbadać interesujący obszar wykresu (zbiór lub DIP). Umieść wskaźnik myszy na początku obszaru, kliknij i przytrzymaj lewy przycisk myszy, przeciągnij do drugiej strony obszaru, a następnie zwolnij przycisk. Wykres powiększy się dla tego zakresu czasu. 
 
 ## <a name="apply-dimension-filters-and-splitting"></a>Zastosuj filtry i podziały wymiarów

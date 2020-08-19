@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 7044954d2ba67e61172c08c0a77acaaaec3822c6
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 5da9e5b38b88a5a148bd3d85664daa523153086b
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83992678"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589456"
 ---
 # <a name="what-is-the-translator"></a>Co to jest translator?
 
-Translator można łatwo zintegrować z aplikacjami, witrynami sieci Web, narzędziami i rozwiązaniami. Umożliwia on dodawanie wielojęzycznych środowisk użytkowników w [ponad 60 językach](languages.md) i może być używany na dowolnej platformie sprzętowej z dowolnym systemem operacyjnym na potrzeby tłumaczenia tekstów w różnych językach.
+Translator można łatwo zintegrować z aplikacjami, witrynami sieci Web, narzędziami i rozwiązaniami. Pozwala to na dodawanie środowiska użytkownika w wielu [językach w więcej niż 70 języków](languages.md)i może być używane na dowolnej platformie sprzętowej z dowolnym systemem operacyjnym na potrzeby tłumaczenia tekstu na tekst.
 
 Translator jest częścią [usługi Azure Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) zbieraniem algorytmów uczenia maszynowego i AI w chmurze oraz jest łatwo do użycia w projektach programistycznych.
 
@@ -54,6 +54,6 @@ Dowiedz się więcej o [dostosowywaniu języków](customization.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Utwórz konto](translator-text-how-to-signup.md), aby uzyskać klucz dostępu.
+- [Zarejestruj się](translator-text-how-to-signup.md) , aby uzyskać klucz dostępu.
 - [Dokumentacja interfejsu API](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) zawiera dokumentację techniczną interfejsów API.
 - [Szczegóły cennika](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)

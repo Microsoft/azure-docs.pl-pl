@@ -6,28 +6,28 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: bf9e403fb8691f378558ef5f0403d132214ed187
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ccc6611f14903e47a76de938994552378bb3bc24
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421777"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589711"
 ---
 # <a name="azure-load-balancer-components"></a>Składniki Azure Load Balancer
 
 Azure Load Balancer zawiera kilka najważniejszych składników. Te składniki można skonfigurować w ramach subskrypcji za pośrednictwem:
 
-* Witryna Azure Portal
+* Azure Portal
 * Interfejs wiersza polecenia platformy Azure
 * Azure PowerShell
 * Szablony usługi Resource Manager
 
-## <a name="frontend-ip-configuration"></a>Konfiguracja adresu IP frontonu<a name = "frontend-ip-configurations"></a>
+## <a name="frontend-ip-configuration"></a>Konfiguracja adresu IP frontonu <a name = "frontend-ip-configurations"></a>
 
 Adres IP Azure Load Balancer. Jest to punkt kontaktu dla klientów. Mogą to być następujące adresy IP:
 

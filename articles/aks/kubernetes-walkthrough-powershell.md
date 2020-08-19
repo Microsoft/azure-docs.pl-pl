@@ -3,14 +3,14 @@ title: 'Szybki Start: Wdrażanie klastra AKS przy użyciu programu PowerShell'
 description: Dowiedz się, jak szybko utworzyć klaster Kubernetes, wdrożyć aplikację oraz monitorować wydajność w usłudze Azure Kubernetes Service (AKS) przy użyciu programu PowerShell.
 services: container-service
 ms.topic: quickstart
-ms.date: 05/26/2020
+ms.date: 08/18/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 219772fd81617dc3e69b452057e0122eedef69f9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4dde1dcd131a497b60a314513df44cc0443d28ed
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499861"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590000"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service przy użyciu programu PowerShell
 
@@ -24,7 +24,7 @@ W tym przewodniku Szybki start założono, że masz podstawową wiedzę na temat
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 Jeśli zdecydujesz się używać programu PowerShell lokalnie, ten artykuł będzie wymagał instalacji modułu AZ PowerShell i nawiązania połączenia z kontem platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) . Aby uzyskać więcej informacji na temat instalowania modułu AZ PowerShell module, zobacz [Install Azure PowerShell][install-azure-powershell].
 
@@ -101,10 +101,6 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.15.10
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
 Plik manifestu platformy Kubernetes definiuje żądany stan klastra, w tym informacje o obrazach kontenera do uruchomienia. W tym przewodniku Szybki start manifest służy do tworzenia wszystkich obiektów potrzebnych do uruchomienia aplikacji Azure Vote. Ten manifest obejmuje dwa [wdrożenia platformy Kubernetes][kubernetes-deployment] — jedno dla aplikacji Azure Vote w języku Python i jedno dla wystąpienia usługi Redis. Są również tworzone dwa [usługi Kubernetes Services — wewnętrzna usługa dla wystąpienia Redis i zewnętrzna usługa do uzyskiwania dostępu do aplikacji do głosowania platformy Azure z Internetu.
-
-> [!TIP]
-> W tym przewodniku Szybki start ręcznie utworzysz i wdrożysz manifesty aplikacji w klastrze AKS.
-> W bardziej rzeczywistych scenariuszach można użyć obszarów [Azure Dev Spaces][azure-dev-spaces], aby szybko iterować i debugować kod bezpośrednio w klastrze AKS. Obszarów Dev Spaces można używać na różnych platformach systemów operacyjnych i w środowiskach deweloperskich, aby pracować razem z innymi członkami zespołu.
 
 Utwórz plik o nazwie `azure-vote.yaml` i skopiuj go do poniższej definicji YAML. Jeśli używasz usługi Azure Cloud Shell, ten plik można utworzyć przy użyciu programu `vi` lub `nano`, tak jak podczas pracy w systemie wirtualnym lub fizycznym:
 

@@ -1,21 +1,21 @@
 ---
-title: Samouczek — Tworzenie i uruchamianie notesu Jupyter Azure Notebooks — wersja zapoznawcza
-description: Dowiedz się, jak utworzyć i uruchomić Notes Jupyter Azure Notebooks w wersji zapoznawczej, który pokazuje proces regresji liniowej w nauce danych.
+title: Samouczek — Tworzenie i uruchamianie Jupyter Notebook-Azure Notebooks Preview
+description: Dowiedz się, jak utworzyć i uruchomić Jupyter Notebook w wersji zapoznawczej Azure Notebooks, która pokazuje proces regresji liniowej w nauce danych.
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: f6480a93610761061462be8e83ce3e719f3e8bdf
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: cb8be1618de7e95a7096e4ea9dec78bf4aa277f6
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846916"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589268"
 ---
-# <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Samouczek: Tworzenie i uruchamianie notesu Jupyter przy użyciu języka Python
+# <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Samouczek: Tworzenie i uruchamianie Jupyter Notebook przy użyciu języka Python
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-Ten samouczek przeprowadzi Cię przez proces używania Azure Notebooks w celu utworzenia kompletnego notesu Jupyter, który pokazuje prostą regresję liniową. W ramach tego samouczka zaznajomisz się z interfejsem użytkownika notesu Jupyter, który obejmuje tworzenie różnych komórek, uruchamianie komórek i prezentowanie notesu jako pokazu slajdów.
+Ten samouczek przeprowadzi Cię przez proces używania Azure Notebooks, aby utworzyć kompletny Jupyter Notebook, który demonstruje prostą regresję liniową. W ramach tego samouczka zapoznajesz się z interfejsem użytkownika Jupyter Notebook, który obejmuje tworzenie różnych komórek, uruchamianie komórek i prezentowanie notesu jako pokazu slajdów.
 
 Ukończony Notes można znaleźć w [przykładach Azure Notebooks GitHub](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). Ten samouczek, jednak rozpoczyna się od nowego projektu i pustego notesu, aby można było go utworzyć krok po kroku.
 
@@ -417,7 +417,7 @@ Jeśli komórki kodu w notesie nie zachowywać się w oczekiwany sposób, mogą 
 
 Na szczęście można pobrać plik *. ipynb* notesu, a następnie otworzyć go w Visual Studio Code przy użyciu rozszerzenia języka Python. Rozszerzenie bezpośrednio importuje Notes jako pojedynczy plik kodu, zachowując komórki promocji w komentarzach. Po zaimportowaniu notesu można użyć debugera Visual Studio Code do przechodzenia przez kod, ustawiania punktów przerwania, sprawdzania stanu i tak dalej. Po wprowadzeniu poprawek do kodu wyeksportuj plik *. ipynb* z Visual Studio Code i przekaż go z powrotem do Azure Notebooks.
 
-Aby uzyskać więcej informacji, zobacz [debugowanie notesu Jupyter](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) w dokumentacji Visual Studio Code.
+Aby uzyskać więcej informacji, zobacz [debugowanie Jupyter Notebook](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) w dokumentacji Visual Studio Code.
 
 Zobacz też [Visual Studio Code-Jupyter support](https://code.visualstudio.com/docs/python/jupyter-support) for Visual Studio Code features for Jupyter Notess.
 

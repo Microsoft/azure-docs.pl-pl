@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: d7efe781f1ba2beb1fa7dd4fdaaad280fc789de2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 226cf29b1a94b4508a9d68f02b7400a18eba4bc2
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82204386"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587858"
 ---
 # <a name="tutorial-connect-to-an-azure-red-hat-openshift-4-cluster"></a>Samouczek: Nawiązywanie połączenia z klastrem usługi Azure Red Hat OpenShift 4
 
@@ -21,11 +21,11 @@ W tym samouczku druga część trzech z nich nawiązuje połączenie z klastrem 
 > * Instalowanie interfejsu wiersza polecenia OpenShift
 > * Nawiązywanie połączenia z klastrem usługi Azure Red Hat OpenShift przy użyciu interfejsu wiersza polecenia OpenShift
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W poprzednich samouczkach został utworzony klaster Red Hat OpenShift platformy Azure. Jeśli nie wykonano tych kroków, a chcesz postępować zgodnie z [samouczkiem 1, Utwórz klaster Red Hat OpenShift 4 platformy Azure.](tutorial-create-cluster.md)
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.75 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="connect-to-the-cluster"></a>Łączenie z klastrem
 
@@ -37,7 +37,7 @@ az aro list-credentials \
   --resource-group $RESOURCEGROUP
 ```
 
-Następujące przykładowe dane wyjściowe pokazują, że hasło będzie w `kubeadminPassword`.
+Następujące przykładowe dane wyjściowe pokazują, że hasło będzie w `kubeadminPassword` .
 
 ```json
 {
@@ -46,7 +46,7 @@ Następujące przykładowe dane wyjściowe pokazują, że hasło będzie w `kube
 }
 ```
 
-Adres URL konsoli klastra można znaleźć, uruchamiając następujące polecenie, które będzie wyglądać następująco:`https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
+Adres URL konsoli klastra można znaleźć, uruchamiając następujące polecenie, które będzie wyglądać następująco: `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
 
 ```azurecli-interactive
  az aro show \
@@ -55,7 +55,7 @@ Adres URL konsoli klastra można znaleźć, uruchamiając następujące poleceni
     --query "consoleProfile.url" -o tsv
 ```
 
-Uruchom w przeglądarce adres URL konsoli i zaloguj się `kubeadmin` przy użyciu poświadczeń.
+Uruchom w przeglądarce adres URL konsoli i zaloguj się przy użyciu `kubeadmin` poświadczeń.
 
 ![Ekran logowania OpenShift na platformie Azure Red Hat](media/aro4-login.png)
 
@@ -65,7 +65,7 @@ Po zalogowaniu się do konsoli sieci Web OpenShift kliknij pozycję **?** w praw
 
 ![Ekran logowania OpenShift na platformie Azure Red Hat](media/aro4-download-cli.png)
 
-Możesz również pobrać najnowszą wersję interfejsu wiersza polecenia odpowiednią dla komputera z programu <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/>.
+Możesz również pobrać najnowszą wersję interfejsu wiersza polecenia odpowiednią dla komputera z programu <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/> .
 
 Jeśli używasz poleceń na Azure Cloud Shell, Pobierz najnowszą wersję interfejsu wiersza polecenia OpenShift 4 dla systemu Linux.
 
@@ -86,7 +86,7 @@ Pobierz adres serwera interfejsu API.
 apiServer=$(az aro show -g $RESOURCEGROUP -n $CLUSTER --query apiserverProfile.url -o tsv)
 ```
 
-Zaloguj się do serwera interfejsu API klastra OpenShift przy użyciu następującego polecenia. Zastąp ** \<hasło kubeadmin>** hasłem, które właśnie zostało pobrane.
+Zaloguj się do serwera interfejsu API klastra OpenShift przy użyciu następującego polecenia. Zamień na **\<kubeadmin password>** hasło, które zostało właśnie pobrane.
 
 ```azurecli-interactive
 oc login $apiServer -u kubeadmin -p <kubeadmin password>

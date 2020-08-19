@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 02/25/2020
-ms.openlocfilehash: faa338e32577e713472601fde52e038a685b7826
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/14/2020
+ms.openlocfilehash: 902fa34be149f0b876729409c530186e34c706e5
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086833"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587314"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Omówienie limitów zasobów wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -33,7 +33,7 @@ Wystąpienie zarządzane SQL ma cechy i limity zasobów, które są zależne od 
 
 |   | **Obliczenia** | **5 rdzeń** |
 | --- | --- | --- |
-| **Sprzęt** | Procesor Intel E5-2673 v3 (Haswell) 2,4 GHz, dołączony dysk SSD rdzeń wirtualny = 1 PP (rdzeń fizyczny) | Procesor Intel E5-2673 v4 (Broadwell) 2,3-GHz i Intel SP-8160 (Skylake), Fast NVMe SSD, rdzeń wirtualny = 1 LP (Hyper-Thread) |
+| **Sprzęt** | Procesor Intel® E5-2673 v3 (Haswell) 2,4 GHz, dołączony dysk SSD rdzeń wirtualny = 1 PP (rdzeń fizyczny) | Intel® E5-2673 v4 (Broadwell) 2,3 GHz, Intel® SP-8160 (Skylake) i Intel® 8272CL (Kaskada Lake) 2,5 procesorów, Fast NVMe SSD, rdzeń wirtualny = 1 LP (Hyper-Thread) |
 | **Liczba rdzeni wirtualnych** | 8, 16, 24 rdzeni wirtualnych | 4, 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych |
 | **Maksymalna ilość pamięci (stosunek pamięci/rdzeni)** | 7 GB na rdzeń wirtualny<br/>Aby uzyskać więcej pamięci, Dodaj więcej rdzeni wirtualnych. | 5,1 GB na rdzeń wirtualny<br/>Aby uzyskać więcej pamięci, Dodaj więcej rdzeni wirtualnych. |
 | **Maksymalna pamięć OLTP w pamięci** | Limit wystąpień: 1 – 1,5 GB na rdzeń wirtualny| Limit wystąpień: 0,8 – 1,65 GB na rdzeń wirtualny |
@@ -150,9 +150,9 @@ W poniższej tabeli przedstawiono **domyślne limity** dla obsługiwanych typów
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional i Platformy MSDN|2|32|
 
-\*W obszarze Planowanie wdrożeń należy wziąć pod uwagę, że warstwa usług Krytyczne dla działania firmy (BC) wymaga czterech (4) razy więcej rdzeń wirtualny pojemności niż Ogólnego przeznaczenia (GP). Na przykład: 1 GP rdzeń wirtualny = 1 rdzeń wirtualny Unit i 1 BC rdzeń wirtualny = 4 jednostki rdzeń wirtualny. Aby uprościć analizę zużycia pod kątem domyślnych limitów, należy podsumować jednostki rdzeń wirtualny we wszystkich podsieciach w regionie, w którym wdrożono wystąpienie zarządzane SQL, i porównać wyniki z limitami jednostek wystąpienia dla danego typu subskrypcji. **Maksymalna liczba jednostek rdzeń wirtualny** dotyczy każdej subskrypcji w regionie. Nie ma żadnego limitu dla poszczególnych podsieci, z tą różnicą, że suma wszystkich rdzeni wirtualnych wdrożonych w wielu podsieciach musi być mniejsza lub równa **maksymalnej liczbie jednostek rdzeń wirtualny**.
+\* W obszarze Planowanie wdrożeń należy wziąć pod uwagę, że warstwa usług Krytyczne dla działania firmy (BC) wymaga czterech (4) razy więcej rdzeń wirtualny pojemności niż Ogólnego przeznaczenia (GP). Na przykład: 1 GP rdzeń wirtualny = 1 rdzeń wirtualny Unit i 1 BC rdzeń wirtualny = 4 jednostki rdzeń wirtualny. Aby uprościć analizę zużycia pod kątem domyślnych limitów, należy podsumować jednostki rdzeń wirtualny we wszystkich podsieciach w regionie, w którym wdrożono wystąpienie zarządzane SQL, i porównać wyniki z limitami jednostek wystąpienia dla danego typu subskrypcji. **Maksymalna liczba jednostek rdzeń wirtualny** dotyczy każdej subskrypcji w regionie. Nie ma żadnego limitu dla poszczególnych podsieci, z tą różnicą, że suma wszystkich rdzeni wirtualnych wdrożonych w wielu podsieciach musi być mniejsza lub równa **maksymalnej liczbie jednostek rdzeń wirtualny**.
 
-\*\*Większe limity podsieci i rdzeń wirtualny są dostępne w następujących regionach: Australia Wschodnia, Wschodnie stany USA, Wschodnie stany USA 2, Europa Północna, Południowo-środkowe stany USA, Azja Południowo-Wschodnia Południowe Zjednoczone Królestwo, Europa Zachodnia, zachodnie stany USA 2.
+\*\* Większe limity podsieci i rdzeń wirtualny są dostępne w następujących regionach: Australia Wschodnia, Wschodnie stany USA, Wschodnie stany USA 2, Europa Północna, Południowo-środkowe stany USA, Azja Południowo-Wschodnia Południowe Zjednoczone Królestwo, Europa Zachodnia, zachodnie stany USA 2.
 
 > [!IMPORTANT]
 > Jeśli limit rdzeń wirtualny i podsieci wynosi 0, oznacza to, że domyślny limit regionalny dla danego typu subskrypcji nie jest ustawiony. Można również użyć żądania zwiększenia przydziału w celu uzyskania dostępu do subskrypcji w określonym regionie, zgodnie z tą samą procedurą — dostarczając wymagane wartości rdzeń wirtualny i podsieci.

@@ -4,12 +4,12 @@ description: Dowiedz się, jak wdrożyć klaster usługi Service Fabric systemu 
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
-ms.openlocfilehash: 14e029622f17e8aae392cc55ba4418b3971a5ad2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c4b71328ce59284f8870407c9492d24afe9acd8a
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260218"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586924"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>wdrażanie klastra usługi Service Fabric systemu Linux w sieci wirtualnej platformy Azure
 
@@ -41,7 +41,12 @@ Dla Ubuntu 18,04 LTS:
 * [AzureDeploy.jsna][template2]
 * [AzureDeploy.Parameters.jsna][parameters2]
 
-Różnica między tymi dwoma szablonami jest atrybutem **vmImageSku** ustawionym na "18,04-LTS" i **typeHandlerVersion** każdego węzła ustawionym na 1,1.
+W przypadku Ubuntu 18,04 LTS różnica między dwoma szablonami 
+* atrybut **vmImageSku** ustawiony na wartość "18,04-LTS"
+* **typeHandlerVersion** każdego węzła jest ustawiona na 1,1
+* Zasób Microsoft. servicefabric/klastrów
+   - **apiVersion** jest ustawiony na wartość "2019-03-01" lub wyższą
+   - Właściwość **obraz maszyny wirtualnej** jest ustawiona na wartość "Ubuntu18_04"
 
 Ten szablon wdraża bezpieczny klaster składający się z siedmiu maszyn wirtualnych i trzech typów węzłów w sieci wirtualnej.  Inne przykładowe szablony można znaleźć w witrynie [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). [AzureDeploy.jsw][template] programie wdraża liczbę zasobów, w tym następujące.
 
@@ -160,7 +165,7 @@ Za pomocą polecenia `sfctl cluster health` sprawdź poprawność połączenia i
 sfctl cluster health
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie przechodzisz od razu do następnego artykułu, rozważ [usunięcie klastra](./service-fabric-tutorial-delete-cluster.md), aby uniknąć naliczania opłat.
 

@@ -2,25 +2,21 @@
 title: Usługa Azure serwer proxy aplikacji usługi Azure AD często zadawane pytania | Microsoft Docs
 description: Poznaj odpowiedzi na często zadawane pytania dotyczące korzystania z usługi Azure serwer proxy aplikacji usługi Azure AD w celu publikowania wewnętrznych aplikacji lokalnych dla użytkowników zdalnych.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 78a0cb6217d8c1d25f08801066a970d6bc94e1b0
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: edf51dad768e8d8b5ea5dc6c1eff88f43f0f6b70
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042109"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589167"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Serwer proxy aplikacji usługi Active Directory (Azure AD) — często zadawane pytania
 
@@ -90,6 +86,15 @@ Serwer proxy aplikacji wymaga systemu Windows Server 2012 R2 lub nowszego. Obecn
 
 
 ## <a name="application-configuration"></a>Konfiguracja aplikacji
+
+### <a name="i-am-receiving-an-error-about-an-invalid-certificate-or-possible-wrong-password"></a>Otrzymuję błąd dotyczący nieprawidłowego certyfikatu lub możliwe złe hasło
+
+Po przekazaniu certyfikatu SSL zostanie wyświetlony komunikat "nieprawidłowy certyfikat, możliwe złe hasło" w portalu.
+
+Oto kilka porad dotyczących rozwiązywania tego błędu:
+- Sprawdź, czy występują problemy z certyfikatem. Zainstaluj go na komputerze lokalnym. Jeśli nie występują żadne problemy, certyfikat jest dobry.
+- Upewnij się, że hasło nie zawiera żadnych znaków specjalnych. W przypadku testowania hasło powinno zawierać tylko znaki 0-9, A-Z i a-z.
+- Jeśli certyfikat został utworzony za pomocą dostawcy magazynu kluczy oprogramowania firmy Microsoft, należy użyć algorytmu RSA.
 
 ### <a name="what-is-the-length-of-the-default-and-long-back-end-timeout-can-the-timeout-be-extended"></a>Jaka jest długość domyślnego i "długiego" limitu czasu zaplecza? Czy limit czasu można rozszerzyć?
 

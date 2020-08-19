@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/12/2020
+ms.date: 08/18/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 27c5b166565dd8f0803f3bca05d137e643325368
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: fea14c62afb03a6c0d9f1bf6894f02bd3fd06c7f
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185744"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586974"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-or-queue-data-in-the-azure-portal"></a>Wybierz sposób autoryzacji dostępu do danych obiektu BLOB lub kolejki w Azure Portal
 

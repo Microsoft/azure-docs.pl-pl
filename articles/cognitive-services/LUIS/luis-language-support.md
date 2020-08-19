@@ -1,7 +1,7 @@
 ---
 title: Obsługa języków — LUIS
 titleSuffix: Azure Cognitive Services
-description: LUIS ma wiele funkcji w ramach usługi. Nie wszystkie funkcje mają taką samą parzystość języka. Upewnij się, że interesujące Cię funkcje są obsługiwane w kulturze języka, w której jesteś docelowym. Aplikacja LUIS jest specyficzna dla kultury i nie można jej zmienić po jej ustawieniu.
+description: Usługa LUIS oferuje wiele funkcji. Nie wszystkie funkcje są równoważne w każdym języku. Upewnij się, że interesujące Cię funkcje są obsługiwane w Twojej docelowej kulturze językowej. Aplikacja LUIS jest specyficzna dla kultury i nie można jej zmienić po jej ustawieniu.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 43858015857303d404b1abc0fe410aa462671587
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: b60a777960f3c6f8a2415ca551217d35b7f3497d
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340202"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588026"
 ---
 # <a name="language-and-region-support-for-luis"></a>Obsługa języka i regionu w programie LUIS
 
-LUIS ma wiele funkcji w ramach usługi. Nie wszystkie funkcje mają taką samą parzystość języka. Upewnij się, że interesujące Cię funkcje są obsługiwane w kulturze języka, w której jesteś docelowym. Aplikacja LUIS jest specyficzna dla kultury i nie można jej zmienić po jej ustawieniu.
+Usługa LUIS oferuje wiele funkcji. Nie wszystkie funkcje są równoważne w każdym języku. Upewnij się, że interesujące Cię funkcje są obsługiwane w Twojej docelowej kulturze językowej. Aplikacja LUIS jest specyficzna dla kultury i nie można jej zmienić po jej ustawieniu.
 
 ## <a name="multi-language-luis-apps"></a>Aplikacje LUIS z obsługą wielu języków
 
@@ -115,8 +115,8 @@ Następujące kultury mają niestandardowe wersje tokenizatora:
 |--|--|--|
 |Niemiecki<br>`de-de`|1.0.0|Tokenizes wyrazy, dzieląc je za pomocą tokenizatora opartych na uczeniu maszynowym, które próbują podzielić wyrazy złożone na ich pojedyncze składniki.<br>Jeśli użytkownik wprowadzi `Ich fahre einen krankenwagen` jako wypowiedź, jest on włączony `Ich fahre einen kranken wagen` . Zezwalanie na oznaczanie `kranken` i `wagen` niezależnie jako różne jednostki.|
 |Niemiecki<br>`de-de`|1.0.2|Tokenizes wyrazy, dzieląc je na spacje.<br> Jeśli użytkownik wprowadzi `Ich fahre einen krankenwagen` jako wypowiedź, pozostaje pojedynczym tokenem. Oznacza `krankenwagen` to, że jest oznaczona jako pojedyncza jednostka. |
-|Niderlandzki<br>`de-de`|1.0.0|Tokenizes wyrazy, dzieląc je za pomocą tokenizatora opartych na uczeniu maszynowym, które próbują podzielić wyrazy złożone na ich pojedyncze składniki.<br>Jeśli użytkownik wprowadzi `Ik ga naar de kleuterschool` jako wypowiedź, jest on włączony `Ik ga naar de kleuter school` . Zezwalanie na oznaczanie `kleuter` i `school` niezależnie jako różne jednostki.|
-|Niderlandzki<br>`de-de`|1.0.1|Tokenizes wyrazy, dzieląc je na spacje.<br> Jeśli użytkownik wprowadzi `Ik ga naar de kleuterschool` jako wypowiedź, pozostaje pojedynczym tokenem. Oznacza `kleuterschool` to, że jest oznaczona jako pojedyncza jednostka. |
+|Niderlandzki<br>`nl-nl`|1.0.0|Tokenizes wyrazy, dzieląc je za pomocą tokenizatora opartych na uczeniu maszynowym, które próbują podzielić wyrazy złożone na ich pojedyncze składniki.<br>Jeśli użytkownik wprowadzi `Ik ga naar de kleuterschool` jako wypowiedź, jest on włączony `Ik ga naar de kleuter school` . Zezwalanie na oznaczanie `kleuter` i `school` niezależnie jako różne jednostki.|
+|Niderlandzki<br>`nl-nl`|1.0.1|Tokenizes wyrazy, dzieląc je na spacje.<br> Jeśli użytkownik wprowadzi `Ik ga naar de kleuterschool` jako wypowiedź, pozostaje pojedynczym tokenem. Oznacza `kleuterschool` to, że jest oznaczona jako pojedyncza jednostka. |
 
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migrowanie między wersjami tokenizatora

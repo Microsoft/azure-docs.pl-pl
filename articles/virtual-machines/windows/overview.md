@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1d2675a55133d405041be6e309e0cc4d1596084e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4e955a51906f160264fc4e81f263fe7677be91de
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835491"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589626"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Maszyny wirtualne z systemem Windows na platformie Azure
 
@@ -51,6 +51,10 @@ W poniższej tabeli przedstawiono wybrane metody uzyskania dostępu do listy dos
 | Azure PowerShell |Użyj polecenia [Get-AzLocation](/powershell/module/az.resources/get-azlocation). |
 | Interfejs API REST |Użycie operacji [wyświetlania listy lokalizacji](/rest/api/resources/subscriptions). |
 | Interfejs wiersza polecenia platformy Azure |Użyj operacji [az account list-locations](/cli/azure/account?view=azure-cli-latest). |
+
+### <a name="singapore-data-residency"></a>Zamieszkać dane Singapur
+
+Na platformie Azure funkcja umożliwiająca przechowywanie danych klienta w jednym regionie jest obecnie dostępna tylko w regionie Azja Południowo-Wschodnia (Singapur) Azja i Pacyfik geograficznej. W przypadku wszystkich innych regionów dane klienta są przechowywane w lokalizacji geograficznej. Aby uzyskać więcej informacji, zobacz [Centrum zaufania](https://azuredatacentermap.azurewebsites.net/).
 
 ## <a name="availability"></a>Dostępność
 Platforma Azure oferuje najlepszą w branży umowę dotyczącą poziomu usług gwarantującą dostępność pojedynczego wystąpienia maszyny wirtualnej na poziomie 99,9% pod warunkiem wdrożenia tej maszyny wirtualnej z magazynem Premium dla wszystkich dysków.  Aby wdrożenie kwalifikowało się do standardowej umowy dotyczącej poziomu usług na poziomie 99,95%, należy wdrożyć co najmniej dwie maszyny wirtualne obsługujące obciążenie w zestawie dostępności. Zestaw dostępności gwarantuje, że maszyny wirtualne są rozproszone w wielu domenach błędów w centrach danych platformy Azure oraz wdrożone na hostach z różnymi okresami konserwacji. Pełna treść [umowy SLA dotyczącej usługi Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) wyjaśnia w całości kwestię gwarantowanej dostępności platformy Azure.

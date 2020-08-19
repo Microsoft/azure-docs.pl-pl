@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: f80d22adc432a81fcc88391e71ed7540399fa559
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 70550b61354c23889836b48be6f09475569ecd52
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995738"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589660"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Samouczek: Tworzenie aplikacji do translacji przy użyciu WPF
 
@@ -37,10 +37,10 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 Ta lista zawiera usługi Cognitive Services używane w tym samouczku. Użyj linku, aby przejrzeć dokumentację interfejsu API dla każdej funkcji.
 
-| Usługa | Cecha | Opis |
+| Usługa | Cechy | Opis |
 |---------|---------|-------------|
 | Translator | [Pobieranie języków](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Pobierz pełną listę obsługiwanych języków na potrzeby tłumaczenia tekstu. |
-| Translator | [Przetłumacz](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Przetłumacz tekst na ponad 60 języków. |
+| Translator | [Przetłumacz](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Tłumaczenie tekstu na więcej niż 70 języków. |
 | Translator | [Wykrywanie](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Wykryj język tekstu wejściowego. Obejmuje współczynnik ufności dla wykrywania. |
 | Sprawdzanie pisowni Bing | [Sprawdzanie pisowni](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Popraw błędy pisowni w celu zwiększenia dokładności tłumaczenia. |
 
@@ -97,7 +97,7 @@ Nasza aplikacja zdeserializuje obiekty JSON przy użyciu pakietu NewtonSoft.Json
 
 1. Znajdź projekt w Eksplorator rozwiązań programu Visual Studio i kliknij prawym przyciskiem myszy projekt. Wybierz pozycję **Zarządzaj pakietami NuGet**.
 1. Znajdź i wybierz kartę **Przeglądaj**.
-1. Wprowadź [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json/) na pasku wyszukiwania.
+1. Wprowadź [NewtonSoft.Jsna](https://www.nuget.org/packages/Newtonsoft.Json/) pasku wyszukiwania.
 
     ![Znajdowanie i instalowanie pakietu NewtonSoft.Json](media/nuget-package-manager.png)
 
@@ -263,7 +263,7 @@ Na koniec dodaliśmy kod wywołujący metody pobierające języki do tłumaczeni
 
 ## <a name="get-supported-languages"></a>Uzyskiwanie obsługiwanych języków
 
-Translator obsługuje obecnie ponad 60 języków. Ponieważ nowa obsługa języka zostanie dodana z upływem czasu, zalecamy wywołanie zasobów języków udostępnianych przez translator, a nie zakodowana listy języków w aplikacji.
+Translator obsługuje obecnie ponad 70 języków. Ponieważ nowa obsługa języka zostanie dodana z upływem czasu, zalecamy wywołanie zasobów języków udostępnianych przez translator, a nie zakodowana listy języków w aplikacji.
 
 W tej sekcji utworzymy żądanie `GET` do zasobu Languages określające, że chcemy uzyskać listę języków dostępnych do tłumaczenia.
 
@@ -289,7 +289,7 @@ Zanim przejdziemy dalej, przyjrzyjmy się przykładowym danym wyjściowym wywoł
 }
 ```
 
-Z tych danych wyjściowych możemy wyodrębnić kod języka i właściwość `name` określonego języka. Nasza aplikacja używa NewtonSoft. JSON do deserializacji obiektu JSON ( [`JsonConvert.DeserializeObject`](https://www.newtonsoft.com/json/help/html/M_Newtonsoft_Json_JsonConvert_DeserializeObject__1.htm) ).
+Z tych danych wyjściowych możemy wyodrębnić kod języka i właściwość `name` określonego języka. Nasza aplikacja używa NewtonSoft.Jsna potrzeby deserializacji obiektu JSON ( [`JsonConvert.DeserializeObject`](https://www.newtonsoft.com/json/help/html/M_Newtonsoft_Json_JsonConvert_DeserializeObject__1.htm) ).
 
 Wróćmy teraz do miejsca, w który przerwaliśmy pracę w poprzedniej sekcji, i dodajmy metodę pobierającą obsługiwane języki do naszej aplikacji.
 

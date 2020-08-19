@@ -8,12 +8,12 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: f432c544d8632a548c397b63ffa8066f63424f67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2d2a000879a95f86a6cdda3324add5b692476eee
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528387"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590119"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Włącz usuwanie nietrwałe w udziałach plików platformy Azure
 
@@ -23,7 +23,9 @@ W poniższych sekcjach pokazano, jak włączyć i użyć usuwania nietrwałego d
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+## <a name="getting-started"></a>Wprowadzenie
+
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
 1. Przejdź do konta magazynu i wybierz pozycję **usuwanie nietrwałe** w obszarze **Usługa plików**.
 1. Wybierz opcję **włączone** dla **trwałego usunięcia udziału plików**.
 1. Wybierz **okres przechowywania udziału plików w dniach** i wprowadź wybraną liczbę.
@@ -33,7 +35,13 @@ W poniższych sekcjach pokazano, jak włączyć i użyć usuwania nietrwałego d
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Polecenia cmdlet usuwania nietrwałego są dostępne w wersji 2.1.1-Preview modułu AZ. Storage. Aby włączyć usuwanie nietrwałe, należy zaktualizować właściwości usługi klienta pliku. Poniższy przykład włącza usuwanie nietrwałe dla wszystkich udziałów plików na koncie magazynu:
+## <a name="prerequisite"></a>Wymaganie wstępne
+
+Polecenia cmdlet usuwania miękkiego są obecnie dostępne tylko w wersjach [2.1.1-Preview](https://www.powershellgallery.com/packages/Az.Storage/2.1.1-preview) i [2.3.1-Preview](https://www.powershellgallery.com/packages/Az.Storage/2.3.1-preview) modułu AZ. Storage. 
+
+## <a name="getting-started"></a>Wprowadzenie
+
+Aby włączyć usuwanie nietrwałe, należy zaktualizować właściwości usługi klienta pliku. Poniższy przykład włącza usuwanie nietrwałe dla wszystkich udziałów plików na koncie magazynu:
 
 ```azurepowershell-interactive
 $rgName = "yourResourceGroupName"

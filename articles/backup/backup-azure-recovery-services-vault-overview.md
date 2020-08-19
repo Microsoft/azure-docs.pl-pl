@@ -3,12 +3,12 @@ title: Omówienie magazynów usługi Recovery Services
 description: Omówienie i porównanie między magazynami Recovery Services i magazynami Azure Backup.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 2b292a39e38ef5e298f45c2babbee9fbd20c39ea
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 5334bc2aea5ddbf734c3fd3ef314ff4da609d61d
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261875"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587756"
 ---
 # <a name="recovery-services-vaults-overview"></a>Przegląd magazynów usługi Recovery Services
 
@@ -32,22 +32,37 @@ Magazyn Recovery Services jest jednostką, która przechowuje kopie zapasowe i p
 
 - Aby dowiedzieć się więcej o nadmiarowości magazynu, zapoznaj się z tymi artykułami dotyczącymi nadmiarowości [geograficznej](../storage/common/storage-redundancy.md) i [lokalnej](../storage/common/storage-redundancy.md) .
 
-### <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="encryption-settings-in-the-recovery-services-vault"></a>Ustawienia szyfrowania w magazynie Recovery Services
 
-- [Obsługiwane i nieobsługiwane scenariusze dotyczące magazynu](backup-support-matrix.md#vault-support)
-- [Często zadawane pytania dotyczące magazynu](backup-azure-backup-faq.md)
+W tej sekcji omówiono opcje szyfrowania danych kopii zapasowej przechowywanych w magazynie Recovery Services.
 
-## <a name="azure-advisor"></a>Usługa Azure Advisor
+### <a name="encryption-of-backup-data-using-platform-managed-keys"></a>Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez platformę
+
+Domyślnie wszystkie dane są szyfrowane przy użyciu kluczy zarządzanych przez platformę. Aby włączyć szyfrowanie, nie trzeba podejmować żadnych działań jawnych. Ma to zastosowanie do wszystkich obciążeń, których kopie zapasowe są tworzone w magazynie Recovery Services.
+
+### <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta
+
+Możesz zdecydować się na szyfrowanie danych przy użyciu kluczy szyfrowania należących do Ciebie i zarządzanych przez użytkownika. Azure Backup umożliwia korzystanie z kluczy RSA przechowywanych w Azure Key Vault na potrzeby szyfrowania kopii zapasowych. Klucz szyfrowania używany do szyfrowania kopii zapasowych może być inny niż użyty dla źródła. Dane są chronione przy użyciu klucza szyfrowania danych opartego na protokole AES 256, który jest z kolei chroniony przy użyciu kluczy. Zapewnia to pełną kontrolę nad danymi i kluczami. Aby umożliwić szyfrowanie, magazyn Recovery Services musi mieć udzielony dostęp do klucza szyfrowania w Azure Key Vault. W razie konieczności można wyłączyć klucz lub odwołać dostęp. Należy jednak włączyć szyfrowanie przy użyciu kluczy przed podjęciem próby włączenia ochrony wszystkich elementów do magazynu.
+
+Przeczytaj więcej na temat sposobu szyfrowania danych kopii zapasowej [przy użyciu kluczy zarządzanych przez klienta](encryption-at-rest-with-cmk.md).
+
+## <a name="azure-advisor"></a>Azure Advisor
 
 [Azure Advisor](../advisor/index.yml) to spersonalizowany konsultant ds. chmury, który pomaga zoptymalizować korzystanie z platformy Azure. Analizuje ona użycie platformy Azure i oferuje terminowe zalecenia ułatwiające optymalizację i zabezpieczenie wdrożeń. Zawiera zalecenia w czterech kategoriach: wysoka dostępność, bezpieczeństwo, wydajność i koszt.
 
 Azure Advisor zawiera co godzinę [zalecenia](../advisor/advisor-high-availability-recommendations.md#protect-your-virtual-machine-data-from-accidental-deletion) dotyczące maszyn wirtualnych, których kopie zapasowe nie są tworzone, dlatego nie można pominąć tworzenia kopii zapasowych ważnych maszyn wirtualnych. Możesz również kontrolować zalecenia, je.  Możesz wybrać zalecenie i włączyć tworzenie kopii zapasowych na maszynach wirtualnych w wierszu przez określenie magazynu (w którym będą przechowywane kopie zapasowe) i zasad tworzenia kopii zapasowych (harmonogram wykonywania kopii zapasowych i przechowywania kopii).
 
-![Usługa Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
+![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
+
+## <a name="additional-resources"></a>Zasoby dodatkowe
+
+- [Obsługiwane i nieobsługiwane scenariusze dotyczące magazynu](backup-support-matrix.md#vault-support)
+- [Często zadawane pytania dotyczące magazynu](backup-azure-backup-faq.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Skorzystaj z następujących artykułów, aby:</br>
-[Tworzenie kopii zapasowej maszyny wirtualnej IaaS](backup-azure-arm-vms-prepare.md)</br>
-[Tworzenie kopii zapasowej Azure Backup Server](backup-azure-microsoft-azure-backup.md)</br>
-[Tworzenie kopii zapasowej systemu Windows Server](backup-windows-with-mars-agent.md)
+Skorzystaj z następujących artykułów, aby:
+
+- [Tworzenie kopii zapasowej maszyny wirtualnej IaaS](backup-azure-arm-vms-prepare.md)
+- [Tworzenie kopii zapasowej Azure Backup Server](backup-azure-microsoft-azure-backup.md)
+- [Tworzenie kopii zapasowej systemu Windows Server](backup-windows-with-mars-agent.md)

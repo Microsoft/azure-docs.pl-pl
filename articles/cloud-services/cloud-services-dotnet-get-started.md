@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: 71020453f51e5baa9172ad8902eeb537dd55763b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac843ec2084cd019ec9d3bc90f6c8bbcb5c34279
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255232"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590357"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Wprowadzenie do usług Azure Cloud Services i programu ASP.NET
 
@@ -37,7 +37,7 @@ Ten samouczek pokazuje, jak uruchamiać fronton i zaplecze w usłudze w chmurze 
 ## <a name="what-youll-learn"></a>Zawartość
 * Jak umożliwić tworzenie aplikacji platformy Azure na komputerze przez zainstalowanie zestawu Azure SDK.
 * Jak utworzyć projekt usługi w chmurze programu Visual Studio z rolą Proces roboczy i rolą Sieć Web kontrolera ASP.NET MVC.
-* Jak przetestować projekt usługi w chmurze lokalnie za pomocą emulatora magazynu platformy Azure.
+* Jak przetestować projekt usługi w chmurze lokalnie za pomocą emulatora usługi Azure Storage.
 * Jak opublikować projekt chmury w usłudze w chmurze platformy Azure i przetestować go przy użyciu konta magazynu platformy Azure.
 * Jak przekazywać pliki i przechowywać je w usłudze obiektów blob platformy Azure.
 * Jak komunikować się między warstwami przy użyciu usługi kolejek platformy Azure.
@@ -100,7 +100,7 @@ Aplikacja działała całkowicie na komputerze lokalnym — bez połączenia z c
 
 W poniższej sekcji skonfigurujesz rozwiązanie do użycia zasobów w chmurze Azure dla kolejek, obiektów blob i bazy danych aplikacji na potrzeby uruchamiania w chmurze. Możesz to zrobić, jeśli chcesz kontynuować uruchamianie lokalnie, ale korzystać z zasobów magazynu i bazy danych w chmurze. Jest to jedynie kwestia ustawienia parametrów połączenia — pokażemy, jak to zrobić.
 
-## <a name="deploy-the-application-to-azure"></a>Wdrażanie aplikacji na platformie Azure
+## <a name="deploy-the-application-to-azure"></a>Wdrożenie aplikacji na platformie Azure
 Aby uruchomić aplikację w chmurze, należy wykonać następujące kroki:
 
 * Utworzenie usługi w chmurze platformy Azure.
@@ -124,7 +124,7 @@ Usługa w chmurze Azure to środowisko uruchamiania aplikacji.
 5. Wybierz region, w którym chcesz wdrożyć aplikację.
 
     To pole określa centrum danych, w którym będzie hostowana usługa w chmurze. W przypadku aplikacji produkcyjnej warto wybrać region znajdujący się najbliżej klientów. Na potrzeby tego samouczka wybierz region znajdujący się najbliżej Ciebie.
-5. Kliknij pozycję **Utwórz**.
+5. Kliknij przycisk **Utwórz**.
 
     Na poniższej ilustracji usługa w chmurze jest tworzona przy użyciu adresu URL CSvccontosoads.cloudapp.net.
 
@@ -153,7 +153,7 @@ Aplikacja uruchomiona w chmurze będzie używać bazy danych opartej na chmurze.
 9. Kliknij przycisk **Wybierz** dla nowego serwera.
 
     ![Nowy serwer](./media/cloud-services-dotnet-get-started/newdbserver.png)
-10. Kliknij pozycję **Utwórz**.
+10. Kliknij przycisk **Utwórz**.
 
 ### <a name="create-an-azure-storage-account"></a>Tworzenie konta usługi Azure Storage
 Konto magazynu platformy Azure udostępnia zasoby służące do przechowywania danych kolejek i obiektów blob w chmurze.
@@ -176,7 +176,7 @@ W rzeczywistych aplikacjach przeważnie tworzy się oddzielne konta dla danych a
     Jeśli usługa w chmurze i konto magazynu są obsługiwane w różnych centrach danych (różnych regionach), zwiększy się opóźnienie i będą naliczane opłaty dotyczące przepustowości poza centrum danych. Przepustowość w centrum danych jest bezpłatna.
 
     Grupy koligacji Azure udostępniają mechanizm umożliwiający minimalizowanie odległości między zasobami w centrum danych, a przez to redukowanie opóźnienia. Ten samouczek nie korzysta z grup koligacji. Aby uzyskać więcej informacji, zobacz temat [Jak utworzyć grupę koligacji w Azure](/previous-versions/azure/reference/gg715317(v=azure.100)).
-7. Kliknij pozycję **Utwórz**.
+7. Kliknij przycisk **Utwórz**.
 
     ![Nowe konto usługi Storage](./media/cloud-services-dotnet-get-started/newstorage.png)
 
@@ -771,7 +771,7 @@ Aby uzyskać ogólne informacje o tworzeniu aplikacji w chmurze, zobacz [Tworzen
 
 Film wideo zawierający wprowadzenie do najlepszych rozwiązań i wzorców usługi Azure Storage można znaleźć w temacie [Microsoft Azure Storage — nowości, najlepsze rozwiązania i wzorce](https://channel9.msdn.com/Events/Build/2014/3-628).
 
-Więcej informacji zawierają następujące zasoby:
+Więcej informacji można znaleźć w następujących zasobach:
 
 * [Azure Cloud Services, część 1: wprowadzenie](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Jak zarządzać usługami Cloud Services](cloud-services-how-to-manage-portal.md)

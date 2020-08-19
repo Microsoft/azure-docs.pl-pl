@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
-ms.date: 08/12/2020
-ms.openlocfilehash: e1a5cb4a5ce02954a14a6936ec14379701354a79
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.date: 08/18/2020
+ms.openlocfilehash: 1833f0343aa3e41119e215e7ce022f122d13489b
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191191"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589507"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Inicjowanie ręcznego przełączania użytkownika na wystąpienie zarządzane SQL
 
@@ -126,9 +126,12 @@ Przed zainicjowaniem trybu failover dane wyjściowe będą wskazywały bieżąc�
 
 Nie będzie można zobaczyć tych samych danych wyjściowych z warstwą usługi GP, jak pokazano powyżej. Wynika to z faktu, że warstwa usługi GP opiera się tylko na jednym węźle. Dane wyjściowe zapytania T-SQL dla warstwy usługi GP będą wyświetlać pojedynczy węzeł tylko przed i po przejściu do trybu failover. Utrata łączności z klientem podczas pracy w trybie failover, zazwyczaj trwające na minutę, oznacza wykonanie w trybie failover.
 
+> [!NOTE]
+> Zakończenie procesu pracy w trybie failover (nie jest to rzeczywista krótka niedostępna) może potrwać kilka minut w przypadku obciążeń **o wysokiej intensywności** . Wynika to z faktu, że aparat wystąpienia poświęca wszystkie bieżące transakcje na podstawowym serwerze i przechwytuje je w węźle pomocniczym, przed przejściem do trybu failover.
+
 > [!IMPORTANT]
 > Ograniczenia funkcjonalne ręcznego przełączania trybu failover są następujące:
-> - Może istnieć jeden (1) tryb failover zainicjowany w tym samym wystąpieniu zarządzanym co 30 minut.
+> - Może istnieć jeden (1) tryb failover zainicjowany w tym samym wystąpieniu zarządzanym co **30 minut**.
 > - W przypadku wystąpień usługi BC musi istnieć kworum replik dla żądania trybu failover, które ma zostać zaakceptowane.
 > - W przypadku wystąpień usługi BC nie można określić, która odczytana replika pomocnicza ma inicjować tryb failover.
 

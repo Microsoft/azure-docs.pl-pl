@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 06/25/2020
-ms.openlocfilehash: 7194e4553386c25691bb3ede8096da7fb63c5dc0
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.date: 08/14/2020
+ms.openlocfilehash: 72d0745e5a885ddbc57a9a849a7537a40e0b1215
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055228"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590068"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Co to jest wystąpienie zarządzane Azure SQL?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -73,8 +73,8 @@ W poniższej tabeli przedstawiono najważniejsze funkcje wystąpienia zarządzan
 
 W modelu rdzeń wirtualny można wybrać między generacjami sprzętu.
 
-- Logiczne procesory **obliczenia** są oparte na procesorach Intel E5-2673 v3 (Haswell) 2,4, dołączonym SSD, rdzeniach fizycznych, 7 GB pamięci RAM na rdzeń i rozmiarach obliczeniowych od 8 do 24 rdzeni wirtualnych.
-- Logiczne procesory **5 rdzeń** są oparte na procesorach Intel E5-2673 v4 (Broadwell) 2,3-GHz i Intel SP-8160 (Skylake), szybkim SSD interfejsu NVMe, rdzeni logicznej funkcji Hyper-Threading i wielkościach obliczeniowych między 4 i 80 rdzeni.
+- Logiczne procesory **obliczenia** są oparte na procesorach Intel® E5-2673 v3 (Haswell) 2,4 GHz, dołączonym SSD, rdzeniach fizycznych, 7 GB pamięci RAM na rdzeń i rozmiarach obliczeniowych od 8 do 24 rdzeni wirtualnych.
+- Logiczne procesory **5 rdzeń** są oparte na procesorach Intel® E5-2673 v4 (Broadwell) 2,3 GHz, Intel® SP-8160 (Skylake) i Intel® 8272CL (kaskad Lake) 2,5 procesorów, szybkiego SSD interfejsu NVMe, rdzeni logicznej funkcji Hyper-Threading i rozmiarów obliczeń między 4 i 80 rdzeniami.
 
 Znajdź więcej informacji na temat różnic między generacjami sprzętowymi w [limitach zasobów wystąpienia zarządzanego SQL](resource-limits.md#hardware-generation-characteristics).
 

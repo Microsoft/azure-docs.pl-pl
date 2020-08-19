@@ -1,27 +1,22 @@
 ---
-title: Domeny niestandardowe na platformie Azure serwer proxy aplikacji usługi Azure AD | Microsoft Docs
+title: Domeny niestandardowe na platformie Azure serwer proxy aplikacji usługi Azure AD
 description: Konfigurowanie domen niestandardowych i zarządzanie nimi w usłudze Azure serwer proxy aplikacji usługi Azure AD.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 646a32509921709711b208c263ac6b077555eac5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6688875385d34fcbece964d43827c6d62ae7ced4
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764914"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587773"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Konfigurowanie domen niestandardowych za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -91,11 +86,11 @@ Aby opublikować aplikację za pomocą serwera proxy aplikacji z domeną niestan
    
    ![Wybierz domenę niestandardową](./media/application-proxy-configure-custom-domain/application-proxy.png)
    
-6. Jeśli domena ma już certyfikat, w polu **certyfikat** zostaną wyświetlone informacje o certyfikacie. W przeciwnym razie wybierz pole **certyfikatu** . 
+6. Jeśli domena ma już certyfikat, w polu **certyfikat** zostaną wyświetlone informacje o certyfikacie. W przeciwnym razie wybierz pole **certyfikatu** .
    
    ![Kliknij, aby przekazać certyfikat](./media/application-proxy-configure-custom-domain/certificate.png)
    
-7. Na stronie **certyfikat protokołu SSL** przejdź do pliku certyfikatu PFX i wybierz go. Wprowadź hasło certyfikatu i wybierz pozycję **Przekaż certyfikat**. Więcej informacji o certyfikatach znajduje się w sekcji [certyfikaty dla domen niestandardowych](#certificates-for-custom-domains) .
+7. Na stronie **certyfikat protokołu SSL** przejdź do pliku certyfikatu PFX i wybierz go. Wprowadź hasło certyfikatu i wybierz pozycję **Przekaż certyfikat**. Więcej informacji o certyfikatach znajduje się w sekcji [certyfikaty dla domen niestandardowych](#certificates-for-custom-domains) . Jeśli certyfikat jest nieprawidłowy lub wystąpił problem z hasłem, zostanie wyświetlony komunikat o błędzie. [Często zadawane pytania dotyczące serwera proxy aplikacji](application-proxy-faq.md#application-configuration) zawiera kilka kroków rozwiązywania problemów.
    
    ![Przekaż certyfikat](./media/application-proxy-configure-custom-domain/ssl-certificate.png)
    
@@ -126,7 +121,7 @@ Certyfikat tworzy bezpieczne połączenie TLS dla domeny niestandardowej.
 
 Aby upewnić się, że wszystkie wymagane certyfikaty pośrednie są uwzględniane, należy użyć certyfikatu PFX. Certyfikat musi zawierać klucz prywatny.
 
-Nie ma ograniczeń dotyczących metod podpisu certyfikatu. Obsługiwane są Kryptografia krzywej eliptycznej (ECC), alternatywna nazwa podmiotu (SAN) i inne popularne typy certyfikatów. 
+Większość typowych metod podpisywania certyfikatu jest obsługiwana, takich jak Alternatywna nazwa podmiotu (SAN). 
 
 Można używać certyfikatów symboli wieloznacznych, o ile symbol wieloznaczny pasuje do zewnętrznego adresu URL. W przypadku [aplikacji wieloznacznych](application-proxy-wildcard.md)należy używać certyfikatów wieloznacznych. Aby użyć certyfikatu w celu uzyskania dostępu do domen poddomen, należy dodać symbole wieloznacznej domeny jako alternatywne nazwy podmiotu w tym samym certyfikacie. Na przykład certyfikat dla * \* . Adventure-Works.com* nie będzie działał dla elementu * \* . Apps.Adventure-Works.com* , chyba że dodasz * \* Apps.Adventure-Works.com* jako alternatywną nazwę podmiotu. 
 

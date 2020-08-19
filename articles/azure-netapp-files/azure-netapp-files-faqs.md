@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 08/18/2020
 ms.author: b-juche
-ms.openlocfilehash: 29055da1ea8093d413691a41d38d6280f43f728a
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: eeb22672829dca9ba342079183dcc5ed7c35393c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134500"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590374"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -54,7 +54,9 @@ Nie. Przypisanie adresu IP do woluminów Azure NetApp Files jest dynamiczne. Prz
 
 ### <a name="can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted"></a>Czy ruch sieciowy między maszyną wirtualną platformy Azure a magazynem jest szyfrowany?
 
-Ruch danych (ruch z klienta z NFSv3, NFSv 4.1 lub SMBv3 do woluminów Azure NetApp Files) nie jest szyfrowany. Jednak ruch z maszyny wirtualnej platformy Azure (z systemem plików NFS lub klienta SMB) do Azure NetApp Files jest tak bezpieczny jak każdy inny ruch z maszyny wirtualnej na maszynę wirtualną. Ten ruch jest lokalny dla sieci centrów danych platformy Azure. 
+Ruch danych między klientami NFSv 4.1 a woluminami Azure NetApp Files można szyfrować przy użyciu protokołu Kerberos z szyfrowaniem AES-256. Aby uzyskać szczegółowe informacje, zobacz [Konfigurowanie szyfrowania nfsv 4.1 Kerberos dla Azure NetApp Files](configure-kerberos-encryption.md) .   
+
+Ruch danych między klientami NFSv3 lub SMBv3 do woluminów Azure NetApp Files nie jest szyfrowany. Jednak ruch z maszyny wirtualnej platformy Azure (z systemem plików NFS lub klienta SMB) do Azure NetApp Files jest tak bezpieczny jak każdy inny ruch z maszyny wirtualnej na maszynę wirtualną. Ten ruch jest lokalny dla sieci centrów danych platformy Azure. 
 
 ### <a name="can-the-storage-be-encrypted-at-rest"></a>Czy magazyn może być szyfrowany w spoczynku?
 
@@ -125,7 +127,7 @@ Azure NetApp Files obsługuje NFSv3 i NFSv 4.1. Wolumin można [utworzyć](azure
 
 ### <a name="how-do-i-enable-root-squashing"></a>Jak mogę włączyć zgniatanie głównego?
 
-Główny zgniatanie nie jest obecnie obsługiwany.
+Można określić, czy konto główne może uzyskać dostęp do woluminu, czy nie za pomocą zasad eksportowania woluminu. Aby uzyskać szczegółowe informacje, zobacz [Konfigurowanie zasad eksportowania dla woluminu systemu plików NFS](azure-netapp-files-configure-export-policy.md) .
 
 ## <a name="smb-faqs"></a>Protokół SMB — często zadawane pytania
 

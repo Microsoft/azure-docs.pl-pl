@@ -1,76 +1,84 @@
 ---
 title: Często zadawane pytania — Azure Key Vault importowania certyfikatów
-description: Często zadawane pytania — Azure Key Vault importowania certyfikatów
+description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące importowania certyfikatów Azure Key Vault.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 402672d8eeaae8a5097e2ab2905997eb1f646ad6
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: b7a2c78238de58ee8851462aa7193121b35f72a9
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056350"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588825"
 ---
-# <a name="frequently-asked-questions---azure-key-vault-certificate-import"></a>Często zadawane pytania — Azure Key Vault importowania certyfikatów
+# <a name="importing-azure-key-vault-certificates-faq"></a>Importowanie Azure Key Vault certyfikatów — często zadawane pytania
+
+W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące importowania certyfikatów Azure Key Vault.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
 ### <a name="how-can-i-import-a-certificate-in-azure-key-vault"></a>Jak mogę zaimportować certyfikat w Azure Key Vault?
 
-Importuj certyfikat — w przypadku operacji importowania Magazyn kluczy Azure akceptuje dwa formaty certyfikatów PEM i PFX. Chociaż istnieją pliki PEM z tylko częścią publiczną, Magazyn kluczy platformy Azure wymaga i akceptuje tylko PEM lub PFX w folderze plików i z kluczem prywatnym. Postępuj zgodnie [z samouczkiem, aby zaimportować certyfikat](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-import-certificate#import-a-certificate-to-key-vault)
+W przypadku operacji importowania certyfikatu Azure Key Vault akceptuje dwa formaty plików certyfikatów: PEM i PFX. Chociaż istnieją pliki PEM z tylko częścią publiczną, Key Vault wymaga i akceptuje tylko plik PEM lub PFX z kluczem prywatnym. Aby uzyskać więcej informacji, zobacz [Importowanie certyfikatu do Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-import-certificate#import-a-certificate-to-key-vault).
 
-### <a name="after-importing-password-protected-certificate-into-the-key-vault-and-then-downloading-it-i-am-not-able-to-see-the-password-associated-with-the-certificate"></a>Po zaimportowaniu certyfikatu chronionego hasłem do magazynu kluczy, a następnie jego pobraniem nie mogę zobaczyć hasła skojarzonego z certyfikatem?
+### <a name="after-i-import-a-password-protected-certificate-to-key-vault-and-then-download-it-why-cant-i-see-the-password-thats-associated-with-it"></a>Po zaimportowaniu certyfikatu chronionego hasłem do Key Vault a następnie jego pobrania, dlaczego nie mogę zobaczyć skojarzonego z nim hasła?
     
-Przekazany chroniony certyfikat po magazynie do magazynu kluczy nie spowoduje zapisania skojarzonego z nim hasła. Jest to wymagane tylko raz podczas operacji importowania. Chociaż jest to koncepcja według projektu, zawsze można uzyskać certyfikat jako klucz tajny i przekonwertować go z formatu Base64 na plik PFX, dodając poprzednie hasło za pośrednictwem [Azure PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).
+Gdy certyfikat zostanie zaimportowany i objęty ochroną w Key Vault, jego skojarzone hasło nie jest zapisywane. Hasło jest wymagane tylko raz podczas operacji importowania. Jest to zaprojektowane, ale zawsze można uzyskać certyfikat jako klucz tajny i przekonwertować go z formatu Base64 do PFX przez dodanie hasła za pośrednictwem [Azure PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).
 
-### <a name="how-can-i-resolve-bad-parameter-error-what-are-the-supported-certificate-formats-for-importing-in-key-vault"></a>Jak mogę rozwiązać błąd "błędny parametr"? Jakie formaty certyfikatów są obsługiwane na potrzeby importowania w magazynie kluczy?
+### <a name="how-can-i-resolve-a-bad-parameter-error-what-are-the-supported-certificate-formats-for-importing-to-key-vault"></a>Jak mogę rozwiązać błąd "zły parametr"? Jakie formaty certyfikatów są obsługiwane na potrzeby importowania do Key Vault?
 
-Podczas importowania certyfikatu należy upewnić się, że klucz jest dołączony do samego pliku. Jeśli klucz prywatny jest osobno w innym formacie, należy połączyć klucz z certyfikatem. Niektóre urzędy certyfikacji dostarczają certyfikaty w różnych formatach, dlatego przed zaimportowaniem certyfikatu upewnij się, że są one w formacie PEM lub PFX oraz że używany klucz ma wartość RSA lub ECC. Zapoznaj się z nimi, aby przejrzeć [wymagania dotyczące certyfikatu](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#formats-of-import-we-support) i [wymagania dotyczące klucza certyfikatu](https://docs.microsoft.com/azure/key-vault/keys/about-keys#cryptographic-protection).
+Podczas importowania certyfikatu należy upewnić się, że klucz jest uwzględniony w pliku. Jeśli klucz prywatny jest przechowywany osobno w innym formacie, należy połączyć klucz z certyfikatem. Niektóre urzędy certyfikacji zapewniają certyfikaty w innych formatach. W związku z tym przed zaimportowaniem certyfikatu upewnij się, że jest on w formacie PEM lub PFX, i że klucz używa szyfrowania Rivest – Shamir – Adleman (RSA) lub kryptografii eliptyczna Cryptography (ECC). 
 
-###  <a name="can-i-import-certificate-using-arm-template"></a>Czy mogę zaimportować certyfikat przy użyciu szablonu ARM?
+Aby uzyskać więcej informacji, zobacz Wymagania dotyczące [certyfikatu](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#formats-of-import-we-support) i [wymagania dotyczące klucza certyfikatu](https://docs.microsoft.com/azure/key-vault/keys/about-keys#cryptographic-protection).
 
-Nie, nie jest możliwe wykonywanie operacji certifiate przy użyciu szablonów usługi ARM. Zalecanym rozwiązaniem jest użycie metod importowania certyfikatów w interfejsie API lub interfejsie wiersza polecenia lub PowerShell. Jeśli masz certyfikat istniejącego, możesz go zaimportować jako klucz tajny.
+###  <a name="can-i-import-a-certificate-by-using-an-arm-template"></a>Czy mogę zaimportować certyfikat przy użyciu szablonu usługi ARM?
 
-### <a name="error-when-importing-certificate-via-portal-something-went-wrong-how-can-i-investigate-further"></a>Wystąpił błąd podczas importowania certyfikatu za pośrednictwem portalu („Wystąpił problem”). Jak można zbadać więcej?
+Nie, nie jest możliwe wykonywanie operacji na certyfikatach przy użyciu szablonu Azure Resource Manager (ARM). Zalecanym rozwiązaniem jest użycie metod importowania certyfikatów w interfejsie API platformy Azure, interfejsu wiersza polecenia platformy Azure lub programu PowerShell. Jeśli masz istniejący certyfikat, możesz go zaimportować jako klucz tajny.
+
+### <a name="when-i-import-a-certificate-via-the-azure-portal-i-get-a-something-went-wrong-error-how-can-i-investigate-further"></a>Po zaimportowaniu certyfikatu za pośrednictwem Azure Portal otrzymuję błąd "coś poszło źle". Jak można zbadać więcej?
     
-Aby wyświetlić bardziej opisowy błąd, zaimportuj plik certyfikatu za pośrednictwem [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) lub [programu PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
+Aby wyświetlić bardziej opisowy błąd, zaimportuj plik certyfikatu za pomocą [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) lub [programu PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
 
-### <a name="how-can-i-resolve-error-type-access-denied-or-user-is-unauthorized-to-import-certificate"></a>Jak mogę rozwiązać problem "typ błędu: odmowa dostępu lub użytkownik nie ma autoryzacji do importowania certyfikatu"?
+### <a name="how-can-i-resolve-error-type-access-denied-or-user-is-unauthorized-to-import-certificate"></a>Jak można rozwiązać problem "typ błędu: odmowa dostępu lub użytkownik nie ma autoryzacji do importowania certyfikatu"?
     
-Ta operacja wymaga uprawnień do certyfikatów/importu. Przejdź do lokalizacji magazynu kluczy. Musisz przyznać użytkownikowi odpowiednie uprawnienia w obszarze zasad dostępu. Przejdź do Key Vault zasad dostępu> > Dodaj zasady dostępu > wybierz uprawnienia certyfikatów (lub dodawaj uprawnienia) > podmiotu zabezpieczeń > wyszukiwanie, a następnie Dodaj adres e-mail użytkownika. [Przeczytaj więcej na temat zasad dostępu związanych z certyfikatami](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#certificate-access-control)
+Operacja importowania wymaga udzielenia użytkownikowi uprawnień do importowania certyfikatu w ramach zasad dostępu. W tym celu przejdź do magazynu kluczy, wybierz pozycję **zasady dostępu**  >  **Dodaj zasady dostępu**  >  ,**Wybierz pozycję uprawnienia certyfikatów**  >  **podmiot zabezpieczeń**, Wyszukaj użytkownika, a następnie Dodaj adres e-mail użytkownika. 
+
+Aby uzyskać więcej informacji na temat zasad dostępu związanych z certyfikatami, zobacz [Informacje o Azure Key Vault certyfikatów](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#certificate-access-control).
 
 
 ### <a name="how-can-i-resolve-error-type-conflict-when-creating-a-certificate"></a>Jak mogę rozwiązać problem "typ błędu: konflikt podczas tworzenia certyfikatu"?
     
-Nazwa certyfikatu musi być unikatowa. Certyfikat o takiej samej nazwie może znajdować się w stanie nieusuwania nietrwałego, podobnie jak w przypadku [kompozycji certyfikatu](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) w magazynie kluczy platformy Azure, jeśli w Key Vault istnieje inny klucz lub wpis tajny o tej samej nazwie, którą próbujesz określić dla certyfikatu, zostanie on zakończony niepowodzeniem i konieczne będzie usunięcie tego klucza lub wpisu tajnego lub użycie innej nazwy dla certyfikatu. [Wyświetl usunięty certyfikat](https://docs.microsoft.com/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate)
+Nazwa każdego certyfikatu musi być unikatowa. Certyfikat o takiej samej nazwie jak inny może znajdować się w stanie nieusuniętym. Ponadto, zgodnie ze [składem certyfikatu](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) w Azure Key Vault, jeśli istnieje inny klucz lub klucz tajny w magazynie kluczy o takiej samej nazwie jak ten, który próbujesz określić dla certyfikatu, utworzenie certyfikatu zakończy się niepowodzeniem i konieczne będzie usunięcie klucza lub wpisu tajnego lub użycie innej nazwy dla certyfikatu. 
 
-### <a name="why-am-i-getting-the-error-type-char-length-is-too-long"></a>Dlaczego otrzymuję komunikat "typ błędu: znak o długości jest zbyt długi"?
+Aby uzyskać więcej informacji, zobacz [operacja pobrania usuniętego certyfikatu](https://docs.microsoft.com/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate).
+
+### <a name="why-am-i-getting-error-type-char-length-is-too-long"></a>Dlaczego otrzymuję komunikat "typ błędu: długość znaku jest zbyt długa"?
+Ten błąd może być spowodowany jedną z dwóch przyczyn:    
+* Nazwa podmiotu certyfikatu jest ograniczona do 200 znaków.
+* Hasło certyfikatu jest ograniczone do 200 znaków.
+
+### <a name="can-i-import-an-expired-certificate-to-azure-key-vault"></a>Czy mogę zaimportować wygasły certyfikat do Azure Key Vault?
     
-* Długość nazwy podmiotu certyfikatu ma limit znaków wynoszący 200 znaków
-* Długość hasła certyfikatu ma limit znaków wynoszący 200 znaków
+Nie, wygasłe certyfikaty PFX nie mogą zostać zaimportowane do Key Vault.
 
-### <a name="can-i-import-an-expired-certificate-in-azure-key-vault"></a>Czy mogę zaimportować wygasły certyfikat w magazynie kluczy Azure?
-    
-Nie, wygasłe certyfikaty PFX nie zostaną zaimportowane do Azure Key Vault.
+### <a name="how-can-i-convert-my-certificate-to-the-proper-format"></a>Jak można przekonwertować certyfikat do właściwego formatu?
 
-### <a name="how-can-i-convert-my-certificate-to-proper-format"></a>Jak można przekonwertować certyfikat na właściwy format?
-
-Możesz zażądać urzędu certyfikacji, aby dostarczyć certyfikat w wymaganym formacie. Ponadto istnieją narzędzia innych firm, które mogą pomóc w konwersji do właściwego formatu, jednak firma Microsoft nie będzie mogła zalecić dalszej próby uzyskania certyfikatu w żądanym formacie.
+Aby zapewnić certyfikat w wymaganym formacie, można polecić urząd certyfikacji. Istnieją także narzędzia innych firm, które mogą pomóc w konwersji certyfikatu na właściwy format.
 
 ### <a name="can-i-import-certificates-from-non-partner-cas"></a>Czy mogę zaimportować certyfikaty z urzędów certyfikacji niepartnerskich?
-Tak, można importować certyfikaty z dowolnego urzędu certyfikacji, ale Magazyn kluczy nie będzie mógł automatycznie odnowić tych certyfikatów. Można ustawić powiadomienia e-mail, aby otrzymywać powiadomienia o wygaśnięciu certyfikatu.
+Tak, można importować certyfikaty z dowolnego urzędu certyfikacji, ale Magazyn kluczy nie będzie w stanie automatycznie odnowić. Możesz ustawić przypomnienia, aby otrzymywać powiadomienia o wygaśnięciu certyfikatu.
 
-### <a name="if-i-import-a-certificate-from-a-partner-ca-will-the-auto-renew-feature-still-work"></a>Czy jeśli zaimportuję certyfikat z urzędu certyfikacji partnera, funkcja autoodnawiania będzie nadal działała?
-Tak, musisz się upewnić, że po przekazaniu należy określić autorotację w zasadach wystawiania certyfikatu. Ponadto zmiany zostaną odzwierciedlone do czasu następnego cyklu lub wersji certyfikatu.
+### <a name="if-i-import-a-certificate-from-a-partner-ca-will-the-autorenewal-feature-still-work"></a>Czy jeśli zaimportuję certyfikat z urzędu certyfikacji partnera, funkcja autoodnawiania będzie nadal działała?
+Tak. Po przekazaniu certyfikatu Pamiętaj o określeniu autorotacji w zasadach wystawiania certyfikatów. Twoje ustawienia będą obowiązywać do momentu wydania następnego cyklu lub wersji certyfikatu.
 
-### <a name="unable-to-see-the-app-service-certificate-imported-to-key-vault"></a>Nie można zobaczyć Certyfikat usługi App Service zaimportowanej do Key Vault? 
-Jeśli certyfikat został pomyślnie zaimportowany, przejrzyj w obszarze wpisy tajne.
+### <a name="why-cant-i-see-the-app-service-certificate-that-i-imported-to-key-vault"></a>Dlaczego nie widzę certyfikatu App Service, który został zaimportowany do Key Vault? 
+Jeśli certyfikat został pomyślnie zaimportowany, należy go potwierdzić, przechodząc do okienka wpisy **tajne** .
 
 
 ## <a name="next-steps"></a>Następne kroki

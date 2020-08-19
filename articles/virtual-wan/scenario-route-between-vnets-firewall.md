@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f48b30e0e4e76a4cf4c855008776f6b7541ad5a2
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7a344b9c1383976cfe1b7507c120e19221f3555f
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850659"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589354"
 ---
 # <a name="scenario-azure-firewall---custom"></a>Scenariusz: Zapora platformy Azure — niestandardowa
 
 Podczas pracy z routingiem wirtualnego koncentratora sieci WAN jest dość kilka dostępnych scenariuszy. W tym scenariuszu celem jest kierowanie ruchu między sieci wirtualnychami bezpośrednio, ale przy użyciu zapory platformy Azure dla przepływów ruchu między sieciami wirtualnymi i gałęzią.
 
-## <a name="design"></a><a name="design"></a>Projektowanie
+## <a name="design"></a><a name="design"></a>Projekt
 
 Aby ustalić, ile tabel tras będzie potrzebnych, można utworzyć macierz łączności, gdzie każda komórka reprezentuje, czy źródło (wiersz) może komunikować się z miejscem docelowym (kolumna). Macierz łączności w tym scenariuszu jest prosta, ale jest spójna z innymi scenariuszami. nadal możemy ją obejrzeć.
 
@@ -40,6 +40,8 @@ W poprzedniej tabeli "X" reprezentuje bezpośrednią łączność między dwoma 
   * Skojarzona tabela tras: **Domyślna**
   * Propagowanie do tabel tras: **domyślne**
 
+> [!NOTE]
+> Można utworzyć oddzielne wystąpienie sieci wirtualnej z jednym jednym bezpiecznym koncentratorem wirtualnym w każdym regionie, a następnie połączyć każdą wirtualną sieć WAN ze sobą za pośrednictwem sieci VPN typu lokacja-lokacja.
 
 Aby uzyskać informacje na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
 

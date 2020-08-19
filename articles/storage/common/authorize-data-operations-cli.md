@@ -1,24 +1,24 @@
 ---
-title: Uruchamianie poleceń interfejsu wiersza polecenia platformy Azure przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektu BLOB lub kolejki
+title: Wybieranie metody autoryzacji dostępu do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure
 titleSuffix: Azure Storage
 description: Określ sposób autoryzacji operacji na danych w obiektach Blob lub kolejkach przy użyciu interfejsu wiersza polecenia platformy Azure. Operacje na danych można autoryzować przy użyciu poświadczeń usługi Azure AD, klucza dostępu do konta lub z tokenem sygnatury dostępu współdzielonego (SAS).
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/12/2020
+ms.date: 08/18/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5ab346af1516c29b1638811217b779e11f120043
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: a089ffb7631ded7bd36a4eee5fb862ced3fd2ad0
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183398"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589066"
 ---
-# <a name="run-azure-cli-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Uruchamianie poleceń interfejsu wiersza polecenia platformy Azure przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektu BLOB lub kolejki
+# <a name="choose-how-to-authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Wybieranie metody autoryzacji dostępu do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure
 
 Usługa Azure Storage udostępnia rozszerzenia interfejsu wiersza polecenia platformy Azure, które umożliwiają określenie sposobu autoryzacji operacji na danych obiektu BLOB lub kolejki. Operacje na danych można autoryzować w następujący sposób:
 

@@ -1,6 +1,6 @@
 ---
 title: Przewodnik Szybki start dotyczący używania usługi Azure App Configuration z programem .NET Framework | Microsoft Docs
-description: Przewodnik Szybki start dotyczący korzystania z usługi Azure App Configuration z aplikacjami .NET Framework
+description: W tym artykule opisano tworzenie aplikacji .NET Framework przy użyciu konfiguracji aplikacji platformy Azure w celu scentralizowanego przechowywania i zarządzania ustawieniami aplikacji oddzielonymi od kodu.
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -9,12 +9,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: lcozzens
-ms.openlocfilehash: 63b7f8b28e339abde326bf3dca34d9ee6d816a31
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 6795d10950ddd7b03dfa505ab44d2f43837c9045
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209917"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590272"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Szybki Start: Tworzenie aplikacji .NET Framework przy użyciu konfiguracji aplikacji platformy Azure
 
@@ -44,7 +44,7 @@ W tym przewodniku szybki start dołączysz konfigurację aplikacji platformy Azu
 
 1. Uruchom program Visual Studio i wybierz pozycję **plik**  >  **Nowy**  >  **projekt**.
 
-1. W obszarze **Utwórz nowy projekt**odfiltruj typ projektu **konsoli** i kliknij pozycję **Aplikacja konsolowa (.NET Framework)**. Wybierz pozycję **Dalej**.
+1. W obszarze **Utwórz nowy projekt**odfiltruj typ projektu **konsoli** i kliknij pozycję **Aplikacja konsolowa (.NET Framework)**. Wybierz opcję **Dalej**.
 
 1. W obszarze **Konfigurowanie nowego projektu**wprowadź nazwę projektu. W obszarze **Struktura**wybierz pozycję **.NET Framework 4.7.1** lub wyższy. Wybierz pozycję **Utwórz**.
 
@@ -106,7 +106,7 @@ W tym przewodniku szybki start dołączysz konfigurację aplikacji platformy Azu
     ```
 1. Uruchom ponownie program Visual Studio, aby zmiany zaczęły obowiązywać. Naciśnij kombinację klawiszy CTRL + F5, aby skompilować i uruchomić aplikację konsolową.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

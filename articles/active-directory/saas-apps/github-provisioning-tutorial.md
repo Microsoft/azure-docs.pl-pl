@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.openlocfilehash: cfcf68b1e00e9f3333a8cd1fdb21ec71712f0e95
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7408d7609cbceb4ac39298680b6d3854a2d71306
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550674"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589218"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi GitHub na potrzeby automatycznego aprowizacji użytkowników
 
@@ -29,6 +29,7 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące eleme
 * Organizacja usługi GitHub utworzona w [chmurze usługi GitHub dla przedsiębiorstw](https://help.github.com/articles/github-s-products/#github-enterprise), która wymaga [planu rozliczeniowego usługi GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
 * Konto użytkownika w usłudze GitHub z uprawnieniami administratora do organizacji
 * Upewnij się, że dostęp OAuth został podany dla Twojej organizacji, zgodnie z opisem w [tym miejscu](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
+* Inicjowanie obsługi administracyjnej Standard scim w pojedynczej organizacji jest obsługiwane tylko wtedy, gdy Logowanie jednokrotne jest włączone na poziomie organizacji
 
 > [!NOTE]
 > Integracja z obsługą administracyjną usługi Azure AD opiera się na [interfejsie API Standard scim](https://developer.github.com/v3/scim/)w usłudze GitHub, który jest dostępny dla klientów w [chmurze dla przedsiębiorstw](https://help.github.com/articles/github-s-products/#github-enterprise) w serwisie GitHub. [GitHub Enterprise billing plan](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)

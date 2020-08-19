@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 7539b951a4a138802150d9408221b6e4ad19e92b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0fcad26bb78e0e9a03d51818ac66a98af1ef0b18
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075535"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590391"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Co to są zestawy skalowania maszyn wirtualnych?
 Zestawy skalowania maszyn wirtualnych platformy Azure umożliwiają tworzenie i Zarządzanie grupą maszyn wirtualnych o zrównoważonym obciążeniu. Liczba wystąpień maszyn wirtualnych może automatycznie zwiększać się lub zmniejszać w reakcji na zapotrzebowanie lub według zdefiniowanego harmonogramu. Zestawy skalowania zapewniają wysoką dostępność Twoim aplikacjom i pozwalają na centralnie zarządzanie, konfigurowanie i aktualizowanie dużej liczby maszyn wirtualnych. Za pomocą zestawów skalowania maszyn wirtualnych możesz tworzyć usługi na dużą skalę dla takich obszarów jak obliczenia, dane big data i obciążenia kontenera.
@@ -60,6 +60,10 @@ Używanie zestawów skalowania nie pociąga za sobą dodatkowych kosztów. Płac
 Użyj [Azure monitor dla maszyn wirtualnych](../azure-monitor/insights/vminsights-overview.md), który ma prosty proces dołączania i automatyzuje zbieranie ważnych liczników wydajności procesora CPU, pamięci, dysku i sieci z maszyn wirtualnych w zestawie skalowania. Zawiera również dodatkowe możliwości monitorowania i wstępnie zdefiniowane wizualizacje, które ułatwiają skoncentrowanie się na dostępności i wydajności zestawów skalowania.
 
 Włącz monitorowanie [aplikacji zestawu skalowania maszyn wirtualnych](../azure-monitor/app/azure-vm-vmss-apps.md) za pomocą Application Insights, aby zbierać szczegółowe informacje o aplikacji, w tym o widokach stron, żądaniach aplikacji i wyjątkach. Sprawdź dostępność aplikacji, konfigurując [Test dostępności](../azure-monitor/app/monitor-web-app-availability.md) w celu zasymulowania ruchu użytkownika.
+
+## <a name="singapore-data-residency"></a>Zamieszkać dane Singapur
+
+Na platformie Azure funkcja umożliwiająca przechowywanie danych klienta w jednym regionie jest obecnie dostępna tylko w regionie Azja Południowo-Wschodnia (Singapur) Azja i Pacyfik geograficznej. W przypadku wszystkich innych regionów dane klienta są przechowywane w lokalizacji geograficznej. Aby uzyskać więcej informacji, zobacz [Centrum zaufania](https://azuredatacentermap.azurewebsites.net/).
 
 ## <a name="next-steps"></a>Następne kroki
 Aby rozpocząć, utwórz swój pierwszy zestaw skalowania maszyn wirtualnych w witrynie Azure Portal.

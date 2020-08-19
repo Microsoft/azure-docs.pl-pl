@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d0a6b6561b5d0995d7794993608a4991b1da2718
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 72c038bda88ecc9b7518f1f764a41bd4c49f52c6
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810143"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589422"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Podstawa zabezpieczeń platformy Azure dla kopii zapasowej
 
@@ -350,7 +350,7 @@ Ponadto za pomocą funkcji wykrywania ryzyka usługi Azure AD można wyświetla�
 
 - [Jak skonfigurować Azure Backup do korzystania z usługi Azure AD login](../app-service/configure-authentication-provider-aad.md)
 
-- [Jak utworzyć i skonfigurować wystąpienie usługi AAD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -902,7 +902,7 @@ Utwórz kopię zapasową kluczy zarządzanych przez klienta w Azure Key Vault.
 
 - [Jak utworzyć kopię zapasową kluczy magazynu kluczy na platformie Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-- [Informacje o szyfrowaniu w Azure Backup](./backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys)
+- [Informacje o szyfrowaniu w Azure Backup](./backup-encryption.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

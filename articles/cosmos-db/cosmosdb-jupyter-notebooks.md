@@ -6,16 +6,16 @@ ms.topic: overview
 ms.date: 05/19/2020
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 53725e7d4c39405e7ba47f8915e7444ce6a2167a
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 0299ab1e76e742adb8d2653b8b5d6923aff2f11f
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118453"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588160"
 ---
 # <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db-preview"></a>Wbudowana obsługa notesów Jupyter w Azure Cosmos DB (wersja zapoznawcza)
 
-Jupyter Notes to aplikacja sieci Web Open Source, która umożliwia tworzenie i udostępnianie dokumentów zawierających kod na żywo, równania, wizualizacje i tekst opisowy. 
+Jupyter Notebook to aplikacja internetowa typu open source, która umożliwia tworzenie i udostępnianie dokumentów zawierających kod na żywo, równania, wizualizacje i tekst narracji. 
 
 Azure Cosmos DB wbudowane notesy Jupyter są bezpośrednio zintegrowane z Azure Portal i kontami Azure Cosmos DB, dzięki czemu są wygodne i łatwe w użyciu. Deweloperzy, analityki danych, inżynierowie i analitycy mogą używać znanych Jupyterych notesów do eksplorowania danych, czyszczenia danych, przekształcania danych, symulacji liczbowych, modelowania statystycznego, wizualizacji danych i uczenia maszynowego.
 
@@ -31,9 +31,9 @@ Notesy Jupyter zostały pierwotnie opracowane dla aplikacji do nauki o danych pi
 
 **Wizualizacja danych:** Notesy Jupyter umożliwiają wizualizowanie danych w postaci notesu udostępnionego, który renderuje zestaw danych jako grafikę. Możesz tworzyć wizualizacje, wprowadzać interaktywne zmiany w udostępnionym kodzie i zestawie danych oraz udostępniać wyniki.
 
-**Udostępnianie kodu:** Usługi, takie jak GitHub, umożliwiają współużytkowanie kodu, ale są w dużym stopniu nieinteraktywny. Za pomocą notesu Jupyter można wyświetlić kod, wykonać go i wyświetlić wyniki bezpośrednio w Azure Portal.
+**Udostępnianie kodu:** Usługi, takie jak GitHub, umożliwiają współużytkowanie kodu, ale są w dużym stopniu nieinteraktywny. Za pomocą Jupyter Notebook można wyświetlić kod, wykonać go i wyświetlić wyniki bezpośrednio w Azure Portal.
 
-**Interakcje na żywo z kodem:** Kod w notesie Jupyter jest dynamiczny; można go edytować i uruchamiać aktualizacje przyrostowo w czasie rzeczywistym. Możesz również osadzić kontrolki użytkownika (na przykład suwaki lub pola wejściowe tekstu), które są używane jako źródła danych wejściowych dla kodu, pokazów lub weryfikacji koncepcji (POCs).
+**Interakcje na żywo z kodem:** Kod w Jupyter Notebook jest dynamiczny; można go edytować i uruchamiać aktualizacje przyrostowo w czasie rzeczywistym. Możesz również osadzić kontrolki użytkownika (na przykład suwaki lub pola wejściowe tekstu), które są używane jako źródła danych wejściowych dla kodu, pokazów lub weryfikacji koncepcji (POCs).
 
 **Dokumentacja przykładów kodu i wyników eksploracji danych:** Jeśli masz fragment kodu i chcesz wyjaśnić, jak to działa, możesz osadzić go w Jupyter Notebook. Możesz dodać interaktywność wraz z dokumentacją w tym samym czasie.
 
@@ -41,7 +41,7 @@ Notesy Jupyter zostały pierwotnie opracowane dla aplikacji do nauki o danych pi
 
 **Wszystkie w środowisku jednym miejscu:** Notesy Jupyter łączą kod, tekst sformatowany, obrazy, wideo, animacje, równania matematyczne, wykresy, mapy, interaktywne ilustracje, widżety i graficzne interfejsy użytkownika w jednym dokumencie.
 
-## <a name="components-of-a-jupyter-notebook"></a>Składniki notesu Jupyter
+## <a name="components-of-a-jupyter-notebook"></a>Składniki Jupyter Notebook
 
 Notesy Jupyter mogą zawierać kilka typów składników, które są zorganizowane w dyskretne bloki lub komórki:
 
@@ -53,7 +53,7 @@ Notesy Jupyter mogą zawierać kilka typów składników, które są zorganizowa
 
 **Multimedia:** Ponieważ notesy Jupyter są oparte na technologii sieci Web, mogą wyświetlać wszystkie typy multimediów obsługiwane przez stronę sieci Web. Można je uwzględnić w notesie jako elementy HTML lub można generować je programowo przy użyciu `IPython.display` modułu.
 
-**Dane:** Możesz importować dane z kontenerów usługi Azure Cosmos lub wyników zapytań do notesu Jupyter programowo. Użyj wbudowanych poleceń Magic do przekazywania lub wykonywania zapytań dotyczących danych w Azure Cosmos DB. 
+**Dane:** Możesz importować dane z kontenerów usługi Azure Cosmos lub wyników zapytań do Jupyter Notebook programowo. Użyj wbudowanych poleceń Magic do przekazywania lub wykonywania zapytań dotyczących danych w Azure Cosmos DB. 
 
 ## <a name="next-steps"></a>Następne kroki
 

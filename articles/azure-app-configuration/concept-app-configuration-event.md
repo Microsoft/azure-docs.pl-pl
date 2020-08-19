@@ -1,18 +1,18 @@
 ---
 title: Reagowanie na zdarzenia klucza konfiguracji aplikacji platformy Azure
-description: Użyj Azure Event Grid, aby subskrybować zdarzenia konfiguracji aplikacji.
+description: Użyj Azure Event Grid, aby subskrybować zdarzenia konfiguracji aplikacji, dzięki czemu aplikacje mogą reagować na zmiany w kluczowych wartościach bez konieczności stosowania skomplikowanego kodu.
 services: azure-app-configuration,event-grid
 author: jimmyca
 ms.author: jimmyca
 ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
-ms.openlocfilehash: a4f61d147ba1abf73ada6360b8d0d965d8e063a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae3417f991c0d810d8946cdaf358218ebbe4f6a5
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77523802"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590034"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Reagowanie na zdarzenia konfiguracji aplikacji platformy Azure
 
@@ -40,10 +40,10 @@ Zdarzenia konfiguracji aplikacji platformy Azure zawierają wszystkie informacje
 > |Właściwość|Typ|Opis|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |temat|ciąg|Pełny Azure Resource Manager Identyfikator konfiguracji aplikacji, która emituje zdarzenie.|
-> |Temat|ciąg|Identyfikator URI wartości klucz-wartość, która jest podmiotem zdarzenia.|
+> |subject|ciąg|Identyfikator URI wartości klucz-wartość, która jest podmiotem zdarzenia.|
 > |eventTime|ciąg|Data/godzina wygenerowania zdarzenia w formacie ISO 8601.|
-> |Klasę|ciąg|"Microsoft. AppConfiguration. KeyValueModified" lub "Microsoft. AppConfiguration. KeyValueDeleted".|
-> |Identyfikator|ciąg|Unikatowy identyfikator tego zdarzenia.|
+> |eventType|ciąg|"Microsoft. AppConfiguration. KeyValueModified" lub "Microsoft. AppConfiguration. KeyValueDeleted".|
+> |Id|ciąg|Unikatowy identyfikator tego zdarzenia.|
 > |dataVersion|ciąg|Wersja schematu obiektu danych.|
 > |metadataVersion|ciąg|Wersja schematu właściwości najwyższego poziomu.|
 > |dane|object|Kolekcja danych zdarzeń specyficznych dla konfiguracji aplikacji platformy Azure|

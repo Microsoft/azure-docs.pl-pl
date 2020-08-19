@@ -1,21 +1,21 @@
 ---
-title: Tworzenie i udostępnianie notesu Jupyter w wersji zapoznawczej Azure Notebooks
-description: Szybko Twórz i uruchamiaj Notes Jupyter w wersji zapoznawczej programu Azure Notebooks, a następnie Udostępnij go innym osobom.
+title: Tworzenie i udostępnianie Jupyter Notebook w wersji zapoznawczej Azure Notebooks
+description: Szybko Twórz i uruchamiaj Jupyter Notebook w wersji zapoznawczej Azure Notebooks, a następnie Udostępnij ten Notes innym osobom.
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: devx-track-python
-ms.openlocfilehash: 19773a6857d58f5b6af2a02ac28a3414c51fc917
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 77575b5b9e006ac9881d03dc95509d55c53c26d7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849405"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589337"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Szybki Start: Tworzenie i udostępnianie notesu w podglądzie Azure Notebooks
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-W tym przewodniku szybki start utworzysz i uruchomisz Notes Jupyter na Azure Notebooks, a następnie udostępnisz go innym osobom. Jupyter umożliwia łatwe łączenie tekstu z promocji, kodu wykonywalnego, trwałych danych, grafiki i wizualizacji na jednej kanwie możliwej do przedziału. Azure Notebooks to bezpłatna usługa hostowana umożliwiająca tworzenie i uruchamianie notesów Jupyter w chmurze bez instalacji.
+W tym przewodniku szybki start utworzysz i uruchomisz Jupyter Notebook na Azure Notebooks, a następnie udostępnisz ten Notes innym osobom. Jupyter umożliwia łatwe łączenie tekstu z promocji, kodu wykonywalnego, trwałych danych, grafiki i wizualizacji na jednej kanwie możliwej do przedziału. Azure Notebooks to bezpłatna usługa hostowana umożliwiająca opracowywanie i uruchamianie notesów Jupyter w chmurze bez konieczności instalacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Brak.
@@ -91,7 +91,7 @@ Brak.
 
 1. Wybierz ikonę Zapisz, aby zapisać swoją służbę:
 
-    ![Ikona zapisywania na pasku narzędzi notesu Jupyter](media/quickstarts/hello-results-save-icon.png)
+    ![Ikona zapisywania na pasku narzędzi Jupyter Notebook](media/quickstarts/hello-results-save-icon.png)
 
 1. Wybierz **File**  >  polecenie menu**Zamknij i** Zatrzymaj, aby zatrzymać serwer i zamknąć okno przeglądarki.
 
@@ -106,4 +106,4 @@ Na stronie projekt można również użyć menu **Udostępnij** , aby uzyskać l
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Samouczek: Tworzenie i uruchamianie notesu Jupyter w celu wykonania regresji liniowej](tutorial-create-run-jupyter-notebook.md)
+> [Samouczek: Tworzenie i uruchamianie Jupyter Notebook w celu wykonania regresji liniowej](tutorial-create-run-jupyter-notebook.md)

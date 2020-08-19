@@ -8,16 +8,16 @@ author: sabbour
 ms.author: asabbour
 keywords: ARO, OpenShift, AZ ARO, Red Hat, CLI
 ms.custom: mvc
-ms.openlocfilehash: 45da3034891e5a82fb8423adb6bcd5e867f9d4e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 393185d2167e18df3f8c1319e7367efbc437de1a
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82205003"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590340"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Konfigurowanie uwierzytelniania Azure Active Directory na potrzeby klastra usługi Azure Red Hat OpenShift 4 (CLI)
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.75 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Pobierz adresy URL specyficzne dla klastra, które będą używane do konfigurowania aplikacji Azure Active Directory.
 
@@ -160,7 +160,7 @@ Utwórz klucz tajny OpenShift, aby przechowywać klucz tajny aplikacji Azure Act
 oc create secret generic openid-client-secret-azuread \
   --namespace openshift-config \
   --from-literal=clientSecret=<ClientSecret>
-```    
+```
 
 Utwórz plik **OIDC. YAML** , aby skonfigurować uwierzytelnianie OpenShift openid connect względem Azure Active Directory. Zamień **\<AppID>** i **\<TenantId>** na pobrane wcześniej wartości.
 
@@ -177,20 +177,20 @@ spec:
     type: OpenID
     openID:
       clientID: <AppId>
-      clientSecret: 
+      clientSecret:
         name: openid-client-secret-azuread
-      extraScopes: 
+      extraScopes:
       - email
       - profile
-      extraAuthorizeParameters: 
+      extraAuthorizeParameters:
         include_granted_scopes: "true"
       claims:
-        preferredUsername: 
+        preferredUsername:
         - email
         - upn
-        name: 
+        name:
         - name
-        email: 
+        email:
         - email
       issuer: https://login.microsoftonline.com/<TenantId>
 EOF
