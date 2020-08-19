@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Freedcamp | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Freedcamp.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: bfc73563-017d-458f-b634-162f93e03b74
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4de1ae135df4cd070fe9c6ee322e304caa1e17c9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 50b5e21c8dc441187b3d78310db55b84aa1cd158
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67101911"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551034"
 ---
 # <a name="tutorial-integrate-freedcamp-with-azure-active-directory"></a>Samouczek: integracja Freedcamp z usługą Azure Active Directory
 
@@ -80,7 +75,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    1. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<SUBDOMAIN>.freedcamp.com/sso/<UNIQUEID>`
+    1. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<SUBDOMAIN>.freedcamp.com/sso/<UNIQUEID>`
 
     2. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<SUBDOMAIN>.freedcamp.com/sso/acs/<UNIQUEID>`
 
@@ -89,7 +84,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<SUBDOMAIN>.freedcamp.com/login`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Użytkownicy mogą również wprowadzić wartości adresu URL w odniesieniu do ich własnej domeny klienta i mogą nie być koniecznie wzorcem `freedcamp.com`, mogą wprowadzić dowolną wartość określoną przez domenę klienta, konkretną dla swojego wystąpienia aplikacji. Ponadto można skontaktować się z [zespołem obsługi klienta Freedcamp](mailto:devops@freedcamp.com) , aby uzyskać więcej informacji na temat wzorców adresów URL.
+    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Użytkownicy mogą również wprowadzić wartości adresu URL w odniesieniu do ich własnej domeny klienta i mogą nie być koniecznie wzorcem `freedcamp.com` , mogą wprowadzić dowolną wartość określoną przez domenę klienta, konkretną dla swojego wystąpienia aplikacji. Ponadto można skontaktować się z [zespołem obsługi klienta Freedcamp](mailto:devops@freedcamp.com) , aby uzyskać więcej informacji na temat wzorców adresów URL.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -137,7 +132,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie Britta Sim
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `Britta Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `BrittaSimon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `BrittaSimon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -177,7 +172,7 @@ Aby włączyć użytkowników usługi Azure AD, zaloguj się do usługi Freedcam
 
     a. Kliknij pozycję **Dodaj lub Zaproś użytkowników**.
 
-    b. W polu tekstowym **adres e-mail** wprowadź adres e-mail użytkownika, np `Brittasimon@contoso.com`.
+    b. W polu tekstowym **adres e-mail** wprowadź adres e-mail użytkownika, np `Brittasimon@contoso.com` .
 
     c. Kliknij pozycję **Dodaj użytkownika**.
 
@@ -191,4 +186,4 @@ Po wybraniu kafelka Freedcamp w panelu dostępu należy automatycznie zalogować
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

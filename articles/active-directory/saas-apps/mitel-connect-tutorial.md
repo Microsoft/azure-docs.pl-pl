@@ -2,24 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z roztocznym połączeniem | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i roztoczą.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 204f540b-09f1-452b-a52f-78143710ef76
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 60e81bed348289f560b6341398bf4fe9bdaff0eb
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 63f1d1d40d8aff21641f3fa4ee10a289de40800d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054861"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88552615"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect-or-cloudlink-platform"></a>Samouczek: integracja Azure Active Directory z roztocznym połączeniem MiCloud lub platformą CloudLink
 
@@ -127,8 +124,8 @@ Aby skonfigurować MiCloud łączenie z logowaniem jednokrotnym w usłudze Azure
 
 7. W polu tekstowym **adres URL logowania** wpisz jeden z następujących adresów URL:
 
-    1. **https://portal.shoretelsky.com**— Aby użyć portalu konta roztocznego jako domyślnej aplikacji pod kątem rozłożenia
-    1. **https://teamwork.shoretel.com**-Aby użyć zespołowej jako domyślnej aplikacji pod kątem rozłożenia
+    1. **https://portal.shoretelsky.com** — Aby użyć portalu konta roztocznego jako domyślnej aplikacji pod kątem rozłożenia
+    1. **https://teamwork.shoretel.com** -Aby użyć zespołowej jako domyślnej aplikacji pod kątem rozłożenia
 
     > [!NOTE]
     > Domyślna aplikacja pod kątem aplikacji jest dostępna, gdy użytkownik wybierze kafelek roztoczne połączenie w panelu dostępu. Jest to również aplikacja, do której można uzyskać dostęp podczas przeprowadzania konfiguracji testowej z usługi Azure AD.

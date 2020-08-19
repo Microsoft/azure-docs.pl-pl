@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie PureCloud przez Genesys w celu automatycznego aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak automatycznie udostępniać i cofać obsługę administracyjną kont użytkowników z usługi Azure AD do PureCloud przez Genesys.
 services: active-directory
-documentationcenter: ''
 author: Zhchia
 writer: Zhchia
-manager: beatrizd
-ms.assetid: 5f04b88b-117e-40da-a15c-e3732b240d5d
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
-ms.openlocfilehash: 9d80502480e0536cb85ad9bd08344c8082f59d85
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 1397aa350ccc3114954902a6bfd02826cdff965f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926998"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553287"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie PureCloud przez Genesys w celu automatycznego aprowizacji użytkowników
 
@@ -106,14 +102,14 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
      |Atrybut|Typ|
      |---|---|
-     |userName|Ciąg|
-     |aktywne|Wartość logiczna|
-     |displayName|Ciąg|
-     |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
-     |tytuł|Ciąg|
-     |numer telefonu [typ EQ "Mobile"]. Value|Ciąg|
-     |numer telefonu [typ EQ "Work"]. wartość|Ciąg|
-     |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
+     |userName|String|
+     |aktywne|Boolean|
+     |displayName|String|
+     |wiadomości e-mail [Type EQ "Work"]. Value|String|
+     |tytuł|String|
+     |numer telefonu [typ EQ "Mobile"]. Value|String|
+     |numer telefonu [typ EQ "Work"]. wartość|String|
+     |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do PureCloud przez Genesys**.
@@ -122,8 +118,8 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
       |Atrybut|Typ|
       |---|---|
-      |displayName|Ciąg|
-      |externalId|Ciąg|
+      |displayName|String|
+      |externalId|String|
       |elementy członkowskie|Dokumentacja|
 
 12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).

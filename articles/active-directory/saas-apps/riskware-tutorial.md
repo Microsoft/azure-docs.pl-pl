@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą potencjalnie szkodliwe oprogramowanie | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i potencjalnie szkodliwe oprogramowanie.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 81866167-b163-4695-8978-fd29a25dac7a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 6eaa1be81d3ac0733c0829bc45e1b62f8aae5755
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b147037a58e4af59c0c3ccd56b6f6b241d775308
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72027119"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553341"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Samouczek: integracja Azure Active Directory z usługą potencjalnie szkodliwe oprogramowanie
 
@@ -32,7 +28,7 @@ Integracja potencjalnie szkodliwe oprogramowanie z usługą Azure AD zapewnia na
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -168,7 +164,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą potencjalni
 
     f. W **polu tekstowym pole formularza post** wpisz nazwę pola znajdującą się w odpowiedzi post, która zawiera element SAML like SAMLResponse
 
-    g. W polu tekstowym **nazwa tagu tożsamości XML** , atrybut typu, który zawiera unikatowy identyfikator w odpowiedzi SAML, np. NameID.
+    przykład W polu tekstowym **nazwa tagu tożsamości XML** , atrybut typu, który zawiera unikatowy identyfikator w odpowiedzi SAML, np. NameID.
 
     h. Otwórz pobrany **plik XML metadanych** z Azure Portal w Notatniku, Skopiuj certyfikat z pliku metadanych i wklej go do pola tekstowego **certyfikatu**
 
@@ -183,7 +179,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą potencjalni
 
     l. Zaznacz pole wyboru **Użyj żądania SAML** .
 
-    m. Kliknij przycisk **Zapisz**.
+    m. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -204,7 +200,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
     b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`  
-    Na przykład: BrittaSimon@contoso.com
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -268,7 +264,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze potencj
 
     a. W obszarze **uwierzytelnianie** wybierz tryb **uwierzytelniania** , który został skonfigurowany tak, jak konfiguracja platformy Azure na potrzeby logowania jednokrotnego.
 
-    b. W obszarze **szczegóły logowania** w polu tekstowym **Identyfikator użytkownika** wprowadź adres e-mail użytkownika, np `brittasimon@contoso.com`.
+    b. W obszarze **szczegóły logowania** w polu tekstowym **Identyfikator użytkownika** wprowadź adres e-mail użytkownika, np `brittasimon@contoso.com` .
 
     c. W polu tekstowym **hasło** wprowadź hasło użytkownika.
 
@@ -282,7 +278,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze potencj
 
     c. W obszarze **Pracownik** wybierz pozycję **Stan pracownika** , np..
 
-    d. Kliknij przycisk **Zapisz**.
+    d. Kliknij pozycję **Zapisz**.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 
@@ -296,4 +292,4 @@ Po kliknięciu kafelka potencjalnie szkodliwe oprogramowanie w panelu dostępu n
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 07/27/2020
-ms.openlocfilehash: f98e540a6764869f1d37edfbb0f00bf8d1cc2198
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/17/2020
+ms.openlocfilehash: 3eb1a4cbfcf62617796af6a26cb4688b734eb617
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499181"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551845"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Konfigurowanie uwierzytelniania usługi Azure AD i zarządzanie nim za pomocą usługi Azure SQL
 
@@ -71,7 +71,9 @@ W przypadku korzystania z Azure Active Directory z replikacją geograficzną adm
 ## <a name="provision-azure-ad-admin-sql-managed-instance"></a>Inicjowanie obsługi administracyjnej usługi Azure AD (wystąpienie zarządzane SQL)
 
 > [!IMPORTANT]
-> Wykonaj te czynności tylko w przypadku aprowizacji wystąpienia zarządzanego Azure SQL. Tę operację można wykonać tylko przez administratora globalnego/firmy lub administratora ról uprzywilejowanych w usłudze Azure AD. Poniższe kroki opisują proces przyznawania uprawnień użytkownikom mającym różne uprawnienia w katalogu.
+> Wykonaj te czynności tylko w przypadku aprowizacji wystąpienia zarządzanego Azure SQL. Tę operację można wykonać tylko przez administratora globalnego/firmy lub administratora ról uprzywilejowanych w usłudze Azure AD.
+>
+> W **publicznej wersji zapoznawczej**można przypisać rolę **czytelnicy Directory** do grupy w usłudze Azure AD. Właściciele grupy mogą następnie dodać tożsamość wystąpienia zarządzanego jako element członkowski tej grupy, co umożliwi udostępnienie administratora usługi Azure AD dla wystąpienia zarządzanego SQL. Aby uzyskać więcej informacji na temat tej funkcji, zobacz " [czytelnicy Directory role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
 
 Wystąpienie zarządzane SQL wymaga uprawnień do odczytu usługi Azure AD w celu pomyślnego wykonania zadań, takich jak uwierzytelnianie użytkowników za pomocą przynależności do grupy zabezpieczeń lub tworzenie nowych użytkowników. Aby to umożliwić, należy przyznać uprawnienia wystąpienia zarządzanego SQL do odczytu usługi Azure AD. Można to zrobić przy użyciu Azure Portal lub programu PowerShell.
 
@@ -174,7 +176,7 @@ else {
 
 ### <a name="powershell-for-sql-managed-instance"></a>PowerShell dla wystąpienia zarządzanego SQL
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Aby uruchomić polecenia cmdlet programu PowerShell, należy zainstalować i uruchomić Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz temat [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/).
 
@@ -268,7 +270,7 @@ Aby później usunąć administratora, w górnej części strony **administrator
 
 ### <a name="powershell-for-sql-database-and-azure-synapse"></a>Program PowerShell dla SQL Database i Azure Synapse
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Aby uruchomić polecenia cmdlet programu PowerShell, należy zainstalować i uruchomić Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz temat [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/). Aby zainicjować obsługę administracyjną administratora usługi Azure AD, wykonaj następujące polecenia Azure PowerShell:
 
@@ -519,7 +521,7 @@ Aby uzyskać więcej informacji, zobacz Blog dotyczący [zabezpieczeń SQL Serve
 Poniższe instrukcje łączą się przy użyciu wersji 13,1 narzędzia sqlcmd, która jest dostępna w [Centrum pobierania](https://www.microsoft.com/download/details.aspx?id=53591).
 
 > [!NOTE]
-> `sqlcmd`polecenie nie `-G` działa z tożsamościami systemu i wymaga logowania do podmiotu zabezpieczeń użytkownika.
+> `sqlcmd` polecenie nie `-G` działa z tożsamościami systemu i wymaga logowania do podmiotu zabezpieczeń użytkownika.
 
 ```cmd
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -G  
@@ -528,7 +530,7 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 
 ## <a name="troubleshoot-azure-ad-authentication"></a>Rozwiązywanie problemów z uwierzytelnianiem w usłudze Azure AD
 
-Wskazówki dotyczące rozwiązywania problemów z uwierzytelnianiem za pomocą usługi Azure AD można znaleźć w następującym blogu:<https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
+Wskazówki dotyczące rozwiązywania problemów z uwierzytelnianiem za pomocą usługi Azure AD można znaleźć w następującym blogu: <https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
 ## <a name="next-steps"></a>Następne kroki
 

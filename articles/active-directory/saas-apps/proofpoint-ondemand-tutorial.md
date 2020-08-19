@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Proofpoint na żądanie | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Proofpoint on Demand.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 773e7f7d-ec31-411b-860d-6a6633335d43
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: db496ac504a48398ef7ab656cc5a6a890f882bab
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: c3cebb7a63dd26f4dfb1fa46cb3b31a8b149da1d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905486"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553437"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proofpoint-on-demand"></a>Samouczek: integracja Azure Active Directory z usługą Proofpoint na żądanie
 
@@ -109,9 +104,9 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Proofpoint
 
     ![Informacje o domenie i adresach URL logowania jednokrotnego aplikacji Proofpoint on Demand](common/sp-identifier-reply.png)
 
-    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:`https://<hostname>.pphosted.com/ppssamlsp_hostname`
+    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<hostname>.pphosted.com/ppssamlsp_hostname`
 
-    b. W polu **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<hostname>.pphosted.com/ppssamlsp`
+    b. W polu **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<hostname>.pphosted.com/ppssamlsp`
 
     c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<hostname>.pphosted.com:portnumber/v1/samlauth/samlconsumer`
 
@@ -159,7 +154,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

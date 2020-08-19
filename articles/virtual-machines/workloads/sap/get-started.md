@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/14/2020
+ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f1152eb11d3452743daa5bcb39fb593dddf94452
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 5cee26f9c1674030903e8be6dac80f6615317a67
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245931"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551671"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Korzystanie z platformy Azure do hostowania i uruchamiania scenariuszy obciążeń SAP
 
@@ -88,6 +88,7 @@ Aby uzyskać informacje na temat integracji usług platformy Azure z składnikam
 
 ## <a name="change-log"></a>Dziennik zmian
 
+- 08/17/2020: Dodaj informacje o używaniu Azure Site Recovery do przeniesienia systemów SAP NetWeaver ze środowiska lokalnego na platformę Azure w artykule [Virtual Machines planowanie i wdrażanie oprogramowania SAP NetWeaver](./planning-guide.md)
 - 08/14/2020: Dodawanie porady dotyczącej konfiguracji dysków dla bazy danych DB2 w artykule system [IBM DB2 Azure Virtual Machines DBMS wdrażanie dla obciążeń SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm)
 - 08/11/2020: Dodawanie RHEL 7,6 do [zgodnych systemów operacyjnych dla dużych wystąpień platformy Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance) jako dostępnego systemu operacyjnego dla jednostek.
 - 08/10/2020: wprowadzenie do kosztów SAP HANA konfiguracji magazynu w [SAP HANA Konfiguracja magazynu maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) i wprowadzanie aktualizacji do [obciążeń SAP na platformie Azure: planowanie i wdrażanie listy kontrolnej](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)

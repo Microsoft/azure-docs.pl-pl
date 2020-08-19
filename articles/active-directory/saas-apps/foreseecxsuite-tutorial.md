@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z przewidywanym pakietem CX | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i przewidzieć pakiet CX.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 5f4b7830-6186-4d17-b77b-504d4192bfde
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: c78fa8ec470f04bcd88ab403249f77a65120c707
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fb0ed4a48eaef2168791abbaf94fb8991fa14132
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67550402"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551113"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Samouczek: integracja Azure Active Directory z przewidywalnym pakietem CX
 
@@ -32,7 +28,7 @@ Integrowanie usługi CX z usługą Azure AD zapewnia następujące korzyści:
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -117,9 +113,9 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD przy użyciu usług
 
     ![Przewidywanie informacji logowania jednokrotnego w ramach pakietu CX i adresów URL](common/sp-identifier.png)
 
-    a. W polu tekstowym **adres URL logowania** wpisz adres URL:`https://cxsuite.foresee.com/`
+    a. W polu tekstowym **adres URL logowania** wpisz adres URL: `https://cxsuite.foresee.com/`
 
-    b. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: https:\//www.okta.com/SAML2/Service-Provider/\<unikatowy>
+    b. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: https: \/ /www.okta.com/SAML2/Service-Provider/\<UniqueID>
 
     > [!Note]
     > Jeśli wartość **identyfikatora** nie jest pobierana autopolulated, wprowadź wartość ręcznie zgodnie z powyższym wzorcem. Wartość identyfikatora nie jest prawdziwa. Zaktualizuj tę wartość za pomocą rzeczywistego identyfikatora. Aby uzyskać tę wartość, skontaktuj się z działem [pomocy technicznej klienta pakietu CX](mailto:support@foresee.com) . Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -160,7 +156,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension. Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -208,5 +204,5 @@ Po kliknięciu kafelka pakietu CX w panelu dostępu należy automatycznie zalogo
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

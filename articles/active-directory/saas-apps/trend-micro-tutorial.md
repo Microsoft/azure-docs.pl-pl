@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja SSO usługi Azure AD z usługą Trend Micro Web Security (TMWS)'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Trend Micro Web Security (TMWS).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 827285d3-8e65-43cd-8453-baeda32ef174
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/21/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d09af492439beb931b4ab1cd08ccb9e1d82fc3f
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: f2a6598cc28c39719d73be333bd74c24fce9371b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583149"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551907"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trend-micro-web-security-tmws"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Trend Micro Web Security (TMWS)
 
@@ -119,10 +115,10 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
 1. W lewym okienku Azure Portal wybierz pozycję **Azure Active Directory**. Wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
-   1. W polu **Nazwa** wprowadź `B.Simon`wartość.  
-   1. W polu **Nazwa użytkownika** wprowadź nazwę ***użytkownika*@* formacie *.* rozszerzenie***. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa** wprowadź wartość `B.Simon` .  
+   1. W polu **Nazwa użytkownika** wprowadź nazwę ***użytkownika *@* formacie *.* rozszerzenie***. Na przykład `B.Simon@contoso.com`.
    1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość wyświetlaną w polu **hasło** .
-   1. Wybierz przycisk **Utwórz**.
+   1. Wybierz pozycję **Utwórz**.
 
 ### <a name="grant-the-azure-ad-test-user-access-to-tmws"></a>Przyznaj użytkownikowi testowemu usługi Azure AD dostęp do TMWS
 
@@ -171,7 +167,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. W obszarze **wyrażanie zgody** wybierz opcję **Udziel zgody administratora na *konto administratora* (katalog domyślny)**, a następnie wybierz pozycję **tak**. Zostanie wyświetlony komunikat z prośbą o potwierdzenie zgody administratora na żądane uprawnienia.
 
-1. Wybierz pozycję **Przegląd**. 
+1. Wybierz pozycję **Omówienie**. 
 
 1. Zapisz identyfikator **aplikacji (klienta)** w okienku **Directory (tenant) ID** po prawej stronie. Później wprowadzisz te informacje do TMWS. Możesz również wybrać **niestandardowe nazwy domen** w obszarze **Azure Active Directory > zarządzania** i rejestrowania nazwy domeny widocznej w okienku po prawej stronie.
 
@@ -179,7 +175,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 Wykonaj następujące kroki, aby skonfigurować Logowanie jednokrotne TMWS na stronie aplikacji.
 
-1. Zaloguj się do konsoli zarządzania TMWS i przejdź do pozycji **Administracja** > **Użytkownicy & uwierzytelniania** > **usługi katalogowej**.
+1. Zaloguj się do konsoli zarządzania TMWS i przejdź do pozycji **Administracja**  >  **Użytkownicy & uwierzytelniania**  >  **usługi katalogowej**.
 
 1. Zaznacz **tutaj** w górnym obszarze ekranu.
 
@@ -220,7 +216,7 @@ Wykonaj następujące kroki, aby skonfigurować Logowanie jednokrotne TMWS na st
 Po skonfigurowaniu usługi Azure AD i określeniu w usłudze Azure AD jako metody uwierzytelniania użytkownika możesz zalogować się do serwera proxy TMWS, aby zweryfikować konfigurację. Gdy logowanie za pomocą usługi Azure AD sprawdzi Twoje konto, możesz odwiedzić Internet.
 
 > [!NOTE]
-> TMWS nie obsługuje testowania logowania jednokrotnego z poziomu portalu usługi Azure AD, w obszarze **Przegląd** > **rejestracji** > jednokrotnej**Skonfiguruj Logowanie jednokrotne przy użyciu protokołu SAML** > do**testowania** nowej aplikacji dla przedsiębiorstw.
+> TMWS nie obsługuje testowania logowania jednokrotnego z poziomu portalu usługi Azure AD, w obszarze **Przegląd**rejestracji jednokrotnej  >  **Single sign-on**  >  **Skonfiguruj Logowanie jednokrotne przy użyciu protokołu SAML**do  >  **testowania** nowej aplikacji dla przedsiębiorstw.
 
 1. Wyczyść przeglądarkę wszystkich plików cookie, a następnie uruchom ponownie przeglądarkę. 
 
@@ -228,17 +224,17 @@ Po skonfigurowaniu usługi Azure AD i określeniu w usłudze Azure AD jako metod
 
 1. Odwiedź witrynę internetową. TMWS przekieruje Cię do portalu TMWS.
 
-1. Określ konto Active Directory (format: *domena*\\*sAMAccountName* lub *sAMAccountName*@*),* adres e-mail lub nazwa UPN, a następnie wybierz pozycję **Zaloguj**się. TMWS wysyła Cię do okna logowania do usługi Azure AD.
+1. Określ konto Active Directory (format: *domena* \\ *sAMAccountName* lub *sAMAccountName* @ *domain*), adres e-mail lub nazwa UPN, a następnie wybierz pozycję **Zaloguj**się. TMWS wysyła Cię do okna logowania do usługi Azure AD.
 
 1. W oknie Logowanie do usługi Azure AD wprowadź poświadczenia konta usługi Azure AD. Teraz należy zalogować się do TMWS.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Samouczki dotyczące integracji aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj usługę Trend Micro Web Security z usługą Azure AD](https://aad.portal.azure.com/)
 

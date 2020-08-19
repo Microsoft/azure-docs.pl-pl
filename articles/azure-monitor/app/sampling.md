@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4a618b00b211ce65b170379cc14d6b83a1183d28
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: bb6793bc1e3d5bb55426c1f344520ae19a22a9f9
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460360"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549569"
 ---
 # <a name="sampling-in-application-insights"></a>Próbkowanie w usłudze Application Insights
 
@@ -187,6 +187,8 @@ Użyj metod rozszerzających `TelemetryProcessorChainBuilder` , jak pokazano pon
 > W przypadku korzystania z tej metody w celu skonfigurowania próbkowania upewnij się, że właściwość jest ustawiona `aiOptions.EnableAdaptiveSampling` na wartość `false` podczas wywoływania `AddApplicationInsightsTelemetry()` .
 
 ```csharp
+using Microsoft.ApplicationInsights.Extensibility
+
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, TelemetryConfiguration configuration)
 {
     var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
@@ -448,7 +450,7 @@ Podobnie jak w przypadku innych typów próbkowania, algorytm zachowuje powiąza
 
 Punkty danych, które są odrzucane przez próbkowanie, nie są dostępne w żadnej funkcji Application Insights, takiej jak [eksport ciągły](./export-telemetry.md).
 
-Próbkowanie do pozyskiwania nie działa, gdy jest wykonywane próbkowanie adaptacyjne lub z ustaloną szybkością. Próbkowanie adaptacyjne jest domyślnie włączone w przypadku korzystania z zestawu SDK ASP.NET lub zestawu SDK ASP.NET Core lub gdy Application Insights jest włączona w [Azure App Service](azure-web-apps.md) lub przy użyciu Monitor stanu. Gdy dane telemetryczne są odbierane przez punkt końcowy usługi Application Insights, badają dane telemetryczne i jeśli częstotliwość próbkowania jest raportowana jako mniejsza niż 100% (co oznacza, że dane telemetryczne są próbkowane), a następnie wybrana częstotliwość próbkowania pozyskiwania jest ignorowana.
+Próbkowanie do pozyskiwania nie działa, gdy jest wykonywane próbkowanie adaptacyjne lub z ustaloną szybkością. Próbkowanie adaptacyjne jest domyślnie włączone w przypadku korzystania z zestawu SDK ASP.NET lub zestawu SDK ASP.NET Core lub gdy Application Insights jest włączona w [Azure App Service ](azure-web-apps.md) lub przy użyciu Monitor stanu. Gdy dane telemetryczne są odbierane przez punkt końcowy usługi Application Insights, badają dane telemetryczne i jeśli częstotliwość próbkowania jest raportowana jako mniejsza niż 100% (co oznacza, że dane telemetryczne są próbkowane), a następnie wybrana częstotliwość próbkowania pozyskiwania jest ignorowana.
 
 > [!WARNING]
 > Wartość wyświetlana na kafelku portalu wskazuje wartość ustawioną dla pobierania próbek. Nie reprezentuje rzeczywistej częstotliwości próbkowania w przypadku, gdy jest wykonywane jakiekolwiek Sortowanie próbek zestawu SDK (próbkowanie adaptacyjne lub stałe).

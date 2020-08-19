@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z systemami Pega | Microsoft Docs'
 description: W tym samouczku dowiesz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i systemami Pega.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 31acf80f-1f4b-41f1-956f-a9fbae77ee69
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: bd54466e054055ff84cd5bb2b28c5cc074ac0017
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3dd09770ef5f747f008090368c35b1f274374c5f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72026806"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549079"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Samouczek: integracja Azure Active Directory z systemami Pega
 
@@ -57,7 +53,7 @@ Aby skonfigurować integrację systemów Pega z usługą Azure AD, musisz dodać
 
     ![Wybierz pozycję Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -119,7 +115,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD z systemami Pega, wyko
 
     1. W polu **adres URL logowania** wprowadź wartość adres URL logowania.
 
-    1. W polu **Stan przekazywania** wprowadź adres URL w tym wzorcu:`https://<customername>.pegacloud.io/prweb/sso`
+    1. W polu **Stan przekazywania** wprowadź adres URL w tym wzorcu: `https://<customername>.pegacloud.io/prweb/sso`
 
     > [!NOTE]
     > Podane tu wartości są symbolami zastępczymi. Musisz użyć rzeczywistego identyfikatora, adresu URL odpowiedzi, adresu URL logowania i adresu URL stanu przekazywania. Możesz uzyskać identyfikatory i adresy URL odpowiedzi z aplikacji Pega, jak wyjaśniono w dalszej części tego samouczka. Aby uzyskać wartość stanu przekazywania, skontaktuj się z [zespołem pomocy technicznej systemów Pega](https://www.pega.com/contact-us). Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -158,7 +154,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD z systemami Pega, wyko
 
     1. Na liście **atrybutów źródłowych** wybierz wartość atrybutu wyświetlaną dla tego wiersza.
 
-    1. Wybierz **przycisk OK**.
+    1. Wybierz przycisk **OK**.
 
     1. Wybierz pozycję **Zapisz**.
 
@@ -180,7 +176,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD z systemami Pega, wyko
 
 1. Aby skonfigurować Logowanie jednokrotne na stronie **systemy Pega** , zaloguj się do portalu Pega przy użyciu konta administratora w innym oknie przeglądarki.
 
-2. Wybierz pozycję **Utwórz** > **usługę uwierzytelniania****sysadmin** > :
+2. Wybierz pozycję **Utwórz**  >  **SysAdmin**  >  **usługę uwierzytelniania**sysadmin:
 
     ![Wybieranie usługi uwierzytelniania](./media/pegasystems-tutorial/tutorial_pegasystems_admin.png)
     
@@ -234,11 +230,11 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w Azure Port
 
     a. W polu **Nazwa** wpisz **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wprowadź **brittasimon@\<\< yourcompanydomain>.>rozszerzenia **. (Na przykład BrittaSimon@contoso.com.)
+    b. W polu **Nazwa użytkownika** wprowadź **brittasimon@ \<yourcompanydomain> . \<extension> **. (Na przykład BrittaSimon@contoso.com .)
 
     c. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość znajdującą się w polu **hasło** .
 
-    d. Wybierz przycisk **Utwórz**.
+    d. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -276,10 +272,10 @@ Teraz musisz przetestować konfigurację logowania jednokrotnego usługi Azure A
 
 Po wybraniu kafelka systemy Pega w panelu dostępu należy automatycznie zalogować się do wystąpienia systemu Pega, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji, zobacz [dostęp i używanie aplikacji w portalu Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

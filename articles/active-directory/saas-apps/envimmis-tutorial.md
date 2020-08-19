@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą ENVI MMIS | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Envi MMIS.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: ab89f8ee-2507-4625-94bc-b24ef3d5e006
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1689517042713e9a3ce75c6ada822cb3d6ff138
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: aababc6ffd84540b99ba68f6bbb449d2aa78ed4b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73158253"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551748"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Samouczek: integracja Azure Active Directory z usługą ENVI MMIS
 
@@ -33,7 +28,7 @@ Zintegrowanie aplikacji Envi MMIS z usługą Azure AD zapewnia następujące kor
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -106,7 +101,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Envi MMIS,
 
     ![Informacje o domenie i adresach URL logowania jednokrotnego aplikacji Envi MMIS](common/idp-intiated.png)
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://www.<CUSTOMER DOMAIN>.com/Account`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://www.<CUSTOMER DOMAIN>.com/Account`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://www.<CUSTOMER DOMAIN>.com/Account/Acs`
 
@@ -185,8 +180,8 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
-    Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -238,7 +233,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w aplikacji Envi M
 
     ![Dodawanie pracownika](./media/envimmis-tutorial/user3.png)
 
-    a. W polu tekstowym **Nazwa użytkownika** wpisz nazwę użytkownika konta Britta Simon, takie jak **brittasimon\@contoso.com**.
+    a. W polu tekstowym **Nazwa użytkownika** wpisz nazwę użytkownika konta Britta Simon, takie jak **brittasimon \@ contoso.com**.
     
     b. W polu tekstowym **First Name (Imię)** wpisz imię użytkownika, na przykład **Britta**.
 
@@ -246,11 +241,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w aplikacji Envi M
 
     d. Wprowadź tytuł użytkownika w polu tekstowym **Title (Tytuł)**.
     
-    e. W polu tekstowym **adres e-mail** wpisz adres E-mail konta Britta Simon, takie jak **brittasimon\@contoso.com**.
+    e. W polu tekstowym **adres e-mail** wpisz adres E-mail konta Britta Simon, takie jak **brittasimon \@ contoso.com**.
 
-    f. W polu tekstowym **Nazwa użytkownika logowania jednokrotnego** wpisz nazwę użytkownika konta Britta Simon, takie jak **\@brittasimon contoso.com**.
+    f. W polu tekstowym **Nazwa użytkownika logowania jednokrotnego** wpisz nazwę użytkownika konta Britta Simon, takie jak **brittasimon \@ contoso.com**.
 
-    g. Kliknij przycisk **Zapisz**.
+    przykład Kliknij pozycję **Zapisz**.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
@@ -264,5 +259,5 @@ Po kliknięciu kafelka Envi MMIS w panelu dostępu powinno nastąpić automatycz
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

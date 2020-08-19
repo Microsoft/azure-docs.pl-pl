@@ -2,26 +2,21 @@
 title: 'Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Jamf Pro | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i oprogramowaniem Jamf Pro.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 35e86d08-c29e-49ca-8545-b0ff559c5faf
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/11/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d83dbe756e8e6acdb58861ac359801bc13a63c4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 780421d93916c7da7897dfa15d09dc895cf56280
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77373205"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88552666"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>Samouczek: Azure Active Directory integrację z logowaniem jednokrotnym przy użyciu Jamf Pro
 
@@ -83,11 +78,11 @@ W tej sekcji włączasz Logowanie jednokrotne usługi Azure AD w Azure Portal.
 
 1. Jeśli chcesz skonfigurować aplikację w trybie **inicjowanym** przy użyciu usługi dostawcy tożsamości, w sekcji **Podstawowa konfiguracja SAML** wpisz wartości następujących pól:
 
-    a. W polu tekstowym **Identyfikator** wprowadź adres URL, który używa następującej formuły:`https://<subdomain>.jamfcloud.com/saml/metadata`
+    a. W polu tekstowym **Identyfikator** wprowadź adres URL, który używa następującej formuły: `https://<subdomain>.jamfcloud.com/saml/metadata`
 
-    b. W polu tekstowym **adres URL odpowiedzi** wprowadź adres URL, który używa następującej formuły:`https://<subdomain>.jamfcloud.com/saml/SSO`
+    b. W polu tekstowym **adres URL odpowiedzi** wprowadź adres URL, który używa następującej formuły: `https://<subdomain>.jamfcloud.com/saml/SSO`
 
-1. Wybierz pozycję **Ustaw dodatkowe adresy URL**. Jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** , w polu tekstowym **adres URL logowania** wprowadź adres URL, który używa następującej formuły:`https://<subdomain>.jamfcloud.com`
+1. Wybierz pozycję **Ustaw dodatkowe adresy URL**. Jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** , w polu tekstowym **adres URL logowania** wprowadź adres URL, który używa następującej formuły: `https://<subdomain>.jamfcloud.com`
 
     > [!NOTE]
     > To nie są rzeczywiste wartości. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Rzeczywista wartość identyfikatora zostanie pobrana z sekcji **Logowanie** jednokrotne w portalu Jamf Pro, która została omówiona w dalszej części tego samouczka. Wartość rzeczywistej domeny podrzędnej można wyodrębnić z wartości identyfikatora i użyć jej jako adresu URL logowania i adresu URL odpowiedzi. Można również odwołać się do formuł przedstawionych w sekcji podstawowe informacje o **konfiguracji SAML** w Azure Portal.
@@ -106,7 +101,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.
    1. W polu **Nazwa użytkownika** wprowadź wartość [name] @ [formacie]. [rozszerzenie]. Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Wybierz przycisk **Utwórz**.
+   1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -150,7 +145,7 @@ W tej sekcji przyznano użytkownikowi B. Simon dostęp do Jamf Pro.
 
     ![Strona logowania jednokrotnego w programie Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
-    a. Wybierz pozycję **Edit** (Edytuj).
+    a. Kliknij pozycję **Edytuj**.
 
     b. Zaznacz pole wyboru **Włącz uwierzytelnianie logowania** jednokrotnego.
 
@@ -159,7 +154,7 @@ W tej sekcji przyznano użytkownikowi B. Simon dostęp do Jamf Pro.
   d. Skopiuj wartość **Identyfikator jednostki** i wklej ją do pola **Identyfikator (identyfikator jednostki)** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
 > [!NOTE]
-> Użyj wartości w `<SUBDOMAIN>` polu, aby uzupełnić adres URL logowania i adres URL odpowiedzi w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
+> Użyj wartości w polu, `<SUBDOMAIN>` Aby uzupełnić adres URL logowania i adres URL odpowiedzi w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
   e. Wybierz pozycję **adres URL metadanych** z menu rozwijanego **Źródło metadanych dostawcy tożsamości** . W wyświetlonym polu wklej wartość **adresu URL metadanych federacji aplikacji** skopiowaną z Azure Portal.
 
@@ -207,11 +202,11 @@ Aby zainicjować obsługę administracyjną konta użytkownika, wykonaj następu
 
     ![Nowe opcje konfiguracji konta w ustawieniach systemu Jamf Pro](./media/jamfprosamlconnector-tutorial/user4.png)
 
-    a. W polu **Nazwa użytkownika** wprowadź `Britta Simon`pełną nazwę użytkownika testowego.
+    a. W polu **Nazwa użytkownika** wprowadź `Britta Simon` pełną nazwę użytkownika testowego.
 
     b. Wybierz opcje **poziom dostępu**, **zestaw uprawnień**i **stan dostępu** , które są zgodne z Twoją organizacją.
 
-    c. W polu **imię i nazwisko** wprowadź `Britta Simon`.
+    c. W polu **imię i nazwisko** wprowadź `Britta Simon` .
 
     d. W polu **adres e-mail** wprowadź adres E-mail konta Britta Simon.
 
@@ -219,7 +214,7 @@ Aby zainicjować obsługę administracyjną konta użytkownika, wykonaj następu
 
     f. W polu **Weryfikuj hasło** ponownie wprowadź hasło użytkownika.
 
-    g. Wybierz pozycję **Zapisz**.
+    przykład Wybierz pozycję **Zapisz**.
 
 ## <a name="test-the-sso-configuration"></a>Testowanie konfiguracji logowania jednokrotnego
 
@@ -227,12 +222,12 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po wybraniu kafelka Jamf Pro w panelu dostępu należy automatycznie zalogować się do konta Jamf Pro, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Samouczki dotyczące integrowania aplikacji SaaS z Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Samouczki dotyczące integrowania aplikacji SaaS z Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Single sign-on to applications in Azure Active Directory (Logowanie jednokrotne do aplikacji w usłudze Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 - [Wypróbuj usługę Jamf Pro z usługą Azure AD](https://aad.portal.azure.com/)

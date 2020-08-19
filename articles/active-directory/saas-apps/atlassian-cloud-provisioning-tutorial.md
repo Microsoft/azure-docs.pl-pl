@@ -2,24 +2,21 @@
 title: 'Samouczek: Konfigurowanie chmury Atlassian na potrzeby automatycznego aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Azure Active Directory, aby automatycznie udostępniać i cofać obsługę administracyjną kont użytkowników w chmurze Atlassian.
 services: active-directory
-documentationcenter: ''
 author: zhchia
 writer: zhchia
-manager: beatrizd-msft
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 12e94cfd576ced8c0e2768dd508e7f6f1a0056eb
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 14418d4d280f4da629aecd5a95b5a49e6856e2c1
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927474"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549392"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie chmury Atlassian na potrzeby automatycznego aprowizacji użytkowników
 
@@ -50,7 +47,7 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 ## <a name="step-2-configure-atlassian-cloud-to-support-provisioning-with-azure-ad"></a>Krok 2. Konfigurowanie chmury Atlassian w celu obsługi aprowizacji za pomocą usługi Azure AD
 
-1. Przejdź do programu [Atlassian Organization Manager](https://admin.atlassian.com) **,> wybierz katalog > organizacji**.
+1. Przejdź do programu [Atlassian Organization Manager](https://admin.atlassian.com) ** ,> wybierz katalog > organizacji**.
 
     ![Inicjowanie obsługi administracyjnej w chmurze Atlassian](./media/atlassian-cloud-provisioning-tutorial/select-directory.png)
 
@@ -110,11 +107,11 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Atrybut|Typ|
    |---|---|
-   |userName|Ciąg|
-   |aktywne|Wartość logiczna|
-   |Nazwa. rodzina|Ciąg|
-   |Nazwa. imię|Ciąg|
-   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|   
+   |userName|String|
+   |aktywne|Boolean|
+   |Nazwa. rodzina|String|
+   |Nazwa. imię|String|
+   |wiadomości e-mail [Type EQ "Work"]. Value|String|   
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory z chmurą Atlassian**.
 
@@ -122,8 +119,8 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
       |Atrybut|Typ|
       |---|---|
-      |displayName|Ciąg|
-      |externalId|Ciąg|
+      |displayName|String|
+      |externalId|String|
       |elementy członkowskie|Dokumentacja|
 
 12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

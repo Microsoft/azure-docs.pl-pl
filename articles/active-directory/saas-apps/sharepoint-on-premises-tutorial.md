@@ -2,24 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z lokalnym programem SharePoint | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i lokalnym programem SharePoint.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 85b8d4d0-3f6a-4913-b9d3-8cc327d8280d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: miguego
-ms.openlocfilehash: c623ed8cfcdb61081c74a0f7326106c42781cefa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 996668751ee93d14b18e399035fd345f32c58fbe
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648494"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88552177"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-sharepoint-on-premises"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego z lokalnym programem SharePoint
 
@@ -159,7 +156,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD przy użyciu lokaln
 
     1. Wybierz pozycję **zaufany dostawca tożsamości**i wybierz pozycję Zidentyfikuj zarejestrowanego dostawcę o nazwie *AzureAD*.
 
-    1. Wybierz przycisk **OK**.
+    1. Kliknij przycisk **OK**.
 
     ![Konfigurowanie dostawcy uwierzytelniania](./media/sharepoint-on-premises-tutorial/config-auth-provider.png)
 
@@ -181,7 +178,7 @@ Celem tej sekcji jest utworzenie użytkownika testowego w Azure Portal.
 
     1. Zaznacz pole wyboru **Pokaż hasło** , a następnie Zapisz wartość, która pojawia się w polu **hasło** .
 
-    1. Wybierz przycisk **Utwórz**.
+    1. Wybierz pozycję **Utwórz**.
 
     1. Możesz teraz udostępnić witrynę TestUser@contoso.com i zezwolić temu użytkownikowi na dostęp do niego.
 
@@ -294,5 +291,5 @@ Mogą istnieć inne scenariusze, w których chcesz zapewnić dostęp do lokalneg
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [Co to jest tożsamość hybrydowa z Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)

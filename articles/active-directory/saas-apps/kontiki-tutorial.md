@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Kontiki | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Kontiki.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 8d5e5413-da4c-40d8-b1d0-f03ecfef030b
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfb154bce34b2ceda99b82c7ca3534b8a8ee0a1f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cb652cfdae0ce785d6a076b8b1592d9f700b3383
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67098488"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549980"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Samouczek: integracja Azure Active Directory z usługą Kontiki
 
@@ -61,7 +56,7 @@ Aby zintegrować usługę Kontiki z usługą Azure AD, musisz dodać Kontiki do 
 
     ![Opcja Azure Active Directory](common/select-azuread.png)
 
-1. Wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje**.
+1. Wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
 
     ![Okienko Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -104,7 +99,7 @@ W tej sekcji skonfigurujesz Logowanie jednokrotne w usłudze Azure AD za pomocą
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. W okienku **podstawowe konfiguracje języka SAML** w polu tekstowym **adres URL logowania** wprowadź adres URL, który ma następujący wzorzec:`https://<companyname>.mc.eval.kontiki.com`
+1. W okienku **podstawowe konfiguracje języka SAML** w polu tekstowym **adres URL logowania** wprowadź adres URL, który ma następujący wzorzec: `https://<companyname>.mc.eval.kontiki.com`
 
     ![Kontiki domenę i adresy URL Logowanie jednokrotne](common/sp-signonurl.png)
 
@@ -131,7 +126,7 @@ Aby skonfigurować Logowanie jednokrotne po stronie Kontiki, Wyślij pobrany pli
 
 W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w witrynie Azure Portal.
 
-1. W Azure Portal wybierz pozycję **Azure Active Directory** > **Użytkownicy** > **Wszyscy użytkownicy**.
+1. W Azure Portal wybierz pozycję **Azure Active Directory**  >  **Użytkownicy**  >  **Wszyscy użytkownicy**.
 
     ![Opcje Użytkownicy i wszyscy użytkownicy](common/users.png)
 
@@ -143,11 +138,11 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w witrynie A
 
     1. W polu **Nazwa** wpisz **BrittaSimon**.
   
-    1. W polu **Nazwa użytkownika** wprowadź **brittasimon\@\<>-firmowej domeny.\<>rozszerzenia **. Na przykład **brittasimon\@contoso.com**.
+    1. W polu **Nazwa użytkownika** wprowadź **brittasimon \@ \<your-company-domain> . \<extension> **. Na przykład **brittasimon \@ contoso.com**.
 
     1. Zaznacz pole wyboru **Pokaż hasło** . Zapisz wartość wyświetlaną w polu **hasło** .
 
-    1. Wybierz przycisk **Utwórz**.
+    1. Wybierz pozycję **Utwórz**.
 
     ![Okienko użytkownika](common/user-properties.png)
 
@@ -155,7 +150,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w witrynie A
 
 W tej sekcji przyznano Britta Simon dostęp do usługi Kontiki, dzięki czemu może on korzystać z logowania jednokrotnego na platformie Azure.
 
-1. W Azure Portal wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje** > **Kontiki**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  >  **Kontiki**.
 
     ![Okienko Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -167,7 +162,7 @@ W tej sekcji przyznano Britta Simon dostęp do usługi Kontiki, dzięki czemu mo
 
     ![Opcja Użytkownicy i grupy](common/users-groups-blade.png)
 
-1. Wybierz przycisk **Dodaj użytkownika**. Następnie w okienku **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy**.
+1. Wybierz pozycję **Dodaj użytkownika**. Następnie w okienku **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy**.
 
     ![Okienko Dodawanie przypisania](common/add-assign-user.png)
 
@@ -193,4 +188,4 @@ Aby dowiedzieć się więcej, zapoznaj się z następującymi artykułami:
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Single sign-on to applications in Azure Active Directory (Logowanie jednokrotne do aplikacji w usłudze Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

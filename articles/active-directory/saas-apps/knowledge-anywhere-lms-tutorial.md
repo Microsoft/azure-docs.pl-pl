@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Knowledge gdziekolwiek w systemie LMS | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Knowledge Anywhere LMS.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: 5cfa07b1-a792-4f0a-8c6f-1a13142193d9
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f44324bbdd5af6675dfb4f5664cbbde2627edfec
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 507298f323fe14e3b114afebed5f2f258145a76e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67098560"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549946"
 ---
 # <a name="tutorial-integrate-knowledge-anywhere-lms-with-azure-active-directory"></a>Samouczek: integracja systemu LMS z usługą Knowledge gdziekolwiek z Azure Active Directory
 
@@ -80,7 +75,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    1. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<CLIENTNAME>.knowledgeanywhere.com/`
+    1. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<CLIENTNAME>.knowledgeanywhere.com/`
 
     1. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<CLIENTNAME>.knowledgeanywhere.com/SSO/SAML/Response.aspx?<IDPNAME>`
 
@@ -142,11 +137,11 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     f. Wybierz pozycję **Main Site** (Witryna główna) z listy rozwijanej w polu **Domain** (Domena).
 
-    g. Skopiuj wartość **SP Entity ID** (Identyfikator jednostki dostawcy usługi) i wklej ją w polu tekstowym **Identifier** (Identyfikator) w sekcji **Podstawowa konfiguracja protokołu SAML** witryny Azure Portal.
+    przykład Skopiuj wartość **SP Entity ID** (Identyfikator jednostki dostawcy usługi) i wklej ją w polu tekstowym **Identifier** (Identyfikator) w sekcji **Podstawowa konfiguracja protokołu SAML** witryny Azure Portal.
 
     h. Skopiuj wartość **SP Response(ACS) URL** (Adres URL odpowiedzi dostawcy usługi (ACS)) i wklej go w polu tekstowym **Adres URL odpowiedzi** sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-    i. Kliknij przycisk **Zapisz**.
+    i. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -156,7 +151,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B. Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `BrittaSimon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `BrittaSimon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -192,4 +187,4 @@ Po wybraniu kafelka wiedza w dowolnym miejscu w panelu dostępu należy automaty
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

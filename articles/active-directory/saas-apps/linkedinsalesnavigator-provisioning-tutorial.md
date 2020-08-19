@@ -2,25 +2,20 @@
 title: 'Samouczek: Inicjowanie obsługi użytkowników — Nawigator sprzedaży w serwisie LinkedIn, usługa Azure AD'
 description: Dowiedz się, jak skonfigurować Azure Active Directory, aby automatycznie udostępniać i cofać obsługę administracyjną kont użytkowników w usłudze LinkedIn Sales Navigator.
 services: active-directory
-documentationcenter: ''
 author: ArvindHarinder1
 manager: CelesteDG
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48b9f2dc64d1d3ddd8253a253dcab8ef972032f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef87a1c7163825fcee8f4a27408719839d8a6d43
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869741"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549708"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie nawigatora sprzedaży serwisu LinkedIn na potrzeby automatycznej aprowizacji użytkowników
 
@@ -87,7 +82,7 @@ Pierwszym krokiem jest pobranie tokenu dostępu do serwisu LinkedIn. Jeśli jest
 
 6. Zapisz token dostępu do Schowka lub komputera przed opuszczeniem strony.
 
-7. Następnie zaloguj się do [Azure Portal](https://portal.azure.com)i przejdź do sekcji **Azure Active Directory > aplikacje dla przedsiębiorstw > wszystkie aplikacje** .
+7. Następnie zaloguj się do [Azure Portal](https://portal.azure.com)i przejdź do sekcji **Azure Active Directory > aplikacje dla przedsiębiorstw > wszystkie aplikacje**  .
 
 8. Jeśli już skonfigurowano nawigatora sprzedaży w serwisie LinkedIn na potrzeby logowania jednokrotnego, Wyszukaj wystąpienie usługi LinkedIn Sales Navigator przy użyciu pola wyszukiwania. W przeciwnym razie wybierz pozycję **Dodaj** i Wyszukaj **Nawigator sprzedaży w serwisie LinkedIn** w galerii aplikacji. Wybierz opcję Nawigator sprzedaży w serwisie LinkedIn z wyników wyszukiwania, a następnie dodaj ją do listy aplikacji.
 

@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie usługi G Suite do automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak automatycznie udostępniać i cofać obsługę administracyjną kont użytkowników z usługi Azure AD w usłudze G Suite.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: 6dbd50b5-589f-4132-b9eb-a53a318a64e5
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 90e9006a19825059096b81b9c174d16a270775f1
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 27e34a66bb6dfa642b84bd8997b2b02c4981788e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920317"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551559"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi G Suite do automatycznej aprowizacji użytkowników
 
@@ -167,79 +163,79 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Atrybut|Typ|
    |---|---|
-   |primaryEmail|Ciąg|
-   |relacje. [Type EQ "Manager"]. Value|Ciąg|
-   |Nazwa. rodzina|Ciąg|
-   |Nazwa. imię|Ciąg|
-   |wieszon|Ciąg|
-   |externalIds. [Type EQ "Custom"]. Value|Ciąg|
-   |externalIds. [typ EQ "organizacja"]. wartość|Ciąg|
-   |adres. [Type EQ "Work"]. Country|Ciąg|
-   |adres. [wpisz EQ "Work"]. streetAddress|Ciąg|
-   |adres. [Type EQ "Work"]. region|Ciąg|
-   |adres. [typ EQ "Work"]. locale|Ciąg|
-   |adres. [Type EQ "Work"]. KodPocztowy|Ciąg|
-   |Zamów. [Type EQ "Work"]. Address|Ciąg|
-   |przedsiębiorstwa. [Type EQ "Work"]. Department|Ciąg|
-   |przedsiębiorstwa. [Type EQ "Work"]. title|Ciąg|
-   |numer telefonu. [Type EQ "Work"]. Value|Ciąg|
-   |numer telefonu. [Type EQ "Mobile"]. Value|Ciąg|
-   |numer telefonu. [Type EQ "work_fax"]. Value|Ciąg|
-   |Zamów. [Type EQ "Work"]. Address|Ciąg|
-   |przedsiębiorstwa. [Type EQ "Work"]. Department|Ciąg|
-   |przedsiębiorstwa. [Type EQ "Work"]. title|Ciąg|
-   |numer telefonu. [Type EQ "Work"]. Value|Ciąg|
-   |numer telefonu. [Type EQ "Mobile"]. Value|Ciąg|
-   |numer telefonu. [Type EQ "work_fax"]. Value|Ciąg|
-   |adres. [Type EQ "Home"]. Country|Ciąg|
-   |adres. [Type EQ "Home"]. sformatowana|Ciąg|
-   |adres. [Type EQ "Home"]. locale|Ciąg|
-   |adres. [Type EQ "Home"]. KodPocztowy|Ciąg|
-   |adres. [Type EQ "Home"]. region|Ciąg|
-   |adres. [Type EQ "Home"]. streetAddress|Ciąg|
-   |adres. [Type EQ "Other"]. Country|Ciąg|
-   |adres. [Type EQ "Other"]. sformatowane|Ciąg|
-   |adres. [Type EQ "Other"]. locale|Ciąg|
-   |adres. [Type EQ "Other"]. KodPocztowy|Ciąg|
-   |adres. [Type EQ "Other"]. region|Ciąg|
-   |adres. [Type EQ "Other"]. streetAddress|Ciąg|
-   |adres. [wpisz EQ "Work"]. sformatowane|Ciąg|
-   |changePasswordAtNextLogin|Ciąg|
-   |Zamów. [Type EQ "Home"]. Address|Ciąg|
-   |Zamów. [Type EQ "Other"]. Address|Ciąg|
-   |externalIds. [typ EQ "konto"]. wartość|Ciąg|
-   |externalIds. [Type EQ "Custom"]. CustomType|Ciąg|
-   |externalIds. [typ EQ "klient"]. wartość|Ciąg|
-   |externalIds. [Type EQ "login_id"]. Value|Ciąg|
-   |externalIds. [typ EQ "Sieć"]. wartość|Ciąg|
-   |płeć. typ|Ciąg|
-   |GeneratedImmutableId|Ciąg|
-   |Identyfikator|Ciąg|
-   |ISP. [Type EQ "Home"]. Protocol|Ciąg|
-   |ISP. [Type EQ "Other"]. protokół|Ciąg|
-   |ISP. [Type EQ "Work"]. protokół|Ciąg|
-   |includeInGlobalAddressList|Ciąg|
-   |ipWhitelisted|Ciąg|
-   |przedsiębiorstwa. [Type EQ "Szkoła"]. costCenter|Ciąg|
-   |przedsiębiorstwa. [Type EQ "Szkoła"]. Dział|Ciąg|
-   |przedsiębiorstwa. [Type EQ "Szkoła"]. domena|Ciąg|
-   |przedsiębiorstwa. [Type EQ "Szkoła"]. fullTimeEquivalent|Ciąg|
-   |przedsiębiorstwa. [Type EQ "Szkoła"]. Lokalizacja|Ciąg|
-   |przedsiębiorstwa. [Type EQ "Szkoła"]. Name|Ciąg|
-   |przedsiębiorstwa. [Type EQ "Szkoła"]. symbol|Ciąg|
-   |przedsiębiorstwa. [Type EQ "Szkoła"]. title|Ciąg|
-   |przedsiębiorstwa. [wpisz EQ "Work"]. costCenter|Ciąg|
-   |przedsiębiorstwa. [Type EQ "Work"]. domena|Ciąg|
-   |przedsiębiorstwa. [wpisz EQ "Work"]. fullTimeEquivalent|Ciąg|
-   |przedsiębiorstwa. [typ EQ "Work"]. Lokalizacja|Ciąg|
-   |przedsiębiorstwa. [wpisz EQ "Work"]. Name|Ciąg|
-   |przedsiębiorstwa. [Type EQ "Work"]. symbol|Ciąg|
-   |OrgUnitPath|Ciąg|
-   |numer telefonu. [Type EQ "Home"]. Value|Ciąg|
-   |numer telefonu. [Type EQ "Other"]. Value|Ciąg|
-   |zaufany. [Type EQ "Home"]. Value|Ciąg|
-   |zaufany. [Type EQ "Other"]. Value|Ciąg|
-   |zaufany. [Type EQ "Work"]. Value|Ciąg|
+   |primaryEmail|String|
+   |relacje. [Type EQ "Manager"]. Value|String|
+   |Nazwa. rodzina|String|
+   |Nazwa. imię|String|
+   |wieszon|String|
+   |externalIds. [Type EQ "Custom"]. Value|String|
+   |externalIds. [typ EQ "organizacja"]. wartość|String|
+   |adres. [Type EQ "Work"]. Country|String|
+   |adres. [wpisz EQ "Work"]. streetAddress|String|
+   |adres. [Type EQ "Work"]. region|String|
+   |adres. [typ EQ "Work"]. locale|String|
+   |adres. [Type EQ "Work"]. KodPocztowy|String|
+   |Zamów. [Type EQ "Work"]. Address|String|
+   |przedsiębiorstwa. [Type EQ "Work"]. Department|String|
+   |przedsiębiorstwa. [Type EQ "Work"]. title|String|
+   |numer telefonu. [Type EQ "Work"]. Value|String|
+   |numer telefonu. [Type EQ "Mobile"]. Value|String|
+   |numer telefonu. [Type EQ "work_fax"]. Value|String|
+   |Zamów. [Type EQ "Work"]. Address|String|
+   |przedsiębiorstwa. [Type EQ "Work"]. Department|String|
+   |przedsiębiorstwa. [Type EQ "Work"]. title|String|
+   |numer telefonu. [Type EQ "Work"]. Value|String|
+   |numer telefonu. [Type EQ "Mobile"]. Value|String|
+   |numer telefonu. [Type EQ "work_fax"]. Value|String|
+   |adres. [Type EQ "Home"]. Country|String|
+   |adres. [Type EQ "Home"]. sformatowana|String|
+   |adres. [Type EQ "Home"]. locale|String|
+   |adres. [Type EQ "Home"]. KodPocztowy|String|
+   |adres. [Type EQ "Home"]. region|String|
+   |adres. [Type EQ "Home"]. streetAddress|String|
+   |adres. [Type EQ "Other"]. Country|String|
+   |adres. [Type EQ "Other"]. sformatowane|String|
+   |adres. [Type EQ "Other"]. locale|String|
+   |adres. [Type EQ "Other"]. KodPocztowy|String|
+   |adres. [Type EQ "Other"]. region|String|
+   |adres. [Type EQ "Other"]. streetAddress|String|
+   |adres. [wpisz EQ "Work"]. sformatowane|String|
+   |changePasswordAtNextLogin|String|
+   |Zamów. [Type EQ "Home"]. Address|String|
+   |Zamów. [Type EQ "Other"]. Address|String|
+   |externalIds. [typ EQ "konto"]. wartość|String|
+   |externalIds. [Type EQ "Custom"]. CustomType|String|
+   |externalIds. [typ EQ "klient"]. wartość|String|
+   |externalIds. [Type EQ "login_id"]. Value|String|
+   |externalIds. [typ EQ "Sieć"]. wartość|String|
+   |płeć. typ|String|
+   |GeneratedImmutableId|String|
+   |Identyfikator|String|
+   |ISP. [Type EQ "Home"]. Protocol|String|
+   |ISP. [Type EQ "Other"]. protokół|String|
+   |ISP. [Type EQ "Work"]. protokół|String|
+   |includeInGlobalAddressList|String|
+   |ipWhitelisted|String|
+   |przedsiębiorstwa. [Type EQ "Szkoła"]. costCenter|String|
+   |przedsiębiorstwa. [Type EQ "Szkoła"]. Dział|String|
+   |przedsiębiorstwa. [Type EQ "Szkoła"]. domena|String|
+   |przedsiębiorstwa. [Type EQ "Szkoła"]. fullTimeEquivalent|String|
+   |przedsiębiorstwa. [Type EQ "Szkoła"]. Lokalizacja|String|
+   |przedsiębiorstwa. [Type EQ "Szkoła"]. Name|String|
+   |przedsiębiorstwa. [Type EQ "Szkoła"]. symbol|String|
+   |przedsiębiorstwa. [Type EQ "Szkoła"]. title|String|
+   |przedsiębiorstwa. [wpisz EQ "Work"]. costCenter|String|
+   |przedsiębiorstwa. [Type EQ "Work"]. domena|String|
+   |przedsiębiorstwa. [wpisz EQ "Work"]. fullTimeEquivalent|String|
+   |przedsiębiorstwa. [typ EQ "Work"]. Lokalizacja|String|
+   |przedsiębiorstwa. [wpisz EQ "Work"]. Name|String|
+   |przedsiębiorstwa. [Type EQ "Work"]. symbol|String|
+   |OrgUnitPath|String|
+   |numer telefonu. [Type EQ "Home"]. Value|String|
+   |numer telefonu. [Type EQ "Other"]. Value|String|
+   |zaufany. [Type EQ "Home"]. Value|String|
+   |zaufany. [Type EQ "Other"]. Value|String|
+   |zaufany. [Type EQ "Work"]. Value|String|
    
 
 10. W sekcji **mapowania** wybierz pozycję **Udostępnij Azure Active Directory grupy**.
@@ -248,10 +244,10 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
       |Atrybut|Typ|
       |---|---|
-      |poczta e-mail|Ciąg|
-      |Elementy członkowskie|Ciąg|
-      |name|Ciąg|
-      |description (opis)|Ciąg|
+      |poczta e-mail|String|
+      |Elementy członkowskie|String|
+      |name|String|
+      |description (opis)|String|
 
 12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

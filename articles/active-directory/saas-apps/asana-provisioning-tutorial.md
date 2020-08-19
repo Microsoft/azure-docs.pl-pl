@@ -2,26 +2,21 @@
 title: 'Samouczek: Inicjowanie obsługi użytkowników dla Asana — Azure AD'
 description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników w usłudze Asana.
 services: active-directory
-documentationcenter: ''
 author: ArvindHarinder1
 manager: CelesteDG
-ms.assetid: 0b38ee73-168b-42cb-bd8b-9c5e5126d648
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.reviewer: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: abeac030db419f7fb7d561df5dcd407684f20ca2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: celested
+ms.openlocfilehash: 11e0606568fdaad20f996a7ae20a622576acea15
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77058935"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549470"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Asana na potrzeby automatycznego aprowizacji użytkowników
 
@@ -69,7 +64,7 @@ Ta sekcja przeprowadzi Cię przez proces łączenia usługi Azure AD z interfejs
 
     ![Inicjowanie obsługi Asana](./media/asana-provisioning-tutorial/asanaazureprovisioning.png)
 
-1. W sekcji **poświadczenia administratora** postępuj zgodnie z poniższymi instrukcjami, aby wygenerować token i wprowadzić go w **tokenie tajnym**:
+1. W sekcji **poświadczenia administratora** postępuj zgodnie z poniższymi instrukcjami, aby wygenerować token i wprowadzić go w  **tokenie tajnym**:
 
     a. Zaloguj się do usługi [Asana](https://app.asana.com) przy użyciu konta administratora.
 
@@ -83,7 +78,7 @@ Ta sekcja przeprowadzi Cię przez proces łączenia usługi Azure AD z interfejs
 
 1. W Azure Portal wybierz pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z aplikacją Asana. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi Asana ma uprawnienia administratora, a następnie spróbuj ponownie wykonać krok **połączenia testowego** .
 
-1. Wprowadź adres e-mail osoby lub grupy, dla której chcesz otrzymywać powiadomienia o błędach aprowizacji w **wiadomości e-mail z powiadomieniem**. Zaznacz pole wyboru poniżej.
+1. Wprowadź adres e-mail osoby lub grupy, dla której chcesz otrzymywać powiadomienia o błędach aprowizacji w  **wiadomości e-mail z powiadomieniem**. Zaznacz pole wyboru poniżej.
 
 1. Wybierz pozycję **Zapisz**.
 

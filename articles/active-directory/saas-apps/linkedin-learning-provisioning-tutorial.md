@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie uczenia w serwisie LinkedIn na potrzeby automatycznego aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak automatycznie udostępniać i cofać obsługę administracyjną kont użytkowników z usługi Azure AD do uczenia LinkedIn.
 services: active-directory
-documentationcenter: ''
 author: Zhchia
 writer: Zhchia
-manager: beatrizd
-ms.assetid: 21e2f470-4eb1-472c-adb9-4203c00300be
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: fcde2ed4986b367e35965f6524e7d7727eaa07c9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 55b69fd33f9e891ed0b1cf1e8ae3051776a6791b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926777"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549844"
 ---
 # <a name="tutorial-configure-linkedin-learning-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie uczenia w serwisie LinkedIn na potrzeby automatycznego aprowizacji użytkowników
 
@@ -114,16 +110,16 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Atrybut|Typ|Obsługiwane na potrzeby filtrowania|
    |---|---|---|
-   |externalId|Ciąg|&check;|
-   |userName|Ciąg|
-   |Nazwa. imię|Ciąg|
-   |Nazwa. rodzina|Ciąg|
-   |displayName|Ciąg|
-   |adresy [typ EQ "Work"]. locale|Ciąg|
-   |tytuł|Ciąg|
-   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
+   |externalId|String|&check;|
+   |userName|String|
+   |Nazwa. imię|String|
+   |Nazwa. rodzina|String|
+   |displayName|String|
+   |adresy [typ EQ "Work"]. locale|String|
+   |tytuł|String|
+   |wiadomości e-mail [Type EQ "Work"]. Value|String|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
 
 10. W sekcji **mapowania** wybierz pozycję **Udostępnij Azure Active Directory grupy**.
 
@@ -131,9 +127,9 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     |Atrybut|Typ|Obsługiwane na potrzeby filtrowania|
     |---|---|---|
-    |displayName|Ciąg|&check;|
+    |displayName|String|&check;|
     |elementy członkowskie|Dokumentacja|
-    |externalId|Ciąg|
+    |externalId|String|
 
 12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

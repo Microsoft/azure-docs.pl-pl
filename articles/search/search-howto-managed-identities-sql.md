@@ -9,18 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: d0933f5305007bc4a8238adb2b6b949ab0c11edf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 321c13e88cb09c7078a169c3e1666cf781ec7787
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559930"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553142"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>Skonfiguruj połączenie indeksatora, aby Azure SQL Database przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
 
 > [!IMPORTANT] 
-> Obsługa konfigurowania połączenia ze źródłem danych przy użyciu tożsamości zarządzanej jest obecnie w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych.
-> Możesz zażądać dostępu do wersji zapoznawczej, wypełniając [ten formularz](https://aka.ms/azure-cognitive-search/mi-preview-request).
+> Obsługa konfigurowania połączenia ze źródłem danych przy użyciu tożsamości zarządzanej jest obecnie dostępna w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych.
 
 Na tej stronie opisano sposób konfigurowania połączenia indeksatora w celu Azure SQL Database przy użyciu tożsamości zarządzanej zamiast podawania poświadczeń w parametrach połączenia obiektu źródła danych.
 
@@ -98,10 +97,12 @@ W tym kroku nadajesz usłudze Azure Wyszukiwanie poznawcze uprawnienia do odczyt
 
 ### <a name="5---create-the-data-source"></a>5 — Tworzenie źródła danych
 
-Podczas indeksowania z bazy danych SQL źródło danych musi mieć następujące wymagane właściwości:
+[Interfejs API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source), Azure Portal i [zestaw SDK platformy .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) obsługują parametry połączenia tożsamości zarządzanej. Poniżej przedstawiono przykład sposobu tworzenia źródła danych do indeksowania danych z Azure SQL Database przy użyciu [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source) i parametrów połączenia zarządzanej tożsamości. Format parametrów połączenia tożsamości zarządzanej jest taki sam dla interfejsu API REST, zestawu .NET SDK i Azure Portal.
+
+Podczas tworzenia źródła danych przy użyciu [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source), źródło danych musi mieć następujące wymagane właściwości:
 
 * **Nazwa** jest unikatową nazwą źródła danych w ramach usługi wyszukiwania.
-* **Typ** to`azuresql`
+* **Typ** to `azuresql`
 * **uwierzytelniające**
     * Podczas uwierzytelniania przy użyciu tożsamości zarządzanej format **poświadczeń** różni się od czasu, gdy nie jest używana zarządzana tożsamość. Tutaj utworzysz katalog początkowy lub nazwę bazy danych oraz identyfikator zasobu, który nie ma klucza konta ani hasła. ResourceId musi zawierać identyfikator subskrypcji Azure SQL Database, grupę zasobów SQL Database i nazwę bazy danych SQL. 
     * Format parametrów połączenia tożsamości zarządzanej:
@@ -122,8 +123,6 @@ api-key: [admin key]
     "container" : { "name" : "my-table" }
 } 
 ```
-
-Azure Portal i [zestaw .NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) obsługują również parametry połączenia zarządzanych tożsamości. Azure Portal wymaga flagi funkcji, która zostanie udostępniona podczas rejestrowania się w celu korzystania z wersji zapoznawczej przy użyciu linku w górnej części tej strony. 
 
 ### <a name="6---create-the-index"></a>6 — Tworzenie indeksu
 
@@ -178,7 +177,7 @@ Więcej informacji o definiowaniu harmonogramów indeksatorów znajduje się w t
 
 Jeśli zostanie wyświetlony komunikat o błędzie, gdy indeksator podejmie próbę nawiązania połączenia ze źródłem danych, że klient nie może uzyskać dostępu do serwera, zapoznaj się z [typowymi błędami indeksatora](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 Dowiedz się więcej o usłudze Azure SQL indeksator:
 * [Indeksator usługi Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

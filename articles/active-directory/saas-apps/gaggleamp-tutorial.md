@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą GaggleAMP | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją GaggleAMP.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 9cc1a4b7-964b-406b-9e0c-05cb1a7c9856
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a6dc3dc2b0580f72ffae5cb5d034b0acdb64612
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7293430968d82fbf9a5efd370f3e0a3ca85842a2
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73155393"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550920"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Samouczek: integracja Azure Active Directory z usługą GaggleAMP
 
@@ -32,7 +28,7 @@ Integracja aplikacji GaggleAMP z usługą Azure AD zapewnia następujące korzy�
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -111,7 +107,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją GaggleAMP
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![image](common/both-preintegrated-signon.png)
+    ![image (obraz)](common/both-preintegrated-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://gaggleamp.com/i/<customerid>`
 
@@ -134,7 +130,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją GaggleAMP
 
 ### <a name="configure-gaggleamp-single-sign-on"></a>Konfigurowanie logowania jednokrotnego aplikacji GaggleAMP
 
-1. W innym wystąpieniu przeglądarki przejdź do strony logowania jednokrotnego SAML utworzonej przez zespół pomocy technicznej Gaggle (na przykład: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
+1. W innym wystąpieniu przeglądarki przejdź do strony logowania jednokrotnego SAML utworzonej przez zespół pomocy technicznej Gaggle (na przykład: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit* ).
 
 2. Na swojej stronie **logowania jednokrotnego SAML** wykonaj następujące czynności:  
    
@@ -148,7 +144,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją GaggleAMP
     
     d. Otwórz pobrany plik **certyfikatu (Base64)** w Notatniku, skopiuj zawartość do schowka, a następnie wklej ją w polu tekstowym **X.509 Certificate** (Certyfikat X.509).
     
-    e. Kliknij przycisk **Zapisz**.
+    e. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -168,8 +164,8 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
-    Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -217,5 +213,5 @@ Po kliknięciu kafelka GaggleAMP w panelu dostępu powinno nastąpić automatycz
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -2,25 +2,20 @@
 title: 'Samouczek: obsługa administracyjna użytkowników w przypadku podniesienia uprawnień do usługi Azure AD'
 description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników w celu podniesienia uprawnień do serwisu LinkedIn.
 services: active-directory
-documentationcenter: ''
 author: ArvindHarinder1
 manager: CelesteDG
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa0a26eaeac431ed2c78c5bd938bbbe7dff14e0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e49b35de5cce914edbd8db2ac0c0c8cccd5f811b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77057417"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549776"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie podniesienia uprawnień w serwisie LinkedIn na potrzeby automatycznego aprowizacji użytkowników
 
@@ -86,7 +81,7 @@ Pierwszym krokiem jest pobranie tokenu dostępu do serwisu LinkedIn. Jeśli jest
 
 6. Zapisz token dostępu do Schowka lub komputera przed opuszczeniem strony.
 
-7. Następnie zaloguj się do [Azure Portal](https://portal.azure.com)i przejdź do sekcji **Azure Active Directory > aplikacje dla przedsiębiorstw > wszystkie aplikacje** .
+7. Następnie zaloguj się do [Azure Portal](https://portal.azure.com)i przejdź do sekcji **Azure Active Directory > aplikacje dla przedsiębiorstw > wszystkie aplikacje**  .
 
 8. Jeśli już skonfigurowano podnoszenie uprawnień usługi LinkedIn do logowania jednokrotnego, Wyszukaj wystąpienie funkcji podniesienia uprawnień w serwisie LinkedIn przy użyciu pola wyszukiwania. W przeciwnym razie wybierz pozycję **Dodaj** i Wyszukaj wartość **Podnieś poziom** w galerii aplikacji. Wybierz pozycję LinkedIn Podnieś poziom wyników wyszukiwania i Dodaj ją do listy aplikacji.
 

@@ -5,12 +5,12 @@ description: Zapoznaj się z najlepszymi rozwiązaniami operatora klastra dotycz
 services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 26af9e0ab2bd3a52c159e947f1f40300f9e84dd4
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: c683cbf7802fbf5420ec95d49e2dfda624ce093f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562842"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551799"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące magazynu i kopii zapasowych w usłudze Azure Kubernetes Service (AKS)
 
@@ -35,7 +35,7 @@ W poniższej tabeli przedstawiono dostępne typy magazynów i ich możliwości:
 | Przypadek użycia | Wtyczka woluminu | Odczyt/zapis jednokrotny | Tylko do odczytu | Odczyt/zapis wielu | Obsługa kontenerów systemu Windows Server |
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
 | Konfiguracja udostępniona       | Azure Files   | Tak | Tak | Tak | Tak |
-| Dane aplikacji ze strukturą        | Azure Disks   | Yes | Nie  | Nie  | Yes |
+| Dane aplikacji ze strukturą        | Azure Disks   | Tak | Nie  | Nie  | Tak |
 | Dane bez struktury, operacje systemu plików | [BlobFuse][blobfuse] | Tak | Tak | Tak | Nie |
 
 Dwa podstawowe typy magazynów udostępnione dla woluminów w AKS są obsługiwane przez dyski lub Azure Files platformy Azure. Aby zwiększyć bezpieczeństwo, oba typy magazynów używają domyślnie usługi Azure szyfrowanie usługi Storage (SSE), która szyfruje dane przechowywane w spoczynku. Dysków nie można obecnie zaszyfrować przy użyciu Azure Disk Encryption na poziomie węzła AKS.
@@ -88,7 +88,7 @@ Aby uzyskać więcej informacji o opcjach klasy magazynu, zobacz [zasady odzyski
 
 ## <a name="secure-and-back-up-your-data"></a>Zabezpieczanie i tworzenie kopii zapasowych danych
 
-**Wskazówki dotyczące najlepszych** rozwiązań — tworzenie kopii zapasowych danych przy użyciu odpowiedniego narzędzia dla typu magazynu, takiego jak Velero lub Azure Site Recovery. Sprawdź integralność i bezpieczeństwo tych kopii zapasowych.
+**Wskazówki dotyczące najlepszych** rozwiązań — tworzenie kopii zapasowych danych przy użyciu odpowiedniego narzędzia dla typu magazynu, takiego jak Velero lub Azure Backup. Sprawdź integralność i bezpieczeństwo tych kopii zapasowych.
 
 Gdy aplikacje przechowują i zużywają dane utrwalane na dyskach lub w plikach, należy wykonywać regularne kopie zapasowe lub migawki tych danych. Na dyskach platformy Azure można używać wbudowanych technologii migawek. Przed wykonaniem operacji migawki może być konieczne wyszukanie aplikacji w celu opróżnienia zapisu na dysku. [Velero][velero] może tworzyć kopie zapasowe woluminów trwałych wraz z dodatkowymi zasobami i konfiguracjami klastra. Jeśli nie możesz [usunąć stanu z aplikacji][remove-state], Utwórz kopię zapasową danych z woluminów trwałych i regularnie Przetestuj operacje przywracania, aby zweryfikować integralność danych i wymagane procesy.
 

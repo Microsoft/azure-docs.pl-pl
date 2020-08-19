@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługami zarządzania frekwencją | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między usługami Azure Active Directory i frekwencji.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 1f56e612-728b-4203-a545-a81dc5efda00
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7143d0afce7a3644286703a9eba0da1ee45305f2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: df04cc41f2b5947bb0cf23715a857a3449627f23
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67106556"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550261"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Samouczek: integracja Azure Active Directory z usługami zarządzania frekwencją
 
@@ -33,7 +28,7 @@ Integrowanie usług zarządzania frekwencją z usługą Azure AD zapewnia nastę
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -135,7 +130,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usług z
 
     ![Konfiguracja usług zarządzania frekwencją](./media/attendancemanagementservices-tutorial/user1.png)
 
-1. Wykonaj poniższe czynności:
+1. Wykonaj następujące czynności:
 
     ![Konfiguracja usług zarządzania frekwencją](./media/attendancemanagementservices-tutorial/user2.png)
 
@@ -169,7 +164,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`. Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension` . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -221,7 +216,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do usług zarządz
 
     ![Dodawanie pracownika](./media/attendancemanagementservices-tutorial/user4.png)
 
-    a. W polu tekstowym **OBCiD** wpisz adres e-mail użytkownika, np `BrittaSimon\@contoso.com`.
+    a. W polu tekstowym **OBCiD** wpisz adres e-mail użytkownika, np `BrittaSimon\@contoso.com` .
 
     b. W polu tekstowym **Password** (Hasło) wpisz hasło użytkownika.
 
@@ -239,4 +234,4 @@ Po kliknięciu kafelka usługi zarządzania obecności w panelu dostępu należy
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

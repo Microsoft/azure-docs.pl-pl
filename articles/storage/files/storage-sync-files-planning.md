@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 17274c2b5308b1e5069370400895c001dc03e5bb
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.custom: references_regions
+ms.openlocfilehash: c2d3237e629c7ed5d2931e15939b154e0239f259
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224445"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553111"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planowanie wdrażania usługi Azure File Sync
 
@@ -314,7 +315,7 @@ Azure File Sync jest dostępny w następujących regionach:
 | Publiczny | Europa | West Europe | `westeurope` |
 | Publiczny | Francja | Francja Środkowa | `francecentral` |
 | Publiczny | Francja | Francja Południowa * | `francesouth` |
-| Publiczny | Indie | Central India | `centralindia` |
+| Publiczny | Indie | Indie Środkowe | `centralindia` |
 | Publiczny | Indie | Indie Południowe | `southindia` |
 | Publiczny | Japonia | Japan East | `japaneast` |
 | Publiczny | Japonia | Japonia Zachodnia | `japanwest` |

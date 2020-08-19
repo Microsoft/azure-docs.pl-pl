@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja z nieograniczoną Azure Active Directoryą | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i nieograniczone.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 3995b544-e751-4e0f-ab8b-c9a3862da6ba
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: d54769c1f3265e2cee619520044313fca46855a5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ca154caf67d8dd715ad1341e9fe3c6cfde20fde0
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67100371"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553091"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Samouczek: integracja Azure Active Directory z nieograniczonej szkoły
 
@@ -32,7 +28,7 @@ Integracja z nieograniczonej szkoły z usługą Azure AD zapewnia następujące 
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -104,9 +100,9 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD z nieograniczonej s
 
 4. W sekcji Podstawowa konfiguracja języka SAML wykonaj następujące czynności (należy zauważyć, że domena będzie się różnić w zależności od modelu hostingu, ale w **pełni kwalifikowana wartość domeny** musi być zgodna z nieograniczoną instalacją kampusową):
 
-    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:`https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
+    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
-    b. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<DOMAIN>.infinitecampus.com/campus/<DISTRICTNAME>`
+    b. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<DOMAIN>.infinitecampus.com/campus/<DISTRICTNAME>`
 
     c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>`
 
@@ -124,7 +120,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD z nieograniczonej s
 
     ![Administrator](./media/infinitecampus-tutorial/tutorial_infinitecampus_admin.png)
 
-3. Przejdź do**Konfiguracja dostawcy usługi SSO****zarządzania** > usługą SAML **zabezpieczeń** > użytkownika.
+3. Przejdź do **User Security**  >  **SAML Management**  >  **Konfiguracja dostawcy usługi SSO zarządzania usługą**SAML zabezpieczeń użytkownika.
 
     ![Element SAML](./media/infinitecampus-tutorial/tutorial_infinitecampus_saml.png)
 
@@ -140,7 +136,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD z nieograniczonej s
 
     d. Po kliknięciu przycisku **Synchronizuj** wartości Pobierz automatycznie wypełnione na stronie **Konfiguracja dostawcy usługi SSO** . Te wartości można zweryfikować, aby odpowiadały wartościom widocznym w kroku 4 powyżej.
 
-    e. Kliknij przycisk **Zapisz**.
+    e. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -160,7 +156,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`. Na przykład BrittaSimon@contoso.com.
+    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension` . Na przykład BrittaSimon@contoso.com.
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -205,10 +201,10 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka nieskończoność w panelu dostępu należy automatycznie zalogować się do nieskończonej szkoły, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
