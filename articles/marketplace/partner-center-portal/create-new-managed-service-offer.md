@@ -7,12 +7,12 @@ ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 08/07/2020
-ms.openlocfilehash: 4d2a884bd6fd4cb62aa7cae5f3e53b865082fde8
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 75c604df2f44e9c732fa9c2ce2093237e4e484a4
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166607"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606060"
 ---
 # <a name="create-a-managed-service-offer"></a>Tworzenie oferty usługi zarządzanej
 
@@ -29,7 +29,7 @@ Aby opublikować ofertę usługi zarządzanej, należy dysponować [poziomem kom
     ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-managed-service.png)
 
 >[!NOTE]
->Po opublikowaniu oferty zmiany wprowadzone w centrum partnerskim są wyświetlane w obszarze witryny w sklepie po ponownym opublikowaniu oferty. Pamiętaj, aby zawsze ponownie publikować po wprowadzeniu zmian.
+>Po opublikowaniu oferty zmiany wprowadzone w centrum partnerskim będą widoczne w sklepach online dopiero po ponownym opublikowaniu oferty. Pamiętaj, aby zawsze ponownie publikować po wprowadzeniu zmian.
 
 ## <a name="new-offer"></a>Nowa oferta
 
@@ -244,7 +244,7 @@ Po zakończeniu wszystkich sekcji planu możesz wybrać pozycję **+ Utwórz now
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-## <a name="publish"></a>Opublikuj
+## <a name="publish"></a>Publikowanie
 
 ### <a name="submit-offer-to-preview"></a>Prześlij ofertę do wersji zapoznawczej
 

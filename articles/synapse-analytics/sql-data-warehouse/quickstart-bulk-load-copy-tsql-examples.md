@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 05dd1f1d429b59c4d621b63c6b78a1fc00e8d4dd
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 6f54a8993b602110e35c410338b6f0a51109738f
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87528467"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88603897"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Bezpieczne ładowanie danych przy użyciu języka SQL Synapse
 
@@ -23,10 +23,11 @@ W tym artykule omówiono i przedstawiono przykłady mechanizmów bezpiecznego uw
 
 W poniższej macierzy opisano obsługiwane metody uwierzytelniania dla poszczególnych typów plików i kont magazynu. Dotyczy to źródłowej lokalizacji przechowywania i lokalizacji pliku błędów.
 
-|                          |                CSV                |              Parquet              |                ORC                |
-| :----------------------: | :-------------------------------: | :-------------------------------: | :-------------------------------: |
-|  **Magazyn obiektów blob platformy Azure**  | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD |              SYGNATURA DOSTĘPU WSPÓŁDZIELONEGO/KLUCZ              |              SYGNATURA DOSTĘPU WSPÓŁDZIELONEGO/KLUCZ              |
-| **Azure Data Lake Gen2** | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD |
+|                          |                CSV                |              Parquet               |                ORC                 |
+| :----------------------: | :-------------------------------: | :-------------------------------:  | :-------------------------------:  |
+|  **Magazyn obiektów blob platformy Azure**  | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD |              SYGNATURA DOSTĘPU WSPÓŁDZIELONEGO/KLUCZ               |              SYGNATURA DOSTĘPU WSPÓŁDZIELONEGO/KLUCZ               |
+| **Azure Data Lake Gen2** | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD | SAS (BLOB Endpoint)/MSI (punkt końcowy systemu plików DFS)/SERVICE podmiotu zabezpieczeń/klucza/usługi AAD | SAS (BLOB Endpoint)/MSI (punkt końcowy systemu plików DFS)/SERVICE podmiotu zabezpieczeń/klucza/usługi AAD |
+
 
 ## <a name="a-storage-account-key-with-lf-as-the-row-terminator-unix-style-new-line"></a>A. Klucz konta magazynu z LF jako terminator wiersza (nowy wiersz w stylu systemu UNIX)
 

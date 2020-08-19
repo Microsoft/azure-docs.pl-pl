@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 757f729caa7ea8a038a29f8e0a56465848b774ad
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 69be4118aca45582c38bb49a996782d661d8084f
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035114"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604416"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Wskazówki dotyczące wyświetlania w portalu Azure Marketplace
 
@@ -31,7 +31,7 @@ W tym artykule wyjaśniono wymagania i wskazówki dotyczące wyświetlania nowyc
 | 7 | Filmy wideo | <ul><li>Film wideo nie jest wymagany, ale jeśli jest podany, musi odtworzyć się bez błędów.</li><li>Jeśli to możliwe, może nie odnosić się do firm konkurencyjnych, *chyba że* wykazuje rozwiązanie migracji. |<ul><li>W idealnym przypadku długość wynosi 3 minuty.</li><li>Oferta rozwiązania jest łatwa do zrozumienia przez zawartość wideo.</li><li>Oferuje demonstrację możliwości rozwiązania. |
 | 8 | Stan listy (wywołanie do akcji) | <ul><li>Musi być oznaczony jako jeden z następujących typów: <ul><li>*Skontaktuj się z nami*</li><li>*Wersja próbna* / *Uzyskaj wersję próbną teraz* / *Rozpocznij okres próbny* / Wersja *testowa*</li><li>*Kup teraz* / *Pobierz teraz*</li></ul></ul> | Klient może łatwo zrozumieć, co to są następujące czynności: <ol><li>Wypróbuj wersję próbną.</li><li>Kup teraz.</li><li>Skontaktuj się z pośrednictwem poczty e-mail lub numeru telefonu, aby przygotować się do weryfikacji koncepcji, oceny lub krótkiej.</li></ol> | 
 | 9 | Cennik rozwiązania | Musi mieć kartę/Szczegóły cennika rozwiązania, a Cennik musi być w walucie lokalnej oferty rozwiązania partnerskiego. | Aby zapewnić opcje klienta, można uzyskać dostęp do wielu opcji rozliczeń przy użyciu cen warstwowych. |
-| 10 | Więcej tutaj | Linki u dołu (w obszarze Opis, a nie linki do portalu Azure Marketplace po lewej stronie) prowadzą do większej ilości informacji na temat rozwiązania i są publicznie dostępne i wyświetlane poprawnie. |    Linki do określonych elementów (na przykład stron specyfikacji w witrynie partnerskiej), a nie tylko na stronie głównej partnera. | 
+| 10 | Dowiedz się więcej | Linki u dołu (w obszarze Opis, a nie linki do portalu Azure Marketplace po lewej stronie) prowadzą do większej ilości informacji na temat rozwiązania i są publicznie dostępne i wyświetlane poprawnie. |    Linki do określonych elementów (na przykład stron specyfikacji w witrynie partnerskiej), a nie tylko na stronie głównej partnera. | 
 | 11 | Obsługa rozwiązań i pomoc | Połącz się z co najmniej jedną z następujących czynności: <ul><li>Numery telefonów</li><li>Obsługa poczty e-mail</li><li>Agenci rozmowy</li><li>Fora społeczności |<ul><li>Zostaną wyświetlone wszystkie metody obsługi.</li><li>Płatna pomoc techniczna jest oferowana bezpłatnie w okresie *próbnym* lub *testowym* . |
 | 12 | Informacje prawne | Zasady lub warunki są dostępne za pośrednictwem publicznego adresu URL. |  |
 |||
@@ -50,8 +50,8 @@ W tym artykule wyjaśniono wymagania i wskazówki dotyczące wyświetlania nowyc
 | 1 | Tytuł oferty |<ul><li>Musi zawierać tylko małe litery, znaki alfanumeryczne, łączniki i podkreślenia. Nie można zmodyfikować tytułu po jego opublikowaniu.</li><li>Opisuje ofertę rozwiązania.</li><li>Dopasowuje promocję rozwiązania w trybie online w witrynie sieci Web partnera. | Zawiera słowa wyszukiwania klucza. |
 | 2 | Informacje techniczne: Konfiguracja |<ul><li>W przypadku aplikacji oprogramowanie jako usługa (SaaS) wybierz, czy chcesz tylko wyświetlać listę aplikacji, czy zezwolić klientom na kupowanie aplikacji za pomocą platformy Azure.</li><li>Zaznacz tekst, który ma być dostępny na przycisku pozyskiwania oferty: *bezpłatna*, *bezpłatna wersja próbna*lub *skontaktuj się z*nami.</li><li>W oknie podręcznym wybierz tylko jeden odpowiedni produkt, jeśli aplikacja korzysta z technologii: Cortana Intelligence, Power BI szablony rozwiązań lub aplikacje zaawansowane. |  |
 | 3 | Wersja testowa | Wybierz opcję *Tak* lub *Nie* | Klient może łatwo zrozumieć, co to są następujące czynności: <ol><li>Wypróbuj wersję próbną.</li><li>Kup teraz.</li><li>Skontaktuj się z pośrednictwem poczty e-mail lub numeru telefonu, aby uzgodnić koncepcji, oceny lub skrócić.</li></ol> |
-| 4 | Szczegóły witryny dotyczącej Sklepu: Podsumowanie oferty | Pojawia się na stronie wyszukiwania aplikacji i zawiera maksymalnie 100 znaków. | |
-| 5 | Szczegóły witryny dotyczącej Sklepu: branże | Branże (maks. 2): Wybierz branże, dla których aplikacja jest Najlepsza i która ma zastosowanie. | |
+| 4 | Szczegóły sklepu online: Podsumowanie oferty | Pojawia się na stronie wyszukiwania aplikacji i zawiera maksymalnie 100 znaków. | |
+| 5 | Szczegóły sklepu online: branże | Branże (maks. 2): Wybierz branże, dla których aplikacja jest Najlepsza i która ma zastosowanie. | |
 | 6 | Opis oferty | <ul><li>Prosty kod HTML jest dozwolony, w tym \<p> Tagi,, \<em> ,, \<ul> \<li> \<ol> i. Maksymalnie z 3000 znaków.</li><li>Zawiera 2-3 akapitów.</li><li>Oferta rozwiązania jest łatwa do zrozumienia.</li><li>Opis jest kompleksowy i przechwytuje odbiorców docelowych, typ użytkownika i dlaczego jest cenny (propozycja wartości).</li><li>Jest w postaci literowego formularza z krótkimi zdaniami, które są łatwe do zrozumienia. | <ul><li>Branża docelowa jest przedkreślona (jeśli dotyczy).</li><li>Formatowanie stylu z każdym akapitem zawierającym pojedyncze zdanie lub frazę podsumowujące zawartość, która następuje przy użyciu punktów punktorów, w razie potrzeby, aby wyróżnić najważniejsze zalety. Celem jest umożliwienie czytelnikowi wglądu w informacje o ofercie w łatwym do wyświetlania formacie i niekonieczności odczytywania akapitów.</li><li>Między każdym akapitem występuje odstępy. Odczytuje takie dane jak Broszura samochodowa. Oznacza to, że jest to kompleksowe rozwiązanie i zawiera opis oferty po prostu, bez żargon technicznych. | 
 | 7 | Artefakty marketingowe | Logo są wyświetlane poprawnie. | <ul><li>Logo: małe (48 x 48 pikseli), średnie (90 x 90 pikseli) i duże (od 216 x 216 i 350 x 350 pikseli) są wymagane.</li><li>Zrzut ekranu (maks. 5): wymaga. Obraz PNG o rozdzielczości 1280x720 pikseli. |
 | 8 | Kategorie i branże | <ul><li>Kategorie pasują do możliwości oferowanych przez rozwiązanie.</li><li>Wybierz co najmniej jeden element w oknie podręcznym.</li><li>Nie wybieraj kategorii, które nie mieszczą się w rozwiązaniu.</li><li>Optymalna branża lub wszystkie wybrane branże (jeśli nie są optymalnymi branżami). | Maksymalnie z 3 wybrane kategorie, jeśli mają zastosowanie. |
@@ -85,7 +85,7 @@ W tym artykule wyjaśniono wymagania i wskazówki dotyczące wyświetlania nowyc
 | 9 | Kompetencje | Musi mieć kompetencje co najmniej jedną z następujących czynności:<ul><li>Projektowanie aplikacji</li><li>Integracja aplikacji</li><li>Zarządzanie cyklem życia aplikacji</li><li>Platforma w chmurze<li>Analiza danych</li><li>Centrum danych</li><li>Platforma danych</li><li>DevOps |
 | 10 | Produkty | Muszą być produktami platformy Azure. | |
 | 11 | Kraj/region | Upewnij się, że kraj/region są zgodne z wybraną walutą. | |
-| 12 | Więcej tutaj  | <ul><li>Linki u dołu (w obszarze Opis, a nie linki w witrynie Azure Marketplace po lewej stronie) prowadzą do większej ilości informacji o rozwiązaniu i są dostępne publicznie i są poprawnie wyświetlane.</li><li>Linki muszą mieć "przyjazną nazwę" i nie są wyświetlane jako nazwa pliku do pobrania. | |
+| 12 | Dowiedz się więcej  | <ul><li>Linki u dołu (w obszarze Opis, a nie linki w witrynie Azure Marketplace po lewej stronie) prowadzą do większej ilości informacji o rozwiązaniu i są dostępne publicznie i są poprawnie wyświetlane.</li><li>Linki muszą mieć "przyjazną nazwę" i nie są wyświetlane jako nazwa pliku do pobrania. | |
 ||||
 
 ## <a name="next-steps"></a>Następne kroki

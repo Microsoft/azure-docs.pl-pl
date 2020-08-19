@@ -3,12 +3,12 @@ title: Skonfiguruj automatyczne zamykanie maszyn wirtualnych dla laboratorium w 
 description: Informacje na temat włączania lub wyłączania automatycznego zamykania maszyn wirtualnych po odłączeniu połączenia z pulpitem zdalnym.
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 7941a3eed502f2329f5d2acf244eec7cef322615
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3188117ac651f31057b4db88e32dfb42c45abb60
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589773"
+ms.locfileid: "88604878"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab"></a>Konfigurowanie automatycznego zamykania maszyn wirtualnych dla laboratorium
 
@@ -22,7 +22,7 @@ Możesz włączyć kilka funkcji kontroli kosztów automatycznego zamykania, aby
 
 Zapoznaj się z bardziej szczegółowymi informacjami na temat funkcji automatycznego zamykania w sekcji [Maksymalizuj koszt kontroli przy użyciu ustawień automatycznego zamykania](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings) .
 
-Administrator konta laboratorium może skonfigurować to ustawienie dla konta laboratorium, w którym tworzysz laboratoria. Aby uzyskać więcej informacji, zobacz [Konfigurowanie automatycznego zamykania maszyn wirtualnych przy rozłączaniu dla konta laboratorium](how-to-configure-lab-accounts.md). Jako właściciel laboratorium możesz zastąpić to ustawienie podczas tworzenia laboratorium lub po utworzeniu laboratorium. 
+Administrator konta laboratorium może skonfigurować to ustawienie dla konta laboratorium, w którym tworzysz laboratoria. Aby uzyskać więcej informacji, zobacz [Konfigurowanie automatycznego zamykania maszyn wirtualnych dla konta laboratorium](how-to-configure-lab-accounts.md). Jako właściciel laboratorium możesz zastąpić to ustawienie podczas tworzenia laboratorium lub po utworzeniu laboratorium. 
 
 ## <a name="configure-for-the-lab-level"></a>Skonfiguruj dla poziomu laboratorium
 

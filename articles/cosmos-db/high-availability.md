@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 2f464a0b519dd7f378790c135a05d04e02704ac8
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8bae89e68e5a016dbdc10c763f1ea2daedece3c8
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027736"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605320"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Wysoka dostępność w usłudze Azure Cosmos DB
 
@@ -34,8 +34,8 @@ Jako globalnie dystrybuowana baza danych Azure Cosmos DB zapewnia kompleksową u
 
 |Typ operacji  | Pojedynczy region |Wiele regionów (zapis w jednym regionie)|Wiele regionów (zapisy w regionie wieloregionowym) |
 |---------|---------|---------|-------|
-|Powoduje    | 99,99    |99,99   |99,999|
-|Odczytywan     | 99,99    |99,999  |99,999|
+|Zapisy    | 99,99    |99,99   |99,999|
+|Odczyty     | 99,99    |99,999  |99,999|
 
 > [!NOTE]
 > W ramach tej usługi rzeczywista dostępność zapisu dla nieodświeżonego, sesji, spójnego prefiksu i wzorów spójności ostatecznej jest znacznie wyższa niż opublikowana umowy SLA. Rzeczywista dostępność odczytu dla wszystkich poziomów spójności jest znacznie wyższa niż opublikowana umowy SLA.
@@ -79,7 +79,7 @@ Nadmiarowość stref jest *dodatkową możliwością* [replikacji w wieloregiono
 
 Podczas konfigurowania wieloregionowych zapisów dla konta usługi Azure Cosmos możesz zrezygnować z nadmiarowości strefy bez dodatkowych kosztów. W przeciwnym razie zapoznaj się z poniższymi uwagami dotyczącymi cen obsługi nadmiarowości stref. Nadmiarowość strefy można włączyć w istniejącym regionie konta usługi Azure Cosmos, usuwając region i dodając go ponownie z włączonym nadmiarowością strefy.
 
-Ta funkcja jest dostępna w: *Południowe Zjednoczone Królestwo, Azja Południowo-Wschodnia, Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Europa Zachodnia, zachodnie stany USA 2, Japonia Wschodnia, Europa Północna, Francja środkowa* .
+Ta funkcja jest dostępna w: *Południowe Zjednoczone Królestwo, Azja Południowo-Wschodnia, Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Europa Zachodnia, zachodnie stany USA 2, Japonia Wschodnia, Europa Północna, Francja środkowa, Australia Wschodnia* .
 
 > [!NOTE]
 > Włączenie Strefy dostępności dla jednego regionu konta platformy Azure Cosmos spowoduje naliczenie opłat, które są równoznaczne z dodaniem dodatkowego regionu do konta. Aby uzyskać szczegółowe informacje o cenach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/) oraz [Koszt dla wieloregionu w](optimize-cost-regions.md) artykułach Azure Cosmos DB.
@@ -90,7 +90,7 @@ Poniższa tabela zawiera podsumowanie możliwości wysokiej dostępności różn
 |---------|---------|---------|---------|
 |Umowa SLA dotycząca dostępności zapisu | 99,99% | 99,99% | 99.999% |
 |Umowa SLA dotycząca dostępności odczytu  | 99,99% | 99,99% | 99.999% |
-|Price | Stawka rozliczenia w jednym regionie | Stawka rozliczenia strefy dostępności pojedynczego regionu | Wieloregionowa stawka rozliczeniowa |
+|Cena | Stawka rozliczenia w jednym regionie | Stawka rozliczenia strefy dostępności pojedynczego regionu | Wieloregionowa stawka rozliczeniowa |
 |Awarie stref — utrata danych | Utrata danych | Brak utraty danych | Brak utraty danych |
 |Awarie stref — dostępność | Utrata dostępności | Brak utraty dostępności | Brak utraty dostępności |
 |Opóźnienie odczytu | Między regionami | Między regionami | Małe |

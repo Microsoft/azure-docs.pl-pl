@@ -8,46 +8,61 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 12/09/2019
+ms.date: 08/10/2020
 ms.author: juliako
-ms.openlocfilehash: 5e3501ea8bc327f0dd906a42702194abce18c5fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddd1a5b9217962b595408973874a59219af298cf
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84656585"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604785"
 ---
-# <a name="examine-the-video-indexer-output-produced-by-api"></a>Sprawdzanie Video Indexer danych wyjściowych generowanych przez interfejs API
+# <a name="examine-the-video-indexer-output"></a>Sprawdzanie danych wyjściowych Video Indexer
 
-Gdy wywołasz interfejs API **pobierania indeksu wideo** , a stan odpowiedzi to OK, uzyskasz szczegółowe dane wyjściowe JSON jako zawartość odpowiedzi. Zawartość JSON zawiera szczegółowe informacje o określonych szczegółowych danych wideo. Szczegółowe informacje obejmują: transkrypcje, OCRs, twarze, tematy, bloki itp. Każdy typ usługi Insights obejmuje wystąpienia zakresów czasu, które są wyświetlane, gdy szczegółowe informacje pojawiają się w filmie wideo. 
+Po indeksowaniu wideo Video Indexer poduces zawartość JSON, która zawiera szczegółowe informacje o określonych filmach wideo. Szczegółowe informacje obejmują: transkrypcje, OCRs, twarze, tematy, bloki itp. Każdy typ usługi Insights obejmuje wystąpienia zakresów czasu, które są wyświetlane, gdy szczegółowe informacje pojawiają się w filmie wideo. 
+
+Możesz wizualnie zapoznać się ze szczegółowymi informacjami na temat wideo, naciskając przycisk **odtwarzania** na filmie wideo w witrynie [Video Indexer](https://www.videoindexer.ai/) . 
+
+Możesz również użyć interfejsu API, wywołując interfejs API **pobierania indeksu wideo** , a stan odpowiedzi to OK, uzyskujesz szczegółowe dane wyjściowe JSON jako zawartość odpowiedzi.
+
+![Insights](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
+
+Ten artykuł bada dane wyjściowe Video Indexer (zawartość JSON). Aby uzyskać informacje o dostępnych funkcjach i szczegółowych danych, zobacz [Video Indexer Insights](video-indexer-overview.md#video-insights).
+
+> [!NOTE]
+> Wygaśnięcie wszystkich tokenów dostępu w Video Indexer wynosi godzinę.
+
+## <a name="get-the-insights"></a>Uzyskaj wgląd w szczegółowe dane
+
+### <a name="insightsoutput-produced-in-the-websiteportal"></a>Szczegółowe informacje/dane wyjściowe utworzone w witrynie sieci Web/portalu
+
+1. Przejdź do witryny internetowej [Video Indexer](https://www.videoindexer.ai/) i zaloguj się.
+1. Znajdź wideo, którego dane wyjściowe chcesz sprawdzić.
+1. Naciśnij pozycję **Play** (Odtwórz).
+1. Wybierz kartę **szczegółowe** dane (podsumowanie szczegółowych informacji) lub kartę **oś czasu** (umożliwia filtrowanie odpowiednich szczegółowych informacji).
+1. Pobierz artefakty i zapoznaj się z nimi.
+
+Aby uzyskać więcej informacji, zobacz [Wyświetlanie i edytowanie wglądu w dane wideo](video-indexer-view-edit.md).
+
+## <a name="insightsoutput-produced-by-api"></a>Szczegółowe informacje/dane wyjściowe generowane przez interfejs API
 
 1. Aby pobrać plik JSON, wywołaj [interfejs API indeksu pobierania wideo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
 1. Jeśli interesuje Cię również określone artefakty, wywołaj [interfejs API pobierania artefaktów wideo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
 
     W wywołaniu interfejsu API Określ żądany typ artefaktu (OCR, twarzy, ramki kluczowe itp.)
 
-Możesz również wizualnie zapoznać się ze szczegółowymi informacjami na temat wideo, naciskając przycisk **odtwarzania** na filmie wideo w witrynie [Video Indexer](https://www.videoindexer.ai/) . Aby uzyskać więcej informacji, zobacz [Wyświetlanie i edytowanie wglądu w dane wideo](video-indexer-view-edit.md).
-
-![Insights](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
-
-Ten artykuł bada zawartość JSON zwróconą przez interfejs API **pobierania indeksu wideo** . 
-
-> [!NOTE]
-> Wygaśnięcie wszystkich tokenów dostępu w Video Indexer wynosi godzinę.
-
-
-## <a name="root-elements"></a>Elementy główne
+## <a name="root-elements-of-the-insights"></a>Główne elementy szczegółowych informacji
 
 |Nazwa|Opis|
 |---|---|
 |accountId|Identyfikator konta w VI listy odtwarzania.|
 |identyfikator|Identyfikator listy odtwarzania.|
 |name|Nazwa listy odtwarzania.|
-|description|Opis listy odtwarzania.|
+|description (opis)|Opis listy odtwarzania.|
 |userName|Nazwa użytkownika, który utworzył listę odtwarzania.|
 |utworzony|Godzina utworzenia listy odtwarzania.|
 |Ustawienia prywatności|Tryb prywatności listy odtwarzania (prywatny/publiczny).|
-|state|Lista odtwarzania (przekazana, przetwarzanie, przetwarzanie, Niepowodzenie, poddane kwarantannie).|
+|stan|Lista odtwarzania (przekazana, przetwarzanie, przetwarzanie, Niepowodzenie, poddane kwarantannie).|
 |Jestem właścicielem|Wskazuje, czy lista odtwarzania została utworzona przez bieżącego użytkownika.|
 |isedytowalne|Wskazuje, czy bieżący użytkownik ma uprawnienia do edytowania listy odtwarzania.|
 |IsBase|Wskazuje, czy lista odtwarzania jest podstawową listą odtwarzania (wideo) czy listą odtwarzania z innych filmów wideo (pochodnych).|
@@ -86,7 +101,7 @@ W tej sekcji przedstawiono podsumowanie szczegółowych informacji.
 |czas trwania|Zawiera jeden okres czasu, który opisuje czas wystąpienia szczegółowych informacji. Czas trwania jest w sekundach.|
 |thumbnailVideoId|Identyfikator filmu wideo, z którego zrobiono miniaturę.
 |thumbnailId|Identyfikator miniatury wideo. Aby uzyskać rzeczywistą miniaturę, wywołaj polecenie [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) i przekaż je ThumbnailVideoId i thumbnailId.|
-|ściank|Może zawierać zero lub więcej twarzy. Aby uzyskać szczegółowe informacje, zobacz [twarze](#faces).|
+|twarze/animatedCharacters|Może zawierać zero lub więcej twarzy. Aby uzyskać szczegółowe informacje, zobacz twarzy [/animatedCharacters](#facesanimatedcharacters).|
 |keywords (słowa kluczowe)|Może zawierać zero lub więcej słów kluczowych. Aby uzyskać szczegółowe informacje, zobacz [słowa kluczowe](#keywords).|
 |mową|Może zawierać zero lub więcej mową. Aby uzyskać szczegółowe informacje, zobacz [mową](#sentiments).|
 |audioEffects| Może zawierać zero lub więcej audioEffects. Aby uzyskać szczegółowe informacje, zobacz [audioEffects](#audioeffects).|
@@ -103,7 +118,7 @@ W tej sekcji przedstawiono podsumowanie szczegółowych informacji.
 |accountId|Identyfikator konta wideo VI.|
 |identyfikator|Identyfikator wideo.|
 |name|Nazwa filmu wideo.
-|state|Stan filmu wideo (przekazany, przetwarzany, przetworzony, Niepowodzenie, poddane kwarantannie).|
+|stan|Stan filmu wideo (przekazany, przetwarzany, przetworzony, Niepowodzenie, poddane kwarantannie).|
 |processingProgress|Postęp przetwarzania podczas przetwarzania (na przykład 20%).|
 |failureCode|Kod błędu w przypadku niepowodzenia przetwarzania (na przykład "UnsupportedFileType").|
 |failureMessage|Komunikat o niepowodzeniu, jeśli przetworzenie nie powiodło się.|
@@ -162,7 +177,7 @@ Obiekt może mieć identyfikator, nazwę, miniaturę, inne metadane i listę wys
 |aparat|Szczegółowe informacje [OCR](#ocr) .|
 |keywords (słowa kluczowe)|Informacje o [słowach kluczowych](#keywords) .|
 |bloki|Może zawierać co najmniej jeden [blok](#blocks)|
-|ściank|Szczegółowe [informacje na temat](#faces) twarzy.|
+|twarze/animatedCharacters|Informacje o twarzy [/animatedCharacters](#facesanimatedcharacters) .|
 |Etykieta|Szczegółowe informacje o [etykietach](#labels) .|
 |zrzutów|Informacje na temat [zrzutów](#shots) .|
 |Marek|Informacje o [marek](#brands) .|
@@ -248,8 +263,8 @@ Przykład:
 |ufność|Wiarygodność rozpoznawania.|
 |language|Język OCR.|
 |Liczba|Lista przedziałów czasu, w których wystąpiło to OCR (ten sam OCR może występować wiele razy).|
-|height|Wysokość prostokąta OCR.|
-|top|Górna lokalizacja w px|
+|wysokość|Wysokość prostokąta OCR.|
+|top (pierwsze)|Górna lokalizacja w px|
 |left| Lewa lokalizacja w px|
 |szerokość|Szerokość prostokąta OCR.|
 
@@ -305,14 +320,18 @@ Przykład:
 }
 ```
 
-#### <a name="faces"></a>ściank
+#### <a name="facesanimatedcharacters"></a>twarze/animatedCharacters
+
+`animatedCharacters` element zastępuje `faces` w przypadku, gdy wideo zostało zindeksowane przy użyciu modelu znaków animowanych. Odbywa się to przy użyciu modelu niestandardowego w Custom Vision, Video Indexer uruchamia go w klatkach kluczowych.
+
+Jeśli istnieją twarzy (Nieanimowane znaki), Video Indexer używa interfejs API rozpoznawania twarzy we wszystkich ramkach wideo, aby wykrywać twarze i osobistości.
 
 |Nazwa|Opis|
 |---|---|
 |identyfikator|Identyfikator kroju.|
 |name|Nazwa kroju. Może to być "nieznany #0, zidentyfikowanej osobistości lub osoby przeszkolonej przez klienta.|
 |ufność|Niepewność identyfikacji kroju.|
-|description|Opis osobistości. |
+|description (opis)|Opis osobistości. |
 |thumbnailId|Identyfikator miniatury tej czołowej.|
 |knownPersonId|Jeśli jest to znana osoba, jej identyfikator wewnętrzny.|
 |referenceId|Jeśli jest to osobistości Bing, jego identyfikator Bing.|
@@ -499,8 +518,8 @@ Nazwy firmowe i towarowe wykryte w zamiany mowy na tekst transkrypcji i/lub OCR 
 |identyfikator|Identyfikator marki.|
 |name|Nazwa marki.|
 |referenceId | Sufiks adresu URL witryny Wikipedia. Na przykład "Target_Corporation" jest sufiksem [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) .
-|referenceUrl | Adres URL witryny Wikipedia marki, jeśli istnieje. Na przykład [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) .
-|description|Opis marek.|
+|referenceUrl | Adres URL witryny Wikipedia marki, jeśli istnieje. Przykładowy adres URL to [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
+|description (opis)|Opis marek.|
 |tags|Lista wstępnie zdefiniowanych tagów, które zostały skojarzone z tą marką.|
 |ufność|Wartość ufności detektora Video Indexer marką (0-1).|
 |Liczba|Lista zakresów czasu tej marki. Każde wystąpienie ma element marktype, który wskazuje, czy ta marka pojawiła się w transkrypcji, czy w OCR.|

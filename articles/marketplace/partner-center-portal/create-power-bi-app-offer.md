@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 4705919f9c6c11678984c016716fe38cb6191557
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 5b9752107aac1f90a67fb7c87a14492a74a124aa
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030768"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604643"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Tworzenie oferty aplikacji Power BI
 
@@ -29,7 +29,7 @@ Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum part
    ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-power-bi-app.png)
 
 > [!NOTE]
-> Po opublikowaniu oferty zmiany wprowadzone w centrum partnerskim są wyświetlane w obszarze witryny w sklepie po ponownym opublikowaniu oferty. Pamiętaj, aby zawsze ponownie publikować po wprowadzeniu zmian.
+> Po opublikowaniu oferty zmiany wprowadzone w centrum partnerskim będą widoczne w sklepach online dopiero po ponownym opublikowaniu oferty. Pamiętaj, aby zawsze ponownie publikować po wprowadzeniu zmian.
 
 > [!IMPORTANT]
 > Jeśli **aplikacja usługi Power BI** nie jest wyświetlana lub nie jest włączona, Twoje konto nie ma uprawnień do utworzenia tego typu oferty. Sprawdź, czy zostały spełnione wszystkie [wymagania](create-power-bi-app-overview.md) dotyczące tego typu oferty, w tym rejestrowanie dla konta dewelopera.
@@ -53,7 +53,7 @@ Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 Na tej stronie przedstawiono wizualną reprezentację kroków wymaganych do opublikowania oferty (zarówno ukończona, jak i nadchodząca) oraz czas, w którym należy wykonać poszczególne kroki.
 
-Zawiera ona linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Przykład:
+Zawiera ona linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Na przykład:
 
 - Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](update-existing-offer.md#delete-a-draft-offer))
 - Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](update-existing-offer.md#stop-selling-an-offer-or-plan))

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: d73e2776d0d9c86fe0331f9804bfeade3f1de676
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 431f1da463e4bd9970bc92b0842393f2de882220
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131803"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604728"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Informacje o usłudze mobilności dla maszyn wirtualnych VMware i serwerów fizycznych
 
@@ -37,6 +37,7 @@ Instalacja wypychana jest integralną częścią zadania uruchamianego z Azure P
 
 - Upewnij się, że spełniono wszystkie [wymagania wstępne](vmware-azure-install-mobility-service.md) instalacji wypychanej.
 - Upewnij się, że wszystkie konfiguracje serwera spełniają kryteria w [macierzy pomocy technicznej dotyczące odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure](vmware-physical-azure-support-matrix.md).
+- Począwszy od [wersji 9,36](https://support.microsoft.com/help/4578241/) , na SUSE Linux Enterprise Server 11 SP4 upewnij się, że na [serwerze konfiguracji i skalowalnym w poziomie serwerze przetwarzania jest dostępny](#download-latest-mobility-agent-installer-for-suse-11-sp3-server) najnowszy Instalator
 
 Przepływ pracy instalacji wypychanej został opisany w następujących sekcjach:
 
@@ -142,7 +143,7 @@ Ustawienie | Szczegóły
 --- | ---
 Składnia | `UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>`
 Dzienniki konfiguracji agenta | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log`
-`/CSEndPoint` | Obowiązkowy parametr. `<CSIP>`Określa adres IP serwera konfiguracji. Użyj dowolnych prawidłowych adresów IP.
+`/CSEndPoint` | Obowiązkowy parametr. `<CSIP>` Określa adres IP serwera konfiguracji. Użyj dowolnych prawidłowych adresów IP.
 `/PassphraseFilePath` |  Obowiązkowy. Lokalizacja hasła. Użyj dowolnej prawidłowej ścieżki UNC lub pliku lokalnego.
 
 ### <a name="linux-machine"></a>Komputer z systemem Linux
@@ -181,13 +182,13 @@ Składnia | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
 Ustawienie | Szczegóły
 --- | ---
 Składnia | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>`
-`-i` | Obowiązkowy parametr. `<CSIP>`Określa adres IP serwera konfiguracji. Użyj dowolnych prawidłowych adresów IP.
+`-i` | Obowiązkowy parametr. `<CSIP>` Określa adres IP serwera konfiguracji. Użyj dowolnych prawidłowych adresów IP.
 `-P` |  Obowiązkowy. Pełna ścieżka pliku, w którym zapisano hasło. Użyj dowolnego prawidłowego folderu.
 
 ## <a name="azure-virtual-machine-agent"></a>Agent maszyny wirtualnej platformy Azure
 
 - **Maszyny wirtualne z systemem Windows**: z wersji 9.7.0.0 usługi mobilności [Agent maszyny wirtualnej platformy Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent) jest instalowany przez Instalatora usługi mobilności. Dzięki temu w przypadku przełączenia maszyny do trybu failover na platformie Azure maszyna wirtualna platformy Azure spełnia wymagania wstępne instalacji agenta dotyczące korzystania z dowolnego rozszerzenia maszyny wirtualnej.
-- **Maszyny wirtualne z systemem Linux**: [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) należy instalować ręcznie na maszynie wirtualnej platformy Azure po przejściu do trybu failover.
+- **Maszyny wirtualne z systemem Linux**:  [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) należy instalować ręcznie na maszynie wirtualnej platformy Azure po przejściu do trybu failover.
 
 ## <a name="locate-installer-files"></a>Lokalizowanie plików Instalatora
 
@@ -204,13 +205,27 @@ Plik Instalatora | System operacyjny (tylko 64-bitowy)
 `Microsoft-ASR_UA_version_RHEL6-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 6 </br> CentOS 6
 `Microsoft-ASR_UA_version_RHEL7-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 7 </br> CentOS 7
 `Microsoft-ASR_UA_version_SLES12-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 12 z dodatkiem SP1 </br> Obejmuje dodatki SP2 i SP3.
-`Microsoft-ASR_UA_version_SLES11-SP3-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 11 z dodatkiem SP3
+[Do pobrania i umieszczenia w tym folderze ręcznie](#download-latest-mobility-agent-installer-for-suse-11-sp3-server). | SUSE Linux Enterprise Server 11 z dodatkiem SP3
 `Microsoft-ASR_UA_version_SLES11-SP4-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 11 z dodatkiem SP4
 `Microsoft-ASR_UA_version_OL6-64_GA_date_release.tar.gz` | Oracle Enterprise Linux 6,4 </br> Oracle Enterprise Linux 6,5
 `Microsoft-ASR_UA_version_UBUNTU-14.04-64_GA_date_release.tar.gz` | Ubuntu Linux 14,04
 `Microsoft-ASR_UA_version_UBUNTU-16.04-64_GA_date_release.tar.gz` | Ubuntu Linux 16,04 LTS Server
 `Microsoft-ASR_UA_version_DEBIAN7-64_GA_date_release.tar.gz` | Debian 7
 `Microsoft-ASR_UA_version_DEBIAN8-64_GA_date_release.tar.gz` | Debian 8
+
+### <a name="download-latest-mobility-agent-installer-for-suse-11-sp3-server"></a>Pobierz najnowszą wersję Instalatora agenta mobilności dla serwera SUSE 11 z dodatkiem SP3
+
+Jako **warunek wstępny do aktualizacji lub ochrony maszyn SUSE Linux Enterprise Server 11 z dodatkiem SP3** z [wersji 9,36](https://support.microsoft.com/help/4578241/) lub nowszej:
+
+1. Upewnij się, że najnowszy Instalator agenta mobilności został pobrany z centrum pobierania firmy Microsoft i umieszczony w repozytorium instalacji wypychanej na serwerze konfiguracji i na wszystkich serwerach procesów skalowania w poziomie
+2. [Pobierz](https://download.microsoft.com/download/0/3/4/0341b388-1ff5-4ead-b197-7cf6d2bb3e40/Microsoft-ASR_UA_9.36.0.0_SLES11-SP3-64_GA_06Aug2020_release.tar.gz) instalatora agenta SUSE Linux Enterprise Server 11 z dodatkiem SP3.
+3. Przejdź do serwera konfiguracji, skopiuj instalatora agenta SUSE Linux Enterprise Server 11 SP3 na następujące ścieżki
+    1. INSTALL_DIR \home\svsystems\pushinstallsvc\repository
+    1.  INSTALL_DIR folderów \home\svsystems\admin\web\sw
+4. Teraz przejdź do skojarzonych serwerów procesów skalowalnych w poziomie & Skopiuj Instalatora w obu ścieżkach wymienionych w 3.
+5. **Na przykład**Jeśli ścieżka instalacji to C:\Program Files (x86) \Microsoft Azure Site Recovery, powyższe wyżej wymienione katalogi będą
+    1. C:\Program Files (x86) \Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
+    1. C:\Program Files (x86) \Microsoft witryna Azure Site Recovery\home\svsystems\admin\web\sw Path
 
 ## <a name="next-steps"></a>Następne kroki
 

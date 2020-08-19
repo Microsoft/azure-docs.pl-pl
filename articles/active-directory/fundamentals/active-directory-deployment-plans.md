@@ -12,14 +12,14 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d839fc71992802e9ee2b6a66d0bc407c5caaecf
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 1f85d4203c0fe3978f776b418ab6d7850061416c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799060"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605384"
 ---
-# <a name="azure-active-directory-deployment-plans"></a>Plany wdrożenia usługi Azure Active Directory
+# <a name="azure-active-directory-deployment-plans"></a>Plany wdrażania usługi Azure Active Directory
 Szukasz kompleksowej wskazówki dotyczącej wdrażania możliwości usług Azure Active Directory (Azure AD)? Plany wdrażania usługi Azure AD przeprowadzą Cię przez wartość biznesową, zagadnienia dotyczące planowania i procedury operacyjne, które są potrzebne do pomyślnego wdrożenia wspólnych możliwości usługi Azure AD.
 
 Z poziomu dowolnej strony planu Użyj funkcji drukowania do pliku PDF w przeglądarce, aby utworzyć aktualną wersję offline dokumentacji.
@@ -97,3 +97,4 @@ Rozszerzanie wdrożenia do większych grup użytkowników powinno odbywać się 
 | -| -|
 | [Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)| Azure AD Privileged Identity Management (PIM) ułatwia zarządzanie uprzywilejowanymi rolami administracyjnymi w usłudze Azure AD, zasobach platformy Azure i innych usługach online firmy Microsoft. PIM oferuje rozwiązania, takie jak dostęp just in Time, żądania przepływów pracy zatwierdzania i w pełni zintegrowane przeglądy dostępu, dzięki czemu można identyfikować, odkrywać i zapobiegać złośliwym działaniom uprzywilejowanych ról w czasie rzeczywistym. |
 | [Raportowanie i monitorowanie](../reports-monitoring/plan-monitoring-and-reporting.md)| Projekt rozwiązania do raportowania i monitorowania usługi Azure AD zależy od wymagań prawnych, bezpieczeństwa i działania, a także istniejącego środowiska i procesów. W tym artykule przedstawiono różne opcje projektowania i przeprowadzimy Cię do odpowiedniej strategii wdrażania. |
+| [Przeglądy dostępu](../governance/deploy-access-reviews.md) | Przeglądy dostępu są ważną częścią strategii zarządzania, dzięki czemu możesz wiedzieć, kto ma dostęp, i do czego mają dostęp. Ten artykuł pomaga zaplanować i wdrożyć przeglądy dostępu w celu osiągnięcia potrzebnych postures zabezpieczeń i współpracy. |

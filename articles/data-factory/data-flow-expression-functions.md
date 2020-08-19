@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 43623e6841c3776e6e83453ad9cb47549fc16021
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: b48fc6ad448b829bb399c151d3f1507c804ad471
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170296"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605109"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Wyrażenia transformacji danych w mapowaniu przepływu danych
 
@@ -101,21 +101,13 @@ ___
 <code><b>byNames(<i>&lt;column names&gt;</i> : array, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
 Wybierz tablicę kolumn według nazwy w strumieniu. Opcjonalną nazwę strumienia można przekazać jako drugi argument. Jeśli istnieje wiele dopasowań, zwracane jest pierwsze dopasowanie. Jeśli nie ma żadnych dopasowań dla kolumny, wszystkie dane wyjściowe są wartością NULL. Zwracana wartość wymaga funkcji konwersji typu (toDate, toString,...).  Nazwy kolumn znane w czasie projektowania powinny być rozkierowane tylko według ich nazwy. Obliczane dane wejściowe nie są obsługiwane, ale można użyć podstawiania parametrów.
 * ``toString(byNames(['parent', 'child']))``
-* ````
 * ``byNames(['parent']) ? string``
-* ````
 * ``toLong(byNames(['income']))``
-* ````
 * ``byNames(['income']) ? long``
-* ````
 * ``toBoolean(byNames(['foster']))``
-* ````
 * ``toLong(byNames($debtCols))``
-* ````
 * ``toString(byNames(['a Column']))``
-* ````
 * ``toString(byNames(['a Column'], 'DeriveStream'))``
-* ````
 * ``byNames(['orderItem']) ? (itemName as string, itemQty as integer)``
 ___
 ### <code>byPosition</code>
@@ -354,7 +346,7 @@ Czas trwania (w milisekundach) dla liczby godzin.
 ___
 ### <code>iif</code>
 <code><b>iif(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, [<i>&lt;false_expression&gt;</i> : any]) => any</b></code><br/><br/>
-W oparciu o warunek stosuje jedną wartość lub drugą. Jeśli inne nie określono, jest uznawane za NULL. Obie wartości muszą być zgodne (numeryczne, ciąg...).* ``iif(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'``  
+W oparciu o warunek stosuje jedną wartość lub drugą. Jeśli inne nie określono, jest uznawane za NULL. Obie wartości muszą być zgodne (numeryczne, ciąg...). * ``iif(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'``  
 * ``iif(10 > 30, 'dumbo', 'gumbo') -> 'gumbo'``  
 * ``iif(month(toDate('2018-12-01')) == 12, 345.12, 102.67) -> 345.12``  
 ___
@@ -505,7 +497,7 @@ ___
 Po lewej stronie jest to ciąg, który został dostarczony przez podane uzupełnienie, dopóki nie ma określonej długości. Jeśli ciąg jest równy lub większy niż długość, zostanie przycięty do długości.  
 * ``lpad('dumbo', 10, '-') -> '-----dumbo'``  
 * ``lpad('dumbo', 4, '-') -> 'dumb'``  
-*"" LPAD ("Dumbo", 8, "<>") — > "<><dumbo'``  
+* "" LPAD ("Dumbo", 8, "<>") — > "<><dumbo'``  
 ___
 ### <code> LTRIM</code>
 <code><b>ltrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
@@ -968,7 +960,7 @@ ___
 <code><b>year(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
 Pobiera wartość year dla daty.  
 * ``year(toDate('2012-8-8')) -> 2012``  
-##Funkcje agregujące następujące funkcje są dostępne tylko w przekształceniach agregacji, tabeli przestawnej, operatora UNPIVOT i oknach.
+## Funkcje agregujące następujące funkcje są dostępne tylko w przekształceniach agregacji, tabeli przestawnej, operatora UNPIVOT i oknach.
 ___
 ### <code>avg</code>
 <code><b>avg(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
@@ -1161,7 +1153,7 @@ ___
 <code><b>varianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Na podstawie kryteriów pobiera wariancję nieobciążonej kolumny.  
 * ``varianceSampleIf(region == 'West', sales)``  
-##Funkcje okna, następujące funkcje są dostępne tylko w transformacjach okien.
+## Funkcje okna, następujące funkcje są dostępne tylko w transformacjach okien.
 ___
 ### <code>cumeDist</code>
 <code><b>cumeDist() => integer</b></code><br/><br/>

@@ -4,14 +4,14 @@ description: Dowiedz się, w jaki sposób wybrać między standardową (ręczną
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: 94022b9959b6a7f2bc30e31f918f2f5a916ccd8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbe17d75ad809c54939624b1409e281b2f62a037
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85116812"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605211"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Jak wybrać między standardowym (ręcznym) i automatycznym skalowaniem przepływności 
 
@@ -37,7 +37,10 @@ W poniższej tabeli przedstawiono porównanie wysokiego poziomu między standard
 ## <a name="understand-your-traffic-patterns"></a>Zrozumienie wzorców ruchu
 
 ### <a name="new-applications"></a>Nowe aplikacje ###
-Jeśli tworzysz nową aplikację i nie znasz jeszcze wzorca ruchu, możesz zacząć od punktu wejścia RU/s (lub minimum RU/s), aby uniknąć nadmiernej aprowizacji na początku. W przypadku małej aplikacji, która nie wymaga dużej skali, warto udostępnić tylko minimalny punkt wejścia RU/s, aby zoptymalizować koszt. W obu przypadkach odpowiednie są standardowe (ręczne) lub automatyczne skalowanie. Oto, co należy wziąć pod uwagę:
+
+Jeśli tworzysz nową aplikację i nie znasz jeszcze wzorca ruchu, możesz zacząć od punktu wejścia RU/s (lub minimum RU/s), aby uniknąć nadmiernej aprowizacji na początku. W przypadku małej aplikacji, która nie wymaga dużej skali, warto udostępnić tylko minimalny punkt wejścia RU/s, aby zoptymalizować koszt. W przypadku małych aplikacji o małym oczekiwanym ruchu można także wziąć pod uwagę tryb wydajności [bezserwerowej](throughput-serverless.md) .
+
+Niezależnie od tego, czy planujesz używać standardowego (ręcznego) czy automatycznego skalowania, Oto co należy wziąć pod uwagę:
 
 W przypadku aprowizacji standardowego (ręcznego) RU/s w punkcie wejścia 400 RU/s nie będzie możliwe korzystanie z ponad 400 RU/s, chyba że ręcznie zmienisz przepływność. Zostanie naliczona stawka za 400 RU/s w standardowym (ręcznym) współczynniku przepływności na godzinę.
 

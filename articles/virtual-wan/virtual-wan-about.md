@@ -5,17 +5,17 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 06/29/2020
+ms.date: 08/18/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 451e1581350bb1d38580d00ffd24c781bc30242d
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: b58a729397118b01d2ff346c0d1f09f70435efae
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507584"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604698"
 ---
-# <a name="about-azure-virtual-wan"></a>Informacje o wirtualnej sieci WAN platformy Azure
+# <a name="what-is-azure-virtual-wan"></a>Co to jest usługa Azure Virtual WAN?
 
 Wirtualna sieć WAN platformy Azure to usługa sieciowa, która udostępnia wiele funkcji sieci, zabezpieczeń i routingu w celu zapewnienia pojedynczego interfejsu operacyjnego. Te funkcje obejmują łączność z gałęzią (za pośrednictwem automatyzacji łączności z wirtualnych urządzeń partnerskich sieci WAN, takich jak SD-WAN lub VPN CPE). połączenie sieci VPN typu lokacja-lokacja, połączenie VPN użytkownika zdalnego (punkt-lokacja), połączenie prywatne (ExpressRoute), łączność w chmurze (łączność przechodnia dla sieci wirtualnych), Sieć VPN ExpressRoute między łącznością, routingiem, zaporą platformy Azure i szyfrowaniem w celu połączenia prywatnego. Nie musisz mieć wszystkich tych przypadków użycia, aby rozpocząć korzystanie z wirtualnej sieci WAN. Możesz po prostu rozpocząć pracę z tylko jednym przypadkiem użycia, a następnie dostosować sieć w miarę rozwoju.
 
@@ -102,11 +102,11 @@ Każdy router koncentratora wirtualnego obsługuje zagregowaną przepływność 
 
 #### <a name="transit-connectivity-between-vpn-and-expressroute"></a><a name="transit-er"></a>Transport łączności między sieciami VPN i ExpressRoute
 
-Wirtualna sieć WAN umożliwia przesyłanie połączeń między sieciami VPN i ExpressRoute. Oznacza to, że witryny połączone z siecią VPN lub Użytkownicy zdalni mogą komunikować się z witrynami połączonymi z ExpressRoute. Istnieje również niejawne założenie, że **Flaga odgałęzienie do gałęzi** jest włączona. Ta flaga może znajdować się w ustawieniach sieci wirtualnej platformy Azure w Azure Portal. Wszystkie Zarządzanie trasami jest dostarczane przez router koncentratora wirtualnego, co umożliwia także łączność między sieciami wirtualnymi.
+Wirtualna sieć WAN umożliwia przesyłanie połączeń między sieciami VPN i ExpressRoute. Oznacza to, że witryny połączone z siecią VPN lub Użytkownicy zdalni mogą komunikować się z witrynami połączonymi z ExpressRoute. Istnieje również niejawne założenie, że **Flaga odgałęzienie do gałęzi** jest włączona, a protokół BGP jest obsługiwany w połączeniach VPN i ExpressRoute. Ta flaga może znajdować się w ustawieniach sieci wirtualnej platformy Azure w Azure Portal. Wszystkie Zarządzanie trasami jest dostarczane przez router koncentratora wirtualnego, co umożliwia także łączność między sieciami wirtualnymi.
 
 ### <a name="custom-routing"></a><a name="routing"></a>Routing niestandardowy
 
-Wirtualna sieć WAN zapewnia zaawansowane ulepszenia routingu. Możliwość konfigurowania niestandardowych tabel tras, optymalizowania routingu sieci wirtualnych za pomocą kojarzenia tras i propagacji, logiczne grupowanie tabel tras z etykietami i upraszczanie wielu wirtualnych urządzeń sieciowych lub scenariuszy routingu usług udostępnionych.
+Wirtualna sieć WAN zapewnia zaawansowane ulepszenia routingu. Możliwość konfigurowania niestandardowych tabel tras, optymalizowania routingu sieci wirtualnych za pomocą kojarzenia tras i propagacji, logiczne grupowanie tabel tras z etykietami i uproszczenie wielu różnych wirtualnych urządzeń sieciowych (urządzenie WUS) lub scenariuszy routingu usług udostępnionych.
 
 ### <a name="global-vnet-peering"></a><a name="global"></a>Globalna komunikacja równorzędna sieci wirtualnych
 
@@ -120,17 +120,21 @@ Wirtualna sieć WAN platformy Azure zapewnia możliwość szyfrowania ruchu Expr
 
 Informacje o lokalizacji znajdują się w artykule dotyczącym [partnerów i lokalizacji wirtualnych sieci WAN](virtual-wan-locations-partners.md) .
 
-## <a name="route-tables-in-basic-and-standard-virtual-wans"></a><a name="route"></a>Kierowanie tabel w warstwach Podstawowa i Standardowa wirtualne sieci WAN
+## <a name="route-tables-for-basic-and-standard-virtual-wans"></a><a name="route"></a>Tabele tras dla wirtualnych sieci WAN w warstwach Podstawowa i Standardowa
 
 Tabele tras mają teraz funkcje do skojarzenia i propagacji. Istniejąca tabela tras jest tabelą tras, która nie ma tych funkcji. Jeśli masz już istniejące trasy w usłudze Routing centralny i chcesz korzystać z nowych funkcji, weź pod uwagę następujące kwestie:
 
-* **Standardowi wirtualne sieci WAN ze wstępnie istniejącymi trasami w koncentratorze wirtualnym**: Aby korzystać z nowych funkcji tabeli tras, zaczekaj, aż do końca tygodnia sierpnia od siedemnastu do wdrożenia na platformie Azure. Jeśli masz wstępnie istniejące trasy w sekcji routingu centrum w Azure Portal, musisz najpierw je usunąć, a następnie próbować utworzyć nowe tabele tras (dostępne w sekcji "tabele tras" centrum w Azure Portal).
+* **Klienci sieci wirtualnej w warstwie Standardowa z wcześniej istniejącymi trasami w koncentratorze wirtualnym**: Aby korzystać z nowych funkcji tabeli tras, zaczekaj, aż tydzień sierpnia zakończył wdrażanie na platformie Azure. Jeśli masz wstępnie istniejące trasy w sekcji routingu centrum w Azure Portal, musisz najpierw je usunąć, a następnie próbować utworzyć nowe tabele tras (dostępne w sekcji "tabele tras" centrum w Azure Portal).
 
 * **Podstawowa liczba klientów wirtualnych sieci WAN ze wstępnie istniejącymi trasami w koncentratorze wirtualnym**: Aby korzystać z nowych funkcji tabeli tras, zaczekaj, aż tydzień sierpnia zakończył wdrażanie na platformie Azure. Jeśli masz już istniejące trasy w sekcji routingu centrum w Azure Portal, musisz najpierw je usunąć, a następnie **uaktualnić** podstawową wirtualną sieć WAN do standardowej wirtualnej sieci WAN. Zobacz [uaktualnianie wirtualnej sieci WAN z warstwy Podstawowa do standardowa](upgrade-virtual-wan.md).
 
 ## <a name="faq"></a><a name="faq"></a>Często zadawane pytania
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
+
+## <a name="view-the-latest-feature-updates"></a><a name="new"></a>Wyświetlanie najnowszych aktualizacji funkcji
+
+Zasubskrybuj źródło danych RSS i zapoznaj się z najnowszymi aktualizacjami funkcji wirtualnej sieci WAN na stronie [aktualizacji platformy Azure](https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN) .
 
 ## <a name="next-steps"></a>Następne kroki
 

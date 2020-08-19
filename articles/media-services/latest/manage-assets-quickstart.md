@@ -3,12 +3,15 @@ title: Przekazywanie, kodowanie i przesyłanie strumieniowe zawartości przy uż
 description: W tym przewodniku szybki start przedstawiono sposób użycia portalu do przekazywania, kodowania i przesyłania strumieniowego zawartości za pomocą Azure Media Services.
 ms.topic: quickstart
 ms.date: 06/08/2020
-ms.openlocfilehash: bab13b7b878f8992ac5523b9902054a42a3dc769
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+author: IngridAtMicrosoft
+ms.author: inhenkel
+manager: femila
+ms.openlocfilehash: 7aebc6e52ec7fac97c6f1e8fb9b30cc63b74e860
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053363"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605663"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Szybki Start: przekazywanie, kodowanie i przesyłanie strumieniowe zawartości za pomocą portalu
 
@@ -28,7 +31,6 @@ W tym przewodniku szybki start pokazano, jak używać Azure Portal do przekazywa
 
   * [Przekazywanie do chmury i magazynowanie w niej](storage-account-concept.md)
   * [Koncepcja zasobów](assets-concept.md)
-  * [Zarządzanie zasobami](manage-asset-concept.md)
 * Po przekazaniu pliku multimediów cyfrowych o wysokiej jakości do zasobu (dane wejściowe) można go przetworzyć (zakodować lub analizować). Przetworzona zawartość znajduje się w innym elemencie zawartości (wyjściowym). 
     * [Zakodowanie](encoding-concept.md) przekazanego pliku do formatów, które mogą być odtwarzane w różnych przeglądarkach i urządzeniach.
     * [Analizowanie](analyzing-video-audio-files-concept.md) przekazanego pliku. 

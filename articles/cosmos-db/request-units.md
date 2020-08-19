@@ -1,27 +1,25 @@
 ---
-title: Jednostki żądań i przepływność w Azure Cosmos DB
+title: Zażądaj jednostek jako przepływność i wydajność w Azure Cosmos DB
 description: Dowiedz się, jak określić i oszacować wymagania jednostki żądań w Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/24/2020
-ms.openlocfilehash: f1f203d17de9fb0fc9fe8bb0f6de80fe2b93ba8b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/19/2020
+ms.openlocfilehash: 6831cb3f39c25eb69d16300156f456980cf57fa0
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327807"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604837"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Jednostki żądania w usłudze Azure Cosmos DB
 
-W usłudze Azure Cosmos DB płacisz za aprowizowaną przepływność i ilość zużytego miejsca do magazynowania rozliczanych co godzinę. Przepływność należy aprowizować, aby zapewnić stałą dostępność wystarczających zasobów systemowych dla bazy danych usługi Azure Cosmos. Potrzebujesz wystarczającej ilości zasobów, aby spełnić lub przekroczyć [Azure Cosmos DB umowy SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
-
 Azure Cosmos DB obsługuje wiele interfejsów API, takich jak SQL, MongoDB, Cassandra, Gremlin i Table. Każdy interfejs API ma swój własny zestaw operacji bazy danych. Te operacje obejmują między innymi odczyty punktów prostych i zapisów w złożonych zapytaniach. Każda operacja bazy danych zużywa zasoby systemowe na podstawie złożoności operacji.
 
-Koszt wszystkich operacji bazy danych jest znormalizowany przez Azure Cosmos DB i jest wyrażony przez *jednostki żądania* (lub jednostek ru, dla krótkich). Liczbę jednostek RU na sekundę można traktować jak walutę przepływności. Liczba jednostek RU na sekundę to waluta oparta na stawce. Tworzy ona abstrakcję zasobów systemowych, takich jak procesor CPU, operacje we/wy i pamięć, które są wymagane do wykonywania operacji bazy danych obsługiwanych przez usługę Azure Cosmos DB. Co najmniej 10 RU/s jest wymagany do przechowywania każdego 1 GB danych.
+Koszt wszystkich operacji bazy danych jest znormalizowany przez Azure Cosmos DB i jest wyrażony przez *jednostki żądania* (lub jednostek ru, dla krótkich). Możesz traktować jednostek ru jako walutę wydajności, co umożliwia abstrakcję zasobów systemowych, takich jak procesor CPU, operacje we/wy i pamięć, które są wymagane do wykonania operacji bazy danych obsługiwanych przez Azure Cosmos DB.
 
-Koszt przeczytania punktu dla elementu o 1 KB wynosi 1 jednostkę żądania (lub 1 RU). Wszystkim innym operacjom bazy danych koszt jest przypisywany w podobny sposób za pomocą jednostek RU. Niezależnie od tego, którego interfejsu API używasz do interakcji z kontenerem usługi Azure Cosmos, koszty są zawsze mierzone za pomocą jednostek RU. Niezależnie od tego, czy operacja bazy danych jest zapisem, punktem odczytu lub zapytania, koszty są zawsze mierzone w jednostek ru.
+Koszt do przeczytania punktu (tj. Pobieranie pojedynczego elementu według jego identyfikatora i wartości klucza partycji) dla elementu 1 KB to 1 jednostka żądania (lub 1 RU). Wszystkim innym operacjom bazy danych koszt jest przypisywany w podobny sposób za pomocą jednostek RU. Niezależnie od tego, którego interfejsu API używasz do interakcji z kontenerem usługi Azure Cosmos, koszty są zawsze mierzone za pomocą jednostek RU. Niezależnie od tego, czy operacja bazy danych jest zapisem, punktem odczytu lub zapytania, koszty są zawsze mierzone w jednostek ru.
 
 Na poniższej ilustracji przedstawiono ogólną koncepcję jednostek RU:
 
@@ -29,16 +27,16 @@ Na poniższej ilustracji przedstawiono ogólną koncepcję jednostek RU:
 
 Aby można było zarządzać pojemnością i ją planować, usługa Azure Cosmos DB zapewnia, że liczba jednostek RU dla danej operacji bazy danych w danym zestawie danych jest deterministyczna. Możesz sprawdzić nagłówek odpowiedzi, aby śledzić liczbę jednostek RU zużywanych przez każdą operację bazy danych. Gdy zrozumiesz [czynniki wpływające na opłaty za usługę ru](request-units.md#request-unit-considerations) i wymagania dotyczące przepływności aplikacji, możesz efektywnie uruchamiać swoją aplikację.
 
-Dla swojej aplikacji aprowizujesz liczbę jednostek RU na sekundę w przyrostach wynoszących 100 jednostek RU na sekundę. Aby skalować aprowizowaną przepływność dla aplikacji, możesz w dowolnym momencie zwiększyć lub zmniejszyć liczbę jednostek RU. Możesz skalować w przedziałach co 100 jednostek RU. Możesz wprowadzać zmiany programowo lub za pomocą witryny Azure Portal. Opłaty są naliczane godzinowo.
+Typ używanego konta usługi Azure Cosmos określa sposób, w jaki wykorzystano jednostek ru.
 
-Przepustowość można zainicjować na dwa różne szczegóły:
-
-* **Kontenery**: Aby uzyskać więcej informacji, zobacz temat [udostępnianie przepływności w kontenerze usługi Azure Cosmos](how-to-provision-container-throughput.md).
-* **Bazy danych**: Aby uzyskać więcej informacji, zobacz temat [udostępnianie przepływności w bazie danych Azure Cosmos](how-to-provision-database-throughput.md).
+- W trybie przewidzianych [przepływności](set-throughput.md) można zarezerwować liczbę jednostek ru dla aplikacji na sekundę w przyrostach wynoszących 100 jednostek ru na sekundę. Aby skalować zainicjowaną przepływność dla aplikacji, można zwiększyć lub zmniejszyć liczbę jednostek RU w dowolnym momencie w przyrostach lub zmniejszeniu liczby 100 jednostek ru. Możesz wprowadzać zmiany programowo lub za pomocą witryny Azure Portal. Opłata jest naliczana godzinowo na podstawie liczby jednostek ru na sekundę, która została zainicjowana. Przepustowość można zainicjować na dwa różne szczegóły:
+  - **Kontenery**: Aby uzyskać więcej informacji, zobacz temat [udostępnianie przepływności w kontenerze usługi Azure Cosmos](how-to-provision-container-throughput.md).
+  - **Bazy danych**: Aby uzyskać więcej informacji, zobacz temat [udostępnianie przepływności w bazie danych Azure Cosmos](how-to-provision-database-throughput.md).
+- W trybie [bezserwerowym](serverless.md) nie trzeba inicjować żadnej przepływności podczas tworzenia zasobów na koncie usługi Azure Cosmos. Na koniec okresu rozliczeniowego opłaty są naliczane za liczbę jednostek żądania, które zostały zużyte przez operacje bazy danych.
 
 ## <a name="request-unit-considerations"></a>Kwestie dotyczące jednostek żądań
 
-W przypadku szacowania liczby jednostek RU na sekundę do aprowizowania należy wziąć pod uwagę następujące czynniki:
+Podczas szacowania liczby jednostek ru zużywanych przez obciążenie należy wziąć pod uwagę następujące czynniki:
 
 * **Rozmiar elementu**: liczba jednostek RU do odczytu lub zapisu elementu zwiększa się wraz ze wzrostem rozmiaru elementu.
 
@@ -50,7 +48,7 @@ W przypadku szacowania liczby jednostek RU na sekundę do aprowizowania należy 
 
 * **Spójność danych**: mocne i ograniczone nieodświeżone poziomy spójności zużywają około dwa razy więcej jednostek ru podczas wykonywania operacji odczytu w porównaniu z innymi obniżonymi poziomami spójności.
 
-* **Typ odczytów**: punkt odczytuje koszt znacznie mniej niż w przypadku zapytań.
+* **Typ odczytu**: punkt odczytuje koszt znacznie mniej jednostek ru niż zapytania.
 
 * **Wzorce zapytań**: złożoność zapytania ma wpływ na liczbę jednostek RU używanych w ramach operacji. Czynniki mające wpływ na koszt operacji zapytań obejmują następujące elementu: 
     
@@ -69,6 +67,7 @@ W przypadku szacowania liczby jednostek RU na sekundę do aprowizowania należy 
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej o [tym, jak zainicjować przepływność w kontenerach i bazach danych usługi Azure Cosmos](set-throughput.md).
+* Dowiedz się więcej o [Azure Cosmos DB](serverless.md).
 * Dowiedz się więcej na temat [partycji logicznych](partition-data.md).
 * Dowiedz się więcej o tym, jak [globalnie skalować zainicjowaną przepływność](scaling-throughput.md).
 * Dowiedz się, jak [zainicjować przepływność na kontenerze usługi Azure Cosmos](how-to-provision-container-throughput.md).

@@ -2,7 +2,7 @@
 title: Dynamiczne pakowanie w Azure Media Services v3
 titleSuffix: Azure Media Services
 description: Ten artykuł zawiera omówienie tworzenia pakietów dynamicznych w programie Azure Media Services.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/13/2020
-ms.author: juliako
-ms.openlocfilehash: 4f0e8822d734d3c1147eb6d5cbbc8f26a7410a01
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.date: 08/18/2020
+ms.author: inhenkel
+ms.openlocfilehash: 8a5d52f2705a04c290f1122335430c12db8d294c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224071"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604584"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Dynamiczne pakowanie w Media Services v3
 
@@ -80,7 +80,7 @@ Twój klient przesyłania strumieniowego może określić następujące formaty 
 
 W poniższych krokach przedstawiono typowy przepływ pracy przesyłania strumieniowego Media Services, w którym jest używane dynamiczne pakowanie wraz ze standardowym koderem w Azure Media Services.
 
-1. [Przekaż plik wejściowy](manage-asset-concept.md) , taki jak MP4, QUICKTIME/MOV lub inny obsługiwany format pliku. Ten plik jest również określany jako plik Mezzanine lub source. Aby zapoznać się z listą obsługiwanych formatów, zobacz [formaty obsługiwane przez koder standardowy](media-encoder-standard-formats.md).
+1. [Przekaż plik wejściowy](job-input-from-http-how-to.md) , taki jak MP4, QUICKTIME/MOV lub inny obsługiwany format pliku. Ten plik jest również określany jako plik Mezzanine lub source. Aby zapoznać się z listą obsługiwanych formatów, zobacz [formaty obsługiwane przez koder standardowy](media-encoder-standard-formats.md).
 1. [Koduj](#encode-to-adaptive-bitrate-mp4s) plik Mezzanine do zestawu H. 264/AAC MP4 z adaptacyjną szybkością transmisji bitów.
 
     Jeśli masz już zakodowane pliki i chcesz skopiować i przesłać strumieniowo pliki, użyj: [CopyVideo](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyvideo) i [CopyAudio](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyaudio) API. W wyniku tego zostanie utworzony nowy plik MP4 z manifestem przesyłania strumieniowego (plik. ISM).

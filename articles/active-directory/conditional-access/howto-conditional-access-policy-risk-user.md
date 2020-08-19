@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a015f7dd58bae328a8c18e3de3202c0ca615c9cf
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 916ff4a5e6afd68106d70f386436723c24574df1
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86034923"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605575"
 ---
 # <a name="conditional-access-user-risk-based-conditional-access"></a>Dostęp warunkowy: dostęp warunkowy oparty na ryzyku
 
@@ -29,11 +29,11 @@ Istnieją dwie lokalizacje, w których te zasady mogą być przypisane. Organiza
 1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
 1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
 1. Wybierz pozycję **nowe zasady**.
-1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
+1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad. Aby uzyskać więcej informacji, [Ustaw standardy nazewnictwa dla zasad](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access#set-naming-standards-for-your-policies).
 1. W obszarze **Przypisania** wybierz pozycję **Użytkownicy i grupy**.
    1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy**.
    1. W obszarze **Wyklucz**wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz opcję dostęp awaryjny lub konta w ramach swojej organizacji. 
-   1. Wybierz pozycję **Gotowe**.
+   1. Kliknij **Gotowe**.
 1. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz**wybierz pozycję **wszystkie aplikacje w chmurze**.
 1. W obszarze **warunki**  >  **ryzyka użytkownika**ustaw opcję **Skonfiguruj** na **wartość tak**. W obszarze **Konfigurowanie poziomów ryzyka użytkownika wymaganych do wymuszania zasad** wybierz pozycję **wysoka**, a następnie wybierz pozycję **gotowe**.
 1. W obszarze **Kontrola dostępu**  >  **Przyznaj**wybierz pozycję **Udziel dostępu**, **Wymagaj zmiany hasła**i wybierz pozycję **Wybierz**.
@@ -48,7 +48,7 @@ Istnieją dwie lokalizacje, w których te zasady mogą być przypisane. Organiza
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy**.
    1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy**.
    1. W obszarze **Wyklucz**wybierz opcję **Wybierz wykluczonych użytkowników**, wybierz pozycję dostęp awaryjny lub konta w firmie, a następnie wybierz pozycję **Wybierz**.
-   1. Wybierz pozycję **Gotowe**.
+   1. Kliknij **Gotowe**.
 1. W obszarze **warunki**wybierz pozycję **ryzyko użytkownika**, a następnie wybierz pozycję **wysoki**.
    1. Wybierz pozycję **Wybierz**, a następnie pozycję **gotowe**.
 1. W obszarze **Kontrola**  >  **dostępu**wybierz pozycję **Zezwalaj na dostęp**, a następnie wybierz pozycję **Wymagaj zmiany hasła**.
@@ -60,7 +60,7 @@ Istnieją dwie lokalizacje, w których te zasady mogą być przypisane. Organiza
 
 [Wspólne zasady dostępu warunkowego](concept-conditional-access-policy-common.md)
 
-[Dostęp warunkowy na podstawie ryzyka związanego z logowaniem](howto-conditional-access-policy-risk.md)
+[Dostęp warunkowy oparty na ryzyku logowania](howto-conditional-access-policy-risk.md)
 
 [Określanie wpływu przy użyciu trybu tylko Raport z dostępem warunkowym](howto-conditional-access-report-only.md)
 

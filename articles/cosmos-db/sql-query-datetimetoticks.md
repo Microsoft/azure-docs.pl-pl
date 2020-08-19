@@ -4,20 +4,20 @@ description: Dowiedz się więcej o funkcji DateTimeToTicks systemu SQL w Azure 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/14/2020
+ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: a6fcff691ee5278ed0a9e1c132f8ecebbee9431c
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 2e2c9e8f2bf0d4760bf030fb19a90737cdb54525
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227243"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605147"
 ---
 # <a name="datetimetoticks-azure-cosmos-db"></a>DateTimeToTicks (Azure Cosmos DB)
 
-Konwertuje określony element DateTime na takty. Pojedynczy takt reprezentuje 100 nanosekund lub 1 10-milionowego sekundy.
-  
+Konwertuje określony element DateTime na takty. Pojedynczy takt reprezentuje 100 nanosekund lub 1 10-milionowego sekundy. 
+
 ## <a name="syntax"></a>Składnia
   
 ```sql
@@ -31,7 +31,7 @@ DateTimeToTicks (<DateTime>)
 
 ## <a name="return-types"></a>Typy zwracane
 
-Zwraca dodatnią liczbę całkowitą.
+Zwraca podpisaną wartość liczbową, czyli bieżącą liczbę taktów 100-nanosekund, które upłynęły od epoki systemu UNIX. Innymi słowy, DateTimeToTicks zwraca liczbę taktów 100-nanosekund, które upłynęły od 00:00:00 czwartek, 1 stycznia 1970.
 
 ## <a name="remarks"></a>Uwagi
 

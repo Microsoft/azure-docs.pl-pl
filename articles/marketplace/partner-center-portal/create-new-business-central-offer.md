@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: ff93a336b50ceac1106b31726d865ed3e0b41108
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 0d00f779031ec294523c861a4e9868f7cbbe790d
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031487"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606142"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Tworzenie oferty Dynamics 365 Business Central
 
@@ -29,7 +29,7 @@ Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum part
     ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-dynamics-365-business-central.png)
 
 > [!NOTE]
-> Po opublikowaniu oferty zmiany wprowadzone w centrum partnerskim są wyświetlane w obszarze witryny w sklepie po ponownym opublikowaniu oferty. Pamiętaj, aby zawsze ponownie publikować po wprowadzeniu zmian.
+> Po opublikowaniu oferty zmiany wprowadzone w centrum partnerskim będą widoczne w sklepach online dopiero po ponownym opublikowaniu oferty. Pamiętaj, aby zawsze ponownie publikować po wprowadzeniu zmian.
 
 ## <a name="new-offer"></a>Nowa oferta
 
@@ -300,7 +300,7 @@ Jeśli Twoja oferta jest aplikacją dodatku, musisz przekazać plik **automatyza
 
 Jeśli konto testowe jest konieczne, aby nasz zespół certyfikacji mógł prawidłowo przejrzeć Twoją ofertę, Przekaż plik PDF, doc lub docx do informacji o **kontach testowych** .
 
-## <a name="publish"></a>Opublikuj
+## <a name="publish"></a>Publikowanie
 
 ### <a name="submit-offer-to-preview"></a>Prześlij ofertę do wersji zapoznawczej
 

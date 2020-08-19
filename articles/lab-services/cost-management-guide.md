@@ -5,12 +5,12 @@ author: rbest
 ms.author: rbest
 ms.date: 08/16/2020
 ms.topic: article
-ms.openlocfilehash: 98ce4d5e82d65d911984dc45615253ddcae33ae1
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 0aaa454df05cd8981b314abe238163caced7864c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589880"
+ms.locfileid: "88604603"
 ---
 # <a name="cost-management-for-azure-lab-services"></a>Zarządzanie kosztami dla Azure Lab Services
 
@@ -129,8 +129,8 @@ Te ustawienia można skonfigurować zarówno na poziomie konta laboratorium, jak
     
 Aby uzyskać informacje na temat konfigurowania i włączania automatycznego zamykania maszyn wirtualnych przy rozłączaniu, zobacz następujące artykuły:
 
-* [Skonfiguruj automatyczne zamykanie maszyn wirtualnych w przypadku ustawienia odłączania dla konta laboratorium](how-to-configure-lab-accounts.md)
-* [Włącz automatyczne zamykanie maszyn wirtualnych przy rozłączaniu](how-to-enable-shutdown-disconnect.md)
+* [Konfigurowanie automatycznego zamykania maszyn wirtualnych dla konta laboratorium](how-to-configure-lab-accounts.md)
+* [Konfigurowanie automatycznego zamykania maszyn wirtualnych dla laboratorium](how-to-enable-shutdown-disconnect.md)
 
 ### <a name="quota-vs-scheduled-time"></a>Przydział a zaplanowany czas
 

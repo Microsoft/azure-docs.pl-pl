@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 553fd4e49d274fcf4c25356764182d54b91149e4
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: bdce311efbe7e41e09a3be76562c6be752a4b5c1
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036644"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606113"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Tworzenie oferty Dynamics 365 for Operations
 
@@ -32,7 +32,7 @@ Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum part
     ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-dynamics-365-operations.png)
 
 > [!NOTE]
-> Po opublikowaniu oferty zmiany wprowadzone w centrum partnerskim są wyświetlane w obszarze witryny w sklepie po ponownym opublikowaniu oferty. Pamiętaj, aby zawsze ponownie publikować po wprowadzeniu zmian.
+> Po opublikowaniu oferty zmiany wprowadzone w centrum partnerskim będą widoczne w sklepach online dopiero po ponownym opublikowaniu oferty. Pamiętaj, aby zawsze ponownie publikować po wprowadzeniu zmian.
 
 ## <a name="new-offer"></a>Nowa oferta
 
@@ -222,7 +222,7 @@ Na tej stronie przedstawiono opcje dotyczące miejsca i sposobu udostępniania o
 
 Ta sekcja umożliwia określenie rynków, w których oferta powinna być dostępna. Aby to zrobić, wybierz pozycję **Edytuj rynki,** co spowoduje wyświetlenie okna podręcznego **wyboru na rynku** .
 
-Domyślnie nie są zaznaczone żadne rynki. Wybierz co najmniej jeden rynek do opublikowania oferty. Kliknij przycisk **Zaznacz wszystko** , aby udostępnić ofertę na każdym możliwym rynku, lub wybierz konkretne rynki, które chcesz dodać. Po zakończeniu wybierz pozycję **Zapisz**.
+Domyślnie nie są zaznaczone żadne rynki. Wybierz co najmniej jeden rynek do opublikowania oferty. Kliknij przycisk  **Zaznacz wszystko** , aby udostępnić ofertę na każdym możliwym rynku, lub wybierz konkretne rynki, które chcesz dodać. Po zakończeniu wybierz pozycję **Zapisz**.
 
 Wybrane tutaj ustawienia dotyczą tylko nowych nabyć; Jeśli ktoś ma już aplikację na określonym rynku, a później usuniesz ten rynek, osoby, które już posiadają ofertę na tym rynku, będą mogły nadal z nich korzystać, ale żaden nowy klient nie będzie mógł uzyskać swojej oferty.
 
@@ -286,7 +286,7 @@ Odpowiedź **tak** , jeśli tekst w rozwiązaniu można przetłumaczyć na inne 
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-## <a name="publish"></a>Opublikuj
+## <a name="publish"></a>Publikowanie
 
 ### <a name="submit-offer-to-preview"></a>Prześlij ofertę do wersji zapoznawczej
 

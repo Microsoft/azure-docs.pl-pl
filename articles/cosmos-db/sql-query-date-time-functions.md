@@ -4,15 +4,15 @@ description: Dowiedz się więcej o funkcjach systemu SQL Data i godzina w Azure
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/09/2020
+ms.date: 08/18/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 460abbc0b2a2f277aaeed57c5b938de530696776
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 1ea838224f9d91b000100d5fa9308289619fd963
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224955"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605198"
 ---
 # <a name="date-and-time-functions-azure-cosmos-db"></a>Funkcje daty i godziny (Azure Cosmos DB)
 
@@ -20,7 +20,7 @@ Funkcje daty i godziny umożliwiają wykonywanie operacji DateTime i timestamp w
 
 ## <a name="functions-to-obtain-the-date-and-time"></a>Funkcje do uzyskiwania daty i godziny
 
-Poniższe funkcje skalarne umożliwiają uzyskanie aktualnej daty i godziny UTC w dwóch formach: ciąg, który jest zgodny z formatem ISO 8601 lub liczbową sygnaturą czasową, której wartość to epoka systemu UNIX w milisekundach:
+Poniższe funkcje skalarne umożliwiają uzyskanie bieżącej daty i godziny UTC w trzech formach: ciągu, który jest zgodny z formatem ISO 8601, liczbową sygnaturą czasową, której wartość jest liczba milisekund, które upłynęły od epoki systemu UNIX lub liczbowych taktów, których wartość jest liczbą 100 nanosekund, które upłynęły od epoki systemu UNIX :
 
 * [GetCurrentDateTime](sql-query-getcurrentdatetime.md)
 * [GetCurrentTimestamp](sql-query-getcurrenttimestamp.md)
@@ -28,13 +28,16 @@ Poniższe funkcje skalarne umożliwiają uzyskanie aktualnej daty i godziny UTC 
 
 ## <a name="functions-to-work-with-datetime-values"></a>Funkcje do pracy z wartościami DateTime
 
-Poniższe funkcje umożliwiają łatwe manipulowanie wartościami typu DateTime:
+Poniższe funkcje umożliwiają łatwe manipulowanie wartościami typu DateTime, timestamp i Tick:
 
 * [DateTimeAdd](sql-query-datetimeadd.md)
 * [DateTimeDiff](sql-query-datetimediff.md)
 * [DateTimeFromParts](sql-query-datetimefromparts.md)
 * [DateTimePart](sql-query-datetimepart.md)
 * [DateTimeToTicks](sql-query-datetimetoticks.md)
+* [DateTimeToTimestamp](sql-query-datetimetotimestamp.md)
+* [TicksToDateTime](sql-query-tickstodatetime.md)
+* [TimestampToDateTime](sql-query-timestamptodatetime.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

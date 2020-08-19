@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dde9d8b50233c3c4033daf618e0e626c0174b0c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 8e2c516371ada59501edd89491a07014ef949eba
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903157"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604389"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Tożsamość urządzenia i Wirtualizacja pulpitu
 
@@ -33,7 +33,12 @@ Istnieją dwa podstawowe typy pulpitów wirtualnych:
 
 Wersje trwałe wykorzystują unikatowy obraz stacjonarny dla każdego użytkownika lub puli użytkowników. Te unikatowe pulpity mogą być dostosowane i zapisywane do użytku w przyszłości. 
 
-Wersje nietrwałe używają kolekcji pulpitów, do których użytkownicy mogą uzyskać dostęp w zależności od wymaganej bazy. Te nietrwałe komputery stacjonarne są przywracane do oryginalnego stanu po wylogowaniu się użytkownika.
+Wersje nietrwałe używają kolekcji pulpitów, do których użytkownicy mogą uzyskać dostęp w zależności od wymaganej bazy. Te komputery stacjonarne nietrwałe są przywracane do oryginalnego stanu, w przypadku systemu Windows bieżące<sup>1</sup> dzieje się tak, gdy maszyna wirtualna przechodzi przez proces resetowania/ponownego uruchamiania/systemu operacyjnego, a w przypadku systemu Windows niższego poziomu<sup>2</sup> dzieje się tak, gdy użytkownik wyloguje się.
+
+Istnieje wzrost nietrwałych wdrożeń infrastruktury VDI, ponieważ zdalna współpraca nadal jest nowym standardem. W miarę jak klienci wdrażają nietrwały infrastrukturę VDI, należy upewnić się, że można zarządzać zmianą urządzeń, która może być spowodowana częstą rejestracją urządzeń, bez konieczności właściwej strategii zarządzania cyklem życia urządzeń.
+
+> [!IMPORTANT]
+> Niepowodzenie zarządzania zmianą urządzenia może prowadzić do wzrostu nacisku użycia przydziału dzierżawy oraz potencjalnego ryzyka przerwania działania usługi, jeśli limit przydziału dzierżawy został przekroczony. Aby uniknąć tej sytuacji, należy postępować zgodnie z poniższymi wskazówkami dotyczącymi wdrażania nietrwałych środowisk infrastruktury VDI.
 
 W tym artykule omówiono wskazówki firmy Microsoft dla administratorów dotyczące obsługi tożsamości urządzeń i infrastruktury VDI. Aby uzyskać więcej informacji na temat tożsamości urządzeń, zobacz artykuł [co to jest tożsamość urządzenia](overview.md).
 
@@ -43,28 +48,30 @@ Przed skonfigurowaniem tożsamości urządzeń w usłudze Azure AD dla środowis
 
 | Typ tożsamości urządzenia | Infrastruktura tożsamości | Urządzenia z systemem Windows | Wersja platformy VDI | Obsługiwane |
 | --- | --- | --- | --- | --- |
-| hybrydowym dołączonym do usługi Azure AD. | Federacyjny | Windows Current * * * i Windows Down-Level * * * * | Stale | Tak |
+| hybrydowym dołączonym do usługi Azure AD. | Federacyjna<sup>3</sup> | System Windows — bieżące i Windows niższe poziomy | Stale | Tak |
+|   |   | Bieżące dla systemu Windows | Nietrwałe | Tak<sup>5</sup> |
+|   |   | System Windows niższego poziomu | Nietrwałe | Tak<sup>6</sup> |
+|   | Zarządzany<sup>4</sup> | System Windows — bieżące i Windows niższe poziomy | Stale | Tak |
 |   |   | Bieżące dla systemu Windows | Nietrwałe | Nie |
-|   |   | System Windows niższego poziomu | Nietrwałe | Tak |
-|   | Zarządzany * * | System Windows — bieżące i Windows niższe poziomy | Stale | Tak |
-|   |   | Bieżące dla systemu Windows | Nietrwałe | Nie |
-|   |   | System Windows niższego poziomu | Nietrwałe | Tak |
+|   |   | System Windows niższego poziomu | Nietrwałe | Tak<sup>6</sup> |
 | Dołączone do usługi Azure AD | Federacyjni | Bieżące dla systemu Windows | Stale | Nie |
 |   |   |   | Nietrwałe | Nie |
-|   | Zarządzani | Bieżące dla systemu Windows | Stale | Nie |
+|   | Zarządzany | Bieżące dla systemu Windows | Stale | Nie |
 |   |   |   | Nietrwałe | Nie |
-| Zarejestrowane w usłudze Azure AD | Federacyjni | Bieżące dla systemu Windows | Stale | Nie dotyczy |
-|   |   |   | Nietrwałe | Nie dotyczy |
-|   | Zarządzani | Bieżące dla systemu Windows | Stale | Nie dotyczy |
-|   |   |   | Nietrwałe | Nie dotyczy |
+| Zarejestrowane w usłudze Azure AD | Federacyjne/zarządzane | Windows na poziomie bieżącym/Windows | Trwały/nietrwały | Nie dotyczy |
 
-\*Środowisko infrastruktury tożsamości **federacyjnych** reprezentuje środowisko z dostawcą tożsamości, takim jak AD FS lub inne dostawcy tożsamości innych firm.
+<sup>1</sup> **bieżące urządzenia systemu Windows** reprezentują systemy Windows 10, Windows Server 2016 i Windows Server 2019.
 
-\*\***Zarządzane** środowisko infrastruktury tożsamości reprezentuje środowisko z usługą Azure AD jako dostawcę tożsamości wdrożonego za pomocą jednej [synchronizacji skrótów haseł (PHS)](../hybrid/whatis-phs.md) lub [uwierzytelniania przekazującego (PTA)](../hybrid/how-to-connect-pta.md) z [bezproblemowym logowaniem jednokrotnym](../hybrid/how-to-connect-sso.md).
+<sup>dwa</sup> urządzenia **niskiego poziomu systemu Windows** reprezentują systemy Windows 7, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 i Windows Server 2012 R2. Aby uzyskać informacje o pomocy technicznej w systemie Windows 7, zobacz temat [Obsługa systemu Windows 7 kończy się](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support). Aby uzyskać informacje na temat pomocy technicznej dotyczącej systemu Windows Server 2008 R2, zobacz [przygotowanie do systemu Windows server 2008 koniec wsparcia](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
-\*\*\***Bieżące urządzenia z systemem Windows** reprezentują systemy Windows 10, windows Server 2016 i windows Server 2019.
+<sup>3</sup> środowisko infrastruktury tożsamości **federacyjnych** reprezentuje środowisko z dostawcą tożsamości, takim jak AD FS lub inne dostawcy tożsamości innych firm.
 
-\*\*\*\*Urządzenia **niskiego poziomu systemu Windows** reprezentują systemy Windows 7, Windows 8.1, windows Server 2008 R2, windows Server 2012 i windows Server 2012 R2. Aby uzyskać informacje o pomocy technicznej w systemie Windows 7, zobacz temat [Obsługa systemu Windows 7 kończy się](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support). Aby uzyskać informacje na temat pomocy technicznej dotyczącej systemu Windows Server 2008 R2, zobacz [przygotowanie do systemu Windows server 2008 koniec wsparcia](https://www.microsoft.com/cloud-platform/windows-server-2008).
+<sup>4</sup> **zarządzane** środowisko infrastruktury tożsamości reprezentuje środowisko z usługą Azure AD jako dostawcę tożsamości wdrożonego za pomocą jednej [synchronizacji skrótów haseł (PHS)](../hybrid/whatis-phs.md) lub [uwierzytelniania przekazywanego (PTA)](../hybrid/how-to-connect-pta.md) z [bezproblemowym logowaniem jednokrotnym](../hybrid/how-to-connect-sso.md).
+
+<sup>5</sup> **Obsługa nietrwałości dla bieżącego systemu Windows** wymaga dodatkowej uwagi, jak opisano poniżej w sekcji wskazówki.
+
+<sup>6</sup> **Obsługa nietrwałości dla systemu Windows niższego poziomu** wymaga dodatkowej uwagi, jak opisano poniżej w sekcji wskazówki.
+
 
 ## <a name="microsofts-guidance"></a>Wskazówki firmy Microsoft
 
@@ -73,17 +80,19 @@ Administratorzy powinni zapoznać się z następującymi artykułami, na podstaw
 - [Skonfiguruj sprzężenie hybrydowe Azure Active Directory dla środowiska federacyjnego](hybrid-azuread-join-federated-domains.md)
 - [Skonfiguruj sprzężenie hybrydowe Azure Active Directory dla środowiska zarządzanego](hybrid-azuread-join-managed-domains.md)
 
-Jeśli korzystasz z narzędzia przygotowywania systemu (sysprep.exe) i jeśli do instalacji używasz obrazu sprzed systemu Windows 10 1809, upewnij się, że obraz nie pochodzi z urządzenia, które jest już zarejestrowane w usłudze Azure AD jako dołączona hybrydowa usługa Azure AD.
+W przypadku wdrażania nietrwałego infrastruktury VDI firma Microsoft zaleca, aby administratorzy IT implementują poniższe wskazówki. Niewykonanie tej czynności spowoduje, że katalog będzie miał wiele starych urządzeń przyłączonych do hybrydowej usługi Azure AD zarejestrowanych z nietrwałej platformy VDI, co spowodowało zwiększenie nacisku na limit przydziału dzierżawy i ryzyko przerwania działania usługi z powodu wykroczenia limitu przydziału dzierżawy.
 
-Jeśli korzystasz z migawki maszyny wirtualnej w celu utworzenia dodatkowych maszyn wirtualnych, upewnij się, że migawka nie pochodzi z maszyny wirtualnej, która jest już zarejestrowana w usłudze Azure AD jako sprzężenie hybrydowe usługi Azure AD.
-
-Hybrydowe dołączenie usługi Azure AD dla nietrwałego infrastruktury VDI nie jest obsługiwane w bieżących wersjach systemu Windows. W przypadku wdrażania nietrwałego infrastruktury VDI dla systemu Windows niższego poziomu Administratorzy IT powinni zwrócić szczególną uwagę na zarządzanie przestarzałymi urządzeniami w usłudze Azure AD. Firma Microsoft zaleca, aby administratorzy IT implementują poniższe wskazówki. Niewykonanie tej czynności spowoduje, że katalog będzie miał wiele starych urządzeń przyłączonych do hybrydowej usługi Azure AD zarejestrowanych z nietrwałej platformy VDI.
-
-- Utwórz i użyj prefiksu dla nazwy wyświetlanej komputera, który wskazuje pulpit jako oparty na infrastrukturze VDI.
-- Zaimplementuj poniższe polecenie jako część skryptu wylogowywania. To polecenie spowoduje wyzwolenie najlepszego wywołania usługi Azure AD w celu usunięcia urządzenia.
-   - W przypadku urządzeń niższego poziomu systemu Windows — autoworkplace.exe/Leave
+- Jeśli korzystasz z narzędzia przygotowywania systemu (sysprep.exe) i jeśli do instalacji używasz obrazu sprzed systemu Windows 10 1809, upewnij się, że obraz nie pochodzi z urządzenia, które jest już zarejestrowane w usłudze Azure AD jako dołączona hybrydowa usługa Azure AD.
+- Jeśli korzystasz z migawki maszyny wirtualnej w celu utworzenia dodatkowych maszyn wirtualnych, upewnij się, że migawka nie pochodzi z maszyny wirtualnej, która jest już zarejestrowana w usłudze Azure AD jako sprzężenie hybrydowe usługi Azure AD.
+- Utwórz i użyj prefiksu dla nazwy wyświetlanej (np. NPVDI-) komputera, który wskazuje pulpit jako nietrwały oparty na infrastrukturze VDI.
+- Dla systemu Windows niższego poziomu:
+   - Zaimplementuj polecenie **autoworkplacejoin/Leave** w ramach skryptu wylogowywania. To polecenie powinno być wyzwalane w kontekście użytkownika i powinno zostać wykonane, zanim użytkownik wyloguje się całkowicie i nadal ma łączność sieciową.
+- W przypadku systemu Windows w środowisku federacyjnym (np. AD FS):
+   - Zaimplementuj **dsregcmd/Join** w ramach sekwencji rozruchowej maszyny wirtualnej.
+   - **Nie** wykonuj dsregcmd/Leave w ramach procesu zamykania/ponownego uruchamiania maszyny wirtualnej.
 - Zdefiniuj i Implementuj proces [zarządzania przestarzałymi urządzeniami](manage-stale-devices.md).
-   - Gdy masz strategię do identyfikowania nietrwałych hybrydowych urządzeń z usługą Azure AD, możesz bardziej agresywnie czyścić te urządzenia, aby upewnić się, że katalog nie jest używany z wieloma przestarzałymi urządzeniami.
+   - Gdy masz strategię do identyfikowania nietrwałych hybrydowych urządzeń z usługą Azure AD (np. przy użyciu prefiksu nazwy wyświetlanej komputera), należy bardziej agresywnie wyczyścić te urządzenia, aby upewnić się, że katalog nie jest zużywany na wiele starych urządzeń.
+   - W przypadku nietrwałych wdrożeń infrastruktury VDI na bieżącym i wyłączonym poziomie systemu Windows należy usunąć urządzenia, które mają **ApproximateLastLogonTimestamp** starsze niż 15 dni.
  
 ## <a name="next-steps"></a>Następne kroki
 

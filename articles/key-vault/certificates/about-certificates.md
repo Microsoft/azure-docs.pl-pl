@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 74007f5d10d58cf9680d4531304098cabe9b6d8b
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 38ae6bec99498440d7bf7e68e2d5c397e696192a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115666"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604904"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Informacje o certyfikatach usługi Azure Key Vault
 
@@ -84,7 +84,8 @@ Po utworzeniu certyfikatu Key Vault od podstaw należy podać zasady. Zasady okr
 Na wysokim poziomie zasady certyfikatów zawierają następujące informacje (ich definicje można znaleźć [tutaj](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)):  
 
 -   Właściwości certyfikatu x509: zawiera nazwę podmiotu, alternatywne nazwy podmiotu i inne właściwości używane do tworzenia żądania certyfikatu x509.  
--   Właściwości klucza: zawiera typ klucza, Długość klucza, możliwe do eksportu i pola ReuseKeyOnRenewal. Te pola instruują Magazyn kluczy, aby utworzyć klucz.  
+-   Właściwości klucza: zawiera typ klucza, Długość klucza, możliwe do eksportu i pola ReuseKeyOnRenewal. Te pola instruują Magazyn kluczy, aby utworzyć klucz. 
+     - Obsługiwane typy kluczy: RSA, RSA-HSM, EC, EC-HSM, Oct (wymienione [tutaj](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) 
 -   Właściwości klucza tajnego: zawiera właściwości tajne, takie jak typ zawartości klucza tajnego adresowanego do wygenerowania wartości klucza tajnego w celu pobierania certyfikatu jako klucza tajnego.  
 -   Akcje okresu istnienia: zawiera akcje okresu istnienia dla certyfikatu KV. Każda akcja okresu istnienia zawiera:  
 

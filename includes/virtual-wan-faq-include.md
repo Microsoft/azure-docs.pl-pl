@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 06/26/2020
+ms.date: 08/18/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7411b4c000569693335cb0438fe186b290750247
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: eec99ae353d4e5ca1bede1afef135def96207c50
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88602455"
+ms.locfileid: "88604690"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Czy użytkownik musi dysponować centrum i szprychą z urządzeniami z systemem SD/WAN/VPN, aby można było korzystać z wirtualnej sieci WAN platformy Azure?
 
@@ -119,7 +119,7 @@ Zdefiniowane programowo rozwiązania w zakresie łączności zwykle umożliwiaj�
 
 ### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>Co zrobić, jeśli urządzenie, którego używam, nie znajduje się na liście wirtualnych partnerów sieci WAN? Czy nadal mogę używać go do nawiązywania połączenia z wirtualną siecią WAN platformy Azure?
 
-Tak długo, jak urządzenie obsługuje protokół IPsec IKEv1 lub IKEv2. Wirtualne partnerzy sieci WAN automatyzują łączność z urządzeniem z punktami końcowymi sieci VPN platformy Azure. Oznacza to automatyzację kroków, takich jak "przekazywanie informacji o rozgałęzieniu", "IPsec i konfiguracja" i "łączność". Ponieważ urządzenie nie pochodzi z ekosystemu wirtualnego partnera sieci WAN, należy przeprowadzić duże podnoszenie poziomu ręcznie pobierając konfigurację platformy Azure i zaktualizować urządzenie w celu skonfigurowania połączenia IPsec.
+Tak długo, jak urządzenie obsługuje protokół IPsec IKEv1 lub IKEv2. Wirtualne partnerzy sieci WAN automatyzują łączność z urządzeniem z punktami końcowymi sieci VPN platformy Azure. Oznacza to automatyzację kroków, takich jak "przekazywanie informacji o rozgałęzieniu", "IPsec i konfiguracja" i "łączność". Ze względu na to, że urządzenie nie pochodzi z ekosystemu wirtualnego partnera sieci WAN, należy wykonać duże podnoszenie poziomu ręcznego konfigurowania platformy Azure i zaktualizować urządzenie w celu skonfigurowania połączenia IPsec.
 
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>W jaki sposób partnerzy, którzy nie są wymienieni na liście partnerów uruchomienia, mogą dołączyć do programu?
 
@@ -215,7 +215,7 @@ Ruch jest zgodny ze wzorcem: rozgałęzienie Device->usługodawca internetowy �
 
 Tak. Połączenie internetowe i urządzenie fizyczne obsługujące protokół IPsec najlepiej z naszych zintegrowanych [wirtualnych partnerów sieci WAN](../articles/virtual-wan/virtual-wan-locations-partners.md). Opcjonalnie możesz ręcznie zarządzać konfiguracją i łącznością z platformą Azure z poziomu preferowanego urządzenia.
 
-### <a name="how-do-i-enable-default-route-00000-in-a-connection-vpn-expressroute-or-virtual-network"></a>Jak mogę włączyć trasy domyślnej (0.0.0.0/0) w połączeniu (VPN, ExpressRoute lub Virtual Network):
+### <a name="how-do-i-enable-default-route-00000-in-a-connection-vpn-expressroute-or-virtual-network"></a>Jak mogę włączyć trasy domyślnej (0.0.0.0/0) w połączeniu (VPN, ExpressRoute lub Virtual Network)?
 
 Koncentrator wirtualny może propagować rozpoznajenie trasy domyślnej do sieci wirtualnej/połączenia sieci VPN typu lokacja-lokacja, jeśli flaga jest włączona w połączeniu. Ta flaga jest widoczna, gdy użytkownik edytuje połączenie sieci wirtualnej, połączenie sieci VPN lub połączenie ExpressRoute. Domyślnie ta flaga jest wyłączona, gdy lokacja lub obwód ExpressRoute jest podłączony do centrum. Jest ona domyślnie włączona po dodaniu połączenia sieci wirtualnej w celu podłączenia sieci wirtualnej do koncentratora wirtualnego. Trasa domyślna nie pochodzi z wirtualnego koncentratora sieci WAN; Trasa domyślna jest propagowana, jeśli jest już wykorzystana przez koncentrator wirtualnych sieci WAN w wyniku wdrożenia zapory w centrum lub jeśli w innej połączonej lokacji włączono tunelowanie wymuszone.
 
@@ -239,26 +239,27 @@ Gdy wiele obwodów usługi ExpressRoute jest podłączonych do koncentratora wir
 
 ### <a name="does-virtual-wan-prefer-expressroute-over-vpn-for-traffic-egressing-azure"></a>Czy wirtualne sieci WAN preferują ExpressRoute za pośrednictwem sieci VPN dla ruchu wychodzącego z platformy Azure
 
-Tak 
+Tak.
 
-### <a name="when-a-virtual-wan-hub-has-an-expressroute-circuit-and-a-vpn-site-connected-to-it-what-would-cause-a-vpn-connection-route-to-be-prefered-over-expressroute"></a>Gdy wirtualny koncentrator sieci WAN ma obwód usługi ExpressRoute oraz podłączoną do niej lokację sieci VPN, co spowodowałoby preferowanie trasy połączenia sieci VPN za pośrednictwem ExpressRoute?
+### <a name="when-a-virtual-wan-hub-has-an-expressroute-circuit-and-a-vpn-site-connected-to-it-what-would-cause-a-vpn-connection-route-to-be-preferred-over-expressroute"></a>Gdy wirtualny koncentrator sieci WAN ma obwód usługi ExpressRoute oraz podłączoną do niej lokację sieci VPN, co spowodowałoby preferowanie trasy połączenia sieci VPN względem ExpressRoute?
 
-Gdy obwód usługi ExpressRoute jest podłączony do koncentratora wirtualnego, routery Microsoft Edge są pierwszym węzłem komunikacji między środowiskiem lokalnym i platformą Azure. Routery brzegowe komunikują się z wirtualnymi bramami ExpressRoute sieci WAN, które z kolei łączą trasy z routera koncentratora wirtualnego, który kontroluje wszystkie trasy między bramami w wirtualnej sieci WAN. Routery Microsoft Edge przetwarzają wirtualne centra ExpressRoute tras z wyższym priorytetem w oparciu o trasy pochodzące z lokalnego. Z dowolnego powodu, jeśli połączenie sieci VPN stanie się podstawowym nośnikiem dla koncentratora wirtualnego, aby poznać trasy z programu (np. scenariusze trybu failover między usługą ExpressRoute i siecią VPN), chyba że lokacja sieci VPN nie ma dłuższej długości ścieżki, koncentrator wirtualny będzie nadal współużytkować trasy sieci VPN z bramą usługi ExpressRoute, powodując, że routery Microsoft Edge mają preferować trasy VPN za pośrednictwem 
+Gdy obwód usługi ExpressRoute jest podłączony do koncentratora wirtualnego, routery Microsoft Edge są pierwszym węzłem komunikacji między środowiskiem lokalnym i platformą Azure. Routery brzegowe komunikują się z wirtualnymi bramami ExpressRoute sieci WAN, które z kolei przepoznają trasy z routera koncentratora wirtualnego, który kontroluje wszystkie trasy między bramami w wirtualnej sieci WAN. Routery Microsoft Edge przetwarzają wirtualne centra ExpressRoute tras z wyższym priorytetem dla tras uzyskiwanych z poziomu lokalnego. Z jakiegoś powodu, jeśli połączenie sieci VPN stanie się podstawowym nośnikiem dla koncentratora wirtualnego, aby poznać trasy z (np. scenariusze trybu failover między usługą ExpressRoute i siecią VPN), chyba że lokacja sieci VPN nie ma dłuższej długości ścieżki, koncentrator wirtualny będzie nadal współużytkować trasy sieci VPN z bramą usługi ExpressRoute, powodując, że routery usługi Microsoft Edge preferują trasy VPN za pośrednictwem
 
 ### <a name="when-two-hubs-hub-1-and-2-are-connected-and-there-is-an-expressroute-circuit-connected-as-a-bow-tie-to-both-the-hubs-what-is-the-path-for-a-vnet-connected-to-hub-1-to-reach-a-vnet-connected-in-hub-2"></a>Gdy są połączone dwa centra (koncentrator 1 i 2), a istnieje obwód usługi ExpressRoute podłączony jako dziob do obu centrów, co to jest ścieżka do sieci wirtualnej podłączonej do centrum 1 w celu połączenia z siecią wirtualną podłączoną do koncentratora 2?
 
-Bieżące zachowanie polega na wybraniu ścieżki obwodu ExpressRoute za pośrednictwem centrum-do-Hub dla łączności między sieciami wirtualnymi. Nie jest to jednak zalecane w konfiguracji wirtualnej sieci WAN. Wirtualny zespół sieci WAN pracuje nad poprawką, aby włączyć preferencję dla piasty-Hub na ścieżce ExpressRoute. Zalecenie dotyczy wielu obwodów usługi ExpressRoute (różnych dostawców) do łączenia się z jednym koncentratorem i korzystania z łączności między centrami zapewnianą przez wirtualną sieć WAN w przypadku przepływów ruchu między regionami.
+Bieżące zachowanie polega na preferowaniu ścieżki obwodu usługi ExpressRoute za pośrednictwem piasty-to-Hub na potrzeby łączności między sieciami wirtualnymi. Nie jest to jednak zalecane w konfiguracji wirtualnej sieci WAN. Wirtualny zespół sieci WAN pracuje nad poprawką, aby włączyć preferencję dla piasty-Hub na ścieżce ExpressRoute. Zalecenie dotyczy wielu obwodów usługi ExpressRoute (różnych dostawców) do łączenia się z jednym koncentratorem i korzystania z łączności między centrami zapewnianą przez wirtualną sieć WAN w przypadku przepływów ruchu między regionami.
 
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Czy w wirtualnej sieci WAN jest obsługiwane protokół IPv6?
 
 Protokół IPv6 nie jest obsługiwany w przypadku koncentratora wirtualnego sieci WAN i jego bram. Jeśli masz sieć wirtualną z obsługą protokołu IPv6 i chcesz połączyć sieć wirtualną z wirtualna sieci WAN, ten scenariusz nie jest obecnie obsługiwany.
 
-### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionality-"></a>Jaka jest zalecana wersja interfejsu API, która ma być używana przez skrypty automatyzowania różnych wirtualnych funkcji sieci WAN?
+### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionalities"></a>Co to jest zalecana wersja interfejsu API, która ma być używana przez skrypty automatyzując różne wirtualne funkcje sieci WAN?
 
 Wymagana jest minimalna wersja 05-01-2020 (może 1 2020). 
 
-### <a name="any-virtual-wan-limits"></a>Dowolnych limitów wirtualnych sieci WAN?
-Limity wirtualnej sieci WAN: https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits
+### <a name="are-there-any-virtual-wan-limits"></a>Czy istnieją jakieś limity wirtualnej sieci WAN?
+
+Zobacz sekcję [limity dotyczące wirtualnych sieci WAN](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) na stronie limitów subskrypcji i usług.
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Jakie są różnice między wirtualnymi typami sieci WAN (podstawowa i standardowa)?
 

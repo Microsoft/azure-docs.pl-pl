@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: 2d1ef885ea36e2eee7fd30268fd7b1f4609a70bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d73337c25c812363b7a542bf42372ca3baa10e8
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560031"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605446"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Samouczek: wykrywanie zagrożeń wbudowanych
 
@@ -29,40 +29,50 @@ ms.locfileid: "85560031"
 > Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Po [nawiązaniu połączenia ze źródłami danych](quickstart-onboard.md)   z platformą Azure — użytkownik chce otrzymywać powiadomienia o wystąpieniu podejrzanych sytuacji. Aby można było to zrobić, wskaźnik na platformie Azure udostępnia gotowy do użycia wbudowane szablony. Te szablony zostały zaprojektowane przez zespół ekspertów ds. zabezpieczeń i analityków firmy Microsoft na podstawie znanych zagrożeń, typowych wektorów ataków oraz podejrzanych łańcuchów eskalacji działań. Po włączeniu tych szablonów zostaną automatycznie wyszukane wszystkie działania, które wyglądają podejrzanie w danym środowisku. Wiele szablonów można dostosować w taki sposób, aby wyszukiwać lub odfiltrować działania, zgodnie z potrzebami. Alerty wygenerowane przez te szablony spowodują utworzenie zdarzeń, które można przypisać i zbadać w danym środowisku.
+Po [nawiązaniu połączenia ze źródłami danych](quickstart-onboard.md)   z platformą Azure wskaźnikiem, użytkownik chce otrzymywać powiadomienia o wystąpieniu podejrzanych wystąpień. Z tego względu usługa Azure — wskaźnik przedstawia wbudowane szablony, które ułatwiają tworzenie reguł wykrywania zagrożeń. Te szablony zostały zaprojektowane przez zespół ekspertów ds. zabezpieczeń i analityków firmy Microsoft na podstawie znanych zagrożeń, typowych wektorów ataków oraz podejrzanych łańcuchów eskalacji działań. Reguły utworzone na podstawie tych szablonów będą automatycznie przeszukiwać środowisko w celu wyszukania wszystkich działań, które wyglądają podejrzanie. Wiele szablonów można dostosować, aby wyszukiwać działania lub odfiltrować je zgodnie z potrzebami. Alerty wygenerowane przez te reguły spowodują utworzenie zdarzeń, które można przypisać i zbadać w danym środowisku.
 
 Ten samouczek ułatwia wykrywanie zagrożeń przy użyciu platformy Azure — wskaźnik:
 
 > [!div class="checklist"]
-> * Korzystanie z wbudowanych wykryć
+> * Korzystanie z wbudowanych wykryć zagrożeń
 > * Automatyzowanie odpowiedzi na zagrożenia
 
 ## <a name="about-out-of-the-box-detections"></a>Informacje o gotowych funkcjach wykrywania
 
 Aby wyświetlić wszystkie gotowe do użycia wykrycia, przejdź do pozycji **Analiza** , a następnie pozycję **Szablony reguł**. Ta karta zawiera wszystkie wbudowane reguły kontrolki Azure — wskaźnik.
 
-   ![Używanie wbudowanych wykryć do znajdowania zagrożeń przy użyciu platformy Azure — wskaźnik](media/tutorial-detect-built-in/view-oob-detections.png)
+   :::image type="content" source="media/tutorial-detect-built-in/view-oob-detections.png" alt-text="Używanie wbudowanych wykryć do znajdowania zagrożeń przy użyciu platformy Azure — wskaźnik":::
 
 Dostępne są następujące typy szablonów:
 
-- **Zabezpieczenia firmy Microsoft** — szablony zabezpieczeń firmy Microsoft automatycznie tworzą zdarzenia wskaźnikowe platformy Azure na podstawie alertów wygenerowanych w innych rozwiązaniach zabezpieczeń firmy Microsoft w czasie rzeczywistym. Możesz użyć reguł zabezpieczeń firmy Microsoft jako szablonu, aby utworzyć nowe reguły z podobną logiką. Aby uzyskać więcej informacji na temat reguł zabezpieczeń, zobacz [Automatyczne tworzenie zdarzeń z alertów zabezpieczeń firmy Microsoft](create-incidents-from-alerts.md).
-- Technologia **syntezy** oparta na technologii syntezy, zaawansowane wykrywanie ataków potokach wieloetapowych na platformie Azure, korzysta z skalowalnych algorytmów uczenia maszynowego, które mogą skorelować wiele alertów o niskiej wierności i zdarzeń w wielu produktach w przypadku zdarzeń o wysokiej wierności i akcji. Funkcja Fusion jest domyślnie włączona. Ponieważ logika jest ukryta, nie można jej użyć jako szablonu do utworzenia więcej niż jednej reguły.
-- **Analiza zachowań uczenia maszynowego** — te szablony są oparte na własnościowe algorytmy uczenia maszynowego firmy Microsoft, dlatego nie można zobaczyć wewnętrznej logiki działania i uruchomienia. Ponieważ logika jest ukryta, nie można jej użyć jako szablonu do utworzenia więcej niż jednej reguły.
--   **Zaplanowane** — zaplanowane kwerendy są planowane przez ekspertów zabezpieczeń firmy Microsoft. Można wyświetlić logikę zapytań i wprowadzić w niej zmiany. Możesz użyć reguł zaplanowanych jako szablonu, aby utworzyć nowe reguły z podobną logiką.
+- **Zabezpieczenia firmy Microsoft**
+   
+   Szablony zabezpieczeń firmy Microsoft automatycznie tworzą zdarzenia wskaźnikowe platformy Azure na podstawie alertów wygenerowanych w innych rozwiązaniach zabezpieczeń firmy Microsoft w czasie rzeczywistym. Możesz użyć reguł zabezpieczeń firmy Microsoft jako szablonu, aby utworzyć nowe reguły z podobną logiką. Aby uzyskać więcej informacji na temat reguł zabezpieczeń, zobacz [Automatyczne tworzenie zdarzeń z alertów zabezpieczeń firmy Microsoft](create-incidents-from-alerts.md).
+
+- **Łączenie** 
+
+    W oparciu o technologię syntezy zaawansowane wykrywanie ataków potokach wieloetapowych na platformie Azure Wskaźnikowo używa skalowalnych algorytmów uczenia maszynowego, które mogą skorelować wiele alertów o niskiej wierności i zdarzeń dla wielu produktów w zdarzeniach o wysokiej wierności i akcji. Funkcja Fusion jest domyślnie włączona. Ponieważ logika jest ukryta i w związku z tym nie można jej dostosowywać, możesz utworzyć tylko jedną regułę z tym szablonem.
+
+- **Analiza zachowań uczenia maszynowego**
+
+    Te szablony są oparte na własnościowych algorytmach uczenia maszynowego firmy Microsoft, dlatego nie można zobaczyć wewnętrznej logiki sposobu działania i uruchamiania programu. Ponieważ logika jest ukryta i w związku z tym nie można jej dostosowywać, możesz utworzyć tylko jedną regułę z każdym szablonem tego typu.
+
+- **Zaplanowana**
+
+    Zaplanowane reguły analizy opierają się na wbudowanych zapytaniach pisanych przez ekspertów zabezpieczeń firmy Microsoft. Można wyświetlić logikę zapytań i wprowadzić w niej zmiany. Można użyć szablonu reguł zaplanowanych i dostosować logikę zapytania i ustawienia planowania w celu utworzenia nowych reguł.
 
 ## <a name="use-out-of-the-box-detections"></a>Korzystanie z wbudowanych wykryć
 
-1. Aby użyć wbudowanego szablonu, kliknij pozycję **Utwórz regułę** , aby utworzyć nową aktywną regułę opartą na tym szablonie. Każdy wpis ma listę wymaganych źródeł danych, które są automatycznie sprawdzane, co może spowodować wyłączenie **reguły** .
+1. Aby użyć wbudowanego szablonu, kliknij nazwę szablonu, a następnie kliknij przycisk **Utwórz regułę** w okienku szczegółów, aby utworzyć nową aktywną regułę opartą na tym szablonie. Każdy szablon zawiera listę wymaganych źródeł danych. Po otwarciu szablonu źródła danych są automatycznie sprawdzane pod kątem dostępności. Jeśli występuje problem z dostępnością, przycisk **Utwórz regułę** może być wyłączony lub może zostać wyświetlone ostrzeżenie.
   
-   ![Używanie wbudowanych wykryć do znajdowania zagrożeń przy użyciu platformy Azure — wskaźnik](media/tutorial-detect-built-in/use-built-in-template.png)
+    :::image type="content" source="media/tutorial-detect-built-in/use-built-in-template.png" alt-text="Panel podglądu reguły wykrywania":::
  
-1. Spowoduje to otwarcie Kreatora tworzenia reguły na podstawie wybranego szablonu. Wszystkie szczegóły są wypełniane, a dla **reguł zaplanowanych** lub **reguł zabezpieczeń firmy Microsoft**można dostosować logikę w celu lepszego dostosowania do organizacji lub utworzyć dodatkowe reguły na podstawie wbudowanego szablonu. Po wykonaniu kroków opisanych w Kreatorze tworzenia reguł i zakończeniu tworzenia reguły na podstawie szablonu Nowa reguła zostanie wyświetlona na karcie **aktywne reguły** .
+1. Kliknięcie przycisku **Utwórz regułę** spowoduje otwarcie Kreatora tworzenia reguły w oparciu o wybrany szablon. Wszystkie szczegóły są wypełniane przy użyciu szablonów zabezpieczeń **zaplanowanych** lub **Microsoft** , można dostosować logikę i inne ustawienia reguły, aby lepiej odpowiadały konkretnym potrzebom. Możesz powtórzyć ten proces, aby utworzyć dodatkowe reguły na podstawie szablonu wbudowanego. Po wykonaniu kroków w Kreatorze tworzenia reguły na końcu zakończono Tworzenie reguły na podstawie szablonu. Nowe reguły pojawią się na karcie **aktywne reguły** .
 
-Aby uzyskać więcej informacji na temat pól w kreatorze, zobacz [Samouczek: Tworzenie niestandardowych reguł analitycznych w celu wykrywania podejrzanych zagrożeń](tutorial-detect-threats-custom.md).
-
-
+    Aby uzyskać więcej informacji na temat dostosowywania reguł w Kreatorze tworzenia reguł, zobacz [Samouczek: Tworzenie niestandardowych reguł analizy w celu wykrywania zagrożeń](tutorial-detect-threats-custom.md).
 
 ## <a name="next-steps"></a>Następne kroki
+
 W tym samouczku przedstawiono sposób rozpoczynania wykrywania zagrożeń przy użyciu platformy Azure. 
 
 Aby dowiedzieć się, jak zautomatyzować odpowiedzi na zagrożenia, [Skonfiguruj automatyczne reagowanie na zagrożenia na platformie Azure](tutorial-respond-threats-playbook.md).

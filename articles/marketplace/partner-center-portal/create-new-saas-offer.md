@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 6140d369c2dbc0968d2f28ff6b8cf447dd721d10
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 7500eddc2416a1cb705ef207930c5fe4c6f1068a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166726"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604746"
 ---
 # <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Tworzenie oferty SaaS w komercyjnej witrynie Marketplace
 
@@ -30,7 +30,7 @@ Aby rozpocząć tworzenie ofert oprogramowania jako usługi (SaaS) w komercyjnej
    ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-saas.png)
 
 > [!NOTE]
-> Po opublikowaniu oferty zmiany wprowadzone w centrum partnerskim są wyświetlane w obszarze witryny w sklepie po ponownym opublikowaniu oferty. Pamiętaj, aby zawsze ponownie publikować po wprowadzeniu zmian.
+> Po opublikowaniu oferty zmiany wprowadzone w centrum partnerskim będą widoczne w sklepach online dopiero po ponownym opublikowaniu oferty. Pamiętaj, aby zawsze ponownie publikować po wprowadzeniu zmian.
 
 ## <a name="new-offer"></a>Nowa oferta
 
@@ -185,7 +185,7 @@ Twoja oferta zostanie opublikowana w usłudze AppSource lub witrynie Azure Marke
 - Co najmniej jeden i maksymalnie dwie kategorie, w tym podstawowa i pomocnicza Kategoria (opcjonalnie).
 - Do dwóch podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli żadna Podkategoria nie ma zastosowania do oferty, wybierz pozycję **nie dotyczy**.
 
-Zapoznaj się z pełną listą kategorii i podkategorii mających zastosowanie do każdej witryny sklepu w artykule [Oferta z najlepszymi rozwiązaniami](../gtm-offer-listing-best-practices.md).
+Zapoznaj się z pełną listą kategorii i podkategorii mających zastosowanie do każdego sklepu online z [ofertami dotyczącymi najlepszych](../gtm-offer-listing-best-practices.md)rozwiązań.
 
 ### <a name="industries"></a>Branże
 
@@ -269,11 +269,11 @@ To pole jest wymagane.
 
 - **Zasady ochrony prywatności** (wymagane) — link do zasad zachowania poufności informacji organizacji. Użytkownik jest odpowiedzialny za zapewnienie zgodności aplikacji z przepisami i przepisami dotyczącymi ochrony prywatności oraz podawanie prawidłowych zasad zachowania poufności informacji.
 - **Materiały marketingowe programu CSP** (opcjonalnie) — podaj link do materiałów marketingowych, jeśli wybierzesz opcję rozszerania oferty do programu w programie [Cloud Solution Provider (CSP)](../cloud-solution-providers.md) . Dostawca usług kryptograficznych rozszerza ofertę na szerszego grona wykwalifikowanych klientów, umożliwiając partnerom programu CSP łączenie się z ofertą, rynku i sprzedaży. Tacy odsprzedawcy będą musieli uzyskać dostęp do materiałów marketingowych oferty. Aby uzyskać więcej informacji, zobacz [usługi przejdź do rynku](https://partner.microsoft.com/reach-customers/gtm).
-- **Użyteczne linki** (opcjonalnie) — opcjonalne uzupełniające dokumenty online dotyczące aplikacji lub powiązanych usług wymienionych przez podanie **tytułu** i **adresu URL**. Dodaj dodatkowe przydatne linki, klikając pozycję **+ Dodaj adres URL**.
+- **Użyteczne linki** (opcjonalnie) — opcjonalne uzupełniające dokumenty online dotyczące aplikacji lub powiązanych usług wymienionych przez podanie **tytułu**  i  **adresu URL**. Dodaj dodatkowe przydatne linki, klikając pozycję  **+ Dodaj adres URL**.
 
 #### <a name="contact-information"></a>Informacje kontaktowe
 
-- **Kontakty** — dla każdego kontaktu z klientem Podaj **nazwisko**pracownika, **numer telefonu**i adres **e-mail** ( *nie będą* one wyświetlane publicznie). Dla grupy **kontaktów pomocy technicznej** wymagany jest **adres URL pomocy technicznej** ( *zostanie* on wyświetlony publicznie).
+- **Kontakty** — dla każdego kontaktu z klientem Podaj  **nazwisko**pracownika,  **numer telefonu**i adres **e-mail** ( *nie będą* one wyświetlane publicznie). Dla grupy **kontaktów pomocy technicznej** wymagany jest **adres URL pomocy technicznej** ( *zostanie* on wyświetlony publicznie).
 
   - **Kontakt z pomocą techniczną** (wymagany) — w przypadku ogólnych pytań.
   - **Kontakt inżynieryjny** (wymagany) — w przypadku pytań technicznych.
@@ -282,14 +282,14 @@ To pole jest wymagane.
 #### <a name="files-and-images"></a>Pliki i obrazy
 
 - **Dokumenty** (wymagane) — Dodaj powiązane dokumenty marketingowe dla oferty w formacie PDF — co najmniej jeden i maksymalnie trzy dokumenty na ofertę.
-- **Obrazy** — Przekaż obrazy logo w formacie PNG:
+- **Obrazy**  — Przekaż obrazy logo w formacie PNG:
 
   - **Mały** (48 x 48 pikseli, wymagana)
   - **Średni** (90 x 90 pikseli, wymagana)
   - **Duże** (216 x 216 pikseli, wymagane)
   - **Szerokie** (255 x 115 pikseli) (opcjonalnie)
 
-   Te trzy rozmiary logo są używane w różnych miejscach w sklepie:
+   Te trzy rozmiary logo są używane w różnych miejscach w sklepach online:
 
    -   Małe logo (48 x 48 pikseli) pojawia się w wynikach wyszukiwania Azure Marketplace i na stronie głównej Microsoft AppSource i wynikach wyszukiwania. 
    -   Średnie logo (90 x 90 pikseli) pojawia się podczas tworzenia nowego zasobu w Microsoft Azure.
@@ -471,7 +471,7 @@ Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 Wybranie oferty w programie CSP pozwala dostawcom rozwiązań w chmurze sprzedawać produkt w ramach rozwiązania do swoich klientów. Aby uzyskać więcej informacji, zobacz [dostawcy rozwiązań w chmurze](https://go.microsoft.com/fwlink/?linkid=2111109).
 
-## <a name="publish"></a>Opublikuj
+## <a name="publish"></a>Publikowanie
 
 Po zakończeniu wszystkich wymaganych sekcji oferty wybierz pozycję **Przejrzyj i Opublikuj** w prawym górnym rogu portalu.
 
