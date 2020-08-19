@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą ScreenSteps | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i ScreenSteps.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 4563fe94-a88f-4895-a07f-79df44889cf9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 864a9243a9f737506fd4d8cbc3940d7a86711f20
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8f23f9763d25d5edfebd0e4cff7f3b7772ef1554
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67091663"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543356"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Samouczek: integracja Azure Active Directory z usługą ScreenSteps
 
@@ -32,7 +28,7 @@ Integracja ScreenSteps z usługą Azure AD zapewnia następujące korzyści:
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -170,7 +166,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą ScreenSteps
 
     f. Skopiuj **adres URL odbiorcy SAML** do schowka i wklej go do pola tekstowego **adres URL logowania** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
-    g. Wróć do **punktu końcowego Edytuj logowanie**jednokrotne.
+    przykład Wróć do **punktu końcowego Edytuj logowanie**jednokrotne.
 
     h. Kliknij przycisk **Ustaw jako domyślny dla konta** , aby użyć tego punktu końcowego dla wszystkich użytkowników logujących się do usługi ScreenSteps. Alternatywnie możesz kliknąć przycisk **Dodaj do witryny** , aby użyć tego punktu końcowego dla określonych lokacji w **ScreenSteps**.
 
@@ -193,7 +189,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
     b. W polu **Nazwa użytkownika** wpisz **brittasimon@yourcompanydomain.extension**  
-    Na przykład: BrittaSimon@contoso.com
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -227,7 +223,7 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 ### <a name="create-screensteps-test-user"></a>Utwórz użytkownika testowego ScreenSteps
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w ScreenSteps. Współpracuj z  [zespołem obsługi klienta ScreenSteps](https://www.screensteps.com/contact), aby dodać użytkowników z platformy ScreenSteps. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w ScreenSteps. Współpracuj z [zespołem obsługi klienta ScreenSteps](https://www.screensteps.com/contact),   Aby dodać użytkowników z platformy ScreenSteps. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 
@@ -241,4 +237,4 @@ Po kliknięciu kafelka ScreenSteps w panelu dostępu należy automatycznie zalog
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

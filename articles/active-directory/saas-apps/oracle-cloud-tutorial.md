@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z konsolą infrastruktury w chmurze firmy Oracle | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i konsolą infrastruktury w chmurze firmy Oracle.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: f045fe19-11f8-4ccf-a3eb-8495fdc8716f
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64cae5812a380725d612d27190042797542ee255
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d4a478c402346e33a4f27ff2a363de75285b435b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76289105"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543843"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Samouczek: Integrowanie konsoli infrastruktury chmurowej Oracle z Azure Active Directory
 
@@ -94,7 +90,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
       > [!NOTE]
       > Jeśli wartości **Identyfikator** i **Adres URL odpowiedzi** nie zostaną automatycznie wypełnione, wpisz te wartości ręcznie zgodnie z wymaganiami.
 
-      W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:`https://console.<REGIONNAME>.oraclecloud.com/`
+      W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://console.<REGIONNAME>.oraclecloud.com/`
 
       > [!NOTE]
       > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z firmą [Oracle Cloud Infrastructure Client Console Support Team](https://www.oracle.com/support/advanced-customer-support/products/cloud.html) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -105,7 +101,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Aplikacja konsolowa usługi Oracle Cloud Infrastructure oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe Atrybuty użytkownika.
 
-   ![image](common/edit-attribute.png)
+   ![image (obraz)](common/edit-attribute.png)
 
 1. Oprócz powyższych, Aplikacja konsolowa infrastruktury w chmurze firmy Oracle oczekuje kilku atrybutów do przekazania z powrotem do odpowiedzi SAML. W sekcji **atrybuty użytkownika & oświadczenia** w oknie dialogowym **oświadczenia grupy (wersja zapoznawcza)** wykonaj następujące czynności:
 
@@ -113,11 +109,11 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
    1. Wybierz pozycję **trwały** jako **Wybierz format identyfikatora nazwy**.
  
-   1. Kliknij przycisk **Zapisz**.
+   1. Kliknij pozycję **Zapisz**.
 
-      ![image](./media/oracle-cloud-tutorial/config07.png)
+      ![image (obraz)](./media/oracle-cloud-tutorial/config07.png)
     
-      ![image](./media/oracle-cloud-tutorial/config11.png)
+      ![image (obraz)](./media/oracle-cloud-tutorial/config11.png)
 
    1. Kliknij **pióro** obok **grup zwróconych w ramach żądania**.
 
@@ -129,11 +125,11 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
    1. W polu tekstowym **Nazwa** wpisz **GroupName**.
 
-   1. W polu tekstowym **przestrzeń nazw (opcjonalnie)** wpisz `https://auth.oraclecloud.com/saml/claims`polecenie.
+   1. W polu tekstowym **przestrzeń nazw (opcjonalnie)** wpisz polecenie `https://auth.oraclecloud.com/saml/claims` .
 
-   1. Kliknij przycisk **Zapisz**.
+   1. Kliknij pozycję **Zapisz**.
 
-      ![image](./media/oracle-cloud-tutorial/config08.png)
+      ![image (obraz)](./media/oracle-cloud-tutorial/config08.png)
 
 1. W sekcji **Konfigurowanie konsoli infrastruktury firmy Oracle w chmurze** skopiuj odpowiednie adresy URL na podstawie wymagań.
 
@@ -149,7 +145,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B. Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B. Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B. Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -177,15 +173,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij po lewej stronie menu i kliknij pozycję **tożsamość** , a następnie przejdź do **Federacji**.
 
-   ![Konfiguracja](./media/oracle-cloud-tutorial/config01.png)
+   ![Konfigurowanie](./media/oracle-cloud-tutorial/config01.png)
 
 1. Zapisz **plik metadanych dostawcy usług** , klikając link **Pobierz ten dokument** i przekaż go do sekcji **Podstawowa konfiguracja SAML** w Azure Portal a następnie kliknij pozycję **Dodaj dostawcę tożsamości**.
 
-   ![Konfiguracja](./media/oracle-cloud-tutorial/config02.png)
+   ![Konfigurowanie](./media/oracle-cloud-tutorial/config02.png)
 
 1. W oknie podręcznym **Dodawanie dostawcy tożsamości** wykonaj następujące czynności:
 
-   ![Konfiguracja](./media/oracle-cloud-tutorial/config03.png)
+   ![Konfigurowanie](./media/oracle-cloud-tutorial/config03.png)
 
    1. W polu tekstowym **Nazwa** wprowadź swoją nazwę.
 
@@ -197,7 +193,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
    1. Kliknij przycisk **Kontynuuj** i w sekcji **Edytuj dostawcę tożsamości** wykonaj następujące czynności:
 
-      ![Konfiguracja](./media/oracle-cloud-tutorial/config09.png)
+      ![Konfigurowanie](./media/oracle-cloud-tutorial/config09.png)
 
    1. **Grupa dostawców tożsamości** powinna być wybrana jako Grupa niestandardowa. Grupa musi być IDENTYFIKATORem GUID grupy z Azure Active Directory. Grupa musi być zamapowana z odpowiednią grupą w polu **Grupa OCI** .
 
@@ -213,14 +209,14 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 Po wybraniu kafelka konsola infrastruktury w chmurze Oracle w panelu dostępu nastąpi przekierowanie do strony logowania do konsoli infrastruktury w chmurze firmy Oracle. Wybierz **dostawcę tożsamości** z menu rozwijanego, a następnie kliknij pozycję **Kontynuuj** , jak pokazano poniżej, aby się zalogować. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-![Konfiguracja](./media/oracle-cloud-tutorial/config10.png)
+![Konfigurowanie](./media/oracle-cloud-tutorial/config10.png)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Jak chronić konsolę infrastruktury chmury firmy Oracle z zaawansowaną widocznością i kontrolkami](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

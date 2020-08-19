@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie konsoli infrastruktury w chmurze firmy Oracle do automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak automatycznie udostępniać i cofać obsługę administracyjną kont użytkowników z usługi Azure AD w konsoli infrastruktury chmury firmy Oracle.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: e22c8746-7638-4a0f-ae08-7db0c477cf52
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 94f5be93d95cc1c524e6db464cac68879ed0b0e7
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 0c3d68698621fe963074c7216e4636208d93deca
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926794"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543875"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie konsoli infrastruktury w chmurze firmy Oracle do automatycznego aprowizacji użytkowników
 
@@ -126,28 +122,28 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
       |Atrybut|Typ|
       |---|---|
-      |displayName|Ciąg|
-      |userName|Ciąg|
-      |aktywne|Wartość logiczna|
-      |tytuł|Ciąg|
-      |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
-      |preferredLanguage|Ciąg|
-      |Nazwa. imię|Ciąg|
-      |Nazwa. rodzina|Ciąg|
-      |adresy [typ EQ "Work"]. sformatowane|Ciąg|
-      |adresy [typ EQ "Work"]. locale|Ciąg|
-      |addresss [Type EQ "Work"]. region|Ciąg|
-      |addresss [Type EQ "Work"]. KodPocztowy|Ciąg|
-      |addresss [Type EQ "Work"]. Country|Ciąg|
-      |adresy [typ EQ "Work"]. streetAddress|Ciąg|
-      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|Ciąg|
-      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
-      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|Ciąg|
-      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|Ciąg|
+      |displayName|String|
+      |userName|String|
+      |aktywne|Boolean|
+      |tytuł|String|
+      |wiadomości e-mail [Type EQ "Work"]. Value|String|
+      |preferredLanguage|String|
+      |Nazwa. imię|String|
+      |Nazwa. rodzina|String|
+      |adresy [typ EQ "Work"]. sformatowane|String|
+      |adresy [typ EQ "Work"]. locale|String|
+      |addresss [Type EQ "Work"]. region|String|
+      |addresss [Type EQ "Work"]. KodPocztowy|String|
+      |addresss [Type EQ "Work"]. Country|String|
+      |adresy [typ EQ "Work"]. streetAddress|String|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|String|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|String|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|String|
       |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
-      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|Ciąg|
-      |urn: IETF: params: Standard scim: schematy: Oracle: IDCs: Extension: User: User: bypassNotification|Wartość logiczna|
-      |urn: IETF: params: Standard scim: schematy: Oracle: IDCs: Extension: User: User: isFederatedUser|Wartość logiczna|
+      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|String|
+      |urn: IETF: params: Standard scim: schematy: Oracle: IDCs: Extension: User: User: bypassNotification|Boolean|
+      |urn: IETF: params: Standard scim: schematy: Oracle: IDCs: Extension: User: User: isFederatedUser|Boolean|
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do konsoli infrastruktury w chmurze firmy Oracle**.
 
@@ -155,8 +151,8 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
       |Atrybut|Typ|
       |---|---|
-      |displayName|Ciąg|
-      |externalId|Ciąg|
+      |displayName|String|
+      |externalId|String|
       |elementy członkowskie|Dokumentacja|
 
 12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).

@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Corptax | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Corptax.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: fdad2893-41f4-4056-b6d2-ec3d050eb350
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cd09a35d5796cdc4267c9d01a901b4e3b812d7c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 056cc023c63ae2cc90f6fcc6ef1222ec8e33cab5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67104395"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88542704"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-corptax"></a>Samouczek: integracja Azure Active Directory z usługą Corptax
 
@@ -33,7 +28,7 @@ Integracja Corptax z usługą Azure AD zapewnia następujące korzyści:
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -106,7 +101,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Corptax, wy
 
     ![Corptax domenę i adresy URL Logowanie jednokrotne](common/sp_intiated.png)
 
-    W polu tekstowym **adres URL logowania** wpisz adres URL:`https://asp.corptax.com`
+    W polu tekstowym **adres URL logowania** wpisz adres URL:  `https://asp.corptax.com`
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **Kod XML metadanych federacji** i zapisać go na komputerze.
 
@@ -134,8 +129,8 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
 
-    b. W polu **Nazwa użytkownika** wpisz`brittasimon\@yourcompanydomain.extension`  
-    Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz `brittasimon\@yourcompanydomain.extension`  
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -176,7 +171,7 @@ W tej sekcji utworzysz użytkownika o nazwie Britta Simon w Corptax. Aby dodać 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 Po kliknięciu kafelka Corptax w panelu dostępu należy przekierować do poniższej strony Corptax — 
 
-![image](media/corptax-tutorial/corptaxlogin.png)
+![image (obraz)](media/corptax-tutorial/corptaxlogin.png)
 
 W polu tekstowym **środowisko** wpisz odpowiednie środowisko, należy automatycznie zalogować się do Corptax, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
@@ -186,4 +181,4 @@ W polu tekstowym **środowisko** wpisz odpowiednie środowisko, należy automaty
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

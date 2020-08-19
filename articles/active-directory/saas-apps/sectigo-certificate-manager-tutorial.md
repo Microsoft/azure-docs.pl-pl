@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z menedżerem certyfikatów Sectigo | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i menedżerem certyfikatów Sectigo.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 62cd6987-3373-4b58-b1ff-589f4a3d70a9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0447a8dd464363ae7e076dde2520565005d7c0a5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d68e5335fff0341d8808e581061519977e1bb517
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67588235"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543282"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Samouczek: integracja Azure Active Directory z menedżerem certyfikatów Sectigo
 
@@ -61,7 +56,7 @@ Aby zintegrować Menedżera certyfikatów Sectigo z usługą Azure AD, musisz do
 
     ![Opcja Azure Active Directory](common/select-azuread.png)
 
-1. Wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje**.
+1. Wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
 
     ![Okienko Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -107,26 +102,26 @@ W tej sekcji skonfigurujesz Logowanie jednokrotne w usłudze Azure AD za pomocą
 1. W okienku **podstawowe konfiguracje języka SAML** , aby skonfigurować *tryb zainicjowany dostawcy tożsamości*, wykonaj następujące czynności:
 
     1. W polu **Identyfikator** wprowadź jeden z następujących adresów URL:
-       * https:\//CERT-Manager.com/Shibboleth
-       * https:\//Hard.CERT-Manager.com/Shibboleth
+       * https: \/ /CERT-Manager.com/Shibboleth
+       * https: \/ /Hard.CERT-Manager.com/Shibboleth
 
     1. W polu **adres URL odpowiedzi** wprowadź jeden z następujących adresów URL:
-        * https:\//CERT-Manager.com/Shibboleth.SSO/SAML2/post
-        * https:\//Hard.CERT-Manager.com/Shibboleth.SSO/SAML2/post
+        * https: \/ /CERT-Manager.com/Shibboleth.SSO/SAML2/post
+        * https: \/ /Hard.CERT-Manager.com/Shibboleth.SSO/SAML2/post
 
     1. Wybierz pozycję **Ustaw dodatkowe adresy URL**.
 
     1. W polu **Stan przekazywania** wprowadź jeden z następujących adresów URL:
-       * https:\//CERT-Manager.com/Customer/SSLSupport/IDP
-       * https:\//Hard.CERT-Manager.com/Customer/SSLSupport/IDP
+       * https: \/ /CERT-Manager.com/Customer/SSLSupport/IDP
+       * https: \/ /Hard.CERT-Manager.com/Customer/SSLSupport/IDP
 
     ![Sectigo domeny Menedżera certyfikatów i adresów URL Logowanie jednokrotne](common/idp-relay.png)
 
 1.  Aby skonfigurować aplikację w *trybie zainicjowanym przez program SP*, wykonaj następujące czynności:
 
     * W polu **adres URL logowania** wprowadź jeden z następujących adresów URL:
-      * https:\//CERT-Manager.com/Shibboleth.SSO/login
-      * https:\//Hard.CERT-Manager.com/Shibboleth.SSO/login
+      * https: \/ /CERT-Manager.com/Shibboleth.SSO/login
+      * https: \/ /Hard.CERT-Manager.com/Shibboleth.SSO/login
 
       ![Sectigo domeny Menedżera certyfikatów i adresów URL Logowanie jednokrotne](common/both-signonurl.png)
 
@@ -150,7 +145,7 @@ Aby skonfigurować Logowanie jednokrotne na stronie Menedżera certyfikatów Sec
 
 W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w witrynie Azure Portal.
 
-1. W Azure Portal wybierz pozycję **Azure Active Directory** > **Użytkownicy** > **Wszyscy użytkownicy**.
+1. W Azure Portal wybierz pozycję **Azure Active Directory**  >  **Użytkownicy**  >  **Wszyscy użytkownicy**.
 
     ![Opcje Użytkownicy i wszyscy użytkownicy](common/users.png)
 
@@ -162,11 +157,11 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w witrynie A
 
     1. W polu **Nazwa** wpisz **BrittaSimon**.
   
-    1. W polu **Nazwa użytkownika** wprowadź **brittasimon\@\<>-firmowej domeny.\< rozszerzenie\>**. Na przykład **brittasimon\@contoso.com**.
+    1. W polu **Nazwa użytkownika** wprowadź **brittasimon \@ \<your-company-domain> . \<extension\> **. Na przykład **brittasimon \@ contoso.com**.
 
     1. Zaznacz pole wyboru **Pokaż hasło** . Zapisz wartość wyświetlaną w polu **hasło** .
 
-    1. Wybierz przycisk **Utwórz**.
+    1. Wybierz pozycję **Utwórz**.
 
     ![Okienko użytkownika](common/user-properties.png)
 
@@ -174,7 +169,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w witrynie A
 
 W tej sekcji przyznano Britta Simon dostęp do Menedżera certyfikatów Sectigo, dzięki czemu może on korzystać z logowania jednokrotnego na platformie Azure.
 
-1. W Azure Portal wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje** > **Sectigo Menedżera certyfikatów**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  >  **Sectigo Menedżera certyfikatów**.
 
     ![Okienko Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -186,7 +181,7 @@ W tej sekcji przyznano Britta Simon dostęp do Menedżera certyfikatów Sectigo,
 
     ![Opcja Użytkownicy i grupy](common/users-groups-blade.png)
 
-1. Wybierz przycisk **Dodaj użytkownika**. Następnie w okienku **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy**.
+1. Wybierz pozycję **Dodaj użytkownika**. Następnie w okienku **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy**.
 
     ![Okienko Dodawanie przypisania](common/add-assign-user.png)
 
@@ -212,6 +207,6 @@ Aby dowiedzieć się więcej, zapoznaj się z następującymi artykułami:
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Single sign-on to applications in Azure Active Directory (Logowanie jednokrotne do aplikacji w usłudze Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 

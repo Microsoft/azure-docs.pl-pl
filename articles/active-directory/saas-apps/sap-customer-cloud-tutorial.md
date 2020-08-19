@@ -2,26 +2,21 @@
 title: 'Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z chmurą SAP dla klienta | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i platformą SAP Cloud for Customer.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 90154dab-eba2-4563-bcf0-f2acc797ea97
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 837787d375a7570b7daf0a149960ca0020bcdced
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f9fd458ea19fa0dad2f630f94a67d5e1db96cee3
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72264010"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543316"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-for-customer"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z chmurą SAP dla klienta
 
@@ -91,15 +86,15 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Usługa SAP Cloud for Customer oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe Atrybuty użytkownika.
 
-    ![image](common/edit-attribute.png)
+    ![image (obraz)](common/edit-attribute.png)
 
 1. W sekcji **Atrybuty użytkownika** okna dialogowego **Atrybuty i oświadczenia użytkownika** wykonaj następujące kroki:
 
     a. Kliknij **ikonę Edytuj**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
 
-    ![image](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
+    ![image (obraz)](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
 
-    ![image](./media/sap-customer-cloud-tutorial/tutorial_usermailedit.png)
+    ![image (obraz)](./media/sap-customer-cloud-tutorial/tutorial_usermailedit.png)
 
     b. Wybierz pozycję **Przekształcanie** dla pola **Źródło**.
 
@@ -108,7 +103,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     d. Z listy **Parametr 1** wybierz atrybut użytkownika, którego chcesz użyć na potrzeby implementacji.
     Na przykład jeśli chcesz użyć identyfikatora EmployeeID jako unikatowego identyfikatora użytkownika, a wartość atrybutu jest przechowywana w elemencie ExtensionAttribute2, wybierz pozycję user.extensionattribute2.
 
-    e. Kliknij przycisk **Zapisz**.
+    e. Kliknij pozycję **Zapisz**.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **plik XML metadanych Federacji** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -126,7 +121,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -152,7 +147,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Otwórz nowe okno przeglądarki sieci Web i zaloguj się do chmury SAP dla klienta firmy jako administrator.
 
-2. Z lewej strony menu kliknij pozycję **dostawcy** > **tożsamości firmy dostawcy** > tożsamości**Dodaj** i w podręcznym Dodaj nazwę dostawcy tożsamości, taką jak **Azure AD**, kliknij przycisk **Zapisz** , a następnie kliknij pozycję **Konfiguracja SAML 2,0**.
+2. Z lewej strony menu kliknij pozycję **dostawcy tożsamości**   >  **firmy dostawcy tożsamości**  >  **Dodaj** i w podręcznym Dodaj nazwę dostawcy tożsamości, taką jak **Azure AD**, kliknij przycisk **Zapisz** , a następnie kliknij pozycję **Konfiguracja SAML 2,0**.
 
     ![Konfiguracja SAP](./media/sap-customer-cloud-tutorial/configure01.png)
 
@@ -172,7 +167,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do chmury SAP dla 
 
 1. Zaloguj się do chmury SAP dla klienta jako administrator zabezpieczeń.
 
-2. Z lewej strony menu kliknij pozycję **Użytkownicy & autoryzacje** > **zarządzania** > użytkownikami**Dodaj użytkownika**.
+2. Z lewej strony menu kliknij pozycję **Użytkownicy & autoryzacje**   >  **zarządzania użytkownikami**  >  **Dodaj użytkownika**.
 
     ![Konfiguracja SAP](./media/sap-customer-cloud-tutorial/configure03.png)
 
@@ -184,7 +179,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do chmury SAP dla 
 
     b. W polu **tekstowym nazwisko wprowadź nazwę użytkownika** , na przykład **Simon**.
 
-    c. W polu tekstowym **adres e-mail** wprowadź adres e-mail użytkownika, np `B.Simon@contoso.com`.
+    c. W polu tekstowym **adres e-mail** wprowadź adres e-mail użytkownika, np `B.Simon@contoso.com` .
 
     d. W polu tekstowym **Nazwa logowania** wprowadź nazwę użytkownika, na przykład **B. Simon**.
 
@@ -198,13 +193,13 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka SAP Cloud for Customer na panelu dostępu powinno nastąpić automatyczne zalogowanie do platformy SAP Cloud for Customer, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj chmurę SAP dla klienta w usłudze Azure AD](https://aad.portal.azure.com/)
 

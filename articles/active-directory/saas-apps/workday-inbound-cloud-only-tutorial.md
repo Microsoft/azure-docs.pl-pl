@@ -3,23 +3,19 @@ title: 'Samouczek: Konfigurowanie inicjowania obsługi przychodzącej z programu
 description: Dowiedz się, jak skonfigurować Inicjowanie obsługi ruchu przychodzącego z produktu Workday w usłudze Azure AD
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: daveba
-ms.assetid: fac4f61e-d942-4429-a297-9ba74db95077
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 6fb80af84379a1a0bc174a7318c8150a98bea95e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69c3246c910a83d889151d6ad749e1be86340e8c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84041813"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88540970"
 ---
 # <a name="tutorial-configure-workday-to-azure-ad-user-provisioning"></a>Samouczek: Konfigurowanie obsługi administracyjnej użytkowników w usłudze Azure AD
 Celem tego samouczka jest przedstawienie czynności, które należy wykonać, aby udostępnić dane procesu roboczego z produktu Workday do Azure Active Directory. 
@@ -95,7 +91,7 @@ W poniższych sekcjach opisano kroki konfigurowania aprowizacji użytkowników z
 
 **Aby skonfigurować dzień roboczy do Azure Active Directory aprowizacji dla użytkowników tylko w chmurze:**
 
-1. Przejdź do witryny <https://portal.azure.com>.
+1. Przejdź do adresu <https://portal.azure.com>.
 
 2. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**.
 
@@ -111,7 +107,7 @@ W poniższych sekcjach opisano kroki konfigurowania aprowizacji użytkowników z
 
 8. Wypełnij sekcję **poświadczenia administratora** w następujący sposób:
 
-   * **Nazwa użytkownika produktu Workday** — wprowadź nazwę użytkownika konta programu integracji z systemem Workday z dołączoną nazwą domeny dzierżawy. Powinien wyglądać następująco:username@contoso4
+   * **Nazwa użytkownika produktu Workday** — wprowadź nazwę użytkownika konta programu integracji z systemem Workday z dołączoną nazwą domeny dzierżawy. Powinien wyglądać następująco: username@contoso4
 
    * **Hasło do produktu Workday —** Wprowadź hasło konta systemu integracji produktu Workday
 
@@ -156,7 +152,7 @@ W tej sekcji opisano sposób przepływu danych przez użytkowników z produktu W
 
       * Operator: nie ma wartości NULL
 
-3. W polu **Akcje obiektu docelowego** można globalnie filtrować akcje wykonywane w usłudze Azure AD. **Tworzenie** i **Aktualizowanie** są najczęściej używane.
+3. W polu **Akcje obiektu docelowego** można globalnie filtrować akcje wykonywane w usłudze Azure AD. **Tworzenie**  i **Aktualizowanie** są najczęściej używane.
 
 4. W sekcji **mapowania atrybutów** można określić, w jaki sposób mapowanie poszczególnych atrybutów produktu Workday ma Active Directory atrybuty.
 

@@ -2,26 +2,21 @@
 title: 'Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) za pomocą oprogramowania SAP Fiori | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i SAP Fiori.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 77ad13bf-e56b-4063-97d0-c82a19da9d56
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 917ba9274276fec5d01a40bdf7219e8d4fee1395
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4d2f6766fa32beb9cebaa8f77c04f6865e15e14d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78897759"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543398"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu oprogramowania SAP Fiori
 
@@ -123,14 +118,14 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     ![Konfiguracja SAML 2,0 strony ABAP system T01/122 w oprogramowaniu SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-userpwd.png)
 
-1. W polu **Nazwa dostawcy** Zastąp wartość **T01122** nazwą **http:\//T01122**, a następnie wybierz pozycję **Zapisz**.
+1. W polu **Nazwa dostawcy** Zastąp wartość **T01122** nazwą **http: \/ /T01122**, a następnie wybierz pozycję **Zapisz**.
 
     > [!NOTE]
-    > Domyślnie nazwa dostawcy ma format \<sid>\<> klienta. Usługa Azure AD oczekuje nazwy w protokole formatu \<>://\<Name>. Zalecamy zachowanie nazwy dostawcy jako\://\<identyfikatora SID protokołu HTTPS>\<> klienta, aby można było skonfigurować wiele aparatów ABAP SAP Fiori w usłudze Azure AD.
+    > Domyślnie nazwa dostawcy ma format \<sid> \<client> . Usługa Azure AD oczekuje nazwy w formacie \<protocol> :// \<name> . Zalecamy zachowanie nazwy dostawcy jako protokołu HTTPS \: // \<sid> \<client> , aby można było skonfigurować wiele aparatów ABAP SAP Fiori w usłudze Azure AD.
 
     ![Zaktualizowana nazwa dostawcy w konfiguracji SAML 2,0 strony ABAP system T01/122 w oprogramowaniu SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-providername.png)
 
-1. Wybierz pozycję > **metadane** **karty dostawcy lokalnego**.
+1. Wybierz pozycję metadane **karty dostawcy lokalnego**  >  **Metadata**.
 
 1. W oknie dialogowym **metadane SAML 2,0** Pobierz WYGENEROWANY plik XML metadanych i Zapisz go na komputerze.
 
@@ -152,7 +147,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     ![wybierz plik metadanych](common/browse-upload-metadata.png)
 
-    c. Po pomyślnym przekazaniu pliku metadanych wartości **identyfikatorów** i **adresów URL odpowiedzi** są wypełniane automatycznie w okienku **podstawowe konfiguracje języka SAML** . W polu **adres URL logowania** wprowadź adres URL, który ma następujący wzorzec: `https:\//\<your company instance of SAP Fiori\>`.
+    c. Po pomyślnym przekazaniu pliku metadanych wartości **identyfikatorów** i **adresów URL odpowiedzi** są wypełniane automatycznie w okienku **podstawowe konfiguracje języka SAML** . W polu **adres URL logowania** wprowadź adres URL, który ma następujący wzorzec: `https:\//\<your company instance of SAP Fiori\>` .
 
     > [!NOTE]
     > Kilku klientów zgłasza błędy związane z niepoprawnie skonfigurowanymi wartościami **adresu URL odpowiedzi** . Jeśli ten błąd jest wyświetlany, można użyć następującego skryptu programu PowerShell, aby ustawić prawidłowy adres URL odpowiedzi dla danego wystąpienia:
@@ -161,7 +156,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     > Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
     > ``` 
     > 
-    > Identyfikator `ServicePrincipal` obiektu można ustawić samodzielnie przed uruchomieniem skryptu lub przekazać go tutaj.
+    > Identyfikator obiektu można ustawić `ServicePrincipal` samodzielnie przed uruchomieniem skryptu lub przekazać go tutaj.
 
 1. Aplikacja SAP Fiori oczekuje, że potwierdzenia SAML mają być w określonym formacie. Skonfiguruj następujące oświadczenia dla tej aplikacji. Aby zarządzać tymi wartościami atrybutów, w okienku **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz pozycję **Edytuj**.
 
@@ -197,7 +192,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -231,15 +226,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Opcje dodawania i przekazywania metadanych plików w oprogramowaniu SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-uploadmetadata.png)
 
-1. Przekaż plik metadanych, który został pobrany w Azure Portal. Wybierz pozycję **Dalej**.
+1. Przekaż plik metadanych, który został pobrany w Azure Portal. Wybierz opcję **Dalej**.
 
     ![Wybierz plik metadanych do przekazania w oprogramowaniu SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-metadatafile.png)
 
-1. Na następnej stronie w polu **alias** wprowadź nazwę aliasu. Na przykład **aadsts**. Wybierz pozycję **Dalej**.
+1. Na następnej stronie w polu **alias** wprowadź nazwę aliasu. Na przykład **aadsts**. Wybierz opcję **Dalej**.
 
     ![Pole alias w oprogramowaniu SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-aliasname.png)
 
-1. Upewnij się, że wartość w polu **algorytm podsumowania** to **SHA-256**. Wybierz pozycję **Dalej**.
+1. Upewnij się, że wartość w polu **algorytm podsumowania** to **SHA-256**. Wybierz opcję **Dalej**.
 
     ![Sprawdź wartość algorytmu digest w oprogramowaniu SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-identityprovider.png)
 
@@ -259,7 +254,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Opcje wymagań uwierzytelniania i opcja zakończenia w oprogramowaniu SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-authentication.png)
 
-1. Wybierz opcję > **Federacja tożsamości** **dostawcy zaufanego**(w dolnej części strony). Wybierz pozycję **Edit** (Edytuj).
+1. Wybierz opcję Federacja tożsamości **dostawcy zaufanego**  >  **Identity Federation** (w dolnej części strony). Kliknij pozycję **Edytuj**.
 
     ![Karty zaufanych dostawców i tożsamości w oprogramowaniu SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-trustedprovider.png)
 
@@ -267,7 +262,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Opcja Dodaj na karcie federacji tożsamości](./media/sapfiori-tutorial/tutorial-sapnetweaver-addidentityprovider.png)
 
-1. W oknie dialogowym **obsługiwane formaty NameID** wybierz opcję **nieokreślony**. Wybierz przycisk **OK**.
+1. W oknie dialogowym **obsługiwane formaty NameID** wybierz opcję **nieokreślony**. Kliknij przycisk **OK**.
 
     ![Okno dialogowe obsługiwane formaty NameID i opcje w oprogramowaniu SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-nameid.png)
 
@@ -309,8 +304,8 @@ W tej sekcji utworzysz użytkownika o nazwie Britta Simon w oprogramowaniu SAP F
 
 1. Po aktywowaniu usługi Azure AD dostawcy tożsamości w programie SAP Fiori spróbuj uzyskać dostęp do jednego z następujących adresów URL w celu przetestowania logowania jednokrotnego (nie należy monitować o podanie nazwy użytkownika i hasła):
 
-    * https:\//\<sapurl\>/SAP/BC/BSP/SAP/it00/default.htm
-    * https:\//\<sapurl\>/SAP/BC/BSP/SAP/it00/default.htm
+    * https: \/ / \<sapurl\> /SAP/BC/BSP/SAP/it00/default.htm
+    * https: \/ / \<sapurl\> /SAP/BC/BSP/SAP/it00/default.htm
 
     > [!NOTE]
     > Zamień *sapurl* na rzeczywistą nazwę hosta SAP.
@@ -319,14 +314,14 @@ W tej sekcji utworzysz użytkownika o nazwie Britta Simon w oprogramowaniu SAP F
 
     ![Strona standardowej aplikacji testowej w oprogramowaniu SAP](./media/sapfiori-tutorial/testingsso.png)
 
-1. Jeśli zostanie wyświetlony monit o podanie nazwy użytkownika i hasła, Włącz śledzenie, aby ułatwić zdiagnozowanie problemu. Użyj następującego adresu URL śledzenia\//\<: https: sapurl\>/SAP/BC/WebDynpro/SAP/sec_diag_tool? SAP-Client = 122&SAP-language = EN #.
+1. Jeśli zostanie wyświetlony monit o podanie nazwy użytkownika i hasła, Włącz śledzenie, aby ułatwić zdiagnozowanie problemu. Użyj następującego adresu URL śledzenia: https: \/ / \<sapurl\> /SAP/BC/WebDynpro/SAP/sec_diag_tool? SAP-Client = 122&SAP-language = EN #.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj rozwiązanie SAP Fiori w usłudze Azure AD](https://aad.portal.azure.com/)

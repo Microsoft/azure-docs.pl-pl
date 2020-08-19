@@ -2,25 +2,21 @@
 title: 'Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą ContractSafe SAML2 — Logowanie jednokrotne | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i ContractSafe SAML2 Logowanie jednokrotne.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 9d8c9eba-6a90-4c8f-b387-a6ead4af00af
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ab2dc71f39164988e0d229fc994548a00447986
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9459d13e8943f7e9177d2ad493873257f46f6649
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77185630"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544395"
 ---
 # <a name="tutorial-integrate-azure-active-directory-single-sign-on-sso-with-contractsafe-saml2-sso"></a>Samouczek: integracja Azure Active Directory logowania jednokrotnego (SSO) z usługą ContractSafe SAML2 Logowanie jednokrotne
 
@@ -80,9 +76,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne w usłudze Azu
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wprowadź następujące wartości w odpowiednich polach:
 
-    a. W polu tekstowym **Identyfikator** wprowadź adres URL, używając następującego formatu:`https://app.contractsafe.com/saml2_auth/<UNIQUEID>/acs/`
+    a. W polu tekstowym **Identyfikator** wprowadź adres URL, używając następującego formatu: `https://app.contractsafe.com/saml2_auth/<UNIQUEID>/acs/`
 
-    b. W polu tekstowym **adres URL odpowiedzi** wprowadź adres URL, używając następującego formatu:`https://app.contractsafe.com/saml2_auth/<UNIQUEID>/acs/`
+    b. W polu tekstowym **adres URL odpowiedzi** wprowadź adres URL, używając następującego formatu: `https://app.contractsafe.com/saml2_auth/<UNIQUEID>/acs/`
 
     > [!NOTE]
     > To nie są rzeczywiste wartości. Należy je zastąpić rzeczywistymi wartościami identyfikatora i adresu URL odpowiedzi. Aby uzyskać te wartości, skontaktuj się z [zespołem obsługi klienta rejestracji jednokrotnej ContractSafe SAML2](mailto:support@contractsafe.com) . Można również odnieść się do formatów przedstawionych w sekcji podstawowe informacje o **konfiguracji SAML** w Azure Portal.
@@ -96,7 +92,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne w usłudze Azu
     | Nazwa | Atrybut źródłowy|
     | ---------------| --------------- |
     | adres e-mail | user.userprincipalname |
-    | email | User. onpremisesuserprincipalname |
+    | poczta e-mail | User. onpremisesuserprincipalname |
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **plik XML metadanych Federacji**. Wybierz pozycję **Pobierz** , aby pobrać certyfikat, a następnie zapisz go na komputerze.
 
@@ -116,7 +112,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie **B. Simon
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź adres e-mail w `username@companydomain.extension` formacie. Może to być na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Wybierz przycisk **Utwórz**.
+   1. Wybierz pozycję **Utwórz**.
 
 ## <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -148,12 +144,12 @@ Utwórz użytkownika o nazwie B. Simon w usłudze ContractSafe SAML2 SSO. Wspó�
 
 Przetestuj konfigurację rejestracji jednokrotnej usługi Azure AD za pomocą panelu dostępu. Po wybraniu kafelka SSO usługi ContractSafe SAML2 w panelu dostępu należy automatycznie zalogować się do usługi ContractSafe SAML2 SSO, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj usługę ContractSafe SAML2 Logowanie jednokrotne w usłudze Azure AD](https://aad.portal.azure.com/)

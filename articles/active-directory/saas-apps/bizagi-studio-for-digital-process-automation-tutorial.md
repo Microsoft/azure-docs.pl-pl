@@ -2,25 +2,21 @@
 title: 'Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Bizagi na potrzeby automatyzacji procesów cyfrowych | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Bizagi na potrzeby automatyzacji procesów cyfrowych.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: af3d4613-c3fb-485c-b7b9-c385713e6f8f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a374ef8c6605aef8dfb54379017781507339306e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5f8126f497bfd66544576b218a903c50e58106b5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83740622"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544506"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bizagi-for-digital-process-automation"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Bizagi na potrzeby automatyzacji procesów cyfrowych
 
@@ -85,9 +81,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **adres URL logowania** wpisz adres URL projektu Bizagi:`https://<COMPANYNAME>.bizagi.com/<PROJECTNAME>`
+    a. W polu tekstowym **adres URL logowania** wpisz adres URL projektu Bizagi: `https://<COMPANYNAME>.bizagi.com/<PROJECTNAME>`
 
-    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL projektu Bizagi:`https://<COMPANYNAME>.bizagi.com/<PROJECTNAME>`
+    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL projektu Bizagi: `https://<COMPANYNAME>.bizagi.com/<PROJECTNAME>`
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zaktualizuj je, używając faktycznego adresu URL i identyfikatora logowania. Aby uzyskać te wartości, skontaktuj się z [Bizagi dla zespołu pomocy technicznej dotyczącej automatyzacji procesów cyfrowych](mailto:jarvein.rivera@bizagi.com) . Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -148,11 +144,11 @@ Po kliknięciu kafelka Bizagi for Digital Process Automation w panelu dostępu n
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj Bizagi na potrzeby automatyzacji procesów cyfrowych przy użyciu usługi Azure AD](https://aad.portal.azure.com/)
 

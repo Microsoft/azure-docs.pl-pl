@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z chmurą Lifesize | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Lifesize Cloud.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 75fab335-fdcd-4066-b42c-cc738fcb6513
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a41fe75975537a54ae142034f74a613731736525
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0ff2464705a770e257010347f0f04e9b695bb6e4
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051247"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88540111"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Samouczek: integracja Azure Active Directory z chmurą Lifesize
 
@@ -111,9 +106,9 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Lifesize C
 
     ![Informacje o domenie i adresach URL logowania jednokrotnego aplikacji Lifesize Cloud](common/sp-identifier-relay.png)
 
-    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:`https://login.lifesizecloud.com/ls/?acs`
+    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://login.lifesizecloud.com/ls/?acs`
 
-    b. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://login.lifesizecloud.com/<companyname>`
+    b. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://login.lifesizecloud.com/<companyname>`
 
     c. Kliknij pozycję **Ustaw dodatkowe adresy URL**.
 
@@ -192,11 +187,11 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
-    Na przykład: BrittaSimon@contoso.com
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

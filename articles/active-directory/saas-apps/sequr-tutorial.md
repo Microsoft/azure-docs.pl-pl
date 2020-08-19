@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Sequr | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Sequr.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: a491e2ce-b4e8-41b8-8f4a-a2e263e462c3
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eed00aab4296cb5352e74d9e6bfc014f2340646
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c8d0ce5031dc5972cac81b92477d3de049bc1f2f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67091082"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543114"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sequr"></a>Samouczek: integracja Azure Active Directory z usługą Sequr
 
@@ -33,7 +28,7 @@ Integracja Sequr z usługą Azure AD zapewnia następujące korzyści:
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -110,9 +105,9 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Sequr, wyko
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![image](common/both-advanced-urls.png)
+    ![image (obraz)](common/both-advanced-urls.png)
 
-    a. W polu tekstowym **adres URL logowania** wpisz adres URL:`https://login.sequr.io`
+    a. W polu tekstowym **adres URL logowania** wpisz adres URL: `https://login.sequr.io`
 
     b. W polu tekstowym **Stan przekazywania** otrzymasz tę wartość, która została omówiona w dalszej części samouczka.
 
@@ -152,7 +147,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Sequr, wyko
 
     c. Po zapisaniu konfiguracji zostanie wygenerowana wartość stanu przekaźnika. Skopiuj wartość **stan przekaźnika** i wklej ją w polu tekstowym **Stan przekazywania** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
-    d. Kliknij przycisk **Zapisz**.
+    d. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -172,7 +167,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`. Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension` . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -206,7 +201,7 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 ### <a name="create-sequr-test-user"></a>Utwórz użytkownika testowego Sequr
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w Sequr. Współpracuj z  [zespołem obsługi klienta Sequr](mailto:support@sequr.io), aby dodać użytkowników z platformy Sequr. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w Sequr. Współpracuj z [zespołem obsługi klienta Sequr](mailto:support@sequr.io),   Aby dodać użytkowników z platformy Sequr. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
@@ -220,5 +215,5 @@ Po kliknięciu kafelka Sequr w panelu dostępu należy automatycznie zalogować 
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

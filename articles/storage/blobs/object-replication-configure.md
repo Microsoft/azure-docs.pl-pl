@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 73b568057bbb846958b6fe95f11c285326fe3688
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bfc18332553d1aee713ccb8fc269ba63d2b5af12
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495186"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88540600"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Konfiguruj replikację obiektów dla blokowych obiektów BLOB (wersja zapoznawcza)
 
@@ -67,7 +67,7 @@ Aby utworzyć zasady replikacji w Azure Portal, wykonaj następujące kroki:
 
 1. Wybierz pozycję **Zapisz i Zastosuj** , aby utworzyć zasady replikacji i rozpocząć replikowanie danych.
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Aby utworzyć zasady replikacji przy użyciu programu PowerShell, najpierw Zainstaluj wersję [2.0.1 — wersja zapoznawcza](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) lub nowszą w module programu PowerShell AZ. Storage. Wykonaj następujące kroki, aby zainstalować moduł w wersji zapoznawczej:
 
@@ -175,15 +175,18 @@ az login
 Włącz obsługę wersji obiektów BLOB na kontach magazynu źródłowego i docelowego, a następnie Włącz źródło zmian na koncie źródłowym. Pamiętaj, aby zamienić wartości w nawiasy kątowe własnymi wartościami:
 
 ```azurecli
-az storage blob service-properties update --resource-group <resource-group> \
+az storage blob service-properties update \
+    --resource-group <resource-group> \
     --account-name <source-storage-account> \
     --enable-versioning
 
-az storage blob service-properties update --resource-group <resource-group> \
+az storage blob service-properties update \
+    --resource-group <resource-group> \
     --account-name <source-storage-account> \
     --enable-change-feed
 
-az storage blob service-properties update --resource-group <resource-group> \
+az storage blob service-properties update \
+    --resource-group <resource-group> \
     --account-name <dest-storage-account> \
     --enable-versioning
 ```
@@ -191,17 +194,30 @@ az storage blob service-properties update --resource-group <resource-group> \
 Utwórz kontenery źródłowe i docelowe na odpowiednich kontach magazynu.
 
 ```azurecli
-az storage container create --account-name <source-storage-account> --name source-container3 --auth-mode login
-az storage container create --account-name <source-storage-account> --name source-container4 --auth-mode login
+az storage container create \
+    --account-name <source-storage-account> \
+    --name source-container3 \
+    --auth-mode login
+az storage container create \
+    --account-name <source-storage-account> \
+    --name source-container4 \
+    --auth-mode login
 
-az storage container create --account-name <dest-storage-account> --name source-container3 --auth-mode login
-az storage container create --account-name <dest-storage-account> --name source-container4 --auth-mode login
+az storage container create \
+    --account-name <dest-storage-account> \
+    --name source-container3 \
+    --auth-mode login
+az storage container create \
+    --account-name <dest-storage-account> \
+    --name source-container4 \
+    --auth-mode login
 ```
 
 Utwórz nowe zasady replikacji i skojarzone reguły na koncie docelowym.
 
 ```azurecli
-az storage account or-policy create --account-name <dest-storage-account> \
+az storage account or-policy create \
+    --account-name <dest-storage-account> \
     --resource-group <resource-group> \
     --source-account <source-storage-account> \
     --destination-account <dest-storage-account> \
@@ -210,7 +226,8 @@ az storage account or-policy create --account-name <dest-storage-account> \
     --min-creation-time '2020-05-10T00:00:00Z' \
     --prefix-match a
 
-az storage account or-policy rule add --account-name <dest-storage-account> \
+az storage account or-policy rule add \
+    --account-name <dest-storage-account> \
     --destination-container dest-container4 \
     --policy-id <policy-id> \
     --resource-group <resource-group> \
@@ -221,7 +238,8 @@ az storage account or-policy rule add --account-name <dest-storage-account> \
 Utwórz zasady na koncie źródłowym przy użyciu identyfikatora zasad.
 
 ```azurecli
-az storage account or-policy show --resource-group <resource-group> \
+az storage account or-policy show \
+    --resource-group <resource-group> \
     --name <dest-storage-account> \
     --policy-id <policy-id> |
     --az storage account or-policy create --resource-group <resource-group> \
@@ -244,7 +262,7 @@ Aby usunąć zasady replikacji w Azure Portal, wykonaj następujące kroki:
 1. Kliknij przycisk **więcej** obok nazwy zasad.
 1. Wybierz pozycję **Usuń reguły**.
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Aby usunąć zasady replikacji, Usuń zasady z konta źródłowego i docelowego. Usunięcie zasad spowoduje również usunięcie skojarzonych z nią reguł.
 

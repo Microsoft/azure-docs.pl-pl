@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą HackerOne | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i platformą HackerOne.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 229d1efb-b6a5-4df8-9839-5d551487db4e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: effd0593384190eb1a1cf261305dd61818c3d0b0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 530ef271091afc3e646d375ea471d8c48f0f8651
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76120801"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544200"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Samouczek: integracja Azure Active Directory z usługą HackerOne
 
@@ -33,7 +28,7 @@ Integracja aplikacji HackerOne z usługą Azure AD zapewnia następujące korzy�
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -107,9 +102,9 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji HackerOne,
 
     ![Informacje o domenie i adresach URL logowania jednokrotnego aplikacji HackerOne](common/sp-identifier.png)
 
-    a. W polu tekstowym **adres URL logowania** wpisz następujące polecenie:`https://hackerone.com/users/saml/sign_in?email=<configured domain>`
+    a. W polu tekstowym **adres URL logowania** wpisz następujące polecenie: `https://hackerone.com/users/saml/sign_in?email=<configured domain>`
 
-    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wprowadź następujące polecenie:`hackerone.com`
+    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wprowadź następujące polecenie: `hackerone.com`
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -143,11 +138,11 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji HackerOne,
 
     a. W polu tekstowym **Email Domain** (Domena poczty e-mail) wpisz nazwę zarejestrowanej domeny.
 
-    b. W polach tekstowych **adresów URL** logowania jednokrotnego wklej wartość **adresu URL logowania** skopiowanego z Azure Portal.
+    b. W polach tekstowych  **adresów URL** logowania jednokrotnego wklej wartość **adresu URL logowania** skopiowanego z Azure Portal.
 
-    c. Otwórz pobrany **plik certyfikatu** z Azure Portal do Notatnika, skopiuj jego zawartość do schowka, a następnie wklej go do pola tekstowego **certyfikatu x509** .
+    c. Otwórz pobrany **plik certyfikatu** z Azure Portal do Notatnika, skopiuj jego zawartość do schowka, a następnie wklej go do pola tekstowego **certyfikatu x509**  .
 
-    d. Kliknij przycisk **Zapisz**.
+    d. Kliknij pozycję **Zapisz**.
 
 5. W oknie dialogowym Authentication Settings (Ustawienia uwierzytelniania) wykonaj następujące czynności:
 
@@ -181,8 +176,8 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
 
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
-    Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -230,4 +225,4 @@ Po kliknięciu kafelka HackerOne w panelu dostępu powinno nastąpić automatycz
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

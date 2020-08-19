@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Skillport | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Skillport.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 4df349b2-a73f-4b88-a077-ec0fbfc26527
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 328f3d0dc648b3c5fa96c3aab02e80a37cf4218f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: cceb0a98cc35a41d1d46b798c9caf08fae2e3748
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680733"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543095"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Samouczek: integracja Azure Active Directory z usługą Skillport
 
@@ -32,7 +28,7 @@ Integracja Skillport z usługą Azure AD zapewnia następujące korzyści:
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -107,21 +103,21 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Skillport, 
 
     a. W polu tekstowym **Adres URL logowania** wpisz adres URL: 
 
-    Centrum danych UE:`https://adfs.skillport.eu`
+    Centrum danych UE: `https://adfs.skillport.eu`
 
-    Centrum danych USA:`https://sso.skillport.com`
+    Centrum danych USA: `https://sso.skillport.com`
 
     b. W polu **Identyfikator** wpisz adres URL: 
 
-    Centrum danych UE:`http://adfs.skillport.eu/adfs/services/trust`
+    Centrum danych UE: `http://adfs.skillport.eu/adfs/services/trust`
 
-    Centrum danych USA:`https://sso.skillport.com`
+    Centrum danych USA: `https://sso.skillport.com`
 
     c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL: 
 
-    Centrum danych UE:`https://adfs.skillport.eu/adfs/ls/`
+    Centrum danych UE: `https://adfs.skillport.eu/adfs/ls/`
 
-      Centrum danych USA:`https://sso.skillport.com/sp/ACS.saml2`
+      Centrum danych USA: `https://sso.skillport.com/sp/ACS.saml2`
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -160,7 +156,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
     b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`  
-    Na przykład: BrittaSimon@contoso.com
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -208,5 +204,5 @@ Po kliknięciu kafelka Skillport w panelu dostępu należy automatycznie zalogow
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

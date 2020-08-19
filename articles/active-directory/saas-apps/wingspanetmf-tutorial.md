@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Wingspan eTMF | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Wingspan eTMF.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: ace320d3-521c-449c-992f-feabe7538de7
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 8943ff45d432768649ace28147c7c14f20f4ad44
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 420d7725638a78ac33ef93a85203ea8b088b82ee
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67087117"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88541701"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Samouczek: integracja Azure Active Directory z usługą Wingspan eTMF
 
@@ -32,7 +28,7 @@ Integracja usługi Wingspan eTMF z usługą Azure AD zapewnia następujące korz
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -105,9 +101,9 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Wingspan eT
 
     ![Wingspan eTMF domeny i adresy URL Logowanie jednokrotne](common/sp-identifier-reply.png)
 
-    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:`https://<customer name>.<instance name>.mywingspan.com/saml`
+    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<customer name>.<instance name>.mywingspan.com/saml`
 
-    b. W polu **Identyfikator** wpisz adres URL, używając następującego wzorca:`http://saml.<instance name>.wingspan.com/shibboleth`
+    b. W polu **Identyfikator** wpisz adres URL, używając następującego wzorca: `http://saml.<instance name>.wingspan.com/shibboleth`
 
     c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<customer name>.<instance name>.mywingspan.com/`
 
@@ -150,7 +146,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension. Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -198,5 +194,5 @@ Po kliknięciu kafelka Wingspan eTMF w panelu dostępu należy automatycznie zal
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

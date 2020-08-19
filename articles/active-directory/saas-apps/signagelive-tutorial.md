@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Signagelive | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i platformą Signagelive.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: d923f0e7-ad31-4d59-a6fd-f0e895e1a32d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dab2fd0ee2f25e835b4bd07a3534475d3d93b5e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5a8fe24e5fa1935b2363ed5d2c15c72af8af11ff
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73160928"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88539763"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Samouczek: integracja Azure Active Directory z usługą Signagelive
 
@@ -32,7 +27,7 @@ Integrowanie platformy Signagelive z usługą Azure AD zapewnia następujące ko
 * Możesz umożliwić użytkownikom automatyczne logowanie się do usługi Signagelive (Logowanie jednokrotne) przy użyciu kont w usłudze Azure AD.
 * Kontami można zarządzać w jednej centralnej lokalizacji: Azure Portal.
 
-Aby uzyskać więcej informacji na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Aby uzyskać więcej informacji na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -61,7 +56,7 @@ Aby dodać Signagelive z galerii, wykonaj następujące czynności:
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-3. Aby dodać nową aplikację, wybierz przycisk **Nowa aplikacja** w górnej części okna dialogowego.
+3. Aby dodać nową aplikację, wybierz przycisk  **Nowa aplikacja** w górnej części okna dialogowego.
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
@@ -107,7 +102,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Signagelive
 
     ![Domena i adresy URL platformy Signagelive — informacje dotyczące logowania jednokrotnego](common/sp-signonurl.png)
 
-    W polu **adres URL logowania** wprowadź adres URL, który używa następującego wzorca:`https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
+    W polu **adres URL logowania** wprowadź adres URL, który używa następującego wzorca:  `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
 
     > [!NOTE]
     > Ta wartość nie jest prawdziwa. Zaktualizuj wartość przy użyciu rzeczywistego adresu URL logowania. Aby uzyskać wartość, skontaktuj się z [zespołem obsługi klienta Signagelive](mailto:support@signagelive.com) . Można również odwołać się do wzorców, które są wyświetlane w sekcji podstawowe informacje o **konfiguracji SAML** w Azure Portal.
@@ -148,11 +143,11 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wprowadź wartość "brittasimon@yourcompanydomain.extension". Na przykład w tym przypadku można wpisać "BrittaSimon@contoso.com".
+    b. W polu **Nazwa użytkownika** wprowadź wartość " brittasimon@yourcompanydomain.extension ". Na przykład w tym przypadku można wpisać " BrittaSimon@contoso.com ".
 
     c. Zaznacz pole wyboru **Pokaż hasło** , a następnie zanotuj wartość wyświetlaną w polu hasło.
 
-    d. Wybierz przycisk **Utwórz**.
+    d. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -190,11 +185,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po wybraniu kafelka **Signagelive** w portalu aplikacji należy automatycznie zalogować się. Aby uzyskać więcej informacji na temat portalu aplikacji, zobacz [co to jest portal usługi webapps?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

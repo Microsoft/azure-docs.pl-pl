@@ -2,25 +2,21 @@
 title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą usługi ServiceNow | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i usługą ServiceNow.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: a5a1a264-7497-47e7-b129-a1b5b1ebff5b
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/19/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a09cc83259a6fbb07b8c88e1d8f82b720400c0d1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9748c772466db73fc49b1291ffe2ce7d13da1d8c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507747"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88540222"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą usługi ServiceNow
 
@@ -98,9 +94,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wykonaj następujące czynności:
 
-    a. W polu **adres URL logowania**wprowadź adres URL, który używa następującego wzorca:`https://instance.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
+    a. W polu **adres URL logowania**wprowadź adres URL, który używa następującego wzorca: `https://instance.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
 
-    b. W **identyfikatorze (identyfikator jednostki)** wprowadź adres URL, który używa następującego wzorca:`https://<instance-name>.service-now.com`
+    b. W **identyfikatorze (identyfikator jednostki)** wprowadź adres URL, który używa następującego wzorca: `https://<instance-name>.service-now.com`
 
     c. W polu **adres URL odpowiedzi**wprowadź jeden z następujących adresów URL:
 
@@ -170,9 +166,9 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 4. W sekcji **Podstawowa konfiguracja języka SAML** wykonaj następujące czynności:
 
-    a. W polu **adres URL logowania**wprowadź adres URL, który używa następującego wzorca:`https://instance.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
+    a. W polu **adres URL logowania**wprowadź adres URL, który używa następującego wzorca: `https://instance.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
 
-    b. W polu **Identyfikator (identyfikator jednostki)** wprowadź adres URL, który używa następującego wzorca:`https://<instance-name>.service-now.com`
+    b. W polu **Identyfikator (identyfikator jednostki)** wprowadź adres URL, który używa następującego wzorca: `https://<instance-name>.service-now.com`
 
     c. W polu **adres URL odpowiedzi**wprowadź jeden z następujących adresów URL:
 
@@ -296,7 +292,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
              > ![Zrzut ekranu przedstawiający stronę Wyniki testów](./media/servicenow-tutorial/testconnection-fail.png "Konfigurowanie logowania jednokrotnego")
         
-          1. Po wyświetleniu monitu o podanie poświadczeń wprowadź je. Zostanie wyświetlona następująca strona. Jest oczekiwany błąd **wyniki testów wylogowywania z logowaniem jednokrotnym** . Zignoruj błąd i wybierz pozycję **Aktywuj**.
+          1. Po wyświetleniu monitu o podanie poświadczeń wprowadź je. Zostanie wyświetlona następująca strona. Jest oczekiwany błąd **wyniki testów wylogowywania z logowaniem jednokrotnym** . Zignoruj błąd i wybierz pozycję  **Aktywuj**.
 
              ![Zrzut ekranu przedstawiający stronę Wyniki testów](./media/servicenow-tutorial/servicenowactivate.png "Konfigurowanie logowania jednokrotnego")
   
@@ -322,7 +318,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
         1. Wprowadź **adres URL metadanych federacji aplikacji** , który został skopiowany z Azure Portal.
 
-        1. Wybierz pozycję **Import** (Importuj).
+        1. Wybierz pozycję **Importuj**.
 
     1. Odczytuje adres URL metadanych dostawcy tożsamości i wypełnia wszystkie informacje o polach.
 
@@ -353,7 +349,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
           > ![Zrzut ekranu przedstawiający stronę Wyniki testów](./media/servicenow-tutorial/testconnection-fail.png "Konfigurowanie logowania jednokrotnego")
 
-        * Po wyświetleniu monitu o podanie poświadczeń wprowadź je. Zostanie wyświetlona następująca strona. Jest oczekiwany błąd **wyniki testów wylogowywania z logowaniem jednokrotnym** . Zignoruj błąd i wybierz pozycję **Aktywuj**.
+        * Po wyświetleniu monitu o podanie poświadczeń wprowadź je. Zostanie wyświetlona następująca strona. Jest oczekiwany błąd **wyniki testów wylogowywania z logowaniem jednokrotnym** . Zignoruj błąd i wybierz pozycję  **Aktywuj**.
 
           ![Zrzut ekranu przedstawiający stronę Wyniki testów](./media/servicenow-tutorial/servicenowactivate.png "Konfigurowanie logowania jednokrotnego")
 
@@ -482,7 +478,7 @@ Po wybraniu kafelka usługi ServiceNow w panelu dostępu należy automatycznie z
 
         ![Zrzut ekranu przedstawiający stronę główną aplikacji](./media/servicenow-tutorial/test02.png)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

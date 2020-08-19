@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Samanage | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i usługą Samanage.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: f0db4fb0-7eec-48c2-9c7a-beab1ab49bc2
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 741efbae84e18c811beb6c0579c1949c5ddf619c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 56018ff0be07a48cf9448b9b92de5694ebac18bc
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73160119"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543537"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-samanage"></a>Samouczek: integracja Azure Active Directory z usługą Samanage
 
@@ -33,7 +28,7 @@ Zintegrowanie usługi Samanage z usługą Azure AD zapewnia następujące korzy�
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -155,7 +150,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w usłudze Samanage, w
  
     f. Otwórz w Notatniku certyfikat zakodowany w formacie Base-64 pobrany z witryny Azure Portal, skopiuj zawartość do Schowka, a następnie wklej ją w polu tekstowym **Paste your Identity Provider x.509 Certificate below** (Wklej poniżej swój certyfikat x.509 dostawcy tożsamości).
  
-    g. Kliknij pole wyboru **Create users if they do not exist in Samanage** (Utwórz użytkowników, jeśli nie istnieją w usłudze Samanage).
+    przykład Kliknij pole wyboru **Create users if they do not exist in Samanage** (Utwórz użytkowników, jeśli nie istnieją w usłudze Samanage).
  
     h. Kliknij przycisk **Update** (Aktualizuj).
 
@@ -177,8 +172,8 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
-    Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -221,7 +216,7 @@ W przypadku usługi Samanage aprowizowanie jest zadaniem ręcznym.
 
 2. Kliknij pozycję **Dashboard** (Pulpit nawigacyjny) i wybierz pozycję **Setup** (Konfigurowanie) w lewym okienku nawigacji.
    
-    ![Konfiguracja](./media/samanage-tutorial/tutorial_samanage_001.png "Konfigurowanie")
+    ![Instalacja](./media/samanage-tutorial/tutorial_samanage_001.png "Konfigurowanie")
 
 3. Kliknij kartę **Users** (Użytkownicy).
    
@@ -250,5 +245,5 @@ Po kliknięciu kafelka Samanage na panelu dostępu powinno nastąpić automatycz
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
