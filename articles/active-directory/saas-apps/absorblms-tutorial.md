@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z systemem LMS Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i usługą Absorb LMS.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: ba9f1b3d-a4a0-4ff7-b0e7-428e0ed92142
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3d5dbd5c831b4e3cf2ab63796165dc6bad005a5
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 59fb36765ad3cd584af4d6459cd78e2886d0edce
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905843"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88538709"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Samouczek: integracja Azure Active Directory z systemem LMS
 
@@ -111,13 +106,13 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w usłudze Absorb LMS,
 
     Jeśli korzystasz z **interfejsu użytkownika usługi Absorb 5**, użyj następującej konfiguracji:
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://company.myabsorb.com/account/saml`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://company.myabsorb.com/account/saml`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://company.myabsorb.com/account/saml`
 
     Jeśli korzystasz ze **środowiska nowego ucznia usługi Absorb 5**, użyj następującej konfiguracji:
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://company.myabsorb.com/api/rest/v2/authentication/saml`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://company.myabsorb.com/api/rest/v2/authentication/saml`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://company.myabsorb.com/api/rest/v2/authentication/saml`
 
@@ -207,7 +202,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -280,7 +275,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Absorb LMS na panelu dostępu powinno nastąpić automatyczne zalogowanie do usługi Absorb LMS, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

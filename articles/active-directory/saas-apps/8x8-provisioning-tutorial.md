@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie 8x8 dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak automatycznie udostępniać i cofać obsługę administracyjną kont użytkowników z usługi Azure AD do 8x8.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: 81b4cde7-4938-4a1a-8495-003c06239b27
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: d1359ffb28cb98c0e46a6b7eff32c6faa7d00ba4
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 7aaa87691f1ebfa79cd58dae56bf9bd1b979131b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924788"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88538590"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie 8x8 na potrzeby automatycznego aprowizacji użytkowników
 
@@ -122,19 +118,19 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Atrybut|Typ|Uwagi|
    |---|---|---|
-   |userName|Ciąg|Ustawia nazwę użytkownika i identyfikator Federacji|
-   |externalId|Ciąg||
-   |aktywne|Wartość logiczna||
-   |tytuł|Ciąg||
-   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg||
-   |Nazwa. imię|Ciąg||
-   |Nazwa. rodzina|Ciąg||
-   |numer telefonu [typ EQ "Mobile"]. Value|Ciąg|Osobisty numer osoby kontaktowej|
-   |numer telefonu [typ EQ "Work"]. wartość|Ciąg|Osobisty numer osoby kontaktowej|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg||
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: 8x8:1.1: użytkownik: Witryna|Ciąg|Nie można zaktualizować po utworzeniu użytkownika|
-   |locale|Ciąg|Domyślnie Niemapowane|
-   |TimeZone|Ciąg|Domyślnie Niemapowane|
+   |userName|String|Ustawia nazwę użytkownika i identyfikator Federacji|
+   |externalId|String||
+   |aktywne|Boolean||
+   |tytuł|String||
+   |wiadomości e-mail [Type EQ "Work"]. Value|String||
+   |Nazwa. imię|String||
+   |Nazwa. rodzina|String||
+   |numer telefonu [typ EQ "Mobile"]. Value|String|Osobisty numer osoby kontaktowej|
+   |numer telefonu [typ EQ "Work"]. wartość|String|Osobisty numer osoby kontaktowej|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String||
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: 8x8:1.1: użytkownik: Witryna|String|Nie można zaktualizować po utworzeniu użytkownika|
+   |locale|String|Domyślnie Niemapowane|
+   |TimeZone|String|Domyślnie Niemapowane|
 
 10. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

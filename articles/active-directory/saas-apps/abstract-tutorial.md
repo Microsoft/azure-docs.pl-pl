@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z abstrakcyjną | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i abstrakcyjne.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 2eb167ab-d769-4661-a8cb-ae371cb63d2a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81886fa9165269d89bde8306c5829be41952c190
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3f19733f01cf601c1145d5e2bb5deb58db828dc4
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68302586"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88538335"
 ---
 # <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>Samouczek: Integrowanie abstrakcyjne z Azure Active Directory
 
@@ -85,7 +80,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    W polu tekstowym **adres URL logowania** wpisz adres URL:`https://app.abstract.com/signin`
+    W polu tekstowym **adres URL logowania** wpisz adres URL:  `https://app.abstract.com/signin`
 
 4. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij przycisk kopiowania, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
@@ -93,12 +88,12 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 ### <a name="configure-abstract-sso"></a>Skonfiguruj abstrakcyjne Logowanie jednokrotne
 
-Upewnij się, że pobierasz `App Federation Metadata Url` i `Azure AD Identifier` z Azure Portal, ponieważ będą potrzebne do SKONFIGUROWANia logowania jednokrotnego na abstrakcyjnym.
+Upewnij się, że pobierasz `App Federation Metadata Url` i `Azure AD Identifier` z Azure Portal, ponieważ będą potrzebne do skonfigurowania logowania jednokrotnego na abstrakcyjnym.
 
 Te informacje znajdują się na stronie **Konfigurowanie logowania jednokrotnego za pomocą języka SAML** :
 
-* `App Federation Metadata Url` Znajduje się w sekcji **certyfikat podpisywania SAML** .
-* `Azure AD Identifier` Znajduje się w sekcji **Konfigurowanie abstrakcyjne** .
+* Znajduje się `App Federation Metadata Url` w sekcji **certyfikat podpisywania SAML** .
+* Znajduje się `Azure AD Identifier` w sekcji **Konfigurowanie abstrakcyjne** .
 
 
 Teraz można przystąpić do konfigurowania logowania jednokrotnego w postaci abstrakcyjnej:
@@ -123,7 +118,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -169,5 +164,5 @@ Po kliknięciu kafelka abstract w panelu dostępu należy automatycznie zalogowa
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
