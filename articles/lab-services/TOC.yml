@@ -24,6 +24,8 @@
       href: classroom-labs-fundamentals.md
     - name: Limity pojemności
       href: capacity-limits.md
+    - name: Zarządzanie kosztami dla laboratoriów
+      href: cost-management-guide.md
     - name: Scenariusze
       items:
         - name: Korzystanie z usług Lab Services przy prowadzeniu zajęć
@@ -66,7 +68,7 @@
           href: how-to-manage-lab-accounts.md
         - name: Zarządzanie laboratoriami na koncie laboratoriów
           href: manage-labs.md
-        - name: Konfigurowanie automatycznego zamykania maszyn wirtualnych
+        - name: Konfigurowanie automatycznego zamykania maszyn wirtualnych dla konta laboratorium
           href: how-to-configure-lab-accounts.md
         - name: Dodawanie twórcy laboratorium
           href: add-lab-creator.md
@@ -86,8 +88,6 @@
           href: specify-marketplace-images.md
         - name: Określanie informacji o pomocy technicznej (właściciel konta laboratorium)
           href: lab-account-owner-support-information.md
-        - name: Zarządzanie kosztami dla laboratoriów
-          href: cost-management-guide.md
     - name: Tworzenie i konfigurowanie laboratoriów na potrzeby zajęć (nauczyciel)
       items:
         - name: Tworzenie laboratoriów na potrzeby zajęć i zarządzanie nimi
@@ -106,7 +106,7 @@
           href: how-to-use-shared-image-gallery.md
         - name: Włączanie połączenia pulpitu zdalnego dla systemu Linux
           href: how-to-enable-remote-desktop-linux.md
-        - name: Włączanie automatycznego zamykania po rozłączeniu
+        - name: Konfigurowanie automatycznego zamykania maszyn wirtualnych dla laboratorium
           href: how-to-enable-shutdown-disconnect.md
         - name: Włączanie wirtualizacji zagnieżdżonej na maszynie wirtualnej szablonu
           items:

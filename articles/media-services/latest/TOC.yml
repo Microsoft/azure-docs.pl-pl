@@ -71,9 +71,6 @@
       items:
         - name: Elementy zawartości
           href: assets-concept.md
-        - name: Zarządzanie elementami zawartości
-          href: manage-asset-concept.md
-          displayName: 'name, naming, file name, upload, output, download'
     - name: Przetwarzanie plików
       items:
         - name: Transformacje i zadania
@@ -222,20 +219,14 @@
   items:
     - name: Rozpoczęcie pracy
       items:
-        - name: Tworzenie konta
+        - name: Znajdowanie subskrypcji platformy Azure
+          href: how-to-set-azure-subscription.md
+        - name: Tworzenie konta usługi Media Services
           href: create-account-howto.md
           displayName: 'portal, cli, storage'
-        - name: Resetowanie poświadczeń konta
-          href: cli-reset-account-credentials.md
         - name: Interfejs API dostępu
           displayName: 'portal, cli'
           href: access-api-howto.md
-        - name: Skalowanie jednostek zarezerwowanych multimediów
-          href: media-reserved-units-cli-how-to.md
-        - name: Tworzenie zasobu
-          href: cli-create-asset.md
-    - name: Przewodniki deweloperów
-      items:
         - name: Programowanie z użyciem architektury REST
           items:
             - name: Łączenie z narzędziem Postman
@@ -250,6 +241,15 @@
               href: configure-connect-nodejs-howto.md
             - name: Nawiązywanie połączeń przy użyciu języka Python
               href: configure-connect-python-howto.md
+        - name: Resetowanie poświadczeń konta
+          href: cli-reset-account-credentials.md
+    - name: Tworzenie zasobów i zarządzanie nimi
+      items:
+        - name: Tworzenie zasobu
+          href: cli-create-asset.md
+        - name: Zarządzanie elementami zawartości
+          href: manage-asset-concept.md
+          displayName: 'name, naming, file name, upload, output, download'
     - name: Przekazywanie zawartości
       items:
         - name: Z adresu HTTPS
@@ -282,6 +282,8 @@
           displayName: 'encode, encoding'
           href: job-input-from-local-file-how-to.md
         - name: Kodowanie za pomocą transformacji niestandardowej
+        - name: Skalowanie jednostek zarezerwowanych multimediów
+          href: media-reserved-units-cli-how-to.md
           items:
             - name: Przy użyciu platformy .NET
               displayName: 'encode, encoding, custom, transform'
@@ -390,7 +392,7 @@
           href: 'https://aka.ms/ams-v3-python-ref'
         - name: Node.js
           href: /javascript/api/overview/azure/mediaservices/management
-        - name: Przejdź
+        - name: Go
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.media/allversions

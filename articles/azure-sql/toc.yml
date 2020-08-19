@@ -65,6 +65,8 @@
                   href: database/sql-vulnerability-assessment.md
                 - name: Reguły oceny luk w zabezpieczeniach
                   href: database/sql-database-vulnerability-assessment-rules.md
+                - name: Skanowanie luk w zabezpieczeniach magazynu
+                  href: database/sql-database-vulnerability-assessment-storage.md
             - name: 'Identyfikatory logowania, konta użytkowników, role i uprawnienia'
               href: database/logins-create-manage.md
             - name: Uwierzytelnianie w usłudze Azure AD
@@ -80,6 +82,8 @@
                   href: database/conditional-access-configure.md
                 - name: Jednostki usługi (aplikacje)
                   href: database/authentication-aad-service-principal.md
+                - name: Rola Odczytywanie katalogów
+                  href: database/authentication-aad-directory-readers-role.md
             - name: Transparent Data Encryption (TDE)
               items:
                 - name: Omówienie
@@ -143,12 +147,14 @@
               href: database/long-term-backup-retention-configure.md
         - name: Zabezpieczenia
           items:
-            - name: Tworzenie użytkowników-gości usługi Azure AD i ustawianie jako administratora usługi Azure AD
-              href: database/authentication-aad-guest-users.md
+            - name: Uwierzytelnianie w usłudze Azure AD
+              items:
+                - name: Tworzenie użytkowników-gości usługi Azure AD i ustawianie jako administratora usługi Azure AD
+                  href: database/authentication-aad-guest-users.md
+                - name: Przypisywanie roli Odczytywanie katalogów do grup
+                  href: database/authentication-aad-directory-readers-role-tutorial.md
             - name: Konfigurowanie szyfrowania TDE przy usługi BYOK
               href: database/transparent-data-encryption-byok-configure.md
-            - name: Skanowanie luk w zabezpieczeniach magazynu
-              href: database/sql-database-vulnerability-assessment-storage.md
             - name: Zawsze szyfrowane
               items:
                 - name: Korzystanie z usługi Azure Key Vault
@@ -207,12 +213,14 @@
               href: 'https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=/azure/azure-sql/toc.json'
             - name: Java
               items:
+                - name: Używanie języka Java i technologii JDBC
+                  href: database/connect-query-java.md
                 - name: Używanie modułu Spring Data JDBC
-                  href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
                 - name: Używanie modułu Spring Data JPA
-                  href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
                 - name: Używanie modułu Spring Data R2DBC
-                  href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
 - name: Baza danych SQL (SQL DB)
   items:
     - name: Dokumentacja
@@ -402,11 +410,11 @@
                 - name: Java
                   href: database/connect-query-java.md
                 - name: Język Java z modułem Spring Data JDBC
-                  href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
                 - name: Język Java z modułem Spring Data JPA
-                  href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
                 - name: Język Java z modułem Spring Data R2DBC
-                  href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
                 - name: Node.js
                   href: database/connect-query-nodejs.md
                 - name: PHP

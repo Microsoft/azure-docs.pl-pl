@@ -74,10 +74,10 @@
       href: ./sql/tutorial-connect-power-bi-desktop.md
     - name: Analityk danych
       items:
-        - name: Przewidywania napiwków dla taksówkarzy w Nowym Jorku
+        - name: Uruchamianie eksperymentu regresji przy użyciu usługi Azure AutoML
+          href: ./spark/apache-spark-azure-machine-learning-tutorial.md
+        - name: Tworzenie modelu klasyfikacji przy użyciu biblioteki Apache Spark MLlib
           href: ./spark/apache-spark-machine-learning-mllib-notebook.md
-        - name: Rozszerzanie platformy Apache Spark przy użyciu dodatkowych bibliotek
-          href: ./spark/apache-spark-azure-portal-add-libraries.md
     - name: Analityk danych
       items:
         - name: 'Używanie bazy danych SQL na żądanie do analizowania, a programu Synapse Studio do wizualizowania'
@@ -202,8 +202,6 @@
               href: ./spark/apache-spark-overview.md
             - name: Pojęcia dotyczące platformy Apache Spark
               href: ./spark/apache-spark-concepts.md
-            - name: Obsługa języka i biblioteki środowiska uruchomieniowego
-              href: ./spark/apache-spark-version-support.md
             - name: Co to jest usługa Delta Lake
               href: ./spark/apache-spark-what-is-delta-lake.md
             - name: Wydajność platformy Apache Spark
@@ -212,6 +210,12 @@
               href: ./spark/apache-spark-autoscale.md
         - name: Opracowywanie zawartości
           items:
+            - name: Biblioteki
+              items:
+                - name: Dodawanie bibliotek i zarządzanie nimi
+                  href: ./spark/apache-spark-azure-portal-add-libraries.md
+                - name: Obsługa języka i biblioteki środowiska uruchomieniowego
+                  href: ./spark/apache-spark-version-support.md
             - name: Notesy programu Azure Synapse Studio
               href: ./spark/apache-spark-development-using-notebooks.md
             - name: Platforma .NET for Apache Spark

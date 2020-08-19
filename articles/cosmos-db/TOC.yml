@@ -1265,9 +1265,11 @@
           href: sql-api-sdk-async-java.md
         - name: Sync Java SDK 2
           href: sql-api-sdk-java.md
-        - name: Łącznik danych platformy Spring dla interfejsu SQL API
-          href: sql-api-sdk-java-spring.md
-        - name: Łącznik platformy Spark dla interfejsu SQL API
+        - name: Łącznik danych platformy Spring w wersji 2
+          href: sql-api-sdk-java-spring-v2.md
+        - name: Łącznik danych platformy Spring w wersji 3
+          href: sql-api-sdk-java-spring-v3.md
+        - name: Łącznik platformy Spark
           href: sql-api-sdk-java-spark.md
         - name: Biblioteka Java funkcji wykonywania zbiorczego w wersji 2
           href: sql-api-sdk-bulk-executor-java.md

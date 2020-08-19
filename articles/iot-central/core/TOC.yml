@@ -121,6 +121,8 @@
           href: howto-create-custom-analytics.md
         - name: Wizualizacja danych w usłudze Power BI
           href: howto-connect-powerbi.md
+        - name: Konfigurowanie i używanie przekazywania plików
+          href: howto-configure-file-uploads.md
     - name: Administracja
       items:
         - name: Zarządzanie aplikacją

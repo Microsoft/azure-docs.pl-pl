@@ -6,6 +6,11 @@
       href: overview.md
     - name: Obsługiwane magazyny danych
       href: supported-data-stores.md
+- name: Przewodniki Szybki start
+  items:
+    - name: Tworzenie udziału danych — szablon usługi ARM
+      displayName: Resource Manager
+      href: share-your-data-arm.md
 - name: Samouczki
   expanded: true
   items:
