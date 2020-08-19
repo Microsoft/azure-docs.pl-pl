@@ -2,26 +2,21 @@
 title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z portalem NetOp | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a aplikacją Netop Portal.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 63f7eab5-412a-4a5c-84bc-7473087abb49
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/18/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a98155e76366d0dec794acf1d65e70fa19a544e2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: f316d7bab4b9d5b1f08d7a12cdc892be252128ae
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208069"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549011"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netop-portal"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z portalem NetOp
 

@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 75b71fe9a15b05679ab1b71b13bb0b1f51b7d1d1
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 70cbb21430253dc9683cd3803f2a09ef8bb858cb
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816152"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545645"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Instalowanie i uruchamianie kontenerów odczytu (wersja zapoznawcza)
 
-Kontenery umożliwiają uruchamianie przetwarzanie obrazów interfejsów API we własnym środowisku. Kontenery doskonale nadaje się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi. W tym artykule dowiesz się, jak pobrać, zainstalować i uruchomić kontener przetwarzanie obrazów.
+Kontenery umożliwiają uruchamianie interfejsów API przetwarzania obrazów w Twoim własnym środowisku. Kontenery doskonale nadają się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi. W tym artykule dowiesz się, jak pobrać, zainstalować i uruchomić kontener przetwarzania obrazów.
 
 Pojedynczy kontener Docker, *Odczyt*, jest dostępny dla przetwarzanie obrazów. Kontener *Odczyt* umożliwia wykrywanie i wyodrębnianie *drukowanych tekstu* z obrazów różnych obiektów z różnymi powierzchniami i tłem, takimi jak paragony, plakaty i karty biznesowe. Ponadto kontener *Odczytaj* wykrywa *Tekst odręczny* w obrazach i zapewnia obsługę plików PDF, TIFF i wielostronicowych. Aby uzyskać więcej informacji, zobacz dokumentację interfejsu API [odczytu](concept-recognizing-text.md#read-api) .
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -62,7 +62,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 [!INCLUDE [Container requirements and recommendations](includes/container-requirements-and-recommendations.md)]
 
-## <a name="get-the-container-image-with-docker-pull"></a>Pobierz obraz kontenera za pomocą`docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>Pobierz obraz kontenera za pomocą `docker pull`
 
 Dostępne są obrazy kontenerów do odczytu.
 
@@ -87,7 +87,7 @@ Gdy kontener znajduje się na [komputerze hosta](#the-host-computer), użyj nast
 1. [Uruchom kontener](#run-the-container-with-docker-run)z wymaganymi ustawieniami rozliczania. Więcej [przykładów](computer-vision-resource-container-config.md) `docker run` polecenia jest dostępnych. 
 1. [Zbadaj punkt końcowy przewidywania kontenera](#query-the-containers-prediction-endpoint). 
 
-## <a name="run-the-container-with-docker-run"></a>Uruchom kontener za pomocą`docker run`
+## <a name="run-the-container-with-docker-run"></a>Uruchom kontener za pomocą `docker run`
 
 Użyj polecenia [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) , aby uruchomić kontener. Zapoznaj się z tematem [zbieranie wymaganych parametrów](#gathering-required-parameters) , aby uzyskać szczegółowe informacje na temat sposobu pobierania `{ENDPOINT_URI}` `{API_KEY}` wartości i.
 
@@ -119,11 +119,11 @@ Więcej [przykładów](./computer-vision-resource-container-config.md#example-do
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
-## <a name="query-the-containers-prediction-endpoint"></a>Zbadaj punkt końcowy przewidywania kontenera
+## <a name="query-the-containers-prediction-endpoint"></a>Wykonywanie zapytania dotyczącego punktu końcowego przewidywania kontenera
 
-Kontener udostępnia interfejsy API punktu końcowego przewidywania zapytań. 
+Kontener udostępnia oparte na interfejsie REST interfejsy API punktu końcowego przewidywania zapytań. 
 
-Użyj hosta, `http://localhost:5000` , dla interfejsów API kontenerów.
+Użyj hosta `http://localhost:5000` dla interfejsów API kontenera.
 
 ### <a name="asynchronous-read"></a>Odczyt asynchroniczny
 

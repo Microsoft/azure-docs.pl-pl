@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Bime | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Bime.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: bdcf0729-c880-4c95-b739-0f6345b17dd8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7774fd55a64df198a9b025a67ce377deebefe8fe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 149656bebac7e8fab24dc1e1847a4e56bf5f3888
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74232069"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547345"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Samouczek: integracja Azure Active Directory z usługą Bime
 
@@ -33,7 +28,7 @@ Integrowanie aplikacji Bime z usługą Azure AD zapewnia następujące korzyści
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -149,7 +144,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Bime, wyk
 
     c. W polu tekstowym **Certificate Fingerprint (Odcisk palca certyfikatu)** wklej wartość **ODCISK PALCA** skopiowaną z witryny Azure Portal.
 
-    d. Kliknij przycisk **Zapisz**.
+    d. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -169,8 +164,8 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
-    Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -226,9 +221,9 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do aplikacji Bime,
 
     b. W polu tekstowym **Last name (Nazwisko)** wprowadź nazwisko użytkownika, na przykład **Simon**.
 
-    c. W polu tekstowym **adres e-mail** wprowadź adres e-mail użytkownika, np **.\@brittasimon contoso.com**.
+    c. W polu tekstowym **adres e-mail** wprowadź adres e-mail użytkownika, np. **brittasimon \@ contoso.com**.
 
-    d. Kliknij przycisk **Zapisz**.
+    d. Kliknij pozycję **Zapisz**.
 
 > [!NOTE]
 > Do aprowizacji kont użytkowników usługi Azure AD można używać innych narzędzi do tworzenia kont użytkowników Bime i interfejsów API udostępnionych przez usługę Bime.
@@ -245,5 +240,5 @@ Po kliknięciu kafelka Bime w panelu dostępu powinno nastąpić automatyczne za
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Tidemark | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Tidemark.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 5cf80d4e-6e8b-48ec-81c8-27872af5e5d5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 2fd26acfd857ab868c003d0de901f6d168d63078
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 85f1d59205f218b903e547692ed346cec07d340b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86167525"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544829"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Samouczek: integracja Azure Active Directory z usługą Tidemark
 
@@ -155,11 +151,11 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension . Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

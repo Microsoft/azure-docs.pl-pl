@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory ze stanowiskiem pracy z szybszym użyciem | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i szybszym miejscem pracy.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: b75f5f00-ea8b-4850-ae2e-134e5d678d97
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0457f60335f6478d7d6e2144ae838e070dabde4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8a21fecbe39008a79b60bdc9f133c3540d440207
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67588133"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545084"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-soonr-workplace"></a>Samouczek: integracja Azure Active Directory ze stanowiskiem pracy z szybszym użyciem
 
@@ -33,7 +28,7 @@ Integracja z usługą Azure AD w szybszym miejscu zapewnia następujące korzyś
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -106,7 +101,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą miejsca 
 
     ![Wcześniej informacje o domenie i adresach URL logowania jednokrotnego w miejscu pracy](common/idp-intiated.png)
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<servername>.soonr.com/singlesignon/saml/metadata`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<servername>.soonr.com/singlesignon/saml/metadata`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<servername>.soonr.com/singlesignon/saml/SSO`
 
@@ -158,7 +153,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`. Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension` . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -200,11 +195,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka miejsca pracy na miejscu w panelu dostępu należy automatycznie zalogować się do miejsca pracy, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

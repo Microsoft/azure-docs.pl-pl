@@ -2,25 +2,21 @@
 title: 'Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z użyciem formatu CODA | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Coda.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: acaf2012-ef2e-4ce0-8467-ceece3bae50e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/23/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74da278dbbc0ac32407c345524e224ca5f7616da
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 718afec8b36a27bfd36e2a018b39f480144bf822
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77194718"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545356"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coda"></a>Samouczek: integracja z logowaniem jednokrotnym (SSO) Azure Active Directory z użyciem formatu CODA
 
@@ -107,9 +103,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wprowadź wartości dla następujących pól:
 
-   a. W polu tekstowym **Identyfikator** wprowadź wartość "identyfikator jednostki" z powyższych. Powinien postępować zgodnie z wzorcem:`https://coda.io/samlId/<CUSTOMID>`
+   a. W polu tekstowym **Identyfikator** wprowadź wartość "identyfikator jednostki" z powyższych. Powinien postępować zgodnie z wzorcem: `https://coda.io/samlId/<CUSTOMID>`
 
-   b. W polu tekstowym **adres URL odpowiedzi** wprowadź wartość "adres URL odpowiedzi SAML" z powyższych. Powinien postępować zgodnie z wzorcem:`https://coda.io/login/sso/saml/<CUSTOMID>/consume`
+   b. W polu tekstowym **adres URL odpowiedzi** wprowadź wartość "adres URL odpowiedzi SAML" z powyższych. Powinien postępować zgodnie z wzorcem: `https://coda.io/login/sso/saml/<CUSTOMID>/consume`
 
    > [!NOTE]
    > Twoje wartości różnią się od powyższych; wartości można znaleźć w obszarze "Konfigurowanie SAML" w formacie Coda. Zastąp te wartości rzeczywistymi wartościami identyfikatora i adresu URL odpowiedzi.
@@ -130,7 +126,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -176,13 +172,13 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Coda w panelu dostępu należy automatycznie zalogować się do formatu CODA, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj format CODA z usługą Azure AD](https://aad.portal.azure.com/)
 

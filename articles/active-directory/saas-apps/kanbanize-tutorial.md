@@ -2,26 +2,21 @@
 title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Kanbanize | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Kanbanize.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: b436d2f6-bfa5-43fd-a8f9-d2144dc25669
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/09/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c5a3a096c5a44f681d23587837ae31fd1af33b2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 686a186650bfe4066533b0f086c080b5ffb14eb6
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72373225"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546836"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kanbanize"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Kanbanize
 
@@ -83,13 +78,13 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
 
-     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<subdomain>.kanbanize.com/`
+     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<subdomain>.kanbanize.com/`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<subdomain>.kanbanize.com/saml/acs`
 
     c. Kliknij pozycję **Ustaw dodatkowe adresy URL**.
 
-    d. W polu tekstowym **Stan przekazywania** wpisz adres URL:`/ctrl_login/saml_login`
+    d. W polu tekstowym **Stan przekazywania** wpisz adres URL: `/ctrl_login/saml_login`
 
 1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
@@ -100,7 +95,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Aplikacja Kanbanize oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Na poniższym zrzucie ekranu przedstawiono listę atrybutów domyślnych, gdzie atrybut nameidentifier jest mapowany na atrybut **user.userprincipalname**. Aplikacja Kanbanize oczekuje, że NameIdentifier mają być mapowane przy użyciu elementu **User. mail**, dlatego należy edytować Mapowanie atrybutów, klikając ikonę Edytuj i zmieniając mapowanie atrybutu.
 
-    ![image](common/edit-attribute.png)
+    ![image (obraz)](common/edit-attribute.png)
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -118,7 +113,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -174,16 +169,16 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     c. W polu tekstowym **punkt końcowy wylogowania dostawcy tożsamości** wklej wartość **adresu URL wylogowania**, która została skopiowana z Azure Portal.
 
-    d. W polu tekstowym **nazwa atrybutu dla wiadomości e-mail** wprowadź tę wartość`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    d. W polu tekstowym **nazwa atrybutu dla wiadomości e-mail** wprowadź tę wartość `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-    e. W polu tekstowym **nazwa atrybutu dla pierwszej nazwy** wprowadź tę wartość`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+    e. W polu tekstowym **nazwa atrybutu dla pierwszej nazwy** wprowadź tę wartość `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 
-    f. W polu **nazwa atrybutu dla** pola tekstowego nazwisko wprowadź tę wartość`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+    f. W polu **nazwa atrybutu dla** pola tekstowego nazwisko wprowadź tę wartość `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
 
     > [!Note]
     > Możesz uzyskać te wartości, łącząc przestrzeń nazw i wartości nazw odpowiedniego atrybutu z sekcji atrybuty użytkownika w Azure Portal.
 
-    g. W Notatniku otwórz certyfikat zakodowany Base-64, który został pobrany z Azure Portal, skopiuj jego zawartość (bez znaczników początkowych i końcowych), a następnie wklej go w polu **certyfikat dostawcy tożsamości X. 509** .
+    przykład W Notatniku otwórz certyfikat zakodowany Base-64, który został pobrany z Azure Portal, skopiuj jego zawartość (bez znaczników początkowych i końcowych), a następnie wklej go w polu **certyfikat dostawcy tożsamości X. 509** .
 
     h. Zaznacz pole wyboru **Włącz logowanie przy użyciu logowania JEDNOkrotnego i Kanbanize**.
 
@@ -199,13 +194,13 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Kanbanize w panelu dostępu należy automatycznie zalogować się do Kanbanize, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj Kanbanize z usługą Azure AD](https://aad.portal.azure.com/)
 

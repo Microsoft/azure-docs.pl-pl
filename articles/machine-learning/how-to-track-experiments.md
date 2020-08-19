@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d0c6488f9a75bbf9ba6775138edeed9c4a397abf
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 7a0fd4178df92cc9102456c1fa2ae4e8927337e4
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552224"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547328"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Włącz rejestrowanie w przebiegach szkoleniowych usługi Azure ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,12 +42,6 @@ Można rejestrować wiele typów danych, w tym wartości skalarne, listy, tabele
 ## <a name="interactive-logging-session"></a>Interaktywna sesja rejestrowania
 
 Interaktywne sesje rejestrowania są zwykle używane w środowiskach notesów. Metoda [Eksperymentuj. start_logging ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) uruchamia interaktywną sesję rejestrowania. Wszystkie metryki zarejestrowane w trakcie sesji są dodawane do rekordu uruchomienia w eksperymentie. Metoda [Run. Complete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-) kończy sesje i oznacza przebieg jako zakończony.
-
-Poniższy fragment kodu używa interaktywnej sesji rejestrowania do rejestrowania parametrów szkolenia i metryk wydajności za pomocą metody [Run. log ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#log-name--value--description----) . Przekazuje również przeszkolony model do określonej lokalizacji wyjściowej.
-
-[! Notes — Python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb? Name = create_experiment)]
-
-Aby zapoznać się z kompletnym przykładowym notesem korzystającym z interakcyjnego rejestrowania, zobacz [uczenie modelu w notesie](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb).
 
 ## <a name="scriptrunconfig-logs"></a>Dzienniki ScriptRunConfig
 

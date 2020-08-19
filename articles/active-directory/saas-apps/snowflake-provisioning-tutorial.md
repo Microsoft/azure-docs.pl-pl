@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie płatnej śniegu w celu automatycznego aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Azure Active Directory, aby automatycznie inicjować udostępnianie kont użytkowników i cofać ich obsługę.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: f9ce85f4-0992-4bc6-8276-4b2efbce8dcb
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 7c43d3dd0c8a0d9f6d31d8e379fd195adfd7873f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 7fbf7743eb1c037a364e1004fc3be30db6777bb0
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925417"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546646"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie płatnej śniegu na potrzeby automatycznego aprowizacji użytkowników
 
@@ -119,14 +115,14 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Atrybut|Typ|
    |---|---|
-   |aktywne|Wartość logiczna|
-   |displayName|Ciąg|
-   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
-   |userName|Ciąg|
-   |Nazwa. imię|Ciąg|
-   |Nazwa. rodzina|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: defaultRole|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: defaultWarehouse|Ciąg|
+   |aktywne|Boolean|
+   |displayName|String|
+   |wiadomości e-mail [Type EQ "Work"]. Value|String|
+   |userName|String|
+   |Nazwa. imię|String|
+   |Nazwa. rodzina|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: defaultRole|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: defaultWarehouse|String|
 
 11. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory z płatą śniegu**.
 
@@ -134,7 +130,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
       |Atrybut|Typ|
       |---|---|
-      |displayName|Ciąg|
+      |displayName|String|
       |elementy członkowskie|Dokumentacja|
 
 13. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

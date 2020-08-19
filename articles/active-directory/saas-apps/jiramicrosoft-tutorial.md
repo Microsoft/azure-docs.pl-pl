@@ -2,26 +2,21 @@
 title: 'Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą JIRA SAML SSO przez firmę Microsoft | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a programem JIRA SAML SSO by Microsoft.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 4b663047-7f88-443b-97bd-54224b232815
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f06f0f376c1ecafcff833aa4b6bece0a0e35d10
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 08f5829eb624f13be44bba633f3188d8d9876058
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475337"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547464"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą JIRA SAML SSO przez firmę Microsoft
 
@@ -112,9 +107,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:`https://<domain:port>/plugins/servlet/saml/auth`
+    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<domain:port>/plugins/servlet/saml/auth`
 
-    b. W polu **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<domain:port>/`
+    b. W polu **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<domain:port>/`
 
     c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<domain:port>/plugins/servlet/saml/auth`
 
@@ -265,9 +260,9 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka JIRA SAML SSO by Microsoft na panelu dostępu powinno nastąpić automatyczne zalogowanie do programu JIRA SAML SSO by Microsoft, dla którego skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

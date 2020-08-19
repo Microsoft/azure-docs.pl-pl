@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z logowaniem jednokrotnym w usłudze Rackspace | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Rackspace Logowanie jednokrotne.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 36b398be-2f7e-4ce8-9031-53587299bc4a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 98a160b361e316c87e61855825c2cc36fdbb06d1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a2c2e7358c32453daf53c40a9322df4fe30642d8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81870300"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548898"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Samouczek: integracja Azure Active Directory z logowaniem jednokrotnym w usłudze Rackspace
 
@@ -32,7 +28,7 @@ Integracja z logowaniem jednokrotnym w usłudze Azure AD zapewnia następujące 
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -105,15 +101,15 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi 
 
     a. Kliknij pozycję **Przekaż plik metadanych**.
 
-    ![image](common/upload-metadata.png)
+    ![image (obraz)](common/upload-metadata.png)
 
     b. Kliknij **logo folderu**, aby wybrać plik metadanych, a następnie kliknij pozycję **Przekaż**.
 
-    ![image](common/browse-upload-metadata.png)
+    ![image (obraz)](common/browse-upload-metadata.png)
 
     c. Po pomyślnym przekazaniu pliku metadanych niezbędne adresy URL są automatycznie wypełniane.
 
-    d. W polu tekstowym **adres URL logowania** wpisz adres URL:`https://login.rackspace.com/federate/`
+    d. W polu tekstowym **adres URL logowania** wpisz adres URL: `https://login.rackspace.com/federate/`
 
     ![Rackspace informacje logowania jednokrotnego i adresów URL logowania jednokrotnego](common/sp-signonurl.png)   
 
@@ -153,7 +149,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`. Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension` . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -187,7 +183,7 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 ### <a name="set-up-attribute-mapping-in-the-rackspace-control-panel"></a>Konfigurowanie mapowania atrybutów w panelu sterowania Rackspace
 
-Rackspace używa **zasad mapowania atrybutów** do przypisywania ról i grup Rackspace do użytkowników korzystających z logowania jednokrotnego. **Zasady mapowania atrybutów** tłumaczą oświadczenia SAML usługi Azure AD w pola konfiguracji użytkownika Rackspace wymagane. Więcej dokumentacji można znaleźć w dokumentacji dotyczącej [mapowania atrybutów](https://developer.rackspace.com/docs/rackspace-federation/appendix/map/)Rackspace. Niektóre zagadnienia:
+Rackspace używa **zasad mapowania atrybutów** do przypisywania ról i grup Rackspace do użytkowników korzystających z logowania jednokrotnego. **Zasady mapowania atrybutów** tłumaczą oświadczenia SAML usługi Azure AD w pola konfiguracji użytkownika Rackspace wymagane. Więcej dokumentacji można znaleźć w dokumentacji dotyczącej [mapowania atrybutów](https://developer.rackspace.com/docs/rackspace-federation/appendix/map/)Rackspace. Kwestie do rozważenia:
 
 * Jeśli chcesz przypisać różne poziomy dostępu Rackspace przy użyciu grup usługi Azure AD, musisz włączyć w ustawieniach logowania jednokrotnego usługi Azure **Rackspace** dane w obszarze Logowanie za pomocą logowania jednostronnego. **Zasady mapowania atrybutów** zostaną następnie użyte do dopasowania do tych grup do żądanych ról i grup Rackspace:
 
@@ -198,9 +194,9 @@ Rackspace używa **zasad mapowania atrybutów** do przypisywania ról i grup Rac
     ![Ustawienia nazw roszczeń grup](common/sso-groups-claims-names.png)
 
 Następujące przykładowe **zasady mapowania atrybutów** przedstawiają:
-1. Ustawianie nazwy użytkownika Rackspace na wartość `user.name` Claim języka SAML. Można użyć dowolnego z tych roszczeń, ale jest to najbardziej powszechne, aby ustawić to pole zawierające adres e-mail użytkownika.
-1. Ustawianie ról `admin` Rackspace i `billing:admin` dla użytkownika przez dopasowanie grupy usługi Azure AD według nazwy grupy lub identyfikatora UID grupy. *Podstawienie* `"{0}"` w `roles` polu jest używane i zostanie zastąpione przez wyniki wyrażeń `remote` reguł.
-1. `"{D}"` Używanie *podstawienia domyślnego* do zezwalania Rackspace na pobieranie dodatkowych pól SAML przez szukanie standardowych i dobrze znanych oświadczeń SAML w wymianie SAML.
+1. Ustawianie nazwy użytkownika Rackspace na wartość Claim języka `user.name` SAML. Można użyć dowolnego z tych roszczeń, ale jest to najbardziej powszechne, aby ustawić to pole zawierające adres e-mail użytkownika.
+1. Ustawianie ról Rackspace `admin` i `billing:admin` dla użytkownika przez dopasowanie grupy usługi Azure AD według nazwy grupy lub identyfikatora UID grupy. *Podstawienie* `"{0}"` w `roles` polu jest używane i zostanie zastąpione przez wyniki `remote` wyrażeń reguł.
+1. Używanie `"{D}"` *podstawienia domyślnego* do zezwalania Rackspace na pobieranie dodatkowych pól SAML przez szukanie standardowych i dobrze znanych oświadczeń SAML w wymianie SAML.
 
 ```yaml
 ---
@@ -244,5 +240,5 @@ Możesz również użyć przycisku **Weryfikuj** w ustawieniach logowania jednok
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

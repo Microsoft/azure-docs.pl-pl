@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Help Scout | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Help Scout.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 0aad9910-0bc1-4394-9f73-267cf39973ab
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b71ccbc6cfdb9d3d37fc46b0e932fa98eee2fb43
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 16783d344c6a0dedec4e24d49150e0b4b2edbe3e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73159093"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548144"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Samouczek: integracja Azure Active Directory z Help Scout
 
@@ -33,7 +28,7 @@ Integracja aplikacji Help Scout z usługą Azure AD zapewnia następujące korzy
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -141,8 +136,8 @@ Celem tej sekcji jest utworzenie użytkownika testowego w Azure Portal o nazwie 
 
     a. W polu **Nazwa** wpisz **B. Simon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **B. Simon\@yourcompanydomain. Extension**  
-    Na przykład: B.Simon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz **B. Simon \@ yourcompanydomain. Extension**  
+    Na przykład B.Simon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -214,7 +209,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     d. Ponadto możesz włączyć ustawienie **Force SAML Sign-on** (Wymuszaj logowanie SAML), jeśli użytkownicy mają logować się w aplikacji Help Scout tylko za pośrednictwem tej metody. Jeśli chcesz pozostawić im opcję logowania się przy użyciu poświadczeń aplikacji Help Scout, możesz pozostawić to ustawienie wyłączone. Nawet jeśli to ustawienie jest włączone, właściciel konta zawsze będzie mógł zalogować się w aplikacji Help Scout za pomocą hasła do swojego konta.
 
-    e. Kliknij przycisk **Zapisz**.
+    e. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-help-scout-test-user"></a>Tworzenie użytkownika testowego aplikacji Help Scout
 
@@ -232,6 +227,6 @@ Po kliknięciu kafelka Help Scout w panelu dostępu powinno nastąpić automatyc
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj program Scout z usługą Azure AD](https://aad.portal.azure.com/)

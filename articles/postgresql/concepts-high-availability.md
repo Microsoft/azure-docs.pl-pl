@@ -1,17 +1,17 @@
 ---
 title: Wysoka dostępność — Azure Database for PostgreSQL — pojedynczy serwer
 description: Ten artykuł zawiera informacje o wysokiej dostępności w systemie Azure Database for PostgreSQL-pojedynczym serwerze
-author: jasonwhowell
-ms.author: jasonh
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
-ms.openlocfilehash: 33c66fff681b0458d1cff1ff6176c34f4771b38e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 16ce5b42e35ff3d650ba18aa95ab80b83fdbfdad
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508468"
+ms.locfileid: "88547685"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Wysoka dostępność w Azure Database for PostgreSQL — pojedynczy serwer
 Azure Database for PostgreSQL — usługa pojedynczego serwera zapewnia gwarantowany wysoki poziom dostępności dzięki finansowej umowie dotyczącej poziomu usług (SLA) wynoszącej [99,99%](https://azure.microsoft.com/support/legal/sla/postgresql) czasu. Azure Database for PostgreSQL zapewnia wysoką dostępność podczas planowanych zdarzeń, takich jak operacja obliczeniowa initated przez użytkownika, a także w przypadku nieplanowanych zdarzeń, takich jak podstawowy sprzęt, oprogramowanie lub awarie sieci. Azure Database for PostgreSQL możliwość szybkiego odzyskania sprawności od najbardziej krytycznych okoliczności, co gwarantuje praktycznie brak aplikacji podczas korzystania z tej usługi.
@@ -61,7 +61,7 @@ Poniżej przedstawiono niektóre scenariusze awarii i sposób automatycznego odz
 
 | **Scenariusz** | **Automatyczne odzyskiwanie** |
 | ---------- | ---------- |
-| <B>Awaria serwera bazy danych | Jeśli serwer bazy danych nie działa z powodu błędu sprzętowego, aktywne połączenia są porzucane i wszystkie transakcje numerów porządkowych określających są przerywane. Zostanie automatycznie wdrożony nowy serwer bazy danych, a zdalny magazyn danych jest podłączony do nowego serwera bazy danych. Po zakończeniu odzyskiwania bazy danych klienci mogą połączyć się z nowym serwerem bazy danych za pomocą bramy. <br /> <br /> Czas odzyskiwania (RTO) zależy od różnych czynników, w tym działania w momencie wystąpienia błędu, takie jak duża transakcja i ilość odzyskiwania, które mają być wykonywane podczas uruchamiania serwera bazy danych. <br /> <br /> Aplikacje korzystające z baz danych PostgreSQL muszą być wbudowane w taki sposób, aby wykrywać i ponawiać próby porzucenia połączeń i transakcji zakończonych niepowodzeniem.  Po ponownym ponowieniu próby aplikacji Brama w niewidoczny sposób przekierowuje połączenie do nowo utworzonego serwera bazy danych. |
+| <B>Awaria serwera bazy danych | Jeśli serwer bazy danych nie działa z powodu błędu sprzętowego, aktywne połączenia są porzucane i wszystkie transakcje numerów porządkowych określających są przerywane. Zostanie automatycznie wdrożony nowy serwer bazy danych, a zdalny magazyn danych jest podłączony do nowego serwera bazy danych. Po zakończeniu odzyskiwania bazy danych klienci mogą połączyć się z nowym serwerem bazy danych za pomocą bramy. <br /> <br /> Czas odzyskiwania (RTO) zależy od różnych czynników, w tym działania w momencie wystąpienia błędu, takie jak duża transakcja i ilość odzyskiwania do wykonania podczas uruchamiania serwera bazy danych. <br /> <br /> Aplikacje korzystające z baz danych PostgreSQL muszą być wbudowane w taki sposób, aby wykrywać i ponawiać próby porzucenia połączeń i transakcji zakończonych niepowodzeniem.  Po ponownym ponowieniu próby aplikacji Brama w niewidoczny sposób przekierowuje połączenie do nowo utworzonego serwera bazy danych. |
 | <B>Awaria magazynu | Aplikacje nie widzą żadnego wpływu na problemy związane z magazynowaniem, takie jak awaria dysku lub uszkodzenie bloku fizycznego. Ponieważ dane są przechowywane w 3 kopiach, kopia danych jest obsługiwana przez trwające magazynowanie. Uszkodzenia bloków są automatycznie poprawiane. Jeśli kopia danych zostanie utracona, tworzona jest nowa kopia danych. |
 
 Poniżej przedstawiono niektóre scenariusze niepowodzeń, które wymagają wykonania czynności przez użytkownika w celu odzyskania:

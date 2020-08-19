@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie narzędzia Smartsheet dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników w usłudze narzędzia Smartsheet.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: c23c57e77f69cd7043e09ff5e2809d8329d62da3
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: f323b563d90de315bdbb317f88d7f9449be6c008
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925524"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546699"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie narzędzia Smartsheet na potrzeby automatycznego aprowizacji użytkowników
 
@@ -79,7 +75,7 @@ Przed skonfigurowaniem usługi narzędzia Smartsheet na potrzeby automatycznego 
 
     ![Narzędzia Smartsheet Zainstaluj](media/smartsheet-provisioning-tutorial/Smartsheet06.png)
 
-7. Zdefiniuj nazwę tokenu dostępu interfejsu API. Kliknij przycisk **OK**.
+7. Zdefiniuj nazwę tokenu dostępu interfejsu API. Kliknij pozycję **OK**.
 
     ![Narzędzia Smartsheet Zainstaluj](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
 
@@ -143,23 +139,23 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Atrybut|Typ|
    |---|---|
-   |aktywne|Wartość logiczna|
-   |tytuł|Ciąg|
-   |userName|Ciąg|
-   |Nazwa. imię|Ciąg|
-   |Nazwa. rodzina|Ciąg|
-   |numer telefonu [typ EQ "Work"]. wartość|Ciąg|
-   |numer telefonu [typ EQ "Mobile"]. Value|Ciąg|
-   |numer telefonu [typ EQ "Fax"]. wartość|Ciąg|
-   |externalId|Ciąg|
-   |role [podstawowa EQ "true"]. Display|Ciąg|
-   |role [podstawowa EQ "true"]. Type|Ciąg|
-   |role [podstawowa EQ "true"]. Value|Ciąg|
-   |role|Ciąg|
-   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Ciąg|
+   |aktywne|Boolean|
+   |tytuł|String|
+   |userName|String|
+   |Nazwa. imię|String|
+   |Nazwa. rodzina|String|
+   |numer telefonu [typ EQ "Work"]. wartość|String|
+   |numer telefonu [typ EQ "Mobile"]. Value|String|
+   |numer telefonu [typ EQ "Fax"]. wartość|String|
+   |externalId|String|
+   |role [podstawowa EQ "true"]. Display|String|
+   |role [podstawowa EQ "true"]. Type|String|
+   |role [podstawowa EQ "true"]. Value|String|
+   |role|String|
+   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|String|
 
 
 10. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

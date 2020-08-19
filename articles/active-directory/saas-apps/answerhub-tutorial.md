@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą AnswerHub | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją AnswerHub.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a124832bd42a0a144ebc6000b818fb825aa422ef
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d453cc5300dc658e4b33bb0591100deae5f34aef
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73152989"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544744"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Samouczek: integracja Azure Active Directory z usługą AnswerHub
 
@@ -33,7 +28,7 @@ Integracja aplikacji AnswerHub z usługą Azure AD zapewnia następujące korzy�
 * Możesz zarządzać kontami w centralnej lokalizacji — witrynie Azure Portal.
 
 Aby dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Single sign-on to applications in Azure Active Directory (Logowanie jednokrotne do aplikacji w usłudze Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -185,12 +180,12 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w witrynie A
 
     a. W polu **Nazwa** wpisz **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wprowadź **brittasimon\@<yourcompanydomain. Extension>**.  
+    b. W polu **Nazwa użytkownika** wprowadź **brittasimon \@<yourcompanydomain. Extension>**.  
     Na przykład BrittaSimon@contoso.com.
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
 
-    d. Wybierz przycisk **Utwórz**.
+    d. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -249,11 +244,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po wybraniu kafelka AnswerHub na panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji AnswerHub, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [Introduction to the access panel (Wprowadzenie do panelu dostępu)](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Tutorials for integrating SaaS apps with Azure Active Directory (Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

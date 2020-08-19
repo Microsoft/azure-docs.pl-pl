@@ -1,22 +1,22 @@
 ---
-title: Jak utworzyć zasady konfiguracji gościa dla systemu Linux
+title: Jak tworzyć zasady konfiguracji gościa dla systemu Linux
 description: Dowiedz się, jak utworzyć Azure Policy zasady konfiguracji gościa dla systemu Linux.
-ms.date: 03/20/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: fef5bdea1b7f98e19f9f8ee8bc9bce8553107fda
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 8bf01d8f69439f7b4d60fba76de0b7abf636c274
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236594"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547724"
 ---
-# <a name="how-to-create-guest-configuration-policies-for-linux"></a>Jak utworzyć zasady konfiguracji gościa dla systemu Linux
+# <a name="how-to-create-guest-configuration-policies-for-linux"></a>Jak tworzyć zasady konfiguracji gościa dla systemu Linux
 
 Przed utworzeniem zasad niestandardowych zapoznaj się z omówieniem w temacie [Azure Policy konfiguracja gościa](../concepts/guest-configuration.md).
  
 Aby dowiedzieć się więcej o tworzeniu zasad konfiguracji gościa dla systemu Windows, zobacz stronę [jak utworzyć zasady konfiguracji gościa dla systemu Windows](./guest-configuration-create.md)
 
-Podczas inspekcji systemu Linux konfiguracja gościa używa [Chef INSPEC](https://www.inspec.io/). Profil INSPEC definiuje warunek, w którym maszyna powinna znajdować się w. Jeśli Ocena konfiguracji nie powiedzie się, zostanie wyzwolony efekt zasad **auditIfNotExists** i maszyna zostanie uznana za **niezgodną**.
+Podczas inspekcji systemu Linux konfiguracja gościa używa oprogramowania [Chef InSpec](https://www.inspec.io/). Profil oprogramowania InSpec definiuje stan, w jakim powinna być maszyna. Jeśli Ocena konfiguracji nie powiedzie się, zostanie wyzwolony efekt zasad **auditIfNotExists** i maszyna zostanie uznana za **niezgodną**.
 
 [Azure Policy konfiguracja gościa](../concepts/guest-configuration.md) może być używana tylko do inspekcji ustawień wewnątrz maszyn. Korygowanie ustawień wewnątrz maszyn nie jest jeszcze dostępne.
 
@@ -25,9 +25,8 @@ Wykonaj poniższe czynności, aby utworzyć własną konfigurację służącą d
 > [!IMPORTANT]
 > Zasady niestandardowe z konfiguracją gościa są funkcją w wersji zapoznawczej.
 >
-> Do przeprowadzania inspekcji w usłudze Azure Virtual Machines jest wymagane rozszerzenie konfiguracji gościa.
-> Aby wdrożyć rozszerzenie w skali na wszystkich komputerach z systemem Linux, Przypisz następującą definicję zasad:
->   - [Wdróż wymagania wstępne, aby włączyć zasady konfiguracji gościa na maszynach wirtualnych z systemem Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
+> Do przeprowadzania inspekcji na maszynach wirtualnych platformy Azure jest wymagane rozszerzenie konfiguracji gościa. Aby wdrożyć rozszerzenie w skali na wszystkich komputerach z systemem Linux, Przypisz następującą definicję zasad:
+> - [Wdróż wymagania wstępne, aby włączyć zasady konfiguracji gościa na maszynach wirtualnych z systemem Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ## <a name="install-the-powershell-module"></a>Instalowanie modułu programu PowerShell
 
@@ -52,8 +51,7 @@ Systemy operacyjne, w których można zainstalować moduł:
 - Windows
 
 > [!NOTE]
-> Polecenie cmdlet "test-GuestConfigurationPackage" wymaga OpenSSL w wersji 1,0 ze względu na zależność od OMI.
-> Powoduje to błąd w dowolnym środowisku z OpenSSL 1,1 lub nowszym.
+> Polecenie cmdlet "test-GuestConfigurationPackage" wymaga OpenSSL w wersji 1,0 ze względu na zależność od OMI. Powoduje to błąd w dowolnym środowisku z OpenSSL 1,1 lub nowszym.
 
 Moduł zasobów konfiguracji gościa wymaga następującego oprogramowania:
 
@@ -81,7 +79,8 @@ Aby zainstalować moduł **GuestConfiguration** w programie PowerShell:
 
 ## <a name="guest-configuration-artifacts-and-policy-for-linux"></a>Artefakty konfiguracji gościa i zasady dla systemu Linux
 
-Nawet w środowiskach systemu Linux konfiguracja gościa używa konfiguracji żądanego stanu jako abstrakcji języka. Implementacja jest oparta na kodzie macierzystym (C++), więc nie wymaga ładowania programu PowerShell. Jednak wymaga to konfiguracji pliku MOF opisującego szczegółowe informacje o środowisku. Konfiguracja DSC działa jako otoka do standaryzacji w celu ujednolicenia sposobu wykonywania, sposobu, w jaki są podane parametry i sposobu, w jaki dane wyjściowe są zwracane do usługi. W przypadku pracy z niestandardową zawartością specyfikacji jest wymagana mała znajomość konfiguracji DSC.
+Nawet w środowiskach systemu Linux konfiguracja gościa używa konfiguracji żądanego stanu jako abstrakcji języka. Implementacja jest oparta na kodzie macierzystym (C++), więc nie wymaga ładowania programu PowerShell. Jednak wymaga to konfiguracji pliku MOF opisującego szczegółowe informacje o środowisku.
+Konfiguracja DSC działa jako otoka do standaryzacji w celu ujednolicenia sposobu wykonywania, sposobu, w jaki są podane parametry i sposobu, w jaki dane wyjściowe są zwracane do usługi. W przypadku pracy z niestandardową zawartością specyfikacji jest wymagana mała znajomość konfiguracji DSC.
 
 #### <a name="configuration-requirements"></a>Wymagania dotyczące konfiguracji
 
@@ -141,8 +140,6 @@ AuditFilePathExists -out ./Config
 Zapisz ten plik o nazwie `config.ps1` w folderze projektu. Uruchom ją w programie PowerShell, wykonując `./config.ps1` w terminalu. Zostanie utworzony nowy plik MOF.
 
 `Node AuditFilePathExists`Polecenie nie jest technicznie wymagane, ale tworzy plik o nazwie `AuditFilePathExists.mof` zamiast domyślnego, `localhost.mof` . Jeśli nazwa pliku MOF jest zgodna z konfiguracją, ułatwia organizowanie wielu plików podczas pracy w dużej skali.
-
-
 
 Teraz należy mieć strukturę projektu w następujący sposób:
 
@@ -288,8 +285,7 @@ Następujące pliki są tworzone przez `New-GuestConfigurationPolicy` :
 
 Dane wyjściowe polecenia cmdlet zwracają obiekt zawierający nazwę wyświetlaną inicjatywy i ścieżkę plików zasad.
 
-Na koniec Opublikuj definicje zasad przy użyciu `Publish-GuestConfigurationPolicy` polecenia cmdlet.
-Polecenie cmdlet ma tylko parametr **Path** wskazujący lokalizację plików JSON utworzonych przez `New-GuestConfigurationPolicy` .
+Na koniec Opublikuj definicje zasad przy użyciu `Publish-GuestConfigurationPolicy` polecenia cmdlet. Polecenie cmdlet ma tylko parametr **Path** wskazujący lokalizację plików JSON utworzonych przez `New-GuestConfigurationPolicy` .
 
 Aby uruchomić polecenie publikowania, musisz mieć dostęp do tworzenia zasad na platformie Azure. Wymagania dotyczące autoryzacji są udokumentowane na stronie [przegląd Azure Policy](../overview.md) . Najlepsza wbudowana rola to **współautor zasad zasobów**.
 
@@ -459,5 +455,5 @@ Aby uzyskać więcej informacji na temat poleceń cmdlet w tym narzędziu, użyj
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej na temat inspekcji maszyn wirtualnych z [konfiguracją gościa](../concepts/guest-configuration.md).
-- Dowiedz się, jak [programowo utworzyć zasady](programmatically-create.md).
-- Dowiedz się, jak [uzyskać dane zgodności](get-compliance-data.md).
+- Dowiedz się, jak [programowo utworzyć zasady](./programmatically-create.md).
+- Dowiedz się, jak [uzyskać dane zgodności](./get-compliance-data.md).

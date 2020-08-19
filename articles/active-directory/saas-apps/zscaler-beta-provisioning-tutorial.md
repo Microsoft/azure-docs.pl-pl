@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie rozwiązania Zscaler beta dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Azure Active Directory, aby automatycznie udostępniać i cofać obsługę administracyjną kont użytkowników w programie rozwiązania Zscaler beta.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd-msft
-ms.assetid: 83db6b8d-503b-48f3-b918-f9fba1369d53
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 505cd7a3350c937885f0f03268ef326a4f784258
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71b40fe903e5a837046b9b29f62ef4875e3139e5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77062743"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545921"
 ---
 # <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie rozwiązania Zscaler beta dla automatycznej aprowizacji użytkowników
 
@@ -113,7 +109,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Inicjowanie obsługi wersji beta rozwiązania Zscaler](./media/zscaler-beta-provisioning-tutorial/secret-token-2.png)
 
-    Wybierz pozycję **Włącz obsługę administracyjną na podstawie Standard scim** , aby pobrać **podstawowy adres URL** i **token okaziciela**, a następnie Zapisz ustawienia. Skopiuj **podstawowy adres URL** do **adresu URL dzierżawy**i token **okaziciela** do **tokenu tajnego** w Azure Portal.
+    Wybierz pozycję **Włącz obsługę administracyjną na podstawie Standard scim** , aby pobrać **podstawowy adres URL** i **token okaziciela**, a następnie Zapisz ustawienia. Skopiuj **podstawowy adres URL** do **adresu URL dzierżawy**i token **okaziciela**  do **tokenu tajnego** w Azure Portal.
 
 7. Po wypełnieniu pól przedstawionych w kroku 5 kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z rozwiązania Zscaler wersją beta. Jeśli połączenie nie powiedzie się, upewnij się, że konto rozwiązania Zscaler beta ma uprawnienia administratora, a następnie spróbuj ponownie.
 

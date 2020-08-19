@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z pomocą techniczną Jitbit | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i pomocą techniczną Jitbit.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 15ce27d4-0621-4103-8a34-e72c98d72ec3
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 29addcd62afd193af83196b2d942e9778ff3f031
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5d4900713cd8d96180bf74b300a738a8b676421e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67099405"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547158"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Samouczek: integracja Azure Active Directory z pomocą techniczną Jitbit
 
@@ -32,7 +28,7 @@ Integracja pomocy technicznej Jitbit z usługą Azure AD zapewnia następujące 
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -115,7 +111,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą pomocy tech
     > [!NOTE] 
     > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z [zespołem pomocy technicznej programu Jitbit](https://www.jitbit.com/support/) w celu uzyskania tej wartości.
 
-    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL w następujący sposób:`https://www.jitbit.com/web-helpdesk/`
+    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL w następujący sposób: `https://www.jitbit.com/web-helpdesk/`
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -174,7 +170,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
     b. W polu **Nazwa użytkownika** wpisz **brittasimon@yourcompanydomain.extension**  
-    Na przykład: BrittaSimon@contoso.com
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -224,7 +220,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do pomocy technicz
 
 1. Kliknij pozycję **Dodaj użytkownika**.
 
-    ![Dodaj użytkownika](./media/jitbit-helpdesk-tutorial/ic777685.png "Dodawanie użytkownika")
+    ![Dodaj użytkownika](./media/jitbit-helpdesk-tutorial/ic777685.png "Dodaj użytkownika")
 
 1. W sekcji Tworzenie wpisz dane konta usługi Azure AD, które chcesz udostępnić w następujący sposób:
 
@@ -232,7 +228,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do pomocy technicz
 
    a. W polu tekstowym **Nazwa** użytkownika wpisz nazwę użytkownika, na przykład **BrittaSimon**.
 
-   b. W polu tekstowym **adres e-mail** wpisz adres e-mail użytkownika **BrittaSimon@contoso.com**.
+   b. W polu tekstowym **adres e-mail** wpisz adres e-mail użytkownika **BrittaSimon@contoso.com** .
 
    c. W polu tekstowym **imię i nazwisko** wpisz imię użytkownika, np. **Britta**.
 
@@ -255,4 +251,4 @@ Po kliknięciu kafelka pomocy technicznej Jitbit w panelu dostępu należy autom
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

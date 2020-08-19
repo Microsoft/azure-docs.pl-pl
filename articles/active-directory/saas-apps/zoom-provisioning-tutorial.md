@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie powiększenia automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak automatycznie udostępniać i cofać obsługę administracyjną kont użytkowników z usługi Azure AD w celu powiększania.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 52700df5c2977f33c988fcb34cdc3d67844d1d49
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 15e3d72661ad35335c744fbaf0ab39627d254750
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257578"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545985"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie powiększenia automatycznej aprowizacji użytkowników
 

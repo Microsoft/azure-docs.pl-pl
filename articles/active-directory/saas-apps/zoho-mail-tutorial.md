@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Zoho | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Zoho.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 9874e1f3-ade5-42e7-a700-e08b3731236a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b5d0e52e927a44d5bce5314e724c1c753809ce0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 00b9df3ad5e4d2104051e5489138785b4ecde8e0
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74231936"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546149"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho"></a>Samouczek: integracja Azure Active Directory z usługą Zoho
 
@@ -33,7 +28,7 @@ Integracja aplikacji Zoho z usługą Azure AD oferuje następujące korzyści:
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -151,7 +146,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Zoho, wyko
    
     e. Dla ustawienia **Algorithm** (Algorytm) wybierz pozycję **RSA**.
    
-    f. Kliknij przycisk **OK**.
+    f. Kliknij pozycję **OK**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -171,8 +166,8 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
-    Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -229,11 +224,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do aplikacji Zoho 
 
     b. W polu tekstowym **Last Name** (Nazwisko) wpisz nazwisko użytkownika, takie jak **Simon**.
 
-    c. W polu tekstowym **Identyfikator wiadomości e-mail** wpisz identyfikator poczty e-mail użytkownika, np **.\@brittasimon contoso.com**.
+    c. W polu tekstowym **Identyfikator wiadomości e-mail** wpisz identyfikator poczty e-mail użytkownika, np **. \@ brittasimon contoso.com**.
 
     d. W polu tekstowym **Password** (Hasło) wprowadź hasło użytkownika.
    
-    e. Kliknij przycisk **OK**.  
+    e. Kliknij pozycję **OK**.  
       
     > [!NOTE]
     > Właściciel konta usługi Azure Active Directory otrzyma wiadomość e-mail z linkiem w celu potwierdzenia konta, zanim stanie się ono aktywne.
@@ -250,5 +245,5 @@ Po kliknięciu kafelka Zoho w panelu dostępu powinno nastąpić automatyczne za
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

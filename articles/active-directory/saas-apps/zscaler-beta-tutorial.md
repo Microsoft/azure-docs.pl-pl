@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z programem rozwiązania Zscaler beta | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i usługą Zscaler Beta.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 56b846ae-a1e7-45ae-a79d-992a87f075ba
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07b0f8112f724c857ffb46378f7aa7ef605b9bbb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f342371ec065c4fb60c492c4354c6f8c717c9bb8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68943292"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546019"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Samouczek: integracja Azure Active Directory z programem rozwiązania Zscaler beta
 
@@ -33,7 +28,7 @@ W przypadku integracji rozwiązania Zscaler beta z usługą Azure AD można:
 * Zarządzaj kontami w jednej centralnej lokalizacji przy użyciu Azure Portal.
 
 Aby uzyskać więcej informacji na temat integracji aplikacji SaaS (Software as a Service) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -136,9 +131,9 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu ro
 
     e. Na liście **Atrybut źródłowy** podaj wartość atrybutu pokazanego dla tego wiersza.
 
-    f. Wybierz przycisk **OK**.
+    f. Kliknij przycisk **OK**.
 
-    g. Wybierz pozycję **Zapisz**.
+    przykład Wybierz pozycję **Zapisz**.
 
     > [!NOTE]
     > Aby dowiedzieć się, jak skonfigurować role w usłudze Azure AD, zobacz [Konfigurowanie roszczeń ról](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management).
@@ -167,7 +162,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu ro
 
 3. Aby ręcznie skonfigurować rozwiązania Zscaler beta, Otwórz nowe okno przeglądarki sieci Web. Zaloguj się do witryny firmowej rozwiązania Zscaler beta jako administrator i wykonaj następujące kroki.
 
-4. Przejdź do pozycji **Administracja** > **Authentication** > **Ustawienia uwierzytelniania**uwierzytelniania i wykonaj następujące kroki.
+4. Przejdź do pozycji **Administracja**  >  **Authentication**  >  **Ustawienia uwierzytelniania**uwierzytelniania i wykonaj następujące kroki.
    
     ![Administracja](./media/zscaler-beta-tutorial/ic800206.png "Administracja")
 
@@ -191,7 +186,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu ro
 
     f. W polu **atrybut nazwy grupy** wprowadź wartość **memberOf** , jeśli chcesz włączyć funkcję autozastrzegania SAML dla atrybutów memberOf.
 
-    g. W polu **atrybut nazwy działu** wprowadź **dział** , jeśli chcesz włączyć funkcję autoaprowizacji SAML dla atrybutów działu.
+    przykład W polu **atrybut nazwy działu** wprowadź **dział** , jeśli chcesz włączyć funkcję autoaprowizacji SAML dla atrybutów działu.
 
     h. Wybierz pozycję **Zapisz**.
 
@@ -238,7 +233,7 @@ Aby skonfigurować ustawienia serwera proxy w programie Internet Explorer, wykon
 
 Utwórz użytkownika testowego w Azure Portal o nazwie Britta Simon.
 
-1. W Azure Portal w lewym okienku wybierz pozycję **Azure Active Directory** > **Użytkownicy** > **Wszyscy użytkownicy**.
+1. W Azure Portal w lewym okienku wybierz pozycję **Azure Active Directory**  >  **Użytkownicy**  >  **Wszyscy użytkownicy**.
 
     ![Użytkownicy i wszyscy użytkownicy — linki](common/users.png)
 
@@ -256,13 +251,13 @@ Utwórz użytkownika testowego w Azure Portal o nazwie Britta Simon.
 
     c. Zaznacz pole wyboru **Pokaż hasło** . Zapisz wartość wyświetlaną w polu **hasło** .
 
-    d. Wybierz przycisk **Utwórz**.
+    d. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 Włącz logowanie jednokrotne w usłudze Britta Simon, przyznając dostęp do rozwiązania Zscaler beta.
 
-1. W Azure Portal wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje** > **rozwiązania Zscaler beta**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  >  **rozwiązania Zscaler beta**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -274,7 +269,7 @@ Włącz logowanie jednokrotne w usłudze Britta Simon, przyznając dostęp do ro
 
     ![Link Użytkownicy i grupy](common/users-groups-blade.png)
 
-4. Wybierz przycisk **Dodaj użytkownika**. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy**.
+4. Wybierz pozycję **Dodaj użytkownika**. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy**.
 
     ![Przycisk Dodaj użytkownika](common/add-assign-user.png)
 
@@ -303,9 +298,9 @@ Przetestuj konfigurację logowania jednokrotnego usługi Azure AD za pomocą pan
 
 Po wybraniu kafelka rozwiązania Zscaler beta w panelu dostępu należy automatycznie zalogować się do rozwiązania Zscaler beta, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

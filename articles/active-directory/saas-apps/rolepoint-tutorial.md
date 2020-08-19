@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą RolePoint | Microsoft Docs'
 description: W tym samouczku dowiesz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i RolePoint.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 68d37f40-15da-45f5-a9e1-d53f78e786d1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 0b6fd17d2f8577532778733866260f43e9ac7685
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 235010cbcdde326cf17643cec81f3b6fcb1eea59
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67092731"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548773"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rolepoint"></a>Samouczek: integracja Azure Active Directory z usługą RolePoint
 
@@ -33,7 +29,7 @@ Ta integracja zapewnia następujące korzyści:
 
 Aby dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Single sign-on to applications in Azure Active Directory (Logowanie jednokrotne do aplikacji w usłudze Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -56,7 +52,7 @@ Aby skonfigurować integrację programu RolePoint z usługą Azure AD, musisz do
 
     ![Wybierz pozycję Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje**:
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**:
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -152,11 +148,11 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w Azure Port
 
     1. W polu **Nazwa** wpisz **BrittaSimon**.
   
-    1. W polu **Nazwa użytkownika** wprowadź **BrittaSimon@\<\< yourcompanydomain>.>rozszerzenia **. (Na przykład BrittaSimon@contoso.com.)
+    1. W polu **Nazwa użytkownika** wprowadź **BrittaSimon@ \<yourcompanydomain> . \<extension> **. (Na przykład BrittaSimon@contoso.com .)
 
     1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość znajdującą się w polu **hasło** .
 
-    1. Wybierz przycisk **Utwórz**.
+    1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -194,10 +190,10 @@ Teraz musisz przetestować konfigurację logowania jednokrotnego usługi Azure A
 
 Po wybraniu kafelka RolePoint w panelu dostępu należy automatycznie zalogować się do wystąpienia RolePoint, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [dostęp i używanie aplikacji w portalu Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

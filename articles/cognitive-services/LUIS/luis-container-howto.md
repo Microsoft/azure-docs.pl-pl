@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 6a2208fac98d3cd8e4ddcea887d9b8cf30fb6482
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f5409fea1cdbbc35e9068fae6b3ba7fbc2a95580
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524509"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547396"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalowanie i uruchamianie kontenerów platformy Docker LUIS
 
@@ -26,7 +26,7 @@ Poniższy film wideo demonstruje użycie tego kontenera.
 
 [![Demonstracja kontenera dla Cognitive Services](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -64,7 +64,7 @@ W poniższej tabeli wymieniono minimalne i zalecane wartości dla hosta kontener
 
 Rdzeń i pamięć odpowiadają `--cpus` `--memory` ustawieniom i, które są używane jako część `docker run` polecenia.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Pobierz obraz kontenera za pomocą`docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>Pobierz obraz kontenera za pomocą `docker pull`
 
 Użyj [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) polecenia, aby pobrać obraz kontenera z `mcr.microsoft.com/azure-cognitive-services/luis` repozytorium:
 
@@ -171,7 +171,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 | **{APP_ID}** | Identyfikator aplikacji opublikowanej aplikacji LUIS. |
 | **{SLOT_NAME}** | Środowisko opublikowanej aplikacji LUIS. Użyj jednej z następujących wartości:<br/>`PRODUCTION`<br/>`STAGING` |
 | **{AUTHORING_KEY}** | Klucz tworzenia konta LUIS dla opublikowanej aplikacji LUIS.<br/>Swój klucz tworzenia można pobrać ze strony **ustawień użytkownika** w portalu Luis. |
-| **{AZURE_REGION}** | Odpowiedni region świadczenia usługi Azure:<br/><br/>`westus`— Zachodnie stany USA<br/>`westeurope`— Europa Zachodnia<br/>`australiaeast`— Australia Wschodnia |
+| **{AZURE_REGION}** | Odpowiedni region świadczenia usługi Azure:<br/><br/>`westus` — Zachodnie stany USA<br/>`westeurope` — Europa Zachodnia<br/>`australiaeast` — Australia Wschodnia |
 
 Aby pobrać opublikowany pakiet, zapoznaj się z [dokumentacją interfejsu API w tym miejscu][download-published-package]. Jeśli pobrano pomyślnie, odpowiedź to plik pakietu LUIS. Zapisz plik w lokalizacji magazynu określonej dla instalacji wejściowej kontenera.
 
@@ -190,11 +190,11 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 | **{APP_ID}** | Identyfikator aplikacji wyszkolonej aplikacji LUIS. |
 | **{APP_VERSION}** | Wersja aplikacji z przeszkolonej aplikacji LUIS. |
 | **{AUTHORING_KEY}** | Klucz tworzenia konta LUIS dla opublikowanej aplikacji LUIS.<br/>Swój klucz tworzenia można pobrać ze strony **ustawień użytkownika** w portalu Luis. |
-| **{AZURE_REGION}** | Odpowiedni region świadczenia usługi Azure:<br/><br/>`westus`— Zachodnie stany USA<br/>`westeurope`— Europa Zachodnia<br/>`australiaeast`— Australia Wschodnia |
+| **{AZURE_REGION}** | Odpowiedni region świadczenia usługi Azure:<br/><br/>`westus` — Zachodnie stany USA<br/>`westeurope` — Europa Zachodnia<br/>`australiaeast` — Australia Wschodnia |
 
 Aby pobrać pakiet z wersjami, zapoznaj się z [dokumentacją interfejsu API w tym miejscu][download-versioned-package]. Jeśli pobrano pomyślnie, odpowiedź to plik pakietu LUIS. Zapisz plik w lokalizacji magazynu określonej dla instalacji wejściowej kontenera.
 
-## <a name="run-the-container-with-docker-run"></a>Uruchom kontener za pomocą`docker run`
+## <a name="run-the-container-with-docker-run"></a>Uruchom kontener za pomocą `docker run`
 
 Użyj polecenia [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) , aby uruchomić kontener. Zapoznaj się z tematem [zbieranie wymaganych parametrów](#gathering-required-parameters) , aby uzyskać szczegółowe informacje na temat sposobu pobierania `{ENDPOINT_URI}` `{API_KEY}` wartości i.
 

@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie Menedżera haseł programu opiekuna & magazynem cyfrowym dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Azure Active Directory, aby automatycznie udostępniać i cofać obsługę administracyjną kont użytkowników dla programu opiekuna haseł & magazynu cyfrowego.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 236527a9889879f872ef8c3867a7ec3c1b1ba0a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9ca77a059625ace13e6798e3fde84f11f3fe1db
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77057528"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546796"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Menedżera haseł programu opiekuna & magazynem cyfrowym dla automatycznej aprowizacji użytkowników
 

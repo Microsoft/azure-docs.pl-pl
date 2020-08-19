@@ -1,29 +1,29 @@
 ---
 title: Jak utworzyć definicje zasad konfiguracji gościa na podstawie zasady grupy linii bazowej dla systemu Windows
 description: Dowiedz się, jak skonwertować zasady grupy z linii bazowej zabezpieczeń systemu Windows Server 2019 do definicji zasad.
-ms.date: 06/05/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: bbb634ed55acf8aa994045fbef6569fae031c841
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 58fe4fa3e5056192fa5febe4883a1457d130871b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080673"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547772"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Jak utworzyć definicje zasad konfiguracji gościa na podstawie zasady grupy linii bazowej dla systemu Windows
 
-Przed utworzeniem niestandardowych definicji zasad warto przeczytać informacje dotyczące omówienia koncepcji w [Azure Policy konfiguracji gościa](../concepts/guest-configuration.md). Aby dowiedzieć się więcej o tworzeniu niestandardowych definicji zasad konfiguracji gościa dla systemu Linux, zobacz [jak utworzyć zasady konfiguracji gościa dla systemu Linux](./guest-configuration-create-linux.md). Aby dowiedzieć się więcej na temat tworzenia niestandardowych definicji zasad konfiguracji gościa dla systemu Windows, zobacz [jak utworzyć zasady konfiguracji gościa dla systemu Windows](./guest-configuration-create.md). 
+Przed utworzeniem niestandardowych definicji zasad warto przeczytać informacje dotyczące omówienia koncepcji w [Azure Policy konfiguracji gościa](../concepts/guest-configuration.md). Aby dowiedzieć się więcej o tworzeniu niestandardowych definicji zasad konfiguracji gościa dla systemu Linux, zobacz [jak utworzyć zasady konfiguracji gościa dla systemu Linux](./guest-configuration-create-linux.md). Aby dowiedzieć się więcej na temat tworzenia niestandardowych definicji zasad konfiguracji gościa dla systemu Windows, zobacz [jak utworzyć zasady konfiguracji gościa dla systemu Windows](./guest-configuration-create.md).
 
-Podczas inspekcji systemu Windows konfiguracja gościa używa modułu zasobów [Konfiguracja żądanego stanu](/powershell/scripting/dsc/overview/overview) (DSC) do utworzenia pliku konfiguracji. Konfiguracja DSC definiuje warunek, w którym maszyna powinna znajdować się w programie. Jeśli Ocena konfiguracji nie jest **zgodna**, zostanie wyzwolony efekt zasad *auditIfNotExists* . [Azure Policy konfiguracja gościa](../concepts/guest-configuration.md) tylko inspekcji ustawień wewnątrz maszyn.
+Podczas przeprowadzania inspekcji systemu Windows konfiguracja gościa używa modułu zasobów platformy [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) do utworzenia pliku konfiguracji. Konfiguracja platformy DSC definiuje stan, w jakim powinna być maszyna. Jeśli Ocena konfiguracji nie jest **zgodna**, zostanie wyzwolony efekt zasad *auditIfNotExists* .
+[Azure Policy konfiguracja gościa](../concepts/guest-configuration.md) tylko inspekcji ustawień wewnątrz maszyn.
 
 > [!IMPORTANT]
 > Niestandardowe definicje zasad z konfiguracją gościa są funkcją w wersji zapoznawczej.
 >
-> Do przeprowadzania inspekcji w usłudze Azure Virtual Machines jest wymagane rozszerzenie konfiguracji gościa.
-> Aby wdrożyć rozszerzenie na dużą skalę na wszystkich maszynach z systemem Windows, przypisz następujące definicje zasad:
->   - [Wdróż wymagania wstępne, aby włączyć zasady konfiguracji gościa na maszynach wirtualnych z systemem Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+> Do przeprowadzania inspekcji na maszynach wirtualnych platformy Azure jest wymagane rozszerzenie konfiguracji gościa. Aby wdrożyć rozszerzenie na dużą skalę na wszystkich maszynach z systemem Windows, przypisz następujące definicje zasad:
+> - [Wdróż wymagania wstępne, aby włączyć zasady konfiguracji gościa na maszynach wirtualnych z systemem Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
 
-Społeczność DSC opublikowała [moduł BaselineManagement](https://github.com/microsoft/BaselineManagement) w celu przekonwertowania wyeksportowanych szablonów zasady grupy w formacie DSC. Wraz z poleceniem cmdlet GuestConfiguration moduł BaselineManagement tworzy Azure Policy pakiet konfiguracji gościa dla systemu Windows z zawartości zasady grupy. Aby uzyskać szczegółowe informacje na temat korzystania z modułu BaselineManagement, zobacz artykuł [Szybki Start: konwertowanie zasady grupy na DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart). 
+Społeczność DSC opublikowała [moduł BaselineManagement](https://github.com/microsoft/BaselineManagement) w celu przekonwertowania wyeksportowanych szablonów zasady grupy w formacie DSC. Wraz z poleceniem cmdlet GuestConfiguration moduł BaselineManagement tworzy Azure Policy pakiet konfiguracji gościa dla systemu Windows z zawartości zasady grupy. Aby uzyskać szczegółowe informacje na temat korzystania z modułu BaselineManagement, zobacz artykuł [Szybki Start: konwertowanie zasady grupy na DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
 
 W tym przewodniku omówiono proces tworzenia Azure Policy pakietu konfiguracji Gościa z obiektu zasady grupy (GPO). Podczas gdy przewodnik przedstawia konwersję linii bazowej zabezpieczeń systemu Windows Server 2019, ten sam proces można zastosować do innych obiektów zasad grupy.  
 
@@ -62,7 +62,7 @@ Aby zainstalować **DSC**, **GuestConfiguration**, **Zarządzanie punktami odnie
 
 ## <a name="convert-from-group-policy-to-azure-policy-guest-configuration"></a>Konwertuj z zasady grupy na Azure Policy konfigurację gościa
 
-Następnie Konwertujemy pobraną linię bazową serwera 2019 na pakiet konfiguracyjny gościa za pomocą modułów konfiguracji gościa i zarządzania punktami odniesienia. 
+Następnie Konwertujemy pobraną linię bazową serwera 2019 na pakiet konfiguracyjny gościa za pomocą modułów konfiguracji gościa i zarządzania punktami odniesienia.
 
 1. Przekonwertuj zasady grupy na konfigurację żądanego stanu przy użyciu modułu bazowego zarządzania.
 
@@ -203,5 +203,5 @@ Przypisanie definicji zasad z efektem _DeployIfNotExists_ wymaga dodatkowego poz
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej na temat inspekcji maszyn wirtualnych z [konfiguracją gościa](../concepts/guest-configuration.md).
-- Dowiedz się, jak [programowo utworzyć zasady](programmatically-create.md).
-- Dowiedz się, jak [uzyskać dane zgodności](get-compliance-data.md).
+- Dowiedz się, jak [programowo utworzyć zasady](./programmatically-create.md).
+- Dowiedz się, jak [uzyskać dane zgodności](./get-compliance-data.md).

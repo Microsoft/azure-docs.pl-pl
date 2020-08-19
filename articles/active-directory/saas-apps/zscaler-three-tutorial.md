@@ -2,26 +2,21 @@
 title: 'Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą rozwiązania Zscaler — trzy | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i rozwiązania Zscaler trzy.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: f352e00d-68d3-4a77-bb92-717d055da56f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b23abcf9a39ce7f6d77bc40e7143505bc68e8b72
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 00585105350e9858bbfd649a41273def162febcb
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72554992"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545781"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-three"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z rozwiązania Zscaler trzy
 
@@ -87,11 +82,11 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
-    W polu tekstowym **adres URL logowania** wpisz adres URL:`https://login.zscalerthree.net/sfc_sso`
+    W polu tekstowym **adres URL logowania** wpisz adres URL:  `https://login.zscalerthree.net/sfc_sso`
 
 1. Rozwiązania Zscaler trzy aplikacje oczekuje potwierdzenia SAML w określonym formacie, co wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
-    ![image](common/edit-attribute.png)
+    ![image (obraz)](common/edit-attribute.png)
 
 6. Oprócz powyższych, rozwiązania Zscaler trzy aplikacje oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je przejrzeć zgodnie z wymaganiami.
     
@@ -118,7 +113,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -130,15 +125,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Na liście Aplikacje wybierz pozycję **rozwiązania Zscaler trzy**.
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-    ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_users.png)
+    ![image (obraz)](./media/zscaler-three-tutorial/tutorial_zscalerthree_users.png)
 
 1. W oknie dialogowym **Wybieranie roli** wybierz odpowiednią rolę użytkownika na liście, a następnie kliknij przycisk **Wybierz** znajdujący się u dołu ekranu.
 
-    ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_roles.png)
+    ![image (obraz)](./media/zscaler-three-tutorial/tutorial_zscalerthree_roles.png)
 
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-    ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_assign.png)
+    ![image (obraz)](./media/zscaler-three-tutorial/tutorial_zscalerthree_assign.png)
 
 ## <a name="configure-zscaler-three-sso"></a>Skonfiguruj rozwiązania Zscaler trzy Logowanie jednokrotne
 
@@ -176,9 +171,9 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     f. W polu tekstowym **Atrybut nazwy grupy** wprowadź ciąg **memberOf**, jeśli chcesz włączyć automatyczne aprowizowanie języka SAML dla atrybutów elementu memberOf.
 
-    g. W polu **Atrybut nazwy działu** wprowadź ciąg **department**, jeśli chcesz włączyć automatyczne aprowizowanie języka SAML dla atrybutów elementu department.
+    przykład W polu **Atrybut nazwy działu** wprowadź ciąg **department**, jeśli chcesz włączyć automatyczne aprowizowanie języka SAML dla atrybutów elementu department.
 
-    h. Kliknij przycisk **Zapisz**.
+    h. Kliknij pozycję **Zapisz**.
 
 6. Na stronie okna dialogowanie **Konfigurowanie uwierzytelniania użytkownika** wykonaj następujące kroki:
 
@@ -232,13 +227,13 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu rozwiązania Zscaler trzech kafelków w panelu dostępu należy automatycznie zalogować się do rozwiązania Zscaler trzy, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj rozwiązania Zscaler trzy z usługą Azure AD](https://aad.portal.azure.com/)
 

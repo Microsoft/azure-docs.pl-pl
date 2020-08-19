@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą TargetProcess | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją TargetProcess.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 7cb91628-e758-480d-a233-7a3caaaff50d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 78c702f5ea4ae403c4183a1cc311aaed94eb0c7d
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: d5b0be147b8aa25e6c737d423eaf4a8a23cde083
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272607"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546546"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Samouczek: integracja Azure Active Directory z usługą TargetProcess
 

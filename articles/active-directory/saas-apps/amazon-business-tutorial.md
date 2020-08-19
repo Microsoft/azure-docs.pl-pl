@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Amazon Business | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory a firmą Amazon Business.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: b2597a66-afd9-4f11-b14b-646b597bb6c2
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8f5ff42597a457a8849e424e041f1677c28b383
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 0db43f438eaff3e783b829eabe7152c5f13e943d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608963"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548298"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Samouczek: Integrowanie usługi Amazon Business z Azure Active Directory
 
@@ -85,7 +80,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     1. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL przy użyciu jednego z następujących wzorców:
     
-       | Adres URL | Region |
+       | Adres URL | Region (Region) |
        |-|-|
        | `https://www.amazon.com`| Ameryka Północna |
        | `https://www.amazon.co.jp`| Azja Wschodnia |
@@ -93,7 +88,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     1. W polu tekstowym **adres URL odpowiedzi** wpisz adres URL przy użyciu jednego z następujących wzorców:
     
-       | Adres URL | Region |
+       | Adres URL | Region (Region) |
        |-|-|
        | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Ameryka Północna |
        | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Azja Wschodnia |
@@ -171,7 +166,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     ![Atrybuty](media/amazon-business-tutorial/map-attribute1.png)
 
-1. W kreatorze **mapowania atrybutów** Dodaj pola wymagania, klikając opcję **+ Dodaj pole** . Dodaj wartości atrybutów, w tym przestrzeń nazw, skopiowane z sekcji **atrybuty użytkownika & oświadczenia** Azure Portal do pola **SAML AttributeName** , a następnie kliknij przycisk **dalej**.
+1. W kreatorze **mapowania atrybutów** Dodaj pola wymagania, klikając opcję **+ Dodaj pole** . Dodaj wartości atrybutów, w tym przestrzeń nazw, skopiowane z sekcji **atrybuty użytkownika & oświadczenia** Azure Portal do pola  **SAML AttributeName** , a następnie kliknij przycisk **dalej**.
 
     ![Atrybuty](media/amazon-business-tutorial/map-attribute2.png)
 
@@ -217,7 +212,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 ### <a name="create-an-azure-ad-security-group-in-the-azure-portal"></a>Utwórz grupę zabezpieczeń usługi Azure AD w Azure Portal
 
@@ -293,7 +288,7 @@ Po kliknięciu kafelka usługi Amazon Business w panelu dostępu należy automat
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

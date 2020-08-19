@@ -1,14 +1,14 @@
 ---
 title: 'Szybki Start: nowe przypisanie zasad przy użyciu portalu'
 description: W tym przewodniku szybki start użyjesz Azure Portal, aby utworzyć przypisanie Azure Policy w celu zidentyfikowania niezgodnych zasobów.
-ms.date: 03/24/2020
+ms.date: 08/17/2020
 ms.topic: quickstart
-ms.openlocfilehash: 3a514478f3cefa49c37c3431a80b578dff480584
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eb3f97ab2f8da3ff2809cb969c8442779e173983
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80240008"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548383"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Szybki Start: Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów
 
@@ -19,7 +19,7 @@ Po zakończeniu tego procesu pomyślnie zidentyfikujesz maszyny wirtualne, któr
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="create-a-policy-assignment"></a>Tworzenie przypisania zasad
 
@@ -37,7 +37,7 @@ W tym przewodniku Szybki start utworzysz przypisanie zasad i przypiszesz definic
 
    :::image type="content" source="./media/assign-policy-portal/select-assign-policy.png" alt-text="Przypisywanie definicji zasad ze strony przypisań" border="false":::
 
-1. Na stronie **Przypisywanie zasad** wybierz **Zakres**, klikając wielokropek i wybierając grupę zarządzania lub subskrypcję. Opcjonalnie możesz wybrać grupę zasobów. Zakres określa, jakie zasoby lub grupy zasobów są wymuszane w ramach przypisania zasad. Następnie kliknij przycisk **Wybierz** w dolnej części strony **Zakres**.
+1. Na stronie **przypisywanie zasad** Ustaw **zakres** , wybierając przycisk wielokropka, a następnie wybierając grupę lub subskrypcję zarządzania. Opcjonalnie możesz wybrać grupę zasobów. Zakres określa, jakie zasoby lub grupy zasobów są wymuszane w ramach przypisania zasad. Następnie użyj przycisku **Wybierz** w dolnej części strony **zakres** .
 
    W tym przykładzie użyto subskrypcji **Contoso**. Twoja subskrypcja będzie inna.
 
@@ -51,7 +51,7 @@ W tym przewodniku Szybki start utworzysz przypisanie zasad i przypiszesz definic
 
    Aby zapoznać się z częściową listą dostępnych wbudowanych zasad, zobacz [Azure Policy Samples](./samples/index.md).
 
-1. Przeszukaj listę definicji zasad, aby znaleźć definicję _Audit VMs that do not use managed disks_ (Przeprowadź inspekcję maszyn wirtualnych, które nie używają dysków zarządzanych). Kliknij te zasady, a następnie kliknij pozycję **Wybierz**.
+1. Przeszukaj listę definicji zasad, aby znaleźć definicję _Audit VMs that do not use managed disks_ (Przeprowadź inspekcję maszyn wirtualnych, które nie używają dysków zarządzanych). Wybierz te zasady, a następnie użyj przycisku **Wybierz** .
 
    :::image type="content" source="./media/assign-policy-portal/select-available-definition.png" alt-text="Wyszukiwanie prawidłowej definicji zasad" border="false":::
 
@@ -60,13 +60,13 @@ W tym przewodniku Szybki start utworzysz przypisanie zasad i przypiszesz definic
 
 1. Pozostaw pole **Utwórz tożsamość zarządzaną** niezaznaczone. To pole _należy_ zaznaczyć, gdy zasada lub inicjatywa obejmuje zasadę z efektem [deployIfNotExists](./concepts/effects.md#deployifnotexists). Ponieważ w przypadku zasad stosowanych na potrzeby tego przewodnika Szybki start tak nie jest, pozostaw to pole puste. Aby uzyskać więcej informacji, zobacz tematy dotyczące [tożsamości zarządzanych](../../active-directory/managed-identities-azure-resources/overview.md) i [sposobu działania zabezpieczeń w zakresie korygowania](./how-to/remediate-resources.md#how-remediation-security-works).
 
-1. Kliknij przycisk **Przypisz**.
+1. Wybierz opcję **Przypisz**.
 
 Teraz możesz zidentyfikować niezgodne zasoby, aby zrozumieć stan zgodności środowiska.
 
 ## <a name="identify-non-compliant-resources"></a>Identyfikowanie niezgodnych zasobów
 
-Wybierz pozycję **Zgodność** w lewej części strony. Znajdź utworzone przypisanie zasad **Audit VMs that do not use managed disks** (Przeprowadź inspekcję maszyn wirtualnych, które nie używają dysków zarządzanych).
+Wybierz pozycję **Zgodność** w lewej części strony. Znajdź utworzone przypisanie zasad _Audit VMs that do not use managed disks_ (Przeprowadź inspekcję maszyn wirtualnych, które nie używają dysków zarządzanych).
 
 :::image type="content" source="./media/assign-policy-portal/policy-compliance.png" alt-text="Szczegóły zgodności na stronie zgodność zasad" border="false":::
 
@@ -78,8 +78,8 @@ Jeśli warunek zostanie oceniony dla istniejących zasobów i okaże się prawdz
 | --- | --- | --- | --- |
 | Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Prawda | Niezgodne |
 | Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Fałsz | Zgodny |
-| Nowa | Audit, AuditIfNotExist\* | Prawda | Niezgodne |
-| Nowa | Audit, AuditIfNotExist\* | Fałsz | Zgodny |
+| Nowy | Audit, AuditIfNotExist\* | Prawda | Niezgodne |
+| Nowy | Audit, AuditIfNotExist\* | Fałsz | Zgodny |
 
 \* Efekty Append, DeployIfNotExist i AuditIfNotExist wymagają instrukcji IF z wartością TRUE.
 Ponadto efekty wymagają, aby warunek istnienia miał wartość FALSE, aby być niezgodnymi. W przypadku wartości TRUE warunek IF wyzwala ocenę warunku istnienia dla powiązanych zasobów.
@@ -88,9 +88,9 @@ Ponadto efekty wymagają, aby warunek istnienia miał wartość FALSE, aby być 
 
 Aby usunąć utworzone przypisanie, wykonaj następujące kroki:
 
-1. Wybierz pozycję **Zgodność** (lub **Przypisania**) w lewej części strony usługi Azure Policy i znajdź utworzone przypisanie zasad **Audit VMs that do not use managed disks** (Przeprowadź inspekcję maszyn wirtualnych, które nie używają dysków zarządzanych).
+1. Wybierz pozycję **Zgodność** (lub **Przypisania**) w lewej części strony usługi Azure Policy i znajdź utworzone przypisanie zasad _Audit VMs that do not use managed disks_ (Przeprowadź inspekcję maszyn wirtualnych, które nie używają dysków zarządzanych).
 
-1. Kliknij prawym przyciskiem myszy **maszyny wirtualne inspekcji, które nie używają przypisania zasad dysków zarządzanych** , i wybierz pozycję **Usuń przypisanie**.
+1. Kliknij prawym przyciskiem myszy _maszyny wirtualne inspekcji, które nie używają przypisania zasad dysków zarządzanych_ , i wybierz pozycję **Usuń przypisanie**.
 
    :::image type="content" source="./media/assign-policy-portal/delete-assignment.png" alt-text="Usuwanie przypisania ze strony zgodność" border="false":::
 

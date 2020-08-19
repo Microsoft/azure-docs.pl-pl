@@ -2,25 +2,20 @@
 title: 'Samouczek: Inicjowanie obsługi użytkowników dla ThousandEyes — Azure AD'
 description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników w usłudze ThousandEyes.
 services: active-directory
-documentationcenter: ''
 author: ArvindHarinder1
 manager: CelesteDG
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d87cffce636146eac3e557670ffc4fb2fc34ae38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a009361267a364f04237716f3623921c892e2708
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77062884"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546427"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie ThousandEyes na potrzeby automatycznego aprowizacji użytkowników
 
@@ -60,7 +55,7 @@ Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API aprow
 
 ### <a name="configure-automatic-user-account-provisioning-to-thousandeyes-in-azure-ad"></a>Konfigurowanie automatycznego inicjowania obsługi konta użytkownika w usłudze Azure AD ThousandEyes
 
-1. W [Azure Portal](https://portal.azure.com)przejdź do sekcji **Azure Active Directory > aplikacje dla przedsiębiorstw > wszystkie aplikacje** .
+1. W [Azure Portal](https://portal.azure.com)przejdź do sekcji **Azure Active Directory > aplikacje dla przedsiębiorstw > wszystkie aplikacje**  .
 
 2. Jeśli już skonfigurowano ThousandEyes do logowania jednokrotnego, Wyszukaj wystąpienie elementu ThousandEyes przy użyciu pola wyszukiwania. W przeciwnym razie wybierz pozycję **Dodaj** i Wyszukaj **ThousandEyes** w galerii aplikacji. Wybierz pozycję ThousandEyes z wyników wyszukiwania, a następnie dodaj ją do listy aplikacji.
 
@@ -70,7 +65,7 @@ Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API aprow
 
     ![Inicjowanie obsługi ThousandEyes](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
-5. W sekcji **poświadczenia administratora** wprowadź **token okaziciela OAuth** wygenerowany przez konto ThousandEyes (możesz znaleźć i wygenerować token w sekcji **profilu** konta ThousandEyes).
+5. W sekcji **poświadczenia administratora**  wprowadź **token okaziciela OAuth** wygenerowany przez konto ThousandEyes (możesz znaleźć i wygenerować token w sekcji **profilu** konta ThousandEyes).
 
     ![Inicjowanie obsługi ThousandEyes](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 

@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie Wrike dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i anulowania aprowizacji kont użytkowników w usłudze Wrike.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: 5dd4f5ac6152c22b5e2a84ecc0774672bcd5590b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3ec25504decca0747c8a853bb88ab3e7a10966a
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77064195"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546325"
 ---
 # <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Wrike na potrzeby automatycznego aprowizacji użytkowników
 

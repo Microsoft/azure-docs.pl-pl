@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Bynder | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Bynder.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 250dbdf2-faf5-48dd-be7c-d54502ef7528
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1848610250e696807acef118384f43d2a51442ca
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f47fe7f18c4054f65e7a6882d4003006b1a896ad
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80984490"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547580"
 ---
 # <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>Samouczek: integracja Bynder z usługą Azure Active Directory
 
@@ -86,30 +81,30 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: 
     
-    Dla domeny domyślnej:`https://<company name>.getbynder.com`
+    Dla domeny domyślnej:  `https://<company name>.getbynder.com`
     
-    W przypadku domeny niestandardowej:`https;//<subdomain>.<domain>.com`
+    W przypadku domeny niestandardowej:  `https;//<subdomain>.<domain>.com`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
     
-     Dla domeny domyślnej:`https://<company name>.getbynder.com/sso/SAML/authenticate/`
+     Dla domeny domyślnej:  `https://<company name>.getbynder.com/sso/SAML/authenticate/`
     
-    W przypadku domeny niestandardowej:`https://<subdomain>.<domain>.com/sso/SAML/authenticate/`
+    W przypadku domeny niestandardowej:  `https://<subdomain>.<domain>.com/sso/SAML/authenticate/`
 
 1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: 
     
-     Dla domeny domyślnej:`https://<company name>.getbynder.com/login/`
+     Dla domeny domyślnej:  `https://<company name>.getbynder.com/login/`
     
-     W przypadku domeny niestandardowej:` https://<subdomain>.<domain>.com/login/`
+     W przypadku domeny niestandardowej:  ` https://<subdomain>.<domain>.com/login/`
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. W celu uzyskania tych wartości skontaktuj się z [zespołem pomocy technicznej klienta aplikacji Bynder](https://www.bynder.com/en/support/). Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 1. Aplikacja Bynder oczekuje potwierdzeń SAML w określonym formacie. Skonfiguruj następujące oświadczenia dla tej aplikacji. Wartościami tych atrybutów możesz zarządzać w sekcji **Atrybuty użytkownika** na stronie integracji aplikacji. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij przycisk **Edytuj**, aby otworzyć okno dialogowe **Atrybuty użytkownika**.
 
-    ![image](common/edit-attribute.png)
+    ![image (obraz)](common/edit-attribute.png)
 
 1. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** edytuj oświadczenia, korzystając z **ikony edycji**, lub dodaj je za pomocą opcji **Dodaj nowe oświadczenie**, aby skonfigurować atrybut tokenu języka SAML, jak pokazano na ilustracji powyżej, a następnie wykonaj następujące czynności:
 
@@ -119,9 +114,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     1. Wybierz **atrybut Source** **identyfikatora grupy**.
 
-    1. Kliknij przycisk **Zapisz**.
+    1. Kliknij pozycję **Zapisz**.
 
-        ![image](./media/bynder-tutorial/config08.png)
+        ![image (obraz)](./media/bynder-tutorial/config08.png)
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **metadane XML** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -143,7 +138,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -180,8 +175,8 @@ Po kliknięciu kafelka Bynder w panelu dostępu powinno nastąpić automatyczne 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

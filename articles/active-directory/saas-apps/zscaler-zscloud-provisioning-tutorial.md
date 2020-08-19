@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie rozwiązania Zscaler ZSCloud dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: W ramach tego samouczka dowiesz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i anulowania aprowizacji kont użytkowników w usłudze rozwiązania Zscaler ZSCloud.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd-msft
-ms.assetid: a752be80-d3ef-45d1-ac8f-4fb814c07b07
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: af9d4aa15a4ff2784d2e1ca1334d9c24a8d12251
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5e8571da46ca188e975119c387fa4ee0695c4fde
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77062680"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545714"
 ---
 # <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie rozwiązania Zscaler ZSCloud dla automatycznej aprowizacji użytkowników
 
@@ -80,7 +76,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 > [!TIP]
 > Możesz również włączyć rejestrację jednokrotną opartą na protokole SAML dla rozwiązania Zscaler ZSCloud. Jeśli to zrobisz, postępuj zgodnie z instrukcjami podanymi w [samouczku logowanie](zscaler-zsCloud-tutorial.md)jednokrotne w programie rozwiązania Zscaler ZSCloud. Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, ale te dwie funkcje uzupełniają się wzajemnie.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje** > **rozwiązania Zscaler ZSCloud**:
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  >  **rozwiązania Zscaler ZSCloud**:
 
     ![Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -98,7 +94,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 5. W sekcji **poświadczenia administratora** wprowadź **adres URL dzierżawy** i **klucz tajny** konta rozwiązania Zscaler ZSCloud, zgodnie z opisem w następnym kroku.
 
-6. Aby uzyskać **adres URL dzierżawy** i **token tajny**, przejdź do pozycji **Administracja** > **Ustawienia uwierzytelniania** w portalu rozwiązania Zscaler ZSCloud i wybierz pozycję **SAML** w obszarze **Typ uwierzytelniania**:
+6. Aby uzyskać **adres URL dzierżawy** i **token tajny**, przejdź do pozycji **Administracja**  >  **Ustawienia uwierzytelniania** w portalu rozwiązania Zscaler ZSCloud i wybierz pozycję **SAML** w obszarze **Typ uwierzytelniania**:
 
     ![Rozwiązania Zscaler ZSCloud — ustawienia uwierzytelniania](./media/zscaler-zscloud-provisioning-tutorial/secrettoken1.png)
 
@@ -152,7 +148,7 @@ Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i g
 
 Aby uzyskać informacje na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../active-directory-saas-provisioning-reporting.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

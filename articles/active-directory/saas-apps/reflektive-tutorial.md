@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Reflektive | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Reflektive.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 799a08b9-1ce6-46d1-9064-aa9f36f6604e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 76ded60421c1f6d39328ec88e964876e3eb64d78
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 70ad4bfdfda0def4fba2778725fcfc4e81e72a5b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169055"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548858"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Samouczek: integracja Azure Active Directory z usługą Reflektive
 
@@ -114,7 +110,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Reflektive,
 
     ![image (obraz)](common/both-preintegrated-signon.png)
 
-    W polu tekstowym **adres URL logowania** wpisz adres URL:`https://www.reflektive.com/app`
+    W polu tekstowym **adres URL logowania** wpisz adres URL:  `https://www.reflektive.com/app`
 
     > [!NOTE]
     > W przypadku trybu SP należy uzyskać identyfikator poczty e-mail zarejestrowany z [zespołem pomocy technicznej Reflektive](https://support@reflektive.com). Po wprowadzeniu identyfikatora w polu tekstowym **wiadomości e-mail** zostanie włączona opcja logowania jednokrotnego. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -155,11 +151,11 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension . Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

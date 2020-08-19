@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z platformą SAP w chmurze | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i platformą SAP Cloud Platform.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: bd398225-8bd8-4697-9a44-af6e6679113a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2972af3c94768cc21b53bbf5376826940aee639a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c2738e1a6168440adee79ebaa599a313600153a4
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86168868"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546767"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Samouczek: integracja Azure Active Directory z platformą SAP w chmurze
 
@@ -151,7 +146,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD na platformie SAP Clou
 
 2. Kliknij kartę **Trust** (Relacja zaufania).
    
-    ![Relacja zaufania](./media/sap-hana-cloud-platform-tutorial/ic790800.png "Relacja zaufania")
+    ![Zaufanie](./media/sap-hana-cloud-platform-tutorial/ic790800.png "Zaufanie")
 
 3. W sekcji Trust Management (Zarządzanie relacjami zaufania) w obszarze **Local Service Provider** (Lokalny dostawca usług), wykonaj następujące kroki:
 
@@ -249,11 +244,11 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
-    Na przykład: BrittaSimon@contoso.com
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

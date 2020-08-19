@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z administratorem dostępu prywatnego rozwiązania Zscaler | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i administratora dostępu prywatnego rozwiązania Zscaler.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: c87392a7-e7fe-4cdc-a8e6-afe1ed975172
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 104583522c7041d89d9c63ba67a5633a3bd383f3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5507c25510a84dcfeafc1b2db6c2a774153a59c3
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016490"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545739"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Samouczek: integracja Azure Active Directory z administratorem dostępu prywatnego rozwiązania Zscaler
 
@@ -109,7 +104,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu administr
 
     ![Rozwiązania Zscaler domeny administratora dostępu prywatnego i adresów URL Logowanie jednokrotne](common/idp-relay.png)
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<subdomain>.private.zscaler.com/auth/metadata`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<subdomain>.private.zscaler.com/auth/metadata`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<subdomain>.private.zscaler.com/auth/sso`
 
@@ -121,7 +116,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu administr
 
     ![Rozwiązania Zscaler domeny administratora dostępu prywatnego i adresów URL Logowanie jednokrotne](common/both-signonurl.png)
 
-    W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:`https://<subdomain>.private.zscaler.com/auth/sso`   
+    W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<subdomain>.private.zscaler.com/auth/sso`   
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej rozwiązania Zscaler klienta administratora dostępu prywatnego](https://help.zscaler.com/zpa-submit-ticket) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -186,11 +181,11 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension` . Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension` . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

@@ -10,16 +10,16 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: aahi
-ms.openlocfilehash: 40906c97dc088687bbd960fecc91921a3eb888a6
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: ee742f09f3fcc1bd283efbc346fea6a040e53f48
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589979"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548535"
 ---
 # <a name="install-and-run-anomaly-detector-containers-preview"></a>Instalowanie i uruchamianie kontenerów wykrywania anomalii (wersja zapoznawcza)
 
-Detektor anomalii ma następujące funkcje funkcji kontenera:
+Narzędzie do wykrywania anomalii ma następujące funkcje kontenera:
 
 | Funkcja | Funkcje |
 |--|--|
@@ -28,7 +28,7 @@ Detektor anomalii ma następujące funkcje funkcji kontenera:
 Aby uzyskać szczegółowe informacje na temat interfejsów API, zobacz:
 * [Dowiedz się więcej o usłudze interfejsu API wykrywania anomalii](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -37,7 +37,7 @@ Przed użyciem kontenerów wykrywania anomalii należy spełnić następujące w
 |Wymagane|Przeznaczenie|
 |--|--|
 |Aparat platformy Docker| Aparat platformy Docker musi być zainstalowany na [komputerze-hoście](#the-host-computer). Platforma Docker udostępnia pakiety, które konfigurują środowisko platformy Docker w systemach [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) i [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Aby uzyskać podstawowe informacje na temat platformy Docker i kontenerów, zapoznaj się z artykułem [Docker overview](https://docs.docker.com/engine/docker-overview/) (Przegląd platformy Docker).<br><br> Program Docker musi być skonfigurowany tak, aby umożliwić kontenerom łączenie się z danymi rozliczeń i wysyłanie ich do platformy Azure. <br><br> **W systemie Windows**program Docker musi być również skonfigurowany do obsługi kontenerów systemu Linux.<br><br>|
-|Znajomość platformy Docker | Należy dysponować podstawową wiedzą na temat pojęć platformy Docker, takich jak rejestry, repozytoria, kontenery i obrazy kontenerów, a także znajomość podstawowych `docker` poleceń.| 
+|Znajomość platformy Docker | Należy dysponować podstawową wiedzą na temat pojęć platformy Docker, takich jak rejestry, repozytoria, kontenery i obrazy kontenerów, a także znajomość podstawowych `docker` poleceń.|
 |Zasób wykrywania anomalii |Aby można było korzystać z tych kontenerów, musisz mieć:<br><br>Zasób _wykrywania anomalii_ platformy Azure w celu pobrania skojarzonego klucza interfejsu API i identyfikatora URI punktu końcowego. Obie wartości są dostępne na stronach omówienie i klucze **wykrywania anomalii** Azure Portal i są wymagane do uruchomienia kontenera.<br><br>**{API_KEY}**: jeden z dwóch dostępnych kluczy zasobów na stronie **kluczy**<br><br>**{ENDPOINT_URI}**: punkt końcowy określony na stronie **Przegląd**|
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
@@ -52,7 +52,7 @@ Przed użyciem kontenerów wykrywania anomalii należy spełnić następujące w
 
 W poniższej tabeli opisano minimalną i zalecaną liczbę rdzeni procesora CPU oraz ilość pamięci do przydzielenia dla kontenera wykrywania anomalii.
 
-| ZAPYTAŃ (zapytania na sekundę) | Minimalne | Zalecane |
+| ZAPYTAŃ (zapytania na sekundę) | Minimum | Zalecane |
 |-----------|---------|-------------|
 | 10 ZAPYTAŃ | 4 rdzenie, 1 GB pamięci | 8 rdzeni 2 GB pamięci |
 | 20 ZAPYTAŃ | 8 rdzeni, 2 GB pamięci | 16 rdzeni 4 GB pamięci |
@@ -61,7 +61,7 @@ Każdy rdzeń musi mieć co najmniej 2,6 gigaherca (GHz) lub szybszy.
 
 Rdzeń i pamięć odpowiadają `--cpus` `--memory` ustawieniom i, które są używane jako część `docker run` polecenia.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Pobierz obraz kontenera za pomocą`docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>Pobierz obraz kontenera za pomocą `docker pull`
 
 Użyj [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) polecenia, aby pobrać obraz kontenera.
 
@@ -87,7 +87,7 @@ Gdy kontener znajduje się na [komputerze hosta](#the-host-computer), użyj nast
 1. [Uruchom kontener](#run-the-container-with-docker-run)z wymaganymi ustawieniami rozliczania. Więcej [przykładów](anomaly-detector-container-configuration.md#example-docker-run-commands) `docker run` polecenia jest dostępnych.
 1. [Zbadaj punkt końcowy przewidywania kontenera](#query-the-containers-prediction-endpoint).
 
-## <a name="run-the-container-with-docker-run"></a>Uruchom kontener za pomocą`docker run`
+## <a name="run-the-container-with-docker-run"></a>Uruchom kontener za pomocą `docker run`
 
 Użyj polecenia [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) , aby uruchomić kontener. Zapoznaj się z tematem [zbieranie wymaganych parametrów](#gathering-required-parameters) , aby uzyskać szczegółowe informacje na temat sposobu pobierania `{ENDPOINT_URI}` `{API_KEY}` wartości i.
 
@@ -106,7 +106,7 @@ To polecenie:
 * Uruchamia kontener wykrywania anomalii z obrazu kontenera
 * Przypisuje jedne rdzeń procesora CPU i 4 gigabajty (GB) pamięci
 * Udostępnia port TCP 5000 i przydziela pseudo-TTY dla kontenera
-* Automatycznie usuwa kontener po zakończeniu. Obraz kontenera jest nadal dostępny na komputerze-hoście. 
+* Automatycznie usuwa kontener po zakończeniu. Obraz kontenera jest nadal dostępny na komputerze-hoście.
 
 > [!IMPORTANT]
 > `Eula` `Billing` `ApiKey` Aby można było uruchomić kontener, należy określić opcje, i. w przeciwnym razie kontener nie zostanie uruchomiony.  Aby uzyskać więcej informacji, zobacz [rozliczenia](#billing).
@@ -115,11 +115,11 @@ To polecenie:
 
 Jeśli zamierzasz uruchomić wiele kontenerów z uwidocznionymi portami, upewnij się, że każdy kontener jest uruchomiony z innym portem. Na przykład Uruchom pierwszy kontener na porcie 5000 i drugi kontener na porcie 5001.
 
-Zastąp `<container-registry>` `<container-name>` wartości i wartościami kontenerów, z których korzystasz. Nie muszą one być tym samym kontenerem. Możliwe jest posiadanie kontenera wykrywania anomalii i kontenera LUIS uruchomionego na HOŚCIE. można też korzystać z wielu kontenerów wykrywania anomalii. 
+Zastąp `<container-registry>` `<container-name>` wartości i wartościami kontenerów, z których korzystasz. Nie muszą one być tym samym kontenerem. Możliwe jest posiadanie kontenera wykrywania anomalii i kontenera LUIS uruchomionego na HOŚCIE. można też korzystać z wielu kontenerów wykrywania anomalii.
 
-Uruchom pierwszy kontener na porcie 5000. 
+Uruchom pierwszy kontener na porcie 5000.
 
-```bash 
+```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 <container-registry>/microsoft/<container-name> \
 Eula=accept \
@@ -130,7 +130,7 @@ ApiKey={API_KEY}
 Uruchom drugi kontener na porcie 5001.
 
 
-```bash 
+```bash
 docker run --rm -it -p 5000:5001 --memory 4g --cpus 1 \
 <container-registry>/microsoft/<container-name> \
 Eula=accept \
@@ -138,13 +138,13 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-Każdy kolejny kontener powinien znajdować się na innym porcie. 
+Każdy kolejny kontener powinien znajdować się na innym porcie.
 
-## <a name="query-the-containers-prediction-endpoint"></a>Zbadaj punkt końcowy przewidywania kontenera
+## <a name="query-the-containers-prediction-endpoint"></a>Wykonywanie zapytania dotyczącego punktu końcowego przewidywania kontenera
 
-Kontener udostępnia interfejsy API punktu końcowego przewidywania zapytań. 
+Kontener udostępnia oparte na interfejsie REST interfejsy API punktu końcowego przewidywania zapytań.
 
-Użyj hosta, http://localhost:5000 , dla interfejsów API kontenerów.
+Użyj hosta http://localhost:5000 dla interfejsów API kontenera.
 
 <!--  ## Validate container is running -->
 
@@ -162,7 +162,7 @@ Jeśli uruchamiasz kontener z [instalacją wyjściową](anomaly-detector-contain
 
 ## <a name="billing"></a>Rozliczenia
 
-Kontenery wykrywania anomalii wysyłają informacje o rozliczeniach do platformy Azure przy użyciu zasobu _wykrywania anomalii_ na Twoim koncie platformy Azure. 
+Kontenery wykrywania anomalii wysyłają informacje o rozliczeniach do platformy Azure przy użyciu zasobu _wykrywania anomalii_ na Twoim koncie platformy Azure.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 

@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie IDEO dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników w usłudze IDEO.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: de4f06a3-83e9-46ce-80ee-03d706b91c81
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2019
 ms.author: Zhchia
-ms.openlocfilehash: a778675bade3b381907a823e74f07ab4e7f96581
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: f1b42619a80610a1732fb763dd4994241bf584fd
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926879"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547447"
 ---
 # <a name="tutorial-configure-ideo-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie IDEO na potrzeby automatycznego aprowizacji użytkowników
 
@@ -110,11 +106,11 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Atrybut|Typ|
    |---|---|
-   |userName|Ciąg|
-   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
-   |aktywne|Wartość logiczna|
-   |Nazwa. imię|Ciąg|
-   |Nazwa. rodzina|Ciąg|
+   |userName|String|
+   |wiadomości e-mail [Type EQ "Work"]. Value|String|
+   |aktywne|Boolean|
+   |Nazwa. imię|String|
+   |Nazwa. rodzina|String|
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do ideo**.
    
@@ -122,7 +118,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
       |Atrybut|Typ|
       |---|---|
-      |displayName|Ciąg|
+      |displayName|String|
       |elementy członkowskie|Dokumentacja|
 
 12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).

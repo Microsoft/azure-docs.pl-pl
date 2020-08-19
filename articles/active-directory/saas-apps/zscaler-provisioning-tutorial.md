@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie rozwiązania Zscaler dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników w usłudze rozwiązania Zscaler.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd-msft
-ms.assetid: 31f67481-360d-4471-88c9-1cc9bdafee24
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 8add1f57b566d746d464c1ca165938fc112a9784
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3424a42e86b47d4103dd41ca143b5bc7be3796a
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77062714"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545934"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie rozwiązania Zscaler na potrzeby automatycznego aprowizacji użytkowników
 
@@ -112,7 +108,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Inicjowanie obsługi rozwiązania Zscaler](./media/zscaler-provisioning-tutorial/secret-token-2.png)
 
-    Wybierz pozycję **Włącz obsługę administracyjną na podstawie Standard scim** , aby pobrać **podstawowy adres URL** i **token okaziciela**, a następnie Zapisz ustawienia. Skopiuj **podstawowy adres URL** do **adresu URL dzierżawy**i token **okaziciela** do **tokenu tajnego** w Azure Portal.
+    Wybierz pozycję **Włącz obsługę administracyjną na podstawie Standard scim** , aby pobrać **podstawowy adres URL** i **token okaziciela**, a następnie Zapisz ustawienia. Skopiuj **podstawowy adres URL** do **adresu URL dzierżawy**i token **okaziciela**  do **tokenu tajnego** w Azure Portal.
 
 7. Po zapełnieniu pól przedstawionych w kroku 5 kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z usługą rozwiązania Zscaler. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi rozwiązania Zscaler ma uprawnienia administratora, a następnie spróbuj ponownie.
 

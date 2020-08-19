@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z logowaniem jednokrotnym w usłudze Allbound | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Allbound SSO.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 15011ddf-941f-4da2-b993-40ad94a08e42
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec519e9296d8f8b5373e4db84f4efb4af5f07a9e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fd4c059b7f37960f0a76de8df3d99d2aefae94ef
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73153597"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548399"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allbound-sso"></a>Samouczek: integracja Azure Active Directory z logowaniem jednokrotnym w usłudze Allbound
 
@@ -33,7 +28,7 @@ Integracja aplikacji Allbound SSO z usługą Azure AD oferuje następujące korz
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -107,7 +102,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Allbound S
 
     ![Informacje dotyczące domeny i adresów URL logowania jednokrotnego w aplikacji Allbound SSO](common/idp-intiated.png)
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<SUBDOMAIN>.allbound.com/`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<SUBDOMAIN>.allbound.com/`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<SUBDOMAIN>.allbound.com/acs`
 
@@ -156,8 +151,8 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
-    Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -208,5 +203,5 @@ Po kliknięciu kafelka Allbound SSO w panelu dostępu powinno nastąpić automat
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

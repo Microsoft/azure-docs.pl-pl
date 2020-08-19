@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja logowania jednokrotnego (SSO) Azure Active Directory z serwerem Tableau | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i serwerem Tableau.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: c1917375-08aa-445c-a444-e22e23fa19e0
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/07/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2325259cd5e613223ee77371d7e563e8ab1e94ca
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a074b3f0accf0e0cf800f6b06ce8466e984f8693
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648454"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546594"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>Samouczek: integracja logowania jednokrotnego (SSO) Azure Active Directory z serwerem Tableau
 
@@ -82,9 +78,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:`https://azure.<domain name>.link`
+    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://azure.<domain name>.link`
 
-    b. W polu **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://azure.<domain name>.link`
+    b. W polu **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://azure.<domain name>.link`
 
     c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://azure.<domain name>.link/wg/saml/SSO/index.html`
 
@@ -153,9 +149,9 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     f. Znajdź plik metadanych Federacji pobrany z Azure Portal, a następnie Przekaż go w **pliku metadanych SAML dostawcy tożsamości**.
 
-    g. Wprowadź nazwy atrybutów, których dostawcy tożsamości używa do przechowywania nazw użytkowników, nazw wyświetlanych i adresów e-mail.
+    przykład Wprowadź nazwy atrybutów, których dostawcy tożsamości używa do przechowywania nazw użytkowników, nazw wyświetlanych i adresów e-mail.
 
-    h. Kliknij przycisk **Zapisz**
+    h. Kliknij pozycję **Zapisz**
 
     > [!NOTE]
     > Klient musi przekazać plik certyfikatu x509 zakodowany przez PEM z rozszerzeniem CRT i plikiem klucza prywatnego RSA lub DSA, który ma rozszerzenie. Key jako plik klucza certyfikatu. Aby uzyskać więcej informacji na temat pliku certyfikatu i pliku klucza certyfikatu, zapoznaj się z [tym](https://help.tableau.com/current/server/en-us/saml_requ.htm) dokumentem. Jeśli potrzebujesz pomocy przy konfigurowaniu protokołu SAML na serwerze Tableau, zapoznaj się z tym artykułem [Konfigurowanie całego serwera SAML](https://help.tableau.com/current/server/en-us/config_saml.htm).
@@ -177,11 +173,11 @@ Po kliknięciu kafelka serwer Tableau w panelu dostępu należy automatycznie za
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj serwer Tableau z usługą Azure AD](https://aad.portal.azure.com/)
 

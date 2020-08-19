@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d66ef8f142a72bfdea2dcf3eeb996b18173de04d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 18ca9244f818fa745725f13d79a23c1a232e01ed
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502966"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545390"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Key Vault rozszerzenie maszyny wirtualnej dla systemu Windows
 
@@ -73,16 +73,16 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
 > 
 > Wynika to z faktu, że `/secrets` ścieżka zwraca pełny certyfikat, w tym klucz prywatny, podczas gdy `/certificates` ścieżka nie jest. Więcej informacji o certyfikatach można znaleźć tutaj: [Key Vault Certificates](../../key-vault/general/about-keys-secrets-certificates.md)
 
-> [!NOTE]
-> Właściwość "authenticationSettings" jest opcjonalna w scenariuszach, gdy maszyna wirtualna ma wiele przypisanych tożsamości.
-> Umożliwia specifing tożsamość do uwierzytelniania w celu Key Vault.
+> [!IMPORTANT]
+> Właściwość "authenticationSettings" jest **wymagana** tylko w przypadku maszyn wirtualnych z **tożsamościami przypisanymi przez użytkownika**.
+> Określa tożsamość do użycia podczas uwierzytelniania do Key Vault.
 
 
 ### <a name="property-values"></a>Wartości właściwości
 
 | Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | data |
+| apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | ciąg |
 | typ | KeyVaultForWindows | ciąg |
 | typeHandlerVersion | 1.0 | int |

@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie TheOrgWiki dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników w usłudze TheOrgWiki.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: 5eb2096e-f7b6-4a56-a814-0f3d0e788063
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 2b0b11ae89e1f0d150b84f49b04a8badcb44e82c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5959ccd2699ef1162779a4a1d90ab6bb8af1bbbf
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77063151"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544853"
 ---
 # <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie TheOrgWiki na potrzeby automatycznego aprowizacji użytkowników
 

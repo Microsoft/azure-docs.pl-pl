@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą systemu Zendesk | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Zendesk.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 9d7c91e5-78f5-4016-862f-0f3242b00680
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff4ff33722ac0697532285cf52d88ef459f5c7d5
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: c7d452803d15bab77df8e85a861de914a5ed08d5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272556"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546072"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zendesk"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą systemu Zendesk
 
@@ -159,7 +155,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Na stronie **Zabezpieczenia** wykonaj następujące kroki:
 
-    ![Bezpieczeństwo](./media/zendesk-tutorial/ic773089.png "Bezpieczeństwo")
+    ![Bezpieczeństwo](./media/zendesk-tutorial/ic773089.png "Zabezpieczenia")
 
     ![Rejestracja jednokrotna](./media/zendesk-tutorial/ic773090.png "Logowanie jednokrotne")
 

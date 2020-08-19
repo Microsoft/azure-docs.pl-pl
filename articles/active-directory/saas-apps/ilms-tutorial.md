@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą iLMS | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i iLMS.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: d6e11639-6cea-48c9-b008-246cf686e726
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50097aec1c4a003d3494029e8f25bb13b564f207
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 219dd6e4a8f04da8b28a28e5473394f0721e4013
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68944017"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545213"
 ---
 # <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>Samouczek: integracja iLMS z usługą Azure Active Directory
 
@@ -82,11 +77,11 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     a. W polu tekstowym **Identyfikator** wklej wartość **identyfikatora** skopiowaną z sekcji **dostawca usług** ustawień SAML w portalu administracyjnym iLMS.
 
-    b. W polu tekstowym **adres URL odpowiedzi** wklej wartość **punktu końcowego (adres URL)** skopiowaną z sekcji **dostawca usług** ustawień protokołu SAML w portalu administratora iLMS, który ma następujący wzorzec`https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
+    b. W polu tekstowym **adres URL odpowiedzi** wklej wartość **punktu końcowego (adres URL)** skopiowaną z sekcji **dostawca usług** ustawień protokołu SAML w portalu administratora iLMS, który ma następujący wzorzec `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
 
 1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    W polu tekstowym **adres URL logowania** wklej wartość **punktu końcowego (adres URL)** skopiowaną z sekcji **dostawca usług** ustawień SAML w portalu administratora iLMS jako`https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
+    W polu tekstowym **adres URL logowania** wklej wartość **punktu końcowego (adres URL)** skopiowaną z sekcji **dostawca usług** ustawień SAML w portalu administratora iLMS jako `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
 
 1. Aby włączyć Inicjowanie obsługi JIT, aplikacja iLMS oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe Atrybuty użytkownika.
 
@@ -113,7 +108,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     f. Kliknij przycisk **OK** .
 
-    g. Kliknij przycisk **Zapisz**.
+    przykład Kliknij pozycję **Zapisz**.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -165,7 +160,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     f. Jeśli opcja **Aktualizuj puste wartości dla pól nieobowiązkowych w profilu użytkownika** jest zaznaczona, opcjonalne pola profilu, które są puste po zalogowaniu, również spowodują, że profil iLMS użytkownika będzie zawierał puste wartości dla tych pól.
 
-    g. Zaznacz pole wyboru **Wyślij wiadomość e-mail z powiadomieniem o błędzie** i wprowadź adres e-mail użytkownika, na którym chcesz otrzymać wiadomość e-mail z powiadomieniem o błędzie.
+    przykład Zaznacz pole wyboru **Wyślij wiadomość e-mail z powiadomieniem o błędzie** i wprowadź adres e-mail użytkownika, na którym chcesz otrzymać wiadomość e-mail z powiadomieniem o błędzie.
 
 7. Kliknij przycisk **Zapisz**, aby zapisać ustawienia.
 
@@ -179,7 +174,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie Britta Sim
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `Britta Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `BrittaSimon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `BrittaSimon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -221,7 +216,7 @@ Jeśli musisz ręcznie utworzyć użytkownika, wykonaj następujące czynności:
 
     b. W polu **tekstowym nazwisko wpisz nazwisko,** takie jak Simon.
 
-    c. W polu tekstowym **Identyfikator wiadomości e-mail** wpisz adres e-mail użytkownika, np BrittaSimon@contoso.com.
+    c. W polu tekstowym **Identyfikator wiadomości e-mail** wpisz adres e-mail użytkownika, np BrittaSimon@contoso.com .
 
     d. Z listy rozwijanej **region** wybierz wartość dla regionu.
 
@@ -229,7 +224,7 @@ Jeśli musisz ręcznie utworzyć użytkownika, wykonaj następujące czynności:
 
     f. Z listy rozwijanej **dział** wybierz wartość dla działu.
 
-    g. Kliknij przycisk **Zapisz**.
+    przykład Kliknij pozycję **Zapisz**.
 
     > [!NOTE]
     > Możesz wysłać wiadomość e-mail z rejestracją do użytkownika, zaznaczając pole wyboru **Wyślij wiadomość e-mail z rejestracją** .
@@ -244,4 +239,4 @@ Po wybraniu kafelka iLMS w panelu dostępu należy automatycznie zalogować się
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

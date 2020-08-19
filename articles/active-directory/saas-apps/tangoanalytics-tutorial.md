@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Tango Analytics | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory a analizą Tango.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 2f7555d3-e9ba-40b2-9b3a-2f0ab38a4c08
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 6d7b06d809d7ec3c421254b51a3cbd4a36d494ab
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3afe95d7a9c1c979e75e3887b410392b40891280
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67089116"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546563"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tango-analytics"></a>Samouczek: integracja Azure Active Directory z usługą Tango Analytics
 
@@ -32,7 +28,7 @@ Integracja Tango Analytics z usługą Azure AD zapewnia następujące korzyści:
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -105,7 +101,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD przy użyciu usług
 
     ![Informacje o rejestracji jednokrotnej w domenie i adresach URL usługi Tango Analytics](common/idp-intiated.png)
 
-    a. W polu tekstowym **Identyfikator** wpisz wartość:`TACORE_SSO`
+    a. W polu tekstowym **Identyfikator** wpisz wartość: `TACORE_SSO`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://mts.tangoanalytics.com/saml2/sp/acs/post`
 
@@ -149,7 +145,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
     b. W polu **Nazwa użytkownika** wpisz **brittasimon@yourcompanydomain.extension**  
-    Na przykład: BrittaSimon@contoso.com
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -197,4 +193,4 @@ Po kliknięciu kafelka Tango Analytics w panelu dostępu należy automatycznie z
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

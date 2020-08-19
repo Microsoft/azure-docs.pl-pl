@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie MindTickle dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników w usłudze MindTickle.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: fb48deae-4653-448a-ba2f-90258edab3a7
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 6ae7b6ac9c6feb539e4da3627ebbabd3c5b628fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3cac57e0f205da7a39447ddd48810b8fd120ab58
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77061241"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549067"
 ---
 # <a name="tutorial-configure-mindtickle-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie MindTickle na potrzeby automatycznego aprowizacji użytkowników
 
@@ -57,7 +53,7 @@ Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników n
 Przed skonfigurowaniem usługi MindTickle na potrzeby automatycznego inicjowania obsługi administracyjnej użytkowników w usłudze Azure AD należy włączyć obsługę administracyjną Standard scim na MindTickle.
 
 
-1.  Skontaktuj się z [zespołem pomocy technicznej MindTickle](mailto:help@mindtickle.com) , aby uzyskać token JWT, który jest wymagany do skonfigurowania aprowizacji Standard scim.
+1.  Skontaktuj się z  [zespołem pomocy technicznej MindTickle](mailto:help@mindtickle.com) , aby uzyskać token JWT, który jest wymagany do skonfigurowania aprowizacji Standard scim.
 
 
 ## <a name="add-mindtickle-from-the-gallery"></a>Dodaj MindTickle z galerii

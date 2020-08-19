@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z jednym | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i rozwiązania Zscaler.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: f352e00d-68d3-4a77-bb92-717d055da56f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: d23fc94fba9a9b750f2977fd9c5d8297e4da8d5c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8bac5d208cacc03b97c915cac174577fc673712e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68825919"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545900"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>Samouczek: Azure Active Directory integrację z usługą rozwiązania Zscaler One
 
@@ -32,7 +28,7 @@ Integracja rozwiązania Zscaler z usługą Azure AD zapewnia następujące korzy
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -114,7 +110,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą rozwiązani
 
 5. Rozwiązania Zscaler jedna aplikacja oczekuje potwierdzenia SAML w określonym formacie, co wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij przycisk **Edytuj** ikonę, aby otworzyć okno dialogowe **atrybuty użytkownika** .
 
-    ![image](common/edit-attribute.png)
+    ![image (obraz)](common/edit-attribute.png)
 
 6. Oprócz powyższych rozwiązania Zscaler jedna aplikacja oczekuje, że kilka więcej atrybutów zostanie przekazywać z powrotem w odpowiedzi SAML. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** wykonaj następujące czynności, aby dodać atrybut tokenu SAML, jak pokazano w poniższej tabeli:
     
@@ -124,9 +120,9 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą rozwiązani
 
     a. Kliknij przycisk **Dodaj nowe oświadczenie**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
 
-    ![image](common/new-save-attribute.png)
+    ![image (obraz)](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![image (obraz)](common/new-attribute-details.png)
 
     b. W polu tekstowym **Nazwa** wpisz nazwę atrybutu pokazaną dla tego wiersza.
 
@@ -136,7 +132,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą rozwiązani
 
     e. Na liście **Atrybut źródłowy** wpisz wartość atrybutu pokazaną dla tego wiersza.
     
-    f. Kliknij przycisk **Zapisz**.
+    f. Kliknij pozycję **Zapisz**.
 
     > [!NOTE]
     > Kliknij [tutaj](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management), aby dowiedzieć się, jak skonfigurować rolę w usłudze Azure AD
@@ -191,9 +187,9 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą rozwiązani
 
     f. W polu tekstowym **Atrybut nazwy grupy** wprowadź ciąg **memberOf**, jeśli chcesz włączyć automatyczne aprowizowanie języka SAML dla atrybutów elementu memberOf.
 
-    g. W polu **Atrybut nazwy działu** wprowadź ciąg **department**, jeśli chcesz włączyć automatyczne aprowizowanie języka SAML dla atrybutów elementu department.
+    przykład W polu **Atrybut nazwy działu** wprowadź ciąg **department**, jeśli chcesz włączyć automatyczne aprowizowanie języka SAML dla atrybutów elementu department.
 
-    h. Kliknij przycisk **Zapisz**.
+    h. Kliknij pozycję **Zapisz**.
 
 6. Na stronie okna dialogowanie **Konfigurowanie uwierzytelniania użytkownika** wykonaj następujące kroki:
 
@@ -252,7 +248,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension. Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -280,15 +276,15 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-    ![image](./media/zscaler-one-tutorial/tutorial_zscalerone_users.png)
+    ![image (obraz)](./media/zscaler-one-tutorial/tutorial_zscalerone_users.png)
 
 6. W oknie dialogowym **Wybieranie roli** wybierz odpowiednią rolę użytkownika na liście, a następnie kliknij przycisk **Wybierz** znajdujący się u dołu ekranu.
 
-    ![image](./media/zscaler-one-tutorial/tutorial_zscalerone_roles.png)
+    ![image (obraz)](./media/zscaler-one-tutorial/tutorial_zscalerone_roles.png)
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-    ![image](./media/zscaler-one-tutorial/tutorial_zscalerone_assign.png)
+    ![image (obraz)](./media/zscaler-one-tutorial/tutorial_zscalerone_assign.png)
 
 ### <a name="create-zscaler-one-test-user"></a>Utwórz rozwiązania Zscaler jednego użytkownika testowego
 
@@ -309,5 +305,5 @@ Po kliknięciu jednego kafelka rozwiązania Zscaler w panelu dostępu należy au
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

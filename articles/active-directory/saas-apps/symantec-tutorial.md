@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą zabezpieczeń internetowych firmy Symantec | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i usługą Symantec Web Security Service (WSS).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: d6e4d893-1f14-4522-ac20-0c73b18c72a5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d496015440deb80a0159ed0ec234ae60c2c64a66
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7e2087fdd5568156a96645b25cb105cc5f3ca6b7
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73159950"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544948"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Samouczek: integracja Azure Active Directory z usługą zabezpieczeń internetowych firmy Symantec (WSS)
 
@@ -36,7 +31,7 @@ Integracja usługi Symantec Web Security Service (WSS) z usługą Azure AD zapew
 - Włączenie wymuszania reguł zasad na poziomie użytkownika i grupy na koncie usługi WSS.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -109,7 +104,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z usługą Symantec We
 
     ![Domena i adresy URL usługi Symantec Web Security Service (WSS) — informacje dotyczące logowania jednokrotnego](common/idp-intiated.png)
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL:`https://saml.threatpulse.net:8443/saml/saml_realm`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL: `https://saml.threatpulse.net:8443/saml/saml_realm`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL: `https://saml.threatpulse.net:8443/saml/saml_realm/bcsamlpost`
 
@@ -142,8 +137,8 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
-    Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -194,5 +189,5 @@ Po skonfigurowaniu przeglądarki internetowej w celu kierowania za pośrednictwe
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

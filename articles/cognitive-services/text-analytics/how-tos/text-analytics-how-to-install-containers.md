@@ -11,23 +11,23 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 8d08a0ab8f817d70343686f907ac444af392ea06
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 61303a52212c4cec88dee2ccd8a1c08fb971a9b8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108994"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545662"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalowanie i uruchamianie kontenerów analizy tekstu
 
 > [!NOTE]
-> * Kontener dla analiza tonacji V3 jest teraz ogólnie dostępny. Kontenery wyodrębniania i wykrywania języka są dostępne jako niezależna publiczna wersja zapoznawcza.
+> * Kontener dla analiza tonacji V3 jest teraz ogólnie dostępny. Kontenery funkcji wyodrębniania kluczowych fraz i wykrywania języka są dostępne jako nieograniczona publiczna wersja zapoznawcza.
 > * Łączenie jednostek i NER nie są obecnie dostępne jako kontener.
-> * Obecnie nie są naliczane opłaty za użycie kontenera kondycji analiza tekstu.
+> * Obecnie nie są naliczane opłaty za użycie kontenera funkcji analizy tekstu dla opieki zdrowotnej.
 
-Kontenery umożliwiają uruchamianie interfejsów API analizy tekstu we własnym środowisku i są doskonałe dla konkretnych wymagań dotyczących zabezpieczeń i zarządzania danymi. Kontenery analiza tekstu zapewniają zaawansowane przetwarzanie języka naturalnego w przypadku nieprzetworzonego tekstu i zawierają trzy główne funkcje: tonacji Analysis, wyodrębnianie kluczowych fraz i wykrywanie języka. 
+Kontenery umożliwiają uruchamianie interfejsów API analizy tekstu we własnym środowisku i doskonale nadają się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi. Kontenery analiza tekstu zapewniają zaawansowane przetwarzanie języka naturalnego w przypadku nieprzetworzonego tekstu i zawierają trzy główne funkcje: tonacji Analysis, wyodrębnianie kluczowych fraz i wykrywanie języka. 
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
 
 > [!IMPORTANT]
 > Bezpłatne konto jest ograniczone do 5 000 transakcji miesięcznie, a tylko <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">warstwy <span class="docon docon-navigate-external x-hidden-focus"></span> cenowe</a> **bezpłatna** i **standardowa** są prawidłowe dla kontenerów. Aby uzyskać więcej informacji na temat stawek żądań transakcji, zobacz [limity danych](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits).
@@ -65,7 +65,7 @@ W poniższej tabeli opisano minimalne i zalecane specyfikacje kontenerów analiz
 
 Rdzeń procesora CPU i pamięć odpowiadają `--cpus` `--memory` ustawieniom i, które są używane jako część `docker run` polecenia.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Pobierz obraz kontenera za pomocą`docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>Pobierz obraz kontenera za pomocą `docker pull`
 
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -96,7 +96,7 @@ Gdy kontener znajduje się na [komputerze hosta](#the-host-computer), użyj nast
 1. [Uruchom kontener](#run-the-container-with-docker-run)z wymaganymi ustawieniami rozliczania.
 1. [Zbadaj punkt końcowy przewidywania kontenera](#query-the-containers-prediction-endpoint).
 
-## <a name="run-the-container-with-docker-run"></a>Uruchom kontener za pomocą`docker run`
+## <a name="run-the-container-with-docker-run"></a>Uruchom kontener za pomocą `docker run`
 
 Użyj polecenia [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) , aby uruchomić kontenery. Kontener będzie nadal działać do momentu jego zatrzymania.
 
@@ -125,11 +125,11 @@ Użyj polecenia [Docker Run](https://docs.docker.com/engine/reference/commandlin
 
 [!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
-## <a name="query-the-containers-prediction-endpoint"></a>Zbadaj punkt końcowy przewidywania kontenera
+## <a name="query-the-containers-prediction-endpoint"></a>Wykonywanie zapytania dotyczącego punktu końcowego przewidywania kontenera
 
-Kontener udostępnia interfejsy API punktu końcowego przewidywania zapytań.
+Kontener udostępnia oparte na interfejsie REST interfejsy API punktu końcowego przewidywania zapytań.
 
-Użyj hosta, `http://localhost:5000` , dla interfejsów API kontenerów.
+Użyj hosta `http://localhost:5000` dla interfejsów API kontenera.
 
 <!--  ## Validate container is running -->
 

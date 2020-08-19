@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie kursu Juno na potrzeby automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak automatycznie udostępniać i cofać obsługę administracyjną kont użytkowników z usługi Azure AD w celu Juno podróży.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: 79813b19-c96e-4459-a4e5-636a6b6f5041
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0538902897d088c8ce271487b3f30698af0bb1eb
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 96dd5c617eb643ce8db5058bca238f5c3a83e756
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926556"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546889"
 ---
 # <a name="tutorial-configure-juno-journey-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie podróży usługi Juno na potrzeby automatycznego aprowizacji użytkowników
 
@@ -50,7 +46,7 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 ## <a name="step-2-configure-juno-journey-to-support-provisioning-with-azure-ad"></a>Krok 2. Konfigurowanie przejazdu Juno w celu obsługi aprowizacji za pomocą usługi Azure AD
 
-1. W przypadku **tokenu tajnego** i **adresu URL dzierżawy** skontaktuj się z zespołem pomocy technicznej Juno support@the-juno.com . Ta wartość zostanie wprowadzona w polach **token tajny** i **adres URL dzierżawy** odpowiednio na karcie aprowizacji aplikacji do podróży Juno w Azure Portal. 
+1. W przypadku **tokenu tajnego**  i **adresu URL dzierżawy** skontaktuj się z zespołem pomocy technicznej Juno support@the-juno.com . Ta wartość zostanie wprowadzona w polach **token tajny**  i **adres URL dzierżawy** odpowiednio na karcie aprowizacji aplikacji do podróży Juno w Azure Portal. 
 
 ## <a name="step-3-add-juno-journey-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie kursu Juno z galerii aplikacji usługi Azure AD
 
@@ -103,32 +99,32 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Zmienna|Typ|
    |---|---|
-   |userName|Ciąg|
-   |externalId|Ciąg|
-   |displayName|Ciąg|
-   |tytuł|Ciąg|
-   |aktywne|Wartość logiczna|
-   |preferredLanguage|Ciąg|
-   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
-   |addresss [Type EQ "Work"]. Country|Ciąg|
-   |addresss [Type EQ "Work"]. region|Ciąg|
-   |adresy [typ EQ "Work"]. locale|Ciąg|
-   |addresss [Type EQ "Work"]. KodPocztowy|Ciąg|
-   |adresy [typ EQ "Work"]. sformatowane|Ciąg|
-   |adresy [typ EQ "Work"]. streetAddress|Ciąg|
-   |Nazwa. imię|Ciąg|
-   |Nazwa. rodzina|Ciąg|
-   |Name. middleName|Ciąg|
-   |Nazwa. sformatowana|Ciąg|
-   |numer telefonu [typ EQ "Fax"]. wartość|Ciąg|
-   |numer telefonu [typ EQ "Mobile"]. Value|Ciąg|
-   |numer telefonu [typ EQ "Work"]. wartość|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|Ciąg|
-   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|Ciąg|
-   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Ciąg|
-   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|Ciąg|
+   |userName|String|
+   |externalId|String|
+   |displayName|String|
+   |tytuł|String|
+   |aktywne|Boolean|
+   |preferredLanguage|String|
+   |wiadomości e-mail [Type EQ "Work"]. Value|String|
+   |addresss [Type EQ "Work"]. Country|String|
+   |addresss [Type EQ "Work"]. region|String|
+   |adresy [typ EQ "Work"]. locale|String|
+   |addresss [Type EQ "Work"]. KodPocztowy|String|
+   |adresy [typ EQ "Work"]. sformatowane|String|
+   |adresy [typ EQ "Work"]. streetAddress|String|
+   |Nazwa. imię|String|
+   |Nazwa. rodzina|String|
+   |Name. middleName|String|
+   |Nazwa. sformatowana|String|
+   |numer telefonu [typ EQ "Fax"]. wartość|String|
+   |numer telefonu [typ EQ "Mobile"]. Value|String|
+   |numer telefonu [typ EQ "Work"]. wartość|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|String|
+   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|String|
+   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|String|
+   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|String|
 
 
 10. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).

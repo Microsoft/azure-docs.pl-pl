@@ -8,15 +8,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/23/2020
+ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 61401fc15f6f1003f6969787854fad65bfb6a5ab
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 87c8b160a0b8791d13976be975090d16e68ea82f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511239"
+ms.locfileid: "88547413"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver
 
@@ -766,6 +766,8 @@ Microsoft Azure oferuje wiele sposobów wdrażania maszyn wirtualnych i skojarzo
 #### <a name="moving-a-vm-from-on-premises-to-azure-with-a-non-generalized-disk"></a><a name="4d175f1b-7353-4137-9d2f-817683c26e53"></a>Przeniesienie maszyny wirtualnej z lokalnego na platformę Azure na dysk nieuogólniony
 
 Planujesz przenieść określony system SAP ze środowiska lokalnego na platformę Azure. Można to zrobić przez przekazanie wirtualnego dysku twardego, który zawiera system operacyjny, pliki binarne SAP oraz pliki binarne DBMS oraz pliki dziennika systemu DBMS do platformy Azure. W przeciwieństwie do [scenariusza #2 poniżej][planning-guide-5.1.2]można zachować nazwę hosta, identyfikator SID SAP i konta użytkowników SAP na maszynie wirtualnej platformy Azure, ponieważ zostały one skonfigurowane w środowisku lokalnym. W związku z tym nie trzeba uogólniać obrazu. Zapoznaj się z rozdziałami [przygotowanie do przeniesienia maszyny wirtualnej z lokalizacji lokalnej na platformę Azure z nieuogólnionym dyskiem][planning-guide-5.2.1] tego dokumentu dla lokalnych kroków przygotowania oraz przekazywania nieuogólnionych maszyn wirtualnych lub dysków VHD na platformę Azure. Przeczytaj [scenariusz rozdziału 3: przeniesienie maszyny wirtualnej ze środowiska lokalnego przy użyciu nieuogólnionego wirtualnego dysku twardego platformy Azure z programem SAP][deployment-guide-3.4] w [przewodniku wdrażania][deployment-guide] , aby zapoznać się ze szczegółowymi krokami wdrażania takiego obrazu na platformie Azure.
+
+Inna opcja, która nie omawiamy szczegółowo szczegółowych informacji w tym przewodniku, polega na tym, że Azure Site Recovery replikowania serwerów aplikacji SAP NetWeaver oraz usług SAP NetWeaver centralnych na platformę Azure. Nie zaleca się używania Azure Site Recovery dla warstwy bazy danych i raczej używać mechanizmów replikacji określonych w bazie danych, takich jak system HANA. Aby uzyskać więcej informacji, zobacz rozdział [Ochrona SAP](https://docs.microsoft.com/azure/site-recovery/site-recovery-workload#protect-sap) [informacji o odzyskiwaniu po awarii dla aplikacji lokalnych](https://docs.microsoft.com/azure/site-recovery/site-recovery-workload) .
 
 #### <a name="deploying-a-vm-with-a-customer-specific-image"></a><a name="e18f7839-c0e2-4385-b1e6-4538453a285c"></a>Wdrażanie maszyny wirtualnej z obrazem specyficznym dla klienta
 

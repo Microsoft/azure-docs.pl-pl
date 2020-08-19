@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z dyrektorem wydatków SciQuest | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i dyrektor wydatków SciQuest.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 9fab641b-292e-4bef-91d1-8ccc4f3a0c1f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 199f531485a6a6c9ea234b35a7dbb88b66b3067c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 00d82554c2a4c46cd523c291549413aa7526f0a5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67091637"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547847"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>Samouczek: integracja Azure Active Directory z dyrektorem wydatków SciQuest
 
@@ -32,7 +28,7 @@ Integracja dyrektora wydatków SciQuest z usługą Azure AD zapewnia następują
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -106,9 +102,9 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą dyrektora w
 
     ![SciQuest spędzają informacje logowania jednokrotnego w domenie i adresach URL w usłudze Director](common/sp-identifier-reply.png)
 
-    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:`https://<companyname>.sciquest.com/apps/Router/SAMLAuth/<instancename>`
+    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<companyname>.sciquest.com/apps/Router/SAMLAuth/<instancename>`
 
-    b. W polu **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<companyname>.sciquest.com`
+    b. W polu **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<companyname>.sciquest.com`
 
     c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<companyname>.sciquest.com/apps/Router/ExternalAuth/Login/<instancename>`
 
@@ -152,7 +148,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
     b. W polu **Nazwa użytkownika** wpisz **brittasimon@yourcompanydomain.extension**  
-    Na przykład: BrittaSimon@contoso.com
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -207,4 +203,4 @@ Po kliknięciu kafelka dyrektora wydatków SciQuest w panelu dostępu należy au
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

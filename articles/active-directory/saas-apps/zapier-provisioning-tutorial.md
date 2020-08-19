@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie zapier dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak automatycznie udostępniać i cofać obsługę administracyjną kont użytkowników z usługi Azure AD do zapier.
 services: active-directory
-documentationcenter: ''
 author: Zhchia
 writer: Zhchia
-manager: beatrizd
-ms.assetid: 66e224f9-2311-4564-bb84-99fce59a398f
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: Zhchia
-ms.openlocfilehash: 015325fe213c8cc1de347282752211750339cd65
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4a6b4698a873d6bdba0c4145b5bf7bb486b5e1c5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927253"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546150"
 ---
 # <a name="tutorial-configure-zapier-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie zapier na potrzeby automatycznego aprowizacji użytkowników
 
@@ -113,12 +109,12 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Zmienna|Typ|
    |---|---|
-   |userName|Ciąg|
-   |aktywne|Wartość logiczna|
-   |externalId|Ciąg|
-   |Nazwa. imię|Ciąg|
-   |Nazwa. rodzina|Ciąg|
-   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
+   |userName|String|
+   |aktywne|Boolean|
+   |externalId|String|
+   |Nazwa. imię|String|
+   |Nazwa. rodzina|String|
+   |wiadomości e-mail [Type EQ "Work"]. Value|String|
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do zapier**.
 
@@ -126,7 +122,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     |Zmienna|Typ|
     |---|---|
-    |displayName|Ciąg|
+    |displayName|String|
     |elementy członkowskie|Dokumentacja|
 
 12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).

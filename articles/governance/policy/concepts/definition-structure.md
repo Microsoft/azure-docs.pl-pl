@@ -1,14 +1,14 @@
 ---
 title: Szczegóły struktury definicji zasad
 description: Opisuje, w jaki sposób definicje zasad są używane do ustanawiania Konwencji dla zasobów platformy Azure w organizacji.
-ms.date: 06/12/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 87cdca414a04d287f02fec5b3510c4f561cab8c0
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: ba6b8160eefb0a59bc8273989c27a3a8501a79b7
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116994"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547804"
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
 
@@ -17,12 +17,12 @@ Dowiedz się więcej o [warunkach](#conditions).
 
 Dzięki zdefiniowaniu Konwencji można kontrolować koszty i łatwiej zarządzać zasobami. Można na przykład określić, że dozwolone są tylko niektóre typy maszyn wirtualnych. Lub można wymagać, aby zasoby miały określony tag. Przypisania zasad są dziedziczone przez zasoby podrzędne. Jeśli przypisanie zasad zostanie zastosowane do grupy zasobów, ma zastosowanie do wszystkich zasobów w tej grupie zasobów.
 
-Schemat definicji zasad znajduje się tutaj:[https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
+Schemat definicji zasad znajduje się tutaj: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
 Aby utworzyć definicję zasad, należy użyć formatu JSON. Definicja zasad zawiera elementy dla:
 
 - Nazwa wyświetlana
-- description
+- description (opis)
 - tryb
 - metadane
 - parameters
@@ -100,15 +100,15 @@ Na przykład zasób `Microsoft.Network/routeTables` obsługuje znaczniki i lokal
 
 Zaleca się, aby **mode** `all` w większości przypadków ustawić tryb. Wszystkie definicje zasad utworzone za pomocą portalu używają `all` trybu. Jeśli używasz programu PowerShell lub interfejsu wiersza polecenia platformy Azure, możesz określić parametr **mode** ręcznie. Jeśli definicja zasad nie zawiera wartości **trybu** , jest ona domyślnie ustawiona `all` w Azure PowerShell i `null` w interfejsie wiersza polecenia platformy Azure. `null`Tryb jest taki sam jak w przypadku korzystania `indexed` z programu w celu zapewnienia zgodności z poprzednimi wersjami.
 
-`indexed`należy używać podczas tworzenia zasad, które wymuszają Tagi lub lokalizacje. Chociaż nie jest to wymagane, uniemożliwiają one nie obsługujące tagów i lokalizacji, ponieważ nie są one zgodne z wynikami sprawdzania zgodności. Wyjątkiem są **grupy zasobów** i **subskrypcje**. Definicje zasad, które wymuszają lokalizację lub Tagi w grupie zasobów lub subskrypcji, powinny ustawiać **tryb** na `all` i przeznaczony dla tego `Microsoft.Resources/subscriptions/resourceGroups` `Microsoft.Resources/subscriptions` typu. Aby zapoznać się z przykładem, zobacz [wzorzec: Tags — przykład #1](../samples/pattern-tags.md). Aby uzyskać listę zasobów, które obsługują Tagi, zobacz [obsługa tagów dla zasobów platformy Azure](../../../azure-resource-manager/management/tag-support.md).
+`indexed` należy używać podczas tworzenia zasad, które wymuszają Tagi lub lokalizacje. Chociaż nie jest to wymagane, uniemożliwiają one nie obsługujące tagów i lokalizacji, ponieważ nie są one zgodne z wynikami sprawdzania zgodności. Wyjątkiem są **grupy zasobów** i **subskrypcje**. Definicje zasad, które wymuszają lokalizację lub Tagi w grupie zasobów lub subskrypcji, powinny ustawiać **tryb** na `all` i przeznaczony dla tego `Microsoft.Resources/subscriptions/resourceGroups` `Microsoft.Resources/subscriptions` typu. Aby zapoznać się z przykładem, zobacz [wzorzec: Tags — przykład #1](../samples/pattern-tags.md). Aby uzyskać listę zasobów, które obsługują Tagi, zobacz [obsługa tagów dla zasobów platformy Azure](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes"></a>Tryby dostawcy zasobów (wersja zapoznawcza)
 
 Następujące tryby dostawcy zasobów są obecnie obsługiwane w wersji zapoznawczej:
 
-- `Microsoft.ContainerService.Data`Aby zarządzać regułami kontrolera przyjmowania w [usłudze Azure Kubernetes](../../../aks/intro-kubernetes.md). Definicje korzystające z tego trybu dostawcy zasobów **muszą** używać efektu [EnforceRegoPolicy](./effects.md#enforceregopolicy) . Ten tryb jest _przestarzały_.
-- `Microsoft.Kubernetes.Data`do zarządzania klastrami Kubernetes na platformie Azure lub w niej. Definicje używające tego trybu dostawcy zasobów służą do _inspekcji_, _odmowy_i _wyłączania_. Użycie efektu [EnforceOPAConstraint](./effects.md#enforceopaconstraint) jest _przestarzałe_.
-- `Microsoft.KeyVault.Data`Zarządzanie magazynami i certyfikatami w [Azure Key Vault](../../../key-vault/general/overview.md).
+- `Microsoft.ContainerService.Data` Aby zarządzać regułami kontrolera przyjmowania w [usłudze Azure Kubernetes](../../../aks/intro-kubernetes.md). Definicje korzystające z tego trybu dostawcy zasobów **muszą** używać efektu [EnforceRegoPolicy](./effects.md#enforceregopolicy) . Ten tryb jest _przestarzały_.
+- `Microsoft.Kubernetes.Data` do zarządzania klastrami Kubernetes na platformie Azure lub w niej. Definicje używające tego trybu dostawcy zasobów służą do _inspekcji_, _odmowy_i _wyłączania_. Użycie efektu [EnforceOPAConstraint](./effects.md#enforceopaconstraint) jest _przestarzałe_.
+- `Microsoft.KeyVault.Data` Zarządzanie magazynami i certyfikatami w [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
 > Tryby dostawcy zasobów obsługują tylko wbudowane definicje zasad i nie obsługują inicjatyw w wersji zapoznawczej.
@@ -119,10 +119,10 @@ Właściwość opcjonalna `metadata` przechowuje informacje o definicji zasad. K
 
 ### <a name="common-metadata-properties"></a>Wspólne właściwości metadanych
 
-- `version`(ciąg): śledzi szczegółowe informacje o wersji zawartości definicji zasad.
-- `category`(ciąg): określa, w której kategorii Azure Portal jest wyświetlana definicja zasad.
-- `preview`(wartość logiczna): prawda lub FAŁSZ flagi dla Jeśli definicja zasad jest w _wersji zapoznawczej_.
-- `deprecated`(wartość logiczna): flaga true lub false, jeśli definicja zasad została oznaczona jako _przestarzała_.
+- `version` (ciąg): śledzi szczegółowe informacje o wersji zawartości definicji zasad.
+- `category` (ciąg): określa, w której kategorii Azure Portal jest wyświetlana definicja zasad.
+- `preview` (wartość logiczna): prawda lub FAŁSZ flagi dla Jeśli definicja zasad jest w _wersji zapoznawczej_.
+- `deprecated` (wartość logiczna): flaga true lub false, jeśli definicja zasad została oznaczona jako _przestarzała_.
 
 > [!NOTE]
 > Usługa Azure Policy używa `version` , `preview` i `deprecated` właściwości do przekazywania poziomu zmiany do wbudowanej definicji zasad lub inicjatywy i stanu. Format `version` to: `{Major}.{Minor}.{Patch}` . Określone Stany, takie jak _przestarzałe_ lub _Podgląd_, są dołączane do `version` właściwości lub w innej właściwości jako **wartość logiczna**. Aby uzyskać więcej informacji na temat sposobu, w jaki Azure Policy wersje wbudowane, zobacz [wbudowana wersja](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
@@ -188,7 +188,7 @@ Ten przykład odwołuje się do parametru **allowedLocations** , który został 
 
 We `metadata` właściwości można użyć **silnego** typu, aby udostępnić listę opcji dostępnych w ramach Azure Portal. **silntype** może być obsługiwanym _typem zasobu_ lub dozwoloną wartością. Aby określić, czy _Typ zasobu_ jest prawidłowy dla **silnego**elementu, użyj polecenie [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). Format _typu zasobu_ **strongtype** ma wartość `<Resource Provider>/<Resource Type>` . Na przykład `Microsoft.Network/virtualNetworks/subnets`.
 
-Niektóre _typy zasobów_ , które nie są zwracane przez **Get-AzResourceProvider** , są obsługiwane. Są to:
+Niektóre _typy zasobów_ , które nie są zwracane przez **Get-AzResourceProvider** , są obsługiwane. Te typy są następujące:
 
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
@@ -275,7 +275,8 @@ Warunek oblicza, czy **pole** lub metoda dostępu do **wartości** spełniają o
 - `"less": "dateValue"` | `"less": "stringValue"` | `"less": intValue`
 - `"lessOrEquals": "dateValue"` | `"lessOrEquals": "stringValue"` | `"lessOrEquals": intValue`
 - `"greater": "dateValue"` | `"greater": "stringValue"` | `"greater": intValue`
-- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` | `"greaterOrEquals": intValue`
+- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` |
+  `"greaterOrEquals": intValue`
 - `"exists": "bool"`
 
 W przypadku **mniej**, **lessOrEquals**, **większych**i **greaterOrEquals**, jeśli typ właściwości nie jest zgodny z typem warunku, zostanie zgłoszony błąd. Porównania ciągów są wykonywane przy użyciu `InvariantCultureIgnoreCase` .
@@ -346,8 +347,7 @@ W poniższym przykładzie `concat` jest używany do tworzenia wyszukiwania pól 
 
 ### <a name="value"></a>Wartość
 
-Warunki mogą być również tworzone przy użyciu **wartości**. **wartość** sprawdza warunki względem [parametrów](#parameters), [obsługiwanych funkcji szablonów](#policy-functions)lub literałów.
-**wartość** jest sparowana z dowolnym obsługiwanym [warunkiem](#conditions).
+Warunki mogą być również tworzone przy użyciu **wartości**. **wartość** sprawdza warunki względem [parametrów](#parameters), [obsługiwanych funkcji szablonów](#policy-functions)lub literałów. **wartość** jest sparowana z dowolnym obsługiwanym [warunkiem](#conditions).
 
 > [!WARNING]
 > Jeśli wynik _funkcji szablonu_ jest błąd, Ocena zasad kończy się niepowodzeniem. Niepowodzenie oceny to niejawne **odmowa**. Aby uzyskać więcej informacji, zobacz [unikanie niepowodzeń związanych z szablonami](#avoiding-template-failures). Użyj [wymuszania](./assignment-structure.md#enforcement-mode) elementu **DoNotEnforce** , aby zapobiec wpływowi oceny zakończonej niepowodzeniem na nowe lub zaktualizowane zasoby podczas testowania i sprawdzania poprawności nowej definicji zasad.
@@ -453,7 +453,7 @@ Następujące właściwości są używane z funkcją **Count**:
 - **Count. pole** (wymagane): zawiera ścieżkę do tablicy i musi być aliasem tablicy. Jeśli brakuje tablicy, wyrażenie jest oceniane na _wartość false_ bez uwzględniania wyrażenia warunku.
 - **Count. WHERE** (opcjonalnie): wyrażenie warunku do pojedynczej ocenia każdego elementu członkowskiego tablicy [ \[ \* \] aliasów](#understanding-the--alias) w **polu Count.** Jeśli ta właściwość nie jest określona, wszystkie elementy członkowskie tablicy ze ścieżką "pole" są oceniane na _wartość true_. Dowolny [warunek](../concepts/definition-structure.md#conditions) może być używany wewnątrz tej właściwości.
   [Operatory logiczne](#logical-operators) mogą być używane wewnątrz tej właściwości, aby utworzyć złożone wymagania dotyczące oceny.
-- **\<condition\>**(wymagane): wartość jest porównywana z liczbą elementów, które osiągnęły liczbę **.** wyrażenie warunku WHERE. Należy użyć [warunku](../concepts/definition-structure.md#conditions) liczbowego.
+- **\<condition\>** (wymagane): wartość jest porównywana z liczbą elementów, które osiągnęły liczbę **.** wyrażenie warunku WHERE. Należy użyć [warunku](../concepts/definition-structure.md#conditions) liczbowego.
 
 #### <a name="count-examples"></a>Liczba przykładów
 
@@ -575,7 +575,7 @@ Wszystkie [funkcje szablonu Menedżer zasobów](../../../azure-resource-manager/
 
 Następująca funkcja jest dostępna do użycia w regule zasad, ale różni się od użycia w szablonie Azure Resource Manager (szablon ARM):
 
-- `utcNow()`— W przeciwieństwie do szablonu ARM, ta właściwość może być używana poza _DefaultValue_.
+- `utcNow()` — W przeciwieństwie do szablonu ARM, ta właściwość może być używana poza _DefaultValue_.
   - Zwraca ciąg, który jest ustawiony na bieżącą datę i godzinę w formacie uniwersalnego ISO 8601 DateTime-MM-DDTgg: mm: SS. fffffffZ
 
 Następujące funkcje są dostępne tylko w regułach zasad:
@@ -586,7 +586,7 @@ Następujące funkcje są dostępne tylko w regułach zasad:
 - `field(fieldName)`
   - **FieldName**: [Required] — nazwa [pola](#fields) do pobrania
   - Zwraca wartość tego pola z zasobu, który jest obliczany przez warunek if
-  - `field`jest używany głównie z **AuditIfNotExists** i **DeployIfNotExists** do odwołań do pól w analizowanym zasobie. Przykład tego zastosowania można zobaczyć w [przykładzie DeployIfNotExists](effects.md#deployifnotexists-example).
+  - `field` jest używany głównie z **AuditIfNotExists** i **DeployIfNotExists** do odwołań do pól w analizowanym zasobie. Przykład tego zastosowania można zobaczyć w [przykładzie DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
   - Zwraca wersję interfejsu API żądania, które spowodowało wyzwolenie oceny zasad (przykład: `2019-09-01` ).
     Ta wartość jest wersją interfejsu API, która została użyta w żądaniu PUT/PATCH do oceny przy tworzeniu/aktualizowaniu zasobów. Najnowsza wersja interfejsu API jest zawsze używana podczas oceny zgodności dla istniejących zasobów.

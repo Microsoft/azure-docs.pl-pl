@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/05/2020
-ms.openlocfilehash: 7296ec52f8bede86b73e7494af3a784526b639c3
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.date: 08/18/2020
+ms.openlocfilehash: e9561c0b54d256d5f24dc02c6f46d84821b9708c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849118"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548450"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w usłudze Azure Blob Storage za pomocą Azure Data Factory
 
@@ -51,7 +51,7 @@ Dla działania kopiowania ten łącznik magazynu obiektów BLOB obsługuje:
 >[!IMPORTANT]
 >Jeśli włączysz opcję **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu** w ustawieniach zapory usługi Azure Storage i chcesz używać środowiska Azure Integration Runtime do nawiązywania połączenia z usługą BLOB Storage, musisz użyć [uwierzytelniania tożsamości zarządzanej](#managed-identity).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -237,7 +237,7 @@ Te właściwości są obsługiwane dla połączonej usługi Azure Blob Storage:
 | servicePrincipalId | Określ identyfikator klienta aplikacji. | Tak |
 | servicePrincipalKey | Określ klucz aplikacji. Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
 | dzierżaw | Określ informacje o dzierżawie (nazwę domeny lub identyfikator dzierżawy), w których znajduje się Twoja aplikacja. Pobierz ją przez umieszczenie kursora w prawym górnym rogu Azure Portal. | Tak |
-| azureCloudType | W polu Uwierzytelnianie nazwy głównej usługi Określ typ środowiska chmury platformy Azure, do którego jest zarejestrowana aplikacja usługi AAD. <br/> Dozwolone wartości to **AzurePublic**, **AzureChina**, **AzureUsGovernment**i **AzureGermany**. Domyślnie używane jest środowisko chmury fabryki danych. | Nie |
+| azureCloudType | W polu Uwierzytelnianie nazwy głównej usługi Określ typ środowiska chmury platformy Azure, do którego zarejestrowano aplikację Azure Active Directory. <br/> Dozwolone wartości to **AzurePublic**, **AzureChina**, **AzureUsGovernment**i **AzureGermany**. Domyślnie używane jest środowisko chmury fabryki danych. | Nie |
 | Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Możesz użyć środowiska Azure Integration Runtime lub własnego środowiska Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli ta właściwość nie jest określona, usługa używa domyślnego środowiska Azure Integration Runtime. |Nie |
 
 >[!NOTE]
@@ -267,7 +267,7 @@ Te właściwości są obsługiwane dla połączonej usługi Azure Blob Storage:
 }
 ```
 
-### <a name="managed-identities-for-azure-resource-authentication"></a><a name="managed-identity"></a>Zarządzane tożsamości na potrzeby uwierzytelniania zasobów platformy Azure
+### <a name="managed-identities-for-azure-resource-authentication"></a><a name="managed-identity"></a> Zarządzane tożsamości na potrzeby uwierzytelniania zasobów platformy Azure
 
 Fabryka danych może być skojarzona z [zarządzaną tożsamością dla zasobów platformy Azure](data-factory-service-identity.md), która reprezentuje tę konkretną fabrykę danych. Można bezpośrednio użyć tej tożsamości zarządzanej do uwierzytelniania usługi BLOB Storage, która jest podobna do użycia własnej nazwy głównej usługi. Umożliwia to wyznaczeniu fabryki dostęp do danych z lub do usługi BLOB Storage.
 
@@ -426,7 +426,7 @@ Następujące właściwości są obsługiwane w przypadku usługi Azure Blob Sto
 
 ### <a name="blob-storage-as-a-sink-type"></a>BLOB Storage jako typ ujścia
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)] 
 
 Następujące właściwości są obsługiwane w przypadku usługi Azure Blob Storage w obszarze `storeSettings` Ustawienia w obiekcie ujścia kopiowania opartym na formacie:
 
@@ -491,7 +491,7 @@ Załóżmy, że masz następującą źródłową strukturę folderów i chcesz s
 
 | Przykładowa struktura źródła                                      | Zawartość w FileListToCopy.txt                             | Konfiguracja Data Factory                                            |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
-| kontener<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.jsna<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.jsna<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadane<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **W zestawie danych:**<br>Wbudowane`container`<br>-Ścieżka folderu:`FolderA`<br><br>**W źródle działania kopiowania:**<br>-Ścieżka listy plików:`container/Metadata/FileListToCopy.txt` <br><br>Ścieżka listy plików wskazuje plik tekstowy w tym samym magazynie danych, który zawiera listę plików do skopiowania, jeden plik w wierszu, ze ścieżką względną do ścieżki skonfigurowanej w zestawie danych. |
+| kontener<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.jsna<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.jsna<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadane<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **W zestawie danych:**<br>Wbudowane `container`<br>-Ścieżka folderu: `FolderA`<br><br>**W źródle działania kopiowania:**<br>-Ścieżka listy plików: `container/Metadata/FileListToCopy.txt` <br><br>Ścieżka listy plików wskazuje plik tekstowy w tym samym magazynie danych, który zawiera listę plików do skopiowania, jeden plik w wierszu, ze ścieżką względną do ścieżki skonfigurowanej w zestawie danych. |
 
 ### <a name="some-recursive-and-copybehavior-examples"></a>Niektóre przykłady cykliczne i copyBehavior
 
@@ -534,15 +534,15 @@ Z kontenera źródłowego wybierz serię plików, które pasują do wzorca. W ze
 
 Przykłady symboli wieloznacznych:
 
-* ```*```Reprezentuje dowolny zestaw znaków.
-* ```**```Reprezentuje zagnieżdżanie katalogów cyklicznych.
-* ```?```Zamienia jeden znak.
-* ```[]```Dopasowuje jeden lub więcej znaków w nawiasach.
+* ```*``` Reprezentuje dowolny zestaw znaków.
+* ```**``` Reprezentuje zagnieżdżanie katalogów cyklicznych.
+* ```?``` Zamienia jeden znak.
+* ```[]``` Dopasowuje jeden lub więcej znaków w nawiasach.
 
-* ```/data/sales/**/*.csv```Pobiera wszystkie pliki CSV w obszarze/Data/Sales.
-* ```/data/sales/20??/**/```Pobiera wszystkie pliki w 20-wieku.
-* ```/data/sales/*/*/*.csv```Pobiera pliki CSV dwa poziomy w obszarze/Data/Sales.
-* ```/data/sales/2004/*/12/[XY]1?.csv```Pobiera wszystkie pliki CSV w grudniu 2004 rozpoczynające się od X lub Y poprzedzone dwucyfrowym numerem.
+* ```/data/sales/**/*.csv``` Pobiera wszystkie pliki CSV w obszarze/Data/Sales.
+* ```/data/sales/20??/**/``` Pobiera wszystkie pliki w 20-wieku.
+* ```/data/sales/*/*/*.csv``` Pobiera pliki CSV dwa poziomy w obszarze/Data/Sales.
+* ```/data/sales/2004/*/12/[XY]1?.csv``` Pobiera wszystkie pliki CSV w grudniu 2004 rozpoczynające się od X lub Y poprzedzone dwucyfrowym numerem.
 
 **Ścieżka katalogu głównego partycji:** Jeśli masz partycjonowane foldery w źródle plików o ```key=value``` formacie (na przykład `year=2019` ), możesz przypisać najwyższy poziom tego drzewa folderów partycji do nazwy kolumny w strumieniu danych przepływu danych.
 
@@ -621,7 +621,7 @@ Aby uzyskać szczegółowe informacje na temat właściwości, zaznacz opcję [U
 |:--- |:--- |:--- |
 | typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **AzureBlob**. |Tak |
 | folderPath | Ścieżka do kontenera i folderu w usłudze BLOB Storage. <br/><br/>Filtr symboli wieloznacznych jest obsługiwany dla ścieżki, z wyłączeniem nazwy kontenera. Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak). Użyj `^` do ucieczki, jeśli nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. <br/><br/>Przykład: myblobcontainer/myblobfolder/. Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). |Tak dla działania kopiowania lub wyszukiwania — nie dla działania GetMetadata |
-| fileName | Nazwa lub filtr symboli wieloznacznych dla obiektów BLOB pod określoną wartością **folderPath** . Jeśli nie określisz wartości tej właściwości, zestaw danych wskazuje wszystkie obiekty blob w folderze. <br/><br/>W przypadku filtru dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak).<br/>-Przykład 1:`"fileName": "*.csv"`<br/>-Przykład 2:`"fileName": "???20180427.txt"`<br/>Użyj `^` do ucieczki, jeśli nazwa pliku ma symbol wieloznaczny lub ten znak ucieczki wewnątrz.<br/><br/>Jeśli **Nazwa pliku** nie została określona dla wyjściowego zestawu danych, a **preserveHierarchy** nie jest określona w obiekcie ujścia aktywności, działanie kopiowania automatycznie generuje nazwę obiektu BLOB z następującym wzorcem: "*Data. [ Identyfikator GUID przebiegu działania]. [GUID if FlattenHierarchy]. [Format, jeśli skonfigurowano]. [kompresja, jeśli jest skonfigurowana]*". Na przykład: "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. gz". <br/><br/>Jeśli skopiujesz ze źródła tabelarycznego przy użyciu nazwy tabeli zamiast zapytania, wzorzec nazwy to "*[nazwa tabeli]. [ Format]. [kompresja, jeśli jest skonfigurowana]*". Na przykład: "MyTable.csv". |Nie |
+| fileName | Nazwa lub filtr symboli wieloznacznych dla obiektów BLOB pod określoną wartością **folderPath** . Jeśli nie określisz wartości tej właściwości, zestaw danych wskazuje wszystkie obiekty blob w folderze. <br/><br/>W przypadku filtru dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak).<br/>-Przykład 1: `"fileName": "*.csv"`<br/>-Przykład 2: `"fileName": "???20180427.txt"`<br/>Użyj `^` do ucieczki, jeśli nazwa pliku ma symbol wieloznaczny lub ten znak ucieczki wewnątrz.<br/><br/>Jeśli **Nazwa pliku** nie została określona dla wyjściowego zestawu danych, a **preserveHierarchy** nie jest określona w obiekcie ujścia aktywności, działanie kopiowania automatycznie generuje nazwę obiektu BLOB z następującym wzorcem: "*Data. [ Identyfikator GUID przebiegu działania]. [GUID if FlattenHierarchy]. [Format, jeśli skonfigurowano]. [kompresja, jeśli jest skonfigurowana]*". Na przykład: "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. gz". <br/><br/>Jeśli skopiujesz ze źródła tabelarycznego przy użyciu nazwy tabeli zamiast zapytania, wzorzec nazwy to "*[nazwa tabeli]. [ Format]. [kompresja, jeśli jest skonfigurowana]*". Na przykład: "MyTable.csv". |Nie |
 | modifiedDatetimeStart | Pliki są filtrowane na podstawie atrybutu: Ostatnia modyfikacja. Pliki zostaną wybrane, jeśli czas ostatniej modyfikacji mieści się w przedziale czasu między `modifiedDatetimeStart` i `modifiedDatetimeEnd` . Czas jest stosowany do strefy czasowej UTC w formacie "2018 r-12-01T05:00:00Z". <br/><br/> Należy pamiętać, że włączenie tego ustawienia wpłynie na ogólną wydajność przenoszenia danych, gdy chcesz filtrować ogromne ilości plików. <br/><br/> Właściwości mogą mieć **wartość null**, co oznacza, że żaden filtr atrybutu pliku nie zostanie zastosowany do zestawu danych.  Gdy `modifiedDatetimeStart` ma wartość DateTime, ale `modifiedDatetimeEnd` jest **równa null**, to pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime zostanie zaznaczone.  Gdy `modifiedDatetimeEnd` ma wartość DateTime, ale `modifiedDatetimeStart` jest **równa null**, pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime zostanie wybrana.| Nie |
 | modifiedDatetimeEnd | Pliki są filtrowane na podstawie atrybutu: Ostatnia modyfikacja. Pliki zostaną wybrane, jeśli czas ostatniej modyfikacji mieści się w przedziale czasu między `modifiedDatetimeStart` i `modifiedDatetimeEnd` . Czas jest stosowany do strefy czasowej UTC w formacie "2018 r-12-01T05:00:00Z". <br/><br/> Należy pamiętać, że włączenie tego ustawienia wpłynie na ogólną wydajność przenoszenia danych, gdy chcesz filtrować ogromne ilości plików. <br/><br/> Właściwości mogą mieć **wartość null**, co oznacza, że żaden filtr atrybutu pliku nie zostanie zastosowany do zestawu danych.  Gdy `modifiedDatetimeStart` ma wartość DateTime, ale `modifiedDatetimeEnd` jest **równa null**, to pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime zostanie zaznaczone.  Gdy `modifiedDatetimeEnd` ma wartość DateTime, ale `modifiedDatetimeStart` jest **równa null**, pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime zostanie wybrana.| Nie |
 | format | Jeśli chcesz skopiować pliki w postaci między magazynami opartymi na plikach (kopia binarna), Pomiń sekcję format w definicjach zestawu danych wejściowych i wyjściowych.<br/><br/>Jeśli chcesz analizować lub generować pliki o określonym formacie, obsługiwane są następujące typy formatu plików: **TextFormat**, **formatu jsonformat**, **AvroFormat**, **OrcFormat**i **ParquetFormat**. Ustaw właściwość **Type** w polu **Format** na jedną z tych wartości. Aby uzyskać więcej informacji, zobacz sekcję [Format tekstu](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Format JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Format Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Format Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format)i [Parquet format](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) . |Nie (tylko w przypadku scenariusza kopiowania binarnego) |

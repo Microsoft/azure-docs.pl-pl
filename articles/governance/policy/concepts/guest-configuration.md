@@ -3,24 +3,23 @@ title: Dowiedz się, jak przeprowadzić inspekcję zawartości maszyn wirtualnyc
 description: Dowiedz się, w jaki sposób Azure Policy używa agenta konfiguracji gościa do inspekcji ustawień wewnątrz maszyn wirtualnych.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 906c86856342febc92f070493fde31af42e4ca10
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 624f0a2464323e8002b9940471c93b3030f053d5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987107"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544676"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Opis konfiguracji gościa usługi Azure Policy
 
-Azure Policy może przeprowadzać inspekcję ustawień wewnątrz komputera, zarówno w przypadku maszyn działających na platformie Azure, jak i na [urządzeniach połączonych](../../../azure-arc/servers/overview.md)z usługą Arc.
-Taka weryfikacja jest wykonywana przez klienta i rozszerzenie konfiguracji gościa. Rozszerzenie to, obsługiwane za pośrednictwem klienta, umożliwia weryfikację następujących ustawień:
+Azure Policy może przeprowadzać inspekcję ustawień wewnątrz komputera, zarówno w przypadku maszyn działających na platformie Azure, jak i na [urządzeniach połączonych](../../../azure-arc/servers/overview.md)z usługą Arc. Taka weryfikacja jest wykonywana przez klienta i rozszerzenie konfiguracji gościa. Rozszerzenie to, obsługiwane za pośrednictwem klienta, umożliwia weryfikację następujących ustawień:
 
 - Konfiguracja systemu operacyjnego
 - Konfiguracja lub obecność aplikacji
 - Ustawienia środowiska
 
-W tej chwili większość Azure Policy zasad konfiguracji gościa tylko ustawienia inspekcji na tym komputerze.
-Nie dotyczą one konfiguracji. Wyjątek jest jedną z wbudowanych zasad, [do których odwołuje się poniżej](#applying-configurations-using-guest-configuration).
+Obecnie większość zasad konfiguracji gościa usługi Azure Policy umożliwia tylko przeprowadzanie inspekcji ustawień wewnątrz maszyny.
+Nie stosują one konfiguracji. Wyjątek jest jedną z wbudowanych zasad, [do których odwołuje się poniżej](#applying-configurations-using-guest-configuration).
 
 ## <a name="enable-guest-configuration"></a>Włącz konfigurację gościa
 
@@ -32,7 +31,7 @@ Aby można było korzystać z konfiguracji gościa, należy zarejestrować dosta
 
 ## <a name="deploy-requirements-for-azure-virtual-machines"></a>Wdróż wymagania dotyczące usługi Azure Virtual Machines
 
-Aby przeprowadzić inspekcję ustawień wewnątrz maszyny, [rozszerzenie maszyny wirtualnej](../../../virtual-machines/extensions/overview.md) jest włączone, a komputer musi mieć tożsamość zarządzaną przez system. Rozszerzenie pobiera odpowiednie przypisanie zasad i odpowiednią definicję konfiguracji. Tożsamość służy do uwierzytelniania maszyny podczas odczytywania i zapisywania w usłudze konfiguracji gościa. Rozszerzenie nie jest wymagane dla maszyn połączonych z łukiem, ponieważ znajduje się w agencie połączonej maszyny.
+Aby przeprowadzić inspekcję ustawień wewnątrz maszyny, [rozszerzenie maszyny wirtualnej](../../../virtual-machines/extensions/overview.md) jest włączone, a komputer musi mieć tożsamość zarządzaną przez system. Rozszerzenie pobiera odpowiednie przypisanie zasad i odpowiadającą im definicję konfiguracji. Tożsamość służy do uwierzytelniania maszyny podczas odczytywania i zapisywania w usłudze konfiguracji gościa. Rozszerzenie nie jest wymagane dla maszyn połączonych z łukiem, ponieważ znajduje się w agencie połączonej maszyny.
 
 > [!IMPORTANT]
 > Do inspekcji maszyn wirtualnych platformy Azure wymagane jest rozszerzenie konfiguracji gościa i zarządzana tożsamość. Aby wdrożyć rozszerzenie w odpowiedniej skali, przypisz następujące inicjatywy zasad:
@@ -60,7 +59,7 @@ Klient konfiguracji gościa sprawdza nową zawartość co 5 minut. Po odebraniu 
 
 ## <a name="supported-client-types"></a>Obsługiwane typy klientów
 
-Zasady konfiguracji gościa obejmują nowe wersje. Starsze wersje systemów operacyjnych dostępnych w portalu Azure Marketplace są wykluczone, jeśli Agent konfiguracji gościa nie jest zgodny.
+Zasady konfiguracji gościa obejmują nowe wersje. Starsze wersje systemów operacyjnych dostępnych w witrynie Azure Marketplace są wykluczone, jeśli Agent konfiguracji gościa nie jest zgodny.
 W poniższej tabeli przedstawiono listę obsługiwanych systemów operacyjnych w usłudze Azure images:
 
 |Publisher|Nazwa|Wersje|
@@ -93,8 +92,7 @@ Ruch jest kierowany przy użyciu [wirtualnego adresu IP](../../../virtual-networ
 
 ### <a name="azure-arc-connected-machines"></a>Maszyny połączone z usługą Azure Arc
 
-Węzły zlokalizowane poza platformą Azure, które są połączone za pomocą usługi Azure ARC, wymagają łączności z usługą konfiguracji gościa.
-Szczegółowe informacje o wymaganiach dotyczących sieci i serwera proxy dostępne w [dokumentacji usługi Azure Arc](../../../azure-arc/servers/overview.md).
+Węzły zlokalizowane poza platformą Azure, które są połączone za pomocą usługi Azure ARC, wymagają łączności z usługą konfiguracji gościa. Szczegółowe informacje o wymaganiach dotyczących sieci i serwera proxy dostępne w [dokumentacji usługi Azure Arc](../../../azure-arc/servers/overview.md).
 
 Aby komunikować się z dostawcą zasobów konfiguracji gościa na platformie Azure, maszyny wymagają dostępu wychodzącego do centrów danych platformy Azure na porcie **443**. Jeśli sieć na platformie Azure nie zezwala na ruch wychodzący, skonfiguruj wyjątki z regułami [sieciowych grup zabezpieczeń](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) . [Tag usługi](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" może służyć do odwoływania się do usługi konfiguracji gościa.
 
@@ -157,9 +155,9 @@ Zasady konfiguracji gościa obsługują obecnie tylko jednokrotne przypisanie te
 
 Rozszerzenie konfiguracji gościa zapisuje pliki dzienników w następujących lokalizacjach:
 
-Systemy`C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
+Systemy `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
 
-System`/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
+System `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
 
 Gdzie `<version>` odwołuje się do bieżącego numeru wersji.
 

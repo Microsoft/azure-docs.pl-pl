@@ -1,14 +1,14 @@
 ---
 title: 'Samouczek: zarządzanie tagami tagów'
 description: W tym samouczku użyjesz efektu Modyfikuj Azure Policy, aby utworzyć i wymusić model ładu znacznika dla nowych i istniejących zasobów.
-ms.date: 04/21/2020
+ms.date: 08/17/2020
 ms.topic: tutorial
-ms.openlocfilehash: 8b3d0db100a601950ec82824897a3ba3e5145b79
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: f49eedb00c98d3c362140fdca9b195a086903f10
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142269"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545509"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Samouczek: Zarządzanie zarządzaniem tagów przy użyciu Azure Policy
 
@@ -45,7 +45,7 @@ Podobnie jak jakakolwiek dobra implementacja kontroli ładu, wymagania powinny p
 
 ## <a name="configure-the-costcenter-tag"></a>Konfigurowanie tagu CostCenter
 
-W odniesieniu do środowiska platformy Azure zarządzanego przez Azure Policy wymagania dotyczące tagów _CostCenter_ są następujące:
+W odniesieniu do środowiska platformy Azure zarządzanego przez Azure Policy wymagania dotyczące tagów _CostCenter_ są zgodne z następującymi wynikami:
 
 - Odmów braku tagu _CostCenter_ w grupach zasobów
 - Modyfikuj zasoby, aby dodać tag _CostCenter_ z nadrzędnej grupy zasobów, gdy brakuje
@@ -107,7 +107,7 @@ Ta reguła zasad używa operacji **dodawania** zamiast **addOrReplace** , poniew
 
 ## <a name="configure-the-env-tag"></a>Konfigurowanie tagu ENV
 
-Zgodnie z warunkami specyficznymi dla środowiska platformy Azure zarządzanego przez Azure Policy, wymagania dotyczące znacznika _ENV_ są następujące:
+W odniesieniu do środowiska platformy Azure zarządzanego przez Azure Policy, wymagania dotyczące tagów _ENV_ są zgodne z następującymi wynikami:
 
 - Zmodyfikuj tag _ENV_ w grupie zasobów w oparciu o schemat nazewnictwa grupy zasobów.
 - Zmodyfikuj tag _ENV_ dla wszystkich zasobów w grupie zasobów, tak samo jak nadrzędna grupa zasobów
@@ -194,7 +194,7 @@ Po utworzeniu powyższych zasad dotyczących tagów Dołącz je do jednej inicja
 
 Podobnie jak zasady [deployIfNotExists](../concepts/effects.md#deployifnotexists) , zasady **modyfikowania** używają zadań korygowania do zmiany istniejących niezgodnych zasobów. Postępuj zgodnie z instrukcjami dotyczącymi [sposobu korygowania zasobów](../how-to/remediate-resources.md) w celu zidentyfikowania niezgodnych zasobów **modyfikacji** i skorygowania tagów do zdefiniowanej taksonomii.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie planujesz dalszej pracy z zasobami utworzonymi w tym samouczku, wykonaj poniższe kroki, aby usunąć wszystkie utworzone powyżej przypisania lub definicje:
 

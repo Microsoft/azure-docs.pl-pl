@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie logowania jednokrotnego Soloinsight-CloudGate w celu automatycznego aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników na potrzeby logowania jednokrotnego do Soloinsight-CloudGate.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: 07558ceb-d406-40e7-90b8-1b40fdc829e7
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: 6ab90a6aea262d5c7067f9f41b9ddfc090b7371d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 32fd40ec4827c2995d156b0e238b48ff8cc24e65
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77063199"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545118"
 ---
 # <a name="tutorial-configure-soloinsight-cloudgate-sso-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie logowania jednokrotnego Soloinsight-CloudGate w celu automatycznego aprowizacji użytkowników
 

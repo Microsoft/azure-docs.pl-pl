@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: Tworzenie rozproszonych tabel-Citus) — Azure Database for PostgreSQL'
+title: 'Szybki Start: Tworzenie grupy serwerów — Citus) — Azure Database for PostgreSQL'
 description: Przewodnik Szybki Start dotyczący tworzenia i wykonywania zapytań dotyczących tabel rozproszonych w Azure Database for PostgreSQL funkcji Citus.
 author: jonels-msft
 ms.author: jonels
@@ -7,15 +7,15 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 05/14/2019
-ms.openlocfilehash: c17018e0f2f3a7c1c23d176a441842abcf5521f4
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.date: 08/17/2020
+ms.openlocfilehash: 977082b7f9055b90ee5c93913154934741d93772
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183925"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547702"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>Szybki Start: Tworzenie Azure Database for PostgreSQL-Citus w Azure Portal
+# <a name="quickstart-create-a-hyperscale-citus-server-group-in-the-azure-portal"></a>Szybki Start: Tworzenie grupy serwerów ze skalą (Citus) w Azure Portal
 
 Azure Database for PostgreSQL to usługa zarządzana, która służy do uruchamiania i skalowania w chmurze baz danych PostgreSQL o wysokiej dostępności, a także zarządzania nimi. W tym przewodniku szybki start przedstawiono sposób tworzenia grupy serwerów Azure Database for PostgreSQL-Citus) przy użyciu Azure Portal. Poznasz dane rozproszone: tabele fragmentowania w węzłach, pozyskiwanie przykładowych danych i wykonywanie zapytań wykonywanych na wielu węzłach.
 
@@ -104,7 +104,7 @@ Teraz czas dla części zabawnej, w rzeczywistości uruchamia kilka zapytań. Za
 SELECT count(*) from github_events;
 ```
 
-To działały dobrze. Powrócimy do tego sortowania agregacji w bitach, ale dla teraz przyjrzyjmy się kilku innym zapytaniom. W kolumnie JSONB `payload` istnieje dobry bit danych, ale jest ona różna w zależności od typu zdarzenia. `PushEvent`zdarzenia zawierają rozmiar, który obejmuje liczbę odrębnych zatwierdzeń dla wypychania. Możemy użyć jej do znalezienia łącznej liczby zatwierdzeń na godzinę:
+To działały dobrze. Powrócimy do tego sortowania agregacji w bitach, ale dla teraz przyjrzyjmy się kilku innym zapytaniom. W kolumnie JSONB `payload` istnieje dobry bit danych, ale jest ona różna w zależności od typu zdarzenia. `PushEvent` zdarzenia zawierają rozmiar, który obejmuje liczbę odrębnych zatwierdzeń dla wypychania. Możemy użyć jej do znalezienia łącznej liczby zatwierdzeń na godzinę:
 
 ```sql
 SELECT date_trunc('hour', created_at) AS hour,
@@ -130,7 +130,7 @@ SELECT gu.login, count(*)
  ORDER BY count(*) DESC;
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 W poprzednich krokach zostały utworzone zasoby platformy Azure w grupie serwerów. Jeśli nie chcesz potrzebować tych zasobów w przyszłości, Usuń grupę serwerów. Naciśnij przycisk **Usuń** na stronie **Przegląd** dla swojej grupy serwerów. Po wyświetleniu monitu na stronie podręcznej Potwierdź nazwę grupy serwerów, a następnie kliknij przycisk **Usuń** końcowego.
 

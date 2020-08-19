@@ -2,25 +2,20 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Jobscience | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Jobscience.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.assetid: 77282dcc-bbe2-4728-953d-adb4ab6a713b
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23d2694aa4936090367cf881379f81911ae70f9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0de47cc12c461e47d8703861a99d11e7ee72d581
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81870542"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547073"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Samouczek: integracja Azure Active Directory z usługą Jobscience
 
@@ -62,7 +57,7 @@ Aby skonfigurować integrację programu Jobscience z usługą Azure AD, musisz d
 
 1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**. 
 
-    ![Usługa Active Directory][1]
+    ![Active Directory][1]
 
 1. Przejdź do **aplikacji dla przedsiębiorstw**. Następnie przejdź do **wszystkich aplikacji**.
 
@@ -105,7 +100,7 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
 
     ![Konfigurowanie logowania jednokrotnego][4]
 
-1. W oknie dialogowym **Logowanie** jednokrotne wybierz pozycję **tryb** jako **Logowanie oparte na protokole SAML** , aby włączyć logowanie jednokrotne.
+1. W oknie dialogowym **Logowanie** jednokrotne wybierz pozycję **tryb** jako    **Logowanie oparte na protokole SAML** , aby włączyć logowanie jednokrotne.
  
     ![Konfigurowanie logowania jednokrotnego](./media/jobscience-tutorial/tutorial_jobscience_samlbase.png)
 
@@ -113,7 +108,7 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
 
     ![Konfigurowanie logowania jednokrotnego](./media/jobscience-tutorial/tutorial_jobscience_url.png)
 
-    W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:`http://<company name>.my.salesforce.com`
+    W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:  `http://<company name>.my.salesforce.com`
     
     > [!NOTE] 
     > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Pobierz tę wartość przez [zespół obsługi klienta Jobscience](http://www.jobscience.com/support) lub z profilu rejestracji jednokrotnej, który zostanie utworzony w dalszej części tego samouczka. 
@@ -146,7 +141,7 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
 
 1. W witrynie firmy Jobscience kliknij pozycję **Security Controls**, a następnie kliknij pozycję **Ustawienia rejestracji**jednokrotnej.
     
-    ![Mechanizmy zabezpieczeń](./media/jobscience-tutorial/ic784364.png "Mechanizmy zabezpieczeń")
+    ![Kontrolki zabezpieczeń](./media/jobscience-tutorial/ic784364.png "Mechanizmy zabezpieczeń")
 
 1. W sekcji **Ustawienia logowania** jednokrotnego wykonaj następujące czynności:
     
@@ -164,7 +159,7 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
 
     b. W polu tekstowym **wystawcy** wklej wartość **identyfikatora jednostki SAML**, która została skopiowana z Azure Portal.
 
-    c. W polu tekstowym **Identyfikator jednostki** wpisz`https://salesforce-jobscience.com`
+    c. W polu tekstowym **Identyfikator jednostki** wpisz `https://salesforce-jobscience.com`
 
     d. Kliknij przycisk **Przeglądaj** , aby przekazać certyfikat usługi Azure AD.
 
@@ -192,7 +187,7 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
 
 1. Aby uzyskać adres URL logowania zainicjowany przy użyciu rejestracji jednokrotnej SP, kliknij **Ustawienia rejestracji** jednokrotnej w sekcji Opcje **zabezpieczeń** w menu.
 
-    ![Mechanizmy zabezpieczeń](./media/jobscience-tutorial/ic784368.png "Mechanizmy zabezpieczeń")
+    ![Kontrolki zabezpieczeń](./media/jobscience-tutorial/ic784368.png "Mechanizmy zabezpieczeń")
     
     Kliknij profil rejestracji jednokrotnej utworzony w powyższym kroku. Na tej stronie jest wyświetlany adres URL logowania jednokrotnego dla swojej firmy (na przykład `https://companyname.my.salesforce.com?so=companyid` .    
 
@@ -229,7 +224,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Wybierz pozycję **Pokaż hasło** i Zapisz wartość **hasła**.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-a-jobscience-test-user"></a>Tworzenie użytkownika testowego Jobscience
 

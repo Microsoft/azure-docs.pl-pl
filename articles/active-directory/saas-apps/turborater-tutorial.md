@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą TurboRater | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i TurboRater.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: abb116b8-8024-4cc6-bc81-f32ef490ea17
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
-ms.openlocfilehash: 3777cf09ec669fe3df6bca13f6960f53c689767c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0c22993baa6a9095bddba67bdc9d18a40021db6c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67088271"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546393"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Samouczek: integracja Azure Active Directory z usługą TurboRater
 
@@ -38,7 +34,7 @@ Aby uzyskać szczegółowe informacje na temat integracji aplikacji typu "oprogr
 
 Aby skonfigurować integrację usługi Azure AD z usługą TurboRater, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 * Subskrypcja TurboRater z włączonym logowaniem jednokrotnym.
 
 ## <a name="scenario-description"></a>Opis scenariusza
@@ -70,7 +66,7 @@ Aby skonfigurować integrację programu TurboRater z usługą Azure AD, musisz d
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji należy skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą TurboRater na podstawie użytkownika testowego o nazwie **B Simon**. Aby logowanie jednokrotne działało, należy nawiązać połączenie między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w TurboRater.
+W tej sekcji należy skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą TurboRater na podstawie użytkownika testowego o nazwie  **B Simon**. Aby logowanie jednokrotne działało, należy nawiązać połączenie między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w TurboRater.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi TurboRater, należy wykonać następujące bloki konstrukcyjne:
 
@@ -137,7 +133,7 @@ Aby skonfigurować Logowanie jednokrotne na stronie TurboRater, musisz wysłać 
 
 W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w witrynie Azure Portal.
 
-1. W Azure Portal w lewym okienku wybierz pozycję **Azure Active Directory**   > **Użytkownicy** > **Wszyscy użytkownicy**.
+1. W Azure Portal w lewym okienku wybierz pozycję **Azure Active Directory**    >  **Użytkownicy**  >  **Wszyscy użytkownicy**.
 
     ![Opcje Użytkownicy i "Wszyscy użytkownicy"](common/users.png)
 
@@ -151,17 +147,17 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w witrynie A
 
     1. W polu **Nazwa** wprowadź **BSimon**.
   
-    1. W polu **Nazwa użytkownika** wprowadź **BSimon\@\<\< yourcompanydomain>.>rozszerzenia **. Na przykład **BSimon\@contoso.com**.
+    1. W polu **Nazwa użytkownika** wprowadź **BSimon \@ \<yourcompanydomain> . \<extension> **. Na przykład **BSimon \@ contoso.com**.
 
     1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
 
-    1. Wybierz przycisk **Utwórz**.
+    1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure, przyznając im dostęp do TurboRater.
 
-1. W Azure Portal wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje** > **TurboRater**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  >  **TurboRater**.
 
     ![Okienko aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -193,10 +189,10 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po wybraniu opcji **TurboRater** w portalu Moje aplikacje należy automatycznie zalogować się do subskrypcji usługi TurboRater, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz [dostęp i używanie aplikacji w portalu Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących integrowania aplikacji SaaS z Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-* [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

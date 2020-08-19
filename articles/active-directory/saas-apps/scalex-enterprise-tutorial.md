@@ -2,26 +2,21 @@
 title: 'Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) za pomocą narzędzia ScaleX Enterprise | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i ScaleX Enterprise.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: c2379a8d-a659-45f1-87db-9ba156d83183
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e54994d02dd1abbca1602952fbad058b3ad993d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c7033886d55e381445d99035115654332491441c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72594260"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547874"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-scalex-enterprise"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) za pomocą ScaleX Enterprise
 
@@ -83,7 +78,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://platform.rescale.com/saml2/<company id>/`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://platform.rescale.com/saml2/<company id>/`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://platform.rescale.com/saml2/<company id>/acs/`
 
@@ -96,7 +91,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Aplikacja ScaleX Enterprise oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych, gdzie **EmailAddress** jest zamapowany z **użytkownikiem. mail**. Aplikacja ScaleX Enterprise oczekuje mapowania **EmailAddress** z elementem **User. userPrincipalName**, dlatego należy edytować Mapowanie atrybutów, klikając ikonę **Edytuj** i zmieniając mapowanie atrybutu.
 
-    ![image](common/edit-attribute.png)
+    ![image (obraz)](common/edit-attribute.png)
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -114,7 +109,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -167,7 +162,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     b. **Dostawca usług SAML**: wklej wartość ***urn: języka Oasis: names: TC: SAML: 2.0: NameID-format: persistent***
 
-    c. **Nazwa pola adresu E-mail dostawcy tożsamości w odpowiedzi ACS**: wklej wartość`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    c. **Nazwa pola adresu E-mail dostawcy tożsamości w odpowiedzi ACS**: wklej wartość `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
     d. **Identyfikator jednostki elementem EntityDescriptor dostawcy tożsamości:** Wklej wartość **identyfikatora usługi Azure AD** skopiowaną z Azure Portal.
 
@@ -175,7 +170,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     f. **Publiczny certyfikat x509 dostawcy tożsamości:** Otwórz certyfikat x509 pobrany z platformy Azure w programie Notepad i wklej zawartość w tym polu. Upewnij się, że w środku zawartości certyfikatu nie ma podziałów wierszy.
 
-    g. Zaznacz następujące pola wyboru: **włączone, Szyfruj NameID i podpisz AuthnRequests.**
+    przykład Zaznacz następujące pola wyboru: **włączone, Szyfruj NameID i podpisz AuthnRequests.**
 
     h. Kliknij przycisk **Aktualizuj ustawienia rejestracji jednokrotnej** , aby zapisać ustawienia.
 
@@ -189,12 +184,12 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka ScaleX Enterprise w panelu dostępu należy automatycznie zalogować się do elementu ScaleX Enterprise, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj program ScaleX Enterprise z usługą Azure AD](https://aad.portal.azure.com/)

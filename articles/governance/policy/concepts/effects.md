@@ -1,14 +1,14 @@
 ---
 title: Informacje o działaniu efektów
 description: Definicje Azure Policy mają różne skutki, które określają sposób zarządzania i zgłaszania zgodności.
-ms.date: 06/15/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 54c2a687c6386c075ef5802826bc60b87b4d3ee4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0cfa8215d828de6d5426c3883ca1968e7a7cb542
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791422"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544727"
 ---
 # <a name="understand-azure-policy-effects"></a>Zrozumienie efektów Azure Policy
 
@@ -17,12 +17,12 @@ Każda definicja zasad w usłudze Azure Policy ma odzwierciedlenie w pojedynczym
 Te efekty są obecnie obsługiwane w definicji zasad:
 
 - [Append](#append)
-- [Inspekcja](#audit)
+- [Audit](#audit)
 - [AuditIfNotExists](#auditifnotexists)
 - [Deny](#deny)
 - [DeployIfNotExists](#deployifnotexists)
-- [Disabled (Wyłączone)](#disabled)
-- [Modyfikuj](#modify)
+- [Disabled](#disabled)
+- [Modify](#modify)
 
 Następujące efekty są _przestarzałe_:
 
@@ -43,7 +43,7 @@ Następujące efekty są _przestarzałe_:
 
 Gdy dostawca zasobów zwróci kod sukcesu w żądaniu w trybie Menedżer zasobów, **AuditIfNotExists** i **DeployIfNotExists** ocenę, aby określić, czy wymagane jest dodatkowe rejestrowanie zgodności lub akcja.
 
-## <a name="append"></a>Append
+## <a name="append"></a>Dołączanie
 
 Dołączanie służy do dodawania dodatkowych pól do żądanego zasobu podczas tworzenia lub aktualizowania. Typowym przykładem jest określenie dozwolonych adresów IP dla zasobu magazynu.
 
@@ -362,7 +362,7 @@ Przykład: oblicza SQL Server baz danych, aby określić, czy transparentDataEnc
 }
 ```
 
-## <a name="disabled"></a>Disabled (Wyłączony)
+## <a name="disabled"></a>Disabled
 
 Ten efekt jest przydatny do testowania sytuacji lub w przypadku, gdy definicja zasad ma sparametryzowane skutki. Ta elastyczność umożliwia wyłączenie pojedynczego przypisania zamiast wyłączania wszystkich przypisań zasad.
 
@@ -601,7 +601,7 @@ Przykład 2: Usuń `env` tag i Dodaj `environment` tag lub Zastąp istniejące `
 
 ## <a name="layering-policy-definitions"></a>Definicje zasad dotyczących warstw
 
-Na zasób może mieć wpływ kilka przypisań. Te przydziały mogą znajdować się w tym samym zakresie lub w różnych zakresach. Każdy z tych przypisań jest również prawdopodobnie zdefiniowanym innym efektem. Warunek i wpływ dla każdej zasady są oceniane niezależnie. Przykład:
+Na zasób może mieć wpływ kilka przypisań. Te przydziały mogą znajdować się w tym samym zakresie lub w różnych zakresach. Każdy z tych przypisań jest również prawdopodobnie zdefiniowanym innym efektem. Warunek i wpływ dla każdej zasady są oceniane niezależnie. Na przykład:
 
 - Zasady 1
   - Ogranicza lokalizację zasobu do "zachodnie"

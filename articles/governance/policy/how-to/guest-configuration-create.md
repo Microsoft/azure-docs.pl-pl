@@ -1,14 +1,14 @@
 ---
 title: Jak tworzyć zasady konfiguracji gościa dla systemu Windows
 description: Dowiedz się, jak utworzyć Azure Policy zasady konfiguracji gościa dla systemu Windows.
-ms.date: 03/20/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 31c40640babea961ef3bb255112306f59772bae2
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 4ee0c9d1912338235e53eb287bfc86a14b75cc97
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236543"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547668"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Jak tworzyć zasady konfiguracji gościa dla systemu Windows
 
@@ -16,8 +16,7 @@ Przed utworzeniem niestandardowych definicji zasad warto przeczytać informacje 
  
 Aby dowiedzieć się więcej o tworzeniu zasad konfiguracji gościa dla systemu Linux, zobacz stronę [jak utworzyć zasady konfiguracji gościa dla systemu Linux](./guest-configuration-create-linux.md) .
 
-Podczas inspekcji systemu Windows konfiguracja gościa używa modułu zasobów [Konfiguracja żądanego stanu](/powershell/scripting/dsc/overview/overview) (DSC) do utworzenia pliku konfiguracji. Konfiguracja DSC definiuje warunek, w którym maszyna powinna znajdować się w programie.
-Jeśli Ocena konfiguracji nie powiedzie się, zostanie wyzwolony efekt zasad **auditIfNotExists** i maszyna zostanie uznana za **niezgodną**.
+Podczas przeprowadzania inspekcji systemu Windows konfiguracja gościa używa modułu zasobów platformy [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) do utworzenia pliku konfiguracji. Konfiguracja platformy DSC definiuje stan, w jakim powinna być maszyna. Jeśli Ocena konfiguracji nie powiedzie się, zostanie wyzwolony efekt zasad **auditIfNotExists** i maszyna zostanie uznana za **niezgodną**.
 
 [Azure Policy konfiguracja gościa](../concepts/guest-configuration.md) może być używana tylko do inspekcji ustawień wewnątrz maszyn. Korygowanie ustawień wewnątrz maszyn nie jest jeszcze dostępne.
 
@@ -26,7 +25,7 @@ Wykonaj poniższe czynności, aby utworzyć własną konfigurację służącą d
 > [!IMPORTANT]
 > Zasady niestandardowe z konfiguracją gościa są funkcją w wersji zapoznawczej.
 >
-> Do przeprowadzania inspekcji w usłudze Azure Virtual Machines jest wymagane rozszerzenie konfiguracji gościa.
+> Do przeprowadzania inspekcji na maszynach wirtualnych platformy Azure jest wymagane rozszerzenie konfiguracji gościa.
 > Aby wdrożyć rozszerzenie na dużą skalę na wszystkich maszynach z systemem Windows, przypisz następujące definicje zasad:
 >   - [Wdróż wymagania wstępne, aby włączyć zasady konfiguracji gościa na maszynach wirtualnych z systemem Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
 
@@ -90,8 +89,7 @@ Gdy konfiguracja gościa przeprowadza inspekcję komputera, sekwencja zdarzeń j
 1. Wartość logiczna zwrócona przez funkcję określa, czy stan Azure Resource Manager dla przypisania gościa powinien być zgodny/niezgodny.
 1. Dostawca uruchamia program `Get-TargetResource` w celu zwrócenia bieżącego stanu każdego ustawienia, dlatego szczegółowe informacje o tym, dlaczego komputer nie jest zgodny, i upewnić się, że bieżący stan jest zgodny.
 
-Parametry w Azure Policy, które przekazują wartości do przypisań konfiguracji gościa, muszą być typu _String_ .
-Nie można przekazać tablic za pomocą parametrów, nawet jeśli zasób DSC obsługuje tablice.
+Parametry w Azure Policy, które przekazują wartości do przypisań konfiguracji gościa, muszą być typu _String_ . Nie można przekazać tablic za pomocą parametrów, nawet jeśli zasób DSC obsługuje tablice.
 
 ### <a name="get-targetresource-requirements"></a>Wymagania Get-TargetResource
 
@@ -121,7 +119,7 @@ return @{
 }
 ```
 
-Właściwość powody należy również dodać do schematu MOF dla zasobu jako osadzoną klasę.
+Należy dodać właściwość powody do schematu MOF dla zasobu jako osadzoną klasę.
 
 ```mof
 [ClassVersion("1.0.0.0")] 
@@ -166,8 +164,7 @@ Format pakietu musi być plikiem zip.
 ### <a name="storing-guest-configuration-artifacts"></a>Przechowywanie artefaktów konfiguracji gościa
 
 Pakiet ZIP musi być przechowywany w lokalizacji dostępnej dla zarządzanych maszyn wirtualnych.
-Przykłady obejmują repozytoria GitHub, repozytorium platformy Azure lub usługę Azure Storage. Jeśli wolisz nie udostępniać pakietu publicznie, możesz dołączyć [token sygnatury dostępu współdzielonego](../../../storage/common/storage-sas-overview.md) w adresie URL.
-Można również zaimplementować [punkt końcowy usługi](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) dla maszyn w sieci prywatnej, chociaż ta konfiguracja ma zastosowanie tylko do uzyskiwania dostępu do pakietu i nie komunikuje się z usługą.
+Przykłady obejmują repozytoria GitHub, repozytorium platformy Azure lub usługę Azure Storage. Jeśli wolisz nie udostępniać pakietu publicznie, możesz dołączyć [token sygnatury dostępu współdzielonego](../../../storage/common/storage-sas-overview.md) w adresie URL. Można również zaimplementować [punkt końcowy usługi](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) dla maszyn w sieci prywatnej, chociaż ta konfiguracja ma zastosowanie tylko do uzyskiwania dostępu do pakietu i nie komunikuje się z usługą.
 
 ## <a name="step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows"></a>Krok po kroku, tworzenie niestandardowych zasad inspekcji konfiguracji Gości dla systemu Windows
 
@@ -536,7 +533,7 @@ Teraz należy mieć strukturę projektu w następujący sposób:
 
 Pliki pomocnicze muszą być spakowane razem. Ukończony pakiet jest używany przez konfigurację gościa do tworzenia definicji Azure Policy.
 
-`New-GuestConfigurationPackage`Polecenie cmdlet tworzy pakiet. W przypadku zawartości innej firmy Użyj parametru **FilesToInclude** , aby dodać zawartość specyfikacji do pakietu. Nie trzeba określać **ChefProfilePath** jako pakietów systemu Linux.
+`New-GuestConfigurationPackage`Polecenie cmdlet tworzy pakiet. W przypadku zawartości innej firmy Użyj parametru **FilesToInclude** , aby dodać zawartość specyfikacji do pakietu. Nie musisz określać **ChefProfilePath** jako pakietów systemu Linux.
 
 - **Nazwa**: Nazwa pakietu konfiguracji gościa.
 - **Konfiguracja**: pełna ścieżka do skompilowanego dokumentu konfiguracyjnego.
@@ -602,5 +599,5 @@ Aby uzyskać więcej informacji na temat poleceń cmdlet w tym narzędziu, użyj
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej na temat inspekcji maszyn wirtualnych z [konfiguracją gościa](../concepts/guest-configuration.md).
-- Dowiedz się, jak [programowo utworzyć zasady](programmatically-create.md).
-- Dowiedz się, jak [uzyskać dane zgodności](get-compliance-data.md).
+- Dowiedz się, jak [programowo utworzyć zasady](./programmatically-create.md).
+- Dowiedz się, jak [uzyskać dane zgodności](./get-compliance-data.md).

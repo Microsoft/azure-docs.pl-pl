@@ -1,14 +1,14 @@
 ---
 title: Programowe tworzenie zasad
 description: W tym artykule opisano sposób programowego tworzenia zasad i zarządzania nimi dla Azure Policy za pomocą interfejsu wiersza polecenia platformy Azure, Azure PowerShell i API REST.
-ms.date: 05/20/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 3f785556dd86aa8b02f5aa0af09190266b8c509f
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 7a72986d8ffe64953e68ff166de9a02a15fb9c86
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969893"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548315"
 ---
 # <a name="programmatically-create-policies"></a>Programowe tworzenie zasad
 
@@ -88,12 +88,12 @@ Pierwszym krokiem w celu lepszego wglądu w zasoby jest utworzenie i przypisanie
    Zastąp _ContosoRG_ nazwą zamierzonej grupy zasobów.
 
    Parametr **SCOPE** w `New-AzPolicyAssignment` działaniu z grupą zarządzania, subskrypcją, grupą zasobów lub pojedynczym zasobem. Parametr używa pełnej ścieżki zasobu, która Właściwość **ResourceID** `Get-AzResourceGroup` zwraca wartość. Wzorzec dla **zakresu** dla każdego kontenera jest następujący:. Zastąp `{rName}` `{rgName}` `{subId}` `{mgName}` odpowiednio nazwę zasobu, nazwę grupy zasobów, Identyfikator subskrypcji i nazwę grupy zarządzania.
-   `{rType}`zostanie zastąpiony **typem zasobu** zasobu, `Microsoft.Compute/virtualMachines` na przykład dla maszyny wirtualnej.
+   `{rType}` zostanie zastąpiony **typem zasobu** zasobu, `Microsoft.Compute/virtualMachines` na przykład dla maszyny wirtualnej.
 
-   - Zasoby`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-   - Grupa zasobów —`/subscriptions/{subId}/resourceGroups/{rgName}`
-   - Ramach`/subscriptions/{subId}/`
-   - Grupa zarządzania —`/providers/Microsoft.Management/managementGroups/{mgName}`
+   - Zasoby `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Grupa zasobów — `/subscriptions/{subId}/resourceGroups/{rgName}`
+   - Ramach `/subscriptions/{subId}/`
+   - Grupa zarządzania — `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Aby uzyskać więcej informacji na temat zarządzania zasadami zasobów przy użyciu modułu Menedżer zasobów PowerShell, zobacz [AZ. resources](/powershell/module/az.resources/#policies).
 
@@ -216,12 +216,12 @@ Aby utworzyć definicję zasad, należy wykonać czynności opisane w poniższej
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
 
-   Parametr **SCOPE** w `az policy assignment create` działaniu z grupą zarządzania, subskrypcją, grupą zasobów lub pojedynczym zasobem. Parametr używa pełnej ścieżki zasobów. Wzorzec dla **zakresu** dla każdego kontenera jest następujący:. Zastąp `{rName}` `{rgName}` `{subId}` `{mgName}` odpowiednio nazwę zasobu, nazwę grupy zasobów, Identyfikator subskrypcji i nazwę grupy zarządzania. `{rType}`zostanie zastąpiony **typem zasobu** zasobu, `Microsoft.Compute/virtualMachines` na przykład dla maszyny wirtualnej.
+   Parametr **SCOPE** w `az policy assignment create` działaniu z grupą zarządzania, subskrypcją, grupą zasobów lub pojedynczym zasobem. Parametr używa pełnej ścieżki zasobów. Wzorzec dla **zakresu** dla każdego kontenera jest następujący:. Zastąp `{rName}` `{rgName}` `{subId}` `{mgName}` odpowiednio nazwę zasobu, nazwę grupy zasobów, Identyfikator subskrypcji i nazwę grupy zarządzania. `{rType}` zostanie zastąpiony **typem zasobu** zasobu, `Microsoft.Compute/virtualMachines` na przykład dla maszyny wirtualnej.
 
-   - Zasoby`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-   - Grupa zasobów —`/subscriptions/{subID}/resourceGroups/{rgName}`
-   - Ramach`/subscriptions/{subID}`
-   - Grupa zarządzania —`/providers/Microsoft.Management/managementGroups/{mgName}`
+   - Zasoby `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Grupa zasobów — `/subscriptions/{subID}/resourceGroups/{rgName}`
+   - Ramach `/subscriptions/{subID}`
+   - Grupa zarządzania — `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Identyfikator definicji Azure Policy można uzyskać za pomocą programu PowerShell przy użyciu następującego polecenia:
 

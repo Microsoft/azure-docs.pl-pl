@@ -1,14 +1,14 @@
 ---
 title: Szczegóły struktury definicji inicjatywy
 description: Opisuje, w jaki sposób definicje inicjatyw zasad są używane do definiowania zasad grupy w celu wdrożenia do zasobów platformy Azure w organizacji.
-ms.date: 05/29/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 80fa90765caa25d6995220134b9a5b4225133219
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b151ef4d58998b810e116321de68cbdb2e8d3eff
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84205960"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544642"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Struktura definicji Azure Policy inicjatywy
 
@@ -17,7 +17,7 @@ Inicjatywy umożliwiają grupowanie kilku powiązanych definicji zasad w celu up
 Do utworzenia definicji inicjatywy zasad używany jest kod JSON. Definicja inicjatywy Policy zawiera elementy dla:
 
 - Nazwa wyświetlana
-- description
+- description (opis)
 - metadane
 - parameters
 - definicje zasad
@@ -109,14 +109,14 @@ Klienci mogą definiować wszelkie właściwości i wartości przydatne w organi
 
 ### <a name="common-metadata-properties"></a>Wspólne właściwości metadanych
 
-- `version`(ciąg): śledzi szczegółowe informacje o wersji zawartości definicji inicjatywy zasad.
-- `category`(ciąg): określa, w której kategorii Azure Portal jest wyświetlana definicja zasad.
+- `version` (ciąg): śledzi szczegółowe informacje o wersji zawartości definicji inicjatywy zasad.
+- `category` (ciąg): określa, w której kategorii Azure Portal jest wyświetlana definicja zasad.
 
   > [!NOTE]
   > W przypadku inicjatywy [zgodności z przepisami](./regulatory-compliance.md) należy zapewnić zgodność z `category` **przepisami**.
 
-- `preview`(wartość logiczna): prawda lub FAŁSZ flagi dla Jeśli definicja inicjatywy zasad jest w _wersji zapoznawczej_.
-- `deprecated`(wartość logiczna): prawda lub FAŁSZ flagi, jeśli definicja inicjatywy zasad została oznaczona jako _przestarzała_.
+- `preview` (wartość logiczna): prawda lub FAŁSZ flagi dla Jeśli definicja inicjatywy zasad jest w _wersji zapoznawczej_.
+- `deprecated` (wartość logiczna): prawda lub FAŁSZ flagi, jeśli definicja inicjatywy zasad została oznaczona jako _przestarzała_.
 
 > [!NOTE]
 > Usługa Azure Policy używa `version` , `preview` i `deprecated` właściwości do przekazywania poziomu zmiany do wbudowanej definicji zasad lub inicjatywy i stanu. Format `version` to: `{Major}.{Minor}.{Patch}` . Określone Stany, takie jak _przestarzałe_ lub _Podgląd_, są dołączane do `version` właściwości lub w innej właściwości jako **wartość logiczna**. Aby uzyskać więcej informacji na temat sposobu, w jaki Azure Policy wersje wbudowane, zobacz [wbudowana wersja](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
@@ -218,10 +218,10 @@ Dozwolone wartości typu niezwiązanego z typem **zasobu to:**
 
 Każdy element _tablicy_ , który reprezentuje definicję zasad, ma następujące właściwości:
 
-- `policyDefinitionId`(ciąg): identyfikator niestandardowej lub wbudowanej definicji zasad do uwzględnienia.
-- `policyDefinitionReferenceId`(ciąg): krótka nazwa uwzględnionej definicji zasad.
+- `policyDefinitionId` (ciąg): identyfikator niestandardowej lub wbudowanej definicji zasad do uwzględnienia.
+- `policyDefinitionReferenceId` (ciąg): krótka nazwa uwzględnionej definicji zasad.
 - `parameters`: (Opcjonalnie) pary nazwa/wartość do przekazania parametru inicjatywy do definicji zasad uwzględnionych jako właściwość w tej definicji zasad. Aby uzyskać więcej informacji, zobacz [Parametry](#parameters).
-- `groupNames`(Tablica ciągów): (opcjonalnie) Grupa, do której należy definicja zasad. Aby uzyskać więcej informacji, zobacz [grupy zasad](#policy-definition-groups).
+- `groupNames` (Tablica ciągów): (opcjonalnie) Grupa, do której należy definicja zasad. Aby uzyskać więcej informacji, zobacz [grupy zasad](#policy-definition-groups).
 
 Oto przykład `policyDefinitions` , który ma dwie dołączone definicje zasad, które zostały spełnione przez każdy z tych samych parametrów inicjatywy:
 
@@ -257,11 +257,11 @@ Dodatkowe szczegóły grupowania można znaleźć w obiekcie **policyMetadata** 
 
 Każdy element _tablicy_ w `policyDefinitionGroups` musi mieć obie następujące właściwości:
 
-- `name`(ciąg) \[ wymagane \] : krótka nazwa **formantu**. Wartość tej właściwości jest używana przez program `groupNames` w elemencie `policyDefinitions` .
-- `category`(ciąg): **domena zgodności** formantu.
-- `displayName`(ciąg): przyjazna nazwa **formantu**. Używany przez portal.
-- `description`(ciąg): Opis działania **formantu** .
-- `additionalMetadataId`(ciąg): Lokalizacja obiektu [policyMetadata](#metadata-objects) , który zawiera dodatkowe szczegóły dotyczące **kontroli** i **domeny zgodności**.
+- `name` (ciąg) \[ wymagane \] : krótka nazwa **formantu**. Wartość tej właściwości jest używana przez program `groupNames` w elemencie `policyDefinitions` .
+- `category` (ciąg): **domena zgodności** formantu.
+- `displayName` (ciąg): przyjazna nazwa **formantu**. Używany przez portal.
+- `description` (ciąg): Opis działania **formantu** .
+- `additionalMetadataId` (ciąg): Lokalizacja obiektu [policyMetadata](#metadata-objects) , który zawiera dodatkowe szczegóły dotyczące **kontroli** i **domeny zgodności**.
 
   > [!NOTE]
   > Klienci mogą wskazywać istniejący obiekt [policyMetadata](#metadata-objects) . Jednak te obiekty są _tylko do odczytu_ i są tworzone tylko przez firmę Microsoft.
@@ -292,9 +292,9 @@ Te informacje są następujące:
 Metadane dla grupy zasad zawierają następujące informacje w `properties` węźle:
 
 - `metadataId`: **Identyfikator formantu** , do którego odnosi się grupowanie.
-- `category`(wymagane): **domena zgodności** , do której należy **formant** .
-- `title`(wymagane): przyjazna nazwa **identyfikatora formantu**.
-- `owner`(wymagane): określa, kto jest odpowiedzialny za kontrolę na platformie Azure: _Klient_, _firma Microsoft_, _współdzielona_.
+- `category` (wymagane): **domena zgodności** , do której należy **formant** .
+- `title` (wymagane): przyjazna nazwa **identyfikatora formantu**.
+- `owner` (wymagane): określa, kto jest odpowiedzialny za kontrolę na platformie Azure: _Klient_, _firma Microsoft_, _współdzielona_.
 - `description`: Dodatkowe informacje o formancie.
 - `requirements`: Szczegółowe informacje na temat odpowiedzialności za implementację kontrolki.
 - `additionalContentUrl`: Link do dodatkowych informacji o formancie. Ta właściwość jest zazwyczaj łączem do sekcji dokumentacji, która obejmuje tę kontrolkę w standardzie zgodności.

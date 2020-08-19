@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie rozwiązania Zscaler trzech na potrzeby automatycznego inicjowania obsługi użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: W ramach tego samouczka dowiesz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i anulowania aprowizacji kont użytkowników, aby rozwiązania Zscaler trzy.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd-msft
-ms.assetid: 385a1153-0f47-4e41-8f44-da1b49d7629e
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 177bc34162c2b5e4dadc54e1166c5f6061068bae
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b7cb55b5d14208128c894a007d13f4e73fc54b3b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77064108"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545810"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie rozwiązania Zscaler trzech dla automatycznej aprowizacji użytkowników
 
@@ -79,7 +75,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 > [!TIP]
 > Możesz również włączyć logowanie jednokrotne oparte na protokole SAML dla rozwiązania Zscaler trzech. Jeśli to zrobisz, postępuj zgodnie z instrukcjami podanymi w [samouczku logowania](zscaler-three-tutorial.md)jednokrotnego rozwiązania Zscaler. Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, ale te dwie funkcje uzupełniają się wzajemnie.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje** > **rozwiązania Zscaler trzy**:
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  >  **rozwiązania Zscaler trzy**:
 
     ![Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -97,7 +93,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 5. W sekcji **poświadczenia administratora** wprowadź **adres URL dzierżawy** i **klucz tajny** swojego rozwiązania zscalerego konta użytkownika, zgodnie z opisem w następnym kroku.
 
-6. Aby uzyskać **adres URL dzierżawy** i **token tajny**, przejdź do pozycji **Administracja** > **Ustawienia uwierzytelniania** w rozwiązania Zscaler trzech Portal i wybierz pozycję **SAML** w obszarze **Typ uwierzytelniania**:
+6. Aby uzyskać **adres URL dzierżawy** i **token tajny**, przejdź do pozycji **Administracja**  >  **Ustawienia uwierzytelniania** w rozwiązania Zscaler trzech Portal i wybierz pozycję **SAML** w obszarze **Typ uwierzytelniania**:
 
     ![Rozwiązania Zscaler trzy ustawienia uwierzytelniania](./media/zscaler-three-provisioning-tutorial/secret-token-1.png)
 
@@ -151,7 +147,7 @@ Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i g
 
 Aby uzyskać informacje na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../active-directory-saas-provisioning-reporting.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

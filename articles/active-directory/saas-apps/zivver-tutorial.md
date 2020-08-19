@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą ZIVVER | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i ZIVVER.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 64cb7ea0-df6c-4963-84d8-6f435980e2de
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 02b292c5db3d20f56d7b8291ea31d8da9863809b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3f55fed72d61597f61cb246c6c74d525b51702e8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74233241"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546040"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zivver"></a>Samouczek: integracja Azure Active Directory z usługą ZIVVER
 
@@ -32,7 +28,7 @@ Integracja ZIVVER z usługą Azure AD zapewnia następujące korzyści:
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -109,22 +105,22 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą ZIVVER, wyk
 
 5. Aplikacja ZIVVER oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Na poniższym zrzucie ekranu przedstawiono listę atrybutów domyślnych, gdzie atrybut **nameidentifier** jest mapowany na atrybut **user.userprincipalname**. Aplikacja ZIVVER oczekuje, że **NameIdentifier** mają być mapowane przy użyciu elementu **User. mail**, dlatego należy edytować Mapowanie atrybutów, klikając ikonę **Edytuj** i zmieniając mapowanie atrybutu.
 
-    ![image](common/edit-attribute.png)
+    ![image (obraz)](common/edit-attribute.png)
 
 6. Oprócz powyższych, aplikacja ZIVVER oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** wykonaj następujące czynności, aby dodać atrybut tokenu SAML, jak pokazano w poniższej tabeli:
 
     | Nazwa | Przestrzeń nazw | Atrybut źródłowy|
     | ---------------| --------------- |
-    | ZivverAccountKey | https:\//zivver.com/SAML/Attributes | user.objectid |
+    | ZivverAccountKey | https: \/ /zivver.com/SAML/Attributes | user.objectid |
 
     >[!NOTE]
-    >Jeśli używasz konfiguracji hybrydowej za pomocą narzędzia Active Directory lokalnego i Azure AD Connect, wartość powinna być ustawiona na`user.objectGUID`
+    >Jeśli używasz konfiguracji hybrydowej za pomocą narzędzia Active Directory lokalnego i Azure AD Connect, wartość powinna być ustawiona na `user.objectGUID`
 
     a. Kliknij przycisk **Dodaj nowe oświadczenie**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
 
-    ![image](common/new-save-attribute.png)
+    ![image (obraz)](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![image (obraz)](common/new-attribute-details.png)
 
     b. W polu tekstowym **Nazwa** wpisz nazwę atrybutu pokazaną dla tego wiersza.
 
@@ -134,7 +130,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą ZIVVER, wyk
 
     e. Na liście **Atrybut źródłowy** wpisz wartość atrybutu pokazaną dla tego wiersza.
 
-    f. Kliknij przycisk **Zapisz**.
+    f. Kliknij pozycję **Zapisz**.
 
 7. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij pozycję **Pobierz** , aby pobrać **plik XML metadanych Federacji** , a następnie kliknij przycisk **Kopiuj** ikonę, aby skopiować **adres URL metadanych federacji aplikacji** z określonych opcji zgodnie z wymaganiami i zapisać je na komputerze.
 
@@ -184,7 +180,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`. Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension` . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -232,5 +228,5 @@ Po kliknięciu kafelka ZIVVER w panelu dostępu należy automatycznie zalogować
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

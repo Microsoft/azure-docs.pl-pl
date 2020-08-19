@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie prywatnego dostępu rozwiązania Zscaler (ZPA) w celu automatycznego aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników w celu rozwiązania Zscaler prywatnego dostępu (ZPA).
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: ee9128c3-ff02-4739-8c51-0693d8451742
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: 609d2726eaaaeb49210e19f000bcc2faef1de5d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c605efe60e279ca3f5f14055e39bf95dc677542b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77064159"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545844"
 ---
 # <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie prywatnego dostępu rozwiązania Zscaler (ZPA) w celu automatycznego aprowizacji użytkowników
 

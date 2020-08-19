@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z usługą Syncplicity | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Syncplicity.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 896a3211-f368-46d7-95b8-e4768c23be08
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 663958ae367162eaeb336c819d1d219dc74a2cbe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: da532adfa2d4ab97edb44de9ae49c646ccdff381
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74233284"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544897"
 ---
 # <a name="tutorial-integrate-syncplicity-with-azure-active-directory"></a>Samouczek: integracja Syncplicity z usługą Azure Active Directory
 
@@ -104,7 +100,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Na stronie okna dialogowego Logowanie jednokrotne **(SSO)** wykonaj następujące czynności:
 
-    ![\(Logowanie jednokrotne\)](./media/syncplicity-tutorial/ic769550.png "Single Sign-On \\\(SSO\\\)")
+    ![Logowanie \( jednokrotne\)](./media/syncplicity-tutorial/ic769550.png "Single Sign-On \\\(SSO\\\)")
 
     a. W polu tekstowym **domena niestandardowa** wpisz nazwę domeny.
   
@@ -118,7 +114,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     f. W obszarze **certyfikat dostawcy tożsamości**kliknij pozycję **Wybierz plik**, a następnie przekaż certyfikat pobrany z Azure Portal.
 
-    g. Kliknij przycisk **SAVE CHANGES** (ZAPISZ ZMIANY).
+    przykład Kliknij przycisk **SAVE CHANGES** (ZAPISZ ZMIANY).
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -128,7 +124,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -156,7 +152,7 @@ Aby użytkownicy usługi Azure AD mogli się zalogować, muszą być obsługiwan
 
 **Aby udostępnić konto użytkownika w usłudze Syncplicity, wykonaj następujące czynności:**
 
-1. Zaloguj się do dzierżawy usługi **Syncplicity** (na przykład `https://company.Syncplicity.com`:).
+1. Zaloguj się do dzierżawy usługi **Syncplicity** (na przykład: `https://company.Syncplicity.com` ).
 
 1. Kliknij pozycję **administrator** i wybierz pozycję **konta użytkowników** , a następnie kliknij pozycję **Dodaj użytkownika**.
 
@@ -193,4 +189,4 @@ Po wybraniu kafelka Syncplicity w panelu dostępu należy automatycznie zalogowa
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

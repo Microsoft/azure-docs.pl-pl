@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z uwierzytelnianiem tożsamości platformy SAP Cloud Platform | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługami Azure Active Directory i SAP Cloud Platform Identity Authentication.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 1c1320d1-7ba4-4b5f-926f-4996b44d9b5e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: db852254d7f6ec9c0cb76151fa23e58e2d97bd2c
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 2d0b53581bbc2211df156b90326fc73d0c2ae091
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981803"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548733"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-platform-identity-authentication"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą SAP Cloud Platform uwierzytelnianie tożsamości
 
@@ -104,7 +100,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     ![Domena i adresy URL usługi SAP Cloud Platform Identity Authentication — informacje dotyczące logowania jednokrotnego](common/idp-intiated.png)
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`<IAS-tenant-id>.accounts.ondemand.com`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `<IAS-tenant-id>.accounts.ondemand.com`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<IAS-tenant-id>.accounts.ondemand.com/saml2/idp/acs/<IAS-tenant-id>.accounts.ondemand.com`
 
@@ -209,11 +205,11 @@ Po kliknięciu kafelka SAP Cloud Platform Identity Authentication w panelu dost�
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj uwierzytelnianie tożsamości platformy w chmurze SAP za pomocą usługi Azure AD](https://aad.portal.azure.com/)
 

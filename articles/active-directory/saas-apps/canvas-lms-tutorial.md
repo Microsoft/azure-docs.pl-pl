@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory ze kanwą | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Canvas.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: bfed291c-a33e-410d-b919-5b965a631d45
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3ce5cff0de2939c25400d1d63138b23bc6c9822
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 24350c63df04e55107ed32c2d61d1026aa27bdb9
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74232047"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547634"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Samouczek: integracja Azure Active Directory ze kanwą
 
@@ -33,7 +28,7 @@ Zintegrowanie aplikacji Canvas z usługą Azure AD oferuje następujące korzyś
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -159,7 +154,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Canvas, wy
 
     f. Z listy **Atrybut logowania** wybierz pozycję **NameID**.
 
-    g. Z listy **Format identyfikatora** wybierz pozycję **emailAddress**.
+    przykład Z listy **Format identyfikatora** wybierz pozycję **emailAddress**.
 
     h. Kliknij pozycję **Zapisz ustawienia uwierzytelniania**.
 
@@ -181,8 +176,8 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
-    Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -240,9 +235,9 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do aplikacji Canva
 
    a. W polu tekstowym **Imię i nazwisko** wprowadź nazwę użytkownika, na przykład **BrittaSimon**.
 
-   b. W polu tekstowym **adres e-mail** wprowadź adres e-mail użytkownika, np **.\@brittasimon contoso.com**.
+   b. W polu tekstowym **adres e-mail** wprowadź adres e-mail użytkownika, np. **brittasimon \@ contoso.com**.
 
-   c. W polu tekstowym **Login (logowanie** ) wprowadź adres E-mail użytkownika usługi Azure AD, taki jak **brittasimon\@contoso.com**.
+   c. W polu tekstowym **Login (logowanie** ) wprowadź adres E-mail użytkownika usługi Azure AD, taki jak **brittasimon \@ contoso.com**.
 
    d. Wybierz pozycję **Poinformuj użytkownika pocztą e-mail o utworzeniu tego konta**.
 
@@ -263,5 +258,5 @@ Po kliknięciu kafelka Canvas w panelu dostępu powinno nastąpić automatyczne 
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

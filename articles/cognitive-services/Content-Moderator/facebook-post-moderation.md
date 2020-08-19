@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: a9a5fe2eed0c0e6cf990183d321a71a7fabfbbee
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 9d8801037be55a262268afcd6e8f5751d158c76e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118636"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548518"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Samouczek: umiarkowane wpisy i polecenia w usłudze Facebook przy użyciu usługi Azure Content Moderator
 
@@ -28,7 +28,7 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 > * Tworzenie usługi Azure Functions, która nasłuchuje zdarzeń HTTP z usługi Content Moderator i serwisu Facebook.
 > * Połącz stronę w serwisie Facebook, aby Content Moderator przy użyciu aplikacji w serwisie Facebook.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
 
 Ten diagram ilustruje każdy składnik tego scenariusza:
 

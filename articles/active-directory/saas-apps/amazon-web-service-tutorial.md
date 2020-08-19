@@ -2,25 +2,21 @@
 title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Amazon Web Services (AWS) | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i usługami Amazon Web Services (AWS).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/14/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a68a282a907817f1921acea911754bf78834b35
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 7377c6ea92ea53ca14525938e7522448afac541c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257775"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548359"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Amazon Web Services (AWS)
 
@@ -34,7 +30,7 @@ Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zo
 
 ![Diagram relacji usług Azure AD i AWS](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
 
-Można skonfigurować wiele identyfikatorów dla wielu wystąpień. Przykład:
+Można skonfigurować wiele identyfikatorów dla wielu wystąpień. Na przykład:
 
 * `https://signin.aws.amazon.com/saml#1`
 

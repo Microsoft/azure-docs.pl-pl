@@ -2,25 +2,21 @@
 title: 'Samouczek: Konfigurowanie MediusFlow dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
 description: Dowiedz się, jak automatycznie udostępniać i cofać obsługę administracyjną kont użytkowników z usługi Azure AD do MediusFlow.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: c6c65170-c5cb-44f6-81f8-25d972759e2c
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: 724068950153e6bc4687679892edf55ab89f3bf2
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e8a64b3f42e52363f70d536963594bb6083a0992
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927406"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548076"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie MediusFlow na potrzeby automatycznego aprowizacji użytkowników
 
@@ -161,14 +157,14 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Atrybut|Typ|
    |---|---|
-   |userName|Ciąg|
-   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
-   |Nazwa. displayName|Ciąg|
-   |aktywne|Wartość logiczna|
-   |Nazwa. imię|Ciąg|
-   |Nazwa. rodzina|Ciąg|
-   |Nazwa. sformatowana|Ciąg|
-   |externalID|Ciąg|
+   |userName|String|
+   |wiadomości e-mail [Type EQ "Work"]. Value|String|
+   |Nazwa. displayName|String|
+   |aktywne|Boolean|
+   |Nazwa. imię|String|
+   |Nazwa. rodzina|String|
+   |Nazwa. sformatowana|String|
+   |externalID|String|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
 
 
@@ -178,8 +174,8 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
       |Atrybut|Typ|
       |---|---|
-      |displayName|Ciąg|
-      |externalID|Ciąg|
+      |displayName|String|
+      |externalID|String|
       |elementy członkowskie|Dokumentacja|
 
 12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).

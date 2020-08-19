@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: aahi
-ms.openlocfilehash: 6190653934dede1fa042beca8dbd2d7c06f43cfc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cdcf4182f098affba0a18be5846ae6f6e52d7229
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538024"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547362"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Instalowanie i uruchamianie kontenerów aparatów rozpoznawania formularzy (wersja zapoznawcza)
 
@@ -28,7 +28,7 @@ Aby zmniejszyć złożoność i łatwo zintegrować niestandardowy model aparatu
 |----------|----------|
 | Rozpoznawanie formularzy | <li>Przetwarza pliki PDF, PNG i JPG<li>Pociąga za siebie modele niestandardowe z co najmniej pięcioma formami tego samego układu <li>Wyodrębnia pary klucz-wartość i informacje o tabeli <li>Używa funkcji Rozpoznawanie tekstu platformy Azure Cognitive Services interfejs API przetwarzania obrazów do wykrywania i wyodrębniania wydrukowanych tekstu z obrazów wewnątrz formularzy<li>Nie wymaga adnotacji ani etykietowania |
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -49,13 +49,13 @@ Przed użyciem kontenerów aparatów rozpoznawania formularzy należy spełnić 
 
 Istnieją trzy podstawowe parametry dla wszystkich kontenerów Cognitive Services, które są wymagane. Umowa licencyjna użytkownika oprogramowania (EULA) musi być obecna z wartością `accept` . Ponadto wymagany jest adres URL punktu końcowego i klucz interfejsu API.
 
-### <a name="endpoint-uri-computer_vision_endpoint_uri-and-form_recognizer_endpoint_uri"></a>Identyfikator URI punktu końcowego `{COMPUTER_VISION_ENDPOINT_URI}` i`{FORM_RECOGNIZER_ENDPOINT_URI}`
+### <a name="endpoint-uri-computer_vision_endpoint_uri-and-form_recognizer_endpoint_uri"></a>Identyfikator URI punktu końcowego `{COMPUTER_VISION_ENDPOINT_URI}` i `{FORM_RECOGNIZER_ENDPOINT_URI}`
 
 Wartość identyfikatora URI **punktu końcowego** jest dostępna na stronie *Przegląd* Azure Portal odpowiedniego zasobu usługi poznawczej. Przejdź do strony *Przegląd* , umieść kursor nad punktem końcowym, a `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> zostanie wyświetlona ikona. Kopiowanie i używanie tam, gdzie jest to zbędne.
 
 ![Zbierz identyfikator URI punktu końcowego do późniejszego użycia](../containers/media/overview-endpoint-uri.png)
 
-### <a name="keys-computer_vision_api_key-and-form_recognizer_api_key"></a>Klucze `{COMPUTER_VISION_API_KEY}` i`{FORM_RECOGNIZER_API_KEY}`
+### <a name="keys-computer_vision_api_key-and-form_recognizer_api_key"></a>Klucze `{COMPUTER_VISION_API_KEY}` i `{FORM_RECOGNIZER_API_KEY}`
 
 Ten klucz jest używany do uruchamiania kontenera i jest dostępny na stronie klucze Azure Portal odpowiedniego zasobu usługi poznawczej. Przejdź do strony *klucze* i kliknij `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> ikonę.
 

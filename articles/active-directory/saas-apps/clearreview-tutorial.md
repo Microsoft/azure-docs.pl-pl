@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja z Azure Active Directoryą z jasnym przeglądem | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Clear Review.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 8264159a-11a2-4a8c-8285-4efea0adac8c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed7900373c5d8897fd360c708434d96e5dfbc73d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 06c4945c6fee82b3ce622304351c3ad6d9ae282d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034639"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544693"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Samouczek: integracja z Azure Active Directoryami z jasnym przeglądem
 
@@ -109,7 +104,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Clear Revi
 
     ![Informacje o domenie i adresach URL aplikacji Clear Review na potrzeby logowania jednokrotnego](common/idp-intiated.png)
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<customer name>.clearreview.com/sso/metadata/`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<customer name>.clearreview.com/sso/metadata/`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<customer name>.clearreview.com/sso/acs/`
 
@@ -197,11 +192,11 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
     b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
-    Na przykład: BrittaSimon@contoso.com
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
