@@ -2,26 +2,21 @@
 title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą EBSCO | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i EBSCO.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 144f7f65-69e9-4016-a151-fe1104fd6ba8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/11/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f37085744b9a0e7785ef3a411d53e4df5d15e494
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2395f3c8b46f69105a81cd2d866ee4e330f4791e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72595005"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555499"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ebsco"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą EBSCO
 
@@ -95,15 +90,15 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     > [!NOTE]
     > Wartość adresu URL logowania nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z [zespołem obsługi klienta EBSCO](mailto:support@ebsco.com) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-    o **unikatowe elementy:**  
+    o   **unikatowe elementy:**  
 
-    o **CustId** = wprowadź unikatowy identyfikator klienta EBSCO 
+    o   **CustId** = wprowadź unikatowy identyfikator klienta EBSCO 
 
-    o **profilu** = klienci mogą dostosować łącze, aby kierować użytkowników do określonego profilu (w zależności od tego, co kupuje w usłudze EBSCO). Mogą one wprowadzić konkretny identyfikator profilu. Główne identyfikatory to EDS (EBSCO Discovery Service) i ehost (EBSOCOhost bazy danych). Instrukcje dotyczące tego samego są podane [tutaj](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
+    o   **profilu** = klienci mogą dostosować łącze, aby kierować użytkowników do określonego profilu (w zależności od tego, co kupuje w usłudze EBSCO). Mogą one wprowadzić konkretny identyfikator profilu. Główne identyfikatory to EDS (EBSCO Discovery Service) i ehost (EBSOCOhost bazy danych). Instrukcje dotyczące tego samego są podane [tutaj](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
 
 1. Aplikacja EBSCO oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
-    ![image](common/default-attributes.png)
+    ![image (obraz)](common/default-attributes.png)
 
     > [!Note]
     > Atrybut **name** jest obowiązkowy i jest mapowany przy użyciu **wartości identyfikatora nazwy** w aplikacji EBSCO. To ustawienie jest domyślnie dodawane, aby nie trzeba było dodawać tego ręcznie.
@@ -112,9 +107,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     | Nazwa | Atrybut źródłowy|
     | ---------------| --------------- |
-    | FirstName   | user.givenname |
-    | LastName   | user.surname |
-    | Poczta e-mail   | user.mail |
+    | FirstName (Imię)   | user.givenname |
+    | LastName (Nazwisko)   | user.surname |
+    | E-mail   | user.mail |
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **plik XML metadanych Federacji** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -132,7 +127,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -186,12 +181,12 @@ Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie d
 
 1. Po ukończeniu powyższej konfiguracji Wyczyść pliki cookie/pamięć podręczną i zaloguj się ponownie. Nie musisz logować się ręcznie, a ustawienia personalizacji zostaną zapamiętane.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj EBSCO z usługą Azure AD](https://aad.portal.azure.com/)

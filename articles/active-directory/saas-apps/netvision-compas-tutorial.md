@@ -2,25 +2,21 @@
 title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą COMPAS Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i COMPAS.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: a56f44c5-dc08-4c7c-ad20-b6e7127deb2c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/16/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3015ea26d81505c4f058846dbcb3b7858f79267
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8f92ff60dacd78687207c7523504182521700a7b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80520074"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88554502"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netvision-compas"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą COMPAS
 
@@ -84,7 +80,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<TENANT>.compas.cloud/Identity/Saml20`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<TENANT>.compas.cloud/Identity/Saml20`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<TENANT>.compas.cloud/Identity/Auth/AssertionConsumerService`
 
@@ -109,7 +105,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -150,7 +146,7 @@ W tej sekcji włączasz Logowanie jednokrotne SAML w **COMPAS**.
 1. Wprowadź znaczące wartości dla pól **Nazwa wyświetlana** i **Opis** .
 1. Przypisz użytkowników **COMPAS** do dostawcy tożsamości, wybierając z listy **dostępne użytkownicy** , a następnie wybierając przycisk **Dodaj wybrane** . Użytkownicy mogą również być przypisani do dostawcy tożsamości podczas procedury aprowizacji.
 1. Dla opcji SAML **metadanych** kliknij przycisk **Wybierz plik** i wybierz plik metadanych, który został wcześniej zapisany na komputerze.
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
     ![Edytuj dostawcy tożsamości](media/netvision-compas-tutorial/idp-edit.png)
 
@@ -159,7 +155,7 @@ W tej sekcji włączasz Logowanie jednokrotne SAML w **COMPAS**.
 
 W tej sekcji skonfigurujesz istniejącego użytkownika w usłudze **COMPAS** , aby używać usługi Azure AD do logowania jednokrotnego.
 1. Postępuj zgodnie z procedurą aprowizacji użytkowników **COMPAS** , zgodnie z definicją w firmie, lub edytuj istniejące konto użytkownika.
-1. Podczas definiowania profilu użytkownika upewnij się, że adres **e-mail użytkownika (Personal)** jest zgodny z nazwą użytkownika usługi Azure AD: username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+1. Podczas definiowania profilu użytkownika upewnij się, że adres **e-mail użytkownika (Personal)** jest zgodny z nazwą użytkownika usługi Azure AD: username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
 
     ![Edytuj użytkownika](media/netvision-compas-tutorial/user-config.png)
 
@@ -186,13 +182,13 @@ Po kliknięciu kafelka COMPAS programu Visioning w panelu dostępu należy autom
 
 1. Nastąpi przekierowanie do usługi Azure AD w celu przeprowadzenia uwierzytelniania. Po pomyślnym uwierzytelnieniu należy automatycznie zalogować się do usługi **COMPAS** , dla której skonfigurowano Logowanie jednokrotne.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj usługę COMPAS w usłudze Azure AD](https://aad.portal.azure.com/)
 

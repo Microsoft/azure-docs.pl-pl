@@ -2,26 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z zaletami z dokładnością | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Fidelity NetBenefits.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 77dc8a98-c0e7-4129-ab88-28e7643e432a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40c1e9d493b0fb7bbf1e484799d56e91da1d0833
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 199a443bf2f0c674f85fec0ecfd0083c92f17fe4
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73156330"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555222"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Samouczek: integracja Azure Active Directory z zaletami z dokładnością
 
@@ -33,7 +28,7 @@ Integrowanie aplikacji Fidelity NetBenefits z usługą Azure AD zapewnia następ
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -118,7 +113,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Fidelity N
 
 5. Aplikacja Fidelity NetBenefits oczekuje asercji SAML w określonym formacie, który wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenu języka SAML. Na poniższym zrzucie ekranu przedstawiono listę atrybutów domyślnych, gdzie atrybut **nameidentifier** jest mapowany na atrybut **user.userprincipalname**. Aplikacja Fidelity NetBenefits oczekuje mapowania atrybutu **nameidentifier** z oświadczeniem **employeeid** lub dowolnym innym oświadczeniem odpowiednim dla danej organizacji jako atrybut **nameidentifier**, więc należy edytować mapowanie atrybutów, klikając ikonę **Edytuj**, i zmienić mapowanie atrybutów.
 
-    ![image](common/edit-attribute.png)
+    ![image (obraz)](common/edit-attribute.png)
 
     >[!Note]
     >Aplikacja Fidelity NetBenefits obsługuje federację statyczną i dynamiczną. Statyczna oznacza, że nie będzie używać aprowizacji użytkowników typu just in time opartej na SAML, natomiast dynamiczna oznacza, że obsługuje aprowizację użytkowników typu just in time. W przypadku korzystania z obsługi opartej na kompilatorze JIT klienci muszą dodać więcej oświadczeń w usłudze Azure AD, takich jak dataurodzenie użytkownika itd. Te szczegóły są udostępniane przez przydzieloną **Service Manager klienta** i muszą włączać tę dynamiczną Federację dla danego wystąpienia.
@@ -159,8 +154,8 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
-    Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
+    Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -210,5 +205,5 @@ Po kliknięciu kafelka Fidelity NetBenefits w panelu dostępu powinno nastąpić
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

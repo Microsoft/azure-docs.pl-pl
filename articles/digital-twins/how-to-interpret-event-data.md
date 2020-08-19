@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d32ad29bf652cad62a5950859ebff0366e09fc6f
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 10b74f7b795df2cf8c19d044fce44da3f798af7a
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510032"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587637"
 ---
 # <a name="understand-event-data"></a>Informacje o zdarzeniach
 
@@ -30,7 +30,7 @@ Ogólnie rzecz biorąc powiadomienia składają się z dwóch części: nagłów
 
 Nagłówki komunikatów powiadomień są reprezentowane za pomocą par klucz-wartość. W zależności od używanego protokołu (MQTT, AMQP lub HTTP) nagłówki wiadomości będą serializowane w różny sposób. W tej sekcji omówiono ogólne informacje nagłówka dotyczące komunikatów powiadomień, niezależnie od wybranego protokołu i serializacji.
 
-Niektóre powiadomienia są zgodne ze standardem CloudEvents. Zgodność CloudEvents jest następująca.
+Niektóre powiadomienia są zgodne ze standardem [CloudEvents](https://cloudevents.io/) . Zgodność CloudEvents jest następująca.
 * Powiadomienia emitowane z urządzeń nadal są zgodne z istniejącymi specyfikacjami powiadomień
 * Powiadomienia przetwarzane i emitowane przez IoT Hub nadal są zgodne z istniejącymi specyfikacjami powiadomienia, z wyjątkiem sytuacji, w których IoT Hub decydują o obsłudze CloudEvents, na przykład przez Event Grid
 * Powiadomienia emitowane z [cyfrowego bliźniaczych reprezentacji](concepts-twins-graph.md) z [modelem](concepts-models.md) są zgodne z CloudEvents
@@ -107,7 +107,7 @@ Poniżej znajdują się pola w treści powiadomienia o cyklu życia.
 | --- | --- |
 | `id` | Identyfikator powiadomienia, na przykład identyfikator UUID lub licznik obsługiwany przez usługę. `source` + `id` jest unikatowy dla każdego oddzielnego zdarzenia. |
 | `source` | Nazwa wystąpienia usługi IoT Hub lub Digital bliźniaczych reprezentacji platformy Azure, na przykład *MyHub.Azure-Devices.NET* lub *mydigitaltwins.westus2.azuredigitaltwins.NET* |
-| `specversion` | *1.0*<br>Wiadomość jest zgodna z tą wersją specyfikacji CloudEvents. |
+| `specversion` | *1.0*<br>Wiadomość jest zgodna z tą wersją [specyfikacji CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Twin.Create`<br>`Microsoft.DigitalTwins.Twin.Delete` |
 | `datacontenttype` | `application/json` |
 | `subject` | Identyfikator dwucyfrowego przędzy |
@@ -193,7 +193,7 @@ Poniżej przedstawiono pola w treści powiadomienia o zmianie krawędzi.
 | --- | --- |
 | `id` | Identyfikator powiadomienia, na przykład identyfikator UUID lub licznik obsługiwany przez usługę. `source` + `id` jest unikatowy dla każdego oddzielnego zdarzenia |
 | `source` | Nazwa wystąpienia usługi Azure Digital bliźniaczych reprezentacji, na przykład *mydigitaltwins.westus2.azuredigitaltwins.NET* |
-| `specversion` | *1.0*<br>Wiadomość jest zgodna z tą wersją specyfikacji CloudEvents. |
+| `specversion` | *1.0*<br>Wiadomość jest zgodna z tą wersją [specyfikacji CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`
 |`datacontenttype`| `application/json` |
 | `subject` | Identyfikator relacji, np. `<twinID>/relationships/<relationshipID>` |
@@ -249,7 +249,7 @@ Poniżej znajdują się pola w treści powiadomienia o zmianach z podpisem cyfro
 | --- | --- |
 | `id` | Identyfikator powiadomienia, na przykład identyfikator UUID lub licznik obsługiwany przez usługę. `source` + `id` jest unikatowy dla każdego oddzielnego zdarzenia |
 | `source` | Nazwa wystąpienia usługi IoT Hub lub Digital bliźniaczych reprezentacji platformy Azure, na przykład *MyHub.Azure-Devices.NET* lub *mydigitaltwins.westus2.azuredigitaltwins.NET*
-| `specversion` | *1.0*<br>Wiadomość jest zgodna z tą wersją specyfikacji CloudEvents. |
+| `specversion` | *1.0*<br>Wiadomość jest zgodna z tą wersją [specyfikacji CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Twin.Update` |
 | `datacontenttype` | `application/json` |
 | `subject` | Identyfikator dwucyfrowego przędzy |

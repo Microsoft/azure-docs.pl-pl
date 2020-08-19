@@ -1,49 +1,35 @@
 ---
 title: Szyfrowanie w usłudze Azure Backup
-description: Dowiedz się więcej na temat sposobu, w jaki funkcje szyfrowania w Azure Backup ułatwiają ochronę danych kopii zapasowych i zaspokajanie potrzeb firmy.
+description: Dowiedz się, jak funkcje szyfrowania w programie Azure Backup ułatwiają ochronę danych kopii zapasowych i zaspokajanie potrzeb firmy.
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 08/04/2020
 ms.custom: references_regions
-ms.openlocfilehash: 099e736bfb321f0f92bd3a57f9c24e88293b42bb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1350be3fb869e7b81eaba14f91aff7f0e9e3c992
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538755"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586651"
 ---
 # <a name="encryption-in-azure-backup"></a>Szyfrowanie w usłudze Azure Backup
 
-Wszystkie dane kopii zapasowej są automatycznie szyfrowane, gdy są przechowywane w chmurze przy użyciu szyfrowania usługi Azure Storage, co pomaga sprostać zobowiązaniom dotyczącym zabezpieczeń i zgodności. Te dane przechowywane są szyfrowane przy użyciu 256-bitowego szyfrowania AES, jednego z najsilniejszych szyfrów blokowych i jest zgodny ze standardem FIPS 140-2.
+Wszystkie dane kopii zapasowej są automatycznie szyfrowane, gdy są przechowywane w chmurze przy użyciu szyfrowania usługi Azure Storage, co pomaga sprostać zobowiązaniom dotyczącym zabezpieczeń i zgodności. Te dane przechowywane są szyfrowane przy użyciu 256-bitowego szyfrowania AES, jednego z najsilniejszych szyfrów blokowych i jest zgodny ze standardem FIPS 140-2. Oprócz szyfrowania przechowywane dane kopii zapasowej są przesyłane za pośrednictwem protokołu HTTPS. Zawsze pozostaje w sieci szkieletowej platformy Azure.
 
-Oprócz szyfrowania przechowywane dane kopii zapasowej są przesyłane za pośrednictwem protokołu HTTPS. Zawsze pozostaje w sieci szkieletowej platformy Azure.
+## <a name="levels-of-encryption-in-azure-backup"></a>Poziomy szyfrowania w Azure Backup
 
-Aby uzyskać więcej informacji, zobacz [szyfrowanie usługi Azure Storage dla danych magazynowanych](../storage/common/storage-service-encryption.md). Zapoznaj się z [Azure Backup często zadawanych](./backup-azure-backup-faq.md#encryption) pytań, aby odpowiedzieć na pytania dotyczące szyfrowania.
+Azure Backup obejmuje szyfrowanie na dwóch poziomach:
 
-## <a name="encryption-of-backup-data-using-platform-managed-keys"></a>Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez platformę
-
-Domyślnie wszystkie dane są szyfrowane przy użyciu kluczy zarządzanych przez platformę. Nie musisz podejmować żadnych działań jawnych, aby włączyć to szyfrowanie i ma zastosowanie do wszystkich obciążeń, których kopie zapasowe są tworzone w magazynie Recovery Services.
-
-## <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta
-
-Podczas tworzenia kopii zapasowej Virtual Machines platformy Azure można teraz szyfrować dane przy użyciu kluczy należących do Ciebie i zarządzanych przez użytkownika. Azure Backup umożliwia korzystanie z kluczy RSA przechowywanych w Azure Key Vault na potrzeby szyfrowania kopii zapasowych. Klucz szyfrowania używany do szyfrowania kopii zapasowych może być inny niż użyty dla źródła. Dane są chronione przy użyciu klucza szyfrowania danych opartego na protokole AES 256, który jest z kolei chroniony przy użyciu kluczy. Zapewnia to pełną kontrolę nad danymi i kluczami. Aby umożliwić szyfrowanie, wymagane jest przyznanie magazynowi Recovery Services dostępu do klucza szyfrowania w Azure Key Vault. W razie konieczności można wyłączyć klucz lub odwołać dostęp. Należy jednak włączyć szyfrowanie przy użyciu kluczy przed podjęciem próby włączenia ochrony wszystkich elementów do magazynu.
-
-Przeczytaj więcej na temat sposobu szyfrowania danych kopii zapasowej przy [użyciu kluczy zarządzanych](encryption-at-rest-with-cmk.md)przez klienta.
-
-## <a name="backup-of-managed-disk-vms-encrypted-using-customer-managed-keys"></a>Kopia zapasowa maszyn wirtualnych z dyskami zarządzanymi szyfrowanymi przy użyciu kluczy zarządzanych przez klienta
-
-Azure Backup umożliwia również tworzenie kopii zapasowych maszyn wirtualnych platformy Azure, które używają klucza do [szyfrowania usługi Storage](../storage/common/storage-service-encryption.md). Klucz używany do szyfrowania dysków jest przechowywany w Azure Key Vault i zarządzane przez Ciebie. Szyfrowanie usługi Storage (SSE) przy użyciu kluczy zarządzanych przez klienta różni się od Azure Disk Encryption, ponieważ w programie ADE są używane funkcje BitLocker (dla systemu Windows) i DM-Crypt (w systemie Linux) w celu przeprowadzenia szyfrowania w trybie gościnnym, funkcja SSE szyfruje dane w usłudze Storage, umożliwiając korzystanie z dowolnego systemu operacyjnego lub obrazów dla maszyn wirtualnych. Aby uzyskać więcej informacji, zobacz [szyfrowanie dysków zarządzanych przy użyciu kluczy zarządzanych przez klienta](../virtual-machines/windows/disk-encryption.md#customer-managed-keys) .
-
-## <a name="infrastructure-level-encryption-for-backup-data"></a>Szyfrowanie na poziomie infrastruktury dla danych kopii zapasowej
-
-Oprócz szyfrowania danych w magazynie Recovery Services przy użyciu kluczy zarządzanych przez klienta można również wybrać dodatkową warstwę szyfrowania skonfigurowaną w infrastrukturze magazynu. To szyfrowanie infrastruktury jest zarządzane przez platformę i wraz z szyfrowaniem w stanie spoczynku przy użyciu kluczy zarządzanych przez klienta, dzięki czemu możliwe jest szyfrowanie dwóch warstw danych kopii zapasowej. Należy zauważyć, że szyfrowanie infrastruktury można skonfigurować tylko wtedy, gdy użytkownik najpierw zdecyduje się użyć własnych kluczy do szyfrowania w stanie spoczynku. Szyfrowanie infrastruktury używa kluczy zarządzanych przez platformę do szyfrowania danych.
+- **Szyfrowanie danych w magazynie Recovery Services**
+  - **Przy użyciu kluczy zarządzanych przez platformę**: Domyślnie wszystkie dane są szyfrowane przy użyciu kluczy zarządzanych przez platformę. Aby włączyć szyfrowanie, nie trzeba podejmować żadnych działań jawnych. Ma to zastosowanie do wszystkich obciążeń, których kopie zapasowe są tworzone w magazynie Recovery Services.
+  - **Przy użyciu kluczy zarządzanych przez klienta**: podczas tworzenia kopii zapasowej Virtual Machines platformy Azure możesz zaszyfrować dane przy użyciu kluczy szyfrowania należących do Ciebie i zarządzanych przez użytkownika. Azure Backup umożliwia korzystanie z kluczy RSA przechowywanych w Azure Key Vault na potrzeby szyfrowania kopii zapasowych. Klucz szyfrowania używany do szyfrowania kopii zapasowych może być inny niż użyty dla źródła. Dane są chronione przy użyciu klucza szyfrowania danych opartego na protokole AES 256, który jest z kolei chroniony przy użyciu kluczy. Zapewnia to pełną kontrolę nad danymi i kluczami. Aby umożliwić szyfrowanie, wymagane jest przyznanie magazynowi Recovery Services dostępu do klucza szyfrowania w Azure Key Vault. W razie konieczności można wyłączyć klucz lub odwołać dostęp. Należy jednak włączyć szyfrowanie przy użyciu kluczy przed podjęciem próby włączenia ochrony wszystkich elementów do magazynu. [Dowiedz się więcej tutaj](encryption-at-rest-with-cmk.md).
+  - **Szyfrowanie na poziomie infrastruktury**: Oprócz szyfrowania danych w magazynie Recovery Services przy użyciu kluczy zarządzanych przez klienta, można również wybrać dodatkową warstwę szyfrowania skonfigurowaną w infrastrukturze magazynu. To szyfrowanie infrastruktury jest zarządzane przez platformę. Wraz z szyfrowaniem w stanie spoczynku przy użyciu kluczy zarządzanych przez klienta umożliwia szyfrowanie dwuwarstwowe danych kopii zapasowej. Szyfrowanie infrastruktury można skonfigurować tylko wtedy, gdy użytkownik najpierw zdecyduje się użyć własnych kluczy do szyfrowania w stanie spoczynku. Szyfrowanie infrastruktury używa kluczy zarządzanych przez platformę do szyfrowania danych.
+- **Szyfrowanie specyficzne dla obciążenia, którego kopia zapasowa jest wykonywana**  
+  - **Kopia zapasowa maszyny wirtualnej platformy Azure**: Azure Backup obsługuje tworzenie kopii zapasowych maszyn wirtualnych z dyskami szyfrowanymi przy użyciu [kluczy zarządzanych przez platformę](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys), a także [kluczy zarządzanych przez klienta](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) i zarządzanych przez użytkownika. Ponadto można również utworzyć kopię zapasową maszyn wirtualnych platformy Azure, które mają zaszyfrowane dyski systemu operacyjnego lub danych przy użyciu [Azure Disk Encryption](backup-azure-vms-encryption.md#encryption-support-using-ade). ADE używa funkcji BitLocker dla maszyn wirtualnych z systemem Windows, i DM-Crypt dla maszyn wirtualnych z systemem Linux, aby przeprowadzić szyfrowanie w gościu.
 
 >[!NOTE]
 >Szyfrowanie infrastruktury jest obecnie w ograniczonej wersji zapoznawczej i jest dostępne w regionach Wschodnie stany USA, Stany USA West2, Południowo-środkowe stany USA, US Gov Arizona i stany USA GOV Wirginia. Jeśli chcesz użyć funkcji w dowolnym z tych regionów, Wypełnij [ten formularz](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) i Wyślij wiadomość e-mail na adres [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
-## <a name="backup-of-vms-encrypted-using-ade"></a>Tworzenie kopii zapasowych maszyn wirtualnych zaszyfrowanych przy użyciu systemu ADE
-
-Za pomocą Azure Backup można także tworzyć kopie zapasowe maszyn wirtualnych platformy Azure, które mają zaszyfrowany system operacyjny lub dyski danych przy użyciu Azure Disk Encryption. ADE używa funkcji BitLocker dla maszyn wirtualnych z systemem Windows i programu DM-Crypt for Linux, aby można było przeprowadzić szyfrowanie w gościu. Aby uzyskać szczegółowe informacje, zobacz [wykonywanie kopii zapasowych i Przywracanie zaszyfrowanych maszyn wirtualnych przy użyciu Azure Backup](./backup-azure-vms-encryption.md).
-
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie kopii zapasowej i przywracanie zaszyfrowanej maszyny wirtualnej platformy Azure](backup-azure-vms-encryption.md)
+- [Szyfrowanie w usłudze Azure Storage dla danych magazynowanych](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+- [Azure Backup często zadawane](backup-azure-backup-faq.md#encryption) pytania dotyczące niezwiązanych z szyfrowaniem

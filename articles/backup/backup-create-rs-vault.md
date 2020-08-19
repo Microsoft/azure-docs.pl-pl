@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak tworzyć i konfigurować magazyny 
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 244562efdc4c274a79ea27cdfa00dd51ae671fa4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7084fb9b599e127fac2b8c75748448d37d3f5365
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032956"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586192"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Tworzenie i Konfigurowanie magazynu Recovery Services
 
@@ -25,10 +25,10 @@ Azure Backup automatycznie obsługuje magazyn dla magazynu. Należy określić s
 >- Jeśli nie skonfigurowano jeszcze kopii zapasowej, [wykonaj następujące kroki](#set-storage-redundancy) , aby przejrzeć i zmodyfikować ustawienia.
 >- Jeśli kopia zapasowa została już skonfigurowana i musi zostać przeniesiona z GRS do LRS, [zapoznaj się z tymi obejściami](#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
-1. W bloku **Magazyny usług Recovery Services** kliknij nowy magazyn. W sekcji **Ustawienia** kliknij pozycję **Właściwości**.
-1. W obszarze **Właściwości**, w obszarze **Konfiguracja kopii zapasowej**, kliknij przycisk **Aktualizuj**.
+1. W okienku **Recovery Services magazynów** wybierz nowy magazyn. W sekcji **Ustawienia** wybierz pozycję  **Właściwości**.
+1. W obszarze **Właściwości**w obszarze **Konfiguracja kopii zapasowej**wybierz pozycję **Aktualizuj**.
 
-1. Wybierz typ replikacji magazynu i kliknij przycisk **Zapisz**.
+1. Wybierz typ replikacji magazynu i wybierz pozycję **Zapisz**.
 
      ![Ustawianie konfiguracji przechowywania dla nowego magazynu](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
@@ -46,7 +46,7 @@ Jako jedna z opcji przywracania, przywracanie między regionami (CRR) umożliwia
 - Przeprowadzaj drążenie w przypadku spełnienia wymagań dotyczących inspekcji lub zgodności
 - Przywróć maszynę wirtualną lub jej dysk w przypadku awarii w regionie podstawowym.
 
-Aby wybrać tę funkcję, wybierz pozycję **Włącz przywracanie między regionami** w bloku **Konfiguracja kopii zapasowej** .
+Aby wybrać tę funkcję, wybierz pozycję **Włącz przywracanie między regionami** w okienku **Konfiguracja kopii zapasowej** .
 
 W przypadku tego procesu istnieją wpływ na ceny, w jakim znajduje się na poziomie magazynu.
 
@@ -62,22 +62,40 @@ W przypadku tego procesu istnieją wpływ na ceny, w jakim znajduje się na pozi
 
 ### <a name="configure-cross-region-restore"></a>Konfigurowanie przywracania między regionami
 
-Magazyn utworzony za pomocą nadmiarowości GRS zawiera opcję konfigurowania funkcji przywracania między regionami. Każdy magazyn GRS będzie miał baner, który zostanie połączony z dokumentacją. Aby skonfigurować CRR dla magazynu, przejdź do bloku Konfiguracja kopii zapasowej, który zawiera opcję włączenia tej funkcji.
+Magazyn utworzony za pomocą nadmiarowości GRS zawiera opcję konfigurowania funkcji przywracania między regionami. Każdy magazyn GRS będzie miał baner, który zostanie połączony z dokumentacją. Aby skonfigurować CRR dla magazynu, przejdź do okienka Konfiguracja kopii zapasowej zawierającego opcję włączenia tej funkcji.
 
  ![Transparent konfiguracji kopii zapasowej](./media/backup-azure-arm-restore-vms/banner.png)
 
 1. W portalu przejdź do obszaru Recovery Services ustawienia > magazynu > właściwości.
-2. Aby włączyć tę funkcję, kliknij pozycję **Włącz przywracanie między regionami w tym magazynie** .
+2. Aby włączyć tę funkcję, wybierz opcję **Włącz przywracanie między regionami w tym magazynie** .
 
-   ![Przed kliknięciem przycisku Włącz przywracanie między regionami w tym magazynie](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
+   ![Przed wybraniem opcji Włącz przywracanie między regionami w tym magazynie](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
 
-   ![Po kliknięciu przycisku Włącz przywracanie między regionami w tym magazynie](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
+   ![Po wybraniu opcji Włącz przywracanie między regionami w tym magazynie](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
 
 Dowiedz się [, jak wyświetlać elementy kopii zapasowej w regionie pomocniczym](backup-azure-arm-restore-vms.md#view-backup-items-in-secondary-region).
 
 Dowiedz się [, jak przywrócić w regionie pomocniczym](backup-azure-arm-restore-vms.md#restore-in-secondary-region).
 
 Dowiedz się, jak [monitorować zadania przywracania regionu pomocniczego](backup-azure-arm-restore-vms.md#monitoring-secondary-region-restore-jobs).
+
+## <a name="set-encryption-settings"></a>Ustawianie ustawień szyfrowania
+
+Domyślnie dane w magazynie Recovery Services są szyfrowane przy użyciu kluczy zarządzanych przez platformę. Z punktu końcowego nie są wymagane żadne jawne akcje umożliwiające włączenie tego szyfrowania i ma zastosowanie do wszystkich obciążeń, których kopie zapasowe są tworzone w magazynie Recovery Services.  Możesz wybrać opcję przydzielenia własnego klucza do szyfrowania danych kopii zapasowej w tym magazynie. Jest to nazywane kluczami zarządzanymi przez klienta. Jeśli chcesz zaszyfrować dane kopii zapasowej przy użyciu własnego klucza, należy określić klucz szyfrowania, aby wszystkie elementy były chronione do tego magazynu. Po włączeniu szyfrowania przy użyciu klucza nie można go cofnąć.
+
+### <a name="configuring-a-vault-to-encrypt-using-customer-managed-keys"></a>Konfigurowanie magazynu do szyfrowania przy użyciu kluczy zarządzanych przez klienta
+
+Aby skonfigurować magazyn do szyfrowania przy użyciu kluczy zarządzanych przez klienta, należy postępować zgodnie z następującą kolejnością:
+
+1. Włącz zarządzaną tożsamość magazynu Recovery Services
+
+1. Przypisz uprawnienia do magazynu, aby uzyskać dostęp do klucza szyfrowania w Azure Key Vault
+
+1. Włącz ochronę przed usuwaniem i przeczyszczaniem na Azure Key Vault
+
+1. Przypisywanie klucza szyfrowania do magazynu Recovery Services
+
+Instrukcje dotyczące każdego z tych kroków można znaleźć [w tym artykule](encryption-at-rest-with-cmk.md#configuring-a-vault-to-encrypt-using-customer-managed-keys).
 
 ## <a name="modifying-default-settings"></a>Modyfikowanie ustawień domyślnych
 
@@ -132,7 +150,6 @@ Jeśli potrzebujesz zachować bieżące chronione dane w magazynie GRS i kontynu
   - Musisz zanieść opłaty za przechowywanie punktów odzyskiwania w magazynie GRS (zobacz [cennik Azure Backup](azure-backup-pricing.md) , aby uzyskać szczegółowe informacje).
   - W razie potrzeby będzie można przywrócić maszynę wirtualną z magazynu GRS.
   - Pierwsza kopia zapasowa w magazynie LRS maszyny wirtualnej w nowym zasobie będzie repliką początkową.
-
 
 ## <a name="next-steps"></a>Następne kroki
 

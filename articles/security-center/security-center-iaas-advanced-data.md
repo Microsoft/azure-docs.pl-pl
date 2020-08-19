@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2020
 ms.author: memildin
-ms.openlocfilehash: f159d2cdc48b144d0c75c62cd8a7ba6667424243
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: e0085ef5213853a1577ec039d5e360114aa7c64e
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043873"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566271"
 ---
 # <a name="advanced-data-security-for-sql-machines-preview"></a>Zaawansowane zabezpieczenia danych dla maszyn SQL (wersja zapoznawcza)
 
@@ -72,7 +72,7 @@ Oba te elementy zostały opisane poniżej.
 
     [![Strona cennika Security Center z opcjonalnymi pakietami](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
 
-    Zaawansowane zabezpieczenia danych dla serwerów SQL na maszynach zostaną włączone na wszystkich serwerach SQL połączonych z wybranym obszarem roboczym. Ochrona zostanie w pełni aktywna po pierwszym ponownym uruchomieniu SQL Server. 
+    Zaawansowane zabezpieczenia danych dla serwerów SQL na maszynach zostaną włączone na wszystkich serwerach SQL połączonych z wybranym obszarem roboczym. Ochrona zostanie w pełni aktywna po pierwszym ponownym uruchomieniu wystąpienia SQL Server.
 
     >[!TIP] 
     > Aby utworzyć nowy obszar roboczy, postępuj zgodnie z instrukcjami w temacie [tworzenie log Analytics obszaru roboczego](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).

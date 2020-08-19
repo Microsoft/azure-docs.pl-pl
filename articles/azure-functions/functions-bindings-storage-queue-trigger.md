@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 2b44728d1f5b2a6985e7e636d9e3593b09d009ba
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 1755c2d572b44f1e0d8597a108ca83d429405f25
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212956"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565659"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Wyzwalacz usługi Azure queue storage dla Azure Functions
 
@@ -307,7 +307,7 @@ public class QueueTriggerDemo {
 
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `QueueTrigger` atrybutu.
 
@@ -400,7 +400,7 @@ Gdy oczekuje wiele komunikatów w kolejce, wyzwalacz kolejki pobiera partię kom
 
 Rozmiar partii i próg pobierania nowej partii można skonfigurować w [host.jsna pliku](functions-host-json.md#queues). Jeśli chcesz zminimalizować wykonywanie równoległe dla funkcji wyzwalanych przez kolejki w aplikacji funkcji, możesz ustawić rozmiar wsadu na 1. To ustawienie eliminuje współbieżność tylko wtedy, gdy aplikacja funkcji działa na jednej maszynie wirtualnej (VM). 
 
-Wyzwalacz kolejki automatycznie zapobiega przetwarzaniu komunikatów w kolejce przez funkcję wielokrotnie; funkcje nie muszą być zapisywane w taki sposób, aby były idempotentne.
+Wyzwalacz kolejki automatycznie zapobiega przetwarzaniu komunikatu kolejki wielokrotnie jednocześnie.
 
 ## <a name="hostjson-properties"></a>host.jswłaściwości
 

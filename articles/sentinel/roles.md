@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 7dded3b938444198e72d6eb87476f571dd3f4d78
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: b48ff1043ae8128a5cbfdcbba0548d89b5af2624
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836772"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565846"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Uprawnienia na platformie Azure — wskaźnik
 
@@ -59,6 +59,10 @@ Użytkownikom z określonymi wymaganiami dotyczącymi zadań może być konieczn
 - Łączenie źródeł danych z platformą Azure — wskaźnikiem
 
     Aby użytkownik mógł dodać **Łączniki danych**, należy przypisać uprawnienia do zapisu użytkownika w obszarze roboczym wskaźnik platformy Azure. Należy również zwrócić uwagę na wymagane dodatkowe uprawnienia dla każdego łącznika, jak wymieniono na odpowiedniej stronie łącznika.
+
+- Użytkownicy-Goście przypisujący zdarzenia
+
+    Jeśli użytkownik-Gość musi mieć możliwość przypisania zdarzeń, a nie roli obiektu odpowiadającego wskaźnikowi usługi Azure, należy również przypisać rolę [czytnika katalogów](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers). Należy pamiętać, że ta rola *nie* jest rolą RBAC platformy Azure, ale ma rolę **Azure Active Directory** , a użytkownicy w zwykłych (nie Gości) mają domyślnie przypisaną tę rolę. 
 
 Aby zapoznać się z porównaniem równoległym, zobacz [poniższą tabelę](#roles-and-allowed-actions).
 

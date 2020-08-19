@@ -9,15 +9,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 89e3bf95a6b048e5e97cfb151ef9302b70eac1c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0989c31611b2f42c0219324fa517adc5c216c6c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77048568"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586609"
 ---
 # <a name="azure-dedicated-hsm-deployment-architecture"></a>Architektura wdrożenia usługi Azure Dedicated HSM
 
@@ -29,18 +29,18 @@ Dedykowany moduł HSM platformy Azure udostępnia magazyn kluczy kryptograficzny
 
 Sprzętowych modułów zabezpieczeń są dystrybuowane w centrach danych firmy Microsoft i mogą być łatwo udostępniane jako para urządzeń jako podstawa rozwiązania o wysokiej dostępności. Mogą być również wdrażane między regionami w celu odporności na awarie. Obecnie dostępne są następujące regiony z dedykowanym modułem HSM:
 
-* Wschodnie stany USA
+* East US
 * Wschodnie stany USA 2
 * Zachodnie stany USA
-* Południowo-środkowe stany USA
-* Azja Południowo-Wschodnia
+* South Central US
+* Southeast Asia
 * Azja Wschodnia
 * Indie Środkowe
 * Indie Południowe
 * Japonia Wschodnia
 * Japonia Zachodnia
 * Europa Północna
-* Europa Zachodnia
+* West Europe
 * Południowe Zjednoczone Królestwo
 * Zachodnie Zjednoczone Królestwo
 * Kanada Środkowa
@@ -48,7 +48,7 @@ Sprzętowych modułów zabezpieczeń są dystrybuowane w centrach danych firmy M
 * Australia Wschodnia
 * Australia Południowo-Wschodnia
 
-Każdy z tych regionów ma Stojaki modułu HSM wdrożone w dwóch niezależnych centrach danych lub co najmniej dwóch niezależnych strefach dostępności. Azja Wschodnia Południowe ma trzy strefy dostępności i Wschodnie stany USA 2. Istnieje łącznie osiem regionów w Europie, Azji i USA, które oferują dedykowaną usługę HSM. Aby uzyskać więcej informacji na temat regionów świadczenia usługi Azure, zapoznaj się z [informacjami o oficjalnych regionach platformy Azure](https://azure.microsoft.com/global-infrastructure/regions/).
+Każdy z tych regionów ma Stojaki modułu HSM wdrożone w dwóch niezależnych centrach danych lub co najmniej dwóch niezależnych strefach dostępności. Azja Wschodnia Południowe ma trzy strefy dostępności i Wschodnie stany USA 2. Istnieje łącznie osiem regionów w Europie, Azji i USA, które oferują dedykowaną usługę HSM. Aby uzyskać więcej informacji na temat regionów świadczenia usługi Azure, zapoznaj się z  [informacjami o oficjalnych regionach platformy Azure](https://azure.microsoft.com/global-infrastructure/regions/).
 Niektóre czynniki projektowe dla dowolnego dedykowanego rozwiązania HSM są lokalizacjami/opóźnieniami, wysoką dostępnością i obsługą dla innych aplikacji rozproszonych.
 
 ## <a name="device-location"></a>Lokalizacja urządzenia

@@ -3,14 +3,14 @@ title: Skalowanie i hosting usługi Azure Functions
 description: Dowiedz się, jak wybierać między planem zużycia Azure Functions a planem Premium.
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26924498f32b8aac2e3e7fb5cfd7c1965ee5884f
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 80bb59527f416afd78b992fb12a4ef72956f91b7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025832"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587229"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Skalowanie i hosting usługi Azure Functions
 
@@ -86,7 +86,7 @@ Podczas uruchamiania funkcji JavaScript w planie App Service należy wybrać pla
 
 Uruchamianie w [App Service Environment](../app-service/environment/intro.md) (ASE) pozwala w pełni izolować funkcje i korzystać z dużej skali.
 
-### <a name="always-on"></a><a name="always-on"></a>Zawsze włączone
+### <a name="always-on"></a><a name="always-on"></a> Zawsze włączone
 
 Jeśli uruchamiasz plan App Service, należy włączyć ustawienie **zawsze** włączone, aby aplikacja funkcji działała poprawnie. W planie App Service środowisko uruchomieniowe funkcji przechodzi w stan bezczynności po kilku minutach braku aktywności, więc tylko Wyzwalacze HTTP będą wznawiać działanie funkcji. Zawsze włączone jest dostępne tylko w planie App Service. Zgodnie z planem zużycia platforma automatycznie aktywuje aplikacje funkcji.
 
@@ -144,11 +144,19 @@ Gdy aplikacja funkcji jest bezczynna przez kilka minut, platforma może skalowa�
 
 Skalowanie może się różnić w zależności od liczby czynników i skalować w różny sposób w zależności od wybranego wyzwalacza i języka. Istnieje kilka złożonego zachowań do skalowania:
 
-* Pojedyncza aplikacja funkcji jest skalowana tylko do maksymalnie 200 wystąpień. Pojedyncze wystąpienie może przetwarzać więcej niż jeden komunikat lub żądanie w tym samym czasie, więc nie ma ustawionego limitu liczby współbieżnych wykonań.
+* Pojedyncza aplikacja funkcji jest skalowana tylko do maksymalnie 200 wystąpień. Pojedyncze wystąpienie może przetwarzać więcej niż jeden komunikat lub żądanie w tym samym czasie, więc nie ma ustawionego limitu liczby współbieżnych wykonań.  Możesz [określić niższą maksymalną](#limit-scale-out) przepustowość, aby ograniczyć skalę w miarę potrzeb.
 * W przypadku wyzwalaczy HTTP nowe wystąpienia są przydzielono maksymalnie raz na sekundę.
 * W przypadku wyzwalaczy nie korzystających z protokołu HTTP nowe wystąpienia są przydzielono co najwyżej, co 30 sekund. Skalowanie jest szybsze, gdy działa w [planie Premium](#premium-plan).
 * W przypadku wyzwalaczy Service Bus Użyj _zarządzania_ prawami do zasobów, aby uzyskać najbardziej wydajne skalowanie. W przypadku praw _nasłuchu_ skalowanie nie jest tak dokładne, ponieważ długość kolejki nie może być używana do informowania o decyzjach o skalowaniu. Aby dowiedzieć się więcej o ustawianiu uprawnień Service Bus zasad dostępu, zobacz [zasady autoryzacji dostępu współdzielonego](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
 * Aby uzyskać informacje na temat wyzwalaczy centrum zdarzeń, zobacz [wskazówki dotyczące skalowania](functions-bindings-event-hubs-trigger.md#scaling) w artykule referencyjnym. 
+
+### <a name="limit-scale-out"></a>Ogranicz skalowanie w poziomie
+
+Możesz ograniczyć liczbę wystąpień aplikacji do skalowania w dół.  Jest to najbardziej typowe w przypadku, gdy składnik podrzędny, taki jak baza danych, ma ograniczoną przepływność.  Domyślnie funkcje planu zużycia będą skalowane w poziomie do maksymalnie 200 wystąpień, a funkcje planu Premium będą skalowane do maksymalnie 100 wystąpień.  Możesz określić niższą wartość maksymalną dla konkretnej aplikacji, modyfikując ją `functionAppScaleLimit` .  Wartość `functionAppScaleLimit` można ustawić na 0 lub null dla nieograniczonej lub prawidłowej wartości z przedziału od 1 do maksimum aplikacji.
+
+```azurecli
+az resource update --resource-type Microsoft.Web/sites -g <resource_group> -n <function_app_name>/config/web --set properties.functionAppScaleLimit=<scale_limit>
+```
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Najlepsze rozwiązania i wzorce dotyczące skalowalnych aplikacji
 

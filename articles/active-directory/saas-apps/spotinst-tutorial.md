@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: e7aa5963f6e26776184de361aaa91f5a3c36ec9e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3b8297175c24aac132fd7d83580e0889e0da4730
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546625"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587960"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spotinst"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Spotinst
 
@@ -75,18 +75,11 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
+1. Jeśli chcesz skonfigurować aplikację w trybie inicjowania dostawcy tożsamości, w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    a. Zaznacz **opcję Ustaw dodatkowe adresy URL**.
-
-    b. W polu tekstowym **Stan przekazywania** wpisz wartość: `<ID>`
-
-1. Kliknij przycisk **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania przez **dostawcę usług**:
-
-    W polu tekstowym **Adres URL logowania** wpisz adres URL: `https://console.spotinst.com/auth/saml`
-
-    > [!NOTE]
-    > Wartość stanu przekazywania nie jest prawdziwa. Wartość stanu przekazywania zostanie zaktualizowana o rzeczywistą wartość stanu przekazywania, która została omówiona w dalszej części tego samouczka.
+   1. Upewnij się, że **adres URL odpowiedzi** jest ustawiony na: https://console.spotinst.com/auth/saml .
+   1. W obszarze **Stan przekazywania**wprowadź identyfikator organizacji Spotinst, który można także potwierdzić na karcie **Logowanie jednokrotne** .
+   1. **Adres URL logowania** musi być pusty.
 
 1. Kliknij pozycję **Zapisz**.
 

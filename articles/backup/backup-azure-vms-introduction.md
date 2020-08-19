@@ -3,12 +3,12 @@ title: Informacje o kopii zapasowej maszyny wirtualnej platformy Azure
 description: W tym artykule dowiesz się, jak usługa Azure Backup wykonuje kopie zapasowe maszyn wirtualnych platformy Azure oraz jak postępować zgodnie z najlepszymi rozwiązaniami.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 3c73b489404d1e8198fbd984b5188a7a2ccb973f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 04ea9fa49d95ced3245f88fee58a23ba67aaa0d7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091049"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587501"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Omówienie kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -51,8 +51,8 @@ Podczas tworzenia kopii zapasowych maszyn wirtualnych platformy Azure z Azure Ba
 
 **Szyfrowanie** | **Szczegóły** | **Pomoc techniczna**
 --- | --- | ---
+**SSE** | W przypadku używania instrukcji SSE usługa Azure Storage zapewnia szyfrowanie w spoczynku przez automatyczne szyfrowanie danych przed ich zapisaniem. Usługa Azure Storage odszyfrowuje również dane przed ich pobraniem. Azure Backup obsługuje kopie zapasowe maszyn wirtualnych z dwoma typami szyfrowanie usługi Storage:<li> **SSE z kluczami zarządzanymi na platformie**: to szyfrowanie jest domyślnie przeznaczone dla wszystkich dysków w maszynach wirtualnych. Zobacz więcej [tutaj](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys).<li> **SSE z kluczami zarządzanymi przez klienta**. Program CMK umożliwia zarządzanie kluczami używanymi do szyfrowania dysków. Zobacz więcej [tutaj](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys). | Azure Backup używa instrukcji SSE do szyfrowania w czasie spoczynku maszyn wirtualnych platformy Azure.
 **Usługa Azure Disk Encryption** | Azure Disk Encryption szyfruje zarówno dyski systemu operacyjnego, jak i danych dla maszyn wirtualnych platformy Azure.<br/><br/> Azure Disk Encryption integruje się z kluczami szyfrowania funkcji BitLocker (BEKs), które są chronione w magazynie kluczy jako wpisy tajne. Azure Disk Encryption integruje się również z kluczami szyfrowania klucza Azure Key Vault (KEKs). | Azure Backup obsługuje tworzenie kopii zapasowych zarządzanych i niezarządzanych maszyn wirtualnych platformy Azure szyfrowanych tylko za pomocą BEKs lub z BEKs razem z KEKs.<br/><br/> BEKs i KEKs są archiwizowane i szyfrowane.<br/><br/> Ponieważ kopie zapasowe KEKs i BEKs są tworzone, użytkownicy z niezbędnymi uprawnieniami mogą przywrócić klucze i wpisy tajne z powrotem do magazynu kluczy, jeśli jest to konieczne. Ci użytkownicy mogą również odzyskać zaszyfrowaną maszynę wirtualną.<br/><br/> Zaszyfrowane klucze i wpisy tajne nie mogą być odczytywane przez nieautoryzowanych użytkowników lub platformę Azure.
-**SSE** | W przypadku używania instrukcji SSE usługa Azure Storage zapewnia szyfrowanie w spoczynku przez automatyczne szyfrowanie danych przed ich zapisaniem. Usługa Azure Storage odszyfrowuje również dane przed ich pobraniem. | Azure Backup używa instrukcji SSE do szyfrowania w czasie spoczynku maszyn wirtualnych platformy Azure.
 
 W przypadku zarządzanych i niezarządzanych maszyn wirtualnych platformy Azure usługa Backup obsługuje zarówno maszyny wirtualne zaszyfrowane za pomocą BEKs, jak i maszyny wirtualne zaszyfrowane za pomocą usługi BEKs oraz KEKs.
 
@@ -76,7 +76,7 @@ Azure Backup wykonuje migawki zgodnie z harmonogramem tworzenia kopii zapasowych
 
 W poniższej tabeli objaśniono różne typy spójności migawek:
 
-**Zdjęcie** | **Szczegóły** | **Odzyskiwania** | **Zagadnienie**
+**Snapshot** | **Szczegóły** | **Odzyskiwania** | **Zagadnienie**
 --- | --- | --- | ---
 **Spójna na poziomie aplikacji** | Kopie zapasowe spójne z aplikacjami przechwytują zawartość pamięci i oczekujące operacje we/wy. Migawki spójne z aplikacjami używają składnika zapisywania usługi VSS (lub skryptów pre/post dla systemu Linux), aby zapewnić spójność danych aplikacji przed wystąpieniem kopii zapasowej. | Podczas odzyskiwania maszyny wirtualnej za pomocą migawki spójnej na poziomie aplikacji maszyna wirtualna jest uruchamiana. Nie występują uszkodzenia ani utrata danych. Aplikacje są uruchamiane w spójnym stanie. | System Windows: wszystkie składniki zapisywania usługi VSS zostały pomyślnie zakończone<br/><br/> Linux: skrypty poprzedzające i końcowe zostały skonfigurowane i zakończyły się powodzeniem
 **Spójny system plików** | Spójne kopie zapasowe systemu plików zapewniają spójność, pobierając migawkę wszystkich plików w tym samym czasie.<br/><br/> | Podczas odzyskiwania maszyny wirtualnej za pomocą migawki spójnej z systemem plików, maszyna wirtualna jest uruchamiana. Nie występują uszkodzenia ani utrata danych. Aplikacje muszą implementować własny mechanizm naprawy, aby upewnić się, że przywrócone dane są spójne. | System Windows: niepowodzenie niektórych składników zapisywania usługi VSS <br/><br/> Linux: wartość domyślna (Jeśli skrypty pre/post nie są skonfigurowane lub zakończyły się niepowodzeniem)
@@ -140,4 +140,4 @@ Rzeczywistą wielkością maszyny wirtualnej w tym przypadku jest 17 GB + 30 GB 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz [Przygotuj się do utworzenia kopii zapasowej maszyny wirtualnej platformy Azure](backup-azure-arm-vms-prepare.md).
+- [Przygotowanie do tworzenia kopii zapasowej maszyny wirtualnej platformy Azure](backup-azure-arm-vms-prepare.md).

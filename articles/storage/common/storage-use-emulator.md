@@ -7,16 +7,16 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: 3bef3ba1e993d91fee8b6f6ef2734f008c91d1a1
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 959a58a38861075c6509fe57136d8991eeb98ce6
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236832"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588198"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Korzystanie z emulatora usługi Azure Storage na potrzeby tworzenia i testowania
 
-Emulator magazynu Microsoft Azure jest narzędziem, które emuluje usługi obiektów blob, kolejek i tabel platformy Azure na potrzeby lokalnego tworzenia. Możesz testować swoją aplikację w usłudze Storage lokalnie bez tworzenia subskrypcji platformy Azure lub ponoszenia kosztów. Gdy aplikacja działa w emulatorze, przejdź do korzystania z konta usługi Azure Storage w chmurze.
+Emulator magazynu Microsoft Azure to narzędzie, które emuluje usługi obiektów blob, kolejek i tabel platformy Azure na potrzeby lokalnego tworzenia. Możesz testować swoją aplikację w usłudze Storage lokalnie bez tworzenia subskrypcji platformy Azure lub ponoszenia kosztów. Gdy aplikacja działa w emulatorze, przejdź do korzystania z konta usługi Azure Storage w chmurze.
 
 > [!IMPORTANT]
 > Emulator usługi Azure Storage nie jest już aktywnie opracowywany. [**Azurite**](storage-use-azurite.md) to platforma emulatora magazynu do przodu. Azurite zastępuje emulator usługi Azure Storage. Azurite będzie nadal aktualizowana w celu obsługi najnowszych wersji interfejsów API usługi Azure Storage. Aby uzyskać więcej informacji, zobacz [**Używanie emulatora azurite na potrzeby tworzenia lokalnych magazynów platformy Azure**](storage-use-azurite.md).

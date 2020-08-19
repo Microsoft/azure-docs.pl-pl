@@ -2,25 +2,21 @@
 title: 'Samouczek: integracja Azure Active Directory z percepcją Stany Zjednoczone (UltiPro) | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i percepcją Stany Zjednoczone (UltiPro).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: b4a8f026-cb5f-41eb-9680-68eddc33565e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e9ba42f780c93486409077383750d0635637e99b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ed2f2cd9fc10017619937cfd6b5644934f7631f1
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67094840"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553964"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Samouczek: integracja Azure Active Directory z percepcją Stany Zjednoczone (UltiPro)
 
@@ -32,7 +28,7 @@ Integrowanie Stany Zjednoczone percepcji (UltiPro) z usługą Azure AD zapewnia 
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -105,11 +101,11 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD z percepcją Stany 
 
     ![Postrzeganie Stany Zjednoczone (nie UltiPro) domeny i adresów URL Logowanie jednokrotne](common/idp-intiated.png)
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL:`https://perception.kanjoya.com/sp`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL: `https://perception.kanjoya.com/sp`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
-    c. **Postrzeganie Stany Zjednoczone (UltiPro)** wymaga, aby wartość **identyfikatora usługi Azure AD** była <entity_id>, którą otrzymasz od sekcji **Ustawianie percepcji Stany Zjednoczone (innej niż UltiPro)** , aby była zakodowana przy użyciu identyfikatora URI. Aby uzyskać wartość zakodowaną URI, użyj następującego linku: **http://www.url-encode-decode.com/**.
+    c. **Postrzeganie Stany Zjednoczone (UltiPro)** wymaga, aby wartość **identyfikatora usługi Azure AD** była <entity_id>, którą otrzymasz od sekcji **Ustawianie percepcji Stany Zjednoczone (innej niż UltiPro)** , aby była zakodowana przy użyciu identyfikatora URI. Aby uzyskać wartość zakodowaną URI, użyj następującego linku: **http://www.url-encode-decode.com/** .
 
     d. Po uzyskaniu wartości zakodowanej URI połącz ją z **adresem URL odpowiedzi** , jak wspomniano poniżej —
 
@@ -161,7 +157,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD z percepcją Stany 
     
     c. W polu tekstowym **Nazwa dostawcy tożsamości** wklej wartość identyfikatora usługi **Azure AD**, która została skopiowana z Azure Portal. 
 
-    d. W polu **tekstowym domena SAML**wprowadź domenę, taką @contoso.comjak.
+    d. W polu **tekstowym domena SAML**wprowadź domenę, taką jak @contoso.com .
 
     e. Kliknij **ponownie przycisk Przekaż** , aby przekazać plik **XML metadanych** .
 
@@ -185,7 +181,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension. Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
@@ -233,5 +229,5 @@ Po kliknięciu kafelka Stany Zjednoczone (bez UltiPro) w panelu dostępu należy
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

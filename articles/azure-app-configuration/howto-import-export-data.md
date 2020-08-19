@@ -1,18 +1,18 @@
 ---
 title: Importowanie lub eksportowanie danych za pomocą usługi Azure App Configuration
-description: Dowiedz się, jak importować lub eksportować dane do lub z konfiguracji aplikacji platformy Azure
+description: Dowiedz się, jak importować lub eksportować dane konfiguracji do lub z konfiguracji aplikacji platformy Azure. Wymieniaj dane między magazynem konfiguracji aplikacji i projektem kodu.
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: 5b3d6d0561d7d6d6b23cb4f579b0988850da9771
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21eba653bcd853db9550d0d3781aacd281884605
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80056864"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588079"
 ---
 # <a name="import-or-export-configuration-data"></a>Importowanie lub eksportowanie danych konfiguracji
 
@@ -44,7 +44,7 @@ Importuj dane przy użyciu [Azure Portal](https://portal.azure.com) lub [interfe
 
     ![Zakończono Importowanie pliku](./media/import-file-complete.png)
 
-## <a name="export-data"></a>Eksportuj dane
+## <a name="export-data"></a>Wyeksportowanie danych
 
 Eksportuj dane konfiguracji zapisu przechowywane w konfiguracji aplikacji do innego miejsca docelowego. Użyj funkcji eksportu, na przykład, aby zapisać dane w magazynie konfiguracji aplikacji do pliku, który jest osadzony w kodzie aplikacji podczas wdrażania.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: 40485014d819026c6fbc1f82da57c494f7a6a182
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: dd0a9bf69a3b5a6a17d91f0521bebd0fc78f606f
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272596"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566220"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alerty zabezpieczeń — Podręcznik referencyjny
 
@@ -283,7 +283,6 @@ W dolnej części tej strony znajduje się tabela opisująca łańcuch kasowania
 | **Logowanie się z nietypowej lokalizacji**             | Wzorzec dostępu został zmieniony na SQL Server, w którym ktoś zalogował się na serwerze z nietypowej lokalizacji geograficznej. W niektórych przypadkach ten alert wykrywa prawidłowe działanie (nowa aplikacja lub konserwacja przeprowadzana przez deweloperów). W innych przypadkach alert wykrywa złośliwe działanie (byłego pracownika lub ataku zewnętrznego).                                                                                             | Wykorzystywanie                       | Średniaa   |
 | **Potencjalna próba nawiązania instrukcji SQL**           | Wystąpił nietypowo wysoki numer nieudanych prób logowania przy użyciu różnych poświadczeń. W niektórych przypadkach ten alert wykrywa przeprowadzany test penetracji. W innych przypadkach ten alert wykrywa atak z wykorzystaniem pełnego wymuszania.                                                                                                                                                                                                                      | Badanie                            | Wysoki     |
 | **Potencjalna iniekcja SQL**                     | Nastąpiło aktywne wykorzystanie oprogramowania w odniesieniu do zidentyfikowanych aplikacji narażonych na wstrzyknięcie kodu SQL. Oznacza to, że osoba atakująca próbuje wstrzyknąć złośliwe instrukcje SQL, korzystając z kodu aplikacji lub procedur składowanych.                                                                                                                                                                                                            | -                                  | Wysoki     |
-| **Potencjalnie niebezpieczna akcja**                   | Wysoce uprzywilejowane polecenie SQL, które jest często używane w złośliwych sesjach, zostało wykonane w SQL Server. Te polecenia są zalecane, aby można je było domyślnie wyłączyć. W niektórych przypadkach alert wykrywa legalną akcję (uruchomiony skrypt administratora). W innych przypadkach ten alert wykrywa złośliwą akcję (atakujący przy użyciu zaufania SQL do naruszenia warstwy systemu Windows).                                                                               | Wykonanie                          | Wysoki     |
 | **Nietypowa lokalizacja eksportu**                     | Wprowadzono zmianę w docelowym magazynie eksportu dla operacji importu i eksportu SQL. W niektórych przypadkach alert wykrywa legalną zmianę (Nowa lokalizacja docelowa kopii zapasowej). W innych przypadkach alert wykrywa złośliwe działanie (osoba atakująca łatwo exfiltrated dane do pliku).                                                                                                                                                          | Eksfiltracji                       | Wysoki     |
 |                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                             |                                    |          |
 
