@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: ec8fd91dc768b44b027c96efead6924782eb0f75
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: c7d93ee928653cc1656e3e9a7cdb0d2fd6d7094b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87368612"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654416"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Tworzenie kopii maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure i Managed Disks
 
@@ -43,7 +43,7 @@ az vm deallocate \
 
 Aby skopiować maszynę wirtualną, należy utworzyć kopię bazowego wirtualnego dysku twardego. Ten proces umożliwia utworzenie wyspecjalizowanego wirtualnego dysku twardego (VHD) jako dysku zarządzanego, który zawiera tę samą konfigurację i ustawienia co źródłowa maszyna wirtualna.
 
-Aby uzyskać więcej informacji o dyskach funkcji Dyski zarządzane platformy Azure, zobacz [Omówienie funkcji Dyski zarządzane platformy Azure](../windows/managed-disks-overview.md). 
+Aby uzyskać więcej informacji o dyskach funkcji Dyski zarządzane platformy Azure, zobacz [Omówienie funkcji Dyski zarządzane platformy Azure](../managed-disks-overview.md). 
 
 1.  Wyświetl listę każdej maszyny wirtualnej i nazwę jej dysku systemu operacyjnego za pomocą [AZ VM list](/cli/azure/vm#az-vm-list). Poniższy przykład wyświetla listę wszystkich maszyn wirtualnych w grupie zasobów o nazwie Moja *zasobów*:
     

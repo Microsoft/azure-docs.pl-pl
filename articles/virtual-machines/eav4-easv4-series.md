@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 31bc9a5f38d50318f858a4d7169391e9d2e5e610
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 775b296185f9f0f0e967ada2688e24158f36360e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848734"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648364"
 ---
 # <a name="eav4-and-easv4-series"></a>Serie Eav4 i Easv4
 
@@ -83,7 +83,7 @@ Rozmiary serii Easv4 są oparte na procesorze 2.35 GHz AMD EPYC<sup>TM</sup> 745
 
 Kalkulator cen: [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 
-Więcej informacji na temat typów dysków: [typy dysków](./linux/disks-types.md#ultra-disk)
+Więcej informacji na temat typów dysków: [typy dysków](./disks-types.md#ultra-disk)
 
 ## <a name="next-steps"></a>Następne kroki
 

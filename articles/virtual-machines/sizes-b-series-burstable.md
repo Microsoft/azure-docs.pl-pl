@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: 81bfde964fa993b69bc464214dab0810a8f2bfe5
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a5a3887efe9b8f19608fac63216ca53576d9ec3f
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832590"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654739"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych z serii B
 
@@ -58,7 +58,7 @@ Linia bazowa: 270%
 
 ![Wykres danych ruchu godzinowego](./media/b-series-burstable/office-workload.png)
 
-| Scenariusz | Czas | Użycie procesora CPU (%) | Środki skumulowane<sup>1</sup> | Dostępne kredyty |
+| Scenariusz | Godzina | Użycie procesora CPU (%) | Środki skumulowane<sup>1</sup> | Dostępne kredyty |
 | --- | --- | --- | --- | --- |
 | Wdrożenie B16ms | Wdrożenie | Wdrożenie  | 480 (końcowe środki) | 480 |
 | Brak ruchu | 0:00 | 0 | 162 | 642 |
@@ -88,7 +88,7 @@ Linia bazowa: 270%
 
 <sup>1</sup> zakumulowane kredyty/kredyty używane w ciągu godziny są równoważne: `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes` .  
 
-Dla D16s_v3, która ma 16 procesorów wirtualnych vCPU i 64 GiB pamięci, stawka godzinowa wynosi $0,936 za godzinę (miesięcznie $673,92) i dla B16ms z 16 procesorów wirtualnych vCPU i 64 $0,794 GiB <b>Spowoduje to 15% oszczędności!</b>
+Dla D16s_v3, która ma 16 procesorów wirtualnych vCPU i 64 GiB pamięci, stawka godzinowa wynosi $0,936 za godzinę (miesięcznie $673,92) i dla B16ms z 16 procesorów wirtualnych vCPU i 64 $0,794 GiB <b> Spowoduje to 15% oszczędności!</b>
 
 ## <a name="q--a"></a>Pytania i odpowiedzi
 
@@ -149,7 +149,7 @@ Odp **.: B1ls** obsługuje tylko obrazy systemu Linux i po wdrożeniu innego obr
 
 Kalkulator cen: [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 
-Więcej informacji na temat typów dysków: [typy dysków](./linux/disks-types.md#ultra-disk)
+Więcej informacji na temat typów dysków: [typy dysków](./disks-types.md#ultra-disk)
 
 ## <a name="next-steps"></a>Następne kroki
 

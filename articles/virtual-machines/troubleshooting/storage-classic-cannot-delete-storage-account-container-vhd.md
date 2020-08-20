@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 95c85309058911d6767eb44efd7b37ddac7a9119
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e7469f0d53a154f605480b811d36937e3d4ad6c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77915041"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649861"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Rozwiązywanie problemów z błędami usuwania zasobów klasycznego magazynu
 Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów w przypadku wystąpienia jednego z następujących błędów podczas próby usunięcia klasycznego konta magazynu, kontenera lub pliku obiektu blob platformy Azure. 
@@ -21,7 +21,7 @@ Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów w przypadku
 
 W tym artykule omówiono tylko problemy z klasycznymi zasobami magazynu. Jeśli użytkownik usunie klasyczną maszynę wirtualną przy użyciu Azure Portal, programu PowerShell lub interfejsu wiersza polecenia, dyski nie zostaną automatycznie usunięte. Użytkownik pobiera opcję usunięcia zasobu "dysk". Jeśli opcja nie jest zaznaczona, zasób "dysk" uniemożliwi usunięcie konta magazynu, kontenera i rzeczywistego pliku BLOB strony.
 
-Więcej informacji o dyskach platformy Azure można znaleźć [tutaj](../../virtual-machines/windows/managed-disks-overview.md). Platforma Azure uniemożliwia usunięcie dysku dołączonego do maszyny wirtualnej w celu zapobieżenia uszkodzeniu. Zapobiega to również usunięciu kontenerów i kont magazynu, które mają stronicowy obiekt BLOB dołączony do maszyny wirtualnej. 
+Więcej informacji o dyskach platformy Azure można znaleźć [tutaj](../../virtual-machines/managed-disks-overview.md). Platforma Azure uniemożliwia usunięcie dysku dołączonego do maszyny wirtualnej w celu zapobieżenia uszkodzeniu. Zapobiega to również usunięciu kontenerów i kont magazynu, które mają stronicowy obiekt BLOB dołączony do maszyny wirtualnej. 
 
 ## <a name="what-is-a-disk"></a>Co to jest "dysk"?
 Zasób "dysk" służy do instalowania pliku BLOB stronicowania *. VHD na maszynę wirtualną, jako dysk systemu operacyjnego lub dysk danych. Zasób dysku systemu operacyjnego lub dysku danych, dopóki nie zostanie usunięty, będzie nadal miał dzierżawę w pliku *. VHD. Nie można usunąć dowolnego zasobu magazynu znajdującego się w ścieżce pokazanej poniżej obrazu, jeśli do niego odwołuje się zasób "dysk".

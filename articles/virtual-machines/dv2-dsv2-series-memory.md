@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: bcefe19183ea5f511ce8255914b3ea8edd4306e8
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e2c1b9bb8d8fa1e7b82bebfa31963be19d9024af
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837095"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648500"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Zoptymalizowane pod kątem pamięci Dv2 i Dsv2
 
@@ -66,7 +66,7 @@ Aktualizacje z zachowaniem pamięci: obsługiwane
 | Standard_DS15_v2 <sup>2</sup> | 20 | 140 | 280 | 64 | 80000/640 (720) | 64000/960 | 8|25000 <sup>4</sup> |
 
 <sup>1</sup> maksymalna przepływność dysku (IOPS lub MB/s) możliwa dla maszyny wirtualnej serii DSv2 może być ograniczona przez liczbę, rozmiar i rozkładanie dołączonych dysków.  Aby uzyskać szczegółowe informacje, zobacz [projektowanie pod kątem wysokiej wydajności](./windows/premium-storage-performance.md).
-<sup>2</sup> wystąpienie jest izolowane do sprzętu opartego na architekturze Intel Haswell i przeznaczone dla jednego klienta.  
+<sup>2</sup>  wystąpienie jest izolowane do sprzętu opartego na architekturze Intel Haswell i przeznaczone dla jednego klienta.  
 dostępne są <sup>3</sup> ograniczone rozmiary rdzeni.  
 <sup>4</sup> 25000 MB/s z przyspieszoną siecią.
 
@@ -83,7 +83,7 @@ dostępne są <sup>3</sup> ograniczone rozmiary rdzeni.
 
 Kalkulator cen: [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 
-Więcej informacji na temat typów dysków: [typy dysków](./linux/disks-types.md#ultra-disk)
+Więcej informacji na temat typów dysków: [typy dysków](./disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>Następne kroki

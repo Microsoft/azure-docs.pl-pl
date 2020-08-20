@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e134c69f5d602cb4369e9410e3e2b9d3478b11a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c238bf3911283db5d09fdd5679d784c5e5401f8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76756253"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654807"
 ---
 # <a name="scalability-and-performance-targets-for-premium-page-blob-storage-accounts"></a>Cele skalowalności i wydajności dla kont usługi BLOB Storage na stronie Premium
 
@@ -25,7 +25,7 @@ ms.locfileid: "76756253"
 Konto usługi BLOB Storage na stronie wydajności w warstwie Premium jest zoptymalizowane pod kątem operacji odczytu i zapisu. Ten typ konta magazynu wykonuje kopię zapasową dysku niezarządzanego dla maszyny wirtualnej platformy Azure.
 
 > [!NOTE]
-> Firma Microsoft zaleca używanie dysków zarządzanych z maszynami wirtualnymi platformy Azure, jeśli jest to możliwe. Aby uzyskać więcej informacji o dyskach zarządzanych, zobacz [Azure Disk Storage przegląd dla maszyn wirtualnych z systemem Windows](../../virtual-machines/windows/managed-disks-overview.md).
+> Firma Microsoft zaleca używanie dysków zarządzanych z maszynami wirtualnymi platformy Azure, jeśli jest to możliwe. Aby uzyskać więcej informacji o dyskach zarządzanych, zobacz [Azure Disk Storage przegląd dotyczący maszyn wirtualnych](../../virtual-machines/managed-disks-overview.md).
 
 Dla kont magazynu obiektów BLOB na stronie Premium są dostępne następujące elementy docelowe skalowalności:
 
@@ -39,7 +39,7 @@ Dla kont magazynu obiektów BLOB na stronie Premium są dostępne następujące 
 
 Konto obiektu BLOB na stronie Premium jest kontem ogólnego przeznaczenia skonfigurowanym na potrzeby wydajności w warstwie Premium. Zalecane jest używanie kont magazynu ogólnego przeznaczenia w wersji 2.
 
-Jeśli używasz kont usługi BLOB Storage w warstwie Premium dla dysków niezarządzanych, a aplikacja przekroczy cele skalowalności jednego konta magazynu, firma Microsoft zaleca migrację do usługi Managed Disks. Aby uzyskać więcej informacji o dyskach zarządzanych, zobacz [Azure Disk Storage przegląd dla maszyn wirtualnych z systemem Windows](../../virtual-machines/windows/managed-disks-overview.md) lub [Azure Disk Storage przegląd dla maszyn wirtualnych z systemem Linux](../../virtual-machines/linux/managed-disks-overview.md).
+Jeśli używasz kont usługi BLOB Storage w warstwie Premium dla dysków niezarządzanych, a aplikacja przekroczy cele skalowalności jednego konta magazynu, firma Microsoft zaleca migrację do usługi Managed Disks. Aby uzyskać więcej informacji o dyskach zarządzanych, zobacz [Azure Disk Storage przegląd dotyczący maszyn wirtualnych](../../virtual-machines/managed-disks-overview.md).
 
 Jeśli nie można przeprowadzić migracji do dysków zarządzanych, skompiluj aplikację tak, aby korzystała z wielu kont magazynu, i Podziel swoje dane na te konta magazynu. Jeśli na przykład chcesz dołączyć dyski o pojemności 51 TB na wiele maszyn wirtualnych, rozłożyć je na dwa konta magazynu. 35 TB to limit dla pojedynczego konta magazynu w warstwie Premium. Upewnij się, że pojedyncze konto magazynu wydajności Premium nigdy nie ma więcej niż 35 TB dysków z zainicjowaną obsługą.
 

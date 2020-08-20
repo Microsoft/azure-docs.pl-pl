@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: f6d03b289dce3987d6b939fdaf545d6206766e02
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 3c51a00e5760a2dac1648cc938416625bd52ddb7
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852875"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649911"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Serie Ddv4 i Ddsv4
 
@@ -90,7 +90,7 @@ Aktualizacje z zachowaniem pamięci: obsługiwane
 
 Kalkulator cen: [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 
-Więcej informacji na temat typów dysków: [typy dysków](./linux/disks-types.md#ultra-disk)
+Więcej informacji na temat typów dysków: [typy dysków](./disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -1,14 +1,14 @@
 ---
 title: Przykład wdrażania planu PCI-DSS v 3.2.1
 description: Wdróż kroki dla przykładowej usługi Payment Card Industry Data Security Standard v 3.2.1 z uwzględnieniem szczegółów parametrów artefaktu.
-ms.date: 01/29/2020
+ms.date: 08/19/2020
 ms.topic: sample
-ms.openlocfilehash: 9df9392430fd0496ffb5e635a6fc3e31ba708208
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a7917f09e5e5ff898bd155f0961e5c9765b8d791
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76905558"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649214"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Wdróż przykład planu PCI-DSS v 3.2.1
 
@@ -19,7 +19,7 @@ Aby wdrożyć przykład planów PCI-DSS w wersji 3.2.1, należy wykonać następ
 > - Oznacz swoją kopię przykładowej publikacji jako **opublikowaną**
 > - Przypisz swoją kopię planu do istniejącej subskrypcji
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free).
 
 ## <a name="create-blueprint-from-sample"></a>Utwórz plan z przykładu
 
@@ -93,7 +93,7 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 
 |Nazwa artefaktu|Typ artefaktu|Nazwa parametru|Opis|
 |-|-|-|-|
-|\[Inspekcja w wersji zapoznawczej\] PCI v 3.2.1:2018 r kontrolki i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisanie zasad|Lista typów zasobów | Inspekcja ustawień diagnostycznych dla wybranych typów zasobów. Wartość domyślna to wszystkie zasoby są wybrane| 
+|\[Inspekcja w wersji zapoznawczej \] PCI v 3.2.1:2018 r kontrolki i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisanie zasad|Lista typów zasobów | Inspekcja ustawień diagnostycznych dla wybranych typów zasobów. Wartość domyślna to wszystkie zasoby są wybrane| 
 |Dozwolone lokalizacje|Przypisanie zasad|Lista dozwolonych lokalizacji|Lista lokalizacji centrów danych dozwolonych dla każdego zasobu, który ma zostać wdrożony w programie. Ta lista jest dostosowywana do odpowiednich lokalizacji platformy Azure globalnie. Wybierz lokalizacje, które chcesz zezwolić.| 
 |Dozwolone lokalizacje grup zasobów|Przypisanie zasad |Dozwolona lokalizacja |Te zasady pozwalają ograniczyć lokalizacje, w których organizacja może tworzyć grupy zasobów w programie. Służy do wymuszania wymagań dotyczących zgodności obszarów geograficznych.| 
 |Wdrażanie inspekcji na serwerach SQL|Przypisanie zasad|Dni przechowywania|Przechowywanie danych w liczbie dni. Wartość domyślna to 180, ale PCI wymaga 365.| 
@@ -104,8 +104,8 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 Po przejrzeniu kroków związanych z wdrożeniem przykładu planu PCI-DSS v 3.2.1 zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej na temat mapowania przeglądu i kontroli:
 
 > [!div class="nextstepaction"]
-> [PCI-DSS v 3.2.1 plan — przegląd](./index.md)
-> [PCI-DSS v 3.2.1 — Mapowanie formantów](./control-mapping.md)
+> [Plan PCI-DSS v 3.2.1 — omówienie](./index.md) 
+>  [Plany PCI-DSS v 3.2.1 — Mapowanie formantów](./control-mapping.md)
 
 Dodatkowe artykuły na temat strategii i sposobu ich używania:
 

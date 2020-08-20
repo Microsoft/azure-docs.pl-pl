@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 8a0b3a91d9af119191717aa63a2dedf0797159fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d4b51445e0859fe90a81eecb95625d41009b6eb
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83745797"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649418"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: często zadawane pytania
 
@@ -58,6 +58,23 @@ A. Data Box Disk jest obsługiwana w przypadku wszystkich regionów w Stanach Zj
 
 ### <a name="q-will-my-data-box-disk-cross-countryregion-borders-during-shipping"></a>PYTANIE: Czy my Data Box Disk krzyżowe obramowania kraju/regionu podczas wysyłki?
 A. Data Box Disk są wysyłane z tego samego kraju/regionu co ich lokalizacja docelowa i nie będą przecinać żadnych granic międzynarodowych. Jedyny wyjątek dotyczy zamówień w Unii Europejskiej (UE), w których dyski mogą być dostarczane do i z dowolnego kraju/regionu UE.
+
+### <a name="q-how-can-i-import-my-on-premises-source-data-in-one-countryregion-to-an-azure-region-in-a-different-countryregion"></a>PYTANIE: Jak zaimportować lokalne dane źródłowe w jednym kraju/regionie do regionu świadczenia usługi Azure w innym kraju/regionie?
+A. Data Box Disk obsługuje pozyskiwanie danych tylko w tym samym regionie (granicach handlu). We wszystkich innych przypadkach może być konieczne wykonanie dodatkowych czynności. 
+
+Na przykład jeśli masz dane lokalne w Kanadzie, które chcesz przenieść na konto magazynu w zachodniej lokalizacji Azure, możesz je osiągnąć w następujący sposób:
+
+### <a name="option-1"></a>Opcja 1. 
+
+Wyślij [obsługiwany dysk](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements?toc=/azure/storage/blobs/toc.json#supported-disks) zawierający dane za pomocą [usługi Azure Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) z lokalizacji źródłowej w Kanadzie do centrum danych zachodniej platformy Azure.
+
+### <a name="option-2"></a>Opcja 2.
+
+1. Zamów Data Box Disk w Kanadzie, wybierając konto magazynu w Cananda Central. Dyski SSD są dostarczane z centrum danych platformy Azure w Kanadzie centralnych do adresu wysyłkowego (w Kanadzie), który jest dostarczany podczas tworzenia zamówienia.
+
+2. Po skopiowaniu danych z serwera lokalnego do dysków należy zwrócić je do centrum danych platformy Azure w Kanadzie, korzystając z dostarczonych etykiet zwracanych przez firmę Microsoft. Dane znajdujące się na Data Box Diskach są następnie przekazywane do docelowego konta magazynu w regionie usługi Azure Kanada wybranym podczas tworzenia zamówienia.
+
+3. Następnie można użyć narzędzia, takiego jak AzCopy, aby skopiować dane na konto magazynu w zachodniej. Ten krok wiąże się ze [standardowymi](https://azure.microsoft.com/pricing/details/storage/) [opłatami za](https://azure.microsoft.com/pricing/details/bandwidth/) magazyn i przepustowość, które nie są uwzględnione w rozliczeniach Data Box Disk.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>PYTANIE: Z kim należy się skontaktować, gdy pojawią się jakiekolwiek problemy z urządzeniami Data Box Disk?
 A. Jeśli napotkasz jakiekolwiek problemy z usługą Data Box Disk, [skontaktuj się z działem pomocy technicznej firmy Microsoft](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).

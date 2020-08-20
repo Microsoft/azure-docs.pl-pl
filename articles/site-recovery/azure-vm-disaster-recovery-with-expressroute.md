@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: bf12a5b7850a56d945e1082be6c522c31738669c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e1f670f2ba5ad31f29d56b2de40acd6e2bf18a9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73954081"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654382"
 ---
 # <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrowanie ExpressRoute z odzyskiwaniem po awarii dla maszyn wirtualnych platformy Azure
 
@@ -22,7 +22,7 @@ W tym artykule opisano sposób integrowania usługi Azure ExpressRoute z usług�
 
 Site Recovery umożliwia odzyskiwanie po awarii maszyn wirtualnych platformy Azure przez replikowanie danych maszyny wirtualnej platformy Azure na platformę Azure.
 
-- Jeśli maszyny wirtualne platformy Azure używają [dysków zarządzanych przez platformę Azure](../virtual-machines/windows/managed-disks-overview.md), dane maszyny wirtualnej są replikowane do zreplikowanego dysku zarządzanego w regionie pomocniczym.
+- Jeśli maszyny wirtualne platformy Azure używają [dysków zarządzanych przez platformę Azure](../virtual-machines/managed-disks-overview.md), dane maszyny wirtualnej są replikowane do zreplikowanego dysku zarządzanego w regionie pomocniczym.
 - Jeśli maszyny wirtualne platformy Azure nie używają dysków zarządzanych, dane maszyny wirtualnej są replikowane do konta usługi Azure Storage.
 - Punkty końcowe replikacji są publiczne, ale ruch związany z replikacją dla maszyn wirtualnych platformy Azure nie przekracza Internetu.
 
@@ -108,7 +108,7 @@ Zazwyczaj wdrożenia korporacyjne mają podział obciążeń na wiele sieci wirt
 --- | --- | ---
 Szprycha do piasty | Zezwalaj na adres sieci wirtualnej | Enabled (Włączony)
 Szprycha do piasty | Zezwalaj na ruch przesłany dalej | Enabled (Włączony)
-Szprycha do piasty | Zezwalaj na tranzyt bramy | Disabled (Wyłączony)
+Szprycha do piasty | Zezwalaj na tranzyt bramy | Disabled
 Szprycha do piasty | Użyj usuwania bram | Enabled (Włączony)
 
  ![Konfiguracja komunikacji równorzędnej z usługą Hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
@@ -120,7 +120,7 @@ Szprycha do piasty | Użyj usuwania bram | Enabled (Włączony)
 Piasta do szprychy | Zezwalaj na adres sieci wirtualnej | Enabled (Włączony)
 Piasta do szprychy | Zezwalaj na ruch przesłany dalej | Enabled (Włączony)
 Piasta do szprychy | Zezwalaj na tranzyt bramy | Enabled (Włączony)
-Piasta do szprychy | Użyj usuwania bram | Disabled (Wyłączony)
+Piasta do szprychy | Użyj usuwania bram | Disabled
 
  ![Konfiguracja komunikacji równorzędnej między centrami](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
 

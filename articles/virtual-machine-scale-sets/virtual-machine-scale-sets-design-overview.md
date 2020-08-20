@@ -10,12 +10,12 @@ ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 5aad73db2f01cec8c1c8b0144d29c105b6e8ae0e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 99dc7a2350631f662e1c993908f7ef56e4f9a194
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080509"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648568"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Zagadnienia dotyczące projektowania zestawów skalowania
 W tym artykule omówiono zagadnienia dotyczące projektowania Virtual Machine Scale Sets. Aby uzyskać informacje o tym, co Virtual Machine Scale Sets, zobacz [omówienie Virtual Machine Scale Sets](./overview.md).
@@ -39,10 +39,10 @@ Niektóre funkcje są obecnie dostępne tylko na maszynach wirtualnych:
 - Pojedynczą maszynę wirtualną można migrować z dysków natywnych do usługi Managed disks, ale nie można migrować wystąpień maszyn wirtualnych w zestawie skalowania.
 - Publiczne adresy IP można przypisać do poszczególnych kart interfejsów sieci wirtualnej (nic), ale nie można tego zrobić dla wystąpień maszyn wirtualnych w zestawie skalowania. Publiczne adresy IP można przypisać do modułów równoważenia obciążenia przed indywidualnymi maszynami wirtualnymi lub maszynami wirtualnymi zestawów skalowania.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Magazyn
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Zestawy skalowania przy użyciu usługi Azure Managed Disks
-Zestawy skalowania można tworzyć przy użyciu [usługi azure Managed disks](../virtual-machines/windows/managed-disks-overview.md) zamiast tradycyjnych kont usługi Azure Storage. Managed Disks zapewnić następujące korzyści:
+Zestawy skalowania można tworzyć przy użyciu [usługi azure Managed disks](../virtual-machines/managed-disks-overview.md) zamiast tradycyjnych kont usługi Azure Storage. Managed Disks zapewnić następujące korzyści:
 - Nie trzeba wstępnie tworzyć zestawu kont usługi Azure Storage dla maszyn wirtualnych zestawu skalowania.
 - Można zdefiniować [Dołączone dyski danych](virtual-machine-scale-sets-attached-disks.md) dla maszyn wirtualnych w zestawie skalowania.
 - Zestawy skalowania można skonfigurować tak, aby [obsługiwały do 1 000 maszyn wirtualnych w zestawie](virtual-machine-scale-sets-placement-groups.md). 

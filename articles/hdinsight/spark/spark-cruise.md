@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.openlocfilehash: d5417bfcfbaa183c34808d9017d5863506429a81
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 1a73b4707f83d6a23dffc20d95aa7b8a0fa465b3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642286"
+ms.locfileid: "88649061"
 ---
 # <a name="sparkcruise-on-azure-hdinsight"></a>SparkCruise w usłudze Azure HDInsight
 
@@ -58,7 +58,7 @@ W poniższym scenariuszu przykładowym pokazano, jak używać *SparkCruise* do o
     sudo /opt/peregrine/analyze/peregrine.sh show
     ```
 
-`analyze`Polecenie analizuje plany zapytania i tworzy tabelaryczną reprezentację obciążenia. Następnie `views` polecenie identyfikuje typowe wyrażenia podplanu i wybiera interesujące wyrażenia podplanów dla przyszłej materializację i ponownego użycia. Dane wyjściowe to plik opinii zawierający adnotacje dla przyszłych zapytań Spark SQL. 
+`analyze`Polecenie analizuje plany zapytania i tworzy tabelaryczną reprezentację obciążenia. W tej tabeli obciążeń można wykonywać zapytania przy użyciu notesu *WorkloadInsights* zawartego w repozytorium [przykładów SparkCruise usługi HDInsight](https://github.com/Azure-Samples/azure-sparkcruise-samples) . Następnie `views` polecenie identyfikuje typowe wyrażenia podplanu i wybiera interesujące wyrażenia podplanów dla przyszłej materializację i ponownego użycia. Dane wyjściowe to plik opinii zawierający adnotacje dla przyszłych zapytań Spark SQL. 
 
 `show`Polecenie wyświetla dane wyjściowe podobne do następującego tekstu:
 
@@ -138,7 +138,7 @@ W tle *SparkCruise* wyzwala podzapytanie w celu materializacji wybranego podplan
 
 Można sprawdzić, czy w kolejnych zapytaniach są dostępne cztery nowe materiałowe wyrażenia, które mają być ponownie używane.
 
-## <a name="clean-up"></a>Czyszczenie
+## <a name="clean-up"></a>Czyszczenie zasobów
 
 Pliki opinii, materiałowe podplany i dzienniki zapytań są utrwalane w sesjach platformy Spark. Aby usunąć te pliki, uruchom następujące polecenie:
 

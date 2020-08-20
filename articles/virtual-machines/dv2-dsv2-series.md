@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: dfb10e3f8386b4ab022d419d356f841a9ea7ea66
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ede5b84620217e472d930d86eaebfaad2397ca6b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825671"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648432"
 ---
 # <a name="dv2-and-dsv2-series"></a>Serie Dv2 i DSv2
 
@@ -75,7 +75,7 @@ Aktualizacje z zachowaniem pamięci: obsługiwane
 
 Kalkulator cen: [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 
-Więcej informacji na temat typów dysków: [typy dysków](./linux/disks-types.md#ultra-disk)
+Więcej informacji na temat typów dysków: [typy dysków](./disks-types.md#ultra-disk)
 
 ## <a name="next-steps"></a>Następne kroki
 
