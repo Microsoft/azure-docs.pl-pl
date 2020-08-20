@@ -3,12 +3,12 @@ title: Prywatne punkty końcowe
 description: Zapoznaj się z procesem tworzenia prywatnych punktów końcowych dla Azure Backup i scenariuszy, w których używanie prywatnych punktów końcowych pomaga zachować bezpieczeństwo zasobów.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 9a50a655af02bc2bfa188225209024cfbaa82a7c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 789aab1174f599a2ae484c7b0d91ddba15bd4fd6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432868"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654705"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Prywatne punkty końcowe dla Azure Backup
 
@@ -25,11 +25,11 @@ Ten artykuł pomoże Ci zrozumieć proces tworzenia prywatnych punktów końcowy
 - Magazyn Recovery Services jest używany przez program (oba) Azure Backup i Azure Site Recovery w tym artykule omówiono użycie prywatnych punktów końcowych tylko dla Azure Backup.
 - Azure Active Directory nie obsługuje obecnie prywatnych punktów końcowych. Aby adresy IP i nazwy FQDN wymagane do Azure Active Directory pracy w regionie muszą mieć dozwolony dostęp wychodzący z zabezpieczonej sieci podczas wykonywania kopii zapasowej baz danych na maszynach wirtualnych platformy Azure i kopii zapasowej przy użyciu agenta MARS. Możesz również użyć tagów sieciowej grupy zabezpieczeń i tagów zapory platformy Azure, aby umożliwić dostęp do usługi Azure AD, zgodnie z wymaganiami.
 - Sieci wirtualne z zasadami sieci nie są obsługiwane dla prywatnych punktów końcowych. Przed kontynuowaniem należy wyłączyć zasady sieci.
-- Należy ponownie zarejestrować dostawcę zasobów Recovery Services z subskrypcją, jeśli został on zarejestrowany przed 1 2020 maja. Aby ponownie zarejestrować dostawcę, przejdź do subskrypcji w Azure Portal, przejdź do pozycji **dostawca zasobów** na lewym pasku nawigacyjnym, a następnie wybierz pozycję **Microsoft. RecoveryServices** , a następnie kliknij pozycję **zarejestruj ponownie**.
+- Należy ponownie zarejestrować dostawcę zasobów Recovery Services z subskrypcją, jeśli został on zarejestrowany przed 1 2020 maja. Aby ponownie zarejestrować dostawcę, przejdź do subskrypcji w Azure Portal, przejdź do pozycji **dostawca zasobów** na lewym pasku nawigacyjnym, a następnie wybierz pozycję **Microsoft. RecoveryServices** i wybierz pozycję **zarejestruj ponownie**.
 
 ## <a name="recommended-and-supported-scenarios"></a>Zalecane i obsługiwane scenariusze
 
-Gdy prywatne punkty końcowe są włączone dla magazynu, są używane do tworzenia kopii zapasowych i przywracania danych SQL i SAP HANA obciążeń na maszynach wirtualnych platformy Azure i w ramach kopii zapasowej agenta MARS. Magazynu można używać do tworzenia kopii zapasowych innych obciążeń, a także w przypadku, gdy nie wymagają one prywatnych punktów końcowych. Oprócz tworzenia kopii zapasowych obciążeń SQL i SAP HANA i tworzenia kopii zapasowej przy użyciu agenta MARS, prywatne punkty końcowe są również używane do odzyskiwania plików w przypadku tworzenia kopii zapasowych maszyny wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz następującą tabelę:
+Gdy prywatne punkty końcowe są włączone dla magazynu, są używane do tworzenia kopii zapasowych i przywracania danych SQL i SAP HANA obciążeń na maszynach wirtualnych platformy Azure i w ramach kopii zapasowej agenta MARS. Magazyn można również używać do tworzenia kopii zapasowych innych obciążeń (nie wymagają jednak prywatnych punktów końcowych). Oprócz tworzenia kopii zapasowych obciążeń SQL i SAP HANA i tworzenia kopii zapasowej przy użyciu agenta MARS, prywatne punkty końcowe są również używane do odzyskiwania plików dla kopii zapasowej maszyny wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz następującą tabelę:
 
 | Tworzenie kopii zapasowych obciążeń na maszynie wirtualnej platformy Azure (SQL, SAP HANA), kopia zapasowa przy użyciu agenta MARS | Zaleca się używanie prywatnych punktów końcowych, aby umożliwić tworzenie kopii zapasowych i przywracanie bez konieczności zezwalania na listę adresów IP/nazw FQDN dla Azure Backup lub Azure Storage z sieci wirtualnych. |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -55,7 +55,7 @@ Zarządzane tożsamości umożliwiają magazynowi tworzenie i używanie prywatny
 
     ![Zmień stan tożsamości na włączone](./media/private-endpoints/identity-status-on.png)
 
-1. Zmień **stan** na **włączone** , a następnie kliknij przycisk **Zapisz**.
+1. Zmień **stan** na **włączone** i wybierz pozycję **Zapisz**.
 
 1. Generowany jest **Identyfikator obiektu** , który jest tożsamością zarządzaną magazynu.
 
@@ -72,14 +72,14 @@ Możesz również użyć niestandardowych serwerów DNS. Aby uzyskać szczegół
 
 Istnieją dwie obowiązkowe strefy DNS, które należy utworzyć:
 
-- `privatelink.blob.core.windows.net`(w przypadku kopii zapasowej/przywracania danych)
-- `privatelink.queue.core.windows.net`(na potrzeby komunikacji z usługą)
+- `privatelink.blob.core.windows.net` (w przypadku kopii zapasowej/przywracania danych)
+- `privatelink.queue.core.windows.net` (na potrzeby komunikacji z usługą)
 
 1. Wyszukaj **strefę prywatna strefa DNS** na pasku wyszukiwania **wszystkie usługi** i wybierz opcję **strefa prywatna strefa DNS** z listy rozwijanej.
 
     ![Wybierz strefę Prywatna strefa DNS](./media/private-endpoints/private-dns-zone.png)
 
-1. Raz w okienku **strefy prywatna strefa DNS** kliknij przycisk **+ Dodaj** , aby rozpocząć tworzenie nowej strefy.
+1. W okienku **strefy prywatna strefa DNS** wybierz przycisk **+ Dodaj** , aby rozpocząć tworzenie nowej strefy.
 
 1. W okienku **Utwórz prywatną strefę DNS** wprowadź wymagane szczegóły. Subskrypcja musi być taka sama jak lokalizacja, w której zostanie utworzony prywatny punkt końcowy.
 
@@ -90,7 +90,7 @@ Istnieją dwie obowiązkowe strefy DNS, które należy utworzyć:
 
     | **Strefa**                           | **Usługa** | **Szczegóły subskrypcji i grupy zasobów (RG)**                  |
     | ---------------------------------- | ----------- | ------------------------------------------------------------ |
-    | `privatelink.blob.core.windows.net`  | Obiekt blob        | **Subskrypcja**: taka sama jak w przypadku, gdy należy utworzyć prywatny punkt końcowy **RG**: RG sieci wirtualnej lub prywatnego punktu końcowego |
+    | `privatelink.blob.core.windows.net`  | Obiekt blob        | **Subskrypcja**: taka sama jak w przypadku, gdy należy utworzyć prywatny punkt końcowy  **RG**: RG sieci wirtualnej lub prywatnego punktu końcowego |
     | `privatelink.queue.core.windows.net` | Kolejka       | **RG**: RG sieci wirtualnej lub prywatnego punktu końcowego |
 
     ![Utwórz strefę Prywatna strefa DNS](./media/private-endpoints/create-private-dns-zone.png)
@@ -105,7 +105,7 @@ Jeśli chcesz utworzyć oddzielną prywatną strefę DNS na platformie Azure, mo
 
 | **Strefa**                                                     | **Usługa** | **Szczegóły subskrypcji i grupy zasobów**                  |
 | ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
-| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Uwaga**: Lokalizacja *geograficzna* odwołuje się do kodu regionu. Na przykład *wcus* i *ne* odpowiednio do regionu zachodnio-środkowe stany USA i Europa Północna. | Backup      | **Subskrypcja**: taka sama jak w przypadku, gdy należy utworzyć prywatny punkt końcowy **RG**: dowolny RG w ramach subskrypcji |
+| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Uwaga**: Lokalizacja *geograficzna* odwołuje się do kodu regionu. Na przykład *wcus* i *ne* odpowiednio do regionu zachodnio-środkowe stany USA i Europa Północna. | Backup      | **Subskrypcja**: taka sama jak w przypadku, gdy należy utworzyć prywatny punkt końcowy  **RG**: dowolny RG w ramach subskrypcji |
 
 Zapoznaj się z [tą listą](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) dla kodów regionów.
 
@@ -119,7 +119,7 @@ W przypadku konwencji nazewnictwa adresów URL w regionach narodowych:
 
 Strefy DNS utworzone powyżej muszą teraz być połączone z siecią wirtualną, w której znajdują się kopie zapasowe serwerów. Należy to zrobić dla wszystkich utworzonych stref DNS.
 
-1. Przejdź do strefy DNS (utworzonej w poprzednim kroku) i przejdź do pozycji **linki sieci wirtualnej** na pasku po lewej stronie. Po zakończeniu kliknij przycisk **+ Dodaj**
+1. Przejdź do strefy DNS (utworzonej w poprzednim kroku) i przejdź do pozycji **linki sieci wirtualnej** na pasku po lewej stronie. Następnie wybierz przycisk **+ Dodaj**
 1. Wprowadź wymagane szczegóły. Pola **subskrypcja** i **Sieć wirtualna** muszą zawierać odpowiednie szczegóły dotyczące sieci wirtualnej, w której znajdują się serwery. Pozostałe pola muszą pozostać w postaci, w jakiej jest.
 
     ![Dodaj łącze sieci wirtualnej](./media/private-endpoints/add-virtual-network-link.png)
@@ -139,7 +139,7 @@ Zalecamy przyznanie roli **współautor** dla tych trzech grup zasobów do magaz
 
     ![Dodaj przypisanie roli](./media/private-endpoints/add-role-assignment.png)
 
-1. W okienku **Dodaj przypisanie roli** wybierz **współautor** jako **rolę**i Użyj **nazwy** magazynu jako **podmiotu zabezpieczeń**. Wybierz swój magazyn, a następnie kliknij przycisk **Zapisz** po zakończeniu.
+1. W okienku **Dodaj przypisanie roli** wybierz **współautor** jako **rolę**i Użyj **nazwy** magazynu jako **podmiotu zabezpieczeń**. Wybierz swój magazyn i wybierz pozycję **Zapisz** po zakończeniu.
 
     ![Wybieranie roli i podmiotu zabezpieczeń](./media/private-endpoints/choose-role-and-principal.png)
 
@@ -155,7 +155,7 @@ W tej sekcji opisano proces tworzenia prywatnego punktu końcowego dla magazynu.
 
     ![Wyszukaj link prywatny](./media/private-endpoints/search-for-private-link.png)
 
-1. Na pasku nawigacyjnym po lewej stronie kliknij pozycję **prywatne punkty końcowe**. W okienku **prywatne punkty końcowe** kliknij pozycję **+ Dodaj** , aby rozpocząć tworzenie prywatnego punktu końcowego dla magazynu.
+1. Na pasku nawigacyjnym po lewej stronie wybierz pozycję **prywatne punkty końcowe**. W okienku **prywatne punkty końcowe** wybierz pozycję **+ Dodaj** , aby rozpocząć tworzenie prywatnego punktu końcowego dla magazynu.
 
     ![Dodaj prywatny punkt końcowy w prywatnym centrum linków](./media/private-endpoints/add-private-endpoint.png)
 
@@ -169,13 +169,13 @@ W tej sekcji opisano proces tworzenia prywatnego punktu końcowego dla magazynu.
 
         ![Wypełnij kartę zasobów](./media/private-endpoints/resource-tab.png)
 
-    1. **Konfiguracja**: w obszarze Konfiguracja Określ sieć wirtualną i podsieć, w której ma zostać utworzony prywatny punkt końcowy. Jest to sieć wirtualna, w której znajduje się maszyna wirtualna. Możesz wybrać opcję **integracji prywatnego punktu końcowego** z prywatną strefą DNS. Alternatywnie można również użyć niestandardowego serwera DNS lub utworzyć prywatną strefę DNS.
+    1. **Konfiguracja**: w obszarze Konfiguracja Określ sieć wirtualną i podsieć, w której ma zostać utworzony prywatny punkt końcowy. Będzie to sieć wirtualna, w której znajduje się maszyna wirtualna. Możesz wybrać opcję **integracji prywatnego punktu końcowego** z prywatną strefą DNS. Alternatywnie można również użyć niestandardowego serwera DNS lub utworzyć prywatną strefę DNS.
 
         ![Wypełnij kartę Konfiguracja](./media/private-endpoints/configuration-tab.png)
 
     1. Opcjonalnie możesz dodać **Tagi** dla prywatnego punktu końcowego.
 
-    1. Przed wprowadzeniem szczegółów postępuj zgodnie z instrukcjami **Przejrzyj i Utwórz** . Po zakończeniu walidacji kliknij przycisk **Utwórz** , aby utworzyć prywatny punkt końcowy.
+    1. Kontynuuj **przeglądanie i tworzenie** po zakończeniu wprowadzania szczegółów. Po zakończeniu walidacji wybierz pozycję **Utwórz** , aby utworzyć prywatny punkt końcowy.
 
 ## <a name="approving-private-endpoints"></a>Zatwierdzanie prywatnych punktów końcowych
 
@@ -200,7 +200,7 @@ Po utworzeniu opcjonalnej prywatnej strefy DNS i prywatnych punktów końcowych 
 
 Wymaga to wprowadzenia wpisów dla każdej nazwy FQDN w prywatnym punkcie końcowym do strefy Prywatna strefa DNS.
 
-1. Przejdź do **prywatnej strefy DNS** i przejdź do opcji **Przegląd** na pasku po lewej stronie. Po zakończeniu kliknij pozycję **+ zestaw rekordów** , aby rozpocząć Dodawanie rekordów.
+1. Przejdź do **prywatnej strefy DNS** i przejdź do opcji **Przegląd** na pasku po lewej stronie. W tym miejscu wybierz pozycję **+ zestaw rekordów** , aby rozpocząć Dodawanie rekordów.
 
     ![Wybierz pozycję + zestaw rekordów, aby dodać rekordy](./media/private-endpoints/select-record-set.png)
 
@@ -332,9 +332,9 @@ Plik JSON odpowiedzi:
 
 Zarządzana tożsamość magazynu musi mieć następujące uprawnienia w grupie zasobów i sieci wirtualnej, w której zostaną utworzone prywatne punkty końcowe:
 
-- `Microsoft.Network/privateEndpoints/*`Jest to wymagane do przeprowadzenia CRUD na prywatnych punktach końcowych w grupie zasobów. Powinien być przypisany do grupy zasobów.
-- `Microsoft.Network/virtualNetworks/subnets/join/action`Jest to wymagane w sieci wirtualnej, w której prywatny adres IP jest dołączany do prywatnego punktu końcowego.
-- `Microsoft.Network/networkInterfaces/read`Jest to wymagane w grupie zasobów, aby uzyskać interfejs sieciowy utworzony dla prywatnego punktu końcowego.
+- `Microsoft.Network/privateEndpoints/*` Jest to wymagane do przeprowadzenia CRUD na prywatnych punktach końcowych w grupie zasobów. Powinien być przypisany do grupy zasobów.
+- `Microsoft.Network/virtualNetworks/subnets/join/action` Jest to wymagane w sieci wirtualnej, w której prywatny adres IP jest dołączany do prywatnego punktu końcowego.
+- `Microsoft.Network/networkInterfaces/read` Jest to wymagane w grupie zasobów, aby uzyskać interfejs sieciowy utworzony dla prywatnego punktu końcowego.
 - Rola współautora strefy Prywatna strefa DNS ta rola już istnieje i może służyć do udostępniania `Microsoft.Network/privateDnsZones/A/*` i `Microsoft.Network/privateDnsZones/virtualNetworkLinks/read` uprawnień.
 
 Aby utworzyć role z wymaganymi uprawnieniami, można użyć jednej z następujących metod:

@@ -3,12 +3,12 @@ title: Poprawianie wydajności aplikacji platformy Azure za pomocą usługi Advi
 description: Użyj zaleceń dotyczących wydajności w Azure Advisor, aby zwiększyć szybkość i czas odpowiedzi aplikacji o krytycznym znaczeniu dla firmy.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: bdca8cd39427fb0d25f8b3308eaf2be24e0eb81a
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 0112e94e7652026e020e99ca82ad757c236a0c53
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257463"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653311"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Poprawianie wydajności aplikacji platformy Azure za pomocą Azure Advisor
 
@@ -51,32 +51,32 @@ Program Advisor identyfikuje maszyny wirtualne z dyskami standardowymi, które m
 
 Usługa Azure Premium Storage zapewnia obsługę dysków o wysokiej wydajności i małych opóźnieniach dla maszyn wirtualnych, na których działają duże obciążenia we/wy. Dyski maszyny wirtualnej korzystające z kont Premium Storage przechowują dane na dyskach półprzewodnikowych (dysków SSD). Aby uzyskać najlepszą wydajność aplikacji, zalecamy Migrowanie wszystkich dysków maszyn wirtualnych wymagających dużej liczby operacji we/wy Premium Storage.
 
-## <a name="remove-data-skew-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Usuń pochylenie danych w tabelach SQL Data Warehouse, aby zwiększyć wydajność zapytań
+## <a name="remove-data-skew-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Usuń pochylenie danych w tabelach analizy usługi Azure Synapse, aby zwiększyć wydajność zapytań
 
 Pochylenie danych może spowodować niepotrzebne przemieszczenie danych lub wąskie gardła zasobów podczas uruchamiania obciążenia. Program Advisor wykrywa pochylenie danych dystrybucji większe niż 15%. Zalecamy ponowną dystrybucję danych i ponowne odwiedzenie wybranych kluczy dystrybucji tabeli. Aby dowiedzieć się więcej na temat identyfikowania i usuwania pochylenia, zobacz [Rozwiązywanie problemów](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-column-is-a-good-choice).
 
-## <a name="create-or-update-outdated-table-statistics-in-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Utwórz lub zaktualizuj nieaktualne statystyki tabeli w tabelach SQL Data Warehouse, aby zwiększyć wydajność zapytań
+## <a name="create-or-update-outdated-table-statistics-in-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Utwórz lub zaktualizuj nieaktualne statystyki tabeli w tabelach analizy usługi Azure Synapse, aby zwiększyć wydajność zapytań
 
-Program Advisor identyfikuje tabele, które nie mają aktualnych [statystyk tabeli](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md) i zaleca Tworzenie lub aktualizowanie statystyk. Optymalizator zapytań w Azure SQL Data Warehouse używa aktualnych statystyk, aby oszacować Kardynalność lub liczbę wierszy w wynikach zapytania. Te oszacowania umożliwiają Optymalizatorowi zapytań utworzenie planu zapytania w celu zapewnienia najszybszej wydajności.
+Program Advisor identyfikuje tabele, które nie mają aktualnych [statystyk tabeli](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md) i zaleca Tworzenie lub aktualizowanie statystyk. Optymalizator zapytań w usłudze Azure Synapse Analytics używa aktualnych statystyk, aby oszacować Kardynalność lub liczbę wierszy w wynikach zapytania. Te oszacowania umożliwiają Optymalizatorowi zapytań utworzenie planu zapytania w celu zapewnienia najszybszej wydajności.
 
 ## <a name="improve-mysql-connection-management"></a>Ulepszanie zarządzania połączeniami z serwerem MySQL
 
 Analiza klasyfikatora może wskazywać, że aplikacja łącząca się z serwerem MySQL może nie zarządzać połączeniami efektywnie. Ten stan może prowadzić do niepotrzebnego zużycia zasobów i całkowitego opóźnienia aplikacji. Aby usprawnić zarządzanie połączeniami, zalecamy zmniejszenie liczby połączeń krótkoterminowych i wyeliminowanie niepotrzebnych połączeń bezczynnych. Te ulepszenia można wprowadzić, konfigurując pulę połączeń po stronie serwera, na przykład ProxySQL.
 
 
-## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Skalowanie w górę w celu zoptymalizowania użycia pamięci podręcznej w tabelach SQL Data Warehouse, aby zwiększyć wydajność zapytań
+## <a name="scale-up-to-optimize-cache-utilization-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Skalowanie w górę w celu zoptymalizowania użycia pamięci podręcznej w tabelach usługi Azure Synapse Analytics w celu zwiększenia wydajności zapytań
 
-Azure Advisor wykrywa, czy tabele SQL Data Warehouse mają dużą wartość procentową użycia pamięci podręcznej oraz niską wartość procentową trafień. Ten stan wskazuje duże wykluczenia pamięci podręcznej, co może wpłynąć na wydajność wystąpienia SQL Data Warehouse. Doradca zaleca skalowanie w górę wystąpienia SQL Data Warehouse, aby zapewnić przydzielenie wystarczającej pojemności pamięci podręcznej dla obciążenia.
+Azure Advisor wykrywa, czy tabele analiz usługi Azure Synapse mają wysoką wartość procentową wykorzystania pamięci podręcznej i niską wartość procentową trafień. Ten stan wskazuje wysoki poziom wykluczenia pamięci podręcznej, który może mieć wpływ na wydajność wystąpienia usługi Azure Synapse Analytics. Doradca zaleca skalowanie wystąpienia usługi Azure Synapse Analytics w górę w celu zapewnienia odpowiedniej pojemności pamięci podręcznej dla obciążenia.
 
-## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>Konwertowanie tabel SQL Data Warehouse na zreplikowane tabele w celu zwiększenia wydajności zapytań
+## <a name="convert-azure-synapse-analytics-tables-to-replicated-tables-to-increase-query-performance"></a>Konwertowanie tabel usługi Azure Synapse Analytics na zreplikowane tabele w celu zwiększenia wydajności zapytań
 
 Klasyfikator identyfikuje tabele, które nie są zreplikowane, ale byłyby korzystne dla konwersji. Sugeruje to przekonwertowanie tych tabel. Zalecenia są oparte na:
 - Rozmiar zreplikowanej tabeli. 
 - Liczba kolumn 
 - Typ dystrybucji tabeli. 
-- Liczba partycji w tabeli SQL Data Warehouse. 
+- Liczba partycji w tabeli analizy usługi Azure Synapse. 
 
-Dodatkowe algorytmy heurystyczne mogą być podane w zaleceniach dotyczących kontekstu. Aby dowiedzieć się więcej na temat sposobu ustalenia tego zalecenia, zobacz [SQL Data Warehouse zalecenia](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md#replicate-tables). 
+Dodatkowe algorytmy heurystyczne mogą być podane w zaleceniach dotyczących kontekstu. Aby dowiedzieć się więcej o tym, jak to zalecenie zostało określone, zobacz [zalecenia dotyczące analizy usługi Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md#replicate-tables). 
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-the-latest-azure-features"></a>Migrowanie konta magazynu w celu Azure Resource Manager w celu uzyskania najnowszych funkcji platformy Azure
 
@@ -160,7 +160,7 @@ Azure Advisor analizuje Dzienniki systemu w ciągu ostatnich 7 dni i wskazuje, c
 Te warunki wskazują, że w Twoim klastrze występują duże opóźnienia zapisu. Może to być spowodowane dużym obciążeniem w klastrze. Aby zwiększyć wydajność klastra, warto rozważyć wykorzystanie funkcji szybsze zapisy udostępnionej przez usługę Azure HDInsight HBase. Funkcja przyspieszonego zapisywania dla klastrów bazy danych Apache HBase usługi HDInsight dołącza dyski zarządzane SSD w warstwie Premium do każdego serwera regionu (węzła roboczego) zamiast użycia magazynu w chmurze. Dzięki temu możliwe jest obniżenie opóźnień zapisu i zapewnienie lepszej odporności aplikacji. Aby dowiedzieć się więcej na temat tej funkcji, [Dowiedz się więcej](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes#how-to-enable-accelerated-writes-for-hbase-in-hdinsight)
 
 ## <a name="review-azure-data-explorer-table-cache-period-policy-for-better-performance-preview"></a>Przegląd pamięci podręcznej tabeli Eksplorator danych Azure — okres (zasady) w celu uzyskania lepszej wydajności (wersja zapoznawcza)
-To zalecenie obejmuje tabele Eksplorator danych platformy Azure, które mają dużą liczbę zapytań, które odnoszą się poza skonfigurowanym okresem pamięci podręcznej (zasady) (wartość procentowa 10 pierwszych tabel według zapytania, które uzyskują dostęp do danych poza pamięcią podręczną). Zalecana akcja w celu poprawienia wydajności klastra: Ogranicz zapytania w tej tabeli do minimalnego wymaganego zakresu czasu (w ramach zdefiniowanych zasad). Alternatywnie, jeśli wymagane są dane z całego zakresu czasu, zwiększ okres pamięci podręcznej do zalecanej wartości.
+To zalecenie obejmuje tabele usługi Azure Data Explorer, których dotyczy duża liczba zapytań odnoszących się do okresu spoza skonfigurowanego okresu buforowania (w zasadach). (Zostanie wyświetlonych pierwszych 10 tabel według wartości procentowej udziału zapytań dotyczących danych spoza pamięci podręcznej). Zalecane działanie w celu poprawienia wydajności klastra: Ogranicz zapytania dotyczące tej tabeli do minimalnego wymaganego zakresu czasu (w ramach zdefiniowanych zasad). Ewentualnie jeśli wymagane są dane z całego zakresu czasu, zwiększ okres buforowania do zalecanej wartości.
 
 ## <a name="improve-performance-by-optimizing-mysql-temporary-table-sizing"></a>Poprawianie wydajności dzięki optymalizacji rozmiarów tabeli tymczasowej MySQL
 Analiza klasyfikatora wskazuje, że serwer MySQL może uwzględniać niepotrzebne obciążenia we/wy ze względu na niskie ustawienia parametrów tabeli tymczasowej. Może to spowodować niepotrzebne transakcje na dysku i zmniejszenie wydajności. Zalecamy zwiększenie wartości parametrów „tmp_table_size” i „max_heap_table_size”, aby zmniejszyć liczbę transakcji opartych na dyskach. [Dowiedz się więcej](https://aka.ms/azure_mysql_tmp_table)

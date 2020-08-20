@@ -3,12 +3,12 @@ title: Cennik usługi Azure Backup
 description: Dowiedz się, jak oszacować koszty związane z budżetem Azure Backup.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: cdb3dc756e1ee7e32453acd7246952c84abebaf7
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 03ec0076d3089562ddaace6db413fb3f1ba949a6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035760"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654535"
 ---
 # <a name="azure-backup-pricing"></a>Cennik usługi Azure Backup
 
@@ -100,7 +100,7 @@ Aby oszacować koszty tworzenia kopii zapasowych serwerów SQL działających na
 
   - Typ kopii zapasowej
 
-    - Najbardziej skutecznymi zasadami, które można wybrać, jest **dzienne różnice** tygodniowe/comiesięczne/roczne pełne kopie zapasowe. Azure Backup można przywrócić z różnic za pomocą pojedynczego kliknięcia.
+    - Najbardziej skutecznymi zasadami, które można wybrać, jest **dzienne różnice** tygodniowe/comiesięczne/roczne pełne kopie zapasowe. Azure Backup można również przywrócić z różnic za pomocą pojedynczego kliknięcia.
 
     - Możesz również wybrać opcję tworzenia zasad codziennie/co tydzień/miesięcznie/rocznie pełnych kopii zapasowych. Ta opcja spowoduje zużywanie nieco więcej miejsca niż w przypadku pierwszej opcji.
 
@@ -137,7 +137,7 @@ Aby oszacować koszty tworzenia kopii zapasowych serwerów SAP HANA uruchomionyc
   - Jeśli znasz wartość **procentową**zmian, możesz użyć opcji **wprowadź własny%**
 - Wybieranie zasad kopii zapasowych
   - Typ kopii zapasowej
-    - Najbardziej skutecznymi zasadami, które można wybrać, jest **dzienne różnice** **tygodniowe/comiesięczne/roczne** pełne kopie zapasowe. Azure Backup można przywrócić z różnic za pomocą pojedynczego kliknięcia.
+    - Najbardziej skutecznymi zasadami, które można wybrać, jest **dzienne różnice** **tygodniowe/comiesięczne/roczne** pełne kopie zapasowe. Azure Backup można również przywrócić z różnic za pomocą pojedynczego kliknięcia.
     - Możesz również wybrać opcję tworzenia zasad **codziennie/co tydzień/miesięcznie/rocznie** pełnych kopii zapasowych. Ta opcja spowoduje zużywanie nieco więcej miejsca niż w przypadku pierwszej opcji.
   - Jak długo należy zachować kopie zapasowe "log"? (w dniach) [7-35]
   - Jak długo należy zachować kopie zapasowe "dzienne"? (w dniach)
@@ -160,7 +160,7 @@ Aby oszacować koszty tworzenia kopii zapasowych udziałów plików platformy Az
 - Jeśli chcesz utworzyć kopię zapasową udziałów plików rozmieszczonych na wielu kontach magazynu, określ liczbę kont magazynu obsługujących udziały plików o powyższym rozmiarze.
 
 - Oczekiwana ilość zmian danych w udziałach plików, dla których chcesz utworzyć kopię zapasową. <br>Zmiany dotyczą ilości zmian danych i bezpośrednio mają wpływ na rozmiar magazynu migawek. Na przykład jeśli masz udział plików o 200 GB danych do utworzenia kopii zapasowej, a 10 GB zmiany jest codziennie, dzienne przebicie wynosi 5%.
-  - Wyższa zmiana oznacza, że ilość danych w zawartości udziału plików każdego dnia jest wysoka, a więc przyrostowa migawka (przechwytywanie tylko zmian danych) również będzie większa.
+  - Większe zmiany ilości danych w zawartości udziału plików są wysokie, a więc przyrostowa migawka (przechwytywanie tylko zmian danych) również będzie większa.
   - Wybierz niski (1%), umiarkowany (3%) lub wysoki (5%) na podstawie charakterystyki i użycia udziału plików.
   - Jeśli znasz dokładną wartość **procentową** zmian w udziale plików, możesz wybrać opcję **wprowadź własny%** z listy rozwijanej. Określ wartości (w%) w przypadku codziennych, cotygodniowych, miesięcznych i rocznych zmian.
 

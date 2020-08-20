@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 4ae0ebaec011634153e4ac9bbe43ef519c58a251
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: d57122ee98eb6612f43d09ecff4797038ceaf5f2
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845888"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654093"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Wersje i śledzenie zestawów danych w eksperymentach
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -192,4 +192,4 @@ Poniższy widok pochodzi z okienka **zestawy danych** w obszarze **zasoby**. Wyb
 ## <a name="next-steps"></a>Następne kroki
 
 * [Szkolenie przy użyciu zestawów danych](how-to-train-with-datasets.md)
-* [Więcej przykładowych notesów zestawu danych](https://aka.ms/dataset-tutorial)
+* [Więcej przykładowych notesów zestawu danych](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/)

@@ -3,12 +3,12 @@ title: Zarządzanie magazynami i serwerami usługi Azure Recovery Services
 description: W tym artykule dowiesz się, jak monitorować magazyny Recovery Services i zarządzać nimi za pomocą pulpitu nawigacyjnego Omówienie magazynu Recovery Services.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 68c6354fa15ee2a6873b57e5c1622afb108b9a10
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: ee96acf624f1c313c85b21840c142e1e2d6f40d8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263333"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654212"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorowanie magazynów usługi Recovery Services i zarządzanie nimi
 
@@ -70,7 +70,7 @@ Wstępne sprawdzanie kopii zapasowej Sprawdź konfigurację maszyn wirtualnych p
 Wstępne sprawdzanie kopii zapasowej przebiegu w ramach zaplanowanych operacji tworzenia kopii zapasowej maszyn wirtualnych platformy Azure. Znajdują się one w jednym z następujących stanów:
 
 * **Zakończony powodzeniem**: ten stan wskazuje, że konfiguracja maszyny wirtualnej powinna prowadzić do pomyślnego wykonywania kopii zapasowych i nie trzeba wykonywać żadnych działań naprawczych.
-* **Ostrzeżenie**: ten stan wskazuje co najmniej jeden problem w konfiguracji maszyny wirtualnej, który *może* prowadzić do błędów kopii zapasowych. Zapewnia to *zalecane* kroki, aby zapewnić pomyślne tworzenie kopii zapasowych. Na przykład nie ma zainstalowanego najnowszego agenta maszyny wirtualnej może spowodować sporadyczne niepowodzenie wykonywania kopii zapasowych. Ta sytuacja zapewnia stan ostrzegawczy.
+* **Ostrzeżenie**: ten stan wskazuje co najmniej jeden problem w konfiguracji maszyny wirtualnej, który *może* prowadzić do błędów kopii zapasowych. Zapewnia to *zalecane* kroki, aby zapewnić pomyślne tworzenie kopii zapasowych. Na przykład nie ma zainstalowanego najnowszego agenta maszyny wirtualnej może spowodować sporadyczne niepowodzenie wykonywania kopii zapasowych. Ta sytuacja zapewni stan ostrzegawczy.
 * **Krytyczny**: ten stan wskazuje co najmniej jeden krytyczny problem w konfiguracji maszyny wirtualnej, który *będzie* prowadzić do błędów kopii zapasowych i zawiera *wymagane* kroki, aby zapewnić pomyślne tworzenie kopii zapasowych. Na przykład problem z siecią spowodowaną aktualizacją reguł sieciowej grupy zabezpieczeń maszyny wirtualnej spowoduje niepowodzenie wykonywania kopii zapasowych, ponieważ uniemożliwia to maszynie wirtualnej komunikowanie się z usługą Azure Backup. Ta sytuacja zapewni stan krytyczny.
 
 Postępuj zgodnie z poniższymi instrukcjami, aby rozpocząć rozwiązywanie wszelkich problemów zgłoszonych przez program Backup wstępne sprawdzanie kopii zapasowych maszyn wirtualnych w magazynie Recovery Services.
@@ -96,7 +96,7 @@ Na liście alerty kopii zapasowej są wyświetlane wybrane informacje dotyczące
 | Poziom alertu | Zdarzenia, które generują alerty |
 | ----------- | ----------- |
 | Krytyczne | Alerty krytyczne są wyświetlane, gdy: zadania tworzenia kopii zapasowej kończą się niepowodzeniem, zadania odzyskiwania kończą się niepowodzeniem i po zatrzymaniu ochrony na serwerze, zachowując dane.|
-| Ostrzeżenie | Alerty ostrzegawcze są odbierane, gdy: zadania tworzenia kopii zapasowej zostały zakończone z ostrzeżeniami, na przykład gdy nie są tworzone kopie zapasowe mniej niż 100 plików z powodu problemów z uszkodzeniem lub w przypadku pomyślnego utworzenia kopii zapasowej większej liczby plików 1 000 000. |
+| Ostrzeżenie | Alerty ostrzegawcze są wyświetlane, gdy: zadania tworzenia kopii zapasowej zostały zakończone z ostrzeżeniami. Na przykład w przypadku mniej niż 100 plików kopie zapasowe nie są tworzone z powodu problemów z uszkodzeniem lub w przypadku pomyślnego utworzenia kopii zapasowej więcej niż 1 000 000 plików). |
 | Informacyjne | Obecnie żadne alerty informacyjne nie są używane. |
 
 ### <a name="viewing-alert-details"></a>Wyświetlanie szczegółów alertu

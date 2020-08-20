@@ -1,18 +1,18 @@
 ---
-title: 'Szybki Start: udostępnianie poza organizacji — udział danych platformy Azure'
-description: Szybki Start — udostępnianie danych klientom i partnerom przy użyciu usługi Azure Data Share i szablonu Menedżer zasobów
+title: Udostępnianie poza organizacji (szablon ARM) — Przewodnik Szybki Start dotyczący usługi Azure Data Share
+description: Dowiedz się, jak udostępniać dane klientom i partnerom za pomocą usługi Azure Data Share i szablonu Menedżer zasobów w tym przewodniku Szybki Start.
 author: mumian
 ms.author: jgao
 ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
-ms.openlocfilehash: 87b91d353b6d9f64f28892feed92c44ceafc2598
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 76ef44d438b9af7ada6c1c464705a22ee10f4c58
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640926"
+ms.locfileid: "88654110"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-and-resource-manager-templates"></a>Szybki Start: udostępnianie danych przy użyciu usługi Azure Data Share i szablonów Menedżer zasobów
 

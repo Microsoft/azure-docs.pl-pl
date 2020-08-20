@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 072b0e3bcf4da8e2c71082a549d42d105c06ea8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5695e866b0b6182d7b46b3206a7d8e672d49ab5c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659799"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654433"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konwertowanie maszyny wirtualnej z systemem Linux z dysków niezarządzanych na dyski zarządzane
 
-Jeśli masz istniejące maszyny wirtualne z systemem Linux, które korzystają z dysków niezarządzanych, możesz przekonwertować maszyny wirtualne tak, aby korzystały z [platformy Azure Managed disks](../linux/managed-disks-overview.md). Ten proces powoduje przekonwertowanie dysku systemu operacyjnego i dołączonych dysków danych.
+Jeśli masz istniejące maszyny wirtualne z systemem Linux, które korzystają z dysków niezarządzanych, możesz przekonwertować maszyny wirtualne tak, aby korzystały z [platformy Azure Managed disks](../managed-disks-overview.md). Ten proces powoduje przekonwertowanie dysku systemu operacyjnego i dołączonych dysków danych.
 
 W tym artykule opisano sposób konwertowania maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure. Jeśli konieczne jest zainstalowanie lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). 
 
@@ -104,4 +104,4 @@ Maszyna wirtualna zostanie zatrzymana i uruchomiona ponownie po zakończeniu mig
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat opcji magazynu, zobacz [Omówienie usługi Azure Managed disks](../windows/managed-disks-overview.md).
+Aby uzyskać więcej informacji na temat opcji magazynu, zobacz [Omówienie usługi Azure Managed disks](../managed-disks-overview.md).

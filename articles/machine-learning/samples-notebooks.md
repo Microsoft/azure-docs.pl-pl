@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: aeced8c4108760fc3e10dbf891a469792c210707
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 10cf06a829b991bfe15d7b24c4fc61d0fe22eaaf
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780066"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653719"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Eksplorowanie Azure Machine Learning z notesami Jupyter
 
@@ -24,7 +24,7 @@ ms.locfileid: "82780066"
 
 W tym artykule pokazano, jak uzyskać dostęp do repozytorium z następujących środowisk:
 
-- [Wystąpienie obliczeniowe Azure Machine Learning](#notebookvm)
+- [Wystąpienie obliczeniowe usługi Azure Machine Learning](#notebookvm)
 - [Przenoszenie własnego serwera notesu](#byo)
 - [Maszyna wirtualna do analizy danych](#dsvm)
 
@@ -55,7 +55,7 @@ Data Science Virtual Machine (DSVM) to dostosowany obraz maszyny wirtualnej zbud
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z [przykładowymi notesami](https://aka.ms/aml-notebooks) , aby dowiedzieć się, co może zrobić Azure Machine Learning.
+Zapoznaj się z [przykładowymi notesami](https://github.com/Azure/MachineLearningNotebooks) , aby dowiedzieć się, co może zrobić Azure Machine Learning.
 
 Aby uzyskać więcej przykładowych projektów i przykładów usługi GitHub, zobacz następujące repozytoria:
 + [Microsoft/MLOps](https://github.com/Microsoft/MLOps)

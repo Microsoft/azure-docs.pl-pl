@@ -4,12 +4,12 @@ description: W tym przewodniku szybki start utworzysz laboratorium w Azure DevTe
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/26/2020
-ms.openlocfilehash: 8688b8265a8ca00a36a569ff4e067c9f36834c6d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 93bc4cf91b228de72c217c61ec03d61e87046dd3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537551"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653957"
 ---
 # <a name="quickstart-set-up-a-lab-by-using-azure-devtest-labs-arm-template"></a>Szybki Start: Konfigurowanie laboratorium przy użyciu szablonu Azure DevTest Labs ARM
 W tym przewodniku szybki start utworzysz laboratorium z maszyną wirtualną z systemem Windows Server 2019 Datacenter przy użyciu szablonu Azure Resource Manager (ARM). 
@@ -20,7 +20,7 @@ W tym przewodniku szybki start wykonasz następujące czynności:
 
 > [!div class="checklist"]
 > * Przegląd szablonu 
-> * Wdrożenie szablonu
+> * Wdrażanie szablonu
 > * Weryfikowanie szablonu
 > * Oczyszczanie zasobów
 
@@ -36,7 +36,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 
 Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-dtl-create-lab-windows-vm/).
 
-:::code language="json" source="~/quickstart-templates/101-dtl-create-lab-windows-vm/azuredeploy.json" range="1-97" highlight="51-85":::
+:::code language="json" source="~/quickstart-templates/101-dtl-create-lab-windows-vm/azuredeploy.json":::
 
 Zasoby zdefiniowane w szablonie obejmują:
 
@@ -46,7 +46,7 @@ Zasoby zdefiniowane w szablonie obejmują:
 
 Aby znaleźć więcej przykładów szablonów, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devtestlab).
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk. 
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-dtl-create-lab-windows-vm%2Fazuredeploy.json)
@@ -79,7 +79,7 @@ Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk.
     > [!IMPORTANT] 
     > Pozostaw Tę stronę otwartą i postępuj zgodnie z instrukcjami w następnej sekcji, aby wyczyścić zasoby, aby uniknąć ponoszenia kosztów związanych z uruchamianiem laboratorium i maszyną wirtualną na platformie Azure. Jeśli chcesz przejść do następnego samouczka, aby przetestować dostęp do maszyny wirtualnej w laboratorium, Oczyść zasoby po przejściu przez ten samouczek. 
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 1. Najpierw usuń laboratorium, aby można było usunąć grupę zasobów. Nie będzie można usunąć grupy zasobów z laboratorium. Aby usunąć laboratorium, wybierz pozycję **Usuń** na pasku narzędzi. 
 

@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych udziałów plików platformy Azure przy użyci
 description: Dowiedz się, jak używać interfejsu API REST do tworzenia kopii zapasowych udziałów plików platformy Azure w magazynie Recovery Services
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: f48ebbd20d6775fe61c3e3dbb07e8f71af41635a
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: bf737dfa366796c4a392ec3d00609134978057ac
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036746"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654144"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Tworzenie kopii zapasowej udziału plików platformy Azure przy użyciu Azure Backup za pomocą interfejsu API REST
 
@@ -40,11 +40,11 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 Identyfikator URI wpisu zawiera `{subscriptionId}` `{vaultName}` Parametry,, `{vaultresourceGroupName}` i `{fabricName}` . W naszym przykładzie wartość dla różnych parametrów będzie następująca:
 
-- `{fabricName}`jest *platformą Azure*
+- `{fabricName}` jest *platformą Azure*
 
-- `{vaultName}`jest *azurefilesvault*
+- `{vaultName}` jest *azurefilesvault*
 
-- `{vaultresourceGroupName}`jest *migracji pamięci*
+- `{vaultresourceGroupName}` jest *migracji pamięci*
 
 - $filter = backupManagementType EQ "AzureStorage"
 
@@ -54,13 +54,13 @@ Ponieważ wszystkie wymagane parametry są określone w identyfikatorze URI, nie
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
 ```
 
-#### <a name="responses"></a>Odpowiedzi
+#### <a name="responses-to-the-refresh-operation"></a>Odpowiedzi na operację odświeżania
 
 Operacja "Refresh" jest [operacją asynchroniczną](../azure-resource-manager/management/async-operations.md). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
 
 Zwraca dwie odpowiedzi: 202 (zaakceptowane), gdy tworzona jest inna operacja, a 200 (OK) po zakończeniu tej operacji.
 
-##### <a name="example-responses"></a>Przykładowe odpowiedzi
+##### <a name="example-responses-to-the-refresh-operation"></a>Przykładowe odpowiedzi na operację odświeżania
 
 Po przesłaniu żądania *post* zostaje zwrócona odpowiedź 202 (zaakceptowana).
 
@@ -421,7 +421,7 @@ x-ms-routing-request-id  : CENTRALUSEUAP:20200127T105412Z:b55527fa-f473-4f09-b16
 Date : Mon, 27 Jan 2020 10:54:12 GMT
 ```
 
-Następnie Śledź wyniki operacji przy użyciu nagłówka lokalizacji lub nagłówka Azure-AsyncOperation za pomocą polecenia *Get* .
+Następnie Śledź wyniki operacji przy użyciu nagłówka lokalizacji lub nagłówka Azure-AsyncOperation za pomocą polecenia  *Get* .
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupOperations/c3a52d1d-0853-4211-8141-477c65740264?api-version=2016-12-01
@@ -487,13 +487,13 @@ Przykład treści żądania
 }
 ```
 
-### <a name="responses"></a>Odpowiedzi
+### <a name="responses-to-the-on-demand-backup-operation"></a>Odpowiedzi na operację tworzenia kopii zapasowej na żądanie
 
 Wyzwalanie kopii zapasowej na żądanie jest [operacją asynchroniczną](../azure-resource-manager/management/async-operations.md). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
 
 Zwraca dwie odpowiedzi: 202 (zaakceptowane), gdy tworzona jest inna operacja i 200 (OK) po zakończeniu tej operacji.
 
-### <a name="example-responses"></a>Przykładowe odpowiedzi
+### <a name="example-responses-to-the-on-demand-backup-operation"></a>Przykładowe odpowiedzi na operację tworzenia kopii zapasowej na żądanie
 
 Po przesłaniu żądania *post* do kopii zapasowej na żądanie początkowa odpowiedź to 202 (zaakceptowana) z nagłówkiem lokalizacji lub z nagłówkiem Azure-Async-header.
 
@@ -516,7 +516,7 @@ Po przesłaniu żądania *post* do kopii zapasowej na żądanie początkowa odpo
 'Content-Length': '0'
 ```
 
-Następnie Śledź wyniki operacji przy użyciu nagłówka lokalizacji lub nagłówka Azure-AsyncOperation za pomocą polecenia *Get* .
+Następnie Śledź wyniki operacji przy użyciu nagłówka lokalizacji lub nagłówka Azure-AsyncOperation za pomocą polecenia  *Get* .
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupOperations/dc62d524-427a-4093-968d-e951c0a0726e?api-version=2016-12-01

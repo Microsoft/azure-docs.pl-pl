@@ -8,16 +8,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: e4525bdc6165e8e736db5f539c764d25250cb248
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46db5f7d3e5d3844fb297e512d8d701e6da79de9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700889"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654314"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Usługa Azure ExpressRoute z Azure Site Recovery
 
-Usługa Microsoft Azure ExpressRoute umożliwia rozszerzanie sieci lokalnych na chmurę Microsoft za pośrednictwem połączenia prywatnego obsługiwanego przez dostawcę połączenia. Dzięki usłudze ExpressRoute można ustanowić połączenia z usługami Microsoft w chmurze, np. Microsoft Azure, Office 365 i Dynamics 365.
+Usługa Microsoft Azure ExpressRoute umożliwia rozszerzanie sieci lokalnych na chmurę Microsoft za pośrednictwem połączenia prywatnego obsługiwanego przez dostawcę połączenia. Dzięki usłudze ExpressRoute możesz ustanowić połączenia z usługami firmy Microsoft w chmurze, np. Microsoft Azure, Office 365 i Dynamics 365.
 
 W tym artykule opisano, jak można użyć usługi Azure ExpressRoute z Azure Site Recovery na potrzeby odzyskiwania po awarii i migracji.
 
@@ -50,7 +50,7 @@ Połączony scenariusz jest przedstawiony na poniższym diagramie: ![ lokalne na
 
 ## <a name="azure-to-azure-replication-with-expressroute"></a>Replikacja z platformy Azure do platformy Azure za pomocą ExpressRoute
 
-Azure Site Recovery włącza odzyskiwanie po awarii [maszyn wirtualnych platformy Azure](azure-to-azure-architecture.md). W zależności od tego, czy maszyny wirtualne platformy Azure korzystają z [usługi azure Managed disks](../virtual-machines/windows/managed-disks-overview.md), dane replikacji są wysyłane do konta usługi Azure Storage lub dysku zarządzanego repliki w docelowym regionie platformy Azure. Mimo że punkty końcowe replikacji są publiczne, ruch związany z replikacją na potrzeby replikacji maszyny wirtualnej platformy Azure, domyślnie nie przechodzi przez Internet, niezależnie od regionu platformy Azure, w którym znajduje się źródłowa sieć wirtualna. Można zastąpić domyślną trasę systemową platformy Azure dla prefiksu adresu 0.0.0.0/0 z [trasą niestandardową](../virtual-network/virtual-networks-udr-overview.md#custom-routes) i przekierować ruch maszyny wirtualnej do lokalnego urządzenia sieciowego (urządzenie WUS), ale ta konfiguracja nie jest zalecana w przypadku replikacji Site Recovery. Jeśli używasz tras niestandardowych, należy [utworzyć punkt końcowy usługi sieci wirtualnej](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) w sieci wirtualnej dla elementu "Storage", aby ruch związany z replikacją nie opuszcza granicy platformy Azure.
+Azure Site Recovery włącza odzyskiwanie po awarii [maszyn wirtualnych platformy Azure](azure-to-azure-architecture.md). W zależności od tego, czy maszyny wirtualne platformy Azure korzystają z [usługi azure Managed disks](../virtual-machines/managed-disks-overview.md), dane replikacji są wysyłane do konta usługi Azure Storage lub dysku zarządzanego repliki w docelowym regionie platformy Azure. Mimo że punkty końcowe replikacji są publiczne, ruch związany z replikacją na potrzeby replikacji maszyny wirtualnej platformy Azure, domyślnie nie przechodzi przez Internet, niezależnie od regionu platformy Azure, w którym znajduje się źródłowa sieć wirtualna. Można zastąpić domyślną trasę systemową platformy Azure dla prefiksu adresu 0.0.0.0/0 z [trasą niestandardową](../virtual-network/virtual-networks-udr-overview.md#custom-routes) i przekierować ruch maszyny wirtualnej do lokalnego urządzenia sieciowego (urządzenie WUS), ale ta konfiguracja nie jest zalecana w przypadku replikacji Site Recovery. Jeśli używasz tras niestandardowych, należy [utworzyć punkt końcowy usługi sieci wirtualnej](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) w sieci wirtualnej dla elementu "Storage", aby ruch związany z replikacją nie opuszcza granicy platformy Azure.
 
 W przypadku odzyskiwania po awarii maszyny wirtualnej platformy Azure domyślnie ExpressRoute nie jest wymagana do replikacji. Gdy maszyny wirtualne zostaną przełączone w tryb failover do docelowego regionu platformy Azure, możesz uzyskać do nich dostęp przy użyciu [prywatnej komunikacji równorzędnej](../expressroute/expressroute-circuit-peerings.md#privatepeering). Należy pamiętać, że ceny transferu danych są stosowane niezależnie od trybu replikacji danych w regionach platformy Azure.
 

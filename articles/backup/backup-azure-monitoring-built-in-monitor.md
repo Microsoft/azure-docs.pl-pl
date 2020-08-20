@@ -4,12 +4,12 @@ description: W tym artykule omówiono możliwości monitorowania i powiadamiania
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 645bf701a8f8561b2cb4f19378036ada82c4bedd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 07c22f4af08fd4032eeab91f0eada7797d04ebaa
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054538"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654127"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorowanie obciążeń Azure Backup
 
@@ -52,7 +52,7 @@ Poniższe scenariusze są definiowane przez usługę jako scenariusze z alertami
 - Kopie zapasowe maszyn wirtualnych platformy Azure
 - Kopie zapasowe plików platformy Azure
 - Kopie zapasowe obciążeń platformy Azure, takie jak SQL, SAP HANA
-- Agent Microsoft Azure Recovery Services (MARS) 
+- Agent Microsoft Azure Recovery Services (MARS)
 
 > [!NOTE]
 > Alerty z programu System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (serwera usługi MAB) nie są wyświetlane w tym miejscu.
@@ -63,7 +63,7 @@ W przypadku rozwiązań do tworzenia kopii zapasowych platformy Azure, takich ja
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Wyjątki w przypadku niezgłoszenia alertu
 
-Istnieje kilka wyjątków, gdy alert nie zostanie zgłoszony w przypadku awarii. Oto one:
+Istnieje kilka wyjątków, gdy alert nie zostanie zgłoszony w przypadku awarii. Są to:
 
 - Użytkownik jawnie anulował uruchomione zadanie
 - Zadanie nie powiodło się, ponieważ trwa inne zadanie tworzenia kopii zapasowej (nic nie działa, ponieważ oczekujemy na zakończenie poprzedniego zadania)
@@ -83,7 +83,7 @@ W oparciu o ważność alertu alerty można definiować w trzech typach:
 ## <a name="notification-for-backup-alerts"></a>Powiadomienia o alertach dotyczących kopii zapasowych
 
 > [!NOTE]
-> Konfigurację powiadomień można przeprowadzić tylko za pomocą witryny Azure Portal. Obsługa szablonu interfejsu Azure Resource Manager API (PS/CLI/REST) nie jest obsługiwana.
+> Konfigurację powiadomień można wykonać tylko za pomocą Azure Portal. Obsługa szablonu interfejsu Azure Resource Manager API (PS/CLI/REST) nie jest obsługiwana.
 
 Po podniesieniu alertu użytkownicy będą powiadamiani. Azure Backup zapewnia wbudowany mechanizm powiadomień za pośrednictwem poczty e-mail. Jeden z nich może określać poszczególne adresy e-mail lub listy dystrybucyjne do powiadomienia o wygenerowaniu alertu. Możesz również wybrać, czy otrzymywać powiadomienia o każdym indywidualnym alercie, czy grupować je w co godzinę, a następnie otrzymywać powiadomienia.
 
@@ -100,7 +100,7 @@ Jeśli częstotliwość została ustawiona na podsumowanie godzinowe, a alert zo
 
 ## <a name="inactivating-alerts"></a>Dezaktywacja alertów
 
-Aby dezaktywować/rozwiązywać aktywny alert, możesz kliknąć element listy odpowiadający Alertowi, który ma zostać zdezaktywowany. Spowoduje to otwarcie ekranu wyświetlającego szczegółowe informacje o alercie, z przyciskiem "Dezaktywuj" u góry. Kliknięcie tego przycisku spowoduje zmianę stanu alertu na nieaktywny. Możesz również dezaktywować alert, klikając prawym przyciskiem myszy element listy odpowiadający temu Alertowi i wybierając pozycję "Dezaktywuj".
+Aby dezaktywować/rozwiązywać aktywny alert, możesz wybrać element listy odpowiadający Alertowi, który ma zostać zdezaktywowany. Spowoduje to otwarcie ekranu wyświetlającego szczegółowe informacje o alercie, z przyciskiem **Dezaktywuj** u góry. Kliknięcie tego przycisku spowoduje zmianę stanu alertu na **nieaktywny**. Możesz również dezaktywować alert, klikając prawym przyciskiem myszy element listy odpowiadający temu Alertowi i wybierając pozycję **Dezaktywuj**.
 
 ![Dezaktywacja alertu dotyczącego magazynu RS](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 

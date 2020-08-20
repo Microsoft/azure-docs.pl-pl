@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: 662475bdcb6b1ea9809f4501d144fb94e21e945e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eff512c9d050eb293391233848fcece83e845680
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659461"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654195"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optymalizowanie maszyny wirtualnej systemu Linux na platformie Azure
 Tworzenie maszyny wirtualnej z systemem Linux jest proste z poziomu wiersza polecenia lub portalu. W tym samouczku pokazano, jak upewnić się, że został skonfigurowany, aby zoptymalizować jego wydajność na platformie Microsoft Azure. W tym temacie jest używana maszyna wirtualna serwera Ubuntu, ale można również utworzyć maszynę wirtualną z systemem Linux przy użyciu [własnych obrazów jako szablonów](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -34,7 +34,7 @@ Aby osiągnąć największą liczbę operacji we/wy na dyskach Premium Storage, 
 * Jeśli używasz **XFS**, wyłącz bariery przy użyciu opcji instalacji `nobarrier` (aby włączyć bariery, użyj opcji `barrier` )
 
 ## <a name="unmanaged-storage-account-considerations"></a>Zagadnienia dotyczące kont magazynu niezarządzanego
-Domyślna akcja podczas tworzenia maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure to użycie usługi Azure Managed Disks.  Te dyski są obsługiwane przez platformę Azure i nie wymagają żadnego przygotowania ani lokalizacji do ich przechowywania.  Dyski niezarządzane wymagają konta magazynu i są dostępne dodatkowe zagadnienia dotyczące wydajności.  Aby uzyskać więcej informacji o dyskach zarządzanych, zobacz [Omówienie usługi Azure Managed Disks](../windows/managed-disks-overview.md).  W poniższej sekcji omówiono zagadnienia związane z wydajnością tylko w przypadku korzystania z dysków niezarządzanych.  Ponownie domyślne i zalecane rozwiązanie magazynu to użycie dysków zarządzanych.
+Domyślna akcja podczas tworzenia maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure to użycie usługi Azure Managed Disks.  Te dyski są obsługiwane przez platformę Azure i nie wymagają żadnego przygotowania ani lokalizacji do ich przechowywania.  Dyski niezarządzane wymagają konta magazynu i są dostępne dodatkowe zagadnienia dotyczące wydajności.  Aby uzyskać więcej informacji o dyskach zarządzanych, zobacz [Omówienie usługi Azure Managed Disks](../managed-disks-overview.md).  W poniższej sekcji omówiono zagadnienia związane z wydajnością tylko w przypadku korzystania z dysków niezarządzanych.  Ponownie domyślne i zalecane rozwiązanie magazynu to użycie dysków zarządzanych.
 
 Jeśli tworzysz maszynę wirtualną z dyskami niezarządzanymi, pamiętaj o dołączeniu dysków z kont magazynu znajdujących się w tym samym regionie co maszyna wirtualna, aby zapewnić bliską bliskość i zminimalizować opóźnienie sieci.  Każde konto magazynu w warstwie Standardowa ma maksymalnie 20 000 operacji we/wy i pojemności 500 TB.  Ten limit obejmuje około 40 intensywnie używanych dysków, w tym dysk systemu operacyjnego i wszystkie utworzone dyski danych. W przypadku kont Premium Storage nie ma limitu maksymalnej liczby IOps, ale obowiązuje limit rozmiaru 32 TB. 
 
@@ -51,7 +51,7 @@ W przypadku obrazów w chmurze Ubuntu do skonfigurowania partycji wymiany należ
 
 W przypadku obrazów bez obsługi usługi Cloud-init obrazy maszyn wirtualnych wdrożone z poziomu portalu Azure Marketplace mają agenta maszyny wirtualnej z systemem Linux zintegrowany z systemem operacyjnym. Ten Agent umożliwia korzystanie z maszyn wirtualnych z różnymi usługami platformy Azure. Przy założeniu, że został wdrożony standardowy obraz z portalu Azure Marketplace, należy wykonać następujące czynności, aby poprawnie skonfigurować ustawienia pliku wymiany systemu Linux:
 
-Zlokalizuj i zmodyfikuj dwa wpisy w pliku **/etc/waagent.conf** . Kontrolują istnienie dedykowanego pliku wymiany i rozmiaru pliku wymiany. Parametry, które należy zweryfikować, są `ResourceDisk.EnableSwap` i`ResourceDisk.SwapSizeMB` 
+Zlokalizuj i zmodyfikuj dwa wpisy w pliku **/etc/waagent.conf** . Kontrolują istnienie dedykowanego pliku wymiany i rozmiaru pliku wymiany. Parametry, które należy zweryfikować, są `ResourceDisk.EnableSwap` i `ResourceDisk.SwapSizeMB` 
 
 Aby włączyć poprawnie włączony dysk i zainstalowany plik wymiany, upewnij się, że parametry mają następujące ustawienia:
 

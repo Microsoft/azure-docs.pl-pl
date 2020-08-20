@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e73bc3791ceb75685275af99f888136315c6e50d
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0fc7d62cc89e240d931f3d0f255a917a73a4114c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505563"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654586"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SQL Server wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP NetWeaver
 
@@ -247,7 +247,7 @@ ms.locfileid: "88505563"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -381,7 +381,7 @@ SQL Server 2014 i nowsze wersje otwierają możliwość przechowywania plików b
 * Wymienione wcześniej zagadnienia dotyczące dystrybucji dysków VHD za pośrednictwem różnych kont usługi Azure Storage dotyczą również tej metody wdrożeń. Oznacza liczbę operacji we/wy względem limitów konta usługi Azure Storage.
 * Zamiast obsłużyć limit przydziału operacji we/wy magazynu maszyny wirtualnej, ruch związany z obiektami blob magazynu reprezentującymi SQL Server plików danych i dziennika będzie uwzględniać przepustowość sieci maszyny wirtualnej określonego typu maszyny wirtualnej. Aby uzyskać przepustowość sieci i magazynu dla określonego typu maszyny wirtualnej, zapoznaj się z artykułem [rozmiary dotyczące maszyn wirtualnych z systemem Windows na platformie Azure](../../sizes.md).
 * W wyniku wypchnięcia operacji we/wy na plikach przez przydziały sieci nastąpi przekroczenie limitu przydziału pamięci masowej i przy użyciu ogólnej przepustowości maszyny wirtualnej tylko częściowo.
-* Cele operacji we/wy i przepływności wydajności operacji wejścia/wyjścia, które nie są już stosowane dla systemu Azure Premium Storage dla różnych rozmiarów dysków. Nawet jeśli utworzone obiekty blob znajdują się na platformie Azure Premium Storage. Cele są udokumentowane w artykule [o wysokiej wydajności Premium Storage i dyskach zarządzanych dla maszyn wirtualnych](../../windows/disks-types.md#premium-ssd). W wyniku umieszczania plików danych SQL Server i plików dziennika bezpośrednio w obiektach Blob przechowywanych w usłudze Azure Premium Storage charakterystyki wydajności mogą być różne w porównaniu z dyskami VHD w Premium Storage platformy Azure.
+* Cele operacji we/wy i przepływności wydajności operacji wejścia/wyjścia, które nie są już stosowane dla systemu Azure Premium Storage dla różnych rozmiarów dysków. Nawet jeśli utworzone obiekty blob znajdują się na platformie Azure Premium Storage. Cele są udokumentowane w artykule [o wysokiej wydajności Premium Storage i dyskach zarządzanych dla maszyn wirtualnych](../../disks-types.md#premium-ssd). W wyniku umieszczania plików danych SQL Server i plików dziennika bezpośrednio w obiektach Blob przechowywanych w usłudze Azure Premium Storage charakterystyki wydajności mogą być różne w porównaniu z dyskami VHD w Premium Storage platformy Azure.
 * Buforowanie oparte na hoście jako dostępne dla dysków usługi Azure Premium Storage nie jest dostępne podczas umieszczania SQL Server plików danych bezpośrednio w obiektach Blob platformy Azure.
 * W przypadku maszyn wirtualnych z serii M usługa Azure akcelerator zapisu nie może być używana do obsługi zapisów podmilisekundów względem SQL Server pliku dziennika transakcji. 
 

@@ -3,12 +3,12 @@ title: Analiza kosztów i budżet
 description: Dowiedz się, jak uzyskać analizę kosztów i ustawić budżet dla podstawowych zasobów obliczeniowych i licencji na oprogramowanie używane do uruchamiania obciążeń usługi Batch.
 ms.topic: how-to
 ms.date: 07/19/2019
-ms.openlocfilehash: 13c8cc508a4940b5e21570104527c40988879919
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50ca1ecfd0a973ff39dabfcb62175ce820d0a0d6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83725775"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654246"
 ---
 # <a name="cost-analysis-and-budgets-for-azure-batch"></a>Analiza kosztów i budżety dla Azure Batch
 
@@ -68,7 +68,7 @@ Dowiedz się więcej o konfigurowaniu maszyn wirtualnych o niskim priorytecie dl
 
 ### <a name="virtual-machine-os-disk-type"></a>Typ dysku systemu operacyjnego maszyny wirtualnej
 
-Istnieje wiele [typów dysków systemu operacyjnego maszyny wirtualnej](../virtual-machines/windows/disks-types.md). Większość serii maszyn wirtualnych ma rozmiary obsługujące magazyny w warstwie Premium i standardowa. Po wybraniu rozmiaru maszyny wirtualnej dla puli usługa Batch konfiguruje dyski systemu operacyjnego SSD w warstwie Premium. Gdy wybrano rozmiar maszyny wirtualnej "inny niż s", zostanie użyty tańszy, standardowy typ dysku twardego. Na przykład dyski SSD systemu operacyjnego w warstwie Premium są używane dla `Standard_D2s_v3` dysków z systemem operacyjnym i standardowego dysku systemu operacyjnego `Standard_D2_v3` .
+Istnieje wiele [typów dysków systemu operacyjnego maszyny wirtualnej](../virtual-machines/disks-types.md). Większość serii maszyn wirtualnych ma rozmiary obsługujące magazyny w warstwie Premium i standardowa. Po wybraniu rozmiaru maszyny wirtualnej dla puli usługa Batch konfiguruje dyski systemu operacyjnego SSD w warstwie Premium. Gdy wybrano rozmiar maszyny wirtualnej "inny niż s", zostanie użyty tańszy, standardowy typ dysku twardego. Na przykład dyski SSD systemu operacyjnego w warstwie Premium są używane dla `Standard_D2s_v3` dysków z systemem operacyjnym i standardowego dysku systemu operacyjnego `Standard_D2_v3` .
 
 SSD w warstwie Premium dyski systemu operacyjnego są droższe, ale większa wydajność i maszyny wirtualne z dyskami w warstwie Premium mogą być uruchamiane nieco szybciej niż maszyny wirtualne ze standardowymi dyskami systemu operacyjnego. W usłudze Batch dysk systemu operacyjnego często nie jest używany, ponieważ aplikacje i pliki zadań znajdują się na tymczasowym dysku SSD maszyn wirtualnych. W związku z tym w wielu przypadkach nie trzeba płacić za większy koszt dysku SSD Premium, który jest inicjowany po określeniu rozmiaru maszyny wirtualnej.
 

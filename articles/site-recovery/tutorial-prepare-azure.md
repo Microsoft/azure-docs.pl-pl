@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ed517f2f6e04f60ec1c9c808f2fdf03203fb891b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0d697f2100360732666c9f5ea8050800dad154b4
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498977"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653821"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Przygotowywanie platformy Azure do lokalnego odzyskiwania po awarii na platformie Azure
 
@@ -60,7 +60,7 @@ Aby można było wykonać te zadania, do konta musi być przypisana wbudowana ro
 4. W obszarze **Grupa zasobów** wybierz istniejącą grupę zasobów lub utwórz nową. Na potrzeby tego samouczka używamy grupy **contosoRG**.
 5. W polu **Nazwa magazynu**wprowadź przyjazną nazwę identyfikującą magazyn. Na potrzeby tej serii samouczków należy użyć nazwy **ContosoVMVault**.
 6. W **obszarze region**wybierz region, w którym powinien się znajdować magazyn. Użyj wartości **Europa Zachodnia**.
-7. Wybierz pozycję **Przegląd + utwórz**.
+7. Wybierz pozycję **Przejrzyj i utwórz**.
 
    ![Zrzut ekranu przedstawiający stronę tworzenie magazynu Recovery Services.](./media/tutorial-prepare-azure/new-vault-settings.png)
 
@@ -79,7 +79,7 @@ Maszyny lokalne są replikowane do usługi Azure Managed Disks. W przypadku prze
 7. W obszarze **Lokalizacja**wybierz ten sam region, w którym został utworzony magazyn Recovery Services. W naszym samouczku jest **Europa Zachodnia**. Sieć musi znajdować się w tym samym regionie co magazyn.
 8. W obszarze **zakres adresów**Wprowadź zakres sieci. Korzystamy z **10.1.0.0/24**, a nie do korzystania z podsieci.
 9. Opuszczamy domyślne opcje podstawowej ochrony DDoS, bez punktu końcowego usługi ani zapory w sieci.
-9. Wybierz przycisk **Utwórz**.
+9. Wybierz pozycję **Utwórz**.
 
    ![Zrzut ekranu przedstawiający opcje tworzenia sieci wirtualnej.](media/tutorial-prepare-azure/create-network.png)
 
@@ -94,4 +94,4 @@ Utworzenie sieci wirtualnej zajmuje kilka sekund. Po jego utworzeniu zobaczysz g
 - W przypadku odzyskiwania po awarii funkcji Hyper-V [Przygotuj lokalne serwery funkcji Hyper-v](hyper-v-prepare-on-premises-tutorial.md).
 - W przypadku odzyskiwania po awarii serwera fizycznego [Skonfiguruj serwer konfiguracji i środowisko źródłowe](physical-azure-disaster-recovery.md)
 - [Dowiedz się więcej na temat](../virtual-network/virtual-networks-overview.md) sieci platformy Azure.
-- Informacje [o](../virtual-machines/windows/managed-disks-overview.md) dyskach zarządzanych.
+- Informacje [o](../virtual-machines/managed-disks-overview.md) dyskach zarządzanych.

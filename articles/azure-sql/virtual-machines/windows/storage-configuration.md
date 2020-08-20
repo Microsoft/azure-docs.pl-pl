@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: 21609e38625d0911476c85a9d6e518f5ff7e9e61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de0402febe94e50877367dc37d448a4a13893f93
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667373"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653345"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Konfiguracja usługi Storage dla maszyn wirtualnych programu SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ Aby można było korzystać z ustawień konfiguracji automatycznego magazynu, ma
 
 * Udostępnione za pomocą [obrazu galerii SQL Server](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo).
 * Używa [modelu wdrażania Menedżer zasobów](../../../azure-resource-manager/management/deployment-models.md).
-* Używa warstwy [Premium dysków SSD](../../../virtual-machines/windows/disks-types.md).
+* Używa warstwy [Premium dysków SSD](../../../virtual-machines/disks-types.md).
 
 ## <a name="new-vms"></a>Nowe maszyny wirtualne
 
@@ -115,7 +115,7 @@ Można zmodyfikować ustawienia dysku dla dysków, które zostały skonfigurowan
 Ta sekcja zawiera informacje o zmianach konfiguracji magazynu, które usługa Azure automatycznie wykonuje podczas SQL Server aprowizacji lub konfiguracji maszyny wirtualnej w Azure Portal.
 
 * Platforma Azure konfiguruje pulę magazynów z magazynu wybranego z maszyny wirtualnej. Następna sekcja tego tematu zawiera szczegółowe informacje o konfiguracji puli magazynu.
-* Funkcja automatycznej konfiguracji magazynu zawsze używa dysków danych w [warstwie Premium dysków SSD](../../../virtual-machines/windows/disks-types.md) P30. W związku z tym istnieje 1:1 mapowanie między wybraną liczbą terabajtów a liczbą dysków danych podłączonych do maszyny wirtualnej.
+* Funkcja automatycznej konfiguracji magazynu zawsze używa dysków danych w [warstwie Premium dysków SSD](../../../virtual-machines/disks-types.md) P30. W związku z tym istnieje 1:1 mapowanie między wybraną liczbą terabajtów a liczbą dysków danych podłączonych do maszyny wirtualnej.
 
 Aby uzyskać informacje o cenach, zobacz stronę z [cennikiem usługi Storage](https://azure.microsoft.com/pricing/details/storage) na karcie **Disk Storage** .
 
@@ -129,7 +129,7 @@ Platforma Azure używa następujących ustawień do utworzenia puli magazynów n
 | Rozmiary dysków |1 TB każdego |
 | Pamięć podręczna |Odczyt |
 | Rozmiar alokacji |rozmiar jednostki alokacji systemu plików NTFS 64 KB |
-| Odzyskiwanie | Odzyskiwanie proste (bez odporności) |
+| Odzyskiwania | Odzyskiwanie proste (bez odporności) |
 | Liczba kolumn |Liczba dysków z danymi do 8<sup>1</sup> |
 
 

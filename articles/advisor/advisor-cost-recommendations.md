@@ -3,12 +3,12 @@ title: Zmniejsz koszty usługi przy użyciu Azure Advisor
 description: Użyj Azure Advisor, aby zoptymalizować koszty wdrożeń platformy Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 15f357248a6174de1e0890a4b45e9fa3930a06fe
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: d234e89d0d042999805fae73d3df24c03d1027c9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258527"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654042"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Obniżenie kosztów usługi przy użyciu Azure Advisor
 
@@ -71,7 +71,7 @@ Usługa Advisor analizuje magazyn obiektów blob platformy Azure i Azure Data La
 ### <a name="mariadb-mysql-and-postgresql-reserved-capacity"></a>Zarezerwowana pojemność MariaDB, MySQL i PostgreSQL
 Program Advisor analizuje wzorce użycia Azure Database for MariaDB, Azure Database for MySQL i Azure Database for PostgreSQL w ciągu ostatnich 30 dni. Następnie zaleca się zarezerwowanych zakupów pojemności, które optymalizują koszty. Korzystając z zarezerwowanej pojemności, można wstępnie kupić MariaDB, MySQL i PostgreSQL użycie godzinowe i zaoszczędzić na bieżących kosztach. Zarezerwowana pojemność to korzyść rozliczenia i automatycznie stosowana do nowych i istniejących wdrożeń. Doradca oblicza oszczędności dla indywidualnych subskrypcji przy użyciu cen rezerwacji 3-letnich i wzorców użycia zaobserwowanych w ciągu ostatnich 30 dni. Zalecenia dotyczące zakresu udostępnionego są dostępne dla zarezerwowanych zakupów pojemności i mogą zwiększyć oszczędności.
 
-### <a name="synapse-analytics-formerly-sql-data-warehouse-reserved-capacity"></a>Zarezerwowana pojemność Synapse Analytics (dawniej SQL Data Warehouse)
+### <a name="azure-synapse-analytics-formerly-sql-data-warehouse-reserved-capacity"></a>Zarezerwowana pojemność usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)
 Usługa Advisor analizuje wzorce użycia usługi Azure Synapse Analytics w ciągu ostatnich 30 dni i zaleca zakupy zarezerwowanych pojemności, które optymalizują koszty. Korzystając z zarezerwowanej pojemności, możesz wstępnie kupić Synapseą analizę godzinową i zaoszczędzić na kosztach na żądanie. Zarezerwowana pojemność to korzyść rozliczenia i automatycznie stosowana do nowych i istniejących wdrożeń. Doradca oblicza oszczędności dla indywidualnych subskrypcji przy użyciu cen rezerwacji 3-letnich i wzorców użycia zaobserwowanych w ciągu ostatnich 30 dni. Zalecenia dotyczące zakresu udostępnionego są dostępne dla zarezerwowanych zakupów pojemności i mogą zwiększyć oszczędności.
 
 ## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Usuń nieskojarzone publiczne adresy IP, aby zaoszczędzić pieniądze

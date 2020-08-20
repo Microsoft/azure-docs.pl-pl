@@ -4,12 +4,12 @@ description: Informacje o zarządzaniu certyfikatami w klastrze Service Fabric z
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: fb5d19e1cceacfeabc4bc670de98e56d3fbc2596
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: aba681157d71f94914462b8d9fc13b90d4d6b153
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246711"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653668"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Zarządzanie certyfikatami w klastrach Service Fabric
 
@@ -91,7 +91,7 @@ W tym momencie certyfikat istnieje w magazynie, gotowy do użycia. Od do do:
 Wspomniano "Agent aprowizacji", który jest jednostką, która pobiera certyfikat, włącznie z jego kluczem prywatnym, z magazynu i instaluje go na wszystkich hostach klastra. (Odwołaj to Service Fabric nie udostępnia certyfikatów). W naszym kontekście klaster będzie hostowany w kolekcji maszyn wirtualnych platformy Azure i/lub zestawów skalowania maszyn wirtualnych. Na platformie Azure Inicjowanie obsługi certyfikatu z magazynu na maszynę wirtualną/VMSS można osiągnąć przy użyciu następujących mechanizmów — przy założeniu, że Agent aprowizacji ma wcześniej przyznane uprawnienia get do magazynu przez właściciela magazynu: 
   - ad hoc: operator pobiera certyfikat z magazynu (jako PFX/PKCS #12 lub PEM) i instaluje go w każdym węźle
   - jako wpis "tajny" zestawu skalowania maszyn wirtualnych podczas wdrażania: usługa obliczeniowa pobiera, korzystając z tożsamości pierwszej firmy w imieniu operatora, certyfikatu z magazynu z obsługą wdrożenia szablonu i instaluje go w każdym węźle zestawu skalowania maszyn wirtualnych ([np](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#certificates).); należy pamiętać, że umożliwia to tylko aprowizacji wpisów tajnych wersji
-  - przy użyciu [rozszerzenia maszyny wirtualnej Key Vault](../virtual-machines/extensions/key-vault-windows.md) pozwala to na inicjowanie obsługi certyfikatów przy użyciu deklaracji bez wersji i okresowe odświeżanie obserwowanych certyfikatów. W takim przypadku oczekuje się, że maszyna wirtualna/VMSS ma [zarządzaną tożsamość](../virtual-machines/windows/security-policy.md#managed-identities-for-azure-resources), tożsamość, której udzielono dostępu do magazynów zawierających obserwowane certyfikaty.
+  - przy użyciu [rozszerzenia maszyny wirtualnej Key Vault](../virtual-machines/extensions/key-vault-windows.md) pozwala to na inicjowanie obsługi certyfikatów przy użyciu deklaracji bez wersji i okresowe odświeżanie obserwowanych certyfikatów. W takim przypadku oczekuje się, że maszyna wirtualna/VMSS ma [zarządzaną tożsamość](../virtual-machines/security-policy.md#managed-identities-for-azure-resources), tożsamość, której udzielono dostępu do magazynów zawierających obserwowane certyfikaty.
 
 Mechanizm ad hoc nie jest zalecany z wielu powodów, od zabezpieczeń do dostępności i nie zostanie jeszcze omówiona w tym miejscu. Aby uzyskać szczegółowe informacje, zobacz [Certyfikaty w zestawach skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#certificates).
 

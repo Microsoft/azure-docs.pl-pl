@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: e0670aeb3a41506ef302364c6eeaff332520abc5
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: eca9596666b318b71bb1deec64e3a7d037e8fa0d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245438"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654331"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Często zadawane pytania dotyczące usługi Azure Files
 [Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem standardowego [protokołu bloku komunikatów serwera (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Udziały plików platformy Azure można instalować jednocześnie w chmurze lub lokalnych wdrożeniach systemów Windows, Linux i macOS. Możesz również buforować udziały plików platformy Azure na maszynach z systemem Windows Server, używając Azure File Sync, aby szybko uzyskać dostęp do miejsca, w którym są używane dane.
@@ -54,7 +54,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
     Jednym z metod uzyskiwania najlepszych Azure Files i serwera plików hostowanego w usłudze Azure Virtual Machines (oprócz używania dysków platformy Azure jako magazynu zaplecza) jest zainstalowanie Azure File Sync na serwerze plików hostowanym na maszynie wirtualnej w chmurze. Jeśli udział plików platformy Azure znajduje się w tym samym regionie, w którym znajduje się serwer plików, można włączyć obsługę warstw w chmurze i ustawić wartość procentową ilości wolnego miejsca na maksymalną (99%). Zapewnia to minimalne duplikowanie danych. Możesz również użyć dowolnych aplikacji do serwerów plików, takich jak aplikacje wymagające obsługi protokołu NFS.
 
-    Aby uzyskać informacje dotyczące opcji konfigurowania serwera plików o wysokiej wydajności i wysokiej dostępności na platformie Azure, zobacz [wdrażanie klastrów gościa maszyny wirtualnej IaaS w Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). Aby zapoznać się z bardziej szczegółowym opisem różnic między Azure Files i dyskami platformy Azure, zobacz [wprowadzenie do podstawowych usług Azure Storage](../common/storage-introduction.md). Aby dowiedzieć się więcej o usłudze Azure disks, zobacz [Omówienie usługi azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md).
+    Aby uzyskać informacje dotyczące opcji konfigurowania serwera plików o wysokiej wydajności i wysokiej dostępności na platformie Azure, zobacz [wdrażanie klastrów gościa maszyny wirtualnej IaaS w Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). Aby zapoznać się z bardziej szczegółowym opisem różnic między Azure Files i dyskami platformy Azure, zobacz [wprowadzenie do podstawowych usług Azure Storage](../common/storage-introduction.md). Aby dowiedzieć się więcej o usłudze Azure disks, zobacz [Omówienie usługi azure Managed disks](../../virtual-machines/managed-disks-overview.md).
 
 * <a id="get-started"></a>
   **Jak mogę rozpocząć korzystanie z Azure Files?**  
@@ -432,7 +432,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 **Jak mogę użyć Azure Files z IBM MQ?**  
     Firma IBM wydała dokument, który pomaga klientom firmy IBM MQ skonfigurować Azure Files z usługą firmy IBM. Aby uzyskać więcej informacji, zobacz [jak skonfigurować usługę zarządzania wieloma wystąpieniami programu IBM MQ z usługą Microsoft Azure Files](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Rozwiązywanie problemów Azure Files w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Rozwiązywanie problemów Azure Files w systemie Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Rozwiązywanie problemów z usługą Azure File Sync](storage-sync-files-troubleshoot.md)

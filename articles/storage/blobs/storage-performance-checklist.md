@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4471994f7e691466449125a74cf3f7d46607be01
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 40814ca54d31ff1fff6e3bd773564748392bf5b3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495135"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654076"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista kontrolna wydajności i skalowalności usługi BLOB Storage
 
@@ -64,7 +64,7 @@ Aby uzyskać więcej informacji dotyczących skalowalności usługa kolejki, zob
 
 Jeśli zbliżasz się do maksymalnej liczby kont magazynu dozwolonych dla konkretnej kombinacji subskrypcji/regionu, Oceń swój scenariusz i ustal, czy są spełnione następujące warunki:
 
-- Czy używasz kont magazynu do przechowywania dysków niezarządzanych i dodawania tych dysków do maszyn wirtualnych? W tym scenariuszu firma Microsoft zaleca używanie dysków zarządzanych. Skalowanie dysków zarządzanych automatycznie i bez konieczności tworzenia poszczególnych kont magazynu i zarządzania nimi. Aby uzyskać więcej informacji, zobacz [wprowadzenie do usługi Azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md)
+- Czy używasz kont magazynu do przechowywania dysków niezarządzanych i dodawania tych dysków do maszyn wirtualnych? W tym scenariuszu firma Microsoft zaleca używanie dysków zarządzanych. Skalowanie dysków zarządzanych automatycznie i bez konieczności tworzenia poszczególnych kont magazynu i zarządzania nimi. Aby uzyskać więcej informacji, zobacz [wprowadzenie do usługi Azure Managed disks](../../virtual-machines/managed-disks-overview.md)
 - Czy używasz jednego konta magazynu dla każdego klienta na potrzeby izolacji danych? W tym scenariuszu firma Microsoft zaleca używanie kontenera obiektów BLOB dla każdego klienta, a nie całego konta magazynu. Usługa Azure Storage umożliwia teraz Przypisywanie ról platformy Azure dla poszczególnych kontenerów. Aby uzyskać więcej informacji, zobacz [udzielanie dostępu do obiektów blob platformy Azure i danych z kolejki przy użyciu RBAC w Azure Portal](../common/storage-auth-aad-rbac-portal.md).
 - Czy używasz wielu kont magazynu do fragmentu, aby zwiększyć ruch przychodzący, ruch wychodzący, operacje we/wy na sekundę (IOPS) lub pojemność? W tym scenariuszu firma Microsoft zaleca użycie zwiększonych limitów dla kont magazynu w celu zmniejszenia liczby kont magazynu wymaganych do obciążenia, jeśli jest to możliwe. Skontaktuj się z [pomocą techniczną platformy Azure](https://azure.microsoft.com/support/options/) , aby zażądać zwiększonych limitów dla konta magazynu. Aby uzyskać więcej informacji, zobacz temat [ogłaszanie większych kont magazynu](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)o większej skali.
 

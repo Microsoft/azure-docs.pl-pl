@@ -5,15 +5,15 @@ author: laurenhughes
 ms.author: lahugh
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 07/13/2020
-ms.openlocfilehash: 040f4378e01c3696b9a74bfcc27230503828f19a
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.date: 08/17/2020
+ms.openlocfilehash: 154558a2aa679dddad395225088ea891ecea8ebc
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562791"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654280"
 ---
-# <a name="preview---azure-kubernetes-service-aks-node-image-upgrades"></a>Wersja zapoznawcza — uaktualnienia obrazów węzła usługi Azure Kubernetes Service (AKS)
+# <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>Uaktualnianie obrazu węzła usługi Azure Kubernetes Service (AKS)
 
 Program AKS obsługuje uaktualnianie obrazów w węźle, dzięki czemu jesteś aktualny z najnowszymi aktualizacjami systemu operacyjnego i środowiska uruchomieniowego. Program AKS udostępnia jeden nowy obraz tygodniowo z najnowszymi aktualizacjami, dlatego warto uaktualnić obrazy węzła regularnie w przypadku najnowszych funkcji, w tym dla systemu Linux lub Windows. W tym artykule pokazano, jak uaktualnić obrazy węzłów klastra AKS oraz jak aktualizować obrazy puli węzłów bez uaktualniania wersji programu Kubernetes.
 
@@ -21,23 +21,9 @@ Jeśli interesują Cię informacje o najnowszych obrazach dostarczonych przez AK
 
 Aby uzyskać informacje na temat uaktualniania wersji Kubernetes dla klastra, zobacz [Uaktualnianie klastra AKS][upgrade-cluster].
 
-## <a name="register-the-node-image-upgrade-preview-feature"></a>Rejestrowanie funkcji wersji zapoznawczej obrazu węzła
+## <a name="install-the-aks-cli-extension"></a>Instalowanie rozszerzenia interfejsu wiersza polecenia AKS
 
-Aby skorzystać z funkcji uaktualniania obrazu węzła w trakcie okresu zapoznawczego, należy zarejestrować tę funkcję.
-
-```azurecli
-# Register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "NodeImageUpgradePreview"
-```
-
-Rejestracja może potrwać kilka minut. Aby sprawdzić, czy funkcja jest zarejestrowana, użyj następującego polecenia:
-
-```azurecli
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodeImageUpgradePreview')].{Name:name,State:properties.state}"
-```
-
-W trakcie korzystania z wersji zapoznawczej potrzebne jest rozszerzenie wiersza polecenia *AKS-Preview* , aby można było użyć uaktualnienia obrazu węzła. Użyj polecenia [AZ Extension Add][az-extension-add] , a następnie sprawdź, czy są dostępne aktualizacje za pomocą polecenia [AZ Extension Update][az-extension-update] :
+Przed wydaniem kolejnej wersji interfejsu wiersza polecenia, konieczne jest rozszerzenie interfejsu wiersza polecenia *AKS-Preview* , aby można było użyć uaktualnienia obrazu węzła. Użyj polecenia [AZ Extension Add][az-extension-add] , a następnie sprawdź, czy są dostępne aktualizacje za pomocą polecenia [AZ Extension Update][az-extension-update] :
 
 ```azurecli
 # Install the aks-preview extension
@@ -46,12 +32,6 @@ az extension add --name aks-preview
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ```
-
-Gdy stan jest wyświetlany jako zarejestrowane, Odśwież rejestrację `Microsoft.ContainerService` dostawcy zasobów przy użyciu polecenia [AZ Provider Register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) :
-
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```  
 
 ## <a name="upgrade-all-nodes-in-all-node-pools"></a>Uaktualnij wszystkie węzły we wszystkich pulach węzłów
 

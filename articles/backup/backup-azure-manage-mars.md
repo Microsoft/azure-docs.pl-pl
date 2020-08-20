@@ -4,12 +4,12 @@ description: Informacje o sposobach zarządzania kopiami zapasowymi agenta Micro
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 581141ea5ffaecf774d292f66a05da5e40c8dc54
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 71cec82550ae8ca2bc6ddd7bda6452870e5e0818
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263303"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654229"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Zarządzanie kopiami zapasowymi agentów Microsoft Azure Recovery Services (MARS) za pomocą usługi Azure Backup
 
@@ -92,7 +92,7 @@ Istnieją dwa sposoby na zatrzymanie ochrony kopii zapasowych plików i folderó
   - Ta opcja spowoduje zatrzymanie wszystkich przyszłych zadań tworzenia kopii zapasowej z ochrony.
   - Usługa Azure Backup będzie nadal utrzymywać wszystkie istniejące punkty odzyskiwania.  
   - Będzie można przywrócić dane z kopii zapasowej dla niewygasłych punktów odzyskiwania.
-  - Jeśli zdecydujesz się wznowić ochronę, możesz użyć opcji *Włącz ponownie harmonogram tworzenia kopii zapasowych* . Następnie dane byłyby przechowywane na podstawie nowych zasad przechowywania.
+  - Jeśli zdecydujesz się wznowić ochronę, możesz użyć opcji *Włącz ponownie harmonogram tworzenia kopii zapasowych* . Następnie dane zostaną zachowane na podstawie nowych zasad przechowywania.
 - **Zatrzymaj ochronę i Usuń dane kopii zapasowej**.
   - Ta opcja spowoduje zatrzymanie wszystkich przyszłych zadań tworzenia kopii zapasowej z ochrony danych i usunięcie wszystkich punktów odzyskiwania.
   - Otrzymasz wiadomość e-mail z alertem dotyczącym usuwania danych kopii zapasowej z komunikatem, *że dane dla tego elementu kopii zapasowej zostały usunięte. Te dane będą tymczasowo dostępne przez 14 dni, po upływie których zostanie trwale usunięte* i zalecana Akcja *ponownie Włącz ochronę elementu kopii zapasowej w ciągu 14 dni, aby odzyskać dane.*

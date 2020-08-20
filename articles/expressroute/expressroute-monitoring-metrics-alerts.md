@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 49e5acb7fc0cfe947d846f2943fb5071d6554ea5
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: b3c42901b4ef503a6099b49db84012521a7eba9f
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192470"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654569"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitorowanie, metryki i alerty usługi ExpressRoute
 
@@ -33,14 +33,16 @@ Po wybraniu metryki zostanie zastosowana domyślna agregacja. Opcjonalnie można
 | --- | --- | --- | --- |
 |Dostępność protokołu ARP|Dostępność|<ui><li>Węzeł równorzędny (podstawowy/pomocniczy router ExpressRoute)</ui></li><ui><li> Typ komunikacji równorzędnej (prywatny/publiczny/Microsoft)</ui></li>|ExpressRoute|
 |Dostępność protokołu BGP|Dostępność|<ui><li> Węzeł równorzędny (podstawowy/pomocniczy router ExpressRoute)</ui></li><ui><li> Typ komunikacji równorzędnej</ui></li>|ExpressRoute|
-|BitsInPerSecond|Ruch|<ui><li> Typ komunikacji równorzędnej (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute Direct)</ui></li>| <li> ExpressRoute</li><li>Usługa ExpressRoute Direct|
-|BitsOutPerSecond|Ruch| <ui><li>Typ komunikacji równorzędnej (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute Direct) | <ui><li>ExpressRoute<ui><li>Usługa ExpressRoute Direct</ui></li> |
+|BitsInPerSecond|Ruch|<ui><li> Typ komunikacji równorzędnej (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute Direct)</ui></li>|<li>ExpressRoute</li><li>Usługa ExpressRoute Direct|
+|BitsOutPerSecond|Ruch| <ui><li>Typ komunikacji równorzędnej (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute Direct) |<ui><li>ExpressRoute<ui><li>Usługa ExpressRoute Direct</ui></li> |
+|Wykorzystanie procesora|Wydajność| <ui><li>Wystąpienie</ui></li>|ExpressRoute Virtual Network Gateway|
+|Liczba pakietów na sekundę|Wydajność| <ui><li>Wystąpienie</ui></li>|ExpressRoute Virtual Network Gateway|
 |GlobalReachBitsInPerSecond|Ruch|<ui><li>Skey obwodu równorzędnego (klucz usługi)</ui></li>|Global Reach|
 |GlobalReachBitsOutPerSecond|Ruch|<ui><li>Skey obwodu równorzędnego (klucz usługi)</ui></li>|Global Reach|
 |AdminState|Łączność fizyczna|Łącze|Usługa ExpressRoute Direct|
 |LineProtocol|Łączność fizyczna|Łącze|Usługa ExpressRoute Direct|
-|RxLightLevel|Łączność fizyczna|<ui><li>Powiązań</ui></li><ui><li>Ścieżka</ui></li>|Usługa ExpressRoute Direct|
-|TxLightLevel|Łączność fizyczna|<ui><li>Powiązań</ui></li><ui><li>Ścieżka</ui></li>|Usługa ExpressRoute Direct|
+|RxLightLevel|Łączność fizyczna|<ui><li>Łącze</ui></li><ui><li>Ścieżka</ui></li>|Usługa ExpressRoute Direct|
+|TxLightLevel|Łączność fizyczna|<ui><li>Łącze</ui></li><ui><li>Ścieżka</ui></li>|Usługa ExpressRoute Direct|
 >[!NOTE]
 >Użycie *GlobalGlobalReachBitsInPerSecond* i *GlobalGlobalReachBitsOutPerSecond* będzie widoczne tylko wtedy, gdy zostanie nawiązane co najmniej jedno połączenie Global REACH.
 >
@@ -102,6 +104,14 @@ Możesz wyświetlić poziom światła RX (poziom jasny, który **odbiera**port b
 Możesz wyświetlić poziom światła TX (poziom jasny, który jest **przesyłany**przez port bezpośredni ExpressRoute) dla każdego portu. Poziom oświetlenia w dobrej kondycji zwykle mieści się w zakresie od-10 do 0 dBm
 
 ![Poziom oświetlenia bezpośredniego odbierania wierszy w wierszu](./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg)
+
+## <a name="expressroute-virtual-network-gateway-metrics"></a>Metryki bramy Virtual Network ExpressRoute
+
+### <a name="cpu-utilization---split-instance"></a>Użycie procesora CPU — podzielone wystąpienie
+Można wyświetlić użycie procesora CPU przez wystąpienia bramy.
+
+### <a name="packets-per-second---split-by-instance"></a>Pakiety na sekundę — dzielenie według wystąpienia
+Można wyświetlać pakiety na sekundę przechodzące przez bramę.
 
 ## <a name="expressroute-gateway-connections-in-bitsseconds"></a>Połączenia bramy ExpressRoute w bitach/s
 

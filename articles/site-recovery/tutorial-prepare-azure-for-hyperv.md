@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4e28a46b8d231b3f228a95ea06b7b9cada50de54
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f4f040288574a9ddfc5f7c56878c7f1e795b09a3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498994"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653855"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Przygotowywanie zasobów platformy Azure na potrzeby odzyskiwania po awarii funkcji Hyper-V
 
@@ -89,7 +89,7 @@ Gdy maszyny wirtualne platformy Azure są tworzone na podstawie magazynu po prze
 5. W obszarze **Subskrypcja** wybierz subskrypcję, w ramach której chcesz utworzyć sieć.
 6. W obszarze **Lokalizacja**wybierz pozycję **Europa Zachodnia**. Sieć musi znajdować się w tym samym regionie co magazyn Usług odzyskiwania.
 7. Pozostaw domyślne opcje podstawowej ochrony DDoS bez punktu końcowego usługi w sieci.
-8. Wybierz przycisk **Utwórz**.
+8. Wybierz pozycję **Utwórz**.
 
 ![Zrzut ekranu przedstawiający opcje tworzenia sieci wirtualnej.](media/tutorial-prepare-azure/create-network.png)
 
@@ -99,7 +99,7 @@ Utworzenie sieci wirtualnej zajmuje kilka sekund. Po jego utworzeniu zobaczysz g
 
 Dowiedz się więcej:
 - [Sieci platformy Azure](../virtual-network/virtual-networks-overview.md)
-- [Dyski zarządzane](../virtual-machines/windows/managed-disks-overview.md)
+- [Dyski zarządzane](../virtual-machines/managed-disks-overview.md)
 
 
 

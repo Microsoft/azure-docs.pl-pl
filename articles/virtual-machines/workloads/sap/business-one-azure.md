@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 293a0fcd1211739be07e58f414bd6861bf47eb76
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ccec58f012dcd4b6371c15e79fa964600e775f54
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831111"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654654"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One na maszynach wirtualnych platformy Azure
 Ten dokument zawiera wskazówki dotyczące wdrażania oprogramowania SAP Business One na platformie Azure Virtual Machines. Dokumentacja programu nie zastępuje dokumentacji dotyczącej instalacji dla oprogramowania SAP. Dokumentacja powinna obejmować podstawowe wytyczne dotyczące planowania i wdrażania infrastruktury platformy Azure w celu uruchamiania aplikacji firmowych.
@@ -118,7 +118,7 @@ Te dokumenty powinny ułatwić podjęcie decyzji dotyczącej wyboru typów magaz
 
 W zasadzie należy:
 
-- Korzystaj z dysków SSD Premium w warstwie Standardowa HDD. Aby dowiedzieć się więcej o dostępnych typach dysków, zapoznaj się z artykułem [Wybieranie typu dysku](../../windows/disks-types.md)
+- Korzystaj z dysków SSD Premium w warstwie Standardowa HDD. Aby dowiedzieć się więcej o dostępnych typach dysków, zapoznaj się z artykułem [Wybieranie typu dysku](../../disks-types.md)
 - Korzystanie z usługi Azure Managed disks za pośrednictwem dysków niezarządzanych
 - Upewnij się, że masz wystarczającą liczbę operacji we/wy i przepływności operacji wejścia/wyjścia skonfigurowanej z konfiguracją dysku
 - Połącz woluminy/Hana/Data i/Hana/log w celu zapewnienia ekonomicznej konfiguracji magazynu

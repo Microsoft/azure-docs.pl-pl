@@ -7,12 +7,12 @@ ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/09/2020
-ms.openlocfilehash: 273e6560cd4a9efeac6704ca5d44772248c26050
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f4d30cdb931d6523eba3aac003caeee38a8c024d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504317"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653532"
 ---
 # <a name="common-issues-during-vhd-creation"></a>Typowe problemy podczas tworzenia wirtualnego dysku twardego
 
@@ -20,7 +20,7 @@ Te często zadawane pytania obejmują typowe problemy, które można napotkać p
 
 ## <a name="how-do-i-create-a-vm-from-the-azure-portal-using-a-vhd-in-premium-storage"></a>Jak mogę utworzyć maszynę wirtualną na podstawie Azure Portal przy użyciu dysku VHD w usłudze Premium Storage?
 
-Portal Azure Marketplace obecnie nie obsługuje tworzenia ofert maszyn wirtualnych z obrazów w zarządzanym magazynie lub na platformie Azure Premium Storage. Aby uzyskać szczegółowe informacje, zobacz [Omówienie usługi Azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md).
+Portal Azure Marketplace obecnie nie obsługuje tworzenia ofert maszyn wirtualnych z obrazów w zarządzanym magazynie lub na platformie Azure Premium Storage. Aby uzyskać szczegółowe informacje, zobacz [Omówienie usługi Azure Managed disks](../../virtual-machines/managed-disks-overview.md).
 
 ## <a name="can-i-use-generation-2-vms-for-offers"></a>Czy mogę używać maszyn wirtualnych generacji 2 dla ofert?
 
@@ -28,7 +28,7 @@ Nie, obsługiwane są tylko wirtualne dyski twarde generacji 1. Obecnie pracujem
 
 ## <a name="how-do-i-change-the-name-of-the-host"></a>Jak mogę zmienić nazwę hosta?
 
-Nie możesz. Po utworzeniu maszyny wirtualnej użytkownicy (w tym właściciele) nie mogą zaktualizować nazwy hosta.
+Nie można. Po utworzeniu maszyny wirtualnej użytkownicy (w tym właściciele) nie mogą zaktualizować nazwy hosta.
 
 ## <a name="how-do-i-reset-the-remote-desktop-service-or-its-sign-in-password"></a>Jak mogę zresetować usługę Pulpit zdalny lub hasło logowania?
 

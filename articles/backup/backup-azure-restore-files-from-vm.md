@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punk
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: ba97a5812359fc72e52d68e337762f7234aa3883
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: ab0722bfee0f8165971b5e3351640f0d3c00bea3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611844"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654161"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -398,7 +398,7 @@ Przepływ danych między usługą odzyskiwania i komputerem jest chroniony przez
 
 Wszystkie pliki Access Control List (ACL), które znajdują się w nadrzędnym/kopii zapasowej maszyny wirtualnej, również są zachowywane w zainstalowanym systemie plików.
 
-Skrypt zapewnia dostęp tylko do odczytu do punktu odzyskiwania i jest prawidłowy tylko przez 12 godzin. Jeśli chcesz usunąć dostęp wcześniej, zaloguj się do witryny Azure Portal/programu PowerShell/interfejsu wiersza polecenia i przeprowadź **dezinstalację dysków** dla danego punktu odzyskiwania. Skrypt zostanie natychmiast unieważniony.
+Skrypt zapewnia dostęp tylko do odczytu do punktu odzyskiwania i jest prawidłowy tylko przez 12 godzin. Jeśli chcesz usunąć dostęp wcześniej, zaloguj się do Azure Portal/PowerShell/CLI i przeprowadź **dezinstalację dysków** dla danego punktu odzyskiwania. Skrypt zostanie natychmiast unieważniony.
 
 ## <a name="next-steps"></a>Następne kroki
 

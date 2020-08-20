@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: 666f84da8f0999268b09dfd06ff5b3fe21bbef96
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 82554982cd55b6c5fb2b96b2752b00401cb896d8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525572"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653634"
 ---
-# <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Optymalizacja wydajności na maszynach wirtualnych z serii Lsv2
+# <a name="optimize-performance-on-the-lsv2-series-windows-virtual-machines"></a>Optymalizacja wydajności na maszynach wirtualnych z serii Lsv2 z systemem Windows
 
 Maszyny wirtualne z serii Lsv2 obsługują różnorodne obciążenia, które wymagają wysokiego wejścia/wyjścia i przepływności w lokalnym magazynie dla szerokiego zakresu aplikacji i branż.  Seria Lsv2 doskonale nadaje się do obsługi danych Big Data, baz danych SQL, NoSQL, magazynów danych i dużych transakcyjnych baz danych, w tym Cassandra, MongoDB, Cloudera i Redis.
 
@@ -75,7 +75,7 @@ Scenariusze, które umożliwiają bezpieczne wymazywanie danych w celu ochrony k
 - Maszyna wirtualna przechodzi w stan złej kondycji i musi zaistnieć w innym węźle, z powodu problemu ze sprzętem.
 - Niewielka liczba planowanych operacji obsługi konserwacji, które wymagają, aby maszyna wirtualna została ponownie przypisana do innego hosta w celu obsługi.
 
-Aby dowiedzieć się więcej na temat opcji tworzenia kopii zapasowych danych w magazynie lokalnym, zobacz [Tworzenie kopii zapasowych i odzyskiwanie po awarii dla dysków usługi Azure IaaS](backup-and-disaster-recovery-for-azure-iaas-disks.md).
+Aby dowiedzieć się więcej na temat opcji tworzenia kopii zapasowych danych w magazynie lokalnym, zobacz [Tworzenie kopii zapasowych i odzyskiwanie po awarii dla dysków usługi Azure IaaS](../backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 

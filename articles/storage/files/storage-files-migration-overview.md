@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d979d2d0167a4398d31271bb896c812bbe86be73
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4223e3bc572a689472dce136b60599034566b274
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827864"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654263"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migracja do udziałów plików usługi Azure File
 
@@ -26,7 +26,7 @@ Platforma Azure ma wiele dostępnych typów magazynu w chmurze. Podstawowym aspe
 
 [Udziały plików platformy Azure](storage-files-introduction.md) są odpowiednie do danych plików ogólnego przeznaczenia. Te dane obejmują wszystkie elementy korzystające z lokalnego udziału SMB lub NFS w systemie. Za pomocą [Azure File Sync](storage-sync-files-planning.md)można buforować zawartość kilku udziałów plików platformy Azure na serwerach z systemem Windows Server w środowisku lokalnym.
 
-W przypadku aplikacji, która jest aktualnie uruchomiona na serwerze lokalnym, przechowywanie plików w udziale plików platformy Azure może być dobrym wyborem. Możesz przenieść aplikację na platformę Azure i użyć udziałów plików platformy Azure jako magazynu udostępnionego. W tym scenariuszu można również rozważyć użycie [dysków platformy Azure](../../virtual-machines/windows/managed-disks-overview.md) .
+W przypadku aplikacji, która jest aktualnie uruchomiona na serwerze lokalnym, przechowywanie plików w udziale plików platformy Azure może być dobrym wyborem. Możesz przenieść aplikację na platformę Azure i użyć udziałów plików platformy Azure jako magazynu udostępnionego. W tym scenariuszu można również rozważyć użycie [dysków platformy Azure](../../virtual-machines/managed-disks-overview.md) .
 
 Niektóre aplikacje w chmurze nie zależą od protokołu SMB ani dostępu do danych na komputerze lokalnym lub dostępu współdzielonego. W przypadku tych aplikacji często najlepszym wyborem jest magazyn obiektów, taki jak [obiekty blob platformy Azure](../blobs/storage-blobs-overview.md) .
 
@@ -78,7 +78,7 @@ Jak korzystać z tabeli:
 
 Scenariusz bez linku jeszcze nie ma opublikowanego przewodnika migracji. Sprawdź, czy w tej tabeli od czasu są aktualizowane aktualizacje. Nowe prowadnice zostaną opublikowane, gdy staną się dostępne.
 
-| Źródło | Cel: </br>Wdrożenie hybrydowe | Cel: </br>Wdrażanie tylko w chmurze |
+| Element źródłowy | Cel: </br>Wdrożenie hybrydowe | Cel: </br>Wdrażanie tylko w chmurze |
 |:---|:--|:--|
 | | Kombinacja narzędzi:| Kombinacja narzędzi: |
 | System Windows Server 2012 R2 lub nowszy | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync i Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>[Azure File Sync i wstępnie rozsiane pliki w chmurze](storage-sync-offline-data-transfer.md#azure-file-sync-and-pre-seeded-files-in-the-cloud)</li><li>Usługa migracji Azure File Sync i magazynu</li></ul> | <ul><li>Azure File Sync</li><li>Azure File Sync i urządzenie Data Box</li><li>Usługa migracji Azure File Sync i magazynu</li><li>RoboCopy</li></ul> |
@@ -126,7 +126,7 @@ Poniższa tabela klasyfikuje narzędzia firmy Microsoft i ich bieżącą przydat
 |![Niezalecane](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Obsługiwane. | Nie kopiuje metadanych. |
 |||||
 
-*\*Pełna wierność: spełnia lub przekracza możliwości udostępniania plików platformy Azure.*
+*\* Pełna wierność: spełnia lub przekracza możliwości udostępniania plików platformy Azure.*
 
 ### <a name="migration-helper-tools"></a>Narzędzia pomocnika migracji
 

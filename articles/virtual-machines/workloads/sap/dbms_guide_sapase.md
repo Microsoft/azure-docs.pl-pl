@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 82dbb73da06097407d91f23d4d372aaa4cc76e99
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: ce13c3bce7cdeb0f3e6dcf1f731be22d93a65587
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510899"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654603"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Wdrażanie systemu DBMS usługi Azure Virtual Machines produktu SAP ESE dla obciążenia SAP
 
@@ -71,7 +71,7 @@ Oprogramowanie SAP ASE zapisuje dane sekwencyjnie na urządzeniach magazynu dysk
 Zaleca się skonfigurowanie automatycznego rozszerzania bazy danych zgodnie z opisem w artykule [Konfigurowanie automatycznego rozszerzania przestrzeni bazy danych w oprogramowaniu SAP adaptacyjne Server Enterprise](https://blogs.sap.com/2014/07/09/configuring-automatic-database-space-expansion-in-sap-adaptive-server-enterprise/)  i [sap support uwagi #1815695](https://launchpad.support.sap.com/#/notes/1815695). 
 
 ### <a name="sample-sap-ase-on-azure-virtual-machine-disk-and-file-system-configurations"></a>Przykładowe oprogramowanie SAP ASE na maszynie wirtualnej platformy Azure, konfiguracje systemu plików i dysku 
-Poniższe szablony pokazują przykładowe konfiguracje dla systemów Linux i Windows. Przed potwierdzeniem konfiguracji maszyny wirtualnej i dysku upewnij się, że przydziały przepustowości sieci i magazynu poszczególnych maszyn wirtualnych są wystarczające do spełnienia wymagań firmy. Należy również pamiętać, że różne typy maszyn wirtualnych platformy Azure mają różną maksymalną liczbę dysków, które można dołączyć do maszyny wirtualnej. Na przykład maszyna wirtualna E4s_v3 ma limit przepływności we/wy magazynu 48 MB/s. Jeśli przepływność magazynu wymaganego przez działanie tworzenia kopii zapasowej bazy danych przekracza 48 MB/s, nie będzie możliwe uniknięcie większego typu maszyn wirtualnych o większej przepływności przepustowości magazynu. Podczas konfigurowania usługi Azure Storage należy również pamiętać, że szczególnie w przypadku [usługi Azure Premium Storage](../../windows/premium-storage-performance.md) przepustowość i liczby operacji wejścia/wyjścia na sekundę na GB pojemności są zmieniane. Więcej informacji na ten temat zawiera artykuł [jakie typy dysków są dostępne na platformie Azure?](../../windows/disks-types.md). Przydziały dla określonych typów maszyn wirtualnych platformy Azure są udokumentowane w artykule [zoptymalizowane rozmiary maszyn wirtualnych](../../sizes-memory.md) oraz połączone z nim artykuły. 
+Poniższe szablony pokazują przykładowe konfiguracje dla systemów Linux i Windows. Przed potwierdzeniem konfiguracji maszyny wirtualnej i dysku upewnij się, że przydziały przepustowości sieci i magazynu poszczególnych maszyn wirtualnych są wystarczające do spełnienia wymagań firmy. Należy również pamiętać, że różne typy maszyn wirtualnych platformy Azure mają różną maksymalną liczbę dysków, które można dołączyć do maszyny wirtualnej. Na przykład maszyna wirtualna E4s_v3 ma limit przepływności we/wy magazynu 48 MB/s. Jeśli przepływność magazynu wymaganego przez działanie tworzenia kopii zapasowej bazy danych przekracza 48 MB/s, nie będzie możliwe uniknięcie większego typu maszyn wirtualnych o większej przepływności przepustowości magazynu. Podczas konfigurowania usługi Azure Storage należy również pamiętać, że szczególnie w przypadku [usługi Azure Premium Storage](../../windows/premium-storage-performance.md) przepustowość i liczby operacji wejścia/wyjścia na sekundę na GB pojemności są zmieniane. Więcej informacji na ten temat zawiera artykuł [jakie typy dysków są dostępne na platformie Azure?](../../disks-types.md). Przydziały dla określonych typów maszyn wirtualnych platformy Azure są udokumentowane w artykule [zoptymalizowane rozmiary maszyn wirtualnych](../../sizes-memory.md) oraz połączone z nim artykuły. 
 
 > [!NOTE]
 >  Jeśli system DBMS jest przenoszony z zasobów lokalnych na platformę Azure, zaleca się przeprowadzenie monitorowania na maszynie wirtualnej i ocenę przepustowości procesora, pamięci, operacji we/wy i magazynu. Porównaj wartości szczytowe zaobserwowane z limitami przydziału maszyn wirtualnych udokumentowanymi w powyższych artykułach
@@ -80,7 +80,7 @@ Przykłady podane poniżej służą do celów ilustracyjnych i mogą być modyfi
 
 Przykład konfiguracji małego serwera z programem SAP ASE DB o rozmiarze bazy danych wynoszącym od 50 GB do 250 GB, na przykład Menedżera rozwiązań SAP, może wyglądać następująco:
 
-| Konfigurowanie | Windows | Linux | Komentarze |
+| Konfiguracja | Windows | Linux | Komentarze |
 | --- | --- | --- | --- |
 | Typ maszyny wirtualnej | E4s_v3 (4 vCPU/32 GB pamięci RAM) | E4s_v3 (4 vCPU/32 GB pamięci RAM) | --- |
 | Accelerated Networking | Włącz | Włącz | ---|
@@ -101,7 +101,7 @@ Przykład konfiguracji małego serwera z programem SAP ASE DB o rozmiarze bazy d
 
 Przykład konfiguracji dla średniego serwera z systemem operacyjnym SAP ASE z rozmiarem bazy danych wynoszącym 250 GB – 750 GB, na przykład w przypadku mniejszych systemów SAP Business Suite, może wyglądać następująco:
 
-| Konfigurowanie | Windows | Linux | Komentarze |
+| Konfiguracja | Windows | Linux | Komentarze |
 | --- | --- | --- | --- |
 | Typ maszyny wirtualnej | E16s_v3 (16 vCPU/128 GB pamięci RAM) | E16s_v3 (16 vCPU/128 GB pamięci RAM) | --- |
 | Accelerated Networking | Włącz | Włącz | ---|
@@ -121,7 +121,7 @@ Przykład konfiguracji dla średniego serwera z systemem operacyjnym SAP ASE z r
 
 Przykład konfiguracji małego serwera z systemem operacyjnym SAP ASE o rozmiarze bazy danych wynoszącym od 750 GB do 2000 GB, na przykład w większym systemie SAP Business Suite, może wyglądać następująco:
 
-| Konfigurowanie | Windows | Linux | Komentarze |
+| Konfiguracja | Windows | Linux | Komentarze |
 | --- | --- | --- | --- |
 | Typ maszyny wirtualnej | E64s_v3 (64 vCPU/432 GB pamięci RAM) | E64s_v3 (64 vCPU/432 GB pamięci RAM) | --- |
 | Accelerated Networking | Włącz | Włącz | ---|
@@ -142,7 +142,7 @@ Przykład konfiguracji małego serwera z systemem operacyjnym SAP ASE o rozmiarz
 
 Przykład konfiguracji małego serwera z systemem operacyjnym SAP ASE z rozmiarem bazy danych wynoszącym 2 TB +, na przykład w większym globalnie używanym systemie SAP Business Suite, może wyglądać jak
 
-| Konfigurowanie | Windows | Linux | Komentarze |
+| Konfiguracja | Windows | Linux | Komentarze |
 | --- | --- | --- | --- |
 | Typ maszyny wirtualnej | Seria M (1,0 do 4,0 TB pamięci RAM)  | Seria M (1,0 do 4,0 TB pamięci RAM) | --- |
 | Accelerated Networking | Włącz | Włącz | ---|

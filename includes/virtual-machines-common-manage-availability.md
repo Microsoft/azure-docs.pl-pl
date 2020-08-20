@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: f1517fd577c5e6bd7341e5dde0204456524ba976
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 2c8f2d95e7e06f2fff3d8344a3fffa5b19648ede
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87545141"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88655233"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Omówienie ponownych rozruchów maszyn wirtualnych — konserwacja a przestój
 Istnieją trzy scenariusze, które mogą spowodować wpływ na maszynę wirtualną na platformie Azure: nieplanowana konserwacja sprzętu, nieoczekiwany przestój i planowana konserwacja.
@@ -23,7 +23,7 @@ Istnieją trzy scenariusze, które mogą spowodować wpływ na maszynę wirtualn
 
 * **Nieoczekiwany przestój** polega na nieoczekiwanej awarii sprzętu lub infrastruktury fizycznej maszyny wirtualnej. Może to obejmować awarie sieci lokalnej, błędy dysku lokalnego lub inne awarie poziomu stojaka. W przypadku wykrycia platforma Azure automatycznie migruje maszynę wirtualną do zdrowej maszyny fizycznej w tym samym centrum danych. Podczas wykonywania procedury naprawiania maszyny wirtualne doświadczają przestoju (ponownego rozruchu), a w niektórych przypadkach dochodzi do utraty dysku tymczasowego. Dołączone dyski systemu operacyjnego i danych są zawsze zachowywane.
 
-  Maszyny wirtualne mogą również powodować przestoje w przypadku nieoczekiwanego wystąpienia awarii lub awarii, która ma wpływ na całe centrum danych, a nawet cały region. W tych scenariuszach platforma Azure oferuje opcje ochrony, w tym [strefy dostępności](../articles/availability-zones/az-overview.md) i [obszary sparowane](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
+  Maszyny wirtualne mogą również powodować przestoje w przypadku nieoczekiwanego wystąpienia awarii lub awarii, która ma wpływ na całe centrum danych, a nawet cały region. W tych scenariuszach platforma Azure oferuje opcje ochrony, w tym  [strefy dostępności](../articles/availability-zones/az-overview.md) i [obszary sparowane](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
 * **Zdarzenia planowanej konserwacji** to okresowe aktualizacje wprowadzane przez firmę Microsoft do podstawowej platformy Azure w celu zwiększenia ogólnej niezawodności, wydajności i bezpieczeństwa infrastruktury platformy, na której działają maszyny wirtualne. Większość tych aktualizacji jest przeprowadzana bez żadnego wpływu na działanie maszyn wirtualnych ani usług w chmurze (zobacz [konserwacja zachowująca maszyny wirtualne](https://docs.microsoft.com/azure/virtual-machines/windows/preserving-maintenance)). Platforma Azure próbuje przeprowadzać konserwację zachowującą maszynę wirtualną przy wszystkich możliwych okazjach, w rzadkich przypadkach jednak aktualizacje wymagają ponownego rozruchu w celu zaktualizowania infrastruktury podstawowej. W takiej sytuacji można przeprowadzić planowaną konserwację platformy Azure z operacją ponownego wdrożenia po konserwacji, inicjując konserwację maszyn wirtualnych w odpowiednim przedziale czasu. Aby uzyskać więcej informacji, zobacz [Planned maintenance for virtual machines in Azure (Planowana konserwacja maszyn wirtualnych na platformie Azure)](https://docs.microsoft.com/azure/virtual-machines/windows/planned-maintenance/).
 
@@ -67,7 +67,7 @@ Domeny błędów definiują grupę maszyn wirtualnych, które korzystają ze wsp
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Używanie dysków zarządzanych dla maszyn wirtualnych w zestawie dostępności
 Jeśli obecnie korzystasz z maszyn wirtualnych z dyskami niezarządzanymi, zdecydowanie zalecamy [konwersję maszyn wirtualnych w zestawie dostępności do korzystania z dysków zarządzanych](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
 
-[Dyski zarządzane](../articles/virtual-machines/windows/managed-disks-overview.md) zapewniają większą niezawodność zestawów dostępności przez zagwarantowanie, że dyski maszyn wirtualnych w zestawie dostępności są wystarczająco odizolowane od siebie, aby uniknąć pojedynczych punktów awarii. Jest to możliwe przez automatyczne umieszczenie dysków w różnych domenach błędów magazynu (klastrów magazynu) i dostosowanie ich do domeny błędów maszyny wirtualnej. Jeśli domena błędów magazynu ulegnie awarii ze względu na awarię sprzętu lub oprogramowania, tylko wystąpienie maszyny wirtualnej z dyskami w domenie błędów magazynu zakończy się niepowodzeniem.
+[Dyski zarządzane](../articles/virtual-machines/managed-disks-overview.md) zapewniają większą niezawodność zestawów dostępności przez zagwarantowanie, że dyski maszyn wirtualnych w zestawie dostępności są wystarczająco odizolowane od siebie, aby uniknąć pojedynczych punktów awarii. Jest to możliwe przez automatyczne umieszczenie dysków w różnych domenach błędów magazynu (klastrów magazynu) i dostosowanie ich do domeny błędów maszyny wirtualnej. Jeśli domena błędów magazynu ulegnie awarii ze względu na awarię sprzętu lub oprogramowania, tylko wystąpienie maszyny wirtualnej z dyskami w domenie błędów magazynu zakończy się niepowodzeniem.
 ![Domenami błędów dysków zarządzanych](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
 > [!IMPORTANT]

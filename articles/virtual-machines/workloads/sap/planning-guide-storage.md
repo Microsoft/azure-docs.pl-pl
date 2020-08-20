@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 668f8ffdc4b797219dc1f3c23fecb858d8f706ad
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 819ac1f01cc182c79571de35ec0753f694dc7722
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510865"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653617"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Typy usługi Azure Storage dla obciążeń SAP
 Platforma Azure ma wiele typów magazynów, które różnią się znacznie w zależności od możliwości, przepływności, opóźnień i cen. Niektóre typy magazynów nie są lub są ograniczone do użycia w scenariuszach SAP. Niektóre typy magazynów platformy Azure są dobrze dopasowane lub zoptymalizowane pod kątem określonych scenariuszy obciążeń SAP. Szczególnie w przypadku SAP HANA niektóre typy magazynów platformy Azure uzyskały certyfikat do użycia z SAP HANA. W tym dokumencie przechodzą różne typy magazynów i opisano ich możliwości i użyteczność przy użyciu obciążeń SAP i składników SAP.
@@ -36,7 +36,7 @@ Istnieje kilka metod nadmiarowości, które zostały opisane w artykule [Replika
 
 ### <a name="azure-managed-disks"></a>Azure Managed disks
 
-Dyski zarządzane są typu zasobów w Azure Resource Manager, które mogą być używane zamiast wirtualnych dysków twardych przechowywanych na kontach usługi Azure Storage. Managed Disks automatycznie wyrównać z [zestaw dostępności] [Virtual-Machines-Manage-Availability] maszyny wirtualnej, do której są dołączone, i w związku z tym zwiększyć dostępność maszyny wirtualnej i usługi, które są uruchomione na maszynie wirtualnej. Aby uzyskać więcej informacji, zapoznaj się z [artykułem Omówienie](../../windows/managed-disks-overview.md).
+Dyski zarządzane są typu zasobów w Azure Resource Manager, które mogą być używane zamiast wirtualnych dysków twardych przechowywanych na kontach usługi Azure Storage. Managed Disks automatycznie wyrównać z [zestaw dostępności] [Virtual-Machines-Manage-Availability] maszyny wirtualnej, do której są dołączone, i w związku z tym zwiększyć dostępność maszyny wirtualnej i usługi, które są uruchomione na maszynie wirtualnej. Aby uzyskać więcej informacji, zapoznaj się z [artykułem Omówienie](../../managed-disks-overview.md).
 
 W poniższym przykładzie przedstawiono zalety korzystania z dysków zarządzanych:
 
@@ -61,7 +61,7 @@ Utrwalany magazyn jest wymagany w obciążeniu SAP w różnych składnikach stos
 - Udziały plików lub dyski udostępnione, które zawierają Globalny katalog transportu dla NetWeaver lub S/4HANA. Zawartość tych udziałów jest używana przez oprogramowanie działające na wielu maszynach wirtualnych lub służy do tworzenia scenariuszy klastra trybu failover o wysokiej dostępności
 - Katalog/sapmnt lub typowe udziały plików dla procesów EDI lub podobnych. Zawartość tych udziałów jest używana przez oprogramowanie działające na wielu maszynach wirtualnych lub służy do tworzenia scenariuszy klastra trybu failover o wysokiej dostępności
 
-W następnych sekcjach omówiono różne typy magazynów platformy Azure i ich użyteczność dla obciążeń SAP, które dotyczą czterech powyższych scenariuszy. Ogólna Kategoryzacja, w jaki sposób należy używać różnych typów magazynu platformy Azure, jest udokumentowana w artykule [jakie typy dysków są dostępne na platformie Azure?](../../linux/disks-types.md). Zalecenia dotyczące korzystania z różnych typów usługi Azure Storage dla obciążeń SAP nie będą się różnić w znacznym zakresie.
+W następnych sekcjach omówiono różne typy magazynów platformy Azure i ich użyteczność dla obciążeń SAP, które dotyczą czterech powyższych scenariuszy. Ogólna Kategoryzacja, w jaki sposób należy używać różnych typów magazynu platformy Azure, jest udokumentowana w artykule [jakie typy dysków są dostępne na platformie Azure?](../../disks-types.md). Zalecenia dotyczące korzystania z różnych typów usługi Azure Storage dla obciążeń SAP nie będą się różnić w znacznym zakresie.
 
 Aby uzyskać informacje na temat ograniczeń dotyczących obsługi typów magazynu platformy Azure dla warstwy oprogramowania SAP NetWeaver/4HANA, zapoznaj się z [uwagami dotyczącymi obsługi sap 2015553](https://launchpad.support.sap.com/#/notes/2015553) w przypadku SAP HANA certyfikowane i obsługiwane typy usługi Azure Storage przeczytaj artykuł [SAP HANA konfiguracje magazynu maszyn wirtualnych platformy Azure](./hana-vm-operations-storage.md).
 
@@ -123,7 +123,7 @@ Magazyn SSD systemu Azure w warstwie Premium został wprowadzony w celu zapewnie
 * Umowy SLA dla operacji we/wy na sekundę
 * Mniej zmienności w opóźnieniu we/wy
 
-Ten typ magazynu dotyczy obciążeń systemu DBMS, ruchu magazynu, który wymaga niskich jednocyfrowych opóźnień, a umowy SLA w przypadku operacji we/wy na sekundę w przypadku usługi Azure Premium Storage nie jest rzeczywistym woluminem danych przechowywanym na tych dyskach, ale z kategorią rozmiaru dysku, niezależnie od ilości danych przechowywanych na dysku. Można również tworzyć dyski w magazynie w warstwie Premium, które nie są bezpośrednio mapowane do kategorii rozmiaru przedstawionych w artykule [SSD w warstwie Premium](../../linux/disks-types.md#premium-ssd). Wnioski z tego artykułu są następujące:
+Ten typ magazynu dotyczy obciążeń systemu DBMS, ruchu magazynu, który wymaga niskich jednocyfrowych opóźnień, a umowy SLA w przypadku operacji we/wy na sekundę w przypadku usługi Azure Premium Storage nie jest rzeczywistym woluminem danych przechowywanym na tych dyskach, ale z kategorią rozmiaru dysku, niezależnie od ilości danych przechowywanych na dysku. Można również tworzyć dyski w magazynie w warstwie Premium, które nie są bezpośrednio mapowane do kategorii rozmiaru przedstawionych w artykule [SSD w warstwie Premium](../../disks-types.md#premium-ssd). Wnioski z tego artykułu są następujące:
 
 - Magazyn jest zorganizowany w zakresach. Na przykład dysk w zakresie 513 GiB do 1024 GiB może mieć te same możliwości i te same miesięczne koszty
 - Liczba operacji we/wy na sekundę nie jest śledzona liniowo w kategoriach rozmiaru. Mniejsze dyski poniżej 32 GiB mają wyższą szybkość operacji we/wy na GiB. W przypadku dysków poza 32 GiB do 1024 GiB szybkość operacji we/wy na GiB wynosi od 4-5 IOPS na GiB. W przypadku większych dysków o pojemności do 32 767 GiB szybkość operacji we/wy na GiB jest mniejsza niż 1
@@ -184,8 +184,8 @@ Dyski platformy Azure w warstwie Ultra oferują magazyn danych na dysku z wysok�
 Podczas tworzenia dysku można zdefiniować trzy wymiary:
 
 - Pojemność dysku. Zakresy są z przedziału od 4 GiB do 65 536 GiB
-- Zainicjowano obsługę operacji we/wy na dysku. Różne wartości maksymalne mają zastosowanie do pojemności dysku. Zapoznaj się z artykułem [Ultra Disk](../../linux/disks-types.md#ultra-disk) , aby uzyskać więcej szczegółów
-- Zainicjowana przepustowość magazynu. Inna przepustowość Maksymalna jest zależna od pojemności dysku. Zapoznaj się z artykułem [Ultra Disk](../../linux/disks-types.md#ultra-disk) , aby uzyskać więcej szczegółów
+- Zainicjowano obsługę operacji we/wy na dysku. Różne wartości maksymalne mają zastosowanie do pojemności dysku. Zapoznaj się z artykułem [Ultra Disk](../../disks-types.md#ultra-disk) , aby uzyskać więcej szczegółów
+- Zainicjowana przepustowość magazynu. Inna przepustowość Maksymalna jest zależna od pojemności dysku. Zapoznaj się z artykułem [Ultra Disk](../../disks-types.md#ultra-disk) , aby uzyskać więcej szczegółów
 
 Koszt pojedynczego dysku jest określany przez trzy wymiary, które można zdefiniować osobno dla poszczególnych dysków. 
 

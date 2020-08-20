@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 8a5374bf15798fd7e53f0d93e69f2f40a2d57b94
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e5862daa21f8bf0075bb1dee567cbe887ec32d72
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533822"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653277"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Wystąpienia klastra trybu failover z SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -58,7 +58,7 @@ W pozostałej części tej sekcji wymieniono zalety i ograniczenia dotyczące po
 
 ### <a name="azure-shared-disks"></a>Dyski udostępnione platformy Azure
 
-[Usługa Azure Shared disks](../../../virtual-machines/windows/disks-shared.md) jest funkcją usługi [Azure Managed disks](../../../virtual-machines/windows/managed-disks-overview.md). Klaster trybu failover systemu Windows Server obsługuje używanie dysków udostępnionych platformy Azure z wystąpieniem klastra trybu failover. 
+[Usługa Azure Shared disks](../../../virtual-machines/windows/disks-shared.md) jest funkcją usługi [Azure Managed disks](../../../virtual-machines/managed-disks-overview.md). Klaster trybu failover systemu Windows Server obsługuje używanie dysków udostępnionych platformy Azure z wystąpieniem klastra trybu failover. 
 
 **Obsługiwany system operacyjny**: wszystkie   
 **Obsługiwana wersja programu SQL**: wszystkie     

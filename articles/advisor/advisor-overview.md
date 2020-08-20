@@ -1,16 +1,16 @@
 ---
-title: Wprowadzenie do Azure Advisor
+title: Wprowadzenie do usługi Azure Advisor
 description: Użyj Azure Advisor, aby zoptymalizować wdrożenia platformy Azure.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 17b68e220b7011dee2cc8fca440d58d980c28e6d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 27e49fa28e7b02b873ca145d514920784689b407
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057687"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654025"
 ---
-# <a name="introduction-to-azure-advisor"></a>Wprowadzenie do Azure Advisor
+# <a name="introduction-to-azure-advisor"></a>Wprowadzenie do usługi Azure Advisor
 
 Poznaj kluczowe możliwości Azure Advisor i uzyskaj odpowiedzi na często zadawane pytania.
 
@@ -55,7 +55,7 @@ Możesz uzyskać dostęp do zaleceń klasyfikatora jako *właściciela*, *wspó�
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Dla jakich zasobów usługa Advisor udostępnia zalecenia?
 
-Doradca zawiera zalecenia dotyczące Application Gateway, App Services, zestawów dostępności, pamięci podręcznej platformy Azure, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, publicznych adresów IP platformy Azure, SQL Data Warehouse, serwerów SQL, kont magazynu, profilów Traffic Manager i maszyn wirtualnych.
+Usługa Advisor oferuje zalecenia dotyczące Application Gateway, App Services, zestawów dostępności, pamięci podręcznej platformy Azure, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, publicznych adresów IP platformy Azure, usług Azure Synapse Analytics, serwerów SQL, kont magazynu, profilów Traffic Manager i maszyn wirtualnych.
 
 Azure Advisor również zawiera zalecenia z [Azure Security Center](../security-center/security-center-recommendations.md) , które mogą obejmować zalecenia dotyczące dodatkowych typów zasobów.
 

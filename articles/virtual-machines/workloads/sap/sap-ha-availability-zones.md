@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78a4a22771f7880c48722f410f3a2fae0c66e9c8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8265d328a23e871dc25692f22138a7bb648a8323
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035795"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653600"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Konfiguracje obciążenia SAP ze strefami dostępności platformy Azure
 [Strefy dostępności platformy Azure](../../../availability-zones/az-overview.md) to jedna z funkcji wysokiej dostępności udostępniana przez platformę Azure. Użycie Strefy dostępności zwiększa ogólną dostępność obciążeń SAP na platformie Azure. Ta funkcja jest już dostępna w niektórych [regionach świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/regions/). W przyszłości będzie ona dostępna w większej liczbie regionów.
@@ -109,7 +109,7 @@ W tej konfiguracji są stosowane następujące zagadnienia:
 - W przypadku modułów równoważenia obciążenia klastrów pracy awaryjnej usług SAP Central i warstwy DBMS należy użyć [standardowej jednostki SKU Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md). Podstawowa Load Balancer nie będzie działała między strefami.
 - Sieć wirtualna platformy Azure wdrożona w celu hostowania systemu SAP wraz z jego podsieciami jest rozciągana między strefami. Dla każdej strefy nie są potrzebne oddzielne sieci wirtualne.
 - W przypadku wszystkich wdrażanych maszyn wirtualnych należy użyć [usługi Azure Managed disks](https://azure.microsoft.com/services/managed-disks/). Dyski niezarządzane nie są obsługiwane dla wdrożeń strefowych.
-- Usługi Azure Premium Storage i [SSD w warstwie Ultra Storage](../../windows/disks-types.md#ultra-disk) nie obsługują żadnego typu replikacji magazynu w różnych strefach. Aplikacja (system DBMS lub SAP Central Services) musi replikować ważne dane.
+- Usługi Azure Premium Storage i [SSD w warstwie Ultra Storage](../../disks-types.md#ultra-disk) nie obsługują żadnego typu replikacji magazynu w różnych strefach. Aplikacja (system DBMS lub SAP Central Services) musi replikować ważne dane.
 - Ta sama wartość dotyczy udostępnionego katalogu sapmnt, który jest dyskiem współdzielonym (Windows), udziałem CIFS (Windows) lub udziałem NFS (Linux). Należy użyć technologii, która replikuje te udostępnione dyski lub udziały między strefami. Te technologie są obsługiwane:
   - W przypadku systemu Windows rozwiązanie klastra korzystające z usługi oprogramowanie SIOS DataKeeper, zgodnie z opisem w [klastrze, wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udostępnionego dysku klastra na platformie Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
   - W przypadku systemu SUSE Linux udział NFS, który jest skompilowany jako opisany w [wysokiej dostępności dla systemu plików NFS na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
@@ -137,7 +137,7 @@ W tej konfiguracji są stosowane następujące zagadnienia:
 - W przypadku modułów równoważenia obciążenia klastrów pracy awaryjnej usług SAP Central i warstwy DBMS należy użyć [standardowej jednostki SKU Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md). Podstawowa Load Balancer nie będzie działała między strefami.
 - Sieć wirtualna platformy Azure wdrożona w celu hostowania systemu SAP wraz z jego podsieciami jest rozciągana między strefami. Dla każdej strefy nie są potrzebne oddzielne sieci wirtualne.
 - W przypadku wszystkich wdrażanych maszyn wirtualnych należy użyć [usługi Azure Managed disks](https://azure.microsoft.com/services/managed-disks/). Dyski niezarządzane nie są obsługiwane dla wdrożeń strefowych.
-- Usługi Azure Premium Storage i [SSD w warstwie Ultra Storage](../../windows/disks-types.md#ultra-disk) nie obsługują żadnego typu replikacji magazynu w różnych strefach. Aplikacja (system DBMS lub SAP Central Services) musi replikować ważne dane.
+- Usługi Azure Premium Storage i [SSD w warstwie Ultra Storage](../../disks-types.md#ultra-disk) nie obsługują żadnego typu replikacji magazynu w różnych strefach. Aplikacja (system DBMS lub SAP Central Services) musi replikować ważne dane.
 - Ta sama wartość dotyczy udostępnionego katalogu sapmnt, który jest dyskiem współdzielonym (Windows), udziałem CIFS (Windows) lub udziałem NFS (Linux). Należy użyć technologii, która replikuje te udostępnione dyski lub udziały między strefami. Te technologie są obsługiwane:
     - W przypadku systemu Windows rozwiązanie klastra korzystające z usługi oprogramowanie SIOS DataKeeper, zgodnie z opisem w [klastrze, wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udostępnionego dysku klastra na platformie Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
     - W przypadku systemu SUSE Linux udział NFS, który jest skompilowany jako opisany w [wysokiej dostępności dla systemu plików NFS na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
@@ -167,7 +167,7 @@ W tej konfiguracji są stosowane następujące zagadnienia:
 - W przypadku modułów równoważenia obciążenia klastrów pracy awaryjnej usług SAP Central i warstwy DBMS należy użyć [standardowej jednostki SKU Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md). Podstawowa Load Balancer nie będzie działała między strefami.
 - Sieć wirtualna platformy Azure wdrożona w celu hostowania systemu SAP wraz z jego podsieciami jest rozciągana między strefami. Dla każdej strefy nie są potrzebne oddzielne sieci wirtualne.
 - W przypadku wszystkich wdrażanych maszyn wirtualnych należy użyć [usługi Azure Managed disks](https://azure.microsoft.com/services/managed-disks/). Dyski niezarządzane nie są obsługiwane dla wdrożeń strefowych.
-- Usługi Azure Premium Storage i [SSD w warstwie Ultra Storage](../../windows/disks-types.md#ultra-disk) nie obsługują żadnego typu replikacji magazynu w różnych strefach. Aplikacja (system DBMS lub SAP Central Services) musi replikować ważne dane.
+- Usługi Azure Premium Storage i [SSD w warstwie Ultra Storage](../../disks-types.md#ultra-disk) nie obsługują żadnego typu replikacji magazynu w różnych strefach. Aplikacja (system DBMS lub SAP Central Services) musi replikować ważne dane.
 - Ta sama wartość dotyczy udostępnionego katalogu sapmnt, który jest dyskiem współdzielonym (Windows), udziałem CIFS (Windows) lub udziałem NFS (Linux). Należy użyć technologii, która replikuje te udostępnione dyski lub udziały między strefami. Te technologie są obsługiwane:
     - W przypadku systemu Windows rozwiązanie klastra korzystające z usługi oprogramowanie SIOS DataKeeper, zgodnie z opisem w [klastrze, wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udostępnionego dysku klastra na platformie Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
     - W przypadku systemu SUSE Linux udział NFS, który jest skompilowany jako opisany w [wysokiej dostępności dla systemu plików NFS na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).

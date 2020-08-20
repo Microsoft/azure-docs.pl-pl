@@ -3,12 +3,12 @@ title: Co nowego w Azure Site Recovery
 description: Zawiera podsumowanie nowych funkcji i najnowszych aktualizacji usługi Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/20/2020
-ms.openlocfilehash: d7e3a8e29800943b28c64848fc66f27f888d439f
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 09afd4416efc8e6904b7c487d5ed2f3be22db081
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611742"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654824"
 ---
 # <a name="whats-new-in-site-recovery"></a>Co nowego w usłudze Site Recovery
 
@@ -378,7 +378,7 @@ Funkcje dodane w tym miesiącu zostały podsumowane w tabeli.
 **Funkcja** | **Szczegóły**
 --- | ---
 **Mapowanie sieci** | W przypadku odzyskiwania po awarii maszyny wirtualnej platformy Azure można teraz używać dowolnej dostępnej sieci docelowej po włączeniu replikacji.
-**Dysk SSD w warstwie Standardowa** | Teraz można skonfigurować odzyskiwanie po awarii dla maszyn wirtualnych platformy Azure przy użyciu [dysków SSD w warstwie Standardowa](../virtual-machines/windows/disks-types.md#standard-ssd).
+**Dysk SSD w warstwie Standardowa** | Teraz można skonfigurować odzyskiwanie po awarii dla maszyn wirtualnych platformy Azure przy użyciu [dysków SSD w warstwie Standardowa](../virtual-machines/disks-types.md#standard-ssd).
 **Bezpośrednie miejsca do magazynowania** | Odzyskiwanie po awarii można skonfigurować dla aplikacji działających w usłudze Azure VM Apps przy użyciu [bezpośrednie miejsca do magazynowania](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) w celu zapewnienia wysokiej dostępności.  Używanie Bezpośrednie miejsca do magazynowania (S2D) wraz z Site Recovery zapewnia kompleksową ochronę obciążeń maszyn wirtualnych platformy Azure. Funkcja S2D umożliwia hostowanie klastra gościa na platformie Azure. Jest to szczególnie przydatne w przypadku, gdy maszyna wirtualna obsługuje aplikację krytyczną, taką jak warstwa SAP ASCS, SQL Server lub serwer plików skalowalny w poziomie.
 
 

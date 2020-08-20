@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: efec7656675b649d365a479c184de06a67d33db0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5994e9741340c6fef662f7037efa142c5684b6cb
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86545087"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88655055"
 ---
 W tym artykule przedstawiono kilka często zadawanych pytań dotyczących usługi Azure Managed Disks i Azure SSD w warstwie Premium Disks.
 
@@ -21,7 +21,7 @@ W tym artykule przedstawiono kilka często zadawanych pytań dotyczących usług
 
 **Co to jest platforma Azure Managed Disks?**
 
-Managed Disks to funkcja, która upraszcza zarządzanie dyskami maszyn wirtualnych platformy Azure IaaS przez obsługę zarządzania kontami magazynu. Aby uzyskać więcej informacji, zobacz [omówienie Managed disks](../articles/virtual-machines/windows/managed-disks-overview.md).
+Managed Disks to funkcja, która upraszcza zarządzanie dyskami maszyn wirtualnych platformy Azure IaaS przez obsługę zarządzania kontami magazynu. Aby uzyskać więcej informacji, zobacz [omówienie Managed disks](../articles/virtual-machines/managed-disks-overview.md).
 
 **Jeśli utworzysz dysk zarządzany w warstwie Standardowa na podstawie istniejącego wirtualnego dysku twardego o 80 GB, ile to kosztuje?**
 
@@ -212,7 +212,7 @@ Oprócz ograniczenia dysku istnieje ograniczenie we/wy, które jest nakładane n
 Nie, Ultra disks nie obsługuje różnych metod buforowania, które są obsługiwane przez inne typy dysków. Ustaw buforowanie dysku na **Brak**.
 
 **Czy mogę dołączyć dysk Ultra do istniejącej maszyny wirtualnej?**
-Może to być, że maszyna wirtualna musi znajdować się w stacji i strefie dostępności, która obsługuje Ultra Disks. Aby uzyskać szczegółowe informacje, zobacz Wprowadzenie do usługi [Ultra disks](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md) .
+Może to być, że maszyna wirtualna musi znajdować się w stacji i strefie dostępności, która obsługuje Ultra Disks. Aby uzyskać szczegółowe informacje, zobacz Wprowadzenie do usługi [Ultra disks](../articles/virtual-machines/disks-enable-ultra-ssd.md) .
 
 **Czy mogę użyć dyskietki jako dysku systemu operacyjnego dla mojej maszyny wirtualnej?**
 Nie. niezwykle dyski są obsługiwane tylko jako dyski danych i są obsługiwane tylko jako dyski natywne 4 k.
@@ -416,7 +416,7 @@ Nie musisz uaktualniać istniejących narzędzi platformy Azure, aby tworzyć, d
 |Azure PowerShell | Numer wersji 4.1.0: wydanie 2017 czerwca lub nowszej|
 |Interfejs wiersza polecenia platformy Azure w wersji 1     | Numer wersji 0.10.13:2017 maja lub nowszej|
 |Interfejs wiersza polecenia platformy Azure w wersji 2     | Numer wersji 2.0.12: wydanie 2017 lipca lub nowszej|
-|AzCopy              | Numer wersji 6.1.0: wydanie 2017 czerwca lub nowszej|
+|Narzędzie AzCopy              | Numer wersji 6.1.0: wydanie 2017 czerwca lub nowszej|
 
 **Czy rozmiary dysków P4 i P6 są obsługiwane w przypadku dysków niezarządzanych lub stronicowych obiektów BLOB?**
 

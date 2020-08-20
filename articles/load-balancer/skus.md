@@ -11,20 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: 60e8a0dc93e19dfec0982080d0353466b08373de
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3509b99d1b222fc4f0bfa48effe42496c209d9ae
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586838"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654484"
 ---
 # <a name="azure-load-balancer-skus"></a>Jednostki SKU Azure Load Balancer
 
-Azure Load Balancer ma dwie wersje lub jednostki SKU.
+Azure Load Balancer ma dwie jednostki SKU.
 
 ## <a name="sku-comparison"></a><a name="skus"></a> Porównanie jednostek SKU
 
-Moduł równoważenia obciążenia obsługuje podstawowe i standardowe jednostki SKU. Te jednostki SKU różnią się w zależności od skali, funkcji i cen. Każdy scenariusz, który jest możliwy w przypadku podstawowego modułu równoważenia obciążenia, można utworzyć za pomocą usługi równoważenia obciążenia w warstwie Standardowa.
+Moduł równoważenia obciążenia obsługuje jednostki SKU w warstwie Standardowa i podstawowa. Te jednostki SKU różnią się w zależności od skali, funkcji i cen. Każdy scenariusz, który jest możliwy w przypadku podstawowego modułu równoważenia obciążenia, można utworzyć za pomocą usługi równoważenia obciążenia w warstwie Standardowa.
 
 Aby porównać i poznać różnice, zapoznaj się z poniższą tabelą. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure usługa Load Balancer w warstwie Standardowa](load-balancer-standard-overview.md).
 
@@ -41,7 +41,7 @@ Autonomiczne maszyny wirtualne, zestawy dostępności i zestawy skalowania maszy
 | **Strefy dostępności** | Strefowo nadmiarowe i strefowe frontony dla ruchu przychodzącego i wychodzącego. | Niedostępne |
 | **Diagnostyka** | [Azure Monitor metryki wielowymiarowych](./load-balancer-standard-diagnostics.md) | [Dzienniki Azure Monitor](./load-balancer-monitor-log.md) |
 | **Porty wysokiej dostępności** | [Dostępne dla Load Balancer wewnętrznej](./load-balancer-ha-ports-overview.md) | Niedostępne |
-| **Zabezpieczenie domyślne** | Zamknięty do przepływów przychodzących, chyba że jest to dozwolone przez grupę zabezpieczeń sieci. Należy pamiętać, że ruch wewnętrzny z sieci wirtualnej do wewnętrznego modułu równoważenia obciążenia jest dozwolony. | Otwórz domyślnie. Opcjonalna Grupa zabezpieczeń sieci. |
+| **Zabezpieczenie domyślne** | Zamknięty do przepływów przychodzących, chyba że jest to dozwolone przez grupę zabezpieczeń sieci. Dozwolony jest ruch wewnętrzny z sieci wirtualnej do wewnętrznego modułu równoważenia obciążenia. | Otwórz domyślnie. Opcjonalna Grupa zabezpieczeń sieci. |
 | **Reguły ruchu wychodzącego** | [Deklaratywna konfiguracja wychodzącego NAT](./load-balancer-outbound-rules-overview.md) | Niedostępne |
 | **Resetowanie protokołu TCP w wyniku bezczynności** | [Dostępne dla każdej reguły](./load-balancer-tcp-reset.md) | Niedostępne |
 | **[Wiele frontonów](./load-balancer-multivip-overview.md)** | Ruch przychodzący i [wychodzący](./load-balancer-outbound-connections.md) | Tylko ruch przychodzący |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: dbcb39641f35ad0f997db30b320826764a08bff1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6b66db639e0b22a7e0c45486465a1fa395aba33d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082260"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653515"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver
 
@@ -133,7 +133,7 @@ ms.locfileid: "87082260"
 [deployment-guide-contact-support]:deployment-guide.md#3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2 (Rozwiązywanie problemów z usługą Azure Extension for SAP — kontakt z pomocą techniczną)
 [deployment-guide-run-the-script]:deployment-guide.md#0d2847ad-865d-4a4c-a405-f9b7baaa00c7 (Rozwiązywanie problemów z rozszerzeniem platformy Azure dla oprogramowania SAP — uruchamianie skryptu instalacyjnego)
 [deployment-guide-redeploy-after-sysprep]:deployment-guide.md#2cd61f22-187d-42ed-bb8c-def0c983d756 (Rozwiązywanie problemów z rozszerzeniem platformy Azure dla oprogramowania SAP — Wdróż ponownie po programie Sysprep)
-[deployment-guide-fix-internet-connection]:deployment-guide.md#e92bc57d-80d9-4a2b-a2f4-16713a22ad89 (Rozwiązywanie problemów z rozszerzeniem platformy Azure dla oprogramowania SAP — Naprawa połączenia internetowego)
+[deployment-guide-fix-internet-connection]:deployment-guide.md#e92bc57d-80d9-4a2b-a2f4-16713a22ad89 ( Rozwiązywanie problemów z rozszerzeniem platformy Azure dla oprogramowania SAP — Naprawa połączenia internetowego)
 
 
 [deployment-guide-configure-monitoring-scenario-1]:deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b (Konfigurowanie rozszerzenia maszyny wirtualnej)
@@ -256,7 +256,7 @@ ms.locfileid: "87082260"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -441,7 +441,7 @@ Kreator przeprowadzi Cię przez proces konfigurowania wymaganych parametrów w c
      Listę obsługiwanych typów maszyn wirtualnych można znaleźć w temacie SAP Note [1928533]. Upewnij się, że wybrano poprawny typ maszyny wirtualnej, jeśli chcesz użyć usługi Azure Premium Storage. Nie wszystkie typy maszyn wirtualnych obsługują Premium Storage. Aby uzyskać więcej informacji, zobacz [Magazyn: Microsoft Azure Storage i dyski danych][planning-guide-storage-microsoft-azure-storage-and-data-disks] oraz [usługa Azure Storage dla obciążeń SAP](./planning-guide-storage.md) na [platformie Azure Virtual Machines planowanie i wdrażanie oprogramowania SAP NetWeaver][planning-guide].
 
 1. **Ustawienia**:
-   * **Magazyn**
+   * **Storage**
      * **Typ dysku**: Wybierz typ dysku dysku systemu operacyjnego. Jeśli chcesz używać Premium Storage dla dysków z danymi, zalecamy również korzystanie z Premium Storage dla dysku systemu operacyjnego.
      * **Użyj dysków zarządzanych**: Jeśli chcesz użyć Managed disks, wybierz pozycję tak. Aby uzyskać więcej informacji na temat Managed Disks, zobacz rozdział [Managed disks](./planning-guide-storage.md#microsoft-azure-storage-resiliency) w przewodniku planowania.
      * **Konto magazynu**: Wybierz istniejące konto magazynu lub Utwórz nowe. Nie wszystkie typy magazynów działają w przypadku uruchamiania aplikacji SAP. Aby uzyskać więcej informacji na temat typów magazynów, zobacz [Struktura magazynu maszyny wirtualnej na potrzeby wdrożeń RDBMS](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64).
@@ -549,7 +549,7 @@ Aby utworzyć prywatny obraz dla systemu Linux, należy wykonać różne czynno�
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Aby przygotować obraz systemu Linux, którego można użyć do wdrożenia wielu maszyn wirtualnych, niektóre ustawienia systemu Linux muszą być abstrakcyjne lub uogólnione na lokalnej maszynie wirtualnej. W tym celu można użyć `waagent -deprovision` w tym celu. Aby uzyskać więcej informacji, zobacz [przechwytywanie maszyny wirtualnej z systemem Linux działającej na platformie Azure][virtual-machines-linux-capture-image] i [Podręcznik użytkownika agenta platformy Azure dla systemu Linux][virtual-machines-linux-agent-user-guide-command-line-options].
+> Aby przygotować obraz systemu Linux, którego można użyć do wdrożenia wielu maszyn wirtualnych, niektóre ustawienia systemu Linux muszą być abstrakcyjne lub uogólnione na lokalnej maszynie wirtualnej. W tym celu można użyć `waagent -deprovision`  w tym celu. Aby uzyskać więcej informacji, zobacz [przechwytywanie maszyny wirtualnej z systemem Linux działającej na platformie Azure][virtual-machines-linux-capture-image] i [Podręcznik użytkownika agenta platformy Azure dla systemu Linux][virtual-machines-linux-agent-user-guide-command-line-options].
 >
 >
 
@@ -581,7 +581,7 @@ Kreator przeprowadzi Cię przez proces konfigurowania wymaganych parametrów w c
      Listę obsługiwanych typów maszyn wirtualnych można znaleźć w temacie SAP Note [1928533]. Upewnij się, że wybrano poprawny typ maszyny wirtualnej, jeśli chcesz użyć usługi Azure Premium Storage. Nie wszystkie typy maszyn wirtualnych obsługują Premium Storage. Aby uzyskać więcej informacji, zobacz [Magazyn: Microsoft Azure Storage i dyski danych][planning-guide-storage-microsoft-azure-storage-and-data-disks] oraz [usługa Azure Storage dla obciążeń SAP](./planning-guide-storage.md) na [platformie Azure Virtual Machines planowanie i wdrażanie oprogramowania SAP NetWeaver][planning-guide].
 
 1. **Ustawienia**:
-   * **Magazyn**
+   * **Storage**
      * **Typ dysku**: Wybierz typ dysku dysku systemu operacyjnego. Jeśli chcesz używać Premium Storage dla dysków z danymi, zalecamy również korzystanie z Premium Storage dla dysku systemu operacyjnego.
      * **Użyj dysków zarządzanych**: Jeśli chcesz użyć Managed disks, wybierz pozycję tak. Aby uzyskać więcej informacji na temat Managed Disks, zobacz rozdział [Managed disks](./planning-guide-storage.md#microsoft-azure-storage-resiliency) w przewodniku planowania.
    * **Sieć**
@@ -861,7 +861,7 @@ Aby można było uzyskać dostęp do Internetu, należy prawidłowo skonfigurowa
 1. Wyczyść pole wyboru **Automatycznie wykryj ustawienia**.
 1. Zaznacz pole wyboru **Użyj serwera proxy dla sieci LAN** , a następnie wprowadź adres i port serwera proxy.
 1. Wybierz przycisk **Zaawansowane** .
-1. W polu **wyjątki** wprowadź adres IP **168.63.129.16**. Wybierz przycisk **OK**.
+1. W polu **wyjątki** wprowadź adres IP **168.63.129.16**. Kliknij **OK**.
 
 #### <a name="linux"></a>Linux
 
@@ -1147,15 +1147,15 @@ Jeśli **stan kondycji** nie jest **prawidłowy**, postępuj zgodnie z instrukcj
 
 1. Sprawdź dane wyjściowe rozszerzenia platformy Azure dla oprogramowania SAP.
 
-   a.  Należy uruchomić polecenie `more /var/lib/AzureEnhancedMonitor/PerfCounters`
+   a.  Uruchom polecenie `more /var/lib/AzureEnhancedMonitor/PerfCounters`
 
    **Oczekiwany wynik**: zwraca listę liczników wydajności. Plik nie powinien być pusty.
 
-   b. Należy uruchomić polecenie `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error`
+   b. Uruchom polecenie `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error`
 
    **Oczekiwany wynik**: zwraca jeden wiersz, w którym wystąpił **błąd, na**przykład **3; config; Błąd;; 0; 0; Brak; 0; 1456416792; TST-servercs;**
 
-   c. Należy uruchomić polecenie `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord`
+   c. Uruchom polecenie `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord`
 
    **Oczekiwany wynik**: zwraca wartość pustą lub nie istnieje.
 
@@ -1163,29 +1163,29 @@ Jeśli poprzednie sprawdzenie zakończyło się niepowodzeniem, uruchom następu
 
 1. Upewnij się, że waagent jest zainstalowana i włączona.
 
-   a.  Należy uruchomić polecenie `sudo ls -al /var/lib/waagent/`
+   a.  Uruchom polecenie `sudo ls -al /var/lib/waagent/`
 
      **Oczekiwany wynik**: wyświetla zawartość katalogu waagent.
 
-   b.  Należy uruchomić polecenie `ps -ax | grep waagent`
+   b.  Uruchom polecenie `ps -ax | grep waagent`
 
-   **Oczekiwany wynik**: zawiera jeden wpis podobny do:`python /usr/sbin/waagent -daemon`
+   **Oczekiwany wynik**: zawiera jeden wpis podobny do: `python /usr/sbin/waagent -daemon`
 
 1. Upewnij się, że rozszerzenie platformy Azure dla oprogramowania SAP jest zainstalowane i uruchomione.
 
-   a.  Należy uruchomić polecenie `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'`
+   a.  Uruchom polecenie `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'`
 
    **Oczekiwany wynik**: wyświetla zawartość rozszerzenia platformy Azure dla katalogu SAP.
 
-   b. Należy uruchomić polecenie `ps -ax | grep AzureEnhanced`
+   b. Uruchom polecenie `ps -ax | grep AzureEnhanced`
 
-   **Oczekiwany wynik**: zawiera jeden wpis podobny do:`python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
+   **Oczekiwany wynik**: zawiera jeden wpis podobny do: `python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
 
 1. Zainstaluj agenta hosta SAP zgodnie z opisem w artykule SAP Uwaga [1031096]i sprawdź dane wyjściowe `saposcol` .
 
-   a.  Należy uruchomić polecenie `/usr/sap/hostctrl/exe/saposcol -d`
+   a.  Uruchom polecenie `/usr/sap/hostctrl/exe/saposcol -d`
 
-   b.  Należy uruchomić polecenie `dump ccm`
+   b.  Uruchom polecenie `dump ccm`
 
    c.  Sprawdź, czy **Virtualization_Configuration Metryka dostępu \Enhanced monitorowania** ma **wartość true**.
 
@@ -1203,7 +1203,7 @@ Ten test sprawdza, czy wszystkie metryki wydajności, które znajdują się w ap
 #### <a name="run-the-readiness-check-on-a-windows-vm"></a>Uruchamianie sprawdzania gotowości na maszynie wirtualnej z systemem Windows
 
 1. Zaloguj się do maszyny wirtualnej platformy Azure (przy użyciu konta administratora nie jest konieczne).
-1. Otwórz przeglądarkę internetową i przejdź dohttp://127.0.0.1:11812/azure4sap/metrics
+1. Otwórz przeglądarkę internetową i przejdź do http://127.0.0.1:11812/azure4sap/metrics
 1. Przeglądarka powinna wyświetlić lub pobrać plik XML zawierający dane monitorowania maszyny wirtualnej. Jeśli tak się nie dzieje, upewnij się, że rozszerzenie platformy Azure dla oprogramowania SAP jest zainstalowane.
 
 ##### <a name="check-the-content-of-the-xml-file"></a>Sprawdź zawartość pliku XML
@@ -1228,29 +1228,29 @@ Jeśli poprzednie sprawdzenie zakończyło się niepowodzeniem, uruchom następu
 
 1. Upewnij się, że waagent jest zainstalowana i włączona.
 
-   a.  Należy uruchomić polecenie `sudo ls -al /var/lib/waagent/`
+   a.  Uruchom polecenie `sudo ls -al /var/lib/waagent/`
 
      **Oczekiwany wynik**: wyświetla zawartość katalogu waagent.
 
-   b.  Należy uruchomić polecenie `ps -ax | grep waagent`
+   b.  Uruchom polecenie `ps -ax | grep waagent`
 
-   **Oczekiwany wynik**: zawiera jeden wpis podobny do:`python /usr/sbin/waagent -daemon`
+   **Oczekiwany wynik**: zawiera jeden wpis podobny do: `python /usr/sbin/waagent -daemon`
 
 1. Upewnij się, że rozszerzenie platformy Azure dla oprogramowania SAP jest zainstalowane i uruchomione.
 
-   a.  Należy uruchomić polecenie `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-*/'`
+   a.  Uruchom polecenie `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-*/'`
 
    **Oczekiwany wynik**: wyświetla zawartość rozszerzenia platformy Azure dla katalogu SAP.
 
-   b. Należy uruchomić polecenie `ps -ax | grep AzureEnhanced`
+   b. Uruchom polecenie `ps -ax | grep AzureEnhanced`
 
-   **Oczekiwany wynik**: zawiera jeden wpis podobny do:`/var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-1.0.0.82/AzureEnhancedMonitoring -monitor`
+   **Oczekiwany wynik**: zawiera jeden wpis podobny do: `/var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-1.0.0.82/AzureEnhancedMonitoring -monitor`
 
 1. Zainstaluj agenta hosta SAP zgodnie z opisem w artykule SAP Uwaga [1031096]i sprawdź dane wyjściowe `saposcol` .
 
-   a.  Należy uruchomić polecenie `/usr/sap/hostctrl/exe/saposcol -d`
+   a.  Uruchom polecenie `/usr/sap/hostctrl/exe/saposcol -d`
 
-   b.  Należy uruchomić polecenie `dump ccm`
+   b.  Uruchom polecenie `dump ccm`
 
    c.  Sprawdź, czy **Virtualization_Configuration Metryka dostępu \Enhanced monitorowania** ma **wartość true**.
 
@@ -1495,7 +1495,7 @@ Wykonaj kroki opisane w rozdziale [Konfigurowanie rozszerzenia platformy Azure d
 
 Jeśli błędy nie znikną, [skontaktuj się z pomocą techniczną][deployment-guide-contact-support].
 
-#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Skontaktuj się z pomocą techniczną
+#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Kontakt z pomocą techniczną
 
 Nieoczekiwany błąd lub nie ma znanego rozwiązania. Zbierz plik AzureEnhancedMonitoring_service. log znajdujący się w folderze C:\Packages\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler \\ \<version\> \Drop (Windows) lub/var/log/Azure/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux (Linux) i skontaktuj się z pomocą TECHNICZNą SAP w celu uzyskania dalszej pomocy.
 

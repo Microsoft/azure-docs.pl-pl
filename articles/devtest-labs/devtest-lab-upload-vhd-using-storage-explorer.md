@@ -3,18 +3,18 @@ title: Przekaż plik VHD do Azure DevTest Labs przy użyciu Eksplorator usługi 
 description: Przekaż plik VHD do konta magazynu laboratorium przy użyciu Eksplorator usługi Microsoft Azure Storage
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ccdf27488147bc4840d1e505ba2761bf328d6a32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ed6ace63a135628b6d306b946c0356091bf1bd2
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480766"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654518"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Przekaż plik VHD do konta magazynu laboratorium przy użyciu Eksplorator usługi Microsoft Azure Storage
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-W Azure DevTest Labs pliki VHD mogą służyć do tworzenia obrazów niestandardowych, które są używane do obsługi maszyn wirtualnych. W tym artykule pokazano, jak za pomocą [Eksplorator usługi Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) przekazywać plik VHD do konta magazynu laboratorium. Po przekazaniu pliku VHD [sekcja następne kroki](#next-steps) zawiera listę artykułów, które ilustrują, jak utworzyć obraz niestandardowy na podstawie przekazanego pliku VHD. Aby uzyskać więcej informacji na temat dysków i dysków VHD na platformie Azure, zobacz [wprowadzenie do usługi Managed disks](../virtual-machines/linux/managed-disks-overview.md)
+W Azure DevTest Labs pliki VHD mogą służyć do tworzenia obrazów niestandardowych, które są używane do obsługi maszyn wirtualnych. W tym artykule pokazano, jak za pomocą [Eksplorator usługi Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) przekazywać plik VHD do konta magazynu laboratorium. Po przekazaniu pliku VHD [sekcja następne kroki](#next-steps) zawiera listę artykułów, które ilustrują, jak utworzyć obraz niestandardowy na podstawie przekazanego pliku VHD. Aby uzyskać więcej informacji na temat dysków i dysków VHD na platformie Azure, zobacz [wprowadzenie do usługi Managed disks](../virtual-machines/managed-disks-overview.md)
 
 ## <a name="step-by-step-instructions"></a>Instrukcje krok po kroku
 
@@ -102,7 +102,7 @@ Poniższe kroki przeprowadzą Cię przez proces przekazywania pliku VHD do DevTe
     
     1. Po zwróceniu do okna dialogowego **przekazywanie plików** Zmień **Typ obiektu BLOB** na **stronicowy obiekt BLOB**.
     
-    1. Wybierz przycisk **Przekaż**.
+    1. Wybierz pozycję **Przekaż**.
 
         ![Wybierz plik][9]  
     

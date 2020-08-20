@@ -3,7 +3,7 @@ title: Wprowadzenie do uwierzytelniania w usłudze Azure AD
 description: Dowiedz się, jak uzyskać dostęp do usługi Azure Active Directory (Azure AD) w celu korzystania z interfejsu API Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 05/21/2020
-ms.author: juliako
-ms.openlocfilehash: a039e1d4442490d3747a302754d521f1f3402bcf
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.author: inhenkel
+ms.openlocfilehash: 9528efb0ce7dd9df57db21ccdcf19e54a969d2e4
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035810"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654841"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Uzyskiwanie poświadczeń w celu uzyskania dostępu do interfejsu API Media Services  
 
@@ -38,9 +38,9 @@ W tym artykule opisano procedurę uzyskiwania poświadczeń w celu uzyskania dos
 - Konto platformy Azure. Jeśli nie masz konta, Zacznij od [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Konto usługi Media Services. Aby uzyskać więcej informacji, zobacz [Tworzenie konta Azure Media Services przy użyciu Azure Portal](create-account-howto.md).
 
-## <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
+## <a name="portal"></a>[Portal](#tab/portal/)
 
-### <a name="api-access"></a>Dostęp za pomocą interfejsu API 
+### <a name="api-access"></a>Dostęp za pomocą interfejsu API
 
 Strona **dostęp do interfejsu API** umożliwia wybranie metody uwierzytelniania, która ma być używana do nawiązywania połączenia z interfejsem API. Na stronie znajdują się również wartości potrzebne do nawiązania połączenia z interfejsem API.
 
@@ -70,7 +70,7 @@ Tej opcji można użyć do uwierzytelnienia pracownika lub członka Azure Active
 
 Skopiuj swoje poświadczenia, aby połączyć aplikację użytkownika z sekcji **nawiązywanie połączenia z usługą Media Services API** . Możesz uzyskać wartości tekstowe lub skopiować bloki JSON lub XML.
 
-[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
+## <a name="cli"></a>[Interfejs wiersza polecenia](#tab/cli/)
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 

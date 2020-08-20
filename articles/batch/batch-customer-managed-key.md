@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: 2af82233013f064b185aefde3f2e1710bd86ed43
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: a89d0182f6a659cee65ebc1de7d97d40418b4b20
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053749"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654892"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Skonfiguruj klucze zarządzane przez klienta dla konta Azure Batch przy użyciu tożsamości Azure Key Vault i zarządzanej
 
@@ -19,7 +19,7 @@ Domyślnie Azure Batch używa kluczy zarządzanych przez platformę do szyfrowan
 Klucze, które należy podać, muszą być generowane w [Azure Key Vault](../key-vault/general/basic-concepts.md), a konta usługi Batch, które chcesz skonfigurować przy użyciu kluczy zarządzanych przez klienta, muszą być włączone przy użyciu [tożsamości zarządzanej platformy Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
-> Obsługa kluczy zarządzanych przez klienta w Azure Batch jest obecnie dostępna w publicznej wersji zapoznawczej w regionach zachodnie stany USA, Wschodnie stany USA, Południowo-środkowe stany USA, zachodnie stany USA 2, US Gov Wirginia i US Gov Arizona.
+> Obsługa kluczy zarządzanych przez klienta w Azure Batch jest obecnie dostępna w publicznej wersji zapoznawczej dla Europy Zachodniej, Europa Północna, Szwajcaria Północna, środkowe stany USA, Południowo-środkowe stany USA, zachodnie stany USA, Wschodnie stany USA, Wschodnie stany USA 2, zachodnie stany USA 2, US Gov Wirginia i US Gov Arizona.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -82,7 +82,7 @@ W polu **Wybierz** w obszarze **podmiot zabezpieczeń**Wypełnij `principalId` w
 
 ### <a name="generate-a-key-in-azure-key-vault"></a>Wygeneruj klucz w Azure Key Vault
 
-W Azure Portal przejdź do wystąpienia Key Vault w sekcji **klucz** , wybierz pozycję **Generuj/Importuj**. Wybierz **Typ klucza** , który ma być `RSA` i **Rozmiar klucza RSA** , aby mieć co najmniej `2048` bity. `EC`typy kluczy nie są obecnie obsługiwane jako klucz zarządzany przez klienta na koncie wsadowym.
+W Azure Portal przejdź do wystąpienia Key Vault w sekcji **klucz** , wybierz pozycję **Generuj/Importuj**. Wybierz **Typ klucza** , który ma być `RSA` i **Rozmiar klucza RSA** , aby mieć co najmniej `2048` bity. `EC` typy kluczy nie są obecnie obsługiwane jako klucz zarządzany przez klienta na koncie wsadowym.
 
 ![Utwórz klucz](./media/batch-customer-managed-key/create-key.png)
 

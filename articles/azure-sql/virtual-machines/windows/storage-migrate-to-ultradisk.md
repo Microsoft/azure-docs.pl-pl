@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f5a2205ec835fb630933dd85b4b0e5846ae864cb
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 42738ff71432284a156d0dfbb1f6cf160cbf4032
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86236190"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653255"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Migruj dysk dziennika do programu Ultra Disk
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,7 +36,7 @@ Wykonaj [pełną kopię zapasową](backup-restore.md) bazy danych.
 
 Dołącz SSD w warstwie Ultra do maszyny wirtualnej po włączeniu zgodności ultradisk na maszynie wirtualnej. 
 
-Obudowa typu Ultra Disk jest obsługiwana w podzestawie rozmiarów i regionów maszyn wirtualnych. Przed kontynuowaniem sprawdź, czy maszyna wirtualna znajduje się w regionie, strefie i rozmiarze, który obsługuje Ultra Disk. Można [określić rozmiar i region maszyny wirtualnej](../../../virtual-machines/windows/disks-enable-ultra-ssd.md#determine-vm-size-and-region-availability) przy użyciu interfejsu wiersza polecenia platformy Azure lub programu PowerShell. 
+Obudowa typu Ultra Disk jest obsługiwana w podzestawie rozmiarów i regionów maszyn wirtualnych. Przed kontynuowaniem sprawdź, czy maszyna wirtualna znajduje się w regionie, strefie i rozmiarze, który obsługuje Ultra Disk. Można [określić rozmiar i region maszyny wirtualnej](../../../virtual-machines/disks-enable-ultra-ssd.md#determine-vm-size-and-region-availability) przy użyciu interfejsu wiersza polecenia platformy Azure lub programu PowerShell. 
 
 ### <a name="enable-compatibility"></a>Włącz zgodność
 
@@ -50,7 +50,7 @@ Aby włączyć zgodność, wykonaj następujące kroki:
 
 1. Wybierz opcję **tak** , aby **włączyć zgodność Ultra Disk**. 
 
-   :::image type="content" source="../../../../includes/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Wybierz dodatkowe ustawienia dla dysków w obszarze Ustawienia w Azure Portal":::
+   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Wybierz dodatkowe ustawienia dla dysków w obszarze Ustawienia w Azure Portal":::
 
 1. Wybierz pozycję **Zapisz**. 
 
@@ -58,7 +58,7 @@ Aby włączyć zgodność, wykonaj następujące kroki:
 
 ### <a name="attach-disk"></a>Dołącz dysk
 
-Użyj Azure Portal, aby dołączyć dysk Ultra do maszyny wirtualnej. Aby uzyskać szczegółowe informacje, zobacz [dołączanie dysku Ultra Disk](../../../virtual-machines/windows/disks-enable-ultra-ssd.md#attach-an-ultra-disk-using-the-azure-portal)
+Użyj Azure Portal, aby dołączyć dysk Ultra do maszyny wirtualnej. Aby uzyskać szczegółowe informacje, zobacz [dołączanie dysku Ultra Disk](../../../virtual-machines/disks-enable-ultra-ssd.md#attach-an-ultra-disk-using-the-azure-portal)
 
 Po dołączeniu dysku, uruchom maszynę wirtualną za pomocą Azure Portal. 
 
@@ -85,7 +85,7 @@ Skonfiguruj SQL Server tak, aby korzystał z nowego dysku dziennika. Można to z
 1. Utwórz folder (lub wiele folderów) do użycia w pliku dziennika. 
 1. Kliknij prawym przyciskiem myszy folder i wybierz polecenie **Właściwości**.
 1. Na karcie **zabezpieczenia** Udziel dostępu Pełna kontrola do konta usługi SQL Server. 
-1. Wybierz **przycisk OK** , aby zapisać ustawienia. 
+1. Wybierz **przycisk OK**  , aby zapisać ustawienia. 
 1. Powtórz tę czynność dla każdego folderu głównego poziomu, w którym planujesz mieć dane SQL. 
 
 ### <a name="use-new-log-drive"></a>Użyj nowego dysku dziennika 

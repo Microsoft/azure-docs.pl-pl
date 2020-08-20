@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure
 ms.date: 06/29/2020
 ms.author: genli
-ms.openlocfilehash: a843a42de6fc1e6cd8ef788552ab4a8ac17b4e25
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 23f31e8d36d6ba615b21a4043c7d39716fc6d89a
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999058"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653498"
 ---
 # <a name="vhd-is-not-supported-when-you-create-a-virtual-machine-in-azure"></a>Wirtualny dysk twardy nie jest obsługiwany podczas tworzenia maszyny wirtualnej na platformie Azure
 
@@ -62,7 +62,6 @@ Aby uzyskać więcej informacji na temat tworzenia i przekazywania dysku VHD do 
 
 Dalsze problemy mogą wskazywać na uszkodzony dysk VHD. W tej sytuacji zalecamy odbudowanie wirtualnego dysku twardego od podstaw.
 
-Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujący artykuł:
 
-- [Informacje o wirtualnym dysku twardym systemu Windows](../windows/managed-disks-overview.md)
-- [Informacje o dysku VHD systemu Linux](../linux/managed-disks-overview.md)
+- [Informacje o wirtualnym dysku twardym](../managed-disks-overview.md)
