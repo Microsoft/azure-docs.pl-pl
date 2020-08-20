@@ -3,12 +3,12 @@ title: Usuwanie magazynu Microsoft Azure Recovery Services
 description: W tym artykule dowiesz się, jak usunąć zależności, a następnie usunąć Magazyn Azure Backup Recovery Services.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 41d0cbc8e1c59f33efc24f38b535aa9cf91b2cc9
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: ffe8005ed6c2583763a10ba515ff19f0ef62ae0d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257951"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652835"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Usuwanie magazynu Recovery Services Azure Backup
 
@@ -18,7 +18,7 @@ W tym artykule opisano sposób usuwania magazynu Recovery Services [Azure Backup
 
 Nie można usunąć magazynu usługi Recovery Services z dowolnymi z następujących zależności:
 
-- Nie można usunąć magazynu zawierającego chronione źródła danych (na przykład IaaS maszyny wirtualne, bazy danych SQL, udziały plików platformy Azure itp.).  
+- Nie można usunąć magazynu zawierającego chronione źródła danych (na przykład IaaS maszyny wirtualne, bazy danych SQL, udziały plików platformy Azure).
 - Nie można usunąć magazynu, który zawiera dane kopii zapasowej. Po usunięciu danych kopii zapasowej przejdzie on do stanu usunięcia nietrwałego.
 - Nie można usunąć magazynu zawierającego dane kopii zapasowej w stanie usunięte nietrwałe.
 - Nie można usunąć magazynu, w którym zarejestrowano konta magazynu.
@@ -45,7 +45,7 @@ Aby prawidłowo usunąć magazyn, należy wykonać czynności opisane w następu
   - **Elementy chronione w chmurze**: Przejdź do menu pulpitu nawigacyjnego magazynu, > **elementy kopii zapasowej**. Wszystkie elementy wymienione w tym miejscu muszą zostać usunięte z opcją **Zatrzymaj tworzenie kopii** zapasowej lub **Usuń dane kopii zapasowej** wraz z danymi kopii zapasowych.  [Wykonaj następujące kroki](#delete-protected-items-in-the-cloud) , aby usunąć te elementy.
   - **Wystąpienie SQL Server**: Przejdź do menu Pulpit nawigacyjny magazynu, > serwery chronione **infrastruktury kopii zapasowych**  >  **Protected Servers**. W obszarze serwery chronione wybierz serwer do wyrejestrowania. Aby usunąć magazyn, należy wyrejestrować wszystkie serwery. Kliknij prawym przyciskiem myszy serwer chroniony, a następnie wybierz polecenie **Wyrejestruj**.
   - **Serwery chronione Mars**: Przejdź do menu Pulpit nawigacyjny magazynu, > serwery chronione **infrastruktury kopii zapasowych**  >  **Protected Servers**. Jeśli masz chronione serwery MARS, wszystkie elementy wymienione w tym miejscu muszą zostać usunięte wraz z danymi kopii zapasowych. [Wykonaj następujące kroki](#delete-protected-items-on-premises) , aby usunąć serwery chronione Mars.
-   - **Serwera usługi MAB lub serwery zarządzania programu DPM**: Przejdź do menu Pulpit nawigacyjny magazynu, > tworzenie kopii zapasowej **infrastruktury zapasowych**  >  **serwerów zarządzania**. Jeśli masz program DPM lub Azure Backup Server (serwera usługi MAB), wszystkie elementy wymienione w tym miejscu muszą zostać usunięte lub wyrejestrowane wraz z danymi kopii zapasowych. [Wykonaj następujące kroki](#delete-protected-items-on-premises) , aby usunąć serwery zarządzania.
+  - **Serwera usługi MAB lub serwery zarządzania programu DPM**: Przejdź do menu Pulpit nawigacyjny magazynu, > tworzenie kopii zapasowej **infrastruktury zapasowych**  >  **serwerów zarządzania**. Jeśli masz program DPM lub Azure Backup Server (serwera usługi MAB), wszystkie elementy wymienione w tym miejscu muszą zostać usunięte lub wyrejestrowane wraz z danymi kopii zapasowych. [Wykonaj następujące kroki](#delete-protected-items-on-premises) , aby usunąć serwery zarządzania.
 
 - **Krok 4**: należy upewnić się, że wszystkie zarejestrowane konta magazynu są usuwane. Przejdź do menu pulpitu nawigacyjnego magazynu > konta magazynu **infrastruktury kopii zapasowych**  >  **Storage Accounts**. Jeśli na liście znajdują się konta magazynu, należy wyrejestrować wszystkie z nich. Aby dowiedzieć się, jak wyrejestrować konto, zobacz [Wyrejestrowywanie konta magazynu](manage-afs-backup.md#unregister-a-storage-account).
 
@@ -234,7 +234,7 @@ Aby zatrzymać ochronę i usunąć dane kopii zapasowej:
     Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
     ```
 
-    Opublikuj, gdzie zostanie wyświetlony następujący monit:
+    Następnie zostanie wyświetlony następujący monit:
 
     *Microsoft Azure Backup czy na pewno chcesz usunąć te zasady kopii zapasowych? Usunięte dane kopii zapasowej będą przechowywane przez 14 dni. Po upływie tego czasu dane kopii zapasowej zostaną trwale usunięte. <br/> [T] tak [A] tak dla wszystkich [N] nie [L] nie do wszystkich [S] zawieszania [?] Pomoc (wartość domyślna to "Y"):*
 
@@ -244,7 +244,7 @@ Aby zatrzymać ochronę i usunąć dane kopii zapasowej:
     Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
     ```
 
-    Opublikuj, gdzie zostanie wyświetlony następujący monit:
+    Następnie zostanie wyświetlony następujący monit:
 
    *Microsoft Azure Backup* Czy na pewno chcesz usunąć te zasady kopii zapasowych? Usunięte dane kopii zapasowej będą przechowywane przez 14 dni. Po upływie tego czasu dane kopii zapasowej zostaną trwale usunięte. <br/>
    [T] tak [A] tak dla wszystkich [N] nie [L] nie do wszystkich [S] zawieszania [?] Pomoc (wartość domyślna to "Y"):*

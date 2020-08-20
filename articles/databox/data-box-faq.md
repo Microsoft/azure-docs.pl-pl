@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 3024c79b6295762636518e3f77d506ad45f73682
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7d300252893a72ef6296e941f5a573a67807779f
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090760"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652580"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: często zadawane pytania
 
@@ -56,6 +56,18 @@ A.  Aby uzyskać informacje na temat krajów/regionów dostępnych urządzenie D
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>PYTANIE: W jakich regionach mogę przechowywać dane, korzystając z usługi Data Box?
 A. Urządzenie Data Box jest obsługiwana w przypadku wszystkich regionów w Stanach Zjednoczonych, Europa Zachodnia, Europa Północna, Francja, Zjednoczone Królestwo, Japonia, Australia i Kanada. Aby uzyskać więcej informacji, przejdź do [obszaru dostępność regionu](data-box-overview.md#region-availability).
+
+### <a name="q-how-can-i-import-my-on-premises-source-data-to-an-azure-region-in-a-different-countryregion-or-export-data-from-an-azure-region-in-one-country-to-a-different-countryregion"></a>PYTANIE: Jak zaimportować lokalne dane źródłowe do regionu platformy Azure w innym kraju/regionie lub wyeksportować dane z regionu świadczenia usługi Azure w jednym kraju do innego kraju/regionu?
+
+Urządzenie Data Box obsługuje pozyskiwanie danych lub wychodzące tylko w tym samym kraju/regionie co ich miejsce docelowe i nie będzie przekraczać granic międzynarodowych. Jedyny wyjątek dotyczy zamówień w Unii Europejskiej (UE), gdzie pola danych mogą być dostarczane do i z dowolnego kraju/regionu UE.
+
+Na przykład w scenariuszu importu, jeśli masz dane lokalne w Kanadzie, które chcesz przenieść na konto magazynu w zachodniej witrynie Azure, możesz to osiągnąć w następujący sposób:
+
+1. Zamów urządzenie Data Box w Kanadzie, wybierając konto magazynu w Cananda. Urządzenie jest dostarczane z centrum danych platformy Azure w Kanadzie do adresu wysyłkowego (w Kanadzie) zapewnionego podczas tworzenia zamówienia.
+
+2. Po zakończeniu kopiowania danych Premium do urządzenie Data Box należy zwrócić urządzenie do centrum danych platformy Azure w Kanadzie. Dane znajdujące się na urządzenie Data Box są następnie przekazywane do docelowego konta magazynu w regionie usługi Azure Kanada wybranym podczas tworzenia zamówienia.
+
+3. Następnie można użyć narzędzia, takiego jak AzCopy, aby skopiować dane na konto magazynu w zachodniej. Ten krok wiąże się ze [standardowymi](https://azure.microsoft.com/pricing/details/storage/) [opłatami za](https://azure.microsoft.com/pricing/details/bandwidth/) magazyn i przepustowość, które nie są uwzględnione w rozliczeniach urządzenie Data Box.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>PYTANIE: Z kim należy się skontaktować, gdy pojawią się jakiekolwiek problemy z usługą Data Box?
 A. Jeśli napotkasz jakiekolwiek problemy z usługą Data Box, [skontaktuj się z działem pomocy technicznej firmy Microsoft](data-box-disk-contact-microsoft-support.md).

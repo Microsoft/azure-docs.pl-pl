@@ -3,12 +3,12 @@ title: Omówienie architektury
 description: Zawiera omówienie architektury, składników i procesów używanych przez usługę Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: fc57f275d7693c9cf93adf04dc5dcc7524ba0567
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6da6cedc7841e31876bef8788458531b1ec375a8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835735"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652784"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup architektura i składniki
 
@@ -120,7 +120,7 @@ Tworzenie kopii zapasowej deduplikowanych dysków | | | ![Częściowo][yellow]<b
 - Po utworzeniu magazynu tworzony jest również "DefaultPolicy" i może służyć do tworzenia kopii zapasowych zasobów.
 - Wszelkie zmiany wprowadzone w okresie przechowywania zasad tworzenia kopii zapasowych będą stosowane z mocą wstecz do wszystkich starszych punktów odzyskiwania od nowych.
 
-### <a name="additional-reference"></a>Dodatkowe informacje
+### <a name="additional-reference"></a>Dodatkowa dokumentacja
 
 - Maszyna wirtualna platformy Azure: jak [tworzyć](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) i [modyfikować](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) zasady.
 - SQL Server bazy danych na maszynie wirtualnej platformy Azure: jak [tworzyć](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) i [modyfikować](./manage-monitor-sql-database-backup.md#modify-policy) zasady.
@@ -193,9 +193,8 @@ Maszyny wirtualne platformy Azure używają dysków do przechowywania swoich sys
 
 Aby uzyskać więcej informacji o magazynie dyskowym i dostępnych typach dysków dla maszyn wirtualnych, zobacz następujące artykuły:
 
-- [Azure Managed disks dla maszyn wirtualnych z systemem Windows](../virtual-machines/windows/managed-disks-overview.md)
-- [Azure Managed disks dla maszyn wirtualnych z systemem Linux](../virtual-machines/linux/managed-disks-overview.md)
-- [Dostępne typy dysków dla maszyn wirtualnych](../virtual-machines/windows/disks-types.md)
+- [Azure Managed disks dla maszyn wirtualnych z systemem Linux](../virtual-machines/managed-disks-overview.md)
+- [Dostępne typy dysków dla maszyn wirtualnych](../virtual-machines/disks-types.md)
 
 ### <a name="back-up-and-restore-azure-vms-with-premium-storage"></a>Tworzenie kopii zapasowych i przywracanie maszyn wirtualnych platformy Azure przy użyciu usługi Premium Storage
 
@@ -204,7 +203,7 @@ Można utworzyć kopię zapasową maszyn wirtualnych platformy Azure przy użyci
 - Podczas tworzenia kopii zapasowych maszyn wirtualnych w usłudze Premium Storage usługa Backup tworzy tymczasową lokalizację przejściową o nazwie *AzureBackup-*, na koncie magazynu. Rozmiar lokalizacji przejściowej jest równy rozmiarowi migawki punktu odzyskiwania.
 - Upewnij się, że na koncie magazynu w warstwie Premium jest wystarczająca ilość wolnego miejsca, aby pomieścić tymczasową lokalizację przemieszczania. Aby uzyskać więcej informacji, zobacz [elementy docelowe skalowalności dla kont usługi BLOB Storage na stronie Premium](../storage/blobs/scalability-targets-premium-page-blobs.md). Nie należy modyfikować lokalizacji tymczasowej.
 - Po zakończeniu zadania tworzenia kopii zapasowej lokalizacja tymczasowa zostanie usunięta.
-- Cena magazynu używana w lokalizacji tymczasowej jest spójna z [cenami usługi Premium Storage](../virtual-machines/windows/disks-types.md#billing).
+- Cena magazynu używana w lokalizacji tymczasowej jest spójna z [cenami usługi Premium Storage](../virtual-machines/disks-types.md#billing).
 
 Podczas przywracania maszyn wirtualnych platformy Azure przy użyciu usługi Premium Storage można przywrócić je do magazynu w warstwie Premium lub standardowa. Zazwyczaj można je przywrócić do magazynu w warstwie Premium. Ale jeśli potrzebujesz tylko podzbioru plików z maszyny wirtualnej, może być ekonomiczne przywrócenie do magazynu w warstwie Standardowa.
 

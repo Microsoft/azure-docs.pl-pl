@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych i odzyskiwanie maszyn wirtualnych platformy Az
 description: Zawiera opis sposobu tworzenia kopii zapasowych i odzyskiwania maszyn wirtualnych platformy Azure przy użyciu Azure Backup programu PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 7957253565658ca387502acb413bc3e6f9a1a3a4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e695fae087ca4e10a1d900a45cb02947bd5afa0b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538806"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652750"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Tworzenie kopii zapasowej i przywracanie maszyn wirtualnych platformy Azure przy użyciu programu PowerShell
 
@@ -58,7 +58,7 @@ Aby rozpocząć:
 3. Zaloguj się do konta platformy Azure przy użyciu polecenia **Connect-AzAccount**. To polecenie cmdlet wyświetla stronę sieci Web z prośbą o poświadczenia konta:
 
     * Alternatywnie można uwzględnić poświadczenia konta jako parametr w poleceniu cmdlet **Connect-AzAccount** przy użyciu parametru **-Credential** .
-    * Jeśli jesteś partnerem programu CSP działającym w imieniu dzierżawy, określ klienta jako dzierżawcę przy użyciu nazwy domeny głównej dzierżawy tenantID lub. Na przykład: **Connect-AzAccount-dzierżawca "fabrikam.com"**
+    * Jeśli jesteś partnerem programu CSP działającym w imieniu dzierżawy, określ klienta jako dzierżawcę przy użyciu nazwy domeny głównej tenantID lub dzierżawcy. Na przykład: **Connect-AzAccount-dzierżawca "fabrikam.com"**
 
 4. Skojarz subskrypcję, której chcesz używać z kontem, ponieważ konto może mieć kilka subskrypcji:
 
@@ -323,7 +323,7 @@ $bkpPol.SnapshotRetentionInDays=7
 Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol -VaultId $targetVault.ID
 ````
 
-Wartość domyślna to 2, użytkownik może ustawić wartość minimalną 1 i maksymalnie 5. W przypadku tygodniowych zasad tworzenia kopii zapasowych okres ma wartość 5 i nie można go zmienić.
+Wartość domyślna to 2, użytkownik może ustawić wartość minimalną 1 i maksymalnie 5. W przypadku tygodniowych zasad tworzenia kopii zapasowych okres jest ustawiany na 5 i nie można go zmienić.
 
 #### <a name="creating-azure-backup-resource-group-during-snapshot-retention"></a>Tworzenie Azure Backup grupy zasobów podczas przechowywania migawek
 
@@ -394,7 +394,7 @@ Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.
 
 #### <a name="delete-backup-data"></a>Usuwanie danych kopii zapasowej
 
-Aby całkowicie usunąć przechowywane dane kopii zapasowej w magazynie, po prostu Dodaj flagę "-RemoveRecoveryPoints"/Przełącz do [polecenia "Disable" ochrony](#retain-data).
+Aby całkowicie usunąć przechowywane dane kopii zapasowej w magazynie, należy dodać flagę "-RemoveRecoveryPoints"/przełącznik do [polecenia "Disable" ochrony](#retain-data).
 
 ````powershell
 Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID -RemoveRecoveryPoints
@@ -422,7 +422,7 @@ Podstawowe kroki przywracania maszyny wirtualnej platformy Azure:
 * Przywróć dyski.
 * Utwórz maszynę wirtualną z przechowywanych dysków.
 
-### <a name="select-the-vm"></a>Wybierz maszynę wirtualną
+### <a name="select-the-vm-when-restoring-files"></a>Wybierz maszynę wirtualną (podczas przywracania plików)
 
 Aby uzyskać obiekt programu PowerShell, który identyfikuje właściwy element kopii zapasowej, Rozpocznij od kontenera w magazynie i pracuj w sposób określony w hierarchii obiektów. Aby wybrać kontener reprezentujący maszynę wirtualną, należy użyć polecenia cmdlet [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer) i potoku do polecenia cmdlet [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) .
 
@@ -431,9 +431,9 @@ $namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM
 $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM" -VaultId $targetVault.ID
 ```
 
-### <a name="choose-a-recovery-point"></a>Wybierz punkt odzyskiwania
+### <a name="choose-a-recovery-point-when-restoring-files"></a>Wybierz punkt odzyskiwania (podczas przywracania plików)
 
-Użyj polecenia cmdlet [Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) , aby wyświetlić listę wszystkich punktów odzyskiwania dla elementu kopii zapasowej. Następnie wybierz punkt odzyskiwania do przywrócenia. Jeśli nie masz pewności, który punkt odzyskiwania ma być używany, dobrym sposobem jest wybranie najnowszego punktu RecoveryPointType = AppConsistent z listy.
+Użyj polecenia cmdlet [Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) , aby wyświetlić listę wszystkich punktów odzyskiwania dla elementu kopii zapasowej. Następnie wybierz punkt odzyskiwania do przywrócenia. Jeśli nie masz pewności, który punkt odzyskiwania jest używany, dobrym sposobem jest wybranie najnowszego punktu RecoveryPointType = AppConsistent z listy.
 
 W poniższym skrypcie zmienna **$RP**jest tablicą punktów odzyskiwania dla wybranego elementu kopii zapasowej w ciągu ostatnich siedmiu dni. Tablica jest posortowana w odwrotnej kolejności czasu z najnowszym punktem odzyskiwania pod indeksem 0. Użyj standardowego indeksowania tablicy programu PowerShell, aby wybrać punkt odzyskiwania. W przykładzie $rp [0] wybiera najnowszy punkt odzyskiwania.
 
@@ -636,9 +636,9 @@ W poniższej sekcji przedstawiono kroki niezbędne do utworzenia maszyny wirtual
         }
     ```
 
-    * **Niezarządzane i zaszyfrowane maszyny wirtualne bez usługi Azure AD (tylko klucz szyfrowania bloków)** — dla niezarządzanych, szyfrowanych maszyn wirtualnych bez usługi Azure AD (szyfrowanych tylko za pomocą klucz szyfrowania bloków), Jeśli źródłowy **Magazyn kluczy/klucz tajny nie są dostępne** Przywróć klucze tajne do magazynu klucza przy użyciu procedury [przywracania nieszyfrowanej maszyny wirtualnej z punktu odzyskiwania Azure Backup](backup-azure-restore-key-secret.md). Następnie wykonaj następujące skrypty, aby ustawić szczegóły szyfrowania dla przywróconego obiektu BLOB systemu operacyjnego (ten krok nie jest wymagany dla obiektów BLOB danych). $Dekurl można pobrać z przywróconego magazynu kluczy.
+    * **Niezarządzane i zaszyfrowane maszyny wirtualne bez usługi Azure AD (tylko klucz szyfrowania bloków)** — dla niezarządzanych, szyfrowanych maszyn wirtualnych bez usługi Azure AD (szyfrowanych tylko za pomocą klucz szyfrowania bloków), Jeśli źródłowy **Magazyn kluczy/klucz tajny nie są dostępne** Przywróć klucze tajne do magazynu klucza przy użyciu procedury [przywracania nieszyfrowanej maszyny wirtualnej z punktu odzyskiwania Azure Backup](backup-azure-restore-key-secret.md). Następnie wykonaj następujące skrypty, aby ustawić szczegóły szyfrowania dla przywróconego obiektu BLOB systemu operacyjnego (ten krok nie jest wymagany dla obiektu BLOB danych). $Dekurl można pobrać z przywróconego magazynu kluczy.
 
-    Poniższy skrypt należy wykonać tylko wtedy, gdy źródłowy Magazyn kluczy/klucz tajny jest niedostępny.
+    Poniższy skrypt należy wykonać tylko wtedy, gdy źródłowy Magazyn kluczy/wpis tajny jest niedostępny.
 
     ```powershell
         $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -663,7 +663,7 @@ W poniższej sekcji przedstawiono kroki niezbędne do utworzenia maszyny wirtual
         }
     ```
 
-    * **Niezarządzane i zaszyfrowane maszyny wirtualne bez usługi Azure AD (klucz szyfrowania bloków i KEK)** — w przypadku niezarządzanych, szyfrowanych maszyn wirtualnych bez usługi Azure AD (szyfrowanych przy użyciu klucz szyfrowania bloków & KEK), Jeśli źródłowy **Magazyn kluczy/klucz/wpis tajny nie są dostępne** Przywróć klucz i klucze tajne do magazynu klucza przy użyciu procedury [przywracania nieszyfrowanej maszyny wirtualnej z Azure Backup punktu odzyskiwania](backup-azure-restore-key-secret.md). Następnie wykonaj następujące skrypty, aby ustawić szczegóły szyfrowania dla przywróconego obiektu BLOB systemu operacyjnego (ten krok nie jest wymagany dla obiektów BLOB danych). $Dekurl i $kekurl można pobrać z przywróconego magazynu kluczy.
+    * **Niezarządzane i zaszyfrowane maszyny wirtualne bez usługi Azure AD (klucz szyfrowania bloków i KEK)** — w przypadku niezarządzanych, szyfrowanych maszyn wirtualnych bez usługi Azure AD (szyfrowanych przy użyciu klucz szyfrowania bloków & KEK), Jeśli źródłowy **Magazyn kluczy/klucz/wpis tajny nie są dostępne** Przywróć klucz i klucze tajne do magazynu klucza przy użyciu procedury [przywracania nieszyfrowanej maszyny wirtualnej z Azure Backup punktu odzyskiwania](backup-azure-restore-key-secret.md). Następnie wykonaj następujące skrypty, aby ustawić szczegóły szyfrowania dla przywróconego obiektu BLOB systemu operacyjnego (ten krok nie jest wymagany dla obiektu BLOB danych). $Dekurl i $kekurl można pobrać z przywróconego magazynu kluczy.
 
     Poniższy skrypt należy wykonać tylko wtedy, gdy źródłowy Magazyn kluczy/klucz/wpis tajny jest niedostępny.
 
@@ -699,7 +699,7 @@ W poniższej sekcji przedstawiono kroki niezbędne do utworzenia maszyny wirtual
 
     * **Zarządzane i zaszyfrowane maszyny wirtualne bez usługi Azure AD (tylko klucz szyfrowania bloków)** — w przypadku zarządzanych, szyfrowanych maszyn wirtualnych bez usługi Azure AD (szyfrowanych tylko za pomocą klucz szyfrowania bloków), Jeśli źródłowy **Magazyn kluczy/klucz tajny nie są dostępne** Przywróć klucze tajne do magazynu klucza przy użyciu procedury [przywracania nieszyfrowanej maszyny wirtualnej z punktu odzyskiwania Azure Backup](backup-azure-restore-key-secret.md). Następnie wykonaj następujące skrypty, aby ustawić szczegóły szyfrowania na przywróconym dysku systemu operacyjnego (ten krok nie jest wymagany w przypadku dysku danych). $Dekurl można pobrać z przywróconego magazynu kluczy.
 
-    Poniższy skrypt należy wykonać tylko wtedy, gdy źródłowy Magazyn kluczy/klucz tajny jest niedostępny.  
+    Skrypt poniżej należy wykonać tylko wtedy, gdy źródłowy Magazyn kluczy/wpis tajny jest niedostępny.  
 
     ```powershell
     $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -811,7 +811,7 @@ Podstawowe kroki przywracania pliku z kopii zapasowej maszyny wirtualnej platfor
 * Kopiuj wymagane pliki
 * Odinstalowywanie dysku
 
-### <a name="select-the-vm"></a>Wybierz maszynę wirtualną
+### <a name="select-the-vm-when-restoring-the-vm"></a>Wybierz maszynę wirtualną (podczas przywracania maszyny wirtualnej)
 
 Aby uzyskać obiekt programu PowerShell, który identyfikuje właściwy element kopii zapasowej, Rozpocznij od kontenera w magazynie i pracuj w sposób określony w hierarchii obiektów. Aby wybrać kontener reprezentujący maszynę wirtualną, należy użyć polecenia cmdlet [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer) i potoku do polecenia cmdlet [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) .
 
@@ -820,9 +820,9 @@ $namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM
 $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM" -VaultId $targetVault.ID
 ```
 
-### <a name="choose-a-recovery-point"></a>Wybierz punkt odzyskiwania
+### <a name="choose-a-recovery-point-when-restoring-the-vm"></a>Wybierz punkt odzyskiwania (podczas przywracania maszyny wirtualnej)
 
-Użyj polecenia cmdlet [Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) , aby wyświetlić listę wszystkich punktów odzyskiwania dla elementu kopii zapasowej. Następnie wybierz punkt odzyskiwania do przywrócenia. Jeśli nie masz pewności, który punkt odzyskiwania ma być używany, dobrym sposobem jest wybranie najnowszego punktu RecoveryPointType = AppConsistent z listy.
+Użyj polecenia cmdlet [Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) , aby wyświetlić listę wszystkich punktów odzyskiwania dla elementu kopii zapasowej. Następnie wybierz punkt odzyskiwania do przywrócenia. Jeśli nie masz pewności, który punkt odzyskiwania jest używany, dobrym sposobem jest wybranie najnowszego punktu RecoveryPointType = AppConsistent z listy.
 
 W poniższym skrypcie zmienna **$RP**jest tablicą punktów odzyskiwania dla wybranego elementu kopii zapasowej w ciągu ostatnich siedmiu dni. Tablica jest posortowana w odwrotnej kolejności czasu z najnowszym punktem odzyskiwania pod indeksem 0. Użyj standardowego indeksowania tablicy programu PowerShell, aby wybrać punkt odzyskiwania. W przykładzie $rp [0] wybiera najnowszy punkt odzyskiwania.
 

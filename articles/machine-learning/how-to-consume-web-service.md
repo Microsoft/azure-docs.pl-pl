@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e5fb19b0d8d94b5ccc07c465c3e9f3bf0de50ab7
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6e34bd91a1deb5bbd28c11e8f23ea2b812333aaf
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843050"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652597"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Korzystanie z modelu usługi Azure Machine Learning wdrożonego jako usługa internetowa
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,10 +41,10 @@ Ogólny przepływ pracy służący do tworzenia klienta korzystającego z usług
 
 Klasa [Azure. Core. WebService](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) zawiera informacje potrzebne do utworzenia klienta. Następujące `Webservice` właściwości są przydatne podczas tworzenia aplikacji klienckiej:
 
-* `auth_enabled`-Jeśli jest włączone uwierzytelnianie klucza `True` ; w przeciwnym razie `False` .
-* `token_auth_enabled`-Jeśli uwierzytelnianie tokenu jest włączone, `True` w przeciwnym razie, `False` .
-* `scoring_uri`— Adres interfejsu API REST.
-* `swagger_uri`-Adres specyfikacji OpenAPI. Ten identyfikator URI jest dostępny po włączeniu automatycznego generowania schematu. Aby uzyskać więcej informacji, zobacz [Wdrażanie modeli przy użyciu Azure Machine Learning](how-to-deploy-and-where.md).
+* `auth_enabled` -Jeśli jest włączone uwierzytelnianie klucza `True` ; w przeciwnym razie `False` .
+* `token_auth_enabled` -Jeśli uwierzytelnianie tokenu jest włączone, `True` w przeciwnym razie, `False` .
+* `scoring_uri` — Adres interfejsu API REST.
+* `swagger_uri` -Adres specyfikacji OpenAPI. Ten identyfikator URI jest dostępny po włączeniu automatycznego generowania schematu. Aby uzyskać więcej informacji, zobacz [Wdrażanie modeli przy użyciu Azure Machine Learning](how-to-deploy-and-where.md).
 
 Istnieją trzy sposoby pobierania tych informacji dla wdrożonych usług sieci Web:
 
@@ -157,30 +157,6 @@ Interfejs API REST oczekuje treści żądania jako dokumentu JSON o następując
 
 > [!IMPORTANT]
 > Struktura danych musi być zgodna z oczekiwanym skryptem oceniania i modelem w usłudze. Skrypt oceniania może zmodyfikować dane przed przekazaniem ich do modelu.
-
-Na przykład model w [pouczeniu w ramach](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) przykładu w notesie oczekuje tablicy o wartości 10 cyfr. Skrypt oceniania w tym przykładzie tworzy tablicę numpy z żądania i przekazuje ją do modelu. W poniższym przykładzie przedstawiono dane, których oczekuje ta usługa:
-
-```json
-{
-    "data": 
-        [
-            [
-                0.0199132141783263, 
-                0.0506801187398187, 
-                0.104808689473925, 
-                0.0700725447072635, 
-                -0.0359677812752396, 
-                -0.0266789028311707, 
-                -0.0249926566315915, 
-                -0.00259226199818282, 
-                0.00371173823343597, 
-                0.0403433716478807
-            ]
-        ]
-}
-```
-
-Usługa sieci Web może akceptować wiele zestawów danych w jednym żądaniu. Zwraca dokument JSON zawierający tablicę odpowiedzi.
 
 ### <a name="binary-data"></a>Dane binarne
 

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 09d82c4834e50e0dff74edb5ccd14287736b937e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 1753373b360a78918682b5f6102dcc896e2d90c3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844477"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652642"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Skonfiguruj środowisko programistyczne dla Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -215,7 +215,7 @@ Aby włączyć te składniki w środowisku Jupyter Notebook:
     conda activate myenv
     ```
 
-1. Sklonuj [repozytorium GitHub](https://aka.ms/aml-notebooks) dla zestawu przykładowych notesów.
+1. Sklonuj [repozytorium GitHub](https://github.com/Azure/MachineLearningNotebooks) dla zestawu przykładowych notesów.
 
     ```bash
     git clone https://github.com/Azure/MachineLearningNotebooks.git
@@ -303,7 +303,7 @@ Po uruchomieniu klastra [Utwórz bibliotekę](https://docs.databricks.com/user-g
 
 1. Wybierz **tylko jedną** opcję (nie jest obsługiwana żadna inna instalacja zestawu SDK)
 
-   |&nbsp;Dodatki do pakietu SDK &nbsp;|Źródło|&nbsp;Nazwa PyPi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |&nbsp;Dodatki do pakietu SDK &nbsp;|Element źródłowy|&nbsp;Nazwa PyPi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Dla kostek datakostki| Przekaż Język Python lub PyPI | Azure-SDK [datakostki]|
    |Dla kostek datakostks — with-<br> możliwości zautomatyzowanej ML| Przekaż Język Python lub PyPI | Azure-SDK [automl]|
@@ -312,7 +312,7 @@ Po uruchomieniu klastra [Utwórz bibliotekę](https://docs.databricks.com/user-g
    > Nie można zainstalować żadnych innych rozszerzeń zestawu SDK. Wybierz tylko jedną z powyższych opcji [datakostki] lub [automl].
 
    * Nie wybieraj opcji **Dołącz automatycznie do wszystkich klastrów**.
-   * Wybierz pozycję **Dołącz** obok nazwy klastra.
+   * Wybierz pozycję  **Dołącz** obok nazwy klastra.
 
 1. Monitoruj błędy do momentu zmiany stanu **dołączone**, co może potrwać kilka minut.  Jeśli ten krok zakończy się niepowodzeniem:
 
@@ -323,8 +323,8 @@ Po uruchomieniu klastra [Utwórz bibliotekę](https://docs.databricks.com/user-g
 
    Rozważ również:
    + W konfiguracji AutoML podczas korzystania z Azure Databricks dodać następujące parametry:
-       1. ```max_concurrent_iterations```jest oparty na liczbie węzłów procesu roboczego w klastrze.
-        2. ```spark_context=sc```jest oparty na domyślnym kontekście Spark.
+       1. ```max_concurrent_iterations``` jest oparty na liczbie węzłów procesu roboczego w klastrze.
+        2. ```spark_context=sc``` jest oparty na domyślnym kontekście Spark.
    + Lub, jeśli masz starą wersję zestawu SDK, usuń zaznaczenie jej z zainstalowanego libs klastra i Przenieś do kosza. Zainstaluj nową wersję zestawu SDK i ponownie uruchom klaster. Jeśli po ponownym uruchomieniu wystąpi problem, odłącz i ponownie Dołącz klaster.
 
 Jeśli instalacja zakończyła się pomyślnie, zaimportowana biblioteka powinna wyglądać następująco:
@@ -361,9 +361,9 @@ Aby użyć tego pliku z kodu, użyj `ws=Workspace.from_config()` . Ten kod ładu
 
 Plik konfiguracji można utworzyć na trzy sposoby:
 
-* **Użyj [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**:, aby napisać *config.jsna* pliku. Plik zawiera informacje o konfiguracji dla obszaru roboczego. *config.js* można pobrać lub skopiować do innych środowisk programistycznych.
+* **Użyj  [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**:, aby napisać *config.jsna* pliku. Plik zawiera informacje o konfiguracji dla obszaru roboczego. *config.js* można pobrać lub skopiować do innych środowisk programistycznych.
 
-* **Pobierz plik**: w [Azure Portal](https://ms.portal.azure.com)wybierz pozycję **Pobierz config.js** z sekcji **Przegląd** w obszarze roboczym.
+* **Pobierz plik**: w [Azure Portal](https://ms.portal.azure.com)wybierz pozycję  **Pobierz config.js** z sekcji **Przegląd** w obszarze roboczym.
 
      ![Azure Portal](./media/how-to-configure-environment/configure.png)
 
