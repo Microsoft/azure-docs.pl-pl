@@ -3,12 +3,12 @@ title: Konfigurowanie ustawień diagnostyki magazynu w odpowiedniej skali
 description: Skonfiguruj ustawienia diagnostyki Log Analytics dla wszystkich magazynów w danym zakresie przy użyciu Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 2400be15dcd46084e9a605076c00cf5c5ac92463
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 58ef8af56bb3f44664ffaec6a17bab5f5e92808e
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498053"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612507"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Konfigurowanie ustawień diagnostyki magazynu w odpowiedniej skali
 
@@ -34,17 +34,17 @@ Aby przypisać zasady dla magazynów w wymaganym zakresie, wykonaj następujące
 
 1. Zaloguj się do Azure Portal i przejdź do pulpitu nawigacyjnego **zasad** .
 2. Wybierz pozycję **definicje** w menu po lewej stronie, aby wyświetlić listę wszystkich wbudowanych zasad w ramach zasobów platformy Azure.
-3. Filtrowanie listy dla **kategorii = Monitorowanie**. Zlokalizuj zasady o nazwie **[wersja zapoznawcza]: Wdróż ustawienia diagnostyczne magazynu Recovery Services do log Analytics obszaru roboczego dla kategorii określonych zasobów**.
+3. Filtrowanie listy dla **kategorii = Monitorowanie**. Zlokalizuj zasady o nazwie **[wersja zapoznawcza]: Wdróż ustawienia diagnostyczne magazynu Recovery Services do log Analytics obszaru roboczego dla kategorii specyficznych dla zasobów**.
 
-    ![Blok definicji zasad](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
+    ![Okienko definicji zasad](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 
-4. Kliknij nazwę zasad. Nastąpi przekierowanie do szczegółowej definicji dla tych zasad.
+4. Wybierz nazwę zasad. Nastąpi przekierowanie do szczegółowej definicji dla tych zasad.
 
     ![Szczegółowa definicja zasad](./media/backup-azure-policy-configure-diagnostics/detailed-policy-definition.png)
 
-5. Kliknij przycisk **Przypisz** w górnej części bloku. Przekierowuje to do bloku **przypisywanie zasad** .
+5. Wybierz przycisk **Przypisz** w górnej części okienka. Spowoduje to przekierowanie do okienka **przypisywanie zasad** .
 
-6. W obszarze **podstawowe**kliknij trzy kropki obok pola **zakres** . Spowoduje to otwarcie bloku prawego kontekstu, w którym można wybrać subskrypcję zasad, która ma zostać zastosowana. Opcjonalnie można również wybrać grupę zasobów, aby zasady były stosowane tylko w przypadku magazynów w określonej grupie zasobów.
+6. W obszarze **podstawy**wybierz trzy kropki obok pola **zakres** . Spowoduje to otwarcie prawego okienka kontekstowego, w którym można wybrać subskrypcję zasad, która ma zostać zastosowana. Opcjonalnie można również wybrać grupę zasobów, aby zasady były stosowane tylko w przypadku magazynów w określonej grupie zasobów.
 
     ![Podstawowe informacje dotyczące przypisywania zasad](./media/backup-azure-policy-configure-diagnostics/policy-assignment-basics.png)
 
@@ -53,7 +53,7 @@ Aby przypisać zasady dla magazynów w wymaganym zakresie, wykonaj następujące
     * **Nazwa profilu** — nazwa, która zostanie przypisana do ustawień diagnostycznych utworzonych przez zasady.
     * **Log Analytics obszar roboczy** — log Analytics obszar roboczy, do którego ma zostać skojarzone ustawienie diagnostyczne. Dane diagnostyczne wszystkich magazynów w zakresie przypisania zasad zostaną wypchnięte do określonego obszaru roboczego LA.
 
-    * **Nazwa tagu wykluczenia (opcjonalnie) i wartość tagu wykluczenia (opcjonalnie)** — możesz zdecydować się na wykluczenie z przypisania zasad magazynów zawierających określoną nazwę tagu i wartość. Na przykład, jeśli **nie** chcesz dodać ustawienia diagnostycznego do tych magazynów, dla których tag "istest" ma ustawioną wartość "yes", musisz wprowadzić "istest" w polu **nazwa znacznika wykluczenia** i "yes" w polu **wartość znacznika wykluczenia** . Jeśli którykolwiek z tych dwóch pól lub oba te pola są puste, zasady zostaną zastosowane do wszystkich odpowiednich magazynów niezależnie od tagów, które zawierają.
+    * **Nazwa tagu wykluczenia (opcjonalnie) i wartość tagu wykluczenia (opcjonalnie)** — możesz zdecydować się na wykluczenie z przypisania zasad magazynów zawierających określoną nazwę tagu i wartość. Na przykład, jeśli **nie** chcesz dodać ustawienia diagnostycznego do tych magazynów, dla których tag "istest" ma ustawioną wartość "yes", musisz wprowadzić "istest" w polu **nazwa znacznika wykluczenia** i "yes" w polu **wartość znacznika wykluczenia** . Jeśli dowolne (lub oba) tych dwóch pól są puste, zasady zostaną zastosowane do wszystkich odpowiednich magazynów niezależnie od tego, jakie Tagi zawierają.
 
     ![Parametry przypisania zasad](./media/backup-azure-policy-configure-diagnostics/policy-assignment-parameters.png)
 
@@ -61,18 +61,18 @@ Aby przypisać zasady dla magazynów w wymaganym zakresie, wykonaj następujące
 
     ![Korygowanie przypisań zasad](./media/backup-azure-policy-configure-diagnostics/policy-assignment-remediation.png)
 
-9. Przejdź do karty **Recenzja + tworzenie** , a następnie kliknij przycisk **Utwórz**.
+9. Przejdź do karty **Recenzja + tworzenie** i wybierz pozycję **Utwórz**.
 
 ## <a name="under-what-conditions-will-the-remediation-task-apply-to-a-vault"></a>Pod jakimi warunkami zadanie korygowania będzie stosowane do magazynu?
 
 Zadanie korygowania jest stosowane do magazynów, które są niezgodne zgodnie z definicją zasad. Magazyn nie jest zgodny, jeśli spełnia jeden z następujących warunków:
 
 * Brak ustawienia diagnostyki dla magazynu.
-* Ustawienia diagnostyczne są obecne dla magazynu, ale żadne z tych ustawień nie ma **wszystkich** zdarzeń specyficznych dla zasobów, które zostały włączone przy użyciu La jako miejsca docelowego, i wybranego **zasobu** zaznaczonego w przełączniku.
+* Ustawienia diagnostyczne są obecne dla magazynu, ale żadne z tych ustawień nie ma **wszystkich** zdarzeń specyficznych dla zasobów, które zostały włączone przy użyciu La jako miejsce docelowe, i wybranego **zasobu** zaznaczonego w przełączniku.
 
 Nawet jeśli użytkownik ma magazyn z włączonym zdarzeniem AzureBackupReport w trybie AzureDiagnostics (który jest obsługiwany przez raporty kopii zapasowych [), zadanie](./backup-azure-diagnostic-events.md#legacy-event)korygowania nadal będzie dotyczyło tego magazynu, ponieważ tryb specyficzny dla zasobów jest zalecanym sposobem tworzenia ustawień diagnostycznych.
 
-Ponadto jeśli użytkownik ma magazyn z tylko podzbiorem sześciu zdarzeń specyficznych dla zasobów, zadanie korygowania będzie dotyczyło tego magazynu, ponieważ raporty kopii zapasowych będą działały zgodnie z oczekiwaniami tylko wtedy, gdy są włączone wszystkie sześć zdarzeń specyficznych dla zasobów.
+Ponadto, jeśli użytkownik ma magazyn z tylko podzbiorem sześciu zdarzeń specyficznych dla zasobów, zadanie korygowania będzie dotyczyło tego magazynu, ponieważ raporty kopii zapasowych będą działały zgodnie z oczekiwaniami tylko wtedy, gdy są włączone wszystkie sześć zdarzeń specyficznych dla zasobów.
 
 > [!NOTE]
 >

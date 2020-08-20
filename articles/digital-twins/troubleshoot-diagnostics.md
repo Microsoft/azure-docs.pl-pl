@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: d47bb7cc868c5733c6e36290f097fec783764cd3
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5091edbf9138cb8ff03df193dcbeed692aaf13e3
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003579"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612405"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Rozwiązywanie problemów z usługą Azure Digital bliźniaczych reprezentacji: rejestrowanie diagnostyczne
 
@@ -88,7 +88,7 @@ Poniżej znajduje się kompleksowa Lista operacji i odpowiednich [wywołań inte
 | ADTEventRoutesOperation | Microsoft. DigitalTwins/eventroutes/Write | Dodawanie interfejsu API tras zdarzeń |
 |  | Microsoft. DigitalTwins/eventroutes/odczyt | Trasy zdarzeń Get według identyfikatorów i interfejsów API |
 |  | Microsoft. DigitalTwins/eventroutes/Delete | Interfejs API usuwania tras zdarzeń |
-|  | Microsoft. DigitalTwins/eventroutes/Action | Wyjście zdarzenia do usługi punktu końcowego (nie wywołania interfejsu API) |
+|  | Microsoft. DigitalTwins/eventroutes/Action | Wystąpił błąd podczas próby opublikowania zdarzeń w usłudze punktu końcowego (nie wywołania interfejsu API) |
 | ADTDigitalTwinsOperation | Microsoft. DigitalTwins/DigitalTwins/Write | Digital bliźniaczych reprezentacji Add, Dodawanie relacji, aktualizowanie, aktualizowanie składnika |
 |  | Microsoft. DigitalTwins/DigitalTwins/odczyt | Digital bliźniaczych reprezentacji Get według identyfikatora, Pobierz składnik, uzyskaj relację według identyfikatora, Wyświetl listę relacji przychodzących, relacje list |
 |  | Microsoft. DigitalTwins/DigitalTwins/Delete | Digital bliźniaczych reprezentacji Delete, usuwanie relacji |

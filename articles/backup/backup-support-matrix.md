@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień obsługi i ograniczeń dotyczących 
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: f2f3d26f74c6227ad257c188d4088fd41fca7075
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 5871e61229277d8036727c11b42d9d7a061bad99
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922320"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612524"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Macierz obsługi dla Azure Backup
 
@@ -79,8 +79,8 @@ W tym miejscu nowości są obsługiwane, jeśli chcesz utworzyć kopię zapasow�
 --- | ---
 **Bezpośrednie tworzenie kopii zapasowej maszyny lokalnej z systemem Linux** | Nieobsługiwane. Agenta MARS można zainstalować tylko na komputerach z systemem Windows.
 **Używanie rozszerzenia agenta do tworzenia kopii zapasowej maszyny wirtualnej platformy Azure z systemem Linux** | Tworzenie kopii zapasowej spójnej na poziomie aplikacji przy użyciu [skryptów niestandardowych](backup-azure-linux-app-consistent.md).<br/><br/> Odzyskiwanie na poziomie plików.<br/><br/> Przywracanie przez utworzenie maszyny wirtualnej z punktu odzyskiwania lub dysku.
-**Używanie programu DPM do tworzenia kopii zapasowych maszyn lokalnych z systemem Linux** | Spójna z plikami kopia zapasowa maszyn wirtualnych gościa systemu Linux w funkcji Hyper-V i oprogramowaniu VMWare.<br/><br/> Przywracanie maszyny wirtualnej z maszynami wirtualnymi funkcji Hyper-V i VMWare Linux.
-**Tworzenie kopii zapasowych maszyn lokalnych z systemem Linux przy użyciu programu serwera usługi MAB** | Spójna z plikami kopia zapasowa maszyn wirtualnych gościa systemu Linux w funkcji Hyper-V i oprogramowaniu VMWare.<br/><br/> Przywracanie maszyny wirtualnej z maszynami wirtualnymi funkcji Hyper-V i VMWare Linux.
+**Używanie programu DPM do tworzenia kopii zapasowych maszyn lokalnych z systemem Linux** | Spójna z plikami kopia zapasowa maszyn wirtualnych gościa systemu Linux w funkcji Hyper-V i oprogramowaniu VMware.<br/><br/> Przywracanie maszyny wirtualnej z maszynami wirtualnymi funkcji Hyper-V i VMware Linux.
+**Tworzenie kopii zapasowych maszyn lokalnych z systemem Linux przy użyciu programu serwera usługi MAB** | Spójna z plikami kopia zapasowa maszyn wirtualnych gościa systemu Linux w funkcji Hyper-V i oprogramowaniu VMware.<br/><br/> Przywracanie maszyny wirtualnej z maszynami wirtualnymi funkcji Hyper-V i VMware Linux.
 **Używanie programu serwera usługi MAB lub programu DPM do tworzenia kopii zapasowych maszyn wirtualnych platformy Azure z systemem Linux** | Nieobsługiwane.
 
 ## <a name="daylight-saving-time-support"></a>Obsługa czasu letniego
@@ -115,7 +115,7 @@ Azure Backup obsługuje szyfrowanie danych w trakcie przesyłania i w czasie spo
 --- | --- | ---
 **Lokalne maszyny z systemem Windows bez programu DPM/usługi MABS** | ![Tak][green] | ![Tak][green]
 **Maszyny wirtualne platformy Azure** | ![Tak][green] | ![Tak][green]
-**Lokalne komputery z systemem Windows lub maszyny wirtualne platformy Azure z programem DPM** | ![Yes][green] | ![Tak][green]
+**Lokalne komputery z systemem Windows lub maszyny wirtualne platformy Azure z programem DPM** | ![Tak][green] | ![Tak][green]
 **Lokalne komputery z systemem Windows lub maszyny wirtualne platformy Azure z usługą serwera usługi MAB** | ![Tak][green] | ![Tak][green]
 
 ## <a name="compression-support"></a>Obsługa kompresji

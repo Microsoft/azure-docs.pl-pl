@@ -3,12 +3,12 @@ title: Użyj Azure Backup Server, aby utworzyć kopię zapasową obciążeń
 description: W tym artykule dowiesz się, jak przygotować środowisko do ochrony i tworzenia kopii zapasowych obciążeń przy użyciu Microsoft Azure Backup Server (serwera usługi MAB).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 76f212875c7f48d9436295f523660b7a298ce7f0
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 9ae8fd824144c70edeb1e084155e8cdff95cd8b9
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263326"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612337"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalowanie i uaktualnianie Azure Backup Server
 
@@ -156,7 +156,7 @@ Po pobraniu wszystkich plików wybierz pozycję **MicrosoftAzureBackupInstaller.
 
 ![Instalator wyodrębniania plików do zainstalowania](./media/backup-azure-microsoft-azure-backup/extract/03.png)
 
-Po zakończeniu procesu wyodrębniania zaznacz pole wyboru w celu uruchomienia świeżo wyodrębnionego *setup.exe* , aby rozpocząć instalowanie serwera Microsoft Azure Backup i wybrać przycisk **Zakończ** .
+Po zakończeniu procesu wyodrębniania zaznacz pole wyboru w celu uruchomienia świeżo wyodrębnionego *setup.exe* , aby rozpocząć instalowanie serwera Microsoft Azure Backup i wybierz przycisk **Zakończ** .
 
 ### <a name="installing-the-software-package"></a>Instalowanie pakietu oprogramowania
 

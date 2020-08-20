@@ -8,7 +8,7 @@
     - name: Omówienie i korzyści komercyjnej platformy handlowej
       href: ./marketplace-publishers-guide.md
       items:
-        - name: 'Jedna platforma handlowa, dwa sklepy'
+        - name: 'Jedna platforma handlowa, dwa sklepy online'
           href: ./comparing-appsource-azure-marketplace.md
         - name: Opcje i zagadnienia dotyczące publikowania
           href: ./determine-your-listing-type.md

@@ -4,12 +4,12 @@ description: Objawy, przyczyny i rozwiązania błędów Azure Backup związanych
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 53c0ede07040e782b683e8ff4b0b08e6fe0a9caf
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: d690ed23f49d3aa3f77b88c8d57c963ae2a98682
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585564"
+ms.locfileid: "88611861"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Rozwiązywanie problemów z błędem Azure Backup: problemy z agentem lub rozszerzeniem
 
@@ -31,7 +31,7 @@ Najczęstsze błędy tworzenia kopii zapasowych można rozwiązać, wykonując n
 - **Upewnij się, że usługa agenta gościa maszyny wirtualnej platformy Azure jest uruchomiona i aktualna**:
   - Na maszynie wirtualnej z systemem Windows:
     - Przejdź do programu **Services. msc** i upewnij się, że **Usługa agenta gościa maszyny wirtualnej platformy Microsoft Azure** jest uruchomiona. Upewnij się również, że zainstalowano [najnowszą wersję](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) programu. Aby dowiedzieć się więcej, zobacz [problemy z agentem gościa maszyny wirtualnej systemu Windows](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms).
-    - Agent maszyny wirtualnej platformy Azure jest instalowany domyślnie na wszystkich maszynach wirtualnych z systemem Windows wdrożonych w ramach obrazu portalu Azure Marketplace z poziomu witryny Portal, programu PowerShell, interfejsu wiersza polecenia lub szablonu Azure Resource Manager. [Ręczna instalacja agenta](../virtual-machines/extensions/agent-windows.md#manual-installation) może być konieczna podczas tworzenia niestandardowego obrazu maszyny wirtualnej wdrożonego na platformie Azure.
+    - Agent maszyny wirtualnej platformy Azure jest instalowany domyślnie na wszystkich maszynach wirtualnych z systemem Windows wdrożonych z obrazu portalu Azure Marketplace z poziomu witryny Portal, programu PowerShell, interfejsu wiersza polecenia lub szablonu Azure Resource Manager. [Ręczna instalacja agenta](../virtual-machines/extensions/agent-windows.md#manual-installation) może być konieczna podczas tworzenia niestandardowego obrazu maszyny wirtualnej wdrożonego na platformie Azure.
     - Zapoznaj się z matrycą pomocy technicznej, aby sprawdzić, czy maszyna wirtualna jest uruchamiana w [obsługiwanym systemie operacyjnym Windows](backup-support-matrix-iaas.md#operating-system-support-windows).
   - Na maszynie wirtualnej z systemem Linux
     - Upewnij się, że usługa agenta gościa maszyny wirtualnej platformy Azure jest uruchomiona, wykonując polecenie `ps-e` . Upewnij się również, że zainstalowano [najnowszą wersję](../virtual-machines/extensions/update-linux-agent.md) programu. Aby dowiedzieć się więcej, zobacz [problemy z agentem gościa maszyny wirtualnej z systemem Linux](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).

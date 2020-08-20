@@ -125,20 +125,26 @@
           href: partition-data.md
         - name: Syntetyczny klucz partycji
           href: synthetic-partition-keys.md
-    - name: Aprowizowana przepływność
+    - name: Pojemność
       items:
         - name: Jednostki żądania
           displayName: 'RUs, RU'
           href: request-units.md
-        - name: Wprowadzenie do aprowizowanej przepływności
-          displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
-          href: set-throughput.md
-        - name: Aprowizowanie przepływności autoskalowania
-          href: provision-throughput-autoscale.md
-        - name: Wybór między autoskalowaniem a standardową (ręczną) przepływnością
-          href: how-to-choose-offer.md
-        - name: Autoskalowanie — często zadawane pytania
-          href: autoscale-faq.md
+        - name: Aprowizowana przepływność
+          items:
+            - name: Wprowadzenie do aprowizowanej przepływności
+              displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
+              href: set-throughput.md
+            - name: Aprowizowanie przepływności autoskalowania
+              href: provision-throughput-autoscale.md
+            - name: Wybór między autoskalowaniem a standardową (ręczną) przepływnością
+              href: how-to-choose-offer.md
+            - name: Autoskalowanie — często zadawane pytania
+              href: autoscale-faq.md
+        - name: Praca bezserwerowa
+          href: serverless.md
+        - name: Wybór między trybem aprowizowanej przepływności a bezserwerowym
+          href: throughput-serverless.md
     - name: Zapytanie SQL
       items:
         - name: Wprowadzenie
@@ -238,6 +244,9 @@
                     - name: DateTimeToTicks
                       displayName: 'DateTimeToTicks, date time to ticks, date and time functions, datetime, ticks'
                       href: sql-query-datetimetoticks.md
+                    - name: DateTimeToTimestamp
+                      displayName: 'DateTimeToTimestamp, date time to timestamp, date and time functions, datetime, timestamp'
+                      href: sql-query-datetimetotimestamp.md
                     - name: GetCurrentDateTime
                       displayName: 'GetCurrentDateTime, get current date time, date and time functions, datetime'
                       href: sql-query-getcurrentdatetime.md
@@ -247,6 +256,12 @@
                     - name: GetCurrentTimestamp
                       displayName: 'GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime'
                       href: sql-query-getcurrenttimestamp.md
+                    - name: TicksToDateTime
+                      displayName: 'TicksToDateTime, ticks to date time, date and time functions, datetime, ticks'
+                      href: sql-query-tickstodatetime.md
+                    - name: TimestampToDateTime
+                      displayName: 'TimestampToDateTime, timestamp to date time, date and time functions, datetime, timestamp'
+                      href: sql-query-timestamptodatetime.md
                 - name: Funkcje matematyczne
                   items:
                     - name: Funkcje matematyczne
@@ -953,26 +968,28 @@
           href: how-to-manage-conflicts.md
         - name: Konwertowanie formatu tokenu sesji
           href: how-to-convert-session-token.md
-    - name: Aprowizowana przepływność
+    - name: Pojemność
       items:
-        - name: Aprowizowanie standardowe (ręczne) przepływności w kontenerze
-          displayName: 'request units, RUs, RU, collection level'
-          href: how-to-provision-container-throughput.md
-        - name: Aprowizowanie standardowe (ręczne) przepływności w bazie danych
-          displayName: 'request units, RUs, RU, shared throughput, database level'
-          href: how-to-provision-database-throughput.md
-        - name: Aprowizowanie przepływności autoskalowania w bazie danych lub kontenerze
-          displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
-          href: how-to-provision-autoscale-throughput.md
-        - name: Szacowanie liczby jednostek żądania na sekundę za pomocą narzędzia do planowania wydajności rozwiązania Cosmos
-          displayName: 'request units, RUs, RU, capacity'
-          href: estimate-ru-with-capacity-planner.md
         - name: Znajdowanie opłaty za jednostkę żądania
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge.md
-        - name: Skalowanie przy użyciu czasomierza usługi Azure Functions
-          displayName: 'request units, RUs, RU, timer'
-          href: scale-on-schedule.md
+        - name: Aprowizowana przepływność
+          items:
+            - name: Aprowizowanie standardowe (ręczne) przepływności w kontenerze
+              displayName: 'request units, RUs, RU, collection level'
+              href: how-to-provision-container-throughput.md
+            - name: Aprowizowanie standardowe (ręczne) przepływności w bazie danych
+              displayName: 'request units, RUs, RU, shared throughput, database level'
+              href: how-to-provision-database-throughput.md
+            - name: Aprowizowanie przepływności autoskalowania w bazie danych lub kontenerze
+              displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
+              href: how-to-provision-autoscale-throughput.md
+            - name: Szacowanie liczby jednostek żądania na sekundę za pomocą narzędzia do planowania wydajności rozwiązania Cosmos
+              displayName: 'request units, RUs, RU, capacity'
+              href: estimate-ru-with-capacity-planner.md
+            - name: Skalowanie przy użyciu czasomierza usługi Azure Functions
+              displayName: 'request units, RUs, RU, timer'
+              href: scale-on-schedule.md
     - name: Praca z kontenerami i elementami
       items:
         - name: Praca z danymi usługi Cosmos DB

@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
-ms.date: 01/31/2020
-ms.openlocfilehash: 87fe128a79413af024d72726d936b85db3f9ef52
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.date: 08/19/2020
+ms.openlocfilehash: 40c32226f0e79e66db45d0c32614eaa4c5b543f9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225975"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607539"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Korzystanie z emulatora usługi Azure Cosmos na potrzeby lokalnego tworzenia i testowania
 
@@ -35,6 +35,7 @@ Ponieważ emulator usługi Azure Cosmos udostępnia emulowane środowisko dział
 
 * Obecnie Eksplorator danych w emulatorze obsługuje klientów dla interfejsu API SQL. Widok Eksplorator danych i operacje dotyczące Azure Cosmos DB interfejsów API, takich jak MongoDB, Table, Graph i Cassandra, nie są w pełni obsługiwane.
 * Emulator Azure Cosmos obsługuje tylko jedno stałe konto i dobrze znanego klucza głównego. Nie można Regeneracja klucza w emulatorze usługi Azure Cosmos, ale klucz domyślny można zmienić przy użyciu opcji wiersza polecenia.
+* Emulator usługi Azure Cosmos obsługuje konto usługi Azure Cosmos w trybie [przepływności aprowizacji](set-throughput.md) . obecnie nie jest obsługiwane konto usługi Azure Cosmos w trybie [bezserwerowym](serverless.md) .
 * Emulator usługi Azure Cosmos nie jest skalowalną usługą i nie będzie obsługiwał dużej liczby kontenerów.
 * Emulator usługi Azure Cosmos nie oferuje różnych [poziomów spójności Azure Cosmos DB](consistency-levels.md).
 * Emulator usługi Azure Cosmos nie oferuje [wieloregionowej replikacji](distribute-data-globally.md).
@@ -89,7 +90,7 @@ Eksplorator danych informuje o możliwości pobrania nowych aktualizacji.
 
 ## <a name="authenticating-requests"></a>Uwierzytelnianie żądań
 
-Podobnie jak w przypadku Azure Cosmos DB w chmurze, każde żądanie, które należy wykonać względem emulatora usługi Azure Cosmos, musi zostać uwierzytelnione. Emulator Azure Cosmos obsługuje pojedyncze stałe konto i dobrze znane klucze uwierzytelniania na potrzeby uwierzytelniania przy użyciu klucza głównego. To konto i klucz są jedynymi poświadczeniami, które mogą być używane z emulatorem usługi Azure Cosmos. Oto one:
+Podobnie jak w przypadku Azure Cosmos DB w chmurze, każde żądanie, które należy wykonać względem emulatora usługi Azure Cosmos, musi zostać uwierzytelnione. Emulator Azure Cosmos obsługuje pojedyncze stałe konto i dobrze znane klucze uwierzytelniania na potrzeby uwierzytelniania przy użyciu klucza głównego. To konto i klucz są jedynymi poświadczeniami, które mogą być używane z emulatorem usługi Azure Cosmos. Są to:
 
 ```bash
 Account name: localhost:<port>

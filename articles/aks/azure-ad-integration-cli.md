@@ -6,12 +6,12 @@ author: TomGeske
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: thomasge
-ms.openlocfilehash: dfcbf214c374f449a04139ce7bf4fbb6853ed524
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ab25ec5406c75316aaa1ee8efd0192dc0207ad79
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006863"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612422"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli-legacy"></a>Integrowanie Azure Active Directory z usługą Azure Kubernetes przy użyciu interfejsu wiersza polecenia platformy Azure (starsza wersja)
 
@@ -27,8 +27,9 @@ Aby zapoznać się z kompletnym przykładowym skryptem używanym w tym artykule,
 ## <a name="the-following-limitations-apply"></a>Obowiązują następujące ograniczenia:
 
 - Usługę Azure AD można włączyć tylko w przypadku klastra z włączoną funkcją RBAC.
+- Starsza integracja z usługą Azure AD może być włączana tylko podczas tworzenia klastra.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.61 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
@@ -176,7 +177,7 @@ az ad signed-in-user show --query userPrincipalName -o tsv
 > [!IMPORTANT]
 > Jeśli użytkownik, któremu przyznano powiązanie RBAC, jest w tej samej dzierżawie usługi Azure AD, przypisz uprawnienia na podstawie elementu *userPrincipalName*. Jeśli użytkownik znajduje się w innej dzierżawie usługi Azure AD, zapytaj i Użyj zamiast niego właściwości *objectid* .
 
-Utwórz manifest YAML o nazwie `basic-azure-ad-binding.yaml` i wklej poniższą zawartość. W ostatnim wierszu Zastąp *userPrincipalName_or_objectId* nazwą UPN lub identyfikatorem obiektu wyjściowym z poprzedniego polecenia:
+Utwórz manifest YAML o nazwie `basic-azure-ad-binding.yaml` i wklej poniższą zawartość. W ostatnim wierszu Zastąp *userPrincipalName_or_objectId*  nazwą UPN lub identyfikatorem obiektu wyjściowym z poprzedniego polecenia:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -244,7 +245,7 @@ error: You must be logged in to the server (Unauthorized)
 
 * W zależności od tego, czy konto użytkownika znajduje się w tej samej dzierżawie usługi Azure AD, jest zdefiniowany odpowiedni identyfikator obiektu, czy nazwa UPN.
 * Użytkownik nie jest członkiem więcej niż 200 grup.
-* Wpis tajny zdefiniowany w rejestracji aplikacji dla serwera jest zgodny z wartością skonfigurowaną przy użyciu`--aad-server-app-secret`
+* Wpis tajny zdefiniowany w rejestracji aplikacji dla serwera jest zgodny z wartością skonfigurowaną przy użyciu `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>Następne kroki
 

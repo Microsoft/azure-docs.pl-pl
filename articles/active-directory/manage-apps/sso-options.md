@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: 3c3d6529b3513a9f82313675b8240cf41b44f12f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 3352bb13602947f08cc974d63308f2d802b144e7
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88173145"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612354"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Opcje logowania jednokrotnego w usłudze Azure AD
 

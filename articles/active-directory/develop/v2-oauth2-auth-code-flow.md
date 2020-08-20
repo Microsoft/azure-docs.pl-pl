@@ -13,12 +13,12 @@ ms.date: 08/14/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6cf9f7a005a80ab34e05ee293c20209e9d0b3f01
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 6648cfb717ade4b842e8ff470a46bf744b630363
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258579"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612320"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Przepływ kodu autoryzacji Microsoft Identity platform i OAuth 2,0
 
@@ -233,6 +233,7 @@ Odpowiedzi na błędy będą wyglądać następująco:
 | `interaction_required` | Niestandardowa, ponieważ Specyfikacja OIDC jest wywoływana tylko w `/authorize` punkcie końcowym. Żądanie wymaga interakcji z użytkownikiem. Na przykład wymagany jest dodatkowy krok uwierzytelniania. | Ponów `/authorize` żądanie z tymi samymi zakresami. |
 | `temporarily_unavailable` | Serwer jest tymczasowo zbyt zajęty, aby obsłużyć żądanie. | Spróbuj ponownie wykonać żądanie po małym opóźnieniu. Aplikacja kliencka może wyjaśnić użytkownikowi, że jego odpowiedź jest opóźniona ze względu na tymczasowy warunek. |
 |`consent_required` | Żądanie wymaga zgody użytkownika. Ten błąd nie jest standardem, ponieważ jest zazwyczaj zwracany tylko w `/authorize` punkcie końcowym dla specyfikacji OIDC. Zwracana, gdy `scope` parametr został użyty w przepływie realizacji kodu, do którego aplikacja kliencka nie ma uprawnień do żądania.  | Klient powinien wysłać użytkownika z powrotem do `/authorize` punktu końcowego z prawidłowym zakresem w celu wyzwolenia zgody. |
+|`invalid_scope` | Zakres żądany przez aplikację jest nieprawidłowy.  | Zaktualizuj wartość parametru scope w żądaniu uwierzytelniania do prawidłowej wartości. |
 
 > [!NOTE]
 > Aplikacje jednostronicowe mogą otrzymać `invalid_request` błąd wskazujący, że wykup tokenów między źródłami jest dozwolony tylko dla typu klienta jednostronicowej aplikacji.  Oznacza to, że identyfikator URI przekierowania używany do żądania tokenu nie został oznaczony jako `spa` Identyfikator URI przekierowania.  Zapoznaj się z [procedurą rejestracji aplikacji](#redirect-uri-setup-required-for-single-page-apps) dotyczącą włączania tego przepływu.

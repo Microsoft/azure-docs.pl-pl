@@ -16,12 +16,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a0ee226fcddb3bfc216e1e160b5571fde59a41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da5cefbacbd3851d2609a687c1948d9bcba5ffae
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807591"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612473"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Zadania pokonfiguracyjne dotyczące dołączania do hybrydowej usługi Azure AD
 
@@ -63,7 +63,7 @@ Jeśli organizacja używa usługi federacyjnej do logowania się do usługi Azur
 
 ## <a name="6-enable-azure-ad-seamless-sso-for-windows-down-level-devices"></a>6. Włącz bezproblemową rejestrację jednokrotną usługi Azure AD dla urządzeń niższego poziomu systemu Windows
 
-Jeśli Twoja organizacja używa synchronizacji skrótów haseł lub uwierzytelniania przekazywanego w celu zalogowania się do usługi Azure AD, Włącz bezproblemową rejestrację jednokrotną usługi Azure AD przy użyciu tej metody logowania, aby uwierzytelniać urządzenia niskiego poziomu systemu Windows: https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso . 
+Jeśli Twoja organizacja używa synchronizacji skrótów haseł lub uwierzytelniania przekazywanego w celu zalogowania się do usługi Azure AD, Włącz bezproblemową rejestrację jednokrotną usługi Azure AD przy użyciu tej metody logowania, aby uwierzytelniać urządzenia niskiego poziomu systemu Windows:  https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso . 
 
 ## <a name="7-set-azure-ad-policy-for-windows-down-level-devices"></a>7. Ustawianie zasad usługi Azure AD dla urządzeń niższego poziomu systemu Windows
 
@@ -76,9 +76,9 @@ Aby zarejestrować urządzenia niskiego poziomu systemu Windows, należy się up
 
 ## <a name="8-add-azure-ad-endpoint-to-windows-down-level-devices"></a>8. Dodawanie punktu końcowego usługi Azure AD do urządzeń niższego poziomu systemu Windows
 
-Dodaj punkt końcowy uwierzytelniania urządzenia usługi Azure AD do lokalnych stref intranetowych na urządzeniach z systemem Windows niższego poziomu, aby uniknąć wyświetlania przez certyfikat podczas uwierzytelniania urządzeń:`https://device.login.microsoftonline.com` 
+Dodaj punkt końcowy uwierzytelniania urządzenia usługi Azure AD do lokalnych stref intranetowych na urządzeniach z systemem Windows niższego poziomu, aby uniknąć wyświetlania przez certyfikat podczas uwierzytelniania urządzeń: `https://device.login.microsoftonline.com` 
 
-Jeśli używasz [bezproblemowego logowania jednokrotnego](how-to-connect-sso.md), Włącz opcję "Zezwalaj na aktualizacje paska stanu za pośrednictwem skryptu" w tej strefie i Dodaj następujący punkt końcowy:`https://autologon.microsoftazuread-sso.com` 
+Jeśli używasz [bezproblemowego logowania jednokrotnego](how-to-connect-sso.md), Włącz opcję "Zezwalaj na aktualizacje paska stanu za pośrednictwem skryptu" w tej strefie i Dodaj następujący punkt końcowy: `https://autologon.microsoftazuread-sso.com` 
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Zainstaluj program Microsoft Workplace Join na urządzeniach z systemem Windows niższego poziomu
 
@@ -87,9 +87,6 @@ Ten Instalator tworzy zaplanowane zadanie w systemie urządzenia, który działa
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. Skonfiguruj zasady grupy tak, aby zezwalały na rejestrację urządzeń
 
 Aby dowiedzieć się, jak zezwolić na sprzężenie hybrydowe usługi Azure AD dla poszczególnych urządzeń, zobacz [kontrolowane sprawdzanie poprawności hybrydowego przyłączania do usługi Azure AD](../devices/hybrid-azuread-join-control.md).
-
-> [!NOTE]
-> Ustawienia zasad dla 2012 R2 znajdują się w **konfiguracji komputera > zasad > Szablony administracyjne > składników systemu Windows > Workplace Join > automatyczne dołączanie komputerów klienckich**.
 
 ## <a name="next-steps"></a>Następne kroki
 [Konfigurowanie zapisywania zwrotnego urządzeń](how-to-connect-device-writeback.md)

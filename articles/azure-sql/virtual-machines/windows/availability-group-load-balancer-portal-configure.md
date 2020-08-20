@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a83755a08a3579484796cd56623cb3401d03d874
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9cf6fa26cec0abbc52a990d71c1c2fcc5d6023e4
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284289"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612558"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Konfigurowanie modułu równoważenia obciążenia dla SQL Server zawsze włączone grupy dostępności na platformie Azure Virtual Machines
 
@@ -71,6 +71,7 @@ Najpierw Utwórz moduł równoważenia obciążenia.
    | --- | --- |
    | **Nazwa** |Nazwa tekstowa reprezentująca moduł równoważenia obciążenia. Na przykład **sqlLB**. |
    | **Typ** |**Wewnętrzne**: Większość implementacji korzysta z wewnętrznego modułu równoważenia obciążenia, który umożliwia aplikacjom w ramach tej samej sieci wirtualnej łączenie się z grupą dostępności.  </br> **Zewnętrzny**: umożliwia aplikacjom łączenie się z grupą dostępności za pomocą publicznego połączenia internetowego. |
+   | **SKU** |**Standard**: wymagane, jeśli wystąpienia SQL znajdują się w innym zestawie dostępności niż moduł równoważenia obciążenia. </br> **Podstawowa**: opcja domyślna. |
    | **Sieć wirtualna** |Wybierz sieć wirtualną, w której znajdują się wystąpienia SQL Server. |
    | **Podsieć** |Wybierz podsieć, w której znajdują się wystąpienia SQL Server. |
    | **Przypisanie adresu IP** |**Statyczny** |
@@ -123,7 +124,7 @@ Sonda definiuje, w jaki sposób platforma Azure weryfikuje, które wystąpienia 
    | **Interwał** |*5* |
    | **Próg złej kondycji** |*2* |
 
-4.  Wybierz przycisk **OK**. 
+4.  Kliknij przycisk **OK**. 
 
 > [!NOTE]
 > Upewnij się, że określony port jest otwarty na zaporze obu wystąpień SQL Server. Oba wystąpienia wymagają reguły ruchu przychodzącego dla używanego portu TCP. Aby uzyskać więcej informacji, zobacz [Dodawanie lub Edytowanie reguły zapory](https://technet.microsoft.com/library/cc753558.aspx). 
@@ -156,7 +157,7 @@ Zasady równoważenia obciążenia umożliwiają skonfigurowanie sposobu, w jaki
    > Może być konieczne przewinięcie w dół bloku, aby wyświetlić wszystkie ustawienia.
    > 
 
-4. Wybierz przycisk **OK**. 
+4. Kliknij przycisk **OK**. 
 
 5. Platforma Azure konfiguruje regułę równoważenia obciążenia. Teraz moduł równoważenia obciążenia jest skonfigurowany do kierowania ruchu do wystąpienia SQL Server, które hostuje odbiornik dla grupy dostępności. 
 

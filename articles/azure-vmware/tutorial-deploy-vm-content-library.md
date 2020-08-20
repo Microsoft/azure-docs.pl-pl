@@ -3,12 +3,12 @@ title: 'Samouczek: Tworzenie biblioteki zawartości w celu wdrażania maszyn wir
 description: W tym samouczku dotyczącym rozwiązania Azure VMware (Automatyczna synchronizacja) można utworzyć bibliotekę zawartości służącą do wdrażania maszyny wirtualnej w chmurze prywatnej o automatycznej synchronizacji.
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.openlocfilehash: d5f0f26293af9eb146cfb4b2f3adf47fe8cce94f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d86f9cb92dcb8a852b9b178a5e160da0d1a3a692
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079387"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612796"
 ---
 # <a name="tutorial-create-a-content-library-to-deploy-vms-in-azure-vmware-solution-avs"></a>Samouczek: Tworzenie biblioteki zawartości w celu wdrażania maszyn wirtualnych w rozwiązaniu programu Azure VMware (Automatyczna synchronizacja)
 

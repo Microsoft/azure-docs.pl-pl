@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: cc294eb1bdfd4a6a8c6ad001c007f83a10983644
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 730df91d922c4bd6187748654f8184cfb7dc6ea0
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185812"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612711"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Automatyczne skalowanie klastrów usługi Azure HDInsight
 
@@ -72,16 +72,16 @@ W przypadku skalowania w dół automatyczne skalowanie wystawia żądanie usuni�
 
 W poniższej tabeli opisano typy i wersje klastra, które są zgodne z funkcją skalowania automatycznego.
 
-| Wersja | Spark | Hive | LLAP | Baza danych HBase | Kafka | Storm | ML |
+| Wersja | platforma Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3,6 bez ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
 | HDInsight 4,0 bez ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
 | HDInsight 3,6 z ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
 | HDInsight 4,0 z ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
 
-\*Klastry HBase można konfigurować tylko dla skalowania opartego na harmonogramie, a nie na podstawie obciążenia.
+\* Klastry HBase można konfigurować tylko dla skalowania opartego na harmonogramie, a nie na podstawie obciążenia.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Tworzenie klastra z automatycznym skalowaniem na podstawie obciążenia
 
@@ -231,7 +231,7 @@ Na poniższej liście objaśniono wszystkie komunikaty o stanie klastra, które 
 | Aktualizowanie  | Trwa aktualizowanie konfiguracji automatycznego skalowania klastra.  |
 | Konfiguracja usługi HDInsight  | Operacja skalowania w górę lub w dół w dół jest w toku.  |
 | Błąd aktualizacji  | Usługa HDInsight napotkała problemy podczas aktualizacji konfiguracji skalowania automatycznego. Klienci mogą zrezygnować z aktualizacji lub wyłączyć automatyczne skalowanie.  |
-| Błąd  | Wystąpił problem z klastrem i nie można go użyć. Usuń ten klaster i Utwórz nowy.  |
+| Error  | Wystąpił problem z klastrem i nie można go użyć. Usuń ten klaster i Utwórz nowy.  |
 
 Aby wyświetlić bieżącą liczbę węzłów w klastrze, przejdź do wykresu **rozmiar klastra** na stronie **Przegląd** klastra. Lub wybierz **rozmiar klastra** w obszarze **Ustawienia**.
 
@@ -258,6 +258,26 @@ Uruchomione zadania będą kontynuowane. Oczekujące zadania będą oczekiwać n
 ### <a name="minimum-cluster-size"></a>Minimalny rozmiar klastra
 
 Nie Skaluj klastra do mniejszej liczby niż trzy węzły. Skalowanie klastra do mniej niż trzech węzłów może spowodować zatrzymanie trybu awaryjnego z powodu niewystarczającej replikacji plików.  Aby uzyskać więcej informacji, zobacz [Uruchamianie w trybie awaryjnym](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
+
+### <a name="llap-daemons-count"></a>Liczba demonów LLAP
+
+W przypadku klastrów LLAP z włączonym skalowaniem automatycznym zdarzenie skalowania w górę/w dół powoduje także skalowanie w górę/w dół w celu uzyskania liczby demonów LLAP do liczby aktywnych węzłów procesu roboczego. Jednak ta zmiana w liczbie demonów nie jest utrwalona w **num_llap_nodes** config w Ambari. Jeśli usługi Hive są ponownie uruchamiane ręcznie, liczba demonów LLAP zostanie zresetowana zgodnie z konfiguracją w Ambari.
+
+Zajmiemy się poniższym scenariuszem:
+1. Klaster z włączonym skalowaniem automatycznym LLAP jest tworzony z 3 węzłami roboczymi, a funkcja automatycznego skalowania na podstawie obciążenia jest włączona z minimalnymi węzłami procesu roboczego jako 3 i maksymalnymi węzłami procesu roboczego.
+2. Konfiguracje LLAP są liczone zgodnie z konfiguracją LLAP i Ambari to 3, ponieważ klaster został utworzony z 3 węzłami procesu roboczego.
+3. Następnie automatyczne skalowanie jest wyzwalane z powodu obciążenia w klastrze, klaster zostanie teraz przeskalowany do 10 węzłów.
+4. Sprawdzanie skalowania automatycznego działa w regularnych odstępach czasu, gdy liczba demonów LLAP jest równa 3, ale liczba aktywnych węzłów roboczych wynosi 10, proces skalowania automatycznego spowoduje teraz zwiększenie liczby demonów LLAP do 10, ale ta zmiana nie będzie trwała w konfiguracji Ambari-num_llap_nodes.
+5. Automatyczne skalowanie jest teraz wyłączone.
+6. Klaster ma teraz 10 węzłów procesu roboczego i 10 demonów LLAP.
+7. Usługa LLAP została ręcznie uruchomiona ponownie.
+8. Podczas ponownego uruchamiania sprawdza num_llap_nodes konfigurację w konfiguracji LLAP i zauważy, że wartość jest równa 3, więc spowoduje to nakazanie 3 wystąpień demonów, ale liczba węzłów procesu roboczego to 10. Istnieje teraz niezgodność między tymi dwoma.
+
+W takim przypadku należy ręcznie zmienić **konfigurację num_llap_node (liczbę węzłów w celu uruchomienia demona Hive llap) w obszarze Advanced Hive-Interactive-ENV** , aby dopasować bieżącą liczbę węzłów procesu roboczego.
+
+**Uwaga**
+
+Zdarzenia automatycznego skalowania nie zmieniają **maksymalnej całkowitej liczby równoczesnych zapytań** w konfiguracji programu Hive w Ambari. Oznacza to, że usługa programu Hive Server 2 Interactive **może obsłużyć tylko daną liczbę współbieżnych zapytań w dowolnym momencie, nawet jeśli licznik demonów LLAP jest skalowany w górę i w dół na podstawie obciążenia/harmonogramu**. Ogólnym zaleceniem jest ustawienie tej konfiguracji dla scenariusza użycia szczytowego, tak aby można było uniknąć ręcznej interwencji. Należy jednak pamiętać, że **ustawienie wysokiej wartości maksymalnej całkowitej łącznej liczby równoczesnych zapytań może zakończyć się niepowodzeniem w przypadku niepowodzenia ponownego uruchomienia usługi Hive Server 2, jeśli minimalna liczba węzłów procesu roboczego nie może obsłużyć podaną liczbę tez AMS (równej maksymalnej łącznej konfiguracji współbieżnych zapytań)**
 
 ## <a name="next-steps"></a>Następne kroki
 

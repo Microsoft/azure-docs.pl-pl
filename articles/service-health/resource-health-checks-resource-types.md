@@ -3,12 +3,12 @@ title: Obsługiwane typy zasobów za poorednictwem Azure Resource Health | Micro
 description: Obsługiwane typy zasobów za pomocą usługi Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: b6420283f3d3c07182faa2cb2a82ba7b2d784055
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 2c002ab89b1cae4db6d3337908bb401039cb2295
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272658"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611946"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Typy zasobów i kontrole kondycji w usłudze Azure Resource Health
 Poniżej znajduje się kompletna lista wszystkich testów wykonywanych przez zasoby według typów zasobów.
@@ -46,7 +46,7 @@ Poniżej znajduje się kompletna lista wszystkich testów wykonywanych przez zas
 ## <a name="microsoftclassiccomputedomainnames"></a>Microsoft. classiccompute/DomainNames
 |Wykonane sprawdzenia|
 |---|
-|<ul><li>Czy usługa w chmurze ma swoją nazwę hostowaną i uruchomioną?</li><li>Czy ukończono rozruch systemu operacyjnego hosta?</li><li>Czy kontener maszyny wirtualnej został zainicjowany i włączony?</li><li>Czy istnieje połączenie sieciowe między hostem a kontem magazynu?</li><li>Czy ukończono rozruch systemu operacyjnego gościa?</li><li>Czy nadal trwa planowana konserwacja?</li><li>Czy sprzęt hosta został obniżony i przewidziany do niepowodzenia?</li></ul>|
+|<ul><li>Czy wdrożenie miejsca produkcyjnego jest w dobrej kondycji we wszystkich wystąpieniach roli?</li><li>Czy rola jest w dobrej kondycji dla wszystkich wystąpień maszyn wirtualnych?</li><li>Jaki jest stan kondycji każdej maszyny wirtualnej w ramach roli usługi w chmurze?</li><li>Czy stan maszyny wirtualnej został zmieniony z powodu operacji zainicjowanej przez platformę lub klienta?</li><li>Czy ukończono rozruch systemu operacyjnego gościa?</li><li>Czy nadal trwa planowana konserwacja?</li><li>Czy sprzęt hosta został obniżony i przewidziany do niepowodzenia?</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft. cognitiveservices/konta
 |Wykonane sprawdzenia|

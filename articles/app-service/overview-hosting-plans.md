@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: c6aa5200220c55407ade5910b4232fffed3ffe19
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 3b339b359ddbaf105b95bdf5d94ee0f66f339a82
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141588"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611453"
 ---
 # <a name="azure-app-service-plan-overview"></a>Plan usługi Azure App Service — omówienie
 
@@ -65,11 +65,11 @@ Aby uzyskać informacje na temat skalowania aplikacji, zobacz [Ręczne lub autom
 
 W tej sekcji opisano sposób rozliczania App Service aplikacji. Aby uzyskać szczegółowe informacje o cenach specyficznych dla regionu, zobacz [Cennik usługi App Service](https://azure.microsoft.com/pricing/details/app-service/).
 
-Z wyjątkiem warstwy **bezpłatna** plan App Service jest naliczany godzinowo za zasoby obliczeniowe, których używa.
+Z wyjątkiem warstwy **bezpłatna** w planie App Service są naliczane opłaty za zasoby obliczeniowe, których używa.
 
-- W warstwie **udostępnionej** każda aplikacja otrzymuje limit czasu procesora (w minutach), więc _każda aplikacja_ jest rozliczana co godzinę dla limitu przydziału procesora CPU.
-- W przypadku dedykowanych warstw obliczeniowych (**podstawowa**, **standardowa**, **Premium**, **PremiumV2**) plan App Service definiuje liczbę wystąpień maszyn wirtualnych, do których są skalowane aplikacje, a więc _każde wystąpienie maszyny wirtualnej_ w planie App Service ma opłaty godzinowe. Te wystąpienia maszyn wirtualnych są obciążane tymi samymi, niezależnie od liczby uruchomionych na nich aplikacji. Aby uniknąć nieoczekiwanych opłat, zobacz [oczyszczanie planu App Service](app-service-plan-manage.md#delete).
-- W warstwie **izolowanej** App Service Environment definiuje liczbę izolowanych pracowników, którzy uruchamiają aplikacje, a _każdy proces roboczy_ jest naliczany co godzinę. Ponadto istnieje co godzinę Podstawowa opłata za uruchomienie App Service Environment samego siebie.
+- W warstwie **udostępnionej** każda aplikacja otrzymuje limit czasu procesora (w minutach), więc dla _każdej aplikacji_ jest naliczana opłata za przydział procesora CPU.
+- W przypadku dedykowanych warstw obliczeniowych (**podstawowa**, **standardowa**, **Premium**, **PremiumV2**) plan App Service definiuje liczbę wystąpień maszyn wirtualnych, do których są skalowane aplikacje, w związku z czym _każde wystąpienie maszyny wirtualnej_ w planie App Service jest obciążane. Te wystąpienia maszyn wirtualnych są obciążane tymi samymi, niezależnie od liczby uruchomionych na nich aplikacji. Aby uniknąć nieoczekiwanych opłat, zobacz [oczyszczanie planu App Service](app-service-plan-manage.md#delete).
+- W warstwie **izolowanej** App Service Environment definiuje liczbę izolowanych procesów roboczych, na których działają aplikacje, i _każdy proces roboczy_ jest naliczany. Ponadto istnieje płaska opłata za uruchomienie App Service Environment.
 
 Za korzystanie z funkcji App Service, które są dostępne dla użytkownika (Konfigurowanie domen niestandardowych, certyfikatów TLS/SSL, miejsc wdrożenia, kopii zapasowych itp.), nie jest naliczana opłata. Wyjątki są następujące:
 

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 553d6f716bbb6e98aa64ef07cb80d2d6cba370b6
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 8a8b53af6e23b2dd0ff011a6bfbf99a1da427063
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561575"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611640"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Samouczek: przygotowanie do wdrożenia Azure Data Box Gateway
 
@@ -29,7 +29,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Pobieranie obrazu urządzenia wirtualnego
 > * Uzyskiwanie klucza aktywacji
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Proces wdrażania usługi Data Box Gateway opisano w następujących samouczkach w zalecanej kolejności.
 
@@ -89,8 +89,8 @@ Aby utworzyć zasób Data Box Gateway, w Azure Portal wykonaj następujące czyn
 
 1. Użyj poświadczeń Microsoft Azure, aby zalogować się do:
 
-    - Azure Portal pod tym adresem URL: [https://portal.azure.com](https://portal.azure.com).
-    - Lub Portal Azure Government pod tym adresem URL: [https://portal.azure.us](https://portal.azure.us). Aby uzyskać więcej informacji, przejdź do [obszaru łączenie z Azure Government przy użyciu portalu](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+    - Azure Portal pod tym adresem URL: [https://portal.azure.com](https://portal.azure.com) .
+    - Lub Portal Azure Government pod tym adresem URL: [https://portal.azure.us](https://portal.azure.us) . Aby uzyskać więcej informacji, przejdź do [obszaru łączenie z Azure Government przy użyciu portalu](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 2. W okienku po lewej stronie wybierz pozycję **+ Utwórz zasób**. Wyszukaj **Azure Stack Edge/Data Box Gateway**. Wybierz pozycję Azure Stack Edge/Data Box Gateway. Wybierz przycisk **Utwórz**.
 3. Wybierz subskrypcję, która ma być używana dla Data Box Gateway urządzenia. Wybierz region, w którym chcesz wdrożyć zasób Data Box Gateway. Aby uzyskać listę wszystkich regionów, w których jest dostępny zasób Azure Stack Edge, zobacz [dostępność produktów platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Wybierz lokalizację najbliżej regionu geograficznego, w którym chcesz wdrożyć urządzenie. W opcji **Data Box Gateway** wybierz pozycję **Utwórz**.
 
@@ -108,11 +108,11 @@ Aby utworzyć zasób Data Box Gateway, w Azure Portal wykonaj następujące czyn
     |Ustawienie  |Wartość  |
     |---------|---------|
     |Nazwa   | Przyjazna nazwa identyfikująca zasób.<br>Nazwa może zawierać od 2 do 50 znaków, w tym litery, cyfry i łączniki.<br> Nazwa rozpoczyna się i kończy literą lub cyfrą.        |   
-    |Region     |Aby uzyskać listę wszystkich regionów, w których jest dostępny zasób Azure Stack Edge, zobacz [dostępność produktów platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). W przypadku Azure Government dostępne są wszystkie regiony rządowe wymienione w [regionach świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/regions/) . <br> Wybierz lokalizację najbliżej regionu geograficznego, w którym chcesz wdrożyć urządzenie.|
+    |Region (Region)     |Aby uzyskać listę wszystkich regionów, w których jest dostępny zasób Azure Stack Edge, zobacz [dostępność produktów platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). W przypadku Azure Government dostępne są wszystkie regiony rządowe wymienione w [regionach świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/regions/) . <br> Wybierz lokalizację najbliżej regionu geograficznego, w którym chcesz wdrożyć urządzenie.|
     
     ![Tworzenie zasobu usługi Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     
-6. Wybierz pozycję **Przegląd + utwórz**.
+6. Wybierz pozycję **Przejrzyj i utwórz**.
  
 7. Na karcie **Recenzja + tworzenie** Przejrzyj **szczegóły cennika**, **warunki użytkowania**i szczegóły dotyczące zasobu. Wybierz przycisk **Utwórz**.
 
@@ -138,7 +138,7 @@ Wykonaj następujące kroki w [Azure Portal](https://portal.azure.com/) , aby po
 2. Na kafelku **obraz do pobrania** wybierz obraz urządzenia wirtualnego odpowiadający systemowi operacyjnemu na serwerze hosta używanym do aprowizacji maszyny wirtualnej. Pliki obrazów są około 5,6 GB.
    
    * [Dysk VHDX dla funkcji Hyper-V w systemie Windows Server 2012 R2 i nowszych](https://aka.ms/dbe-vhdx-2012).
-   * [Dysk VMDK dla oprogramowania VMWare ESXi 6.0, 6.5 lub 6.7](https://aka.ms/dbe-vmdk).
+   * [VMDK dla VMware ESXi 6,0, 6,5 lub 6,7](https://aka.ms/dbe-vmdk).
 
     ![Pobierz obraz Data Box Gateway urządzenia wirtualnego](media/data-box-gateway-deploy-prep/data-box-gateway-download-image.png)
 

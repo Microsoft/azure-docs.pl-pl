@@ -3,12 +3,12 @@ title: Konfigurowanie raportów usługi Azure Backup
 description: Konfigurowanie i wyświetlanie raportów dla Azure Backup przy użyciu Log Analytics i skoroszytów platformy Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: bbb42643e23020742cab66812f58f78f4529fe07
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 94298c5826f7158655367ae1dd6b7dd54cb88d24
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192844"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612439"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurowanie raportów usługi Azure Backup
 
@@ -22,7 +22,7 @@ Obecnie Azure Backup udostępnia rozwiązanie do raportowania, które korzysta z
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
-- Raporty kopii zapasowych są obsługiwane na maszynach wirtualnych platformy Azure, na maszynach wirtualnych platformy Azure, SAP HANA na maszynach wirtualnych platformy Azure, w Microsoft Azure Recovery Services (MARS) Agent, Microsoft Azure Backup Server (serwera usługi MAB) i System Center Data Protection Manager (DPM). W przypadku kopii zapasowej udziału plików platformy Azure dane są wyświetlane dla wszystkich rekordów utworzonych w dniu lub po 1 Jun 2020.
+- Raporty kopii zapasowych są obsługiwane na maszynach wirtualnych platformy Azure, na maszynach wirtualnych platformy Azure, SAP HANA na maszynach wirtualnych platformy Azure, w Microsoft Azure Recovery Services (MARS) Agent, Microsoft Azure Backup Server (serwera usługi MAB) i System Center Data Protection Manager (DPM). W przypadku kopii zapasowej udziału plików platformy Azure dane są wyświetlane dla wszystkich rekordów utworzonych w dniu lub po 1 czerwca 2020.
 - W przypadku obciążeń programu DPM raporty kopii zapasowych są obsługiwane w programie DPM w wersji 5.1.363.0 i nowszych oraz w wersji agent 2.0.9127.0 i nowszych.
 - W przypadku obciążeń serwera usługi MAB raporty kopii zapasowych są obsługiwane dla serwera usługi MAB wersji 13.0.415.0 i nowszych oraz do wersji agenta 2.0.9170.0 i nowszych.
 - Raporty kopii zapasowych można wyświetlać w ramach wszystkich elementów kopii zapasowych, magazynów, subskrypcji i regionów, o ile ich dane są wysyłane do obszaru roboczego Log Analytics, do którego użytkownik ma dostęp. Aby wyświetlić raporty dla zbioru magazynów, musisz mieć dostęp do czytnika do obszaru roboczego Log Analytics, do którego magazyny wysyłają swoje dane. Nie musisz mieć dostępu do poszczególnych magazynów.
@@ -30,7 +30,7 @@ Obecnie Azure Backup udostępnia rozwiązanie do raportowania, które korzysta z
 - Obecnie dane można wyświetlać w raportach dotyczących kopii zapasowych w maksymalnie 100 Log Analytics obszarach roboczych (między dzierżawcami).
 - Dane dla zadań kopii zapasowej dzienników nie są obecnie wyświetlane w raportach.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Wykonaj następujące kroki, aby rozpocząć korzystanie z raportów.
 
@@ -71,17 +71,20 @@ Wybierz ten link, aby otworzyć skoroszyt raportu kopii zapasowej.
 Raport zawiera różne karty:
 
 ##### <a name="summary"></a>Podsumowanie
+
 Użyj tej karty, aby uzyskać ogólne omówienie funkcji tworzenia kopii zapasowych. Możesz uzyskać szybki wgląd w łączną liczbę elementów kopii zapasowych, łączną ilość używanych magazynów w chmurze, liczbę chronionych wystąpień oraz Częstotliwość powodzeń zadań dla każdego typu obciążenia. Aby uzyskać szczegółowe informacje na temat określonego typu artefaktu kopii zapasowej, przejdź do odpowiedniej karty.
 
    ![Karta Summary (Podsumowanie)](./media/backup-azure-configure-backup-reports/summary.png)
 
 ##### <a name="backup-items"></a>Elementy kopii zapasowej
+
 Ta karta służy do wyświetlania informacji i trendów w magazynie w chmurze zużywanych na poziomie elementu kopii zapasowej. Na przykład jeśli używasz SQL w kopii zapasowej maszyny wirtualnej platformy Azure, możesz zobaczyć magazyn w chmurze zużyty dla każdej bazy danych SQL, której kopia zapasowa jest tworzona. Możesz również wyświetlić dane dotyczące elementów kopii zapasowej określonego stanu ochrony. Na przykład wybranie kafelka **zatrzymana ochrona** w górnej części karty filtruje wszystkie widżety poniżej, aby wyświetlić dane tylko dla elementów kopii zapasowych w stanie zatrzymania ochrony.
 
    ![Karta elementy kopii zapasowej](./media/backup-azure-configure-backup-reports/backup-items.png)
 
 ##### <a name="usage"></a>Użycie
-Za pomocą tej karty można wyświetlać kluczowe parametry rozliczania dla kopii zapasowych. Informacje wyświetlane na tej karcie znajdują się na poziomie jednostki rozliczeń (chronionych kontenerów). Na przykład w przypadku tworzenia kopii zapasowej serwera programu DPM na platformie Azure można wyświetlić trend wystąpień chronionych i magazynu w chmurze zużytych dla serwera programu DPM. Podobnie, jeśli używasz SQL w Azure Backup lub SAP HANA w Azure Backup, na tej karcie znajdują się informacje dotyczące użycia na poziomie maszyny wirtualnej, w której znajdują się te bazy danych.
+
+Za pomocą tej karty można wyświetlać kluczowe parametry rozliczania dla kopii zapasowych. Informacje wyświetlane na tej karcie znajdują się na poziomie jednostki rozliczeń (chronionych kontenerów). Na przykład w przypadku tworzenia kopii zapasowej serwera programu DPM na platformie Azure można wyświetlić trend chronionych wystąpień i magazynu w chmurze zużytego dla serwera programu DPM. Podobnie, jeśli używasz SQL w Azure Backup lub SAP HANA w Azure Backup, na tej karcie znajdują się informacje dotyczące użycia na poziomie maszyny wirtualnej, w której znajdują się te bazy danych.
 
    ![Karta Użycie](./media/backup-azure-configure-backup-reports/usage.png)
 
@@ -89,42 +92,48 @@ Za pomocą tej karty można wyświetlać kluczowe parametry rozliczania dla kopi
 > W przypadku obciążeń programu DPM użytkownicy mogą zobaczyć niewielką różnicę (kolejność 20 MB na serwer DPM) między wartościami użycia wyświetlanymi w raportach w porównaniu do zagregowanej wartości użycia, jak pokazano na karcie Przegląd magazynu usług Recovery Services. Różnica ta jest uwzględniana przez fakt, że każdy serwer DPM zarejestrowany dla kopii zapasowej ma skojarzone źródło danych "Metadata", które nie jest uwzględniane jako artefakt na potrzeby raportowania.
 
 ##### <a name="jobs"></a>Stanowiska
+
 Ta karta umożliwia wyświetlanie długotrwałych trendów dotyczących zadań, takich jak liczba zadań zakończonych niepowodzeniem dziennie i Najczęstsze przyczyny niepowodzenia zadania. Te informacje można wyświetlić zarówno na poziomie zagregowanym, jak i na poziomie elementu kopii zapasowej. Wybierz konkretny element kopii zapasowej w siatce, aby wyświetlić szczegółowe informacje na temat każdego zadania, które zostało wyzwolone dla tego elementu kopii zapasowej w wybranym zakresie czasu.
 
    ![Karta zadania](./media/backup-azure-configure-backup-reports/jobs.png)
 
 ##### <a name="policies"></a>Zasady
+
 Ta karta umożliwia wyświetlenie informacji na temat wszystkich aktywnych zasad, takich jak liczba skojarzonych elementów i łączny magazyn w chmurze zużyty przez elementy, których kopia zapasowa jest wykonywana w ramach danej zasady. Wybierz konkretne zasady, aby wyświetlić informacje dotyczące wszystkich skojarzonych z nią elementów kopii zapasowej.
 
    ![Karta zasady](./media/backup-azure-configure-backup-reports/policies.png)
 
 ##### <a name="optimize"></a>Optymalizacja
+
 Skorzystaj z tej karty, aby uzyskać wgląd w potencjalne możliwości optymalizacji kosztów dla kopii zapasowych. Poniżej przedstawiono scenariusze, dla których karta Optymalizacja obecnie udostępnia szczegółowe informacje:
 
 ###### <a name="inactive-resources"></a>Zasoby nieaktywne
-Korzystając z tego widoku, można zidentyfikować te elementy kopii zapasowej, które nie miały pomyślnej kopii zapasowej przez znaczny czas. Może to oznaczać, że maszyna źródłowa, której kopia zapasowa jest tworzona, już nie istnieje (i dlatego prowadzi do nieudanych kopii zapasowych) lub występuje problem z maszyną uniemożliwiającą niezawodne wykonywanie kopii zapasowych. 
 
-Aby wyświetlić zasoby nieaktywne, przejdź do karty **Optymalizacja** i kliknij kafelek **zasoby nieaktywne** . Kliknięcie tego kafelka spowoduje wyświetlenie siatki zawierającej szczegóły dotyczące wszystkich nieaktywnych zasobów istniejących w wybranym zakresie. Domyślnie siatka pokazuje elementy, które nie mają punktu odzyskiwania w ciągu ostatnich 7 dni. Aby znaleźć nieaktywne zasoby dla innego przedziału czasu, można dostosować filtr **zakresu czasu** w górnej części karty.
+Korzystając z tego widoku, można zidentyfikować te elementy kopii zapasowej, które nie miały pomyślnej kopii zapasowej przez znaczny czas. Może to oznaczać, że maszyna źródłowa, której kopia zapasowa jest tworzona, już nie istnieje (i dlatego prowadzi do nieudanych kopii zapasowych) lub występuje problem z maszyną uniemożliwiającą niezawodne wykonywanie kopii zapasowych.
 
-Po zidentyfikowaniu nieaktywnego zasobu można dokładniej zbadać ten problem, przechodząc do pulpitu nawigacyjnego elementu kopii zapasowej lub z bloku zasobów platformy Azure dla tego zasobu (o ile ma to zastosowanie). W zależności od danego scenariusza można wybrać opcję zatrzymania tworzenia kopii zapasowej maszyny (jeśli nie istnieje) i usunąć niepotrzebne kopie zapasowe, a tym samym zaoszczędzić na kosztach lub rozwiązać problemy z maszyną, aby zapewnić niezawodne wykonywanie kopii zapasowych.
+Aby wyświetlić zasoby nieaktywne, przejdź do karty **Optymalizacja** i wybierz kafelek **zasoby nieaktywne** . Wybierz ten kafelek wyświetla siatkę zawierającą szczegóły wszystkich nieaktywnych zasobów istniejących w wybranym zakresie. Domyślnie siatka pokazuje elementy, które nie mają punktu odzyskiwania w ciągu ostatnich siedmiu dni. Aby znaleźć nieaktywne zasoby dla innego przedziału czasu, można dostosować filtr **zakresu czasu** w górnej części karty.
+
+Po zidentyfikowaniu nieaktywnego zasobu można dokładniej zbadać ten problem, przechodząc do pulpitu nawigacyjnego elementu kopii zapasowej lub z okienka zasobów platformy Azure dla tego zasobu (o ile ma to zastosowanie). W zależności od danego scenariusza można wybrać opcję zatrzymania tworzenia kopii zapasowej maszyny (jeśli nie istnieje) i usunąć niepotrzebne kopie zapasowe, co powoduje zaoszczędzenie kosztów, lub rozwiązać problemy z maszyną, aby zapewnić niezawodne wykonywanie kopii zapasowych.
 
 ![Optymalizowanie karty — zasoby nieaktywne](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
 
 ###### <a name="backup-items-with-a-large-retention-duration"></a>Elementy kopii zapasowych z długim czasem przechowywania
-Korzystając z tego widoku, można zidentyfikować te elementy, dla których kopie zapasowe są przechowywane przez dłuższy czas, niż jest to wymagane przez organizację. 
 
-Kliknięcie kafelka **optymalizacje zasad** , a następnie kafelka **optymalizacje przechowywania** — wyświetla siatkę zawierającą wszystkie elementy kopii zapasowej, dla których przechowywanie dziennego, cotygodniowego, miesięcznego lub rocznego punktu przechowywania (RP) jest większe niż określona wartość. Domyślnie Siatka wyświetla wszystkie elementy kopii zapasowej w wybranym zakresie. Filtry można używać na potrzeby codziennych, cotygodniowych, miesięcznych i rocznych magazynów RP, aby dodatkowo odfiltrować siatkę i zidentyfikować te elementy, dla których może zostać zredukowane oszczędności, aby zaoszczędzić na kosztach magazynowania kopii zapasowych.
+Korzystając z tego widoku, można zidentyfikować te elementy, których kopie zapasowe są przechowywane przez dłuższy czas, niż jest to wymagane przez organizację.
 
-Należy pamiętać, że w przypadku obciążeń bazy danych, takich jak SQL i SAP HANA, okresy przechowywania wyświetlane w siatce odpowiadają okresom przechowywania pełnych punktów kopii zapasowych, a nie z różnicowymi punktami kopii zapasowych. Ta sama zasada dotyczy również filtrów przechowywania.  
+Wybranie kafelka **Optymalizacja zasad** , a następnie kafelka **Optymalizacja przechowywania** wyświetla siatkę zawierającą wszystkie elementy kopii zapasowej, dla których przechowywanie dziennego, cotygodniowego, miesięcznego lub rocznego punktu przechowywania (RP) jest większe niż określona wartość. Domyślnie Siatka wyświetla wszystkie elementy kopii zapasowej w wybranym zakresie. Można użyć filtrów dziennie, co tydzień, co miesiąc i coroczne przechowywanie RP, aby dodatkowo odfiltrować siatkę i zidentyfikować te elementy, dla których może zostać zredukowane oszczędności, aby zaoszczędzić na kosztach magazynowania kopii zapasowych.
+
+W przypadku obciążeń bazy danych, takich jak SQL i SAP HANA, okresy przechowywania wyświetlane w siatce odpowiadają okresom przechowywania pełnych punktów kopii zapasowych, a nie z różnicowymi punktami kopii zapasowych. Ta sama zasada dotyczy również filtrów przechowywania.  
 
 ![Optymalizacja optymalizacji przechowywania kart](./media/backup-azure-configure-backup-reports/optimize-retention.png)
 
 ###### <a name="databases-configured-for-daily-full-backup"></a>Bazy danych skonfigurowane do codziennego wykonywania pełnej kopii zapasowej
-Korzystając z tego widoku, można identyfikować obciążenia bazy danych skonfigurowane do codziennej pełnej kopii zapasowej. Często użycie codziennej różnicowej kopii zapasowej wraz z tygodniową pełną kopią zapasową jest tańsze. 
 
-Kliknięcie kafelka **Optymalizacja zasad** , a następnie kafelka **Optymalizacja harmonogramu tworzenia kopii zapasowych** zawiera siatkę zawierającą wszystkie bazy danych z codziennymi zasadami pełnej kopii zapasowej. Możesz przejść do określonego elementu kopii zapasowej i zmodyfikować zasady, aby używać różnicowej kopii zapasowej codziennej kopii zapasowej.
+Korzystając z tego widoku, można identyfikować obciążenia bazy danych skonfigurowane do codziennej pełnej kopii zapasowej. Często użycie codziennej różnicowej kopii zapasowej wraz z tygodniową pełną kopią zapasową jest tańsze.
 
-Należy pamiętać, że filtr **typu zarządzania kopiami zapasowymi** w górnej części karty powinien mieć zaznaczone elementy **SQL na maszynie wirtualnej platformy Azure** i **SAP HANA na maszynie wirtualnej platformy Azure** , aby siatka mogła wyświetlić obciążenia bazy danych zgodnie z oczekiwaniami.
+Po wybraniu kafelka **optymalizacje zasad** , a następnie kafelka **Optymalizacja harmonogramu kopii zapasowych** , zostanie wyświetlona siatka zawierająca wszystkie bazy danych z codziennymi zasadami pełnej kopii zapasowej. Możesz przejść do określonego elementu kopii zapasowej i zmodyfikować zasady, aby używać różnicowej kopii zapasowej codziennej kopii zapasowej.
+
+Filtr **Typ zarządzania kopiami zapasowymi** w górnej części karty powinien zawierać elementy **SQL na maszynie wirtualnej platformy Azure** i **SAP HANA na maszynie wirtualnej platformy Azure** , aby siatka mogła wyświetlić obciążenia bazy danych zgodnie z oczekiwaniami.
 
 ![Optymalizowanie kart — Optymalizacja harmonogramu tworzenia kopii zapasowych](./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png)
 
@@ -144,7 +153,7 @@ Jeśli używasz [usługi Azure Lighthouse](../lighthouse/index.yml) z delegowany
 
 - Filtry działają od lewej do prawej i od góry do dołu na każdej karcie. Oznacza to, że dowolny filtr ma zastosowanie tylko do wszystkich tych elementów widget, które są rozmieszczone z prawej strony filtru lub poniżej tego filtru.
 - Wybranie kolorowego kafelka filtruje widżety poniżej kafelka dla rekordów, które odnoszą się do wartości tego kafelka. Na przykład po wybraniu kafelka **zatrzymana ochrona** na karcie **elementy kopii zapasowej** filtry siatki i wykresy poniżej, aby wyświetlić dane dla elementów kopii zapasowej w stanie zatrzymania ochrony.
-- Kafelki, które nie są kolorowe, nie są klikane.
+- Kafelki, które nie są kolorowe, nie są wybierane.
 - Dane bieżącego częściowego dnia nie są wyświetlane w raportach. Dlatego w przypadku wybrania wartości **zakres czasu** w **ciągu ostatnich 7 dni**raport przedstawia rekordy z ostatnich siedmiu dni. Bieżący dzień nie jest uwzględniony.
 - Raport przedstawia szczegóły zadań (poza zadaniami dziennika), które zostały *wyzwolone* w wybranym przedziale czasu.
 - Wartości wyświetlane dla **magazynu w chmurze** i **chronionych wystąpień** są na *końcu* wybranego zakresu czasu.

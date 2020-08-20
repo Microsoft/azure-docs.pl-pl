@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: d101acd3e72e68efd9198cb273fd352967a0cd54
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: eb7f642e36bd72f963481cb392d7e3a6c2555816
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192375"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612388"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Eksportowanie alertów zabezpieczeń i zaleceń
 
@@ -57,7 +57,29 @@ Poniższe kroki są niezbędne, niezależnie od tego, czy konfigurujesz ciągły
 
 1. W obszarze "Eksportuj element docelowy" Wybierz miejsce, w którym chcesz zapisać dane. Dane można zapisywać w miejscu docelowym w innej subskrypcji (na przykład w centralnym wystąpieniu centrum zdarzeń lub w centralnym obszarze roboczym Log Analytics).
 
-1. Kliknij pozycję **Zapisz**.
+1. Wybierz pozycję **Zapisz**.
+
+
+## <a name="setting-up-continuous-export-via-the-rest-api"></a>Konfigurowanie eksportu ciągłego za pomocą interfejsu API REST
+
+Funkcję eksportu ciągłego można skonfigurować i zarządzać nią za pośrednictwem [interfejsu API Azure Security Center automations](https://docs.microsoft.com/rest/api/securitycenter/automations). Ten interfejs API służy do tworzenia lub aktualizowania automatyzacji do eksportowania do dowolnego z następujących możliwych miejsc docelowych:
+
+- Centrum zdarzeń Azure
+- Obszar roboczy usługi Log Analytics
+- Azure Logic Apps 
+
+Interfejs API zapewnia dodatkowe funkcje niedostępne w Azure Portal, na przykład:
+
+* **Większy wolumin** — interfejs API umożliwia tworzenie wielu konfiguracji eksportu w ramach jednej subskrypcji. Strona **eksportu ciągłego** w interfejsie użytkownika portalu Security Center obsługuje tylko jedną konfigurację eksportu na subskrypcję.
+
+* **Dodatkowe funkcje** — interfejs API oferuje dodatkowe parametry, które nie są wyświetlane w interfejsie użytkownika. Na przykład możesz dodać tagi do zasobu usługi Automation, a także zdefiniować eksport na podstawie szerszego zestawu właściwości alertu i rekomendacji niż te oferowane na stronie **eksportu ciągłego** w interfejsie użytkownika portalu Security Center.
+
+* **Bardziej ukierunkowany zakres** — interfejs API zapewnia bardziej szczegółowy poziom konfiguracji eksportu. Podczas definiowania eksportu za pomocą interfejsu API można to zrobić na poziomie grupy zasobów. Jeśli używasz strony **eksportu ciągłego** w interfejsie użytkownika portalu Security Center, musisz ją zdefiniować na poziomie subskrypcji.
+
+    > [!TIP]
+    > Jeśli skonfigurowano wiele konfiguracji eksportu przy użyciu interfejsu API lub jeśli użyto parametrów z tylko interfejsem API, te dodatkowe funkcje nie będą wyświetlane w interfejsie użytkownika Security Center. Zamiast tego zostanie wyświetlony transparent informujący o tym, że istnieją inne konfiguracje.
+
+Więcej informacji na temat interfejsu API usługi automations znajduje się w [dokumentacji interfejsu API REST](https://docs.microsoft.com/rest/api/securitycenter/automations).
 
 
 
@@ -109,7 +131,7 @@ Azure Monitor zapewnia ujednolicone środowisko alertów dla różnych alertów 
 
 Aby wyświetlić alerty i zalecenia z Security Center w Azure Monitor, skonfiguruj regułę alertu na podstawie zapytań Log Analytics (alert dziennika):
 
-1. Na stronie **alerty** Azure Monitor kliknij pozycję **Nowa reguła alertu**.
+1. Na stronie **alerty** Azure Monitor wybierz pozycję **Nowa reguła alertu**.
 
     ![Strona alertów Azure Monitor](./media/continuous-export/azure-monitor-alerts.png)
 
@@ -126,12 +148,25 @@ Zobaczysz teraz nowe alerty i zalecenia dotyczące Azure Security Center (w zale
 
 ## <a name="manual-one-time-export-of-security-alerts"></a>Ręczne eksportowanie alertów zabezpieczeń jednorazowe
 
-Aby pobrać raport CSV dotyczący alertów lub zaleceń, Otwórz stronę **alerty zabezpieczeń** lub **zalecenia** , a następnie kliknij przycisk **Pobierz raport CSV** .
+Aby pobrać raport CSV dotyczący alertów lub zaleceń, Otwórz stronę **alerty zabezpieczeń** lub **zalecenia** i wybierz przycisk **Pobierz raport CSV** .
 
 [![Pobierz dane alertów jako plik CSV](media/continuous-export/download-alerts-csv.png)](media/continuous-export/download-alerts-csv.png#lightbox)
 
 > [!NOTE]
 > Te raporty zawierają alerty i zalecenia dotyczące zasobów z aktualnie wybranych subskrypcji.
+
+
+
+## <a name="faq---continuous-export"></a>Często zadawane pytania — eksport ciągły
+
+### <a name="what-are-the-costs-involved-in-exporting-data"></a>Jakie są koszty związane z eksportowaniem danych?
+
+Włączenie eksportu ciągłego nie ma kosztu. Mogą być naliczane koszty pozyskiwania i przechowywania danych w obszarze roboczym Log Analytics, w zależności od konfiguracji. 
+
+Dowiedz się więcej o [cenniku obszaru roboczego log Analytics](https://azure.microsoft.com/pricing/details/monitor/).
+
+Dowiedz się więcej na temat [cennika usługi Azure Event Hub](https://azure.microsoft.com/pricing/details/event-hubs/).
+
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punk
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 01235e116ca93f9c73e698e4d72ae0cb561824d5
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: ba97a5812359fc72e52d68e337762f7234aa3883
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262674"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611844"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -87,7 +87,7 @@ Po odinstalowaniu dysków zostanie wyświetlony komunikat. Odświeżenie połąc
 W systemie Linux po poważnym nawiązaniu połączenia z punktem odzyskiwania system operacyjny nie usuwa automatycznie odpowiednich ścieżek instalacji. Ścieżki instalacji istnieją jako woluminy oddzielone i są widoczne, ale zgłaszają błąd podczas uzyskiwania dostępu/zapisu plików. Można je usunąć ręcznie. Skrypt, gdy jest uruchamiany, identyfikuje wszystkie woluminy istniejące z poprzednich punktów odzyskiwania i czyści je po udzieleniu zgody.
 
 > [!NOTE]
-> Upewnij się, że połączenie jest zamknięte po przywróceniu wymaganych plików. Jest to ważne, szczególnie w scenariuszu, w którym maszyna, w której wykonywany jest skrypt, został również skonfigurowany do tworzenia kopii zapasowych. W przypadku, gdy połączenie jest nadal otwarte, kolejna kopia zapasowa może zakończyć się niepowodzeniem z powodu błędu "UserErrorUnableToOpenMount". Dzieje się tak dlatego, że zainstalowane dyski/woluminy są dostępne, a dostęp do nich może się nie powieść, ponieważ podstawowy magazyn, który jest serwerem docelowym iSCSI, może być niedostępny. Czyszczenie połączenia spowoduje usunięcie tych dysków/woluminów, dlatego nie będą dostępne podczas tworzenia kopii zapasowej.
+> Upewnij się, że połączenie jest zamknięte po przywróceniu wymaganych plików. Jest to ważne, szczególnie w scenariuszu, w którym maszyna, w której wykonywany jest skrypt, został również skonfigurowany do tworzenia kopii zapasowych. W przypadku, gdy połączenie jest nadal otwarte, kolejna kopia zapasowa może zakończyć się niepowodzeniem z powodu błędu "UserErrorUnableToOpenMount". Dzieje się tak dlatego, że zainstalowane dyski/woluminy są dostępne, a dostęp do nich może się nie powieść, ponieważ podstawowy magazyn, który jest serwerem docelowym iSCSI, może być niedostępny. Czyszczenie połączenia spowoduje usunięcie tych dysków/woluminów, więc nie będą one dostępne podczas tworzenia kopii zapasowej.
 
 ## <a name="selecting-the-right-machine-to-run-the-script"></a>Wybieranie odpowiedniej maszyny do uruchomienia skryptu
 
@@ -234,7 +234,7 @@ mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
 
 > [!WARNING]
-> Nie należy używać elementu "Mount-a". To polecenie służy do instalowania wszystkich urządzeń opisanych w temacie "/etc/fstab". Może to oznaczać, że duplikaty urządzeń mogą zostać zainstalowane. Dane można przekierowywać do urządzeń utworzonych przez skrypt, które nie utrwalają danych, co może spowodować utratę danych.
+> Nie należy używać elementu "Mount-a". To polecenie służy do instalowania wszystkich urządzeń opisanych w temacie "/etc/fstab". Może to oznaczać, że duplikaty urządzeń mogą zostać zainstalowane. Dane można przekierowywać do urządzeń utworzonych za pomocą skryptu, które nie utrwalają danych, co może spowodować utratę danych.
 
 #### <a name="for-raid-arrays"></a>Macierze RAID
 
@@ -362,7 +362,7 @@ Jeśli występują problemy podczas odzyskiwania plików z maszyn wirtualnych, z
 | Specyficzne dla systemu Linux: nie można wyświetlić żądanych woluminów | System operacyjny maszyny, na której jest uruchamiany skrypt, może nie rozpoznać podstawowego systemu plików chronionej maszyny wirtualnej | Sprawdź, czy punkt odzyskiwania jest spójny pod kątem awarii lub spójny z plikiem. Jeśli plik jest spójny, uruchom skrypt na innym komputerze, którego system operacyjny rozpoznaje chronioną system plików maszyny wirtualnej. |
 | Specyficzne dla systemu Windows: nie można wyświetlić żądanych woluminów | Dyski mogły zostać dołączone, ale nie skonfigurowano woluminów | Na ekranie Zarządzanie dyskami Zidentyfikuj dodatkowe dyski związane z punktem odzyskiwania. Jeśli którykolwiek z tych dysków znajduje się w stanie offline, spróbuj przełączyć je w tryb online, klikając dysk prawym przyciskiem myszy i wybierz pozycję **online**.|
 
-## <a name="security"></a>Bezpieczeństwo
+## <a name="security"></a>Zabezpieczenia
 
 W tej sekcji omówiono różne miary zabezpieczeń związane z wdrażaniem odzyskiwania plików z kopii zapasowych maszyn wirtualnych platformy Azure.
 

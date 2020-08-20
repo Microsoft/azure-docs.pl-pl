@@ -4,12 +4,12 @@ description: Instrukcje dotyczące przenoszenia magazynu usług Recovery Service
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 40ef55fa3b86856051b840c5d88ab8fadae3b7c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fbbe914b3e567a1a136d735fc52965524bc17b67
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514105"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612575"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Przenoszenie magazynu Recovery Services w ramach subskrypcji i grup zasobów platformy Azure
 
@@ -57,23 +57,23 @@ Aby przenieść magazyn usługi Recovery Services i skojarzone z nim zasoby do i
 
    ![Otwórz magazyn usługi odzyskiwania](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
-   Jeśli nie widzisz informacji **podstawowe** dla swojego magazynu, kliknij ikonę listy rozwijanej. Należy teraz zobaczyć podstawowe informacje dotyczące magazynu.
+   Jeśli nie widzisz informacji **podstawowe** dla magazynu, wybierz ikonę listy rozwijanej. Należy teraz zobaczyć podstawowe informacje dotyczące magazynu.
 
    ![Karta informacji o Essentials](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
-3. W menu przegląd magazynu kliknij pozycję **Zmień** obok **grupy zasobów**, aby otworzyć blok **przenoszenie zasobów** .
+3. W menu przegląd magazynu wybierz pozycję **Zmień** obok **grupy zasobów**, aby otworzyć okienko **przenoszenie zasobów** .
 
    ![Zmień grupę zasobów](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
-4. W bloku **przenoszenie zasobów** dla wybranego magazynu zalecamy przeniesienie opcjonalnych powiązanych zasobów, zaznaczając pole wyboru, jak pokazano na poniższej ilustracji.
+4. W okienku **przenoszenie zasobów** dla wybranego magazynu zalecamy przeniesienie opcjonalnych powiązanych zasobów, zaznaczając pole wyboru, jak pokazano na poniższej ilustracji.
 
    ![Przenieś subskrypcję](./media/backup-azure-move-recovery-services/move-resource.png)
 
-5. Aby dodać docelową grupę zasobów, z listy rozwijanej **Grupa zasobów** wybierz istniejącą grupę zasobów lub kliknij opcję **Utwórz nową grupę** .
+5. Aby dodać docelową grupę zasobów, z listy rozwijanej **Grupa zasobów** wybierz istniejącą grupę zasobów lub wybierz opcję **Utwórz nową grupę** .
 
    ![Utwórz zasób](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
 
-6. Po dodaniu grupy zasobów upewnij **się, że narzędzia i skrypty skojarzone z przeniesionymi zasobami nie będą działały, dopóki nie zaktualizuję ich do używania nowych identyfikatorów zasobów** , a następnie kliknij przycisk **OK** , aby zakończyć przenoszenie magazynu.
+6. Po dodaniu grupy zasobów upewnij **się, że narzędzia i skrypty skojarzone z przeniesionymi zasobami nie będą działały, dopóki nie zaktualizuję ich do używania nowych identyfikatorów zasobów** , a następnie wybierz **przycisk OK** , aby zakończyć przenoszenie magazynu.
 
    ![Komunikat z potwierdzeniem](./media/backup-azure-move-recovery-services/confirmation-message.png)
 
@@ -86,11 +86,11 @@ Magazyn Recovery Services i powiązane z nim zasoby można przenieść do innej 
 
     ![Otwórz magazyn usługi odzyskiwania](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
-    Jeśli nie widzisz informacji **podstawowe** dla swojego magazynu, kliknij ikonę listy rozwijanej. Należy teraz zobaczyć podstawowe informacje dotyczące magazynu.
+    Jeśli nie widzisz informacji **podstawowe** dla magazynu, wybierz ikonę listy rozwijanej. Należy teraz zobaczyć podstawowe informacje dotyczące magazynu.
 
     ![Karta informacji o Essentials](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
-3. W menu przegląd magazynu kliknij pozycję **Zmień** obok pozycji **subskrypcja**, aby otworzyć blok **przenoszenie zasobów** .
+3. W menu przegląd magazynu wybierz pozycję **Zmień** obok pozycji **subskrypcja**, aby otworzyć okienko **przenoszenie zasobów** .
 
    ![Zmień subskrypcję](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
 
@@ -99,11 +99,11 @@ Magazyn Recovery Services i powiązane z nim zasoby można przenieść do innej 
    ![Przenieś zasób](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
 
 5. Wybierz subskrypcję docelową z listy rozwijanej **subskrypcja** , w której chcesz przenieść magazyn.
-6. Aby dodać docelową grupę zasobów, z listy rozwijanej **Grupa zasobów** wybierz istniejącą grupę zasobów lub kliknij opcję **Utwórz nową grupę** .
+6. Aby dodać docelową grupę zasobów, z listy rozwijanej **Grupa zasobów** wybierz istniejącą grupę zasobów lub wybierz opcję **Utwórz nową grupę** .
 
    ![Dodaj subskrypcję](./media/backup-azure-move-recovery-services/add-subscription.png)
 
-7. Kliknij przycisk **rozumiem, że narzędzia i skrypty skojarzone z przeniesionymi zasobami nie będą działały, dopóki nie zaktualizuję do nich opcji Użyj nowych identyfikatorów zasobów** , aby potwierdzić, a następnie kliknij przycisk **OK**.
+7. Zaznacz opcję **rozumiem, że narzędzia i skrypty skojarzone z przeniesionymi zasobami nie będą działały do momentu zaktualizowania ich do korzystania z nowych identyfikatorów zasobów** , aby potwierdzić, a następnie wybierz przycisk **OK**.
 
 > [!NOTE]
 > Kopia zapasowa między subskrypcjami (magazyn RS i chronione maszyny wirtualne znajdują się w różnych subskrypcjach) nie jest obsługiwanym scenariuszem. Ponadto opcja nadmiarowości magazynu z lokalnego nadmiarowego magazynu (LRS) na globalnie nadmiarowy magazyn (GRS) i na odwrót nie może zostać zmodyfikowana podczas operacji przenoszenia magazynu.
@@ -112,7 +112,7 @@ Magazyn Recovery Services i powiązane z nim zasoby można przenieść do innej 
 
 ## <a name="use-powershell-to-move-recovery-services-vault"></a>Przenoszenie magazynu Recovery Services przy użyciu programu PowerShell
 
-Aby przenieść magazyn Recovery Services do innej grupy zasobów, użyj `Move-AzureRMResource` polecenia cmdlet. `Move-AzureRMResource`wymaga nazwy zasobu i typu zasobu. Oba te elementy można pobrać z `Get-AzureRmRecoveryServicesVault` polecenia cmdlet.
+Aby przenieść magazyn Recovery Services do innej grupy zasobów, użyj `Move-AzureRMResource` polecenia cmdlet. `Move-AzureRMResource` wymaga nazwy zasobu i typu zasobu. Oba te elementy można pobrać z `Get-AzureRmRecoveryServicesVault` polecenia cmdlet.
 
 ```powershell
 $destinationRG = "<destinationResourceGroupName>"

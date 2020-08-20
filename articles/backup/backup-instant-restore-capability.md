@@ -4,12 +4,12 @@ description: Funkcja błyskawicznego przywracania platformy Azure i często zada
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 6ea4c3757da4e24ae0455cf35f119bf57ed644a6
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: bb9a7a32306fc76ea8852787601f3b3b3828daf8
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531833"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611810"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Uzyskiwanie ulepszonej wydajności tworzenia kopii zapasowych i przywracania dzięki funkcji Azure Backup natychmiastowego przywracania
 
@@ -42,10 +42,10 @@ Domyślnie migawki są przechowywane przez dwa dni. Ta funkcja umożliwia przywr
 ## <a name="feature-considerations"></a>Zagadnienia dotyczące funkcji
 
 * Migawki są przechowywane wraz z dyskami w celu zwiększenia tworzenia punktów odzyskiwania i przyspieszenia operacji przywracania. W związku z tym zobaczysz koszty magazynu odpowiadające migawkom pobranym w tym okresie.
-* Migawki przyrostowe są przechowywane jako stronicowe obiekty blob. Wszyscy użytkownicy korzystający z dysków niezarządzanych są obciążani za migawki przechowywane na koncie magazynu lokalnego. Ponieważ kolekcje punktów przywracania używane przez zarządzane kopie zapasowe maszyn wirtualnych używają migawek obiektów BLOB na podstawowym poziomie magazynu, w przypadku dysków zarządzanych zobaczysz koszty odpowiadające cenom migawek obiektów blob i są one przyrostowe.
+* Migawki przyrostowe są przechowywane jako stronicowe obiekty blob. Wszyscy użytkownicy korzystający z dysków niezarządzanych są obciążani za migawki przechowywane na koncie magazynu lokalnego. Ponieważ kolekcje punktów przywracania używane przez zarządzane kopie zapasowe maszyn wirtualnych używają migawek obiektów BLOB na podstawowym poziomie magazynu, dla dysków zarządzanych zobaczysz koszty odpowiadające cenie migawek obiektów blob i są one przyrostowe.
 * W przypadku kont magazynu w warstwie Premium migawki wykonywane na potrzeby natychmiastowych punktów odzyskiwania są wliczane do 10 TB przydzielonego miejsca.
-* Można skonfigurować przechowywanie migawek na podstawie potrzeb przywracania. W zależności od wymagań można ustawić przechowywanie migawek na co najmniej jeden dzień w bloku zasad tworzenia kopii zapasowych, jak wyjaśniono poniżej. Ułatwi to oszczędność kosztów przechowywania migawek, jeśli nie jest często wykonywanych operacji przywracania.
-* Po przeprowadzeniu uaktualnienia do natychmiastowego przywrócenia nie można wrócić.
+* Można skonfigurować przechowywanie migawek na podstawie potrzeb przywracania. W zależności od wymagań można ustawić przechowywanie migawek na co najmniej jeden dzień w okienku zasady tworzenia kopii zapasowych, jak wyjaśniono poniżej. Ułatwi to oszczędność kosztów przechowywania migawek, jeśli nie jest często wykonywanych operacji przywracania.
+* Jest to jedno dwukierunkowe uaktualnienie. Po uaktualnieniu do natychmiastowego przywracania nie można cofnąć.
 
 >[!NOTE]
 >Po tym uaktualnieniu natychmiastowego przywracania, czas przechowywania migawki dla wszystkich klientów (**w przypadku nowych i istniejących**) zostanie ustawiony na wartość domyślną dwa dni. Można jednak ustawić czas trwania zgodnie z wymaganiami dotyczącymi dowolnej wartości z zakresu od 1 do 5 dni.
@@ -61,7 +61,7 @@ Migawki przyrostowe są przechowywane na koncie magazynu maszyny wirtualnej, kt�
 
 ### <a name="using-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-W Azure Portal można zobaczyć pole dodane w bloku **zasady kopii zapasowych maszyny wirtualnej** w sekcji **natychmiastowe przywracanie** . Czas przechowywania migawki można zmienić w bloku **zasady kopii zapasowych maszyny wirtualnej** dla wszystkich maszyn wirtualnych skojarzonych z określonymi zasadami tworzenia kopii zapasowych.
+W Azure Portal można zobaczyć pole dodane w okienku **zasad kopii zapasowych maszyny wirtualnej** w sekcji **natychmiastowe przywracanie** . Czas przechowywania migawki można zmienić z okienka **zasady tworzenia kopii zapasowych maszyny wirtualnej** dla wszystkich maszyn wirtualnych skojarzonych z określonymi zasadami tworzenia kopii zapasowych.
 
 ![Możliwość natychmiastowego przywrócenia](./media/backup-azure-vms/instant-restore-capability.png)
 
@@ -110,7 +110,7 @@ Nowy model nie zezwala na usuwanie punktu przywracania (SVR), chyba że migawka 
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Dlaczego moja migawka jest istniejąca, nawet po upływie ustawionego okresu przechowywania w zasadach tworzenia kopii zapasowych?
 
-Jeśli punkt odzyskiwania zawiera migawkę i jest to najnowsza dostępna jednostka UZALEŻNIONa, jest zachowywany do momentu utworzenia kolejnej kopii zapasowej. Jest to zgodne z zaprojektowanymi zasadami "wyrzucania elementów bezużytecznych" (GC), ponieważ w przypadku wystąpienia problemu z maszyną wirtualną wszystkie kopie zapasowe mogą być zawsze obecne w przypadku wystąpienia błędu. W normalnych scenariuszach RPS pliku są czyszczone w ciągu maksymalnie 24 godzin po ich wygaśnięciu.
+Jeśli punkt odzyskiwania zawiera migawkę i jest to najnowszy dostępny element RP, jest zachowywany do momentu następnej pomyślnej kopii zapasowej. Jest to zgodne z zaprojektowanymi zasadami "wyrzucania elementów bezużytecznych" (GC), ponieważ w przypadku wystąpienia problemu z maszyną wirtualną wszystkie kopie zapasowe mogą być zawsze obecne w przypadku wystąpienia błędu. W normalnych scenariuszach RPS pliku są czyszczone w ciągu maksymalnie 24 godzin po ich wygaśnięciu.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Nie potrzebuję funkcji natychmiastowego przywracania. Czy można ją wyłączyć?
 

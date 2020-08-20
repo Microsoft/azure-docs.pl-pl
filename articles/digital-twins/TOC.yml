@@ -22,6 +22,8 @@
       href: concepts-twins-graph.md
     - name: Język zapytań
       href: concepts-query-language.md
+    - name: Jednostki zapytań
+      href: concepts-query-units.md
     - name: Integracja z innymi usługami
       href: concepts-integration.md
     - name: Trasy zdarzeń

@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 08cf736e533486b765f3b1a1173fcfe06c03306f
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: ded612fb79001adf2ada1a289603bc8a7561d38f
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212868"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612490"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Get started with the Azure WebJobs SDK for event-driven background processing (Rozpoczynanie pracy z zestawem SDK usługi Azure WebJobs umożliwiającym oparte na zdarzeniach przetwarzanie w tle)
 
@@ -192,7 +192,7 @@ Emulator usługi Azure Storage, który działa lokalnie, nie ma wszystkich funkc
 
 1. Otwórz **Eksplorator serwera** w programie Visual Studio i zaloguj się do platformy Azure. Kliknij prawym przyciskiem myszy węzeł **platformy Azure** , a następnie wybierz pozycję **Połącz z subskrypcją Microsoft Azure**.
 
-   ![Logowanie się do platformy Azure](./media/webjobs-sdk-get-started/sign-in.png)
+   ![Logowanie do platformy Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
 1. W węźle **platformy Azure** w **Eksplorator serwera**kliknij prawym przyciskiem myszy pozycję **Magazyn**, a następnie wybierz pozycję **Utwórz konto magazynu**.
 
@@ -202,7 +202,7 @@ Emulator usługi Azure Storage, który działa lokalnie, nie ma wszystkich funkc
 
 1. Wybierz ten sam **region** , w którym została utworzona aplikacja App Service, lub region blisko siebie.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
    ![Utwórz konto magazynu](./media/webjobs-sdk-get-started/create-storage-account.png)
 

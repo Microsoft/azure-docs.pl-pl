@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych i Przywracanie zaszyfrowanych maszyn wirtualny
 description: Opisuje sposób tworzenia kopii zapasowych i przywracania zaszyfrowanych maszyn wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: 304196f6b517c353cb4fc142129fa4d3007a1d9c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 74658f695387a776fe12cef97887075ae0bc161d
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585336"
+ms.locfileid: "88611300"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Tworzenie kopii zapasowych i Przywracanie zaszyfrowanych maszyn wirtualnych platformy Azure
 
@@ -69,7 +69,7 @@ Ponadto istnieje kilka rzeczy, które mogą być konieczne w pewnych okolicznoś
 1. W **celu utworzenia kopii zapasowej**,  >  **gdzie jest uruchomione Twoje obciążenie?** wybierz pozycję **Azure**.
 1. W **czym chcesz utworzyć kopię zapasową?** wybierz **maszynę wirtualną**. Następnie wybierz pozycję **kopia zapasowa**.
 
-      ![Blok scenariusza](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
+      ![Okienko scenariusza](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
 1. W obszarze **zasady tworzenia kopii zapasowych**  >  **Wybierz pozycję Zasady tworzenia kopii zapasowych**, a następnie wybierz zasady, które chcesz skojarzyć z magazynem. Następnie wybierz pozycję **OK**.
     - Zasady tworzenia kopii zapasowych określają, kiedy są tworzone kopie zapasowe, oraz czas ich przechowywania.

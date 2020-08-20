@@ -3,12 +3,12 @@ title: Samouczek — Tworzenie kopii zapasowych baz danych SAP HANA na maszynach
 description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową SAP HANA baz danych działających na maszynie wirtualnej platformy Azure do magazynu Azure Backup Recovery Services.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: e892bf2b943d35728b15a9354308e149af2e478e
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 3903630a657c2cf8a0b39f3e4c8fc22456097941
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810211"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611827"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Samouczek: Tworzenie kopii zapasowych baz danych SAP HANA na maszynie wirtualnej platformy Azure
 
@@ -71,7 +71,7 @@ Jeśli używasz sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń), U
 
 1. Wybierz pozycję **Dodaj**. Wprowadź wszystkie wymagane szczegóły dotyczące tworzenia nowej reguły zgodnie z opisem w [ustawieniach reguły zabezpieczeń](../virtual-network/manage-network-security-group.md#security-rule-settings). Upewnij się, że opcja **miejsce docelowe** jest ustawiona na *tag usługi* i **znacznik usługi docelowej** jest ustawiony na *AzureBackup*.
 
-1. Kliknij przycisk **Dodaj** , aby zapisać nowo utworzoną regułę zabezpieczeń dla ruchu wychodzącego.
+1. Kliknij przycisk **Dodaj**  , aby zapisać nowo utworzoną regułę zabezpieczeń dla ruchu wychodzącego.
 
 W podobny sposób można tworzyć reguły zabezpieczeń wychodzące sieciowej grupy zabezpieczeń dla usługi Azure Storage i usługi Azure AD. Aby uzyskać więcej informacji na temat tagów usługi, zobacz [ten artykuł](../virtual-network/service-tags-overview.md).
 
@@ -111,8 +111,8 @@ Uruchamianie skryptu przed rejestracją wykonuje następujące funkcje:
 * Skrypt dodaje klucz do **hdbuserstore** for AZUREWLBACKUPHANAUSER dla wtyczki kopii zapasowej Hana do obsługi wszystkich operacji (zapytania bazy danych, operacji przywracania, konfigurowania i uruchamiania kopii zapasowej).
 
 >[!NOTE]
-> Możesz jawnie przekazać klucz użytkownika wymieniony jako część [wymagań wstępnych](#prerequisites) jako parametr do skryptu przed rejestracją:`-sk SYSTEM_KEY_NAME, --system-key SYSTEM_KEY_NAME` <br><br>
->Aby dowiedzieć się, jakie inne parametry są akceptowane przez skrypt, użyj polecenia`bash msawb-plugin-config-com-sap-hana.sh --help`
+> Możesz jawnie przekazać klucz użytkownika wymieniony jako część [wymagań wstępnych](#prerequisites) jako parametr do skryptu przed rejestracją: `-sk SYSTEM_KEY_NAME, --system-key SYSTEM_KEY_NAME` <br><br>
+>Aby dowiedzieć się, jakie inne parametry są akceptowane przez skrypt, użyj polecenia `bash msawb-plugin-config-com-sap-hana.sh --help`
 
 Aby potwierdzić utworzenie klucza, uruchom polecenie HDBSQL na maszynie HANA z poświadczeniami SIDADM:
 

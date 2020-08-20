@@ -3,18 +3,18 @@ title: Automatyczne włączanie kopii zapasowych podczas tworzenia maszyny wirtu
 description: Artykuł opisujący sposób użycia Azure Policy do samodzielnego włączania kopii zapasowych dla wszystkich maszyn wirtualnych utworzonych w danym zakresie
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 2b4ce7825b714eed1b025a6a807a62759177b81f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19985ebc51fe713ee0392800e2791ea1891ff3cd
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514224"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612677"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Automatyczne włączanie kopii zapasowych podczas tworzenia maszyny wirtualnej za pomocą usługi Azure Policy
 
 Jednym z kluczowych obowiązków administratora kopii zapasowej i zgodności w organizacji jest upewnienie się, że kopie zapasowe wszystkich maszyn o krytycznym znaczeniu dla firmy zostały uwzględnione w odpowiednim przechowywaniu.
 
-Obecnie Azure Backup udostępnia wbudowane zasady (przy użyciu Azure Policy), które można przypisać do **wszystkich maszyn wirtualnych platformy Azure w określonej lokalizacji w ramach subskrypcji lub grupy zasobów**. Gdy te zasady są przypisane do danego zakresu, wszystkie nowe maszyny wirtualne utworzone w tym zakresie są automatycznie konfigurowane na potrzeby tworzenia kopii zapasowych **w istniejącym magazynie w tej samej lokalizacji i subskrypcji**. Użytkownik może określić magazyn i zasady przechowywania, do których mają być skojarzone kopie zapasowe maszyn wirtualnych.
+Obecnie Azure Backup udostępnia wbudowane zasady (przy użyciu Azure Policy), które można przypisać do **wszystkich maszyn wirtualnych platformy Azure w określonej lokalizacji w ramach subskrypcji lub grupy zasobów**. Gdy te zasady są przypisane do danego zakresu, wszystkie nowe maszyny wirtualne utworzone w tym zakresie są automatycznie konfigurowane na potrzeby tworzenia kopii zapasowych **w istniejącym magazynie w tej samej lokalizacji i subskrypcji**. Użytkownik może określić magazyn i zasady przechowywania, do których mają być skojarzone maszyny wirtualne z kopią zapasową.
 
 ## <a name="supported-scenarios"></a>Scenariusze obsługiwane
 
@@ -32,19 +32,19 @@ Obecnie Azure Backup udostępnia wbudowane zasady (przy użyciu Azure Policy), k
 
 Aby przypisać zasady do wymaganego zakresu, wykonaj następujące czynności:
 
-1. Zaloguj się do witryny Azure Portal i przejdź do pulpitu nawigacyjnego **zasad** .
-2. Wybierz pozycję **definicje** w menu po lewej stronie, aby wyświetlić listę wszystkich wbudowanych zasad w ramach zasobów platformy Azure.
-3. Filtrowanie listy dla **kategorii = kopia zapasowa**. Zostanie wyświetlona lista przefiltrowana w dół do jednej zasady o nazwie "Konfiguruj kopię zapasową na maszynach wirtualnych lokalizacji do istniejącego magazynu centralnego w tej samej lokalizacji".
+1. Zaloguj się do Azure Portal i przejdź do pulpitu nawigacyjnego **zasad** .
+1. Wybierz pozycję **definicje** w menu po lewej stronie, aby wyświetlić listę wszystkich wbudowanych zasad w ramach zasobów platformy Azure.
+1. Filtrowanie listy dla **kategorii = kopia zapasowa**. Zostanie wyświetlona lista przefiltrowana w dół do jednej zasady o nazwie "Konfiguruj kopię zapasową na maszynach wirtualnych lokalizacji do istniejącego magazynu centralnego w tej samej lokalizacji".
 ![Pulpit nawigacyjny zasad](./media/backup-azure-auto-enable-backup/policy-dashboard.png)
-4. Kliknij nazwę zasad. Nastąpi przekierowanie do szczegółowej definicji dla tych zasad.
-![Blok definicji zasad](./media/backup-azure-auto-enable-backup/policy-definition-blade.png)
-5. Kliknij przycisk **Przypisz** w górnej części bloku. Przekierowuje to do bloku **przypisywanie zasad** .
-6. W obszarze **podstawowe**kliknij trzy kropki obok pola **zakres** . Spowoduje to otwarcie bloku prawego kontekstu, w którym można wybrać subskrypcję zasad, która ma zostać zastosowana. Opcjonalnie można również wybrać grupę zasobów, aby zasady były stosowane tylko w przypadku maszyn wirtualnych w określonej grupie zasobów.
+1. Wybierz nazwę zasad. Nastąpi przekierowanie do szczegółowej definicji dla tych zasad.
+![Okienko definicji zasad](./media/backup-azure-auto-enable-backup/policy-definition-blade.png)
+1. Wybierz przycisk **Przypisz** w górnej części okienka. Spowoduje to przekierowanie do okienka **przypisywanie zasad** .
+1. W obszarze **podstawy**wybierz trzy kropki obok pola **zakres** . Spowoduje to otwarcie prawego okienka kontekstowego, w którym można wybrać subskrypcję zasad, która ma zostać zastosowana. Opcjonalnie można również wybrać grupę zasobów, aby zasady były stosowane tylko w przypadku maszyn wirtualnych w określonej grupie zasobów.
 ![Podstawowe informacje dotyczące przypisywania zasad](./media/backup-azure-auto-enable-backup/policy-assignment-basics.png)
-7. Na karcie **Parametry** wybierz lokalizację z listy rozwijanej, a następnie wybierz magazyn i zasady tworzenia kopii zapasowych, do których należy skojarzyć maszyny wirtualne w zakresie.
+1. Na karcie **Parametry** wybierz lokalizację z listy rozwijanej, a następnie wybierz magazyn i zasady tworzenia kopii zapasowych, do których należy skojarzyć maszyny wirtualne w zakresie.
 ![Parametry przypisania zasad](./media/backup-azure-auto-enable-backup/policy-assignment-parameters.png)
-8. Upewnij się, że dla **efektu** ustawiono wartość deployIfNotExists.
-9. Przejdź do **przeglądu + Utwórz** i kliknij przycisk **Utwórz**.
+1. Upewnij się, że dla **efektu** ustawiono wartość deployIfNotExists.
+1. Przejdź do opcji **Recenzja + Utwórz** i wybierz pozycję **Utwórz**.
 
 > [!NOTE]
 >

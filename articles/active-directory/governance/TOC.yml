@@ -86,6 +86,8 @@
               href: entitlement-management-request-access.md
     - name: Przeglądy dostępu
       items:
+        - name: Planowanie wdrożenia przeglądu dostępu
+          href: deploy-access-reviews.md
         - name: Pakiety dostępu
           items:
             - name: Tworzenie przeglądu dostępu

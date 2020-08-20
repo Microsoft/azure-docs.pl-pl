@@ -4,14 +4,14 @@ description: Dowiedz się, jak skonfigurować i zmienić domyślne zasady indeks
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: e1254b31bffa72918b46c550e8354bd1c2195dfb
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: f723d7ac218869313f02212d27d9f96b74bb7f0f
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077598"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607521"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Zasady indeksowania w usłudze Azure Cosmos DB
 
@@ -30,15 +30,15 @@ Azure Cosmos DB obsługuje dwa tryby indeksowania:
 - **Brak**: indeksowanie jest wyłączone w kontenerze. Jest to często używane, gdy kontener jest używany jako czysty magazyn klucz-wartość bez konieczności stosowania indeksów pomocniczych. Może również służyć do poprawy wydajności operacji zbiorczych. Po zakończeniu operacji zbiorczych tryb indeksu może być ustawiony na spójny, a następnie monitorowany przy użyciu [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) do momentu ukończenia.
 
 > [!NOTE]
-> Azure Cosmos DB obsługuje również tryb indeksowania z opóźnieniem. Indeksowanie z opóźnieniem wykonuje aktualizacje dla indeksu na znacznie niższym poziomie priorytetu, gdy aparat nie wykonuje żadnej innej pracy. Może to spowodować **niespójne lub niekompletne** wyniki zapytania. Jeśli planujesz zapytania do kontenera Cosmos, nie należy wybierać indeksowania z opóźnieniem. W czerwcu 2020 Wprowadziliśmy zmianę, która nie zezwala już na ustawienie nowych kontenerów na tryb indeksowania z opóźnieniem. Jeśli konto Azure Cosmos DB zawiera już co najmniej jeden kontener z indeksem z opóźnieniem, to konto zostanie automatycznie zwolnione ze zmiany. Możesz również zażądać wykluczenia, kontaktując się z [pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> Azure Cosmos DB obsługuje również tryb indeksowania z opóźnieniem. Indeksowanie z opóźnieniem wykonuje aktualizacje dla indeksu na znacznie niższym poziomie priorytetu, gdy aparat nie wykonuje żadnej innej pracy. Może to spowodować **niespójne lub niekompletne** wyniki zapytania. Jeśli planujesz zapytania do kontenera Cosmos, nie należy wybierać indeksowania z opóźnieniem. W czerwcu 2020 Wprowadziliśmy zmianę, która nie zezwala już na ustawienie nowych kontenerów na tryb indeksowania z opóźnieniem. Jeśli konto Azure Cosmos DB zawiera już co najmniej jeden kontener z indeksem z opóźnieniem, to konto zostanie automatycznie zwolnione ze zmiany. Możesz również zażądać wykluczenia, kontaktując się z [pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (chyba że używasz konta usługi Azure Cosmos w trybie bez [serwera](serverless.md) , który nie obsługuje indeksowania z opóźnieniem).
 
 Domyślnie zasady indeksowania są ustawione na `automatic` . Jest to osiągane przez ustawienie `automatic` właściwości w zasadach indeksowania na `true` . Ustawienie tej właściwości `true` umożliwia usłudze Azure CosmosDB Automatyczne indeksowanie dokumentów w miarę ich pisania.
 
-## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Uwzględnianie i wykluczanie ścieżek właściwości
+## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a> Uwzględnianie i wykluczanie ścieżek właściwości
 
 Niestandardowe zasady indeksowania mogą określać ścieżki właściwości, które są jawnie dołączone lub wykluczone z indeksowania. Przez optymalizację liczby indeksowanych ścieżek można znacznie ograniczyć opóźnienia i obciążenie RU operacji zapisu. Te ścieżki są zdefiniowane po [metodzie opisanej w sekcji Omówienie indeksowania](index-overview.md#from-trees-to-property-paths) z następującymi dodatkami:
 
-- ścieżka prowadząca do wartości skalarnej (ciąg lub Number) ma koniec`/?`
+- ścieżka prowadząca do wartości skalarnej (ciąg lub Number) ma koniec `/?`
 - elementy z tablicy są rozłączone za pośrednictwem `/[]` notacji (zamiast `/0` `/1` itp.)
 - `/*`symbol wieloznaczny może służyć do dopasowania elementów poniżej węzła
 
@@ -62,7 +62,7 @@ Ponowne wykonanie tego samego przykładu:
 
 - `locations`" `country` ścieżka jest`/locations/[]/country/?`
 
-- ścieżka do wszystkich elementów w obszarze `headquarters` to`/headquarters/*`
+- ścieżka do wszystkich elementów w obszarze `headquarters` to `/headquarters/*`
 
 Na przykład możemy dołączyć `/headquarters/employees/?` ścieżkę. Ta ścieżka zapewni, że indeksuje Właściwość Employees, ale nie indeksuje dodatkowych zagnieżdżonych JSON w ramach tej właściwości.
 
@@ -81,11 +81,11 @@ Każda zasada indeksowania musi zawierać ścieżkę katalogu głównego `/*` ja
 
 W przypadku dołączania i wykluczania ścieżek mogą wystąpić następujące atrybuty:
 
-- `kind`może być albo `range` `hash` . Funkcja indeksu zakresu zapewnia wszystkie funkcje indeksu wartości skrótu, dlatego zalecamy użycie indeksu zakresu.
+- `kind` może być albo `range` `hash` . Funkcja indeksu zakresu zapewnia wszystkie funkcje indeksu wartości skrótu, dlatego zalecamy użycie indeksu zakresu.
 
-- `precision`jest liczbą zdefiniowaną na poziomie indeksu dla dołączonych ścieżek. Wartość `-1` wskazuje maksymalną precyzję. Zalecamy zawsze ustawienie tej wartości na `-1` .
+- `precision` jest liczbą zdefiniowaną na poziomie indeksu dla dołączonych ścieżek. Wartość `-1` wskazuje maksymalną precyzję. Zalecamy zawsze ustawienie tej wartości na `-1` .
 
-- `dataType`może być albo `String` `Number` . Wskazuje typy właściwości JSON, które będą indeksowane.
+- `dataType` może być albo `String` `Number` . Wskazuje typy właściwości JSON, które będą indeksowane.
 
 Gdy nie zostanie określony, te właściwości będą miały następujące wartości domyślne:
 
@@ -103,9 +103,9 @@ Jeśli zawarte ścieżki i wykluczone ścieżki mają konflikt, pierwszeństwo m
 
 Oto przykład:
 
-**Ścieżka uwzględniona**:`/food/ingredients/nutrition/*`
+**Ścieżka uwzględniona**: `/food/ingredients/nutrition/*`
 
-**Wykluczona ścieżka**:`/food/ingredients/*`
+**Wykluczona ścieżka**: `/food/ingredients/*`
 
 W takim przypadku dołączona ścieżka ma pierwszeństwo przed wykluczoną ścieżką, ponieważ jest bardziej precyzyjna. W oparciu o te ścieżki wszelkie dane ze `food/ingredients` ścieżki lub zagnieżdżone w ramach zostałyby wykluczone z indeksu. Wyjątek mógłby zawierać dane w dołączonej ścieżce: `/food/ingredients/nutrition/*` , które byłyby indeksowane.
 
@@ -261,6 +261,9 @@ Poniższe zagadnienia są używane podczas tworzenia indeksów złożonych w cel
 
 Zasady indeksowania kontenera można aktualizować w dowolnym momencie przy [użyciu Azure Portal lub jednego z obsługiwanych zestawów SDK](how-to-manage-indexing-policy.md). Aktualizacja zasad indeksowania wyzwala transformację ze starego indeksu do nowego, który jest wykonywany w trybie online i w miejscu (dlatego w trakcie operacji nie jest używane dodatkowe miejsce do magazynowania). Stary indeks zasad jest efektywnie przekształcany w nowe zasady bez wpływu na dostępność zapisu, dostępność odczytu lub przepływność zainicjowaną w kontenerze. Przekształcanie indeksów jest operacją asynchroniczną i czas potrzebny do ukończenia zależy od przepływności, liczby elementów i ich rozmiaru.
 
+> [!IMPORTANT]
+> Przekształcanie indeksów to operacja, która zużywa [jednostki żądania](request-units.md). Jednostki żądań zużywane przez transformację indeksu nie są obecnie rozliczane, jeśli używasz kontenerów [bezserwerowych](serverless.md) . Te jednostki żądania będą rozliczane, gdy bezserwerowy staną się ogólnie dostępne.
+
 > [!NOTE]
 > Istnieje możliwość śledzenia postępu transformacji indeksu przy [użyciu jednego z zestawów SDK](how-to-manage-indexing-policy.md).
 
@@ -284,7 +287,7 @@ W przypadku scenariuszy, w których nie ma potrzeby indeksowania ścieżki wła�
 
 - Tryb indeksowania ustawiony na spójne i
 - Brak dołączonej ścieżki i
-- `/*`jako jedyna wykluczona ścieżka.
+- `/*` jako jedyna wykluczona ścieżka.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: 8a4579e092bbc4fd58954f1ce1f1dad3a8ddbbba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3a23e0c2546da55f977d589eb38607994d3902b
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80133157"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611793"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Używanie IoT Edge w systemie Windows do uruchamiania kontenerów systemu Linux
 
@@ -34,7 +34,7 @@ Ta sekcja służy do sprawdzenia, czy urządzenie z systemem Windows może obsł
 
 Azure IoT Edge z kontenerami systemu Linux można uruchamiać w dowolnym systemie Windows, który spełnia [wymagania programu Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)
 
-Jeśli chcesz zainstalować IoT Edge na maszynie wirtualnej, Włącz wirtualizację zagnieżdżoną i Przydziel co najmniej 2 GB pamięci. Sposób włączania wirtualizacji zagnieżdżonej różni się w zależności od używanej funkcji hypervisor. W przypadku maszyn wirtualnych funkcji Hyper-V maszyny wirtualne generacji 2 mają domyślnie włączoną wirtualizację zagnieżdżoną. W przypadku oprogramowania VMWare istnieje przełącznik umożliwiający włączenie tej funkcji na maszynie wirtualnej.
+Jeśli chcesz zainstalować IoT Edge na maszynie wirtualnej, Włącz wirtualizację zagnieżdżoną i Przydziel co najmniej 2 GB pamięci. Sposób włączania wirtualizacji zagnieżdżonej różni się w zależności od używanej funkcji hypervisor. W przypadku maszyn wirtualnych funkcji Hyper-V maszyny wirtualne generacji 2 mają domyślnie włączoną wirtualizację zagnieżdżoną. W przypadku oprogramowania VMware istnieje przełącznik umożliwiający włączenie tej funkcji na maszynie wirtualnej.
 
 ### <a name="prepare-the-container-engine"></a>Przygotowywanie aparatu kontenera
 
@@ -57,7 +57,7 @@ Więcej informacji na temat różnych opcji instalacji i parametrów można znal
 
 1. Jeśli jeszcze tego nie zrobiono, Zarejestruj nowe urządzenie IoT Edge i Pobierz parametry połączenia urządzenia. Skopiuj parametry połączenia, aby użyć ich w dalszej części tej sekcji. Ten krok można wykonać przy użyciu następujących narzędzi:
 
-   * [Azure Portal](how-to-register-device.md#register-in-the-azure-portal)
+   * [Witryna Azure Portal](how-to-register-device.md#register-in-the-azure-portal)
    * [Interfejs wiersza polecenia platformy Azure](how-to-register-device.md#register-with-the-azure-cli)
    * [Visual Studio Code](how-to-register-device.md#register-with-visual-studio-code)
 
@@ -88,7 +88,7 @@ Więcej informacji na temat różnych opcji instalacji i parametrów można znal
 
 6. Po wyświetleniu monitu podaj parametry połączenia urządzenia pobrane w kroku 1. Parametry połączenia urządzenia kojarzą urządzenie fizyczne z IDENTYFIKATORem urządzenia w IoT Hub.
 
-   Parametry połączenia urządzenia mają następujący format i nie powinny zawierać znaków cudzysłowu:`HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
+   Parametry połączenia urządzenia mają następujący format i nie powinny zawierać znaków cudzysłowu: `HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
 
 ## <a name="verify-successful-installation"></a>Weryfikuj pomyślną instalację
 

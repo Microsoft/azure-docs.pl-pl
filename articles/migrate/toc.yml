@@ -168,6 +168,8 @@
       href: troubleshoot-appliance-discovery.md
     - name: Rozwiązywanie problemów z wizualizacją zależności/oceny
       href: troubleshoot-assessment.md
+    - name: Rozwiązywanie problemów z replikacją przy migracji oprogramowania VMware bez wykorzystania agentów
+      href: troubleshoot-changed-block-tracking-replication.md
 - name: Zasoby
   items:
     - name: Migracja w podręczniku Cloud Adoption Framework

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: f2f752d6435b311c1737d531f5572aed5af223f2
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.date: 08/10/2020
+ms.openlocfilehash: 608740ea52cf82485bae073d9679107ac52baa28
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276655"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611130"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Odczytaj repliki w Azure Database for PostgreSQL — pojedynczy serwer
 
@@ -126,7 +126,7 @@ Dowiedz się, jak [zatrzymać replikację do repliki](howto-read-replicas-portal
 ## <a name="failover"></a>Tryb failover
 Nie ma automatycznej pracy awaryjnej między serwerami Master i replikami. 
 
-Ponieważ replikacja jest asynchroniczna, między wzorcem a repliką jest zwłoka. Na czas opóźnienia może wpływać wiele czynników, takich jak zmniejszanie obciążenia uruchomionego na serwerze głównym oraz opóźnienia między centrami danych. W większości przypadków zwłoki repliki od kilku sekund do kilku minut. Rzeczywiste opóźnienie replikacji można śledzić przy użyciu *opóźnienia repliki*metryk, które jest dostępne dla każdej repliki. Ta Metryka przedstawia czas od ostatniego odtworzonej transakcji. Zalecamy, aby określić, co to jest średnie opóźnienie, obserwując opóźnienie repliki w danym okresie czasu. Można ustawić alert w przypadku zwłoki repliki, aby w przypadku, gdy znajdzie się poza oczekiwanym zakresem, można wykonać akcję.
+Ponieważ replikacja jest asynchroniczna, między wzorcem a repliką jest zwłoka. Na czas opóźnienia może wpływać wiele czynników, takich jak zmniejszanie obciążenia uruchomionego na serwerze głównym oraz opóźnienia między centrami danych. W większości przypadków opóźnienia repliki wynoszą od kilku sekund do kilku minut. Rzeczywiste opóźnienie replikacji można śledzić przy użyciu *opóźnienia repliki*metryk, które jest dostępne dla każdej repliki. Ta Metryka przedstawia czas od ostatniego odtworzonej transakcji. Zalecamy, aby określić, co to jest średnie opóźnienie, obserwując opóźnienie repliki w danym okresie czasu. Można ustawić alert w przypadku zwłoki repliki, aby w przypadku, gdy znajdzie się poza oczekiwanym zakresem, można wykonać akcję.
 
 > [!Tip]
 > W przypadku przejścia w tryb failover do repliki zwłoka w momencie odłączenia repliki od wzorca będzie wskazywać, ile danych jest utraconych.
@@ -142,7 +142,7 @@ Po podjęciu decyzji o przejściu do trybu failover w replice
 Po pomyślnym przetworzeniu odczytów i zapisów aplikacja została ukończona w trybie failover. Czas przestoju, w jakim zależą od aplikacji, będzie zależny od tego, kiedy wykryjesz problem, i wykonaj kroki 1 i 2 powyżej.
 
 
-## <a name="considerations"></a>Kwestie do rozważenia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 Ta sekcja zawiera podsumowanie zagadnień dotyczących funkcji odczytu repliki.
 
@@ -163,16 +163,19 @@ Replika odczytu jest tworzona jako nowy serwer Azure Database for PostgreSQL. Ni
 ### <a name="replica-configuration"></a>Konfiguracja repliki
 Replika jest tworzona przy użyciu tych samych ustawień obliczeniowych i magazynu co główny. Po utworzeniu repliki można zmienić kilka ustawień, w tym okres przechowywania magazynu i kopii zapasowych.
 
-Rdzeni wirtualnych i warstwę cenową można także zmienić w replice w następujących warunkach:
-* PostgreSQL wymaga, `max_connections` aby wartość parametru w replice odczytu była większa lub równa wartości głównej; w przeciwnym razie replika nie zostanie uruchomiona. W Azure Database for PostgreSQL `max_connections` wartość parametru jest określana na podstawie jednostki SKU (rdzeni wirtualnych i warstwy cenowej). Aby uzyskać więcej informacji, zobacz [limity w Azure Database for PostgreSQL](concepts-limits.md). 
-* Skalowanie do lub z warstwy cenowej podstawowa nie jest obsługiwane
-
-> [!IMPORTANT]
-> Przed zaktualizowaniem ustawień głównych do nowej wartości należy zaktualizować konfigurację repliki do wartości równej lub wyższej. Dzięki temu replika może być na bieżąco ze zmianami wprowadzonymi we wzorcu.
-
-Jeśli spróbujesz zaktualizować wartości serwera opisane powyżej, ale nie przestrzegasz limitów, zostanie wyświetlony komunikat o błędzie.
-
 Reguły zapory, reguły sieci wirtualnej i ustawienia parametrów nie są dziedziczone z serwera głównego do repliki, gdy replika zostanie utworzona lub później.
+
+### <a name="scaling"></a>Skalowanie
+Skalowanie rdzeni wirtualnych lub między Ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci:
+* PostgreSQL wymaga `max_connections` , aby ustawienie na serwerze pomocniczym było [większe lub równe ustawieniu na podstawowym](https://www.postgresql.org/docs/current/hot-standby.html), w przeciwnym razie nie zostanie uruchomiony pomocniczy.
+* W Azure Database for PostgreSQL maksymalne dozwolone połączenia dla każdego serwera są stałe dla jednostki SKU obliczeń, ponieważ połączenia zajmują pamięć. Możesz dowiedzieć się więcej o [mapowaniu między max_connections i obliczeniowymi](concepts-limits.md)jednostkami SKU.
+* **Skalowanie w górę**: najpierw Skaluj w górę obliczenia repliki, a następnie Skaluj w górę. Ta kolejność uniemożliwi występowaniu błędów naruszających `max_connections` wymaganie.
+* **Skalowanie w dół**: najpierw Skaluj w dół podstawowe wartości obliczeniowe, a następnie Skaluj w dół replikę. Jeśli spróbujesz skalować replikę niższą niż podstawowa, wystąpi błąd, ponieważ narusza to `max_connections` wymaganie.
+
+Skalowanie magazynu:
+* Wszystkie repliki mają włączoną funkcję autozwiększania rozmiaru magazynu, aby zapobiec problemom z replikacją z repliki pełnej magazynu. Nie można wyłączyć tego ustawienia.
+* Możesz również ręcznie skalować w górę magazyn, tak jak w przypadku dowolnego innego serwera
+
 
 ### <a name="basic-tier"></a>Warstwa Podstawowa
 Serwery warstwy Podstawowa obsługują tylko replikację tego samego regionu.

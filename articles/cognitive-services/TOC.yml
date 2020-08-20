@@ -19,6 +19,8 @@
       href: cognitive-services-apis-create-account.md
     - name: Tworzenie nowego zasobu przy użyciu interfejsu wiersza polecenia platformy Azure
       href: cognitive-services-apis-create-account-cli.md
+    - name: Tworzenie nowego zasobu przy użyciu biblioteki klienta
+      href: cognitive-services-apis-create-account-client-library.md
     - name: Tworzenie nowego zasobu przy użyciu szablonu usługi Resource Manager
       displayName: Resource Manager
       href: resource-manager-template.md

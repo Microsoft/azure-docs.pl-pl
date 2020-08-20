@@ -3,12 +3,12 @@ title: Przygotuj serwer programu DPM do tworzenia kopii zapasowych obciążeń
 description: W tym artykule dowiesz się, jak przygotować się do tworzenia kopii zapasowych programu System Center Data Protection Manager (DPM) na platformie Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: a61112f04d3faef83a80395a7d316c63130e7758
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 7043b4411856addf0fae26ee5402c4d3878e7f12
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263269"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612660"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Przygotowanie do tworzenia kopii zapasowych obciążeń na platformie Azure przy użyciu programu System Center DPM
 
@@ -92,7 +92,7 @@ Aby uzyskać poświadczenia, Pobierz plik poświadczeń magazynu za pośrednictw
   - Jeśli kontrola poświadczeń zostanie utracona, poświadczenia magazynu mogą służyć do rejestrowania innych maszyn w magazynie.
   - Jednak dane kopii zapasowej są szyfrowane przy użyciu hasła, które należy do klienta, więc nie można złamać istniejących danych kopii zapasowej.
 - Upewnij się, że plik jest zapisany w lokalizacji, do której można uzyskać dostęp z serwera DPM. Jeśli jest przechowywany w udziale plików/SMB, Sprawdź uprawnienia dostępu.
-- Poświadczenia magazynu wygasną po 48 godzinach. Nowe poświadczenia magazynu można pobrać dowolną liczbę razy. Jednak podczas przepływu pracy rejestracji można używać tylko najnowszego pliku poświadczeń magazynu.
+- Poświadczenia magazynu wygasają po upływie 48 godzin. Nowe poświadczenia magazynu można pobrać dowolną liczbę razy. Jednak podczas przepływu pracy rejestracji można używać tylko najnowszego pliku poświadczeń magazynu.
 - Usługa Azure Backup nie ma informacji o kluczu prywatnym certyfikatu, a klucz prywatny nie jest dostępny w portalu lub usłudze.
 
 Pobierz plik poświadczeń magazynu na komputer lokalny w następujący sposób:
@@ -119,7 +119,7 @@ Każdy komputer, na którym jest tworzona kopia zapasowa Azure Backup musi mieć
     ![Otwórz ustawienia magazynu](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. Na stronie **Właściwości** pobierz agenta Azure Backup.
 
-    ![Pobieranie](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
+    ![Pobierz](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
 4. Po pobraniu Uruchom MARSAgentInstaller.exe. Aby zainstalować agenta na komputerze DPM.
 5. Wybierz folder instalacyjny i folder pamięci podręcznej agenta. Ilość wolnego miejsca w lokalizacji pamięci podręcznej musi wynosić co najmniej 5% danych kopii zapasowej.
