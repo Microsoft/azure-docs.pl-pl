@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: c2481ca9894a1af3b363db8d5043b7fcd4eefc3d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e9fe02903d2dc76c931e58682a0d632d5e492963
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498025"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607384"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Twoje komercyjne korzyści z witryny Marketplace
 
@@ -32,7 +32,7 @@ Skontaktujesz się z członkiem zespołu nagradzania, gdy oferta będzie aktywna
 
 W przypadku partnerów Transact w miarę rozwoju rozliczanej sprzedaży za pomocą komercyjnej platformy Marketplace możesz odblokować większe korzyści na warstwę.
 
-Minimalnym wymaganiem do opublikowania w sklepie w sklepie jest MPNID, dzięki czemu te korzyści są dostępne dla wszystkich partnerów, niezależnie od stanu kompetencji MPN lub typu partnera. Każdy partner może rozwijać swoją firmę za pomocą komercyjnej witryny Marketplace jako platformy.
+Minimalnym wymaganiem do opublikowania w sklepach online jest MPNID, dzięki czemu te korzyści są dostępne dla wszystkich partnerów, niezależnie od stanu kompetencji MPN lub typu partnera. Każdy partner może rozwijać swoją firmę za pomocą komercyjnej witryny Marketplace jako platformy.
 
 Uzyskasz pomoc techniczną w zrozumieniu dostępnych zasobów i wdrażaniu najlepszych rozwiązań, które można także [samodzielnie przejrzeć](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
@@ -87,7 +87,7 @@ Wszyscy partnerzy, którzy posiadają ofertę na żywo, mogą współpracować z
 
 ![Korzyści techniczne](./media/marketplace-publishers-guide/technical-benefit.png)
 
-\*Próg sprzedanych miejsc dotyczy tylko aplikacji Microsoft 365 (SaaS aplikacje, które mają integrację z usługami Microsoft Teams, Office, Outlook lub SharePoint) i korzyści muszą zostać spełnione do 30 czerwca 2021.
+\* Próg sprzedanych miejsc dotyczy tylko aplikacji Microsoft 365 (SaaS aplikacje, które mają integrację z usługami Microsoft Teams, Office, Outlook lub SharePoint) i korzyści muszą zostać spełnione do 30 czerwca 2021.
 
 Szczegółowe opisy wszystkich tych korzyści można znaleźć na [talii programu w portalu Marketplace](https://aka.ms/marketplacerewards).
 

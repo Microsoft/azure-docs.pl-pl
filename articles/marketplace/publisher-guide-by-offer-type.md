@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 72acd5c3c5fbab08b2e97421689b4f562b2ae2e8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 9b23fbe55589bbbe6d560967119206fb1ea1d85c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119722"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607264"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Podręcznik publikowania dla różnych typów ofert
 
@@ -22,7 +22,7 @@ Przed utworzeniem oferty i po wybraniu [opcji publikowania](determine-your-listi
 
 Typ oferty pojedynczej można skonfigurować na różne sposoby, aby włączyć różne opcje publikowania, wywołania do akcji, aprowizacji lub cennika. Opcja publikowania i konfiguracja typu oferty są również zgodne z wymaganiami dotyczącymi ofert i wymaganiami technicznymi.
 
-Przed utworzeniem oferty zapoznaj się z wymaganiami dotyczącymi wymagań dotyczących ofert i wymagań związanych z publikowaniem w sklepie.
+Przed utworzeniem oferty zapoznaj się ze sklepem online i wymaganiami dotyczącymi kwalifikacji typów i wymaganiami dotyczącymi publikowania technicznego.
 
 ## <a name="list-of-offer-types"></a>Lista typów ofert
 
@@ -45,4 +45,4 @@ Aby uzyskać informacje o wymaganiach dotyczących rejestracji jednokrotnej prze
 ## <a name="next-steps"></a>Następne kroki
 
 - Zapoznaj się z wymaganiami dotyczącymi uprawnień w odpowiednim artykule dotyczącym typu oferty (w poniższych sekcjach), aby sfinalizować wybór i konfigurację oferty.
-- Zapoznaj się z wzorcem publikowania według witryny sklepu, aby zapoznać się z przykładami dotyczącymi sposobu mapowania rozwiązania na typ oferty i konfigurację.
+- Zapoznaj się z wzorcem publikowania według sklepu online, aby zapoznać się z przykładami dotyczącymi sposobu mapowania rozwiązania na typ oferty i konfigurację.

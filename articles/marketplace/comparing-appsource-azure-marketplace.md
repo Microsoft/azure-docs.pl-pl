@@ -1,34 +1,34 @@
 ---
 title: Porównanie Microsoft AppSource i witryny Azure Marketplace
-description: W tym artykule wyjaśniono różnice między sklepami Microsoft komercyjne witryny Marketplace — Microsoft AppSource i Azure Marketplace.
+description: W tym artykule wyjaśniono różnice między firmowymi sklepami online firmy Microsoft — Microsoft AppSource i Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: fc0a03871ee3191f24a886cc1b9d7f90e8d54b62
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 10560d1407d4e9f899578d6d4eb9cdf9b7fe7dc9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121813"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607470"
 ---
 # <a name="comparing-microsoft-appsource-and-azure-marketplace"></a>Porównanie Microsoft AppSource i witryny Azure Marketplace
 
-Komercyjne witryny Marketplace firmy Microsoft obejmują [Microsoft AppSource](https://appsource.microsoft.com) i [witrynę Azure Marketplace](https://azuremarketplace.microsoft.com). Każda witryna sklepu obsługuje unikatowe wymagania klienta i różnych docelowych odbiorców, dzięki czemu możesz upewnić się, że Twoje rozwiązanie lub usługa są dostępne dla odpowiednich klientów.
+Komercyjne witryny Marketplace firmy Microsoft obejmują [Microsoft AppSource](https://appsource.microsoft.com) i [witrynę Azure Marketplace](https://azuremarketplace.microsoft.com). Każdy sklep online obsługuje unikatowe wymagania klienta i różnych docelowych odbiorców, dzięki czemu możesz upewnić się, że Twoje rozwiązanie lub usługa są dostępne dla odpowiednich klientów.
 
-## <a name="understanding-the-differences-between-storefronts"></a>Zrozumienie różnic między sklepami
+## <a name="understanding-the-differences-between-online-stores"></a>Zrozumienie różnic między sklepami online
 
-Aby wybrać sklep, najpierw Zidentyfikuj docelowych odbiorców oferty. Jeśli chcesz dokonywać odbiorców w wielu sklepach, możesz publikować raz, aby sprzedawać w wielu sklepach.
+Aby wybrać sklep online, najpierw Zidentyfikuj docelowych odbiorców oferty. Jeśli chcesz dokonywać odbiorców w wielu sklepach online, możesz publikować raz, aby sprzedawać w wielu sklepach.
 
 | Azure Marketplace | AppSource |
 |:--- |:--- |
 | Specjaliści IT i deweloperzy | Użytkownicy biznesowi i przedsiębiorcy podejmujące decyzje biznesowe |
 
-W poniższej tabeli opisano zalety korzystania z witryny sklepu:
+W poniższej tabeli opisano zalety korzystania ze sklepu online:
 
-| Zalety | Azure Marketplace | AppSource |
+| Korzyści | Azure Marketplace | AppSource |
 |:--- |:--- | :--- |
 | **Elastyczność rozliczeń** | Portal Azure Marketplace obsługuje typy ofert bezpłatnych, wersji próbnych, BYOL i Transact. Oferty Transact są oparte na użyciu lub oparte na subskrypcjach. Oferty oparte na zużyciu są rozliczane według godzinowego użycia i mogą stanowić początkowy bezpłatny okres. Usługi oparte na subskrypcjach są rozliczane miesięcznie lub rocznie według stawki za stanowisko lub stałą.| Usługa AppSource obsługuje typy ofert bezpłatnych, wersji próbnych, BYOL i Transact. Oferty Transact SaaS są produktami opartymi na subskrypcjach, które mogą być rozliczane co miesiąc lub co rok według stanowiska lub stałej stawki. |
 |**Połączenia z innymi partnerami**  | Obecnie nie można połączyć usługodawcy z ofertą usług lub partnerów dostarczania. | Linki niezależnych dostawców oprogramowania, integratorów systemów i dostawców usług zarządzanych do określonych scenariuszy implementacji. Możesz wspólnie sprzedawać do nowych klientów. |

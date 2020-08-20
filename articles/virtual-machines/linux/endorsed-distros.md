@@ -13,24 +13,24 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
 ms.date: 08/02/2020
 ms.author: guybo
-ms.openlocfilehash: 83a5289e17243fc7d89dd463b10916fb73046947
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 0b3a598213545bbad833e9b8036f65b999df1c76
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184996"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607010"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Zatwierdzone dystrybucje systemu Linux na platformie Azure
 
-Partnerzy udostępniają obrazy systemu Linux w portalu Azure Marketplace. Firma Microsoft współpracuje z różnymi społecznościami systemu Linux w celu dodania jeszcze większej liczby wersji do listy rozpowszechnianych informacji. W przypadku dystrybucji, które nie są dostępne w portalu Marketplace, zawsze możesz przełączyć swój własny system Linux, postępując zgodnie z wytycznymi w obszarze [Tworzenie i przekazywanie wirtualnego dysku twardego zawierającego system operacyjny Linux](./create-upload-generic.md).
+Partnerzy udostępniają obrazy systemu Linux w witrynie Azure Marketplace. Firma Microsoft współpracuje z różnymi społecznościami systemu Linux w celu dodania jeszcze większej liczby wersji do listy rozpowszechnianych informacji. W przypadku dystrybucji, które nie są dostępne w portalu Marketplace, zawsze możesz przełączyć swój własny system Linux, postępując zgodnie z wytycznymi w obszarze [Tworzenie i przekazywanie wirtualnego dysku twardego zawierającego system operacyjny Linux](./create-upload-generic.md).
 
 ## <a name="supported-distributions-and-versions"></a>Obsługiwane dystrybucje i wersje
 
-W poniższej tabeli wymieniono dystrybucje systemu Linux i wersje, które są obsługiwane w systemie Azure. Zapoznaj się z [pomocą techniczną dla obrazów systemu Linux w Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) , aby uzyskać bardziej szczegółowe informacje na temat obsługi technologii dla systemów Linux i Open Source na platformie Azure.
+W poniższej tabeli wymieniono dystrybucje systemu Linux i wersje, które są obsługiwane w systemie Azure. Aby uzyskać więcej informacji, zobacz [Pomoc techniczna dla obrazów systemu Linux w Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure).
 
-Sterowniki systemu Linux Integration Services (LIS) dla funkcji Hyper-V i platformy Azure to moduły jądra, które firma Microsoft bezpośrednio współużytkuje z nadrzędnym jądrem systemu Linux. Niektóre sterowniki LIS są domyślnie wbudowane w jądro dystrybucji. Starsze dystrybucje oparte na systemie Red Hat Enterprise (RHEL)/CentOS są dostępne jako osobne pobieranie w systemie [Linux Integration Services w wersji 4,2 dla funkcji Hyper-V i platformy Azure](https://www.microsoft.com/download/details.aspx?id=55106). Więcej informacji o sterownikach LIS można znaleźć w temacie [wymagania jądra systemu Linux](create-upload-generic.md#linux-kernel-requirements) .
+Sterowniki systemu Linux Integration Services (LIS) dla funkcji Hyper-V i platformy Azure to moduły jądra, które firma Microsoft bezpośrednio współużytkuje z nadrzędnym jądrem systemu Linux. Niektóre sterowniki LIS są domyślnie wbudowane w jądro dystrybucji. Starsze dystrybucje oparte na systemie Red Hat Enterprise (RHEL)/CentOS są dostępne jako osobne pobieranie w systemie [Linux Integration Services w wersji 4,2 dla funkcji Hyper-V i platformy Azure](https://www.microsoft.com/download/details.aspx?id=55106). Aby uzyskać więcej informacji, zobacz [wymagania jądra systemu Linux](create-upload-generic.md#linux-kernel-requirements).
 
-Agent platformy Azure dla systemu Linux jest już wstępnie zainstalowany w obrazach portalu Azure Marketplace i jest zazwyczaj dostępny w repozytorium pakietu dystrybucji. Kod źródłowy można znaleźć w witrynie [GitHub](https://github.com/azure/walinuxagent).
+Agent systemu Azure Linux jest już wstępnie zainstalowany w obrazach portalu Azure Marketplace i jest zazwyczaj dostępny w repozytorium pakietu dystrybucji. Kod źródłowy można znaleźć w witrynie [GitHub](https://github.com/azure/walinuxagent).
 
 | Dystrybucja | Wersja | Sterowniki | Agent |
 | --- | --- | --- | --- |
@@ -39,14 +39,14 @@ Agent platformy Azure dla systemu Linux jest już wstępnie zainstalowany w obra
 | Debian według credativ |8.x, 9.x |W jądrze |Pakiet: w repozytorium w obszarze "waagent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
 |Flatcar kontener systemu Linux przez Kinvolk| Stable, Edge| | |
 | Oracle Linux przez firmę Oracle |6.x, 7.x, 8.x |W jądrze |Pakiet: w repozytorium w obszarze "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| Red Hat Enterprise Linux przez Red Hat |6.x, 7.x, 8.x |W jądrze |Pakiet: w repozytorium w obszarze "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| [Red Hat Enterprise Linux przez Red Hat](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/overview) |6.x, 7.x, 8.x |W jądrze |Pakiet: w repozytorium w obszarze "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise przez SUSE |SLES/SLES dla oprogramowania SAP 11. x, 12. x, 15. x <br/> [Cykl życia obrazu chmury publicznej SUSE](https://www.suse.com/c/suse-public-cloud-image-life-cycle/) |W jądrze |Package<p> 11 w [chmurze: repozytorium narzędzi](https://build.opensuse.org/project/show/Cloud:Tools)<br>w przypadku 12 uwzględnionych w module "chmura publiczna" w obszarze "Python-Azure-Agent"<br/>Kod źródłowy: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE przez SUSE |openSUSE Leap 15.x |W jądrze |Pakiet: w [chmurze: narzędzia](https://build.opensuse.org/project/show/Cloud:Tools) repozytorium w obszarze "Python-Azure-Agent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu przez kanoniczny |Serwer Ubuntu i pakiet Pro. 16. x, 18. x, 20. x<p>Informacje o rozszerzonej obsłudze Ubuntu 12,04 i 14,04 można znaleźć tutaj: [Ubuntu Extended Security Maintenance](https://www.ubuntu.com/esm). |W jądrze |Pakiet: w repozytorium w obszarze "walinuxagent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
 ## <a name="image-update-cadence"></a>Erze aktualizacji obrazów
 
-System Azure wymaga, aby wydawcy zatwierdzonych dystrybucji systemu Linux regularnie aktualizować swoje obrazy w portalu Azure Marketplace przy użyciu najnowszych poprawek i poprawek zabezpieczeń, co kwartał lub szybciej erze. Zaktualizowane obrazy w portalu Azure Marketplace są automatycznie dostępne dla klientów jako nowe wersje jednostki SKU obrazu. Więcej informacji o sposobach znajdowania obrazów systemu Linux: [Znajdowanie obrazów maszyn wirtualnych z systemem Linux w portalu Azure Marketplace](./cli-ps-findimage.md).
+System Azure wymaga, aby wydawcy zatwierdzonych dystrybucji systemu Linux regularnie aktualizować swoje obrazy w portalu Azure Marketplace przy użyciu najnowszych poprawek i poprawek zabezpieczeń, co kwartał lub szybciej erze. Zaktualizowane obrazy w portalu Marketplace są automatycznie dostępne dla klientów jako nowe wersje jednostki SKU obrazu. Więcej informacji o sposobach znajdowania obrazów systemu Linux: [Znajdowanie obrazów maszyn wirtualnych z systemem Linux w portalu Azure Marketplace](./cli-ps-findimage.md).
 
 ## <a name="azure-tuned-kernels"></a>Jądra dostosowane do platformy Azure
 
@@ -80,7 +80,7 @@ Credativ to niezależna firma konsultingowa i usług, która specjalizacje oprac
 
 Kinvolk to firma znajdująca się w kontenerze Flatcar w systemie Linux, która kontynuuje pierwotną wizję CoreOS dla minimalnej, niezmiennej i autoaktualizacji podstaw dla aplikacji kontenerowych. Co najmniej dystrybucji, Flatcar zawiera tylko te pakiety, które są wymagane do wdrożenia kontenerów. Niezmienny system plików gwarantuje spójność i bezpieczeństwo, podczas gdy jego możliwości autoaktualizacji umożliwiają zawsze aktualną wersję z najnowszymi poprawkami zabezpieczeń. 
 
-Kontener Flatcar w systemie Linux jest objęty globalnym zespołem systemu Linux i specjalistów ds. technologii kontenerów, którzy oferują opcjonalną komercyjną subskrypcję pomocy technicznej, która obejmuje 24x7 odpowiedzi, zabezpieczenia i alerty techniczne oraz wyłącznych obrazów zoptymalizowanych pod kątem platformy Azure, w tym kanału pomocy technicznej długoterminowej.
+Kontener Flatcar w systemie Linux jest objęty globalnym zespołem systemu Linux i specjalistów ds. technologii kontenerów, którzy oferują opcjonalną komercyjną subskrypcję pomocy technicznej, która obejmuje 24x7 odpowiedzi, zabezpieczenia i alerty techniczne oraz wyłącznych obrazów zoptymalizowanych pod kątem platformy Azure, w tym kanału wsparcia długoterminowego.
 
 
 ### <a name="oracle"></a>Oracle
@@ -93,7 +93,7 @@ Strategia firmy Oracle polega na zaoferowaniu szerokiego portfolio rozwiązań d
 
 [https://www.redhat.com/en/partners/strategic-alliance/microsoft](https://www.redhat.com/en/partners/strategic-alliance/microsoft)
 
-Wiodący na świecie dostawca rozwiązań typu "open source", Red Hat pomaga więcej niż 90% firmy listy fortunee 500 rozwiązywać problemy biznesowe, wyrównać swoje strategie IT i strategię biznesową, a także przygotować się na przyszłość technologii. Red Hat robi to, dostarczając bezpieczne rozwiązania poprzez otwarty model biznesowy i przystępny, przewidywalny model subskrypcji.
+Wiodący na świecie dostawca rozwiązań typu "open source", Red Hat pomaga więcej niż 90% firmy listy fortunee 500 rozwiązywać problemy biznesowe, wyrównać swoje strategie IT i strategię biznesową, a także przygotować się na przyszłość technologii. Firma Red Hat osiąga to, dostarczając bezpieczne rozwiązania za pomocą otwartego modelu biznesowego i przystępnego, przewidywalnego modelu subskrypcji.
 
 ### <a name="suse"></a>SUSE
 

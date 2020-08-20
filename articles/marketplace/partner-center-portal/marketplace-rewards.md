@@ -8,12 +8,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 25a164fc8709d7c9f6249336ece34bd8a5378f23
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 702486a0728a7394d8d8febffc11b11bc113a030
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496019"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606759"
 ---
 # <a name="marketplace-rewards"></a>Program Marketplace Rewards
 
@@ -27,7 +27,7 @@ Skontaktujesz się z członkiem zespołu nagradzania, gdy oferta będzie aktywna
 
 W przypadku partnerów Transact, w miarę rozwoju rozliczanej sprzedaży za pomocą platformy Marketplace, możesz odblokować większe korzyści na warstwę.
 
-Minimalnym wymaganiem do opublikowania w sklepie w sklepie jest MPNID, dzięki czemu te korzyści są dostępne dla wszystkich partnerów, niezależnie od stanu kompetencji MPN lub typu partnera. Każdy partner jest uprawniony do rozwoju swojej firmy za pomocą portalu Marketplace jako platformy.
+Minimalnym wymaganiem do opublikowania w sklepach online jest MPNID, dzięki czemu te korzyści są dostępne dla wszystkich partnerów, niezależnie od stanu kompetencji MPN lub typu partnera. Każdy partner jest uprawniony do rozwoju swojej firmy za pomocą portalu Marketplace jako platformy.
 
 Uzyskasz pomoc techniczną w zrozumieniu dostępnych zasobów i wdrażaniu najlepszych rozwiązań, które można również [przejrzeć samodzielnie](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 

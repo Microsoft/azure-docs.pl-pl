@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/11/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 164a0e295179bb0c1e8d7da6b43d8e07a4e9f4e9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4c5d8b438764fa9aa3838b2225c63d412afc519b
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304415"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606812"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>Często zadawane pytania dotyczące interfejsów API realizacji SaaS
 
@@ -67,9 +67,9 @@ Sekwencja poniżej przechwytuje przepływ, gdy klient platformy Azure zmieni pla
 
 ![Przepływ zmian planu klienta](media/saas-metering-service-integration-flow-b.png)
 
-Sekwencja poniżej przechwytuje przepływ, gdy klient platformy Azure zmieni plan w witrynie sklepu Microsoft
+Sekwencja poniżej przechwytuje przepływ, gdy klient platformy Azure zmieni plan w sklepie online firmy Microsoft:
 
-![Przepływ zmian planu w sklepie dla klientów](media/saas-metering-service-integration-flow-c.png)
+![Przepływ zmian planu sklepu online Customer](media/saas-metering-service-integration-flow-c.png)
 
 ### <a name="how-can-the-azure-user-unsubscribe-from-the-plan-associated-with-azure-subscription"></a>Jak użytkownik platformy Azure może anulować subskrypcję planu skojarzonego z subskrypcją platformy Azure?
 
@@ -79,9 +79,9 @@ Sekwencja poniżej przechwytuje przepływ, gdy klient platformy Azure anuluje su
 
 ![Klient anulował subskrypcję w środowisku SaaS](media/saas-metering-service-integration-flow-d.png)
 
-Sekwencja poniżej przechwytuje przepływ, gdy użytkownik platformy Azure anuluje subskrypcję w witrynie sklepu Microsoft:
+Sekwencja poniżej przechwytuje przepływ, gdy użytkownik platformy Azure anuluje subskrypcję w sklepie online firmy Microsoft:
 
-![Klient anulował subskrypcję w witrynie Microsoft w sklepie](media/saas-metering-service-integration-flow-e.png)
+![Klient anulował subskrypcję w Sklepie Microsoft Online](media/saas-metering-service-integration-flow-e.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

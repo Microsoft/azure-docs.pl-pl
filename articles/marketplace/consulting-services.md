@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 31bb6dd188786fda532bf85d071e119e69e5bccc
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 2ca0031d3ae9fc1347c3a8bd7bf24c2780e502a8
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797869"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607459"
 ---
 # <a name="consulting-service-offers"></a>Oferty usługi konsultingowej
 
@@ -22,7 +22,7 @@ Oferty usługi konsultingowej są zobowiązaniami specyficznymi dla klienta. Wyd
 
 ## <a name="compare-consulting-services"></a>Porównaj usługi doradcze
 
-Komercyjne witryny sklepu Marketplace, Microsoft AppSource i Azure Marketplace są wyrównane z odbiorcami i produktami w chmurze, aby ułatwić klientom znalezienie potrzebnych informacji. Każda witryna sklepu oferuje wyspecjalizowane opcje publikowania, które ułatwiają zmaksymalizowanie inwestycji w publikowanie. Aby dowiedzieć się więcej o różnicach między tymi dwoma sklepami, zobacz [porównanie Microsoft AppSource i witryny Azure Marketplace](comparing-appsource-azure-marketplace.md).
+Komercyjne sklepy online Marketplace, Microsoft AppSource i Azure Marketplace są wyrównane z odbiorcami i produktami w chmurze, aby ułatwić klientom znalezienie potrzebnych informacji. W każdym sklepie online dostępne są wyspecjalizowane opcje publikowania, które ułatwiają zmaksymalizowanie inwestycji w publikowanie. Aby dowiedzieć się więcej o różnicach między tymi dwoma magazynami online, zobacz [porównanie Microsoft AppSource i witryny Azure Marketplace](comparing-appsource-azure-marketplace.md).
 
 Oferty usług konsultingowych, które są oparte na Dynamics 365, zaawansowanych aplikacjach i Power BI mogą być wymienione w witrynie AppSource. Aby uzyskać więcej informacji, Pobierz [Microsoft AppSource usług doradczych dotyczących list](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) plików PDF.
 
@@ -34,7 +34,7 @@ Usługi konsultingowe i oferty usług zarządzanych, które są oparte na Micros
 > Usługi doradcze w AppSource powinny skupić się na ofertach dla użytkowników z doświadczeniem w dostarczaniu rozwiązań dotyczących jakości dla systemu Dynamics 365, Power BI lub aplikacji zaawansowanych.
  
 > [!TIP]
-> Aby opublikować witrynę w witrynie Azure Marketplace, na liście rozwijanej **podstawowy produkt** Centrum partnerskiego wybierz pozycję **Azure**.
+> Aby publikować w portalu Azure Marketplace, na liście rozwijanej **podstawowy produkt** Centrum partnerskiego wybierz pozycję **Azure**.
 >
 > Aby opublikować do AppSource, na liście rozwijanej **podstawowy produkt** Centrum partnerskiego wybierz pozycję **Dynamics 365**, **Power BI**lub **aplikacje zaawansowane**.
 
@@ -86,12 +86,12 @@ Partnerzy integratora systemu mogą przesyłać oferty usług konsultingowych dl
 Zacznij od [zarejestrowania](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) informacji o firmie w portalu Marketplace. Aby zapoznać się z pełną listą kontrolną wymagań rejestracji, zobacz [Zostań wydawcy w portalu Marketplace](become-publisher.md). 
 
 ## <a name="prepare-your-publishing-artifacts"></a>Przygotuj artefakty publikowania
-Przed zarejestrowaniem możesz zacząć zbierać i przygotowywać zawartość, która pomoże Twojej liście ideach wartość Twojej usługi i rozwiązania klientowi docelowemu.
+Przed zarejestrowaniem możesz zacząć zbierać i przygotowywać zawartość, która pomoże Twojej liście ideach wartość Twojej usługi i rozwiązania klientowi docelowemu. 
 
 |Instalator dla nowych wydawców  |
 |---------|
 |Identyfikator MPN     |
-|Logo firmy: 48 x 48 pikseli (opcjonalnie), 216 x 216 pikseli — 350 x 350 pikseli (wymagane)  |
+|Logo firmy (48 x 48, 216 x 216 pikseli)     |
 |Miejsce docelowe potencjalnego klienta     |
 ||
 

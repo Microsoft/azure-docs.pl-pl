@@ -3,30 +3,26 @@ title: Pobierz wyniki zadania Azure Media Services
 description: W tym artykule pokazano, jak pobrać wyniki zadania.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
-ms.author: juliako
-ms.openlocfilehash: bae7104eaded8c2ed153bc141faf7eba0bb86bae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: inhenkel
+ms.openlocfilehash: 0a2e4d1ac5cf0945ab75e58bb42d23d10d6c89aa
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80346280"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607250"
 ---
 # <a name="download-the-results-of-a-job"></a>Pobierz wyniki zadania
 
 W Azure Media Services, podczas przetwarzania wideo (na przykład kodowania lub analizowania) należy utworzyć [zasób](assets-concept.md) wyjściowy do przechowywania wyniku [zadania](transforms-jobs-concept.md). Następnie można pobrać te wyniki do folderu lokalnego przy użyciu usługi multimediów i interfejsów API magazynu. 
 
 W tym artykule pokazano, jak pobrać wyniki przy użyciu zestawów SDK języka Java i .NET.
-
-## <a name="prerequisites"></a>Wymagania wstępne 
-
-Zapoznaj się z tematem [Zarządzanie zasobami](manage-asset-concept.md).
 
 ## <a name="java"></a>Java
 

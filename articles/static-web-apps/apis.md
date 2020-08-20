@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: f5f40a615bc5faab6265f42d0728403e2735aa0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09daffa74ccd279c8187391ba3b86063aed7d204
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791626"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607030"
 ---
 # <a name="api-support-in-azure-static-web-apps-preview-with-azure-functions"></a>Obsługa interfejsu API w usłudze Azure static Web Apps Preview przy użyciu Azure Functions
 
@@ -34,8 +34,8 @@ Usługa Azure static Web Apps udostępnia interfejs API za pomocą Azure Functio
 - Prefiks trasy interfejsu API musi być _interfejsem API_.
 - Aplikacja funkcji API musi znajdować się w języku JavaScript.
 - Reguły tras dla funkcji API obsługują tylko [przekierowywanie](routes.md#redirects) i [Zabezpieczanie tras z rolami](routes.md#securing-routes-with-roles).
-- Wyzwalacze i powiązania są ograniczone do [protokołu HTTP](../azure-functions/functions-bindings-http-webhook.md).
-  - Wszystkie inne [Azure Functions wyzwalacze i powiązania](../azure-functions/functions-triggers-bindings.md#supported-bindings) z wyjątkiem powiązań wyjściowych są ograniczone.
+- Wyzwalacze są ograniczone do [protokołu HTTP](../azure-functions/functions-bindings-http-webhook.md).
+  - Obsługiwane są [powiązania](../azure-functions/functions-triggers-bindings.md#supported-bindings) wejściowe i wyjściowe.
 - Dzienniki są dostępne tylko wtedy, gdy dodasz [Application Insights](../azure-functions/functions-monitoring.md) do aplikacji funkcji.
 
 ## <a name="next-steps"></a>Następne kroki

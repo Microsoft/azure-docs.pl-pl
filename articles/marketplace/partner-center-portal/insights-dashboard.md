@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 07/22/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 877d5436628fdeb973f6d7f30cc71e91eeb92364
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: cc950c4915a57dd949941fbb9802c51a47c9a00d
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323285"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607143"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Pulpit nawigacyjny usługi Marketplace Insights w centrum partnerskim
 
-Ten artykuł zawiera informacje na temat pulpitu nawigacyjnego usługi Marketplace Insights w centrum partnerskim. Ten pulpit nawigacyjny zawiera podsumowanie informacji o analizie sieci Web w portalu Marketplace, dzięki którym wydawcy mogą mierzyć zaangażowanie klientów na odpowiednie strony z informacjami szczegółowymi o produkcie, które znajdują się w witrynie komercyjne witryny Marketplace: Microsoft AppSource i Azure Marketplace.
+Ten artykuł zawiera informacje na temat pulpitu nawigacyjnego usługi Marketplace Insights w centrum partnerskim. Ten pulpit nawigacyjny zawiera podsumowanie informacji o analizie sieci Web w portalu Marketplace, dzięki którym wydawcy mogą mierzyć zaangażowanie klientów na odpowiednie strony szczegółów produktów wymienione w sklepach online komercyjnych: Microsoft AppSource i Azure Marketplace.
 
 ## <a name="marketplace-insights-dashboard"></a>Pulpit nawigacyjny Szczegółowe informacje na temat platformy handlowej
 
@@ -42,11 +42,11 @@ Maksymalne opóźnienie między odwiedzanymi ofertami użytkowników w witrynie 
 
 Wyświetlaj komercyjne wskaźniki rynkowe na różne sposoby:
 
-- Karty witryny sklepu
+- Karty sklepu online
 - Filtry stron
 - Filtry dat
 
-**Karty witryny sklepu**: możesz wyświetlać metryki ofert oddzielnie za pośrednictwem kart AppSource & Azure Marketplace. Wybierz oferty z listy rozwijanej oferta po prawej stronie, aby wyświetlić wizualizację metryk dla wybranych ofert. Domyślnie są wybierane wszystkie oferty.
+**Karty sklepu online**: możesz wyświetlać metryki ofert oddzielnie za pośrednictwem kart AppSource & Azure Marketplace. Wybierz oferty z listy rozwijanej oferta po prawej stronie, aby wyświetlić wizualizację metryk dla wybranych ofert. Domyślnie są wybierane wszystkie oferty.
 
 ![Lista rozwijana oferty pulpitu nawigacyjnego usługi Partner Center](./media/insights-offer-dropdown.png)
 
@@ -96,7 +96,7 @@ Mapę cieplną obejmuje następujące możliwości:
 
 ## <a name="page-visits-versus-unique-visitors-trend"></a>Liczba odwiedzin stron i trend unikatowych osób odwiedzających
 
-Poniższe kolumny zawierają liczbę comiesięcznych wizyt stron, które są wyświetlane na osi Y (oś po lewej stronie wykresu). Linia trendu reprezentuje miesięczny trend unikatowych osób odwiedzających, które są wyświetlane na pomocniczej osi Y (oś po prawej stronie wykresu), w przypadku ofert opublikowanych w witrynie sklepu: Azure Marketplace i AppSource.
+Poniższe kolumny zawierają liczbę comiesięcznych wizyt stron, które są wyświetlane na osi Y (oś po lewej stronie wykresu). Linia trendu reprezentuje miesięczny trend unikatowych osób odwiedzających, które są wyświetlane na pomocniczej osi Y (oś po prawej stronie wykresu), w przypadku ofert opublikowanych w sklepach online: Azure Marketplace i AppSource.
 
 ![Informacje na temat odwiedzin stron usługi Partner Center i unikatowych trendów odwiedzających](./media/insights-page-vists-unique-visitors.png)
 

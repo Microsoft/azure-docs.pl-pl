@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 38e51f8bc66e8c47807a9b265ade3f196745db26
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 2584d10a73f183958e3b7010255979cc47bc2cd9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167185"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606339"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Tworzenie oferty modułu usługi IoT Edge
 
@@ -27,7 +27,7 @@ W tym artykule opisano sposób tworzenia i publikowania oferty usługi Edge dla 
     ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-iot-edge.png)
 
 > [!IMPORTANT]
-> Po opublikowaniu oferty zmiany wprowadzone w centrum partnerskim są wyświetlane w obszarze witryny w sklepie po ponownym opublikowaniu oferty. Pamiętaj, aby zawsze ponownie publikować po wprowadzeniu zmian.
+> Po opublikowaniu oferty zmiany wprowadzone w centrum partnerskim będą widoczne w sklepach online dopiero po ponownym opublikowaniu oferty. Pamiętaj, aby zawsze ponownie publikować po wprowadzeniu zmian.
 
 ### <a name="offer-id-and-alias"></a>Identyfikator oferty i alias
 
@@ -318,7 +318,7 @@ W polu **Nazwa planu** wprowadź nazwę dla tego planu. Klienci widzą tę nazw�
 > [!NOTE]
 > Nie można zmienić identyfikatora planu po wybraniu opcji **Utwórz**.
 
-Wybierz pozycję **Utwórz**.
+Wybierz przycisk **Utwórz**.
 
 ### <a name="plan-setup"></a>Konfigurowanie planu
 

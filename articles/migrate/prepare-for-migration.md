@@ -4,12 +4,12 @@ description: Dowiedz się, jak przygotować maszyny lokalne do migracji za pomoc
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: b92a26732f59235dac4c03f4e648d36dadd6c4ac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8acbb867d98a547787e207c410d4e1a852aa68f3
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077973"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606822"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Przygotowywanie maszyn lokalnych do migracji na platformę Azure
 
@@ -130,14 +130,15 @@ W przypadku innych wersji Przygotuj maszyny zgodnie z podsumowaniem w tabeli.
 
 Poniższa tabela zawiera podsumowanie kroków wykonywanych automatycznie w przypadku systemów operacyjnych wymienionych powyżej.
 
+
 | Akcja                                      | \-Migracja VMware oparta na agencie | Migracja VMware bez agentów | Funkcja Hyper\-V   |
 |---------------------------------------------|-------------------------------|----------------------------|------------|
 | Zainstaluj usługi integracji funkcji Hyper-V w systemie \- Linux | Tak                           | Tak                        | Nie jest wymagany |
-| Włącz rejestrowanie w konsoli szeregowej platformy Azure         | Tak                           | Yes                        | Nie         |
-| Zaktualizuj plik mapy urządzeń                      | Yes                           | Nie                         | Nie         |
-| Aktualizowanie wpisów fstab                        | Tak                           | Yes                        | Nie         |
-| Usuń regułę udev                            | Tak                           | Yes                        | Nie         |
-| Aktualizowanie interfejsów sieciowych                   | Tak                           | Yes                        | Nie         |
+| Włącz rejestrowanie w konsoli szeregowej platformy Azure         | Tak                           | Tak                        | Nie         |
+| Zaktualizuj plik mapy urządzeń                      | Tak                           | Nie                         | Nie         |
+| Aktualizowanie wpisów fstab                        | Tak                           | Tak                        | Nie         |
+| Usuń regułę udev                            | Tak                           | Tak                        | Nie         |
+| Aktualizowanie interfejsów sieciowych                   | Tak                           | Tak                        | Nie         |
 | Włączanie protokołu SSH                                  | Nie                            | Nie                         | Nie         |
 
 Dowiedz się więcej o krokach [uruchamiania maszyny wirtualnej z systemem Linux na platformie Azure](../virtual-machines/linux/create-upload-generic.md)i uzyskaj instrukcje dotyczące niektórych popularnych dystrybucji systemu Linux.

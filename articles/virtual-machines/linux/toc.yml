@@ -894,6 +894,8 @@
           href: docker-compose-quickstart.md
     - name: Uruchamianie aplikacji
       items:
+        - name: Red Hat
+          href: ../workloads/redhat/overview.md
         - name: Cloud Foundry
           href: ../../cloudfoundry/index.yml
         - name: Cassandra

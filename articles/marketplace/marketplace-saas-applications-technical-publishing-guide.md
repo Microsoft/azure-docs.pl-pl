@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 20d14d656132b2809fe5a79d909c27799438a247
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9f488675e4f2437982e2426da73b4db1a713905d
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280940"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607296"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Przewodnik publikowania ofert w aplikacjach SaaS
 
@@ -21,14 +21,14 @@ Możesz publikować aplikacje SaaS na komercyjnej witrynie Marketplace z trzema 
 
 ## <a name="offer-overview"></a>Przegląd oferty  
 
-Aplikacje SaaS są dostępne w Microsoft AppSource i w witrynie Azure Marketplace.  Obie witryny sklepu obsługują listę, wersję próbną i oferty Transact.
+Aplikacje SaaS są dostępne w Microsoft AppSource i w witrynie Azure Marketplace.  Magazyny online obsługują listę, wersję próbną i oferty Transact.
 
 **Lista:**  Opcja publikowania listy składa się z typu oferty kontakt ze mną i jest używana, gdy nie jest możliwe uczestnictwo w wersji próbnej lub na poziomie transakcji. Zaletą tego podejścia jest to, że umożliwia ona wydawcom korzystanie z rozwiązania na rynku do natychmiastowego rozpoczęcia otrzymywania potencjalnych klientów, które mogą zostać przekształcone w celu zwiększenia firmy.  
-**Wersja próbna/transakcja:**  Klient ma możliwość bezpośredniego zakupu lub żądania wersji próbnej rozwiązania. Udostępnienie wersji próbnej spowoduje zwiększenie poziomu zaangażowania oferowanego klientom i umożliwienie klientom eksplorowania Twojego rozwiązania przed zakupem. Korzystając z wersji próbnej, będziesz mieć lepszy stopień promocji w witrynie sklepu i powinieneś oczekiwać więcej i bogatszych potencjalnych klientów od zaangażowania klientów. Wersje próbne muszą obejmować bezpłatną pomoc techniczną co najmniej przez okres próbny.  
+**Wersja próbna/transakcja:**  Klient ma możliwość bezpośredniego zakupu lub żądania wersji próbnej rozwiązania. Udostępnienie wersji próbnej spowoduje zwiększenie poziomu zaangażowania oferowanego klientom i umożliwienie klientom eksplorowania Twojego rozwiązania przed zakupem. Korzystając z wersji próbnej, będziesz lepiej korzystać z promocji w sklepach online i powinna oczekiwać więcej i bogatszych potencjalnych klientów od zaangażowania klientów. Wersje próbne muszą obejmować bezpłatną pomoc techniczną co najmniej przez okres próbny.  
 
 | Oferta aplikacji SaaS | Wymagania biznesowe | Wymagania techniczne |  
 | --- | --- | --- |  
-| **Kontakt z nami** | Tak | Nie |  
+| **Skontaktuj się z nami** | Tak | Nie |  
 | **Power BI/Dynamics** | Tak | Tak (Integracja z usługą Azure AD) |  
 | **Aplikacje SaaS**| Tak | Tak (Integracja z usługą Azure AD) |     
 

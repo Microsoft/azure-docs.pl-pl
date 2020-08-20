@@ -4,8 +4,6 @@
   items:
     - name: Co to jest usługa Azure Load Balancer?
       href: load-balancer-overview.md
-    - name: Co nowego?
-      href: whats-new.md
 - name: Przewodniki Szybki start
   items:
     - name: Tworzenie publicznego modułu równoważenia obciążenia — portal
@@ -45,6 +43,8 @@
       href: powershell-samples.md
 - name: Pojęcia
   items:
+    - name: Co nowego?
+      href: whats-new.md
     - name: Składniki
       href: components.md
     - name: Pojęcia

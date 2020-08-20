@@ -7,20 +7,20 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: efe60079814958116d8042991e1cfd6e2f6f71f5
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7bf4860e8c42ef8aacc2e564dacd6de1a7d39149
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213889"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607402"
 ---
 # <a name="offer-listing-best-practices"></a>Najlepsze rozwiązania dotyczące ofert
 
 Ten artykuł zawiera sugestie dotyczące tworzenia i angażowania komercyjnych ofert rynkowych firmy Microsoft. W poniższych tabelach przedstawiono najlepsze rozwiązania dotyczące kończenia informacji o ofercie w centrum partnerskim. Aby uzyskać analizę sposobu działania ofert, przejdź do [pulpitu nawigacyjnego usługi Marketplace Insights](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) w centrum partnerskim. 
 
-## <a name="storefront-offer-details"></a>Szczegóły oferty witryny sklepu
+## <a name="online-store-offer-details"></a>Szczegóły oferty sklepu online
 
-| Ustawienie witryny sklepu | Najlepsze rozwiązanie |
+| Ustawienie | Najlepsze rozwiązanie |
 |:--- |:--- |  
 | Offer Name | W przypadku aplikacji podaj czytelny tytuł zawierający słowa kluczowe wyszukiwania, aby pomóc klientom w znalezieniu oferty. <br> <br> W przypadku usług doradczych postępuj zgodnie z tym formatem: [nazwa oferty: [Duration] [typ oferty] (na przykład Contoso: implementacja 2-tygodniowa) |
 | Opis oferty | Podaj jasny opis, który opisuje swoją pozycję oferty w pierwszych kilku zdaniach.  Należy pamiętać, że te zdania mogą być używane w wynikach wyszukiwarki. Podstawowe składniki Twojej pozycji wartości powinny obejmować: <ul> <li>Opis produktu lub rozwiązania. </li> <li> Użytkownik korzystający z produktu lub rozwiązania. </li> <li> Klient wymaga lub nie korzysta z adresów produktów lub rozwiązań. </li> </ul> <br> Jeśli to możliwe, korzystaj z słów w standardzie branżowym lub w oparciu o korzyści.  Nie należy polegać na funkcjach i funkcjach, aby sprzedawać produkt.  Zamiast tego należy skoncentrować się na dostarczanej wartości. <br> <br> Aby zapoznać się z listą usług doradczych, zastanów się w tym miejscu. |
@@ -28,11 +28,11 @@ Ten artykuł zawiera sugestie dotyczące tworzenia i angażowania komercyjnych o
 > [!IMPORTANT]
 > Upewnij się, że nazwa oferty i opis oferty są zgodne ze znakami **[towarowymi firmy Microsoft i wskazówkami](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)** i innymi istotnymi wskazówkami specyficznymi dla produktu w przypadku odwoływania się do znaków towarowych firmy Microsoft oraz nazw oprogramowania, produktów i usług firmy Microsoft.
 
-## <a name="storefront-listing-details"></a>Szczegóły listy witryny sklepu
+## <a name="online-store-listing-details"></a>Szczegóły aukcji ze sklepu online
 
-Kategorie i branże dla innego sklepu będą miały zastosowanie do różnych typów ofert.
+Kategorie i branże dla innego sklepu online będą miały zastosowanie do różnych typów ofert.
 
-| Musisz | Kategorie <br>według witryny sklepu | Kategorie <br>według witryny sklepu | Branże <br> dla AppSource |
+| Sklep online | Kategorie <br>według sklepu online | Kategorie <br>według sklepu online | Branże <br> dla AppSource |
 | :------------------- |:----------------:|:------:|:-------------:|
 | **Typ oferty**   |  **Azure Marketplace**  | **AppSource**  |
 | Aplikacja platformy Azure | X | |
@@ -48,9 +48,9 @@ Kategorie i branże dla innego sklepu będą miały zastosowanie do różnych ty
 
 ### <a name="categories"></a>Kategorie
 
-Microsoft AppSource i Azure Marketplace to dwie różne witryny sklepu, które obsługują unikatowe wymagania klientów. Portal Azure Marketplace jest przeznaczony dla informatyków i deweloperów tworzących rozwiązania na platformie Azure.  Microsoft AppSource ukierunkowani użytkownicy biznesowi poszukujący aplikacji firmowych i/lub branżowych SaaS, dodatków do usługi Dynamics 365, dodatków Microsoft 365 i aplikacji platformy PowerShell.
+Microsoft AppSource i Azure Marketplace to dwa różne sklepy online, które obsługują unikatowe wymagania klientów. Portal Azure Marketplace jest przeznaczony dla informatyków i deweloperów tworzących rozwiązania na platformie Azure.  Microsoft AppSource ukierunkowani użytkownicy biznesowi poszukujący aplikacji firmowych i/lub branżowych SaaS, dodatków do usługi Dynamics 365, dodatków Microsoft 365 i aplikacji platformy PowerShell.
 
-Kategorie i podkategorie są mapowane na poszczególne witryny sklepu w oparciu o docelową grupę odbiorców. Twoja oferta zostanie opublikowana w witrynie Microsoft AppSource lub Azure Marketplace w zależności od typu oferty, możliwości transakcji dla wyboru oferty i kategorii/podkategorii. 
+Kategorie i podkategorie są mapowane na każdy sklep online na podstawie docelowych odbiorców. Twoja oferta zostanie opublikowana w witrynie Microsoft AppSource lub Azure Marketplace w zależności od typu oferty, możliwości transakcji dla wyboru oferty i kategorii/podkategorii. 
 
 Wybierz kategorie i podkategorie, które najlepiej dopasowują się do oferty i Twoich zamierzonych odbiorców. Dostępne są następujące opcje:
 
@@ -61,9 +61,9 @@ Wybierz kategorie i podkategorie, które najlepiej dopasowują się do oferty i 
 
 **Ważne: SaaSe oferty i dodatki Microsoft 365**
 
-Zapoznaj się z [przewodnikiem według typu oferty,](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) Aby uzyskać szczegółowe informacje dotyczące sposobu, w jaki funkcje Transact mogą mieć wpływ na sposób wyświetlania i kupowania oferty przez klientów w portalu Marketplace. W przypadku ofert SaaS oferta oferty oraz wybór kategorii będą określać lokalizację, w której zostanie opublikowana oferta:
+Zapoznaj się z [przewodnikiem według typu oferty,](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) Aby uzyskać szczegółowe informacje dotyczące sposobu, w jaki funkcje Transact mogą mieć wpływ na sposób wyświetlania i kupowania oferty przez klientów w portalu Marketplace. W przypadku ofert SaaS oferta oferty oraz wybór kategorii będą określać sklep online, w którym Twoja oferta zostanie opublikowana:
 
-| Oferta SaaS    | Oferta SaaS   | Oferta SaaS  | Oferta SaaS   | Oferta SaaS   | Oferta SaaS   | Oferta SaaS    | Odpowiednie witryny sklepu | Odpowiednie witryny sklepu |
+| Oferta SaaS    | Oferta SaaS   | Oferta SaaS  | Oferta SaaS   | Oferta SaaS   | Oferta SaaS   | Oferta SaaS    | Odpowiedni sklep online| Odpowiedni sklep online |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
 | Naliczanie opłat | Dodatki Microsoft 365 | Skontaktuj się z nami | Transact (co najmniej 1 plan) | Plan tylko prywatny | Plan tylko publiczny | Publiczne plany prywatne & | AppSource | Azure Marketplace |
 |  | X |  |  |  |  |  | X |  |
@@ -117,8 +117,8 @@ Wybierz odpowiednie produkty, z którymi aplikacja działa, aby oferta była wy�
 
 Słowa kluczowe mogą pomóc klientom w znalezieniu oferty podczas wyszukiwania. Zidentyfikuj najważniejsze słowa kluczowe wyszukiwania dla swojej oferty, Dołącz je do podsumowania oferty oraz opis, a także w sekcji słowo kluczowe w sekcji Szczegóły oferty.
 
-## <a name="storefront-marketing-details"></a>Szczegóły marketingu w sklepie
-| Ustawienie witryny sklepu | Najlepsze rozwiązanie |
+## <a name="online-store-marketing-details"></a>Szczegóły marketingu sklepu online
+| Ustawienie | Najlepsze rozwiązanie |
 |:--- |:--- |  
 | Logo oferty (format PNG, 48 &nbsp; &times; &nbsp; 48): Strona wyszukiwania | Projektuj i Optymalizuj logo dla nośnika cyfrowego:<br>Przekaż logo w formacie PNG do strony wyszukiwania oferty. |
 | Logo oferty (format PNG, 216 &nbsp; &times; &nbsp; 216): Strona szczegółów aplikacji | Projektuj i Optymalizuj logo dla nośnika cyfrowego:<br>Przekaż logo w formacie PNG do strony z listą szczegółów aplikacji oferty. |

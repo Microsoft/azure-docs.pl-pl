@@ -6,22 +6,23 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: af63ef6f33cc0e3dfe7f186ad2e36b854a728c6b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3c13d37e62da8abfa860d5fdbdf186302519c93e
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120580"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606493"
 ---
-# <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Połącz się z tożsamością zarządzaną, aby Azure Database for MySQL
+# <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Nawiązywanie połączenia za pomocą tożsamości zarządzanej z usługą Azure Database for MySQL
 
-W tym artykule przedstawiono sposób użycia tożsamości przypisanej przez użytkownika dla maszyny wirtualnej platformy Azure (VM) w celu uzyskania dostępu do serwera Azure Database for MySQL. Tożsamości usługi zarządzanej są automatycznie zarządzane przez platformę Azure. Umożliwiają uwierzytelnianie w usługach obsługujących uwierzytelnianie usługi Azure AD bez potrzeby wprowadzania poświadczeń do kodu. Omawiane kwestie:
+W tym artykule przedstawiono sposób użycia tożsamości przypisanej przez użytkownika dla maszyny wirtualnej platformy Azure (VM) w celu uzyskania dostępu do serwera Azure Database for MySQL. Tożsamości usługi zarządzanej są automatycznie zarządzane przez platformę Azure. Umożliwiają uwierzytelnianie w usługach obsługujących uwierzytelnianie usługi Azure AD bez potrzeby wprowadzania poświadczeń do kodu. 
 
-> [!div class="checklist"]
-> * Przyznaj maszynie wirtualnej dostęp do serwera Azure Database for MySQL
-> * Utwórz użytkownika w bazie danych, który reprezentuje tożsamość przypisaną przez użytkownika maszyny wirtualnej
-> * Uzyskiwanie tokenu dostępu przy użyciu tożsamości maszyny wirtualnej i używanie jej do wysyłania zapytań do serwera Azure Database for MySQL
-> * Zaimplementuj pobieranie tokenu w przykładowej aplikacji w języku C#
+Omawiane kwestie:
+
+- Przyznaj maszynie wirtualnej dostęp do serwera Azure Database for MySQL
+- Utwórz użytkownika w bazie danych, który reprezentuje tożsamość przypisaną przez użytkownika maszyny wirtualnej
+- Uzyskiwanie tokenu dostępu przy użyciu tożsamości maszyny wirtualnej i używanie jej do wysyłania zapytań do serwera Azure Database for MySQL
+- Zaimplementuj pobieranie tokenu w przykładowej aplikacji w języku C#
 
 > [!IMPORTANT]
 > Łączenie się z tożsamością zarządzaną jest dostępne tylko dla MySQL 5,7 i nowszych.
@@ -83,7 +84,7 @@ Pobieranie tego tokenu odbywa się przez utworzenie żądania HTTP `http://169.2
 
 * `api-version` = `2018-02-01`
 * `resource` = `https://ossrdbms-aad.database.windows.net`
-* `client_id` = `CLIENT_ID`(pobrany wcześniej)
+* `client_id` = `CLIENT_ID` (pobrany wcześniej)
 
 Zostanie przywrócony wynik JSON zawierający `access_token` pole — wartość tego długiego tekstu jest tokenem dostępu do tożsamości zarządzanego, który powinien być używany jako hasło podczas łączenia się z bazą danych.
 

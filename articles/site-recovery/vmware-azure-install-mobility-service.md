@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: a2f4bdb96b8d1ecb23ddcec844726439ec46fff2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f75723aedae390a0d41956d63acadf6370f390d9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74186450"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606516"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Przygotuj maszynę źródłową do instalacji wypychanej agenta mobilności
 
@@ -59,6 +59,7 @@ Na każdym komputerze z systemem Linux, który ma zostać objęty ochroną, wyko
 11. Na karcie **Zarządzanie kontami** wybierz pozycję **Dodaj konto**.
 12. Dodaj utworzone konto.
 13. Wprowadź używane poświadczenia po włączeniu replikacji dla komputera.
+1. Dodatkowy krok dotyczący aktualizowania lub ochrony maszyn SUSE Linux Enterprise Server 11 z dodatkiem SP3. Upewnij się, że [Najnowsza wersja jest dostępna na serwerze konfiguracji](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server).
 
 ## <a name="anti-virus-on-replicated-machines"></a>Oprogramowanie antywirusowe na replikowanych maszynach
 

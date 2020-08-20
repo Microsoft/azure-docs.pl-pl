@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 08/14/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 6b3cd5ab5849c33172e4a629c79fb792b82f1255
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 2ca76d75edba6688dbe93f11a51a0ad67942677a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227370"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606941"
 ---
 # <a name="getcurrentticks-azure-cosmos-db"></a>GetCurrentTicks (Azure Cosmos DB)
 
-Zwraca bieżącą datę i godzinę mierzoną w taktach.
+Zwraca liczbę taktów 100-nanosekund, które upłynęły od 00:00:00 czwartku, 1 stycznia 1970.
   
 ## <a name="syntax"></a>Składnia
   
@@ -26,9 +26,11 @@ GetCurrentTicks ()
 
 ## <a name="return-types"></a>Typy zwracane
 
-Zwraca dodatnią liczbę całkowitą.
+Zwraca podpisaną wartość liczbową, czyli bieżącą liczbę taktów 100-nanosekund, które upłynęły od epoki systemu UNIX. Innymi słowy, GetCurrentTicks zwraca liczbę taktów 100 nanosekund, które upłynęły od 00:00:00 czwartek, 1 stycznia 1970.
 
 ## <a name="remarks"></a>Uwagi
+
+GetCurrentTicks () jest funkcją niedeterministyczną. Zwrócony wynik to UTC (uniwersalny czas koordynowany).
 
 Ta funkcja systemowa nie będzie używać indeksu.
 

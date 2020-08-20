@@ -1,22 +1,22 @@
 ---
 title: Szczegóły wypłaty według regionu — Microsoft Commercial Marketplace
-description: Dowiedz się, w jaki sposób szacowany czas na przeniesienie płatności oraz w witrynie Microsoft websklepie, z których można otrzymywać płatności, różnią się w zależności od typu konta kraju/regionu i wypłaty.
+description: Dowiedz się, w jaki sposób szacowany czas na transfer płatności i sklepy online firmy Microsoft, z których można otrzymywać płatności, różnią się w zależności od typu konta kraju/regionu i wypłaty.
 author: mingshen-ms
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 44246fa122b7c602e47c44e48c43c2a42d01de77
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f5614da7eac0717894d2bcb3c9cfdd959cb57f72
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327331"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607280"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Progi, metody i horyzonty czasowe płatności
 
-Szacowany czas na przeniesienie płatności i witryny, z których można otrzymywać płatności, mogą się różnić w zależności od typu konta kraju/regionu i wypłaty. W tym artykule opisano metody płatności obsługiwane w poszczególnych krajach i regionach.
+Szacowany czas na przeniesienie płatności i magazyny online, z których można otrzymywać płatności, mogą się różnić w zależności od typu konta kraju/regionu i wypłaty. W tym artykule opisano metody płatności obsługiwane w poszczególnych krajach i regionach.
 
 W odniesieniu do każdego kraju i regionu płacisz przy użyciu ACH/SEPA lub przelewu. Niektóre kraje i regiony obsługują również system PayPal jako formę płatności.
 
@@ -38,14 +38,14 @@ Zwykle wyślemy płatność należną w danym miesiącu do 15 dnia danego miesi�
 
 Są to kraje i regiony, w których powyższe metody płatności są używane dla każdego portalu Marketplace. Próg płatności we wszystkich przypadkach wynosi $50 USD.
 
-| Kraj/region | Azure Marketplace | Przechowywanie, reklamy, mikser i Minecraft | Biuro | Płatności w systemie PayPal  |
+| Kraj/region | Azure Marketplace | Przechowywanie, reklamy, mikser i Minecraft | Office | Płatności w systemie PayPal  |
 | --- | --- | --- | --- | --- |
 | Afganistan | Tak | Tak | Nie | Nie |
 | Albania | Tak | Tak | Tak | Tak |
 | Algieria | Tak | Tak | Tak | Tak |
 | Andora | Nie | Nie | Tak | Tak |
 | Angola | Tak | Tak | Tak | Nie |
-| Antigua i Barbuda | Tak | Tak | Nie | Yes |
+| Antigua i Barbuda | Tak | Tak | Nie | Tak |
 | Argentyna | Tak | Tak | Tak | Tak |
 | Armenia | Tak | Tak | Nie | Nie |
 | Australia | Tak | Tak | Tak | Tak |
@@ -58,7 +58,7 @@ Są to kraje i regiony, w których powyższe metody płatności są używane dla
 | Benin | Tak | Tak | Tak | Nie |
 | Boliwia | Tak | Tak | Tak | Nie |
 | Bośnia i Hercegowina | Tak | Tak | Tak | Tak |
-| Botswana | Tak | Tak | Nie | Yes |
+| Botswana | Tak | Tak | Nie | Tak |
 | Brazylia | Tak | Tak | Tak | Tak |
 | Bułgaria | Tak | Tak | Tak | Tak |
 | Burkina Faso | Tak | Tak | Tak | Nie |
@@ -80,7 +80,7 @@ Są to kraje i regiony, w których powyższe metody płatności są używane dla
 | Cypr | Tak | Tak | Tak | Tak |
 | Republika Czeska | Tak | Tak | Tak | Tak |
 | Dania | Tak | Tak | Tak | Tak |
-| Dominika | Tak | Tak | Nie | Yes |
+| Dominika | Tak | Tak | Nie | Tak |
 | Dominikana | Tak | Tak | Tak | Tak |
 | Ekwador | Tak | Tak | Tak | Tak |
 | Egipt | Tak | Tak | Tak | Tak |
@@ -96,15 +96,15 @@ Są to kraje i regiony, w których powyższe metody płatności są używane dla
 | Ghana | Tak | Tak | Tak | Nie |
 | Grecja | Tak | Tak | Tak | Tak |
 | Gwatemala | Tak | Tak | Tak | Tak |
-| Gwinea | Tak | Tak | Yes | Nie |
-| Haiti | Tak | Tak | Yes | Nie |
+| Gwinea | Tak | Tak | Tak | Nie |
+| Haiti | Tak | Tak | Tak | Nie |
 | Honduras | Tak | Tak | Tak | Tak |
 | Hongkong | Tak | Tak | Tak | Tak |
 | Węgry | Tak | Tak | Tak | Tak |
-| Islandia | Tak | Tak | Yes | Nie |
+| Islandia | Tak | Tak | Tak | Nie |
 | Indie | Tak | Tak | Tak | Tak |
 | Indonezja | Tak | Tak | Tak | Tak |
-| Irak | Tak | Yes | Nie | Nie |
+| Irak | Tak | Tak | Nie | Nie |
 | Irlandia | Tak | Tak | Tak | Tak |
 | Izrael | Tak | Tak | Tak | Tak |
 | Włochy | Tak | Tak | Tak | Tak |
@@ -113,9 +113,9 @@ Są to kraje i regiony, w których powyższe metody płatności są używane dla
 | Jordania | Tak | Tak | Tak | Tak |
 | Kazachstan | Tak | Tak | Tak | Tak |
 | Kenia | Tak | Tak | Tak | Tak |
-| Korea Południowa (południe) | Tak | Tak | Yes | Nie |
+| Korea Południowa (południe) | Tak | Tak | Tak | Nie |
 | Kuwejt | Tak | Tak | Tak | Tak |
-| Kirgistan | Nie | Nie | Yes | Nie |
+| Kirgistan | Nie | Nie | Tak | Nie |
 | Laos | Tak | Tak | Tak | Nie |
 | Łotwa | Tak | Tak | Tak | Nie |
 | Liban | Tak | Tak | Nie | Nie |
@@ -129,7 +129,7 @@ Są to kraje i regiony, w których powyższe metody płatności są używane dla
 | Malezja | Tak | Tak | Tak | Tak |
 | Mali | Tak | Tak | Tak | Nie |
 | Malta | Tak | Tak | Tak | Tak |
-| Mauritius | Tak | Tak | Nie | Yes |
+| Mauritius | Tak | Tak | Nie | Tak |
 | Meksyk | Tak | Tak | Tak | Tak |
 | Monako | Tak | Tak | Nie | Nie |
 | Mongolia | Tak | Tak | Tak | Nie |
@@ -151,12 +151,12 @@ Są to kraje i regiony, w których powyższe metody płatności są używane dla
 | Filipiny | Tak | Tak | Tak | Tak |
 | Polska | Tak | Tak | Tak | Tak |
 | Portugalia | Tak | Tak | Tak | Tak |
-| Portoryko | Nie | Nie | Yes | Nie |
+| Portoryko | Nie | Nie | Tak | Nie |
 | Katar | Tak | Tak | Tak | Tak |
 | Rumunia | Tak | Tak | Tak | Nie |
-| Rosja | Tak | Tak | Nie | Yes |
+| Rosja | Tak | Tak | Nie | Tak |
 | Rwanda | Tak | Tak | Tak | Nie |
-| Saint Vincent i Grenadyny | Nie | Yes | Nie | Nie |
+| Saint Vincent i Grenadyny | Nie | Tak | Nie | Nie |
 | Arabia Saudyjska | Tak | Tak | Tak | Tak |
 | Senegal | Tak | Tak | Tak | Nie |
 | Serbia | Tak | Tak | Tak | Nie |
@@ -174,24 +174,24 @@ Są to kraje i regiony, w których powyższe metody płatności są używane dla
 | Tadżykistan | Tak | Tak | Nie | Nie |
 | Tanzania | Tak | Tak | Tak | Nie |
 | Tajlandia | Tak | Tak | Tak | Tak |
-| Timor-Leste | Tak | Tak | Yes | Nie |
-| Togo | Tak | Tak | Yes | Nie |
-| Tonga | Tak | Yes | Nie | Nie |
+| Timor-Leste | Tak | Tak | Tak | Nie |
+| Togo | Tak | Tak | Tak | Nie |
+| Tonga | Tak | Tak | Nie | Nie |
 | Trinidad i Tobago | Tak | Tak | Tak | Tak |
-| Tunezja | Tak | Tak | Yes | Nie |
-| Turcja | Tak | Tak | Yes | Nie |
-| Turkmenistan | Tak | Yes | Nie | Nie |
-| Uganda | Tak | Tak | Yes | Nie |
-| Ukraina | Tak | Yes | Nie | Nie |
+| Tunezja | Tak | Tak | Tak | Nie |
+| Turcja | Tak | Tak | Tak | Nie |
+| Turkmenistan | Tak | Tak | Nie | Nie |
+| Uganda | Tak | Tak | Tak | Nie |
+| Ukraina | Tak | Tak | Nie | Nie |
 | Zjednoczone Emiraty Arabskie | Tak | Tak | Tak | Tak |
 | Zjednoczone Królestwo | Tak | Tak | Tak | Tak |
 | Stany Zjednoczone | Tak | Tak | Tak | Tak |
 | Urugwaj | Tak | Tak | Tak | Tak |
-| Uzbekistan | Tak | Yes | Nie | Nie |
+| Uzbekistan | Tak | Tak | Nie | Nie |
 | Wenezuela | Tak | Tak | Tak | Tak |
 | Wietnam | Tak | Tak | Tak | Tak |
-| Zambia | Tak | Tak | Yes | Nie |
-| Zimbabwe | Tak | Tak | Yes | Nie |
+| Zambia | Tak | Tak | Tak | Nie |
+| Zimbabwe | Tak | Tak | Tak | Nie |
 | | |
 
 ## <a name="next-step"></a>Następny krok

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/24/2020
-ms.openlocfilehash: 4c700a61de80968b17585faf92e268fef8d86f0e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a6e304e5ffeab8f0a44cbdfe1566465f2b9bf34a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323268"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607410"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Zintegruj swoją aukcję komercyjną Marketplace z usługą Azure Active Directory
 
@@ -20,7 +20,7 @@ ms.locfileid: "87323268"
 
 ## <a name="azure-ad-benefits"></a>Korzyści z usługi Azure AD
 
-Klienci korzystający z usług Microsoft AppSource i Azure Marketplace wykorzystują środowiska w ramach produktu w celu wyszukiwania katalogów list w sklepie. Te akcje wymagają od klientów zalogowania się do produktu. Integracja z usługą Azure AD zapewnia następujące korzyści:
+Klienci korzystający z usług Microsoft AppSource i Azure Marketplace wykorzystują środowiska w ramach produktu, aby przeszukiwać katalogi z listą sklepu online. Te akcje wymagają od klientów zalogowania się do produktu. Integracja z usługą Azure AD zapewnia następujące korzyści:
 
 - Szybsza zaangażowanie i zoptymalizowane środowisko klienta
 - Logowanie jednokrotne (SSO) dla milionów użytkowników w przedsiębiorstwach
@@ -33,12 +33,12 @@ Różne [Opcje i typy ofert](determine-your-listing-type.md) dostępne w komercy
 
 | Typ oferty    | Logowanie jednokrotne usługi Azure AD jest wymagane do skontaktowania się ze mną  | Usługa Azure AD SSO jest wymagana w przypadku wersji próbnej? | Usługa Azure AD SSO jest wymagana dla dysku testowego?  | Logowanie jednokrotne usługi Azure AD jest wymagane dla języka Transact |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
-| Maszyna wirtualna | Brak | Nie | Nie | Nie |
-| Aplikacje platformy Azure (szablon rozwiązania)  | Brak | Brak | Brak | Brak |
-| Aplikacje zarządzane  | Brak | Brak | Brak | Nie |
-| SaaS  | Nie | Yes | Tak | Tak |
-| Containers  | Brak | Brak | Brak | Nie |
-| Usługi konsultingowe  | Nie | Brak | Brak | Brak |
+| Maszyna wirtualna | Nie dotyczy | Nie | Nie | Nie |
+| Aplikacje platformy Azure (szablon rozwiązania)  | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY |
+| Aplikacje zarządzane  | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY | Nie |
+| SaaS  | Nie | Tak | Tak | Tak |
+| Containers  | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY | Nie |
+| Usługi konsultingowe  | Nie | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY |
 
 Aby uzyskać więcej informacji o wymaganiach technicznych SaaS, zobacz [oferty usługi Azure AD i transacting SaaS w portalu komercyjnym](./azure-ad-saas.md).
 
@@ -56,8 +56,8 @@ Podczas uwierzytelniania usługa Azure AD wysyła token do aplikacji lub oferty.
 
 W przypadku korzystania z usługi Azure AD w celu włączenia uwierzytelniania jednym kliknięciem na liście aplikacji lub wersji próbnej:
 
-- Usprawnij pracę klienta z portalu Marketplace na liście próbnej.
-- Zapoznaj się z działaniem środowiska w produkcie nawet wtedy, gdy użytkownik jest przekierowywany z portalu Marketplace do środowiska domeny lub wersji próbnej.
+- Usprawnij pracę klienta z komercyjnej witryny Marketplace na liście próbnej.
+- Zapoznaj się z działaniem środowiska w produkcie nawet wtedy, gdy użytkownik jest przekierowywany z komercyjnej witryny Marketplace do domeny lub środowiska próbnego.
 - Zmniejszenie prawdopodobieństwa porzucenia w przypadku przekierowania użytkowników z powodu braku dodatkowych kroków związanych z logowaniem.
 - Ogranicz bariery wdrożenia dla dużej populacji użytkowników usługi Azure AD.
 
@@ -67,12 +67,12 @@ W przypadku korzystania z usługi Azure AD w celu włączenia uwierzytelniania j
 
 Użyj usługi Azure AD, aby obsłużyć następujące akcje:
 
-- Zarejestruj swoją aplikację w jednym z witryny Marketplace. Aby uzyskać więcej informacji, Wyświetl [rejestrację aplikacji](../active-directory/develop/quickstart-register-app.md) lub [certyfikat AppSource](../active-directory/azuread-dev/howto-get-appsource-certified.md) .
+- Zarejestruj swoją aplikację w jednym z komercyjnych sklepów online Marketplace. Aby uzyskać więcej informacji, Wyświetl [rejestrację aplikacji](../active-directory/develop/quickstart-register-app.md) lub [certyfikat AppSource](../active-directory/azuread-dev/howto-get-appsource-certified.md) .
 - Włącz funkcję obsługi wielodostępności w usłudze Azure AD, aby skorzystać z wersji próbnej jednego kliknięcia.
 
 Jeśli dopiero zaczynasz korzystać z federacyjnego logowania jednokrotnego usługi Azure AD, wykonaj następujące czynności:
 
-1. Zarejestruj swoją aplikację w portalu Marketplace.
+1. Zarejestruj swoją aplikację w komercyjnym portalu Marketplace.
 1. Utwórz Logowanie jednokrotne za pomocą usługi Azure AD przy użyciu protokołu [OAuth 2,0](../active-directory/azuread-dev/v1-protocols-oauth-code.md) lub [OpenID Connect Connect](../active-directory/azuread-dev/v1-protocols-openid-connect-code.md).
 1. Włącz funkcję obsługi wielodostępności w usłudze Azure AD, aby udostępnić wersję próbną jednego kliknięcia.
 
@@ -89,7 +89,7 @@ Użyj usługi Azure AD, aby obsłużyć jedną z następujących akcji:
 
 Jeśli jeszcze tego nie zrobiono, 
 
-- [Dowiedz się więcej](https://azuremarketplace.microsoft.com/sell) o portalu Marketplace.
+- [Dowiedz się więcej](https://azuremarketplace.microsoft.com/sell) o komercyjnym rynku.
 
 Aby zarejestrować się w centrum partnerskim, zacznij tworzyć nową ofertę lub pracować na istniejącym:
 

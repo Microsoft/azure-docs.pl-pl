@@ -6,22 +6,22 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: ec9e53ecaa95f6407a00c149abb6ed7e4a671d74
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 173633e16648bce262051947ec2bc9c1f61fbb9c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102297"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606773"
 ---
-# <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>Połącz się z tożsamością zarządzaną, aby Azure Database for PostgreSQL
+# <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>Nawiązywanie połączenia za pomocą tożsamości zarządzanej z usługą Azure Database for PostgreSQL
 
-W tym artykule przedstawiono sposób użycia tożsamości przypisanej przez użytkownika dla maszyny wirtualnej platformy Azure (VM) w celu uzyskania dostępu do serwera Azure Database for PostgreSQL. Tożsamości usługi zarządzanej są automatycznie zarządzane przez platformę Azure. Umożliwiają uwierzytelnianie w usługach obsługujących uwierzytelnianie usługi Azure AD bez potrzeby wprowadzania poświadczeń do kodu. Omawiane kwestie:
+W tym artykule przedstawiono sposób użycia tożsamości przypisanej przez użytkownika dla maszyny wirtualnej platformy Azure (VM) w celu uzyskania dostępu do serwera Azure Database for PostgreSQL. Tożsamości usługi zarządzanej są automatycznie zarządzane przez platformę Azure. Umożliwiają uwierzytelnianie w usługach obsługujących uwierzytelnianie usługi Azure AD bez potrzeby wprowadzania poświadczeń do kodu. 
 
-> [!div class="checklist"]
-> * Przyznaj maszynie wirtualnej dostęp do serwera Azure Database for PostgreSQL
-> * Utwórz użytkownika w bazie danych, który reprezentuje tożsamość przypisaną przez użytkownika maszyny wirtualnej
-> * Uzyskiwanie tokenu dostępu przy użyciu tożsamości maszyny wirtualnej i używanie jej do wysyłania zapytań do serwera Azure Database for PostgreSQL
-> * Zaimplementuj pobieranie tokenu w przykładowej aplikacji w języku C#
+Omawiane kwestie:
+- Przyznaj maszynie wirtualnej dostęp do serwera Azure Database for PostgreSQL
+- Utwórz użytkownika w bazie danych, który reprezentuje tożsamość przypisaną przez użytkownika maszyny wirtualnej
+- Uzyskiwanie tokenu dostępu przy użyciu tożsamości maszyny wirtualnej i używanie jej do wysyłania zapytań do serwera Azure Database for PostgreSQL
+- Zaimplementuj pobieranie tokenu w przykładowej aplikacji w języku C#
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -80,7 +80,7 @@ Pobieranie tego tokenu odbywa się przez utworzenie żądania HTTP `http://169.2
 
 * `api-version` = `2018-02-01`
 * `resource` = `https://ossrdbms-aad.database.windows.net`
-* `client_id` = `CLIENT_ID`(pobrany wcześniej)
+* `client_id` = `CLIENT_ID` (pobrany wcześniej)
 
 Zostanie przywrócony wynik JSON zawierający `access_token` pole — wartość tego długiego tekstu jest tokenem dostępu do tożsamości zarządzanego, który powinien być używany jako hasło podczas łączenia się z bazą danych.
 

@@ -7,16 +7,16 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 8ac69d7d611aa75584955ed6ed83ab79c70ed73a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 51f4c9a5748896eff9e9f3ae9719b2e7e7cdd4e7
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082813"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607480"
 ---
 # <a name="cloud-solution-provider-program"></a>Program dostawcy rozwiązań w chmurze
 
-W tym artykule opisano sposób konfigurowania oferty w celu udostępnienia jej w programie Cloud Solution Provider (CSP). Oprócz publikowania ofert za pomocą [komercyjnych witryn sieci Web w portalu Marketplace](comparing-appsource-azure-marketplace.md)możesz również sprzedawać za pomocą programu CSP, aby dotrzeć do milionów wykwalifikowanych klientów firmy Microsoft obsługiwanych przez program.
+W tym artykule opisano sposób konfigurowania oferty w celu udostępnienia jej w programie Cloud Solution Provider (CSP). Oprócz publikowania ofert przy użyciu [komercyjnych sklepów online Marketplace](comparing-appsource-azure-marketplace.md)można także sprzedawać za pomocą programu CSP, aby dotrzeć do milionów wykwalifikowanych klientów firmy Microsoft obsługiwanych przez program.
 
 Można skonfigurować nowe lub istniejące oferty dla dostępności w programie CSP, co pozwala partnerom CSP sprzedawać Twoje produkty i tworzyć powiązane rozwiązania dla klientów.
 
@@ -166,7 +166,7 @@ Jeśli oferta jest obecnie **Opcja 3: brak partnerów w programie CSP**, możesz
 
 ## <a name="sharing-sales-and-support-materials-with-partners-in-the-csp-program"></a>Udostępnianie materiałów sprzedażowych i pomocy technicznej partnerom w programie CSP
 
-Aby pomóc partnerom w programie dostawcy rozwiązań w chmurze, który najbardziej efektywnie reprezentuje ofertę i angażuje się z Twoją organizacją, musisz przesłać materiały sprzedażowe i pomoc techniczna, które będą dostępne dla odsprzedawców. Te zasoby nie zostaną ujawnione klientom w witrynie sklepu Marketplace.
+Aby pomóc partnerom w programie dostawcy rozwiązań w chmurze, który najbardziej efektywnie reprezentuje ofertę i angażuje się z Twoją organizacją, musisz przesłać materiały sprzedażowe i pomoc techniczna, które będą dostępne dla odsprzedawców. Te zasoby nie będą ujawnione klientom w sklepach online.
 
 ### <a name="partner-center-csp-channel"></a>Kanał CSP Centrum partnerskiego
 

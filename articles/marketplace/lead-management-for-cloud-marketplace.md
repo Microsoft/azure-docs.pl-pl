@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: d0aea0594a97990c7c89434e73fcd4982b01e20f
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b08324654a046b5a2296f6e533107c1b26a0e1fc
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035182"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606884"
 ---
 # <a name="lead-management-for-the-commercial-marketplace"></a>Zarządzanie potencjalnymi klientami w portalu komercyjnym
 
@@ -44,7 +44,7 @@ Po poprawnym skonfigurowaniu miejsca docelowego potencjalnego klienta i wybraniu
 
 Po zakończeniu instalacji technicznej należy uwzględnić te potencjalną pracę w bieżącej sprzedaży & strategii marketingowej i procesów operacyjnych. Chcielibyśmy lepiej zrozumieć swój ogólny proces sprzedaży i chcemy ściśle współpracować z udostępnianiem wysokiej jakości potencjalnych klientów i wystarczającej ilości danych, aby zapewnić pomyślne działanie. Będziemy nam poznamy Twoją opinię na temat sposobu, w jaki możemy zoptymalizować i zwiększyć liczbę potencjalnych klientów, którzy wyślą Ci dodatkowe dane w celu pomyślnego przeprowadzenia tych klientów. Daj nam znać, Jeśli interesuje Cię przekazywanie opinii i sugestii, aby umożliwić zespołowi sprzedaży lepsze pomyślną pracę z potencjalnymi klientami portalu Marketplace.
 
-## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a><a id="publishing-config-errors"></a>Typowe błędy konfiguracji potencjalnych klientów podczas publikowania w centrum partnerskim
+## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a><a id="publishing-config-errors"></a> Typowe błędy konfiguracji potencjalnych klientów podczas publikowania w centrum partnerskim
 
 **Nie można zapisać potencjalnego klienta w programie Dynamics CRM. Sprawdź ustawienia konta programu Dynamics CRM. LastCRMError: nie można zalogować się do programu Dynamics CRM, LastCRMException:** 
 
@@ -170,7 +170,7 @@ Potencjalny klient zostanie zapisany tylko w przypadku wybrania usługi Azure BL
 
 **Dlaczego nie mogę znaleźć potencjalnego klienta w portalu Marketplace?**  
 
-Istnieje możliwość, że domena poczty e-mail użytkownika końcowego pochodzi z. edu. Z przyczyn zachowania poufności informacji dane osobowe nie są przekazywane z domeny. edu. Prześlij bilet pomocy technicznej w [pomocy i obsłudze technicznej](https://aka.ms/marketplacepublishersupport).
+Istnieje możliwość, że domena poczty e-mail użytkownika końcowego pochodzi z. edu. Ze względu na prywatność nie przekazujemy danych osobowych z domeny. edu. Prześlij bilet pomocy technicznej w [pomocy i obsłudze technicznej](https://aka.ms/marketplacepublishersupport).
 
 **Mam skonfigurowaną usługę Azure Table/Azure BLOB jako lokalizację docelową mojego potencjalnego klienta, jak mogę wyświetlić potencjalnych klientów?** 
 

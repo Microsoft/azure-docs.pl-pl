@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 20c82793726221515ad4d1019f4d8f4754b3ae08
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 82a6b2674fe73bd448bb7ccbd230e837bd1cbb2a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036576"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607339"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Często zadawane pytania dotyczące komercyjnej witryny Marketplace firmy Microsoft
 
@@ -120,11 +120,11 @@ Komercyjni wydawcy portalu Marketplace są odpowiedzialni za pomoc w zakresie op
 
 W trakcie procesu publikowania otrzymujesz dostęp do wersji zapoznawczej oferty. Dostęp jest ograniczony do użytkowników określonych na karcie **Podgląd** , a oferta nie może być wyświetlana przez żadną inną osobę. Możesz zakupić wersję zapoznawczą i przetestować proces, ale opłata zostanie naliczona za całą kwotę zgodnie z konfiguracją oferty.
 
-Aby dokonać zakupu w bardzo niskich cenach, zalecamy opublikowanie prywatnego planu, który jest widoczny tylko dla Ciebie, i w cenie, którą można zaakceptować w ramach kosztu testowania. Cena $0,00 jest obsługiwana, ale nie będzie odzwierciedlać pełnego środowiska, jako płatnej subskrypcji, dlatego zalecamy ustawienie ceny na $1,00.
+W celu ukończenia zakupu z niską ceną zalecamy opublikowanie prywatnego planu, który jest widoczny tylko dla Ciebie, i w cenie, którą można zaakceptować jako koszt testowania. Cena $0,00 jest obsługiwana, ale nie będzie odzwierciedlać pełnego środowiska, jako płatnej subskrypcji, dlatego zalecamy ustawienie ceny na $1,00.
 
 ### <a name="what-are-leads-from-the-commercial-marketplace-and-what-should-i-do-with-them"></a>Jakie są potencjalni klienci z komercyjnej witryny Marketplace i co należy zrobić z nimi?
 
-Gdy klienci korzystają z ofert w witrynie Microsoft AppSource i witrynie Azure Marketplace, informacje są przechwytywane. Po pomyślnym zaprezentowaniu przez klientów szansy klient zostanie utworzony, a szansa sprzedaży zostanie wysłana do wybranego systemu. Wydawcy, którzy pomyślnie korzystali z komercyjnej witryny Marketplace, często realizują potencjalni klienci, opracowują relacje i przekształcają zainteresowania.
+Ponieważ klienci korzystają z ofert w Microsoft AppSource i sklepach online portalu Azure Marketplace, informacje są przechwytywane. Po pomyślnym zaprezentowaniu przez klientów szansy klient zostanie utworzony, a szansa sprzedaży zostanie wysłana do wybranego systemu. Wydawcy, którzy pomyślnie korzystali z komercyjnej witryny Marketplace, często realizują potencjalni klienci, opracowują relacje i przekształcają zainteresowania.
 
 Aby uzyskać więcej informacji, zobacz temat [potencjalni klienci z oferty w portalu Marketplace](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
@@ -140,7 +140,7 @@ Oferty są prezentowane klientom za pośrednictwem środowisk produkcyjnych, wit
 
 ### <a name="can-my-offer-appear-in-both-microsoft-appsource-and-azure-marketplace"></a>Czy moja oferta jest widoczna zarówno w Microsoft AppSource, jak i w witrynie Azure Marketplace?
 
-Microsoft AppSource to miejsce docelowe rozwiązań dla firm i branżowych, a platforma Azure Marketplace jest przeznaczona dla rozwiązań IT i deweloperów. Oferty są dostępne w poszczególnych witrynach w oparciu o kategorie i branże wybrane podczas tworzenia oferty. W rzadkich przypadkach oferta jest istotna dla użytkowników obu sklepów, może być wyświetlana w obu.
+Microsoft AppSource to miejsce docelowe rozwiązań dla firm i branżowych, a platforma Azure Marketplace jest przeznaczona dla rozwiązań IT i deweloperów. Oferty są dostępne w każdym sklepie online w oparciu o kategorie i branże wybrane podczas tworzenia oferty. W rzadkich przypadkach oferta jest istotna dla użytkowników w obu sklepach online, może się pojawić w obu.
 
 ### <a name="what-is-the-cloud-solution-provider-program"></a>Co to jest program Cloud Solution Provider?
 

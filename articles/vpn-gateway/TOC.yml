@@ -2,7 +2,7 @@
   href: index.yml
 - name: Omówienie
   items:
-    - name: VPN Gateway — informacje
+    - name: Co to jest usługa VPN Gateway?
       href: vpn-gateway-about-vpngateways.md
 - name: Samouczki
   items:
@@ -116,7 +116,7 @@
           items:
             - name: Konfigurowanie sieci VPN typu P2S
               items:
-                - name: Witryna Azure Portal
+                - name: Azure Portal
                   href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
                 - name: Azure PowerShell
                   href: vpn-gateway-howto-point-to-site-rm-ps.md
