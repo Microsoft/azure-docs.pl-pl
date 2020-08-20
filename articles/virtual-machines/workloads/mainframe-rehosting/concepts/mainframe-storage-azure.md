@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 7f83d798bbffeb232b45701beee828114ad3db7d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 639764c9cae5e27e90a55da00b246807e49d2a20
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042587"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652852"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Przenoszenie magazynu mainframe na platformę Azure
 
@@ -45,7 +45,7 @@ Opcje infrastruktura jako usługa ([IaaS](https://azure.microsoft.com/overview/w
 
 Firma Microsoft oferuje petabajtów magazyn dla aplikacji hostowanych na platformie Azure i ma kilka opcji magazynu. Te zakresy z magazynu SSD w celu zapewnienia wysokiej wydajności magazynu obiektów BLOB o niskich kosztach na potrzeby magazynu i archiwów pamięci masowej. Ponadto platforma Azure zapewnia opcję nadmiarowości danych dla magazynu, co zwiększa nakład pracy w celu skonfigurowania w środowisku mainframe.
 
-Usługa Azure Storage jest dostępna jako Azure [disks](../../../windows/managed-disks-overview.md), [Azure Files](../../../../storage/files/storage-files-introduction.md)i [Azure Blobs](../../../../storage/blobs/storage-blobs-overview.md) , jak w poniższej tabeli podsumowano. Dowiedz się więcej o tym [, kiedy korzystać z każdego z nich](../../../../storage/common/storage-introduction.md).
+Usługa Azure Storage jest dostępna jako Azure [disks](../../../managed-disks-overview.md), [Azure Files](../../../../storage/files/storage-files-introduction.md)i [Azure Blobs](../../../../storage/blobs/storage-blobs-overview.md) , jak w poniższej tabeli podsumowano. Dowiedz się więcej o tym [, kiedy korzystać z każdego z nich](../../../../storage/common/storage-introduction.md).
 
 <!-- markdownlint-disable MD033 -->
 
@@ -108,7 +108,7 @@ Usługa BLOB Storage zapewnia największą ilość miejsca w magazynie na platfo
 - [Rehostowanie komputera mainframe na platformie Azure Virtual Machines](../overview.md)
 - [Przenoszenie obliczeń mainframe na platformę Azure](mainframe-compute-Azure.md)
 - [Podejmowanie decyzji o tym, kiedy korzystać z obiektów blob platformy Azure, Azure Files lub dysków platformy Azure](../../../../storage/common/storage-introduction.md)
-- [SSD w warstwie Standardowa Managed Disks dla obciążeń maszyn wirtualnych platformy Azure](../../../windows/disks-types.md#standard-ssd)
+- [SSD w warstwie Standardowa Managed Disks dla obciążeń maszyn wirtualnych platformy Azure](../../../disks-types.md#standard-ssd)
 
 ### <a name="ibm-resources"></a>Zasoby IBM
 
