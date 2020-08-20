@@ -7,16 +7,16 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: yegu
-ms.openlocfilehash: 4ad28bd65fe9bc240e963f103ca5bd658e90fdfd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 10fedaf5680976ae93984c9b2c607882f650019d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77529623"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213277"
 ---
 # <a name="how-the-reservation-discount-is-applied-to-azure-cache-for-redis"></a>W jaki sposób rabat za rezerwację jest stosowany do usługi Azure Cache for Redis
 
-Po zakupie pojemności zarezerwowanej usługi Azure Cache for Redis rabat na rezerwację jest automatycznie stosowany do wystąpień pamięci podręcznej pasujących do atrybutów i ilości rezerwacji. Rezerwacja obejmuje tylko koszty obliczeniowe usługi Azure Cache for Redis. Opłata jest naliczana za magazyn i sieć według normalnych stawek. Pojemność zarezerwowana jest dostępna tylko w przypadku pamięci podręcznych [w warstwie Premium](/azure/azure-cache-for-redis/cache-premium-tier-intro).
+Po zakupie pojemności zarezerwowanej usługi Azure Cache for Redis rabat na rezerwację jest automatycznie stosowany do wystąpień pamięci podręcznej pasujących do atrybutów i ilości rezerwacji. Rezerwacja obejmuje tylko koszty obliczeniowe usługi Azure Cache for Redis. Opłata jest naliczana za magazyn i sieć według normalnych stawek. Pojemność zarezerwowana jest dostępna tylko w przypadku pamięci podręcznych [w warstwie Premium](/https://docs.microsoft.com/azure/azure-cache-for-redis/quickstart-create-redis).
 
 ## <a name="how-reservation-discount-is-applied"></a>Jak jest naliczany rabat za rezerwację
 
