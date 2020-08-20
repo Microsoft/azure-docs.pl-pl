@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: dee74c787f6546494d12ea582eab383fbd99079d
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 186839425e6ab2fb5430a82650615425bb93d51a
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876907"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651764"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Uczenie modeli za pomocą Azure Machine Learning
 
@@ -90,7 +90,7 @@ Potoki uczenia maszynowego mogą korzystać z wymienionych wcześniej metod szko
 * [Samouczek: korzystanie z potoków Azure Machine Learning na potrzeby oceniania partii](tutorial-pipeline-batch-scoring-classification.md)
 * [Przykłady: Jupyter Notebook przykłady potoków uczenia maszynowego](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Przykłady: potok z automatyczną usługą uczenia maszynowego](https://aka.ms/pl-automl)
-* [Przykłady: potok z szacowania](https://aka.ms/pl-estimator)
+* [Przykłady: potok z szacowania](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-estimatorstep.ipynb)
 
 ### <a name="understand-what-happens-when-you-submit-a-training-job"></a>Informacje o tym, co się stanie po przesłaniu zadania szkoleniowego
 
@@ -108,7 +108,7 @@ Cykl życia szkoleń platformy Azure składa się z:
     1. Jeśli nie zostanie znaleziona, system kompiluje nowy obraz (który zostanie zapisany w pamięci podręcznej i zarejestrowany w obszarze roboczym ACR)
 1. Pobieranie spakowanego pliku projektu do tymczasowego magazynu w węźle obliczeniowym
 1. Rozpakowywanie pliku projektu
-1. Wykonywanie węzła obliczeniowego`python <entry script> <arguments>`
+1. Wykonywanie węzła obliczeniowego `python <entry script> <arguments>`
 1. Zapisywanie dzienników, plików modelu i innych plików zapisywanych na `./outputs` koncie magazynu skojarzonym z obszarem roboczym
 1. Skalowanie w dół obliczeniowe, w tym Usuwanie magazynu tymczasowego 
 

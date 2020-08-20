@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/29/2020
-ms.openlocfilehash: 0f6e1a7b8ac4dce0504fca5f03090588a75ae1ef
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 6198475025ff5222edeeb14cf25634ad2d916a1f
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732445"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651441"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Szybki Start: Tworzenie klastra Apache Kafka w usłudze Azure HDInsight przy użyciu Azure Portal
 
@@ -25,7 +25,7 @@ W tym przewodniku szybki start dowiesz się, jak utworzyć klaster Apache Kafka 
 
 Dostęp do interfejsu API platformy Apache Kafka mogą uzyskać tylko zasoby będące w tej samej sieci wirtualnej. W tym przewodniku szybki start dostęp do klastra jest uzyskiwany bezpośrednio przy użyciu protokołu SSH. Aby do platformy Apache Kafka podłączyć inne usługi, sieci lub maszyny wirtualne, należy najpierw utworzyć sieć wirtualną, a następnie utworzyć zasoby w obrębie tej sieci. Aby uzyskać więcej informacji, zobacz dokument [Connect to Apache Kafka using a virtual network (Nawiązywanie połączenia z platformą Apache Kafka za pomocą sieci wirtualnej)](apache-kafka-connect-vpn-gateway.md). Aby uzyskać więcej ogólnych informacji na temat planowania sieci wirtualnych w usłudze HDInsight, zobacz [Planowanie sieci wirtualnej dla usługi Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,7 +41,7 @@ Aby utworzyć klaster Apache Kafka w usłudze HDInsight, wykonaj następujące c
 
     ![Azure Portal utworzyć usługi HDInsight zasobów](./media/apache-kafka-get-started/azure-portal-create-resource.png)
 
-1. Wybierz pozycję **Analiza** > **Azure HDInsight** , aby przejść do strony **Tworzenie klastra usługi HDInsight** .
+1. Wybierz pozycję **Analiza**  >  **Azure HDInsight** , aby przejść do strony **Tworzenie klastra usługi HDInsight** .
 
 1. Na karcie **podstawowe** podaj następujące informacje:
 
@@ -50,10 +50,10 @@ Aby utworzyć klaster Apache Kafka w usłudze HDInsight, wykonaj następujące c
     |Subskrypcja    |  Z listy rozwijanej wybierz subskrypcję platformy Azure używaną na potrzeby klastra. |
     |Grupa zasobów     | Utwórz grupę zasobów lub wybierz istniejącą grupę zasobów.  Grupa zasobów jest kontenerem składników platformy Azure.  W tym przypadku grupa zasobów zawiera klaster usługi HDInsight i zależne konto usługi Azure Storage. |
     |Nazwa klastra   | Podaj globalnie unikatową nazwę. Nazwa może składać się z maksymalnie 59 znaków, w tym liter, cyfr i łączników. Łącznik nie może być pierwszym ani ostatnim znakiem nazwy. |
-    |Region    | Z listy rozwijanej wybierz region, w którym tworzony jest klaster.  Wybierz region bliżej siebie, aby uzyskać lepszą wydajność. |
+    |Region (Region)    | Z listy rozwijanej wybierz region, w którym tworzony jest klaster.  Wybierz region bliżej siebie, aby uzyskać lepszą wydajność. |
     |Typ klastra| Wybierz pozycję **Wybierz typ klastra** , aby otworzyć listę. Z listy wybierz **Kafka** jako typ klastra.|
     |Wersja|Zostanie określona wersja domyślna dla typu klastra. Wybierz z listy rozwijanej, jeśli chcesz określić inną wersję.|
-    |Nazwa użytkownika i hasło logowania do klastra    | Domyślna nazwa logowania to **admin**. Hasło musi składać się z co najmniej 10 znaków i musi zawierać co najmniej jedną cyfrę, jedną wielką i jedną małą literę oraz jeden znak inny niż alfanumeryczny (z wyjątkiem znaków "" \)". Upewnij się, że **nie zostało podane** typowe hasło, takie jak „Pass@word1”.|
+    |Nazwa użytkownika i hasło logowania do klastra    | Domyślna nazwa logowania to **admin**. Hasło musi składać się z co najmniej 10 znaków i musi zawierać co najmniej jedną cyfrę, jedną wielką i jedną małą literę oraz jeden znak inny niż alfanumeryczny (z wyjątkiem znaków "" " \) . Upewnij się, że **nie zostało podane** typowe hasło, takie jak „Pass@word1”.|
     |Nazwa użytkownika protokołu SSH (Secure Shell) | Domyślna nazwa użytkownika to **sshuser**.  Możesz podać inną nazwę użytkownika protokołu SSH. |
     |Użyj hasła logowania do klastra dla protokołu SSH| Zaznacz to pole wyboru, aby użyć tego samego hasła dla użytkownika SSH, który został podany dla użytkownika logowania klastra.|
 
@@ -88,7 +88,7 @@ Aby utworzyć klaster Apache Kafka w usłudze HDInsight, wykonaj następujące c
 
 1. Aby zagwarantować dostępność Apache Kafka w usłudze HDInsight, __Liczba wpisów węzłów__ dla **węzła procesu roboczego** musi być równa 3 lub większa. Wartość domyślna to 4.
 
-    Pozycja **dyski standardowe dla każdego węzła procesu roboczego** konfiguruje skalowalność Apache Kafka w usłudze HDInsight. Do przechowywania danych platforma Apache Kafka w usłudze HDInsight używa dysku lokalnego maszyn wirtualnych w klastrze. Ze względu na duże obciążenie we/wy platformy Apache Kafka używana jest funkcja [Dyski zarządzane platformy Azure](../../virtual-machines/windows/managed-disks-overview.md), która zapewnia wysoką przepływność i więcej miejsca do magazynowania w każdym węźle. Można wybrać typ dysku zarządzanego __Standardowy__ (HDD) lub __Premium__ (SSD). Typ dysku zależy od rozmiaru maszyny wirtualnej używanej przez węzły procesu roboczego (brokery platformy Apache Kafka). Dyski w warstwie Premium są używane automatycznie przez maszyny wirtualne serii DS i GS. Wszystkie pozostałe typy maszyn wirtualnych korzystają z dysków standardowych.
+    Pozycja **dyski standardowe dla każdego węzła procesu roboczego** konfiguruje skalowalność Apache Kafka w usłudze HDInsight. Do przechowywania danych platforma Apache Kafka w usłudze HDInsight używa dysku lokalnego maszyn wirtualnych w klastrze. Ze względu na duże obciążenie we/wy platformy Apache Kafka używana jest funkcja [Dyski zarządzane platformy Azure](../../virtual-machines/managed-disks-overview.md), która zapewnia wysoką przepływność i więcej miejsca do magazynowania w każdym węźle. Można wybrać typ dysku zarządzanego __Standardowy__ (HDD) lub __Premium__ (SSD). Typ dysku zależy od rozmiaru maszyny wirtualnej używanej przez węzły procesu roboczego (brokery platformy Apache Kafka). Dyski w warstwie Premium są używane automatycznie przez maszyny wirtualne serii DS i GS. Wszystkie pozostałe typy maszyn wirtualnych korzystają z dysków standardowych.
 
    ![Ustawianie rozmiaru klastra platformy Apache Kafka](./media/apache-kafka-get-started/azure-portal-cluster-configuration-pricing-kafka.png)
 
@@ -138,13 +138,13 @@ Podczas pracy z platformą Kafka musisz znać hosty *Apache Zookeeper* i *Broker
 
 W tej sekcji uzyskasz informacje o hoście z interfejsu API REST Apache Ambari w klastrze.
 
-1. Zainstaluj [JQ](https://stedolan.github.io/jq/), procesor JSON w wierszu polecenia. To narzędzie służy do analizy dokumentów JSON i jest przydatne podczas analizowania informacji o hoście. Z otwartego połączenia SSH wprowadź następujące polecenie, aby zainstalować `jq`:
+1. Zainstaluj [JQ](https://stedolan.github.io/jq/), procesor JSON w wierszu polecenia. To narzędzie służy do analizy dokumentów JSON i jest przydatne podczas analizowania informacji o hoście. Z otwartego połączenia SSH wprowadź następujące polecenie, aby zainstalować `jq` :
 
     ```bash
     sudo apt -y install jq
     ```
 
-1. Skonfiguruj zmienną hasła. Zamień `PASSWORD` na hasło logowania klastra, a następnie wprowadź polecenie:
+1. Skonfiguruj zmienną hasła. Zamień na `PASSWORD` hasło logowania klastra, a następnie wprowadź polecenie:
 
     ```bash
     export password='PASSWORD'
@@ -157,7 +157,7 @@ W tej sekcji uzyskasz informacje o hoście z interfejsu API REST Apache Ambari w
     ```
 
     > [!Note]  
-    > Jeśli ten proces jest wykonywany spoza klastra, istnieje inna procedura przechowywania nazwy klastra. W mniejszej sytuacji należy uzyskać nazwę klastra z Azure Portal. Następnie zastąp nazwę klastra `<clustername>` w następującym poleceniu i wykonaj go:. `export clusterName='<clustername>'`
+    > Jeśli ten proces jest wykonywany spoza klastra, istnieje inna procedura przechowywania nazwy klastra. W mniejszej sytuacji należy uzyskać nazwę klastra z Azure Portal. Następnie zastąp nazwę klastra `<clustername>` w następującym poleceniu i wykonaj go: `export clusterName='<clustername>'` .
 
 
 1. Aby ustawić zmienną środowiskową z informacjami o hoście dozorcy, użyj poniższego polecenia. Polecenie pobiera wszystkie hosty dozorcy, a następnie zwraca tylko pierwsze dwa wpisy. Taka nadmiarowość jest wymagana, jeśli jeden z hostów będzie nieosiągalny.

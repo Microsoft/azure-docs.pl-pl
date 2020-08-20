@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 093f86f0373791326cf4658bdab7179fbca1307d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e0cb9492f6e0b52cb0816d16be5d67d3b92cfe56
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849662"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651407"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Skonfiguruj cele obliczeń i używaj ich do szkolenia modelu 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -127,7 +127,7 @@ Azure Machine Learning obliczeń można użyć ponownie w ramach przebiegów. Ob
 
 Teraz, po dołączeniu obliczeń i skonfigurowaniu przebiegu, następnym krokiem jest [przesłanie tego przebiegu szkoleniowego](#submit).
 
- ### <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a>Obniż koszt klastra obliczeniowego
+ ### <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a> Obniż koszt klastra obliczeniowego
 
 Możesz również użyć [maszyn wirtualnych o niskim priorytecie](concept-plan-manage-cost.md#low-pri-vm) do uruchamiania niektórych lub wszystkich obciążeń. Te maszyny wirtualne nie mają gwarantowanej dostępności i mogą być przeszukiwane w trakcie użytkowania. Zastępujące zadanie zostało ponownie uruchomione, a nie wznowione. 
 
@@ -181,8 +181,6 @@ Wystąpienia obliczeniowe mogą bezpiecznie uruchamiać zadania w [środowisku s
     run = experiment.submit(config=src)
     ```
 
-Aby uzyskać więcej poleceń przydatnych dla wystąpienia obliczeniowego, zobacz [szkolenie dotyczące notesu w computeinstance](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb). Ten Notes jest również dostępny w folderze Studio **Samples** *(szkolenia/uczenie na computeinstance*).
-
 Teraz, po dołączeniu obliczeń i skonfigurowaniu przebiegu, następnym krokiem jest [przesłanie przebiegu szkoleniowego](#submit)
 
 
@@ -201,7 +199,7 @@ W tym scenariuszu Użyj usługi Azure Data Science Virtual Machine (DSVM) jako m
     > 
     > Azure Machine Learning wymaga również, aby maszyna wirtualna miała __publiczny adres IP__.
 
-1. **Dołącz**: Aby dołączyć istniejącą maszynę wirtualną jako element docelowy obliczeń, należy podać identyfikator zasobu, nazwę użytkownika i hasło dla maszyny wirtualnej. Identyfikator zasobu maszyny wirtualnej można utworzyć przy użyciu identyfikatora subskrypcji, nazwy grupy zasobów i nazwy maszyny wirtualnej przy użyciu następującego formatu ciągu:`/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`
+1. **Dołącz**: Aby dołączyć istniejącą maszynę wirtualną jako element docelowy obliczeń, należy podać identyfikator zasobu, nazwę użytkownika i hasło dla maszyny wirtualnej. Identyfikator zasobu maszyny wirtualnej można utworzyć przy użyciu identyfikatora subskrypcji, nazwy grupy zasobów i nazwy maszyny wirtualnej przy użyciu następującego formatu ciągu: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`
 
  
    ```python
@@ -243,7 +241,7 @@ Usługa Azure HDInsight to popularna platforma do analizy danych Big Data. Platf
     
     Po utworzeniu klastra Połącz się z nim za pomocą nazwy hosta \<clustername> -SSH.azurehdinsight.NET, gdzie \<clustername> jest nazwą dostarczoną dla klastra. 
 
-1. **Dołącz**: Aby dołączyć klaster usługi HDInsight jako element docelowy obliczeń, należy podać identyfikator zasobu, nazwę użytkownika i hasło dla klastra usługi HDInsight. Identyfikator zasobu klastra usługi HDInsight można utworzyć przy użyciu identyfikatora subskrypcji, nazwy grupy zasobów i nazwy klastra usługi HDInsight przy użyciu następującego formatu ciągu:`/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`
+1. **Dołącz**: Aby dołączyć klaster usługi HDInsight jako element docelowy obliczeń, należy podać identyfikator zasobu, nazwę użytkownika i hasło dla klastra usługi HDInsight. Identyfikator zasobu klastra usługi HDInsight można utworzyć przy użyciu identyfikatora subskrypcji, nazwy grupy zasobów i nazwy klastra usługi HDInsight przy użyciu następującego formatu ciągu: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`
 
     ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
@@ -276,7 +274,7 @@ Usługa Azure HDInsight to popularna platforma do analizy danych Big Data. Platf
 Teraz, po dołączeniu obliczeń i skonfigurowaniu przebiegu, następnym krokiem jest [przesłanie tego przebiegu szkoleniowego](#submit).
 
 
-### <a name="azure-batch"></a><a id="azbatch"></a>Azure Batch 
+### <a name="azure-batch"></a><a id="azbatch"></a>Usługa Azure Batch 
 
 Azure Batch służy do wydajnego uruchamiania aplikacji równoległych i o wysokiej wydajności obliczeniowych (HPC) w chmurze. AzureBatchStep można użyć w potoku Azure Machine Learning do przesyłania zadań do Azure Batch puli maszyn.
 
@@ -360,7 +358,7 @@ Wykonaj poprzednie kroki, aby wyświetlić listę elementów docelowych oblicze�
 
 1. Wypełnij formularz. Podaj wartości dla wymaganych właściwości, szczególnie **rodziny maszyn wirtualnych**i **maksymalną liczbę węzłów** do użycia w celu uruchomienia obliczeń.  
 
-1. Wybierz przycisk __Utwórz__.
+1. Wybierz pozycję __Utwórz__.
 
 
 1. Wyświetl stan operacji tworzenia, wybierając obiekt docelowy obliczeń z listy:

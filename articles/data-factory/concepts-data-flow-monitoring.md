@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/03/2020
-ms.openlocfilehash: ad5fb077596b6cc444c1c4df81af32cbcfa7c1db
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.date: 08/19/2020
+ms.openlocfilehash: 77dda42b27aa6f5fb505fe65667876523cb3f5d2
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475553"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650897"
 ---
 # <a name="monitor-data-flows"></a>Monitorowanie przepływów danych
 
@@ -47,7 +47,7 @@ Gdy przepływ danych jest wykonywany w platformie Spark, Azure Data Factory okre
 
 * Po wybraniu poszczególnych przekształceń otrzymujesz dodatkową opinię na temat panelu po prawej stronie, w którym znajdują się statystyki partycji, liczby kolumn, skośność (jak równomiernie są dystrybuowane dane między partycjami) i kurtoza (jak są to dane).
 
-* Po wybraniu ujścia w widoku węzła można zobaczyć elementy powiązane kolumny. Istnieją trzy różne metody, w których kolumny są gromadzone w całym przepływie danych pod kątem terenu. Oto one:
+* Po wybraniu ujścia w widoku węzła można zobaczyć elementy powiązane kolumny. Istnieją trzy różne metody, w których kolumny są gromadzone w całym przepływie danych pod kątem terenu. Są to:
 
   * Obliczone: używasz kolumny do przetwarzania warunkowego lub wewnątrz wyrażenia w przepływie danych, ale nie wystawić go w ujścia
   * Pochodny: kolumna jest nową kolumną wygenerowaną w przepływie, czyli nieobecną w źródle
@@ -76,6 +76,10 @@ Możesz również zobaczyć szczegółowy chronometraż dla każdego kroku przek
          ]
 }
 ```
+
+### <a name="post-processing-time"></a>Czas przetwarzania końcowego
+
+Gdy wybierzesz ikonę przekształcenia ujścia na mapie, panel slajdu po prawej stronie wyświetli dodatkowy punkt danych o nazwie "czas przetwarzania" w dolnej części. Jest to ilość czasu poświęcanego na wykonanie zadania w klastrze Spark *po* załadowaniu i zapisaniu danych. Ten czas może obejmować zamykanie pul połączeń, zamykanie sterowników, usuwanie plików, łączenie plików itp. Gdy wykonujesz akcje w przepływie, takie jak "Przenieś pliki" i "dane wyjściowe do pojedynczego pliku", prawdopodobnie zobaczysz wzrost wartości czasu przetwarzania.
   
 ## <a name="monitor-icons"></a>Monitoruj ikony
 

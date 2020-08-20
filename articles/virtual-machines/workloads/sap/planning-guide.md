@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87c8b160a0b8791d13976be975090d16e68ea82f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: de3b0ed309863a09003b1ff7709481d763163e07
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547413"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652206"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver
 
@@ -242,7 +242,7 @@ ms.locfileid: "88547413"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -533,7 +533,7 @@ Podczas wdrażania usług lub maszyn wirtualnych na platformie Azure wdrażanie 
 
 odgrywasz ważną rolę w planowaniu wdrożenia SAP na platformie Azure. Był on w trakcie zarządzania liczbą utrwalonych dysków w ramach konta magazynu. Należy zarządzać kontami magazynu i ostatecznie utworzyć nowe konta magazynu w celu utworzenia bardziej utrwalonych dysków.
 
-W ostatnich latach wprowadzenie [dysków zarządzanych przez platformę Azure](../../windows/managed-disks-overview.md) zostało zwolnione z tych zadań. Zalecenie dotyczące wdrożeń SAP polega na użyciu usługi Azure Managed disks, a nie do samodzielnego zarządzania kontami usługi Azure Storage. Usługa Azure Managed disks będzie rozpowszechniać dyski na różnych kontach magazynu, dzięki czemu nie zostaną przekroczone limity poszczególnych kont magazynu.
+W ostatnich latach wprowadzenie [dysków zarządzanych przez platformę Azure](../../managed-disks-overview.md) zostało zwolnione z tych zadań. Zalecenie dotyczące wdrożeń SAP polega na użyciu usługi Azure Managed disks, a nie do samodzielnego zarządzania kontami usługi Azure Storage. Usługa Azure Managed disks będzie rozpowszechniać dyski na różnych kontach magazynu, dzięki czemu nie zostaną przekroczone limity poszczególnych kont magazynu.
 
 W ramach konta magazynu istnieje typ koncepcji folderu o nazwie "Containers", który może służyć do grupowania określonych dysków w określonych kontenerach.
 
@@ -804,7 +804,7 @@ Wymagania dotyczące przygotowywania własnego dysku maszyny wirtualnej platform
 
 * Początkowo wirtualny dysk twardy zawierający system operacyjny może mieć maksymalny rozmiar 127 GB. To ograniczenie zostało wyeliminowane na koniec marca 2015. Teraz wirtualny dysk twardy zawierający system operacyjny może mieć rozmiar do 1 TB, jak również inny dysk VHD hostowanej usługi Azure Storage.
 * Musi być w formacie stałego dysku VHD. Dynamiczne dyski VHD lub wirtualne dyski twarde w formacie VHDx nie są jeszcze obsługiwane na platformie Azure. Dynamiczne wirtualne dyski twarde zostaną przekonwertowane na statyczne dyski VHD podczas przekazywania dysku VHD za pomocą programu PowerShell polecenia cmdlet lub interfejsu wiersza polecenia
-* Wirtualne dyski twarde, które są zainstalowane na maszynie wirtualnej i powinny być ponownie zainstalowane na platformie Azure, muszą być również w stałym formacie VHD. Przeczytaj [ten artykuł (Linux)](../../linux/managed-disks-overview.md) i [ten artykuł (Windows)](../../windows/managed-disks-overview.md)) dla limitów rozmiaru dysków danych. Dynamiczne wirtualne dyski twarde zostaną przekonwertowane na statyczne dyski VHD podczas przekazywania dysku VHD za pomocą programu PowerShell polecenia cmdlet lub interfejsu wiersza polecenia
+* Wirtualne dyski twarde, które są zainstalowane na maszynie wirtualnej i powinny być ponownie zainstalowane na platformie Azure, muszą być również w stałym formacie VHD. Przeczytaj [ten artykuł](../../managed-disks-overview.md) , aby uzyskać limity rozmiaru dysków danych. Dynamiczne wirtualne dyski twarde zostaną przekonwertowane na statyczne dyski VHD podczas przekazywania dysku VHD za pomocą programu PowerShell polecenia cmdlet lub interfejsu wiersza polecenia
 * Dodaj kolejne konto lokalne z uprawnieniami administratora, które mogą być używane przez pomoc techniczną firmy Microsoft lub które mogą być przypisane jako kontekst dla usług i aplikacji do uruchomienia, dopóki maszyna wirtualna nie zostanie wdrożona i będzie można używać większej liczby odpowiednich użytkowników.
 * Dodaj inne konta lokalne, ponieważ mogą one być konieczne w przypadku określonego scenariusza wdrażania.
 
@@ -831,7 +831,7 @@ Wymagania dotyczące przygotowywania własnego obrazu maszyny wirtualnej platfor
 
 * Początkowo wirtualny dysk twardy zawierający system operacyjny może mieć maksymalny rozmiar 127 GB. To ograniczenie zostało wyeliminowane na koniec marca 2015. Teraz wirtualny dysk twardy zawierający system operacyjny może mieć rozmiar do 1 TB, jak również inny dysk VHD hostowanej usługi Azure Storage.
 * Musi być w formacie stałego dysku VHD. Dynamiczne dyski VHD lub wirtualne dyski twarde w formacie VHDx nie są jeszcze obsługiwane na platformie Azure. Dynamiczne wirtualne dyski twarde zostaną przekonwertowane na statyczne dyski VHD podczas przekazywania dysku VHD za pomocą programu PowerShell polecenia cmdlet lub interfejsu wiersza polecenia
-* Wirtualne dyski twarde, które są zainstalowane na maszynie wirtualnej i powinny być ponownie zainstalowane na platformie Azure, muszą być również w stałym formacie VHD. Przeczytaj [ten artykuł (Linux)](../../windows/managed-disks-overview.md) i [ten artykuł (system Windows)](../../linux/managed-disks-overview.md) dla limitów rozmiaru dysków danych. Dynamiczne wirtualne dyski twarde zostaną przekonwertowane na statyczne dyski VHD podczas przekazywania dysku VHD za pomocą programu PowerShell polecenia cmdlet lub interfejsu wiersza polecenia
+* Wirtualne dyski twarde, które są zainstalowane na maszynie wirtualnej i powinny być ponownie zainstalowane na platformie Azure, muszą być również w stałym formacie VHD. Przeczytaj [ten artykuł](../../managed-disks-overview.md) , aby uzyskać limity rozmiaru dysków danych. Dynamiczne wirtualne dyski twarde zostaną przekonwertowane na statyczne dyski VHD podczas przekazywania dysku VHD za pomocą programu PowerShell polecenia cmdlet lub interfejsu wiersza polecenia
 * Dodaj inne konta lokalne, ponieważ mogą one być konieczne w przypadku określonego scenariusza wdrażania.
 * Jeśli obraz zawiera instalację oprogramowania SAP NetWeaver i zmiana nazwy hosta z oryginalnej nazwy w punkcie wdrożenia platformy Azure jest prawdopodobnie zalecana, należy skopiować najnowsze wersje dysku DVD Menedżera aprowizacji oprogramowania SAP do szablonu. Umożliwi to łatwe użycie funkcji zmiany nazwy przez SAP w celu dostosowania zmienionej nazwy hosta i/lub zmianę identyfikatora SID systemu SAP w ramach wdrożonego obrazu maszyny wirtualnej zaraz po rozpoczęciu nowej kopii.
 

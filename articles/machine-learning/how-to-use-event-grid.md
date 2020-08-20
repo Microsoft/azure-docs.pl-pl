@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 3b6f115e27b5cf956a524bd1a610797c689b5d6c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 464d945708fba83877fe6cef9ec1b64ec444bd95
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319494"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650421"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Wyzwalaj aplikacje, procesy lub przepływy pracy ciągłej integracji/ciągłego wdrażania w oparciu o zdarzenia Azure Machine Learning (wersja zapoznawcza)
 
@@ -199,7 +199,7 @@ Ten przykład pokazuje, jak używać usługi Event Grid z aplikacją logiki plat
 
 Przed rozpoczęciem wykonaj następujące czynności:
 
-* Konfigurowanie monitora zestawu danych w celu [wykrywania dryfu danych]( https://aka.ms/datadrift) w obszarze roboczym
+* Konfigurowanie monitora zestawu danych w celu [wykrywania dryfu danych](how-to-monitor-datasets.md) w obszarze roboczym
 * Utwórz [potok Azure Data Factory](https://docs.microsoft.com/azure/data-factory/)opublikowany.
 
 W tym przykładzie prosty potok Data Factory jest używany do kopiowania plików do magazynu obiektów blob i uruchamiania potoku opublikowanego Machine Learning. Aby uzyskać więcej informacji na temat tego scenariusza, zobacz Jak skonfigurować [Machine Learning krok w Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-machine-learning-service)

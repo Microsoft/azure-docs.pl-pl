@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 93587c6bbed20982bd96d04f58106ec1617542d3
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: b5438132f32117e0ec48a6f985c3b9d2045a9da2
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506434"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649690"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Konfiguracje infrastruktury SAP HANA i operacje na platformie Azure
 Ten dokument zawiera wskazówki dotyczące konfigurowania infrastruktury platformy Azure i systemów SAP HANA operacyjnych wdrożonych na natywnych maszynach wirtualnych platformy Azure. Dokument zawiera również informacje o konfiguracji SAP HANA skalowania w poziomie dla jednostki SKU maszyny wirtualnej M128s. Ten dokument nie jest przeznaczony do zastępowania standardowej dokumentacji SAP, która obejmuje następującą zawartość:
@@ -243,7 +243,7 @@ Zgodnie z najlepszymi rozwiązaniami dotyczącymi najlepszych rozwiązań o 2,0,
 
 Należy dołączyć wiele dysków platformy Azure do maszyny wirtualnej DT 2,0 i utworzyć oprogramowanie RAID (Stripe) na poziomie systemu operacyjnego w celu osiągnięcia maksymalnego limitu przepływności dysku na maszynę wirtualną. Pojedynczy dysk platformy Azure nie może zapewnić przepływności do osiągnięcia maksymalnego limitu dla maszyny wirtualnej w tym zakresie. Usługa Azure Premium Storage jest wymagana do uruchomienia DT 2,0. 
 
-- Szczegółowe informacje o dostępnych typach dysków platformy Azure można znaleźć [tutaj](../../windows/disks-types.md)
+- Szczegółowe informacje o dostępnych typach dysków platformy Azure można znaleźć [tutaj](../../disks-types.md)
 - Szczegółowe informacje o tworzeniu RAID oprogramowania za pośrednictwem mdadm można znaleźć [tutaj](../../linux/configure-raid.md)
 - Szczegółowe informacje o konfigurowaniu LVM w celu utworzenia woluminu rozłożonego na potrzeby maksymalnej przepływności można znaleźć [tutaj](../../linux/configure-lvm.md)
 

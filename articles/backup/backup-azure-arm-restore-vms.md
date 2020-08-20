@@ -4,12 +4,12 @@ description: Przywróć maszynę wirtualną platformy Azure z punktu odzyskiwani
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: af9b505e762e201713b8e554b7886e5e2062dfef
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 4aca863dd4e9c418872cd67bdf54df616a7a0c5b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263014"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651152"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Przywracanie danych maszyny wirtualnej platformy Azure w Azure Portal
 
@@ -184,7 +184,7 @@ Jeśli CRR jest włączona, można wyświetlić elementy kopii zapasowej w regio
 
 ## <a name="restoring-unmanaged-vms-and-disks-as-managed"></a>Przywracanie niezarządzanych maszyn wirtualnych i dysków jako zarządzanych
 
-Jest dostępna opcja przywracania [dysków niezarządzanych](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks) jako [dysków zarządzanych](../virtual-machines/windows/managed-disks-overview.md) podczas przywracania. Domyślnie niezarządzane maszyny wirtualne/dyski są przywracane jako niezarządzane maszyny wirtualne/dyski. Jeśli jednak zdecydujesz się na przywrócenie zarządzanych maszyn wirtualnych/dysków, możesz to zrobić. Te przywrócenia nie są wyzwalane z fazy migawki, ale tylko z fazy magazynu. Ta funkcja jest niedostępna dla niezarządzanych szyfrowanych maszyn wirtualnych.
+Jest dostępna opcja przywracania [dysków niezarządzanych](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks) jako [dysków zarządzanych](../virtual-machines/managed-disks-overview.md) podczas przywracania. Domyślnie niezarządzane maszyny wirtualne/dyski są przywracane jako niezarządzane maszyny wirtualne/dyski. Jeśli jednak zdecydujesz się na przywrócenie zarządzanych maszyn wirtualnych/dysków, możesz to zrobić. Te przywrócenia nie są wyzwalane z fazy migawki, ale tylko z fazy magazynu. Ta funkcja jest niedostępna dla niezarządzanych szyfrowanych maszyn wirtualnych.
 
 ![Przywróć jako dyski zarządzane](./media/backup-azure-arm-restore-vms/restore-as-managed-disks.png)
 

@@ -3,12 +3,12 @@ title: Odtwarzanie wielodniowych zapisów — Azure
 description: W ramach tego samouczka nauczysz się używać interfejsów API usługi Azure Media Service do odtwarzania wielodniowego ciągłego nagrywania wideo.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 52ef33e8c4380e9c21e99c4ba45b7f25f7c57780
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 19a42c61ef250fecce4503d3aed70b36d71ee3cf
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433661"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649095"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Samouczek: Odtwarzanie wielodniowych zapisów  
 
@@ -40,7 +40,7 @@ Zaleca się zapoznanie się z następującymi stronami dokumentacji:
 
 ## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej 
 
-W ramach [samouczka CVR](continuous-video-recording-tutorial.md)utworzono konto usługi Media. W tym samouczku należy mieć pełny dostęp API do tego konta. Aby utworzyć nazwę główną usługi, można użyć kroków z sekcji [Uzyskiwanie poświadczeń w celu uzyskania dostępu do Media Services interfejsu API](../latest/access-api-howto.md#use-the-azure-portal) . Powinno być możliwe uzyskanie bloku JSON z Azure Portal, który wygląda następująco:
+W ramach [samouczka CVR](continuous-video-recording-tutorial.md)utworzono konto usługi Media. W tym samouczku należy mieć pełny dostęp API do tego konta. Aby utworzyć nazwę główną usługi, można użyć kroków z sekcji [Uzyskiwanie poświadczeń w celu uzyskania dostępu do Media Services interfejsu API](../latest/access-api-howto.md?tabs=portal) . Powinno być możliwe uzyskanie bloku JSON z Azure Portal, który wygląda następująco:
 
 ```
 {
@@ -57,7 +57,7 @@ W ramach [samouczka CVR](continuous-video-recording-tutorial.md)utworzono konto 
 }
 ```
 
-Następnie w programie Visual Studio Code Otwórz pozycję src/AMS-Asset-Player. Ten folder zawiera pliki niezbędne dla tego samouczka. Otwórz plik appSettings. JSON i skopiuj jego zawartość do nowego pliku, appSettings. Development. JSON. Wprowadź następujące zmiany do ostatniego pliku:
+Następnie w programie Visual Studio Code Otwórz pozycję src/AMS-Asset-Player. Ten folder zawiera pliki niezbędne dla tego samouczka. Otwórz appsettings.jspliku i skopiuj jego zawartość do nowego pliku, appsettings.development.js. Wprowadź następujące zmiany do ostatniego pliku:
 
 ```
   "AMS" : {

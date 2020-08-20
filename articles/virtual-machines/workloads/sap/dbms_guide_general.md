@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad6bbc1d3c20659441b8b062898526471f4d713a
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 15c0368b2d0bd85f6fee65ffa2c9d6776d07f162
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510236"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650619"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Zagadnienia dotyczące wdrażania systemu Azure Virtual Machines DBMS dla obciążeń SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -111,10 +111,7 @@ Ogólnie rzecz biorąc instalacja i konfiguracja systemu Windows, Linux i DBMS j
 ## <a name="storage-structure-of-a-vm-for-rdbms-deployments"></a><a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Struktura magazynu maszyny wirtualnej na potrzeby wdrożeń RDBMS
 Aby postępować zgodnie z tym rozdziałem, przeczytaj i zapoznaj się z informacjami przedstawionymi w [tym rozdziale][deployment-guide-3] [przewodnika wdrażania][deployment-guide]. Przed przeczytaniem tego rozdziału należy zrozumieć i poznać różne serie maszyn wirtualnych oraz różnice między warstwami standardowa i Premium. 
 
-Aby dowiedzieć się więcej o usłudze Azure Storage dla maszyn wirtualnych platformy Azure, zobacz:
-
-- [Wprowadzenie do dysków zarządzanych dla maszyn wirtualnych z systemem Windows Azure](../../windows/managed-disks-overview.md).
-- [Wprowadzenie do dysków zarządzanych dla maszyn wirtualnych z systemem Linux systemu Azure](../../linux/managed-disks-overview.md).
+Aby dowiedzieć się więcej o usłudze Azure Storage dla maszyn wirtualnych platformy Azure, zobacz [wprowadzenie do dysków zarządzanych dla maszyn wirtualnych platformy Azure](../../managed-disks-overview.md).
 
 W konfiguracji podstawowej zwykle zalecamy strukturę wdrożenia, w której system operacyjny, DBMS i ostateczne pliki binarne SAP są oddzielone od plików bazy danych. Zalecamy, aby systemy SAP działające na maszynach wirtualnych platformy Azure miały podstawowy dysk VHD (lub dysk) zainstalowany z systemem operacyjnym, plikami wykonywalnymi systemu zarządzania bazami danych i plikami wykonywalnymi SAP. 
 

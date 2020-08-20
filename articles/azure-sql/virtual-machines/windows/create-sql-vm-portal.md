@@ -14,12 +14,12 @@ ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8b16551abf5b52a9b848988a50fe556d364907b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e315f49cb0b78e13c4b6132f844397d1261ff0f9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669294"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652020"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Jak za pomocą Azure Portal zainicjować obsługę administracyjną maszyny wirtualnej z systemem Windows za pomocą SQL Server
 
@@ -34,7 +34,7 @@ Użyj tego przewodnika, aby utworzyć własną SQL Server maszynę wirtualną. L
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="sql-server-virtual-machine-gallery-images"></a><a id="select"></a>Obrazy z galerii maszyn wirtualnych SQL Server
+## <a name="sql-server-virtual-machine-gallery-images"></a><a id="select"></a> Obrazy z galerii maszyn wirtualnych SQL Server
 
 Podczas tworzenia maszyny wirtualnej SQL Server można wybrać jeden z kilku wstępnie skonfigurowanych obrazów z galerii maszyn wirtualnych. W poniższych krokach pokazano, jak wybrać jeden z SQL Server obrazów 2017.
 
@@ -104,7 +104,7 @@ Na karcie **dyski** Skonfiguruj opcje dysków.
 * W obszarze **Zaawansowane**wybierz pozycję **tak** w obszarze Użyj **Managed disks**.
 
    > [!NOTE]
-   > Firma Microsoft zaleca funkcję Dyski zarządzane dla programu SQL Server. Funkcja Dyski zarządzane obsługuje magazyn w tle. Ponadto jeśli maszyny wirtualne z funkcją Dyski zarządzane znajdują się w tym samym zestawie dostępności, platforma Azure dystrybuuje zasoby magazynu w celu zapewnienia odpowiedniej nadmiarowości. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Managed disks](../../../virtual-machines/windows/managed-disks-overview.md). Aby uzyskać szczegóły dotyczące dysków zarządzanych w zestawie dostępności, zobacz sekcję [Use managed disks for VMs in availability set](../../../virtual-machines/windows/manage-availability.md) (Używanie dysków zarządzanych dla maszyn wirtualnych w zestawie dostępności).
+   > Firma Microsoft zaleca funkcję Dyski zarządzane dla programu SQL Server. Funkcja Dyski zarządzane obsługuje magazyn w tle. Ponadto jeśli maszyny wirtualne z funkcją Dyski zarządzane znajdują się w tym samym zestawie dostępności, platforma Azure dystrybuuje zasoby magazynu w celu zapewnienia odpowiedniej nadmiarowości. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Managed disks](../../../virtual-machines/managed-disks-overview.md). Aby uzyskać szczegóły dotyczące dysków zarządzanych w zestawie dostępności, zobacz sekcję [Use managed disks for VMs in availability set](../../../virtual-machines/windows/manage-availability.md) (Używanie dysków zarządzanych dla maszyn wirtualnych w zestawie dostępności).
 
 ![Ustawienia dysku maszyny wirtualnej SQL](./media/create-sql-vm-portal/azure-sqlvm-disks.png)
   
@@ -135,9 +135,9 @@ Na karcie **monitorowanie** Skonfiguruj monitorowanie i automatyczne zamykanie.
 
 Na karcie **ustawienia SQL Server** Skonfiguruj określone ustawienia i optymalizacje dla SQL Server. Dla SQL Server można skonfigurować następujące ustawienia:
 
-- [Połączenia](#connectivity)
+- [Łączność](#connectivity)
 - [Authentication](#authentication)
-- [Integracja magazynu kluczy Azure](#azure-key-vault-integration)
+- [Integracja Azure Key Vault](#azure-key-vault-integration)
 - [Konfiguracja magazynu](#storage-configuration)
 - [Automatyczne stosowanie poprawek](#automated-patching)
 - [Automatyczna kopia zapasowa](#automated-backup)
@@ -177,7 +177,7 @@ Jeśli wolisz nie włączać uwierzytelniania SQL Server, możesz użyć konta a
 
 ### <a name="azure-key-vault-integration"></a>Integracja magazynu kluczy Azure
 
-Aby przechowywać wpisy tajne zabezpieczeń na platformie Azure na potrzeby szyfrowania, wybierz pozycję **ustawienia SQL Server**i przewiń w dół do opcji **integracja z magazynem kluczy Azure**. Wybierz pozycję **Włącz** i wypełnij żądane informacje. 
+Aby przechowywać wpisy tajne zabezpieczeń na platformie Azure na potrzeby szyfrowania, wybierz pozycję **ustawienia SQL Server**i przewiń w dół do opcji  **integracja z magazynem kluczy Azure**. Wybierz pozycję **Włącz** i wypełnij żądane informacje. 
 
 ![Integracja magazynu kluczy Azure](./media/create-sql-vm-portal/azure-sqlvm-akv.png)
 
@@ -257,7 +257,7 @@ Możesz monitorować wdrożenie z poziomu witryny Azure Portal. Przycisk **Powia
 > [!NOTE]
 > Przykład czasu na platformę Azure w celu wdrożenia maszyny wirtualnej SQL Server: test SQL Server maszyna wirtualna, która została zainicjowana do regionu Wschodnie stany USA z ustawieniami domyślnymi, trwa około 12 minut. Czas wdrożenia może być krótszy lub wolniejszy w zależności od regionu i wybranych ustawień.
 
-## <a name="open-the-vm-with-remote-desktop"></a><a id="remotedesktop"></a>Otwórz maszynę wirtualną przy użyciu Pulpit zdalny
+## <a name="open-the-vm-with-remote-desktop"></a><a id="remotedesktop"></a> Otwórz maszynę wirtualną przy użyciu Pulpit zdalny
 
 Aby nawiązać połączenie z maszyną wirtualną SQL Server przy użyciu Remote Desktop Protocol (RDP), wykonaj następujące czynności:
 
@@ -267,7 +267,7 @@ Po ustanowieniu połączenia z maszyną wirtualną programu SQL Server możesz u
 
 Korzystając z dostępu do maszyny, możesz bezpośrednio zmienić ustawienia maszyny i programu SQL Server, w zależności od wymagań. Na przykład możesz skonfigurować ustawienia zapory lub zmienić ustawienia konfiguracji programu SQL Server.
 
-## <a name="connect-to-sql-server-remotely"></a><a id="connect"></a>Zdalne nawiązywanie połączenia z usługą SQL Server
+## <a name="connect-to-sql-server-remotely"></a><a id="connect"></a> Zdalne nawiązywanie połączenia z usługą SQL Server
 
 W tym instruktażu wybrano opcję dostęp **publiczny** dla maszyny wirtualnej i **uwierzytelnianie SQL Server**. Te ustawienia powodują automatyczne skonfigurowanie maszyny wirtualnej do zezwalania na połączenia z programem SQL Server z dowolnego klienta za pośrednictwem Internetu (zakładając, że ma on poprawny identyfikator logowania SQL).
 

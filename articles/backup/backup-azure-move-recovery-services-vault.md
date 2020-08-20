@@ -4,12 +4,12 @@ description: Instrukcje dotyczące przenoszenia magazynu usług Recovery Service
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: fbbe914b3e567a1a136d735fc52965524bc17b67
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 4751a6068904ef03a4d30d322a285e4074476b70
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612575"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650917"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Przenoszenie magazynu Recovery Services w ramach subskrypcji i grup zasobów platformy Azure
 
@@ -141,7 +141,7 @@ Aby przejść do nowej subskrypcji, podaj `--destination-subscription-id` parame
 ## <a name="post-migration"></a>Zadania po migracji
 
 1. Ustaw/Sprawdź kontrolę dostępu dla grup zasobów.  
-2. Funkcja raportowania i monitorowania kopii zapasowych musi zostać skonfigurowana ponownie dla magazynu po zakończeniu przenoszenia. Poprzednia konfiguracja zostanie utracona podczas operacji przenoszenia.
+2. Funkcję raportowania i monitorowania kopii zapasowej należy skonfigurować ponownie dla magazynu po zakończeniu przenoszenia. Poprzednia konfiguracja zostanie utracona podczas operacji przenoszenia.
 
 ## <a name="next-steps"></a>Następne kroki
 

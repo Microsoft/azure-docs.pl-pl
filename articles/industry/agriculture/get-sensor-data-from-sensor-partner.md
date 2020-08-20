@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 08099ede82f8ebd9c1cd6e585a16800ee1626f65
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 3452641b336308ddf46349064345b154e55aa53c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508791"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649163"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Pobierz dane czujnika z partnerów czujników
 
@@ -87,6 +87,10 @@ Wykonaj poniższe kroki, aby wygenerować powyższe informacje:
     ./generatePartnerCredentials.ps1
 
     ```
+
+> [!NOTE]
+> 1. Nazwa punktu końcowego interfejsu API Datahub musi występować małymi literami.
+> 2. Jeśli kopiujesz adres URL nazwy witryny sieci Web farmbeats dla punktu końcowego interfejsu API Datahub, upewnij się, że nie ma końcowego ukośnika (/).
 
 9. Postępuj zgodnie z instrukcjami na ekranie, aby przechwycić wartości dla **punktów końcowych interfejsu API**, **identyfikatora dzierżawy**, **identyfikatora klienta**, **klucza tajnego klienta**i **parametrów połączenia centrum EventHub**.
 

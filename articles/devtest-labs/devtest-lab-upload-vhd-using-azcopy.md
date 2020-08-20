@@ -3,18 +3,18 @@ title: Przekaż plik VHD do Azure DevTest Labs przy użyciu usługi AzCopy | Mic
 description: Ten artykuł zawiera Przewodnik po użyciu narzędzia wiersza polecenia AzCopy w celu przekazania pliku VHD do konta magazynu laboratorium w Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: cbed78af3e74af5cf72fd20866abf1ee79011ef4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d8ede0f78726b04ac862a00b559b8d42c3ed1cd
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483214"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650778"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Przekaż plik VHD do konta magazynu laboratorium przy użyciu AzCopy
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-W Azure DevTest Labs pliki VHD mogą służyć do tworzenia obrazów niestandardowych, które są używane do obsługi maszyn wirtualnych. Poniższe kroki umożliwiają przekazanie pliku VHD do konta magazynu laboratorium przy użyciu narzędzia wiersza polecenia AzCopy. Po przekazaniu pliku VHD [sekcja następne kroki](#next-steps) zawiera listę artykułów, które ilustrują, jak utworzyć obraz niestandardowy na podstawie przekazanego pliku VHD. Aby uzyskać więcej informacji na temat dysków i dysków VHD na platformie Azure, zobacz [wprowadzenie do usługi Managed disks](../virtual-machines/linux/managed-disks-overview.md)
+W Azure DevTest Labs pliki VHD mogą służyć do tworzenia obrazów niestandardowych, które są używane do obsługi maszyn wirtualnych. Poniższe kroki umożliwiają przekazanie pliku VHD do konta magazynu laboratorium przy użyciu narzędzia wiersza polecenia AzCopy. Po przekazaniu pliku VHD [sekcja następne kroki](#next-steps) zawiera listę artykułów, które ilustrują, jak utworzyć obraz niestandardowy na podstawie przekazanego pliku VHD. Aby uzyskać więcej informacji na temat dysków i dysków VHD na platformie Azure, zobacz [wprowadzenie do usługi Managed disks](../virtual-machines/managed-disks-overview.md)
 
 > [!NOTE] 
 >  

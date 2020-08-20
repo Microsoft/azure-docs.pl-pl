@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3402f4ff719752cca6e1d7a4aeeb3b7e12c3e28
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: f195d4096baaa1d6a03b4b6c7c589ccef8fbd036
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511146"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651730"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Obciążenia SAP na platformie Azure: Lista kontrolna planowania i wdrażania
 
@@ -110,9 +110,9 @@ Zalecamy skonfigurowanie i zweryfikowanie pełnego projektu rozwiązania HADR Cl
            -  [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ważne jest, aby uwzględnić *maksymalną przepływność dysku niebuforowanego* dla rozmiaru.
    2. Pamięć.
         - Sprawdź dokument [typy magazynów Azure dla obciążeń SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage)
-        - Za pomocą [usługi Azure SSD w warstwie Standardowa Storage](../../windows/disks-types.md#standard-ssd) można korzystać w przypadku maszyn wirtualnych, które reprezentują warstwy aplikacji SAP, oraz wdrażania systemów DBMS, które nie są wrażliwe na wydajność.
-        - Ogólnie rzecz biorąc nie zalecamy używania [dysków HDD w warstwie Standardowa platformy Azure](../../windows/disks-types.md#standard-hdd).
-        - Użyj [Premium Storage platformy Azure](../../windows/disks-types.md#premium-ssd) dla wszystkich maszyn wirtualnych z systemem DBMS, które są zdalnie wrażliwe na wydajność.
+        - Za pomocą [usługi Azure SSD w warstwie Standardowa Storage](../../disks-types.md#standard-ssd) można korzystać w przypadku maszyn wirtualnych, które reprezentują warstwy aplikacji SAP, oraz wdrażania systemów DBMS, które nie są wrażliwe na wydajność.
+        - Ogólnie rzecz biorąc nie zalecamy używania [dysków HDD w warstwie Standardowa platformy Azure](../../disks-types.md#standard-hdd).
+        - Użyj [Premium Storage platformy Azure](../../disks-types.md#premium-ssd) dla wszystkich maszyn wirtualnych z systemem DBMS, które są zdalnie wrażliwe na wydajność.
         - Użyj [usługi Azure Managed disks](https://azure.microsoft.com/services/managed-disks/).
         - Użyj usługi Azure akcelerator zapisu dla dysków dziennika DBMS z serii M. Należy pamiętać o limitach i użyciu akcelerator zapisu, jak opisano w [Akcelerator zapisu](../../how-to-enable-write-accelerator.md).
         - W przypadku różnych typów systemów DBMS należy zapoznać się z [ogólną dokumentacją systemu DBMS powiązaną z programem SAP](./dbms_guide_general.md) i dokumentacją specyficzną dla systemu DBMS, na którą wskazuje dokument ogólny.

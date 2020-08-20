@@ -12,12 +12,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: e1cfe7216c1b37812c482cfacbd5d1c3f155418f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b5a83b3976dd3d3af1bfd5695815f7571d73dd9d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507832"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652189"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Przewodnik dotyczący tworzenia kopii zapasowych SAP HANA na platformie Azure Virtual Machines
 
@@ -45,7 +45,7 @@ Pierwszy przedstawiony scenariusz jest scenariuszem, w którym usługa Azure Bac
 
 Azure Backup integruje i jest certyfikowane jako rozwiązanie do tworzenia kopii zapasowych dla SAP HANA przy użyciu własnościowego interfejsu SAP HANA o nazwie [BACKINT](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5). Aby uzyskać więcej informacji na temat rozwiązania, jego możliwości i regionów świadczenia usługi Azure, w których są dostępne, zapoznaj się z artykułem [Obsługa macierzy tworzenia kopii zapasowych baz danych SAP HANA na maszynach wirtualnych platformy Azure](../../../backup/sap-hana-backup-support-matrix.md#scenario-support). Aby uzyskać szczegółowe informacje i zasady dotyczące usługi Azure Backup Service for HANA, przeczytaj artykuł [dotyczący SAP HANA kopii zapasowej bazy danych na maszynach wirtualnych platformy Azure](../../../backup/sap-hana-db-about.md). 
 
-Drugą możliwością wykorzystania usługi Azure Backup jest utworzenie kopii zapasowej spójnej na poziomie aplikacji przy użyciu migawek dysków usługi Azure Premium Storage. Inne certyfikowane magazyny platformy Azure, takie jak [Azure Ultra Disk](../../linux/disks-enable-ultra-ssd.md) i [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) , nie obsługują tego rodzaju migawek za pomocą usługi Azure Backup. Odczytywanie następujących artykułów:
+Drugą możliwością wykorzystania usługi Azure Backup jest utworzenie kopii zapasowej spójnej na poziomie aplikacji przy użyciu migawek dysków usługi Azure Premium Storage. Inne certyfikowane magazyny platformy Azure, takie jak [Azure Ultra Disk](../../disks-enable-ultra-ssd.md) i [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) , nie obsługują tego rodzaju migawek za pomocą usługi Azure Backup. Odczytywanie następujących artykułów:
 
 - [Planowanie infrastruktury kopii zapasowych maszyny wirtualnej na platformie Azure](../../../backup/backup-azure-vms-introduction.md)
 - [Kopia zapasowa maszyn wirtualnych platformy Azure z systemem Linux spójna na poziomie aplikacji](../../../backup/backup-azure-linux-app-consistent.md) 

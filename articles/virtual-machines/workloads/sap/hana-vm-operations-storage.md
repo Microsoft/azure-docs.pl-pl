@@ -15,22 +15,22 @@ ms.workload: infrastructure
 ms.date: 08/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e1b510ed970b253adedef0fb6efb4abe0c3b65b
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: aa6aba12af08e2b5e044eaeb299ec6090ab6d750
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506400"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650472"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Konfiguracje magazynu maszyn wirtualnych platformy Azure SAP HANA
 
 Platforma Azure oferuje różne typy magazynów, które są odpowiednie dla maszyn wirtualnych platformy Azure z systemem SAP HANA. **SAP HANA certyfikowane typy magazynów platformy Azure** , które mogą być brane pod uwagę w przypadku list wdrożeń SAP HANA, takich jak: 
 
 - Dysk SSD Azure Premium lub Premium Storage 
-- [Dysk w warstwie Ultra](../../linux/disks-enable-ultra-ssd.md)
+- [Dysk w warstwie Ultra](../../disks-enable-ultra-ssd.md)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
-Aby dowiedzieć się więcej o tych typach dysków, zapoznaj się z artykułem [typy magazynów Azure dla obciążeń SAP](./planning-guide-storage.md) i [Wybierz typ dysku](../../linux/disks-types.md)
+Aby dowiedzieć się więcej o tych typach dysków, zapoznaj się z artykułem [typy magazynów Azure dla obciążeń SAP](./planning-guide-storage.md) i [Wybierz typ dysku](../../disks-types.md)
 
 Platforma Azure oferuje dwie metody wdrażania dysków VHD w usłudze Azure Standard i Premium Storage. Oczekujemy, że korzystasz z [dysku zarządzanego na platformie Azure](https://azure.microsoft.com/services/managed-disks/) na potrzeby wdrożeń magazynu blokowego platformy Azure. 
 
@@ -59,7 +59,7 @@ Uwzględniając, że niskie opóźnienie magazynu ma krytyczne znaczenie dla sys
 
 Niektóre zasady dotyczące identyfikatorów w ramach wybierania konfiguracji magazynu dla platformy HANA można wymienić na takie:
 
-- Wybieranie typu magazynu w oparciu o [typy magazynów platformy Azure dla obciążenia SAP](./planning-guide-storage.md) i [Wybierz typ dysku](../../linux/disks-types.md)
+- Wybieranie typu magazynu w oparciu o [typy magazynów platformy Azure dla obciążenia SAP](./planning-guide-storage.md) i [Wybierz typ dysku](../../disks-types.md)
 - Ogólna przepustowość operacji we/wy maszyny wirtualnej i limity liczby operacji wejścia/wyjścia na sekundę podczas ustalania rozmiarów lub podejmowania decyzji dotyczących maszyny wirtualnej. Ogólna przepływność magazynu maszyn wirtualnych jest udokumentowana w [rozmiarze artykułu zoptymalizowanego pod kątem pamięci](../../sizes-memory.md)
 - Podczas decydowania o konfiguracji magazynu spróbuj utrzymać się poniżej ogólnej przepływności maszyny wirtualnej przy użyciu konfiguracji woluminu **/Hana/Data** . Pisanie punktów zapisu, SAP HANA może być agresywne wydawanie I/OS. Podczas pisania punktu zapisu można łatwo wypchnąć do limitów przepływności woluminu **/Hana/Data** . Jeśli dyski, które kompilują wolumin **/Hana/Data** , mają wyższą przepływność niż zezwala na korzystanie z maszyny wirtualnej, można wypróbować sytuacje, w których przepływność wykorzystywana przez zapis punktu zapisu jest zakłócał wymagania dotyczące przepływności w zapisie dziennika wykonaj ponownie. Sytuacja, która może mieć wpływ na przepływność aplikacji
 - W przypadku korzystania z usługi Azure Premium Storage najtańsza konfiguracja polega na użyciu menedżerów woluminów logicznych do kompilowania zestawów rozłożonych w celu kompilowania woluminów **/Hana/Data** i **/Hana/log**
@@ -218,7 +218,7 @@ W przypadku innych woluminów, w tym **/Hana/log** na obudowie Ultra Disk, konfi
 
 
 ## <a name="azure-ultra-disk-storage-configuration-for-sap-hana"></a>Konfiguracja usługi Azure Ultra Disk Storage dla SAP HANA
-Inny typ magazynu platformy Azure nosi nazwę [Azure Ultra Disk](../../windows/disks-types.md#ultra-disk). Istotna różnica między usługą Azure Storage zaoferowana do tej pory i niezwykle dyskiem oznacza, że możliwości dysków nie są już powiązane z rozmiarem dysku. Jako klient można zdefiniować te możliwości dla Ultra Disk:
+Inny typ magazynu platformy Azure nosi nazwę [Azure Ultra Disk](../../disks-types.md#ultra-disk). Istotna różnica między usługą Azure Storage zaoferowana do tej pory i niezwykle dyskiem oznacza, że możliwości dysków nie są już powiązane z rozmiarem dysku. Jako klient można zdefiniować te możliwości dla Ultra Disk:
 
 - Rozmiar dysku z zakresu od 4 GiB do 65 536 GiB
 - Zakres IOPS z 100 operacji we/wy na sekundę (wartość maksymalna zależy również od typów maszyn wirtualnych)

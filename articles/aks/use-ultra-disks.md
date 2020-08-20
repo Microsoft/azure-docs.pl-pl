@@ -4,23 +4,23 @@ description: Dowiedz się, jak włączyć i skonfigurować Ultra disks w klastrz
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: f74da764f5a0b021199782dbad03e6e95cceb7f2
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 6ad739a128839eac4d664ffb6f9e3b2fcd07f2d9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986835"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650183"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Korzystanie z Azure Ultra disks w usłudze Azure Kubernetes Service (wersja zapoznawcza)
 
-[Usługa Azure Ultra disks](../virtual-machines/linux/disks-enable-ultra-ssd.md) oferuje wysoką przepływność, dużą liczbę IOPS i spójną małą ilość miejsca na dysku dla aplikacji stanowych. Jedną z głównych zalet funkcji Ultra disks jest możliwość dynamicznego zmieniania wydajności dysków SSD wraz z obciążeniami bez konieczności ponownego uruchamiania węzłów agentów. Ultra dyski są odpowiednie dla obciążeń intensywnie korzystających z danych.
+[Usługa Azure Ultra disks](../virtual-machines/disks-enable-ultra-ssd.md) oferuje wysoką przepływność, dużą liczbę IOPS i spójną małą ilość miejsca na dysku dla aplikacji stanowych. Jedną z głównych zalet funkcji Ultra disks jest możliwość dynamicznego zmieniania wydajności dysków SSD wraz z obciążeniami bez konieczności ponownego uruchamiania węzłów agentów. Ultra dyski są odpowiednie dla obciążeń intensywnie korzystających z danych.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Tę funkcję można ustawić tylko podczas tworzenia klastra lub tworzenia puli węzłów.
 
 > [!IMPORTANT]
-> Usługa Azure Ultra disks wymaga nodepools wdrożonych w strefach dostępności i regionach, które obsługują te dyski, a także tylko określonej serii maszyn wirtualnych. Zobacz [**zakres i ograniczenia dotyczące Ultra disks**](../virtual-machines/linux/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
+> Usługa Azure Ultra disks wymaga nodepools wdrożonych w strefach dostępności i regionach, które obsługują te dyski, a także tylko określonej serii maszyn wirtualnych. Zobacz [**zakres i ograniczenia dotyczące Ultra disks**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -64,7 +64,7 @@ az extension update --name aks-preview
 ``` 
 
 ### <a name="limitations"></a>Ograniczenia
-- Zobacz [ **zakres i ograniczenia dotyczące Ultra DISKs ga**](../virtual-machines/linux/disks-enable-ultra-ssd.md#ga-scope-and-limitations)
+- Zobacz [ **zakres i ograniczenia dotyczące Ultra DISKs ga**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations)
 - Zakres obsługiwanego rozmiaru dla Ultra disks jest z zakresu od 100 do 1500
 
 ## <a name="create-a-new-cluster-that-can-use-ultra-disks"></a>Tworzenie nowego klastra, który może korzystać z Ultra disks
@@ -226,7 +226,7 @@ Events:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji na temat Ultra disks, zobacz [Korzystanie z usługi Azure Ultra disks](../virtual-machines/linux/disks-enable-ultra-ssd.md).
+- Aby uzyskać więcej informacji na temat Ultra disks, zobacz [Korzystanie z usługi Azure Ultra disks](../virtual-machines/disks-enable-ultra-ssd.md).
 - Aby uzyskać więcej informacji o najlepszych rozwiązaniach dotyczących magazynu, zobacz [najlepsze rozwiązania dotyczące magazynu i kopii zapasowych w usłudze Azure Kubernetes Service (AKS).][operator-best-practices-storage]
 
 <!-- LINKS - external -->
@@ -240,7 +240,7 @@ Events:
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
-[premium-storage]: ../virtual-machines/windows/disks-types.md
+[premium-storage]: ../virtual-machines/disks-types.md
 [az-disk-list]: /cli/azure/disk#az-disk-list
 [az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
 [az-disk-create]: /cli/azure/disk#az-disk-create

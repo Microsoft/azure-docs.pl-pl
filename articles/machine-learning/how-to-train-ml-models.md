@@ -11,12 +11,12 @@ ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 9f63b4215e9b4a67a439e47501876d237a6d3c3b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fe7210ad52c756f140144f04e3b747c0bfcd00c3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320922"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650319"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Uczenie modeli za pomocą Azure Machine Learning przy użyciu szacowania
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -83,7 +83,7 @@ print(run.get_portal_url())
 >
 > Podobnie można napisać wszystkie dzienniki z poziomu szkolenia szkoleniowego do `./logs` folderu. Aby korzystać z [integracji TensorBoard](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/export-run-history-to-tensorboard/export-run-history-to-tensorboard.ipynb) Azure Machine Learning upewnij się, że piszesz dzienniki TensorBoard w tym folderze. Gdy przebieg jest w toku, będzie można uruchamiać TensorBoard i przesyłać strumieniowo te dzienniki.  Później będzie można przywrócić dzienniki z dowolnego poprzedniego przebiegu.
 >
-> Na przykład, aby pobrać plik zapisany *w folderze* Outputs na komputer lokalny po uruchomieniu szkolenia zdalnego:`run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
+> Na przykład, aby pobrać plik zapisany *w folderze* Outputs na komputer lokalny po uruchomieniu szkolenia zdalnego: `run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
 
 ### <a name="distributed-training-and-custom-docker-images"></a>Szkolenie rozproszone i niestandardowe obrazy platformy Docker
 
@@ -111,9 +111,9 @@ estimator = Estimator(source_directory='./my-keras-proj',
 
 Powyższy kod uwidacznia następujące nowe parametry `Estimator` konstruktorowi:
 
-Parametr | Opis | Domyślne
+Parametr | Opis | Domyślny
 --|--|--
-`custom_docker_image`| Nazwa obrazu, którego chcesz użyć. Udostępniaj tylko obrazy dostępne w publicznych repozytoriach platformy Docker (w tym przypadku Docker Hub). Aby użyć obrazu z prywatnego repozytorium platformy Docker, użyj `environment_definition` zamiast niego parametru konstruktora. [Zobacz przykład](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
+`custom_docker_image`| Nazwa obrazu, którego chcesz użyć. Udostępniaj tylko obrazy dostępne w publicznych repozytoriach platformy Docker (w tym przypadku Docker Hub). Aby użyć obrazu z prywatnego repozytorium platformy Docker, użyj `environment_definition` zamiast niego parametru konstruktora.| `None`
 `node_count`| Liczba węzłów, które mają być używane dla zadania szkoleniowego. | `1`
 `process_count_per_node`| Liczba procesów (lub "pracowników") do uruchomienia w każdym węźle. W takim przypadku używane są `2` procesory GPU dostępne w każdym węźle.| `1`
 `distributed_training`| Obiekt [MPIConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) do uruchamiania szkoleń rozproszonych przy użyciu zaplecza MPI.  | `None`
@@ -140,8 +140,6 @@ model = run.register_model(model_name='sklearn-sample', model_path=None)
 Po rozpoczęciu szkolenia w przypadku, gdy katalog źródłowy jest lokalnym repozytorium git, informacje o repozytorium są przechowywane w historii uruchamiania. Aby uzyskać więcej informacji, zobacz Integracja z usługą [git dla Azure Machine Learning](concept-train-model-git-integration.md).
 
 ## <a name="examples"></a>Przykłady
-Aby zapoznać się z notesem, który pokazuje podstawy wzorca szacowania, zobacz:
-* [Jak korzystać z platformy Azure/uczenie się — uczenie się — nauka/poznanie — szacowania](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 
 W przypadku notesu, który pociąga za scikit model uczenia przy użyciu szacowania, zobacz:
 * [Samouczki/IMG-Classification-part1-Training. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)

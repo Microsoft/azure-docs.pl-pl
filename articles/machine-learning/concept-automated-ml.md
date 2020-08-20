@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 8d94acabb434d0e722e352de46197a86e994e145
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 081da2b3f6fbe97ebce21940d7e0ca8978793b15
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290037"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652104"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Co to jest automatyczne Uczenie maszynowe (AutoML)?
 
@@ -76,7 +76,7 @@ Korzystając z **Azure Machine Learning**, można projektować i uruchamiać zau
 
 1. **Wybierz, czy chcesz używać zestawu SDK języka Python, czy środowiska sieci Web programu Studio**: Poznaj informacje o parzystości między [środowiskiem websdk i Studio w sieci Web](#parity).
 
-   * W przypadku programu z ograniczeniami lub bez kodu Wypróbuj środowisko internetowe Azure Machine Learning Studio pod adresem[https://ml.azure.com](https://ml.azure.com/)  
+   * W przypadku programu z ograniczeniami lub bez kodu Wypróbuj środowisko internetowe Azure Machine Learning Studio pod adresem [https://ml.azure.com](https://ml.azure.com/)  
    * W przypadku deweloperów języka Python zapoznaj się z [zestawem SDK języka python Azure Machine Learning](how-to-configure-auto-train.md) . 
 
     [!INCLUDE [aml-applies-to-enterprise-sku](../../includes/aml-applies-to-enterprise-sku-inline.md)]  
@@ -138,7 +138,7 @@ Włącz to ustawienie przy użyciu:
 
 + Zestaw SDK języka Python: Określ `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` w obiekcie [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) . Dowiedz się więcej na temat [włączania cechowania](how-to-configure-auto-features.md). 
 
-## <a name="ensemble-models"></a><a name="ensemble"></a>Modele kompletów
+## <a name="ensemble-models"></a><a name="ensemble"></a> Modele kompletów
 
 Automatyczne Uczenie maszynowe obsługuje modele kompletów, które są domyślnie włączone. Program dblearning podnosi wyniki uczenia maszynowego i wydajność predykcyjną przez połączenie wielu modeli w przeciwieństwie do korzystania z pojedynczych modeli. Iteracje kompletka są wyświetlane jako ostateczne iteracje przebiegu. Automatyczne Uczenie maszynowe używa metody "głosowania" i "stosu" do łączenia modeli:
 
@@ -202,15 +202,13 @@ Na przykład Kompilowanie modelu __dla każdego wystąpienia lub poszczególnych
 * Konserwacja predykcyjna dla setek ropy naftowej
 * Dostosowanie środowiska dla poszczególnych użytkowników.
 
-Aby uzyskać więcej informacji, zobacz [Akcelerator rozwiązania wielu modeli](https://aka.ms/many-models) w serwisie GitHub.
-
 ## <a name="automl-in-azure-machine-learning"></a>AutoML w Azure Machine Learning
 
 Azure Machine Learning oferuje dwa środowiska do pracy z automatycznymi ML
 
 * W przypadku kodów doświadczonych klientów [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
 
-* W przypadku klientów z ograniczoną ilością kodu, Azure Machine Learning Studio w[https://ml.azure.com](https://ml.azure.com/)  
+* W przypadku klientów z ograniczoną ilością kodu, Azure Machine Learning Studio w [https://ml.azure.com](https://ml.azure.com/)  
 
 <a name="parity"></a>
 

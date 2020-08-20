@@ -3,12 +3,12 @@ title: Wskazówki i najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i wskazówki dotyczące tworzenia kopii zapasowych obciążeń w chmurze i lokalnych w chmurze
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 2571fcc31a0ea6a548ec764d7a15d6d976ae4822
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 1e2680c5fbcdb685e13b6ad990aaf98b013c98bb
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808631"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650880"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Tworzenie kopii zapasowych obciążeń w chmurze i lokalnych w chmurze
 
@@ -131,7 +131,7 @@ Podczas tworzenia zasad tworzenia kopii zapasowych należy wziąć pod uwagę na
   * Nie można selektywnie usunąć określonych punktów odzyskiwania.
   * Nie można całkowicie wyłączyć zaplanowanej kopii zapasowej i zachować źródła danych w stanie chronionym. Co najmniej częste kopie zapasowe, które można skonfigurować za pomocą zasad, mają mieć jedną cotygodniową zaplanowaną kopię zapasową. Alternatywą jest zatrzymanie ochrony z zachowaniem danych i włączenie ochrony za każdym razem, gdy chcesz utworzyć kopię zapasową, wykonać kopię zapasową na żądanie, a następnie wyłączyć ochronę, ale zachować dane kopii zapasowej. [Dowiedz się więcej tutaj](backup-azure-manage-vms.md#stop-protecting-a-vm).
 
-## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
+## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 
 Aby pomóc w ochronie danych kopii zapasowych i spełnieniu potrzeb związanych z bezpieczeństwem firmy, Azure Backup zapewnia poufność, integralność i dostępność w odniesieniu do świadomych ataków i nadużycia cennych danych i systemów. Należy wziąć pod uwagę następujące wytyczne dotyczące zabezpieczeń rozwiązania Azure Backup:
 
@@ -189,7 +189,7 @@ Azure Backup wymaga przenoszenia danych z obciążenia do magazynu Recovery Serv
 
 ## <a name="governance-considerations"></a>Zagadnienia związane z nadzorem
 
-Zarządzanie na platformie Azure jest implementowane głównie przy użyciu [Azure Policy](../governance/policy/overview.md) i [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md). [Azure Policy](../governance/policy/overview.md) umożliwia tworzenie i przypisywanie definicji zasad oraz zarządzanie nimi w celu wymuszania reguł dla zasobów. Ta funkcja zapewnia zgodność tych zasobów ze standardami firmowymi. [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) umożliwia śledzenie użycia i wydatków w chmurze dla zasobów platformy Azure i innych dostawców chmury. Ponadto następujące narzędzia, takie jak [Kalkulator cen platformy Azure](https://azure.microsoft.com/pricing/calculator/) i [Azure Advisor](../advisor/advisor-overview.md) odgrywają ważną rolę w procesie zarządzania kosztami.
+Zarządzanie na platformie Azure jest implementowane głównie przy użyciu [Azure Policy](../governance/policy/overview.md) i [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md). [Azure Policy](../governance/policy/overview.md) umożliwia tworzenie i przypisywanie definicji zasad oraz zarządzanie nimi w celu wymuszania reguł dla zasobów. Ta funkcja zapewnia zgodność tych zasobów ze standardami firmowymi. [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) umożliwia śledzenie użycia i wydatków w chmurze dla zasobów platformy Azure i innych dostawców chmury. Ponadto następujące narzędzia, takie jak [Kalkulator cen platformy Azure](https://azure.microsoft.com/pricing/calculator/) i [Azure Advisor](../advisor/advisor-overview.md)  odgrywają ważną rolę w procesie zarządzania kosztami.
 
 ### <a name="azure-backup-support-two-key-scenarios-via-built-in-azure-policy"></a>Azure Backup obsługiwać dwa kluczowe scenariusze za pośrednictwem wbudowanego Azure Policy
 

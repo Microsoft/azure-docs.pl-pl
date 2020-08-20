@@ -3,12 +3,12 @@ title: Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge — Azu
 description: W tym artykule przedstawiono kroki, które ułatwią wdrożenie analizy wideo na żywo na urządzeniu IoT Edge. Można to zrobić na przykład, jeśli masz dostęp do lokalnej maszyny z systemem Linux i/lub wcześniej utworzono konto Azure Media Services.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: f031f679d8fe8e1c14b6a4086f5e1c37f15c7855
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 26be76a46fa514917ee1c89cab7d1f112ee85431
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067940"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652461"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge
 
@@ -51,7 +51,7 @@ Możesz użyć tego polecenia, aby uruchomić punkt końcowy przesyłania strumi
 az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --no-wait
 ```
 
-Wykonaj kroki opisane w tym artykule, aby uzyskać poświadczenia dostępu do interfejsów API usługi Media Service: [dostęp do interfejsów API usługi Media Service](../latest/access-api-howto.md#use-the-azure-portal).
+Wykonaj kroki opisane w tym artykule, aby uzyskać poświadczenia dostępu do interfejsów API usługi Media Service: [dostęp do interfejsów API usługi multimediów](../latest/access-api-howto.md?tabs=portal) i Wybieranie karty Portal.
 
 ## <a name="create-and-use-local-user-account-for-deployment"></a>Tworzenie i używanie konta użytkownika lokalnego na potrzeby wdrożenia
 Aby uruchomić usługę analiza filmów wideo na żywo w IoT Edge module, Utwórz konto użytkownika lokalnego z możliwie jak najmniejszej liczby uprawnień. Na przykład uruchom następujące polecenia na komputerze z systemem Linux:
@@ -168,7 +168,7 @@ Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, spos
     * {resourceGroupName} — ta grupa zasobów, do której należy konto usługi multimediów
     * {AMS-account-name} — jest to nazwa konta Media Services
     
-    Aby uzyskać inne wartości, zobacz [Access Azure Media Services API](../latest/access-api-howto.md#use-the-azure-portal).  
+    Aby uzyskać inne wartości, zapoznaj się z tematem [dostęp Azure Media Services interfejsu API](../latest/access-api-howto.md?tabs=portal) i wybierz kartę Portal.  
     * aadTenantId — jest to identyfikator dzierżawy, który jest taki sam jak "AadTenantId" w powyższym łączu.
     * aadServicePrincipalAppId — identyfikator aplikacji nazwy głównej usługi dla konta usługi multimediów i jest taki sam jak "AadClientId" w powyższym łączu.
     * aadServicePrincipalSecret — jest to hasło nazwy głównej usługi i jest taka sama jak "AadSecret" w powyższym łączu.

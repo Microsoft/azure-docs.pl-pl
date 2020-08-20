@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 881fa116b1a44d4714002f71e6ebd163279d8c70
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8e62d2d1955b5b323ad31cc5d45106210e3e22c6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284306"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651186"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Wymagania wstępne dotyczące tworzenia zawsze dostępnych grup dostępności na SQL Server na platformie Azure Virtual Machines
 
@@ -54,7 +54,7 @@ Musisz mieć konto platformy Azure. Możesz [otworzyć bezpłatne konto platform
    ![Grupa zasobów](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroupsymbol.png)
 
 4. Wybierz pozycję **Grupa zasobów**.
-5. Wybierz przycisk **Utwórz**.
+5. Wybierz pozycję **Utwórz**.
 6. W polu **Nazwa grupy zasobów**wpisz nazwę grupy zasobów. Na przykład wpisz **SQL-ha-RG**.
 7. Jeśli masz wiele subskrypcji platformy Azure, sprawdź, czy subskrypcja jest subskrypcją platformy Azure, w której chcesz utworzyć grupę dostępności.
 8. Wybierz lokalizację. Lokalizacja jest regionem świadczenia usługi Azure, w którym chcesz utworzyć grupę dostępności. Ten artykuł kompiluje wszystkie zasoby w jednej lokalizacji platformy Azure.
@@ -99,7 +99,7 @@ Aby utworzyć sieć wirtualną w Azure Portal:
 
    W przykładzie jest użyta nazwa podsieci **administrator**. Ta podsieć jest dla kontrolerów domeny.
 
-5. Wybierz przycisk **Utwórz**.
+5. Wybierz pozycję **Utwórz**.
 
    ![Konfigurowanie sieci wirtualnej](./media/availability-group-manually-configure-prerequisites-tutorial-/06-configurevirtualnetwork.png)
 
@@ -122,7 +122,7 @@ Nowa sieć wirtualna ma jedną podsieć o nazwie **admin**. Kontrolery domeny u�
 
 5. Aby utworzyć drugą podsieć, wybierz pozycję **+ podsieć**.
 6. W obszarze **Dodaj podsieć**Skonfiguruj podsieć, wpisując w polu **Nazwa**wartość **sqlsubnet** . Platforma Azure automatycznie określa prawidłowy **zakres adresów**. Sprawdź, czy ten zakres adresów zawiera co najmniej 10 adresów. W środowisku produkcyjnym może być wymagane więcej adresów.
-7. Wybierz przycisk **OK**.
+7. Kliknij **OK**.
 
     ![Konfigurowanie sieci wirtualnej](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
 
@@ -186,13 +186,13 @@ W poniższej tabeli przedstawiono ustawienia tych dwóch maszyn:
 | --- | --- |
 | **Nazwa** |Pierwszy kontroler domeny: *AD-Primary-DC*.</br>Drugi kontroler domeny *AD-pomocniczy — DC*. |
 | **Typ dysku maszyny wirtualnej** |SSD |
-| **Nazwa użytkownika** |Administrator domeny |
+| **User name** (Nazwa użytkownika) |Administrator domeny |
 | **Hasło** |Contoso! 0000 |
 | **Subskrypcja** |*Twoja subskrypcja* |
 | **Grupa zasobów** |SQL-HA — RG |
 | **Lokalizacja** |*Twoja lokalizacja* |
 | **Rozmiar** |DS1_V2 |
-| **Magazyn** | **Korzystanie z dysków zarządzanych**  -  **Tak** |
+| **Storage** | **Korzystanie z dysków zarządzanych**  -  **Tak** |
 | **Sieć wirtualna** |autoHAVNET |
 | **Podsieć** |administrator |
 | **Publiczny adres IP** |*Taka sama nazwa jak maszyna wirtualna* |
@@ -328,14 +328,14 @@ Gdy serwer zakończy zmiany konfiguracji, należy ponownie uruchomić serwer.
 
 W Azure Portal w obszarze Sieć wirtualna Zmień serwer DNS w taki sposób, aby obejmował adres IP pomocniczego kontrolera domeny. To ustawienie umożliwia nadmiarowość usługi DNS.
 
-### <a name="configure-the-domain-accounts"></a><a name="DomainAccounts"></a>Konfigurowanie kont domeny
+### <a name="configure-the-domain-accounts"></a><a name="DomainAccounts"></a> Konfigurowanie kont domeny
 
 W następnych krokach skonfigurujesz konta Active Directory. W poniższej tabeli przedstawiono konta:
 
 | |Konto instalacji<br/> |SqlServer-0 <br/>Konto usługi SQL Server i programu SQL Agent |SqlServer-1<br/>Konto usługi SQL Server i programu SQL Agent
 | --- | --- | --- | ---
-|**Imię** |Instalowanie |SQLSvc1 | SQLSvc2
-|**Nazwa SamAccountName użytkownika** |Instalowanie |SQLSvc1 | SQLSvc2
+|**Imię** |Zainstaluj |SQLSvc1 | SQLSvc2
+|**Nazwa SamAccountName użytkownika** |Zainstaluj |SQLSvc1 | SQLSvc2
 
 Aby utworzyć każde konto, wykonaj następujące czynności.
 
@@ -380,7 +380,7 @@ Przed rozpoczęciem należy wziąć pod uwagę następujące decyzje dotyczące 
 
 * **Magazyn — Managed Disks platformy Azure**
 
-   W przypadku magazynu maszyn wirtualnych Użyj usługi Azure Managed Disks. Firma Microsoft zaleca Managed Disks dla SQL Server maszyn wirtualnych. Funkcja Dyski zarządzane obsługuje magazyn w tle. Ponadto jeśli maszyny wirtualne z funkcją Dyski zarządzane znajdują się w tym samym zestawie dostępności, platforma Azure dystrybuuje zasoby magazynu w celu zapewnienia odpowiedniej nadmiarowości. Aby uzyskać więcej informacji, zobacz [Omówienie funkcji Dyski zarządzane platformy Azure](../../../virtual-machines/linux/managed-disks-overview.md). Aby uzyskać szczegółowe informacje o dyskach zarządzanych w zestawie dostępności, zobacz [używanie Managed disks w przypadku maszyn wirtualnych w zestawie dostępności](../../../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+   W przypadku magazynu maszyn wirtualnych Użyj usługi Azure Managed Disks. Firma Microsoft zaleca Managed Disks dla SQL Server maszyn wirtualnych. Funkcja Dyski zarządzane obsługuje magazyn w tle. Ponadto jeśli maszyny wirtualne z funkcją Dyski zarządzane znajdują się w tym samym zestawie dostępności, platforma Azure dystrybuuje zasoby magazynu w celu zapewnienia odpowiedniej nadmiarowości. Aby uzyskać więcej informacji, zobacz [Omówienie funkcji Dyski zarządzane platformy Azure](../../../virtual-machines/managed-disks-overview.md). Aby uzyskać szczegółowe informacje o dyskach zarządzanych w zestawie dostępności, zobacz [używanie Managed disks w przypadku maszyn wirtualnych w zestawie dostępności](../../../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 * **Prywatne adresy IP sieci w środowisku produkcyjnym**
 
@@ -415,7 +415,7 @@ Teraz można przyłączyć maszyny wirtualne do **Corp.contoso.com**. Wykonaj na
 2. W **Menedżerze serwera** wybierz pozycję **Serwer lokalny**.
 3. Wybierz łącze **grupy roboczej** .
 4. W sekcji **Nazwa komputera** wybierz pozycję **Zmień**.
-5. Zaznacz pole wyboru **domena** i wpisz **Corp.contoso.com** w polu tekstowym. Wybierz przycisk **OK**.
+5. Zaznacz pole wyboru **domena** i wpisz **Corp.contoso.com** w polu tekstowym. Kliknij **OK**.
 6. W podręcznym oknie dialogowym **zabezpieczenia systemu Windows** określ poświadczenia dla domyślnego konta administratora domeny (**CORP\DomainAdmin**) i hasło (**contoso! 0000**).
 7. Gdy zostanie wyświetlony komunikat "Witamy w domenie corp.contoso.com", wybierz **przycisk OK**.
 8. Wybierz pozycję **Zamknij**, a następnie w oknie podręcznym wybierz pozycję **Uruchom ponownie teraz** .
@@ -471,7 +471,7 @@ Aby skonfigurować grupę dostępności, użyj konta instalacji (CORP\install). 
 
 1. Ustaw Logowanie jako należące do stałej roli serwera **sysadmin** .
 
-1. Wybierz przycisk **OK**.
+1. Kliknij **OK**.
 
 Powtórz powyższe kroki na drugiej maszynie SQL Server VM.
 
@@ -496,7 +496,7 @@ Powtórz kroki na drugiej maszynie wirtualnej SQL Server.
   >
 
 
-## <a name="configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"></a>Skonfiguruj zaporę na każdej maszynie wirtualnej SQL Server
+## <a name="configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"></a> Skonfiguruj zaporę na każdej maszynie wirtualnej SQL Server
 
 Rozwiązanie wymaga otwarcia następujących portów TCP w zaporze:
 

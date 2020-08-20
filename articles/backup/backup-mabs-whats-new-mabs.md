@@ -3,12 +3,12 @@ title: Co nowego w usłudze Microsoft Azure Backup Server
 description: Serwer Microsoft Azure Backup zapewnia ulepszone możliwości tworzenia kopii zapasowych w celu ochrony maszyn wirtualnych, plików i folderów, obciążeń i nie tylko.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: a3ff38d9371ee9b95666ce638d0a6dc4b8822e20
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: a88b2926141092a9a1aeca988646aa3b69330f90
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190831"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648755"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Co nowego w programie Microsoft Azure Backup Server (serwera usługi MAB)
 
@@ -114,7 +114,7 @@ SERWERA usługi MAB v3 można zainstalować przy użyciu programu SQL 2017 jako 
 
 ### <a name="windows-server-2019-support"></a>Obsługa systemu Windows Server 2019
 
-SERWERA usługi MAB v3 można zainstalować w systemie Windows Server 2019. Aby użyć serwera usługi MAB v3 z WS2019, można uaktualnić system operacyjny do wersji WS2019 przed instalacją/uaktualnieniem do wersji serwera usługi MAB v3 lub uaktualnić wpis systemu operacyjnego instalujący/uaktualniający v3 na WS2016.
+SERWERA usługi MAB v3 można zainstalować w systemie Windows Server 2019. Aby użyć serwera usługi MAB v3 z WS2019, można uaktualnić system operacyjny do wersji WS2019 przed instalacją/uaktualnieniem do wersji serwera usługi MAB v3 lub uaktualnić system operacyjny po zainstalowaniu/uaktualnieniu wersji v3 na WS2016.
 
 SERWERA usługi MAB v3 to pełna wersja, którą można zainstalować bezpośrednio w systemie Windows Server 2016, Windows Server 2019 lub można uaktualnić z serwera usługi MAB v2. Przed uaktualnieniem do programu Backup Server v3 lub jego zainstalowanie Przeczytaj informacje o wymaganiach wstępnych instalacji.
 Więcej informacji na temat kroków instalacji/uaktualniania dla programu serwera usługi MAB znajdziesz [tutaj](./backup-azure-microsoft-azure-backup.md#software-package).

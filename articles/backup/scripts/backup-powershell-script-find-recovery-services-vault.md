@@ -3,12 +3,12 @@ title: Skrypt programu PowerShell — Znajdowanie magazynu dla konta magazynu
 description: Dowiedz się, jak używać skryptu Azure PowerShell, aby znaleźć magazyn usługi Recovery Services, w którym zarejestrowano konto magazynu.
 ms.topic: sample
 ms.date: 1/28/2020
-ms.openlocfilehash: b343b2f93ed439188c5c0238bf108064f6e132c1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 56e1b1bc1b9d46abecfbdc4b98385a0349711aab
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513255"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648721"
 ---
 # <a name="powershell-script-to-find-the-recovery-services-vault-where-a-storage-account-is-registered"></a>Skrypt programu PowerShell umożliwiający znalezienie magazynu Recovery Services, w którym zarejestrowano konto magazynu
 

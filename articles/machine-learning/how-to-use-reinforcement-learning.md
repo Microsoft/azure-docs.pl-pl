@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0a043bf79818480e045fb1f82640639fd7dcb232
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: b5ad09925c4a81dd09bd1ddf171ffccb8413b12b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847639"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650829"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Uczenie wzmacniające (wersja zapoznawcza) dzięki Azure Machine Learning
 
@@ -34,7 +34,7 @@ W tym artykule dowiesz się, jak:
 > * Przesyłanie eksperymentu w celu uruchomienia przebiegu
 > * Wyświetlanie wyników
 
-Ten artykuł jest oparty na [przykładu RLlib Pong](https://aka.ms/azureml-rl-pong) , który znajduje się w [repozytorium GitHub](https://aka.ms/azureml-rl-notebooks)notesu Azure Machine Learning.
+Ten artykuł jest oparty na [przykładu RLlib Pong](https://aka.ms/azureml-rl-pong) , który znajduje się w [repozytorium GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/reinforcement-learning/README.md)notesu Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -45,12 +45,12 @@ Uruchom ten kod w dowolnym z następujących środowisk. Zalecamy wypróbowanie 
      - Dowiedz się, jak sklonować przykładowe notesy w [samouczku: Instalacja środowiska i obszaru roboczego](tutorial-1st-experiment-sdk-setup.md).
          - Klonowanie folderu " **jak do użycia"** zamiast **samouczków**
      - Uruchom Notes konfiguracji sieci wirtualnej znajdujący się w programie, `/how-to-use-azureml/reinforcement-learning/setup/devenv_setup.ipynb` Aby otworzyć porty sieciowe używane do uczenia rozproszonego wzmacniania.
-     - Uruchamianie przykładowego notesu`/how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb`
+     - Uruchamianie przykładowego notesu `/how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb`
  
  - Własny serwer Jupyter Notebook
 
     - Zainstaluj [zestaw SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-    - Zainstaluj [zestaw SDK Azure Machine Learning RL](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py):`pip install --upgrade azureml-contrib-reinforcementlearning`
+    - Zainstaluj [zestaw SDK Azure Machine Learning RL](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py): `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Utwórz [plik konfiguracji obszaru roboczego](how-to-configure-environment.md#workspace).
     - Uruchom [Notes konfiguracji](https://aka.ms/azure-rl-env-setup) sieci wirtualnej, aby otworzyć porty sieciowe używane do uczenia rozproszonego wzmacniania.
 
@@ -75,7 +75,7 @@ Azure Machine Learning udostępnia strukturę do zarządzania tymi złożoności
 
 Skonfiguruj lokalne środowisko RL przez załadowanie wymaganych pakietów języka Python, zainicjowanie obszaru roboczego, utworzenie eksperymentu i określenie skonfigurowanej sieci wirtualnej.
 
-### <a name="import-libraries"></a>Importuj biblioteki
+### <a name="import-libraries"></a>Importowanie bibliotek
 
 Zaimportuj niezbędne pakiety języka Python, aby uruchomić resztę tego przykładu.
 
@@ -433,4 +433,4 @@ W krótkim obszarze wiesz już, jak skonfigurować wiele zasobów obliczeniowych
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono sposób uczenia agenta nauki wzmacniania przy użyciu agenta uczenia IMPALA. Aby zapoznać się z dodatkowymi przykładami, przejdź do [repozytorium usługi Uczenie w usłudze GitHub Azure Machine Learning](https://aka.ms/azureml-rl-notebooks).
+W tym artykule przedstawiono sposób uczenia agenta nauki wzmacniania przy użyciu agenta uczenia IMPALA. Aby zapoznać się z dodatkowymi przykładami, przejdź do [repozytorium usługi Uczenie w usłudze GitHub Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/reinforcement-learning/README.md).

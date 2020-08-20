@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 04/24/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ff335cd6276083eb76efd74a4921d2bae96cd7c9
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: dadd3a8316efc5bf090a84a738c8f6da223d4572
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875306"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651798"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Bezpieczny dostęp do danych w Azure Machine Learning
 
@@ -118,5 +118,4 @@ Zapoznaj się z artykułem [Tworzenie monitora zestawu danych](how-to-monitor-da
 ## <a name="next-steps"></a>Następne kroki 
 
 + Utwórz zestaw danych w programie Azure Machine Learning Studio lub za pomocą zestawu SDK języka Python, [wykonując następujące kroki.](how-to-create-register-datasets.md)
-+ Wypróbuj przykłady szkoleniowe dotyczące zestawu danych, korzystając z naszych [przykładowych notesów](https://aka.ms/dataset-tutorial).
-+ Aby zapoznać się z przykładami dryfowania danych, zobacz ten [Samouczek dotyczący dryfowania danych](https://aka.ms/datadrift-notebook).
++ Wypróbuj przykłady szkoleniowe dotyczące zestawu danych, korzystając z naszych [przykładowych notesów](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/).

@@ -3,18 +3,18 @@ title: Przekazywanie pliku VHD do Azure DevTest Labs przy użyciu programu Power
 description: W tym artykule omówiono sposób przekazywania pliku VHD do Azure DevTest Labs przy użyciu programu PowerShell.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ff8ee15f35765027db1407f05c108739bd97433e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b393b886a50f60a918690ee2a5583f9623dbe39
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480783"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650761"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-powershell"></a>Przekazywanie pliku VHD do konta magazynu laboratorium przy użyciu programu PowerShell
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-W Azure DevTest Labs pliki VHD mogą służyć do tworzenia obrazów niestandardowych, które są używane do obsługi maszyn wirtualnych. Poniższe kroki umożliwiają przekazanie pliku VHD do konta magazynu laboratorium przy użyciu programu PowerShell. Po przekazaniu pliku VHD [sekcja następne kroki](#next-steps) zawiera listę artykułów, które ilustrują, jak utworzyć obraz niestandardowy na podstawie przekazanego pliku VHD. Aby uzyskać więcej informacji na temat dysków i dysków VHD na platformie Azure, zobacz [wprowadzenie do usługi Managed disks](../virtual-machines/linux/managed-disks-overview.md)
+W Azure DevTest Labs pliki VHD mogą służyć do tworzenia obrazów niestandardowych, które są używane do obsługi maszyn wirtualnych. Poniższe kroki umożliwiają przekazanie pliku VHD do konta magazynu laboratorium przy użyciu programu PowerShell. Po przekazaniu pliku VHD [sekcja następne kroki](#next-steps) zawiera listę artykułów, które ilustrują, jak utworzyć obraz niestandardowy na podstawie przekazanego pliku VHD. Aby uzyskać więcej informacji na temat dysków i dysków VHD na platformie Azure, zobacz [wprowadzenie do usługi Managed disks](../virtual-machines/managed-disks-overview.md)
 
 ## <a name="step-by-step-instructions"></a>Instrukcje krok po kroku
 

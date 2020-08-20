@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
-ms.openlocfilehash: 92f56f3b405470bc8ae0e9ebab2450ddc31b3c6a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8c22ff3cc79d326da09c44167519adbea48b5643
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77672178"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651339"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Co to jest Apache Kafka w usłudze Azure HDInsight
 
@@ -27,7 +27,7 @@ Cechy charakterystyczne platformy Kafka w usłudze HDInsight są następujące:
 
 * Jako magazynu zapasowego platforma Kafka używa funkcji Dyski zarządzane platformy Azure. Funkcja Dyski zarządzane zapewnia do 16 TB pamięci masowej dla każdego brokera platformy Kafka. Aby uzyskać informacje dotyczące konfigurowania dysków zarządzanych na platformie Kafka w usłudze HDInsight, zobacz [Increase scalability of Apache Kafka on HDInsight](apache-kafka-scalability.md) (Zwiększanie skalowalności platformy Apache Kafka w usłudze HDInsight).
 
-    Aby uzyskać więcej informacji o funkcji Dyski zarządzane, zobacz artykuł [Funkcja Dyski zarządzane platformy Azure](../../virtual-machines/windows/managed-disks-overview.md).
+    Aby uzyskać więcej informacji o funkcji Dyski zarządzane, zobacz artykuł [Funkcja Dyski zarządzane platformy Azure](../../virtual-machines/managed-disks-overview.md).
 
 * Platforma Kafka została zaprojektowana jako jednowymiarowy widok regału. Platforma Azure rozdziela ten regał na dwa wymiary — domeny aktualizacji (UD) i domeny błędów (FD). Firma Microsoft udostępnia narzędzia, za pomocą których można ponownie zrównoważyć partycje i repliki platformy Kafka między domenami aktualizacji i błędów.
 
@@ -59,7 +59,7 @@ Dzięki replikacji zapewniono duplikowanie partycji w węzłach, co gwarantuje o
 
 Poniżej przedstawiono typowe zadania i wzorce, które mogą być wykonywane przy użyciu platformy Kafka w usłudze HDInsight:
 
-|Użycie |Opis |
+|Zastosowanie |Opis |
 |---|---|
 |Replikacja danych Apache Kafka|platforma Kafka udostępnia narzędzie MirrorMaker, które replikuje dane między klastrami Kafka. Aby uzyskać informacje na temat używania narzędzia MirrorMaker, zobacz [Replicate Apache Kafka topics with Apache Kafka on HDInsight](apache-kafka-mirroring.md) (Replikowanie tematów platformy Apache Kafka na platformie Apache Kafka w usłudze HDInsight).|
 |Wzorzec komunikatów publikowania/subskrybowania|platforma Kafka udostępnia interfejs API producenta do publikowania rekordów w temacie platformy Kafka. Interfejs API klienta jest używany podczas subskrybowania tematu. Aby uzyskać więcej informacji, zobacz [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md) (Rozpoczynanie pracy z platformą Apache Kafka w usłudze HDInsight).|
@@ -69,7 +69,7 @@ Poniżej przedstawiono typowe zadania i wzorce, które mogą być wykonywane prz
 |Obsługa komunikatów|platforma Kafka obsługuje wzorzec przesyłania komunikatów dotyczących publikowania i subskrybowania, dlatego jest często używana jako broker komunikatów.|
 |Śledzenie działań|platforma Kafka rejestruje rekordy w określonej kolejności, dlatego może służyć do śledzenia i ponownego tworzenia działań. Mogą to być na przykład działania użytkownika w witrynie sieci Web lub aplikacji.|
 |Agregacja|przetwarzanie strumienia pozwala agregować informacje z różnych strumieni w celu łączenia i centralizowania informacji w formie danych operacyjnych.|
-|Przekształcenia|przetwarzanie strumienia umożliwia łączenie i urozmaicanie danych z wielu tematów wejściowych w formie tematów wyjściowych.|
+|Transformacja|przetwarzanie strumienia umożliwia łączenie i urozmaicanie danych z wielu tematów wejściowych w formie tematów wyjściowych.|
 
 ## <a name="next-steps"></a>Następne kroki
 

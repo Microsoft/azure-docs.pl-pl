@@ -11,12 +11,12 @@ author: jpe316
 ms.date: 06/03/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 0c78245a64fa9bcb7faef2c07973d1d7b5080e76
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 263038ee1be8b31d493282cd920f386132420156
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843100"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648789"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Co to są tablice z bramą programowalną w polu (FPGA) i sposób wdrażania
 
@@ -163,7 +163,7 @@ Użyj [zestawu SDK Azure Machine Learning dla języka Python](https://docs.micro
    print(feature_tensor.shape)
    ```
 
-1. Dodaj klasyfikator. Ten klasyfikator został przeszkolony na zestawie danych ImageNet.  Przykłady dotyczące uczenia i szkolenia z zakresu przenoszenia są dostępne w zestawie [przykładowych notesów](https://aka.ms/aml-notebooks).
+1. Dodaj klasyfikator. Ten klasyfikator został przeszkolony na zestawie danych ImageNet.  Przykłady dotyczące uczenia i szkolenia z zakresu przenoszenia są dostępne w zestawie [przykładowych notesów](https://github.com/Azure/MachineLearningNotebooks).
 
    ```python
    classifier_output = model_graph.get_default_classifier(feature_tensor)
@@ -405,7 +405,7 @@ converted_model.delete()
 
 Zapoznaj się z tymi notesami, klipami wideo i blogami:
 
-+ Kilka [przykładowych notesów](https://aka.ms/aml-accel-models-notebooks)
++ Kilka [przykładowych notesów](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/accelerated-models)
 + Aby zabezpieczyć FPGA usługi sieci Web, zobacz dokument [Secure Web Services](how-to-secure-web-service.md) .
 + [Sprzęt ze skalowaniem: ML na dużą skalę na platformie Azure i FPGA: kompilacja 2018 (wideo)](https://channel9.msdn.com/events/Build/2018/BRK3202)
 + [W ramach konfigurowalnej chmury opartej na programie Microsoft FPGA (wideo)](https://channel9.msdn.com/Events/Build/2017/B8063)

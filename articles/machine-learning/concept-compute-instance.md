@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: f4938d517d9a5c244045798a79f31b96bacd03f5
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: c72777bf2a4415a7f773f82a21a121f5e58f2ec0
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829445"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651919"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Co to jest wystąpienie obliczeniowe usługi Azure Machine Learning?
 
@@ -145,7 +145,7 @@ W obszarze roboczym programu Azure Machine Learning Studio Utwórz nowe wystąpi
 
 |Pole  |Opis  |
 |---------|---------|
-|Nazwa obliczeniowa     |  <li>Nazwa jest wymagana i musi mieć długość od 3 do 24 znaków.</li><li>Prawidłowe znaki to wielkie i małe litery, cyfry i **-** znaki.</li><li>Nazwa musi rozpoczynać się od litery</li><li>Nazwa musi być unikatowa we wszystkich istniejących obliczeniach w regionie świadczenia usługi Azure. Jeśli wybrana nazwa nie jest unikatowa, zostanie wyświetlony alert</li><li>Jeśli **-** jest używany znak, musi następować co najmniej jedną literę w dalszej części nazwy</li>     |
+|Nazwa obiektu obliczeniowego     |  <li>Nazwa jest wymagana i musi mieć długość od 3 do 24 znaków.</li><li>Prawidłowe znaki to wielkie i małe litery, cyfry i  **-** znaki.</li><li>Nazwa musi rozpoczynać się od litery</li><li>Nazwa musi być unikatowa we wszystkich istniejących obliczeniach w regionie świadczenia usługi Azure. Jeśli wybrana nazwa nie jest unikatowa, zostanie wyświetlony alert</li><li>Jeśli **-**  jest używany znak, musi następować co najmniej jedną literę w dalszej części nazwy</li>     |
 |Typ maszyny wirtualnej |  Wybierz procesor CPU lub GPU. Tego typu nie można zmienić po utworzeniu     |
 |Rozmiar maszyny wirtualnej     |  Obsługiwane rozmiary maszyn wirtualnych mogą być ograniczone w Twoim regionie. Sprawdź [listę dostępności](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Włącz/Wyłącz dostęp SSH     |   Dostęp SSH jest domyślnie wyłączony.  Nie można uzyskać dostępu do protokołu SSH. Zmieniono po utworzeniu. Upewnij się, że włączono dostęp, jeśli planujesz interaktywną debugowanie za pomocą usługi [vs Code Remote](how-to-set-up-vs-code-remote.md)   |
@@ -155,26 +155,22 @@ Można również utworzyć wystąpienie
 * Bezpośrednio w [środowisku zintegrowanych notesów](tutorial-1st-experiment-sdk-setup.md#azure)
 * W Azure Portal
 * Z szablonu Azure Resource Manager. Przykładowy szablon można znaleźć w temacie [Create a Azure Machine Learning COMPUTE instance Template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
-* Z [zestawem SDK Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb)
+* Z zestawem SDK Azure Machine Learning
 * Z [rozszerzenia interfejsu wiersza polecenia dla Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 
 Dedykowane rdzenie na region według przydziału rodziny maszyn wirtualnych i łączny limit przydziału regionalnego, który ma zastosowanie do tworzenia wystąpienia obliczeniowego. jest ujednolicony i udostępniany przy użyciu Azure Machine Learning szkolenia dotyczące klastrów obliczeniowych. Zatrzymanie wystąpienia obliczeniowego nie powoduje zwolnienia przydziału w celu zapewnienia, że będzie można ponownie uruchomić wystąpienie obliczeniowe.
 
 ## <a name="compute-target"></a>Docelowy zasób obliczeniowy
 
-Wystąpienia obliczeniowe mogą służyć jako [obiekt docelowy obliczeń szkoleniowych](concept-compute-target.md#train) podobny do klastrów szkoleniowych Azure Machine Learning COMPUTE. 
+Wystąpienia obliczeniowe mogą być używane jako [obiekty docelowe obliczeń szkoleniowych](concept-compute-target.md#train) podobne do Azure Machine Learning klastrów obliczeniowych. 
 
 Wystąpienie obliczeniowe:
 * Ma kolejkę zadań.
 * Bezpieczne uruchamianie zadań w środowisku sieci wirtualnej, bez konieczności otwierania portu SSH przez przedsiębiorstwa. Zadanie jest wykonywane w środowisku kontenerowym i pakuje zależności modelu w kontenerze platformy Docker.
 * Może uruchamiać wiele małych zadań równolegle (wersja zapoznawcza).  Dwa zadania na rdzeń mogą działać równolegle, podczas gdy pozostałe zadania są umieszczane w kolejce.
+* Obsługuje wielowęzłowe zadania szkoleniowe wieloprocesorowe.
 
 Wystąpienia obliczeniowego można użyć jako lokalnego celu wdrożenia inferencing na potrzeby scenariuszy testowania/debugowania.
-
-> [!NOTE]
-> Zadania szkoleniowe rozproszone nie są obsługiwane w wystąpieniu obliczeniowym.  Użyj (klastrów obliczeniowych) (instrukcje dotyczące konfiguracji-szkolenia-targets. MD # amlcompute) dla szkolenia rozproszonego.
-
-Aby uzyskać więcej informacji, zobacz [szkolenie dotyczące notesu w computeinstance](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb). Ten Notes jest również dostępny w folderze Studio **Samples** *(szkolenia/uczenie na computeinstance*).
 
 ## <a name="what-happened-to-notebook-vm"></a><a name="notebookvm"></a>Co się stało z maszyną wirtualną notesu?
 
