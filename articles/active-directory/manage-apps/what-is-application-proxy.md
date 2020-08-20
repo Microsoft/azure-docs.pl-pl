@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 68ccf3518a7011c0c39003d8e447a4e1d233fd91
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: ce159bc61a1f21c52b8d182c1248ba1d436462da
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164584"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640518"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Publikowanie aplikacji lokalnych dla użytkowników zdalnych za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -76,11 +76,11 @@ Serwer proxy aplikacji jest usługą usługi Azure AD, którą konfigurujesz w A
 
 Składniki tej funkcji obejmują usługę serwera proxy aplikacji, która działa w chmurze, łącznik serwera proxy aplikacji, który jest lekkim agentem działającym na serwerze lokalnym i usługą Azure AD, który jest dostawcą tożsamości. Wszystkie trzy składniki współpracują ze sobą, aby zapewnić użytkownikowi możliwość logowania jednokrotnego w celu uzyskania dostępu do lokalnych aplikacji sieci Web.
 
-Po zalogowaniu się użytkownicy zewnętrzni mogą uzyskiwać dostęp do lokalnych aplikacji sieci Web przy użyciu znanego adresu URL lub [panelu dostępu moje aplikacje](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access) na urządzeniach stacjonarnych lub iOS/Mac. Na przykład serwer proxy aplikacji może zapewnić dostęp zdalny i logowanie jednokrotne do Pulpit zdalny, witryn programu SharePoint, Tableau, Qlik, programu Outlook w sieci Web i aplikacji biznesowych.
+Po zalogowaniu się użytkownicy zewnętrzni mogą uzyskiwać dostęp do lokalnych aplikacji sieci Web przy użyciu znajomego adresu URL lub [aplikacji](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access) z komputerów stacjonarnych lub urządzeń z systemem iOS/Mac. Na przykład serwer proxy aplikacji może zapewnić dostęp zdalny i logowanie jednokrotne do Pulpit zdalny, witryn programu SharePoint, Tableau, Qlik, programu Outlook w sieci Web i aplikacji biznesowych.
 
 ![Architektura usługi Azure serwer proxy aplikacji usługi Azure AD](media/what-is-application-proxy/azure-ad-application-proxy-architecture.png)
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 Istnieje kilka sposobów konfigurowania aplikacji do logowania jednokrotnego, a wybrana metoda zależy od uwierzytelniania używanego przez aplikację. Serwer proxy aplikacji obsługuje następujące typy aplikacji:
 

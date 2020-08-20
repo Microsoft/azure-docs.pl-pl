@@ -9,12 +9,12 @@ ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 0e106f3ea8a5de80f4961a1d591d31abdbe2ca86
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 7720238bb7e2ff133935b9af545628f744d828d1
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876295"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642320"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Szybki start: Uruchamianie przepływu za pośrednictwem usługi Microsoft Genomics
 
@@ -55,9 +55,9 @@ Należy zainstalować zarówno Język Python, jak i Microsoft Genomics klienta j
 Microsoft Genomics klienta języka Python jest zgodny z językiem Python 2.7.12 lub nowszą wersją 2.7. XX. 2.7.14 jest sugerowaną wersją. Pliki do pobrania możesz znaleźć [tutaj](https://www.python.org/downloads/release/python-2714/). 
 
 > [!IMPORTANT]
-> Język Python 3.x nie jest zgodny z językiem Python 2.7.xx.  `msgen`jest aplikacją w języku Python 2,7. W przypadku uruchamiania `msgen` upewnij się, że aktywne środowisko Python korzysta z systemu Python. XX w wersji 2.7. Podczas próby użycia `msgen` z wersją języka Python 3. x mogą wystąpić błędy.
+> Język Python 3.x nie jest zgodny z językiem Python 2.7.xx.  `msgen` jest aplikacją w języku Python 2,7. W przypadku uruchamiania `msgen` upewnij się, że aktywne środowisko Python korzysta z systemu Python. XX w wersji 2.7. Podczas próby użycia `msgen` z wersją języka Python 3. x mogą wystąpić błędy.
 
-### <a name="install-the-microsoft-genomics-python-client-msgen"></a>Instalowanie klienta Microsoft Genomics Python`msgen`
+### <a name="install-the-microsoft-genomics-python-client-msgen"></a>Instalowanie klienta Microsoft Genomics Python `msgen`
 
 `pip`Zainstaluj klienta Microsoft Genomics przy użyciu języka Python `msgen` . W poniższych instrukcjach przyjęto, że python2. x znajduje się już w ścieżce systemowej. Jeśli występują problemy z `pip` nierozpoznaną instalacją, należy dodać Język Python i podfolder scripts do ścieżki systemowej.
 
@@ -125,7 +125,7 @@ Jeśli chcesz uruchomić GATK4, ustaw `process_name` parametr na `gatk4` .
 
 Domyślnie usługa Genomics generuje pliki VCF. Jeśli chcesz, aby dane wyjściowe gVCF zamiast danych wyjściowych VCF (odpowiednik `-emitRefConfidence` w GATK 3. x i `emit-ref-confidence` w GATK 4. x), Dodaj `emit_ref_confidence` parametr do *config.txt* i ustaw go na `gvcf` , jak pokazano na powyższym rysunku.  Aby zmienić z powrotem na dane wyjściowe VCF, usuń je z pliku *config.txt* lub ustaw `emit_ref_confidence` parametr na `none` . 
 
-`bgzip`jest narzędziem, które kompresuje plik VCF lub gvcf i `tabix` tworzy indeks dla skompresowanego pliku. Domyślnie usługa genomiki jest uruchamiana `bgzip` po wykonaniu polecenia `tabix` ". g. vcf", ale nie uruchamia tych narzędzi domyślnie dla danych wyjściowych ". vcf". Po uruchomieniu usługa tworzy pliki ". gz" (bgzip Output) i ". TBI" (Tabix Output). Argument jest wartością logiczną, która jest domyślnie ustawiona na false dla danych wyjściowych ". vcf" i domyślnie ma wartość true dla danych wyjściowych ". g. vcf". Aby użyć w wierszu polecenia, określ `-bz` lub `--bgzip-output` AS `true` (Run bgzip and Tabix) lub `false` . Aby użyć tego argumentu w pliku *config.txt* , Dodaj `bgzip_output: true` plik lub `bgzip_output: false` do pliku.
+`bgzip` jest narzędziem, które kompresuje plik VCF lub gvcf i `tabix` tworzy indeks dla skompresowanego pliku. Domyślnie usługa genomiki jest uruchamiana `bgzip` po wykonaniu polecenia `tabix` ". g. vcf", ale nie uruchamia tych narzędzi domyślnie dla danych wyjściowych ". vcf". Po uruchomieniu usługa tworzy pliki ". gz" (bgzip Output) i ". TBI" (Tabix Output). Argument jest wartością logiczną, która jest domyślnie ustawiona na false dla danych wyjściowych ". vcf" i domyślnie ma wartość true dla danych wyjściowych ". g. vcf". Aby użyć w wierszu polecenia, określ `-bz` lub `--bgzip-output` AS `true` (Run bgzip and Tabix) lub `false` . Aby użyć tego argumentu w pliku *config.txt* , Dodaj `bgzip_output: true` plik lub `bgzip_output: false` do pliku.
 
 ### <a name="submit-your-workflow-to-the-microsoft-genomics-service-using-the-msgen-python-client"></a>Przesyłanie przepływu pracy do usługi Microsoft Genomics przy użyciu `msgen` klienta języka Python
 
@@ -144,4 +144,4 @@ Po zakończeniu przepływu pracy można wyświetlić pliki wyjściowe na koncie 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule zostały przekazane przykładowe dane wejściowe do usługi Azure Storage i przesłano przepływ pracy do usług Microsoft Genomics za pomocą `msgen` klienta języka Python. Aby dowiedzieć się więcej o innych typach plików wejściowych, które mogą być używane z usługą Microsoft Genomics, zobacz następujące strony: [sparowany FASTQ](quickstart-input-pair-FASTQ.md)  |  [BAM](quickstart-input-BAM.md)  |  [Multiple FASTQ lub BAM](quickstart-input-multiple.md). Możesz również zapoznać się z tym samouczkiem, korzystając z naszego [przykładu z notesu platformy Azure](https://aka.ms/genomicsnotebook) , pobierając plik "Genomika samouczka. ipynb" i korzystając z czytnika notesu, takiego jak [Jupyter](https://docs.microsoft.com/azure/notebooks/tutorial-create-run-jupyter-notebook) , aby otworzyć plik i uruchomić go.
+W tym artykule zostały przekazane przykładowe dane wejściowe do usługi Azure Storage i przesłano przepływ pracy do usług Microsoft Genomics za pomocą `msgen` klienta języka Python. Aby dowiedzieć się więcej o innych typach plików wejściowych, które mogą być używane z usługą Microsoft Genomics, zobacz następujące strony: [sparowany FASTQ](quickstart-input-pair-FASTQ.md)  |  [BAM](quickstart-input-BAM.md)  |  [Multiple FASTQ lub BAM](quickstart-input-multiple.md). Możesz również zapoznać się z tym samouczkiem, korzystając z naszego [przykładu Azure Notebooks](https://aka.ms/genomicsnotebook) , pobierając plik "Genomika samouczka. ipynb" i korzystając z czytnika notesu, takiego jak [Jupyter](https://docs.microsoft.com/azure/notebooks/tutorial-create-run-jupyter-notebook) , aby otworzyć plik i uruchomić go.

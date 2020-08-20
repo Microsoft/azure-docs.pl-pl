@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: c80b4e57c94737778d8e6f63804d95f4d1b35fb0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 95f8466944d4131b3356f44d65171bf1b6cc7a82
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501801"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640807"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Szybki start: tworzenie publicznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -52,7 +52,7 @@ Utwórz grupę zasobów za pomocą [AZ Group Create](https://docs.microsoft.com/
 ```
 ---
 
-# <a name="option-1-default-create-a-load-balancer-standard-sku"></a>[Opcja 1 (domyślnie): Tworzenie modułu równoważenia obciążenia (standardowa jednostka SKU)](#tab/option-1-create-load-balancer-standard)
+# <a name="standard-sku"></a>[**Standardowy SKU**](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >Moduł równoważenia obciążenia w warstwie Standardowa jest zalecany w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji o jednostkach SKU, zobacz **[Azure Load Balancer SKU](skus.md)**.
@@ -593,7 +593,7 @@ Dodaj maszyny wirtualne do puli wychodzącej za pomocą [AZ Network nic IP-confi
    --lb-name myLoadBalancer
 ```
 
-# <a name="option-2-create-a-load-balancer-basic-sku"></a>[Opcja 2. Tworzenie modułu równoważenia obciążenia (podstawowa jednostka SKU)](#tab/option-1-create-load-balancer-basic)
+# <a name="basic-sku"></a>[**Podstawowy SKU**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >Moduł równoważenia obciążenia w warstwie Standardowa jest zalecany w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji o jednostkach SKU, zobacz **[Azure Load Balancer SKU](skus.md)**.
@@ -979,7 +979,7 @@ Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki.
 ```
 :::image type="content" source="./media/load-balancer-standard-public-cli/running-nodejs-app.png" alt-text="Testowanie modułu równoważenia obciążenia" border="true":::
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie jest już potrzebne, użyj polecenia [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) , aby usunąć grupę zasobów, moduł równoważenia obciążenia i wszystkie powiązane zasoby.
 

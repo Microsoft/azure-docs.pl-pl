@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: e44de0058af0210ecb42eaa4be8b55d543d66103
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7d94b8604b2f947463dd760ca7baf25f19a15a26
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212809"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642150"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji w Azure Active Directory
 
@@ -188,7 +188,7 @@ Po przygotowaniu środowiska i zainstalowaniu łącznika możemy dodać aplikacj
 
     | Pole | Opis |
     | :---- | :---------- |
-    | **Nazwa** | Nazwa aplikacji, która będzie wyświetlana na panelu dostępu oraz w witrynie Azure Portal. |
+    | **Nazwa** | Nazwa aplikacji, która będzie wyświetlana w moich aplikacjach i w Azure Portal. |
     | **Wewnętrzny adres URL** | Ten adres URL umożliwia dostęp do aplikacji w sieci prywatnej. Możesz wprowadzić określoną ścieżkę na serwerze zaplecza, która zostanie opublikowana, podczas gdy pozostała część serwera pozostanie nieopublikowana. W ten sposób możesz opublikować wiele lokacji jako różne aplikacje na tym samym serwerze, nadając im różne nazwy i reguły dostępu.<br><br>W przypadku publikowania ścieżki upewnij się, że zawiera ona wszystkie niezbędne obrazy, skrypty i arkusze stylów dla aplikacji. Jeśli na przykład aplikacja jest w sieci https: \/ /yourapp/App i używa obrazów znajdujących się w protokole https: \/ /yourapp/Media, należy opublikować https: \/ /yourapp/jako ścieżkę. Wewnętrzny adres URL nie musi być stroną docelową widoczną dla użytkowników. Aby uzyskać więcej informacji, zobacz [Set a custom home page for published apps (Ustawianie niestandardowej strony głównej dla opublikowanych aplikacji)](application-proxy-configure-custom-home-page.md). |
     | **Zewnętrzny adres URL** | Ten adres umożliwia użytkownikom dostęp do aplikacji spoza sieci. Jeśli nie chcesz używać domyślnej domeny serwera proxy aplikacji, zobacz [Custom domains in Azure AD Application Proxy (Domeny niestandardowe na serwerze proxy aplikacji usługi Azure AD)](application-proxy-configure-custom-domain.md).|
     | **Wstępne uwierzytelnianie** | Sposób, w jaki serwer proxy aplikacji weryfikuje użytkowników przed udzieleniem im dostępu do aplikacji.<br><br>**Azure Active Directory** — serwer proxy aplikacji przekierowuje użytkowników do zalogowania się w usłudze Azure AD, co umożliwia uwierzytelnienie ich uprawnień do katalogu i aplikacji. Zaleca się pozostawienie tej opcji jako domyślnej, dzięki czemu można korzystać z funkcji zabezpieczeń usługi Azure AD, takich jak dostęp warunkowy i Multi-Factor Authentication. Usługa **Azure Active Directory** jest wymagana do monitorowania aplikacji za pomocą usługi Microsoft Cloud Application Security.<br><br>**Przekazywanie** — użytkownicy nie muszą uwierzytelniać się w usłudze Azure AD w celu uzyskania dostępu do aplikacji. Można jednak na zapleczu skonfigurować wymagania dotyczące uwierzytelniania. |
@@ -234,7 +234,7 @@ Aby przetestować logowanie do aplikacji:
 
 Aby uzyskać informacje na temat rozwiązywania problemów, zobacz [Troubleshoot Application Proxy problems and error messages (Rozwiązywanie problemów z serwerem proxy aplikacji i problemów związanych z komunikatami o błędach)](application-proxy-troubleshoot.md).
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie jest już potrzebne, Usuń zasoby utworzone w tym samouczku.
 

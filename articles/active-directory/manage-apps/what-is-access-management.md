@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: kenwith
-ms.openlocfilehash: 1b19f4aae7bf7477dbe5950f2d4df31e2de81372
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 7738bd2f2dc169ab52677928c6fecbc193ff2f35
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562569"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639923"
 ---
 # <a name="managing-access-to-apps"></a>Zarządzanie dostępem do aplikacji
 
@@ -45,7 +45,7 @@ W przypadku niektórych typów aplikacji można wybrać opcję [wymagania, aby u
 * Aplikacje serwera proxy aplikacji korzystające z Azure Active Directory wstępnego uwierzytelniania
 * Aplikacje utworzone na platformie aplikacji usługi Azure AD, która korzysta z uwierzytelniania OAuth 2,0/OpenID Connect, gdy użytkownik lub administrator wyraził zgodę na tę aplikację. Niektóre aplikacje dla przedsiębiorstw oferują dodatkową kontrolę nad tym, kto może się zalogować.
 
-Jeśli przypisanie użytkownika *nie jest wymagane*, Nieprzypisani użytkownicy nie widzą aplikacji w panelu dostępu moje aplikacje, ale mogą nadal logować się do aplikacji (nazywanej także logowaniem z użyciem programu SP) lub mogą używać **adresu URL dostępu użytkownika** na stronie **Właściwości** aplikacji (nazywanej także logowaniem inicjowanym przez dostawcy tożsamości).
+Jeśli przypisanie użytkownika *nie jest wymagane*, Nieprzypisani użytkownicy nie widzą aplikacji w swoich aplikacjach, ale mogą nadal logować się do aplikacji (nazywanej także logowaniem z użyciem programu SP) lub mogą używać **adresu URL dostępu użytkownika** na stronie **Właściwości** aplikacji (nazywanej także logowaniem inicjowanym przez dostawcy tożsamości).
 
 W przypadku niektórych aplikacji opcja Wymagaj przypisania użytkownika nie jest dostępna we właściwościach aplikacji. W takich przypadkach można użyć programu PowerShell, aby ustawić właściwość appRoleAssignmentRequired w jednostce usługi.
 
@@ -53,12 +53,12 @@ W przypadku niektórych aplikacji opcja Wymagaj przypisania użytkownika nie jes
 
 Usługa Azure AD oferuje [kilka dostosowywalnych metod wdrażania aplikacji](end-user-experiences.md) dla użytkowników końcowych w organizacji:
 
-* Panel dostępu moje aplikacje w usłudze Azure AD
+* Moje aplikacje w usłudze Azure AD
 * Uruchamianie aplikacji pakietu Office 365
 * Bezpośrednie logowanie do aplikacji federacyjnych (Service-PR)
 * Linki bezpośrednie do federacyjnych, opartych na hasłach lub istniejących aplikacjach
 
-Możesz określić, czy użytkownicy przypisani do aplikacji dla przedsiębiorstw mogą ją zobaczyć w panelu dostępu i programie uruchamiania aplikacji pakietu Office 365.
+Możesz określić, czy użytkownicy przypisani do aplikacji przedsiębiorstwa mogą ją zobaczyć w obszarze Moje aplikacje i uruchamianie aplikacji pakietu Office 365.
 
 ## <a name="example-complex-application-assignment-with-azure-ad"></a>Przykład: złożone przypisanie aplikacji za pomocą usługi Azure AD
 Weź pod uwagę aplikację, taką jak Salesforce. W wielu organizacjach usługi Salesforce są używane głównie przez zespoły marketingowe i sprzedaży. Często członkowie zespołu ds. marketingu mają wysoce uprzywilejowany dostęp do usługi Salesforce, natomiast członkowie zespołu ds. sprzedaży mają ograniczony dostęp. W wielu przypadkach szeroka populacja pracowników przetwarzających informacje ma ograniczony dostęp do aplikacji. Wyjątki dotyczące tych reguł komplikują się. Często jest to przywilej zespołu lidera marketingu lub sprzedaży, aby udzielić użytkownikowi dostępu lub zmienić jego role niezależnie od tych reguł ogólnych.
@@ -72,7 +72,7 @@ W usłudze Azure AD aplikacje, takie jak Salesforce, można wstępnie skonfiguro
 
 * Aby włączyć mechanizm wyjątku, można utworzyć grupę samoobsługową dla każdej roli. Na przykład grupa "wyjątek marketingowy Marketing" może zostać utworzona jako Grupa samoobsługi. Grupa może być przypisana do roli marketingu usługi Salesforce, a zespół liderów marketingu może być właścicielem. Członkowie zespołu liderów marketingu mogą dodawać lub usuwać użytkowników, ustawiać zasady dołączania, a nawet zatwierdzać lub odrzucać żądania poszczególnych użytkowników do przyłączenia. Ten mechanizm jest obsługiwany przez pracownika przetwarzający informacje, który nie wymaga specjalistycznego szkolenia dla właścicieli lub członków.
 
-W takim przypadku wszystkim przypisanym użytkownikom zostanie automatycznie przydzielona do usługi Salesforce, ponieważ zostaną one dodane do różnych grup, ich przypisanie roli zostanie zaktualizowane w usłudze Salesforce. Użytkownicy będą mogli odnajdywać usługi Salesforce i uzyskiwać do nich dostęp za pomocą panelu dostępu do aplikacji firmy Microsoft, klientów sieci Web pakietu Office, a nawet przez przejście na stronę logowania do swojej organizacji. Administratorzy mogą łatwo wyświetlać stan użytkowania i przypisywania za pomocą funkcji raportowania usługi Azure AD.
+W takim przypadku wszystkim przypisanym użytkownikom zostanie automatycznie przydzielona do usługi Salesforce, ponieważ zostaną one dodane do różnych grup, ich przypisanie roli zostanie zaktualizowane w usłudze Salesforce. Użytkownicy będą mogli odnajdywać usługi Salesforce i uzyskiwać do nich dostęp za pomocą aplikacji, klientów sieci Web pakietu Office, a nawet przez przejście na stronę logowania do swojej organizacji. Administratorzy mogą łatwo wyświetlać stan użytkowania i przypisywania za pomocą funkcji raportowania usługi Azure AD.
 
 Administratorzy mogą [korzystać z dostępu warunkowego usługi Azure AD](../conditional-access/concept-conditional-access-users-groups.md) w celu ustawiania zasad dostępu dla konkretnych ról. Te zasady mogą obejmować, czy dostęp jest dozwolony poza środowiskiem korporacyjnym, a nawet Multi-Factor Authentication lub wymagania dotyczące urządzeń, aby uzyskać dostęp w różnych przypadkach.
 
@@ -88,7 +88,7 @@ Istnieją trzy główne metody uzyskiwania dostępu do aplikacji opublikowanej p
 
 Niektóre aplikacje łączą te metody. Na przykład niektóre aplikacje firmy Microsoft są częścią subskrypcji pakietu Office 365, ale nadal wymagają zgody.
 
-Użytkownicy mogą uzyskiwać dostęp do aplikacji pakietu Office 365 za poorednictwem portali pakietu Office 365. Możesz również wyświetlić lub ukryć aplikacje pakietu Office 365 w panelu dostępu moje aplikacje z [przełącznikiem widoczności pakietu office 365](hide-application-from-user-portal.md) w **ustawieniach użytkownika**katalogu. 
+Użytkownicy mogą uzyskiwać dostęp do aplikacji pakietu Office 365 za poorednictwem portali pakietu Office 365. Możesz również wyświetlić lub ukryć aplikacje pakietu Office 365 w obszarze Moje aplikacje z [przełącznikiem widoczności pakietu office 365](hide-application-from-user-portal.md) w **ustawieniach użytkownika**Twojego katalogu. 
 
 Podobnie jak w przypadku aplikacji dla przedsiębiorstw, można [przypisać użytkowników](assign-user-or-group-access-portal.md) do określonych aplikacji firmy Microsoft za pośrednictwem Azure Portal lub, jeśli opcja portalu jest niedostępna, przy użyciu programu PowerShell.
 

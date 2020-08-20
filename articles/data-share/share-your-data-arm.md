@@ -6,15 +6,15 @@ ms.author: jgao
 ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 08/17/2020
-ms.openlocfilehash: 62c800e8da3ab4f99b0933e286debcb05c5c3e22
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.date: 08/19/2020
+ms.openlocfilehash: 87b91d353b6d9f64f28892feed92c44ceafc2598
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88575701"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640926"
 ---
-# <a name="tutorial-share-data-using-azure-data-share-and-resource-manager-templates"></a>Samouczek: udostępnianie danych przy użyciu usługi Azure Data Share i szablonów Menedżer zasobów
+# <a name="quickstart-share-data-using-azure-data-share-and-resource-manager-templates"></a>Szybki Start: udostępnianie danych przy użyciu usługi Azure Data Share i szablonów Menedżer zasobów
 
 Dowiedz się, jak skonfigurować nowy udział danych platformy Azure na podstawie konta usługi Azure Storage przy użyciu szablonu Azure Resource Manager i rozpocząć udostępnianie danych klientom i partnerom spoza organizacji platformy Azure. Listę obsługiwanych magazynów danych można znaleźć [w temacie obsługiwane magazyny danych w udziale danych platformy Azure](./supported-data-stores.md).
 
@@ -101,4 +101,4 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób tworzenia udziału danych platformy Azure i zapraszania adresatów. Aby dowiedzieć się więcej o tym, jak odbiorca danych może zaakceptować i odebrać udział danych, przejdź do samouczka [Zaakceptuj i Odbierz dane](subscribe-to-data-share.md) .
+W tym przewodniku szybki start dowiesz się, jak utworzyć udział danych platformy Azure i zaprosić adresatów. Aby dowiedzieć się więcej o tym, jak odbiorca danych może zaakceptować i odebrać udział danych, przejdź do samouczka [Zaakceptuj i Odbierz dane](subscribe-to-data-share.md) .

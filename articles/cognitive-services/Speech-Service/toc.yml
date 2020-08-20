@@ -20,10 +20,8 @@
       href: index-speech-to-text.yml
     - name: Omówienie
       items:
-        - name: Co to jest zamiana mowy na tekst w czasie rzeczywistym?
+        - name: Co to jest zamiana mowy na tekst?
           href: speech-to-text.md
-        - name: Co to jest wsadowa zamiana mowy na tekst?
-          href: batch-transcription.md
         - name: Podstawy rozpoznawania mowy
           href: speech-to-text-basics.md
     - name: Przewodniki Szybki start
@@ -53,6 +51,8 @@
           href: how-to-select-audio-input-devices.md
         - name: Używanie automatycznego wykrywania języka źródłowego
           href: how-to-automatic-language-detection.md
+        - name: Korzystanie z interfejsu API REST transkrypcji wsadowej
+          href: batch-transcription.md
     - name: Samouczki
       items:
         - name: Zwiększanie dokładności za pomocą modeli dzierżaw

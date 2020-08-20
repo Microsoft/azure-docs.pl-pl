@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1ffb5ec0b39c5331afbc55d99268d9a3997e62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efd98cab50c3239d3202e6feabe18f45a4240293
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764455"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641181"
 ---
 # <a name="compare-remote-access-solutions"></a>Porównywanie rozwiązań dostępu zdalnego
 
@@ -32,7 +32,7 @@ Serwer proxy aplikacji usługi Azure Active Directory jest jednym z dwóch rozwi
 
 Skorzystaj z tej tabeli, aby zrozumieć, jak Brama zarządzania zagrożeniami (TMG), Unified Access Gateway (UAG), serwer proxy aplikacji sieci Web (WAP) i usługa Azure serwer proxy aplikacji usługi Azure AD (AP) porównują się ze sobą.
 
-| Cecha | TMG | UAG | WAP | Interfejs API |
+| Cechy | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
 | Uwierzytelnianie certyfikatu | Tak | Tak | - | - |
 | Selektywne publikowanie aplikacji przeglądarki | Tak | Tak | Tak | Tak |
@@ -59,7 +59,7 @@ Usługa Azure serwer proxy aplikacji usługi Azure AD oferuje unikatowe korzyśc
    - Funkcje, takie jak dostęp warunkowy i Multi-Factor Authentication, można łatwo włączyć
 - Brak składników w strefie zdemilitaryzowana
 - Nie są wymagane żadne połączenia przychodzące
-- Jeden panel dostępu, do którego użytkownicy mogą przejść dla wszystkich swoich aplikacji, w tym usługi O365, zintegrowane aplikacje SaaS w usłudze Azure AD i lokalne aplikacje sieci Web. 
+- Jedna Strona Moje aplikacje, do której użytkownicy mogą przejść dla wszystkich swoich aplikacji, w tym usługi O365, zintegrowane aplikacje SaaS w usłudze Azure AD i lokalne aplikacje sieci Web. 
 
 
 ## <a name="next-steps"></a>Następne kroki

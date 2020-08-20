@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33b67c836be3395061e33b5988a4bb06fa5ee20f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9d2f295394d89432f3c6dd99585cc4363d4ff74
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608555"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641368"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Przeniesienie uwierzytelniania aplikacji z Active Directory Federation Services do Azure Active Directory
 
@@ -127,7 +127,7 @@ Podczas mapowania atrybutów należy pamiętać o następujących ograniczeniach
 
 Jeśli użytkownik zaloguje się do aplikacji SaaS, takich jak Salesforce, usługi ServiceNow lub Workday, i jest zintegrowany z AD FS, jest używane logowanie federacyjne dla aplikacji SaaS. 
 
-Większość aplikacji SaaS można już skonfigurować w usłudze Azure AD. Firma Microsoft ma wiele wstępnie skonfigurowanych połączeń z aplikacjami SaaS w [galerii aplikacji usługi Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps), co ułatwi Ci przejście. Aplikacje SAML 2,0 można zintegrować z usługą Azure AD za pomocą galerii aplikacji usługi Azure AD lub jako [aplikacje spoza galerii](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app). 
+Większość aplikacji SaaS można już skonfigurować w usłudze Azure AD. Firma Microsoft ma wiele wstępnie skonfigurowanych połączeń z aplikacjami SaaS w  [galerii aplikacji usługi Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps), co ułatwi Ci przejście. Aplikacje SAML 2,0 można zintegrować z usługą Azure AD za pomocą galerii aplikacji usługi Azure AD lub jako [aplikacje spoza galerii](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app). 
 
 Aplikacje używające uwierzytelniania OAuth 2.0 lub OpenID Connect można podobnie zintegrować z usługą Azure AD jako [rejestracje aplikacji](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide-for-app-registrations-legacy-users). Aplikacje korzystające ze starszych protokołów mogą uwierzytelniać się w usłudze Azure AD za pomocą [usługi azure serwer proxy aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) .
 
@@ -237,8 +237,8 @@ Aplikacje SaaS muszą wiedzieć, gdzie wysyłać żądania uwierzytelniania i ja
 
 | Ustawienie konfiguracji| AD FS| Jak skonfigurować usługę Azure AD |
 | - | - | - |
-| **Adres URL logowania dostawcy tożsamości** <p>Adres URL logowania dostawcy tożsamości z perspektywy aplikacji (do którego użytkownik jest przekierowywany na potrzeby logowania).| Adres URL logowania AD FS jest nazwą usługi federacyjnej AD FS, po której następuje "/adfs/ls/." <p>Na przykład: `https://fs.contoso.com/adfs/ls/`| Zastąp ciąg {dzierżawca} IDENTYFIKATORem dzierżawy. <p> W przypadku aplikacji korzystających z protokołu SAML-P:[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p>W przypadku aplikacji korzystających z protokołu WS-Federation:[https://login.microsoftonline.com/{tenant-id}/wsfed](https://login.microsoftonline.com/{tenant-id}/wsfed) |
-| **Adres URL wylogowania dostawcy tożsamości**<p>Adres URL wylogowania dostawcy tożsamości z perspektywy aplikacji (do którego użytkownik jest przekierowywany, gdy zdecyduje się wylogować się z aplikacji).| Adres URL wylogowania jest taki sam jak adres URL logowania lub jest to ten sam adres URL z dołączonym parametrem "WA = wsignout 1.0". Na przykład: `https://fs.contoso.com/adfs/ls/?wa=wsignout1.0`| Zastąp ciąg {dzierżawca} IDENTYFIKATORem dzierżawy.<p>W przypadku aplikacji korzystających z protokołu SAML-P:<p>[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p> W przypadku aplikacji korzystających z protokołu WS-Federation:[https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0](https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0) |
+| **Adres URL logowania dostawcy tożsamości** <p>Adres URL logowania dostawcy tożsamości z perspektywy aplikacji (do którego użytkownik jest przekierowywany na potrzeby logowania).| Adres URL logowania AD FS jest nazwą usługi federacyjnej AD FS, po której następuje "/adfs/ls/." <p>Na przykład: `https://fs.contoso.com/adfs/ls/`| Zastąp ciąg {dzierżawca} IDENTYFIKATORem dzierżawy. <p> W przypadku aplikacji korzystających z protokołu SAML-P: [https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p>W przypadku aplikacji korzystających z protokołu WS-Federation: [https://login.microsoftonline.com/{tenant-id}/wsfed](https://login.microsoftonline.com/{tenant-id}/wsfed) |
+| **Adres URL wylogowania dostawcy tożsamości**<p>Adres URL wylogowania dostawcy tożsamości z perspektywy aplikacji (do którego użytkownik jest przekierowywany, gdy zdecyduje się wylogować się z aplikacji).| Adres URL wylogowania jest taki sam jak adres URL logowania lub jest to ten sam adres URL z dołączonym parametrem "WA = wsignout 1.0". Na przykład: `https://fs.contoso.com/adfs/ls/?wa=wsignout1.0`| Zastąp ciąg {dzierżawca} IDENTYFIKATORem dzierżawy.<p>W przypadku aplikacji korzystających z protokołu SAML-P:<p>[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p> W przypadku aplikacji korzystających z protokołu WS-Federation: [https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0](https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0) |
 | **Certyfikat podpisywania tokenu**<p>Dostawcy tożsamości używa klucza prywatnego certyfikatu do podpisywania wystawionych tokenów. Weryfikuje, że token pochodzi od tego samego dostawcy tożsamości, z którym aplikacja ma skonfigurowaną relację zaufania.| Certyfikat podpisywania tokenu usług AD FS znajduje się w funkcji zarządzania usługami AD FS w obszarze **Certyfikaty**.| Znajdź je w Azure Portal we **właściwościach logowania** jednokrotnego aplikacji, w obszarze **certyfikatu podpisywania SAML**nagłówka. W tym miejscu możesz pobrać certyfikat, aby następnie przekazać go do aplikacji.  <p>Jeśli aplikacja ma więcej niż jeden certyfikat, wszystkie certyfikaty można znaleźć w pliku XML metadanych Federacji. |
 | **Identyfikator/"wystawca"**<p>Identyfikator dostawcy tożsamości z perspektywy aplikacji (czasami nazywany "IDENTYFIKATORem wystawcy").<p>W tokenie SAML wartość jest wyświetlana jako element wystawcy.| Identyfikator AD FS jest zazwyczaj identyfikatorem usługi federacyjnej w AD FS Management w obszarze **> Edytowanie właściwości usługa federacyjna**. Na przykład: `http://fs.contoso.com/adfs/services/trust`| Zastąp ciąg {dzierżawca} IDENTYFIKATORem dzierżawy.<p>https: \/ /STS.Windows.NET/{tenant-ID}/ |
 | **Metadane federacji dostawcy tożsamości**<p>Lokalizacja publicznie dostępnych metadanych Federacji dostawcy tożsamości. (Niektóre aplikacje używają metadanych federacji jako alternatywy sytuacji, w której administrator indywidualnie konfiguruje adresy URL, identyfikator i certyfikat podpisywania tokenu).| Znajdź adres URL metadanych Federacji AD FS w obszarze Zarządzanie AD FS w obszarze **punkty końcowe > usługi > typ > metadanych: metadane federacji**. Na przykład: `https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`| Odpowiadająca wartość w usłudze Azure AD jest zgodna z wzorcem [https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml) . Zastąp ciąg {Nazwadomenydzierżawy} nazwą swojej dzierżawy w formacie "contoso.onmicrosoft.com".   <p>Aby uzyskać więcej informacji, zobacz [Metadane federacji](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-federation-metadata). |
@@ -483,7 +483,7 @@ Chociaż planowane okno przestoju może być minimalne, nadal należy zaplanowa�
 
 Po zakończeniu wdrażania można wysłać komunikat informujący użytkowników o pomyślnym wdrożeniu i przypomnieniu o wszelkich nowych krokach, które muszą zostać wykonane.
 
-* Poinstruuj użytkowników, aby korzystali z [panelu dostępu](https://myapps.microsoft.com) do uzyskiwania dostępu do wszystkich zmigrowanych aplikacji. 
+* Poinstruuj użytkowników, aby używali [aplikacji](https://myapps.microsoft.com) do uzyskiwania dostępu do wszystkich zmigrowanych aplikacji. 
 
 * Przypomnij użytkownikom, że mogą oni potrzebować zaktualizować ustawienia usługi MFA. 
 
@@ -492,5 +492,5 @@ Po zakończeniu wdrażania można wysłać komunikat informujący użytkowników
 Komunikacja z użytkownikami zewnętrznymi: Ta grupa użytkowników jest zazwyczaj najbardziej krytycznym problemem w przypadku problemów. Jest to szczególnie prawdziwe, jeśli stan zabezpieczeń wymusza różne zestawy reguł dostępu warunkowego lub profile ryzyka dla partnerów zewnętrznych. Upewnij się, że partnerzy zewnętrzni są świadomi harmonogramu migracji do chmury i mają przedział czasu, w którym zaleca się uczestnictwo w wdrożeniu pilotażowym, które testuje wszystkie przepływy w ramach współpracy zewnętrznej. Na koniec upewnij się, że masz dostęp do pomocy technicznej w przypadku problemów z przerywaniem.
 
 ## <a name="next-steps"></a>Następne kroki
-Odczytywanie [migracji uwierzytelniania aplikacji do usługi Azure AD](https://aka.ms/migrateapps/whitepaper)<p>
+Odczytywanie  [migracji uwierzytelniania aplikacji do usługi Azure AD](https://aka.ms/migrateapps/whitepaper)<p>
 Konfigurowanie [dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) i usługi [MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)

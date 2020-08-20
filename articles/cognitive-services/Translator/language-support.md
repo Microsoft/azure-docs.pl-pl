@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: d692daf2f7f8b77358e73246fd8d8760f95982ac
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: a0ea0a7580bbb7a6106880d2733f36f5ab7a7690
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510797"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639787"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Obsługa języków i tekstu oraz Tłumaczenie mowy
 
@@ -296,6 +296,7 @@ Następujące języki są dostępne do dostosowania do języka angielskiego lub 
 | Francuski      | `fr`          |
 | Niemiecki      | `de`          |
 | Grecki      | `el`          |
+| Gudżarati| `gu`    |
 | Hebrajski      | `he`          |
 | Hindi      | `hi`          |
 | Węgierski      | `hu`          |
@@ -309,11 +310,14 @@ Następujące języki są dostępne do dostosowania do języka angielskiego lub 
 | Łotewski      | `lv`          |
 | Litewski      | `lt`          |
 | Madagaskaru| `mg`    |
+| Malajski|    `ms`        |
 | Maoryjski| `mi`  |
+| Marathi| `mr`  |
 | Norweski      | `nb`          |
 | Perski      | `fa`          |
 | polski      | `pl`          |
-| Portugalski (Brazylia) | `pt-br` |
+| portugalski (Brazylia) | `pt-br` |
+| Pendżabski|`pa`|
 | Rumuński      | `ro`          |
 | Rosyjski      | `ru`          |
 | Samoan|   `sm`    |
@@ -325,6 +329,7 @@ Następujące języki są dostępne do dostosowania do języka angielskiego lub 
 | Tajlandzki      | `th`          |
 | Turecki      | `tr`          |
 | Ukraiński      | `uk`          |
+| Urdu| `ur`    |
 | Wietnamski      | `vi`          |
 | Walijski | `cy` |
 

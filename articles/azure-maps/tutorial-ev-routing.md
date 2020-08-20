@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 843094a58868e7751f1fa2dbee70535f2192ae62
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 506429f51ac442b73adea98058a833f52a728c72
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850172"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639753"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Samouczek: kierowanie pojazdów elektrycznych przy użyciu Azure Notebooks (Python)
 
@@ -27,7 +27,7 @@ W tym samouczku poznasz sterownik, którego bateria elektryczności jest niska. 
 W tym samouczku wykonasz następujące czynności:
 
 > [!div class="checklist"]
-> * Utwórz i uruchom Notes Jupyter na [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) w chmurze.
+> * Utwórz i uruchom Jupyter Notebook plik na [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) w chmurze.
 > * Wywołaj interfejsy API REST Azure Maps w języku Python.
 > * Wyszukaj osiągalny zakres oparty na modelu zużycia pojazdu elektrycznego.
 > * Wyszukaj stacje opłat za pojazdy elektryczne w dostępnym zakresie lub isochrone.
@@ -45,9 +45,9 @@ Aby uzyskać podstawowy klucz subskrypcji dla konta, postępuj zgodnie z instruk
 
 Aby uzyskać więcej informacji na temat uwierzytelniania w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](./how-to-manage-authentication.md).
 
-## <a name="create-an-azure-notebook"></a>Tworzenie notesu platformy Azure
+## <a name="create-an-azure-notebooks-project"></a>Tworzenie projektu Azure Notebooks
 
-Aby wykonać czynności opisane w tym samouczku, należy utworzyć projekt notesu platformy Azure i pobrać i uruchomić plik notesu Jupyter. Plik notesu zawiera kod języka Python, który implementuje scenariusz w tym samouczku. Aby utworzyć projekt notesu platformy Azure i przekazać do niego dokument notesu Jupyter, wykonaj następujące czynności:
+Aby wykonać czynności opisane w tym samouczku, należy utworzyć projekt Azure Notebooks i pobrać i uruchomić plik Jupyter Notebook. Plik Jupyter Notebook zawiera kod języka Python, który implementuje scenariusz w tym samouczku. Aby utworzyć projekt Azure Notebooks i przekazać do niego dokument Jupyter Notebook, wykonaj następujące czynności:
 
 1. Przejdź do [Azure Notebooks](https://notebooks.azure.com) i zaloguj się. Aby uzyskać więcej informacji, zobacz [Szybki Start: Logowanie i Ustawianie identyfikatora użytkownika](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks).
 1. W górnej części strony profilu publicznego wybierz pozycję **Moje projekty**.
@@ -64,25 +64,25 @@ Aby wykonać czynności opisane w tym samouczku, należy utworzyć projekt notes
 
 1. Wybierz przycisk **Utwórz**.
 
-1. Po utworzeniu projektu Pobierz ten [plik dokumentu notesu Jupyter](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) z [repozytorium Azure Maps Jupyter notesu](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook).
+1. Po utworzeniu projektu Pobierz ten [Jupyter notebook plik dokumentu](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) z [repozytorium Azure Maps Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook).
 
-1. Na liście projekty na stronie **Moje projekty** wybierz projekt, a następnie wybierz pozycję **Przekaż** , aby przekazać plik dokumentu notesu Jupyter. 
+1. Na liście projekty na stronie **Moje projekty** wybierz projekt, a następnie wybierz pozycję **Przekaż** , aby przekazać plik dokumentu Jupyter Notebook. 
 
-    ![Przekaż Notes](./media/tutorial-ev-routing/upload-notebook.png)
+    ![Przekaż Jupyter Notebook](./media/tutorial-ev-routing/upload-notebook.png)
 
 1. Przekaż plik z komputera, a następnie wybierz pozycję **gotowe**.
 
-1. Po pomyślnym zakończeniu przekazywania plik zostanie wyświetlony na stronie Twojego projektu. Kliknij dwukrotnie plik, aby otworzyć go jako Notes Jupyter.
+1. Po pomyślnym zakończeniu przekazywania plik zostanie wyświetlony na stronie Twojego projektu. Kliknij dwukrotnie plik, aby otworzyć go jako Jupyter Notebook.
 
-Spróbuj zrozumieć funkcjonalność zaimplementowaną w pliku notesu. Uruchom kod w pliku notesu, po jednej komórce jednocześnie. Kod można uruchomić w każdej komórce, wybierając przycisk Run ( **Uruchom** ) w górnej części aplikacji Notes.
+Spróbuj zrozumieć funkcjonalność zaimplementowaną w pliku Jupyter Notebook. Uruchom kod, w pliku Jupyter Notebook, po jednej komórce w danym momencie. Kod można uruchomić w każdej komórce, wybierając przycisk **Uruchom** w górnej części aplikacji Jupyter Notebook.
 
   ![Przycisk Uruchom](./media/tutorial-ev-routing/run.png)
 
 ## <a name="install-project-level-packages"></a>Zainstaluj pakiety na poziomie projektu
 
-Aby uruchomić kod w notesie, zainstaluj pakiety na poziomie projektu, wykonując następujące czynności:
+Aby uruchomić kod w Jupyter Notebook, zainstaluj pakiety na poziomie projektu, wykonując następujące czynności:
 
-1. Pobierz plik [*requirements.txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) z [repozytorium Azure Maps notesu Jupyter](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook), a następnie Przekaż go do projektu.
+1. Pobierz plik [*requirements.txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) z [repozytorium Azure Maps Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook), a następnie Przekaż go do projektu.
 1. Na pulpicie nawigacyjnym projektu wybierz pozycję **Ustawienia projektu**. 
 1. W okienku **Ustawienia projektu** wybierz kartę **środowisko** , a następnie wybierz pozycję **Dodaj**.
 1. W obszarze **czynności konfiguracyjne środowiska**wykonaj następujące czynności:   

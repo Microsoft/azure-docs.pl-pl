@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0c66c1fc9a9b93d5b4d3af0440ec3fdc276a9b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d662689d44bcdbd468c882de0679fd60c9ab4f4
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763418"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640450"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Opracowywanie aplikacji biznesowych dla Azure Active Directory
 Ten przewodnik zawiera omówienie opracowywania aplikacji biznesowych (LoB) dla Azure Active Directory (AD). Zaznaczeni odbiorcy to Active Directory/Administratorzy globalni Office 365.
@@ -58,7 +58,7 @@ Oto co należy zrobić, aby pomóc deweloperom w przygotowaniu aplikacji do prod
 Skonfiguruj reguły dostępu dla poszczególnych aplikacji w aplikacjach SaaS. Można na przykład wymagać uwierzytelniania wieloskładnikowego lub zezwalać na dostęp tylko użytkownikom w zaufanych sieciach. Szczegóły tego elementu są dostępne w dokumencie [Configuring Access Rules](../conditional-access/app-based-mfa.md).
 
 ## <a name="configure-the-app-to-require-user-assignment-and-assign-users"></a>Skonfiguruj aplikację tak, aby wymagała przypisania użytkownika i przypisania użytkowników
-Domyślnie użytkownicy mogą uzyskiwać dostęp do aplikacji bez przypisywania. Jeśli jednak aplikacja uwidacznia role lub jeśli chcesz, aby aplikacja była wyświetlana w panelu dostępu użytkownika, należy wymagać przypisania użytkownika.
+Domyślnie użytkownicy mogą uzyskiwać dostęp do aplikacji bez przypisywania. Jeśli jednak aplikacja uwidacznia role lub jeśli chcesz, aby aplikacja była wyświetlana w aplikacjach użytkownika, należy wymagać przypisania użytkownika.
 
 Jeśli jesteś subskrybentem usługi Azure AD — wersja Premium lub pakietu Enterprise Mobility Suite (EMS), zdecydowanie zalecamy korzystanie z grup. Przypisywanie grup do aplikacji umożliwia delegowanie trwającego zarządzania dostępem do właściciela grupy. Możesz utworzyć grupę lub poproszenie osoby odpowiedzialnej w organizacji o utworzenie grupy przy użyciu funkcji zarządzania grupami.
 

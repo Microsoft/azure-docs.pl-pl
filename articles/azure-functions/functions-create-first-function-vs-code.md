@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 10d51102b49a15cfb6893de9da616a836663829e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d00fa5cf475eb2311bfa4b6f7dbe7dba70d080fd
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213442"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642337"
 ---
 # <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Szybki start: Tworzenie funkcji na platformie Azure przy użyciu programu Visual Studio Code
 
@@ -60,9 +60,9 @@ Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagani
 + Środowisko [python 3,8](https://www.python.org/downloads/release/python-381/), [Python 3,7](https://www.python.org/downloads/release/python-375/), [python 3,6](https://www.python.org/downloads/release/python-368/) jest obsługiwane przez Azure Functions (x64).
 ::: zone-end   
 ::: zone pivot="programming-language-powershell"
-+ [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
++ [Program PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-+ [Zestaw .NET Core SDK 2.2 +](https://www.microsoft.com/net/download)  
++ [Zestaw .NET Core SDK 3,1](https://www.microsoft.com/net/download)  
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 + [Zestaw Java developer Kit](https://aka.ms/azure-jdks), wersja 8.
@@ -180,7 +180,7 @@ Po sprawdzeniu, że funkcja działa poprawnie na komputerze lokalnym, można uż
 
     ![Odpowiedź funkcji wyświetlona w przeglądarce](./media/functions-create-first-function-vs-code/functions-test-remote-browser.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Po przeniesieniu do następnego kroku [Dodaj powiązanie kolejki usługi Azure Storage do funkcji](functions-add-output-binding-storage-queue-vs-code.md), musisz zachować wszystkie Twoje zasoby, aby skompilować, co już zostało zrobione.
 

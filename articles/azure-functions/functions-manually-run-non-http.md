@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: article
 ms.date: 04/23/2020
 ms.author: cshoe
-ms.openlocfilehash: fd7b0be967c7a0bbc605c51408448917b5222d36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37f79d717b7ea0e26717e7b51f9e66b908b96521
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83121787"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640971"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Ręczne uruchamianie funkcji niewyzwalanej przez protokół HTTP
 
@@ -37,7 +37,7 @@ Ta lokalizacja żądania w narzędziu Postman wraz z kluczem głównym funkcji w
 
 ## <a name="get-the-functions-master-key"></a>Uzyskiwanie klucza głównego funkcji
 
-1. Przejdź do funkcji w Azure Portal i wybierz pozycję **klawisze funkcyjne**. Następnie wybierz klucz funkcji, który chcesz skopiować. 
+1. Przejdź do aplikacji funkcji w [Azure Portal](https://portal.azure.com), wybierz pozycję **klucze aplikacji**, a następnie `_master` klucz. 
 
     :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key.png" alt-text="Zlokalizuj klucz główny, który ma zostać skopiowany." border="true":::
 
@@ -50,7 +50,7 @@ Ta lokalizacja żądania w narzędziu Postman wraz z kluczem głównym funkcji w
     :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Wyświetl dzienniki, aby wyświetlić wyniki testu klucza głównego." border="true":::
 
 > [!CAUTION]  
-> Ze względu na podwyższony poziom uprawnień w aplikacji funkcji przyznany przez klucz główny nie należy udostępniać tego klucza osobom trzecim ani rozpowszechniać go w aplikacji.
+> Ze względu na podwyższony poziom uprawnień w aplikacji funkcji przyznany przez klucz główny nie należy udostępniać tego klucza osobom trzecim ani rozpowszechniać go w aplikacji. Klucz powinien być wysyłany tylko do punktu końcowego HTTPS.
 
 ## <a name="call-the-function"></a>Wywołanie funkcji
 

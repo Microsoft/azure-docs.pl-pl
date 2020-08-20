@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs, references_regions
 ms.date: 07/16/2020
-ms.openlocfilehash: fb7f91a0670d99170656c0c3a2c1b73d96095762
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b9d1e3319aaaafded44d25c91720a0d72dcb86f3
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513034"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642014"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-arm-template"></a>Szybki Start: Tworzenie elementu członkowskiego usługi Azure łańcucha bloków przy użyciu szablonu ARM
 
@@ -25,13 +25,13 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
 Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/201-blockchain-asaservice/).
 
-:::code language="json" source="~/quickstart-templates/201-blockchain-asaservice/azuredeploy.json" range="1-84" highlight="52-80":::
+:::code language="json" source="~/quickstart-templates/201-blockchain-asaservice/azuredeploy.json":::
 
 Zasoby platformy Azure zdefiniowane w szablonie:
 
@@ -39,7 +39,7 @@ Zasoby platformy Azure zdefiniowane w szablonie:
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-1. Wybierz poniższy link, aby zalogować się do platformy Azure i otworzyć szablon.
+1. Wybierz poniższy link, aby zalogować się na platformie Azure i otworzyć szablon.
 
     [![Wdrażanie na platformie Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-blockchain-asaservice%2Fazuredeploy.json)
 
@@ -66,7 +66,7 @@ Za pomocą Azure Portal można wyświetlić szczegóły wdrożonego elementu cz�
 
 ![Wdrożono szczegóły przeglądu elementu członkowskiego usługi Azure łańcucha bloków w Azure Portal](./media/create-member-template/deployed-member.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Możesz użyć elementu członkowskiego łańcucha bloków utworzonego dla następnego przewodnika Szybki start lub samouczka. Gdy zasoby nie będą już potrzebne, można je usunąć przez usunięcie grupy zasobów utworzonej dla przewodnika Szybki Start.
 

@@ -4,12 +4,12 @@ description: Informacje na temat tworzenia funkcji w języku Python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 776355ce981ba5cc2a24bfe473da2f55427eadf6
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f9b81a7263dc9a1bdae9fd881519ac734da2c6bc
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850750"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642201"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Przewodnik dewelopera w języku Python Azure Functions
 
@@ -21,7 +21,7 @@ Przykładowe projekty funkcji autonomicznych w języku Python znajdują się w s
 
 Azure Functions oczekuje, że funkcja będzie metodą bezstanową w skrypcie języka Python, która przetwarza dane wejściowe i generuje dane wyjściowe. Domyślnie środowisko uruchomieniowe oczekuje metody, która ma być zaimplementowana jako metoda globalna wywołana `main()` w `__init__.py` pliku. Można również [określić alternatywny punkt wejścia](#alternate-entry-point).
 
-Dane z wyzwalaczy i powiązań są powiązane z funkcją za pośrednictwem atrybutów metody przy użyciu `name` właściwości zdefiniowanej w *function.jsw* pliku. Na przykład na poniższym _function.js_ opisano prostą funkcję wyzwalaną przez żądanie HTTP o nazwie `req` :
+Dane z wyzwalaczy i powiązań są powiązane z funkcją za pośrednictwem atrybutów metody przy użyciu `name` właściwości zdefiniowanej w *function.jsw* pliku. Na przykład na poniższym  _function.js_ opisano prostą funkcję wyzwalaną przez żądanie HTTP o nazwie `req` :
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
@@ -87,7 +87,6 @@ Główny folder projektu ( \_ \_ aplikacja \_ \_ ) może zawierać następujące
 * *requirements.txt*: zawiera listę pakietów instalowanych przez system podczas publikowania na platformie Azure.
 * *host.js*: zawiera globalne opcje konfiguracji, które mają wpływ na wszystkie funkcje w aplikacji funkcji. Ten plik jest publikowany na platformie Azure. Nie wszystkie opcje są obsługiwane w przypadku uruchamiania lokalnego. Aby dowiedzieć się więcej, zobacz [host.json](functions-host-json.md).
 * *. funcignore*: (opcjonalnie) deklaruje pliki, które nie powinny zostać opublikowane na platformie Azure.
-* *. gitignore*: (opcjonalnie) deklaruje pliki, które są wykluczone z repozytorium git, takie jak local.settings.json.
 * *Pliku dockerfile*: (opcjonalnie) używany podczas publikowania projektu w [kontenerze niestandardowym](functions-create-function-linux-custom-image.md).
 
 Każda funkcja ma własny plik kodu i plik konfiguracji powiązania (function.json).
@@ -351,11 +350,11 @@ def main(req: azure.functions.HttpRequest,
 
 Klasa [**kontekstu**](/python/api/azure-functions/azure.functions.context?view=azure-python) ma następujące atrybuty ciągu:
 
-`function_directory`Katalog, w którym działa funkcja.
+`function_directory` Katalog, w którym działa funkcja.
 
-`function_name`Nazwa funkcji.
+`function_name` Nazwa funkcji.
 
-`invocation_id`Identyfikator bieżącego wywołania funkcji.
+`invocation_id` Identyfikator bieżącego wywołania funkcji.
 
 ## <a name="global-variables"></a>Zmienne globalne
 

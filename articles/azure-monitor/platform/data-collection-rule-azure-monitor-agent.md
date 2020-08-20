@@ -4,13 +4,13 @@ description: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/10/2020
-ms.openlocfilehash: 3cd2ed692f3a34223675da69efd92e78c2ba9504
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.date: 08/19/2020
+ms.openlocfilehash: 97ba976c841e192646ebb484fe4d004556e34c54
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083071"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640841"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Konfigurowanie zbierania danych dla agenta Azure Monitor (wersja zapoznawcza)
 Zasady zbierania danych (DCR) definiują dane wprowadzane do Azure Monitor i określają miejsce, w którym powinny być wysyłane. W tym artykule opisano sposób tworzenia reguły zbierania danych w celu zbierania danych z maszyn wirtualnych przy użyciu agenta Azure Monitor.
@@ -48,7 +48,7 @@ Na karcie **zbieranie i dostarczanie** kliknij pozycję **Dodaj źródło danych
 [![Podstawowe źródło danych](media/azure-monitor-agent/data-collection-rule-data-source-basic.png)](media/azure-monitor-agent/data-collection-rule-data-source-basic.png#lightbox)
 
 
-Aby określić inne dzienniki i liczniki wydajności, wybierz opcję **niestandardowa**. Następnie można określić [wyrażenie XPath](https://www.w3schools.com/xml/xpath_syntax.asp) dla konkretnych wartości do zebrania. Przykłady można znaleźć w [przykładach DCR](data-collection-rule-overview.md#sample-data-collection-rule) .
+Aby określić inne dzienniki i liczniki wydajności, wybierz opcję **niestandardowa**. Następnie można określić [wyrażenie XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) dla konkretnych wartości do zebrania. Przykłady można znaleźć w [przykładach DCR](data-collection-rule-overview.md#sample-data-collection-rule) .
 
 [![Niestandardowe źródło danych](media/azure-monitor-agent/data-collection-rule-data-source-custom.png)](media/azure-monitor-agent/data-collection-rule-data-source-custom.png#lightbox)
 
@@ -61,6 +61,11 @@ Kliknij pozycję **Dodaj źródło danych** , a następnie **Przejrzyj i Utwórz
 > [!NOTE]
 > Po utworzeniu reguły zbierania danych i skojarzeniach dane do miejsc docelowych mogą być wysyłane do 5 minut.
 
+## <a name="createusingrestapi"></a>Tworzenie za pomocą interfejsu API REST
+Wykonaj poniższe kroki, aby utworzyć DCR i skojarzenia przy użyciu interfejsu API REST. 
+1.Ręcznie Utwórz plik DCR przy użyciu formatu JSON pokazanego w [przykładzie DCR](data-collection-rule-overview.md#sample-data-collection-rule).
+2.Utwórz regułę przy użyciu [interfejsu API REST](https://docs.microsoft.com/rest/api/monitor/datacollectionrules/create#examples).
+3.Utwórz skojarzenie dla każdej maszyny wirtualnej z regułą zbierania danych przy użyciu [interfejsu API REST](https://docs.microsoft.com/rest/api/monitor/datacollectionruleassociations/create#examples).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: 097868c0f6c64ad8b58dce365a2232bb02b786e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de173d6dc25610cd397cd719fe4c1c9db33a02f6
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84168203"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641844"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB tabelę .NET Standard interfejs API: pobieranie i informacje o wersji
 > [!div class="op_single_selector"]
@@ -41,6 +41,14 @@ Seria 2.0.0 jest zależna od [Microsoft. Azure. Cosmos](https://www.nuget.org/pa
 
 ## <a name="release-notes-for-100-series"></a>Informacje o wersji dla serii 1.0.0
 Seria 1.0.0 przyjmuje zależność od [Microsoft.Azure.DocumentDB. Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
+
+### <a name="108"></a><a name="1.0.8"></a>1.0.8
+* Dodaj obsługę, aby ustawić właściwość TTL, jeśli jest to punkt końcowy cosmosdb 
+* Zahonorowanie zasad ponawiania próby po upływie limitu czasu i anulowania zadania
+* Rozwiązano wyjątek nieprzerwanego anulowania zadania w aplikacjach ASP .NET
+* Napraw pobieranie z usługi Azure Table Storage z pomocniczego punktu końcowego tryb lokalizacji
+* Zaktualizuj `Microsoft.Azure.DocumentDB.Core` wersję zależności do 2.11.2, która rozwiązuje tymczasowy wyjątek odwołania o wartości null
+* Zaktualizuj `Odata.Core` wersję zależności do 7.6.4, która rozwiązuje konflikt zgodności z usługą Azure Shell
 
 ### <a name="107"></a><a name="1.0.7"></a>1.0.7
 * Zwiększenie wydajności przez ustawienie domyślnego poziomu śledzenia zestawu SDK tabeli na SourceLevels. off, który można włączyć za pomocą app.config
@@ -115,5 +123,5 @@ Ta międzyplatformowa biblioteka .NET Standard [Microsoft. Azure. Cosmos. Table]
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 Aby dowiedzieć się więcej na temat interfejs API tabel Azure Cosmos DB, zobacz [wprowadzenie do Azure Cosmos DB interfejs API tabel](table-introduction.md).

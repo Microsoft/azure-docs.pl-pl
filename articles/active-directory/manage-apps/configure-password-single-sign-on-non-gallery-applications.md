@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: 1193e6f9ed637f6bd28b2fef6488b2d4902ec67b
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: be6a8a58f1d66df9d0fe557584c4731e42ae9c59
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87459389"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640552"
 ---
 # <a name="configure-password-based-single-sign-on"></a>Konfigurowanie logowania jednokrotnego opartego na hasłach
 
@@ -29,7 +29,7 @@ Logowanie jednokrotne oparte na hasłach to doskonały sposób, aby szybko rozpo
 
 - Obsługa aplikacji, które wymagają wielu pól logowania dla aplikacji, które wymagają więcej niż tylko nazwy użytkownika i hasła do logowania
 
-- Dostosuj etykiety pól username i Password, które użytkownicy widzą w [panelu dostępu do aplikacji](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) po wprowadzeniu poświadczeń
+- Dostosuj etykiety pól username i Password, które użytkownicy widzą w [moich aplikacjach](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) po wprowadzeniu poświadczeń
 
 - Zezwól użytkownikom na udostępnianie własnych nazw użytkowników i haseł dla wszystkich istniejących kont aplikacji, które są wpisywane ręcznie.
 
@@ -71,17 +71,17 @@ Jeśli próba analizy usługi Azure AD nie powiedzie się, można skonfigurować
    ![Ręczna konfiguracja logowania jednokrotnego opartego na hasłach](./media/configure-password-single-sign-on/password-configure-sign-on.png)
 3. Wybierz pozycję **Przechwyć pola logowania**. Zostanie otwarta strona stanu przechwytywania na nowej karcie, w której jest wyświetlany komunikat **przechwytywanie metadanych komunikatów jest obecnie w toku**.
 
-4. Jeśli pole wyboru **wymagane rozszerzenie panelu dostępu** pojawia się na nowej karcie, wybierz pozycję **Zainstaluj teraz** , aby zainstalować rozszerzenie przeglądarki **Moje aplikacje bezpieczne logowanie** . (Rozszerzenie przeglądarki wymaga programu Microsoft Edge, Chrome lub Firefox). Następnie zainstaluj, Uruchom i Włącz rozszerzenie, a następnie Odśwież stronę stanu przechwytywania.
+4. Jeśli pole wyboru **Moje aplikacje jest wymagane** na nowej karcie, wybierz pozycję **Zainstaluj teraz** , aby zainstalować rozszerzenie przeglądarki **Moje aplikacje bezpieczne logowanie** . (Rozszerzenie przeglądarki wymaga programu Microsoft Edge, Chrome lub Firefox). Następnie zainstaluj, Uruchom i Włącz rozszerzenie, a następnie Odśwież stronę stanu przechwytywania.
 
    Następnie rozszerzenie przeglądarki otwiera kolejną kartę, która wyświetla wprowadzony adres URL.
 5. Na karcie z podanym adresem URL przejdź przez proces logowania. Wypełnij pola Nazwa użytkownika i hasło, a następnie spróbuj się zalogować. (Nie musisz podawać prawidłowego hasła).
 
    Zostanie wyświetlony monit z pytaniem o zapisanie przechwyconych pól logowania.
-6. Wybierz przycisk **OK**. Rozszerzenie przeglądarki aktualizuje stronę ze stanem przechwytywania przy użyciu metadanych komunikatów, które **zostały zaktualizowane dla aplikacji**. Karta przeglądarka zostanie zamknięta.
+6. Kliknij przycisk **OK**. Rozszerzenie przeglądarki aktualizuje stronę ze stanem przechwytywania przy użyciu metadanych komunikatów, które **zostały zaktualizowane dla aplikacji**. Karta przeglądarka zostanie zamknięta.
 
 7. Na stronie Logowanie do **konfiguracji** usługi Azure AD wybierz pozycję OK. udało **Ci się pomyślnie zalogować się do aplikacji**.
 
-8. Wybierz przycisk **OK**.
+8. Kliknij przycisk **OK**.
 
 ## <a name="next-steps"></a>Następne kroki
 

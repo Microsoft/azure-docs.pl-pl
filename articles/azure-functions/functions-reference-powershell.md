@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 04/22/2019
-ms.openlocfilehash: 06838ecee809c5159bc8a290ecb4f589fd3ce04f
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: dd3978ee1f371d59119e406c5f023718d57ad99b
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207415"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642218"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Przewodnik dewelopera programu Azure Functions PowerShell
 
@@ -233,7 +233,7 @@ Logowanie w funkcjach programu PowerShell działa jak regularne rejestrowanie pr
 
 | Poziom rejestrowania funkcji | Polecenie cmdlet rejestrowania |
 | ------------- | -------------- |
-| Błąd | **`Write-Error`** |
+| Error | **`Write-Error`** |
 | Ostrzeżenie | **`Write-Warning`**  | 
 | Informacyjny | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informacyjny | Zapisuje dane w dzienniku na poziomie _informacji_ . |
 | Debugowanie | **`Write-Debug`** |
@@ -382,14 +382,14 @@ Po utworzeniu aplikacji funkcji przy użyciu narzędzi, takich jak Visual Studio
 * Automatyczne uwierzytelnianie MSI na platformie Azure.
 * Możliwość włączenia `AzureRM` aliasów programu Azure PowerShell PowerShell, jeśli chcesz.
 
-## <a name="powershell-version"></a>Wersja programu PowerShell
+## <a name="powershell-versions"></a>Wersje programu PowerShell
 
-W poniższej tabeli przedstawiono wersję programu PowerShell używaną przez każdą główną wersję środowiska uruchomieniowego funkcji:
+W poniższej tabeli przedstawiono wersje programu PowerShell obsługiwane przez każdą główną wersję środowiska uruchomieniowego funkcji, a wymagana wersja platformy .NET:
 
-| Wersja funkcji | Wersja programu PowerShell                             |
-|-------------------|------------------------------------------------|
-| 1.x               | Windows PowerShell 5,1 (zablokowany przez środowisko uruchomieniowe) |
-| 2.x               | Program PowerShell Core 6                              |
+| Wersja funkcji | Wersja programu PowerShell                               | Wersja platformy .NET  | 
+|-------------------|--------------------------------------------------|---------------|
+| 3. x (zalecane) | PowerShell 7 (zalecane)<br/>Program PowerShell Core 6 | .NET Core 3,1<br/>.NET Core 3,1 |
+| 2.x               | Program PowerShell Core 6                                | .NET Core 2.2 |
 
 Bieżącą wersję można zobaczyć, drukując ją `$PSVersionTable` z dowolnej funkcji.
 

@@ -9,12 +9,12 @@ ms.date: 05/26/2020
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.openlocfilehash: 098d82e6521a4a355ac31809937b589f984816f2
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 760406b738d2aa95ef086941850814f4bf39fbb4
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027175"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639872"
 ---
 # <a name="tutorial-deploy-an-azure-machine-learning-workspace-using-an-arm-template"></a>Samouczek: wdrażanie obszaru roboczego usługi Azure Machine Learning przy użyciu szablonu ARM
 
@@ -24,7 +24,7 @@ W tym samouczku przedstawiono sposób tworzenia obszaru roboczego usługi Azure 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-machine-learning-create%2Fazuredeploy.json)
 
@@ -36,15 +36,15 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-machine-learning-create/).
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-machine-learning-create/).
 
-:::code language="json" source="~/quickstart-templates/101-machine-learning-create/azuredeploy.json" range="1-258" highlight="224-254":::
+:::code language="json" source="~/quickstart-templates/101-machine-learning-create/azuredeploy.json":::
 
 Następujące zasoby są zdefiniowane w szablonie:
 
 * [Microsoft. MachineLearningServices/obszary robocze](/azure/templates/microsoft.machinelearningservices/workspaces): Tworzenie obszaru roboczego usługi Azure ml. W tym szablonie lokalizacja i nazwa są parametrami, które użytkownik może przekazać lub interaktywnie wprowadzić.
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 Aby użyć szablonu w interfejsie wiersza polecenia platformy Azure, zaloguj się i wybierz swoją subskrypcję (zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli)). Następnie uruchom polecenie:
 
@@ -69,7 +69,7 @@ Po uruchomieniu powyższego polecenia wpisz:
 
 Aby wyświetlić obszar roboczy usługi Azure ML:
 
-1. Przejdź do witryny https://portal.azure.com.
+1. Przejdź do adresu https://portal.azure.com.
 1. Zaloguj się.
 1. Wybierz właśnie utworzony obszar roboczy.
 
@@ -79,7 +79,7 @@ Zobaczysz stronę główną Azure Machine Learning:
 
 Aby wyświetlić wszystkie zasoby skojarzone z wdrożeniem, kliknij link w lewym górnym rogu z nazwą obszaru roboczego (na zrzucie ekranu `my_templated_ws` ). Ten link spowoduje przejście do grupy zasobów w Azure Portal. Nazwa grupy zasobów to `{projectName}rg` i obszar roboczy o nazwie `{projectName}ws` .
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz używać tego obszaru roboczego, usuń go. Ponieważ obszar roboczy jest skojarzony z innymi zasobami, takimi jak konto magazynu, prawdopodobnie chcesz usunąć całą utworzoną grupę zasobów. Aby usunąć grupę zasobów za pomocą portalu, kliknij przycisk **Usuń** i potwierdź. Można też usunąć grupę zasobów z interfejsu wiersza polecenia przy użyciu:
 

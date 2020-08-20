@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 51edbc18a929f4f954fb1a582a417bc1600d1a6f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dc5bfacf470980a5d38832ec6299c8ff1426ee05
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082991"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642235"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Debugowanie Azure Functions programu PowerShell lokalnie
 
@@ -235,13 +235,23 @@ Tę samą funkcję można wywołać ponownie ( `Invoke-RestMethod` na przykład 
 
 Podczas debugowania kodu funkcji należy pamiętać o następujących kwestiach.
 
-### <a name="breakall-might-cause-your-debugger-to-break-in-an-unexpected-place"></a>`BreakAll`może spowodować przerwanie debugera w nieoczekiwanym miejscu
+### <a name="breakall-might-cause-your-debugger-to-break-in-an-unexpected-place"></a>`BreakAll` może spowodować przerwanie debugera w nieoczekiwanym miejscu
 
 Rozszerzenie programu PowerShell używa `Debug-Runspace` , które z kolei jest zależne od funkcji programu PowerShell `BreakAll` . Ta funkcja informuje program PowerShell o zatrzymaniu pierwszego polecenia, które jest wykonywane. Takie zachowanie daje możliwość ustawienia punktów przerwania w debugowanym obszarze działania.
 
 Środowisko uruchomieniowe Azure Functions uruchamia kilka poleceń przed faktycznym wywołaniem `run.ps1` skryptu, dlatego istnieje możliwość, że debuger zakończy działanie w ramach `Microsoft.Azure.Functions.PowerShellWorker.psm1` lub `Microsoft.Azure.Functions.PowerShellWorker.psd1` .
 
 Jeśli ta przerwanie ma miejsce, `continue` Uruchom `c` polecenie lub, aby pominąć ten punkt przerwania. Następnie zatrzymasz się w oczekiwanym punkcie przerwania.
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+Jeśli występują problemy podczas debugowania, należy sprawdzić następujące kwestie:
+
+| Zaznacz | Akcja |
+|------|------|
+| Uruchom `func --version` z terminalu. Jeśli zostanie wyświetlony komunikat o błędzie `func` , którego nie można znaleźć, w zmiennej lokalnej może brakować podstawowych narzędzi (func.exe) `path` .| [Zainstaluj ponownie podstawowe narzędzia](functions-run-local.md#v2).|  
+| W Visual Studio Code domyślnym terminalem musi być dostęp do func.exe. Upewnij się, że nie korzystasz z domyślnego terminalu, w którym nie zainstalowano podstawowych narzędzi, takich jak podsystem Windows dla systemu Linux (WSL).  | Ustaw powłokę domyślną w Visual Studio Code na program PowerShell 7 (zalecane) lub Windows PowerShell 5,1.|
+  
 
 ## <a name="next-steps"></a>Następne kroki
 

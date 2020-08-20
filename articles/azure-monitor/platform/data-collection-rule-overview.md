@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/10/2020
-ms.openlocfilehash: af5324373359cea643a3e31b6bb94e614ddb7e36
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.date: 08/19/2020
+ms.openlocfilehash: 32993ba41a612ccf0f02a242ed610feab2fac78f
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083056"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640739"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Reguły zbierania danych w Azure Monitor (wersja zapoznawcza)
 Zasady zbierania danych (DCR) definiują dane wprowadzane do Azure Monitor i określają, gdzie mają być wysyłane lub przechowywane dane. Ten artykuł zawiera omówienie zasad zbierania danych, w tym ich zawartości i struktury, oraz sposobu tworzenia i pracy z nimi.
@@ -68,7 +68,7 @@ W poniższej tabeli wymieniono limity, które są aktualnie stosowane do każdej
 Obecnie istnieją dwie dostępne metody tworzenia DCR:
 
 - [Użyj Azure Portal,](data-collection-rule-azure-monitor-agent.md) aby utworzyć regułę zbierania danych i skojarzyć ją z co najmniej jedną maszyną wirtualną.
-- Bezpośrednio Edytuj regułę zbierania danych w formacie JSON i przesyłaj przy użyciu interfejsu API REST.
+- Bezpośrednio Edytuj regułę zbierania danych w formacie JSON i [przesyłaj przy użyciu interfejsu API REST](https://docs.microsoft.com/rest/api/monitor/datacollectionrules).
 
 ## <a name="sample-data-collection-rule"></a>Zasada przykładowej zbierania danych
 Poniższa zasada zbierania danych przykładowych dotyczy maszyn wirtualnych z usługą Azure Management Agent i ma następujące szczegóły:

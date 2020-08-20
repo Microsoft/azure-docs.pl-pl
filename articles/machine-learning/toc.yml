@@ -153,6 +153,8 @@
       href: concept-ml-pipelines.md
     - name: Gotowość i zabezpieczenia przedsiębiorstwa
       items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
         - name: Ład i zabezpieczenia w przedsiębiorstwie
           items:
             - name: Przegląd zabezpieczeń przedsiębiorstwa

@@ -12,16 +12,16 @@ ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04b0b0120a514591fb4fa23656906203acf443b4
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 7875bfc55d4530f7f56a96599491cab4a98ced04
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799506"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642031"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw w usłudze Azure Active Directory
 
-W tym artykule opisano sposób przypisywania użytkowników lub grup do aplikacji dla przedsiębiorstw w usłudze Azure Active Directory (Azure AD), z poziomu Azure Portal lub przy użyciu programu PowerShell. Po przypisaniu użytkownika do aplikacji, aplikacja pojawia się w [panelu dostępu moje aplikacje](https://myapps.microsoft.com/) użytkownika w celu ułatwienia dostępu. Jeśli aplikacja uwidacznia role, można także przypisać konkretną rolę do użytkownika.
+W tym artykule opisano sposób przypisywania użytkowników lub grup do aplikacji dla przedsiębiorstw w usłudze Azure Active Directory (Azure AD), z poziomu Azure Portal lub przy użyciu programu PowerShell. Po przypisaniu użytkownika do aplikacji, aplikacja pojawia się w [moich aplikacjach](https://myapps.microsoft.com/) użytkownika w celu ułatwienia dostępu. Jeśli aplikacja uwidacznia role, można także przypisać konkretną rolę do użytkownika.
 
 Aby uzyskać większą kontrolę, niektóre typy aplikacji korporacyjnych można skonfigurować tak, aby [wymagały przypisania użytkownika](#configure-an-application-to-require-user-assignment). 
 
@@ -45,7 +45,7 @@ Gdy przypisanie użytkownika jest wymagane, tylko użytkownicy jawnie przypisani
 
 Jeśli przypisanie *nie jest wymagane*, ponieważ ta opcja została ustawiona na wartość **nie** lub ponieważ aplikacja korzysta z innego trybu logowania jednokrotnego, każdy użytkownik będzie mógł uzyskać dostęp do aplikacji, jeśli ma bezpośredni link do aplikacji lub **adres URL dostępu użytkownika** na stronie **Właściwości** aplikacji. 
 
-To ustawienie nie ma wpływu na to, czy aplikacja jest wyświetlana w panelu dostępu moje aplikacje. Aplikacje są wyświetlane w panelach dostępu moje aplikacje użytkowników po przypisaniu użytkownika lub grupy do aplikacji. W przypadku programu w tle zobacz [Zarządzanie dostępem do aplikacji](what-is-access-management.md).
+To ustawienie nie ma wpływu na to, czy aplikacja jest wyświetlana w aplikacjach. Aplikacje są wyświetlane w panelach dostępu moje aplikacje użytkowników po przypisaniu użytkownika lub grupy do aplikacji. W przypadku programu w tle zobacz [Zarządzanie dostępem do aplikacji](what-is-access-management.md).
 
 
 Aby wymagać przypisania użytkownika do aplikacji:
@@ -161,7 +161,7 @@ Ten przykład przypisuje użytkownikowi Britta Simon do aplikacji [analizy w mie
 ## <a name="related-articles"></a>Pokrewne artykuły:
 
 - [Dowiedz się więcej o dostępie użytkowników końcowych do aplikacji](end-user-experiences.md)
-- [Planowanie wdrożenia panelu dostępu usługi Azure AD](access-panel-deployment-plan.md)
+- [Planowanie wdrożenia usługi Azure AD my Apps](access-panel-deployment-plan.md)
 - [Zarządzanie dostępem do aplikacji](what-is-access-management.md)
  
 ## <a name="next-steps"></a>Następne kroki

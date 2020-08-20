@@ -16,30 +16,30 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c633f6d311d052b9f9388a38b17c6459aec4b6cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d32728c1f388e9013b922d1f60d30e65d350bbc1
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760273"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642439"
 ---
 # <a name="application-management-best-practices"></a>Najlepsze rozwiązania dotyczące zarządzania aplikacjami
 
 Ten artykuł zawiera zalecenia i najlepsze rozwiązania dotyczące zarządzania aplikacjami w usłudze Azure Active Directory (Azure AD) przy użyciu automatycznej aprowizacji i publikowania aplikacji lokalnych przy użyciu serwera proxy aplikacji.
 
 ## <a name="cloud-app-and-single-sign-on-recommendations"></a>Zalecenia dotyczące aplikacji w chmurze i logowania jednokrotnego
-| Zalecenie | Komentarze |
+| Rekomendacja | Komentarze |
 | --- | --- |
 | Sprawdź galerię aplikacji usługi Azure AD dla aplikacji  | Usługa Azure AD zawiera galerię zawierającą tysiące wstępnie zintegrowanych aplikacji, które są włączone przy użyciu logowania jednokrotnego w przedsiębiorstwie. Aby uzyskać wskazówki dotyczące instalacji specyficzne dla aplikacji, zobacz [listę samouczków aplikacji SaaS](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).  | 
 | Używanie federacyjnego logowania jednokrotnego opartego na protokole SAML  | Gdy aplikacja je obsługuje, użyj federacyjnego, opartego na języku SAML logowania jednokrotnego w usłudze Azure AD zamiast logowania jednokrotnego i usług ADFS opartych na hasłach.  | 
 | Użycie algorytmu SHA-256 do podpisywania certyfikatu  | Usługa Azure AD domyślnie używa algorytmu SHA-256 do podpisywania odpowiedzi SAML. Użyj algorytmu SHA-256, chyba że aplikacja wymaga algorytmu SHA-1 (zobacz [Opcje podpisywania certyfikatu](certificate-signing-options.md) i [problem z logowaniem do aplikacji](application-sign-in-problem-application-error.md)).  | 
-| Wymagaj przypisania użytkownika  | Domyślnie użytkownicy mogą uzyskiwać dostęp do aplikacji firmowych bez ich przypisywania. Jeśli jednak aplikacja uwidacznia role lub jeśli chcesz, aby aplikacja była wyświetlana w panelu dostępu użytkownika, wymagaj przypisania użytkownika. (Zobacz [wskazówki dla deweloperów dotyczące integrowania aplikacji](developer-guidance-for-integrating-applications.md)).  | 
-| Wdróż panel dostępu moje aplikacje dla użytkowników | [Panel dostępu](end-user-experiences.md) w programie `https://myapps.microsoft.com` to portal oparty na sieci Web, który udostępnia użytkownikom pojedynczy punkt wejścia dla przypisanych aplikacji opartych na chmurze. W miarę dodawania dodatkowych funkcji, takich jak zarządzanie grupami i Samoobsługowe resetowanie haseł, użytkownicy mogą je znaleźć w panelu dostępu. Zobacz [Planowanie wdrożenia panelu dostępu](access-panel-deployment-plan.md).
+| Wymagaj przypisania użytkownika  | Domyślnie użytkownicy mogą uzyskiwać dostęp do aplikacji firmowych bez ich przypisywania. Jeśli jednak aplikacja uwidacznia role lub jeśli chcesz, aby aplikacja była wyświetlana w aplikacjach użytkownika, wymagaj przypisania użytkownika. (Zobacz [wskazówki dla deweloperów dotyczące integrowania aplikacji](developer-guidance-for-integrating-applications.md)).  | 
+| Wdróż moje aplikacje dla użytkowników | [Moje aplikacje](end-user-experiences.md) w programie `https://myapps.microsoft.com` to portal oparty na sieci Web, który udostępnia użytkownikom pojedynczy punkt wejścia dla przypisanych aplikacji opartych na chmurze. W miarę dodawania dodatkowych funkcji, takich jak zarządzanie grupami i Samoobsługowe resetowanie haseł, użytkownicy mogą je znaleźć w moich aplikacjach. Zobacz [Planowanie wdrażania aplikacji](access-panel-deployment-plan.md).
 | Użyj przypisania grupy  | W przypadku uwzględnienia w subskrypcji Przypisz grupy do aplikacji, aby można było delegować bieżące zarządzanie dostępem do właściciela grupy. (Zobacz [wskazówki dla deweloperów dotyczące integrowania aplikacji](developer-guidance-for-integrating-applications.md)).   | 
 | Ustanów proces zarządzania certyfikatami | Maksymalny okres istnienia certyfikatu podpisywania wynosi trzy lata. Aby zapobiec lub zminimalizować przestoje ze względu na wygaśnięcie certyfikatu, należy użyć ról i list dystrybucyjnych poczty e-mail, aby upewnić się, że powiadomienia o zmianach powiązane z certyfikatami są ściśle monitorowane. |
 
 ## <a name="provisioning-recommendations"></a>Zalecenia dotyczące aprowizacji
-| Zalecenie | Komentarze |
+| Rekomendacja | Komentarze |
 | --- | --- |
 | Korzystanie z samouczków w celu skonfigurowania aprowizacji przy użyciu aplikacji w chmurze | Zapoznaj się z [listą samouczków aplikacji SaaS](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) , aby uzyskać wskazówki krok po kroku dotyczące konfigurowania aprowizacji dla aplikacji galerii, którą chcesz dodać. |
 | Użyj dzienników aprowizacji (wersja zapoznawcza) do monitorowania stanu | [Dzienniki aprowizacji](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) zawierają szczegółowe informacje o wszystkich akcjach wykonywanych przez usługę aprowizacji, w tym o stanie poszczególnych użytkowników. |
@@ -47,7 +47,7 @@ Ten artykuł zawiera zalecenia i najlepsze rozwiązania dotyczące zarządzania 
 
 
 ## <a name="application-proxy-recommendations"></a>Zalecenia dotyczące serwera proxy aplikacji
-| Zalecenie | Komentarze |
+| Rekomendacja | Komentarze |
 | --- | --- |
 | Używanie serwera proxy aplikacji do dostępu zdalnego do zasobów wewnętrznych | Serwer proxy aplikacji jest zalecany do zapewniania użytkownikom zdalnym dostępu do zasobów wewnętrznych, zastępując potrzebę sieci VPN lub zwrotnego serwera proxy. Nie jest przeznaczona do uzyskiwania dostępu do zasobów z sieci firmowej, ponieważ może to spowodować dodanie opóźnienia.
 | Korzystanie z domen niestandardowych | Skonfiguruj niestandardowe domeny dla aplikacji (zobacz [Konfigurowanie domen niestandardowych](application-proxy-configure-custom-domain.md)), aby adresy URL użytkowników i między aplikacjami działały zarówno wewnątrz sieci, jak i poza nią. Będziesz również w stanie kontrolować markę i dostosowywać adresy URL.  W przypadku korzystania z niestandardowych nazw domen należy zaplanować uzyskanie certyfikatu publicznego z zaufanego urzędu certyfikacji niepochodzącego od firmy Microsoft. Serwer proxy aplikacji platformy Azure obsługuje standardowe, ([wieloznaczne](application-proxy-wildcard.md)) lub certyfikaty oparte na sieci SAN. (Zobacz [Planowanie serwera proxy aplikacji](application-proxy-deployment-plan.md)). |

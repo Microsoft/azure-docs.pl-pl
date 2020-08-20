@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 85ec94ccf853d4f8b02a14ba08e9515170b36b5e
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: e8aa5515bf8ae8e842a98656167f4198ac652981
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054804"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642388"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planowanie wdrożenia logowania jednokrotnego
 
@@ -60,7 +60,7 @@ Istnieją dwa podstawowe sposoby pozwalające użytkownikom na logowanie jednokr
 
 ### <a name="considerations-for-password-based-sso"></a>Zagadnienia dotyczące logowania jednokrotnego opartego na hasłach
 
-Korzystanie z usługi Azure AD na potrzeby logowania jednokrotnego opartego na hasłach wymaga wdrożenia przeglądarki, która będzie bezpiecznie pobierać poświadczenia i uzupełnić formularze logowania. Zdefiniuj mechanizm wdrażania rozszerzenia na dużą skalę z [obsługiwanymi przeglądarkami](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Dostępne są następujące opcje:
+Korzystanie z usługi Azure AD na potrzeby logowania jednokrotnego opartego na hasłach wymaga wdrożenia przeglądarki, która będzie bezpiecznie pobierać poświadczenia i uzupełnić formularze logowania. Zdefiniuj mechanizm wdrażania rozszerzenia na dużą skalę z [obsługiwanymi przeglądarkami](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Dostępne opcje:
 
 - [zasady grupy programu Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
 - [Configuration Manager programu Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
@@ -285,7 +285,7 @@ Poniższe linki prowadzą do rozwiązywania problemów. Możesz chcieć utworzy�
 
 - [Problemy z logowaniem się z portalu niestandardowego](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-deeplink)
 
-- [Problemy podczas logowania się z poziomu panelu dostępu](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
+- [Problemy z logowaniem się z aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
 
 - [Błąd na stronie logowania aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-application-error)
 

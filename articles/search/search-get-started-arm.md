@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 07/15/2020
-ms.openlocfilehash: 192673ab2e21046f7af75887ffe13f47420dfbf3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c7d11b9e699ec4cba59d2af9e411692cbce35278
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496778"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640178"
 ---
 # <a name="quickstart-deploy-cognitive-search-using-an-arm-template"></a>Szybki Start: wdrażanie Wyszukiwanie poznawcze przy użyciu szablonu ARM
 
@@ -34,7 +34,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-azure-search-create/).
 
-:::code language="json"source="~/quickstart-templates/101-azure-search-create/azuredeploy.json" range="1-86" highlight="4-50,70-85":::
+:::code language="json"source="~/quickstart-templates/101-azure-search-create/azuredeploy.json":::
 
 Zasób platformy Azure zdefiniowany w tym szablonie:
 
@@ -55,7 +55,7 @@ W portalu jest wyświetlany formularz, który umożliwia łatwe udostępnianie w
 
 Po zakończeniu wdrażania możesz uzyskać dostęp do nowej grupy zasobów i nowej usługi wyszukiwania w portalu.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Inne Wyszukiwanie poznawcze Przewodniki Szybki Start i samouczki zostały skompilowane na tym przewodniku Szybki Start. Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki Start i samouczkami, możesz pozostawić ten zasób na miejscu. Gdy nie jest już potrzebne, można usunąć grupę zasobów, która spowoduje usunięcie usługi Wyszukiwanie poznawcze i powiązanych zasobów.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: 62c3dad980b65c3e8cfc64c98ba173f667e0b5fe
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: ab11060924c29dbddc965aa94064d0091a7b348e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447056"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639855"
 ---
 # <a name="high-availability-ports-overview"></a>Omówienie portów wysokiej dostępności
 
@@ -92,7 +92,7 @@ Istnieje możliwość skonfigurowania *jednego* publicznego zasobu Usługa Load 
 ## <a name="limitations"></a>Ograniczenia
 
 - Reguły równoważenia obciążenia portów HA są dostępne tylko dla wewnętrznych usługa Load Balancer w warstwie Standardowa.
-- Łączenie reguły równoważenia obciążenia portów HA i zasad równoważenia obciążenia z portami nieha wskazujące te same elementy ipconfiguration zaplecza nie są obsługiwane, jeśli oba mają swobodny adres IP włączony.
+- Łączenie reguły równoważenia obciążenia portów HA i zasad równoważenia obciążenia z portami niewymaganymi **nie** jest obsługiwane w jednej konfiguracji adresu IP frontonu, chyba że oba mają swobodny adres IP włączony.
 - Istniejące fragmenty adresów IP będą przekazywane przez reguły równoważenia obciążenia portów HA do tego samego miejsca docelowego, co pierwszy pakiet.  Fragmentacja IP pakietu UDP lub TCP nie jest obsługiwana.
 - Mechanizm symetrii przepływów (głównie dla scenariuszy urządzenie WUS) jest obsługiwany z wystąpieniem zaplecza i jedną kartą sieciową (i konfiguracją pojedynczego adresu IP) tylko wtedy, gdy jest używana jak pokazano na powyższym diagramie i przy użyciu zasad równoważenia obciążenia portów HA. Nie jest ona dostępna w żadnym innym scenariuszu. Oznacza to, że co najmniej dwa zasoby Load Balancer i ich odpowiednie zasady podejmują niezależne decyzje i nigdy nie są koordynowane. Zapoznaj się z opisem i diagramem [wirtualnych urządzeń sieciowych](#nva). W przypadku korzystania z wielu kart sieciowych lub urządzenie WUSi między publiczną i wewnętrzną Load Balancer, symetria przepływu jest niedostępna.  Możliwe jest obejście tego problemu ze źródłem NAT'ing przepływ transferu danych przychodzących do adresu IP urządzenia, aby umożliwić odpowiedzi na te same urządzenie WUS.  Jednak zdecydowanie zalecamy korzystanie z jednej karty sieciowej i używanie architektury referencyjnej pokazanej na powyższym diagramie.
 

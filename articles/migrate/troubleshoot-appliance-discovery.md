@@ -6,19 +6,19 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: eafe13adb5b37de2de2bc4eb8bf15c775af0b039
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 1ddcdfd9efddd050f996e5c2b953baba242967fa
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171859"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640586"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Rozwiązywanie problemów z urządzeniem Azure Migrate i odnajdywanie
 
 Ten artykuł pomaga w rozwiązywaniu problemów podczas wdrażania urządzenia [Azure Migrate](migrate-services-overview.md) i korzystania z urządzenia w celu odnajdywania maszyn lokalnych.
 
 
-## <a name="whats-supported"></a>Jakie operacje są obsługiwane?
+## <a name="whats-supported"></a>Co jest obsługiwane?
 
 [Zapoznaj](migrate-appliance.md) się z wymaganiami dotyczącymi obsługi urządzenia.
 
@@ -117,6 +117,28 @@ Błąd 50004: "nie można nawiązać połączenia z hostem lub klastrem, poniewa
     3. Dodaj adres IP i nazwę hosta w wierszu. Powtórz tę czynność dla każdego hosta lub klastra, w którym widzisz ten błąd.
     4. Zapisz i zamknij plik hosts.
     5. Sprawdź, czy urządzenie może nawiązać połączenie z hostami przy użyciu aplikacji do zarządzania urządzeniami. Po 30 minutach powinny zostać wyświetlone najnowsze informacje dotyczące tych hostów w Azure Portal.
+
+
+## <a name="error-60001-unable-to-connect-to-server"></a>Błąd 60001: nie można nawiązać połączenia z serwerem 
+
+- Upewnij się, że na serwerze istnieje łączność z urządzeniem
+- Jeśli jest to serwer z systemem Linux, upewnij się, że jest włączona funkcja uwierzytelniania opartego na hasłach, wykonując następujące czynności:
+    1. Zaloguj się do komputera z systemem Linux i Otwórz plik konfiguracji SSH przy użyciu polecenia "VI/etc/ssh/sshd_config"
+    2. Dla opcji "PasswordAuthentication" Ustaw wartość tak. Zapisz plik.
+    3. Uruchom ponownie usługę SSH, uruchamiając "Service SSHD restart"
+- Jeśli jest to system Windows Server, upewnij się, że port 5985 jest otwarty, aby umożliwić zdalne wywołania WMI.
+- Jeśli odnajdywasz serwer GCP z systemem Linux i używasz użytkownika root, użyj następujących poleceń, aby zmienić domyślne ustawienie logowania głównego
+    1. Zaloguj się do komputera z systemem Linux i Otwórz plik konfiguracji SSH przy użyciu polecenia "VI/etc/ssh/sshd_config"
+    2. Dla opcji "PermitRootLogin" Ustaw wartość tak.
+    3. Uruchom ponownie usługę SSH, uruchamiając "Service SSHD restart"
+
+## <a name="error-no-suitable-authentication-method-found"></a>Błąd: nie znaleziono odpowiedniej metody uwierzytelniania
+
+Upewnij się, że na serwerze z systemem Linux jest włączone uwierzytelnianie oparte na hasłach, wykonując następujące czynności:
+    1. Zaloguj się do komputera z systemem Linux i Otwórz plik konfiguracji SSH przy użyciu polecenia "VI/etc/ssh/sshd_config"
+    2. Dla opcji "PasswordAuthentication" Ustaw wartość tak. Zapisz plik.
+    3. Uruchom ponownie usługę SSH, uruchamiając "Service SSHD restart"
+
 
 ## <a name="discovered-vms-not-in-portal"></a>Odnalezione maszyny wirtualne nie są w portalu
 

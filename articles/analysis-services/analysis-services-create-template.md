@@ -8,12 +8,12 @@ ms.service: azure-analysis-services
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.custom: subject-armqs, references_regions
-ms.openlocfilehash: 249c678fb6d55f01a9f06e4e1db5f41fa85a700f
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: e282e3a7e6efc5c989955a5a6b96030b3054b446
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553074"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641912"
 ---
 # <a name="quickstart-create-a-server---arm-template"></a>Szybki Start: Tworzenie szablonu serwera ARM
 
@@ -27,18 +27,18 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Subskrypcja platformy Azure**: odwiedź stronę [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), aby utworzyć konto.
+* **Subskrypcja platformy Azure**: Przejdź do [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) , aby utworzyć konto.
 * **Azure Active Directory**: subskrypcja musi być skojarzona z dzierżawą usługi Azure Active Directory. Ponadto musisz zalogować się na platformie Azure przy użyciu konta należącego do tej dzierżawy usługi Azure Active Directory. Aby dowiedzieć się więcej, zobacz [Authentication and user permissions (Uwierzytelnianie i uprawnienia użytkownika)](analysis-services-manage-users.md).
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
 Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-analysis-services-create/).
 
-:::code language="json" source="~/quickstart-templates/101-analysis-services-create/azuredeploy.json" range="1-79" highlight="63-78":::
+:::code language="json" source="~/quickstart-templates/101-analysis-services-create/azuredeploy.json":::
 
 Pojedynczy zasób [Microsoft. AnalysisServices/Server](/azure/templates/microsoft.analysisservices/servers) z regułą zapory jest zdefiniowany w szablonie.
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 1. Wybierz następujące polecenie Wdróż w usłudze Azure link, aby zalogować się do platformy Azure i otworzyć szablon. Szablon służy do tworzenia zasobu serwera Analysis Services i określania wymaganych i opcjonalnych właściwości.
 
@@ -78,7 +78,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 
 ---
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy grupa zasobów i zasób serwera nie będą już potrzebne, użyj Azure Portal, interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
 

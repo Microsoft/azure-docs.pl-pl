@@ -10,10 +10,12 @@
       href: overview-iot-central-developer.md
     - name: Najnowsze aktualizacje
       items:
+        - name: Nowe i zaktualizowane funkcje — lipiec 2020 r.
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-july-2020/'
         - name: Nowe i zaktualizowane funkcje — czerwiec 2020 r.
-          href: 'https://azure.microsoft.com/en-us/updates/azure-iot-central-feature-updates-june-2020/'
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-june-2020/'
         - name: Aktualizacje interfejsu użytkownika i dokumentacji — czerwiec 2020 r.
-          href: 'https://azure.microsoft.com/en-us/updates/azure-iot-central-ui-documenation-updates-june-2020/'
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-ui-documenation-updates-june-2020/'
         - name: Aktualizacje zadań i metryk — maj 2020 r.
           href: 'https://azure.microsoft.com/updates/azure-iot-central-jobs-and-metrics-feature-updates-may-2020/'
         - name: Aktualizacje pulpitu nawigacyjnego — maj 2020 r.

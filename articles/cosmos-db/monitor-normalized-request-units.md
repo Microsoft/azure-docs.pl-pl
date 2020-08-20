@@ -6,30 +6,32 @@ ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 06/25/2020
-ms.openlocfilehash: 8709389208ba1320685b1834b20893f08ef33ed7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7005a3786bb2d538450b076c113e159c766d72e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482908"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642082"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Jak monitorować znormalizowane Elementy RU/s dla kontenera usługi Azure Cosmos lub konta
 
 Azure Monitor dla Azure Cosmos DB zawiera widok metryk do monitorowania konta i tworzenia pulpitów nawigacyjnych. Metryki Azure Cosmos DB są zbierane domyślnie. Ta funkcja nie wymaga jawnie włączania ani konfigurowania niczego.
 
-**Znormalizowana Metryka zużycia ru** służy do sprawdzenia, jak dobrze nasycone repliki są odnoszące się do zużycia jednostek żądań w ramach zakresów kluczy partycji. Azure Cosmos DB dystrybuuje przepływność równomiernie na wszystkie partycje fizyczne. Ta Metryka zawiera widok na sekundę maksymalnego wykorzystania przepływności w zestawie replik. Użyj tej metryki, aby obliczyć użycie RU/s między partycjami dla danego kontenera. Korzystając z tej metryki, jeśli widzisz wysoki procent wykorzystania jednostek żądań, należy zwiększyć przepływność w celu spełnienia wymagań związanych z obciążeniem.
+**Znormalizowana Metryka zużycia ru** jest używana do sprawdzenia, jak dobrze nasycone zakresy kluczy partycji są związane z ruchem. Azure Cosmos DB dystrybuuje przepływność równomiernie we wszystkich zakresach kluczy partycji. Ta Metryka zawiera widok na sekundę maksymalnego wykorzystania przepływności dla zakresu kluczy partycji. Użyj tej metryki, aby obliczyć użycie RU/s między zakresem kluczy partycji dla danego kontenera. Korzystając z tej metryki, jeśli widzisz wysoki procent użycia jednostek żądań dla wszystkich zakresów kluczy partycji w usłudze Azure monitor, należy zwiększyć przepływność, aby spełniała potrzeby obciążenia. 
 
 ## <a name="what-to-expect-and-do-when-normalized-rus-is-higher"></a>Czego można oczekiwać, a jeśli znormalizowana RU/s jest wyższa
 
-Gdy znormalizowane użycie RU/s osiągnie 100%, klient otrzymuje błędy ograniczające szybkość. Klient powinien przestrzegać czasu oczekiwania i ponowić próbę. Jeśli istnieje Krótki skok, który osiągnie użycie 100%, oznacza to, że przepływność w replice osiągnęła maksymalny limit wydajności. Na przykład pojedyncza operacja, taka jak procedura składowana, która zużywa wszystkie jednostki RU/s w replice, będzie prowadzić do krótkotrwałego wzrostu w znormalizowanym zużyciu RU/s. W takich przypadkach nie będzie żadnych natychmiastowego ograniczania liczby błędów, jeśli częstotliwość żądań jest niska. Wynika to z tego, że Azure Cosmos DB zezwala na opłaty za żądania, które nie są obsługiwane w przypadku określonego żądania i innych żądań w tym okresie, są ograniczone.
+Gdy znormalizowane użycie RU/s osiągnie 100% dla danego zakresu kluczy partycji, a klient nadal wysyła żądania w tym przedziale czasowym z 1 sekund do tego zakresu kluczy partycji, otrzymuje błąd z ograniczoną szybkością. Klient powinien przestrzegać sugerowanego czasu oczekiwania i ponowić próbę żądania. Dzięki zestawowi SDK można łatwo obsługiwać tę sytuację przez ponowną próbę skonfigurowaną w odpowiednim czasie.  Nie jest konieczne, aby zobaczyć błąd ograniczania liczby jednostek RU tylko w przypadku, gdy znormalizowany RU osiągnął 100%. Wynika to z faktu, że znormalizowany RU jest pojedynczą wartością, która reprezentuje maksymalne użycie przez wszystkie zakresy kluczy partycji, jeden zakres kluczy partycji może być zajęty, ale inne zakresy kluczy partycji mogą obsłużyć żądania bez problemów. Na przykład pojedyncza operacja, taka jak procedura składowana, która zużywa wszystkie RU/s w zakresie kluczy partycji, będzie prowadzić do krótkiego wzrostu w znormalizowanym zużyciu RU/s. W takich przypadkach nie będzie żadnych natychmiastowego ograniczania liczby błędów, jeśli częstotliwość żądań jest niska lub żądania są wysyłane do innych partycji w różnych zakresach kluczy partycji. 
 
-Metryki Azure Monitor ułatwiają znajdowanie operacji według kodu stanu przy użyciu metryki **łączna liczba żądań** . Później można filtrować te żądania według kodu stanu 429 i dzielić je według **typu operacji**.
+Metryki Azure Monitor ułatwiają znajdowanie operacji według kodu stanu dla interfejsu API SQL za pomocą metryk **całkowitej liczby żądań** . Później można filtrować te żądania według kodu stanu 429 i dzielić je według **typu operacji**.  
 
 Aby znaleźć żądania, które są ograniczone, zalecanym sposobem jest uzyskanie tych informacji za pomocą dzienników diagnostycznych.
 
-W przypadku ciągłego szczytu zużycia RU/s przez 100% lub blisko 100% zaleca się zwiększenie przepływności. Korzystając z metryk usługi Azure monitor i dzienników usługi Azure monitor, można dowiedzieć się, które operacje są duże i ich użycie szczytowe.
+W przypadku ciągłego szczytu zużycia RU/s w 100% lub w pobliżu 100% między wieloma zakresami kluczy partycji zaleca się zwiększenie przepływności. Możesz dowiedzieć się, które operacje są duże i szczytowe użycie, korzystając z metryk usługi Azure monitor i dzienników diagnostycznych usługi Azure monitor.
 
-**Znormalizowana Metryka zużycia ru** jest również używana do sprawdzenia, który zakres kluczy partycji jest bardziej rozgrzany w warunkach użytkowania. Dzięki temu możesz pochylić przepływność do zakresu kluczy partycji. Aby uzyskać informacje na temat tego, które klucze partycji logicznej są gorącą częścią użycia, można wyświetlić dziennik **PartitionKeyRUConsumption** w dziennikach Azure monitor.
+Podsumowując, **znormalizowana Metryka zużycia ru** jest używana do sprawdzenia, który zakres kluczy partycji jest bardziej rozgrzany w warunkach użytkowania. Dzięki temu można obchylić przepływność do zakresu kluczy partycji. Aby uzyskać informacje na temat tego, które klucze partycji logicznej są gorącą częścią użycia, można wyświetlić dziennik **PartitionKeyRUConsumption** w dziennikach Azure monitor. Spowoduje to zmianę w wyborze klucza partycji lub zmianę logiki aplikacji. Aby rozwiązać ograniczenie szybkości, należy rozpowszechnić obciążenie danymi na wielu partycjach lub po prostu zwiększyć przepływność, ponieważ jest to naprawdę wymagane. 
+
+
 
 ## <a name="view-the-normalized-request-unit-consumption-metric"></a>Wyświetlanie znormalizowanej metryki użycia jednostki żądania
 

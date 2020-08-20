@@ -4,12 +4,12 @@ description: 'Szybki Start: tworzenie przestrzeni nazw Event Hubs z centrum zdar
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/23/2020
-ms.openlocfilehash: 445a52593e95074d9941a1592d688de7eea9c006
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dbec62c182fe804ba45cae2f9e40c189b9bc0279
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522044"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641130"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-arm-template"></a>Szybki Start: tworzenie centrum zdarzeń przy użyciu szablonu ARM
 
@@ -29,7 +29,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 
 Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-eventhubs-create-namespace-and-eventhub/).
 
-:::code language="json" source="~/quickstart-templates/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json" range="1-61" highlight="32-59":::
+:::code language="json" source="~/quickstart-templates/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json":::
 
 Zasoby zdefiniowane w szablonie obejmują:
 
@@ -38,7 +38,7 @@ Zasoby zdefiniowane w szablonie obejmują:
 
 Aby znaleźć więcej przykładów szablonów, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?term=eventhub&pageNumber=1&sort=Popular).
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 Aby wdrożyć szablon:
 
@@ -75,7 +75,7 @@ Get-AzEventHub -ResourceGroupName $resourceGroupName -Namespace $namespaceName
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów. Jeśli Cloud Shell nadal jest otwarty, nie musisz kopiować/uruchamiać pierwszego wiersza (odczyt-Host).
 

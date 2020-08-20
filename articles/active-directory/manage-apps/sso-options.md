@@ -11,18 +11,18 @@ ms.topic: overview
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: 3352bb13602947f08cc974d63308f2d802b144e7
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: c380642cd4297a753b113bdbfdfb46060656269e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612354"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642099"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Opcje logowania jednokrotnego w usłudze Azure AD
 
 Logowanie jednokrotne zapewnia wiele korzyści w porównaniu z tradycyjnymi metodami logowania.
 
-- **Logowanie jednokrotne**umożliwia użytkownikom logowanie jednokrotne przy użyciu jednego konta, aby uzyskać dostęp do urządzeń przyłączonych do domeny, zasobów firmy, aplikacji jako usługi (SaaS) i aplikacji sieci Web. Po zalogowaniu użytkownik może uruchamiać aplikacje z poziomu portalu pakietu Office 365 lub panelu dostępu webapps usługi Azure AD. Administratorzy mogą scentralizować zarządzanie kontami użytkowników i automatycznie dodawać lub usuwać dostęp użytkowników do aplikacji w oparciu o członkostwo w grupach.
+- **Logowanie jednokrotne**umożliwia użytkownikom logowanie jednokrotne przy użyciu jednego konta, aby uzyskać dostęp do urządzeń przyłączonych do domeny, zasobów firmy, aplikacji jako usługi (SaaS) i aplikacji sieci Web. Po zalogowaniu użytkownik może uruchamiać aplikacje z poziomu portalu pakietu Office 365 lub aplikacji Moje aplikacje. Administratorzy mogą scentralizować zarządzanie kontami użytkowników i automatycznie dodawać lub usuwać dostęp użytkowników do aplikacji w oparciu o członkostwo w grupach.
 
 - **Bez logowania jednokrotnego**użytkownicy muszą pamiętać hasła specyficzne dla aplikacji i zalogować się do każdej aplikacji. Pracownicy działu IT muszą tworzyć i aktualizować konta użytkowników dla każdej aplikacji, takiej jak Office 365, Box i Salesforce. Użytkownicy muszą pamiętać swoje hasła, a także poświęcać czas na zalogowanie się do każdej aplikacji.
 
@@ -123,7 +123,7 @@ Hasła dla każdej aplikacji mogą być zarządzane przez administratora usługi
 
 Gdy administrator usługi Azure AD zarządza poświadczeniami:  
 
-- Użytkownik nie musi resetować ani zapamiętać nazwy użytkownika i hasła. Użytkownik może uzyskać dostęp do aplikacji, klikając ją w panelu dostępu lub korzystając z podanego linku.
+- Użytkownik nie musi resetować ani zapamiętać nazwy użytkownika i hasła. Użytkownik może uzyskać dostęp do aplikacji, klikając ją w swoich aplikacjach lub za pośrednictwem dostępnego linku.
 - Administrator może wykonywać zadania zarządzania dotyczące poświadczeń. Administrator może na przykład zaktualizować dostęp do aplikacji zgodnie z członkostwem w grupach użytkowników i stanem pracownika.
 - Administrator może używać poświadczeń administracyjnych, aby zapewnić dostęp do aplikacji współużytkowanych przez wielu użytkowników. Na przykład administrator może zezwolić wszystkim, kto może uzyskać dostęp do aplikacji w celu uzyskania dostępu do aplikacji Media społecznościowe lub do udostępniania dokumentów.
 

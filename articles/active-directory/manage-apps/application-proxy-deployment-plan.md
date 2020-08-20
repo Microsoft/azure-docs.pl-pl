@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: kenwith
-ms.openlocfilehash: fdcea318fcd0796a790818794f6dd7cd949c17cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09a930778e35897671d10f14a95f3fa48ea5e9eb
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367788"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642422"
 ---
-# <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planowanie wdrożenia usługi Azure serwer proxy aplikacji usługi Azure AD
+# <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planowanie wdrożenia serwera proxy aplikacji usługi Azure AD
 
 Serwer proxy aplikacji usługi Azure Active Directory (Azure AD) to bezpieczne i ekonomiczne rozwiązanie dostępu zdalnego dla aplikacji lokalnych. Zawiera natychmiastową ścieżkę przejścia dla organizacji "Cloud First" w celu zarządzania dostępem do starszych aplikacji lokalnych, które nie mogą jeszcze korzystać z nowoczesnych protokołów. Aby uzyskać dodatkowe informacje wprowadzające, zobacz [co to jest serwer proxy aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy).
 
@@ -170,7 +170,7 @@ Przeprowadzaj podstawowe testy funkcjonalne po opublikowaniu aplikacji, aby upew
 
 ### <a name="deploy-application-proxy"></a>Wdróż serwer proxy aplikacji
 
-Kroki umożliwiające wdrożenie serwera proxy aplikacji zostały omówione w tym [samouczku w celu dodania aplikacji lokalnej dla dostępu zdalnego](application-proxy-add-on-premises-application.md). Jeśli instalacja nie powiedzie się, wybierz pozycję **Rozwiązywanie problemów z serwerem proxy aplikacji** w portalu lub Skorzystaj z przewodnika rozwiązywania problemów w [przypadku problemów z instalacją łącznika agenta serwera proxy aplikacji](application-proxy-connector-installation-problem.md).
+Kroki umożliwiające wdrożenie serwera proxy aplikacji zostały omówione w tym [samouczku w celu dodania aplikacji lokalnej dla dostępu zdalnego](application-proxy-add-on-premises-application.md). Jeśli instalacja nie powiedzie się, wybierz pozycję  **Rozwiązywanie problemów z serwerem proxy aplikacji**  w portalu lub Skorzystaj z przewodnika rozwiązywania problemów w [przypadku problemów z instalacją łącznika agenta serwera proxy aplikacji](application-proxy-connector-installation-problem.md).
 
 ### <a name="publish-applications-via-application-proxy"></a>Publikowanie aplikacji za pośrednictwem serwera proxy aplikacji
 
@@ -271,7 +271,7 @@ Do obsługi serwer proxy aplikacji usługi Azure AD platformy Azure mogą być u
 
 * Dostęp warunkowy oparty na ryzyku: Chroń dane przed złośliwymi hakerami za pomocą [zasad dostępu warunkowego opartego na ryzyku](https://www.microsoft.com/cloud-platform/conditional-access) , które mogą być stosowane do wszystkich aplikacji i wszystkich użytkowników, zarówno lokalnych, jak i w chmurze.
 
-* Panel dostępu usługi Azure AD: usługa serwera proxy aplikacji wdrożona i bezpiecznie opublikowana aplikacja oferuje użytkownikom prosty centrum do odnajdywania i uzyskiwania dostępu do wszystkich aplikacji. Zwiększ produktywność dzięki możliwościom samoobsługowym, takim jak możliwość żądania dostępu do nowych aplikacji i grup lub zarządzania dostępem do tych zasobów w imieniu innych użytkowników za pomocą [panelu dostępu](https://aka.ms/AccessPanelDPDownload).
+* Moje aplikacje usługi Azure AD: wraz z wdrożoną usługą serwera proxy aplikacji i bezpiecznie opublikowanymi aplikacjami oferuje użytkownikom prosty centrum do odnajdywania i uzyskiwania dostępu do wszystkich swoich aplikacji. Zwiększ produktywność dzięki możliwościom samoobsługowym, takim jak możliwość żądania dostępu do nowych aplikacji i grup lub zarządzania dostępem do tych zasobów w imieniu innych użytkowników za pomocą [aplikacji](https://aka.ms/AccessPanelDPDownload).
 
 ## <a name="manage-your-implementation"></a>Zarządzanie implementacją
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.openlocfilehash: f26addda79d57a055f7b431968319138d499ef18
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: d5417bfcfbaa183c34808d9017d5863506429a81
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272942"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642286"
 ---
 # <a name="sparkcruise-on-azure-hdinsight"></a>SparkCruise w usłudze Azure HDInsight
 
@@ -148,6 +148,7 @@ sudo /opt/peregrine/analyze/peregrine.sh clean
 
 ## <a name="next-steps"></a>Następne kroki
 
+* [Korzystanie z notesu Insights w celu określenia korzyści z SparkCruise](https://github.com/Azure-Samples/azure-sparkcruise-samples/tree/main/SparkCruise)
 * [Poprawianie wydajności Apache Spark obciążeń przy użyciu pamięci podręcznej we/wy usługi Azure HDInsight](apache-spark-improve-performance-iocache.md)
 * [Optymalizowanie Apache Spark zadań w usłudze HDInsight](./apache-spark-perf.md)
 * [SparkCruise: ponowne użycie obliczeń Handsfree w platformie Spark](https://people.cs.umass.edu/~aroy/sparkcruise-vldb19.pdf)

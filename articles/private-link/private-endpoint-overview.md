@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 1566de36d6176568b148fde965bb7d3051e6b500
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 7456402605328592d4f5677767bcd985941173ec
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543473"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639838"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Co to jest prywatny punkt końcowy platformy Azure?
 
@@ -47,6 +47,7 @@ Poniżej przedstawiono niektóre kluczowe szczegóły dotyczące prywatnych punk
  
 - Wiele prywatnych punktów końcowych można utworzyć w tej samej lub różnych podsieciach w ramach tej samej sieci wirtualnej. Istnieją limity liczby prywatnych punktów końcowych, które można utworzyć w ramach subskrypcji. Aby uzyskać szczegółowe informacje, zobacz [limity platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
+- Subskrypcję z zasobu linku prywatnego należy również zarejestrować przy użyciu dostawcy zasobów pomocą. Network. Aby uzyskać szczegółowe informacje, zobacz [dostawcy zasobów platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
 
  
 ## <a name="private-link-resource"></a>Zasób link prywatny 
@@ -132,11 +133,11 @@ Poniższa tabela zawiera listę znanych ograniczeń dotyczących używania prywa
 
 
 ## <a name="next-steps"></a>Następne kroki
-- [Tworzenie prywatnego punktu końcowego dla SQL Database przy użyciu portalu](create-private-endpoint-portal.md)
-- [Tworzenie prywatnego punktu końcowego dla SQL Database przy użyciu programu PowerShell](create-private-endpoint-powershell.md)
-- [Tworzenie prywatnego punktu końcowego dla SQL Database przy użyciu interfejsu wiersza polecenia](create-private-endpoint-cli.md)
-- [Tworzenie prywatnego punktu końcowego dla konta magazynu przy użyciu portalu](create-private-endpoint-storage-portal.md)
-- [Tworzenie prywatnego punktu końcowego dla konta usługi Azure Cosmos za pomocą portalu](../cosmos-db/how-to-configure-private-endpoints.md)
+- [Tworzenie prywatnego punktu końcowego dla SQL Database przy użyciu portalu ](create-private-endpoint-portal.md)
+- [Tworzenie prywatnego punktu końcowego dla SQL Database przy użyciu programu PowerShell ](create-private-endpoint-powershell.md)
+- [Tworzenie prywatnego punktu końcowego dla SQL Database przy użyciu interfejsu wiersza polecenia ](create-private-endpoint-cli.md)
+- [Tworzenie prywatnego punktu końcowego dla konta magazynu przy użyciu portalu ](create-private-endpoint-storage-portal.md)
+- [Tworzenie prywatnego punktu końcowego dla konta usługi Azure Cosmos za pomocą portalu ](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Tworzenie własnej usługi linku prywatnego przy użyciu Azure PowerShell](create-private-link-service-powershell.md)
 - [Utwórz własne łącze prywatne dla Azure Database for PostgreSQL-pojedynczego serwera przy użyciu portalu](../postgresql/howto-configure-privatelink-portal.md)
 - [Utwórz własne połączenie prywatne dla Azure Database for PostgreSQL-pojedynczego serwera przy użyciu interfejsu wiersza polecenia](../postgresql/howto-configure-privatelink-cli.md)

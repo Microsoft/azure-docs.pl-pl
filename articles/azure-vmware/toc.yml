@@ -58,8 +58,10 @@
               href: set-up-mabs-for-avs.md
             - name: Tworzenie kopii zapasowych maszyn wirtualnych usługi AVS za pomocą usługi Backup Server
               href: backup-avs-vms-with-mabs.md
-        - name: Brama aplikacji w usłudze AVS
+        - name: Usługa Application Gateway z usługą AVS
           href: protect-avs-web-apps-with-app-gateway.md
+        - name: Usługa Traffic Manager z usługą AVS
+          href: deploy-traffic-manager-to-balance-avs-workloads.md
     - name: Rozwiązania VMware
       items:
         - name: Konfigurowanie operacji vRealize na potrzeby usługi AVS

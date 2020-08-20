@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 1c70950426b2f34d94bd66d2287550e19253874c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c96e4b7baa2c463c42db9440cadb3cb396fde1b
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84233161"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642473"
 ---
 # <a name="what-is-azure-sql-edge-preview"></a>Co to jest Azure SQL Edge (wersja zapoznawcza)?
 
 Usługa Azure SQL Edge (wersja zapoznawcza) to zoptymalizowany aparat relacyjnej bazy danych umożliwiający wdrażanie rozwiązań IoT i IoT Edge. Zapewnia możliwości tworzenia wysokiej wydajności magazynu danych i warstwy przetwarzania dla aplikacji i rozwiązań IoT. Usługa Azure SQL Edge oferuje możliwości przesyłania strumieniowego, przetwarzania i analizowania relacyjnych i nierelacyjnych danych, takich jak dane JSON, grafy i szeregi czasowe, dzięki czemu można wybrać różne nowoczesne aplikacje IoT.
 
-Usługa Azure SQL Edge jest oparta na najnowszych wersjach [aparatu bazy danych Microsoft SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json), co zapewnia wiodącą w branży wydajność, funkcje zabezpieczeń i przetwarzania zapytań. Ponieważ usługa Azure SQL Edge jest oparta na tym samym aparacie co SQL Server i Azure SQL Database, zapewnia ten sam obszar powierzchni programowania T-SQL, który umożliwia łatwiejsze i szybsze tworzenie aplikacji i rozwiązań, a jednocześnie umożliwia przenoszenie aplikacji między IoT Edge urządzeniami, centrami danych i chmurą.
+Usługa Azure SQL Edge jest oparta na najnowszych wersjach aparatu Microsoft SQL Database Engine (/SQL/SQL-Server/SQL-Server-Technical-Documentation? TOC =/Azure/Azure-SQL-Edge/toc.json), który zapewnia wiodące w branży funkcje, zabezpieczenia i przetwarzanie zapytań. Ze względu na to, że usługa Azure SQL Edge jest oparta na tym samym aparacie co [SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json) i [Azure SQL](https://docs.microsoft.com/azure/azure-sql/), zapewnia ten sam obszar powierzchni programowania T-SQL, który umożliwia łatwiejsze i szybsze opracowywanie aplikacji i rozwiązań, a jednocześnie umożliwia przenoszenie aplikacji między urządzeniami IoT Edge, centrami danych i chmurą.
 
 > [!NOTE]
 > Usługa Azure SQL Edge jest obecnie w wersji zapoznawczej i nie powinna być używana w środowiskach produkcyjnych.

@@ -63,6 +63,8 @@
       href: ../../firewall/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Functions
       href: ../../azure-functions/security-baseline.md
+    - name: Plan bazowy zabezpieczeń usługi Azure Machine Learning
+      href: ../../machine-learning/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Policy
       href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Resource Graph

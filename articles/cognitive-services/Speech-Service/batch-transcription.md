@@ -1,5 +1,5 @@
 ---
-title: Co to jest transkrypcja partii — usługa mowy
+title: Jak korzystać z transkrypcji usługi Batch — usługa mowy
 titleSuffix: Azure Cognitive Services
 description: Transkrypcja usługi Batch jest idealnym rozwiązaniem, jeśli chcesz transkrypcja dużą ilość dźwięku w magazynie, na przykład obiekty blob platformy Azure. Za pomocą dedykowanego interfejsu API REST można wskazać pliki audio z identyfikatorem URI sygnatury dostępu współdzielonego (SAS) i asynchronicznie otrzymywać transkrypcje.
 services: cognitive-services
@@ -10,20 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: 70977c30edce124aa0d39bcc57d4ccd015d65961
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: df1266070e9fb69ec94811a3120412d9b238e470
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214052"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640161"
 ---
-# <a name="what-is-batch-transcription"></a>Co to jest transkrypcja partii?
+# <a name="how-to-use-batch-transcription"></a>Jak korzystać z transkrypcji partii
 
 Transkrypcja usługi Batch to zestaw operacji interfejsu API REST, które umożliwiają transkrypcja dużej ilości danych audio w magazynie. Możesz wskazać pliki audio z identyfikatorem URI sygnatury dostępu współdzielonego (SAS) i asynchronicznie otrzymywać wyniki transkrypcji. Dzięki nowemu interfejsowi API programu v 3.0 możesz jego przepisywania jeden lub więcej plików audio lub przetwarzać cały kontener magazynu.
 
 Asynchroniczne transkrypcja zamiany mowy na tekst to tylko jedna z funkcji. Korzystając z interfejsów API REST transkrypcji wsadowej, można wywołać następujące metody:
-
-
 
 |    Operacja transkrypcji partii                                             |    Metoda    |    Wywołanie interfejsu API REST                                   |
 |------------------------------------------------------------------------------|--------------|----------------------------------------------------|
@@ -46,20 +44,14 @@ Obok łatwego w użyciu interfejsu API nie musisz wdrażać niestandardowych pun
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-### <a name="subscription-key"></a>Klucz subskrypcji
-
 Podobnie jak w przypadku wszystkich funkcji usługi Speech, można utworzyć klucz subskrypcji z [Azure Portal](https://portal.azure.com) , postępując zgodnie z [przewodnikiem](get-started.md)wprowadzenie.
 
 >[!NOTE]
 > Aby można było użyć transkrypcji partii, wymagana jest Standardowa subskrypcja (S0) dla usługi rozpoznawania mowy. Bezpłatne klucze subskrypcji (F0) nie działają. Aby uzyskać więcej informacji, zobacz [Cennik i limity](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-### <a name="custom-models"></a>Modele niestandardowe
-
 Jeśli planujesz dostosowanie modeli, postępuj zgodnie z instrukcjami w temacie [dostosowanie akustyczne](how-to-customize-acoustic-models.md) i [Dostosowywanie języka](how-to-customize-language-model.md). Aby można było używać utworzonych modeli w transkrypcji partii, potrzebna jest ich lokalizacja modelu. Lokalizację modelu można pobrać podczas inspekcji szczegółów modelu ( `self` Właściwości). Wdrożony niestandardowy punkt końcowy *nie jest wymagany* w przypadku usługi transkrypcji partii.
 
-## <a name="the-batch-transcription-api"></a>Interfejs API transkrypcji usługi Batch
-
-### <a name="supported-formats"></a>Obsługiwane formaty
+## <a name="batch-transcription-api"></a>Interfejs API transkrypcji usługi Batch
 
 Interfejs API transkrypcji usługi Batch obsługuje następujące formaty:
 
@@ -71,7 +63,7 @@ Interfejs API transkrypcji usługi Batch obsługuje następujące formaty:
 
 W przypadku strumieni stereofonicznych audio lewy i prawy są dzielone podczas transkrypcji. Dla każdego kanału tworzony jest plik wynikowy JSON. Sygnatury czasowe wygenerowane na wypowiedź umożliwiają deweloperowi utworzenie uporządkowanej końcowej transkrypcji.
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 
 Parametry konfiguracji są podane jako dane JSON (co najmniej jeden z pojedynczych plików):
 
@@ -181,11 +173,11 @@ Użyj tych opcjonalnych właściwości, aby skonfigurować transkrypcję:
       Opcjonalny adres URL z [sygnaturą dostępu współdzielonego usługi](../../storage/common/storage-sas-overview.md) do zapisywalnego kontenera na platformie Azure. Wynik jest przechowywany w tym kontenerze. Jeśli nie zostanie określony, firma Microsoft zapisuje wyniki w kontenerze magazynu zarządzanym przez firmę Microsoft. Gdy transkrypcja zostanie usunięta przez wywołanie [usuwania transkrypcji](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), dane wynikowe również zostaną usunięte.
 :::row-end:::
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Magazyn
 
 Transkrypcja usługi Batch obsługuje [usługę Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) do odczytu i zapisywania transkrypcji w magazynie.
 
-## <a name="the-batch-transcription-result"></a>Wynik transkrypcji partii
+## <a name="batch-transcription-result"></a>Wynik transkrypcji partii
 
 Dla każdego wejściowego audio jest tworzony jeden plik wynikowy transkrypcji. Możesz uzyskać listę plików wynikowych, wywołując [pliki Get transkrypcji](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionFiles). Ta metoda zwraca listę plików wynikowych dla tego transkrypcji. Aby znaleźć plik transkrypcji dla określonego pliku wejściowego, należy odfiltrować wszystkie zwrócone pliki z `kind`  ==  `Transcription` i `name`  ==  `{originalInputName.suffix}.json` .
 
@@ -251,7 +243,7 @@ Każdy plik wynikowy transkrypcji jego format:
 }
 ```
 
-Wynik zawiera następujące formularze:
+Wynik zawiera następujące formy:
 
 :::row:::
    :::column span="1":::
@@ -289,9 +281,9 @@ Wynik zawiera następujące formularze:
       Formularz wyświetlania rozpoznanego tekstu. Dodano znaki interpunkcyjne i wielkie litery.
 :::row-end:::
 
-## <a name="speaker-separation-diarization"></a>Separacja głośników (Diarization)
+## <a name="speaker-separation-diarization"></a>Separacja głośników (diarization)
 
-Diarization to proces oddzielania głośników w części audio. Nasz potok wsadowy obsługuje diarization i jest w stanie rozpoznawać dwa głośniki w nagraniach kanału mono. Funkcja nie jest dostępna w nagraniach stereo.
+Diarization to proces oddzielania głośników w części audio. Potok wsadowy obsługuje diarization i jest w stanie rozpoznawać dwa głośniki w nagraniach kanału mono. Funkcja nie jest dostępna w nagraniach stereo.
 
 Dane wyjściowe transkrypcji z włączonym diarization zawiera `Speaker` wpis dla każdej frazy uzyskanego. Jeśli diarization nie jest używana, właściwość `Speaker` nie jest obecna w danych wyjściowych JSON. W przypadku diarization obsługujemy dwie głosy, więc głośniki są identyfikowane jako `1` lub `2` .
 
@@ -317,7 +309,7 @@ Znaczniki czasu na poziomie słowa muszą być włączone, ponieważ parametry w
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 
-Usługa transkrypcji może obsłużyć dużą liczbę przesłanych transkrypcji. Można wysyłać zapytania o stan transkrypcji za pomocą `GET` przy [pobieraniu transkrypcji](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions). Wywołaj regularne [usuwanie transkrypcji](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) z usługi po pobraniu wyników. Alternatywnie Ustaw `timeToLive` Właściwość na rozsądną wartość, aby zapewnić ostateczne usuwanie wyników.
+Usługa transkrypcji usługi Batch może obsłużyć dużą liczbę przesłanych transkrypcji. Można wysyłać zapytania o stan transkrypcji za pomocą `GET` przy [pobieraniu transkrypcji](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions). Wywołaj regularne [usuwanie transkrypcji](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) z usługi po pobraniu wyników. Alternatywnie Ustaw `timeToLive` Właściwość na rozsądną wartość, aby zapewnić ostateczne usuwanie wyników.
 
 ## <a name="sample-code"></a>Przykładowy kod
 

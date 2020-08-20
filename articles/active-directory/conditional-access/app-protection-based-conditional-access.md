@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5326fd6adf12d53d836594c8e53bda14e0871e5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3626a29bb828c9fbc353b11858d42fecd4bb129d
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87009122"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641028"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Instrukcje: wymaganie zasad ochrony aplikacji oraz zatwierdzonej aplikacji klienckiej do uzyskiwania dostępu do aplikacji w chmurze przy użyciu dostępu warunkowego
 
@@ -55,9 +55,9 @@ Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przeno�
 1. W obszarze **warunki**wybierz pozycję **platformy urządzeń**.
    1. Ustaw **wartość** **tak**.
    1. Uwzględnij **systemy Android** i **iOS**.
-1. W obszarze **warunki**wybierz pozycję **aplikacje klienckie (wersja zapoznawcza)**.
+1. W obszarze **warunki**wybierz pozycję **aplikacje klienckie**.
    1. Ustaw **wartość** **tak**.
-   1. Wybierz pozycje **Aplikacje mobilne i klienci stacjonarni** oraz **Nowocześni klienci uwierzytelniania**.
+   1. Wybierz pozycję **aplikacje mobilne i klienci stacjonarni** i usuń zaznaczenie wszystkich innych elementów.
 1. W obszarze **kontrole dostępu**  >  **Udziel**wybierz następujące opcje:
    - **Wymaganie zatwierdzonej aplikacji klienckiej**
    - **Wymagaj zasad ochrony aplikacji (wersja zapoznawcza)**
@@ -76,10 +76,9 @@ W przypadku zasad dostępu warunkowego w tym kroku skonfiguruj następujące sk�
    1. W obszarze **dołączanie**wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
    1. Kliknij **Gotowe**.
 1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij**opcję **Office 365 Exchange Online**.
-1. W **warunkach**:
-   1. **Aplikacje klienckie (wersja zapoznawcza)**:
-      1. Ustaw **wartość** **tak**.
-      1. Wybierz pozycję **aplikacje mobilne i klienci stacjonarni** oraz **klienci programu Exchange ActiveSync**.
+1. W obszarze **warunki**wybierz pozycję **aplikacje klienckie**:
+   1. Ustaw **wartość** **tak**.
+   1. Wybierz pozycję **klienci programu Exchange ActiveSync** i usuń zaznaczenie wszystkich innych elementów.
 1. W obszarze **Kontrola dostępu**  >  **Przydziel**, wybierz pozycję **Udziel dostępu**, **Wymagaj zasad ochrony aplikacji**i wybierz pozycję **Wybierz**.
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
 1. Wybierz pozycję **Utwórz** , aby utworzyć i włączyć zasady.
@@ -107,9 +106,9 @@ Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przeno�
 1. W obszarze **warunki**wybierz pozycję **platformy urządzeń**.
    1. Ustaw **wartość** **tak**.
    1. Uwzględnij **systemy Android** i **iOS**.
-1. W obszarze **warunki**wybierz pozycję **aplikacje klienckie (wersja zapoznawcza)**.
+1. W obszarze **warunki**wybierz pozycję **aplikacje klienckie**.
    1. Ustaw **wartość** **tak**.
-   1. Wybierz pozycję **przeglądarka**.
+   1. Wybierz pozycję **przeglądarka** i usuń zaznaczenie opcji wszystkie inne.
 1. W obszarze **kontrole dostępu**  >  **Udziel**wybierz następujące opcje:
    - **Wymaganie zatwierdzonej aplikacji klienckiej**
    - **Wymagaj zasad ochrony aplikacji (wersja zapoznawcza)**
@@ -140,9 +139,9 @@ Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przeno�
 1. W obszarze **warunki**wybierz pozycję **platformy urządzeń**.
    1. Ustaw **wartość** **tak**.
    1. Uwzględnij **systemy Android** i **iOS**.
-1. W obszarze **warunki**wybierz pozycję **aplikacje klienckie (wersja zapoznawcza)**.
+1. W obszarze **warunki**wybierz pozycję **aplikacje klienckie**.
    1. Ustaw **wartość** **tak**.
-   1. Wybierz pozycje **Aplikacje mobilne i klienci stacjonarni** oraz **Nowocześni klienci uwierzytelniania**.
+   1. Wybierz pozycję **aplikacje mobilne i klienci stacjonarni** i usuń zaznaczenie wszystkich innych elementów.
 1. W obszarze **kontrole dostępu**  >  **Udziel**wybierz następujące opcje:
    - **Wymaganie zatwierdzonej aplikacji klienckiej**
    - **Wymagaj zasad ochrony aplikacji (wersja zapoznawcza)**
@@ -159,10 +158,9 @@ Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przeno�
    1. W obszarze **dołączanie**wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
    1. Kliknij **Gotowe**.
 1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij**opcję **Office 365 Exchange Online**.
-1. W **warunkach**:
-   1. **Aplikacje klienckie (wersja zapoznawcza)**:
-      1. Ustaw **wartość** **tak**.
-      1. Wybierz pozycję **aplikacje mobilne i klienci stacjonarni** oraz **klienci programu Exchange ActiveSync**.
+1. W obszarze **warunki**wybierz pozycję **aplikacje klienckie**:
+   1. Ustaw **wartość** **tak**.
+   1. Wybierz pozycję **klienci programu Exchange ActiveSync** i usuń zaznaczenie wszystkich innych elementów.
 1. W obszarze **Kontrola dostępu**  >  **Przydziel**, wybierz pozycję **Udziel dostępu**, **Wymagaj zasad ochrony aplikacji**i wybierz pozycję **Wybierz**.
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
 1. Wybierz pozycję **Utwórz** , aby utworzyć i włączyć zasady.

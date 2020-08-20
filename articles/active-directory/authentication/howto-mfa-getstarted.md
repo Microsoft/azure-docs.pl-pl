@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15d519e1cede27b3626d715c48790af620589e43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ab69e3f4ca89e2069ff25470773e597009ec238
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83757608"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641079"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planowanie wdrożenia usługi Azure Multi-Factor Authentication
 
@@ -76,7 +76,7 @@ Zasady dostępu warunkowego wymuszają rejestrację, co wymaga od użytkowników
 
 [Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md) współtworzy zarówno zasady rejestracji, jak i zautomatyzowane zasady wykrywania i korygowania zagrożeń w wątku Multi-Factor Authentication platformy Azure. Zasady mogą być tworzone w celu wymuszenia zmiany hasła w przypadku naruszenia złamanej tożsamości lub wymagania usługi MFA, gdy logowanie jest uznawane za ryzykowne przez następujące [zdarzenia](../reports-monitoring/concept-risk-events.md):
 
-* Nieujawnione poświadczenia
+* Ujawnione poświadczenia
 * Logowania z anonimowych adresów IP
 * Niemożliwa podróż do nietypowych lokalizacji
 * Logowania z nieznanych lokalizacji
@@ -108,6 +108,9 @@ Zalecamy, aby organizacje używały dostępu warunkowego do definiowania sieci p
 ## <a name="plan-authentication-methods"></a>Zaplanuj metody uwierzytelniania
 
 Administratorzy mogą wybrać [metody uwierzytelniania](../authentication/concept-authentication-methods.md) , które mają być dostępne dla użytkowników. Ważne jest, aby zezwalać na więcej niż jedną metodę uwierzytelniania, dzięki czemu użytkownicy mają dostępną metodę tworzenia kopii zapasowych w przypadku, gdy ich podstawowa metoda jest niedostępna. Następujące metody są dostępne dla administratorów do włączenia:
+
+> [!TIP]
+> Firma Microsoft zaleca korzystanie z aplikacji mobilnej jako podstawowej metody usługi Azure Multi-Factor Authentication w celu uzyskania najlepszych zabezpieczeń i środowiska użytkownika.
 
 ### <a name="notification-through-mobile-app"></a>Powiadomienie za poorednictwem aplikacji mobilnej
 
@@ -235,10 +238,10 @@ Ważne jest, aby zapobiec przypadkowemu zablokowaniu dzierżawy usługi Azure AD
 1. W obszarze **Użytkownicy i grupy**:
    * Na karcie **Dołącz** wybierz przycisk radiowy **Wszyscy użytkownicy**
    * Na karcie **Wyklucz** , zaznacz pole wyboru **Użytkownicy i grupy** , a następnie wybierz swoje konta dostępu awaryjnego.
-   * Kliknij pozycję **Gotowe**.
+   * Kliknij przycisk **Gotowe**.
 1. W obszarze **aplikacje w chmurze**wybierz przycisk radiowy **wszystkie aplikacje w chmurze** .
    * Opcjonalnie: na karcie **Wyklucz** wybierz pozycję aplikacje w chmurze, dla których Twoja organizacja nie wymaga uwierzytelniania wieloskładnikowego.
-   * Kliknij pozycję **Gotowe**.
+   * Kliknij przycisk **Gotowe**.
 1. W sekcji **warunki** :
    * Opcjonalnie: Jeśli włączono usługę Azure Identity Protection, możesz zdecydować się na ocenę ryzyka związanego z logowaniem w ramach zasad.
    * Opcjonalnie: Jeśli skonfigurowano Zaufane lokalizacje lub nazwane lokalizacje, można określić, czy te lokalizacje mają zostać dołączone lub wykluczone z zasad.
@@ -247,7 +250,7 @@ Ważne jest, aby zapobiec przypadkowemu zablokowaniu dzierżawy usługi Azure AD
     * Kliknij pozycję **Wybierz**.
 1. Pomiń sekcję **sesji** .
 1. Ustaw przełącznik **Włącz zasady** na wartość **włączone**.
-1. Kliknij pozycję **Utwórz**.
+1. Kliknij przycisk **Utwórz**.
 
 ## <a name="plan-integration-with-on-premises-systems"></a>Planowanie integracji z systemami lokalnymi
 
@@ -284,7 +287,7 @@ Jeśli masz już wdrożone wystąpienie usługi NPS i używasz go, wybierz opcj�
 
 Wybierz, co się stanie, gdy użytkownicy, którzy nie są zarejestrowani przy użyciu usługi MFA, spróbują przeprowadzić uwierzytelnianie. Aby kontrolować zachowanie funkcji, użyj ustawienia rejestru `REQUIRE_USER_MATCH` w ścieżce rejestru `HKLM\Software\Microsoft\AzureMFA` . To ustawienie ma jedną opcję konfiguracji.
 
-| Klucz | Wartość | Domyślne |
+| Klucz | Wartość | Domyślny |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | PRAWDA/FAŁSZ | Nie ustawiono (odpowiednik wartości TRUE) |
 
@@ -342,11 +345,11 @@ Po zaplanowaniu rozwiązania możesz wdrożyć, wykonując poniższe kroki:
 1. Konfigurowanie zasad rejestracji usługi MFA
    1. [Połączone usługi MFA i SSPR](howto-registration-mfa-sspr-combined.md)
    1. Z usługą [Identity Protection](../identity-protection/howto-mfa-policy.md)
-1. Wysyłanie komunikacji użytkowników i uzyskiwanie użytkownikom rejestracji[https://aka.ms/mfasetup](https://aka.ms/mfasetup)
+1. Wysyłanie komunikacji użytkowników i uzyskiwanie użytkownikom rejestracji [https://aka.ms/mfasetup](https://aka.ms/mfasetup)
 1. [Śledź użytkowników zarejestrowanych](#identify-non-registered-users)
 
 > [!TIP]
-> Użytkownicy w chmurze dla instytucji rządowych mogą rejestrować się w[https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
+> Użytkownicy w chmurze dla instytucji rządowych mogą rejestrować się w [https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
 
 ## <a name="manage-your-solution"></a>Zarządzanie rozwiązaniem
 

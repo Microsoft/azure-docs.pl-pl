@@ -3,18 +3,18 @@ title: Dokumentacja usługi Azure Notebooks (wersja zapoznawcza)
 summary: W dniu 9 października 2020 r. witryna publicznej wersji zapoznawczej usługi Azure Notebooks zostanie wycofana i zastąpiona przez usługi zintegrowane z programu Visual Studio, platformy Azure i usługi GitHub. Poznaj swoje opcje i inne środowiska notesów firmy Microsoft na stronie https://notebooks.azure.com/Content/alternatives.html.
 metadata:
   title: Dokumentacja usługi Azure Notebooks (wersja zapoznawcza)
-  description: Dowiedz się, jak tworzyć, uruchamiać i udostępniać notesy Jupyter za pomocą hostowanej usługi Azure Notebooks (w wersji zapoznawczej).
+  description: Dowiedz się, jak tworzyć, uruchamiać i udostępniać notesy Jupyter Notebook za pomocą hostowanej usługi Azure Notebooks (w wersji zapoznawczej).
   ms.service: azure-notebooks
   ms.topic: landing-page
   author: JoshuaPartlow
   ms.author: joshuapa
   ms.date: 06/17/2020
-  ms.openlocfilehash: 456cd23308c7258b59fa8dad628e9f09f6afc0e2
-  ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+  ms.openlocfilehash: cdc98d01a4fae5e4b09af001ec65dd7a29c34c0f
+  ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 08/19/2020
-  ms.locfileid: "88586957"
+  ms.lasthandoff: 08/20/2020
+  ms.locfileid: "88640280"
 landingContent:
 - title: Informacje o usłudze Azure Notebooks
   linkLists:
@@ -38,7 +38,7 @@ landingContent:
       url: /learn/modules/analyze-climate-data-with-azure-notebooks/
   - linkListType: tutorial
     links:
-    - text: Tworzenie i uruchamianie notesu Jupyter przy użyciu języka Python
+    - text: Tworzenie i uruchamianie notesu Jupyter Notebook przy użyciu języka Python
       url: tutorial-create-run-jupyter-notebook.md
   - linkListType: quickstart
     links:
@@ -48,7 +48,7 @@ landingContent:
       url: quickstart-create-share-jupyter-notebook.md
     - text: Klonowanie notesu
       url: quickstart-clone-jupyter-notebook.md
-    - text: Migrowanie z lokalnego notesu Jupyter
+    - text: Migrowanie lokalnego notesu Jupyter Notebook
       url: quickstart-migrate-local-jupyter-notebook.md
     - text: Tworzenie projektu w środowisku niestandardowym
       url: quickstart-create-jupyter-notebook-project-environment.md

@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: ca697fe0174a62532f3fa9ffbc5b3fcfc0c06ad7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 73c9b2bf8cf88ca5e8576c451c9d9ac5f0eae8a3
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321279"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639906"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Metryki niestandardowe w Azure Monitor (wersja zapoznawcza)
 
@@ -26,6 +26,7 @@ Niestandardowe metryki Azure Monitor są aktualne w publicznej wersji zapoznawcz
 
 Niestandardowe metryki mogą być wysyłane do Azure Monitor za pomocą kilku metod:
 - Instrumentacja aplikacji przy użyciu zestawu Azure Application Insights SDK i wysyłania niestandardowej telemetrii do Azure Monitor. 
+- Zainstaluj agenta Azure Monitor (wersja zapoznawcza) na [maszynie wirtualnej platformy Azure z systemem Windows lub Linux](azure-monitor-agent-overview.md) i Użyj [reguły zbierania danych](data-collection-rule-azure-monitor-agent.md) do wysyłania liczników wydajności do metryk Azure monitor.
 - Zainstaluj rozszerzenie Windows Diagnostyka Azure (funkcji wad) na [maszynie wirtualnej platformy Azure](collect-custom-metrics-guestos-resource-manager-vm.md), [zestawie skalowania maszyn wirtualnych](collect-custom-metrics-guestos-resource-manager-vmss.md), [klasycznej maszynie wirtualnej](collect-custom-metrics-guestos-vm-classic.md)lub [klasycznej Cloud Services](collect-custom-metrics-guestos-vm-cloud-service-classic.md) i Wyślij liczniki wydajności do Azure monitor. 
 - Zainstaluj [agenta InfluxData telegraf](collect-custom-metrics-linux-telegraf.md) na maszynie wirtualnej z systemem Linux systemu Azure i wysyłaj metryki przy użyciu wtyczki danych wyjściowych Azure monitor.
 - Wysyłać niestandardowe metryki [bezpośrednio do interfejsu API REST Azure monitor](./metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .
@@ -60,7 +61,7 @@ Ta właściwość służy do przechwytywania identyfikatora zasobu platformy Azu
 > Nie można emitować metryk niestandardowych względem identyfikatora zasobu grupy zasobów lub subskrypcji.
 
 
-### <a name="region"></a>Region
+### <a name="region"></a>Region (Region)
 Ta właściwość przechwytuje, w jakim regionie platformy Azure jest wdrażany zasób, dla którego są emitowane metryki. Metryki muszą być emitowane do tego samego Azure Monitor regionalnego punktu końcowego, co region, w którym jest wdrożony zasób. Na przykład niestandardowe metryki maszyny wirtualnej wdrożonej w regionie zachodnie stany USA muszą zostać wysłane do regionu punktu końcowego Azure Monitor zachodniej. Informacje o regionie również są kodowane w adresie URL wywołania interfejsu API.
 
 > [!NOTE]  

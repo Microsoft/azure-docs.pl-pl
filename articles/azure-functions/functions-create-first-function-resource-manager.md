@@ -5,12 +5,12 @@ ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
-ms.openlocfilehash: e409b3b64ac6bc39ba4cb58397506723a67a0de2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 362ff5cd59982c1d848ed59af8381090344f5c5e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081716"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642269"
 ---
 # <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Szybki Start: Tworzenie i wdrażanie zasobów Azure Functions przy użyciu szablonu ARM
 
@@ -56,7 +56,7 @@ Po utworzeniu projektu lokalnie należy utworzyć zasoby wymagane do uruchomieni
 
 Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-function-app-create-dynamic/).
 
-:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json" range="1-140" highlight="55-136":::
+:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json":::
 
 Ten szablon tworzy następujące cztery zasoby platformy Azure:
 
@@ -65,7 +65,7 @@ Ten szablon tworzy następujące cztery zasoby platformy Azure:
 + [**Microsoft. Web/Sites**](/azure/templates/microsoft.web/sites): Utwórz aplikację funkcji.
 + [**Microsoft. Insights/Components**](/azure/templates/microsoft.insights/components): utwórz wystąpienie Application Insights do monitorowania.
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 ```azurecli-interactive
@@ -147,7 +147,7 @@ Powinna zostać wyświetlona odpowiedź:
 
 <pre>Hello Functions!</pre>
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli przejdziesz do następnego kroku i dodasz powiązanie danych wyjściowych kolejki usługi Azure Storage, Zachowaj wszystkie swoje zasoby w miejscu, w którym będziesz kompilować zawartość już wykonane.
 

@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/02/2020
+ms.date: 08/19/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 24118e6ae5c31399ce5d33361dd60e3a08424681
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 4c6c2774e0d71ec33449565efab797c040aa264f
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055772"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640603"
 ---
 # <a name="blob-snapshots"></a>Migawki obiektów BLOB
 
 Migawka to wersja obiektu BLOB tylko do odczytu, która jest wykonywana w danym momencie.
 
 > [!NOTE]
-> Przechowywanie wersji obiektów BLOB (wersja zapoznawcza) oferuje alternatywny sposób obsługi historycznych kopii obiektu BLOB. Aby uzyskać więcej informacji, zobacz temat [przechowywanie wersji obiektów BLOB (wersja zapoznawcza)](versioning-overview.md).
+> Przechowywanie wersji obiektów BLOB (wersja zapoznawcza) oferuje alternatywny sposób obsługi poprzednich wersji obiektu BLOB. Aby uzyskać więcej informacji, zobacz temat [przechowywanie wersji obiektów BLOB (wersja zapoznawcza)](versioning-overview.md).
 
 ## <a name="about-blob-snapshots"></a>Informacje o migawek obiektów BLOB
 
@@ -33,7 +33,7 @@ Migawka obiektu BLOB jest taka sama jak jego podstawowy obiekt BLOB, z tą róż
 > Wszystkie migawki korzystają z identyfikatora URI podstawowego obiektu BLOB. Jedyną różnicą między bazowym obiektem blob a migawką jest dołączona wartość **DateTime** .
 >
 
-Obiekt BLOB może zawierać dowolną liczbę migawek. Migawki zachowują się do momentu usunięcia ich jawnie, niezależnie lub jako część operacji usuwania obiektu BLOB dla podstawowego obiektu BLOB. Można wyliczyć migawki skojarzone z podstawowym obiektem BLOB w celu śledzenia bieżących migawek.
+Obiekt BLOB może zawierać dowolną liczbę migawek. Migawki zachowują się do momentu usunięcia ich jawnie, niezależnie lub jako część operacji [usuwania obiektu BLOB](/rest/api/storageservices/delete-blob) dla podstawowego obiektu BLOB. Można wyliczyć migawki skojarzone z podstawowym obiektem BLOB w celu śledzenia bieżących migawek.
 
 Podczas tworzenia migawki obiektu BLOB właściwości systemu obiektu BLOB są kopiowane do migawki z tymi samymi wartościami. Metadane podstawowego obiektu BLOB są również kopiowane do migawki, o ile nie zostanie określone oddzielne metadane dla migawki podczas jej tworzenia. Po utworzeniu migawki można ją odczytywać, kopiować lub usuwać, ale nie można jej modyfikować.
 
@@ -51,15 +51,15 @@ Poniższa lista zawiera kluczowe kwestie, które należy wziąć pod uwagę podc
 
 - Konto magazynu wiąże się z opłatami za unikatowe bloki lub strony, niezależnie od tego, czy znajdują się w obiekcie blob, czy w migawce. Twoje konto nie wiąże się z dodatkowymi opłatami za migawki skojarzone z obiektem BLOB do momentu zaktualizowania obiektu BLOB, na którym się znajdują. Po zaktualizowaniu podstawowego obiektu BLOB jest on rozbieżny od jego migawek. W takim przypadku opłata jest naliczana za unikatowe bloki lub strony w każdym obiekcie blob lub w migawce.
 - Gdy zastąpisz blok w blokowym obiekcie blob, ten blok jest następnie naliczany jako unikatowy blok. Jest to prawdziwe, nawet jeśli blok ma ten sam identyfikator bloku i te same dane, które znajdują się w migawce. Po ponownym zatwierdzeniu bloku jest on rozbieżny od jego odpowiednika w dowolnej migawce i zostanie naliczona opłata za dane. Te same wartości mają wartość true dla strony w obiekcie blob stronicowania, która jest aktualizowana o identyczne dane.
-- Zastępowanie blokowego obiektu BLOB przez wywołanie metody [UploadFromFile] [dotnet_UploadFromFile], [UploadText] [dotnet_UploadText], [UploadFromStream] [dotnet_UploadFromStream] lub [UploadFromByteArray] [dotnet_UploadFromByteArray] zastępuje wszystkie bloki w obiekcie blob. Jeśli posiadasz migawkę skojarzoną z tym obiektem BLOB, wszystkie bloki w podstawowym obiekcie blob i migawek są teraz rozbieżne i zostanie naliczona opłata za wszystkie bloki w obu obiektach Blob. Jest to prawdziwe, nawet jeśli dane w podstawowym obiekcie blob i migawka pozostają identyczne.
+- Aktualizacja blokowego obiektu BLOB przez wywołanie metody, która zastępuje całą zawartość obiektu BLOB, spowoduje zastąpienie wszystkich bloków w obiekcie blob. Jeśli posiadasz migawkę skojarzoną z tym obiektem BLOB, wszystkie bloki w podstawowym obiekcie blob i migawek są teraz rozbieżne i zostanie naliczona opłata za wszystkie bloki w obu obiektach Blob. Jest to prawdziwe, nawet jeśli dane w podstawowym obiekcie blob i migawka pozostają identyczne.
 - Blob service platformy Azure nie ma metody, aby określić, czy dwa bloki zawierają identyczne dane. Każdy przekazany i zatwierdzony blok jest traktowany jako unikatowy, nawet jeśli ma takie same dane i ten sam identyfikator bloku. Ze względu na to, że opłaty są naliczane dla unikatowych bloków, należy wziąć pod uwagę, że aktualizacja obiektu BLOB z migawką skutkuje dodatkowymi unikatowymi blokami i dodatkowymi opłatami.
 
-### <a name="minimize-cost-with-snapshot-management"></a>Minimalizacja kosztów za pomocą zarządzania migawkami
+### <a name="minimize-costs-with-snapshot-management"></a>Minimalizacja kosztów za pomocą zarządzania migawkami
 
 Zalecamy staranne zarządzanie migawkami, aby uniknąć dodatkowych opłat. Poniższe najlepsze rozwiązania mogą pomóc zminimalizować koszty związane z magazynowaniem migawek:
 
 - Usuń i ponownie utwórz migawki skojarzone z obiektem BLOB za każdym razem, gdy aktualizujesz obiekt BLOB, nawet jeśli aktualizujesz te same dane, chyba że projekt aplikacji wymaga utrzymania migawek. Przez usunięcie i ponowne utworzenie migawek obiektu BLOB można upewnić się, że obiekt BLOB i migawki nie są rozbieżne.
-- Jeśli są zachowywane migawki obiektu BLOB, należy unikać wywoływania [UploadFromFile] [dotnet_UploadFromFile], [UploadText] [dotnet_UploadText], [UploadFromStream] [dotnet_UploadFromStream] lub [UploadFromByteArray] [dotnet_UploadFromByteArray] w celu zaktualizowania obiektu BLOB. Te metody zastępują wszystkie bloki w obiekcie blob, co powoduje znaczne rozbieżność podstawowego obiektu BLOB i jego migawek. Zamiast tego należy zaktualizować możliwie najmniejszą liczbę bloków przy użyciu metod [PutBlock] [dotnet_PutBlock] i [PutBlockList] [dotnet_PutBlockList].
+- Jeśli tworzysz migawki dla obiektu BLOB, unikaj wywoływania metod, które zastępują cały obiekt BLOB podczas aktualizowania obiektu BLOB. Zamiast tego należy zaktualizować możliwie najmniejszą liczbę bloków, aby zachować niskie koszty.
 
 ### <a name="snapshot-billing-scenarios"></a>Scenariusze rozliczania migawek
 
@@ -85,9 +85,12 @@ W scenariuszu 3 podstawowy obiekt BLOB został zaktualizowany, ale migawka nie j
 
 #### <a name="scenario-4"></a>Scenariusz 4
 
-W scenariuszu 4 podstawowy obiekt BLOB został całkowicie zaktualizowany i nie zawiera żadnego z jego oryginalnych bloków. W związku z tym konto jest obciążane za wszystkie osiem unikatowych bloków. Ten scenariusz może wystąpić, jeśli używasz metody Update, takiej jak [UploadFromFile] [dotnet_UploadFromFile], [UploadText] [dotnet_UploadText], [UploadFromStream] [dotnet_UploadFromStream] lub [UploadFromByteArray] [dotnet_UploadFromByteArray], ponieważ te metody zastępują całą zawartość obiektu BLOB.
+W scenariuszu 4 podstawowy obiekt BLOB został całkowicie zaktualizowany i nie zawiera żadnego z jego oryginalnych bloków. W związku z tym konto jest obciążane za wszystkie osiem unikatowych bloków.
 
 ![Zasoby usługi Azure Storage](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-4.png)
+
+> [!TIP]
+> Należy unikać wywoływania metod, które zastępują cały obiekt BLOB, a zamiast tego aktualizować poszczególne bloki, aby zachować niskie koszty.
 
 ## <a name="next-steps"></a>Następne kroki
 

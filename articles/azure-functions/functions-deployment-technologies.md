@@ -4,20 +4,20 @@ description: Poznaj różne sposoby wdrażania kodu do Azure Functions.
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: bf8944952abf83837d05019bd783bec2fd43cefe
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 3865e6906b39633e14c86619770188f1c73fed8e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905129"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641963"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Technologie wdrażania w Azure Functions
 
-Do wdrożenia kodu projektu Azure Functions na platformie Azure można użyć kilku różnych technologii. Ten artykuł zawiera omówienie dostępnych metod wdrażania i zaleceń dotyczących najlepszej metody do użycia w różnych scenariuszach. Zawiera również wyczerpującą listę i kluczowe szczegóły dotyczące technologii wdrażania underlyng. 
+Do wdrożenia kodu projektu Azure Functions na platformie Azure można użyć kilku różnych technologii. Ten artykuł zawiera omówienie dostępnych metod wdrażania i zaleceń dotyczących najlepszej metody do użycia w różnych scenariuszach. Zawiera również wyczerpującą listę najważniejszych informacji o podstawowych technologiach wdrażania. 
 
 ## <a name="deployment-methods"></a>Metody wdrażania
 
-Technologia wdrażania używana do publikowania kodu na platformie Azure jest ogólnie określana w sposób, w jaki publikujesz aplikację. Odpowiednia metoda wdrażania jest określana zgodnie z konkretnymi potrzebami i punktem w cyklu programowania. Na przykład podczas tworzenia i testowania można wdrożyć program bezpośrednio z poziomu narzędzia programistycznego, takiego jak Visual Studio Code. Gdy aplikacja jest w środowisku produkcyjnym, najprawdopodobniej publikuje się w sposób ciągły z kontroli źródła lub przy użyciu automatycznego potoku publikowania, który obejmuje dodatkowe sprawdzanie poprawności i testowanie.  
+Technologia wdrażania używana do publikowania kodu na platformie Azure jest ogólnie określana w sposób, w jaki publikujesz aplikację. Odpowiednia metoda wdrażania jest określana zgodnie z konkretnymi potrzebami i punktem w cyklu programowania. Na przykład podczas tworzenia i testowania można wdrożyć program bezpośrednio z poziomu narzędzia programistycznego, takiego jak Visual Studio Code. Gdy aplikacja jest w środowisku produkcyjnym, najprawdopodobniej możesz publikować ją w sposób ciągły z kontroli źródła lub za pomocą zautomatyzowanego potoku publikowania, który obejmuje dodatkowe sprawdzanie poprawności i testowanie.  
 
 W poniższej tabeli opisano dostępne metody wdrażania dla projektu funkcji.
 
@@ -34,7 +34,7 @@ Podczas gdy określone funkcje wdrożenia korzystają z najlepszej technologii n
 Azure Functions obsługuje Międzyplatformowe programowanie lokalne i hosting w systemach Windows i Linux. Obecnie dostępne są trzy plany hostingu:
 
 + [Zużycie](functions-scale.md#consumption-plan)
-+ [Tytułu](functions-scale.md#premium-plan)
++ [Premium](functions-scale.md#premium-plan)
 + [Dedykowane (App Service)](functions-scale.md#app-service-plan)
 
 Każdy plan ma inne zachowania. Nie wszystkie technologie wdrażania są dostępne dla każdej wersji Azure Functions. Na poniższym wykresie przedstawiono, które technologie wdrażania są obsługiwane dla każdej kombinacji systemu operacyjnego i planu hostingu:
@@ -187,7 +187,7 @@ W edytorze opartym na portalu można bezpośrednio edytować pliki znajdujące s
 >
 >* [Visual Studio Code](functions-create-first-function-vs-code.md)
 >* [Azure Functions Core Tools (wiersz polecenia)](functions-run-local.md)
->* [Program Visual Studio](functions-create-your-first-function-visual-studio.md)
+>* [Visual Studio](functions-create-your-first-function-visual-studio.md)
 
 W poniższej tabeli przedstawiono systemy operacyjne i języki obsługujące edycję portalu:
 
@@ -202,7 +202,13 @@ W poniższej tabeli przedstawiono systemy operacyjne i języki obsługujące edy
 | PowerShell (wersja zapoznawcza) |✔|✔|✔| | | |
 | TypeScript (Node.js) | | | | | | |
 
-<sup>*</sup>Edytowanie portalu jest włączone tylko dla wyzwalaczy HTTP i Timer dla funkcji w systemie Linux przy użyciu Premium i planów dedykowanych.
+<sup>*</sup> Edytowanie portalu jest włączone tylko dla wyzwalaczy HTTP i Timer dla funkcji w systemie Linux przy użyciu Premium i planów dedykowanych.
+
+## <a name="deployment-behaviors"></a>Zachowania wdrażania
+
+Podczas wdrażania wdrożenia można wykonać wszystkie istniejące wykonania lub przekroczyć limit czasu, po którym załadowano nowy kod, aby rozpocząć przetwarzanie żądań.
+
+Jeśli potrzebujesz większej kontroli nad tym przejściem, musisz używać miejsc wdrożenia.
 
 ## <a name="deployment-slots"></a>Miejsca wdrożenia
 

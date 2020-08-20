@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/27/2020
 ms.author: aahi
 ms.custom: subject-armqs
-ms.openlocfilehash: 9ecbd7778480d37fb0a0cf135d3cc5db48bf2add
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2aa9325fc01fff683e2604063408281e66d65804
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323659"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641929"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Szybki Start: Tworzenie zasobu Cognitive Services przy użyciu szablonu ARM
 
@@ -36,12 +36,12 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 
 Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-cognitive-services-universalkey/).
 
-:::code language="json" source="~/quickstart-templates/101-cognitive-services-universalkey/azuredeploy.json" highlight="27-41":::
+:::code language="json" source="~/quickstart-templates/101-cognitive-services-universalkey/azuredeploy.json":::
 
 Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 * [Microsoft. CognitiveServices/accounts](https://docs.microsoft.com/azure/templates/microsoft.cognitiveservices/accounts): tworzy zasób Cognitive Services.
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
@@ -67,7 +67,7 @@ Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/CLI)
 
 > [!NOTE]
-> `az deployment group`Tworzenie wymaga interfejsu wiersza polecenia platformy Azure w wersji 2,6 lub nowszej. Aby wyświetlić typ wersji `az --version` . Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją](https://docs.microsoft.com/cli/azure/deployment/group).
+> `az deployment group` Tworzenie wymaga interfejsu wiersza polecenia platformy Azure w wersji 2,6 lub nowszej. Aby wyświetlić typ wersji `az --version` . Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją](https://docs.microsoft.com/cli/azure/deployment/group).
 
 Uruchom następujący skrypt przy użyciu interfejsu wiersza polecenia platformy Azure [na komputerze lokalnym](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)lub w przeglądarce z przyciskiem **Wypróbuj** . Wprowadź nazwę i lokalizację (na przykład `centralus` ) dla nowej grupy zasobów, a szablon ARM zostanie użyty do wdrożenia w nim zasobu Cognitive Services. Zapamiętaj nazwę, której używasz. Będzie on używany później do weryfikacji wdrożenia.
 

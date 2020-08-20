@@ -3,12 +3,12 @@ title: Uruchamianie Azure Functions z pakietu
 description: Aby środowisko uruchomieniowe Azure Functions uruchomiło funkcje, instalując plik pakietu wdrożeniowego zawierający pliki projektu aplikacji funkcji.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: 6a2633550c9bcbdc59baf99f79559655afbb9b74
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: b2d90cf78263b30b4315199cf1c543186a435f17
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214232"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639889"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Uruchamianie Azure Functions z pliku pakietu
 
@@ -50,6 +50,9 @@ Poniżej przedstawiono aplikację funkcji skonfigurowaną do uruchamiania z plik
 ## <a name="integration-with-zip-deployment"></a>Integracja z wdrożeniem zip
 
 [Wdrożenie zip][Zip deployment for Azure Functions] to funkcja Azure App Service, która umożliwia wdrożenie projektu aplikacji funkcji w `wwwroot` katalogu. Projekt jest spakowany jako plik wdrożenia. zip. Te same interfejsy API mogą służyć do wdrażania pakietu w `d:\home\data\SitePackages` folderze. W przypadku `WEBSITE_RUN_FROM_PACKAGE` Ustawienia aplikacji w `1` interfejsie API wdrożenia zip Skopiuj pakiet do `d:\home\data\SitePackages` folderu zamiast wyodrębniania plików do programu `d:\home\site\wwwroot` . Tworzy również `packagename.txt` plik. Po ponownym uruchomieniu pakiet jest instalowany `wwwroot` jako system plików tylko do odczytu. Aby uzyskać więcej informacji o wdrażaniu zip, zobacz [zip Deployment for Azure Functions](deployment-zip-push.md).
+
+> [!NOTE]
+> Po wystąpieniu wdrożenia zostanie wyzwolone ponowne uruchomienie aplikacji funkcji. Przed ponownym uruchomieniem programu można wykonać wszystkie istniejące wykonania funkcji lub przekroczyć limit czasu. Aby dowiedzieć się więcej, zobacz [zachowania wdrażania](functions-deployment-technologies.md#deployment-behaviors).
 
 ## <a name="adding-the-website_run_from_package-setting"></a>Dodawanie ustawienia WEBSITE_RUN_FROM_PACKAGE
 

@@ -8,15 +8,18 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: a3f3dbd74ef74f091ca923f8c09680c6913ac300
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c2561a6dc3ad8c0af1c266b3822a80c76f45c174
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074229"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639685"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Tworzenie rozproszonych klastrów serwerów programu MATLAB na maszynach wirtualnych platformy Azure
 Za pomocą Microsoft Azure maszyny wirtualne można utworzyć jeden lub więcej klastrów serwerów rozproszonego przetwarzania w programie MATLAB do uruchamiania równoległych obciążeń programu MATLAB intensywnie korzystających z obliczeń. Zainstaluj oprogramowanie w programie MATLAB Distributed Computing Server na maszynie wirtualnej, aby użyć go jako obrazu podstawowego i użyć szablonu szybkiego startu platformy Azure lub skryptu Azure PowerShell (dostępnego w witrynie [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) do wdrażania klastra i zarządzania nim. Po wdrożeniu Połącz się z klastrem w celu uruchomienia obciążeń.
+
+> [!IMPORTANT]
+> Ponieważ ten artykuł został zapisany, obecnie jest formalne wsparcie dla korzystania z aplikacji MATLAB na platformie Azure. Zaleca się, aby ostatnio używane funkcje zamiast szablonu i skryptów, do których odwołuje się ten artykuł. Wyszukaj w [witrynie Azure Marketplace](https://azuremarketplace.microsoft.com/) "MATLAB"; Więcej informacji o uruchamianiu aplikacji programu MATLAB na platformie Azure jest dostępnych w witrynie [MathWorks](https://www.mathworks.com/solutions/cloud.html#public-cloud).
 
 ## <a name="about-matlab-and-matlab-distributed-computing-server"></a>Informacje o rozproszonym serwerze przetwarzania danych programu MATLAB i MATLAB
 Platforma [MATLAB](https://www.mathworks.com/products/matlab/) jest zoptymalizowana pod kątem rozwiązywania problemów inżynieryjnych i naukowych. W programie MATLAB użytkownicy z symulacjami na dużą skalę i zadaniami przetwarzania danych mogą korzystać z MathWorks równoległych produktów obliczeniowych w celu przyspieszenia obciążeń intensywnie korzystających z obliczeń, korzystając z klastrów obliczeniowych i usług siatkowych. [Zestaw narzędzi do przetwarzania równoległego](https://www.mathworks.com/products/parallel-computing/) umożliwia programowi MATLAB users zrównoleglanie aplikacje i korzystanie z procesorów wielordzeniowych, procesorów GPU i klastrów obliczeniowych. Program [MATLAB Distributed Computing Server](https://www.mathworks.com/products/distriben/) umożliwia użytkownikom programu MATLAB korzystanie z wielu komputerów w klastrze obliczeniowym.

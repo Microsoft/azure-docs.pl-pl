@@ -3,12 +3,12 @@ title: Obsługa oceny serwera fizycznego w Azure Migrate
 description: Dowiedz się więcej o obsłudze oceny serwera fizycznego za pomocą oceny serwera Azure Migrate
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 97da09fa88cc3e69965237cb5b4326b8b59739bd
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2b96bff7468f0705f2b80f60dcd5248960495f16
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423783"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640127"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Macierz obsługi dla oceny serwera fizycznego 
 
@@ -34,7 +34,7 @@ Aby ocenić serwery fizyczne, należy utworzyć projekt Azure Migrate i dodać n
 | **Pomoc techniczna**                | **Szczegóły**               
 | :-------------------       | :------------------- |
 | **Wdrożenie serwera fizycznego**       | Serwer fizyczny może być autonomiczny lub wdrożony w klastrze. |
-| **Uprawnienia**           | **System Windows:** Użyj konta domeny dla komputerów przyłączonych do domeny oraz konta lokalnego dla maszyn, które nie są przyłączone do domeny. Konto użytkownika należy dodać do tych grup: Użytkownicy zarządzania zdalnego, użytkownicy monitora wydajności i Użytkownicy dzienników wydajności. <br/><br/> System **Linux:** Na serwerach z systemem Linux, które mają zostać odnajdywane, jest potrzebne konto główne. |
+| **Uprawnienia**           | **System Windows:** Użyj konta domeny dla komputerów przyłączonych do domeny oraz konta lokalnego dla maszyn, które nie są przyłączone do domeny. Konto użytkownika należy dodać do tych grup: Użytkownicy zarządzania zdalnego, użytkownicy monitora wydajności i Użytkownicy dzienników wydajności. <br/><br/> System **Linux:** Na serwerach z systemem Linux, które mają zostać odnajdywane, jest potrzebne konto główne. <br/> Alternatywnie upewnij się, że wymagane funkcje są ustawione przy użyciu następujących poleceń. <br/> setcap CAP_DAC_READ_SEARCH + EIP/usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH + EIP/sbin/fdisk (jeśli/usr/sbin/fdisk nie istnieje) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner, cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap <br/> setcap CAP_DAC_READ_SEARCH + EIP/usr/sbin/dmidecode <br/> chmod a + r/sys/Class/DMI/ID/product_uuid
 | **System operacyjny** | Wszystkie systemy operacyjne z wyjątkiem systemu Windows Server 2003 i SUSE Linux można ocenić pod kątem migracji. |
 
 
@@ -53,7 +53,7 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących portów dla oceny.
 
 **Urządzenie** | **Połączenie**
 --- | ---
-**Wprowadzony** | Połączenia przychodzące na porcie TCP 3389, aby zezwolić na połączenia pulpitu zdalnego z urządzeniem.<br/><br/> Połączenia przychodzące na porcie 44368, aby zdalnie uzyskiwać dostęp do aplikacji do zarządzania urządzeniami przy użyciu adresu URL:``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Połączenia wychodzące na portach 443 (HTTPS), w celu wysyłania metadanych odnajdywania i wydajności do Azure Migrate.
+**Wprowadzony** | Połączenia przychodzące na porcie TCP 3389, aby zezwolić na połączenia pulpitu zdalnego z urządzeniem.<br/><br/> Połączenia przychodzące na porcie 44368, aby zdalnie uzyskiwać dostęp do aplikacji do zarządzania urządzeniami przy użyciu adresu URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Połączenia wychodzące na portach 443 (HTTPS), w celu wysyłania metadanych odnajdywania i wydajności do Azure Migrate.
 **Serwery fizyczne** | **System Windows:** Połączenie przychodzące na porcie WinRM 5985 (HTTP) do ściągania metadanych konfiguracji i wydajności z serwerów z systemem Windows. <br/><br/> System **Linux:**  Połączenia przychodzące na porcie 22 (TCP), w celu ściągania metadanych konfiguracji i wydajności z serwerów z systemem Linux. |
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Wymagania dotyczące analizy zależności opartej na agentach

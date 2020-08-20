@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: e7324bfec32368e952af8f24afabe893011454df
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ea11dddd83651e233f008197ffa23a3becd978de
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538177"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642354"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funkcje & narzędzia dla Azure Cloud Shell
 
@@ -76,7 +76,7 @@ Cloud Shell obejmuje wstępnie skonfigurowane uwierzytelnianie dla narzędzi typ
 |Edytory tekstu           |kod (Edytor Cloud Shell)<br> vim<br> nano<br> emacs    |
 |Kontrola źródła         |git                    |
 |Narzędzia kompilacji            |make<br> maven<br> npm<br> graczy         |
-|Kontenery             |[Docker Machine](https://github.com/docker/machine)<br> [Polecenia kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [INTERFEJS WIERSZA POLECENIA DC/OS](https://github.com/dcos/dcos-cli)         |
+|Containers             |[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [INTERFEJS WIERSZA POLECENIA DC/OS](https://github.com/dcos/dcos-cli)         |
 |Bazy danych              |Klient MySQL<br> Klient PostgreSql<br> [Narzędzie sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [MSSQL-Scripter](https://github.com/Microsoft/sql-xplat-cli) |
 |Inne                  |Klient iPython<br> [Interfejs wiersza polecenia Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef — Specyfikacja](https://www.chef.io/inspec/)<br> [Puppet](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)<br> [Interfejs wiersza polecenia pakietu Office 365](https://pnp.github.io/office365-cli/)|
 
@@ -84,8 +84,8 @@ Cloud Shell obejmuje wstępnie skonfigurowane uwierzytelnianie dla narzędzi typ
 
 |Język   |Wersja   |
 |---|---|
-|.NET Core  |2.2.402       |
-|Go         |1.9        |
+|.NET Core  |[3.1.302](https://github.com/dotnet/core/blob/master/release-notes/3.1/3.1.6/3.1.302-download.md)       |
+|Przejdź         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.16.0      |
 |PowerShell |[7.0.0](https://github.com/PowerShell/powershell/releases)       |

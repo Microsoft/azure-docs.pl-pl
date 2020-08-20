@@ -16,12 +16,12 @@ ms.date: 03/12/2019
 ms.author: kenwith
 ms.reviewer: japere, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb3d1d921be858531372130264e777f8c04a9328
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54673e0018f83024d1c01599d0096c71b6b1d0ae
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764948"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642133"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Jak skonfigurować Logowanie jednokrotne do aplikacji serwera proxy aplikacji
 
@@ -49,7 +49,7 @@ Każdą z tych opcji można znaleźć, przechodząc do aplikacji w "aplikacje dl
 
 Na tej stronie zostanie również wyświetlona jedna dodatkowa opcja logowania: połączono logowanie. Ta opcja jest również obsługiwana przez serwer proxy aplikacji. Jednak ta opcja nie powoduje dodania logowania jednokrotnego do aplikacji. Wspomniana aplikacja może już mieć zaimplementowane Logowanie jednokrotne przy użyciu innej usługi, takiej jak Active Directory Federation Services. 
 
-Ta opcja umożliwia administratorowi utworzenie linku do aplikacji, która jest po raz pierwszy włączona podczas uzyskiwania dostępu do aplikacji. Na przykład jeśli istnieje aplikacja, która jest skonfigurowana do uwierzytelniania użytkowników przy użyciu Active Directory Federation Services 2,0, administrator może użyć opcji "połączone logowanie", aby utworzyć link do niego w panelu dostępu.
+Ta opcja umożliwia administratorowi utworzenie linku do aplikacji, która jest po raz pierwszy włączona podczas uzyskiwania dostępu do aplikacji. Na przykład jeśli istnieje aplikacja, która jest skonfigurowana do uwierzytelniania użytkowników za pomocą Active Directory Federation Services 2,0, administrator może użyć opcji "połączone logowanie", aby utworzyć link do niego w aplikacjach.
 
 ## <a name="next-steps"></a>Następne kroki
 - [Przechowywanie haseł dla logowania jednokrotnego przy użyciu serwera proxy aplikacji](application-proxy-configure-single-sign-on-password-vaulting.md)

@@ -10,16 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: trbye
-ms.openlocfilehash: b1e84f9acb439324317ed2f0d11ed06eb3e43ad8
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 90a5ec8c58865c3aa1b210db51b9ffeb7169d641
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678073"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640416"
 ---
 # <a name="what-is-speech-to-text"></a>Co to jest zamiana mowy na tekst?
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Zamiana mowy na tekst z usługi mowy, znanej również jako rozpoznawanie mowy, umożliwia zapisanie strumieni audio w czasie rzeczywistym do tekstu. Aplikacje, narzędzia lub urządzenia mogą zużywać, wyświetlać i podejmować działania dotyczące tego tekstu jako dane wejściowe polecenia. Ta usługa jest oparta na tej samej technologii rozpoznawania, która jest wykorzystywana przez firmę Microsoft dla Cortany i produktów pakietu Office. Bezproblemowo współpracuje z ofertami usług <a href="./speech-translation.md" target="_blank">tłumaczenia <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i <a href="./text-to-speech.md" target="_blank">zamiany tekstu <span class="docon docon-navigate-external x-hidden-focus"></span> na mowę</a> . Aby uzyskać pełną listę dostępnych języków zamiany mowy na tekst, zobacz [obsługiwane języki](language-support.md#speech-to-text).
 
@@ -30,6 +28,8 @@ Dzięki dodatkowemu tekstowi referencyjnemu jako dane wejściowe, usługa zamian
 > [!NOTE]
 > Rozpoznawanie mowy Bing został zlikwidowany 15 października 2019. Jeśli Twoje aplikacje, narzędzia lub produkty używają interfejsów API rozpoznawanie mowy Bing, zostały utworzone przewodniki ułatwiające Migrowanie do usługi mowy.
 > - [Migrowanie z rozpoznawanie mowy Bing do usługi mowy](how-to-migrate-from-bing-speech.md)
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 ## <a name="get-started-with-speech-to-text"></a>Wprowadzenie do zamiany mowy na tekst
 
@@ -58,6 +58,10 @@ Przykładowy kod dla zestawu Speech SDK jest dostępny w witrynie GitHub. Te prz
 ## <a name="customization"></a>Dostosowywanie
 
 Oprócz standardowego modelu usługi mowy można tworzyć modele niestandardowe. Dostosowanie pomaga w przezwyciężeniu barier rozpoznawania mowy, takich jak styl mowy, słownictwo i hałas w tle, zobacz [Custom Speech](how-to-custom-speech.md). Opcje dostosowywania różnią się w zależności od języka/ustawień regionalnych, zobacz [obsługiwane języki](supported-languages.md) , aby sprawdzić pomoc techniczną.
+
+## <a name="batch-transcription"></a>Transkrypcja wsadowa
+
+Transkrypcja usługi Batch to zestaw operacji interfejsu API REST, które umożliwiają transkrypcja dużej ilości danych audio w magazynie. Możesz wskazać pliki audio z identyfikatorem URI sygnatury dostępu współdzielonego (SAS) i asynchronicznie otrzymywać wyniki transkrypcji. Zobacz [instrukcje](batch-transcription.md) , aby uzyskać więcej informacji na temat korzystania z interfejsu API transkrypcji usługi Batch.
 
 [!INCLUDE [speech-reference-doc-links](includes/speech-reference-doc-links.md)]
 

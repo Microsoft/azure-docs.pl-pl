@@ -15,12 +15,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45124862fffa3a1ef6f601733407fbbea4eb5e74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 516bffa7057f8fee3b8e38d46f3b2da905880044
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84762976"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639940"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Jak przypisać użytkowników do aplikacji
 
@@ -44,9 +44,9 @@ Aby użytkownik mógł uzyskać dostęp do aplikacji, musi zostać najpierw przy
 
     * Grupa [Wszyscy użytkownicy](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-dedicated-groups)
 
-3.  Administrator umożliwia [samoobsługowy dostęp do aplikacji](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) , aby umożliwić użytkownikowi dodawanie aplikacji za pomocą [panelu dostępu do aplikacji](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Dodaj funkcję aplikacji** **bez zgody z firmy**
+3.  Administrator umożliwia [samoobsługowy dostęp do aplikacji](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) , aby umożliwić użytkownikowi dodawanie aplikacji przy użyciu funkcji [My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Dodaj** aplikacje do aplikacji **bez konieczności zatwierdzania firmy**
 
-4.  Administrator umożliwia [samoobsługowy dostęp do aplikacji](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) , aby umożliwić użytkownikowi dodawanie aplikacji za pomocą [panelu dostępu do aplikacji](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Dodaj** funkcję aplikacji, ale tylko**z poprzednimi zatwierdzeniami z wybranego zestawu osób zatwierdzających firmy**
+4.  Administrator umożliwia [samoobsługowy dostęp do aplikacji](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) , aby umożliwić użytkownikowi dodawanie aplikacji za pomocą funkcji [Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Dodaj aplikację** , ale tylko**z poprzednią zgodą z wybranego zestawu osób zatwierdzających firmy**
 
 5.  Administrator umożliwia samoobsługowe [Zarządzanie grupami](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) , aby umożliwić użytkownikowi dołączenie do grupy, do której aplikacja jest przypisana **bez zgody firmy**
 

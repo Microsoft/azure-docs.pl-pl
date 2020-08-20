@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 82b10525fe4d8b9db88300b61ae2da6630030dfd
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: b506d56f8aff2204c705ae8685f475654c1b1705
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461191"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640484"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>Konfigurowanie logowania jednokrotnego opartego na języku SAML
 
@@ -48,7 +48,7 @@ Należy uzyskać wartości od dostawcy aplikacji. Można ręcznie wprowadzić wa
 |:--|:--|:--|:--|
 | **Identyfikator (identyfikator jednostki)** | Wymagane w przypadku niektórych aplikacji | Wymagane w przypadku niektórych aplikacji | Jednoznacznie identyfikuje aplikację. Usługa Azure AD wysyła identyfikator do aplikacji jako parametr odbiorców tokenu SAML. Aplikacja powinna go zweryfikować. Ta wartość jest widoczna również jako identyfikator jednostki w dowolnych metadanych SAML udostępnianych przez aplikację. Wprowadź adres URL, który używa następującego wzorca: "https:// <subdomain> . contoso.com" *można znaleźć tę wartość jako element **Issuer** w **AuthnRequest** (żądanie SAML) wysyłanej przez aplikację.* |
 | **Adres URL odpowiedzi** | Wymagane | Wymagane | Określa miejsce, w którym aplikacja oczekuje otrzymać token języka SAML. Adres URL odpowiedzi jest również nazywany adresem URL usługi Assertion Consumer Service (ACS). Aby określić wiele adresów URL odpowiedzi, można użyć pól dodatkowych adresów URL odpowiedzi. Na przykład mogą być potrzebne dodatkowe adresy URL odpowiedzi dla wielu poddomen. Lub w celach testowych można jednocześnie określić wiele adresów URL odpowiedzi (lokalnego hosta i publicznych adresów URL). |
-| **Adres URL logowania** | Wymagane | Nie podawaj | Gdy użytkownik otwiera ten adres URL, dostawca usługi przekierowuje go do usługi Azure AD w celu uwierzytelnienia i zalogowania. Usługa Azure AD używa adresu URL do uruchomienia aplikacji z usługi Office 365 lub panelu dostępu usługi Azure AD. Gdy to pole jest puste, usługa Azure AD wykonuje logowanie zainicjowane przez dostawcy tożsamości, gdy użytkownik uruchamia aplikację z pakietu Office 365, panelu dostępu usługi Azure AD lub adresu URL rejestracji jednokrotnej usługi Azure AD.|
+| **Adres URL logowania** | Wymagane | Nie podawaj | Gdy użytkownik otwiera ten adres URL, dostawca usługi przekierowuje go do usługi Azure AD w celu uwierzytelnienia i zalogowania. Usługa Azure AD używa adresu URL, aby uruchomić aplikację z pakietu Office 365 lub usługi Azure AD moje aplikacje. Gdy to pole jest puste, usługa Azure AD wykonuje logowanie zainicjowane przez dostawcy tożsamości, gdy użytkownik uruchamia aplikację z pakietu Office 365, usługi Azure AD moje aplikacje lub adresu URL rejestracji jednokrotnej usługi Azure AD.|
 | **Stan przekaźnika** | Opcjonalne | Opcjonalne | Określa aplikacji, dokąd przekierować użytkownika po zakończeniu uwierzytelniania. Zazwyczaj wartość jest prawidłowym adresem URL dla aplikacji. Jednak niektóre aplikacje używają tego pola inaczej. Aby uzyskać więcej informacji, skontaktuj się z dostawcą aplikacji.
 | **Adres URL wylogowywania** | Opcjonalne | Opcjonalne | Służy do wysyłania odpowiedzi na wylogowanie SAML z powrotem do aplikacji.
 

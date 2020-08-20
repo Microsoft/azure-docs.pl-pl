@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 306afb2bfba7c222798bbfd1bef334387b6f9771
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 440815d7d24cde9708c214bf407a2dd9206a1706
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080083"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642048"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Konfigurowanie aplikacji PHP dla Azure App Service
 
@@ -206,7 +206,7 @@ Jeśli aplikacja zostanie wdrożona za pomocą usługi Git lub zip z włączonym
 1. Uruchom polecenie `php composer.phar install`.
 1. Uruchom skrypt niestandardowy, jeśli został określony przez `POST_BUILD_SCRIPT_PATH` .
 
-`PRE_BUILD_COMMAND`i `POST_BUILD_COMMAND` są zmiennymi środowiskowymi, które są domyślnie puste. Aby uruchomić polecenia przed kompilacją, zdefiniuj `PRE_BUILD_COMMAND` . Aby uruchomić polecenia po kompilacji, zdefiniuj `POST_BUILD_COMMAND` .
+`PRE_BUILD_COMMAND` i `POST_BUILD_COMMAND` są zmiennymi środowiskowymi, które są domyślnie puste. Aby uruchomić polecenia przed kompilacją, zdefiniuj `PRE_BUILD_COMMAND` . Aby uruchomić polecenia po kompilacji, zdefiniuj `POST_BUILD_COMMAND` .
 
 W poniższym przykładzie określono dwie zmienne do szeregu poleceń, oddzielone przecinkami.
 
@@ -276,8 +276,8 @@ Jeśli nie chcesz używać ponownego zapisywania pliku *.htaccess*, zamiast tego
 W usłudze App Service [kończenie żądań SSL](https://wikipedia.org/wiki/TLS_termination_proxy) odbywa się w modułach równoważenia obciążenia sieciowego, dzięki czemu wszystkie żądania HTTPS docierają do aplikacji jako niezaszyfrowane żądania HTTP. Jeśli logika aplikacji musi sprawdzać, czy żądania użytkownika są szyfrowane, czy nie, zbadaj nagłówek `X-Forwarded-Proto`.
 
 ```php
-if (isset($_SERVER['X-Forwarded-Proto']) && $_SERVER['X-Forwarded-Proto'] === 'https') {
-  // Do something when HTTPS is used
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+// Do something when HTTPS is used
 }
 ```
 
@@ -295,7 +295,7 @@ Jeśli musisz wprowadzić zmiany w instalacji PHP, możesz zmienić dowolne z [p
 
 ::: zone pivot="platform-windows"  
 
-Aby dostosować dyrektywy PHP_INI_USER, PHP_INI_PERDIR i PHP_INI_ALL (patrz [dyrektywyphp.ini](https://www.php.net/manual/ini.list.php)), Dodaj `.user.ini` plik do katalogu głównego aplikacji.
+Aby dostosować dyrektywy PHP_INI_USER, PHP_INI_PERDIR i PHP_INI_ALL (patrz [ dyrektywyphp.ini](https://www.php.net/manual/ini.list.php)), Dodaj `.user.ini` plik do katalogu głównego aplikacji.
 
 Dodaj ustawienia konfiguracji do `.user.ini` pliku, używając tej samej składni, która będzie używana w `php.ini` pliku. Jeśli na przykład chcesz włączyć `display_errors` ustawienie i ustawić wartość `upload_max_filesize` 10 mln, `.user.ini` plik będzie zawierał następujący tekst:
 
@@ -316,7 +316,7 @@ Alternatywą dla użycia pliku jest `.user.ini` użycie [ini_set ()](https://www
 
 ::: zone pivot="platform-linux"
 
-Aby dostosować dyrektywy PHP_INI_USER, PHP_INI_PERDIR i PHP_INI_ALL (patrz [dyrektywyphp.ini](https://www.php.net/manual/ini.list.php)), Dodaj plik *. htaccess* do katalogu głównego aplikacji.
+Aby dostosować dyrektywy PHP_INI_USER, PHP_INI_PERDIR i PHP_INI_ALL (patrz [ dyrektywyphp.ini](https://www.php.net/manual/ini.list.php)), Dodaj plik *. htaccess* do katalogu głównego aplikacji.
 
 W pliku *. htaccess* Dodaj dyrektywy przy użyciu `php_value <directive-name> <value>` składni. Na przykład:
 
@@ -374,7 +374,7 @@ Najpierw uruchom następujące polecenie w [Cloud Shell](https://shell.azure.com
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PHP_INI_SCAN_DIR="/usr/local/etc/php/conf.d:/home/site/ini"
 ```
 
-`/usr/local/etc/php/conf.d`jest domyślnym katalogiem, w którym istnieje *php.ini* . `/home/site/ini`jest katalogiem niestandardowym, w którym zostanie dodany niestandardowy plik *. ini* . Wartości należy rozdzielić `:` .
+`/usr/local/etc/php/conf.d` jest domyślnym katalogiem, w którym istnieje *php.ini* . `/home/site/ini` jest katalogiem niestandardowym, w którym zostanie dodany niestandardowy plik *. ini* . Wartości należy rozdzielić `:` .
 
 Przejdź do sesji protokołu SSH sieci Web przy użyciu kontenera systemu Linux ( `https://<app-name>.scm.azurewebsites.net/webssh/host` ).
 
