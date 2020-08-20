@@ -3,12 +3,12 @@ title: Monitorowanie SQL Server baz danych na maszynie wirtualnej platformy Azur
 description: W tym artykule opisano sposób zarządzania i monitorowania SQL Server baz danych, które są uruchomione na maszynie wirtualnej platformy Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 14e3a4797fe60a3d1857f1e6d947fa0c669bdcfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ada367e94b75c30a98bedf5848b248cadfe9acc2
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537308"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88659589"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Zarządzanie kopiami zapasowymi baz danych programu SQL Server i ich monitorowanie
 
@@ -117,24 +117,6 @@ Podczas gdy trzeba określić czas przechowywania dla pełnej kopii zapasowej, z
 
 Aby uzyskać więcej informacji, zobacz [SQL Server typów kopii zapasowych](backup-architecture.md#sql-server-backup-types).
 
-## <a name="unregister-a-sql-server-instance"></a>Wyrejestrowywanie wystąpienia programu SQL Server
-
-Wyrejestruj wystąpienie SQL Server po wyłączeniu ochrony, ale przed usunięciem magazynu:
-
-1. Na pulpicie nawigacyjnym magazynu w obszarze **Zarządzaj**wybierz pozycję **infrastruktura kopii zapasowych**.  
-
-   ![Wybieranie pozycji Infrastruktura zapasowa](./media/backup-azure-sql-database/backup-infrastructure-button.png)
-
-2. W obszarze **Serwery zarządzania** wybierz pozycję **Serwery chronione**.
-
-   ![Wybieranie pozycji Serwery chronione](./media/backup-azure-sql-database/protected-servers.png)
-
-3. W obszarze **serwery chronione**wybierz serwer do wyrejestrowania. Aby usunąć magazyn, musisz wyrejestrować wszystkie serwery.
-
-4. Kliknij prawym przyciskiem myszy serwer chroniony, a następnie wybierz polecenie **Wyrejestruj**.
-
-   ![Wybieranie pozycji Usuń](./media/backup-azure-sql-database/delete-protected-server.jpg)
-
 ## <a name="modify-policy"></a>Modyfikuj zasady
 
 Zmodyfikuj zasady, aby zmienić częstotliwość tworzenia kopii zapasowych lub zakres przechowywania.
@@ -160,11 +142,31 @@ Możesz naprawić wersję zasad dla wszystkich elementów, których dotyczy prob
 
   ![Napraw niespójne zasady](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
 
+## <a name="unregister-a-sql-server-instance"></a>Wyrejestrowywanie wystąpienia programu SQL Server
+
+Wyrejestruj wystąpienie SQL Server po wyłączeniu ochrony, ale przed usunięciem magazynu:
+
+1. Na pulpicie nawigacyjnym magazynu w obszarze **Zarządzaj**wybierz pozycję **infrastruktura kopii zapasowych**.  
+
+   ![Wybieranie pozycji Infrastruktura zapasowa](./media/backup-azure-sql-database/backup-infrastructure-button.png)
+
+2. W obszarze **Serwery zarządzania** wybierz pozycję **Serwery chronione**.
+
+   ![Wybieranie pozycji Serwery chronione](./media/backup-azure-sql-database/protected-servers.png)
+
+3. W obszarze **serwery chronione**wybierz serwer do wyrejestrowania. Aby usunąć magazyn, musisz wyrejestrować wszystkie serwery.
+
+4. Kliknij prawym przyciskiem myszy serwer chroniony, a następnie wybierz polecenie **Wyrejestruj**.
+
+   ![Wybieranie pozycji Usuń](./media/backup-azure-sql-database/delete-protected-server.jpg)
+
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Ponowne rejestrowanie rozszerzenia na maszynie wirtualnej SQL Server
 
-Czasami może to mieć wpływ na rozszerzenie obciążenia maszyny wirtualnej z jednego powodu. W takich przypadkach wszystkie operacje wyzwalane na maszynie wirtualnej rozpoczną się niepowodzeniem. Może być konieczne ponowne zarejestrowanie rozszerzenia na maszynie wirtualnej. Operacja **ponownego rejestrowania ponownie** zainstaluje rozszerzenie kopii zapasowej obciążenia na maszynie wirtualnej w celu kontynuowania operacji.
+Czasami rozszerzenie obciążenia maszyny wirtualnej może mieć wpływ na jedną przyczynę lub inną. W takich przypadkach wszystkie operacje wyzwalane na maszynie wirtualnej rozpoczną się niepowodzeniem. Może być konieczne ponowne zarejestrowanie rozszerzenia na maszynie wirtualnej. Operacja **ponownego rejestrowania ponownie** zainstaluje rozszerzenie kopii zapasowej obciążenia na maszynie wirtualnej w celu kontynuowania operacji. Tę opcję można znaleźć w obszarze **infrastruktura kopii zapasowych** w magazynie usługi Recovery Service.
 
-Użyj tej opcji z zachowaniem ostrożności; Ta operacja jest wyzwalana na maszynie wirtualnej z już prawidłowym rozszerzeniem. spowoduje to ponowne uruchomienie rozszerzenia. Może to spowodować niepowodzenie wszystkich zadań w toku. Przed wyzwoleniem operacji ponownego rejestrowania należy również sprawdzić obecność jednego lub kilku [objawów](backup-sql-server-azure-troubleshoot.md#re-registration-failures) .
+![Serwery chronione w ramach infrastruktury kopii zapasowych](./media/backup-azure-sql-database/protected-servers-backup-infrastructure.png)
+
+Tej opcji należy używać ostrożnie. Ta operacja jest wyzwalana na maszynie wirtualnej z już prawidłowym rozszerzeniem. spowoduje to ponowne uruchomienie rozszerzenia. Może to spowodować niepowodzenie wszystkich zadań w toku. Przed wyzwoleniem operacji ponownego rejestrowania Sprawdź, czy nie ma jednego lub kilku [objawów](backup-sql-server-azure-troubleshoot.md#re-registration-failures) .
 
 ## <a name="next-steps"></a>Następne kroki
 

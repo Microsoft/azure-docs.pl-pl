@@ -9,12 +9,12 @@ ms.service: azure-app-configuration
 ms.custom:
 - mvc
 - subject-armqs
-ms.openlocfilehash: 9b609d4571d6240f428a0210aa5108ff19dc753b
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 7b7dd00d3495c24733ecdc213e0e25f8bc9640eb
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235183"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661473"
 ---
 # <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template-arm-template"></a>Szybki Start: Automatyczne wdrażanie maszyn wirtualnych z konfiguracją aplikacji i szablonem Menedżer zasobów (szablon ARM)
 
@@ -32,7 +32,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="review-the-templates"></a>Przejrzyj szablony
 
-Szablony używane w tym przewodniku szybki start pochodzą z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/). [Pierwszy szablon](https://azure.microsoft.comresources/templates/101-app-configuration-store/) tworzy magazyn konfiguracji aplikacji:
+Szablony używane w tym przewodniku szybki start pochodzą z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/). [Pierwszy szablon](https://azure.microsoft.com/resources/templates/101-app-configuration-store/) tworzy magazyn konfiguracji aplikacji:
 
 :::code language="json" source="~/quickstart-templates/101-app-configuration-store/azuredeploy.json" range="1-37" highlight="27-35":::
 
@@ -117,7 +117,7 @@ Teraz, po dodaniu klucza — wartości do magazynu, możesz przystąpić do wdro
 1. Z menu po lewej stronie wybierz pozycję **Przegląd** i sprawdź, czy **jednostka SKU** to **2019 — centrum**danych.
 1. Z menu po lewej stronie wybierz pozycję **dyski** , a następnie sprawdź, czy rozmiar dysku danych to **2013**.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy grupa zasobów, magazyn konfiguracji aplikacji, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Jeśli planujesz używać magazynu konfiguracji aplikacji lub maszyny wirtualnej w przyszłości, możesz pominąć usuwanie. Jeśli nie planujesz używania tego zadania w przyszłości, usuń wszystkie zasoby utworzone w ramach tego przewodnika Szybki start, uruchamiając następujące polecenie cmdlet:
 

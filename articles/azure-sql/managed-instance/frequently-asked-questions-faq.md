@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 5f42079d271a933cb9a722c7e33e6f646f7c4d1b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: fe779ebf8bb041fb90b8eb38a9469a783127ffd3
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210508"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661422"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -223,12 +223,15 @@ Aby zoptymalizować wydajność magazynu, zobacz [najlepsze rozwiązania dotycz�
 Nie, magazyn kopii zapasowych nie jest odejmowany od przestrzeni dyskowej wystąpienia zarządzanego. Magazyn kopii zapasowych jest niezależny od ilości miejsca w magazynie i nie ma ograniczonego rozmiaru. Magazyn kopii zapasowych jest ograniczony przez okres, aby zachować kopię zapasową baz danych wystąpień, można skonfigurować do 35 dni. Aby uzyskać szczegółowe informacje, zobacz [zautomatyzowane kopie zapasowe](../database/automated-backups-overview.md).
 
 **Jak mogę zobaczyć, kiedy zautomatyzowane kopie zapasowe są tworzone na moim wystąpieniu zarządzanym?**
+
 Aby śledzić, kiedy zautomatyzowane kopie zapasowe zostały wykonane na wystąpieniu zarządzanym, zobacz [jak śledzić automatyczne kopie zapasowe wystąpienia zarządzanego Azure SQL](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-128-how-to-track-the-automated-backup-for-an/ba-p/1442355).
 
 **Czy jest dostępna kopia zapasowa na żądanie?**
+
 Tak, możesz utworzyć pełną kopię zapasową w swoich Blob Storage platformy Azure, ale będzie ona dostępnych tylko w wystąpieniu zarządzanym. Aby uzyskać szczegółowe informacje, zobacz [kopia zapasowa tylko do kopiowania](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15). Jednak kopia zapasowa tylko do kopiowania jest niemożliwa, jeśli baza danych została zaszyfrowana przez TDE zarządzaną przez usługę, ponieważ certyfikat używany do szyfrowania jest niedostępny. W takim przypadku należy użyć funkcji przywracania w czasie do przenoszenia bazy danych do innego wystąpienia zarządzanego SQL lub przełączyć się na klucz zarządzany przez klienta.
 
 **Czy natywne odzyskiwanie (z plików. bak) do obsługiwanego wystąpienia zarządzanego?**
+
 Tak, jest obsługiwana i dostępna dla wersji SQL Server 2005 +.  Aby użyć przywracania natywnego, Przekaż plik. bak do usługi Azure Blob Storage i wykonaj polecenia T-SQL. Aby uzyskać więcej informacji, zobacz [natywne odzyskiwanie z adresu URL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate#native-restore-from-url).
 
 ## <a name="business-continuity"></a>Ciągłość działalności biznesowej
@@ -349,7 +352,7 @@ Aby zmniejszyć ryzyko związane z eksfiltracji danych, klienci są zalecani do 
 - Włącz [inspekcję SQL](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)i Zintegruj ją z mechanizmami alertów.
 - Włącz [wykrywanie zagrożeń](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) z poziomu zestawu [Advanced Data Security (AD)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) .
 
-## <a name="dns"></a>DNS
+## <a name="dns"></a>System DNS
 
 **Czy można skonfigurować niestandardowe DNS dla wystąpienia zarządzanego SQL?**
 
@@ -503,6 +506,14 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 ```
 
 (Zastąp element "test" pożądaną nazwą logowania i Dostosuj zasady i wartości wygaśnięcia)
+
+
+## <a name="service-updates"></a>Aktualizacje usług
+
+**Co to jest planowane zdarzenie konserwacji dla wystąpienia zarządzanego SQL?**
+
+Zobacz [Planowanie zdarzeń konserwacji platformy Azure w wystąpieniu zarządzanym SQL](https://docs.microsoft.com/azure/azure-sql/database/planned-maintenance). 
+
 
 ## <a name="azure-feedback-and-support"></a>Opinie i pomoc techniczna dla platformy Azure
 

@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 08/05/2020
-ms.openlocfilehash: 390376216700b760e96c2348b1ad61bb4561aad2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 08/20/2020
+ms.openlocfilehash: 83208ec792f40661861dd558ac2c1a1521c1d7fb
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211504"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660973"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Uaktualnianie do platformy Azure Wyszukiwanie poznawcze .NET SDK wersja 11
 
@@ -147,9 +147,18 @@ Poniższe kroki ułatwiają rozpoczęcie migracji kodu przez przechodzenie przez
    using Azure.Search.Documents.Models;
    ```
 
-1. Zamień [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchcredentials) na [AzureKeyCredential](https://docs.microsoft.com/dotnet/api/azure.azurekeycredential).
+1. Popraw kod uwierzytelniania klienta. W poprzednich wersjach można użyć właściwości obiektu klienta, aby ustawić klucz interfejsu API (na przykład właściwość [SearchServiceClient. Credentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) ). W bieżącej wersji Użyj klasy [AzureKeyCredential](https://docs.microsoft.com/dotnet/api/azure.azurekeycredential) , aby przekazać klucz jako poświadczenia, tak aby w razie potrzeby można było zaktualizować klucz interfejsu API bez tworzenia nowych obiektów klienta.
 
-1. Aktualizowanie odwołań klienta dla obiektów powiązanych z indeksatorem. Jeśli używasz indeksatorów, DataSources lub umiejętności, Zmień odwołania klienta do [SearchIndexerClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient). Ten klient jest nowy w wersji 11 i nie ma poprzedzającego go.
+   Właściwości klienta zostały usprawnione do tylko `Endpoint` , `ServiceName` i `IndexName` (tam, gdzie to konieczne). Poniższy przykład używa klasy system [URI](https://docs.microsoft.com/dotnet/api/system.uri) , aby zapewnić punkt końcowy i klasę [środowiska](https://docs.microsoft.com//dotnet/api/system.environment) do odczytu w wartości klucza:
+
+   ```csharp
+   Uri endpoint = new Uri(Environment.GetEnvironmentVariable("SEARCH_ENDPOINT"));
+   AzureKeyCredential credential = new AzureKeyCredential(
+      Environment.GetEnvironmentVariable("SEARCH_API_KEY"));
+   SearchIndexClient indexClient = new SearchIndexClient(endpoint, credential);
+   ```
+
+1. Dodaj nowe odwołania klientów dla obiektów powiązanych z indeksatorem. Jeśli używasz indeksatorów, DataSources lub umiejętności, Zmień odwołania klienta do [SearchIndexerClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient). Ten klient jest nowy w wersji 11 i nie ma poprzedzającego go.
 
 1. Aktualizowanie odwołań klienta na potrzeby zapytań i importowania danych. Wystąpienia elementu [SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient) należy zmienić na [SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient). Aby uniknąć pomyłek nazw, przed przejściem do następnego kroku upewnij się, że wszystkie wystąpienia są przechwytywane.
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 2de2680ccd0ecf385598080747e80eed5ead3bc8
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 6316bcc91bb381facb4f77b2d8dbd8b22f9ed387
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652869"
+ms.locfileid: "88660099"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Znane problemy z maszynami wirtualnymi z serii H i N
 
@@ -35,10 +35,6 @@ Usługa Azure przyspieszone sieci nie jest obecnie włączona, ale będzie post�
 ## <a name="qp0-access-restriction"></a>qp0 ograniczenia dostępu
 
 Aby zapobiec dostępowi do sprzętu niskiego poziomu, który może spowodować powstanie luk w zabezpieczeniach, para kolejki 0 nie jest dostępna dla maszyn wirtualnych gościa. Powinno to mieć wpływ tylko na akcje zwykle skojarzone z administracją karty sieciowej ConnectX-5 i uruchamianie niektórych diagnostyki InfiniBand, takich jak ibdiagnet, ale nie samych aplikacji użytkowników końcowych.
-
-## <a name="ud-transport"></a>Transport UD
-
-Podczas uruchamiania Seria HB-i HC nie obsługuje dynamicznego połączenia transportowego (DCT). Obsługa DCT zostanie wdrożona z upływem czasu. Obsługiwane są transporty niezawodnego połączenia (RC) i zawodnych datagramów (UD).
 
 ## <a name="gss-proxy"></a>Serwer proxy GSS
 

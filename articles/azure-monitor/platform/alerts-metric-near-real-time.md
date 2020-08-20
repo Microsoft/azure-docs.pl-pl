@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 8/16/2020
+ms.date: 8/20/2020
 ms.subservice: alerts
-ms.openlocfilehash: 877134fb1d4417c04da3bf6a96267b413389ecb2
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 05586f95de03b09b95eb589812935970126b12f2
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258448"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661320"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Obsługiwane zasoby dla alertów metryk w Azure Monitor
 
@@ -44,7 +44,7 @@ Oto pełna lista źródeł metryk usługi Azure monitor obsługiwanych przez now
 |Microsoft. ClassicStorage/storageAccounts/queueServices | Tak | Nie | |
 |Microsoft. ClassicStorage/storageAccounts/tableServices | Tak | Nie | |
 |Microsoft. CognitiveServices/konta | Tak | Nie | [Cognitive Services](./metrics-supported.md#microsoftcognitiveservicesaccounts) |
-|Microsoft.Compute/virtualMachines | Tak | Tak | [Virtual Machines](./metrics-supported.md#microsoftcomputevirtualmachines) |
+|Microsoft.Compute/virtualMachines | Tak | Tak<sup>1</sup> | [Virtual Machines](./metrics-supported.md#microsoftcomputevirtualmachines) |
 |Microsoft.Compute/virtualMachineScaleSets | Tak | Nie |[Zestawy skalowania maszyn wirtualnych](./metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
 |Microsoft. ContainerInstance/containerGroups | Tak| Nie | [Grupy kontenerów](./metrics-supported.md#microsoftcontainerinstancecontainergroups) |
 |Microsoft. ContainerRegistry/rejestry | Nie | Nie | [Rejestry kontenerów](./metrics-supported.md#microsoftcontainerregistryregistries) |
@@ -111,6 +111,8 @@ Oto pełna lista źródeł metryk usługi Azure monitor obsługiwanych przez now
 |Microsoft. Web/dopuszczalna | Tak | Nie | [Plany App Service](./metrics-supported.md#microsoftwebserverfarms)|
 |Microsoft. Web/witryny | Tak | Nie | [App Services](./metrics-supported.md#microsoftwebsites-excluding-functions) i [funkcje](./metrics-supported.md#microsoftwebsites-functions)|
 |Microsoft. Web/Sites/miejsca | Tak | Nie | [App Service gniazd](./metrics-supported.md#microsoftwebsitesslots)|
+
+<sup>1</sup> obsługiwane tylko w przypadku metryk platformy (nie metryki niestandardowych)
 
 ## <a name="payload-schema"></a>Schemat ładunku
 

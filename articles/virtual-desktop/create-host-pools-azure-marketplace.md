@@ -3,15 +3,15 @@ title: Pula hostów usług pulpitu wirtualnego systemu Windows Azure Portal — 
 description: Jak utworzyć pulę hostów pulpitu wirtualnego systemu Windows przy użyciu Azure Portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 08/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c9a421e15f3561bb4de7f528ab1c707a0251dfe5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 06ac7719c5ada08da37beffa23801a0201f75dc4
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002664"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661371"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Samouczek: Tworzenie puli hostów przy użyciu Azure Portal
 
@@ -36,7 +36,7 @@ Należy również znać następujące kwestie:
 - Miejsce źródłowe obrazu, którego chcesz użyć, to. Czy pochodzi ona z galerii platformy Azure lub jest obrazem niestandardowym?
 - Poświadczenia dołączania do domeny.
 
-Upewnij się również, że zarejestrowano dostawcę zasobów Microsoft. DesktopVirtualization. Jeśli jeszcze tego nie zrobiono, przejdź do pozycji **subskrypcje**, wybierz nazwę subskrypcji, a następnie wybierz pozycję **dostawcy zasobów platformy Azure**.
+Upewnij się również, że zarejestrowano dostawcę zasobów Microsoft. DesktopVirtualization. Jeśli jeszcze tego nie zrobiono, przejdź do pozycji **subskrypcje**, wybierz nazwę subskrypcji, a następnie wybierz pozycję **dostawcy zasobów**. Wyszukaj pozycję DesktopVirtualization, wybierz pozycję Microsoft. DesktopVirtualization, a następnie wybierz pozycję Zarejestruj.
 
 Podczas tworzenia puli hostów pulpitu wirtualnego systemu Windows przy użyciu szablonu Azure Resource Manager można utworzyć maszynę wirtualną z poziomu galerii platformy Azure, obrazu zarządzanego lub niezarządzanego obrazu. Aby dowiedzieć się więcej na temat tworzenia obrazów maszyn wirtualnych, zobacz [Przygotowywanie wirtualnego dysku twardego systemu Windows lub dysku VHDX do przekazania do platformy Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) i [Tworzenie zarządzanego obrazu maszyny wirtualnej na platformie Azure](../virtual-machines/windows/capture-image-resource.md).
 
@@ -80,9 +80,9 @@ Aby rozpocząć tworzenie nowej puli hostów:
        > [!div class="mx-imgBorder"]
        > ![Zrzut ekranu pola Typ przypisania z wybranym "pulą w puli". Użytkownik kursoruje wskaźnik myszy nad szerokością w menu rozwijanym równoważenia obciążenia.](media/pooled-assignment-type.png)
 
-10. Wybierz pozycję **Dalej: Szczegóły maszyny wirtualnej**.
+10. Wybierz pozycję **Dalej: Virtual Machines >**.
 
-11. Jeśli maszyny wirtualne zostały już utworzone i chcą korzystać z nich z nową pulą hostów, wybierz pozycję **nie**. Jeśli chcesz utworzyć nowe maszyny wirtualne i zarejestrować je w nowej puli hostów, wybierz pozycję **tak**.
+11. Jeśli masz już utworzone maszyny wirtualne i chcesz korzystać z nich w nowej puli hostów, wybierz pozycję **nie**, wybierz pozycję **Dalej: obszar roboczy >** i przejdź do sekcji [Informacje o obszarze roboczym](#workspace-information) . Jeśli chcesz utworzyć nowe maszyny wirtualne i zarejestrować je w nowej puli hostów, wybierz pozycję **tak**.
 
 Po wykonaniu pierwszej części przejdźmy do następnej części procesu instalacji, w której utworzysz maszynę wirtualną.
 
@@ -92,13 +92,13 @@ Teraz, gdy korzystamy z pierwszej części, musisz skonfigurować maszynę wirtu
 
 Aby skonfigurować maszynę wirtualną w ramach procesu instalacji puli hostów:
 
-1. W obszarze Grupa zasobów wybierz grupę zasobów, w której chcesz utworzyć maszyny wirtualne. Może to być inna grupa zasobów niż ta, która została użyta dla puli hostów.
+1. W obszarze **Grupa zasobów**wybierz grupę zasobów, w której chcesz utworzyć maszyny wirtualne. Może to być inna grupa zasobów niż ta, która została użyta dla puli hostów.
 
-2. Wybierz **region maszyny wirtualnej** , w którym chcesz utworzyć maszyny wirtualne. Mogą być takie same lub różne od regionu wybranego dla puli hostów.
+2. Wybierz **lokalizację maszyny wirtualnej** , w której chcesz utworzyć maszyny wirtualne. Mogą być takie same lub różne od regionu wybranego dla puli hostów.
 
-3. Następnie wybierz rozmiar maszyny wirtualnej, którą chcesz utworzyć. Domyślny rozmiar można zachować jako-lub wybierz **Zmień rozmiar** , aby zmienić rozmiar. W przypadku wybrania opcji **Zmień rozmiar**w wyświetlonym oknie Wybierz rozmiar maszyny wirtualnej odpowiedni dla danego obciążenia.
+3. Następnie wybierz **rozmiar maszyny wirtualnej** , której chcesz użyć. Domyślny rozmiar można zachować jako-lub wybierz **Zmień rozmiar** , aby zmienić rozmiar. W przypadku wybrania opcji **Zmień rozmiar**w wyświetlonym oknie Wybierz rozmiar maszyny wirtualnej odpowiedni dla danego obciążenia.
 
-4. W obszarze Liczba maszyn wirtualnych podaj liczbę maszyn wirtualnych, które chcesz utworzyć dla puli hostów.
+4. W obszarze **Liczba maszyn wirtualnych**podaj liczbę maszyn wirtualnych, które chcesz utworzyć dla puli hostów.
 
     >[!NOTE]
     >Proces instalacji może utworzyć do 400 maszyn wirtualnych podczas konfigurowania puli hostów, a każdy proces instalacji maszyn wirtualnych tworzy cztery obiekty w grupie zasobów. Ponieważ proces tworzenia nie sprawdza limitu przydziału subskrypcji, upewnij się, że liczba wprowadzonych maszyn wirtualnych znajduje się w granicach maszyny wirtualnej i interfejsów API platformy Azure dla Twojej grupy zasobów i subskrypcji. Po zakończeniu tworzenia puli hostów można dodać więcej maszyn wirtualnych.
@@ -109,9 +109,11 @@ Aby skonfigurować maszynę wirtualną w ramach procesu instalacji puli hostów:
 
     - W przypadku wybrania opcji **Galeria**wybierz z menu rozwijanego jeden z zalecanych obrazów:
 
-      - Wiele sesji systemu Windows 10 Enterprise, wersja 1909 + Microsoft 365 aplikacje dla przedsiębiorstw — Gen 1
-      - Wiele sesji systemu Windows 10 Enterprise, wersja 1909 — Gen 1
-      - Windows Server 2019 Datacenter — Gen1
+      - Wiele sesji systemu Windows 10 Enterprise, wersja 1909
+      - Wiele sesji systemu Windows 10 Enterprise, wersja 1909 + Microsoft 365 aplikacje
+      - Windows Server 2019 Datacenter
+      - Wiele sesji systemu Windows 10 Enterprise, wersja 2004
+      - Wiele sesji systemu Windows 10 Enterprise, wersja 2004 + Microsoft 365 aplikacje
 
      Jeśli nie widzisz żądanego obrazu, wybierz opcję **Przeglądaj wszystkie obrazy i dyski**, które umożliwiają wybranie innego obrazu w galerii lub obrazu dostarczonego przez firmę Microsoft i innych wydawców.
 
@@ -127,7 +129,7 @@ Aby skonfigurować maszynę wirtualną w ramach procesu instalacji puli hostów:
 
 7. Wybierz rodzaje dysków systemu operacyjnego, które mają być używane przez maszyny wirtualne: SSD w warstwie Standardowa, SSD w warstwie Premium lub HDD w warstwie Standardowa.
 
-8. W obszarze Sieć i zabezpieczenia wybierz sieć wirtualną i podsieć, w której chcesz umieścić maszyny wirtualne, które tworzysz. Upewnij się, że sieć wirtualna może połączyć się z kontrolerem domeny, ponieważ należy przyłączyć maszyny wirtualne wewnątrz sieci wirtualnej do domeny. Następnie wybierz, czy chcesz uzyskać publiczny adres IP dla maszyn wirtualnych. Zalecamy wybranie opcji **nie**, ponieważ prywatny adres IP jest bezpieczniejszy.
+8. W obszarze Sieć i zabezpieczenia wybierz **sieć wirtualną** i **podsieć** , w której chcesz umieścić maszyny wirtualne, które tworzysz. Upewnij się, że sieć wirtualna może połączyć się z kontrolerem domeny, ponieważ należy przyłączyć maszyny wirtualne wewnątrz sieci wirtualnej do domeny. Następnie wybierz, czy chcesz uzyskać publiczny adres IP dla maszyn wirtualnych. Zalecamy wybranie opcji **nie**, ponieważ prywatny adres IP jest bezpieczniejszy.
 
 9. Wybierz typ grupy zabezpieczeń: **podstawowy**, **Zaawansowany**lub **Brak**.
 
@@ -141,11 +143,11 @@ Aby skonfigurować maszynę wirtualną w ramach procesu instalacji puli hostów:
 
     W przypadku wybrania opcji **Zaawansowane**wybierz istniejącą grupę zabezpieczeń sieci, która została już skonfigurowana.
 
-10. Następnie wybierz, czy maszyny wirtualne mają być przyłączone do określonej domeny, czy jednostki organizacyjnej. Jeśli wybierzesz opcję **tak**, określ domenę do przyłączenia. Możesz również dodać konkretną jednostkę organizacyjną, w której mają znajdować się maszyny wirtualne.
+10. Następnie wybierz, czy maszyny wirtualne mają być przyłączone do określonej domeny, czy jednostki organizacyjnej. Jeśli wybierzesz opcję **tak**, określ domenę do przyłączenia. Możesz również dodać konkretną jednostkę organizacyjną, w której mają znajdować się maszyny wirtualne. Jeśli wybierzesz opcję **nie**, maszyny wirtualne zostaną przyłączone do domeny pasującej do sufiksu **UPN domeny usługi AD**.
 
 11. W obszarze konto administratora wprowadź poświadczenia dla domena usługi Active Directory administratora wybranej sieci wirtualnej.
 
-12. Wybierz pozycję **obszar roboczy**.
+12. Wybierz pozycję **Dalej: obszar roboczy >**.
 
 Dzięki temu jesteśmy gotowi do rozpoczęcia następnej fazy konfigurowania puli hostów: rejestrowanie grupy aplikacji w obszarze roboczym.
 
@@ -161,7 +163,7 @@ Aby zarejestrować grupę aplikacji klasycznych w obszarze roboczym:
 
 2. Następnie wybierz, czy chcesz utworzyć nowy obszar roboczy, czy wybrać z istniejących obszarów roboczych. Tylko obszary robocze utworzone w tej samej lokalizacji, w której znajduje się pula hostów, będą mogły zarejestrować grupę aplikacji.
 
-3. Opcjonalnie możesz wybrać **Tagi**.
+3. Opcjonalnie możesz wybrać pozycję **Next (dalej): tagi >**.
 
     W tym miejscu możesz dodać tagi, aby można było grupować obiekty za pomocą metadanych, aby ułatwić administratorom wykonywanie zadań.
 
@@ -175,7 +177,7 @@ Aby zarejestrować grupę aplikacji klasycznych w obszarze roboczym:
      - Twoja nowa pula hostów.
      - Grupa aplikacji klasycznych.
      - Obszar roboczy, jeśli wybierzesz go utworzyć.
-     - W przypadku wybrania opcji zarejestrowania grupy aplikacji klasycznej rejestracja zostanie zakończona
+     - W przypadku wybrania opcji zarejestrowania grupy aplikacji klasycznej rejestracja zostanie zakończona.
      - Maszyny wirtualne, jeśli wybrano ich tworzenie, które są przyłączone do domeny i zarejestrowane w nowej puli hostów.
      - Link do pobierania dla szablonu usługi Azure Resource Management na podstawie konfiguracji.
 

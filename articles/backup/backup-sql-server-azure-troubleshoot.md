@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z kopiami zapasowymi SQL Server Database
 description: Informacje dotyczące rozwiązywania problemów dotyczących tworzenia kopii zapasowych SQL Server baz danych działających na maszynach wirtualnych platformy Azure z Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: f4049cca317d254bd5ee120e47cedc4cd42300e8
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 1d692d0bacbcb26090d17bf905b959f870eed3f8
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926488"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660147"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Rozwiązywanie problemów z kopiami zapasowymi SQL Server Database przy użyciu Azure Backup
 
@@ -26,11 +26,11 @@ Po utworzeniu i skonfigurowaniu magazynu Recovery Services odnajdywania baz dany
 
 ![sql](./media/backup-azure-sql-database/sql.png)
 
-Podczas konfigurowania kopii zapasowej, jeśli maszyna wirtualna SQL i jej wystąpienia nie są widoczne na liście **odnajdowania baz danych na maszynach wirtualnych** i **konfiguruje kopię zapasową** (Zobacz powyżej obrazu), upewnij się, że:
+Podczas konfigurowania kopii zapasowej, jeśli maszyna wirtualna SQL i jej wystąpienia nie są widoczne na **maszynach wirtualnych baz danych** i **konfiguruje kopię zapasową** (zapoznaj się z powyższym obrazem), upewnij się, że:
 
 ### <a name="step-1-discovery-dbs-in-vms"></a>Krok 1. odnajdywanie baz danych na maszynach wirtualnych
 
-- Jeśli maszyna wirtualna nie znajduje się na liście odnalezionych maszyn wirtualnych i nie zarejestrowano jej do tworzenia kopii zapasowych SQL w innym magazynie, postępuj zgodnie z procedurami [odnajdywania SQL Server tworzenia kopii zapasowej](./backup-sql-server-database-azure-vms.md#discover-sql-server-databases) .
+- Jeśli maszyna wirtualna nie znajduje się na liście odnalezionych maszyn wirtualnych i nie zarejestrowano jej do tworzenia kopii zapasowych SQL w innym magazynie, postępuj zgodnie z procedurami [odnajdywania SQL Server kopii zapasowej](./backup-sql-server-database-azure-vms.md#discover-sql-server-databases) .
 
 ### <a name="step-2-configure-backup"></a>Krok 2. Konfigurowanie kopii zapasowej
 
@@ -62,13 +62,13 @@ Czasami przypadkowe błędy mogą wystąpić podczas operacji wykonywania kopii 
 
 | Ważność | Opis | Możliwe przyczyny | Zalecana akcja |
 |---|---|---|---|
-| Ostrzeżenie | Bieżące ustawienia dla tej bazy danych nie obsługują niektórych typów kopii zapasowych zawartych w skojarzonych zasadach. | <li>Na bazie danych Master można wykonać tylko operację pełnej kopii zapasowej bazy danych. Nie jest możliwa różnicowa kopia zapasowa ani kopia zapasowa dziennika transakcji. </li> <li>Żadna baza danych w modelu odzyskiwania prostego nie zezwala na tworzenie kopii zapasowych dzienników transakcji.</li> | Zmodyfikuj ustawienia bazy danych, aby były obsługiwane wszystkie typy kopii zapasowych w ramach zasad. Lub Zmień bieżące zasady tak, aby zawierały tylko obsługiwane typy kopii zapasowych. W przeciwnym razie nieobsługiwane typy kopii zapasowych zostaną pominięte podczas zaplanowanej kopii zapasowej lub zadanie tworzenia kopii zapasowej zakończy się niepowodzeniem dla kopii zapasowej na żądanie.
+| Ostrzeżenie | Bieżące ustawienia dla tej bazy danych nie obsługują niektórych typów kopii zapasowych zawartych w skojarzonych zasadach. | <li>Na bazie danych Master można wykonać tylko operację pełnej kopii zapasowej bazy danych. Różnicowa kopia zapasowa i kopia zapasowa dziennika transakcji nie są możliwe. </li> <li>Żadna baza danych w modelu odzyskiwania prostego nie zezwala na tworzenie kopii zapasowych dzienników transakcji.</li> | Zmodyfikuj ustawienia bazy danych, aby były obsługiwane wszystkie typy kopii zapasowych w ramach zasad. Lub Zmień bieżące zasady tak, aby zawierały tylko obsługiwane typy kopii zapasowych. W przeciwnym razie nieobsługiwane typy kopii zapasowych zostaną pominięte podczas zaplanowanej kopii zapasowej lub zadanie tworzenia kopii zapasowej zakończy się niepowodzeniem dla kopii zapasowej na żądanie.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
 | Komunikat o błędzie | Możliwe przyczyny | Zalecana akcja |
 |---|---|---|
-| Ta baza danych SQL nie obsługuje żądanego typu kopii zapasowej. | Występuje, gdy model odzyskiwania bazy danych nie zezwala na żądany typ kopii zapasowej. Ten błąd może wystąpić w następujących sytuacjach: <br/><ul><li>Baza danych, która korzysta z modelu odzyskiwania prostego, nie zezwala na wykonywanie kopii zapasowych dziennika.</li><li>Różnice w kopiach zapasowych i dziennikach nie są dozwolone dla bazy danych Master.</li></ul>Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [modeli odzyskiwania SQL Server](/sql/relational-databases/backup-restore/recovery-models-sql-server) . | Jeśli nie można utworzyć kopii zapasowej dziennika bazy danych w modelu odzyskiwania prostego, wypróbuj jedną z następujących opcji:<ul><li>Jeśli baza danych działa w trybie odzyskiwania prostego, wyłącz kopie zapasowe dzienników.</li><li>Skorzystaj z [dokumentacji SQL Server](/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) , aby zmienić model odzyskiwania bazy danych na pełny lub zbiorczo zarejestrowany. </li><li> Jeśli nie chcesz zmieniać modelu odzyskiwania i masz standardowe zasady tworzenia kopii zapasowych wielu baz danych, których nie można zmienić, zignoruj błąd. Pełne i różnicowe kopie zapasowe będą działały zgodnie z harmonogramem. Kopie zapasowe dziennika zostaną pominięte, co jest oczekiwane w tym przypadku.</li></ul>Jeśli jest to baza danych Master i została skonfigurowana różnicowa lub kopia zapasowa dziennika, wykonaj jedną z następujących czynności:<ul><li>Użyj portalu, aby zmienić harmonogram zasad tworzenia kopii zapasowej bazy danych Master na pełny.</li><li>Jeśli masz standardowe zasady tworzenia kopii zapasowych wielu baz danych, których nie można zmienić, zignoruj błąd. Pełna kopia zapasowa będzie działała zgodnie z harmonogramem. Różnicowe kopie zapasowe lub dzienniki nie będą wykonywane, co jest oczekiwane w tym przypadku.</li></ul> |
+| Ta baza danych SQL nie obsługuje żądanego typu kopii zapasowej. | Występuje, gdy model odzyskiwania bazy danych nie zezwala na żądany typ kopii zapasowej. Ten błąd może wystąpić w następujących sytuacjach: <br/><ul><li>Baza danych, która korzysta z prostego modelu odzyskiwania, nie zezwala na tworzenie kopii zapasowej dziennika.</li><li>Różnice między kopiami zapasowymi i dziennikami nie są dozwolone dla bazy danych Master.</li></ul>Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [modeli odzyskiwania SQL Server](/sql/relational-databases/backup-restore/recovery-models-sql-server) . | Jeśli nie można utworzyć kopii zapasowej dziennika bazy danych w modelu odzyskiwania prostego, wypróbuj jedną z następujących opcji:<ul><li>Jeśli baza danych działa w trybie odzyskiwania prostego, wyłącz kopie zapasowe dzienników.</li><li>Skorzystaj z [dokumentacji SQL Server](/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) , aby zmienić model odzyskiwania bazy danych na pełny lub zbiorczo zarejestrowany. </li><li> Jeśli nie chcesz zmieniać modelu odzyskiwania i masz standardowe zasady tworzenia kopii zapasowych wielu baz danych, których nie można zmienić, zignoruj błąd. Pełne i różnicowe kopie zapasowe będą działały zgodnie z harmonogramem. Kopie zapasowe dziennika zostaną pominięte, co jest oczekiwane w tym przypadku.</li></ul>Jeśli jest to baza danych Master i została skonfigurowana różnicowa lub kopia zapasowa dziennika, wykonaj jedną z następujących czynności:<ul><li>Użyj portalu, aby zmienić harmonogram zasad tworzenia kopii zapasowej bazy danych Master na pełny.</li><li>Jeśli masz standardowe zasady tworzenia kopii zapasowych wielu baz danych, których nie można zmienić, zignoruj błąd. Pełna kopia zapasowa będzie działała zgodnie z harmonogramem. Różnicowe kopie zapasowe lub dzienniki nie będą wykonywane, co jest oczekiwane w tym przypadku.</li></ul> |
 | Operacja została anulowana, ponieważ w tej samej bazie danych była już uruchomiona operacja powodująca konflikt. | Zobacz [wpis w blogu dotyczący ograniczeń kopii zapasowych i przywracania](https://deep.data.blog/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database/) , które są uruchamiane współbieżnie.| [Użyj SQL Server Management Studio (SSMS), aby monitorować zadania tworzenia kopii zapasowej](manage-monitor-sql-database-backup.md). Po niepowodzeniu operacji powodującej konflikt należy ponownie uruchomić operację.|
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
@@ -113,6 +113,13 @@ Czasami przypadkowe błędy mogą wystąpić podczas operacji wykonywania kopii 
 |---|---|---|
 | Przywracanie nie powiodło się, ponieważ bazy danych nie można było przełączyć w tryb offline. | Gdy wykonujesz przywracanie, docelowa baza danych musi zostać przełączona w tryb offline. Azure Backup nie można przenieść tych danych do trybu offline. | Skorzystaj z dodatkowych szczegółów w menu błąd Azure Portal, aby zawęzić główne przyczyny. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją programu SQL Server](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
+### <a name="wlextgenericiofaultusererror"></a>WlExtGenericIOFaultUserError
+
+|Komunikat o błędzie |Możliwe przyczyny  |Zalecana akcja  |
+|---------|---------|---------|
+|Wystąpił błąd wejścia/wyjścia podczas operacji. Sprawdź, czy występują błędy typowych operacji we/wy na maszynie wirtualnej.   |   Uprawnienia dostępu lub ograniczenia dotyczące miejsca na miejscu docelowym.       |  Sprawdź, czy występują błędy typowych operacji we/wy na maszynie wirtualnej. Upewnij się, że dysk docelowy/udział sieciowy na komputerze: <li> ma uprawnienie do odczytu/zapisu dla konta NT NT\SYSTEM na komputerze. <li> ma wystarczającą ilość miejsca na pomyślne ukończenie operacji.<br> Aby uzyskać więcej informacji, zobacz [Restore as Files](restore-sql-database-azure-vm.md#restore-as-files).
+       |
+
 ### <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | Komunikat o błędzie | Możliwe przyczyny | Zalecana akcja |
@@ -153,19 +160,19 @@ Czasami przypadkowe błędy mogą wystąpić podczas operacji wykonywania kopii 
 
 | Komunikat o błędzie | Możliwe przyczyny | Zalecana akcja |
 |---|---|---|
-Operacja została zablokowana, ponieważ osiągnięto limit liczby operacji dozwolonych w ciągu 24 godzin. | Po osiągnięciu maksymalnego dopuszczalnego limitu operacji w okresie 24-godzinnym ten błąd jest dostępny. <br> Na przykład: Jeśli osiągnięto limit liczby zadań konfigurowania kopii zapasowych, które mogą zostać wyzwolone dziennie, a użytkownik spróbuje skonfigurować kopię zapasową dla nowego elementu, zostanie wyświetlony ten błąd. | Zazwyczaj ponowna próba wykonania operacji po 24 godzinach rozwiązuje ten problem. Jeśli jednak problem będzie się powtarzać, możesz skontaktować się z pomocą techniczną firmy Microsoft w celu uzyskania pomocy.
+Operacja została zablokowana, ponieważ osiągnięto limit liczby operacji dozwolonych w ciągu 24 godzin. | Po osiągnięciu maksymalnego dopuszczalnego limitu operacji w okresie 24-godzinnym ten błąd pojawia się. <br> Na przykład: Jeśli osiągnięto limit liczby zadań konfigurowania kopii zapasowych, które mogą być wyzwalane dziennie, a użytkownik spróbuje skonfigurować kopię zapasową dla nowego elementu, zobaczysz ten błąd. | Zazwyczaj ponowna próba wykonania operacji po 24 godzinach rozwiązuje ten problem. Jeśli jednak problem będzie się powtarzać, możesz skontaktować się z pomocą techniczną firmy Microsoft w celu uzyskania pomocy.
 
 ### <a name="clouddosabsolutelimitreachedwithretry"></a>CloudDosAbsoluteLimitReachedWithRetry
 
 | Komunikat o błędzie | Możliwe przyczyny | Zalecana akcja |
 |---|---|---|
-Operacja została zablokowana, ponieważ magazyn osiągnął limit maksymalny dla takich operacji dozwolony w okresie 24 godzin. | Po osiągnięciu maksymalnego dopuszczalnego limitu operacji w okresie 24-godzinnym ten błąd jest dostępny. Ten błąd zazwyczaj występuje, gdy istnieją operacje na skalę, takie jak modyfikacja zasad lub ochrona automatyczne. W przeciwieństwie do przypadków CloudDosAbsoluteLimitReached, nie istnieje wiele możliwości rozwiązania tego stanu, w rzeczywistości usługa Azure Backup ponowi próbę wykonania operacji wewnętrznie dla wszystkich elementów, których to dotyczy.<br> Na przykład: Jeśli masz dużą liczbę źródeł danych chronionych przy użyciu zasad i podjęto próbę zmodyfikowania tych zasad, zostanie wyzwolone skonfigurowanie zadań ochrony dla każdego z chronionych elementów i czasami może wystąpić maksymalny limit dozwolony dla takich operacji dziennie.| Usługa Azure Backup automatycznie ponowi próbę wykonania tej operacji po 24 godzinach.
+Operacja została zablokowana, ponieważ magazyn osiągnął limit maksymalny dla takich operacji dozwolony w okresie 24 godzin. | Po osiągnięciu maksymalnego dopuszczalnego limitu operacji w okresie 24-godzinnym ten błąd pojawia się. Ten błąd występuje zazwyczaj, gdy istnieją operacje na skalę, takie jak modyfikacja zasad lub ochrona automatyczne. W przeciwieństwie do przypadku CloudDosAbsoluteLimitReached, nie ma dużo możliwości rozwiązania tego stanu. W rzeczywistości usługa Azure Backup ponowi próbę wykonania operacji wewnętrznie dla wszystkich elementów, których to dotyczy.<br> Na przykład: Jeśli masz dużą liczbę źródeł danych chronionych przy użyciu zasad i podjęto próbę zmodyfikowania tych zasad, zostanie wyzwolone skonfigurowanie zadań ochrony dla każdego z chronionych elementów i czasami może wystąpić maksymalny limit dozwolony dla takich operacji dziennie.| Usługa Azure Backup automatycznie ponowi próbę wykonania tej operacji po 24 godzinach.
 
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
 | Komunikat o błędzie | Możliwe przyczyny | Zalecana akcja |
 |---|---|---|
-Maszyna wirtualna nie może nawiązać kontaktu z usługą Azure Backup ze względu na problemy z łącznością z Internetem. | Maszyna wirtualna musi mieć łączność wychodzącą z usługą Azure Backup, Azure Storage lub Azure Active Directory Services.| — Jeśli używasz sieciowej grupy zabezpieczeń, aby ograniczyć łączność, należy użyć znacznika usługi AzureBackup w celu zezwalania na dostęp wychodzący do Azure Backup usługi Azure Backup Service, Azure Storage lub Azure Active Directory Services. Wykonaj następujące [kroki](./backup-sql-server-database-azure-vms.md#nsg-tags) , aby udzielić dostępu.<br>-Upewnij się, że usługa DNS rozwiązuje punkty końcowe platformy Azure.<br>-Sprawdź, czy maszyna wirtualna znajduje się za modułem równoważenia obciążenia blokującym dostęp do Internetu. Przypisując publiczny adres IP do maszyn wirtualnych, odnajdywanie będzie działało.<br>-Sprawdź, czy nie istnieje Zapora/program antywirusowy/serwer proxy, który blokuje wywołania powyższych trzech usług docelowych.
+Maszyna wirtualna nie może nawiązać kontaktu z usługą Azure Backup ze względu na problemy z łącznością z Internetem. | Maszyna wirtualna musi mieć łączność wychodzącą z usługą Azure Backup Service, Azure Storage lub Azure Active Directory Services.| — Jeśli używasz sieciowej grupy zabezpieczeń do ograniczania łączności, Użyj znacznika usługi AzureBackup, aby zezwalać na dostęp wychodzący do usługi Azure Backup Service, Azure Storage lub Azure Active Directory Services. Wykonaj następujące [kroki](./backup-sql-server-database-azure-vms.md#nsg-tags) , aby udzielić dostępu.<br>-Upewnij się, że usługa DNS rozwiązuje punkty końcowe platformy Azure.<br>-Sprawdź, czy maszyna wirtualna znajduje się za modułem równoważenia obciążenia blokującym dostęp do Internetu. Przypisując publiczny adres IP do maszyn wirtualnych, odnajdywanie będzie działało.<br>-Sprawdź, czy nie istnieje Zapora/program antywirusowy/serwer proxy, który blokuje wywołania powyższych trzech usług docelowych.
 
 ## <a name="re-registration-failures"></a>Błędy ponownej rejestracji
 
@@ -261,7 +268,7 @@ W poprzedniej zawartości można pobrać logiczną nazwę pliku bazy danych za p
 SELECT mf.name AS LogicalName FROM sys.master_files mf
                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
                 WHERE db.name = N'<Database Name>'"
-  ```
+```
 
 Ten plik powinien zostać umieszczony przed wywołaniem operacji przywracania.
 

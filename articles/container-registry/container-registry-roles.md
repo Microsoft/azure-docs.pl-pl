@@ -2,17 +2,17 @@
 title: Role i uprawnienia platformy Azure
 description: Użyj kontroli dostępu opartej na rolach (Azure RBAC) i zarządzania tożsamościami i dostępem (IAM), aby zapewnić szczegółowe uprawnienia do zasobów w usłudze Azure Container Registry.
 ms.topic: article
-ms.date: 12/02/2019
-ms.openlocfilehash: 23a9c08162c03d4b34ed289d650fddcd7413ed08
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 08/17/2020
+ms.openlocfilehash: b8562d3e33cd49082d4ba4d8567d5f0c816070b0
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920079"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661388"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry ról i uprawnień
 
-Usługa Azure Container Registry obsługuje zestaw [wbudowanych ról platformy Azure](../role-based-access-control/built-in-roles.md) , które zapewniają różne poziomy uprawnień do usługi Azure Container Registry. Za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/index.yml) można przypisywać określone uprawnienia użytkownikom, podmiotom usług lub innym tożsamościom, które muszą korzystać z rejestru. 
+Usługa Azure Container Registry obsługuje zestaw [wbudowanych ról platformy Azure](../role-based-access-control/built-in-roles.md) , które zapewniają różne poziomy uprawnień do usługi Azure Container Registry. Za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/index.yml) można przypisywać określone uprawnienia użytkownikom, podmiotom usług lub innym tożsamościom, które muszą korzystać z rejestru. Można także definiować [role niestandardowe](#custom-roles) z szczegółowymi uprawnieniami do rejestru dla różnych operacji.
 
 | Rola/uprawnienie       | [Menedżer zasobów dostępu](#access-resource-manager) | [Utwórz/usuń rejestr](#create-and-delete-registry) | [Obraz wypychany](#push-image) | [Obraz ściągania](#pull-image) | [Usuń dane obrazu](#delete-image-data) | [Zmień zasady](#change-policies) |   [Podpisz obrazy](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -70,7 +70,7 @@ Możliwość podpisywania obrazów, zwykle przypisywanych do zautomatyzowanego p
 
 ## <a name="custom-roles"></a>Role niestandardowe
 
-Podobnie jak w przypadku innych zasobów platformy Azure, możesz utworzyć własne [role niestandardowe](../role-based-access-control/custom-roles.md) z uprawnieniami szczegółowymi do Azure Container Registry. Następnie przypisz niestandardowe role do użytkowników, podmiotów usługi lub innych tożsamości, które muszą korzystać z rejestru. 
+Podobnie jak w przypadku innych zasobów platformy Azure, można utworzyć [role niestandardowe](../role-based-access-control/custom-roles.md) z szczegółowymi uprawnieniami do Azure Container Registry. Następnie przypisz niestandardowe role do użytkowników, podmiotów usługi lub innych tożsamości, które muszą korzystać z rejestru. 
 
 Aby określić, które uprawnienia mają być stosowane do roli niestandardowej, zobacz listę [akcji](../role-based-access-control/resource-provider-operations.md#microsoftcontainerregistry)Microsoft. ContainerRegistry, przejrzyj dozwolone akcje [wbudowanych ról ACR](../role-based-access-control/built-in-roles.md)lub uruchom następujące polecenie:
 
@@ -82,6 +82,36 @@ Aby zdefiniować rolę niestandardową, zapoznaj [się z instrukcjami tworzenia 
 
 > [!IMPORTANT]
 > W roli niestandardowej Azure Container Registry nie obsługuje obecnie symboli wieloznacznych, takich jak `Microsoft.ContainerRegistry/*` lub `Microsoft.ContainerRegistry/registries/*` udzielających dostępu do wszystkich akcji dopasowywania. Określ dowolną akcję wymaganą pojedynczo w roli.
+
+### <a name="example-custom-role-to-import-images"></a>Przykład: rola niestandardowa do importowania obrazów
+
+Na przykład poniższy kod JSON definiuje minimalne akcje dla roli niestandardowej, które zezwalają na [Importowanie obrazów](container-registry-import-images.md) do rejestru.
+
+```json
+{
+   "assignableScopes": [
+     "/subscriptions/<optional, but you can limit the visibility to one or more subscriptions>"
+   ],
+   "description": "Can import images to registry",
+   "Name": "AcrImport",
+   "permissions": [
+     {
+       "actions": [
+         "Microsoft.ContainerRegistry/registries/push/write",
+         "Microsoft.ContainerRegistry/registries/pull/read",
+         "Microsoft.ContainerRegistry/registries/read",
+         "Microsoft.ContainerRegistry/registries/importImage/action"
+       ],
+       "dataActions": [],
+       "notActions": [],
+       "notDataActions": []
+     }
+   ],
+   "roleType": "CustomRole"
+ }
+```
+
+Aby utworzyć lub zaktualizować rolę niestandardową przy użyciu opisu JSON, użyj [interfejsu wiersza polecenia platformy Azure](../role-based-access-control/custom-roles-cli.md), [szablonu Azure Resource Manager](../role-based-access-control/custom-roles-template.md), [Azure PowerShell](../role-based-access-control/custom-roles-powershell.md)lub innych narzędzi platformy Azure. Dodawanie lub usuwanie przypisań ról niestandardowych w taki sam sposób, w jaki zarządzasz przypisaniami ról dla wbudowanych ról platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 

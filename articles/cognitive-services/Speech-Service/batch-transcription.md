@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: df1266070e9fb69ec94811a3120412d9b238e470
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 519a9cdac678e8852bef9bd66e3fbb98278cbb3b
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640161"
+ms.locfileid: "88660878"
 ---
 # <a name="how-to-use-batch-transcription"></a>Jak korzystać z transkrypcji partii
 
-Transkrypcja usługi Batch to zestaw operacji interfejsu API REST, które umożliwiają transkrypcja dużej ilości danych audio w magazynie. Możesz wskazać pliki audio z identyfikatorem URI sygnatury dostępu współdzielonego (SAS) i asynchronicznie otrzymywać wyniki transkrypcji. Dzięki nowemu interfejsowi API programu v 3.0 możesz jego przepisywania jeden lub więcej plików audio lub przetwarzać cały kontener magazynu.
+Transkrypcja usługi Batch to zestaw operacji interfejsu API REST, które umożliwiają transkrypcja dużej ilości danych audio w magazynie. Możesz wskazać pliki audio przy użyciu typowego identyfikatora URI lub identyfikatora URI sygnatury dostępu współdzielonego (SAS) i asynchronicznie otrzymywać wyniki transkrypcji. Za pomocą interfejsu API programu v 3.0 można transkrypcja jeden lub więcej plików audio lub przetwarzać cały kontener magazynu.
 
-Asynchroniczne transkrypcja zamiany mowy na tekst to tylko jedna z funkcji. Korzystając z interfejsów API REST transkrypcji wsadowej, można wywołać następujące metody:
+Korzystając z interfejsów API REST transkrypcji wsadowej, można wywołać następujące metody:
 
 |    Operacja transkrypcji partii                                             |    Metoda    |    Wywołanie interfejsu API REST                                   |
 |------------------------------------------------------------------------------|--------------|----------------------------------------------------|
@@ -33,14 +33,12 @@ Asynchroniczne transkrypcja zamiany mowy na tekst to tylko jedna z funkcji. Korz
 |    Pobiera transkrypcję identyfikowaną przez podany identyfikator.                        |    GET       |    speechtotext/v 3.0/transkrypcje/{ID}       |
 |    Pobiera pliki wynikowe transkrypcji identyfikowane przez podany identyfikator.    |    GET       |    speechtotext/v 3.0/transkrypcje/{ID}/pliki |
 
-
-
-
 Możesz przejrzeć i przetestować szczegółowy interfejs API, który jest dostępny jako [dokument struktury Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
 
-Zadania transkrypcji partii są planowane na podstawie najlepszego nakładu pracy. Obecnie nie ma oszacowania, kiedy zadanie zmienia się w stan uruchomienia. W przypadku normalnego ładowania systemu powinno to nastąpić w ciągu kilku minut. Po uruchomieniu rzeczywista transkrypcja jest przetwarzana szybciej niż w czasie rzeczywistym dźwięku.
+Ten interfejs API nie wymaga niestandardowych punktów końcowych i nie ma wymagań współbieżności.
 
-Obok łatwego w użyciu interfejsu API nie musisz wdrażać niestandardowych punktów końcowych i nie masz żadnych wymagań współbieżności do obserwowania.
+Zadania transkrypcji partii są planowane na podstawie najlepszego nakładu pracy.
+Nie można oszacować, kiedy zadanie zmieni się w stan uruchomienia, ale powinno wystąpić w ciągu kilku minut w przypadku normalnego obciążenia systemu. Raz w stanie uruchomienia transkrypcja odbywa się szybciej niż szybkość odtwarzania dźwięku w środowisku uruchomieniowym.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -61,9 +59,10 @@ Interfejs API transkrypcji usługi Batch obsługuje następujące formaty:
 | FORMATU    | PCM   | 16-bitowy  | 8 kHz lub 16 kHz, mono lub stereo |
 | OGG    | OPUS  | 16-bitowy  | 8 kHz lub 16 kHz, mono lub stereo |
 
-W przypadku strumieni stereofonicznych audio lewy i prawy są dzielone podczas transkrypcji. Dla każdego kanału tworzony jest plik wynikowy JSON. Sygnatury czasowe wygenerowane na wypowiedź umożliwiają deweloperowi utworzenie uporządkowanej końcowej transkrypcji.
+W przypadku strumieni stereofonicznych audio lewy i prawy są dzielone podczas transkrypcji. Tworzony jest plik wynikowy JSON dla każdego kanału.
+Aby utworzyć uporządkowaną końcową transkrypcję, użyj sygnatur czasowych wygenerowanych na wypowiedź.
 
-### <a name="configuration"></a>Konfigurowanie
+### <a name="configuration"></a>Konfiguracja
 
 Parametry konfiguracji są podane jako dane JSON (co najmniej jeden z pojedynczych plików):
 
@@ -93,7 +92,7 @@ Parametry konfiguracji są podane jako dane JSON (przetwarzanie całego kontener
 }
 ```
 
-Aby używać niestandardowych modeli szkolonych w transkrypcjach wsadowych, można się do nich odwoływać, jak pokazano poniżej:
+Poniższy kod JSON określa niestandardowy model szkolony do użycia w transkrypcji partii:
 
 ```json
 {
@@ -128,42 +127,42 @@ Użyj tych opcjonalnych właściwości, aby skonfigurować transkrypcję:
       `profanityFilterMode`
    :::column-end:::
    :::column span="2":::
-      Określa sposób obsługi niezbyt wulgarności w wynikach rozpoznawania. Akceptowane wartości to `None` wyłączenie filtrowania wulgarności, `Masked` zastępowanie nieseksu gwiazdką, `Removed` Aby usunąć z wyniku wszystkie niezbyt wulgarne lub `Tags` dodać tagi "wulgarne". Ustawienie domyślne to `Masked`.
+      Opcjonalne, wartość domyślna to `Masked` . Określa sposób obsługi niezbyt wulgarności w wynikach rozpoznawania. Akceptowane wartości to `None` wyłączenie filtrowania wulgarności, `Masked` zastępowanie nieseksu gwiazdką, `Removed` Aby usunąć z wyniku wszystkie niezbyt wulgarne lub `Tags` dodać tagi "wulgarne".
 :::row-end:::
 :::row:::
    :::column span="1":::
       `punctuationMode`
    :::column-end:::
    :::column span="2":::
-      Określa, jak obsłużyć interpunkcję w wynikach rozpoznawania. Akceptowane wartości to `None` wyłączenie interpunkcji, `Dictated` w celu oznaczania znaków jawnych (mówionych), `Automatic` w celu poinformowania dekodera z interpunkcją lub `DictatedAndAutomatic` użycia podyktowanych i automatycznych interpunkcji. Ustawienie domyślne to `DictatedAndAutomatic`.
+      Opcjonalne, wartość domyślna to `DictatedAndAutomatic` . Określa, jak obsłużyć interpunkcję w wynikach rozpoznawania. Akceptowane wartości to `None` wyłączenie interpunkcji, `Dictated` w celu oznaczania znaków jawnych (mówionych), `Automatic` w celu poinformowania dekodera z interpunkcją lub `DictatedAndAutomatic` użycia podyktowanych i automatycznych interpunkcji.
 :::row-end:::
 :::row:::
    :::column span="1":::
       `wordLevelTimestampsEnabled`
    :::column-end:::
    :::column span="2":::
-      Określa, czy sygnatury czasowe poziomu słowa mają być dodawane do danych wyjściowych. Akceptowane wartości to `true` włączenie znaczników czasu poziomu słowa i `false` (wartość domyślna), aby je wyłączyć.
+      Domyślnie opcjonalne `false` . Określa, czy sygnatury czasowe poziomu słowa mają być dodawane do danych wyjściowych.
 :::row-end:::
 :::row:::
    :::column span="1":::
       `diarizationEnabled`
    :::column-end:::
    :::column span="2":::
-      Określa, że analiza diarization powinna zostać przeprowadzona na wejściu, który powinien być kanałem mono zawierającym dwa głosy. Akceptowane wartości `true` włączają diarization i `false` (wartość domyślna), aby je wyłączyć. Wymagane jest również `wordLevelTimestampsEnabled` ustawienie wartości true.
+      Domyślnie opcjonalne `false` . Określa, że analiza diarization powinna zostać przeprowadzona na wejściu, który powinien być kanałem mono zawierającym dwa głosy. Uwaga: wymaga `wordLevelTimestampsEnabled` ustawienia wartości `true` .
 :::row-end:::
 :::row:::
    :::column span="1":::
       `channels`
    :::column-end:::
    :::column span="2":::
-      Opcjonalna tablica numerów kanałów do przetworzenia. W tym miejscu podzbiór dostępnych kanałów w pliku audio może być określony do przetworzenia (np. `0` tylko). Jeśli nie zostanie określony, kanały `0` i `1` są uzyskanego jako domyślne.
+      Opcjonalne `0` i `1` Domyślnie uzyskanego. Tablica numerów kanałów do przetworzenia. W tym miejscu podzbiór dostępnych kanałów w pliku audio może być określony do przetworzenia (np. `0` tylko).
 :::row-end:::
 :::row:::
    :::column span="1":::
       `timeToLive`
    :::column-end:::
    :::column span="2":::
-      Opcjonalny czas trwania usuwania transkrypcji po zakończeniu transkrypcji. `timeToLive`Jest przydatny do masowego tworzenia transkrypcji, aby upewnić się, że zostaną ostatecznie usunięte (np. `PT12H` ). Jeśli nie zostanie określony lub ustawiony na `PT0H` , transkrypcja nie zostanie usunięta automatycznie.
+      Opcjonalne, nie usuwaj domyślnie. Czas trwania usuwania transkrypcji po zakończeniu transkrypcji. `timeToLive`Jest przydatny do masowego tworzenia transkrypcji, aby upewnić się, że zostaną ostatecznie usunięte (np. `PT12H` przez 12 godzin).
 :::row-end:::
 :::row:::
    :::column span="1":::
@@ -175,43 +174,44 @@ Użyj tych opcjonalnych właściwości, aby skonfigurować transkrypcję:
 
 ### <a name="storage"></a>Magazyn
 
-Transkrypcja usługi Batch obsługuje [usługę Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) do odczytu i zapisywania transkrypcji w magazynie.
+Transkrypcja usługi Batch może odczytywać dźwięk z internetowego identyfikatora URI i może odczytywać i zapisywać transkrypcje przy użyciu [magazynu obiektów blob platformy Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
 
 ## <a name="batch-transcription-result"></a>Wynik transkrypcji partii
 
-Dla każdego wejściowego audio jest tworzony jeden plik wynikowy transkrypcji. Możesz uzyskać listę plików wynikowych, wywołując [pliki Get transkrypcji](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionFiles). Ta metoda zwraca listę plików wynikowych dla tego transkrypcji. Aby znaleźć plik transkrypcji dla określonego pliku wejściowego, należy odfiltrować wszystkie zwrócone pliki z `kind`  ==  `Transcription` i `name`  ==  `{originalInputName.suffix}.json` .
+Dla każdego wejścia audio zostanie utworzony jeden plik wynikowy transkrypcji.
+Operacja [pobierania plików transkrypcji](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionFiles) zwraca listę plików wynikowych dla tego transkrypcji. Aby znaleźć plik transkrypcji dla określonego pliku wejściowego, należy odfiltrować wszystkie zwrócone pliki z `kind`  ==  `Transcription` i `name`  ==  `{originalInputName.suffix}.json` .
 
-Każdy plik wynikowy transkrypcji jego format:
+Każdy plik wynikowy transkrypcji ma następujący format:
 
 ```json
 {
-  "source": "...",                                                 // the sas url of a given contentUrl or the path relative to the root of a given container
-  "timestamp": "2020-06-16T09:30:21Z",                             // creation time of the transcription, ISO 8601 encoded timestamp, combined date and time
-  "durationInTicks": 41200000,                                     // total audio duration in ticks (1 tick is 100 nanoseconds)
-  "duration": "PT4.12S",                                           // total audio duration, ISO 8601 encoded duration
-  "combinedRecognizedPhrases": [                                   // concatenated results for simple access in single string for each channel
+  "source": "...",                      // sas url of a given contentUrl or the path relative to the root of a given container
+  "timestamp": "2020-06-16T09:30:21Z",  // creation time of the transcription, ISO 8601 encoded timestamp, combined date and time
+  "durationInTicks": 41200000,          // total audio duration in ticks (1 tick is 100 nanoseconds)
+  "duration": "PT4.12S",                // total audio duration, ISO 8601 encoded duration
+  "combinedRecognizedPhrases": [        // concatenated results for simple access in single string for each channel
     {
-      "channel": 0,                                                // channel number of the concatenated results
+      "channel": 0,                     // channel number of the concatenated results
       "lexical": "hello world",
       "itn": "hello world",
       "maskedITN": "hello world",
       "display": "Hello world."
     }
   ],
-  "recognizedPhrases": [                                           // results for each phrase and each channel individually
+  "recognizedPhrases": [                // results for each phrase and each channel individually
     {
-      "recognitionStatus": "Success",                              // recognition state, e.g. "Success", "Failure"
-      "channel": 0,                                                // channel number of the result
-      "offset": "PT0.07S",                                         // offset in audio of this phrase, ISO 8601 encoded duration 
-      "duration": "PT1.59S",                                       // audio duration of this phrase, ISO 8601 encoded duration
-      "offsetInTicks": 700000.0,                                   // offset in audio of this phrase in ticks (1 tick is 100 nanoseconds)
-      "durationInTicks": 15900000.0,                               // audio duration of this phrase in ticks (1 tick is 100 nanoseconds)
+      "recognitionStatus": "Success",   // recognition state, e.g. "Success", "Failure"
+      "channel": 0,                     // channel number of the result
+      "offset": "PT0.07S",              // offset in audio of this phrase, ISO 8601 encoded duration 
+      "duration": "PT1.59S",            // audio duration of this phrase, ISO 8601 encoded duration
+      "offsetInTicks": 700000.0,        // offset in audio of this phrase in ticks (1 tick is 100 nanoseconds)
+      "durationInTicks": 15900000.0,    // audio duration of this phrase in ticks (1 tick is 100 nanoseconds)
       
       // possible transcriptions of the current phrase with confidences
       "nBest": [
         {
-          "confidence": 0.898652852,                               // confidence value for the recognition of the whole phrase
-          "speaker": 1,                                            // if `diarizationEnabled` is `true`, this is the identified speaker (1 or 2), otherwise this property is not present
+          "confidence": 0.898652852,    // confidence value for the recognition of the whole phrase
+          "speaker": 1,                 // if `diarizationEnabled` is `true`, this is the identified speaker (1 or 2), otherwise this property is not present
           "lexical": "hello world",
           "itn": "hello world",
           "maskedITN": "hello world",
@@ -247,7 +247,7 @@ Wynik zawiera następujące formy:
 
 :::row:::
    :::column span="1":::
-      **Formularz**
+      **Pole**
    :::column-end:::
    :::column span="2":::
       **Zawartość**
@@ -285,9 +285,9 @@ Wynik zawiera następujące formy:
 
 Diarization to proces oddzielania głośników w części audio. Potok wsadowy obsługuje diarization i jest w stanie rozpoznawać dwa głośniki w nagraniach kanału mono. Funkcja nie jest dostępna w nagraniach stereo.
 
-Dane wyjściowe transkrypcji z włączonym diarization zawiera `Speaker` wpis dla każdej frazy uzyskanego. Jeśli diarization nie jest używana, właściwość `Speaker` nie jest obecna w danych wyjściowych JSON. W przypadku diarization obsługujemy dwie głosy, więc głośniki są identyfikowane jako `1` lub `2` .
+Dane wyjściowe transkrypcji z włączonym diarization zawiera `Speaker` wpis dla każdej frazy uzyskanego. Jeśli diarization nie jest używana, `Speaker` Właściwość nie jest obecna w danych wyjściowych JSON. W przypadku diarization obsługujemy dwie głosy, więc głośniki są identyfikowane jako `1` lub `2` .
 
-Aby zażądać diarization, wystarczy dodać odpowiedni parametr w żądaniu HTTP, jak pokazano poniżej.
+Aby zażądać diarization, Dodaj opcję Ustaw `diarizationEnabled` Właściwość, `true` tak jak żądanie HTTP, poniżej.
 
  ```json
 {
@@ -315,7 +315,7 @@ Usługa transkrypcji usługi Batch może obsłużyć dużą liczbę przesłanych
 
 Kompletne przykłady są dostępne w [repozytorium przykładowym GitHub](https://aka.ms/csspeech/samples) w `samples/batch` podkatalogu.
 
-Zaktualizuj przykładowy kod przy użyciu informacji o subskrypcji, regionu usługi, identyfikatora URI sygnatury dostępu współdzielonego wskazującego plik audio do transkrypcja i lokalizację modelu w przypadku, gdy chcesz użyć modelu niestandardowego.
+Zaktualizuj przykładowy kod przy użyciu informacji o subskrypcji, regionu usługi, identyfikatora URI wskazującego plik audio do transkrypcja i lokalizacji modelu, jeśli używasz modelu niestandardowego.
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#transcriptiondefinition)]
 
@@ -325,16 +325,14 @@ Przykładowy kod konfiguruje klienta i przesyła żądanie transkrypcji. Następ
 
 Aby uzyskać szczegółowe informacje o poprzednich wywołaniach, zobacz [dokument struktury Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0). Aby wyświetlić pełny przykład, przejdź do witryny [GitHub](https://aka.ms/csspeech/samples) w `samples/batch` podkatalogu.
 
-Zanotuj konfigurację asynchroniczną dotyczącą ogłaszania audio i uzyskiwania stanu transkrypcji. Tworzony klient jest klientem HTTP platformy .NET. Istnieje `PostTranscriptions` metoda wysyłania szczegółów pliku audio i `GetTranscriptions` metody uzyskiwania stanu. `PostTranscriptions` zwraca dojście i `GetTranscriptions` używa go do utworzenia dojścia w celu uzyskania stanu transkrypcji.
+Ten przykład używa konfiguracji asynchronicznej do publikowania audio i otrzymywania stanu transkrypcji.
+`PostTranscriptions`Metoda wysyła Szczegóły pliku audio, a `GetTranscriptions` Metoda odbiera Stany.
+`PostTranscriptions` zwraca dojście i `GetTranscriptions` używa go do utworzenia dojścia w celu uzyskania stanu transkrypcji.
 
-Bieżący przykładowy kod nie określa modelu niestandardowego. Usługa używa modelu linii bazowej do jego przepisywania pliku lub plików. Aby określić model, można przekazać do tej samej metody odwołanie modelu dla modelu niestandardowego.
+Ten przykładowy kod nie określa modelu niestandardowego. Usługa używa modelu linii bazowej do jego przepisywania pliku lub plików. Aby określić model, można przekazać do tej samej metody odwołanie modelu dla modelu niestandardowego.
 
 > [!NOTE]
 > W przypadku transkrypcji linii bazowej nie trzeba deklarować identyfikatora modelu linii bazowej.
-
-## <a name="download-the-sample"></a>Pobieranie przykładu
-
-Przykład można znaleźć w `samples/batch` katalogu w [przykładowym repozytorium GitHub](https://aka.ms/csspeech/samples).
 
 ## <a name="next-steps"></a>Następne kroki
 

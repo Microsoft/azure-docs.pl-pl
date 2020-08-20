@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: a0ea0a7580bbb7a6106880d2733f36f5ab7a7690
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: cc5964bb243216233300e8616b0460b7a1a043d9
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88639787"
+ms.locfileid: "88661541"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Obsługa języków i tekstu oraz Tłumaczenie mowy
 
@@ -46,7 +46,7 @@ Translator obsługuje tłumaczenie tekstu na tekst przy użyciu następujących 
 |Chiński (uproszczony)|    `zh-Hans`|
 |Chiński (tradycyjny)|   `zh-Hant`       |
 |Chorwacki|  `hr`    |
-|Czeski| `cs`    |
+|czeski| `cs`    |
 |Dari|  `prs`   |
 |Duński|    `da`        |
 |Niderlandzki| `nl`|
@@ -68,13 +68,15 @@ Translator obsługuje tłumaczenie tekstu na tekst przy użyciu następujących 
 |Indonezyjski|    `id`    |
 |Irlandzki | `ga`|
 |Włoski|   `it`    |
-|Japoński|  `ja`    |
+|japoński|  `ja`    |
 |Kannada|`kn`|
 |Kazachski|`kk`|
 |Kiswahili| `sw`    |
 |Klingon|   `tlh-Latn`  |
 |Klingon (plqaD)|   `tlh-Piqd`  |
-|Koreański |`ko`   |
+|koreański |`ko`   |
+|Kurdyjski (środkowe)  |`ku`   |
+|Kurdyjski (północny) |`kmr`  |
 |Łotewski|   `lv`    |
 |Litewski|    `lt`    |
 |Madagaskaru|  `mg`    |
@@ -106,7 +108,7 @@ Translator obsługuje tłumaczenie tekstu na tekst przy użyciu następujących 
 |Telugu|    `te`    |
 |Tajlandzki|  `th`    |
 |Tonga|    `to`    |
-|Turecki|   `tr`        |
+|turecki|   `tr`        |
 |Ukraiński| `uk`    |
 |Urdu|  `ur`    |
 |Wietnamski|    `vi`    |
@@ -149,10 +151,10 @@ Translator wykrywa następujące języki do tłumaczenia i przekształcenie.
 |Indonezyjski|    `id`    |
 |Irlandzki | `ga`|
 |Włoski|   `it`    |
-|Japoński|  `ja`    |
+|japoński|  `ja`    |
 |Kiswahili| `sw`    |
 |Klingon|   `tlh-Latn`  |
-|Koreański |`ko`   |
+|koreański |`ko`   |
 |Łotewski|   `lv`    |
 |Litewski|    `lt`    |
 |Malajski| `ms`        |
@@ -190,14 +192,14 @@ Metoda transliteracji obsługuje następujące języki. W polu "do/z" <--> "wska
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabski | `ar` | Arabski `Arab` | <--> | Wielka `Latn` |
 | Języku  | `bn` | Bengalski `Beng` | <--> | Wielka `Latn` |
-| Chiński (uproszczony) | `zh-Hans` | Chiński uproszczony `Hans`| <--> | Wielka `Latn` |
-| Chiński (uproszczony) | `zh-Hans` | Chiński uproszczony `Hans`| <--> | Chiński tradycyjny `Hant`|
+| Chiński uproszczony | `zh-Hans` | Chiński uproszczony `Hans`| <--> | Wielka `Latn` |
+| Chiński uproszczony | `zh-Hans` | Chiński uproszczony `Hans`| <--> | Chiński tradycyjny `Hant`|
 | Chiński (tradycyjny) | `zh-Hant` | Chiński tradycyjny `Hant`| <--> | Wielka `Latn` |
 | Chiński (tradycyjny) | `zh-Hant` | Chiński tradycyjny `Hant`| <--> | Chiński uproszczony `Hans` |
 | Gudżarati | `gu`  | Gudżarati `Gujr` | --> | Wielka `Latn` |
 | Hebrajski | `he` | Hebrajski `Hebr` | <--> | Wielka `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Wielka `Latn` |
-| Japoński | `ja` | Japoński `Jpan` | <--> | Wielka `Latn` |
+| japoński | `ja` | Japoński `Jpan` | <--> | Wielka `Latn` |
 | Kannada | `kn` | Kannada `Knda` | --> | Wielka `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | --> | Wielka `Latn` |
 | Marathi | `mr` | Devanagari `Deva` | --> | Wielka `Latn` |
@@ -241,10 +243,10 @@ Wyświetl dokumentację referencyjną dla operacji [wyszukiwania słownika](refe
 | Islandzki    | `is`  |
 | Indonezyjski      | `id`          |
 | Włoski      | `it`          |
-| Japoński      | `ja`          |
+| japoński      | `ja`          |
 | Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
-| Koreański      | `ko`          |
+| koreański      | `ko`          |
 | Łotewski      | `lv`          |
 | Litewski      | `lt`          |
 | Malajski      | `ms`          |
@@ -252,7 +254,7 @@ Wyświetl dokumentację referencyjną dla operacji [wyszukiwania słownika](refe
 | Norweski      | `nb`          |
 | Perski      | `fa`          |
 | polski      | `pl`          |
-| Portugalski (Brazylia)     | `pt-br`          |
+| portugalski (Brazylia)     | `pt-br`          |
 | Rumuński      | `ro`          |
 | Rosyjski      | `ru`          |
 | Serbski (łaciński)      | `sr-Latn`          |
@@ -304,9 +306,9 @@ Następujące języki są dostępne do dostosowania do języka angielskiego lub 
 | Indonezyjski|   `id`    |
 | Irlandzki | `ga`  |
 | Włoski      | `it`          |
-| Japoński      | `ja`          |
+| japoński      | `ja`          |
 | Kiswahili|    `sw`    |
-| Koreański      | `ko`          |
+| koreański      | `ko`          |
 | Łotewski      | `lv`          |
 | Litewski      | `lt`          |
 | Madagaskaru| `mg`    |
@@ -351,12 +353,12 @@ Konwertuj mowę na tekst, aby przetłumaczyć na wybrany język tekstu. Funkcja 
 |Angielski|
 |Fiński|
 |Francuski|
-|Niemiecki|
+|niemiecki|
 |Gudżarati|
 |Hindi|
 |Włoski|
-|Japoński|
-|Koreański|
+|japoński|
+|koreański|
 |Marathi|
 |Norweski|
 |polski|
@@ -395,8 +397,8 @@ Konwertuj tekst na mowę. Funkcja zamiany tekstu na mowę służy do dodawania d
 |Węgierski|
 |Indonezyjski|
 |Włoski|
-|Japoński|
-|Koreański|
+|japoński|
+|koreański|
 |Malajski|
 |Norweski|
 |polski|

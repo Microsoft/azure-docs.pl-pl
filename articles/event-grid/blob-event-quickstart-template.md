@@ -3,12 +3,12 @@ title: Wysyłanie zdarzeń magazynu obiektów BLOB do punktu końcowego sieci We
 description: Użyj Azure Event Grid i szablonu Azure Resource Manager do tworzenia konta usługi BLOB Storage i subskrybowania jego zdarzeń. Wyślij zdarzenia do elementu webhook ".
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: e1d266f747671542059e0610cfcdd8cd12594e51
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 32fc17d1af552afa5a81fbc4a5973d69006742b9
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460443"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661269"
 ---
 # <a name="route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Kierowanie zdarzeń usługi BLOB Storage do punktu końcowego sieci Web przy użyciu szablonu ARM
 
@@ -30,7 +30,7 @@ Przed zasubskrybowaniem zdarzeń w ramach usługi Blob Storage utwórzmy punkt k
 
 1. Wybierz pozycję **Wdróż na platformie Azure** w celu wdrożenia rozwiązania w subskrypcji. W witrynie Azure Portal podaj wartości parametrów.
 
-    [Wdrażanie na platformie Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json)
+    [Wdróż na platformie Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json)
 1. Wdrożenie może potrwać kilka minut. Po pomyślnym wdrożeniu należy wyświetlić aplikację sieci Web i upewnić się, że jest uruchomiona. W przeglądarce sieci Web przejdź do: `https://<your-site-name>.azurewebsites.net`
 
 1. Zobaczysz witrynę, w której nie opublikowano jeszcze żadnych zdarzeń.
@@ -41,7 +41,7 @@ Przed zasubskrybowaniem zdarzeń w ramach usługi Blob Storage utwórzmy punkt k
 
 Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-event-grid-subscription-and-storage/).
 
-:::code language="json" source="~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json" range="1-91" highlight="40-85":::
+:::code language="json" source="~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json":::
 
 Dwa zasoby platformy Azure są zdefiniowane w szablonie:
 
@@ -51,7 +51,7 @@ Dwa zasoby platformy Azure są zdefiniowane w szablonie:
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-1. Wybierz poniższy link, aby zalogować się do platformy Azure i otworzyć szablon. Ten szablon umożliwia utworzenie magazynu kluczy oraz wpisu tajnego.
+1. Wybierz poniższy link, aby zalogować się na platformie Azure i otworzyć szablon. Ten szablon umożliwia utworzenie magazynu kluczy oraz wpisu tajnego.
 
     [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json)
 
@@ -87,6 +87,6 @@ Jeśli grupa zasobów nie będzie już konieczna, [Usuń ją](../azure-resource-
 Aby uzyskać więcej informacji na temat szablonów Azure Resource Manager, zobacz następujące artykuły:
 
 * [Dokumentacja Azure Resource Manager](../azure-resource-manager/index.yml)
-* [Definiowanie zasobów w szablonach Azure Resource Manager](/azure/templates/)
-* [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/)
+* [Definiowanie zasobów w szablonie usługi Azure Resource Manager](/azure/templates/)
+* [Szablony przewodników Szybki start platformy Azure](https://azure.microsoft.com/resources/templates/)
 * [Szablony Azure Event Grid](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).

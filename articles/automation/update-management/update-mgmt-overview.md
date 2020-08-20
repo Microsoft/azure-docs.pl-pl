@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: ea568acdf356064dc603d30ffba7df3c02bde621
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 0fd416c844ac93ffb77eded98448b2e93e9acd30
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450462"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660912"
 ---
 # <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
@@ -180,7 +180,7 @@ Update Management skanuje zarządzane maszyny pod kątem danych przy użyciu nas
 
 * Każda maszyna z systemem Linux Update Management skanuje co godzinę.
 
-Średnie użycie danych przez Azure Monitor dzienników dla maszyny używającej Update Management wynosi około 25 MB miesięcznie. Ta wartość jest tylko przybliżeniem i może ulec zmianie, w zależności od środowiska. Zalecamy monitorowanie środowiska, aby śledzić dokładne użycie. Aby uzyskać więcej informacji na temat analizowania użycia danych, zobacz [Zarządzanie użyciem i kosztem](../../azure-monitor/platform/manage-cost-storage.md).
+Średnie użycie danych przez Azure Monitor dzienników dla maszyny używającej Update Management wynosi około 25 MB miesięcznie. Ta wartość jest tylko przybliżeniem i może ulec zmianie, w zależności od środowiska. Zalecamy monitorowanie środowiska, aby śledzić dokładne użycie. Aby uzyskać więcej informacji na temat analizowania danych dzienników Azure Monitor, zobacz [Zarządzanie użyciem i kosztem](../../azure-monitor/platform/manage-cost-storage.md).
 
 ## <a name="network-planning"></a><a name="ports"></a>Planowanie sieci
 

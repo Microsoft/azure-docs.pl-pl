@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/07/2020
 ms.author: genli
-ms.openlocfilehash: c3295365859ad3291a95b616cccc6fa265237a01
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 38bf652ccefe98c2bd0fb28e8018d41df21651dc
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88264044"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88659470"
 ---
 # <a name="troubleshooting-windows-azure-guest-agent"></a>Rozwiązywanie problemów z agentem gościa platformy Microsoft Azure
 
@@ -102,7 +102,7 @@ Agent gościa platformy Microsoft Azure ma funkcję autoaktualizowania. Program 
 
 1. Przenieś wszystkie foldery o nazwanych pakietach lub GuestAgent do starego folderu.
 
-1. Pobierz i zainstaluj najnowszą wersję pakietu instalacyjnego agenta z tego [miejsca](https://go.microsoft.comfwlink/?linkid=394789&clcid=0x409). Aby ukończyć instalację, musisz mieć uprawnienia administratora.
+1. Pobierz i zainstaluj najnowszą wersję pakietu instalacyjnego agenta z tego [miejsca](https://go.microsoft.com/fwlink/?linkid=394789&clcid=0x409). Aby ukończyć instalację, musisz mieć uprawnienia administratora.
 
 1. Zainstaluj agenta gościa za pomocą następującego polecenia:
 

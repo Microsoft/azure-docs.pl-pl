@@ -9,15 +9,16 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 08/04/2020
+ms.date: 08/20/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: 754d456f557b6c9500cdb64ee01a42124a18ab9c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+metadata ms.custom: contperfq1
+ms.openlocfilehash: b21b2a9f2d2bd483ed48a4c30b504908bb54a101
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036678"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661441"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Typowe problemy z weryfikacją dwuskładnikową i kontem służbowym
 
@@ -31,14 +32,10 @@ Gdy 2FV jest włączona, logowanie do konta wymaga połączenia następujących 
 
 2FV jest bezpieczniejszy niż tylko hasło, ponieważ 2FV wymaga czegoś _znanego_ i _czegoś._ Żaden haker nie ma fizycznego telefonu.
 
-<center>
-
-![Obraz metod uwierzytelniania koncepcyjnego](../authentication/media/concept-mfa-howitworks/methods.png)</center>
-
 >[!Important]
 >Jeśli jesteś administratorem, możesz znaleźć więcej informacji na temat sposobu konfigurowania środowiska usługi Azure AD i zarządzania nim w [dokumentacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory).
->
->Ta zawartość jest również przeznaczona wyłącznie do użytku z kontem służbowym, które jest kontem udostępnionym przez organizację (na przykład alain@contoso.com ). Jeśli masz problemy z weryfikacją dwuetapową i osobistą konto Microsoft, czyli kontem skonfigurowanym dla siebie (na przykład danielle@outlook.com ), zobacz [Włączanie lub wyłączanie weryfikacji dwuskładnikowej dla konto Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+
+Ta zawartość jest przeznaczona do pomocy przy użyciu konta służbowego, które jest kontem udostępnionym przez organizację (na przykład dritan@contoso.com ). Jeśli masz problemy z weryfikacją dwuetapową na konto Microsoft osobistym, czyli kontem skonfigurowanym dla siebie (na przykład danielle@outlook.com ), zobacz [Włączanie lub wyłączanie weryfikacji dwuskładnikowej dla konto Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## <a name="i-dont-have-my-mobile-device-with-me"></a>Nie mam mojego urządzenia przenośnego
 
@@ -71,7 +68,7 @@ Wypróbuj ten | Informacje wskazówki
 --------- | ------------
 Ponowne uruchamianie urządzenia przenośnego | Czasami urządzenie wymaga odświeżenia. Po ponownym uruchomieniu urządzenia zostaną zakończone wszystkie procesy i usługi w tle. Ponowne uruchomienie powoduje także zamknięcie podstawowych składników urządzenia. Wszystkie usługi lub składniki są odświeżane po ponownym uruchomieniu urządzenia.
 Sprawdź, czy informacje zabezpieczające są poprawne | Upewnij się, że informacje o metodzie weryfikacji zabezpieczeń są dokładne, a zwłaszcza numery telefonów. Jeśli umieścisz w niewłaściwym numerze telefonu, wszystkie alerty przechodzą do tej niepoprawnej liczby. Na szczęście ten użytkownik nie będzie mógł wykonywać żadnych czynności dotyczących alertów, ale również nie pomoże Ci zalogować się do konta. Aby upewnić się, że informacje są poprawne, zapoznaj się z instrukcjami w artykule [Zarządzanie ustawieniami metody weryfikacji dwuskładnikowej](multi-factor-authentication-end-user-manage-settings.md) .
-Sprawdź, czy powiadomienia są włączone | Upewnij się, że na urządzeniu przenośnym włączono powiadomienia. Upewnij się, że są dozwolone następujące tryby powiadomień: <br/><br/> &bull;Rozmowy telefoniczne <br/> &bull;Aplikacja uwierzytelniania <br/> &bull;Twoja aplikacja do obsługi wiadomości SMS <br/><br/> Upewnij się, że te tryby tworzą alert _widoczny_ na urządzeniu.
+Sprawdź, czy powiadomienia są włączone | Upewnij się, że na urządzeniu przenośnym włączono powiadomienia. Upewnij się, że są dozwolone następujące tryby powiadomień: <br/><br/> &bull; Rozmowy telefoniczne <br/> &bull; Aplikacja uwierzytelniania <br/> &bull; Twoja aplikacja do obsługi wiadomości SMS <br/><br/> Upewnij się, że te tryby tworzą alert _widoczny_ na urządzeniu.
 Upewnij się, że masz sygnał urządzenia i połączenie internetowe | Upewnij się, że Twoje połączenia telefoniczne i wiadomości SMS są przekazywane do urządzenia przenośnego. Skontaktuj się z ty i Wyślij wiadomość SMS, aby upewnić się, że otrzymujesz oba elementy. Jeśli nie otrzymasz połączenia lub tekstu, najpierw upewnij się, że urządzenie przenośne jest włączone. Jeśli urządzenie jest włączone, ale nadal nie otrzymujesz połączenia lub tekstu, prawdopodobnie wystąpił problem z siecią. Musisz skontaktować się z dostawcą. Jeśli często występują problemy związane z sygnałami, zalecamy zainstalowanie [aplikacji Microsoft Authenticator](user-help-auth-app-download-install.md) i używanie jej na urządzeniu przenośnym. Aplikacja Authenticator może generować losowe kody zabezpieczeń do logowania, nie wymagając żadnego sygnału komórkowego ani połączenia internetowego.
 Wyłącz nie przeszkadzać | Upewnij się, że na urządzeniu przenośnym nie została włączona funkcja nie **przeszkadzać** . Gdy ta funkcja jest włączona, powiadomienia nie mogą otrzymywać alertów na urządzeniu przenośnym. Instrukcje dotyczące sposobu wyłączania tej funkcji można znaleźć w podręczniku urządzenia przenośnego.
 Odblokuj numery telefonów | W Stany Zjednoczone połączenia głosowe pochodzące od firmy Microsoft pochodzą z następujących liczb: + 1 (866) 539 4191, + 1 (855) 330 8653 i + 1 (877) 668 6536.

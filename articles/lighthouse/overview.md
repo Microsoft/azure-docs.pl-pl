@@ -1,18 +1,18 @@
 ---
 title: Czym jest usługa Azure Lighthouse?
 description: Usługa Azure Lighthouse umożliwia dostawcom usług dostarczanie usług zarządzanych klientom o większej wydajności i skalowalności.
-ms.date: 08/12/2020
+ms.date: 08/19/2020
 ms.topic: overview
-ms.openlocfilehash: f65411c03725058e8aa6491245ffd94987efa6c9
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: d21d11d1316b177f38b6bce197dec4f2c3d3fac8
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163224"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660737"
 ---
 # <a name="what-is-azure-lighthouse"></a>Czym jest usługa Azure Lighthouse?
 
-Usługa Azure Lighthouse oferuje jedną płaszczyznę kontroli umożliwiającą wyświetlanie zasobów platformy Azure i zarządzanie nimi w wielu dzierżawcach przy użyciu wyższego poziomu automatyzacji, skalowania i udoskonalonego zarządzania. Dzięki usłudze Azure Lighthouse dostawcy usług mogą dostarczać zarządzane usługi przy użyciu kompleksowych i niezawodnych narzędzi do zarządzania wbudowanych w platformę Azure. Ta oferta może również przynieść organizacjom IT przedsiębiorstwa zarządzanie zasobami w wielu dzierżawach.
+Usługa Azure Lighthouse umożliwia zarządzanie między sieciami i wieloma dzierżawcami, co pozwala na większą automatyzację, skalowalność i udoskonalone funkcje zarządzania między zasobami i dzierżawcami. Dzięki usłudze Azure Lighthouse dostawcy usług mogą dostarczać zarządzane usługi przy użyciu kompleksowych i niezawodnych narzędzi do zarządzania wbudowanych w platformę Azure. Ta oferta może również przynieść organizacjom IT przedsiębiorstwa zarządzanie zasobami w wielu dzierżawach.
 
 ![Diagram omówienia usługi Azure Lighthouse](media/azure-lighthouse-overview.jpg)
 

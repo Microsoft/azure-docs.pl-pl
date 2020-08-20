@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 03/12/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: adf58b667d17393fc905fbf31261530fce88d9f8
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: d1c4f62f19a36867ebc85a98b0cd38bbbf8ce757
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272352"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660686"
 ---
 # <a name="what-are-durable-functions"></a>Co to jest Durable Functions?
 
@@ -704,8 +704,9 @@ Ukończ jeden z tych samouczków Szybki start dotyczących poszczególnych języ
 * [C# przy użyciu programu Visual Studio 2019](durable-functions-create-first-csharp.md)
 * [JavaScript w programie Visual Studio Code](quickstart-js-vscode.md)
 * [Python przy użyciu Visual Studio Code](quickstart-python-vscode.md)
+* [PowerShell przy użyciu Visual Studio Code](quickstart-powershell-vscode.md)
 
-W obu przewodnikach Szybki start utworzysz lokalnie i przetestujesz funkcję trwałą „hello world”. Kod funkcji zostanie następnie opublikowany na platformie Azure. Utworzona przez Ciebie funkcja aranżuje i łączy w łańcuchy wywołania do innych funkcji.
+W tych przewodnikach szybki start utworzysz i testujesz funkcję trwałego "Hello World". Kod funkcji zostanie następnie opublikowany na platformie Azure. Utworzona przez Ciebie funkcja aranżuje i łączy w łańcuchy wywołania do innych funkcji.
 
 ## <a name="learn-more"></a>Dowiedz się więcej
 

@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 9130a3248e881c9d4e2c9bfe9017f43198d50f51
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 0c008061d2d4fafa96eda934d5026c92839a0bdb
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590170"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661490"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Znane problemy w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -69,9 +69,9 @@ Aby można było rozwiązać ten problem, aplikacja musi jawnie korzystać z pla
 
 ### <a name="possible-causes"></a>Możliwe przyczyny
 
-Jest to niezgodność między usługą Azure Digital bliźniaczych reprezentacji a najnowszą wersją biblioteki Azure. Identity Library w wersji **1.2.0**. 
+Jest to związane z otwartym problemem z najnowszą wersją biblioteki Azure. Identity Library (wersja **1.2.0**): [*nie można uwierzytelnić przy użyciu InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
 
-Ten problem zostanie wyświetlony, jeśli w aplikacji jest używana wersja **1.2.0** lub biblioteka zostanie dodana do projektu bez określenia wersji (tak, aby była również wartością domyślną w tej najnowszej wersji).
+Ten problem zostanie wyświetlony, jeśli używasz wersji **1.2.0** w aplikacji Digital bliźniaczych reprezentacji platformy Azure lub biblioteka zostanie dodana do projektu bez określenia wersji (tak, że jest również wartością domyślną w tej najnowszej wersji).
 
 ## <a name="next-steps"></a>Następne kroki
 

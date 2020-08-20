@@ -3,12 +3,12 @@ title: Co Azure Backup Server v3 RTM może utworzyć kopię zapasową
 description: Ten artykuł zawiera informacje o wszystkich obciążeniach, typach danych i instalacjach, które Azure Backup obsłużyć do wersji v3 RTM ochrony.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 86e192e13b49b89e8d66c5f912ef88f02a1b21b4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 30da2efd161d789cd73829c270b64f3610945413
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611980"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661286"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Macierz Azure Backup Server v3 RTM Protection
 
@@ -32,9 +32,9 @@ W poniższej macierzy przedstawiono, co można chronić przy użyciu programu Az
 |Serwery (32-bitowe i 64-bitowe)|Windows Server 2012/2012 z dodatkiem SP1 — wersja Datacenter i Standard|Serwer fizyczny<br /><br />Lokalna maszyna wirtualna funkcji Hyper-V<br /> <br /> Azure Stack|V3, V2|Wolumin, udział, folder, plik, stan systemu/bez systemu operacyjnego<br /><br />Aby chronić woluminy z deduplikacją systemu Windows Server 2012, Azure Backup Server musi być uruchomiona w systemie Windows Server 2012 R2 lub nowszym.|
 |Serwery (32-bitowe i 64-bitowe)|Windows Server 2012/2012 z dodatkiem SP1 — wersja Datacenter i Standard|Maszyna wirtualna platformy Azure (gdy obciążenie działa jako maszyna wirtualna platformy Azure)<br /> <br /> Azure Stack|V3, V2|Wolumin, udział, folder, plik<br /><br />Aby chronić woluminy z deduplikacją systemu Windows Server 2012, Azure Backup Server musi być uruchomiona w systemie Windows Server 2012 R2 lub nowszym.|
 |Serwery (32-bitowe i 64-bitowe)|Windows Server 2012/2012 z dodatkiem SP1 — wersja Datacenter i Standard|Maszyna wirtualna z systemem Windows w oprogramowaniu VMware (chroni obciążenia działające na maszynie wirtualnej z systemem Windows w oprogramowaniu VMware)<br /> <br /> Azure Stack|V3, V2|Wolumin, udział, folder, plik, stan systemu/bez systemu operacyjnego<br /><br />Aby chronić woluminy z deduplikacją systemu Windows Server 2012, Azure Backup Server musi być uruchomiona w systemie Windows Server 2012 R2 lub nowszym.|
-|Serwery (32-bitowe i 64-bitowe)|Windows Server 2008 R2 z dodatkiem SP1 — wersja Standard i Enterprise|Serwer fizyczny<br /><br />Lokalna maszyna wirtualna funkcji Hyper-V<br /> <br /> Azure Stack|V3, V2<br />Musisz korzystać z dodatku SP1 i mieć zainstalowane oprogramowanie [Windows Management Frame 4.0](https://www.microsoft.com/download/details.aspx?id=40855)|Wolumin, udział, folder, plik, stan systemu/bez systemu operacyjnego|
-|Serwery (32-bitowe i 64-bitowe)|Windows Server 2008 R2 z dodatkiem SP1 — wersja Standard i Enterprise|Maszyna wirtualna platformy Azure (gdy obciążenie działa jako maszyna wirtualna platformy Azure)<br /> <br /> Azure Stack|V3, V2<br />Musisz korzystać z dodatku SP1 i mieć zainstalowane oprogramowanie [Windows Management Frame 4.0](https://www.microsoft.com/download/details.aspx?id=40855)|Wolumin, udział, folder, plik|
-|Serwery (32-bitowe i 64-bitowe)|Windows Server 2008 R2 z dodatkiem SP1 — wersja Standard i Enterprise|Maszyna wirtualna z systemem Windows w oprogramowaniu VMware (chroni obciążenia działające na maszynie wirtualnej z systemem Windows w oprogramowaniu VMWare)<br /> <br /> Azure Stack|V3, V2<br />Musisz korzystać z dodatku SP1 i mieć zainstalowane oprogramowanie [Windows Management Frame 4.0](https://www.microsoft.com/download/details.aspx?id=40855)|Wolumin, udział, folder, plik, stan systemu/bez systemu operacyjnego|
+|Serwery (32-bitowe i 64-bitowe)|Windows Server 2008 R2 z dodatkiem SP1 — wersja Standard i Enterprise|Serwer fizyczny<br /><br />Lokalna maszyna wirtualna funkcji Hyper-V<br /> <br /> Azure Stack|V3, V2<br />Musisz mieć uruchomiony program SP1 i zainstalować [platformę Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)|Wolumin, udział, folder, plik, stan systemu/bez systemu operacyjnego|
+|Serwery (32-bitowe i 64-bitowe)|Windows Server 2008 R2 z dodatkiem SP1 — wersja Standard i Enterprise|Maszyna wirtualna platformy Azure (gdy obciążenie działa jako maszyna wirtualna platformy Azure)<br /> <br /> Azure Stack|V3, V2<br />Musisz mieć uruchomiony program SP1 i zainstalować [platformę Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)|Wolumin, udział, folder, plik|
+|Serwery (32-bitowe i 64-bitowe)|Windows Server 2008 R2 z dodatkiem SP1 — wersja Standard i Enterprise|Maszyna wirtualna z systemem Windows w oprogramowaniu VMware (chroni obciążenia działające na maszynie wirtualnej z systemem Windows w oprogramowaniu VMWare)<br /> <br /> Azure Stack|V3, V2<br />Musisz mieć uruchomiony program SP1 i zainstalować [platformę Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)|Wolumin, udział, folder, plik, stan systemu/bez systemu operacyjnego|
 |Serwery (32-bitowe i 64-bitowe)|Windows Server 2008 SP2|Serwer fizyczny<br /><br />Lokalna maszyna wirtualna funkcji Hyper-V<br /> <br /> Azure Stack|Nieobsługiwane|Wolumin, udział, folder, plik, stan systemu/bez systemu operacyjnego|
 |Serwery (32-bitowe i 64-bitowe)|Windows Server 2008 SP2|Maszyna wirtualna z systemem Windows w oprogramowaniu VMware (chroni obciążenia działające na maszynie wirtualnej z systemem Windows w oprogramowaniu VMware)<br /> <br /> Azure Stack|V3, V2|Wolumin, udział, folder, plik, stan systemu/bez systemu operacyjnego|
 |Serwery (32-bitowe i 64-bitowe)|Windows Storage Server 2008|Serwer fizyczny<br /><br />Lokalna maszyna wirtualna funkcji Hyper-V<br /> <br /> Azure Stack|V3, V2|Wolumin, udział, folder, plik, stan systemu/bez systemu operacyjnego|

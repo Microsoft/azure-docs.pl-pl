@@ -2,13 +2,13 @@
 title: Konfigurowanie dostępu do rejestru publicznego
 description: Skonfiguruj reguły adresów IP, aby umożliwić dostęp do usługi Azure Container Registry z wybranych publicznych adresów IP lub zakresów adresów.
 ms.topic: article
-ms.date: 05/19/2020
-ms.openlocfilehash: 967f27c05301ff339765706d0b3088ffcbaed1f2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/17/2020
+ms.openlocfilehash: 0fbca1ec2734bf8275e12249f63ab134837fea12
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523829"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660929"
 ---
 # <a name="configure-public-ip-network-rules"></a>Konfigurowanie reguł sieci publicznych adresów IP
 
@@ -61,12 +61,12 @@ az acr network-rule add \
 
 Opcjonalnie można wyłączyć publiczny punkt końcowy w rejestrze. Wyłączenie publicznego punktu końcowego zastępuje wszystkie konfiguracje zapory. Na przykład możesz chcieć wyłączyć publiczny dostęp do rejestru zabezpieczonego w sieci wirtualnej za pomocą [linku prywatnego](container-registry-private-link.md).
 
+> [!NOTE]
+> Jeśli rejestr jest skonfigurowany w sieci wirtualnej z [punktem końcowym usługi](container-registry-vnet.md), wyłączenie dostępu do publicznego punktu końcowego rejestru powoduje także wyłączenie dostępu do rejestru w sieci wirtualnej.
+
 ### <a name="disable-public-access---cli"></a>Wyłącz dostęp publiczny — interfejs wiersza polecenia
 
-Aby wyłączyć dostęp publiczny za pomocą interfejsu wiersza polecenia platformy Azure, uruchom polecenie [AZ ACR Update][az-acr-update] i ustaw wartość `--public-network-enabled` `false` . 
-
-> [!NOTE]
-> `public-network-enabled`Argument wymaga interfejsu wiersza polecenia platformy Azure 2.6.0 lub nowszego. 
+Aby wyłączyć dostęp publiczny za pomocą interfejsu wiersza polecenia platformy Azure, uruchom polecenie [AZ ACR Update][az-acr-update] i ustaw wartość `--public-network-enabled` `false` . `public-network-enabled`Argument wymaga interfejsu wiersza polecenia platformy Azure 2.6.0 lub nowszego. 
 
 ```azurecli
 az acr update --name myContainerRegistry --public-network-enabled false
@@ -75,7 +75,7 @@ az acr update --name myContainerRegistry --public-network-enabled false
 ### <a name="disable-public-access---portal"></a>Wyłącz dostęp publiczny — Portal
 
 1. W portalu przejdź do rejestru kontenerów, a następnie wybierz pozycję **ustawienia > sieci**.
-1. Na karcie **dostęp publiczny** w obszarze **Zezwalaj na dostęp do sieci publicznej**wybierz pozycję **wyłączone**. Następnie wybierz przycisk **Zapisz**.
+1. Na karcie **dostęp publiczny** w obszarze **Zezwalaj na dostęp do sieci publicznej**wybierz pozycję **wyłączone**. Następnie wybierz pozycję **Zapisz**.
 
 ![Wyłącz dostęp publiczny][acr-access-disabled]
 
@@ -98,7 +98,7 @@ az acr update --name myContainerRegistry --public-network-enabled true
 ### <a name="restore-public-access---portal"></a>Przywracanie publicznego dostępu — Portal
 
 1. W portalu przejdź do rejestru kontenerów, a następnie wybierz pozycję **ustawienia > sieci**.
-1. Na karcie **dostęp publiczny** w obszarze **Zezwalaj na dostęp do sieci publicznej**wybierz pozycję **wszystkie sieci**. Następnie wybierz przycisk **Zapisz**.
+1. Na karcie **dostęp publiczny** w obszarze **Zezwalaj na dostęp do sieci publicznej**wybierz pozycję **wszystkie sieci**. Następnie wybierz pozycję **Zapisz**.
 
 ![Publiczny dostęp ze wszystkich sieci][acr-access-all-networks]
 

@@ -3,15 +3,15 @@ title: Zarządzanie grupami aplikacji dla systemu Windows Virtual Desktop Portal
 description: Jak zarządzać grupami aplikacji klasycznymi systemu Windows przy użyciu Azure Portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 08/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6baada4c3b376b936f693d45e39e5887e77ef54b
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e495288bcd2c966dab49925a55507ab1f2379f64
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010093"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88659487"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Samouczek: Zarządzanie grupami aplikacji przy użyciu Azure Portal
 
@@ -34,11 +34,15 @@ Jeśli utworzono już pulę hostów i maszyny wirtualne hosta sesji przy użyciu
 
 2.  Wyszukaj i wybierz pozycję **pulpit wirtualny systemu Windows**.
 
-3.  W menu po lewej stronie wybierz pozycję **grupy aplikacji** , a następnie wybierz pozycję **+ Dodaj**.
+3. Można dodać grupę aplikacji bezpośrednio lub dodać ją z istniejącej puli hostów. Wybierz opcję poniżej:
 
-4. Na karcie **podstawowe** wybierz grupę subskrypcji i grupę zasobów, dla której chcesz utworzyć grupę aplikacji. Możesz również utworzyć nową grupę zasobów zamiast wybierać istniejącą.
+    - W menu po lewej stronie wybierz pozycję **grupy aplikacji** , a następnie wybierz pozycję **+ Dodaj**.
 
-5. Wybierz pulę hostów, która zostanie skojarzona z grupą aplikacji z menu rozwijanego obok **puli hostów**.
+    - Wybierz pozycję **Pule hostów** w menu po lewej stronie ekranu, wybierz nazwę puli hostów, wybierz pozycję **grupy aplikacji** z menu po lewej stronie, a następnie wybierz pozycję **+ Dodaj**. W takim przypadku Pula hostów zostanie już wybrana na karcie podstawowe.
+
+4. Na karcie **podstawowe** wybierz **subskrypcję** i **grupę zasobów** , dla których chcesz utworzyć grupę aplikacji. Możesz również utworzyć nową grupę zasobów zamiast wybierać istniejącą.
+
+5. Wybierz **pulę hostów** , która zostanie skojarzona z grupą aplikacji z menu rozwijanego.
 
     >[!NOTE]
     >Musisz wybrać pulę hostów skojarzoną z grupą aplikacji. Grupy aplikacji mają aplikacje lub pulpity, które są obsługiwane przez Host sesji i hosty sesji, są częścią pul hostów. Grupa aplikacji musi być skojarzona z pulą hostów podczas tworzenia.
@@ -46,41 +50,27 @@ Jeśli utworzono już pulę hostów i maszyny wirtualne hosta sesji przy użyciu
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu przedstawiający kartę podstawowe w Azure Portal.](media/basics-tab.png)
 
-6. Jeśli chcesz dodać grupy aplikacji do puli hostów, wybierz pozycję **Pule hostów** w menu po lewej stronie ekranu.
-
-    Następnie wybierz nazwę puli hostów, do której chcesz dodać grupy aplikacji.
-
-    Po wybraniu tej opcji wybierz pozycję **grupy aplikacji** z menu po lewej stronie ekranu, a następnie wybierz pozycję **+ Dodaj**.
-
-    Na koniec wybierz grupę subskrypcji i grupę zasobów, w której chcesz utworzyć grupę aplikacji. Możesz wybrać nazwę istniejącej grupy zasobów z menu rozwijanego lub wybrać pozycję **Utwórz nową** , aby utworzyć nową.
-
-      >[!NOTE]
-      >Po dodaniu grup aplikacji do puli hostów Pula hostów, która jest powiązana z grupą aplikacji, jest już zaznaczona, ponieważ przejdziesz od niej.
-      >
-      > [!div class="mx-imgBorder"]
-      >![Zrzut ekranu przedstawiający kartę podstawowe z wybraną pulą hostów.](media/host-pool-selected.png)
-
-7. Wybierz pozycję **RemoteApp** w obszarze Typ grupy aplikacji, a następnie wprowadź nazwę dla usługi RemoteApp.
+6. Wybierz pozycję **RemoteApp** w obszarze **Typ grupy aplikacji**, a następnie wprowadź nazwę dla usługi RemoteApp.
 
       > [!div class="mx-imgBorder"]
       > ![Zrzut ekranu przedstawiający pola typu grupy aplikacji. Wyróżniono "RemoteApp".](media/remoteapp-button.png)
 
-8.  Wybierz kartę **przypisania** .
+7.  Wybierz kolejno pozycje **Dalej: przypisania >** karcie.
 
-9.  Aby opublikować poszczególnych użytkowników lub grupy użytkowników w grupie aplikacji, wybierz pozycję **+ Dodaj użytkowników usługi Azure AD lub grupy użytkowników**.
+8.  Aby przypisać poszczególnych użytkowników lub grupy użytkowników do grupy aplikacji, wybierz pozycję **+ Dodaj użytkowników usługi Azure AD lub grupy użytkowników**.
 
-10.  Wybierz liczbę użytkowników, do których chcesz dodać aplikacje. Można wybrać jednego lub wielu użytkowników i grup użytkowników.
+9.  Wybierz użytkowników, którym chcesz mieć dostęp do aplikacji. Można wybrać jednego lub wielu użytkowników i grup użytkowników.
 
      > [!div class="mx-imgBorder"]
      > ![Zrzut ekranu przedstawiający menu wyboru użytkownika.](media/select-users.png)
 
-11.  Wybierz pozycję **Wybierz**.
+10.  Wybierz pozycję **Wybierz**.
 
-12.  Wybierz kartę **aplikacje** , a następnie wybierz pozycję **+ Dodaj aplikacje**.
+11.  Wybierz pozycję **Dalej: aplikacje >**, a następnie wybierz pozycję **+ Dodaj aplikacje**.
 
-13.  Aby dodać aplikację z menu Start:
+12.  Aby dodać aplikację z menu Start:
 
-      - Przejdź do pozycji **Źródło aplikacji** i wybierz **menu Start** z menu rozwijanego. Następnie przejdź do **aplikacji** i wybierz aplikację z menu rozwijanego.
+      - W obszarze **Źródło aplikacji**wybierz pozycję **menu Start** z menu rozwijanego. Następnie w obszarze **aplikacja**wybierz aplikację z menu rozwijanego.
 
      > [!div class="mx-imgBorder"]
      > ![Zrzut ekranu przedstawiający ekran Dodawanie aplikacji z wybranym menu Start.](media/add-app-start.png)
@@ -89,11 +79,11 @@ Jeśli utworzono już pulę hostów i maszyny wirtualne hosta sesji przy użyciu
 
       - Pozostaw inne opcje jako-is i wybierz pozycję **Zapisz**.
 
-14. Aby dodać aplikację z określonej ścieżki pliku:
+13.  Aby dodać aplikację z określonej ścieżki pliku:
 
-      - Przejdź do pozycji **Źródło aplikacji** i wybierz pozycję **ścieżka pliku** z menu rozwijanego.
+      - W obszarze **Źródło aplikacji**wybierz pozycję **ścieżka pliku** z menu rozwijanego.
 
-      - Wprowadź ścieżkę do aplikacji na hoście sesji zarejestrowanej za pomocą skojarzonej puli hostów.
+      - W polu **ścieżka aplikacji**wprowadź ścieżkę do aplikacji na hoście sesji zarejestrowanym w skojarzonej puli hostów.
 
       - Wprowadź szczegóły aplikacji w polach **Nazwa aplikacji**, **Nazwa wyświetlana**, **ścieżka ikony**i **indeks ikony** .
 
@@ -102,11 +92,11 @@ Jeśli utworzono już pulę hostów i maszyny wirtualne hosta sesji przy użyciu
      > [!div class="mx-imgBorder"]
      > ![Zrzut ekranu przedstawiający stronę Dodawanie aplikacji z wybraną ścieżką pliku.](media/add-app-file.png)
 
-     Powtórz ten proces dla każdej aplikacji, którą chcesz dodać do grupy aplikacji.
+14.  Powtórz ten proces dla każdej aplikacji, którą chcesz dodać do grupy aplikacji.
 
-15.  Następnie wybierz kartę **obszar roboczy** .
+15.  Następnie wybierz pozycję **Dalej: obszar roboczy >**.
 
-16.  Jeśli chcesz zarejestrować grupę aplikacji w obszarze roboczym, przejdź do pozycji **zarejestruj grupę aplikacji** i wybierz opcję **tak**. Jeśli wolisz zarejestrować grupę aplikacji w późniejszym czasie, wybierz pozycję **nie**.
+16.  Jeśli chcesz zarejestrować grupę aplikacji w obszarze roboczym, wybierz pozycję **tak** dla opcji **zarejestruj grupę aplikacji**. Jeśli wolisz zarejestrować grupę aplikacji w późniejszym czasie, wybierz pozycję **nie**.
 
 17.  Jeśli wybierzesz opcję **tak**, możesz wybrać istniejący obszar roboczy, aby zarejestrować grupę aplikacji.
 
@@ -116,11 +106,11 @@ Jeśli utworzono już pulę hostów i maszyny wirtualne hosta sesji przy użyciu
      > [!div class="mx-imgBorder"]
      > ![Zrzut ekranu przedstawiający stronę Zarejestruj grupę aplikacji dla już istniejącego obszaru roboczego. Pula hostów jest wybierana jako prewybrana.](media/register-existing.png)
 
-18. Opcjonalnie, jeśli chcesz utworzyć Tagi, aby ułatwić organizowanie obszaru roboczego, wybierz kartę **Tagi** i wprowadź nazwy tagów.
+18.  Opcjonalnie, jeśli chcesz utworzyć Tagi, aby ułatwić organizowanie obszaru roboczego, wybierz pozycję **Dalej: tagi >** i wprowadź nazwy tagów.
 
-19. Gdy skończysz, wybierz kartę **Recenzja + tworzenie** .
+19.  Gdy skończysz, wybierz pozycję **Przegląd + Utwórz**.
 
-20. Poczekaj na zakończenie procesu walidacji. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz** , aby wdrożyć grupę aplikacji.
+20.  Poczekaj na zakończenie procesu walidacji. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz** , aby wdrożyć grupę aplikacji.
 
 Proces wdrażania wykona następujące czynności:
 

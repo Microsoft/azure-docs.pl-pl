@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/27/2020
 ms.author: thomasge
-ms.openlocfilehash: afc20052680e7f3e5b7d3a6b7320b7ca3b10dbd5
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: fd13fbc3b1ada0a9e974742d36bd231e3caf6ef6
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799861"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661065"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integracja Azure Active Directory zarządzanej przez AKS
 
@@ -20,7 +20,7 @@ Integracja z usługą Azure AD zarządzaną przez usługę AKS jest przeznaczona
 
 Administratorzy klastra mogą konfigurować kontrolę dostępu opartą na rolach (RBAC) Kubernetes na podstawie tożsamości użytkownika lub członkostwa w grupie katalogów. Uwierzytelnianie usługi Azure AD jest udostępniane Klastrom AKS z OpenID Connect Connect. OpenID Connect Connect to warstwa tożsamości utworzona na podstawie protokołu OAuth 2,0. Aby uzyskać więcej informacji na temat OpenID Connect Connect, zapoznaj [się z dokumentacją dotyczącą otwartych identyfikatorów][open-id-connect].
 
-Więcej informacji o przepływie integracji usługi AAD znajduje się w [dokumentacji dotyczącej pojęć dotyczących integracji Azure Active Directory](concepts-identity.md#azure-active-directory-integration).
+Więcej informacji o przepływie integracji usługi Azure AD znajduje się w dokumentacji dotyczącej [pojęć dotyczących integracji Azure Active Directory](concepts-identity.md#azure-active-directory-integration).
 
 ## <a name="region-availability"></a>Dostępność w danym regionie
 
@@ -32,8 +32,8 @@ Integracja Azure Active Directory zarządzanej przez AKS jest dostępna w region
 ## <a name="limitations"></a>Ograniczenia 
 
 * Nie można wyłączyć integracji usługi Azure AD zarządzanego przez usługę AKS
-* klastry z włączonymi innymi niż RBAC nie są obsługiwane w przypadku integracji usługi AAD zarządzanej przez AKS
-* Zmiana dzierżawy usługi Azure AD skojarzonej z integracją z usługą AAD zarządzaną przez AKS nie jest obsługiwana
+* klastry z włączonymi innymi niż RBAC nie są obsługiwane w przypadku integracji z usługą AKS instytucje
+* Zmiana dzierżawy usługi Azure AD skojarzonej z integracją usługi Azure AD zarządzanego przez usługę AKS nie jest obsługiwana
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -139,6 +139,31 @@ Aby wykonać te czynności, musisz mieć dostęp do wbudowanej roli [administrat
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster --admin
 ```
 
+## <a name="enable-aks-managed-azure-ad-integration-on-your-existing-cluster"></a>Włącz integrację usługi Azure AD zarządzaną przez usługę AKS w istniejącym klastrze
+
+Możesz włączyć integrację usługi Azure AD zarządzaną przez usługę AKS w istniejącym klastrze z włączoną funkcją RBAC. Upewnij się, że grupa administratorów ma mieć uprawnienia dostępu do klastra.
+
+```azurecli-interactive
+az aks update -g MyResourceGroup -n MyManagedCluster --enable-aad --aad-admin-group-object-ids <id-1> [--aad-tenant-id <id>]
+```
+
+Pomyślne uaktywnienie klastra usługi Azure AD zarządzanego przez usługę AKS ma następującą sekcję w treści odpowiedzi
+
+```output
+"AADProfile": {
+    "adminGroupObjectIds": [
+      "5d24****-****-****-****-****afa27aed"
+    ],
+    "clientAppId": null,
+    "managed": true,
+    "serverAppId": null,
+    "serverAppSecret": null,
+    "tenantId": "72f9****-****-****-****-****d011db47"
+  }
+```
+
+Pobierz ponownie poświadczenia użytkownika, aby uzyskać dostęp do klastra, wykonując kroki opisane [tutaj][access-cluster].
+
 ## <a name="upgrading-to-aks-managed-azure-ad-integration"></a>Uaktualnianie do integracji z usługą Azure AD zarządzanego przez usługę AKS
 
 Jeśli klaster korzysta ze starszej integracji usługi Azure AD, możesz uaktualnić program do integracji z usługą Azure AD AKS.
@@ -174,7 +199,7 @@ Istnieją nieinteraktywne scenariusze, takie jak potoki ciągłej integracji, kt
 * Poznaj [integrację usługi Azure AD z usługą KUBERNETES RBAC][azure-ad-rbac].
 * Użyj [kubelogin](https://github.com/Azure/kubelogin) , aby uzyskać dostęp do funkcji uwierzytelniania platformy Azure, które nie są dostępne w polecenia kubectl.
 * Dowiedz się więcej o [pojęciach dotyczących tożsamości AKS i Kubernetes][aks-concepts-identity].
-* Użyj [szablonów Azure Resource Manager (ARM)][aks-arm-template] do tworzenia klastrów z obsługą usługi Azure AD, które są zarządzane przez AKS.
+* Użyj [szablonów Azure Resource Manager (ARM) ][aks-arm-template] do tworzenia klastrów z obsługą usługi Azure AD, które są zarządzane przez AKS.
 
 <!-- LINKS - external -->
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-javascript
-ms.openlocfilehash: fafdf18a3593f7ec444e9970d99807cbfe0cb13d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: bbb0f530d95c78b8b5da178ee1544830ac3f7132
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080630"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660600"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Szybki Start: jak używać tematów Service Bus i subskrypcji z Node.js i pakietem Azure/Service-Bus
 W ramach tego samouczka nauczysz się napisać program Node.js do wysyłania komunikatów do Service Bus tematu i odbierania komunikatów z subskrypcji Service Bus przy użyciu nowego [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) pakietu. Ten pakiet używa szybszego [protokołu AMQP 1,0](service-bus-amqp-overview.md) , podczas gdy starszy pakiet [platformy Azure-SB](https://www.npmjs.com/package/azure-sb) używany [Service Bus interfejsów API czasu wykonywania REST](/rest/api/servicebus/service-bus-runtime-rest). Przykłady są zapisywane w języku JavaScript.
@@ -86,7 +86,7 @@ Tematy usługi Service Bus obsługują maksymalny rozmiar komunikatu 256 KB w [w
 Korzystanie z subskrypcji Service Bus rozpoczyna się od utworzenia wystąpienia klasy [ServiceBusClient](/javascript/api/@azure/service-bus/servicebusclient) i użycia jej do utworzenia wystąpienia klasy [SubscriptionClient](/javascript/api/@azure/service-bus/subscriptionclient) . Gdy masz klienta subskrypcji, możesz utworzyć odbiorcę i użyć metody [receiveMessages](/javascript/api/@azure/service-bus/receiver#receivemessages-number--undefined---number-) lub [registerMessageHandler](/javascript/api/@azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) do odbierania komunikatów.
 
 1. Otwórz ulubiony Edytor, taki jak [Visual Studio Code](https://code.visualstudio.com/)
-2. Utwórz plik o nazwie `recieve.js` i wklej do niego Poniższy kod. Ten kod będzie próbował otrzymywać 10 komunikatów z subskrypcji. Rzeczywista liczba jest zależna od liczby komunikatów w ramach subskrypcji i opóźnienia sieci.
+2. Utwórz plik o nazwie `receive.js` i wklej do niego Poniższy kod. Ten kod będzie próbował otrzymywać 10 komunikatów z subskrypcji. Rzeczywista liczba jest zależna od liczby komunikatów w ramach subskrypcji i opóźnienia sieci.
 
     ```javascript
     const { ServiceBusClient, ReceiveMode } = require("@azure/service-bus"); 
@@ -117,7 +117,7 @@ Korzystanie z subskrypcji Service Bus rozpoczyna się od utworzenia wystąpienia
     });
     ```
 3. Wprowadź parametry połączenia i nazwy tematu i subskrypcji w powyższym kodzie.
-4. Następnie uruchom polecenie `node receiveMessages.js` w wierszu polecenia, aby wykonać ten plik.
+4. Następnie uruchom polecenie `node receive.js` w wierszu polecenia, aby wykonać ten plik.
 
 Gratulacje! Właśnie odebrano komunikaty z subskrypcji Service Busej.
 

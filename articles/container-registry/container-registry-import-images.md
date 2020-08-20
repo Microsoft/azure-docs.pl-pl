@@ -2,13 +2,13 @@
 title: Importowanie obrazów kontenerów
 description: Zaimportuj obrazy kontenerów do usługi Azure Container Registry za pomocą interfejsów API platformy Azure bez konieczności uruchamiania poleceń platformy Docker.
 ms.topic: article
-ms.date: 03/16/2020
-ms.openlocfilehash: a7a6566540880d027b1dc3428d394b352f34318d
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.date: 08/17/2020
+ms.openlocfilehash: 66c3a8b19e2288c1f8720dd4fe79f348a11f052e
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023520"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660499"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importowanie obrazów kontenera do rejestru kontenerów
 
@@ -28,6 +28,8 @@ Importowanie obrazów do usługi Azure Container Registry ma następujące zalet
 
 * Podczas importowania obrazów wieloarchitekturowych (takich jak oficjalne obrazy platformy Docker) obrazy wszystkich architektur i platform określonych na liście manifestów zostaną skopiowane.
 
+* Dostęp do rejestrów źródłowych i docelowych nie musi używać publicznych punktów końcowych rejestrów.
+
 Aby zaimportować obrazy kontenerów, ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w Azure Cloud Shell lub lokalnie (zalecane jest w wersji 2.0.55 lub nowszej). Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli].
 
 > [!NOTE]
@@ -38,7 +40,7 @@ Aby zaimportować obrazy kontenerów, ten artykuł wymaga uruchomienia interfejs
 
 Jeśli nie masz jeszcze usługi Azure Container Registry, Utwórz rejestr. Aby uzyskać instrukcje, zobacz [Szybki Start: Tworzenie prywatnego rejestru kontenerów za pomocą interfejsu wiersza polecenia platformy Azure](container-registry-get-started-azure-cli.md).
 
-Do zaimportowania obrazu do usługi Azure Container Registry tożsamość musi mieć uprawnienia do zapisu w rejestrze docelowym (co najmniej rola współautor). Zobacz [Azure Container Registry ról i uprawnień](container-registry-roles.md). 
+Do zaimportowania obrazu do usługi Azure Container Registry tożsamość musi mieć uprawnienia do zapisu w rejestrze docelowym (co najmniej rola współautor lub rola niestandardowa, która umożliwia działanie importImage). Zobacz [Azure Container Registry ról i uprawnień](container-registry-roles.md#custom-roles). 
 
 ## <a name="import-from-a-public-registry"></a>Importuj z rejestru publicznego
 
@@ -85,9 +87,11 @@ az acr import \
 
 Możesz zaimportować obraz z innego rejestru kontenera platformy Azure przy użyciu zintegrowanych uprawnień Azure Active Directory.
 
-* Twoja tożsamość musi mieć uprawnienia Azure Active Directory do odczytu z rejestru źródłowego (roli czytelnika) i zapisu w rejestrze docelowym (rola współautora).
+* Twoja tożsamość musi mieć uprawnienia Azure Active Directory do odczytu z rejestru źródłowego (roli czytelnika) oraz do importowania do rejestru docelowego (rola współautora lub [rola niestandardowa](container-registry-roles.md#custom-roles) , która umożliwia działanie importImage).
 
 * Rejestr może znajdować się w tej samej lub innej subskrypcji platformy Azure w tej samej dzierżawie Active Directory.
+
+* [Publiczny dostęp](container-registry-access-selected-networks.md#disable-public-network-access) do rejestru źródłowego może być wyłączony. Jeśli dostęp publiczny jest wyłączony, określ rejestr źródłowy według identyfikatora zasobu zamiast nazwy serwera logowania rejestru.
 
 ### <a name="import-from-a-registry-in-the-same-subscription"></a>Importuj z rejestru w ramach tej samej subskrypcji
 
@@ -98,6 +102,16 @@ az acr import \
   --name myregistry \
   --source mysourceregistry.azurecr.io/aci-helloworld:latest \
   --image aci-helloworld:latest
+```
+
+Poniższy przykład importuje `aci-helloworld:latest` obraz do *rejestru* ze źródłowego rejestru *mysourceregistry* , w którym dostęp do publicznego punktu końcowego rejestru jest wyłączony. Podaj identyfikator zasobu rejestru źródłowego z `--registry` parametrem. Należy zauważyć, że `--source` parametr określa tylko repozytorium źródłowe i tag, a nie nazwę serwera logowania rejestru.
+
+```azurecli
+az acr import \
+  --name myregistry \
+  --source aci-helloworld:latest \
+  --image aci-helloworld:latest \
+  --registry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry
 ```
 
 Poniższy przykład importuje obraz przez szyfrowanie manifestu (skrót SHA-256, reprezentowane jako `sha256:...` ), a nie przez tag:

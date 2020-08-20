@@ -5,17 +5,17 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
-ms.date: 07/28/2020
-ms.openlocfilehash: 675d4bdb0b8c0aa8e034d5a85dc027f642705fa9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 08/18/2020
+ms.openlocfilehash: 2dd086ccc45458299cf6b8a7ad83d023055c96ae
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386184"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661201"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connect to on-premises data sources from Azure Logic Apps (Łączenie z lokalnymi źródłami danych z usługi Azure Logic Apps)
 
-Po [zainstalowaniu lokalnej *bramy danych* na komputerze lokalnym](../logic-apps/logic-apps-gateway-install.md) i przed uzyskaniem dostępu do źródeł danych lokalnych z aplikacji logiki należy utworzyć zasób bramy na platformie Azure na potrzeby instalacji bramy. Następnie można wybrać ten zasób bramy w wyzwalaczach i akcjach, które mają być używane dla [łączników lokalnych](../connectors/apis-list.md#on-premises-connectors) dostępnych w Azure Logic Apps.
+Po [zainstalowaniu lokalnej *bramy danych* na komputerze lokalnym](../logic-apps/logic-apps-gateway-install.md) i przed uzyskaniem dostępu do źródeł danych lokalnych z aplikacji logiki należy utworzyć zasób bramy na platformie Azure na potrzeby instalacji bramy. Następnie można wybrać ten zasób bramy w wyzwalaczach i akcjach, które mają być używane dla [łączników lokalnych](../connectors/apis-list.md#on-premises-connectors) dostępnych w Azure Logic Apps. Azure Logic Apps obsługuje operacje odczytu i zapisu za pomocą bramy danych. Jednak te operacje mają [limity rozmiaru ładunku](/data-integration/gateway/service-gateway-onprem#considerations).
 
 W tym artykule przedstawiono sposób tworzenia zasobu bramy platformy Azure dla wcześniej [zainstalowanej bramy na komputerze lokalnym](../logic-apps/logic-apps-gateway-install.md). Aby uzyskać więcej informacji o bramie, zobacz [jak działa Brama](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
 
@@ -48,7 +48,7 @@ W Azure Logic Apps lokalna Brama danych obsługuje [Łączniki lokalne](../conne
 * SQL Server
 * Teradata
 
-Azure Logic Apps obsługuje operacje odczytu i zapisu za pomocą bramy danych. Jednak te operacje mają [limity rozmiaru ładunku](/data-integration/gateway/service-gateway-onprem#considerations). Mimo że sama Brama nie wiąże się z dodatkowymi kosztami, [model cenowy Logic Apps](../logic-apps/logic-apps-pricing.md) ma zastosowanie do tych łączników i innych operacji w Azure Logic Apps.
+Możesz również utworzyć [Łączniki niestandardowe](../logic-apps/custom-connector-overview.md) łączące się ze źródłami danych za pośrednictwem protokołu HTTP lub HTTPS za pomocą interfejsu REST lub protokołu SOAP. Mimo że sama Brama nie wiąże się z dodatkowymi kosztami, [model cenowy Logic Apps](../logic-apps/logic-apps-pricing.md) ma zastosowanie do tych łączników i innych operacji w Azure Logic Apps.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

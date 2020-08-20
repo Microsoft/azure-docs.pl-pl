@@ -7,12 +7,12 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
-ms.openlocfilehash: 1b6f54c823f59bb654ac86f041eefe80af3eb5ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 21909a9c7a1edda5059b9e83cf8dda243862b966
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003869"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660211"
 ---
 # <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>Szybki Start: Tworzenie maszyny wirtualnej SQL Server przy użyciu szablonu ARM
 
@@ -37,7 +37,7 @@ Szablon SQL Server VM ARM wymaga następujących czynności:
 
 Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-sql-vm-new-storage/).
 
-:::code language="json" source="~/quickstart-templates/101-sql-vm-new-storage/azuredeploy.json" highlight="169-310":::
+:::code language="json" source="~/quickstart-templates/101-sql-vm-new-storage/azuredeploy.json":::
 
 W szablonie zdefiniowano pięć zasobów platformy Azure: 
 
@@ -77,7 +77,7 @@ Więcej SQL Server na temat szablonów maszyn wirtualnych platformy Azure można
     * **Ścieżka dziennika**: ścieżka do SQL Server plików dziennika. 
     * **Lokalizacja**: lokalizacja dla wszystkich zasobów, ta wartość powinna pozostać wartością domyślną `[resourceGroup().location]` . 
 
-3. Wybierz pozycję **Przeglądanie + tworzenie**. Po pomyślnym wdrożeniu maszyny wirtualnej SQL Server otrzymujesz powiadomienie.
+3. Wybierz pozycję **Przejrzyj i utwórz**. Po pomyślnym wdrożeniu maszyny wirtualnej SQL Server otrzymujesz powiadomienie.
 
 Szablon jest wdrażany za pomocą witryny Azure Portal. Oprócz Azure Portal można również używać Azure PowerShell, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../../../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -92,7 +92,7 @@ read resourcegroupName &&
 az resource list --resource-group $resourcegroupName 
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli grupa zasobów nie jest już konieczna, usuń ją za pomocą interfejsu wiersza polecenia platformy Azure lub Azure PowerShell:
 
@@ -120,7 +120,7 @@ Write-Host "Press [ENTER] to continue..."
 Aby zapoznać się z samouczkiem krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu, zobacz:
 
 > [!div class="nextstepaction"]
-> [Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
 
 Aby poznać inne sposoby wdrażania SQL Server maszyny wirtualnej, zobacz: 
 - [Witryna Azure Portal](create-sql-vm-portal.md)

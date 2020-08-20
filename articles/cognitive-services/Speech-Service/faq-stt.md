@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/4/2019
+ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 2c84b291aad5ec2da2946e40075b23cc4496ef65
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: a14ac8089aa29a592164168e6ccfc4fd2342f68c
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921019"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661524"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Zamiana mowy na tekst często zadawanych pytań
 
@@ -75,7 +75,7 @@ Odp **.: domyślnie**żądania nie są rejestrowane (ani audio ani transkrypcja)
 
 **P: Czy moje żądania są ograniczone?**
 
-Odp **.: interfejs**API REST ogranicza liczbę żądań do 25 na 5 sekund. Szczegółowe informacje znajdują się na stronach na potrzeby [zamiany mowy na tekst](speech-to-text.md).
+Odp **.: Zobacz** [przydziały i limity usługi Speech Services](speech-services-quotas-and-limits.md).
 
 **P: jak opłaty są naliczane za dwa kanały audio?**
 
@@ -85,52 +85,14 @@ Odp **.: Jeśli**przesyłasz każdy kanał osobno (każdy kanał w osobnym pliku
 > Jeśli masz jeszcze inne problemy z ochroną prywatności, które uniemożliwiają korzystanie z usługi Custom Speech Service, skontaktuj się z jednym z kanałów pomocy technicznej.
 
 ## <a name="increasing-concurrency"></a>Zwiększanie współbieżności
+Zobacz [przydziały i limity usługi Speech Services](speech-services-quotas-and-limits.md).
 
-**P: co zrobić, jeśli potrzebuję wyższego współbieżności dla mojego wdrożonego modelu niż to, co jest oferowane w portalu?**
-
-Odp **.: można**skalować w górę modelu w przyrostach 20 współbieżnych żądań.
-
-Korzystając z wymaganych informacji, Utwórz żądanie pomocy technicznej w [portalu pomocy technicznej systemu Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Nie Publikuj informacji na żadnym z publicznych kanałów (GitHub, StackOverflow,...) wymienionym na [stronie pomocy technicznej](support.md).
-
-Aby zwiększyć współbieżność ***modelu niestandardowego***, potrzebne są następujące informacje:
-
-- Region, w którym jest wdrożony model,
-- Identyfikator punktu końcowego wdrożonego modelu:
-  - Czy masz do [portalu Custom Speech](https://aka.ms/customspeech),
-  - Zaloguj się (w razie potrzeby),
-  - Wybierz projekt i wdrożenie,
-  - Wybierz punkt końcowy, dla którego chcesz zwiększyć współbieżność,
-  - Skopiuj `Endpoint ID` .
-
-Aby zwiększyć współbieżność ***modelu podstawowego***, potrzebne są następujące informacje:
-
-- Region usługi,
-
-i albo
-
-- token dostępu do subskrypcji (patrz [tutaj](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
-
-lub
-
-- Identyfikator zasobu dla subskrypcji:
-  - Przejdź do [Azure Portal](https://portal.azure.com),
-  - Wybierz `Cognitive Services` w polu wyszukiwania
-  - z wyświetlanych usług wybierz usługę mowy, dla której chcesz zwiększyć współbieżność,
-  - Wyświetl `Properties` dla tej usługi,
-  - Skopiuj komplet `Resource ID` .
-  
-**P: czy zwiększenie mojego limitu współbieżności zwiększa mój koszt?**
-
-Odp **.: nie**, koszt jest oparty na użyciu. Zwiększenie współbieżności nie prowadzi do wyższych kosztów. Aby uzyskać szczegółowe informacje o kosztach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) . 
-  
->[!NOTE]
->[Kontenery](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) nie wymagają zwiększenia ograniczeń współbieżności, ponieważ kontenery są ograniczone tylko przez procesory, w których są hostowane sprzęt.
 
 ## <a name="importing-data"></a>Importowanie danych
 
 **P: jaki jest limit rozmiaru zestawu danych i dlaczego jest to limit?**
 
-Odp **.: bieżący**limit zestawu danych wynosi 2 GB. Limit jest spowodowany przez ograniczenie rozmiaru pliku na potrzeby przekazywania HTTP.
+Odp **.: limit**jest spowodowany przez ograniczenie rozmiaru pliku na potrzeby przekazywania http. Zapoznaj się z limitem [przydziału i limitów usługi mowy](speech-services-quotas-and-limits.md) dla rzeczywistego limitu.
 
 **P: Czy mogę zip moje pliki tekstowe, aby można było przekazać większy plik tekstowy?**
 
@@ -198,7 +160,7 @@ Odp **.:** Model dzierżawy jest tworzony przy użyciu [publicznych grup](https:
 
 **P: jakie środowiska mowy zostały ulepszone przez model dzierżawców?**
 
-Odp **.:** Gdy model dzierżawy jest włączony, tworzony i publikowany, służy do ulepszania rozpoznawania dla dowolnych aplikacji przedsiębiorstwa utworzonych przy użyciu usługi Speech. to również przekazanie tokenu usługi AAD użytkownika wskazującego na członkostwo w przedsiębiorstwie.
+Odp **.:** Gdy model dzierżawy jest włączony, tworzony i publikowany, służy do ulepszania rozpoznawania dla dowolnych aplikacji przedsiębiorstwa utworzonych przy użyciu usługi Speech. to również przekazywanie użytkownikowi tokenu usługi Azure AD wskazującego na członkostwo w przedsiębiorstwie.
 
 Funkcje mowy wbudowane w pakiet Office 365, takie jak dyktowanie i podpisy programu PowerPoint, nie ulegają zmianie podczas tworzenia modelu dzierżawców dla aplikacji usługi Speech.
 
