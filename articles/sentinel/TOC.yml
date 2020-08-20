@@ -58,10 +58,10 @@
               href: connect-azure-security-center.md
             - name: Azure Security Center dla IoT
               href: connect-asc-iot.md
-            - name: Serwer nazw domen
-              href: connect-dns.md
             - name: Zapora aplikacji internetowej platformy Azure
               href: connect-azure-waf.md
+            - name: Serwer nazw domen
+              href: connect-dns.md
             - name: Zapora systemu Windows
               href: connect-windows-firewall.md
             - name: Zdarzenia zabezpieczeń systemu Windows
