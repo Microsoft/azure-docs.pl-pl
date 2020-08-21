@@ -3,43 +3,46 @@ title: Korzystanie z tożsamości zarządzanych przez platformę Azure do tworze
 description: Dowiedz się, jak używać tożsamości zarządzanych na platformie Azure, aby wdrażać środowiska w laboratorium w Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4d4df9cab17289eba21caf9d7c88eb37626b3349
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5bac4210afee6db1c7617dac1cd6d2ff9149439
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478879"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718984"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Używanie tożsamości zarządzanych przez platformę Azure do wdrażania środowisk w laboratorium 
+
 Jako właściciel laboratorium możesz użyć tożsamości zarządzanej, aby wdrażać środowiska w laboratorium. Ta funkcja jest przydatna w scenariuszach, w których środowisko zawiera lub ma odwołania do zasobów platformy Azure, takich jak magazyny kluczy, udostępnione Galerie obrazów i sieci spoza grupy zasobów środowiska. Umożliwia tworzenie środowisk piaskownicy, które nie są ograniczone do grupy zasobów tego środowiska.
 
 > [!NOTE]
 > Obecnie obsługiwana jest pojedyncza tożsamość przypisana przez użytkownika dla laboratorium. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
+
 - [Utwórz, Wyświetl, Usuń lub Przypisz rolę do zarządzanej tożsamości przypisanej przez użytkownika przy użyciu Azure Portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
+    
+    Upewnij się, że zarządzana tożsamość została utworzona w tym samym regionie i w ramach subskrypcji. Tożsamość zarządzana nie musi znajdować się w tej samej grupie zasobów.
 
 ## <a name="use-azure-portal"></a>Korzystanie z witryny Azure Portal
+
 W tej sekcji jako właściciel laboratorium Użyj Azure Portal, aby dodać tożsamość zarządzaną przez użytkownika do laboratorium. 
 
-1. Na stronie laboratorium wybierz pozycję **Konfiguracja i zasady**. 
-1. W sekcji **Ustawienia** wybierz pozycję **tożsamość** .
-1. Aby dodać tożsamość przypisaną do użytkownika, wybierz pozycję **Dodaj** na pasku narzędzi. 
-1. Wybierz **tożsamość** z wstępnie wypełnionej listy rozwijanej.
-1. Wybierz przycisk **OK**.
-
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Wyszukaj **DevTest Labs**.
+1. Z listy laboratoriów wybierz odpowiednie laboratorium.
+1. Wybierz pozycję **Konfiguracja i zasady**  ->  **tożsamość (wersja zapoznawcza)**. 
+1. Aby dodać tożsamość przypisaną do użytkownika, wybierz kartę **przypisane przez użytkownika** .
+1. Naciśnij przycisk **Dodaj** .
+1. Wybierz z listy rozwijanej istniejącego użytkownika i/lub dostęp do niego.
+ 
     ![Dodawanie tożsamości zarządzanej przez użytkownika](./media/use-managed-identities-environments/add-user-managed-identity.png)
-2. Na liście zostanie wyświetlona dodana tożsamość zarządzana przez użytkownika. 
+1. Naciśnij pozycję **Zapisz** w górnej części strony.
 
-    ![Tożsamość zarządzana przez użytkownika na liście](./media/use-managed-identities-environments/identity-in-list.png)
-
-Po zapisaniu laboratorium będzie używać tej tożsamości podczas wdrażania wszystkich środowisk laboratoryjnych. Możesz również uzyskać dostęp do zasobu tożsamości na platformie Azure, wybierając tożsamość z listy. 
+    Po zapisaniu laboratorium będzie używać tej tożsamości podczas wdrażania wszystkich środowisk laboratoryjnych. Możesz również uzyskać dostęp do zasobu tożsamości na platformie Azure, wybierając tożsamość z listy. 
 
 Właściciel laboratorium nie musi wykonywać żadnych specjalnych czynności podczas wdrażania środowiska, o ile tożsamość dodana do laboratorium ma uprawnienia do zasobów zewnętrznych, do których środowisko musi uzyskać dostęp. 
 
 Aby zmienić tożsamość zarządzaną przez użytkownika, która została przypisana do laboratorium, najpierw usuń tożsamość dołączoną do laboratorium, a następnie Dodaj kolejną do laboratorium. Aby usunąć tożsamość dołączoną do laboratorium, wybierz pozycję **... (wielokropek)**, a następnie kliknij przycisk **Usuń**. 
-
-![Tożsamość zarządzana przez użytkownika na liście](./media/use-managed-identities-environments/replace-identity.png)  
 
 ## <a name="use-api"></a>Korzystanie z interfejsu API
 
@@ -66,7 +69,7 @@ Aby zmienić tożsamość zarządzaną przez użytkownika, która została przyp
     }
     ```
  
-    Przykład: 
+    Oto przykład: 
 
     ```json
     PUT https://management.azure.com/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/exampleRG/providers/Microsoft.Devtestlab/labs/mylab/serviceRunners/sampleuseridentity

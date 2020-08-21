@@ -4,15 +4,15 @@ description: Replikowanie Azure Analysis Services serwerów z skalowaniem w pozi
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 08/20/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3ea304d038618fc428f20e7ad72b398f593d09a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ceed2a287fb210a421972e9c9f9e6c77c6cb1879
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78247989"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716932"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Skalowanie w poziomie usług Azure Analysis Services
 
@@ -50,7 +50,7 @@ Podczas kolejnej operacji skalowania w poziomie, na przykład zwiększając licz
 
 ### <a name="synchronization-mode"></a>Tryb synchronizacji
 
-Domyślnie repliki zapytań są podwodne w całości, a nie przyrostowo. Uzupełnianie odbywa się na etapach. Są one odłączone i dołączane dwa jednocześnie (przy założeniu, że istnieją co najmniej trzy repliki), aby upewnić się, że co najmniej jedna replika jest w trybie online w przypadku zapytań w danym momencie. W niektórych przypadkach klienci mogą wymagać ponownego nawiązania połączenia z jedną z replik w trybie online w trakcie tego procesu. Za pomocą ustawienia **ReplicaSyncMode** (w wersji zapoznawczej) można teraz określić, że synchronizacja repliki zapytań odbywa się równolegle. Synchronizacja równoległa zapewnia następujące korzyści: 
+Domyślnie repliki zapytań są podwodne w całości, a nie przyrostowo. Uzupełnianie odbywa się na etapach. Są one odłączone i dołączane dwa jednocześnie (przy założeniu, że istnieją co najmniej trzy repliki), aby upewnić się, że co najmniej jedna replika jest w trybie online w przypadku zapytań w danym momencie. W niektórych przypadkach klienci mogą wymagać ponownego nawiązania połączenia z jedną z replik w trybie online w trakcie tego procesu. Za pomocą ustawienia **ReplicaSyncMode** można teraz określić, że synchronizacja repliki zapytań odbywa się równolegle. Synchronizacja równoległa zapewnia następujące korzyści: 
 
 - Znaczna redukcja czasu synchronizacji. 
 - Dane między replikami mogą być spójne podczas procesu synchronizacji. 
@@ -61,7 +61,7 @@ Domyślnie repliki zapytań są podwodne w całości, a nie przyrostowo. Uzupeł
 
 Użyj programu SSMS, aby ustawić ReplicaSyncMode w zaawansowanych właściwościach. Możliwe wartości są następujące: 
 
-- `1`(ustawienie domyślne): pełna replika jest uzupełniana w etapach (przyrostowo). 
+- `1` (ustawienie domyślne): pełna replika jest uzupełniana w etapach (przyrostowo). 
 - `2`: Zoptymalizowana synchronizacja równolegle. 
 
 ![Ustawienie RelicaSyncMode](media/analysis-services-scale-out/aas-scale-out-sync-mode.png)

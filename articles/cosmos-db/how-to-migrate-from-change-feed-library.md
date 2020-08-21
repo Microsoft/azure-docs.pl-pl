@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 9640800bb53fe2fd5b27cb6e232e09c72158f8da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b610748e425b9497e12c389cca4d797d6da54087
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261413"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719006"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Migrowanie z biblioteki procesora źródła zmian do zestawu SDK platformy Azure Cosmos DB .NET v3
 
@@ -46,10 +46,6 @@ Podobnie jak w przypadku biblioteki procesora kanału informacyjnego zmiany funk
 Procesor kanału informacyjnego zmian zestawu SDK v3 wykrywa stary stan biblioteki i migruje go do nowego schematu automatycznie przy pierwszym wykonaniu zmigrowanego kodu aplikacji. 
 
 Możesz bezpiecznie zatrzymać aplikację przy użyciu starego kodu, zmigrować kod do nowej wersji, uruchomić zmigrowane aplikacje i wszelkie zmiany, które wystąpiły podczas zatrzymania aplikacji, zostaną pobrane i przetworzone przez nową wersję.
-
-> [!NOTE]
-> Migracje z aplikacji korzystających z biblioteki programu .NET v3 SDK są jednokierunkowe, ponieważ stan (dzierżawy) zostanie zmigrowany do nowego schematu. Migracja nie jest zgodna z poprzednimi wersjami.
-
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 

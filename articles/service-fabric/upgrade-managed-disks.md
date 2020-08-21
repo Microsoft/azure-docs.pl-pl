@@ -3,12 +3,12 @@ title: Uaktualnianie węzłów klastra do korzystania z usługi Azure Managed di
 description: Oto jak uaktualnić istniejący klaster Service Fabric, aby używać usługi Azure Managed disks z niewielkim lub żadnym przestojem klastra.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 74b4ec803229ceb0168da6540fcbda685f0df16e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 152bdaea121e65de8332fcde8543b8158ff11714
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653702"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717527"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Uaktualnianie węzłów klastra do korzystania z usługi Azure Managed disks
 
@@ -365,7 +365,7 @@ W tym instruktażu pokazano, jak uaktualnić zestawy skalowania maszyn wirtualny
 
 Instrukcje:
 
-* [Skalowanie w górę węzła klastra usługi Service Fabric podstawowego typu](service-fabric-scale-up-node-type.md)
+* [Skalowanie w górę węzła klastra usługi Service Fabric podstawowego typu](service-fabric-scale-up-primary-node-type.md)
 
 * [Konwertowanie szablonu zestawu skalowania w celu korzystania z dysków zarządzanych](../virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md.md)
 

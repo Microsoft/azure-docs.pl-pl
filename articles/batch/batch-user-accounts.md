@@ -2,14 +2,14 @@
 title: Uruchamianie zadań w obszarze konta użytkowników
 description: Informacje o typach kont użytkowników i sposobach ich konfigurowania.
 ms.topic: how-to
-ms.date: 11/18/2019
+ms.date: 08/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 412947b939d95be29dde374b311776829fa12582
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: cce374e7d7ffb513bed882b048ea54bcbad81b0b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142679"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719363"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Uruchamianie zadań w obszarze konta użytkowników w usłudze Batch
 
@@ -49,18 +49,13 @@ Poziom podniesienia uprawnień konta użytkownika wskazuje, czy zadanie jest uru
 
 ## <a name="auto-user-accounts"></a>Konta użytkowników
 
-Domyślnie zadania są uruchamiane w usłudze Batch w ramach konta autoużytkownika jako użytkownik standardowy bez podwyższonego poziomu uprawnień oraz z zakresem zadania. Po skonfigurowaniu dla zakresu zadania specyfikacji dla autoużytkownika usługa Batch tworzy konto użytkownika tylko dla tego zadania.
+Domyślnie zadania są uruchamiane w usłudze Batch w ramach konta użytkownika standardowego, jako użytkownik standardowy bez podwyższonego poziomu uprawnień i z zakresem puli. Zakres puli oznacza, że zadanie jest uruchamiane w ramach konta użytkownika, które jest dostępne dla każdego zadania w puli. Aby uzyskać więcej informacji na temat zakresu puli, zobacz [Uruchamianie zadania jako użytkownika z zakresem puli](#run-a-task-as-an-auto-user-with-pool-scope).
 
-Alternatywą dla zakresu zadania jest zakres puli. W przypadku skonfigurowania dla zadania specyfikacji autoużytkownika dla zakresu puli zadanie jest uruchamiane w ramach konta autoużytkownika, które jest dostępne dla każdego zadania w puli. Aby uzyskać więcej informacji na temat zakresu puli, zobacz [Uruchamianie zadania jako użytkownika z zakresem puli](#run-a-task-as-an-auto-user-with-pool-scope).
-
-Zakres domyślny jest różny w węzłach systemów Windows i Linux:
-
-- W węzłach systemu Windows zadania są domyślnie uruchamiane w obszarze Zakres zadania.
-- Węzły systemu Linux są zawsze uruchamiane w zakresie puli.
+Alternatywą dla zakresu puli jest zakres zadań. Po skonfigurowaniu dla zakresu zadania specyfikacji dla autoużytkownika usługa Batch tworzy konto użytkownika tylko dla tego zadania.
 
 Istnieją cztery możliwe konfiguracje dla specyfikacji autoużytkownika, z których każdy odnosi się do unikatowego konta użytkownika:
 
-- Dostęp niebędący administratorami do zakresu zadania (domyślna Specyfikacja użytkownika)
+- Dostęp niebędący administratorem z zakresem zadania
 - Dostęp administratora (podwyższony poziom) do zakresu zadania
 - Dostęp niebędący administratorem z zakresem puli
 - Dostęp administratora z zakresem puli
@@ -75,7 +70,7 @@ Można skonfigurować specyfikację autoużytkownika dla uprawnień administrato
 > [!NOTE]
 > Używaj podwyższonego poziomu dostępu tylko w razie potrzeby. Najlepsze rozwiązania zalecają przyznanie minimalnego uprawnienia niezbędnego do osiągnięcia żądanego wyniku. Na przykład, jeśli zadanie startowe instaluje oprogramowanie dla bieżącego użytkownika, a nie dla wszystkich użytkowników, może być możliwe uniknięcie przyznawania podwyższonego poziomu dostępu do zadań. Można skonfigurować specyfikację autoużytkownika dla zakresu puli i dostęp niebędący administratorami dla wszystkich zadań, które muszą być uruchamiane w ramach tego samego konta, w tym zadania podrzędnego uruchamiania.
 
-Poniższe fragmenty kodu pokazują, jak skonfigurować specyfikację autoużytkownika. Przykłady ustawiają poziom podniesienia uprawnień `Admin` i zakres do `Task` . Zakres zadania jest ustawieniem domyślnym, ale jest tu uwzględniony na przykład.
+Poniższe fragmenty kodu pokazują, jak skonfigurować specyfikację autoużytkownika. Przykłady ustawiają poziom podniesienia uprawnień `Admin` i zakres do `Task` .
 
 #### <a name="batch-net"></a>Batch .NET
 
@@ -90,7 +85,7 @@ taskToAdd.withId(taskId)
             .withAutoUser(new AutoUserSpecification()
                 .withElevationLevel(ElevationLevel.ADMIN))
                 .withScope(AutoUserScope.TASK));
-        .withCommandLine("cmd /c echo hello");                        
+        .withCommandLine("cmd /c echo hello");
 ```
 
 #### <a name="batch-python"></a>Batch Python
@@ -113,7 +108,7 @@ Po przydzieleniu węzła w każdym węźle w puli są tworzone dwa konta użytko
 
 Po określeniu zakresu puli dla autoużytkownika wszystkie zadania uruchamiane z uprawnieniami administratora są uruchamiane w ramach tego samego konta autoużytkownika w całej puli. Podobnie zadania, które są uruchamiane bez uprawnień administratora, również są uruchamiane w ramach pojedynczego konta użytkownika w całej puli.
 
-> [!NOTE] 
+> [!NOTE]
 > Dwa konta użytkowników w całej puli są oddzielnymi kontami. Zadania uruchomione w ramach konta administratora na całej puli nie mogą udostępniać danych za pomocą zadań uruchomionych w ramach konta standardowego i na odwrót.
 
 Korzystanie z tego samego konta użytkownika jest możliwe, ponieważ zadania mogą współużytkować dane z innymi zadaniami uruchomionymi w tym samym węźle.
@@ -291,7 +286,7 @@ Usługa Batch w wersji 2017 -01-01.4.0 wprowadza istotną zmianę, zastępując 
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.RunElevated = true;`       | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin));`    |
 | `CloudTask.RunElevated = false;`      | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.NonAdmin));` |
-| `CloudTask.RunElevated`nie określono | Aktualizacja nie jest wymagana                                                                                               |
+| `CloudTask.RunElevated` nie określono | Aktualizacja nie jest wymagana                                                                                               |
 
 ### <a name="batch-java"></a>Batch Java
 
@@ -299,7 +294,7 @@ Usługa Batch w wersji 2017 -01-01.4.0 wprowadza istotną zmianę, zastępując 
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.withRunElevated(true);`        | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.ADMIN));`    |
 | `CloudTask.withRunElevated(false);`       | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.NONADMIN));` |
-| `CloudTask.withRunElevated`nie określono | Aktualizacja nie jest wymagana                                                                                                                     |
+| `CloudTask.withRunElevated` nie określono | Aktualizacja nie jest wymagana                                                                                                                     |
 
 ### <a name="batch-python"></a>Batch Python
 
@@ -307,7 +302,7 @@ Usługa Batch w wersji 2017 -01-01.4.0 wprowadza istotną zmianę, zastępując 
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `run_elevated=True`                       | `user_identity=user`, gdzie <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin))`                |
 | `run_elevated=False`                      | `user_identity=user`, gdzie <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.non_admin))`             |
-| `run_elevated`nie określono | Aktualizacja nie jest wymagana                                                                                                                                  |
+| `run_elevated` nie określono | Aktualizacja nie jest wymagana                                                                                                                                  |
 
 ## <a name="next-steps"></a>Następne kroki
 

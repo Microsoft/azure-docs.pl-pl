@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acf7f89ab7c84d74dcd6e3dff2c2c688da1cefea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d70fe8a1fbaee285843bfd76ad2a8076df96b49b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550621"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717969"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Włącz logowanie za pomocą klucza zabezpieczeń bez hasła na urządzeniach z systemem Windows 10 z Azure Active Directory (wersja zapoznawcza)
 
@@ -37,7 +37,7 @@ Ten dokument koncentruje się na włączaniu uwierzytelniania bezhaseł opartego
 | [Urządzenia dołączone do hybrydowej usługi Azure AD](../devices/concept-azure-ad-join-hybrid.md) wymagają systemu Windows 10 w wersji 2004 lub nowszej |   | X |
 | W pełni poprawione kontrolery domeny systemu Windows Server 2016/2019. |   | X |
 | [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) w wersji 1.4.32.0 lub nowszej |   | X |
-| [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (opcjonalnie) | X | X |
+| [Microsoft Intune](/intune/fundamentals/what-is-intune) (opcjonalnie) | X | X |
 | Pakiet aprowizacji (opcjonalnie) | X | X |
 | Zasady grupy (opcjonalnie) |   | X |
 
@@ -93,14 +93,14 @@ Aby włączyć dostawcę poświadczeń dla określonych grup urządzeń, użyj n
 1. Skonfiguruj nowy profil przy użyciu następujących ustawień:
    - Name: klucze zabezpieczeń logowania systemu Windows
    - Opis: włącza klucze zabezpieczeń FIDO, które mają być używane podczas logowania do systemu Windows
-   - Platforma: Windows 10 lub nowszy
+   - Platforma: Windows 10 lub nowszym
    - Typ profilu: niestandardowy
    - Niestandardowe ustawienia OMA-URI:
       - Nazwa: Włącz klucze zabezpieczeń FIDO dla logowania do systemu Windows
       - OMA-URI:./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       - Typ danych: liczba całkowita
       - Wartość: 1
-1. Te zasady mogą być przypisane do określonych użytkowników, urządzeń lub grup. Aby uzyskać więcej informacji, zobacz [przypisywanie profilów użytkowników i urządzeń w Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
+1. Te zasady mogą być przypisane do określonych użytkowników, urządzeń lub grup. Aby uzyskać więcej informacji, zobacz [przypisywanie profilów użytkowników i urządzeń w Microsoft Intune](/intune/device-profile-assign).
 
 ![Tworzenie zasad niestandardowej konfiguracji urządzeń w usłudze Intune](./media/howto-authentication-passwordless-security-key/intune-custom-profile.png)
 
@@ -122,10 +122,10 @@ W przypadku urządzeń, które nie są zarządzane przez usługę Intune, można
 1. Zanotuj lub zmień ścieżkę w oknach **kompilacji** w obszarze **Wybierz lokalizację, w której ma zostać zapisany pakiet aprowizacji** , a następnie wybierz pozycję **dalej**.
 1. Wybierz pozycję **kompilacja** na stronie **Kompiluj pakiet aprowizacji** .
 1. Zapisz dwa pliki utworzone (*ppkg* i *Cat*) w lokalizacji, w której można je później zastosować do maszyn.
-1. Aby zastosować utworzony pakiet aprowizacji, zobacz [stosowanie pakietu aprowizacji](https://docs.microsoft.com/windows/configuration/provisioning-packages/provisioning-apply-package).
+1. Aby zastosować utworzony pakiet aprowizacji, zobacz [stosowanie pakietu aprowizacji](/windows/configuration/provisioning-packages/provisioning-apply-package).
 
 > [!NOTE]
-> W przypadku urządzeń z systemem Windows 10 w wersji 1809 należy również włączyć tryb Shared PC (*EnableSharedPCMode*). Aby uzyskać więcej informacji na temat włączania tej funkcji, zobacz [Konfigurowanie komputera udostępnionego lub gościa w systemie Windows 10](https://docs.microsoft.com/windows/configuration/set-up-shared-or-guest-pc).
+> W przypadku urządzeń z systemem Windows 10 w wersji 1809 należy również włączyć tryb Shared PC (*EnableSharedPCMode*). Aby uzyskać więcej informacji na temat włączania tej funkcji, zobacz [Konfigurowanie komputera udostępnionego lub gościa w systemie Windows 10](/windows/configuration/set-up-shared-or-guest-pc).
 
 ### <a name="enable-with-group-policy"></a>Włącz z zasady grupy
 

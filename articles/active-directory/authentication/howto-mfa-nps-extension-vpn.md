@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 394a4c171153ecf50ff5d755c42e3c5f939b2ec7
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 13ed87903845d9f8295e56f187b643d73fbfb04e
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507182"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717884"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrowanie infrastruktury sieci VPN z usługą Azure MFA przy użyciu rozszerzenia serwera zasad sieciowych dla platformy Azure
 
@@ -41,7 +41,7 @@ Usługi zasad sieciowych i dostępu sieciowego umożliwiają organizacjom:
 * Ustanów i Wymuszaj zasady kondycji klienta ochrony dostępu do sieci (NAP), które określają, czy urządzenia mają nieograniczony lub ograniczony dostęp do zasobów sieciowych.
 
 * Umożliwiają wymuszenie uwierzytelniania i autoryzacji dostępu do punktów dostępu bezprzewodowego i przełączników sieci 802.1 z obsługą x.
-  Aby uzyskać więcej informacji, zobacz [serwer zasad sieciowych](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top).
+  Aby uzyskać więcej informacji, zobacz [serwer zasad sieciowych](/windows-server/networking/technologies/nps/nps-top).
 
 Aby zwiększyć bezpieczeństwo i zapewnić wysoki poziom zgodności, organizacje mogą zintegrować serwer zasad sieciowych z platformą Azure Multi-Factor Authentication w celu zapewnienia, że użytkownicy będą korzystać z weryfikacji dwuetapowej w celu nawiązania połączenia z portem wirtualnym na serwerze sieci VPN. Aby użytkownicy mieli dostęp, muszą podać kombinację nazwy użytkownika i hasła oraz inne informacje, które kontrolują. Te informacje muszą być zaufane i nie można ich łatwo duplikować. Może zawierać numer telefonu komórkowego, numer stacjonarny lub aplikację na urządzeniu przenośnym.
 
@@ -94,7 +94,7 @@ Jeśli nie masz działającej infrastruktury sieci VPN, możesz ją szybko utwor
 
 Usługi zasad sieciowych i dostępu sieciowego zapewniają funkcje serwera i klienta usługi RADIUS. W tym artykule przyjęto założenie, że zainstalowano rolę Usługi zasad sieciowych i dostępu sieciowego na serwerze członkowskim lub kontrolerze domeny w danym środowisku. W tym przewodniku skonfigurujesz usługi RADIUS do konfiguracji sieci VPN. Zainstaluj rolę Usługi zasad sieciowych i dostępu sieciowego na serwerze *innym niż* serwer sieci VPN.
 
-Informacje o instalowaniu usługi roli usługi zasad sieciowych i dostępu sieciowego w systemie Windows Server 2012 lub nowszym można znaleźć w temacie [Instalowanie serwera zasad dotyczących kondycji ochrony dostępu do sieci](https://technet.microsoft.com/library/dd296890.aspx). Ochrona dostępu do sieci jest przestarzała w systemie Windows Server 2016. Aby zapoznać się z opisem najlepszych rozwiązań dotyczących serwera NPS, w tym zalecenia dotyczące instalowania serwera zasad sieciowych na kontrolerze domeny, zobacz [najlepsze rozwiązania dotyczące serwerów zasad sieciowych](https://technet.microsoft.com/library/cc771746).
+Informacje o instalowaniu usługi roli usługi zasad sieciowych i dostępu sieciowego w systemie Windows Server 2012 lub nowszym można znaleźć w temacie [Instalowanie serwera zasad dotyczących kondycji ochrony dostępu do sieci](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd296890(v=ws.10)). Ochrona dostępu do sieci jest przestarzała w systemie Windows Server 2016. Aby zapoznać się z opisem najlepszych rozwiązań dotyczących serwera NPS, w tym zalecenia dotyczące instalowania serwera zasad sieciowych na kontrolerze domeny, zobacz [najlepsze rozwiązania dotyczące serwerów zasad sieciowych](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771746(v=ws.10)).
 
 ### <a name="azure-mfa-license"></a>Licencja usługi Azure MFA
 
@@ -178,7 +178,7 @@ Aby skonfigurować serwer RADIUS, można użyć standardowej (opartej na kreator
 
     ![Określ okno grup użytkowników, aby zezwalać na dostęp lub go odmawiać](./media/howto-mfa-nps-extension-vpn/image7.png)
 
-9. Wybierz opcję **Dalej**.
+9. Wybierz pozycję **Dalej**.
 
 10. W oknie **Określanie filtrów IP** wybierz pozycję **dalej**.
 
@@ -249,7 +249,7 @@ W tej sekcji skonfigurujesz serwer sieci VPN do korzystania z uwierzytelniania u
 
     ![Dodawanie okna serwera RADIUS Konfigurowanie limitu czasu](./media/howto-mfa-nps-extension-vpn/image16.png) 
 
-8. Kliknij przycisk **OK**.
+8. Kliknij **OK**.
 
 ### <a name="test-vpn-connectivity"></a>Testowanie łączności z siecią VPN
 
@@ -446,13 +446,13 @@ Poniżej przedstawiono zdarzenie powiązane z dziennikiem usługi Azure Multi-Fa
 
 ![Dzienniki usługi Azure Multi-Factor Authentication](./media/howto-mfa-nps-extension-vpn/image48.png)
 
-Aby przeprowadzić Zaawansowane rozwiązywanie problemów, zapoznaj się z plikami dziennika w formacie bazy danych serwera NPS, w których zainstalowano usługę serwera NPS. Pliki dziennika są tworzone w folderze _%systemroot%\System32\Logs_ jako pliki tekstowe rozdzielane przecinkami. Aby uzyskać opis plików dziennika, zobacz [Interpretowanie plików dziennika w formacie serwera NPS](https://technet.microsoft.com/library/cc771748.aspx).
+Aby przeprowadzić Zaawansowane rozwiązywanie problemów, zapoznaj się z plikami dziennika w formacie bazy danych serwera NPS, w których zainstalowano usługę serwera NPS. Pliki dziennika są tworzone w folderze _%systemroot%\System32\Logs_ jako pliki tekstowe rozdzielane przecinkami. Aby uzyskać opis plików dziennika, zobacz [Interpretowanie plików dziennika w formacie serwera NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771748(v=ws.10)).
 
 Wpisy w tych plikach dziennika trudno interpretować, chyba że zostaną wyeksportowane do arkusza kalkulacyjnego lub bazy danych. Wiele narzędzi do analizy usługi uwierzytelniania internetowego (IAS) można znaleźć w trybie online, aby pomóc w interpretacji plików dziennika. W tym miejscu przedstawiono dane wyjściowe z jednej z takich aplikacji do pobrania ["shareware"](https://www.deepsoftware.com/iasviewer) :
 
 ![Przykładowy Parser usługi IAS dla aplikacji "shareware"](./media/howto-mfa-nps-extension-vpn/image49.png)
 
-Aby przeprowadzić dodatkowe Rozwiązywanie problemów, można użyć analizatora protokołów, takiego jak Wireshark lub [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx). Poniższy obraz z programu Wireshark pokazuje komunikaty RADIUS między serwerem sieci VPN i serwerem zasad sieciowych.
+Aby przeprowadzić dodatkowe Rozwiązywanie problemów, można użyć analizatora protokołów, takiego jak Wireshark lub [Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide). Poniższy obraz z programu Wireshark pokazuje komunikaty RADIUS między serwerem sieci VPN i serwerem zasad sieciowych.
 
 ![Program Microsoft Message Analyzer pokazujący filtrowany ruch](./media/howto-mfa-nps-extension-vpn/image50.png)
 

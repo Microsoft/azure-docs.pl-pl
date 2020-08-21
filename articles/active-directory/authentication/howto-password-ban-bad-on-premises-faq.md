@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24db7981557cf76f9108a1dca37ea4c4c9f51951
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3d67dbc0eedba8cc32c188636032d96b31f45adf
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283082"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717782"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Ochrona hasłem w usłudze Azure AD — często zadawane pytania
 
@@ -46,7 +46,7 @@ Zmiana hasła jest konieczna, gdy użytkownik wybierze nowe hasło po udowodnien
 
 Ustawienie hasła (nazywane czasem resetowaniem hasła) polega na tym, że administrator zastępuje hasło na koncie z nowym hasłem, na przykład za pomocą narzędzia do zarządzania użytkownikami i komputerami Active Directory. Ta operacja wymaga wysokiego poziomu uprawnień (zazwyczaj administratora domeny), a osoba wykonująca operację zwykle nie ma informacji o starym haśle. Scenariusze pomocy technicznej często wykonują zbiory haseł, na przykład podczas wspomagania użytkownika, który zapomniał hasło. W przypadku tworzenia nowego konta użytkownika po raz pierwszy przy użyciu hasła będą widoczne także zdarzenia ustawiania hasła.
 
-Zasady walidacji hasła działają tak samo, niezależnie od tego, czy są wykonywane zmiany lub ustawienia hasła. Usługa agenta DC ochrony hasłem w usłudze Azure AD rejestruje różne zdarzenia w celu powiadomienia użytkownika o tym, czy operacja zmiany lub ustawienia hasła została ukończona.  Zobacz [monitorowanie i rejestrowanie w usłudze Azure AD Password Protection](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+Zasady walidacji hasła działają tak samo, niezależnie od tego, czy są wykonywane zmiany lub ustawienia hasła. Usługa agenta DC ochrony hasłem w usłudze Azure AD rejestruje różne zdarzenia w celu powiadomienia użytkownika o tym, czy operacja zmiany lub ustawienia hasła została ukończona.  Zobacz [monitorowanie i rejestrowanie w usłudze Azure AD Password Protection](./howto-password-ban-bad-on-premises-monitor.md).
 
 **P: Dlaczego są zduplikowane zdarzenia odrzucania hasła zarejestrowane podczas próby ustawienia słabego hasła przy użyciu przystawki Zarządzanie użytkownikami i komputerami Active Directory?**
 
@@ -54,7 +54,7 @@ Przystawka Zarządzanie użytkownikami i komputerami Active Directory najpierw p
 
 **P: Dlaczego są rejestrowane zdarzenia walidacji hasła ochrony haseł usługi Azure AD za pomocą pustej nazwy użytkownika?**
 
-Active Directory obsługuje możliwość przetestowania hasła w celu sprawdzenia, czy przeszło bieżące wymagania dotyczące złożoności hasła domeny, na przykład za pomocą interfejsu API [NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) . Po sprawdzeniu poprawności hasła w ten sposób testowanie obejmuje również sprawdzanie poprawności przez produkty oparte na bibliotece Password-Filter-dll, takie jak ochrona hasłem usługi Azure AD, ale nazwy użytkowników przekazane do danej biblioteki DLL filtru haseł będą puste. W tym scenariuszu Ochrona hasłem usługi Azure AD będzie nadal weryfikować hasło przy użyciu obecnie obowiązujących zasad haseł i wystawia komunikat dziennika zdarzeń w celu przechwycenia wyniku, ale komunikat dziennika zdarzeń będzie miał puste pola nazwy użytkownika.
+Active Directory obsługuje możliwość przetestowania hasła w celu sprawdzenia, czy przeszło bieżące wymagania dotyczące złożoności hasła domeny, na przykład za pomocą interfejsu API [NetValidatePasswordPolicy](/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) . Po sprawdzeniu poprawności hasła w ten sposób testowanie obejmuje również sprawdzanie poprawności przez produkty oparte na bibliotece Password-Filter-dll, takie jak ochrona hasłem usługi Azure AD, ale nazwy użytkowników przekazane do danej biblioteki DLL filtru haseł będą puste. W tym scenariuszu Ochrona hasłem usługi Azure AD będzie nadal weryfikować hasło przy użyciu obecnie obowiązujących zasad haseł i wystawia komunikat dziennika zdarzeń w celu przechwycenia wyniku, ale komunikat dziennika zdarzeń będzie miał puste pola nazwy użytkownika.
 
 **P: czy jest obsługiwana, aby zainstalować ochronę hasłem usługi Azure AD obok innych produktów opartych na filtrze haseł?**
 
@@ -74,13 +74,13 @@ Usługa FRS (technologia poprzednika do DFSR) ma wiele znanych problemów i jest
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
-[Przypadek migrowania replikacji folderu SYSVOL do usługi DFSR](https://blogs.technet.microsoft.com/askds/2010/04/22/the-case-for-migrating-sysvol-to-dfsr)
+[Przypadek migrowania replikacji folderu SYSVOL do usługi DFSR](/archive/blogs/askds/the-case-for-migrating-sysvol-to-dfsr)
 
 [Koniec to Nigh dla usługi FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs)
 
 Jeśli domena nie korzysta już z usługi DFSR, przed zainstalowaniem ochrony przy użyciu usługi Azure AD Password należy przeprowadzić migrację do niej. Aby uzyskać więcej informacji, zobacz następujący link:
 
-[Przewodnik migracji replikacji folderu SYSVOL: usługa FRS do Replikacja systemu plików DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+[Przewodnik migracji replikacji folderu SYSVOL: usługa FRS do Replikacja systemu plików DFS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
 > [!WARNING]
 > Oprogramowanie agenta DC ochrony hasłem w usłudze Azure AD będzie obecnie instalowane na kontrolerach domeny w domenach, które nadal używają usługi FRS do replikacji folderu SYSVOL, ale oprogramowanie nie będzie działało prawidłowo w tym środowisku. Dodatkowe negatywne efekty uboczne obejmują pojedyncze pliki, których replikacja nie powiodła się, a procedury przywracania folderu SYSVOL pojawiają się po awarii, ale w trybie dyskretnym nie można zreplikować wszystkich plików. Należy przeprowadzić migrację domeny tak szybko, jak to możliwe, zarówno w przypadku związanych z nią korzyści, jak i do odblokowania wdrożenia ochrony hasłem usługi Azure AD. Przyszłe wersje oprogramowania zostaną automatycznie wyłączone po uruchomieniu w domenie, która nadal korzysta z usługi FRS.
@@ -101,7 +101,7 @@ Nie. Ponieważ serwer proxy jest bezstanowy, nie ma znaczenia, który z nich jes
 
 Tak. Usługa serwera proxy ochrony hasłem usługi Azure AD i Azure AD Connect nigdy nie powinna powodować konfliktu bezpośrednio ze sobą.
 
-Niestety, znaleziono niezgodność między wersją usługi Microsoft Azure AD Connect Agent Aktualizator, która jest instalowana przez oprogramowanie serwera proxy ochrony hasłem w usłudze Azure AD i wersję usługi zainstalowanej przez oprogramowanie [serwer proxy aplikacji usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) . Niezgodność może spowodować, że usługa Aktualizator agenta nie będzie mogła skontaktować się z platformą Azure w celu uzyskania aktualizacji oprogramowania. Nie zaleca się instalowania serwera proxy ochrony hasłem usługi Azure AD i serwer proxy aplikacji usługi Azure Active Directory na tym samym komputerze.
+Niestety, znaleziono niezgodność między wersją usługi Microsoft Azure AD Connect Agent Aktualizator, która jest instalowana przez oprogramowanie serwera proxy ochrony hasłem w usłudze Azure AD i wersję usługi zainstalowanej przez oprogramowanie [serwer proxy aplikacji usługi Azure Active Directory](../manage-apps/application-proxy.md) . Niezgodność może spowodować, że usługa Aktualizator agenta nie będzie mogła skontaktować się z platformą Azure w celu uzyskania aktualizacji oprogramowania. Nie zaleca się instalowania serwera proxy ochrony hasłem usługi Azure AD i serwer proxy aplikacji usługi Azure Active Directory na tym samym komputerze.
 
 **P: w jakiej kolejności mają być zainstalowane i zarejestrowane agenci i serwery proxy kontrolera domeny?**
 

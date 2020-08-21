@@ -36,10 +36,6 @@
           href: virtual-wan-locations-partners.md
         - name: Wskazówki dotyczące automatyzacji dla partnerów
           href: virtual-wan-configure-automation-providers.md
-    - name: Pojęcia dotyczące cen
-      href: pricing-concepts.md
-    - name: Informacje o urządzenie WUS w koncentratorze wirtualnym
-      href: about-nva-hub.md
     - name: Routing
       items:
         - name: Informacje na temat routingu na koncentratorze wirtualnym
@@ -50,19 +46,19 @@
               href: scenario-any-to-any.md
             - name: Izolowanie sieci wirtualnych
               href: scenario-isolate-vnets.md
-            - name: Izolowanie sieci wirtualnych — niestandardowe
+            - name: Izolowanie sieci wirtualnych — wersja niestandardowa
               href: scenario-isolate-vnets-custom.md
             - name: Sieci wirtualne usług współdzielonych
               href: scenario-shared-services-vnet.md
             - name: Rozsyłanie za pomocą urządzenia WUS
               href: scenario-route-through-nva.md
-            - name: Rozsyłanie za pomocą urządzenia WUS — niestandardowe (wersja zapoznawcza)
+            - name: Rozsyłanie za pomocą urządzenia WUS — wersja niestandardowa
               href: scenario-route-through-nvas-custom.md
             - name: Azure Firewall — wersja niestandardowa
               href: scenario-route-between-vnets-firewall.md
     - name: Monitorowanie
       items:
-        - name: Informacje o usłudze Azure Monitor Insights dla wirtualnej sieci WAN (wersja zapoznawcza)
+        - name: Informacje o analizie w usłudze Azure Monitor dla wirtualnej sieci WAN
           href: azure-monitor-insights.md
     - name: Lokacja-lokacja
       items:
@@ -70,11 +66,15 @@
           href: virtual-wan-ipsec.md
         - name: Wiele linków usługodawców internetowych — wybór ścieżki platformy Azure
           href: path-selection-multiple-links.md
+    - name: Pojęcia dotyczące cen
+      href: pricing-concepts.md
+    - name: Informacje o urządzenie WUS w koncentratorze wirtualnym
+      href: about-nva-hub.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Podwyższanie poziomu jednostki SKU wirtualnej sieci WAN
       href: upgrade-virtual-wan.md
-    - name: Tworzenie urządzenia WUS w koncentratorze wirtualnym (wersja zapoznawcza)
+    - name: Tworzenie urządzenia WUS w koncentratorze wirtualnym
       href: How-to-nva-hub.md
     - name: ExpressRoute
       items:
@@ -154,14 +154,18 @@
   items:
     - name: Często zadawane pytania
       href: virtual-wan-faq.md
-    - name: Harmonogram działania dla platformy Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=networking'
-    - name: Blog
-      href: 'https://azure.microsoft.com/blog/topics/networking'
-    - name: Limity usług i subskrypcji
-      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
+    - name: Ogłoszenia dotyczące aktualizacji
+      href: 'https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN'
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/virtual-wan'
+    - name: Limity usług i subskrypcji
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
+    - name: Plan rozwoju sieci
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Blog na temat sieci
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: Ogłoszenia dotyczące aktualizacji sieci
+      href: 'https://azure.microsoft.com/updates/?category=networking'
     - name: Kalkulator cen
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Umowa SLA

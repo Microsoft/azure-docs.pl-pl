@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7870b62dea01f680126f5b4aac3dc2328407cd61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 759a5fa2be5a3df50160d2fd0ac4231c9f49329b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82143222"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718955"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planowanie i wdrażanie lokalnej Azure Active Directory ochrony hasłem
 
@@ -88,7 +88,7 @@ Obowiązują następujące podstawowe wymagania:
     * Domyślnie port serwera RPC to dynamiczny port RPC, ale można go skonfigurować do [korzystania z portu statycznego](#static).
 * Wszystkie maszyny, na których zostanie zainstalowana usługa serwera proxy ochrony haseł usługi Azure AD, muszą mieć dostęp sieciowy do następujących punktów końcowych:
 
-    |**Punkt końcowy**|**Przeznaczenie**|
+    |**Punkt końcowy**|**Cel**|
     | --- | --- |
     |`https://login.microsoftonline.com`|Żądania uwierzytelniania|
     |`https://enterpriseregistration.windows.net`|Funkcja ochrony hasłem w usłudze Azure AD|
@@ -101,7 +101,7 @@ Następujące wymagania dotyczą agenta DC ochrony hasłem usługi Azure AD:
     * Domena lub las Active Directory nie musi być na poziomie funkcjonalności domeny systemu Windows Server 2012 lub poziomu funkcjonalności lasu (FFL). Jak wspomniano w [zasadach projektowania](concept-password-ban-bad-on-premises.md#design-principles), nie ma minimalnych DFL lub FFL wymaganych do uruchomienia agenta lub oprogramowania serwera proxy.
 * Na wszystkich maszynach z uruchomionym agentem usługi Azure AD Password Protection musi być zainstalowany program .NET 4,5.
 * Wszystkie domeny Active Directory z uruchomioną usługą agenta DC ochrony hasłem usługi Azure AD muszą używać replikacji rozproszony system plików (DFSR) do replikacji folderu SYSVOL.
-   * Jeśli domena nie korzysta już z usług DFSR, przed zainstalowaniem ochrony hasłem usługi Azure AD należy przeprowadzić migrację. Aby uzyskać więcej informacji, zobacz temat [Przewodnik migracji replikacji folderu SYSVOL: usługa FRS do replikacja systemu plików DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+   * Jeśli domena nie korzysta już z usług DFSR, przed zainstalowaniem ochrony hasłem usługi Azure AD należy przeprowadzić migrację. Aby uzyskać więcej informacji, zobacz temat [Przewodnik migracji replikacji folderu SYSVOL: usługa FRS do replikacja systemu plików DFS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
     > [!WARNING]
     > Oprogramowanie agenta DC ochrony hasłem w usłudze Azure AD będzie obecnie instalowane na kontrolerach domeny w domenach, które nadal korzystają z usługi FRS (technologii poprzednika z DFSR) na potrzeby replikacji folderu SYSVOL, ale oprogramowanie nie będzie działało prawidłowo w tym środowisku.
@@ -124,14 +124,14 @@ Poniższe wymagania dotyczą usługi proxy ochrony hasłem w usłudze Azure AD:
 * Wszystkie komputery, na których jest hostowana usługa serwera proxy ochrony haseł usługi Azure AD, muszą być skonfigurowane tak, aby zezwalać kontrolerom domeny na logowanie do usługi proxy. Ta możliwość jest kontrolowana przez przypisanie przywileju "uzyskaj dostęp do tego komputera z sieci".
 * Wszystkie komputery, na których jest hostowana usługa serwera proxy ochrony haseł usługi Azure AD, muszą być skonfigurowane tak, aby zezwalały na ruch HTTP 1,2 wychodzący TLS
 * Konto *administratora globalnego* do zarejestrowania usługi i lasu proxy ochrony haseł usługi Azure AD za pomocą usługi Azure AD.
-* Dostęp do sieci musi być włączony dla zestawu portów i adresów URL określonych w [procedurach konfiguracji środowiska serwera proxy aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+* Dostęp do sieci musi być włączony dla zestawu portów i adresów URL określonych w [procedurach konfiguracji środowiska serwera proxy aplikacji](../manage-apps/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 ### <a name="microsoft-azure-ad-connect-agent-updater-prerequisites"></a>Wymagania wstępne dotyczące Microsoft Azure AD Connect Agent Aktualizator
 
 Usługa Aktualizator Connect Agent jest zainstalowana obok usługi serwera proxy ochrony hasłem w usłudze Azure AD. Microsoft Azure AD Aby usługa Microsoft Azure AD Connect Agent Aktualizator mogła działać, wymagana jest dodatkowa konfiguracja:
 
-* Jeśli w środowisku używany jest serwer proxy HTTP, postępuj zgodnie z wytycznymi określonymi w [pracy z istniejącymi lokalnymi serwerami proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers).
-* Microsoft Azure AD Connect Agent Aktualizator wymaga również kroków TLS 1,2 określonych w [wymaganiach dotyczących protokołu TLS](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#tls-requirements).
+* Jeśli w środowisku używany jest serwer proxy HTTP, postępuj zgodnie z wytycznymi określonymi w [pracy z istniejącymi lokalnymi serwerami proxy](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md).
+* Microsoft Azure AD Connect Agent Aktualizator wymaga również kroków TLS 1,2 określonych w [wymaganiach dotyczących protokołu TLS](../manage-apps/application-proxy-add-on-premises-application.md#tls-requirements).
 
 > [!WARNING]
 > Serwer proxy ochrony hasłem usługi Azure AD i usługa Azure serwer proxy aplikacji usługi Azure AD instalują różne wersje usługi Microsoft Azure AD Connect Agent Aktualizator, dlatego instrukcje odnoszą się do zawartości serwera proxy aplikacji. Te różne wersje są niezgodne, jeśli są zainstalowane obok siebie i w ten sposób uniemożliwią kontaktowanie się z platformą Azure w ramach aktualizacji oprogramowania przez agenta Aktualizator, dlatego nie należy instalować serwera proxy ochrony hasłem usługi Azure AD i serwera proxy aplikacji na tym samym komputerze.

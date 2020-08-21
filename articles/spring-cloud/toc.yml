@@ -40,6 +40,8 @@
       href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
     - name: Używanie tożsamości zarządzanej do łączenia usługi Key Vault z aplikacją Azure Spring Cloud
       href: spring-cloud-tutorial-managed-identities-key-vault.md
+    - name: Wdrażanie usługi Azure Spring Cloud w sieci wirtualnej
+      href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
 - name: Samples
   items:
     - name: Elementy wbudowane usługi Azure Policy

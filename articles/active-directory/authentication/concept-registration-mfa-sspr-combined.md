@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3a06f01507ad5715d1e8a3f828ab008e1e8ce65
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: e4afc5e554e72fc2ab78173368930b2e5317bce7
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512979"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718921"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Rejestracja informacji o zabezpieczeniach dla Azure Active Directory przegląd
 
@@ -32,7 +32,7 @@ W tym artykule przedstawiono łączną rejestrację zabezpieczeń. Aby rozpoczą
 
 ![Mój profil pokazujący zarejestrowane informacje zabezpieczające dla użytkownika](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
-Przed włączeniem nowego środowiska zapoznaj się z dokumentacją zorientowaną na administratora i dokumentacją zorientowaną na użytkownika, aby upewnić się, że rozumiesz funkcjonalność i wpływ tej funkcji. Zapoznaj się z [dokumentacją użytkownika](../user-help/user-help-security-info-overview.md) w celu przygotowania użytkowników do nowego środowiska i zapewnienia pomyślnego wdrożenia.
+Przed włączeniem nowego środowiska zapoznaj się z dokumentacją zorientowaną na administratora i dokumentacją zorientowaną na użytkownika, aby upewnić się, że rozumiesz funkcjonalność i wpływ tej funkcji. Zapoznaj się z [dokumentacją użytkownika](../user-help/security-info-setup-signin.md) w celu przygotowania użytkowników do nowego środowiska i zapewnienia pomyślnego wdrożenia.
 
 Rejestracja informacji o zabezpieczeniach połączonej usługi Azure AD nie jest obecnie dostępna dla chmur narodowych, takich jak Azure USA, Azure (Niemcy) i Azure (Chiny).
 
@@ -53,15 +53,15 @@ Rejestracja łączona obsługuje następujące metody uwierzytelniania i akcje:
 
 | Metoda | Zarejestruj | Zmiana | Usuń |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Tak (maksymalnie 5) | Nie | Yes |
-| Inna aplikacja uwierzytelniania | Tak (maksymalnie 5) | Nie | Yes |
-| Token sprzętu | Nie | Nie | Yes |
+| Microsoft Authenticator | Tak (maksymalnie 5) | Nie | Tak |
+| Inna aplikacja uwierzytelniania | Tak (maksymalnie 5) | Nie | Tak |
+| Token sprzętu | Nie | Nie | Tak |
 | Telefon | Tak | Tak | Tak |
 | Alternatywny numer telefonu | Tak | Tak | Tak |
 | Telefon służbowy | Nie | Nie | Nie |
-| E-mail | Tak | Tak | Tak |
-| Pytania zabezpieczające | Yes | Nie | Yes |
-| Hasła aplikacji | Yes | Nie | Yes |
+| Poczta e-mail | Tak | Tak | Tak |
+| Pytania zabezpieczające | Tak | Nie | Tak |
+| Hasła aplikacji | Tak | Nie | Tak |
 | FIDO2 klucze zabezpieczeń<br />*Tryb zarządzany tylko ze strony z [informacjami o zabezpieczeniach](https://mysignins.microsoft.com/security-info)*| Tak | Tak | Tak |
 
 > [!NOTE]

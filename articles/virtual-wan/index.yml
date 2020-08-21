@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 05/08/2020
-  ms.openlocfilehash: 14336a28630e7a62a19e2b3a51934950cf12e2f8
-  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+  ms.date: 08/19/2020
+  ms.openlocfilehash: 1a0a64864c4e8229b4a0f2211af06920fc1e73cc
+  ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 06/30/2020
-  ms.locfileid: "85564037"
+  ms.lasthandoff: 08/20/2020
+  ms.locfileid: "88654552"
 landingContent:
 - title: Informacje o wirtualnej sieci WAN
   linkLists:
@@ -39,24 +39,60 @@ landingContent:
       url: virtual-wan-expressroute-portal.md
     - text: Tworzenie połączenia sieci VPN użytkownika (punkt-lokacja)
       url: virtual-wan-point-to-site-portal.md
-  - linkListType: how-to-guide
-    links:
-    - text: Konfigurowanie automatyzacji dla partnerów usługi Virtual WAN
-      url: virtual-wan-configure-automation-providers.md
   - linkListType: concept
     links:
     - text: Zasady domyślne dla łączności protokołu IPsec
       url: virtual-wan-ipsec.md
+    - text: Wytyczne dotyczące automatyzacji dla partnerów usługi Virtual WAN
+      url: virtual-wan-configure-automation-providers.md
+  - linkListType: how-to-guide
+    links:
+    - text: Tworzenie urządzenia WUS w centrum
+      url: how-to-nva-hub.md
+    - text: Konfigurowanie protokołu IPsec za pośrednictwem usługi ExpressRoute dla wirtualnej sieci WAN
+      url: vpn-over-expressroute.md
+    - text: Łączenie bramy VPN Gateway z wirtualną siecią WAN
+      url: connect-virtual-network-gateway-vwan.md
 - title: Architektura
   linkLists:
   - linkListType: concept
     links:
     - text: Migrowanie do usługi Virtual WAN
       url: migrate-from-hub-spoke-topology.md
+  - linkListType: architecture
+    links:
     - text: Architektura globalnej sieci tranzytowej
       url: virtual-wan-global-transit-network-architecture.md
     - text: Architektura łączności SD-WAN
       url: sd-wan-connectivity-architecture.md
+- title: Routing
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Informacje na temat routingu na koncentratorze wirtualnym
+      url: about-virtual-hub-routing.md
+    - text: Scenariusz — kierowanie ruchem za pośrednictwem urządzenia WUS
+      url: scenario-route-through-nva.md
+    - text: Scenariusz — dowolny z dowolnym
+      url: scenario-any-to-any.md
+    - text: Scenariusz — izolowane sieci wirtualne
+      url: scenario-isolate-vnets.md
+    - text: Scenariusz — sieci wirtualne usług współdzielonych
+      url: scenario-shared-services-vnet.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurowanie routingu na koncentratorze wirtualnym
+      url: how-to-virtual-hub-routing.md
+- title: Monitorowanie
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Monitorowanie przy użyciu analizy usługi Azure Monitor
+      url: azure-monitor-insights.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurowanie dzienników i metryk usługi Azure Monitor
+      url: azure-monitor-insights.md
 - title: Dokumentacja
   linkLists:
   - linkListType: reference
