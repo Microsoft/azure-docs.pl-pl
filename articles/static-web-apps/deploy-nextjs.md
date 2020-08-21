@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 80a38c069f937783b60ede46bc4319253798ff44
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c5afd7d912142dd8556e71ba9e0a522b2fa0da1c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431636"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684596"
 ---
 # <a name="deploy-server-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Wdróż Next.js witryny sieci Web renderowane na serwerze w usłudze Azure static Web Apps Preview
 
@@ -57,7 +57,7 @@ Aby rozpocząć, Utwórz nowe repozytorium na koncie usługi GitHub z repozytori
     npm run dev
     ```
 
-Przejdź do strony <http://localhost:3000> , aby otworzyć aplikację, w której powinna zostać otwarta Następująca witryna sieci Web w preferowanej przeglądarce:
+Przejdź do strony `http://localhost:3000` , aby otworzyć aplikację, w której powinna zostać otwarta Następująca witryna sieci Web w preferowanej przeglądarce:
 
 :::image type="content" source="media/deploy-nextjs/start-nextjs-app.png" alt-text="Uruchom aplikację Next.js":::
 
@@ -169,7 +169,7 @@ Usługa Azure static Web Apps jest wbudowana w taki sposób, aby automatycznie w
 
 2. Wpisz **wartość w polu tekstowym** *Lokalizacja artefaktu aplikacji* .
 
-### <a name="review-and-create"></a>Przejrzyj i utwórz
+### <a name="review-and-create"></a>Przegląd i tworzenie
 
 1. Kliknij przycisk **Recenzja + Utwórz** , aby sprawdzić, czy szczegóły są poprawne.
 1. Kliknij przycisk **Utwórz** , aby rozpocząć tworzenie zasobu, a także zainicjować akcję usługi GitHub na potrzeby wdrożenia.

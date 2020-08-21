@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 01c7d5610daa703e910fb485b5e9d945a6cdc940
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 37a687a17df266fe0589c24b392c0527e001f976
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831298"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88683899"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Poprzednie generacji rozmiarów maszyn wirtualnych
 
@@ -59,7 +59,7 @@ Buforowanie Premium Storage: obsługiwane
 
 MB/s = 10^6 bajtów na sekundę, GiB = 1024^3 bajtów.
 
-<sup>1</sup> maksymalna przepływność dysku (IOPS lub MB/s) możliwa dla maszyny wirtualnej z serii FS może być ograniczona przez liczbę, rozmiar i rozkładanie dołączonych dysków.  Aby uzyskać szczegółowe informacje, zobacz Projektowanie pod kątem wysokiej wydajności dla [systemu Windows](windows/premium-storage-performance.md) lub [Linux](linux/premium-storage-performance.md).  
+<sup>1</sup> maksymalna przepływność dysku (IOPS lub MB/s) możliwa dla maszyny wirtualnej z serii FS może być ograniczona przez liczbę, rozmiar i rozkładanie dołączonych dysków.  Aby uzyskać szczegółowe informacje, zobacz [projektowanie pod kątem wysokiej wydajności (./Premium-Storage-Performance.MD).
 
 
 ## <a name="nvv2-series"></a>Seria NVv2
@@ -267,7 +267,7 @@ Buforowanie Premium Storage: obsługiwane
 | Standardowa_DS13 | 8  | 56  | 112 | 32 | 32000/256 (288) | 25600/256 | 8/4000 |
 | Standardowa_DS14 | 16 | 112 | 224 | 64 | 64000/512 (576) | 51200/512 | 8/8000 |
 
-<sup>1</sup> maksymalna przepływność dysku (IOPS lub MB/s) możliwa dla maszyny wirtualnej z serii DS może być ograniczona przez liczbę, rozmiar i rozkładanie dołączonych dysków.  Aby uzyskać szczegółowe informacje, zobacz Projektowanie pod kątem wysokiej wydajności dla [systemu Windows](windows/premium-storage-performance.md) lub [Linux](linux/premium-storage-performance.md).
+<sup>1</sup> maksymalna przepływność dysku (IOPS lub MB/s) możliwa dla maszyny wirtualnej z serii DS może być ograniczona przez liczbę, rozmiar i rozkładanie dołączonych dysków.  Aby uzyskać szczegółowe informacje, zobacz [projektowanie pod kątem wysokiej wydajności (./Premium-Storage-Performance.MD).
 <sup>2</sup> rodzina maszyn wirtualnych może działać na jednym z następujących procesorów: 2,2 GHz intel Xeon® E5-2660 v2, 2,4 GHz intel Xeon® E5-2673 v3 (Haswell) lub 2,3 GHz intel Xeon® E5-2673 v4 (Broadwell)  
 
 <br>
@@ -293,7 +293,7 @@ Buforowanie Premium Storage: nieobsługiwane
 | Standardowa_L16s  | 16 | 128 | 2807 | 64 | 80000/800 | 20000/500 | 8/16000 |
 | Standard_L32s &nbsp; <sup>1</sup> | 32 | 256 | 5630 | 64 | 160000/1600 | 40000/1000 | 8/20000 |
 
-Maksymalna przepływność dysku możliwa w przypadku maszyn wirtualnych z serii LS może być ograniczona przez liczbę, rozmiar i rozłożenie dowolnych dołączonych dysków. Aby uzyskać szczegółowe informacje, zobacz Projektowanie pod kątem wysokiej wydajności dla [systemu Windows](windows/premium-storage-performance.md) lub [Linux](linux/premium-storage-performance.md).
+Maksymalna przepływność dysku możliwa w przypadku maszyn wirtualnych z serii LS może być ograniczona przez liczbę, rozmiar i rozłożenie dowolnych dołączonych dysków. Aby uzyskać szczegółowe informacje, zobacz [projektowanie pod kątem wysokiej wydajności (./Premium-Storage-Performance.MD).
 
 <sup>1</sup> wystąpienie jest izolowane do sprzętu dedykowanego pojedynczemu klientowi.
 
@@ -315,7 +315,7 @@ Buforowanie Premium Storage: obsługiwane
 | Standard_GS4 &nbsp; <sup>3</sup> | 16 | 224 | 448 | 64 | 80000/800 (2112) | 40000/1000 | 8/16000 |
 | Standard_GS5 &nbsp; <sup>2, &nbsp; 3</sup> | 32 | 448 |896 | 64 |160000/1600 (4224) | 80000/2000 | 8/20000 |
 
-<sup>1</sup> maksymalna przepływność dysku (IOPS lub MB/s) możliwa dla maszyny wirtualnej serii GS może być ograniczona przez liczbę, rozmiar i rozkładanie dołączonych dysków. Aby uzyskać szczegółowe informacje, zobacz Projektowanie pod kątem wysokiej wydajności dla [systemu Windows](windows/premium-storage-performance.md) lub [Linux](linux/premium-storage-performance.md).
+<sup>1</sup> maksymalna przepływność dysku (IOPS lub MB/s) możliwa dla maszyny wirtualnej serii GS może być ograniczona przez liczbę, rozmiar i rozkładanie dołączonych dysków. Aby uzyskać szczegółowe informacje, zobacz [projektowanie pod kątem wysokiej wydajności (./Premium-Storage-Performance.MD).
 
 <sup>2</sup> wystąpienie jest izolowane do sprzętu dedykowanego pojedynczemu klientowi.
 

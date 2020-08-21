@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 75f8a1f42c5d5702fdb4a588b0829636c30f80a6
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 66837a0e4118695b19776972fdb4fd88a70ee561
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654620"
+ms.locfileid: "88690327"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Wdrożenie systemu Azure Virtual Machines DBMS dla obciążeń SAP
 
@@ -444,7 +444,7 @@ W takim przypadku zalecamy Instalowanie/lokalizowanie oprogramowania Oracle, Sta
 
 Systemy plików z ext4, XFS lub Oracle ASM są obsługiwane dla Oracle Database pliki na platformie Azure. Wszystkie pliki bazy danych muszą być przechowywane w tych systemach plików na podstawie dysków VHD lub Managed Disks. Te dyski są instalowane na maszynę wirtualną platformy Azure i są oparte na [usłudze Azure Page BLOB Storage](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) lub [Azure Managed disks](../../managed-disks-overview.md).
 
-W przypadku jądra Oracle Linux UEK wymagane jest co najmniej UEK w wersji 4 do obsługi [platformy Azure Premium dysków SSD](../../windows/premium-storage-performance.md#disk-caching).
+W przypadku jądra Oracle Linux UEK wymagane jest co najmniej UEK w wersji 4 do obsługi [platformy Azure Premium dysków SSD](../../premium-storage-performance.md#disk-caching).
 
 Zdecydowanie zaleca się używanie [usługi Azure Managed disks](../../managed-disks-overview.md). Zdecydowanie zaleca się również korzystanie z [usługi Azure Premium dysków SSD](../../disks-types.md) na potrzeby wdrożeń Oracle Database.
 

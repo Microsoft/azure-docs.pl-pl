@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 8353b7290f0e0073faf93b4ea23bcc0ba50bb89e
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: faf46a90a04e35eb041deb31913980575b1e0d28
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236475"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688049"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesor zestawienia zmian w usłudze Azure Cosmos DB
 
@@ -100,8 +100,8 @@ Opłata jest naliczana za zużyte jednostek ru, ponieważ przenoszenie danych do
 Procesor kanału informacyjnego zmian może być hostowany na dowolnej platformie, która obsługuje długotrwałe procesy lub zadania:
 
 * Ciągłe uruchamianie [Zadania WebJob platformy Azure](https://docs.microsoft.com/learn/modules/run-web-app-background-task-with-webjobs/).
-* Proces na [maszynie wirtualnej platformy Azure](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs.md#azure-virtual-machines).
-* Zadanie w tle w [usłudze Azure Kubernetes Service](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs.md#azure-kubernetes-service).
+* Proces na [maszynie wirtualnej platformy Azure](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-virtual-machines).
+* Zadanie w tle w [usłudze Azure Kubernetes Service](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
 * [Hostowana usługa ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services).
 
 Podczas gdy procesor kanału informacyjnego zmiany można uruchomić w środowiskach krótkich, ponieważ kontener dzierżawy utrzymuje stan, cykl uruchamiania i zatrzymywania tych środowisk doda opóźnienie do otrzymywania powiadomień (ze względu na obciążenie uruchomienia procesora przy każdym uruchomieniu środowiska).

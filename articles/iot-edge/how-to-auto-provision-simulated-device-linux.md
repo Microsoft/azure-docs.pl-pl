@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cb1511736b993032df8ca52fac01243f1feafdf4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3bc9344459802f4bb4268093d905a051525d78dc
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092392"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684460"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Tworzenie i Inicjowanie obsługi administracyjnej urządzenia IoT Edge przy użyciu modułu TPM w systemie Linux
 
@@ -61,7 +61,7 @@ Jeśli podczas tworzenia nowego przełącznika wirtualnego pojawią się błędy
 
 ### <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-1. Pobierz plik obrazu dysku do użycia dla maszyny wirtualnej i Zapisz go lokalnie. Na przykład [Ubuntu server 18,04](http://releases.ubuntu.com/18.04.4/). Informacje o obsługiwanych systemach operacyjnych dla urządzeń IoT Edge można znaleźć w temacie [Azure IoT Edge obsługiwane systemy](support.md).
+1. Pobierz plik obrazu dysku do użycia dla maszyny wirtualnej i Zapisz go lokalnie. Na przykład [Ubuntu server 18,04](http://releases.ubuntu.com/18.04/). Informacje o obsługiwanych systemach operacyjnych dla urządzeń IoT Edge można znaleźć w temacie [Azure IoT Edge obsługiwane systemy](support.md).
 
 2. W Menedżerze funkcji Hyper-V ponownie wybierz pozycję **Akcja**  >  **Nowa**  >  **maszyna wirtualna** w menu **Akcje** .
 
@@ -87,7 +87,7 @@ Po utworzeniu maszyny wirtualnej Otwórz jej ustawienia, aby włączyć moduł T
 
 4. Zaznacz **opcję włącz moduł TPM**.
 
-5. Kliknij przycisk **OK**.  
+5. Kliknij pozycję **OK**.  
 
 ### <a name="start-the-virtual-machine-and-collect-tpm-data"></a>Uruchom maszynę wirtualną i Zbierz dane modułu TPM
 

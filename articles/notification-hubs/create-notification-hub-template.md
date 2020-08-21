@@ -10,12 +10,12 @@ ms.author: sethm
 ms.date: 08/04/2020
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/15/2020
-ms.openlocfilehash: b9fe363da0fa5e451aaee83e895d539a0741a174
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 2165351bee4ee260e768c10b23e26bf095779cad
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830737"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684647"
 ---
 # <a name="quickstart-create-a-notification-hub-using-an-arm-template"></a>Szybki Start: tworzenie centrum powiadomień przy użyciu szablonu ARM
 
@@ -31,13 +31,13 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
 Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-notification-hub/).
 
-:::code language="json" source="~/quickstart-templates/101-notification-hub/azuredeploy.json" range="1-45" highlight="22-40":::
+:::code language="json" source="~/quickstart-templates/101-notification-hub/azuredeploy.json":::
 
 * [Microsoft. NotificationHubs/przestrzenie nazw](/azure/templates/microsoft.notificationhubs/namespaces)
 * [Microsoft. NotificationHubs/przestrzenie nazw/notificationHubs](/azure/templates/microsoft.notificationhubs/namespaces/notificationhubs)

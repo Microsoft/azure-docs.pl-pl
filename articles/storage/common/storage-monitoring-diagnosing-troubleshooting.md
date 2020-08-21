@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 7af711ebe21c46663ecd8e803b0f636c34c362ee
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 110d39791b3779a30e6541e77c0c6062cd51144c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076057"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688559"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -467,15 +467,15 @@ Jeśli aplikacja kliencka zgłasza błędy HTTP 403 (zabronione), prawdopodobną
 
 | Element źródłowy | Szczegółowość | Szczegółowość | Identyfikator żądania klienta | Tekst operacji |
 | --- | --- | --- | --- | --- |
-| Microsoft. Azure. Storage |Informacyjny |3 |85d077ab-... |Rozpoczynanie operacji przy użyciu lokalizacji podstawowej dla trybu lokalizacji PrimaryOnly. |
-| Microsoft. Azure. Storage |Informacyjny |3 |85d077ab-... |Uruchamianie żądania synchronicznego do<https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
-| Microsoft. Azure. Storage |Informacyjny |3 |85d077ab-... |Oczekiwanie na odpowiedź. |
+| Microsoft. Azure. Storage |Informacje |3 |85d077ab-... |Rozpoczynanie operacji przy użyciu lokalizacji podstawowej dla trybu lokalizacji PrimaryOnly. |
+| Microsoft. Azure. Storage |Informacje |3 |85d077ab-... |Uruchamianie żądania synchronicznego do <https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Synchronous_and_Asynchronous_Requests#Synchronous_request> |
+| Microsoft. Azure. Storage |Informacje |3 |85d077ab-... |Oczekiwanie na odpowiedź. |
 | Microsoft. Azure. Storage |Ostrzeżenie |2 |85d077ab-... |Zgłoszono wyjątek podczas oczekiwania na odpowiedź: serwer zdalny zwrócił błąd: (403) zabronione. |
-| Microsoft. Azure. Storage |Informacyjny |3 |85d077ab-... |Odebrano odpowiedź. Kod stanu = 403, identyfikator żądania = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 =, ETag =. |
+| Microsoft. Azure. Storage |Informacje |3 |85d077ab-... |Odebrano odpowiedź. Kod stanu = 403, identyfikator żądania = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 =, ETag =. |
 | Microsoft. Azure. Storage |Ostrzeżenie |2 |85d077ab-... |Zgłoszono wyjątek podczas operacji: serwer zdalny zwrócił błąd: (403) zabronione.. |
-| Microsoft. Azure. Storage |Informacyjny |3 |85d077ab-... |Sprawdzanie, czy operacja powinna być ponowiona. Liczba ponownych prób = 0, kod stanu HTTP = 403, wyjątek = serwer zdalny zwrócił błąd: (403) jest zabroniony. |
-| Microsoft. Azure. Storage |Informacyjny |3 |85d077ab-... |W następnej lokalizacji ustawiono wartość podstawowa, na podstawie trybu lokalizacji. |
-| Microsoft. Azure. Storage |Błąd |1 |85d077ab-... |Zasady ponawiania nie umożliwiały ponowienia próby. Niepowodzenie z serwerem zdalnym zwróciło błąd: (403) zabronione. |
+| Microsoft. Azure. Storage |Informacje |3 |85d077ab-... |Sprawdzanie, czy operacja powinna być ponowiona. Liczba ponownych prób = 0, kod stanu HTTP = 403, wyjątek = serwer zdalny zwrócił błąd: (403) jest zabroniony. |
+| Microsoft. Azure. Storage |Informacje |3 |85d077ab-... |W następnej lokalizacji ustawiono wartość podstawowa, na podstawie trybu lokalizacji. |
+| Microsoft. Azure. Storage |Error |1 |85d077ab-... |Zasady ponawiania nie umożliwiały ponowienia próby. Niepowodzenie z serwerem zdalnym zwróciło błąd: (403) zabronione. |
 
 W tym scenariuszu należy zbadać, dlaczego token sygnatury dostępu współdzielonego upływa przed wysłaniem przez klienta tokenu do serwera:
 
@@ -516,7 +516,7 @@ Wpisy dziennika:
 | 07b26a5d-... |Uruchamianie żądania synchronicznego do `https://domemaildist.blob.core.windows.net/azuremmblobcontainer` . |
 | 07b26a5d-... |StringToSign = główna................ x-MS-Client-Request-ID: 07b26a5d-.... x-MS-Date: WT, 03 Jun 2014 10:33:11 GMT. x-MS-Version: 2014-02-14./domemaildist/azuremmblobcontainer. restype: Container. |
 | 07b26a5d-... |Oczekiwanie na odpowiedź. |
-| 07b26a5d-... |Odebrano odpowiedź. Kod stanu = 200, identyfikator żądania = eeead849-... Content-MD5 =, ETag = &quot; 0x8D14D2DC63D059B &quot; . |
+| 07b26a5d-... |Odebrano odpowiedź. Kod stanu = 200, identyfikator żądania = eeead849-... Content-MD5 =, ETag =    &quot; 0x8D14D2DC63D059B &quot; . |
 | 07b26a5d-... |Nagłówki odpowiedzi zostały pomyślnie przetworzone, podczas gdy pozostała część operacji. |
 | 07b26a5d-... |Pobieranie treści odpowiedzi. |
 | 07b26a5d-... |Operacja została ukończona pomyślnie. |

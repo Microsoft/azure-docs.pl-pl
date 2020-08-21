@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 0d3e49fbb11af92d016910e91b0144f6de998238
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3f051d9fc1599c0877e1e8a58935d09d224ce22b
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829377"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689681"
 ---
 # <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Eliminowanie sprawiedliwych modeli uczenia maszynowego (wersja zapoznawcza)
 
@@ -51,7 +51,7 @@ Wspólnie te składniki umożliwiają analitykom danych i liderom biznesowym naw
 
 ## <a name="assess-fairness-in-machine-learning-models"></a>Oceniaj sprawiedliwe modele uczenia maszynowego
 
-W pakiecie Fairlearn Open Source godziwa wartość jest koncepcyjna, chociaż podejście znane jako **sprawiedliwe grupy**, z pytaniem, które grupy osób narażonych są zagrożone? Odpowiednie grupy, znane także jako podpopulacji, są definiowane za pomocą **poufnych funkcji** lub atrybutów poufnych. Funkcje poufne są przesyłane do szacowania w pakiecie Fairlearn typu open source jako wektor lub macierz o nazwie `sensitive_features` . W tym przypadku należy zasugerować, że projektant systemu powinien być poufny dla tych funkcji podczas oceniania sprawiedliwości grupy. 
+W pakiecie Fairlearn Open Source godziwa wartość jest koncepcyjna, chociaż podejście znane jako **sprawiedliwe grupy**, z pytaniem, które grupy osób narażonych są zagrożone? Odpowiednie grupy, znane także jako podpopulacji, są definiowane za pomocą **poufnych funkcji** lub atrybutów poufnych. Funkcje poufne są przesyłane do szacowania w pakiecie Fairlearn typu open source jako wektor lub macierz o nazwie  `sensitive_features` . W tym przypadku należy zasugerować, że projektant systemu powinien być poufny dla tych funkcji podczas oceniania sprawiedliwości grupy. 
 
 Należy się zastanowić, czy te funkcje zawierają kwestie dotyczące prywatności wynikające z danych prywatnych. Ale słowo "poufne" nie oznacza, że te funkcje nie powinny być używane do prognozowania.
 
@@ -108,6 +108,6 @@ Pakiet Fairlearn Open Source zapewnia dostosujesz i zmniejszanie algorytmów ogr
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak korzystać z różnych składników, sprawdzając w witrynie [GitHub](https://github.com/fairlearn/fairlearn/)Fairlearn, [podręczniku użytkownika](https://fairlearn.github.io/user_guide/index.html), [przykłady](https://fairlearn.github.io/auto_examples/notebooks/index.html)i [przykładowe notesy](https://github.com/fairlearn/fairlearn/tree/master/notebooks).
+- Dowiedz się, jak korzystać z różnych składników, sprawdzając w witrynie [GitHub](https://github.com/fairlearn/fairlearn/)Fairlearn, [podręczniku użytkownika](https://fairlearn.github.io/user_guide/index.html), [przykłady](https://fairlearn.github.io/auto_examples/)i [przykładowe notesy](https://github.com/fairlearn/fairlearn/tree/master/notebooks).
 - Dowiedz się [, jak](how-to-machine-learning-fairness-aml.md) włączyć ocenę godziwą modeli uczenia maszynowego w Azure Machine Learning.
 - Zapoznaj się z [przykładowymi notesami](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) , aby uzyskać dodatkowe scenariusze oceny uczciwości w Azure Machine Learning. 

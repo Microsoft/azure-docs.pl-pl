@@ -3,17 +3,16 @@ title: Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge — Azu
 description: W tym artykule przedstawiono kroki, które ułatwią wdrożenie analizy wideo na żywo na urządzeniu IoT Edge. Można to zrobić na przykład, jeśli masz dostęp do lokalnej maszyny z systemem Linux i/lub wcześniej utworzono konto Azure Media Services.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 26be76a46fa514917ee1c89cab7d1f112ee85431
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 774fdb440307d0df92e9735a8bdf055687f450a2
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652461"
+ms.locfileid: "88684103"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge
 
 W tym artykule przedstawiono kroki, które ułatwią wdrożenie analizy wideo na żywo na urządzeniu IoT Edge. Można to zrobić na przykład, jeśli masz dostęp do lokalnej maszyny z systemem Linux i/lub wcześniej utworzono konto Azure Media Services.
-
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -23,6 +22,7 @@ W tym artykule przedstawiono kroki, które ułatwią wdrożenie analizy wideo na
 * [Zarejestruj urządzenie IoT Edge](../../iot-edge/how-to-register-device.md)
 * [Install the Azure IoT Edge runtime on Debian-based Linux systems (Instalowanie środowiska uruchomieniowego usługi IoT Edge w systemach Linux opartych na rozwiązaniu Debian)](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Tworzenie konta usługi Azure Media Services](../latest/create-account-howto.md)
+
     * Użyj jednego z następujących regionów: Wschodnie stany USA 2, środkowe stany USA, Północno-środkowe stany USA, Japonia Wschodnia, zachodnie stany USA 2, zachodnio-środkowe stany USA, Kanada Wschodnia, Południowe Zjednoczone Królestwo, Francja środkowa, Francja Południowa, Szwajcaria Północna, Szwajcaria Zachodnia i Japonia Zachodnia.
     * Zalecane jest użycie kont magazynu ogólnego przeznaczenia w wersji 2 (GPv2)
 
@@ -190,6 +190,7 @@ Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, spos
     "armEndpoint": "https://management.azure.com/",
     "allowUnsecuredEndpoints": true
     ```
+
    > [!Note]
    > Właściwość przędzy **allowUnsecuredEndpoints** jest ustawiona na wartość true na potrzeby samouczków i przewodników Szybki Start.   
    Należy ustawić dla tej właściwości **wartość false** podczas uruchamiania w środowisku produkcyjnym. Pozwoli to zagwarantować, że aplikacja będzie blokować wszystkie niezabezpieczone punkty końcowe i w celu uruchomienia topologii wykresu będą potrzebne prawidłowe poświadczenia połączenia.  
@@ -210,8 +211,8 @@ Przejrzyj informacje o wdrożeniu, a następnie wybierz pozycję Utwórz.
 
 Po utworzeniu wdrożenia powrócisz do IoT Edge stronie Centrum IoT Hub.
 
-1.  Wybierz urządzenie IoT Edge, do którego należy wdrożenie, aby otworzyć jego szczegóły.
-2.  Sprawdź szczegóły urządzenia, aby sprawdzić, czy moduł usługi BLOB Storage jest wymieniony jako **określony we wdrożeniu i zgłoszony przez urządzenie**.
+1. Wybierz urządzenie IoT Edge, do którego należy wdrożenie, aby otworzyć jego szczegóły.
+2. Sprawdź szczegóły urządzenia, aby sprawdzić, czy moduł usługi BLOB Storage jest wymieniony jako **określony we wdrożeniu i zgłoszony przez urządzenie**.
 
 Uruchomienie modułu na urządzeniu może potrwać kilka minut, a następnie zgłoszone z powrotem do IoT Hub. Odśwież stronę, aby zobaczyć zaktualizowany stan.
 Kod stanu: 200 — wartość OK oznacza, że [środowisko uruchomieniowe IoT Edge jest w](../../iot-edge/iot-edge-runtime.md) dobrej kondycji i działa prawidłowo.
@@ -247,6 +248,7 @@ Następnie umożliwia przetestowanie próbki przez wywołanie metody bezpośredn
     ![Komunikat o stanie 200](./media/deploy-iot-edge-device/connection-timeout.png) 
 
 ## <a name="next-steps"></a>Następne kroki
+
 Wypróbuj [Szybki Start: Rozpoczynanie pracy — Analiza filmów wideo na żywo na IoT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
 
 > [!TIP]

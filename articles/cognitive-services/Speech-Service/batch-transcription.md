@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 08/20/2020
 ms.author: wolfma
-ms.openlocfilehash: 519a9cdac678e8852bef9bd66e3fbb98278cbb3b
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: b30a314977755b94bdcfdf7526d1b9ae61fcf100
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660878"
+ms.locfileid: "88689749"
 ---
 # <a name="how-to-use-batch-transcription"></a>Jak korzystać z transkrypcji partii
 
@@ -174,7 +174,7 @@ Użyj tych opcjonalnych właściwości, aby skonfigurować transkrypcję:
 
 ### <a name="storage"></a>Magazyn
 
-Transkrypcja usługi Batch może odczytywać dźwięk z internetowego identyfikatora URI i może odczytywać i zapisywać transkrypcje przy użyciu [magazynu obiektów blob platformy Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
+Transkrypcja usługi Batch może odczytywać dźwięk z publicznego, widocznego w Internecie identyfikatora URI i może odczytywać zapisy audio i zapisu przy użyciu identyfikatora URI sygnatury dostępu współdzielonego z [usługą Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
 
 ## <a name="batch-transcription-result"></a>Wynik transkrypcji partii
 
@@ -243,7 +243,7 @@ Każdy plik wynikowy transkrypcji ma następujący format:
 }
 ```
 
-Wynik zawiera następujące formy:
+Wynik zawiera następujące pola:
 
 :::row:::
    :::column span="1":::
@@ -309,7 +309,8 @@ Znaczniki czasu na poziomie słowa muszą być włączone, ponieważ parametry w
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 
-Usługa transkrypcji usługi Batch może obsłużyć dużą liczbę przesłanych transkrypcji. Można wysyłać zapytania o stan transkrypcji za pomocą `GET` przy [pobieraniu transkrypcji](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions). Wywołaj regularne [usuwanie transkrypcji](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) z usługi po pobraniu wyników. Alternatywnie Ustaw `timeToLive` Właściwość na rozsądną wartość, aby zapewnić ostateczne usuwanie wyników.
+Usługa transkrypcji usługi Batch może obsłużyć dużą liczbę przesłanych transkrypcji. Można wysyłać zapytania o stan transkrypcji przy użyciu [Get transkrypcji](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions).
+Wywołaj regularne [usuwanie transkrypcji](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) z usługi po pobraniu wyników. Alternatywnie Ustaw `timeToLive` Właściwość, aby zapewnić ostateczne usuwanie wyników.
 
 ## <a name="sample-code"></a>Przykładowy kod
 

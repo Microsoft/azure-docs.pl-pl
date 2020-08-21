@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: alexeyo
-ms.openlocfilehash: 86182130daf5cbb61df7a751aaeff392dd608a67
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 554dd0967979bc2457c3a9c8371152e09535381f
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88662593"
+ms.locfileid: "88690140"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Przydziały i limity usługi Speech
 
@@ -132,7 +132,7 @@ Zainicjuj zwiększenie limitu współbieżnych żądań dla zasobu lub w razie p
   - "Sprawdzanie poprawności przydziału lub użycia" w celu sprawdzenia istniejącego limitu
 - Kliknij przycisk *Dalej: rozwiązania*
 - Kontynuuj, aby kontynuować tworzenie żądania
-- Gdy w polu *szczegóły* wprowadź wartość pola *Opis* :
+- Na karcie *szczegóły* wprowadź wartość w polu *Opis* :
   - należy pamiętać, że żądanie dotyczy przydziału **zamiany mowy na tekst**
   - Model **podstawowy** lub **niestandardowy**
   - Informacje o zasobach platformy Azure [zebrane przed](#have-the-required-information-ready) 
@@ -184,7 +184,7 @@ Zainicjuj zwiększenie limitu współbieżnych żądań dla zasobu lub w razie p
   - "Sprawdzanie poprawności przydziału lub użycia" w celu sprawdzenia istniejącego limitu
 - Kliknij przycisk *Dalej: rozwiązania*
 - Kontynuuj, aby kontynuować tworzenie żądania
-- Gdy w polu *szczegóły* wprowadź wartość pola *Opis* :
+- Na karcie *szczegóły* wprowadź wartość w polu *Opis* :
   - Uwaga, że żądanie dotyczy przydziału **zamiany tekstu na mowę**
   - Informacje o zasobach platformy Azure [zebrane przed](#prepare-the-required-information) 
   - Ukończ wprowadzanie wymaganych informacji, a następnie kliknij przycisk *Utwórz* na karcie *Przegląd + tworzenie*

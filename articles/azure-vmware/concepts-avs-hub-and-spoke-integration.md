@@ -2,13 +2,13 @@
 title: Koncepcja — Integruj wdrożenie rozwiązania Azure VMware z architekturą Hub i szprychy
 description: Zapoznaj się z zaleceniami dotyczącymi integrowania wdrożenia rozwiązania Azure VMware w istniejącej lub nowej architekturze Hub i szprych na platformie Azure.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: a1ba75369a1d6f19ca7ae1f36107170f219f72d0
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.date: 08/20/2020
+ms.openlocfilehash: deb2756f7e83250ff58836098dc4954ec482fbda
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649588"
+ms.locfileid: "88684521"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrowanie rozwiązań VMware platformy Azure z architekturą Hub i szprychy
 
@@ -28,10 +28,7 @@ Ruch między lokalnym centrum danych, chmurą prywatną rozwiązania Azure VMwar
 
 Na diagramie przedstawiono przykład wdrożenia centrum i szprych na platformie Azure połączonej z lokalnym i rozwiązaniem VMware platformy Azure za pomocą ExpressRoute.
 
-:::image type="content" source="./media/hub-spoke/avs-hub-and-spoke-deployment.png" alt-text="Wdrożenie integracji usługi Hub i gwiazdy platformy Azure VMware":::
-
-
-
+:::image type="content" source="./media/hub-spoke/avs-hub-and-spoke-deployment.png" alt-text="Wdrożenie integracji usługi Hub i gwiazdy platformy Azure VMware" border="false":::
 
 Architektura ma następujące główne składniki:
 
@@ -64,12 +61,12 @@ Połączenia ExpressRoute umożliwiają przepływ ruchu między środowiskiem lo
 
 * **Przepływ ruchu rozwiązań w środowisku lokalnym do platformy Azure VMware**
 
-  :::image type="content" source="media/hub-spoke/on-prem-to-avs-traffic-flow.png" alt-text="Przepływ ruchu rozwiązań w środowisku lokalnym do platformy Azure VMware":::
+  :::image type="content" source="media/hub-spoke/on-prem-to-avs-traffic-flow.png" alt-text="Przepływ ruchu rozwiązań w środowisku lokalnym do platformy Azure VMware" border="false":::
 
 
 * **Rozwiązanie VMware platformy Azure do centralnego przepływu ruchu w sieci wirtualnej**
 
-  :::image type="content" source="media/hub-spoke/avs-to-hub-vnet-traffic-flow.png" alt-text="Azure VMware — rozwiązanie do przepływu ruchu w sieci wirtualnej Hub":::
+  :::image type="content" source="media/hub-spoke/avs-to-hub-vnet-traffic-flow.png" alt-text="Azure VMware — rozwiązanie do przepływu ruchu w sieci wirtualnej Hub" border="false":::
 
 
 Więcej szczegółowych informacji na temat rozwiązań sieci i międzyłączności VMware na platformie Azure można znaleźć w [dokumentacji produktu rozwiązania VMware platformy Azure](./concepts-networking.md).
@@ -97,7 +94,7 @@ Drugi poziom segmentacji ruchu przy użyciu sieciowych grup zabezpieczeń w szpr
 
 Platformy Azure Application Gateway V1 i v2 zostały przetestowane przy użyciu aplikacji sieci Web, które działają na maszynach wirtualnych rozwiązań VMware platformy Azure jako Pula zaplecza. Application Gateway jest obecnie jedyną obsługiwaną metodą udostępniania aplikacji sieci Web działających na maszynach wirtualnych rozwiązań VMware platformy Azure do Internetu. Może również bezpiecznie udostępnić aplikacje użytkownikom wewnętrznym.
 
-:::image type="content" source="media/hub-spoke/avs-second-level-traffic-segmentation.png" alt-text="Drugi poziom segmentacji ruchu przy użyciu sieciowych grup zabezpieczeń":::
+:::image type="content" source="media/hub-spoke/avs-second-level-traffic-segmentation.png" alt-text="Drugi poziom segmentacji ruchu przy użyciu sieciowych grup zabezpieczeń" border="false":::
 
 
 ### <a name="jumpbox-and-azure-bastion"></a>Serwera przesiadkowego i Azure bastionu
@@ -110,7 +107,7 @@ Najlepszym rozwiązaniem w zakresie zabezpieczeń jest wdrożenie [Microsoft Azu
 > Nie należy przydzielić publicznego adresu IP do maszyny wirtualnej serwera przesiadkowego lub uwidocznić Port 3389/TCP w publicznym Internecie. 
 
 
-:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Sieć wirtualna usługi Azure bastionu Hub":::
+:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Sieć wirtualna usługi Azure bastionu Hub" border="false":::
 
 
 ## <a name="azure-dns-resolution-considerations"></a>Zagadnienia dotyczące rozwiązywania problemów Azure DNS

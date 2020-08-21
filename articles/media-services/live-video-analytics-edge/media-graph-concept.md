@@ -3,12 +3,12 @@ title: Koncepcje grafu multimediów — Azure
 description: Graf multimedialny pozwala określić, gdzie mają być przechwytywane nośniki, jak należy je przetworzyć i gdzie mają zostać dostarczone wyniki. Ten artykuł zawiera szczegółowy opis koncepcji wykresu multimedialnego.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 02e960e917a059afdb0d688c7429d27d8e8a48eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9889c7135a23a8817f4922d3e537eb51f26cdae0
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300811"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690684"
 ---
 # <a name="media-graph"></a>Graf multimedialny
 
@@ -80,6 +80,10 @@ Węzeł procesora filtru szybkości klatek umożliwia próbkowanie ramek z przyc
 #### <a name="http-extension-processor"></a>Procesor rozszerzeń HTTP
 
 Węzeł procesora rozszerzenia HTTP umożliwia łączenie własnych modułów IoT Edge z wykresem multimedialnym. Ten węzeł wykonuje zdekodowaną ramkę wideo jako dane wejściowe i przekazuje te ramki do punktu końcowego REST protokołu HTTP uwidocznionego przez moduł. Ten węzeł ma możliwość uwierzytelniania przy użyciu punktu końcowego REST, jeśli jest to wymagane. Ponadto węzeł ma wbudowany program formatujący obrazy służący do skalowania i kodowania klatek wideo przed ich przekazaniem do punktu końcowego REST. W ramach skalowania dostępne są opcje współczynnika proporcji obrazu, które mają być zachowane, uzupełnione lub rozciągnięte. Koder obrazu obsługuje format JPEG, PNG lub BMP.
+
+#### <a name="grpc-extension-processor"></a>Procesor rozszerzenia gRPC
+
+Węzeł procesora rozszerzenia gRPC wykonuje dekodowane ramki wideo jako dane wejściowe i przekazuje te ramki do punktu końcowego gRPC uwidocznionego przez moduł. Ponadto węzeł ma wbudowany program formatujący obrazy służący do skalowania i kodowania klatek wideo przed ich przekazaniem do punktu końcowego gRPC. W ramach skalowania dostępne są opcje współczynnika proporcji obrazu, które mają być zachowane, uzupełnione lub rozciągnięte. Koder obrazu obsługuje format JPEG, PNG lub BMP.
 
 #### <a name="signal-gate-processor"></a>Procesor bramy sygnałów  
 

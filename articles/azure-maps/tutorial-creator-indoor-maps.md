@@ -3,17 +3,17 @@ title: Tworzenie map wewnętrznych przy użyciu kreatora
 description: Użyj Kreatora Azure Maps, aby utworzyć mapy wewnętrzne.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/17/2020
+ms.date: 08/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 7ea1995b6d1232b3e4c6371313e5b3d45bdbb756
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bf2fbb48c34631bc74a3b712e135b618a1718d8e
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075401"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688094"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Tworzenie map wewnętrznych przy użyciu kreatora
 
@@ -109,16 +109,25 @@ Interfejs API przekazywania danych to długotrwała transakcja implementująca w
     ```http
     https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={udid}&inputType=DWG
     ```
+
     >[!IMPORTANT]
     > Adresy URL interfejsu API w tym dokumencie mogą być dostosowane do lokalizacji Twojego zasobu twórcy. Aby uzyskać więcej informacji, zobacz [dostęp do usługi Creator Services](how-to-manage-creator.md#access-to-creator-services).
 
-3. Kliknij przycisk **Wyślij** i poczekaj na przetworzenie żądania. Po zakończeniu żądania przejdź do karty **nagłówki** w odpowiedzi i Wyszukaj klucz **lokalizacji** . Skopiuj wartość klucza **lokalizacji** , która jest `status URL` dla żądania konwersji.
+3. Kliknij przycisk **Wyślij** i poczekaj na przetworzenie żądania. Po zakończeniu żądania przejdź do karty **nagłówki** w odpowiedzi i Wyszukaj klucz **lokalizacji** . Skopiuj wartość klucza **lokalizacji** , która jest `status URL` dla żądania konwersji. Zostanie ona użyta w następnym kroku.
 
-4. Rozpocznij nową metodę **Get** http na karcie Konstruktor. Dołącz klucz podstawowej subskrypcji Azure Maps do programu `status URL` . Wykonaj żądanie **Get** w `status URL` powyższym kroku. Jeśli proces konwersji jeszcze nie zakończył się, może zostać wyświetlony komunikat podobny do następującego:
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/copy-location-uri-dialog.png" border="true" alt-text="Skopiuj wartość klucza lokalizacji":::
+
+4. Rozpocznij nową metodę **Get** http na karcie Konstruktor. Dołącz klucz podstawowej subskrypcji Azure Maps do programu `status URL` . Wykonaj żądanie **Get** w lokalizacji `status URL` skopiowanej w kroku 3. `status URL`Wygląda jak następujący adres URL:
+
+    ```http
+    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0
+    ```
+
+    Jeśli proces konwersji jeszcze nie zakończył się, może zostać wyświetlony komunikat podobny do następującego:
 
     ```json
     {
-        "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+        "operationId": "<operationId>",
         "created": "2020-04-22T19:39:54.9518496+00:00",
         "status": "Running"
     }
@@ -128,7 +137,7 @@ Interfejs API przekazywania danych to długotrwała transakcja implementująca w
 
     ```json
    {
-        "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+        "operationId": "<operationId>",
         "created": "2020-04-22T19:39:54.9518496+00:00",
         "status": "Succeeded",
         "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
@@ -143,7 +152,7 @@ Przykładowy pakiet rysowania powinien zostać skonwertowany bez błędów lub o
 
 ```json
 {
-    "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+    "operationId": "<operationId>",
     "created": "2020-04-22T19:39:54.9518496+00:00",
     "status": "Failed",
     "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
@@ -177,7 +186,7 @@ Zestaw danych to zbiór funkcji mapy, takich jak budynki, poziomy i pokoje. Aby 
 
     ```json
     {
-        "operationId": "a93570cb-3e4f-4e45-a2b1-360df174180a",
+        "operationId": "<operationId>",
         "created": "2020-04-22T19:52:38.9352189+00:00",
         "status": "Succeeded",
         "resourceLocation": "https://azure.microsoft.com/dataset/{datasetiId}?api-version=1.0"
@@ -206,7 +215,7 @@ Tileset to zbiór kafelków wektorowych, które są renderowane na mapie. Tilese
 
     ```json
     {
-        "operationId": "a93570cb-3e4f-4e45-a2b1-360df174180a",
+        "operationId": "<operationId>",
         "createdDateTime": "3/11/2020 8:45:13 PM +00:00",
         "status": "Succeeded",
         "resourceLocation": "https://atlas.microsoft.com/tileset/{tilesetId}?api-version=1.0"
@@ -215,7 +224,7 @@ Tileset to zbiór kafelków wektorowych, które są renderowane na mapie. Tilese
 
 ## <a name="query-datasets-with-wfs-api"></a>Wykonywanie zapytań dotyczących zestawów danych za pomocą interfejsu API WFS
 
- Do zestawów danych można wykonywać zapytania przy użyciu [interfejsu API WFS](https://docs.microsoft.com/rest/api/maps/wfs). Za pomocą interfejsu API WFS można wykonywać zapytania dotyczące kolekcji funkcji, określonej kolekcji lub konkretnej funkcji z **identyfikatorem**funkcji. **Identyfikator** funkcji jednoznacznie identyfikuje funkcję w zestawie danych. Jest on używany na przykład w celu określenia, który stan funkcji należy zaktualizować w danym stateset.
+ Do zestawów danych można wykonywać zapytania przy użyciu  [interfejsu API WFS](https://docs.microsoft.com/rest/api/maps/wfs). Za pomocą interfejsu API WFS można wykonywać zapytania dotyczące kolekcji funkcji, określonej kolekcji lub konkretnej funkcji z **identyfikatorem**funkcji. **Identyfikator** funkcji jednoznacznie identyfikuje funkcję w zestawie danych. Jest on używany na przykład w celu określenia, który stan funkcji należy zaktualizować w danym stateset.
 
 1. W aplikacji pocztowej wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**
 
@@ -391,7 +400,7 @@ Tileset to zbiór kafelków wektorowych, które są renderowane na mapie. Tilese
     >[!NOTE]
     > Aktualizacja zostanie zapisana tylko wtedy, gdy sygnatura czasowa jest późniejsza niż sygnatura czasowa poprzedniego żądania. Możemy przekazać wszystkie KeyName, które zostały wcześniej skonfigurowane podczas tworzenia.
 
-7. Po pomyślnej aktualizacji otrzymasz `200 OK` kod stanu HTTP. Jeśli masz [zaimplementowane style dynamiczne](indoor-map-dynamic-styling.md) dla mapy pomieszczeń, aktualizacja zostanie wyświetlona na renderowanej mapie w określonej sygnaturze czasowej.
+7. Po pomyślnej aktualizacji otrzymasz `200 OK` kod stanu HTTP. Jeśli masz  [zaimplementowane style dynamiczne](indoor-map-dynamic-styling.md) dla mapy pomieszczeń, aktualizacja zostanie wyświetlona na renderowanej mapie w określonej sygnaturze czasowej.
 
 [Interfejs API Get States funkcji](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) umożliwia pobranie stanu funkcji przy użyciu jej funkcji `ID` . Stateset i jego zasoby można także usunąć za pomocą [interfejsu API usuwania stanu funkcji](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview).
 

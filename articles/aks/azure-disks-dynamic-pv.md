@@ -5,12 +5,12 @@ description: Dowiedz się, jak dynamicznie tworzyć wolumin trwały za pomocą d
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 3d01b2c2098dcbe896ecaa7f854d91477eba2cab
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 06aad076836c0f6fdc59c4ed5d0116231080d15c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648772"
+ms.locfileid: "88683610"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Dynamiczne tworzenie i używanie woluminu trwałego z dyskami platformy Azure w usłudze Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,7 @@ Każdy klaster AKS zawiera cztery wstępnie utworzone klasy magazynu, dwie z nic
     
 Jeśli używasz jednej z domyślnych klas magazynu, nie możesz zaktualizować rozmiaru woluminu po utworzeniu klasy magazynu. Aby można było zaktualizować rozmiar woluminu po utworzeniu klasy magazynu, należy dodać wiersz `allowVolumeExpansion: true` do jednej z domyślnych klas magazynu lub utworzyć własną niestandardową klasę magazynu. Należy pamiętać, że nie jest obsługiwane zmniejszenie rozmiaru obwodu PVC (aby zapobiec utracie danych). Istniejącą klasę magazynu można edytować za pomocą `kubectl edit sc` polecenia. 
 
-Jeśli na przykład chcesz użyć dysku o rozmiarze 4 TiB, należy utworzyć klasę magazynu, która definiuje, `cachingmode: None` ponieważ [buforowanie dysków nie jest obsługiwane dla dysków 4 TIB i większych](../virtual-machines/windows/premium-storage-performance.md#disk-caching).
+Jeśli na przykład chcesz użyć dysku o rozmiarze 4 TiB, należy utworzyć klasę magazynu, która definiuje, `cachingmode: None` ponieważ [buforowanie dysków nie jest obsługiwane dla dysków 4 TIB i większych](../virtual-machines/premium-storage-performance.md#disk-caching).
 
 Aby uzyskać więcej informacji na temat klas magazynu i tworzenia własnej klasy magazynu, zobacz [Opcje magazynu dla aplikacji w AKS][storage-class-concepts].
 

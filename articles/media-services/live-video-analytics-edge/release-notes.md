@@ -3,12 +3,12 @@ title: Analiza filmów wideo na żywo na IoT Edge informacji o wersji — Azure
 description: Ten temat zawiera informacje o wersji analizy wideo na żywo na temat wydań IoT Edge, ulepszeń, poprawek błędów i znanych problemów.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 28260728532d9db52b8d36488c2e456bd11803ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c18977807d8cdca264a27d7fcff37aec7a61eb55
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091783"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690655"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Analiza filmów wideo na żywo na IoT Edge informacji o wersji
 
@@ -21,12 +21,34 @@ Ten artykuł zawiera informacje na temat:
 * Poprawki błędów
 * Funkcje uznane za przestarzałe
 
+## <a name="august-19-2020"></a>19 sierpnia 2020
+
+Ten tag wersji dla odświeżenia 2020 sierpnia modułu to:
+
+```
+mcr.microsoft.com/media/live-video-analytics:1.0.3
+```
+
+> [!NOTE]
+> W ramach przewodników Szybki Start i samouczków w manifestach wdrożenia jest używany tag 1 (Live-Video-Analytics: 1). Należy więc po prostu ponownie wdrożyć takie manifesty należy zaktualizować moduł na urządzeniu brzegowym > urządzenia.
+
+## <a name="new-features"></a>Nowe funkcje 
+
+* Teraz można uzyskać wysoką wydajność transferu zawartości danych między aktywną analizą filmów wideo na IoT Edge a niestandardowym rozszerzeniem przy użyciu platformy gRPC Framework. Zobacz [ten](analyze-live-video-use-your-grpc-model-quickstart.md) temat, aby rozpocząć pracę.
+* Szersze wdrożenie regionalne analizy filmów wideo i aktualizowanie tylko usługi w chmurze.  
+* Usługa Analiza filmów wideo na żywo jest teraz dostępna w 25 dodatkowych regionach na całym świecie. Poniżej znajduje się [Lista](https://azure.microsoft.com/global-infrastructure/services/?products=media-services) wszystkich dostępnych regionów.  
+* [Konfiguracja](https://aka.ms/lva-edge/setup-resources-for-samples) przewodnika Szybki Start została również zaktualizowana. 
+
+## <a name="bug-fixes"></a>Poprawki błędów 
+
+Brak 
+
 ## <a name="july-13-2020"></a>13 lipca 2020
 
 Ten tag wersji dla odświeżania 2020 modułu jest następujący:
 
 ```
-     mcr.microsoft.com/media/live-video-analytics:1.0.2
+mcr.microsoft.com/media/live-video-analytics:1.0.2
 ```
 
 > [!NOTE]

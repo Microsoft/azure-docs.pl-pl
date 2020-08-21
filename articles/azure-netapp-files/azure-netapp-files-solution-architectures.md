@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2020
+ms.date: 08/20/2020
 ms.author: b-juche
-ms.openlocfilehash: 79ad95179f4ad6d332a848e59ca341b8a9f90b1f
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: e7bdf6ce35e2649a068de234b4b52e13efe72c44
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258230"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690548"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architektury rozwiązań używające usługi Azure NetApp Files
 Ten artykuł zawiera informacje o najlepszych rozwiązaniach, które mogą pomóc w zrozumieniu architektur rozwiązań na potrzeby używania Azure NetApp Files.  
@@ -68,6 +68,7 @@ Ta sekcja zawiera odwołania do rozwiązań SAP w systemie Azure.
 ### <a name="sap-hana"></a>SAP HANA 
 
 * [Konfiguracje magazynu maszyn wirtualnych platformy Azure SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
+* [Wysoka dostępność SAP HANA skalowanie Azure NetApp Files na Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat)
 * [SAP HANA skalowanie w poziomie z węzłem gotowości na maszynach wirtualnych platformy Azure z Azure NetApp Files na SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
 * [SAP HANA skalowanie w poziomie z węzłem gotowości na maszynach wirtualnych platformy Azure z Azure NetApp Files na Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
 
@@ -85,7 +86,7 @@ Ta sekcja zawiera odwołania do rozwiązań infrastruktury pulpitu wirtualnego.
 
 ### <a name="windows-virtual-desktop"></a>Windows Virtual Desktop
 
-* [Zalety korzystania z Azure NetApp Files z pulpitem wirtualnym systemu Windows](solutions-windows-virtual-desktop.md)
+* [Korzyści związane z używaniem usługi Azure NetApp Files w usłudze Windows Virtual Desktop](solutions-windows-virtual-desktop.md)
 * [Opcje magazynu dla kontenerów profilów FSLogix w programie Virtual Desktop systemu Windows](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile#azure-platform-details)
 * [Tworzenie kontenera profilu FSLogix dla puli hostów przy użyciu Azure NetApp Files](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
 * [Pulpit wirtualny systemu Windows w skali przedsiębiorstwa](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)

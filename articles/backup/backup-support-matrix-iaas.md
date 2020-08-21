@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej pod
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: cfa8a6c7cb2da35929151dfce09c0bc31ee69bb2
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 66c712eca86b01c5815638c9ea58042580791ea6
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611538"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685480"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tabela obsługi dla maszyn wirtualnych platformy Azure
 
@@ -165,7 +165,7 @@ Tworzenie kopii zapasowej & przywracanie deduplikowanych maszyn wirtualnych/dysk
 Dodawanie dysku do chronionej maszyny wirtualnej | Obsługiwane.
 Zmień rozmiar dysku na chronionej maszynie wirtualnej | Obsługiwane.
 Magazyn udostępniony| Tworzenie kopii zapasowych maszyn wirtualnych przy użyciu udostępniony wolumin klastra (CSV) lub Serwer plików skalowalny w poziomie nie jest obsługiwane. Podczas tworzenia kopii zapasowej mogą wystąpić błędy autorów woluminów. W przypadku przywracania dyski zawierające woluminy woluminów CSV mogą nie zostać dołączone.
-[Dyski udostępnione](../virtual-machines/windows/disks-shared-enable.md) | Nieobsługiwane.
+[Dyski udostępnione](../virtual-machines/disks-shared-enable.md) | Nieobsługiwane.
 
 ## <a name="vm-network-support"></a>Obsługa sieci maszyn wirtualnych
 

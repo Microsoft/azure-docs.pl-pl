@@ -8,19 +8,19 @@ ms.topic: troubleshooting
 author: peterclu
 ms.author: peterlu
 ms.date: 01/18/2019
-ms.openlocfilehash: ccf38dd6ed531c620719f25c7b70de5549fa2262
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6962198fbce3b46a8310d39cf3aa3f78ed0a130b
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431814"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690735"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Uzyskaj pomoc techniczną i szkolenia dla Azure Machine Learning Studio (klasyczny)
 
 **dotyczy:** ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 
 Ten artykuł zawiera informacje o tym, jak dowiedzieć się więcej na temat Azure Machine Learning Studio (klasyczny) i uzyskać pomoc techniczną dotyczącą Twoich problemów i pytań.
 

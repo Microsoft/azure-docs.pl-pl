@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fb24100eaebc54b98adf2f09fa3e557e4d6fa0be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcce4485e00415f9caa706966cac1c936c1f15f6
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82580659"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690412"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Monitorowanie i dostrajanie Azure Database for PostgreSQL-ze skalowaniem (Citus)
 
@@ -28,11 +28,11 @@ Oprócz wyświetlania wykresów metryk można skonfigurować alerty. Aby uzyska�
 
 Te metryki są dostępne dla węzłów ze skalowaniem (Citus):
 
-|Metric|Nazwa wyświetlana metryki|Jednostka|Opis|
+|Metryka|Nazwa wyświetlana metryki|Jednostka|Opis|
 |---|---|---|---|
 |active_connections|Aktywne połączenia|Liczba|Liczba aktywnych połączeń z serwerem.|
 |cpu_percent|Procent użycia procesora CPU|Procent|Procent użycia procesora CPU.|
-|Wejścia|Liczba operacji we/wy na sekundę|Liczba|Zobacz [definicję IOPS](../virtual-machines/linux/premium-storage-performance.md#iops) i [przepływność w ramach skalowania](concepts-hyperscale-configuration-options.md)|
+|Wejścia|Liczba operacji we/wy na sekundę|Liczba|Zobacz [definicję IOPS](../virtual-machines/premium-storage-performance.md#iops) i [przepływność w ramach skalowania](concepts-hyperscale-configuration-options.md)|
 |memory_percent|Procent pamięci|Procent|Procent używanej pamięci.|
 |network_bytes_ingress|Sieć — wejście|Bajty|Sieć w ramach aktywnych połączeń.|
 |network_bytes_egress|Sieć — wyjście|Bajty|Nawiązywanie połączeń sieciowych między aktywnymi połączeniami.|

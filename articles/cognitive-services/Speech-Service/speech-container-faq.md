@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: aahi
-ms.openlocfilehash: e6b90e17c96f7636fa509e31354f9413b312803f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 10a75d19b7fb134b8e7498c422742e00f6475da5
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289036"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690208"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Kontenery usługi mowy — często zadawane pytania
 
@@ -95,7 +95,7 @@ Koszt konserwacji płatnej przez firmę Microsoft zależy od poziomu usługi i z
 <b>Dlaczego brakuje interpunkcji z transkrypcji?</b>
 </summary>
 
-**Odpowiedź:** `speech_recognition_language=<YOUR_LANGUAGE>`W przypadku korzystania z klienta węgla należy jawnie skonfigurować w żądaniu.
+**Odpowiedź:** `speech_recognition_language=<YOUR_LANGUAGE>` W przypadku korzystania z klienta węgla należy jawnie skonfigurować w żądaniu.
 
 Na przykład:
 
@@ -305,7 +305,7 @@ Czy można pomóc wypełnić poniższe metryki testu, w tym funkcje, które nale
 - Węgiel mający potwierdzenia pożaru w kompilacjach wydania (zabijanie procesu).
 
 Obejście to przełączenie do korzystania z ciągłego rozpoznawania w kodzie lub (szybsze) łączenie się z interaktywnym lub ciągłym punktami końcowymi w kontenerze.
-Dla kodu Ustaw punkt końcowy na <Host: Port>/Speech/Recognition/Interactive/cognitiveservices/v1
+Dla kodu Ustaw punkt końcowy na `host:port` /Speech/Recognition/Interactive/cognitiveservices/v1
 
 Aby zapoznać się z różnymi trybami, zobacz Tryby mowy — Zobacz poniżej:
 
@@ -559,7 +559,7 @@ Są one przeznaczone do różnych celów i są używane inaczej.
 
 W języku C#, aby włączyć Dyktowanie, wywołaj `SpeechConfig.EnableDictation()` funkcję.
 
-### <a name="fromendpoint-apis"></a>`FromEndpoint`Programowania
+### <a name="fromendpoint-apis"></a>`FromEndpoint` Programowania
 | Język | Szczegóły interfejsu API |
 |----------|:------------|
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
@@ -579,7 +579,7 @@ W języku C#, aby włączyć Dyktowanie, wywołaj `SpeechConfig.EnableDictation(
 
 **Odpowiedź:** Istnieje nowy `FromHost` interfejs API. Nie zastępuje to ani nie modyfikuje żadnych istniejących interfejsów API. Po prostu dodaje alternatywny sposób tworzenia konfiguracji mowy przy użyciu niestandardowego hosta.
 
-### <a name="fromhost-apis"></a>`FromHost`Programowania
+### <a name="fromhost-apis"></a>`FromHost` Programowania
 
 | Język | Szczegóły interfejsu API |
 |--|:-|
@@ -597,8 +597,8 @@ Format hosta jest `protocol://hostname:port` `:port` opcjonalny (patrz poniżej)
 - Jeśli kontener jest uruchomiony na serwerze zdalnym, użyj nazwy hosta lub adresu IPv4 tego serwera.
 
 Przykłady parametrów hosta dla zamiany mowy na tekst:
-- `ws://localhost:5000`-niezabezpieczone połączenie z kontenerem lokalnym przy użyciu portu 5000
-- `ws://some.host.com:5000`-niezabezpieczone połączenie z kontenerem uruchomionym na serwerze zdalnym
+- `ws://localhost:5000` -niezabezpieczone połączenie z kontenerem lokalnym przy użyciu portu 5000
+- `ws://some.host.com:5000` -niezabezpieczone połączenie z kontenerem uruchomionym na serwerze zdalnym
 
 Przykłady języka Python z powyższych, ale używają `host` parametru zamiast `endpoint` :
 

@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eca304901e391c931aba892abf3cb2a19d4ae3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18c3b0397a0ad3e9e368d1a14e20a999ced5545b
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367754"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690276"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Błąd "nie można uzyskać dostępu do tej aplikacji firmowej" podczas korzystania z aplikacji serwera proxy aplikacji
 
@@ -50,7 +50,7 @@ Limit czasu bramy występuje, gdy usługa próbuje skontaktować się z łączni
 Nieprawidłowy błąd bramy wskazuje, że łącznik nie może nawiązać połączenia z aplikacją zaplecza. Upewnij się, że aplikacja została opublikowana. Typowe błędy, które powodują wystąpienie tego błędu:
 
 - Literówka lub błąd w wewnętrznym adresie URL
-- Nie publikuje katalogu głównego aplikacji. Na przykład publikowanie, <http://expenses/reimbursement> ale próba uzyskania dostępu<http://expenses>
+- Nie publikuje katalogu głównego aplikacji. Na przykład publikowanie, `http://expenses/reimbursement` ale próba uzyskania dostępu `http://expenses`
 - Problemy z konfiguracją ograniczonego delegowania protokołu Kerberos (KCD)
 - Problemy z aplikacją zaplecza
 

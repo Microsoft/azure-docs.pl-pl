@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 7aef0e7e48bfd3f56bd1c3718b1a547bea66cbe8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5b2677e7b83c1d86fd12f8c89c51e95460e8694f
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054480"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690667"
 ---
 # <a name="quickstart-back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>Szybki Start: Tworzenie kopii zapasowej maszyny wirtualnej na platformie Azure przy użyciu szablonu ARM
 
@@ -28,7 +28,7 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 
 Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/). Ten szablon pozwala wdrożyć prostą maszynę wirtualną z systemem Windows i magazyn Recovery Services skonfigurowany przy użyciu DefaultPolicy na potrzeby ochrony.
 
-:::code language="json" source="~/quickstart-templates/101-recovery-services-create-vm-and-configure-backup/azuredeploy.json" range="1-247" highlight="221-245":::
+:::code language="json" source="~/quickstart-templates/101-recovery-services-create-vm-and-configure-backup/azuredeploy.json":::
 
 Zasoby zdefiniowane w szablonie są następujące:
 
@@ -41,7 +41,7 @@ Zasoby zdefiniowane w szablonie są następujące:
 - [**Microsoft. RecoveryServices/magazyny**](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults)
 - [**Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems**](/azure/templates/microsoft.recoveryservices/vaults/backupfabrics/protectioncontainers/protecteditems)
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 Aby wdrożyć szablon, wybierz opcję **Wypróbuj** , aby otworzyć Azure Cloud Shell, a następnie wklej następujący skrypt programu PowerShell do okna powłoki. Aby wkleić kod, kliknij prawym przyciskiem myszy okno powłoki, a następnie wybierz polecenie **Wklej**.
 
@@ -71,7 +71,7 @@ Szablon tworzy maszynę wirtualną i włącza ją z powrotem na maszynie wirtual
 
 Aby monitorować zadanie tworzenia kopii zapasowej, zobacz [monitorowanie zadania tworzenia kopii zapasowej](./quick-backup-vm-powershell.md#monitor-the-backup-job).
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli kopia zapasowa maszyny wirtualnej nie jest już potrzebna, można ją wyczyścić.
 

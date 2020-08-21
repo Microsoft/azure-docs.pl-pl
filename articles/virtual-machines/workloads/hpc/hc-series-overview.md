@@ -10,28 +10,29 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 08/19/2020
 ms.author: amverma
-ms.openlocfilehash: 7110f3417937b623260983a9d94e9e6834fc8fc9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: cynthn
+ms.openlocfilehash: de6051e8880bbe3df42031a0d0d7b60abc27d2b0
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077381"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689803"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Omówienie maszyny wirtualnej z serii HC
 
 Maksymalizacja wydajności aplikacji HPC na skalowalnych procesorach Intel Xeon wymaga podejścia przydatnego do przetwarzania umieszczania w tej nowej architekturze. Tutaj zaplanujemy nasze wdrożenie na maszynach wirtualnych z serii HC platformy Azure dla aplikacji HPC. Termin "pNUMA" będzie używany do odwoływania się do fizycznej domeny NUMA i "vNUMA" w celu odwoływania się do zwirtualizowanej domeny NUMA. Podobnie będziemy używać terminu "pCore" do odwoływania się do fizycznych rdzeni procesora CPU i "rdzeń wirtualny" w celu odwoływania się do zwirtualizowanych rdzeni procesora.
 
-Fizycznie serwer z technologią HC to 2 * 24 rdzenie procesorów Intel Xeon Platinum 8168 dla ogółu 48 rdzeni fizycznych. Każdy procesor CPU jest jedną domeną pNUMA i ma ujednolicony dostęp do sześciu kanałów pamięci DRAM. Procesory Intel Xeon Platinum są wyposażone w większą pamięć podręczną L2 niż w poprzednich generacjach (256 KB/rdzeni-> 1 MB/rdzeń), a jednocześnie zmniejszają pamięć podręczną L3 w porównaniu z wcześniejszymi procesorami Intel (2,5 MB/rdzeni-> 1,375 MB/rdzeni).
+Fizycznie serwer [serii HC](../../hc-series.md) ma 2 * 24 rdzenie procesorów Intel Xeon Platinum 8168, co oznacza łączną liczbę rdzeni fizycznych 48. Każdy procesor CPU jest jedną domeną pNUMA i ma ujednolicony dostęp do sześciu kanałów pamięci DRAM. Procesory Intel Xeon Platinum są wyposażone w większą pamięć podręczną L2 niż w poprzednich generacjach (256 KB/rdzeni-> 1 MB/rdzeń), a jednocześnie zmniejszają pamięć podręczną L3 w porównaniu z wcześniejszymi procesorami Intel (2,5 MB/rdzeni-> 1,375 MB/rdzeni).
 
 Powyższa topologia również przeprowadzi do konfiguracji funkcji hypervisor serii HC. Aby zapewnić możliwość działania funkcji hypervisor platformy Azure bez zakłócania pracy maszyny wirtualnej, firma Microsoft zastrzega sobie pCores 0-1 i 24-25 (czyli pierwsze 2 pCores w każdym gnieździe). Następnie przypiszemy domeny pNUMA wszystkie pozostałe rdzenie do maszyny wirtualnej. W rezultacie maszyna wirtualna zobaczy:
 
-`(2 vNUMA domains) * (22 cores/vNUMA) = 44`rdzenie na maszynę wirtualną
+`(2 vNUMA domains) * (22 cores/vNUMA) = 44` rdzenie na maszynę wirtualną
 
 Maszyna wirtualna nie ma informacji o tym, że pCores 0-1 i 24-25 nie zostały do niego przekazane. W tym celu uwidacznia każdy vNUMA tak, jakby miał natywne 22 rdzenie.
 
-Procesory Intel Xeon Platinum, Gold i Silver również wprowadzają sieć siatkową 2D do komunikacji w ramach i na zewnątrz gniazda procesora CPU. Zdecydowanie zalecamy Przypinanie procesów, aby zapewnić optymalną wydajność i spójność. Przypinanie procesów będzie działało na maszynach wirtualnych z serii HC, ponieważ podstawowy krzem jest narażony na maszynę wirtualną gościa. Aby dowiedzieć się więcej, zobacz [Architektura technologii Intel Xeon Sp](https://bit.ly/2RCYkiE).
+Procesory Intel Xeon Platinum, Gold i Silver również wprowadzają sieć siatkową 2D do komunikacji w ramach i na zewnątrz gniazda procesora CPU. Zdecydowanie zalecamy Przypinanie procesów, aby zapewnić optymalną wydajność i spójność. Przypinanie procesów będzie działało na maszynach wirtualnych z serii HC, ponieważ podstawowy krzem jest narażony na maszynę wirtualną gościa.
 
 Na poniższym diagramie przedstawiono rozdzielenie rdzeni zarezerwowanych dla funkcji hypervisor platformy Azure i maszyny wirtualnej z serii HC.
 
@@ -42,27 +43,26 @@ Na poniższym diagramie przedstawiono rozdzielenie rdzeni zarezerwowanych dla fu
 | Specyfikacje sprzętu          | Maszyna wirtualna z serii HC                     |
 |----------------------------------|----------------------------------|
 | Rdzenie                            | 44 (HT wyłączone)                 |
-| Procesor CPU                              | Intel Xeon Platinum 8168 *        |
+| Procesor CPU                              | Intel Xeon Platinum 8168         |
 | Częstotliwość procesora (AVX)          | 3,7 GHz (pojedyncze rdzeń), 2.7-3.4 GHz (wszystkie rdzenie) |
 | Pamięć                           | 8 GB/rdzeń (łącznie 352)            |
-| Dysk lokalny                       | Interfejsu NVMe 700 GB                      |
-| InfiniBand                       | 100 GB EDR Mellanox ConnectX-5 * * |
-| Sieć                          | 50 GB sieci Ethernet (z 40 GB użytecznych) Azure Second gen SmartNIC * * * |
+| Dysk lokalny                       | DYSK SSD 700 GB                       |
+| InfiniBand                       | 100 GB EDR Mellanox ConnectX-5   |
+| Sieć                          | 50 GB sieci Ethernet (z 40 GB użytecznych) Azure Second gen SmartNIC    |
 
 ## <a name="software-specifications"></a>Specyfikacje oprogramowania
 
-| Specyfikacje oprogramowania     | Maszyna wirtualna z serii HC          |
+| Specyfikacje oprogramowania     |Maszyna wirtualna z serii HC           |
 |-----------------------------|-----------------------|
-| Maksymalny rozmiar zadania MPI            | 13200 rdzeni (300 maszyn wirtualnych w jednym VMSS z singlePlacementGroup = true) |
-| Obsługa MPI                 | MVAPICH2, OpenMPI, MPICH, platform MPI, Intel MPI  |
+| Maksymalny rozmiar zadania MPI            | 13200 rdzeni (300 maszyny wirtualne w jednym zestawie skalowania maszyn wirtualnych z singlePlacementGroup = true)  |
+| Obsługa MPI                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, platform MPI  |
 | Dodatkowe struktury       | Ujednolicona komunikacja X, libfabric, PGAS |
-| Obsługa usługi Azure Storage       | STD + Premium (maksymalnie 4 dyski) |
-| Obsługa systemu operacyjnego dla sterownik RDMA   | CentOS/RHEL 7.6 +, SLES 12 SP4 +, WinServer 2016 + |
-| Pomoc techniczna platformy Azure CycleCloud    | Tak                         |
-| Obsługa Azure Batch         | Tak                         |
+| Obsługa usługi Azure Storage       | Dyski w warstwie Standardowa i Premium (maksymalnie 4 dyski) |
+| Obsługa systemu operacyjnego dla sterownik RDMA   | CentOS/RHEL 7.6 +, SLES 12 SP4 +, WinServer 2016 +  |
+| Wsparcie dla programu Orchestrator        | CycleCloud, Partia zadań  |
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o rozmiarach maszyn wirtualnych HPC dla systemów [Linux](../../sizes-hpc.md) i [Windows](../../sizes-hpc.md) na platformie Azure.
-
-* Dowiedz się więcej o [HPC](/azure/architecture/topics/high-performance-computing/) na platformie Azure.
+- Dowiedz się więcej o [architekturze Intel Xeon Sp](https://bit.ly/2RCYkiE).
+- Przeczytaj o najnowszych anonsach i niektórych przykładach HPC oraz wyniki na [blogach społecznościowych usługi Azure COMPUTE](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Aby zapoznać się z widokiem architektury w przypadku uruchamiania obciążeń HPC, zobacz [wysoka wydajność obliczeń (HPC) na platformie Azure](/azure/architecture/topics/high-performance-computing/).

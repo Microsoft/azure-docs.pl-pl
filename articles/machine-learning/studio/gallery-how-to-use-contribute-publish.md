@@ -9,19 +9,19 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 7918f684fea1092cbd7c11fade3d8f40c1e44240
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 1c03f52802881bcf4c916ce3ed438e465e574090
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431198"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691262"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Udostępnianie i odnajdywanie zasobów w Azure AI Gallery
 
 **dotyczy:** ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 
 **[Azure AI Gallery](https://gallery.azure.ai)** to oparta na społeczności witryna do odnajdywania i udostępniania rozwiązań utworzonych przy użyciu systemu Azure AI.
 Galeria zawiera różne zasoby, których można użyć do opracowania własnych rozwiązań analitycznych.
@@ -34,7 +34,6 @@ Azure AI Gallery zawiera wiele różnych zasobów, które zostały wniesione prz
 * **Samouczki** — dostępne są kilka samouczków, które przeprowadzą Cię przez technologie i koncepcje uczenia maszynowego, lub opisują zaawansowane metody rozwiązywania różnych problemów z uczeniem maszynowym.
 * **Kolekcje** — kolekcja umożliwia grupowanie ze sobą eksperymentów, interfejsów API i innych zasobów galerii, które wiążą się z konkretnym rozwiązaniem lub pojęciem.
 * **Moduły niestandardowe** — możesz pobrać niestandardowe moduły do obszaru roboczego programu Studio (klasycznego), aby móc korzystać z własnych eksperymentów.
-* **Notesy Jupyter** — notesy Jupyter obejmują kod, wizualizacje danych i dokumentację na jednej, interaktywnej kanwie. Notesy w galerii zawierają samouczki i szczegółowe wyjaśnienia dotyczące zaawansowanych technik uczenia maszynowego i rozwiązań.
 
 ## <a name="discover-and-contribute"></a>Odkryj i Współtworzenie
 
@@ -49,12 +48,12 @@ Możesz nawet udostępnić interesujący Cię zasób znajomym lub współpracown
 
 Gdy zalogujesz się, jesteś członkiem społeczności galerii. Pozwala to na pobieranie zasobów lub Współtworzenie własnych elementów galerii, dzięki czemu inni mogą korzystać z wykrytych rozwiązań.
 
-Możesz pobrać **eksperymenty**, **moduły niestandardowe**i **notesy Jupyter** do użycia w tworzeniu własnych rozwiązań analitycznych.
+**Eksperymenty**można pobrać, korzystając z **niestandardowych modułów** do tworzenia własnych rozwiązań analitycznych.
 Możesz współtworzyć **eksperymenty**, **samouczki**i **kolekcje** w galerii.
 
-## <a name="download-experiments-modules-notebooks"></a>Pobieranie eksperymentów, modułów, notesów
+## <a name="download-experiments-modules"></a>Pobieranie eksperymentów, modułów
 
-**Eksperymenty**, **moduły niestandardowe**i **notesy Jupyter** można pobrać do własnego obszaru roboczego Machine Learning Studio (klasycznego), aby używać go do tworzenia własnych rozwiązań.
+**Eksperymenty**i **moduły niestandardowe** można pobrać do własnego obszaru roboczego Machine Learning Studio (klasycznego) do użycia podczas tworzenia własnych rozwiązań.
 
 Aby pobrać zasób z galerii AI:
 
@@ -125,7 +124,7 @@ Możesz zmienić dowolne z poniższych informacji dla eksperymentu bezpośrednio
 * Nazwa eksperymentu
 * Podsumowanie lub opis
 * Tagi
-* Image (Obraz)
+* Obraz
 * Ustawienie widoczności (**publiczne** lub **nieznajdujące**się na liście)
 
 Możesz również usunąć eksperyment z galerii.

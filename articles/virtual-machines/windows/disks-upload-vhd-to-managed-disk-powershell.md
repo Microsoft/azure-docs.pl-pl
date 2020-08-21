@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 4cc00ecb3810b1499f52ea9f3a0c110e92c75dff
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec765e2eb635449140d60ee98762e35aea12fe44
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87009616"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689613"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Przekaż dysk VHD do platformy Azure lub skopiuj go do innego regionu — Azure PowerShell
 
@@ -28,7 +28,7 @@ ms.locfileid: "87009616"
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-Jeśli wolisz przekazywać dyski za pośrednictwem graficznego interfejsu użytkownika, możesz to zrobić za pomocą Eksplorator usługi Azure Storage. Aby uzyskać szczegółowe informacje, zobacz [Eksplorator usługi Azure Storage zarządzania usługą Azure Managed disks](disks-use-storage-explorer-managed-disks.md) .
+Jeśli wolisz przekazywać dyski za pośrednictwem graficznego interfejsu użytkownika, możesz to zrobić za pomocą Eksplorator usługi Azure Storage. Aby uzyskać szczegółowe informacje, zobacz [Eksplorator usługi Azure Storage zarządzania usługą Azure Managed disks](../disks-use-storage-explorer-managed-disks.md) .
 
 Aby przekazać dysk VHD na platformę Azure, musisz utworzyć pusty dysk zarządzany skonfigurowany dla tego procesu przekazywania. Przed utworzeniem jednego z tych dysków należy zapoznać się z dodatkowymi informacjami.
 

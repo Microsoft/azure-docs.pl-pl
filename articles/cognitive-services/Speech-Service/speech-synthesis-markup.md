@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-javascript
-ms.openlocfilehash: ae98f74092c3955a54c0817082e8f29c1b251237
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3394882574f94e4a1af3aa942f3b0bd87be55368
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533397"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690089"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Ulepszanie syntezy przy użyciu języka znaczników syntezy mowy (SSML)
 
@@ -46,7 +46,7 @@ Każdy dokument SSML jest tworzony z elementami SSML (lub tagami). Te elementy s
 
 ## <a name="create-an-ssml-document"></a>Tworzenie dokumentu SSML
 
-`speak`jest elementem głównym i jest **wymagany** dla wszystkich dokumentów SSML. `speak`Element zawiera ważne informacje, takie jak wersja, język i definicja słownictwa znaczników.
+`speak` jest elementem głównym i jest **wymagany** dla wszystkich dokumentów SSML. `speak`Element zawiera ważne informacje, takie jak wersja, język i definicja słownictwa znaczników.
 
 **Składnia**
 
@@ -155,7 +155,7 @@ speechConfig.setProperty(
     "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
 ```
 
-# <a name="objective-c"></a>[Objective-C](#tab/objectivec)
+# <a name="objective-c"></a>[Obiektowy C](#tab/objectivec)
 
 Aby uzyskać więcej informacji, zobacz <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
@@ -192,7 +192,7 @@ speechConfig!.setPropertyTo(
 > [!IMPORTANT]
 > Dopasowanie stylów wymawiania będzie działało tylko z głosymi neuronowych.
 
-Domyślnie usługa zamiany tekstu na mowę służy do syntezowania tekstu przy użyciu neutralnego stylu mowy dla głosów standardowych i neuronowych. Za pomocą głosów neuronowych można dostosować styl wymawiania, aby wyszukiwać różne emocji, takie jak cheerfulness, empatię i Calm, lub optymalizować głos dla różnych scenariuszy, takich jak niestandardowe usługi, newscasting i asystent głosowy, przy użyciu <mstts: Express-AS>. Jest to opcjonalny element unikatowy dla usługi mowy.
+Domyślnie usługa zamiany tekstu na mowę służy do syntezowania tekstu przy użyciu neutralnego stylu mowy dla głosów standardowych i neuronowych. Za pomocą głosów neuronowych można dostosować styl mówiący, aby wyszukiwać różne emocji, takie jak cheerfulness, empatię i Calm, lub optymalizować głos dla różnych scenariuszy, takich jak niestandardowe usługi, newscasting i asystent głosowy, przy użyciu  `mstts:express-as`   elementu. Jest to opcjonalny element unikatowy dla usługi mowy.
 
 Obecnie w przypadku tych głosów neuronowych są obsługiwane zmiany stylu mowy:
 * `en-US-AriaNeural`
@@ -263,7 +263,7 @@ Użyj `break` elementu, aby wstawić pauzy (lub przerwy) między wyrazami lub za
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
 | `strength` | Określa względny czas trwania pauzy przy użyciu jednej z następujących wartości:<ul><li>brak</li><li>x — słabe</li><li>lekko</li><li>Średni (domyślnie)</li><li>najwyższy</li><li>x — Strong</li></ul> | Opcjonalne |
-| `time` | Określa bezwzględny czas przerwy w sekundach lub milisekund. Przykłady prawidłowych wartości to `2s` i`500` | Opcjonalne |
+| `time` | Określa bezwzględny czas przerwy w sekundach lub milisekund. Przykłady prawidłowych wartości to `2s` i `500` | Opcjonalne |
 
 | Naprężeni                      | Opis |
 |-------------------------------|-------------|
@@ -564,7 +564,7 @@ Zmiany wysokości mogą być stosowane do głosów standardowych na poziomie wyr
 ```
 ## <a name="say-as-element"></a>"Powiedz" jako element
 
-`say-as`jest elementem opcjonalnym, który wskazuje typ zawartości (na przykład liczbę lub datę) tekstu elementu. Zapewnia to wskazówkę dotyczącą aparatu syntezy mowy dotyczącą sposobu wymawiania tekstu.
+`say-as` jest elementem opcjonalnym, który wskazuje typ zawartości (na przykład liczbę lub datę) tekstu elementu. Zapewnia to wskazówkę dotyczącą aparatu syntezy mowy dotyczącą sposobu wymawiania tekstu.
 
 **Składnia**
 
@@ -617,7 +617,7 @@ Aparat syntezy mowy mówi Poniższy przykład jako "pierwsze żądanie było w j
 
 ## <a name="add-recorded-audio"></a>Dodaj zarejestrowane audio
 
-`audio`to opcjonalny element, który umożliwia wstawianie audio MP3 do dokumentu SSML. Treść elementu audio może zawierać zwykły tekst lub SSML znaczników, które są wymawiane, jeśli plik dźwiękowy jest niedostępny lub nieosiągalny. Ponadto `audio` element może zawierać tekst i następujące elementy:,,,,,, `audio` `break` `p` `s` `phoneme` `prosody` `say-as` , i `sub` .
+`audio` to opcjonalny element, który umożliwia wstawianie audio MP3 do dokumentu SSML. Treść elementu audio może zawierać zwykły tekst lub SSML znaczników, które są wymawiane, jeśli plik dźwiękowy jest niedostępny lub nieosiągalny. Ponadto `audio` element może zawierać tekst i następujące elementy:,,,,,, `audio` `break` `p` `s` `phoneme` `prosody` `say-as` , i `sub` .
 
 Wszystkie audio zawarte w dokumencie SSML muszą spełniać następujące wymagania:
 

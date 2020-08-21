@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: carlrab, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: b5daf283df1ef5d6b42da5bf0a4652aedf2f6284
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad25a9a62757e1e031ce8b93a44e6f2ada4d9964
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708743"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689511"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Machine Learning Services w wystąpieniu zarządzanym usługi Azure SQL (wersja zapoznawcza)
 
@@ -52,7 +52,23 @@ Podstawowe dystrybucje języków Python i R są zawarte w Machine Learning Servi
 
 Ta ograniczona publiczna wersja zapoznawcza podlega [postanowieniom dotyczącym wersji zapoznawczej platformy Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-Jeśli interesuje Cię dołączenie do programu w wersji zapoznawczej i akceptujesz te warunki, możesz poprosić o rejestrację, tworząc bilet pomocy technicznej platformy Azure pod adresem [https://azure.microsoft.com/support/create-ticket/](https://azure.microsoft.com/support/create-ticket/) . W obszarze "typ problemu" Wybierz "techniczne" dla "usługa" Wybierz "SQL Database wystąpienie zarządzane" i "typ problemu" Wybierz pozycję "inne". Poinformuj nas, że chcesz zarejestrować się w ograniczonej publicznej wersji zapoznawczej usługi Machine Learning dla usługi SQL Managed Instance i podaj następujące informacje: nazwa serwera logicznego, region i identyfikator subskrypcji.
+Jeśli interesuje Cię dołączenie do programu w wersji zapoznawczej i akceptujesz te warunki, możesz poprosić o rejestrację, tworząc bilet pomocy technicznej platformy Azure pod adresem [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/) . 
+
+1. Wybierz następujące opcje:
+   - Typ problemu — **techniczne**
+   - Subskrypcja — *Wybierz subskrypcję*
+   - Usługa- **SQL Database wystąpienie zarządzane**
+   - Podsumowanie — *wprowadź krótki opis żądania*
+   - Typ problemu — **Machine Learning Services dla wystąpienia zarządzanego SQL (wersja zapoznawcza)**
+   - Problem z podtypem — **inny problem lub "jak to zrobić"**
+
+1. Kliknij przycisk **Dalej: rozwiązania**.
+
+1. Przeczytaj informacje o wersji zapoznawczej, a następnie kliknij przycisk **szczegóły**.
+
+1. W polu **Opis**wprowadź szczegóły żądania, w tym nazwę serwera logicznego, region i Identyfikator subskrypcji, które chcesz zarejestrować w wersji zapoznawczej. Wprowadź inne szczegóły stosownie do potrzeb.
+
+1. Gdy skończysz, kliknij przycisk **Dalej: Przejrzyj i Utwórz**, a następnie kliknij przycisk **Utwórz**.
 
 Gdy zarejestrujesz się w programie, firma Microsoft dołączy Cię do publicznej wersji zapoznawczej i włączy usługi Machine Learning Services dla Twojej istniejącej lub nowej bazy danych.
 

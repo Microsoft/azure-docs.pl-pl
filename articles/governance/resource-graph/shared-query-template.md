@@ -4,12 +4,12 @@ description: W tym przewodniku szybki start użyjesz szablonu Azure Resource Man
 ms.date: 07/06/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: a05be04064df81373f856ea0e8ca59664078695f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: cc9da201b10b697f125e8ffe7402f23f5eaa8362
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252372"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685531"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Szybki Start: Tworzenie zapytania udostępnionego przy użyciu szablonu ARM
 
@@ -17,21 +17,21 @@ Zapytania dotyczące wykresów zasobów można zapisać jako _zapytanie prywatne
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Wdróż szablon ARM na potrzeby tworzenia zapytania udostępnionego na platformie Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
 W tym przewodniku szybki start utworzysz zapytanie udostępnione o nazwie _Liczba maszyn wirtualnych według systemu operacyjnego_. Aby wypróbować to zapytanie w zestawie SDK lub w portalu z Eksploratorem grafów zasobów, zobacz [przykłady — liczba maszyn wirtualnych według typu systemu operacyjnego](./samples/starter.md#count-os).
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
 
-:::code language="json" source="~/quickstart-templates/resourcegraph-sharedquery-countos/azuredeploy.json" highlight="28-37":::
+:::code language="json" source="~/quickstart-templates/resourcegraph-sharedquery-countos/azuredeploy.json":::
 
 Zasób zdefiniowany w szablonie to:
 
@@ -54,7 +54,7 @@ Zasób zdefiniowany w szablonie to:
    | Grupa zasobów | Wybierz pozycję **Utwórz nowy**, określ nazwę, a następnie wybierz przycisk **OK**. |
    | Lokalizacja | Wybierz region. Na przykład **Środkowe stany USA**. |
    | Nazwa zapytania | Pozostaw wartość domyślną **Liczba maszyn wirtualnych według systemu operacyjnego**. |
-   | Kod zapytania | Pozostaw wartość domyślną`Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
+   | Kod zapytania | Pozostaw wartość domyślną `Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
    | Opis zapytania | Pozostaw wartość domyślną **Ta kwerenda udostępniona zlicza wszystkie zasoby maszyn wirtualnych i podsumowuje je według typu systemu operacyjnego.** |
    | Wyrażam zgodę na powyższe warunki i postanowienia | Zaznaczenia |
 
@@ -85,7 +85,7 @@ Alternatywnie można otworzyć udostępnione zapytanie z Eksploratora grafu zaso
 
 1. Po załadowaniu zapytania wybierz przycisk **Uruchom zapytanie** . Wyniki są wyświetlane na karcie **wyniki** poniżej.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Aby usunąć utworzone zapytanie udostępnione, wykonaj następujące kroki:
 

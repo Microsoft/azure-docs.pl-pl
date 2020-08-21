@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 89c79f668da3ff924dbb7f27574260118003655f
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c283ef2f6eb28dca7ca5bc5e391ef30465c65dc0
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433249"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691279"
 ---
 # <a name="create-and-share-an-machine-learning-studio-classic-workspace"></a>Tworzenie i udostępnianie obszaru roboczego Machine Learning Studio (klasyczny)
 
@@ -26,7 +26,7 @@ Aby użyć Azure Machine Learning Studio (klasyczny), musisz mieć obszar robocz
 
 Aby otworzyć obszar roboczy w Machine Learning Studio (klasyczny), użytkownik musi być zalogowany na koncie Microsoft użytym do utworzenia obszaru roboczego lub uzyskać zaproszenia od właściciela, aby dołączyć do obszaru roboczego. Z Azure Portal można zarządzać obszarem roboczym, który obejmuje możliwość konfigurowania dostępu.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
     > [!NOTE]
     > Aby zalogować się i utworzyć obszar roboczy Studio (klasyczny), musisz być administratorem subskrypcji platformy Azure. 
@@ -39,12 +39,12 @@ Aby otworzyć obszar roboczy w Machine Learning Studio (klasyczny), użytkownik 
 
 4. Wprowadź informacje o obszarze roboczym:
 
-   - *Nazwa obszaru roboczego* może zawierać maksymalnie 260 znaków, a nie kończy się spacją. Nazwa nie może zawierać następujących znaków:`< > * % & : \ ? + /`
+   - *Nazwa obszaru roboczego* może zawierać maksymalnie 260 znaków, a nie kończy się spacją. Nazwa nie może zawierać następujących znaków: `< > * % & : \ ? + /`
    - W przypadku wdrażania usług sieci Web z tego obszaru roboczego jest używana wybrana (lub utworzona) *Usługa sieci Web* oraz skojarzona z nią *warstwa cenowa* .
 
      ![Tworzenie nowego obszaru roboczego programu Studio (klasycznego)](./media/create-workspace/create-new-workspace.png)
 
-5. Kliknij pozycję **Utwórz**.
+5. Kliknij przycisk **Utwórz**.
 
    Machine Learning jest obecnie dostępna w ograniczonej liczbie regionów. Jeśli subskrypcja nie obejmuje jednego z tych regionów, może zostać wyświetlony komunikat o błędzie "nie masz żadnych subskrypcji w dozwolonych regionach".  Aby zażądać dodania regionu do subskrypcji, Utwórz nowe żądanie pomocy technicznej firmy Microsoft z Azure Portal, wybierz **rozliczenia** jako typ problemu i postępuj zgodnie z monitami, aby przesłać żądanie.
 
@@ -70,7 +70,7 @@ Jeśli wystąpi problem podczas tworzenia obszaru roboczego, zobacz [Przewodnik 
 
 
 ## <a name="share-an-azure-machine-learning-studio-classic-workspace"></a>Udostępnianie obszaru roboczego Azure Machine Learning Studio (klasyczny)
-Po utworzeniu obszaru roboczego Machine Learning Studio (klasycznego) możesz zapraszać użytkowników do obszaru roboczego, aby udostępniać dostęp do obszaru roboczego i wszystkich jego eksperymentów, zestawów danych, notesów itp. Możesz dodać użytkowników w jednej z dwóch ról:
+Po utworzeniu obszaru roboczego Machine Learning Studio (klasycznego) można zaprosić użytkowników do obszaru roboczego, aby udostępnić obszar roboczy i wszystkie jego eksperymenty, zestawy danych itp. Możesz dodać użytkowników w jednej z dwóch ról:
 
 * **Użytkownik — użytkownik** obszaru roboczego może tworzyć, otwierać, modyfikować i usuwać eksperymenty, zestawy danych itp. w obszarze roboczym.
 * **Właściciel** — właściciel może zapraszać i usuwać użytkowników w obszarze roboczym, a także do tego, co użytkownik może zrobić.
@@ -82,7 +82,7 @@ Po utworzeniu obszaru roboczego Machine Learning Studio (klasycznego) możesz za
 
 ### <a name="to-share-a-studio-classic-workspace"></a>Aby udostępnić obszar roboczy Studio (klasyczny)
 
-1. Zaloguj się do Machine Learning Studio (klasyczny) o[https://studio.azureml.net/Home](https://studio.azureml.net/Home)
+1. Zaloguj się do Machine Learning Studio (klasyczny) o [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 
 2. W lewym panelu kliknij pozycję **Ustawienia** .
 

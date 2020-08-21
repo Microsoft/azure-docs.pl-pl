@@ -10,12 +10,12 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 05/21/2020
 ms.author: rolyon
-ms.openlocfilehash: 9320a68684a25949e8a0b4e2c7d72a6267401add
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 622f37fa4fda20fdc854edf5cd7c192b4113c4e3
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252355"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690446"
 ---
 # <a name="quickstart-add-an-azure-role-assignment-using-an-arm-template"></a>Szybki Start: Dodawanie przypisania roli platformy Azure przy użyciu szablonu ARM
 
@@ -23,7 +23,7 @@ ms.locfileid: "86252355"
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-rbac-builtinrole-resourcegroup%2Fazuredeploy.json)
 
@@ -32,14 +32,14 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 Aby dodać przypisania ról, musisz mieć:
 
 - Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- `Microsoft.Authorization/roleAssignments/write`i `Microsoft.Authorization/roleAssignments/delete` uprawnienia, takie jak [administrator dostępu użytkowników](built-in-roles.md#user-access-administrator) lub [właściciel](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` i `Microsoft.Authorization/roleAssignments/delete` uprawnienia, takie jak [administrator dostępu użytkowników](built-in-roles.md#user-access-administrator) lub [właściciel](built-in-roles.md#owner)
 - Aby dodać przypisanie roli, należy określić trzy elementy: podmiot zabezpieczeń, definicja roli i zakres. W tym przewodniku szybki start podmiot zabezpieczeń jest używany przez Ciebie lub innego użytkownika w katalogu, definicja roli to [współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor), a zakres to grupa zasobów, którą określisz.
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). Szablon zawiera trzy parametry i sekcję Resources. W sekcji Resources należy zauważyć, że ma ona trzy elementy przypisania roli: podmiot zabezpieczeń, definicja roli i zakres.
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). Szablon zawiera trzy parametry i sekcję Resources. W sekcji Resources należy zauważyć, że ma ona trzy elementy przypisania roli: podmiot zabezpieczeń, definicja roli i zakres.
 
-:::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json" highlight="30-32":::
+:::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json":::
 
 Zasób zdefiniowany w szablonie to:
 
@@ -116,7 +116,7 @@ Zasób zdefiniowany w szablonie to:
 
    ![Przypisanie nowej roli](./media/quickstart-role-assignments-template/role-assignment-portal.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Aby usunąć przypisanie roli i utworzoną grupę zasobów, wykonaj następujące kroki.
 
