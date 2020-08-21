@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: dedf1174e00f5bb75822fb720a592af86121ec2d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: baed9ef099ed818fa0967c7a3e7ab61fb4921f75
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691432"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719312"
 ---
 # <a name="process-change-feed-in-azure-blob-storage-preview"></a>Kanał informacyjny zmiany procesu w usłudze Azure Blob Storage (wersja zapoznawcza)
 
@@ -22,15 +22,16 @@ ms.locfileid: "88691432"
 Aby dowiedzieć się więcej na temat źródła zmian, zobacz temat [zmiana źródła danych w usłudze Azure Blob Storage (wersja zapoznawcza)](storage-blob-change-feed.md).
 
 > [!NOTE]
-> Kanał informacyjny zmiany jest w publicznej wersji zapoznawczej i jest dostępny w regionach **westcentralus** i **westus2** . Aby dowiedzieć się więcej na temat tej funkcji wraz ze znanymi problemami i ograniczeniami, zobacz temat [Obsługa kanałów zmian w usłudze Azure Blob Storage](storage-blob-change-feed.md). Biblioteka procesora kanału informacyjnego zmian może ulec zmianie między tymi elementami i wtedy, gdy ta biblioteka będzie ogólnie dostępna.
+> Źródło zmian jest w publicznej wersji zapoznawczej i jest dostępne w ograniczonych regionach. Aby dowiedzieć się więcej na temat tej funkcji wraz ze znanymi problemami i ograniczeniami, zobacz temat [Obsługa kanałów zmian w usłudze Azure Blob Storage](storage-blob-change-feed.md). Biblioteka procesora kanału informacyjnego zmian może ulec zmianie między tymi elementami i wtedy, gdy ta biblioteka będzie ogólnie dostępna.
 
 ## <a name="get-the-blob-change-feed-processor-library"></a>Pobieranie biblioteki procesora kanału informacyjnego zmiany obiektu BLOB
 
 1. Otwórz okno polecenia (na przykład: Windows PowerShell).
-2. W katalogu projektu Zainstaluj pakiet NuGet **Azure. Storage. Blobs. Changefeed** .
+2. W katalogu projektu zainstaluj [pakiet NuGet **Azure. Storage. Blobs. Changefeed** ](https://www.nuget.org/packages/Azure.Storage.Blobs.ChangeFeed/).
 
 ```console
-dotnet add package Azure.Storage.Blobs.ChangeFeed --source https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json --version 12.0.0-dev.20200604.2
+dotnet add package Azure.Storage.Blobs --version 12.5.1
+dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.4
 ```
 ## <a name="read-records"></a>Odczytaj rekordy
 
@@ -117,7 +118,7 @@ public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCurso
 
 ## <a name="stream-processing-of-records"></a>Przetwarzanie strumienia rekordów
 
-Możesz wybrać, aby przetwarzać rekordy źródła zmian w miarę ich odbierania. Zobacz [specyfikacje](storage-blob-change-feed.md#specifications). Zalecamy, aby sondować zmiany co godzinę lub tak.
+Możesz zdecydować się na przetworzenie rekordów źródła zmian w miarę ich zatwierdzania do źródła zmian. Zobacz [specyfikacje](storage-blob-change-feed.md#specifications). Zdarzenia zmiany są publikowane w kanale zmian w okresie 60 sekund średnio. Zaleca się, aby podczas określania interwału sondowania dla nowych zmian z tego okresu nastąpić sondowanie.
 
 Ten przykład okresowo sonduje zmiany.  Jeśli istnieją zmiany rekordów, ten kod przetwarza te rekordy i zapisuje wskaźnik źródła zmian. W ten sposób, jeśli proces zostanie zatrzymany, a następnie ponownie uruchomiony, aplikacja może użyć kursora do wznowienia przetwarzania rekordów w miejscu, w którym zostało ono ostatnio pozostawione. Ten przykład zapisuje kursor do lokalnego pliku konfiguracji aplikacji, ale aplikacja może zapisać ją w dowolnym formularzu, który jest najbardziej sensowny dla danego scenariusza. 
 
@@ -181,7 +182,7 @@ public void SaveCursor(string cursor)
 
 ## <a name="reading-records-within-a-time-range"></a>Odczytywanie rekordów w zakresie czasu
 
-Można odczytywać rekordy, które mieszczą się w określonym zakresie czasu. Ten przykład wykonuje iterację wszystkich rekordów w źródle zmian, które mieszczą się w zakresie od 3:00 do marca 2 2017 i 2:00 AM w dniu 7 2019 października, dodaje je do listy, a następnie zwraca tę listę do obiektu wywołującego.
+Można odczytywać rekordy, które mieszczą się w określonym zakresie czasu. Ten przykład wykonuje iterację wszystkich rekordów w źródle zmian, które mieszczą się w zakresie od 3:00 do marca 2 2020 i 2:00 AM do sierpnia 7 2020, dodaje je do listy, a następnie zwraca tę listę do obiektu wywołującego.
 
 ### <a name="selecting-segments-for-a-time-range"></a>Wybieranie segmentów dla zakresu czasu
 
@@ -198,8 +199,8 @@ public async Task<List<BlobChangeFeedEvent>> ChangeFeedBetweenDatesAsync(string 
     // Create the start and end time.  The change feed client will round start time down to
     // the nearest hour, and round endTime up to the next hour if you provide DateTimeOffsets
     // with minutes and seconds.
-    DateTimeOffset startTime = new DateTimeOffset(2017, 3, 2, 15, 0, 0, TimeSpan.Zero);
-    DateTimeOffset endTime = new DateTimeOffset(2020, 10, 7, 2, 0, 0, TimeSpan.Zero);
+    DateTimeOffset startTime = new DateTimeOffset(2020, 3, 2, 15, 0, 0, TimeSpan.Zero);
+    DateTimeOffset endTime = new DateTimeOffset(2020, 8, 7, 2, 0, 0, TimeSpan.Zero);
 
     // You can also provide just a start or end time.
     await foreach (BlobChangeFeedEvent changeFeedEvent in changeFeedClient.GetChangesAsync(

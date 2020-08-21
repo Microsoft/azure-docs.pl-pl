@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427a09f3855d44af0206ebf1fd6183099da75f19
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: b4c4b1f7aed6a188c491e6f4961442fa85744b6b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446981"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718547"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health często zadawane pytania
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące programu Azure Active Directory (Azure AD) Connect Health. W tych często zadawanych pytań zawarto informacje na temat sposobu korzystania z usługi, która obejmuje model rozliczeń, możliwości, ograniczenia i pomoc techniczną.
@@ -37,9 +37,11 @@ W poniższej tabeli wymieniono role i obsługiwane wersje systemu operacyjnego.
 
 |Rola| System operacyjny/wersja|
 |--|--|
-|Active Directory Federation Services (AD FS)| <ul> <li> Windows Server 2008 z dodatkiem R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 z dodatkiem R2 </li> <li> Windows Server 2016  </li> </ul>|
+|Active Directory Federation Services (AD FS)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 z dodatkiem R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
 |Azure AD Connect | Wersja 1.0.9125 lub nowsza|
-|Usługi domenowe Active Directory (AD DS)| <ul> <li> Windows Server 2008 z dodatkiem R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 z dodatkiem R2 </li> <li> Windows Server 2016  </li> </ul>|
+|Usługi domenowe Active Directory (AD DS)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 z dodatkiem R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
+
+Instalacje systemu Windows Server Core nie są obsługiwane.
 
 Należy pamiętać, że funkcje udostępniane przez usługę mogą się różnić w zależności od roli i systemu operacyjnego. Innymi słowy, wszystkie funkcje mogą nie być dostępne dla wszystkich wersji systemu operacyjnego. Szczegółowe informacje można znaleźć w opisach funkcji.
 

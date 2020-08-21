@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 4949a83ac2aac664c19be46a367fce2bbff4cb02
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 28a01bbc54f752ffc1f25b57dcf2eca566aa635a
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904823"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718105"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Zagadnienia dotyczące planowania pojemności klastra Service Fabric
 
@@ -56,7 +56,7 @@ Liczba typów węzłów początkowych zależy od celu klastra i działających n
 
     Service Fabric obsługuje klastry, które rozciągają się między [strefy dostępności](../availability-zones/az-overview.md) przez wdrożenie typów węzłów, które są przypięte do określonych stref, zapewniając wysoką dostępność aplikacji. Strefy dostępności wymagać dodatkowego planowania typu węzła i minimalnych wymagań. Aby uzyskać szczegółowe informacje, zobacz [zalecaną topologię dla typu węzła podstawowego Service Fabric klastrów obejmujących cały strefy dostępności](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones). 
 
-Podczas określania liczby i właściwości typów węzłów do wstępnego tworzenia klastra należy pamiętać, że po wdrożeniu klastra zawsze można dodawać, modyfikować lub usuwać typy węzłów niebędących podstawowymi. [Typy węzłów podstawowych można także modyfikować](service-fabric-scale-up-node-type.md) w uruchomionych klastrach (chociaż operacje te wymagają dużej zamiaru planowania i przestrogi w środowiskach produkcyjnych).
+Podczas określania liczby i właściwości typów węzłów do wstępnego tworzenia klastra należy pamiętać, że po wdrożeniu klastra zawsze można dodawać, modyfikować lub usuwać typy węzłów niebędących podstawowymi. [Typy węzłów podstawowych można także modyfikować](service-fabric-scale-up-primary-node-type.md) w uruchomionych klastrach (chociaż operacje te wymagają dużej zamiaru planowania i przestrogi w środowiskach produkcyjnych).
 
 Dalsze zagadnienia dotyczące właściwości typu węzła to poziom trwałości, który określa uprawnienia maszyn wirtualnych typu węzła w ramach infrastruktury platformy Azure. Użyj rozmiaru maszyn wirtualnych wybranych dla klastra i liczby wystąpień przypisanej do poszczególnych typów węzłów, aby pomóc w ustaleniu odpowiedniej warstwy trwałości dla każdego typu węzła, zgodnie z opisem w następnej kolejności.
 
@@ -105,7 +105,7 @@ Należy stosować trwałość Srebrna lub złota dla wszystkich typów węzłów
 Postępuj zgodnie z tymi zaleceniami, aby zarządzać typami węzłów o trwałości Silver lub Gold:
 
 * Przechowuj klaster i aplikacje przez cały czas i upewnij się, że aplikacje odpowiadają na wszystkie [zdarzenia cyklu życia repliki usługi](service-fabric-reliable-services-lifecycle.md) (takie jak replika w kompilacji jest zablokowana) w odpowiednim czasie.
-* Należy wprowadzić bezpieczniejsze metody zmiany rozmiaru maszyny wirtualnej (skalowanie w górę/w dół). Zmiana rozmiaru maszyny wirtualnej zestawu skalowania maszyn wirtualnych wymaga starannego planowania i przestrogi. Aby uzyskać szczegółowe informacje, zobacz [skalowanie w górę Service Fabric typu węzła](service-fabric-scale-up-node-type.md)
+* Należy wprowadzić bezpieczniejsze metody zmiany rozmiaru maszyny wirtualnej (skalowanie w górę/w dół). Zmiana rozmiaru maszyny wirtualnej zestawu skalowania maszyn wirtualnych wymaga starannego planowania i przestrogi. Aby uzyskać szczegółowe informacje, zobacz [skalowanie w górę Service Fabric typu węzła](service-fabric-scale-up-primary-node-type.md)
 * Należy zachować minimalną liczbę pięciu węzłów dla dowolnego zestawu skalowania maszyn wirtualnych z włączonym poziomem trwałości Gold lub Silver. W przypadku skalowania poniżej tego progu klaster przejdzie w stan błędu i trzeba będzie ręcznie oczyścić stan ( `Remove-ServiceFabricNodeState` ) dla usuniętych węzłów.
 * Każdy zestaw skalowania maszyn wirtualnych z poziomem trwałości Silver lub Gold musi być mapowany na własny typ węzła w klastrze Service Fabric. Mapowanie wielu zestawów skalowania maszyn wirtualnych na jeden typ węzła uniemożliwi prawidłowe działanie koordynacji między klastrem Service Fabric i infrastrukturą platformy Azure.
 * Nie usuwaj losowych wystąpień maszyn wirtualnych, zawsze używaj funkcji skalowania w ramach zestawu skalowania maszyn wirtualnych. Usuwanie losowych wystąpień maszyn wirtualnych ma potencjalne możliwości tworzenia nierównowagi w rozmieszczenia wystąpień maszyn wirtualnych w [domenach uaktualnienia](service-fabric-cluster-resource-manager-cluster-description.md#upgrade-domains) i [domenach błędów](service-fabric-cluster-resource-manager-cluster-description.md#fault-domains). Takie niezrównoważone może mieć negatywny wpływ na zdolność systemów do prawidłowego równoważenia obciążenia między wystąpieniami usługi/replikami usługi.

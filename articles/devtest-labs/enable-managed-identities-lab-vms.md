@@ -3,12 +3,12 @@ title: Włącz zarządzane tożsamości na maszynach wirtualnych laboratorium w 
 description: W tym artykule pokazano, jak właściciel laboratorium może włączyć tożsamości zarządzane przypisane przez użytkownika na maszynach wirtualnych laboratorium.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 886dc3b541c624d9f7a300fbbe696e1d2e143641
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4bf2900acebaeecd5cbc4cb65635aee6de87dda
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476006"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717640"
 ---
 # <a name="enable-user-assigned-managed-identities-on-lab-virtual-machines-in-azure-devtest-labs"></a>Włącz tożsamości zarządzane przypisane przez użytkownika na maszynach wirtualnych laboratorium w Azure DevTest Labs
 Jako właściciel laboratorium można włączyć tożsamości zarządzane przypisane przez użytkownika na maszynach wirtualnych laboratorium (VM) w Azure DevTest Labs.
@@ -25,14 +25,16 @@ Aby dodać tożsamość zarządzaną przypisaną przez użytkownika dla maszyn w
 
 1. [Tworzenie tożsamości zarządzanej przypisanej przez użytkownika w Twojej subskrypcji](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)
 1. Przejdź do strony **Konfiguracja i zasady** dla laboratorium.
-2. Wybierz pozycję **tożsamość (wersja zapoznawcza)** w menu po lewej stronie.
-3. Wybierz kartę **maszyna wirtualna** .
-4. Wybierz pozycję **Dodaj** , aby wybrać istniejącą tożsamość z wstępnie wypełnionej listy rozwijanej. 
+1. Wybierz pozycję **tożsamość (wersja zapoznawcza)** w menu po lewej stronie.
+1. Wybierz kartę **maszyna wirtualna** .
+1. Wybierz pozycję **Dodaj** , aby wybrać istniejącą tożsamość z wstępnie wypełnionej listy rozwijanej. 
 
-    ![Przycisk Dodaj tożsamość](./media/enable-managed-identities-lab-vms/add-identity-button.png)
-5. Wybierz istniejącą **tożsamość zarządzaną przez użytkownika** z listy rozwijanej, a następnie wybierz **przycisk OK**. 
+    > [!div class="mx-imgBorder"]
+    > ![Przycisk Dodaj tożsamość](./media/enable-managed-identities-lab-vms/add-identity-button.png)
+1. Wybierz istniejącą **tożsamość zarządzaną przez użytkownika** z listy rozwijanej, a następnie wybierz **przycisk OK**. 
 
-    ![Dodaj tożsamość](./media/enable-managed-identities-lab-vms/add-identity.png)
+    > [!div class="mx-imgBorder"]
+    > ![Dodaj tożsamość](./media/enable-managed-identities-lab-vms/add-identity.png)
 
 ## <a name="use-api"></a>Korzystanie z interfejsu API
 

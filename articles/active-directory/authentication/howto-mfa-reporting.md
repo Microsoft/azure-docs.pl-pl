@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8584ca84efc889afebe6758e254bda845912316
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c550576a5bd762d3333aa8a533ee6106369193c3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418240"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719516"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Użyj raportu logowania, aby przejrzeć zdarzenia usługi Azure Multi-Factor Authentication
 
@@ -90,7 +90,7 @@ Poniższe szczegółowe informacje są wyświetlane w oknie *szczegóły uwierzy
 
 ## <a name="powershell-reporting-on-users-registered-for-mfa"></a>Raportowanie programu PowerShell dla użytkowników zarejestrowanych na potrzeby usługi MFA
 
-Najpierw upewnij się, że zainstalowano [moduł PowerShell MSOnline V1](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) .
+Najpierw upewnij się, że zainstalowano [moduł PowerShell MSOnline V1](/powershell/azure/active-directory/overview?view=azureadps-1.0) .
 
 Zidentyfikuj użytkowników, którzy zostali zarejestrowani na potrzeby uwierzytelniania wieloskładnikowego, korzystając z programu PowerShell w następujący sposób. Ten zestaw poleceń wyklucza wyłączonych użytkowników, ponieważ nie można uwierzytelnić tych kont w usłudze Azure AD:
 
@@ -170,7 +170,7 @@ Poniższa tabela może pomóc w rozwiązywaniu problemów ze zdarzeniami przy u�
 
 Następujące dodatkowe informacje i raporty są dostępne dla zdarzeń MFA, w tym dla serwera usługi MFA:
 
-| Raport | Location | Opis |
+| Raport | Lokalizacja | Opis |
 |:--- |:--- |:--- |
 | Historia zablokowanego użytkownika | Usługa Azure AD > Security > MFA > blokowanie/odblokowywanie użytkowników | Pokazuje historię żądań zablokowania lub odblokowania użytkowników. |
 | Użycie dla składników lokalnych | Raport aktywności > działania usługi Azure AD > Security > MFA | Zawiera informacje o ogólnym użyciu serwera MFA za pomocą rozszerzenia serwera NPS, usług ADFS i serwera MFA. |

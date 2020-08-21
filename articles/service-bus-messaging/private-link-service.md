@@ -5,12 +5,12 @@ author: spelluru
 ms.author: spelluru
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: ef469eb74c3dd7d82dec908dba8c53136df206e4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4f3b67794d1a7f3935c79c70f18b8bd4a1e0d7ef
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423426"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716626"
 ---
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Zezwalaj na dostęp do przestrzeni nazw Azure Service Bus za pośrednictwem prywatnych punktów końcowych
 
@@ -79,7 +79,7 @@ Jeśli masz już istniejącą przestrzeń nazw, możesz utworzyć prywatny punkt
     2. Wybierz **grupę zasobów** dla prywatnego zasobu punktu końcowego.
     3. Wprowadź **nazwę** prywatnego punktu końcowego. 
     5. Wybierz **region** dla prywatnego punktu końcowego. Prywatny punkt końcowy musi znajdować się w tym samym regionie, w którym znajduje się sieć wirtualna, ale może znajdować się w innym regionie niż zasób link prywatny, z którym nawiązujesz połączenie. 
-    6. Wybierz pozycję **Dalej: przycisk >zasobu** w dolnej części strony.
+    6. Wybierz pozycję **Dalej: przycisk >zasobu ** w dolnej części strony.
 
         ![Tworzenie prywatnego punktu końcowego — Strona podstawy](./media/private-link-service/create-private-endpoint-basics-page.png)
 8. Na stronie **zasób** wykonaj następujące kroki:
@@ -88,14 +88,14 @@ Jeśli masz już istniejącą przestrzeń nazw, możesz utworzyć prywatny punkt
         2. W polu **Typ zasobu**wybierz pozycję **Microsoft. ServiceBus/Namespaces** dla **typu zasobu**.
         3. W obszarze **zasób**wybierz Service Bus przestrzeń nazw z listy rozwijanej. 
         4. Upewnij się, że **docelowy podzasób** jest ustawiony na **przestrzeń nazw**.
-        5. Wybierz pozycję **Dalej: przycisk >konfiguracji** w dolnej części strony. 
+        5. Wybierz pozycję **Dalej: przycisk >konfiguracji ** w dolnej części strony. 
         
             ![Tworzenie prywatnego punktu końcowego — Strona zasobów](./media/private-link-service/create-private-endpoint-resource-page.png)
     2. W przypadku wybrania opcji **Połącz z zasobem platformy Azure według identyfikatora zasobu lub aliasu**wykonaj następujące kroki:
         1. Wprowadź **Identyfikator zasobu** lub **alias**. Może to być identyfikator zasobu lub alias, który ktoś udostępni Tobie. Najprostszym sposobem uzyskania identyfikatora zasobu jest przejście do przestrzeni nazw Service Bus w Azure Portal i skopiowanie fragmentu identyfikatora URI rozpoczynającego się od `/subscriptions/` . Przykład można znaleźć na poniższym obrazie. 
         2. W przypadku **docelowego zasobu podrzędnego**wprowadź **przestrzeń nazw**. Jest to typ zasobu podrzędnego, do którego Twój prywatny punkt końcowy może uzyskać dostęp. 
         3. obowiązkowe Wprowadź **komunikat żądania**. Właściciel zasobu widzi ten komunikat podczas zarządzania połączeniem prywatnego punktu końcowego. 
-        4. Następnie wybierz pozycję **Dalej: przycisk >konfiguracji** w dolnej części strony. 
+        4. Następnie wybierz pozycję **Dalej: przycisk >konfiguracji ** w dolnej części strony. 
 
             ![Tworzenie prywatnego punktu końcowego — Łączenie przy użyciu identyfikatora zasobu](./media/private-link-service/connect-resource-id.png)
 9. Na stronie **Konfiguracja** wybierz podsieć w sieci wirtualnej, w której chcesz wdrożyć prywatny punkt końcowy. 
@@ -189,7 +189,7 @@ Istnieją cztery Stany aprowizacji:
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Zatwierdź, Odrzuć lub Usuń połączenie prywatnego punktu końcowego
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 1. Na pasku wyszukiwania wpisz w **Service Bus**.
 1. Wybierz **przestrzeń nazw** , którą chcesz zarządzać.
 1. Wybierz kartę **Sieć** .
@@ -234,7 +234,7 @@ Istnieją cztery Stany aprowizacji:
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Sprawdź, czy połączenie z linkiem prywatnym działa
 
-Należy sprawdzić, czy zasoby znajdujące się w tej samej podsieci zasobu prywatnego punktu końcowego nawiązują połączenie z przestrzenią nazw Service Bus przy użyciu prywatnego adresu IP i czy mają poprawną integrację prywatnej strefy DNS.
+Należy sprawdzić, czy zasoby w sieci wirtualnej prywatnego punktu końcowego nawiązują połączenie z przestrzenią nazw Service Bus przy użyciu prywatnego adresu IP i czy mają poprawną integrację prywatnej strefy DNS.
 
 Najpierw utwórz maszynę wirtualną, wykonując czynności opisane w sekcji [Tworzenie maszyny wirtualnej z systemem Windows w Azure Portal](../virtual-machines/windows/quick-create-portal.md)
 

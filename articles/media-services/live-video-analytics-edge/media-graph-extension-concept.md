@@ -3,14 +3,14 @@ title: Co to jest rozszerzenie Media Graph — Azure
 description: Funkcja analizy filmów wideo na żywo w systemie IoT Edge umożliwia rozszerzanie możliwości przetwarzania wykresów multimedialnych za pomocą węzła rozszerzenia grafu.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 09fc2b71a6188caf1bdd9b7a2ef4da287f022845
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2e1ca730a6736776425cd70b323147b58e8eacbf
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691856"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716082"
 ---
-# <a name="media-graph-extension"></a>Rozszerzenie grafu multimediów
+# <a name="media-graph-extension"></a>Rozszerzenie grafu multimedialnego
 
 Funkcja analizy filmów wideo na żywo w systemie IoT Edge umożliwia rozszerzanie możliwości przetwarzania wykresów multimedialnych za pomocą węzła rozszerzenia grafu. Wtyczka rozszerzenia analitycznego może korzystać z tradycyjnych technik przetwarzania obrazów lub modeli obrazu systemu AI. Rozszerzenia programu Graph są włączane przez dołączenie węzła procesora rozszerzenia na grafie nośnika. Węzeł procesora rozszerzenia przekazuje ramki wideo do skonfigurowanego punktu końcowego i pełni rolę interfejsu dla rozszerzenia. Połączenie może być nawiązywane w lokalnym lub zdalnym punkcie końcowym i może być zabezpieczone przez uwierzytelnianie i szyfrowanie TLS, jeśli jest to wymagane. Ponadto węzeł procesora rozszerzenia wykresu umożliwia opcjonalne skalowanie i kodowanie klatek wideo przed ich przesłaniem do niestandardowego rozszerzenia.
 
@@ -52,9 +52,9 @@ Na poniższym diagramie przedstawiono przepływ danych wysokiego poziomu:
  
 ![Przepływ danych](./media/media-graph-extension/data-flow.png)
 
-## <a name="samples"></a>Przykłady
+## <a name="samples"></a>Samples
 
-Wyewidencjonuj Przykłady naszych przykładów z [notesu Jupyter](https://jupyter.org/) na potrzeby analizy filmów wideo na żywo. Te notesy zawierają instrukcje krok po kroku dotyczące:
+Wyewidencjonuj Przykłady naszych przykładów z [notesu Jupyter](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) na potrzeby analizy filmów wideo na żywo. Te notesy zawierają instrukcje krok po kroku dotyczące:
 
 * Jak utworzyć obraz kontenera Docker usługi rozszerzenia
 * Jak wdrożyć usługę rozszerzenia jako kontener wraz z kontenerem analizy wideo na żywo

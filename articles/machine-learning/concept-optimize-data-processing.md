@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 6bb85ada5ab1cd443d47ed85024b45d98354e97f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c73a5c5339403ecd91d45968405682c59f2f23b4
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500967"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719278"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Optymalizowanie przetwarzania danych za pomocą Azure Machine Learning
 
@@ -33,9 +33,9 @@ Pliki CSV są często używane do importowania i eksportowania danych, ponieważ
 
 ## <a name="pandas-dataframe"></a>Ramka dataPandas
 
-[Pandas dataframes](https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html) są często używane na potrzeby manipulowania i analizowania danych. `Pandas`sprawdza się najlepiej w przypadku rozmiarów danych mniejszych niż 1 GB, ale czasy przetwarzania dla `pandas` ramek dataframes spowalniają się, gdy rozmiar plików osiągnie około 1 GB. To spowolnienie wynika z faktu, że rozmiar danych w magazynie nie jest taki sam jak rozmiar danych w ramce Dataframe. Na przykład dane w plikach CSV mogą rozszerzać do 10 razy w ramce Dataframe, więc plik CSV o pojemności 1 GB może być 10 GB w ramce Dataframe.
+[Pandas dataframes](https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html) są często używane na potrzeby manipulowania i analizowania danych. `Pandas` sprawdza się najlepiej w przypadku rozmiarów danych mniejszych niż 1 GB, ale czasy przetwarzania dla `pandas` ramek dataframes spowalniają się, gdy rozmiar plików osiągnie około 1 GB. To spowolnienie wynika z faktu, że rozmiar danych w magazynie nie jest taki sam jak rozmiar danych w ramce Dataframe. Na przykład dane w plikach CSV mogą rozszerzać do 10 razy w ramce Dataframe, więc plik CSV o pojemności 1 GB może być 10 GB w ramce Dataframe.
 
-`Pandas`jest jednowątkowy, co oznacza, że operacje są wykonywane pojedynczo na pojedynczym procesorze CPU. Możesz łatwo zrównoleglanie obciążenia na wiele wirtualnych procesorów CPU w jednym Azure Machine Learning wystąpienia obliczeniowego z pakietami, takimi jak [Modin](https://modin.readthedocs.io/en/latest/) , które są zawijane `Pandas` przy użyciu rozproszonego zaplecza.
+`Pandas` jest jednowątkowy, co oznacza, że operacje są wykonywane pojedynczo na pojedynczym procesorze CPU. Możesz łatwo zrównoleglanie obciążenia na wiele wirtualnych procesorów CPU w jednym Azure Machine Learning wystąpienia obliczeniowego z pakietami, takimi jak [Modin](https://modin.readthedocs.io/en/latest/) , które są zawijane `Pandas` przy użyciu rozproszonego zaplecza.
 
 Aby zrównoleglanie swoje zadania za pomocą `Modin` i [Dask](https://dask.org), po prostu zmień ten wiersz kodu `import pandas as pd` na `import modin.pandas as pd` .
 
@@ -46,6 +46,16 @@ Zwykle błąd *braku pamięci* występuje, gdy ramka danych zostanie rozwinięta
 Jednym z rozwiązań jest zwiększenie ilości pamięci RAM w celu dopasowania jej do danych w pamięci. Zalecamy, aby rozmiar obliczeń i moc obliczeniowa zawierały dwa razy większy rozmiar pamięci RAM. Dlatego jeśli ramka danych ma rozmiar 10 GB, użyj obiektu docelowego obliczeń z co najmniej 20 GB pamięci RAM, aby upewnić się, że ramka danych może wygodnie dopasować się do pamięci i przetworzyć. 
 
 W przypadku wielu wirtualnych procesorów CPU vCPU należy pamiętać, że jedną partycję można wygodnie dopasować do pamięci RAM, każdy vCPU może mieć na komputerze. Oznacza to, że jeśli masz 16 GB pamięci RAM 4 procesorów wirtualnych vCPU, chcesz mieć około 2 GB ramek danych dla każdego vCPUu.
+
+### <a name="local-vs-remote"></a>Lokalna a zdalna
+
+Niektóre polecenia Pandas Dataframe mogą działać szybciej podczas pracy na komputerze lokalnym i na zdalnej maszynie wirtualnej, która została zainicjowana przy użyciu Azure Machine Learning. Na komputerze lokalnym jest zwykle włączony plik stronicowania, który umożliwia załadowanie większej ilości pamięci fizycznej, czyli dysku twardego, który jest używany jako rozszerzenie ilości pamięci RAM. Obecnie Azure Machine Learning maszyny wirtualne są uruchamiane bez pliku stronicowania, w związku z tym można ładować tylko tyle danych, ile jest dostępna fizyczna pamięć RAM. 
+
+W przypadku zadań intensywnie korzystających z obliczeń zalecamy wybranie większej maszyny wirtualnej w celu zwiększenia szybkości przetwarzania.
+
+Dowiedz się więcej o [dostępnych seriach i rozmiarach maszyn wirtualnych](concept-compute-target.md#supported-vm-series-and-sizes) dla Azure Machine Learning. 
+
+W przypadku specyfikacji pamięci RAM Zobacz odpowiednie strony serii maszyn wirtualnych, takie jak [Dv2-Dsv2 Series](../virtual-machines/dv2-dsv2-series-memory.md) lub [NC Series](../virtual-machines/nc-series.md).
 
 ### <a name="minimize-cpu-workloads"></a>Minimalizacja obciążeń procesora CPU
 
@@ -69,12 +79,12 @@ Jeśli poprzednie zalecenia są niewystarczające i nie możesz uzyskać maszyny
 
 W poniższej tabeli zaleca się dystrybuowanie struktur zintegrowanych z Azure Machine Learning w oparciu o preferencję kodu lub rozmiar danych.
 
-Środowisko lub rozmiar danych | Zalecenie
+Środowisko lub rozmiar danych | Rekomendacja
 ------|------
-Jeśli znasz już program`Pandas`| `Modin`lub `Dask` ramka danych
-Jeśli wolisz`Spark` | `PySpark`
-Dla danych mniejszych niż 1 GB | `Pandas`lokalne **lub** zdalne wystąpienie obliczeniowe Azure Machine Learning
-Dla danych większych niż 10 GB| Przejdź do klastra przy użyciu `Ray` , `Dask` lub`Spark`
+Jeśli znasz już program `Pandas`| `Modin` lub `Dask` ramka danych
+Jeśli wolisz `Spark` | `PySpark`
+Dla danych mniejszych niż 1 GB | `Pandas` lokalne **lub** zdalne wystąpienie obliczeniowe Azure Machine Learning
+Dla danych większych niż 10 GB| Przejdź do klastra przy użyciu `Ray` , `Dask` lub `Spark`
 
 Możesz tworzyć `Dask` klastry w klastrze obliczeniowym Azure ml przy użyciu pakietu [dask-cloudprovider](https://cloudprovider.dask.org/en/latest/#azure) . Lub można uruchomić `Dask` lokalnie w wystąpieniu obliczeniowym.
 

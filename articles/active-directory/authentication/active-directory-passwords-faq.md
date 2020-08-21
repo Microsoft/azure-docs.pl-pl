@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eff16e0d1aa242ed4ca8b427c7af8e8defa7804
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6e210a11dbcde17c8a5dfd16c46c0d3b3d5c6523
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051303"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716337"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Często zadawane pytania dotyczące samoobsługowego resetowania hasła
 
 Poniżej przedstawiono niektóre często zadawane pytania dotyczące wszystkich zagadnień związanych z samoobsługowym resetowaniem haseł.
 
-Jeśli masz ogólne pytanie dotyczące Azure Active Directory (Azure AD) i samoobsługowego resetowania hasła (SSPR), które nie są tutaj dostępne, możesz poproś społeczność o pomoc na stronie pytań i odpowiedzi [Microsoft&pytań](https://docs.microsoft.com/answers/topics/azure-active-directory.html)i odpowiedzi na Azure Active Directory. Członkowie społeczności obejmują inżynierów, menedżerów produktów, MVP i innych specjalistów IT.
+Jeśli masz ogólne pytanie dotyczące Azure Active Directory (Azure AD) i samoobsługowego resetowania hasła (SSPR), które nie są tutaj dostępne, możesz poproś społeczność o pomoc na stronie pytań i odpowiedzi [Microsoft&pytań](/answers/topics/azure-active-directory.html)i odpowiedzi na Azure Active Directory. Członkowie społeczności obejmują inżynierów, menedżerów produktów, MVP i innych specjalistów IT.
 
 Często zadawane pytania są podzielone na następujące sekcje:
 
@@ -197,7 +197,7 @@ Często zadawane pytania są podzielone na następujące sekcje:
   >
 * **P: Czy wszyscy użytkownicy będą powiadamiani w portalu Office po wygaśnięciu hasła lokalnego?**
 
-  > Odp **.:** Tak. obecnie jest to możliwe, jeśli używasz Active Directory Federation Services (AD FS). Jeśli używasz AD FS, postępuj zgodnie z instrukcjami zawartymi w artykule [wysyłanie oświadczeń dotyczących zasad haseł przy użyciu AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) artykułu. Jeśli używasz synchronizacji skrótów haseł, nie jest to obecnie możliwe. Zasady haseł nie są synchronizowane z katalogów lokalnych, dlatego nie jest możliwe wysyłanie powiadomień o wygaśnięciu do środowiska chmury. W obu przypadkach możliwe jest również [powiadomienie użytkowników, których hasła wkrótce wygasną za pomocą programu PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  > Odp **.:** Tak. obecnie jest to możliwe, jeśli używasz Active Directory Federation Services (AD FS). Jeśli używasz AD FS, postępuj zgodnie z instrukcjami zawartymi w artykule [wysyłanie oświadczeń dotyczących zasad haseł przy użyciu AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) artykułu. Jeśli używasz synchronizacji skrótów haseł, nie jest to obecnie możliwe. Zasady haseł nie są synchronizowane z katalogów lokalnych, dlatego nie jest możliwe wysyłanie powiadomień o wygaśnięciu do środowiska chmury. W obu przypadkach możliwe jest również [powiadomienie użytkowników, których hasła wkrótce wygasną za pomocą programu PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
   >
   >
 * **P: Czy mogę zablokować użytkownikom możliwość zmiany hasła?**
@@ -243,7 +243,7 @@ Często zadawane pytania są podzielone na następujące sekcje:
 
 * **P: w jaki sposób zapisywanie zwrotne haseł działa w tle?**
 
-  > Odp **.:** Zapoznaj się z artykułem [jak działa funkcja zapisywania zwrotnego haseł](howto-sspr-writeback.md) , aby dowiedzieć się, co się dzieje po włączeniu funkcji zapisywania zwrotnego haseł oraz sposobie powrotu danych przez system do środowiska lokalnego.
+  > Odp **.:** Zapoznaj się z artykułem [jak działa funkcja zapisywania zwrotnego haseł](./tutorial-enable-sspr-writeback.md) , aby dowiedzieć się, co się dzieje po włączeniu funkcji zapisywania zwrotnego haseł oraz sposobie powrotu danych przez system do środowiska lokalnego.
   >
   >
 * **P: jak długo trwa zapisywanie funkcji zapisywania zwrotnego haseł? Czy istnieje opóźnienie synchronizacji takie jak w przypadku synchronizacji skrótów haseł?**
@@ -273,7 +273,7 @@ Często zadawane pytania są podzielone na następujące sekcje:
   >
 * **P: czy zapisywanie zwrotne haseł jest zabezpieczone?  Jak można się upewnić, że nie mogę pobrać zaatakowana?**
 
-  > Odp **.:** Tak, zapisywanie zwrotne haseł jest bezpieczne. Aby dowiedzieć się więcej o wielu warstwach zabezpieczeń zaimplementowanych przez usługę zapisywania zwrotnego haseł, zapoznaj się z sekcją [zabezpieczenia zapisywania zwrotnego haseł](concept-sspr-writeback.md#password-writeback-security) w artykule [Omówienie zapisywania zwrotnego haseł](howto-sspr-writeback.md) .
+  > Odp **.:** Tak, zapisywanie zwrotne haseł jest bezpieczne. Aby dowiedzieć się więcej o wielu warstwach zabezpieczeń zaimplementowanych przez usługę zapisywania zwrotnego haseł, zapoznaj się z sekcją [zabezpieczenia zapisywania zwrotnego haseł](concept-sspr-writeback.md#password-writeback-security) w artykule [Omówienie zapisywania zwrotnego haseł](./tutorial-enable-sspr-writeback.md) .
   >
   >
 
@@ -286,7 +286,7 @@ Często zadawane pytania są podzielone na następujące sekcje:
 * [Jakie dane są używane przez funkcję samoobsługowego resetowania haseł i jakie dane powinny zostać wypełnione dla użytkowników?](howto-sspr-authenticationdata.md)
 * [Jakie metody uwierzytelniania są dostępne dla użytkowników?](concept-sspr-howitworks.md#authentication-methods)
 * [Jakie są opcje zasad dla funkcji samoobsługowego resetowania haseł?](concept-sspr-policy.md)
-* [Co to jest funkcja zapisywania zwrotnego haseł i dlaczego jest ona tak ważna?](howto-sspr-writeback.md)
+* [Co to jest funkcja zapisywania zwrotnego haseł i dlaczego jest ona tak ważna?](./tutorial-enable-sspr-writeback.md)
 * [Jak zgłosić działanie funkcji samoobsługowego resetowania haseł?](howto-sspr-reporting.md)
 * [Jakie są dostępne opcje funkcji samoobsługowego resetowania haseł i do czego one służą?](concept-sspr-howitworks.md)
 * [Myślę, że coś jest zerwane. Jak mogę Rozwiązywanie problemów z SSPR?](active-directory-passwords-troubleshoot.md)

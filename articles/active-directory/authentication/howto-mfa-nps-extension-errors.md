@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 6a292201796ccb08f684d2c44a3cee71442edbfe
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: f991e38c184fe44f63af63809deb14eda22f8f4c
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848690"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716728"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolve error messages from the NPS extension for Azure Multi-Factor Authentication (Rozstrzyganie komunikatów o błędach z rozszerzenia serwera NPS dotyczących usługi Azure Multi-Factor Authentication)
 
@@ -30,8 +30,8 @@ Jeśli wystąpią błędy rozszerzenia serwera NPS dla usługi Azure Multi-Facto
 | **CONTACT_SUPPORT** | [Skontaktuj się z pomocą techniczną](#contact-microsoft-support)i zanotuj listę kroków związanych z zbieraniem dzienników. Podaj jak najwięcej informacji o tym, co się stało przed błędem, w tym IDENTYFIKATORem dzierżawy oraz główną nazwą użytkownika (UPN). |
 | **CLIENT_CERT_INSTALL_ERROR** | Może wystąpić problem z zainstalowaniem lub skojarzeniem certyfikatu klienta z dzierżawcą. Postępuj zgodnie z instrukcjami w [temacie Rozwiązywanie problemów z serwerem NPS usługi MFA](howto-mfa-nps-extension.md#troubleshooting) w celu zbadania problemów z certyfikatem klienta. |
 | **ESTS_TOKEN_ERROR** | Postępuj zgodnie z instrukcjami w [temacie Rozwiązywanie problemów z rozszerzeniem zasad sieciowych usługi MFA,](howto-mfa-nps-extension.md#troubleshooting) aby zbadać certyfikat klienta i tokeny ADAL. |
-| **HTTPS_COMMUNICATION_ERROR** | Serwer NPS nie może odbierać odpowiedzi z usługi Azure MFA. Sprawdź, czy zapory są otwarte dwukierunkowo dla ruchu do i zhttps://adnotifications.windowsazure.com |
-| **HTTP_CONNECT_ERROR** | Na serwerze, na którym działa rozszerzenie serwera zasad sieciowych, sprawdź, czy można nawiązać połączenie `https://adnotifications.windowsazure.com` i `https://login.microsoftonline.com/` . Jeśli te lokacje nie są ładowane, Rozwiąż problemy z łącznością na tym serwerze. |
+| **HTTPS_COMMUNICATION_ERROR** | Serwer NPS nie może odbierać odpowiedzi z usługi Azure MFA. Sprawdź, czy zapory są otwarte dwukierunkowo dla ruchu do i z https://adnotifications.windowsazure.com |
+| **HTTP_CONNECT_ERROR** | Na serwerze, na którym działa rozszerzenie serwera zasad sieciowych, sprawdź, czy można nawiązać połączenie  `https://adnotifications.windowsazure.com` i `https://login.microsoftonline.com/` . Jeśli te lokacje nie są ładowane, Rozwiąż problemy z łącznością na tym serwerze. |
 | **Rozszerzenie serwera NPS dla usługi Azure MFA:** <br> Rozszerzenie serwera NPS dla usługi Azure MFA wykonuje tylko uwierzytelnianie pomocnicze dla żądań RADIUS w stanie AccessAccept. Żądanie zostało odebrane dla użytkownika o nazwie "odpowiedź" o stanie odpowiedzi AccessReject, ignorując żądanie. | Ten błąd zwykle odzwierciedla błąd uwierzytelniania w usłudze AD lub że serwer NPS nie może odebrać odpowiedzi z usługi Azure AD. Sprawdź, czy zapory są otwarte dwukierunkowo dla ruchu do i z `https://adnotifications.windowsazure.com` i z `https://login.microsoftonline.com` portów 80 i 443. Ważne jest również, aby sprawdzić, czy na karcie TELEFONowania uprawnień dostępu do sieci jest ustawiona opcja "Kontroluj dostęp za pomocą zasad sieciowych NPS". Ten błąd może również być wyzwalany, jeśli użytkownik nie ma przypisanej licencji. |
 | **REGISTRY_CONFIG_ERROR** | Brak klucza w rejestrze dla aplikacji, co może być spowodowane tym, że [skrypt programu PowerShell](howto-mfa-nps-extension.md#install-the-nps-extension) nie został uruchomiony po instalacji. Komunikat o błędzie powinien zawierać brakujący klucz. Upewnij się, że masz klucz w obszarze HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureMfa. |
 | **REQUEST_FORMAT_ERROR** <br> W żądaniu usługi RADIUS brakuje obowiązkowego atrybutu userName\Identifier usługi RADIUS. Sprawdź, czy serwer NPS otrzymuje żądania RADIUS | Ten błąd zwykle odzwierciedla problem z instalacją. Rozszerzenie serwera NPS musi być zainstalowane na serwerach NPS, które mogą odbierać żądania RADIUS. Serwery NPS zainstalowane jako zależności dla usług takich jak RDG i RRAS nie odbierają żądań RADIUS. Rozszerzenie serwera NPS nie działa w przypadku instalacji w takich instalacjach i błędów, ponieważ nie może odczytać szczegółów z żądania uwierzytelnienia. |
@@ -43,7 +43,7 @@ Jeśli wystąpią błędy rozszerzenia serwera NPS dla usługi Azure Multi-Facto
 | Kod błędu | Komunikat o błędzie | Kroki rozwiązywania problemów |
 | ---------- | ------------- | --------------------- |
 | **ALTERNATE_LOGIN_ID_ERROR** | Błąd: wyszukiwanie userObjectSid nie powiodło się | Sprawdź, czy użytkownik istnieje w lokalnym wystąpieniu Active Directory. Jeśli używasz relacji zaufania między lasami, [skontaktuj się z pomocą techniczną](#contact-microsoft-support) w celu uzyskania dalszej pomocy. |
-| **ALTERNATE_LOGIN_ID_ERROR** | Błąd: alternatywne wyszukiwanie LoginId nie powiodło się | Sprawdź, czy LDAP_ALTERNATE_LOGINID_ATTRIBUTE jest ustawiony [prawidłowy atrybut usługi Active Directory](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> Jeśli LDAP_FORCE_GLOBAL_CATALOG jest ustawiona na wartość true lub LDAP_LOOKUP_FORESTS jest skonfigurowana z niepustą wartością, sprawdź, czy skonfigurowano wykaz globalny i czy został do niego dodany atrybut AlternateLoginId. <br><br> Jeśli LDAP_LOOKUP_FORESTS jest skonfigurowany z niepustą wartością, sprawdź, czy wartość jest poprawna. Jeśli istnieje więcej niż jedna nazwa lasu, nazwy muszą być rozdzielone średnikami, a nie spacjami. <br><br> Jeśli te kroki nie rozwiążą problemu, [skontaktuj się z pomocą techniczną](#contact-microsoft-support) , aby uzyskać pomoc. |
+| **ALTERNATE_LOGIN_ID_ERROR** | Błąd: alternatywne wyszukiwanie LoginId nie powiodło się | Sprawdź, czy LDAP_ALTERNATE_LOGINID_ATTRIBUTE jest ustawiony [prawidłowy atrybut usługi Active Directory](/windows/win32/adschema/attributes-all). <br><br> Jeśli LDAP_FORCE_GLOBAL_CATALOG jest ustawiona na wartość true lub LDAP_LOOKUP_FORESTS jest skonfigurowana z niepustą wartością, sprawdź, czy skonfigurowano wykaz globalny i czy został do niego dodany atrybut AlternateLoginId. <br><br> Jeśli LDAP_LOOKUP_FORESTS jest skonfigurowany z niepustą wartością, sprawdź, czy wartość jest poprawna. Jeśli istnieje więcej niż jedna nazwa lasu, nazwy muszą być rozdzielone średnikami, a nie spacjami. <br><br> Jeśli te kroki nie rozwiążą problemu, [skontaktuj się z pomocą techniczną](#contact-microsoft-support) , aby uzyskać pomoc. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Błąd: alternatywna wartość LoginId jest pusta | Sprawdź, czy atrybut AlternateLoginId jest skonfigurowany dla użytkownika. |
 
 ## <a name="errors-your-users-may-encounter"></a>Błędy, które mogą napotkać użytkownicy
@@ -81,7 +81,7 @@ W przypadku wystąpienia jednego z tych błędów zalecamy [skontaktowanie się 
 | ---------- | ------------- |
 | **Nieprawidłowy parametr** | Żądanie nie może mieć wartości null |
 | **Nieprawidłowy parametr** | Obiekt ObjectId nie może mieć wartości null ani być pusty dla ReplicationScope:{0} |
-| **Nieprawidłowy parametr** | Długość elementu NazwaFirmy \{ 0} \ przekracza maksymalną dozwoloną długość{1} |
+| **Nieprawidłowy parametr** | Długość elementu NazwaFirmy \{ 0} \ przekracza maksymalną dozwoloną długość {1} |
 | **Nieprawidłowy parametr** | Element UserPrincipalName nie może mieć wartości null ani być pusty |
 | **Nieprawidłowy parametr** | Podany TenantId nie ma poprawnego formatu |
 | **Nieprawidłowy parametr** | Identyfikator sesji nie może mieć wartości null ani być pusty |
@@ -99,7 +99,7 @@ Jeśli użytkownicy mają [problemy z weryfikacją dwuetapową](../user-help/mul
 
 ### <a name="health-check-script"></a>Skrypt sprawdzania kondycji
 
-[Skrypt kontroli kondycji rozszerzenia serwera NPS usługi Azure MFA](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) wykonuje podstawowe Sprawdzanie kondycji podczas rozwiązywania problemów z rozszerzeniem serwera NPS. Uruchom skrypt i wybierz opcję 3.
+[Skrypt kontroli kondycji rozszerzenia serwera NPS usługi Azure MFA](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) wykonuje podstawowe Sprawdzanie kondycji podczas rozwiązywania problemów z rozszerzeniem serwera NPS. Uruchom skrypt i wybierz opcję 3.
 
 ### <a name="contact-microsoft-support"></a>Kontaktowanie się z pomocą techniczną firmy Microsoft
 

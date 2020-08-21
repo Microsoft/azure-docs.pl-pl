@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: f31e238c705a4b03c400a38fa6eb5f42db7204b0
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e1ece0add7b0749cfd808b0a3ec7962dd43a302d
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535029"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719346"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Tworzenie aplikacji Machine Learning za pomocą Apache Spark MLlib i analizy Synapse Azure
 
@@ -71,7 +71,7 @@ W poniższych krokach opracowujesz model do przewidywania, czy konkretny rejs za
 
 Ponieważ dane pierwotne są w formacie Parquet, można użyć kontekstu Spark, aby ściągnąć plik do pamięci jako element danych bezpośrednio. Chociaż Poniższy kod używa opcji domyślnych, możliwe jest wymuszenie mapowania typów danych i innych atrybutów schematu, jeśli jest to konieczne.
 
-1. Uruchom następujące wiersze, aby utworzyć ramkę danych Spark, wklejając kod w nowej komórce. Spowoduje to pobranie danych za pośrednictwem interfejsu API Open DataSets. Ściąganie wszystkich tych danych spowoduje wygenerowanie około 1 500 000 000 wierszy. W zależności od rozmiaru puli Spark (wersja zapoznawcza) dane pierwotne mogą być zbyt duże lub zbyt dużo czasu na wykonanie operacji. Dane można filtrować do mniejszej liczby. Użycie start_date i end_date stosuje filtr, który zwraca miesiąc danych.
+1. Uruchom następujące wiersze, aby utworzyć ramkę danych Spark, wklejając kod w nowej komórce. Spowoduje to pobranie danych za pośrednictwem interfejsu API Open DataSets. Ściąganie wszystkich tych danych spowoduje wygenerowanie około 1 500 000 000 wierszy. W zależności od rozmiaru puli Spark (wersja zapoznawcza) dane pierwotne mogą być zbyt duże lub zbyt dużo czasu na wykonanie operacji. Dane można filtrować do mniejszej liczby. Poniższy przykład kodu używa start_date i end_date do zastosowania filtru zwracającego pojedynczy miesiąc danych.
 
     ```python
     from azureml.opendatasets import NycTlcYellow
@@ -96,7 +96,7 @@ Ponieważ dane pierwotne są w formacie Parquet, można użyć kontekstu Spark, 
     display(sampled_taxi_df)
     ```
 
-4. W zależności od rozmiaru wygenerowanego zestawu danych i konieczności eksperymentowania lub uruchamiania notesu wiele razy może być zalecane buforowanie zestawu danych lokalnie w obszarze roboczym. Istnieją trzy sposoby wykonywania jawnego buforowania:
+4. W zależności od rozmiaru wygenerowanego zestawu danych i konieczności eksperymentowania lub uruchamiania notesu wiele razy może być zalecane buforowanie zestawu danych lokalnie w obszarze roboczym. Istnieją trzy sposoby przeprowadzenia jawnej pamięci podręcznej:
 
    - Zapisz lokalnie ramkę danych jako plik
    - Zapisz ramkę danych jako tabelę tymczasową lub widok
@@ -126,7 +126,7 @@ ax1.set_ylabel('Counts')
 plt.suptitle('')
 plt.show()
 
-# How many passengers tip'd by various amounts
+# How many passengers tipped by various amounts
 ax2 = sampled_taxi_pd_df.boxplot(column=['tipAmount'], by=['passengerCount'])
 ax2.set_title('Tip amount by Passenger count')
 ax2.set_xlabel('Passenger count')
@@ -157,7 +157,7 @@ W kodzie poniżej czterech klas operacji są wykonywane:
 - Usuwanie elementów wartości odstających/nieprawidłowych za pomocą filtrowania.
 - Usuwanie kolumn, które nie są zbędne.
 - Tworzenie nowych kolumn pochodzących od danych pierwotnych, aby model działał bardziej efektywnie, czasami nazywany cechowania.
-- Etykietowanie, ponieważ zakładasz klasyfikację binarną (czy zostanie wyświetlona Porada lub nie w danej podróży), istnieje potrzeba przekonwertowania kwoty Porada na wartość 0 lub 1.
+- Etykietowanie — ponieważ obejmujesz klasyfikację binarną (czy jest to Porada lub nie w danej podróży), istnieje potrzeba przekonwertowania kwoty Porada na wartość 0 lub 1.
 
 ```python
 taxi_df = sampled_taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'paymentType', 'rateCodeId', 'passengerCount'\
@@ -196,7 +196,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 Ostatnim zadaniem jest przekonwertowanie etykiet danych na format, który może być analizowany przez regresję logistyczną. Wejście do algorytmu regresji logistycznej musi być zestawem *par wektorów funkcji etykiet*, gdzie *wektor funkcji* jest wektorem liczb reprezentujących punkt wejściowy. Dlatego musimy przekonwertować kolumny kategorii na liczby. `trafficTimeBins`Kolumny i `weekdayString` muszą być konwertowane na reprezentacje typu Integer. Istnieje wiele metod wykonywania konwersji, ale podejście wykonywane w tym przykładzie to *OneHotEncoding*, typowe podejście.
 
 ```python
-# The sample uses an algorithm that only works with numeric features convert them so they can be consumed
+# Since the sample uses an algorithm that only works with numeric features, convert them so they can be consumed
 sI1 = StringIndexer(inputCol="trafficTimeBins", outputCol="trafficTimeBinsIndex")
 en1 = OneHotEncoder(dropLast=False, inputCol="trafficTimeBinsIndex", outputCol="trafficTimeBinsVec")
 sI2 = StringIndexer(inputCol="weekdayString", outputCol="weekdayIndex")
@@ -225,7 +225,7 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 Teraz, gdy istnieją dwa ramki danych, następnym zadaniem jest utworzenie formuły modelu i uruchomienie jej w odniesieniu do ramki danych szkoleniowych, a następnie zweryfikowanie względem testowanej ramki danych. Należy eksperymentować z różnymi wersjami formuły modelu, aby zobaczyć wpływ różnych kombinacji.
 
 > [!Note]
-> Aby zapisać model, należy potrzebować roli platformy Azure obiektów blob magazynu. W obszarze konto magazynu przejdź do pozycji Access Control (IAM), a następnie wybierz pozycję Dodaj przypisanie roli. Przypisywanie danych obiektu blob magazynu współautor roli platformy Azure do serwera SQL Database. Tylko członkowie z uprawnieniami właściciela mogą wykonać ten krok. W przypadku różnych wbudowanych ról platformy Azure Zapoznaj się z tym [przewodnikiem](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+> Aby zapisać model, należy potrzebować roli platformy Azure obiektów blob magazynu. W obszarze konto magazynu przejdź do pozycji Access Control (IAM), a następnie wybierz pozycję **Dodaj przypisanie roli**. Przypisywanie danych obiektu blob magazynu współautor roli platformy Azure do serwera SQL Database. Tylko członkowie z uprawnieniami właściciela mogą wykonać ten krok. W przypadku różnych wbudowanych ról platformy Azure Zapoznaj się z tym [przewodnikiem](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```python
 ## Create a new LR object for the model
@@ -250,7 +250,7 @@ metrics = BinaryClassificationMetrics(predictionAndLabels)
 print("Area under ROC = %s" % metrics.areaUnderROC)
 ```
 
-Dane wyjściowe z tej komórki to
+Dane wyjściowe z tej komórki to:
 
 ```shell
 Area under ROC = 0.9779470729751403

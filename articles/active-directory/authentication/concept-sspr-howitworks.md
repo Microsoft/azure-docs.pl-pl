@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89d9d06433e2b915b8a96375bb39157adbce6ef2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fce07575fe95ffbd4fd906bcde7d76d89e50d48b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027671"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716320"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Jak to działa: Samoobsługowe resetowania hasła usługi Azure AD
 
@@ -73,7 +73,7 @@ Aby użytkownicy mogli resetować lub zmieniać swoje hasła przy użyciu usług
 Możesz włączyć opcję, aby wymagać od użytkownika przeprowadzenia rejestracji SSPR, jeśli zalogują się do aplikacji przy użyciu usługi Azure AD. Ten przepływ pracy obejmuje następujące aplikacje:
 
 * Office 365
-* Witryna Azure Portal
+* Azure Portal
 * Panel dostępu
 * Aplikacje federacyjne
 * Aplikacje niestandardowe korzystające z usługi Azure AD
@@ -101,7 +101,7 @@ Dla SSPR są dostępne następujące metody uwierzytelniania:
 
 * Powiadomienie aplikacji mobilnej
 * Kod aplikacji mobilnej
-* E-mail
+* Poczta e-mail
 * Telefon komórkowy
 * Telefon służbowy
 * Pytania zabezpieczające
@@ -139,7 +139,7 @@ Użytkownicy nie mają możliwości zarejestrowania aplikacji mobilnej podczas r
 >
 > Podczas konfigurowania zasad SSPR, które obejmują aplikację Authenticator jako metodę, należy wybrać co najmniej jedną dodatkową metodę, gdy wymagana jest jedna metoda, i należy wybrać co najmniej dwie dodatkowe metody, gdy wymagane jest skonfigurowanie dwóch metod.
 >
-> To wymaganie wynika z faktu, że bieżące środowisko rejestracji SSPR nie obejmuje opcji zarejestrowania aplikacji uwierzytelniania. Opcja zarejestrowania aplikacji Authenticator jest dołączona do nowego [środowiska rejestracji połączonej](concept-registration-mfa-sspr-converged.md).
+> To wymaganie wynika z faktu, że bieżące środowisko rejestracji SSPR nie obejmuje opcji zarejestrowania aplikacji uwierzytelniania. Opcja zarejestrowania aplikacji Authenticator jest dołączona do nowego [środowiska rejestracji połączonej](./concept-registration-mfa-sspr-combined.md).
 >
 > Zezwalanie na używanie zasad korzystających tylko z aplikacji Authenticator (gdy wymagana jest jedna metoda) lub aplikacji Authenticator i tylko jednej dodatkowej metody (gdy wymagane są dwie metody), może spowodować, że użytkownicy będą mogli rejestrować się w usłudze SSPR, dopóki nie zostaną skonfigurowani do korzystania z nowego, połączonego środowiska rejestracji.
 
@@ -191,13 +191,13 @@ Usługa Azure AD sprawdza bieżącą łączność hybrydową i udostępnia jeden
 * Usługa Azure AD jest w trybie online i jest połączona z lokalnym klientem zapisywania zwrotnego. Jednak wygląda na to, że zainstalowana wersja Azure AD Connect jest nieaktualna. Rozważ [uaktualnienie Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) , aby mieć pewność, że dysponujesz najnowszymi funkcjami łączności i ważnymi poprawkami błędów.
 * Niestety, nie możemy sprawdzić stanu lokalnego klienta zapisywania zwrotnego, ponieważ zainstalowana wersja Azure AD Connect jest nieaktualna. [Uaktualnij Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) , aby sprawdzić stan połączenia.
 * Niestety, wygląda na to, że nie możemy teraz połączyć się z lokalnym klientem funkcji zapisywania zwrotnego. [Rozwiązywanie problemów z Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) , aby przywrócić połączenie.
-* Niestety, nie można nawiązać połączenia z lokalnym klientem zapisywania zwrotnego, ponieważ nie skonfigurowano poprawnie funkcji zapisywania zwrotnego haseł. [Skonfiguruj funkcję zapisywania zwrotnego haseł](howto-sspr-writeback.md) , aby przywrócić połączenie.
+* Niestety, nie można nawiązać połączenia z lokalnym klientem zapisywania zwrotnego, ponieważ nie skonfigurowano poprawnie funkcji zapisywania zwrotnego haseł. [Skonfiguruj funkcję zapisywania zwrotnego haseł](./tutorial-enable-sspr-writeback.md) , aby przywrócić połączenie.
 * Niestety, wygląda na to, że nie możemy teraz połączyć się z lokalnym klientem funkcji zapisywania zwrotnego. Może to być spowodowane tymczasowymi problemami na naszym końcu. Jeśli problem będzie się powtarzał, [Rozwiązywanie problemów Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) , aby przywrócić połączenie.
 
 Aby rozpocząć pracę z funkcją zapisywania zwrotnego SSPR, wykonaj następujące czynności:
 
 > [!div class="nextstepaction"]
-> [Samouczek: Włączanie zapisywania zwrotnego funkcji samoobsługowego resetowania hasła (SSPR)](tutorial-enable-writeback.md)
+> [Samouczek: Włączanie zapisywania zwrotnego funkcji samoobsługowego resetowania hasła (SSPR)](./tutorial-enable-sspr-writeback.md)
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Zapisuj hasła wstecz do katalogu lokalnego
 
@@ -223,7 +223,7 @@ Resetowanie i zmiana hasła są w pełni obsługiwane we wszystkich konfiguracja
 
 * **Użytkownicy z organizacji partnerskiej z istniejącą dzierżawą usługi Azure AD**: Jeśli organizacja, której jesteś partnerem, ma istniejącą dzierżawę usługi Azure AD, wszystkie zasady resetowania hasła są włączone dla tej dzierżawy. Aby Resetowanie hasła działało, organizacja partnerska musi upewnić się, że usługa Azure AD SSPR jest włączona. Klienci korzystający z pakietu Office 365 nie mogą uzyskać dodatkowej opłaty.
 * **Użytkownicy, którzy zarejestrują** się w ramach rejestracji samoobsługowej: Jeśli organizacja, której jesteś partnerem, użyła funkcji [rejestracji samoobsługowej](../users-groups-roles/directory-self-service-signup.md) w celu uzyskania dzierżawy, zezwolimy im na zresetowanie hasła przy użyciu zarejestrowanej wiadomości e-mail.
-* **Użytkownicy B2B**: Wszyscy nowi użytkownicy B2B utworzeni przy użyciu nowych [możliwości B2B usługi Azure AD](../b2b/what-is-b2b.md) mogą również resetować swoje hasła przy użyciu wiadomości e-mail zarejestrowanych podczas procesu zapraszania.
+* **Użytkownicy B2B**: Wszyscy nowi użytkownicy B2B utworzeni przy użyciu nowych [możliwości B2B usługi Azure AD](../external-identities/what-is-b2b.md) mogą również resetować swoje hasła przy użyciu wiadomości e-mail zarejestrowanych podczas procesu zapraszania.
 
 Aby przetestować ten scenariusz, przejdź do https://passwordreset.microsoftonline.com jednego z tych użytkowników partnerskich. Jeśli zdefiniowano alternatywną wiadomość e-mail lub adres e-mail uwierzytelniania, Resetowanie hasła działa zgodnie z oczekiwaniami.
 

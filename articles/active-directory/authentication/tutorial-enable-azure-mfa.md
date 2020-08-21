@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5aa84faea43846a2f930373529769e62f76e5bbf
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: b9072c5611f5bd5a4b8cca082cb2bfd7a1e3f1b2
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419550"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718904"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>Samouczek: Zabezpieczanie zdarzeń logowania użytkowników przy użyciu usługi Azure Multi-Factor Authentication
 
@@ -101,7 +101,7 @@ Zasady dostępu warunkowego można ustawić na wartość *raport — tylko* wted
 
 Zapoznaj się z zasadami dostępu warunkowego i Multi-Factor Authentication platformy Azure. Najpierw Zaloguj się do zasobu, który nie wymaga uwierzytelniania MFA w następujący sposób:
 
-1. Otwórz nowe okno przeglądarki w trybie InPrivate lub incognito i przejdź do[https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
+1. Otwórz nowe okno przeglądarki w trybie InPrivate lub incognito i przejdź do [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
 1. Zaloguj się przy użyciu użytkownika testowego niebędącego administratorem, takiego jak *Użytkownik testowy*. Nie ma monitu o ukończenie uwierzytelniania MFA.
 1. Zamknij okno przeglądarki.
 
@@ -133,4 +133,4 @@ W tym samouczku włączono usługę Azure Multi-Factor Authentication przy użyc
 > * Przetestuj proces MFA jako użytkownik
 
 > [!div class="nextstepaction"]
-> [Włącz funkcję zapisywania zwrotnego haseł do samoobsługowego resetowania hasła (SSPR)](tutorial-enable-writeback.md)
+> [Włącz funkcję zapisywania zwrotnego haseł do samoobsługowego resetowania hasła (SSPR)](./tutorial-enable-sspr-writeback.md)

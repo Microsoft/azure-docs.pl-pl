@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 5748f758d8ac2f1723a20858920a4f261c07f938
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: a1ef0e9fe3805f1c6d4d1000a9ea70accc64f4d2
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88608922"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718700"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Rozwiązywanie problemów z replikacją w przypadku migracji maszyn wirtualnych VMware bez agentów
 
@@ -59,7 +59,7 @@ Składnik próbujący zreplikować dane na platformę Azure jest wyłączony lub
 
    2.  Otwórz przystawkę MMC usług firmy Microsoft (Uruchom > Services. msc) i sprawdź, czy jest uruchomiona usługa Microsoft Azure Gateway Service. Jeśli usługa jest zatrzymana lub nie jest uruchomiona, uruchom usługę. Alternatywnie możesz otworzyć wiersz polecenia lub program PowerShell i wykonać następujące czynności: "net start asrgwy"
 
-3. Sprawdź, czy występują problemy z łącznością między urządzeniem Azure Migrate a kontem magazynu pamięci podręcznej: 
+3. Sprawdź, czy występują problemy z łącznością między urządzeniem Azure Migrate a kontem magazynu urządzenia: 
 
     Po pobraniu AzCopy na urządzeniu Azure Migrate Uruchom następujące polecenie:
     
@@ -149,7 +149,7 @@ Możliwe przyczyny:
     
       1. [Pobierz](https://go.microsoft.com/fwlink/?linkid=2138966) AzCopy
         
-      2. Poszukaj konta magazynu urządzenia w grupie zasobów. Konto magazynu ma nazwę podobną do migrategwsa \* \* \* \* \* \* \* \* \* \* . Jest to wartość parametru [Account] w powyższym poleceniu.
+      2. Poszukaj konta magazynu urządzenia w grupie zasobów. Konto magazynu ma nazwę podobną do migratelsa \* \* \* \* \* \* \* \* \* \* . Jest to wartość parametru [Account] w powyższym poleceniu.
         
       3. Wyszukaj swoje konto magazynu w Azure Portal. Upewnij się, że subskrypcja używana do wyszukiwania jest tą samą subskrypcją (subskrypcją docelową), w której utworzono konto magazynu. Przejdź do kontenerów w sekcji usługi BLOB Service. Kliknij pozycję + kontener i Utwórz kontener. Pozostaw publiczny poziom dostępu do domyślnej zaznaczonej wartości.
         
@@ -226,7 +226,7 @@ Na przykład: komunikat o błędzie: Wystąpił błąd wewnętrzny. [Wykryto nie
 
 W poniższej sekcji przedstawiono niektóre często spotykane błędy oprogramowania VMware i sposoby ich ograniczania.
 
-## <a name="error-message-an-internal-error-occurred-server-refused-connection"></a>Komunikat o błędzie: Wystąpił błąd wewnętrzny. [Serwer odmówił połączenia]
+### <a name="error-message-an-internal-error-occurred-server-refused-connection"></a>Komunikat o błędzie: Wystąpił błąd wewnętrzny. [Serwer odmówił połączenia]
 
 Problem jest znanym problemem VMware i występuje w VDDK 6,7. Należy zatrzymać usługę bramy uruchomioną na urządzeniu Azure Migrate, [pobrać aktualizację z programu VMware KB](https://go.microsoft.com/fwlink/?linkid=2138889)i ponownie uruchomić usługę bramy.
 
@@ -240,33 +240,33 @@ Kroki umożliwiające uruchomienie usługi bramy:
 1. Naciśnij klawisze Windows + R, Otwórz Services. msc. Kliknij prawym przyciskiem myszy pozycję "Microsoft Azure usługę bramy" i uruchom ją.
 2. Alternatywnie możesz otworzyć wiersz polecenia lub program PowerShell i wykonać następujące czynności: net start asrgwy.
 
-## <a name="error-message-an-internal-error-occurred-an-invalid-snapshot-configuration-was-detected"></a>Komunikat o błędzie: Wystąpił błąd wewnętrzny. ["Wykryto nieprawidłową konfigurację migawki."]
+### <a name="error-message-an-internal-error-occurred-an-invalid-snapshot-configuration-was-detected"></a>Komunikat o błędzie: Wystąpił błąd wewnętrzny. ["Wykryto nieprawidłową konfigurację migawki."]
 
 Jeśli masz maszynę wirtualną z wieloma dyskami, ten błąd może wystąpić w przypadku usunięcia dysku z maszyny wirtualnej. Aby rozwiązać ten problem, zapoznaj się z procedurą opisaną w [tym artykule](https://go.microsoft.com/fwlink/?linkid=2138890)dotyczącym programu VMware.
 
-## <a name="error-message-an-internal-error-occurred-generate-snapshot-hung"></a>Komunikat o błędzie: Wystąpił błąd wewnętrzny. [Generuj niezawieszoną migawkę]
+### <a name="error-message-an-internal-error-occurred-generate-snapshot-hung"></a>Komunikat o błędzie: Wystąpił błąd wewnętrzny. [Generuj niezawieszoną migawkę]
 
 Ten problem występuje, gdy generacja migawek jest zawieszona. W przypadku wystąpienia tego problemu można zobaczyć, że zadanie tworzenia migawki zostanie zatrzymane o 95% lub 99%. Zapoznaj się z tym oprogramowaniem [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138969) , aby rozwiązać ten problem.
 
-## <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Komunikat o błędzie: Wystąpił błąd wewnętrzny. [Nie można skonsolidować dysków w maszynie wirtualnej _[przyczyny]_]
+### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Komunikat o błędzie: Wystąpił błąd wewnętrzny. [Nie można skonsolidować dysków w maszynie wirtualnej _[przyczyny]_]
 
 Podczas konsolidowania dysków po zakończeniu cyklu replikacji operacja kończy się niepowodzeniem. Postępuj zgodnie z instrukcjami w [oprogramowaniu VMware KB](https://go.microsoft.com/fwlink/?linkid=2138970) , wybierając odpowiednią _przyczynę_ rozwiązania problemu.
 
 Następujące błędy występują podczas operacji związanych z migawką VMware — tworzenie, usuwanie lub konsolidowanie dysków kończy się niepowodzeniem. Postępuj zgodnie ze wskazówkami w następnej sekcji, aby skorygować błędy:
 
-## <a name="error-message-an-internal-error-occurred-another-task-is-already-in-progress"></a>Komunikat o błędzie: Wystąpił błąd wewnętrzny. [Inne zadanie jest już w toku]
+### <a name="error-message-an-internal-error-occurred-another-task-is-already-in-progress"></a>Komunikat o błędzie: Wystąpił błąd wewnętrzny. [Inne zadanie jest już w toku]
 
 Ten problem występuje, gdy w tle są uruchomione zadania maszyny wirtualnej powodujące konflikt lub gdy zadanie w vCenter Server przekracza limit czasu. Postępuj zgodnie z rozwiązaniem podanym w następującej rozdzielczości [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138891).
 
-## <a name="error-message-an-internal-error-occurred-operation-not-allowed-in-current-state"></a>Komunikat o błędzie: Wystąpił błąd wewnętrzny. [Operacja nie jest dozwolona w bieżącym stanie]
+### <a name="error-message-an-internal-error-occurred-operation-not-allowed-in-current-state"></a>Komunikat o błędzie: Wystąpił błąd wewnętrzny. [Operacja nie jest dozwolona w bieżącym stanie]
 
 Ten problem występuje, gdy vCenter Server agenci zarządzania przestaną działać. Aby rozwiązać ten problem, zapoznaj się z rozwiązaniem w następującej rozdzielczości [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138971).
 
-## <a name="error-message-an-internal-error-occurred-snapshot-disk-size-invalid"></a>Komunikat o błędzie: Wystąpił błąd wewnętrzny. [Nieprawidłowy rozmiar dysku migawki]
+### <a name="error-message-an-internal-error-occurred-snapshot-disk-size-invalid"></a>Komunikat o błędzie: Wystąpił błąd wewnętrzny. [Nieprawidłowy rozmiar dysku migawki]
 
 Jest to znany problem dotyczący oprogramowania VMware, w którym rozmiar dysku wskazany przez migawkę zmieni się na zero. Postępuj zgodnie z rozdzielczością podaną w [oprogramowaniu VMware KB](https://go.microsoft.com/fwlink/?linkid=2138972).
 
-## <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Komunikat o błędzie: Wystąpił błąd wewnętrzny. [Alokacja pamięci nie powiodła się. Za mało pamięci.]
+### <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Komunikat o błędzie: Wystąpił błąd wewnętrzny. [Alokacja pamięci nie powiodła się. Za mało pamięci.]
 
 Dzieje się tak, gdy bufor hosta NFC ma za mało pamięci. Aby rozwiązać ten problem, należy przenieść maszynę wirtualną (COMPUTE vMotion) na innego hosta, który ma bezpłatne zasoby.
 

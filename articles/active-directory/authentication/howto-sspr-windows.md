@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebcb79088ebac761632e882e98e00f165cc4bd05
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a51d8c45f652173e5b2b0731d64a8e6f14ee46c7
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035235"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717357"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Włącz Azure Active Directory samoobsługowego resetowania hasła na ekranie logowania systemu Windows
 
@@ -35,7 +35,7 @@ Następujące ograniczenia dotyczą korzystania z programu SSPR z ekranu logowan
 
 - Resetowanie hasła nie jest obecnie obsługiwane z poziomu Pulpit zdalny ani rozszerzonych sesji funkcji Hyper-V.
 - Niektórzy dostawcy poświadczeń innych firm są znani, aby spowodować problemy z tą funkcją.
-- Wyłączenie funkcji Kontrola konta użytkownika przez modyfikację [klucza rejestru EnableLUA](https://docs.microsoft.com/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) jest znane, aby powodować problemy.
+- Wyłączenie funkcji Kontrola konta użytkownika przez modyfikację [klucza rejestru EnableLUA](/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) jest znane, aby powodować problemy.
 - Ta funkcja nie działa w przypadku sieci z wdrożonym uwierzytelnianiem sieciowym 802.1 x i opcją "wykonaj bezpośrednio przed logowaniem użytkownika". W przypadku sieci z wdrożonym uwierzytelnianiem sieciowym 802.1 x zaleca się używanie uwierzytelniania maszynowego w celu włączenia tej funkcji.
 - Hybrydowe maszyny przyłączone do usługi Azure AD muszą mieć linię łączności sieciowej z kontrolerem domeny, aby użyć nowego hasła i zaktualizować buforowane poświadczenia. Oznacza to, że urządzenia muszą znajdować się w sieci wewnętrznej organizacji lub w sieci VPN z dostępem do sieci do lokalnego kontrolera domeny.
 - Jeśli używasz obrazu, przed uruchomieniem narzędzia Sysprep upewnij się, że pamięć podręczna sieci Web jest wyczyszczona dla wbudowanego administratora przed wykonaniem kroku CopyProfile. Więcej informacji na temat tego kroku można znaleźć w artykule dotyczącym pomocy technicznej [niska w przypadku używania niestandardowego domyślnego profilu użytkownika](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
@@ -59,10 +59,10 @@ Aby skonfigurować urządzenie z systemem Windows 10 pod kątem SSPR na ekranie 
 ### <a name="windows-10-prerequisites"></a>Wymagania wstępne dotyczące systemu Windows 10
 
 - Administrator [musi włączyć funkcję samoobsługowego resetowania hasła w usłudze Azure AD z poziomu Azure Portal](tutorial-enable-sspr.md).
-- Użytkownicy muszą zarejestrować się w usłudze SSPR przed użyciem tej funkcji w witrynie[https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
+- Użytkownicy muszą zarejestrować się w usłudze SSPR przed użyciem tej funkcji w witrynie [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
     - Aby nie używać SSPR z ekranu logowania systemu Windows, wszyscy użytkownicy muszą podać informacje kontaktowe uwierzytelniania, zanim będą mogli zresetować swoje hasła.
 - Wymagania dotyczące serwera proxy sieci:
-    - Port 443 do `passwordreset.microsoftonline.com` i`ajax.aspnetcdn.com`
+    - Port 443 do `passwordreset.microsoftonline.com` i `ajax.aspnetcdn.com`
     - Urządzenia z systemem Windows 10 obsługują tylko konfigurację serwera proxy na poziomie komputera.
 - Uruchom co najmniej system Windows 10, wersja kwiecień 2018 Update (v1803), a urządzenia muszą mieć jedną z tych opcji:
     - Dołączone do usługi Azure AD
@@ -126,10 +126,10 @@ Aby skonfigurować urządzenie z systemem Windows 7, 8 lub 8,1 na potrzeby usłu
 ### <a name="windows-7-8-and-81-prerequisites"></a>Wymagania wstępne dotyczące systemów Windows 7, 8 i 8,1
 
 - Administrator [musi włączyć funkcję samoobsługowego resetowania hasła w usłudze Azure AD z poziomu Azure Portal](tutorial-enable-sspr.md).
-- Użytkownicy muszą zarejestrować się w usłudze SSPR przed użyciem tej funkcji w witrynie[https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
+- Użytkownicy muszą zarejestrować się w usłudze SSPR przed użyciem tej funkcji w witrynie [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
     - Aby nie używać SSPR z ekranu logowania systemu Windows, wszyscy użytkownicy muszą podać informacje kontaktowe uwierzytelniania, zanim będą mogli zresetować swoje hasła.
 - Wymagania dotyczące serwera proxy sieci:
-    - Port 443 do`passwordreset.microsoftonline.com`
+    - Port 443 do `passwordreset.microsoftonline.com`
 - Poprawiony system operacyjny Windows 7 lub Windows 8.1.
 - Protokół TLS 1,2 został włączony przy użyciu wskazówek dostępnych w [ustawieniach rejestru Transport Layer Security (TLS)](/windows-server/security/tls/tls-registry-settings#tls-12).
 - Jeśli na komputerze jest włączony więcej niż jeden dostawca poświadczeń innych firm, na ekranie logowania użytkownicy zobaczą więcej niż jeden profil użytkownika.
@@ -143,7 +143,7 @@ W przypadku systemów Windows 7, 8 i 8,1 na komputerze musi być zainstalowany n
 
 1. Pobierz odpowiedni Instalator dla wersji systemu Windows, którą chcesz włączyć.
 
-    Instalator oprogramowania jest dostępny w centrum pobierania Microsoft na stronie[https://aka.ms/sspraddin](https://aka.ms/sspraddin)
+    Instalator oprogramowania jest dostępny w centrum pobierania Microsoft na stronie [https://aka.ms/sspraddin](https://aka.ms/sspraddin)
 1. Zaloguj się na komputerze, na którym chcesz zainstalować program, a następnie uruchom Instalatora.
 1. Po zakończeniu instalacji jest zdecydowanie zalecane.
 1. Po ponownym uruchomieniu na ekranie logowania wybierz użytkownika i wybierz pozycję "zapomniane hasło?". w celu zainicjowania przepływu pracy resetowania hasła.

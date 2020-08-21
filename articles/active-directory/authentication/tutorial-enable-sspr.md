@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b6fe3238a2ad602b388ff24faaee3a200084ae0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a4cdeff5e08813140c45d0a30877c3789d1bc21b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419482"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718853"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Samouczek: umożliwienie użytkownikom odblokowania konta lub resetowania haseł przy użyciu Azure Active Directory samoobsługowego resetowania hasła
 
@@ -107,7 +107,7 @@ Aby zapewnić użytkownikom informacje o aktywności konta, można skonfigurowa�
 Jeśli użytkownicy potrzebują dodatkowej pomocy dotyczącej procesu SSPR, można dostosować link "Skontaktuj się z administratorem". Ten link jest używany w procesie rejestracji SSPR oraz gdy użytkownik odblokowuje swoje konto lub resetuje swoje hasło. Aby upewnić się, że użytkownicy uzyskają potrzebną pomoc techniczną, zdecydowanie zaleca się podanie niestandardowego adresu e-mail lub adres URL pomocy technicznej.
 
 1. Na stronie **Dostosowywanie** w menu po lewej stronie Ustaw opcję *Dostosuj pomoc techniczną* na **wartość tak**.
-1. W polu adres **E-mail niestandardowego lub adresu URL pomocy technicznej** Podaj adres e-mail lub adres URL strony sieci Web, w którym użytkownicy mogą uzyskać dodatkową pomoc w organizacji, np.*`https://support.contoso.com/`*
+1. W polu adres **E-mail niestandardowego lub adresu URL pomocy technicznej** Podaj adres e-mail lub adres URL strony sieci Web, w którym użytkownicy mogą uzyskać dodatkową pomoc w organizacji, np. *`https://support.contoso.com/`*
 1. Aby zastosować niestandardowe łącze, wybierz pozycję **Zapisz**.
 
 ## <a name="test-self-service-password-reset"></a>Testowanie funkcji samoobsługowego resetowania haseł
@@ -148,4 +148,4 @@ W ramach tego samouczka włączono funkcję samoobsługowego resetowania hasła 
 > * Przetestuj proces SSPR jako użytkownik
 
 > [!div class="nextstepaction"]
-> [Włączanie usługi Azure Multi-Factor Authentication](tutorial-mfa-applications.md)
+> [Włączanie usługi Azure Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)

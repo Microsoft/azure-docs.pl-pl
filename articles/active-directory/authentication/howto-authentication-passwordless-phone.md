@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5022dfc5811f3db59774a46a7034ff14c4dcf4a8
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6ed1c3628b33d3ed29c3af3b773f2b635e684a67
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428021"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717051"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Włącz logowanie bez hasła przy użyciu aplikacji Microsoft Authenticator (wersja zapoznawcza)
 
@@ -54,7 +54,7 @@ Funkcje rejestracji dla metod uwierzytelniania bezhaseł polegają na funkcji re
 
 ## <a name="user-registration-and-management-of-microsoft-authenticator-app"></a>Rejestracja użytkownika i zarządzanie aplikacją Microsoft Authenticator
 
-1. Przejdź do[https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)
+1. Przejdź do [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)
 1. Zaloguj się, jeśli jeszcze nie
 1. Dodaj aplikację Authenticator, klikając pozycję **Dodaj metodę**, wybierając pozycję **aplikacja uwierzytelniania**i klikając przycisk **Dodaj** .
 1. Postępuj zgodnie z instrukcjami, aby zainstalować i skonfigurować aplikację Microsoft Authenticator na urządzeniu
@@ -62,7 +62,7 @@ Funkcje rejestracji dla metod uwierzytelniania bezhaseł polegają na funkcji re
 1. W **Microsoft Authenticator**wybierz pozycję **Włącz logowanie** za pomocą telefonu z menu rozwijanego konto
 1. Postępuj zgodnie z instrukcjami w aplikacji, aby zakończyć rejestrację w celu logowania za pomocą telefonu bezhasłem. 
 
-Organizacje mogą wskazywać, że użytkownicy będą [logować się za pomocą telefonu, a nie hasła](../user-help/microsoft-authenticator-app-phone-signin-faq.md) do dalszej pomocy w konfigurowaniu w aplikacji Microsoft Authenticator i włączeniu logowania do telefonu. Aby można było zastosować te ustawienia, może być konieczne wylogowanie się i zalogowanie się do dzierżawy. 
+Organizacje mogą wskazywać, że użytkownicy będą [logować się za pomocą telefonu, a nie hasła](../user-help/user-help-auth-app-sign-in.md) do dalszej pomocy w konfigurowaniu w aplikacji Microsoft Authenticator i włączeniu logowania do telefonu. Aby można było zastosować te ustawienia, może być konieczne wylogowanie się i zalogowanie się do dzierżawy. 
 
 ## <a name="sign-in-with-passwordless-credential"></a>Zaloguj się przy użyciu poświadczeń bez hasła
 

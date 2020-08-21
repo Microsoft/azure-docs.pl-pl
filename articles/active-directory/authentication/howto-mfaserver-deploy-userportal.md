@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8b7d3945adaf75949ef36b50a5e56a02fde1548
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c88a54661e8fee2dd7c3b4dc34336d44a6803090
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83680922"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719465"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal użytkowników serwera usługi Azure Multi-Factor Authentication
 
@@ -45,7 +45,7 @@ W dowolnym scenariuszu, jeśli zestaw SDK usługi internetowej Azure Multi-Facto
 3. Ukończ instalację przy użyciu ustawień domyślnych, o ile nie trzeba ich zmienić z dowolnej przyczyny.
 4. Powiąż certyfikat TLS/SSL z witryną w usługach IIS.
 
-Jeśli masz pytania dotyczące konfigurowania certyfikatu TLS/SSL na serwerze IIS, zobacz artykuł [jak skonfigurować protokół SSL w usługach IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Jeśli masz pytania dotyczące konfigurowania certyfikatu TLS/SSL na serwerze IIS, zobacz artykuł [jak skonfigurować protokół SSL w usługach IIS](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 Zestaw SDK usługi sieci Web musi być zabezpieczony za pomocą certyfikatu TLS/SSL. W tym celu wystarczy certyfikat z podpisem własnym. Zaimportuj certyfikat do magazynu "Zaufane główne urzędy certyfikacji" konta komputera lokalnego na serwerze sieci Web portalu użytkowników, aby ufać temu certyfikatowi podczas inicjowania połączenia TLS.
 
@@ -73,7 +73,7 @@ Aby wdrożyć portal użytkowników, wykonaj następujące czynności:
 
 ![Instalacja portalu użytkowników serwera usługi MFA](./media/howto-mfaserver-deploy-userportal/install.png)
 
-Jeśli masz pytania dotyczące konfigurowania certyfikatu TLS/SSL na serwerze IIS, zobacz artykuł [jak skonfigurować protokół SSL w usługach IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Jeśli masz pytania dotyczące konfigurowania certyfikatu TLS/SSL na serwerze IIS, zobacz artykuł [jak skonfigurować protokół SSL w usługach IIS](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## <a name="deploy-the-user-portal-on-a-separate-server"></a>Wdrażanie portalu użytkowników na osobnym serwerze
 
@@ -110,7 +110,7 @@ Zainstalowanie portalu użytkowników na serwerze innym niż serwer usługi Azur
 
 6. Otwórz przeglądarkę sieci Web z dowolnego komputera i przejdź do adresu URL, pod którym zainstalowano Portal użytkowników (na przykład: `https://mfa.contoso.com/MultiFactorAuth` ). Upewnij się, że nie są wyświetlane żadne ostrzeżenia ani błędy dotyczące certyfikatów.
 
-Jeśli masz pytania dotyczące konfigurowania certyfikatu TLS/SSL na serwerze IIS, zobacz artykuł [jak skonfigurować protokół SSL w usługach IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Jeśli masz pytania dotyczące konfigurowania certyfikatu TLS/SSL na serwerze IIS, zobacz artykuł [jak skonfigurować protokół SSL w usługach IIS](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## <a name="configure-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Konfigurowanie ustawień portalu użytkowników na serwerze usługi Azure Multi-Factor Authentication
 

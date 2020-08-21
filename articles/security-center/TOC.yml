@@ -39,6 +39,8 @@
       href: security-center-enable-data-collection.md
     - name: Konfigurowanie powiadomień e-mail
       href: security-center-provide-security-contact-details.md
+    - name: Tworzenie autoodpowiedzi na alert przy użyciu szablonu ARM
+      href: quickstart-automation-alert.md
 - name: Samouczki
   items:
     - name: Przewodnik dotyczący planowania i operacji

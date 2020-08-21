@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 42faf4ba0a596fc5b2b34f403a5117e5ceea82ed
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: ac934f88d00521b13fd2b134c80f19656c63117b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903344"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718819"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Tworzenie kopii zapasowych i odzyskiwanie modeli aparatu rozpoznawania formularzy
 
@@ -39,6 +39,9 @@ Proces kopiowania modelu niestandardowego składa się z następujących kroków
 1. Najpierw należy wydać żądanie autoryzacji kopiowania do zasobu docelowego &mdash; , który jest zasobem, który otrzyma skopiowany model. Powracasz do adresu URL nowo utworzonego modelu docelowego, który otrzyma skopiowane dane.
 1. Następnie Wyślij żądanie Copy do zasobu źródłowego zasobu zawierającego model, który &mdash; ma zostać skopiowany. Otrzymasz zwrotny adres URL, który można wysłać do zapytania, aby śledzić postęp operacji.
 1. Będziesz używać poświadczeń zasobów źródłowych do wysyłania zapytań do adresu URL postępu do momentu sukcesu operacji. Możesz również wysłać zapytanie do nowego identyfikatora modelu w zasobie docelowym, aby uzyskać stan nowego modelu.
+
+> [!CAUTION]
+> Interfejs API kopiowania aktualnie nie obsługuje identyfikatorów modelu dla [złożonych modeli](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/Compose). Redagowanie modelu jest funkcją w wersji zapoznawczej w wersji 2.1 — wersja zapoznawcza. 1 wersja zapoznawcza. 
 
 ## <a name="generate-copy-authorization-request"></a>Generuj żądanie autoryzacji kopiowania
 
@@ -90,7 +93,7 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 
 |Error|Rozwiązanie|
 |:--|:--|
-| 400/złe żądanie z`"code:" "1002"` | Wskazuje błąd walidacji lub nieprawidłowo sformułowane żądanie kopiowania. Typowe problemy obejmują: a) nieprawidłowy lub zmodyfikowany `copyAuthorization` ładunek. b) wygasła wartość `expirationDateTimeTicks` tokenu ( `copyAuhtorization` ładunek jest ważny przez 24 godziny). c) jest nieprawidłowy lub nieobsługiwany `targetResourceRegion` . d) nieprawidłowy lub źle sformułowany `targetResourceId` ciąg.
+| 400/złe żądanie z `"code:" "1002"` | Wskazuje błąd walidacji lub nieprawidłowo sformułowane żądanie kopiowania. Typowe problemy obejmują: a) nieprawidłowy lub zmodyfikowany `copyAuthorization` ładunek. b) wygasła wartość `expirationDateTimeTicks` tokenu ( `copyAuhtorization` ładunek jest ważny przez 24 godziny). c) jest nieprawidłowy lub nieobsługiwany `targetResourceRegion` . d) nieprawidłowy lub źle sformułowany `targetResourceId` ciąg.
 |
 
 ## <a name="track-copy-progress"></a>Śledź postęp kopiowania

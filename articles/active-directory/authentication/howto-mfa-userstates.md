@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d949f4b10bc6b7b592556d78edfcf02a05ec7144
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 433cfa3789aa37f4145982da97719526c0abfc47
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565778"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719499"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Włączanie usługi Azure Multi-Factor Authentication dla poszczególnych użytkowników w celu zabezpieczenia zdarzeń logowania
 
@@ -76,7 +76,7 @@ Aby zmienić stan Multi-Factor Authentication platformy Azure dla użytkownika, 
 
 1. Potwierdź wybór w otwartym oknie podręcznym.
 
-Po włączeniu użytkowników Powiadom ich pocztą e-mail. Poinformuj użytkowników, że zostanie wyświetlony monit o zarejestrowanie się przy następnym logowaniu. Ponadto, jeśli w organizacji są używane aplikacje nie korzystające z przeglądarki, które nie obsługują nowoczesnego uwierzytelniania, muszą one tworzyć hasła aplikacji. Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem użytkownika końcowego Multi-Factor Authentication platformy Azure](../user-help/multi-factor-authentication-end-user.md) , aby ułatwić Ci rozpoczęcie pracy.
+Po włączeniu użytkowników Powiadom ich pocztą e-mail. Poinformuj użytkowników, że zostanie wyświetlony monit o zarejestrowanie się przy następnym logowaniu. Ponadto, jeśli w organizacji są używane aplikacje nie korzystające z przeglądarki, które nie obsługują nowoczesnego uwierzytelniania, muszą one tworzyć hasła aplikacji. Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem użytkownika końcowego Multi-Factor Authentication platformy Azure](../user-help/multi-factor-authentication-end-user-first-time.md) , aby ułatwić Ci rozpoczęcie pracy.
 
 ## <a name="change-state-using-powershell"></a>Zmień stan przy użyciu programu PowerShell
 

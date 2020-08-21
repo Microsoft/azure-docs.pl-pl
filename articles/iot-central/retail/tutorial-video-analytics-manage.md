@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 30e123b24a5d2c9e45df6ee6dc6debfb88b920f3
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 76e72e8fd134c65cc9334e635375cc25e9b09a75
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038437"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719074"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Samouczek: monitorowanie i zarządzanie analizą wideo — aplikacja do wykrywania obiektów i ruchu
 
@@ -155,22 +155,22 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 |amsResourceGroup| ResourceGroup |
 |amsAccountName| AccountName|
 
-Przejdź do pulpitu nawigacyjnego **monitorowanie** w aplikacji. Następnie kliknij jeden z przechwyconych wykrytych obiektów hiperlinków na kafelku **wideo zdarzenia wnioskowania** . Film wideo pojawia się na stronie wyświetlanej przez lokalny odtwarzacz wideo:
+Przejdź do urządzenia **Camera-003** i wybierz kartę **pulpit nawigacyjny** . Następnie kliknij jeden z przechwyconych wykrytych obiektów hiperlinków na kafelku **wideo zdarzenia wnioskowania** . Film wideo pojawia się na stronie wyświetlanej przez lokalny odtwarzacz wideo:
 
 :::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Fragment filmu wideo":::
 
-## <a name="change-the-simulated-devices-in-application-dashboard"></a>Zmienianie symulowanych urządzeń na pulpicie nawigacyjnym aplikacji
+## <a name="change-the-simulated-devices-in-application-dashboards"></a>Zmienianie symulowanych urządzeń na pulpitach nawigacyjnych aplikacji
 
 Pulpity nawigacyjne aplikacji są wypełniane jako dane telemetryczne i właściwości wygenerowane z symulowanych urządzeń IoT Central. Aby skonfigurować kafelki do telemetrii z prawdziwych kamer lub symulatora Live555, wykonaj następujące kroki:
 
-1. Przejdź do pulpitu nawigacyjnego **monitora rzeczywistej kamery** .
+1. Przejdź do pulpitu nawigacyjnego **monitorowania aplikacji (przykład)** .
 1. Kliknij pozycję **Edytuj**.
+1. Wybierz kafelek **notatki** i usuń go.
+1. Zmień tytuł pulpitu nawigacyjnego na *monitor Real Camera*.
 1. Na kafelku **zliczanie wnioskowania** wybierz ikonę Konfiguruj.
 1. W sekcji **Konfigurowanie wykresu** wybierz co najmniej jedną rzeczywistą kamerę w grupie urządzeń **czujnika obiektów LVA Edge** .
 1. Wybierz `AI Inference Interface/Inference Count` pole telemetrii.
 1. Wybierz pozycję **Aktualizuj**.
-
-   
 
 1. Powtórz kroki dla następujących kafelków:
     1. Wykres kołowy **wykrywania** używa `AI Inference Interface/Inference/entity/tag/value` typu telemetrii.

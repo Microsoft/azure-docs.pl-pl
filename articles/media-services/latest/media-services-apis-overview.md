@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 703c08cd5a884c8bfdd027b4ecf457c9e954a2dc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dcec4d0bc93433c768faf10e4520131aeecc5e77
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043412"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719193"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Programowanie przy użyciu interfejsu API usługi Media Services w wersji 3
 
@@ -66,8 +66,8 @@ Zapoznaj się z poniższymi przykładami, które pokazują, jak nawiązać poł�
 
 * [Połącz z usługą REST](media-rest-apis-with-postman.md)  
 * [Nawiązywanie połączeń przy użyciu języka Java](configure-connect-java-howto.md)
-* [Łączenie z platformą .NET](configure-connect-dotnet-howto.md)
-* [Łączenie z platformą Node.js](configure-connect-nodejs-howto.md)
+* [Nawiązywanie połączeń przy użyciu platformy .NET](configure-connect-dotnet-howto.md)
+* [Nawiązywanie połączeń przy użyciu platformy Node.js](configure-connect-nodejs-howto.md)
 * [Nawiązywanie połączeń przy użyciu języka Python](configure-connect-python-howto.md)
 
 ## <a name="naming-conventions"></a>Konwencje nazewnictwa
@@ -86,7 +86,7 @@ Nazwy plików/obiektów BLOB w obrębie elementu zawartości muszą spełniać z
 
 Operacje oznaczone za pomocą `x-ms-long-running-operation` w Azure Media Services [pliku struktury Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) są długotrwałymi operacjami. 
 
-Aby uzyskać szczegółowe informacje o sposobie śledzenia asynchronicznych operacji platformy Azure, zobacz [asynchroniczne operacje](../../azure-resource-manager/management/async-operations.md#monitor-status-of-operation).
+Aby uzyskać szczegółowe informacje o sposobie śledzenia asynchronicznych operacji platformy Azure, zobacz [asynchroniczne operacje](../../azure-resource-manager/management/async-operations.md).
 
 Media Services ma następujące długotrwałe operacje:
 
@@ -127,7 +127,7 @@ Tylko jedna długotrwała operacja jest obsługiwana dla danego zdarzenia na ży
 |[Zestaw SDK dla języka Go](https://aka.ms/ams-v3-go-sdk) |[Dokumentacja języka Go](https://aka.ms/ams-v3-go-ref)|
 |[Zestaw SDK dla języka Ruby](https://aka.ms/ams-v3-ruby-sdk)||
 
-### <a name="see-also"></a>Zobacz też
+### <a name="see-also"></a>Zobacz także
 
 - [EventGrid .NET SDK zawierający zdarzenia usługi Media Service](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definicje zdarzeń Media Services](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
@@ -146,7 +146,7 @@ Zobacz [filtrowanie, porządkowanie, stronicowanie jednostek Azure Media Service
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 Aby uzyskać wszystkie konieczne wartości, zobacz [Access Azure Media Services API](./access-api-howto.md).
 

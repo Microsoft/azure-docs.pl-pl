@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: beaed8a3e23cba90b2afe476b1e993ed1f99dae7
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: c7dab1d9e46aec64cc3c0fda9e8e6ba503f696b0
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445520"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716762"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Zaawansowane opcje konfiguracji rozszerzenia serwera NPS dla uwierzytelniania wieloskładnikowego
 
@@ -32,7 +32,7 @@ Aby skonfigurować Alternatywne identyfikatory logowania, przejdź do `HKLM\SOFT
 
 | Nazwa | Typ | Wartość domyślna | Opis |
 | ---- | ---- | ------------- | ----------- |
-| LDAP_ALTERNATE_LOGINID_ATTRIBUTE | ciąg | Pusty | Określ nazwę atrybutu Active Directory, który ma być używany zamiast nazwy UPN. Ten atrybut jest używany jako atrybut AlternateLoginId. Jeśli dla tej wartości rejestru jest ustawiony [prawidłowy atrybut Active Directory](https://msdn.microsoft.com/library/ms675090.aspx) (na przykład mail lub DisplayName), wartość atrybutu jest używana zamiast nazwy UPN użytkownika w celu uwierzytelnienia. Jeśli ta wartość rejestru jest pusta lub nie została skonfigurowana, AlternateLoginId jest wyłączona, a nazwa UPN użytkownika jest używana do uwierzytelniania. |
+| LDAP_ALTERNATE_LOGINID_ATTRIBUTE | ciąg | Pusty | Określ nazwę atrybutu Active Directory, który ma być używany zamiast nazwy UPN. Ten atrybut jest używany jako atrybut AlternateLoginId. Jeśli dla tej wartości rejestru jest ustawiony [prawidłowy atrybut Active Directory](/windows/win32/adschema/attributes-all) (na przykład mail lub DisplayName), wartość atrybutu jest używana zamiast nazwy UPN użytkownika w celu uwierzytelnienia. Jeśli ta wartość rejestru jest pusta lub nie została skonfigurowana, AlternateLoginId jest wyłączona, a nazwa UPN użytkownika jest używana do uwierzytelniania. |
 | LDAP_FORCE_GLOBAL_CATALOG | boolean | Fałsz | Użyj tej flagi, aby wymusić użycie wykazu globalnego na potrzeby wyszukiwania LDAP podczas wyszukiwania AlternateLoginId. Skonfiguruj kontroler domeny jako wykaz globalny, Dodaj atrybut AlternateLoginId do wykazu globalnego, a następnie Włącz tę flagę. <br><br> Jeśli LDAP_LOOKUP_FORESTS jest skonfigurowany (Niepuste), **Ta flaga jest wymuszana jako true**, niezależnie od wartości ustawienia rejestru. W takim przypadku rozszerzenie serwera NPS wymaga skonfigurowania wykazu globalnego z atrybutem AlternateLoginId dla każdego lasu. |
 | LDAP_LOOKUP_FORESTS | ciąg | Pusty | Podaj rozdzieloną średnikami listę lasów do przeszukania. Na przykład *contoso. com; Foobar. com*. W przypadku skonfigurowania tej wartości rejestru rozszerzenie serwera zasad sieciowych iteracyjnie przeszukuje wszystkie lasy w kolejności, w której zostały wymienione, i zwraca pierwszą pomyślną wartość AlternateLoginId. Jeśli ta wartość rejestru nie jest skonfigurowana, wyszukiwanie AlternateLoginId jest ograniczone do bieżącej domeny.|
 

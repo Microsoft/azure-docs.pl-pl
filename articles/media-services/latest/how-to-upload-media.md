@@ -12,14 +12,15 @@ ms.workload: ''
 ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: inhenkel
-ms.openlocfilehash: 3da313803aa546c2399e3c8c18858bee5cfa2ea1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a046a3caba9a0909d873356bda8d1fa6cf1f9860
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684375"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719261"
 ---
 # <a name="upload-media-for-streaming-or-encoding"></a>Przekazywanie multimediów do przesyłania strumieniowego lub kodowania
+
 W Media Services można przekazać pliki cyfrowe (Multimedia) do kontenera obiektów BLOB skojarzonego z elementem zawartości. Jednostka [zasobu](/rest/api/media/operations/asset) może zawierać wideo, audio, obrazy, kolekcje miniatur, ścieżki tekstowe i pliki napisów (oraz metadane dotyczące tych plików). Gdy pliki zostaną przekazane do kontenera zasobów, zawartość jest bezpiecznie przechowywana w chmurze w celu dalszej przetwarzania i przesyłania strumieniowego.
 
 Przed rozpoczęciem pracy należy zebrać lub myśleć o kilku wartościach.
@@ -37,10 +38,6 @@ Przed rozpoczęciem pracy należy zebrać lub myśleć o kilku wartościach.
 ## <a name="cli"></a>[Interfejs wiersza polecenia](#tab/cli/)
 
 [!INCLUDE [Upload files with the portal](./includes/task-upload-file-to-asset-cli.md)]
-
-## <a name="cli-shell"></a>[Powłoka interfejsu wiersza polecenia](#tab/clishell/)
-
-[!INCLUDE [Upload files with the portal](./includes/task-upload-file-to-asset-cli-shell.md)]
 
 ## <a name="rest"></a>[REST](#tab/rest/)
 

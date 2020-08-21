@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f76073a1ed98dcc51cf7e14219beca914b5b77a4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3959fc7df78a5c1f255f7551a018eec6b7279eb1
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027601"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717442"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Jak działa funkcja stornowania samoobsługowego resetowania haseł w Azure Active Directory?
 
@@ -47,7 +47,7 @@ Funkcja zapisywania zwrotnego haseł zapewnia następujące funkcje:
 Aby rozpocząć pracę z funkcją zapisywania zwrotnego SSPR, wykonaj następujące czynności:
 
 > [!div class="nextstepaction"]
-> [Samouczek: Włączanie zapisywania zwrotnego funkcji samoobsługowego resetowania hasła (SSPR)](tutorial-enable-writeback.md)
+> [Samouczek: Włączanie zapisywania zwrotnego funkcji samoobsługowego resetowania hasła (SSPR)](./tutorial-enable-sspr-writeback.md)
 
 ## <a name="how-password-writeback-works"></a>Jak działa zapisywanie zwrotne haseł
 
@@ -140,7 +140,7 @@ Hasła są zapisywane z powrotem we wszystkich następujących sytuacjach:
    * Każda operacja zmiany hasła przez samoobsługowy administrator, na przykład wygaśnięcie hasła.
    * Wszelkie Samoobsługowe resetowanie hasła administratora pochodzące z [portalu resetowania haseł](https://passwordreset.microsoftonline.com).
    * Wszystkie zainicjowane przez administratora Resetowanie hasła użytkownika końcowego z [Azure Portal](https://portal.azure.com).
-   * Wszystkie zainicjowane przez administratora Resetowanie hasła użytkownika końcowego z [Microsoft Graph API beta](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http).
+   * Wszystkie zainicjowane przez administratora Resetowanie hasła użytkownika końcowego z [Microsoft Graph API beta](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta).
 
 ## <a name="unsupported-writeback-operations"></a>Nieobsługiwane operacje zapisywania zwrotnego
 
@@ -149,7 +149,7 @@ Hasła nie są zapisywane z powrotem w żadnej z następujących sytuacji:
 * **Nieobsługiwane operacje użytkownika końcowego**
    * Każdy użytkownik końcowy resetuje własne hasło przy użyciu programu PowerShell w wersji 1, wersji 2 lub Microsoft Graph API.
 * **Nieobsługiwane operacje administratora**
-   * Wszystkie zainicjowane przez administratora hasło użytkownika końcowego w programie PowerShell w wersji 1, 2 lub Microsoft Graph (obsługiwane jest [Microsoft Graph API beta](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http) ).
+   * Wszystkie zainicjowane przez administratora hasło użytkownika końcowego w programie PowerShell w wersji 1, 2 lub Microsoft Graph (obsługiwane jest [Microsoft Graph API beta](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta) ).
    * Wszystkie zainicjowane przez administratora ustawienia resetowania hasła użytkownika końcowego w [centrum administracyjnym Microsoft 365](https://admin.microsoft.com).
    * Każdy administrator nie może użyć narzędzia resetowania hasła do resetowania własnego hasła do zapisywania zwrotnego haseł.
 
@@ -161,4 +161,4 @@ Hasła nie są zapisywane z powrotem w żadnej z następujących sytuacji:
 Aby rozpocząć pracę z funkcją zapisywania zwrotnego SSPR, wykonaj następujące czynności:
 
 > [!div class="nextstepaction"]
-> [Samouczek: Włączanie zapisywania zwrotnego funkcji samoobsługowego resetowania hasła (SSPR)](tutorial-enable-writeback.md)
+> [Samouczek: Włączanie zapisywania zwrotnego funkcji samoobsługowego resetowania hasła (SSPR)](./tutorial-enable-sspr-writeback.md)

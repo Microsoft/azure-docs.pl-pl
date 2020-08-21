@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6f5cabace81d53edf36ac6be0a2eb8830e6cc5f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e4e09637a7d990e1555b5443b9931cf8ff8c271b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035081"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718870"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Często zadawane pytania dotyczące usługi Azure Multi-Factor Authentication
 
@@ -259,6 +259,6 @@ Obejście tego błędu ma na celu oddzielenie kont użytkowników dla operacji z
 Jeśli na pytanie nie ma odpowiedzi, dostępne są następujące opcje pomocy technicznej:
 
 * Wyszukaj rozwiązania typowych problemów technicznych w [Pomoc techniczna firmy Microsoft bazie wiedzy](https://support.microsoft.com) .
-* Wyszukaj i Przeglądaj pytania techniczne oraz odpowiedzi ze społeczności lub zadawaj swoje pytanie w [Azure Active Directory Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
+* Wyszukaj i Przeglądaj pytania techniczne oraz odpowiedzi ze społeczności lub zadawaj swoje pytanie w [Azure Active Directory Q&A](/answers/topics/azure-active-directory.html).
 * Skontaktuj się z pomocą techniczną firmy Microsoft za pomocą [usługi Azure serwer Multi-Factor Authentication](https://support.microsoft.com/oas/default.aspx?prid=14947). Gdy kontaktuje się z nami, jest to przydatne, jeśli możesz dołączyć tyle informacji o problemie, ile to możliwe. Informacje, które można podać, obejmują stronę, na której wydano błąd, konkretny kod błędu, identyfikator konkretnej sesji oraz identyfikator użytkownika, który wykorzystał błąd.
 * Jeśli jesteś starszym klientem PhoneFactor i masz pytania lub potrzebujesz pomocy przy resetowaniu hasła, użyj [phonefactorsupport@microsoft.com](mailto:phonefactorsupport@microsoft.com) adresu e-mail, aby otworzyć zgłoszenie do pomocy technicznej.

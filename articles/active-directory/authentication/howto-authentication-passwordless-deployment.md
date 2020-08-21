@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3ed549e51b911452bca7d4d4a16c7ef45594a8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d9ca8b7e188a7ed438feb5e2b99c6db22ad12b3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81451435"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717153"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planowanie wdrożenia uwierzytelniania bezhaseł w Azure Active Directory
 
@@ -43,9 +43,9 @@ Hasło bez hasła jest zamieniane na coś, co Ci się podoba. Na przykład funkc
 ## <a name="passwordless-authentication-methods"></a>Metody uwierzytelniania bezhasło
 Firma Microsoft oferuje trzy opcje uwierzytelniania bezhasło, które obejmują wiele scenariuszy. Metody te mogą być używane wspólnie:
 
-- Funkcja [Windows Hello dla firm](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) jest Najlepsza dla użytkowników na ich dedykowanych komputerach z systemem Windows.
-- Klucz zabezpieczeń Logowanie przy użyciu [kluczy zabezpieczeń FIDO2](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) jest szczególnie przydatny w przypadku użytkowników logujących się na maszynach udostępnionych, takich jak kioski, w sytuacjach, gdy korzystanie z telefonów jest ograniczone, a dla tożsamości o wysokim poziomie uprawnień.
-- Logowanie za pomocą telefonu przy użyciu [aplikacji Microsoft Authenticator](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) jest przydatne w przypadku udostępniania użytkownikom urządzeń przenośnych opcji bez hasła. Aplikacja Authenticator włącza wszystkie urządzenia z systemem iOS lub Android do silnego poświadczenia bez hasła, umożliwiając użytkownikom zalogowanie się do dowolnej platformy lub przeglądarki. Użytkownicy logują się, uzyskując powiadomienie na telefonie, dopasowując liczbę wyświetlaną na ekranie na telefonie, a następnie za pomocą danych biometrycznych lub numerów PIN do potwierdzenia.
+- Funkcja [Windows Hello dla firm](./concept-authentication-passwordless.md) jest Najlepsza dla użytkowników na ich dedykowanych komputerach z systemem Windows.
+- Klucz zabezpieczeń Logowanie przy użyciu [kluczy zabezpieczeń FIDO2](./concept-authentication-passwordless.md) jest szczególnie przydatny w przypadku użytkowników logujących się na maszynach udostępnionych, takich jak kioski, w sytuacjach, gdy korzystanie z telefonów jest ograniczone, a dla tożsamości o wysokim poziomie uprawnień.
+- Logowanie za pomocą telefonu przy użyciu [aplikacji Microsoft Authenticator](./concept-authentication-passwordless.md) jest przydatne w przypadku udostępniania użytkownikom urządzeń przenośnych opcji bez hasła. Aplikacja Authenticator włącza wszystkie urządzenia z systemem iOS lub Android do silnego poświadczenia bez hasła, umożliwiając użytkownikom zalogowanie się do dowolnej platformy lub przeglądarki. Użytkownicy logują się, uzyskując powiadomienie na telefonie, dopasowując liczbę wyświetlaną na ekranie na telefonie, a następnie za pomocą danych biometrycznych lub numerów PIN do potwierdzenia.
 
 ### <a name="passwordless-authentication-scenarios"></a>Scenariusze uwierzytelniania bezhasło
 
@@ -59,7 +59,7 @@ Metody uwierzytelniania bezhaseł firmy Microsoft umożliwiają korzystanie z r�
 | **Logowanie do aplikacji sieci Web**: <br> z urządzenia przenośnego lub z systemem innym niż Windows | **Tak** | **Nie** | **Nie** |
 | **Logowanie do komputera**: <br> Komputer z systemem innym niż Windows | **Nie** | **Nie** | **Nie** |
 
-Aby uzyskać informacje na temat wybierania najlepszej metody dla organizacji, zobacz [Decydowanie o metodzie bezhaseł](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#choose-a-passwordless-method).
+Aby uzyskać informacje na temat wybierania najlepszej metody dla organizacji, zobacz [Decydowanie o metodzie bezhaseł](./concept-authentication-passwordless.md#choose-a-passwordless-method).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -72,11 +72,11 @@ Przed rozpoczęciem wdrażania bezhaseł organizacje muszą spełniać następuj
 | [Użytkownicy zostali zarejestrowani do usługi Azure MFA Authentication i SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
 | [Użytkownicy zarejestrowali swoje urządzenia przenośne w usłudze Azure Active Directory](../devices/overview.md) | √ |   |
 | Windows 10 w wersji 1809 lub nowszej przy użyciu obsługiwanej przeglądarki, takiej jak Microsoft Edge lub Mozilla Firefox <br> (wersja 67 lub nowsza). <br> *Firma Microsoft zaleca korzystanie z wersji 1903 lub nowszej na potrzeby obsługi natywnej*. |   | √ |
-| Zgodne FIDO2 klucze zabezpieczeń. Upewnij się, że korzystasz z urządzenia zabezpieczeń [przetestowanego przez firmę Microsoft i zweryfikowane](howto-authentication-passwordless-enable.md) urządzenie z systemem FIDO2. |   | √ |
+| Zgodne FIDO2 klucze zabezpieczeń. Upewnij się, że korzystasz z urządzenia zabezpieczeń [przetestowanego przez firmę Microsoft i zweryfikowane](./concept-authentication-passwordless.md) urządzenie z systemem FIDO2. |   | √ |
 
 ### <a name="prerequisites-for-windows-hello-for-business"></a>Wymagania wstępne dotyczące usługi Windows Hello dla firm
 
-Wymagania wstępne dotyczące usługi Windows Hello są wysoce zależne od tego, czy są wdrażane w konfiguracji lokalnej, hybrydowej czy w chmurze. Aby uzyskać więcej informacji, zobacz [pełną listę wymagań wstępnych dotyczących usługi Windows Hello dla firm](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
+Wymagania wstępne dotyczące usługi Windows Hello są wysoce zależne od tego, czy są wdrażane w konfiguracji lokalnej, hybrydowej czy w chmurze. Aby uzyskać więcej informacji, zobacz [pełną listę wymagań wstępnych dotyczących usługi Windows Hello dla firm](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
 ### <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
 
@@ -132,7 +132,7 @@ Zapoznaj [się z najlepszymi rozwiązaniami dla pilotażu](https://aka.ms/deploy
 
 Aplikacja Microsoft Authenticator jest bezpłatnym pobieraniem z Google Play lub sklepu Apple App Store. [Dowiedz się więcej o pobieraniu aplikacji Microsoft Authenticator](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6). Użytkownicy pobierają aplikację Microsoft Authenticator. i postępuj zgodnie z instrukcjami, aby włączyć logowanie za pomocą telefonu. 
 
-Powoduje to włączenie dowolnego telefonu z systemem iOS lub Android do silnego poświadczenia bez hasła. Użytkownicy logują się do dowolnej platformy lub przeglądarki, uzyskując powiadomienie na telefonie, dopasowując liczbę wyświetlaną na ekranie na telefonie, a następnie używając biometrii lub numeru PIN do potwierdzenia. [Zobacz szczegóły dotyczące działania aplikacji Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#microsoft-authenticator-app).
+Powoduje to włączenie dowolnego telefonu z systemem iOS lub Android do silnego poświadczenia bez hasła. Użytkownicy logują się do dowolnej platformy lub przeglądarki, uzyskując powiadomienie na telefonie, dopasowując liczbę wyświetlaną na ekranie na telefonie, a następnie używając biometrii lub numeru PIN do potwierdzenia. [Zobacz szczegóły dotyczące działania aplikacji Microsoft Authenticator](./concept-authentication-passwordless.md#microsoft-authenticator-app).
 
 ![Zaloguj się przy użyciu aplikacji Authenticator](./media/howto-authentication-passwordless-deployment/passwordless-dp-sign-in.png)
 
@@ -150,7 +150,7 @@ Istnieją trzy typy wdrożeń logowania bez hasła dostępnych w kluczach zabezp
 -    Azure Active Directory aplikacje sieci Web w obsługiwanej przeglądarce
 -    Azure Active Directory dołączonych urządzeń z systemem Windows 10
 -    Hybrydowe Azure Active Directory dołączone do urządzeń z systemem Windows 10 (wersja zapoznawcza)
-     -    Zapewnia dostęp do zasobów lokalnych i w chmurze. Aby uzyskać więcej informacji o dostępie do zasobów lokalnych, zobacz [Logowanie jednokrotne do zasobów lokalnych przy użyciu kluczy FIDOP2](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises)
+     -    Zapewnia dostęp do zasobów lokalnych i w chmurze. Aby uzyskać więcej informacji o dostępie do zasobów lokalnych, zobacz [Logowanie jednokrotne do zasobów lokalnych przy użyciu kluczy FIDOP2](./howto-authentication-passwordless-security-key-on-premises.md)
 
 Należy włączyć **zgodne klucze zabezpieczeń FIDO2**. Firma Microsoft ogłosiła [kluczowe partnerstwo z dostawcami kluczy FIDO2](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493).
 
@@ -164,7 +164,7 @@ Należy włączyć **zgodne klucze zabezpieczeń FIDO2**. Firma Microsoft ogłos
 -    W pełni zainstalowane serwery domeny z systemem Windows Server 2016 lub 2019.
 -    Najnowsza wersja Azure AD Connect
 
-Aby uzyskać pełną listę wymagań, zobacz [Włączanie logowania za pomocą klucza zabezpieczeń bez hasła na urządzeniach z systemem Windows 10 z Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key-windows#requirements).
+Aby uzyskać pełną listę wymagań, zobacz [Włączanie logowania za pomocą klucza zabezpieczeń bez hasła na urządzeniach z systemem Windows 10 z Azure Active Directory](./howto-authentication-passwordless-security-key-windows.md#requirements).
 
 
 ### <a name="security-key-life-cycle"></a>Cykl życia klucza zabezpieczeń
@@ -320,7 +320,7 @@ Postępuj zgodnie z instrukcjami w artykule, [włączając klucz zabezpieczeń b
 | --- | --- |
 | Użytkownik nie może wykonać rejestracji połączonej. | Upewnij się, że [rejestracja łączona](concept-registration-mfa-sspr-combined.md) jest włączona. |
 | Użytkownik nie może dodać klucza zabezpieczeń w [ustawieniach zabezpieczeń](https://aka.ms/mysecurityinfo). | Upewnij się, że [klucze zabezpieczeń](howto-authentication-passwordless-security-key.md) są włączone. |
-| Użytkownik nie może dodać klucza zabezpieczeń w opcjach logowania systemu Windows 10. | [Upewnij się, że klucze zabezpieczeń logowania systemu Windows](howto-authentication-passwordless-enable.md) |
+| Użytkownik nie może dodać klucza zabezpieczeń w opcjach logowania systemu Windows 10. | [Upewnij się, że klucze zabezpieczeń logowania systemu Windows](./concept-authentication-passwordless.md) |
 | **Komunikat o błędzie**: wykryliśmy, że ta przeglądarka lub system operacyjny nie obsługują kluczy zabezpieczeń FIDO2. | Urządzenia zabezpieczeń FIDO2 bezhasło mogą być rejestrowane tylko w obsługiwanych przeglądarkach (Microsoft Edge, Firefox w wersji 67) w systemie Windows 10 w wersji 1809 lub nowszej. |
 | **Komunikat o błędzie**: zasady firmy wymagają, aby można było zalogować się przy użyciu innej metody. | Brak pewności, że klucze zabezpieczeń są włączone w dzierżawie. |
 | Użytkownik nie może zarządzać moim kluczem zabezpieczeń w systemie Windows 10 w wersji 1809 | Wersja 1809 wymaga użycia oprogramowania do zarządzania kluczami zabezpieczeń dostarczonym przez dostawcę klucza FIDO2. Skontaktuj się z dostawcą, aby uzyskać pomoc techniczną. |
@@ -331,4 +331,3 @@ Postępuj zgodnie z instrukcjami w artykule, [włączając klucz zabezpieczeń b
 - [Włącz klucze zabezpieczeń bezhasło do logowania się w usłudze Azure AD](howto-authentication-passwordless-security-key.md)
 - [Włączanie logowania bez hasła przy użyciu aplikacji Microsoft Authenticator](howto-authentication-passwordless-phone.md)
 - [Dowiedz się więcej na temat metod uwierzytelniania użycie & szczegółowych informacji](howto-authentication-methods-usage-insights.md)
-

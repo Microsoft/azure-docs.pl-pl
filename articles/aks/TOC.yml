@@ -60,7 +60,7 @@
           href: ./security-controls-policy.md
     - name: Networking
       href: concepts-network.md
-    - name: Storage
+    - name: Magazyn
       href: concepts-storage.md
     - name: Skalowanie
       href: concepts-scale.md
@@ -87,7 +87,7 @@
               href: operator-best-practices-cluster-security.md
             - name: Zarządzanie obrazami kontenerów
               href: operator-best-practices-container-image-management.md
-            - name: Sieć
+            - name: Networking
               href: operator-best-practices-network.md
             - name: Magazyn
               href: operator-best-practices-storage.md
@@ -141,7 +141,7 @@
           href: uptime-sla.md
         - name: Korzystanie z grup umieszczania w pobliżu (wersja zapoznawcza)
           href: reduce-latency-ppg.md
-        - name: Uaktualnij obraz węzła (wersja zapoznawcza)
+        - name: Uaktualnianie obrazu węzła
           href: node-image-upgrade.md
         - name: Przetwarzanie aktualizacji systemu operacyjnego węzła
           href: node-updates-kured.md

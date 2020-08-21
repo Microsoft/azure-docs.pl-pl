@@ -3,12 +3,12 @@ title: Dowiedz się, jak przeprowadzić inspekcję zawartości maszyn wirtualnyc
 description: Dowiedz się, w jaki sposób Azure Policy używa agenta konfiguracji gościa do inspekcji ustawień wewnątrz maszyn wirtualnych.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 21034aaae42aa4abfa6848ce22db5fa4c21a11ce
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: af913a6bb1fb7c871a7f6740a0fb2d66efa3f712
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685769"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717580"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Opis konfiguracji gościa usługi Azure Policy
 
@@ -70,7 +70,7 @@ W poniższej tabeli przedstawiono listę obsługiwanych systemów operacyjnych w
 |Microsoft|Klient systemu Windows|Windows 10|
 |OpenLogic|CentOS|7,3 i nowsze|
 |Red Hat|Red Hat Enterprise Linux|7,4 – 7,8|
-|Szło|SLES|12 SP3 i nowsze|
+|Szło|SLES|12 SP3 — SP5|
 
 Niestandardowe obrazy maszyn wirtualnych są obsługiwane przez zasady konfiguracji gościa, o ile są one jednym z systemów operacyjnych w powyższej tabeli.
 
@@ -95,6 +95,11 @@ Ruch jest kierowany przy użyciu [wirtualnego adresu IP](../../../virtual-networ
 Węzły zlokalizowane poza platformą Azure, które są połączone za pomocą usługi Azure ARC, wymagają łączności z usługą konfiguracji gościa. Szczegółowe informacje o wymaganiach dotyczących sieci i serwera proxy dostępne w [dokumentacji usługi Azure Arc](../../../azure-arc/servers/overview.md).
 
 Aby komunikować się z dostawcą zasobów konfiguracji gościa na platformie Azure, maszyny wymagają dostępu wychodzącego do centrów danych platformy Azure na porcie **443**. Jeśli sieć na platformie Azure nie zezwala na ruch wychodzący, skonfiguruj wyjątki z regułami [sieciowych grup zabezpieczeń](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) . [Tag usługi](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" może służyć do odwoływania się do usługi konfiguracji gościa.
+
+W przypadku serwerów połączonych z łukiem w prywatnych centrach danych Zezwalaj na ruch przy użyciu następujących wzorców:
+
+- Port: tylko protokół TCP 443 wymagany do wychodzącego dostępu do Internetu
+- Globalny adres URL: `*.guestconfiguration.azure.com`
 
 ## <a name="managed-identity-requirements"></a>Wymagania dotyczące tożsamości zarządzanej
 
@@ -139,9 +144,12 @@ Jeśli zasady są przypisywane przy użyciu szablonu Azure Resource Manager (sza
 
 #### <a name="applying-configurations-using-guest-configuration"></a>Stosowanie konfiguracji przy użyciu konfiguracji gościa
 
-Najnowsza funkcja Azure Policy konfiguruje ustawienia wewnątrz maszyn. Definicja _konfiguruje strefę czasową na maszynach z systemem Windows_ wprowadza zmiany na komputerze przez skonfigurowanie strefy czasowej.
+Tylko definicja _Konfigurowanie strefy czasowej na maszynach z systemem Windows_ wprowadza zmiany na maszynie przez skonfigurowanie strefy czasowej. Niestandardowe definicje zasad na potrzeby konfigurowania ustawień wewnątrz maszyn nie są obsługiwane.
 
 Podczas przypisywania definicji zaczynających się od _konfiguracji_należy również przypisać _wymagania wstępne wdrażania definicji, aby włączyć zasady konfiguracji gościa na maszynach wirtualnych z systemem Windows_. Możesz połączyć te definicje w ramach inicjatywy, jeśli wybierzesz opcję.
+
+> [!NOTE]
+> Wbudowane zasady strefy czasowej są jedyną definicją, która obsługuje Konfigurowanie ustawień wewnątrz maszyn i zasad niestandardowych, które konfigurują ustawienia wewnątrz maszyn nie są obsługiwane.
 
 #### <a name="assigning-policies-to-machines-outside-of-azure"></a>Przypisywanie zasad do maszyn poza platformą Azure
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2777675d915d99b8c0e3c2a123b24ab60d41f672
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8143149332a4a493a9a4d8d4a0d403420b87f75a
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80653365"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719482"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Konfigurowanie serwera usługi Azure Multi-Factor Authentication do współdziałania z usługami AD FS w systemie Windows Server
 
@@ -98,7 +98,7 @@ Istnieją dwie opcje konfigurowania zestawu SDK usługi sieci Web. Pierwsza opcj
 
 Jeśli nie chcesz używać nazwy użytkownika i hasła, wykonaj następujące czynności, aby skonfigurować zestaw SDK usługi sieci Web przy użyciu certyfikatu klienta.
 
-1. Uzyskaj certyfikat klienta z urzędu certyfikacji dla serwera, na którym uruchomiony jest zestaw SDK usługi sieci Web. Dowiedz się, jak [uzyskać certyfikaty klientów](https://technet.microsoft.com/library/cc770328.aspx).  
+1. Uzyskaj certyfikat klienta z urzędu certyfikacji dla serwera, na którym uruchomiony jest zestaw SDK usługi sieci Web. Dowiedz się, jak [uzyskać certyfikaty klientów](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770328(v=ws.10)).  
 2. Zaimportuj certyfikat klienta do osobistego magazynu certyfikatów komputera lokalnego na serwerze, na którym uruchomiony jest zestaw SDK usługi sieci Web. Upewnij się, że certyfikat publiczny urzędu certyfikacji znajduje się w magazynie certyfikatów zaufanych certyfikatów głównych.  
 3. Wyeksportuj klucz publiczny i prywatny certyfikatu klienta do pliku pfx.  
 4. Wyeksportuj klucz publiczny do pliku cer w formacie Base64.  

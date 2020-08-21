@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 08/21/2020
 ms.author: jingwang
-ms.openlocfilehash: a937548c9318d98e8832720706626b74167d32d9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dd5e116f0c6844abeffc27820da03462c6e1cbbc
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044389"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718207"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Format programu Excel w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -32,7 +32,7 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 | typ             | Właściwość Type zestawu danych musi być ustawiona na wartość **Excel**.   | Tak      |
 | location         | Ustawienia lokalizacji plików. Każdy Łącznik oparty na plikach ma własny typ lokalizacji i obsługiwane właściwości w sekcji `location` . | Tak      |
 | sheetName        | Nazwa arkusza programu Excel, w którym mają zostać odczytane dane.                       | Tak      |
-| range            | Zakres komórek w danym arkuszu, aby zlokalizować selektywne dane, np. `A3:H5` tabelę od A3 do H5, `A3` (tabelę rozpoczynającą się od komórki A3), `A3:A3` (pojedyncza komórka). Jeśli nie zostanie określony, ADF odczytuje z całego arkusza jako tabelę. | Nie       |
+| range            | Zakres komórek w danym arkuszu do lokalizowania danych selektywnych, na przykład:<br>-Nie określono: odczytuje cały arkusz jako tabelę z pierwszego niepustego wiersza i kolumny<br>- `A3`: odczytuje tabelę rozpoczynającą się od danej komórki, dynamicznie wykrywa wszystkie wiersze poniżej i wszystkie kolumny w prawo<br>- `A3:H5`: odczytuje ten stały zakres jako tabelę<br>- `A3:A3`: odczytuje tę pojedynczą komórkę | Nie       |
 | firstRowAsHeader | Określa, czy pierwszy wiersz danego arkusza/zakresu ma być traktowany jak wiersz nagłówka z nazwami kolumn.<br>Dozwolone wartości to **true** i **false** (wartość domyślna). | Nie       |
 | nullValue        | Określa reprezentację ciągu wartości null. <br>Wartość domyślna to **pusty ciąg**. | Nie       |
 | kompresja | Grupa właściwości do konfigurowania kompresji plików. Skonfiguruj tę sekcję, jeśli chcesz przeprowadzić kompresję/dekompresowanie podczas wykonywania działania. | Nie |
@@ -109,10 +109,10 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło pr
 | Nazwa                      | Opis                                                  | Wymagane | Dozwolone wartości                                            | Właściwość skryptu przepływu danych         |
 | ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
 | Ścieżki symboli wieloznacznych           | Wszystkie pliki zgodne ze ścieżką wieloznaczną zostaną przetworzone. Zastępuje folder i ścieżkę pliku ustawioną w zestawie danych. | nie       | Ciąg []                                                  | wildcardPaths                     |
-| Ścieżka katalogu głównego partycji       | W przypadku danych plików podzielonych na partycje można wprowadzić ścieżkę katalogu głównego partycji, aby odczytywać foldery partycjonowane jako kolumny | nie       | String (ciąg)                                                    | partitionRootPath                 |
+| Ścieżka katalogu głównego partycji       | W przypadku danych plików podzielonych na partycje można wprowadzić ścieżkę katalogu głównego partycji, aby odczytywać foldery partycjonowane jako kolumny | nie       | Ciąg                                                    | partitionRootPath                 |
 | Lista plików             | Czy źródło wskazuje plik tekstowy, który zawiera listę plików do przetworzenia | nie       | `true` lub `false`                                         | fileList                          |
-| Kolumna do przechowywania nazwy pliku | Utwórz nową kolumnę o nazwie i ścieżce pliku źródłowego       | nie       | String (ciąg)                                                    | rowUrlColumn                      |
-| Po zakończeniu          | Usuń lub Przenieś pliki po przetworzeniu. Ścieżka pliku zaczyna się od katalogu głównego kontenera | nie       | Usuń: `true` lub`false` <br> Przenieś`['<from>', '<to>']` | purgeFiles <br> moveFiles         |
+| Kolumna do przechowywania nazwy pliku | Utwórz nową kolumnę o nazwie i ścieżce pliku źródłowego       | nie       | Ciąg                                                    | rowUrlColumn                      |
+| Po zakończeniu          | Usuń lub Przenieś pliki po przetworzeniu. Ścieżka pliku zaczyna się od katalogu głównego kontenera | nie       | Usuń: `true` lub `false` <br> Przenieś `['<from>', '<to>']` | purgeFiles <br> moveFiles         |
 | Filtruj według ostatniej modyfikacji   | Wybierz filtrowanie plików na podstawie czasu ich ostatniej modyfikacji | nie       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
 
 ### <a name="source-example"></a>Przykład źródła

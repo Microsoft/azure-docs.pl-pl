@@ -3,12 +3,12 @@ title: Integracja Azure Relay z usługą konsolidacji prywatnej platformy Azure
 description: Dowiedz się, jak zintegrować Azure Relay z usługą Azure Private Link Service
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: a113e52b892a25fd2b12a18d73df443d9a9866f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5c35f9333378a5f0b87956e8a916491d51e3cb3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317315"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719431"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integracja Azure Relay z prywatnym łączem platformy Azure (wersja zapoznawcza)
 **Usługa link prywatny** platformy Azure umożliwia dostęp do usług platformy Azure (na przykład Azure Relay, Azure Service Bus, Azure Event Hubs, Azure Storage i Azure Cosmos DB) oraz hostowanych usług klienta i partnerskich platformy Azure za pośrednictwem prywatnego punktu końcowego w sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Private link (wersja zapoznawcza)?](../private-link/private-link-overview.md)
@@ -52,7 +52,7 @@ Aby uzyskać instrukcje krok po kroku dotyczące tworzenia nowej przestrzeni naz
     2. Wybierz **grupę zasobów** dla prywatnego zasobu punktu końcowego.
     3. Wprowadź **nazwę** prywatnego punktu końcowego. 
     5. Wybierz **region** dla prywatnego punktu końcowego. Prywatny punkt końcowy musi znajdować się w tym samym regionie, w którym znajduje się sieć wirtualna, ale może znajdować się w innym regionie niż przestrzeń nazw Azure Relay, z którą nawiązujesz połączenie. 
-    6. Wybierz pozycję **Dalej: przycisk >zasobu** w dolnej części strony.
+    6. Wybierz pozycję **Dalej: przycisk >zasobu ** w dolnej części strony.
 
         ![Tworzenie prywatnego punktu końcowego — Strona podstawy](./media/private-link-service/create-private-endpoint-basics-page.png)
 8. Na stronie **zasób** wykonaj następujące kroki:
@@ -61,14 +61,14 @@ Aby uzyskać instrukcje krok po kroku dotyczące tworzenia nowej przestrzeni naz
         2. W polu **Typ zasobu**wybierz pozycję **Microsoft. Relay/przestrzenie nazw** dla **typu zasobu**.
         3. W obszarze **zasób**wybierz przestrzeń nazw usługi Relay z listy rozwijanej. 
         4. Upewnij się, że **docelowy podzasób** jest ustawiony na **przestrzeń nazw**.
-        5. Wybierz pozycję **Dalej: przycisk >konfiguracji** w dolnej części strony. 
+        5. Wybierz pozycję **Dalej: przycisk >konfiguracji ** w dolnej części strony. 
         
             ![Tworzenie prywatnego punktu końcowego — Strona zasobów](./media/private-link-service/create-private-endpoint-resource-page.png)    
     2. W przypadku wybrania opcji **Połącz z zasobem platformy Azure według identyfikatora zasobu lub aliasu** , ponieważ przestrzeń nazw nie znajduje się w tym samym katalogu co prywatny punkt końcowy, wykonaj następujące kroki:
-        1. Wprowadź **Identyfikator zasobu** lub **alias**. Może to być identyfikator zasobu lub alias, który ktoś udostępni Tobie. Najprostszym sposobem uzyskania identyfikatora zasobu jest przejście do przestrzeni nazw Azure Relay w Azure Portal i skopiowanie fragmentu identyfikatora URI rozpoczynającego się od `/subscriptions/` . Oto przykład:`/subscriptions/000000000-0000-0000-0000-000000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Relay/namespaces/myrelaynamespace.` 
+        1. Wprowadź **Identyfikator zasobu** lub **alias**. Może to być identyfikator zasobu lub alias, który ktoś udostępni Tobie. Najprostszym sposobem uzyskania identyfikatora zasobu jest przejście do przestrzeni nazw Azure Relay w Azure Portal i skopiowanie fragmentu identyfikatora URI rozpoczynającego się od `/subscriptions/` . Oto przykład: `/subscriptions/000000000-0000-0000-0000-000000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Relay/namespaces/myrelaynamespace.` 
         2. W przypadku **docelowego zasobu podrzędnego**wprowadź **przestrzeń nazw**. Jest to typ zasobu podrzędnego, do którego Twój prywatny punkt końcowy może uzyskać dostęp.
         3. obowiązkowe Wprowadź **komunikat żądania**. Właściciel zasobu widzi ten komunikat podczas zarządzania połączeniem prywatnego punktu końcowego.
-        4. Następnie wybierz pozycję **Dalej: przycisk >konfiguracji** w dolnej części strony.
+        4. Następnie wybierz pozycję **Dalej: przycisk >konfiguracji ** w dolnej części strony.
 
             ![Tworzenie prywatnego punktu końcowego — Łączenie przy użyciu identyfikatora zasobu](./media/private-link-service/connect-resource-id.png)
 9. Na stronie **Konfiguracja** wybierz podsieć w sieci wirtualnej, w której chcesz wdrożyć prywatny punkt końcowy. 
@@ -167,7 +167,7 @@ Istnieją cztery Stany aprowizacji:
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Zatwierdź, Odrzuć lub Usuń połączenie prywatnego punktu końcowego
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 1. Na pasku wyszukiwania wpisz w **Relay**.
 1. Wybierz **przestrzeń nazw** , którą chcesz zarządzać.
 1. Wybierz kartę **Sieć** .
@@ -207,7 +207,7 @@ Istnieją cztery Stany aprowizacji:
 3. Powinien zostać wyświetlony stan zmieniono na **rozłączony**. Następnie punkt końcowy zostanie wyświetlony na liście. 
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Sprawdź, czy połączenie z linkiem prywatnym działa
-Należy sprawdzić, czy zasoby w tej samej podsieci prywatnego punktu końcowego nawiązują połączenie z przestrzenią nazw Azure Relay przy użyciu prywatnego adresu IP.
+Należy sprawdzić, czy zasoby w sieci wirtualnej prywatnego punktu końcowego nawiązują połączenie z przestrzenią nazw Azure Relay przy użyciu swojego prywatnego adresu IP.
 
 W przypadku tego testu Utwórz maszynę wirtualną, wykonując czynności opisane w sekcji [Tworzenie maszyny wirtualnej z systemem Windows w Azure Portal](../virtual-machines/windows/quick-create-portal.md)
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: c060b87b24d7467097d06adecb9f34acb4993779
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3cae2902385eb82f65243c631745df5ca48825f3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032297"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719232"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Tworzenie rozwiązań dla handlu detalicznego za pomocą usługi Azure IoT Central
 
@@ -160,20 +160,20 @@ Aplikacja do analizy filmów wideo używa modułu [LVA (Live Video Analytics)](#
 
 Szablon aplikacji zawiera cztery pulpity nawigacyjne aplikacji:
 
-* **Instalator** zawiera informacje o projekcie aplikacji i umożliwia dodawanie i usuwanie kamer.
-* Program **umożliwia zarządzanie** kamerami. Można na przykład skonfigurować aparaty, wyświetlać informacje o stanie i uruchamiać aparaty fotograficzne z systemem.
-* **Prawdziwe aparaty fotograficzne** umożliwiają wyświetlanie informacji z rzeczywistych kamer, takich jak liczba wykryć i zdarzenia aparatu.
-* **Monitor** umożliwia wyświetlenie szczegółowych informacji ze wszystkich kamer.
+* **Wprowadzenie** zawiera linki do zasobów ułatwiających rozpoczęcie pracy z szablonem aplikacji.
+* **Pulpit nawigacyjny demonstracyjnej** zawiera ilustrację typów informacji, które można wyświetlać z podłączonych kamer.
+* **(Przykład) rzeczywiste zarządzanie kamerą** używa symulowanych kamer, aby pokazać, jak można zarządzać kamerami z aplikacji.
+* **(Przykład) monitor Real Camera** używa symulowanych kamer, aby pokazać, jak można monitorować kamery z aplikacji.
 
 :::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Analiza wideo — wykrywanie obiektów i ruchu":::
 
 Aby dowiedzieć się więcej o architekturze rozwiązania, zobacz [Architektura aplikacji wideo Analytics](architecture-video-analytics.md).
 
-Aby dowiedzieć się, jak wdrożyć rozwiązanie, zobacz samouczek [Tworzenie aplikacji wideo Analytics w usłudze Azure IoT Central](tutorial-video-analytics-create-app.md) .
+Aby dowiedzieć się, jak wdrożyć rozwiązanie, zobacz samouczek [Tworzenie aplikacji wideo Analytics w usłudze Azure IoT Central](tutorial-video-analytics-deploy.md) .
 
 ### <a name="live-video-analytics"></a>Analiza wideo na żywo
 
-Usługa Analiza filmów wideo na żywo udostępnia platformę umożliwiającą tworzenie inteligentnych aplikacji wideo obejmujących brzeg i chmurę. Platforma oferuje możliwość przechwytywania, rejestrowania, analizowania wideo na żywo i publikowania wyników, które mogą być plikami wideo lub analizami wideo w usługach platformy Azure. Usługi platformy Azure mogą działać w chmurze lub na krawędzi. Możesz użyć platformy, aby ulepszyć rozwiązania IoT dzięki analizie wideo.
+Usługa [Analiza filmów wideo na żywo](https://github.com/Azure/live-video-analytics) udostępnia platformę umożliwiającą tworzenie inteligentnych aplikacji wideo obejmujących brzeg i chmurę. Platforma oferuje możliwość przechwytywania, rejestrowania, analizowania wideo na żywo i publikowania wyników, które mogą być plikami wideo lub analizami wideo w usługach platformy Azure. Usługi platformy Azure mogą działać w chmurze lub na krawędzi. Możesz użyć platformy, aby ulepszyć rozwiązania IoT dzięki analizie wideo.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -184,4 +184,5 @@ Aby rozpocząć tworzenie rozwiązania do sprzedaży detalicznej:
 * [Wdróż i przeprowadź procedurę za pomocą szablonu aplikacji Digital Distribution Center](./tutorial-iot-central-digital-distribution-center.md).
 * [Wdróż i przeprowadź procedurę przy użyciu szablonu aplikacji do zarządzania magazynem inteligentnym](./tutorial-iot-central-smart-inventory-management.md).
 * [Wdróż i zapoznaj się z szablonem aplikacji Centrum programu Micro-zrealizować](./tutorial-micro-fulfillment-center.md).
+* [Wdróż i zapoznaj się z szablonem aplikacji Analiza wideo](./tutorial-video-analytics-deploy.md).
 * Dowiedz się więcej o IoT Central w [IoT Central przegląd](../preview/overview-iot-central.md).

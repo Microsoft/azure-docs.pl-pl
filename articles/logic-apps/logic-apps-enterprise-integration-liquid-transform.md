@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/31/2020
-ms.openlocfilehash: 5aa6b3717925146607f3785ad5ea5fb940e8c236
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b3919cbbe0ba7a796a21ae566afb8e2d9fa784db
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503409"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716677"
 ---
 # <a name="transform-json-and-xml-using-liquid-templates-as-maps-in-azure-logic-apps"></a>Przekształć dane JSON i XML przy użyciu szablonów płynnych jako mapy w Azure Logic Apps
 
@@ -39,7 +39,7 @@ W tym artykule przedstawiono sposób wykonywania następujących zadań:
 * Podstawowa wiedza na temat [języka szablonu ciekłego](https://shopify.github.io/liquid/)
 
   > [!NOTE]
-  > Akcja **Przekształć JSON do formatu JSON-Liquid** jest zgodna z [implementacją DotLiquid dla cieczy](https://github.com/dotliquid/dotliquid), która różni się w określonych przypadkach od [implementacji Shopify dla cieczy](https://shopify.github.io/liquid). Aby uzyskać więcej informacji, zobacz [zagadnienia dotyczące szablonu płynności](#template-considerations).
+  > Akcja **Przekształć JSON do formatu JSON-Liquid** jest zgodna z [implementacją DotLiquid dla cieczy](https://github.com/dotliquid/dotliquid), która różni się w określonych przypadkach od [implementacji Shopify dla cieczy](https://shopify.github.io/liquid). Aby uzyskać więcej informacji, zobacz [zagadnienia dotyczące szablonu płynności](#liquid-template-considerations).
 
 ## <a name="create-the-template"></a>Tworzenie szablon
 
@@ -90,7 +90,7 @@ W tym artykule przedstawiono sposób wykonywania następujących zadań:
    |----------|-------|-------------|
    | **Nazwa** | `JsonToJsonTemplate` | Nazwa mapy, która jest w tym przykładzie "JsonToJsonTemplate" |
    | **Typ mapy** | **obrotow** | Typ mapy. W przypadku transformacji JSON do formatu JSON należy wybrać pozycję **Liquid**. |
-   | **Zmapować** | `SimpleJsonToJsonTemplate.liquid` | Istniejący szablon płynu lub plik mapy do użycia na potrzeby transformacji, czyli "SimpleJsonToJsonTemplate. Liquid" w tym przykładzie. Aby znaleźć ten plik, można użyć selektora plików. Limity rozmiaru mapy można znaleźć w temacie [limity i konfiguracja](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
+   | **Mapa** | `SimpleJsonToJsonTemplate.liquid` | Istniejący szablon płynu lub plik mapy do użycia na potrzeby transformacji, czyli "SimpleJsonToJsonTemplate. Liquid" w tym przykładzie. Aby znaleźć ten plik, można użyć selektora plików. Limity rozmiaru mapy można znaleźć w temacie [limity i konfiguracja](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
    |||
 
    ![Dodaj szablon płynny](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)

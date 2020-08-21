@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: 225fb1099c1a095a4ec5bced4acc010d7cec6835
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 44d77c36b9aacb8a2f06fd7a0f167cffa06ae4eb
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043888"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716116"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Tworzenie i scalanie CSR w Key Vault
 
@@ -59,7 +59,7 @@ Poniższe kroki ułatwią utworzenie certyfikatu z urzędów certyfikacji, któr
 
     Żądanie certyfikatu zostało teraz pomyślnie scalone.
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 1.  Aby wygenerować CSR dla wybranego urzędu certyfikacji, przejdź do magazynu kluczy, do którego chcesz dodać certyfikat.
 2.  Na stronie właściwości Key Vault wybierz pozycję **Certyfikaty**.
@@ -69,7 +69,7 @@ Poniższe kroki ułatwią utworzenie certyfikatu z urzędów certyfikacji, któr
     - **Nazwa certyfikatu:** ContosoManualCSRCertificate.
     - **Typ urzędu certyfikacji:** Certyfikat wystawiony przez niezintegrowany urząd certyfikacji
     - **Temat:**`"CN=www.contosoHRApp.com"`
-    - Wybierz inne wartości zgodnie z potrzebami. Kliknij pozycję **Utwórz**.
+    - Wybierz inne wartości zgodnie z potrzebami. Kliknij przycisk **Utwórz**.
 
     ![Właściwości certyfikatu](../media/certificates/create-csr-merge-csr/create-certificate.png)
 6.  Zobaczysz, że certyfikat został teraz dodany na liście certyfikatów. Wybierz ten nowy certyfikat, który został właśnie utworzony. Bieżący stan certyfikatu to "wyłączone", ponieważ nie został jeszcze wystawiony przez urząd certyfikacji.
@@ -98,9 +98,11 @@ Przykład
 >Jeśli żądasz certyfikatu DV ze wszystkimi szczegółami w CSR, urząd certyfikacji może odrzucić żądanie, ponieważ urząd certyfikacji może nie być w stanie zweryfikować wszystkich informacji zawartych w żądaniu. Jeśli żądasz certyfikatu OV, warto dodać wszystkie te informacje w CSR.
 
 
-## <a name="troubleshoot"></a>Rozwiąż problemy
+## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-Jeśli certyfikat wystawiony w stanie "Disabled" w Azure Portal, należy wyświetlić **operację certyfikatu** w celu przejrzenia komunikatu o błędzie dla tego certyfikatu.
+- **Typ błędu "klucz publiczny certyfikatu jednostki końcowej w określonej zawartości certyfikatu X. 509 nie jest zgodny z publiczną częścią określonego klucza prywatnego. Sprawdź, czy certyfikat jest prawidłowy "** ten błąd może wystąpić, jeśli nie scalasz CSR z tym samym zainicjowanym żądaniem CSR. Za każdym razem, gdy zostanie utworzony CSR, tworzy klucz prywatny, który należy dopasować podczas scalania podpisanego żądania.
+    
+- Jeśli certyfikat wystawiony w stanie "Disabled" w Azure Portal, należy wyświetlić **operację certyfikatu** w celu przejrzenia komunikatu o błędzie dla tego certyfikatu.
 
 Aby uzyskać więcej informacji, zobacz [operacje na certyfikatach w dokumentacji interfejsu API REST Key Vault](/rest/api/keyvault). Aby uzyskać informacje dotyczące ustanawiania uprawnień, zobacz temat [magazyny — Tworzenie lub aktualizowanie](/rest/api/keyvault/vaults/createorupdate) i [magazyny — zasady dostępu aktualizacji](/rest/api/keyvault/vaults/updateaccesspolicy).
 

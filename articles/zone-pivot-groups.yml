@@ -488,22 +488,16 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
-- id: app-service-platform-windows-linux
-  title: Platforma App Service
-  prompt: Wybieranie platformy hostingu
+- id: programming-languages-spark-all-minus-sql
+  title: Języki programowania
+  prompt: Wybierz język
   pivots:
-  - id: platform-linux
-    title: Linux
-  - id: platform-windows
-    title: Windows
-- id: app-service-containers-windows-linux
-  title: Usługa App Service z kontenerami niestandardowymi
-  prompt: Wybieranie niestandardowej platformy kontenera
-  pivots:
-  - id: container-linux
-    title: Kontener systemu Linux
-  - id: container-windows
-    title: Kontener systemu Windows
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-scala
+    title: Scala
+  - id: programming-language-python
+    title: Python
 - id: aml-control-methods
   title: Płaszczyzna sterowania usługi Azure Machine Learning
   prompt: Wybierz interfejs płaszczyzny sterowania usługi Azure Machine Learning
@@ -540,10 +534,34 @@ groups:
     title: Java
   - id: programming-language-more
     title: Więcej języków...
+- id: ams-lva-edge-programming-languages
+  title: Języki programowania usługi Live Video Analytics w ramach usługi IoT Edge
+  prompt: Wybierz język programowania
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+- id: app-service-platform-windows-linux
+  title: Platforma App Service
+  prompt: Wybieranie platformy hostingu
+  pivots:
+  - id: platform-linux
+    title: Linux
+  - id: platform-windows
+    title: Windows
+- id: app-service-containers-windows-linux
+  title: Usługa App Service z kontenerami niestandardowymi
+  prompt: Wybieranie niestandardowej platformy kontenera
+  pivots:
+  - id: container-linux
+    title: Kontener systemu Linux
+  - id: container-windows
+    title: Kontener systemu Windows
 metadata:
-  ms.openlocfilehash: a51aa5fcc88269e718375ed08f0238867da7079b
-  ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+  ms.openlocfilehash: e9997400e1ed6708889f5f9f70078f5d3ec4c282
+  ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88225635"
+  ms.lasthandoff: 08/20/2020
+  ms.locfileid: "88691211"

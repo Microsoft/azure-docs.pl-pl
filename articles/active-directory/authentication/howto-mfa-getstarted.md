@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ab69e3f4ca89e2069ff25470773e597009ec238
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 4fc459e63dd48adb49ab916c368b68cc3a1ccbaf
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641079"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717034"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planowanie wdrożenia usługi Azure Multi-Factor Authentication
 
@@ -74,7 +74,7 @@ Korzystaj z dostosowywalnych plakatów i szablonów wiadomości e-mail w pakieta
 
 Zasady dostępu warunkowego wymuszają rejestrację, co wymaga od użytkowników niezarejestrowanej rejestracji przy pierwszym logowaniu, ważnym zagadnieniem dotyczącym zabezpieczeń.
 
-[Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md) współtworzy zarówno zasady rejestracji, jak i zautomatyzowane zasady wykrywania i korygowania zagrożeń w wątku Multi-Factor Authentication platformy Azure. Zasady mogą być tworzone w celu wymuszenia zmiany hasła w przypadku naruszenia złamanej tożsamości lub wymagania usługi MFA, gdy logowanie jest uznawane za ryzykowne przez następujące [zdarzenia](../reports-monitoring/concept-risk-events.md):
+[Azure AD Identity Protection](../identity-protection/howto-identity-protection-configure-risk-policies.md) współtworzy zarówno zasady rejestracji, jak i zautomatyzowane zasady wykrywania i korygowania zagrożeń w wątku Multi-Factor Authentication platformy Azure. Zasady mogą być tworzone w celu wymuszenia zmiany hasła w przypadku naruszenia złamanej tożsamości lub wymagania usługi MFA, gdy logowanie jest uznawane za ryzykowne przez następujące [zdarzenia](../identity-protection/overview-identity-protection.md):
 
 * Ujawnione poświadczenia
 * Logowania z anonimowych adresów IP
@@ -151,7 +151,7 @@ Administratorzy muszą określić, w jaki sposób użytkownicy będą rejestrowa
 
 ### <a name="registration-with-identity-protection"></a>Rejestracja przy użyciu programu Identity Protection
 
-Jeśli Twoja organizacja korzysta z Azure Active Directory Identity Protection, [Skonfiguruj zasady rejestracji usługi MFA](../identity-protection/howto-mfa-policy.md) , aby monitować użytkowników o zarejestrowanie przy następnym logowaniu.
+Jeśli Twoja organizacja korzysta z Azure Active Directory Identity Protection, [Skonfiguruj zasady rejestracji usługi MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) , aby monitować użytkowników o zarejestrowanie przy następnym logowaniu.
 
 ### <a name="registration-without-identity-protection"></a>Rejestracja bez ochrony tożsamości
 
@@ -165,7 +165,7 @@ Korzystając z następujących kroków, zasady dostępu warunkowego mogą zmusi�
 2. Korzystając z dostępu warunkowego, Wymuś uwierzytelnianie wieloskładnikowe dla tej grupy, aby uzyskać dostęp do wszystkich zasobów.
 3. Okresowo należy ponownie oszacować członkostwo w grupie i usunąć użytkowników, którzy zostali zarejestrowani z grupy.
 
-Możesz identyfikować zarejestrowanych i niezarejestrowanych użytkowników usługi Azure MFA za pomocą poleceń programu PowerShell, które są zależne od [modułu MSOnline PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+Możesz identyfikować zarejestrowanych i niezarejestrowanych użytkowników usługi Azure MFA za pomocą poleceń programu PowerShell, które są zależne od [modułu MSOnline PowerShell](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
 
 #### <a name="identify-registered-users"></a>Identyfikowanie zarejestrowanych użytkowników
 
@@ -281,7 +281,7 @@ Rozszerzenie serwera NPS pełni rolę karty między usługą RADIUS i chmurową 
 
 #### <a name="implementing-your-nps-server"></a>Implementowanie serwera NPS
 
-Jeśli masz już wdrożone wystąpienie usługi NPS i używasz go, wybierz opcję [Integruj istniejącą infrastrukturę NPS z usługą Azure Multi-Factor Authentication](howto-mfa-nps-extension.md). Jeśli konfigurujesz serwer zasad sieciowych po raz pierwszy, zapoznaj się z instrukcjami, aby uzyskać instrukcje dotyczące [serwera zasad sieciowych (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) . Wskazówki dotyczące rozwiązywania problemów można znaleźć w artykule [Rozwiązywanie komunikatów o błędach z rozszerzenia serwera NPS dla usługi Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
+Jeśli masz już wdrożone wystąpienie usługi NPS i używasz go, wybierz opcję [Integruj istniejącą infrastrukturę NPS z usługą Azure Multi-Factor Authentication](howto-mfa-nps-extension.md). Jeśli konfigurujesz serwer zasad sieciowych po raz pierwszy, zapoznaj się z instrukcjami, aby uzyskać instrukcje dotyczące [serwera zasad sieciowych (NPS)](/windows-server/networking/technologies/nps/nps-top) . Wskazówki dotyczące rozwiązywania problemów można znaleźć w artykule [Rozwiązywanie komunikatów o błędach z rozszerzenia serwera NPS dla usługi Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
 
 #### <a name="prepare-nps-for-users-that-arent-enrolled-for-mfa"></a>Przygotuj serwer zasad sieciowych dla użytkowników, którzy nie są zarejestrowani na potrzeby uwierzytelniania wieloskładnikowego
 
@@ -325,7 +325,7 @@ Standard AD FS 2016 i 2019 logowanie zarówno w dzienniku zabezpieczeń systemu 
 
 Na każdym serwerze AD FS, na komputerze lokalnym mój magazyn, zostanie wypisana certyfikat usługi Azure MFA z podpisem własnym zatytułowany OU = Microsoft AD FS Azure MFA, który zawiera datę wygaśnięcia certyfikatu. Sprawdź okres ważności tego certyfikatu na każdym serwerze AD FS, aby określić datę wygaśnięcia.
 
-Jeśli okres ważności certyfikatów zbliża się do wygaśnięcia, [Wygeneruj i Sprawdź nowy certyfikat usługi MFA na każdym serwerze AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
+Jeśli okres ważności certyfikatów zbliża się do wygaśnięcia, [Wygeneruj i Sprawdź nowy certyfikat usługi MFA na każdym serwerze AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
 
 Poniższe wskazówki zawierają szczegółowe informacje na temat zarządzania certyfikatami usługi Azure MFA na serwerach AD FS. W przypadku konfigurowania AD FS za pomocą usługi Azure MFA certyfikaty wygenerowane za pośrednictwem `New-AdfsAzureMfaTenantCertificate` polecenia cmdlet programu PowerShell są prawidłowe przez dwa lata. Odnów i zainstaluj odnowione certyfikaty przed wygaśnięciem, aby ovoid przerwy w działaniu usługi MFA.
 
@@ -336,7 +336,7 @@ Po zaplanowaniu rozwiązania możesz wdrożyć, wykonując poniższe kroki:
 1. Spełnienie wszelkich niezbędnych wymagań wstępnych
    1. Wdrażanie [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) dla dowolnych scenariuszy hybrydowych
    1. Wdróż [serwer proxy aplikacji usługi Azure AD platformy Azure](../manage-apps/application-proxy.md) dla wszystkich aplikacji lokalnych opublikowanych na potrzeby dostępu do chmury
-   1. Wdróż [serwer NPS](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) pod kątem dowolnego uwierzytelniania usługi RADIUS
+   1. Wdróż [serwer NPS](/windows-server/networking/technologies/nps/nps-top) pod kątem dowolnego uwierzytelniania usługi RADIUS
    1. Upewnij się, że użytkownicy przeprowadzili uaktualnienie do obsługiwanych wersji Microsoft Office z włączonym nowoczesnym uwierzytelnianiem
 1. Skonfiguruj wybrane [metody uwierzytelniania](#choose-verification-options)
 1. Definiowanie [nazwanych lokalizacji sieciowych](../conditional-access/location-condition.md#named-locations)
@@ -344,7 +344,7 @@ Po zaplanowaniu rozwiązania możesz wdrożyć, wykonując poniższe kroki:
 1. Konfigurowanie [zasad dostępu warunkowego](#create-conditional-access-policy)
 1. Konfigurowanie zasad rejestracji usługi MFA
    1. [Połączone usługi MFA i SSPR](howto-registration-mfa-sspr-combined.md)
-   1. Z usługą [Identity Protection](../identity-protection/howto-mfa-policy.md)
+   1. Z usługą [Identity Protection](../identity-protection/howto-identity-protection-configure-mfa-policy.md)
 1. Wysyłanie komunikacji użytkowników i uzyskiwanie użytkownikom rejestracji [https://aka.ms/mfasetup](https://aka.ms/mfasetup)
 1. [Śledź użytkowników zarejestrowanych](#identify-non-registered-users)
 

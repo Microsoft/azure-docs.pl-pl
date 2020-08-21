@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 053b052abf6f23c385dc7447639aa40b6c2c58a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f75c08f0a390e798435b70bbe2409ec4a9732214
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81680187"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717170"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Użycie metod uwierzytelniania & Insights (wersja zapoznawcza)
 
@@ -98,6 +98,6 @@ Nie można obecnie filtrować raportu w celu wykluczenia użytkowników zewnętr
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Praca z interfejsem API raportów użycia metod uwierzytelniania](https://docs.microsoft.com/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
+- [Praca z interfejsem API raportów użycia metod uwierzytelniania](/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
 - [Wybieranie metod uwierzytelniania dla organizacji](concept-authentication-methods.md)
 - [Połączone środowisko rejestracji](concept-registration-mfa-sspr-combined.md)

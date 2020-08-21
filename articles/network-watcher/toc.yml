@@ -61,6 +61,12 @@
           href: connection-monitor-preview-create-using-portal.md
         - name: Korzystanie z klienta ARMClient
           href: connection-monitor-preview-create-using-arm-client.md
+    - name: Migrowanie do monitora połączenia (wersja zapoznawcza)
+      items:
+        - name: Z monitora wydajności sieci
+          href: migrate-to-connection-monitor-preview-from-network-performance-monitor.md
+        - name: Z monitora połączenia
+          href: migrate-to-connection-monitor-preview-from-connection-monitor.md
     - name: Diagnozowanie problemów z siecią maszyn wirtualnych
       items:
         - name: Instalowanie rozszerzenia maszyny wirtualnej

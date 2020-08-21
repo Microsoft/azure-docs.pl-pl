@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Dokumentacja usługi Azure Lighthouse
-summary: Usługa Azure Lighthouse umożliwia dostawcom usług zarządzanie zasobami platformy Azure dla wszystkich klientów — na wyższym poziomie automatyzacji, w większej skali i z ulepszonym nadzorem.
+summary: Usługa Azure Lighthouse umożliwia zarządzanie wieloma dzierżawami, zapewniając wyższy poziom automatyzacji i skalowalności oraz ulepszony nadzór nad wieloma zasobami i dzierżawami.
 metadata:
   title: Dokumentacja usługi Azure Lighthouse
   description: Usługa Azure Lighthouse umożliwia dostawcom usług zarządzanie zasobami platformy Azure dla wszystkich klientów — na wyższym poziomie automatyzacji, w większej skali i z ulepszonym nadzorem.
@@ -10,12 +10,12 @@ metadata:
   author: JnHs
   ms.author: jenhayes
   ms.date: 07/20/2020
-  ms.openlocfilehash: f30f07fd200a5ac14e9733e5def7541b197004b2
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: 40352965db20c12e589f52f76869032d1f5f1b10
+  ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87072663"
+  ms.lasthandoff: 08/20/2020
+  ms.locfileid: "88659878"
 landingContent:
 - title: Azure Lighthouse — informacje
   linkLists:

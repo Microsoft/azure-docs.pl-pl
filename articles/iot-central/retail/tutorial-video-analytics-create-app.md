@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 07/31/2020
-ms.openlocfilehash: 897262dcdb8cbacd512f19823da375e2c603b97e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 23f9da34a123343bc4f2f5b175adc60ce80d7c42
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038356"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719176"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central"></a>Samouczek: Tworzenie aplikacji do wykrywania filmów i obiektów wideo na platformie Azure IoT Central
 
@@ -98,7 +98,7 @@ Aby utworzyć nową aplikację usługi Azure IoT Central:
 
 Aby utworzyć nową aplikację do analizy wideo:
 
-1. Wybierz szablon aplikacja do **analizy filmów wideo — obiekt i ruch** . Ten szablon zawiera szablony urządzeń dla urządzeń używanych w samouczku. Szablon zawiera również pulpit nawigacyjny operatora służący do monitorowania wideo.
+1. Wybierz szablon aplikacja do **analizy filmów wideo — obiekt i ruch** . Ten szablon zawiera szablony urządzeń dla urządzeń używanych w samouczku. Szablon zawiera przykładowe pulpity nawigacyjne, których mogą używać operatory do wykonywania zadań, takich jak monitorowanie i zarządzanie kamerami.
 
 1. Opcjonalnie możesz wybrać przyjazną **nazwę aplikacji**. Ta aplikacja jest oparta na fikcyjnym sklepie detalicznym o nazwie Northwind Traders. W tym samouczku zostanie użyta **Nazwa aplikacji** *Northwind Traders Video Analytics*.
 
@@ -109,7 +109,7 @@ Aby utworzyć nową aplikację do analizy wideo:
 
     Aby uzyskać więcej informacji na temat katalogów, subskrypcji i lokalizacji, zobacz [Tworzenie aplikacji — szybki start](../core/quick-deploy-iot-central.md).
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
     :::image type="content" source="./media/tutorial-video-analytics-create-app/new-application.png" alt-text="Strona Tworzenie aplikacji usługi Azure IoT Central":::
 
@@ -190,7 +190,7 @@ Aby przygotować manifest wdrożenia:
 
 1. Zapisz zmiany.
 
-Opcjonalnie moduł Yolov3 można zastąpić za pomocą zoptymalizowanego pod kątem sprzętu [ &trade; modułu rozszerzenia AI OpenVINO modelu](https://github.com/openvinotoolkit/model_server/tree/ams/extras/ams_wrapper) z technologią Intel. Przykładdeployment.openvino.amd64.jsmanifestu wdrożenia można pobrać [na](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/deployment.openvino.amd64.json). Ten manifest zastępuje ustawienia konfiguracji `lvaYolov3` modułu następującym konfiguracją:
+Opcjonalnie moduł Yolov3 można zastąpić za pomocą zoptymalizowanego pod kątem sprzętu [ &trade; modułu rozszerzenia AI OpenVINO modelu](https://github.com/openvinotoolkit/model_server/tree/ams/extras/ams_wrapper) z technologią Intel. Przykładdeployment.openvino.amd64.jsmanifestu wdrożenia można pobrać [ na](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/deployment.openvino.amd64.json). Ten manifest zastępuje ustawienia konfiguracji `lvaYolov3` modułu następującym konfiguracją:
 
 ```json
 "OpenVINOModelServerEdgeAIExtensionModule": {
@@ -301,7 +301,7 @@ Aby dodać urządzenie **bramy LVA Edge** do aplikacji:
     > [!NOTE]
     > Identyfikator urządzenia musi być unikatowy w aplikacji.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 Stan urządzenia jest **zarejestrowany**.
 

@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ede7ddb81bae69d92983e787e779ee9d410bd87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 584fb5c370fa0be629d057eb94dc4c2a8b9edc15
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82144068"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716439"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Azure Active Directory uwierzytelniania opartego na certyfikatach w systemie iOS
 
@@ -30,7 +30,7 @@ W tym artykule szczegółowo opisano wymagania i obsługiwane scenariusze dotycz
 
 ## <a name="microsoft-mobile-applications-support"></a>Obsługa aplikacji mobilnych firmy Microsoft
 
-| Aplikacje | Pomoc techniczna |
+| Apps | Pomoc techniczna |
 | --- | --- |
 | Aplikacja Azure Information Protection |![Znacznik wyboru oznaczający, że pomoc techniczna dla tej aplikacji][1] |
 | Intune Portal firmy |![Znacznik wyboru oznaczający, że pomoc techniczna dla tej aplikacji][1] |
@@ -61,15 +61,15 @@ Następujące zagadnienia dotyczące Active Directory Federation Services (ADFS)
 
 Aby usługa Azure AD mogła odwołać certyfikat klienta, token ADFS musi mieć następujące oświadczenia. Usługa Azure AD dodaje te oświadczenia do tokenu odświeżania, jeśli są one dostępne w tokenie ADFS (lub dowolnym innym tokenie SAML). Gdy token odświeżania musi być zweryfikowany, te informacje są używane do sprawdzania odwołania:
 
-* `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`-Dodaj numer seryjny certyfikatu klienta
-* `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`-Dodaj ciąg dla wystawcy certyfikatu klienta
+* `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>` -Dodaj numer seryjny certyfikatu klienta
+* `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>` -Dodaj ciąg dla wystawcy certyfikatu klienta
 
 Najlepszym rozwiązaniem jest również aktualizowanie stron błędów usługi ADFS w organizacji przy użyciu następujących informacji:
 
 * Wymagania dotyczące instalowania Microsoft Authenticator w systemie iOS.
 * Instrukcje dotyczące pobierania certyfikatu użytkownika.
 
-Aby uzyskać więcej informacji, zobacz [Dostosowywanie strony logowania AD FS](https://technet.microsoft.com/library/dn280950.aspx).
+Aby uzyskać więcej informacji, zobacz [Dostosowywanie strony logowania AD FS](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)).
 
 ## <a name="use-modern-authentication-with-office-apps"></a>Używanie nowoczesnego uwierzytelniania z aplikacjami pakietu Office
 

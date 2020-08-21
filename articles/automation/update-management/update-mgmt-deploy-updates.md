@@ -3,14 +3,14 @@ title: Jak utworzyć wdrożenia aktualizacji dla Azure Automation Update Managem
 description: W tym artykule opisano sposób planowania wdrożeń aktualizacji i przeglądania ich stanu.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2a81376b284e0d1df84a69b969335c0e63999a00
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 4336ba272dd83ad2a35060c1c7524a564b928484
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450686"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717697"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Jak wdrażać aktualizacje i przeglądać wyniki
 
@@ -18,7 +18,7 @@ W tym artykule opisano sposób planowania wdrożenia aktualizacji i przeglądani
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 
 ## <a name="schedule-an-update-deployment"></a>Planowanie wdrożenia aktualizacji
 
@@ -41,8 +41,10 @@ Aby zaplanować nowe wdrożenie aktualizacji:
 
 6. Region **klasyfikacje aktualizacji** umożliwia określenie [klasyfikacji aktualizacji](update-mgmt-view-update-assessments.md#work-with-update-classifications) produktów. Dla każdego produktu odznacz wszystkie obsługiwane klasyfikacje aktualizacji, ale te, które mają zostać uwzględnione we wdrożeniu aktualizacji.
 
-7. Za pomocą regionu **Dołącz/Wyklucz aktualizacje** wybierz określone aktualizacje do wdrożenia. Na stronie dołączania/wykluczania są wyświetlane aktualizacje według numeru IDENTYFIKACYJNego artykułu bazy wiedzy, które mają zostać dołączone lub wykluczone.
-    
+    Jeśli wdrożenie ma zastosowanie tylko do wybranego zestawu aktualizacji, należy usunąć zaznaczenie wszystkich wstępnie wybranych klasyfikacji aktualizacji podczas konfigurowania opcji **Dołącz/Wyklucz aktualizacje** zgodnie z opisem w następnym kroku. Gwarantuje to, że tylko aktualizacje określone do *uwzględnienia* w tym wdrożeniu zostaną zainstalowane na komputerach docelowych.
+
+7. Za pomocą regionu **Dołącz/Wyklucz aktualizacje** można dodawać lub wykluczać wybrane aktualizacje z wdrożenia. Na stronie **dołączanie/wykluczanie** wprowadzasz numery identyfikacyjne artykułu w bazie wiedzy do dołączenia lub wykluczenia.
+
    > [!IMPORTANT]
    > Należy pamiętać, że wykluczenia zastępują dołączenia. Na przykład, jeśli zdefiniujesz regułę wykluczania `*` , Update Management wyklucza wszystkie poprawki lub pakiety z instalacji. Wykluczone poprawki nadal są wyświetlane jako brakujące z maszyn. W przypadku komputerów z systemem Linux, jeśli zostanie uwzględniony pakiet z wyłączonym pakietem zależnym, program Update Management nie zainstaluje głównego pakietu.
 

@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6ede429de686dd005785b44cf5c6d9571aac5a2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 4a75b6be3796a21e3f765ad69eee0578d5f2e9d0
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117026"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717850"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integracja infrastruktury Pulpit zdalny Gateway przy użyciu rozszerzenia serwera zasad sieciowych (NPS) i usługi Azure AD
 
 Ten artykuł zawiera szczegółowe informacje dotyczące integrowania infrastruktury Pulpit zdalny Gateway z usługą Azure Multi-Factor Authentication (MFA) przy użyciu rozszerzenia serwera zasad sieciowych (NPS) dla Microsoft Azure.
 
-Rozszerzenie serwera zasad sieciowych (NPS) dla systemu Azure pozwala klientom na ochronę Usługa telefonujących użytkowników zdalnego uwierzytelniania (RADIUS) uwierzytelniania klientów przy użyciu usługi Azure based [Multi-Factor Authentication (MFA)](multi-factor-authentication.md). To rozwiązanie zapewnia dwuetapową weryfikację w celu dodania drugiej warstwy zabezpieczeń do logowania i transakcji użytkownika.
+Rozszerzenie serwera zasad sieciowych (NPS) dla systemu Azure pozwala klientom na ochronę Usługa telefonujących użytkowników zdalnego uwierzytelniania (RADIUS) uwierzytelniania klientów przy użyciu usługi Azure based [Multi-Factor Authentication (MFA)](./concept-mfa-howitworks.md). To rozwiązanie zapewnia dwuetapową weryfikację w celu dodania drugiej warstwy zabezpieczeń do logowania i transakcji użytkownika.
 
 Ten artykuł zawiera instrukcje krok po kroku dotyczące integrowania infrastruktury NPS z usługą Azure MFA przy użyciu rozszerzenia serwera NPS dla platformy Azure. Dzięki temu użytkownicy próbujący zalogować się do bramy Pulpit zdalny mogą przeprowadzić bezpieczną weryfikację.
 
@@ -75,7 +75,7 @@ Ta sekcja zawiera szczegółowe informacje dotyczące wymagań wstępnych przed 
 Musisz mieć działającą infrastrukturę Usługi pulpitu zdalnego (RDS). Jeśli tego nie zrobisz, możesz szybko utworzyć tę infrastrukturę na platformie Azure przy użyciu następującego szablonu szybkiego startu: [Utwórz wdrożenie kolekcji sesji pulpit zdalny](https://github.com/Azure/azure-quickstart-templates/tree/ad20c78b36d8e1246f96bb0e7a8741db481f957f/rds-deployment).
 
 Jeśli chcesz szybko utworzyć lokalną infrastrukturę RDS na potrzeby testowania, wykonaj kroki, aby je wdrożyć.
-**Dowiedz się więcej**: [Wdróż RDS z przewodnikiem Szybki Start platformy Azure](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) i [podstawowym wdrożeniem infrastruktury RDS](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+**Dowiedz się więcej**: [Wdróż RDS z przewodnikiem Szybki Start platformy Azure](/windows-server/remote/remote-desktop-services/rds-in-azure) i [podstawowym wdrożeniem infrastruktury RDS](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 ### <a name="azure-mfa-license"></a>Licencja usługi Azure MFA
 
@@ -89,7 +89,7 @@ Rozszerzenie serwera NPS wymaga systemu Windows Server 2008 R2 z dodatkiem SP1 l
 
 Usługa roli serwera NPS udostępnia funkcje serwera i klienta usługi RADIUS, a także usługę kondycji zasad dostępu do sieci. Ta rola musi być zainstalowana na co najmniej dwóch komputerach w infrastrukturze: bramy Pulpit zdalny i innego serwera członkowskiego lub kontrolera domeny. Domyślnie rola jest już obecna na komputerze skonfigurowanym jako brama Pulpit zdalny.  Rolę serwera NPS należy również zainstalować na co najmniej na innym komputerze, takim jak kontroler domeny lub serwer członkowski.
 
-Aby uzyskać informacje na temat instalowania usługi roli serwera NPS systemu Windows Server 2012 lub starszej wersji, zobacz [Instalowanie serwera zasad dotyczących kondycji ochrony dostępu do sieci](https://technet.microsoft.com/library/dd296890.aspx). Aby zapoznać się z opisem najlepszych rozwiązań dotyczących serwera NPS, w tym zalecenia dotyczące instalowania serwera zasad sieciowych na kontrolerze domeny, zobacz [najlepsze rozwiązania dotyczące serwerów zasad sieciowych](https://technet.microsoft.com/library/cc771746).
+Aby uzyskać informacje na temat instalowania usługi roli serwera NPS systemu Windows Server 2012 lub starszej wersji, zobacz [Instalowanie serwera zasad dotyczących kondycji ochrony dostępu do sieci](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd296890(v=ws.10)). Aby zapoznać się z opisem najlepszych rozwiązań dotyczących serwera NPS, w tym zalecenia dotyczące instalowania serwera zasad sieciowych na kontrolerze domeny, zobacz [najlepsze rozwiązania dotyczące serwerów zasad sieciowych](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771746(v=ws.10)).
 
 ### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>Azure Active Directory zsynchronizowane z lokalnym Active Directory
 
@@ -109,7 +109,7 @@ Wykonaj kroki opisane w temacie Rozpoczynanie [pracy z usługą azure Multi-Fact
 
 Po włączeniu konta usługi MFA nie można zalogować się do zasobów objętych zasadami usługi MFA do momentu pomyślnego skonfigurowania zaufanego urządzenia do użycia dla drugiego czynnika uwierzytelniania i uwierzytelnienia przy użyciu weryfikacji dwuetapowej.
 
-Postępuj zgodnie z instrukcjami w sekcji [co to jest usługa Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user.md) , aby zrozumieć i prawidłowo skonfigurować urządzenia do uwierzytelniania wieloskładnikowego przy użyciu konta użytkownika.
+Postępuj zgodnie z instrukcjami w sekcji [co to jest usługa Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-first-time.md) , aby zrozumieć i prawidłowo skonfigurować urządzenia do uwierzytelniania wieloskładnikowego przy użyciu konta użytkownika.
 
 > [!IMPORTANT]
 > Zachowanie podczas logowania dla bramy Pulpit zdalny nie zapewnia opcji wprowadzania kodu weryfikacyjnego za pomocą usługi Azure Multi-Factor Authentication. Konto użytkownika musi być skonfigurowane pod kątem weryfikacji telefonu lub aplikacji Microsoft Authenticator z użyciem powiadomień wypychanych.
@@ -250,7 +250,7 @@ Domyślnie podczas konfigurowania bramy usług pulpitu zdalnego do używania cen
 1. Kliknij przycisk **Anuluj**.
 
 >[!NOTE]
-> Aby uzyskać więcej informacji na temat tworzenia zasad żądań połączeń, zobacz artykuł [Konfiguracja zasad żądań połączeń](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-crp-configure#add-a-connection-request-policy) jest taka sama. 
+> Aby uzyskać więcej informacji na temat tworzenia zasad żądań połączeń, zobacz artykuł [Konfiguracja zasad żądań połączeń](/windows-server/networking/technologies/nps/nps-crp-configure#add-a-connection-request-policy) jest taka sama. 
 
 ## <a name="configure-nps-on-the-server-where-the-nps-extension-is-installed"></a>Skonfiguruj serwer zasad sieciowych na serwerze, na którym zainstalowano rozszerzenie serwera NPS
 
@@ -306,7 +306,7 @@ Należy odwołać się do wyszukanego centralnego magazynu zasad dla zasad autor
 
    ![Opcjonalnie określ warunki połączenia](./media/howto-mfa-nps-extension-rdg/image23.png)
 
-1. Kliknij przycisk **OK**. Po wyświetleniu monitu o wyświetlenie odpowiedniego tematu pomocy kliknij przycisk **nie**.
+1. Kliknij pozycję **OK**. Po wyświetleniu monitu o wyświetlenie odpowiedniego tematu pomocy kliknij przycisk **nie**.
 1. Upewnij się, że nowe zasady są na początku listy, że zasady są włączone i że mają dostęp.
 
    ![Przenieś zasady na początek listy](./media/howto-mfa-nps-extension-rdg/image24.png)
@@ -378,13 +378,13 @@ Poniżej znajduje się zdarzenie powiązane z dzienników AzureMFA:
 
 Aby skorzystać z zaawansowanych opcji rozwiązywania problemów, zapoznaj się z plikami dziennika w formacie bazy danych serwera NPS, w których zainstalowano usługę NPS. Te pliki dzienników są tworzone w folderze _%systemroot%\System32\Logs_ jako pliki tekstowe rozdzielane przecinkami.
 
-Aby uzyskać opis tych plików dziennika, zobacz [Interpretowanie plików dziennika w formacie serwera NPS](https://technet.microsoft.com/library/cc771748.aspx). Wpisy w tych plikach dziennika mogą być trudne do zinterpretowania bez importowania ich do arkusza kalkulacyjnego lub bazy danych. Kilka analiz usługi IAS można znaleźć w trybie online, aby pomóc w interpretacji plików dziennika.
+Aby uzyskać opis tych plików dziennika, zobacz [Interpretowanie plików dziennika w formacie serwera NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771748(v=ws.10)). Wpisy w tych plikach dziennika mogą być trudne do zinterpretowania bez importowania ich do arkusza kalkulacyjnego lub bazy danych. Kilka analiz usługi IAS można znaleźć w trybie online, aby pomóc w interpretacji plików dziennika.
 
 Na poniższym obrazie przedstawiono dane wyjściowe z jednej z takich [aplikacji "shareware"](https://www.deepsoftware.com/iasviewer)do pobrania.
 
 ![Przykładowy Parser usługi IAS dla aplikacji "shareware"](./media/howto-mfa-nps-extension-rdg/image35.png)
 
-Na koniec w celu uzyskania dodatkowych opcji rozwiązywania problemów można użyć analizatora protokołów, takiego jak [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx).
+Na koniec w celu uzyskania dodatkowych opcji rozwiązywania problemów można użyć analizatora protokołów, takiego jak [Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide).
 
 Poniższy obraz z programu Microsoft Message Analyzer pokazuje ruch sieciowy filtrowany w protokole RADIUS zawierającym nazwę użytkownika **CONTOSO\AliceC**.
 

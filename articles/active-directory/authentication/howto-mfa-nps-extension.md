@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ca244136178c9c05f2b88a917219035451d5e391
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 35842520b26d3a98342660244295e26e934e7d3c
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848485"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717374"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrowanie istniejącej infrastruktury NPS z usługą Azure Multi-Factor Authentication
 
@@ -50,7 +50,7 @@ Rozszerzenie serwera NPS jest przeznaczone do pracy z istniejącą infrastruktur
 
 ### <a name="licenses"></a>Licencje
 
-Rozszerzenie serwera NPS dla usługi Azure MFA jest dostępne dla klientów z [licencjami na usługę azure Multi-Factor Authentication](multi-factor-authentication.md) (uwzględnioną w ramach Azure AD — wersja Premium, EMS lub autonomicznej licencji usługi MFA). Licencje na korzystanie z usługi Azure MFA, takie jak na użytkownika lub licencje uwierzytelniania, są niezgodne z rozszerzeniem serwera NPS. 
+Rozszerzenie serwera NPS dla usługi Azure MFA jest dostępne dla klientów z [licencjami na usługę azure Multi-Factor Authentication](./concept-mfa-howitworks.md) (uwzględnioną w ramach Azure AD — wersja Premium, EMS lub autonomicznej licencji usługi MFA). Licencje na korzystanie z usługi Azure MFA, takie jak na użytkownika lub licencje uwierzytelniania, są niezgodne z rozszerzeniem serwera NPS. 
 
 ### <a name="software"></a>Oprogramowanie
 
@@ -179,7 +179,7 @@ Podczas uaktualniania istniejącej instalacji rozszerzenia serwera NPS, aby unik
 1. Uruchom Nowy Instalator
 1. Ponowne uruchamianie usługi serwera zasad sieciowych (IAS)
 
-### <a name="run-the-powershell-script"></a>Uruchom skrypt programu PowerShell
+### <a name="run-the-powershell-script"></a>Uruchamianie skryptu programu PowerShell
 
 Instalator utworzy skrypt programu PowerShell w tej lokalizacji: `C:\Program Files\Microsoft\AzureMfa\Config` (gdzie C:\ jest dyskiem instalacyjnym). Ten skrypt programu PowerShell wykonuje następujące akcje przy każdym uruchomieniu:
 
@@ -276,7 +276,7 @@ Po włączeniu uwierzytelniania wieloskładnikowego dla klienta usługi RADIUS p
 
 Jeśli masz użytkowników, którzy nie zostali zarejestrowani na potrzeby uwierzytelniania wieloskładnikowego, możesz określić, co się dzieje podczas próby uwierzytelnienia. Użyj ustawienia rejestru *REQUIRE_USER_MATCH* w ścieżce rejestru *HKLM\Software\Microsoft\AzureMFA* , aby kontrolować zachowanie funkcji. To ustawienie ma jedną opcję konfiguracji:
 
-| Klucz | Wartość | Domyślne |
+| Klucz | Wartość | Domyślny |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | PRAWDA/FAŁSZ | Nie ustawiono (odpowiednik wartości TRUE) |
 
@@ -290,7 +290,7 @@ Możesz utworzyć ten klucz i ustawić dla niego wartość FALSE, gdy użytkowni
 
 Następujący skrypt jest dostępny do wykonywania podstawowych kroków kontroli kondycji podczas rozwiązywania problemów z rozszerzeniem serwera NPS.
 
-[MFA_NPS_Troubleshooter.ps1](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
+[MFA_NPS_Troubleshooter.ps1](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
 
 ---
 
@@ -365,7 +365,7 @@ Aby sprawdzić, czy masz prawidłowy certyfikat, sprawdź magazyn certyfikatów 
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Zarządzanie protokołami TLS/SSL i zestawami szyfrowania
 
-Zaleca się, aby starsze i słabsze mechanizmy szyfrowania były wyłączone lub usunięte, chyba że jest to wymagane przez organizację. Informacje o tym, jak wykonać to zadanie, można znaleźć w artykule [Managing SSL/TLS Protocols and Cipher Suites for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) (Zarządzanie protokołami SSL/TLS i zestawami szyfrowania dla usług AD FS).
+Zaleca się, aby starsze i słabsze mechanizmy szyfrowania były wyłączone lub usunięte, chyba że jest to wymagane przez organizację. Informacje o tym, jak wykonać to zadanie, można znaleźć w artykule [Managing SSL/TLS Protocols and Cipher Suites for AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) (Zarządzanie protokołami SSL/TLS i zestawami szyfrowania dla usług AD FS).
 
 ### <a name="additional-troubleshooting"></a>Dodatkowe Rozwiązywanie problemów
 
@@ -373,7 +373,7 @@ Dodatkowe wskazówki dotyczące rozwiązywania problemów i możliwe rozwiązani
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Omówienie i konfiguracja serwera zasad sieciowych w systemie Windows Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)
+- [Omówienie i konfiguracja serwera zasad sieciowych w systemie Windows Server](/windows-server/networking/technologies/nps/nps-top)
 
 - Skonfiguruj Alternatywne identyfikatory logowania lub skonfiguruj listę wyjątków dla adresów IP, które nie powinny przeprowadzać weryfikacji dwuetapowej w [zaawansowanych opcjach konfiguracji dla rozszerzenia serwera NPS dla Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md)
 

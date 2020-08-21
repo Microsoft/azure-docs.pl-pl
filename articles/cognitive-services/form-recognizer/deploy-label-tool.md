@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 3bb8f0e809ae1acbec1479c20e24c90fd81905d4
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: c7c4e1cc854fdd2fbf03d2274992bbc4a3bb93af
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212449"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717901"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Wdrażanie przykładowego narzędzia do oznaczania etykietami
 
@@ -70,14 +70,27 @@ Wykonaj następujące kroki, aby utworzyć nowy zasób przy użyciu Azure Portal
 
 6. Teraz Skonfigurujmy kontener platformy Docker. Wszystkie pola są wymagane, o ile nie wskazano inaczej:
 
+    # <a name="v20"></a>[Wersja 2.0](#tab/v2-0)  
    * Opcje — zaznacz **pojedynczy kontener**
    * Źródło obrazu — wybierz **Rejestr prywatny** 
-   * Adres URL serwera — Ustaw tę wartość na`https://mcr.microsoft.com`
+   * Adres URL serwera — Ustaw tę wartość na `https://mcr.microsoft.com`
    * Nazwa użytkownika (opcjonalnie) — Utwórz nazwę użytkownika. 
    * Hasło (opcjonalnie) — Utwórz bezpieczne hasło.
-   * Obraz i tag — Ustaw tę wartość na`mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+   * Obraz i tag — Ustaw tę wartość na `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
    * Ciągłe wdrażanie — Ustaw tę wartość **na włączone** , jeśli chcesz otrzymywać aktualizacje automatyczne, gdy zespół programistyczny wprowadza zmiany w przykładowym narzędziu do etykietowania.
-   * Uruchamianie polecenia — Ustaw tę opcję na`./run.sh eula=accept`
+   * Uruchamianie polecenia — Ustaw tę opcję na `./run.sh eula=accept`
+
+    # <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1) 
+   * Opcje — zaznacz **pojedynczy kontener**
+   * Źródło obrazu — wybierz **Rejestr prywatny** 
+   * Adres URL serwera — Ustaw tę wartość na `https://mcr.microsoft.com`
+   * Nazwa użytkownika (opcjonalnie) — Utwórz nazwę użytkownika. 
+   * Hasło (opcjonalnie) — Utwórz bezpieczne hasło.
+   * Obraz i tag — Ustaw tę wartość na `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview`
+   * Ciągłe wdrażanie — Ustaw tę wartość **na włączone** , jeśli chcesz otrzymywać aktualizacje automatyczne, gdy zespół programistyczny wprowadza zmiany w przykładowym narzędziu do etykietowania.
+   * Uruchamianie polecenia — Ustaw tę opcję na `./run.sh eula=accept`
+    
+    ---
 
    > [!div class="mx-imgBorder"]
    > ![Skonfiguruj platformę Docker](./media/quickstarts/formre-configure-docker.png)
@@ -93,13 +106,15 @@ Alternatywą dla korzystania z Azure Portal można utworzyć zasób przy użyciu
 
 Istnieje kilka rzeczy, które należy znać dla tego polecenia:
 
-* `DNS_NAME_LABEL=aci-demo-$RANDOM`generuje losową nazwę DNS. 
+* `DNS_NAME_LABEL=aci-demo-$RANDOM` generuje losową nazwę DNS. 
 * W tym przykładzie przyjęto założenie, że istnieje grupa zasobów, której można użyć do utworzenia zasobu. Zamień `<resource_group_name>` na prawidłową grupę zasobów skojarzoną z subskrypcją. 
 * Należy określić lokalizację, w której chcesz utworzyć zasób. Zamień `<region name>` na żądany region aplikacji sieci Web. 
 * To polecenie automatycznie akceptuje Umowę EULA.
 
 W interfejsie wiersza polecenia platformy Azure Uruchom to polecenie, aby utworzyć zasób aplikacji sieci Web dla przykładowego narzędzia do etykietowania: 
 
+
+# <a name="v20"></a>[Wersja 2.0](#tab/v2-0)   
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 
@@ -113,7 +128,24 @@ az container create \
   --cpu 2 \
   --memory 8 \
   --command-line "./run.sh eula=accept"
+``` 
+# <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)    
+```azurecli
+DNS_NAME_LABEL=aci-demo-$RANDOM
+
+az container create \
+  --resource-group <resource_group_name> \
+  --name <name> \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview \
+  --ports 3000 \
+  --dns-name-label $DNS_NAME_LABEL \
+  --location <region name> \
+  --cpu 2 \
+  --memory 8 \
+  --command-line "./run.sh eula=accept"
 ```
+
+---
 
 ### <a name="connect-to-azure-ad-for-authorization"></a>Nawiązywanie połączenia z usługą Azure AD w celu autoryzacji
 

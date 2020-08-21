@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e3425407fdb131fb1499b2cd085fbe6d427804a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9c8557457e3a1dc7d0ed1e50da3070360b1fd76f
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035302"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717731"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Reporting options for Azure AD password management (Opcje raportowania dotyczące zarządzania hasłami w usłudze Azure AD)
 
@@ -53,7 +53,7 @@ W Azure Portal środowisku ulepszono sposób wyświetlania operacji resetowania 
 
 ### <a name="combined-registration"></a>Rejestracja łączona
 
-Jeśli włączono [rejestrację łączną](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined), informacje dotyczące aktywności użytkownika w dziennikach inspekcji będą znajdować się **Security**w obszarze  >  **metody uwierzytelniania**zabezpieczeń.
+Jeśli włączono [rejestrację łączną](./concept-registration-mfa-sspr-combined.md), informacje dotyczące aktywności użytkownika w dziennikach inspekcji będą znajdować się **Security**w obszarze  >  **metody uwierzytelniania**zabezpieczeń.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Opis kolumn raportu w Azure Portal
 
@@ -179,7 +179,7 @@ Poniższa lista zawiera szczegółowy opis tego działania:
 * [Jakie dane są używane przez funkcję samoobsługowego resetowania haseł i jakie dane powinny zostać wypełnione dla użytkowników?](howto-sspr-authenticationdata.md)
 * [Jakie metody uwierzytelniania są dostępne dla użytkowników?](concept-sspr-howitworks.md#authentication-methods)
 * [Jakie są opcje zasad dla funkcji samoobsługowego resetowania haseł?](concept-sspr-policy.md)
-* [Co to jest funkcja zapisywania zwrotnego haseł i dlaczego jest ona tak ważna?](howto-sspr-writeback.md)
+* [Co to jest funkcja zapisywania zwrotnego haseł i dlaczego jest ona tak ważna?](./tutorial-enable-sspr-writeback.md)
 * [Jakie są dostępne opcje funkcji samoobsługowego resetowania haseł i do czego one służą?](concept-sspr-howitworks.md)
 * [Myślę, że coś jest zerwane. Jak mogę Rozwiązywanie problemów z SSPR?](active-directory-passwords-troubleshoot.md)
 * [Mam pytanie, na które nie mogę znaleźć odpowiedzi](active-directory-passwords-faq.md)
