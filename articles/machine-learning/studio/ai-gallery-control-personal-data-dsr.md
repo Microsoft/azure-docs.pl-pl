@@ -88,7 +88,7 @@ Aby wyświetlić opublikowane jednostki, odwiedź następujący adres URL, zast�
 
 `https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'`
 
-Na przykład:
+Przykład:
 
 `https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'`
 

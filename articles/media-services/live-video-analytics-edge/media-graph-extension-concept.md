@@ -52,7 +52,7 @@ Na poniższym diagramie przedstawiono przepływ danych wysokiego poziomu:
  
 ![Przepływ danych](./media/media-graph-extension/data-flow.png)
 
-## <a name="samples"></a>Samples
+## <a name="samples"></a>Przykłady
 
 Wyewidencjonuj Przykłady naszych przykładów z [notesu Jupyter](https://jupyter.org/) na potrzeby analizy filmów wideo na żywo. Te notesy zawierają instrukcje krok po kroku dotyczące:
 
