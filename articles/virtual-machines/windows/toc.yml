@@ -222,7 +222,7 @@
             - name: Seria Mv2
               href: ../mv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Procesory wirtualne z ograniczeniami
-              href: constrained-vcpu.md
+              href: ../constrained-vcpu.md
         - name: Optymalizacja pod kątem magazynu
           items:
             - name: Omówienie
@@ -279,7 +279,7 @@
             - name: Co to są rezerwacje platformy Azure?
               href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md?toc=/azure/virtual-machines/windows/toc.json
             - name: Elastyczność rozmiaru wystąpienia maszyny wirtualnej
-              href: reserved-vm-instance-size-flexibility.md
+              href: ../reserved-vm-instance-size-flexibility.md
         - name: Maszyny wirtualne typu spot
           displayName: 'pre-empt, preempt'
           href: spot-vms.md
@@ -305,7 +305,7 @@
             - name: Co to są rezerwacje platformy Azure?
               href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md
             - name: Elastyczność rozmiaru wystąpienia maszyny wirtualnej
-              href: reserved-vm-instance-size-flexibility.md
+              href: ../reserved-vm-instance-size-flexibility.md
     - name: Dedykowane hosty
       href: dedicated-hosts.md
     - name: Konserwacja i aktualizacje
@@ -313,21 +313,21 @@
     - name: Przechowywanie na dysku
       items:
         - name: Wprowadzenie do dysków zarządzanych
-          href: managed-disks-overview.md
+          href: ../managed-disks-overview.md
         - name: Wybieranie typu dysku dla maszyn wirtualnych IaaS
-          href: disks-types.md
+          href: ../disks-types.md
         - name: Szyfrowanie
           href: disk-encryption.md
         - name: Rezerwacje usługi Disk Storage
           href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Projektowanie pod kątem wysokiej wydajności
-          href: premium-storage-performance.md
+          href: ../premium-storage-performance.md
         - name: Rozszerzanie możliwości dysków
           href: disk-bursting.md
         - name: Wartości docelowe skalowalności dysków
           href: disk-scalability-targets.md
         - name: Kopia zapasowa i odzyskiwanie po awarii dla dysków
-          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+          href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Dyski udostępnione
           href: disks-shared.md
         - name: Efemeryczne dyski systemu operacyjnego
@@ -341,7 +341,7 @@
     - name: Zabezpieczenia
       items:
         - name: Zabezpieczenia i zasady
-          href: security-policy.md
+          href: ../security-policy.md
         - name: Usługa Azure Disk Encryption
           href: disk-encryption-overview.md
         - name: Kontrole zabezpieczeń usługi Azure Policy
@@ -855,7 +855,7 @@
           displayName: Azure Resource Manager
           href: ../using-managed-disks-template-deployments.md
         - name: Włączanie dysków udostępnionych
-          href: disks-shared-enable.md
+          href: ../disks-shared-enable.md
         - name: Przekazywanie dysku VHD na dysk — PowerShell
           href: disks-upload-vhd-to-managed-disk-powershell.md
         - name: Bezpieczne importowanie/eksportowanie dysku — portal
@@ -863,11 +863,11 @@
         - name: Zmienianie rozmiaru dysku
           href: expand-os-disk.md
         - name: Zarządzanie dyskami za pomocą Eksploratora usługi Storage
-          href: disks-use-storage-explorer-managed-disks.md
+          href: ../disks-use-storage-explorer-managed-disks.md
         - name: Tworzenie migawki dysku
           href: snapshot-copy-managed-disk.md
         - name: Rezerwowanie usługi Disk Storage
-          href: disks-reserved-capacity.md
+          href: ../disks-reserved-capacity.md
         - name: Tworzenie migawki przyrostowej — PowerShell
           href: disks-incremental-snapshots.md
         - name: Tworzenie migawki przyrostowej — portal
@@ -903,7 +903,7 @@
             - name: Włączanie akceleratora zapisu
               href: ../how-to-enable-write-accelerator.md
             - name: Używanie dysków ultra
-              href: disks-enable-ultra-ssd.md
+              href: ../disks-enable-ultra-ssd.md
             - name: Test porównawczy dysku
               href: disks-benchmarks.md
         - name: Znajdowanie niedołączonych dysków — PowerShell

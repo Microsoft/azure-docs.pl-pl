@@ -239,7 +239,7 @@
             - name: Seria Mv2
               href: ../mv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Procesory wirtualne z ograniczeniami
-              href: constrained-vcpu.md
+              href: ../constrained-vcpu.md
         - name: Optymalizacja pod kątem magazynu
           items:
             - name: Omówienie
@@ -294,7 +294,7 @@
             - name: Co to są rezerwacje platformy Azure?
               href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md?toc=/azure/virtual-machines/linux/toc.json
             - name: Elastyczność rozmiaru wystąpienia maszyny wirtualnej
-              href: reserved-vm-instance-size-flexibility.md
+              href: ../reserved-vm-instance-size-flexibility.md
         - name: Maszyny wirtualne typu spot
           displayName: 'pre-empt, preempt'
           href: spot-vms.md
@@ -317,7 +317,7 @@
             - name: Co to są rezerwacje platformy Azure?
               href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md
             - name: Elastyczność rozmiaru wystąpienia maszyny wirtualnej
-              href: reserved-vm-instance-size-flexibility.md
+              href: ../reserved-vm-instance-size-flexibility.md
         - name: Wyniki testów porównawczych
           href: compute-benchmark-scores.md
     - name: Dystrybucje zatwierdzone
@@ -329,21 +329,21 @@
     - name: Przechowywanie na dysku
       items:
         - name: Wprowadzenie do dysków zarządzanych
-          href: managed-disks-overview.md
+          href: ../managed-disks-overview.md
         - name: Wybieranie typu dysku dla maszyn wirtualnych IaaS
-          href: disks-types.md
+          href: ../disks-types.md
         - name: Szyfrowanie
           href: disk-encryption.md
         - name: Rezerwacje usługi Disk Storage
           href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Projektowanie pod kątem wysokiej wydajności
-          href: premium-storage-performance.md
+          href: ../premium-storage-performance.md
         - name: Rozszerzanie możliwości dysków
           href: disk-bursting.md
         - name: Wartości docelowe skalowalności dysków
           href: disk-scalability-targets.md
         - name: Kopia zapasowa i odzyskiwanie po awarii dla dysków
-          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+          href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Dyski udostępnione
           href: disks-shared.md
         - name: Efemeryczne dyski systemu operacyjnego
@@ -357,7 +357,7 @@
     - name: Zabezpieczenia
       items:
         - name: Zabezpieczenia i zasady
-          href: security-policy.md
+          href: ../security-policy.md
         - name: Usługa Azure Disk Encryption
           href: disk-encryption-overview.md
         - name: Kontrole zabezpieczeń usługi Azure Policy
@@ -958,7 +958,7 @@
           displayName: 'Azure Resource Manager, ARM'
           href: ../using-managed-disks-template-deployments.md
         - name: Włączanie dysków udostępnionych
-          href: disks-shared-enable.md
+          href: ../disks-shared-enable.md
         - name: Przekazywanie dysku VHD na dysk — interfejs wiersza polecenia
           href: disks-upload-vhd-to-managed-disk-cli.md
         - name: Bezpieczne importowanie/eksportowanie dysku — interfejs wiersza polecenia
@@ -968,11 +968,11 @@
         - name: Zmienianie rozmiaru dysku
           href: expand-disks.md
         - name: Zarządzanie dyskami za pomocą Eksploratora usługi Storage
-          href: disks-use-storage-explorer-managed-disks.md
+          href: ../disks-use-storage-explorer-managed-disks.md
         - name: Tworzenie migawki dysku
           href: snapshot-copy-managed-disk.md
         - name: Rezerwowanie usługi Disk Storage
-          href: disks-reserved-capacity.md
+          href: ../disks-reserved-capacity.md
         - name: Tworzenie migawki przyrostowej — interfejs wiersza polecenia
           href: disks-incremental-snapshots.md
         - name: Tworzenie migawki przyrostowej — portal
@@ -1008,7 +1008,7 @@
             - name: Używanie akceleratora zapisu
               href: ../how-to-enable-write-accelerator.md
             - name: Używanie dysków ultra
-              href: disks-enable-ultra-ssd.md
+              href: ../disks-enable-ultra-ssd.md
             - name: Test porównawczy dysku
               href: disks-benchmarks.md
             - name: Optymalizacja wydajności

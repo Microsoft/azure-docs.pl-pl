@@ -140,9 +140,6 @@
         - name: Dane galerii
           displayName: export
           href: ai-gallery-control-personal-data-dsr.md
-        - name: Pobieranie notesów
-          displayName: export
-          href: download-notebooks-data.md
 - name: Dokumentacja
   items:
     - name: Dokumentacja algorytmów i modułów
@@ -165,5 +162,5 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
-    - name: 'Niestandardowe sieci neuronowe (Net#)'
+    - name: Niestandardowe sieci neuronowe (Net#)
       href: azure-ml-netsharp-reference-guide.md

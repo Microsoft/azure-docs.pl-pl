@@ -193,7 +193,7 @@
 - name: Problemy z zarządzaniem dyskami wirtualnymi
   items:
     - name: Omówienie
-      href: ../windows/managed-disks-overview.md
+      href: ../managed-disks-overview.md
     - name: Często zadawane pytania
       href: ../windows/faq-for-disks.md
     - name: Błędy podczas usuwania zasobów magazynu

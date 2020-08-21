@@ -482,16 +482,12 @@
           href: platform/autoscale-resource-log-schema.md
     - name: Alerty
       items:
-        - name: Reguły alertów aplikacji
-          items:
-            - name: Dostępność
-              href: app/monitor-web-app-availability.md
-            - name: Alerty dotyczące metryk
-              href: ./platform/alerts-log.md
         - name: Reguły alertów metryk
           items:
             - name: Zarządzanie alertami metryk
               href: platform/alerts-metric.md
+            - name: Dostępność
+              href: app/monitor-web-app-availability.md
             - name: Używanie progów dynamicznych
               href: platform/alerts-dynamic-thresholds.md
             - name: Pojedyncze alerty dla wielu szeregów czasowych

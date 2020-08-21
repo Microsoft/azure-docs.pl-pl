@@ -134,7 +134,7 @@
           maintainContext: true
           items:
             - name: Procesory wirtualne z ograniczeniami
-              href: ../virtual-machines/windows/constrained-vcpu.md
+              href: ../virtual-machines/constrained-vcpu.md
               maintainContext: true
         - name: Optymalizacja pod kątem magazynu
           href: ../virtual-machines/sizes-storage.md
@@ -173,16 +173,16 @@
     - name: Przechowywanie na dysku
       items:
         - name: Dyski zarządzane
-          href: ../virtual-machines/windows/managed-disks-overview.md
+          href: ../virtual-machines/managed-disks-overview.md
           maintainContext: true
         - name: Wybieranie typu dysku
-          href: ../virtual-machines/windows/disks-types.md
+          href: ../virtual-machines/disks-types.md
           maintainContext: true
         - name: Szyfrowanie
           href: ../virtual-machines/windows/disk-encryption.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
           maintainContext: true
         - name: Wydajność usługi Premium Storage
-          href: ../virtual-machines/windows/premium-storage-performance.md
+          href: ../virtual-machines/premium-storage-performance.md
           maintainContext: true
         - name: Efemeryczne dyski systemu operacyjnego
           href: ../virtual-machines/ephemeral-os-disks.md
@@ -190,7 +190,7 @@
           href: ../virtual-machines/windows/disk-scalability-targets.md
           maintainContext: true
         - name: Kopia zapasowa i odzyskiwanie po awarii dla dysków
-          href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
+          href: ../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md
           maintainContext: true
     - name: Networking
       href: ../virtual-machines/network-overview.md
@@ -201,7 +201,7 @@
     - name: Zabezpieczenia
       items:
         - name: Zabezpieczenia i zasady
-          href: ../virtual-machines/windows/security-policy.md
+          href: ../virtual-machines/security-policy.md
         - name: Usługa Azure Disk Encryption
           href: disk-encryption-overview.md
         - name: Punkt odniesienia zabezpieczeń platformy Azure
