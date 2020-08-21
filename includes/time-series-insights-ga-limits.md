@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: 1e07f56bc2e820b325414e124c7825c1d356ca26
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1aff5780aa5f4cf21d862a5cee3b140179dac03c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046407"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88703848"
 ---
 Poniżej zestawiono limity kluczy w Azure Time Series Insights Gen1.
 
@@ -37,7 +37,7 @@ Stawki za transfery danych w warstwie S1 i S2 zapewniają elastyczność podczas
 
 Środowiska jednostki SKU S2 obsługują znacznie więcej zdarzeń miesięcznie i mają znacznie wyższą wydajność transferu danych przychodzących.
 
-| Jednostka SKU  | Liczba zdarzeń miesięcznie  | Liczba zdarzeń na minutę | Rozmiar zdarzenia na minutę  |
+| SKU  | Liczba zdarzeń miesięcznie  | Liczba zdarzeń na minutę | Rozmiar zdarzenia na minutę  |
 |---------|---------|---------|---------|---------|
 | S1     |   30 000 000   |  720    |  720 KB   |
  |S2     |   300 000 000   | 7 200   | 7 200 KB  |
@@ -46,7 +46,7 @@ Stawki za transfery danych w warstwie S1 i S2 zapewniają elastyczność podczas
 
 Limity właściwości Gen1 zależą od wybranego środowiska jednostki SKU. Podane właściwości zdarzenia mają odpowiednie kolumny JSON, CSV i wykresu, które mogą być wyświetlane w [eksploratorze Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart).
 
-| Jednostka SKU | Właściwości maksymalne |
+| SKU | Właściwości maksymalne |
 | --- | --- |
 | S1 | Właściwości 600 (kolumny) |
 | S2 | Właściwości 800 (kolumny) |
@@ -60,4 +60,4 @@ Obsługiwane są maksymalnie dwa źródła zdarzeń na wystąpienie.
 
 ### <a name="api-limits"></a>Limity interfejsu API
 
-Limity interfejsu API REST dla Azure Time Series Insights Gen1 są określone w [dokumentacji interfejsu API REST](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#limits).
+Limity interfejsu API REST dla Azure Time Series Insights Gen1 są określone w [dokumentacji interfejsu API REST](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability).

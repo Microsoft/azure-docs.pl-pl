@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 7/15/2020
-ms.openlocfilehash: 61da81dd96078e0577e00be37fe27211a5b62154
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 840e7769e8a242314b10562684c942a2468ea5ad
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084425"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705150"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-in-the-azure-portal"></a>Szybki Start: Tworzenie serwera Azure Database for MySQL w Azure Portal
 
@@ -52,7 +52,7 @@ Hasło | *Wybór* | Podaj nowe hasło dla konta administratora serwera. Hasło m
 Potwierdź hasło | *Wybór*| Potwierdź hasło do konta administratora.
 Lokalizacja | *Region najbliżej Twoich użytkowników*| Wybierz lokalizację najbliżej użytkowników lub innych aplikacji Azure.
 Wersja | *Najnowsza wersja główna*| Najnowsza wersja główna, chyba że z konkretnych powodów wymagana jest inna wersja.
-Obliczenia i magazyn | **Ogólnego przeznaczenia**, **Generacja 5**, **2 rdzenie wirtualne**, **5 GB**, **7 dni**, **Geograficznie nadmiarowy** |Konfiguracje obliczania, magazynu i kopii zapasowej dla nowego serwera. Wybierz pozycję **Konfiguruj serwer**. Następnie wybierz odpowiednią warstwę cenową, aby uzyskać więcej informacji, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/mysql/). Aby włączyć kopie zapasowe serwera w magazynie geograficznie nadmiarowym, wybierz opcję **Geograficznie nadmiarowy** z **opcji nadmiarowości kopii zapasowej**. Wybierz przycisk **OK**.
+Obliczenia i magazyn | **Ogólnego przeznaczenia**, **Generacja 5**, **2 rdzenie wirtualne**, **5 GB**, **7 dni**, **Geograficznie nadmiarowy** |Konfiguracje obliczania, magazynu i kopii zapasowej dla nowego serwera. Wybierz pozycję **Konfiguruj serwer**. Następnie wybierz odpowiednią warstwę cenową, aby uzyskać więcej informacji, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/mysql/). Aby włączyć kopie zapasowe serwera w magazynie geograficznie nadmiarowym, wybierz opcję **Geograficznie nadmiarowy** z **opcji nadmiarowości kopii zapasowej**. Kliknij **OK**.
 
    > [!NOTE]
    > Jeśli niewielkie zasoby obliczeniowe i we/wy są wystarczające dla Twojego obciążenia, warto rozważyć użycie warstwy cenowej Podstawowa. Pamiętaj, że serwerów utworzonych w warstwie cenowej Podstawowa nie można później przeskalować do warstwy Ogólnego przeznaczenia lub Zoptymalizowana pod kątem pamięci. 
@@ -84,7 +84,7 @@ Aby nawiązać połączenie z serwerem ze środowiska lokalnego, możesz wybrać
 
    >[!div class="mx-imgBorder"]
    > ![Cloud Shell widoku pełnego portalu](./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png)
-2. Uruchom to polecenie w Azure Cloud Shell terminalu. Zamień wartości na rzeczywistą nazwę serwera i nazwę logowania użytkownika administracyjnego. Nazwa użytkownika administratora wymaga znaku "@ <servername> , jak pokazano poniżej, aby uzyskać Azure Database for MySQL  
+2. Uruchom to polecenie w Azure Cloud Shell terminalu. Zamień wartości na rzeczywistą nazwę serwera i nazwę logowania użytkownika administracyjnego. Nazwa użytkownika administratora wymaga znaku "@ \<servername> ", jak pokazano poniżej, aby uzyskać Azure Database for MySQL  
 
   ```azurecli-interactive
   mysql --host=mydemoserver.mysql.database.azure.com --user=myadmin@mydemoserver -p 
@@ -100,7 +100,7 @@ Aby nawiązać połączenie z serwerem ze środowiska lokalnego, możesz wybrać
   Type "az" to use Azure CLI
   Type "help" to learn about Cloud Shell
 
-  sunitha@Azure:~$mysql -h mydemoserver.mysql.database.azure.com -u admin@wpapp-mysqldbserver -p
+  user@Azure:~$mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
   Enter password:
   Welcome to the MySQL monitor.  Commands end with ; or \g.
   Your MySQL connection id is 64796
@@ -127,7 +127,7 @@ Aby nawiązać połączenie z serwerem ze środowiska lokalnego, możesz wybrać
   ```
 5. Wpisz ```quit``` , a następnie wybierz klawisz ENTER, aby zamknąć MySQL.   
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 Pomyślnie utworzono serwer Azure Database for MySQL w grupie zasobów.  Jeśli nie chcesz potrzebować tych zasobów w przyszłości, możesz je usunąć przez usunięcie grupy zasobów lub usunięcie serwera MySQL. Aby usunąć grupę zasobów, wykonaj następujące kroki:
 1. W Azure Portal Wyszukaj i wybierz pozycję **grupy zasobów**. 
 2. Na liście Grupa zasobów wybierz nazwę grupy zasobów.

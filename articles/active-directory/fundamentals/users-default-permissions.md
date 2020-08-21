@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/16/2019
+ms.date: 08/17/2020
 ms.author: ajburnle
 ms.reviewer: vincesm
-ms.custom: it-pro, seodec18
+ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bae802d8aa9378155bcca0713992a8cc041ea1a9
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 042a881cc6021842dec126c92ff13f306f79dad1
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799026"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705235"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Jakie są domyślne uprawnienia użytkownika w Azure Active Directory?
 W usłudze Azure Active Directory (Azure AD) wszystkim użytkownikom jest udzielany zestaw uprawnień domyślnych. Dostęp użytkownika składa się z typu użytkownika, ich [przypisań ról](active-directory-users-assign-role-azure-portal.md)i ich własności do poszczególnych obiektów. W tym artykule opisano te uprawnienia domyślne oraz zawarto porównanie uprawnień domyślnych członka i użytkownika gościa. Domyślne uprawnienia użytkownika można zmienić tylko w ustawieniach użytkownika w usłudze Azure AD.
@@ -26,26 +26,24 @@ W usłudze Azure Active Directory (Azure AD) wszystkim użytkownikom jest udziel
 ## <a name="member-and-guest-users"></a>Użytkownicy będący członkami i gośćmi
 Zestaw odebranych uprawnień domyślnych zależy od tego, czy użytkownik jest natywnym członkiem dzierżawy (użytkownik), czy też użytkownik jest przełączany z innego katalogu jako gość współpracy B2B (gość). Zobacz artykuł [co to jest współpraca B2B w usłudze Azure AD?](../b2b/what-is-b2b.md) Aby uzyskać więcej informacji na temat dodawania użytkowników-Gości.
 * Użytkownicy będący członkami mogą rejestrować aplikacje, zmieniać swoje zdjęcie profilowe, numer telefonu komórkowego oraz hasło. Mogą też zapraszać gości B2B. Dodatkowo użytkownicy mogą odczytywać wszystkie informacje o katalogach (z kilkoma wyjątkami). 
-* Użytkownicy-Goście mają ograniczone uprawnienia do katalogu. Goście nie mogą na przykład przeglądać informacji o dzierżawie wykraczających poza informacje z własnego profilu. Jednak użytkownik gość może pobierać informacje o innym użytkowniku po podaniu głównej nazwy użytkownika lub identyfikatora objectId. Użytkownik-gość może odczytywać właściwości grup, do których należą, łącznie z członkostwem w grupie, niezależnie od **uprawnień użytkowników-Gości** . Gość nie może wyświetlić informacji o innych obiektach dzierżawy.
-
-Uprawnienia domyślne dla gości są restrykcyjne. Gości można dodawać do ról administratora, dzięki czemu uzyskają oni pełne uprawnienia do odczytu i zapisu zawarte w roli. Dla gości jest dostępne jeszcze jedno ograniczenie — możliwość zapraszania innych gości. Ustawienie opcji **Goście mogą zapraszać gości** na wartość **Nie** uniemożliwia gościom zapraszanie innych gości. Aby dowiedzieć się, jak ustawiać tę opcję, zobacz [Delegate invitations for B2B collaboration](../b2b/delegate-invitations.md) (Delegowanie zaproszeń na potrzeby współpracy B2B). Aby domyślnie użytkownikom gościom były przyznawane takie same uprawnienia jak użytkownikom będącym członkami, ustaw opcję **Uprawnienia użytkowników-gości są ograniczone** na wartość **Nie**. To ustawienie domyślnie przyznaje gościom wszystkie uprawnienia użytkowników będących członkami, a także umożliwia dodawanie gości do ról administracyjnych.
+* Użytkownicy-Goście mają ograniczone uprawnienia do katalogu. Mogą oni zarządzać własnym profilem, zmieniać własne hasło i pobierać pewne informacje dotyczące innych użytkowników, grup i aplikacji, ale nie mogą odczytywać wszystkich informacji o katalogu. Na przykład użytkownicy-Goście nie mogą wyliczać użytkowników, grup i innych obiektów katalogu. Gości można dodawać do ról administratora, dzięki czemu uzyskają oni pełne uprawnienia do odczytu i zapisu zawarte w roli. Goście mogą również zapraszać innych Gości.
 
 ## <a name="compare-member-and-guest-default-permissions"></a>Porównanie uprawnień domyślnych członka i gościa
 
-**Obszar** | **Uprawnienia członka** | **Uprawnienia użytkownika gościa**
------------- | --------- | ----------
-Użytkownicy i kontakty | Odczytywanie wszystkich publicznych właściwości użytkowników i kontaktów<br>Zapraszanie gości<br>Zmiana własnego hasła<br>Zarządzanie własnym numerem telefonu komórkowego<br>Zarządzanie własnym zdjęciem<br>Unieważnianie własnych tokenów odświeżania | Odczytywanie własnych właściwości<br>Odczytaj wyświetlaną nazwę, adres e-mail, nazwę logowania, Zdjęcie, główną nazwę użytkownika i właściwości typu użytkownika innych użytkowników i kontaktów<br>Zmiana własnego hasła
-Grupy | Tworzenie grup zabezpieczeń<br>Tworzenie grup usługi Office 365<br>Odczytywanie wszystkich właściwości grup<br>Odczytywanie nieukrytych członkostw w grupach<br>Odczytywanie ukrytych członkostw w grupach usługi Office 365 dla dołączonej grupy<br>Zarządzanie właściwościami, własnością i członkostwem w grupach, do których należy użytkownik<br>Dodawanie gości do posiadanych grup<br>Zarządzanie dynamicznymi ustawieniami członkostwa<br>Usuwanie posiadanych grup<br>Przywracanie posiadanych grup usługi Office 365 | Odczytywanie wszystkich właściwości grup<br>Odczytywanie nieukrytych członkostw w grupach<br>Odczytywanie ukrytych członkostw w grupach usługi Office 365 dla dołączonych grup<br>Zarządzanie posiadanymi grupami<br>Dodawanie gości do posiadanych grup (jeśli jest to dozwolone)<br>Usuwanie posiadanych grup<br>Przywracanie posiadanych grup usługi Office 365<br>Odczytaj właściwości grup, do których należą, łącznie z członkostwem.
-Aplikacje | Rejestrowanie (tworzenie) nowej aplikacji<br>Odczytywanie właściwości zarejestrowanych aplikacji i aplikacji dla przedsiębiorstw<br>Zarządzanie właściwościami, przydziałami i poświadczeniami posiadanych aplikacji<br>Tworzenie i usuwanie hasła aplikacji dla użytkownika<br>Usuwanie posiadanych aplikacji<br>Przywracanie posiadanych aplikacji | Odczytywanie właściwości zarejestrowanych aplikacji i aplikacji dla przedsiębiorstw<br>Zarządzanie właściwościami, przydziałami i poświadczeniami posiadanych aplikacji<br>Usuwanie posiadanych aplikacji<br>Przywracanie posiadanych aplikacji
-Urządzenia | Odczytywanie wszystkich właściwości urządzenia<br>Zarządzanie wszystkimi właściwościami posiadanych urządzeń<br> | Brak uprawnień<br>Usuwanie posiadanych urządzeń<br>
-Katalog | Odczytywanie wszystkich informacji o firmie<br>Odczytywanie wszystkich domen<br>Odczytywanie wszystkich kontraktów partnera | Odczytywanie nazwy wyświetlanej i zweryfikowanych domen
-Role i zakresy | Odczytywanie wszystkich ról administracyjnych i członkostw<br>Odczytywanie wszystkich właściwości i członkostw jednostek administracyjnych | Brak uprawnień 
-Subskrypcje | Odczytywanie wszystkich subskrypcji<br>Włączanie członka planu usługi | Brak uprawnień
-Zasady | Odczytywanie wszystkich właściwości zasad<br>Zarządzanie wszystkimi właściwościami posiadanych zasad | Brak uprawnień
+**Obszar** | **Uprawnienia członka** | **Domyślne uprawnienia użytkownika-gościa** | **Ograniczone uprawnienia użytkownika-gościa (wersja zapoznawcza)**
+------------ | --------- | ---------- | ----------
+Użytkownicy i kontakty | <ul><li>Odczytywanie wszystkich publicznych właściwości użytkowników i kontaktów</li><li>Zapraszanie gości<li>Zmiana własnego hasła<li>Zarządzanie własnym numerem telefonu komórkowego<li>Zarządzanie własnym zdjęciem<li>Unieważnianie własnych tokenów odświeżania</li></ul> | <ul><li>Odczytywanie własnych właściwości<li>Odczytaj wyświetlaną nazwę, adres e-mail, nazwę logowania, Zdjęcie, główną nazwę użytkownika i właściwości typu użytkownika innych użytkowników i kontaktów<li>Zmiana własnego hasła<li>Wyszukaj innego użytkownika według nazwy wyświetlanej, nazwy głównej użytkownika lub identyfikatora obiektu (jeśli jest to dozwolone)<li>Menedżer odczytu i bezpośredni raport informacje dla innych użytkowników</li></ul> | <ul><li>Odczytywanie własnych właściwości<li>Zmiana własnego hasła</li></ul>
+Grupy | <ul><li>Tworzenie grup zabezpieczeń<li>Tworzenie grup usługi Office 365<li>Odczytywanie wszystkich właściwości grup<li>Odczytywanie nieukrytych członkostw w grupach<li>Odczytywanie ukrytych członkostw w grupach usługi Office 365 dla dołączonej grupy<li>Zarządzanie właściwościami, własnością i członkostwem w grupach, do których należy użytkownik<li>Dodawanie gości do posiadanych grup<li>Zarządzanie dynamicznymi ustawieniami członkostwa<li>Usuwanie posiadanych grup<li>Przywracanie posiadanych grup usługi Office 365</li></ul> | <ul><li>Odczytaj właściwości wszystkich nieukrytych grup, w tym członkostwo i prawa własności (nawet grupy Niesprzężone)<li>Odczytywanie ukrytych członkostw w grupach usługi Office 365 dla dołączonych grup<li>Wyszukaj grupy według nazwy wyświetlanej lub identyfikatora obiektu (jeśli jest to dozwolone)</li></ul> | Brak uprawnień
+Aplikacje | <ul><li>Rejestrowanie (tworzenie) nowej aplikacji<li>Odczytywanie właściwości zarejestrowanych aplikacji i aplikacji dla przedsiębiorstw<li>Zarządzanie właściwościami, przydziałami i poświadczeniami posiadanych aplikacji<li>Tworzenie i usuwanie hasła aplikacji dla użytkownika<li>Usuwanie posiadanych aplikacji<li>Przywracanie posiadanych aplikacji</li></ul> | <ul><li>Odczytywanie właściwości zarejestrowanych aplikacji i aplikacji dla przedsiębiorstw</li></ul> | <ul><li>Odczytywanie właściwości zarejestrowanych aplikacji i aplikacji dla przedsiębiorstw
+Urządzenia</li></ul> | <ul><li>Odczytywanie wszystkich właściwości urządzenia<li>Zarządzanie wszystkimi właściwościami posiadanych urządzeń</li></ul> | Brak uprawnień | Brak uprawnień
+Katalog | <ul><li>Odczytywanie wszystkich informacji o firmie<li>Odczytywanie wszystkich domen<li>Odczytywanie wszystkich kontraktów partnera</li></ul> | <ul><li>Odczytywanie nazwy wyświetlanej i zweryfikowanych domen</li></ul> | <ul><li>Odczytywanie nazwy wyświetlanej i zweryfikowanych domen</li></ul>
+Role i zakresy | <ul><li>Odczytywanie wszystkich ról administracyjnych i członkostw<li>Odczytywanie wszystkich właściwości i członkostw jednostek administracyjnych</li></ul> | Brak uprawnień | Brak uprawnień
+Subskrypcje | <ul><li>Odczytywanie wszystkich subskrypcji<li>Włączanie członka planu usługi</li></ul> | Brak uprawnień | Brak uprawnień
+Zasady | <ul><li>Odczytywanie wszystkich właściwości zasad<li>Zarządzanie wszystkimi właściwościami posiadanych zasad</li></ul> | Brak uprawnień | Brak uprawnień
 
 ## <a name="to-restrict-the-default-permissions-for-member-users"></a>Ograniczanie uprawnień domyślnych użytkowników będących członkami
 
-Poniżej opisano sposoby ograniczania domyślnych uprawnień użytkowników będących członkami.
+Uprawnienia domyślne dla użytkowników należących do członków mogą być ograniczone w następujący sposób:
 
 Uprawnienie | Wyjaśnienie ustawienia
 ---------- | ------------
@@ -53,8 +51,23 @@ Użytkownicy mogą rejestrować aplikację | Ustawienie tej opcji na wartość n
 Zezwalaj użytkownikom na łączenie konta służbowego z usługą LinkedIn | Ustawienie tej opcji na wartość nie uniemożliwia użytkownikom łączenie konta służbowego z kontem usługi LinkedIn. Aby uzyskać więcej informacji, zobacz [konta usługi LinkedIn — udostępnianie i wyrażanie danych](https://docs.microsoft.com/azure/active-directory/users-groups-roles/linkedin-user-consent).
 Możliwość tworzenia grup zabezpieczeń | Ustawienie tej opcji na wartość Nie uniemożliwia użytkownikom tworzenie grup zabezpieczeń. Administratorzy globalni i Administratorzy użytkowników nadal mogą tworzyć grupy zabezpieczeń. Aby uzyskać więcej informacji, zobacz [Polecenia cmdlet usługi Azure Active Directory służące do konfigurowania ustawień grupy](../users-groups-roles/groups-settings-cmdlets.md).
 Możliwość tworzenia grup usługi Office 365 | Ustawienie tej opcji na wartość Nie uniemożliwia użytkownikom tworzenie grup usługi Office 365. Ustawienie tej opcji na wartość Niektóre umożliwia wybranemu zestawowi użytkowników tworzenie grup usługi Office 365. Administratorzy globalni i Administratorzy użytkowników nadal będą mogli tworzyć grupy pakietu Office 365. Aby uzyskać więcej informacji, zobacz [Polecenia cmdlet usługi Azure Active Directory służące do konfigurowania ustawień grupy](../users-groups-roles/groups-settings-cmdlets.md).
-Ogranicz dostęp do portalu administracyjnego usługi Azure AD | Ustawienie tej opcji na nie umożliwia innym firmom korzystanie z portalu administracyjnego usługi Azure AD w celu odczytywania zasobów usługi Azure AD i zarządzania nimi. Wartość tak ogranicza dostęp wszystkich innych niż administratorów do danych usługi Azure AD w portalu administracyjnym. Ważne: to ustawienie nie ogranicza dostępu do danych usługi Azure AD przy użyciu programu PowerShell lub innych klientów, takich jak Visual Studio. W przypadku ustawienia wartości tak w celu przyznania konkretnemu użytkownikowi niebędącemu administratorem możliwości korzystania z portalu administracyjnego usługi Azure AD Przypisz dowolną rolę administracyjną, taką jak rola czytelnicy katalogów. Ta rola umożliwia odczytywanie informacji o katalogu podstawowym, które są domyślnie dostępne dla użytkowników (Goście i nazwy główne usługi).
+Ogranicz dostęp do portalu administracyjnego usługi Azure AD | Ustawienie tej opcji na nie umożliwia innym firmom korzystanie z portalu administracyjnego usługi Azure AD w celu odczytywania zasobów usługi Azure AD i zarządzania nimi. Wartość tak ogranicza dostęp wszystkich innych niż administratorów do danych usługi Azure AD w portalu administracyjnym.<p>**Uwaga**: to ustawienie nie ogranicza dostępu do danych usługi Azure AD przy użyciu programu PowerShell lub innych klientów, takich jak Visual Studio. w przypadku ustawienia wartości tak w celu przyznania konkretnemu użytkownikowi niebędącemu administratorem możliwości korzystania z portalu administracyjnego usługi Azure AD Przypisz dowolną rolę administracyjną, taką jak rola czytelnicy katalogów.<p>Ta rola umożliwia odczytywanie informacji o katalogu podstawowym, które są domyślnie dostępne dla użytkowników (Goście i nazwy główne usługi).
 Możliwość odczytywania innych użytkowników | To ustawienie jest dostępne tylko w programie PowerShell. Ustawienie tej flagi na $false uniemożliwia wszystkim innym niż administratorzy odczytywanie informacji o użytkownikach z katalogu. Ta flaga nie uniemożliwia odczytywania informacji o użytkowniku w innych usługach firmy Microsoft, takich jak Exchange Online. To ustawienie jest przeznaczone dla szczególnych okoliczności i ustawienie tej flagi na $false nie jest zalecane.
+
+
+## <a name="to-restrict-the-default-permissions-for-guest-users"></a>Aby ograniczyć uprawnienia domyślne dla użytkowników-Gości
+
+Uprawnienia domyślne dla użytkowników-Gości mogą być ograniczone w następujący sposób:
+
+>[!NOTE] 
+>Ustawienie ograniczenia dostępu użytkownika gościa zastąpiło ustawienie **ograniczone uprawnienia użytkowników-Gości** . Aby uzyskać wskazówki dotyczące korzystania z tej funkcji, zobacz [ograniczanie uprawnień dostępu gościa (wersja zapoznawcza) w Azure Active Directory](../users-groups-roles/users-restrict-guest-permissions.md).
+
+Uprawnienie | Wyjaśnienie ustawienia
+---------- | ------------
+Ograniczenia dostępu użytkowników Gości (wersja zapoznawcza) | Ustawienie tej opcji dla użytkowników-Gości ma taki sam dostęp, jak członkowie domyślnie przyznają wszystkim uprawnienia użytkownikom-Gościom.<p>Ustawienie tej opcji na dostęp gościa jest ograniczone do właściwości i członkostwa własnych obiektów katalogu ogranicza dostęp gościa tylko do własnego profilu użytkownika. Dostęp do innych użytkowników nie jest już dozwolony nawet podczas wyszukiwania według nazwy głównej użytkownika lub identyfikatora obiektu. Dostęp do grup, w tym członkostw grup, również nie jest już dozwolony. To ustawienie nie zapobiega dostępowi do grup w innych usługach firmy Microsoft, takich jak Microsoft Teams. Aby dowiedzieć się więcej, zobacz [dostęp gościa w usłudze Microsoft Teams]() .<p>Użytkowników-Gości można nadal dodawać do ról administratora, niezależnie od tego, jakie są te ustawienia uprawnień.
+Goście mogą zapraszać gości | Ustawienie tej opcji na wartość tak umożliwia Gościom Zapraszanie innych Gości. Aby dowiedzieć się więcej, zobacz [delegowanie zaproszeń do współpracy B2B](https://docs.microsoft.com/azure/active-directory/external-identities/delegate-invitations#configure-b2b-external-collaboration-settings) .
+Członkowie mogą zapraszać gości | Członkowie mogą zapraszać ustawienie tej opcji na wartość tak, aby zapraszać Gości, którzy nie są administratorami katalogu. Aby dowiedzieć się więcej, zobacz [delegowanie zaproszeń do współpracy B2B](https://docs.microsoft.com/azure/active-directory/external-identities/delegate-invitations#configure-b2b-external-collaboration-settings) .
+Administratorzy i użytkownicy o roli zapraszającego gości mogą zapraszać | Ustawienie tej opcji na wartość tak umożliwia administratorom i użytkownikom w roli "zapraszanie gościa" zapraszanie Gości. W przypadku ustawienia opcji tak użytkownicy w roli zapraszania gościa nadal będą mogli zapraszać Gości, niezależnie od elementów członkowskich, które mogą zapraszać ustawienia. Aby dowiedzieć się więcej, zobacz [delegowanie zaproszeń do współpracy B2B](https://docs.microsoft.com/azure/active-directory/external-identities/delegate-invitations#assign-the-guest-inviter-role-to-a-user) .
 
 ## <a name="object-ownership"></a>Własność obiektu
 
@@ -130,6 +143,7 @@ Użytkownicy mogą wykonywać następujące działania w grupach będących wła
 
 ## <a name="next-steps"></a>Następne kroki
 
+* Aby dowiedzieć się więcej na temat ustawienia ograniczeń dostępu użytkowników Gości, zobacz [ograniczanie uprawnień dostępu gościa (wersja zapoznawcza) w Azure Active Directory](../users-groups-roles/users-restrict-guest-permissions.md).
 * Aby dowiedzieć się więcej o sposobie przypisywania ról administratora usługi Azure AD, zobacz [Przypisywanie użytkownika do ról administratorów w Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * Aby dowiedzieć się więcej o kontrolowaniu dostępu do zasobów na platformie Microsoft Azure, zobacz [Understanding resource access in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md) (Opis dostępu do zasobów na platformie Azure).
 * Aby uzyskać więcej informacji dotyczących relacji między usługą Azure Active Directory i subskrypcją platformy Azure, zobacz [Jak subskrypcje platformy Azure są kojarzone z usługą Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).

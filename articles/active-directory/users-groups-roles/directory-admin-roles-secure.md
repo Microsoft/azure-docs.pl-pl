@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51b18b05dc9fee06b0a9866f59b4bf52ad54e0ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d303f8a04a9159eeb4dc5e78ef09b57f5a966c72
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807863"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691364"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Zabezpieczanie uprzywilejowanego dostępu dla wdrożeń hybrydowych i wdrożeń w chmurze w usłudze Azure AD
 
@@ -373,7 +373,7 @@ Podczas zarządzania kontami uprzywilejowanego dostępu zalecamy stosowanie nast
 * Udziel uprzywilejowanego dostępu tylko wtedy, gdy jest to konieczne, i usuń go później (just-in-Time)
 * Zachowywanie dzienników aktywności inspekcji odnoszących się do kont uprzywilejowanych
 
-Aby uzyskać więcej informacji na temat tworzenia kompletnego planu zabezpieczeń, zobacz [zasoby architektury IT w chmurze firmy Microsoft](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Aby współpracować z usługami firmy Microsoft, aby pomóc w zaimplementowaniu dowolnej części planu, skontaktuj się z przedstawicielem firmy Microsoft lub zapoznaj się z tematem [Tworzenie krytycznych zabezpieczeń cybernetycznymi w celu ochrony przedsiębiorstwa](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Aby uzyskać więcej informacji na temat tworzenia kompletnego planu zabezpieczeń, zobacz [zasoby architektury IT w chmurze firmy Microsoft](https://almbok.com/office365/microsoft_cloud_it_architecture_resources). Aby współpracować z usługami firmy Microsoft, aby pomóc w zaimplementowaniu dowolnej części planu, skontaktuj się z przedstawicielem firmy Microsoft lub zapoznaj się z tematem [Tworzenie krytycznych zabezpieczeń cybernetycznymi w celu ochrony przedsiębiorstwa](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 Ten końcowy, ciągły etap zaawansowanej metody dostępu uprzywilejowanego obejmuje następujące składniki.
 

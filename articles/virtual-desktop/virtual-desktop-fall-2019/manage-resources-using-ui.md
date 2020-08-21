@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ed6587cab1e90c9b4bd4ceffa64c77fa5d8de574
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c261ea174f37de51a8fbd5b36aeb40c26d44e6a9
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005707"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691398"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Wdrażanie narzędzia do zarządzania pulpitem wirtualnym systemu Windows (klasycznego) przy użyciu szablonu Azure Resource Manager
 
@@ -83,7 +83,7 @@ Aby określić, którego użytkownika możesz użyć do zalogowania się do narz
 
 Po podjęciu decyzji o tym, którego użytkownika będziesz używać, aby wyrazić zgodę, postępuj zgodnie z tymi instrukcjami, aby wyrazić zgodę na narzędzie:
 
-1. Przejdź do zasobów platformy Azure, wybierz zasób App Services platformy Azure o nazwie podanej w szablonie (na przykład Apr3UX) i przejdź do adresu URL skojarzonego z nim. na przykład <https://rdmimgmtweb-210520190304.azurewebsites.net> .
+1. Przejdź do zasobów platformy Azure, wybierz zasób App Services platformy Azure o nazwie podanej w szablonie (na przykład Apr3UX) i przejdź do adresu URL skojarzonego z nim. na przykład  `https://rdmimgmtweb-210520190304.azurewebsites.net` .
 2. Zaloguj się przy użyciu odpowiedniego konta użytkownika Azure Active Directory.
 3. W przypadku uwierzytelnienia za pomocą administratora globalnego możesz teraz zaznaczyć pole wyboru, aby **wyrazić zgodę w imieniu organizacji**. Wybierz pozycję **Akceptuj** , aby wyrazić zgodę.
 
@@ -98,7 +98,7 @@ Po udzieleniu zgody na organizację lub dla określonego użytkownika można w d
 
 Postępuj zgodnie z poniższymi instrukcjami, aby uruchomić narzędzie:
 
-1. Wybierz zasób App Services platformy Azure o nazwie podanej w szablonie (na przykład Apr3UX) i przejdź do adresu URL skojarzonego z nim. na przykład <https://rdmimgmtweb-210520190304.azurewebsites.net> .
+1. Wybierz zasób App Services platformy Azure o nazwie podanej w szablonie (na przykład Apr3UX) i przejdź do adresu URL skojarzonego z nim. na przykład  <https://rdmimgmtweb-210520190304.azurewebsites.net> .
 2. Zaloguj się przy użyciu poświadczeń pulpitu wirtualnego systemu Windows.
 3. Po wyświetleniu monitu o wybranie grupy dzierżawców wybierz z listy rozwijanej pozycję **Domyślna grupa dzierżawców** .
 4. Po wybraniu **domyślnej grupy dzierżawców**menu powinno być wyświetlane po lewej stronie okna. W tym menu Znajdź nazwę grupy dzierżawców i wybierz ją.

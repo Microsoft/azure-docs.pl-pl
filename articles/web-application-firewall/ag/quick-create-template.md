@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.topic: quickstart
 ms.date: 04/02/2020
 ms.author: victorh
-ms.openlocfilehash: 081bab0cd930d90ca0d359461e4a41b15ba4911b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b0a430ebfb19ca529ae96698173df27d18e6dd10
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075511"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705201"
 ---
 # <a name="quickstart-create-an-azure-waf-v2-on-application-gateway-using-an-arm-template"></a>Szybki Start: Tworzenie usługi Azure WAF V2 na Application Gateway przy użyciu szablonu ARM
 
@@ -37,7 +37,7 @@ Ten szablon tworzy prostą zaporę aplikacji sieci Web V2 na platformie Azure Ap
 
 Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/ag-docs-wafv2/).
 
-:::code language="json" source="~/quickstart-templates/ag-docs-wafv2/azuredeploy.json" range="001-404" highlight="314-358":::
+:::code language="json" source="~/quickstart-templates/ag-docs-wafv2/azuredeploy.json":::
 
 W szablonie zdefiniowano wiele zasobów platformy Azure:
 
@@ -50,7 +50,7 @@ W szablonie zdefiniowano wiele zasobów platformy Azure:
 - [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : dwie dla maszyn wirtualnych
 - [**Microsoft. COMPUTE/virtualMachine/Extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) : Aby skonfigurować usługi IIS i strony sieci Web
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 Wdróż szablon ARM na platformie Azure:
 
@@ -85,7 +85,7 @@ Użyj usług do przetestowania bramy aplikacji:
 
    Wielokrotnie Odświeżaj przeglądarkę i powinny być widoczne połączenia zarówno myVM1, jak i myVM2.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie potrzebujesz już zasobów utworzonych przy użyciu bramy aplikacji, Usuń grupę zasobów. Spowoduje to usunięcie bramy aplikacji i wszystkich powiązanych zasobów.
 

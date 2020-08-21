@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c456f7e82bb605909f31b35cdd838145900396e2
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 61c31b24b01b40da4d73a308a4f304f6ff242e41
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009192"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691415"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Wdrażanie narzędzia diagnostycznego pulpitu wirtualnego systemu Windows (klasycznego)
 
@@ -112,7 +112,7 @@ Poniżej przedstawiono sposób ręcznego konfigurowania zalecanych liczników wy
 
 1. Otwórz przeglądarkę internetową i zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta administracyjnego.
 2. Następnie przejdź do **obszaru roboczego log Analytics** , aby przejrzeć skonfigurowane liczniki wydajności systemu Windows.
-3. W sekcji **Ustawienia** wybierz pozycję **Ustawienia zaawansowane**.
+3. W sekcji **Ustawienia** wybierz pozycję  **Ustawienia zaawansowane**.
 4. Następnie przejdź do **danych**  >  **liczników wydajności systemu Windows** i Dodaj następujące liczniki:
 
     -   Dysk logiczny ( \* ): \\ wolne miejsce (%)
@@ -196,7 +196,7 @@ Aby ustawić identyfikator URI przekierowania:
    > [!div class="mx-imgBorder"]
    > ![Strona URI przekierowania](../media/redirect-uri-page.png)
 
-8. Teraz przejdź do zasobów platformy Azure, wybierz zasób App Services platformy Azure o nazwie podanej w szablonie i przejdź do adresu URL skojarzonego z nim. (Na przykład jeśli nazwa aplikacji użyta w szablonie to `contosoapp45` , wówczas skojarzony adres URL to <https://contosoapp45.azurewebsites.net> ).
+8. Teraz przejdź do zasobów platformy Azure, wybierz zasób App Services platformy Azure o nazwie podanej w szablonie i przejdź do adresu URL skojarzonego z nim. (Na przykład jeśli nazwa aplikacji użyta w szablonie to `contosoapp45` , wówczas skojarzony adres URL to <http://contoso.azurewebsites.net> ).
 9. Zaloguj się przy użyciu odpowiedniego konta użytkownika Azure Active Directory.
 10.   Wybierz pozycję **Zaakceptuj**.
 

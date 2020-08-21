@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/29/2020
 ms.author: allensu
-ms.openlocfilehash: 2a3c7245a4e6c69e87791ca3364ad588b82572c6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dce80d70af7cd711cf852a60b98ad65b6d21117f
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529611"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705252"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-an-arm-template"></a>Szybki Start: Tworzenie usługi linku prywatnego przy użyciu szablonu ARM
 
@@ -37,7 +37,7 @@ Ten szablon służy do tworzenia usługi linku prywatnego.
 
 Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-privatelink-service/).
 
-:::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json" range="001-432" highlight="263-289":::
+:::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json":::
 
 W szablonie zdefiniowano wiele zasobów platformy Azure:
 
@@ -50,7 +50,7 @@ W szablonie zdefiniowano wiele zasobów platformy Azure:
 - [**Microsoft. Network/adresów publicipaddress**](/azure/templates/microsoft.network/publicIpAddresses): Istnieją dwa publiczne adresy IP, po jednym dla każdej maszyny wirtualnej.
 - [**Microsoft. Network/privateendpoints**](/azure/templates/microsoft.network/privateendpoints): prywatny punkt końcowy do uzyskiwania dostępu do usługi.
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 Poniżej przedstawiono sposób wdrażania szablonu ARM na platformie Azure:
 
@@ -86,7 +86,7 @@ Połącz się z maszyną wirtualną _myConsumerVm {unikatowym}_ z Internetu w na
     > [!NOTE]
     > Może być konieczne wybranie **pozycji więcej opcji**  >  **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
 
-5.  Wybierz przycisk **OK**.
+5.  Kliknij **OK**.
 
 6.  Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie o certyfikacie, wybierz opcję **Tak** lub **Kontynuuj**.
 
@@ -100,7 +100,7 @@ Poniżej przedstawiono sposób nawiązywania połączenia z usługą http z masz
 2.  Otwórz przeglądarkę i wprowadź adres prywatnego punktu końcowego: `http://10.0.0.5/` .
 3.  Zostanie wyświetlona domyślna strona usług IIS.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie potrzebujesz już zasobów utworzonych za pomocą usługi link prywatny, Usuń grupę zasobów. Spowoduje to usunięcie usługi link prywatny i wszystkich powiązanych zasobów.
 

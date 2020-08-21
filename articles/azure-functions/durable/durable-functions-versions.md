@@ -3,14 +3,14 @@ title: Przegląd wersji Durable Functions — Azure Functions
 description: Dowiedz się więcej o wersjach Durable Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 08/20/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 1dc58bc7c758330c0333a5359622c4e54bb95026
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c8a536086e426a2d83d26538f9d0efe1ea63eb4
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024728"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705796"
 ---
 # <a name="durable-functions-versions-overview"></a>Omówienie wersji Durable Functions
 
@@ -44,7 +44,29 @@ W tej sekcji opisano sposób migrowania istniejącej wersji 1. x Durable Functio
 
 ### <a name="upgrade-the-extension"></a>Uaktualnij rozszerzenie
 
-Zainstaluj wersję 2. x [rozszerzenia powiązań Durable Functions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) w projekcie. Aby uzyskać więcej informacji, zobacz [Rejestrowanie rozszerzeń powiązań Azure Functions](../functions-bindings-register.md) .
+Zainstaluj najnowszą wersję 2. x rozszerzenia powiązań Durable Functions w projekcie.
+
+#### <a name="javascript-and-python"></a>JavaScript i Python
+
+Durable Functions 2. x jest dostępny w wersji 2. x [pakietu rozszerzenia Azure Functions](../functions-bindings-register.md#extension-bundles).
+
+Aby zaktualizować wersję pakietu rozszerzenia w projekcie, Otwórz host.jsna i zaktualizuj `extensionBundle` sekcję do korzystania z wersji 2. x ( `[2.*, 3.0.0)` ).
+
+```json
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[2.*, 3.0.0)"
+    }
+}
+```
+
+#### <a name="net"></a>.NET
+
+Zaktualizuj projekt .NET, aby użyć najnowszej wersji [rozszerzenia powiązania Durable Functions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask).
+
+Aby uzyskać więcej informacji, zobacz [Rejestrowanie rozszerzeń powiązań Azure Functions](../functions-bindings-register.md#local-csharp) .
 
 ### <a name="update-your-code"></a>Aktualizowanie kodu
 
@@ -54,9 +76,9 @@ Durable Functions 2. x wprowadza kilka istotnych zmian. Aplikacje Durable Functi
 
 Durable Functions 2. x używa nowego host.jsna schemacie. Główne zmiany z 1. x obejmują:
 
-* `"storageProvider"`(i `"azureStorage"` podsekcję) dla konfiguracji specyficznej dla magazynu.
-* `"tracing"`dla konfiguracji śledzenia i rejestrowania.
-* `"notifications"`(i `"eventGrid"` podsekcję) dla konfiguracji powiadomień usługi Event Grid.
+* `"storageProvider"` (i `"azureStorage"` podsekcję) dla konfiguracji specyficznej dla magazynu.
+* `"tracing"` dla konfiguracji śledzenia i rejestrowania.
+* `"notifications"` (i `"eventGrid"` podsekcję) dla konfiguracji powiadomień usługi Event Grid.
 
 Aby uzyskać szczegółowe informacje, zobacz [host.jsDurable Functions w dokumentacji referencyjnej](durable-functions-bindings.md#durable-functions-2-0-host-json) .
 

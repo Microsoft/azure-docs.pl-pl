@@ -8,30 +8,30 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 702486a0728a7394d8d8febffc11b11bc113a030
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 465543e639514753bc0a6762dbbeb888d490ccd2
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606759"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705048"
 ---
 # <a name="marketplace-rewards"></a>Program Marketplace Rewards
 
-Nagrody w witrynie Marketplace obsługują Twój określony etap wzrostu, rozpoczynając od działań mających świadomość, aby pomóc Ci w uzyskaniu pierwszych klientów. W ramach komercyjnej witryny Marketplace można odblokować nowe korzyści, które ułatwiają konwertowanie klientów i zamykanie transakcji.
+Nagrody w witrynie Marketplace obsługują Twój określony etap wzrostu, rozpoczynając od działań mających świadomość, aby pomóc Ci w uzyskaniu pierwszych klientów. W przypadku korzystania z komercyjnej witryny Marketplace firmy Microsoft można odblokować nowe korzyści ułatwiające konwersję klientów i zamykanie transakcji.
 
 Program tworzy zaawansowaną pętlę opinii: korzyści z poszczególnych etapów wzrostu ułatwiają postępy z następnym etapem, dzięki czemu możesz rozwijać swoją firmę do klientów firmy Microsoft przy użyciu pola firmy Microsoft i kanałów firmy Microsoft, korzystając z komercyjnej witryny Marketplace jako platformy.
 
-Twoje korzyści są zróżnicowane w zależności od tego, czy oferta jest [listą, wersją próbną czy Transact](../determine-your-listing-type.md#choose-a-call-to-action).
+Twoje korzyści są zróżnicowane w zależności od tego, czy oferta jest [listą, wersją próbną czy Transact](../determine-your-listing-type.md#choose-a-listing-option).
 
 Skontaktujesz się z członkiem zespołu nagradzania, gdy oferta będzie aktywna, na podstawie uprawnień.
 
-W przypadku partnerów Transact, w miarę rozwoju rozliczanej sprzedaży za pomocą platformy Marketplace, możesz odblokować większe korzyści na warstwę.
+W przypadku partnerów Transact w miarę rozwoju rozliczanej sprzedaży za pomocą komercyjnej platformy Marketplace możesz odblokować większe korzyści na warstwę.
 
-Minimalnym wymaganiem do opublikowania w sklepach online jest MPNID, dzięki czemu te korzyści są dostępne dla wszystkich partnerów, niezależnie od stanu kompetencji MPN lub typu partnera. Każdy partner jest uprawniony do rozwoju swojej firmy za pomocą portalu Marketplace jako platformy.
+Minimalnym wymaganiem do opublikowania w sklepach online jest MPNID, dzięki czemu te korzyści są dostępne dla wszystkich partnerów, niezależnie od stanu kompetencji MPN lub typu partnera. Każdy partner może rozwijać swoją firmę za pomocą komercyjnej witryny Marketplace jako platformy.
 
 Uzyskasz pomoc techniczną w zrozumieniu dostępnych zasobów i wdrażaniu najlepszych rozwiązań, które można również [przejrzeć samodzielnie](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
-W [tym miejscu](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace)Sprawdź swój kwalifikowanie się do korzystania z witryny Marketplace.
+Aby sprawdzić uprawnienia do programu nagradzania w witrynie Marketplace, zobacz stronę [korzyści z witryny Marketplace](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) w centrum partnerskim.
 
 Kroki umożliwiające rozpoczęcie pracy są proste:
 

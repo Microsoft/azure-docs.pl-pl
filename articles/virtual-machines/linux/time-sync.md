@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 08/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 4214fca9e295dc7716d8e2c069f52c719aa74697
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8a122a36b14bd3c5f4912387dc98585cb89ab53b
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292108"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705644"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Synchronizacja czasu dla maszyn wirtualnych z systemem Linux na platformie Azure
 
@@ -64,7 +64,7 @@ Domyślnie większość obrazów w portalu Azure Marketplace dla systemu Linux j
 - NTP jako podstawowa, która pobiera czas z serwera NTP. Na przykład Ubuntu 16,04 LTS Marketplace używa **NTP.Ubuntu.com**.
 - Usługa VMICTimeSync jako pomocnicza, używana do przekazywania informacji o czasie hosta do maszyn wirtualnych i wprowadzania poprawek po wstrzymaniu maszyny wirtualnej do konserwacji. Hosty platformy Azure wykorzystują urządzenia warstwy 1 należące do firmy Microsoft w celu zapewnienia dokładnego czasu.
 
-W przypadku nowszych dystrybucji systemu Linux usługa VMICTimeSync używa protokołu czasu (NTP), ale wcześniejsze dystrybucje mogą nie obsługiwać programu PTP i przewracają do NTP w celu uzyskania czasu od hosta.
+W przypadku nowszych dystrybucji systemu Linux usługa VMICTimeSync udostępnia źródło zegara sprzętowego protokołu (PTP), ale wcześniejsze dystrybucje mogą nie zapewniać tego źródła zegara i przewracają do NTP w celu uzyskania czasu od hosta.
 
 Aby potwierdzić, że NTP jest prawidłowo synchronizowana, uruchom `ntpq -p` polecenie.
 
@@ -112,9 +112,9 @@ root        391      2  0 17:52 ?        00:00:00 [hv_balloon]
 ```
 
 
-### <a name="check-for-ptp"></a>Sprawdź, czy jest to PTP
+### <a name="check-for-ptp-clock-source"></a>Sprawdź Źródło zegara PTP
 
-W przypadku nowszych wersji systemu Linux Źródło zegara protokołu czasu (PTP) jest dostępne jako część dostawcy VMICTimeSync. W starszych wersjach Red Hat Enterprise Linux lub CentOS 7. x [usługi integracji z systemem Linux](https://github.com/LIS/lis-next) można pobrać i użyć do zainstalowania zaktualizowanego sterownika. W przypadku korzystania z programu PTP urządzenie z systemem Linux będzie miało postać/dev/PTP*x*. 
+W przypadku nowszych wersji systemu Linux Źródło zegara protokołu czasu (PTP) jest dostępne jako część dostawcy VMICTimeSync. W starszych wersjach Red Hat Enterprise Linux lub CentOS 7. x [usługi integracji z systemem Linux](https://github.com/LIS/lis-next) można pobrać i użyć do zainstalowania zaktualizowanego sterownika. Gdy źródło zegara PTP jest dostępne, urządzenie z systemem Linux będzie miało postać/dev/PTP*x*. 
 
 Zobacz, które źródła zegara PTP są dostępne.
 

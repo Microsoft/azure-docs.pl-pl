@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: cawa
-ms.openlocfilehash: f20a40603916e703d6f3cfc13ee2d165675f3ca2
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: df2c626de39ff4482a4dc69fa5a514fc92002ccb
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588504"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705864"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Bezpieczne Zapisywanie ustawień tajnych aplikacji dla aplikacji sieci Web
 
@@ -101,35 +101,22 @@ Aby to zrobić, [Pobierz program .NET 4.7.1](https://www.microsoft.com/download/
 ### <a name="save-secret-settings-in-a-secret-file-that-is-outside-of-source-control-folder"></a>Zapisz ustawienia tajne w pliku tajnym, który znajduje się poza folderem kontroli źródła
 Jeśli piszesz krótki prototyp i nie chcesz udostępniać zasobów platformy Azure, przejdź do tej opcji.
 
-1. Zainstaluj następujący pakiet NuGet w projekcie
-    ```
-    Microsoft.Configuration.ConfigurationBuilders.Base
-    ```
+1. Kliknij prawym przyciskiem myszy projekt i wybierz pozycję **Zarządzaj kluczami tajnymi użytkownika**. Spowoduje to zainstalowanie pakietu NuGet **Microsoft.Configuration.ConfigurationBuilders. UserSecrets** , utworzenie pliku do zapisania ustawień tajnych poza plikiem web.config i dodanie sekcji **ConfigBuilders** w pliku web.config.
 
-2. Utwórz plik podobny do poniższego. Zapisz ją w lokalizacji poza folderem projektu.
+2. Umieść ustawienia wpisu tajnego w obszarze głównym elementu. Poniżej znajduje się przykład
 
     ```xml
+    <?xml version="1.0" encoding="utf-8"?>
     <root>
-        <secrets ver="1.0">
-            <secret name="secret1" value="foo_one" />
-            <secret name="secret2" value="foo_two" />
-        </secrets>
+      <secrets ver="1.0">
+        <secret name="secret" value="foo"/>
+        <secret name="secret1" value="foo_one" />
+        <secret name="secret2" value="foo_two" />
+      </secrets>
     </root>
     ```
 
-3. Zdefiniuj plik tajny jako konstruktora konfiguracji w pliku Web.config. Umieść tę sekcję przed sekcją *AppSettings* .
-
-    ```xml
-    <configBuilders>
-        <builders>
-            <add name="Secrets"
-                 secretsFile="C:\Users\AppData\MyWebApplication1\secret.xml" type="Microsoft.Configuration.ConfigurationBuilders.UserSecretsConfigBuilder,
-                    Microsoft.Configuration.ConfigurationBuilders, Version=1.0.0.0, Culture=neutral" />
-        </builders>
-    </configBuilders>
-    ```
-
-4. Określ sekcję appSettings przy użyciu programu Secret Configuration Builder. Upewnij się, że istnieje wpis dla ustawienia tajnego z wartością fikcyjną.
+3. Określ sekcję appSettings przy użyciu programu Secret Configuration Builder. Upewnij się, że istnieje wpis dla ustawienia tajnego z wartością fikcyjną.
 
     ```xml
         <appSettings configBuilders="Secrets">
@@ -148,20 +135,18 @@ Postępuj zgodnie z instrukcjami w sekcji ASP.NET Core, aby skonfigurować Key V
 
 1. Zainstaluj następujący pakiet NuGet w projekcie
    ```
-   Microsoft.Configuration.ConfigurationBuilders.UserSecrets
+   Microsoft.Configuration.ConfigurationBuilders.Azure
    ```
 
-2. Zdefiniuj Key Vault konstruktora konfiguracji w Web.config. Umieść tę sekcję przed sekcją *AppSettings* . Zastąp wartość Nazwa *magazynu* nazwą Key Vault, jeśli key Vault znajduje się na publicznej platformie Azure, lub pełny identyfikator URI w przypadku korzystania z chmury suwerennej.
+2. Zdefiniuj Key Vault konstruktora konfiguracji w Web.config. Umieść tę sekcję przed sekcją *AppSettings* . Zastąp wartość Nazwa *magazynu* nazwą Key Vault, jeśli key Vault znajduje się na globalnej platformie Azure, lub pełny identyfikator URI, jeśli korzystasz z chmury suwerennej.
 
     ```xml
-    <configSections>
-        <section name="configBuilders" type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" restartOnExternalChanges="false" requirePermission="false" />
-    </configSections>
-    <configBuilders>
+     <configBuilders>
         <builders>
-            <add name="AzureKeyVault" vaultName="Test911" type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, ConfigurationBuilders, Version=1.0.0.0, Culture=neutral" />
+            <add name="Secrets" userSecretsId="695823c3-6921-4458-b60b-2b82bbd39b8d" type="Microsoft.Configuration.ConfigurationBuilders.UserSecretsConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.UserSecrets, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+            <add name="AzureKeyVault" vaultName="[VaultName]" type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Azure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
         </builders>
-    </configBuilders>
+      </configBuilders>
     ```
 3. Określ sekcję appSettings przy użyciu konstruktora konfiguracji Key Vault. Upewnij się, że dla ustawienia tajnego istnieje wpis z wartością fikcyjną.
 

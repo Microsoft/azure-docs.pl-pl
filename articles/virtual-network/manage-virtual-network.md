@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 0a35576435780ee43d9f2aa99167b736f90799ab
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5581a4c43f0b78dc8c14c44bfb1ded371a925fd0
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265249"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88706034"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Tworzenie, zmienianie i usuwanie sieci wirtualnej
 
@@ -25,7 +25,7 @@ ms.locfileid: "87265249"
 
 Dowiedz się, jak utworzyć i usunąć sieć wirtualną oraz zmienić ustawienia, takie jak serwery DNS i przestrzenie adresów IP, dla istniejącej sieci wirtualnej. Jeśli dopiero zaczynasz korzystanie z sieci wirtualnych, możesz dowiedzieć się więcej o nich w [sieci wirtualnej](virtual-networks-overview.md) lub za pomocą [samouczka](quick-create-portal.md). Sieć wirtualna zawiera podsieci. Aby dowiedzieć się, jak tworzyć, zmieniać i usuwać podsieci, zobacz [Zarządzanie podsieciami](virtual-network-manage-subnet.md).
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Przed wykonaniem kroków opisanych w sekcji tego artykułu wykonaj następujące zadania:
 
@@ -49,9 +49,8 @@ Przed wykonaniem kroków opisanych w sekcji tego artykułu wykonaj następujące
 
      Chociaż można zdefiniować tylko jeden zakres adresów podczas tworzenia sieci wirtualnej w portalu, można dodać więcej zakresów adresów do przestrzeni adresowej po utworzeniu sieci wirtualnej. Aby dowiedzieć się, jak dodać zakres adresów do istniejącej sieci wirtualnej, zobacz [Dodawanie lub usuwanie zakresu adresów](#add-or-remove-an-address-range).
 
-     >[!WARNING]
-     >Jeśli sieć wirtualna ma zakresy adresów, które nakładają się na inną sieć wirtualną lub sieć lokalną, nie można połączyć obu tych sieci. Przed zdefiniowaniem zakresu adresów należy rozważyć, czy w przyszłości warto połączyć sieć wirtualną z innymi sieciami wirtualnymi lub sieciami lokalnymi.
-     >
+     > [!WARNING]
+     > Jeśli sieć wirtualna ma zakresy adresów, które nakładają się na inną sieć wirtualną lub sieć lokalną, nie można połączyć obu tych sieci. Przed zdefiniowaniem zakresu adresów należy rozważyć, czy w przyszłości warto połączyć sieć wirtualną z innymi sieciami wirtualnymi lub sieciami lokalnymi. Firma Microsoft zaleca skonfigurowanie zakresów adresów sieci wirtualnej z prywatną przestrzenią adresową lub publiczną przestrzenią adresową posiadaną przez organizację.
      >
 
      - **Nazwa podsieci**: Nazwa podsieci musi być unikatowa w obrębie sieci wirtualnej. Po utworzeniu podsieci nie można zmienić jej nazwy. Portal wymaga zdefiniowania jednej podsieci podczas tworzenia sieci wirtualnej, nawet jeśli sieć wirtualna nie jest wymagana do posiadania żadnych podsieci. W portalu można zdefiniować tylko jedną podsieć podczas tworzenia sieci wirtualnej. Później można dodać więcej podsieci do sieci wirtualnej po utworzeniu sieci wirtualnej. Aby dodać podsieć do sieci wirtualnej, zobacz [Zarządzanie podsieciami](virtual-network-manage-subnet.md). Sieć wirtualną z wieloma podsieciami można utworzyć przy użyciu interfejsu wiersza polecenia platformy Azure lub programu PowerShell.

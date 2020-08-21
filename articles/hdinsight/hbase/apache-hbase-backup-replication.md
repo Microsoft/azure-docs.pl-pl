@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: b1830ddef44ef33d19c953622951779632e33e71
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5a3760956dfe9a713d344fd6684d75ea240ab7de
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076746"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705728"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Konfigurowanie kopii zapasowych i replikacji dla oprogramowania Apache HBase i Apache Phoenix w usłudze HDInsight
 
@@ -114,11 +114,11 @@ Adres docelowy składa się z następujących trzech części:
 
 `<destinationAddress> = <ZooKeeperQuorum>:<Port>:<ZnodeParent>`
 
-* `<ZooKeeperQuorum>`jest rozdzielaną przecinkami listą węzłów Apache ZooKeeper, na przykład:
+* `<ZooKeeperQuorum>` jest rozdzielaną przecinkami listą węzłów Apache ZooKeeper, na przykład:
 
     zk0-hdizc 2.54 o2oqawzlwevlfxgay2500xtg. DX. Internal. cloudapp. NET, zk4-hdizc 2.54 o2oqawzlwevlfxgay2500xtg. DX. Internal. cloudapp. NET, zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net
 
-* `<Port>`w przypadku usługi HDInsight wartość domyślna to 2181, a `<ZnodeParent>` `/hbase-unsecure` więc kompletność `<destinationAddress>` :
+* `<Port>` w przypadku usługi HDInsight wartość domyślna to 2181, a `<ZnodeParent>` `/hbase-unsecure` więc kompletność `<destinationAddress>` :
 
     zk0-hdizc 2.54 o2oqawzlwevlfxgay2500xtg. DX. Internal. cloudapp. NET, zk4-hdizc 2.54 o2oqawzlwevlfxgay2500xtg. DX. Internal. cloudapp. NET, zk3-hdizc 2.54 o2oqawzlwevlfxgay2500xtg. DX. Internal. cloudapp. NET: 2181:/HBase-Unsecure
 
@@ -213,7 +213,13 @@ hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot <snapshotName> -
 hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
 ```
 
-Po wyeksportowaniu migawki należy użyć protokołu SSH do węzła głównego klastra docelowego i przywrócić migawkę przy użyciu polecenia restore_snapshot, jak opisano wcześniej.
+Jeśli nie masz dołączonego pomocniczego konta usługi Azure Storage do klastra źródłowego lub Jeśli źródłowy klaster jest klastrem lokalnym (lub klastrem innym niż HDI), możesz napotkać problemy z autoryzacją podczas próby uzyskania dostępu do konta magazynu klastra HDI. Aby rozwiązać ten problem, określ klucz dla konta magazynu jako parametr wiersza polecenia, jak pokazano w poniższym przykładzie. Klucz można uzyskać na koncie magazynu w Azure Portal.
+
+```console
+hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.myaccount.blob.core.windows.net=mykey -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
+```
+
+Po wyeksportowaniu migawki należy użyć protokołu SSH do węzła głównego klastra docelowego i przywrócić migawkę przy użyciu `restore_snapshot` polecenia zgodnie z wcześniejszym opisem.
 
 Migawki zapewniają kompletną kopię zapasową tabeli w czasie wykonywania `snapshot` polecenia. Migawki nie zapewniają możliwości wykonywania migawek przyrostowych w systemie Windows, ani nie określają podzbiorów rodzin kolumn do uwzględnienia w migawce.
 

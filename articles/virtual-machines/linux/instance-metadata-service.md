@@ -11,18 +11,18 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: d0f6655d22818c119d1098bbce96ea3699a42a50
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: bb9bc978e49cddab13ab1e4f7ec4f0b74d369ac1
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168137"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705847"
 ---
 # <a name="azure-instance-metadata-service-imds"></a>Instance Metadata Service platformy Azure (IMDS)
 
 Usługa Azure Instance Metadata Service (IMDS) zawiera informacje o aktualnie uruchomionych wystąpieniach maszyn wirtualnych i może służyć do zarządzania maszynami wirtualnymi i ich konfigurowania.
 Te informacje obejmują jednostki SKU, magazyn, konfiguracje sieci i nadchodzące zdarzenia konserwacji. Pełną listę dostępnych danych można znaleźć w temacie [Metadata API](#metadata-apis).
-Instance Metadata Service jest dostępny dla wystąpień maszyny wirtualnej i zestawu skalowania maszyn wirtualnych. Jest on dostępny tylko w przypadku uruchamiania maszyn wirtualnych utworzonych/zarządzanych przy użyciu [Azure Resource Manager](/rest/api/resources/).
+Instance Metadata Service jest dostępny do uruchamiania wystąpień maszyny wirtualnej i zestawu skalowania maszyn wirtualnych. Wszystkie interfejsy API obsługują maszyny wirtualne utworzone/zarządzane przy użyciu [Azure Resource Manager](/rest/api/resources/). Tylko zaświadczone i sieciowe punkty końcowe obsługują klasyczne maszyny wirtualne (inne niż ARM) i zaświadczą, że tylko w ograniczonym zakresie.
 
 IMDS platformy Azure to punkt końcowy REST, który jest dostępny w dobrze znanym adresie IP bez obsługi routingu ( `169.254.169.254` ), można uzyskać do niego dostęp tylko z poziomu maszyny wirtualnej. Komunikacja między maszyną wirtualną i IMDS nigdy nie opuszcza hosta.
 Najlepszym rozwiązaniem jest, aby klienci HTTP pomijali serwery proxy sieci Web w ramach maszyny wirtualnej podczas wykonywania zapytań w IMDS i traktować `169.254.169.254` je tak samo jak [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md) .
@@ -172,7 +172,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?ap
 > [!NOTE]
 > W przypadku węzłów liści w/Metadata/instance `format=json` nie działa. Dla tych zapytań `format=text` należy jawnie określić, ponieważ format domyślny to JSON.
 
-### <a name="versioning"></a>Obsługa wersji
+### <a name="versioning"></a>Przechowywanie wersji
 
 Instance Metadata Service ma wersję, a określenie wersji interfejsu API w żądaniu HTTP jest obowiązkowe.
 
@@ -684,7 +684,7 @@ Identyfikator jednorazowy jest opcjonalnym 10-cyfrowym ciągiem. Jeśli nie zost
 }
 ```
 
-Obiekt BLOB sygnatury jest podpisanym przez [PKCS7](https://aka.ms/pkcs7) wersją dokumentu. Zawiera certyfikat używany do podpisywania wraz ze szczegółami maszyny wirtualnej, takimi jak identyfikator maszyny wirtualnej, SKU, nonce, Identyfikator subskrypcji, sygnatura czasowa do utworzenia i wygaśnięcia dokumentu oraz informacje o planie obrazu. Informacje o planie są wypełniane tylko dla obrazów w portalu Azure Marketplace. Certyfikat może zostać wyodrębniony z odpowiedzi i użyty do zweryfikowania, że odpowiedź jest prawidłowa i pochodzi z platformy Azure.
+Obiekt BLOB sygnatury jest podpisanym przez [PKCS7](https://aka.ms/pkcs7) wersją dokumentu. Zawiera certyfikat używany do podpisywania wraz z konkretnymi szczegółami dotyczącymi maszyn wirtualnych. W przypadku maszyn wirtualnych ARM obejmuje to identyfikator maszyny wirtualnej, jednostkę SKU, nonce, Identyfikator subskrypcji, sygnaturę czasową do utworzenia i wygaśnięcia dokumentu oraz informacje o planie obrazu. Informacje o planie są wypełniane tylko dla obrazów w portalu Azure Marketplace. W przypadku maszyn wirtualnych z systemem klasycznym (innym niż ARM) należy wypełnić tylko identyfikator maszyny wirtualnej. Certyfikat może zostać wyodrębniony z odpowiedzi i użyty do zweryfikowania, że odpowiedź jest prawidłowa i pochodzi z platformy Azure.
 Dokument zawiera następujące pola:
 
 Dane | Opis
@@ -694,8 +694,11 @@ plan | [Plan obrazu portalu Azure Marketplace](/rest/api/compute/virtualmachines
 Sygnatura czasowa/createdOn | Sygnatura czasowa UTC dla momentu utworzenia podpisanego dokumentu
 Sygnatura czasowa/expiresOn | Sygnatura czasowa UTC dla momentu wygaśnięcia podpisanego dokumentu
 vmId |  [Unikatowy identyfikator](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) dla maszyny wirtualnej
-subscriptionId | Subskrypcja platformy Azure dla maszyny wirtualnej, wprowadzona w`2019-04-30`
-sku | Określona jednostka SKU dla obrazu maszyny wirtualnej wprowadzona w`2019-11-01`
+subscriptionId | Subskrypcja platformy Azure dla maszyny wirtualnej, wprowadzona w `2019-04-30`
+sku | Określona jednostka SKU dla obrazu maszyny wirtualnej wprowadzona w `2019-11-01`
+
+> [!NOTE]
+> W przypadku maszyn wirtualnych z systemem klasycznym (innym niż ARM) należy wypełnić tylko identyfikator maszyny wirtualnej.
 
 ### <a name="sample-2-validating-that-the-vm-is-running-in-azure"></a>Przykład 2: Weryfikowanie, czy maszyna wirtualna jest uruchomiona na platformie Azure
 

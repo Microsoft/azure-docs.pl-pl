@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 229a74fe760386b59bc83373cc7b1429bd826929
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d611fc7eff2efa7a632f4b5467b5829a8374b95e
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298451"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705388"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Różnice w języku T-SQL między SQL Server & wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -26,9 +26,9 @@ Ten artykuł zawiera podsumowanie i wyjaśnienie różnic między wystąpieniem 
 
 Wystąpienie zarządzane SQL zapewnia wysoką zgodność z aparatem bazy danych SQL Server i większość funkcji jest obsługiwanych w wystąpieniu zarządzanym SQL.
 
-![Migracja](./media/transact-sql-tsql-differences-sql-server/migration.png)
+![Łatwa migracja z SQL Server](./media/transact-sql-tsql-differences-sql-server/migration.png)
 
-Istnieją pewne ograniczenia PaaS wprowadzone w wystąpieniu zarządzanym SQL, a niektóre zmiany zachowania są porównywane z SQL Server. Różnice są podzielone na następujące kategorie:<a name="Differences"></a>
+Istnieją pewne ograniczenia PaaS wprowadzone w wystąpieniu zarządzanym SQL, a niektóre zmiany zachowania są porównywane z SQL Server. Różnice są podzielone na następujące kategorie: <a name="Differences"></a>
 
 - [Dostępność](#availability) obejmuje różnice w przypadku [grup dostępności](#always-on-availability-groups) , które są zawsze włączone i [kopie zapasowe](#backup).
 - [Zabezpieczenia](#security) obejmują różnice między [inspekcjami](#auditing), [certyfikatami](#certificates), [poświadczeniami](#credential), [dostawcami usług kryptograficznych](#cryptographic-providers), [logowania i użytkownikami](#logins-and-users)oraz [kluczem usługi i kluczem głównym usługi](#service-key-and-service-master-key).
@@ -60,8 +60,8 @@ Wystąpienie zarządzane SQL ma automatyczne kopie zapasowe, dlatego użytkownic
   - `BACKUP TO URL`Obsługiwane są tylko.
   - `FILE`, `TAPE` i urządzenia zapasowe nie są obsługiwane.
 - Większość ogólnych `WITH` opcji jest obsługiwana.
-  - `COPY_ONLY`jest obowiązkowy.
-  - `FILE_SNAPSHOT`nie jest obsługiwana.
+  - `COPY_ONLY` jest obowiązkowy.
+  - `FILE_SNAPSHOT` nie jest obsługiwana.
   - Opcje taśmy: `REWIND` , `NOREWIND` , `UNLOAD` i `NOUNLOAD` nie są obsługiwane.
   - Opcje specyficzne dla dziennika: `NORECOVERY` , `STANDBY` i `NO_TRUNCATE` nie są obsługiwane.
 
@@ -132,8 +132,8 @@ Zobacz [Tworzenie poświadczeń](/sql/t-sql/statements/create-credential-transac
 
 Wystąpienie zarządzane SQL nie może uzyskać dostępu do plików, więc nie można utworzyć dostawców usług kryptograficznych:
 
-- `CREATE CRYPTOGRAPHIC PROVIDER`nie jest obsługiwana. Zobacz [Tworzenie dostawcy usług kryptograficznych](/sql/t-sql/statements/create-cryptographic-provider-transact-sql).
-- `ALTER CRYPTOGRAPHIC PROVIDER`nie jest obsługiwana. Zobacz [ALTER Cryptographic Provider](/sql/t-sql/statements/alter-cryptographic-provider-transact-sql).
+- `CREATE CRYPTOGRAPHIC PROVIDER` nie jest obsługiwana. Zobacz [Tworzenie dostawcy usług kryptograficznych](/sql/t-sql/statements/create-cryptographic-provider-transact-sql).
+- `ALTER CRYPTOGRAPHIC PROVIDER` nie jest obsługiwana. Zobacz [ALTER Cryptographic Provider](/sql/t-sql/statements/alter-cryptographic-provider-transact-sql).
 
 ### <a name="logins-and-users"></a>Nazwy logowania i użytkownicy
 
@@ -188,12 +188,12 @@ Wystąpienie zarządzane SQL nie może uzyskać dostępu do plików, więc nie m
 - [Tworzenie kopii zapasowej klucza głównego usługi](/sql/t-sql/statements/backup-service-master-key-transact-sql) nie jest obsługiwane (zarządzane przez usługę SQL Database).
 - [Przywracanie klucza głównego usługi](/sql/t-sql/statements/restore-service-master-key-transact-sql) nie jest obsługiwane (zarządzane przez usługę SQL Database).
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 ### <a name="buffer-pool-extension"></a>Rozszerzenie puli buforów
 
 - [Rozszerzenie puli buforów](/sql/database-engine/configure-windows/buffer-pool-extension) nie jest obsługiwane.
-- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION`nie jest obsługiwana. Zobacz [ALTER Server Configuration](/sql/t-sql/statements/alter-server-configuration-transact-sql).
+- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` nie jest obsługiwana. Zobacz [ALTER Server Configuration](/sql/t-sql/statements/alter-server-configuration-transact-sql).
 
 ### <a name="collation"></a>Sortowanie
 
@@ -212,7 +212,7 @@ Zobacz [ALTER DATABASE — poziom zgodności](/sql/t-sql/statements/alter-databa
 Funkcja dublowania baz danych nie jest obsługiwana.
 
 - `ALTER DATABASE SET PARTNER``SET WITNESS`Opcje i nie są obsługiwane.
-- `CREATE ENDPOINT … FOR DATABASE_MIRRORING`nie jest obsługiwana.
+- `CREATE ENDPOINT … FOR DATABASE_MIRRORING` nie jest obsługiwana.
 
 Aby uzyskać więcej informacji, zobacz [ALTER DATABASE partner i Set monitor](/sql/t-sql/statements/alter-database-transact-sql-database-mirroring) oraz [Create Endpoint... DLA DATABASE_MIRRORING](/sql/t-sql/statements/create-endpoint-transact-sql).
 
@@ -230,7 +230,7 @@ Następujące ograniczenia mają zastosowanie do `CREATE DATABASE` :
 
 - Nie można definiować plików i grup plików. 
 - `CONTAINMENT`Opcja nie jest obsługiwana. 
-- `WITH`Opcje nie są obsługiwane. 
+- `WITH` Opcje nie są obsługiwane. 
    > [!TIP]
    > Aby obejść ten element, użyj programu `ALTER DATABASE` After `CREATE DATABASE` do ustawienia opcji bazy danych w celu dodania plików lub ustawienia zawierania. 
 
@@ -276,7 +276,7 @@ Nie można modyfikować następujących opcji:
 
 Aby uzyskać więcej informacji, zobacz [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
-### <a name="sql-server-agent"></a>SQL Server Agent
+### <a name="sql-server-agent"></a>Program SQL Server Agent
 
 - Włączanie i wyłączanie agenta SQL Server nie jest obecnie obsługiwane w wystąpieniu zarządzanym SQL. Agent SQL zawsze działa.
 - Ustawienia agenta SQL Server są tylko do odczytu. Procedura `sp_set_agent_properties` nie jest obsługiwana w wystąpieniu zarządzanym SQL. 
@@ -327,20 +327,20 @@ Aby uzyskać informacje o sposobach tworzenia i modyfikowania tabel, zobacz [CRE
 
 Wystąpienie zarządzane SQL nie może uzyskać dostępu do udziałów plików i folderów systemu Windows, więc pliki muszą zostać zaimportowane z usługi Azure Blob Storage:
 
-- `DATASOURCE`jest wymagany w `BULK INSERT` poleceniu podczas importowania plików z usługi Azure Blob Storage. Zobacz [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql).
-- `DATASOURCE`jest wymagany w `OPENROWSET` funkcji podczas odczytywania zawartości pliku z usługi Azure Blob Storage. Zobacz [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
-- `OPENROWSET`może służyć do odczytywania danych z Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL lub wystąpienia SQL Server. Inne źródła, takie jak bazy danych Oracle lub pliki programu Excel, nie są obsługiwane.
+- `DATASOURCE` jest wymagany w `BULK INSERT` poleceniu podczas importowania plików z usługi Azure Blob Storage. Zobacz [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql).
+- `DATASOURCE` jest wymagany w `OPENROWSET` funkcji podczas odczytywania zawartości pliku z usługi Azure Blob Storage. Zobacz [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
+- `OPENROWSET` może służyć do odczytywania danych z Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL lub wystąpienia SQL Server. Inne źródła, takie jak bazy danych Oracle lub pliki programu Excel, nie są obsługiwane.
 
 ### <a name="clr"></a>CLR
 
 Wystąpienie zarządzane SQL nie może uzyskać dostępu do udziałów plików i folderów systemu Windows, więc obowiązują następujące ograniczenia:
 
 - `CREATE ASSEMBLY FROM BINARY`Obsługiwane są tylko. Zobacz [Tworzenie zestawu na podstawie danych binarnych](/sql/t-sql/statements/create-assembly-transact-sql). 
-- `CREATE ASSEMBLY FROM FILE`nie jest obsługiwana. Zobacz [Tworzenie zestawu z pliku](/sql/t-sql/statements/create-assembly-transact-sql).
-- `ALTER ASSEMBLY`nie można odwoływać się do plików. Zobacz [ALTER Assembly](/sql/t-sql/statements/alter-assembly-transact-sql).
+- `CREATE ASSEMBLY FROM FILE` nie jest obsługiwana. Zobacz [Tworzenie zestawu z pliku](/sql/t-sql/statements/create-assembly-transact-sql).
+- `ALTER ASSEMBLY` nie można odwoływać się do plików. Zobacz [ALTER Assembly](/sql/t-sql/statements/alter-assembly-transact-sql).
 
 ### <a name="database-mail-db_mail"></a>Poczta bazy danych (db_mail)
- - `sp_send_dbmail`nie można wysłać załączników przy użyciu @file_attachments parametru. Nie ma dostępu do lokalnego systemu plików ani udziałów zewnętrznych ani platformy Azure Blob Storage.
+ - `sp_send_dbmail` nie można wysłać załączników przy użyciu @file_attachments parametru. Nie ma dostępu do lokalnego systemu plików ani udziałów zewnętrznych ani platformy Azure Blob Storage.
  - Zobacz znane problemy związane z `@query` parametrem i uwierzytelnianiem.
  
 ### <a name="dbcc"></a>DBCC
@@ -364,13 +364,13 @@ Niektóre elementy docelowe specyficzne dla systemu Windows dla zdarzeń rozszer
 
 ### <a name="external-libraries"></a>Biblioteki zewnętrzne
 
-Biblioteki zewnętrzne w bazie danych R i Python nie są jeszcze obsługiwane. Zobacz [SQL Server Machine Learning Services](/sql/advanced-analytics/r/sql-server-r-services).
+Biblioteki zewnętrzne języka R i Python są obsługiwane w ograniczonej publicznej wersji zapoznawczej. Zobacz [Machine Learning Services w wystąpieniu zarządzanym usługi Azure SQL (wersja zapoznawcza)](machine-learning-services-overview.md).
 
 ### <a name="filestream-and-filetable"></a>FILESTREAM i FileTable
 
 - Dane FILESTREAM nie są obsługiwane.
 - Baza danych nie może zawierać grup plików z `FILESTREAM` danymi.
-- `FILETABLE`nie jest obsługiwana.
+- `FILETABLE` nie jest obsługiwana.
 - Tabele nie mogą mieć `FILESTREAM` typów.
 - Następujące funkcje nie są obsługiwane:
   - `GetPathLocator()`
@@ -396,7 +396,7 @@ Połączone serwery w wystąpieniu zarządzanym SQL obsługują ograniczoną lic
 Operacje: 
 
 - Transakcje zapisu między wystąpieniami nie są obsługiwane.
-- `sp_dropserver`jest obsługiwany w przypadku upuszczania połączonego serwera. Zobacz [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
+- `sp_dropserver` jest obsługiwany w przypadku upuszczania połączonego serwera. Zobacz [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - `OPENROWSET`Funkcja może służyć do wykonywania zapytań tylko w wystąpieniach SQL Server. Mogą być zarządzane, lokalne lub na maszynach wirtualnych. Zobacz [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - `OPENDATASOURCE`Funkcja może służyć do wykonywania zapytań tylko w wystąpieniach SQL Server. Mogą być zarządzane, lokalne lub na maszynach wirtualnych. Tylko `SQLNCLI` wartości, `SQLNCLI11` i `SQLOLEDB` są obsługiwane jako dostawcy. Może to być na przykład `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Zobacz [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
 - Połączonych serwerów nie można używać do odczytywania plików (Excel, CSV) z udziałów sieciowych. Spróbuj użyć [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) lub [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) , który odczytuje pliki CSV z usługi Azure Blob Storage. Śledź te żądania względem [elementu opinii o wystąpieniu zarządzanym SQL](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
@@ -429,28 +429,28 @@ Aby uzyskać więcej informacji na temat konfigurowania replikacji transakcyjnej
   - `RESTORE LOG ONLY`
   - `RESTORE REWINDONLY ONLY`
 - Źródło: 
-  - `FROM URL`(Magazyn obiektów blob platformy Azure) jest jedyną obsługiwaną opcją.
+  - `FROM URL` (Magazyn obiektów blob platformy Azure) jest jedyną obsługiwaną opcją.
   - `FROM DISK`/`TAPE`/Backup urządzenie nie jest obsługiwane.
   - Zestawy kopii zapasowych nie są obsługiwane.
-- `WITH`Opcje nie są obsługiwane. Próby przywracania, takie `WITH` jak `DIFFERENTIAL` ,, `STATS` `REPLACE` itp., zakończą się niepowodzeniem.
+- `WITH` Opcje nie są obsługiwane. Próby przywracania, takie `WITH` jak `DIFFERENTIAL` ,, `STATS` `REPLACE` itp., zakończą się niepowodzeniem.
 - `ASYNC RESTORE`: Przywracanie jest kontynuowane nawet w przypadku przerwania połączenia z klientem. Jeśli połączenie zostało porzucone, można sprawdzić `sys.dm_operation_status` stan operacji przywracania oraz utworzyć i usunąć bazę danych. Zobacz sekcję [sys. dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
 
 Następujące opcje bazy danych są ustawiane lub zastępowane i nie można ich zmienić później: 
 
-- `NEW_BROKER`Jeśli Broker nie jest włączony w pliku. bak. 
-- `ENABLE_BROKER`Jeśli Broker nie jest włączony w pliku. bak. 
-- `AUTO_CLOSE=OFF`Jeśli baza danych w pliku. bak ma wartość `AUTO_CLOSE=ON` . 
-- `RECOVERY FULL`Jeśli baza danych w pliku bak ma `SIMPLE` tryb odzyskiwania lub jest w nim `BULK_LOGGED` .
+- `NEW_BROKER` Jeśli Broker nie jest włączony w pliku. bak. 
+- `ENABLE_BROKER` Jeśli Broker nie jest włączony w pliku. bak. 
+- `AUTO_CLOSE=OFF` Jeśli baza danych w pliku. bak ma wartość `AUTO_CLOSE=ON` . 
+- `RECOVERY FULL` Jeśli baza danych w pliku bak ma `SIMPLE` tryb odzyskiwania lub jest w nim `BULK_LOGGED` .
 - Grupa plików zoptymalizowana pod kątem pamięci jest dodawana i nazywana XTP, jeśli nie została w pliku source. bak. 
 - Wszystkie istniejące grupy plików zoptymalizowane pod kątem pamięci są zmieniane na XTP. 
-- `SINGLE_USER`i `RESTRICTED_USER` Opcje są konwertowane na `MULTI_USER` .
+- `SINGLE_USER` i `RESTRICTED_USER` Opcje są konwertowane na `MULTI_USER` .
 
 Ograniczenia: 
 
 - Kopie zapasowe uszkodzonych baz danych mogą zostać przywrócone w zależności od typu uszkodzenia, ale automatyczne kopie zapasowe nie będą pobierane do momentu, gdy uszkodzenie nie zostanie naprawione. Upewnij się, że uruchomiono `DBCC CHECKDB` w źródłowym wystąpieniu zarządzanym SQL, i Użyj kopii zapasowej, `WITH CHECKSUM` Aby uniknąć tego problemu.
 - Nie można przywrócić `.BAK` pliku bazy danych zawierającej jakiekolwiek ograniczenie opisane w tym dokumencie (na przykład `FILESTREAM` lub `FILETABLE` obiekty) w wystąpieniu zarządzanym SQL.
-- `.BAK`nie można przywrócić plików zawierających wiele zestawów kopii zapasowych. 
-- `.BAK`nie można przywrócić plików zawierających wiele plików dziennika.
+- `.BAK` nie można przywrócić plików zawierających wiele zestawów kopii zapasowych. 
+- `.BAK` nie można przywrócić plików zawierających wiele plików dziennika.
 - Kopie zapasowe, które zawierają bazy danych o rozmiarze większym niż 8 TB, aktywne obiekty OLTP w pamięci lub liczba plików, które przekroczą 280 plików na wystąpienie, nie mogą zostać przywrócone na wystąpienie Ogólnego przeznaczenia. 
 - Kopie zapasowe, które zawierają bazy danych o rozmiarze większym niż 4 TB lub obiekty OLTP w pamięci o łącznym poziomie większym niż rozmiar opisany w [limitach zasobów](resource-limits.md) , nie mogą zostać przywrócone w wystąpieniu krytyczne dla działania firmy.
 Aby uzyskać informacje na temat przywracania instrukcji, zobacz [przywracanie instrukcji](/sql/t-sql/statements/restore-statements-transact-sql).
@@ -468,7 +468,7 @@ Broker usług dla wielu wystąpień nie jest obsługiwany:
 
 ### <a name="stored-procedures-functions-and-triggers"></a>Procedury składowane, funkcje i wyzwalacze
 
-- `NATIVE_COMPILATION`nie jest obsługiwana w warstwie Ogólnego przeznaczenia.
+- `NATIVE_COMPILATION` nie jest obsługiwana w warstwie Ogólnego przeznaczenia.
 - Następujące opcje [sp_configure](/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql) nie są obsługiwane: 
   - `allow polybase export`
   - `allow updates`
@@ -476,8 +476,8 @@ Broker usług dla wielu wystąpień nie jest obsługiwany:
   - `remote access`
   - `remote data archive`
   - `remote proc trans`
-- `sp_execute_external_scripts`nie jest obsługiwana. Zobacz [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
-- `xp_cmdshell`nie jest obsługiwana. Zobacz [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
+- `sp_execute_external_scripts` nie jest obsługiwana. Zobacz [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
+- `xp_cmdshell` nie jest obsługiwana. Zobacz [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
 - `Extended stored procedures`nie są obsługiwane, w tym `sp_addextendedproc`   i `sp_dropextendedproc` . Zobacz [rozszerzone procedury składowane](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db` i `sp_detach_db` nie są obsługiwane. Zobacz [sp_attach_db](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql)i [sp_detach_db](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
@@ -485,13 +485,13 @@ Broker usług dla wielu wystąpień nie jest obsługiwany:
 
 Następujące zmienne, funkcje i widoki zwracają różne wyniki:
 
-- `SERVERPROPERTY('EngineEdition')`Zwraca wartość 8. Ta właściwość jednoznacznie identyfikuje wystąpienie zarządzane SQL. Zobacz [ServerProperty](/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')`Zwraca wartość NULL, ponieważ koncepcja wystąpienia, która istnieje dla SQL Server nie ma zastosowania do wystąpienia zarządzanego SQL. Zobacz [ServerProperty ("InstanceName")](/sql/t-sql/functions/serverproperty-transact-sql).
-- `@@SERVERNAME`Zwraca pełną nazwę DNS "Connected", na przykład my-managed-instance.wcus17662feb9ce98.database.windows.net. Zobacz [@ @SERVERNAME ](/sql/t-sql/functions/servername-transact-sql). 
-- `SYS.SERVERS`Zwraca pełną nazwę DNS "Connected", `myinstance.domain.database.windows.net` na przykład dla właściwości "name" i "data_source". Zobacz sekcję [sys. SERWERY](/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
-- `@@SERVICENAME`Zwraca wartość NULL, ponieważ koncepcja usługi, która istnieje dla SQL Server nie ma zastosowania do wystąpienia zarządzanego SQL. Zobacz [@ @SERVICENAME ](/sql/t-sql/functions/servicename-transact-sql).
-- `SUSER_ID`jest obsługiwana. Zwraca wartość NULL, jeśli logowanie za pomocą usługi Azure AD nie znajduje się w sys.syslogowaniach. Zobacz [SUSER_ID](/sql/t-sql/functions/suser-id-transact-sql). 
-- `SUSER_SID`nie jest obsługiwana. Zwracane są błędne dane, które są tymczasowym znanym problemem. Zobacz [SUSER_SID](/sql/t-sql/functions/suser-sid-transact-sql). 
+- `SERVERPROPERTY('EngineEdition')` Zwraca wartość 8. Ta właściwość jednoznacznie identyfikuje wystąpienie zarządzane SQL. Zobacz [ServerProperty](/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` Zwraca wartość NULL, ponieważ koncepcja wystąpienia, która istnieje dla SQL Server nie ma zastosowania do wystąpienia zarządzanego SQL. Zobacz [ServerProperty ("InstanceName")](/sql/t-sql/functions/serverproperty-transact-sql).
+- `@@SERVERNAME` Zwraca pełną nazwę DNS "Connected", na przykład my-managed-instance.wcus17662feb9ce98.database.windows.net. Zobacz [@ @SERVERNAME ](/sql/t-sql/functions/servername-transact-sql). 
+- `SYS.SERVERS` Zwraca pełną nazwę DNS "Connected", `myinstance.domain.database.windows.net` na przykład dla właściwości "name" i "data_source". Zobacz sekcję [sys. SERWERY](/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
+- `@@SERVICENAME` Zwraca wartość NULL, ponieważ koncepcja usługi, która istnieje dla SQL Server nie ma zastosowania do wystąpienia zarządzanego SQL. Zobacz [@ @SERVICENAME ](/sql/t-sql/functions/servicename-transact-sql).
+- `SUSER_ID` jest obsługiwana. Zwraca wartość NULL, jeśli logowanie za pomocą usługi Azure AD nie znajduje się w sys.syslogowaniach. Zobacz [SUSER_ID](/sql/t-sql/functions/suser-id-transact-sql). 
+- `SUSER_SID` nie jest obsługiwana. Zwracane są błędne dane, które są tymczasowym znanym problemem. Zobacz [SUSER_SID](/sql/t-sql/functions/suser-sid-transact-sql). 
 
 ## <a name="environment-constraints"></a><a name="Environment"></a>Ograniczenia środowiska
 
@@ -515,7 +515,7 @@ Systemowe bazy danych nie są replikowane do wystąpienia dodatkowego w grupie t
 
 ### <a name="tempdb"></a>TEMPDB
 
-Maksymalny rozmiar pliku `tempdb` nie może być większy niż 24 GB na rdzeń w warstwie ogólnego przeznaczenia. Maksymalny `tempdb` rozmiar w warstwie krytyczne dla działania firmy jest ograniczony przez rozmiar magazynu wystąpienia zarządzanego SQL. `Tempdb`rozmiar pliku dziennika jest ograniczony do 120 GB na warstwie Ogólnego przeznaczenia. Niektóre zapytania mogą zwrócić błąd, jeśli potrzebują ponad 24 GB na rdzeń w `tempdb` lub, jeśli generują więcej niż 120 GB danych dziennika.
+Maksymalny rozmiar pliku `tempdb` nie może być większy niż 24 GB na rdzeń w warstwie ogólnego przeznaczenia. Maksymalny `tempdb` rozmiar w warstwie krytyczne dla działania firmy jest ograniczony przez rozmiar magazynu wystąpienia zarządzanego SQL. `Tempdb` rozmiar pliku dziennika jest ograniczony do 120 GB na warstwie Ogólnego przeznaczenia. Niektóre zapytania mogą zwrócić błąd, jeśli potrzebują ponad 24 GB na rdzeń w `tempdb` lub, jeśli generują więcej niż 120 GB danych dziennika.
 
 ### <a name="msdb"></a>MSDB
 

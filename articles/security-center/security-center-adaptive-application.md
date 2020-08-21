@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: cbbfddca1a6a07625a69be8ffb0409640d825793
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: d4ed88dea0d230fd3488621c217ef9ea086310d5
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037022"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691483"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Korzystanie z adaptacyjnych kontrolek aplikacji w celu ograniczenia podatności na ataki maszyn
 
@@ -83,7 +83,7 @@ Wybierz zalecenie lub Otwórz stronę adaptacyjne kontrolki aplikacji, aby wyśw
     - **Brak zaleceń** -maszyn bez zdefiniowanej listy dozwolonych aplikacji, które nie obsługują tej funkcji. Twoja maszyna może znajdować się na tej karcie z następujących powodów:
       - Brak agenta Log Analytics
       - Agent Log Analytics nie wysyła zdarzeń
-      - Jest to maszyna z systemem Windows z wcześniej istniejącymi zasadami [funkcji AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker) , które są włączone przez obiekt zasad grupy lub zasady zabezpieczeń lokalnych.
+      - Jest to maszyna z systemem Windows z wcześniej istniejącymi zasadami [funkcji AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) , które są włączone przez obiekt zasad grupy lub zasady zabezpieczeń lokalnych.
 
       > [!TIP]
       > Security Center potrzebuje co najmniej dwóch tygodni danych do zdefiniowania unikatowych zaleceń dla każdej grupy maszyn. Ostatnio utworzone maszyny lub należące do subskrypcji, które były niedawno włączone przy użyciu warstwy Standardowa, będą wyświetlane na karcie **bez rekomendacji** .
@@ -187,7 +187,7 @@ Po przeniesieniu maszyny z jednej grupy do innej zasady kontroli aplikacji zasto
 
 1. Na stronie **adaptacyjne kontrolki aplikacji** na **skonfigurowanej** karcie Wybierz grupę zawierającą maszynę, która ma zostać przeniesiona.
 
-1. Otwórz listę **skonfigurowanych maszyn**.
+1. Otwórz listę  **skonfigurowanych maszyn**.
 
 1. Otwórz menu maszyny z trzech kropek na końcu wiersza, a następnie wybierz pozycję **Przenieś**. Zostanie otwarte okienko **Przenieś maszynę do innej grupy** .
 

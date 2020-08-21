@@ -8,12 +8,12 @@ ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: aab06b4870efd88893b4a14c1127de7ffcd2ba68
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: db7ae0bd33bc52f80788db4994dcf2a3ca4d909a
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520531"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705915"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planowanie wdrażania usługi Pliki Azure
 [Azure Files](storage-files-introduction.md) można wdrożyć na dwa sposoby: przez bezpośrednie zainstalowanie udziałów plików platformy Azure bezserwerowych lub buforowanie udziałów plików platformy Azure lokalnie przy użyciu Azure File Sync. Wybór opcji wdrożenia powoduje zmianę warunków, które należy wziąć pod uwagę podczas planowania wdrożenia. 
@@ -37,7 +37,7 @@ W przypadku wdrażania udziałów plików platformy Azure na kontach magazynu za
 
 ## <a name="identity"></a>Tożsamość
 Aby uzyskać dostęp do udziału plików platformy Azure, użytkownik musi zostać uwierzytelniony i ma autoryzację dostępu do udziału. Jest to wykonywane na podstawie tożsamości użytkownika uzyskującego dostęp do udziału plików. Azure Files integruje się z trzema głównymi dostawcami tożsamości:
-- **Lokalne Active Directory Domain Services (AD DS lub lokalne AD DS)** (wersja zapoznawcza): konta usługi Azure Storage można przyłączyć do domeny, Active Directory Domain Services, podobnie jak serwera plików lub urządzenia nas systemu Windows Server. Kontroler domeny można wdrożyć lokalnie, na maszynie wirtualnej platformy Azure, a nawet jako maszynę wirtualną w innym dostawcy chmury. Azure Files jest niezależny od do lokalizacji, w której znajduje się kontroler domeny. Gdy konto magazynu zostanie przyłączone do domeny, użytkownik końcowy może zainstalować udział plików przy użyciu konta użytkownika, które zarejestrowano na komputerze przy użyciu programu. Uwierzytelnianie oparte na usłudze AD korzysta z protokołu uwierzytelniania Kerberos.
+- **Lokalne Active Directory Domain Services (AD DS lub lokalne AD DS)**: konta usługi Azure Storage mogą być przyłączone do domeny, Active Directory Domain Services, podobnie jak serwer plików lub urządzenie nas z systemem Windows Server. Kontroler domeny można wdrożyć lokalnie, na maszynie wirtualnej platformy Azure, a nawet jako maszynę wirtualną w innym dostawcy chmury. Azure Files jest niezależny od do lokalizacji, w której znajduje się kontroler domeny. Gdy konto magazynu zostanie przyłączone do domeny, użytkownik końcowy może zainstalować udział plików przy użyciu konta użytkownika, które zarejestrowano na komputerze przy użyciu programu. Uwierzytelnianie oparte na usłudze AD korzysta z protokołu uwierzytelniania Kerberos.
 - **Azure Active Directory Domain Services (AD DS platformy Azure)**: usługa Azure AD DS udostępnia kontroler domeny zarządzany przez firmę Microsoft, który może być używany przez zasoby platformy Azure. Dołączenie domeny do konta magazynu do usługi Azure AD DS zapewnia podobne korzyści do dołączania do domeny Active Directory należącej do klienta. Ta opcja wdrażania jest najbardziej przydatna dla scenariuszy podnoszenia i przesunięcia aplikacji, które wymagają uprawnień opartych na usłudze AD. Ponieważ usługa Azure AD DS zapewnia uwierzytelnianie oparte na usłudze AD, ta opcja używa również protokołu uwierzytelniania Kerberos.
 - **Klucz konta usługi Azure Storage**: udziały plików platformy Azure mogą być również instalowane przy użyciu klucza konta usługi Azure Storage. Aby można było zainstalować udział plików w ten sposób, nazwa konta magazynu jest używana jako nazwa użytkownika, a klucz konta magazynu jest używany jako hasło. Użycie klucza konta magazynu do zainstalowania udziału plików platformy Azure jest skuteczną operacją administratora, ponieważ zainstalowany udział plików będzie miał pełne uprawnienia do wszystkich plików i folderów w udziale, nawet jeśli mają listy ACL. W przypadku korzystania z klucza konta magazynu w celu zainstalowania za pośrednictwem protokołu SMB jest używany protokół uwierzytelniania NTLMv2.
 
