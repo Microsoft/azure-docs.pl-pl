@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: f49a66fc6e233658b228b7ad9bacdaa23917afef
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 18c7e5b3a1401540d7a94186fda647d413d562c0
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648738"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723847"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Włącz rejestrowanie w przebiegach szkoleniowych usługi Azure ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -86,7 +86,9 @@ Azure Machine Learning może również rejestrować informacje z innych źróde�
 Informacje dotyczące rejestrowania metryk w programie Azure Machine Learning Designer (wersja zapoznawcza) znajdują się w temacie [How to log Metrics in projektant (wersja zapoznawcza)](how-to-track-designer-experiments.md)
 
 ## <a name="example-notebooks"></a>Przykładowe notesy
-W poniższym notesie przedstawiono Koncepcje opisane w tym artykule:
+
+W poniższych notesach przedstawiono Koncepcje opisane w tym artykule:
+* [Jak używać — Azure/szkolenia/uczenie lokalne](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
 * [Jak korzystać z programu — usługi Azure/śledzenia i monitorowania — eksperymenty/rejestrowanie — interfejs API](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]

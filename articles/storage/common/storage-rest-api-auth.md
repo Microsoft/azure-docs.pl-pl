@@ -10,12 +10,12 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: ozge
 ms.subservice: common
-ms.openlocfilehash: d43df68f48273b03fa9bde9633b487d69c0834ed
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 29bec00916f4cc3683dae5b6d3065e02a3cbe10f
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905384"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88724170"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Wywoływanie operacji interfejsu API REST przy użyciu autoryzacji klucza wspólnego
 
@@ -65,7 +65,7 @@ Przejrzyj odwołanie do operacji [ListContainers](/rest/api/storageservices/List
 
 **Metoda żądania**: get. To zlecenie jest metodą HTTP określoną jako właściwość obiektu żądania. Inne wartości tego zlecenia obejmują nagłówek, PUT i DELETE, w zależności od wywoływanego interfejsu API.
 
-**Identyfikator URI żądania**: `https://myaccount.blob.core.windows.net/?comp=list` .Identyfikator URI żądania jest tworzony na podstawie punktu końcowego konta usługi BLOB Storage `http://myaccount.blob.core.windows.net` i ciągu zasobu `/?comp=list` .
+**Identyfikator URI żądania**: `https://myaccount.blob.core.windows.net/?comp=list` .Identyfikator URI żądania jest tworzony na podstawie punktu końcowego konta usługi BLOB Storage `https://myaccount.blob.core.windows.net` i ciągu zasobu `/?comp=list` .
 
 [Parametry identyfikatora URI](/rest/api/storageservices/List-Containers2#uri-parameters): Istnieją dodatkowe parametry zapytania, których można użyć podczas wywoływania ListContainers. Kilka z tych parametrów jest *limitem czasu* dla wywołania (w sekundach) i *prefiksu*, który jest używany do filtrowania.
 

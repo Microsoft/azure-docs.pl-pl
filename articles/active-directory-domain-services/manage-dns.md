@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: b48fb62532402338fdf53cd6f9b15bac812c3c2c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: af321f4e9ef9e340026852a759bb70b9f03c77f6
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040218"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722946"
 ---
 # <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrowanie systemem DNS i tworzenie usług przesyłania dalej warunkowego w Azure Active Directory Domain Services domenie zarządzanej
 
@@ -107,7 +107,7 @@ Rozpoznawanie nazw zasobów w innych przestrzeniach nazw z maszyn wirtualnych po
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat zarządzania usługą DNS, zobacz [artykuł dotyczący narzędzi DNS w witrynie TechNet](https://technet.microsoft.com/library/cc753579.aspx).
+Aby uzyskać więcej informacji na temat zarządzania usługą DNS, zobacz [artykuł dotyczący narzędzi DNS w witrynie TechNet](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753579(v=ws.11)).
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

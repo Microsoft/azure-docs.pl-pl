@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 0b857cb853add1920e6933a9f1ebfd7a0f61b57f
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 307b1a6838c3a78c04ba6a36ffd52bd6b98aae04
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054276"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722827"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Zagadnienia dotyczące projektowania sieci wirtualnej i opcje konfiguracji Azure Active Directory Domain Services
 
@@ -94,7 +94,7 @@ Domena zarządzana tworzy pewne zasoby sieciowe podczas wdrażania. Te zasoby s�
 | Zasób platformy Azure                          | Opis |
 |:----------------------------------------|:---|
 | Karta sieciowa                  | Usługa Azure AD DS hostuje domenę zarządzaną na dwóch kontrolerach domeny (DC) działających w systemie Windows Server jako maszyn wirtualnych platformy Azure. Każda maszyna wirtualna ma interfejs sieci wirtualnej, który łączy się z podsiecią sieci wirtualnej. |
-| Dynamiczny publiczny adres IP w warstwie Standardowa      | Usługa Azure AD DS komunikuje się z usługą synchronizacji i zarządzania przy użyciu publicznego adresu IP jednostki SKU. Aby uzyskać więcej informacji o publicznych adresach IP, zobacz [typy adresów IP i metody alokacji na platformie Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
+| Dynamiczny publiczny adres IP w warstwie Standardowa      | Usługa Azure AD DS komunikuje się z usługą synchronizacji i zarządzania przy użyciu publicznego adresu IP jednostki SKU. Aby uzyskać więcej informacji o publicznych adresach IP, zobacz [typy adresów IP i metody alokacji na platformie Azure](../virtual-network/public-ip-addresses.md). |
 | Moduł równoważenia obciążenia w warstwie Standardowa platformy Azure            | Usługa Azure AD DS korzysta ze standardowego modułu równoważenia obciążenia jednostki SKU do translacji adresów sieciowych (NAT) i równoważenia obciążenia (gdy jest używany z bezpiecznym protokołem LDAP). Aby uzyskać więcej informacji na temat modułów równoważenia obciążenia platformy Azure, zobacz [co to jest Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
 | Reguły translatora adresów sieciowych (NAT) | Usługa Azure AD DS tworzy i używa trzech reguł translatora adresów sieciowych w ramach modułu równoważenia obciążenia — jednej reguły dla bezpiecznego ruchu HTTP i dwóch reguł bezpiecznego komunikacji zdalnej programu PowerShell. |
 | Reguły modułu równoważenia obciążenia                     | W przypadku skonfigurowania domeny zarządzanej pod kątem bezpiecznego protokołu LDAP na porcie TCP 636 trzy reguły są tworzone i używane w module równoważenia obciążenia do dystrybucji ruchu. |
@@ -104,7 +104,7 @@ Domena zarządzana tworzy pewne zasoby sieciowe podczas wdrażania. Te zasoby s�
 
 ## <a name="network-security-groups-and-required-ports"></a>Sieciowe grupy zabezpieczeń i wymagane porty
 
-[Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń)](../virtual-network/virtual-networks-nsg.md) zawiera listę reguł, które zezwalają na ruch sieciowy w sieci wirtualnej platformy Azure lub odmawiają go. Grupa zabezpieczeń sieci jest tworzona podczas wdrażania domeny zarządzanej zawierającej zestaw reguł umożliwiających usłudze udostępnianie funkcji uwierzytelniania i zarządzania. Ta domyślna grupa zabezpieczeń sieci jest skojarzona z podsiecią sieci wirtualnej, w której wdrożono domenę zarządzaną.
+[Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń)](../virtual-network/virtual-network-vnet-plan-design-arm.md) zawiera listę reguł, które zezwalają na ruch sieciowy w sieci wirtualnej platformy Azure lub odmawiają go. Grupa zabezpieczeń sieci jest tworzona podczas wdrażania domeny zarządzanej zawierającej zestaw reguł umożliwiających usłudze udostępnianie funkcji uwierzytelniania i zarządzania. Ta domyślna grupa zabezpieczeń sieci jest skojarzona z podsiecią sieci wirtualnej, w której wdrożono domenę zarządzaną.
 
 Następujące reguły sieciowej grupy zabezpieczeń są wymagane dla domeny zarządzanej w celu zapewnienia usług uwierzytelniania i zarządzania. Nie Edytuj ani nie usuwaj tych reguł sieciowej grupy zabezpieczeń dla podsieci sieci wirtualnej, w której jest wdrożona domena zarządzana.
 

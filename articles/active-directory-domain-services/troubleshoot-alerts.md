@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 91a060e8a5fe1bdaf3e6ea08811814297c355108
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 29bd7490ea9a03118f134ba11923ede2075e6fd5
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86222976"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722589"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Znane problemy: typowe alerty i rozwiązania w Azure Active Directory Domain Services
 
@@ -106,7 +106,7 @@ Usługa Azure AD DS wymaga aktywnej subskrypcji i nie można jej przenieść do 
 
 Usługa Azure AD DS wymaga aktywnej subskrypcji. Jeśli subskrypcja platformy Azure, z którą skojarzona jest domena zarządzana, nie jest aktywna, należy ją odnowić, aby ponownie aktywować subskrypcję.
 
-1. [Odnów subskrypcję platformy Azure](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
+1. [Odnów subskrypcję platformy Azure](../cost-management-billing/manage/subscription-disabled.md).
 2. Po odnowieniu subskrypcji powiadomienie AD DS platformy Azure umożliwi ponowne włączenie domeny zarządzanej.
 
 Po ponownym włączeniu ochrony domeny zarządzanej kondycja domeny zarządzanej jest automatycznie aktualizowana w ciągu dwóch godzin i usuwa alert.
@@ -162,7 +162,7 @@ Ten błąd jest nieodwracalny. Aby rozwiązać alert, [Usuń istniejącą domen�
 
 Niektóre automatycznie generowane jednostki usługi są używane do zarządzania zasobami i tworzenia ich dla domeny zarządzanej. Jeśli uprawnienia dostępu dla jednej z tych jednostek usługi zostaną zmienione, domena nie będzie mogła prawidłowo zarządzać zasobami. Poniższe kroki pokazują, jak zrozumieć, a następnie udzielić uprawnień dostępu do jednostki usługi:
 
-1. Przeczytaj o [kontroli dostępu opartej na rolach i sposobach udzielania dostępu do aplikacji w Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+1. Przeczytaj o [kontroli dostępu opartej na rolach i sposobach udzielania dostępu do aplikacji w Azure Portal](../role-based-access-control/role-assignments-portal.md).
 2. Przejrzyj dostęp, który jednostka usługi o IDENTYFIKATORze *abba844e-bc0e-44b0-947a-dc74e5d09022* , i Udziel dostępu, który został odrzucony w wcześniejszym terminie.
 
 ## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: brak wystarczającej liczby adresów IP w domenie zarządzanej
@@ -276,7 +276,7 @@ Następujące typowe przyczyny powodują zatrzymanie synchronizacji w domenie za
 
 Usługa Azure AD DS wymaga aktywnej subskrypcji. Jeśli subskrypcja platformy Azure, z którą skojarzona jest domena zarządzana, nie jest aktywna, należy ją odnowić, aby ponownie aktywować subskrypcję.
 
-1. [Odnów subskrypcję platformy Azure](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
+1. [Odnów subskrypcję platformy Azure](../cost-management-billing/manage/subscription-disabled.md).
 2. Po odnowieniu subskrypcji powiadomienie AD DS platformy Azure umożliwi ponowne włączenie domeny zarządzanej.
 
 Po ponownym włączeniu ochrony domeny zarządzanej kondycja domeny zarządzanej jest automatycznie aktualizowana w ciągu dwóch godzin i usuwa alert.

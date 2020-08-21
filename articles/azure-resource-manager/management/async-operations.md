@@ -2,14 +2,14 @@
 title: Stan operacji asynchronicznych
 description: Opisuje sposób śledzenia operacji asynchronicznych na platformie Azure. Pokazuje wartości używane do uzyskania stanu długotrwałej operacji.
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 08/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 68a00e50c7d3e0da757ee7a3a09274c5f1dbecad
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: e2c5ba137d5277466cf1b382d2b0b1bc02259f00
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718428"
+ms.locfileid: "88723456"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Śledź asynchroniczne operacje na platformie Azure
 
@@ -31,7 +31,7 @@ Zapoznaj się z [dokumentacją interfejsu API REST](/rest/api/azure/) , aby zoba
 
 Po otrzymaniu kodu odpowiedzi 201 lub 202 można przystąpić do monitorowania stanu operacji.
 
-## <a name="use-url-to-monitor-status"></a>Użyj adresu URL do monitorowania stanu
+## <a name="url-to-monitor-status"></a>Adres URL do monitorowania stanu
 
 Istnieją dwa różne sposoby monitorowania stanu operacji asynchronicznej. Należy określić prawidłowe podejście, sprawdzając wartości nagłówka, które są zwracane z oryginalnego żądania. Najpierw Wyszukaj:
 
@@ -45,7 +45,9 @@ Jeśli `Azure-AsyncOperation` nie jest jedną z wartości nagłówka, Wyszukaj:
 
 ## <a name="azure-asyncoperation-request-and-response"></a>Żądanie i odpowiedź na platformie Azure AsyncOperation
 
-Jeśli masz adres URL z `Azure-AsyncOperation` wartości nagłówka, Wyślij żądanie Get do tego adresu URL. Użyj wartości z, `Retry-After` Aby zaplanować częstotliwość sprawdzania stanu. Właściwości odpowiedzi mogą się różnić, ale zawsze zawierają stan operacji asynchronicznej.
+Jeśli masz adres URL z `Azure-AsyncOperation` wartości nagłówka, Wyślij żądanie Get do tego adresu URL. Użyj wartości z, `Retry-After` Aby zaplanować częstotliwość sprawdzania stanu. Uzyskasz obiekt odpowiedzi, który wskazuje stan operacji. Podczas sprawdzania stanu operacji przy użyciu adresu URL jest zwracana inna odpowiedź `Location` . Aby uzyskać więcej informacji na temat odpowiedzi z adresu URL lokalizacji, zobacz [Tworzenie konta magazynu (202 z lokalizacją i ponawianie operacji po)](#create-storage-account-202-with-location-and-retry-after).
+
+Właściwości odpowiedzi mogą się różnić, ale zawsze zawierają stan operacji asynchronicznej.
 
 ```json
 {

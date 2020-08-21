@@ -2,17 +2,17 @@
 title: Włączanie kompleksowego protokołu TLS na platformie Azure Application Gateway
 description: Ten artykuł zawiera omówienie Application Gateway kompleksowej obsługi protokołu TLS.
 services: application-gateway
-author: amsriva
+author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 5/13/2020
+ms.date: 08/21/2020
 ms.author: victorh
-ms.openlocfilehash: 1986955c7135cb9296937392b23635ae62d8d9f7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3d714b579bebb096745a47410da3f8f458e27161
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962105"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723303"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Omówienie kończenia protokołu TLS i kompleksowej usługi TLS z Application Gateway
 
@@ -30,7 +30,7 @@ Application Gateway obsługuje zakończenie protokołu TLS w bramie, po którym 
 Aby skonfigurować zakończenie protokołu TLS, do odbiornika musi zostać dodany certyfikat TLS/SSL, aby umożliwić Application Gateway uzyskanie klucza symetrycznego zgodnie ze specyfikacją protokołu TLS/SSL. Klucz symetryczny jest następnie używany do szyfrowania i odszyfrowywania ruchu wysyłanego do bramy. Certyfikat TLS/SSL musi być w formacie wymiany informacji osobistych (PFX). Ten format pliku umożliwia wyeksportowanie klucza prywatnego wymaganego przez bramę aplikacji w celu przeprowadzenia szyfrowania i odszyfrowywania ruchu.
 
 > [!IMPORTANT] 
-> Należy pamiętać, że certyfikat w odbiorniku wymaga przeładowania całego łańcucha certyfikatów. 
+> Certyfikat w odbiorniku wymaga przeładowania całego łańcucha certyfikatów (certyfikatu głównego z urzędu certyfikacji, pośrednich i certyfikatu liścia) w celu ustanowienia łańcucha zaufania. 
 
 
 > [!NOTE] 

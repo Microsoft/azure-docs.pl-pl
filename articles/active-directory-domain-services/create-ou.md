@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: e0188a35289c22da784ca856c80212638052a609
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 1e3546239dfcfd4c6ef23ad16f3340f34f958901
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040286"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723218"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-active-directory-domain-services-managed-domain"></a>Tworzenie jednostki organizacyjnej (OU) w Azure Active Directory Domain Services domenie zarządzanej
 
@@ -89,8 +89,8 @@ Aby utworzyć niestandardową jednostkę organizacyjną, należy użyć Active D
 
 Aby uzyskać więcej informacji na temat korzystania z narzędzi administracyjnych lub tworzenia i używania kont usług, zobacz następujące artykuły:
 
-* [Centrum administracyjne usługi Active Directory: Wprowadzenie](https://technet.microsoft.com/library/dd560651.aspx)
-* [Przewodnik krok po kroku dotyczący kont usług](https://technet.microsoft.com/library/dd548356.aspx)
+* [Centrum administracyjne usługi Active Directory: Wprowadzenie](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560651(v=ws.10))
+* [Przewodnik krok po kroku dotyczący kont usług](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: cabc3d2a0f8eb3a75938d1768bb0085aab528391
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: e0df3de5eadfd2cc5c00c52da5c4942b42a68b2b
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584607"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722572"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Tagi obrazu kontenera Cognitive Services platformy Azure
 
@@ -35,13 +35,29 @@ Ten obraz kontenera ma dostępne następujące znaczniki:
 
 ## <a name="computer-vision"></a>Przetwarzanie obrazów
 
-Obraz kontenera [Przetwarzanie obrazów][cv-containers] można znaleźć w `containerpreview.azurecr.io` rejestrze kontenerów. Znajduje się w `microsoft` repozytorium i ma nazwę `cognitive-services-read` . W pełni kwalifikowana nazwa obrazu kontenera to, `containerpreview.azurecr.io/microsoft/cognitive-services-read` .
+Obraz kontenera OCR do [Przetwarzanie obrazów][cv-containers] odczytu można znaleźć w `containerpreview.azurecr.io` rejestrze kontenerów. Znajduje się w `microsoft` repozytorium i ma nazwę `cognitive-services-read` . W pełni kwalifikowana nazwa obrazu kontenera to, `containerpreview.azurecr.io/microsoft/cognitive-services-read` .
 
 Ten obraz kontenera ma dostępne następujące znaczniki:
 
 | Tagi obrazu                    | Uwagi |
 |-------------------------------|:------|
-| `latest`                      |       |
+| `latest ( (2.0.013250001-amd64-preview)` | • Dalsze zmniejszenie użycia pamięci dla kontenera. |
+|                                          | • Zewnętrzna pamięć podręczna jest wymagana w przypadku instalacji wielowymiarowej. Na przykład skonfiguruj Redis do buforowania. |
+|                                          | • W przypadku skonfigurowania pamięci podręcznej Redis i ResultExpirationPeriod = 0 nie ma problemu dotyczącego braku wyników.  |
+|                                          | • Usuwanie ograniczenia rozmiaru treści żądania 26MB. Kontener może teraz akceptować >pliki 26MB.  |
+|                                          | • Dodaj sygnaturę czasową i skompiluj wersję do rejestrowania w konsoli.  |
+| `1.1.013050001-amd64-preview`            | * Dodano konfigurację inicjowania kontenera ReadEngineConfig: ResultExpirationPeriod, aby określić, kiedy system ma czyścić wyniki rozpoznawania. |
+|                                          | Ustawienie jest w godzinach, a wartość domyślna to 48hr.   |
+|                                          |   Ustawienie może zmniejszyć użycie pamięci na potrzeby przechowywania wyników, szczególnie w przypadku używania kontenera magazynu w pamięci.  |
+|                                          |    * Przykład 1. ReadEngineConfig: ResultExpirationPeriod = 1, system wyczyści wynik rozpoznawania 1hr po procesie.   |
+|                                          |    * Przykład 2. ReadEngineConfig: ResultExpirationPeriod = 0, system wyczyści wynik rozpoznawania po pobraniu wyników.  |
+|                                          | Naprawiono błąd wewnętrzny serwera 500 podczas przekazywania nieprawidłowego formatu obrazu do systemu. Zostanie teraz zwrócony błąd 400:   |
+|                                          | `{`  |
+|                                          | `"error": {`  |
+|                                          |      `"code": "InvalidImageSize",`  |
+|                                          |      `"message": "Image must be between 1024 and 209715200 bytes."`  |
+|                                          |          `}`  |
+|                                          | `}`  |
 | `1.1.011580001-amd64-preview` |       |
 | `1.1.009920003-amd64-preview` |       |
 | `1.1.009910003-amd64-preview` |       |

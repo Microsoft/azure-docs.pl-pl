@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 54fe33750b08b5da85b30d876a32daf33d8b4bc2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 13c54b548a507043fda7ff230cf7641c26f471d1
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88517918"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88724081"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu narzędzia do etykietowania przykładowego
 
@@ -52,14 +52,35 @@ Użyjesz aparatu platformy Docker, aby uruchomić przykładowe narzędzie do ety
    * [macOS](https://docs.docker.com/docker-for-mac/)
    * [Linux](https://docs.docker.com/install/)
 
+
+
+
+
 1. Pobierz kontener narzędzia do etykietowania przykładowego za pomocą `docker pull` polecenia.
+
+    # <a name="v20"></a>[Wersja 2.0](#tab/v2-0)    
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
     ```
+    # <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)    
+    ```
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview
+    ```
+
+    ---
+
 1. Teraz możesz przystąpić do uruchamiania kontenera za pomocą `docker run` .
+
+    # <a name="v20"></a>[Wersja 2.0](#tab/v2-0)    
     ```
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
+    # <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)    
+    ```
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview    
+    ```
+
+    --- 
 
    To polecenie spowoduje udostępnienie przykładowego narzędzia do etykietowania za pomocą przeglądarki sieci Web. Przejdź do adresu `http://localhost:3000`.
 
@@ -97,7 +118,8 @@ Wypełnij pola następującymi wartościami:
 * **Opis** — opis projektu.
 * **Adres URL** sygnatury dostępu współdzielonego (SAS) dla kontenera BLOB Storage platformy Azure. Aby pobrać adres URL SAS, Otwórz Eksplorator usługi Microsoft Azure Storage, kliknij prawym przyciskiem myszy kontener i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**. Ustaw czas wygaśnięcia na jakiś czas po użyciu usługi. Upewnij się, że uprawnienia **Odczyt**, **zapis**, **usuwanie**i **Wyświetlanie listy** są zaznaczone, a następnie kliknij pozycję **Utwórz**. Następnie skopiuj wartość z sekcji **URL** . Powinna mieć postać: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
 
-![Ustawienia połączenia przykładowego narzędzia do etykietowania](../media/label-tool/connections.png)
+:::image type="content" source="../media/label-tool/connections.png" alt-text="Ustawienia połączenia przykładowego narzędzia do etykietowania.":::
+
 
 ## <a name="create-a-new-project"></a>Tworzenie nowego projektu
 
@@ -111,7 +133,7 @@ W przykładowym narzędziu do etykietowania projekty przechowują konfiguracje i
 * **Klucz interfejsu API** — klucz subskrypcji aparatu rozpoznawania formularza.
 * **Opis** — opcjonalnie — opis projektu
 
-![Nowa strona projektu na przykładowym narzędziu do etykietowania](../media/label-tool/new-project.png)
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="Nowa strona projektu na przykładowym narzędziu do etykietowania.":::
 
 ## <a name="label-your-forms"></a>Etykiety formularzy
 
@@ -125,10 +147,15 @@ Po utworzeniu lub otwarciu projektu zostanie otwarte okno edytora tagów główn
 
 Kliknij przycisk **Uruchom OCR dla wszystkich plików** w okienku po lewej stronie, aby uzyskać informacje o układzie tekstu dla każdego dokumentu. Narzędzie do etykietowania rysuje ramki ograniczenia wokół każdego elementu tekstowego.
 
+Zostaną również wyświetlone tabele, które zostały wyodrębnione automatycznie. Kliknij ikonę tabela/siatka po lewej stronie dokumentu, aby wyświetlić wyodrębnioną tabelę. W tym przewodniku Szybki Start, ponieważ zawartość tabeli jest wyodrębniana automatycznie, nie będziemy etykietować zawartości tabeli, ale raczej polegają na zautomatyzowanej ekstrakcji.
+
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Wizualizacja tabeli w przykładowym narzędziu do etykietowania.":::
+
 ### <a name="apply-labels-to-text"></a>Zastosuj etykiety do tekstu
 
 Następnie utworzysz Tagi (etykiety) i zastosujemy je do elementów tekstowych, które mają być rozpoznawane przez model.
 
+# <a name="v20"></a>[Wersja 2.0](#tab/v2-0)  
 1. Najpierw użyj okienka edytora tagów, aby utworzyć Tagi, które chcesz zidentyfikować.
    1. Kliknij **+** , aby utworzyć nowy tag.
    1. Wprowadź nazwę tagu.
@@ -146,7 +173,30 @@ Następnie utworzysz Tagi (etykiety) i zastosujemy je do elementów tekstowych, 
     > * Użyj przycisków z prawej strony, **+** Aby przeszukać, zmienić nazwę, Zmień kolejność i usunąć Tagi.
     > * Aby usunąć zastosowany tag bez usuwania samego tagu, zaznacz znacznik oznakowany w widoku dokumentu i naciśnij klawisz Delete.
 
-![Główne okno edytora przykładowego narzędzia do etykietowania](../media/label-tool/main-editor.png)
+
+# <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1) 
+1. Najpierw użyj okienka edytora tagów, aby utworzyć Tagi, które chcesz zidentyfikować.
+   1. Kliknij **+** , aby utworzyć nowy tag.
+   1. Wprowadź nazwę tagu.
+   1. Naciśnij klawisz ENTER, aby zapisać tag.
+1. W edytorze głównym kliknij, aby wybrać słowa z wyróżnionych elementów tekstowych. W _wersji zapoznawczej programu v 2.1_ można również kliknąć, aby wybrać _znaczniki wyboru_ , takie jak przyciski radiowe i pola wyboru jako pary klucz wartość. Aparat rozpoznawania formularzy zidentyfikuje, czy jako wartość jest zaznaczona opcja "wybrane" lub "niezaznaczona".
+1. Kliknij tag, który chcesz zastosować, lub naciśnij odpowiedni klawisz klawiatury. Klucze liczb są przypisywane jako klawisze dostępu dla pierwszych 10 tagów. Można zmienić kolejność tagów przy użyciu ikon strzałek w górę i w dół w okienku Edytora tagów.
+    > [!Tip]
+    > Podczas etykietowania formularzy należy pamiętać o następujących wskazówkach.
+    > * Do każdego zaznaczonego elementu tekstowego można zastosować tylko jeden tag.
+    > * Każdy tag można zastosować tylko raz na stronę. Jeśli wartość pojawia się wiele razy w tym samym formularzu, Utwórz różne Tagi dla każdego wystąpienia. Na przykład: "Invoice nr 1", "Invoice nr 2" i tak dalej.
+    > * Znaczniki nie mogą obejmować między stronami.
+    > * Etykiety wartości w postaci, w jakiej są wyświetlane w formularzu; nie próbuj podzielić wartości na dwie części z dwoma różnymi tagami. Na przykład pole adresu powinno mieć etykietę z pojedynczym tagiem nawet wtedy, gdy obejmuje wiele wierszy.
+    > * Nie dołączaj kluczy w oznakowanych polach &mdash; tylko wartości.
+    > * Dane tabeli powinny być wykrywane automatycznie i będą dostępne w końcowym wyjściowym pliku JSON. Jeśli jednak model nie wykryje wszystkich danych tabeli, możesz również ręcznie oznaczyć te pola. Oznacz każdą komórkę w tabeli inną etykietą. Jeśli formularze zawierają tabele o różnej liczbie wierszy, upewnij się, że tag zawiera co najmniej jeden formularz o największej możliwej tabeli.
+    > * Użyj przycisków z prawej strony, **+** Aby przeszukać, zmienić nazwę, Zmień kolejność i usunąć Tagi.
+    > * Aby usunąć zastosowany tag bez usuwania samego tagu, zaznacz znacznik oznakowany w widoku dokumentu i naciśnij klawisz Delete.
+
+
+---
+
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Główne okno edytora przykładowego narzędzia do etykietowania.":::
+
 
 Postępuj zgodnie z powyższymi krokami, aby oznaczyć co najmniej pięć formularzy.
 
@@ -166,6 +216,7 @@ Następujące typy wartości i różnice są obecnie obsługiwane:
     * domyślne, `dmy` , `mdy` , `ymd`
 * `time`
 * `integer`
+* `selectionMark` — _Nowość w wersji 2.1 — wersja zapoznawcza. 1!_
 
 > [!NOTE]
 > Zobacz te reguły formatowania dat:
@@ -196,14 +247,31 @@ Kliknij ikonę szkolenia w okienku po lewej stronie, aby otworzyć stronę szkol
 * **Średnia dokładność** — średnia dokładność modelu. Możesz poprawić dokładność modelu przez etykietowanie dodatkowych formularzy i szkoleń, aby utworzyć nowy model. Zalecamy rozpoczęcie od etykietowania pięciu formularzy i dodanie większej liczby formularzy zgodnie z wymaganiami.
 * Lista tagów i Szacowana dokładność na tag.
 
-![Widok szkoleń](../media/label-tool/train-screen.png)
+
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Widok szkoleń.":::
 
 Po zakończeniu szkolenia Przejrzyj wartość **średnia dokładność** . Jeśli jest to niska, należy dodać więcej dokumentów wejściowych i powtórz powyższe kroki. Dokumenty, które zostały już oznaczone etykietami, pozostaną w indeksie projektu.
 
 > [!TIP]
 > Możesz również uruchomić proces szkolenia przy użyciu wywołania interfejsu API REST. Aby dowiedzieć się, jak to zrobić, zobacz [uczenie się z etykietami przy użyciu języka Python](./python-labeled-data.md).
 
-## <a name="analyze-a-form"></a>Analizowanie formularza
+## <a name="compose-trained-models"></a>Twórz przeszkolone modele
+
+# <a name="v20"></a>[Wersja 2.0](#tab/v2-0)  
+
+Ta funkcja jest obecnie dostępna w wersji 2.1. przeglądania. 
+
+# <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1) 
+
+Dzięki redagowaniu modelu można utworzyć do 100 modeli w ramach jednego identyfikatora modelu. Gdy wywołasz analizowanie z tym IDENTYFIKATORem modelu złożonego, aparat rozpoznawania formularzy najpierw klasyfikuje przesłany formularz, dopasowuje go do najlepiej dopasowanego modelu, a następnie zwróci wyniki dla tego modelu. Jest to przydatne, gdy formularze przychodzące mogą należeć do jednego z kilku szablonów.
+
+Aby zredagować modele w narzędziu przykładowego etykietowania, kliknij ikonę Utwórz model (dwie strzałki) po lewej stronie. Po lewej stronie wybierz modele, które chcesz utworzyć razem. Modele o ikonie strzałek mają już modele. Kliknij przycisk "Zredaguj". W oknie podręcznym Nadaj nazwę nowemu modelowi złożonemu i kliknij pozycję "Zredaguj". Po zakończeniu operacji nowy model złożony powinien pojawić się na liście. 
+
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Widok redagowania modelu.":::
+
+---
+
+## <a name="analyze-a-form"></a>Analizowanie formularza 
 
 Kliknij ikonę przewidywania (żarówki) po lewej stronie, aby przetestować model. Przekaż dokument formularza, który nie był używany w procesie szkoleniowym. Następnie kliknij przycisk **predykcyjny** po prawej stronie, aby uzyskać prognozy klucza/wartości dla formularza. Narzędzie zastosuje znaczniki w obwiedniach i zgłosi zaufanie każdego tagu.
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: a17764984e33e4312b9d81a5743d851dc14b5c05
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 24928ec4117b321cfec7177fdad40f2a3ab7a1f4
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87492160"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722725"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Samouczek: Tworzenie zaufania lasu wychodzącego do domeny lokalnej w Azure Active Directory Domain Services
 
@@ -128,7 +128,7 @@ Następujące typowe scenariusze pozwalają sprawdzić, czy zaufanie lasu prawid
 
 Należy mieć przyłączoną maszynę wirtualną z systemem Windows Server do domeny zarządzanej. Ta maszyna wirtualna służy do testowania lokalnego użytkownika na maszynie wirtualnej. W razie potrzeby [Utwórz maszynę wirtualną z systemem Windows i Przyłącz ją do domeny zarządzanej][join-windows-vm].
 
-1. Połącz się z maszyną wirtualną z systemem Windows Server przyłączoną do lasu zasobów AD DS platformy Azure przy użyciu [usługi Azure bastionu](https://docs.microsoft.com/azure/bastion/bastion-overview) i poświadczeń administratora usługi Azure AD DS.
+1. Połącz się z maszyną wirtualną z systemem Windows Server przyłączoną do lasu zasobów AD DS platformy Azure przy użyciu [usługi Azure bastionu](../bastion/bastion-overview.md) i poświadczeń administratora usługi Azure AD DS.
 1. Otwórz wiersz polecenia i użyj polecenia, `whoami` Aby wyświetlić nazwę wyróżniającą aktualnie uwierzytelnionego użytkownika:
 
     ```console
@@ -150,7 +150,7 @@ Korzystając z maszyny wirtualnej systemu Windows Server dołączonej do lasu za
 
 #### <a name="enable-file-and-printer-sharing"></a>Włącz udostępnianie plików i drukarek
 
-1. Połącz się z maszyną wirtualną z systemem Windows Server przyłączoną do lasu zasobów AD DS platformy Azure przy użyciu [usługi Azure bastionu](https://docs.microsoft.com/azure/bastion/bastion-overview) i poświadczeń administratora usługi Azure AD DS.
+1. Połącz się z maszyną wirtualną z systemem Windows Server przyłączoną do lasu zasobów AD DS platformy Azure przy użyciu [usługi Azure bastionu](../bastion/bastion-overview.md) i poświadczeń administratora usługi Azure AD DS.
 
 1. Otwórz okno **Ustawienia systemu Windows**, a następnie wyszukaj i wybierz pozycję **Centrum sieci i udostępniania**.
 1. Wybierz opcję **Zmień zaawansowane ustawienia udostępniania** .

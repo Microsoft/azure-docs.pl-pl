@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: a087faee45b8725bc596a5faa92536741d8cd569
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0df61c2ee42d468562efd67a2a66a90a5e4fda53
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836908"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723569"
 ---
 # <a name="what-is-form-recognizer"></a>Co to jest rozpoznawanie formularzy?
 
@@ -24,7 +24,7 @@ Aparat rozpoznawania formularzy platformy Azure to usługa poznawczej, która ko
 
 Aparat rozpoznawania formularzy składa się z następujących usług:
 * **Modele niestandardowe** — Wyodrębnij pary klucz/wartość i dane tabeli z formularzy. Te modele są przeszkolone przy użyciu własnych danych, dzięki czemu są dostosowane do Twoich formularzy.
-* Wstępnie **utworzony model paragonu** — Wyodrębnij dane z przyjęć sprzedaży w USA przy użyciu prekompilowanego modelu.
+* Wstępnie **utworzone modele** — Wyodrębnij dane z unikatowych typów formularzy przy użyciu wbudowanych modeli. Obecnie dostępne są wstępnie zbudowane modele dla paragonów sprzedaży i kart firmowych w języku angielskim.
 * **Interfejs API układu** — Wyodrębnij strukturę tekstu i tabeli wraz z ich współrzędne pola ograniczenia, z dokumentów.
 
 <!-- add diagram -->
@@ -45,9 +45,18 @@ W przypadku uczenia się z danymi z etykietami model przeprowadza nadzorowane uc
 
 Aparat rozpoznawania formularzy używa [interfejsu API układu](#layout-api) , aby poznać oczekiwane rozmiary i położenia elementów tekstu wydrukowanych i odręcznych. Następnie używa etykiet określonych przez użytkownika, aby poznać skojarzenia klucz/wartość w dokumentach. Zalecamy używanie pięciu etykiet oznaczonych ręcznie z tym samym typem, aby rozpocząć pracę w przypadku szkolenia nowego modelu i dodać więcej etykiet danych w miarę potrzeby, aby poprawić dokładność modelu.
 
-## <a name="prebuilt-receipt-model"></a>Wstępnie utworzony model przyjęcia
+## <a name="prebuilt-models"></a>Wstępnie utworzone modele
 
-Aparat rozpoznawania formularzy zawiera również model służący do odczytywania w języku angielskim przyjęć sprzedaży z Stany Zjednoczone &mdash; typu używanego przez Restauracje, stacje gazu, sprzedaż detaliczna i tak dalej ([przykładowe przyjęcie](./media/contoso-receipt-small.png)). Ten model wyodrębnia najważniejsze informacje, takie jak godzina i Data transakcji, informacje o sprzedawcy, kwoty podatków i sumy itd. Ponadto wstępnie utworzony model paragonów jest szkolony do rozpoznawania i zwracania całego tekstu w paragonie.
+Aparat rozpoznawania formularzy zawiera również wstępnie skompilowane modele dla unikatowych typów formularzy.
+### <a name="prebuilt-receipt-model"></a>Wstępnie utworzony model przyjęcia
+Wstępnie utworzony model przyjęcia jest używany do odczytywania z angielskiego zakupu sprzedaży z Australii, Kanady, Wielkiej Brytanii, Indii i Stany Zjednoczone &mdash; typu używanego przez Restauracje, stacje gazu, sprzedaż detaliczna i tak dalej. Ten model wyodrębnia kluczowe informacje, takie jak godzina i Data transakcji, informacje o sprzedawcy, kwoty podatków, pozycje wiersza, sumy itd. Ponadto wstępnie utworzony model paragonów jest szkolony do rozpoznawania i zwracania całego tekstu w paragonie. 
+
+![Przykładowe potwierdzenie](./media/contoso-receipt-small.png)
+
+### <a name="prebuilt-business-cards-model"></a>Model prebudowanych kart roboczych
+Model wizytówek umożliwia wyodrębnienie informacji, takich jak imię i nazwisko osoby, stanowiska, adres e-mail, firma i numery telefonów z kart służbowych w języku angielskim. 
+
+![Przykładowa karta biznesowa](./media/business-card-english.jpg)
 
 ## <a name="layout-api"></a>Interfejs API układu
 
@@ -90,7 +99,7 @@ Zapoznaj się z [dokumentacją interfejsu API REST](https://westus2.dev.cognitiv
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
-### <a name="prebuilt-receipt-model"></a>Wstępnie utworzony model przyjęcia
+### <a name="prebuilt"></a>Wstępnie utworzonych
 
 Wymagania dotyczące danych wejściowych dla modelu paragonu są nieco inne.
 

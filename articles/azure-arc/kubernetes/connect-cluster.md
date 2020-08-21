@@ -9,18 +9,18 @@ ms.author: mlearned
 description: Łączenie klastra Kubernetes z obsługą usługi Azure ARC przy użyciu usługi Azure Arc
 keywords: Kubernetes, łuk, Azure, K8s, kontenery
 ms.custom: references_regions
-ms.openlocfilehash: 761263a4cb8c83475142c2afcc39695bb84d46cd
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: eb3921d3ab2090b6bac54c9b68e9def3949ed4b5
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080494"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723745"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Połącz klaster Kubernetes z obsługą usługi Azure ARC (wersja zapoznawcza)
 
 W tym dokumencie opisano proces łączenia z klastrem Kubernetes, który jest certyfikowany w chmurze CNCF, na przykład AKS-Engine na platformie Azure, AKS-Engine on Azure Stack Hub, GKE, EKS i VMware vSphere do usługi Azure Arc.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Sprawdź, czy masz gotowe do spełnienia następujące wymagania:
 
@@ -61,8 +61,8 @@ Sprawdź, czy masz gotowe do spełnienia następujące wymagania:
 
 Agenci usługi Azure Arc potrzebują następujących protokołów/portów/wychodzących adresów URL do działania.
 
-* TCP na porcie 443-->`https://:443`
-* TCP na porcie 9418-->`git://:9418`
+* TCP na porcie 443--> `https://:443`
+* TCP na porcie 9418--> `git://:9418`
 
 | Punkt końcowy (DNS)                                                                                               | Opis                                                                                                                 |
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
@@ -72,6 +72,7 @@ Agenci usługi Azure Arc potrzebują następujących protokołów/portów/wychod
 | `https://github.com`, git://github.com                                                                         | Przykładowe repozytoria GitOps są hostowane w serwisie GitHub. Agent konfiguracji wymaga łączności z określonym punktem końcowym git. |
 | `https://login.microsoftonline.com`                                                                            | Wymagane do pobierania i aktualizowania tokenów Azure Resource Manager                                                                                    |
 | `https://azurearcfork8s.azurecr.io`                                                                            | Wymagane do ściągania obrazów kontenerów dla agentów usługi Azure Arc                                                                  |
+| `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`                                                                            |  Wymagany do ściągania certyfikatów tożsamości zarządzanych przypisanych przez system                                                                  |
 
 ## <a name="register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Zarejestruj dwóch dostawców z włączoną funkcją Azure Arc Kubernetes:
 
@@ -113,7 +114,7 @@ eastus      AzureArcTest
 
 Następnie będziemy łączyć nasz klaster Kubernetes z platformą Azure. Przepływ pracy dla programu `az connectedk8s connect` jest następujący:
 
-1. Weryfikowanie łączności z klastrem Kubernetes: za pośrednictwem `KUBECONFIG` , `~/.kube/config` lub`--kube-config`
+1. Weryfikowanie łączności z klastrem Kubernetes: za pośrednictwem `KUBECONFIG` , `~/.kube/config` lub `--kube-config`
 1. Wdróż agentów usługi Azure ARC dla Kubernetes przy użyciu Helm 3 w `azure-arc` przestrzeni nazw
 
 ```console
@@ -174,7 +175,7 @@ Możesz również wyświetlić ten zasób na [Azure Portal](https://portal.azure
 
 ## <a name="connect-using-an-outbound-proxy-server"></a>Nawiązywanie połączenia przy użyciu serwera proxy wychodzącego
 
-Jeśli klaster znajduje się za wychodzącym serwerem proxy, interfejs wiersza polecenia platformy Azure i agenci Kubernetes muszą kierować żądania za pośrednictwem serwera proxy wychodzącego. Następująca konfiguracja pozwala osiągnąć, że:
+Jeśli klaster znajduje się za wychodzącym serwerem proxy, interfejs wiersza polecenia platformy Azure i agenci Kubernetes muszą kierować żądania za pośrednictwem serwera proxy wychodzącego. Następująca konfiguracja umożliwia:
 
 1. Sprawdź wersję `connectedk8s` rozszerzenia zainstalowanego na komputerze, uruchamiając następujące polecenie:
 
@@ -182,7 +183,7 @@ Jeśli klaster znajduje się za wychodzącym serwerem proxy, interfejs wiersza p
     az -v
     ```
 
-    Wymagana jest `connectedk8s` wersja rozszerzenia >= 0.2.3, aby skonfigurować agentów z serwerem proxy wychodzącego. Jeśli masz wersję < 0.2.3 na maszynie, wykonaj [kroki aktualizacji](#before-you-begin) , aby pobrać najnowszą wersję rozszerzenia na komputerze.
+    Wymagana `connectedk8s` wersja rozszerzenia >= 0.2.3, aby skonfigurować agentów z serwerem proxy wychodzącego. Jeśli masz wersję < 0.2.3 na maszynie, wykonaj [kroki aktualizacji](#before-you-begin) , aby pobrać najnowszą wersję rozszerzenia na komputerze.
 
 2. Ustaw zmienne środowiskowe, które są zbędne dla interfejsu wiersza polecenia platformy Azure:
 

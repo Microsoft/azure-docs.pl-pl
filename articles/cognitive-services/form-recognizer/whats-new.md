@@ -9,37 +9,61 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 22eab216714d45e4b8a91fd58325424d4baef95e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3a48511c896a3e4c677c35ca3069ff236761c444
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87272950"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88724136"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Co nowego w usłudze Rozpoznawanie formularzy?
 
 Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzystaj z tego artykułu, aby uzyskać aktualne informacje dotyczące ulepszeń, poprawek i aktualizacji dokumentacji.
 
-> [!NOTE]
-> Przewodniki Szybki Start i wskazówki dla aparatu rozpoznawania formularzy zawsze używają najnowszej wersji interfejsu API, chyba że zostanie to określone.
+## <a name="august-2020"></a>Sierpień 2020 r.
+
+### <a name="new-features"></a>Nowe funkcje
+
+**Dostępna jest publiczna wersja zapoznawcza aparatu rozpoznawania w wersji 2.1.** Wersja 2.1 — wersja zapoznawcza. 1 została wydana, w tym następujące funkcje: 
+
+
+- **Dokumentacja interfejsu API REST jest dostępna** — zapoznaj się z dokumentacją [v 2.1 — wersja zapoznawcza 1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
+- **Oprócz języka angielskiego obsługiwane są nowe języki**, które są obecnie obsługiwane: dla `Layout` i `Train Custom Model` : angielski (EN), chiński (uproszczony) (zh-zh), holenderski (NL), francuski (fr), niemiecki (de), włoski (), portugalski (PT) i hiszpański (ES).
+- **Wykrywanie znaczników wyboru/zaznaczenia** — aparat rozpoznawania formularzy obsługuje wykrywanie i wyodrębnianie znaczników wyboru, takich jak pola wyboru i przyciski radiowe. Znaczniki wyboru są wyodrębniane w `Layout` , a teraz można również etykietować i nauczyć się w `Train Custom Model`  -  _pouczeniu z etykietami_ , aby wyodrębnić pary kluczy wartości dla znaczników wyboru. 
+- **Redagowanie modelu umożliwia tworzenie** i wywoływanie wielu modeli przy użyciu jednego identyfikatora modelu. Gdy dokument zostanie przeanalizowany w celu przeanalizowania z identyfikatorem modelu złożonego, etap klasyfikacji jest najpierw wykonywany, aby skierować go do poprawnego modelu niestandardowego. Tworzenie modelu jest dostępne dla `Train Custom Model`  -  _uczenia się z etykietami_.
+- **Nazwa modelu** umożliwia dodanie przyjaznej nazwy do modeli niestandardowych w celu łatwiejszego zarządzania i śledzenia.
+- **Nowy wstępnie utworzony model dla kart służbowych** służący do wyodrębniania typowych pól w języku angielskim, językowym kartą biznesową.
+- **Nowe ustawienia regionalne dla wstępnie utworzonych przyjęć** oprócz en-us, pomoc techniczna jest teraz dostępna dla en-AU, en-CA, en-GB, EN-in
+- **Udoskonalenia jakości** `Layout` , `Train Custom Model`  -  _uczenie bez etykiet_ i _uczenie się z etykietami_.
+
+
+**wersja 2.0** obejmuje następujące aktualizacje:
+-   [Biblioteki klienckie](quickstarts/client-library.md) dla języków NET, Python, Java i JavaScript zostały ogólnie dostępne. 
+
+
+**Nowe przykłady** są dostępne w serwisie GitHub. 
+- [Przepisy dotyczące ekstrakcji merytorycznej — formularze element PlayBook](https://github.com/microsoft/knowledge-extraction-recipes-forms) zbierają najlepsze rozwiązania z zakresu rzeczywistego zaangażowania użytkowników aparatu rozpoznawania i udostępniają przykłady kodu, listy kontrolne i potoki przykładowe używane podczas tworzenia projektów. 
+- Przykładowy aparat rozpoznawania w postaci [inteligentnego kiosku](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) pokazuje, jak zintegrować `Analyze Receipt` i `Train Custom Model`  -  _uczenie bez etykiet_.
+
+
 
 ## <a name="july-2020"></a>Lipiec 2020 r.
 
 ### <a name="new-features"></a>Nowe funkcje
 * **dostępna jest dokumentacja v 2.0** Wyświetl [Informacje o interfejsie API 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) oraz zaktualizowane zestawy SDK dla [platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet), [Python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)i [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest).
-* Udoskonalenia **tabel i ulepszenia wyodrębniania** zawierają ulepszenia dokładności i ulepszenia wyodrębniania tabel, w tym możliwość poznania nagłówków i struktur tabel w niestandardowym pouczeniu bez etykiet. 
+* Udoskonalenia **tabel i ulepszenia wyodrębniania** zawierają ulepszenia dokładności i ulepszenia wyodrębniania tabel, w tym możliwość poznania nagłówków i struktur tabel w _niestandardowym pouczeniu bez etykiet_. 
 * **Obsługa waluty** Wykrywanie i wyodrębnianie symboli waluty globalnej.
 * **Azure gov** Aparat rozpoznawania formularzy jest teraz również dostępny w usłudze Azure gov.
 * **Ulepszone funkcje zabezpieczeń**: 
-   * **Przenoszenie własnego klucza**  Aparat rozpoznawania formularzy automatycznie szyfruje dane, gdy są utrwalane w chmurze, aby chronić go i pomóc w spełnieniu zobowiązań dotyczących bezpieczeństwa i zgodności organizacji. Domyślnie Twoja subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. Teraz możesz również zarządzać subskrypcją przy użyciu własnych kluczy szyfrowania. [Klucze zarządzane przez klienta (CMK), znane także jako dające własny klucz (BYOK)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest), zapewniają większą elastyczność tworzenia, obracania, wyłączania i odwoływania kontroli dostępu. Możesz również przeprowadzać inspekcję kluczy szyfrowania używanych do ochrony danych.  
-   * **Prywatne punkty końcowe** — umożliwia korzystanie z sieci wirtualnej (VNET) w celu [bezpiecznego dostępu do danych za pośrednictwem prywatnego linku.](https://docs.microsoft.com/azure/private-link/private-link-overview)
+   * **Przenoszenie własnego klucza**  Aparat rozpoznawania formularzy automatycznie szyfruje dane, gdy są utrwalane w chmurze, aby chronić go i pomóc w spełnieniu zobowiązań dotyczących bezpieczeństwa i zgodności organizacji. Domyślnie subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. Teraz możesz również zarządzać subskrypcją przy użyciu własnych kluczy szyfrowania. [Klucze zarządzane przez klienta (CMK), znane także jako dające własny klucz (BYOK)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest), zapewniają większą elastyczność tworzenia, obracania, wyłączania i odwoływania kontroli dostępu. Możesz również przeprowadzać inspekcję kluczy szyfrowania używanych do ochrony danych.  
+   * **Prywatne punkty końcowe** — umożliwia korzystanie z sieci wirtualnej (VNET) w celu [bezpiecznego dostępu do danych za pośrednictwem prywatnego linku. ](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
 
 ## <a name="june-2020"></a>Czerwiec 2020 r.
 
 ### <a name="new-features"></a>Nowe funkcje
 * **Interfejs API CopyModel został dodany do zestawów SDK klienta** Teraz można używać zestawów SDK klienta do kopiowania modeli z jednej subskrypcji do innej. Zobacz [Tworzenie kopii zapasowych i odzyskiwanie modeli,](./disaster-recovery.md) Aby uzyskać ogólne informacje dotyczące tej funkcji.
-* **Integracja Azure Active Directory** Możesz teraz używać poświadczeń usługi AAD do uwierzytelniania obiektów klienta aparatu rozpoznawania formularzy w zestawach SDK.
+* **Integracja Azure Active Directory** Możesz teraz używać poświadczeń usługi Azure AD do uwierzytelniania obiektów klienta aparatu rozpoznawania formularzy w zestawach SDK.
 * **Zmiany specyficzne dla zestawu SDK** Dotyczy to zarówno dodatkowych, jak i drobnych zmian funkcji. Aby uzyskać więcej informacji, zobacz dziennik zmian zestawu SDK.
   * [Podgląd zestawu C# SDK 3 — dziennik zmian](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
   * [Dziennik zmian zestawu SDK języka Python w wersji 3](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
@@ -72,11 +96,11 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 
 * **Typy wartości dla etykietowania** Teraz możesz określić typy wartości, które są oznaczone etykietami, za pomocą narzędzia do etykietowania przykładowego aparatu rozpoznawania formularzy. Następujące typy wartości i różnice są obecnie obsługiwane:
   * `string`
-    * domyślne, `no-whitespaces` ,`alphanumeric`
+    * domyślne, `no-whitespaces` , `alphanumeric`
   * `number`
-    * wartooć`currency`
+    * wartooć `currency`
   * `date` 
-    * domyślne, `dmy` , `mdy` ,`ymd`
+    * domyślne, `dmy` , `mdy` , `ymd`
   * `time`
   * `integer`
 

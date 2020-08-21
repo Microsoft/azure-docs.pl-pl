@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: bwren
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 17430330d068fb55b45f073afecb8ba348286cb5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e16d77c36f382e72d5e9902b07afbbec50b6876
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77472676"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723259"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Przechowywanie i przeglądanie danych diagnostycznych w usłudze Azure Storage
-Dane diagnostyczne nie są trwale przechowywane, chyba że zostanie przesłane do emulatora magazynu Microsoft Azure ani do usługi Azure Storage. Jeden z kilku dostępnych narzędzi można wyświetlić tylko raz w magazynie.
+Dane diagnostyczne nie są trwale przechowywane, chyba że zostanie przesłane do emulator magazynu Microsoft Azure lub do usługi Azure Storage. Jeden z kilku dostępnych narzędzi można wyświetlić tylko raz w magazynie.
 
 ## <a name="specify-a-storage-account"></a>Określ konto magazynu
 Należy określić konto magazynu, które ma być używane w pliku ServiceConfiguration. cscfg. Informacje o koncie są definiowane jako parametry połączenia w ustawieniu konfiguracji. W poniższym przykładzie przedstawiono domyślne parametry połączenia utworzone dla nowego projektu usługi w chmurze w programie Visual Studio:
@@ -71,7 +71,7 @@ Dane dziennika są przechowywane w magazynie obiektów blob lub Table z następu
 * **"niestandardowy"** — kontener niestandardowy oparty na konfigurowaniu katalogów monitorowanych przez Monitor diagnostyczny.  Nazwa tego kontenera obiektów BLOB zostanie określona w WADDirectoriesTable.
 
 ## <a name="tools-to-view-diagnostic-data"></a>Narzędzia do wyświetlania danych diagnostycznych
-Dostępnych jest kilka narzędzi do wyświetlania danych po ich przeniesieniu do magazynu. Przykład:
+Dostępnych jest kilka narzędzi do wyświetlania danych po ich przeniesieniu do magazynu. Na przykład:
 
 * Eksplorator serwera w programie Visual Studio — Jeśli zainstalowano narzędzia platformy Azure dla Microsoft Visual Studio, można użyć węzła usługi Azure Storage w Eksplorator serwera, aby wyświetlić dane obiektów BLOB tylko do odczytu i tabele z kont usługi Azure Storage. Możesz wyświetlić dane z lokalnego konta emulatora magazynu, a także z kont magazynu utworzonych dla platformy Azure. Aby uzyskać więcej informacji, zobacz [przeglądanie zasobów magazynu i zarządzanie nimi za pomocą Eksplorator serwera](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
 * [Eksplorator usługi Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) jest aplikacją autonomiczną, która umożliwia łatwe współdziałanie z danymi usługi Azure Storage w systemach Windows, OSX i Linux.

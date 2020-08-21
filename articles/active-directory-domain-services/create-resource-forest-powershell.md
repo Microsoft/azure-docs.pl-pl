@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
-ms.openlocfilehash: 50a8e4f6d966a63a8e727dbacefbc7bb21f5f98b
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 893085179c27ce88c3e310170715e2f83a59ddc7
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506332"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723167"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Utwórz Las zasobów Azure Active Directory Domain Services i zaufanie lasu wychodzącego do domeny lokalnej przy użyciu Azure PowerShell
 
@@ -148,15 +148,15 @@ Przed rozpoczęciem upewnij się, że rozumiesz [zagadnienia i zalecenia dotycz�
 
 1. Utwórz połączenie hybrydowe z siecią lokalną na platformie Azure przy użyciu połączenia sieci VPN platformy Azure lub usługi Azure ExpressRoute. Konfiguracja sieci hybrydowej znajduje się poza zakresem tej dokumentacji i może już istnieć w Twoim środowisku. Aby uzyskać szczegółowe informacje dotyczące konkretnych scenariuszy, zobacz następujące artykuły:
 
-    * [Sieć VPN typu lokacja-lokacja](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-    * [Omówienie usługi Azure ExpressRoute](/azure/expressroute/expressroute-introduction).
+    * [Sieć VPN typu lokacja-lokacja](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+    * [Omówienie usługi Azure ExpressRoute](../expressroute/expressroute-introduction.md).
 
     > [!IMPORTANT]
     > Jeśli połączenie zostanie utworzone bezpośrednio do sieci wirtualnej domeny zarządzanej, należy użyć oddzielnej podsieci bramy. Nie należy tworzyć bramy w podsieci domeny zarządzanej.
 
 1. Aby administrować domeną zarządzaną, należy utworzyć maszynę wirtualną zarządzania, przyłączyć ją do domeny zarządzanej, a następnie zainstalować wymagane narzędzia do zarządzania AD DS.
 
-    Podczas wdrażania lasu zasobów domeny zarządzanej należy [utworzyć maszynę wirtualną z systemem Windows Server](https://docs.microsoft.com/azure/active-directory-domain-services/join-windows-vm) , a następnie [zainstalować podstawowe narzędzia do zarządzania AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-management-vm) w celu zainstalowania wymaganych narzędzi do zarządzania. Zaczekaj na przyłączenie maszyny wirtualnej zarządzania do domeny zarządzanej do momentu pomyślnego wdrożenia jednego z poniższych kroków.
+    Podczas wdrażania lasu zasobów domeny zarządzanej należy [utworzyć maszynę wirtualną z systemem Windows Server](./join-windows-vm.md) , a następnie [zainstalować podstawowe narzędzia do zarządzania AD DS](./tutorial-create-management-vm.md) w celu zainstalowania wymaganych narzędzi do zarządzania. Zaczekaj na przyłączenie maszyny wirtualnej zarządzania do domeny zarządzanej do momentu pomyślnego wdrożenia jednego z poniższych kroków.
 
 1. Sprawdź poprawność łączności sieciowej między siecią lokalną a siecią wirtualną platformy Azure.
 
@@ -260,7 +260,7 @@ Należy mieć przyłączoną maszynę wirtualną z systemem Windows Server do do
 1. Nawiąż połączenie z maszyną wirtualną z systemem Windows Server przyłączoną do lasu zasobów domeny zarządzanej przy użyciu Pulpit zdalny i poświadczeń administratora domeny zarządzanej. Jeśli wystąpi błąd Uwierzytelnianie na poziomie sieci (NLA), sprawdź, czy używane konto użytkownika nie jest kontem użytkownika domeny.
 
     > [!TIP]
-    > Aby bezpiecznie połączyć się z maszynami wirtualnymi przyłączonymi do Azure AD Domain Services, możesz użyć [usługi Azure bastionu Host](https://docs.microsoft.com/azure/bastion/bastion-overview) w obszarze Obsługiwane regiony platformy Azure.
+    > Aby bezpiecznie połączyć się z maszynami wirtualnymi przyłączonymi do Azure AD Domain Services, możesz użyć [usługi Azure bastionu Host](../bastion/bastion-overview.md) w obszarze Obsługiwane regiony platformy Azure.
 
 1. Otwórz wiersz polecenia i użyj polecenia, `whoami` Aby wyświetlić nazwę wyróżniającą aktualnie uwierzytelnionego użytkownika:
 
@@ -286,7 +286,7 @@ Korzystając z maszyny wirtualnej systemu Windows Server dołączonej do lasu za
 1. Nawiąż połączenie z maszyną wirtualną z systemem Windows Server przyłączoną do lasu zasobów domeny zarządzanej przy użyciu Pulpit zdalny i poświadczeń administratora domeny zarządzanej. Jeśli wystąpi błąd Uwierzytelnianie na poziomie sieci (NLA), sprawdź, czy używane konto użytkownika nie jest kontem użytkownika domeny.
 
     > [!TIP]
-    > Aby bezpiecznie połączyć się z maszynami wirtualnymi przyłączonymi do Azure AD Domain Services, możesz użyć [usługi Azure bastionu Host](https://docs.microsoft.com/azure/bastion/bastion-overview) w obszarze Obsługiwane regiony platformy Azure.
+    > Aby bezpiecznie połączyć się z maszynami wirtualnymi przyłączonymi do Azure AD Domain Services, możesz użyć [usługi Azure bastionu Host](../bastion/bastion-overview.md) w obszarze Obsługiwane regiony platformy Azure.
 
 1. Otwórz okno **Ustawienia systemu Windows**, a następnie wyszukaj i wybierz pozycję **Centrum sieci i udostępniania**.
 1. Wybierz opcję **Zmień zaawansowane ustawienia udostępniania** .

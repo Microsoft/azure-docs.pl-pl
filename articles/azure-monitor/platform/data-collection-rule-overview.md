@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 32993ba41a612ccf0f02a242ed610feab2fac78f
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 177b79e0a33f4d43d07da9d0dea26df40e2ef11e
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640739"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723864"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Reguły zbierania danych w Azure Monitor (wersja zapoznawcza)
 Zasady zbierania danych (DCR) definiują dane wprowadzane do Azure Monitor i określają, gdzie mają być wysyłane lub przechowywane dane. Ten artykuł zawiera omówienie zasad zbierania danych, w tym ich zawartości i struktury, oraz sposobu tworzenia i pracy z nimi.
@@ -28,7 +28,7 @@ Reguła zbierania danych zawiera następujące składniki.
 
 | Składnik | Opis |
 |:---|:---|
-| Źródła danych | Unikatowe źródło danych monitorowania z własnymi formatami i metodami, które uwidaczniają swoje dane. Przykłady źródła danych obejmują dziennik zdarzeń systemu Windows, liczniki wydajności i dziennik systemowy. Każde źródło danych jest zgodne z określonym typem źródła danych, zgodnie z poniższym opisem. |
+| Źródła danych | Unikatowe źródło danych monitorowania z własnym formatem i metodą ujawniania swoich danych. Przykłady źródła danych obejmują dziennik zdarzeń systemu Windows, liczniki wydajności i dziennik systemowy. Każde źródło danych jest zgodne z określonym typem źródła danych, zgodnie z poniższym opisem. |
 | Strumienie | Unikatowe dojście opisujące zestaw źródeł danych, które zostaną przekształcone i schematized jako jeden typ. Każde źródło danych wymaga co najmniej jednego strumienia, a jeden z nich może być używany przez wiele źródeł danych. Wszystkie źródła danych w strumieniu udostępniają wspólny schemat. Użyj wielu strumieni na przykład, gdy chcesz wysłać określone źródło danych do wielu tabel w tym samym obszarze roboczym Log Analytics. |
 | Miejsca docelowe | Zestaw miejsc docelowych, do których mają być wysyłane dane. Przykładami mogą być Log Analytics obszar roboczy, metryki Azure Monitor i Event Hubs platformy Azure. | 
 | Przepływy danych | Definicja, które strumienie powinny być wysyłane do których miejsc docelowych. | 
@@ -38,13 +38,13 @@ Na poniższym diagramie przedstawiono składniki reguły zbierania danych i ich 
 [![Diagram DCR](media/data-collection-rule/data-collection-rule-components.png)](media/data-collection-rule/data-collection-rule-components.png#lightbox)
 
 ### <a name="data-source-types"></a>Typy źródeł danych
-Każde źródło danych ma typ źródła danych. Każdy typ definiuje unikatowy zestaw właściwości, które muszą być określone dla każdego źródła danych. Aktualnie dostępne typy źródeł danych są przedstawione w poniższej tabeli.
+Każde źródło danych ma typ źródła danych. Każdy typ definiuje unikatowy zestaw właściwości, które muszą być określone dla każdego źródła danych. Aktualnie dostępne typy źródeł danych przedstawiono w poniższej tabeli.
 
 | Typ źródła danych | Opis | 
 |:---|:---|
 | rozszerzenie | Źródło danych oparte na rozszerzeniu maszyny wirtualnej |
 | Liczniki wydajności | Liczniki wydajności dla systemów Windows i Linux |
-| syslog | Zdarzenia dziennika systemowego na maszynie wirtualnej z systemem Linux |
+| syslog | Zdarzenia dziennika systemowego w systemie Linux |
 | windowsEventLogs | Dziennik zdarzeń systemu Windows |
 
 
@@ -54,14 +54,14 @@ W poniższej tabeli wymieniono limity, które są aktualnie stosowane do każdej
 | Limit | Wartość |
 |:---|:---|
 | Maksymalna liczba źródeł danych | 10 |
-| Maksymalna liczba specyfikatorów licznika w wydajności | 100 |
+| Maksymalna liczba specyfikatorów licznika w liczniku wydajności | 100 |
 | Maksymalna liczba nazw funkcji w dzienniku systemowym | 20 |
 | Maksymalna liczba zapytań XPath w dzienniku zdarzeń | 100 |
 | Maksymalna liczba przepływów danych | 10 |
-| Maksymalne strumienie danych | 10 |
+| Maksymalna liczba strumieni danych | 10 |
 | Maksymalna liczba rozszerzeń | 10 |
 | Maksymalny rozmiar ustawień rozszerzenia | 32 KB |
-| Maksymalna liczba obszarów roboczych Log Analytics | 10 |
+| Maksymalna liczba Log Analytics obszarów roboczych | 10 |
 
 
 ## <a name="create-a-dcr"></a>Tworzenie elementu DCR
@@ -83,8 +83,7 @@ Poniższa zasada zbierania danych przykładowych dotyczy maszyn wirtualnych z us
   - Zbiera zdarzenia debugowania, krytyczne i awaryjne z poziomu funkcji firmy cronus.
   - Zbiera zdarzenia alertu, krytyczne i awaryjne z funkcji dziennika systemowego.
 - Miejsca docelowe
-  - Wysyła wszystkie dane do obszaru roboczego Log Analytics o nazwie centralTeamWorkspace.
-  - Wysyła dane wydajności do Azure Monitor metryk w bieżącej subskrypcji.
+  - Wysyła wszystkie dane do obszaru roboczego Log Analytics o nazwie centralWorkspace.
 
 ```json
 {
@@ -157,7 +156,7 @@ Poniższa zasada zbierania danych przykładowych dotyczy maszyn wirtualnych z us
             ]
           },
           {
-            "name": "sylogBase",
+            "name": "syslogBase",
             "streams": [
               "Microsoft-Syslog"
             ],

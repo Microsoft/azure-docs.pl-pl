@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: a863d8ccc157272ab736201615fb079eaf7f5dbc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 235b2a1e3a75c01c8e57a0e4b0c27664f638385f
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522831"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723524"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Szybki Start: wyodrębnianie danych przyjęcia przy użyciu interfejsu API REST aparatu rozpoznawania w języku Python
 
@@ -44,7 +44,9 @@ Aby rozpocząć analizowanie paragonu, należy wywołać interfejs API **[analiz
 1. Zamień `<your receipt URL>` na adres URL obrazu paragonu.
 1. Zamień `<subscription key>` na klucz subskrypcji skopiowany z poprzedniego kroku.
 
-    ```python
+  # <a name="v20"></a>[Wersja 2.0](#tab/v2-0)    
+    ```
+    python
     ########### Python Form Recognizer Async Receipt #############
 
     import json
@@ -81,6 +83,51 @@ Aby rozpocząć analizowanie paragonu, należy wywołać interfejs API **[analiz
         print("POST analyze failed:\n%s" % str(e))
         quit()
     ```
+    
+   # <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)    
+    ```
+    python
+    ########### Python Form Recognizer Async Receipt #############
+
+    import json
+    import time
+    from requests import get, post
+    
+    # Endpoint URL
+    endpoint = r"<Endpoint>"
+    apim_key = "<subscription key>"
+    post_url = endpoint + "/formrecognizer/v2.0/prebuilt/receipt/analyze"
+    source = r"<path to your receipt>"
+    
+    headers = {
+        # Request headers
+        'Content-Type': '<file type>',
+        'Ocp-Apim-Subscription-Key': apim_key,
+    }
+    
+    params = {
+        "includeTextDetails": True
+        "locale": "en-US"
+    }
+    
+    with open(source, "rb") as f:
+        data_bytes = f.read()
+    
+    try:
+        resp = post(url = post_url, data = data_bytes, headers = headers, params = params)
+        if resp.status_code != 202:
+            print("POST analyze failed:\n%s" % resp.text)
+            quit()
+        print("POST analyze succeeded:\n%s" % resp.headers)
+        get_url = resp.headers["operation-location"]
+    except Exception as e:
+        print("POST analyze failed:\n%s" % str(e))
+        quit()
+    ```
+> [!NOTE]
+> **Dane wejściowe języka** 
+>
+> Analzye odbioru 2,1 ma opcjonalny parametr żądania dla języka, ustawienia regionalne paragonu. Obsługiwane ustawienia regionalne obejmują: en-AU, en-CA, en-GB, pl-IN, en-US. 
 
 1. Zapisz kod w pliku z rozszerzeniem. pr. Na przykład *form-Recognizer-Receipts.py*.
 1. Otwórz okno wiersza polecenia.

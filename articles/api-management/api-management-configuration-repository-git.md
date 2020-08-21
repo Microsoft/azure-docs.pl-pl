@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 183a3561a7c01d8f0911a70846384cf8ebc7dd9c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: fb252ac0b4863138fb2a9c3008dc6475bc988e5f
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254847"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723949"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Jak konfigurować i zapisywać konfigurację usługi API Management za pomocą narzędzia Git
 
@@ -222,41 +222,41 @@ Ustawienie końcowe, `$ref-policy` mapuje na plik globalnych zestawień zasad dl
 ### <a name="apis-folder"></a>folder interfejsów API
 `apis`Folder zawiera folder dla każdego interfejsu API w wystąpieniu usługi, który zawiera następujące elementy.
 
-* `apis\<api name>\configuration.json`— Konfiguracja interfejsu API i zawiera informacje o adresie URL usługi wewnętrznej bazy danych i operacjach. Są to te same informacje, które zostałyby zwrócone w przypadku wywołania [funkcji Pobierz konkretny interfejs API](/rest/api/apimanagement/2019-12-01/apis/get) `export=true` w formacie in `application/json` .
-* `apis\<api name>\api.description.html`— jest to opis interfejsu API i odpowiada `description` właściwości [jednostki interfejsu API](/java/api/com.microsoft.azure.storage.table.entityproperty).
-* `apis\<api name>\operations\`-Ten folder zawiera `<operation name>.description.html` pliki, które są mapowane na operacje w interfejsie API. Każdy plik zawiera opis pojedynczej operacji w interfejsie API, która jest mapowana na `description` Właściwość [jednostki operacji](/rest/api/visualstudio/operations/list#operationproperties) w interfejsie API REST.
+* `apis\<api name>\configuration.json` — Konfiguracja interfejsu API i zawiera informacje o adresie URL usługi wewnętrznej bazy danych i operacjach. Są to te same informacje, które zostałyby zwrócone w przypadku wywołania [funkcji Pobierz konkretny interfejs API](/rest/api/apimanagement/2019-12-01/apis/get) `export=true` w formacie in `application/json` .
+* `apis\<api name>\api.description.html` — jest to opis interfejsu API i odpowiada `description` właściwości [jednostki interfejsu API](/java/api/com.microsoft.azure.storage.table.entityproperty).
+* `apis\<api name>\operations\` -Ten folder zawiera `<operation name>.description.html` pliki, które są mapowane na operacje w interfejsie API. Każdy plik zawiera opis pojedynczej operacji w interfejsie API, która jest mapowana na `description` Właściwość [jednostki operacji](/rest/api/visualstudio/operations/list#operationproperties) w interfejsie API REST.
 
 ### <a name="groups-folder"></a>folder grup
 `groups`Folder zawiera folder dla każdej grupy zdefiniowanej w wystąpieniu usługi.
 
-* `groups\<group name>\configuration.json`-Konfiguracja grupy. Są to te same informacje, które zostałyby zwrócone w przypadku wywołania operacji [Pobierz określoną grupę](/rest/api/apimanagement/2019-12-01/group/get) .
-* `groups\<group name>\description.html`-jest to opis grupy i odpowiada `description` właściwości [jednostki grupy](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
+* `groups\<group name>\configuration.json` -Konfiguracja grupy. Są to te same informacje, które zostałyby zwrócone w przypadku wywołania operacji [Pobierz określoną grupę](/rest/api/apimanagement/2019-12-01/group/get) .
+* `groups\<group name>\description.html` -jest to opis grupy i odpowiada `description` właściwości [jednostki grupy](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>folder zasad
 `policies`Folder zawiera instrukcje zasad dla Twojego wystąpienia usługi.
 
-* `policies\global.xml`-zawiera zasady zdefiniowane w globalnym zakresie dla Twojego wystąpienia usługi.
-* `policies\apis\<api name>\`— Jeśli masz jakieś zasady zdefiniowane w zakresie interfejsu API, są one zawarte w tym folderze.
-* `policies\apis\<api name>\<operation name>\`folder — Jeśli masz jakieś zasady zdefiniowane w zakresie operacji, są one zawarte w tym folderze w `<operation name>.xml` plikach, które mapują do instrukcji zasad dla każdej operacji.
-* `policies\products\`— Jeśli masz jakieś zasady zdefiniowane w zakresie produktu, są one zawarte w tym folderze, który zawiera `<product name>.xml` pliki, które są mapowane na oświadczenia zasad dla każdego produktu.
+* `policies\global.xml` -zawiera zasady zdefiniowane w globalnym zakresie dla Twojego wystąpienia usługi.
+* `policies\apis\<api name>\` — Jeśli masz jakieś zasady zdefiniowane w zakresie interfejsu API, są one zawarte w tym folderze.
+* `policies\apis\<api name>\<operation name>\` folder — Jeśli masz jakieś zasady zdefiniowane w zakresie operacji, są one zawarte w tym folderze w `<operation name>.xml` plikach, które mapują do instrukcji zasad dla każdej operacji.
+* `policies\products\` — Jeśli masz jakieś zasady zdefiniowane w zakresie produktu, są one zawarte w tym folderze, który zawiera `<product name>.xml` pliki, które są mapowane na oświadczenia zasad dla każdego produktu.
 
 ### <a name="portalstyles-folder"></a>folder portalStyles
 `portalStyles`Folder zawiera konfiguracje i arkusze stylów dla dostosowań portalu deweloperów dla wystąpienia usługi.
 
-* `portalStyles\configuration.json`-zawiera nazwy arkuszy stylów używanych przez portal dla deweloperów
-* `portalStyles\<style name>.css`-Każdy `<style name>.css` plik zawiera style dla portalu dla deweloperów ( `Preview.css` i `Production.css` domyślnie).
+* `portalStyles\configuration.json` -zawiera nazwy arkuszy stylów używanych przez portal dla deweloperów
+* `portalStyles\<style name>.css` -Każdy `<style name>.css` plik zawiera style dla portalu dla deweloperów ( `Preview.css` i `Production.css` domyślnie).
 
 ### <a name="products-folder"></a>folder produkty
 `products`Folder zawiera folder dla każdego produktu zdefiniowanego w wystąpieniu usługi.
 
-* `products\<product name>\configuration.json`— jest to konfiguracja produktu. Są to te same informacje, które zostałyby zwrócone w przypadku wywołania operacji [pobierania określonego produktu](/rest/api/apimanagement/2019-12-01/product/get) .
-* `products\<product name>\product.description.html`-Opis produktu i odpowiada `description` właściwości [jednostki produktu](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) w interfejsie API REST.
+* `products\<product name>\configuration.json` — jest to konfiguracja produktu. Są to te same informacje, które zostałyby zwrócone w przypadku wywołania operacji [pobierania określonego produktu](/rest/api/apimanagement/2019-12-01/product/get) .
+* `products\<product name>\product.description.html` -Opis produktu i odpowiada `description` właściwości [jednostki produktu](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) w interfejsie API REST.
 
 ### <a name="templates"></a>szablonów
 `templates`Folder zawiera konfigurację [szablonów wiadomości e-mail](api-management-howto-configure-notifications.md) wystąpienia usługi.
 
-* `<template name>\configuration.json`— konfiguracja szablonu wiadomości e-mail.
-* `<template name>\body.html`-treść szablonu wiadomości e-mail.
+* `<template name>\configuration.json` — konfiguracja szablonu wiadomości e-mail.
+* `<template name>\body.html` -treść szablonu wiadomości e-mail.
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać informacje na temat innych sposobów zarządzania wystąpieniem usługi, zobacz:

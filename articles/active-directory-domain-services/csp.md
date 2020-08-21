@@ -10,18 +10,18 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 2760f0d91f7ed1066b0020c4aedc7572af095cfb
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 42364e791711258e42883bdfcd658ba2c45ecd28
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220324"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723150"
 ---
 # <a name="azure-active-directory-domain-services-deployment-and-management-for-azure-cloud-solution-providers"></a>Azure Active Directory Domain Services wdrażania i zarządzania dla dostawców rozwiązań w chmurze platformy Azure
 
 Dostawcy rozwiązań w chmurze platformy Azure są programem dla partnerów firmy Microsoft i udostępniają kanał licencji dla różnych usług w chmurze firmy Microsoft. Dostawca CSP platformy Azure umożliwia partnerom Zarządzanie sprzedażą, własną relacją rozliczeń, obsługę techniczną i rozliczeniami oraz stanowić pojedynczy punkt kontaktu klienta. Ponadto dostawca CSP platformy Azure oferuje pełny zestaw narzędzi, w tym Portal samoobsługowy i dołączone interfejsy API. Te narzędzia umożliwiają partnerom programu CSP łatwe inicjowanie obsługi zasobów platformy Azure i zarządzanie nimi oraz zapewnianie rozliczeń dla klientów i ich subskrypcji.
 
-[Portal Centrum partnerskiego](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview) jest punktem wejścia dla wszystkich partnerów programu Azure CSP i oferuje bogate możliwości zarządzania klientami, zautomatyzowane przetwarzanie i wiele innych. Partnerzy CSP platformy Azure mogą korzystać z funkcji Centrum partnerskiego za pomocą interfejsu użytkownika opartego na sieci Web lub programu PowerShell i różnych wywołań interfejsu API.
+[Portal Centrum partnerskiego](/azure/cloud-solution-provider/overview/partner-center-overview) jest punktem wejścia dla wszystkich partnerów programu Azure CSP i oferuje bogate możliwości zarządzania klientami, zautomatyzowane przetwarzanie i wiele innych. Partnerzy CSP platformy Azure mogą korzystać z funkcji Centrum partnerskiego za pomocą interfejsu użytkownika opartego na sieci Web lub programu PowerShell i różnych wywołań interfejsu API.
 
 Na poniższym diagramie przedstawiono, jak model CSP działa na wysokim poziomie. Tutaj firma Contoso ma dzierżawę usługi Azure Active Directory (Azure AD). Mają one partnerstwo z dostawcą usług kryptograficznych, który wdraża zasoby i zarządza nimi w ramach subskrypcji dostawcy CSP platformy Azure. Firma Contoso może również mieć regularne (bezpośrednie) subskrypcje platformy Azure, które są rozliczane bezpośrednio do firmy Contoso.
 
@@ -33,7 +33,7 @@ Grupa agenci *administracyjni* jest przypisana do roli Administrator dzierżawy 
 
 Gdy Partner CSP inicjuje subskrypcję dostawcy usług kryptograficznych platformy Azure dla firmy Contoso, jej grupy agentów administracyjnych są przypisywane do roli właściciela tej subskrypcji. W związku z tym agenci administracyjni dostawcy usług kryptograficznych mają uprawnienia wymagane do udostępniania zasobów platformy Azure, takich jak maszyny wirtualne, sieci wirtualne i Azure AD Domain Services w imieniu firmy Contoso.
 
-Aby uzyskać więcej informacji, zobacz [Omówienie usług kryptograficznych platformy Azure](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)
+Aby uzyskać więcej informacji, zobacz [Omówienie usług kryptograficznych platformy Azure](/azure/cloud-solution-provider/overview/azure-csp-overview)
 
 ## <a name="benefits-of-using-azure-ad-ds-in-an-azure-csp-subscription"></a>Zalety korzystania z usługi Azure AD DS w ramach subskrypcji dostawcy usług kryptograficznych platformy Azure
 

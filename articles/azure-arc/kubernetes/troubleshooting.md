@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Rozwiązywanie typowych problemów z obsługą Arc klastrów Kubernetes.
 keywords: Kubernetes, łuk, Azure, kontenery
-ms.openlocfilehash: 1527f8d4ca06c2deaf4ce18b73bfdb515dcadc63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 404516778255409d56dd5c3a7d1fd96711cc981f
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83725588"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723677"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>Kubernetes Rozwiązywanie problemów z usługą Azure ARC (wersja zapoznawcza)
 
@@ -69,9 +69,9 @@ pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
 
-Wszystkie zasobniki powinny `STATUS` być wyświetlane jako `Running` i `READY` powinny mieć wartość `3/3` lub `2/2` . Pobieranie dzienników i opisywanie zasobników zwracających `Error` lub `CrashLoopBackOff` .
+Wszystkie zasobniki powinny `STATUS` być wyświetlane jako `Running` i `READY` powinny mieć wartość `3/3` lub `2/2` . Pobieranie dzienników i opisywanie zasobników zwracających `Error` lub `CrashLoopBackOff` . Jeśli którykolwiek z tych zasobników jest zablokowany w `Pending` stanie, może to być spowodowane brakiem zasobów w węzłach klastra. [Skalowanie w górę klastra](https://kubernetes.io/docs/tasks/administer-cluster/cluster-management/#resizing-a-cluster) spowoduje przechodzenie tych zasobników do `Running` stanu.
 
-## <a name="unable-to-connect-my-kubernetes-cluster-to-azure"></a>Nie można połączyć mojego klastra Kubernetes z platformą Azure
+## <a name="connecting-kubernetes-clusters-to-azure-arc"></a>Łączenie klastrów Kubernetes z usługą Azure Arc
 
 Łączenie klastrów z platformą Azure wymaga dostępu zarówno do subskrypcji platformy Azure, jak i `cluster-admin` dostępu do klastra docelowego. Jeśli nie można połączyć się z klastrem lub nie ma wystarczających uprawnień do dołączania.
 
@@ -99,8 +99,6 @@ $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
 Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.
 This operation might take a while...
-
-There was a problem with connect-agent deployment. Please run 'kubectl -n azure-arc logs -l app.kubernetes.io/component=connect-agent -c connect-agent' to debug the error.
 ```
 
 ## <a name="configuration-management"></a>Zarządzanie konfiguracją
@@ -116,7 +114,7 @@ az k8sconfiguration create <parameters> --debug
 ### <a name="create-source-control-configuration"></a>Utwórz konfigurację kontroli źródła
 Rola współautor w zasobie Microsoft. Kubernetes/connectedCluster jest wymagana i wystarcza do utworzenia zasobu Microsoft. KubernetesConfiguration/sourceControlConfiguration.
 
-### <a name="configuration-remains-pending"></a>Konfiguracja pozostaje`Pending`
+### <a name="configuration-remains-pending"></a>Konfiguracja pozostaje `Pending`
 
 ```console
 kubectl -n azure-arc logs -l app.kubernetes.io/component=config-agent -c config-agent
@@ -158,4 +156,11 @@ kind: List
 metadata:
   resourceVersion: ""
   selfLink: ""
+```
+## <a name="monitoring"></a>Monitorowanie
+
+Azure Monitor dla kontenerów wymaga, aby elementu daemonset był uruchamiany w trybie uprzywilejowanym. Aby pomyślnie skonfigurować kanoniczny klaster Kubernetes na potrzeby monitorowania, uruchom następujące polecenie:
+
+```console
+juju config kubernetes-worker allow-privileged=true
 ```
