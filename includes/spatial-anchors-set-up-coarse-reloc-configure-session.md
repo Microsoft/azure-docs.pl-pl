@@ -5,10 +5,10 @@ ms.date: 09/18/2019
 ms.service: azure-spatial-anchors
 ms.topic: include
 ms.openlocfilehash: 574003a150ef294aa6a2ebc035fe48cf877dec66
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "76545220"
 ---
 ## <a name="configure-the-cloud-spatial-anchor-session"></a>Skonfiguruj sesję zakotwiczenia w chmurze

@@ -10,12 +10,12 @@ ms.date: 07/29/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e7bb996b3d42e2db2b4fa65d050ec1cb6a935bc6
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 2439bec08c16ce109b271844dc72b8fd2569aa07
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533380"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755912"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Wymuś minimalną wymaganą wersję Transport Layer Security (TLS) dla żądań kierowanych do konta magazynu
 
@@ -104,7 +104,7 @@ Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu z Azure 
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Zrzut ekranu przedstawiający sposób konfigurowania minimalnej wersji protokołu TLS w Azure Portal":::
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu za pomocą programu PowerShell, zainstaluj [Azure PowerShell w wersji 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) lub nowszej. Następnie skonfiguruj Właściwość **MinimumTLSVersion** dla nowego lub istniejącego konta magazynu. Prawidłowe wartości dla **MinimumTlsVersion** to `TLS1_0` , `TLS1_1` i `TLS1_2` .
 
@@ -338,6 +338,10 @@ Po utworzeniu zasad z efektem odmowy i przypisaniu go do zakresu użytkownik nie
 Na poniższej ilustracji przedstawiono błąd występujący w przypadku próby utworzenia konta magazynu z minimalną wersją protokołu TLS ustawioną na TLS 1,0 (wartość domyślna dla nowego konta), gdy zasady z efektem odmowy wymagają ustawienia minimalnej wersji protokołu TLS na TLS 1,2.
 
 :::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Zrzut ekranu przedstawiający błąd występujący podczas tworzenia konta magazynu w celu naruszenia zasad":::
+
+## <a name="network-considerations"></a>Kwestie dotyczące sieci
+
+Gdy klient wysyła żądanie do konta magazynu, najpierw nawiązuje połączenie z publicznym punktem końcowym konta magazynu przed przetworzeniem żądań. Ustawienie minimalnej wersji protokołu TLS jest sprawdzane po nawiązaniu połączenia. Jeśli żądanie używa starszej wersji protokołu TLS niż określona przez ustawienie, połączenie będzie nadal się powieść, ale żądanie zakończy się niepowodzeniem. Aby uzyskać więcej informacji na temat publicznych punktów końcowych usługi Azure Storage, zobacz [składnia identyfikatora URI zasobu](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#resource-uri-syntax).
 
 ## <a name="next-steps"></a>Następne kroki
 

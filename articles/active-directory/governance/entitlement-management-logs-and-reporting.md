@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4756ced858210f86bb8e979705db99a563441490
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89d6379f3fa41036836288ed5c75fbdaad0031da
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078176"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783827"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Archiwizuj dzienniki i raporty dotyczące zarządzania prawami usługi Azure AD w Azure Monitor
 
@@ -59,7 +59,7 @@ Archiwizowanie dzienników inspekcji usługi Azure AD wymaga, aby Azure Monitor 
 
 ## <a name="view-events-for-an-access-package"></a>Wyświetlanie zdarzeń dla pakietu dostępu  
 
-Aby wyświetlić zdarzenia dotyczące pakietu dostępu, musisz mieć dostęp do odpowiedniego obszaru roboczego usługi Azure monitor (zobacz [Zarządzanie dostępem do danych dziennika i obszarów roboczych w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) informacji) i w jednej z następujących ról: 
+Aby wyświetlić zdarzenia dotyczące pakietu dostępu, musisz mieć dostęp do odpowiedniego obszaru roboczego usługi Azure monitor (zobacz [Zarządzanie dostępem do danych dziennika i obszarów roboczych w Azure monitor](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) informacji) i w jednej z następujących ról: 
 
 - Administrator globalny  
 - Administrator zabezpieczeń  
@@ -170,7 +170,7 @@ $wks | ft CustomerId, Name
 
 ### <a name="send-the-query-to-the-log-analytics-workspace"></a>Wyślij zapytanie do obszaru roboczego Log Analytics
 Na koniec po zidentyfikowaniu obszaru roboczego można użyć [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery?view=azps-3.3.0
-) do wysłania zapytania Kusto do tego obszaru roboczego. Te zapytania są zapisywane w [języku zapytań Kusto](https://docs.microsoft.com/azure/kusto/query/).
+) do wysłania zapytania Kusto do tego obszaru roboczego. Te zapytania są zapisywane w [języku zapytań Kusto](/azure/kusto/query/).
  
 Na przykład możesz pobrać zakres dat dla rekordów zdarzeń inspekcji z obszaru roboczego Log Analytics, za pomocą poleceń cmdlet programu PowerShell, aby wysłać zapytanie, takie jak:
  
@@ -189,5 +189,4 @@ $bResponse.Results |ft
 ```
 
 ## <a name="next-steps"></a>Następne kroki:
-- [Tworzenie interaktywnych raportów przy użyciu skoroszytów Azure Monitor](../../azure-monitor/platform/workbooks-overview.md) 
-
+- [Tworzenie interaktywnych raportów przy użyciu skoroszytów Azure Monitor](../../azure-monitor/platform/workbooks-overview.md)

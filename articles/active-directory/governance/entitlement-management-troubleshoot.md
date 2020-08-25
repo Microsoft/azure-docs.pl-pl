@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bf19123888dd26073016131c93047b0cd0afaf4
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 216cff03ac6ce64dee9aae1e9daa4a86385eeb0e
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145754"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783335"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Rozwiązywanie problemów z zarządzaniem prawami usługi Azure AD
 
@@ -45,9 +45,9 @@ W tym artykule opisano niektóre elementy, które należy zaznaczyć, aby pomóc
 
 * Jeśli istnieją użytkownicy, którzy zostali już przypisani do zasobu, którym chcesz zarządzać za pomocą pakietu dostępu, upewnij się, że użytkownicy są przypisani do pakietu dostępu przy użyciu odpowiednich zasad. Na przykład możesz uwzględnić grupę w pakiecie dostępu, który ma już użytkowników w grupie. Jeśli Ci użytkownicy w grupie wymagają ciągłego dostępu, muszą mieć odpowiednie zasady dla pakietów dostępu, aby nie utracić dostępu do grupy. Pakiet dostępu można przypisać, prosząc użytkowników o zażądanie pakietu dostępu zawierającego ten zasób lub przez bezpośrednie przypisanie ich do pakietu dostępu. Aby uzyskać więcej informacji, zobacz temat [Zmiana ustawień żądania i zatwierdzania dla pakietu dostępu](entitlement-management-access-package-request-policy.md).
 
-* Po usunięciu członka zespołu są one również usuwane z grupy Microsoft 365. Usunięcie z funkcji czatu zespołu może być opóźnione. Aby uzyskać więcej informacji, zobacz [członkostwo w grupie](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
+* Po usunięciu członka zespołu są one również usuwane z grupy Microsoft 365. Usunięcie z funkcji czatu zespołu może być opóźnione. Aby uzyskać więcej informacji, zobacz [członkostwo w grupie](/microsoftteams/office-365-groups#group-membership).
 
-* Upewnij się, że katalog nie jest skonfigurowany do obsługi wielu regionów geograficznych. Zarządzanie upoważnieniami nie obsługuje obecnie wielu lokalizacji geograficznych na potrzeby usługi SharePoint Online. Lokacje usługi SharePoint Online muszą znajdować się w domyślnej lokalizacji geograficznej, aby podlegać zarządzaniu upoważnieniami. Aby uzyskać więcej informacji, zobacz [wiele geograficznie funkcji w usłudze OneDrive i SharePoint Online](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
+* Upewnij się, że katalog nie jest skonfigurowany do obsługi wielu regionów geograficznych. Zarządzanie upoważnieniami nie obsługuje obecnie wielu lokalizacji geograficznych na potrzeby usługi SharePoint Online. Lokacje usługi SharePoint Online muszą znajdować się w domyślnej lokalizacji geograficznej, aby podlegać zarządzaniu upoważnieniami. Aby uzyskać więcej informacji, zobacz [wiele geograficznie funkcji w usłudze OneDrive i SharePoint Online](/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
 
 ## <a name="access-packages"></a>Pakiety dostępu
 
@@ -69,7 +69,7 @@ W tym artykule opisano niektóre elementy, które należy zaznaczyć, aby pomóc
 
 * Gdy użytkownik, którego nie ma jeszcze w katalogu, loguje się do portalu Mój dostęp w celu zażądania pakietu dostępu, upewnij się, że uwierzytelnia się przy użyciu konta organizacyjnego. Konto organizacyjne może być kontem w katalogu zasobów lub w katalogu, który znajduje się w jednej z zasad pakietu dostępu. Jeśli konto użytkownika nie jest kontem organizacyjnym lub katalog, w którym użytkownik się uwierzytelnia, nie jest uwzględniony w zasadach, wówczas użytkownik nie będzie widział pakietu dostępu. Aby uzyskać więcej informacji, zobacz [żądanie dostępu do pakietu dostępu](entitlement-management-request-access.md).
 
-* Jeśli użytkownik nie może się zalogować do katalogu zasobów, nie będzie w stanie zażądać dostępu w portalu Mój dostęp. Aby użytkownik mógł zażądać dostępu, musisz usunąć blokadę logowania z profilu użytkownika. Aby usunąć blok logowania, w Azure Portal kliknij pozycję **Azure Active Directory**, kliknij pozycję **Użytkownicy**, kliknij użytkownika, a następnie kliknij pozycję **profil**. Edytuj sekcję **Ustawienia** i Zmień **blok Zaloguj** się na **nie**. Aby uzyskać więcej informacji, zobacz [Dodawanie lub aktualizowanie informacji o profilu użytkownika przy użyciu Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  Możesz również sprawdzić, czy użytkownik został zablokowany ze względu na [Zasady ochrony tożsamości](../identity-protection/howto-unblock-user.md).
+* Jeśli użytkownik nie może się zalogować do katalogu zasobów, nie będzie w stanie zażądać dostępu w portalu Mój dostęp. Aby użytkownik mógł zażądać dostępu, musisz usunąć blokadę logowania z profilu użytkownika. Aby usunąć blok logowania, w Azure Portal kliknij pozycję **Azure Active Directory**, kliknij pozycję **Użytkownicy**, kliknij użytkownika, a następnie kliknij pozycję **profil**. Edytuj sekcję **Ustawienia** i Zmień **blok Zaloguj** się na **nie**. Aby uzyskać więcej informacji, zobacz [Dodawanie lub aktualizowanie informacji o profilu użytkownika przy użyciu Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  Możesz również sprawdzić, czy użytkownik został zablokowany ze względu na [Zasady ochrony tożsamości](../identity-protection/howto-identity-protection-remediate-unblock.md).
 
 * Jeśli użytkownik jest obiektem żądającym i osobą zatwierdzającą, w portalu My Access nie zobaczy żądania dotyczącego pakietu dostępu na stronie **zatwierdzenia** . Takie zachowanie jest celowe — użytkownik nie może zatwierdzić własnego żądania. Upewnij się, że żądany pakiet dostępu ma dodatkowe osoby zatwierdzające skonfigurowane dla zasad. Aby uzyskać więcej informacji, zobacz temat [Zmiana ustawień żądania i zatwierdzania dla pakietu dostępu](entitlement-management-access-package-request-policy.md).
 

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc
 ms.openlocfilehash: f4960482c88bf9768be1c1c9dbb3652409a8f1b8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74771104"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Samouczek: Inicjowanie obsługi administracyjnej serwera Azure Database for MySQL przy użyciu szablonu Azure Resource Manager
@@ -87,7 +87,7 @@ W tym żądaniu należy dostosować następujące wartości:
 +   `storageProfile/geoRedundantBackup` — określ wartość Enabled/Disabled (Włączone/wyłączone) w zależności od wymagań Geo-DR.
 +   `sku/tier` — określ warstwę Basic, GeneralPurpose lub MemoryOptimized dla wdrożenia.
 +   `sku/capacity` — określ ilość rdzeni wirtualnych. Możliwe wartości to 2, 4, 8, 16, 32 lub 64.
-+   `sku/family`-Określ 5 rdzeń, aby wybrać generowanie sprzętu na potrzeby wdrażania serwera.
++   `sku/family` -Określ 5 rdzeń, aby wybrać generowanie sprzętu na potrzeby wdrażania serwera.
 +   `sku/name` — określ wartość TierPrefix_family_capacity. Na przykład B_Gen5_1, GP_Gen5_16, MO_Gen5_32. Aby ustalić prawidłowe wartości dla poszczególnych regionów i warstw, zapoznaj się z [dokumentacją warstw cenowych](./concepts-pricing-tiers.md).
 +   `resources/properties/virtualNetworkSubnetId` — określ identyfikator platformy Azure dla podsieci w sieci wirtualnej, w której ma zostać umieszczony serwer Azure MySQL. 
 +   `tags(optional)` — określ opcjonalne tagi, stanowiące pary klucz-wartość, z których można korzystać do kategoryzowania zasobów w celach rozliczeniowych itd.

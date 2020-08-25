@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: 1d11318d2af640a0cf417286ee777ce833297a4f
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: f9c5b8ae16cb43576d788f72478e2cfba521a736
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873606"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749874"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Konfigurowanie klastrów w usłudze HDInsight przy użyciu technologii Apache Hadoop, Apache Spark, Apache Kafka i innych
 
@@ -63,7 +63,7 @@ Nazwy klastrów usługi HDInsight mają następujące ograniczenia:
 * Zakres nazewnictwa klastrów dotyczy wszystkich subskrypcji platformy Azure. Nazwa klastra musi być unikatowa na całym świecie.
 * Pierwsze sześć znaków musi być unikatowe w obrębie sieci wirtualnej
 
-#### <a name="region"></a>Region
+#### <a name="region"></a>Region (Region)
 
 Nie musisz jawnie określać lokalizacji klastra: klaster znajduje się w tej samej lokalizacji co magazyn domyślny. Aby uzyskać listę obsługiwanych regionów, wybierz listę rozwijaną **region** w [cenniku usługi HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
@@ -97,13 +97,13 @@ Klastry usługi HDInsight umożliwiają skonfigurowanie dwóch kont użytkownik�
 
 Nazwa użytkownika HTTP ma następujące ograniczenia:
 
-* Dozwolone znaki specjalne: `_` i`@`
+* Dozwolone znaki specjalne: `_` i `@`
 * Znaki nie są dozwolone: #;. "', \/ : '! *? $ () {} [] <>|&--= +% ~ ^ Space
 * Maksymalna długość: 20
 
 Nazwa użytkownika SSH ma następujące ograniczenia:
 
-* Dozwolone znaki specjalne: `_` i`@`
+* Dozwolone znaki specjalne: `_` i `@`
 * Znaki nie są dozwolone: #;. "', \/ : '! *? $ () {} [] <>|&--= +% ~ ^ Space
 * Maksymalna długość: 64
 * Nazwy zastrzeżone: Hadoop, users, Oozie, Hive, mapred, Ambari-pytań i odpowiedzi, dozorcy, tez, HDFS, Sqoop, przędza, hcat, AMS, HBase, burza, administrator, administrator, użytkownik, Użytkownik1, test,, TEST1, user3, admin1, 1, 123, a, actuser, adm, admin2, ASPNET, Backup, Console, David, gość, Jan, właściciel, katalog_główny Support_388945a0
@@ -133,6 +133,9 @@ Podczas konfiguracji dla domyślnego punktu końcowego magazynu należy określi
 
 > [!IMPORTANT]
 > Włączenie bezpiecznego transferu magazynu po utworzeniu klastra może spowodować błędy przy użyciu konta magazynu i nie jest to zalecane. Lepszym rozwiązaniem jest utworzenie nowego klastra przy użyciu konta magazynu z już włączonym bezpiecznym transferem.
+
+> [!Note]  
+> Usługa Azure HDInsight nie umożliwia automatycznego transferu, przenoszenia ani kopiowania danych przechowywanych w usłudze Azure Storage z jednego regionu do innego.
 
 ### <a name="metastore-settings"></a>Ustawienia magazynu metadanych
 

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 01/30/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 627086bdb13acdd29821af399f90fee8deaae432
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "76900185"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Konfigurowanie dystrybucji globalnej usługi Azure Cosmos DB przy użyciu interfejsu API tabel
@@ -28,11 +28,11 @@ W tym artykule opisano następujące zadania:
 
 ## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Nawiązywanie połączenia z preferowanym regionem przy użyciu interfejsu API tabel
 
-Aby można było korzystać z [dystrybucji globalnej](distribute-data-globally.md), aplikacje klienckie powinny określić bieżącą lokalizację, w której działa aplikacja. Jest to realizowane przez ustawienie `CosmosExecutorConfiguration.CurrentRegion` właściwości. `CurrentRegion` Właściwość powinna zawierać jedną lokalizację. Każde wystąpienie klienta może określić swój własny region dla odczytu o małym opóźnieniu. Region musi być nazwany przy użyciu ich [nazw wyświetlanych](https://msdn.microsoft.com/library/azure/gg441293.aspx) , takich jak "zachodnie stany USA". 
+Aby można było korzystać z [dystrybucji globalnej](distribute-data-globally.md), aplikacje klienckie powinny określić bieżącą lokalizację, w której działa aplikacja. Jest to realizowane przez ustawienie `CosmosExecutorConfiguration.CurrentRegion` właściwości. `CurrentRegion`Właściwość powinna zawierać jedną lokalizację. Każde wystąpienie klienta może określić swój własny region dla odczytu o małym opóźnieniu. Region musi być nazwany przy użyciu ich [nazw wyświetlanych](https://msdn.microsoft.com/library/azure/gg441293.aspx) , takich jak "zachodnie stany USA". 
 
 Zestaw SDK Azure Cosmos DB interfejs API tabel automatycznie wybiera najlepszy punkt końcowy do komunikowania się na podstawie konfiguracji konta i aktualnej dostępności regionalnej. Określa priorytet najbliższego regionu w celu zapewnienia lepszych opóźnień dla klientów. Po ustawieniu bieżącej `CurrentRegion` właściwości żądania odczytu i zapisu są kierowane w następujący sposób:
 
-* **Żądania odczytu:** Wszystkie żądania odczytu są wysyłane do skonfigurowanego `CurrentRegion`. W oparciu o bliskość zestaw SDK automatycznie wybiera rezerwowy region replikowany geograficznie w celu zapewnienia wysokiej dostępności.
+* **Żądania odczytu:** Wszystkie żądania odczytu są wysyłane do skonfigurowanego `CurrentRegion` . W oparciu o bliskość zestaw SDK automatycznie wybiera rezerwowy region replikowany geograficznie w celu zapewnienia wysokiej dostępności.
 
 * **Żądania zapisu:** Zestaw SDK automatycznie wysyła wszystkie żądania zapisu do bieżącego regionu zapisu. W przypadku konta z wieloma wzorcami bieżący region będzie również obsługiwał żądania zapisu. W oparciu o bliskość zestaw SDK automatycznie wybiera rezerwowy region replikowany geograficznie w celu zapewnienia wysokiej dostępności.
 

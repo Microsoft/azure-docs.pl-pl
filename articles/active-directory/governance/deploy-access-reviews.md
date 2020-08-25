@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cccab009ddd5624fcc98ad6f871fe40d9540823
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: bb74fae150d4c8e5dda6978c272d358bdec6ca25
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604061"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783607"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planowanie wdrożenia Azure Active Directory przeglądy dostępu
 
@@ -180,7 +180,7 @@ Typowe elementy docelowe do przeglądu obejmują:
 
 * [Aplikacje zintegrowane z usługą Azure AD na potrzeby logowania jednokrotnego](../manage-apps/what-is-application-management.md) (na przykład SaaS).
 
-* [Członkostwo](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context) w grupach (synchronizowane z usługą Azure AD lub utworzone w usłudze Azure AD lub Office 365, w tym Microsoft Teams).
+* [Członkostwo](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) w grupach (synchronizowane z usługą Azure AD lub utworzone w usłudze Azure AD lub Office 365, w tym Microsoft Teams).
 
 * [Pakiet dostępu](/entitlement-management-overview.md) , który grupuje zasoby (grupy, aplikacje i lokacje) w jednym pakiecie w celu zarządzania dostępem.
 
@@ -389,7 +389,7 @@ Przeglądy dostępu mogą dotyczyć członków grupy lub użytkowników, którzy
 
 ## <a name="plan-review-of-azure-ad-and-azure-resource-roles"></a>Planowanie przeglądu usługi Azure AD i ról zasobów platformy Azure
 
-[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) upraszcza zarządzanie dostępem uprzywilejowanym do zasobów w usłudze Azure AD. Dzięki temu można zachować listę ról uprzywilejowanych, zarówno w [usłudze Azure AD](../users-groups-roles/directory-assign-admin-roles.md) , jak i w przypadku [zasobów platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) znacznie mniejszych i zwiększyć ogólne zabezpieczenia katalogu.
+[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) upraszcza zarządzanie dostępem uprzywilejowanym do zasobów w usłudze Azure AD. Dzięki temu można zachować listę ról uprzywilejowanych, zarówno w [usłudze Azure AD](../users-groups-roles/directory-assign-admin-roles.md) , jak i w przypadku [zasobów platformy Azure](../../role-based-access-control/built-in-roles.md) znacznie mniejszych i zwiększyć ogólne zabezpieczenia katalogu.
 
 Przeglądy dostępu umożliwiają recenzentom potwierdzenie, czy użytkownicy nadal muszą znajdować się w roli. Podobnie jak przeglądy dostępu dla pakietów dostępu, przeglądy dla ról usługi Azure AD i zasobów platformy Azure są zintegrowane z użytkownikami administracyjnymi PIM. Zalecamy regularne przeglądanie następujących przypisań ról:
 
@@ -452,9 +452,9 @@ Postępuj zgodnie z instrukcjami podanymi w poniższych linkach:
 
 | Instrukcje | Opis |
 | - | - |
- [Tworzenie przeglądów dostępu](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-start-security-review?toc=/azure/active-directory/governance/toc.json)| Tworzenie przeglądów dostępu dla uprzywilejowanych ról usługi Azure AD w usłudze PIM |
-| [Samoobsługowe przeglądanie dostępu](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-perform-security-review?toc=/azure/active-directory/governance/toc.json)| Jeśli masz przypisaną rolę administracyjną, Zatwierdź lub Odmów dostępu do roli |
-| [Ukończ przegląd dostępu](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-complete-review?toc=/azure/active-directory/governance/toc.json)| Wyświetl przegląd dostępu i Zastosuj wyniki |
+ [Tworzenie przeglądów dostępu](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Tworzenie przeglądów dostępu dla uprzywilejowanych ról usługi Azure AD w usłudze PIM |
+| [Samoobsługowe przeglądanie dostępu](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Jeśli masz przypisaną rolę administracyjną, Zatwierdź lub Odmów dostępu do roli |
+| [Ukończ przegląd dostępu](../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Wyświetl przegląd dostępu i Zastosuj wyniki |
 
 
 ### <a name="review-azure-resource-roles"></a>Przeglądanie ról zasobów platformy Azure
@@ -467,14 +467,14 @@ Postępuj zgodnie z instrukcjami podanymi w poniższych linkach:
 
 | Instrukcje| Opis |
 | - | -|
-| [Tworzenie przeglądów dostępu](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-start-access-review?toc=/azure/active-directory/governance/toc.json)| Tworzenie przeglądów dostępu dla uprzywilejowanych ról zasobów platformy Azure w usłudze PIM |
-| [Samoobsługowe przeglądanie dostępu](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-perform-access-review?toc=/azure/active-directory/governance/toc.json)| Jeśli masz przypisaną rolę administracyjną, Zatwierdź lub Odmów dostępu do roli |
-| [Ukończ przegląd dostępu](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-complete-access-review?toc=/azure/active-directory/governance/toc.json)| Wyświetl przegląd dostępu i Zastosuj wyniki |
+| [Tworzenie przeglądów dostępu](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Tworzenie przeglądów dostępu dla uprzywilejowanych ról zasobów platformy Azure w usłudze PIM |
+| [Samoobsługowe przeglądanie dostępu](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Jeśli masz przypisaną rolę administracyjną, Zatwierdź lub Odmów dostępu do roli |
+| [Ukończ przegląd dostępu](../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Wyświetl przegląd dostępu i Zastosuj wyniki |
 
 
 ## <a name="use-the-access-reviews-api"></a>Korzystanie z interfejsu API przeglądów dostępu
 
-Zobacz [metody interfejsu API programu Graph](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta) oraz [uprawnienia roli i aplikacji sprawdzanie autoryzacji](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta) w celu współpracy z zasobami do przeglądania i zarządzania nimi. Metody przeglądy dostępu w interfejsie API Microsoft Graph są dostępne dla kontekstów aplikacji i użytkowników. Podczas uruchamiania skryptów w kontekście aplikacji, konto używane do uruchamiania interfejsu API (zasady usługi) musi mieć przyznane uprawnienie "AccessReview. Read. All", aby wykonywać zapytania dotyczące informacji o przeglądach dostępu.
+Zobacz [metody interfejsu API programu Graph](/graph/api/resources/accessreviews-root?view=graph-rest-beta) oraz [uprawnienia roli i aplikacji sprawdzanie autoryzacji](/graph/api/resources/accessreviews-root?view=graph-rest-beta) w celu współpracy z zasobami do przeglądania i zarządzania nimi. Metody przeglądy dostępu w interfejsie API Microsoft Graph są dostępne dla kontekstów aplikacji i użytkowników. Podczas uruchamiania skryptów w kontekście aplikacji, konto używane do uruchamiania interfejsu API (zasady usługi) musi mieć przyznane uprawnienie "AccessReview. Read. All", aby wykonywać zapytania dotyczące informacji o przeglądach dostępu.
 
 Popularne zadania przeglądów dostępu do automatyzowania przy użyciu interfejs API programu Graph do przeglądów dostępu są następujące:
 
@@ -519,4 +519,3 @@ Dowiedz się więcej na temat pokrewnych technologii.
 
 * [Co to jest usługa Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
 
- 

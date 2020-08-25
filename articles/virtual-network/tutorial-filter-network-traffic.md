@@ -15,15 +15,15 @@ ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
 ms.openlocfilehash: b5a136ae05b3cd410ca252b6d5a1df443aff6f7a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75350137"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Samouczek: filtrowanie ruchu sieciowego za pomocą sieciowej grupy zabezpieczeń przy użyciu Azure Portal
 
-Ruch sieciowy przychodzący do podsieci sieci wirtualnej i wychodzący z niej możesz filtrować za pomocą sieciowej grupy zabezpieczeń. Sieciowe grupy zabezpieczeń zawierają reguły zabezpieczeń, które filtrują ruch sieciowy według adresów IP, portów i protokołów. Reguły zabezpieczeń są stosowane do zasobów wdrożonych w podsieci. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ruch sieciowy przychodzący do podsieci sieci wirtualnej i wychodzący z niej możesz filtrować za pomocą sieciowej grupy zabezpieczeń. Sieciowe grupy zabezpieczeń zawierają reguły zabezpieczeń, które filtrują ruch sieciowy według adresów IP, portów i protokołów. Reguły zabezpieczeń są stosowane do zasobów wdrożonych w podsieci. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie sieciowej grupy zabezpieczeń i reguł zabezpieczeń
@@ -33,7 +33,7 @@ Ruch sieciowy przychodzący do podsieci sieci wirtualnej i wychodzący z niej mo
 
 Jeśli chcesz, możesz wykonać ten samouczek przy użyciu [interfejsu wiersza polecenia platformy Azure](tutorial-filter-network-traffic-cli.md) lub [programu PowerShell](tutorial-filter-network-traffic-powershell.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -67,7 +67,7 @@ Grupa zabezpieczeń aplikacji umożliwia grupowanie serwerów o podobnych funkcj
     | ---            | ---                                                           |
     | Nazwa           | myAsgWebServers                                               |
     | Subskrypcja   | Wybierz subskrypcję.                                     |
-    | Grupa zasobów | Wybierz pozycję **Użyj istniejącej** , a następnie wybierz pozycję Moja **resourceName**. |
+    | Grupa zasobów | Wybierz pozycję **Użyj istniejącej** , a następnie wybierz pozycję Moja  **resourceName**. |
     | Lokalizacja       | Wschodnie stany USA                                                       |
 
 4. Ponownie wykonaj krok 3, używając następujących wartości:
@@ -76,7 +76,7 @@ Grupa zabezpieczeń aplikacji umożliwia grupowanie serwerów o podobnych funkcj
     | ---            | ---                                                           |
     | Nazwa           | myAsgMgmtServers                                              |
     | Subskrypcja   | Wybierz subskrypcję.                                     |
-    | Grupa zasobów | Wybierz pozycję **Użyj istniejącej** , a następnie wybierz pozycję Moja **resourceName**. |
+    | Grupa zasobów | Wybierz pozycję **Użyj istniejącej** , a następnie wybierz pozycję Moja  **resourceName**. |
     | Lokalizacja       | Wschodnie stany USA                                                       |
 
 ## <a name="create-a-network-security-group"></a>Tworzenie sieciowej grupy zabezpieczeń
@@ -113,7 +113,7 @@ Grupa zabezpieczeń aplikacji umożliwia grupowanie serwerów o podobnych funkcj
     | ---------               | ---------                                                                                                       |
     | Element docelowy             | Wybierz opcję **Grupa zabezpieczeń aplikacji**, a następnie wybierz opcję **myAsgWebServers** w pozycji **Grupa zabezpieczeń aplikacji**.  |
     | Zakresy portów docelowych | Wprowadź wartości 80,443                                                                                                    |
-    | Protocol (Protokół)                | Wybierz pozycję TCP                                                                                                      |
+    | Protokół                | Wybierz pozycję TCP                                                                                                      |
     | Nazwa                    | Allow-Web-All                                                                                                   |
 
 3. Ponownie wykonaj krok 2, używając następujących wartości:
@@ -122,7 +122,7 @@ Grupa zabezpieczeń aplikacji umożliwia grupowanie serwerów o podobnych funkcj
     | ---------               | ---------                                                                                                       |
     | Element docelowy             | Wybierz opcję **Grupa zabezpieczeń aplikacji**, a następnie wybierz opcję **myAsgMgmtServers** w pozycji **Grupa zabezpieczeń aplikacji**. |
     | Zakresy portów docelowych | Wprowadź 3389                                                                                                      |
-    | Protocol (Protokół)                | Wybierz pozycję TCP                                                                                                      |
+    | Protokół                | Wybierz pozycję TCP                                                                                                      |
     | Priorytet                | Wprowadź wartość 110                                                                                                       |
     | Nazwa                    | Allow-RDP-All                                                                                                   |
 
@@ -211,7 +211,7 @@ Podczas tworzenia maszyn wirtualnych przez portal dla każdej maszyny wirtualnej
   
 11. Aby potwierdzić, że możesz uzyskać dostęp do serwera internetowego *myVmWeb* z Internetu, otwórz przeglądarkę internetową na komputerze i przejdź do adresu `http://<public-ip-address-from-previous-step>`. Zobaczysz ekran powitalny usług IIS, ponieważ port 80 zezwala na ruch przychodzący z Internetu do grupy zabezpieczeń aplikacji *myAsgWebServers*, w której znajduje się interfejs sieciowy dołączony do maszyny wirtualnej *myVmWeb*.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów i wszystkie znajdujące się w niej zasoby nie będą już potrzebne, usuń je:
 

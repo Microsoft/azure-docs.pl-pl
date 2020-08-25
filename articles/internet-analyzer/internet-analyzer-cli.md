@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: d474442086e2a114f26df279ab2682cd7628a5f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74184280"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Utwórz test analizatora internetowego przy użyciu interfejsu wiersza polecenia (wersja zapoznawcza)
@@ -44,7 +44,7 @@ Interfejs wiersza polecenia programu Internet Analyzer udostępnia następujące
     ```
 
     Jeśli interfejs wiersza polecenia może otworzyć domyślną przeglądarkę, spowoduje to załadowanie strony logowania platformy Azure.
-    W przeciwnym razie Otwórz stronę przeglądarki pod https://aka.ms/devicelogin adresem i wprowadź kod autoryzacji wyświetlany w terminalu.
+    W przeciwnym razie Otwórz stronę przeglądarki pod adresem https://aka.ms/devicelogin i wprowadź kod autoryzacji wyświetlany w terminalu.
 
 4. Zaloguj się w przeglądarce przy użyciu poświadczeń swojego konta.
 
@@ -79,7 +79,7 @@ Interfejs wiersza polecenia programu Internet Analyzer udostępnia następujące
     az internet-analyzer test create --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile" --endpoint-a-name "contoso" --endpoint-a-endpoint "www.contoso.com/some/path/to/trans.gif" --endpoint-b-name "microsoft" --endpoint-b-endpoint "www.microsoft.com/another/path/to/trans.gif" --name "MyFirstInternetAnalyzerTest" --enabled-state Enabled
     ```
 
-    W powyższym poleceniu `www.contoso.com` założono, że obie i `www.microsoft.com` obsługują obraz z pikselami ([Trans. gif](https://fpc.msedge.net/apc/trans.gif)) w obszarze ścieżki niestandardowe. Jeśli ścieżka obiektu nie została określona jawnie, Analizator Internetu będzie używać `/apc/trans.gif` jako ścieżki obiektu domyślnie, czyli gdy wstępnie skonfigurowane punkty końcowe obsługują obraz z pikselami. Należy również zauważyć, że nie trzeba określać schematu (https/http); Analizator Internetu obsługuje tylko punkty końcowe HTTPS, więc założono, że jest to protokół HTTPS.
+    W powyższym poleceniu założono, że obie `www.contoso.com` i `www.microsoft.com` obsługują obraz jednopikselowy ([trans.gif](https://fpc.msedge.net/apc/trans.gif)) pod ścieżkami niestandardowymi. Jeśli ścieżka obiektu nie została określona jawnie, Analizator Internetu będzie używać `/apc/trans.gif` jako ścieżki obiektu domyślnie, czyli gdy wstępnie skonfigurowane punkty końcowe obsługują obraz z pikselami. Należy również zauważyć, że nie trzeba określać schematu (https/http); Analizator Internetu obsługuje tylko punkty końcowe HTTPS, więc założono, że jest to protokół HTTPS.
 
 11. Nowy test powinien pojawić się w profilu analizatora internetowego:
     ```azurecli-interactive

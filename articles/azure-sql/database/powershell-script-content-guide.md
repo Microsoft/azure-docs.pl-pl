@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
 ms.openlocfilehash: 77220fabc78dd10b4299219ef84c1f6eb32ba82e
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85987324"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database-and-azure-sql-managed-instance"></a>Przykłady Azure PowerShell dla Azure SQL Database i wystąpienia zarządzanego Azure SQL
@@ -32,7 +32,7 @@ Jeśli zdecydujesz się zainstalować program PowerShell i używać go lokalnie,
 
 Poniższa tabela zawiera linki do przykładowych skryptów programu Azure PowerShell dla usługi Azure SQL Database.
 
-|Link|Opis|
+|Łącze|Opis|
 |---|---|
 |**Tworzenie i Konfigurowanie pojedynczych baz danych i pul elastycznych**||
 | [Tworzenie pojedynczej bazy danych i konfigurowanie reguły zapory na poziomie serwera](scripts/create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ten skrypt programu PowerShell tworzy pojedynczą bazę danych i konfiguruje regułę zapory adresów IP na poziomie serwera. |
@@ -64,7 +64,7 @@ Dowiedz się więcej o [interfejsie API Azure PowerShell pojedynczej bazy danych
 
 Poniższa tabela zawiera linki do przykładowych skryptów Azure PowerShell dla wystąpienia zarządzanego Azure SQL.
 
-|Link|Opis|
+|Łącze|Opis|
 |---|---|
 |**Tworzenie i konfigurowanie wystąpień zarządzanych**||
 | [Tworzenie wystąpienia zarządzanego i zarządzanie nim](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | Ten skrypt programu PowerShell pokazuje, jak utworzyć wystąpienie zarządzane i zarządzać nim przy użyciu Azure PowerShell. |
@@ -80,6 +80,6 @@ Dowiedz się więcej [na temat poleceń cmdlet programu PowerShell dla wystąpie
 
 ---
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 Przykłady wymienione na tej stronie używają [poleceń cmdlet programu PowerShell](/powershell/module/az.sql/) do tworzenia zasobów usługi Azure SQL i zarządzania nimi. Dodatkowe polecenia cmdlet służące do uruchamiania zapytań i wykonywania wielu zadań bazy danych znajdują się w module [SqlServer](/powershell/module/sqlserver/) . Aby uzyskać więcej informacji, zobacz [SQL Server PowerShell](/sql/powershell/sql-server-powershell/).

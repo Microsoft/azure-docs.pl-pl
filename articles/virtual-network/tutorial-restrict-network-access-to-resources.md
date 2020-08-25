@@ -17,15 +17,15 @@ ms.workload: infrastructure
 ms.date: 08/23/2018
 ms.author: kumud
 ms.openlocfilehash: 85fc5687b82947ed16bde0c30ca2b947514ba958
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74186369"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Samouczek: ograniczanie dostępu sieciowego do zasobów PaaS za pomocą punktów końcowych usługi dla sieci wirtualnej z użyciem witryny Azure Portal
 
-Punkty końcowe usługi dla sieci wirtualnej umożliwiają ograniczenie dostępu sieciowego do niektórych zasobów usługi platformy Azure do podsieci sieci wirtualnej. Możesz również uniemożliwić dostęp internetowy do zasobów. Punkty końcowe usługi zapewniają bezpośrednie połączenie z sieci wirtualnej z obsługiwanymi usługami platformy Azure, umożliwiając korzystanie z prywatnej przestrzeni adresowej sieci wirtualnej w celu uzyskiwania dostępu do usług platformy Azure. Ruch kierowany do zasobów platformy Azure za pośrednictwem punktów końcowych usługi zawsze pozostaje w sieci szkieletowej platformy Microsoft Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Punkty końcowe usługi dla sieci wirtualnej umożliwiają ograniczenie dostępu sieciowego do niektórych zasobów usługi platformy Azure do podsieci sieci wirtualnej. Możesz również uniemożliwić dostęp internetowy do zasobów. Punkty końcowe usługi zapewniają bezpośrednie połączenie z sieci wirtualnej z obsługiwanymi usługami platformy Azure, umożliwiając korzystanie z prywatnej przestrzeni adresowej sieci wirtualnej w celu uzyskiwania dostępu do usług platformy Azure. Ruch kierowany do zasobów platformy Azure za pośrednictwem punktów końcowych usługi zawsze pozostaje w sieci szkieletowej platformy Microsoft Azure. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie sieci wirtualnej z jedną podsiecią
@@ -37,7 +37,7 @@ Punkty końcowe usługi dla sieci wirtualnej umożliwiają ograniczenie dostępu
 
 Jeśli chcesz, możesz wykonać ten samouczek przy użyciu [interfejsu wiersza polecenia platformy Azure](tutorial-restrict-network-access-to-resources-cli.md) lub [programu Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
@@ -56,11 +56,11 @@ Zaloguj się do witryny Azure Portal na stronie https://portal.azure.com.
    |Subskrypcja| Wybierz swoją subskrypcję|
    |Grupa zasobów | Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę *myResourceGroup*.|
    |Lokalizacja| Wybierz **Wschodnie stany USA** |
-   |Nazwa podsieci| Public|
+   |Nazwa podsieci| Publiczny|
    |Zakres adresów podsieci| 10.0.0.0/24|
-   |Ochrona przed atakami DDOS| Podstawowy|
-   |Punkty końcowe usługi| Disabled (Wyłączony)|
-   |Zapora| Disabled (Wyłączony)|
+   |Ochrona przed atakami DDOS| Podstawowe|
+   |Punkty końcowe usługi| Disabled|
+   |Firewall| Disabled|
 
    ![Wprowadzanie podstawowych informacji o sieci wirtualnej](./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png)
 
@@ -77,7 +77,7 @@ Punkty końcowe usługi są włączane dla poszczególnych usług i podsieci. Ut
 
     |Ustawienie|Wartość|
     |----|----|
-    |Nazwa| Private |
+    |Nazwa| Prywatne |
     |Zakres adresów| 10.0.1.0/24|
     |Punkty końcowe usługi| Wybierz pozycję **Microsoft.Storage** w obszarze **Usługi**|
 
@@ -106,12 +106,12 @@ Domyślnie wszystkie maszyny wirtualne w podsieci mogą komunikować się ze wsz
 
     |Ustawienie|Wartość|
     |----|----|
-    |Element źródłowy| Wybierz pozycję **VirtualNetwork** |
+    |Źródło| Wybierz pozycję **VirtualNetwork** |
     |Zakresy portów źródłowych| * |
-    |Element docelowy | Wybierz **tag usługi**|
+    |Miejsce docelowe | Wybierz **tag usługi**|
     |Docelowy tag usługi | Wybierz pozycję **Magazyn**|
     |Zakresy portów docelowych| * |
-    |Protocol (Protokół)|Dowolne|
+    |Protokół|Dowolny|
     |Akcja|Zezwalaj|
     |Priorytet|100|
     |Nazwa|Allow-Storage-All|
@@ -120,12 +120,12 @@ Domyślnie wszystkie maszyny wirtualne w podsieci mogą komunikować się ze wsz
 
     |Ustawienie|Wartość|
     |----|----|
-    |Element źródłowy| Wybierz pozycję **VirtualNetwork** |
+    |Źródło| Wybierz pozycję **VirtualNetwork** |
     |Zakresy portów źródłowych| * |
-    |Element docelowy | Wybierz **tag usługi**|
+    |Miejsce docelowe | Wybierz **tag usługi**|
     |Docelowy tag usługi| Wybierz pozycję **Internet**|
     |Zakresy portów docelowych| * |
-    |Protocol (Protokół)|Dowolne|
+    |Protokół|Dowolny|
     |Akcja|Zablokuj|
     |Priorytet|110|
     |Nazwa|Deny-Internet-All|
@@ -136,11 +136,11 @@ Domyślnie wszystkie maszyny wirtualne w podsieci mogą komunikować się ze wsz
 
     |Ustawienie|Wartość|
     |----|----|
-    |Element źródłowy| Dowolne |
+    |Źródło| Dowolne |
     |Zakresy portów źródłowych| * |
-    |Element docelowy | Wybierz pozycję **VirtualNetwork**|
+    |Miejsce docelowe | Wybierz pozycję **VirtualNetwork**|
     |Zakresy portów docelowych| 3389 |
-    |Protocol (Protokół)|Dowolne|
+    |Protokół|Dowolny|
     |Akcja|Zezwalaj|
     |Priorytet|120|
     |Nazwa|Allow-RDP-All|
@@ -296,7 +296,7 @@ Wdrożenie maszyny wirtualnej potrwa kilka minut. Nie należy przechodzić do na
 
    Odmowa dostępu następuje, ponieważ komputer nie znajduje się w podsieci *Private* sieci wirtualnej *MyVirtualNetwork*.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów nie będzie już potrzebna, usuń ją wraz ze wszystkimi zasobami, które zawiera:
 

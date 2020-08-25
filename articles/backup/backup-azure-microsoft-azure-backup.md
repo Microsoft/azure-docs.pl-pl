@@ -3,12 +3,12 @@ title: Użyj Azure Backup Server, aby utworzyć kopię zapasową obciążeń
 description: W tym artykule dowiesz się, jak przygotować środowisko do ochrony i tworzenia kopii zapasowych obciążeń przy użyciu Microsoft Azure Backup Server (serwera usługi MAB).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 9ae8fd824144c70edeb1e084155e8cdff95cd8b9
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 802b7919abcd510db68396b2d9576f8cacc06a6e
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612337"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756014"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalowanie i uaktualnianie Azure Backup Server
 
@@ -101,7 +101,7 @@ Aby edytować ustawienia replikacji magazynu:
    * Na liście zasobów wpisz **Usługi odzyskiwania**.
    * Po rozpoczęciu pisania zawartość listy będzie filtrowana w oparciu o wpisywane dane. Gdy widzisz **Recovery Services magazynów**, wybierz ją.
 
-     ![Tworzenie magazynu usługi Recovery Services — krok 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
+     ![Utwórz magazyn Recovery Services krok 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
      Zostanie wyświetlona lista magazynów Usług odzyskiwania.
    * Wybierz magazyn z listy magazynów Usług odzyskiwania.
@@ -135,7 +135,7 @@ Aby edytować ustawienia replikacji magazynu:
 
     ![Zmiana kreatora Wprowadzenie](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
 
-6. W otwartym okienku **Przygotuj infrastrukturę** wybierz linki do **pobrania** dla instalacji Azure Backup Server i Pobierz poświadczenia magazynu. Poświadczenia magazynu są używane podczas rejestrowania Azure Backup Server w magazynie usługi Recovery Services. Linki prowadzą do centrum pobierania, w którym można pobrać pakiet oprogramowania.
+6. W otwartym okienku **Przygotuj infrastrukturę** wybierz linki do **pobrania** dla instalacji Azure Backup Server i Pobierz poświadczenia magazynu. Poświadczenia magazynu są używane podczas rejestrowania Azure Backup Server w magazynie Recovery Services. Linki prowadzą do centrum pobierania, w którym można pobrać pakiet oprogramowania.
 
     ![Przygotuj infrastrukturę dla Azure Backup Server](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 
@@ -143,7 +143,7 @@ Aby edytować ustawienia replikacji magazynu:
 
     ![Centrum pobierania 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    Ze względu na to, że pobieranie wszystkich plików jest > 3G, w łącznym rozmiarze 10 MB/s może upłynąć do 60 minut.
+    Ze względu na to, że pobieranie wszystkich plików jest > 3 GB, w łącznym rozmiarze 10 MB/s może upłynąć do 60 minut.
 
 ### <a name="extracting-the-software-package"></a>Wyodrębnianie pakietu oprogramowania
 
@@ -216,7 +216,7 @@ Po zakończeniu procesu wyodrębniania zaznacz pole wyboru w celu uruchomienia �
     ![Podsumowanie ustawień](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
 8. Instalacja odbywa się w fazach. W pierwszej fazie agent Microsoft Azure Recovery Services jest zainstalowany na serwerze. Kreator sprawdza również połączenie z Internetem. Jeśli dostępna jest łączność z Internetem, można kontynuować instalację. W przeciwnym razie musisz podać szczegóły serwera proxy, aby połączyć się z Internetem.
 
-    Następnym krokiem jest skonfigurowanie agenta Microsoft Azure Recovery Services. W ramach konfiguracji należy podać poświadczenia magazynu, aby zarejestrować maszynę w magazynie usługi Recovery Services. Należy również podać hasło do szyfrowania/odszyfrowywania danych przesyłanych między platformą Azure i lokalnymi. Możesz automatycznie generować hasło lub podać własne, 16-znakowe hasło. Kontynuuj pracę z kreatorem, dopóki agent nie zostanie skonfigurowany.
+    Następnym krokiem jest skonfigurowanie agenta Microsoft Azure Recovery Services. W ramach konfiguracji należy podać poświadczenia magazynu, aby zarejestrować maszynę w magazynie Recovery Services. Należy również podać hasło do szyfrowania/odszyfrowywania danych przesyłanych między platformą Azure i lokalnymi. Możesz automatycznie generować hasło lub podać własne, 16-znakowe hasło. Kontynuuj pracę z kreatorem, dopóki agent nie zostanie skonfigurowany.
 
     ![Zarejestruj kreatora serwera](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 9. Po pomyślnym zakończeniu rejestracji serwera Microsoft Azure Backup, Kreator instalacji ogólnej przejdzie do instalacji i konfiguracji SQL Server i składników Azure Backup Server. Po zakończeniu instalacji składnika SQL Server składniki Azure Backup Server zostaną zainstalowane.

@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: 3fe2fa8b094830e2d15c1cebce782381b4ca7bc7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74975044"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Samouczek: Inicjowanie obsługi urządzenia w usłudze IoT Hub przy użyciu usługi Azure IoT Hub Device Provisioning Service
@@ -42,7 +42,7 @@ Ten krok obejmuje dodawanie unikatowych artefaktów zabezpieczeń urządzenia do
       [![Informacje o rejestracji dla modułu TPM w portalu](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - W przypadku urządzeń opartych na standardzie X.509 wymagane są następujące elementy:
-    - [Certyfikat wystawiony dla modułu lub symulacji X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) w postaci pliku *PEM* lub *CER*. W przypadku rejestracji indywidualnej należy użyć certyfikatu z *podpisem* urządzenia dla systemu X. 509, natomiast w przypadku grup rejestracji należy użyć *certyfikatu głównego*. 
+    - [Certyfikat wystawiony dla modułu lub symulacji X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) w postaci pliku *PEM* lub *CER*. W przypadku rejestracji indywidualnej należy użyć certyfikatu z  *podpisem* urządzenia dla systemu X. 509, natomiast w przypadku grup rejestracji należy użyć *certyfikatu głównego*. 
 
       [![Dodawanie rejestracji indywidualnej dla zaświadczania X. 509 w portalu](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
@@ -58,7 +58,7 @@ Teraz zarejestrujesz urządzenie w wystąpieniu usługi Device Provisioning, kor
 
 1. Zaloguj się w witrynie Azure Portal, kliknij przycisk **Wszystkie zasoby** w menu po lewej stronie i otwórz swoją usługę Device Provisioning.
 
-2. W bloku podsumowania usługi Device Provisioning Service wybierz pozycję **Zarządzaj rejestracjami**. W zależności od konfiguracji urządzenia wybierz kartę **Rejestracje indywidualne** lub **Grupy rejestracji**. Kliknij przycisk **Dodaj** na górze. Wybierz opcję **TPM** lub **X.509** jako *Mechanizm* poświadczania tożsamości i wprowadź odpowiednie artefakty zabezpieczeń, jak omówiono wcześniej. Możesz wprowadzić nowy **Identyfikator urządzenia usługi IoT Hub**. Gdy skończysz, kliknij przycisk **Zapisz**. 
+2. W bloku podsumowania usługi Device Provisioning Service wybierz pozycję **Zarządzaj rejestracjami**. W zależności od konfiguracji urządzenia wybierz kartę **Rejestracje indywidualne** lub **Grupy rejestracji**. Kliknij przycisk **Dodaj** znajdujący się u góry. Wybierz opcję **TPM** lub **X.509** jako *Mechanizm* poświadczania tożsamości i wprowadź odpowiednie artefakty zabezpieczeń, jak omówiono wcześniej. Możesz wprowadzić nowy **Identyfikator urządzenia usługi IoT Hub**. Gdy skończysz, kliknij przycisk **Zapisz**. 
 
 3. Po pomyślnym zarejestrowaniu urządzenia powinno ono być widoczne w portalu w następujący sposób:
 

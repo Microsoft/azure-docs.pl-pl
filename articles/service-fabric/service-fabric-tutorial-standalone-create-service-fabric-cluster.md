@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: bbaf7dfc546c739dfb858be7ef8372eccf60111b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75613945"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Samouczek: instalowanie i tworzenie klastra usługi Service Fabric
@@ -30,7 +30,7 @@ Część druga serii zawiera informacje na temat wykonywania następujących czy
 
 Usługa Service Fabric udostępnia pakiet instalacyjny służący do tworzenia autonomicznych klastrów usługi Service Fabric.  [Pobierz pakiet instalacyjny](https://go.microsoft.com/fwlink/?LinkId=730690) na komputer lokalny.  Po pomyślnym pobraniu kopii za pośrednictwem połączenia RDP z maszyną wirtualną i wkleić ją na pulpicie.
 
-Wybierz plik zip, a następnie otwórz menu kontekstowe i wybierz polecenie **Wyodrębnij wszystkie** > **wyodrębnienia**.  Podczas wyodrębniania plików na pulpicie zostanie wygenerowany folder o takiej samej nazwie, jaką miał plik zip.
+Wybierz plik zip, a następnie otwórz menu kontekstowe i wybierz polecenie **Wyodrębnij wszystkie**  >  **wyodrębnienia**.  Podczas wyodrębniania plików na pulpicie zostanie wygenerowany folder o takiej samej nazwie, jaką miał plik zip.
 
 Możesz uzyskać bardziej szczegółowe informacje dotyczące [zawartości pakietu instalacyjnego](service-fabric-cluster-standalone-package-contents.md).
 
@@ -120,7 +120,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 ### <a name="bring-up-service-fabric-explorer"></a>Otwórz narzędzie Service Fabric Explorer
 
-Teraz można nawiązać połączenie z klastrem przy użyciu Service Fabric Explorer bezpośrednio z jednej z maszyn przy użyciu protokołu\/http:/localhost:19080/Explorer/index.html lub zdalnie przy\//<użyciu protokołu http:*IPAddressofaMachine*>:19080/Explorer/index.html.
+Teraz można nawiązać połączenie z klastrem przy użyciu Service Fabric Explorer bezpośrednio z jednej z maszyn przy użyciu protokołu http: \/ /localhost: 19080/Explorer/index.html lub zdalnie przy użyciu protokołu http: \/ /< *IPAddressofaMachine*>:19080/Explorer/index.html.
 
 ## <a name="add-and-remove-nodes"></a>Dodawanie i usuwanie węzłów
 

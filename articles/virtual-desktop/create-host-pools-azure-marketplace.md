@@ -3,15 +3,15 @@ title: Pula hostów usług pulpitu wirtualnego systemu Windows Azure Portal — 
 description: Jak utworzyć pulę hostów pulpitu wirtualnego systemu Windows przy użyciu Azure Portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 08/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 06ac7719c5ada08da37beffa23801a0201f75dc4
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 30101d4e9125b0ac283710ebb26205c2bb120766
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661371"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755487"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Samouczek: Tworzenie puli hostów przy użyciu Azure Portal
 
@@ -143,7 +143,7 @@ Aby skonfigurować maszynę wirtualną w ramach procesu instalacji puli hostów:
 
     W przypadku wybrania opcji **Zaawansowane**wybierz istniejącą grupę zabezpieczeń sieci, która została już skonfigurowana.
 
-10. Następnie wybierz, czy maszyny wirtualne mają być przyłączone do określonej domeny, czy jednostki organizacyjnej. Jeśli wybierzesz opcję **tak**, określ domenę do przyłączenia. Możesz również dodać konkretną jednostkę organizacyjną, w której mają znajdować się maszyny wirtualne. Jeśli wybierzesz opcję **nie**, maszyny wirtualne zostaną przyłączone do domeny pasującej do sufiksu **UPN domeny usługi AD**.
+10. Następnie wybierz, czy maszyny wirtualne mają być przyłączone do określonej domeny, czy jednostki organizacyjnej. Jeśli wybierzesz opcję **tak**, określ domenę do przyłączenia. Opcjonalnie możesz dodać konkretną jednostkę organizacyjną, w której mają znajdować się maszyny wirtualne. Jeśli wybierzesz opcję **nie**, maszyny wirtualne zostaną przyłączone do domeny pasującej do sufiksu **UPN domeny usługi AD**.
 
 11. W obszarze konto administratora wprowadź poświadczenia dla domena usługi Active Directory administratora wybranej sieci wirtualnej.
 

@@ -14,16 +14,16 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: e242e6ce59c715cf3a9ca95523a9a9eda274407a
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 66855260bd44ef83972fa251d076d0204cba32da
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418920"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795236"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokeny identyfikatora platformy tożsamości firmy Microsoft
 
-`id_tokens`są wysyłane do aplikacji klienckiej w ramach przepływu [OpenID Connect Connect](v2-protocols-oidc.md) (OIDC). Mogą być wysyłane po stronie lub zamiast tokenu dostępu i są używane przez klienta do uwierzytelniania użytkownika.
+`id_tokens` są wysyłane do aplikacji klienckiej w ramach przepływu [OpenID Connect Connect](v2-protocols-oidc.md) (OIDC). Mogą być wysyłane po stronie lub zamiast tokenu dostępu i są używane przez klienta do uwierzytelniania użytkownika.
 
 ## <a name="using-the-id_token"></a>Korzystanie z id_token
 
@@ -31,7 +31,7 @@ Tokeny identyfikatora należy stosować do sprawdzania, czy użytkownik jest uż
 
 ## <a name="claims-in-an-id_token"></a>Oświadczenia w id_token
 
-`id_tokens`są [JWTs](https://tools.ietf.org/html/rfc7519) (tokeny sieci Web JSON), co oznacza, że zawierają nagłówek, ładunek i część podpisu. Możesz użyć nagłówka i podpisu do zweryfikowania autentyczności tokenu, natomiast ładunek zawiera informacje o użytkowniku żądanym przez klienta. Wszystkie oświadczenia JWT wymienione w tym miejscu są wyświetlane zarówno w tokenach w wersji 1.0, jak i 2.0.
+`id_tokens` są [JWTs](https://tools.ietf.org/html/rfc7519) (tokeny sieci Web JSON), co oznacza, że zawierają nagłówek, ładunek i część podpisu. Możesz użyć nagłówka i podpisu do zweryfikowania autentyczności tokenu, natomiast ładunek zawiera informacje o użytkowniku żądanym przez klienta. Wszystkie oświadczenia JWT wymienione w tym miejscu są wyświetlane zarówno w tokenach w wersji 1.0, jak i 2.0.
 
 ### <a name="v10"></a>Wersja 1.0
 
@@ -54,9 +54,9 @@ Wyświetl Ten przykładowy token v 2.0 w [JWT.MS](https://jwt.ms/#id_token=eyJ0e
 |Claim | Format | Opis |
 |-----|--------|-------------|
 |`typ` | Ciąg — zawsze "JWT" | Wskazuje, że token jest tokenem JWT.|
-|`alg` | String | Wskazuje algorytm, który został użyty do podpisania tokenu. Przykład: "RS256" |
-|`kid` | String | Odcisk palca klucza publicznego służącego do podpisywania tego tokenu. Emitowane w wersji 1.0 i 2.0 `id_tokens` . |
-|`x5t` | String | Taka sama (w użyciu i wartość) jako `kid` . Jest to jednak starsze zgłoszenie wyemitowane tylko w wersji 1.0 w `id_tokens` celu zapewnienia zgodności. |
+|`alg` | Ciąg | Wskazuje algorytm, który został użyty do podpisania tokenu. Przykład: "RS256" |
+|`kid` | Ciąg | Odcisk palca klucza publicznego służącego do podpisywania tego tokenu. Emitowane w wersji 1.0 i 2.0 `id_tokens` . |
+|`x5t` | Ciąg | Taka sama (w użyciu i wartość) jako `kid` . Jest to jednak starsze zgłoszenie wyemitowane tylko w wersji 1.0 w `id_tokens` celu zapewnienia zgodności. |
 
 ### <a name="payload-claims"></a>Oświadczenia ładunku
 
@@ -70,27 +70,27 @@ Ta lista przedstawia oświadczenia JWT, które w większości id_tokens są domy
 |`idp`|Ciąg, zazwyczaj identyfikator URI usługi STS | Rejestruje dostawcę tożsamości, który uwierzytelnił podmiot tokenu. Ta wartość jest taka sama jak wartość odszkodowania wystawcy, chyba że konto użytkownika nie znajduje się w tej samej dzierżawie co wystawcy, na przykład. Jeśli oświadczenia nie jest obecny, oznacza to, że `iss` można użyć zamiast niego wartości.  W przypadku kont osobistych używanych w kontekście organizacyjnym (np. konta osobistego zaproszonego do dzierżawy usługi Azure AD) `idp` może istnieć wartość "Live.com" lub identyfikator URI usługi STS zawierający dzierżawcę konto Microsoft `9188040d-6c67-4c5b-b112-36a304b66dad` . |
 |`nbf` |  int, sygnatura czasowa systemu UNIX | Wartość "NBF" (nie wcześniej) określa czas, po którym nie można zatwierdzić tokenu JWT do przetwarzania.|
 |`exp` |  int, sygnatura czasowa systemu UNIX | Wartość "EXP" (czas wygaśnięcia) określa czas wygaśnięcia w dniu lub, po którym nie można zaakceptować tokenu JWT do przetworzenia.  Należy pamiętać, że zasób może odrzucić token przed tym terminem, a na przykład zmiana uwierzytelniania jest wymagana lub wykryto odwołanie tokenu. |
-| `c_hash`| String |Skrót kodu jest uwzględniany w tokenach identyfikatorów tylko wtedy, gdy token identyfikatora jest wystawiony za pomocą kodu autoryzacji OAuth 2,0. Może służyć do weryfikowania autentyczności kodu autoryzacji. Aby uzyskać szczegółowe informacje o wykonywaniu tej walidacji, zobacz [specyfikację programu OpenID Connect Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
-|`at_hash`| String |Skrót tokenu dostępu jest uwzględniany w tokenach identyfikatorów tylko wtedy, gdy token identyfikatora jest wystawiony z `/authorize` punktu końcowego za pomocą tokenu dostępu OAuth 2,0. Może służyć do weryfikowania autentyczności tokenu dostępu. Aby uzyskać szczegółowe informacje o wykonywaniu tej walidacji, zobacz [specyfikację programu OpenID Connect Connect](https://openid.net/specs/openid-connect-core-1_0.html#HybridIDToken). Ta wartość nie jest zwracana w przypadku tokenów identyfikatora z `/token` punktu końcowego. |
+| `c_hash`| Ciąg |Skrót kodu jest uwzględniany w tokenach identyfikatorów tylko wtedy, gdy token identyfikatora jest wystawiony za pomocą kodu autoryzacji OAuth 2,0. Może służyć do weryfikowania autentyczności kodu autoryzacji. Aby uzyskać szczegółowe informacje o wykonywaniu tej walidacji, zobacz [specyfikację programu OpenID Connect Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
+|`at_hash`| Ciąg |Skrót tokenu dostępu jest uwzględniany w tokenach identyfikatorów tylko wtedy, gdy token identyfikatora jest wystawiony z `/authorize` punktu końcowego za pomocą tokenu dostępu OAuth 2,0. Może służyć do weryfikowania autentyczności tokenu dostępu. Aby uzyskać szczegółowe informacje o wykonywaniu tej walidacji, zobacz [specyfikację programu OpenID Connect Connect](https://openid.net/specs/openid-connect-core-1_0.html#HybridIDToken). Ta wartość nie jest zwracana w przypadku tokenów identyfikatora z `/token` punktu końcowego. |
 |`aio` | Ciąg nieprzezroczysty | Deklaracja wewnętrzna używana przez usługę Azure AD do rejestrowania danych do ponownego użycia tokenu. Powinien być ignorowany.|
-|`preferred_username` | String | Podstawowa nazwa użytkownika, która reprezentuje użytkownika. Może to być adres e-mail, numer telefonu lub ogólna nazwa użytkownika bez określonego formatu. Jego wartość jest modyfikowalna i może ulec zmianie w czasie. Ponieważ jest modyfikowalny, ta wartość nie może być używana do podejmowania decyzji dotyczących autoryzacji. `profile`Zakres jest wymagany do otrzymania tego żądania.|
-|`email` | String | To `email` ustawienie jest domyślnie dostępne dla kont Gości, które mają adres e-mail.  Twoja aplikacja może zażądać pożądania wiadomości e-mail dla użytkowników zarządzanych (z tej samej dzierżawy co zasób) przy użyciu `email` [opcjonalnego żądania](active-directory-optional-claims.md).  W punkcie końcowym programu v 2.0 Aplikacja może również zażądać `email` zakresu łączenia OpenID Connect — nie musisz żądać żądania opcjonalnego i zakresu w celu uzyskania żądania.  W ramach tego żądania adres e-mail jest obsługiwany tylko w przypadku wiadomości z informacjami o profilu użytkownika. |
-|`name` | String | To zgłoszenie `name` zapewnia wartość czytelną dla człowieka, która identyfikuje podmiot tokenu. Wartość nie gwarantuje, że jest unikatowa, jest modyfikowalna i jest przeznaczona do użycia tylko na potrzeby wyświetlania. `profile`Zakres jest wymagany do otrzymania tego żądania. |
-|`nonce`| String | Identyfikator jednorazowy jest zgodny z parametrem zawartym w oryginalnym żądaniu/Authorize do dostawcy tożsamości. Jeśli nie jest zgodny, aplikacja powinna odrzucić token. |
+|`preferred_username` | Ciąg | Podstawowa nazwa użytkownika, która reprezentuje użytkownika. Może to być adres e-mail, numer telefonu lub ogólna nazwa użytkownika bez określonego formatu. Jego wartość jest modyfikowalna i może ulec zmianie w czasie. Ponieważ jest modyfikowalny, ta wartość nie może być używana do podejmowania decyzji dotyczących autoryzacji. `profile`Zakres jest wymagany do otrzymania tego żądania.|
+|`email` | Ciąg | To `email` ustawienie jest domyślnie dostępne dla kont Gości, które mają adres e-mail.  Twoja aplikacja może zażądać pożądania wiadomości e-mail dla użytkowników zarządzanych (z tej samej dzierżawy co zasób) przy użyciu `email` [opcjonalnego żądania](active-directory-optional-claims.md).  W punkcie końcowym programu v 2.0 Aplikacja może również zażądać `email` zakresu łączenia OpenID Connect — nie musisz żądać żądania opcjonalnego i zakresu w celu uzyskania żądania.  W ramach tego żądania adres e-mail jest obsługiwany tylko w przypadku wiadomości z informacjami o profilu użytkownika. |
+|`name` | Ciąg | To zgłoszenie `name` zapewnia wartość czytelną dla człowieka, która identyfikuje podmiot tokenu. Wartość nie gwarantuje, że jest unikatowa, jest modyfikowalna i jest przeznaczona do użycia tylko na potrzeby wyświetlania. `profile`Zakres jest wymagany do otrzymania tego żądania. |
+|`nonce`| Ciąg | Identyfikator jednorazowy jest zgodny z parametrem zawartym w oryginalnym żądaniu/Authorize do dostawcy tożsamości. Jeśli nie jest zgodny, aplikacja powinna odrzucić token. |
 |`oid` | Ciąg, identyfikator GUID | Niezmienny identyfikator dla obiektu w systemie tożsamości firmy Microsoft, w tym przypadku, konto użytkownika. Ten identyfikator jednoznacznie identyfikuje użytkownika w wielu aplikacjach — dwie różne aplikacje, które logują się w tym samym użytkowniku, otrzymają taką samą wartość w ramach `oid` roszczeń. Microsoft Graph zwróci ten identyfikator jako `id` Właściwość dla danego konta użytkownika. Ponieważ `oid` umożliwia wielu aplikacjom skorelowanie użytkowników, `profile` zakres jest wymagany do otrzymania tego żądania. Należy pamiętać, że jeśli pojedynczy użytkownik istnieje w wielu dzierżawach, użytkownik będzie zawierać inny identyfikator obiektu w każdej dzierżawie — jest uznawany za różne konta, nawet jeśli użytkownik loguje się do każdego konta z tymi samymi poświadczeniami. To `oid` jest identyfikator GUID i nie można go ponownie użyć. |
 |`roles`| Tablica ciągów | Zestaw ról przypisanych do użytkownika, który loguje się. |
 |`rh` | Ciąg nieprzezroczysty |Wyjątek wewnętrzny używany przez platformę Azure do weryfikacji tokenów. Powinien być ignorowany. |
-|`sub` | Ciąg, identyfikator GUID | Podmiot zabezpieczeń, dla którego token potwierdza informacje, takie jak użytkownik aplikacji. Ta wartość jest niezmienna i nie można jej ponownie przypisać ani ponownie użyć. Podmiot jest identyfikatorem parowania — jest unikatowy dla określonego identyfikatora aplikacji. Jeśli pojedynczy użytkownik zaloguje się do dwóch różnych aplikacji przy użyciu dwóch różnych identyfikatorów klienta, te aplikacje otrzymają dwie różne wartości dla zgłoszenia podmiotu. Może to być niepożądane, w zależności od wymagań dotyczących architektury i ochrony prywatności. |
+|`sub` | Ciąg | Podmiot zabezpieczeń, dla którego token potwierdza informacje, takie jak użytkownik aplikacji. Ta wartość jest niezmienna i nie można jej ponownie przypisać ani ponownie użyć. Podmiot jest identyfikatorem parowania — jest unikatowy dla określonego identyfikatora aplikacji. Jeśli pojedynczy użytkownik zaloguje się do dwóch różnych aplikacji przy użyciu dwóch różnych identyfikatorów klienta, te aplikacje otrzymają dwie różne wartości dla zgłoszenia podmiotu. Może to być niepożądane, w zależności od wymagań dotyczących architektury i ochrony prywatności. |
 |`tid` | Ciąg, identyfikator GUID | Identyfikator GUID reprezentujący dzierżawę usługi Azure AD, z której korzysta użytkownik. W przypadku kont służbowych identyfikator GUID jest niezmiennym IDENTYFIKATORem dzierżawy organizacji, do której należy użytkownik. W przypadku kont osobistych wartość to `9188040d-6c67-4c5b-b112-36a304b66dad` . `profile`Zakres jest wymagany do otrzymania tego żądania. |
-|`unique_name` | String | Udostępnia zrozumiałą wartość identyfikującą podmiot tokenu. Ta wartość jest unikatowa w danym punkcie w czasie, ale jako że można ponownie użyć wiadomości e-mail i innych identyfikatorów, ta wartość może być ponownie wyświetlana na innych kontach i dlatego powinna być używana tylko do wyświetlania. Wystawione wyłącznie w wersji 1.0 `id_tokens` . |
+|`unique_name` | Ciąg | Udostępnia zrozumiałą wartość identyfikującą podmiot tokenu. Ta wartość jest unikatowa w danym punkcie w czasie, ale jako że można ponownie użyć wiadomości e-mail i innych identyfikatorów, ta wartość może być ponownie wyświetlana na innych kontach i dlatego powinna być używana tylko do wyświetlania. Wystawione wyłącznie w wersji 1.0 `id_tokens` . |
 |`uti` | Ciąg nieprzezroczysty | Wyjątek wewnętrzny używany przez platformę Azure do weryfikacji tokenów. Powinien być ignorowany. |
 |`ver` | Ciąg, 1,0 lub 2,0 | Wskazuje wersję id_token. |
 
 > [!NOTE]
 > W wersji 1.0 i 2.0 id_token istnieją różnice w ilości informacji, które będą się znajdować na podstawie powyższych przykładów. Wersja jest oparta na punkcie końcowym, w którym został żądany. Istniejące aplikacje mogą korzystać z punktu końcowego usługi Azure AD, dlatego nowe aplikacje powinny korzystać z punktu końcowego "Microsoft Identity platform" w wersji 2.0.
 >
-> - v 1.0: punkty końcowe usługi Azure AD:`https://login.microsoftonline.com/common/oauth2/authorize`
-> - v 2.0: punkty końcowe platformy tożsamości firmy Microsoft:`https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
+> - v 1.0: punkty końcowe usługi Azure AD: `https://login.microsoftonline.com/common/oauth2/authorize`
+> - v 2.0: punkty końcowe platformy tożsamości firmy Microsoft: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
 
 ### <a name="using-claims-to-reliably-identify-a-user-subject-and-object-id"></a>Używanie oświadczeń do niezawodnego identyfikowania użytkownika (podmiot i identyfikator obiektu)
 

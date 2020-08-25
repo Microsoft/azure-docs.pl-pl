@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 6841695cca5d3864e6823085520d8e9162e54043
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "70067939"
 ---
 # <a name="mock-api-responses"></a>Pozorowanie odpowiedzi interfejsu API
@@ -27,7 +27,7 @@ Interfejsy API mogą zostać zaimportowane do interfejsu API usługi APIM lub ut
 + Kiedy najpierw projektowana jest fasada interfejsu API, a implementacja zaplecza powstaje później. Lub kiedy zaplecze jest opracowywane równolegle.
 + Gdy zaplecze tymczasowo nie działa lub nie można go przeskalować.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie testowego interfejsu API 
@@ -97,7 +97,7 @@ Kroki opisane w tej sekcji pokazują, jak utworzyć pusty interfejs API bez zapl
 
     ![Włączanie pozorowania odpowiedzi](./media/mock-api-responses/mock-api-responses-set-mocking.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 ## <a name="test-the-mocked-api"></a>Testowanie pozorowanego interfejsu API
 
@@ -115,7 +115,7 @@ Kroki opisane w tej sekcji pokazują, jak utworzyć pusty interfejs API bez zapl
 
     ![Włączanie pozorowania odpowiedzi](./media/mock-api-responses/mock-api-responses-test-response.png)
 
-## <a name="video"></a>Film wideo
+## <a name="video"></a>Wideo
 
 > [!VIDEO https://www.youtube.com/embed/i9PjUAvw7DQ]
 

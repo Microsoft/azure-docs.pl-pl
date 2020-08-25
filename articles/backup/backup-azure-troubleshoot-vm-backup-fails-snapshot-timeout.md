@@ -4,12 +4,12 @@ description: Objawy, przyczyny i rozwiązania błędów Azure Backup związanych
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: d690ed23f49d3aa3f77b88c8d57c963ae2a98682
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 26050dfb9fdde5988fe3ae922dae5486d17f4317
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611861"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755372"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Rozwiązywanie problemów z błędem Azure Backup: problemy z agentem lub rozszerzeniem
 
@@ -175,8 +175,8 @@ Operacja tworzenia kopii zapasowej może zakończyć się niepowodzeniem podczas
 
 Ostatnie zadanie tworzenia kopii zapasowej nie powiodło się, ponieważ jest w toku istniejące zadanie tworzenia kopii zapasowej. Nie można rozpocząć nowego zadania tworzenia kopii zapasowej, dopóki nie zakończy się bieżące zadanie. Upewnij się, że operacja tworzenia kopii zapasowej jest w toku, przed wyzwoleniem lub zaplanowaniem innej operacji tworzenia kopii zapasowej. Aby sprawdzić stan zadań tworzenia kopii zapasowej, wykonaj następujące czynności:
 
-1. Zaloguj się do Azure Portal, wybierz pozycję **wszystkie usługi**. Wpisz Recovery Services i wybierz pozycję **magazyny Recovery Services**. Zostanie wyświetlona lista magazynów usługi Recovery Services.
-2. Z listy magazynów usługi Recovery Services wybierz magazyn, w którym jest skonfigurowana kopia zapasowa.
+1. Zaloguj się do Azure Portal, wybierz pozycję **wszystkie usługi**. Wpisz Recovery Services i wybierz pozycję **magazyny Recovery Services**. Zostanie wyświetlona lista magazynów Usług odzyskiwania.
+2. Z listy Recovery Services magazynów wybierz magazyn, w którym jest skonfigurowana kopia zapasowa.
 3. W menu pulpitu nawigacyjnego magazynu wybierz kolejno pozycje **zadania tworzenia kopii zapasowej** , które wyświetla wszystkie zadania tworzenia kopii zapasowej.
    - Jeśli zadanie tworzenia kopii zapasowej jest w toku, poczekaj na jego zakończenie lub Anuluj zadanie tworzenia kopii zapasowej.
      - Aby anulować zadanie tworzenia kopii zapasowej, kliknij prawym przyciskiem myszy zadanie tworzenia kopii zapasowej i wybierz polecenie **Anuluj** lub Użyj [programu PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).

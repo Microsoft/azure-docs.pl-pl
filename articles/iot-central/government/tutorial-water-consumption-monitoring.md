@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: 7f00947504e5c6355379ce1e400fd2325016e05a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "77122063"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-with-azure-iot-central"></a>Samouczek: Tworzenie aplikacji do monitorowania zużycia wody przy użyciu usługi Azure IoT Central
@@ -136,8 +136,8 @@ Aby wyświetlić szablon urządzenia:
 Aby dostosować szablon urządzenia:
 
 1. Przejdź do pozycji **Dostosowywanie** w menu **Szablony urządzeń** .
-1. Znajdź typ `Temperature` telemetrii.
-1. Zaktualizuj **nazwę wyświetlaną** `Temperature` do `Reported temperature`.
+1. Znajdź `Temperature` Typ telemetrii.
+1. Zaktualizuj **nazwę wyświetlaną** `Temperature` do `Reported temperature` .
 1. Zaktualizuj jednostkę miary lub ustaw wartość **minimalną** oraz **wartość maksymalną**.
 1. Wybierz pozycję **Zapisz** , aby zapisać zmiany.
 
@@ -169,7 +169,7 @@ Na platformie Azure IoT Central można tworzyć symulowane urządzenia do testow
 
 ### <a name="view-the-devices"></a>Wyświetlanie urządzeń
 
-1. Wybierz pozycję **urządzenia** > **wszystkie urządzenia** w lewym okienku.
+1. Wybierz pozycję **urządzenia**  >  **wszystkie urządzenia** w lewym okienku.
 
    ![Okienko wszystkie urządzenia](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devices.png)
 
@@ -204,7 +204,7 @@ Utworzona aplikacja do monitorowania zużycia wody ma trzy wstępnie skonfigurow
 
      ![Alert o wysokim poziomie pH](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-highflowalert.png)
 
-    `High flow alert` Zasada jest skonfigurowana do sprawdzania pod kątem warunku `Acidity (pH)` `greater than` `Max flow threshold`. Maksymalny próg przepływu to właściwość chmury zdefiniowana w **szablonie urządzenia** przenośnego. Wartość `Max flow threshold` jest ustawiana na wystąpienie urządzenia.
+    `High flow alert`Zasada jest skonfigurowana do sprawdzania pod kątem warunku `Acidity (pH)` `greater than` `Max flow threshold` . Maksymalny próg przepływu to właściwość chmury zdefiniowana w **szablonie urządzenia** przenośnego. Wartość `Max flow threshold` jest ustawiana na wystąpienie urządzenia.
 
 Teraz Utwórzmy akcję poczty e-mail.
 
@@ -237,17 +237,17 @@ Na platformie Azure IoT Central zadania umożliwiają wyzwalanie aktualizacji w�
 
 Jako Konstruktor można zmienić kilka ustawień, aby dostosować środowisko użytkownika w aplikacji.
 
-1. Wybierz pozycję **Administracja** > **Dostosuj aplikację**.
+1. Wybierz pozycję **Administracja**  >  **Dostosuj aplikację**.
 1. Aby wybrać obraz do przekazania jako **logo aplikacji**, wybierz przycisk **Zmień** .
 1. Aby wybrać obraz **ikony przeglądarki** , który będzie wyświetlany na kartach przeglądarki, wybierz przycisk **Zmień** .
 1. Możesz również zastąpić domyślne **kolory przeglądarki** , dodając szesnastkowe kody kolorów html.
 
    ![Opcje dla logo aplikacji, ikony przeglądarki i kolory przeglądarki](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-customize-your-application.png)
 
-1. Możesz również zmienić obrazy aplikacji, wybierając pozycję **Administracja** > **Ustawienia aplikacji**. Aby wybrać obraz do przekazania jako obraz aplikacji, wybierz przycisk **Wybierz obraz** .
+1. Możesz również zmienić obrazy aplikacji, wybierając pozycję **Administracja**  >  **Ustawienia aplikacji**. Aby wybrać obraz do przekazania jako obraz aplikacji, wybierz przycisk **Wybierz obraz** .
 1. Na koniec możesz również zmienić **motyw** , wybierając ikonę **Ustawienia** w prawym górnym rogu aplikacji.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, usuń ją.
 

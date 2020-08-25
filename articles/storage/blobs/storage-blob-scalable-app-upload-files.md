@@ -8,10 +8,10 @@ ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
 ms.openlocfilehash: dd87e1a9bcff55813dff420976df58351386fb34
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75371942"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Równoległe przekazywanie dużych ilości danych losowych do usługi Azure Storage
@@ -44,7 +44,7 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="configure-the-connection-string"></a>Konfigurowanie parametrów połączenia
 
-W witrynie Azure Portal przejdź do swojego konta magazynu. Wybierz pozycję **Klucze dostępu** w obszarze **Ustawienia** konta magazynu. Skopiuj **parametry połączenia** z klucza podstawowego lub pomocniczego. Zaloguj się do maszyny wirtualnej utworzonej w poprzednim samouczku. Otwórz **wiersz polecenia** z uprawnieniami administratora i uruchom polecenie `setx` z przełącznikiem `/m`. To polecenie zapisuje zmienną środowiskową ustawień maszyny. Zmienna środowiskowa będzie dostępna po ponownym załadowaniu **wiersza polecenia**. Zastąp ** \<storageConnectionString\> ** w następującym przykładzie:
+W witrynie Azure Portal przejdź do swojego konta magazynu. Wybierz pozycję **Klucze dostępu** w obszarze **Ustawienia** konta magazynu. Skopiuj **parametry połączenia** z klucza podstawowego lub pomocniczego. Zaloguj się do maszyny wirtualnej utworzonej w poprzednim samouczku. Otwórz **wiersz polecenia** z uprawnieniami administratora i uruchom polecenie `setx` z przełącznikiem `/m`. To polecenie zapisuje zmienną środowiskową ustawień maszyny. Zmienna środowiskowa będzie dostępna po ponownym załadowaniu **wiersza polecenia**. Zastąp ciąg **\<storageConnectionString\>** w poniższym przykładzie:
 
 ```
 setx storageconnectionstring "<storageConnectionString>" /m

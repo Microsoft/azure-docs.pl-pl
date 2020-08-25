@@ -4,10 +4,10 @@ description: Utwórz niestandardową aplikację, która przewiduje zamiar użytk
 ms.topic: tutorial
 ms.date: 05/05/2020
 ms.openlocfilehash: d0a625708e730094ab4dea8f705852f38ee6e1da
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85959863"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Samouczek: Tworzenie aplikacji LUIS w celu określenia zamiarów użytkownika
@@ -32,7 +32,7 @@ Zadaniem aplikacji jest ustalenie intencji konwersacyjnego tekstu w języku natu
 
 Intencje są podzielone na kategorie **intencji**.
 
-|Intencja|Przeznaczenie|
+|Zamiar|Przeznaczenie|
 |--|--|
 |`ModifyOrder`|Określ kolejność Pizza użytkownika.|
 |`Greeting`|Rozpocznij KONWERSACJĘ bot.|
@@ -55,7 +55,7 @@ W celu klasyfikowania wypowiedź wymaga przykładów użytkownika wyrażenia dł
 
 1. Dodaj kilka przykładowych wypowiedzi do tej intencji — takich, których spodziewasz się ze strony użytkownika:
 
-    |`OrderPizza`przykład wyrażenia długości|
+    |`OrderPizza` przykład wyrażenia długości|
     |--|
     |`can i get a pepperoni pizza and a can of coke please`|
     |`can i get a small pizza with onions peppers and olives`|
@@ -75,7 +75,7 @@ W celu klasyfikowania wypowiedź wymaga przykładów użytkownika wyrażenia dł
 
 1. Utwórz `Greeting` cel i Dodaj następujący przykład wyrażenia długości. Jest to cel, aby określić, czy użytkownik rozpoczyna nową konwersację z kolejnością Pizza.
 
-    |`Greeting`przykład wyrażenia długości|
+    |`Greeting` przykład wyrażenia długości|
     |--|
     |`Hi`|
     |`Hello`|
@@ -85,7 +85,7 @@ W celu klasyfikowania wypowiedź wymaga przykładów użytkownika wyrażenia dł
 
 1. Utwórz `Confirm` cel i Dodaj następujący przykład wyrażenia długości. Jest to cel, aby określić, czy użytkownik ukończy porządkowanie i akceptuje szczegóły zamówienia.
 
-    |`Confirm`przykład wyrażenia długości|
+    |`Confirm` przykład wyrażenia długości|
     |--|
     |`Go ahead`|
     |`ok`|

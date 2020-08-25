@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9d4f293f3835e26def97aa2f52dd0c42d9137c7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a98ff68500593c644e6f0fa5eacb338ab90f5604
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421726"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795385"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD
 
@@ -44,7 +44,7 @@ Utwórz dwa lub więcej kont dostępu awaryjnego. Konta te powinny być kontami 
 Podczas konfigurowania tych kont muszą zostać spełnione następujące wymagania:
 
 - Konta dostępu awaryjnego nie powinny być skojarzone z żadnym użytkownikiem w organizacji. Upewnij się, że Twoje konta nie są połączone z telefonami przenośnymi dostarczonymi przez pracownika, tokenami sprzętowymi, które podróżują z poszczególnymi pracownikami lub innymi poświadczeniami specyficznymi dla pracownika. To zabezpieczenie obejmuje sytuacje, w których pojedynczy pracownik jest nieosiągalny, gdy jest wymagana poświadczenie. Ważne jest, aby upewnić się, że wszystkie zarejestrowane urządzenia są przechowywane w znanej, zabezpieczonej lokalizacji z wieloma środkami komunikacji z usługą Azure AD.
-- Mechanizm uwierzytelniania używany na potrzeby konta dostępu awaryjnego powinien być różny od tego, który jest używany przez inne konta administracyjne, w tym inne konta dostępu awaryjnego.  Jeśli na przykład normalne logowanie administratora jest realizowane za pośrednictwem lokalnej usługi MFA, usługa Azure MFA będzie innym mechanizmem.  Jeśli jednak usługa Azure MFA jest podstawową częścią uwierzytelniania dla kont administracyjnych, należy wziąć pod uwagę inne podejście, takie jak używanie dostępu warunkowego z zewnętrznym dostawcą usług MFA za pomocą [niestandardowych kontrolek](https://docs.microsoft.com/azure/active-directory/conditional-access/controls).
+- Mechanizm uwierzytelniania używany na potrzeby konta dostępu awaryjnego powinien być różny od tego, który jest używany przez inne konta administracyjne, w tym inne konta dostępu awaryjnego.  Jeśli na przykład normalne logowanie administratora jest realizowane za pośrednictwem lokalnej usługi MFA, usługa Azure MFA będzie innym mechanizmem.  Jeśli jednak usługa Azure MFA jest podstawową częścią uwierzytelniania dla kont administracyjnych, należy wziąć pod uwagę inne podejście, takie jak używanie dostępu warunkowego z zewnętrznym dostawcą usług MFA za pomocą [niestandardowych kontrolek](../conditional-access/controls.md).
 - Urządzenie lub poświadczenia nie mogą wygasnąć lub być w zakresie automatycznego oczyszczania z powodu braku użycia.  
 - Należy zmienić przypisanie roli administratora globalnego na stałe dla kont dostępu awaryjnego. 
 
@@ -74,7 +74,7 @@ Organizacje powinny monitorować aktywność logowania i rejestrowania inspekcji
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-1. [Wyślij dzienniki logowania usługi Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) do Azure monitor.
+1. [Wyślij dzienniki logowania usługi Azure AD](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) do Azure monitor.
 
 ### <a name="obtain-object-ids-of-the-break-glass-accounts"></a>Uzyskaj identyfikatory obiektów dla kont szklanych
 
@@ -156,5 +156,5 @@ Te kroki należy wykonać w regularnych odstępach czasu i w przypadku kluczowyc
 - [Dodawanie użytkowników przy użyciu usługi Azure AD](../fundamentals/add-users-azure-active-directory.md) i [przypisywanie nowego użytkownika do roli administratora globalnego](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 - [Utwórz konto w usłudze Azure AD — wersja Premium](../fundamentals/active-directory-get-started-premium.md), jeśli jeszcze nie masz konta
 - [Jak wymagać weryfikacji dwuetapowej dla użytkownika](../authentication/howto-mfa-userstates.md)
-- [Skonfiguruj dodatkowe zabezpieczenia dla administratorów globalnych w Microsoft 365](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts), jeśli używasz Microsoft 365
+- [Skonfiguruj dodatkowe zabezpieczenia dla administratorów globalnych w Microsoft 365](/office365/enterprise/protect-your-global-administrator-accounts), jeśli używasz Microsoft 365
 - [Rozpocznij przegląd dostępu administratorów globalnych](../privileged-identity-management/pim-how-to-start-security-review.md) i [Przechodzenie do istniejących administratorów globalnych, aby uzyskać bardziej szczegółowe role](directory-assign-admin-roles.md) administratorów

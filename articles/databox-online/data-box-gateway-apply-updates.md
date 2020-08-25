@@ -2,17 +2,17 @@
 title: Instalowanie aktualizacji na urządzeniu z serii Azure Data Box Gateway | Microsoft Docs
 description: Opisuje sposób stosowania aktualizacji przy użyciu Azure Portal i lokalnego interfejsu użytkownika sieci Web dla urządzeń z serii Azure Data Box Gateway
 services: databox
-author: priestlg
+author: twooley
 ms.service: databox
 ms.topic: article
 ms.date: 06/30/2020
-ms.author: v-grpr
-ms.openlocfilehash: 4c17488a875484b2d3dc0e7e8e1045ce8ea75cf0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: twooley
+ms.openlocfilehash: 3972aecf70a664980e8279152eb001915ae1bb53
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85802326"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783879"
 ---
 # <a name="update-your-azure-data-box-gateway"></a>Aktualizowanie Azure Data Box Gateway
 
@@ -116,7 +116,7 @@ Wykonaj następujące kroki, aby pobrać aktualizację z katalogu Microsoft Upda
 
    ![Przeszukiwanie wykazu](./media/data-box-gateway-apply-updates/download-update-2.png)
 
-3. Wybierz przycisk **Download** (Pobierz). Istnieje pojedynczy plik do pobrania o nazwie *SoftwareUpdatePackage.exe* , który odnosi się do aktualizacji oprogramowania urządzenia. Pobierz plik do folderu w systemie lokalnym. Możesz również skopiować folder do udziału sieciowego, który jest osiągalny z urządzenia.
+3. Kliknij pozycję **Pobierz**. Istnieje pojedynczy plik do pobrania o nazwie *SoftwareUpdatePackage.exe* , który odnosi się do aktualizacji oprogramowania urządzenia. Pobierz plik do folderu w systemie lokalnym. Możesz również skopiować folder do udziału sieciowego, który jest osiągalny z urządzenia.
 
    ![Przeszukiwanie wykazu](./media/data-box-gateway-apply-updates/download-update-3.png)
 
@@ -139,7 +139,7 @@ Wykonanie tej procedury zajmuje około 20 minut. Wykonaj następujące kroki, ab
 
    ![aktualizowanie urządzenia](./media/data-box-gateway-apply-updates/local-ui-update-3.png)
 
-3. Wybierz przycisk **Zastosuj**.
+3. Wybierz pozycję **Zastosuj**.
 
    ![aktualizowanie urządzenia](./media/data-box-gateway-apply-updates/local-ui-update-4.png)
 

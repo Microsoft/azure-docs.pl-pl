@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: 9e954e9c1a7efa43a19849b1c5b40284ec84eeed
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "77016004"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Samouczek: Tworzenie i przechodzenie przez szablon aplikacji do monitorowania mierników inteligentnych 
@@ -24,7 +24,7 @@ Ten samouczek przeprowadzi Cię przez proces tworzenia aplikacji do monitorowani
 > [!div class="checklist"]
 > * Utwórz bezpłatnie aplikację miernika inteligentnego
 > * Przewodnik po aplikacji
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 
 Jeśli nie masz subskrypcji, [Utwórz konto bezpłatnej wersji próbnej](https://azure.microsoft.com/free)
@@ -52,7 +52,7 @@ Tę aplikację można utworzyć w trzech prostych krokach:
     * **Informacje o rozliczeniach**: sama aplikacja jest bezpłatna. Szczegóły katalogu, subskrypcji platformy Azure i regionu są wymagane do aprowizacji zasobów aplikacji.
     * Kliknij przycisk **Utwórz** w dolnej części strony, a Twoja aplikacja zostanie utworzona na minutę lub w ten sposób.
 
-        ![Formularz nowej aplikacji](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
+        ![Formularz Nowa aplikacja](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
 
         ![Nowe informacje o rozliczeniu formularza aplikacji](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app-billinginfo.png)
 
@@ -95,14 +95,14 @@ Kliknij kartę **Szablony urządzeń** , aby wyświetlić model urządzenia mier
 > ![Szablony urządzeń mierników inteligentnych](media/tutorial-iot-central-smart-meter/smart-meter-device-template.png)
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Jeśli zdecydujesz, aby nie używać tej aplikacji, Usuń aplikację, wykonując następujące czynności:
 
 1. W okienku po lewej stronie Otwórz kartę Administracja
 2. Wybierz pozycję Ustawienia aplikacji, a następnie kliknij przycisk Usuń u dołu strony. 
 
     > [!div class="mx-imgBorder"]
-    > ![Usuwanie aplikacji](media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png)
+    > ![Usuń aplikację](media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png)
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 93a7e2507ab3a467ef83924479872694cae2dd5b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75614013"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Samouczek: tworzenie infrastruktury maszyny wirtualnej platformy Azure na potrzeby hostowania klastra Service Fabric
@@ -51,10 +51,10 @@ Do wykonania kroków tego samouczka potrzebna jest subskrypcja platformy Azure. 
 
    ![SF — przychodzące][sf-inbound]
 
-   * Port `3389`, protokół RDP i ICMP (łączność podstawowa).
-   * Porty `19000-19003`dla Service Fabric.
-   * Porty `19080-19081`dla Service Fabric.
-   * Port `8080`dla żądań przeglądarki sieci Web.
+   * Port `3389` , protokół RDP i ICMP (łączność podstawowa).
+   * Porty `19000-19003` dla Service Fabric.
+   * Porty `19080-19081` dla Service Fabric.
+   * Port `8080` dla żądań przeglądarki sieci Web.
 
    > [!TIP]
    > Aby połączyć maszyny wirtualne z usługą Service Fabric, maszyny wirtualne, które hostują infrastrukturę, muszą mieć takie same poświadczenia.  Istnieją dwa podstawowe sposoby na uzyskanie spójnych poświadczeń: dołączenie wszystkich hostów do tej samej domeny lub ustawienie takiego samego hasła administratora na każdej maszynie wirtualnej. Na szczęście platforma Azure umożliwia łatwe łączenie się z wszystkimi maszynami wirtualnymi w tej samej **sieci wirtualnej** , dlatego będziemy mieć wszystkie nasze wystąpienia w tej samej sieci.

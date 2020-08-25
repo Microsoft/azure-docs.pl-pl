@@ -32,6 +32,8 @@
           href: tutorial-micro-fulfillment-center.md
     - name: Analiza wideo — wykrywanie obiektów i ruchu
       items:
+        - name: 0 — Wdrażanie aplikacji do wykrywania obiektów i ruchu
+          href: tutorial-video-analytics-deploy.md
         - name: 1 — Tworzenie aplikacji do analizy wideo
           href: tutorial-video-analytics-create-app.md
         - name: 2 — Konfigurowanie urządzenia usługi IoT Edge
@@ -64,8 +66,6 @@
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
 - name: Przewodniki z instrukcjami
   items:
-    - name: Wdrażanie aplikacji do wykrywania obiektów i ruchu
-      href: howto-deploy-video-analytics-template.md
     - name: Łączenie urządzeń
       items:
         - name: Przygotowywanie i łączenie urządzenia Rigado Cascade 500

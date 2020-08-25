@@ -1,5 +1,5 @@
 ---
-title: Samouczek`:` używanie tożsamości zarządzanej do uzyskiwania dostępu do usługi Azure Storage — Linux — Azure AD
+title: Samouczek `:` Używanie tożsamości zarządzanej do uzyskiwania dostępu do usługi Azure Storage — Linux — Azure AD
 description: Samouczek przedstawiający proces użycia przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Linux do uzyskiwania dostępu do usługi Azure Storage.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b11df2e1a6140d251801a3243f3eaa9458b77d29
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75971932"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Samouczek: używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Linux do uzyskiwania dostępu do usługi Azure Storage 
@@ -64,7 +64,7 @@ W tej sekcji utworzysz konto magazynu.
 Pliki wymagają magazynu obiektów blob, dlatego musimy utworzyć kontener obiektów blob, w którym będziemy przechowywać plik. Następnie przekaż plik do kontenera obiektów blob w ramach nowego konta magazynu.
 
 1. Przejdź z powrotem do nowo utworzonego konta magazynu.
-2. W obszarze **Blob Service** kliknij pozycję **Kontenery**.
+2. W obszarze **BLOB Service**kliknij pozycję **Containers (kontenery**).
 3. Kliknij pozycję **+ Kontener** w górnej części strony.
 4. W obszarze **Nowy kontener** wprowadź nazwę kontenera, a następnie w obszarze **Poziom dostępu publicznego** zachowaj wartość domyślną.
 
@@ -121,4 +121,4 @@ Aby wykonać poniższe kroki, musisz pracować na utworzonej wcześniej maszynie
 W tym samouczku przedstawiono sposób włączania przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Linux w celu uzyskania dostępu do usługi Azure Storage.  Aby dowiedzieć się więcej o usłudze Azure Storage, zobacz:
 
 > [!div class="nextstepaction"]
-> [Usługa Azure Storage](/azure/storage/common/storage-introduction)
+> [Azure Storage](/azure/storage/common/storage-introduction)

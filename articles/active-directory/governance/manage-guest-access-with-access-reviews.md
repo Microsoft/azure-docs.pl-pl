@@ -16,17 +16,17 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66f8020ec2561bf06716db0720a7ec4292f36eb3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 77c560ffd01fe6d0b93e18b963574136c086fdc4
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034126"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783199"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Zarządzanie dostępem gości za pomocą przeglądów dostępu w usłudze Azure AD
 
 
-Dzięki usłudze Azure Active Directory (Azure AD) można łatwo włączyć współpracę w granicach organizacyjnych za pomocą [funkcji B2B usługi Azure AD](../b2b/what-is-b2b.md). Użytkownicy-Goście z innych dzierżawców mogą być [zapraszani przez administratorów](../b2b/add-users-administrator.md) lub [innych użytkowników](../b2b/what-is-b2b.md). Ta możliwość dotyczy również tożsamości społecznościowych, takich jak konta Microsoft.
+Dzięki usłudze Azure Active Directory (Azure AD) można łatwo włączyć współpracę w granicach organizacyjnych za pomocą [funkcji B2B usługi Azure AD](../external-identities/what-is-b2b.md). Użytkownicy-Goście z innych dzierżawców mogą być [zapraszani przez administratorów](../external-identities/add-users-administrator.md) lub [innych użytkowników](../external-identities/what-is-b2b.md). Ta możliwość dotyczy również tożsamości społecznościowych, takich jak konta Microsoft.
 
 Można również łatwo upewnić się, że użytkownicy-Goście mają odpowiedni dostęp. Możesz polecić Gościom lub producentowi decyzji wziąć udział w przeglądzie dostępu i ponownie zatwierdzić (lub zaświadczyć) dostęp gościa. Na podstawie sugestii pochodzących z usługi Azure AD recenzenci mogą wyrazić opinię dotyczącą przedłużenia dostępu poszczególnych użytkowników. Po zakończeniu przeglądu dostępu można wprowadzić zmiany i usunąć dostęp dla Gości, którzy już nie potrzebują.
 
@@ -120,10 +120,3 @@ W niektórych organizacjach Goście mogą nie wiedzieć o członkostwie w grupac
 ## <a name="next-steps"></a>Następne kroki
 
 [Tworzenie przeglądu dostępu do grup lub aplikacji](create-access-review.md)
-
-
-
-
-
-
-
