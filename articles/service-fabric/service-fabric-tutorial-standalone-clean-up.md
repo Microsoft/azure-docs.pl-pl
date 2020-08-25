@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: bfb23ca5f5eb9540491fbd05efdfd6997db15e6b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75639024"
 ---
 # <a name="tutorial-clean-up-your-standalone-cluster"></a>Samouczek: czyszczenie klastra autonomicznego
@@ -36,7 +36,7 @@ Część czwarta serii zawiera informacje na temat wykonywania następujących c
   .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
   ```
 
-5. Wprowadź `Y` po wyświetleniu monitu, jeśli dane wyjściowe będą wyglądały jak poniżej, z własnymi ADRESami IP zastępują:
+5. Wprowadź `Y` po wyświetleniu monitu, jeśli dane wyjściowe będą wyglądały jak poniżej, z własnymi adresami IP zastępują:
 
   ```powershell
   Best Practices Analyzer completed successfully.
@@ -54,7 +54,7 @@ Część czwarta serii zawiera informacje na temat wykonywania następujących c
 1. Zaloguj się do konta AWS.
 2. Przejdź do konsoli EC2.
 3. Wybierz trzy węzły utworzone w pierwszej części samouczka.
-4. Kliknij pozycję **Akcje** > **stan** > wystąpienia**Przerwij**.
+4. Kliknij pozycję **Akcje**  >  **stan wystąpienia**  >  **Przerwij**.
 
 ## <a name="clean-up-azure-resources"></a>Czyszczenie zasobów platformy Azure
 

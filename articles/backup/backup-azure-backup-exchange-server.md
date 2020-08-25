@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć kopię zapasową serwera programu Excha
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 2d547b1d86b95a4f90d3faaa2f676c7cc37255d3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c9d54bb8e9875bcd622c5ce5343dc6f8baa3f2be
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091134"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763579"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Tworzenie kopii zapasowych serwera programu Exchange do usługi Azure Backup przy użyciu programu System Center 2012 R2 DPM
 
@@ -32,7 +32,7 @@ Przed kontynuowaniem upewnij się, że spełniono wszystkie [wymagania wstępne]
 * Poświadczenia agenta i magazynu zostały pobrane na serwer programu DPM.
 * Agent jest zainstalowany na serwerze programu DPM.
 * Poświadczenia magazynu zostały użyte do zarejestrowania serwera programu DPM.
-* W przypadku ochrony programu Exchange 2016 należy przeprowadzić uaktualnienie do programu DPM 2012 R2 UR9 lub nowszego
+* W przypadku ochrony programu Exchange 2016 należy uaktualnić do programu DPM 2012 R2 UR9 lub nowszego
 
 ## <a name="dpm-protection-agent"></a>Agent ochrony DPM
 

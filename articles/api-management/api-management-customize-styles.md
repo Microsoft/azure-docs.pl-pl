@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 664686511df8f310295a9f6ed6bc689b3a999544
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75430733"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Dostosowywanie stylu stron portalu dla deweloperów
@@ -45,7 +45,7 @@ W tym artykule dowiesz się, jak dostosować styl elementów na stronach starsze
 
 ## <a name="customize-the-developer-portal"></a>Dostosowywanie portalu dla deweloperów
 
-1. Wybierz pozycję **Przegląd**.
+1. Wybierz pozycję **Omówienie**.
 2. Kliknij przycisk **Portal dla deweloperów (starsza wersja)** w górnej części okna **Przegląd** .
 3. W lewej górnej części ekranu będzie widoczna ikona składająca się z dwóch pędzli. Zatrzymaj wskaźnik myszy nad tą ikoną, aby otworzyć menu dostosowywania portalu.
 
@@ -55,11 +55,11 @@ W tym artykule dowiesz się, jak dostosować styl elementów na stronach starsze
     Na stronie zostaną wyświetlone wszystkie elementy, które można dostosować za pomocą **stylów**
 5. Wprowadź wartość „headings-color” w polu **Change variable values to customize developer portal appearance:** (Zmień wartości zmiennych w celu dostosowania wyglądu portalu dla deweloperów:).
 
-    Na stronie pojawi się element ** \@nagłówki — kolor** . Ta zmienna steruje kolorem tekstu.
+    Na stronie pojawi się element ** \@ nagłówki — kolor** . Ta zmienna steruje kolorem tekstu.
 
     ![Dostosowywanie stylu](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Kliknij pole dla zmiennej ** \@nagłówki i kolor** . 
+6. Kliknij pole dla zmiennej ** \@ nagłówki i kolor** . 
     
     Zostanie otwarta lista rozwijana selektora kolorów.
 7. Wybierz nowy kolor z listy rozwijanej selektora kolorów.

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b27bd52ad8794222d52d37032b0cd4fdf99f47b7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f1b9e2af7cb6dd234e58218c6a33c01f321de947
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057922"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798520"
 ---
 # <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Przypisywanie niestandardowych ról administratora przy użyciu interfejsu API Microsoft Graph w programie Azure Active Directory 
 
@@ -49,7 +49,7 @@ Treść
 }
 ```
 
-Odpowiedź
+Reakcja
 
 ``` HTTP
 HTTP/1.1 201 Created
@@ -73,7 +73,7 @@ Treść
 }
 ```
 
-Odpowiedź
+Reakcja
 
 ``` HTTP
 HTTP/1.1 404 Not Found
@@ -96,7 +96,7 @@ Treść
 }
 ```
 
-Odpowiedź
+Reakcja
 
 ``` HTTP
 HTTP/1.1 201 Created
@@ -120,7 +120,7 @@ Treść
 }
 ```
 
-Odpowiedź
+Reakcja
 
 ``` HTTP
 HTTP/1.1 400 Bad Request
@@ -136,7 +136,7 @@ HTTP/1.1 400 Bad Request
 }
 ```
 
-Tylko podzestaw wbudowanych ról jest włączony dla określania zakresu jednostek administracyjnych. Zapoznaj się z [tą dokumentacją](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-admin-units-assign-roles) , aby zapoznać się z listą wbudowanych ról obsługiwanych przez jednostkę administracyjną.
+Tylko podzestaw wbudowanych ról jest włączony dla określania zakresu jednostek administracyjnych. Zapoznaj się z [tą dokumentacją](./roles-admin-units-assign-roles.md) , aby zapoznać się z listą wbudowanych ról obsługiwanych przez jednostkę administracyjną.
 
 ## <a name="get-operations-on-roleassignment"></a>Pobierz operacje na RoleAssignment
 
@@ -148,7 +148,7 @@ GET
 https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments&$filter=principalId eq ‘<object-id-of-principal>’
 ```
 
-Odpowiedź
+Reakcja
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -178,7 +178,7 @@ GET
 https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments&$filter=roleDefinitionId eq ‘<object-id-or-template-id-of-role-definition>’
 ```
 
-Odpowiedź
+Reakcja
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -202,7 +202,7 @@ GET
 GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
 ```
 
-Odpowiedź
+Reakcja
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -223,7 +223,7 @@ GET
 GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=directoryScopeId eq '/d23998b1-8853-4c87-b95f-be97d6c6b610'
 ```
 
-Odpowiedź
+Reakcja
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -255,7 +255,7 @@ DELETE
 GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
 ```
 
-Odpowiedź
+Reakcja
 ``` HTTP
 HTTP/1.1 204 No Content
 ```
@@ -268,7 +268,7 @@ DELETE
 GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
 ```
 
-Odpowiedź
+Reakcja
 
 ``` HTTP
 HTTP/1.1 404 Not Found
@@ -282,7 +282,7 @@ DELETE
 GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
 ```
 
-Odpowiedź
+Reakcja
 
 ``` HTTP
 HTTP/1.1 400 Bad Request

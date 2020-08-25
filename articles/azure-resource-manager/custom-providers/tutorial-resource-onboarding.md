@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 09/17/2019
 ms.openlocfilehash: 22d1dcd997a4ddb94aba184c5dace4c00509054d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75649939"
 ---
 # <a name="tutorial-resource-onboarding-with-azure-custom-providers"></a>Samouczek: dołączanie zasobów z dostawcami niestandardowymi platformy Azure
@@ -209,7 +209,7 @@ W pierwszej części szablonu jest wdrażana infrastruktura dostawcy niestandard
 
 Wdróżmy infrastrukturę dostawcy niestandardowego. Skopiuj, Zapisz i Wdróż poprzedni szablon albo wykonaj czynności i Wdróż infrastrukturę przy użyciu Azure Portal.
 
-1. Przejdź do [Azure Portal](https://portal.azure.com).
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
 
 2. Wyszukaj **Szablony** w obszarze **wszystkie usługi** lub przy użyciu głównego pola wyszukiwania:
 
@@ -287,5 +287,5 @@ Jeśli chcesz, możesz wrócić do **historii uruchamiania** aplikacji logiki i 
 
 ## <a name="getting-help"></a>Uzyskiwanie pomocy
 
-Jeśli masz pytania dotyczące dostawców niestandardowych platformy Azure, spróbuj zadawać je na [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). Na podobnej pytanie mogły już zostać odebrane odpowiedzi, więc najpierw należy sprawdzić przed opublikowaniem. Dodaj tag `azure-custom-providers` , aby uzyskać szybką odpowiedź!
+Jeśli masz pytania dotyczące dostawców niestandardowych platformy Azure, spróbuj zadawać je na [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). Na podobnej pytanie mogły już zostać odebrane odpowiedzi, więc najpierw należy sprawdzić przed opublikowaniem. Dodaj tag, `azure-custom-providers` Aby uzyskać szybką odpowiedź!
 

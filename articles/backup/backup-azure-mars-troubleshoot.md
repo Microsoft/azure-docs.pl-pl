@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z agentem Azure Backup
 description: W tym artykule dowiesz się, jak rozwiązywać problemy z instalacją i rejestracją agenta Azure Backup.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 1afe437239ec7015bf3bbc195cf0b90e75698142
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 64996737a18add8ca1bee25e32929f1d602f9018
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564116"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763511"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Rozwiązywanie problemów z agentem Microsoft Azure Recovery Services (MARS)
 
@@ -204,7 +204,7 @@ Azure Backup może nie pomyślnie zainstalować woluminu odzyskiwania, nawet po 
 
 5. Kliknij prawym przyciskiem myszy pozycję **nieznane urządzenie** i wybierz polecenie **Aktualizuj oprogramowanie sterownika**.
 
-6. Zaktualizuj sterownik, wybierając opcję **automatycznego wyszukiwania zaktualizowanego oprogramowania sterownika**. Ta aktualizacja powinna zmienić **nieznane urządzenie** na **inicjatora iSCSI firmy Microsoft**:
+6. Zaktualizuj sterownik, wybierając opcję  **automatycznego wyszukiwania zaktualizowanego oprogramowania sterownika**. Ta aktualizacja powinna zmienić **nieznane urządzenie** na **inicjatora iSCSI firmy Microsoft**:
 
     ![Zrzut ekranu przedstawiający Azure Backup Menedżer urządzeń z wyróżnionymi kontrolerami magazynu](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
 
@@ -224,7 +224,7 @@ Operacja tworzenia kopii zapasowej może zakończyć się niepowodzeniem, jeśli
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-W przypadku operacji agenta MARS do pomyślnego przeprowadzenia w folderze pamięci podręcznej musi być zgodna z poniższymi wymaganiami:
+W przypadku operacji agenta MARS do pomyślnego przeprowadzenia w folderze pamięci podręcznej musi być zgodna z następującymi wymaganiami:
 
 - [Upewnij się, że 5% do 10% wolnego miejsca na woluminie jest dostępne w lokalizacji folderu tymczasowego](backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
 - [Upewnij się, że lokalizacja folderu tymczasowego jest prawidłowa i dostępna](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
@@ -238,15 +238,15 @@ Operacje tworzenia kopii zapasowej mogą zakończyć się niepowodzeniem, jeśli
 
 - Sprawdź bieżące miejsce do magazynowania w tle z wiersza polecenia z podwyższonym poziomem uprawnień:<br/>
   `vssadmin List ShadowStorage /For=[Volume letter]:`
-- Zwiększ ilość miejsca w magazynie w tle przy użyciu poniższego polecenia:<br/>
+- Zwiększ ilość miejsca w magazynie w tle przy użyciu następującego polecenia:<br/>
   `vssadmin Resize ShadowStorage /On=[Volume letter]: /For=[Volume letter]: /Maxsize=[size]`
 
 ### <a name="another-process-or-antivirus-software-blocking-access-to-cache-folder"></a>Inny proces lub program antywirusowy blokujący dostęp do folderu pamięci podręcznej
 
 Jeśli na serwerze jest zainstalowane oprogramowanie antywirusowe, należy dodać niezbędne reguły wykluczania do skanowania oprogramowania antywirusowego dla tych plików i folderów:  
 
-- Folder tymczasowy. Domyślna lokalizacja to`C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
-- Folder bin w`C:\Program Files\Microsoft Azure Recovery Services Agent\Bin`
+- Folder tymczasowy. Domyślna lokalizacja to `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+- Folder bin w `C:\Program Files\Microsoft Azure Recovery Services Agent\Bin`
 - CBengine.exe
 - CSC.exe
 
@@ -258,25 +258,25 @@ W tej sekcji opisano typowe błędy występujące podczas korzystania z agenta M
 
 Komunikat o błędzie | Zalecana akcja
 --|--
-Agent usługi Microsoft Azure Recovery Services nie mógł uzyskać dostępu do sumy kontrolnej kopii zapasowej przechowywanej w lokalizacji tymczasowej | Aby rozwiązać ten problem, wykonaj poniższe czynności i ponownie uruchom serwer <br/> - [Sprawdź, czy istnieje program antywirusowy lub inne procesy blokujące pliki lokalizacji tymczasowej](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Sprawdź, czy lokalizacja tymczasowa jest prawidłowa i dostępna dla agenta MARS.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+Agent usługi Microsoft Azure Recovery Services nie mógł uzyskać dostępu do sumy kontrolnej kopii zapasowej przechowywanej w lokalizacji tymczasowej | Aby rozwiązać ten problem, wykonaj następujące kroki i ponownie uruchom serwer <br/> - [Sprawdź, czy istnieje program antywirusowy lub inne procesy blokujące pliki lokalizacji tymczasowej](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Sprawdź, czy lokalizacja tymczasowa jest prawidłowa i dostępna dla agenta MARS.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="salvhdinitializationerror"></a>SalVhdInitializationError
 
 Komunikat o błędzie | Zalecana akcja
 --|--
-Agent usługi Microsoft Azure Recovery Services nie mógł uzyskać dostępu do lokalizacji tymczasowej w celu zainicjowania wirtualnego dysku twardego | Aby rozwiązać ten problem, wykonaj poniższe czynności i ponownie uruchom serwer <br/> - [Sprawdź, czy program antywirusowy lub inne procesy blokują pliki lokalizacji tymczasowej](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Sprawdź, czy lokalizacja tymczasowa jest prawidłowa i dostępna dla agenta MARS.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+Agent usługi Microsoft Azure Recovery Services nie mógł uzyskać dostępu do lokalizacji tymczasowej w celu zainicjowania wirtualnego dysku twardego | Aby rozwiązać ten problem, wykonaj następujące kroki i ponownie uruchom serwer <br/> - [Sprawdź, czy program antywirusowy lub inne procesy blokują pliki lokalizacji tymczasowej](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Sprawdź, czy lokalizacja tymczasowa jest prawidłowa i dostępna dla agenta MARS.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="sallowdiskspace"></a>SalLowDiskSpace
 
 Komunikat o błędzie | Zalecana akcja
 --|--
-Tworzenie kopii zapasowej nie powiodło się z powodu niewystarczającej ilości miejsca w magazynie, w której znajduje się folder | Aby rozwiązać ten problem, sprawdź poniższe kroki i spróbuj ponownie wykonać operację:<br/>- [Upewnij się, że Agent MARS jest najnowszy](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Weryfikowanie i rozwiązywanie problemów z magazynem, które wpływają na miejsce na kopie zapasowe](#prerequisites)
+Tworzenie kopii zapasowej nie powiodło się z powodu niewystarczającej ilości miejsca w magazynie, w której znajduje się folder | Aby rozwiązać ten problem, sprawdź następujące kroki i spróbuj ponownie wykonać operację:<br/>- [Upewnij się, że Agent MARS jest najnowszy](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Weryfikowanie i rozwiązywanie problemów z magazynem, które wpływają na miejsce na kopie zapasowe](#prerequisites)
 
 ### <a name="salbitmaperror"></a>SalBitmapError
 
 Komunikat o błędzie | Zalecana akcja
 --|--
-Nie można odnaleźć zmian w pliku. Taka sytuacja może mieć różne przyczyny. Ponów próbę wykonania operacji | Aby rozwiązać ten problem, sprawdź poniższe kroki i spróbuj ponownie wykonać operację:<br/> - [Upewnij się, że Agent MARS jest najnowszy](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Weryfikowanie i rozwiązywanie problemów z magazynem, które wpływają na miejsce na kopie zapasowe](#prerequisites)
+Nie można odnaleźć zmian w pliku. Taka sytuacja może mieć różne przyczyny. Ponów próbę wykonania operacji | Aby rozwiązać ten problem, sprawdź następujące kroki i spróbuj ponownie wykonać operację:<br/> - [Upewnij się, że Agent MARS jest najnowszy](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Weryfikowanie i rozwiązywanie problemów z magazynem, które wpływają na miejsce na kopie zapasowe](#prerequisites)
 
 ## <a name="next-steps"></a>Następne kroki
 

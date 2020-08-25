@@ -2,18 +2,18 @@
 title: Samouczek dotyczący eksportowania danych z Azure Data Box | Microsoft Docs
 description: Informacje o wymaganiach wstępnych dotyczących wdrażania i sposobach eksportowania danych z Azure Data Box
 services: databox
-author: priestlg
+author: twooley
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.author: v-grpr
-ms.openlocfilehash: 5b17488ebab8dc29221723fabf8efe0c00467509
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.author: twooley
+ms.openlocfilehash: 0ddadd8d2bddda0fdff6a126fe6c09d863139b44
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209454"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783624"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Samouczek: Tworzenie kolejności eksportu dla Azure Data Box (wersja zapoznawcza)
 
@@ -60,7 +60,7 @@ Wykonaj poniższe czynności w witrynie Azure Portal, aby zamówić urządzenie.
 
    ![Tworzenie zasobu](media/data-box-deploy-export-ordered/azure-data-box-export-00b.png)
 
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 
    ![Utwórz Azure Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-00c.png)
 
@@ -157,7 +157,7 @@ W przypadku wybrania opcji **Użyj pliku XML**można określić określone konte
 
    ![Plik XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
 
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 
    ![Plik XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
 
@@ -252,8 +252,8 @@ W poniższej tabeli przedstawiono przykłady prawidłowych ścieżek obiektów b
    | Rozpoczyna się od |/containers |Eksportuje wszystkie obiekty blob w kontenerze rozpoczynającym się od **kontenerów** prefiksów |
    | Rozpoczyna się od |/container-name/ |Eksportuje wszystkie obiekty blob w **kontenerze kontenera — nazwa** |
    | Rozpoczyna się od |/container-name/prefix |Eksportuje wszystkie obiekty blob w **kontenerze kontenera — nazwa** rozpoczynająca się **od prefiksu prefiksu** |
-   | Równe |$root/logo.bmp |Eksportuje **logo.bmp** obiektów BLOB w kontenerze głównym |
-   | Równe |8tbpageblob/mydata.txt |Eksportuje **mydata.txt** obiektów BLOB w kontenerze **8tbpageblob** |
+   | Jest równe |$root/logo.bmp |Eksportuje **logo.bmp** obiektów BLOB w kontenerze głównym |
+   | Jest równe |8tbpageblob/mydata.txt |Eksportuje **mydata.txt** obiektów BLOB w kontenerze **8tbpageblob** |
 
 ## <a name="sample-log-files"></a>Przykładowe pliki dziennika
 

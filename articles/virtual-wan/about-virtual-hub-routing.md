@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3d680fb105b6bde26e5b02544359009f316647bb
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: f29a7e48fc1872f83b5a6ce127f38c1a559b2691
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513727"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762321"
 ---
 # <a name="about-virtual-hub-routing"></a>Informacje na temat routingu na koncentratorze wirtualnym
 
@@ -25,10 +25,6 @@ Aby skonfigurować Routing, zobacz [jak skonfigurować Routing koncentratora wir
 ## <a name="routing-concepts"></a><a name="concepts"></a>Pojęcia dotyczące routingu
 
 W poniższych sekcjach opisano kluczowe założenia routingu koncentratora wirtualnego.
-
-> [!NOTE]
-> Niektóre z tych nowych koncepcji tabeli tras centrum, skojarzenia, propagacji i trasy statyczne w połączeniu z siecią wirtualną mogą być nadal wdrażane i oczekiwane w tygodniu od sierpnia sie.
->
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>Tabela tras centrum
 
@@ -77,9 +73,9 @@ Tabele tras mają teraz funkcje do skojarzenia i propagacji. Istniejąca tabela 
 
 * **Klienci sieci wirtualnej w warstwie Standardowa ze wstępnie istniejącymi trasami w koncentratorze wirtualnym**:
 
-Aby skorzystać z nowych możliwości tabeli tras, zaczekaj, aż do ukończenia wdrożenia na platformie Azure zostanie zadłużony tydzień sierpnia. Jeśli masz wstępnie istniejące trasy w sekcji routingu centrum w Azure Portal, musisz najpierw je usunąć, a następnie spróbować utworzyć nowe tabele tras (dostępne w sekcji "tabele tras" centrum w Azure Portal)
+Jeśli masz wstępnie istniejące trasy w sekcji routingu centrum w Azure Portal, musisz najpierw je usunąć, a następnie spróbować utworzyć nowe tabele tras (dostępne w sekcji "tabele tras" centrum w Azure Portal)
 
-* **Podstawowa liczba klientów wirtualnych sieci WAN ze wstępnie istniejącymi trasami w koncentratorze wirtualnym**: Aby korzystać z nowych funkcji tabeli tras, zaczekaj, aż tydzień sierpnia zakończył wdrażanie na platformie Azure. Jeśli masz już istniejące trasy w sekcji routingu centrum w Azure Portal, musisz najpierw je usunąć, a następnie **uaktualnić** podstawową wirtualną sieć WAN do standardowej wirtualnej sieci WAN. Zobacz [uaktualnianie wirtualnej sieci WAN z warstwy Podstawowa do standardowa](upgrade-virtual-wan.md).
+* **Podstawowa klienci wirtualnych sieci WAN ze wstępnie istniejącymi trasami w koncentratorze wirtualnym**: Jeśli w sekcji routingu znajduje się wstępnie istniejące trasy dla centrum w Azure Portal, musisz najpierw je usunąć, a następnie **uaktualnić** podstawową wirtualną sieć WAN do standardowej wirtualnej sieci WAN. Zobacz [uaktualnianie wirtualnej sieci WAN z warstwy Podstawowa do standardowa](upgrade-virtual-wan.md).
 
 ## <a name="virtual-wan-routing-considerations"></a><a name="considerations"></a>Zagadnienia dotyczące routingu wirtualnej sieci WAN
 
@@ -89,6 +85,8 @@ Podczas konfigurowania routingu wirtualnej sieci WAN należy wziąć pod uwagę 
 * Wszystkie połączenia gałęzi muszą propagować trasy do tego samego zestawu tabel tras. Na przykład jeśli zdecydujesz, że gałęzie powinny być propagowane do domyślnej tabeli tras, ta konfiguracja powinna być spójna dla wszystkich gałęzi. W związku z tym wszystkie połączenia skojarzone z domyślną tabelą tras będą mogły dotrzeć do wszystkich gałęzi.
 * Rozgałęzienie do gałęzi za pośrednictwem zapory platformy Azure nie jest obecnie obsługiwane.
 * W przypadku korzystania z zapory platformy Azure w wielu regionach wszystkie sieci wirtualne szprych muszą być skojarzone z tą samą tabelą tras. Na przykład posiadanie podzestawu sieci wirtualnych przez zaporę platformy Azure, podczas gdy inne sieci wirtualnych pomijanie zapory platformy Azure w tym samym koncentratorze wirtualnym nie jest możliwe.
+* Pojedynczy adres IP następnego przeskoku można skonfigurować dla każdego połączenia z siecią wirtualną.
+* Koncentrator wirtualny nie obsługuje trasy statycznej dla 0.0.0.0/0 i następnego skoku Virtual Network połączenie (lub adres IP urządzenia w połączeniu z siecią wirtualną)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/05/2019
-ms.openlocfilehash: 4d0ee48a42814ab2c4229c5f8f239aa1a1c28544
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 8/6/2020
+ms.openlocfilehash: 5b5840c1b668e9a509f58d7edf65175f621d9e4c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87314224"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794295"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics i Power BI: pulpit nawigacyjny analizy w czasie rzeczywistym dla danych przesyłanych strumieniowo
 
@@ -20,7 +20,7 @@ Azure Stream Analytics umożliwia korzystanie z jednego z wiodących narzędzi a
 
 Ten artykuł jest nadal wykonywany w samouczku [wykrywania oszustw w czasie rzeczywistym](stream-analytics-real-time-fraud-detection.md) Stream Analytics. Kompiluje on przepływ pracy utworzony w tym samouczku i dodaje Power BI dane wyjściowe, dzięki czemu można wizualizować fałszywe połączenia telefoniczne wygenerowane przez zadanie usługi Stream Analytics. 
 
-Możesz obejrzeć [film wideo](https://www.youtube.com/watch?v=SGUpT-a99MA) , który ilustruje ten scenariusz.
+Możesz obejrzeć [film wideo](https://www.youtube.com/watch?v=SGUpT-a99MA)  , który ilustruje ten scenariusz.
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -39,7 +39,10 @@ W samouczku wykrywanie oszustw w czasie rzeczywistym dane wyjściowe są wysyła
 
 2. Z menu po lewej stronie wybierz pozycję dane **wyjściowe** w obszarze **topologia zadania**. Następnie wybierz pozycję **+ Dodaj** i wybierz pozycję **Power BI** z menu rozwijanego.
 
-3. Wybierz pozycję **+ Dodaj**  >  **Power BI**. Następnie wypełnij formularz przy użyciu poniższych wartości i wybierz pozycję **Autoryzuj**:
+3. Wybierz pozycję **+ Dodaj**  >  **Power BI**. Następnie wypełnij formularz poniższymi informacjami i wybierz pozycję **Autoryzuj** , aby użyć własnej tożsamości użytkownika do nawiązania połączenia z usługą Power BI (token jest ważny przez 90 dni). 
+
+>[!NOTE]
+>W przypadku zadań produkcyjnych zaleca się nawiązanie połączenia z [użyciem tożsamości zarządzanej w celu uwierzytelnienia zadania Azure Stream Analytics w Power BI](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity).
 
    |**Ustawienie**  |**Sugerowana wartość**  |
    |---------|---------|
@@ -56,7 +59,7 @@ W samouczku wykrywanie oszustw w czasie rzeczywistym dane wyjściowe są wysyła
 
 4. Po wybraniu pozycji **Autoryzuj** zostanie otwarte okno podręczne i zostanie wyświetlona prośba o podanie poświadczeń w celu uwierzytelnienia na koncie usługi Power BI. Kiedy autoryzacja zakończy się pomyślnie, **zapisz** ustawienia.
 
-8. Kliknij pozycję **Utwórz**.
+8. Kliknij przycisk **Utwórz**.
 
 Zestaw danych jest tworzony z następującymi ustawieniami:
 
@@ -163,7 +166,7 @@ Zadanie usługi Stream Analytics rozpocznie wyszukiwanie fałszywych wywołań w
 
     ![Tytuł i podtytuł dla nowego kafelka](./media/stream-analytics-power-bi-dashboard/pbi-new-tile-details.png)
 
-9. Kliknij przycisk **Zastosuj**.
+9. Kliknij pozycję **Zastosuj**.
 
     Teraz masz licznik oszustw!
 
@@ -230,3 +233,4 @@ Po odświeżeniu autoryzacji za pomocą Power BI zielony alert pojawi się w obs
 * [Stream Analytics dane wyjściowe](stream-analytics-define-outputs.md)
 * [Azure Stream Analytics Dokumentacja języka zapytań](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Dokumentacja interfejsu API REST zarządzania Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Za pomocą tożsamości zarządzanej można uwierzytelniać zadanie Azure Stream Analytics w Power BI](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity)

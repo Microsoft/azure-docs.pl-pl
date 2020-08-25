@@ -13,14 +13,14 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84bf041f64a2f85f3aa3eada1dc1955c93dc034a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: a3f2a23da5baa3a5d1955b10d18411fcedc3acd1
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208200"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798299"
 ---
-# <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Rozwiązywanie problemów z rolami przypisanymi do grup chmury
+# <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Rozwiązywanie problemów z rolami przypisanymi do grup w chmurze
 
 Poniżej przedstawiono kilka typowych pytań i porad dotyczących rozwiązywania problemów dotyczących przypisywania ról do grup w Azure Active Directory (Azure AD).
 
@@ -40,8 +40,8 @@ Odp.: użytkownik może uzyskać **dostęp do czytnika**katalogów przez grupę 
 
 Odp **.:** Użytkownik może być właścicielem grupy przypisanej do roli. Chronimy właścicieli grup, do których można przypisać role, aby uniknąć podniesienia uprawnień. Przykładem może być sytuacja, w której Grupa Contoso_Security_Admins jest przypisana do roli administratora zabezpieczeń, gdzie Robert jest właścicielem grupy, a Alicja jest administratorem haseł w organizacji. Jeśli ta ochrona nie istnieje, Alicja może zresetować poświadczenia Roberta i przejąć swoją tożsamość. Następnie Alicja może dodać do grupy Contoso_Security_Admins grupę, aby stać się administratorem zabezpieczeń w organizacji. Aby dowiedzieć się, czy użytkownik jest właścicielem grupy, Pobierz listę obiektów należących do tego użytkownika i sprawdź, czy dowolna z tych grup ma isAssignableToRole ustawioną wartość true. Jeśli tak, ten użytkownik jest chroniony i zachowanie jest zaprojektowane. Zapoznaj się z tymi dokumentami w celu uzyskania własnych obiektów:
 
-- [Get-AzureADUserOwnedObject](https://docs.microsoft.com/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
-- [OwnedObjects listy](https://docs.microsoft.com/graph/api/user-list-ownedobjects?view=graph-rest-1.0&tabs=http)
+- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
+- [OwnedObjects listy](/graph/api/user-list-ownedobjects?tabs=http&view=graph-rest-1.0)
 
 **P:** Czy można utworzyć przegląd dostępu dla grup, które mogą być przypisane do ról usługi Azure AD (w odniesieniu do grup, dla których właściwość isAssignableToRole ma wartość true)?  
 

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20e566a450768fca81e29692f7c8d2da3ccf5201
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb64a84388a370e77f39369f78c3086ec1cd00ec
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731566"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798350"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Wyświetlanie przypisań ról niestandardowych w Azure Active Directory
 
@@ -39,7 +39,7 @@ Ta procedura opisuje Wyświetlanie przypisań roli z zakresem całej organizacji
 
 ## <a name="view-role-assignments-using-azure-ad-powershell"></a>Wyświetlanie przypisań ról przy użyciu programu Azure AD PowerShell
 
-W tej sekcji opisano Wyświetlanie przypisań roli z zakresem całej organizacji. W tym artykule jest wykorzystywany moduł [Azure Active Directory PowerShell w wersji 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) . Aby wyświetlić przypisania zakresów pojedynczych aplikacji za pomocą programu PowerShell, można użyć poleceń cmdlet w [przypisywać role niestandardowe przy użyciu programu PowerShell](roles-assign-powershell.md).
+W tej sekcji opisano Wyświetlanie przypisań roli z zakresem całej organizacji. W tym artykule jest wykorzystywany moduł [Azure Active Directory PowerShell w wersji 2](/powershell/module/azuread/?view=azureadps-2.0#directory_roles) . Aby wyświetlić przypisania zakresów pojedynczych aplikacji za pomocą programu PowerShell, można użyć poleceń cmdlet w [przypisywać role niestandardowe przy użyciu programu PowerShell](roles-assign-powershell.md).
 
 ### <a name="prepare-powershell"></a>Przygotowywanie programu PowerShell
 
@@ -88,7 +88,7 @@ GET
 https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments&$filter=roleDefinitionId eq ‘<object-id-or-template-id-of-role-definition>’
 ```
 
-Odpowiedź
+Reakcja
 
 ``` HTTP
 HTTP/1.1 200 OK

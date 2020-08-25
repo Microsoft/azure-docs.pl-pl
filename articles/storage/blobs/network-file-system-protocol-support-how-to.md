@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: cb3cb41b46c2def4f99af7f1811e4ff96dff7070
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 985fbc70f15c0806c45ae43d62995590e10b1bb2
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167032"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798928"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Instalowanie magazynu obiektów BLOB przy użyciu protokołu NFS (Network File System) 3,0 (wersja zapoznawcza)
 
@@ -107,11 +107,11 @@ Możesz zaakceptować wartości domyślne dla wszystkich innych ustawień.
 
 Utwórz kontener na koncie magazynu przy użyciu dowolnego z tych narzędzi lub zestawów SDK:
 
-|Narzędzia|Zestawy SDK|
+|narzędzia|Zestawy SDK|
 |---|---|
 |[Eksplorator usługi Azure Storage](data-lake-storage-explorer.md#create-a-container)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
-|[Narzędzie AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
-|[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
+|[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
+|[Program PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[Interfejs wiersza polecenia platformy Azure](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
 |[Witryna Azure Portal](https://portal.azure.com)|[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
 
@@ -154,6 +154,15 @@ Utwórz katalog w systemie Windows lub Linux, a następnie zainstaluj kontener n
 
    - Zastąp `<container-name>` symbol zastępczy nazwą kontenera.
 
+3. Jeśli potrzebujesz uprawnień do zapisu, może zajść potrzeba zmiany domyślnego identyfikatora UID i GID, którego system Windows używa do nawiązywania połączenia z udziałem. Aby to zrobić, uruchom następujące polecenia programu PowerShell jako administrator:
+
+   ```
+   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousUid -PropertyType DWord -Value 0
+   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousGid -PropertyType DWord -Value 0
+   ```
+   
+   - Po wprowadzeniu tej zmiany należy ponownie uruchomić usługę klienta NFS lub uruchomić ponownie serwer.
+
 ---
 
 ## <a name="resolve-common-issues"></a>Rozwiązywanie typowych problemów
@@ -163,7 +172,7 @@ Utwórz katalog w systemie Windows lub Linux, a następnie zainstaluj kontener n
 |`Access denied by server while mounting`|Upewnij się, że klient działa w ramach obsługiwanej podsieci. Zobacz [obsługiwane lokalizacje sieciowe](network-file-system-protocol-support.md#supported-network-connections).|
 |`No such file or directory`| Upewnij się, że instalowany kontener został utworzony po sprawdzeniu, że funkcja została zarejestrowana. Zobacz [krok 2. Sprawdzanie, czy funkcja jest zarejestrowana](#step-2-verify-that-the-feature-is-registered). Upewnij się również, że wpisz polecenie instalacji i jest ono parametrami bezpośrednio w terminalu. Jeśli skopiujesz i wkleisz dowolny fragment tego polecenia do terminalu z innej aplikacji, ukryte znaki we wklejonej informacji mogą spowodować pojawienie się tego błędu.|
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Obsługa protokołu sieciowego systemu plików (NFS) 3,0 w usłudze Azure Blob Storage (wersja zapoznawcza)](network-file-system-protocol-support.md)
 

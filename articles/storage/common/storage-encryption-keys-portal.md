@@ -6,18 +6,18 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 07/31/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: a216714939dc45fd1b220f24414a527969ab7fcb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a506f59d3f2d331e4c7680565f3c110b9cd12956
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029590"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799177"
 ---
-# <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Skonfiguruj klucze zarządzane przez klienta za pomocą Azure Key Vault przy użyciu Azure Portal
+# <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Skonfiguruj klucze zarządzane przez klienta za pomocą usługi Azure Key Vault przy użyciu witryny Azure Portal
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
@@ -45,11 +45,11 @@ Aby włączyć klucze zarządzane przez klienta w Azure Portal, wykonaj następu
 
 ## <a name="specify-a-key"></a>Określ klucz
 
-Po włączeniu kluczy zarządzanych przez klienta będziesz mieć możliwość określenia klucza do skojarzenia z kontem magazynu. Możesz również wskazać, czy usługa Azure Storage ma automatycznie obrócić klucz zarządzany przez klienta, czy klucz ma być obracany ręcznie.
+Po włączeniu kluczy zarządzanych przez klienta będziesz mieć możliwość określenia klucza do skojarzenia z kontem magazynu. Możesz również wskazać, czy usługa Azure Storage ma automatycznie aktualizować klucz zarządzany przez klienta do najnowszej wersji, czy też aktualizować wersję klucza ręcznie.
 
 ### <a name="specify-a-key-from-a-key-vault"></a>Określ klucz z magazynu kluczy
 
-Po wybraniu klucza zarządzanego przez klienta z magazynu kluczy automatyczne obracanie klucza jest włączane automatycznie. Aby ręcznie zarządzać wersją klucza, określ zamiast niego identyfikator URI klucza i Dołącz wersję klucza. Aby uzyskać więcej informacji, zobacz [Określanie klucza jako identyfikatora URI](#specify-a-key-as-a-uri).
+Po wybraniu klucza zarządzanego przez klienta z magazynu kluczy zostanie włączona automatyczna aktualizacja wersji klucza. Aby ręcznie zarządzać wersją klucza, określ zamiast niego identyfikator URI klucza i Dołącz wersję klucza. Aby uzyskać więcej informacji, zobacz [Określanie klucza jako identyfikatora URI](#specify-a-key-as-a-uri).
 
 Aby określić klucz z magazynu kluczy, wykonaj następujące kroki:
 
@@ -64,7 +64,12 @@ Aby określić klucz z magazynu kluczy, wykonaj następujące kroki:
 
 ### <a name="specify-a-key-as-a-uri"></a>Określ klucz jako identyfikator URI
 
-W przypadku określenia identyfikatora URI klucza należy pominąć wersję klucza, aby włączyć funkcję autorotacji klucza zarządzanego przez klienta. Jeśli w identyfikatorze URI klucza zostanie dołączona wersja klucza, funkcja autorotacji nie jest włączona i musisz samodzielnie zarządzać wersją klucza. Aby uzyskać więcej informacji o aktualizowaniu wersji klucza, zobacz [Ręczne aktualizowanie wersji klucza](#manually-update-the-key-version).
+Usługa Azure Storage może automatycznie zaktualizować klucz zarządzany przez klienta używany do szyfrowania, aby użyć najnowszej wersji klucza. Gdy klucz zarządzany przez klienta zostanie obrócony w Azure Key Vault, usługa Azure Storage automatycznie zacznie używać najnowszej wersji klucza do szyfrowania.
+
+> [!NOTE]
+> Aby obrócić klucz, Utwórz nową wersję klucza w Azure Key Vault. Usługa Azure Storage nie obsługuje rotacji klucza w Azure Key Vault, więc musisz ręcznie obrócić klucz lub utworzyć funkcję, aby obrócić ją zgodnie z harmonogramem.
+
+W przypadku określenia identyfikatora URI klucza należy pominąć wersję klucza z identyfikatora URI, aby włączyć automatyczną aktualizację do najnowszej wersji. Jeśli w identyfikatorze URI klucza zostanie dołączona wersja klucza, automatyczne aktualizowanie nie jest włączone i musisz samodzielnie zarządzać wersją klucza. Aby uzyskać więcej informacji o aktualizowaniu wersji klucza, zobacz [Ręczne aktualizowanie wersji klucza](#manually-update-the-key-version).
 
 Aby określić klucz jako identyfikator URI, wykonaj następujące kroki:
 
@@ -74,25 +79,25 @@ Aby określić klucz jako identyfikator URI, wykonaj następujące kroki:
     ![Zrzut ekranu przedstawiający identyfikator URI klucza magazynu kluczy](media/storage-encryption-keys-portal/portal-copy-key-identifier.png)
 
 1. W ustawieniach **klucza szyfrowania** dla konta magazynu wybierz opcję **Wprowadź identyfikator URI klucza** .
-1. Wklej identyfikator URI, który został skopiowany do pola **klucza URI** . Pomiń wersję klucza z identyfikatora URI, aby włączyć funkcję autorotacji.
+1. Wklej identyfikator URI, który został skopiowany do pola **klucza URI** . Pomiń wersję klucza z identyfikatora URI, aby włączyć automatyczną aktualizację wersji klucza.
 
    ![Zrzut ekranu przedstawiający sposób wprowadzania identyfikatora URI klucza](./media/storage-encryption-keys-portal/portal-specify-key-uri.png)
 
 1. Określ subskrypcję zawierającą magazyn kluczy.
 1. Zapisz zmiany.
 
-Po określeniu klucza Azure Portal wskazuje, czy automatyczna rotacja kluczy jest włączona i wyświetla aktualnie używaną wersję klucza do szyfrowania.
+Po określeniu klucza Azure Portal wskazuje, czy automatyczna aktualizacja wersji klucza jest włączona i wyświetla aktualnie używaną wersję klucza do szyfrowania.
 
-:::image type="content" source="media/storage-encryption-keys-portal/portal-auto-rotation-enabled.png" alt-text="Zrzut ekranu przedstawiający funkcję autorotacji kluczy zarządzanych przez klienta":::
+:::image type="content" source="media/storage-encryption-keys-portal/portal-auto-rotation-enabled.png" alt-text="Zrzut ekranu przedstawiający automatyczną aktualizację wersji klucza":::
 
 ## <a name="manually-update-the-key-version"></a>Ręcznie zaktualizuj wersję klucza
 
-Domyślnie usługa Azure Storage automatycznie obraca klucze zarządzane przez klienta, zgodnie z opisem w poprzednich sekcjach. Jeśli zdecydujesz się na samodzielne zarządzanie wersją klucza, należy zaktualizować wersję klucza określoną dla konta magazynu za każdym razem, gdy tworzysz nową wersję klucza.
+Domyślnie podczas tworzenia nowej wersji klucza zarządzanego przez klienta w programie Key Vault usługa Azure Storage automatycznie używa nowej wersji do szyfrowania z kluczami zarządzanymi przez klienta, zgodnie z opisem w poprzednich sekcjach. Jeśli zdecydujesz się na samodzielne zarządzanie wersją klucza, należy zaktualizować wersję klucza skojarzoną z kontem magazynu za każdym razem, gdy tworzysz nową wersję klucza.
 
 Aby zaktualizować konto magazynu tak, aby korzystało z nowej wersji klucza, wykonaj następujące kroki:
 
 1. Przejdź do konta magazynu i Wyświetl ustawienia **szyfrowania** .
-1. Wprowadź identyfikator URI dla nowej wersji klucza. Alternatywnie można wybrać Magazyn kluczy i ponownie klucz, aby zaktualizować wersję.
+1. Wprowadź identyfikator URI nowej wersji klucza. Alternatywnie można wybrać Magazyn kluczy i ponownie klucz, aby zaktualizować wersję.
 1. Zapisz zmiany.
 
 ## <a name="switch-to-a-different-key"></a>Przełącz do innego klucza

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e8cba89abd65844d238120726572481457f27cb
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 28125ff55fe6ab3e68d56dc26a074d0498c2b413
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88706159"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798435"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Ogranicz uprawnienia dostępu gościa (wersja zapoznawcza) w Azure Active Directory
 
@@ -54,7 +54,7 @@ Wprowadziliśmy zmiany w istniejących kontrolkach Azure Portal dla uprawnień u
 
 ## <a name="update-with-the-microsoft-graph-api"></a>Aktualizowanie za pomocą interfejsu API Microsoft Graph
 
-Dodaliśmy nowy interfejs API Microsoft Graph, aby skonfigurować uprawnienia gościa w organizacji usługi Azure AD. Następujące wywołania interfejsu API mogą zostać wykonane w celu przypisania dowolnego poziomu uprawnień. Wartość guestUserRoleId używana tutaj to zilustrowanie najbardziej ograniczonego ustawienia użytkownika gościa. Aby uzyskać więcej informacji na temat używania Microsoft Graph do ustawiania uprawnień gościa, zobacz [authorizationPolicy typu zasobu](https://docs.microsoft.com/graph/api/resources/authorizationpolicy).
+Dodaliśmy nowy interfejs API Microsoft Graph, aby skonfigurować uprawnienia gościa w organizacji usługi Azure AD. Następujące wywołania interfejsu API mogą zostać wykonane w celu przypisania dowolnego poziomu uprawnień. Wartość guestUserRoleId używana tutaj to zilustrowanie najbardziej ograniczonego ustawienia użytkownika gościa. Aby uzyskać więcej informacji na temat używania Microsoft Graph do ustawiania uprawnień gościa, zobacz [authorizationPolicy typu zasobu](/graph/api/resources/authorizationpolicy).
 
 ### <a name="configuring-for-the-first-time"></a>Konfigurowanie po raz pierwszy
 
@@ -150,7 +150,7 @@ Usługa bez bieżącej obsługi może mieć problemy ze zgodnością z nowym ust
 - Formularze
 - Planista w zespołach
 - Aplikacja planisty
-- Projekt
+- Project
 - Yammer
 
 ## <a name="frequently-asked-questions-faq"></a>Często zadawane pytania
@@ -168,5 +168,5 @@ Czy istnieją jakieś wymagania licencyjne dotyczące tej funkcji? | Nie. nie ma
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby dowiedzieć się więcej o istniejących uprawnieniach gościa w usłudze Azure AD, zobacz [co to są domyślne uprawnienia użytkownika w Azure Active Directory?](../fundamentals/users-default-permissions.md).
-- Aby wyświetlić Microsoft Graph metody interfejsu API w celu ograniczenia dostępu gościa, zobacz [authorizationPolicy typu zasobu](https://docs.microsoft.com/graph/api/resources/authorizationpolicy).
+- Aby wyświetlić Microsoft Graph metody interfejsu API w celu ograniczenia dostępu gościa, zobacz [authorizationPolicy typu zasobu](/graph/api/resources/authorizationpolicy).
 - Aby odwołać dostęp dla użytkownika, zobacz [odwoływanie dostępu użytkowników w usłudze Azure AD](users-revoke-access.md).

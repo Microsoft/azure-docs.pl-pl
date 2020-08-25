@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 03a7a1929e591216255c10f35d31c1a282a7e06a
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 72f68b35d171503bb07fc5e6f58a858ceea4c6cf
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723286"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749678"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Wprowadzenie do dysków zarządzanych na platformie Azure
 
@@ -30,37 +30,37 @@ Dyski zarządzane są przeznaczone do dostępności na 99,999%. Dyski zarządzan
 
 ### <a name="simple-and-scalable-vm-deployment"></a>Proste i skalowalne wdrożenie maszyny wirtualnej
 
-Korzystając z usługi Managed disks, można utworzyć do 50 000 **dysków** maszyn wirtualnych typu w ramach subskrypcji na region, co pozwala na tworzenie tysięcy **maszyn wirtualnych** w ramach jednej subskrypcji. Ta funkcja dodatkowo zwiększa skalowalność [zestawów skalowania maszyn wirtualnych](~/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) , umożliwiając tworzenie do 1 000 maszyn wirtualnych w zestawie skalowania maszyn wirtualnych przy użyciu obrazu portalu Marketplace.
+Korzystając z usługi Managed disks, można utworzyć do 50 000 **dysków** maszyn wirtualnych typu w ramach subskrypcji na region, co pozwala na tworzenie tysięcy **maszyn wirtualnych** w ramach jednej subskrypcji. Ta funkcja dodatkowo zwiększa skalowalność [zestawów skalowania maszyn wirtualnych](../virtual-machine-scale-sets/overview.md) , umożliwiając tworzenie do 1 000 maszyn wirtualnych w zestawie skalowania maszyn wirtualnych przy użyciu obrazu portalu Marketplace.
 
 ### <a name="integration-with-availability-sets"></a>Integracja z zestawami dostępności
 
-Dyski zarządzane są zintegrowane z zestawami dostępności, aby upewnić się, że dyski [maszyn wirtualnych w zestawie dostępności](~/articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) są wystarczająco odizolowane od siebie, aby uniknąć Single Point of Failure. Dyski są automatycznie umieszczane w różnych jednostkach skalowania magazynu (sygnatury). Jeśli sygnatura nie powiedzie się z powodu awarii sprzętu lub oprogramowania, tylko wystąpienia maszyn wirtualnych z dyskami w tych sygnaturach kończą się niepowodzeniem. Załóżmy na przykład, że aplikacja działa na pięciu maszynach wirtualnych, a maszyny wirtualne znajdują się w zestawie dostępności. Dyski dla tych maszyn wirtualnych nie będą przechowywane w tej samej sygnaturze, więc jeśli jedna sygnatura przestanie działać, inne wystąpienia aplikacji nadal będą uruchamiane.
+Dyski zarządzane są zintegrowane z zestawami dostępności, aby upewnić się, że dyski [maszyn wirtualnych w zestawie dostępności](windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) są wystarczająco odizolowane od siebie, aby uniknąć Single Point of Failure. Dyski są automatycznie umieszczane w różnych jednostkach skalowania magazynu (sygnatury). Jeśli sygnatura nie powiedzie się z powodu awarii sprzętu lub oprogramowania, tylko wystąpienia maszyn wirtualnych z dyskami w tych sygnaturach kończą się niepowodzeniem. Załóżmy na przykład, że aplikacja działa na pięciu maszynach wirtualnych, a maszyny wirtualne znajdują się w zestawie dostępności. Dyski dla tych maszyn wirtualnych nie będą przechowywane w tej samej sygnaturze, więc jeśli jedna sygnatura przestanie działać, inne wystąpienia aplikacji nadal będą uruchamiane.
 
 ### <a name="integration-with-availability-zones"></a>Integracja z usługą Strefy dostępności
 
-Usługa Managed disks obsługuje [strefy dostępności](~/articles/availability-zones/az-overview.md), która jest ofertą wysokiej dostępności, która chroni aplikacje przed awariami centrów danych. Strefy dostępności to unikatowe fizyczne lokalizacje w regionie świadczenia usługi Azure. Każda strefa składa się z co najmniej jednego centrum danych wyposażonego w niezależne zasilanie, chłodzenie i sieć. W celu zapewnienia odporności istnieją co najmniej trzy osobne strefy we wszystkich włączonych regionach. Dzięki strefom dostępności platforma Azure oferuje najlepszą w branży umowę dotycząca poziomu usług (SLA) gwarantującą czas działania na poziomie 99,99%.
+Usługa Managed disks obsługuje [strefy dostępności](../availability-zones/az-overview.md), która jest ofertą wysokiej dostępności, która chroni aplikacje przed awariami centrów danych. Strefy dostępności to unikatowe fizyczne lokalizacje w regionie świadczenia usługi Azure. Każda strefa składa się z co najmniej jednego centrum danych wyposażonego w niezależne zasilanie, chłodzenie i sieć. W celu zapewnienia odporności istnieją co najmniej trzy osobne strefy we wszystkich włączonych regionach. Dzięki strefom dostępności platforma Azure oferuje najlepszą w branży umowę dotycząca poziomu usług (SLA) gwarantującą czas działania na poziomie 99,99%.
 
 ### <a name="azure-backup-support"></a>Obsługa Azure Backup
 
-Aby chronić przed awariami regionalnymi, [Azure Backup](~/articles/backup/backup-overview.md) może służyć do tworzenia zadania tworzenia kopii zapasowej z użyciem kopii zapasowych opartych na czasie i zasad przechowywania kopii zapasowych. Dzięki temu można przeprowadzić maszynę wirtualną lub przywracanie dysków zarządzanych. Obecnie Azure Backup obsługuje dyski do 32 tebibyte (TiB) dysków. [Dowiedz się więcej](~/articles/backup/backup-support-matrix-iaas.md) o obsłudze kopii zapasowych maszyny wirtualnej platformy Azure.
+Aby chronić przed awariami regionalnymi, [Azure Backup](../backup/backup-overview.md) może służyć do tworzenia zadania tworzenia kopii zapasowej z użyciem kopii zapasowych opartych na czasie i zasad przechowywania kopii zapasowych. Dzięki temu można przeprowadzić maszynę wirtualną lub przywracanie dysków zarządzanych. Obecnie Azure Backup obsługuje dyski do 32 tebibyte (TiB) dysków. [Dowiedz się więcej](../backup/backup-support-matrix-iaas.md) o obsłudze kopii zapasowych maszyny wirtualnej platformy Azure.
 
 ### <a name="granular-access-control"></a>Szczegółowa kontrola dostępu
 
-Za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](~/articles/role-based-access-control/overview.md) można przypisać określone uprawnienia dla dysku zarządzanego do jednego lub większej liczby użytkowników. W przypadku dysków zarządzanych są dostępne różne operacje, takie jak Odczyt, zapis (Tworzenie/aktualizowanie), usuwanie i pobieranie [identyfikatora URI sygnatury dostępu współdzielonego (SAS)](~/articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) dla dysku. Można udzielić dostępu tylko do operacji wykonywanych przez osobę. Na przykład, jeśli nie chcesz, aby użytkownik skopiował dysk zarządzany do konta magazynu, możesz zrezygnować z udzielenia dostępu do akcji eksportowania dla tego dysku zarządzanego. Podobnie, jeśli nie chcesz, aby użytkownik korzystał z identyfikatora URI sygnatury dostępu współdzielonego w celu skopiowania dysku zarządzanego, możesz zrezygnować z przyznania tego uprawnienia do dysku zarządzanego.
+Za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/overview.md) można przypisać określone uprawnienia dla dysku zarządzanego do jednego lub większej liczby użytkowników. W przypadku dysków zarządzanych są dostępne różne operacje, takie jak Odczyt, zapis (Tworzenie/aktualizowanie), usuwanie i pobieranie [identyfikatora URI sygnatury dostępu współdzielonego (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md) dla dysku. Można udzielić dostępu tylko do operacji wykonywanych przez osobę. Na przykład, jeśli nie chcesz, aby użytkownik skopiował dysk zarządzany do konta magazynu, możesz zrezygnować z udzielenia dostępu do akcji eksportowania dla tego dysku zarządzanego. Podobnie, jeśli nie chcesz, aby użytkownik korzystał z identyfikatora URI sygnatury dostępu współdzielonego w celu skopiowania dysku zarządzanego, możesz zrezygnować z przyznania tego uprawnienia do dysku zarządzanego.
 
 ### <a name="upload-your-vhd"></a>Przekazywanie wirtualnego dysku twardego
 
 Przekazywanie bezpośrednie ułatwia przenoszenie dysku VHD na dysk zarządzany platformy Azure. Wcześniej musiałeś postępować zgodnie z większym procesem, który obejmuje przemieszczenie danych na koncie magazynu. Teraz jest mniej kroków. Łatwiejsze jest przekazywanie lokalnych maszyn wirtualnych na platformę Azure, przekazywanie ich do dużych dysków zarządzanych, a proces tworzenia kopii zapasowej i przywracania jest uproszczony. Zmniejsza to również koszty, umożliwiając przekazywanie danych do dysków zarządzanych bezpośrednio bez dołączania ich do maszyn wirtualnych. Możesz użyć bezpośredniego przekazywania, aby przekazać wirtualne dyski twarde o rozmiarze do 32 TiB.
 
-Aby dowiedzieć się, jak przenieść dysk VHD na platformę Azure, zapoznaj się z artykułami [interfejsu wiersza polecenia](~/articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) lub [programu PowerShell](~/articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md) .
+Aby dowiedzieć się, jak przenieść dysk VHD na platformę Azure, zapoznaj się z artykułami [interfejsu wiersza polecenia](linux/disks-upload-vhd-to-managed-disk-cli.md) lub [programu PowerShell](windows/disks-upload-vhd-to-managed-disk-powershell.md) .
 
 ## <a name="security"></a>Zabezpieczenia
 
 ### <a name="private-links"></a>Linki prywatne
 
-Obsługa linków prywatnych dla dysków zarządzanych jest obecnie w wersji zapoznawczej i może służyć do importowania lub eksportowania dysku zarządzanego w sieci. Linki prywatne umożliwiają generowanie identyfikatora URI sygnatury dostępu współdzielonego (SAS) powiązanego z niedołączonymi dyskami zarządzanymi i migawkami, których można użyć do eksportowania danych do innych regionów na potrzeby rozszerzania regionalnego, odzyskiwania po awarii i analizy śledczej. Możesz również użyć identyfikatora URI sygnatury dostępu współdzielonego, aby bezpośrednio przekazać dysk VHD do pustego dysku z lokalnego. Teraz możesz skorzystać z [prywatnych linków](~/articles/private-link/private-link-overview.md) , aby ograniczyć eksport i import dysków zarządzanych, tak aby mogły one wystąpić tylko w ramach sieci wirtualnej platformy Azure. Linki prywatne umożliwiają zapewnienie, że dane są przesyłane tylko w ramach bezpiecznej sieci szkieletowej firmy Microsoft.
+Obsługa linków prywatnych dla dysków zarządzanych jest obecnie w wersji zapoznawczej i może służyć do importowania lub eksportowania dysku zarządzanego w sieci. Linki prywatne umożliwiają generowanie identyfikatora URI sygnatury dostępu współdzielonego (SAS) powiązanego z niedołączonymi dyskami zarządzanymi i migawkami, których można użyć do eksportowania danych do innych regionów na potrzeby rozszerzania regionalnego, odzyskiwania po awarii i analizy śledczej. Możesz również użyć identyfikatora URI sygnatury dostępu współdzielonego, aby bezpośrednio przekazać dysk VHD do pustego dysku z lokalnego. Teraz możesz skorzystać z [prywatnych linków](../private-link/private-link-overview.md) , aby ograniczyć eksport i import dysków zarządzanych, tak aby mogły one wystąpić tylko w ramach sieci wirtualnej platformy Azure. Linki prywatne umożliwiają zapewnienie, że dane są przesyłane tylko w ramach bezpiecznej sieci szkieletowej firmy Microsoft.
 
-Aby dowiedzieć się, jak włączyć linki prywatne do importowania lub eksportowania dysku zarządzanego, zapoznaj się z artykułami dotyczącymi [interfejsu wiersza polecenia](~/articles/virtual-machines/linux/disks-export-import-private-links-cli.md) lub [portalu](~/articles/virtual-machines/disks-enable-private-links-for-import-export-portal.md) .
+Aby dowiedzieć się, jak włączyć linki prywatne do importowania lub eksportowania dysku zarządzanego, zapoznaj się z artykułami dotyczącymi [interfejsu wiersza polecenia](linux/disks-export-import-private-links-cli.md) lub [portalu](disks-enable-private-links-for-import-export-portal.md) .
 
 ### <a name="encryption"></a>Szyfrowanie
 
@@ -70,12 +70,12 @@ Dyski zarządzane oferują dwa różne rodzaje szyfrowania. Pierwszy jest szyfro
 
 Szyfrowanie po stronie serwera zapewnia szyfrowanie w spoczynku i zabezpiecza dane zgodnie z zobowiązaniami dotyczącymi bezpieczeństwa i zgodności w organizacji. Szyfrowanie po stronie serwera jest domyślnie włączone dla wszystkich dysków zarządzanych, migawek i obrazów we wszystkich regionach, w których są dostępne usługi Managed Disks. (Dyski tymczasowe, z drugiej strony, nie są szyfrowane za pomocą szyfrowania po stronie serwera, o ile nie zostanie włączone szyfrowanie na hoście; zapoznaj się z tematem [role dysków: dyski tymczasowe](#temporary-disk)).
 
-Możesz zezwolić na platformę Azure do zarządzania kluczami, które są kluczami zarządzanymi przez platformę, lub samodzielnie zarządzać kluczami. są to klucze zarządzane przez klienta. Aby uzyskać szczegółowe informacje, odwiedź stronę dotyczącą [szyfrowania Azure Disk Storage po stronie serwera](~/articles/virtual-machines/windows/disk-encryption.md) .
+Możesz zezwolić na platformę Azure do zarządzania kluczami, które są kluczami zarządzanymi przez platformę, lub samodzielnie zarządzać kluczami. są to klucze zarządzane przez klienta. Aby uzyskać szczegółowe informacje, odwiedź stronę dotyczącą [szyfrowania Azure Disk Storage po stronie serwera](windows/disk-encryption.md) .
 
 
 #### <a name="azure-disk-encryption"></a>Usługa Azure Disk Encryption
 
-Azure Disk Encryption pozwala na szyfrowanie dysków systemu operacyjnego i danych używanych przez maszynę wirtualną IaaS. To szyfrowanie obejmuje dyski zarządzane. W przypadku systemu Windows dyski są szyfrowane przy użyciu standardowej technologii szyfrowania funkcji BitLocker. W przypadku systemu Linux dyski są szyfrowane przy użyciu technologii DM-Crypt. Proces szyfrowania jest zintegrowany z usługą Azure Key Vault, aby umożliwić kontrolowanie kluczy szyfrowania dysków i zarządzanie nimi. Aby uzyskać więcej informacji, zobacz [Azure Disk Encryption dla maszyn wirtualnych](~/articles/virtual-machines/linux/disk-encryption-overview.md) z systemem Linux lub [Azure Disk Encryption dla maszyn wirtualnych z systemem Windows](~/articles/virtual-machines/windows/disk-encryption-overview.md).
+Azure Disk Encryption pozwala na szyfrowanie dysków systemu operacyjnego i danych używanych przez maszynę wirtualną IaaS. To szyfrowanie obejmuje dyski zarządzane. W przypadku systemu Windows dyski są szyfrowane przy użyciu standardowej technologii szyfrowania funkcji BitLocker. W przypadku systemu Linux dyski są szyfrowane przy użyciu technologii DM-Crypt. Proces szyfrowania jest zintegrowany z usługą Azure Key Vault, aby umożliwić kontrolowanie kluczy szyfrowania dysków i zarządzanie nimi. Aby uzyskać więcej informacji, zobacz [Azure Disk Encryption dla maszyn wirtualnych](linux/disk-encryption-overview.md) z systemem Linux lub [Azure Disk Encryption dla maszyn wirtualnych z systemem Windows](windows/disk-encryption-overview.md).
 
 ## <a name="disk-roles"></a>Role dysku
 
@@ -95,7 +95,7 @@ Ten dysk ma maksymalną pojemność wynoszącą 2 048 GiB.
 
 ### <a name="temporary-disk"></a>Dysk tymczasowy
 
-Większość maszyn wirtualnych zawiera dysk tymczasowy, który nie jest dyskiem zarządzanym. Dysk tymczasowy zapewnia krótkoterminowy magazyn dla aplikacji i procesów, który jest przeznaczony tylko do przechowywania danych, takich jak pliki stron lub plików wymiany. Dane na dysku tymczasowym mogą zostać utracone podczas [zdarzenia konserwacji](~/articles/virtual-machines/windows/manage-availability.md?toc=/azure/virtual-machines/windows/toc.json#understand-vm-reboots---maintenance-vs-downtime) lub po ponownym [wdrożeniu maszyny wirtualnej](~/articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Po pomyślnym przeprowadzeniu standardowego ponownego uruchomienia maszyny wirtualnej dane na dysku tymczasowym będą utrwalane. Aby uzyskać więcej informacji o maszynach wirtualnych bez dysków tymczasowych, zobacz [rozmiary maszyn wirtualnych platformy Azure, na których nie ma lokalnego dysku tymczasowego](~/articles/virtual-machines/azure-vms-no-temp-disk.md).
+Większość maszyn wirtualnych zawiera dysk tymczasowy, który nie jest dyskiem zarządzanym. Dysk tymczasowy zapewnia krótkoterminowy magazyn dla aplikacji i procesów, który jest przeznaczony tylko do przechowywania danych, takich jak pliki stron lub plików wymiany. Dane na dysku tymczasowym mogą zostać utracone podczas [zdarzenia konserwacji](windows/manage-availability.md?toc=/azure/virtual-machines/windows/toc.json#understand-vm-reboots---maintenance-vs-downtime) lub po ponownym [wdrożeniu maszyny wirtualnej](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Po pomyślnym przeprowadzeniu standardowego ponownego uruchomienia maszyny wirtualnej dane na dysku tymczasowym będą utrwalane. Aby uzyskać więcej informacji o maszynach wirtualnych bez dysków tymczasowych, zobacz [rozmiary maszyn wirtualnych platformy Azure, na których nie ma lokalnego dysku tymczasowego](azure-vms-no-temp-disk.md).
 
 Na maszynach wirtualnych z systemem Linux na platformie Azure dysk tymczasowy jest zazwyczaj/dev/sdb i na maszynach wirtualnych systemu Windows dysk tymczasowy jest D: domyślnie. Dysk tymczasowy nie jest szyfrowany przez szyfrowanie po stronie serwera, chyba że zostanie włączone szyfrowanie na hoście.
 
@@ -107,8 +107,8 @@ Migawki są rozliczane na podstawie użytego rozmiaru. Na przykład, jeśli utwo
 
 Aby dowiedzieć się więcej na temat tworzenia migawek dla dysków zarządzanych, zobacz następujące zasoby:
 
-* [Tworzenie migawki dysku zarządzanego w systemie Windows](~/articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Tworzenie migawki dysku zarządzanego w systemie Linux](~/articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+- [Tworzenie migawki dysku zarządzanego w systemie Windows](windows/snapshot-copy-managed-disk.md)
+- [Tworzenie migawki dysku zarządzanego w systemie Linux](linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>Obrazy
 
@@ -116,8 +116,8 @@ Dyski zarządzane obsługują również tworzenie zarządzanego obrazu niestanda
 
 Aby uzyskać informacje na temat tworzenia obrazów, zobacz następujące artykuły:
 
-* [Jak przechwycić zarządzany obraz uogólnionej maszyny wirtualnej na platformie Azure](~/articles/virtual-machines/windows/capture-image-resource.md)
-* [Uogólnianie i przechwytywanie maszyny wirtualnej z systemem Linux przy użyciu wiersza polecenia platformy Azure](~/articles/virtual-machines/linux/capture-image.md)
+- [Jak przechwycić zarządzany obraz uogólnionej maszyny wirtualnej na platformie Azure](windows/capture-image-resource.md)
+- [Uogólnianie i przechwytywanie maszyny wirtualnej z systemem Linux przy użyciu wiersza polecenia platformy Azure](linux/capture-image.md)
 
 #### <a name="images-versus-snapshots"></a>Obrazy i migawki
 
@@ -141,7 +141,7 @@ Na przykład te ograniczenia Standard_DS1v1 maszyna wirtualna jest niedostępna 
 
 Platforma Azure używa priorytetowego kanału sieciowego dla ruchu dyskowego, który uzyskuje pierwszeństwo przed innym niskim priorytetem ruchu sieciowego. Ułatwia to dyskom zachowanie oczekiwanej wydajności w przypadku rywalizacji o sieć. Podobnie usługa Azure Storage obsługuje rywalizacje zasobów i inne problemy w tle z automatycznym równoważeniem obciążenia. Usługa Azure Storage przydziela wymagane zasoby podczas tworzenia dysku oraz stosuje aktywne i ponownie aktywne równoważenie zasobów w celu obsługi ruchu. Dzięki temu dyski mogą utrzymać oczekiwaną liczbę operacji we/wy na sekundę i przepływności. Możesz użyć metryk na poziomie maszyny wirtualnej i na poziomie dysku do śledzenia wydajności i konfiguracji alertów zgodnie z wymaganiami.
 
-Zapoznaj się z naszym [projektem w celu uzyskania wysokiej wydajności](~/articles/virtual-machines/windows/premium-storage-performance.md) artykułu, aby poznać najlepsze rozwiązania dotyczące optymalizowania konfiguracji maszyn wirtualnych i dysków, dzięki czemu można osiągnąć żądaną wydajność
+Zapoznaj się z naszym [projektem w celu uzyskania wysokiej wydajności](premium-storage-performance.md) artykułu, aby poznać najlepsze rozwiązania dotyczące optymalizowania konfiguracji maszyn wirtualnych i dysków, dzięki czemu można osiągnąć żądaną wydajność
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 06/05/2020
 ms.reviewer: sngun
 ms.openlocfilehash: bab0487b09d7088e75ce762c9e4f0338cea507eb
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85391897"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Samouczek: Wykonywanie zapytań w usłudze Azure Cosmos DB przy użyciu interfejsu API tabel
@@ -83,7 +83,7 @@ Aby uzyskać więcej informacji na temat sposobu tworzenia wyrażenia filtru dla
 | --- | --- | --- | --- |
 | Smith |Ben | Ben@contoso.com| 425-555-0102 |
 
-Zapytania dotyczące właściwości DateTime nie zwracają żadnych danych, gdy są wykonywane w interfejs API tabel Azure Cosmos DB. Podczas gdy magazyn tabel Azure przechowuje wartości daty z szczegółowością czasu taktów, interfejs API tabel w Azure Cosmos DB używa `_ts` właściwości. `_ts`Właściwość jest na drugim poziomie stopnia szczegółowości, który nie jest filtrem OData. Dlatego zapytania we właściwościach sygnatur czasowych są blokowane przez Azure Cosmos DB. Jako obejście można zdefiniować niestandardową właściwość DateTime lub Long typu danych i ustawić wartość daty z klienta.
+Zapytania dotyczące właściwości DateTime nie zwracają żadnych danych, gdy są wykonywane w interfejs API tabel Azure Cosmos DB. Podczas gdy magazyn tabel Azure przechowuje wartości daty z szczegółowością czasu taktów, interfejs API tabel w Azure Cosmos DB używa  `_ts` właściwości. `_ts`Właściwość jest na drugim poziomie stopnia szczegółowości, który nie jest filtrem OData. Dlatego zapytania we właściwościach sygnatur czasowych są blokowane przez Azure Cosmos DB. Jako obejście można zdefiniować niestandardową właściwość DateTime lub Long typu danych i ustawić wartość daty z klienta.
 
 ## <a name="query-by-using-linq"></a>Wykonywanie zapytań za pomocą wyrażenia LINQ 
 Możesz także wykonywać zapytania za pomocą wyrażenia LINQ, co oznacza odpowiednie wyrażenia zapytań OData. Oto przykład sposobu tworzenia zapytań przy użyciu zestawu .NET SDK:

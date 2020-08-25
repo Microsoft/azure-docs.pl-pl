@@ -14,12 +14,12 @@ ms.date: 07/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a286ed63d842dba08ad545b17498cb4000a5cf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c039842a04923bc02aa288576570d51c39156c40
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256632"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88784015"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Możliwości zarządzania dla ról usługi Azure AD w Privileged Identity Management
 
@@ -56,7 +56,7 @@ Obie akcje inicjowane przez użytkownika wymagają zatwierdzenia od administrato
 
 ## <a name="api-changes"></a>Zmiany interfejsu API
 
-Gdy klienci mają zaktualizowaną wersję w organizacji usługi Azure AD, istniejący interfejs API programu Graph przestanie działać. Musisz przejść do korzystania z [interfejs API programu Graph dla ról zasobów platformy Azure](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta). Aby zarządzać rolami usługi Azure AD przy użyciu tego interfejsu API, należy zamienić na `/azureResources` `/aadroles` w podpisie i użyć identyfikatora katalogu dla `resourceId` .
+Gdy klienci mają zaktualizowaną wersję w organizacji usługi Azure AD, istniejący interfejs API programu Graph przestanie działać. Musisz przejść do korzystania z [interfejs API programu Graph dla ról zasobów platformy Azure](/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta). Aby zarządzać rolami usługi Azure AD przy użyciu tego interfejsu API, należy zamienić na `/azureResources` `/aadroles` w podpisie i użyć identyfikatora katalogu dla `resourceId` .
 
 Wszyscy klienci, którzy korzystają z poprzedniego interfejsu API, chętnie poinformują nas o tej zmianie. Jeśli Twoja organizacja usługi Azure AD została przeniesiona do nowej wersji i nadal zależy od starego interfejsu API, skontaktuj się z zespołem pod adresem pim_preview@microsoft.com .
 

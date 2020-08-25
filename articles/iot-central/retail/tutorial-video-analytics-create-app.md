@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 07/31/2020
-ms.openlocfilehash: 23f9da34a123343bc4f2f5b175adc60ce80d7c42
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: b98406984f2c9f2adfca030369a6ea3d47a786f3
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719176"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762781"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central"></a>Samouczek: Tworzenie aplikacji do wykrywania filmów i obiektów wideo na platformie Azure IoT Central
 
@@ -24,7 +24,7 @@ Przykładowa aplikacja zawiera dwa symulowane urządzenia i jedną bramę IoT Ed
 * Utwórz bramę IoT Edge na maszynie wirtualnej platformy Azure i podłącz symulowany aparat.
 * Utwórz bramę IoT Edge na rzeczywistym urządzeniu, takim jak Intel NUC, i podłącz rzeczywistą kamerę.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Tworzenie aplikacji dla sklepu detalicznego za pomocą szablonu aplikacji Azure IoT Central Video Analytics
 > * Dostosowywanie ustawień aplikacji
@@ -40,7 +40,7 @@ Aby ukończyć tę serię samouczków, potrzebne są:
 
 ## <a name="initial-setup"></a>Początkowa konfiguracja
 
-W tych samouczkach można aktualizować i używać kilku plików konfiguracji. Początkowe wersje tych plików są dostępne w repozytorium [LVA-Gateway](https://github.com/Azure/live-video-analytics) GitHub. Repozytorium zawiera również plik tekstowy ScratchPad do pobrania i użycia w celu rejestrowania wartości konfiguracyjnych z wdrażanych usług.
+W tych samouczkach można aktualizować i używać kilku plików konfiguracji. Początkowe wersje tych plików są dostępne w repozytorium [LVA-Gateway](https://github.com/Azure/live-video-analytics/tree/master/ref-apps/lva-edge-iot-central-gateway) GitHub. Repozytorium zawiera również plik tekstowy ScratchPad do pobrania i użycia w celu rejestrowania wartości konfiguracyjnych z wdrażanych usług.
 
 Utwórz folder o nazwie *LVA-Configuration* na maszynie lokalnej, aby zapisać kopie tych plików. Następnie kliknij prawym przyciskiem myszy poszczególne poniższe linki i wybierz polecenie **Zapisz jako** , aby zapisać plik w folderze *LVA-Configuration* :
 

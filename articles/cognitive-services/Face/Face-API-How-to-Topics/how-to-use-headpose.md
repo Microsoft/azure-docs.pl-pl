@@ -10,10 +10,10 @@ ms.topic: sample
 ms.date: 05/29/2019
 ms.author: pafarley
 ms.openlocfilehash: 534846044770d66ec5171ad4f61de921d2d5d194
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "76169791"
 ---
 # <a name="use-the-headpose-attribute"></a>Używanie atrybutu HeadPose

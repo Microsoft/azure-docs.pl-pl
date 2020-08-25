@@ -4,13 +4,13 @@ description: Dowiedz się więcej na temat kroków wymaganych do włączenia now
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 186d4c510b58e06fcb0b823ca0d5770a2684196e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/24/2020
+ms.openlocfilehash: d6d6731ae087604e0a53a6721bb76dfba5fbf40c
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824991"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783845"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>Zasoby Application Insights oparte na obszarze roboczym (wersja zapoznawcza)
 
@@ -27,7 +27,7 @@ Aby przetestować nowe środowisko, zaloguj się do [Azure Portal](https://porta
 
 Jeśli nie masz jeszcze istniejącego obszaru roboczego Log Analytics, [zapoznaj się z dokumentacją dotyczącą tworzenia obszaru roboczego log Analytics](../learn/quick-create-workspace.md).
 
-W publicznej wersji zapoznawczej **zasoby na podstawie obszaru roboczego są obecnie ograniczone do zachodnich stanów USA 2, Wschodnie stany USA i Południowo-środkowe stany USA.**
+**Zasoby oparte na obszarze roboczym są obecnie dostępne we wszystkich regionach komercyjnych i Azure Government**
 
 Po utworzeniu zasobu zobaczysz odpowiednie informacje o obszarze roboczym w okienku **Przegląd** :
 
@@ -53,10 +53,10 @@ W przypadku monitorowania aplikacji opartej na kodzie wystarczy zainstalować od
 Aby uzyskać szczegółową dokumentację dotyczącą konfigurowania zestawu SDK Application Insights dla monitorowania opartego na kodzie, zapoznaj się z dokumentacją dotyczącą języka/platformy:
 
 - [ASP.NET](./asp-net.md)
-- [ASP.NET Core](./asp-net-core.md)
+- [ASP.NET Core ](./asp-net-core.md)
 - [Zadania w tle & nowoczesnych aplikacji konsolowych (.NET/.NET Core)](./worker-service.md)
 - [Klasyczne aplikacje konsolowe (.NET)](./console.md) 
-- [Oprogramowania](./java-get-started.md?tabs=maven)
+- [Oprogramowania ](./java-get-started.md?tabs=maven)
 - [JavaScript](./javascript.md)
 - [Node.js](./nodejs.md)
 - [Python](./opencensus-python.md)
@@ -79,7 +79,7 @@ Aby uzyskać dostęp do Application Insights poleceń interfejsu wiersza polecen
  az extension add -n application-insights
 ```
 
-Jeśli polecenie nie zostanie uruchomione `az extension add` , zostanie wyświetlony komunikat o błędzie informujący o tym, że:`az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+Jeśli polecenie nie zostanie uruchomione `az extension add` , zostanie wyświetlony komunikat o błędzie informujący o tym, że: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
 Teraz można wykonać następujące czynności, aby utworzyć zasób Application Insights:
 
@@ -184,6 +184,14 @@ Aby zapoznać się z pełną dokumentacją interfejsu wiersza polecenia platform
 }
 
 ```
+
+## <a name="new-capabilities"></a>Nowe możliwości
+
+Application Insights oparte na obszarze roboczym pozwala korzystać ze wszystkich najnowszych możliwości Azure Monitor, takich jak:
+
+* [Klucze zarządzane przez klienta (CMK)](../platform/customer-managed-keys.md) zapewniają szyfrowanie dla danych za pomocą kluczy szyfrowania, do których tylko masz dostęp.
+* [Link prywatny platformy Azure](../platform/private-link-security.md) umożliwia bezpieczne łączenie usług Azure PaaS z siecią wirtualną za pomocą prywatnych punktów końcowych.
+* Udostępnienie [własnego magazynu (BYOS) dla programu Profiler, a Snapshot Debugger](./profiler-bring-your-own-storage.md) zapewnia pełną kontrolę nad zasadami szyfrowania w trybie spoczynku, zasadami zarządzania istnieniem i dostępem sieciowym dla wszystkich danych skojarzonych z Application Insights Profiler i Snapshot Debugger. 
 
 ## <a name="modifying-the-associated-workspace"></a>Modyfikowanie skojarzonego obszaru roboczego
 

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38b474d4b454c61b83bfb1d62230930a0b569b1d
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: ba22720901cf4b7505d8d5b5295ca4e0c271953f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164227"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798401"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Udostępnianie kont za pomocą usługi Azure AD
 
@@ -59,7 +59,7 @@ Funkcje usługi Azure AD, które umożliwiają udostępnianie kont, obejmują:
 * Agent logowania jednokrotnego dla hasła
 * [Przypisanie grupy](groups-self-service-management.md)
 * Niestandardowe aplikacje hasła
-* [Pulpit nawigacyjny/raporty użycia aplikacji](../active-directory-passwords-get-insights.md)
+* [Pulpit nawigacyjny/raporty użycia aplikacji](../authentication/howto-sspr-reporting.md)
 * Portale dostępu użytkowników końcowych
 * [Serwer proxy aplikacji](../manage-apps/application-proxy.md)
 * [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory)
@@ -72,10 +72,10 @@ Aby używać usługi Azure AD do udostępniania konta, musisz:
 * Konfigurowanie aplikacji do logowania jednokrotnego (SSO) hasła
 * Użyj [przypisania opartego na grupach](groups-saasapps.md) i wybierz opcję, aby wprowadzić poświadczenia udostępnione
 
-Możesz również zwiększyć bezpieczeństwo konta współużytkowanego za pomocą Multi-Factor Authentication (MFA) (Dowiedz się więcej o [zabezpieczaniu aplikacji za pomocą usługi Azure AD](../authentication/concept-mfa-whichversion.md)) i można delegować możliwość zarządzania dostępem do aplikacji za pomocą samoobsługowego zarządzania grupami w usłudze [Azure AD](groups-self-service-management.md) .
+Możesz również zwiększyć bezpieczeństwo konta współużytkowanego za pomocą Multi-Factor Authentication (MFA) (Dowiedz się więcej o [zabezpieczaniu aplikacji za pomocą usługi Azure AD](../authentication/concept-mfa-howitworks.md)) i można delegować możliwość zarządzania dostępem do aplikacji za pomocą samoobsługowego zarządzania grupami w usłudze [Azure AD](groups-self-service-management.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Zarządzanie aplikacjami w usłudze Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Ochrona aplikacji przy użyciu dostępu warunkowego](../active-directory-conditional-access-azure-portal.md)
+* [Ochrona aplikacji przy użyciu dostępu warunkowego](../conditional-access/overview.md)
 * [Samoobsługowe zarządzanie grupami/SSAA](groups-self-service-management.md)

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/22/2020
-ms.openlocfilehash: 0499d52a6fe3da7349d31748ca3b5add16369571
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/24/2020
+ms.openlocfilehash: 1e66774d4239bdad6c8af426a28af6081bb0da3c
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137658"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782179"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Moduł drzewa decyzyjnej z dwoma klasami
 
@@ -22,9 +22,11 @@ W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersj
 
 Ten moduł służy do tworzenia modelu uczenia maszynowego, który jest oparty na algorytmie drzew z podwyższaną decyzją. 
 
-Wzmocnione drzewo decyzyjne to metoda uczenia się, w której drugie drzewo jest zgodne z błędami pierwszego drzewa, trzecie drzewo jest odpowiednie dla błędów pierwszego i drugiego drzewa i tak dalej.  Przewidywania opierają się na całym całości drzew, które tworzą prognozę.
+Wzmocnione drzewo decyzyjne to metoda uczenia się, w której drugie drzewo jest zgodne z błędami pierwszego drzewa, trzecie drzewo jest odpowiednie dla błędów pierwszego i drugiego drzewa i tak dalej. Przewidywania opierają się na całym całości drzew, które tworzą prognozę.
   
 Ogólnie rzecz biorąc, w przypadku prawidłowego skonfigurowania, podwyższane drzewa decyzyjne to najłatwiejsze metody umożliwiające uzyskanie najwyższej wydajności na szeroką gamę zadań uczenia maszynowego. Jednak są one również jednym z większej ilości informacji, a bieżąca implementacja zawiera wszystko w pamięci. W związku z tym, wzmocniony Model drzewa decyzyjnego może nie być w stanie przetwarzać dużych zestawów danych, które mogą obsłużyć pewne dojścia liniowe.
+
+Ten moduł jest oparty na algorytmie LightGBM.
 
 ## <a name="how-to-configure"></a>Jak skonfigurować
 

@@ -262,6 +262,8 @@
           href: howto-read-replicas-powershell.md
     - name: Rozwiązywanie problemów
       items:
+        - name: Rozwiązywanie typowych problemów
+          href: howto-troubleshoot-common-errors.md
         - name: Rozwiązywanie problemów z błędami połączenia
           href: howto-troubleshoot-common-connection-issues.md
         - name: Rozwiązywanie problemów z wydajnością zapytań

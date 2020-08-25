@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64a619843f781fa24bfdc2a339e67fdb49b1bff1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: def74cccb3ad2c45a18210cc9d5a0d7ff0ba76f6
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078854"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783692"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Korzystanie z przeglądów dostępu usługi Azure AD do zarządzania użytkownikami wykluczonymi z zasad dostępu warunkowego
 
@@ -144,7 +144,7 @@ Załóżmy, że masz zasady dostępu warunkowego, które blokują dostęp dla u�
     ![Tworzenie okienka przeglądu dostępu na przykład 2](./media/conditional-access-exclusion/create-access-review-2.png)
 
 >[!IMPORTANT] 
->Jeśli masz wiele grup wykluczeń i w związku z tym trzeba utworzyć wiele przeglądów dostępu, w punkcie końcowym Microsoft Graph wersji beta jest teraz dostępny interfejs API, który umożliwia programowe tworzenie i zarządzanie nimi. Aby rozpocząć, zobacz informacje o [interfejsie API przeglądów usługi Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root) i [przykład pobierania przeglądów dostępu do usługi Azure AD za pośrednictwem Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
+>Jeśli masz wiele grup wykluczeń i w związku z tym trzeba utworzyć wiele przeglądów dostępu, w punkcie końcowym Microsoft Graph wersji beta jest teraz dostępny interfejs API, który umożliwia programowe tworzenie i zarządzanie nimi. Aby rozpocząć, zobacz informacje o [interfejsie API przeglądów usługi Azure AD](/graph/api/resources/accessreviews-root?view=graph-rest-beta) i [przykład pobierania przeglądów dostępu do usługi Azure AD za pośrednictwem Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
 
 ## <a name="access-review-results-and-audit-logs"></a>Wyniki przeglądu dostępu i dzienniki inspekcji
 

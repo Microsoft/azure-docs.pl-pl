@@ -366,6 +366,8 @@
           href: ssh.md
         - name: Narzędzia do oceny wydajności w systemie Linux
           href: troubleshoot-linux.md
+        - name: Sprawdzanie pod kątem zdarzeń usługi Resource Health (wersja zapoznawcza)
+          href: aks-resource-health.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

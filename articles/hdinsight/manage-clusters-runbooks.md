@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/27/2019
 ms.openlocfilehash: 05c0aaf6cc33442fa4f36eb38eb0d6d593fc6c1f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75553513"
 ---
 # <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>Samouczek: tworzenie klastrów usługi Azure HDInsight za pomocą Azure Automation
 
 Azure Automation pozwala tworzyć skrypty uruchamiane w chmurze i zarządzać zasobami platformy Azure na żądanie lub na podstawie harmonogramu. W tym artykule opisano sposób tworzenia elementów Runbook programu PowerShell w celu tworzenia i usuwania klastrów usługi Azure HDInsight.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Zainstaluj moduły niezbędne do współpracy z usługą HDInsight.
@@ -163,7 +163,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 Usuń klaster, wybierając `hdinsight-cluster-delete` element Runbook, który został utworzony. Wybierz pozycję **Start**, wprowadź parametr **ClusterName** , a sselect **OK**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie jest już potrzebne, Usuń konto Azure Automation, które zostało utworzone w celu uniknięcia niezamierzonych opłat. W tym celu przejdź do Azure Portal, wybierz grupę zasobów, w której utworzono konto Azure Automation, wybierz konto usługi Automation, a następnie wybierz pozycję **Usuń**.
 

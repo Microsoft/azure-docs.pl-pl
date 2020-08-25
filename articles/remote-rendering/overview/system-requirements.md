@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 9754636063e29592595ee57d09164ae1134341a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81480bea735017d3fc59e9c6cf126c2146a0c968
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300610"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798469"
 ---
 # <a name="system-requirements"></a>Wymagania systemowe
 
@@ -24,7 +24,7 @@ Ten rozdział zawiera listę minimalnych wymagań systemowych, które należy wy
 
 * Windows 10 w wersji 1903 lub nowszej.
 * Aktualne sterowniki grafiki.
-* Opcjonalnie: H265 sprzętowy dekoder wideo, jeśli chcesz użyć lokalnej wersji zapoznawczej zdalnie renderowanej zawartości (na przykład w aparacie Unity).
+* Opcjonalnie: [H265 sprzętowy dekoder wideo](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7), jeśli chcesz użyć lokalnej wersji zapoznawczej zdalnie renderowanej zawartości (na przykład w aparacie Unity).
 
 > [!IMPORTANT]
 > Usługi Windows Update nie zawsze dostarczają najnowszych sterowników procesora GPU, należy sprawdzić witrynę sieci Web producenta procesora, aby uzyskać najnowsze sterowniki:
@@ -52,7 +52,7 @@ Ważne jest, aby użyć najnowszego kodera HEVC, ponieważ w nowszych wersjach w
 1. Uruchom **Microsoft Store**.
 1. Kliknij przycisk **"..."** w prawym górnym rogu.
 1. Wybierz pozycję **pobrania i aktualizacje**.
-1. Przeszukaj listę **rozszerzeń wideo HEVC od producenta urządzenia**.
+1. Przeszukaj listę **rozszerzeń wideo HEVC od producenta urządzenia**. Jeśli ten element nie jest wymieniony w obszarze aktualizacje, Najnowsza wersja jest już zainstalowana.
 1. Upewnij się, że na wymienionym dekoderze nie ma co najmniej wersji **1.0.21821.0**.
 1. Kliknij przycisk **Pobierz aktualizacje** i poczekaj na jego instalację.
 
@@ -74,7 +74,7 @@ Należy zainstalować następujące oprogramowanie:
   * **Programowanie platforma uniwersalna systemu Windows (platformy UWP)**
 * **Windows SDK 10.0.18362.0** [(pobieranie)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * **Git** [(pobieranie)](https://git-scm.com/downloads)
-* Opcjonalnie: Aby wyświetlić strumień wideo z serwera na komputerze stacjonarnym, potrzebne są **rozszerzenia wideo HEVC** [(Link Microsoft Store)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7).
+* Opcjonalnie: Aby wyświetlić strumień wideo z serwera na komputerze stacjonarnym, potrzebne są **rozszerzenia wideo HEVC** [(Link Microsoft Store)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7). Upewnij się, że Najnowsza wersja jest zainstalowana, sprawdzając aktualizacje w sklepie.
 
 ## <a name="unity"></a>Unity
 

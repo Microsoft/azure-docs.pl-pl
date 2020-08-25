@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: dd97932d0aaa89373636a60e793f531cda18abdd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 38ef1188503d0076cfd98843f6f68c990fba7463
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091440"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762379"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Skonfiguruj wystąpienie serwera konfiguracji chmury wiosny dla swojej usługi
 
@@ -55,7 +55,7 @@ Wszystkie konfigurowalne właściwości, które są używane do konfigurowania p
 > [!NOTE]
 > Używanie łącznika (-) do oddzielenia słów jest jedyną konwencją nazewnictwa, która jest obecnie obsługiwana. Na przykład można użyć *etykiety default*, ale nie *defaultLabel*.
 
-| Właściwość        | Wymagany | Cechy                                                      |
+| Właściwość        | Wymagany | Cecha                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
 | `uri`           | Tak    | Identyfikator URI repozytorium git, który jest używany jako zaplecze serwera konfiguracji, rozpoczyna się od *http://*, *https://*, *git@* lub *SSH://*. |
 | `default-label` | Nie     | Domyślna etykieta repozytorium git powinna być *nazwą gałęzi*, *nazwą tagu*lub *identyfikatorem zatwierdzenia* repozytorium. |
@@ -70,7 +70,7 @@ Wszystkie konfigurowalne właściwości używane do konfigurowania prywatnego re
 > [!NOTE]
 > Używanie łącznika (-) do oddzielenia słów jest jedyną konwencją nazewnictwa, która jest obecnie obsługiwana. Na przykład można użyć *etykiety default*, ale nie *defaultLabel*.
 
-| Właściwość                   | Wymagany | Cechy                                                      |
+| Właściwość                   | Wymagany | Cecha                                                      |
 | :------------------------- | -------- | ------------------------------------------------------------ |
 | `uri`                      | Tak    | Identyfikator URI repozytorium git używany jako zaplecze serwera konfiguracji powinien być uruchamiany z *http://*, *https://*, *git@* lub *SSH://*. |
 | `default-label`            | Nie     | Domyślna etykieta repozytorium git powinna być *nazwą gałęzi*, *nazwą tagu*lub *identyfikatorem zatwierdzenia* repozytorium. |
@@ -89,7 +89,7 @@ Poniżej wymieniono wszystkie konfigurowalne właściwości używane do konfigur
 > [!NOTE]
 > Używanie łącznika (-) do oddzielenia słów jest jedyną konwencją nazewnictwa, która jest obecnie obsługiwana. Na przykład użyj *etykiety default, a*nie *defaultLabel*.
 
-| Właściwość        | Wymagany | Cechy                                                      |
+| Właściwość        | Wymagany | Cecha                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
 | `uri`           | Tak    | Identyfikator URI repozytorium git używany jako zaplecze serwera konfiguracji powinien być uruchamiany z *http://*, *https://*, *git@* lub *SSH://*. |
 | `default-label` | Nie     | Domyślna etykieta repozytorium git powinna być *nazwą gałęzi*, *nazwą tagu*lub *identyfikatorem zatwierdzenia* repozytorium. |
@@ -107,11 +107,11 @@ Poniżej znajdują się wszystkie konfigurowalne właściwości używane do konf
 > [!NOTE]
 > Używanie łącznika (-) do oddzielenia słów jest jedyną konwencją nazewnictwa, która jest obecnie obsługiwana. Na przykład użyj *etykiety default, a*nie *defaultLabel*.
 
-| Właściwość                           | Wymagany         | Cechy                                                      |
+| Właściwość                           | Wymagany         | Cecha                                                      |
 | :--------------------------------- | ---------------- | ------------------------------------------------------------ |
 | `repos`                            | Nie             | Mapa składająca się z ustawień repozytorium git o podaną nazwę. |
-| `repos."uri"`                      | Tak na`repos` | Identyfikator URI repozytorium git używany jako zaplecze serwera konfiguracji powinien być uruchamiany z *http://*, *https://*, *git@* lub *SSH://*. |
-| `repos."name"`                     | Tak na`repos` | Nazwa do identyfikacji w repozytorium git, _wymagana_ tylko wtedy, gdy `repos` istnieje. Na przykład *zespół-A*, *zespół-B*. |
+| `repos."uri"`                      | Tak na `repos` | Identyfikator URI repozytorium git używany jako zaplecze serwera konfiguracji powinien być uruchamiany z *http://*, *https://*, *git@* lub *SSH://*. |
+| `repos."name"`                     | Tak na `repos` | Nazwa do identyfikacji w repozytorium git, _wymagana_ tylko wtedy, gdy `repos` istnieje. Na przykład *zespół-A*, *zespół-B*. |
 | `repos."pattern"`                  | Nie             | Tablica ciągów używanych do dopasowania nazwy aplikacji. Dla każdego wzorca Użyj `{application}/{profile}` formatu z symbolami wieloznacznymi. |
 | `repos."default-label"`            | Nie             | Domyślna etykieta repozytorium git powinna być *nazwą gałęzi*, *nazwą tagu*lub *identyfikatorem zatwierdzenia* repozytorium. |
 | `repos."search-paths`"             | Nie             | Tablica ciągów służąca do przeszukiwania podkatalogów repozytorium git. |
@@ -146,14 +146,14 @@ Teraz, gdy pliki konfiguracji są zapisywane w repozytorium, należy połączyć
 
     * **Uwierzytelnianie podstawowe**: w sekcji **repozytorium domyślne** w polu **Identyfikator URI** wklej identyfikator URI repozytorium, a następnie wybierz przycisk **uwierzytelniania** (ikona ołówka). W okienku **Edycja uwierzytelniania** na liście rozwijanej **Typ uwierzytelniania** wybierz pozycję **http Basic**, a następnie wprowadź nazwę użytkownika i hasło/token, aby udzielić dostępu do chmury Azure wiosennej. Wybierz przycisk **OK**, a następnie wybierz pozycję **Zastosuj** , aby zakończyć konfigurowanie wystąpienia serwera konfiguracji.
 
-    ![Edytowanie okienka uwierzytelniania](media/spring-cloud-tutorial-config-server/basic-auth.png)
+    ![Uwierzytelnianie podstawowe okienka Edycja uwierzytelniania](media/spring-cloud-tutorial-config-server/basic-auth.png)
     
     > [!CAUTION]
     > Niektóre serwery repozytorium git, takie jak GitHub, używają *tokenu osobistego* lub *tokenu dostępu*, takiego jak hasło, na potrzeby **uwierzytelniania podstawowego**. Tego rodzaju tokenu można używać jako hasła w chmurze Azure wiosennej, ponieważ nigdy nie wygasa. Jednak w przypadku innych serwerów repozytorium git, takich jak BitBucket i Azure DevOps, *token dostępu* wygasa w ciągu jednej lub dwóch godzin. Oznacza to, że ta opcja nie jest opłacalna w przypadku korzystania z tych serwerów repozytorium w chmurze Azure wiosennej.
 
     * **SSH**: w sekcji **repozytorium domyślne** w polu **Identyfikator URI** wklej identyfikator URI repozytorium, a następnie wybierz przycisk **uwierzytelniania** (ikona "ołówek"). W okienku **Edycja uwierzytelniania** na liście rozwijanej **Typ uwierzytelniania** wybierz pozycję **SSH**, a następnie wprowadź **klucz prywatny**. Opcjonalnie określ **klucz hosta** i **algorytm klucza hosta**. Upewnij się, że klucz publiczny został uwzględniony w repozytorium serwera konfiguracji. Wybierz przycisk **OK**, a następnie wybierz pozycję **Zastosuj** , aby zakończyć konfigurowanie wystąpienia serwera konfiguracji.
 
-    ![Edytowanie okienka uwierzytelniania](media/spring-cloud-tutorial-config-server/ssh-auth.png)
+    ![Uwierzytelnianie SSH w okienku Edycja](media/spring-cloud-tutorial-config-server/ssh-auth.png)
 
 #### <a name="pattern-repository"></a>Repozytorium wzorców
 
@@ -182,6 +182,48 @@ Wybierz przycisk **Importuj ustawienia** , a następnie wybierz plik YAML z kata
 
 Informacje z pliku YAML powinny być wyświetlane w Azure Portal. Wybierz pozycję **Zastosuj** , aby zakończyć. 
 
+## <a name="using-azure-repos-for-azure-spring-cloud-configuration"></a>Używanie Azure Repos do konfiguracji chmury z użyciem usługi Azure wiosennej
+
+Chmura sprężynowa platformy Azure ma dostęp do repozytoriów Git, które są publiczne, zabezpieczone przez SSH lub zabezpieczone przy użyciu uwierzytelniania podstawowego protokołu HTTP. Ta ostatnia opcja zostanie użyta, ponieważ ułatwia tworzenie i zarządzanie za pomocą Azure Repos.
+
+### <a name="get-repo-url-and-credentials"></a>Pobierz adres URL i poświadczenia repozytorium
+1. W portalu Azure Repos projektu kliknij przycisk "Klonuj":
+
+    ![Przycisk klonowania](media/spring-cloud-tutorial-config-server/clone-button.png)
+
+1. Skopiuj adres URL klonowania z pola tekstowego. Ten adres URL będzie zazwyczaj miał postać:
+
+    ```Text
+    https://<organization name>@dev.azure.com/<organization name>/<project name>/_git/<repository name>
+    ```
+
+    Usuń wszystko po `https://` i przed `dev.azure.com` , włącznie z `@` . Otrzymany adres URL powinien mieć postać:
+
+    ```Text
+    https://dev.azure.com/<organization name>/<project name>/_git/<repository name>
+    ```
+
+    Zapisz ten adres URL do użycia w następnej sekcji.
+
+1. Kliknij pozycję "Generuj poświadczenia git". Zostanie wyświetlona nazwa użytkownika i hasło. Zapisz je do użycia w następnej sekcji.
+
+
+### <a name="configure-azure-spring-cloud-to-access-the-git-repository"></a>Konfigurowanie usługi Azure Spring Cloud pod kątem uzyskiwania dostępu do repozytorium Git
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+
+1. Przejdź do strony **omówienia** chmury Azure wiosennej.
+
+1. Wybierz usługę do skonfigurowania.
+
+1. W lewym okienku strony usługi w obszarze **Ustawienia**wybierz kartę **serwer konfiguracji** . Skonfiguruj wcześniej utworzone repozytorium:
+   - Dodawanie adresu URL repozytorium zapisanego w poprzedniej sekcji
+   - Kliknij pozycję włączone `Authentication` i wybierz pozycję `HTTP Basic`
+   - __Nazwa__ użytkownika jest nazwą użytkownika zapisaną w poprzedniej sekcji
+   - __Hasło__ jest hasłem zapisanym w poprzedniej sekcji
+   - Kliknij przycisk "Zastosuj" i poczekaj na pomyślne wykonanie operacji
+
+   ![Spring Cloud Config Server](media/spring-cloud-tutorial-config-server/config-server-azure-repos.png)
 
 ## <a name="delete-your-app-configuration"></a>Usuwanie konfiguracji aplikacji
 

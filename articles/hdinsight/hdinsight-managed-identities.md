@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: 1081865a2e138af38ba171197719f08dedf6ffdb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07a8c26f7fc314680c51270ebafe03d4e3a84757
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81408937"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749861"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Zarządzane tożsamości w usłudze Azure HDInsight
 
@@ -25,7 +25,9 @@ Istnieją dwa typy tożsamości zarządzanych: przypisane przez użytkownika i p
 
 ## <a name="hdinsight-managed-identity-implementation"></a>Implementacja tożsamości zarządzanej usługi HDInsight
 
-W usłudze Azure HDInsight zarządzane tożsamości są obsługiwane w każdym węźle klastra. Te składniki tożsamości są jednak używane tylko przez usługę HDInsight. Obecnie nie jest obsługiwana metoda generowania tokenów dostępu przy użyciu zarządzanych tożsamości zainstalowanych w węzłach klastra usługi HDInsight. W przypadku niektórych usług platformy Azure tożsamości zarządzane są implementowane za pomocą punktu końcowego, którego można użyć do uzyskania tokenów dostępu. Używaj tokenów do współpracy z innymi usługami platformy Azure.
+W usłudze Azure HDInsight zarządzane tożsamości są używane tylko przez usługę HDInsight dla składników wewnętrznych. Obecnie nie jest obsługiwana metoda generowania tokenów dostępu przy użyciu tożsamości zarządzanych zainstalowanych w węzłach klastra usługi HDInsight na potrzeby uzyskiwania dostępu do usług zewnętrznych. W przypadku niektórych usług platformy Azure, takich jak maszyny wirtualne obliczeniowe, tożsamości zarządzane są implementowane za pomocą punktu końcowego, którego można użyć do uzyskania tokenów dostępu. Ten punkt końcowy nie jest obecnie dostępny w węzłach usługi HDInsight.
+
+Jeśli musisz załadować aplikacje, aby uniknąć umieszczania kluczy tajnych/haseł w zadaniach analitycznych (np. zadania SCALA), możesz distrubte własne certyfikaty do węzłów klastra za pomocą akcji skryptu, a następnie użyć tego certyfikatu do pozyskać tokenu dostępu (na przykład w celu uzyskania dostępu do usługi Azure kluczy).
 
 ## <a name="create-a-managed-identity"></a>Tworzenie tożsamości zarządzanej
 

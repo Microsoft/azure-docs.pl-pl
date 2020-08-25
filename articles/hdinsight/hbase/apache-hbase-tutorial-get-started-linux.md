@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/14/2020
 ms.openlocfilehash: a19e2c6647f1ff072c61044e8e5777d5d3f8d2db
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85958365"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Samouczek: korzystanie z platformy Apache HBase w usłudze Azure HDInsight
@@ -302,7 +302,7 @@ Baza danych HBase w usłudze HDInsight jest dostarczana z interfejsem użytkowni
    - zadania
    - atrybuty oprogramowania
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Aby uniknąć niespójności, zaleca się wyłączenie tabel HBase przed usunięciem klastra. Można użyć polecenia HBase `disable 'Contacts'` . Jeśli nie zamierzasz nadal korzystać z tej aplikacji, usuń utworzony klaster bazy danych HBase, wykonując następujące czynności:
 
@@ -314,7 +314,7 @@ Aby uniknąć niespójności, zaleca się wyłączenie tabel HBase przed usunię
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób tworzenia klastra Apache HBase. I jak tworzyć tabele i wyświetlać dane w tych tabelach z poziomu powłoki HBase. Wiesz również, jak używać zapytania Hive dla danych w tabelach HBase. I jak używać interfejsów API REST HBase języka C# do tworzenia tabeli HBase i pobierania danych z tabeli. Aby dowiedzieć się więcej, zobacz:
+W tym samouczku przedstawiono sposób tworzenia klastra Apache HBase. I jak tworzyć tabele i wyświetlać dane w tych tabelach z poziomu powłoki HBase. Wiesz również, jak używać zapytania Hive dla danych w tabelach HBase. I jak używać interfejsów API REST HBase języka C# do tworzenia tabeli HBase i pobierania danych z tabeli. Aby dowiedzieć się więcej, zobacz następujące artykuły:
 
 > [!div class="nextstepaction"]
 > [HBase usługi HDInsight — Omówienie](./apache-hbase-overview.md)
