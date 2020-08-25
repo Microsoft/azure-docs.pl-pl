@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: e150143e726c75d96372b11fb3d451f0dc9956bc
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 784ee418c3713cce53d7e99e30fd445e75d144da
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422486"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798214"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>Zarządzanie urządzeniami połączonymi ze strony urządzenia
 
@@ -27,7 +27,7 @@ Strona **urządzenia** w portalu **My Account** umożliwia zarządzanie urządze
 - Wyłącz wszystkie urządzenia, które nie są już używane, zostały utracone lub skradzione.
 
 >[!Important]
->Ten artykuł jest przeznaczony dla użytkowników próbujących zaktualizować informacje o urządzeniu połączone z kontem służbowym. Jeśli jesteś administratorem, który szuka informacji o zarządzaniu urządzeniami dla pracowników i innych użycia, zobacz [dokumentację dotyczącą tożsamości urządzeń](https://docs.microsoft.com/azure/active-directory/devices/index).
+>Ten artykuł jest przeznaczony dla użytkowników próbujących zaktualizować informacje o urządzeniu połączone z kontem służbowym. Jeśli jesteś administratorem, który szuka informacji o zarządzaniu urządzeniami dla pracowników i innych użycia, zobacz [dokumentację dotyczącą tożsamości urządzeń](../devices/index.yml).
 
 ## <a name="view-your-connected-devices"></a>Wyświetlanie podłączonych urządzeń
 
@@ -68,7 +68,7 @@ Jeśli użytkownik jest zablokowany z urządzenia lub wystąpił błąd krytyczn
 
 Po wyświetleniu połączonych urządzeń można:
 
-- Wybierz, aby wyświetlić [informacje zabezpieczające](user-help-security-info-overview.md)lub zarządzać nimi.
+- Wybierz, aby wyświetlić [informacje zabezpieczające](./security-info-setup-signin.md)lub zarządzać nimi.
 
 - Wyświetlaj swoje [organizacje](my-account-portal-organizations-page.md)i zarządzaj nimi.
 

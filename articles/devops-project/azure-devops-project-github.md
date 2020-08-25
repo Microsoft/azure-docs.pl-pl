@@ -14,10 +14,10 @@ ms.date: 03/24/2020
 author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 55c6cbc18e37368dd47c47227041024b13987c47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82233214"
 ---
 # <a name="create-a-cicd-pipeline-for-github-repo-using-azure-devops-starter"></a>Tworzenie potoku ciągłej integracji/ciągłego wdrażania za pomocą usługi Azure DevOps Starter
@@ -97,7 +97,7 @@ Usługa Azure DevOps Starter automatycznie konfiguruje potok ciągłej integracj
 
    ![Strona kompilacje Azure Pipelines](_img/azure-devops-project-github/pipelinesbuildpage.png)
 
-1. W prawym górnym rogu strony **kompilacje** możesz wybrać pozycję **Edytuj** , aby zmienić bieżącą kompilację, **kolejkę** , dodać nową kompilację, lub przycisk wielokropka pionowy (**&#8942;**), aby otworzyć menu z więcej opcji. Wybierz pozycję **Edytuj**.
+1. W prawym górnym rogu strony **kompilacje** możesz wybrać pozycję **Edytuj** , aby zmienić bieżącą kompilację, **kolejkę** , dodać nową kompilację, lub przycisk wielokropka pionowy (**&#8942;**), aby otworzyć menu z więcej opcji. Kliknij pozycję **Edytuj**.
 
 1. Kompilacja wykonuje różne zadania, takie jak pobieranie źródeł z repozytorium, przywracanie zależności i publikowanie danych wyjściowych dla wdrożeń. Po prawej stronie w polu **Nazwa**Zmień nazwę potoku kompilacji na coś bardziej opisowego. Wybierz pozycję **zapisz & kolejkę**, a następnie wybierz pozycję **Zapisz**. Wprowadź komentarz, a następnie wybierz pozycję **Zapisz** ponownie.
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dda8c742a0aafe7ec3f46a0a9dbf0abd4a516b4
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: f36e5d8974caea0eecff7e0b399b6aab5d200664
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213790"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797109"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reguły członkostwa dynamicznego dla grup w Azure Active Directory
 
@@ -213,7 +213,7 @@ Poniżej przedstawiono przykłady prawidłowo skonstruowanych reguł członkostw
 (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
 ```
 
-### <a name="operator-precedence"></a>Pierwszeństwo operatorów
+### <a name="operator-precedence"></a>Kolejność wykonywania działań
 
 Wszystkie operatory są wymienione poniżej w kolejności pierwszeństwa od najwyższego do najniższego. Operatory w tym samym wierszu mają równy priorytet:
 
@@ -341,13 +341,13 @@ device.objectId -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Właściwości rozszerzenia i niestandardowe właściwości rozszerzenia
 
-Atrybuty rozszerzenia i niestandardowe właściwości rozszerzenia są obsługiwane jako właściwości ciągu w regułach dynamicznego członkostwa. [Atrybuty rozszerzenia](https://docs.microsoft.com/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) są synchronizowane z lokalnego serwera okien usługi AD i przyjmują format "ExtensionAttributeX", gdzie X jest równe 1-15. Oto przykład reguły, która używa atrybutu rozszerzenia jako właściwości:
+Atrybuty rozszerzenia i niestandardowe właściwości rozszerzenia są obsługiwane jako właściwości ciągu w regułach dynamicznego członkostwa. [Atrybuty rozszerzenia](/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) są synchronizowane z lokalnego serwera okien usługi AD i przyjmują format "ExtensionAttributeX", gdzie X jest równe 1-15. Oto przykład reguły, która używa atrybutu rozszerzenia jako właściwości:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-[Niestandardowe właściwości rozszerzenia](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) są synchronizowane z lokalnej usługi AD systemu Windows Server lub z połączonej aplikacji SaaS i mają format `user.extension_[GUID]_[Attribute]` , gdzie:
+[Niestandardowe właściwości rozszerzenia](../hybrid/how-to-connect-sync-feature-directory-extensions.md) są synchronizowane z lokalnej usługi AD systemu Windows Server lub z połączonej aplikacji SaaS i mają format `user.extension_[GUID]_[Attribute]` , gdzie:
 
 * [GUID] jest unikatowym identyfikatorem w usłudze Azure AD dla aplikacji, która utworzyła właściwość w usłudze Azure AD
 * [Attribute] jest nazwą właściwości, która została utworzona
@@ -393,7 +393,7 @@ Można użyć następujących atrybutów urządzeń.
  systemLabels | dowolny ciąg zgodny z właściwością urządzenia usługi Intune w celu tagowania nowoczesnych urządzeń w miejscu pracy | (device.systemLabels-zawiera "M365Managed")
 
 > [!Note]  
-> Dla deviceOwnership podczas tworzenia grup dynamicznych dla urządzeń należy ustawić wartość równą "Company". W usłudze Intune własność urządzenia jest reprezentowana jako firma. Aby uzyskać więcej informacji, zobacz [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) . 
+> Dla deviceOwnership podczas tworzenia grup dynamicznych dla urządzeń należy ustawić wartość równą "Company". W usłudze Intune własność urządzenia jest reprezentowana jako firma. Aby uzyskać więcej informacji, zobacz [OwnerTypes](/intune/reports-ref-devices#ownertypes) . 
 
 ## <a name="next-steps"></a>Następne kroki
 

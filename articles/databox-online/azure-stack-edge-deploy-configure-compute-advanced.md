@@ -10,10 +10,10 @@ ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: 59983530d93885f28dfb1625ca6d58fe572609b8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86080485"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-for-advanced-deployment-flow"></a>Samouczek: Przekształcanie danych za pomocą Azure Stack Edge dla zaawansowanego przepływu wdrażania
@@ -65,12 +65,12 @@ Aby skonfigurować obliczenia na Azure Stackej krawędzi, utworzysz zasób IoT H
    
     |Pole  |Wartość  |
     |---------|---------|
-    |IoT Hub     | Wybierz pozycję **Nowy** lub **istniejący**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób. <br> W każdym przypadku zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge.     |
+    |Usługa IoT Hub     | Wybierz pozycję **Nowy** lub **istniejący**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób. <br> W każdym przypadku zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge.     |
     |Nazwa     |Wprowadź nazwę dla zasobu IoT Hub.         |
 
     ![Wprowadzenie do obliczeń](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
 
-4. Wybierz pozycję **Utwórz**. Tworzenie zasobów IoT Hub trwa kilka minut. Po utworzeniu zasobu IoT Hub, konfiguracja kafelka **obliczenia krawędzi** zostanie zaktualizowana tak, aby pokazywać konfigurację obliczeniową. Aby upewnić się, że skonfigurowano rolę obliczeniową brzegową, wybierz pozycję **Wyświetl konfigurację** na kafelku **Konfiguruj obliczenia** .
+4. Wybierz przycisk **Utwórz**. Tworzenie zasobów IoT Hub trwa kilka minut. Po utworzeniu zasobu IoT Hub, konfiguracja kafelka **obliczenia krawędzi** zostanie zaktualizowana tak, aby pokazywać konfigurację obliczeniową. Aby upewnić się, że skonfigurowano rolę obliczeniową brzegową, wybierz pozycję **Wyświetl konfigurację** na kafelku **Konfiguruj obliczenia** .
     
     ![Wprowadzenie do obliczeń](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-4.png)
 
@@ -219,7 +219,7 @@ W tej sekcji dodasz niestandardowy moduł do urządzenia IoT Edge, które zosta�
    
    ![Określanie tras](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-7.png)
 
-    Możesz zamienić *trasę* na następujący wcześniej skopiowany ciąg trasy. W tym przykładzie podaj nazwę udziału lokalnego, który wypchnie dane do udziału chmurowego. Zamień na `modulename` nazwę modułu. Wybierz opcję **Dalej**.
+    Możesz zamienić *trasę* na następujący wcześniej skopiowany ciąg trasy. W tym przykładzie podaj nazwę udziału lokalnego, który wypchnie dane do udziału chmurowego. Zamień na `modulename` nazwę modułu. Wybierz pozycję **Dalej**.
         
     ```
     "route": "FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/filemove/inputs/input1\")"

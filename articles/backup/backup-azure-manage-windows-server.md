@@ -3,18 +3,18 @@ title: Zarządzanie magazynami i serwerami usługi Azure Recovery Services
 description: W tym artykule dowiesz się, jak monitorować magazyny Recovery Services i zarządzać nimi za pomocą pulpitu nawigacyjnego Omówienie magazynu Recovery Services.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: ee96acf624f1c313c85b21840c142e1e2d6f40d8
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a34ac44e3fe8d3a0b7789b37b0b0308d42d4e3da
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654212"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756065"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorowanie magazynów usługi Recovery Services i zarządzanie nimi
 
 W tym artykule wyjaśniono, jak za pomocą pulpitu nawigacyjnego **Omówienie** magazynu Recovery Services monitorować Recovery Services i zarządzać nimi. Po otwarciu magazynu Recovery Services z listy zostanie otwarty pulpit nawigacyjny **Przegląd** dla wybranego magazynu. Pulpit nawigacyjny zawiera różne szczegóły dotyczące magazynu. Istnieją *kafelki* , które pokazują: stan alertów krytycznych i ostrzeżeń, zadań w toku i niezakończonych kopii zapasowych oraz ilość lokalnie nadmiarowego magazynu (LRS) i używanej magazyn Geograficznie nadmiarowy (GRS). W przypadku tworzenia kopii zapasowych maszyn wirtualnych platformy Azure w magazynie [kafelek **Stan wstępnego sprawdzania kopii zapasowej** wyświetla wszystkie elementy krytyczne lub ostrzegawcze](#backup-pre-check-status). Poniższy obraz przedstawia pulpit nawigacyjny **omówienia** dla **magazynu contoso**. Kafelek **elementy kopii zapasowej** przedstawia dziewięć elementów zarejestrowanych w magazynie.
 
-![Pulpit nawigacyjny magazynu usług Recovery Services](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
+![Pulpit nawigacyjny magazynu Recovery Services](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
 Wymagania wstępne dotyczące tego artykułu są następujące: subskrypcja platformy Azure, magazyn Recovery Services i istnieje co najmniej jeden element kopii zapasowej skonfigurowany dla magazynu.
 
@@ -32,11 +32,11 @@ Aby monitorować alerty lub wyświetlać dane zarządzania dotyczące magazynu R
 
 3. W oknie dialogowym **wszystkie usługi** wpisz **Recovery Services**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Gdy zostanie wyświetlona opcja **magazyny Recovery Services** , wybierz ją, aby otworzyć listę magazynów Recovery Services w ramach subskrypcji.
 
-    ![Tworzenie magazynu usługi Recovery Services — krok 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
+    ![Utwórz magazyn Recovery Services krok 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
 4. Z listy magazynów wybierz magazyn, aby otworzyć jego pulpit nawigacyjny **przeglądu** .
 
-    ![Pulpit nawigacyjny magazynu usług Recovery Services](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
+    ![Pulpit nawigacyjny magazynu Recovery Services](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
     Pulpit nawigacyjny przegląd używa kafelków do dostarczania alertów i danych zadań kopii zapasowej.
 

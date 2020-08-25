@@ -11,12 +11,12 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 6cd81031f27d772912383fa050e0f946bf9964c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 454e205904b3623bdb5adc906465f01abd77092a
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204663"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795613"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Strojenie wydajności za pomocą uporządkowanego klastrowanego indeksu magazynu kolumn  
 
@@ -48,6 +48,9 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 
 
 ```
+
+>[!TIP]
+> Aby zwiększyć wydajność w programie Synapse SQL, należy rozważyć użycie **tabeli sys. pdw_permanent_table_mappings** zamiast **sys. pdw_table_mappings** w tabelach trwałych użytkowników. Aby uzyskać więcej informacji, zobacz sekcję **[sys. pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
 
 > [!NOTE] 
 > W tabeli uporządkowanej WIK nowe dane, które wynikają z tej samej partii operacji ładowania DML lub danych, są sortowane w tej partii, nie istnieje sortowanie globalne dla wszystkich danych w tabeli.  Użytkownicy mogą odbudować uporządkowaną WIK, aby posortować wszystkie dane w tabeli.  W Synapse SQL, ponowne KOMPILOWAnie indeksu magazynu kolumn jest operacją offline.  W przypadku partycjonowanej tabeli ponowne KOMPILOWAnie wykonuje jedną partycję w danym momencie.  Dane w partycji, która jest ponownie skompilowana, są w trybie offline i niedostępne do momentu ukończenia odbudowy dla tej partycji. 
@@ -109,7 +112,7 @@ Liczba nakładających się segmentów zależy od rozmiaru danych do sortowania,
 
 - Użyj klasy zasobów xlargerc na wyższym jednostek dwu, aby umożliwić większą ilość pamięci na potrzeby sortowania danych, zanim Konstruktor indeksów kompresuje dane do segmentów.  Raz w segmencie indeksu nie można zmienić fizycznej lokalizacji danych.  Nie ma sortowania danych w ramach segmentu ani między segmentami.  
 
-- Utwórz uporządkowaną WIK z MAXDOP = 1.  Każdy wątek używany do uporządkowanego tworzenia WIK działa w ramach podzestawu danych i sortuje go lokalnie.  Nie ma sortowania globalnego dla danych posortowanych według różnych wątków.  Użycie równoległych wątków może skrócić czas tworzenia uporządkowanej WIK, ale generuje więcej nakładających się segmentów niż przy użyciu jednego wątku.  Obecnie opcja MAXDOP jest obsługiwana tylko w przypadku tworzenia tabeli uporządkowanej WIK przy użyciu CREATE TABLE jako polecenia SELECT.  Tworzenie uporządkowanej WIK za pomocą poleceń CREATE INDEX lub CREATE TABLE nie obsługuje opcji MAXDOP. Na przykład
+- Utwórz uporządkowaną WIK z MAXDOP = 1.  Każdy wątek używany do uporządkowanego tworzenia WIK działa w ramach podzestawu danych i sortuje go lokalnie.  Nie ma sortowania globalnego dla danych posortowanych według różnych wątków.  Użycie równoległych wątków może skrócić czas tworzenia uporządkowanej WIK, ale generuje więcej nakładających się segmentów niż przy użyciu jednego wątku.  Obecnie opcja MAXDOP jest obsługiwana tylko w przypadku tworzenia tabeli uporządkowanej WIK przy użyciu CREATE TABLE jako polecenia SELECT.  Tworzenie uporządkowanej WIK za pomocą poleceń CREATE INDEX lub CREATE TABLE nie obsługuje opcji MAXDOP. Przykład:
 
 ```sql
 CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX ORDER(c1) )

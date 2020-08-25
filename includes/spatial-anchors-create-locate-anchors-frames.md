@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 849777ac3ec11915c602861fea0c42a49fb08bcb
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "83006435"
 ---
 ## <a name="provide-frames-to-the-session"></a>Podaj ramki do sesji

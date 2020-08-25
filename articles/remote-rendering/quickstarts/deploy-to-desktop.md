@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 6e1a6cb583c0d310cc7ce73995224c42bb84784d
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 26531e80292a53400671ac3507b47371c1fbbcad
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566169"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796820"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Szybki Start: wdrażanie przykładu aparatu Unity na pulpicie
 
@@ -57,7 +57,7 @@ Tylko proste aplikacje klasyczne są obecnie obsługiwane na komputerze stacjona
 1. Zmień konfigurację na **wydanie** i **x86**.
 1. Przełącz tryb debugera na **komputer lokalny**. \
   ![Konfiguracja rozwiązania](./media/unity-deploy-config-pc.png)
-1. Kompiluj rozwiązanie (F7).
+1. Skompiluj rozwiązanie.
 
 ## <a name="launch-the-sample-project"></a>Uruchamianie przykładowego projektu
 

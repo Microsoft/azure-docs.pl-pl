@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 805be8d5c9ab4f6316251adbb9bce3e99f4fa01d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b9e33ba8d9610067cb9e844477ec273391fbdb0b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086674"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751726"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Konfigurowanie sieciowego urządzenia wirtualnego w usłudze Azure HDInsight
 
@@ -47,7 +47,7 @@ Opcjonalnie można włączyć co najmniej jeden z następujących punktów końc
 ### <a name="fqdn-httphttps-dependencies"></a>Zależności HTTP/HTTPS w nazwie FQDN
 
 > [!Important]
-> Poniższa lista zawiera tylko kilka najważniejszych nazw FQDN. Aby skonfigurować urządzenie WUS [w tym pliku](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json), można uzyskać pełną listę nazw FQDN (głównie usługi Azure Storage i Azure Service Bus). Te zależności są używane przez operacje płaszczyzny kontroli usługi HDInsight w celu pomyślnego utworzenia klastra.
+> Poniższa lista zawiera tylko kilka nazw FQDN, które mogą być niezbędne do stosowania poprawek systemu operacyjnego i zabezpieczeń lub ważności certyfikatów po utworzeniu klastra i w okresie istnienia operacji klastra. Aby skonfigurować urządzenie WUS [w tym pliku](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json), można uzyskać listę nazw FQDN (głównie usługi Azure Storage i Azure Service Bus). Te zależności są używane przez dostawcę zasobów usługi HDInsight (RP) do pomyślnego tworzenia i monitorowania klastrów/zarządzania nimi. Obejmują one dzienniki telemetrii/diagnostyki, metadane aprowizacji, konfiguracje związane z klastrem, skrypty, szablony ARM itd. Lista zależności nazw FQDN może ulec zmianie w przypadku zwalniania przyszłych aktualizacji HDIngisht.
 
 | **Punkt końcowy**                                                          |
 |---|

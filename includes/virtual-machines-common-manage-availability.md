@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 2c8f2d95e7e06f2fff3d8344a3fffa5b19648ede
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: d7f7b0eb2c49e4abba9e12e09d70e321cc6c06f4
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88655233"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88760611"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Omówienie ponownych rozruchów maszyn wirtualnych — konserwacja a przestój
 Istnieją trzy scenariusze, które mogą spowodować wpływ na maszynę wirtualną na platformie Azure: nieplanowana konserwacja sprzętu, nieoczekiwany przestój i planowana konserwacja.
@@ -34,7 +34,7 @@ Aby zmniejszyć wpływ przestoju spowodowanego co najmniej jednym z tych zdarze�
 * [Używanie dysków zarządzanych dla maszyn wirtualnych w zestawie dostępności]
 * [Używanie zaplanowanych zdarzeń do aktywnego reagowania na zdarzenia wpływające na maszynę wirtualną](../articles/virtual-machines/linux/scheduled-events.md)
 * [Konfigurowanie każdej warstwy aplikacji w osobnych zestawach dostępności]
-* [Łączenie modułu równoważenia obciążenia z zestawami dostępności]
+* [Łączenie modułu równoważenia obciążenia z strefami dostępności lub zestawami]
 * [Używanie stref dostępności do ochrony przed awariami na poziomie centrum danych]
 
 ## <a name="use-availability-zones-to-protect-from-datacenter-level-failures"></a>Używanie stref dostępności do ochrony przed awariami na poziomie centrum danych
@@ -110,7 +110,7 @@ Aby zapoznać się z samouczkiem dotyczącym równoważenia obciążenia w stref
 
 <!-- Link references -->
 [Konfigurowanie wielu maszyn wirtualnych w zestawie dostępności w celu zapewnienia nadmiarowości]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[Łączenie modułu równoważenia obciążenia z zestawami dostępności]: #combine-a-load-balancer-with-availability-zones-or-sets
+[Łączenie modułu równoważenia obciążenia z strefami dostępności lub zestawami]: #combine-a-load-balancer-with-availability-zones-or-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Używanie dysków zarządzanych dla maszyn wirtualnych w zestawie dostępności]: #use-managed-disks-for-vms-in-an-availability-set
 [Używanie stref dostępności do ochrony przed awariami na poziomie centrum danych]: #use-availability-zones-to-protect-from-datacenter-level-failures

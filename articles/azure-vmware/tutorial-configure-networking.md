@@ -3,16 +3,16 @@ title: Samouczek — Konfigurowanie sieci dla Twojej chmury prywatnej VMware na 
 description: Dowiedz się, jak utworzyć i skonfigurować sieć potrzebną do wdrożenia chmury prywatnej na platformie Azure
 ms.topic: tutorial
 ms.date: 07/22/2020
-ms.openlocfilehash: aa4247f60c3e1ec54bfcde336d1ae8c8f70ff7a8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ff071e0d6eaf1552634433a76e4eade530c603b6
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079443"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750507"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Samouczek: Konfigurowanie sieci dla Twojej chmury prywatnej VMware na platformie Azure
 
-Chmura prywatna rozwiązania Azure VMware (Automatyczna synchronizacja) wymaga Virtual Network platformy Azure. Ponieważ wersja zapoznawcza nie obsługuje lokalnego programu vCenter w okresie zapoznawczym, wymagane są dodatkowe kroki integracji ze środowiskiem lokalnym. Skonfigurowanie obwodu ExpressRoute i bramy sieci wirtualnej jest również wymagane i jest ono omówione w tym samouczku.
+Chmura prywatna rozwiązania Azure VMware wymaga Virtual Network platformy Azure. Ponieważ rozwiązanie VMware platformy Azure nie obsługuje lokalnego programu vCenter w wersji zapoznawczej, wymagane są dodatkowe kroki integracji ze środowiskiem lokalnym. Skonfigurowanie obwodu ExpressRoute i bramy sieci wirtualnej jest również wymagane i jest ono omówione w tym samouczku.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -23,7 +23,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Lokalizowanie adresów URL dla programu vCenter i NSX Manager
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
-Przed utworzeniem sieci wirtualnej upewnij się, że utworzono [chmurę prywatną](tutorial-create-private-cloud.md). 
+Przed utworzeniem sieci wirtualnej upewnij się, że utworzono [chmurę prywatną rozwiązania Azure VMware](tutorial-create-private-cloud.md). 
 
 ## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
@@ -46,9 +46,9 @@ Przed utworzeniem sieci wirtualnej upewnij się, że utworzono [chmurę prywatn�
 
 1. Wybierz pozycję **+ Dodaj podsieć**, a następnie na stronie **Dodawanie podsieci** Nadaj nazwę podsieci i odpowiedni zakres adresów. Po zakończeniu wybierz pozycję **Dodaj**.
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 
-   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network.png" alt-text="Tworzenie sieci wirtualnej" border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network.png" alt-text="Wybierz pozycję Recenzja + Utwórz." border="true":::
 
 1. Sprawdź informacje i wybierz pozycję **Utwórz**. Po zakończeniu wdrażania zobaczysz sieć wirtualną w grupie zasobów.
 
@@ -76,20 +76,20 @@ Po utworzeniu sieci wirtualnej należy utworzyć bramę sieci wirtualnej.
    | **Zakres adresów podsieci bramy** | Ta wartość jest wypełniana po wybraniu sieci wirtualnej. Nie zmieniaj wartości domyślnej. |
    | **Publiczny adres IP** | Wybierz pozycję**Utwórz nowy**. |
 
-   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Tworzenie bramy" border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Na karcie podstawowe strony Tworzenie bramy sieci wirtualnej podaj wartości pól, a następnie wybierz pozycję przegląd + Utwórz." border="true":::
 
 1. Sprawdź, czy szczegóły są poprawne, a następnie wybierz pozycję **Utwórz** , aby rozpocząć wdrażanie bramy sieci wirtualnej. 
-1. Po zakończeniu wdrażania przejdź do następnej sekcji, aby połączyć połączenie ExpressRoute z bramą sieci wirtualnej zawierającą chmurę prywatną.
+1. Po zakończeniu wdrażania przejdź do następnej sekcji, aby połączyć połączenie ExpressRoute z bramą sieci wirtualnej zawierającą chmurę prywatną rozwiązania Azure VMware.
 
 ## <a name="connect-expressroute-to-the-virtual-network-gateway"></a>Połącz ExpressRoute z bramą sieci wirtualnej
 
-Po wdrożeniu bramy sieci wirtualnej należy dodać do niej połączenie i chmurę prywatną do automatycznej synchronizacji.
+Po wdrożeniu bramy sieci wirtualnej należy dodać do niej połączenie i chmurę prywatną rozwiązania Azure VMware.
 
 1. Przejdź do chmury prywatnej utworzonej w poprzednim samouczku i wybierz pozycję **łączność** w obszarze **Zarządzanie**, wybierz kartę **ExpressRoute** .
 
-1. Skopiuj klucz autoryzacji. Jeśli nie istnieje klucz autoryzacji, należy go utworzyć, aby wykonać to polecenie SELECT **+ żądanie klucza autoryzacji**
+1. Skopiuj klucz autoryzacji. Jeśli nie istnieje klucz autoryzacji, należy go utworzyć, aby wykonać to polecenie SELECT **+ żądanie klucza autoryzacji**.
 
-   :::image type="content" source="./media/tutorial-configure-networking/request-auth-key.png" alt-text="Żądaj klucza autoryzacji" border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/request-auth-key.png" alt-text="Skopiuj klucz autoryzacji. Jeśli nie istnieje klucz autoryzacji, należy go utworzyć, aby wykonać to polecenie select + żądanie klucza autoryzacji." border="true":::
 
 1. Przejdź do bramy Virtual Network utworzonej w poprzednim kroku, a następnie w obszarze **Ustawienia**wybierz pozycję **połączenia**. Na stronie **połączenia** wybierz pozycję **+ Dodaj**.
 
@@ -98,13 +98,13 @@ Po wdrożeniu bramy sieci wirtualnej należy dodać do niej połączenie i chmur
    | Pole | Wartość |
    | --- | --- |
    | **Nazwa**  | Wprowadź nazwę połączenia.  |
-   | **Typ połączenia**  | Wybierz pozycję **ExpressRoute**.  |
+   | **Connection type** (Typ połączenia)  | Wybierz pozycję **ExpressRoute**.  |
    | **Zrealizuj autoryzację**  | Upewnij się, że to pole wyboru jest zaznaczone.  |
    | **Brama sieci wirtualnej** | Utworzona wcześniej Brama Virtual Network.  |
    | **Klucz autoryzacji**  | Skopiuj i Wklej klucz autoryzacji z karty ExpressRoute w grupie zasobów. |
    | **Identyfikator URI obwodu równorzędnego**  | Skopiuj i wklej identyfikator ExpressRoute z karty ExpressRoute dla grupy zasobów.  |
 
-   :::image type="content" source="./media/tutorial-configure-networking/add-connection.png" alt-text="Dodawanie połączenia" border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/add-connection.png" alt-text="Na stronie Dodawanie połączenia podaj wartości pól i wybierz przycisk OK." border="true":::
 
 Połączenie między obwodem usługi ExpressRoute a Virtual Network zostanie utworzone.
 
@@ -114,9 +114,9 @@ Połączenie między obwodem usługi ExpressRoute a Virtual Network zostanie utw
 
 Aby zalogować się do programu vCenter i NSX Manager, musisz mieć adresy URL dla klienta sieci Web vCenter i lokacji Menedżera NSX-T. 
 
-Przejdź do swojej chmury prywatnej automatycznej synchronizacji, w obszarze **Zarządzanie**wybierz pozycję **tożsamość**. w tym miejscu znajdziesz potrzebne informacje.
+Przejdź do chmury prywatnej rozwiązania Azure VMware, w obszarze **Zarządzanie**wybierz pozycję **tożsamość**. w tym miejscu znajdziesz potrzebne informacje.
 
-:::image type="content" source="./media/tutorial-configure-networking/locate-urls.png" alt-text="Lokalizowanie adresów URL programu vCenter" border="true":::
+:::image type="content" source="./media/tutorial-configure-networking/locate-urls.png" alt-text="Przejdź do chmury prywatnej rozwiązania Azure VMware, w obszarze Zarządzanie wybierz pozycję tożsamość. w tym miejscu znajdziesz potrzebne informacje." border="true":::
 
 ## <a name="next-steps"></a>Następne kroki
 

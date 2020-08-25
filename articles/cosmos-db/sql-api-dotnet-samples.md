@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 07/23/2019
 ms.author: sngun
 ms.openlocfilehash: 6a9ab62d5ea408a5c7683d2f06e2cd52f52da1bb
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83683885"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: przykłady platformy .NET dla interfejsu SQL API
@@ -38,7 +38,7 @@ Przykłady kodu dla zestawu SDK dla platformy .NET w wersji 3,0 (wersja zapoznaw
 Program Visual Studio 2019 z zainstalowanym przepływem pracy projektowania platformy Azure
 - Możesz pobrać **bezpłatnie** [program Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)i korzystać z niego. Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure**. 
 
-[Pakiet NuGet Microsoft. Azure. DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 
+[Pakiet NuGetMicrosoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 
 
 Subskrypcja platformy Azure lub bezpłatne Cosmos DB konto wersji próbnej
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
@@ -107,7 +107,7 @@ Metoda [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/mast
 | [Włączanie indeksowania danych geoprzestrzennych w nowej kolekcji](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L48) |[IndexingPolicy](/dotnet/api/microsoft.azure.documents.indexingpolicy) <br> [IndexKind.Spatial](/dotnet/api/microsoft.azure.documents.indexkind) <br>[DataType.Point](/dotnet/api/microsoft.azure.documents.datatype) |
 | [Wstawianie dokumentów z punktami GeoJSON](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L104-L114) |[DocumentClient.CreateDocumentAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentasync) </br> [DataType.Point](/dotnet/api/microsoft.azure.documents.datatype) |
 | [Znajdowanie punktów w określonej odległości](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L158-L199) |[ST_DISTANCE](sql-query-st-distance.md) </br> [GeometryOperationExtensions.Distance](/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.distance) |
-| [Znajdowanie punktów wewnątrz wielokąta](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L204-L227) |[ST_WITHIN](sql-query-st-within.md) </br> [GeometryOperationExtensions. w](/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.distance) </br>[Tworząc](/dotnet/api/microsoft.azure.documents.spatial.polygon) |
+| [Znajdowanie punktów wewnątrz wielokąta](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L204-L227) |[ST_WITHIN](sql-query-st-within.md) </br> [GeometryOperationExtensions. w](/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.distance) </br>[Wielokąt](/dotnet/api/microsoft.azure.documents.spatial.polygon) |
 | [Włączanie indeksowania danych geoprzestrzennych w istniejącej kolekcji](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L385-L391) |[DocumentClient.ReplaceDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.replacedocumentcollectionasync)<br>[DocumentCollection.IndexingPolicy](/dotnet/api/microsoft.azure.documents.documentcollection.indexingpolicy) |
 | [Walidowanie danych punktów i wielokątów](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L290-L326) |[ST_ISVALID](sql-query-st-isvalid.md)<br>[ST_ISVALIDDETAILED](sql-query-st-isvaliddetailed.md)<br>[GeometryOperationExtensions.IsValid](/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.isvalid)<br>[GeometryOperationExtensions.IsValidDetailed](/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.isvaliddetailed) |
 

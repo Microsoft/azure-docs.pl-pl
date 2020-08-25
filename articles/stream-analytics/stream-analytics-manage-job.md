@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.openlocfilehash: 577a80f04ad186ab1575fa78db3fa59402d6058f
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83697387"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Samouczek: analizowanie danych połączeń telefonicznych za pomocą Stream Analytics i wizualizacji wyników na pulpicie nawigacyjnym Power BI
 
 W tym samouczku pokazano, jak analizować dane połączeń telefonicznych przy użyciu usługi Azure Stream Analytics. Dane połączenia telefonicznego generowane przez aplikację kliencką zawierają pewne fałszywe wywołania, które będą filtrowane przez zadanie Stream Analytics.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Generowanie przykładowych danych połączeń telefonicznych i wysyłanie ich do usługi Azure Event Hubs
@@ -32,7 +32,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 Przed rozpoczęciem wykonaj następujące czynności:
 
-* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 * Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 * Pobierz aplikację generatora zdarzeń połączeń telefonicznych [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) z Centrum pobierania Microsoft lub uzyskaj kod źródłowy z witryny [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).
 * Musisz mieć konto usługi Power BI.
@@ -52,7 +52,7 @@ Utwórz centrum zdarzeń usługi Event Hub i wyślij do niego dane połączeń, 
    |**Ustawienie**  |**Sugerowana wartość** |**Opis**  |
    |---------|---------|---------|
    |Nazwa     | myEventHubsNS        |  Unikatowa nazwa identyfikująca przestrzeń nazw centrum zdarzeń.       |
-   |Subskrypcja     |   \<Twoja subskrypcja\>      |   Wybierz subskrypcję platformy Azure, w której chcesz utworzyć centrum zdarzeń.      |
+   |Subskrypcja     |   \<Your subscription\>      |   Wybierz subskrypcję platformy Azure, w której chcesz utworzyć centrum zdarzeń.      |
    |Grupa zasobów     |   MyASADemoRG      |  Wybierz pozycję **Utwórz nową** i wprowadź nazwę nowej grupy zasobów dla swojego konta.       |
    |Lokalizacja     |   Zachodnie stany USA 2      |    Lokalizacja, w której można wdrożyć przestrzeń nazw centrum zdarzeń.     |
 
@@ -71,7 +71,7 @@ Aby aplikacja mogła wysyłać dane do usługi Azure Event Hubs, centrum zdarze�
 
 1. Przejdź do centrum zdarzeń utworzonego w poprzednim kroku, MyEventHub *. Wybierz pozycję **Zasady dostępu współużytkowanego** w obszarze **Ustawienia**, a następnie wybierz pozycję **+ Dodaj**.
 
-2. Nadaj zasadom nazwę **MyPolicy** i upewnij się, że zaznaczono opcję **Zarządzaj**. Następnie wybierz pozycję **Utwórz**.
+2. Nadaj zasadom nazwę **MyPolicy** i upewnij się, że zaznaczono opcję **Zarządzaj**. Następnie wybierz przycisk **Utwórz**.
 
    ![Tworzenie zasad dostępu współdzielonego centrum zdarzeń](media/stream-analytics-manage-job/create-event-hub-access-policy.png)
 
@@ -135,10 +135,10 @@ Teraz, gdy masz strumień zdarzeń połączeń, możesz utworzyć zadanie usług
    |**Ustawienie**  |**Sugerowana wartość**  |**Opis**  |
    |---------|---------|---------|
    |Nazwa zadania     |  ASATutorial       |   Unikatowa nazwa identyfikująca przestrzeń nazw centrum zdarzeń.      |
-   |Subskrypcja    |  \<Twoja subskrypcja\>   |   Wybierz subskrypcję platformy Azure, w której chcesz utworzyć zadanie.       |
+   |Subskrypcja    |  \<Your subscription\>   |   Wybierz subskrypcję platformy Azure, w której chcesz utworzyć zadanie.       |
    |Grupa zasobów   |   MyASADemoRG      |   Wybierz pozycję **Użyj istniejącej**, a następnie wprowadź nazwę nowej grupy zasobów dla swojego konta.      |
    |Lokalizacja   |    Zachodnie stany USA 2     |      Lokalizacja, w której można wdrożyć zadanie. Zaleca się umieszczenie zadania i centrum zdarzeń w tym samym regionie, aby uzyskać najlepszą wydajność i nie płacić za transfer danych między regionami.      |
-   |Środowisko hostingu    | Chmurowa        |     Zadania usługi Stream Analytics można wdrożyć w chmurze lub na urządzeniu brzegowym. Chmura umożliwia wdrażanie w chmurze platformy Azure, a usługa Edge umożliwia wdrażanie na urządzeniu IoT Edge.    |
+   |Środowisko hostingu    | Chmura        |     Zadania usługi Stream Analytics można wdrożyć w chmurze lub na urządzeniu brzegowym. Chmura umożliwia wdrażanie w chmurze platformy Azure, a usługa Edge umożliwia wdrażanie na urządzeniu IoT Edge.    |
    |Jednostki przesyłania strumieniowego     |    1       |      Jednostki przesyłania strumieniowego reprezentują zasoby obliczeniowe, które są wymagane do wykonania zadania. Domyślnie to ustawienie ma wartość 1. Aby dowiedzieć się więcej na temat skalowania jednostek przesyłania strumieniowego, zobacz artykuł [Understanding and adjusting streaming units (Opis i dostosowywanie jednostek przesyłania strumieniowego)](stream-analytics-streaming-unit-consumption.md).      |
 
 4. Użyj opcji domyślnych w pozostałych ustawieniach, wybierz pozycję **Utwórz**i poczekaj na pomyślne wdrożenie.
@@ -158,7 +158,7 @@ Następnym krokiem jest określenie źródła danych wejściowych dla zadania w 
    |**Ustawienie**  |**Sugerowana wartość**  |**Opis**  |
    |---------|---------|---------|
    |Alias danych wejściowych     |  CallStream       |  Podaj przyjazną nazwę identyfikującą dane wejściowe. Alias danych wejściowych może zawierać tylko znaki alfanumeryczne, łączniki i podkreślenia oraz musi składać się z od 3 do 63 znaków.       |
-   |Subskrypcja    |   \<Twoja subskrypcja\>      |   Wybierz subskrypcję platformy Azure, w której zostało utworzone centrum zdarzeń. Centrum zdarzeń może znajdować się w tej samej subskrypcji co zadanie usługi Stream Analytics lub w innej.       |
+   |Subskrypcja    |   \<Your subscription\>      |   Wybierz subskrypcję platformy Azure, w której zostało utworzone centrum zdarzeń. Centrum zdarzeń może znajdować się w tej samej subskrypcji co zadanie usługi Stream Analytics lub w innej.       |
    |Przestrzeń nazw centrum zdarzeń    |  myEventHubsNS       |  Wybierz przestrzeń nazw centrum zdarzeń utworzoną w poprzedniej sekcji. Wszystkie przestrzenie nazw centrum zdarzeń dostępne w Twojej bieżącej subskrypcji są wyświetlane na liście rozwijanej.       |
    |Nazwa centrum zdarzeń    |   MyEventHub      |  Wybierz centrum zdarzeń utworzone w poprzedniej sekcji. Wszystkie centra zdarzeń dostępne w Twojej bieżącej subskrypcji są wyświetlane na liście rozwijanej.       |
    |Nazwa zasad centrum zdarzeń   |  Moje zasady       |  Wybierz zasady dostępu współdzielonego centrum zdarzeń utworzone w poprzedniej sekcji. Wszystkie zasady centrów zdarzeń dostępne w Twojej bieżącej subskrypcji są wyświetlane na liście rozwijanej.       |

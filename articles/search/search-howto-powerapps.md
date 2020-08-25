@@ -8,13 +8,13 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
-ms.date: 04/25/2020
-ms.openlocfilehash: 66289c512a746a30ed8dbd3e5c2df92bea27d907
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.date: 08/21/2020
+ms.openlocfilehash: 04434753949f0e00eaf99610199cc4997ef53caf
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565831"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751068"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Samouczek: wykonywanie zapytania dotyczącego indeksu Wyszukiwanie poznawcze z poziomu aplikacji zaawansowanych
 
@@ -47,7 +47,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
  
     :::image type="content" source="./media/search-howto-powerapps/1-2-custom-connector.png" alt-text="Menu łączników niestandardowych" border="true":::
 
-1. Wybierz pozycję **+ Nowy łącznik niestandardowy**, a następnie wybierz pozycję **Utwórz z pustego**.
+1. Wybierz pozycję  **+ Nowy łącznik niestandardowy**, a następnie wybierz pozycję **Utwórz z pustego**.
 
     :::image type="content" source="./media/search-howto-powerapps/1-3-create-blank.png" alt-text="Utwórz z pustego menu" border="true":::
 
@@ -72,9 +72,9 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
 
 1. Przewiń w dół. W obszarze żądania wybierz pozycję **+ Importuj z przykładowego** przycisku, aby skonfigurować żądanie zapytania do usługi wyszukiwania:
 
-   * Wybierz zlecenie`GET`
+   * Wybierz zlecenie `GET`
 
-   * W polu adres URL wprowadź przykładowe zapytanie dla indeksu wyszukiwania ( `search=*` zwraca wszystkie dokumenty, `$select=` umożliwia wybranie pól). Wymagana jest wersja interfejsu API. W pełni określony adres URL może wyglądać następująco:`https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2020-06-30`
+   * W polu adres URL wprowadź przykładowe zapytanie dla indeksu wyszukiwania ( `search=*` zwraca wszystkie dokumenty, `$select=` umożliwia wybranie pól). Wymagana jest wersja interfejsu API. W pełni określony adres URL może wyglądać następująco: `https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2020-06-30`
 
    * Dla nagłówka wpisz `Content-Type` . 
 
@@ -92,7 +92,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
 
 1. Dla *opcji Select*: `HotelName,Description,Address/City` Ustaw jako **wartość domyślną**, ustaw parametr **Required** na *wartość false*i ustaw **widoczność** na *none*.  
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Metadane parametru wersji" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Wybieranie metadanych parametrów" border="true":::
 
 1. W przypadku *interfejsu API-Version*: Ustaw `2020-06-30` **wartość domyślną**, ustaw **wymaganą** *wartość true*i ustaw **widoczność** jako *wewnętrzną*.  
 
@@ -250,7 +250,7 @@ W tym kroku utworzysz aplikację, korzystając z pola wyszukiwania, przycisku wy
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Możesz usuwać zasoby pojedynczo lub usunąć grupę zasobów, aby usunąć cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 

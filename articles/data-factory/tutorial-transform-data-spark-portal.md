@@ -11,10 +11,10 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: 5b0bcdd66e17fb93a560b6073c13e3170e3ab37b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "81409262"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Przekształcanie danych w chmurze za pomocą działania platformy Spark w usłudze Azure Data Factory
@@ -31,7 +31,7 @@ Ten samouczek obejmuje następujące procedury:
 > * Wyzwalanie uruchomienia potoku
 > * Monitorowanie uruchomienia potoku.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -42,7 +42,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 > [!NOTE]
 > Usługa HdInsight obsługuje tylko konta magazynu ogólnego przeznaczenia w warstwie Standardowa. Upewnij się, że konto nie jest kontem magazynu w warstwie Premium ani kontem magazynu obsługującym tylko obiekty blob.
 
-* **Azure PowerShell**. Wykonaj instrukcje podane w temacie [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-Az-ps).
+* Zainstalowanie programu **Azure PowerShell**. Wykonaj instrukcje podane w temacie [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-Az-ps).
 
 
 ### <a name="upload-the-python-script-to-your-blob-storage-account"></a>Przekazywanie skryptu w języku Python do konta usługi Blob Storage
@@ -71,7 +71,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
     if __name__ == "__main__":
         main()
     ```
-1. Zastąp * &lt;storageAccountName&gt; * nazwą konta usługi Azure Storage. Następnie zapisz plik. 
+1. Zastąp * &lt; storageAccountName &gt; * nazwą konta usługi Azure Storage. Następnie zapisz plik. 
 1. W usłudze Azure Blob Storage utwórz kontener o nazwie **adftutorial**, jeśli nie istnieje. 
 1. Utwórz folder o nazwie **spark**.
 1. Utwórz podfolder o nazwie **script** w folderze **spark**. 
@@ -93,7 +93,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
       
    ![Okienko „Nowa fabryka danych”](./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png)
  
-   Nazwa fabryki danych Azure musi być *globalnie unikatowa*. Jeśli zostanie wyświetlony poniższy błąd, zmień nazwę fabryki danych. (Na przykład użyj ** &lt;&gt;** elementuname ADFTutorialDataFactory). Artykuł [Usługa Data Factory — reguły nazewnictwa](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
+   Nazwa fabryki danych Azure musi być *globalnie unikatowa*. Jeśli zostanie wyświetlony poniższy błąd, zmień nazwę fabryki danych. (Na przykład użyj elementuname ** &lt; &gt; ADFTutorialDataFactory**). Artykuł [Usługa Data Factory — reguły nazewnictwa](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
   
    ![Komunikat o błędzie występujący, jeśli nazwa jest niedostępna](./media/tutorial-transform-data-spark-portal/name-not-available-error.png)
 1. W obszarze **Subskrypcja** wybierz subskrypcję platformy Azure, w której chcesz utworzyć fabrykę danych. 
@@ -159,7 +159,7 @@ W tej sekcji zredagujesz dwie połączone usługi:
    
    f. W polu **Klucz jednostki usługi** wprowadź klucz. 
    
-   g. W polu **Grupa zasobów** wybierz tę samą grupę zasobów, która została użyta podczas tworzenia fabryki danych. W tej grupie zasobów jest tworzony klaster Spark. 
+   przykład W polu **Grupa zasobów** wybierz tę samą grupę zasobów, która została użyta podczas tworzenia fabryki danych. W tej grupie zasobów jest tworzony klaster Spark. 
    
    h. Rozwiń węzeł **Typ systemu operacyjnego**.
    
@@ -176,7 +176,7 @@ W tej sekcji zredagujesz dwie połączone usługi:
 
 ## <a name="create-a-pipeline"></a>Tworzenie potoku
 
-1. Wybierz przycisk **+** (znak plus), a następnie wybierz pozycję **potok** w menu.
+1. Wybierz **+** przycisk (znak plus), a następnie wybierz pozycję **potok** w menu.
 
    ![Przyciski do tworzenia nowego potoku](./media/tutorial-transform-data-spark-portal/new-pipeline-menu.png)
 1. W przyborniku **Działania** rozwiń pozycję **HDInsight**. Przeciągnij działanie **Spark** z przybornika **Działania** na powierzchnię projektanta potoku. 
@@ -199,7 +199,7 @@ W tej sekcji zredagujesz dwie połączone usługi:
    
    c. Przejdź do folderu **adftutorial/spark/script**, wybierz plik **WordCount_Spark.py** i wybierz pozycję **Zakończ**.      
 
-1. Aby zweryfikować potok, wybierz przycisk **Weryfikuj** na pasku narzędzi. Wybierz przycisk **>>** (Strzałka w prawo), aby zamknąć okno walidacji. 
+1. Aby zweryfikować potok, wybierz przycisk **Weryfikuj** na pasku narzędzi. Wybierz **>>** przycisk (Strzałka w prawo), aby zamknąć okno walidacji. 
     
    ![Przycisk „Weryfikuj”](./media/tutorial-transform-data-spark-portal/validate-button.png)
 1. Wybierz pozycję **Opublikuj wszystkie**. Interfejs użytkownika usługi Data Factory publikuje jednostki (połączone usług i potok) do usługi Azure Data Factory. 
@@ -233,7 +233,7 @@ Sprawdź, czy plik wyjściowy został utworzony w folderze spark/otuputfiles/wor
 
 ![Lokalizacja pliku wyjściowego](./media/tutorial-transform-data-spark-portal/verity-output.png)
 
-Ten plik powinien zawierać każdy wyraz z wejściowego pliku tekstowego oraz liczbę powtórzeń wyrazu w pliku. Przykład: 
+Ten plik powinien zawierać każdy wyraz z wejściowego pliku tekstowego oraz liczbę powtórzeń wyrazu w pliku. Na przykład: 
 
 ```
 (u'This', 1)

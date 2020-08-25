@@ -4,12 +4,12 @@ description: W tym artykule omówiono możliwości monitorowania i powiadamiania
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: ec0453725186ddef359f85f8c3e5554ff240d3e3
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 9a4558367d3af6858310ce4455cbf1df2a596312
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755725"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763477"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorowanie obciążeń Azure Backup
 

@@ -1,35 +1,35 @@
 ---
 title: Często zadawane pytania
-description: Zawiera odpowiedzi na niektóre często zadawane pytania dotyczące rozwiązania Azure VMware (Automatyczna synchronizacja).
+description: Zawiera odpowiedzi na niektóre często zadawane pytania dotyczące rozwiązań VMware platformy Azure.
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: bd27d4669788b10fc12c47e4514020f6b01300bc
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: cffa31bb66adfde2af24ab2542322479639ed9dd
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872331"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752184"
 ---
-# <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Często zadawane pytania dotyczące rozwiązania Azure VMware (automatyczna wersja zapoznawcza)
+# <a name="frequently-asked-questions-about-azure-vmware-solution-preview"></a>Często zadawane pytania dotyczące wersji zapoznawczej rozwiązań VMware platformy Azure
 
-Odpowiedzi na często zadawane pytania dotyczące rozwiązania Azure VMware (Automatyczna synchronizacja).
+Odpowiedzi na często zadawane pytania dotyczące rozwiązań VMware platformy Azure.
 
 ## <a name="general"></a>Ogólne
 
-**Co to jest rozwiązanie Azure VMware (Automatyczna synchronizacja)?**
+**Co to jest rozwiązanie Azure VMware?**
 
-W miarę jak przedsiębiorstwa wykonują strategie modernizacji, aby poprawić elastyczność biznesową, obniżyć koszty i przyspieszyć innowacje, hybrydowe platformy w chmurze zostały wyznaczone jako klucze do obsługi transformacji cyfrowej klientów. Automatyczna synchronizacja łączy oprogramowanie VMware SDDC (Software Defined Data Center) z Microsoft Azure globalnym ekosystemem usługi w chmurze. Rozwiązanie do automatycznej synchronizacji jest zarządzane w taki sposób, aby spełniało wymagania dotyczące wydajności, dostępności, zabezpieczeń i zgodności.
+W miarę jak przedsiębiorstwa wykonują strategie modernizacji, aby poprawić elastyczność biznesową, obniżyć koszty i przyspieszyć innowacje, hybrydowe platformy w chmurze zostały wyznaczone jako klucze do obsługi transformacji cyfrowej klientów. Rozwiązanie VMware platformy Azure łączy oprogramowanie firmy VMware z centrum danych (SDDC), które ma Microsoft Azure globalny ekosystem usług w chmurze. Rozwiązaniem VMware platformy Azure jest zarządzanie w celu spełnienia wymagań dotyczących wydajności, dostępności, zabezpieczeń i zgodności.
 
-## <a name="avs-service"></a>Usługa automatycznej synchronizacji
+## <a name="azure-vmware-solution-service"></a>Usługa rozwiązań VMware platformy Azure
 
-**Gdzie obecnie jest dostępna automatyczna synchronizacja?**
+**Gdzie jest dostępne rozwiązanie Azure VMware już dzisiaj?**
 
 Usługa jest ciągle dodawana do nowych regionów. Aby uzyskać więcej informacji, zobacz [najnowsze informacje o dostępności usługi](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware) . 
 
-**Czy usługa może obciążać działające w ramach rozwiązania Azure VMware (Automatyczna synchronizacja) zużywa lub integruje się z usługami platformy Azure?**
+**Czy obciążenia działające w ramach wystąpienia rozwiązania VMware platformy Azure zużywają lub integrują się z usługami platformy Azure?**
 
-Wszystkie usługi platformy Azure będą dostępne do automatycznej synchronizacji klientów rozwiązań. Ograniczenia dotyczące wydajności i dostępności dla określonych usług muszą być rozdzielone na zasadzie wielkości liter.
+Wszystkie usługi platformy Azure będą dostępne dla klientów rozwiązań VMware platformy Azure. Ograniczenia dotyczące wydajności i dostępności dla określonych usług muszą być rozdzielone na zasadzie wielkości liter.
 
 **Czy mogę użyć tych samych narzędzi, których teraz używam do zarządzania zasobami w chmurze prywatnej?**
 
@@ -37,13 +37,13 @@ Tak. Azure Portal jest używany do wdrażania i wielu operacji zarządzania. Pro
 
 **Czy mogę zarządzać chmurą prywatną przy użyciu lokalnego programu vCenter?**
 
-Po uruchomieniu funkcja automatycznej synchronizacji nie będzie obsługiwać jednego środowiska zarządzania w środowiskach lokalnych i prywatnych. Klastry chmury prywatnej będą zarządzane za pomocą programu vCenter i NSX Manager lokalnie w chmurze prywatnej.
+Po uruchomieniu rozwiązanie VMware dla platformy Azure nie będzie obsługiwało jednego środowiska zarządzania w środowiskach lokalnych i prywatnych. Klastry chmury prywatnej będą zarządzane za pomocą programu vCenter i NSX Manager lokalnie w chmurze prywatnej.
 
 **Czy mogę używać pakietu vRealize Suite uruchomionego lokalnie?** 
 
 Konkretne integracje i przypadki użycia mogą być oceniane w zależności od wielkości liter.
 
-**Czy można migrować maszyny wirtualne vSphere z lokalnych środowisk do automatycznej synchronizacji chmur prywatnych?**
+**Czy można migrować maszyny wirtualne vSphere z środowisk lokalnych do chmur prywatnych rozwiązań platformy Azure VMware?**
 
 Tak. Migracja maszyn wirtualnych i vMotion mogą służyć do przenoszenia maszyn wirtualnych do chmury prywatnej, jeśli są spełnione standardowe wymagania programu vCenter [vMotion](https://kb.vmware.com/s/article/210695) .
 
@@ -89,7 +89,7 @@ Każdy host ESXi ma dwie sieci vSAN diskgroups z warstwą wydajności wynosząc�
 
 **Jaka przepustowość sieci jest dostępna na każdym hoście ESXi?**
 
-Każdy host ESXi ma taką samą konfigurację synchronizacji z kartami sieciowymi 4 25 GB/s, z dwiema kartami sieciowymi obsługującymi ruch systemowy ESXi i dwie karty sieciowe obsługiwane dla ruchu obciążeń. 
+Każdy host ESXi ma rozwiązanie Azure VMware, które jest skonfigurowane z kartami sieciowymi 4 25 GB/s, z dwiema kartami sieciowymi obsługującymi ruch systemu ESXi i dwie karty sieciowe obsługiwane dla ruchu obciążeń. 
 
 **Czy dane są przechowywane w magazynach danych sieci vSAN szyfrowanych w spoczynku?**
 
@@ -111,13 +111,13 @@ Tak, liczba klastrów jest skalowana między minimalną i maksymalną liczbą ho
 
 **Co to są klastry próbne?**
 
-Klastry z wersjami próbnymi to trzy klastry hostów używane do oceny jednej miesięcznej chmury prywatnej.
+Klastry próbne to trzy klastry hostów używane do oceny w jednym miesiącu chmur prywatnych rozwiązań Azure VMware.
 
 **Czy można używać hostów wysokiej klasy na potrzeby klastrów próbnych?**
 
 Nie. Hosty wysokiej klasy ESXi są zarezerwowane do użytku w klastrach produkcyjnych.
 
-## <a name="avs-and-vmware-software"></a>Automatyczna synchronizacja i oprogramowanie VMware
+## <a name="azure-vmware-solution-and-vmware-software"></a>Rozwiązanie VMware i oprogramowanie VMware platformy Azure
 
 **Jakie wersje oprogramowania VMware są używane w chmurach prywatnych?**
 
@@ -125,7 +125,7 @@ Chmury prywatne używają vSphere 6,7, sieci vSAN 6,7, HCX i wersji 2,5 NSX-T.
 
 **Czy Chmura prywatna korzysta z programu VMware NSX?**
 
-Tak, NSX-T 2,5 jest używany w przypadku sieci zdefiniowanej przez oprogramowanie w ramach automatycznej synchronizacji chmur prywatnych.
+Tak, NSX-T 2,5 jest używany w przypadku sieci zdefiniowanej przez oprogramowanie w chmurach prywatnych rozwiązań VMware platformy Azure.
 
 **Czy mogę używać oprogramowania VMware NSX-V w chmurze prywatnej?**
 
@@ -147,9 +147,9 @@ Oprogramowanie chmury prywatnej jest uaktualniane zgodnie z harmonogramem, któr
 
 **Jakie Planowanie adresów IP sieci jest wymagane w celu uwzględnienia chmur prywatnych w środowiskach lokalnych?**
 
-Do wdrożenia chmury prywatnej do automatycznej synchronizacji jest wymagane miejsce w sieci prywatnej/22. Ta prywatna przestrzeń adresowa nie powinna nakładać się na inne sieci wirtualne w ramach subskrypcji lub sieci lokalnych.
+Do wdrożenia chmury prywatnej rozwiązania Azure VMware jest wymagane miejsce w sieci prywatnej/22. Ta prywatna przestrzeń adresowa nie powinna nakładać się na inne sieci wirtualne w ramach subskrypcji lub sieci lokalnych.
  
-**Jak mogę połączyć się ze środowisk lokalnych w chmurę prywatną do automatycznej synchronizacji?**
+**Jak mogę połączyć się ze środowiska lokalnego z chmurą prywatną rozwiązania Azure VMware?**
 
 Można nawiązać połączenie z usługą przy użyciu jednej z dwóch metod: 
 
@@ -170,7 +170,7 @@ Tak. Aby utworzyć zaporę ograniczającą dostęp do sieci wirtualnej, należy 
 
 ## <a name="accounts-and-privileges"></a>Konta i uprawnienia
 
-**Jakie konta i uprawnienia uzyskasz z moją nową chmurą prywatną do automatycznej synchronizacji?**
+**Jakie konta i uprawnienia uzyskasz przy użyciu nowej chmury prywatnej rozwiązania Azure VMware?**
 
 Masz poświadczenia dla użytkownika cloudadmin w programie vCenter i dostęp administracyjny do Menedżera NSX-T. Istnieje również Grupa CloudAdmin, która może służyć do uwzględnienia Azure Active Directory. Aby uzyskać więcej informacji, zobacz [pojęcia dotyczące dostępu i tożsamości](concepts-identity.md).
 
@@ -191,19 +191,19 @@ Masz pełne uprawnienia administratora na NSX-T i mogą zarządzać kontrolą do
 
 ## <a name="billing-and-support"></a>Rozliczenia i pomoc techniczna
 
-**Jak zostanie naliczona opłata za wersję zapoznawczą wersji zapoznawczej**
+**Jak będą naliczane opłaty w trakcie korzystania z wersji zapoznawczej rozwiązania Azure VMware**
 
-Rozliczenia na potrzeby automatycznej synchronizacji w wersji zapoznawczej są comiesięczne w oparciu o płatność zgodnie z rzeczywistym użyciem. Dodatkowe opcje będą dostępne w ogólnej dostępności.
+Rozliczanie za rozwiązanie VMware dla platformy Azure w okresie zapoznawczym jest comiesięczne w oparciu o płatność zgodnie z rzeczywistym użyciem. Dodatkowe opcje będą dostępne w ogólnej dostępności.
 
-**W jaki sposób Cennik będzie miał strukturę w trakcie korzystania z wersji zapoznawczej automatycznej synchronizacji?**
+**W jaki sposób Cennik będzie miał strukturę w trakcie korzystania z wersji zapoznawczej rozwiązania Azure VMware?**
 
 Aby uzyskać ogólne pytania dotyczące cen, zobacz stronę z [cennikiem](https://azure.microsoft.com/pricing/details/azure-vmware) rozwiązań VMware platformy Azure. Cennik wersji zapoznawczej jest dostępny na żądanie, skontaktuj się z zespołem ds. kont lub Skorzystaj z linku na stronie cennika, aby skontaktować się z firmą
 
-**Kto obsługuje funkcję automatycznej synchronizacji?**
+**Kto obsługuje rozwiązanie Azure VMware?**
 
-Pomoc techniczna dotycząca automatycznej synchronizacji jest dostarczana przez firmę Microsoft. Pamiętaj, że zgodnie z naszymi wskazówkami dotyczącymi wersji zapoznawczej firma Microsoft zapewnia pomoc techniczną w godzinach od 9 do 5 PM PST w piątek (poniedziałek). Możesz zgłosić bilet pomocy technicznej z [tego linku](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+Pomoc techniczna dla rozwiązań VMware platformy Azure jest dostarczana przez firmę Microsoft. Pamiętaj, że zgodnie z naszymi wskazówkami dotyczącymi wersji zapoznawczej firma Microsoft zapewnia pomoc techniczną w godzinach od 9 do 5 PM PST w piątek (poniedziałek). Możesz zgłosić bilet pomocy technicznej z [tego linku](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-**Jakie konta są potrzebne do utworzenia chmury prywatnej do automatycznej synchronizacji?**
+**Jakie konta muszę utworzyć chmurę prywatną rozwiązania Azure VMware?**
 
 Musisz mieć konto platformy Azure w ramach subskrypcji platformy Azure.
 
@@ -229,7 +229,7 @@ Można zażądać zwiększenia limitu przydziału przez [przesłanie żądania p
 1. W opisie biletu pomocy technicznej na karcie Szczegóły podaj następujące informacje:
    - Liczba dodatkowych węzłów   
    - Jednostka SKU węzła
-   - Region
+   - Region (Region)
 
    > [!NOTE] 
    > Domyślnie zostanie udzielony co najmniej cztery węzły.

@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 8e96a666ece7fea64df59c9ed51944534c96bd6b
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 9af48feb0156fefb59dd99a504a571adf9ecffc0
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88246337"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88753074"
 ---
 [Dokumentacja](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src)  |  źródłowy biblioteki [Pakiet (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
@@ -89,7 +89,7 @@ W pliku *Build. Gradle. KTS* projektu Pamiętaj o uwzględnieniu biblioteki klie
 
 ```kotlin
 dependencies {
-    implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '1.0.0-beta.3'
+    implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '3.0.0'
 }
 ```
 
@@ -494,7 +494,7 @@ Uruchom aplikację z `run` celem:
 gradle run
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
 

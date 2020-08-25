@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: eef2af8b48bba7408a887947c20f8c9407f8a4da
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 28a46ad9e53a90c25c239278ee57ea368af395a5
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658166"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88754977"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Tworzenie kopii zapasowych i odzyskiwanie po awarii dla dysków usługi Azure IaaS
 
@@ -48,7 +48,7 @@ Ze względu na tę architekturę platforma Azure stale dostarcza trwałość kla
 
 Zlokalizowane błędy sprzętu na hoście obliczeniowym lub na platformie magazynu mogą czasami spowodować tymczasową niedostępność maszyny wirtualnej, która jest objęta umową [SLA platformy Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) na potrzeby dostępności maszyny wirtualnej. Platforma Azure oferuje również wiodącą w branży umowę SLA dotyczącą pojedynczych wystąpień maszyn wirtualnych, które korzystają z usługi Azure Premium dysków SSD.
 
-Aby chronić obciążenia aplikacji przed przestojem z powodu tymczasowej niedostępności dysku lub maszyny wirtualnej, klienci mogą korzystać z [zestawów dostępności](~/articles/virtual-machines/windows/manage-availability.md). Co najmniej dwie maszyny wirtualne w zestawie dostępności zapewniają nadmiarowość aplikacji. Następnie platforma Azure tworzy te maszyny wirtualne i dyski w osobnych domenach błędów z różnymi składnikami usług, sieci i serwerów.
+Aby chronić obciążenia aplikacji przed przestojem z powodu tymczasowej niedostępności dysku lub maszyny wirtualnej, klienci mogą korzystać z [zestawów dostępności](windows/manage-availability.md). Co najmniej dwie maszyny wirtualne w zestawie dostępności zapewniają nadmiarowość aplikacji. Następnie platforma Azure tworzy te maszyny wirtualne i dyski w osobnych domenach błędów z różnymi składnikami usług, sieci i serwerów.
 
 Ze względu na te oddzielne domeny błędów zlokalizowane awarie sprzętu zazwyczaj nie mają wpływu na wiele maszyn wirtualnych w zestawie w tym samym czasie. Posiadanie oddzielnych domen błędów zapewnia wysoką dostępność aplikacji. Jest to dobre rozwiązanie, aby korzystać z zestawów dostępności, gdy wymagana jest wysoka dostępność. W następnej sekcji omówiono aspekt odzyskiwania po awarii.
 
@@ -97,24 +97,24 @@ Problemy z danymi aplikacji IaaS są kolejną możliwością. Rozważmy aplikacj
 
 ## <a name="disaster-recovery-solution-azure-backup"></a>Rozwiązanie odzyskiwania po awarii: Azure Backup 
 
-[Azure Backup](https://azure.microsoft.com/services/backup/) jest używany do tworzenia kopii zapasowych i odzyskiwania po awarii oraz dysków [zarządzanych](~/articles/virtual-machines/managed-disks-overview.md) . Można utworzyć zadanie tworzenia kopii zapasowej z kopiami zapasowymi opartymi na czasie, łatwym przywracaniem maszyn wirtualnych i zasadami przechowywania kopii zapasowych.
+[Azure Backup](https://azure.microsoft.com/services/backup/) jest używany do tworzenia kopii zapasowych i odzyskiwania po awarii oraz dysków [zarządzanych](managed-disks-overview.md) . Można utworzyć zadanie tworzenia kopii zapasowej z kopiami zapasowymi opartymi na czasie, łatwym przywracaniem maszyn wirtualnych i zasadami przechowywania kopii zapasowych.
 
-Jeśli używasz [dysków SSD Premium](~/articles/virtual-machines/disks-types.md), [Managed disks](~/articles/virtual-machines/managed-disks-overview.md)lub innych typów dysków z opcją [Magazyn lokalnie nadmiarowy](~/articles/storage/common/storage-redundancy-lrs.md) , warto szczególnie pamiętać, aby okresowo wykonywać kopie zapasowe Dr. Azure Backup przechowuje dane w magazynie usługi Recovery Services w celu długoterminowego przechowywania. Wybierz opcję [magazynu geograficznie nadmiarowego](~/articles/storage/common/storage-redundancy-grs.md) dla magazynu usługi Backup Recovery Services. Ta opcja zapewnia, że kopie zapasowe są replikowane do innego regionu platformy Azure w celu ochrony przed awariami regionalnymi.
+Jeśli używasz [dysków SSD Premium](disks-types.md), [Managed disks](managed-disks-overview.md)lub innych typów dysków z opcją [Magazyn lokalnie nadmiarowy](../storage/common/storage-redundancy.md#locally-redundant-storage) , warto szczególnie pamiętać, aby okresowo wykonywać kopie zapasowe Dr. Azure Backup przechowuje dane w magazynie usługi Recovery Services w celu długoterminowego przechowywania. Wybierz opcję [magazynu geograficznie nadmiarowego](../storage/common/storage-redundancy.md#geo-redundant-storage) dla magazynu usługi Backup Recovery Services. Ta opcja zapewnia, że kopie zapasowe są replikowane do innego regionu platformy Azure w celu ochrony przed awariami regionalnymi.
 
 W przypadku dysków niezarządzanych można użyć lokalnie nadmiarowego typu magazynu dla dysków IaaS, ale upewnij się, że Azure Backup jest włączona z opcją magazynu geograficznie nadmiarowego dla magazynu usługi Recovery Services.
 
 > [!NOTE]
-> W przypadku korzystania z [magazynu geograficznie nadmiarowego](~/articles/storage/common/storage-redundancy-grs.md) lub [magazynu geograficznie nadmiarowego do odczytu](~/articles/storage/common/storage-redundancy.md) dla dysków niezarządzanych nadal potrzebne są spójne migawki na potrzeby tworzenia kopii zapasowych i odzyskiwania po awarii. Użyj zarówno [Azure Backup](https://azure.microsoft.com/services/backup/) , jak i [spójnych migawek](#alternative-solution-consistent-snapshots).
+> W przypadku korzystania z [magazynu geograficznie nadmiarowego](../storage/common/storage-redundancy.md#geo-redundant-storage) lub [magazynu geograficznie nadmiarowego do odczytu](../storage/common/storage-redundancy.md#read-access-to-data-in-the-secondary-region)  dla dysków niezarządzanych nadal potrzebne są spójne migawki na potrzeby tworzenia kopii zapasowych i odzyskiwania po awarii. Użyj zarówno [Azure Backup](https://azure.microsoft.com/services/backup/) , jak i [spójnych migawek](#alternative-solution-consistent-snapshots).
 
  Poniższa tabela zawiera podsumowanie rozwiązań dostępnych na potrzeby odzyskiwania po awarii.
 
 | Scenariusz | Automatyczna replikacja | Rozwiązanie DR |
 | --- | --- | --- |
-| Dyski SSD w warstwie Premium | Lokalna ([Magazyn lokalnie nadmiarowy](~/articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Dyski zarządzane | Lokalna ([Magazyn lokalnie nadmiarowy](~/articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Niezarządzane lokalnie nadmiarowe dyski magazynu | Lokalna ([Magazyn lokalnie nadmiarowy](~/articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Niezarządzane geograficznie nadmiarowe dyski magazynu | Między regionami ([Magazyn Geograficznie nadmiarowy](~/articles/storage/common/storage-redundancy-grs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Spójne migawki](#alternative-solution-consistent-snapshots) |
-| Niezarządzane dyski magazynu geograficznie nadmiarowego do odczytu | Między regionami ([Magazyn Geograficznie nadmiarowy do odczytu](~/articles/storage/common/storage-redundancy.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Spójne migawki](#alternative-solution-consistent-snapshots) |
+| Dyski SSD w warstwie Premium | Lokalna ([Magazyn lokalnie nadmiarowy](../storage/common/storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Dyski zarządzane | Lokalna ([Magazyn lokalnie nadmiarowy](../storage/common/storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Niezarządzane lokalnie nadmiarowe dyski magazynu | Lokalna ([Magazyn lokalnie nadmiarowy](../storage/common/storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Niezarządzane geograficznie nadmiarowe dyski magazynu | Między regionami ([Magazyn Geograficznie nadmiarowy](../storage/common/storage-redundancy.md#geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Spójne migawki](#alternative-solution-consistent-snapshots) |
+| Niezarządzane dyski magazynu geograficznie nadmiarowego do odczytu | Między regionami ([Magazyn Geograficznie nadmiarowy do odczytu](../storage/common/storage-redundancy.md#read-access-to-data-in-the-secondary-region)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Spójne migawki](#alternative-solution-consistent-snapshots) |
 
 Wysoka dostępność jest Najlepsza w przypadku korzystania z dysków zarządzanych w zestawie dostępności wraz z Azure Backup. W przypadku korzystania z dysków niezarządzanych można nadal używać Azure Backup do odzyskiwania po awarii. Jeśli nie możesz użyć Azure Backup, a następnie pobierając [spójne migawki](#alternative-solution-consistent-snapshots), zgodnie z opisem w dalszej części, to alternatywne rozwiązanie do tworzenia kopii zapasowych i odzyskiwania po awarii.
 
@@ -127,19 +127,19 @@ Opcje wysokiej dostępności, tworzenia kopii zapasowych i odzyskiwania po awari
 
 ### <a name="using-azure-backup"></a>Korzystanie z usługi Azure Backup 
 
-[Azure Backup](~/articles/backup/backup-azure-vms-introduction.md) może tworzyć kopie zapasowe maszyn wirtualnych z systemem Windows lub Linux do magazynu usługi Azure Recovery Services. Tworzenie kopii zapasowych i przywracanie danych o kluczowym znaczeniu dla firmy jest skomplikowane przez fakt, że należy utworzyć kopię zapasową danych o krytycznym znaczeniu dla firmy, gdy aplikacje generujące dane są uruchomione. 
+[Azure Backup](../backup/backup-azure-vms-introduction.md) może tworzyć kopie zapasowe maszyn wirtualnych z systemem Windows lub Linux do magazynu usługi Azure Recovery Services. Tworzenie kopii zapasowych i przywracanie danych o kluczowym znaczeniu dla firmy jest skomplikowane przez fakt, że należy utworzyć kopię zapasową danych o krytycznym znaczeniu dla firmy, gdy aplikacje generujące dane są uruchomione. 
 
-Aby rozwiązać ten problem, Azure Backup zapewnia spójne z aplikacjami kopie zapasowe dla obciążeń firmy Microsoft. Używa usługi woluminów w tle, aby upewnić się, że dane są poprawnie zapisywane do magazynu. W przypadku maszyn wirtualnych z systemem Linux domyślnym trybem spójności kopii zapasowej są kopie zapasowe spójne z plikami, ponieważ system Linux nie ma funkcji równorzędnej usługi woluminu w tle, tak jak w przypadku systemu Windows. W przypadku maszyn z systemem Linux zapoznaj się z tematem [Tworzenie kopii zapasowych maszyn wirtualnych systemu Linux na poziomie aplikacji](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
+Aby rozwiązać ten problem, Azure Backup zapewnia spójne z aplikacjami kopie zapasowe dla obciążeń firmy Microsoft. Używa usługi woluminów w tle, aby upewnić się, że dane są poprawnie zapisywane do magazynu. W przypadku maszyn wirtualnych z systemem Linux domyślnym trybem spójności kopii zapasowej są kopie zapasowe spójne z plikami, ponieważ system Linux nie ma funkcji równorzędnej usługi woluminu w tle, tak jak w przypadku systemu Windows. W przypadku maszyn z systemem Linux zapoznaj się z tematem [Tworzenie kopii zapasowych maszyn wirtualnych systemu Linux na poziomie aplikacji](../backup/backup-azure-linux-app-consistent.md)
 
 ![Przepływ Azure Backup][1]
 
 Gdy Azure Backup inicjuje zadanie tworzenia kopii zapasowej w zaplanowanym czasie, wyzwala rozszerzenie kopii zapasowej zainstalowane na maszynie wirtualnej, aby wykonać migawkę do punktu w czasie. Migawka jest podejmowana w ramach koordynacji z usługą woluminów w tle w celu uzyskania spójnej migawki dysków w maszynie wirtualnej bez konieczności jej zamykania. Rozszerzenie kopii zapasowej na maszynie wirtualnej opróżnia wszystkie zapisy przed podjęciem spójnej migawki wszystkich dysków. Po wykonaniu migawki dane są przesyłane przez Azure Backup do magazynu kopii zapasowych. Aby zapewnić wydajniejszy proces tworzenia kopii zapasowej, usługa zidentyfikuje i przesyła tylko te bloki danych, które uległy zmianie po utworzeniu ostatniej kopii zapasowej.
 
-Aby przywrócić, można wyświetlić dostępne kopie zapasowe za pomocą Azure Backup a następnie zainicjować przywracanie. Kopie zapasowe platformy Azure można tworzyć i przywracać za pośrednictwem [Azure Portal](https://portal.azure.com/)przy [użyciu programu PowerShell](~/articles/backup/backup-azure-vms-automation.md)lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/).
+Aby przywrócić, można wyświetlić dostępne kopie zapasowe za pomocą Azure Backup a następnie zainicjować przywracanie. Kopie zapasowe platformy Azure można tworzyć i przywracać za pośrednictwem [Azure Portal](https://portal.azure.com/)przy [użyciu programu PowerShell](../backup/backup-azure-vms-automation.md)lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/).
 
 ### <a name="steps-to-enable-a-backup"></a>Procedura włączania kopii zapasowej
 
-Wykonaj następujące kroki, aby włączyć tworzenie kopii zapasowych maszyn wirtualnych przy użyciu [Azure Portal](https://portal.azure.com/). Istnieje kilka odmian w zależności od konkretnego scenariusza. Szczegółowe informacje znajdują się w dokumentacji [Azure Backup](~/articles/backup/backup-azure-vms-introduction.md) . Azure Backup [obsługuje również maszyny wirtualne z dyskami zarządzanymi](https://azure.microsoft.com/blog/azure-managed-disk-backup/).
+Wykonaj następujące kroki, aby włączyć tworzenie kopii zapasowych maszyn wirtualnych przy użyciu [Azure Portal](https://portal.azure.com/). Istnieje kilka odmian w zależności od konkretnego scenariusza. Szczegółowe informacje znajdują się w dokumentacji [Azure Backup](../backup/backup-azure-vms-introduction.md) . Azure Backup [obsługuje również maszyny wirtualne z dyskami zarządzanymi](https://azure.microsoft.com/blog/azure-managed-disk-backup/).
 
 1.  Utwórz magazyn usługi Recovery Services dla maszyny wirtualnej:
 
@@ -151,11 +151,11 @@ Wykonaj następujące kroki, aby włączyć tworzenie kopii zapasowych maszyn wi
 
 1.  Skonfiguruj zasady tworzenia kopii zapasowych i wybierz maszynę wirtualną z tego samego interfejsu użytkownika.
 
-1.  Upewnij się, że na maszynie wirtualnej jest zainstalowany agent kopii zapasowych. Jeśli maszyna wirtualna jest tworzona przy użyciu obrazu galerii platformy Azure, Agent kopii zapasowej jest już zainstalowany. W przeciwnym razie (w przypadku korzystania z obrazu niestandardowego) Użyj instrukcji, aby [zainstalować agenta maszyny wirtualnej na maszynę wirtualną](~/articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
+1.  Upewnij się, że na maszynie wirtualnej jest zainstalowany agent kopii zapasowych. Jeśli maszyna wirtualna jest tworzona przy użyciu obrazu galerii platformy Azure, Agent kopii zapasowej jest już zainstalowany. W przeciwnym razie (w przypadku korzystania z obrazu niestandardowego) Użyj instrukcji, aby [zainstalować agenta maszyny wirtualnej na maszynę wirtualną](../backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 
 1.  Po wykonaniu poprzednich kroków kopia zapasowa jest uruchamiana w regularnych odstępach czasu zgodnie z zasadami tworzenia kopii zapasowych. W razie potrzeby można wyzwolić pierwszą kopię zapasową ręcznie z poziomu pulpitu nawigacyjnego magazynu na Azure Portal.
 
-Aby zautomatyzować Azure Backup za pomocą skryptów, zapoznaj się z [poleceniami cmdlet programu PowerShell dotyczącymi tworzenia kopii zapasowych maszyn wirtualnych](~/articles/backup/backup-azure-vms-automation.md).
+Aby zautomatyzować Azure Backup za pomocą skryptów, zapoznaj się z [poleceniami cmdlet programu PowerShell dotyczącymi tworzenia kopii zapasowych maszyn wirtualnych](../backup/backup-azure-vms-automation.md).
 
 ### <a name="steps-for-recovery"></a>Kroki odzyskiwania
 
@@ -165,17 +165,17 @@ Jeśli musisz naprawić lub ponownie skompilować maszynę wirtualną, możesz p
 
 -   Można przywrócić dyski, a następnie użyć szablonu dla maszyny wirtualnej w celu dostosowania i odbudowania przywróconej maszyny wirtualnej.
 
-Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [przywracania maszyn wirtualnych przy użyciu Azure Portal](~/articles/backup/backup-azure-arm-restore-vms.md). W tym dokumencie wyjaśniono również określone kroki przywracania kopii zapasowych maszyn wirtualnych do sparowanego centrum danych przy użyciu geograficznie nadmiarowego magazynu kopii zapasowych w przypadku awarii w podstawowym centrum danych. W takim przypadku Azure Backup używa usługi obliczeniowej z regionu pomocniczego do utworzenia przywróconej maszyny wirtualnej.
+Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [przywracania maszyn wirtualnych przy użyciu Azure Portal](../backup/backup-azure-arm-restore-vms.md). W tym dokumencie wyjaśniono również określone kroki przywracania kopii zapasowych maszyn wirtualnych do sparowanego centrum danych przy użyciu geograficznie nadmiarowego magazynu kopii zapasowych w przypadku awarii w podstawowym centrum danych. W takim przypadku Azure Backup używa usługi obliczeniowej z regionu pomocniczego do utworzenia przywróconej maszyny wirtualnej.
 
-Można również użyć programu PowerShell do [tworzenia nowej maszyny wirtualnej z przywróconych dysków](~/articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+Można również użyć programu PowerShell do [tworzenia nowej maszyny wirtualnej z przywróconych dysków](../backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ## <a name="alternative-solution-consistent-snapshots"></a>Rozwiązanie alternatywne: spójne migawki
 
 Jeśli nie można użyć Azure Backup, można zaimplementować własny mechanizm tworzenia kopii zapasowych za pomocą migawek. Tworzenie spójnych migawek dla wszystkich dysków używanych przez maszynę wirtualną, a następnie replikowanie tych migawek do innego regionu jest skomplikowane. Z tego powodu platforma Azure rozważa użycie usługi Backup jako lepszej opcji niż tworzenie niestandardowego rozwiązania.
 
-W przypadku korzystania z magazynu geograficznie nadmiarowego dostępnego do odczytu/magazynu geograficznie nadmiarowego dla dysków migawki są automatycznie replikowane do dodatkowego centrum danych. W przypadku używania lokalnie nadmiarowego magazynu dla dysków należy samodzielnie zreplikować dane. Aby uzyskać więcej informacji, zobacz [Tworzenie kopii zapasowych dysków maszyn wirtualnych niezarządzanych przez platformę Azure przy użyciu migawek przyrostowych](~/articles/virtual-machines/windows/incremental-snapshots.md).
+W przypadku korzystania z magazynu geograficznie nadmiarowego dostępnego do odczytu/magazynu geograficznie nadmiarowego dla dysków migawki są automatycznie replikowane do dodatkowego centrum danych. W przypadku używania lokalnie nadmiarowego magazynu dla dysków należy samodzielnie zreplikować dane. Aby uzyskać więcej informacji, zobacz [Tworzenie kopii zapasowych dysków maszyn wirtualnych niezarządzanych przez platformę Azure przy użyciu migawek przyrostowych](windows/incremental-snapshots.md).
 
-Migawka to reprezentacja obiektu w określonym punkcie w czasie. Migawka wiąże się z rozliczeniem przyrostowego rozmiaru danych, które przechowuje. Aby uzyskać więcej informacji, zobacz [Tworzenie migawki obiektu BLOB](~/articles/storage/blobs/storage-blob-snapshots.md).
+Migawka to reprezentacja obiektu w określonym punkcie w czasie. Migawka wiąże się z rozliczeniem przyrostowego rozmiaru danych, które przechowuje. Aby uzyskać więcej informacji, zobacz [Tworzenie migawki obiektu BLOB](../storage/blobs/snapshots-overview.md).
 
 ### <a name="create-snapshots-while-the-vm-is-running"></a>Tworzenie migawek podczas działania maszyny wirtualnej
 
@@ -187,9 +187,9 @@ Aby uniknąć tej sytuacji, proces tworzenia kopii zapasowej musi implementować
 
 1.  Opróżnij wszystkie oczekujące zapisy.
 
-1.  [Utwórz migawkę obiektu BLOB](~/articles/storage/blobs/storage-blob-snapshots.md) dla wszystkich dysków.
+1.  [Utwórz migawkę obiektu BLOB](../storage/blobs/snapshots-manage-dotnet.md) dla wszystkich dysków.
 
-Niektóre aplikacje systemu Windows, takie jak SQL Server, zapewniają skoordynowany mechanizm tworzenia kopii zapasowych za pośrednictwem usługi woluminów w tle do tworzenia kopii zapasowych spójnych na poziomie aplikacji. W systemie Linux można użyć narzędzia, takiego jak *fsfreeze* , aby koordynować dyski. To narzędzie zapewnia kopie zapasowe spójne z plikami, ale nie migawki spójne z aplikacjami. Ten proces jest skomplikowany, dlatego należy rozważyć użycie [Azure Backup](~/articles/backup/backup-azure-vms-introduction.md) lub rozwiązania do tworzenia kopii zapasowych innych firm, które implementuje już tę procedurę.
+Niektóre aplikacje systemu Windows, takie jak SQL Server, zapewniają skoordynowany mechanizm tworzenia kopii zapasowych za pośrednictwem usługi woluminów w tle do tworzenia kopii zapasowych spójnych na poziomie aplikacji. W systemie Linux można użyć narzędzia, takiego jak *fsfreeze* , aby koordynować dyski. To narzędzie zapewnia kopie zapasowe spójne z plikami, ale nie migawki spójne z aplikacjami. Ten proces jest skomplikowany, dlatego należy rozważyć użycie [Azure Backup](../backup/backup-azure-vms-introduction.md) lub rozwiązania do tworzenia kopii zapasowych innych firm, które implementuje już tę procedurę.
 
 Poprzedni proces skutkuje kolekcją skoordynowanych migawek dla wszystkich dysków maszyn wirtualnych reprezentujących konkretny widok punktu w czasie dla maszyny wirtualnej. To jest punkt przywracania kopii zapasowej maszyny wirtualnej. Możesz powtórzyć ten proces w zaplanowanych odstępach czasu, aby utworzyć okresowe kopie zapasowe. Aby zapoznać się z procedurą kopiowania migawek do innego regionu na potrzeby odzyskiwania po awarii, zobacz [Kopiuj kopie zapasowe do innego regionu](#copy-the-snapshots-to-another-region) .
 
@@ -201,7 +201,7 @@ Kolejną opcją tworzenia spójnych kopii zapasowych jest zamknięcie maszyny wi
 
 1. Utwórz migawkę każdego obiektu BLOB wirtualnego dysku twardego, który zajmuje zaledwie kilka sekund.
 
-    Aby utworzyć migawkę, można użyć [programu PowerShell](~/articles/storage/common/storage-powershell-guide-full.md), [interfejsu API REST usługi Azure Storage](https://msdn.microsoft.com/library/azure/ee691971.aspx)lub jednej z bibliotek klienta usługi Azure Storage, takich jak [Biblioteka klienta magazynu dla platformy .NET](https://msdn.microsoft.com/library/azure/hh488361.aspx). [Azure CLI](/cli/azure/)
+    Aby utworzyć migawkę, można użyć [programu PowerShell](https://docs.microsoft.com/powershell/module/az.storage), [interfejsu API REST usługi Azure Storage](https://msdn.microsoft.com/library/azure/ee691971.aspx)lub jednej z bibliotek klienta usługi Azure Storage, takich jak [Biblioteka klienta magazynu dla platformy .NET](https://msdn.microsoft.com/library/azure/hh488361.aspx). [Azure CLI](/cli/azure/)
 
 1. Uruchom maszynę wirtualną, która skończy przestoje. Zwykle cały proces kończy się w ciągu kilku minut.
 
@@ -218,13 +218,13 @@ Jeśli używasz magazynu geograficznie nadmiarowego lub magazynu geograficznie n
 
 W przypadku korzystania z magazynu lokalnie nadmiarowego należy skopiować migawki na inne konto magazynu natychmiast po utworzeniu migawki. Celem kopiowania może być konto magazynu lokalnie nadmiarowego w innym regionie, co spowoduje, że kopia znajduje się w regionie zdalnym. Możesz również skopiować migawkę do konta magazynu geograficznie nadmiarowego do odczytu w tym samym regionie. W takim przypadku migawka jest opóźnieniem replikowana do zdalnego regionu pomocniczego. Kopia zapasowa jest chroniona przed awariami w lokacji głównej po zakończeniu kopiowania i replikacji.
 
-Aby efektywnie kopiować przyrostowe migawki na potrzeby odzyskiwania po awarii, zapoznaj się z instrukcjami zawartymi w temacie [Tworzenie kopii zapasowych dysków maszyny wirtualnej niezarządzanych przez platformę Azure](~/articles/virtual-machines/windows/incremental-snapshots.md)
+Aby efektywnie kopiować przyrostowe migawki na potrzeby odzyskiwania po awarii, zapoznaj się z instrukcjami zawartymi w temacie [Tworzenie kopii zapasowych dysków maszyny wirtualnej niezarządzanych przez platformę Azure](windows/incremental-snapshots.md)
 
 ![Tworzenie kopii zapasowych niezarządzanych dysków maszyny wirtualnej platformy Azure przy użyciu migawek przyrostowych][2]
 
 ### <a name="recovery-from-snapshots"></a>Odzyskiwanie z migawek
 
-Aby pobrać migawkę, skopiuj ją w celu utworzenia nowego obiektu BLOB. W przypadku kopiowania migawki z konta podstawowego można skopiować migawkę do podstawowego obiektu BLOB migawki. Ten proces powoduje przywrócenie dysku do migawki. Ten proces jest znany jako podwyższanie poziomu migawki. W przypadku kopiowania kopii zapasowej migawki z konta dodatkowego, w przypadku konta magazynu geograficznie nadmiarowego do odczytu, należy skopiować je na konto podstawowe. Migawkę można skopiować za [pomocą programu PowerShell](~/articles/storage/common/storage-powershell-guide-full.md) lub narzędzia AzCopy. Aby uzyskać więcej informacji, zobacz [transfer danych za pomocą narzędzia wiersza polecenia AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
+Aby pobrać migawkę, skopiuj ją w celu utworzenia nowego obiektu BLOB. W przypadku kopiowania migawki z konta podstawowego można skopiować migawkę do podstawowego obiektu BLOB migawki. Ten proces powoduje przywrócenie dysku do migawki. Ten proces jest znany jako podwyższanie poziomu migawki. W przypadku kopiowania kopii zapasowej migawki z konta dodatkowego, w przypadku konta magazynu geograficznie nadmiarowego do odczytu, należy skopiować je na konto podstawowe. Migawkę można skopiować za [pomocą programu PowerShell](https://docs.microsoft.com/powershell/module/az.storage) lub narzędzia AzCopy. Aby uzyskać więcej informacji, zobacz [transfer danych za pomocą narzędzia wiersza polecenia AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
 
 W przypadku maszyn wirtualnych z wieloma dyskami należy skopiować wszystkie migawki, które są częścią tego samego skoordynowanego punktu przywracania. Po skopiowaniu migawek do zapisywalnych obiektów BLOB wirtualnego dysku twardego można użyć obiektów BLOB do ponownego utworzenia maszyny wirtualnej przy użyciu szablonu dla maszyny wirtualnej.
 
@@ -232,7 +232,7 @@ W przypadku maszyn wirtualnych z wieloma dyskami należy skopiować wszystkie mi
 
 ### <a name="sql-server"></a>SQL Server
 
-SQL Server uruchomiony na maszynie wirtualnej ma wbudowane funkcje tworzenia kopii zapasowej bazy danych SQL Server w usłudze Azure Blob Storage lub w udziale plików. Jeśli konto magazynu jest magazynem geograficznie nadmiarowym lub magazyn Geograficznie nadmiarowy z dostępem do odczytu, możesz uzyskać dostęp do tych kopii zapasowych w dodatkowym centrum danych konta magazynu w przypadku awarii, z tymi samymi ograniczeniami, które zostały opisane wcześniej. Aby uzyskać więcej informacji, zobacz [wykonywanie kopii zapasowych i przywracanie SQL Server w usłudze Azure Virtual Machines](~/articles/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md). Oprócz tworzenia kopii zapasowych i przywracania, [SQL Server zawsze włączonych grup dostępności](~/articles/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md) mogą obsługiwać pomocnicze repliki baz danych. Ta możliwość znacznie skraca czas odzyskiwania po awarii.
+SQL Server uruchomiony na maszynie wirtualnej ma wbudowane funkcje tworzenia kopii zapasowej bazy danych SQL Server w usłudze Azure Blob Storage lub w udziale plików. Jeśli konto magazynu jest magazynem geograficznie nadmiarowym lub magazyn Geograficznie nadmiarowy z dostępem do odczytu, możesz uzyskać dostęp do tych kopii zapasowych w dodatkowym centrum danych konta magazynu w przypadku awarii, z tymi samymi ograniczeniami, które zostały opisane wcześniej. Aby uzyskać więcej informacji, zobacz [wykonywanie kopii zapasowych i przywracanie SQL Server w usłudze Azure Virtual Machines](../azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md). Oprócz tworzenia kopii zapasowych i przywracania, [SQL Server zawsze włączonych grup dostępności](../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md) mogą obsługiwać pomocnicze repliki baz danych. Ta możliwość znacznie skraca czas odzyskiwania po awarii.
 
 ## <a name="other-considerations"></a>Inne zagadnienia
 
@@ -257,11 +257,11 @@ Główną różnicą między magazynem geograficznie nadmiarowym i magazynem geo
 
 Jeśli okaże się to znaczna awaria, zespół platformy Azure może wyzwolić geograficzną pracę w trybie failover i zmienić podstawowe wpisy DNS, aby wskazywały magazyn pomocniczy. W tym momencie, jeśli masz magazyn Geograficznie nadmiarowy lub magazyn Geograficznie nadmiarowy dostępny do odczytu, możesz uzyskać dostęp do danych w regionie, który był używany jako pomocniczy. Innymi słowy, jeśli konto magazynu jest magazynem geograficznie nadmiarowym i występuje problem, można uzyskać dostęp do magazynu pomocniczego tylko wtedy, gdy istnieje geograficzna tryb failover.
 
-Aby uzyskać więcej informacji, zobacz [Co zrobić po wystąpieniu awarii usługi Azure Storage](~/articles/storage/common/storage-disaster-recovery-guidance.md).
+Aby uzyskać więcej informacji, zobacz [Co zrobić po wystąpieniu awarii usługi Azure Storage](../storage/common/storage-disaster-recovery-guidance.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [Tworzenie kopii zapasowych dysków maszyny wirtualnej niezarządzanych przez platformę Azure przy użyciu migawek przyrostowych](./linux/incremental-snapshots.md).
+Zobacz [Tworzenie kopii zapasowych dysków maszyny wirtualnej niezarządzanych przez platformę Azure przy użyciu migawek przyrostowych](linux/incremental-snapshots.md).
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png

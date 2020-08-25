@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: 77ec999d63175f63c1de6e31fdb3f72c963d228c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82024476"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Samouczek: Tworzenie aplikacji do monitorowania jakości wody na platformie Azure IoT Central
@@ -231,7 +231,7 @@ Za pomocą zadań IoT Central platformy Azure można wyzwolić aktualizacje wła
 
 Jako Konstruktor można zmienić kilka ustawień, aby dostosować środowisko użytkownika w aplikacji.
 
-1. Wybierz pozycję **Administracja** > **Dostosuj aplikację**.
+1. Wybierz pozycję **Administracja**  >  **Dostosuj aplikację**.
 1. W obszarze **logo aplikacji**wybierz pozycję **Zmień** , aby wybrać obraz do przekazania jako logo.
 1. W obszarze **ikona przeglądarki**wybierz pozycję **Zmień** , aby wybrać obraz wyświetlany na kartach przeglądarki.
 1. W obszarze **kolory przeglądarki**można zastąpić wartości domyślne kodami szesnastkowymi w formacie HTML.
@@ -241,11 +241,11 @@ Jako Konstruktor można zmienić kilka ustawień, aby dostosować środowisko u�
 
 ### <a name="update-the-application-image"></a>Aktualizowanie obrazu aplikacji
 
-1. Wybierz pozycję**Ustawienia aplikacji** **administracyjnej** > .
+1. Wybierz **Administration**pozycję  >  **Ustawienia aplikacji**administracyjnej.
 
 1. Użyj przycisku **Wybierz obraz** , aby wybrać obraz do przekazania jako obraz aplikacji.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz nadal korzystać z aplikacji, Usuń aplikację, wykonując następujące czynności:
 

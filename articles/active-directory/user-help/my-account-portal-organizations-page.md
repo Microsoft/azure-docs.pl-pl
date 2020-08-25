@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: bd8b8deed2afafc22e99ac15f2bcffdf65af83c4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: bb0f0b93f3890a06f4ecbdc6cf39a173ea048940
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422451"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798180"
 ---
 # <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Zarządzaj połączonymi organizacjami ze strony organizacji
 
@@ -30,7 +30,7 @@ Strona **organizacje** w portalu **My Account** ułatwia zarządzanie organizacj
 - **Inne organizacje.** Inne organizacje to wszystkie grupy, do których użytkownik zalogował się wcześniej przy użyciu konta służbowego. W każdej chwili możesz opuścić każdą z tych organizacji.
 
 >[!Important]
->Ten artykuł jest przeznaczony dla użytkowników próbujących zaktualizować informacje o organizacji połączone z kontem służbowym. Jeśli jesteś administratorem, który szuka informacji o zarządzaniu grupami i użytkownikami dla pracowników i innych użycia, zobacz [dokumentację dotyczącą zarządzania użytkownikami przedsiębiorstwa](https://docs.microsoft.com/azure/active-directory/users-groups-roles/index).
+>Ten artykuł jest przeznaczony dla użytkowników próbujących zaktualizować informacje o organizacji połączone z kontem służbowym. Jeśli jesteś administratorem, który szuka informacji o zarządzaniu grupami i użytkownikami dla pracowników i innych użycia, zobacz [dokumentację dotyczącą zarządzania użytkownikami przedsiębiorstwa](../users-groups-roles/index.yml).
 
 ## <a name="view-your-organizations"></a>Wyświetlanie organizacji
 
@@ -61,7 +61,7 @@ Możesz opuścić każdą organizację, która nie jest Twoją organizacją domo
 
 Po przejrzeniu organizacji można:
 
-- Wyświetl [informacje zabezpieczające](user-help-security-info-overview.md)lub zarządzaj nimi.
+- Wyświetl [informacje zabezpieczające](./security-info-setup-signin.md)lub zarządzaj nimi.
 
 - Wyświetl podłączone [urządzenia](my-account-portal-devices-page.md)lub zarządzaj nimi.
 

@@ -12,17 +12,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fd9eff90f144909b9746e85a9c42aae2fdf02ed6
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86146809"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Pilotażowa aprowizacja w chmurze dla istniejącego zsynchronizowanego lasu usługi AD 
 
 Ten samouczek przeprowadzi Cię przez pilotażowe Inicjowanie obsługi administracyjnej chmury dla Active Directory lasu testowego, która jest już synchronizowana przy użyciu usługi Azure Active Directory (Azure AD) Connect Sync.
 
-![Tworzenie](media/tutorial-migrate-aadc-aadccp/diagram.png)
+![Utwórz](media/tutorial-migrate-aadc-aadccp/diagram.png)
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 Przed podjęciem próby wykonania tego samouczka należy wziąć pod uwagę następujące elementy:
@@ -118,7 +118,7 @@ Należy wykonać te same czynności dla wszystkich typów obiektów (użytkownik
 Należy wykonać te same czynności dla wszystkich typów obiektów (użytkownik, Grupa i kontakt).
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Zainstaluj agenta aprowizacji Azure AD Connect
-1. Zaloguj się na serwerze, który będzie używany z uprawnieniami administratora przedsiębiorstwa.  Jeśli używasz podstawowego samouczka [środowiska usług AD i Azure](tutorial-basic-ad-azure.md) , będzie on CP1.
+1. Zaloguj się na serwerze, który będzie używany z uprawnieniami administratora przedsiębiorstwa.  Jeśli używasz podstawowego samouczka  [środowiska usług AD i Azure](tutorial-basic-ad-azure.md) , będzie on CP1.
 2. Pobierz Azure AD Connect agenta aprowizacji w chmurze, wykonując kroki opisane [tutaj](how-to-install.md#install-the-agent).
 3. Uruchamianie Azure AD Connect aprowizacji w chmurze (AADConnectProvisioningAgent. Installer)
 3. Na ekranie powitalnym **Zaakceptuj** postanowienia licencyjne, a następnie kliknij przycisk **Instaluj**.</br>
@@ -141,7 +141,7 @@ Weryfikacja agenta odbywa się w Azure Portal i na serwerze lokalnym, na którym
 ### <a name="azure-portal-agent-verification"></a>Weryfikacja agenta Azure Portal
 Aby sprawdzić, czy Agent jest widziany przez platformę Azure, wykonaj następujące kroki:
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 2. Po lewej stronie wybierz pozycję **Azure Active Directory**, kliknij pozycję **Azure AD Connect** i w centrum wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.</br>
 ![Azure Portal](media/how-to-install/install6.png)</br>
 

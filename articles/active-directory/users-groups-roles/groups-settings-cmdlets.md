@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58fc6726811ac01b585dd51b2086966f7a3f7c51
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 63f0c55823899be8eb4146860787aede2cd2d6b5
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213587"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797908"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Polecenia cmdlet usługi Azure Active Directory służące do konfigurowania ustawień grupy
 
@@ -28,11 +28,11 @@ Ten artykuł zawiera instrukcje dotyczące używania poleceń cmdlet programu Po
 > [!IMPORTANT]
 > Niektóre ustawienia wymagają licencji na Azure Active Directory — wersja Premium P1. Aby uzyskać więcej informacji, zobacz tabela [ustawień szablonu](#template-settings) .
 
-Aby uzyskać więcej informacji na temat zapobiegania tworzeniu grup zabezpieczeń przez użytkowników niebędących administratorami, ustaw  `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` zgodnie z opisem w [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
+Aby uzyskać więcej informacji na temat zapobiegania tworzeniu grup zabezpieczeń przez użytkowników niebędących administratorami, ustaw  `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` zgodnie z opisem w [Set-MSOLCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
 Ustawienia grup Microsoft 365 są konfigurowane przy użyciu obiektu Settings i obiektu SettingsTemplate. Początkowo nie widzisz żadnych obiektów Settings w katalogu, ponieważ katalog jest skonfigurowany z ustawieniami domyślnymi. Aby zmienić ustawienia domyślne, należy utworzyć nowy obiekt ustawień przy użyciu szablonu ustawień. Szablony ustawień są definiowane przez firmę Microsoft. Istnieje kilka różnych szablonów ustawień. Aby skonfigurować ustawienia grupy Microsoft 365 dla katalogu, należy użyć szablonu o nazwie "Group. Unified". Aby skonfigurować ustawienia grupy Microsoft 365 dla pojedynczej grupy, użyj szablonu o nazwie "Group. Unified. Guest". Ten szablon służy do zarządzania dostępem gościa do grupy Microsoft 365. 
 
-Polecenia cmdlet są częścią modułu Azure Active Directory PowerShell V2. Aby uzyskać instrukcje dotyczące pobierania i instalowania modułu na komputerze, zapoznaj się z artykułem [Azure Active Directory programu PowerShell w wersji 2](https://docs.microsoft.com/powershell/azure/active-directory/overview). Wersję 2 modułu można zainstalować z [Galerii programu PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
+Polecenia cmdlet są częścią modułu Azure Active Directory PowerShell V2. Aby uzyskać instrukcje dotyczące pobierania i instalowania modułu na komputerze, zapoznaj się z artykułem [Azure Active Directory programu PowerShell w wersji 2](/powershell/azure/active-directory/overview). Wersję 2 modułu można zainstalować z [Galerii programu PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="install-powershell-cmdlets"></a>Instalowanie poleceń cmdlet programu PowerShell
 

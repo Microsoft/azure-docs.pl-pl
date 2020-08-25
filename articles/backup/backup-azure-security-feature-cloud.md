@@ -3,12 +3,12 @@ title: Usuwanie nietrwałe dla Azure Backup
 description: Dowiedz się, jak używać funkcji zabezpieczeń w programie Azure Backup, aby tworzyć kopie zapasowe bardziej bezpieczne.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 79df345858d89d032b826a0fa8b677195a785df2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b3ccd944ce1f6a30b4441c205a83e71374e7aff2
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538840"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763443"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Usuwanie nietrwałe dla Azure Backup
 
@@ -136,7 +136,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 Jeśli elementy zostały usunięte przed wyłączeniem usuwania nietrwałego, zostaną one w stanie nieusuniętym. Aby natychmiast je usunąć, operacja usuwania musi zostać cofnięta, a następnie wykonana ponownie.
 
-1. Najpierw Cofnij operacje usuwania, wykonując kroki opisane [tutaj](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
+1. Najpierw Cofnij operacje usuwania, wykonując kroki opisane [tutaj](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
 2. Następnie wyłącz funkcje usuwania nietrwałego za pomocą interfejsu API REST, wykonując kroki opisane [tutaj](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
 3. Następnie usuń kopie zapasowe przy użyciu interfejsu API REST, jak wspomniano [tutaj](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
 
@@ -144,7 +144,7 @@ Jeśli elementy zostały usunięte przed wyłączeniem usuwania nietrwałego, zo
 
 ### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>Czy muszę włączyć funkcję usuwania nietrwałego dla każdego magazynu?
 
-Nie. jest ona domyślnie wbudowana i włączona dla wszystkich magazynów usługi Recovery Services.
+Nie. jest ona domyślnie wbudowana i włączona dla wszystkich magazynów Recovery Services.
 
 ### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-the-delete-operation-is-complete"></a>Czy można skonfigurować liczbę dni, przez jaką dane będą przechowywane w stanie nieusuniętym, po zakończeniu operacji usuwania?
 

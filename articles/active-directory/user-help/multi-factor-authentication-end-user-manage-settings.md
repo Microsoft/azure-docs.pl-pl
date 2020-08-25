@@ -12,12 +12,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/06/2020
 ms.author: curtand
-ms.openlocfilehash: 259468d0d3b04b354e782529cefa2149974c9ca0
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: e0a6c566e8e0dfb77b5899f735020d0f1facf3d1
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983309"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798384"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>Zmiana metody i ustawień weryfikacji dwuskładnikowej
 
@@ -31,10 +31,10 @@ Po skonfigurowaniu metod weryfikacji zabezpieczeń dla konta służbowego możes
 
 ## <a name="using-the-additional-security-verification-page"></a>Korzystanie ze strony dodatkowej weryfikacji zabezpieczeń
 
-Jeśli Twoja organizacja dostarczyła konkretne kroki dotyczące włączania weryfikacji dwuskładnikowej i zarządzania nią, należy najpierw wykonać te instrukcje. W przeciwnym razie możesz przejść do ustawień metody weryfikacji zabezpieczeń na stronie [dodatkowej weryfikacji zabezpieczeń](https://docs.microsoft.com/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time) .
+Jeśli Twoja organizacja dostarczyła konkretne kroki dotyczące włączania weryfikacji dwuskładnikowej i zarządzania nią, należy najpierw wykonać te instrukcje. W przeciwnym razie możesz przejść do ustawień metody weryfikacji zabezpieczeń na stronie [dodatkowej weryfikacji zabezpieczeń](./multi-factor-authentication-end-user-first-time.md) .
 
 >[!Note]
->Jeśli dane wyświetlane na ekranie nie są zgodne z tym, co zostało omówione w tym artykule, oznacza to, że administrator włączył środowisko **informacje zabezpieczające (wersja zapoznawcza)** lub że Twoja organizacja dostarczyła własny portal niestandardowy. Aby uzyskać więcej informacji na temat nowego środowiska informacji zabezpieczających, zobacz [informacje zabezpieczające (wersja zapoznawcza) — Omówienie](user-help-security-info-overview.md). Aby uzyskać więcej informacji na temat portalu niestandardowego w organizacji, należy skontaktować się z działem pomocy technicznej w organizacji.
+>Jeśli dane wyświetlane na ekranie nie są zgodne z tym, co zostało omówione w tym artykule, oznacza to, że administrator włączył środowisko **informacje zabezpieczające (wersja zapoznawcza)** lub że Twoja organizacja dostarczyła własny portal niestandardowy. Aby uzyskać więcej informacji na temat nowego środowiska informacji zabezpieczających, zobacz [informacje zabezpieczające (wersja zapoznawcza) — Omówienie](./security-info-setup-signin.md). Aby uzyskać więcej informacji na temat portalu niestandardowego w organizacji, należy skontaktować się z działem pomocy technicznej w organizacji.
 
 ### <a name="to-get-to-the-additional-security-verification-page"></a>Aby przejść do strony dodatkowej weryfikacji zabezpieczeń
 

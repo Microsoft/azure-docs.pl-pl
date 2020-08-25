@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 0a24339d728c43817b6a7ae6eac8782ad0e27b09
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 46568bf3969d050fd964c85278debd9d599db266
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142523"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796565"
 ---
 # <a name="features"></a>Funkcje
 
@@ -21,13 +21,13 @@ Interfejs API platformy Azure dla usługi FHIR zapewnia w pełni zarządzane wdr
 
 ## <a name="fhir-version"></a>Wersja FHIR
 
-Najnowsza obsługiwana wersja:`4.0.1`
+Najnowsza obsługiwana wersja: `4.0.1`
 
-Obecnie obsługiwane są również poprzednie wersje:`3.0.2`
+Obecnie obsługiwane są również poprzednie wersje: `3.0.2`
 
 ## <a name="rest-api"></a>Interfejs API REST
 
-| Interfejs API                            | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — OSS (Cosmos DB) | Komentarz                                             |
+| interfejs API                            | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — OSS (Cosmos DB) | Komentarz                                             |
 |--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
 | przeczytaj                           | Tak       | Tak       | Tak       |                                                     |
 | vread                          | Tak       | Tak       | Tak       |                                                     |
@@ -46,10 +46,10 @@ Obecnie obsługiwane są również poprzednie wersje:`3.0.2`
 | partia                          | Tak       | Tak       | Tak       |                                                     |
 | Transaction                    | Nie        | Tak       | Nie        |                                                     |
 | historia                        | Tak       | Tak       | Tak       |                                                     |
-| stronicowania                         | Częściowe   | Częściowe   | Częściowe   | `self`i `next` są obsługiwane                     |
+| stronicowania                         | Częściowe   | Częściowe   | Częściowe   | `self` i `next` są obsługiwane                     |
 | pośredników                 | Nie        | Nie        | Nie        |                                                     |
 
-## <a name="search"></a>Wyszukiwanie
+## <a name="search"></a>Wyszukaj
 
 Wszystkie typy parametrów wyszukiwania są obsługiwane. 
 
@@ -61,7 +61,7 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 | Token                 | Tak       | Tak       | Tak       |         |
 | Dokumentacja             | Tak       | Tak       | Tak       |         |
 | Złożenie             | Tak       | Tak       | Tak       |         |
-| Liczba              | Tak       | Tak       | Tak       |         |
+| Ilość              | Tak       | Tak       | Tak       |         |
 | URI                   | Tak       | Tak       | Tak       |         |
 | Jako               | Nie        | Nie        | Nie        |         |
 
@@ -72,14 +72,14 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 |`:exact`               | Tak       | Tak       | Tak       |         |
 |`:contains`            | Tak       | Tak       | Tak       |         |
 |`:text`                | Tak       | Tak       | Tak       |         |
-|`:in`klucza          | Nie        | Nie        | Nie        |         |
-|`:below`klucza       | Nie        | Nie        | Nie        |         |
-|`:above`klucza       | Nie        | Nie        | Nie        |         |
-|`:not-in`klucza      | Nie        | Nie        | Nie        |         |
-|`:[type]`odwoła  | Nie        | Nie        | Nie        |         |
-|`:below`adresu         | Tak       | Tak       | Tak       |         |
+|`:in` klucza          | Nie        | Nie        | Nie        |         |
+|`:below` klucza       | Nie        | Nie        | Nie        |         |
+|`:above` klucza       | Nie        | Nie        | Nie        |         |
+|`:not-in` klucza      | Nie        | Nie        | Nie        |         |
+|`:[type]` odwoła  | Nie        | Nie        | Nie        |         |
+|`:below` adresu         | Tak       | Tak       | Tak       |         |
 |`:not`                 | Nie        | Nie        | Nie        |         |
-|`:above`adresu         | Nie        | Nie        | Nie        | [#158](https://github.com/Microsoft/fhir-server/issues/158) problemu |
+|`:above` adresu         | Nie        | Nie        | Nie        | [#158](https://github.com/Microsoft/fhir-server/issues/158) problemu |
 
 | Typowy parametr wyszukiwania | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — OSS (Cosmos DB) | Komentarz |
 |-------------------------| ----------| ----------| ----------|---------|
@@ -90,7 +90,7 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 | `_security`             | Tak       | Tak       | Tak       |         |
 | `_text`                 | Nie        | Nie        | Nie        |         |
 | `_content`              | Nie        | Nie        | Nie        |         |
-| `_list`                 | Nie        | Tak       | Tak       |         |
+| `_list`                 | Tak       | Tak       | Tak       |         |
 | `_has`                  | Nie        | Nie        | Nie        |         |
 | `_type`                 | Tak       | Tak       | Tak       |         |
 | `_query`                | Nie        | Nie        | Nie        |         |
@@ -101,7 +101,7 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 | `_sort`                 | Nie        | Nie        | Nie        |         |
 | `_score`                | Nie        | Nie        | Nie        |         |
 | `_count`                | Tak       | Tak       | Tak       |         |
-| `_summary`              | Częściowe   | Częściowe   | Częściowe   | `_summary=count`jest obsługiwana |
+| `_summary`              | Częściowe   | Częściowe   | Częściowe   | `_summary=count` jest obsługiwana |
 | `_include`              | Nie        | Tak       | Nie        |         |
 | `_revinclude`           | Nie        | Tak       | Nie        | Uwzględnione elementy są ograniczone do 100. |
 | `_contained`            | Nie        | Nie        | Nie        |         |

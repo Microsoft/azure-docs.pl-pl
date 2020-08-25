@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0aa9a9728c3a59b6f47ef1427cbcd368d4f1e77c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 0c81f88821d841002ef2489c727071e9629da9e1
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586175"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750779"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Zapewnianie uwierzytelniania Key Vault przy użyciu tożsamości zarządzanej
 
@@ -114,6 +114,6 @@ az keyvault set-policy --name myKeyVault --object-id <PrincipalId> --secret-perm
 
 - [Zabezpieczenia Azure Key Vault: Zarządzanie tożsamościami i dostępem](overview-security.md#identity-and-access-management)
 - [Zapewnianie uwierzytelniania Key Vault przy użyciu zasad kontroli dostępu](group-permissions-for-apps.md)
-- [Zabezpiecz swój magazyn kluczy](secure-your-key-vault.md)).
+- [Zabezpiecz swój magazyn kluczy](secure-your-key-vault.md).
 - [Przewodnik dewelopera Azure Key Vault](developers-guide.md)
 - Przegląd [Azure Key Vault najlepszych](best-practices.md) rozwiązań

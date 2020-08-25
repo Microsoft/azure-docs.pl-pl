@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85b457b4aefee408e35fb89d46e0de0dc4e96740
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: f5c44f72021fa46352ae6ded8fe671ea4f1a4d60
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213863"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797177"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Utwórz lub Zaktualizuj grupę dynamiczną w Azure Active Directory
 
@@ -80,7 +80,7 @@ Jeśli wprowadzona reguła jest nieprawidłowa, wyjaśnienie, dlaczego nie możn
 
 ## <a name="turn-on-or-off-welcome-email"></a>Włączanie lub wyłączanie powitalnej poczty e-mail
 
-Po utworzeniu nowej grupy Microsoft 365 zostanie wysłane powiadomienie powitalnej poczty e-mail użytkowników, którzy zostaną dodani do grupy. Później, jeśli jakiekolwiek atrybuty użytkownika lub urządzenia zostaną zmienione, wszystkie reguły grupy dynamicznej w organizacji są przetwarzane pod kątem zmian członkostwa. Dodani użytkownicy otrzymują również powiadomienie powitalne. To zachowanie można wyłączyć w programie [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
+Po utworzeniu nowej grupy Microsoft 365 zostanie wysłane powiadomienie powitalnej poczty e-mail użytkowników, którzy zostaną dodani do grupy. Później, jeśli jakiekolwiek atrybuty użytkownika lub urządzenia zostaną zmienione, wszystkie reguły grupy dynamicznej w organizacji są przetwarzane pod kątem zmian członkostwa. Dodani użytkownicy otrzymują również powiadomienie powitalne. To zachowanie można wyłączyć w programie [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
 
 ## <a name="check-processing-status-for-a-rule"></a>Sprawdzanie stanu przetwarzania dla reguły
 

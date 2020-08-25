@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 03/13/2020
 ms.author: kumud
 ms.openlocfilehash: d630a41f9b83a852605ffad2a85ad6dd14bbac73
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86079653"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Samouczek: kierowanie ruchem sieciowym za pomocą tabeli tras z użyciem witryny Azure Portal
@@ -40,7 +40,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Wirtualne urządzenia sieciowe (urządzeń WUS) są maszynami wirtualnymi, które ułatwiają funkcje sieciowe, takie jak optymalizacja routingu i zapory. W tym samouczku założono, że używasz systemu **Windows Server 2016 Datacenter**. Możesz wybrać inny system operacyjny.
 
-1. W menu [Azure Portal](https://portal.azure.com) lub na stronie **głównej** wybierz pozycję **Utwórz zasób**.
+1. W menu witryny [Azure Portal](https://portal.azure.com) lub na **stronie głównej** wybierz pozycję **Utwórz zasób**.
 
 1. Wybierz pozycję **zabezpieczenia**  >  **systemu Windows Server 2016 Datacenter**.
 
@@ -53,7 +53,7 @@ Wirtualne urządzenia sieciowe (urządzeń WUS) są maszynami wirtualnymi, któr
     | **Szczegóły projektu** | Subskrypcja | Wybierz subskrypcję. |
     | | Grupa zasobów | Wybierz pozycję **Utwórz nową**, wprowadź nazwę *myResourceGroup*, a następnie wybierz przycisk **OK**. |
     | **Szczegóły wystąpienia** | Nazwa maszyny wirtualnej | Wpisz *myVmNva*. |
-    | | Region | Wybierz pozycję **(US) Wschodnie stany USA**. |
+    | | Region (Region) | Wybierz pozycję **(US) Wschodnie stany USA**. |
     | | Opcje dostępności | Wybierz opcję **Brak wymaganej nadmiarowości infrastruktury**. |
     | | Obraz | Wybierz pozycję **Windows Server 2016 Datacenter**. |
     | | Rozmiar | Zachowaj domyślny **Standard DS1 v2**. |
@@ -103,12 +103,12 @@ Wirtualne urządzenia sieciowe (urządzeń WUS) są maszynami wirtualnymi, któr
         | ------- | ----- |
         | Nazwa | *mynvastorageaccount* |
         | Rodzaj konta | **Storage (ogólnego przeznaczenia w wersji 1)** |
-        | Wydajność | **Standardowa (Standard)** |
+        | Wydajność | **Standardowa** |
         | Replikacja | **Magazyn lokalnie nadmiarowy (LRS)** |
     
     1. Wybierz **przycisk OK** , aby zamknąć okno dialogowe.
 
-    1. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przekierowanie do strony **Recenzja + tworzenie** , a platforma Azure zweryfikuje konfigurację.
+    1. Wybierz pozycję **Przejrzyj i utwórz**. Nastąpi przekierowanie do strony **Recenzja + tworzenie** , a platforma Azure zweryfikuje konfigurację.
 
 1. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**.
 
@@ -118,7 +118,7 @@ Wirtualne urządzenia sieciowe (urządzeń WUS) są maszynami wirtualnymi, któr
 
 ## <a name="create-a-route-table"></a>Tworzenie tabeli tras
 
-1. W menu [Azure Portal](https://portal.azure.com) lub na stronie **głównej** wybierz pozycję **Utwórz zasób**.
+1. W menu witryny [Azure Portal](https://portal.azure.com) lub na **stronie głównej** wybierz pozycję **Utwórz zasób**.
 
 2. W polu wyszukiwania wprowadź *tabelę tras*. Gdy **tabela tras** zostanie wyświetlona w wynikach wyszukiwania, wybierz ją.
 
@@ -136,7 +136,7 @@ Wirtualne urządzenia sieciowe (urządzeń WUS) są maszynami wirtualnymi, któr
 
     ![Tworzenie tabeli tras, Azure Portal](./media/tutorial-create-route-table-portal/create-route-table.png)
 
-5. Wybierz pozycję **Utwórz**.
+5. Wybierz przycisk **Utwórz**.
 
 ## <a name="create-a-route"></a>Tworzenie trasy
 
@@ -154,10 +154,10 @@ Wirtualne urządzenia sieciowe (urządzeń WUS) są maszynami wirtualnymi, któr
     | ------- | ----- |
     | Nazwa trasy | *ToPrivateSubnet* |
     | Prefiks adresu | *10.0.1.0/24* (zakres adresów podsieci *prywatnej* utworzonej wcześniej) |
-    | Typ następnego skoku | **Urządzenie wirtualne** |
+    | Typ następnego przeskoku | **Urządzenie wirtualne** |
     | Adres następnego skoku | *10.0.2.4* (adres w zakresie adresów podsieci *DMZ* ) |
 
-1. Kliknij przycisk **OK**.
+1. Kliknij **OK**.
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Kojarzenie tabeli tras z podsiecią
 
@@ -205,11 +205,11 @@ Przed wybraniem pozycji **Utwórz** , aby utworzyć publiczną lub PRYWATNą mas
 
 | Tab | Ustawienie | Wartość |
 | --- | ------- | ----- |
-| Informacje podstawowe | Grupa zasobów | **myResourceGroup** |
+| Podstawy | Grupa zasobów | **myResourceGroup** |
 | | Nazwa maszyny wirtualnej | *myVmPublic* |
 | | Publiczne porty wejściowe | **Zezwalaj na wybrane porty** |
 | | Wybierz porty wejściowe | **RDP** |
-| Sieć | Sieć wirtualna | **myVirtualNetwork** |
+| Networking | Sieć wirtualna | **myVirtualNetwork** |
 | | Podsieć | **Public (10.0.0.0/24)** |
 | | Publiczny adres IP | Wartość domyślna |
 | Zarządzanie | Konto magazynu diagnostyki | **mynvastorageaccount** |
@@ -218,11 +218,11 @@ Przed wybraniem pozycji **Utwórz** , aby utworzyć publiczną lub PRYWATNą mas
 
 | Tab | Ustawienie | Wartość |
 | --- | ------- | ----- |
-| Informacje podstawowe | Grupa zasobów | **myResourceGroup** |
+| Podstawy | Grupa zasobów | **myResourceGroup** |
 | | Nazwa maszyny wirtualnej | *myVmPrivate* |
 | | Publiczne porty wejściowe | **Zezwalaj na wybrane porty** |
 | | Wybierz porty wejściowe | **RDP** |
-| Sieć | Sieć wirtualna | **myVirtualNetwork** |
+| Networking | Sieć wirtualna | **myVirtualNetwork** |
 | | Podsieć | **Prywatny (10.0.1.0/24)** |
 | | Publiczny adres IP | Wartość domyślna |
 | Zarządzanie | Konto magazynu diagnostyki | **mynvastorageaccount** |
@@ -241,7 +241,7 @@ Przed wybraniem pozycji **Utwórz** , aby utworzyć publiczną lub PRYWATNą mas
 
 1. Otwórz pobrany plik *rdp*. Po wyświetleniu monitu wybierz pozycję **Połącz**. Wybierz opcję **więcej opcji**  >  ,**Użyj innego konta**, a następnie wprowadź nazwę użytkownika i hasło określone podczas tworzenia prywatnej maszyny wirtualnej.
 
-1. Kliknij przycisk **OK**.
+1. Kliknij **OK**.
 
 1. Jeśli podczas logowania zostanie wyświetlone ostrzeżenie dotyczące certyfikatu, wybierz pozycję **tak** , aby nawiązać połączenie z maszyną wirtualną.
 
@@ -339,7 +339,7 @@ Najpierw przetestuj routing ruchu sieciowego z maszyny wirtualnej *myVmPublic* d
 
 1. Zamknij sesję pulpitu zdalnego dla maszyny wirtualnej *myVmPrivate*.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli grupa zasobów nie jest już wymagana, Usuń grupę *zasobów* i wszystkie jej zasoby:
 

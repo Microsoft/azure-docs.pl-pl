@@ -1,20 +1,21 @@
 ---
 title: Sztuczna inteligencja
-description: LUIS używa sztucznej analizy w celu zapewnienia interpretacji języka dla danych w oparciu o zdefiniowany schemat.
+description: LUIS korzysta z sztucznej analizy (AI) w celu zapewnienia interpretacji języka dla danych w oparciu o zdefiniowany schemat.
 ms.topic: conceptual
-ms.date: 06/29/2020
-ms.openlocfilehash: 4f145585e097a3cf6a2338dbab879f6fce07f71d
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.date: 08/07/2020
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: bdcede01ec6bab5f8b43d89ff40d588a011d5dfb
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85802659"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751345"
 ---
 # <a name="artificial-intelligence-in-language-understanding-luis"></a>Sztuczna inteligencja w Language Understanding (LUIS)
 
-LUIS korzysta ze sztucznej analizy, aby zapewnić firmie interpretacji języka naturalnego (NLU) dane na podstawie zdefiniowanego schematu.
+LUIS używa sztucznej analizy (AI) do zapewniania informacji o języku naturalnym (NLU) w oparciu o zdefiniowany schemat.
 
-## <a name="natural-language-processing"></a>Przetwarzanie języka naturalnego
+## <a name="natural-language-processing-nlp"></a>Przetwarzanie języka naturalnego (NLP)
 
 Naturalne Language Understanding (NLU) to konkretny podtemat przetwarzania języka naturalnego (NLP).
 
@@ -25,20 +26,20 @@ Przetwarzanie języka naturalnego to szersze koncepcje, które obsługują jaką
 * Segmentacja
 * Analiza morfologiczna
 * Podobieństwo semantyczne
-* Trwa odprowadzenie
+* Rozmowa
 * Tłumaczenie
 
 ## <a name="natural-language-processing-in-luis"></a>Przetwarzanie języka naturalnego w LUIS
 
 Przetwarzanie języka naturalnego jest dostępne dla aplikacji LUIS w następujący sposób:
-* [Interpretacja języka naturalnego](#natural-language-understanding) (Luis)
+* [Interpretacja języka naturalnego](#natural-language-processing-nlp) (Luis)
 * Konfigurowalne aspekty NLP w LUIS:
     * [Tokenizacji](luis-language-support.md#tokenization)
     * Morfologia za poorednictwem znaków diakrytycznych, interpunkcji i [ustawień interfejsu API](luis-reference-application-settings.md) formularzy programu Word
 * Wstępne lub końcowe przetwarzanie zapytania wypowiedź dostarczone przez inne [Cognitive Services](../Welcome.md) takie jak:
     * [Tłumaczenie](../translator/translator-info-overview.md)
 
-## <a name="natural-language-understanding"></a>Interpretacja języka naturalnego
+## <a name="natural-language-understanding-nlu"></a>Interpretacja języka naturalnego (NLU)
 
 NLU to możliwość _przekształcenia_ języka w reprezentację, która umożliwia w naturalny sposób zrozumienie Twoich użytkowników. Interpretacja języka naturalnego pozostaje bardzo trudne i jest definiowana jako problem z _systemem AI_ .
 

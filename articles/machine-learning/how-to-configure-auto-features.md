@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: a5eb24b5420431a43afa2ffd006ac821f0e907c9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: e5ed84c6daaf01deb67d39bd13de1498dca131c5
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185761"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750868"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Cechowania w zautomatyzowanym uczeniu maszynowym
 
@@ -108,7 +108,7 @@ Guardrail|Stan|Warunek &nbsp; dla &nbsp; wyzwalacza
 **Brak przypisywania wartości funkcji** |Przeniesione <br><br><br> Gotowe| Nie wykryto żadnych wartości funkcji w danych szkoleniowych. Dowiedz się więcej o [przypisywaniu brakujących wartości.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> W danych szkoleniowych wykryto brakujące wartości funkcji i zostały one przypisane.
 **Obsługa funkcji wysokiej kardynalności** |Przeniesione <br><br><br> Gotowe| Dane wejściowe zostały przeanalizowane i nie wykryto żadnych funkcji wysokiej kardynalności. <br><br> W danych wejściowych wykryto funkcje wysokiej kardynalności i zostały obsłużone.
 **Obsługa podziału walidacji** |Gotowe| Konfiguracja sprawdzania poprawności została ustawiona na `'auto'` , a dane szkoleniowe zawierają *mniej niż 20 000 wierszy*. <br> Każda iteracja przeszkolonego modelu została zweryfikowana za pomocą weryfikacji krzyżowej. Dowiedz się więcej o [danych sprawdzania poprawności](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data). <br><br> Konfiguracja walidacji została ustawiona na `'auto'` , a dane szkoleniowe zawierały *więcej niż 20 000 wierszy*. <br> Dane wejściowe zostały podzielone na zestaw danych szkoleniowych i zestaw danych walidacji w celu sprawdzenia poprawności modelu.
-**Wykrywanie równoważenia klasy** |Przeniesione <br><br>Alerty <br><br>Gotowe | Dane wejściowe zostały przeanalizowane i wszystkie klasy są zrównoważone w danych szkoleniowych. Zestaw danych jest uznawany za zrównoważony, jeśli każda klasa ma dobrą reprezentację w zestawie danych, zgodnie z liczbą i stosunkiem próbek. <br><br><br> Wykryto niezrównoważone klasy w danych wejściowych. Aby naprawić odchylenia modelu, napraw problem z równoważeniem. Dowiedz się więcej o [niezrównoważonych danych](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).<br><br><br> W danych wejściowych wykryto niezrównoważone klasy, a logika czyszczenia została określona w celu zastosowania równoważenia.
+**Wykrywanie równoważenia klasy** |Przeniesione <br><br><br><br>Alerty <br><br><br>Gotowe | Dane wejściowe zostały przeanalizowane i wszystkie klasy są zrównoważone w danych szkoleniowych. Zestaw danych jest uznawany za zrównoważony, jeśli każda klasa ma dobrą reprezentację w zestawie danych, zgodnie z liczbą i stosunkiem próbek. <br><br> Wykryto niezrównoważone klasy w danych wejściowych. Aby naprawić odchylenia modelu, napraw problem z równoważeniem. Dowiedz się więcej o [niezrównoważonych danych](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).<br><br> W danych wejściowych wykryto niezrównoważone klasy, a logika czyszczenia została określona w celu zastosowania równoważenia.
 **Wykrywanie problemów z pamięcią** |Przeniesione <br><br><br><br> Gotowe |<br> Przeanalizowane wybrane wartości (horyzont, zwłoka, stopniowe okno) i nie wykryto problemów braku pamięci. Dowiedz się więcej na temat [konfiguracji prognozowania](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment)szeregów czasowych. <br><br><br>Przeanalizowane zostały wybrane wartości (horyzont, zwłoka, stopniowe okno) i może to spowodować brak pamięci przez eksperyment. Konfiguracje opóźnienia lub przedziału czasu zostały wyłączone.
 **Wykrywanie częstotliwości** |Przeniesione <br><br><br><br> Gotowe |<br> Przeanalizowane serie czasowe, a wszystkie punkty danych są wyrównane z wykrytą częstotliwością. <br> <br> Wykryto punkty danych, które nie są wyrównane z wykrytą częstotliwością. Te punkty danych zostały usunięte z zestawu danych. Dowiedz się więcej o [przygotowaniu danych na potrzeby prognozowania szeregów czasowych](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data).
 
@@ -312,7 +312,7 @@ W przypadku BERT model jest dostrojony i szkolony przy użyciu etykiet dostarczo
 
 ### <a name="bert-steps"></a>BERT kroki
 
-Aby wywoływać BERT, należy ustawić `enable_dnn: True` w automl_settings i użyć obliczeń procesora GPU (np. `vm_size = "STANDARD_NC6"` lub większego procesora GPU). Jeśli jest używane obliczenie procesora CPU, a nie BERT, AutoML włącza BiLSTM DNN featurized.
+Aby wywoływać BERT, należy ustawić  `enable_dnn: True` w automl_settings i użyć obliczeń procesora GPU (np. `vm_size = "STANDARD_NC6"` lub większego procesora GPU). Jeśli jest używane obliczenie procesora CPU, a nie BERT, AutoML włącza BiLSTM DNN featurized.
 
 AutoML wykonuje następujące kroki dla BERT. 
 

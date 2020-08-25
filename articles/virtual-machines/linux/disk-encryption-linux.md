@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 88a0239409d29700d95b8949c1499dd30f50bb5f
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: b7d19d782e9cb29cfc917293f084b78830db89bc
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510729"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797619"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenariusze usługi Azure Disk Encryption na maszynach wirtualnych z systemem Linux
 
@@ -413,8 +413,8 @@ Azure Disk Encryption nie działa w następujących scenariuszach, funkcjach i t
 - Maszyna wirtualna z "zagnieżdżonych punktów instalacji"; oznacza to, że wiele punktów instalacji w jednej ścieżce (na przykład "/1stmountpoint/Data/2stmountpoint").
 - Maszyna wirtualna z dyskiem danych zainstalowanym na górze folderu systemu operacyjnego.
 - Maszyny wirtualne serii M z dyskami akcelerator zapisu.
-- Zastosowanie programu ADE do maszyny wirtualnej, która ma *ever* dyski zaszyfrowane za pomocą [szyfrowania po stronie serwera z użyciem kluczy zarządzanych przez klienta](disk-encryption.md) (SSE + CMK). Stosowanie instrukcji SSE i CMK do dysku danych na maszynie wirtualnej zaszyfrowanej przy użyciu programu ADE jest również nieobsługiwanym scenariuszem.
-- Migrowanie maszyny wirtualnej zaszyfrowanej przy użyciu programu ADE do [szyfrowania po stronie serwera z kluczami zarządzanymi przez klienta](disk-encryption.md).
+- Zastosowanie elementu ADE do maszyny wirtualnej z dyskami zaszyfrowanymi za pomocą [szyfrowania po stronie serwera za pomocą kluczy zarządzanych przez klienta](disk-encryption.md) (SSE + CMK). Stosowanie instrukcji SSE i CMK do dysku danych na maszynie wirtualnej zaszyfrowanej przy użyciu programu ADE jest również nieobsługiwanym scenariuszem.
+- Migrowanie maszyny wirtualnej, która jest zaszyfrowana przy użyciu programu ADE lub **kiedykolwiek** została zaszyfrowana za pomocą programu ADE, do [szyfrowania po stronie serwera za pomocą kluczy zarządzanych przez klienta](disk-encryption.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 03/18/2020
 ms.author: victorh
 ms.openlocfilehash: 7a9e0cc3977892fd899b4a25e17ad72f13481506
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82608817"
 ---
 # <a name="tutorial-create-a-waf-policy-on-azure-cdn-using-the-azure-portal"></a>Samouczek: Tworzenie zasad WAF na Azure CDN przy użyciu Azure Portal
 
 W tym samouczku pokazano, jak utworzyć podstawowe zasady zapory aplikacji sieci Web (WAF) platformy Azure i zastosować je do punktu końcowego w usłudze Azure Content Delivery Network (CDN).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie zasad WAF
@@ -50,7 +50,7 @@ Najpierw Utwórz podstawowe zasady WAF z zarządzanym domyślnym zestawem reguł
     | Ustawienie                 | Wartość                                              |
     | ---                     | ---                                                |
     | Profil CDN              | Wybierz nazwę profilu CDN.|
-    | Endpoint           | Wybierz nazwę punktu końcowego, a następnie wybierz pozycję **Dodaj**.|
+    | Punkt końcowy           | Wybierz nazwę punktu końcowego, a następnie wybierz pozycję **Dodaj**.|
     
     > [!NOTE]
     > Jeśli punkt końcowy jest skojarzony z zasadami WAFymi, jest wyświetlany szary. Musisz najpierw usunąć punkt końcowy ze skojarzonych zasad, a następnie ponownie skojarzyć punkt końcowy z nowymi zasadami WAF.

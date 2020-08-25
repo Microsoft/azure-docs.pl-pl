@@ -1,28 +1,28 @@
 ---
 title: Pojęcia — kontrola dostępu oparta na rolach (RBAC)
-description: Poznaj kluczowe możliwości kontroli dostępu opartej na rolach dla rozwiązań VMware platformy Azure (Automatyczna synchronizacja)
+description: Poznaj kluczowe możliwości kontroli dostępu opartej na rolach dla rozwiązań VMware platformy Azure
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 8628c88c300ef8ed271f5e06a8e8dfae40231fec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b9e83f0442953f59d02c42514a8550301ea947b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85660906"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752251"
 ---
-# <a name="role-based-access-control-rbac-for-azure-vmware-solution-avs"></a>Kontrola dostępu oparta na rolach (RBAC) dla rozwiązań VMware platformy Azure (Automatyczna synchronizacja)
+# <a name="role-based-access-control-rbac-for-azure-vmware-solution"></a>Kontrola dostępu oparta na rolach (RBAC) dla rozwiązań VMware platformy Azure
 
-W przypadku wdrożenia lokalnego programu vCenter i ESXi administrator ma dostęp do administrator@vsphere.local konta vCenter i może mieć przypisanych dodatkowych użytkowników i grup Active Directory (AD). Jednak w ramach wdrożenia programu Azure VMware Solution (Automatyczna synchronizacja) administrator nie ma dostępu do konta użytkownika administratora, ale może przypisywać użytkowników i grupy usługi AD do roli CloudAdmin w programie vCenter.  Ponadto użytkownik chmury prywatnej automatycznej synchronizacji nie ma uprawnień dostępu do określonych składników zarządzania obsługiwanych przez firmę Microsoft i zarządzania nimi, takich jak klastry, hosty, magazyny danych i rozproszone przełączniki wirtualne.
+W przypadku wdrożenia lokalnego programu vCenter i ESXi administrator ma dostęp do administrator@vsphere.local konta vCenter i może mieć przypisanych dodatkowych użytkowników i grup Active Directory (AD). Jednak w ramach wdrożenia rozwiązania VMware na platformie Azure administrator nie ma dostępu do konta użytkownika administratora, ale może przypisywać użytkowników i grupy usługi AD do roli CloudAdmin w programie vCenter.  Ponadto użytkownik chmury prywatnej rozwiązania Azure VMware nie ma uprawnień dostępu do określonych składników zarządzania obsługiwanych przez firmę Microsoft i zarządzania nimi, takich jak klastry, hosty, magazyny danych i rozproszone przełączniki wirtualne.
 
 
-W obszarze automatyczna synchronizacja program vCenter ma wbudowanego użytkownika lokalnego o nazwie cloudadmin, który jest przypisany do wbudowanej roli CloudAdmin. Lokalny użytkownik cloudadmin służy do konfigurowania dodatkowych użytkowników w usłudze AD. Rola CloudAdmin, ogólnie rzecz biorąc, ma uprawnienia do tworzenia obciążeń i zarządzania nimi w chmurze prywatnej (maszyn wirtualnych, pul zasobów, magazynach danych i sieciach). Rola CloudAdmin w ramach automatycznej synchronizacji ma określony zestaw uprawnień programu vCenter, które różnią się od innych rozwiązań w chmurze VMware.   
+W rozwiązaniu VMware platformy Azure program vCenter ma wbudowanego użytkownika lokalnego o nazwie cloudadmin, który jest przypisany do wbudowanej roli CloudAdmin. Lokalny użytkownik cloudadmin służy do konfigurowania dodatkowych użytkowników w usłudze AD. Rola CloudAdmin, ogólnie rzecz biorąc, ma uprawnienia do tworzenia obciążeń i zarządzania nimi w chmurze prywatnej (maszyn wirtualnych, pul zasobów, magazynach danych i sieciach). Rola CloudAdmin w rozwiązaniu VMware platformy Azure ma określony zestaw uprawnień programu vCenter, które różnią się od innych rozwiązań w chmurze VMware.   
 
 > [!NOTE]
-> Automatyczna synchronizacja nie oferuje obecnie ról niestandardowych w programie vCenter lub w portalu automatycznej synchronizacji. 
+> Rozwiązanie VMware platformy Azure obecnie nie oferuje ról niestandardowych w programie vCenter lub portalu rozwiązań VMware platformy Azure. 
 
-## <a name="avs-cloudadmin-role-on-vcenter"></a>Automatyczna synchronizacja roli CloudAdmin na serwerze vCenter
+## <a name="azure-vmware-solution-cloudadmin-role-on-vcenter"></a>Rola CloudAdmin na platformie Azure VMware na serwerze vCenter
 
-Możesz wyświetlić uprawnienia przyznane do roli CloudAdmina automatyczna synchronizacja w chmurze prywatnej chmury.
+Można wyświetlić uprawnienia przyznane do roli CloudAdmin rozwiązanie VMware platformy Azure na platformie Azure VMware Private Cloud.
 
 1. Zaloguj się do klienta SDDC vSphere i przejdź do **menu**  >  **Administracja**.
 1. W obszarze **Access Control**wybierz pozycję **role**.
@@ -30,7 +30,7 @@ Możesz wyświetlić uprawnienia przyznane do roli CloudAdmina automatyczna sync
 
    :::image type="content" source="media/rbac-cloudadmin-role-privileges.png" alt-text="Jak wyświetlić uprawnienia roli CloudAdmin w kliencie vSphere":::
 
-Rola CloudAdmin w ramach automatycznej synchronizacji ma następujące uprawnienia w programie vCenter. Szczegółowe wyjaśnienie poszczególnych uprawnień można znaleźć w [dokumentacji produktu VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html) .
+Rola CloudAdmin w ramach rozwiązania Azure VMware ma następujące uprawnienia w programie vCenter. Szczegółowe wyjaśnienie poszczególnych uprawnień można znaleźć w [dokumentacji produktu VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html) .
 
 | Privilege | Opis |
 | --------- | ----------- |
@@ -46,7 +46,7 @@ Rola CloudAdmin w ramach automatycznej synchronizacji ma następujące uprawnien
 | **Sieć** | Przypisywanie sieci |
 | **Zasób** | Zastosuj zalecenie<br />Przypisywanie vApp do puli zasobów<br />Przypisz maszynę wirtualną do puli zasobów<br />Utwórz pulę zasobów<br />Migrowanie wyłączone z maszyny wirtualnej<br />Migrowanie na maszynie wirtualnej<br />Modyfikuj pulę zasobów<br />Przenieś pulę zasobów<br />VMotion zapytania<br />Usuń pulę zasobów<br />Zmień nazwę puli zasobów |
 | **Zaplanowane zadanie** | Tworzenie zadania<br />Modyfikowanie zadania<br />Usuń zadanie<br />Uruchom zadanie |
-| **Sesje** | Komunikat<br />Weryfikuj sesję |
+| **Sesje** | Wiadomość<br />Weryfikuj sesję |
 | **Profil** | Widok magazynu oparty na profilach |
 | **Widok magazynu** | Widok |
 | **vApp** | Dodaj maszynę wirtualną<br />Przypisz pulę zasobów<br />Przypisz vApp<br />Klonowanie<br />Utwórz<br />Usuń<br />Eksportowanie<br />Importuj<br />Move<br />Wyłączanie<br />Włącz<br />Zmień nazwę<br />Wstrzymanie<br />Unregister<br />Wyświetl środowisko OVF<br />Konfiguracja aplikacji vApp<br />Konfiguracja wystąpienia vApp<br />Konfiguracja vApp zarządzane<br />Konfiguracja zasobów vApp |

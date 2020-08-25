@@ -4,10 +4,10 @@ description: W tym samouczku pokazano, jak za pomocą testów wsadowych sprawdzi
 ms.topic: tutorial
 ms.date: 05/07/2020
 ms.openlocfilehash: 09e5ebc9f80eb51175b13e601983690b6229b747
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83681629"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Samouczek: zestawy danych testów wsadowych
@@ -24,7 +24,7 @@ Wymagania dotyczące testowania wsadowego:
 
 W przypadku korzystania z aplikacji innej niż w tym samouczku *nie należy używać* przykładowej wyrażenia długości już dodanej do aplikacji.
 
-**Z tego samouczka dowiesz się, jak wykonywać następujące czynności:**
+**Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -81,7 +81,7 @@ Przykładowy kod JSON zawiera jeden wypowiedź z etykietą Entity, aby zilustrow
     > [!div class="mx-imgBorder"]
     > ![Wybierz plik](./media/luis-tutorial-batch-testing/import-dataset-modal.png)
 
-6. Wybierz przycisk **Uruchom**.
+6. Wybierz przycisk **Run** (Uruchom).
 
 7. Wybierz pozycję **Zobacz wyniki**.
 
@@ -138,7 +138,7 @@ W tym samouczku pokazano, jak uruchomić test i interpretować wyniki. Nie obejm
     * Dodaj bardziej pozytywne przykładowe wyrażenia długości
     * Przeglądanie bilansu przykładowej wyrażenia długości w ramach intencji
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [LUIS How to clean up resources](./includes/cleanup-resources-preview-portal.md)]
 

@@ -3,12 +3,12 @@ title: Konfigurowanie raportów usługi Azure Backup
 description: Konfigurowanie i wyświetlanie raportów dla Azure Backup przy użyciu Log Analytics i skoroszytów platformy Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 94298c5826f7158655367ae1dd6b7dd54cb88d24
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: bcb9e75cea06be6ce69c6baccb5ac252c1666d4d
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612439"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755266"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurowanie raportów usługi Azure Backup
 
@@ -30,7 +30,7 @@ Obecnie Azure Backup udostępnia rozwiązanie do raportowania, które korzysta z
 - Obecnie dane można wyświetlać w raportach dotyczących kopii zapasowych w maksymalnie 100 Log Analytics obszarach roboczych (między dzierżawcami).
 - Dane dla zadań kopii zapasowej dzienników nie są obecnie wyświetlane w raportach.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 Wykonaj następujące kroki, aby rozpocząć korzystanie z raportów.
 
@@ -89,7 +89,7 @@ Za pomocą tej karty można wyświetlać kluczowe parametry rozliczania dla kopi
    ![Karta Użycie](./media/backup-azure-configure-backup-reports/usage.png)
 
 > [!NOTE]
-> W przypadku obciążeń programu DPM użytkownicy mogą zobaczyć niewielką różnicę (kolejność 20 MB na serwer DPM) między wartościami użycia wyświetlanymi w raportach w porównaniu do zagregowanej wartości użycia, jak pokazano na karcie Przegląd magazynu usług Recovery Services. Różnica ta jest uwzględniana przez fakt, że każdy serwer DPM zarejestrowany dla kopii zapasowej ma skojarzone źródło danych "Metadata", które nie jest uwzględniane jako artefakt na potrzeby raportowania.
+> W przypadku obciążeń programu DPM użytkownicy mogą zobaczyć niewielką różnicę (kolejność 20 MB na serwer DPM) między wartościami użycia wyświetlanymi w raportach w porównaniu do zagregowanej wartości użycia, jak pokazano na karcie **Przegląd** magazynu Recovery Services. Różnica ta jest uwzględniana przez fakt, że każdy serwer DPM zarejestrowany dla kopii zapasowej ma skojarzone źródło danych "Metadata", które nie jest uwzględniane jako artefakt na potrzeby raportowania.
 
 ##### <a name="jobs"></a>Stanowiska
 

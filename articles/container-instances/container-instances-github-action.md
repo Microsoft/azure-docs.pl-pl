@@ -2,20 +2,20 @@
 title: Wdróż wystąpienie kontenera przez akcję GitHub
 description: Skonfiguruj akcję GitHub, która automatyzuje kroki do kompilowania, wypychania i wdrażania obrazu kontenera do Azure Container Instances
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 08/20/2020
 ms.custom: ''
-ms.openlocfilehash: fab0eff04d86428a7e3eba730373da72c903b0ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8da72d3911797e8e3a4551f2af100afb0d7ea0fb
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744004"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755011"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Konfigurowanie akcji usługi GitHub w celu utworzenia wystąpienia kontenera
 
 [Akcje GitHub](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions) to zestaw funkcji w usłudze GitHub umożliwiających automatyzację przepływów pracy tworzenia oprogramowania w tym samym miejscu, w którym można przechowywać kod i współpracować nad żądaniami ściągnięcia i problemami.
 
-Aby zautomatyzować wdrażanie kontenera do Azure Container Instances, użyj akcji [Wdróż do Azure Container Instances](https://github.com/azure/aci-deploy) GitHub. Akcja pozwala ustawić właściwości dla wystąpienia kontenera podobnego do tych w polecenia [AZ Container Create][az-container-create] .
+Aby zautomatyzować wdrażanie pojedynczego kontenera do Azure Container Instances, użyj akcji [Wdróż do Azure Container Instances](https://github.com/azure/aci-deploy) GitHub. Akcja pozwala ustawić właściwości dla wystąpienia kontenera podobnego do tych w polecenia [AZ Container Create][az-container-create] .
 
 W tym artykule pokazano, jak skonfigurować przepływ pracy w repozytorium GitHub, które wykonuje następujące czynności:
 
@@ -25,8 +25,8 @@ W tym artykule pokazano, jak skonfigurować przepływ pracy w repozytorium GitHu
 
 W tym artykule przedstawiono dwa sposoby konfigurowania przepływu pracy:
 
-* Skonfiguruj przepływ pracy samodzielnie w repozytorium GitHub za pomocą akcji Wdróż do Azure Container Instances i innych akcji.  
-* Użyj `az container app up` polecenia z rozszerzenia [Wdróż do platformy Azure](https://github.com/Azure/deploy-to-azure-cli-extension) w interfejsie wiersza polecenia platformy Azure. To polecenie usprawnia tworzenie przepływu pracy i etapów wdrażania usługi GitHub.
+* [Konfigurowanie przepływu pracy](#configure-github-workflow) w usłudze GitHub — tworzenie przepływu pracy w repozytorium GitHub przy użyciu akcji wdróż do Azure Container Instances i innych akcji.  
+* [Użyj rozszerzenia interfejsu wiersza](#use-deploy-to-azure-extension) polecenia — Użyj narzędzia `az container app up` z rozszerzenia [Wdróż do platformy Azure](https://github.com/Azure/deploy-to-azure-cli-extension) w interfejsie wiersza polecenia platformy Azure. To polecenie usprawnia tworzenie przepływu pracy i etapów wdrażania usługi GitHub.
 
 > [!IMPORTANT]
 > Akcja usługi GitHub dla Azure Container Instances jest obecnie dostępna w wersji zapoznawczej. Wersje zapoznawcze są udostępniane pod warunkiem udzielenia zgody na [dodatkowe warunki użytkowania][terms-of-use]. Niektóre cechy funkcji mogą ulec zmianie, zanim stanie się ona ogólnie dostępna.
@@ -39,7 +39,7 @@ W tym artykule przedstawiono dwa sposoby konfigurowania przepływu pracy:
 
 ## <a name="set-up-repo"></a>Konfigurowanie repozytorium
 
-* Aby zapoznać się z przykładami w tym artykule, Użyj usługi GitHub, aby utworzyć rozwidlenie następującego repozytorium:https://github.com/Azure-Samples/acr-build-helloworld-node
+* Aby zapoznać się z przykładami w tym artykule, Użyj usługi GitHub, aby utworzyć rozwidlenie następującego repozytorium: https://github.com/Azure-Samples/acr-build-helloworld-node
 
   To repozytorium zawiera pliki źródłowe i pliku dockerfile, aby utworzyć obraz kontenera małej aplikacji sieci Web.
 
@@ -91,7 +91,7 @@ Zapisz dane wyjściowe JSON, ponieważ są używane w późniejszym kroku. Nale�
 
 ### <a name="update-service-principal-for-registry-authentication"></a>Aktualizowanie jednostki usługi na potrzeby uwierzytelniania w rejestrze
 
-Zaktualizuj poświadczenia jednostki usługi platformy Azure, aby umożliwić wypychanie i ściąganie w rejestrze kontenerów. Ten krok umożliwia przepływowi pracy usługi GitHub korzystanie z jednostki usług w celu [uwierzytelniania za pomocą rejestru kontenerów](../container-registry/container-registry-auth-service-principal.md). 
+Zaktualizuj poświadczenia jednostki usługi platformy Azure, aby umożliwić wypychanie i ściąganie danych do rejestru kontenerów. Ten krok umożliwia przepływowi pracy w usłudze GitHub użycie jednostki usługi do [uwierzytelniania w rejestrze kontenera](../container-registry/container-registry-auth-service-principal.md) oraz wypychanie i ściąganie obrazu platformy Docker. 
 
 Pobierz identyfikator zasobu rejestru kontenerów. Zastąp nazwę rejestru w następującym [AZ ACR show][az-acr-show] Command:
 
@@ -118,8 +118,8 @@ az role assignment create \
 
 |Wpis tajny  |Wartość  |
 |---------|---------|
-|`AZURE_CREDENTIALS`     | Wszystkie dane wyjściowe JSON z tworzenia jednostki usługi |
-|`REGISTRY_LOGIN_SERVER`   | Nazwa serwera logowania w rejestrze (wszystkie małe litery). Przykład: *myregistry.Azure.CR.IO*        |
+|`AZURE_CREDENTIALS`     | Wszystkie dane wyjściowe JSON z kroku tworzenia jednostki usługi |
+|`REGISTRY_LOGIN_SERVER`   | Nazwa serwera logowania w rejestrze (wszystkie małe litery). Przykład: *myregistry.azurecr.IO*        |
 |`REGISTRY_USERNAME`     |  `clientId`Z danych wyjściowych JSON z tworzenia jednostki usługi       |
 |`REGISTRY_PASSWORD`     |  `clientSecret`Z danych wyjściowych JSON z tworzenia jednostki usługi |
 | `RESOURCE_GROUP` | Nazwa grupy zasobów użytej do określania zakresu jednostki usługi |
@@ -177,9 +177,9 @@ Gdy zatwierdzisz plik przepływu pracy, przepływ pracy zostanie wyzwolony. Aby 
 
 ![Wyświetl postęp przepływu pracy](./media/container-instances-github-action/github-action-progress.png)
 
-Zobacz [Zarządzanie przebiegiem przepływu pracy](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run) , aby uzyskać informacje na temat wyświetlania stanu i wyników każdego kroku w przepływie pracy.
+Zobacz [Zarządzanie przebiegiem przepływu pracy](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run) , aby uzyskać informacje na temat wyświetlania stanu i wyników każdego kroku w przepływie pracy. Jeśli przepływ pracy nie zostanie ukończony, zobacz [Przeglądanie dzienników w celu diagnozowania błędów](https://docs.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run#viewing-logs-to-diagnose-failures).
 
-Po zakończeniu przepływu pracy Pobierz informacje o wystąpieniu kontenera o nazwie *ACI-sampleapp* , uruchamiając polecenie [AZ Container show][az-container-show] . Zastąp nazwę grupy zasobów: 
+Po pomyślnym ukończeniu przepływu pracy Pobierz informacje o wystąpieniu kontenera o nazwie *ACI-sampleapp* , uruchamiając polecenie [AZ Container show][az-container-show] . Zastąp nazwę grupy zasobów: 
 
 ```azurecli
 az container show \
@@ -209,7 +209,7 @@ Przepływ pracy utworzony za pomocą interfejsu wiersza polecenia platformy Azur
 
 ### <a name="additional-prerequisite"></a>Dodatkowe wymagania wstępne
 
-Oprócz [wymagań wstępnych](#prerequisites) i [konfiguracji repozytorium](#set-up-repo) w tym scenariuszu należy zainstalować **rozszerzenie Deploy to Azure** dla interfejsu wiersza polecenia platformy Azure.
+Oprócz [wymagań wstępnych](#prerequisites) i [konfiguracji repozytorium](#set-up-repo) w tym scenariuszu należy zainstalować  **rozszerzenie Deploy to Azure** dla interfejsu wiersza polecenia platformy Azure.
 
 Uruchom polecenie [AZ Extension Add][az-extension-add] , aby zainstalować rozszerzenie:
 
@@ -225,7 +225,7 @@ Aby uzyskać informacje dotyczące znajdowania i instalowania rozszerzeń oraz z
 Aby uruchomić polecenie [AZ Container App up][az-container-app-up] , podaj minimalną wartość:
 
 * Nazwa rejestru kontenerów platformy Azure, na przykład, *Rejestr*
-* Adres URL repozytorium GitHub, na przykład`https://github.com/<your-GitHub-Id>/acr-build-helloworld-node`
+* Adres URL repozytorium GitHub, na przykład `https://github.com/<your-GitHub-Id>/acr-build-helloworld-node`
 
 Przykładowe polecenie:
 
@@ -237,7 +237,7 @@ az container app up \
 
 ### <a name="command-progress"></a>Postęp polecenia
 
-* Po wyświetleniu monitu podaj swoje poświadczenia usługi GitHub lub podaj [osobisty token dostępu GitHub](https://help.github.com/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) , który ma *repozytorium* i zakresy *użytkowników* do uwierzytelniania w rejestrze. Jeśli podano poświadczenia usługi GitHub, polecenie tworzy dla Ciebie dyspozycji.
+* Po wyświetleniu monitu podaj swoje poświadczenia usługi GitHub lub podaj [osobisty token dostępu GitHub](https://help.github.com/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) , który ma *repozytorium* i zakresy *użytkowników* do uwierzytelniania na koncie usługi GitHub. Jeśli podano poświadczenia usługi GitHub, polecenie tworzy dla Ciebie dyspozycji. Postępuj zgodnie z dodatkowymi monitami, aby skonfigurować przepływ pracy.
 
 * Polecenie tworzy wpisy tajne repozytorium dla przepływu pracy:
 
@@ -258,13 +258,31 @@ Workflow succeeded
 Your app is deployed at:  http://acr-build-helloworld-node.eastus.azurecontainer.io:8080/
 ```
 
-### <a name="validate-workflow"></a>Sprawdź poprawność przepływu pracy
-
-Przepływ pracy wdraża wystąpienie kontenera platformy Azure z podstawową nazwą repozytorium GitHub, w tym przypadku *ACR-Build-HelloWorld-Node*. W przeglądarce możesz przejść do podanego linku, aby wyświetlić uruchomioną aplikację sieci Web. Jeśli aplikacja nasłuchuje na porcie innym niż 8080, należy określić, że w adresie URL.
-
 Aby wyświetlić stan przepływu pracy i wyniki każdego kroku w interfejsie użytkownika usługi GitHub, zobacz [Zarządzanie przebiegiem przepływu pracy](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run).
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+### <a name="validate-workflow"></a>Sprawdź poprawność przepływu pracy
+
+Przepływ pracy wdraża wystąpienie kontenera platformy Azure z podstawową nazwą repozytorium GitHub, w tym przypadku *ACR-Build-HelloWorld-Node*. Po pomyślnym ukończeniu przepływu pracy Pobierz informacje o wystąpieniu kontenera o nazwie *ACR-Build-HelloWorld-Node* , uruchamiając polecenie [AZ Container show][az-container-show] . Zastąp nazwę grupy zasobów: 
+
+```azurecli
+az container show \
+  --resource-group <resource-group-name> \
+  --name acr-build-helloworld-node \
+  --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" \
+  --output table
+```
+
+Dane wyjściowe są podobne do następujących:
+
+```console
+FQDN                                                   ProvisioningState
+---------------------------------                      -------------------
+acr-build-helloworld-node.westus.azurecontainer.io     Succeeded
+```
+
+Po aprowizacji wystąpienia przejdź do nazwy FQDN kontenera w przeglądarce, aby wyświetlić działającą aplikację sieci Web.
+
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Zatrzymaj wystąpienie kontenera przy użyciu polecenia [az container delete][az-container-delete]:
 

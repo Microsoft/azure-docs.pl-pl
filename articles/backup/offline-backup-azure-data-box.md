@@ -3,12 +3,12 @@ title: Kopia zapasowa offline przy użyciu Azure Data Box
 description: Dowiedz się, w jaki sposób można użyć Azure Data Box, aby wypełniać duże dane początkowej kopii zapasowej w trybie offline z agenta MARS do magazynu Recovery Services.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: e377ccde714c1486ff731d24d5a0cd64364bca37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6ad97ee60c3c7debea72357cf7fc8d483a3c1d46
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091032"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761563"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Backup kopii zapasowej offline przy użyciu Azure Data Box
 
@@ -32,7 +32,7 @@ Proces tworzenia inicjatora danych z agenta MARS przy użyciu Azure Data Box jes
 | Windows 8.1 (wersja 64-bitowa)                    | Enterprise, Pro                                             |
 | Windows 8 (wersja 64-bitowa)                      | Enterprise, Pro                                             |
 | Windows 7 (wersja 64-bitowa)                      | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
-| **Serwer**                             |                                                              |
+| **Server** (Serwer)                             |                                                              |
 | Windows Server 2019 (wersja 64-bitowa)            | Standard, Datacenter, Essentials                            |
 | Windows Server 2016 (wersja 64-bitowa)            | Standard, Datacenter, Essentials                            |
 | Windows Server 2012 R2 (wersja 64-bitowa)         | Standard, Datacenter, Foundation                            |
@@ -195,7 +195,7 @@ Aby mieć pewność, że urządzenie urządzenie Data Box można zainstalować j
 
     ![Pobierz zadania urządzenie Data Box dla identyfikatora subskrypcji](./media/offline-backup-azure-data-box/fetching-databox-jobs.png)
 
-1. Wybierz poprawną kolejność urządzenie Data Box, dla której masz rozpakowane, połączono i odblokowano dysk urządzenie Data Box. Wybierz przycisk **Dalej**.
+1. Wybierz poprawną kolejność urządzenie Data Box, dla której masz rozpakowane, połączono i odblokowano dysk urządzenie Data Box. Wybierz pozycję **Dalej**.
 
     ![Wybierz zamówienia urządzenie Data Box](./media/offline-backup-azure-data-box/select-databox-order.png)
 
@@ -259,13 +259,13 @@ Podczas konfigurowania kopii zapasowej w trybie offline może wystąpić problem
 
 Aby sprawdzić, czy Twój problem jest taki sam jak wcześniej opisany, wykonaj jedną z następujących czynności.
 
-#### <a name="step-1"></a>Krok 1
+#### <a name="step-1-of-verification"></a>Krok 1 weryfikacji
 
 Sprawdź, czy podczas konfigurowania kopii zapasowej w trybie offline w konsoli MAB zostanie wyświetlony następujący komunikat o błędzie.
 
 ![Nie można utworzyć zasad kopii zapasowych offline dla bieżącego konta platformy Azure](./media/offline-backup-azure-data-box/unable-to-create-policy.png)
 
-#### <a name="step-2"></a>Krok 2
+#### <a name="step-2-of-verification"></a>Krok 2 weryfikacji
 
 1. Otwórz folder **temp** w ścieżce instalacji. Domyślna ścieżka folderu tymczasowego to *C:\Program Files\Microsoft Azure Recovery Services Agent\Temp*. Wyszukaj plik *CBUICurr* i Otwórz plik.
 
@@ -275,11 +275,11 @@ Sprawdź, czy podczas konfigurowania kopii zapasowej w trybie offline w konsoli 
 
 Aby rozwiązać ten problem, należy wykonać następujące czynności, a następnie ponownie wykonać konfigurację zasad.
 
-#### <a name="step-1"></a>Krok 1
+#### <a name="step-1-of-workaround"></a>Krok 1 obejścia
 
 Zaloguj się do programu PowerShell, który jest wyświetlany w interfejsie użytkownika usługi MAB przy użyciu innego konta z dostępem administratora w ramach subskrypcji, która będzie miała utworzone zadanie importowania lub eksportowania.
 
-#### <a name="step-2"></a>Krok 2
+#### <a name="step-2-of-workaround"></a>Krok 2 obejścia
 
 Jeśli żaden inny serwer nie ma skonfigurowanych wypełnień w trybie offline i żaden inny serwer nie jest zależny od `AzureOfflineBackup_<Azure User Id>` aplikacji, Usuń tę aplikację. Wybierz **Azure Portal**  >  **Azure Active Directory**  >  **rejestracje aplikacji**.
 

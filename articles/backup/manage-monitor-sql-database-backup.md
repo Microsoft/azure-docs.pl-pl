@@ -3,12 +3,12 @@ title: Monitorowanie SQL Server baz danych na maszynie wirtualnej platformy Azur
 description: W tym artykule opisano sposób zarządzania i monitorowania SQL Server baz danych, które są uruchomione na maszynie wirtualnej platformy Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: ada367e94b75c30a98bedf5848b248cadfe9acc2
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: c9d8b9b56820182f7bf7866d38d40df8f5488a7a
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88659589"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756320"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Zarządzanie kopiami zapasowymi baz danych programu SQL Server i ich monitorowanie
 
@@ -16,15 +16,11 @@ W tym artykule opisano typowe zadania związane z zarządzaniem i monitorowaniem
 
 Jeśli kopie zapasowe baz danych SQL Server nie zostały jeszcze skonfigurowane, zobacz [Tworzenie kopii zapasowych SQL Server baz danych na maszynach wirtualnych platformy Azure](backup-azure-sql-database.md)
 
-## <a name="monitor-manual-backup-jobs-in-the-portal"></a>Monitorowanie zadań ręcznego tworzenia kopii zapasowej w portalu
+## <a name="monitor-backup-jobs-in-the-portal"></a>Monitorowanie zadań tworzenia kopii zapasowej w portalu
 
-Azure Backup przedstawia wszystkie zadania wyzwalane ręcznie w portalu **zadania tworzenia kopii zapasowej** . Zadania widoczne w tym portalu obejmują odnajdywanie i rejestrowanie bazy danych oraz operacje tworzenia kopii zapasowych i przywracania.
+Azure Backup przedstawia wszystkie operacje zaplanowane i na żądanie w obszarze **zadania tworzenia kopii zapasowej** w portalu, z wyjątkiem zaplanowanych kopii zapasowych dzienników, ponieważ mogą one być bardzo częste. Zadania widoczne w tym portalu obejmują odnajdywanie i rejestrację bazy danych, konfigurację kopii zapasowej oraz operacje tworzenia kopii zapasowych i przywracania.
 
 ![Portal zadań tworzenia kopii zapasowej](./media/backup-azure-sql-database/jobs-list.png)
-
-> [!NOTE]
-> W portalu **zadań tworzenia kopii zapasowej** nie są wyświetlane zaplanowane zadania tworzenia kopii zapasowej. Do monitorowania zaplanowanych zadań kopii zapasowych należy użyć programu SQL Server Management Studio zgodnie z opisem w następnej sekcji.
->
 
 Aby uzyskać szczegółowe informacje na temat scenariuszy monitorowania, przejdź do [obszaru monitorowanie w Azure Portal](backup-azure-monitoring-built-in-monitor.md) i [monitorowanie przy użyciu Azure monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
@@ -162,7 +158,7 @@ Wyrejestruj wystąpienie SQL Server po wyłączeniu ochrony, ale przed usunięci
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Ponowne rejestrowanie rozszerzenia na maszynie wirtualnej SQL Server
 
-Czasami rozszerzenie obciążenia maszyny wirtualnej może mieć wpływ na jedną przyczynę lub inną. W takich przypadkach wszystkie operacje wyzwalane na maszynie wirtualnej rozpoczną się niepowodzeniem. Może być konieczne ponowne zarejestrowanie rozszerzenia na maszynie wirtualnej. Operacja **ponownego rejestrowania ponownie** zainstaluje rozszerzenie kopii zapasowej obciążenia na maszynie wirtualnej w celu kontynuowania operacji. Tę opcję można znaleźć w obszarze **infrastruktura kopii zapasowych** w magazynie usługi Recovery Service.
+Czasami rozszerzenie obciążenia maszyny wirtualnej może mieć wpływ na jedną przyczynę lub inną. W takich przypadkach wszystkie operacje wyzwalane na maszynie wirtualnej rozpoczną się niepowodzeniem. Może być konieczne ponowne zarejestrowanie rozszerzenia na maszynie wirtualnej. Operacja **ponownego rejestrowania ponownie** zainstaluje rozszerzenie kopii zapasowej obciążenia na maszynie wirtualnej w celu kontynuowania operacji. Tę opcję można znaleźć w obszarze **infrastruktura kopii zapasowych** w magazynie Recovery Services.
 
 ![Serwery chronione w ramach infrastruktury kopii zapasowych](./media/backup-azure-sql-database/protected-servers-backup-infrastructure.png)
 

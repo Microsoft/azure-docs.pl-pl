@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/18/2019
 ms.author: curtand
-ms.openlocfilehash: 91138f104c787148042b187f4cf59a60bc1448d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c056e439deac71417ff14dcfc3f2c3c95db41946
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744413"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797670"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Skonfiguruj klucz zabezpieczeń jako metodę weryfikacji
 
@@ -158,13 +158,13 @@ Nowy numer PIN klucza zabezpieczeń można utworzyć dla klucza zabezpieczeń.
 
 ## <a name="additional-security-info-methods"></a>Dodatkowe metody informacji zabezpieczających
 
-Aby zarejestrować klucz zabezpieczeń, należy mieć co najmniej jedną zarejestrowaną dodatkową metodę weryfikacji zabezpieczeń. Aby uzyskać więcej informacji, zobacz [sekcję Omówienie](security-info-add-update-methods-overview.md) . 
+Aby zarejestrować klucz zabezpieczeń, należy mieć co najmniej jedną zarejestrowaną dodatkową metodę weryfikacji zabezpieczeń. Aby uzyskać więcej informacji, zobacz [sekcję Omówienie](./security-info-setup-auth-app.md) . 
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać więcej informacji na temat metod weryfikacji bezhaseł, przeczytaj artykuł [Azure AD, który rozpoczyna publiczną wersję zapoznawczą kluczy zabezpieczeń FIDO2, włączając](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) w to Blog dotyczący logowania bezhaseł lub zapoznaj się z informacjami o [tym, co to jest aplikacja Microsoft Authenticator?](user-help-auth-app-overview.md) i [Windows Hello — Omówienie](https://www.microsoft.com/windows/windows-hello) .
 
-- Aby uzyskać bardziej szczegółowe informacje o [kluczach zabezpieczeń zgodnych z firmą Microsoft](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
+- Aby uzyskać bardziej szczegółowe informacje o [kluczach zabezpieczeń zgodnych z firmą Microsoft](/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 
 - Zagubione lub zapomniane hasło możesz zresetować w [portalu resetowania hasła](https://passwordreset.microsoftonline.com/) lub wykonując kroki przedstawione w artykule [Resetowanie hasła służbowego](active-directory-passwords-update-your-own-password.md).
 

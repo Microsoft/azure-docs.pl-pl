@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0524e8756e86771ab555eaa853e3955fe69c8549
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7e8beb8d694b0ee155e3707faef34dff6d56eb3
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727657"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797755"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Przypisywanie licencji użytkownikom według członkostwa w grupie w Azure Active Directory
 
@@ -97,9 +97,9 @@ W przypadku przypisywania licencji do grupy usługa Azure AD przetwarza wszystki
 
 Aby dowiedzieć się więcej na temat zestawu funkcji dla przypisania licencji przy użyciu grup, zobacz następujące artykuły:
 
-- [Co to jest Licencjonowanie oparte na grupach w Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context)
+- [Co to jest Licencjonowanie oparte na grupach w Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
 - [Identyfikowanie i rozwiązywanie problemów z licencją dla grupy w usłudze Azure Active Directory](licensing-groups-resolve-problems.md)
 - [Jak migrować użytkowników z licencjami indywidualnymi do licencji opartych na grupach w usłudze Azure Active Directory](licensing-groups-migrate-users.md)
 - [Jak migrować użytkowników między licencjami produktu przy użyciu licencjonowania opartego na grupach w programie Azure Active Directory](licensing-groups-change-licenses.md)
-- [Dodatkowe scenariusze licencjonowania opartego na grupach w usłudze Azure Active Directory](../active-directory-licensing-group-advanced.md)
+- [Dodatkowe scenariusze licencjonowania opartego na grupach w usłudze Azure Active Directory](./licensing-group-advanced.md)
 - [Przykłady programu PowerShell dla licencjonowania opartego na grupach w Azure Active Directory](licensing-ps-examples.md)

@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: curtand
 ms.reviewer: kexia
 metadata ms.custom: contperfq1
-ms.openlocfilehash: b21b2a9f2d2bd483ed48a4c30b504908bb54a101
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 61ba06054e86d544ae4ab1edbdef8d86667ef3b2
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661441"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796582"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Typowe problemy z weryfikacją dwuskładnikową i kontem służbowym
 
@@ -33,7 +33,7 @@ Gdy 2FV jest włączona, logowanie do konta wymaga połączenia następujących 
 2FV jest bezpieczniejszy niż tylko hasło, ponieważ 2FV wymaga czegoś _znanego_ i _czegoś._ Żaden haker nie ma fizycznego telefonu.
 
 >[!Important]
->Jeśli jesteś administratorem, możesz znaleźć więcej informacji na temat sposobu konfigurowania środowiska usługi Azure AD i zarządzania nim w [dokumentacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory).
+>Jeśli jesteś administratorem, możesz znaleźć więcej informacji na temat sposobu konfigurowania środowiska usługi Azure AD i zarządzania nim w [dokumentacji usługi Azure AD](../index.yml).
 
 Ta zawartość jest przeznaczona do pomocy przy użyciu konta służbowego, które jest kontem udostępnionym przez organizację (na przykład dritan@contoso.com ). Jeśli masz problemy z weryfikacją dwuetapową na konto Microsoft osobistym, czyli kontem skonfigurowanym dla siebie (na przykład danielle@outlook.com ), zobacz [Włączanie lub wyłączanie weryfikacji dwuskładnikowej dla konto Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
