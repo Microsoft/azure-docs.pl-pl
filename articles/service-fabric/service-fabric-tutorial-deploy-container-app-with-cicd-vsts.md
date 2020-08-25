@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/29/2018
 ms.custom: mvc
 ms.openlocfilehash: 9cf619eddd07bbe55cd7aea5f27051a7d0415c24
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75614134"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Samouczek: wdrażanie aplikacji kontenera przy użyciu ciągłej integracji/ciągłego wdrażania w klastrze usługi Service Fabric
@@ -42,7 +42,7 @@ Wybierz profil docelowy w ramach projektu aplikacji na potrzeby przepływu pracy
 
 Udostępnij pliki źródłowe swojej aplikacji w projekcie zespołowym usługi Azure DevOps, aby umożliwić generowanie kompilacji.
 
-Utwórz nowe lokalne repozytorium git dla projektu, wybierając pozycję **Dodaj do kontroli** -> źródła**git** na pasku stanu w prawym dolnym rogu programu Visual Studio.
+Utwórz nowe lokalne repozytorium git dla projektu, wybierając pozycję **Dodaj do kontroli źródła**  ->  **git** na pasku stanu w prawym dolnym rogu programu Visual Studio.
 
 W widoku **Wypychanie** w programie **Team Explorer** wybierz przycisk **Opublikuj repozytorium Git** w obszarze **Wypychanie do usługi Azure DevOps**.
 
@@ -134,7 +134,7 @@ Włącz wyzwalacz ciągłego wdrażania, aby umożliwić automatyczne tworzenie 
 
 ![Włączanie wyzwalacza][enable-trigger]
 
-Wybierz pozycję **+ wydanie** -> **Utwórz wersję** -> **Utwórz** , aby ręcznie utworzyć wydanie. Postęp wydawania możesz monitorować na karcie **Wydania**.
+Wybierz pozycję **+ wydanie**  ->  **Utwórz wersję**  ->  **Utwórz** , aby ręcznie utworzyć wydanie. Postęp wydawania możesz monitorować na karcie **Wydania**.
 
 Sprawdź, czy wdrożenie zakończyło się pomyślnie, a aplikacja została uruchomiona w klastrze.  Otwórz przeglądarkę internetową i przejdź pod adres `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Zwróć uwagę na wersję aplikacji. W tym przykładzie jest to „1.0.0.20170616.3”.
 

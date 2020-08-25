@@ -18,15 +18,15 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 52d398fa9c258528ef8f87842ba94f139bbf737b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "76845204"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Samouczek: diagnozowanie problemu z routingiem sieciowym na maszynie wirtualnej przy użyciu witryny Azure Portal
 
-Podczas wdrażania maszyny wirtualnej na platformie Azure jest tworzonych kilka domyślnych tras. Możesz tworzyć trasy niestandardowe zastępujące domyślne trasy platformy Azure. Czasami użycie trasy niestandardowej może spowodować niepowodzenie komunikacji między maszyną wirtualną a innymi zasobami. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Podczas wdrażania maszyny wirtualnej na platformie Azure jest tworzonych kilka domyślnych tras. Możesz tworzyć trasy niestandardowe zastępujące domyślne trasy platformy Azure. Czasami użycie trasy niestandardowej może spowodować niepowodzenie komunikacji między maszyną wirtualną a innymi zasobami. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie maszyny wirtualnej
@@ -36,7 +36,7 @@ Podczas wdrażania maszyny wirtualnej na platformie Azure jest tworzonych kilka 
 
 Jeśli wolisz, możesz zdiagnozować problem z routingiem sieciowym na maszynie wirtualnej za pomocą [interfejsu wiersza polecenia platformy Azure](diagnose-vm-network-routing-problem-cli.md) lub programu [Azure PowerShell](diagnose-vm-network-routing-problem-powershell.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
@@ -69,7 +69,7 @@ Aby przetestować komunikację sieciową za pomocą usługi Network Watcher, nal
 
 Jeśli masz już włączoną usługę Network Watcher co najmniej w jednym regionie, przejdź do sekcji [Korzystanie z funkcji Następny przeskok](#use-next-hop).
 
-1. W portalu wybierz pozycję **Wszystkie usługi**. W **polu filtru** wprowadź ciąg *Network Watcher*. Gdy w wynikach pojawi się nazwa **Network Watcher**, wybierz ją.
+1. W portalu wybierz pozycję **Wszystkie usługi**. W **polu filtru** wprowadź ciąg *Network Watcher*. Gdy **Network Watcher** pojawi się w wynikach, wybierz ją.
 2. Wybierz węzeł **Regiony**, aby go rozwinąć, a następnie wybierz symbol **...** z prawej strony pozycji **Wschodnie stany USA**, jak pokazano na poniższej ilustracji:
 
     ![Włączanie usługi Network Watcher](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
@@ -91,7 +91,7 @@ Na platformie Azure są automatycznie tworzone trasy do domyślnych miejsc docel
     | Źródłowy adres IP       | 10.0.0.4                                               |
     | Docelowy adres IP  | 13.107.21.200 — jeden z adresów dla <www.bing.com>. |
 
-    ![Następny przeskok](./media/diagnose-vm-network-routing-problem/next-hop.png)
+    ![Narzędzie Następny przeskok](./media/diagnose-vm-network-routing-problem/next-hop.png)
 
     Po kilku sekundach zobaczysz wynik informujący, że typ następnego przeskoku to **Internet**, a **Identyfikator tabeli tras** to **Trasa systemowa**. Ten wynik oznacza, że istnieje prawidłowa trasa systemowa do miejsca docelowego.
 
@@ -108,7 +108,7 @@ Na platformie Azure są automatycznie tworzone trasy do domyślnych miejsc docel
 
     Jednak wynik testu z użyciem adresu 172.31.0.100 informował, że nie ma typu następnego przeskoku. Jak widać na poprzedniej ilustracji, pomimo że istnieje trasa domyślna dla prefiksu 172.16.0.0/12, obejmująca adres 172.31.0.100, wartość w polu **TYP NASTĘPNEGO PRZESKOKU** to **Brak**. Platforma Azure tworzy domyślną trasę dla zakresu adresów 172.16.0.0/12, ale nie określa typu następnego przeskoku, jeśli nie jest to wymagane. Jeśli na przykład dodano zakres adresów 172.16.0.0/12 do przestrzeni adresów sieci wirtualnej, **TYP NASTĘPNEGO PRZESKOKU** dla tej trasy zostanie zmieniony na platformie Azure na typ **Sieć wirtualna**. W takim przypadku po przeprowadzeniu testu w polu **TYP NASTĘPNEGO PRZESKOKU** widoczna byłaby wartość **Sieć wirtualna**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów i wszystkie znajdujące się w niej zasoby nie będą już potrzebne, usuń je:
 

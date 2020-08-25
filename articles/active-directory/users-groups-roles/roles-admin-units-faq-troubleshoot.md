@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0db710385448ed3cdd54e3cbe692ea8b610741af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b48bebe6aa5f9862d5f51fea257c4b7f3057639b
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732246"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794477"
 ---
 # <a name="azure-ad-administrative-units-troubleshooting-and-faq"></a>Jednostki administracyjne usługi Azure AD: Rozwiązywanie problemów i często zadawane pytania
 
-Aby uzyskać bardziej szczegółową kontrolę administracyjną w usłudze Azure Active Directory (Azure AD), można przypisać użytkowników do roli usługi Azure AD z zakresem ograniczonym do co najmniej jednej jednostki administracyjnej (np.). Aby zapoznać się z przykładowymi skryptami programu PowerShell dla typowych zadań, zobacz [pracy z jednostkami administracyjnymi](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0).
+Aby uzyskać bardziej szczegółową kontrolę administracyjną w usłudze Azure Active Directory (Azure AD), można przypisać użytkowników do roli usługi Azure AD z zakresem ograniczonym do co najmniej jednej jednostki administracyjnej (np.). Aby zapoznać się z przykładowymi skryptami programu PowerShell dla typowych zadań, zobacz [pracy z jednostkami administracyjnymi](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0).
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
@@ -67,9 +67,9 @@ Odp **.:** Nie, zagnieżdżone jednostki administracyjne nie są obsługiwane.
 
 **P: czy jednostki administracyjne są obsługiwane w programie PowerShell i interfejs API programu Graph?**
 
-**Odpowiedź:** tak. W [dokumentacji poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0-preview) i [przykładowych skryptach](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0-preview)znajdziesz obsługę jednostek administracyjnych. 
+**Odpowiedź:** tak. W [dokumentacji poleceń cmdlet programu PowerShell](/powershell/module/Azuread/?view=azureadps-2.0-preview) i [przykładowych skryptach](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0-preview)znajdziesz obsługę jednostek administracyjnych. 
 
-Znajdź obsługę [typu zasobu administrativeUnit](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/administrativeunit) w Microsoft Graph.
+Znajdź obsługę [typu zasobu administrativeUnit](/graph/api/resources/administrativeunit?view=graph-rest-beta) w Microsoft Graph.
 
 ## <a name="next-steps"></a>Następne kroki
 

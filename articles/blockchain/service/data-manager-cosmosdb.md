@@ -5,10 +5,10 @@ ms.date: 03/08/2020
 ms.topic: tutorial
 ms.reviewer: chroyal
 ms.openlocfilehash: 483a5246274f63549dfb2914361ede6aa001e02e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "79533185"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Samouczek: wysyłanie danych do Azure Cosmos DB za pomocą łańcucha bloków Data Manager
@@ -56,7 +56,7 @@ Wystąpienie Data Manager łańcucha bloków nawiązuje połączenie i monitoruj
     Nazwa połączenia | cosmosdb | Wprowadź unikatową nazwę połączenia wychodzącego, w którym są wysyłane dane transakcji łańcucha bloków.
     Punkt końcowy siatki zdarzeń | Temat | Wybierz temat dotyczący siatki zdarzeń utworzony w ramach wymagania wstępnego. Uwaga: wystąpienie Data Manager łańcucha bloków i temat usługi Event Grid muszą znajdować się w tej samej subskrypcji.
 
-1. Kliknij **OK**.
+1. Wybierz przycisk **OK**.
 
     Utworzenie wystąpienia Data Manager łańcucha bloków może zająć mniej niż minutę. Po wdrożeniu wystąpienia zostanie ono automatycznie uruchomione. Uruchomione wystąpienie Data Manager łańcucha bloków przechwytuje zdarzenia łańcucha bloków z węzła Transaction i wysyła dane do usługi Event Grid.
 
@@ -150,7 +150,7 @@ Dla każdego obiektu BLOB Wygeneruj sygnaturę dostępu współdzielonego.
     ABI kontraktu | Ścieżka URL do pliku ABI kontraktu. Aby uzyskać więcej informacji, zobacz temat [Tworzenie kontraktu ABI i adresu URL kodu bajtowego](#create-contract-abi-and-bytecode-url).
     Kod bajtowy kontraktu | Ścieżka adresu URL do pliku kodu bajtowego. Aby uzyskać więcej informacji, zobacz temat [Tworzenie kontraktu ABI i adresu URL kodu bajtowego](#create-contract-abi-and-bytecode-url).
 
-1. Kliknij **OK**.
+1. Wybierz przycisk **OK**.
 
     Po utworzeniu aplikacji aplikacja zostanie wyświetlona na liście aplikacji łańcucha bloków.
 
@@ -178,7 +178,7 @@ Możesz użyć Eksplorator danych w Azure Portal, aby utworzyć bazę danych i k
     | Identyfikator kontenera | Wprowadź **komunikaty** jako nazwę nowego kontenera. |
     | Klucz partycji | Użyj **/MessageType** jako klucza partycji. |
 
-1. Kliknij **OK**. W Eksplorator danych zostanie wyświetlona nowa baza danych i kontener, który został utworzony.
+1. Wybierz przycisk **OK**. W Eksplorator danych zostanie wyświetlona nowa baza danych i kontener, który został utworzony.
 
 ## <a name="create-logic-app"></a>Tworzenie aplikacji logiki
 
@@ -285,7 +285,7 @@ Po powiązaniu Data Manager z usługą łańcucha bloków w celu Azure Cosmos DB
 
 Gratulacje! Eksplorator komunikatów transakcji został pomyślnie utworzony za pomocą łańcucha bloków Data Manager i Azure Cosmos DB.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie jest już potrzebne, możesz usunąć zasoby i grupy zasobów użyte w tym samouczku. Aby usunąć grupę zasobów:
 

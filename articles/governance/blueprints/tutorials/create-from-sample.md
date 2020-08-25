@@ -4,10 +4,10 @@ description: W tym samouczku użyto przykładu strategii do utworzenia definicji
 ms.date: 03/25/2020
 ms.topic: tutorial
 ms.openlocfilehash: 79928822b41dfe0583afbeaf2f5f1a4a87dd3202
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "80677087"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Samouczek: Tworzenie środowiska na podstawie przykładu strategii
@@ -25,7 +25,7 @@ Poniższy samouczek korzysta z **grup zasobów z** przykładowym planem RBAC, ab
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do ukończenia tego samouczka jest wymagana subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
+Do ukończenia tego samouczka jest wymagana subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="create-blueprint-definition-from-sample"></a>Utwórz definicję planu z przykładu
 
@@ -96,7 +96,7 @@ Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisa
 
    - Parametry artefaktu
 
-     Parametry zdefiniowane w tej sekcji dotyczą artefaktu, w ramach którego jest zdefiniowany. Parametry te są [parametrami dynamicznymi](../concepts/parameters.md#dynamic-parameters) , ponieważ są one definiowane podczas przypisywania planu. Dla każdego artefaktu ustaw wartość parametru na wartości zdefiniowane w kolumnie **wartość** . W `{Your ID}`obszarze Wybierz swoje konto użytkownika platformy Azure.
+     Parametry zdefiniowane w tej sekcji dotyczą artefaktu, w ramach którego jest zdefiniowany. Parametry te są [parametrami dynamicznymi](../concepts/parameters.md#dynamic-parameters) , ponieważ są one definiowane podczas przypisywania planu. Dla każdego artefaktu ustaw wartość parametru na wartości zdefiniowane w kolumnie **wartość** . W obszarze `{Your ID}` Wybierz swoje konto użytkownika platformy Azure.
 
      |Nazwa artefaktu|Typ artefaktu|Nazwa parametru|Wartość|Opis|
      |-|-|-|-|-|
@@ -144,7 +144,7 @@ Przypisanie planu tworzy i śledzi artefakty zdefiniowane w definicji strategii.
 
 1. Zaznacz pozycję Odmów przypisania, a następnie wybierz stronę **odmowa uprawnień** po lewej stronie.
 
-   **\*** Przypisanie Odmów uniemożliwia wszystkie operacje z konfiguracją i akcjami, ale zezwala na dostęp do odczytu przez wykluczenie **NotActions** ** \*/Read** za pośrednictwem **noactions** .
+   Przypisanie Odmów uniemożliwia wszystkie operacje z **\*** konfiguracją i akcjami, ale zezwala na dostęp do odczytu przez wykluczenie **NotActions** ** \* /Read** za pośrednictwem **noactions** .
 
 1. Ze stron nadrzędnych Azure Portal wybierz pozycję **Kontrola dostępu PreProductionRG (IAM)**. Następnie wybierz stronę **Przegląd** po lewej stronie, a następnie przycisk **Usuń grupę zasobów** . Wprowadź nazwę _PreProductionRG_ , aby potwierdzić usunięcie, a następnie wybierz pozycję **Usuń** w dolnej części okienka.
 
@@ -173,7 +173,7 @@ Zabezpieczenia dla każdej grupy zasobów nadal mają wdrożone przypisania ról
 
 Gdy zostanie wyświetlone powiadomienie o **usunięciu przypisania** strategii, przejdź do następnego kroku.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z tym samouczkiem Usuń następujące zasoby:
 

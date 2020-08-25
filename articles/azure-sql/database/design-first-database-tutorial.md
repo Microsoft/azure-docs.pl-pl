@@ -11,10 +11,10 @@ ms.reviewer: v-masebo
 ms.date: 07/29/2019
 ms.custom: sqldbrb=1
 ms.openlocfilehash: b56dd81cd0cdc5d9a6917b0bf43c3fceeff63c4a
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84216542"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-using-ssms"></a>Samouczek: projektowanie relacyjnej bazy danych w Azure SQL Database przy użyciu programu SSMS
@@ -135,7 +135,7 @@ Użyj [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Typ serwera** | Aparat bazy danych | Ta wartość jest wymagana. |
    | **Nazwa serwera** | W pełni kwalifikowana nazwa serwera | Przykład: *yourserver.database.windows.net*. |
-   | **Authentication** | Uwierzytelnianie programu SQL Server | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
+   | **Uwierzytelnianie** | Uwierzytelnianie programu SQL Server | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
    | **Zaloguj się** | Konto administratora serwera | Konto określone podczas tworzenia serwera. |
    | **Hasło** | Hasło konta administratora serwera | Hasło określone podczas tworzenia serwera. |
 
@@ -145,7 +145,7 @@ Użyj [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms
 
     ![nawiązywanie połączenia z bazą danych na serwerze](./media/design-first-database-tutorial/options-connect-to-db.png)  
 
-4. Kliknij pozycję **Połącz**. W programie SSMS zostanie otwarte okno **Eksplorator obiektów**.
+4. Kliknij przycisk **Podłącz**. W programie SSMS zostanie otwarte okno **Eksplorator obiektów**.
 
 5. W **Eksploratorze obiektów** rozwiń pozycję **Bazy danych**, a następnie rozwiń pozycję *yourDatabase*, aby wyświetlić obiekty w przykładowej bazie danych.
 

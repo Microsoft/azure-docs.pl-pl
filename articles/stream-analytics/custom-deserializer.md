@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 05/06/2019
 ms.openlocfilehash: 1fffeec1434cb066487bf383589554edec2e6a86
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75443696"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Samouczek: niestandardowe deserializacji platformy .NET dla Azure Stream Analytics
@@ -20,7 +20,7 @@ Azure Stream Analytics ma [wbudowaną obsługę trzech formatów danych](stream-
 
 W tym samouczku przedstawiono sposób tworzenia niestandardowej deserializacji platformy .NET dla zadania Azure Stream Analytics w chmurze przy użyciu programu Visual Studio. 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Utwórz niestandardową deserializatorę dla buforu protokołu.
@@ -30,7 +30,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Zainstaluj [program Visual studio 2017](https://www.visualstudio.com/downloads/) lub [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/). Obsługiwane są wersje Enterprise (Ultimate/Premium), Professional i Community. Wersja Express nie jest obsługiwana.
 
@@ -63,7 +63,7 @@ Tworzony kontener będzie używany do przechowywania zasobów związanych z zada
 
 ## <a name="configure-a-stream-analytics-job"></a>Konfigurowanie zadania Stream Analytics
 
-1. Kliknij dwukrotnie plik **JobConfig. JSON**. Użyj konfiguracji domyślnych, z wyjątkiem następujących ustawień:
+1. Kliknij dwukrotnie **JobConfig.js**. Użyj konfiguracji domyślnych, z wyjątkiem następujących ustawień:
 
    |Ustawienie|Sugerowana wartość|
    |-------|---------------|
@@ -74,7 +74,7 @@ Tworzony kontener będzie używany do przechowywania zasobów związanych z zada
    |Konto magazynu ustawień niestandardowych magazynu kodu|< konta magazynu >|
    |Kontener ustawień niestandardowego magazynu kodu|< kontener magazynu >|
 
-2. W obszarze **dane**wejściowe kliknij dwukrotnie plik **Input. JSON**. Użyj konfiguracji domyślnych, z wyjątkiem następujących ustawień:
+2. W obszarze **dane wejściowe**kliknij dwukrotnie pozycję **Input.json**. Użyj konfiguracji domyślnych, z wyjątkiem następujących ustawień:
 
    |Ustawienie|Sugerowana wartość|
    |-------|---------------|
@@ -85,7 +85,7 @@ Tworzony kontener będzie używany do przechowywania zasobów związanych z zada
    |Kontener|< kontener magazynu >|
    |Format serializacji zdarzeń|Inne (protobuf, XML, własnościowe...)|
    |Zasób|Załaduj z odwołania do projektu ASA lub CodeBehind|
-   |Nazwa zestawu CSharp|ProtobufDeserializer. dll|
+   |Nazwa zestawu CSharp|ProtobufDeserializer.dll|
    |Nazwa klasy|MessageBodyProto.MessageBodyDeserializer|
    |Typ kompresji zdarzenia|Brak|
 
@@ -95,14 +95,14 @@ Tworzony kontener będzie używany do przechowywania zasobów związanych z zada
    SELECT * FROM Input
    ```
 
-4. Pobierz [przykładowy plik wejściowy protobuf](https://github.com/Azure/azure-stream-analytics/blob/master/CustomDeserializers/Protobuf/SimulatedTemperatureEvents.protobuf). W folderze **dane** wejściowe kliknij prawym przyciskiem myszy plik **Input. JSON** i wybierz polecenie **Dodaj lokalne dane wejściowe**. Następnie kliknij dwukrotnie plik **local_Input. JSON** i skonfiguruj następujące ustawienia:
+4. Pobierz [przykładowy plik wejściowy protobuf](https://github.com/Azure/azure-stream-analytics/blob/master/CustomDeserializers/Protobuf/SimulatedTemperatureEvents.protobuf). W folderze **dane wejściowe** kliknij prawym przyciskiem myszy pozycję **Input.jsna** i wybierz pozycję **Dodaj lokalne dane wejściowe**. Następnie kliknij dwukrotnie **local_Input.jsna** i skonfiguruj następujące ustawienia:
 
    |Ustawienie|Sugerowana wartość|
    |-------|---------------|
    |Alias danych wejściowych|Dane wejściowe|
    |Typ źródła|Strumień danych|
    |Format serializacji zdarzeń|Inne (protobuf, XML, własnościowe...)|
-   |Nazwa zestawu CSharp|ProtobufDeserializer. dll|
+   |Nazwa zestawu CSharp|ProtobufDeserializer.dll|
    |Nazwa klasy|MessageBodyProto.MessageBodyDeserializer|
    |Ścieżka lokalnego pliku wejściowego|< ścieżkę pliku pobranego przykładowego pliku wejściowego protobuf>|
 
@@ -122,7 +122,7 @@ Deserializacji platformy .NET można debugować lokalnie w taki sam sposób, jak
 
 2. Naciśnij klawisz **F5**, aby uruchomić debugowanie. Zgodnie z oczekiwaniami program będzie zatrzymywać się w punktach przerwania.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, zadanie przesyłania strumieniowego i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Usunięcie zadania pozwala uniknąć opłat za jednostki przesyłania strumieniowego zużywane przez zadanie. Jeśli planujesz użyć zadania w przyszłości, możesz je zatrzymać i uruchomić ponownie później, gdy będzie potrzebne. Jeśli nie zamierzasz w przyszłości korzystać z tego zadania, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w ramach tego samouczka:
 

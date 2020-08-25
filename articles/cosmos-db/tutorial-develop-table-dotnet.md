@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.openlocfilehash: 2133b68bf942cee87548783fb40d08c9bfe876ff
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85851633"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Rozpoczynanie pracy z interfejsem API tabel usługi Azure Cosmos DB oraz usługą Azure Table Storage przy użyciu zestawu SDK platformy .NET
@@ -29,7 +29,7 @@ W tym samouczku opisano przykład, w którym pokazano, jak używać [biblioteki 
 
 Do pomyślnego ukończenia pracy z przykładem wymagane są następujące elementy:
 
-* [Program Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
+* [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 
 * [Biblioteka tabel Microsoft Azure CosmosDB dla platformy .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) — Ta biblioteka jest obecnie dostępna dla .NET Standard i programu .NET Framework. 
 
@@ -49,7 +49,7 @@ W programie Visual Studio Utwórz nową aplikację konsolową platformy .NET. Po
 
 1. W polu **Nazwa projektu** wprowadź nazwę aplikacji, na przykład **CosmosTableSamples**. (W razie konieczności można podać inną nazwę).
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 Wszystkie przykłady kodu z tego przykładu można dodać do metody Main () pliku **program.cs** aplikacji konsolowej.
 

@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: d7f6c51211ce0572797ade659b9316003502da1f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75650023"
 ---
 # <a name="author-a-restful-endpoint-for-custom-providers"></a>Tworzenie punktu końcowego RESTful dla dostawców niestandardowych
@@ -41,7 +41,7 @@ Poniższy przykład przedstawia `x-ms-customproviders-requestpath` nagłówek dl
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{myResourceType}/{myResourceName}
 ```
 
-Na podstawie `x-ms-customproviders-requestpath` nagłówka przykładu można utworzyć parametry *partitionKey* i *rowKey* dla magazynu, jak pokazano w poniższej tabeli:
+Na podstawie nagłówka przykładu `x-ms-customproviders-requestpath` można utworzyć parametry *PartitionKey* i *rowKey* dla magazynu, jak pokazano w poniższej tabeli:
 
 Parametr | Szablon | Opis
 ---|---|---
@@ -62,7 +62,7 @@ public class CustomResource : TableEntity
 ## <a name="support-custom-provider-restful-methods"></a>Obsługa niestandardowych metod RESTful dostawcy
 
 > [!NOTE]
-> Jeśli nie kopiujesz kodu bezpośrednio z tego samouczka, zawartość odpowiedzi musi być prawidłowym kodem JSON, który `Content-Type` ustawia nagłówek `application/json`na.
+> Jeśli nie kopiujesz kodu bezpośrednio z tego samouczka, zawartość odpowiedzi musi być prawidłowym kodem JSON, który ustawia `Content-Type` nagłówek na `application/json` .
 
 Teraz, po skonfigurowaniu partycjonowania danych, Utwórz podstawowe metody CRUD i Trigger dla zasobów niestandardowych i akcji niestandardowych. Ponieważ Dostawcy niestandardowi działają jako proxy, punkt końcowy RESTful musi modelować i obsługiwać żądanie i odpowiedź. Poniższe fragmenty kodu pokazują, jak obsłużyć podstawowe operacje RESTful.
 
@@ -138,7 +138,7 @@ Właściwość | Przykład | Opis
 ---|---|---
 **Nazwij** | {myCustomResourceName} | Nazwa zasobu niestandardowego
 **Wprowadź** | Microsoft. CustomProviders/resourceProviders/{resourceTypeName} | Przestrzeń nazw typu zasobu
-**#c1** | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>dostawcy/Microsoft. CustomProviders/resourceProviders/{resourceProviderName}/<br>{resourceTypeName}/{myCustomResourceName} | Identyfikator zasobu
+**id** | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>dostawcy/Microsoft. CustomProviders/resourceProviders/{resourceProviderName}/<br>{resourceTypeName}/{myCustomResourceName} | Identyfikator zasobu
 
 Oprócz dodawania właściwości, dokument JSON również został zapisany w usłudze Azure Table Storage.
 
@@ -338,7 +338,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
 }
 ```
 
-Zaktualizowana Metoda **Run** obejmuje teraz powiązanie danych wejściowych *TableStorage* dodane do usługi Azure Table Storage. Pierwsza część metody odczytuje `x-ms-customproviders-requestpath` nagłówek i używa `Microsoft.Azure.Management.ResourceManager.Fluent` biblioteki, aby przeanalizować wartość jako identyfikator zasobu. `x-ms-customproviders-requestpath` Nagłówek jest wysyłany przez niestandardowego dostawcę i określa ścieżkę żądania przychodzącego.
+Zaktualizowana Metoda **Run** obejmuje teraz powiązanie danych wejściowych *TableStorage* dodane do usługi Azure Table Storage. Pierwsza część metody odczytuje `x-ms-customproviders-requestpath` Nagłówek i używa `Microsoft.Azure.Management.ResourceManager.Fluent` biblioteki, aby przeanalizować wartość jako identyfikator zasobu. `x-ms-customproviders-requestpath`Nagłówek jest wysyłany przez niestandardowego dostawcę i określa ścieżkę żądania przychodzącego.
 
 Korzystając z przeanalizowanego identyfikatora zasobu, można wygenerować wartości **partitionKey** i **rowKey** dla danych w celu wyszukania lub zapisania zasobów niestandardowych.
 

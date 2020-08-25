@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
 ms.openlocfilehash: dc0964e40e9214e414d865c06006f1d36e97eeb2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "76169780"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Przykład: korzystanie z funkcji dużej skali
@@ -30,7 +30,7 @@ Przykłady są zapisywane w języku C# przy użyciu biblioteki klienckiej usług
 
 ## <a name="step-1-initialize-the-client-object"></a>Krok 1. inicjowanie obiektu klienta
 
-W przypadku korzystania z biblioteki klienta programu Front Key i punkt końcowy subskrypcji są przesyłane za pomocą konstruktora klasy FaceClient. Przykład:
+W przypadku korzystania z biblioteki klienta programu Front Key i punkt końcowy subskrypcji są przesyłane za pomocą konstruktora klasy FaceClient. Na przykład:
 
 ```csharp
 string SubscriptionKey = "<Subscription Key>";
@@ -64,10 +64,10 @@ Dodaj wszystkie powierzchnie i osoby z tej osoby do nowego LargePersonGroup. Aby
 | Interfejsy API listy FaceList | Interfejsy API listy LargeFaceList |
 |:---:|:---:|
 | Utwórz | Utwórz |
-| Usuń | Usuwanie |
+| Usuń | Usuń |
 | Get | Get |
-| List | List |
-| Aktualizowanie | Aktualizowanie |
+| Lista | Lista |
+| Aktualizacja | Aktualizacja |
 | - | Szkolenie |
 | - | Pobieranie stanu szkolenia |
 
@@ -201,14 +201,14 @@ Mimo że operacja uczenia przyspiesza [FindSimilar](https://westus.dev.cognitive
 |:---:|:---:|
 | 1000 | 1-2 s |
 | 10 000 | 5-10 s |
-| 100 000 | 1-2 min |
+| 100 000 | 1-2 min |
 | 1 000 000 | 10-30 min |
 
 Aby lepiej wykorzystać funkcję dużego skalowania, zalecamy zastosowanie następujących strategii.
 
 ### <a name="step-31-customize-time-interval"></a>Krok 3,1: Dostosowywanie interwału czasu
 
-Jak pokazano w `TrainLargeFaceList()`, istnieje interwał czasu w milisekundach, w którym można opóźnić nieskończony proces sprawdzania stanu szkolenia. W przypadku listy LargeFaceList z większą liczbą twarzy użycie dłuższego interwału zmniejsza liczby wywołań i koszt. Dostosuj przedział czasu zgodnie z oczekiwaną pojemnością LargeFaceList.
+Jak pokazano w `TrainLargeFaceList()` , istnieje interwał czasu w milisekundach, w którym można opóźnić nieskończony proces sprawdzania stanu szkolenia. W przypadku listy LargeFaceList z większą liczbą twarzy użycie dłuższego interwału zmniejsza liczby wywołań i koszt. Dostosuj przedział czasu zgodnie z oczekiwaną pojemnością LargeFaceList.
 
 Ta sama strategia ma zastosowanie również do LargePersonGroup. Na przykład w przypadku uczenia LargePersonGroup z 1 000 000 osobami `timeIntervalInMilliseconds` może być 60 000, czyli 1-minutowy interwał.
 
@@ -231,7 +231,7 @@ Przykładowy przepływ pracy:
 
 Jeśli akceptowalne jest stosunkowo długie opóźnienie, nie trzeba wyzwolić operacji uczenia bezpośrednio po dodaniu nowych danych. W zamian operację szkolenia można oddzielić od logiki głównej i wyzwalać ją regularnie. Ta strategia jest odpowiednia dla scenariuszy dynamicznych z akceptowalnym opóźnieniem. Można go zastosować do scenariuszy statycznych, aby bardziej ograniczyć częstotliwość pociągów.
 
-Załóżmy, `TrainLargePersonGroup` że istnieje funkcja podobna do `TrainLargeFaceList`. Typowa implementacja szkolenia samodzielnego na LargePersonGroup przez wywołanie [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) klasy w `System.Timers` jest:
+Załóżmy, że istnieje `TrainLargePersonGroup` funkcja podobna do `TrainLargeFaceList` . Typowa implementacja szkolenia samodzielnego na LargePersonGroup przez wywołanie [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) klasy w `System.Timers` jest:
 
 ```csharp
 private static void Main()

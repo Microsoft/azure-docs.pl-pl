@@ -9,10 +9,10 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: b247a72b5d7db9892c6a2a763b7b71dc5f972d95
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86045301"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Samouczek: Wyodrębnianie, przekształcanie i ładowanie danych przy użyciu usługi Azure HDInsight
@@ -26,7 +26,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Przekształcanie danych przy użyciu technologii Apache Hive.
 > * Załaduj dane do Azure SQL Database przy użyciu Sqoop.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -58,7 +58,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpł
    
    Wyczyść wszystkie pozostałe pola.
 
-3. Wybierz przycisk **Download** (Pobierz). Uzyskasz plik zip z wybranymi polami danych.
+3. Kliknij pozycję **Pobierz**. Uzyskasz plik zip z wybranymi polami danych.
 
 ## <a name="extract-and-upload-the-data"></a>Wyodrębnianie i przekazywanie danych
 
@@ -122,7 +122,7 @@ W tej sekcji uruchomisz zadanie Apache Hive za pomocą usługi Beeline.
 
 W ramach zadania Apache Hive zaimportujesz dane z pliku csv do tabeli Apache Hive o nazwie **delays**.
 
-1. W wyświetlonym monicie SSH dla klastra usługi HDInsight Użyj następującego polecenia, aby utworzyć i edytować nowy plik o nazwie **flightdelays. HQL**:
+1. W wyświetlonym monicie SSH dla klastra usługi HDInsight Użyj następującego polecenia, aby utworzyć i edytować nowy plik o nazwie     **flightdelays. HQL**:
 
    ```bash
    nano flightdelays.hql
@@ -226,7 +226,7 @@ W ramach zadania Apache Hive zaimportujesz dane z pliku csv do tabeli Apache Hiv
 
 Do wykonania tej operacji potrzebna jest nazwa serwera SQL Database. Wykonaj następujące kroki, aby znaleźć nazwę serwera.
 
-1. Przejdź do [Azure Portal](https://portal.azure.com).
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
 
 2. Wybierz pozycję **Bazy danych SQL**.
 
@@ -335,7 +335,7 @@ W poprzednich sekcjach skopiowano przekształcone dane w lokalizacji `abfs://<co
 
 5. Wpisz polecenie `exit`, aby wyjść z narzędzia tsql.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Wszystkie zasoby używane w tym samouczku istniały już wcześniej. Oczyszczanie nie jest konieczne.
 

@@ -10,10 +10,10 @@ ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: f38a973611cb1ab18eead4ec51e6be91ada2cc40
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85318645"
 ---
 # <a name="deploy-ml-model-on-azure-sql-edge-using-onnx"></a>Wdrażanie modelu ML w usłudze Azure SQL Edge przy użyciu ONNX 
@@ -35,9 +35,9 @@ W trzeciej części tego samouczka z trzema częściami w celu przewidywania zan
    |Serwer|Publiczny adres IP wymieniony na maszynie wirtualnej, który został utworzony dla tej wersji demonstracyjnej|
    |Nazwa użytkownika|sa|
    |Hasło|Silne hasło użyte podczas tworzenia wystąpienia usługi Azure SQL Edge|
-   |baza danych|Domyślne|
-   |Grupa serwerów|Domyślne|
-   |Nazwa (opcjonalnie)|Podaj nazwę opcjonalną|
+   |baza danych|Domyślny|
+   |Server group (Grupa serwerów)|Domyślny|
+   |Name (optional) (Nazwa — opcjonalnie)|Podaj nazwę opcjonalną|
 
 3. Kliknij przycisk **Połącz** .
 

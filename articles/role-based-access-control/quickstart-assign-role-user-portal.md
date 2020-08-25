@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
 ms.openlocfilehash: c6736bb2642ff08d0aa3cda536ef1599324efded
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85362022"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-the-azure-portal"></a>Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure przy użyciu Azure Portal
@@ -62,7 +62,7 @@ W celu udzielenia dostępu w usłudze Azure RBAC należy utworzyć przypisanie r
 
 1. Na liście **Grupy zasobów** kliknij nową grupę zasobów **rbac-resource-group**.
 
-1. Kliknij pozycję **Kontrola dostępu (IAM)** .
+1. Kliknij pozycję **Kontrola dostępu (IAM)**.
 
 1. Kliknij kartę **Przypisania ról**, aby wyświetlić bieżącą listę przypisań ról.
 
@@ -82,7 +82,7 @@ W celu udzielenia dostępu w usłudze Azure RBAC należy utworzyć przypisanie r
 
 1. Z listy **Wybierz** wybierz siebie lub innego użytkownika.
 
-1. Kliknij pozycję **Zapisz**, aby utworzyć przypisanie roli.
+1. Kliknij przycisk **Zapisz**, aby utworzyć przypisanie roli.
 
    Po kilku chwilach użytkownik zostanie przypisany do roli Współautor maszyny wirtualnej w zakresie grupy zasobów rbac-resource-group.
 
@@ -94,13 +94,13 @@ W celu usunięcia dostępu w usłudze Azure RBAC należy usunąć przypisanie ro
 
 1. Na liście przypisań ról dodaj znacznik wyboru obok użytkownika z rolą Współautor maszyny wirtualnej.
 
-1. Kliknij pozycję **Usuń**.
+1. Kliknij przycisk **Usuń**.
 
    ![Komunikat dotyczący usuwania przypisania roli](./media/quickstart-assign-role-user-portal/remove-role-assignment.png)
 
 1. W wyświetlonym komunikacie dotyczącym usuwania przypisania roli wybierz pozycję **Tak**.
 
-## <a name="clean-up"></a>Czyszczenie
+## <a name="clean-up"></a>Czyszczenie zasobów
 
 1. Na liście nawigacji kliknij pozycję **Grupy zasobów**.
 

@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 02/12/2020
 ms.openlocfilehash: 5eb6788a558e4429296731f1693edd18bf92f98f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "77198892"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Samouczek: ładowanie danych i uruchamianie zapytań w klastrze platformy Apache Spark w usłudze Azure HDInsight
 
 W tym samouczku dowiesz się, jak utworzyć ramkę danych z pliku CSV oraz jak uruchamiać interakcyjne zapytania Spark SQL względem klastra [Apache Spark](https://spark.apache.org/) w usłudze Azure HDInsight. Na platformie Spark ramka danych jest rozproszoną kolekcją danych zorganizowanych w nazwanych kolumnach. Jest równoważna tabeli w relacyjnej bazie danych lub ramce danych w języku R/Python.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Tworzenie ramki danych z pliku csv
 > * Uruchamianie zapytań na ramce danych
@@ -32,13 +32,13 @@ Klaster Apache Spark w usłudze HDInsight. Zobacz [Tworzenie klastra Apache Spar
 
 Jupyter Notebook to interakcyjne środowisko notesu, które obsługuje różne języki programowania. Notes pozwala na interakcję z danymi, łączenie kodu z tekstem markdown i wykonywanie prostych wizualizacji.
 
-1. Edytuj adres URL `https://SPARKCLUSTER.azurehdinsight.net/jupyter` , zastępując `SPARKCLUSTER` go nazwą klastra Spark. Następnie wprowadź edytowany adres URL w przeglądarce sieci Web. Jeśli zostanie wyświetlony monit, wprowadź poświadczenia logowania dla klastra.
+1. Edytuj adres URL `https://SPARKCLUSTER.azurehdinsight.net/jupyter` , zastępując go `SPARKCLUSTER` nazwą klastra Spark. Następnie wprowadź edytowany adres URL w przeglądarce sieci Web. Jeśli zostanie wyświetlony monit, wprowadź poświadczenia logowania dla klastra.
 
-2. Na stronie sieci Web Jupyter wybierz pozycję **Nowy** > **PySpark** , aby utworzyć Notes.
+2. Na stronie sieci Web Jupyter wybierz pozycję **Nowy**  >  **PySpark** , aby utworzyć Notes.
 
    ![Utwórz Jupyter Notebook do uruchamiania interakcyjnego zapytania Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Utwórz Jupyter Notebook do uruchamiania interakcyjnego zapytania Spark SQL")
 
-   Nowy Notes zostanie utworzony i otwarty z nazwą bez tytułu (`Untitled.ipynb`).
+   Nowy Notes zostanie utworzony i otwarty z nazwą bez tytułu ( `Untitled.ipynb` ).
 
     > [!NOTE]  
     > Dzięki temu, że tworzenie notesu odbywa się przy użyciu jądra PySpark, po uruchomieniu pierwszej komórki kodu sesja `spark` jest tworzona automatycznie. Nie jest konieczne jawne tworzenie sesji.
@@ -89,11 +89,11 @@ Po utworzeniu tabeli możesz uruchomić interakcyjne zapytanie na danych.
 
     ![Wykres warstwowy wyników interakcyjnego zapytania Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Wykres warstwowy wyników interakcyjnego zapytania Spark")
 
-3. Na pasku menu Notes przejdź do **pliku** > **Zapisz i Utwórz punkt kontrolny**.
+3. Na pasku menu Notes przejdź do **pliku**  >  **Zapisz i Utwórz punkt kontrolny**.
 
-4. Jeśli zamierzasz teraz otworzyć [następny samouczek](apache-spark-use-bi-tools.md), pozostaw notes otwarty. W przeciwnym razie Zamknij Notes, aby zwolnić zasoby klastra: na pasku menu Notes przejdź do **pliku** >  **Zamknij i zatrzymywanie**.
+4. Jeśli zamierzasz teraz otworzyć [następny samouczek](apache-spark-use-bi-tools.md), pozostaw notes otwarty. W przeciwnym razie Zamknij Notes, aby zwolnić zasoby klastra: na pasku menu Notes przejdź do **pliku**  >   **Zamknij i zatrzymywanie**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Dzięki usłudze HDInsight Twoje notesy danych i Jupyter są przechowywane w usłudze Azure Storage lub Azure Data Lake Storage, dzięki czemu można bezpiecznie usunąć klaster, gdy nie jest używany. Opłaty są naliczone również za klaster usługi HDInsight, nawet wtedy, gdy nie jest używany. Ze względu na to, że opłaty za klaster są dużo razy większe niż opłaty za magazyn, sprawia to, że należy usunąć klastry, gdy nie są używane. Jeśli planujesz natychmiastowe rozpoczęcie pracy z następnym samouczkiem, warto zachować klaster.
 

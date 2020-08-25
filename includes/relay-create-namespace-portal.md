@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: 500db9f6d299ea81b1f1b1be864df5d91ba1eae7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "76021183"
 ---
 1. Zaloguj się w witrynie [Azure Portal][Azure portal].
@@ -20,7 +20,7 @@ ms.locfileid: "76021183"
 
     ![Create namespace][create-namespace]
 
-1. Wybierz pozycję **Utwórz**. Azure Portal tworzy przestrzeń nazw i włącza ją. Po kilku minutach system aprowizuje zasoby dla Twojego konta.
+1. Wybierz przycisk **Utwórz**. Azure Portal tworzy przestrzeń nazw i włącza ją. Po kilku minutach system aprowizuje zasoby dla Twojego konta.
 
 ### <a name="get-management-credentials"></a>Uzyskiwanie poświadczeń zarządzania
 

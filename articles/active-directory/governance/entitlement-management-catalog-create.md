@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16a9c8ddfbc2c2a45067080dc68a759de226591b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0b8e107fb377a30b35f0941b89c490e11fc458c
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339577"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783539"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Tworzenie wykazu zasobów i zarządzanie nim w usłudze Azure AD uprawnienia zarządzania
 
@@ -53,7 +53,7 @@ Katalog jest kontenerem zasobów i pakietów dostępu. Katalog można utworzyć,
 
 ### <a name="creating-a-catalog-programmatically"></a>Programistyczne tworzenie katalogu
 
-Możesz również utworzyć katalog przy użyciu Microsoft Graph.  Użytkownik w odpowiedniej roli z aplikacją, która ma delegowane uprawnienie, `EntitlementManagement.ReadWrite.All` może wywołać interfejs API, aby [utworzyć accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-post?view=graph-rest-beta).
+Możesz również utworzyć katalog przy użyciu Microsoft Graph.  Użytkownik w odpowiedniej roli z aplikacją, która ma delegowane uprawnienie, `EntitlementManagement.ReadWrite.All` może wywołać interfejs API, aby [utworzyć accessPackageCatalog](/graph/api/accesspackagecatalog-post?view=graph-rest-beta).
 
 ## <a name="add-resources-to-a-catalog"></a>Dodawanie zasobów do wykazu
 
@@ -83,7 +83,7 @@ Aby uwzględnić zasoby w pakiecie dostępu, zasoby muszą znajdować się w wyk
 
 ### <a name="adding-a-resource-to-a-catalog-programmatically"></a>Programistyczne Dodawanie zasobu do katalogu
 
-Możesz również dodać zasób do wykazu przy użyciu Microsoft Graph.  Użytkownik w odpowiedniej roli lub katalogu i właściciel zasobu z aplikacją, która ma delegowane `EntitlementManagement.ReadWrite.All` uprawnienie, może wywołać interfejs API, aby [utworzyć accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta).
+Możesz również dodać zasób do wykazu przy użyciu Microsoft Graph.  Użytkownik w odpowiedniej roli lub katalogu i właściciel zasobu z aplikacją, która ma delegowane `EntitlementManagement.ReadWrite.All` uprawnienie, może wywołać interfejs API, aby [utworzyć accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta).
 
 ## <a name="remove-resources-from-a-catalog"></a>Usuwanie zasobów z wykazu
 
@@ -155,7 +155,7 @@ Katalog można usunąć, ale tylko wtedy, gdy nie ma żadnych pakietów dostępu
 
 ### <a name="deleting-a-catalog-programmatically"></a>Programistyczne usuwanie katalogu
 
-Możesz również usunąć katalog przy użyciu Microsoft Graph.  Użytkownik w odpowiedniej roli z aplikacją, która ma delegowane uprawnienie, `EntitlementManagement.ReadWrite.All` może wywołać interfejs API, aby [usunąć accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-delete?view=graph-rest-beta).
+Możesz również usunąć katalog przy użyciu Microsoft Graph.  Użytkownik w odpowiedniej roli z aplikacją, która ma delegowane uprawnienie, `EntitlementManagement.ReadWrite.All` może wywołać interfejs API, aby [usunąć accessPackageCatalog](/graph/api/accesspackagecatalog-delete?view=graph-rest-beta).
 
 ## <a name="next-steps"></a>Następne kroki
 

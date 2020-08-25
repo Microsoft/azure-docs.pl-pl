@@ -17,12 +17,12 @@ ms.date: 08/07/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0510184e2471d61c8911b5fcd484fd5dec0bce28
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 6a198a63d633573ad683a3f8e8215b2975721bc9
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144481"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794924"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Polecenia cmdlet programu PowerShell usługi Azure AD do raportowania
 
@@ -34,6 +34,7 @@ Aby zainstalować publiczną wersję zapoznawczą, użyj poniższego programu.
 ```powershell
 Install-module AzureADPreview
 ```
+
 Aby uzyskać więcej informacji na temat nawiązywania połączenia z usługą Azure AD przy użyciu programu PowerShell, zobacz artykuł [Azure AD PowerShell dla programu Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
 
 Dzięki raportom Azure Active Directory (Azure AD) możesz uzyskać szczegółowe informacje o działaniach związanych ze wszystkimi operacjami zapisu w Twoim kierunku (dzienniki inspekcji) i danych uwierzytelniania (dzienniki logowania). Chociaż informacje są dostępne za pomocą programu MS interfejs API programu Graph, teraz można pobrać te same dane przy użyciu poleceń cmdlet programu PowerShell usługi Azure AD na potrzeby raportowania.

@@ -9,10 +9,10 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.openlocfilehash: 85fad873b6c176d2278ea48709d2892ab515a025
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "78303311"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Samouczek: implementowanie wzorca przechwytywania danych w celu zaktualizowania tabeli różnicowej datakostki
@@ -34,7 +34,7 @@ Skompilujemy to rozwiązanie w odwrotnej kolejności, rozpoczynając od obszaru 
 
 * Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
-* Utwórz konto magazynu, które ma hierarchiczną przestrzeń nazw (Azure Data Lake Storage Gen2). W tym samouczku jest stosowane konto `contosoorders`magazynu o nazwie. Upewnij się, że Twoje konto użytkownika ma przypisaną [rolę Współautor danych obiektu blob magazynu](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac).
+* Utwórz konto magazynu, które ma hierarchiczną przestrzeń nazw (Azure Data Lake Storage Gen2). W tym samouczku jest stosowane konto magazynu o nazwie `contosoorders` . Upewnij się, że Twoje konto użytkownika ma przypisaną [rolę Współautor danych obiektu blob magazynu](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac).
 
   Zobacz [Tworzenie konta Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
 
@@ -68,7 +68,7 @@ Najpierw utwórz plik CSV, który opisuje zamówienie sprzedaży, a następnie P
    536365,85123A,WHITE HANGING HEART T-LIGHT HOLDER,6,12/1/2010 8:26,2.55,17850,United Kingdom
    ```
 
-4. Zapisz ten plik na komputerze lokalnym i nadaj mu nazwę **Data. csv**.
+4. Zapisz ten plik na komputerze lokalnym i nadaj mu nazwę **data.csv**.
 
 5. W Eksplorator usługi Storage Przekaż ten plik do folderu **Input** .  
 
@@ -86,7 +86,7 @@ W tej sekcji wykonasz następujące zadania:
 
 W tej sekcji utworzysz obszar roboczy usługi Azure Databricks przy użyciu witryny Azure Portal.
 
-1. W Azure Portal wybierz pozycję **Utwórz** > **Analytics** > **Azure Databricks**analizy zasobów.
+1. W Azure Portal wybierz pozycję **Utwórz**  >  **Analytics**  >  **Azure Databricks**analizy zasobów.
 
     ![Datakostki na Azure Portal](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Datakostki na Azure Portal")
 
@@ -100,7 +100,7 @@ W tej sekcji utworzysz obszar roboczy usługi Azure Databricks przy użyciu witr
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do utworzonego obszaru roboczego Azure Databricks, a następnie wybierz pozycję **Uruchom obszar roboczy**.
 
-2. Nastąpi przekierowanie do portalu usługi Azure Databricks. W portalu wybierz pozycję **Nowy** > **klaster**.
+2. Nastąpi przekierowanie do portalu usługi Azure Databricks. W portalu wybierz pozycję **Nowy**  >  **klaster**.
 
     ![Datakostki na platformie Azure](./media/data-lake-storage-events/databricks-on-azure.png "Datakostki na platformie Azure")
 
@@ -133,7 +133,7 @@ Aby uzyskać więcej informacji na temat tworzenia klastrów, zobacz [Create a S
 
 1. W utworzonym notesie skopiuj i wklej poniższy blok kodu w pierwszej komórce, ale nie uruchamiaj jeszcze tego kodu.  
 
-   Zastąp wartości `tenant` symboli zastępczych w tym bloku kodu wartościami, które zostały zebrane podczas wykonywania wymagań wstępnych tego samouczka. `appId` `password`
+   Zastąp `appId` `password` `tenant` wartości symboli zastępczych w tym bloku kodu wartościami, które zostały zebrane podczas wykonywania wymagań wstępnych tego samouczka.
 
     ```Python
     dbutils.widgets.text('source_file', "", "Source File")
@@ -152,7 +152,7 @@ Aby uzyskać więcej informacji na temat tworzenia klastrów, zobacz [Create a S
     Ten kod tworzy widżet o nazwie **source_file**. Później utworzysz funkcję platformy Azure, która wywoła ten kod i przekaże ścieżkę pliku do tego widżetu.  Ten kod uwierzytelnia również nazwę główną usługi przy użyciu konta magazynu i tworzy pewne zmienne, które będą używane w innych komórkach.
 
     > [!NOTE]
-    > W środowisku produkcyjnym rozważ przechowywanie klucza uwierzytelniania w usłudze Azure Databricks. Następnie dodaj do bloku kodu klucz wyszukiwania zamiast klucza uwierzytelniania. <br><br>Na przykład zamiast korzystania z tego wiersza kodu: `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")`należy użyć następującego wiersza kodu:. `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))` <br><br>Po ukończeniu tego samouczka zapoznaj się z artykułem [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) w witrynie internetowej Azure Databricks, aby zobaczyć przykłady tego podejścia.
+    > W środowisku produkcyjnym rozważ przechowywanie klucza uwierzytelniania w usłudze Azure Databricks. Następnie dodaj do bloku kodu klucz wyszukiwania zamiast klucza uwierzytelniania. <br><br>Na przykład zamiast korzystania z tego wiersza kodu: należy `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")` użyć następującego wiersza kodu: `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))` . <br><br>Po ukończeniu tego samouczka zapoznaj się z artykułem [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) w witrynie internetowej Azure Databricks, aby zobaczyć przykłady tego podejścia.
 
 2. Naciśnij klawisze **SHIFT+ENTER**, aby uruchomić kod w tym bloku.
 
@@ -279,7 +279,7 @@ Utwórz funkcję platformy Azure, która uruchamia zadanie.
    |----|----|
    |**DBX_INSTANCE**| Region obszaru roboczego kostki danych. Na przykład: `westus2.azuredatabricks.net`|
    |**DBX_PAT**| Osobisty token dostępu wygenerowany wcześniej. |
-   |**DBX_JOB_ID**|Identyfikator uruchomionego zadania. W naszym przypadku ta wartość to `1`.|
+   |**DBX_JOB_ID**|Identyfikator uruchomionego zadania. W naszym przypadku ta wartość to `1` .|
 7. Na stronie Przegląd aplikacji funkcji kliknij przycisk **Nowa funkcja** .
 
    ![Nowa funkcja](./media/data-lake-storage-events/new-function.png "Nowa funkcja")
@@ -354,7 +354,7 @@ W tej sekcji utworzysz subskrypcję Event Grid, która wywołuje funkcję platfo
 
 ## <a name="test-the-event-grid-subscription"></a>Testowanie subskrypcji Event Grid
 
-1. Utwórz plik o nazwie `customer-order.csv`, wklej następujące informacje do tego pliku i Zapisz go na komputerze lokalnym.
+1. Utwórz plik o nazwie `customer-order.csv` , wklej następujące informacje do tego pliku i Zapisz go na komputerze lokalnym.
 
    ```
    InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Country
@@ -385,18 +385,18 @@ W tej sekcji utworzysz subskrypcję Event Grid, która wywołuje funkcję platfo
 
    ![W tabeli pojawia się najnowszy rekord](./media/data-lake-storage-events/final_query.png "W tabeli pojawia się najnowszy rekord")
 
-6. Aby zaktualizować ten rekord, Utwórz plik o nazwie `customer-order-update.csv`, wklej następujące informacje do tego pliku i Zapisz go na komputerze lokalnym.
+6. Aby zaktualizować ten rekord, Utwórz plik o nazwie `customer-order-update.csv` , wklej następujące informacje do tego pliku i Zapisz go na komputerze lokalnym.
 
    ```
    InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Country
    536371,99999,EverGlow Single,22,1/1/2018 9:01,33.85,20993,Sierra Leone
    ```
 
-   Ten plik CSV jest niemal identyczny z poprzednim, z wyjątkiem tego, że ilość zamówienia została zmieniona `228` z `22`na.
+   Ten plik CSV jest niemal identyczny z poprzednim, z wyjątkiem tego, że ilość zamówienia została zmieniona z `228` na `22` .
 
 7. W Eksplorator usługi Storage Przekaż ten plik do folderu **wejściowego** konta magazynu.
 
-8. Uruchom ponownie `select` zapytanie, aby wyświetlić zaktualizowaną tabelę różnicową.
+8. Uruchom `select` ponownie zapytanie, aby wyświetlić zaktualizowaną tabelę różnicową.
 
    ```
    %sql select * from customer_data
@@ -406,7 +406,7 @@ W tej sekcji utworzysz subskrypcję Event Grid, która wywołuje funkcję platfo
 
    ![Zaktualizowany rekord pojawia się w tabeli](./media/data-lake-storage-events/final_query-2.png "Zaktualizowany rekord pojawia się w tabeli")
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. W tym celu zaznacz grupę zasobów konta magazynu i wybierz pozycję **Usuń**.
 

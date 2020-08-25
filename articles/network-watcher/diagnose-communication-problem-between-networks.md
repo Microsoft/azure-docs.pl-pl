@@ -15,15 +15,15 @@ ms.date: 04/27/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 974e45b761fb45e4bc1c451fa6755e16cab49e11
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "76834691"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Samouczek: diagnozowanie problemu z komunikacją między sieciami przy użyciu witryny Azure Portal
 
-Brama sieci wirtualnej łączy sieć wirtualną platformy Azure z lokalną lub inną siecią wirtualną. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Brama sieci wirtualnej łączy sieć wirtualną platformy Azure z lokalną lub inną siecią wirtualną. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Diagnozowanie problemu z bramą sieci wirtualnej za pomocą diagnostyki sieci VPN usługi Network Watcher
@@ -101,7 +101,7 @@ Brama jest połączona z innymi sieciami za pośrednictwem połączenia bramy. Z
 
     Aby rozwiązać ten problem, należy się upewnić, że lokalna brama sieci VPN jest [poprawnie skonfigurowana](../vpn-gateway/vpn-gateway-about-vpn-devices.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), i zmienić adres IP skonfigurowany za pomocą skryptu dla bramy sieci lokalnej na rzeczywisty publiczny adres lokalnej bramy sieci VPN.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli bramę sieci VPN utworzono przy użyciu skryptu z sekcji [Wymagania wstępne](#prerequisites) wyłącznie w celu wykonania kroków tego samouczka i nie jest ona już potrzebna, usuń grupę zasobów i wszystkie zawarte w niej zasoby:
 

@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
 ms.openlocfilehash: 240905d538afc5c0f4b7f0e0bf400fac23c3183f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "76169826"
 ---
 # <a name="add-faces-to-a-persongroup"></a>Dodawanie twarzy do osoby
@@ -28,7 +28,7 @@ Poniższy kod deklaruje kilka zmiennych i implementuje funkcję pomocnika, aby z
 - `PersonCount` jest łączną liczbą osób.
 - `CallLimitPerSecond` jest maksymalną liczbą wywołań na sekundę, zgodnie z warstwą subskrypcji.
 - `_timeStampQueue` jest kolejką do rejestrowania znaczników czasu żądań.
-- `await WaitCallLimitPerSecondAsync()`czeka, aż będzie można wysłać kolejne żądanie.
+- `await WaitCallLimitPerSecondAsync()` czeka, aż będzie można wysłać kolejne żądanie.
 
 ```csharp
 const int PersonCount = 10000;
@@ -60,7 +60,7 @@ static async Task WaitCallLimitPerSecondAsync()
 
 ## <a name="step-2-authorize-the-api-call"></a>Krok 2: Autoryzowanie wywołania interfejsu API
 
-W przypadku korzystania z biblioteki klienta należy przekazać klucz subskrypcji do konstruktora klasy **FaceClient** . Przykład:
+W przypadku korzystania z biblioteki klienta należy przekazać klucz subskrypcji do konstruktora klasy **FaceClient** . Na przykład:
 
 ```csharp
 private readonly IFaceClient faceClient = new FaceClient(

@@ -4,10 +4,10 @@ description: W tym samouczku użyto opcji blokowania zasobów usługi Azure Plan
 ms.date: 05/06/2020
 ms.topic: tutorial
 ms.openlocfilehash: 738c627d350c5e11b41a65d159cf2cc7de807334
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85969645"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Samouczek: Ochrona nowych zasobów przy użyciu blokad zasobów usługi Azure Plans
@@ -131,7 +131,7 @@ Po opublikowaniu definicji planu można przypisać ją do subskrypcji w grupie z
 
 1. Podaj wartości parametrów dla przypisania planu:
 
-   - **Informacje podstawowe**
+   - **Podstawy**
 
      - **Subskrypcje**: Wybierz co najmniej jedną subskrypcję znajdującą się w grupie zarządzania, w której zapisano definicję planu. W przypadku wybrania więcej niż jednej subskrypcji zostanie utworzone przypisanie dla każdej subskrypcji przy użyciu wprowadzonych parametrów.
      - **Nazwa przypisania**: nazwa jest wstępnie wypełniana na podstawie nazwy definicji planu. To przypisanie reprezentuje zablokowanie nowej grupy zasobów, dlatego należy zmienić nazwę przypisania na **przypisanie-storageaccount-TestingBPLocks**.
@@ -215,7 +215,7 @@ Zabezpieczenia dla grupy zasobów pokazują, że przypisanie planu nie ma już d
 
 Po wyświetleniu powiadomienia portalu **usuwanie przypisania strategii powiodło** się przejdź do następnego kroku.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Po zakończeniu pracy z tym samouczkiem Usuń następujące zasoby:
 
