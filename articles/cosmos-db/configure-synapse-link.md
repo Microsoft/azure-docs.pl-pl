@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: 37cbddbb54493c54a29a790d617bbdb44bf17da9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 4c5f812bf1a5a60a6d1344d6a39fbd95898f55fc
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653141"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815576"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Konfigurowanie i używanie linku Azure Synapse dla Azure Cosmos DB (wersja zapoznawcza)
 
@@ -19,7 +19,7 @@ Link Synapse dla Azure Cosmos DB to natywna w pełni funkcjonalna funkcja przetw
 
 
 > [!IMPORTANT]
-> Aby korzystać z usługi Azure Synapse, upewnij się, że Twoje konto usługi Azure Cosmos jest obsługiwane & obszarze roboczym usługi Azure Synapse Analytics w jednym z powyższych obsługiwanych regionów. Aby zapoznać się z listą obsługiwanych regionów, zobacz [aktualizacje usługi platformy Azure](https://azure.microsoft.com/updates/). 
+> Aby użyć linku usługi Azure Synapse, upewnij się, że konto usługi Azure Cosmos jest obsługiwane & obszarze roboczym usługi Azure Synapse Analytics w jednym z obsługiwanych regionów. Link Synapse platformy Azure jest obecnie dostępny w następujących regionach świadczenia usługi Azure: zachodnie stany USA, Wschodnie stany USA, zachodni stany USA 2, Europa Północna, Europa Zachodnia, Południowe Południowo-środkowe stany USA, Azja Południowo-Wschodnia, Australia Wschodnia, Wschodni wschód, Południowe Zjednoczone Królestwo.
 
 Wykonaj następujące kroki, aby uruchomić zapytania analityczne za pomocą linku Synapse dla Azure Cosmos DB:
 

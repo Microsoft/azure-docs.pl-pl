@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
-ms.openlocfilehash: db66137ac4b233a7e5d3040cf38dc69a089b0c9a
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 8ee6449f357a578b30809bb03723ac1556e4f459
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185217"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816190"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Rozwiązywanie problemów z instalacją wypychaną usługi mobilności
 
@@ -129,6 +129,28 @@ Aby rozwiązać ten problem:
 ## <a name="connectivity-failure-errorid-95523"></a>Niepowodzenie łączności (ErrorID: 95523)
 
 Ten błąd występuje, gdy sieć, w której znajduje się maszyna źródłowa nie została znaleziona, mogła zostać usunięta lub nie jest już dostępna. Jedynym sposobem na rozwiązanie tego błędu jest upewnienie się, że sieć istnieje.
+
+## <a name="check-access-for-network-shared-folders-on-source-machine-errorid-9510595523"></a>Sprawdź dostęp do udostępnionych folderów sieciowych na maszynie źródłowej (ErrorID: 95105, 95523)
+
+Sprawdź, czy sieciowe foldery udostępnione na maszynie wirtualnej są dostępne zdalnie z serwera przetwarzania (PS) przy użyciu określonych poświadczeń. Aby potwierdzić dostęp: 
+
+1. Zaloguj się do maszyny serwera przetwarzania.
+2. Otwórz Eksploratora plików. Na pasku adresu wpisz `\\<SOURCE-MACHINE-IP>\C$` i kliknij klawisz ENTER.
+
+    ![Otwórz folder w PS](./media/vmware-azure-troubleshoot-push-install/open-folder-process-server.PNG)
+
+3. Eksplorator plików wyświetli monit o podanie poświadczeń. Wprowadź nazwę użytkownika i hasło, a następnie kliknij przycisk OK. <br><br/>
+
+    ![Podaj poświadczenia](./media/vmware-azure-troubleshoot-push-install/provide-credentials.PNG)
+
+    >[!NOTE]
+    > Jeśli maszyna źródłowa jest przyłączona do domeny, podaj nazwę domeny oraz nazwę użytkownika jako `<domainName>\<username>` . Jeśli maszyna źródłowa znajduje się w grupie roboczej, podaj tylko nazwę użytkownika.
+
+4. W przypadku pomyślnego nawiązania połączenia foldery maszyny źródłowej będą widoczne zdalnie z serwera przetwarzania.
+
+    ![Widoczne foldery z maszyny źródłowej](./media/vmware-azure-troubleshoot-push-install/visible-folders-from-source.png)
+
+Jeśli połączenie nie powiedzie się, sprawdź, czy zostały spełnione wszystkie wymagania wstępne.
 
 ## <a name="file-and-printer-sharing-services-check-errorid-95105--95106"></a>Sprawdzenie usług udostępniania plików i drukarek (ErrorID: 95105 & 95106)
 
@@ -260,7 +282,7 @@ Po skopiowaniu agenta mobilności na maszynę źródłową wymagane jest co najm
 
 ## <a name="low-system-resources"></a>Niskie zasoby systemowe
 
-Ten problem występuje, gdy system ma małą ilość dostępnej pamięci i nie może przydzielić pamięci na potrzeby instalacji usługi mobilności. Upewnij się, że wystarczająca ilość pamięci została zwolniona w celu pomyślnego zakończenia instalacji.
+Możliwe identyfikatory błędów, które są widoczne dla tego problemu, to 95572 i 95573. Ten problem występuje, gdy system ma małą ilość dostępnej pamięci i nie może przydzielić pamięci na potrzeby instalacji usługi mobilności. Upewnij się, że wystarczająca ilość pamięci została zwolniona w celu pomyślnego zakończenia instalacji.
 
 ## <a name="vss-installation-failures"></a>Błędy instalacji usługi VSS
 

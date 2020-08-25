@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: 7bf4860e8c42ef8aacc2e564dacd6de1a7d39149
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 19e3e356765099b83f7248a024b55c491a61b110
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607402"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816273"
 ---
 # <a name="offer-listing-best-practices"></a>Najlepsze rozwiązania dotyczące ofert
 
@@ -22,7 +22,7 @@ Ten artykuł zawiera sugestie dotyczące tworzenia i angażowania komercyjnych o
 
 | Ustawienie | Najlepsze rozwiązanie |
 |:--- |:--- |  
-| Offer Name | W przypadku aplikacji podaj czytelny tytuł zawierający słowa kluczowe wyszukiwania, aby pomóc klientom w znalezieniu oferty. <br> <br> W przypadku usług doradczych postępuj zgodnie z tym formatem: [nazwa oferty: [Duration] [typ oferty] (na przykład Contoso: implementacja 2-tygodniowa) |
+| Nazwa oferty | W przypadku aplikacji podaj czytelny tytuł zawierający słowa kluczowe wyszukiwania, aby pomóc klientom w znalezieniu oferty. <br> <br> W przypadku usług doradczych postępuj zgodnie z tym formatem: [nazwa oferty: [Duration] [typ oferty] (na przykład Contoso: implementacja 2-tygodniowa) |
 | Opis oferty | Podaj jasny opis, który opisuje swoją pozycję oferty w pierwszych kilku zdaniach.  Należy pamiętać, że te zdania mogą być używane w wynikach wyszukiwarki. Podstawowe składniki Twojej pozycji wartości powinny obejmować: <ul> <li>Opis produktu lub rozwiązania. </li> <li> Użytkownik korzystający z produktu lub rozwiązania. </li> <li> Klient wymaga lub nie korzysta z adresów produktów lub rozwiązań. </li> </ul> <br> Jeśli to możliwe, korzystaj z słów w standardzie branżowym lub w oparciu o korzyści.  Nie należy polegać na funkcjach i funkcjach, aby sprzedawać produkt.  Zamiast tego należy skoncentrować się na dostarczanej wartości. <br> <br> Aby zapoznać się z listą usług doradczych, zastanów się w tym miejscu. |
 
 > [!IMPORTANT]
@@ -54,12 +54,12 @@ Kategorie i podkategorie są mapowane na każdy sklep online na podstawie docelo
 
 Wybierz kategorie i podkategorie, które najlepiej dopasowują się do oferty i Twoich zamierzonych odbiorców. Dostępne są następujące opcje:
 
-* Do dwóch (2) kategorii, w tym podstawowej i pomocniczej kategorii (opcjonalnie).
-* Do dwóch (2) podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli nie wybrano żadnej podkategorii, oferta nadal będzie wykrywalna tylko w wybranej kategorii.
+* Do dwóch kategorii, w tym podstawowej i pomocniczej kategorii (opcjonalnie).
+* Do dwóch podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli nie wybrano żadnej podkategorii, oferta nadal będzie wykrywalna tylko w wybranej kategorii.
 
 [!INCLUDE [categories and subcategories](./includes/categories.md)]
 
-**Ważne: SaaSe oferty i dodatki Microsoft 365**
+#### <a name="important-saas-offers-and-microsoft-365-add-ins"></a>Ważne: SaaSe oferty i dodatki Microsoft 365
 
 Zapoznaj się z [przewodnikiem według typu oferty,](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) Aby uzyskać szczegółowe informacje dotyczące sposobu, w jaki funkcje Transact mogą mieć wpływ na sposób wyświetlania i kupowania oferty przez klientów w portalu Marketplace. W przypadku ofert SaaS oferta oferty oraz wybór kategorii będą określać sklep online, w którym Twoja oferta zostanie opublikowana:
 
@@ -120,9 +120,9 @@ Słowa kluczowe mogą pomóc klientom w znalezieniu oferty podczas wyszukiwania.
 ## <a name="online-store-marketing-details"></a>Szczegóły marketingu sklepu online
 | Ustawienie | Najlepsze rozwiązanie |
 |:--- |:--- |  
-| Logo oferty (format PNG, 48 &nbsp; &times; &nbsp; 48): Strona wyszukiwania | Projektuj i Optymalizuj logo dla nośnika cyfrowego:<br>Przekaż logo w formacie PNG do strony wyszukiwania oferty. |
-| Logo oferty (format PNG, 216 &nbsp; &times; &nbsp; 216): Strona szczegółów aplikacji | Projektuj i Optymalizuj logo dla nośnika cyfrowego:<br>Przekaż logo w formacie PNG do strony z listą szczegółów aplikacji oferty. |
-| "Dowiedz się więcej" | Uwzględnij dodatkowe zasoby sprzedaży i marketingu w obszarze "Dowiedz się więcej", Oto kilka przykładów: <ul> <li> Oficjalne dokumenty, </li> <li> broszury, </li> <li> listy kontrolne lub </li> <li> Prezentacje programu PowerPoint.</li> </ul>Zapisz wszystkie pliki w formacie PDF. Celem tego celu jest zaplanowanie klientów, a nie ich sprzedawanie. <br><br>Dodaj link do strony docelowej aplikacji do wszystkich dokumentów i Dodaj parametry adresu URL, aby ułatwić Ci śledzenie odwiedzających i prób. |
+| Logo oferty (format PNG, od 216 × 216 do 350 x 350 px): Strona szczegółów aplikacji | Projektuj i Optymalizuj logo dla nośnika cyfrowego:<br>Przekaż logo w formacie PNG do strony z listą szczegółów aplikacji oferty. Centrum partnerskie zmieni rozmiar na wymagane rozmiary logo. |
+| Logo oferty (format PNG, 48 × 48 pikseli): Strona wyszukiwania | Centrum partnerskie spowoduje wygenerowanie tego logo z poziomu przesłanego dużego logo. Opcjonalnie można zastąpić ten inny obraz później. |
+| "Dowiedz się więcej" | Uwzględnij dodatkowe zasoby sprzedaży i marketingu w obszarze "Dowiedz się więcej", Oto kilka przykładów:<ul><li>Oficjalne dokumenty</li><li> broszury</li><li>listy kontrolne lub</li><li> Prezentacje programu PowerPoint</li></ul><br>Zapisz wszystkie pliki w formacie PDF. Celem tego celu jest zaplanowanie klientów, a nie ich sprzedawanie.<br><br>Dodaj link do strony docelowej aplikacji do wszystkich dokumentów i Dodaj parametry adresu URL, aby ułatwić Ci śledzenie odwiedzających i prób. |
 | Wideo: AppSource, usługi konsultingowe i oferty SaaS | Najmocne wideo komunikuje wartość oferty w formie narracji:<ul> <li> Utwórz klienta, a nie jego firmę, Hero historię. </li> <li> Film wideo powinien dotyczyć najważniejszych wyzwań i celów klienta docelowego. </li> <li> Zalecana długość: 60-90 sekund.</li> <li> Uwzględnij słowa kluczowe wyszukiwania, które używają nazwy wideo. </li> <li> Rozważ dodanie dodatkowych filmów wideo, takich jak instrukcje, wprowadzenie lub Opinie klientów. </li> </ul> |
 | Zrzuty ekranu (1280 &nbsp; &times; &nbsp; 720) | Dodaj maksymalnie pięć zrzutów ekranu:<br>Uwzględnij słowa kluczowe wyszukiwania w nazwach plików. |
 
@@ -141,4 +141,3 @@ Dodając parametry do adresu URL AppSource, możesz sprawdzić efektywność kam
 Dowiedz się więcej o [korzyściach z używania komercyjnego portalu Marketplace](./gtm-your-marketplace-benefits.md).
 
 Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) , aby utworzyć i skonfigurować swoją ofertę.
-

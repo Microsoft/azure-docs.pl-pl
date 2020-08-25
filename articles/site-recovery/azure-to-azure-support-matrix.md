@@ -4,12 +4,12 @@ description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych pla
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: c648387547e9543c9e509344aa86285504dced7a
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 3006522f75ed732c08e453a266e660cf4c577917
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761376"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815372"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -195,6 +195,7 @@ Grupy umieszczania zbliżeniowe | Obsługiwane | Maszyny wirtualne znajdujące s
 -- | ---
 Zmień rozmiar dysku na zreplikowanej maszynie wirtualnej | Obsługiwane przez źródłową maszynę wirtualną przed przełączeniem w tryb failover. Nie trzeba wyłączać/ponownie włączać replikacji.<br/><br/> Zmiana źródłowej maszyny wirtualnej po przejściu do trybu failover nie powoduje przechwycenia zmian.<br/><br/> Jeśli zmienisz rozmiar dysku maszyny wirtualnej platformy Azure po przejściu w tryb failover, zmiany nie zostaną przechwycone przez Site Recovery, a powrót po awarii zostanie zmieniony na oryginalny rozmiar maszyny wirtualnej.
 Dodawanie dysku do zreplikowanej maszyny wirtualnej | Obsługiwane
+Zmiany w trybie offline na dyskach chronionych | Odłączanie dysków i Dokonywanie przez nie modyfikacji w trybie offline wymaga wyzwalania pełnej ponownej synchronizacji.
 
 ## <a name="replicated-machines---storage"></a>Zreplikowane maszyny — magazyn
 
@@ -254,6 +255,7 @@ Poniższa tabela zawiera podsumowanie limitów Site Recovery.
 - Limity te są oparte na naszych testach, ale oczywiście nie obejmują wszystkich możliwych kombinacji operacji we/wy aplikacji.
 - Rzeczywiste wyniki mogą się różnić w zależności od kombinacji operacji we/wy aplikacji.
 - Istnieją dwa ograniczenia, które należy wziąć pod uwagę w przypadku zmian danych na dysku i zmian danych maszyny wirtualnej.
+- Bieżący limit zmian danych maszyny wirtualnej to 54 MB/s, bez względu na rozmiar.
 
 **Miejsce docelowe magazynu** | **Średnia liczba operacji we/wy dysku źródłowego** |**Średni źródłowy współczynnik zmian danych na dysku** | **Łączny współczynnik zmian danych na dysku dziennie**
 ---|---|---|---

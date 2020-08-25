@@ -1,6 +1,6 @@
 ---
 title: Szyfrowanie po stronie serwera Managed Disks platformy Azure — interfejs wiersza polecenia platformy Azure
-description: Usługa Azure Storage chroni dane, szyfrując je w stanie spoczynku przed utrwalaniem ich w klastrach magazynu. Możesz polegać na kluczach zarządzanych przez firmę Microsoft w celu szyfrowania dysków zarządzanych. Możesz też użyć kluczy zarządzanych przez klienta do zarządzania szyfrowaniem przy użyciu własnych kluczy.
+description: Usługa Azure Storage chroni dane, szyfrując je w stanie spoczynku przed utrwalaniem ich w klastrach magazynu. Za pomocą kluczy zarządzanych przez klienta można zarządzać szyfrowaniem przy użyciu własnych kluczy lub można polegać na kluczach zarządzanych przez firmę Microsoft w celu szyfrowania dysków zarządzanych.
 author: roygara
 ms.date: 07/10/2020
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: e0a1f97cc7467d115ecc8462a301e45f90d73818
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: e541fd90f0cb9c8f0e2763f16541824c5a7b3000
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449147"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816902"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Szyfrowanie po stronie serwera Azure Disk Storage
 
@@ -80,7 +80,7 @@ Klienci z wysokim poziomem zabezpieczeń, którzy są zainteresowani ryzykiem zw
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Włącz kompleksowe szyfrowanie przy użyciu szyfrowania na hoście z [interfejsem wiersza polecenia](disks-enable-host-based-encryption-cli.md) lub [Azure Portal](disks-enable-host-based-encryption-portal.md).
-- Włącz podwójne szyfrowanie dla dysków zarządzanych przy użyciu [interfejsu wiersza polecenia](disks-enable-double-encryption-at-rest-cli.md) lub [Azure Portal](disks-enable-double-encryption-at-rest-portal.md).
-- Włącz klucze zarządzane przez klienta dla dysków zarządzanych przy użyciu [interfejsu wiersza polecenia](disks-enable-customer-managed-keys-cli.md) lub [Azure Portal](disks-enable-customer-managed-keys-portal.md).
+- Włącz kompleksowe szyfrowanie przy użyciu szyfrowania na hoście z [interfejsem wiersza polecenia](disks-enable-host-based-encryption-cli.md) lub [Azure Portal](../disks-enable-host-based-encryption-portal.md).
+- Włącz podwójne szyfrowanie dla dysków zarządzanych przy użyciu [interfejsu wiersza polecenia](disks-enable-double-encryption-at-rest-cli.md) lub [Azure Portal](../disks-enable-double-encryption-at-rest-portal.md).
+- Włącz klucze zarządzane przez klienta dla dysków zarządzanych przy użyciu [interfejsu wiersza polecenia](disks-enable-customer-managed-keys-cli.md) lub [Azure Portal](../disks-enable-customer-managed-keys-portal.md).
 - [Co to jest usługa Azure Key Vault?](../../key-vault/general/overview.md)

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: f91b5879922fc473ff1e46f817b3d649b1b30a9c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fee57efb3517131049f986c743125f17573fdc34
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088737"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816732"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events dla maszyn wirtualnych z systemem Linux
 
@@ -42,7 +42,7 @@ Scheduled Events udostępnia zdarzenia w następujących przypadkach użycia:
 - [Konserwacja inicjowana przez platformę](../maintenance-and-updates.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json) (na przykład ponowne uruchomienie maszyny wirtualnej, migracja na żywo lub zachowywanie pamięci na potrzeby hosta)
 - Maszyna wirtualna jest uruchomiona na [obniżyć wydajności sprzętu hosta](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) , który przewiduje niepowodzenie wkrótce
 - Konserwacja inicjowana przez użytkownika (na przykład użytkownik uruchamia ponownie lub wdraża maszynę wirtualną)
-- Wykluczanie wystąpień [maszyn wirtualnych](spot-vms.md) i [zestawów skalowania](../../virtual-machine-scale-sets/use-spot.md) .
+- Wykluczanie wystąpień [maszyn wirtualnych](../spot-vms.md) i [zestawów skalowania](../../virtual-machine-scale-sets/use-spot.md) .
 
 ## <a name="the-basics"></a>Podstawowe informacje  
 
@@ -139,7 +139,7 @@ W przypadku zaplanowanych zdarzeń odpowiedź zawiera tablicę zdarzeń.
 | EventStatus | Stan tego zdarzenia. <br><br> Wartości: <ul><li>`Scheduled`: To zdarzenie jest zaplanowane do uruchomienia po upływie czasu określonego we `NotBefore` właściwości.<li>`Started`: To zdarzenie zostało uruchomione.</ul> Nie `Completed` podano żadnego lub podobnego stanu. Zdarzenie nie jest już zwracane po zakończeniu zdarzenia.
 | Nie wcześniej niż| Czas, po którym to zdarzenie może zostać uruchomione. <br><br> Przykład: <br><ul><li> PN, 19 wrz 2016 18:29:47 GMT  |
 | Opis | Opis tego zdarzenia. <br><br> Przykład: <br><ul><li> Serwer hosta jest w trakcie konserwacji. |
-| EventSource | Inicjator zdarzenia. <br><br> Przykład: <br><ul><li> `Platform`: To zdarzenie jest inicjowane przez użyciu funkcji platfrom. <li>`User`: To zdarzenie jest inicjowane przez użytkownika. |
+| EventSource | Inicjator zdarzenia. <br><br> Przykład: <br><ul><li> `Platform`: To zdarzenie jest inicjowane przez platformę. <li>`User`: To zdarzenie jest inicjowane przez użytkownika. |
 
 ### <a name="event-scheduling"></a>Planowanie zdarzeń
 Każde zdarzenie ma zaplanowaną minimalną ilość czasu w przyszłości w oparciu o typ zdarzenia. Ten czas jest uwzględniany we właściwości zdarzenia `NotBefore` . 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: b3485ebbdf9cf428b09364b73197220e02e9ffa8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: ddd1f61ada539ebb00341dd83919f1c851a0f3e1
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751070"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816375"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Co nowego w usłudze Rozpoznawanie formularzy?
 
@@ -28,12 +28,12 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 
 
 - **Dokumentacja interfejsu API REST jest dostępna** — zapoznaj się z dokumentacją [v 2.1 — wersja zapoznawcza 1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
-- **Oprócz języka angielskiego obsługiwane są nowe języki**, które są obecnie obsługiwane: dla `Layout` i `Train Custom Model` : angielski (EN), chiński (uproszczony) (zh-zh), holenderski (NL), francuski (fr), niemiecki (de), włoski (), portugalski (PT) i hiszpański (ES).
+- **Oprócz języka angielskiego obsługiwane są nowe języki**, które są obecnie obsługiwane: dla [języków](language-support.md) `Layout` i `Train Custom Model` : angielski ( `en` ), chiński (uproszczony) ( `zh-Hans` ), holenderski ( `nl` ), francuski ( `fr` ), niemiecki (), `de` włoski ( `it` ), portugalski () `pt` i hiszpański ( `es` ).
 - **Wykrywanie znaczników wyboru/zaznaczenia** — aparat rozpoznawania formularzy obsługuje wykrywanie i wyodrębnianie znaczników wyboru, takich jak pola wyboru i przyciski radiowe. Znaczniki wyboru są wyodrębniane w `Layout` , a teraz można również etykietować i nauczyć się w `Train Custom Model`  -  _pouczeniu z etykietami_ , aby wyodrębnić pary kluczy wartości dla znaczników wyboru. 
 - **Redagowanie modelu umożliwia tworzenie** i wywoływanie wielu modeli przy użyciu jednego identyfikatora modelu. Gdy dokument zostanie przeanalizowany w celu przeanalizowania z IDENTYFIKATORem modelu złożonego, etap klasyfikacji jest najpierw wykonywany, aby skierować go do poprawnego modelu niestandardowego. Tworzenie modelu jest dostępne dla `Train Custom Model`  -  _uczenia się z etykietami_.
 - **Nazwa modelu** umożliwia dodanie przyjaznej nazwy do modeli niestandardowych w celu łatwiejszego zarządzania i śledzenia.
-- **Nowy wstępnie utworzony model dla kart służbowych** służący do wyodrębniania typowych pól w języku angielskim, językowym kartą biznesową.
-- **Nowe ustawienia regionalne dla wstępnie utworzonych przyjęć** oprócz en-us, pomoc techniczna jest teraz dostępna dla en-AU, en-CA, en-GB, EN-in
+- **[Nowy wstępnie utworzony model dla kart służbowych](concept-business-cards.md)** służący do wyodrębniania typowych pól w języku angielskim, językowym kartą biznesową.
+- **[Nowe ustawienia regionalne dla wstępnie utworzonych przyjęć](concept-receipts.md)** oprócz en-us, pomoc techniczna jest teraz dostępna dla en-AU, en-CA, en-GB, EN-in
 - **Udoskonalenia jakości** `Layout` , `Train Custom Model`  -  _uczenie bez etykiet_ i _uczenie się z etykietami_.
 
 
@@ -43,6 +43,7 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 
 **Nowe przykłady** są dostępne w serwisie GitHub. 
 - [Przepisy dotyczące ekstrakcji merytorycznej — formularze element PlayBook](https://github.com/microsoft/knowledge-extraction-recipes-forms) zbierają najlepsze rozwiązania z zakresu rzeczywistego zaangażowania użytkowników aparatu rozpoznawania i udostępniają przykłady kodu, listy kontrolne i potoki przykładowe używane podczas tworzenia projektów. 
+- [Narzędzie przykładowe etykietowanie](https://github.com/microsoft/OCR-Form-Tools) zostało zaktualizowane w celu obsługi nowych funkcji w wersji 2.1. Ten [Przewodnik Szybki Start](quickstarts/label-tool.md) zawiera wprowadzenie do narzędzia. 
 - Przykładowy aparat rozpoznawania w postaci [inteligentnego kiosku](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) pokazuje, jak zintegrować `Analyze Receipt` i `Train Custom Model`  -  _uczenie bez etykiet_.
 
 

@@ -7,13 +7,13 @@ ms.topic: include
 author: dannyevers
 ms.author: mingshen
 ms.reviewer: trkeya
-ms.date: 08/07/2020
-ms.openlocfilehash: 65fde879aa29ed1f93de4dd5c8ddccbfddccee38
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.date: 08/18/2020
+ms.openlocfilehash: 90fe06e352a012f4774ba86fce9aed170379820a
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030769"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815417"
 ---
--   Małe logo (48 x 48 pikseli) pojawia się na stronie głównej Microsoft AppSource i na stronie wyników wyszukiwania. 
--   Duże logo (od 216 x 216 i 350 x 350 pikseli) pojawia się na stronie aukcji oferty w Microsoft AppSource.
+- Duże logo pojawia się na stronie z listą ofert w Microsoft AppSource.
+- Małe logo (opcjonalnie) pojawia się na stronie głównej Microsoft AppSource i na stronie wyników wyszukiwania.

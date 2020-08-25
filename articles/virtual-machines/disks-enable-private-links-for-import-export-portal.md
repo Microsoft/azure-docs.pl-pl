@@ -4,18 +4,18 @@ description: Włącz linki prywatne dla dysków zarządzanych za pomocą Azure P
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 08/11/2020
+ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 83f204a35e48962e525ad7d64c018eef301f9933
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: ab861b3ed265da9060e2367bdfdeeeee7047c584
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135848"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815865"
 ---
-# <a name="azure-portal---restrict-importexport-access-for-managed-disks-with-private-links"></a>Azure Portal — Ogranicz dostęp do usługi Import/Export dla dysków zarządzanych przy użyciu linków prywatnych
+# <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Użyj Azure Portal, aby ograniczyć dostęp do usługi Import/Export dla dysków zarządzanych przy użyciu linków prywatnych
 
 Obsługa linków prywatnych w przypadku dysków zarządzanych jest obecnie w wersji zapoznawczej i umożliwia ograniczenie eksportu i importu dysków zarządzanych, tak aby była ona dostępna tylko w ramach sieci wirtualnej platformy Azure. Można wygenerować identyfikator URI powiązanego sygnatury dostępu współdzielonego (SAS) dla niedołączonych dysków zarządzanych i migawek do eksportowania danych do innego regionu na potrzeby rozszerzania regionalnego, odzyskiwania po awarii i odczytywania danych do analizy śledczej. Możesz również użyć identyfikatora URI sygnatury dostępu współdzielonego, aby bezpośrednio przekazać dysk VHD do pustego dysku z lokalnego. Ruch sieciowy między klientami w sieci wirtualnej i dyskami zarządzanymi odbywa się tylko przez sieć wirtualną oraz link prywatny w sieci szkieletowej firmy Microsoft, eliminując narażenie na publiczny Internet.
 
@@ -46,7 +46,7 @@ Należy zwrócić uwagę na sieć wirtualną maszyny wirtualnej, do której są 
 
 1. Wybierz pozycję **+ Dodaj** , aby utworzyć nowy zasób dostępu do dysku.
 1. W bloku Tworzenie wybierz swoją subskrypcję, grupę zasobów, wprowadź nazwę i wybierz region.
-1. Wybierz pozycję **Przegląd + utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-create-basics.png" alt-text="Zrzut ekranu bloku tworzenia dostępu do dysku. Wypełnij odpowiednią nazwę, wybierz region, wybierz grupę zasobów i wykonaj operację":::
 
@@ -83,7 +83,7 @@ Teraz, gdy masz zasób dostępu do dysku, możesz go użyć, aby obsługiwać do
     > Jeśli dla wybranej podsieci jest włączona Grupa zabezpieczeń sieci, zostanie ona wyłączona tylko dla prywatnych punktów końcowych w tej podsieci. Inne zasoby w tej podsieci nadal będą mieć wymuszanie sieciowej grupy zabezpieczeń.
 
 1. Wybierz odpowiednią podsieć
-1. Wybierz pozycję **Przegląd + utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Zrzut ekranu przedstawiający prywatny przepływ pracy tworzenia punktów końcowych, trzeci blok. Wyróżniono sieć wirtualną i podsieć.":::
 
@@ -100,5 +100,5 @@ Ukończono Konfigurowanie linków prywatnych, których można użyć podczas imp
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Często zadawane pytania dotyczące linków prywatnych](linux/faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
+- [Często zadawane pytania dotyczące linków prywatnych](./faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
 - [Eksportowanie/kopiowanie zarządzanych migawek jako dysku VHD do konta magazynu w innym regionie przy użyciu programu PowerShell](scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)

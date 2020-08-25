@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/06/2019
+ms.date: 08/20/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: dcb8f709bc75fdf9fe80ee26497acb78cc023327
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 662bda03fc2d389ed316bd2c7141d5e6a30cef1a
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116346"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814645"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Wyświetlanie listy aplikacji w galerii aplikacji usługi Azure Active Directory
 
@@ -45,7 +45,7 @@ W tym artykule pokazano, jak wyświetlić listę aplikacji w galerii aplikacji A
 
 **Jak uzyskać dostęp do usługi Azure AD dla deweloperów?**
 
-Możesz skorzystać z bezpłatnego konta testowego ze wszystkimi funkcjami usługi Azure AD w warstwie Premium — 90 dni wolnychhttps://docs.microsoft.com/office/developer-program/office-365-developer-program
+Możesz skorzystać z bezpłatnego konta testowego ze wszystkimi funkcjami usługi Azure AD w warstwie Premium — 90 dni wolnych https://docs.microsoft.com/office/developer-program/office-365-developer-program
 
 ## <a name="submit-the-request-in-the-portal"></a>Prześlij żądanie w portalu
 
@@ -113,7 +113,7 @@ Utwórz aplikację sieci Web, która zawiera stronę logowania w formacie HTML, 
 
 ![Wyświetlanie listy aplikacji Logowanie jednokrotne w galerii](./media/howto-app-gallery-listing/passwordsso.png)
 
-* Jeśli chcesz dodać aplikację do listy w galerii przy użyciu hasła SSO logowania jednokrotnego, wybierz pozycję **Logowanie jednokrotne hasła** , jak pokazano.
+* Jeśli chcesz dodać aplikację do listy w galerii przy użyciu hasła logowania jednokrotnego, wybierz pozycję **hasło Logowanie jednokrotne (UserName & Password)** , jak pokazano.
 * Jeśli masz problemy z dostępem, skontaktuj się z [zespołem ds. integracji rejestracji jednokrotnej usługi Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="request-for-user-provisioning"></a>Żądanie aprowizacji użytkownika

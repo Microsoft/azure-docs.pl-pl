@@ -7,14 +7,14 @@ ms.topic: include
 author: dannyevers
 ms.author: mingshen
 ms.reviewer: trkeya
-ms.date: 08/07/2020
-ms.openlocfilehash: 5dcf1f932e72473b6d4bc2442b19b5a674becaa4
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.date: 08/18/2020
+ms.openlocfilehash: 3659b9dbdd6108a650ffc44169bed1d33b140345
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031502"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815638"
 ---
--   Małe logo (48 x 48 pikseli) pojawia się w wynikach wyszukiwania w portalu Azure Marketplace.
--   Średnie logo (90 x 90 pikseli) pojawia się podczas tworzenia nowego zasobu w Microsoft Azure.
--   Duże logo (od 216 x 216 i 350 x 350 pikseli) pojawia się na stronie aukcji oferty w witrynie Azure Marketplace.
+- Duże logo pojawia się na stronie aukcji oferty w witrynie Azure Marketplace.
+- Średnie logo (opcjonalnie) pojawia się podczas tworzenia nowego zasobu w Microsoft Azure.
+- Małe logo (opcjonalnie) pojawia się w wynikach wyszukiwania w portalu Azure Marketplace.

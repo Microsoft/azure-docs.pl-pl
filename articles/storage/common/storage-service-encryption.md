@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: fd819f0b819007611f5232d0fdfb324173d9c4b4
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 1a5ed324ae109a151bf21050993bff02434410df
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797925"
+ms.locfileid: "88814454"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Szyfrowanie w usłudze Azure Storage dla danych magazynowanych
 
@@ -47,7 +47,7 @@ Poniższa tabela zawiera porównanie opcji zarządzania kluczami dla szyfrowania
 |--|--|--|--|
 | Operacje szyfrowania/odszyfrowywania | Azure | Azure | Azure |
 | Obsługiwane usługi Azure Storage | Wszystko | BLOB Storage, Azure Files<sup>1, 2</sup> | Blob Storage |
-| Magazyn kluczy | Magazyn kluczy firmy Microsoft | W usłudze Azure Key Vault | Własny magazyn kluczy klienta |
+| Magazyn kluczy | Magazyn kluczy firmy Microsoft | Azure Key Vault | Własny magazyn kluczy klienta |
 | Odpowiedzialność za kluczowe rotacje | Microsoft | Klient | Klient |
 | Klucz — formant | Microsoft | Klient | Klient |
 
@@ -68,7 +68,7 @@ Można utworzyć co najmniej jeden zakres szyfrowania dla konta magazynu przy u�
 Po utworzeniu zakresu szyfrowania możesz określić ten zakres szyfrowania dla żądania, aby utworzyć kontener lub obiekt BLOB. Aby uzyskać więcej informacji na temat sposobu tworzenia zakresu szyfrowania, zobacz [Tworzenie zakresów szyfrowania i zarządzanie nimi (wersja zapoznawcza)](../blobs/encryption-scope-manage.md).
 
 > [!NOTE]
-> Zakresy szyfrowania nie są obsługiwane z kontami magazynu geograficznie nadmiarowego do odczytu (RA-GRS) w trakcie okresu zapoznawczego.
+> Zakresy szyfrowania nie są obsługiwane w przypadku magazynu geograficznie nadmiarowego dostępnego do odczytu (RA-GRS) i geograficznie nadmiarowego strefy magazynowej (RA-GZRS) w ramach wersji zapoznawczej.
 
 > [!IMPORTANT]
 > Wersja zapoznawcza zakresów szyfrowania jest przeznaczona wyłącznie do użycia w trybie nieprodukcyjnym. Umowy dotyczące poziomu usług produkcyjnych (umowy SLA) nie są obecnie dostępne.

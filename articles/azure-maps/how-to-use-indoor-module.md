@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b9ec42620ee5ffaaf5fd79da5dabc944fc3bc422
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4bfb017bb085d22c187e8074ba4f2b026d17f442
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287090"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815950"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Korzystanie z Azure Maps module Maps
 
-Zestaw SDK sieci Web Azure Maps zawiera *Azure Maps modułem obmieszczeń* . Moduł *Azure Maps pomieszczeń* umożliwia renderowanie map pomieszczeń utworzonych w programie Azure Maps Creator.
+Zestaw SDK sieci Web Azure Maps zawiera *Azure Maps modułem obmieszczeń* . Moduł  *Azure Maps pomieszczeń* umożliwia renderowanie map pomieszczeń utworzonych w programie Azure Maps Creator.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -35,10 +35,8 @@ Można zainstalować i osadzić moduł *Azure Mapsowy* w jeden z dwóch sposobó
 Aby używać globalnie hostowanej wersji platformy Azure Content Delivery Network w module *Azure Maps* , należy odwołać się do następującego odwołania do arkusza JavaScript i stylów w `<head>` elemencie pliku HTML:
 
 ```html
-<script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-<script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
-<link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
 <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
+<script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
 ```
 
  Lub można pobrać moduł *Azure Mapsowy* . Moduł *Azure Maps pomieszczeń* zawiera bibliotekę kliencką do uzyskiwania dostępu do usług Azure Maps. Wykonaj poniższe kroki, aby zainstalować i *załadować moduł pozostały do aplikacji* sieci Web.  
@@ -46,15 +44,14 @@ Aby używać globalnie hostowanej wersji platformy Azure Content Delivery Networ
   1. Zainstaluj [pakiet Azure-Maps-pomieszczeń](https://www.npmjs.com/package/azure-maps-indoor).
   
       ```powershell
-      >npm install azure-maps-control
       >npm install azure-maps-indoor
       ```
 
   2. Odwołuje się do *Azure Maps* JavaScript i arkusz stylów w `<head>` elemencie pliku HTML:
 
       ```html
-      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
+      <link rel="stylesheet" href="node_modules/azure-maps-drawing-tools/dist/atlas-indoor.min.css" type="text/css" />
+      <script src="node_modules/azure-maps-drawing-tools/dist/atlas-indoor.min.js"></script>
       ```
 
 ## <a name="instantiate-the-map-object"></a>Tworzenie wystąpienia obiektu mapy
@@ -148,11 +145,11 @@ W tym przykładzie pokazano, jak używać modułu *obAzure Mapsego* w aplikacji 
 3. W nagłówku HTML odwołują się do *Azure Maps* stylu JavaScript i style arkusza stylów.
 
 4. Zainicjuj *obiekt mapy*. *Obiekt mapy* obsługuje następujące opcje:
-    - `Subscription key`jest Azure Maps podstawowym kluczem subskrypcji.
-    - `center`definiuje szerokość geograficzną i długość geograficzną dla lokalizacji centralnego centrum mapy. Podaj wartość dla `center` , jeśli nie chcesz podawać wartości dla `bounds` . Format powinien wyglądać następująco `center` : [-122,13315, 47,63637].
-    - `bounds`jest najmniejszym prostokątnym kształtem, który zawiera dane mapy tileset. Ustaw wartość dla `bounds` opcji, jeśli nie chcesz ustawiać wartości dla `center` . Granice mapy można znaleźć, wywołując [interfejs API listy tileset](https://docs.microsoft.com/rest/api/maps/tileset/listpreview). Interfejs API listy tileset zwraca `bbox` , który można analizować i przypisywać do `bounds` . Format powinien wyglądać następująco `bounds` : [# zachód, # południe, # wschód, # północ].
-    - `style`umożliwia ustawienie koloru tła. Aby wyświetlić białe tło, zdefiniuj `style` jako "puste".
-    - `zoom`umożliwia określenie minimalnych i maksymalnych poziomów powiększenia dla mapy.
+    - `Subscription key` jest Azure Maps podstawowym kluczem subskrypcji.
+    - `center` definiuje szerokość geograficzną i długość geograficzną dla lokalizacji centralnego centrum mapy. Podaj wartość dla `center` , jeśli nie chcesz podawać wartości dla `bounds` . Format powinien wyglądać następująco `center` : [-122,13315, 47,63637].
+    - `bounds` jest najmniejszym prostokątnym kształtem, który zawiera dane mapy tileset. Ustaw wartość dla `bounds` opcji, jeśli nie chcesz ustawiać wartości dla `center` . Granice mapy można znaleźć, wywołując [interfejs API listy tileset](https://docs.microsoft.com/rest/api/maps/tileset/listpreview). Interfejs API listy tileset zwraca `bbox` , który można analizować i przypisywać do `bounds` . Format powinien wyglądać następująco `bounds` : [# zachód, # południe, # wschód, # północ].
+    - `style` umożliwia ustawienie koloru tła. Aby wyświetlić białe tło, zdefiniuj `style` jako "puste".
+    - `zoom` umożliwia określenie minimalnych i maksymalnych poziomów powiększenia dla mapy.
 
 5. Następnie Utwórz moduł *Menedżera pomieszczeń* . Przypisz *Azure Maps* `tilesetId` , a opcjonalnie Dodaj `statesetId` .
 

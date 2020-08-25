@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 9196bea663d037f269316dc108f99d3f2c282ec7
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 055db043f4e695001b2ee90a47a2531284466314
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606367"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815639"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Tworzenie oferty kontenera platformy Azure w witrynie Azure Marketplace
 
@@ -197,16 +197,17 @@ Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy musz
 
 #### <a name="store-logos"></a>Logo sklepu
 
- Podaj pliki PNG logo oferty w każdym z następujących czterech rozmiarów pikseli:
+Podaj plik PNG dla logo o **dużym** rozmiarze. Centrum partnerskie będzie używać tego do tworzenia **małych** i **średnich** logo. Opcjonalnie można zastąpić je innymi obrazami później.
 
-- **Mały** (48 x 48)
-- **Średni** (90 X 90)
-- **Duże** (216 x 216)
-- **Szeroki** (255 X 115)
+- **Duże** (od 216 x 216 do 350 x 350 px, wymagane)
+- **Średnia** (90 x 90 pikseli, opcjonalnie)
+- **Mały** (48 x 48 pikseli, opcjonalnie)
 
-Wszystkie cztery logo są wymagane i są używane w różnych miejscach na liście w portalu Marketplace.
+Te logo są używane w różnych miejscach na liście:
 
 [!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Zrzuty ekranu (opcjonalnie)
 
@@ -266,7 +267,7 @@ Po utworzeniu planów na karcie **Przegląd planu** jest wyświetlana wartość:
 - Bieżący stan publikowania
 - Wszystkie dostępne akcje
 
-Akcje dostępne w omówieniu planu różnią się w zależności od bieżącego stanu planu. Dostępne są następujące ustawienia:
+Akcje dostępne w omówieniu planu różnią się w zależności od bieżącego stanu planu. Obejmują one:
 
 - **Usuń wersję roboczą** — Jeśli plan jest stanem wersja robocza.
 - **Zatrzymaj sprzedawanie planu** — Jeśli stan planu jest opublikowany na żywo.

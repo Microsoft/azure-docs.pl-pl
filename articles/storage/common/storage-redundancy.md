@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/08/2020
+ms.date: 08/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 556d3df41b7ee66bfb2b32b8a566d7172f45e313
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 30839fac6a264ad9defb565663b28a5b12b571b5
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034468"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814522"
 ---
 # <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
 
@@ -24,7 +24,7 @@ Usługa Azure Storage zawsze przechowuje wiele kopii danych w taki sposób, aby 
 Decydując o tym, która opcja nadmiarowości jest Najlepsza dla danego scenariusza, należy wziąć pod uwagę kompromisy między niższymi kosztami i wyższą dostępnością i trwałością. Czynniki pomagające w ustaleniu, która opcja nadmiarowości należy wybrać:  
 
 - Jak dane są replikowane w regionie podstawowym
-- Bez względu na to, czy dane są replikowane do drugiej lokalizacji geograficznej odległej do regionu podstawowego, aby chronić przed awariami regionalnymi
+- Bez względu na to, czy dane są replikowane do drugiego regionu, który jest geograficznie odległy do regionu podstawowego, aby chronić przed awariami regionalnymi
 - Czy aplikacja wymaga dostępu do odczytu replikowanych danych w regionie pomocniczym, jeśli region podstawowy stał się niedostępny z dowolnego powodu
 
 ## <a name="redundancy-in-the-primary-region"></a>Nadmiarowość w regionie podstawowym
@@ -64,13 +64,13 @@ W poniższej tabeli przedstawiono typy kont magazynu obsługujące ZRS, w który
 | Typ konta magazynu | Obsługiwane regiony | Obsługiwane usługi |
 |--|--|--|
 | Ogólnego przeznaczenia<sup>w wersji 2</sup> | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Północna<br />  Europa Zachodnia<br /> Francja Środkowa<br /> Japan East<br /> Północna Republika Południowej Afryki<br /> Południowe Zjednoczone Królestwo<br /> Środkowe stany USA<br /> Wschodnie stany USA<br /> Wschodnie stany USA 2<br /> Zachodnie stany USA 2 | Blokowe obiekty blob<br /> Stronicowe obiekty blob<sup>2</sup><br /> Udziały plików (wersja standardowa)<br /> Tabele<br /> Kolejki<br /> |
-| BlockBlobStorage<sup>1</sup> | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Zachodnia<br /> Wschodnie stany USA | Tylko blokowe obiekty blob w warstwie Premium |
-| FileStorage | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Zachodnia<br /> Wschodnie stany USA | Tylko udziały plików Premium |
+| BlockBlobStorage<sup>1</sup> | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Zachodnia<br /> Wschodnie stany USA <br /> Zachodnie stany USA 2| Tylko blokowe obiekty blob w warstwie Premium |
+| FileStorage | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Zachodnia<br /> Wschodnie stany USA <br /> Zachodnie stany USA 2 | Tylko udziały plików Premium |
 
 <sup>1</sup> warstwa archiwum nie jest obecnie obsługiwana dla kont ZRS.<br />
 <sup>2</sup> konta magazynu zawierające dyski zarządzane przez platformę Azure dla maszyn wirtualnych zawsze używają LRS. W przypadku dysków niezarządzanych platformy Azure należy również użyć LRS. Istnieje możliwość utworzenia konta magazynu dla dysków niezarządzanych platformy Azure korzystających z GRS, ale nie jest to zalecane ze względu na potencjalne problemy ze spójnością w przypadku asynchronicznej replikacji geograficznej. Żadne dyski zarządzane ani niezarządzane nie obsługują ZRS ani GZRS. Aby uzyskać więcej informacji o dyskach zarządzanych, zobacz [Cennik usługi Azure Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-Aby uzyskać informacje o tym, które regiony obsługują ZRS, zobacz temat **Obsługa usług według regionów** w obszarze [co to jest strefy dostępności platformy Azure?](../../availability-zones/az-overview.md).
+Aby uzyskać informacje o tym, które regiony obsługują ZRS, zobacz temat **Obsługa usług według regionów**  w obszarze [co to jest strefy dostępności platformy Azure?](../../availability-zones/az-overview.md).
 
 ## <a name="redundancy-in-a-secondary-region"></a>Nadmiarowość w regionie pomocniczym
 
@@ -83,9 +83,9 @@ Usługa Azure Storage oferuje dwie opcje kopiowania danych do regionu pomocnicze
 - **Magazyn Geograficznie nadmiarowy (GRS)** wielokrotnie kopiuje dane w jednej lokalizacji fizycznej w regionie podstawowym przy użyciu LRS. Następnie dane są kopiowane asynchronicznie do pojedynczej lokalizacji fizycznej w regionie pomocniczym.
 - **Magazyn Geograficznie nadmiarowy (GZRS)** kopiuje dane synchronicznie w trzech strefach dostępności platformy Azure w regionie podstawowym przy użyciu ZRS. Następnie dane są kopiowane asynchronicznie do pojedynczej lokalizacji fizycznej w regionie pomocniczym.
 
-Podstawowa różnica między GRS i GZRS polega na tym, jak dane są replikowane w regionie podstawowym. W lokalizacji dodatkowej dane są zawsze replikowane synchronicznie, przy użyciu LRS. LRS w regionie pomocniczym chroni dane przed awariami sprzętowymi.
+Podstawowa różnica między GRS i GZRS polega na tym, jak dane są replikowane w regionie podstawowym. W regionie pomocniczym dane są zawsze replikowane synchronicznie trzy razy przy użyciu LRS. LRS w regionie pomocniczym chroni dane przed awariami sprzętowymi.
 
-W przypadku GRS lub GZRS dane w pomocniczej lokalizacji nie są dostępne do odczytu lub zapisu, chyba że istnieje przejście w tryb failover do regionu pomocniczego. Aby uzyskać dostęp do odczytu do lokalizacji dodatkowej, skonfiguruj konto magazynu tak, aby korzystało z magazynu geograficznie nadmiarowego do odczytu (RA-GRS) lub strefy geograficznej do odczytu nadmiarowego (RA-GZRS). Aby uzyskać więcej informacji, zobacz [Odczyt dostępu do danych w regionie pomocniczym](#read-access-to-data-in-the-secondary-region).
+W przypadku GRS lub GZRS dane w regionie pomocniczym nie są dostępne do odczytu lub zapisu, chyba że istnieje przejście w tryb failover do regionu pomocniczego. Aby uzyskać dostęp do odczytu do regionu pomocniczego, skonfiguruj konto magazynu tak, aby korzystało z magazynu geograficznie nadmiarowego do odczytu (RA-GRS) lub strefy geograficznej do odczytu nadmiarowego (RA-GZRS). Aby uzyskać więcej informacji, zobacz [Odczyt dostępu do danych w regionie pomocniczym](#read-access-to-data-in-the-secondary-region).
 
 Jeśli region podstawowy stanie się niedostępny, możesz wybrać opcję przełączenia w tryb failover do regionu pomocniczego. Po zakończeniu pracy w trybie failover region pomocniczy stanie się regionem podstawowym i można ponownie odczytać i zapisać dane. Aby uzyskać więcej informacji na temat odzyskiwania po awarii i dowiedzieć się, jak przejść do trybu failover w regionie pomocniczym, zobacz [odzyskiwanie awaryjne i konto magazynu](storage-disaster-recovery-guidance.md).
 
@@ -191,7 +191,7 @@ Aby uzyskać informacje o cenach dla każdej opcji nadmiarowości, zobacz [Cenni
 
 Usługa Azure Storage regularnie weryfikuje integralność danych przechowywanych przy użyciu cyklicznych testów nadmiarowości (CRCs). Jeśli wykryto uszkodzenie danych, zostanie ono naprawione przy użyciu nadmiarowych danych. Usługa Azure Storage oblicza również sumy kontrolne dla całego ruchu sieciowego w celu wykrycia uszkodzenia pakietów danych podczas przechowywania lub pobierania danych.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Sprawdź Właściwość godzina ostatniej synchronizacji dla konta magazynu](last-sync-time-get.md)
 - [Zmiana opcji nadmiarowości dla konta magazynu](redundancy-migration.md)

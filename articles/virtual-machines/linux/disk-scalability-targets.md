@@ -7,12 +7,12 @@ ms.date: 11/15/2017
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 33a0df73e280fc195a7ccba18c857b2ebdcbe31a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e986348c063626bd6a0b5a834854bad09d73c952
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825399"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814199"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Cele dotyczące skalowalności i wydajności dysków maszyn wirtualnych w systemie Linux
 
@@ -22,7 +22,7 @@ Dodatkowe szczegóły można znaleźć w temacie [rozmiary maszyn wirtualnych z 
 
 ## <a name="managed-virtual-machine-disks"></a>Zarządzane dyski maszyny wirtualnej
 
-Rozmiary oznaczone gwiazdką są obecnie dostępne w wersji zapoznawczej. Zobacz nasze [często zadawane pytania](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) , aby dowiedzieć się, które regiony są dostępne w programie.
+Rozmiary oznaczone gwiazdką są obecnie dostępne w wersji zapoznawczej. Zobacz nasze [często zadawane pytania](../faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) , aby dowiedzieć się, które regiony są dostępne w programie.
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../../../includes/azure-storage-limits-vm-disks-managed.md)]
 
@@ -31,6 +31,6 @@ Rozmiary oznaczone gwiazdką są obecnie dostępne w wersji zapoznawczej. Zobacz
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Limity subskrypcji i usług, limity przydziału oraz ograniczenia platformy Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md)

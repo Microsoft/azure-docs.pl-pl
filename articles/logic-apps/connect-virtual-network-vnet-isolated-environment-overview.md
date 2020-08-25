@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/05/2020
-ms.openlocfilehash: 85f4cc9f9e6e762a85571010840cc697bc6c9888
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f152283b1280cde2a26569b8acf10738e883e39e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963669"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816029"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Dostęp do zasobów platformy Azure Virtual Network z Azure Logic Apps przy użyciu środowisk usługi integracji (ISEs)
 
@@ -117,7 +117,14 @@ Po utworzeniu ISE można użyć wewnętrznych lub zewnętrznych punktów końcow
 > [!IMPORTANT]
 > Punkt końcowy dostępu można wybrać tylko podczas tworzenia ISE i nie można zmienić tej opcji później.
 
-* **Wewnętrzne**: prywatne punkty końcowe umożliwiają wywoływanie aplikacji LOGIKI w ISE, w którym można wyświetlać i uzyskiwać dostęp do danych wejściowych i wyjściowych z historii uruchamiania usługi Logic Apps *tylko z wewnątrz sieci wirtualnej*. Upewnij się, że masz połączenie sieciowe między prywatnymi punktami końcowymi i komputerem, z którego chcesz uzyskać dostęp do historii uruchamiania. Komputer kliencki może na przykład znajdować się w sieci wirtualnej ISE lub wewnątrz sieci wirtualnej, która jest połączona z siecią wirtualną ISE, na przykład za pomocą komunikacji równorzędnej lub wirtualnej sieci prywatnej.
+* **Wewnętrzne**: prywatne punkty końcowe umożliwiają wywoływanie aplikacji LOGIKI w ISE, w którym można wyświetlać i uzyskiwać dostęp do danych wejściowych i wyjściowych z historii uruchamiania usługi Logic Apps *tylko z wewnątrz sieci wirtualnej*.
+
+  > [!IMPORTANT]
+  > Upewnij się, że masz połączenie sieciowe między prywatnymi punktami końcowymi i komputerem, z którego chcesz uzyskać dostęp do historii uruchamiania. W przeciwnym razie podczas próby wyświetlenia historii uruchamiania aplikacji logiki zostanie wyświetlony komunikat o błędzie "nieoczekiwany błąd. Nie można pobrać ".
+  >
+  > ![Błąd akcji usługi Azure Storage wynikający z braku możliwości wysyłania ruchu przez zaporę](./media/connect-virtual-network-vnet-isolated-environment-overview/integration-service-environment-error.png)
+  >
+  > Na przykład komputer kliencki może znajdować się w sieci wirtualnej ISE lub wewnątrz sieci wirtualnej, która jest połączona z siecią wirtualną ISE za pomocą komunikacji równorzędnej lub wirtualnej sieci prywatnej. 
 
 * **Zewnętrzne**: publiczne punkty końcowe umożliwiają wywoływanie aplikacji LOGIKI w ISE, w którym można wyświetlać i uzyskiwać dostęp do danych wejściowych i wyjściowych z historii uruchamiania aplikacji logiki *z spoza sieci wirtualnej*. Jeśli używasz sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń), upewnij się, że są one skonfigurowane przy użyciu reguł ruchu przychodzącego, aby zezwolić na dostęp do danych wejściowych i wyjściowych historii uruchamiania. Aby uzyskać więcej informacji, zobacz [Włączanie dostępu do ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
 

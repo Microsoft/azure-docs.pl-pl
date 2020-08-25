@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: 8996673cf8f01334e3dcd35aab8544643bd37360
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d46354b18d5c3317cc1ed67d839feb26b7b6b5d0
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88802230"
+ms.locfileid: "88815848"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Instrukcje: uruchamianie aplikacji za pomocą Menedżera Fortanix enklawy 
 
@@ -46,8 +46,7 @@ W tym samouczku pokazano, jak przekonwertować obraz aplikacji na obraz chronion
 1. Zaloguj się do [FORTANIX em](https://fortanix.com)
 1. Przejdź do strony **konta** i wybierz pozycję **Dodaj konto** , aby utworzyć nowe konto. 
     
-[!div class="mx-imgBorder"]
-![Create an account](media/how-to-fortanix-enclave-manager/create-account.png) (Tworzenie konta)
+![Tworzenie konta](media/how-to-fortanix-enclave-manager/create-account.png)
 
 1. Po utworzeniu konta naciśnij **pozycję Wybierz** , aby wybrać nowo utworzone konto. Teraz możemy rozpocząć rejestrowanie węzłów obliczeniowych i tworzenie aplikacji. 
 1. Wybierz przycisk **+ aplikacja** , aby dodać aplikację. W tym przykładzie dodamy aplikację systemu operacyjnego enklawy Server. 

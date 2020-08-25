@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 2ca0031d3ae9fc1347c3a8bd7bf24c2780e502a8
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: afcca913b8a9c8fb31fa6e18d0570aebd68b8ef3
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607459"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814726"
 ---
 # <a name="consulting-service-offers"></a>Oferty usługi konsultingowej
 
@@ -72,40 +72,40 @@ Aby uzyskać więcej informacji na temat kompetencji, przejdź do strony [Micros
 
 Partnerzy integratora systemu mogą przesyłać oferty usług konsultingowych dla następujących 20 krajów/regionów:
 
-| Kraje  | (ciąg dalszy)   | (ciąg dalszy)  | (ciąg dalszy)  |
+| Kraje | (kontynuacja) |  (kontynuacja) |  (kontynuacja) |
 |---------|----------|----------|----------|
 | Australia | Belgia | Kanada | Dania |
 | Finlandia  | Francja | Niemcy  | Indie   |
 | Włochy    | Japonia  |  Meksyk  |  Holandia  |
 |  Nowa Zelandia  |  Norwegia  |  Polska  | Republika Południowej Afryki |
 |  Szwecja  | Szwajcaria  |  Stany Zjednoczone  | Zjednoczone Królestwo  |
-||
+|
 
 ## <a name="register-for-consulting-services-in-the-commercial-marketplace"></a>Zarejestruj się w celu uzyskania usług doradczych na rynku komercyjnym
 
-Zacznij od [zarejestrowania](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) informacji o firmie w portalu Marketplace. Aby zapoznać się z pełną listą kontrolną wymagań rejestracji, zobacz [Zostań wydawcy w portalu Marketplace](become-publisher.md). 
+Zacznij od [zarejestrowania](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) informacji o firmie w portalu Marketplace. Aby zapoznać się z pełną listą kontrolną wymagań rejestracji, zobacz [Zostań wydawcy w portalu Marketplace](become-publisher.md).
 
 ## <a name="prepare-your-publishing-artifacts"></a>Przygotuj artefakty publikowania
 Przed zarejestrowaniem możesz zacząć zbierać i przygotowywać zawartość, która pomoże Twojej liście ideach wartość Twojej usługi i rozwiązania klientowi docelowemu. 
 
 |Instalator dla nowych wydawców  |
-|---------|
-|Identyfikator MPN     |
-|Logo firmy (48 x 48, 216 x 216 pikseli)     |
-|Miejsce docelowe potencjalnego klienta     |
-||
+| - |
+| Identyfikator MPN |
+| Logo firmy (48 x 48, 216 x 216 pikseli) |
+| Miejsce docelowe potencjalnego klienta |
+|
 
 |Instalator dla nowych ofert  |
-|---------|
-|Nazwa oferty (200 znaków) i opis (2 000 znaków)    |
-|Kompetencje     |
-|Dostępność kraju/regionu     |
-|Czas trwania zaangażowania     |
-|Odpowiednie branże, kategorie i słowa kluczowe wyszukiwania     |
-|Wideo z omówieniem produktu    |
-|Zrzuty ekranu (maksymalnie 5, 1280 x 720 pikseli)     |
-|Dokumenty marketingowe (maksymalnie 3)     |
-||
+| - |
+| Nazwa oferty (200 znaków) i opis (2 000 znaków) |
+| Kompetencje  |
+| Dostępność kraju/regionu |
+| Czas trwania zaangażowania  |
+| Odpowiednie branże, kategorie i słowa kluczowe wyszukiwania |
+| Wideo z omówieniem produktu |
+| Zrzuty ekranu (maksymalnie 5, 1280 x 720 pikseli) |
+| Dokumenty marketingowe (maksymalnie 3) |
+|
 
 ## <a name="the-publishing-process"></a>Proces publikowania
 

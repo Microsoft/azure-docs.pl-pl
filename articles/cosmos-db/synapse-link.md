@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 9e8dd4b7d7e6f0de1f3ce19238e4ab1e3cf958e1
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: f200fe96478e15e938899d294ecd5491d6a03206
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034182"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814394"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Co to jest link usługi Azure Synapse dla Azure Cosmos DB (wersja zapoznawcza)?
 
@@ -27,7 +27,7 @@ Na poniższej ilustracji przedstawiono integrację usługi Azure Synapse z usłu
 
 :::image type="content" source="./media/synapse-link/synapse-analytics-cosmos-db-architecture.png" alt-text="Diagram architektury dla integracji usługi Azure Synapse Analytics z usługą Azure Cosmos DB" border="false":::
 
-## <a name="benefits"></a><a id="synapse-link-benefits"></a>Korzysta
+## <a name="benefits"></a><a id="synapse-link-benefits"></a> Korzysta
 
 Aby analizować duże operacyjne zestawy danych przy jednoczesnym zminimalizowaniu wpływu obciążeń transakcyjnych na wydajność, tradycyjnie dane operacyjne w Azure Cosmos DB są wyodrębniane i przetwarzane przy użyciu potoków wyodrębniania transformacji i ładowania (ETL). Potoki ETL wymagają wielu warstw przenoszenia danych, co znacznie zwiększa złożoność operacyjną i wpływa na wydajność Twoich obciążeń transakcyjnych. Zwiększa również opóźnienie analizy danych operacyjnych od momentu pochodzenia.
 
@@ -105,7 +105,7 @@ Aby uzyskać więcej informacji o obsłudze środowiska uruchomieniowego usługi
 
 Łącze Synapse jest zalecane w następujących przypadkach:
 
-* Jeśli jesteś Azure Cosmos DB klientem i chcesz uruchamiać analizy, analizy biznesowej i uczenia maszynowego na danych operacyjnych. W takich przypadkach łącze Synapse zapewnia bardziej zintegrowane środowisko analityczne bez wpływu na przepływność zainicjowaną przez magazyn transakcyjny. Przykład:
+* Jeśli jesteś Azure Cosmos DB klientem i chcesz uruchamiać analizy, analizy biznesowej i uczenia maszynowego na danych operacyjnych. W takich przypadkach łącze Synapse zapewnia bardziej zintegrowane środowisko analityczne bez wpływu na przepływność zainicjowaną przez magazyn transakcyjny. Na przykład:
 
   * Jeśli używasz analizy lub analizy biznesowej Azure Cosmos DB danych operacyjnych bezpośrednio przy użyciu osobnych łączników, lub
 

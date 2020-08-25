@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 04/22/2019
-ms.openlocfilehash: dd3978ee1f371d59119e406c5f023718d57ad99b
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 206f941360b5c7912db548c6d2cfdc9d3d6a41dc
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642218"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816409"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Przewodnik dewelopera programu Azure Functions PowerShell
 
@@ -233,7 +233,7 @@ Logowanie w funkcjach programu PowerShell działa jak regularne rejestrowanie pr
 
 | Poziom rejestrowania funkcji | Polecenie cmdlet rejestrowania |
 | ------------- | -------------- |
-| Error | **`Write-Error`** |
+| Błąd | **`Write-Error`** |
 | Ostrzeżenie | **`Write-Warning`**  | 
 | Informacyjny | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informacyjny | Zapisuje dane w dzienniku na poziomie _informacji_ . |
 | Debugowanie | **`Write-Debug`** |
@@ -375,7 +375,7 @@ param([string] $myBlob)
 
 W programie PowerShell istnieje koncepcja profilu programu PowerShell. Jeśli nie znasz profilów programu PowerShell, zobacz [Informacje o profilach](/powershell/module/microsoft.powershell.core/about/about_profiles).
 
-W funkcjach programu PowerShell skrypt profilu jest wykonywany, gdy uruchamiana jest aplikacja funkcji. Aplikacje funkcji są uruchamiane po pierwszym wdrożeniu i po przejściu w stan bezczynności ([zimny start](#cold-start)).
+W funkcjach programu PowerShell skrypt profilu jest wykonywany raz dla każdego wystąpienia procesu roboczego programu PowerShell w aplikacji podczas pierwszego wdrożenia i po zakończeniu bezczynności ([zimny start](#cold-start)). Po włączeniu współbieżności przez ustawienie wartości [PSWorkerInProcConcurrencyUpperBound](#concurrency) skrypt profilu jest uruchamiany dla każdego utworzonego obszaru działania.
 
 Po utworzeniu aplikacji funkcji przy użyciu narzędzi, takich jak Visual Studio Code i Azure Functions Core Tools, zostanie utworzona wartość domyślna `profile.ps1` . Profil domyślny jest przechowywany [w repozytorium usługi podstawowe narzędzia usługi GitHub](https://github.com/Azure/azure-functions-core-tools/blob/dev/src/Azure.Functions.Cli/StaticResources/profile.ps1) i zawiera następujące funkcje:
 
@@ -417,7 +417,10 @@ W przypadku tworzenia nowego projektu funkcji programu PowerShell zarządzanie z
 Po zaktualizowaniu pliku requirements.psd1 zaktualizowane moduły zostaną zainstalowane po ponownym uruchomieniu.
 
 > [!NOTE]
-> Zarządzane zależności wymagają dostępu do www.powershellgallery.com do pobierania modułów. W przypadku uruchamiania lokalnego upewnij się, że środowisko uruchomieniowe ma dostęp do tego adresu URL, dodając wszystkie wymagane reguły zapory. 
+> Zarządzane zależności wymagają dostępu do www.powershellgallery.com do pobierania modułów. W przypadku uruchamiania lokalnego upewnij się, że środowisko uruchomieniowe ma dostęp do tego adresu URL, dodając wszystkie wymagane reguły zapory.
+
+> [!NOTE]
+> Zarządzane zależności obecnie nie obsługują modułów, które wymagają od użytkownika zaakceptowania licencji, przez zaakceptowanie licencji w trybie interaktywnym lub przez udostępnienie `-AcceptLicense` przełącznika podczas wywoływania `Install-Module` .
 
 Następujące ustawienia aplikacji mogą służyć do zmiany sposobu pobierania i instalowania zarządzanych zależności. Uaktualnienie aplikacji rozpocznie się w programie `MDMaxBackgroundUpgradePeriod` , a proces uaktualniania zakończy się w przybliżeniu `MDNewSnapshotCheckPeriod` .
 
@@ -435,6 +438,7 @@ W funkcjach `PSModulePath` zawiera dwie ścieżki:
 
 * `Modules`Folder, który istnieje w katalogu głównym aplikacji funkcji.
 * Ścieżka do `Modules` folderu, który jest kontrolowany przez proces roboczy języka programu PowerShell.
+
 
 ### <a name="function-app-level-modules-folder"></a>Folder poziomu aplikacji funkcji `Modules`
 
@@ -502,17 +506,22 @@ Domyślnie środowisko uruchomieniowe programu PowerShell może przetwarzać tyl
 * Gdy próbujesz obsłużyć dużą liczbę wywołań w tym samym czasie.
 * Gdy masz funkcje, które wywołują inne funkcje w tej samej aplikacji funkcji.
 
-Możesz zmienić to zachowanie, ustawiając następującą zmienną środowiskową na wartość całkowitą:
+Istnieje kilka modeli współbieżności, które można poznać w zależności od typu obciążenia:
 
-```
-PSWorkerInProcConcurrencyUpperBound
-```
+* Zwiększ ```FUNCTIONS_WORKER_PROCESS_COUNT``` . Pozwala to obsługiwać wywołania funkcji w wielu procesach w tym samym wystąpieniu, co wprowadza pewne obciążenie procesora i pamięci. Ogólnie rzecz biorąc, funkcje powiązane we/wy nie pogorszą się od tego obciążenia. W przypadku funkcji powiązanych z PROCESORem wpływ może być znaczny.
 
-Ta zmienna środowiskowa jest ustawiana w [ustawieniach aplikacji](functions-app-settings.md) aplikacja funkcji.
+* Zwiększ ```PSWorkerInProcConcurrencyUpperBound``` wartość ustawienia aplikacji. Pozwala to na tworzenie wielu obszarami działania w ramach tego samego procesu, co znacznie zmniejsza obciążenie procesora i pamięci.
+
+Te zmienne środowiskowe są ustawiane w [ustawieniach aplikacji](functions-app-settings.md) aplikacji funkcji.
+
+W zależności od przypadków użycia Durable Functions może znacząco poprawić skalowalność. Aby dowiedzieć się więcej, zobacz [Durable Functions wzorców aplikacji](/azure/azure-functions/durable/durable-functions-overview?tabs=powershell#application-patterns).
+
+>[!NOTE]
+> Może zostać wyświetlony komunikat "żądania są umieszczane w kolejce ze względu na brak dostępnych obszarami działania", pamiętaj, że to nie jest błąd. Komunikat informuje o tym, że żądania są umieszczane w kolejce i będą obsługiwane po zakończeniu poprzednich żądań.
 
 ### <a name="considerations-for-using-concurrency"></a>Zagadnienia dotyczące korzystania z współbieżności
 
-Domyślnie program PowerShell jest _wielowątkowym_ językiem skryptowym. Współbieżność można jednak dodać przy użyciu wielu obszarami działania programu PowerShell w tym samym procesie. Utworzona ilość obszarami działania będzie zgodna z ustawieniem aplikacji PSWorkerInProcConcurrencyUpperBound. Przepustowość będzie miała wpływ na ilość dostępnego procesora i pamięci w wybranym planie.
+Domyślnie program PowerShell jest _wielowątkowym_ językiem skryptowym. Współbieżność można jednak dodać przy użyciu wielu obszarami działania programu PowerShell w tym samym procesie. Ilość utworzonych obszarami działania będzie zgodna z ```PSWorkerInProcConcurrencyUpperBound``` ustawieniem aplikacji. Przepustowość będzie miała wpływ na ilość dostępnego procesora i pamięci w wybranym planie.
 
 Azure PowerShell używa niektórych kontekstów i Stanów na _poziomie procesu_ , aby pomóc zaoszczędzić przed nadmiarowym wpisywaniem. Jeśli jednak włączysz współbieżność w aplikacji funkcji i wywołująsz akcje, które zmieniają stan, możesz zakończyć z użyciem warunków wyścigu. Te sytuacje wyścigu są trudne do debugowania, ponieważ jedno wywołanie jest zależne od pewnego stanu, a inne wywołanie zmieniło stan.
 

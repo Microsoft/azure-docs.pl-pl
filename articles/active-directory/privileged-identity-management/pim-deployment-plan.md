@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/06/2020
+ms.date: 08/24/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14df46a921b482b182e0f17754293af37146d1e7
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 7c6537ace2caeb2f5dc25848a04aa2e0e65b31d6
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783216"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815984"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Wdróż Azure AD Privileged Identity Management (PIM)
 
@@ -30,7 +30,7 @@ W tym przewodniku krok po kroku opisano sposób planowania wdrożenia programu P
 >
 > : heavy_check_mark: **firma Microsoft zaleca**
 >
-> Są to ogólne zalecenia, które należy zaimplementować tylko w przypadku, gdy mają zastosowanie do konkretnych potrzeb przedsiębiorstwa.
+> Są to ogólne zalecenia i należy je zaimplementować tylko wtedy, gdy mają zastosowanie do konkretnych potrzeb przedsiębiorstwa.
 
 ## <a name="learn-about-privileged-identity-management"></a>Dowiedz się więcej o Privileged Identity Management
 
@@ -117,9 +117,9 @@ W poniższej sekcji znajdują się informacje ułatwiające zidentyfikowanie wsz
 | Nazwa i adres e-mail | **Menedżer pomocy technicznej IT/pomoc techniczna**<br/>Przedstawiciel firmy z działu pomocy technicznej IT, który może dostarczyć dane wejściowe dotyczące możliwości obsługi tej zmiany w perspektywie pomocy technicznej. | R/I |
 | Nazwa i wiadomość e-mail dla użytkowników pilotażowych | **Użytkownicy roli platformy Azure**<br/>Grupa użytkowników, dla których zaimplementowano usługi Privileged Identity Management. Muszą wiedzieć, jak aktywować swoje role po zaimplementowaniu Privileged Identity Management. | I |
 
-### <a name="enable-privileged-identity-management"></a>Włącz Privileged Identity Management
+### <a name="start-using-privileged-identity-management"></a>Rozpoczęcie korzystania z usługi Privileged Identity Management
 
-W ramach procesu planowania musisz najpierw wyrazić zgodę na i włączyć Privileged Identity Management, postępując zgodnie z naszymi artykułem [Privileged Identity Management](pim-getting-started.md) . Włączenie Privileged Identity Management zapewnia dostęp do niektórych funkcji, które są specjalnie zaprojektowane w celu ułatwienia wdrożenia.
+W ramach procesu planowania należy przygotować Privileged Identity Management, wykonując kroki opisane w artykule [Privileged Identity Management](pim-getting-started.md) . Privileged Identity Management zapewnia dostęp do niektórych funkcji, które są specjalnie zaprojektowane w celu ułatwienia wdrożenia.
 
 Jeśli celem jest wdrożenie Privileged Identity Management dla zasobów platformy Azure, należy postępować zgodnie z naszymi [zasobami platformy Azure, aby zarządzać w Privileged Identity Management](pim-resource-roles-discover-resources.md) artykule. Tylko właściciele subskrypcji i grupy zarządzania mogą odnajdywać te zasoby i dołączać je do Privileged Identity Management. Po dołączeniu funkcja PIM będzie dostępna dla właścicieli na wszystkich poziomach, takich jak grupa zarządzania, subskrypcja, Grupa zasobów i zasób. Jeśli jesteś administratorem globalnym próbującym wdrożyć Privileged Identity Management zasobów platformy Azure, możesz podwyższyć [poziom dostępu do zarządzania wszystkimi subskrypcjami platformy Azure](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) , aby zapewnić sobie dostęp do wszystkich zasobów platformy Azure w katalogu do odnajdowania. Jednak przed zarządzaniem swoimi zasobami przy użyciu Privileged Identity Management zalecamy zatwierdzenie od poszczególnych właścicieli subskrypcji.
 

@@ -4,12 +4,12 @@ description: Dowiedz się, jak połączyć się prywatnie z kontem Azure Batch p
 ms.topic: how-to
 ms.date: 08/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: fac9523dc2ecabaec5d1c108e0ddd7536f01f077
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 0fd16e4e11d0b3f08a7ba0e2f425785e3cce7927
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004252"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814114"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Używanie prywatnych punktów końcowych z kontami usługi Azure Batch
 
@@ -19,7 +19,8 @@ Za pomocą [prywatnego linku platformy Azure](../private-link/private-link-overv
 
 Link prywatny umożliwia użytkownikom dostęp do konta Azure Batch z poziomu sieci wirtualnej lub z dowolnej równorzędnej sieci wirtualnej. Zasoby mapowane do linku prywatnego są również dostępne lokalnie przez prywatną komunikację równorzędną za pośrednictwem sieci VPN lub [Azure ExpressRoute](../expressroute/expressroute-introduction.md). Można nawiązać połączenie z kontem Azure Batch skonfigurowanym za pomocą linku prywatnego przy użyciu [metody zatwierdzania automatyczne lub ręczne](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
 
-Obsługa łączności prywatnej w Azure Batch jest obecnie dostępna w następujących regionach platformy Azure: zachodnie stany USA, zachodnie stany USA 2, Wschodnie stany USA, Południowo-środkowe stany USA, US Gov Wirginia, US Gov Arizona, Azja Wschodnia, Francja i Południowe Zjednoczone Królestwo.
+> [!IMPORTANT]
+> Obsługa łączności prywatnej w Azure Batch jest obecnie dostępna w następujących regionach świadczenia usługi Azure: środkowe stany USA, Północno-środkowe stany USA, Południowo-środkowe stany USA, zachodnie stany USA, Wschodnie stany USA, wschód USA 2, zachodnie stany USA 2 Południowe Zjednoczone Królestwo Azja Wschodnia, Europa Zachodnia, Japonia Wschodnia, Australia Wschodnia i wszystkie US Gov i US DoD regiony.
 
 W tym artykule opisano kroki tworzenia prywatnego konta usługi Batch i uzyskiwania dostępu do niego przy użyciu prywatnego punktu końcowego.
 

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/28/2020
-ms.openlocfilehash: 0cb2eed0895c10f649facaa184a5f9f9ea158aa5
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 722d33e76b6009a44811dfcb8a3238b042ec6918
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87551986"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816885"
 ---
 # <a name="configure-azure-sql-edge-preview"></a>Konfigurowanie usługi Azure SQL Edge (wersja zapoznawcza)
 
@@ -157,6 +157,60 @@ Starsze wersje CTP usługi Azure SQL Edge zostały skonfigurowane tak, aby były
   - Zaktualizuj opcje tworzenia kontenera, aby określić `*"User": "user_name | user_id*` parę klucz-wartość w obszarze Opcje tworzenia kontenera. Zastąp user_name lub user_id rzeczywistym user_name lub user_id z hosta platformy Docker. 
   - Zmień uprawnienia do katalogu/woluminu instalacji.
 
+## <a name="persist-your-data"></a>Utrwalanie danych
+
+Zmiany konfiguracji i pliki bazy danych usługi Azure SQL Edge są utrwalane w kontenerze nawet po ponownym uruchomieniu kontenera za pomocą `docker stop` i `docker start` . Jednak po usunięciu kontenera z programu `docker rm` wszystkie elementy w kontenerze zostaną usunięte, łącznie z usługą Azure SQL Edge i bazami danych. W poniższej sekcji wyjaśniono, jak używać **woluminów danych** do utrwalania plików bazy danych, nawet jeśli skojarzone kontenery są usuwane.
+
+> [!IMPORTANT]
+> W przypadku usługi Azure SQL Edge ważne jest, aby zrozumieć trwałość danych w Docker. Oprócz dyskusji w tej sekcji zapoznaj się z dokumentacją platformy Docker dotyczącą [zarządzania danymi w kontenerach platformy Docker](https://docs.docker.com/engine/tutorials/dockervolumes/).
+
+### <a name="mount-a-host-directory-as-data-volume"></a>Instalowanie katalogu hosta jako woluminu danych
+
+Pierwszą opcją jest zainstalowanie katalogu na hoście jako woluminu danych w kontenerze. Aby to zrobić, użyj `docker run` polecenia z `-v <host directory>:/var/opt/mssql` flagą. Dzięki temu dane będą przywracane między wykonaniami kontenera.
+
+```bash
+docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v <host directory>/data:/var/opt/mssql/data -v <host directory>/log:/var/opt/mssql/log -v <host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/azure-sql-edge-developer
+```
+
+```PowerShell
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v <host directory>/data:/var/opt/mssql/data -v <host directory>/log:/var/opt/mssql/log -v <host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/azure-sql-edge-developer
+```
+
+Ta technika umożliwia także udostępnianie i wyświetlanie plików na hoście poza platformą Docker.
+
+> [!IMPORTANT]
+> Mapowanie woluminu hosta dla **platformy Docker w systemie Windows** nie obsługuje obecnie mapowania kompletnego `/var/opt/mssql` katalogu. Można jednak zmapować podkatalog, na przykład `/var/opt/mssql/data` na maszynę hosta.
+
+> [!IMPORTANT]
+> Mapowanie woluminu hosta dla platformy **Docker na komputerze Mac** za pomocą obrazu usługi Azure SQL Edge nie jest teraz obsługiwane. Zamiast tego użyj kontenerów woluminów danych. To ograniczenie jest specyficzne dla `/var/opt/mssql` katalogu. Odczytywanie z zainstalowanego katalogu działa prawidłowo. Na przykład można zainstalować katalog hosta za pomocą-v na komputerze Mac i przywrócić kopię zapasową z pliku. bak, który znajduje się na hoście.
+
+### <a name="use-data-volume-containers"></a>Korzystanie z kontenerów woluminów danych
+
+Drugą opcją jest użycie kontenera woluminów danych. Kontener woluminów danych można utworzyć, określając nazwę woluminu zamiast katalogu hosta z `-v` parametrem. Poniższy przykład tworzy wolumin danych udostępnionych o nazwie **sqlvolume**.
+
+```bash
+docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge-developer
+```
+
+```PowerShell
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge-developer
+```
+
+> [!NOTE]
+> Ta technika niejawnie tworzenia ilości danych w poleceniu Run nie działa ze starszymi wersjami platformy Docker. W takim przypadku należy wykonać jawne kroki opisane w dokumentacji platformy Docker, [Tworzenie i Instalowanie kontenera woluminów danych](https://docs.docker.com/engine/tutorials/dockervolumes/#creating-and-mounting-a-data-volume-container).
+
+Nawet po zatrzymaniu i usunięciu tego kontenera wolumin danych będzie się utrzymywał. Można go wyświetlić za pomocą `docker volume ls` polecenia.
+
+```bash
+docker volume ls
+```
+
+Jeśli następnie utworzysz inny kontener o tej samej nazwie, nowy kontener będzie używać tych samych danych usługi Azure SQL Edge zawartych w tym woluminie.
+
+Aby usunąć kontener woluminów danych, użyj `docker volume rm` polecenia.
+
+> [!WARNING]
+> Po usunięciu kontenera woluminów danych wszystkie dane usługi Azure SQL Edge w kontenerze zostaną *trwale* usunięte.
 
 
 ## <a name="next-steps"></a>Następne kroki

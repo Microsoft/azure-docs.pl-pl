@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 8ec950ddabd3844618c878471d2e1391979e2056
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.date: 08/25/2020
+ms.openlocfilehash: a03a141a4140ca4ac000a8e2afb8dd8f45d40662
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521377"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816623"
 ---
 # <a name="copy-data-from-and-to-the-sftp-server-by-using-azure-data-factory"></a>Skopiuj dane z i do serwera SFTP przy użyciu Azure Data Factory
 
@@ -112,7 +112,7 @@ Aby użyć uwierzytelniania klucza publicznego SSH, ustaw właściwość "Authen
 | userName | Użytkownik, który ma dostęp do serwera SFTP. |Tak |
 | privateKeyPath | Określ ścieżkę bezwzględną do pliku klucza prywatnego, do którego może uzyskać dostęp środowisko Integration Runtime. Ma to zastosowanie tylko wtedy, gdy typ samodzielnego środowiska Integration Runtime jest określony w "właściwością connectvia". | Określ albo `privateKeyPath` `privateKeyContent` .  |
 | privateKeyContent | Zawartość klucza prywatnego SSH szyfrowanego algorytmem Base64. Klucz prywatny SSH powinien mieć format OpenSSH. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w fabryce danych, lub [odwoływać się do wpisu tajnego przechowywanego w magazynie kluczy platformy Azure](store-credentials-in-key-vault.md). | Określ albo `privateKeyPath` `privateKeyContent` . |
-| Danym | Określ frazę lub hasło do odszyfrowania klucza prywatnego, jeśli plik klucza jest chroniony za pomocą frazy Pass. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w fabryce danych, lub [odwoływać się do wpisu tajnego przechowywanego w magazynie kluczy platformy Azure](store-credentials-in-key-vault.md). | Tak, jeśli plik klucza prywatnego jest chroniony za pomocą frazy Pass. |
+| Danym | Określ frazę lub hasło do odszyfrowania klucza prywatnego, jeśli plik klucza lub zawartość klucza są chronione za pomocą frazy Pass. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w fabryce danych, lub [odwoływać się do wpisu tajnego przechowywanego w magazynie kluczy platformy Azure](store-credentials-in-key-vault.md). | Tak, jeśli plik klucza prywatnego lub zawartość klucza jest chroniona za pomocą frazy Pass. |
 
 > [!NOTE]
 > Łącznik SFTP obsługuje klucz OpenSSH RSA/DSA. Upewnij się, że zawartość pliku klucza rozpoczyna się od "-----BEGIN [RSA/DSA] klucza prywatnego-----". Jeśli plik klucza prywatnego jest plikiem PPK, użyj narzędzia do konwersji z PPK na OpenSSH format. 

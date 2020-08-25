@@ -1,22 +1,22 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 documentationcenter: partner-center-commercial-marketplace
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
-ms.date: 08/16/2019
+ms.date: 08/24/2020
 ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: b2d4ce0de130942ccd52dc2894d91a4e4f667c99
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7709f26b30d41b932569227b8b6f05b5725dc98f
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326628"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815672"
 ---
-Opublikowanie oferty w portalu Marketplace za pośrednictwem Centrum partnerskiego wymaga połączenia oferty z systemem CRM. W ten sposób możesz otrzymywać informacje kontaktowe klienta bezpośrednio, gdy klient wyraża zainteresowanie lub wdroży produkt.
+Opublikowanie oferty w portalu komercyjnym za pośrednictwem Centrum partnerskiego wymaga połączenia oferty z systemem CRM. Dzięki temu możesz otrzymywać informacje kontaktowe klienta bezpośrednio po wprowadzeniu zainteresowania przez klienta lub wdrożeniu produktu.
 
 1. Wybierz miejsce docelowe potencjalnych klientów, do którego chcesz wysyłać potencjalnych klientów. Obsługiwane są następujące systemy CRM:
 
@@ -29,7 +29,6 @@ Opublikowanie oferty w portalu Marketplace za pośrednictwem Centrum partnerskie
     * [Tabela platformy Azure](../commercial-marketplace-lead-management-instructions-azure-table.md)
     * [Punkt końcowy HTTPS](../commercial-marketplace-lead-management-instructions-https.md)
 
-2. Zapoznaj się z tą połączoną dokumentacją dla wybranego miejsca docelowego potencjalnego klienta, aby dowiedzieć się, jak skonfigurować miejsce docelowe potencjalnego klienta, aby otrzymywać potencjalni klienci z oferty portalu
-3. Połącz ofertę z miejscem docelowym potencjalnego klienta po opublikowaniu oferty w portalu Marketplace w centrum partnerskim. Aby uzyskać informacje o tym, jak to zrobić, zobacz połączoną dokumentację.
-4. Upewnij się, że połączenie z miejscem docelowym potencjalnego klienta zostało prawidłowo skonfigurowane. Po poprawnym skonfigurowaniu miejsca docelowego potencjalnego klienta wybierz pozycję **Publikuj** w swojej ofercie w centrum partnerskim. Następnie będziemy sprawdzać poprawność połączenia i wysyłać do Ciebie potencjalnego klienta. Po wyświetleniu oferty przed rozpoczęciem pracy możesz również przetestować połączenie z liderem, próbując uzyskać swoją ofertę w środowisku wersji zapoznawczej.
-5. Upewnij się, że połączenie z miejscem docelowym potencjalnego klienta jest aktualne, dzięki czemu nie utracisz żadnych potencjalnych klientów. Upewnij się, że te połączenia zostały zaktualizowane, gdy coś się zmieniło na końcu.
+1. Zapoznaj się z odpowiednią połączoną dokumentacją, aby dowiedzieć się, jak skonfigurować miejsce docelowe potencjalnego klienta i uzyskać potencjalnych klientów z ofert komercyjnych portalu Marketplace.
+1. Po połączeniu oferty z miejscem docelowym potencjalnego klienta wybierz pozycję **Publikuj** w swojej ofercie w centrum partnerskim. Będziemy sprawdzać poprawność połączenia i wysyłać do Ciebie potencjalnego klienta. Po wyświetleniu oferty przed rozpoczęciem pracy możesz również przetestować połączenie z liderem, próbując uzyskać swoją ofertę w środowisku wersji zapoznawczej.
+1. Upewnij się, że połączenie z miejscem docelowym potencjalnego klienta jest aktualne, więc nie utracisz żadnych potencjalnych klientów. Upewnij się, że te połączenia zostały zaktualizowane, gdy coś się zmieniło.

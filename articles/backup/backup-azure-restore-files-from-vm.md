@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punk
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: e913fa1e609eff687b5757a566583539b32b1b8e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: ca523370a887ed1178312c48a577695f5ba6da8f
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757153"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763460"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -200,13 +200,13 @@ Teraz mamy wszystkie nazwy VG z unikatowymi identyfikatorami.
 
 ###### <a name="active-volume-groups"></a>Aktywne grupy woluminów
 
-Upewnij się, że grupy woluminów odpowiadające woluminom skryptu są aktywne. Poniższe polecenie służy do wyświetlania aktywnych grup woluminów. Sprawdź, czy na tej liście znajdują się grupy woluminów powiązane ze skryptem.
+Upewnij się, że grupy woluminów odpowiadające woluminom skryptu są aktywne. Następujące polecenie służy do wyświetlania aktywnych grup woluminów. Sprawdź, czy na tej liście znajdują się grupy woluminów powiązane ze skryptem.
 
 ```bash
 vgdisplay -a
 ```  
 
-W przeciwnym razie Aktywuj grupę woluminów przy użyciu poniższego polecenia.
+W przeciwnym razie Aktywuj grupę woluminów przy użyciu następującego polecenia.
 
 ```bash
 #!/bin/bash
@@ -215,7 +215,7 @@ vgchange –a y  <volume-group-name>
 
 ##### <a name="listing-logical-volumes-within-volume-groups"></a>Wyświetlanie listy woluminów logicznych w grupach woluminów
 
-Po otrzymaniu unikatowej aktywnej listy VGs związanych ze skryptem woluminy logiczne występujące w tych grupach woluminów można wyświetlić przy użyciu poniższego polecenia.
+Po otrzymaniu unikatowej aktywnej listy VGs związanych ze skryptem woluminy logiczne występujące w tych grupach woluminów można wyświetlić za pomocą następującego polecenia.
 
 ```bash
 #!/bin/bash

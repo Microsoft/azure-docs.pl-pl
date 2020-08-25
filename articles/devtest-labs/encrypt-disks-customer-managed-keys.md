@@ -3,17 +3,17 @@ title: Szyfrowanie dysków systemu operacyjnego przy użyciu kluczy zarządzanyc
 description: Dowiedz się, jak szyfrować dyski systemu operacyjnego (OS) przy użyciu kluczy zarządzanych przez klienta w programie Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/28/2020
-ms.openlocfilehash: 209ab1f74dce0982af66777f211c41066d53b8f9
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 241f53f0c8f289b43b8de465eb7509489345b955
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566203"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815925"
 ---
 # <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Szyfruj dyski systemu operacyjnego (OS) przy użyciu kluczy zarządzanych przez klienta w Azure DevTest Labs
 Szyfrowanie po stronie serwera (SSE) chroni dane i pomaga sprostać wymaganiom bezpieczeństwa i zgodności w organizacji. Funkcja SSE automatycznie szyfruje dane przechowywane na dyskach zarządzanych na platformie Azure (na dyskach z systemem operacyjnym i danych) domyślnie, gdy są utrwalane w chmurze. Dowiedz się więcej o [szyfrowaniu dysków](../virtual-machines/windows/disk-encryption.md) na platformie Azure. 
 
-W ramach programu DevTest Labs wszystkie dyski systemu operacyjnego i dyski danych utworzone w ramach laboratorium są szyfrowane przy użyciu kluczy zarządzanych przez platformę. Jednak jako właściciel laboratorium możesz wybrać opcję szyfrowania dysków systemu operacyjnego maszyny wirtualnej laboratorium przy użyciu własnych kluczy. Jeśli zdecydujesz się na zarządzanie szyfrowaniem przy użyciu własnych kluczy, możesz określić **klucz zarządzany przez klienta** , który będzie używany do szyfrowania danych na dyskach systemu operacyjnego laboratorium. Aby dowiedzieć się więcej na temat szyfrowania po stronie serwera (SSE) z kluczami zarządzanymi przez klienta i innych typów szyfrowania dysków zarządzanych, zobacz [klucze zarządzane przez klienta](../virtual-machines/windows/disk-encryption.md#customer-managed-keys). Ponadto zobacz [ograniczenia związane z korzystaniem z kluczy zarządzanych przez klienta](../virtual-machines/windows/disks-enable-customer-managed-keys-portal.md#restrictions).
+W ramach programu DevTest Labs wszystkie dyski systemu operacyjnego i dyski danych utworzone w ramach laboratorium są szyfrowane przy użyciu kluczy zarządzanych przez platformę. Jednak jako właściciel laboratorium możesz wybrać opcję szyfrowania dysków systemu operacyjnego maszyny wirtualnej laboratorium przy użyciu własnych kluczy. Jeśli zdecydujesz się na zarządzanie szyfrowaniem przy użyciu własnych kluczy, możesz określić **klucz zarządzany przez klienta** , który będzie używany do szyfrowania danych na dyskach systemu operacyjnego laboratorium. Aby dowiedzieć się więcej na temat szyfrowania po stronie serwera (SSE) z kluczami zarządzanymi przez klienta i innych typów szyfrowania dysków zarządzanych, zobacz [klucze zarządzane przez klienta](../virtual-machines/windows/disk-encryption.md#customer-managed-keys). Ponadto zobacz [ograniczenia związane z korzystaniem z kluczy zarządzanych przez klienta](../virtual-machines/disks-enable-customer-managed-keys-portal.md#restrictions).
 
 
 > [!NOTE]
@@ -25,7 +25,7 @@ W poniższej sekcji pokazano, jak właściciel laboratorium może skonfigurować
 
 ## <a name="pre-requisites"></a>Wymagania wstępne
 
-1. Jeśli nie masz zestawu szyfrowania dysków, postępuj zgodnie z tym artykułem, aby [skonfigurować Key Vault i zestaw szyfrowanie dysków](../virtual-machines/windows/disks-enable-customer-managed-keys-portal.md#set-up-your-azure-key-vault). Należy pamiętać o następujących wymaganiach dotyczących zestawu szyfrowania dysków: 
+1. Jeśli nie masz zestawu szyfrowania dysków, postępuj zgodnie z tym artykułem, aby [skonfigurować Key Vault i zestaw szyfrowanie dysków](../virtual-machines/disks-enable-customer-managed-keys-portal.md). Należy pamiętać o następujących wymaganiach dotyczących zestawu szyfrowania dysków: 
 
     - Zestaw szyfrowania dysków musi znajdować się **w tym samym regionie i subskrypcji co laboratorium**. 
     - Upewnij się, że (właściciel laboratorium) ma co najmniej **dostęp na poziomie czytnika** do zestawu szyfrowania dysku, który będzie używany do szyfrowania dysków systemu operacyjnego laboratorium. 

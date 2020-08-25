@@ -1,6 +1,6 @@
 ---
 title: Omówienie tworzenia obrazów systemu Linux dla platformy Azure
-description: Omówienie sposobu przenoszenia obrazów maszyn wirtualnych z systemem Linux lub tworzenia nowych obrazów do użycia na platformie Azure.
+description: Jak przenieść obrazy maszyn wirtualnych z systemem Linux lub utworzyć nowe obrazy do użycia na platformie Azure.
 author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: aa372d4e1b377ecdcbeb49b47f0f9a3a217ee7ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 220aa4e0d545eedcd1eb0e6f5a6555b17a361da2
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502184"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815304"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Przełączanie i tworzenie obrazów systemu Linux na platformie Azure
 
@@ -25,7 +25,7 @@ W tym artykule omówiono punkty i wymagania dotyczące podejmowania decyzji doty
 ## <a name="difference-between-managed-disks-and-images"></a>Różnica między dyskami zarządzanymi i obrazami
 
 
-System Azure umożliwia przeniesienie dysku VHD na platformę, użycie go jako [dysku zarządzanego](../windows/faq-for-disks.md#managed-disks)lub użycie jako źródła obrazu. 
+System Azure umożliwia przeniesienie dysku VHD na platformę, użycie go jako [dysku zarządzanego](../faq-for-disks.md#managed-disks)lub użycie jako źródła obrazu. 
 
 Azure Managed disks to pojedyncze wirtualne dyski twarde. Można albo utworzyć istniejący wirtualny dysk twardy i utworzyć na jego dysku zarządzanym. Maszyny wirtualne można tworzyć na podstawie dysków zarządzanych, dołączając dysk do maszyny wirtualnej, ale można używać dysku VHD tylko z jedną maszyną wirtualną. Nie możesz modyfikować żadnych właściwości systemu operacyjnego, platforma Azure podejmie próbę włączenia maszyny wirtualnej i uruchomienia jej przy użyciu tego dysku. 
 
@@ -58,7 +58,7 @@ Są to [wymagania wstępne](./create-upload-generic.md) dotyczące tworzenia obr
 ### <a name="specialized-images"></a>Obrazy specjalne
 Są to obrazy, które są całkowicie skonfigurowane i nie wymagają maszyn wirtualnych i parametrów specjalnych, platforma przejdzie po prostu na maszynę wirtualną, musisz obsługiwać unikatowość w ramach maszyny wirtualnej, na przykład ustawienie nazwy hosta, aby uniknąć konfliktów DNS w tej samej sieci wirtualnej. 
 
-Agenci aprowizacji nie są zobowiązani do tych obrazów, ale mogą chcieć mieć możliwość obsługi rozszerzeń. Można zainstalować agenta systemu Linux, ale wyłączyć opcję aprowizacji. Mimo że nie jest potrzebny Agent aprowizacji, obraz musi spełniać [wymagania wstępne](./create-upload-generic.md) dotyczące obrazów platformy Azure.
+Agenci aprowizacji nie są zobowiązani do tych obrazów, ale mogą chcieć mieć możliwość obsługi rozszerzeń. Można zainstalować agenta systemu Linux, ale wyłączyć opcję aprowizacji. Mimo że nie jest potrzebny Agent aprowizacji, obraz musi spełniać [wymagania wstępne](./create-upload-generic.md)  dotyczące obrazów platformy Azure.
 
 
 ## <a name="image-storage-options"></a>Opcje magazynu obrazu

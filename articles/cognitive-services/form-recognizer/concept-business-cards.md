@@ -10,14 +10,14 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 2fc87f08b30d648ec38d2b93e96a32d125b856be
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 039f7343bcef64db9ad9eae558cd3e97f3678c59
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757918"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799285"
 ---
-# <a name="business-card-concepts"></a>Pojęcia związane z kartami biznesowymi
+# <a name="business-card-concepts"></a>Pojęcia dotyczące wizytówek
 
 Aparat rozpoznawania formularzy platformy Azure może analizować i wyodrębniać pary kluczowych wartości z kart służbowych przy użyciu jednego z wbudowanych modeli. Interfejs API wizytówki łączy zaawansowane funkcje optycznego rozpoznawania znaków (OCR) z naszą kartą biznesową, aby wyodrębnić informacje o kluczu z kart służbowych w języku angielskim. Wyodrębnia on osobiste informacje kontaktowe, nazwę firmy, stanowisko i nie tylko. Prebudowany interfejs API kart służbowych jest publicznie dostępny w postaci aparatu rozpoznawania w wersji zapoznawczej. 
 
@@ -70,7 +70,7 @@ Drugim krokiem jest wywołanie operacji [Pobierz wyniki analizy karty biznesowej
 
 Gdy wartość w polu **stan** zostanie **zakończona pomyślnie** , odpowiedź JSON będzie zawierać zrozumienie i wyniki rozpoznawania tekstu. Wynik zrozumienie karty biznesowej jest zorganizowany jako słownik nazwanych wartości pól, gdzie każda wartość zawiera wyodrębniony tekst, znormalizowana wartość, pole ograniczenia, pewność i odpowiadające im elementy programu Word. Wynik rozpoznawania tekstu jest zorganizowany jako hierarchia wierszy i słów, z tekstem, obwiednią i informacjami o ufności.
 
-![Wyniki smample firmy Contoso](./media/business-card-results.png)
+![Przykładowe dane wyjściowe karty biznesowej](./media/business-card-results.png)
 
 ### <a name="sample-json-output"></a>Przykładowe dane wyjściowe JSON
 
@@ -90,8 +90,8 @@ Zobacz następujący przykład pomyślnej odpowiedzi JSON: węzeł "readResults"
                 "width": 4032,
                 "height": 3024,
                 "unit": "pixel",
-    "lines": 
-         {
+                "lines": 
+                          {
                         "text": "Dr. Avery Smith",
                         "boundingBox": [
                             419.3,

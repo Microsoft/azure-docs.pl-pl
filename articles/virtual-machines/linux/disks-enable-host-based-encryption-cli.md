@@ -4,18 +4,18 @@ description: Użyj szyfrowania na hoście, aby umożliwić kompleksowe szyfrowan
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 9f61835887c26e41b3338286065df4ca9d05f513
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ff56654981ef69648b1fa7ad11a8681c887289f6
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029012"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816970"
 ---
-# <a name="enable-end-to-end-encryption-using-encryption-at-host---azure-cli"></a>Włącz kompleksowe szyfrowanie przy użyciu szyfrowania na hoście — interfejs wiersza polecenia platformy Azure
+# <a name="use-the-azure-cli-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure w celu umożliwienia kompleksowego szyfrowania przy użyciu szyfrowania na hoście
 
 Po włączeniu szyfrowania na hoście dane przechowywane na hoście maszyny wirtualnej są szyfrowane w stanie spoczynku i są zaszyfrowane w usłudze Storage. Aby uzyskać informacje koncepcyjne na temat szyfrowania na hoście, a także inne typy szyfrowania dysków zarządzanych, zobacz [szyfrowanie na hoście-end-to-end dla danych maszyny wirtualnej](disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 

@@ -8,19 +8,17 @@ ms.subservice: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
-ms.date: 04/02/2020
-ms.openlocfilehash: ed552a57e51ce9249f84bab6bb72bfe783e43edb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/17/2020
+ms.openlocfilehash: ca3cfa44bd4f757c6fbb0dd2c84d7a843f9bff36
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078112"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816222"
 ---
-# <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Nauka danych przy użyciu Data Science Virtual Machine systemu Linux na platformie Azure
+# <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Nauka danych przy użyciu Data Science Virtual Machine Ubuntu na platformie Azure
 
-W tym instruktażu pokazano, jak wykonać kilka typowych zadań naukowych dotyczących danych przy użyciu Data Science Virtual Machine systemu Linux (DSVM). Linux DSVM to obraz maszyny wirtualnej dostępny na platformie Azure, który jest preinstalowany z kolekcją narzędzi często używanych do analizy danych i uczenia maszynowego. Najważniejsze składniki oprogramowania są objęte obsługą [administracyjną Data Science Virtual Machine systemu Linux](linux-dsvm-intro.md). Obraz DSVM ułatwia rozpoczęcie pracy z analizą danych w kilka minut, bez konieczności instalowania i konfigurowania poszczególnych narzędzi osobno. Można łatwo skalować w górę DSVM, jeśli jest to konieczne, i można go zatrzymać, gdy nie jest używany. Zasób DSVM jest elastyczny i ekonomiczny.
-
-Zadania analizy danych przedstawione w tym instruktażu są zgodne z krokami opisanymi w temacie [co to jest proces nauki o danych zespołowych?](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) Proces nauki danych zespołu to systematyczne podejście do nauki dotyczącej danych, które ułatwiają zespołom analityków danych wydajną współpracę nad cyklem tworzenia inteligentnych aplikacji. Proces nauki o danych zawiera również iteracyjną strukturę dla nauki danych, którą może następować osoba.
+W tym instruktażu pokazano, jak wykonać kilka typowych zadań naukowych dotyczących danych za pomocą Ubuntu Data Science Virtual Machine (DSVM). Ubuntu DSVM to obraz maszyny wirtualnej dostępny na platformie Azure, który jest preinstalowany z kolekcją narzędzi często używanych do analizy danych i uczenia maszynowego. Najważniejsze składniki oprogramowania są wyszczególnione w [Ubuntu Data Science Virtual Machine](./dsvm-ubuntu-intro.md). Obraz DSVM ułatwia rozpoczęcie pracy z analizą danych w kilka minut, bez konieczności instalowania i konfigurowania poszczególnych narzędzi osobno. Można łatwo skalować w górę DSVM, jeśli jest to konieczne, i można go zatrzymać, gdy nie jest używany. Zasób DSVM jest elastyczny i ekonomiczny.
 
 W tym instruktażu analizujemy zestaw danych [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) . Spambase to zbiór wiadomości e-mail oznaczonych jako spam lub Ham (bez spamu). Spambase zawiera również pewne dane statystyczne dotyczące zawartości wiadomości e-mail. Więcej informacji na temat statystyk znajduje się w dalszej części przewodnika.
 
@@ -29,10 +27,10 @@ W tym instruktażu analizujemy zestaw danych [spambase](https://archive.ics.uci.
 Przed użyciem DSVM systemu Linux należy spełnić następujące wymagania wstępne:
 
 * **Subskrypcja platformy Azure**. Aby uzyskać subskrypcję platformy Azure, zobacz artykuł [Tworzenie bezpłatnego konta platformy Azure już dzisiaj](https://azure.microsoft.com/free/).
-* [**Data Science Virtual Machine systemu Linux**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Informacje o aprowizacji maszyny wirtualnej można znaleźć w temacie [Inicjowanie obsługi Data Science Virtual Machine systemu Linux](linux-dsvm-intro.md).
-* [**X2go**](https://wiki.x2go.org/doku.php) zainstalowane na komputerze z otwartą sesją pulpit Xfce. Aby uzyskać więcej informacji, zobacz [Instalowanie i Konfigurowanie klienta x2go](dsvm-ubuntu-intro.md#x2go).
+
+* [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Aby uzyskać informacje o aprowizacji maszyny wirtualnej, zobacz temat [udostępnianie Ubuntu Data Science Virtual Machine](linux-dsvm-intro.md).
+* [**X2go**](https://wiki.x2go.org/doku.php) zainstalowane na komputerze z otwartą sesją pulpit Xfce. Aby uzyskać więcej informacji, zobacz [Instalowanie i Konfigurowanie klienta x2go](linux-dsvm-intro.md#x2go).
 * Aby usprawnić przewijanie w przeglądarce sieci Web w programie DSVM, przełącz `gfx.xrender.enabled` flagę w `about:config` . [Dowiedz się więcej](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Należy również rozważyć `mousewheel.enable_pixel_scrolling` ustawienie `False` . [Dowiedz się więcej](https://support.mozilla.org/questions/981140).
-* **Konto Azure Machine Learning**. Jeśli jeszcze tego nie zrobiono, Utwórz nowe konto na [stronie głównej Azure Machine Learning](https://azure.microsoft.com/free/services/machine-learning//).
 
 ## <a name="download-the-spambase-dataset"></a>Pobierz zestaw danych spambase
 
@@ -228,7 +226,7 @@ Pozostałe sekcje pokazują, jak używać niektórych narzędzi zainstalowanych 
 * JupyterHub
 * Rattle
 * PostgreSQL i SQuirreL SQL
-* Magazyn danych SQL Server
+* Azure Synapse Analytics (dawniej SQL DW)
 
 ### <a name="xgboost"></a>XGBoost
 
@@ -286,31 +284,6 @@ clf = svm.SVC()
 clf.fit(X, y)
 ```
 
-Aby opublikować model do Azure Machine Learning:
-
-```Python
-# Publish the model.
-workspace_id = "<workspace-id>"
-workspace_token = "<workspace-token>"
-from azureml import services
-@services.publish(workspace_id, workspace_token)
-@services.types(char_freq_dollar = float, word_freq_remove = float, word_freq_hp = float)
-@services.returns(int) # 0 or 1
-def predictSpam(char_freq_dollar, word_freq_remove, word_freq_hp):
-    inputArray = [char_freq_dollar, word_freq_remove, word_freq_hp]
-    return clf.predict(inputArray)
-
-# Get some info about the resulting model.
-predictSpam.service.url
-predictSpam.service.api_key
-
-# Call the model
-predictSpam.service(1, 1, 1)
-```
-
-> [!NOTE]
-> Ta opcja jest dostępna tylko dla języka Python 2,7. Nie jest jeszcze obsługiwane w języku Python 3,5. Aby uruchomić, użyj **/Anaconda/bin/python2.7**.
-
 ### <a name="jupyterhub"></a>JupyterHub
 
 Rozkład Anaconda w DSVM zawiera Jupyter Notebook, czyli środowisko Międzyplatformowe do udostępniania kodu Python, R lub Julia i analizy. Dostęp do Jupyter Notebook można uzyskać za pomocą JupyterHub. Użytkownik loguje się przy użyciu nazwy użytkownika i hasła lokalnego systemu Linux pod adresem https:// \<DSVM DNS name or IP address\> : 8000/. Wszystkie pliki konfiguracji dla JupyterHub znajdują się w/etc/jupyterhub.
@@ -334,7 +307,6 @@ Kilka przykładowych notesów jest już zainstalowanych na DSVM:
 
 * Przykładowe notesy w języku Python:
   * [IntroToJupyterPython. ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroToJupyterPython.ipynb)
-  * [IrisClassifierPyMLWebService](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IrisClassifierPyMLWebService.ipynb)
 * Przykładowy Notes języka R:
   * [IntroTutorialinR](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroTutorialinR.ipynb) 
 
@@ -506,7 +478,7 @@ Aby skonfigurować połączenie z serwerem lokalnym:
 1. W obszarze **Sterownik**wybierz pozycję **PostgreSQL**.
 1. Ustaw adres URL **JDBC: PostgreSQL://localhost/spam**.
 1. Wprowadź nazwę użytkownika i hasło.
-1. Wybierz przycisk **OK**.
+1. Wybierz pozycję **OK**.
 1. Aby otworzyć okno **połączenia** , kliknij dwukrotnie alias **bazy danych spamu** .
 1. Wybierz pozycję **Połącz**.
 
@@ -532,9 +504,9 @@ Większość wiadomości e-mail, które mają duże wystąpienie *3W* , jest pra
 
 Jeśli chcesz przeprowadzić Uczenie maszynowe przy użyciu danych przechowywanych w bazie danych PostgreSQL, rozważ użycie [MADlib](https://madlib.incubator.apache.org/).
 
-### <a name="sql-data-warehouse"></a>SQL Data Warehouse
+### <a name="azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics (dawniej SQL DW)
 
-Azure SQL Data Warehouse to oparta na chmurze baza danych skalowalna w poziomie, która może przetwarzać ogromne ilości danych, zarówno relacyjnych, jak i nierelacyjnych. Aby uzyskać więcej informacji, zobacz [co to jest Azure SQL Data Warehouse?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+Azure Synapse Analytics to oparta na chmurze baza danych skalowalna w poziomie, która może przetwarzać ogromne ilości danych, zarówno relacyjnych, jak i nierelacyjnych. Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Synapse Analytics?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 Aby nawiązać połączenie z magazynem danych i utworzyć tabelę, uruchom następujące polecenie w wierszu polecenia:
 
@@ -567,8 +539,4 @@ GO
 
 Możesz również wysyłać zapytania przy użyciu języka SQL SQuirreL. Wykonaj czynności podobne do PostgreSQL przy użyciu sterownika JDBC SQL Server. Sterownik JDBC znajduje się w folderze/usr/share/Java/jdbcdrivers/sqljdbc42.jar.
 
-## <a name="next-steps"></a>Następne kroki
 
-Aby zapoznać się z omówieniem artykułów, które przeprowadzą Cię przez zadania wchodzące w skład procesu analizy danych na platformie Azure, zobacz [zespół ds. analizy danych](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview).
-
-Aby zapoznać się z opisem kompleksowych przewodników, które przedstawiają kroki procesu nauka danych zespołu dla konkretnych scenariuszy, zobacz [przewodniki dotyczące procesów naukowych](../team-data-science-process/walkthroughs.md)dotyczących analiz danych. Instruktaż ilustrują również sposób łączenia narzędzi i usług w chmurze i lokalnych z przepływem pracy lub potoku w celu utworzenia inteligentnej aplikacji.

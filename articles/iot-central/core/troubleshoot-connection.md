@@ -7,12 +7,12 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.openlocfilehash: 98d7566d5e9339ea2ac5d81d91f1d9f8ace5b0f4
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 4c95c5eccb5ff804adeae94074136c6242678127
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719668"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816069"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Rozwiązywanie problemów z tym, dlaczego dane z urządzeń nie są wyświetlane na platformie Azure IoT Central
 
@@ -57,7 +57,7 @@ az set account --subscription <your-subscription-id>
 Aby monitorować dane telemetryczne wysyłane przez urządzenie, użyj następującego polecenia:
 
 ```cmd/bash
-az iot central app monitor-events -n <app-id> -d <device-name>
+az iot central app monitor-events --app-id <app-id> --device-id <device-name>
 ```
 
 Jeśli urządzenie zostało pomyślnie podłączone do IoT Central, zobaczysz dane wyjściowe podobne do następujących:
@@ -82,7 +82,7 @@ Filtering on device: device-001
 Aby monitorować aktualizacje właściwości, urządzenie jest wymieniane z IoT Central, użyj następującego polecenia w wersji zapoznawczej:
 
 ```cmd/bash
-az iot central app monitor-properties -n <app-id> -d <device-name>
+az iot central app monitor-properties --app-id <app-id> --device-id <device-name>
 ```
 
 Jeśli urządzenie pomyślnie wyśle aktualizacje właściwości, zobaczysz dane wyjściowe podobne do następujących:
@@ -108,7 +108,7 @@ Jeśli nadal nie widzisz żadnych danych w terminalu, prawdopodobnie urządzenie
 Jeśli dane nie są wyświetlane na monitorze, sprawdź stan aprowizacji urządzenia, uruchamiając następujące polecenie:
 
 ```cmd/bash
-az iot central app device registration-info -n <app-id> -d <device-id>
+az iot central app device registration-info --app-id <app-id> --device-id <device-name>
 ```
 
 Poniższe dane wyjściowe przedstawiają przykład urządzenia, które jest blokowane przed połączeniem:
@@ -133,7 +133,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 
 | Stan aprowizacji urządzeń | Opis | Możliwe środki zaradcze |
 | - | - | - |
-| Aprowizowane | Brak natychmiastowego rozpoznawania problemu. | Brak |
+| Aprowizowane | Brak natychmiastowego rozpoznawania problemu. | Nie dotyczy |
 | Zarejestrowany | Urządzenie nie zostało jeszcze podłączone do IoT Central. | Sprawdź dzienniki urządzeń pod kątem problemów z łącznością. |
 | Zablokowane | Urządzenie ma zablokowany dostęp do IoT Central. | Urządzenie ma zablokowany dostęp do aplikacji IoT Central. Odblokuj urządzenie w IoT Central i ponów próbę. Aby dowiedzieć się więcej, zobacz [blokowanie urządzeń](concepts-get-connected.md#device-status-values). |
 | Niezatwierdzonych | Urządzenie nie jest zatwierdzone. | Urządzenie nie jest zatwierdzone do nawiązania połączenia z aplikacją IoT Central. Zatwierdź urządzenie w IoT Central i ponów próbę. Aby dowiedzieć się więcej, zobacz [zatwierdzanie urządzeń](concepts-get-connected.md#connect-without-registering-devices) |
@@ -178,13 +178,13 @@ Aby wykryć, których kategorii dotyczy problem, uruchom najbardziej odpowiednie
 - Aby sprawdzić poprawność telemetrii, użyj polecenia podglądu:
 
     ```cmd/bash
-    az iot central app validate-messages -n <app-id> -d <device-name>
+    az iot central app validate-messages --app-id <app-id> --device-id <device-name>
     ```
 
 - Aby sprawdzić poprawność aktualizacji właściwości, użyj polecenia podglądu
 
     ```cmd/bash
-    az iot central app validate-properties -n <app-id> -d <device-name>
+    az iot central app validate-properties --app-id <app-id> --device-id <device-name>
     ```
 
 - Jeśli wolisz używać graficznego interfejsu użytkownika, użyj widoku **nieprzetworzonych danych** IoT Central, aby sprawdzić, czy coś nie jest modelowane. Widok **nieprzetworzonych danych** nie wykrywa, czy urządzenie wysyła źle sformułowany kod JSON.

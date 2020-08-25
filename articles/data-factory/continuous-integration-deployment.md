@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 7c12cfc21668a13586d94089a7049f6f0d6066d7
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 4de682bd315eef100bdbf8dd24faa128c5b8c2a1
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336926"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815814"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w Azure Data Factory
 
@@ -113,7 +113,7 @@ Poniżej przedstawiono Przewodnik konfigurowania wersji Azure Pipelines, która 
     h. Wybierz opcję **przyrostowy** dla **trybu wdrożenia**.
 
     > [!WARNING]
-    > W przypadku wybrania opcji **Zakończ** dla **trybu wdrożenia**istniejące zasoby mogą zostać usunięte, w tym wszystkie zasoby w docelowej grupie zasobów, które nie są zdefiniowane w szablonie Menedżer zasobów.
+    > W trybie ukończenia wdrożenia zasoby istniejące w grupie zasobów, ale nie są określone w nowym szablonie Menedżer zasobów, zostaną **usunięte**. Aby uzyskać więcej informacji, zobacz [tryby wdrażania Azure Resource Manager](../azure-resource-manager/templates/deployment-modes.md)
 
     ![Data Factory wdrożenie produkcyjne](media/continuous-integration-deployment/continuous-integration-image9.png)
 
@@ -165,7 +165,7 @@ Istnieją dwa sposoby obsługi wpisów tajnych:
 
 #### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Przyznawanie uprawnień agentowi Azure Pipelines
 
-Jeśli nie ustawiono prawidłowych uprawnień, zadanie Azure Key Vault może zakończyć się niepowodzeniem z powodu błędu odmowy dostępu. Pobierz dzienniki wydania i Znajdź plik. ps1, który zawiera polecenie udzielenia uprawnień agentowi Azure Pipelines. Można uruchomić polecenie bezpośrednio. Można też skopiować Identyfikator podmiotu zabezpieczeń z pliku i ręcznie dodać zasady dostępu w Azure Portal. `Get`i `List` są minimalnymi wymaganymi uprawnieniami.
+Jeśli nie ustawiono prawidłowych uprawnień, zadanie Azure Key Vault może zakończyć się niepowodzeniem z powodu błędu odmowy dostępu. Pobierz dzienniki wydania i Znajdź plik. ps1, który zawiera polecenie udzielenia uprawnień agentowi Azure Pipelines. Można uruchomić polecenie bezpośrednio. Można też skopiować Identyfikator podmiotu zabezpieczeń z pliku i ręcznie dodać zasady dostępu w Azure Portal. `Get` i `List` są minimalnymi wymaganymi uprawnieniami.
 
 ### <a name="updating-active-triggers"></a>Aktualizowanie aktywnych wyzwalaczy
 
@@ -305,7 +305,7 @@ Oto przykład tego, jak może wyglądać szablon parametryzacja:
 ```
 Poniżej przedstawiono wyjaśnienie sposobu konstruowania poprzedniego szablonu, podzielonego na typ zasobu.
 
-#### <a name="pipelines"></a>Potoki
+#### <a name="pipelines"></a>Pipelines
     
 * Wszystkie właściwości w ścieżce `activities/typeProperties/waitTimeInSeconds` są sparametryzowane. Wszystkie działania w potoku, który ma właściwość poziomu kodu o nazwie `waitTimeInSeconds` (na przykład `Wait` działanie), są sparametryzowane jako liczba z nazwą domyślną. Ale nie będzie on miał wartości domyślnej w szablonie Menedżer zasobów. Będzie to obowiązkowe wejście podczas wdrażania Menedżer zasobów.
 * Podobnie właściwość o nazwie `headers` (na przykład w `Web` działaniu) ma wartość sparametryzowane z typem `object` (JObject). Ma wartość domyślną, która jest taka sama jak wartość dla fabryki źródłowej.
@@ -630,7 +630,7 @@ Jeśli korzystasz z integracji narzędzia Git z fabryką danych i masz potok ci�
 
 -   Obecnie nie można hostować projektów w BitBucket.
 
-## <a name="sample-pre--and-post-deployment-script"></a><a name="script"></a>Przykładowy skrypt przed wdrożeniem i po wdrożeniu
+## <a name="sample-pre--and-post-deployment-script"></a><a name="script"></a> Przykładowy skrypt przed wdrożeniem i po wdrożeniu
 
 Następujący przykładowy skrypt może służyć do zatrzymania wyzwalaczy przed wdrożeniem i ponownego uruchamiania ich później. Skrypt zawiera również kod służący do usuwania zasobów, które zostały usunięte. Zapisz skrypt w repozytorium git usługi Azure DevOps i odwołuje się do niego za pośrednictwem zadania Azure PowerShell przy użyciu wersji 4. *.
 

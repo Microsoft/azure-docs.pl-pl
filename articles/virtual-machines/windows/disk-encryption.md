@@ -8,14 +8,14 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 413ca677bc778069b92def043bf35ab7bb87b038
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 6174fbeb45c23c0ff04597305c6f65aef05bd26e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448929"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815593"
 ---
-# <a name="server-side-encryption-of-azure-disk-storage"></a>Szyfrowanie po stronie serwera Azure Disk Storage
+# <a name="server-side-encryption-of-azure-disk-storage-for-powershell"></a>Szyfrowanie po stronie serwera Azure Disk Storage dla programu PowerShell
 
 Szyfrowanie po stronie serwera (SSE) chroni dane i pomaga sprostać wymaganiom bezpieczeństwa i zgodności w organizacji. Funkcja SSE automatycznie szyfruje dane przechowywane na dyskach zarządzanych przez platformę Azure (dyski systemu operacyjnego i danych) domyślnie, gdy są utrwalane w chmurze. 
 
@@ -84,8 +84,8 @@ Klienci z wysokim poziomem zabezpieczeń, którzy są zainteresowani ryzykiem zw
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Włącz kompleksowe szyfrowanie przy użyciu szyfrowania na hoście z programem [PowerShell](disks-enable-host-based-encryption-powershell.md) lub [Azure Portal](disks-enable-host-based-encryption-portal.md).
-- Włącz podwójne szyfrowanie dla dysków zarządzanych przy użyciu [programu PowerShell](disks-enable-double-encryption-at-rest-powershell.md) lub [Azure Portal](disks-enable-double-encryption-at-rest-portal.md).
-- Włącz klucze zarządzane przez klienta dla dysków zarządzanych przy użyciu [programu PowerShell](disks-enable-customer-managed-keys-powershell.md) lub [Azure Portal](disks-enable-customer-managed-keys-portal.md).
+- Włącz kompleksowe szyfrowanie przy użyciu szyfrowania na hoście z programem [PowerShell](disks-enable-host-based-encryption-powershell.md) lub [Azure Portal](../disks-enable-host-based-encryption-portal.md).
+- Włącz podwójne szyfrowanie dla dysków zarządzanych przy użyciu [programu PowerShell](disks-enable-double-encryption-at-rest-powershell.md) lub [Azure Portal](../disks-enable-double-encryption-at-rest-portal.md).
+- Włącz klucze zarządzane przez klienta dla dysków zarządzanych przy użyciu [programu PowerShell](disks-enable-customer-managed-keys-powershell.md) lub [Azure Portal](../disks-enable-customer-managed-keys-portal.md).
 - [Poznaj szablony Azure Resource Manager tworzenia szyfrowanych dysków przy użyciu kluczy zarządzanych przez klienta](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [Co to jest usługa Azure Key Vault?](../../key-vault/general/overview.md)

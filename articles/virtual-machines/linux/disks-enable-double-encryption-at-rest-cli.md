@@ -2,20 +2,20 @@
 title: Włącz podwójne szyfrowanie w obszarze REST — dyski zarządzane w interfejsie wiersza polecenia platformy Azure
 description: Włącz podwójne szyfrowanie dla danych dysku zarządzanego przy użyciu interfejsu wiersza polecenia platformy Azure.
 author: roygara
-ms.date: 07/10/2020
+ms.date: 08/24/2020
 ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 25f4f99d2bd80034d2f337aa649417d2d06026be
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 76e5ab49e354faac085be533fed1ff16c0315a5e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082532"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816834"
 ---
-# <a name="azure-cli---enable-double-encryption-at-rest-on-your-managed-disks"></a>Interfejs wiersza polecenia platformy Azure — Włącz podwójne szyfrowanie na dyskach zarządzanych
+# <a name="use-the-azure-cli-to-enable-double-encryption-at-rest-for-managed-disks"></a>Użyj interfejsu wiersza polecenia platformy Azure, aby włączyć podwójne szyfrowanie dla dysków zarządzanych
 
 Azure Disk Storage obsługuje podwójne szyfrowanie dla dysków zarządzanych. Aby uzyskać informacje koncepcyjne na temat podwójnego szyfrowania w stanie spoczynku, a także innych typów szyfrowania dysków zarządzanych, zobacz sekcję [podwójne szyfrowanie w spoczynku](disk-encryption.md#double-encryption-at-rest) artykułu szyfrowanie dysków.
 

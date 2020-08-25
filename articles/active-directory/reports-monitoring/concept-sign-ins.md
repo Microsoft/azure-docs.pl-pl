@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81daa7696c645c1353cdd5e6d3cbca90ac4f03da
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 6440e71eade32bfea4ed19448fd2f2007b519cc8
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388122"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816086"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Raporty dotyczące logowań w portalu Azure Active Directory
 
@@ -47,11 +47,7 @@ Ten artykuł zawiera omówienie raportu logowania.
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Jaka licencja usługi Azure AD jest wymagana w celu uzyskania dostępu do informacji dotyczących logowania?
 
-- Raport dotyczący działań związanych z logowaniem jest dostępny we [wszystkich wersjach usługi Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data).
-
-- Jeśli chcesz uzyskać dostęp do danych logowania przy użyciu interfejsu API, dzierżawa musi mieć skojarzoną licencję [Azure Active Directory — wersja Premium](../fundamentals/active-directory-get-started-premium.md) .
-
-
+Raport dotyczący działań związanych z logowaniem jest dostępny we [wszystkich wersjach usługi Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) i można go również uzyskać za pomocą interfejsu API Microsoft Graph.
 
 ## <a name="sign-ins-report"></a>Raport dotyczący logowań
 
@@ -128,7 +124,7 @@ Najpierw Zawężanie danych raportowanych do poziomu, który się do Ciebie spra
 
 **Lokalizacja** — lokalizacja, z której zainicjowano połączenie:
 
-- Miasto
+- City (Miasto)
 
 - Województwo/Województwo
 
@@ -236,7 +232,7 @@ Klikając pozycję, można uzyskać więcej szczegółowych informacji na temat 
 - Identyfikator aplikacji
 - Aplikacja
 - Klient
-- Location
+- Lokalizacja
 - Adres IP
 - Data
 - Wymagane uwierzytelnianie wieloskładnikowe

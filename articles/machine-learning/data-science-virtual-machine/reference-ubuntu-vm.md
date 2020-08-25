@@ -9,12 +9,12 @@ ms.custom: devx-track-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 247840fe4719dc83be8048826ac4defc76d7ef9d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: c919e8abc55dd5cb36325ae060340c1ee147a1a0
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852229"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816307"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Reference: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -248,8 +248,6 @@ Operacjonalizować modele uczenia maszynowego, które zostały skompilowane, umi
 
 Możesz również kompilować modele w języku R lub Python na maszynie wirtualnej, a następnie wdrożyć je w środowisku produkcyjnym na Azure Machine Learning. W celu włączenia tej funkcji zainstalowano biblioteki w języku R (**Azure**) i Python (**Azure**).
 
-Aby uzyskać informacje na temat sposobu wdrażania modeli w języku R i Python do Azure Machine Learning, zobacz [dziesięć rzeczy, które możesz wykonać na Data Science Virtual Machine](vm-do-ten-things.md).
-
 > [!NOTE]
 > Te instrukcje zostały opracowane dla Data Science Virtual Machine wersji systemu Windows. Jednak informacje o wdrażaniu modeli do Azure Machine Learning mają zastosowanie do maszyny wirtualnej z systemem Linux.
 
@@ -282,7 +280,7 @@ cd vwdemo
 vw house_dataset
 ```
 
-Istnieją inne, większe demonstracje w tym katalogu. Aby uzyskać więcej informacji na temat Vowpal Wabbit, zobacz [sekcję dotyczącą witryny GitHub](https://github.com/JohnLangford/vowpal_wabbit) i [Vowpal Wabbit wiki](https://github.com/JohnLangford/vowpal_wabbit/wiki).
+Istnieją inne, większe demonstracje w tym katalogu. Aby uzyskać więcej informacji na temat Vowpal Wabbit, zobacz  [sekcję dotyczącą witryny GitHub](https://github.com/JohnLangford/vowpal_wabbit) i [Vowpal Wabbit wiki](https://github.com/JohnLangford/vowpal_wabbit/wiki).
 
 ### <a name="xgboost"></a>xgboost
 

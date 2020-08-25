@@ -10,22 +10,22 @@ ms.date: 06/10/2020
 ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.topic: quickstart
-ms.openlocfilehash: 675ddf073393afde6ac8d08a65b40da11d90d3ea
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: f6d128ace64f7c100a974883bff82435a496be97
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026665"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815457"
 ---
 # <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-an-arm-template"></a>Szybki Start: Tworzenie Ubuntu Data Science Virtual Machine przy użyciu szablonu ARM
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Ten przewodnik Szybki Start przedstawia sposób tworzenia Ubuntu 18,04 Data Science Virtual Machine przy użyciu szablonu Azure Resource Manager (szablon ARM). Virtual Machines analizy danych są wstępnie załadowanymi maszynami wirtualnymi z zestawem narzędzi do nauki o danych i środowisk uczenia maszynowego. Po wdrożeniu w zasobach obliczeniowych opartych na procesorach GPU wszystkie narzędzia i biblioteki są skonfigurowane do korzystania z procesora GPU. 
+Ten przewodnik Szybki Start przedstawia sposób tworzenia Ubuntu 18,04 Data Science Virtual Machine przy użyciu szablonu Azure Resource Manager (szablon ARM). Virtual Machines analizy danych są wstępnie załadowanymi maszynami wirtualnymi z zestawem narzędzi do nauki o danych i środowisk uczenia maszynowego. Po wdrożeniu w zasobach obliczeniowych opartych na procesorach GPU wszystkie narzędzia i biblioteki są skonfigurowane do korzystania z procesora GPU.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-ubuntu-DSVM-GPU-or-CPU%2Fazuredeploy.json)
 
@@ -37,7 +37,7 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-vm-ubuntu-DSVM-GPU-or-CPU/). Pełny szablon tego artykułu jest zbyt długi, aby można go było wyświetlić w tym miejscu. Aby wyświetlić cały szablon, zobacz [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json). Część definiująca szczegóły DSVM jest pokazana tutaj:
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-vm-ubuntu-DSVM-GPU-or-CPU/). Pełny szablon tego artykułu jest zbyt długi, aby można go było wyświetlić w tym miejscu. Aby wyświetlić cały szablon, zobacz [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json). Część definiująca szczegóły DSVM jest pokazana tutaj:
 
 :::code language="json" source="~/quickstart-templates/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json" range="235-276":::
 
@@ -45,7 +45,7 @@ Następujące zasoby są zdefiniowane w szablonie:
 
 * [Microsoft. COMPUTE/virtualMachines](/azure/templates/microsoft.compute/virtualmachines): Tworzenie maszyny wirtualnej opartej na chmurze. W tym szablonie maszyna wirtualna jest skonfigurowana jako Data Science Virtual Machine z systemem Ubuntu 18,04.
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 Aby użyć szablonu w interfejsie wiersza polecenia platformy Azure, zaloguj się i wybierz swoją subskrypcję (zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli)). Następnie uruchom polecenie:
 
@@ -74,7 +74,7 @@ Po uruchomieniu powyższego polecenia wpisz:
 
 Aby wyświetlić Data Science Virtual Machine:
 
-1. Przejdź do witryny https://portal.azure.com.
+1. Przejdź do [Azure Portal](https://portal.azure.com)
 1. Zaloguj się.
 1. Wybierz utworzoną grupę zasobów.
 

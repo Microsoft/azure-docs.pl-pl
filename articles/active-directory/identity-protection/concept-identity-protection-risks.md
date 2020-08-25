@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 08/15/2020
+ms.date: 08/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c92994fee6de4c56257343af2ef418393b505ad
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 3ecb25e9bb9625a5ada70be2df61898a462c86af
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507437"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815056"
 ---
 # <a name="what-is-risk"></a>Co to jest ryzyko?
 
@@ -39,6 +39,7 @@ Te zagrożenia są obliczane w trybie offline przy użyciu wewnętrznych i zewn�
 | Wykrywanie ryzyka | Opis |
 | --- | --- |
 | Ujawnione poświadczenia | Ten typ wykrywania zagrożeń wskazuje, że wykryto przeciek prawidłowych poświadczeń użytkownika. Gdy cybernetycznymi naruszają prawidłowe hasła dla uprawnionych użytkowników, często udostępniają te poświadczenia. Takie udostępnianie jest zwykle realizowane przez ogłaszanie publicznie w witrynie sieci Web, wklejanie witryn lub przez handel i sprzedawanie poświadczeń na czarnym rynku. Gdy usługa nieujawnione poświadczenia firmy Microsoft uzyskuje poświadczenia użytkownika z ciemnej witryny sieci Web, wklejania witryn lub innych źródeł, są one sprawdzane względem bieżących ważnych poświadczeń użytkowników usługi Azure AD w celu znalezienia prawidłowych dopasowań. Aby uzyskać więcej informacji na temat przecieków poświadczeń, zobacz [często zadawane pytania](#common-questions). |
+| Rozpylanie hasła | Atak polegający na napylania hasła polega na tym, że wiele nazw użytkowników jest zaatakowanych przy użyciu typowych haseł w ujednoliconej sile, aby uzyskać nieautoryzowany dostęp. To wykrywanie ryzyka jest wyzwalane, gdy zostanie wykonane ataki z wykorzystaniem hasła. |
 | Analiza zagrożeń usługi Azure AD | Ten typ wykrywania zagrożeń wskazuje aktywność użytkownika nietypową dla danego użytkownika lub jest zgodna ze znanymi wzorcami ataków na podstawie wewnętrznych i zewnętrznych źródeł analizy zagrożeń firmy Microsoft. |
 
 ### <a name="sign-in-risk"></a>Ryzyko związane z logowaniem

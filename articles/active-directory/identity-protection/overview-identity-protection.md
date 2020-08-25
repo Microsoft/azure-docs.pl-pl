@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 08/15/2020
+ms.date: 08/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39c9522362ca6710fae5dee5d831e63cc36a3950
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0f6ec9c1fb5ae359ca88b48dea97c6a00c0f2b40
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509114"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815185"
 ---
 # <a name="what-is-identity-protection"></a>Co to jest ochrona tożsamości?
 
@@ -52,9 +52,10 @@ Ochrona tożsamości identyfikuje ryzyko w następujących klasyfikacjach:
 | Nietypowa podróż | Zaloguj się z nietypowej lokalizacji na podstawie ostatnich logowań użytkownika. |
 | Anonimowy adres IP | Zaloguj się przy użyciu anonimowego adresu IP (na przykład: przeglądarki tor, sieci VPN Anonymizer). |
 | Nieznane właściwości logowania | Zaloguj się przy użyciu właściwości, które nie były ostatnio widziane dla danego użytkownika. |
-| Połączony adres IP złośliwego oprogramowania | Zaloguj się przy użyciu połączonego adresu IP złośliwego oprogramowania |
-| Nieujawnione poświadczenia | To wykrywanie ryzyka wskazuje, że nieprawidłowe poświadczenia użytkownika zostały ujawnione |
-| Analiza zagrożeń usługi Azure AD | Wewnętrzne i zewnętrzne źródła analizy zagrożeń firmy Microsoft określiły znany wzorzec ataku |
+| Połączony adres IP złośliwego oprogramowania | Zaloguj się przy użyciu połączonego adresu IP złośliwego oprogramowania. |
+| Nieujawnione poświadczenia | To wykrywanie ryzyka wskazuje, że zostały ujawnione prawidłowe poświadczenia użytkownika. |
+| Rozpylanie hasła | Wskazuje, że wiele nazw użytkowników jest zaatakowanych przy użyciu typowych haseł w jednolity sposób. |
+| Analiza zagrożeń usługi Azure AD | Wewnętrzne i zewnętrzne źródła analizy zagrożeń firmy Microsoft określiły znany wzorzec ataku. |
 
 Bardziej szczegółowe informacje o tych zagrożeniach i sposobie ich obliczenia można znaleźć w artykule, [co jest ryzykowne](concept-identity-protection-risks.md).
 
@@ -103,15 +104,15 @@ Administratorzy dostępu warunkowego mogą również tworzyć zasady, które są
 
 | Możliwość | Szczegóły | Usługa Azure AD — wersja Premium P2 | Usługa Azure AD — wersja Premium P1 | Aplikacje Azure AD — wersja Bezpłatna/Office 365 |
 | --- | --- | --- | --- | --- |
-| Zasady dotyczące ryzyka | Zasady ryzyka użytkownika (za pośrednictwem ochrony tożsamości) | Yes | Nie | Nie |
-| Zasady dotyczące ryzyka | Zasady dotyczące ryzyka związanego z logowaniem (za pośrednictwem funkcji ochrony tożsamości lub dostępu warunkowego) | Yes | Nie | Nie |
-| Raporty dotyczące zabezpieczeń | Omówienie | Yes | Nie | Nie |
+| Zasady dotyczące ryzyka | Zasady ryzyka użytkownika (za pośrednictwem ochrony tożsamości) | Tak | Nie | Nie |
+| Zasady dotyczące ryzyka | Zasady dotyczące ryzyka związanego z logowaniem (za pośrednictwem funkcji ochrony tożsamości lub dostępu warunkowego) | Tak | Nie | Nie |
+| Raporty dotyczące zabezpieczeń | Omówienie | Tak | Nie | Nie |
 | Raporty dotyczące zabezpieczeń | Ryzykowni użytkownicy | Dostęp pełny | Ograniczone informacje | Ograniczone informacje |
 | Raporty dotyczące zabezpieczeń | Ryzykowne logowania | Dostęp pełny | Ograniczone informacje | Ograniczone informacje |
 | Raporty dotyczące zabezpieczeń | Wykrycia ryzyka | Dostęp pełny | Ograniczone informacje | Nie |
-| Powiadomienia | Użytkownicy zagrożeni wykrytymi alertami | Yes | Nie | Nie |
-| Powiadomienia | Podsumowanie tygodniowe | Yes | Nie | Nie |
-| | Zasady rejestracji uwierzytelniania wieloskładnikowego | Yes | Nie | Nie |
+| Powiadomienia | Użytkownicy zagrożeni wykrytymi alertami | Tak | Nie | Nie |
+| Powiadomienia | Podsumowanie tygodniowe | Tak | Nie | Nie |
+| | Zasady rejestracji uwierzytelniania wieloskładnikowego | Tak | Nie | Nie |
 
 ## <a name="next-steps"></a>Następne kroki
 

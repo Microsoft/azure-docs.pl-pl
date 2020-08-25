@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 43359b66ba747dba7b3294d022a2c1aa2a3e624c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7af4264860f8d9950515cd5302f03822e7cbac39
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84233240"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816868"
 ---
 # <a name="deploy-azure-sql-edge-preview"></a>Wdrażanie usługi Azure SQL Edge (wersja zapoznawcza) 
 
@@ -22,7 +22,7 @@ Azure SQL Edge (wersja zapoznawcza) to aparat relacyjnej bazy danych zoptymalizo
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 * Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 * Utwórz [IoT Hub platformy Azure](../iot-hub/iot-hub-create-through-portal.md).
 * Zarejestruj [urządzenie IoT Edge z Azure Portal](../iot-edge/how-to-register-device-portal.md).
@@ -48,7 +48,7 @@ Portal Azure Marketplace to rynek aplikacji i usług online, w którym można pr
    |**Pole**  |**Opis**  |
    |---------|---------|
    |Subskrypcja  |  Subskrypcja platformy Azure, w ramach której utworzono IoT Hub |
-   |Usługa IoT Hub   |  Nazwa IoT Hub, w którym zarejestrowano urządzenie IoT Edge, a następnie wybierz opcję "wdróż w urządzeniu"|
+   |IoT Hub   |  Nazwa IoT Hub, w którym zarejestrowano urządzenie IoT Edge, a następnie wybierz opcję "wdróż w urządzeniu"|
    |Nazwa urządzenia IoT Edge  |  Nazwa urządzenia IoT Edgeego, na którym zostanie wdrożona Przeglądarka SQL Edge |
 
 4. Na stronie **Ustawianie modułów** przejdź do sekcji dotyczącej modułów wdrażania, a następnie kliknij pozycję **Konfiguruj** względem modułu SQL Edge. 
@@ -114,9 +114,114 @@ Portal Azure Marketplace to rynek aplikacji i usług online, w którym można pr
 12. Kliknij przycisk **Dalej**.
 13. Kliknij przycisk **Prześlij**.
 
-W tym przewodniku szybki start wdrożono moduł programu SQL Edge na urządzeniu IoT Edge.
+## <a name="connect-to-azure-sql-edge"></a>Łączenie z usługą Azure SQL Edge
+
+Poniższe kroki służą do nawiązywania połączenia z usługą Azure SQL Edge przy użyciu narzędzia wiersza polecenia usługi Azure SQL **Edge w**kontenerze.
+
+> [!NOTE]
+> Narzędzie sqlcmd nie jest dostępne w wersji ARM64 kontenerów programu SQL Edge.
+
+1. Użyj `docker exec -it` polecenia, aby uruchomić interaktywną powłokę bash wewnątrz działającego kontenera. W poniższym przykładzie `azuresqledge` Nazwa określona przez `Name` parametr modułu IoT Edge.
+
+   ```bash
+   sudo docker exec -it azuresqledge "bash"
+   ```
+
+2. Po utworzeniu wewnątrz kontenera Połącz się lokalnie z narzędziem sqlcmd. Narzędzie sqlcmd nie jest domyślnie ścieżką, więc należy określić pełną ścieżkę.
+
+   ```bash
+   /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourNewStrong@Passw0rd>"
+   ```
+
+   > [!TIP]
+   > Możesz pominąć hasło w wierszu polecenia, aby uzyskać monit o jego wprowadzenie.
+
+3. Jeśli to się powiedzie, należy przejść do wiersza polecenia **sqlcmd** : `1>` .
+
+## <a name="create-and-query-data"></a>Tworzenie i wykonywanie zapytań dotyczących danych
+
+W poniższych sekcjach opisano, jak za pomocą narzędzia **sqlcmd** i Transact-SQL utworzyć nową bazę danych, dodać dane i uruchomić proste zapytanie.
+
+### <a name="create-a-new-database"></a>Tworzenie nowej bazy danych
+
+Poniższe kroki tworzą nową bazę danych o nazwie `TestDB` .
+
+1. W wierszu polecenia **sqlcmd** Wklej następujące polecenie języka Transact-SQL, aby utworzyć testową bazę danych:
+
+   ```sql
+   CREATE DATABASE TestDB
+   Go
+   ```
+
+2. W następnym wierszu Napisz zapytanie, aby zwrócić nazwę wszystkich baz danych na serwerze:
+
+   ```sql
+   SELECT Name from sys.Databases
+   Go
+   ```
+
+### <a name="insert-data"></a>Wstawianie danych
+
+Następnie utwórz nową tabelę `Inventory` i Wstaw dwa nowe wiersze.
+
+1. W wierszu polecenia **sqlcmd** Przełącz kontekst do nowej `TestDB` bazy danych:
+
+   ```sql
+   USE TestDB
+   ```
+
+2. Utwórz nową tabelę o nazwie `Inventory` :
+
+   ```sql
+   CREATE TABLE Inventory (id INT, name NVARCHAR(50), quantity INT)
+   ```
+
+3. Wstaw dane do nowej tabeli:
+
+   ```sql
+   INSERT INTO Inventory VALUES (1, 'banana', 150); INSERT INTO Inventory VALUES (2, 'orange', 154);
+   ```
+
+4. Wpisz polecenie `GO` , aby wykonać poprzednie polecenia:
+
+   ```sql
+   GO
+   ```
+
+### <a name="select-data"></a>Wybieranie danych
+
+Teraz uruchom zapytanie, aby zwrócić dane z `Inventory` tabeli.
+
+1. W wierszu polecenia **sqlcmd** wprowadź zapytanie, które zwraca wiersze z `Inventory` tabeli, w której ilość jest większa niż 152:
+
+   ```sql
+   SELECT * FROM Inventory WHERE quantity > 152;
+   ```
+
+2. Wykonaj polecenie:
+
+   ```sql
+   GO
+   ```
+
+### <a name="exit-the-sqlcmd-command-prompt"></a>Wyjdź z wiersza polecenia sqlcmd
+
+1. Aby zakończyć sesję narzędzia **sqlcmd** , wpisz `QUIT` :
+
+   ```sql
+   QUIT
+   ```
+
+2. Aby zamknąć interaktywny wiersz polecenia w kontenerze, wpisz `exit` . Kontener nadal będzie działać po zamknięciu interaktywnej powłoki bash.
+
+## <a name="connect-from-outside-the-container"></a>Nawiązywanie połączenia spoza kontenera
+
+Można łączyć i uruchamiać zapytania SQL względem wystąpienia usługi Azure SQL Edge z dowolnego zewnętrznego narzędzia Linux, Windows lub macOS, które obsługuje połączenia SQL. Aby uzyskać więcej informacji na temat łączenia się z kontenerem programu SQL Edge z zewnątrz, zapoznaj się z tematem [Connect and Query Edge Azure SQL](https://docs.microsoft.com/azure/azure-sql-edge/connect).
+
+W tym przewodniku szybki start wdrożono moduł programu SQL Edge na urządzeniu IoT Edge. 
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Machine Learning i sztuczna inteligencja przy użyciu ONNX w programie SQL Edge](onnx-overview.md).
 - [Tworzenie kompleksowego rozwiązania IoT za pomocą programu SQL Edge przy użyciu IoT Edge](tutorial-deploy-azure-resources.md).
+- [Przesyłanie strumieniowe danych w usłudze Azure SQL Edge](stream-data.md)

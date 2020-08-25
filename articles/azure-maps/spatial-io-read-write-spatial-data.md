@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a482b860ae13e817727ca0c3848a598fe3632136
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b094f63c075bdb8af225ff366343c60bc6818224
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87277591"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816766"
 ---
 # <a name="read-and-write-spatial-data"></a>Odczytywanie i zapisywanie danych przestrzennych
 
@@ -150,9 +150,15 @@ Poniższy kod ilustruje odczytywanie i pisanie dobrze znanego tekstu.
 GML jest przestrzenną specyfikacją pliku XML, która jest często używana jako rozszerzenie do innych specyfikacji XML. Dane GEOJSON można zapisać jako XML za pomocą tagów GML przy użyciu `atlas.io.core.GmlWriter.write` funkcji. KOD XML zawierający GML można odczytać za pomocą `atlas.io.core.GmlReader.read` funkcji. Funkcja Read ma dwie opcje:
 
 - `isAxisOrderLonLat`Opcja — kolejność osi współrzędnej "szerokości geograficznej, długości geograficznej" lub "Długość geograficzna" może się różnić między zestawami danych i nie zawsze jest dobrze zdefiniowana. Domyślnie czytnik GML odczytuje dane współrzędnych jako "Latitude, Długość geograficzna", ale ustawienie tej opcji na wartość true spowoduje jej odczytanie jako "Długość geograficzna".
-- `propertyTypes`Opcja — ta opcja jest tabelą wyszukiwania wartości klucza, w której klucz jest nazwą właściwości w zestawie danych. Wartość jest typem obiektu, do którego ma zostać rzutowana wartość podczas analizowania. Obsługiwane wartości typu to: `string` , `number` , `boolean` i `date` . Jeśli właściwość nie znajduje się w tabeli odnośników lub typ nie jest zdefiniowany, właściwość zostanie przeanalizowana jako ciąg.
+- `propertyTypes`Opcja — ta opcja jest tabelą wyszukiwania wartości klucza, w której klucz jest nazwą właściwości w zestawie danych. Wartość jest typem obiektu, do którego ma zostać rzutowana wartość podczas analizowania. Obsługiwane wartości typu to: `string` , `number` , `boolean` i  `date` . Jeśli właściwość nie znajduje się w tabeli odnośników lub typ nie jest zdefiniowany, właściwość zostanie przeanalizowana jako ciąg.
 
 `atlas.io.read`Funkcja domyślnie przejdzie do `atlas.io.core.GmlReader.read` funkcji, gdy wykryje, że dane wejściowe są XML, ale dane nie są jednym z innych obsługiwanych formatów XML.
+
+`GmlReader`Zostaną przeanalizowane współrzędne, które mają jedną z następujących identyfikatory SRID:
+
+- EPSG: 4326 (preferowany)
+- EPSG: 4269, EPSG: 4283, EPSG: 4258, EPSG: 4308, EPSG: 4230, EPSG: 4272, EPSG: 4271, EPSG: 4267, EPSG: 4608, EPSG: 4674 prawdopodobnie z małym marginesem błędu.
+- EPSG: 3857, EPSG: 102100, EPSG: 3785, EPSG: 900913, EPSG: 102113, EPSG: 41001, EPSG: 54004
 
 ## <a name="next-steps"></a>Następne kroki
 

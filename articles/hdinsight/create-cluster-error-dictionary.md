@@ -7,13 +7,13 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 11/19/2019
-ms.openlocfilehash: 39179c9b6d02d810561485f6a4af0102711ad0ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/24/2020
+ms.openlocfilehash: cae8647d970020a22d59dc49b058d43fe28dd00c
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186638"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816460"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: Błędy tworzenia klastra
 
@@ -24,19 +24,17 @@ W tym artykule opisano rozwiązania błędów, które mogą występować podczas
 
 ## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Kod błędu: DeploymentDocument "CsmDocument_2_0" nie powiodła się Walidacja
 
-### <a name="error"></a>Błąd
+**Błąd**: "nie można uzyskać dostępu do lokalizacji akcji skryptu URI: \<SCRIPT ACTION URL\> "
 
-"Nie można uzyskać dostępu do lokalizacji akcji skryptu URI: \<SCRIPT ACTION URL\> "
-
-#### <a name="error-message"></a>Komunikat o błędzie
+### <a name="error-message-1"></a>Komunikat o błędzie 1
 
 "Serwer zdalny zwrócił błąd: (404) nie znaleziono".
 
-### <a name="cause"></a>Przyczyna
+#### <a name="cause"></a>Przyczyna
 
 Usługa HDInsight nie może uzyskać dostępu do adresu URL akcji skryptu podanego w ramach żądania utworzenia klastra. Usługa otrzymuje poprzedni komunikat o błędzie, gdy próbuje uzyskać dostęp do akcji skryptu.
 
-### <a name="resolution"></a>Rozwiązanie
+#### <a name="resolution"></a>Rozwiązanie
 
 - W przypadku adresu URL HTTP lub HTTPS Sprawdź adres URL, próbując przejść do niego z okna przeglądarki incognito.
 - W przypadku adresu URL WASB upewnij się, że skrypt istnieje na koncie magazynu podanym w żądaniu. Upewnij się również, że klucz magazynu dla tego konta magazynu jest prawidłowy.
@@ -44,37 +42,29 @@ Usługa HDInsight nie może uzyskać dostępu do adresu URL akcji skryptu podane
 
 ---
 
-## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Kod błędu: DeploymentDocument "CsmDocument_2_0" nie powiodła się Walidacja
-
-### <a name="error"></a>Błąd
-
-"Nie można uzyskać dostępu do lokalizacji akcji skryptu URI: \<SCRIPT_ACTION_URL\> "
-
-#### <a name="error-message"></a>Komunikat o błędzie
+### <a name="error-message-2"></a>Komunikat o błędzie 2
 
 "Podany identyfikator URI skryptu \<SCRIPT_URI\> jest w ADLS, ale ten klaster nie ma podmiotu zabezpieczeń Data Lake Storage"
 
-### <a name="cause"></a>Przyczyna
+#### <a name="cause"></a>Przyczyna
 
 Usługa HDInsight nie może uzyskać dostępu do adresu URL akcji skryptu podanego w ramach żądania utworzenia klastra. Usługa otrzymuje poprzedni komunikat o błędzie, gdy próbuje uzyskać dostęp do akcji skryptu.
 
-### <a name="resolution"></a>Rozwiązanie
+#### <a name="resolution"></a>Rozwiązanie
 
 Dodaj odpowiednie konto Azure Data Lake Storage Gen 1 do klastra. Należy również dodać nazwę główną usługi, która uzyskuje dostęp do tego konta Data Lake Storage Gen 1 do klastra.
 
 ---
 
-## <a name="error-code-deploymentdocument-csmdocument_2_0-failed-the-validation"></a>Kod błędu: DeploymentDocument "CsmDocument_2_0" nie powiodła się Walidacja
-
-### <a name="error"></a>Błąd
+### <a name="error-message-3"></a>Komunikat o błędzie 3
 
 "Rozmiar maszyny wirtualnej" \<CUSTOMER_SPECIFIED_VM_SIZE\> "podany w żądaniu jest nieprawidłowy lub nie jest obsługiwany dla roli" \<ROLE\> ". Prawidłowe wartości to: \<VALID_VM_SIZE_FOR_ROLE\> . "
 
-### <a name="cause"></a>Przyczyna
+#### <a name="cause"></a>Przyczyna
 
 Określony rozmiar maszyny wirtualnej nie jest dozwolony dla tej roli. Ten błąd może wystąpić, ponieważ wartość rozmiaru maszyny wirtualnej nie działa zgodnie z oczekiwaniami lub nie jest odpowiednia dla roli komputera.
 
-### <a name="resolution"></a>Rozwiązanie
+#### <a name="resolution"></a>Rozwiązanie
 
 Komunikat o błędzie zawiera listę prawidłowych wartości dla rozmiaru maszyny wirtualnej. Wybierz jedną z tych wartości i ponów próbę utworzenia żądania klastra.
 
@@ -230,7 +220,7 @@ Jeśli używasz niestandardowej grupy zabezpieczeń sieci wirtualnej (sieciowych
 
 ---
 
-## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Kod błędu: wdrożenia nie powiodły się z powodu naruszenia zasad: "zasób" <Resource URI> "jest niedozwolony przez zasady. Identyfikatory zasad: "[{" policyAssignment ": {" name ":" <Policy Name> "," ID ":"/Providers/Microsoft.Management/managementGroups/ <Management Group Name> providers/Microsoft. Authorization/policyAssignments/ <Policy Name> "}," policyDefinition ":<Policy Definition>
+## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Kod błędu: wdrożenia nie powiodły się z powodu naruszenia zasad: "zasób" <Resource URI> "jest niedozwolony przez zasady. Identyfikatory zasad: "[{" policyAssignment ": {" name ":" <Policy Name> "," ID ":"/Providers/Microsoft.Management/managementGroups/ <Management Group Name> providers/Microsoft. Authorization/policyAssignments/ <Policy Name> "}," policyDefinition ": <Policy Definition>
 
 ### <a name="cause"></a>Przyczyna
 

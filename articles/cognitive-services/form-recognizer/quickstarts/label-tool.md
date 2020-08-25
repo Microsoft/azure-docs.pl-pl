@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 13c54b548a507043fda7ff230cf7641c26f471d1
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: b7c41d96e9817c548dbf52d4e56a78df4a88d696
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724081"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815755"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu narzędzia do etykietowania przykładowego
 
@@ -265,7 +265,7 @@ Ta funkcja jest obecnie dostępna w wersji 2.1. przeglądania.
 
 Dzięki redagowaniu modelu można utworzyć do 100 modeli w ramach jednego identyfikatora modelu. Gdy wywołasz analizowanie z tym IDENTYFIKATORem modelu złożonego, aparat rozpoznawania formularzy najpierw klasyfikuje przesłany formularz, dopasowuje go do najlepiej dopasowanego modelu, a następnie zwróci wyniki dla tego modelu. Jest to przydatne, gdy formularze przychodzące mogą należeć do jednego z kilku szablonów.
 
-Aby zredagować modele w narzędziu przykładowego etykietowania, kliknij ikonę Utwórz model (dwie strzałki) po lewej stronie. Po lewej stronie wybierz modele, które chcesz utworzyć razem. Modele o ikonie strzałek mają już modele. Kliknij przycisk "Zredaguj". W oknie podręcznym Nadaj nazwę nowemu modelowi złożonemu i kliknij pozycję "Zredaguj". Po zakończeniu operacji nowy model złożony powinien pojawić się na liście. 
+Aby zredagować modele w narzędziu przykładowego etykietowania, kliknij ikonę model redagowania (Scalanie strzałki) po lewej stronie. Po lewej stronie wybierz modele, które chcesz utworzyć razem. Modele o ikonie strzałek mają już modele. Kliknij przycisk "Zredaguj". W oknie podręcznym Nadaj nazwę nowemu modelowi złożonemu i kliknij pozycję "Zredaguj". Po zakończeniu operacji nowy model złożony powinien pojawić się na liście. 
 
 :::image type="content" source="../media/label-tool/model-compose.png" alt-text="Widok redagowania modelu.":::
 
@@ -296,7 +296,7 @@ Gdy chcesz wznowić projekt, musisz najpierw utworzyć połączenie z tym samym 
 
 ### <a name="resume-a-project"></a>Wznów projekt
 
-Na koniec przejdź do strony głównej (ikona domu), a następnie kliknij pozycję Otwórz projekt w chmurze. Następnie wybierz połączenie usługi BLOB Storage i wybierz plik *. vott* projektu. Aplikacja będzie ładować wszystkie ustawienia projektu, ponieważ ma token zabezpieczający.
+Na koniec przejdź do strony głównej (ikona domu), a następnie kliknij pozycję Otwórz projekt w chmurze. Następnie wybierz połączenie usługi BLOB Storage i wybierz plik *. fott* projektu. Aplikacja będzie ładować wszystkie ustawienia projektu, ponieważ ma token zabezpieczający.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/22/2020
-ms.openlocfilehash: b1290a17c93043ffbedb7a641e1a0afad6ae79d1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/25/2020
+ms.openlocfilehash: 624668ad80d72933d6dd1e67fcac799fd210d659
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066486"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816664"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Nawiązywanie połączenia z sieciami wirtualnymi platformy Azure z Azure Logic Apps przy użyciu środowiska usługi integracji (ISE)
 
@@ -39,7 +39,7 @@ Możesz również utworzyć ISE za pomocą [Azure Resource Manager przykładoweg
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
+* Konto i subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
 
   > [!IMPORTANT]
   > Aplikacje logiki, wbudowane wyzwalacze, wbudowane akcje i łączniki, które działają w ISE, korzystają z planu cenowego innego niż plan cenowy oparty na zużyciu. Aby dowiedzieć się, jak korzystać z cen i rozliczeń dla usługi ISEs, zobacz [model cen Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Stawki cenowe znajdują się w temacie [Logic Apps cenniku](../logic-apps/logic-apps-pricing.md).
@@ -94,6 +94,8 @@ Aby upewnić się, że ISE jest dostępny i że aplikacje logiki w tym ISE mogą
 
   Po skonfigurowaniu [reguł zabezpieczeń sieciowej grupy zabezpieczeń](../virtual-network/security-overview.md#security-rules)należy używać *zarówno* protokołów **TCP** , jak i **UDP** . można też wybrać **dowolną** z nich, aby nie trzeba było tworzyć oddzielnych reguł dla każdego protokołu. SIECIOWEJ grupy zabezpieczeń reguły zabezpieczeń zawierają informacje o portach, które muszą być otwarte dla adresów IP, które wymagają dostępu do tych portów. Upewnij się, że wszystkie zapory, routery lub inne elementy, które istnieją między tymi punktami końcowymi, zachowują również dostęp do tych adresów IP.
 
+* W przypadku skonfigurowania wymuszonego tunelowania przez zaporę w celu przekierowania ruchu związanego z Internetem zapoznaj się z [dodatkowymi wymaganiami wymuszonego tunelowania](#forced-tunneling).
+
 <a name="network-ports-for-ise"></a>
 
 ### <a name="network-ports-used-by-your-ise"></a>Porty sieciowe używane przez środowisko ISE
@@ -125,7 +127,7 @@ W tej tabeli opisano porty, które ISE muszą być dostępne, i przeznaczenie dl
 | Komunikacja między podsieciami w ramach sieci wirtualnej | Przestrzeń adresowa dla sieci wirtualnej z podsieciami ISE | * | Przestrzeń adresowa dla sieci wirtualnej z podsieciami ISE | * | Wymagany do przepływu ruchu *między* podsieciami w sieci wirtualnej. <p><p>**Ważne**: w przypadku ruchu między *składnikami* w poszczególnych podsieciach upewnij się, że otwarto wszystkie porty w każdej podsieci. |
 | Komunikacja z aplikacji logiki | **VirtualNetwork** | * | Różni się w zależności od miejsca docelowego | 80, 443 | Lokalizacja docelowa zależy od punktów końcowych usługi zewnętrznej, z którą aplikacja logiki musi się komunikować. |
 | Azure Active Directory | **VirtualNetwork** | * | **Usługi azureactivedirectory** | 80, 443 ||
-| Zależność usługi Azure Storage | **VirtualNetwork** | * | **Magazyn** | 80, 443, 445 ||
+| Zależność usługi Azure Storage | **VirtualNetwork** | * | **Storage** | 80, 443, 445 ||
 | Zarządzanie połączeniami | **VirtualNetwork** | * | **AppService** | 443 ||
 | Publikowanie dzienników diagnostycznych & metryki | **VirtualNetwork** | * | **AzureMonitor** | 443 ||
 | Zależność SQL platformy Azure | **VirtualNetwork** | * | **SQL** | 1433 ||
@@ -141,6 +143,26 @@ Ponadto należy dodać reguły ruchu wychodzącego dla [App Service Environment 
 
 * Jeśli używasz urządzenia zapory innego niż Zapora platformy Azure, musisz skonfigurować zaporę ze *wszystkimi* regułami wymienionymi w [zależnościach integracji zapory](../app-service/environment/firewall-integration.md#dependencies) , które są wymagane dla App Service Environment.
 
+<a name="forced-tunneling"></a>
+
+#### <a name="forced-tunneling-requirements"></a>Wymagania wymuszonego tunelowania
+
+W przypadku skonfigurowania lub użycia [wymuszonego tunelowania](../firewall/forced-tunneling.md) za pomocą zapory należy zezwolić na dodatkowe zależności zewnętrzne dla ISE. Wymuszone tunelowanie pozwala przekierowywać ruch związany z Internetem do określonego następnego przeskoku, takiego jak wirtualna sieć prywatna (VPN) lub do urządzenia wirtualnego, a nie Internetu, aby umożliwić inspekcję i inspekcję ruchu wychodzącego w sieci.
+
+Zwykle cały ruch wychodzący zależności ISE przechodzi przez wirtualny adres IP (VIP), który jest inicjowany za pomocą ISE. Jednak w przypadku zmiany routingu ruchu do lub z ISE należy zezwolić na następujące zależności wychodzące w zaporze przez ustawienie następnego przeskoku na `Internet` . Jeśli używasz zapory platformy Azure, postępuj zgodnie z [instrukcjami w celu skonfigurowania zapory za pomocą App Service Environment](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).
+
+Jeśli nie zezwolisz na dostęp do tych zależności, wdrożenie usługi ISE kończy się niepowodzeniem, a wdrożony ISE przestanie działać:
+
+* [Adresy zarządzania App Service Environment](../app-service/environment/management-addresses.md)
+
+* [Adresy API Management platformy Azure](../api-management/api-management-using-with-vnet.md#control-plane-ips)
+
+* [Adresy zarządzania Traffic Manager platformy Azure](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
+
+* [Logic Apps adresy przychodzące i wychodzące dla regionu ISE](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
+
+* Należy włączyć punkty końcowe usługi dla usług Azure SQL, Storage, Service Bus i Event Hub, ponieważ nie można wysyłać ruchu przez zaporę do tych usług.
+
 <a name="create-environment"></a>
 
 ## <a name="create-your-ise"></a>Tworzenie własnego środowiska ISE
@@ -151,7 +173,7 @@ Ponadto należy dodać reguły ruchu wychodzącego dla [App Service Environment 
 
 1. W okienku **środowiska usługi integracji** wybierz pozycję **Dodaj**.
 
-   ![Znajdowanie i wybieranie "środowisk usługi integracji"](./media/connect-virtual-network-vnet-isolated-environment/add-integration-service-environment.png)
+   ![Wybierz pozycję "Dodaj", aby utworzyć środowisko usługi integracji](./media/connect-virtual-network-vnet-isolated-environment/add-integration-service-environment.png)
 
 1. Podaj te szczegóły dla danego środowiska, a następnie wybierz pozycję **Przegląd + Utwórz**, na przykład:
 

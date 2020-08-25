@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 08/24/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cad6c41b465e14b11d4fa7b8e7fa6037d49e8eae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bad5b0256ee445767689ea2752e918a1fbf5fae
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742916"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816001"
 ---
 # <a name="start-using-privileged-identity-management"></a>Rozpoczęcie korzystania z usługi Privileged Identity Management
 
@@ -31,16 +31,14 @@ Użyj Privileged Identity Management (PIM) do zarządzania, kontrolowania i moni
 
 Aby korzystać z Privileged Identity Management, musisz mieć jedną z następujących licencji:
 
-- Usługa Azure AD — warstwa Premium P2
+- Usługa Azure AD — wersja Premium P2
 - Enterprise Mobility + Security (EMS) E5
 
 Aby uzyskać więcej informacji, zobacz [wymagania licencyjne do używania Privileged Identity Management](subscription-requirements.md).
 
 ## <a name="prepare-pim-for-azure-ad-roles"></a>Przygotowywanie usługi PIM dla ról usługi Azure AD
 
-Po włączeniu Privileged Identity Management dla katalogu możesz przygotować Privileged Identity Management do zarządzania rolami usługi Azure AD.
-
-Poniżej przedstawiono zadania, które zalecamy, aby przygotować się do ról usługi Azure AD w pożądanej kolejności:
+Poniżej przedstawiono zadania, które zalecamy, aby przygotować Privileged Identity Management do zarządzania rolami usługi Azure AD:
 
 1. [Skonfiguruj ustawienia roli usługi Azure AD](pim-how-to-change-default-settings.md).
 1. [Udziel kwalifikujących się przypisań](pim-how-to-add-role-to-user.md).
@@ -48,9 +46,7 @@ Poniżej przedstawiono zadania, które zalecamy, aby przygotować się do ról u
 
 ## <a name="prepare-pim-for-azure-roles"></a>Przygotowanie usługi PIM dla ról platformy Azure
 
-Po włączeniu Privileged Identity Management dla katalogu możesz przygotować Privileged Identity Management do zarządzania rolami platformy Azure na potrzeby dostępu do zasobów platformy Azure w ramach subskrypcji.
-
-Poniżej przedstawiono zadania, które zalecamy, aby przygotować się do ról platformy Azure w pożądanej kolejności:
+Poniżej przedstawiono zadania, które zalecamy, aby przygotować Privileged Identity Management do zarządzania rolami platformy Azure dla subskrypcji:
 
 1. [Odnajdywanie zasobów platformy Azure](pim-resource-roles-discover-resources.md)
 1. [Skonfiguruj ustawienia roli platformy Azure](pim-resource-roles-configure-role-settings.md).
@@ -82,15 +78,15 @@ Aby ułatwić otwieranie Privileged Identity Management, Dodaj kafelek PIM do pu
 
     ![Azure AD Privileged Identity Management we wszystkich usługach](./media/pim-getting-started/pim-all-services-find.png)
 
-1. Wybierz Privileged Identity Management Szybki Start.
+1. Wybierz Privileged Identity Management **Szybki Start**.
 
-1. Zaznacz pole **Przypnij blok do pulpitu nawigacyjnego** , aby przypiąć blok Privileged Identity Management szybkiego startu do pulpitu nawigacyjnego.
+1. Wybierz pozycję **Przypnij blok do pulpitu nawigacyjnego** , aby przypiąć stronę **szybkiego startu** Privileged Identity Management do pulpitu nawigacyjnego.
 
-    ![Ikona pinezki do przypinania Privileged Identity Management bloku do pulpitu nawigacyjnego](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
+    ![Ikona pinezki do przypinania strony Privileged Identity Management do pulpitu nawigacyjnego](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
 
     Na pulpicie nawigacyjnym platformy Azure zobaczysz kafelek podobny do tego:
 
-    ![Kafelek szybkiego startu Privileged Identity Management na pulpicie nawigacyjnym](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
+    ![Privileged Identity Management kafelka szybkiego startu na pulpicie nawigacyjnym](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

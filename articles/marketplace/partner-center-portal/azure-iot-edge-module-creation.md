@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 2584d10a73f183958e3b7010255979cc47bc2cd9
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: dc1e8bfa9b747b9933762af1b6a5b59cf8cd98de
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606339"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815780"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Tworzenie oferty modułu usługi IoT Edge
 
@@ -201,16 +201,17 @@ Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy musz
 
 #### <a name="store-logos"></a>Logo sklepu
 
-Podaj pliki PNG logo oferty w każdym z następujących czterech rozmiarów pikseli:
+Podaj plik PNG dla logo o **dużym** rozmiarze. Centrum partnerskie będzie używać tego do tworzenia **małych** i **średnich** logo. Opcjonalnie można zastąpić je innymi obrazami później.
 
-- **Mały (48 x 48)**
-- **Średni (90 x 90)**
-- **Duże (216 x 216)**
-- **Szeroki (255 x 115)**
+- **Duże** (od 216 x 216 do 350 x 350 px, wymagane)
+- **Średnia** (90 x 90 pikseli, opcjonalnie)
+- **Mały** (48 x 48 pikseli, opcjonalnie)
 
-Wszystkie cztery logo są wymagane i są używane w różnych miejscach na liście w portalu Marketplace.
+Te logo są używane w różnych miejscach na liście:
 
 [!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Zrzuty ekranu (opcjonalnie)
 
@@ -302,7 +303,7 @@ Po utworzeniu planów na karcie **Przegląd planu** jest wyświetlana wartość:
 - Bieżący stan publikowania
 - Wszystkie dostępne akcje
 
-Akcje dostępne w omówieniu planu różnią się w zależności od bieżącego stanu planu. Dostępne są następujące ustawienia:
+Akcje dostępne w omówieniu planu różnią się w zależności od bieżącego stanu planu. Obejmują one:
 
 - **Usuń wersję roboczą**: Jeśli plan jest stanem wersja robocza.
 - **Zatrzymaj sprzedawanie planu**: Jeśli stan planu jest opublikowany na żywo.
