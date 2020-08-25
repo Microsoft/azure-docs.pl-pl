@@ -16,10 +16,10 @@ ms.date: 10/1/2019
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: 5cf1181c41af1edc752205f4477f18b78680f484
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "81254006"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Samouczek: konfigurowanie protokołu HTTPS w domenie niestandardowej usługi Azure CDN
@@ -36,7 +36,7 @@ Niektóre z kluczowych atrybutów niestandardowej funkcji HTTPS to:
 
 - Dostępne jest kompletne zarządzanie certyfikatami: użytkownik obsługuje wszystkie operacje nabywania certyfikatów i zarządzania nimi. Certyfikaty są automatycznie aprowizowane i odnawiane przed wygaśnięciem ważności, co powoduje wyeliminowanie ryzyka przerwania działania usługi z powodu wygaśnięcia ważności certyfikatu.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > - Włączanie protokołu HTTPS w domenie niestandardowej
 > - Używanie certyfikatu zarządzanego przez usługę CDN 
@@ -194,7 +194,7 @@ Automatyczna weryfikacja zwykle trwa kilka godzin. Jeśli nie widzisz zweryfikow
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>Domena niestandardowa nie została zamapowana do punktu końcowego usługi CDN
 
 >[!NOTE]
->Jeśli używasz **Azure CDN z Akamai**, należy skonfigurować następujący rekord CNAME, aby włączyć automatyczne sprawdzanie poprawności domeny. "_acme-wyzwania. &lt;niestandardowa&gt; nazwa hosta domeny-> &lt;CNAME > domena&gt;niestandardowa. AK-Acme-Challenge.azureedge.NET "
+>Jeśli używasz **Azure CDN z Akamai**, należy skonfigurować następujący rekord CNAME, aby włączyć automatyczne sprawdzanie poprawności domeny. "_acme-wyzwania. &lt; niestandardowa nazwa hosta domeny &gt; -> CNAME > &lt; domena niestandardowa &gt; . AK-Acme-Challenge.azureedge.NET "
 
 Jeśli wpis rekordu CNAME zawiera poddomenę cdnverify, postępuj zgodnie z pozostałymi instrukcjami w tym kroku.
 

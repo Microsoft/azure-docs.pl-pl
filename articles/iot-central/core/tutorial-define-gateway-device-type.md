@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: peterpr
 ms.openlocfilehash: 2411eab50cc921a09ba55780b3c6620744a78f3f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "81758134"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Definiowanie nowego typu urządzenia bramy IoT w aplikacji IoT Central platformy Azure
@@ -107,8 +107,8 @@ Aby dodać właściwości chmury do szablonu **urządzenia do tworzenia intelige
 
     | Nazwa wyświetlana      | Typ semantyczny | Schemat |
     | ----------------- | ------------- | ------ |
-    | Data ostatniego serwisowania | Brak          | Date   |
-    | Nazwa klienta     | Brak          | String |
+    | Data ostatniego serwisowania | Brak          | Data   |
+    | Nazwa klienta     | Brak          | Ciąg |
 
 2. Wybierz pozycję **Zapisz**.
 
@@ -135,11 +135,11 @@ Aby opublikować szablon urządzenia bramy:
 
 1. Na stronie **Szablony urządzeń** wybierz szablon **inteligentnego budowania urządzenia bramy** .
 
-2. Wybierz pozycję **Publikuj**.
+2. Kliknij pozycję **Opublikuj**.
 
 3. W oknie dialogowym **Publikowanie szablonu urządzenia** wybierz pozycję **Publikuj**.
 
-Po opublikowaniu szablonu urządzenia jest on widoczny na stronie **urządzenia** i do operatora. W opublikowanym szablonie urządzenia nie można edytować modelu możliwości urządzenia bez tworzenia nowej wersji. Można jednak wykonywać aktualizacje właściwości, dostosowań i widoków w chmurze w opublikowanym szablonie urządzenia. Te aktualizacje nie powodują utworzenia nowej wersji. Po wprowadzeniu zmian wybierz pozycję **Publikuj** , aby wypchnąć te zmiany do operatora.
+Po opublikowaniu szablonu urządzenia jest on widoczny na stronie **urządzenia** i do operatora. W opublikowanym szablonie urządzenia nie można edytować modelu możliwości urządzenia bez tworzenia nowej wersji. Można jednak wykonywać aktualizacje właściwości, dostosowań i widoków w chmurze w opublikowanym szablonie urządzenia. Te aktualizacje nie powodują utworzenia nowej wersji. Po wprowadzeniu zmian wybierz pozycję **Publikuj**  , aby wypchnąć te zmiany do operatora.
 
 ## <a name="create-the-simulated-devices"></a>Tworzenie symulowanych urządzeń
 

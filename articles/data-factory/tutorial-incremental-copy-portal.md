@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 06/10/2020
 ms.openlocfilehash: 10253b435461d62a4176164ea2a929843283f414
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86082662"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Przyrostowe ładowanie danych z Azure SQL Database do magazynu obiektów blob platformy Azure przy użyciu Azure Portal
@@ -62,7 +62,7 @@ Poniżej przedstawiono ważne czynności związane z tworzeniem tego rozwiązani
     * Utwórz działanie StoredProcedure, które aktualizuje wartość limitu dla potoku przy następnym uruchomieniu.
 
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * **Azure SQL Database**. Baza danych jest używana jako źródłowy magazyn danych. Jeśli nie masz bazy danych w Azure SQL Database, zobacz temat [Tworzenie bazy danych w Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) , aby utworzyć procedurę.
@@ -171,7 +171,7 @@ END
         Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
 6. Wybierz opcję **V2** w obszarze **Wersja**.
 7. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (Azure Storage, Azure SQL Database, wystąpienie zarządzane usługi Azure SQL i tak dalej) i usługi obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą znajdować się w innych regionach.
-8. Kliknij pozycję **Utwórz**.      
+8. Kliknij przycisk **Utwórz**.      
 9. Po zakończeniu tworzenia zostanie wyświetlona strona **Fabryka danych**, jak pokazano na poniższej ilustracji.
 
    ![Strona główna fabryki danych](./media/doc-common-process/data-factory-home-page.png)
@@ -276,7 +276,7 @@ W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem 
         | Nazwa | Typ | Wartość |
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
-        | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
+        | TableName | Ciąg | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
         ![Działanie procedury składowanej — ustawienia procedury składowanej](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Aby zweryfikować ustawienia potoku, kliknij pozycję **Weryfikuj** na pasku narzędzi. Potwierdź, że weryfikacja nie zwróciła błędów. Aby zamknąć okno **Raport weryfikacji potoku**, kliknij pozycję >>.   

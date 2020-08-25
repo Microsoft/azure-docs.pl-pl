@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
 ms.openlocfilehash: bf696b79215843e392fcf510e35cc410ff9902a2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "81409201"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Przekształcanie danych w usłudze Azure Virtual Network przy użyciu działania programu Hive w usłudze Azure Data Factory
@@ -32,7 +32,7 @@ W tym samouczku program Azure PowerShell umożliwia tworzenie potoku fabryki dan
 > * Monitorowanie działania potoku 
 > * Sprawdzanie danych wyjściowych 
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -45,7 +45,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 - **Klaster usługi HDInsight.** Utwórz klaster usługi HDInsight i przyłącz go do sieci wirtualnej utworzonej w poprzednim kroku, postępując zgodnie z opisem podanym w tym artykule: [Extend Azure HDInsight using an Azure Virtual Network (Rozszerzenie usługi Azure HDInsight za pomocą usługi Azure Virtual Network)](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Oto przykładowa konfiguracja usługi HDInsight w sieci wirtualnej. 
 
     ![Usługa HDInsight w sieci wirtualnej](media/tutorial-transform-data-using-hive-in-vnet/hdinsight-in-vnet-configuration.png)
-- **Azure PowerShell**. Wykonaj instrukcje podane w temacie [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-Az-ps).
+- Zainstalowanie programu **Azure PowerShell**. Wykonaj instrukcje podane w temacie [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ### <a name="upload-hive-script-to-your-blob-storage-account"></a>Przekazywanie skryptu programu Hive do konta usługi Blob Storage
 
@@ -186,7 +186,7 @@ Utwórz plik w formacie JSON za pomocą preferowanego edytora, skopiuj poniższ�
 }
 ```
 
-Zastąp ** &lt;wartości&gt; &lt;AccountName&gt; i accountkey** nazwą i kluczem konta usługi Azure Storage.
+Zastąp wartości ** &lt; AccountName &gt; i &lt; accountkey &gt; ** nazwą i kluczem konta usługi Azure Storage.
 
 ### <a name="hdinsight-linked-service"></a>Połączona usługa HDInsight
 
@@ -221,7 +221,7 @@ Zaktualizuj wartości następujących właściwości w definicji połączonej us
 
 - **Nazwa użytkownika**. Nazwa użytkownika logowania do klastra określona podczas tworzenia klastra. 
 - **hasło**. Hasło dla użytkownika.
-- **clusterUri**. Określ adres URL klastra usługi HDInsight w następującym formacie: `https://<clustername>.azurehdinsight.net`.  W tym artykule przyjęto założenie, że masz dostęp do klastra za pośrednictwem Internetu. Na przykład możesz połączyć się z klastrem pod adresem `https://clustername.azurehdinsight.net`. Ten adres używa publicznej bramy, która jest niedostępna w przypadku używania sieciowych grup zabezpieczeń lub tras zdefiniowanych przez użytkownika (UDR) do ograniczania dostępu z Internetu. Aby fabryka danych mogła przekazywać zadania do klastrów usługi HDInsight w usłudze Azure Virtual Network, należy skonfigurować usługę Azure Virtual Network w taki sposób, aby adres URL mógł zostać rozpoznany jako prywatny adres IP bramy używanej przez usługę HDInsight.
+- **clusterUri**. Określ adres URL klastra usługi HDInsight w następującym formacie: `https://<clustername>.azurehdinsight.net` .  W tym artykule przyjęto założenie, że masz dostęp do klastra za pośrednictwem Internetu. Na przykład możesz połączyć się z klastrem pod adresem `https://clustername.azurehdinsight.net`. Ten adres używa publicznej bramy, która jest niedostępna w przypadku używania sieciowych grup zabezpieczeń lub tras zdefiniowanych przez użytkownika (UDR) do ograniczania dostępu z Internetu. Aby fabryka danych mogła przekazywać zadania do klastrów usługi HDInsight w usłudze Azure Virtual Network, należy skonfigurować usługę Azure Virtual Network w taki sposób, aby adres URL mógł zostać rozpoznany jako prywatny adres IP bramy używanej przez usługę HDInsight.
 
   1. W witrynie Azure Portal otwórz sieć wirtualną, w której znajduje się usługa HDInsight. Otwórz interfejs sieciowy mający nazwę zaczynającą się od `nic-gateway-0`. Zanotuj jego prywatny adres IP. Na przykład 10.6.0.15. 
   2. Jeśli usługa Azure Virtual Network ma serwer usługi DNS, zaktualizuj rekord usługi DNS tak, aby adres URL klastra usługi HDInsight `https://<clustername>.azurehdinsight.net` można było rozpoznać jako `10.6.0.15`. Jest to zalecane podejście. Jeśli w usłudze Azure Virtual Network nie masz serwera DNS, możesz tymczasowo obejść to, edytując plik hosts (C:\Windows\System32\drivers\etc) wszystkich maszyn wirtualnych, które są zarejestrowane jako węzły środowiska Integration Runtime (Self-hosted) przez dodanie wpisu podobnego do tego: 

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.custom: mvc
 ms.openlocfilehash: e78580cc2f95f14be53c0432df4eb4bd38450832
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82117135"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Samouczek: renderowanie sceny w usłudze Azure Batch 
@@ -28,7 +28,7 @@ Ten samouczek obejmuje renderowanie sceny programu 3ds Max przy użyciu usługi 
 
 Aby korzystać z aplikacji renderujących w usłudze Batch z opłatami za użycie, potrzebujesz subskrypcji z płatnością zgodnie z rzeczywistym użyciem lub innej opcji zakupu platformy Azure. **Licencjonowanie na zasadzie płatności za użycie nie jest obsługiwane, jeśli korzystasz z bezpłatnej oferty platformy Azure, w ramach której otrzymujesz środki pieniężne.**
 
-Przykładową scenę programu 3ds Max na potrzeby tego samouczka, przykładowy skrypt powłoki Bash oraz pliki konfiguracyjne w formacie JSON znajdziesz w witrynie [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene). Scenę programu 3ds Max zawierają [pliki przykładowe dla programu Autodesk 3ds Max](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Pliki przykładowe programu Autodesk 3ds Max są dostępne w ramach licencji Creative Commons Attribution-NonCommercial-Share Alike. Informacje &copy; o prawach autorskich, Inc.)
+Przykładową scenę programu 3ds Max na potrzeby tego samouczka, przykładowy skrypt powłoki Bash oraz pliki konfiguracyjne w formacie JSON znajdziesz w witrynie [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene). Scenę programu 3ds Max zawierają [pliki przykładowe dla programu Autodesk 3ds Max](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Pliki przykładowe programu Autodesk 3ds Max są dostępne w ramach licencji Creative Commons Attribution-NonCommercial-Share Alike. Informacje o prawach autorskich &copy; , Inc.)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -91,7 +91,7 @@ az storage container create \
     --name scenefiles
 ```
 
-Pobierz scenę `MotionBlur-Dragon-Flying.max` z witryny [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max) do lokalnego katalogu roboczego. Przykład:
+Pobierz scenę `MotionBlur-Dragon-Flying.max` z witryny [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max) do lokalnego katalogu roboczego. Na przykład:
 
 ```azurecli-interactive
 wget -O MotionBlur-DragonFlying.max https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max
@@ -296,7 +296,7 @@ az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
 
 ### <a name="view-task-output"></a>Wyświetlanie danych wyjściowych zadania podrzędnego
 
-Wykonanie zadania podrzędnego zajmuje kilka minut. Stan zadań podrzędnych możesz wyświetlić za pomocą polecenia [az batch task list](/cli/azure/batch/task#az-batch-task-list). Przykład:
+Wykonanie zadania podrzędnego zajmuje kilka minut. Stan zadań podrzędnych możesz wyświetlić za pomocą polecenia [az batch task list](/cli/azure/batch/task#az-batch-task-list). Na przykład:
 
 ```azurecli-interactive
 az batch task list \
@@ -304,7 +304,7 @@ az batch task list \
     --output table
 ```
 
-Możesz wyświetlić szczegółowe informacje o poszczególnych zadaniach podrzędnych, używając polecenia [az batch task show](/cli/azure/batch/task#az-batch-task-show). Przykład:
+Możesz wyświetlić szczegółowe informacje o poszczególnych zadaniach podrzędnych, używając polecenia [az batch task show](/cli/azure/batch/task#az-batch-task-show). Na przykład:
 
 ```azurecli-interactive
 az batch task show \
@@ -312,7 +312,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-Zadania generują pliki wyjściowe o nazwie *dragon0002. jpg* - *dragon0007. jpg* w węzłach obliczeniowych i przekazują je do kontenera *Job-myrenderjob* na koncie magazynu. Aby wyświetlić pliki wyjściowe, pobierz te pliki do folderu na komputerze lokalnym za pomocą polecenia [az storage blob download-batch](/cli/azure/storage/blob). Przykład:
+Zadania generują pliki wyjściowe o nazwie *dragon0002.jpg*  -  *dragon0007.jpg* w węzłach obliczeniowych i przekazują je do kontenera *Job-myrenderjob* na koncie magazynu. Aby wyświetlić pliki wyjściowe, pobierz te pliki do folderu na komputerze lokalnym za pomocą polecenia [az storage blob download-batch](/cli/azure/storage/blob). Na przykład:
 
 ```azurecli-interactive
 az storage blob download-batch \
@@ -325,7 +325,7 @@ Otwórz jeden z plików na komputerze. Wyrenderowana ramka 6 wygląda następuj�
 ![Wyrenderowana ramka 6 sceny dragon](./media/tutorial-rendering-cli/dragon-frame6.png) 
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Za pomocą polecenia [az group delete](/cli/azure/group#az-group-delete) można usunąć grupę zasobów, konto usługi Batch, pule oraz wszystkie pokrewne zasoby, gdy nie będą już potrzebne. Usuń zasoby w następujący sposób:
 

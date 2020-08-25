@@ -1,14 +1,14 @@
 ---
 title: Przykłady zapytań zaawansowanych
 description: Za pomocą usługi Azure Resource Graph można uruchamiać pewne zaawansowane zapytania, w tym pracę z kolumnami, używane Tagi list i zgodne zasoby z wyrażeniami regularnymi.
-ms.date: 07/14/2020
+ms.date: 08/13/2020
 ms.topic: sample
-ms.openlocfilehash: 3277d904ebf955c9f924e60dbf6df12eac138a15
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: ba00144a53afd041abe2513862d8a05a51e78809
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534791"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795681"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Zaawansowane przykłady zapytania grafu zasobów
 
@@ -29,6 +29,7 @@ Omówimy następujące zaawansowane zapytania:
 - [Znajdowanie kont magazynu z określonym tagiem w grupie zasobów](#join-findstoragetag)
 - [Łączenie wyników z dwóch zapytań w jeden wynik](#unionresults)
 - [Uwzględnij nazwy dzierżawców i subskrypcji z nazwami wyświetlanymi](#displaynames)
+- [Podsumuj maszynę wirtualną przez rozszerzoną Właściwość States](#vm-powerstate)
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free).
 
@@ -61,7 +62,7 @@ Search-AzGraph -Query "Resources | distinct type, apiVersion | where isnotnull(a
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png":::Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
+:::image type="icon" source="../media/resource-graph-small.png"::: Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
 - Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20distinct%20type%2C%20apiVersion%0D%0A%7C%20where%20isnotnull%28apiVersion%29%0D%0A%7C%20order%20by%20type%20asc" target="_blank">Portal.Azure.com <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
 - Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20distinct%20type%2C%20apiVersion%0D%0A%7C%20where%20isnotnull%28apiVersion%29%0D%0A%7C%20order%20by%20type%20asc" target="_blank">Portal.Azure.us <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
@@ -95,7 +96,7 @@ Search-AzGraph -Query "Resources | where type=~ 'microsoft.compute/virtualmachin
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png":::Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
+:::image type="icon" source="../media/resource-graph-small.png"::: Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
 - Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%3D~%20%27microsoft.compute%2Fvirtualmachinescalesets%27%0D%0A%7C%20where%20name%20contains%20%27contoso%27%0D%0A%7C%20project%20subscriptionId%2C%20name%2C%20location%2C%20resourceGroup%2C%20Capacity%20%3D%20toint%28sku.capacity%29%2C%20Tier%20%3D%20sku.name%0D%0A%7C%20order%20by%20Capacity%20desc" target="_blank">Portal.Azure.com <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
 - Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%3D~%20%27microsoft.compute%2Fvirtualmachinescalesets%27%0D%0A%7C%20where%20name%20contains%20%27contoso%27%0D%0A%7C%20project%20subscriptionId%2C%20name%2C%20location%2C%20resourceGroup%2C%20Capacity%20%3D%20toint%28sku.capacity%29%2C%20Tier%20%3D%20sku.name%0D%0A%7C%20order%20by%20Capacity%20desc" target="_blank">Portal.Azure.us <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
@@ -128,7 +129,7 @@ Search-AzGraph -Query "Resources | summarize resourceCount=count() by subscripti
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png":::Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
+:::image type="icon" source="../media/resource-graph-small.png"::: Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
 - Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20summarize%20resourceCount%3Dcount%28%29%20by%20subscriptionId%0D%0A%7C%20join%20%28ResourceContainers%20%7C%20where%20type%3D%3D%27microsoft.resources%2Fsubscriptions%27%20%7C%20project%20SubName%3Dname%2C%20subscriptionId%29%20on%20subscriptionId%0D%0A%7C%20project-away%20subscriptionId%2C%20subscriptionId1" target="_blank">Portal.Azure.com <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
 - Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20summarize%20resourceCount%3Dcount%28%29%20by%20subscriptionId%0D%0A%7C%20join%20%28ResourceContainers%20%7C%20where%20type%3D%3D%27microsoft.resources%2Fsubscriptions%27%20%7C%20project%20SubName%3Dname%2C%20subscriptionId%29%20on%20subscriptionId%0D%0A%7C%20project-away%20subscriptionId%2C%20subscriptionId1" target="_blank">Portal.Azure.us <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
@@ -160,7 +161,7 @@ Search-AzGraph -Query "Resources | project tags | summarize buildschema(tags)"
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png":::Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
+:::image type="icon" source="../media/resource-graph-small.png"::: Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
 - Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20project%20tags%0D%0A%7C%20summarize%20buildschema%28tags%29" target="_blank">Portal.Azure.com <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
 - Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20project%20tags%0D%0A%7C%20summarize%20buildschema%28tags%29" target="_blank">Portal.Azure.us <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
@@ -205,7 +206,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png":::Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
+:::image type="icon" source="../media/resource-graph-small.png"::: Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
 - Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.compute%2Fvirtualmachines%27%20and%20name%20matches%20regex%20%40%27%5EContoso%28.%2A%29%5B0-9%5D%2B%24%27%0D%0A%7C%20project%20name%0D%0A%7C%20order%20by%20name%20asc" target="_blank">Portal.Azure.com <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
 - Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.compute%2Fvirtualmachines%27%20and%20name%20matches%20regex%20%40%27%5EContoso%28.%2A%29%5B0-9%5D%2B%24%27%0D%0A%7C%20project%20name%0D%0A%7C%20order%20by%20name%20asc" target="_blank">Portal.Azure.us <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
@@ -241,7 +242,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.documentdb/databasea
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png":::Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
+:::image type="icon" source="../media/resource-graph-small.png"::: Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
 - Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.documentdb%2Fdatabaseaccounts%27%0D%0A%7C%20project%20id%2C%20name%2C%20writeLocations%20%3D%20%28properties.writeLocations%29%0D%0A%7C%20mv-expand%20writeLocations%0D%0A%7C%20project%20id%2C%20name%2C%20writeLocation%20%3D%20tostring%28writeLocations.locationName%29%0D%0A%7C%20where%20writeLocation%20in%20%28%27East%20US%27%2C%20%27West%20US%27%29%0D%0A%7C%20summarize%20by%20id%2C%20name" target="_blank">Portal.Azure.com <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
 - Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.documentdb%2Fdatabaseaccounts%27%0D%0A%7C%20project%20id%2C%20name%2C%20writeLocations%20%3D%20%28properties.writeLocations%29%0D%0A%7C%20mv-expand%20writeLocations%0D%0A%7C%20project%20id%2C%20name%2C%20writeLocation%20%3D%20tostring%28writeLocations.locationName%29%0D%0A%7C%20where%20writeLocation%20in%20%28%27East%20US%27%2C%20%27West%20US%27%29%0D%0A%7C%20summarize%20by%20id%2C%20name" target="_blank">Portal.Azure.us <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
@@ -274,7 +275,7 @@ Search-AzGraph -Query "Resources | join kind=leftouter (ResourceContainers | whe
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png":::Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
+:::image type="icon" source="../media/resource-graph-small.png"::: Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
 - Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20join%20kind%3Dleftouter%20%28ResourceContainers%20%7C%20where%20type%3D%3D%27microsoft.resources%2Fsubscriptions%27%20%7C%20project%20SubName%3Dname%2C%20subscriptionId%29%20on%20subscriptionId%0D%0A%7C%20where%20type%20%3D%3D%20%27microsoft.keyvault%2Fvaults%27%0D%0A%7C%20project%20type%2C%20name%2C%20SubName" target="_blank">Portal.Azure.com <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
 - Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20join%20kind%3Dleftouter%20%28ResourceContainers%20%7C%20where%20type%3D%3D%27microsoft.resources%2Fsubscriptions%27%20%7C%20project%20SubName%3Dname%2C%20subscriptionId%29%20on%20subscriptionId%0D%0A%7C%20where%20type%20%3D%3D%20%27microsoft.keyvault%2Fvaults%27%0D%0A%7C%20project%20type%2C%20name%2C%20SubName" target="_blank">Portal.Azure.us <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
@@ -312,7 +313,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.sql/servers/database
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png":::Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
+:::image type="icon" source="../media/resource-graph-small.png"::: Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
 - Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.sql%2Fservers%2Fdatabases%27%0D%0A%7C%20project%20databaseId%20%3D%20id%2C%20databaseName%20%3D%20name%2C%20elasticPoolId%20%3D%20tolower%28tostring%28properties.elasticPoolId%29%29%0D%0A%7C%20join%20kind%3Dleftouter%20%28%0D%0A%20%20%20%20Resources%0D%0A%20%20%20%20%7C%20where%20type%20%3D~%20%27microsoft.sql%2Fservers%2Felasticpools%27%0D%0A%20%20%20%20%7C%20project%20elasticPoolId%20%3D%20tolower%28id%29%2C%20elasticPoolName%20%3D%20name%2C%20elasticPoolState%20%3D%20properties.state%29%0D%0Aon%20elasticPoolId%0D%0A%7C%20project-away%20elasticPoolId1" target="_blank">Portal.Azure.com <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
 - Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.sql%2Fservers%2Fdatabases%27%0D%0A%7C%20project%20databaseId%20%3D%20id%2C%20databaseName%20%3D%20name%2C%20elasticPoolId%20%3D%20tolower%28tostring%28properties.elasticPoolId%29%29%0D%0A%7C%20join%20kind%3Dleftouter%20%28%0D%0A%20%20%20%20Resources%0D%0A%20%20%20%20%7C%20where%20type%20%3D~%20%27microsoft.sql%2Fservers%2Felasticpools%27%0D%0A%20%20%20%20%7C%20project%20elasticPoolId%20%3D%20tolower%28id%29%2C%20elasticPoolName%20%3D%20name%2C%20elasticPoolState%20%3D%20properties.state%29%0D%0Aon%20elasticPoolId%0D%0A%7C%20project-away%20elasticPoolId1" target="_blank">Portal.Azure.us <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
@@ -363,7 +364,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png":::Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
+:::image type="icon" source="../media/resource-graph-small.png"::: Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
 - Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.compute%2Fvirtualmachines%27%0D%0A%7C%20extend%20nics%3Darray_length%28properties.networkProfile.networkInterfaces%29%20%0D%0A%7C%20mv-expand%20nic%3Dproperties.networkProfile.networkInterfaces%20%0D%0A%7C%20where%20nics%20%3D%3D%201%20or%20nic.properties.primary%20%3D~%20%27true%27%20or%20isempty%28nic%29%20%0D%0A%7C%20project%20vmId%20%3D%20id%2C%20vmName%20%3D%20name%2C%20vmSize%3Dtostring%28properties.hardwareProfile.vmSize%29%2C%20nicId%20%3D%20tostring%28nic.id%29%20%0D%0A%7C%20join%20kind%3Dleftouter%20%28%0D%0A%20%20%20%20Resources%0D%0A%20%20%20%20%7C%20where%20type%20%3D~%20%27microsoft.network%2Fnetworkinterfaces%27%0D%0A%20%20%20%20%7C%20extend%20ipConfigsCount%3Darray_length%28properties.ipConfigurations%29%20%0D%0A%20%20%20%20%7C%20mv-expand%20ipconfig%3Dproperties.ipConfigurations%20%0D%0A%20%20%20%20%7C%20where%20ipConfigsCount%20%3D%3D%201%20or%20ipconfig.properties.primary%20%3D~%20%27true%27%0D%0A%20%20%20%20%7C%20project%20nicId%20%3D%20id%2C%20publicIpId%20%3D%20tostring%28ipconfig.properties.publicIPAddress.id%29%29%0D%0Aon%20nicId%0D%0A%7C%20project-away%20nicId1%0D%0A%7C%20summarize%20by%20vmId%2C%20vmName%2C%20vmSize%2C%20nicId%2C%20publicIpId%0D%0A%7C%20join%20kind%3Dleftouter%20%28%0D%0A%20%20%20%20Resources%0D%0A%20%20%20%20%7C%20where%20type%20%3D~%20%27microsoft.network%2Fpublicipaddresses%27%0D%0A%20%20%20%20%7C%20project%20publicIpId%20%3D%20id%2C%20publicIpAddress%20%3D%20properties.ipAddress%29%0D%0Aon%20publicIpId%0D%0A%7C%20project-away%20publicIpId1" target="_blank">Portal.Azure.com <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
 - Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.compute%2Fvirtualmachines%27%0D%0A%7C%20extend%20nics%3Darray_length%28properties.networkProfile.networkInterfaces%29%20%0D%0A%7C%20mv-expand%20nic%3Dproperties.networkProfile.networkInterfaces%20%0D%0A%7C%20where%20nics%20%3D%3D%201%20or%20nic.properties.primary%20%3D~%20%27true%27%20or%20isempty%28nic%29%20%0D%0A%7C%20project%20vmId%20%3D%20id%2C%20vmName%20%3D%20name%2C%20vmSize%3Dtostring%28properties.hardwareProfile.vmSize%29%2C%20nicId%20%3D%20tostring%28nic.id%29%20%0D%0A%7C%20join%20kind%3Dleftouter%20%28%0D%0A%20%20%20%20Resources%0D%0A%20%20%20%20%7C%20where%20type%20%3D~%20%27microsoft.network%2Fnetworkinterfaces%27%0D%0A%20%20%20%20%7C%20extend%20ipConfigsCount%3Darray_length%28properties.ipConfigurations%29%20%0D%0A%20%20%20%20%7C%20mv-expand%20ipconfig%3Dproperties.ipConfigurations%20%0D%0A%20%20%20%20%7C%20where%20ipConfigsCount%20%3D%3D%201%20or%20ipconfig.properties.primary%20%3D~%20%27true%27%0D%0A%20%20%20%20%7C%20project%20nicId%20%3D%20id%2C%20publicIpId%20%3D%20tostring%28ipconfig.properties.publicIPAddress.id%29%29%0D%0Aon%20nicId%0D%0A%7C%20project-away%20nicId1%0D%0A%7C%20summarize%20by%20vmId%2C%20vmName%2C%20vmSize%2C%20nicId%2C%20publicIpId%0D%0A%7C%20join%20kind%3Dleftouter%20%28%0D%0A%20%20%20%20Resources%0D%0A%20%20%20%20%7C%20where%20type%20%3D~%20%27microsoft.network%2Fpublicipaddresses%27%0D%0A%20%20%20%20%7C%20project%20publicIpId%20%3D%20id%2C%20publicIpAddress%20%3D%20properties.ipAddress%29%0D%0Aon%20publicIpId%0D%0A%7C%20project-away%20publicIpId1" target="_blank">Portal.Azure.us <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
@@ -374,7 +375,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 ## <a name="list-all-extensions-installed-on-a-virtual-machine"></a><a name="join-vmextension"></a>Wyświetl listę wszystkich rozszerzeń zainstalowanych na maszynie wirtualnej
 
 Najpierw to zapytanie używa `extend` typu zasobu maszyny wirtualne w celu uzyskania identyfikatora w postaci wielkich liter ( `toupper()` ) identyfikatora, pobrania nazwy i typu systemu operacyjnego i pobrania rozmiaru maszyny wirtualnej.
-Uzyskanie identyfikatora zasobu w Wielkiej litery jest dobrym sposobem na przygotowanie się do przyłączenia do innej właściwości. Następnie zapytanie używa `join` **typu** z _leftouter_ , aby uzyskać rozszerzenia maszyny wirtualnej, dopasowując wielkie litery `substring` w przypadku identyfikatora rozszerzenia. Część identyfikatora przed "/Extensions/ \<ExtensionName\> " jest w tym samym formacie co identyfikator maszyn wirtualnych, więc używamy tej właściwości `join` . `summarize`jest następnie używany z `make_list` nazwą rozszerzenia maszyny wirtualnej w celu połączenia nazwy każdego rozszerzenia, gdzie _ID_, _OSName_, _OSType_i _VmSize_ są takie same w jednej właściwości tablicy. `order by`Na koniec małe litery _OSName_ z użyciem **ASC**. Domyślnie `order by` jest to malejące.
+Uzyskanie identyfikatora zasobu w Wielkiej litery jest dobrym sposobem na przygotowanie się do przyłączenia do innej właściwości. Następnie zapytanie używa `join` **typu** z _leftouter_ , aby uzyskać rozszerzenia maszyny wirtualnej, dopasowując wielkie litery `substring` w przypadku identyfikatora rozszerzenia. Część identyfikatora przed "/Extensions/ \<ExtensionName\> " jest w tym samym formacie co identyfikator maszyn wirtualnych, więc używamy tej właściwości `join` . `summarize` jest następnie używany z `make_list` nazwą rozszerzenia maszyny wirtualnej w celu połączenia nazwy każdego rozszerzenia, gdzie _ID_, _OSName_, _OSType_i _VmSize_ są takie same w jednej właściwości tablicy. `order by`Na koniec małe litery _OSName_ z użyciem **ASC**. Domyślnie `order by` jest to malejące.
 
 ```kusto
 Resources
@@ -409,7 +410,7 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachi
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png":::Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
+:::image type="icon" source="../media/resource-graph-small.png"::: Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
 - Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0A%7C%20where%20type%20%3D%3D%20'microsoft.compute%2Fvirtualmachines'%0A%7C%20extend%0A%20%20%20%20JoinID%20%3D%20toupper(id)%2C%0A%20%20%20%20OSName%20%3D%20tostring(properties.osProfile.computerName)%2C%0A%20%20%20%20OSType%20%3D%20tostring(properties.storageProfile.osDisk.osType)%2C%0A%20%20%20%20VMSize%20%3D%20tostring(properties.hardwareProfile.vmSize)%0A%7C%20join%20kind%3Dleftouter(%0A%20%20%20%20Resources%0A%20%20%20%20%7C%20where%20type%20%3D%3D%20'microsoft.compute%2Fvirtualmachines%2Fextensions'%0A%20%20%20%20%7C%20extend%20%0A%20%20%20%20%20%20%20%20VMId%20%3D%20toupper(substring(id%2C%200%2C%20indexof(id%2C%20'%2Fextensions')))%2C%0A%20%20%20%20%20%20%20%20ExtensionName%20%3D%20name%0A)%20on%20%24left.JoinID%20%3D%3D%20%24right.VMId%0A%7C%20summarize%20Extensions%20%3D%20make_list(ExtensionName)%20by%20id%2C%20OSName%2C%20OSType%2C%20VMSize%0A%7C%20order%20by%20tolower(OSName)%20asc" target="_blank">Portal.Azure.com <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
 - Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0A%7C%20where%20type%20%3D%3D%20'microsoft.compute%2Fvirtualmachines'%0A%7C%20extend%0A%20%20%20%20JoinID%20%3D%20toupper(id)%2C%0A%20%20%20%20OSName%20%3D%20tostring(properties.osProfile.computerName)%2C%0A%20%20%20%20OSType%20%3D%20tostring(properties.storageProfile.osDisk.osType)%2C%0A%20%20%20%20VMSize%20%3D%20tostring(properties.hardwareProfile.vmSize)%0A%7C%20join%20kind%3Dleftouter(%0A%20%20%20%20Resources%0A%20%20%20%20%7C%20where%20type%20%3D%3D%20'microsoft.compute%2Fvirtualmachines%2Fextensions'%0A%20%20%20%20%7C%20extend%20%0A%20%20%20%20%20%20%20%20VMId%20%3D%20toupper(substring(id%2C%200%2C%20indexof(id%2C%20'%2Fextensions')))%2C%0A%20%20%20%20%20%20%20%20ExtensionName%20%3D%20name%0A)%20on%20%24left.JoinID%20%3D%3D%20%24right.VMId%0A%7C%20summarize%20Extensions%20%3D%20make_list(ExtensionName)%20by%20id%2C%20OSName%2C%20OSType%2C%20VMSize%0A%7C%20order%20by%20tolower(OSName)%20asc" target="_blank">Portal.Azure.us <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
@@ -447,7 +448,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.storage/storageaccou
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png":::Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
+:::image type="icon" source="../media/resource-graph-small.png"::: Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
 - Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.storage%2Fstorageaccounts%27%0D%0A%7C%20join%20kind%3Dinner%20%28%0D%0A%20%20%20%20ResourceContainers%0D%0A%20%20%20%20%7C%20where%20type%20%3D~%20%27microsoft.resources%2Fsubscriptions%2Fresourcegroups%27%0D%0A%20%20%20%20%7C%20where%20tags%5B%27Key1%27%5D%20%3D~%20%27Value1%27%0D%0A%20%20%20%20%7C%20project%20subscriptionId%2C%20resourceGroup%29%0D%0Aon%20subscriptionId%2C%20resourceGroup%0D%0A%7C%20project-away%20subscriptionId1%2C%20resourceGroup1" target="_blank">Portal.Azure.com <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
 - Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.storage%2Fstorageaccounts%27%0D%0A%7C%20join%20kind%3Dinner%20%28%0D%0A%20%20%20%20ResourceContainers%0D%0A%20%20%20%20%7C%20where%20type%20%3D~%20%27microsoft.resources%2Fsubscriptions%2Fresourcegroups%27%0D%0A%20%20%20%20%7C%20where%20tags%5B%27Key1%27%5D%20%3D~%20%27Value1%27%0D%0A%20%20%20%20%7C%20project%20subscriptionId%2C%20resourceGroup%29%0D%0Aon%20subscriptionId%2C%20resourceGroup%0D%0A%7C%20project-away%20subscriptionId1%2C%20resourceGroup1" target="_blank">Portal.Azure.us <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
@@ -485,7 +486,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.storage/storageaccou
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png":::Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
+:::image type="icon" source="../media/resource-graph-small.png"::: Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
 - Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.storage%2Fstorageaccounts%27%0D%0A%7C%20join%20kind%3Dinner%20%28%0D%0A%20%20%20%20ResourceContainers%0D%0A%20%20%20%20%7C%20where%20type%20%3D~%20%27microsoft.resources%2Fsubscriptions%2Fresourcegroups%27%0D%0A%20%20%20%20%7C%20mv-expand%20bagexpansion%3Darray%20tags%0D%0A%20%20%20%20%7C%20where%20isnotempty%28tags%29%0D%0A%20%20%20%20%7C%20where%20tags%5B0%5D%20%3D~%20%27key1%27%20and%20tags%5B1%5D%20%3D~%20%27value1%27%0D%0A%20%20%20%20%7C%20project%20subscriptionId%2C%20resourceGroup%29%0D%0Aon%20subscriptionId%2C%20resourceGroup%0D%0A%7C%20project-away%20subscriptionId1%2C%20resourceGroup1" target="_blank">Portal.Azure.com <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
 - Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.storage%2Fstorageaccounts%27%0D%0A%7C%20join%20kind%3Dinner%20%28%0D%0A%20%20%20%20ResourceContainers%0D%0A%20%20%20%20%7C%20where%20type%20%3D~%20%27microsoft.resources%2Fsubscriptions%2Fresourcegroups%27%0D%0A%20%20%20%20%7C%20mv-expand%20bagexpansion%3Darray%20tags%0D%0A%20%20%20%20%7C%20where%20isnotempty%28tags%29%0D%0A%20%20%20%20%7C%20where%20tags%5B0%5D%20%3D~%20%27key1%27%20and%20tags%5B1%5D%20%3D~%20%27value1%27%0D%0A%20%20%20%20%7C%20project%20subscriptionId%2C%20resourceGroup%29%0D%0Aon%20subscriptionId%2C%20resourceGroup%0D%0A%7C%20project-away%20subscriptionId1%2C%20resourceGroup1" target="_blank">Portal.Azure.us <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
@@ -517,7 +518,7 @@ Search-AzGraph -Query "ResourceContainers | where type=='microsoft.resources/sub
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-:::image type="icon" source="../media/resource-graph-small.png":::Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
+:::image type="icon" source="../media/resource-graph-small.png"::: Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
 
 - Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/ResourceContainers%0D%0A%7C%20where%20type%3D%3D%27microsoft.resources%2Fsubscriptions%2Fresourcegroups%27%20%7C%20project%20name%2C%20type%20%20%7C%20limit%205%0D%0A%7C%20union%20%20%28Resources%20%7C%20project%20name%2C%20type%20%7C%20limit%205%29" target="_blank">Portal.Azure.com <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
 - Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/ResourceContainers%0D%0A%7C%20where%20type%3D%3D%27microsoft.resources%2Fsubscriptions%2Fresourcegroups%27%20%7C%20project%20name%2C%20type%20%20%7C%20limit%205%0D%0A%7C%20union%20%20%28Resources%20%7C%20project%20name%2C%20type%20%7C%20limit%205%29" target="_blank">Portal.Azure.us <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
@@ -525,9 +526,42 @@ Search-AzGraph -Query "ResourceContainers | where type=='microsoft.resources/sub
 
 ---
 
+## <a name="summarize-virtual-machine-by-the-power-states-extended-property"></a><a name="vm-powerstate"></a>Podsumuj maszynę wirtualną przez rozszerzoną Właściwość States
+
+To zapytanie używa [rozszerzonych właściwości](../concepts/query-language.md#extended-properties) na maszynach wirtualnych w celu podsumowania według stanów mocy.
+
+
+```kusto
+Resources
+| where type == 'microsoft.compute/virtualmachines'
+| summarize count() by tostring(properties.extended.instanceView.powerState.code)
+```
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+```azurecli-interactive
+az graph query -q "Resources | where type == 'microsoft.compute/virtualmachines' | summarize count() by tostring(properties.extended.instanceView.powerState.code)"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachines' | summarize count() by tostring(properties.extended.instanceView.powerState.code)"
+```
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+:::image type="icon" source="../media/resource-graph-small.png"::: Wypróbuj to zapytanie w Eksploratorze Azure Resource Graph:
+
+- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">Portal.Azure.com <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
+- Portal Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">Portal.Azure.us <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
+- Portal 21Vianet platformy Azure w Chinach: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">Portal.Azure.CN <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
+
+---
+
 ## <a name="include-the-tenant-and-subscription-names-with-displaynames"></a><a name="displaynames"></a>Uwzględnij nazwy dzierżawców i subskrypcji z nazwami wyświetlanymi
 
-To zapytanie używa nowego parametru **include** z opcjami _DisplayName_ , aby dodać **subscriptionDisplayName** i **tenantDisplayName** do wyników. Ten parametr jest dostępny tylko dla interfejsu wiersza polecenia platformy Azure i Azure PowerShell.
+To zapytanie używa parametru **include** z opcjami _DisplayName_ , aby dodać **subscriptionDisplayName** i **tenantDisplayName** do wyników. Ten parametr jest dostępny tylko dla interfejsu wiersza polecenia platformy Azure i Azure PowerShell.
 
 ```azurecli-interactive
 az graph query -q "limit 1" --include displayNames
@@ -537,7 +571,7 @@ az graph query -q "limit 1" --include displayNames
 Search-AzGraph -Query "limit 1" -Include DisplayNames
 ```
 
-Alternatywą dla uzyskania nazwy subskrypcji jest użycie `join` operatora i nawiązanie połączenia z tabelą **ResourceContainers** i `Microsoft.Resources/subscriptions` typem. `join`działa w interfejsie wiersza polecenia platformy Azure, Azure PowerShell, portalu i wszystkich obsługiwanych zestawach SDK. Aby zapoznać się z przykładem, zobacz przykład [-Key magazyn z nazwą subskrypcji](#join).
+Alternatywą dla uzyskania nazwy subskrypcji jest użycie `join` operatora i nawiązanie połączenia z tabelą **ResourceContainers** i `Microsoft.Resources/subscriptions` typem. `join` działa w interfejsie wiersza polecenia platformy Azure, Azure PowerShell, portalu i wszystkich obsługiwanych zestawach SDK. Aby zapoznać się z przykładem, zobacz przykład [-Key magazyn z nazwą subskrypcji](#join).
 
 > [!NOTE]
 > Jeśli zapytanie nie używa **programu Project** do określenia zwracanych właściwości, **subscriptionDisplayName** i **tenantDisplayName** są automatycznie dołączane do wyników.

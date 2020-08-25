@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 79771e082a4a6ffae15f33f636b0300e93bcdaba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "77587570"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Zbiorcze importowanie danych do Azure Cosmos DB konta interfejsu API SQL przy użyciu zestawu .NET SDK
@@ -31,11 +31,11 @@ W tym samouczku opisano następujące czynności:
 
 Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz następujące zasoby:
 
-* Aktywne konto platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+* Aktywne konto platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Zestaw .NET Core 3 SDK](https://dotnet.microsoft.com/download/dotnet-core). Aby sprawdzić, która wersja jest dostępna w danym środowisku, należy `dotnet --version`uruchomić program.
+* [Zestaw .NET Core 3 SDK](https://dotnet.microsoft.com/download/dotnet-core). Aby sprawdzić, która wersja jest dostępna w danym środowisku, należy uruchomić program `dotnet --version` .
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Krok 1. Tworzenie konta usługi Azure Cosmos DB
 
@@ -43,7 +43,7 @@ Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz nast
 
 ## <a name="step-2-set-up-your-net-project"></a>Krok 2. Konfigurowanie projektu .NET
 
-Otwórz wiersz polecenia systemu Windows lub okno terminalu na komputerze lokalnym. Wszystkie polecenia zostaną uruchomione w następnych sekcjach z poziomu wiersza polecenia lub terminalu. Uruchom następujące polecenie dotnet New, aby utworzyć nową aplikację o nazwie *Bulk-import-demonstracyjny*. `--langVersion` Parametr ustawia właściwość *LangVersion* w utworzonym pliku projektu.
+Otwórz wiersz polecenia systemu Windows lub okno terminalu na komputerze lokalnym. Wszystkie polecenia zostaną uruchomione w następnych sekcjach z poziomu wiersza polecenia lub terminalu. Uruchom następujące polecenie dotnet New, aby utworzyć nową aplikację o nazwie *Bulk-import-demonstracyjny*. `--langVersion`Parametr ustawia właściwość *LangVersion* w utworzonym pliku projektu.
 
    ```bash
    dotnet new console –langVersion:8 -n bulk-import-demo
@@ -91,7 +91,7 @@ Jeśli używasz emulatora Azure Cosmos DB, uzyskaj [poświadczenia emulatora z t
 
 Otwórz wygenerowany `Program.cs` plik w edytorze kodu. Zostanie utworzone nowe wystąpienie elementu CosmosClient z włączonym wykonaniem zbiorczym i będzie ono używane do wykonywania operacji w odniesieniu do Azure Cosmos DB. 
 
-Zacznijmy od zastąpienia metody domyślnej `Main` i definiowania zmiennych globalnych. Te zmienne globalne będą obejmowały punkt końcowy i klucze autoryzacji, nazwę bazy danych, kontener, który zostanie utworzony, oraz liczbę elementów, które będą wstawiane zbiorczo. Pamiętaj, aby zastąpić wartości endpointURL i klucza autoryzacji zgodnie ze środowiskiem. 
+Zacznijmy od zastąpienia `Main` metody domyślnej i definiowania zmiennych globalnych. Te zmienne globalne będą obejmowały punkt końcowy i klucze autoryzacji, nazwę bazy danych, kontener, który zostanie utworzony, oraz liczbę elementów, które będą wstawiane zbiorczo. Pamiętaj, aby zastąpić wartości endpointURL i klucza autoryzacji zgodnie ze środowiskiem. 
 
 
    ```csharp
@@ -174,7 +174,7 @@ Jeśli nie masz czasu na ukończenie tego samouczka lub po prostu chcesz pobrać
 
 Po sklonowaniu projektu upewnij się, że Zaktualizowano wymagane poświadczenia w [program.cs](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer/blob/master/src/Program.cs#L25).
 
-Przykład można uruchomić, zmieniając katalog repozytorium i używając `dotnet`:
+Przykład można uruchomić, zmieniając katalog repozytorium i używając `dotnet` :
 
    ```bash
    cd cosmos-dotnet-bulk-import-throughput-optimizer

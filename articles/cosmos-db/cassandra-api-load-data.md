@@ -9,10 +9,10 @@ ms.date: 05/20/2019
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 6a12db8e34421dd16c12d167896ef66b3377d524
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "82853024"
 ---
 # <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>Samouczek: ładowanie przykładowych danych do tabeli interfejsu API Cassandra w usłudze Azure Cosmos DB
@@ -23,7 +23,7 @@ Ten samouczek obejmuje następujące zadania:
 
 > [!div class="checklist"]
 > * Ładowanie danych do tabeli Cassandra
-> * Uruchomienie aplikacji
+> * Uruchamianie aplikacji
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
@@ -73,7 +73,7 @@ Wykonaj poniższe czynności, aby załadować dane do tabeli interfejsu API Cass
      repository.insertUser(preparedStatement, 5, "PeterS", "Everett");
    ```
 
-## <a name="run-the-app"></a>Uruchomienie aplikacji
+## <a name="run-the-app"></a>Uruchamianie aplikacji
 
 Otwórz wiersz polecenia lub okno terminalu i zmień ścieżkę na folder, w którym utworzono projekt. Uruchom polecenie „mvn clean install”, aby wygenerować plik cosmosdb-cassandra-examples.jar w folderze docelowym, a następnie uruchom aplikację. 
 

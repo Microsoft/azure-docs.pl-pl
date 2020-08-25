@@ -14,24 +14,24 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.openlocfilehash: 0d72ea23b74137e7e57f892b831b0be1b4a89de5
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82735525"
 ---
 # <a name="tutorial-grant-a-group-access-to-azure-resources-using-azure-powershell"></a>Samouczek: udzielanie grupie dostępu do zasobów platformy Azure przy użyciu Azure PowerShell
 
 [Kontrola dostępu oparta na rolach (Azure RBAC)](overview.md) umożliwia zarządzanie dostępem do zasobów platformy Azure. W tym samouczku przyznasz grupie dostęp z możliwością wyświetlania wszystkiego w ramach subskrypcji i zarządzania wszystkim w grupie zasobów przy użyciu programu Azure PowerShell.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Udzielanie dostępu grupie w innych zakresach
 > * Tworzenie listy dostępu
 > * Usuwanie dostępu
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -48,8 +48,8 @@ W celu udzielenia dostępu w usłudze Azure RBAC należy utworzyć przypisanie r
 
 | Podmiot zabezpieczeń | Definicja roli | Zakres |
 | --- | --- | --- |
-| Grupa<br>(Grupa samouczka kontroli dostępu opartej na rolach) | [Czytelnik](built-in-roles.md#reader) | Subskrypcja |
-| Grupa<br>(Grupa samouczka kontroli dostępu opartej na rolach)| [Współautor](built-in-roles.md#contributor) | Grupa zasobów<br>(rbac-tutorial-resource-group) |
+| Grupowanie<br>(Grupa samouczka kontroli dostępu opartej na rolach) | [Czytelnik](built-in-roles.md#reader) | Subskrypcja |
+| Grupowanie<br>(Grupa samouczka kontroli dostępu opartej na rolach)| [Współautor](built-in-roles.md#contributor) | Grupa zasobów<br>(rbac-tutorial-resource-group) |
 
    ![Przypisania ról dla grupy](./media/tutorial-role-assignments-group-powershell/rbac-role-assignments.png)
 
@@ -265,7 +265,7 @@ Aby usunąć dostęp dla użytkowników, grup i aplikacji, usuń przypisanie rol
       -Scope $subScope
     ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby wyczyścić zasoby utworzone w tym samouczku, usuń grupę zasobów i grupę.
 

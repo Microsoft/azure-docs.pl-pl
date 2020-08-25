@@ -6,10 +6,10 @@ ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 6a56602ad5217af07d9e35872a26ddb478146d0e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86101889"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Samouczek: Importowanie plików BACPAC SQL za pomocą szablonów ARM
@@ -28,7 +28,7 @@ Ten samouczek obejmuje następujące zadania:
 > * Wdróż szablon.
 > * Sprawdź wdrożenie.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -206,7 +206,7 @@ Ukończony szablon wygląda następująco:
 
 [!code-json[](~/resourcemanager-templates/tutorial-sql-extension/azuredeploy2.json?range=1-106&highlight=38-49,62-76,86-103)]
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -245,7 +245,7 @@ W Azure Portal wybierz bazę danych z nowo wdrożonej grupy zasobów. Wybierz po
 
 ![Edytor zapytań (wersja zapoznawcza)](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-query-editor.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

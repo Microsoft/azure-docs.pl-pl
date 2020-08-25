@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ce2ea7bed7da5226868afcf4d284ba893f2208a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 915098130c7a8462bc0e009be04a61b5b0a7985d
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828663"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795596"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Niestandardowe role administratorów w Azure Active Directory (wersja zapoznawcza)
 
@@ -46,7 +46,7 @@ Poniżej przedstawiono ogólne kroki, których usługa Azure AD używa do okreś
 
 1. W zależności od okoliczności usługa Azure AD wykonuje jedną z następujących akcji:
 
-    - Szacuje członkostwo ról użytkownika na podstawie [roszczeń wids](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) w tokenie dostępu użytkownika.
+    - Szacuje członkostwo ról użytkownika na podstawie [roszczeń wids](../develop/access-tokens.md) w tokenie dostępu użytkownika.
     - Pobiera wszystkie przypisania ról, które są stosowane do użytkownika, bezpośrednio lub za pośrednictwem członkostwa w grupie, do zasobu, w którym jest wykonywana akcja.
 
 1. Usługa Azure AD decyduje o tym, czy akcja w wywołaniu interfejsu API jest uwzględniona w rolach, które użytkownik ma dla tego zasobu.

@@ -6,10 +6,10 @@ ms.date: 12/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 43291bdaa277c06262be2d7bb5ba8d3f61ff35ea
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86056892"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Samouczek: używanie usługi Azure Deployment Manager z szablonami usługi Resource Manager (publiczna wersja zapoznawcza)
@@ -36,14 +36,14 @@ Ten samouczek obejmuje następujące zadania:
 > * Wdrażanie szablonów
 > * Weryfikowanie wdrożenia
 > * Wdrażanie nowszej wersji
-> * Czyszczenie zasobów
+> * Oczyszczanie zasobów
 
 Dodatkowe zasoby:
 
 * [Dokumentacja interfejsu API REST usługi Azure Menedżer wdrażania](/rest/api/deploymentmanager/).
 * [Samouczek: korzystanie z kontroli kondycji w usłudze Azure Menedżer wdrażania](./deployment-manager-tutorial-health-check.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -334,7 +334,7 @@ Programu Azure PowerShell można użyć do wdrażania szablonów.
     Jeśli skrypt zostanie uruchomiony z innej sesji programu PowerShell z poziomu tej, w której uruchomiono skrypt [przygotowania artefaktów](#prepare-the-artifacts) , należy najpierw ponownie wypełnić zmienne, które zawierają **$resourceGroupName** i **$FilePath**.
 
     > [!NOTE]
-    > `New-AzResourceGroupDeployment`jest wywołaniem asynchronicznym. Komunikat o powodzeniu oznacza, że wdrożenie zostało pomyślnie rozpoczęte. Aby sprawdzić wdrożenie, zobacz krok 2 i krok 4 tej procedury.
+    > `New-AzResourceGroupDeployment` jest wywołaniem asynchronicznym. Komunikat o powodzeniu oznacza, że wdrożenie zostało pomyślnie rozpoczęte. Aby sprawdzić wdrożenie, zobacz krok 2 i krok 4 tej procedury.
 
 2. Sprawdź, czy topologia usługi oraz podstawowe zasoby zostały utworzone pomyślnie, korzystając z witryny Azure Portal:
 
@@ -427,7 +427,7 @@ Programu Azure PowerShell można użyć do wdrażania szablonów.
 
 ## <a name="verify-the-deployment"></a>Weryfikowanie wdrożenia
 
-1. Otwórz [witrynę Azure Portal](https://portal.azure.com).
+1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
 2. Przejdź do nowo utworzonych aplikacji internetowych w obrębie nowych grup zasobów utworzonych przez wdrożenie wprowadzania.
 3. Otwórz aplikację internetową w przeglądarce internetowej. Sprawdź lokalizację i wersję w pliku index.html.
 
@@ -440,7 +440,7 @@ Jeśli masz nową wersję (1.0.0.1) aplikacji internetowej. Możesz użyć poni�
 3. Ponownie wdróż wprowadzanie zgodnie z instrukcjami w sekcji [Wdrażanie szablonów](#deploy-the-rollout-template).
 4. Sprawdź wdrożenie zgodnie z instrukcjami w sekcji [Weryfikowanie wdrożenia](#verify-the-deployment). Strona internetowa powinna teraz wyświetlać wersję 1.0.0.1.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

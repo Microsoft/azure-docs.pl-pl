@@ -10,10 +10,10 @@ ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: mvc, seodec18
 ms.openlocfilehash: fd310e81c6a86e651e27518acfdefa66980fa938
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "80059153"
 ---
 # <a name="back-up-an-app-using-cli"></a>Tworzenie kopii zapasowej aplikacji przy użyciu interfejsu wiersza polecenia

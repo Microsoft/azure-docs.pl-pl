@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: ed311e9c8031f8586762d2adc4c104545e323bc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d94e19753a93d2682043d7b67b867325067cee5d
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711514"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762304"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Zarządzanie standardem Azure DDoS Protection przy użyciu Azure Portal
 
@@ -39,7 +39,7 @@ Tworzenie więcej niż jednego planu nie jest wymagane w przypadku większości 
 
 1. Wybierz pozycję **Utwórz zasób** w lewym górnym rogu Azure Portal.
 2. Wyszukaj *DDoS*. Po pojawieniu się **planu ochrony DDoS** w wynikach wyszukiwania zaznacz je.
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 4. Wprowadź lub wybierz własne wartości albo wprowadź lub wybierz poniższe przykładowe wartości, a następnie wybierz pozycję **Utwórz**:
 
     |Ustawienie        |Wartość                                              |
@@ -81,8 +81,7 @@ Nie można przenieść sieci wirtualnej do innej grupy zasobów lub subskrypcji,
 ## <a name="disable-ddos-for-a-virtual-network"></a>Wyłącz DDoS dla sieci wirtualnej
 
 1. W **polu Wyszukaj zasoby, usługi i dokumenty** w górnej części portalu wprowadź nazwę sieci wirtualnej, dla której chcesz wyłączyć usługę DDoS Protection w warstwie Standardowa. Gdy nazwa sieci wirtualnej pojawi się w wynikach wyszukiwania, wybierz ją.
-2. W obszarze **Ustawienia**wybierz pozycję **Ochrona DDoS**.
-3. Wybierz pozycję **podstawowa** w obszarze **Plan ochrony DDoS** , a następnie wybierz pozycję **Zapisz**.
+2. Wybierz pozycję **Wyłącz** **w obszarze DDoS Protection Standard**.
 
 **Polecenia** 
 - Interfejs wiersza polecenia platformy Azure: [AZ Network DDoS-Protection Delete](https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest#az-network-ddos-protection-delete)
@@ -148,7 +147,7 @@ Aby zasymulować atak DDoS na potrzeby weryfikowania telemetrii, zobacz [Weryfik
 
 ## <a name="view-ddos-mitigation-policies"></a>Wyświetlanie zasad łagodzenia DDoS
 
-DDoS Protection standard stosuje trzy zasady ograniczania z autodostrajania (TCP SYN, TCP & UDP) dla każdego publicznego adresu IP chronionego zasobu w sieci wirtualnej, w której włączono DDoS. Progi zasad można wyświetlić, wybierając **przychodzące pakiety TCP, aby wyzwolić DDoS łagodzenie** i **przychodzące pakiety UDP do wyzwalania metryk ograniczenia DDoS** z typem **agregacji** jako "Max", jak pokazano na poniższej ilustracji:
+DDoS Protection standard stosuje trzy zasady ograniczania z autodostrajania (TCP SYN, TCP & UDP) dla każdego publicznego adresu IP chronionego zasobu w sieci wirtualnej, w której włączono DDoS. Progi zasad można wyświetlić, wybierając  **przychodzące pakiety TCP, aby wyzwolić DDoS łagodzenie** i **przychodzące pakiety UDP do wyzwalania metryk ograniczenia DDoS** z typem **agregacji** jako "Max", jak pokazano na poniższej ilustracji:
 
 ![Wyświetlanie zasad ograniczenia](./media/manage-ddos-protection/view-mitigation-policies.png)
 
@@ -192,7 +191,7 @@ Za pomocą dzienników przepływów zaradczych ataków można zapoznać się z p
     - **Archiwizowanie na koncie magazynu**: dane są zapisywane na koncie usługi Azure Storage. Aby dowiedzieć się więcej na temat tej opcji, zobacz [Archiwizowanie dzienników zasobów](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Przesyłaj strumieniowo do centrum zdarzeń**: umożliwia odbiornikowi dziennika pobieranie dzienników przy użyciu centrum zdarzeń platformy Azure. Centra zdarzeń umożliwiają integrację z systemem Splunk lub innymi systemami SIEM. Aby dowiedzieć się więcej na temat tej opcji, zobacz [przesyłanie strumieniowe dzienników zasobów do centrum zdarzeń](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Wyślij do log Analytics**: zapisuje dzienniki w usłudze Azure monitor. Aby dowiedzieć się więcej na temat tej opcji, zobacz [zbieranie dzienników do użycia w dziennikach Azure monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-1. Aby wyświetlić dane dzienników przepływu na pulpicie nawigacyjnym usługi Azure Analytics, można zaimportować przykładowego pulpitu nawigacyjnego zhttps://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
+1. Aby wyświetlić dane dzienników przepływu na pulpicie nawigacyjnym usługi Azure Analytics, można zaimportować przykładowego pulpitu nawigacyjnego z https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 
 Dzienniki przepływów będą zawierać następujące pola: 
 - Źródłowy adres IP

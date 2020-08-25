@@ -3,12 +3,12 @@ title: Analiza filmów wideo na żywo na IoT Edge informacji o wersji — Azure
 description: Ten temat zawiera informacje o wersji analizy wideo na żywo na temat wydań IoT Edge, ulepszeń, poprawek błędów i znanych problemów.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: c18977807d8cdca264a27d7fcff37aec7a61eb55
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: bad21297c5174c107a8eb03da0e2ed57ee7355d3
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690655"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750216"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Analiza filmów wideo na żywo na IoT Edge informacji o wersji
 
@@ -37,11 +37,12 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 * Teraz można uzyskać wysoką wydajność transferu zawartości danych między aktywną analizą filmów wideo na IoT Edge a niestandardowym rozszerzeniem przy użyciu platformy gRPC Framework. Zobacz [ten](analyze-live-video-use-your-grpc-model-quickstart.md) temat, aby rozpocząć pracę.
 * Szersze wdrożenie regionalne analizy filmów wideo i aktualizowanie tylko usługi w chmurze.  
 * Usługa Analiza filmów wideo na żywo jest teraz dostępna w 25 dodatkowych regionach na całym świecie. Poniżej znajduje się [Lista](https://azure.microsoft.com/global-infrastructure/services/?products=media-services) wszystkich dostępnych regionów.  
-* [Konfiguracja](https://aka.ms/lva-edge/setup-resources-for-samples) przewodnika Szybki Start została również zaktualizowana. 
+* [Konfiguracja](https://aka.ms/lva-edge/setup-resources-for-samples) przewodnika Szybki Start została zaktualizowana wraz z obsługą nowych regionów.
+    * Brak wywołania akcji dla każdej osoby, która już skonfigurował zasoby
 
 ## <a name="bug-fixes"></a>Poprawki błędów 
 
-Brak 
+* Usuń użycie przestarzałego rozszerzenia platformy Azure w skrypcie konfigurowania
 
 ## <a name="july-13-2020"></a>13 lipca 2020
 

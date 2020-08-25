@@ -10,13 +10,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.openlocfilehash: f826113abc756654fbf02e7d643b8ac1f9d9f98a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/21/2020
+ms.openlocfilehash: b4cd1fefb728da797d5ff56fe833662f21630c58
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84338128"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796412"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Połączone usługi w usłudze Azure Data Factory
 
@@ -69,19 +69,19 @@ W poniższej tabeli opisano właściwości w powyższym kodzie JSON:
 Właściwość | Opis | Wymagane |
 -------- | ----------- | -------- |
 name | Nazwa połączonej usługi. Zobacz [reguły nazewnictwa Azure Data Factory](naming-rules.md). |  Tak |
-typ | Typ połączonej usługi. Na przykład: Azure Storage (magazyn danych) lub AzureBatch (COMPUTE). Zobacz opis typeProperties. | Tak |
-typeProperties | Właściwości typu są różne dla poszczególnych magazynów danych lub obliczeń. <br/><br/> W przypadku obsługiwanych typów magazynów danych i ich właściwości typów zobacz tabelę [typów zestawu danych](concepts-datasets-linked-services.md#dataset-type) w tym artykule. Przejdź do artykułu łącznika magazynu danych, aby dowiedzieć się więcej o właściwościach typu specyficznych dla magazynu danych. <br/><br/> W przypadku obsługiwanych typów obliczeniowych i ich właściwości typu zobacz [połączone usługi obliczeniowe](compute-linked-services.md). | Tak |
+typ | Typ połączonej usługi. Na przykład: AzureBlobStorage (magazyn danych) lub AzureBatch (COMPUTE). Zobacz opis typeProperties. | Tak |
+typeProperties | Właściwości typu są różne dla poszczególnych magazynów danych lub obliczeń. <br/><br/> W przypadku obsługiwanych typów magazynów danych i ich właściwości typów Zobacz artykuł [Omówienie łącznika](copy-activity-overview.md#supported-data-stores-and-formats) . Przejdź do artykułu łącznika magazynu danych, aby dowiedzieć się więcej o właściwościach typu specyficznych dla magazynu danych. <br/><br/> W przypadku obsługiwanych typów obliczeniowych i ich właściwości typu zobacz [połączone usługi obliczeniowe](compute-linked-services.md). | Tak |
 Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Możesz użyć Azure Integration Runtime lub samodzielnego Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. | Nie
 
 ## <a name="linked-service-example"></a>Przykład połączonej usługi
 
-Następująca połączona usługa to połączona usługa Azure Storage. Należy zauważyć, że typ jest ustawiony na usługę Azure Storage. Właściwości typu połączonej usługi Azure Storage obejmują parametry połączenia. Usługa Data Factory używa tych parametrów połączenia do nawiązywania połączenia z magazynem danych w czasie wykonywania.
+Następująca połączona usługa to połączona usługa Azure Blob Storage. Należy zauważyć, że typ jest ustawiony na usługę Azure Blob Storage. Właściwości typu dla połączonej usługi Azure Blob Storage obejmują parametry połączenia. Usługa Data Factory używa tych parametrów połączenia do nawiązywania połączenia z magazynem danych w czasie wykonywania.
 
 ```json
 {
-    "name": "AzureStorageLinkedService",
+    "name": "AzureBlobStorageLinkedService",
     "properties": {
-        "type": "AzureStorage",
+        "type": "AzureBlobStorage",
         "typeProperties": {
             "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         },

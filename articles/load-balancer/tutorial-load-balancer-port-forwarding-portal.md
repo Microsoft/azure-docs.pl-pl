@@ -16,10 +16,10 @@ ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: dcb151c8be0ab3a2393d0659b75985a92ac60507
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82207891"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Samouczek: Konfigurowanie przekazywania portów w Azure Load Balancer przy użyciu portalu
@@ -36,15 +36,15 @@ Ten samouczek umożliwia skonfigurowanie przekierowania portów w usłudze Azure
 > * Tworzenie reguł przekierowania portów translatora adresów sieciowych dla ruchu przychodzącego w module równoważenia obciążenia.
 > * Instalowanie i konfigurowanie usług IIS na maszynach wirtualnych w celu wyświetlenia równoważenia obciążenia i przekierowania portów w działaniu.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) . 
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
-W przypadku wszystkich czynności opisanych w tym samouczku Zaloguj się do Azure Portal [https://portal.azure.com](https://portal.azure.com)pod adresem.
+W przypadku wszystkich czynności opisanych w tym samouczku Zaloguj się do Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com) .
 
 ## <a name="create-a-standard-load-balancer"></a>Tworzenie modułu równoważenia obciążenia w warstwie Standardowa
 
 Najpierw utwórz publiczny moduł równoważenia obciążenia w warstwie Standardowa, który może równoważyć obciążenie ruchu sieciowego maszyn wirtualnych. Moduł równoważenia obciążenia w warstwie Standardowa obsługuje tylko publiczny adres IP w warstwie Standardowa. Podczas tworzenia modułu równoważenia obciążenia w warstwie Standardowa tworzysz także nowy publiczny adres IP w warstwie Standardowa, który jest skonfigurowany jako fronton modułu równoważenia obciążenia (domyślnie o nazwie **LoadBalancerFrontEnd**). 
 
-1. W lewym górnym rogu ekranu kliknij pozycję **Utwórz zasób zasobów** > **Networking** > **Load Balancer**.
+1. W lewym górnym rogu ekranu kliknij pozycję **Utwórz zasób zasobów**  >  **Networking**  >  **Load Balancer**.
 2. Na karcie **Podstawy** na stronie **Tworzenie modułu równoważenia obciążenia** wprowadź lub wybierz poniższe informacje, zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz pozycję **Przeglądanie + tworzenie**:
 
     | Ustawienie                 | Wartość                                              |
@@ -52,8 +52,8 @@ Najpierw utwórz publiczny moduł równoważenia obciążenia w warstwie Standar
     | Subskrypcja               | Wybierz subskrypcję.    |    
     | Grupa zasobów         | Wybierz pozycję **Utwórz nową** i wpisz *MyResourceGroupLB* w polu tekstowym.|
     | Nazwa                   | *myLoadBalancer*                                   |
-    | Region         | Wybierz pozycję **Europa Zachodnia**.                                        |
-    | Typ          | wybierz pozycję **Publiczny**.                                        |
+    | Region (Region)         | Wybierz pozycję **Europa Zachodnia**.                                        |
+    | Typ          | Wybierz pozycję **Publiczna**.                                        |
     | SKU           | Wybierz pozycję **Standardowy**.                          |
     | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. |
     | Nazwa publicznego adresu IP              | Wpisz *myPublicIP* w polu tekstowym.   |
@@ -74,21 +74,21 @@ W tej sekcji należy zamienić następujące parametry w krokach z poniższymi i
 
 | Parametr                   | Wartość                |
 |-----------------------------|----------------------|
-| **\<Nazwa grupy zasobów>**  | myResourceGroupLB (wybierz istniejącą grupę zasobów) |
-| **\<Nazwa sieci wirtualnej>** | myVNet          |
-| **\<Nazwa regionu>**          | Europa Zachodnia      |
-| **\<Adresy IPv4>miejsca**   | 10.3.0.0 \ 16          |
-| **\<>nazwy podsieci**          | myBackendSubnet        |
-| **\<>zakresu adresów podsieci** | 10.3.0.0 \ 24          |
+| **\<resource-group-name>**  | myResourceGroupLB (wybierz istniejącą grupę zasobów) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | West Europe      |
+| **\<IPv4-address-space>**   | 10.3.0.0 \ 16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.3.0.0 \ 24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-vms-and-add-them-to-the-load-balancer-back-end-pool"></a>Tworzenie maszyn wirtualnych i dodawanie ich do puli zaplecza modułu równoważenia obciążenia
 
-1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób** > **obliczeniowy** > **systemu Windows Server 2016 Datacenter**. 
+1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **obliczeniowy**  >  **systemu Windows Server 2016 Datacenter**. 
    
 1. W obszarze **Tworzenie maszyny wirtualnej** wpisz lub wybierz następujące wartości na karcie **Podstawowe**:
-   - **Subscription** > **Grupa zasobów**subskrypcji: Lista rozwijana i wybierz pozycję **MyResourceGroupLB**.
+   - **Subskrypcja**  >  **Grupa zasobów**: Lista rozwijana i wybierz pozycję **MyResourceGroupLB**.
    - **Nazwa maszyny wirtualnej**: wpisz *MyVM1*.
    - **Region**: wybierz pozycję **Europa Zachodnia**. 
    - **Nazwa użytkownika**: wpisz *azureuser*.
@@ -112,7 +112,7 @@ W tej sekcji należy zamienić następujące parametry w krokach z poniższymi i
    
 1. Dodaj maszynę wirtualną do tworzonej puli zaplecza modułu równoważenia obciążenia:
    
-   1. W obszarze **równoważenie** > obciążenia**Umieść tę maszynę wirtualną za istniejącym rozwiązaniem do równoważenia obciążenia?** wybierz pozycję **tak**. 
+   1. W obszarze **równoważenie obciążenia**  >  **Umieść tę maszynę wirtualną za istniejącym rozwiązaniem do równoważenia obciążenia?** wybierz pozycję **tak**. 
    1. W obszarze **Opcje równoważenia obciążenia** rozwiń listę i wybierz pozycję **Azure Load Balancer**. 
    1. W obszarze **Wybierz moduł równoważenia obciążenia** rozwiń listę i wybierz pozycję **MyLoadBalancer**. 
    1. W obszarze **Wybierz pulę zaplecza** wybierz opcję **Utwórz nową**, a następnie wpisz *MyBackendPool* i wybierz pozycję **Utwórz**. 
@@ -121,7 +121,7 @@ W tej sekcji należy zamienić następujące parametry w krokach z poniższymi i
    
 1. Wybierz kartę **Zarządzanie** lub wybierz pozycję **Dalej** > **Zarządzanie**. W obszarze **Monitorowanie** dla opcji **Diagnostyka rozruchu** ustaw wartość **Wyłączone**.
    
-1. Wybierz pozycję **Przegląd + utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
    
 1. Przejrzyj ustawienia. Jeśli weryfikacja zakończy się powodzeniem, wybierz pozycję **Utwórz**. 
 
@@ -329,7 +329,7 @@ Za pomocą przekierowania portów można użyć pulpitu zdalnego na maszynie wir
 
 Połączenie RDP powiodło się, ponieważ reguła translatora adresów sieciowych dla ruchu przychodzącego **MyNATRuleVM2** kieruje ruch z portu frontonu 4222 modułu równoważenia obciążenia do portu 3389 (portu RDP) maszyny MyVM2.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby usunąć moduł równoważenia obciążenia i wszystkie powiązane z nim zasoby, kiedy nie będą już potrzebne, otwórz grupę zasobów **MyResourceGroupLB** i wybierz pozycję **Usuń grupę zasobów**.
 

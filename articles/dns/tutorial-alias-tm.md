@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: 4bdfc950cc1277809811dc2c548a57cc2138a8e4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "77149953"
 ---
 # <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Samouczek: konfigurowanie rekordu aliasu w celu obsługi nazw domen wierzchołkowych przy użyciu usługi Traffic Manager 
@@ -20,7 +20,7 @@ ms.locfileid: "77149953"
 Można utworzyć rekord aliasu wierzchołka nazwy domeny, aby odwoływać się do profilu usługi Azure Traffic Manager. Przykładowa domena to contoso.com. Zamiast używać usługi przekierowania, skonfiguruj usługę Azure DNS, aby odwoływać się do profilu usługi Traffic Manager bezpośrednio z poziomu strefy. 
 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie maszyny wirtualnej hosta i infrastruktury sieciowej.
@@ -42,16 +42,16 @@ Przykładowa domena używana w tym samouczku to contoso.com, ale skorzystaj z w�
 Najpierw utwórz sieć wirtualną i podsieć, aby umieścić w nich serwery internetowe.
 1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 2. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**. W polu wyszukiwania wprowadź *grupę zasobów*, a następnie utwórz grupę zasobów o nazwie **RG-DNS-Alias-TM**.
-3. Wybierz pozycję **Utwórz zasób** > **Networking** > Sieć**sieci wirtualnej**.
+3. Wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **sieci wirtualnej**.
 4. Utwórz sieć wirtualną o nazwie **VNet-Servers**. Umieść ją w grupie zasobów **RG-DNS-Alias-TM**, a następnie nadaj podsieci nazwę **SN-Web**.
 
 ## <a name="create-two-web-server-virtual-machines"></a>Tworzenie dwóch maszyn wirtualnych serwera wirtualnego
-1. Wybierz pozycję **Utwórz zasób** > **Windows Server 2016 VM**.
+1. Wybierz pozycję **Utwórz zasób**  >  **Windows Server 2016 VM**.
 2. Wprowadź nazwę **Web-01** i umieść maszynę wirtualną w grupie zasobów **RG-DNS-Alias-TM**. Wprowadź nazwę użytkownika i hasło, a następnie wybierz pozycję **OK**.
 3. W obszarze **Rozmiar** wybierz jednostkę magazynową zawierającą 8 GB pamięci RAM.
 4. W obszarze **Ustawienia** wybierz sieć wirtualną **VNet-Servers** i podsieć **SN-Web**.
 5. Wybierz pozycję **Publiczny adres IP**. W obszarze **Przypisanie** wybierz pozycję **Statyczne**, a następnie wybierz pozycję **OK**.
-6. W przypadku publicznych portów przychodzących wybierz pozycję **http** > **https** > **RDP (3389)**, a następnie wybierz przycisk **OK**.
+6. W przypadku publicznych portów przychodzących wybierz pozycję **http**  >  **https**  >  **RDP (3389)**, a następnie wybierz przycisk **OK**.
 7. Na stronie **Podsumowanie** wybierz pozycję **Utwórz**. Wykonanie tej procedury trwa kilka minut.
 
 Powtórz tę procedurę, aby utworzyć inną maszynę wirtualną o nazwie **Web-02**.
@@ -83,7 +83,7 @@ Powtórz tę procedurę, aby zainstalować usługi IIS na maszynie wirtualnej **
 ## <a name="create-a-traffic-manager-profile"></a>Tworzenie profilu usługi Traffic Manager
 
 1. Otwórz grupę zasobów **RG-DNS-Alias-TM**, a następnie wybierz publiczny adres IP **Web-01-ip**. Zanotuj adres IP do późniejszego użycia. Powtórz ten krok dla publicznego adresu IP **Web-02-ip**.
-1. Wybierz pozycję **Utwórz zasób zasobów** > **Networking** > **Traffic Manager profilu**.
+1. Wybierz pozycję **Utwórz zasób zasobów**  >  **Networking**  >  **Traffic Manager profilu**.
 2. Jako nazwę wprowadź ciąg **TM-alias-test**. Umieść ją w grupie zasobów **RG-DNS-Alias-TM**.
 3. Wybierz przycisk **Utwórz**.
 4. Po zakończeniu wdrożenia wybierz pozycję **Przejdź do zasobu**.
@@ -113,7 +113,7 @@ Utwórz rekord aliasu wskazujący na profil usługi Traffic Manager.
 3. Otwórz nową przeglądarkę internetową i przejdź ponownie do wierzchołka nazwy domeny.
 4. Ponownie zostanie wyświetlona domyślna strona internetowa usług IIS, ponieważ usługa Traffic Manager obsługiwała tę sytuację i kierowała ruch do maszyny wirtualnej **Web-02**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie potrzebujesz już zasobów utworzonych w ramach tego samouczka, usuń grupę zasobów **RG-DNS-Alias-TM**.
 

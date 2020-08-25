@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/22/2020
 ms.openlocfilehash: 29bdedd5ae40db57809c11500af404d308366ca7
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86081642"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Kopiuj wiele tabel zbiorczo przy użyciu Azure Data Factory w Azure Portal
@@ -75,7 +75,7 @@ Aby sprawdzić i włączyć to ustawienie, przejdź do serwera > zabezpieczenia 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
 1. Uruchom przeglądarkę internetową **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
-1. Przejdź do [Azure Portal](https://portal.azure.com). 
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com). 
 1. Po lewej stronie menu Azure Portal wybierz pozycję **Utwórz**  >  **Analytics**  >  **Data Factory**analizy zasobów. 
    ![Wybór usługi Data Factory w okienku „Nowy”](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. Na stronie **Nowa fabryka danych** wprowadź **ADFTutorialBulkCopyDF** w polu **Nazwa**. 
@@ -94,7 +94,7 @@ Aby sprawdzić i włączyć to ustawienie, przejdź do serwera > zabezpieczenia 
      Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
 1. Wybierz opcję **V2** w obszarze **Wersja**.
 1. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Aby uzyskać listę regionów platformy Azure, w których obecnie jest dostępna usługa Data Factory, wybierz dane regiony na poniższej stronie, a następnie rozwiń węzeł **Analiza**, aby zlokalizować pozycję **Data Factory**: [Produkty dostępne według regionu](https://azure.microsoft.com/global-infrastructure/services/). Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
-1. Kliknij pozycję **Utwórz**.
+1. Kliknij przycisk **Utwórz**.
 1. Po zakończeniu tworzenia wybierz pozycję **Przejdź do zasobu** , aby przejść do strony **Data Factory** . 
    
 1. Kliknij kafelek **Tworzenie i monitorowanie**, aby w osobnej karcie uruchomić aplikację interfejsu użytkownika usługi Data Factory.
@@ -151,7 +151,7 @@ W tym kroku utworzysz połączoną usługę służącą do łączenia bazy danyc
      
     f. Aby przetestować połączenie z bazą danych przy użyciu określonych informacji, kliknij przycisk **Test connection**.
      
-    przykład Kliknij pozycję **Utwórz**.
+    przykład Kliknij przycisk **Utwórz**.
 
 ### <a name="create-the-staging-azure-storage-linked-service"></a>Tworzenie przejściowej połączonej usługi Azure Storage
 W tym samouczku magazyn obiektów blob platformy Azure służy jako obszar przejściowy, pozwalający na włączenie programu PolyBase w celu podniesienia wydajności kopiowania.
@@ -163,7 +163,7 @@ W tym samouczku magazyn obiektów blob platformy Azure służy jako obszar przej
     a. Wprowadź wartość **AzureStorageLinkedService** w polu **Nazwa**.                                                 
     b. Wybierz swoje **konto usługi Azure Storage** w polu **Nazwa konta magazynu**.
     
-    c. Kliknij pozycję **Utwórz**.
+    c. Kliknij przycisk **Utwórz**.
 
 ## <a name="create-datasets"></a>Tworzenie zestawów danych
 W tym samouczku utworzysz zestawy danych będące źródłem i ujściem, określające lokalizację przechowywania danych. 
@@ -211,7 +211,7 @@ Potok **GetTableListAndTriggerCopyData** wykonuje dwie czynności:
 * Wyszukuje tabelę systemową bazy Azure SQL Database w celu pobrania listy tabel do skopiowania.
 * Wyzwala **IterateAndCopySQLTables** potoku w celu wykonania rzeczywistej kopii danych.
 
-Potok **IterateAndCopySQLTables** pobiera listę tabel jako parametr. Dla każdej tabeli na liście kopiuje dane z tabeli w Azure SQL Database do usługi Azure Synapse Analytics (dawniej SQL DW) przy użyciu kopii etapowej i bazy danych.
+Potok  **IterateAndCopySQLTables** pobiera listę tabel jako parametr. Dla każdej tabeli na liście kopiuje dane z tabeli w Azure SQL Database do usługi Azure Synapse Analytics (dawniej SQL DW) przy użyciu kopii etapowej i bazy danych.
 
 ### <a name="create-the-pipeline-iterateandcopysqltables"></a>Tworzenie potoku IterateAndCopySQLTables
 

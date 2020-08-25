@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 274d725a0e7987c8cb15363ba276aec7ebc541d5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "77426364"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Samouczek: Tworzenie połączonej aplikacji zarządzania odpadami w IoT Central
@@ -145,8 +145,8 @@ Aby wyświetlić szablon urządzenia:
 
 Spróbuj dostosować następujące elementy:
 1. Przejdź do **dostosowywania** z menu szablonu urządzenia
-2. Znajdź typ `Odor meter` telemetrii
-3. Zaktualizuj **nazwę wyświetlaną** `Odor meter` do`Odor level`
+2. Znajdź `Odor meter` Typ telemetrii
+3. Zaktualizuj **nazwę wyświetlaną** `Odor meter` do `Odor level`
 4. Możesz również spróbować zaktualizować jednostkę miary lub ustawić wartość *minimalną* i *maksymalną wartość*
 5. **Zapisz** wszystkie zmiany 
 
@@ -185,7 +185,7 @@ Aplikacja do **zarządzania połączonymi odpadami** ma dwa symulowane urządzen
 
      ![Urządzenie 1](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices-bin1.png)
 
-3. Przejdź do karty **właściwości chmury** , a następnie spróbuj `Bin full alert threshold` zaktualizować wartość `95` z `100`do. 
+3. Przejdź do karty **właściwości chmury** , a następnie spróbuj zaktualizować `Bin full alert threshold` wartość z `95` do `100` . 
 * Eksploruj kartę **Właściwości urządzenia** i kartę **pulpit nawigacyjny urządzenia** . 
 
 > [!NOTE]
@@ -210,9 +210,9 @@ Aplikacja do **zarządzania połączonymi odpadami** ma cztery przykładowe regu
 
      ![Pełny alert dotyczący bin](./media/tutorial-connectedwastemanagement/connectedwastemanagement-binfullalert.png)
 
- 3. `Bin full alert` Sprawdza **warunek** `Fill level is greater than or equal to Bin full alert threshold`.
+ 3. `Bin full alert`Sprawdza **warunek** `Fill level is greater than or equal to Bin full alert threshold` .
 
-    Jest to *Właściwość chmury* zdefiniowana w szablonie `Connected waste bin` urządzenia. `Bin full alert threshold` 
+    `Bin full alert threshold`Jest to *Właściwość chmury* zdefiniowana w `Connected waste bin` szablonie urządzenia. 
 
 Teraz Utwórzmy akcję poczty e-mail.
 
@@ -258,7 +258,7 @@ Jako Konstruktor można zmienić kilka ustawień, aby dostosować środowisko u�
 7. Na koniec możesz również zmienić **kompozycję** , klikając pozycję **Ustawienia** w obszarze tytuł aplikacji.
 
   
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń aplikację, wykonując następujące czynności:
 

@@ -4,17 +4,17 @@ description: Automatyzowanie zadań i przepływów pracy służących do zarząd
 services: logic-apps
 ms.suite: integration
 author: gplarsen
-ms.author: plarsen
+ms.author: daberry
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/07/2020
 tags: connectors
-ms.openlocfilehash: dccb715c974037b4e3080f3e51576feae34c03df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4995a91783c2302f3bda5cc9409f017248ca29fa
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76757972"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761648"
 ---
 # <a name="manage-ibm-informix-database-resources-by-using-azure-logic-apps"></a>Zarządzanie zasobami baz danych programu IBM Informix przy użyciu Azure Logic Apps
 
@@ -62,10 +62,10 @@ W tym temacie pokazano, jak za pomocą łącznika w aplikacji logiki przetwarza�
    |--------|-------------|-----------------------------|
    | **Pobierz tabele** | Wyświetl listę tabel bazy danych, uruchamiając instrukcję programu Informix CALL. | Brak |
    | **Pobierz wiersze** | Pobierz wszystkie wiersze w określonej tabeli, uruchamiając `SELECT *` instrukcję Informix. | **Nazwa tabeli**: Nazwa potrzebnej tabeli programu Informix <p><p>Aby dodać inne właściwości do tej akcji, wybierz je z listy **Dodaj nowy parametr** . Aby uzyskać więcej informacji, zobacz [temat informacje o łączniku](/connectors/informix/). |
-   | **Pobierz wiersz** | Pobierz wiersz z określonej tabeli, uruchamiając `SELECT WHERE` instrukcję Informix. | - **Nazwa tabeli**: Nazwa potrzebnej tabeli programu Informix <br>- **Identyfikator wiersza**: unikatowy identyfikator wiersza, na przykład`9999` |
+   | **Pobierz wiersz** | Pobierz wiersz z określonej tabeli, uruchamiając `SELECT WHERE` instrukcję Informix. | - **Nazwa tabeli**: Nazwa potrzebnej tabeli programu Informix <br>- **Identyfikator wiersza**: unikatowy identyfikator wiersza, na przykład `9999` |
    | **Wstaw wiersz** | Dodaj wiersz do określonej tabeli programu Informix, uruchamiając instrukcję Informix `INSERT` . | - **Nazwa tabeli**: Nazwa potrzebnej tabeli programu Informix <br>- **element**: wiersz z wartościami do dodania |
-   | **Aktualizuj wiersz** | Zmień wiersz w określonej tabeli programu Informix, uruchamiając instrukcję Informix `UPDATE` . | - **Nazwa tabeli**: Nazwa potrzebnej tabeli programu Informix <br>- **Identyfikator wiersza**: unikatowy identyfikator wiersza do zaktualizowania, na przykład`9999` <br>- **Wiersz**: wiersz z zaktualizowanymi wartościami, na przykład`102` |
-   | **Usuń wiersz** | Usuń wiersz z określonej tabeli programu Informix, uruchamiając instrukcję Informix `DELETE` . | - **Nazwa tabeli**: Nazwa potrzebnej tabeli programu Informix <br>- **Identyfikator wiersza**: unikatowy identyfikator wiersza do usunięcia, na przykład`9999` |
+   | **Aktualizuj wiersz** | Zmień wiersz w określonej tabeli programu Informix, uruchamiając instrukcję Informix `UPDATE` . | - **Nazwa tabeli**: Nazwa potrzebnej tabeli programu Informix <br>- **Identyfikator wiersza**: unikatowy identyfikator wiersza do zaktualizowania, na przykład `9999` <br>- **Wiersz**: wiersz z zaktualizowanymi wartościami, na przykład `102` |
+   | **Usuń wiersz** | Usuń wiersz z określonej tabeli programu Informix, uruchamiając instrukcję Informix `DELETE` . | - **Nazwa tabeli**: Nazwa potrzebnej tabeli programu Informix <br>- **Identyfikator wiersza**: unikatowy identyfikator wiersza do usunięcia, na przykład `9999` |
    ||||
 
 1. Zapisz aplikację logiki. Teraz [Przetestuj aplikację logiki](#test-logic-app) lub Kontynuuj tworzenie aplikacji logiki.
@@ -81,15 +81,15 @@ W tym temacie pokazano, jak za pomocą łącznika w aplikacji logiki przetwarza�
    | Właściwość | Właściwość JSON | Wymagane | Przykładowa wartość | Opis |
    |----------|---------------|----------|---------------|-------------|
    | Nazwa połączenia | `name` | Tak | `informix-demo-connection` | Nazwa, która ma być używana w połączeniu z bazą danych programu Informix |
-   | Serwer | `server` | Tak | Chmury`informixdemo.cloudapp.net:9089` <br>-On-premises:`informixdemo:9089` | Adres TCP/IP lub alias w formacie IPv4 lub IPv6, po którym następuje dwukropek i numer portu TCP/IP |
+   | Serwer | `server` | Tak | Chmury `informixdemo.cloudapp.net:9089` <br>-On-premises: `informixdemo:9089` | Adres TCP/IP lub alias w formacie IPv4 lub IPv6, po którym następuje dwukropek i numer portu TCP/IP |
    | baza danych | `database` | Tak | `nwind` | Nazwa relacyjnej bazy danych DRDA (RDBNAM) lub nazwa bazy danych programu Informix (dbname). Informix akceptuje 128-bajtowy ciąg. |
-   | Authentication | `authentication` | Tylko lokalne | **Basic** lub **Windows** (Kerberos) | Typ uwierzytelniania, który jest wymagany przez bazę danych programu Informix. Ta właściwość jest dostępna tylko po wybraniu opcji **Połącz za pośrednictwem lokalnej bramy danych**. |
+   | Uwierzytelnianie | `authentication` | Tylko lokalne | **Basic** lub **Windows** (Kerberos) | Typ uwierzytelniania, który jest wymagany przez bazę danych programu Informix. Ta właściwość jest dostępna tylko po wybraniu opcji **Połącz za pośrednictwem lokalnej bramy danych**. |
    | Nazwa użytkownika | `username` | Nie | <*Baza danych — nazwa użytkownika*> | Nazwa użytkownika bazy danych |
    | Hasło | `password` | Nie | <*Baza danych — hasło*> | Hasło do bazy danych |
    | Brama | `gateway` | Tylko lokalne | -<*platformy Azure — subskrypcja*> <br>-<*Azure-on-premises-Data-Gateway-Resource*> | Subskrypcja platformy Azure i nazwa zasobu platformy Azure dla lokalnej bramy danych utworzonej w Azure Portal. Właściwość **Gateway** i właściwości podrzędne są wyświetlane tylko po wybraniu opcji **Połącz za pośrednictwem lokalnej bramy danych**. |
    ||||||
 
-   Przykład:
+   Na przykład:
 
    * **Baza danych w chmurze**
 

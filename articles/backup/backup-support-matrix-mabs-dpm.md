@@ -3,12 +3,12 @@ title: Macierz obsługi programu serwera usługi MAB & System Center DPM
 description: Ten artykuł zawiera podsumowanie Azure Backup pomocy technicznej w przypadku używania serwera Microsoft Azure Backup (serwera usługi MAB) lub programu System Center DPM do tworzenia kopii zapasowych zasobów lokalnych i maszyn wirtualnych platformy Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4ed4452cf8f1f44e90cfc991c2b1d13d30dddcd2
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 34b15ea0752bf013d2b1e5c3a7434ff009e2d80a
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612779"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761342"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Macierz obsługi dla tworzenia kopii zapasowych za pomocą serwera Microsoft Azure Backup lub programu System Center DPM
 

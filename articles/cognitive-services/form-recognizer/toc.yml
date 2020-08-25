@@ -34,6 +34,10 @@
               href: quickstarts/curl-receipts.md
             - name: Python
               href: quickstarts/python-receipts.md
+        - name: Używanie wstępnie utworzonego modelu wizytówek
+          items:
+            - name: Python
+              href: quickstarts/python-business-cards.md
         - name: Uzyskiwanie informacji o układzie tekstu
           items:
             - name: Python
@@ -44,6 +48,12 @@
       href: 'https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form'
     - name: Korzystanie z usługi Rozpoznawanie formularzy w usłudze AI Builder
       href: tutorial-ai-builder.md
+- name: Pojęcia
+  items:
+    - name: Rachunki
+      href: concept-receipts.md
+    - name: Wizytówki
+      href: concept-business-cards.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Tworzenie zestawu danych szkoleniowych
@@ -64,6 +74,8 @@
       href: disaster-recovery.md
 - name: Dokumentacja
   items:
+    - name: Interfejs API Rozpoznawanie formularzy w wersji 2.1 (wersja zapoznawcza)
+      href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync'
     - name: Interfejs API rozpoznawania formularzy w wersji 2.0
       href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
     - name: Zestawy SDK

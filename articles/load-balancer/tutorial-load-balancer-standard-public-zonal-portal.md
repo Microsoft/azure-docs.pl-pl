@@ -16,10 +16,10 @@ ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: 940636a5e368a84aaaf0d4490bf874d56d3ddb6e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "78251905"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Samouczek: równoważenie obciążenia maszyn wirtualnych w strefie dostępności przy użyciu usługi Load Balancer w strefie Standardowa w witrynie Azure Portal
@@ -47,7 +47,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 Usługa Load Balancer w warstwie Standardowa obsługuje tylko standardowy publiczny adres IP. W przypadku tworzenia nowego publicznego adresu IP podczas tworzenia modułu równoważenia obciążenia jest on automatycznie konfigurowany jako standardowa jednostka SKU. Jest on również automatycznie konfigurowany jako strefowo nadmiarowy.
 
-1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób zasobów** > **Networking** > **Load Balancer**.
+1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób zasobów**  >  **Networking**  >  **Load Balancer**.
 2. Na karcie **Podstawy** na stronie **Tworzenie modułu równoważenia obciążenia** wprowadź lub wybierz poniższe informacje, zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz pozycję **Przeglądanie + tworzenie**:
 
     | Ustawienie                 | Wartość                                              |
@@ -55,8 +55,8 @@ Usługa Load Balancer w warstwie Standardowa obsługuje tylko standardowy public
     | Subskrypcja               | Wybierz subskrypcję.    |    
     | Grupa zasobów         | Wybierz pozycję **Utwórz nową** i wpisz *MyResourceGroupZLB* w polu tekstowym.|
     | Nazwa                   | *myLoadBalancer*                                   |
-    | Region         | Wybierz pozycję **Europa Zachodnia**.                                        |
-    | Typ          | wybierz pozycję **Publiczny**.                                        |
+    | Region (Region)         | Wybierz pozycję **Europa Zachodnia**.                                        |
+    | Typ          | Wybierz pozycję **Publiczna**.                                        |
     | SKU           | Wybierz pozycję **Standardowy**.                          |
     | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. |
     | Nazwa publicznego adresu IP              | Wpisz *myPublicIP* w polu tekstowym.   |
@@ -73,12 +73,12 @@ W tej sekcji należy zamienić następujące parametry w krokach z poniższymi i
 
 | Parametr                   | Wartość                |
 |-----------------------------|----------------------|
-| **\<Nazwa grupy zasobów>**  | myResourceGroupZLB (wybierz istniejącą grupę zasobów) |
-| **\<Nazwa sieci wirtualnej>** | myVNet          |
-| **\<Nazwa regionu>**          | Europa Zachodnia      |
-| **\<Adresy IPv4>miejsca**   | 10.0.0.0 \ 16          |
-| **\<>nazwy podsieci**          | myBackendSubnet        |
-| **\<>zakresu adresów podsieci** | 10.0.0.0 \ 24          |
+| **\<resource-group-name>**  | myResourceGroupZLB (wybierz istniejącą grupę zasobów) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | West Europe      |
+| **\<IPv4-address-space>**   | 10.0.0.0 \ 16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.0.0.0 \ 24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -124,7 +124,7 @@ W tej sekcji utworzysz reguły sieciowej grupy zabezpieczeń, aby zezwolić na p
 
 ### <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
-1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób** > **obliczeniowy** > **systemu Windows Server 2016 Datacenter**. Wprowadź poniższe wartości dla maszyny wirtualnej:
+1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób**  >  **obliczeniowy**  >  **systemu Windows Server 2016 Datacenter**. Wprowadź poniższe wartości dla maszyny wirtualnej:
     - **myVM1**, jako nazwę maszyny wirtualnej.        
     - **azureuser** — jako nazwę użytkownika administratora.    
     - **myResourceGroupZLB** w polu **Grupa zasobów**. Wybierz pozycję **Użyj istniejącej** i wybierz grupę **myResourceGroupZLB**.
@@ -137,7 +137,7 @@ W tej sekcji utworzysz reguły sieciowej grupy zabezpieczeń, aby zezwolić na p
     - **myBackendSubnet**. Upewnij się, że jest wybrana ta podsieć.
     - **myNetworkSecurityGroup** — jako nazwę sieciowej grupy zabezpieczeń (zapory), która już istnieje.
 5. Kliknij pozycję **Wyłączone**, aby wyłączyć diagnostykę rozruchu.
-6. Wybierz przycisk **OK**. Sprawdź ustawienia na stronie podsumowania. Następnie wybierz pozycję **Utwórz**.
+6. Wybierz przycisk **OK**. Sprawdź ustawienia na stronie podsumowania. Następnie wybierz przycisk **Utwórz**.
 7. Powtórz kroki od 1 do 6, aby utworzyć drugą maszynę wirtualną o nazwie **myVM2** w strefie 1. Wybierz **myVnet** jako sieć wirtualną. Wybierz **myVM2PIP** jako standardowy publiczny adres IP. Wybierz **myBackendSubnet** jako podsieć. Wybierz **myNetworkSecurityGroup** jako sieciową grupę zabezpieczeń.
 
     ![Tworzenie maszyn wirtualnych](./media/tutorial-load-balancer-standard-zonal-portal/create-virtual-machine.png) 
@@ -147,7 +147,7 @@ W tej sekcji utworzysz reguły sieciowej grupy zabezpieczeń, aby zezwolić na p
 1. W menu po lewej stronie wybierz pozycję **Wszystkie zasoby**. Następnie na liście zasobów wybierz maszynę wirtualną **myVM1**. Znajduje się ona w grupie zasobów **myResourceGroupZLB**.
 2. Na stronie **Przegląd** wybierz pozycję **Połącz**, aby połączyć się z maszyną wirtualną przy użyciu protokołu RDP.
 3. Zaloguj się na maszynie wirtualnej, podając nazwę użytkownika i hasło, które zostały określone podczas tworzenia tej maszyny wirtualnej. Aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej, może być konieczne wybranie pozycji **Więcej opcji**. Następnie wybierz pozycję **Użyj innego konta**. Wybierz przycisk **OK**. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Wybierz pozycję **Tak**, aby nawiązać połączenie.
-4. Na pulpicie serwera przejdź do >  **narzędzi administracyjnych systemu Windows****programu Windows PowerShell**.
+4. Na pulpicie serwera przejdź do **narzędzi administracyjnych systemu Windows**  >  **programu Windows PowerShell**.
 6. W oknie programu **PowerShell** uruchom następujące polecenia, aby zainstalować serwer usług IIS. Te polecenia usuną również domyślny plik iisstart.htm i dodadzą nowy plik iisstart.htm, który wyświetla nazwę maszyny wirtualnej:
 
    ```azurepowershell-interactive
@@ -222,7 +222,7 @@ Reguła modułu równoważenia obciążenia definiuje sposób dystrybucji ruchu 
       ![Internetowy serwer usług IIS](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 3. Aby zobaczyć działanie modułu równoważenia obciążenia, wymuś zatrzymanie wyświetlonej maszyny wirtualnej. Po odświeżeniu okna przeglądarki zobaczysz wyświetloną nazwę drugiego serwera.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, moduł równoważenia obciążenia i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Wybierz grupę zasobów zawierającą moduł równoważenia obciążenia. Następnie wybierz pozycję **Usuń**.
 

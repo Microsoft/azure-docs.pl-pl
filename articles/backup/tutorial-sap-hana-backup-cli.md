@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową SAP HA
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4113ba75f007bfa03fed5cfeaed7737797e37ed9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a0b6683183d6bf73b5376c6320106373ffd4ba78
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489507"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762406"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Samouczek: Tworzenie kopii zapasowych baz danych SAP HANA na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -71,7 +71,7 @@ westus2    saphanaVault     saphanaResourceGroup
 
 Na maszynie SAP HANA należy uruchomić [skrypt przed rejestracją](https://aka.ms/scriptforpermsonhana) dla SAP HANA wystąpienia (maszyna wirtualna z zainstalowanym SAP HANA), który ma zostać odnaleziony przez usługi platformy Azure. Przed uruchomieniem skryptu upewnij się, że spełniono wszystkie [wymagania wstępne](./tutorial-backup-sap-hana-db.md#prerequisites) . Aby dowiedzieć się więcej na temat działania skryptu, zapoznaj się z sekcją co to jest [skrypt przed rejestracją](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) .
 
-Po uruchomieniu skryptu wystąpienie SAP HANA może zostać zarejestrowane w utworzonym wcześniej magazynie usługi Recovery Services. Aby zarejestrować wystąpienie, użyj polecenia cmdlet [AZ Backup Container Register](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-register) . *VMResourceId* to identyfikator zasobu maszyny wirtualnej, który został utworzony w celu zainstalowania SAP HANA.
+Po uruchomieniu skryptu wystąpienie SAP HANA może zostać zarejestrowane przy użyciu magazynu Recovery Services utworzonego wcześniej. Aby zarejestrować wystąpienie, użyj polecenia cmdlet [AZ Backup Container Register](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-register) . *VMResourceId* to identyfikator zasobu maszyny wirtualnej, który został utworzony w celu zainstalowania SAP HANA.
 
 ```azurecli-interactive
 az backup container register --resource-group saphanaResourceGroup \
@@ -150,7 +150,7 @@ Polecenie cmdlet [AZ Backup Job list](/cli/azure/backup/job?view=azure-cli-lates
 
 ## <a name="trigger-an-on-demand-backup"></a>Wyzwalanie kopii zapasowej na żądanie
 
-W powyższej sekcji szczegółowo opisano sposób konfigurowania zaplanowanej kopii zapasowej. Ta sekcja zawiera informacje o wyzwalaniu kopii zapasowej na żądanie. W tym celu użyj polecenia [AZ Backup Protection Backup-Now](/cli/azure/backup/protection#az-backup-protection-backup-now) .
+Powyższa sekcja zawiera szczegółowe informacje dotyczące konfigurowania zaplanowanej kopii zapasowej, w tym sekcję Informacje o wyzwalaniu kopii zapasowej na żądanie. W tym celu użyj polecenia [AZ Backup Protection Backup-Now](/cli/azure/backup/protection#az-backup-protection-backup-now) .
 
 >[!NOTE]
 > Zasady przechowywania kopii zapasowej na żądanie są określane przez podstawowe zasady przechowywania dla bazy danych.

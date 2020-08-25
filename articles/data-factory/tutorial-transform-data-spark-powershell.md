@@ -11,10 +11,10 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: bef80cdeab32d14aeaae350adda869a8ea7b05c7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "81409084"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Przekształcanie danych w chmurze za pomocą działania platformy Spark w usłudze Azure Data Factory
@@ -30,14 +30,14 @@ W tym samouczku użyjesz programu Azure PowerShell do utworzenia potoku fabryki 
 > * Uruchom potok.
 > * Monitorowanie uruchomienia potoku.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * **Konto usługi Azure Storage**. Utworzysz skrypt w języku Python i plik wejściowy, a następnie przekażesz je do usługi Azure Storage. Dane wyjściowe programu platformy Spark są przechowywane na tym koncie magazynu. Klaster platformy Spark na żądanie używa tego samego konta magazynu, jako swojego podstawowego magazynu.  
-* **Azure PowerShell**. Wykonaj instrukcje podane w temacie [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-Az-ps).
+* Zainstalowanie programu **Azure PowerShell**. Wykonaj instrukcje podane w temacie [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-Az-ps).
 
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Przekazywanie skryptu w języku Python do konta usługi Blob Storage
@@ -66,7 +66,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
     if __name__ == "__main__":
         main()
     ```
-2. Zastąp ** &lt;storageAccountName&gt; ** nazwą konta usługi Azure Storage. Następnie zapisz plik. 
+2. Zastąp ** &lt; storageAccountName &gt; ** nazwą konta usługi Azure Storage. Następnie zapisz plik. 
 3. W usłudze Azure Blob Storage utwórz kontener o nazwie **adftutorial**, jeśli nie istnieje. 
 4. Utwórz folder o nazwie **spark**.
 5. Utwórz podfolder o nazwie **script** w folderze **spark**. 

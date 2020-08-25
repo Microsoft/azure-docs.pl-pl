@@ -16,10 +16,10 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 11b7f8eeb94fb2d6f197af2d40b120c5f74d6128
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82583066"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Samouczek: używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Windows do uzyskiwania dostępu do usługi Azure Cosmos DB
@@ -41,7 +41,7 @@ W tym samouczku przedstawiono sposób używania tożsamości zarządzanej przypi
 - Zainstalowanie najnowszej wersji programu [Azure PowerShell](/powershell/azure/install-az-ps)
 
 
-## <a name="enable"></a>Włączanie
+## <a name="enable"></a>Włącz
 
 [!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
 
@@ -193,7 +193,7 @@ To polecenie interfejsu wiersza polecenia zwraca szczegółowe informacje o kole
 ```
 
 
-## <a name="disable"></a>Wyłączanie
+## <a name="disable"></a>Wyłącz
 
 [!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
 
@@ -204,6 +204,6 @@ To polecenie interfejsu wiersza polecenia zwraca szczegółowe informacje o kole
 W tym samouczku przedstawiono sposób używania przypisanej przez system tożsamości maszyny wirtualnej z systemem Windows w celu uzyskania dostępu do usługi Cosmos DB.  Aby dowiedzieć się więcej o usłudze Cosmos DB, zobacz:
 
 > [!div class="nextstepaction"]
->[Omówienie usługi Azure Cosmos DB](/azure/cosmos-db/introduction)
+>[Przegląd Azure Cosmos DB](/azure/cosmos-db/introduction)
 
 

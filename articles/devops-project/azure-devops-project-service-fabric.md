@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.openlocfilehash: ce35f3af38b98f43ebbd0d3f42136ab8358b19a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82233724"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-starter"></a>Samouczek: wdrażanie aplikacji ASP.NET Core na platformie Azure Service Fabric przy użyciu usługi Azure DevOps Starter
@@ -82,7 +82,7 @@ DevOps Starter automatycznie konfiguruje potok ciągłej integracji/ciągłego w
 
 1. Wskaż pole **stan** , a następnie wybierz przycisk wielokropka (...). Menu wyświetla kilka opcji, takich jak kolejkowanie nowej kompilacji, wstrzymywanie kompilacji i edytowanie potoku kompilacji.
 
-1. Wybierz pozycję **Edytuj**.
+1. Kliknij pozycję **Edytuj**.
 
 1. W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. W ramach kompilacji są wykonywane różne zadania, takie jak pobieranie kodu źródłowego z repozytorium Git, przywracanie zależności i publikowanie danych wyjściowych używanych na potrzeby wdrażania.
 

@@ -3,12 +3,12 @@ title: Informacje o procesie przywracania maszyny wirtualnej platformy Azure
 description: Dowiedz się, jak usługa Azure Backup przywraca usługi Azure Virtual Machines
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: a604e146dbe387675e9ed82030639921cfc03167
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb3f6bf729047dc6fe1c13c5ead1191188e30e5c
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067468"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761393"
 ---
 # <a name="about-azure-vm-restore"></a>Informacje o przywracaniu maszyny wirtualnej platformy Azure
 
@@ -46,12 +46,6 @@ W tym artykule opisano, jak [usługa Azure Backup](./backup-overview.md) przywra
 | [Przywracanie określonych plików na maszynie wirtualnej](./backup-azure-restore-files-from-vm.md) | Wybierz pozycję punkt przywracania, Przeglądaj, wybierz pozycję pliki i przywróć je do tego samego (lub zgodnego) systemu operacyjnego jako maszyny wirtualnej z kopią zapasową. |  Jeśli wiesz, które określone pliki mają być przywracane, Użyj tej opcji zamiast przywracania całej maszyny wirtualnej. |
 | [Przywracanie zaszyfrowanej maszyny wirtualnej](./backup-azure-vms-encryption.md) | W portalu Przywróć dyski, a następnie utwórz maszynę wirtualną za pomocą programu PowerShell | <li> [Zaszyfrowana maszyna wirtualna z Azure Active Directory (AAD)](../virtual-machines/windows/disk-encryption-windows-aad.md)  <li> [Zaszyfrowaną maszynę wirtualną bez usługi AAD](../virtual-machines/windows/disk-encryption-windows.md) <li> [Zaszyfrowaną maszynę wirtualną z zmigrowanym *usługą AAD* *bez usługi AAD*](../virtual-machines/windows/disk-encryption-faq.md#can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app) |
 | [Przywracanie między regionami](./backup-azure-arm-restore-vms.md#cross-region-restore) | Tworzenie nowej maszyny wirtualnej lub przywracanie dysków do regionu pomocniczego (region sparowany na platformie Azure) | <li> **Pełna awaria**: w przypadku funkcji przywracania między regionami nie ma czasu oczekiwania na odzyskanie danych w regionie pomocniczym. Możesz inicjować przywracanie w regionie pomocniczym nawet przed zainicjowaniem awarii przez platformę Azure. <li> **Awaria częściowa**: przestoje mogą wystąpić w określonych klastrach magazynu, w których Azure Backup przechowuje dane kopii zapasowej, a nawet w sieci, łącząc Azure Backup i klastry magazynu skojarzone z danymi kopii zapasowych. W przypadku przywracania między regionami można wykonać przywracanie w regionie pomocniczym, używając repliki kopii zapasowej danych w regionie pomocniczym. <li> **Brak przestoju**: można prowadzić przechodzenie do szczegółów działalności biznesowej i odzyskiwania po awarii (BCDR) na potrzeby inspekcji lub zgodności z danymi regionu pomocniczego. Dzięki temu można wykonać przywracanie kopii zapasowej danych w regionie pomocniczym, nawet jeśli w regionie podstawowym nie ma pełnej lub częściowej awarii w celu zapewnienia ciągłości działania i odzyskiwania po awarii.  |
-
-------
-
-
-
-
 
 ## <a name="next-steps"></a>Następne kroki
 

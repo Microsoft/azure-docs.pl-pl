@@ -11,10 +11,10 @@ ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 5c16173fb46144be7c44664c45e917ec0a886313
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82181162"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Przykłady kodu usługi Azure Active Directory B2C
@@ -23,7 +23,7 @@ Poniższe tabele zawierają linki do przykładów dla aplikacji systemu iOS i An
 
 ## <a name="mobile-and-desktop-apps"></a>Aplikacje mobilne i klasyczne
 
-| Przykład | Opis |
+| Sample | Opis |
 |--------| ----------- |
 | [ios-swift-native-msal](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal) | Przykład dla systemu iOS w języku Swift, który uwierzytelnia użytkowników usługi Azure AD B2C i wywołuje interfejs API przy użyciu protokołu OAuth 2.0 |
 | [android-native-msal](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal) | Prosta aplikacja systemu Android przedstawiająca sposób użycia biblioteki MSAL do uwierzytelniania użytkowników za pośrednictwem usługi Azure Active Directory B2C oraz do uzyskiwania dostępu do internetowego interfejsu API z tokenami wynikowymi. |
@@ -34,7 +34,7 @@ Poniższe tabele zawierają linki do przykładów dla aplikacji systemu iOS i An
 
 ## <a name="web-apps-and-apis"></a>Aplikacje internetowe i interfejsy API
 
-| Przykład | Opis |
+| Sample | Opis |
 |--------| ----------- |
 | [dotnet-webapp-and-webapi](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi) | Połączony przykład dotyczący internetowej aplikacji platformy .NET, która wywołuje internetowy interfejs API platformy .NET, a obydwa rozwiązania są zabezpieczane przy użyciu usługi Azure AD B2C. |
 | [dotnetcore-webapp](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp) | Internetowa aplikacja platformy ASP.NET Core, która może zalogować użytkownika za pomocą usługi Azure AD B2C, uzyskać token dostępu przy użyciu platformy MSAL.NET i wywołać interfejs API. |
@@ -44,12 +44,12 @@ Poniższe tabele zawierają linki do przykładów dla aplikacji systemu iOS i An
 
 ## <a name="single-page-apps"></a>Aplikacje jednostronicowe
 
-| Przykład | Opis |
+| Sample | Opis |
 |--------| ----------- |
-| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | Aplikacja jednostronicowa (SPA) wywołująca internetowy interfejs API. Uwierzytelnianie odbywa się za pomocą Azure AD B2C przy użyciu MSAL. js. |
+| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | Aplikacja jednostronicowa (SPA) wywołująca internetowy interfejs API. Uwierzytelnianie odbywa się z Azure AD B2C przy użyciu MSAL.js. |
 
 ## <a name="saml-test-application"></a>Aplikacja testowa SAML
 
-| Przykład | Opis |
+| Sample | Opis |
 |--------| ----------- |
 | [SAML-Sp-Tester](https://github.com/azure-ad-b2c/saml-sp-tester/tree/master/source-code) | Aplikacja testowa SAML do testowania Azure AD B2C skonfigurowana do działania jako dostawca tożsamości SAML. |

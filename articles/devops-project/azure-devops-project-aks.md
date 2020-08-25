@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.openlocfilehash: 7e298afa7efa6035b24f689d1163308ac6b14bff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82233333"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-starter"></a>Wdrażanie aplikacji ASP.NET Core w usłudze Azure Kubernetes za pomocą usługi Azure DevOps Starter
@@ -93,7 +93,7 @@ DevOps Starter automatycznie konfiguruje potok ciągłej integracji/ciągłego w
 
 1. Wskaż pole **stan** , a następnie wybierz przycisk wielokropka (...).  Menu wyświetla kilka opcji, takich jak kolejkowanie nowej kompilacji, wstrzymywanie kompilacji i edytowanie potoku kompilacji.
 
-1. Wybierz pozycję **Edytuj**.
+1. Kliknij pozycję **Edytuj**.
 
 1. W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. W ramach kompilacji są wykonywane różne zadania, takie jak pobieranie kodu źródłowego z repozytorium Git, przywracanie zależności i publikowanie danych wyjściowych używanych na potrzeby wdrażania.
 

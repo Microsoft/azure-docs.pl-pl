@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc
 ms.openlocfilehash: 8b812924c0922d460c631baec8b0e13a9f45cd76
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86109580"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Przygotowywanie maszyny wirtualnej środowiska VMware do oceny i migracji na platformę Azure
@@ -160,7 +160,7 @@ Urządzenie Azure Migrate łączy się z vCenter Server w celu odnalezienia i mi
 Alternatywnie możesz utworzyć konto. Następnie Utwórz rolę i przypisz ją do konta w następujący sposób:
 
 1. Zaloguj się do klienta w sieci Web jako administrator vCenter Server
-2. Wybierz wystąpienie vCenter Server > **Utwórz rolę**.
+2. Wybierz wystąpienie vCenter Server >  **Utwórz rolę**.
 3. Określ nazwę roli, na przykład <em>Azure_Migrate</em>, i przypisz [wymagane uprawnienia](migrate-support-matrix-vmware-migration.md#vmware-requirements-agentless) do roli.
 
     ![uprawnienia vCenter Server konta](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)

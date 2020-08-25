@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 5ffa85a2a681bfd064bfeade77d9ae7b85b1f723
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "79471765"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Samouczek: dodawanie domeny niestandardowej do usługi Front Door
@@ -24,7 +24,7 @@ W tym Samouczku opisano, jak dodać domenę niestandardową do usługi Front Doo
 
 Po utworzeniu usługi Front Door domyślny host frontonu, który jest domeną podrzędną domeny `azurefd.net`, zostaje dołączony do adresu URL na potrzeby domyślnego dostarczania zawartości usługi Front Door z wewnętrznej bazy danych (na przykład https:\//contoso.azurefd.net/activeusers.htm). Dla Twojej wygody usługa Azure Front Door udostępnia opcję kojarzenia domeny niestandardowej z hostem domyślnym. Ta opcja umożliwia dostarczanie zawartości przy użyciu domeny niestandardowej w adresie URL zamiast korzystania z nazwy domeny należącej do usługi Front Door (np. https:\//www.contoso.com/photo.png). 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > - Tworzenie rekordu DNS CNAME.
 > - Kojarzenie domeny niestandardowej z usługą Front Door.
@@ -44,9 +44,9 @@ Jeśli nie masz jeszcze domeny niestandardowej, musisz ją najpierw kupić od do
 Jeśli używasz platformy Azure do hostowania [domen DNS](https://docs.microsoft.com/azure/dns/dns-overview), musisz delegować system nazw domen (DNS) dostawcy domen do usługi Azure DNS. Aby uzyskać więcej informacji, zobacz [delegowanie domeny do Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). W przeciwnym razie, jeśli używasz dostawcy domeny do obsługi domeny DNS, przejdź do sekcji [Tworzenie rekordu DNS CNAME](#create-a-cname-dns-record).
 
 
-## <a name="create-a-cname-dns-record"></a>Tworzenie rekordu DNS CNAME
+## <a name="create-a-cname-dns-record"></a>Tworzenie rekordu CNAME usługi DNS
 
-Przed rozpoczęciem używania domeny niestandardowej z usługą Front Door należy najpierw utworzyć rekord nazwy kanonicznej (CNAME) z pomocą dostawcy domeny, aby wskazać na domyślny host frontonu usługi Front Door (powiedzmy contoso.azurefd.net). Rekord CNAME jest typem rekordu DNS, który mapuje nazwę domeny źródłowej na nazwę domeny docelowej. W przypadku drzwi frontonu platformy Azure nazwa domeny źródłowej to nazwa domeny niestandardowej, a nazwa domeny docelowej to domyślna nazwa hosta drzwi. Po zweryfikowaniu utworzonego przez Ciebie rekordu CNAME ruch skierowany do źródłowej domeny niestandardowej (na przykład www\.contoso.com) jest kierowany do określonego docelowego hosta frontonu (na przykład contoso.azurefd.NET). 
+Przed rozpoczęciem używania domeny niestandardowej z usługą Front Door należy najpierw utworzyć rekord nazwy kanonicznej (CNAME) z pomocą dostawcy domeny, aby wskazać na domyślny host frontonu usługi Front Door (powiedzmy contoso.azurefd.net). Rekord CNAME jest typem rekordu DNS, który mapuje nazwę domeny źródłowej na nazwę domeny docelowej. W przypadku drzwi frontonu platformy Azure nazwa domeny źródłowej to nazwa domeny niestandardowej, a nazwa domeny docelowej to domyślna nazwa hosta drzwi. Po zweryfikowaniu utworzonego przez Ciebie rekordu CNAME ruch skierowany do źródłowej domeny niestandardowej (na przykład www \. contoso.com) jest kierowany do określonego docelowego hosta frontonu (na przykład contoso.azurefd.NET). 
 
 Domenę niestandardową i jej poddomenę można skojarzyć tylko z jednymi przednimi drzwiami w danym momencie. Można jednak używać różnych poddomen z tej samej domeny niestandardowej dla różnych drzwi przednich przy użyciu wielu rekordów CNAME. Możesz również zmapować domenę niestandardową o różne domeny podrzędne na te same tylne drzwi.
 
@@ -69,11 +69,11 @@ Aby utworzyć rekord CNAME z poziomu domeny podrzędnej afdverify:
     |---------------------------|-------|---------------------------------|
     | afdverify.www.contoso.com | CNAME | afdverify.contoso.azurefd.net |
 
-    - Źródło: Wprowadź nazwę domeny niestandardowej, w tym poddomenę afdverify, w następującym formacie: afdverify. _niestandardowa&gt;nazwa domeny. &lt;_ Na przykład afdverify.www.contoso.com.
+    - Źródło: Wprowadź nazwę domeny niestandardowej, w tym poddomenę afdverify, w następującym formacie: afdverify. _ &lt; niestandardowa &gt; nazwa domeny_. Na przykład afdverify.www.contoso.com.
 
     - Typ: wprowadź wartość *CNAME*.
 
-    - Miejsce docelowe: Wprowadź swój domyślny Host frontonu frontonu, w tym poddomenę afdverify, w następującym formacie: afdverify. Nazwa punktu końcowego. azurefd.NET. _ &lt;&gt;_ Na przykład afdverify.contoso.azurefd.net.
+    - Miejsce docelowe: Wprowadź swój domyślny Host frontonu frontonu, w tym poddomenę afdverify, w następującym formacie: afdverify. _ &lt; nazwa &gt; punktu końcowego_. azurefd.NET. Na przykład afdverify.contoso.azurefd.net.
 
 4. Zapisz zmiany.
 
@@ -114,7 +114,7 @@ Po zarejestrowaniu domeny niestandardowej można dodać ją do usługi Front Doo
 
 4. Dla opcji **Host frontonu** wstępnie wypełniony jest host frontonu do użycia jako domena docelowa rekordu CNAME, utworzony na podstawie usługi Front Door: *&lt;domyślna nazwa hosta&gt;*.azurefd.net. Nie można zmienić tej nazwy.
 
-5. W obszarze **Niestandardowa nazwa hosta** wprowadź domenę niestandardową (razem z poddomeną), która ma być używana jako domena źródłowa rekordu CNAME. Na przykład www\.contoso.com lub CDN.contoso.com. Nie używaj nazwy domeny podrzędnej afdverify.
+5. W obszarze **Niestandardowa nazwa hosta** wprowadź domenę niestandardową (razem z poddomeną), która ma być używana jako domena źródłowa rekordu CNAME. Na przykład www \. contoso.com lub CDN.contoso.com. Nie używaj nazwy domeny podrzędnej afdverify.
 
 6. Wybierz pozycję **Dodaj**.
 
@@ -127,7 +127,7 @@ Po zarejestrowaniu domeny niestandardowej można dodać ją do usługi Front Doo
 
 Po zakończeniu rejestracji domeny niestandardowej sprawdź, czy odwołuje się ona do domyślnego hosta frontonu usługi Front Door.
  
-W przeglądarce przejdź do adresu pliku przy użyciu domeny niestandardowej. Jeśli na przykład domena niestandardowa to robotics.contoso.com, adres URL buforowanego pliku powinien być podobny do następującego: http:\//robotics.contoso.com/my-public-container/my-file.jpg. Sprawdź, czy wynik jest taki sam jak w przypadku uzyskiwania dostępu do przednich drzwi bezpośrednio z * &lt;przodu&gt;*. azurefd.NET.
+W przeglądarce przejdź do adresu pliku przy użyciu domeny niestandardowej. Jeśli na przykład domena niestandardowa to robotics.contoso.com, adres URL buforowanego pliku powinien być podobny do następującego: http:\//robotics.contoso.com/my-public-container/my-file.jpg. Sprawdź, czy wynik jest taki sam jak w przypadku uzyskiwania dostępu do przednich drzwi bezpośrednio z * &lt; przodu &gt; *. azurefd.NET.
 
 
 ## <a name="map-the-permanent-custom-domain"></a>Mapowanie trwałej domeny niestandardowej
@@ -146,11 +146,11 @@ Aby utworzyć rekord CNAME dla domeny niestandardowej:
     |-----------------|-------|-----------------------|
     | <www.contoso.com> | CNAME | contoso.azurefd.net |
 
-   - Źródło: wprowadź niestandardową nazwę domeny (na przykład www\.contoso.com).
+   - Źródło: wprowadź niestandardową nazwę domeny (na przykład www \. contoso.com).
 
    - Typ: wprowadź wartość *CNAME*.
 
-   - Element docelowy: wprowadź domyślny host frontonu usługi Front Door. Musi mieć następujący format:_&lt;hostname&gt;_. azurefd.NET. Na przykład contoso.azurefd.net.
+   - Element docelowy: wprowadź domyślny host frontonu usługi Front Door. Musi mieć następujący format:_ &lt; hostname &gt; _. azurefd.NET. Na przykład contoso.azurefd.net.
 
 4. Zapisz zmiany.
 
@@ -187,7 +187,7 @@ Na przykład procedura rejestratora domen GoDaddy wygląda następująco:
 8. Wybierz pozycję **Usuń**, aby usunąć rekord CNAME.
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W poprzednich krokach dodano domenę niestandardową do usługi Front Door. Jeśli nie chcesz skojarzyć usługi Front Door z domeną niestandardową, możesz usunąć domenę niestandardową, wykonując następujące kroki:
  

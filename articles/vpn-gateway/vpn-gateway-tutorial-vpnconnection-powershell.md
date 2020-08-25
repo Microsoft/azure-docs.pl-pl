@@ -9,10 +9,10 @@ ms.date: 03/11/2020
 ms.author: yushwang
 ms.custom: mvc
 ms.openlocfilehash: 18c6188e1b13c35a4c28a5f9e7fc863f00798eed
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "80616397"
 ---
 # <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Samouczek: tworzenie połączeń sieci VPN S2S i zarządzanie nimi przy użyciu programu PowerShell
@@ -120,7 +120,7 @@ Get-AzVirtualNetworkGatewayConnectionSharedKey `
   -Name $Connection1 -ResourceGroupName $RG1
 ```
 
-Wynikiem tego przykładu będzie **"\@Azure! b2C3**". Użyj poniższego polecenia, aby zmienić wartość klucza wstępnego na "**Azure\@! _b2 = C3**":
+Wynikiem tego przykładu będzie "**Azure \@ ! b2C3**". Użyj poniższego polecenia, aby zmienić wartość klucza wstępnego na "**Azure \@ ! _B2 = C3**":
 
 ```azurepowershell-interactive
 Set-AzVirtualNetworkGatewayConnectionSharedKey `
@@ -224,7 +224,7 @@ Usuń bramę sieci lokalnej, jeśli nie jest już potrzebna. Nie można usunąć
 Remove-AzVirtualNetworkGatewayConnection -Name $LNG2 -ResourceGroupName $RG1
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli ta konfiguracja jest częścią wdrożenia prototypowego lub służącego do weryfikacji koncepcji, możesz usunąć grupę zasobów, bramę sieci VPN i wszystkie powiązane zasoby za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 

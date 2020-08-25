@@ -10,10 +10,10 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 27b7040bace80fff5cbcb6a12e4020cfe0c7fc9a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "80058642"
 ---
 # <a name="connect-an-app-service-app-to-an-azure-cache-for-redis-using-cli"></a>Łączenie aplikacji usługi App Service z pamięcią podręczną Azure Cache for Redis przy użyciu interfejsu wiersza polecenia

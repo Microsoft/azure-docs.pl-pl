@@ -4,12 +4,12 @@ description: W tym artykule omówiono obsługiwane scenariusze i ograniczenia do
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: 674bbf968b42f66a4c421aec6653881c8fd52a8b
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: f254b50f196b4087080162755eee4397da5a9940
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439579"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761784"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Macierz obsługi dla kopii zapasowych baz danych platformy SAP HANA na maszynach wirtualnych platformy Azure
 
@@ -31,7 +31,7 @@ Azure Backup obsługuje tworzenie kopii zapasowych baz danych SAP HANA na platfo
 | **Typy baz danych HANA**    | Kontener pojedyncza baza danych (SDC) na 1. x, kontener wielobaza danych (MDC) w 2. x | MDC w HANA 1. x                                              |
 | **Rozmiar bazy danych HANA**     | Bazy danych HANA o rozmiarze <= 2 TB (nie jest to rozmiar pamięci systemu HANA)               |                                                              |
 | **Typy kopii zapasowych**           | Pełne, różnicowe i dzienniki kopii zapasowych                          | Przyrostowe, migawki                                       |
-| **Przywróć typy**          | Zapoznaj się z SAP HANA Uwaga [1642148](https://launchpad.support.sap.com/#/notes/1642148) , aby dowiedzieć się więcej o obsługiwanych typach przywracania |                                                              |
+| **Typy przywracania**          | Zapoznaj się z SAP HANA Uwaga [1642148](https://launchpad.support.sap.com/#/notes/1642148) , aby dowiedzieć się więcej o obsługiwanych typach przywracania |                                                              |
 | **Limity kopii zapasowych**          | Do 2 TB rozmiaru pełnej kopii zapasowej na wystąpienie SAP HANA         |                                                              |
 | **Konfiguracje specjalne** |                                                              | SAP HANA + warstwa dynamiczna <br>  Klonowanie za poorednictwem LaMa        |
 
@@ -41,7 +41,6 @@ Azure Backup obsługuje tworzenie kopii zapasowych baz danych SAP HANA na platfo
 >Azure Backup nie dostosowuje się automatycznie podczas tworzenia kopii zapasowej bazy danych SAP HANA uruchomionej na maszynie wirtualnej platformy Azure.
 >
 >Zmodyfikuj zasady ręcznie w razie konieczności.
-
 
 > [!NOTE]
 > Teraz można [monitorować zadania tworzenia kopii zapasowej i przywracania](./sap-hana-db-manage.md#monitor-manual-backup-jobs-in-the-portal) (na tym samym komputerze) wyzwalane przez klientów natywnych platformy HANA (SAP HANA Studio/Panel sterowania/dba) w Azure Portal.

@@ -12,10 +12,10 @@ ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 03/12/2018
 ms.openlocfilehash: e63180a3c4b8de06ab9e26afc8fff322188291cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "81418987"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Uruchamianie notesu usługi Databricks za pomocą działania notesu usługi Databricks w usłudze Azure Data Factory
@@ -34,7 +34,7 @@ Ten samouczek obejmuje następujące procedury:
 
   - Monitorowanie uruchomienia potoku.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
 Poniższy klip wideo zawiera jedenastominutowe wprowadzenie i demonstrację tej funkcji:
 
@@ -54,7 +54,7 @@ Poniższy klip wideo zawiera jedenastominutowe wprowadzenie i demonstrację tej 
 
 1.  W okienku **Nowa fabryka danych** wprowadź wartość **ADFTutorialDataFactory** w polu **Nazwa**.
 
-    Nazwa fabryki danych Azure musi być *globalnie unikatowa*. Jeśli zostanie wyświetlony poniższy błąd, zmień nazwę fabryki danych. (Na przykład użyj ** \<\>** elementuname ADFTutorialDataFactory). Artykuł [Usługa Data Factory — reguły nazewnictwa](https://docs.microsoft.com/azure/data-factory/naming-rules) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
+    Nazwa fabryki danych Azure musi być *globalnie unikatowa*. Jeśli zostanie wyświetlony poniższy błąd, zmień nazwę fabryki danych. (Na przykład użyj ** \<yourname\> ADFTutorialDataFactory**). Artykuł [Usługa Data Factory — reguły nazewnictwa](https://docs.microsoft.com/azure/data-factory/naming-rules) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
 
     ![Udostępnianie nazwy nowej fabryki danych](media/transform-data-using-databricks-notebook/new-azure-data-factory.png)
 
@@ -100,7 +100,7 @@ W tej sekcji utworzysz połączoną usługę Databricks. Ta połączona usługa 
 
 1.  W oknie **Nowa połączona usługa** wykonaj następujące czynności:
     
-    1.  W obszarze **Nazwa**wprowadź ***AzureDatabricks\_LinkedService***
+    1.  W obszarze **Nazwa**wprowadź ***AzureDatabricks \_ LinkedService***
     
     1.  Wybierz odpowiedni **obszar roboczy usługi Databricks**, w którym uruchomisz notes.
 
@@ -116,13 +116,13 @@ W tej sekcji utworzysz połączoną usługę Databricks. Ta połączona usługa 
     
     1.  W polu **Procesy robocze** podaj wartość **2**.
     
-    1.  Wybierz pozycję **Zakończ**.
+    1.  Wybierz **zakończenie**
 
         ![Kończenie tworzenia połączonej usługi](media/transform-data-using-databricks-notebook/new-databricks-linkedservice.png)
 
 ## <a name="create-a-pipeline"></a>Tworzenie potoku
 
-1.  Wybierz przycisk **+** (znak plus), a następnie wybierz pozycję **potok** w menu.
+1.  Wybierz **+** przycisk (znak plus), a następnie wybierz pozycję **potok** w menu.
 
     ![Przyciski do tworzenia nowego potoku](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image9.png)
 
@@ -179,9 +179,9 @@ W tej sekcji utworzysz połączoną usługę Databricks. Ta połączona usługa 
 
        ![Dodawanie parametru](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
 
-    b.  Nazwij parametr jako **dane wejściowe** i podaj wartość jako potok wyrażeń ** \@(). Parameters. Name**.
+    b.  Nazwij parametr jako **dane wejściowe** i podaj wartość jako potok wyrażeń ** \@ (). Parameters. Name**.
 
-1.  Aby zweryfikować potok, wybierz przycisk **Weryfikuj** na pasku narzędzi. Aby zamknąć okno walidacji, wybierz przycisk ** \> ** (Strzałka w prawo).
+1.  Aby zweryfikować potok, wybierz przycisk **Weryfikuj** na pasku narzędzi. Aby zamknąć okno walidacji, wybierz **\>\>** przycisk (Strzałka w prawo).
 
     ![Weryfikowanie potoku](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image18.png)
 

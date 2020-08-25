@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: b9e1800d07d418ff385f2c5e7af112b170e3fd44
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "82780202"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Samouczek: Dodawanie punktu końcowego HTTPS do usługi frontonu internetowego interfejsu API platformy ASP.NET Core za pomocą usługi Kestrel
@@ -153,7 +153,7 @@ serviceContext =>
 Dodaj również następującą metodę, tak aby usługa Kestrel mogła znaleźć certyfikat w magazynie `Cert:\LocalMachine\My` przy użyciu podmiotu.  
 
 Zastąp ciąg „&lt;your_CN_value&gt;” wartością „mytestcert”, jeśli utworzono certyfikat z podpisem własnym za pomocą polecenia programu PowerShell, lub użyj nazwy pospolitej (CN) certyfikatu.
-Należy pamiętać, że w przypadku lokalnego wdrożenia `localhost` , preferowane jest użycie "CN = localhost", aby uniknąć wyjątków uwierzytelniania.
+Należy pamiętać, że w przypadku lokalnego wdrożenia, `localhost` preferowane jest użycie "CN = localhost", aby uniknąć wyjątków uwierzytelniania.
 
 ```csharp
 private X509Certificate2 FindMatchingCertificateBySubject(string subjectCommonName)
@@ -348,11 +348,11 @@ Następnie w sekcji **ServiceManifestImport** pliku VotingWebPkg skonfiguruj zas
 </ApplicationManifest>
 ```
 
-## <a name="run-the-application-locally"></a>Uruchamianie aplikacji lokalnie
+## <a name="run-the-application-locally"></a>Lokalne uruchamianie aplikacji
 
-W Eksplorator rozwiązań wybierz aplikację do **głosowania** i ustaw właściwość **adres URL aplikacji** na wartość "https:\//localhost: 443".
+W Eksplorator rozwiązań wybierz aplikację do **głosowania** i ustaw właściwość **adres URL aplikacji** na wartość "https: \/ /localhost: 443".
 
-Zapisz wszystkie pliki i naciśnij klawisz F5, aby uruchomić aplikację lokalnie.  Po wdrożeniu aplikacji zostanie otwarta przeglądarka sieci Web https:\//localhost: 443. Jeśli używasz certyfikatu z podpisem własnym, zobaczysz ostrzeżenie, że komputer nie ufa zabezpieczeniom tej witryny internetowej.  Kontynuuj przechodzenie do strony internetowej.
+Zapisz wszystkie pliki i naciśnij klawisz F5, aby uruchomić aplikację lokalnie.  Po wdrożeniu aplikacji zostanie otwarta przeglądarka sieci Web https: \/ /localhost: 443. Jeśli używasz certyfikatu z podpisem własnym, zobaczysz ostrzeżenie, że komputer nie ufa zabezpieczeniom tej witryny internetowej.  Kontynuuj przechodzenie do strony internetowej.
 
 ![Aplikacja do głosowania][image2]
 
@@ -360,7 +360,7 @@ Zapisz wszystkie pliki i naciśnij klawisz F5, aby uruchomić aplikację lokalni
 
 Przed wdrożeniem aplikacji na platformie Azure należy zainstalować certyfikat w magazynie `Cert:\LocalMachine\My` wszystkich węzłów klastra zdalnego.  Usługi można przenosić do różnych węzłów klastra.  Po uruchomieniu usługi internetowej frontonu w węźle klastra skrypt uruchamiania wyszuka certyfikat i skonfiguruje uprawnienia dostępu.
 
-Najpierw należy wyeksportować certyfikat do pliku PFX. Otwórz aplikację certlm. msc i przejdź do apletu**Certyfikaty** **osobiste**>.  Kliknij prawym przyciskiem myszy certyfikat *mytestcert*, a następnie wybierz pozycję **Wszystkie zadania**>**Eksportowanie**.
+Najpierw należy wyeksportować certyfikat do pliku PFX. Otwórz aplikację certlm. msc i przejdź do apletu **Personal** > **Certyfikaty**osobiste.  Kliknij prawym przyciskiem myszy certyfikat *mytestcert*, a następnie wybierz pozycję **Wszystkie zadania**>**Eksportowanie**.
 
 ![Eksportowanie certyfikatu][image4]
 
@@ -396,7 +396,7 @@ $slb | Add-AzLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $slb.Bac
 $slb | Set-AzLoadBalancer
 ```
 
-## <a name="deploy-the-application-to-azure"></a>Wdrażanie aplikacji na platformie Azure
+## <a name="deploy-the-application-to-azure"></a>Wdrożenie aplikacji na platformie Azure
 
 Zapisz wszystkie pliki, przełącz z debugowania na wydanie i naciśnij klawisz F6, aby ponownie skompilować rozwiązanie.  W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy pozycję **Voting (Głosowanie)** i wybierz polecenie **Opublikuj**. Wybierz punkt końcowy połączenia klastra utworzonego w sekcji [Wdrażanie aplikacji w klastrze](service-fabric-tutorial-deploy-app-to-party-cluster.md) lub wybierz inny klaster.  Kliknij pozycję **Opublikuj**, aby opublikować aplikację w klastrze zdalnym.
 

@@ -9,10 +9,10 @@ ms.date: 11/20/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: c3cb940583677d813873c07fbfa679fdcc1dff59
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "77565472"
 ---
 # <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Samouczek: przeprowadzanie analizy głównej przyczyny po wystąpieniu alertu
@@ -30,7 +30,7 @@ W tym samouczku zostały wykonane następujące czynności:
 > * Przeprowadzanie analizy głównej przyczyny
 > * Tworzenie nowej reguły na podstawie zdobytych informacji
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 

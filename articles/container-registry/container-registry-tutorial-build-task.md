@@ -5,13 +5,13 @@ ms.topic: tutorial
 ms.date: 05/04/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 2f70b829e2202c3d28adcfbbb07338923c43e8a8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "78402849"
 ---
-# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Samouczek: Automatyzowanie kompilacji obrazów kontenerów w chmurze podczas zatwierdzania kodu źródłowego
+# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Samouczek: Automatyzowanie kompilacji obrazu kontenera w chmurze po zatwierdzeniu kodu źródłowego
 
 Oprócz [szybkiego zadania](container-registry-tutorial-quick-task.md)zadania ACR obsługują zautomatyzowane kompilacje obrazów kontenerów platformy Docker w chmurze podczas zatwierdzania kodu źródłowego w repozytorium git. Obsługiwane konteksty git dla zadań ACR obejmują publiczne lub prywatne repozytoria GitHub lub Azure.
 

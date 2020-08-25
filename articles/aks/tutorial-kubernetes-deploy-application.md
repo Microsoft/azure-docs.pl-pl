@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.custom: mvc
 ms.openlocfilehash: 3b614fcb6692f35884af2fc4e19210267ab8ab04
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "77593278"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Samouczek: uruchamianie aplikacji w usłudze Azure Kubernetes Service (AKS)

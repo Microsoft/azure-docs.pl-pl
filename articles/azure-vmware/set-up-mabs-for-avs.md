@@ -3,12 +3,12 @@ title: Skonfiguruj Azure Backup Server rozwiązania VMware dla platformy Azure
 description: Skonfiguruj środowisko rozwiązań VMware platformy Azure, aby utworzyć kopię zapasową maszyn wirtualnych przy użyciu Azure Backup Server.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: c45d2030e282057c487d142669ab634cd81f6929
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0dd2b16254e697a08d0ff542a5ddcb3fc7e4103d
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079540"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750616"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Skonfiguruj Azure Backup Server rozwiązania VMware dla platformy Azure
 
@@ -56,7 +56,7 @@ Aby skonfigurować Azure Backup Server rozwiązania VMware dla platformy Azure, 
 
 Azure Backup Server jest wdrażana jako maszyna wirtualna platformy Azure jako usługa (IaaS) w celu ochrony maszyn wirtualnych rozwiązań VMware platformy Azure.
 
-:::image type="content" source="media/avs-backup/deploy-mabs-avs-diagram.png" alt-text="Architektura wdrożenia automatycznej synchronizacji" border="false":::
+:::image type="content" source="media/avs-backup/deploy-mabs-avs-diagram.png" alt-text="Azure Backup Server jest wdrażana jako maszyna wirtualna platformy Azure jako usługa (IaaS) w celu ochrony maszyn wirtualnych rozwiązań VMware platformy Azure." border="false":::
 
 ## <a name="prerequisites-for-the-azure-backup-server-environment"></a>Wymagania wstępne dotyczące środowiska Azure Backup Server
 
@@ -140,23 +140,23 @@ Magazyn Recovery Services jest jednostką magazynową, która przechowuje punkty
 
 1. W menu po lewej stronie wybierz pozycję **Wszystkie usługi**.
 
-   ![Wybieranie pozycji Wszystkie usługi](../backup/media/backup-create-rs-vault/click-all-services.png)
+   ![W menu po lewej stronie wybierz pozycję Wszystkie usługi.](../backup/media/backup-create-rs-vault/click-all-services.png)
 
 1. W oknie dialogowym **wszystkie usługi** wprowadź **Recovery Services** a następnie wybierz pozycję **magazyny Recovery Services** z listy.
 
-   ![Wprowadzanie i wybieranie pozycji Magazyny usługi Recovery Services](../backup/media/backup-create-rs-vault/all-services.png)
+   ![Wprowadź i wybierz Recovery Services magazynów.](../backup/media/backup-create-rs-vault/all-services.png)
 
    Zostanie wyświetlona lista magazynów usługi Recovery Services w ramach subskrypcji.
 
 1. Na pulpicie nawigacyjnym **Recovery Services magazynów** wybierz pozycję **Dodaj**.
 
-   ![Dodawanie magazynu Recovery Services](../backup/media/backup-create-rs-vault/add-button-create-vault.png)
+   ![Dodaj magazyn Recovery Services.](../backup/media/backup-create-rs-vault/add-button-create-vault.png)
 
    Zostanie otwarte okno dialogowe **magazyn Recovery Services** .
 
 1. Wprowadź wartości dla **nazwy**, **subskrypcji**, **grupy zasobów**i **lokalizacji**.
 
-   ![Konfigurowanie magazynu Recovery Services](../backup/media/backup-create-rs-vault/create-new-vault-dialog.png)
+   ![Skonfiguruj magazyn Recovery Services.](../backup/media/backup-create-rs-vault/create-new-vault-dialog.png)
 
    - **Nazwa**: wprowadź przyjazną nazwę identyfikującą magazyn. Nazwa musi być unikatowa dla subskrypcji platformy Azure. Określ nazwę, która ma co najmniej dwa znaki, ale nie więcej niż 50 znaków. Nazwa musi rozpoczynać się od litery i zawierać tylko litery, cyfry i łączniki.
    - **Subskrypcja**: wybierz subskrypcję do użycia. Jeśli jesteś członkiem tylko jednej subskrypcji, zobaczysz tę nazwę. Jeśli nie masz pewności, której subskrypcji użyć, Użyj domyślnej (sugerowanej) subskrypcji. Istnieje wiele opcji, które są dostępne tylko wtedy, gdy konto służbowe jest skojarzone z więcej niż jedną subskrypcją platformy Azure.
@@ -165,11 +165,11 @@ Magazyn Recovery Services jest jednostką magazynową, która przechowuje punkty
 
 1. Gdy wszystko będzie gotowe do utworzenia magazynu Recovery Services, wybierz pozycję **Utwórz**.
 
-   ![Tworzenie magazynu Recovery Services](../backup/media/backup-create-rs-vault/click-create-button.png)
+   ![Utwórz magazyn Recovery Services.](../backup/media/backup-create-rs-vault/click-create-button.png)
 
    Utworzenie magazynu Recovery Services może chwilę potrwać. Monitoruj powiadomienia o stanie w obszarze **powiadomienia** w prawym górnym rogu portalu. Po utworzeniu magazynu będzie on widoczny na liście magazynów Recovery Services. Jeśli Twój magazyn nie jest widoczny, wybierz pozycję **Odśwież**.
 
-   ![Odświeżanie listy magazynów kopii zapasowych](../backup/media/backup-create-rs-vault/refresh-button.png)
+   ![Odśwież listę magazynów kopii zapasowych.](../backup/media/backup-create-rs-vault/refresh-button.png)
 
 ## <a name="set-storage-replication"></a>Ustaw replikację magazynu
 
@@ -184,7 +184,7 @@ Opcja replikacja magazynu umożliwia wybranie między magazynem geograficznie na
 
 1. Wybierz typ replikacji magazynu i wybierz pozycję **Zapisz**.
 
-   ![Ustaw konfigurację magazynu dla nowego magazynu](../backup/media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+   ![Ustaw konfigurację magazynu dla nowego magazynu.](../backup/media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
 ## <a name="download-and-install-the-software-package"></a>Pobierz i zainstaluj pakiet oprogramowania
 
@@ -206,15 +206,15 @@ Wykonaj kroki opisane w tej sekcji, aby pobrać, wyodrębnić i zainstalować pa
 
    Zostanie otwarty pulpit nawigacyjny wybranego magazynu.
 
-   ![Otwórz pulpit nawigacyjny magazynu](../backup/media/backup-azure-microsoft-azure-backup/vault-dashboard.png)
+   ![Zostanie otwarty pulpit nawigacyjny wybranego magazynu.](../backup/media/backup-azure-microsoft-azure-backup/vault-dashboard.png)
 
    Opcja **Ustawienia** zostanie domyślnie otwarta. Jeśli jest zamknięty, wybierz pozycję **Ustawienia** , aby go otworzyć.
 
-   ![Otwórz opcję ustawień magazynu](../backup/media/backup-azure-microsoft-azure-backup/vault-setting.png)
+   ![Opcja ustawienia zostanie domyślnie otwarta. Jeśli jest zamknięty, wybierz pozycję Ustawienia, aby go otworzyć.](../backup/media/backup-azure-microsoft-azure-backup/vault-setting.png)
 
 1. Wybierz pozycję **kopia zapasowa** , aby otworzyć kreatora **wprowadzenie** .
 
-   ![Zostanie otwarta kopia zapasowa Kreator Wprowadzenie](../backup/media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
+   ![Wybierz pozycję Kopia zapasowa, aby otworzyć kreatora Wprowadzenie.](../backup/media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
 
 1. W otwartym oknie wykonaj następujące czynności:
 
@@ -241,7 +241,7 @@ Wykonaj kroki opisane w tej sekcji, aby pobrać, wyodrębnić i zainstalować pa
    > [!NOTE]
    > Musisz pobrać wszystkie pliki do tego samego folderu. Ponieważ rozmiar pobieranych plików jest większy niż 3 GB, ukończenie pobierania może zająć do 60 minut. 
 
-   ![Wybierz pliki w centrum pobierania](../backup/media/backup-azure-microsoft-azure-backup/downloadcenter.png)
+   ![Na stronie Pobieranie zaznacz wszystkie pliki i wybierz pozycję Dalej.](../backup/media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
 ### <a name="extract-the-software-package"></a>Wyodrębnij pakiet oprogramowania
 
@@ -256,7 +256,7 @@ Jeśli pakiet oprogramowania został pobrany na inny serwer, skopiuj pliki na ma
 
 1. Wybierz pozycję **Wyodrębnij** , aby rozpocząć proces wyodrębniania.
 
-   ![Kreator instalacji Microsoft Azure Backup](../backup/media/backup-azure-microsoft-azure-backup/extract/03.png)
+   ![Wybierz pozycję Wyodrębnij, aby rozpocząć proces wyodrębniania.](../backup/media/backup-azure-microsoft-azure-backup/extract/03.png)
 
 1. Po wyodrębnieniu wybierz opcję **wykonywania setup.exe** a następnie wybierz pozycję **Zakończ**.
 
@@ -267,17 +267,17 @@ Jeśli pakiet oprogramowania został pobrany na inny serwer, skopiuj pliki na ma
 
 1. W oknie instalatora w obszarze **Instalacja**wybierz pozycję **Microsoft Azure Backup** , aby otworzyć Kreatora instalacji.
 
-   ![Przycisk instalacji kreatora instalacji Microsoft Azure Backup](../backup/media/backup-azure-microsoft-azure-backup/launch-screen2.png)
+   ![W oknie instalatora w obszarze Instalacja wybierz pozycję Microsoft Azure Backup, aby otworzyć Kreatora instalacji.](../backup/media/backup-azure-microsoft-azure-backup/launch-screen2.png)
 
 1. Na ekranie **powitalnym** wybierz pozycję **dalej** , aby przejść do strony **Sprawdzanie wymagań wstępnych** .
 
 1. Wybierz pozycję **Sprawdź ponownie** , aby określić, czy zostały spełnione wymagania wstępne dotyczące sprzętu i oprogramowania dla Azure Backup Server. Jeśli zostało spełnione pomyślnie, wybierz pozycję **dalej**.
 
-   ![Sprawdzanie wymagań wstępnych Azure Backup Server](../backup/media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
+   ![ Wybierz pozycję Sprawdź ponownie, aby określić, czy zostały spełnione wymagania wstępne dotyczące sprzętu i oprogramowania dla Azure Backup Server. Jeśli zostało spełnione pomyślnie, wybierz pozycję Dalej.](../backup/media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 
 1. Pakiet instalacyjny Azure Backup Server jest powiązany z odpowiednimi SQL Server plikami binarnymi, które są potrzebne. Po uruchomieniu nowej instalacji Azure Backup Server wybierz opcję **Zainstaluj nowe wystąpienie SQL Server z tą konfiguracją** . Następnie wybierz pozycję **Sprawdź i zainstaluj**.
 
-   ![Sprawdzanie SQL Server Azure Backup Server](../backup/media/backup-azure-microsoft-azure-backup/sql/01.png)
+   ![Pakiet instalacyjny Azure Backup Server jest powiązany z odpowiednimi SQL Server plikami binarnymi, które są potrzebne.](../backup/media/backup-azure-microsoft-azure-backup/sql/01.png)
 
    > [!NOTE]
    > Jeśli chcesz użyć własnego wystąpienia SQL Server, obsługiwane wersje SQL Server są SQL Server 2014 z dodatkiem SP1 lub nowszym, 2016 i 2017. Wszystkie SQL Server wersje powinny mieć wersję Standard lub Enterprise 64-bit. Azure Backup Server nie działa z wystąpieniem SQL Server zdalnego. Wystąpienie używane przez Azure Backup Server musi być lokalne. Jeśli używasz istniejącego wystąpienia SQL Server dla Azure Backup Server, Instalator obsługuje tylko *nazwane wystąpienia* SQL Server.
@@ -321,18 +321,18 @@ Jeśli pakiet oprogramowania został pobrany na inny serwer, skopiuj pliki na ma
    > [!NOTE]
    > Lokalizacja tymczasowa jest wymagana na potrzeby tworzenia kopii zapasowych na platformie Azure. Upewnij się, że lokalizacja tymczasowa to co najmniej 5% danych, których kopię zapasową zaplanowano do chmury. W przypadku ochrony dysków należy skonfigurować oddzielne dyski po zakończeniu instalacji. Aby uzyskać więcej informacji na temat pul magazynów, zobacz [Konfigurowanie pul magazynów i magazynu dyskowego](/previous-versions/system-center/system-center-2012-r2/hh758075(v=sc.12)).
 
-   ![Ustawienia instalacji Microsoft Azure Backup](../backup/media/backup-azure-microsoft-azure-backup/space-screen.png)
+   ![Podaj lokalizację instalacji plików serwera Microsoft Azure Backup, a następnie wybierz pozycję Dalej.](../backup/media/backup-azure-microsoft-azure-backup/space-screen.png)
 
 1. Podaj silne hasło dla kont użytkowników lokalnych z ograniczeniami, a następnie wybierz pozycję **dalej**.
 
-   ![Ustawienia zabezpieczeń konfiguracji Microsoft Azure Backup](../backup/media/backup-azure-microsoft-azure-backup/security-screen.png)
+   ![Podaj silne hasło dla kont użytkowników lokalnych z ograniczeniami, a następnie wybierz pozycję Dalej.](../backup/media/backup-azure-microsoft-azure-backup/security-screen.png)
 
 1. Wybierz, czy chcesz użyć Microsoft Update do sprawdzenia dostępności aktualizacji, a następnie wybierz przycisk **dalej**.
 
    > [!NOTE]
    > Zalecamy, aby Windows Update przekierować do Microsoft Update, który oferuje bezpieczeństwo i ważne aktualizacje systemu Windows oraz innych produktów, takich jak Azure Backup Server.
 
-   ![Konfiguracja Microsoft Azure Backup Microsoft Update zgodę](../backup/media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
+   ![Wybierz, czy chcesz użyć Microsoft Update do sprawdzenia dostępności aktualizacji, a następnie wybierz przycisk Dalej.](../backup/media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 
 1. Przejrzyj **Podsumowanie ustawień**, a następnie wybierz pozycję **Zainstaluj**.
 
@@ -352,7 +352,7 @@ Jeśli pakiet oprogramowania został pobrany na inny serwer, skopiuj pliki na ma
 
    Po zakończeniu instalacji agenta Microsoft Azure Recovery Services krok instalacji przejdzie do instalacji i konfiguracji SQL Server i składników Azure Backup Server.
 
-   ![Instalacja instalacji Microsoft Azure Backup](../backup/media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
+   ![Po zakończeniu instalacji agenta Microsoft Azure Recovery Services krok instalacji przejdzie do instalacji i konfiguracji SQL Server i składników Azure Backup Server.](../backup/media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
 
 1. Po zakończeniu kroku instalacji wybierz pozycję **Zamknij**.
 

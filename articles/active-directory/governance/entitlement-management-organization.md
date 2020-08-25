@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c4869859e11cb6c0cc868ec9deacb3e5cb972c6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 50c5c02327aa9f48a605607de901258827b14896
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586575"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783947"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Dodawanie połączonej organizacji w zarządzaniu prawami usługi Azure AD
 
@@ -43,8 +43,8 @@ W takim przypadku można skonfigurować dwie połączone organizacje. Utworzysz 
 Sposób uwierzytelniania użytkowników z katalogu usługi Azure AD lub domeny zależy od typu uwierzytelniania. Typy uwierzytelniania dla połączonych organizacji są następujące:
 
 - Azure AD
-- [Federacja bezpośrednia](../b2b/direct-federation.md)
-- [Jednorazowy kod dostępu](../b2b/one-time-passcode.md) (domena)
+- [Federacja bezpośrednia](../external-identities/direct-federation.md)
+- [Jednorazowy kod dostępu](../external-identities/one-time-passcode.md) (domena)
 
 Aby zapoznać się z pokazem, jak dodać podłączoną organizację, Obejrzyj następujące wideo:
 
@@ -79,7 +79,7 @@ Aby dodać zewnętrzny katalog lub domenę usługi Azure AD jako podłączoną o
 1. Wybierz pozycję **Dodaj** , aby dodać katalog lub domenę usługi Azure AD. Obecnie można dodać tylko jeden katalog lub domenę usługi Azure AD na podłączoną organizację.
 
     > [!NOTE]
-    > Wszyscy użytkownicy z katalogu lub domeny usługi Azure AD będą mogli zażądać tego pakietu dostępu. Obejmuje to użytkowników w usłudze Azure AD ze wszystkich poddomen skojarzonych z katalogiem, chyba że te domeny są blokowane przez listę dozwolonych lub zablokowanych usług Azure AD Business to Business (B2B). Aby uzyskać więcej informacji, zobacz [Zezwalanie lub blokowanie zaproszeń użytkownikom B2B z określonych organizacji](../b2b/allow-deny-list.md).
+    > Wszyscy użytkownicy z katalogu lub domeny usługi Azure AD będą mogli zażądać tego pakietu dostępu. Obejmuje to użytkowników w usłudze Azure AD ze wszystkich poddomen skojarzonych z katalogiem, chyba że te domeny są blokowane przez listę dozwolonych lub zablokowanych usług Azure AD Business to Business (B2B). Aby uzyskać więcej informacji, zobacz [Zezwalanie lub blokowanie zaproszeń użytkownikom B2B z określonych organizacji](../external-identities/allow-deny-list.md).
 
 1. Po dodaniu katalogu lub domeny usługi Azure AD wybierz pozycję **Wybierz**.
 
@@ -89,7 +89,7 @@ Aby dodać zewnętrzny katalog lub domenę usługi Azure AD jako podłączoną o
 
 1. Wybierz kartę **sponsorzy** , a następnie Dodaj opcjonalne sponsorzy dla tej połączonej organizacji.
 
-    Sponsorzy są wewnętrznymi lub zewnętrznymi użytkownikami już w katalogu, które są punktem kontaktu dla relacji z tą połączoną organizacją. Wewnętrzni Sponsorzy są użytkownikami należącymi do katalogu. Zewnętrzne sponsorzy to użytkownicy-Goście z połączonej organizacji, którzy zostali wcześniej zaproszeni i znajdują się już w katalogu. Sponsorzy mogą być używani jako osoby zatwierdzające, gdy użytkownicy w tej połączonej organizacji żądają dostępu do tego pakietu dostępu. Aby uzyskać informacje na temat zapraszania użytkownika-gościa do katalogu, zobacz [dodawanie Azure Active Directory użytkowników współpracy B2B w Azure Portal](../b2b/add-users-administrator.md).
+    Sponsorzy są wewnętrznymi lub zewnętrznymi użytkownikami już w katalogu, które są punktem kontaktu dla relacji z tą połączoną organizacją. Wewnętrzni Sponsorzy są użytkownikami należącymi do katalogu. Zewnętrzne sponsorzy to użytkownicy-Goście z połączonej organizacji, którzy zostali wcześniej zaproszeni i znajdują się już w katalogu. Sponsorzy mogą być używani jako osoby zatwierdzające, gdy użytkownicy w tej połączonej organizacji żądają dostępu do tego pakietu dostępu. Aby uzyskać informacje na temat zapraszania użytkownika-gościa do katalogu, zobacz [dodawanie Azure Active Directory użytkowników współpracy B2B w Azure Portal](../external-identities/add-users-administrator.md).
 
     Po wybraniu opcji **Dodaj/Usuń**zostanie otwarte okienko, w którym można wybrać wewnętrznych lub zewnętrznych sponsorów. W okienku zostanie wyświetlona niefiltrowana lista użytkowników i grup w Twoim katalogu.
 
@@ -134,9 +134,9 @@ Jeśli nie masz już relacji z zewnętrznym katalogiem lub domeną usługi Azure
 
 ## <a name="managing-a-connected-organization-programmatically"></a>Programistyczne zarządzanie połączoną organizacją
 
-Można również tworzyć, wyświetlać, aktualizować i usuwać połączone organizacje przy użyciu Microsoft Graph. Użytkownik w odpowiedniej roli z aplikacją, która ma delegowane uprawnienie, `EntitlementManagement.ReadWrite.All` może wywołać interfejs API, aby zarządzać obiektami [connectedOrganization](https://docs.microsoft.com/graph/api/resources/connectedorganization?view=graph-rest-beta) i ustawiać dla nich sponsorów.
+Można również tworzyć, wyświetlać, aktualizować i usuwać połączone organizacje przy użyciu Microsoft Graph. Użytkownik w odpowiedniej roli z aplikacją, która ma delegowane uprawnienie, `EntitlementManagement.ReadWrite.All` może wywołać interfejs API, aby zarządzać obiektami [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta) i ustawiać dla nich sponsorów.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zarządzanie dostępem dla użytkowników zewnętrznych](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users)
+- [Zarządzanie dostępem dla użytkowników zewnętrznych](./entitlement-management-external-users.md)
 - [Zarządzanie dostępem użytkowników nieznajdujących się w katalogu](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)

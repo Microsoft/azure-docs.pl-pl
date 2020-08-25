@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
 ms.openlocfilehash: c28489c2fa502f0ba1283abdea19219ed7438a99
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86085824"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Przyrostowe ładowanie danych z Azure SQL Database do platformy Azure Blob Storage przy użyciu informacji o śledzeniu zmian przy użyciu Azure Portal
@@ -67,7 +67,7 @@ W tym samouczku utworzysz dwa potoki, za pomocą których zostaną wykonane nast
     ![Diagram przepływu ładowania przyrostowego](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-load-flow-diagram.png)
 
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * **Azure SQL Database**. Baza danych jest używana jako magazyn danych **źródłowych**. Jeśli nie masz bazy danych w Azure SQL Database, zapoznaj się z artykułem [Tworzenie bazy danych w programie Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) .
@@ -177,7 +177,7 @@ Zainstaluj najnowsze moduły programu Azure PowerShell, wykonując instrukcje po
 4. Wybierz wartość **V2 (wersja zapoznawcza)** dla **wersji**.
 5. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
 6. Wybierz opcję **Przypnij do pulpitu nawigacyjnego**.     
-7. Kliknij pozycję **Utwórz**.      
+7. Kliknij przycisk **Utwórz**.      
 8. Na pulpicie nawigacyjnym jest widoczny następujący kafelek ze stanem: **wdrażanie fabryki danych**.
 
     ![kafelek Wdrażanie fabryki danych](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
@@ -421,7 +421,7 @@ W tym kroku utworzysz potok z następującymi działaniami, który będzie okres
         | Nazwa | Typ | Wartość |
         | ---- | ---- | ----- |
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} |
-        | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} |
+        | TableName | Ciąg | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} |
 
         ![Działanie Stored Procedure (Procedura składowana) — parametry](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
 14. **Połącz działanie Copy z działaniem procedury składowanej**. Przeciągnij i upuść **zielony** przycisk dołączony do działania Copy (Kopiowanie) w obszarze działania Stored Procedure (Procedura składowana).

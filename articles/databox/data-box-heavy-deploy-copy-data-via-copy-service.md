@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 67547db53d2b9ce05838335ffcb5d789b77ecbbe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "77560224"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>Samouczek: używanie usługi kopiowania danych do kopiowania danych do Azure Data Box Heavy (wersja zapoznawcza)
@@ -24,7 +24,7 @@ Z usługi kopiowania danych można korzystać w następujących scenariuszach:
 - W środowiskach NAS, gdzie hosty pośrednie mogą być niedostępne.
 - W przypadku korzystania z małych plików, dla których pozyskanie i przekazanie danych trwałoby tygodniami. Usługa kopiowania danych znacznie skraca czas pozyskiwania i przekazywania danych w przypadku małych plików.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Kopiowanie danych na urządzenie Data Box Heavy
@@ -48,7 +48,7 @@ Po nawiązaniu połączenia z urządzeniem NAS następnym krokiem jest skopiowan
 
 Aby skopiować dane za pomocą usługi kopiowania danych, należy utworzyć zadanie:
 
-1. W lokalnym interfejsie użytkownika sieci Web urządzenia Data Box Heavy przejdź do pozycji **Zarządzaj** > **danymi Kopiuj dane**.
+1. W lokalnym interfejsie użytkownika sieci Web urządzenia Data Box Heavy przejdź do pozycji **Zarządzaj**  >  **danymi Kopiuj dane**.
 2. Na stronie **Kopiowanie danych** wybierz pozycję **Utwórz**.
 
     ![Wybierz pozycję Utwórz na stronie „Kopiowanie danych”](media/data-box-deploy-copy-data-via-copy-service/click-create.png)
@@ -57,9 +57,9 @@ Aby skopiować dane za pomocą usługi kopiowania danych, należy utworzyć zada
     
     |Pole                          |Wartość    |
     |-------------------------------|---------|
-    |**Nazwa zadania**                       |Unikatową nazwę zadania składającą się z mniej niż 230 znaków. W nazwach zadań nie wolno używać następujących znaków: \<, \>, \|, \?, \*, \\, \:, \/ i \\\.         |
+    |**Nazwa zadania**                       |Unikatową nazwę zadania składającą się z mniej niż 230 znaków. Te znaki nie są dozwolone w nazwie zadania:,,,,,, \<, \> \| \? \* \\ \: \/ , i \\\.         |
     |**Lokalizacja źródła**                |Podaj ścieżkę SMB do źródła danych w formacie: `\\<ServerIPAddress>\<ShareName>` lub `\\<ServerName>\<ShareName>`.        |
-    |**Uż**                       |Nazwa użytkownika w formacie `\\<DomainName><UserName>` używana do uzyskiwania dostępu do źródła danych. Jeśli administrator lokalny nawiązuje połączenie, będą musieli mieć jawne uprawnienia zabezpieczeń. Kliknij prawym przyciskiem myszy folder, wybierz pozycję **Właściwości** , a następnie wybierz pozycję **zabezpieczenia**. Powinno to spowodować dodanie administratora lokalnego na karcie **zabezpieczenia** .       |
+    |**Nazwa użytkownika**                       |Nazwa użytkownika w formacie `\\<DomainName><UserName>` używana do uzyskiwania dostępu do źródła danych. Jeśli administrator lokalny nawiązuje połączenie, będą musieli mieć jawne uprawnienia zabezpieczeń. Kliknij prawym przyciskiem myszy folder, wybierz pozycję **Właściwości** , a następnie wybierz pozycję **zabezpieczenia**. Powinno to spowodować dodanie administratora lokalnego na karcie **zabezpieczenia** .       |
     |**Hasło**                       |Hasło używane do uzyskiwania dostępu do źródła danych.           |
     |**Docelowe konto magazynu**    |Z listy wybierz docelowe konto magazynu, do którego będą przekazywane dane.         |
     |**Typ docelowy**       |Wybierz docelowy typ magazynu z listy: **blokowy obiekt BLOB**, **stronicowy obiekt BLOB**lub **Azure Files**.        |
@@ -112,9 +112,9 @@ Aby skopiować dane za pomocą usługi kopiowania danych, należy utworzyć zada
 6. Podczas przetwarzania zadania na stronie **Kopiowanie danych** można zauważyć następujące elementy:
 
     - W kolumnie **Stan** można wyświetlić stan zadania kopiowania. Możliwe stany to:
-        - **Uruchomiono**
+        - **Uruchomienie**
         - **Niepowodzenie**
-        - **Sukces**
+        - **Powiodło się**
         - **Wstrzymywanie**
         - **Wstrzymano**
         - **Anulowanie**

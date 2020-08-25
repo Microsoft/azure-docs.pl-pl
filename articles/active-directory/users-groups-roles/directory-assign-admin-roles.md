@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03a51cc8aa86f40b5333bd79e95e6d02be1adfc4
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 2a2bb8b98bfb936421c0522d4637a288d20a708b
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213854"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795409"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
 
@@ -146,10 +146,10 @@ Użytkownicy z tą rolą mają uprawnienia do zarządzania funkcjami związanymi
 W | Można wykonać
 ----- | ----------
 [Microsoft 365 Centrum zgodności](https://protection.office.com) | Ochrona danych organizacji i zarządzanie nimi w ramach usług Microsoft 365 Services<br>Zarządzanie alertami zgodności
-[Menedżer zgodności](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Śledź, przypisuj i Weryfikuj działania dotyczące zgodności z przepisami organizacji
-[Centrum zgodności & zabezpieczeń pakietu Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Zarządzanie nadzorem danych<br>Wykonaj badanie prawne i dane<br>Zarządzaj żądaniem podmiotu danych<br><br>Ta rola ma takie same uprawnienia, jak [rola Administrator zgodności](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) w programie Office 365 zabezpieczenia & kontrola dostępu oparta na rolach.
-[Intune](https://docs.microsoft.com/intune/role-based-access-control) | Wyświetl wszystkie dane inspekcji usługi Intune
-[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Ma uprawnienia tylko do odczytu i może zarządzać alertami<br>Może tworzyć i modyfikować zasady dotyczące plików i zezwalać na akcje ładu plików<br>Może wyświetlać wszystkie wbudowane raporty w obszarze Zarządzanie danymi
+[Menedżer zgodności](/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Śledź, przypisuj i Weryfikuj działania dotyczące zgodności z przepisami organizacji
+[Centrum zgodności & zabezpieczeń pakietu Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Zarządzanie nadzorem danych<br>Wykonaj badanie prawne i dane<br>Zarządzaj żądaniem podmiotu danych<br><br>Ta rola ma takie same uprawnienia, jak [rola Administrator zgodności](/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) w programie Office 365 zabezpieczenia & kontrola dostępu oparta na rolach.
+[Intune](/intune/role-based-access-control) | Wyświetl wszystkie dane inspekcji usługi Intune
+[Cloud App Security](/cloud-app-security/manage-admins) | Ma uprawnienia tylko do odczytu i może zarządzać alertami<br>Może tworzyć i modyfikować zasady dotyczące plików i zezwalać na akcje ładu plików<br>Może wyświetlać wszystkie wbudowane raporty w obszarze Zarządzanie danymi
 
 ### <a name="compliance-data-administrator"></a>[Administrator danych zgodności](#compliance-data-administrator-permissions)
 
@@ -158,10 +158,10 @@ Użytkownicy z tą rolą mają uprawnienia do śledzenia danych w centrum Micros
 W | Można wykonać
 ----- | ----------
 [Microsoft 365 Centrum zgodności](https://protection.office.com) | Monitorowanie zasad związanych z zgodnością w ramach usług Microsoft 365 Services<br>Zarządzanie alertami zgodności
-[Menedżer zgodności](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Śledź, przypisuj i Weryfikuj działania dotyczące zgodności z przepisami organizacji
-[Centrum zgodności & zabezpieczeń pakietu Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Zarządzanie nadzorem danych<br>Wykonaj badanie prawne i dane<br>Zarządzaj żądaniem podmiotu danych<br><br>Ta rola ma takie same uprawnienia jak w przypadku [roli administrator danych zgodności](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) w programie Office 365 zabezpieczenia & kontrola dostępu oparta na rolach.
-[Intune](https://docs.microsoft.com/intune/role-based-access-control) | Wyświetl wszystkie dane inspekcji usługi Intune
-[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Ma uprawnienia tylko do odczytu i może zarządzać alertami<br>Może tworzyć i modyfikować zasady dotyczące plików i zezwalać na akcje ładu plików<br>Może wyświetlać wszystkie wbudowane raporty w obszarze Zarządzanie danymi
+[Menedżer zgodności](/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Śledź, przypisuj i Weryfikuj działania dotyczące zgodności z przepisami organizacji
+[Centrum zgodności & zabezpieczeń pakietu Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Zarządzanie nadzorem danych<br>Wykonaj badanie prawne i dane<br>Zarządzaj żądaniem podmiotu danych<br><br>Ta rola ma takie same uprawnienia jak w przypadku [roli administrator danych zgodności](/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) w programie Office 365 zabezpieczenia & kontrola dostępu oparta na rolach.
+[Intune](/intune/role-based-access-control) | Wyświetl wszystkie dane inspekcji usługi Intune
+[Cloud App Security](/cloud-app-security/manage-admins) | Ma uprawnienia tylko do odczytu i może zarządzać alertami<br>Może tworzyć i modyfikować zasady dotyczące plików i zezwalać na akcje ładu plików<br>Może wyświetlać wszystkie wbudowane raporty w obszarze Zarządzanie danymi
 
 ### <a name="conditional-access-administrator"></a>[Administrator dostępu warunkowego](#conditional-access-administrator-permissions)
 
@@ -171,7 +171,7 @@ Użytkownicy z tą rolą mają możliwość zarządzania ustawieniami dostępu w
 
 ### <a name="customer-lockbox-access-approver"></a>[Osoba zatwierdzająca Skrytka klienta dostępu](#customer-lockbox-access-approver-permissions)
 
-Zarządza [żądaniami skrytka klienta](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests) w organizacji. Odbierają one powiadomienia e-mail dla żądań Skrytka klienta i mogą zatwierdzać i odrzucać żądania z centrum administracyjnego Microsoft 365. Mogą również włączać lub wyłączać funkcję Skrytka klienta. Tylko Administratorzy globalni mogą resetować hasła osób przypisanych do tej roli.
+Zarządza [żądaniami skrytka klienta](/office365/admin/manage/customer-lockbox-requests) w organizacji. Odbierają one powiadomienia e-mail dla żądań Skrytka klienta i mogą zatwierdzać i odrzucać żądania z centrum administracyjnego Microsoft 365. Mogą również włączać lub wyłączać funkcję Skrytka klienta. Tylko Administratorzy globalni mogą resetować hasła osób przypisanych do tej roli.
 
 ### <a name="desktop-analytics-administrator"></a>[Administrator usługi Desktop Analytics](#desktop-analytics-administrator-permissions)
 
@@ -195,11 +195,11 @@ Użytkownicy w tej roli mogą odczytywać podstawowe informacje o katalogu. Ta r
 Nie używaj. Ta rola jest automatycznie przypisana do usługi Azure AD Connect i nie jest przeznaczona do użycia ani nie jest obsługiwana w żadnym innym przypadku.
 
 ### <a name="directory-writers"></a>[Autorzy katalogów](#directory-writers-permissions)
-Użytkownicy w tej roli mogą odczytywać i aktualizować podstawowe informacje o użytkownikach, grupach i nazwach głównych usług. Przypisz tę rolę tylko do aplikacji, które nie obsługują [struktury zgody](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Nie powinien być przypisany do żadnych użytkowników.
+Użytkownicy w tej roli mogą odczytywać i aktualizować podstawowe informacje o użytkownikach, grupach i nazwach głównych usług. Przypisz tę rolę tylko do aplikacji, które nie obsługują [struktury zgody](../develop/quickstart-register-app.md). Nie powinien być przypisany do żadnych użytkowników.
 
 ### <a name="dynamics-365-administrator--crm-administrator"></a>[Administrator programu Dynamics 365/programu CRM](#crm-service-administrator-permissions)
 
-Użytkownicy z tą rolą mają uprawnienia globalne w systemie Microsoft Dynamics 365 online, gdy usługa jest obecna, a także możliwość zarządzania biletami pomocy technicznej i monitorowania kondycji usługi. Więcej informacji na temat [używania roli administratora usługi do zarządzania organizacją usługi Azure AD](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
+Użytkownicy z tą rolą mają uprawnienia globalne w systemie Microsoft Dynamics 365 online, gdy usługa jest obecna, a także możliwość zarządzania biletami pomocy technicznej i monitorowania kondycji usługi. Więcej informacji na temat [używania roli administratora usługi do zarządzania organizacją usługi Azure AD](/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
 > [!NOTE]
 > W interfejsie API Microsoft Graph i programie Azure AD PowerShell ta rola jest identyfikowana jako "administrator usługi Dynamics 365." Jest to "administrator systemu Dynamics 365" w [Azure Portal](https://portal.azure.com).
@@ -224,12 +224,12 @@ Użytkownicy z tą rolą dodają lub usuwają atrybuty niestandardowe dostępne 
 
 Ten administrator zarządza Federacją między organizacjami usługi Azure AD a zewnętrznymi dostawcami tożsamości.Za pomocą tej roli użytkownicy mogą dodawać nowych dostawców tożsamości i konfigurować wszystkie dostępne ustawienia (np. ścieżkę uwierzytelniania, identyfikator usługi, przypisane kontenery kluczy).Ten użytkownik może włączyć, aby organizacja usługi Azure AD mogła ufać uwierzytelnianiu od zewnętrznych dostawców tożsamości.Wynikowy wpływ na środowisko użytkownika końcowego zależy od typu organizacji:
 
-* Organizacje usługi Azure AD dla pracowników i partnerów: dodanie Federacji (np. z użyciem usługi Gmail) natychmiast wpłynie na wszystkie zaproszenia gościa, które nie zostały jeszcze zrealizowane. Zobacz [Dodawanie usługi Google jako dostawcy tożsamości dla użytkowników-Gości B2B](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
-* Azure Active Directory B2C organizacje: dodanie Federacji (na przykład w usłudze Facebook lub innej organizacji usługi Azure AD) nie wpływa natychmiast na przepływy użytkowników końcowych, dopóki dostawca tożsamości nie zostanie dodany jako opcja w przepływie użytkownika (nazywane również zasadami wbudowanymi). Zapoznaj się z przykładem dotyczącym [konfigurowania konto Microsoft jako dostawcy tożsamości](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) .Aby zmienić przepływy użytkowników, wymagana jest ograniczona rola "Administrator przepływu użytkownika B2C".
+* Organizacje usługi Azure AD dla pracowników i partnerów: dodanie Federacji (np. z użyciem usługi Gmail) natychmiast wpłynie na wszystkie zaproszenia gościa, które nie zostały jeszcze zrealizowane. Zobacz [Dodawanie usługi Google jako dostawcy tożsamości dla użytkowników-Gości B2B](../external-identities/google-federation.md).
+* Azure Active Directory B2C organizacje: dodanie Federacji (na przykład w usłudze Facebook lub innej organizacji usługi Azure AD) nie wpływa natychmiast na przepływy użytkowników końcowych, dopóki dostawca tożsamości nie zostanie dodany jako opcja w przepływie użytkownika (nazywane również zasadami wbudowanymi). Zapoznaj się z przykładem dotyczącym [konfigurowania konto Microsoft jako dostawcy tożsamości](../../active-directory-b2c/identity-provider-microsoft-account.md) .Aby zmienić przepływy użytkowników, wymagana jest ograniczona rola "Administrator przepływu użytkownika B2C".
 
 ### <a name="global-administrator--company-administrator"></a>[Administrator globalny/administrator firmy](#company-administrator-permissions)
 
-Użytkownicy z tą rolą mają dostęp do wszystkich funkcji administracyjnych w Azure Active Directory, a także usług korzystających z tożsamości Azure Active Directory, takich jak Microsoft 365 Security Center, Microsoft 365 Centrum zgodności, Exchange Online, SharePoint Online i Skype dla firm Online. Ponadto administratorzy globalni mogą [podnieść poziom dostępu](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin) do zarządzania wszystkimi subskrypcjami platformy Azure i grupami zarządzania. Dzięki temu administratorzy globalni mogą uzyskać pełny dostęp do wszystkich zasobów platformy Azure przy użyciu odpowiedniej dzierżawy usługi Azure AD. Osoba, która zarejestruje się w usłudze Azure AD, zostaje administratorem globalnym. W Twojej firmie może istnieć więcej niż jeden administrator globalny. Administratorzy globalni mogą resetować hasła dla wszystkich użytkowników oraz wszystkich pozostałych administratorów.
+Użytkownicy z tą rolą mają dostęp do wszystkich funkcji administracyjnych w Azure Active Directory, a także usług korzystających z tożsamości Azure Active Directory, takich jak Microsoft 365 Security Center, Microsoft 365 Centrum zgodności, Exchange Online, SharePoint Online i Skype dla firm Online. Ponadto administratorzy globalni mogą [podnieść poziom dostępu](../../role-based-access-control/elevate-access-global-admin.md) do zarządzania wszystkimi subskrypcjami platformy Azure i grupami zarządzania. Dzięki temu administratorzy globalni mogą uzyskać pełny dostęp do wszystkich zasobów platformy Azure przy użyciu odpowiedniej dzierżawy usługi Azure AD. Osoba, która zarejestruje się w usłudze Azure AD, zostaje administratorem globalnym. W Twojej firmie może istnieć więcej niż jeden administrator globalny. Administratorzy globalni mogą resetować hasła dla wszystkich użytkowników oraz wszystkich pozostałych administratorów.
 
 > [!NOTE]
 > W interfejsie API Microsoft Graph i programie Azure AD PowerShell ta rola jest identyfikowana jako "administrator firmy". Jest to "Administrator globalny" w [Azure Portal](https://portal.azure.com).
@@ -247,8 +247,8 @@ Użytkownicy w tej roli mogą odczytywać ustawienia i informacje administracyjn
 >- [Centrum administracyjne M365](https://admin.microsoft.com/Adminportal/Home#/homepage) — globalny czytnik nie może odczytać żądań skrytki klienta. Nie znajdziesz karty **żądania skrytki klienta** w obszarze **Pomoc techniczna** w lewym okienku Centrum administracyjnego M365.
 >- [Centrum zgodności & zabezpieczeń pakietu Office](https://sip.protection.office.com/homepage) — czytnik globalny nie może odczytać dzienników inspekcji SCC, przeprowadzić wyszukiwania zawartości lub zobaczyć zabezpieczony wynik.
 >- [Centrum administracyjne zespołów](https://admin.teams.microsoft.com) — globalny czytnik nie może odczytywać **zespołów cykl życia**, **Analiza & raporty**, **Zarządzanie urządzeniami telefonicznymi IP** i **wykaz aplikacji**.
->- [Privileged Access Management (PAM)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) nie obsługuje roli czytnika globalnego.
->- [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) — Global Reader jest obsługiwany tylko [w przypadku raportowania centralnego](https://docs.microsoft.com/azure/information-protection/reports-aip) , a organizacja usługi Azure AD nie jest na [ujednoliconej platformie etykietowania](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
+>- [Privileged Access Management (PAM)](/office365/securitycompliance/privileged-access-management-overview) nie obsługuje roli czytnika globalnego.
+>- [Azure Information Protection](/azure/information-protection/what-is-information-protection) — Global Reader jest obsługiwany tylko [w przypadku raportowania centralnego](/azure/information-protection/reports-aip) , a organizacja usługi Azure AD nie jest na [ujednoliconej platformie etykietowania](/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 >
 > Te funkcje są obecnie opracowywane.
 >
@@ -259,7 +259,7 @@ Użytkownicy w tej roli mogą tworzyć grupy i ich ustawienia, takie jak zasady 
 
 ### <a name="guest-inviter"></a>[Zapraszający gościa](#guest-inviter-permissions)
 
-Użytkownicy w tej roli mogą zarządzać Azure Active Directory zaproszeniami użytkowników typu B2B, gdy **Członkowie mogą zapraszać** ustawienie użytkownika na wartość nie. Więcej informacji na temat współpracy B2B na [temat współpracy B2B w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Nie zawiera żadnych innych uprawnień.
+Użytkownicy w tej roli mogą zarządzać Azure Active Directory zaproszeniami użytkowników typu B2B, gdy **Członkowie mogą zapraszać** ustawienie użytkownika na wartość nie. Więcej informacji na temat współpracy B2B na [temat współpracy B2B w usłudze Azure AD](../external-identities/what-is-b2b.md). Nie zawiera żadnych innych uprawnień.
 
 ### <a name="helpdesk-administrator"></a>[Administrator pomocy technicznej](#helpdesk-administrator-permissions)
 
@@ -281,7 +281,7 @@ Użytkownicy z tą rolą mogą zmieniać hasła, unieważniać tokeny odświeża
 >- Administratorzy w innych usługach poza usługą Azure AD, np. Exchange Online, Centrum zabezpieczeń i zgodności pakietu Office oraz systemy kadr.
 >- Użytkownicy niebędący administratorami, w tym członkowie kierownictwa, prawnik prawny i pracownicy działu kadr, którzy mogą mieć dostęp do poufnych lub prywatnych informacji.
 
-Delegowanie uprawnień administracyjnych przez podzbiory użytkowników i stosowanie zasad do podzbioru użytkowników jest możliwe z [jednostkami administracyjnymi (teraz w publicznej wersji zapoznawczej)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
+Delegowanie uprawnień administracyjnych przez podzbiory użytkowników i stosowanie zasad do podzbioru użytkowników jest możliwe z [jednostkami administracyjnymi (teraz w publicznej wersji zapoznawczej)](./directory-administrative-units.md).
 
 Ta rola była wcześniej nazywana "administratorem haseł" w [Azure Portal](https://portal.azure.com/). Nazwa "Administrator pomocy technicznej" w usłudze Azure AD jest teraz zgodna z nazwą w programie Azure AD PowerShell i interfejsem API Microsoft Graph.
 
@@ -297,7 +297,7 @@ Użytkownicy w tej roli mogą uzyskiwać dostęp do zestawu pulpitów nawigacyjn
 
 ### <a name="intune-administrator"></a>[Administrator usługi Intune](#intune-service-administrator-permissions)
 
-Użytkownicy z tą rolą mają uprawnienia globalne w usłudze Microsoft Intune online, gdy usługa jest obecna. Ponadto ta rola obejmuje możliwość zarządzania użytkownikami i urządzeniami w celu kojarzenia zasad, a także tworzenia grup i zarządzania nimi. Więcej informacji na temat [kontroli administracji opartej na rolach (RBAC) z Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control).
+Użytkownicy z tą rolą mają uprawnienia globalne w usłudze Microsoft Intune online, gdy usługa jest obecna. Ponadto ta rola obejmuje możliwość zarządzania użytkownikami i urządzeniami w celu kojarzenia zasad, a także tworzenia grup i zarządzania nimi. Więcej informacji na temat [kontroli administracji opartej na rolach (RBAC) z Microsoft Intune](/intune/role-based-access-control).
 
 Ta rola może tworzyć wszystkie grupy zabezpieczeń i zarządzać nimi. Jednak administrator usługi Intune nie ma uprawnień administratora w grupach pakietu Office. Oznacza to, że administrator nie może zaktualizować właścicieli ani członkostw wszystkich grup pakietu Office w organizacji. Może jednak zarządzać utworzoną przez siebie grupą pakietu Office, która jest częścią swoich uprawnień użytkownika końcowego. W związku z tym wszystkie grupy pakietu Office (nie grupy zabezpieczeń), które tworzy, powinny być wliczane do limitu przydziału 250.
 
@@ -324,14 +324,14 @@ Użytkownicy w tej roli mogą monitorować powiadomienia i aktualizacje kondycji
 
 Nie używaj. Ta rola jest automatycznie przypisana z handlu i nie jest przeznaczona do użycia ani nie jest obsługiwana w żadnym innym przypadku. Zobacz szczegóły poniżej.
 
-Rola użytkownika nowoczesnego handlu zapewnia określonym użytkownikom uprawnienia dostępu do centrum administracyjnego Microsoft 365, a następnie wyświetla lewe wpisy nawigacyjne dla **domu**, **rozliczeń**i **pomocy technicznej**. Zawartość dostępna w tych obszarach jest kontrolowana przez [role specyficzne dla handlu](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles) , które są przypisane do użytkowników w celu zarządzania produktami zakupionymi dla siebie lub w organizacji. Mogą to być takie zadania, jak płacisz rachunki lub dostęp do kont rozliczeń i profilów rozliczeń. 
+Rola użytkownika nowoczesnego handlu zapewnia określonym użytkownikom uprawnienia dostępu do centrum administracyjnego Microsoft 365, a następnie wyświetla lewe wpisy nawigacyjne dla **domu**, **rozliczeń**i **pomocy technicznej**. Zawartość dostępna w tych obszarach jest kontrolowana przez [role specyficzne dla handlu](../../cost-management-billing/manage/understand-mca-roles.md) , które są przypisane do użytkowników w celu zarządzania produktami zakupionymi dla siebie lub w organizacji. Mogą to być takie zadania, jak płacisz rachunki lub dostęp do kont rozliczeń i profilów rozliczeń. 
 
 Użytkownicy z rolą użytkownika Modern Commerce zazwyczaj mają uprawnienia administracyjne w innych systemach zakupów firmy Microsoft, ale nie mają ról administratora globalnego lub administratora rozliczeń służących do uzyskiwania dostępu do centrum administracyjnego. 
 
 **Kiedy jest przypisana nowoczesny rola użytkownika Commerce?**
 
-* Samoobsługowe **kupowanie w Microsoft 365 centrum administracyjnego** — zakup samoobsługowy umożliwia użytkownikom wypróbowanie nowych produktów przez ich zakup lub utworzenie. Te produkty są zarządzane w centrum administracyjnym. Użytkownicy, którzy dokonują zakupu samoobsługowego, mają przypisaną rolę w systemie Commerce i nowoczesnej roli użytkownika commerce, aby mogli zarządzać zakupami w centrum administracyjnym. Administratorzy mogą blokować zakupy samoobsługowe (w przypadku Power BI, aplikacji zaawansowanych, automatyzacji) za poorednictwem [programu PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Aby uzyskać więcej informacji, zobacz [Zakup samoobsługowy — często zadawane pytania](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
-* **Zakupy od firmy Microsoft komercyjnej Marketplace**  — podobnie jak w przypadku zakupu samoobsługowego, gdy użytkownik kupuje produkt lub usługę od Microsoft AppSource lub Azure Marketplace, jest przypisywany współczesna rola użytkownika commerce w przypadku, gdy nie ma roli Administrator globalny lub rozliczenia. W niektórych przypadkach użytkownicy mogą mieć zablokowaną możliwość dokonywania tych zakupów. Aby uzyskać więcej informacji, zobacz [Microsoft Commercial Marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase).
+* Samoobsługowe **kupowanie w Microsoft 365 centrum administracyjnego** — zakup samoobsługowy umożliwia użytkownikom wypróbowanie nowych produktów przez ich zakup lub utworzenie. Te produkty są zarządzane w centrum administracyjnym. Użytkownicy, którzy dokonują zakupu samoobsługowego, mają przypisaną rolę w systemie Commerce i nowoczesnej roli użytkownika commerce, aby mogli zarządzać zakupami w centrum administracyjnym. Administratorzy mogą blokować zakupy samoobsługowe (w przypadku Power BI, aplikacji zaawansowanych, automatyzacji) za poorednictwem [programu PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Aby uzyskać więcej informacji, zobacz [Zakup samoobsługowy — często zadawane pytania](/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
+* **Zakupy od firmy Microsoft komercyjnej Marketplace**  — podobnie jak w przypadku zakupu samoobsługowego, gdy użytkownik kupuje produkt lub usługę od Microsoft AppSource lub Azure Marketplace, jest przypisywany współczesna rola użytkownika commerce w przypadku, gdy nie ma roli Administrator globalny lub rozliczenia. W niektórych przypadkach użytkownicy mogą mieć zablokowaną możliwość dokonywania tych zakupów. Aby uzyskać więcej informacji, zobacz [Microsoft Commercial Marketplace](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase).
 * **Propozycje firmy Microsoft**  — propozycja jest formalną ofertą oferowaną przez firmę Microsoft w organizacji do kupowania produktów i usług firmy Microsoft. Gdy osoba akceptująca ofertę nie ma roli administratora globalnego lub administratora rozliczeń w usłudze Azure AD, są oni przypisani do roli specyficzne dla handlu, aby dokończyć propozycję i współczesną rolę użytkownika handlowego w celu uzyskania dostępu do centrum administracyjnego. Gdy uzyskują dostęp do centrum administracyjnego, mogą korzystać tylko z funkcji, które są autoryzowane przez ich rolę specyficzną dla danego handlu.
 * **Role specyficzne dla handlu** — niektórzy użytkownicy mają przypisane role dotyczące handlu. Jeśli użytkownik nie jest administratorem globalnym lub rozliczeniami, uzyska nowoczesnej roli użytkownika commerce, aby mógł uzyskać dostęp do centrum administracyjnego.  
 
@@ -362,7 +362,7 @@ Użytkownicy z tą rolą mają ograniczoną możliwość zarządzania hasłami. 
 
 ### <a name="power-bi-administrator"></a>[Power BI administrator](#power-bi-service-administrator-permissions)
 
-Użytkownicy z tą rolą mają uprawnienia globalne w programie Microsoft Power BI, gdy usługa jest obecna, a także możliwość zarządzania biletami pomocy technicznej i monitorowania kondycji usługi. Więcej informacji na [temat Power BI roli administratora](https://docs.microsoft.com/power-bi/service-admin-role).
+Użytkownicy z tą rolą mają uprawnienia globalne w programie Microsoft Power BI, gdy usługa jest obecna, a także możliwość zarządzania biletami pomocy technicznej i monitorowania kondycji usługi. Więcej informacji na [temat Power BI roli administratora](/power-bi/service-admin-role).
 
 > [!NOTE]
 > W interfejsie API Microsoft Graph i programie Azure AD PowerShell ta rola jest identyfikowana jako "administrator usługi Power BI". W [Azure Portal](https://portal.azure.com)jest "Power BI administrator".
@@ -416,31 +416,31 @@ W | Można wykonać
 --- | ---
 [Microsoft 365 Security Center](https://protection.office.com) | Monitorowanie zasad związanych z zabezpieczeniami w ramach usług Microsoft 365 Services<br>Zarządzanie zagrożeniami i alertami zabezpieczeń<br>Wyświetlanie raportów
 Centrum ochrony tożsamości | Wszystkie uprawnienia roli czytelnik zabezpieczeń<br>Ponadto możliwość wykonywania wszystkich operacji usługi Identity Protection Center z wyjątkiem resetowania haseł
-[Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Wszystkie uprawnienia roli czytelnik zabezpieczeń<br>**Nie można** zarządzać przypisaniami ról lub ustawieniami usługi Azure AD
+[Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Wszystkie uprawnienia roli czytelnik zabezpieczeń<br>**Nie można** zarządzać przypisaniami ról lub ustawieniami usługi Azure AD
 [Centrum zgodności & zabezpieczeń pakietu Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Zarządzanie zasadami zabezpieczeń<br>Wyświetlanie, badanie i reagowanie na zagrożenia bezpieczeństwa<br>Wyświetlanie raportów
 Azure Advanced Threat Protection | Monitoruj podejrzane działania zabezpieczeń i odpowiadaj na nie
 Windows Defender ATP i EDR | Przypisywanie ról<br>Zarządzanie grupami maszyn<br>Konfigurowanie wykrywania zagrożeń punktów końcowych i zautomatyzowanego korygowania<br>Wyświetlanie alertów, badanie ich i reagowanie na nie
-[Intune](https://docs.microsoft.com/intune/role-based-access-control) | Wyświetla informacje o użytkownikach, urządzeniach, rejestracji, konfiguracji i aplikacji<br>Nie można wprowadzać zmian w usłudze Intune
-[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Dodawanie administratorów, Dodawanie zasad i ustawień, przekazywanie dzienników i wykonywanie akcji ładu
-[Azure Security Center](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Może wyświetlać zasady zabezpieczeń, wyświetlać Stany zabezpieczeń, edytować zasady zabezpieczeń, wyświetlać alerty i zalecenia, odrzucać alerty i zalecenia
-[Kondycja usługi Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health) | Wyświetlanie kondycji usług Office 365
+[Intune](/intune/role-based-access-control) | Wyświetla informacje o użytkownikach, urządzeniach, rejestracji, konfiguracji i aplikacji<br>Nie można wprowadzać zmian w usłudze Intune
+[Cloud App Security](/cloud-app-security/manage-admins) | Dodawanie administratorów, Dodawanie zasad i ustawień, przekazywanie dzienników i wykonywanie akcji ładu
+[Azure Security Center](../../role-based-access-control/built-in-roles.md) | Może wyświetlać zasady zabezpieczeń, wyświetlać Stany zabezpieczeń, edytować zasady zabezpieczeń, wyświetlać alerty i zalecenia, odrzucać alerty i zalecenia
+[Kondycja usługi Office 365](/office365/enterprise/view-service-health) | Wyświetlanie kondycji usług Office 365
 [Inteligentna blokada](../authentication/howto-password-smart-lockout.md) | Zdefiniuj próg i czas trwania dla blokad w przypadku wystąpienia nieudanych zdarzeń logowania.
 [Ochrona hasłem](../authentication/concept-password-ban-bad.md) | Skonfiguruj niestandardową listę haseł zabronionych lub lokalną ochronę hasłem.
 
 ### <a name="security-operator"></a>[Operator zabezpieczeń](#security-operator-permissions)
 
-Użytkownicy z tą rolą mogą zarządzać alertami i mieć globalny dostęp tylko do odczytu w funkcjach związanych z zabezpieczeniami, w tym wszystkie informacje w Microsoft 365 Security Center, Azure Active Directory, Identity Protection, Privileged Identity Management i Office 365 Security & Centrum zgodności. Więcej informacji o uprawnieniach pakietu Office 365 jest dostępnych w obszarze [uprawnienia w centrum zgodności & zabezpieczeń programu office 365](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
+Użytkownicy z tą rolą mogą zarządzać alertami i mieć globalny dostęp tylko do odczytu w funkcjach związanych z zabezpieczeniami, w tym wszystkie informacje w Microsoft 365 Security Center, Azure Active Directory, Identity Protection, Privileged Identity Management i Office 365 Security & Centrum zgodności. Więcej informacji o uprawnieniach pakietu Office 365 jest dostępnych w obszarze [uprawnienia w centrum zgodności & zabezpieczeń programu office 365](/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
 
 W | Można wykonać
 --- | ---
 [Microsoft 365 Security Center](https://protection.office.com) | Wszystkie uprawnienia roli czytelnik zabezpieczeń<br>Wyświetlanie alertów dotyczących zagrożeń zabezpieczeń, badanie ich i reagowanie na nie
 Centrum ochrony tożsamości | Wszystkie uprawnienia roli czytelnik zabezpieczeń<br>Ponadto możliwość wykonywania wszystkich operacji usługi Identity Protection Center z wyjątkiem resetowania haseł
-[Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Wszystkie uprawnienia roli czytelnik zabezpieczeń
+[Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Wszystkie uprawnienia roli czytelnik zabezpieczeń
 [Centrum zgodności & zabezpieczeń pakietu Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Wszystkie uprawnienia roli czytelnik zabezpieczeń<br>Wyświetlanie alertów zabezpieczeń, badanie ich i reagowanie na nie
 Windows Defender ATP i EDR | Wszystkie uprawnienia roli czytelnik zabezpieczeń<br>Wyświetlanie alertów zabezpieczeń, badanie ich i reagowanie na nie
-[Intune](https://docs.microsoft.com/intune/role-based-access-control) | Wszystkie uprawnienia roli czytelnik zabezpieczeń
-[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Wszystkie uprawnienia roli czytelnik zabezpieczeń
-[Kondycja usługi Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health) | Wyświetlanie kondycji usług Office 365
+[Intune](/intune/role-based-access-control) | Wszystkie uprawnienia roli czytelnik zabezpieczeń
+[Cloud App Security](/cloud-app-security/manage-admins) | Wszystkie uprawnienia roli czytelnik zabezpieczeń
+[Kondycja usługi Office 365](/office365/enterprise/view-service-health) | Wyświetlanie kondycji usług Office 365
 
 ### <a name="security-reader"></a>[Czytelnik zabezpieczeń](#security-reader-permissions)
 
@@ -450,13 +450,13 @@ W | Można wykonać
 --- | ---
 [Microsoft 365 Security Center](https://protection.office.com) | Wyświetlanie zasad związanych z zabezpieczeniami w ramach usług Microsoft 365 Services<br>Wyświetl zagrożenia i alerty zabezpieczeń<br>Wyświetlanie raportów
 Centrum ochrony tożsamości | Przeczytaj wszystkie raporty i ustawienia zabezpieczeń dotyczące funkcji zabezpieczeń<br><ul><li>Antyspam<li>Szyfrowanie<li>Ochrona przed utratą danych<li>Ochrona przed złośliwym oprogramowaniem<li>Zaawansowana ochrona przed zagrożeniami<li>Ochrona przed phishingiem<li>Reguły Mailflow
-[Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Ma dostęp tylko do odczytu do wszystkich informacji podanych w Azure AD Privileged Identity Management: zasady i raporty dotyczące przypisań ról i przeglądów zabezpieczeń usługi Azure AD.<br>**Nie można** zarejestrować się w usłudze Azure AD Privileged Identity Management ani wprowadzać w niej żadnych zmian. W portalu Privileged Identity Management lub za pośrednictwem programu PowerShell ktoś w tej roli może aktywować dodatkowe role (na przykład administratorów globalnych lub administrator ról uprzywilejowanych), jeśli użytkownik jest uprawniony do korzystania z nich.
+[Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Ma dostęp tylko do odczytu do wszystkich informacji podanych w Azure AD Privileged Identity Management: zasady i raporty dotyczące przypisań ról i przeglądów zabezpieczeń usługi Azure AD.<br>**Nie można** zarejestrować się w usłudze Azure AD Privileged Identity Management ani wprowadzać w niej żadnych zmian. W portalu Privileged Identity Management lub za pośrednictwem programu PowerShell ktoś w tej roli może aktywować dodatkowe role (na przykład administratorów globalnych lub administrator ról uprzywilejowanych), jeśli użytkownik jest uprawniony do korzystania z nich.
 [Centrum zgodności & zabezpieczeń pakietu Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Wyświetlanie zasad zabezpieczeń<br>Wyświetl i zbadaj zagrożenia bezpieczeństwa<br>Wyświetlanie raportów
 Windows Defender ATP i EDR | Wyświetlanie i badanie alertów. Po włączeniu kontroli dostępu opartej na rolach w usłudze Windows Defender ATP użytkownicy z uprawnieniami tylko do odczytu, takimi jak rola czytnika zabezpieczeń usługi Azure AD, tracą dostęp do momentu przypisania ich do roli usługi Windows Defender ATP.
-[Intune](https://docs.microsoft.com/intune/role-based-access-control) | wyświetla informacje o użytkownikach, urządzeniach, rejestracji, konfiguracji i aplikacji. Nie może wprowadzać zmian w usłudze Intune.
-[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Ma uprawnienia tylko do odczytu i może zarządzać alertami
-[Azure Security Center](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Może wyświetlać zalecenia i alerty, wyświetlać zasady zabezpieczeń, wyświetlać Stany zabezpieczeń, ale nie mogą wprowadzać zmian
-[Kondycja usługi Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health) | Wyświetlanie kondycji usług Office 365
+[Intune](/intune/role-based-access-control) | wyświetla informacje o użytkownikach, urządzeniach, rejestracji, konfiguracji i aplikacji. Nie może wprowadzać zmian w usłudze Intune.
+[Cloud App Security](/cloud-app-security/manage-admins) | Ma uprawnienia tylko do odczytu i może zarządzać alertami
+[Azure Security Center](../../role-based-access-control/built-in-roles.md) | Może wyświetlać zalecenia i alerty, wyświetlać zasady zabezpieczeń, wyświetlać Stany zabezpieczeń, ale nie mogą wprowadzać zmian
+[Kondycja usługi Office 365](/office365/enterprise/view-service-health) | Wyświetlanie kondycji usług Office 365
 
 ### <a name="service-support-administrator"></a>[Administrator pomocy technicznej usługi](#service-support-administrator-permissions)
 
@@ -477,7 +477,7 @@ Użytkownicy z tą rolą mają uprawnienia globalne w usłudze Microsoft SharePo
 
 ### <a name="skype-for-business--lync-administrator"></a>[Administrator programu Skype dla firm/Lync](#lync-service-administrator-permissions)
 
-Użytkownicy z tą rolą mają uprawnienia globalne w usłudze Microsoft Skype dla firm, gdy usługa jest obecna, a także do zarządzania atrybutami użytkownika specyficznymi dla programu Skype w Azure Active Directory. Ponadto ta rola zapewnia możliwość zarządzania biletami pomocy technicznej i monitorowania kondycji usługi oraz uzyskiwania dostępu do zespołów i centrum administracyjnego programu Skype dla firm. Konto musi być również licencjonowane dla zespołów lub nie może uruchamiać poleceń cmdlet programu PowerShell dla zespołów. Więcej informacji na [temat roli administratora programu Skype dla firm](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) i zespołów informacje o licencjonowaniu w usłudze [Skype dla firm i licencjonowaniu dodatku Microsoft Teams](https://docs.microsoft.com/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
+Użytkownicy z tą rolą mają uprawnienia globalne w usłudze Microsoft Skype dla firm, gdy usługa jest obecna, a także do zarządzania atrybutami użytkownika specyficznymi dla programu Skype w Azure Active Directory. Ponadto ta rola zapewnia możliwość zarządzania biletami pomocy technicznej i monitorowania kondycji usługi oraz uzyskiwania dostępu do zespołów i centrum administracyjnego programu Skype dla firm. Konto musi być również licencjonowane dla zespołów lub nie może uruchamiać poleceń cmdlet programu PowerShell dla zespołów. Więcej informacji na [temat roli administratora programu Skype dla firm](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) i zespołów informacje o licencjonowaniu w usłudze [Skype dla firm i licencjonowaniu dodatku Microsoft Teams](/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
 
 > [!NOTE]
 > W interfejsie API Microsoft Graph i programie Azure AD PowerShell ta rola jest identyfikowana jako "administrator usługi Lync". Jest to "Administrator programu Skype dla firm" w [Azure Portal](https://portal.azure.com/).

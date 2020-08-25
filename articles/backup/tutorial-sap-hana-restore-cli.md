@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak przywrócić bazy danych SAP HANA
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 282f0ee61ffae455d6d3e49ea445d5ddc2fe56ac
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a1dbf0593c7c9b65c4e285b7162411de6c01bbbf
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500831"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762287"
 ---
 # <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Samouczek: Przywracanie SAP HANA baz danych na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -89,7 +89,7 @@ W tym samouczku przywrócisz do poprzedniego punktu przywracania. [Wyświetl lis
 Korzystając z powyższej nazwy punktu przywracania i trybu przywracania, Utwórz teraz obiekt konfiguracji odzyskiwania za pomocą polecenia [AZ Backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show) . Przyjrzyjmy się poszczególnym parametrom w tym poleceniu cmdlet:
 
 * **--Target-Item-Name** Jest to nazwa używana przez przywróconą bazę danych. W takim przypadku użyto nazwy *restored_database*.
-* **--Target-Server-Name** Jest to nazwa serwera SAP HANA, który został pomyślnie zarejestrowany w magazynie usługi Recovery Services i znajduje się w tym samym regionie, w którym znajduje się baza danych, która ma zostać przywrócona. Na potrzeby tego samouczka będziemy przywracać bazę danych na tym samym serwerze SAP HANA, który został objęty ochroną, o nazwie *hxehost*.
+* **--Target-Server-Name** Jest to nazwa serwera SAP HANA, który został pomyślnie zarejestrowany w magazynie Recovery Services i znajduje się w tym samym regionie, w którym znajduje się baza danych, która ma zostać przywrócona. Na potrzeby tego samouczka będziemy przywracać bazę danych na tym samym serwerze SAP HANA, który został objęty ochroną, o nazwie *hxehost*.
 * **--Target-Server-Type** Aby można było przywrócić SAP HANA baz danych, należy użyć **SapHanaDatabase** .
 
 ```azurecli-interactive
@@ -181,7 +181,7 @@ Na potrzeby tego samouczka wybierzemy poprzedni punkt w czasie, w którym ma zos
 
 Korzystając z powyższej nazwy punktu przywracania i trybu przywracania, Utwórz obiekt konfiguracji odzyskiwania za pomocą polecenia [AZ Backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show) . Przyjrzyjmy się poszczególnym parametrom w tym poleceniu cmdlet:
 
-* **--Target-Container-Name** Jest to nazwa serwera SAP HANA, który został pomyślnie zarejestrowany w magazynie usługi Recovery Services i znajduje się w tym samym regionie, w którym znajduje się baza danych, która ma zostać przywrócona. W tym samouczku przywrócono bazę danych jako pliki do tego samego serwera SAP HANA, który został objęty ochroną, o nazwie *hxehost*.
+* **--Target-Container-Name** Jest to nazwa serwera SAP HANA, który został pomyślnie zarejestrowany w magazynie Recovery Services i znajduje się w tym samym regionie, w którym znajduje się baza danych, która ma zostać przywrócona. W tym samouczku przywrócono bazę danych jako pliki do tego samego serwera SAP HANA, który został objęty ochroną, o nazwie *hxehost*.
 * **--RP-Name** W przypadku przywracania do punktu w czasie nazwa punktu przywracania będzie **DefaultRangeRecoveryPoint**
 
 ```azurecli-interactive
@@ -290,7 +290,7 @@ Przenieś te przywrócone pliki na serwer SAP HANA, na którym chcesz je przywr�
     chown -R <SID>adm:sapsys <directory>
     ```
 
-1. Uruchom następny zestaw poleceń jako`<SID>adm`
+1. Uruchom następny zestaw poleceń jako `<SID>adm`
 
     ```bash
     su - <sid>adm
@@ -304,9 +304,9 @@ Przenieś te przywrócone pliki na serwer SAP HANA, na którym chcesz je przywr�
 
     W powyższym poleceniu:
 
-    * `<DataFileDir>`-folder zawierający pełne kopie zapasowe
-    * `<LogFilesDir>`-folder zawierający kopie zapasowe dziennika
-    * `<PathToPlaceCatalogFile>`-folder, w którym został wygenerowany plik wykazu, musi być umieszczony
+    * `<DataFileDir>` -folder zawierający pełne kopie zapasowe
+    * `<LogFilesDir>` -folder zawierający kopie zapasowe dziennika
+    * `<PathToPlaceCatalogFile>` -folder, w którym został wygenerowany plik wykazu, musi być umieszczony
 
 1. Przywróć przy użyciu nowo wygenerowanego pliku wykazu za pośrednictwem platformy HANA Studio lub uruchom zapytanie HDBSQL Restore z tym nowo wygenerowanym wykazem. Poniżej wymieniono zapytania HDBSQL:
 
@@ -320,13 +320,13 @@ Przenieś te przywrócone pliki na serwer SAP HANA, na którym chcesz je przywr�
         RECOVER DATABASE FOR <DatabaseName> UNTIL TIMESTAMP '<TimeStamp>' CLEAR LOG USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING LOG PATH (' <LogFileDir>') USING DATA PATH ('<DataFileDir>') USING BACKUP_ID <BackupIdFromJsonFile> CHECK ACCESS USING FILE
         ```
 
-        * `<DatabaseName>`-Nazwa nowej bazy danych lub istniejącej bazy danych, która ma zostać przywrócona
-        * `<Timestamp>`-Dokładne sygnatura czasowa przywracania do punktu w czasie
-        * `<DatabaseName@HostName>`-Nazwa bazy danych, której kopia zapasowa jest używana do przywracania i nazwa serwera **hosta** /SAP HANA, na którym znajduje się ta baza danych. `USING SOURCE <DatabaseName@HostName>`Opcja określa, że kopia zapasowa danych (używana do przywracania) jest bazą danych o innym identyfikatorze SID lub nazwie niż docelowa maszyna SAP HANA. Dlatego nie trzeba określać operacji przywracania wykonanej na tym samym serwerze HANA, w którym jest wykonywana kopia zapasowa.
-        * `<PathToGeneratedCatalogInStep3>`-Ścieżka do pliku wykazu wygenerowanego w **kroku 3**
-        * `<DataFileDir>`-folder zawierający pełne kopie zapasowe
-        * `<LogFilesDir>`-folder zawierający kopie zapasowe dziennika
-        * `<BackupIdFromJsonFile>`- **BackupId** wyodrębniony w **kroku 3**
+        * `<DatabaseName>` -Nazwa nowej bazy danych lub istniejącej bazy danych, która ma zostać przywrócona
+        * `<Timestamp>` -Dokładne sygnatura czasowa przywracania do punktu w czasie
+        * `<DatabaseName@HostName>` -Nazwa bazy danych, której kopia zapasowa jest używana do przywracania i nazwa serwera **hosta** /SAP HANA, na którym znajduje się ta baza danych. `USING SOURCE <DatabaseName@HostName>`Opcja określa, że kopia zapasowa danych (używana do przywracania) jest bazą danych o innym identyfikatorze SID lub nazwie niż docelowa maszyna SAP HANA. Dlatego nie trzeba określać operacji przywracania wykonanej na tym samym serwerze HANA, w którym jest wykonywana kopia zapasowa.
+        * `<PathToGeneratedCatalogInStep3>` -Ścieżka do pliku wykazu wygenerowanego w **kroku 3**
+        * `<DataFileDir>` -folder zawierający pełne kopie zapasowe
+        * `<LogFilesDir>` -folder zawierający kopie zapasowe dziennika
+        * `<BackupIdFromJsonFile>` - **BackupId** wyodrębniony w **kroku 3**
 
     * Aby przywrócić do konkretnej pełnej lub różnicowej kopii zapasowej:
 
@@ -336,13 +336,13 @@ Przenieś te przywrócone pliki na serwer SAP HANA, na którym chcesz je przywr�
         RECOVER DATA FOR <DatabaseName> USING BACKUP_ID <BackupIdFromJsonFile> USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING DATA PATH ('<DataFileDir>')  CLEAR LOG
         ```
 
-        * `<DatabaseName>`— Nazwa nowej bazy danych lub istniejącej bazy danych, którą chcesz przywrócić.
-        * `<Timestamp>`-dokładne sygnatura czasowa przywracania do punktu w czasie
-        * `<DatabaseName@HostName>`— Nazwa bazy danych, której kopia zapasowa jest używana do przywracania i nazwa serwera **hosta** /SAP HANA, na którym znajduje się ta baza danych. `USING SOURCE <DatabaseName@HostName>`Opcja określa, że kopia zapasowa danych (używana do przywracania) jest bazą danych o innym identyfikatorze SID lub nazwie niż docelowa maszyna SAP HANA. Dlatego nie trzeba określać operacji przywracania na tym samym serwerze HANA, w którym jest wykonywana kopia zapasowa.
-        * `<PathToGeneratedCatalogInStep3>`-ścieżka do pliku wykazu wygenerowanego w **kroku 3**
-        * `<DataFileDir>`-folder zawierający pełne kopie zapasowe
-        * `<LogFilesDir>`-folder zawierający kopie zapasowe dziennika
-        * `<BackupIdFromJsonFile>`- **BackupId** wyodrębniony w **kroku 3**
+        * `<DatabaseName>` — Nazwa nowej bazy danych lub istniejącej bazy danych, którą chcesz przywrócić.
+        * `<Timestamp>` -dokładne sygnatura czasowa przywracania do punktu w czasie
+        * `<DatabaseName@HostName>` — Nazwa bazy danych, której kopia zapasowa jest używana do przywracania i nazwa serwera **hosta** /SAP HANA, na którym znajduje się ta baza danych. `USING SOURCE <DatabaseName@HostName>`Opcja określa, że kopia zapasowa danych (używana do przywracania) jest bazą danych o innym identyfikatorze SID lub nazwie niż docelowa maszyna SAP HANA. Dlatego nie trzeba określać operacji przywracania na tym samym serwerze HANA, w którym jest wykonywana kopia zapasowa.
+        * `<PathToGeneratedCatalogInStep3>` -ścieżka do pliku wykazu wygenerowanego w **kroku 3**
+        * `<DataFileDir>` -folder zawierający pełne kopie zapasowe
+        * `<LogFilesDir>` -folder zawierający kopie zapasowe dziennika
+        * `<BackupIdFromJsonFile>` - **BackupId** wyodrębniony w **kroku 3**
 
 ## <a name="next-steps"></a>Następne kroki
 

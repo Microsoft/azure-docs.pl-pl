@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.custom: mvc, seodec18
 ms.openlocfilehash: d1775f3af390bb71b6895dc6d43c5ae574371aef
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "81537665"
 ---
 # <a name="bind-a-custom-tlsssl-certificate-to-an-app-service-app-using-cli"></a>Powiązywanie niestandardowego certyfikatu TLS/SSL z aplikacją App Service przy użyciu interfejsu wiersza polecenia

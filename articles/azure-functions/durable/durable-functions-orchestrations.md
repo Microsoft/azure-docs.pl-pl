@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1b349b1e3c4a2fac4cd260dbe83469a776951ab0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5eec15871279f3ca38c726fcd1ef1b21d0d38699
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033646"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750186"
 ---
 # <a name="durable-orchestrations"></a>Nietrwałe aranżacje
 
@@ -51,7 +51,7 @@ Gdy funkcja aranżacji ma więcej pracy do wykonania (na przykład komunikat odp
 > Aby wzorzec powtarzania działał poprawnie i niezawodnie, kod funkcji programu Orchestrator musi być *deterministyczny*. Aby uzyskać więcej informacji na temat ograniczeń dotyczących kodu dla funkcji programu Orchestrator, zobacz temat [ograniczenia kodu funkcji programu Orchestrator](durable-functions-code-constraints.md) .
 
 > [!NOTE]
-> Jeśli funkcja programu Orchestrator emituje komunikaty dziennika, zachowanie odtwarzania może spowodować wyemitowanie zduplikowanych komunikatów dziennika. Zapoznaj się z tematem [Rejestrowanie](durable-functions-diagnostics.md#logging) , aby dowiedzieć się więcej o tym, dlaczego takie zachowanie występuje i jak obejść to działanie.
+> Jeśli funkcja programu Orchestrator emituje komunikaty dziennika, zachowanie odtwarzania może spowodować wyemitowanie zduplikowanych komunikatów dziennika. Zapoznaj się z tematem [Rejestrowanie](durable-functions-diagnostics.md#app-logging) , aby dowiedzieć się więcej o tym, dlaczego to zachowanie i jak obejść go.
 
 ## <a name="orchestration-history"></a>Historia aranżacji
 
@@ -348,7 +348,7 @@ module.exports = df.orchestrator(function*(context) {
 };
 ```
 
-#### <a name="getweather-activity"></a>`GetWeather`Interakcyjn
+#### <a name="getweather-activity"></a>`GetWeather` Interakcyjn
 
 ```javascript
 module.exports = async function (context, location) {
@@ -376,7 +376,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     # ...
 
 ```
-#### <a name="getweather-activity"></a>`GetWeather`Interakcyjn
+#### <a name="getweather-activity"></a>`GetWeather` Interakcyjn
 
 ```python
 from collections import namedtuple

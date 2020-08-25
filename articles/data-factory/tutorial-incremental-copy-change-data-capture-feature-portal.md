@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
 ms.openlocfilehash: e15ac501a0598ae81a295d5a04074beb33c860f6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86085722"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Przyrostowe ładowanie danych z wystąpienia zarządzanego usługi Azure SQL do usługi Azure Storage przy użyciu funkcji przechwytywania zmian danych
@@ -49,7 +49,7 @@ W tym samouczku utworzysz potok, który wykonuje następujące operacje:
    2. Utwórz **warunek if** , aby sprawdzić, czy zostały zmienione rekordy, i jeśli tak, wywołaj działanie kopiowania.
    3. Utwórz **działanie kopiowania** , aby skopiować wstawione/zaktualizowane/usunięte dane między tabelą funkcji przechwytywania do BLOB Storage platformy Azure.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * **Azure SQL Database wystąpienia zarządzanego**. Baza danych jest używana jako magazyn danych **źródłowych**. Jeśli nie masz wystąpienia zarządzanego Azure SQL Database, zapoznaj się z artykułem [tworzenie Azure SQL Database wystąpienia zarządzanego](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) , aby zapoznać się z krokami.
@@ -124,7 +124,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
     Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
 5. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
 6. Usuń zaznaczenie opcji **Włącz git**.     
-7. Kliknij pozycję **Utwórz**.
+7. Kliknij przycisk **Utwórz**.
 8. Po zakończeniu wdrażania kliknij pozycję **Przejdź do zasobu** .
 
    ![Strona główna fabryki danych](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
