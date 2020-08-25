@@ -3,12 +3,12 @@ title: Kopia zapasowa offline z Azure Data Boxami dla programu DPM i serwera us�
 description: Za pomocą Azure Data Box można wypełniać początkowe dane kopii zapasowej w trybie offline z programu DPM i serwera usługi MAB.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: d6305607170e02c2f6e104ff8b18011b8657947b
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 974be6d337c3376d10e09ba6211f7804c2c8cada
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762457"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824563"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Używanie Azure Data Box dla programu DPM i serwera usługi MAB (wersja zapoznawcza)
 
@@ -234,7 +234,7 @@ Aby rozwiązać ten problem, wykonaj następujące kroki i spróbuj ponownie wyk
 2. Jeśli żaden inny serwer nie ma skonfigurowanych wypełnień w trybie offline i żaden inny serwer nie jest zależny od `AzureOfflineBackup_<Azure User Id>` aplikacji, Usuń tę aplikację z **Azure Portal > Azure Active Directory > rejestracje aplikacji**.
 
    > [!NOTE]
-   > Sprawdź, czy aplikacja nie `AzureOfflineBackup_<Azure User Id>` ma skonfigurowanych żadnych innych rozliczeń w trybie offline i nie zależą od niej żaden inny serwer. Przejdź do pozycji **ustawienia > klucze** w sekcji klucze publiczne nie należy dodawać żadnych innych **kluczy publicznych** . Aby uzyskać informacje, zobacz następujący zrzut ekranu:
+   > Sprawdź, czy aplikacja `AzureOfflineBackup_<Azure User Id>` nie ma skonfigurowanych żadnych innych rozliczeń w trybie offline, a także czy żaden inny serwer nie jest zależny od tej aplikacji. Przejdź do pozycji **ustawienia > klucze** w sekcji klucze publiczne. Nie należy dodawać żadnych innych **kluczy publicznych** . Aby uzyskać informacje, zobacz następujący zrzut ekranu:
    >
    > ![Klucze publiczne](./media/offline-backup-azure-data-box-dpm-mabs/public-keys.png)
 

@@ -3,12 +3,12 @@ title: Włączanie tworzenia kopii zapasowej przy tworzeniu maszyny wirtualnej p
 description: Opisuje sposób włączania tworzenia kopii zapasowej podczas tworzenia maszyny wirtualnej platformy Azure przy użyciu Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: c744f6aa2bef6d3d6800aa6b6dc077915fc5205b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 8612061ca21b4609600f5b9822ca4f6fe3b673f1
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586702"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825957"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Włączanie tworzenia kopii zapasowej przy tworzeniu maszyny wirtualnej platformy Azure
 
@@ -58,13 +58,13 @@ Usługa Backup tworzy oddzielną grupę zasobów (RG), inną niż grupa zasobów
 Punkty do uwagi:
 
 1. Możesz użyć domyślnej nazwy RG lub edytować ją zgodnie z wymaganiami firmy.
-2. Wzorzec nazwy RG można podać jako dane wejściowe podczas tworzenia zasad kopii zapasowej maszyny wirtualnej. Nazwa RG powinna mieć następujący format: `<alpha-numeric string>* n <alpha-numeric string>` . element "n" jest zastępowany liczbą całkowitą (rozpoczynając od 1) i jest używany do skalowania w górę, jeśli pierwszy RG jest pełny. Jedna RG może mieć maksymalnie 600 wywołań RPC.
+2. Wzorzec nazwy RG można podać jako dane wejściowe podczas tworzenia zasad kopii zapasowej maszyny wirtualnej. Nazwa RG powinna mieć następujący format: `<alpha-numeric string>* n <alpha-numeric string>` . element "n" jest zastępowany liczbą całkowitą (rozpoczynając od 1) i jest używany do skalowania w górę, jeśli pierwszy RG jest pełny. Jedna RG może mieć maksymalnie 600 zdalnych wywołań procedury.
               ![Wybierz nazwę podczas tworzenia zasad](./media/backup-during-vm-creation/create-policy.png)
 3. Wzorzec powinien być zgodny z regułami nazewnictwa RG poniżej, a łączna długość nie powinna przekraczać maksymalnej dozwolonej długości nazwy RG.
     1. Nazwa grupy zasobów zezwala tylko na znaki alfanumeryczne, kropki, podkreślenia, łączniki i nawiasy. Nie mogą kończyć się kropką.
     2. Nazwy grup zasobów mogą zawierać do 74 znaków, w tym nazwę RG i sufiks.
 4. Pierwszy `<alpha-numeric-string>` jest obowiązkowy, gdy druga po "n" jest opcjonalna. Ma to zastosowanie tylko w przypadku nadania niestandardowej nazwy. Jeśli nie wprowadzisz niczego w żadnej z pól tekstowych, zostanie użyta nazwa domyślna.
-5. Nazwę RG można edytować, modyfikując zasady, jeśli są wymagane. Jeśli wzorzec nazwy zostanie zmieniony, w nowym RG zostanie utworzony nowy RPS pliku. Jednak stary RPS pliku nadal będzie znajdował się w starej RG i nie zostanie przeniesiony, ponieważ kolekcja RP nie obsługuje przenoszenia zasobów. Ostatecznie RPS pliku będzie odbierać elementy bezużyteczne w miarę wygasania punktów.
+5. Nazwę RG można edytować, modyfikując zasady, jeśli są wymagane. Jeśli wzorzec nazwy zostanie zmieniony, w nowym RG zostanie utworzony nowy RPS pliku. Jednak stary RPS pliku nadal będzie znajdował się w starym RG i nie zostanie przeniesiony, ponieważ kolekcja RP nie będzie obsługiwać przenoszenia zasobów. Ostatecznie RPS pliku będzie odbierać elementy bezużyteczne w miarę wygasania punktów.
 ![Zmień nazwę przy modyfikowaniu zasad](./media/backup-during-vm-creation/modify-policy.png)
 6. Zaleca się, aby nie blokować grupy zasobów utworzonej do użycia przez usługę kopii zapasowej.
 

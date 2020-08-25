@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 7d300252893a72ef6296e941f5a573a67807779f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c6b524fb76c623273c60d39f4102500664c487cb
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652580"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88823985"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: często zadawane pytania
 
@@ -57,7 +57,7 @@ A.  Aby uzyskać informacje na temat krajów/regionów dostępnych urządzenie D
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>PYTANIE: W jakich regionach mogę przechowywać dane, korzystając z usługi Data Box?
 A. Urządzenie Data Box jest obsługiwana w przypadku wszystkich regionów w Stanach Zjednoczonych, Europa Zachodnia, Europa Północna, Francja, Zjednoczone Królestwo, Japonia, Australia i Kanada. Aby uzyskać więcej informacji, przejdź do [obszaru dostępność regionu](data-box-overview.md#region-availability).
 
-### <a name="q-how-can-i-import-my-on-premises-source-data-to-an-azure-region-in-a-different-countryregion-or-export-data-from-an-azure-region-in-one-country-to-a-different-countryregion"></a>PYTANIE: Jak zaimportować lokalne dane źródłowe do regionu platformy Azure w innym kraju/regionie lub wyeksportować dane z regionu świadczenia usługi Azure w jednym kraju do innego kraju/regionu?
+### <a name="q-how-can-i-import-source-data-at-my-location-in-a-particular-country-to-an-azure-region-in-a-different-countryregion-or-export-data-from-an-azure-region-in-one-country-to-a-different-countryregion"></a>PYTANIE: Jak zaimportować dane źródłowe w danym kraju do regionu świadczenia usługi Azure w innym kraju/regionie lub wyeksportować dane z regionu świadczenia usługi Azure w jednym kraju do innego kraju/regionu?
 
 Urządzenie Data Box obsługuje pozyskiwanie danych lub wychodzące tylko w tym samym kraju/regionie co ich miejsce docelowe i nie będzie przekraczać granic międzynarodowych. Jedyny wyjątek dotyczy zamówień w Unii Europejskiej (UE), gdzie pola danych mogą być dostarczane do i z dowolnego kraju/regionu UE.
 

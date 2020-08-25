@@ -3,12 +3,12 @@ title: Instalowanie składnika Azure Backup Server w usłudze Azure Stack
 description: W tym artykule dowiesz się, jak używać Azure Backup Server do ochrony lub tworzenia kopii zapasowych obciążeń w programie Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 5b6ae97f30bf704e5bc495cc8020e8bcb0e30ce3
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 644aeeb8670c4b8d551ba1d3f6b1b16aa199f4ef
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263065"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827011"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalowanie składnika Azure Backup Server w usłudze Azure Stack
 
@@ -217,7 +217,7 @@ Azure Backup Server udostępnia kod z Data Protection Manager. W instalatorze Az
 
     ![Azure Backup Server — sprawdzanie wymagań wstępnych](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-7.png)
 
-    Jeśli środowisko ma wymagane wymagania wstępne, zobaczysz komunikat informujący o tym, że komputer spełnia wymagania. Wybierz opcję **Dalej**.  
+    Jeśli środowisko ma wymagane wymagania wstępne, zobaczysz komunikat informujący o tym, że komputer spełnia wymagania. Wybierz pozycję **Dalej**.  
 
     ![Zakończono sprawdzanie wymagań wstępnych Azure Backup Server](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-passed-8.png)
 
@@ -228,7 +228,7 @@ Azure Backup Server udostępnia kod z Data Protection Manager. W instalatorze Az
 4. Serwer Microsoft Azure Backup wymaga SQL Server. Pakiet instalacyjny Azure Backup Server jest powiązany z odpowiednimi SQL Server plikami binarnymi. Jeśli chcesz użyć własnej instalacji programu SQL, możesz. Zaleca się jednak, aby Instalator dodał nowe wystąpienie SQL Server. Aby upewnić się, że wybór działa z Twoim środowiskiem, wybierz pozycję **Sprawdź i zainstaluj**.
 
    > [!NOTE]
-   > Azure Backup Server nie będzie działał ze zdalnym wystąpieniem SQL Server. Wystąpienie używane przez Azure Backup Server musi być lokalne.
+   > Azure Backup Server nie będzie działał z wystąpieniem SQL Server zdalnego. Wystąpienie używane przez Azure Backup Server musi być lokalne.
    >
 
     ![Azure Backup Server — ustawienia SQL](./media/backup-mabs-install-azure-stack/mabs-install-wizard-sql-install-9.png)

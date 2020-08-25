@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/21/2020
-ms.openlocfilehash: ba3c7304b0ce52cb720a9e2ac7ae6cf1b5ffeeea
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 08/25/2020
+ms.openlocfilehash: 0587a179b98a410cdba46b7817d86567f275f25d
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751471"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826824"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Informacje o wersji usługi Azure HDInsight
 
@@ -75,4 +75,4 @@ Brak zmian wersji składnika dla tej wersji. Bieżące wersje składników usłu
 
 ## <a name="known-issues"></a>Znane problemy
 
-Podczas próby utworzenia klastra usługi Azure HDInsight na podstawie Azure Portal i użycia typu uwierzytelniania SSH dla klucza publicznego użytkownicy napotykają błąd po kliknięciu opcji **Przegląd + Utwórz**. Błąd w portalu to "nie może zawierać żadnych trzech następujących po sobie znaków z nazwy użytkownika SSH". Ten problem jest rozwiązywany; Jednak w przypadku wystąpienia tego błędu obejście powoduje utworzenie klastra z szablonem ARM. 
+Problem został rozwiązany w witrynie Azure Portal, w którym użytkownicy napotkali błąd podczas tworzenia klastra usługi Azure HDInsight przy użyciu typu uwierzytelniania SSH klucza publicznego. Gdy użytkownicy klikną opcję **Recenzja + Utwórz**, otrzymają komunikat o błędzie "nie może zawierać żadnych trzech kolejnych znaków z nazwy użytkownika ssh". Ten problem został rozwiązany, ale może być wymagane odświeżenie pamięci podręcznej przeglądarki przez naciśnięcie klawiszy CTRL + F5 w celu załadowania poprawionego widoku. Obejście tego problemu polega na utworzeniu klastra z szablonem ARM. 

@@ -3,12 +3,12 @@ title: Przywracanie SQL Server baz danych na maszynie wirtualnej platformy Azure
 description: W tym artykule opisano sposób przywracania SQL Server baz danych, które są uruchomione na maszynie wirtualnej platformy Azure i których kopia zapasowa została utworzona przy użyciu Azure Backup.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 97cf8a7d7fcae0e31dde14e045b222c5899dbb02
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 682540e498c7531777032b5375f0105c03ce4ec6
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921150"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826560"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Przywracanie SQL Server baz danych na maszynach wirtualnych platformy Azure
 
@@ -126,11 +126,11 @@ Aby przywrócić dane kopii zapasowej jako pliki. bak zamiast bazy danych, wybie
     >
     >- Uruchom `PsExec -s cmd` , aby wejść do powłoki NT NT\SYSTEM
     >   - Wykonaj polecenie `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
-    >   - Weryfikowanie dostępu za pomocą`dir \\<storageacct>.file.core.windows.net\<filesharename>`
+    >   - Weryfikowanie dostępu za pomocą `dir \\<storageacct>.file.core.windows.net\<filesharename>`
     >- Rozpoczęcie przywracania jako plików z magazynu kopii zapasowych `\\<storageacct>.file.core.windows.net\<filesharename>` jako ścieżki<BR>
     PsExec można pobrać ze strony [Sysinternals](/sysinternals/downloads/psexec) .
 
-1. Wybierz przycisk **OK**.
+1. Wybierz pozycję **OK**.
 
     ![Wybierz pozycję Przywróć jako pliki](./media/backup-azure-sql-database/restore-as-files.png)
 
@@ -165,7 +165,7 @@ Jeśli wybrano opcję **pełny & różnicowa** jako typ przywracania, wykonaj na
 
 ### <a name="restore-databases-with-large-number-of-files"></a>Przywracanie baz danych o dużej liczbie plików
 
-Jeśli łączny rozmiar ciągu plików w bazie danych jest większy niż [określony limit](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Azure Backup przechowuje listę plików bazy danych w innym składniku Pit, w taki sposób, że nie można ustawić docelowej ścieżki przywracania podczas operacji przywracania. Pliki zostaną przywrócone do domyślnej ścieżki SQL.
+Jeśli całkowity rozmiar ciągu plików w bazie danych jest większy niż [określony limit](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Azure Backup przechowuje listę plików bazy danych w innym składniku Pit, dlatego nie można ustawić docelowej ścieżki przywracania podczas operacji przywracania. Pliki zostaną przywrócone do domyślnej ścieżki SQL.
 
   ![Przywracanie bazy danych z dużym plikiem](./media/backup-azure-sql-database/restore-large-files.jpg)
 

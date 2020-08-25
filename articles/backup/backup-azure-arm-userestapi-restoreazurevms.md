@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak zarządzać operacjami przywracani
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: eef30808dddfb20d01fcb6e25a88b9a64e4445d8
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 03815cd9956e323583d6d66097e0eeaa3d492f44
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763545"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826365"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Przywracanie maszyn wirtualnych platformy Azure przy użyciu interfejsu API REST
 
@@ -210,7 +210,7 @@ Ponieważ zadanie przywracania jest długotrwałą operacją, powinno być śled
 
 ### <a name="restore-disks"></a>Przywróć dyski
 
-Jeśli istnieje potrzeba dostosowania tworzenia maszyny wirtualnej na podstawie danych kopii zapasowej, jedna z nich może przywrócić dyski na wybrane konto magazynu i utworzyć maszynę wirtualną na podstawie tych dysków zgodnie z ich wymaganiami. Konto magazynu powinno znajdować się w tym samym regionie co magazyn Recovery Services i nie powinno być nadmiarowe strefy. Dyski, a także Konfiguracja kopii zapasowej maszyny wirtualnej ("vmconfig.json") będą przechowywane na danym koncie magazynu. Zgodnie z [powyższymi](#restore-operations)szczegółami poniżej przedstawiono odpowiednią treść żądania dla dysków przywracania.
+Jeśli istnieje potrzeba dostosowania tworzenia maszyny wirtualnej na podstawie danych kopii zapasowej, można po prostu przywrócić dyski na wybrane konto magazynu i utworzyć maszynę wirtualną na podstawie tych dysków zgodnie z ich wymaganiami. Konto magazynu powinno znajdować się w tym samym regionie co magazyn Recovery Services i nie powinno być nadmiarowe strefy. Dyski, a także Konfiguracja kopii zapasowej maszyny wirtualnej ("vmconfig.json") będą przechowywane na danym koncie magazynu. Zgodnie z [powyższymi](#restore-operations)szczegółami poniżej przedstawiono odpowiednią treść żądania dla dysków przywracania.
 
 #### <a name="create-request-body"></a>Utwórz treść żądania
 

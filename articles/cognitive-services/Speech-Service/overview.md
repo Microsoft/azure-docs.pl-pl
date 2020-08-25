@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: e1b24eb8e2d355e73eedda903745df73593fa1a8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: cc29eb959876a0c9c6f8c8e5dee2d18aaa5443ac
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749216"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825362"
 ---
 # <a name="what-is-the-speech-service"></a>Czym jest usługa rozpoznawania mowy?
 
@@ -89,8 +89,6 @@ Wdrożenie nowego zasobu mowy trwa kilka minut. Po zakończeniu wdrażania wybie
 ## <a name="complete-a-quickstart"></a>Kończenie szybkiego startu
 
 Oferujemy Przewodniki Szybki Start w najpopularniejszych językach programowania, z których każdy jest przeznaczony do uczenia podstawowych wzorców projektowych i uruchamiania kodu w mniej niż 10 minut. Zapoznaj się z poniższą listą przewodnika Szybki Start dla każdej funkcji.
-
-Ta tabela zawiera najpopularniejsze Przewodniki Szybki Start dla każdej funkcji. Użyj nawigacji po lewej stronie, aby poznać dodatkowe języki i platformy.
 
 * [Przewodnik Szybki Start dotyczący zamiany tekstu](speech-to-text-basics.md)
 * [Przewodnik Szybki start dotyczący zamiany tekstu na mowę](get-started-text-to-speech.md)

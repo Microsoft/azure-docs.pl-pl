@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych maszyn wirtualnych VMware przy użyciu Azure B
 description: W tym artykule dowiesz się, jak używać Azure Backup Server do tworzenia kopii zapasowych maszyn wirtualnych VMware działających na serwerze VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 892d308df15ef745f34419ec315e2c5000b0852c
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: f498a7b7d2faf9ff857b504043233c46c843a961
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263541"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826943"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Tworzenie kopii zapasowych maszyn wirtualnych VMware przy użyciu Azure Backup Server
 
@@ -34,7 +34,7 @@ W tym artykule wyjaśniono, jak:
 
 Domyślnie Azure Backup Server komunikuje się z serwerami VMware za pośrednictwem protokołu HTTPS. Aby skonfigurować połączenie HTTPS, Pobierz certyfikat urzędu certyfikacji VMware i zaimportuj go na Azure Backup Server.
 
-### <a name="before-you-begin"></a>Zanim rozpoczniesz
+### <a name="before-you-begin"></a>Przed rozpoczęciem
 
 - Jeśli nie chcesz używać protokołu HTTPS, możesz [wyłączyć weryfikację certyfikatu HTTPS dla wszystkich serwerów VMware](backup-azure-backup-server-vmware.md#disable-https-certificate-validation).
 - Zazwyczaj nawiązywane jest połączenie z przeglądarki na komputerze Azure Backup Server z serwerem vCenter/ESXi za pomocą klienta sieci Web vSphere. Po raz pierwszy połączenie nie jest bezpieczne i będzie zawierać następujące elementy.
@@ -281,7 +281,7 @@ Dodaj vCenter Server do Azure Backup Server.
 
     ![Określ poświadczenie](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. Wybierz pozycję **Dodaj** , aby dodać serwer VMware do listy serwerów. Następnie wybierz przycisk **Dalej**.
+6. Wybierz pozycję **Dodaj** , aby dodać serwer VMware do listy serwerów. Następnie wybierz pozycję **Dalej**.
 
     ![Dodaj serwer i poświadczenie oprogramowania VMWare](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
@@ -309,14 +309,14 @@ Dodaj maszyny wirtualne VMware na potrzeby tworzenia kopii zapasowych. Grupy och
 
 1. Na stronie **Wybierz typ grupy ochrony** wybierz pozycję **serwery** , a następnie wybierz przycisk **dalej**. Zostanie wyświetlona strona **Wybierz członków grupy** .
 
-1. W obszarze **Wybierz członków grupy**Wybierz Maszyny wirtualne (lub foldery maszyn wirtualnych), których kopię zapasową chcesz utworzyć. Następnie wybierz przycisk **Dalej**.
+1. W obszarze **Wybierz członków grupy**Wybierz Maszyny wirtualne (lub foldery maszyn wirtualnych), których kopię zapasową chcesz utworzyć. Następnie wybierz pozycję **Dalej**.
 
     - Po wybraniu folderu zostaną również wybrane maszyny wirtualne lub foldery znajdujące się w tym folderze. Możesz wyczyścić foldery lub maszyny wirtualne, których kopia zapasowa ma nie być wykonana.
 1. Jeśli tworzona jest już kopia zapasowa maszyny wirtualnej lub folderu, nie można jej wybrać. Gwarantuje to, że nie zostaną utworzone zduplikowane punkty odzyskiwania dla maszyny wirtualnej.
 
     ![Wybierz członków grupy](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
-1. Na stronie **Wybierz metodę ochrony danych** wprowadź nazwę grupy ochrony i ustawienia ochrony. Aby utworzyć kopię zapasową na platformie Azure, ustaw krótkoterminową ochronę na **dysku** i Włącz ochronę w trybie online. Następnie wybierz przycisk **Dalej**.
+1. Na stronie **Wybierz metodę ochrony danych** wprowadź nazwę grupy ochrony i ustawienia ochrony. Aby utworzyć kopię zapasową na platformie Azure, ustaw krótkoterminową ochronę na **dysku** i Włącz ochronę w trybie online. Następnie wybierz pozycję **Dalej**.
 
     ![Wybieranie metody ochrony danych](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
@@ -347,17 +347,17 @@ Dodaj maszyny wirtualne VMware na potrzeby tworzenia kopii zapasowych. Grupy och
 
     ![Wybierz metodę tworzenia repliki](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. W obszarze **Opcje sprawdzania spójności**wybierz, jak i kiedy zautomatyzować sprawdzanie spójności. Następnie wybierz przycisk **Dalej**.
+1. W obszarze **Opcje sprawdzania spójności**wybierz, jak i kiedy zautomatyzować sprawdzanie spójności. Następnie wybierz pozycję **Dalej**.
       - Sprawdzanie spójności można uruchomić, gdy dane repliki staną się niespójne lub zgodnie z ustalonym harmonogramem.
       - Jeśli nie chcesz konfigurować automatycznego sprawdzania spójności, możesz uruchomić sprawdzanie ręczne. Aby to zrobić, kliknij prawym przyciskiem myszy grupę ochrony > **Przeprowadź sprawdzanie spójności**.
 
-1. Na stronie **Określ dane ochrony online** Wybierz Maszyny wirtualne lub foldery maszyn wirtualnych, dla których chcesz utworzyć kopię zapasową. Możesz wybrać członków indywidualnie lub wybrać opcję **Zaznacz wszystko** , aby wybrać wszystkie elementy członkowskie. Następnie wybierz przycisk **Dalej**.
+1. Na stronie **Określ dane ochrony online** Wybierz Maszyny wirtualne lub foldery maszyn wirtualnych, dla których chcesz utworzyć kopię zapasową. Możesz wybrać członków indywidualnie lub wybrać opcję **Zaznacz wszystko** , aby wybrać wszystkie elementy członkowskie. Następnie wybierz pozycję **Dalej**.
 
     ![Określ dane ochrony w trybie online](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. Na stronie **Określanie harmonogramu tworzenia kopii zapasowych online** Określ, jak często mają być wykonywane kopie zapasowe danych z magazynu lokalnego na platformę Azure.
 
-    - Punkty odzyskiwania w chmurze dla danych będą generowane zgodnie z harmonogramem. Następnie wybierz przycisk **Dalej**.
+    - Punkty odzyskiwania w chmurze dla danych będą generowane zgodnie z harmonogramem. Następnie wybierz pozycję **Dalej**.
     - Po wygenerowaniu punkt odzyskiwania zostanie przeniesiony do magazynu Recovery Services na platformie Azure.
 
     ![Określ harmonogram kopii zapasowych online](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)

@@ -3,12 +3,12 @@ title: Kopia zapasowa offline dla Data Protection Manager (DPM) i Microsoft Azur
 description: Za pomocą Azure Backup można wysyłać dane z sieci za pomocą usługi Azure Import/Export. W tym artykule opisano przepływ pracy kopii zapasowej offline dla poprzednich wersji programu DPM i Azure Backup Server.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: e986baaf6ac2943bd210761ff2194eacdee5984a
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 45518607b96848dc211c1a787ecfa85432cd842e
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261926"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826603"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server (poprzednie wersje)
 
@@ -46,7 +46,7 @@ Kopia zapasowa offline jest obsługiwana dla wszystkich modeli wdrażania Azure 
 > * Tworzenie kopii zapasowych wszystkich obciążeń i plików z serwera usługi MAB.
 
 >[!NOTE]
->Subskrypcje dostawcy CSP platformy Azure nie są obsługiwane w przypadku używania z rozrzutem offline dla programu DPM 2019 RTM i wcześniejszych wersji oraz serwera usługi MAB v3 RTM i wcześniejszych wersji. Kopie zapasowe online przez sieć są nadal obsługiwane.
+>Subskrypcje dostawcy CSP platformy Azure nie są obsługiwane do użycia z rozrzutem offline dla programu DPM 2019 RTM i starszych wersji oraz serwera usługi MAB v3 RTM i wcześniejszych wersji. Kopie zapasowe online przez sieć są nadal obsługiwane.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -99,7 +99,7 @@ Przed uruchomieniem przepływu pracy tworzenia kopii zapasowej offline upewnij s
 
 Wykonaj następujące kroki, aby ręcznie przekazać certyfikat kopii zapasowej offline do wcześniej utworzonej aplikacji Azure Active Directory przeznaczonej do tworzenia kopii zapasowych w trybie offline.
 
-1. Zaloguj się w witrynie Azure Portal.
+1. Zaloguj się do witryny Azure Portal.
 1. Przejdź do **Azure Active Directory**  >  **rejestracje aplikacji**Azure Active Directory.
 1. Na karcie **posiadane aplikacje** Znajdź aplikację z formatem nazwy wyświetlanej `AzureOfflineBackup _<Azure User Id` .
 

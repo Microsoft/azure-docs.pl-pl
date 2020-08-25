@@ -9,19 +9,19 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: d46354b18d5c3317cc1ed67d839feb26b7b6b5d0
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b5b0f9acc45dba81bb7653c844bb8c78a8bd29ba
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815848"
+ms.locfileid: "88826297"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Instrukcje: uruchamianie aplikacji za pomocą Menedżera Fortanix enklawy 
 
 Zacznij korzystać z aplikacji w usłudze Azure poufne dane przy użyciu programu [Fortanix enklawy Manager](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.enclave_manager?tab=Overview) i [agenta Fortanix Node](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.rte_node_agent) z poziomu [Fortanix](https://www.fortanix.com/).
 
 
-Fortanix to dostawca oprogramowania innej firmy z produktami i usługami opartymi na infrastrukturze platformy Azure. Istnieją inni dostawcy innych firm oferujących podobne, poufne usługi obliczeniowe na platformie Azure, takie jak [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) i [Scone](https://sconedocs.github.io).  
+Fortanix to dostawca oprogramowania innej firmy z produktami i usługami opartymi na infrastrukturze platformy Azure. Istnieją inni dostawcy innych firm oferujących podobne poufne usługi obliczeniowe na platformie Azure.
 
 > [!Note] 
  > PRODUKTY, DO KTÓRYCH ODWOŁUJE SIĘ TEN DOKUMENT, NIE SĄ POD KONTROLĄ FIRMY MICROSOFT. FIRMA MICROSOFT UDOSTĘPNIA TE INFORMACJE TYLKO JAKO WYGODA, A ODWOŁANIE DO TYCH PRODUKTÓW INNYCH FIRM NIE OZNACZA POTWIERDZENIA PRZEZ FIRMĘ MICROSOFT.
@@ -162,7 +162,7 @@ miejscu
 
 Gdy grupa zasobów, maszyna wirtualna i skojarzone zasoby nie będą już potrzebne, można je usunąć. Usunięcie grupy zasobów spowoduje Wyrejestrowanie węzłów skojarzonych z przekonwertowanego obrazu. 
 
-Wybierz grupę zasobów dla maszyny wirtualnej, a następnie wybierz pozycję **Usuń**. Potwierdź nazwę grupy zasobów, aby zakończyć usuwanie zasobów. \
+Wybierz grupę zasobów dla maszyny wirtualnej, a następnie wybierz pozycję **Usuń**. Potwierdź nazwę grupy zasobów, aby zakończyć usuwanie zasobów.
 
 Aby usunąć utworzone konto menedżera enklawy Fortanix, przejdź na [stronę konta](https://em.fortanix.com/accounts) w Menedżerze enklawy. Umieść kursor na koncie, które chcesz usunąć. Wybierz czarną czerń kropek w prawym górnym rogu, a następnie wybierz pozycję **Usuń konto**.
 
@@ -174,3 +174,4 @@ W tym przewodniku szybki start użyto narzędzi Fortanix do przekonwertowania ob
 
 Aby dowiedzieć się więcej na temat ofert związanych z poufnym przetwarzaniem na platformie Azure, zobacz [Omówienie usługi Azure poufnego przetwarzania](overview.md)
 
+ Dowiedz się, jak wykonywać podobne zadania przy użyciu innych ofert innych firm na platformie Azure, takich jak [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) i [Scone](https://sconedocs.github.io).  

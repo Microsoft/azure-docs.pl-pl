@@ -3,12 +3,12 @@ title: Użyj Nowoczesny magazyn kopii zapasowych z Azure Backup Server
 description: Dowiedz się więcej o nowych funkcjach w Azure Backup Server. W tym artykule opisano sposób uaktualniania instalacji serwera kopii zapasowej.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 5c7533a5ee2fc65beb86c0c803a522e0acb1df6d
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: b8620f6999c1fcb1a1e70c73fb71fcaac008d930
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762440"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825872"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Dodawanie magazynu do usługi Azure Backup Server
 
@@ -105,7 +105,7 @@ Aktualizowanie grup ochrony w celu korzystania z funkcji Modern Backup Storage j
 
    ![Zatrzymaj ochronę elementu członkowskiego](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
-2. W oknie dialogowym **usuwanie z grupy** Sprawdź zajęte miejsce na dysku i dostępne wolne miejsce dla puli magazynów. Domyślnie punkty odzyskiwania pozostają na dysku i wygasają zgodnie ze skojarzonymi z nimi zasadami przechowywania. Kliknij pozycję **OK**.
+2. W oknie dialogowym **usuwanie z grupy** Sprawdź zajęte miejsce na dysku i dostępne wolne miejsce dla puli magazynów. Domyślnie punkty odzyskiwania pozostają na dysku i wygasają zgodnie ze skojarzonymi z nimi zasadami przechowywania. Kliknij przycisk **OK**.
 
    Jeśli chcesz natychmiast przywrócić zajęte miejsce na dysku do puli magazynu, zaznacz pole wyboru **Usuń replikę na dysku** , aby usunąć dane kopii zapasowej (i punkty odzyskiwania) skojarzone z tym elementem członkowskim.
 

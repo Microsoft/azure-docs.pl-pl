@@ -3,12 +3,12 @@ title: Automatyczne włączanie kopii zapasowych podczas tworzenia maszyny wirtu
 description: Artykuł opisujący sposób użycia Azure Policy do samodzielnego włączania kopii zapasowych dla wszystkich maszyn wirtualnych utworzonych w danym zakresie
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: fd54c25899bc1e58a753821d2c7c2df8ff213865
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: de4923000bc842203535e03727fd532c67a8f517
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763596"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826076"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Automatyczne włączanie kopii zapasowych podczas tworzenia maszyny wirtualnej za pomocą usługi Azure Policy
 
@@ -52,7 +52,7 @@ Aby przypisać zasady do wymaganego zakresu, wykonaj następujące czynności:
 
 > [!NOTE]
 >
-> Zaleca się, aby te zasady nie były przypisane do ponad 200 maszyn wirtualnych jednocześnie. Jeśli zasady są przypisane do ponad 200 maszyn wirtualnych, może to spowodować, że kopia zapasowa zostanie wyzwolona kilka godzin później niż określono w harmonogramie.
+> Zaleca się, aby te zasady nie były przypisane do ponad 200 maszyn wirtualnych jednocześnie. Jeśli zasady są przypisane do ponad 200 maszyn wirtualnych, może to spowodować, że wykonywanie kopii zapasowej zostanie wyzwolone kilka godzin później niż określono w harmonogramie.
 
 ## <a name="next-steps"></a>Następne kroki
 

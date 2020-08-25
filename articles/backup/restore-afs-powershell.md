@@ -3,12 +3,12 @@ title: Przywracanie Azure Files przy użyciu programu PowerShell
 description: W tym artykule dowiesz się, jak przywrócić Azure Files przy użyciu usługi Azure Backup i programu PowerShell.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 23de6e1e352a1b72d1435fc65d6a59ab37d838b0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 60c9848e12de80bcafe4553a9e8f3e27e8876d41
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538551"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826501"
 ---
 # <a name="restore-azure-files-with-powershell"></a>Przywracanie Azure Files przy użyciu programu PowerShell
 
@@ -17,7 +17,7 @@ W tym artykule wyjaśniono, jak przywrócić cały udział plików lub określon
 Można przywrócić cały udział plików lub konkretne pliki w udziale. Można przywrócić do oryginalnej lokalizacji lub do alternatywnej lokalizacji.
 
 > [!WARNING]
-> Upewnij się, że wersja PS została uaktualniona do wersji minimalnej dla "AZ. RecoveryServices 2.6.0" dla kopii zapasowych AFS. Aby uzyskać więcej informacji, zobacz [sekcję](backup-azure-afs-automation.md#important-notice-backup-item-identification) dotyczącą wymagania tej zmiany.
+> Upewnij się, że wersja programu PowerShell została uaktualniona do wersji minimalnej dla polecenia "AZ. RecoveryServices 2.6.0" dla kopii zapasowych AFS. Aby uzyskać więcej informacji, zobacz [sekcję](backup-azure-afs-automation.md#important-notice-backup-item-identification) dotyczącą wymagania tej zmiany.
 
 >[!NOTE]
 >Azure Backup teraz obsługuje przywracanie wielu plików lub folderów do lokalizacji oryginalnej lub alternatywnej przy użyciu programu PowerShell. Zapoznaj się z [tą sekcją](#restore-multiple-files-or-folders-to-original-or-alternate-location) dokumentu, aby dowiedzieć się, jak.

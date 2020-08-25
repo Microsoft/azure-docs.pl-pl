@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak rozwiązywać problemy z tworzenie
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 104fb177a1379d5a09dc54cf6f78c401744d697f
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: bf2a811098138663f1b7f2acd174d6bca4aa6150
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763307"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826244"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Rozwiązywanie problemów dotyczących błędów kopii zapasowych w usłudze Azure Virtual Machines
 
@@ -28,7 +28,7 @@ W tej sekcji omówiono niepowodzenie operacji tworzenia kopii zapasowej maszyny 
 * Sprawdź, czy maszyna wirtualna ma łączność z Internetem.
   * Upewnij się, że inna usługa kopii zapasowej nie jest uruchomiona.
 * `Services.msc`Upewnij się, że usługa **agenta gościa systemu Windows Azure** jest **uruchomiona**. Jeśli brakuje usługi **agenta gościa platformy Microsoft Azure** , zainstaluj ją z [kopii zapasowych maszyn wirtualnych platformy Azure w magazynie Recovery Services](./backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-* **Dziennik zdarzeń** może zawierać błędy kopii zapasowych, które pochodzą z innych produktów kopii zapasowej, na przykład kopia zapasowa systemu Windows Server i nie są ze względu na usługę Azure Backup. Wykonaj następujące kroki, aby określić, czy problem dotyczy Azure Backup:
+* **Dziennik zdarzeń** może zawierać błędy kopii zapasowych, które pochodzą z innych produktów kopii zapasowej, na przykład kopia zapasowa systemu Windows Server, a nie z powodu usługi Azure Backup. Wykonaj następujące kroki, aby określić, czy problem dotyczy Azure Backup:
   * Jeśli wystąpił błąd dotyczący **kopii zapasowej** wpisu w źródle lub komunikacie zdarzenia, sprawdź, czy kopie zapasowe usługi Azure IaaS VM zostały wykonane pomyślnie, a także czy punkt przywracania został utworzony z żądanym typem migawki.
   * Jeśli Azure Backup działa, problem jest prawdopodobnie z innym rozwiązaniem tworzenia kopii zapasowej.
   * Oto przykład błędu podglądu zdarzeń 517, w którym usługa Azure Backup działała prawidłowo, ale "Kopia zapasowa systemu Windows Server" zakończyła się niepowodzeniem:<br>
@@ -114,7 +114,7 @@ Kolejną procedurą, która może pomóc, jest uruchomienie następującego pole
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
 
-Dodanie tego klucza rejestru spowoduje, że wątki nie będą tworzone dla migawek obiektów blob, i uniemożliwiają przekroczenie limitu czasu.
+Dodanie tego klucza rejestru spowoduje, że nie zostaną utworzone wątki dla migawek obiektów blob i uniemożliwić przekroczenie limitu czasu.
 
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure — błąd podczas analizowania konfiguracji dla rozszerzenia kopii zapasowej
 
@@ -167,12 +167,12 @@ Komunikat o błędzie: operacja migawki nie powiodła się, ponieważ Przekroczo
 
 Operacja migawki nie powiodła się, ponieważ Przekroczono limit migawek dla niektórych dołączonych dysków. Wykonaj następujące kroki rozwiązywania problemów, a następnie spróbuj ponownie wykonać operację.
 
-* Usuń obiekt BLOB dysku — migawki, które nie są wymagane. Należy zachować ostrożność, aby nie usuwać obiektów BLOB dysku, należy usunąć tylko obiekty blob migawek.
-* Jeśli funkcja usuwania nietrwałego jest włączona na dysku maszyny wirtualnej, należy skonfigurować przechowywanie nietrwałego usuwania w taki sposób, że istniejące migawki są mniejsze niż dopuszczalne maksimum w dowolnym momencie.
+* Usuń obiekt BLOB dysku — migawki, które nie są wymagane. Należy zachować ostrożność, aby nie usuwać obiektów BLOB dysków. Należy usunąć tylko obiekty blob migawek.
+* Jeśli funkcja usuwania nietrwałego jest włączona na dysku maszyny wirtualnej, należy skonfigurować przechowywanie nietrwałe, aby istniejące migawki były mniejsze niż dopuszczalne maksimum w dowolnym momencie.
 * Jeśli Azure Site Recovery jest włączona w kopii zapasowej maszyny wirtualnej, wykonaj następujące kroki:
 
   * Upewnij się, że wartość **isanysnapshotfailed** jest ustawiona na false w/etc/Azure/vmbackup.conf
-  * Zaplanuj Azure Site Recovery w innym czasie, tak aby nie powodowała konfliktu operacji tworzenia kopii zapasowej.
+  * Zaplanuj Azure Site Recovery w innym czasie, więc nie spowoduje to konfliktu operacji tworzenia kopii zapasowej.
 
 ### <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive — operacja migawki nie powiodła się z powodu niewystarczających zasobów maszyny wirtualnej
 

@@ -4,12 +4,12 @@ description: W tym artykule opisano, jak używać Eksploratora kopii zapasowych 
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: f514f899f2db70ecb2924c2e627f3bed28e3dcad
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a50b9ee05be48113221f2a12f968540bd3a00b3b
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092800"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824416"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Monitorowanie kopii zapasowych za pomocą Eksploratora kopii zapasowych
 
@@ -78,7 +78,7 @@ Możesz wybrać kartę **zasady** , aby wyświetlić najważniejsze informacje d
 
 ### <a name="the-backup-not-enabled-tab"></a>Karta kopia zapasowa nie jest włączona
 
-Kopia zapasowa powinna być włączona dla wszystkich komputerów, które wymagają ochrony. Za pomocą programu Backup Explorer administratorzy kopii zapasowych mogą szybko identyfikować, które maszyny w organizacji nie są jeszcze chronione przez kopię zapasową. Aby wyświetlić te informacje, wybierz kartę **kopia zapasowa niewłączona** .
+Kopia zapasowa powinna być włączona dla wszystkich komputerów, które wymagają ochrony. Za pomocą Eksploratora kopii zapasowych Administratorzy programu Backup mogą szybko identyfikować, które maszyny w organizacji nie są jeszcze chronione przez kopię zapasową. Aby wyświetlić te informacje, wybierz kartę **kopia zapasowa niewłączona** .
 
 W okienku **niewłączona kopia zapasowa** jest wyświetlana tabela z listą maszyn niechronionych. Organizacja może przypisywać różne znaczniki do maszyn produkcyjnych i maszyn testowych lub do maszyn, które obsługują różne funkcje. Ponieważ każda klasa maszyn wymaga oddzielnych zasad tworzenia kopii zapasowych, filtrowanie według tagów ułatwia przeglądanie informacji, które są specyficzne dla każdego z nich. Wybranie nazwy dowolnego komputera przekierowuje do okienka **Konfigurowanie kopii zapasowej** tego komputera, w którym można wybrać zastosowanie odpowiednich zasad tworzenia kopii zapasowych.
 

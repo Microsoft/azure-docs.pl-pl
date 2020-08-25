@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych maszyn wirtualnych funkcji Hyper-V za pomocą 
 description: Ten artykuł zawiera procedury tworzenia kopii zapasowych i odzyskiwania maszyn wirtualnych przy użyciu programu Microsoft Azure Backup Server (serwera usługi MAB).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: bf267285e47f6695f2c6104cbc1817f5e733fa29
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 364426956d665d54885182e7b63af93df3d30e1f
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514558"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88823968"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Tworzenie kopii zapasowych maszyn wirtualnych funkcji Hyper-V za pomocą Azure Backup Server
 
@@ -139,7 +139,7 @@ Gdy możesz odzyskać kopię zapasową maszyny wirtualnej, użyj Kreatora odzysk
     - **Odzyskiwanie do oryginalnego wystąpienia**: podczas odzyskiwania do oryginalnego wystąpienia oryginalny dysk VHD jest usuwany. SERWERA usługi MAB odzyskuje dysk VHD i inne pliki konfiguracji do oryginalnej lokalizacji za pomocą składnika zapisywania usługi VSS funkcji Hyper-V. Po zakończeniu procesu odzyskiwania maszyny wirtualne nadal zapewniają dużą dostępność.
         Aby odzyskiwanie mogło się odbyć, musi być dostępna grupa zasobów. Jeśli grupa nie jest dostępna, wykonaj odzyskiwanie do lokalizacji alternatywnej, a następnie przełącz maszynę wirtualną w tryb wysokiej dostępności.
 
-    - **Odzyskaj jako maszynę wirtualną do dowolnego hosta**: serwera usługi MAB obsługuje odzyskiwanie do lokalizacji alternatywnej (ALR), które zapewnia bezproblemowe odzyskiwanie chronionej maszyny wirtualnej funkcji Hyper-v do innego hosta funkcji Hyper-v niezależnie od architektury procesora. Maszyny wirtualne funkcji Hyper-V, które są odzyskiwane do węzła klastra, nie będą mieć wysokiej dostępności. Jeśli wybierzesz tę opcję, Kreator odzyskiwania wyświetli dodatkowy ekran w celu identyfikacji miejsca docelowego i ścieżki docelowej.
+    - **Odzyskaj jako maszynę wirtualną do dowolnego hosta**: serwera usługi MAB obsługuje odzyskiwanie do lokalizacji alternatywnej (ALR), które zapewnia bezproblemowe odzyskiwanie chronionej maszyny wirtualnej funkcji Hyper-v do innego hosta funkcji Hyper-v niezależnie od architektury procesora. Maszyny wirtualne funkcji Hyper-V odzyskiwane do węzła klastra nie będą miały dużej dostępności. Jeśli wybierzesz tę opcję, Kreator odzyskiwania wyświetli dodatkowy ekran w celu identyfikacji miejsca docelowego i ścieżki docelowej.
 
     - **Kopiuj do folderu sieciowego**: serwera usługi MAB obsługuje odzyskiwanie na poziomie elementu (ILR), które umożliwia odzyskiwanie plików, folderów, woluminów i wirtualnych dysków twardych (VHD) z kopii zapasowej na poziomie hosta maszyn wirtualnych funkcji Hyper-V do udziału sieciowego lub woluminu na serwerze chronionym serwera usługi MAB. Aby można było przeprowadzić odzyskiwanie na poziomie elementu, Agent ochrony serwera usługi MAB nie musi być zainstalowany w ramach gościa. Jeśli wybierzesz tę opcję, Kreator odzyskiwania wyświetli dodatkowy ekran w celu identyfikacji miejsca docelowego i ścieżki docelowej.
 

@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 9f92e703dd45e893a3dfdd8a4c1d6aa3e9b8e96e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0a7a5f21ee868da2b9c3a6c7dc8bb5968531d0d0
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506502"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824206"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Izolacja sieci podczas uczenia & wnioskowania z prywatnymi sieciami wirtualnymi
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -49,7 +49,7 @@ Możesz również [włączyć link prywatny platformy Azure](how-to-configure-pr
 > [!TIP]
 > Możesz połączyć sieć wirtualną i połączenie prywatne, aby chronić komunikację między obszarem roboczym i innymi zasobami platformy Azure. Jednak niektóre kombinacje wymagają obszaru roboczego wersja Enterprise. Skorzystaj z poniższej tabeli, aby zrozumieć, jakie scenariusze wymagają wydania Enterprise Edition:
 >
-> | Scenariusz | Enterprise</br>bitowych | Podstawowy</br>bitowych |
+> | Scenariusz | Enterprise</br>bitowych | Podstawowe</br>bitowych |
 > | ----- |:-----:|:-----:| 
 > | Brak sieci wirtualnej lub prywatnego linku | ✔ | ✔ |
 > | Obszar roboczy bez linku prywatnego. Inne zasoby (z wyjątkiem Azure Container Registry) w sieci wirtualnej | ✔ | ✔ |
@@ -366,6 +366,12 @@ Można to zrobić na dwa sposoby:
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
         ```
+
+        > [!TIP]
+        > Jeśli używasz regionów US-Wirginia, USA-Arizona lub Chiny-wschód-2, te polecenia nie zwracają adresów IP. Zamiast tego użyj jednego z poniższych linków w celu pobrania listy adresów IP:
+        >
+        > * [Zakresy adresów IP platformy Azure i Tagi usług dla Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
+        > * [Zakresy adresów IP platformy Azure i Tagi usług dla Chin platformy Azure](https://www.microsoft.com//download/details.aspx?id=57062)
     
     Po dodaniu UDR, zdefiniuj trasę dla każdego powiązanego prefiksu adresu IP partii i ustaw __Typ następnego przeskoku__ na __Internet__. Na poniższej ilustracji przedstawiono przykład tego UDR w Azure Portal:
 

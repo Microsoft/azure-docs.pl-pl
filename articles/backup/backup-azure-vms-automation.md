@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych i odzyskiwanie maszyn wirtualnych platformy Az
 description: Zawiera opis sposobu tworzenia kopii zapasowych i odzyskiwania maszyn wirtualnych platformy Azure przy użyciu Azure Backup programu PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 23ae2b5b04823bc809712190a3e1617fec65e73a
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: f5d2e10213970ce6f9d1f9c77ff8f7f4c36c3547
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763375"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826450"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Tworzenie kopii zapasowej i przywracanie maszyn wirtualnych platformy Azure przy użyciu programu PowerShell
 
@@ -96,7 +96,7 @@ Poniższe kroki umożliwiają utworzenie magazynu Recovery Services. Magazyn Rec
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
 
-3. Określ typ nadmiarowości magazynu do użycia; można użyć [magazynu lokalnie nadmiarowego (LRS)](../storage/common/storage-redundancy.md) lub [magazynu geograficznie nadmiarowego (GRS)](../storage/common/storage-redundancy.md). W poniższym przykładzie pokazano opcję-BackupStorageRedundancy dla testvault jest ustawiona na wartość geomiarowa.
+3. Określ typ nadmiarowości magazynu, który ma być używany. Można użyć [magazynu lokalnie nadmiarowego (LRS)](../storage/common/storage-redundancy.md) lub [magazynu geograficznie nadmiarowego (GRS)](../storage/common/storage-redundancy.md). W poniższym przykładzie pokazano opcję-BackupStorageRedundancy dla testvault jest ustawiona na wartość geomiarowa.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -228,7 +228,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 Po zdefiniowaniu zasad ochrony nadal należy włączyć zasady dla elementu. Aby włączyć ochronę, użyj [enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) . Włączenie ochrony wymaga dwóch obiektów — elementu i zasad. Po skojarzeniu zasad z magazynem przepływ pracy tworzenia kopii zapasowej jest wyzwalany w czasie zdefiniowanym w harmonogramie zasad.
 
 > [!IMPORTANT]
-> Podczas używania PS do jednoczesnego włączania tworzenia kopii zapasowych dla wielu maszyn wirtualnych upewnij się, że z jednymi zasadami nie są skojarzone więcej niż 100 maszyn wirtualnych. Jest to [zalecane najlepsze rozwiązanie](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Obecnie klient PS nie jest jawnie blokowany, jeśli istnieje więcej niż 100 maszyn wirtualnych, ale zaplanowano dodanie go do przyszłości.
+> Podczas korzystania z programu PowerShell w celu jednoczesnego włączenia tworzenia kopii zapasowych wielu maszyn wirtualnych upewnij się, że z jednymi zasadami nie są skojarzone więcej niż 100 maszyn wirtualnych. Jest to [zalecane najlepsze rozwiązanie](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Obecnie klient programu PowerShell nie jest jawnie blokowany, jeśli istnieje więcej niż 100 maszyn wirtualnych, ale w przyszłości zaplanowano dodanie kontroli.
 
 W poniższych przykładach włączono ochronę dla elementu, V2VM, przy użyciu zasad, NewPolicy. Przykłady różnią się w zależności od tego, czy maszyna wirtualna jest zaszyfrowana, oraz jakiego typu szyfrowanie.
 
@@ -315,7 +315,7 @@ Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $Ret
 #### <a name="configuring-instant-restore-snapshot-retention"></a>Konfigurowanie przechowywania migawek natychmiastowego przywracania
 
 > [!NOTE]
-> Za pomocą polecenia AZ PS Version 1.6.0 lub nowszego można zaktualizować okres przechowywania migawki przywracania natychmiast w zasadach przy użyciu programu PowerShell
+> W programie Azure PowerShell w wersji 1.6.0 lub nowszej można zaktualizować okres przechowywania migawki przywracania natychmiastowego w zasadach przy użyciu programu PowerShell.
 
 ````powershell
 $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM" -VaultId $targetVault.ID
@@ -328,7 +328,7 @@ Wartość domyślna to 2, użytkownik może ustawić wartość minimalną 1 i ma
 #### <a name="creating-azure-backup-resource-group-during-snapshot-retention"></a>Tworzenie Azure Backup grupy zasobów podczas przechowywania migawek
 
 > [!NOTE]
-> Z usługi Azure PS w wersji 3.7.0 lub nowszej można utworzyć i edytować grupę zasobów utworzoną na potrzeby przechowywania natychmiastowych migawek.
+> Z Azure PowerShell wersji 3.7.0 lub nowszej można utworzyć i edytować grupę zasobów utworzoną na potrzeby przechowywania natychmiastowych migawek.
 
 Aby dowiedzieć się więcej o regułach tworzenia grupy zasobów i innych istotnych szczegółach, zapoznaj się z dokumentacją [Virtual Machines Azure Backup grupy zasobów](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines) .
 
@@ -385,7 +385,7 @@ TestVM           ConfigureBackup      Completed            3/18/2019 8:00:21 PM 
 
 #### <a name="retain-data"></a>Zachowywanie danych
 
-Jeśli użytkownik chce zatrzymać ochronę, może użyć polecenia cmdlet [disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PS. Spowoduje to zatrzymanie zaplanowanych kopii zapasowych, ale dane, których kopia zapasowa została utworzona, dopóki nie będzie teraz zachowywane.
+Jeśli chcesz zatrzymać ochronę, możesz użyć polecenia cmdlet [disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) programu PowerShell. Spowoduje to zatrzymanie zaplanowanych kopii zapasowych, ale dane, których kopia zapasowa została utworzona, dopóki nie będzie teraz zachowywane.
 
 ````powershell
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -Name "<backup item name>" -VaultId $targetVault.ID
@@ -481,7 +481,7 @@ $restorejob
 Podaj dodatkowy parametr **TargetResourceGroupName** , aby określić RG, do którego zostaną przywrócone dyski zarządzane.
 
 > [!IMPORTANT]
-> Zdecydowanie zaleca się użycie **TargetResourceGroupName** parametru do przywracania dysków zarządzanych, ponieważ powoduje to znaczne zwiększenie wydajności. Jeśli ten parametr nie zostanie określony, klienci nie mogą korzystać z funkcji natychmiastowego przywracania, a operacja przywracania będzie wolniejsza w porównaniu. Jeśli celem jest przywrócenie dysków zarządzanych jako dysków niezarządzanych, nie należy podawać tego parametru i uczynić zamierzonym zamiarem, dostarczając parametr-RestoreAsUnmanagedDisks. Parametr-RestoreAsUnmanagedDisks jest dostępny z AZ PS 3.7.0 lub nowszym. W przyszłych wersjach będzie wymagane podanie dowolnego z tych parametrów dla odpowiedniego środowiska przywracania
+> Zdecydowanie zaleca się użycie **TargetResourceGroupName** parametru do przywracania dysków zarządzanych, ponieważ powoduje to znaczne zwiększenie wydajności. Jeśli ten parametr nie jest określony, nie można korzystać z funkcji natychmiastowego przywracania, a operacja przywracania będzie wolniejsza w porównaniu z wynikami. Jeśli celem jest przywrócenie dysków zarządzanych jako dysków niezarządzanych, nie należy podawać tego parametru i uczynić zamierzonym zamiarem, podając `-RestoreAsUnmanagedDisks` parametr. `-RestoreAsUnmanagedDisks`Parametr jest dostępny w Azure PowerShell 3.7.0 lub nowszym. W przyszłych wersjach będzie wymagane podanie dowolnego z tych parametrów dla odpowiedniego środowiska przywracania.
 >
 >
 
@@ -530,7 +530,7 @@ Po przywróceniu dysków wykonaj następujące kroki, aby utworzyć i skonfiguro
 >
 > 1. Wymagany jest moduł AzureAz w wersji 3.0.0 lub nowszej. <br>
 > 2. Aby można było tworzyć zaszyfrowane maszyny wirtualne na przywróconych dyskach, rola platformy Azure musi mieć uprawnienia do wykonywania akcji, usługi **Microsoft./magazynów/magazynu/wdrażania/działania**. Jeśli rola nie ma tego uprawnienia, Utwórz rolę niestandardową przy użyciu tej akcji. Aby uzyskać więcej informacji, zobacz [role niestandardowe w usłudze Azure RBAC](../role-based-access-control/custom-roles.md). <br>
-> 3. Po przywróceniu dysków można teraz uzyskać szablon wdrożenia, za pomocą którego można bezpośrednio utworzyć nową maszynę wirtualną. Nie ma więcej różnych poleceń cmdlet środowiska PS do tworzenia zarządzanych/niezarządzanych maszyn wirtualnych, które są zaszyfrowane/nieszyfrowane.<br>
+> 3. Po przywróceniu dysków można teraz uzyskać szablon wdrożenia, za pomocą którego można bezpośrednio utworzyć nową maszynę wirtualną. Nie potrzebujesz innych poleceń cmdlet programu PowerShell do tworzenia zarządzanych/niezarządzanych maszyn wirtualnych, które są szyfrowane/nieszyfrowane.<br>
 > <br>
 
 ### <a name="create-a-vm-using-the-deployment-template"></a>Tworzenie maszyny wirtualnej przy użyciu szablonu wdrożenia

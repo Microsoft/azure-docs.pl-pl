@@ -3,12 +3,12 @@ title: SERWERA usługi MAB (Azure Backup Server) v3 UR1 Protection Matrix
 description: Ten artykuł zawiera informacje o wszystkich obciążeniach, typach danych i instalacjach, które Azure Backup Server chronić.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 541f7b18059dd049670b5c42d20ae409b3aee38a
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 70d8b8cd26a40b0c7ec8b538bcb702d281f829e6
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660047"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826841"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>SERWERA usługi MAB (Azure Backup Server) v3 UR1 Protection Matrix
 
@@ -51,7 +51,7 @@ Poniższe sekcje zawierają szczegółowe informacje na temat macierzy obsługi 
 | **Obciążenie**                                                 | **Wersja**                                             | **Instalacja Azure Backup Server**                      | **Obsługiwane Azure Backup Server** | **Ochrona i odzyskiwanie**                                 |
 | ------------------------------------------------------------ | ------------------------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
 | Host funkcji Hyper-V — Agent ochrony serwera usługi MAB na serwerze hosta funkcji Hyper-V, klastrze lub maszynie wirtualnej | Windows Server 2019, 2016, 2012 R2, 2012               | Serwer fizyczny  <br><br>    Maszyna wirtualna z funkcją Hyper-V <br><br>    Maszyna wirtualna VMware | UR1 V3                             | Ochrona: komputery funkcji Hyper-V, udostępnione woluminy klastra (CSV)  <br><br>    Odzyskiwanie: maszyna wirtualna, odzyskiwanie plików i folderów na poziomie elementu jest dostępna tylko dla systemu Windows, woluminów i wirtualnych dysków twardych |
-| Maszyny wirtualne VMware                                                  | VMware Server 5,5, 6,0 lub 6,5, 6,7 (wersja licencjonowana) | Maszyna wirtualna funkcji Hyper-V  <br><br>   Maszyna wirtualna VMware         | UR1 V3                             | Ochrona: maszyny wirtualne VMware na udostępnionych woluminach klastra (CSV), NFS i SAN   <br><br>     Odzyskiwanie: maszyna wirtualna, odzyskiwanie plików i folderów na poziomie elementu jest dostępna tylko dla systemu Windows, woluminów i wirtualnych dysków twardych <br><br>    Oprogramowanie VMware oprogramowania vApps nie jest obsługiwane. |
+| Maszyny wirtualne VMware                                                  | VMware Server 5,5, 6,0 lub 6,5, 6,7 (wersja licencjonowana) | Maszyna wirtualna funkcji Hyper-V  <br><br>   Maszyna wirtualna VMware         | UR1 V3                             | Ochrona: maszyny wirtualne VMware na udostępnionych woluminach klastra (CSV), NFS i SAN   <br><br>     Odzyskiwanie: maszyna wirtualna, odzyskiwanie plików i folderów na poziomie elementu jest dostępna tylko dla systemu Windows, woluminów i wirtualnych dysków twardych <br><br>    Oprogramowania vApps VMware nie są obsługiwane. |
 
 ## <a name="linux"></a>Linux
 

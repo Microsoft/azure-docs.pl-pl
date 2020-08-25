@@ -4,12 +4,12 @@ description: Ten artykuł zawiera informacje o znanych problemach i obejściach 
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 1f4900bb129ee67cd75d2b793f4179e3135569a6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 26d30a56b3117642678f98ba3e7927c27bfd6a69
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032565"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826620"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Informacje o wersji programu Microsoft Azure Backup Server
 
@@ -78,7 +78,7 @@ Obejście **:** Wykonaj następujące kroki, aby uaktualnić program do wersji s
 **Obejście**: aby zastąpić pliki RDL, wykonaj następujące czynności:
 
 1. Na maszynie serwera usługi MAB Otwórz adres URL portalu internetowego usług SQL Reporting Services.
-1. W adresie URL portalu sieci Web folder katalog dpmreports jest obecny w formacie**`DPMReports_<GUID>`**
+1. W adresie URL portalu sieci Web folder katalog dpmreports jest obecny w formacie **`DPMReports_<GUID>`**
 
     >[!NOTE]
     >Istnieje zawsze tylko jeden folder z tą konwencją nazewnictwa. Jeśli serwera usługi MAB jest uaktualniana z poprzedniej wersji, może istnieć również inny starszy folder, ale nie będzie można go otworzyć.
@@ -95,7 +95,7 @@ Obejście **:** Wykonaj następujące kroki, aby uaktualnić program do wersji s
 
 1. Na stronie nowy wybierz opcję **Zamień** , aby zastąpić pliki najnowszymi plikami raportu.
 
-    Najnowsze pliki raportów można znaleźć w ścieżce`<MABS Installation Directory>\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
+    Najnowsze pliki raportów można znaleźć w ścieżce `<MABS Installation Directory>\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
 
     Na przykład: `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
 

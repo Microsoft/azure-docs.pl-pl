@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak konfigurować i inicjować operacj
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 89bf2df0b5b9279053ca8258e6d21b00e2789557
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: a0ad08e9fd750166f8df82a1b3a36cecd8f12f27
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762882"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826416"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Tworzenie kopii zapasowej maszyny wirtualnej platformy Azure przy użyciu Azure Backup za pośrednictwem interfejsu API REST
 
@@ -302,7 +302,7 @@ Aby zapoznać się z pełną listą definicji treści żądania i innych szczeg�
 
 #### <a name="example-request-body-for-on-demand-backup"></a>Przykładowa treść żądania na potrzeby tworzenia kopii zapasowych na żądanie
 
-Następująca treść żądania definiuje właściwości wymagane do wyzwolenia kopii zapasowej chronionego elementu. Jeśli przechowywanie nie zostanie określone, będzie przechowywane przez 30 dni od momentu wyzwolenia zadania tworzenia kopii zapasowej.
+Następująca treść żądania definiuje właściwości wymagane do wyzwolenia kopii zapasowej chronionego elementu. Jeśli przechowywanie nie jest określone, będzie przechowywane przez 30 dni od momentu wyzwolenia zadania tworzenia kopii zapasowej.
 
 ```json
 {
@@ -445,7 +445,7 @@ Zwraca dwie odpowiedzi: 202 (zaakceptowane), gdy tworzona jest inna operacja, a 
 |202 zaakceptowane     |         |     Zaakceptowano    |
 
 > [!IMPORTANT]
-> Aby można było chronić przed przypadkowym usunięciem scenariuszy, [dostępna jest funkcja usuwania nietrwałego](use-restapi-update-vault-properties.md#soft-delete-state) dla magazynu Recovery Services. Jeśli stan nietrwałego usuwania magazynu jest ustawiony na włączone, operacja usuwania nie spowoduje natychmiastowego usunięcia danych. Będzie ono przechowywane przez 14 dni, a następnie trwale przeczyszczane. W przypadku tego okresu 14 dni klient nie nalicza opłat za magazyn. Aby cofnąć operację usuwania, zapoznaj się z [sekcją cofanie usunięcia](#undo-the-deletion).
+> Aby można było chronić przed przypadkowym usunięciem scenariuszy, [dostępna jest funkcja usuwania nietrwałego](use-restapi-update-vault-properties.md#soft-delete-state) dla magazynu Recovery Services. Jeśli stan nietrwałego usuwania magazynu jest ustawiony na włączone, operacja usuwania nie spowoduje natychmiastowego usunięcia danych. Będzie ono przechowywane przez 14 dni, a następnie trwale przeczyszczane. Nie jest naliczana opłata za magazyn w ciągu 14 dni. Aby cofnąć operację usuwania, zapoznaj się z [sekcją cofanie usunięcia](#undo-the-deletion).
 
 ### <a name="undo-the-deletion"></a>Cofnij usunięcie
 

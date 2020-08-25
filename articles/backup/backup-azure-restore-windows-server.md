@@ -3,12 +3,12 @@ title: Przywracanie plików do systemu Windows Server przy użyciu agenta MARS
 description: W tym artykule dowiesz się, jak przywrócić dane przechowywane na platformie Azure na komputerze z systemem Windows Server lub Windows za pomocą agenta Microsoft Azure Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: d9bc22204156f7562290f53db77272b9cabe6c69
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: e5158681971c5c10e813187fedb61bc0022ee9e1
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757085"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827073"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Przywracanie plików do systemu Windows Server przy użyciu agenta MARS
 
@@ -47,7 +47,7 @@ Jeśli przypadkowo usunięto plik i chcesz przywrócić go na tym samym komputer
 
     ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych wybierz stronę trybu odzyskiwania (Przywróć na ten sam komputer)](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
-   > Opcja przywrócenia poszczególnych plików i folderów wymaga .NET Framework 4.5.2 lub nowszego. Jeśli opcja **pojedyncze pliki i foldery** nie jest widoczna, należy uaktualnić .NET Framework do wersji 4.5.2 lub nowszej, a następnie spróbować ponownie.
+   > Opcja przywrócenia poszczególnych plików i folderów wymaga .NET Framework 4.5.2 lub nowszego. Jeśli nie widzisz opcji **pojedyncze pliki i foldery** , musisz uaktualnić .NET Framework do wersji 4.5.2 lub nowszej, a następnie spróbować ponownie.
 
    > [!TIP]
    > Opcja **poszczególne pliki i foldery** umożliwia szybki dostęp do danych punktów odzyskiwania. Jest to odpowiednie do odzyskiwania poszczególnych plików, których rozmiar nie przekracza 80 GB i oferuje szybkość przesyłania lub kopiowania do 6 MB/s podczas odzyskiwania. Opcja **woluminu** odzyskuje wszystkie dane kopii zapasowej w określonym woluminie. Ta opcja zapewnia szybsze szybkości transferu (do 40 MB/s), co jest idealne do odzyskiwania danych o dużych rozmiarach lub całych woluminów.
@@ -109,7 +109,7 @@ Te kroki obejmują następującą terminologię:
 
     Jeśli plik poświadczeń magazynu jest nieprawidłowy (lub wygasł), Pobierz nowy plik poświadczeń magazynu z przykładowego magazynu w Azure Portal. Po podaniu prawidłowego poświadczenia magazynu zostanie wyświetlona nazwa odpowiedniego magazynu kopii zapasowych.
 
-6. Na stronie **Wybierz serwer kopii zapasowej** wybierz maszynę źródłową z listy wyświetlanych maszyn i podaj hasło. Następnie wybierz przycisk **Dalej**.
+6. Na stronie **Wybierz serwer kopii zapasowej** wybierz maszynę źródłową z listy wyświetlanych maszyn i podaj hasło. Następnie wybierz pozycję **Dalej**.
 
     ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych — strona wybierz serwer kopii zapasowej (przywracanie do komputera alternatywnego)](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
 

@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punk
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: ca523370a887ed1178312c48a577695f5ba6da8f
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: ac121195ba46389798acc7f099829fde96da72e1
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763460"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827141"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -87,7 +87,7 @@ Po odinstalowaniu dysków zostanie wyświetlony komunikat. Odświeżenie połąc
 W systemie Linux po poważnym nawiązaniu połączenia z punktem odzyskiwania system operacyjny nie usuwa automatycznie odpowiednich ścieżek instalacji. Ścieżki instalacji istnieją jako woluminy oddzielone i są widoczne, ale zgłaszają błąd podczas uzyskiwania dostępu/zapisu plików. Można je usunąć ręcznie. Skrypt, gdy jest uruchamiany, identyfikuje wszystkie woluminy istniejące z poprzednich punktów odzyskiwania i czyści je po udzieleniu zgody.
 
 > [!NOTE]
-> Upewnij się, że połączenie jest zamknięte po przywróceniu wymaganych plików. Jest to ważne, szczególnie w scenariuszu, w którym maszyna, w której wykonywany jest skrypt, został również skonfigurowany do tworzenia kopii zapasowych. W przypadku, gdy połączenie jest nadal otwarte, kolejna kopia zapasowa może zakończyć się niepowodzeniem z powodu błędu "UserErrorUnableToOpenMount". Dzieje się tak dlatego, że zainstalowane dyski/woluminy są dostępne, a dostęp do nich może się nie powieść, ponieważ podstawowy magazyn, który jest serwerem docelowym iSCSI, może być niedostępny. Czyszczenie połączenia spowoduje usunięcie tych dysków/woluminów, więc nie będą one dostępne podczas tworzenia kopii zapasowej.
+> Upewnij się, że połączenie jest zamknięte po przywróceniu wymaganych plików. Jest to ważne, szczególnie w scenariuszu, w którym maszyna, w której wykonywany jest skrypt, został również skonfigurowany do tworzenia kopii zapasowych. Jeśli połączenie jest nadal otwarte, kolejna kopia zapasowa może zakończyć się niepowodzeniem z powodu błędu "UserErrorUnableToOpenMount". Dzieje się tak, ponieważ zainstalowane dyski/woluminy są zakładane jako dostępne, a dostęp do nich może się nie powieść, ponieważ podstawowy magazyn, czyli serwer docelowy iSCSI, może być niedostępny. Czyszczenie połączenia spowoduje usunięcie tych dysków/woluminów, więc nie będą one dostępne podczas tworzenia kopii zapasowej.
 
 ## <a name="selecting-the-right-machine-to-run-the-script"></a>Wybieranie odpowiedniej maszyny do uruchomienia skryptu
 
@@ -234,7 +234,7 @@ mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
 
 > [!WARNING]
-> Nie należy używać elementu "Mount-a". To polecenie służy do instalowania wszystkich urządzeń opisanych w temacie "/etc/fstab". Może to oznaczać, że duplikaty urządzeń mogą zostać zainstalowane. Dane można przekierowywać do urządzeń utworzonych za pomocą skryptu, które nie utrwalają danych, co może spowodować utratę danych.
+> Nie używaj elementu "Mount-a". To polecenie służy do instalowania wszystkich urządzeń opisanych w temacie "/etc/fstab". Może to oznaczać, że duplikaty urządzeń mogą zostać zainstalowane. Dane można przekierowywać do urządzeń utworzonych za pomocą skryptu, które nie utrwalają danych, co może spowodować utratę danych.
 
 #### <a name="for-raid-arrays"></a>Macierze RAID
 

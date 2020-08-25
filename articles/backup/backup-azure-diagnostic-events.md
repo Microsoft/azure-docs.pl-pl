@@ -3,12 +3,12 @@ title: Użyj ustawień diagnostycznych dla Recovery Services magazynów
 description: W tym artykule opisano, jak używać starych i nowych zdarzeń diagnostycznych dla Azure Backup.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 908420a3447869d3e417da51e6b2501fbf2fa5a0
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: e5f666886dca0959b0f06b799088cadf4593ec39
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763528"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826671"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Użyj ustawień diagnostycznych dla Recovery Services magazynów
 

@@ -3,12 +3,12 @@ title: Omówienie architektury
 description: Zawiera omówienie architektury, składników i procesów używanych przez usługę Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 6da6cedc7841e31876bef8788458531b1ec375a8
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 1081de6b467b896bd8cc62b84c9a67c329b11e02
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652784"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824036"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup architektura i składniki
 
@@ -134,7 +134,7 @@ Tworzenie kopii zapasowej deduplikowanych dysków | | | ![Częściowo][yellow]<b
 
 1. Po włączeniu kopii zapasowej dla maszyny wirtualnej platformy Azure kopia zapasowa jest uruchamiana zgodnie z określonym harmonogramem.
 1. Podczas pierwszej kopii zapasowej, rozszerzenie kopii zapasowej jest instalowane na maszynie wirtualnej, jeśli maszyna wirtualna jest uruchomiona.
-    - W przypadku maszyn wirtualnych z systemem Windows jest zainstalowane rozszerzenie VMSnapshot.
+    - W przypadku maszyn wirtualnych z systemem Windows jest instalowane rozszerzenie VMSnapshot.
     - W przypadku maszyn wirtualnych z systemem Linux jest zainstalowane rozszerzenie VMSnapshot Linux.
 1. Rozszerzenie pobiera migawkę na poziomie magazynu.
     - W przypadku maszyn wirtualnych z systemem Windows, które są uruchomione, Współrzędna usługi Kopia zapasowa z Usługa kopiowania woluminów w tle systemu Windows (VSS) w celu przetworzenia migawki maszyny wirtualnej spójnej na poziomie aplikacji. Domyślnie kopia zapasowa pobiera pełne kopie zapasowe usługi VSS. Jeśli kopia zapasowa nie może wykonać migawki spójnej na poziomie aplikacji, pobiera migawkę spójną na poziomie plików.
@@ -143,7 +143,7 @@ Tworzenie kopii zapasowej deduplikowanych dysków | | | ![Częściowo][yellow]<b
 1. Po wykonaniu migawki dane są przesyłane do magazynu.
     - Kopiowane są tylko bloki danych, które uległy zmianie od momentu utworzenia ostatniej kopii zapasowej.
     - Dane nie są szyfrowane. Azure Backup można utworzyć kopie zapasowe maszyn wirtualnych platformy Azure, które zostały zaszyfrowane przy użyciu Azure Disk Encryption.
-    - Dane migawki mogą nie być od razu kopiowane do magazynu. W godzinach szczytu kopia zapasowa może trwać kilka godzin. Łączny czas wykonywania kopii zapasowej maszyny wirtualnej będzie krótszy niż 24 godziny dla codziennych zasad tworzenia kopii zapasowych.
+    - Dane migawki mogą nie być natychmiast kopiowane do magazynu. W godzinach szczytu kopia zapasowa może trwać kilka godzin. W przypadku zasad codziennego tworzenia kopii zapasowych łączny czas tworzenia kopii zapasowej maszyny wirtualnej jest krótszy niż 24 godziny.
 1. Po wysłaniu danych do magazynu zostanie utworzony punkt odzyskiwania. Domyślnie migawki są zachowywane przez dwa dni przed ich usunięciem. Ta funkcja umożliwia przywracanie z tych migawek, a tym samym wycinanie czasów przywracania. Skraca czas wymagany do przekształcania i kopiowania danych z magazynu. Zobacz [Azure Backup możliwości przywracania natychmiastowego](./backup-instant-restore-capability.md).
 
 Nie musisz jawnie zezwalać na połączenia z Internetem, aby utworzyć kopię zapasową maszyn wirtualnych platformy Azure.

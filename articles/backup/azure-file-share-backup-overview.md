@@ -3,12 +3,12 @@ title: Informacje o kopii zapasowej udziału plików platformy Azure
 description: Dowiedz się, jak utworzyć kopię zapasową udziałów plików platformy Azure w magazynie Recovery Services
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: c57537519888138698e9add1a687e0018d330cfa
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 1c44d406519c8c0d9fb71b5e94bcb6bcaa1a7253
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757884"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88823884"
 ---
 # <a name="about-azure-file-share-backup"></a>Informacje o kopii zapasowej udziału plików platformy Azure
 
@@ -40,7 +40,7 @@ Kopia zapasowa udziału plików platformy Azure to natywne, oparte na chmurze ro
 5. Na podstawie określonych zasad usługa Azure Backup Scheduler wyzwala kopie zapasowe w zaplanowanym czasie. W ramach tego zadania migawka udziału plików jest tworzona przy użyciu interfejsu API udziału plików. Tylko adres URL migawki jest przechowywany w magazynie metadanych.
 
     >[!NOTE]
-    >Dane udziału plików nie są przenoszone do usługi kopii zapasowej, ponieważ usługa Backup tworzy migawki i zarządza nimi, które są częścią Twojego konta magazynu, a kopie zapasowe nie są przenoszone do magazynu.
+    >Dane udziału plików nie są transferowane do usługi kopii zapasowej, ponieważ usługa Backup tworzy migawki i zarządza nimi, które są częścią Twojego konta magazynu, a kopie zapasowe nie są transferowane do magazynu.
 
 6. Zawartość udziału plików platformy Azure (poszczególne pliki lub pełny udział) można przywrócić z migawek dostępnych w źródłowym udziale plików. Gdy operacja zostanie wyzwolona, adres URL migawki jest pobierany z magazynu metadanych, a dane są wyświetlane i przesyłane z migawki źródłowej do wybranego docelowego udziału plików.
 

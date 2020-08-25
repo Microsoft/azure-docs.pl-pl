@@ -4,12 +4,12 @@ description: Objawy, przyczyny i rozwiązania błędów Azure Backup związanych
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 26050dfb9fdde5988fe3ae922dae5486d17f4317
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 99e175f20247058a57bb64a47465cce1ce7fbd75
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755372"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826057"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Rozwiązywanie problemów z błędem Azure Backup: problemy z agentem lub rozszerzeniem
 
@@ -119,7 +119,7 @@ Ten błąd występuje, gdy jeden z błędów rozszerzenia przełączy maszynę w
 Zalecana akcja:<br>
 Aby rozwiązać ten problem, Usuń blokadę z grupy zasobów maszyny wirtualnej, a następnie ponów operację, aby wyzwolić czyszczenie.
 > [!NOTE]
-> Usługa Backup tworzy oddzielną grupę zasobów niż grupa zasobów maszyny wirtualnej do przechowywania kolekcji punktów przywracania. Klienci nie mogą zablokować grupy zasobów utworzonej do użycia przez usługę kopii zapasowej. Format nazewnictwa grupy zasobów utworzonej przez usługę kopii zapasowej to: AzureBackupRG_ `<Geo>` _ `<number>` przykład: AzureBackupRG_northeurope_1
+> Usługa Backup tworzy oddzielną grupę zasobów niż grupa zasobów maszyny wirtualnej do przechowywania kolekcji punktów przywracania. Zaleca się, aby nie blokować grupy zasobów utworzonej do użycia przez usługę kopii zapasowej. Format nazewnictwa grupy zasobów utworzonej przez usługę kopii zapasowej to: AzureBackupRG_ `<Geo>` _ `<number>` . Na przykład: *AzureBackupRG_northeurope_1*
 
 **Krok 1. [Usuwanie blokady z grupy zasobów punktu przywracania](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Krok 2. [czyszczenie kolekcji punktów przywracania](#clean_up_restore_point_collection)**<br>
@@ -297,7 +297,7 @@ Aby wyczyścić punkty przywracania, wykonaj dowolną z następujących metod:<b
 
 #### <a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a><a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a>Czyszczenie kolekcji punktów przywracania przez uruchomienie kopii zapasowej na żądanie
 
-Po usunięciu blokady wykonaj kopię zapasową na żądanie. Ta akcja zapewni automatyczne wyczyszczenie punktów przywracania. Należy oczekiwać, że operacja na żądanie kończy się niepowodzeniem po raz pierwszy; jednak zapewni to automatyczne czyszczenie zamiast ręcznego usuwania punktów przywracania. Po oczyszczeniu Następna zaplanowana kopia zapasowa powinna zakończyć się powodzeniem.
+Po usunięciu blokady wykonaj kopię zapasową na żądanie. Ta akcja zapewni automatyczne wyczyszczenie punktów przywracania. Należy oczekiwać, że ta operacja na żądanie kończy się niepowodzeniem po raz pierwszy. Jednak zapewni to automatyczne czyszczenie zamiast ręcznego usuwania punktów przywracania. Po oczyszczeniu Następna zaplanowana kopia zapasowa powinna zakończyć się powodzeniem.
 
 > [!NOTE]
 > Automatyczne czyszczenie zostanie wykonane po kilku godzinach wyzwalania kopii zapasowej na żądanie. Jeśli zaplanowana kopia zapasowa nadal kończy się niepowodzeniem, spróbuj ręcznie usunąć kolekcję punktów przywracania, wykonując kroki opisane [tutaj](#clean-up-restore-point-collection-from-azure-portal).
@@ -320,4 +320,4 @@ Aby ręcznie wyczyścić kolekcję punktów przywracania, która nie została wy
 6. Spróbuj ponownie wykonać operację tworzenia kopii zapasowej.
 
 > [!NOTE]
- >Jeśli zasób (kolekcja RP) ma dużą liczbę punktów przywracania, usunięcie ich z portalu może przekroczyć limit czasu i zakończyć się niepowodzeniem. Jest to znany problem CRP, w którym wszystkie punkty przywracania nie są usuwane w określonym czasie, a operacja przekracza limit czasu; Jednak operacja usuwania zazwyczaj kończy się powodzeniem po 2 lub 3 próbach.
+ >Jeśli zasób (kolekcja RP) ma dużą liczbę punktów przywracania, usunięcie ich z portalu może przekroczyć limit czasu i zakończyć się niepowodzeniem. Jest to znany problem CRP, w którym wszystkie punkty przywracania nie są usuwane w określonym czasie, a operacja przekracza limit czasu. Jednak operacja usuwania zazwyczaj powiedzie się po dwóch lub trzech ponownych próbach.

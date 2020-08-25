@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 1fdc6b79bf86272afac038d8f91e4663514830fe
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: e7be96fcab0807ac8c6500c3b360f9380b4d2b28
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905600"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824954"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Tworzenie zapytań dotyczących grafu bliźniaczych reprezentacjiów cyfrowych platformy Azure
 
@@ -187,7 +187,7 @@ Może istnieć opóźnienie do 10 sekund, po upływie którego zmiany w wystąpi
 
 W trakcie korzystania z `JOIN` wersji zapoznawczej obowiązują dodatkowe ograniczenia.
 * W instrukcji nie są obsługiwane żadne podzapytania `FROM` .
-* `OUTER JOIN`Semantyka nie jest obsługiwana, znaczenie, jeśli relacja ma rangę zero, cały "wiersz" jest eliminowany z wyjściowego zestawu wyników.
+* `OUTER JOIN` Semantyka nie jest obsługiwana, znaczenie, jeśli relacja ma rangę zero, cały "wiersz" jest eliminowany z wyjściowego zestawu wyników.
 * W trakcie okresu zapoznawczego głębokość przechodzenia wykresu jest ograniczona do pięciu `JOIN` poziomów na zapytanie.
 * Źródło `JOIN` operacji jest ograniczone: zapytanie musi deklarować bliźniaczych reprezentacji, w którym rozpoczyna się zapytanie.
 
@@ -222,7 +222,6 @@ Poniżej znajdują się porady dotyczące wykonywania zapytań w usłudze Azure 
         AND IS_OF_MODEL(Room, 'dtmi:com:contoso:Room;1')
         ```
 * Nazwy właściwości i wartości są rozróżniana wielkość liter, dlatego należy zadbać o użycie dokładnych nazw zdefiniowanych w modelach. Jeśli nazwy właściwości są błędnie napisane lub nieprawidłowo, zestaw wyników jest pusty i nie są zwracane żadne błędy.
-
 
 ## <a name="next-steps"></a>Następne kroki
 

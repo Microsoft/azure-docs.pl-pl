@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z usługą Azure File Share
 description: W tym artykule znajdują się informacje dotyczące rozwiązywania problemów występujących podczas ochrony udziałów plików platformy Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 2030620446f414f985f86218b96c6db78ab090a1
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: e6aec34bea32d33e7a202cb9afb1aae6e1047f18
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763681"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825464"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Rozwiązywanie problemów podczas tworzenia kopii zapasowych udziałów plików platformy Azure
 
@@ -251,7 +251,7 @@ Komunikat o błędzie: nie można odnaleźć migawki udziału plików platformy 
 - Upewnij się, że migawka udziału plików odpowiadająca punktowi odzyskiwania, którego próbujesz użyć do odzyskiwania, nadal istnieje.
 
   >[!NOTE]
-  >W przypadku usunięcia migawki udziału plików, która została utworzona przez Azure Backup, odpowiednie punkty odzyskiwania staną się niedostępne. Zalecamy, aby nie usuwać migawek, aby zapewnić gwarantowane odzyskiwanie.
+  >W przypadku usunięcia migawki udziału plików, która została utworzona przez Azure Backup, odpowiednie punkty odzyskiwania staną się niedostępne. Nie zalecamy usuwania migawek, aby zapewnić gwarantowane odzyskiwanie.
 
 - Spróbuj wybrać inny punkt przywracania, aby odzyskać dane.
 

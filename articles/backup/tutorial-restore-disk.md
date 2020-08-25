@@ -4,14 +4,14 @@ description: Dowiedz się, jak przywrócić dysk i utworzyć odzyskaną maszynę
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 56ea3de451e625ef5c55f92daa1b86bd34b1c4c4
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: f13ff10579e7413a2ee7c64cafc2db856559a9d7
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141350"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824444"
 ---
-# <a name="restore-a-vm-with-azure-cli"></a>Przywracanie maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="restore-a-vm-with-azure-cli"></a>Przywracanie maszyny wirtualnej za pomocą interfejsu wiersza polecenia platformy Azure
 
 Usługa Azure Backup tworzy punkty odzyskiwania przechowywane w geograficznie nadmiarowych magazynach odzyskiwania. Z punktu odzyskiwania można przywrócić całą maszynę wirtualną lub poszczególne pliki. W tym artykule opisano sposób przywracania całej maszyny wirtualnej przy użyciu interfejsu wiersza polecenia. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -88,7 +88,7 @@ Jeśli kopia zapasowa maszyny wirtualnej ma dyski zarządzane i chcesz przywróc
     ```
 
     > [!WARNING]
-    > Jeśli grupa Target-Resource-Group nie została podana, dyski zarządzane zostaną przywrócone jako dyski niezarządzane do danego konta magazynu. Będzie to miało znaczący wpływ na czas przywracania, ponieważ czas potrzebny do przywrócenia dysków jest całkowicie zależny od danego konta magazynu. Klienci będą mogli korzystać z funkcji natychmiastowego przywracania tylko wtedy, gdy zostanie określony parametr Target-Resource-Group. W przypadku zamiaru przywrócenia dysków zarządzanych jako niezarządzanych, nie należy podawać parametru Target-Resource-Group i zamiast tego podać parametr "Przywracanie jako niezarządzany-dysk", jak pokazano poniżej. Ten parametr jest dostępny w AZ 3.4.0 lub nowszym.
+    > Jeśli nie podano **grupy Target-Resource-Group** , dyski zarządzane zostaną przywrócone jako dyski niezarządzane do danego konta magazynu. Będzie to miało znaczący wpływ na czas przywracania, ponieważ czas potrzebny do przywrócenia dysków jest całkowicie zależny od danego konta magazynu. Klienci będą mogli korzystać z funkcji natychmiastowego przywracania tylko wtedy, gdy zostanie określony parametr Target-Resource-Group. Jeśli zamiarem jest przywrócenie dysków zarządzanych jako niezarządzanych, nie należy podawać parametru **Target-Resource-Group** i zamiast tego podać parametr **"Przywracanie jako niezarządzany-dysk"** , jak pokazano poniżej. Ten parametr jest dostępny w AZ 3.4.0 lub nowszym.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -101,7 +101,7 @@ Jeśli kopia zapasowa maszyny wirtualnej ma dyski zarządzane i chcesz przywróc
     --restore-as-unmanaged-disk
     ```
 
-Spowoduje to przywrócenie dysków zarządzanych jako dysków niezarządzanych do danego konta magazynu i nie będzie korzystać z funkcji przywracania natychmiastowej. W przyszłych wersjach interfejsu wiersza polecenia będzie wymagane podanie parametru "Target-Resource-Group" lub "Restore-as-Unmanaged-Disk".
+Spowoduje to przywrócenie dysków zarządzanych jako dysków niezarządzanych do danego konta magazynu i nie będzie korzystać z funkcji przywracania natychmiastowej. W przyszłych wersjach interfejsu wiersza polecenia będzie wymagane podanie parametru " **Target-Resource-Group"** lub " **Restore as Unmanaged-Disk** ".
 
 ### <a name="unmanaged-disks-restore"></a>Przywracanie dysków niezarządzanych
 

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 3d4b51445e0859fe90a81eecb95625d41009b6eb
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: f2231b74034ba6cea672a7bbf68f506fce423d45
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649418"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826144"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: często zadawane pytania
 
@@ -56,13 +56,13 @@ A.  Aby sprawdzić, gdzie urządzenie Data Box dyski są obecnie dostępne, prze
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>PYTANIE: W jakich regionach mogę zapisać dane, korzystając z usługi Data Box Disk?
 A. Data Box Disk jest obsługiwana w przypadku wszystkich regionów w Stanach Zjednoczonych, Kanadzie, Australii, Europa Zachodnia i Europa Północna, Korea i Japonia. Obsługiwane są tylko regiony chmury publicznej Azure. Usługa Azure Government ani inne suwerenne chmury nie są obsługiwane.
 
-### <a name="q-will-my-data-box-disk-cross-countryregion-borders-during-shipping"></a>PYTANIE: Czy my Data Box Disk krzyżowe obramowania kraju/regionu podczas wysyłki?
-A. Data Box Disk są wysyłane z tego samego kraju/regionu co ich lokalizacja docelowa i nie będą przecinać żadnych granic międzynarodowych. Jedyny wyjątek dotyczy zamówień w Unii Europejskiej (UE), w których dyski mogą być dostarczane do i z dowolnego kraju/regionu UE.
+### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>PYTANIE: W jakich regionach mogę zapisać dane, korzystając z usługi Data Box Disk?
+A. Data Box Disk jest obsługiwana w przypadku wszystkich regionów w Stanach Zjednoczonych, Kanadzie, Australii, Europa Zachodnia i Europa Północna, Korea i Japonia. Obsługiwane są tylko regiony chmury publicznej Azure. Usługa Azure Government ani inne suwerenne chmury nie są obsługiwane.
 
-### <a name="q-how-can-i-import-my-on-premises-source-data-in-one-countryregion-to-an-azure-region-in-a-different-countryregion"></a>PYTANIE: Jak zaimportować lokalne dane źródłowe w jednym kraju/regionie do regionu świadczenia usługi Azure w innym kraju/regionie?
-A. Data Box Disk obsługuje pozyskiwanie danych tylko w tym samym regionie (granicach handlu). We wszystkich innych przypadkach może być konieczne wykonanie dodatkowych czynności. 
+### <a name="q-how-can-i-import-source-data-present-at-my-location-in-one-countryregion-to-an-azure-region-in-a-different-country"></a>PYTANIE: Jak mogę zaimportować dane źródłowe w mojej lokalizacji w jednym kraju/regionie do regionu świadczenia usługi Azure w innym kraju?
+A. Data Box Disk obsługuje pozyskiwanie danych tylko w obrębie tego samego kraju/regionu co ich miejsce docelowe i nie będzie przekraczać granic międzynarodowych. Jedyny wyjątek dotyczy zamówień w Unii Europejskiej (UE), gdzie urządzenie Data Box dyski mogą być dostarczane do i z dowolnego kraju/regionu UE.
 
-Na przykład jeśli masz dane lokalne w Kanadzie, które chcesz przenieść na konto magazynu w zachodniej lokalizacji Azure, możesz je osiągnąć w następujący sposób:
+Na przykład jeśli chcesz przenieść dane z lokalizacji w Kanadzie do konta magazynu zachodniego platformy Azure, możesz to osiągnąć w następujący sposób:
 
 ### <a name="option-1"></a>Opcja 1. 
 

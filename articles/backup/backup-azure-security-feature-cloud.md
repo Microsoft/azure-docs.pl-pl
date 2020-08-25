@@ -3,12 +3,12 @@ title: Usuwanie nietrwałe dla Azure Backup
 description: Dowiedz się, jak używać funkcji zabezpieczeń w programie Azure Backup, aby tworzyć kopie zapasowe bardziej bezpieczne.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: b3ccd944ce1f6a30b4441c205a83e71374e7aff2
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: d791b76698330cd14c56f01cf5da62c8a64bec29
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763443"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826977"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Usuwanie nietrwałe dla Azure Backup
 
@@ -29,7 +29,7 @@ Ten wykres przepływu przedstawia różne kroki i Stany elementu kopii zapasowej
 
 Usuwanie nietrwałe jest domyślnie włączone dla nowo utworzonych magazynów w celu ochrony danych kopii zapasowej przed przypadkowym lub złośliwym usunięciem.  Wyłączenie tej funkcji nie jest zalecane. Jedyną okolicznością, w której należy rozważyć wyłączenie usuwania nietrwałego, jest to, że planujesz przeniesienie chronionych elementów do nowego magazynu i nie będzie można odczekać 14 dni przed usunięciem i ponownym włączeniem ochrony (na przykład w środowisku testowym). Tylko właściciel magazynu może wyłączyć tę funkcję. Jeśli wyłączysz tę funkcję, wszystkie przyszłe usunięcia chronionych elementów spowodują natychmiastowe usunięcie, bez możliwości przywrócenia. Dane kopii zapasowej, które istnieją w stanie nietrwałego usunięcia przed wyłączeniem tej funkcji, pozostaną w stanie nietrwałego usunięcia przez 14 dni. Jeśli chcesz trwale usunąć te elementy natychmiast, musisz cofnąć ich usunięcie i usunąć je ponownie, aby trwale usunąć.
 
- Należy pamiętać, że po wyłączeniu usuwania nietrwałego funkcja ta jest wyłączona dla wszystkich typów obciążeń, w tym programu SQL Server i obciążeń SAP HANA. Na przykład po włączeniu [wersji zapoznawczej SQL Server/SAP HANA](./soft-delete-sql-saphana-in-azure-vm.md#steps-to-enroll-in-preview) dla subskrypcji nie można wyłączyć usuwania nietrwałego tylko dla programu SQL Server lub SAP HANA baz danych, pozostawiając włączenie go dla maszyn wirtualnych w tym samym magazynie. Można utworzyć oddzielne magazyny dla szczegółowej kontroli.
+ Należy pamiętać, że po wyłączeniu usuwania nietrwałego funkcja ta jest wyłączona dla wszystkich typów obciążeń, w tym programu SQL Server i obciążeń SAP HANA. Na przykład po włączeniu [wersji zapoznawczej SQL Server/SAP HANA](./soft-delete-sql-saphana-in-azure-vm.md#steps-to-enroll-in-preview) w ramach subskrypcji nie można wyłączyć usuwania nietrwałego tylko dla programu SQL Server lub SAP HANA baz danych, pozostawiając włączenie go dla maszyn wirtualnych w tym samym magazynie. Można utworzyć oddzielne magazyny dla szczegółowej kontroli.
 
 ### <a name="disabling-soft-delete-using-azure-portal"></a>Wyłączanie usuwania nietrwałego przy użyciu Azure Portal
 
@@ -44,9 +44,9 @@ Aby wyłączyć usuwanie nietrwałe, wykonaj następujące kroki:
 ### <a name="disabling-soft-delete-using-azure-powershell"></a>Wyłączanie usuwania nietrwałego przy użyciu Azure PowerShell
 
 > [!IMPORTANT]
-> Wersja AZ. RecoveryServices wymagana do użycia nietrwałego usuwania przy użyciu narzędzia Azure PS to minimalna 2.2.0. Użyj, ```Install-Module -Name Az.RecoveryServices -Force``` Aby uzyskać najnowszą wersję.
+> Wersja AZ. RecoveryServices wymagana do użycia nietrwałego usuwania przy użyciu Azure PowerShell jest minimalna 2.2.0. Użyj, ```Install-Module -Name Az.RecoveryServices -Force``` Aby uzyskać najnowszą wersję.
 
-Aby wyłączyć, użyj polecenia cmdlet [Set-AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) PS.
+Aby wyłączyć, użyj polecenia cmdlet [Set-AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) programu PowerShell.
 
 ```powershell
 Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable

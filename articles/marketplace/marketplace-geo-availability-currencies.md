@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: b1baeaa31eddc13a68f2cc1d374b850f1c1a26bd
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 2ff8d962479188ddf324dc5ff75d22eac4fed3d6
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136341"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826773"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Obsługa dostępności geograficznej i waluty komercyjnej witryny Marketplace
 
@@ -166,18 +166,25 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
 
-\*W przypadku klientów w Brazylii Portal Marketplace za pośrednictwem dostawców rozwiązań w chmurze (CSP) używa USD.
+\* W przypadku klientów w Brazylii Portal Marketplace za pośrednictwem dostawców rozwiązań w chmurze (CSP) używa USD.
 
 \** Tylko bezpłatne i BYOL obrazy maszyn wirtualnych.
 
 ## <a name="how-we-convert-currency"></a>Jak przekonwertować walutę
 
-W przypadku wszystkich płatnych typów ofert dostawcy ISV mają możliwość wprowadzenia cen w cenie USD lub przekazanie cen w walucie lokalnej. Ceny wprowadzone w USD są automatycznie konwertowane na walutę lokalną po zapisaniu strony. Opłaty za korzystanie z Centrum partnerskiego są aktualizowane codziennie. Niezależni dostawcy oprogramowania mogą eksportować ceny i przeglądać przekonwertowane odpowiedniki.
+W przypadku wszystkich płatnych typów ofert możesz skorzystać z opcji wprowadzenia cen w cenie USD lub przekazanie cen w walucie lokalnej. Ceny wprowadzone w USD są automatycznie konwertowane na walutę lokalną po zapisaniu strony. Opłaty za korzystanie z Centrum partnerskiego są aktualizowane codziennie. Możesz wyeksportować ceny i przejrzeć przekonwertowane odpowiedniki.
 
 Aby dostosować cenę przed opublikowaniem, po prostu wyeksportuj arkusz cen, zmodyfikuj go i przekaż go ze zmianami.
 
 > [!NOTE]
 > Po opublikowaniu ceny na rynku planu nie można jej później zmienić. Aby upewnić się, że ceny są prawidłowe przed ich opublikowaniem, wyeksportuj arkusz cen i przejrzyj ceny na każdym rynku.
+
+Cena oferty jest zawsze wyświetlana klientom w lokalnej walucie. Cena wybrana w centrum partnerskim jest konwertowana na lokalną walutę klientów zgodnie z kursem wymiany w momencie zapisania ceny w centrum partnerskim. Cena pokazywana klientom w sklepach online nie zmienia się, chyba że zostanie ponownie opublikowana oferta.
+
+Firma Microsoft odbiera płatności od klientów w ich lokalnej walucie i płaci w lokalnej walucie. Firma Microsoft konwertuje walutę lokalną klienta na walutę lokalną przy użyciu kursu wymiany dnia zakupu.
+
+> [!NOTE]
+> Firma Microsoft przelicza ceny oferty przy użyciu kursu wymiany od firmy Microsoft.
 
 ## <a name="retrieving-currency-information-by-api"></a>Pobieranie informacji o walucie według interfejsu API
 
@@ -189,7 +196,7 @@ Aby uzyskać szczegółowe informacje na temat wprowadzania cen dla określonych
 - [Tworzenie oferty kontenera platformy Azure](partner-center-portal/create-azure-container-offer.md)
 - [Tworzenie oferty maszyny wirtualnej platformy Azure](partner-center-portal/azure-vm-create-offer.md)
 - [Tworzenie oferty usługi konsultingowej](partner-center-portal/create-consulting-service-offer.md)
-- [Tworzenie oferty usługi Dynamics 365 dla klientów & usługi PowerApps](partner-center-portal/create-new-customer-engagement-offer.md)
+- [Tworzenie oferty Dynamics 365 for Customer Engagement & PowerApps](partner-center-portal/create-new-customer-engagement-offer.md)
 - [Tworzenie oferty Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md)
 - [Tworzenie oferty Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md)
 - [Tworzenie oferty modułu usługi IoT Edge](partner-center-portal/azure-iot-edge-module-creation.md)

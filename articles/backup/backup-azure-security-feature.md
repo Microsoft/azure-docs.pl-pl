@@ -4,23 +4,23 @@ description: Dowiedz się, jak używać funkcji zabezpieczeń w programie Azure 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 170ecf364e01ba4b098da289f9d213716e74e0ee
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: a793b67b88f11988a584e3f57a296c69606cdd5f
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757034"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826909"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe, które używają Azure Backup
 
-Problemy dotyczące zabezpieczeń, takie jak złośliwe oprogramowanie, programy wymuszającego okup i wtargnięcie, zwiększają się. Te problemy z zabezpieczeniami mogą być kosztowne, w odniesieniu do pieniędzy i danych. Aby ochronić przed takimi atakami, Azure Backup teraz zapewnia funkcje zabezpieczeń, które ułatwiają ochronę hybrydowych kopii zapasowych. W tym artykule opisano sposób włączania i używania tych funkcji przy użyciu agenta Recovery Services platformy Azure i Azure Backup Server. Między innymi są to następujące funkcje:
+Problemy dotyczące zabezpieczeń, takie jak złośliwe oprogramowanie, programy wymuszającego okup i wtargnięcie, zwiększają się. Te problemy z zabezpieczeniami mogą być kosztowne, w odniesieniu do pieniędzy i danych. Aby ochronić przed takimi atakami, Azure Backup teraz zapewnia funkcje zabezpieczeń, które ułatwiają ochronę hybrydowych kopii zapasowych. W tym artykule opisano sposób włączania i używania tych funkcji przy użyciu agenta Recovery Services platformy Azure i Azure Backup Server. Do tych funkcji należą:
 
 - **Zapobieganie**. Dodatkowa warstwa uwierzytelniania jest dodawana zawsze wtedy, gdy jest wykonywane krytyczne operacje, takie jak zmiana hasła. Ta weryfikacja polega na zapewnieniu, że operacje te mogą być wykonywane tylko przez użytkowników, którzy mają prawidłowe poświadczenia platformy Azure.
 - **Generowanie alertów**. Powiadomienie e-mail jest wysyłane do administratora subskrypcji po każdym wystąpieniu krytycznej operacji, takiej jak usuwanie danych kopii zapasowej. Ta wiadomość e-mail gwarantuje, że użytkownik będzie powiadamiany szybko o takich akcjach.
 - **Odzyskiwanie**. Usunięte dane kopii zapasowej są przechowywane przez dodatkowe 14 dni od daty usunięcia. Zapewnia to możliwość odzyskania danych w danym okresie, dlatego nie ma utraty danych, nawet jeśli wystąpi atak. Ponadto do ochrony przed uszkodzeniem danych są utrzymywane większą liczbę punktów odzyskiwania.
 
 > [!NOTE]
-> Nie należy włączać funkcji zabezpieczeń, jeśli jest używana kopia zapasowa maszyny wirtualnej usługi IaaS (Infrastructure as a Service). Te funkcje nie są jeszcze dostępne do tworzenia kopii zapasowych maszyn wirtualnych IaaS, dlatego włączenie ich nie będzie miało żadnego wpływu. Funkcje zabezpieczeń powinny być włączone tylko wtedy, gdy są używane: <br/>
+> Jeśli używasz kopii zapasowej maszyny wirtualnej jako usługi (IaaS), nie należy włączać funkcji zabezpieczeń. Te funkcje nie są jeszcze dostępne do tworzenia kopii zapasowych maszyn wirtualnych IaaS, dlatego włączenie ich nie będzie miało żadnego wpływu. Funkcje zabezpieczeń powinny być włączone tylko wtedy, gdy są używane: <br/>
 >
 > - **Agent Azure Backup**. Minimalna wersja agenta: 2.0.9052. Po włączeniu tych funkcji należy przeprowadzić uaktualnienie do tej wersji agenta, aby wykonać krytyczne operacje. <br/>
 > - **Azure Backup Server**. Minimalna wersja agenta Azure Backup: 2.0.9052 z aktualizacją Azure Backup Server Update 1. <br/>
@@ -88,7 +88,7 @@ W ramach dodawania dodatkowej warstwy uwierzytelniania dla operacji krytycznych 
 
 Aby odebrać ten numer PIN:
 
-1. Zaloguj się w witrynie Azure Portal.
+1. Zaloguj się do witryny Azure Portal.
 2. Przejdź do **Recovery Services**  >  **Settings**  >  **Właściwości**ustawień magazynu.
 3. W obszarze **zabezpieczający numer PIN**wybierz pozycję **Generuj**. Spowoduje to otwarcie okienka zawierającego numer PIN, który ma zostać wprowadzony w interfejsie użytkownika agenta usługi Azure Recovery Services.
     Ten kod PIN jest prawidłowy tylko przez pięć minut i jest generowany automatycznie po upływie tego okresu.

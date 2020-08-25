@@ -4,16 +4,16 @@ description: Monitoruj Azure Backup obciążenia i twórz niestandardowe alerty 
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: fbd1c7f5e7fab9f77815e782160e855a9a854dc9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3f5f663a2f0ed0f91cc414d352e975a2ff3b9649
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054617"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827158"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorowanie na dużą skalę przy użyciu Azure Monitor
 
-Azure Backup udostępnia [wbudowane funkcje monitorowania i alertów](backup-azure-monitoring-built-in-monitor.md) w magazynie Recovery Services. Te możliwości są dostępne bez dodatkowej infrastruktury zarządzania. Jednak ta wbudowana usługa jest ograniczona w następujących scenariuszach:
+Azure Backup udostępnia [wbudowane funkcje monitorowania i alertów](backup-azure-monitoring-built-in-monitor.md) w magazynie Recovery Services. Funkcje te są dostępne bez żadnej dodatkowej infrastruktury zarządzania. Jednak ta wbudowana usługa jest ograniczona w następujących scenariuszach:
 
 - W przypadku monitorowania danych z wielu Recovery Services magazynów między subskrypcjami
 - Jeśli preferowany kanał powiadomień *nie* jest adresem e-mail

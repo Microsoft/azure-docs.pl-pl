@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
 ms.custom: accessibility
-ms.openlocfilehash: 7d9bc6365070c0aec96def2f55758204925fe7ba
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: e3f078cdaa54246d91e6bff5393171c05935d755
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88205946"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826790"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Skróty klawiaturowe w witrynie Azure Portal
 
@@ -52,6 +52,10 @@ W tym artykule przedstawiono skróty klawiaturowe, które działają wszędzie w
 |Przejdź do **wszystkich zasobów**|G + A |
 |Przejdź do **grup zasobów**|G + R |
 |Otwórz lewy element paska bocznego w tym miejscu |G + Number|
+
+## <a name="keyboard-shortcuts-for-specific-pages-in-the-azure-portal"></a>Skróty klawiaturowe dla określonych stron w Azure Portal
+
+- [Eksplorator usługi Azure Resource Graph](../governance/resource-graph/reference/keyboard-shortcuts.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

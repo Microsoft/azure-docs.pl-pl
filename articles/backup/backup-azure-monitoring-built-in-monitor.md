@@ -4,12 +4,12 @@ description: W tym artykule omówiono możliwości monitorowania i powiadamiania
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 9a4558367d3af6858310ce4455cbf1df2a596312
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 2fae7cfdb8b316341e01d15b43811d3f0e7638ef
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763477"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827192"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorowanie obciążeń Azure Backup
 
@@ -30,7 +30,7 @@ Poniżej przedstawiono zadania z następujących rozwiązań Azure Backup:
 - Tworzenie kopii zapasowych platformy Azure, takich jak SQL i SAP HANA
 - Agent Microsoft Azure Recovery Services (MARS)
 
-NIE są wyświetlane zadania z programu System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (serwera usługi MAB).
+Nie są wyświetlane zadania z programu System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (serwera usługi MAB).
 
 > [!NOTE]
 > Obciążenia platformy Azure, takie jak SQL i SAP HANA Backup na maszynach wirtualnych platformy Azure, mają ogromną liczbę zadań tworzenia kopii zapasowych. Na przykład kopie zapasowe dzienników można uruchamiać co 15 minut. W przypadku takich obciążeń bazy danych wyświetlane są tylko operacje wyzwalane przez użytkownika. Zaplanowane operacje tworzenia kopii zapasowej nie są wyświetlane.
@@ -83,7 +83,7 @@ W oparciu o ważność alertu alerty można definiować w trzech typach:
 ## <a name="notification-for-backup-alerts"></a>Powiadomienia o alertach dotyczących kopii zapasowych
 
 > [!NOTE]
-> Konfigurację powiadomień można wykonać tylko za pomocą Azure Portal. Obsługa szablonu interfejsu Azure Resource Manager API (PS/CLI/REST) nie jest obsługiwana.
+> Konfigurację powiadomień można wykonać tylko za pomocą Azure Portal. Obsługa szablonu Azure Resource Manager interfejsu API (PS/CLI/REST) nie jest obsługiwana.
 
 Po podniesieniu alertu użytkownicy będą powiadamiani. Azure Backup zapewnia wbudowany mechanizm powiadomień za pośrednictwem poczty e-mail. Jeden z nich może określać poszczególne adresy e-mail lub listy dystrybucyjne do powiadomienia o wygenerowaniu alertu. Możesz również wybrać, czy otrzymywać powiadomienia o każdym indywidualnym alercie, czy grupować je w co godzinę, a następnie otrzymywać powiadomienia.
 

@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1105665296c7319c32995d1f83cb25b559abf997
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 2bd3487e58f204ba7ada9320b50d4b87538ae987
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756150"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826569"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Tworzenie kopii zapasowej maszyny wirtualnej na platformie Azure za pomocą interfejsu wiersza polecenia
 
@@ -60,7 +60,7 @@ az backup protection enable-for-vm \
 ```
 
 > [!NOTE]
-> Jeśli maszyna wirtualna nie znajduje się w tej samej grupie zasobów, co magazyn, element myResourceGroup odnosi się do grupy zasobów, w której magazyn został utworzony. Zamiast nazwy maszyny wirtualnej podaj jej identyfikator, jak opisano poniżej.
+> Jeśli maszyna wirtualna nie znajduje się w tej samej grupie zasobów, co magazyn, wówczas Grupa zasobów odwołuje się do grupy zasobu, w której został utworzony magazyn. Zamiast nazwy maszyny wirtualnej podaj jej identyfikator, jak opisano poniżej.
 
 ```azurecli-interactive
 az backup protection enable-for-vm \
@@ -71,7 +71,7 @@ az backup protection enable-for-vm \
 ```
 
 > [!IMPORTANT]
-> Podczas korzystania z interfejsu wiersza polecenia w celu jednoczesnego włączenia tworzenia kopii zapasowych wielu maszyn wirtualnych upewnij się, że z jednymi zasadami nie są skojarzone więcej niż 100 maszyn wirtualnych. Jest to [zalecane najlepsze rozwiązanie](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Obecnie klient PS nie jest jawnie blokowany, jeśli istnieje więcej niż 100 maszyn wirtualnych, ale zaplanowano dodanie go do przyszłości.
+> Podczas korzystania z interfejsu wiersza polecenia w celu jednoczesnego włączenia tworzenia kopii zapasowych wielu maszyn wirtualnych upewnij się, że z jednymi zasadami nie są skojarzone więcej niż 100 maszyn wirtualnych. Jest to [zalecane najlepsze rozwiązanie](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Obecnie klient programu PowerShell nie jest jawnie blokowany, jeśli istnieje więcej niż 100 maszyn wirtualnych, ale w przyszłości sprawdzanie jest planowane.
 
 ## <a name="start-a-backup-job"></a>Uruchamianie zadania tworzenia kopii zapasowej
 

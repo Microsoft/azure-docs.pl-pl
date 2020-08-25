@@ -3,12 +3,12 @@ title: Przygotuj serwer programu DPM do tworzenia kopii zapasowych obciążeń
 description: W tym artykule dowiesz się, jak przygotować się do tworzenia kopii zapasowych programu System Center Data Protection Manager (DPM) na platformie Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 7043b4411856addf0fae26ee5402c4d3878e7f12
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 86becc2b989c55ac080b9bdcbfcca182987e9fb2
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612660"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827311"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Przygotowanie do tworzenia kopii zapasowych obciążeń na platformie Azure przy użyciu programu System Center DPM
 
@@ -161,7 +161,7 @@ Każdy komputer, na którym jest tworzona kopia zapasowa Azure Backup musi mieć
 
     > [!WARNING]
     > Jesteś posiadaczem hasła szyfrowania, a firma Microsoft nie ma do niego wglądu.
-    > Jeśli hasło zostanie utracone lub zapomniane; Firma Microsoft nie może pomóc w odzyskiwaniu danych kopii zapasowej.
+    > Jeśli hasło zostanie utracone lub zapomniane, firma Microsoft nie może pomóc w odzyskiwaniu danych kopii zapasowej.
 
 7. Wybierz pozycję **zarejestruj** , aby zarejestrować serwer programu DPM w magazynie.
 
