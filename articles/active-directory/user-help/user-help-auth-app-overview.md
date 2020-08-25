@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 60c2b3ed1f367dc5c501a51ed52440f7d9d3ed6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d630fac1f848e691ddb96dc47596a2e9927309f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741190"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799438"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Czym jest aplikacja Microsoft Authenticator?
 
@@ -33,7 +33,7 @@ Aplikacji Microsoft Authenticator można używać na wiele sposobów, na przykł
 > [!Important]
 > Aplikacja Microsoft Authenticator współpracuje z dowolnym kontem korzystającym z weryfikacji dwuskładnikowej i obsługuje standardy hasła jednorazowego (TOTP) oparte na czasie.
 >
->Ten artykuł jest przeznaczony dla użytkowników próbujących pobrać i użyć aplikacji Microsoft Authenticator jako metody weryfikacji zabezpieczeń. Jeśli jesteś administratorem, który szuka informacji o sposobie włączania logowania bez hasła przy użyciu aplikacji uwierzytelniania dla pracowników i innych funkcji, zobacz [Włączanie logowania bezhasłem przy użyciu aplikacji Microsoft Authenticator (wersja zapoznawcza)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-phone).
+>Ten artykuł jest przeznaczony dla użytkowników próbujących pobrać i użyć aplikacji Microsoft Authenticator jako metody weryfikacji zabezpieczeń. Jeśli jesteś administratorem, który szuka informacji o sposobie włączania logowania bez hasła przy użyciu aplikacji uwierzytelniania dla pracowników i innych funkcji, zobacz [Włączanie logowania bezhasłem przy użyciu aplikacji Microsoft Authenticator (wersja zapoznawcza)](../authentication/howto-authentication-passwordless-phone.md).
 
 ## <a name="terminology"></a>Terminologia
 

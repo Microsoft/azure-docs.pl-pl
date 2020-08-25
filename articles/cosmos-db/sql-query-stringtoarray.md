@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 18acbd94fa3d717fc20b9e1020b9bf7c6db7744d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b00fe7a515d1d27ce9be2ab62a96c719d5e045a5
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78302920"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798588"
 ---
 # <a name="stringtoarray-azure-cosmos-db"></a>StringToArray (Azure Cosmos DB)
  Zwraca wyrażenie tłumaczone na tablicę. Jeśli wyrażenia nie można przetłumaczyć, funkcja zwraca wartość undefined.  
@@ -33,7 +33,7 @@ StringToArray(<str_expr>)
   Zwraca wyrażenie tablicy lub niezdefiniowane. 
   
 ## <a name="remarks"></a>Uwagi
-  Zagnieżdżone wartości ciągu muszą być zapisywane z podwójnymi cudzysłowami, aby były prawidłowymi wartościami JSON. Aby uzyskać szczegółowe informacje o formacie JSON, zobacz [JSON.org](https://json.org/)
+  Zagnieżdżone wartości ciągu muszą być zapisywane z podwójnymi cudzysłowami, aby były prawidłowymi wartościami JSON. Aby uzyskać szczegółowe informacje o formacie JSON, zobacz [JSON.org](https://json.org/). Ta funkcja systemowa nie będzie używać indeksu.
   
 ## <a name="examples"></a>Przykłady
   
@@ -90,10 +90,6 @@ Tutaj znajduje się zestaw wyników.
 ```json
 [{}]
 ```
-
-## <a name="remarks"></a>Uwagi
-
-Ta funkcja systemowa nie będzie używać indeksu.
 
 ## <a name="next-steps"></a>Następne kroki
 

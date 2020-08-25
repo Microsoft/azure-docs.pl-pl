@@ -4,12 +4,12 @@ description: Przywróć maszynę wirtualną platformy Azure z punktu odzyskiwani
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 4aca863dd4e9c418872cd67bdf54df616a7a0c5b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 66d29294d74e9fee28dd88d34f67ed3bdc4b8e7b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651152"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756490"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Przywracanie danych maszyny wirtualnej platformy Azure w Azure Portal
 
@@ -65,7 +65,7 @@ Jeśli nie masz uprawnień, możesz [przywrócić dysk](#restore-disks), a nast�
     - **Utwórz nową**: Użyj tej opcji, jeśli chcesz utworzyć nową maszynę wirtualną. Można utworzyć maszynę wirtualną z prostymi ustawieniami lub przywrócić dysk i utworzyć dostosowaną maszynę wirtualną.
     - **Zastąp istniejące**: Użyj tej opcji, jeśli chcesz zastąpić dyski na istniejącej maszynie wirtualnej.
 
-        ![Kreator przywracania konfiguracji](./media/backup-azure-arm-restore-vms/restore-configuration.png)
+        ![Kreator przywracania konfiguracji maszyny wirtualnej](./media/backup-azure-arm-restore-vms/restore-configuration.png)
 
 1. Określ ustawienia wybranej opcji przywracania.
 
@@ -79,7 +79,7 @@ Jako jedna z [opcji przywracania](#restore-options)można szybko utworzyć maszy
 1. W obszarze **Sieć wirtualna**wybierz sieć wirtualną, w której zostanie umieszczona maszyna wirtualna. Zostanie wyświetlona cała sieci wirtualnych skojarzona z subskrypcją. Wybierz podsieć. Pierwsza podsieć jest domyślnie zaznaczona.
 1. W obszarze **Lokalizacja tymczasowa**Określ konto magazynu dla maszyny wirtualnej. [Dowiedz się więcej](#storage-accounts).
 
-    ![Kreator przywracania konfiguracji](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
+    ![Kreator przywracania konfiguracji — Wybieranie opcji przywracania](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
 1. Wybierz pozycję **Przywróć** , aby wyzwolić operację przywracania.
 

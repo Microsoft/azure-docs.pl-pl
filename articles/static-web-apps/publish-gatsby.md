@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 192e939d21cae3b67cafe190e32e7202cd8bdb20
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 03e9f99301444032d867bc1c2f854c807380844e
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429670"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797738"
 ---
 # <a name="tutorial-publish-a-gatsby-site-to-azure-static-web-apps-preview"></a>Samouczek: publikowanie witryny Gatsby w wersji zapoznawczej usługi Azure static Web Apps
 
 W tym artykule pokazano, jak utworzyć i wdrożyć aplikację sieci Web [Gatsby](https://gatsbyjs.org) w usłudze [Azure static Web Apps](overview.md). Końcowym wynikiem jest Nowa lokacja statyczna Web Apps (ze skojarzonymi akcjami GitHub), która zapewnia kontrolę nad sposobem kompilowania i publikowania aplikacji.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -128,7 +128,7 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
 
    :::image type="content" source="./media/publish-gatsby/build-details.png" alt-text="Ustawienia kompilacji":::
 
-### <a name="review-and-create"></a>Przejrzyj i utwórz
+### <a name="review-and-create"></a>Przegląd i tworzenie
 
 1. Kliknij przycisk **Recenzja + Utwórz** , aby sprawdzić, czy szczegóły są poprawne.
 
@@ -140,7 +140,7 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
 
    :::image type="content" source="./media/publish-gatsby/deployed-app.png" alt-text="Wdrożona aplikacja":::
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [cleanup-resource](../../includes/static-web-apps-cleanup-resource.md)]
 

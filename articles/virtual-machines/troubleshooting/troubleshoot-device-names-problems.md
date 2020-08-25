@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 6d3e35f44d11cd9ed41badbc64ff7528b5b15558
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 31f64a504156134b1d622705d5301d9cd5a5f5b1
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084396"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756830"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Rozwiązywanie problemów ze zmianami nazw urządzeń maszyny wirtualnej z systemem Linux
 
@@ -42,7 +42,7 @@ Ten problem występuje, ponieważ w systemie Linux zaplanowano zaplanowanie asyn
 
 Aby rozwiązać ten problem, Użyj trwałego nazewnictwa. Istnieją cztery metody używania trwałego nazewnictwa: według etykiety systemu plików, identyfikatora UUID lub ścieżki. Zalecamy używanie etykiety systemu plików lub identyfikatora UUID dla maszyn wirtualnych z systemem Linux.
 
-Większość dystrybucji zapewnia `fstab` parametry **nofail** lub **nobootwait** . Te parametry umożliwiają rozruch systemu w przypadku niepowodzenia instalacji dysku podczas uruchamiania. Zapoznaj się z dokumentacją dystrybucji, aby uzyskać więcej informacji o tych parametrach. Aby uzyskać informacje na temat konfigurowania maszyny wirtualnej z systemem Linux do używania identyfikatora UUID podczas dodawania dysku danych, zobacz [nawiązywanie połączenia z maszyną wirtualną z systemem Linux w celu zainstalowania nowego dysku](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk).
+Większość dystrybucji zapewnia `fstab` parametry **nofail** lub **nobootwait** . Te parametry umożliwiają rozruch systemu w przypadku niepowodzenia instalacji dysku podczas uruchamiania. Zapoznaj się z dokumentacją dystrybucji, aby uzyskać więcej informacji o tych parametrach. Aby uzyskać informacje na temat konfigurowania maszyny wirtualnej z systemem Linux do używania identyfikatora UUID podczas dodawania dysku danych, zobacz [nawiązywanie połączenia z maszyną wirtualną z systemem Linux w celu zainstalowania nowego dysku](../linux/add-disk.md#format-and-mount-the-disk).
 
 Gdy Agent systemu Linux platformy Azure jest zainstalowany na maszynie wirtualnej, agent używa reguł udev do konstruowania zestawu linków symbolicznych pod ścieżką/dev/Disk/Azure. Aplikacje i skrypty używają reguł udev do identyfikowania dysków dołączonych do maszyny wirtualnej, a także typu dysku i jednostek LUN dysku.
 

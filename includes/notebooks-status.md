@@ -5,10 +5,10 @@ ms.service: azure-notebooks
 ms.topic: include
 ms.date: 07/01/2020
 ms.openlocfilehash: 5011a5d265c61cf26520f6c012037a67a8afacae
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86181503"
 ---
 > [!IMPORTANT]

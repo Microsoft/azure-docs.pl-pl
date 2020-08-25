@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
-ms.openlocfilehash: adc6fdf144927d10f811a00aa33f244cfdc25042
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 652445a96acfa0358211d1d97e0fcf288989d6ba
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871764"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795783"
 ---
 # <a name="configure-database-settings"></a>Konfigurowanie ustawień bazy danych 
 
@@ -26,7 +26,10 @@ Obsługa przepływności musi być zapewniona, aby zapewnić, że dla bazy danyc
 > Ponieważ różne operacje zużywają różną liczbę RU, zwracamy rzeczywistą liczbę jednostek ru zużytych w każdym wywołaniu interfejsu API w nagłówku odpowiedzi. W ten sposób można profilować liczbę jednostek ru używanych przez aplikację.
 
 ## <a name="update-throughput"></a>Przepustowość aktualizacji
+
 Aby zmienić to ustawienie w Azure Portal, przejdź do interfejsu API platformy Azure dla usługi FHIR i Otwórz blok bazy danych. Następnie zmień zainicjowaną przepływność na żądaną wartość w zależności od potrzeb związanych z wydajnością. Można zmienić wartość maksymalnie 10 000 RU/s. Jeśli potrzebujesz wyższej wartości, skontaktuj się z pomocą techniczną platformy Azure.
+
+Jeśli przepływność bazy danych jest większa niż 10 000 RU/s lub jeśli dane przechowywane w bazie danych przekraczają 50 GB, aplikacja kliencka musi być w stanie obsługiwać tokeny kontynuacji. Nowa partycja zostanie utworzona w bazie danych dla każdego wzrostu przepływności o 10 000 RU/s lub jeśli ilość przechowywanych danych jest większa niż 50 GB. Wiele partycji tworzy wielostronicową odpowiedź, w której wdrożono stronicowanie przy użyciu tokenów kontynuacji.
 
 > [!NOTE] 
 > Wyższa wartość oznacza wyższy interfejs API platformy Azure do FHIR przepływności i wyższe koszty usługi.

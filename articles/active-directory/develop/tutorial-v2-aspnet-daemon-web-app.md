@@ -12,10 +12,10 @@ ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.openlocfilehash: b63aa2b2d98a12246d0dc2c35e015da872caff28
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83641100"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Samouczek: Tworzenie demona wielodostępnego, która używa punktu końcowego platformy tożsamości firmy Microsoft
@@ -32,7 +32,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 Aplikacja została skompilowana jako aplikacja ASP.NET MVC. Używa ona oprogramowania OWIN OpenID Connect Connecter do logowania użytkowników.
 
-Składnik "Demon" w tym przykładzie jest kontrolerem interfejsu API, `SyncController.cs` . Gdy kontroler jest wywoływany, pobiera listę użytkowników w dzierżawie Azure Active Directory klienta (Azure AD) z Microsoft Graph. `SyncController.cs`jest wyzwalany przez wywołanie AJAX w aplikacji sieci Web. Używa [biblioteki Microsoft Authentication Library (MSAL) dla platformy .NET](msal-overview.md) , aby uzyskać token dostępu dla Microsoft Graph.
+Składnik "Demon" w tym przykładzie jest kontrolerem interfejsu API, `SyncController.cs` . Gdy kontroler jest wywoływany, pobiera listę użytkowników w dzierżawie Azure Active Directory klienta (Azure AD) z Microsoft Graph. `SyncController.cs` jest wyzwalany przez wywołanie AJAX w aplikacji sieci Web. Używa [biblioteki Microsoft Authentication Library (MSAL) dla platformy .NET](msal-overview.md) , aby uzyskać token dostępu dla Microsoft Graph.
 
 >[!NOTE]
 > Jeśli dopiero zaczynasz pracę z platformą tożsamości firmy Microsoft, zalecamy rozpoczęcie pracy z programem [.NET Core DAEMON — szybki](quickstart-v2-netcore-daemon.md)Start.
@@ -113,17 +113,17 @@ Jeśli nie chcesz używać automatyzacji, wykonaj kroki opisane w poniższych se
      Jeśli istnieje więcej niż dwa identyfikatory URI przekierowania, należy dodać je z karty **uwierzytelnianie** później, po pomyślnym utworzeniu aplikacji.
 1. Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
 1. Na stronie **Przegląd** aplikacji Znajdź wartość **Identyfikator aplikacji (klienta)** i Zapisz ją jako nowszą. Będzie ona potrzebna do skonfigurowania pliku konfiguracji programu Visual Studio dla tego projektu.
-1. Na liście stron dla aplikacji wybierz pozycję **Uwierzytelnianie**. Następnie:
+1. Na liście stron dla aplikacji wybierz pozycję **Uwierzytelnianie**. Wtedy:
    - W sekcji **Ustawienia zaawansowane** Ustaw **adres URL wylogowywania** na **https://localhost:44316/Account/EndSession** .
    - W sekcji **Ustawienia zaawansowane**  >  **niejawne przyznanie** wybierz pozycję **tokeny dostępu** i **tokeny identyfikatorów**. Ten przykład wymaga, aby [przepływ niejawnego przydzielenia](v2-oauth2-implicit-grant-flow.md) był włączony do logowania użytkownika i wywoływania interfejsu API.
 1. Wybierz pozycję **Zapisz**.
-1. Na stronie **certyfikaty & wpisy tajne** w sekcji **klucze tajne klienta** wybierz pozycję **nowy klucz tajny klienta**. Następnie:
+1. Na stronie **certyfikaty & wpisy tajne** w sekcji **klucze tajne klienta** wybierz pozycję **nowy klucz tajny klienta**. Wtedy:
 
    1. Wprowadź opis klucza (na przykład **klucz tajny aplikacji**),
    1. Wybierz kluczowy okres trwania z przedziału **1 roku**, **w ciągu 2 lat**lub **nigdy nie wygasa**.
    1. Wybierz przycisk **Add** (Dodaj).
    1. Gdy zostanie wyświetlona wartość klucza, skopiuj ją i Zapisz w bezpiecznej lokalizacji. Ten klucz będzie potrzebny później, aby skonfigurować projekt w programie Visual Studio. Nie będzie można go ponownie wyświetlić ani pobrać w inny sposób.
-1. Na liście stron dla aplikacji wybierz pozycję **uprawnienia interfejsu API**. Następnie:
+1. Na liście stron dla aplikacji wybierz pozycję **uprawnienia interfejsu API**. Wtedy:
    1. Wybierz przycisk **Dodaj uprawnienia**.
    1. Upewnij się, że wybrano kartę **interfejsy API firmy Microsoft** .
    1. W sekcji **najczęściej używane interfejsy API firmy Microsoft** wybierz pozycję **Microsoft Graph**.
@@ -140,7 +140,7 @@ Otwórz rozwiązanie w programie Visual Studio, aby skonfigurować projekty.
 
 W przypadku użycia skryptów Instalatora zostaną zastosowane następujące zmiany.
 
-1. Otwórz plik **UserSync\Web.config** .
+1. Otwórz plik **UserSync\Web.Config** .
 1. Znajdź klucz aplikacji **Ida: ClientId**. Zastąp istniejącą wartość IDENTYFIKATORem aplikacji aplikacji **dotnet-Web-DAEMON-v2** skopiowanej z Azure Portal.
 1. Znajdź klucz aplikacji **Ida: ClientSecret**. Zastąp istniejącą wartość kluczem zapisanym podczas tworzenia aplikacji **dotnet-Web-DAEMON-v2** w Azure Portal.
 
@@ -232,7 +232,7 @@ Program Visual Studio opublikuje projekt i automatycznie otworzy przeglądarkę 
 
 ### <a name="update-the-azure-ad-tenant-application-registration-for-dotnet-web-daemon-v2"></a>Aktualizowanie rejestracji aplikacji dzierżawy usługi Azure AD dla programu dotnet-Web-DAEMON-v2
 
-1. Wróć do witryny [Azure Portal](https://portal.azure.com).
+1. Wróć do [Azure Portal](https://portal.azure.com).
 1. W okienku po lewej stronie wybierz usługę **Azure Active Directory** a następnie wybierz pozycję **rejestracje aplikacji**.
 1. Wybierz aplikację **dotnet-Web-demon-v2** .
 1. Na stronie **uwierzytelnianie** dla swojej aplikacji zaktualizuj pola **adresu URL wylogowywania** z adresem usługi. Użyj na przykład nazwy `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
@@ -240,7 +240,7 @@ Program Visual Studio opublikuje projekt i automatycznie otworzy przeglądarkę 
 1. Zapisz konfigurację.
 1. Dodaj ten sam adres URL na liście wartości **Authentication**  >  menu**identyfikatorów URI przekierowania** uwierzytelniania. Jeśli masz wiele adresów URL przekierowania, upewnij się, że istnieje nowy wpis, który używa identyfikatora URI usługi App Service dla każdego adresu URL przekierowania.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 Gdy nie jest już potrzebne, Usuń obiekt aplikacji, który został utworzony w kroku [zarejestruj aplikację](#register-your-application) .  Aby usunąć aplikację, postępuj zgodnie z instrukcjami w temacie [usuwanie aplikacji napisanej przez Ciebie lub w organizacji](quickstart-remove-app.md#remove-an-application-authored-by-you-or-your-organization).
 
 ## <a name="get-help"></a>Uzyskaj pomoc

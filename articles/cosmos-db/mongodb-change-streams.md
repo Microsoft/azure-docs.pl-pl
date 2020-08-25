@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: rosouz
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b13585b4a839bfcf6c0645c911e98d1f1885f3ca
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b5bf7cc74a5444e5f51aaddb1d088f6b0c1e52a8
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036712"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798894"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Zmień strumienie w interfejsie API Azure Cosmos DB dla MongoDB
 
@@ -21,26 +21,6 @@ Obsługa [kanałów zmian](change-feed.md) w interfejsie API Azure Cosmos DB dla
 
 > [!NOTE]
 > Aby można było używać strumieni zmian, należy utworzyć konto z wersją 3,6 interfejsu API Azure Cosmos DB dla MongoDB lub nowszej wersji. W przypadku uruchomienia przykładów zmiany strumienia dla starszej wersji może zostać wyświetlony `Unrecognized pipeline stage name: $changeStream` błąd.
-
-## <a name="current-limitations"></a>Bieżące ograniczenia
-
-W przypadku korzystania ze strumieni zmian stosowane są następujące ograniczenia:
-
-* `operationType`Właściwości i `updateDescription` nie są jeszcze obsługiwane w dokumencie wyjściowym.
-* `insert` `update` Typy operacji, i `replace` są obecnie obsługiwane. 
-* Operacja usuwania lub inne zdarzenia nie są jeszcze obsługiwane.
-
-Ze względu na te ograniczenia wymagane są opcje etap $match, etap $project i fullDocument, jak pokazano w poprzednich przykładach.
-
-W przeciwieństwie do źródła zmian w interfejsie API SQL Azure Cosmos DB nie istnieje oddzielna [Biblioteka procesora kanału informacyjnego zmian](change-feed-processor.md) , która umożliwia korzystanie z strumienia zmian lub potrzeby kontenera dzierżawy. Obecnie nie są obsługiwane [wyzwalacze Azure Functions](change-feed-functions.md) do przetwarzania strumieni zmian.
-
-## <a name="error-handling"></a>Obsługa błędów
-
-Podczas używania strumieni zmian są obsługiwane następujące kody błędów i komunikaty:
-
-* **Kod błędu HTTP 16500** — gdy strumień zmiany jest ograniczany, zwraca pustą stronę.
-
-* **NamespaceNotFound (OperationType unvalidate)** — w przypadku uruchomienia strumienia zmian w kolekcji, która nie istnieje lub jeśli kolekcja została porzucona, `NamespaceNotFound` zwracany jest błąd. Ponieważ `operationType` Właściwość nie może zostać zwrócona w dokumencie wyjściowym, a nie w przypadku `operationType Invalidate` błędu, `NamespaceNotFound` zwracany jest błąd.
 
 ## <a name="examples"></a>Przykłady
 
@@ -156,15 +136,17 @@ var cursor = db.coll.watch(
 W przypadku korzystania ze strumieni zmian stosowane są następujące ograniczenia:
 
 * `operationType`Właściwości i `updateDescription` nie są jeszcze obsługiwane w dokumencie wyjściowym.
-* `insert` `update` Typy operacji, i `replace` są obecnie obsługiwane. Operacja usuwania lub inne zdarzenia nie są jeszcze obsługiwane.
+* `insert` `update` Typy operacji, i `replace` są obecnie obsługiwane. Jednak operacja usuwania lub inne zdarzenia nie są jeszcze obsługiwane.
 
 Ze względu na te ograniczenia wymagane są opcje etap $match, etap $project i fullDocument, jak pokazano w poprzednich przykładach.
+
+W przeciwieństwie do źródła zmian w interfejsie API SQL Azure Cosmos DB nie istnieje oddzielna [Biblioteka procesora kanału informacyjnego zmian](change-feed-processor.md) , która umożliwia korzystanie z strumienia zmian lub potrzeby kontenera dzierżawy. Obecnie nie są obsługiwane [wyzwalacze Azure Functions](change-feed-functions.md) do przetwarzania strumieni zmian.
 
 ## <a name="error-handling"></a>Obsługa błędów
 
 Podczas używania strumieni zmian są obsługiwane następujące kody błędów i komunikaty:
 
-* **Kod błędu HTTP 429** — gdy strumień zmiany jest ograniczany, zwraca pustą stronę.
+* **Kod błędu HTTP 16500** — gdy strumień zmiany jest ograniczany, zwraca pustą stronę.
 
 * **NamespaceNotFound (OperationType unvalidate)** — w przypadku uruchomienia strumienia zmian w kolekcji, która nie istnieje lub jeśli kolekcja została porzucona, `NamespaceNotFound` zwracany jest błąd. Ponieważ `operationType` Właściwość nie może zostać zwrócona w dokumencie wyjściowym, a nie w przypadku `operationType Invalidate` błędu, `NamespaceNotFound` zwracany jest błąd.
 

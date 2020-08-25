@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
 ms.openlocfilehash: 3709511fa8da0a40f4faf4ab2dac9505d69003ab
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86118515"
 ---
 # <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Samouczek: korzystanie z odwołania do szablonu Menedżer zasobów
@@ -28,9 +28,9 @@ Ten samouczek obejmuje następujące zadania:
 > * Informacje o szablonie
 > * Znajdowanie dokumentacji szablonu
 > * Edytowanie szablonu
-> * Wdrożenie szablonu
+> * Wdrażanie szablonu
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -100,7 +100,7 @@ W obszarze Visual Studio Code Dodaj dodatkowe typy kont magazynu, jak pokazano n
 
 ![Menedżer zasobów szablonu zasobów konta magazynu](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resources-skus.png)
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 1. Zaloguj się do [Azure Cloud Shell](https://shell.azure.com)
 
@@ -139,7 +139,7 @@ W obszarze Visual Studio Code Dodaj dodatkowe typy kont magazynu, jak pokazano n
 
  Podczas wdrażania szablonu należy określić parametr **storageAccountType** z nowo dodaną wartością, na przykład **Standard_RAGRS**. Wdrożenie zakończy się niepowodzeniem, jeśli zostanie użyty oryginalny szablon szybkiego startu, ponieważ **Standard_RAGRS** nie jest dozwoloną wartością.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

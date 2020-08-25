@@ -7,18 +7,18 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: cshoe
-ms.openlocfilehash: c4211f21d78ac0e06743c97f1081804fd641f9d2
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: bf1664a35562b888f9dd7aacd3b1112058bed664
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563578"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797704"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>Samouczek: publikowanie witryny Jekyll w wersji zapoznawczej usługi Azure static Web Apps
 
 W tym artykule pokazano, jak utworzyć i wdrożyć aplikację sieci Web [Jekyll](https://jekyllrb.com/) w usłudze [Azure static Web Apps](overview.md).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -132,7 +132,7 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
 
    Wartość _lokalizacji interfejsu API_ nie jest konieczna, ponieważ w tej chwili nie jest WDRAŻANY interfejs API.
 
-### <a name="review-and-create"></a>Przejrzyj i utwórz
+### <a name="review-and-create"></a>Przegląd i tworzenie
 
 1. Kliknij przycisk **Recenzja + Utwórz** , aby sprawdzić, czy szczegóły są poprawne.
 

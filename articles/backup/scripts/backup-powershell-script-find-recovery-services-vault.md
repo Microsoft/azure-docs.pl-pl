@@ -1,18 +1,18 @@
 ---
 title: Skrypt programu PowerShell — Znajdowanie magazynu dla konta magazynu
-description: Dowiedz się, jak używać skryptu Azure PowerShell, aby znaleźć magazyn usługi Recovery Services, w którym zarejestrowano konto magazynu.
+description: Dowiedz się, jak używać skryptu Azure PowerShell, aby znaleźć magazyn Recovery Services, w którym zarejestrowano konto magazynu.
 ms.topic: sample
 ms.date: 1/28/2020
-ms.openlocfilehash: 56e1b1bc1b9d46abecfbdc4b98385a0349711aab
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 1e12f1472b8141d06a1b3c1c9049e057f100d0e4
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648721"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757527"
 ---
 # <a name="powershell-script-to-find-the-recovery-services-vault-where-a-storage-account-is-registered"></a>Skrypt programu PowerShell umożliwiający znalezienie magazynu Recovery Services, w którym zarejestrowano konto magazynu
 
-Ten skrypt ułatwia znalezienie magazynu usługi Recovery Services, w którym zarejestrowano konto magazynu.
+Ten skrypt ułatwia znalezienie magazynu Recovery Services, w którym zarejestrowano konto magazynu.
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -56,7 +56,7 @@ if(!$found)
     * **-StorageAccountName** — nazwa konta magazynu
     * **-** Subscription — Identyfikator subskrypcji, w której znajduje się konto magazynu.
 
-Poniższy przykład próbuje znaleźć magazyn usługi Recovery Services, w którym zarejestrowano konto magazynu *afsaccount* :
+Poniższy przykład próbuje znaleźć magazyn Recovery Services, w którym zarejestrowano konto magazynu *afsaccount* :
 
 ```powershell
 .\FindRegisteredStorageAccount.ps1 -ResourceGroupName AzureFiles -StorageAccountName afsaccount -SubscriptionId ef4ad5a7-c2c0-4304-af80-af49f49af3d1
@@ -64,7 +64,7 @@ Poniższy przykład próbuje znaleźć magazyn usługi Recovery Services, w któ
 
 ## <a name="output"></a>Dane wyjściowe
 
-W danych wyjściowych zostanie wyświetlona pełna ścieżka magazynu usługi Recovery Services, w ramach którego zarejestrowano konto magazynu. Oto przykładowe dane wyjściowe:
+W danych wyjściowych zostanie wyświetlona pełna ścieżka do magazynu Recovery Services, w którym zarejestrowano konto magazynu. Oto przykładowe dane wyjściowe:
 
 ```output
 Found Storage account afsaccount registered in vault: /subscriptions/ ef4ad5a7-c2c0-4304-af80-af49f49af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault123

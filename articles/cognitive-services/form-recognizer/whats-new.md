@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 3a48511c896a3e4c677c35ca3069ff236761c444
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: b3485ebbdf9cf428b09364b73197220e02e9ffa8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724136"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751070"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Co nowego w usłudze Rozpoznawanie formularzy?
 
@@ -30,7 +30,7 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 - **Dokumentacja interfejsu API REST jest dostępna** — zapoznaj się z dokumentacją [v 2.1 — wersja zapoznawcza 1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
 - **Oprócz języka angielskiego obsługiwane są nowe języki**, które są obecnie obsługiwane: dla `Layout` i `Train Custom Model` : angielski (EN), chiński (uproszczony) (zh-zh), holenderski (NL), francuski (fr), niemiecki (de), włoski (), portugalski (PT) i hiszpański (ES).
 - **Wykrywanie znaczników wyboru/zaznaczenia** — aparat rozpoznawania formularzy obsługuje wykrywanie i wyodrębnianie znaczników wyboru, takich jak pola wyboru i przyciski radiowe. Znaczniki wyboru są wyodrębniane w `Layout` , a teraz można również etykietować i nauczyć się w `Train Custom Model`  -  _pouczeniu z etykietami_ , aby wyodrębnić pary kluczy wartości dla znaczników wyboru. 
-- **Redagowanie modelu umożliwia tworzenie** i wywoływanie wielu modeli przy użyciu jednego identyfikatora modelu. Gdy dokument zostanie przeanalizowany w celu przeanalizowania z identyfikatorem modelu złożonego, etap klasyfikacji jest najpierw wykonywany, aby skierować go do poprawnego modelu niestandardowego. Tworzenie modelu jest dostępne dla `Train Custom Model`  -  _uczenia się z etykietami_.
+- **Redagowanie modelu umożliwia tworzenie** i wywoływanie wielu modeli przy użyciu jednego identyfikatora modelu. Gdy dokument zostanie przeanalizowany w celu przeanalizowania z IDENTYFIKATORem modelu złożonego, etap klasyfikacji jest najpierw wykonywany, aby skierować go do poprawnego modelu niestandardowego. Tworzenie modelu jest dostępne dla `Train Custom Model`  -  _uczenia się z etykietami_.
 - **Nazwa modelu** umożliwia dodanie przyjaznej nazwy do modeli niestandardowych w celu łatwiejszego zarządzania i śledzenia.
 - **Nowy wstępnie utworzony model dla kart służbowych** służący do wyodrębniania typowych pól w języku angielskim, językowym kartą biznesową.
 - **Nowe ustawienia regionalne dla wstępnie utworzonych przyjęć** oprócz en-us, pomoc techniczna jest teraz dostępna dla en-AU, en-CA, en-GB, EN-in
@@ -50,8 +50,10 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 ## <a name="july-2020"></a>Lipiec 2020 r.
 
 ### <a name="new-features"></a>Nowe funkcje
+
 * **dostępna jest dokumentacja v 2.0** Wyświetl [Informacje o interfejsie API 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) oraz zaktualizowane zestawy SDK dla [platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet), [Python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)i [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest).
 * Udoskonalenia **tabel i ulepszenia wyodrębniania** zawierają ulepszenia dokładności i ulepszenia wyodrębniania tabel, w tym możliwość poznania nagłówków i struktur tabel w _niestandardowym pouczeniu bez etykiet_. 
+
 * **Obsługa waluty** Wykrywanie i wyodrębnianie symboli waluty globalnej.
 * **Azure gov** Aparat rozpoznawania formularzy jest teraz również dostępny w usłudze Azure gov.
 * **Ulepszone funkcje zabezpieczeń**: 
@@ -76,8 +78,8 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 * **Obsługa zestawu SDK interfejsu API rozpoznawania formularzy w wersji 2.0** W tym miesiącu rozszerzono obsługę usługi w celu uwzględnienia zestawu SDK w wersji zapoznawczej dla aparatu rozpoznawania dla programu format 2.0 (wersja zapoznawcza). Skorzystaj z poniższych linków, aby rozpocząć pracę z wybranym językiem: 
    * [Zestaw SDK platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet)
    * [Zestaw SDK Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)
-   * [Zestaw SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
-   * [Zestaw SDK dla języka JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
+   * [Zestaw SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-python-preview)
+   * [Zestaw SDK dla języka JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme-pre?view=azure-node-preview)
 
   Nowy zestaw SDK obsługuje wszystkie funkcje interfejsu API REST programu v 2.0 na potrzeby aparatu rozpoznawania formularzy. Na przykład można przeprowadzić uczenie modelu z etykietami lub bez nich oraz Wyodrębnianie tekstu, par klucz-wartość i tabel z formularzy, wyodrębnianie danych z przyjęć przy użyciu wstępnie utworzonych usług przyjęć oraz Wyodrębnianie tekstu i tabel z użyciem usługi układu z dokumentów. Swoją opinię na temat zestawów SDK możesz udostępnić za pomocą [formularza opinii zestawu SDK](https://aka.ms/FR_SDK_v1_feedback).
  

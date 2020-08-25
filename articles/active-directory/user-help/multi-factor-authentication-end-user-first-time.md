@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: fc95e988b3f89402967cdbedd06c4b945a99f99a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5b07f8f7ae766d110c87a495a3e1623b815e526
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266257"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795987"
 ---
 # <a name="what-is-the-additional-verification-page"></a>Co to jest strona Dodatkowa weryfikacja?
 
@@ -33,7 +33,7 @@ Weryfikacja dwuetapowa jest bezpieczniejsza niż tylko hasło, ponieważ opiera 
 Weryfikacja dwuetapowa może pomóc w zawieszeniu, że złośliwi hakerzy nie zachodzą. Nawet jeśli mają swoje hasło, szanse się, że nie mają one jeszcze urządzenia.
 
 >[!Important]
->Jeśli jesteś administratorem, aby uzyskać informacje na temat sposobu włączania weryfikacji dwuskładnikowej dla pracowników lub innych użytkowników, zapoznaj się z [dokumentacją dotyczącą uwierzytelniania Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/). Ten artykuł jest przeznaczony dla użytkowników próbujących korzystać z weryfikacji dwuskładnikowej przy użyciu konta służbowego (np alain@contoso.com .).
+>Jeśli jesteś administratorem, aby uzyskać informacje na temat sposobu włączania weryfikacji dwuskładnikowej dla pracowników lub innych użytkowników, zapoznaj się z [dokumentacją dotyczącą uwierzytelniania Azure Active Directory](../authentication/index.yml). Ten artykuł jest przeznaczony dla użytkowników próbujących korzystać z weryfikacji dwuskładnikowej przy użyciu konta służbowego (np alain@contoso.com .).
 
 ## <a name="who-decides-if-you-use-this-feature"></a>Kto decyduje o możliwości użycia tej funkcji?
 

@@ -7,12 +7,12 @@ ms.author: andrela
 ms.custom: mvc
 ms.topic: overview
 ms.date: 3/18/2020
-ms.openlocfilehash: c5758fa367ac17ceb687212b4073fd2c1a5c18f6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 37bc99d9f83f185a5372fd45634351987b85e20b
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206404"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763664"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Co to jest usługa Azure Database for MySQL?
 
@@ -38,6 +38,9 @@ Aby uzyskać zestaw przykładów interfejsu wiersza polecenia platformy Azure, z
 
 - [Przykłady interfejsu wiersza polecenia platformy Azure dla usługi Azure Database for MySQL](sample-scripts-azure-cli.md)
 
+## <a name="automated-patching"></a>Automatyczne stosowanie poprawek
+Usługa wykonuje zautomatyzowane stosowanie poprawek podstawowego sprzętu, systemu operacyjnego i aparatu bazy danych. Poprawka obejmuje aktualizacje zabezpieczeń i oprogramowania dla aparatu systemu operacyjnego i bazy danych. W przypadku aparatu MySQL uaktualnienia wersji pomocniczej są automatyczne i uwzględniane jako część wersji poprawki. W przypadku wydania przez społeczność wersji pomocniczej jest ona automatycznie zintegrowana w ramach cyklu testowania usługi. Testowanie wersji pomocniczej jest wykonywane w przypadku niektórych obciążeń kanonicznych dla programu MySQL. Wersje pomocnicze aparatu MySQL są oceniane pod kątem niezawodności (bez awarii), dostępności, bezpieczeństwa i wydajności. Nie każda wersja pomocnicza jest wydawana w środowisku produkcyjnym w usłudze, ale jest wartościowane na podstawie krytycznej poprawki błędów i nowej wartości przyrostowej. Ma to na celu ograniczenie równowagi między nową wartością przyrostową i zminimalizowanie zmiennych w systemie w celu zapewnienia stabilności. Nie jest wymagane wykonanie jakiejkolwiek czynności przez użytkownika ani ustawień konfiguracji. Częstotliwość stosowania poprawek to usługa zarządzana na podstawie krytycznego ładunku. Ogólnie rzecz biorąc usługa jest zgodna z harmonogramem wydań w ramach ciągłej integracji i wydania. Użytkownicy mogą subskrybować powiadomienie o [planowanej konserwacji](concepts-monitoring.md) , aby otrzymywać powiadomienie o nadchodzącej konserwacji 72 godzin przed wydarzeniem.
+
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Dostosowanie wydajności i skalowania w kilka sekund
 Usługa Azure Database for MySQL oferuje kilka warstw usług: podstawowa, Ogólnego przeznaczenia i zoptymalizowana pod kątem pamięci. Każda z warstw oferuje inną wydajność i różne możliwości w celu obsługi różnych obciążeń bazy danych, zarówno niewielkich, jak i ogromnych. Możesz utworzyć swoją pierwszą aplikację na podstawie małej bazy danych za jedynie kilka dolarów miesięcznie, a następnie dostosować skalowanie do potrzeb rozwiązania. Dynamiczna skalowalność umożliwia bazie danych przezroczyste odpowiadanie na gwałtownie zmieniające się wymagania dotyczące zasobów. Zapłacisz tylko za potrzebne zasoby i tylko wtedy, gdy będą używane. Aby uzyskać szczegółowe informacje, zobacz  [Warstwy cenowe](concepts-service-tiers.md).
 
@@ -59,7 +62,7 @@ Ponadto, w zależności od potrzeb, należy wziąć pod uwagę następujące pun
 - Aby rozwiązać problem z Twoim kontem, wyślij [żądanie obsługi](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) w portalu Azure Portal.
 - Aby przekazać opinię lub poprosić o nowe funkcje, utwórz wpis w platformie [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Teraz, po zapoznaniu się z wprowadzeniem do Azure Database for MySQL i odpowiedzieć na pytanie "co to jest Azure Database for MySQL?". wszystko jest gotowe do:
 
 - Odwiedzenie strony cennika zawierającej porównania kosztów i kalkulatory. [Cennik](https://azure.microsoft.com/pricing/details/mysql/)
@@ -69,6 +72,6 @@ Teraz, po zapoznaniu się z wprowadzeniem do Azure Database for MySQL i odpowied
   - [Node.JS](./connect-nodejs.md)
   - [Java](./connect-java.md)
   - [Ruby](./connect-ruby.md)
-  - [Język PHP](./connect-php.md)
+  - [PHP](./connect-php.md)
   - [.NET (C#)](./connect-csharp.md)
   - [Przejdź](./connect-go.md)

@@ -1,19 +1,19 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/10/2020
+ms.date: 08/24/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c303527c7411ead585e70fc2e31db4dd2d35e996
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f45ecf9985f17008ce7f751b21a04deefc285461
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259811"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88809826"
 ---
 - Obsługiwane są tylko [klucze RSA oprogramowania i modułu HSM](../articles/key-vault/keys/about-keys.md) o rozmiarze 2 048-bitowym, 3 072-bitowym i 4 096-bitowym, brak innych kluczy ani rozmiarów.
     - Klucze [HSM](../articles/key-vault/keys/hsm-protected-keys.md) wymagają warstwy **Premium** magazynów kluczy platformy Azure.
@@ -21,6 +21,6 @@ ms.locfileid: "86259811"
 - Migawki utworzone na podstawie dysków zaszyfrowanych przy użyciu szyfrowania po stronie serwera i kluczy zarządzanych przez klienta muszą być szyfrowane przy użyciu tych samych kluczy zarządzanych przez klienta.
 - Wszystkie zasoby związane z kluczami zarządzanymi przez klienta (magazyny kluczy Azure, zestawy szyfrowania dysków, maszyny wirtualne, dyski i migawki) muszą znajdować się w tej samej subskrypcji i regionie.
 - Dyski, migawki i obrazy zaszyfrowane przy użyciu kluczy zarządzanych przez klienta nie mogą zostać przeniesione do innej subskrypcji.
-- Dyski zarządzane zaszyfrowane przy użyciu kluczy zarządzanych przez klienta nie mogą być również szyfrowane za pomocą Azure Disk Encryption.
+- Dyski zarządzane aktualnie lub wcześniej zaszyfrowane przy użyciu Azure Disk Encryption nie mogą być szyfrowane przy użyciu kluczy zarządzanych przez klienta.
 - Można utworzyć maksymalnie 50 zestawów szyfrowania dysków na region na subskrypcję.
 - Aby uzyskać informacje o korzystaniu z kluczy zarządzanych przez klienta z udostępnionymi galeriami obrazów, zobacz [wersja zapoznawcza: Używanie kluczy zarządzanych przez klienta do szyfrowania obrazów](../articles/virtual-machines/image-version-encryption.md).

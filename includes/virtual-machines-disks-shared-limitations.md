@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/14/2020
+ms.date: 08/21/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4a204be0730a0ce4edcd2e343364ed8fc724430e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: cdee82ddae7f6edf43765063bb610b743dbf0121
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88655145"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88809834"
 ---
 Włączenie dysków udostępnionych jest możliwe tylko dla podzbioru typów dysków. Obecnie tylko Ultra disks i Premium dysków SSD mogą włączać dyski udostępnione. Każdy dysk zarządzany z włączonymi dyskami udostępnionymi podlega następującym ograniczeniom zorganizowanym według typu dysku:
 
@@ -30,7 +30,7 @@ Udostępnione Ultra disks są dostępne we wszystkich regionach, które domyśln
 
 ### <a name="premium-ssds"></a>Dyski SSD w warstwie Premium
 
-- Obecnie obsługiwane tylko w regionie zachodnie stany USA.
+- Obecnie obsługiwane tylko w [podzbiorze regionów](#regional-availability).
 - Obecnie ograniczona do Azure Resource Manager lub obsługi zestawu SDK. 
 - Można ją włączyć tylko na dyskach danych, a nie na dyskach systemu operacyjnego.
 - Buforowanie hosta **tylko do odczytu** nie jest dostępne dla dysków SSD Premium z `maxShares>1` .
@@ -39,5 +39,22 @@ Udostępnione Ultra disks są dostępne we wszystkich regionach, które domyśln
 - W przypadku korzystania z [grup umieszczania w sąsiedztwie (PPG)](../articles/virtual-machines/windows/proximity-placement-groups.md)wszystkie maszyny wirtualne, które udostępniają dysk, muszą być częścią tego samego PPGu.
 - Tylko dyski podstawowe mogą być używane z niektórymi wersjami klastra trybu failover systemu Windows Server, aby uzyskać szczegółowe informacje, zobacz [wymagania sprzętowe klastra trybu failover i opcje magazynu](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
 - Obsługa Azure Backup i Azure Site Recovery nie jest jeszcze dostępna.
+
+#### <a name="regional-availability"></a>Dostępność regionalna
+
+Udostępnione dysków SSD Premium są obsługiwane tylko w następujących regionach:
+
+- East US
+- Wschodnie stany USA 2
+- Zachodnie stany USA
+- Zachodnie stany USA 2
+- Zachodnio-środkowe stany USA
+- South Central US
+- Central US
+- Korea Środkowa
+- Kanada Środkowa
+- Kanada Wschodnia
+- US Gov Wirginia
+- US Gov Arizona
 
 Jeśli interesuje Cię podjęcie próby udostępnienia dysków SSD Premium, [Utwórz konto w celu uzyskania dostępu](https://aka.ms/AzureSharedDiskGASignUp).

@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8b6ed41333a0ea113d939ab79bd9e9291a0dae9c
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: ca1419fe95e9ca383c09c7bc33a16ce148549cb6
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244056"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755079"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Tworzenie i uruchamianie potoków uczenia maszynowego za pomocą zestawu SDK Azure Machine Learning
 
@@ -55,7 +55,11 @@ Utwórz zasoby wymagane do uruchomienia potoku ML:
 
 * Skonfiguruj magazyn danych, który jest używany do uzyskiwania dostępu do wymaganych przez kroki potoku.
 
-* Skonfiguruj obiekt w taki `Dataset` sposób, aby wskazywał trwałe dane, które znajdują się w, lub jest dostępny w magazynie danych. Skonfiguruj `PipelineData` obiekt dla danych tymczasowych przesyłanych między krokami potoku. 
+* Skonfiguruj obiekt w taki `Dataset` sposób, aby wskazywał trwałe dane, które znajdują się w, lub jest dostępny w magazynie danych. Skonfiguruj `OutputFileDatasetConfig` obiekt dla danych tymczasowych przetworzonych między etapami potoku lub do tworzenia wyników. 
+> [!NOTE]
+>`OutputFileDatasetConfig`Klasa jest eksperymentalną funkcją w wersji zapoznawczej i może ulec zmianie w dowolnym momencie.
+>
+>Aby uzyskać więcej informacji, zobacz https://aka.ms/azuremlexperimental.
 
 * Skonfiguruj [cele obliczeń](concept-azure-machine-learning-architecture.md#compute-targets) , na których będą uruchamiane kroki potoku.
 
@@ -90,7 +94,7 @@ Potok składa się z jednego lub kilku kroków. Krok to jednostka uruchamiana na
 
 Aby dowiedzieć się więcej na temat łączenia potoku z danymi, zobacz artykuły, [jak uzyskać dostęp do danych](how-to-access-data.md) i [jak rejestrować zbiory](how-to-create-register-datasets.md). 
 
-### <a name="configure-data-using-dataset-and-pipelinedata-objects"></a>Konfigurowanie danych przy `Dataset` użyciu `PipelineData` obiektów i
+### <a name="configure-data-with-dataset-and-outputfiledatasetconfig-objects"></a>Konfigurowanie danych za `Dataset` pomocą `OutputFileDatasetConfig` obiektów i
 
 Właśnie utworzono źródło danych, do którego można się odwoływać w potoku jako dane wejściowe do kroku. Preferowanym sposobem zapewnienia danych do potoku jest obiekt [DataSet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.Dataset) . `Dataset`Obiekt wskazuje dane, które znajdują się w lub są dostępne z magazynu danych lub w adresie URL sieci Web. `Dataset`Klasa jest abstrakcyjna, dlatego utworzysz wystąpienie `FileDataset` (odwołujące się do jednego lub kilku plików) lub `TabularDataset` utworzone przez z jednego lub kilku plików z rozdzielonymi kolumnami danych.
 
@@ -104,18 +108,17 @@ from azureml.core import Dataset
 iris_tabular_dataset = Dataset.Tabular.from_delimited_files([(def_blob_store, 'train-dataset/iris.csv')])
 ```
 
-Dane pośrednie (lub dane wyjściowe kroku) są reprezentowane przez obiekt [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) . `output_data1` jest tworzony jako dane wyjściowe kroku i używany jako dane wejściowe jednego lub kilku przyszłych kroków. `PipelineData` wprowadza zależność danych między krokami i tworzy niejawną kolejność wykonywania w potoku. Ten obiekt będzie później używany podczas tworzenia kroków potoku.
+Dane pośrednie (lub dane wyjściowe kroku) są reprezentowane przez obiekt [OutputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) . `output_data1` jest tworzony jako dane wyjściowe kroku i używany jako dane wejściowe jednego lub kilku przyszłych kroków. `OutputFileDatasetConfig` wprowadza zależność danych między krokami i tworzy niejawną kolejność wykonywania w potoku. Ten obiekt będzie później używany podczas tworzenia kroków potoku.
+
+`OutputFileDatasetConfig` obiekty zwracają katalog, a domyślnie zapisuje dane wyjściowe do domyślnego magazynu danych obszaru roboczego.
 
 ```python
-from azureml.pipeline.core import PipelineData
+from azureml.data import OutputFileDatasetConfig
 
-output_data1 = PipelineData(
-    "output_data1",
-    datastore=def_blob_store,
-    output_name="output_data1")
+output_data1 = OutputFileDatasetConfig()
 ```
 
-Więcej szczegółów i przykładowy kod służący do pracy z zestawami danych i danymi potoku polegają na [przenoszeniu danych do i między etapami potoku (Python)](how-to-move-data-in-out-of-pipelines.md).
+Więcej szczegółów i przykładowy kod służący do pracy z zestawami danych i obiektami OutputFileConfig są [przenoszone do i między etapami potoku (Python)](how-to-move-data-in-out-of-pipelines.md).
 
 ## <a name="set-up-a-compute-target"></a>Konfigurowanie celu obliczeń
 
@@ -316,8 +319,6 @@ data_prep_step = PythonScriptStep(
     script_name=entry_point,
     source_directory=dataprep_source_dir,
     arguments=["--input", ds_input.as_download(), "--output", output_data1],
-    inputs=[ds_input],
-    outputs=[output_data1],
     compute_target=compute_target,
     runconfig=aml_run_config,
     allow_reuse=True
@@ -326,7 +327,7 @@ data_prep_step = PythonScriptStep(
 
 Powyższy kod przedstawia typowy krok początkowy potoku. Kod przygotowywania danych znajduje się w podkatalogu (w tym przykładzie `"prepare.py"` w katalogu `"./dataprep.src"` ). W ramach procesu tworzenia potoku ten katalog jest spakowany i przekazywany do programu, `compute_target` a krok uruchamia skrypt określony jako wartość dla `script_name` .
 
-`arguments`Wartości, `inputs` i `outputs` określają dane wejściowe i wyjściowe kroku. W powyższym przykładzie dane linii bazowej są `my_dataset` zestawem danych. Odpowiednie dane zostaną pobrane do zasobu obliczeniowego, ponieważ kod określa go jako `as_download()` . Skrypt `prepare.py` wykonuje wszelkie zadania przekształcania danych, które są odpowiednie do zadania w ręku i wyprowadza dane do `output_data1` typu `PipelineData` . Aby uzyskać więcej informacji, zobacz temat [przeniesienie danych do i między etapami potoku (Python) i między nimi](how-to-move-data-in-out-of-pipelines.md). 
+`arguments`Wartości określają dane wejściowe i wyjściowe kroku. W powyższym przykładzie dane linii bazowej są `my_dataset` zestawem danych. Odpowiednie dane zostaną pobrane do zasobu obliczeniowego, ponieważ kod określa go jako `as_download()` . Skrypt `prepare.py` wykonuje wszelkie zadania przekształcania danych, które są odpowiednie do zadania w ręku i wyprowadza dane do `output_data1` typu `OutputFileDatasetConfig` . Aby uzyskać więcej informacji, zobacz temat [przeniesienie danych do i między etapami potoku (Python) i między nimi](how-to-move-data-in-out-of-pipelines.md). 
 
 Krok zostanie uruchomiony na maszynie zdefiniowanej przez `compute_target` program przy użyciu konfiguracji `aml_run_config` . 
 
@@ -338,24 +339,20 @@ Istnieje możliwość utworzenia potoku z jednym krokiem, ale prawie zawsze będ
 train_source_dir = "./train_src"
 train_entry_point = "train.py"
 
-training_results = PipelineData(
-    "training_results",
-    datastore=def_blob_store,
-    output_name="training_results")
+training_results = OutputFileDatasetConfig(name = "training_results",
+                                           destination = def_blob_store)
 
 train_step = PythonScriptStep(
     script_name=train_entry_point,
     source_directory=train_source_dir,
     arguments=["--prepped_data", output_data1, "--training_results", training_results],
-    inputs=[output_data1],
-    outputs=[training_results],
     compute_target=compute_target,
     runconfig=aml_run_config,
     allow_reuse=True
 )
 ```
 
-Powyższy kod jest bardzo podobny do tego dla kroku przygotowywania danych. Kod szkoleniowy znajduje się w katalogu innym niż kod przygotowywania danych. `PipelineData`Dane wyjściowe kroku przygotowywania danych `output_data1` są używane jako _dane wejściowe_ kroku szkolenia. Nowy `PipelineData` obiekt `training_results` jest tworzony w celu przechowywania wyników dla kolejnego kroku porównania lub wdrożenia. 
+Powyższy kod jest bardzo podobny do tego dla kroku przygotowywania danych. Kod szkoleniowy znajduje się w katalogu innym niż kod przygotowywania danych. `OutputFileDatasetConfig`Dane wyjściowe kroku przygotowywania danych `output_data1` są używane jako _dane wejściowe_ kroku szkolenia. Nowy `OutputFileDatasetConfig` obiekt `training_results` jest tworzony w celu przechowywania wyników dla kolejnego kroku porównania lub wdrożenia. 
 
 Po zdefiniowaniu kroków można skompilować potok za pomocą niektórych lub wszystkich tych kroków.
 
@@ -397,10 +394,10 @@ pipeline1 = Pipeline(workspace=ws, steps=steps)
 
 ### <a name="use-a-dataset"></a>Korzystanie z zestawu danych 
 
-Zestawy danych utworzone z usługi Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database i Azure Database for PostgreSQL mogą być używane jako dane wejściowe do dowolnego etapu potoku. Możesz zapisać dane wyjściowe w [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py), [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)lub, jeśli chcesz zapisać danych do określonego magazynu datastore, użyj [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). 
+Zestawy danych utworzone z usługi Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database i Azure Database for PostgreSQL mogą być używane jako dane wejściowe do dowolnego etapu potoku. Możesz zapisać dane wyjściowe w [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py), [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)lub, jeśli chcesz zapisać danych do określonego magazynu datastore, użyj [OutputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py). 
 
 > [!IMPORTANT]
-> Zapisywanie danych wyjściowych z powrotem do magazynu danych za pomocą PipelineData jest obsługiwane tylko w przypadku obiektów blob platformy Azure i magazynów danych usługi Azure File Share. Ta funkcja nie jest obsługiwana w przypadku [magazynów danych ADLS generacji 2](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakegen2datastore?view=azure-ml-py) .
+> Zapisywanie danych wyjściowych z powrotem do magazynu danych za pomocą `OutputFileDatasetConfig` jest obsługiwane tylko w przypadku obiektów blob platformy Azure, udziałów plików platformy Azure, ADLS generacji 1 i ADLS generacji 2 danych.
 
 ```python
 dataset_consuming_step = PythonScriptStep(
@@ -454,7 +451,7 @@ Podczas pierwszego uruchomienia potoku Azure Machine Learning:
 * Pobiera migawkę projektu do obiektu docelowego obliczeń z magazynu obiektów BLOB skojarzonego z obszarem roboczym.
 * Kompiluje obraz platformy Docker odpowiadający każdemu krokowi w potoku.
 * Pobiera obraz platformy Docker dla każdego kroku do obiektu docelowego obliczeń z rejestru kontenerów.
-* Konfiguruje dostęp `Dataset` do `PipelineData` obiektów i. W przypadku `as_mount()` trybu dostępu jako bezpiecznik służy do zapewnienia dostępu wirtualnego. Jeśli instalacja nie jest obsługiwana lub jeśli użytkownik określił dostęp jako `as_download()` , dane są kopiowane do elementu docelowego obliczeń.
+* Konfiguruje dostęp `Dataset` do `OutputFileDatasetConfig` obiektów i. W przypadku `as_mount()` trybu dostępu Odmów jest używany do zapewnienia dostępu wirtualnego. Jeśli instalacja nie jest obsługiwana lub jeśli użytkownik określił dostęp jako `as_upload()` , dane są kopiowane do elementu docelowego obliczeń.
 * Uruchamia krok w elemencie docelowym obliczeń określonym w definicji kroku. 
 * Tworzy artefakty, takie jak dzienniki, stdout i stderr, metryki i dane wyjściowe określone przez krok. Te artefakty są następnie przekazywane i przechowywane w domyślnym magazynie danych użytkownika.
 

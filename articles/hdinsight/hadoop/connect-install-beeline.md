@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020
+ms.custom: contperfq1
 ms.date: 05/27/2020
-ms.openlocfilehash: e93d750dd2feaa70692ab1077ee4333c835417db
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5495e6c6392ba2e824a0a70717bd19747db9b754
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076780"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88754960"
 ---
 # <a name="connect-to-apache-beeline-on-hdinsight-or-install-it-locally"></a>Nawiązywanie połączenia z usługą Apache Z usługi Beeline w usłudze HDInsight lub instalowanie jej lokalnie
 
@@ -146,7 +146,7 @@ Mimo że usługa Z usługi Beeline jest dołączana do węzłów głównych, war
 
 1. Dalsze zmiany pliku bashrc. Należy określić ścieżkę, w której archiwa zostały rozpakowane. W przypadku korzystania z [podsystemu Windows dla systemu Linux](https://docs.microsoft.com/windows/wsl/install-win10), jeśli wykonano kroki dokładnie, ścieżką będzie `/mnt/c/Users/user/` , gdzie `user` to nazwa użytkownika.
 
-    1. Otwórz plik:`nano ~/.bashrc`
+    1. Otwórz plik: `nano ~/.bashrc`
 
     1. Zmodyfikuj poniższe polecenia z odpowiednią ścieżką, a następnie wprowadź je na końcu pliku bashrc:
 

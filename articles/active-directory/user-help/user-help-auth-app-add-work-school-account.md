@@ -11,12 +11,12 @@ ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 8f084057c8bc2d0be1e04dc1821378c9733cc050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e003c45aa1e7d75b709b7fbf99532fb1302fcbb9
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741539"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797653"
 ---
 # <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Dodawanie konta służbowego do aplikacji Microsoft Authenticator
 
@@ -30,7 +30,7 @@ Jeśli Twoja organizacja korzysta z weryfikacji dwuetapowej, możesz skonfigurow
 1. Na komputerze przejdź do strony [dodatkowa Weryfikacja zabezpieczeń](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) .
 
     >[!Note]
-    >Jeśli nie widzisz strony **dodatkowej weryfikacji zabezpieczeń** , istnieje możliwość, że administrator włączył środowisko informacje zabezpieczające (wersja zapoznawcza). W takim przypadku należy postępować zgodnie z instrukcjami podanymi w sekcji [Konfigurowanie informacji zabezpieczających do korzystania z aplikacji uwierzytelniania](security-info-setup-auth-app.md) . Jeśli tak się nie dzieje, musisz skontaktować się z działem pomocy technicznej Twojej organizacji w celu uzyskania pomocy. Więcej informacji o zabezpieczeniach znajduje się w temacie Informacje o zabezpieczeniach [(wersja zapoznawcza) — Omówienie](user-help-security-info-overview.md).
+    >Jeśli nie widzisz strony **dodatkowej weryfikacji zabezpieczeń** , istnieje możliwość, że administrator włączył środowisko informacje zabezpieczające (wersja zapoznawcza). W takim przypadku należy postępować zgodnie z instrukcjami podanymi w sekcji [Konfigurowanie informacji zabezpieczających do korzystania z aplikacji uwierzytelniania](security-info-setup-auth-app.md) . Jeśli tak się nie dzieje, musisz skontaktować się z działem pomocy technicznej Twojej organizacji w celu uzyskania pomocy. Więcej informacji o zabezpieczeniach znajduje się w temacie Informacje o zabezpieczeniach [(wersja zapoznawcza) — Omówienie](./security-info-setup-signin.md).
 
 2. Zaznacz pole wyboru obok pozycji **aplikacja uwierzytelniania**, a następnie wybierz pozycję **Konfiguruj**.
 

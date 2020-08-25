@@ -1,18 +1,18 @@
 ---
 title: Pojęcia — magazyn
-description: Dowiedz się więcej o możliwościach magazynu kluczy w programie Azure VMware w wersji zapoznawczej chmury prywatne.
+description: Dowiedz się więcej o możliwościach magazynu kluczy w chmurach prywatnych w usłudze Azure VMware w wersji zapoznawczej.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 7f92e8f961422f8354e55192ebdddd077d61acd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91484c1baae9801684bc49b931fa2080db676a00
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84604120"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752209"
 ---
-# <a name="azure-vmware-solution-avs-preview-storage-concepts"></a>Azure VMware Solution (wersja zapoznawcza) — koncepcje dotyczące magazynu
+# <a name="azure-vmware-solution-preview-storage-concepts"></a>Pojęcia związane z magazynem w wersji zapoznawczej platformy Azure VMware
 
-Automatyczna synchronizacja chmur prywatnych zapewnia natywny magazyn w całym klastrze przy użyciu programu VMware sieci vSAN. Wszystkie magazyny lokalne z każdego hosta w klastrze są używane w magazynie danych sieci vSAN, a szyfrowanie za pomocą usługi REST jest dostępne i domyślnie włączone. Możesz użyć zasobów usługi Azure Storage, aby zwiększyć możliwości magazynu chmur prywatnych.
+Chmury prywatne rozwiązań VMware platformy Azure zapewniają natywny magazyn w całym klastrze z oprogramowaniem VMware sieci vSAN. Wszystkie magazyny lokalne z każdego hosta w klastrze są używane w magazynie danych sieci vSAN, a szyfrowanie za pomocą usługi REST jest dostępne i domyślnie włączone. Możesz użyć zasobów usługi Azure Storage, aby zwiększyć możliwości magazynu chmur prywatnych.
 
 ## <a name="vsan-clusters"></a>klastry sieci vSAN
 

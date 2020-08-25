@@ -12,12 +12,12 @@ ms.date: 03/21/2019
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: ed1f06e4747492c43d19a00c1091b2b4d7f7050f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5d1b08944417493d175de23c7738db58f1c7bd3
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741880"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798010"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Rozwiązywanie problemów z portalem My Apps
 
@@ -51,7 +51,7 @@ Jeśli masz problemy z zalogowaniem się do portalu **Moje aplikacje** , możesz
 
 - Upewnij się, że hasło jest poprawne i nie wygasło. Aby uzyskać więcej informacji, zobacz [Resetowanie hasła](active-directory-passwords-update-your-own-password.md)służbowego.
 
-- Upewnij się, że informacje weryfikacyjne są aktualne i dokładne. Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Multi-Factor Authentication dla mnie?](multi-factor-authentication-end-user.md) lub [Zmień metody i informacje zabezpieczające](security-info-add-update-methods-overview.md).
+- Upewnij się, że informacje weryfikacyjne są aktualne i dokładne. Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Multi-Factor Authentication dla mnie?](./multi-factor-authentication-end-user-first-time.md) lub [Zmień metody i informacje zabezpieczające](./security-info-setup-auth-app.md).
 
 - Dodaj adres URL portalu **aplikacji** do **Właściwości internetowych > zabezpieczenia > ustawienie zaufanych witryn** .
 
@@ -75,7 +75,7 @@ Jeśli otrzymujesz komunikat **odmowy dostępu** po uruchomieniu aplikacji z por
 
 - Upewnij się, że hasło jest poprawne i nie wygasło. Aby uzyskać więcej informacji, zobacz [Resetowanie hasła](active-directory-passwords-update-your-own-password.md)służbowego.
 
-- Upewnij się, że informacje weryfikacyjne są aktualne i dokładne. Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Multi-Factor Authentication dla mnie?](multi-factor-authentication-end-user.md) lub [Zmień metody i informacje zabezpieczające](security-info-add-update-methods-overview.md).
+- Upewnij się, że informacje weryfikacyjne są aktualne i dokładne. Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Multi-Factor Authentication dla mnie?](./multi-factor-authentication-end-user-first-time.md) lub [Zmień metody i informacje zabezpieczające](./security-info-setup-auth-app.md).
 
 - Wyczyść pamięć podręczną przeglądarki, a następnie spróbuj ponownie się zalogować.
 

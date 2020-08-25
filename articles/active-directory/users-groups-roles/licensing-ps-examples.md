@@ -14,12 +14,12 @@ ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb464f758aca33e0b6547f69e2a9cc842582ea3f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 230ccb3d10c7ba6f3abcac9d83309fd7fa3c5c3f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025221"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797687"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Przykłady programów PowerShell i Graph dla licencjonowania opartego na grupach w usłudze Azure AD
 
@@ -445,7 +445,7 @@ HTTP/1.1 200 OK
 
 ## <a name="remove-direct-licenses-for-users-with-group-licenses"></a>Usuń bezpośrednie licencje dla użytkowników z licencjami grupy
 
-Ten skrypt ma na celu usunięcie niepotrzebnych bezpośrednich licencji od użytkowników, którzy już dziedziczą tę samą licencję z grupy; na przykład w ramach [przejścia do licencjonowania opartego na grupach](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-migration-azure-portal).
+Ten skrypt ma na celu usunięcie niepotrzebnych bezpośrednich licencji od użytkowników, którzy już dziedziczą tę samą licencję z grupy; na przykład w ramach [przejścia do licencjonowania opartego na grupach](./licensing-groups-migrate-users.md).
 > [!NOTE]
 > Ważne jest, aby najpierw sprawdzić, czy bezpośrednie licencje, które mają zostać usunięte, nie zapewniają większej funkcjonalności usług niż dziedziczone licencje. W przeciwnym razie usunięcie licencji bezpośredniej może spowodować wyłączenie dostępu do usług i danych dla użytkowników. Obecnie nie można sprawdzać za pośrednictwem programu PowerShell, które usługi są włączone za pośrednictwem dziedziczonych licencji a bezpośrednio. W skrypcie określamy minimalny poziom usług, które wiemy, że są dziedziczone z grup i należy sprawdzać, czy użytkownicy nie niespodziewanie tracą dostęp do usług.
 

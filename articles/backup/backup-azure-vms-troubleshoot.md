@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak rozwiązywać problemy z tworzenie
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: f6085554f64c71c66587587ee03a58ee73c6639a
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 104fb177a1379d5a09dc54cf6f78c401744d697f
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761767"
+ms.locfileid: "88763307"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Rozwiązywanie problemów dotyczących błędów kopii zapasowych w usłudze Azure Virtual Machines
 
@@ -90,11 +90,11 @@ Operacja tworzenia kopii zapasowej nie powiodła się z powodu problemu z aplika
 
 * Spróbuj uruchomić/ponownie uruchomić **aplikację systemową com+** systemu Windows (z wiersza polecenia z podwyższonym poziomem uprawnień **— net start COMSysApp**).
 * Upewnij się, że usługa **Distributed Transaction Coordinator** jest uruchomiona jako konto **usługi sieciowej** . W przeciwnym razie zmień ją na Uruchom jako konto **usługi sieciowej** i uruchom ponownie **aplikację systemową com+**.
-* Jeśli nie można uruchomić ponownie usługi, należy ponownie zainstalować usługę **Distributed Transaction Coordinator** , wykonując następujące czynności:
+* Jeśli nie można uruchomić ponownie usługi, należy ponownie zainstalować usługę **Distributed Transaction Coordinator** , wykonując poniższe kroki:
   * Zatrzymaj usługę MSDTC
   * Otwórz wiersz polecenia (cmd)
-  * Uruchom polecenie "MSDTC-Uninstall"
-  * Uruchom polecenie "MSDTC-Install"
+  * Uruchom polecenie `msdtc -uninstall`
+  * Uruchom polecenie `msdtc -install`
   * Uruchom usługę MSDTC
 * Uruchom **aplikację systemową com+** usługi systemu Windows. Po uruchomieniu **aplikacji systemowej com+** Wyzwól zadanie tworzenia kopii zapasowej z Azure Portal.</ol>
 
@@ -165,7 +165,7 @@ Operacja tworzenia kopii zapasowej nie powiodła się z powodu niespójnego stan
 Kod błędu: ExtensionFailedSnapshotLimitReachedError  <br/>
 Komunikat o błędzie: operacja migawki nie powiodła się, ponieważ Przekroczono limit migawek dla niektórych dołączonych dysków
 
-Operacja migawki nie powiodła się, ponieważ Przekroczono limit migawek dla niektórych dołączonych dysków. Wykonaj poniższe kroki rozwiązywania problemów, a następnie spróbuj ponownie wykonać operację.
+Operacja migawki nie powiodła się, ponieważ Przekroczono limit migawek dla niektórych dołączonych dysków. Wykonaj następujące kroki rozwiązywania problemów, a następnie spróbuj ponownie wykonać operację.
 
 * Usuń obiekt BLOB dysku — migawki, które nie są wymagane. Należy zachować ostrożność, aby nie usuwać obiektów BLOB dysku, należy usunąć tylko obiekty blob migawek.
 * Jeśli funkcja usuwania nietrwałego jest włączona na dysku maszyny wirtualnej, należy skonfigurować przechowywanie nietrwałego usuwania w taki sposób, że istniejące migawki są mniejsze niż dopuszczalne maksimum w dowolnym momencie.
@@ -183,7 +183,7 @@ Operacja tworzenia kopii zapasowej na maszynie wirtualnej nie powiodła się z p
 
 **Krok 1**. Tworzenie migawki za poorednictwem hosta
 
-W wierszu polecenia z podwyższonym poziomem uprawnień (administrator) uruchom poniższe polecenie:
+W wierszu polecenia z podwyższonym poziomem uprawnień (Administrator) Uruchom następujące polecenie:
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f
@@ -259,7 +259,7 @@ Jeśli masz Azure Policy, które [regulują Tagi w środowisku](../governance/po
 | Szczegóły błędu | Obejście |
 | --- | --- |
 | Anulowanie nie jest obsługiwane dla tego typu zadania: <br>Poczekaj na zakończenie zadania. |Brak |
-| Zadanie nie jest w stanie do anulowania: <br>Poczekaj na zakończenie zadania. <br>**oraz**<br> Wybrane zadanie nie jest w stanie do anulowania: <br>Poczekaj na zakończenie zadania. |Prawdopodobnie zadanie jest niemal ukończone. Poczekaj na zakończenie zadania.|
+| Zadanie nie jest w stanie do anulowania: <br>Poczekaj na zakończenie zadania. <br>**lub**<br> Wybrane zadanie nie jest w stanie do anulowania: <br>Poczekaj na zakończenie zadania. |Prawdopodobnie zadanie jest niemal ukończone. Poczekaj na zakończenie zadania.|
 | Kopia zapasowa nie może anulować zadania, ponieważ nie jest w toku: <br>Anulowanie jest obsługiwane tylko dla zadań w toku. Spróbuj anulować zadanie w toku. |Ten błąd występuje ze względu na stan przejściowy. Poczekaj chwilę i spróbuj ponownie wykonać operację anulowania. |
 | Wykonanie kopii zapasowej nie powiodło się: <br>Poczekaj na zakończenie zadania. |Brak |
 
@@ -336,7 +336,7 @@ Kopia zapasowa maszyny wirtualnej polega na wystawianiu poleceń migawek do maga
 * **Jeśli więcej niż cztery maszyny wirtualne współużytkują tę samą usługę w chmurze, należy rozłożyć maszyny wirtualne na wiele zasad tworzenia kopii zapasowych**. Rozłożenie czasu wykonywania kopii zapasowych, więc nie można uruchomić więcej niż czterech kopii zapasowych maszyn wirtualnych. Spróbuj oddzielić godziny rozpoczęcia w zasadach o co najmniej godzinie.
 * **Maszyna wirtualna jest uruchamiana z dużym procesorem CPU lub pamięcią**. Jeśli maszyna wirtualna działa z dużą ilością pamięci lub użyciem procesora CPU, więcej niż 90 procent, zadanie migawki jest umieszczane w kolejce i opóźnione. Ostatecznie przeprowadzi limit czasu. Jeśli ten problem wystąpi, wypróbuj kopię zapasową na żądanie.
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 Aby tworzenie kopii zapasowej maszyny wirtualnej IaaS było możliwe, należy włączyć protokół DHCP wewnątrz gościa. Jeśli potrzebujesz statycznego prywatnego adresu IP, skonfiguruj go za pomocą Azure Portal lub programu PowerShell. Upewnij się, że opcja DHCP wewnątrz maszyny wirtualnej jest włączona.
 Uzyskaj więcej informacji na temat konfigurowania statycznego adresu IP za pomocą programu PowerShell:

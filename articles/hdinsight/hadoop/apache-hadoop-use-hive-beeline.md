@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020
-ms.date: 04/17/2020
-ms.openlocfilehash: 3614fac027dd32ab5f5d70f5835432ac3b9b512d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 08/21/2020
+ms.custom: contperfq1
+ms.openlocfilehash: f6d8f804fa26383435d191af27289ffd2ecb3e0b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207735"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755096"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Korzystanie z klienta Apache Beeline z usługą Apache Hive
 
@@ -25,7 +25,7 @@ Z usługi Beeline jest klientem programu Hive, który znajduje się w węzłach 
 
 * Klaster usługi Hadoop w usłudze HDInsight. Zobacz Rozpoczynanie [pracy z usługą HDInsight w systemie Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-* Zwróć uwagę na schemat identyfikatora URI magazynu podstawowego klastra. Na przykład `wasb://` w przypadku usługi Azure Storage w `abfs://` przypadku Azure Data Lake Storage Gen2 lub `adl://` Azure Data Lake Storage Gen1. Jeśli w usłudze Azure Storage włączono opcję bezpiecznego transferu, identyfikator URI to `wasbs://` . Aby uzyskać więcej informacji, zobacz [bezpieczny transfer](../../storage/common/storage-require-secure-transfer.md).
+* Zwróć uwagę na schemat identyfikatora URI magazynu podstawowego klastra. Na przykład  `wasb://` w przypadku usługi Azure Storage w `abfs://` przypadku Azure Data Lake Storage Gen2 lub `adl://` Azure Data Lake Storage Gen1. Jeśli w usłudze Azure Storage włączono opcję bezpiecznego transferu, identyfikator URI to `wasbs://` . Aby uzyskać więcej informacji, zobacz [bezpieczny transfer](../../storage/common/storage-require-secure-transfer.md).
 
 * Opcja 1: klient SSH. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). W większości kroków przedstawionych w tym dokumencie przyjęto założenie, że używasz Z usługi Beeline z sesji SSH z klastrem.
 

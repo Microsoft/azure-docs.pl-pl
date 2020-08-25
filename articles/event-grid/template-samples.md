@@ -4,10 +4,10 @@ description: Ten artykuł zawiera listę przykładów Azure Resource Manager sza
 ms.topic: sample
 ms.date: 07/07/2020
 ms.openlocfilehash: 910012adf2dc930e6f1a26f1a7fc41f5ed0580c9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86119059"
 ---
 # <a name="azure-resource-manager-templates-for-event-grid"></a>Szablony usługi Azure Resource Manager dla usługi Event Grid

@@ -7,12 +7,12 @@ ms.date: 01/30/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: d041bfe1187c48e5544e8933763eaf45a507a424
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9a6a56491a327d5d4eafc2c05dc2b54b137096b8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88701643"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752065"
 ---
 # <a name="reduce-costs-with-azure-disks-reservation"></a>Obniż koszty dzięki rezerwacji dysków platformy Azure
 
@@ -31,7 +31,7 @@ Rezerwacja dysku jest wykonywana na jednostkę SKU dysku. W związku z tym użyc
 Załóżmy na przykład, że zarezerwujesz jeden dysk P40 o pojemności 2 TiB zainicjowanej pamięci masowej. Załóżmy również, że przypisujesz tylko dwa dyski P30. Rezerwacja P40 w tym przypadku nie uwzględnia zużycia P30 i płatność według stawki płatność zgodnie z rzeczywistym użyciem na dyskach P30.
 <br/>
 <br/>
-[!INCLUDE [disk-storage-premium-ssd-sizes](~/includes/disk-storage-premium-ssd-sizes.md)]
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
 
 ## <a name="purchase-considerations"></a>Uwagi dotyczące zakupu
 
@@ -55,7 +55,7 @@ W rzadkich przypadkach platforma Azure ogranicza zakup nowych rezerwacji do podz
 
 ## <a name="buy-a-disk-reservation"></a>Kupowanie rezerwacji dysku
 
-Rezerwacje Azure Disk Storage można zakupić za pomocą [Azure Portal](https://portal.azure.com/). Płatność za rezerwację można wykonać z góry lub w przypadku płatności miesięcznych. Aby uzyskać więcej informacji na temat kupowania miesięcznych płatności, zobacz [kupowanie rezerwacji z płatnościami miesięcznymi](~/articles/cost-management-billing/reservations/monthly-payments-reservations.md).
+Rezerwacje Azure Disk Storage można zakupić za pomocą [Azure Portal](https://portal.azure.com/). Płatność za rezerwację można wykonać z góry lub w przypadku płatności miesięcznych. Aby uzyskać więcej informacji na temat kupowania miesięcznych płatności, zobacz [kupowanie rezerwacji z płatnościami miesięcznymi](../cost-management-billing/reservations/prepare-buy-reservation.md#buy-reservations-with-monthly-payments).
 
 Wykonaj następujące kroki, aby zakupić zastrzeżoną pojemność:
 
@@ -103,5 +103,5 @@ Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczn�
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Co to są rezerwacje platformy Azure?](~/articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Omówienie stosowania rabatu za rezerwację do usługi Azure Disk Storage](~/articles/cost-management-billing/reservations/understand-disk-reservations.md)
+- [Co to są rezerwacje platformy Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Omówienie stosowania rabatu za rezerwację do usługi Azure Disk Storage](../cost-management-billing/reservations/understand-disk-reservations.md)

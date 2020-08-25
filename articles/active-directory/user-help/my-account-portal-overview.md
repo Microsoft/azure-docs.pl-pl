@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: da00d77138eb3ff737c26d7fa52ab0bb56ec6ae4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 95947a9350f19f0f0ff45b7c65e14729b66f26cf
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422418"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798163"
 ---
 # <a name="what-is-the-my-account-portal"></a>Co to jest portal Moje konto?
 
@@ -33,11 +33,11 @@ Możesz przejść do portalu **My Account** ( https://myaccount.microsoft.com) ,
 ![Portal mojego konta, Strona przeglądu](media/my-account-portal/my-account-portal-overview.png)
 
 >[!Important]
->Ten artykuł jest przeznaczony dla użytkowników próbujących uzyskać dostęp do portalu My Account w celu zaktualizowania swoich informacji zabezpieczających, informacji o urządzeniu, hasła, połączonych organizacji, ustawień języka, ochrony prywatności lub wcześniejszych informacji dotyczących logowania. Jeśli jesteś administratorem, który szuka informacji o sposobie włączania uwierzytelniania i innych funkcji Azure Active Directory (Azure AD) dla pracowników i innych usług, zobacz [dokumentację usługi Azure AD dla administratorów](https://docs.microsoft.com/azure/active-directory/).
+>Ten artykuł jest przeznaczony dla użytkowników próbujących uzyskać dostęp do portalu My Account w celu zaktualizowania swoich informacji zabezpieczających, informacji o urządzeniu, hasła, połączonych organizacji, ustawień języka, ochrony prywatności lub wcześniejszych informacji dotyczących logowania. Jeśli jesteś administratorem, który szuka informacji o sposobie włączania uwierzytelniania i innych funkcji Azure Active Directory (Azure AD) dla pracowników i innych usług, zobacz [dokumentację usługi Azure AD dla administratorów](../index.yml).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Wybierz, aby wyświetlić [informacje zabezpieczające](user-help-security-info-overview.md) lub zarządzać nimi
+- Wybierz, aby wyświetlić [informacje zabezpieczające](./security-info-setup-signin.md) lub zarządzać nimi
 
 - Wyświetlanie podłączonych [urządzeń](my-account-portal-devices-page.md) lub zarządzanie nimi
 
