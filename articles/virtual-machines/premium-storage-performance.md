@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0e0f6df04eda45af04659edc2010e8d68b013892
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0fab0bf956790db2860daf75866d84173bfa6cbf
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88701628"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751510"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: projektowanie pod kątem wysokiej wydajności
 
@@ -31,16 +31,16 @@ Ten artykuł pomoże odpowiedzieć na często zadawane pytania dotyczące optyma
 Te wytyczne zostały podane w odniesieniu do Premium Storage, ponieważ obciążenia działające na Premium Storage są wysoce wrażliwe na wydajność. W razie potrzeby podano przykłady. Niektóre z tych wytycznych można także zastosować do aplikacji uruchamianych na maszynach wirtualnych IaaS przy użyciu dysków magazynu w warstwie Standardowa.
 
 > [!NOTE]
-> Czasami problem z wydajnością dysku to w rzeczywistości wąskie gardło sieci. W takich sytuacjach należy zoptymalizować [wydajność sieci](~/articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
+> Czasami problem z wydajnością dysku to w rzeczywistości wąskie gardło sieci. W takich sytuacjach należy zoptymalizować [wydajność sieci](../virtual-network/virtual-network-optimize-network-bandwidth.md).
 >
 > Jeśli chcesz przeprowadzić test porównawczy dysku, zapoznaj się z naszymi artykułami dotyczącymi tworzenia wzorców dysków:
 >
-> * Dla systemu Linux: [test porównawczy aplikacji na Azure Disk Storage](./linux/disks-benchmarks.md)
-> * Dla systemu Windows: przeprowadzenie [testu porównawczego dysku](./windows/disks-benchmarks.md).
+> * Dla systemu Linux: [test porównawczy aplikacji na Azure Disk Storage](linux/disks-benchmarks.md)
+> * Dla systemu Windows: przeprowadzenie [testu porównawczego dysku](windows/disks-benchmarks.md).
 >
-> Jeśli maszyna wirtualna obsługuje przyspieszone sieci, należy upewnić się, że jest ona włączona. Jeśli nie jest włączona, można ją włączyć dla już wdrożonych maszyn wirtualnych w [systemach Windows](~/articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) i [Linux](~/articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
+> Jeśli maszyna wirtualna obsługuje przyspieszone sieci, należy upewnić się, że jest ona włączona. Jeśli nie jest włączona, można ją włączyć dla już wdrożonych maszyn wirtualnych w [systemach Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) i [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Przed rozpoczęciem, jeśli dopiero zaczynasz Premium Storage, najpierw Przeczytaj artykuł [Wybieranie typu dysku platformy Azure dla maszyn wirtualnych IaaS](./linux/disks-types.md) i [elementów docelowych skalowalności dla kont usługi BLOB Storage na stronie Premium](~/articles/storage/blobs/scalability-targets-premium-page-blobs.md).
+Przed rozpoczęciem, jeśli dopiero zaczynasz Premium Storage, najpierw Przeczytaj artykuł [Wybieranie typu dysku platformy Azure dla maszyn wirtualnych IaaS](disks-types.md) i [elementów docelowych skalowalności dla kont usługi BLOB Storage na stronie Premium](../storage/blobs/scalability-targets-premium-page-blobs.md).
 
 ## <a name="application-performance-indicators"></a>Wskaźniki wydajności aplikacji
 
@@ -62,7 +62,7 @@ Po dołączeniu dysku magazynu w warstwie Premium do maszyny wirtualnej o dużej
 
 Istnieje relacja między przepływem i liczbą operacji wejścia/wyjścia, jak pokazano w poniższej formule.
 
-![Relacja IOPS i przepływność](~/articles/virtual-machines/linux/media/premium-storage-performance/image1.png)
+![Relacja IOPS i przepływność](linux/media/premium-storage-performance/image1.png)
 
 W związku z tym ważne jest, aby określić optymalną przepływność i wartości IOPS wymagane przez aplikację. W trakcie próby optymalizacji jeden ma również wartość inne. W późniejszej sekcji *Optymalizacja wydajności aplikacji*zawiera szczegółowe informacje na temat optymalizowania operacji we/wy i przepływności.
 
@@ -144,7 +144,7 @@ W tej sekcji zapoznaj się z utworzoną listą kontrolną dotyczącą wymagań a
 
 W poniższej tabeli zestawiono czynniki wydajności i kroki niezbędne do optymalizacji operacji we/wy na sekundę, przepływności i opóźnienia. W poniższych sekcjach opisano każdy czynnik jest znacznie bardziej szczegółowy.
 
-Aby uzyskać więcej informacji o rozmiarach maszyn wirtualnych oraz o liczbie operacji we/wy, przepływności i opóźnieniu dla każdego typu maszyny wirtualnej, zobacz [rozmiary maszyn wirtualnych](~/articles/virtual-machines/linux/sizes.md) z systemem Linux lub [rozmiary maszyn wirtualnych z systemem Windows](~/articles/virtual-machines/windows/sizes.md).
+Aby uzyskać więcej informacji o rozmiarach maszyn wirtualnych oraz o liczbie operacji we/wy na sekundę, przepływności i opóźnieniu dostępnych dla każdego typu maszyny wirtualnej, zobacz [rozmiary dla maszyny wirtualnej na platformie Azure](sizes.md).
 
 | | **Liczba operacji we/wy na sekundę** | **Przepływność** | **Opóźnienie** |
 | --- | --- | --- | --- |
@@ -206,7 +206,7 @@ Maszyny wirtualne o wysokiej skali są dostępne w różnych rozmiarach przy uż
 | Standardowa_DS14 |16 |112 GB |SYSTEM OPERACYJNY = 1023 GB <br> Lokalny dysk SSD = 224 GB |32 |576 GB |LICZBA OPERACJI WE/WY 50 000 <br> 512 MB na sekundę |4 000 operacji we/wy i 33 MB na sekundę |
 | Standardowa_GS5 |32 |448 GB |SYSTEM OPERACYJNY = 1023 GB <br> Lokalny dysk SSD = 896 GB |64 |4224 GB |LICZBA OPERACJI WE/WY 80 000 <br> 2 000 MB na sekundę |5 000 operacji we/wy i 50 MB na sekundę |
 
-Aby wyświetlić pełną listę wszystkich dostępnych rozmiarów maszyn wirtualnych platformy Azure, zobacz [rozmiary maszyn wirtualnych systemu Windows](~/articles/virtual-machines/windows/sizes.md) lub [rozmiary maszyn wirtualnych](~/articles/virtual-machines/linux/sizes.md)z systemem Linux. Wybierz rozmiar maszyny wirtualnej, który można spełnić i skalować do żądanych wymagań dotyczących wydajności aplikacji. Oprócz tego należy wziąć pod uwagę następujące ważne zagadnienia podczas wybierania rozmiarów maszyn wirtualnych.
+Aby wyświetlić pełną listę wszystkich dostępnych rozmiarów maszyn wirtualnych platformy Azure, zapoznaj się z tematem [rozmiary maszyny wirtualnej na platformie Azure](sizes.md) lub. Wybierz rozmiar maszyny wirtualnej, który można spełnić i skalować do żądanych wymagań dotyczących wydajności aplikacji. Oprócz tego należy wziąć pod uwagę następujące ważne zagadnienia podczas wybierania rozmiarów maszyn wirtualnych.
 
 *Limity skalowania*  
 Maksymalne limity IOPS na maszynę wirtualną i na dysk są różne i niezależne od siebie. Upewnij się, że aplikacja prowadzi działania w ramach limitów maszyn wirtualnych, a także dołączone do niej dyski w warstwie Premium. W przeciwnym razie wydajność aplikacji zostanie ograniczona.
@@ -238,7 +238,7 @@ Podczas uruchamiania systemu Linux z Premium Storage Sprawdź najnowsze aktualiz
 
 Usługa Azure Premium Storage oferuje różne rozmiary, dzięki czemu możesz wybrać jeden z nich, który najlepiej odpowiada Twoim potrzebom. Każdy rozmiar dysku ma inny limit skalowania dla operacji we/wy na sekundę, przepustowości i magazynu. Wybierz odpowiedni Premium Storage rozmiar dysku w zależności od wymagań aplikacji i rozmiaru maszyny wirtualnej o dużej skali. W poniższej tabeli przedstawiono rozmiary dysków i ich możliwości. Rozmiary P4, P6, P15, P60, P70 i P80 są obecnie obsługiwane tylko dla Managed Disks.
 
-[!INCLUDE [disk-storage-premium-ssd-sizes](~/includes/disk-storage-premium-ssd-sizes.md)]
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
 
 Liczba wybranych dysków zależy od wybranego rozmiaru dysku. Aby spełnić wymagania aplikacji, można użyć jednego dysku P50 lub wielu dysków P10. Po dokonaniu wyboru należy wziąć pod uwagę poniższe kwestie.
 
@@ -353,14 +353,14 @@ W systemie Windows można używać funkcji miejsca do magazynowania w celu rozdz
 
 Ważne: przy użyciu Menedżer serwera interfejsu użytkownika można ustawić całkowitą liczbę kolumn do 8 dla woluminu rozłożonego. W przypadku dołączania więcej niż ośmiu dysków należy utworzyć wolumin przy użyciu programu PowerShell. Za pomocą programu PowerShell można ustawić liczbę kolumn równą liczbie dysków. Na przykład, jeśli na jednym zestawie rozłożonym znajduje się 16 dysków; Określ 16 kolumn w parametrze *NumberOfColumns* polecenia cmdlet *New-VirtualDisk* programu PowerShell.
 
-W systemie Linux Użyj narzędzia MDADM, aby połączyć dyski ze sobą. Aby uzyskać szczegółowe instrukcje dotyczące dysków rozłożonych w systemie Linux, zobacz [Konfigurowanie RAID oprogramowania w systemie Linux](~/articles/virtual-machines/linux/configure-raid.md).
+W systemie Linux Użyj narzędzia MDADM, aby połączyć dyski ze sobą. Aby uzyskać szczegółowe instrukcje dotyczące dysków rozłożonych w systemie Linux, zobacz [Konfigurowanie RAID oprogramowania w systemie Linux](linux/configure-raid.md).
 
 *Rozmiar woluminu rozłożonego*  
 Ważną konfiguracją w obłożonym dysku jest rozmiar paska. Rozmiar obszaru rozłożonego lub blok jest najmniejszym fragmentem danych, które aplikacja może rozwiązać na woluminie rozłożonym. Skonfigurowany rozmiar obszaru rozłożonego zależy od typu aplikacji i jego wzorca żądania. W przypadku wybrania niewłaściwego rozmiaru paska może wystąpić niezgodność we/wy, co prowadzi do obniżenia wydajności aplikacji.
 
 Na przykład jeśli żądanie we/wy wygenerowane przez aplikację jest większe niż rozmiar rozłożonego dysku, system magazynu zapisuje go między granicami jednostki na więcej niż jednym dysku. Gdy dostęp do tych danych jest czas, będzie musiał poszukiwać więcej niż jednej jednostki rozłożonej, aby wykonać żądanie. Skumulowany efekt takiego zachowania może prowadzić do znacznego obniżenia wydajności. Z drugiej strony, jeśli rozmiar żądania we/wy jest mniejszy niż rozmiar paska, a jeśli ma charakter losowy, żądania we/wy mogą zostać dodane na tym samym dysku powodującym wąskie gardło i ostatecznie spadek wydajności operacji we/wy.
 
-W zależności od typu obciążenia, w którym działa aplikacja, wybierz odpowiedni rozmiar paska. W przypadku bardzo małych żądań we/wy Użyj mniejszego rozmiaru. W przypadku duże sekwencyjne żądania we/wy używają większego rozmiaru paska. Zapoznaj się z zaleceniami dotyczącymi rozmiaru paska aplikacji, które będą działać na Premium Storage. W przypadku SQL Server Skonfiguruj rozmiar rozłożenia 64 KB dla obciążeń OLTP i 256 KB na potrzeby obciążeń związanych z magazynowaniem danych. Aby dowiedzieć się więcej, zobacz [najlepsze rozwiązania w zakresie wydajności dotyczące SQL Server na maszynach wirtualnych platformy Azure](~/articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md#disks-guidance) .
+W zależności od typu obciążenia, w którym działa aplikacja, wybierz odpowiedni rozmiar paska. W przypadku bardzo małych żądań we/wy Użyj mniejszego rozmiaru. W przypadku duże sekwencyjne żądania we/wy używają większego rozmiaru paska. Zapoznaj się z zaleceniami dotyczącymi rozmiaru paska aplikacji, które będą działać na Premium Storage. W przypadku SQL Server Skonfiguruj rozmiar rozłożenia 64 KB dla obciążeń OLTP i 256 KB na potrzeby obciążeń związanych z magazynowaniem danych. Aby dowiedzieć się więcej, zobacz [najlepsze rozwiązania w zakresie wydajności dotyczące SQL Server na maszynach wirtualnych platformy Azure](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md#disks-guidance) .
 
 > [!NOTE]
 > Na maszynach wirtualnych serii z serii GS można rozdzielić maksymalnie 32 dysków usługi Premium Storage 64, a także dyski magazynu w warstwie Premium
@@ -414,15 +414,15 @@ Usługa Azure Premium Storage postanowił określoną liczbę operacji we/wy na 
 
 Jeśli chcesz przeprowadzić test porównawczy dysku, zapoznaj się z naszymi artykułami dotyczącymi tworzenia wzorców dysków:
 
-* Dla systemu Linux: [test porównawczy aplikacji na Azure Disk Storage](./linux/disks-benchmarks.md)
-* Dla systemu Windows: przeprowadzenie [testu porównawczego dysku](./windows/disks-benchmarks.md).
+* Dla systemu Linux: [test porównawczy aplikacji na Azure Disk Storage](linux/disks-benchmarks.md)
+* Dla systemu Windows: przeprowadzenie [testu porównawczego dysku](windows/disks-benchmarks.md).
 
 Dowiedz się więcej na temat dostępnych typów dysków:
 
-* Dla systemu Linux: [Wybierz typ dysku](./linux/disks-types.md)
-* Dla systemu Windows: [Wybierz typ dysku](./windows//disks-types.md)
+* Dla systemu Linux: [Wybierz typ dysku](disks-types.md)
+* Dla systemu Windows: [Wybierz typ dysku](disks-types.md)
 
 Aby uzyskać SQL Server użytkowników, przeczytaj artykuły dotyczące najlepszych rozwiązań w zakresie wydajności dla SQL Server:
 
-* [Najlepsze rozwiązania dotyczące wydajności SQL Server na platformie Azure Virtual Machines](~/articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md)
+* [Najlepsze rozwiązania dotyczące wydajności SQL Server na platformie Azure Virtual Machines](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md)
 * [Usługa Azure Premium Storage zapewnia najwyższą wydajność SQL Server na maszynie wirtualnej platformy Azure](https://cloudblogs.microsoft.com/sqlserver/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm/)

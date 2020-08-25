@@ -4,16 +4,16 @@ description: Skonfiguruj dysk zarządzany przez platformę Azure z dyskami udost
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 08/21/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: f6b34cd93dcfabee2974bea5cf57258527df94d7
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ad70aa1d044649a0ca61060fff9880d4ef1e34c1
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88701655"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752053"
 ---
 # <a name="enable-shared-disk"></a>Włączanie dysku udostępnionego
 
@@ -21,21 +21,21 @@ W tym artykule opisano sposób włączania funkcji dysków udostępnionych dla u
 
 Jeśli szukasz informacji koncepcyjnych dotyczących dysków zarządzanych z włączonymi dyskami udostępnionymi, zapoznaj się z tematem:
 
-* System Linux: [udostępnione dyski platformy Azure](./linux/disks-shared.md)
+* System Linux: [udostępnione dyski platformy Azure](linux/disks-shared.md)
 
-* Dla systemu Windows: [dyski udostępnione platformy Azure](./windows/disks-shared.md)
+* Dla systemu Windows: [dyski udostępnione platformy Azure](windows/disks-shared.md)
 
 ## <a name="limitations"></a>Ograniczenia
 
-[!INCLUDE [virtual-machines-disks-shared-limitations](~/includes/virtual-machines-disks-shared-limitations.md)]
+[!INCLUDE [virtual-machines-disks-shared-limitations](../../includes/virtual-machines-disks-shared-limitations.md)]
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
-Dyski udostępnione obsługują kilka systemów operacyjnych. Zapoznaj się z sekcjami [systemu Windows](~/articles/virtual-machines/windows/disks-shared.md#windows) i [Linux](~/articles/virtual-machines/linux/disks-shared.md#linux) artykułu koncepcyjnego dla obsługiwanych systemów operacyjnych.
+Dyski udostępnione obsługują kilka systemów operacyjnych. Zapoznaj się z sekcjami [systemu Windows](windows/disks-shared.md#windows) i [Linux](linux/disks-shared.md#linux) artykułu koncepcyjnego dla obsługiwanych systemów operacyjnych.
 
 ## <a name="disk-sizes"></a>Rozmiary dysków
 
-[!INCLUDE [virtual-machines-disks-shared-sizes](~/includes/virtual-machines-disks-shared-sizes.md)]
+[!INCLUDE [virtual-machines-disks-shared-sizes](../../includes/virtual-machines-disks-shared-sizes.md)]
 
 ## <a name="deploy-shared-disks"></a>Wdrażanie dysków udostępnionych
 
@@ -147,7 +147,7 @@ Przed użyciem następującego szablonu Zastąp wartości,,,,,, `[parameters('da
 Po wdrożeniu udostępnionego dysku za pomocą programu możesz `maxShares>1` zainstalować dysk na co najmniej jednej z maszyn wirtualnych.
 
 > [!NOTE]
-> W przypadku wdrażania programu Ultra Disk upewnij się, że jest on zgodny z wymaganymi wymaganiami. Szczegółowe informacje znajdują się w sekcji [programu PowerShell](~/articles/virtual-machines/windows/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) lub [interfejsu wiersza polecenia](~/articles/virtual-machines/linux/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) w artykule dotyczącym usługi Ultra Disk.
+> W przypadku wdrażania programu Ultra Disk upewnij się, że jest on zgodny z wymaganymi wymaganiami. Szczegółowe informacje znajdują się w sekcji [programu PowerShell](disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) lub [interfejsu wiersza polecenia](disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) w artykule dotyczącym usługi Ultra Disk.
 
 ```azurepowershell-interactive
 

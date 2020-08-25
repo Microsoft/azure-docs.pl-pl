@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: c3123d22d2a13be9b9e5360e82990ba3a6320b1a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: daffcbf0a2ceb6f28cbb539906d4c6387840aa20
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008801"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752102"
 ---
 # <a name="configure-an-aks-cluster"></a>Konfigurowanie klastra AKS
 
@@ -81,17 +81,17 @@ Jeśli chcesz utworzyć pule węzłów za pomocą obrazu AKS Ubuntu 16,04, może
 
 Środowisko uruchomieniowe kontenera to oprogramowanie, które wykonuje kontenery i zarządza obrazami kontenerów w węźle. Środowisko uruchomieniowe ułatwia abstrakcyjne wywołania sys lub systemu operacyjnego (OS) do uruchamiania kontenerów w systemie Linux lub Windows. Dzisiaj AKS korzysta z [Moby](https://mobyproject.org/) (nadrzędnym Docker) jako środowiska uruchomieniowego kontenera. 
     
-![Docker CRI](media/cluster-configuration/docker-cri.png)
+![Docker CRI 1](media/cluster-configuration/docker-cri.png)
 
-[`Containerd`](https://containerd.io/)jest zgodnym podstawowym środowiskiem uruchomieniowym [kontenera (Open](https://opencontainers.org/) Container Initiative), który zapewnia minimalny zestaw funkcji wymaganych do wykonywania kontenerów i zarządzania obrazami w węźle. Zostało ono [przekazano do](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) natywnej usługi obliczeniowej Cloud Foundation (CNCF) w marcu 2017. Bieżąca wersja Moby używana przez AKS już dziś i została utworzona w oparciu o `containerd` , jak pokazano powyżej. 
+[`Containerd`](https://containerd.io/) jest zgodnym podstawowym środowiskiem uruchomieniowym [kontenera (Open](https://opencontainers.org/) Container Initiative), który zapewnia minimalny zestaw funkcji wymaganych do wykonywania kontenerów i zarządzania obrazami w węźle. Zostało ono [przekazano do](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) natywnej usługi obliczeniowej Cloud Foundation (CNCF) w marcu 2017. Bieżąca wersja Moby używana przez AKS już dziś i została utworzona w oparciu o `containerd` , jak pokazano powyżej. 
 
 W przypadku węzłów węzła i węzłów opartych na kontenerach, a nie rozmowy z `dockershim` , kubelet będzie komunikować się bezpośrednio z `containerd` za pośrednictwem wtyczki CRI (interfejs środowiska uruchomieniowego kontenera), usuwając dodatkowe przeskoki w przepływie w porównaniu do implementacji platformy Docker CRI. W związku z tym zobaczysz lepszy czas oczekiwania na uruchomienie i mniejszą ilość zasobów (procesor CPU i pamięć).
 
 Przy użyciu `containerd` for AKS nodes, pod kątem opóźnień uruchamiania, zwiększa i zmniejsza zużycie zasobów węzła przez środowisko uruchomieniowe kontenera. Te ulepszenia są włączane przez tę nową architekturę, w której kubelet się bezpośrednio do programu `containerd` za pomocą wtyczki CRI, a w przypadku architektury Moby/Docker kubelet będzie komunikować się z `dockershim` aparatem platformy Docker przed osiągnięciem `containerd` , dzięki czemu mają dodatkowe przeskoki w przepływie.
 
-![Docker CRI](media/cluster-configuration/containerd-cri.png)
+![Docker CRI 2](media/cluster-configuration/containerd-cri.png)
 
-`Containerd`działa na każdej wersji systemu Kubernetes w AKS, a w każdej wersji Kubernetes w strumieniu, w którym znajduje się nowsza wersja, i obsługuje wszystkie funkcje Kubernetes i AKS.
+`Containerd` działa na każdej wersji systemu Kubernetes w AKS, a w każdej wersji Kubernetes w strumieniu, w którym znajduje się nowsza wersja, i obsługuje wszystkie funkcje Kubernetes i AKS.
 
 > [!IMPORTANT]
 > Gdy `containerd` stanie się ogólnie dostępna w usłudze AKS, będzie to ustawienie domyślne i opcja dostępna tylko dla środowiska uruchomieniowego kontenera w nowych klastrach. Nadal można używać Moby nodepools i klastrów w starszych obsługiwanych wersjach, dopóki te nie zostaną objęte wsparciem. 
@@ -159,14 +159,14 @@ az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-gro
 Jeśli chcesz utworzyć pule węzłów za pomocą środowiska uruchomieniowego Moby (Docker), możesz to zrobić, pomijając `--aks-custom-headers` tag niestandardowy.
 
 
-### <a name="containerd-limitationsdifferences"></a>`Containerd`ograniczenia/różnice
+### <a name="containerd-limitationsdifferences"></a>`Containerd` ograniczenia/różnice
 
 * Aby użyć `containerd` programu jako środowiska uruchomieniowego kontenera, musisz użyć AKS Ubuntu 18,04 jako obrazu podstawowego systemu operacyjnego.
 * Mimo że zestaw narzędzi platformy Docker nadal znajduje się w węzłach, Kubernetes używa `containerd` jako środowiska uruchomieniowego kontenera. W związku z tym, ponieważ Moby/Docker nie zarządza kontenerami utworzonymi przez Kubernetes w węzłach, nie można wyświetlać kontenerów ani korzystać z nich przy użyciu poleceń platformy Docker (takich jak `docker ps` ) ani interfejsu API platformy Docker.
 * W przypadku programu `containerd` zalecamy używanie [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) jako zastępczego interfejsu wiersza polecenia zamiast interfejsu wiersza polecenia platformy Docker w celu **rozwiązywania problemów** z magazynami, kontenerami i obrazami kontenerów w węzłach Kubernetes (na przykład `crictl ps` ). 
    * Nie zapewnia to pełnej funkcjonalności interfejsu wiersza polecenia platformy Docker. Jest ona przeznaczona tylko do rozwiązywania problemów.
-   * `crictl`oferuje bardziej przyjazny kubernetesy widok kontenerów z pojęciami, takimi jak zasobniki itp.
-* `Containerd`konfiguruje rejestrowanie przy użyciu standardowego `cri` formatu rejestrowania (który jest inny niż to, co jest obecnie uzyskiwane ze sterownika JSON platformy Docker). Twoje rozwiązanie do rejestrowania musi obsługiwać `cri` Format rejestrowania (na przykład [Azure monitor for Containers](../azure-monitor/insights/container-insights-enable-new-cluster.md))
+   * `crictl` oferuje bardziej przyjazny kubernetesy widok kontenerów z pojęciami, takimi jak zasobniki itp.
+* `Containerd` konfiguruje rejestrowanie przy użyciu standardowego `cri` formatu rejestrowania (który jest inny niż to, co jest obecnie uzyskiwane ze sterownika JSON platformy Docker). Twoje rozwiązanie do rejestrowania musi obsługiwać `cri` Format rejestrowania (na przykład [Azure monitor for Containers](../azure-monitor/insights/container-insights-enable-new-cluster.md))
 * Nie można już uzyskiwać dostępu do aparatu platformy Docker `/var/run/docker.sock` lub używać platformy Docker-Docker (DinD).
   * W przypadku obecnie wyodrębniania dzienników aplikacji lub monitorowania danych z aparatu platformy Docker należy zamiast tego użyć takich elementów jak [Azure monitor for Containers](../azure-monitor/insights/container-insights-enable-new-cluster.md) . Ponadto AKS nie obsługuje uruchamiania jakichkolwiek poleceń poza pasmem w węzłach agenta, które mogą spowodować niestabilność.
   * Nawet w przypadku korzystania z Moby/Docker nie zaleca się tworzenia obrazów i bezpośrednio wykorzystujących aparat platformy Docker za pomocą powyższych metod. Kubernetes nie jest w pełni świadomy tych używanych zasobów, a te podejścia omawiają wiele problemów szczegółowych [tutaj](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) [, a na](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/)przykład.
@@ -236,7 +236,7 @@ Jeśli chcesz utworzyć regularne pule węzłów Gen1, możesz to zrobić, pomij
 
 ## <a name="ephemeral-os-preview"></a>Tymczasowych systemów operacyjnych (wersja zapoznawcza)
 
-Domyślnie dysk systemu operacyjnego maszyny wirtualnej platformy Azure jest automatycznie replikowany do usługi Azure Storage, aby uniknąć utraty danych, gdy maszyna wirtualna musi zostać przeniesiona do innego hosta. Ponieważ jednak kontenery nie mają trwałego stanu lokalnego, to zachowanie oferuje ograniczoną wartość, a jednocześnie zapewnia pewne wady, w tym wolniejsze udostępnianie węzłów i mniejsze opóźnienie odczytu/zapisu.
+Domyślnie dysk systemu operacyjnego maszyny wirtualnej platformy Azure jest automatycznie replikowany do usługi Azure Storage, aby uniknąć utraty danych, gdy maszyna wirtualna musi zostać przeniesiona do innego hosta. Ponieważ jednak kontenery nie mają trwałego stanu lokalnego, to zachowanie oferuje ograniczoną wartość, a jednocześnie zapewnia pewne wady, w tym wolniejsze Inicjowanie obsługi węzłów oraz wyższe opóźnienia odczytu i zapisu.
 
 Z kolei tymczasowe dyski systemu operacyjnego są przechowywane tylko na komputerze-hoście, podobnie jak dysk tymczasowy. Zapewnia to mniejsze opóźnienie odczytu/zapisu oraz szybsze skalowanie węzłów i uaktualnień klastra.
 

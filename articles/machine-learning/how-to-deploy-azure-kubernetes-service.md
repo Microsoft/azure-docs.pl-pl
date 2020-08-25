@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 5c253abf0fa6ae95dff178847209be407fb5bca5
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 03477fa46aaec04c0563ed38b085605dce5b87a1
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120834"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751743"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Wdrażanie modelu w klastrze usługi Azure Kubernetes Service
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,9 @@ Dowiedz się, jak za pomocą Azure Machine Learning wdrożyć model jako usług�
 - Opcje __przyspieszania sprzętowego__ , takie jak macierze oparte na procesorach GPU i polach (FPGA).
 
 > [!IMPORTANT]
-> Skalowanie klastra nie jest obsługiwane za pomocą zestawu SDK Azure Machine Learning. Aby uzyskać więcej informacji na temat skalowania węzłów w klastrze AKS, zobacz [skalowanie liczby węzłów w KLASTRZE AKS](../aks/scale-cluster.md).
+> Skalowanie klastra nie jest obsługiwane za pomocą zestawu SDK Azure Machine Learning. Aby uzyskać więcej informacji na temat skalowania węzłów w klastrze AKS, zobacz. 
+- [Ręczne skalowanie liczby węzłów w klastrze AKS](../aks/scale-cluster.md)
+- [Konfigurowanie automatycznego skalowania klastra w AKS](../aks/cluster-autoscaler.md)
 
 Podczas wdrażania w usłudze Azure Kubernetes należy wdrożyć klaster AKS, który jest __połączony z obszarem roboczym__. Istnieją dwa sposoby łączenia klastra AKS z obszarem roboczym:
 
@@ -43,7 +45,7 @@ Klaster AKS i obszar roboczy AML mogą znajdować się w różnych grupach zasob
 > [!IMPORTANT]
 > Zalecamy debugowanie lokalnie przed wdrożeniem w usłudze sieci Web. Aby uzyskać więcej informacji, zobacz [debugowanie lokalne](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
 >
-> Możesz również zapoznać się z artykułem Azure Machine Learning- [Deploy do lokalnego notesu](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
+> Możesz również skorzystać z usługi Azure Machine Learning — [Wdrażanie w notesie lokalnym](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -55,9 +57,9 @@ Klaster AKS i obszar roboczy AML mogą znajdować się w różnych grupach zasob
 
 - W fragmentach kodu w języku __Python__ w tym artykule założono, że ustawiono następujące zmienne:
 
-    * `ws`-Ustaw na obszar roboczy.
-    * `model`-Ustaw na zarejestrowany model.
-    * `inference_config`-Ustaw na konfigurację wnioskowania dla modelu.
+    * `ws` -Ustaw na obszar roboczy.
+    * `model` -Ustaw na zarejestrowany model.
+    * `inference_config` -Ustaw na konfigurację wnioskowania dla modelu.
 
     Aby uzyskać więcej informacji na temat ustawiania tych zmiennych, zobacz [jak i gdzie wdrażać modele](how-to-deploy-and-where.md).
 
@@ -65,9 +67,16 @@ Klaster AKS i obszar roboczy AML mogą znajdować się w różnych grupach zasob
 
 - Jeśli potrzebujesz usługa Load Balancer w warstwie Standardowa (moduł równoważenia obciążenia) wdrożonego w klastrze zamiast podstawowego Load Balancer (BLB), Utwórz klaster w portalu AKS/interfejsie wiersza polecenia/SDK, a następnie dołącz go do obszaru roboczego AML.
 
-- W przypadku dołączania klastra AKS z [włączonym dozwolonym zakresem adresów IP w celu uzyskania dostępu do serwera interfejsu API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)Włącz zakres adresów IP płaszczyzny kontroli AML dla klastra AKS. Płaszczyzna kontrolna AML jest wdrażana w różnych regionach i wdraża inferencinge w klastrze AKS. Bez dostępu do serwera interfejsu API nie można wdrożyć inferencing. W przypadku włączenia zakresów adresów IP w klastrze AKS należy użyć [zakresów adresów IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) dla obu [par regionów]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) .
+- Jeśli masz Azure Policy, które ograniczają tworzenie publicznego adresu IP, tworzenie klastra AKS zakończy się niepowodzeniem. AKS wymaga publicznego adresu IP dla [ruchu wychodzącego](https://docs.microsoft.com/azure/aks/limit-egress-traffic). Ten artykuł zawiera również wskazówki dotyczące blokowania ruchu wychodzącego z klastra za pośrednictwem publicznego adresu IP z wyjątkiem kilku nazw FQDN. Istnieją dwa sposoby włączania publicznego adresu IP:
+  - Klaster może korzystać z publicznego adresu IP utworzonego domyślnie przy użyciu BLB lub modułu równoważenia obciążenia lub
+  - Klaster można utworzyć bez publicznego adresu IP, a następnie publiczny adres IP skonfigurowany za pomocą zapory z trasą zdefiniowaną przez użytkownika, zgodnie z opisem w [tym miejscu](https://docs.microsoft.com/azure/aks/egress-outboundtype) 
+  
+  Płaszczyzna sterująca AML nie komunikuje się z tym publicznym adresem IP. Komunikuje się ona z płaszczyzną kontroli AKS dla wdrożeń. 
 
-__Zakresy adresów IP Authroized współdziałają z usługa Load Balancer w warstwie Standardowa.__
+- W przypadku dołączania klastra AKS z [włączonym dozwolonym zakresem adresów IP w celu uzyskania dostępu do serwera interfejsu API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)Włącz zakres adresów IP płaszczyzny Contol AML dla klastra AKS. Płaszczyzna kontrolna AML jest wdrażana w różnych regionach i wdraża inferencinge w klastrze AKS. Bez dostępu do serwera interfejsu API nie można wdrożyć inferencing. W przypadku włączenia zakresów adresów IP w klastrze AKS należy użyć [zakresów adresów IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) dla obu [par regionów]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) .
+
+
+  Zakresy adresów IP Authroized współdziałają z usługa Load Balancer w warstwie Standardowa.
  
  - Nazwa obliczeniowa musi być unikatowa w obszarze roboczym
    - Nazwa jest wymagana i musi mieć długość od 3 do 24 znaków.
@@ -76,10 +85,6 @@ __Zakresy adresów IP Authroized współdziałają z usługa Load Balancer w war
    - Nazwa musi być unikatowa we wszystkich istniejących obliczeniach w regionie świadczenia usługi Azure. Jeśli wybrana nazwa nie jest unikatowa, zostanie wyświetlony alert
    
  - Jeśli chcesz wdrożyć modele na węzłach GPU lub węzłach FPGA (lub dowolnej określonej jednostce SKU), należy utworzyć klaster z określoną jednostką SKU. Nie jest obsługiwane tworzenie puli węzłów pomocniczych w istniejącym klastrze i wdrażanie modeli w puli węzłów pomocniczych.
- 
- 
-
-
 
 ## <a name="create-a-new-aks-cluster"></a>Tworzenie nowego klastra AKS
 
@@ -290,7 +295,7 @@ W Azure Machine Learning "wdrożenie" jest używane w bardziej ogólnym sensie u
     1. Jeśli nie zostanie znaleziona, system kompiluje nowy obraz (który zostanie zapisany w pamięci podręcznej i zarejestrowany w obszarze roboczym ACR)
 1. Pobieranie spakowanego pliku projektu do tymczasowego magazynu w węźle obliczeniowym
 1. Rozpakowywanie pliku projektu
-1. Wykonywanie węzła obliczeniowego`python <entry script> <arguments>`
+1. Wykonywanie węzła obliczeniowego `python <entry script> <arguments>`
 1. Zapisywanie dzienników, plików modelu i innych plików zapisywanych na `./outputs` koncie magazynu skojarzonym z obszarem roboczym
 1. Skalowanie zasobów obliczeniowych w dół, w tym Usuwanie magazynu tymczasowego (odnosi się do Kubernetes)
 
@@ -409,7 +414,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Jeśli musisz ponownie wygenerować klucz, użyj[`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
+> Jeśli musisz ponownie wygenerować klucz, użyj [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
 
 ### <a name="authentication-with-tokens"></a>Uwierzytelnianie przy użyciu tokenów
 
@@ -439,7 +444,7 @@ print(token)
 * [Jak wdrożyć model przy użyciu niestandardowego obrazu platformy Docker](how-to-deploy-custom-docker-image.md)
 * [Rozwiązywanie problemów z wdrażaniem](how-to-troubleshoot-deployment.md)
 * [Aktualizowanie usługi internetowej](how-to-deploy-update-web-service.md)
-* [Użyj protokołu TLS do zabezpieczenia usługi sieci Web za pomocą Azure Machine Learning](how-to-secure-web-service.md)
+* [Zabezpieczanie usługi internetowej za pomocą usługi Azure Machine Learning przy użyciu protokołu TLS](how-to-secure-web-service.md)
 * [Korzystanie z modelu ML wdrożonego jako usługa sieci Web](how-to-consume-web-service.md)
 * [Monitoruj modele Azure Machine Learning przy użyciu Application Insights](how-to-enable-app-insights.md)
 * [Zbieranie danych dla modeli w środowisku produkcyjnym](how-to-enable-data-collection.md)

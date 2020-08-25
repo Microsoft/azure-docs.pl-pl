@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: larryfr
 author: Blackmist
 ms.date: 07/27/2020
-ms.openlocfilehash: 6d1042ea21308dd0f82165c288824aaef000e36d
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 05a45a2a8aeabae2b160701020e5deb89fb3aa81
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192341"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751713"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Użyj szablonu Azure Resource Manager, aby utworzyć obszar roboczy dla Azure Machine Learning
 
@@ -165,158 +165,50 @@ Aby uzyskać więcej informacji, zobacz [szyfrowanie w spoczynku](concept-enterp
 
 > [!IMPORTANT]
 > Przed rozpoczęciem korzystania z tego szablonu należy spełnić pewne wymagania dotyczące subskrypcji:
->
-> * Aplikacja __Azure Machine Learning__ musi być __współautorem__ subskrypcji platformy Azure.
 > * Musisz mieć istniejące Azure Key Vault, które zawierają klucz szyfrowania.
-> * Musisz mieć zasady dostępu w Azure Key Vault, które będą udzielać dostępu do __Azure Cosmos DB__ aplikacji __Get__, __zawijania__i __odwinięcia__ .
 > * Azure Key Vault musi znajdować się w tym samym regionie, w którym planujesz utworzyć obszar roboczy Azure Machine Learning.
+> * Należy określić identyfikator Azure Key Vault i identyfikator URI klucza szyfrowania.
 
-__Aby dodać aplikację Azure Machine Learning jako współautor__, użyj następujących poleceń:
+__Aby uzyskać wartości__ dla `cmk_keyvault` (identyfikatora Key Vault) i `resource_cmk_uri` parametrów (identyfikator URI klucza) wymaganych przez ten szablon, wykonaj następujące czynności:    
 
-1. Zaloguj się do konta platformy Azure i uzyskaj swój identyfikator subskrypcji. Ta subskrypcja musi być taka sama, która zawiera obszar roboczy Azure Machine Learning.  
+1. Aby uzyskać identyfikator Key Vault, użyj następującego polecenia:  
 
-    # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azcli)
+    # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azcli)   
 
-    ```azurecli
-    az account list --query '[].[name,id]' --output tsv
-    ```
+    ```azurecli 
+    az keyvault show --name <keyvault-name> --query 'id' --output tsv   
+    ``` 
 
-    > [!TIP]
-    > Aby wybrać inną subskrypcję, użyj `az account set -s <subscription name or ID>` polecenia i określ nazwę lub Identyfikator subskrypcji do przełączenia. Aby uzyskać więcej informacji na temat wyboru subskrypcji, zobacz [Korzystanie z wielu subskrypcji platformy Azure](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). 
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell) 
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzSubscription
-    ```
-
-    > [!TIP]
-    > Aby wybrać inną subskrypcję, użyj `Az-SetContext -SubscriptionId <subscription ID>` polecenia i określ nazwę lub Identyfikator subskrypcji do przełączenia. Aby uzyskać więcej informacji na temat wyboru subskrypcji, zobacz [Korzystanie z wielu subskrypcji platformy Azure](https://docs.microsoft.com/powershell/azure/manage-subscriptions-azureps?view=azps-4.3.0).
-
-    ---
-
-1. Aby uzyskać identyfikator obiektu aplikacji Azure Machine Learning, użyj następującego polecenia. Wartość może być różna dla każdej subskrypcji platformy Azure:
-
-    # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azcli)
-
-    ```azurecli
-    az ad sp list --display-name "Azure Machine Learning" --query '[].[appDisplayName,objectId]' --output tsv
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzADServicePrincipal --DisplayName "Azure Machine Learning" | select-object DisplayName, Id
-    ```
-
-    ---
-    To polecenie zwraca identyfikator obiektu, który jest identyfikatorem GUID.
-
-1. Aby dodać identyfikator obiektu jako współautor do subskrypcji, użyj następującego polecenia. Zamień na `<object-ID>` Identyfikator obiektu nazwy głównej usługi. Zamień na `<subscription-ID>` nazwę lub Identyfikator subskrypcji platformy Azure:
-
-    # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azcli)
-
-    ```azurecli
-    az role assignment create --role 'Contributor' --assignee-object-id <object-ID> --subscription <subscription-ID>
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    New-AzRoleAssignment --ObjectId <object-ID> --RoleDefinitionName "Contributor" -Scope /subscriptions/<subscription-ID>
-    ```
-
-    ---
-
-1. Aby wygenerować klucz w istniejącym Azure Key Vault, użyj jednego z następujących poleceń. Zamień `<keyvault-name>` na nazwę magazynu kluczy. Zamień na `<key-name>` nazwę, która ma zostać użyta dla klucza:
-
-    # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azcli)
-
-    ```azurecli
-    az keyvault key create --vault-name <keyvault-name> --name <key-name> --protection software
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Add-AzKeyVaultKey -VaultName <keyvault-name> -Name <key-name> -Destination 'Software'
-    ```
+    ```azurepowershell  
+    Get-AzureRMKeyVault -VaultName '<keyvault-name>'    
+    ``` 
     --- 
 
-__Aby dodać zasady dostępu do magazynu kluczy, użyj następujących poleceń__:
+    To polecenie zwraca wartość podobną do `/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>` .  
 
-1. Aby uzyskać identyfikator obiektu aplikacji Azure Cosmos DB, użyj następującego polecenia. Wartość może być różna dla każdej subskrypcji platformy Azure:
+1. Aby uzyskać wartość identyfikatora URI dla klucza zarządzanego przez klienta, użyj następującego polecenia:    
 
-    # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azcli)
+    # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azcli)   
 
-    ```azurecli
-    az ad sp list --display-name "Azure Cosmos DB" --query '[].[appDisplayName,objectId]' --output tsv
-    ```
+    ```azurecli 
+    az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv  
+    ``` 
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell) 
 
-    ```azurepowershell
-    Get-AzADServicePrincipal --DisplayName "Azure Cosmos DB" | select-object DisplayName, Id
-    ```
-    ---
+    ```azurepowershell  
+    Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>' 
+    ``` 
+    --- 
 
-    To polecenie zwraca identyfikator obiektu, który jest identyfikatorem GUID. Zapisz go później
+    To polecenie zwraca wartość podobną do `https://mykeyvault.vault.azure.net/keys/mykey/{guid}` . 
 
-1. Aby ustawić zasady, użyj następującego polecenia. Zamień `<keyvault-name>` na nazwę istniejącego Azure Key Vault. Zamień na `<object-ID>` Identyfikator GUID z poprzedniego kroku:
-
-    # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azcli)
-
-    ```azurecli
-    az keyvault set-policy --name <keyvault-name> --object-id <object-ID> --key-permissions get unwrapKey wrapKey
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-    
-    ```azurepowershell
-    Set-AzKeyVaultAccessPolicy -VaultName <keyvault-name> -ObjectId <object-ID> -PermissionsToKeys get, unwrapKey, wrapKey
-    ```
-    ---    
-
-__Aby uzyskać wartości__ dla `cmk_keyvault` (identyfikatora Key Vault) i `resource_cmk_uri` parametrów (identyfikator URI klucza) wymaganych przez ten szablon, wykonaj następujące czynności:
-
-1. Aby uzyskać identyfikator Key Vault, użyj następującego polecenia:
-
-    # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azcli)
-
-    ```azurecli
-    az keyvault show --name <keyvault-name> --query 'id' --output tsv
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzureRMKeyVault -VaultName '<keyvault-name>'
-    ```
-    ---
-
-    To polecenie zwraca wartość podobną do `/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>` .
-
-1. Aby uzyskać wartość identyfikatora URI dla klucza zarządzanego przez klienta, użyj następującego polecenia:
-
-    # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azcli)
-
-    ```azurecli
-    az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>'
-    ```
-    ---
-
-    To polecenie zwraca wartość podobną do `https://mykeyvault.vault.azure.net/keys/mykey/{guid}` .
-
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Po utworzeniu obszaru roboczego nie można zmienić ustawień poufnych danych, szyfrowania, identyfikatora magazynu kluczy ani identyfikatorów kluczy. Aby zmienić te wartości, należy utworzyć nowy obszar roboczy przy użyciu nowych wartości.
 
-Po pomyślnym wykonaniu powyższych kroków Wdróż szablon tak jak zwykle. Aby umożliwić korzystanie z kluczy zarządzanych przez klienta, ustaw następujące parametry:
+Aby włączyć korzystanie z kluczy zarządzanych przez klienta, należy ustawić następujące parametry podczas wdrażania szablonu:
 
 * **encryption_status** do **włączenia**.
 * **cmk_keyvault** `cmk_keyvault` wartość uzyskaną w poprzednich krokach.

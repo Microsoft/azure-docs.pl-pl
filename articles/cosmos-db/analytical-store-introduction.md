@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: 3b210ea558f857d017504d07e571e94e34c0d4f6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: d831d40733f9fa1d0db4c53d72de22898e493639
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037103"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795868"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Co to jest Azure Cosmos DB magazyn analityczny (wersja zapoznawcza)?
 
@@ -123,7 +123,7 @@ Poprzez oddzielenie systemu magazynu analitycznego od systemu obliczeń analityc
 > [!NOTE]
 > Można odczytywać tylko z magazynu analitycznego, używając czasu wykonywania analizy Synapse. Dane można zapisać z powrotem do magazynu transakcyjnego jako obsługujący warstwę.
 
-## <a name="pricing"></a><a id="analytical-store-pricing"></a>Wpisaną
+## <a name="pricing"></a><a id="analytical-store-pricing"></a> Wpisaną
 
 Magazyn analityczny jest zgodny z modelem cen opartym na zużyciu, w którym opłata jest naliczana za:
 
@@ -134,17 +134,17 @@ Magazyn analityczny jest zgodny z modelem cen opartym na zużyciu, w którym op�
 * Operacje odczytu analitycznego: operacje odczytu wykonywane względem magazynu analitycznego z Synapse Analytics Spark i programu SQL Server.
 
 > [!NOTE]
-> Magazyn analityczny Azure Cosmos DB jest dostępny w publicznej wersji zapoznawczej bezpłatnie do 30 sierpnia 2020.
+> Magazyn analityczny Azure Cosmos DB jest obecnie dostępny bezpłatnie w publicznej wersji zapoznawczej.
 
 Cennik sklepu analitycznego jest oddzielony od modelu cen magazynu transakcji. W magazynie analitycznym nie ma koncepcji jednostek rud. Aby uzyskać szczegółowe informacje o modelu cen dla magazynu analitycznego, zobacz [stronę z cennikiem Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 Aby uzyskać szacunkowy koszt wysokiego poziomu, aby umożliwić magazyn analityczny w kontenerze Azure Cosmos DB, można użyć [terminarza wydajności Azure Cosmos DB](https://cosmos.azure.com/capacitycalculator/) i uzyskać szacunkowy koszt magazynu analitycznego i operacji zapisu. Koszty operacji odczytu analitycznego są zależne od cech obciążenia analizy, ale w przypadku oszacowania wysokiego poziomu skanowanie 1 TB danych w magazynie analitycznym zwykle skutkuje wynikiem operacji odczytu analitycznego 130 000, a wynikiem jest koszt $0,065.
 
-## <a name="analytical-time-to-live-ttl"></a><a id="analytical-ttl"></a>Czas trwania analizy (TTL)
+## <a name="analytical-time-to-live-ttl"></a><a id="analytical-ttl"></a> Czas trwania analizy (TTL)
 
 Analityczny czas wygaśnięcia wskazuje, jak długo dane mają być przechowywane w magazynie analitycznym dla kontenera. 
 
-Operacje wstawiania, aktualizacji, usuwania do danych operacyjnych są automatycznie synchronizowane z magazynu transakcyjnego do magazynu analitycznego, niezależnie od transakcyjnej konfiguracji czasu wygaśnięcia (TTL). Przechowywanie danych operacyjnych w magazynie analitycznym może być kontrolowane przez analityczną wartość czasu wygaśnięcia na poziomie kontenera, jak określono poniżej:
+Jeśli magazyn analityczny jest włączony, operacje wstawiania, aktualizacji i usuwania danych operacyjnych są automatycznie synchronizowane z magazynu transakcyjnego do magazynu analitycznego, niezależnie od transakcyjnej konfiguracji czasu wygaśnięcia (TTL). Przechowywanie danych operacyjnych w magazynie analitycznym może być kontrolowane przez analityczną wartość czasu wygaśnięcia na poziomie kontenera, jak określono poniżej:
 
 Analityczny czas wygaśnięcia dla kontenera jest ustawiany przy użyciu `AnalyticalStoreTimeToLiveInSeconds` Właściwości:
 

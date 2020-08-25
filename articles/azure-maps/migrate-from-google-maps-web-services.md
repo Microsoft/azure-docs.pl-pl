@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 934a7546464cf552c355ee6b4e278b79a0f9ff90
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83747500"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Migruj usługę sieci Web z usługi Google Maps
@@ -24,7 +24,7 @@ W tabeli przedstawiono interfejsy API usługi Azure Maps, które mają podobną 
 
 | Interfejs API usługi Mapy Google | Interfejs API usługi Azure Maps                                                                      |
 |-------------------------|---------------------------------------------------------------------------------------------|
-| Wskazówki dojazdu              | [Trasa](https://docs.microsoft.com/rest/api/maps/route)                                     |
+| Wskazówki              | [Trasa](https://docs.microsoft.com/rest/api/maps/route)                                     |
 | Macierz odległości         | [Macierz trasy](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)       |
 | Geokodowanie               | [Wyszukiwanie](https://docs.microsoft.com/rest/api/maps/search)                                   |
 | Wyszukiwanie miejsc           | [Wyszukiwanie](https://docs.microsoft.com/rest/api/maps/search)                                   |
@@ -67,9 +67,9 @@ W poniższej tabeli odwołuje się do parametrów interfejsu API usługi Google 
 |---------------------------|--------------------------------------|
 | `address`                   | `query`                            |
 | `bounds`                    | `topLeft` i `btmRight`           |
-| `components`                | `streetNumber`<br/>`streetName`<br/>`crossStreet`<br/>`postalCode`<br/>`municipality`— Miasto/Miasto<br/>`municipalitySubdivision`— Kluby, sub/Super miasto<br/>`countrySubdivision`— Województwo<br/>`countrySecondarySubdivision`— Powiat<br/>`countryTertiarySubdivision`— Dystrykt<br/>`countryCode`-dwuliterowy kod kraju/regionu |
-| `key`                       | `subscription-key`— Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
-| `language`                  | `language`— Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
+| `components`                | `streetNumber`<br/>`streetName`<br/>`crossStreet`<br/>`postalCode`<br/>`municipality` — Miasto/Miasto<br/>`municipalitySubdivision` — Kluby, sub/Super miasto<br/>`countrySubdivision` — Województwo<br/>`countrySecondarySubdivision` — Powiat<br/>`countryTertiarySubdivision` — Dystrykt<br/>`countryCode` -dwuliterowy kod kraju/regionu |
+| `key`                       | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
+| `language`                  | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `region`                    | `countrySet`                       |
 
 Przykład użycia usługi wyszukiwania opisano [tutaj](how-to-search-for-address.md). Zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi wyszukiwania](how-to-use-best-practices-for-search.md).
@@ -91,8 +91,8 @@ Ta tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google 
 
 | Parametr interfejsu API usługi Google Maps   | Porównywalny parametr interfejsu API Azure Maps   |
 |-----------------------------|---------------------------------------|
-| `key`                       | `subscription-key`— Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
-| `language`                  | `language`— Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
+| `key`                       | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
+| `language`                  | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `latlng`                    | `query`  |
 | `location_type`             | *NIE DOTYCZY*     |
 | `result_type`               | `entityType`    |
@@ -141,8 +141,8 @@ Tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google Map
 | `fields`                  | *NIE DOTYCZY*                               |
 | `input`                   | `query`                             |
 | `inputtype`               | *NIE DOTYCZY*                               |
-| `key`                     | `subscription-key`— Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
-| `language`                | `language`— Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
+| `key`                     | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
+| `language`                | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `locationbias`            | `lat``lon`i`radius`<br/>`topLeft` i `btmRight`<br/>`countrySet`  |
 
 ### <a name="nearby-search"></a>Wyszukiwanie w pobliżu
@@ -153,9 +153,9 @@ W tabeli przedstawiono parametry interfejsu API usługi Google Maps z porównywa
 
 | Parametr interfejsu API usługi Google Maps | Porównywalny parametr interfejsu API Azure Maps  |
 |---------------------------|--------------------------------------|
-| `key`                       | `subscription-key`— Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
+| `key`                       | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
 | `keyword`                   | `categorySet` i `brandSet`        |
-| `language`                  | `language`— Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
+| `language`                  | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `location`                  | `lat` i `lon`                     |
 | `maxprice`                  | *NIE DOTYCZY*                               |
 | `minprice`                  | *NIE DOTYCZY*                               |
@@ -164,7 +164,7 @@ W tabeli przedstawiono parametry interfejsu API usługi Google Maps z porównywa
 | `pagetoken`                 | `ofs` i `limit`                   |
 | `radius`                    | `radius`                            |
 | `rankby`                    | *NIE DOTYCZY*                               |
-| `type`                      | `categorySet –`Zapoznaj się z dokumentacją dotyczącą [obsługiwanych kategorii wyszukiwania](supported-search-categories.md) .   |
+| `type`                      | `categorySet –` Zapoznaj się z dokumentacją dotyczącą [obsługiwanych kategorii wyszukiwania](supported-search-categories.md) .   |
 
 ## <a name="calculate-routes-and-directions"></a>Obliczanie tras i wskazówek
 
@@ -191,9 +191,9 @@ Tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google Map
 | `arrival_time`                | `arriveAt`                          |
 | `avoid`                        | `avoid`                            |
 | `departure_time`              | `departAt`                          |
-| `destination`                  | `query`— Współrzędne w formacie`"lat0,lon0:lat1,lon1…."`  |
-| `key`                          | `subscription-key`— Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
-| `language`                     | `language`— Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .   |
+| `destination`                  | `query` — Współrzędne w formacie `"lat0,lon0:lat1,lon1…."`  |
+| `key`                          | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
+| `language`                     | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .   |
 | `mode`                         | `travelMode`                       |
 | `optimize`                     | `computeBestOrder`                 |
 | `origin`                       | `query`                            |
@@ -236,15 +236,15 @@ Tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google Map
 | Parametr interfejsu API usługi Google Maps | Porównywalny parametr interfejsu API Azure Maps  |
 |---------------------------|--------------------------------------|
 | `center`                    | `center`                           |
-| `format`                    | `format`— określony jako część ścieżki URL. Obecnie obsługiwane są tylko pliki PNG. |
-| `key`                       | `subscription-key`— Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
-| `language`                  | `language`— Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
-| `maptype`                   | `layer`i `style` — Zobacz dokumentację [obsługiwanych stylów mapy](supported-map-styles.md) . |
+| `format`                    | `format` — określony jako część ścieżki URL. Obecnie obsługiwane są tylko pliki PNG. |
+| `key`                       | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
+| `language`                  | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
+| `maptype`                   | `layer` i `style` — Zobacz dokumentację [obsługiwanych stylów mapy](supported-map-styles.md) . |
 | `markers`                   | `pins`                             |
 | `path`                      | `path`                             |
 | `region`                    | Nie *dotyczy — jest* to funkcja powiązana z geokodowaniem. Użyj `countrySet` parametru podczas korzystania z interfejsu API Azure Maps geokodowania.  |
 | `scale`                     | *NIE DOTYCZY*                              |
-| `size`                      | `width`i `height` — może mieć rozmiar maksymalnie 8192x8192. |
+| `size`                      | `width` i `height` — może mieć rozmiar maksymalnie 8192x8192. |
 | `style`                     | *NIE DOTYCZY*                              |
 | `visible`                   | *NIE DOTYCZY*                              |
 | `zoom`                      | `zoom`                             |
@@ -278,14 +278,14 @@ Określ lokalizacje znaczników z formatem "szerokości geograficznej".
 
 Dodawanie stylów znacznika w `optionName:value` formacie z wieloma stylami oddzielonymi znakami potoku ( \| ), takimi jak ten "optionName1: wartość1 \| optionName2: wartość2". Zwróć uwagę, że nazwy i wartości opcji są oddzielone dwukropkiem (:). Użyj następujących nazw opcji stylu do znaczników stylu w usłudze Google Maps:
 
-- `color`— Kolor ikony znacznika domyślnego. Może to być 24-bitowy kolor szesnastkowy ( `0xrrggbb` ) lub jedna z następujących wartości:,,,,,,,, `black` `brown` `green` `purple` `yellow` `blue` `gray` `orange` `red` , `white` .
-- `label`— Pojedynczy znak alfanumeryczny pisany wielkimi literami, który ma być wyświetlany na górze ikony.
-- `size`— Rozmiar znacznika. Może być `tiny` , `mid` lub `small` .
+- `color` — Kolor ikony znacznika domyślnego. Może to być 24-bitowy kolor szesnastkowy ( `0xrrggbb` ) lub jedna z następujących wartości:,,,,,,,, `black` `brown` `green` `purple` `yellow` `blue` `gray` `orange` `red` , `white` .
+- `label` — Pojedynczy znak alfanumeryczny pisany wielkimi literami, który ma być wyświetlany na górze ikony.
+- `size` — Rozmiar znacznika. Może być `tiny` , `mid` lub `small` .
 
 Użyj następujących nazw opcji stylu dla ikon niestandardowych w usłudze Google Maps:
 
-- `anchor`— Określa sposób wyrównania obrazu ikony do współrzędnej. Może to być wartość pikseli (x, y) lub jedna z następujących wartości: ,,,,,, `top` `bottom` `left` `right` `center` `topleft` `topright` , `bottomleft` lub `bottomright` .
-- `icon`– Adres URL wskazujący obraz ikony.
+- `anchor` — Określa sposób wyrównania obrazu ikony do współrzędnej. Może to być wartość pikseli (x, y) lub jedna z następujących wartości: ,,,,,, `top` `bottom` `left` `right` `center` `topleft` `topright` , `bottomleft` lub `bottomright` .
+- `icon` – Adres URL wskazujący obraz ikony.
 
 Na przykład Dodajmy znacznik czerwony, średni rozmiar do mapy na długości geograficznej: 110, Szerokość geograficzna: 45:
 
@@ -311,21 +311,21 @@ W Azure Maps lokalizacja numeru PIN musi być w formacie "Długość geograficzn
 
 `iconType`Określa typ kodu PIN, który ma zostać utworzony. Może mieć następujące wartości:
 
-- `default`— Domyślna ikona pinezki.
-- `none`— Nie jest wyświetlana ikona, tylko etykiety będą renderowane.
-- `custom`— Określa niestandardową ikonę, która ma być używana. Adres URL wskazujący ikonę obrazu można dodać na końcu `pins` parametru po informacjach o lokalizacji numeru PIN.
-- `{udid}`— Unikatowy identyfikator danych (UDID) dla ikony przechowywanej na platformie magazynu danych Azure Maps.
+- `default` — Domyślna ikona pinezki.
+- `none` — Nie jest wyświetlana ikona, tylko etykiety będą renderowane.
+- `custom` — Określa niestandardową ikonę, która ma być używana. Adres URL wskazujący ikonę obrazu można dodać na końcu `pins` parametru po informacjach o lokalizacji numeru PIN.
+- `{udid}` — Unikatowy identyfikator danych (UDID) dla ikony przechowywanej na platformie magazynu danych Azure Maps.
 
 Dodaj style kodu PIN w `optionNameValue` formacie. Oddziel wiele stylów znakami potoku ( \| ). Na przykład: `iconType|optionName1Value1|optionName2Value2`. Nazwy i wartości opcji nie są oddzielone. Użyj następujących nazw opcji stylu do znaczników stylu:
 
-- `al`— Określa nieprzezroczystość (alfa) znacznika. Wybierz liczbę z zakresu od 0 do 1.
-- `an`— Określa kotwicę numeru PIN. Określ wartości X i y pikseli w formacie "X y".
-- `co`— Kolor kodu PIN. Określ 24-bitowy kolor szesnastkowy: `000000` do `FFFFFF` .
-- `la`— Określa zakotwiczenie etykiety. Określ wartości X i y pikseli w formacie "X y".
-- `lc`— Kolor etykiety. Określ 24-bitowy kolor szesnastkowy: `000000` do `FFFFFF` .
-- `ls`— Rozmiar etykiety (w pikselach). Wybierz liczbę większą niż 0.
-- `ro`— Wartość w stopniach, aby obrócić ikonę. Wybierz liczbę z przedziału od-360 do 360.
-- `sc`— Wartość skali dla ikony pinezki. Wybierz liczbę większą niż 0.
+- `al` — Określa nieprzezroczystość (alfa) znacznika. Wybierz liczbę z zakresu od 0 do 1.
+- `an` — Określa kotwicę numeru PIN. Określ wartości X i y pikseli w formacie "X y".
+- `co` — Kolor kodu PIN. Określ 24-bitowy kolor szesnastkowy: `000000` do `FFFFFF` .
+- `la` — Określa zakotwiczenie etykiety. Określ wartości X i y pikseli w formacie "X y".
+- `lc` — Kolor etykiety. Określ 24-bitowy kolor szesnastkowy: `000000` do `FFFFFF` .
+- `ls` — Rozmiar etykiety (w pikselach). Wybierz liczbę większą niż 0.
+- `ro` — Wartość w stopniach, aby obrócić ikonę. Wybierz liczbę z przedziału od-360 do 360.
+- `sc` — Wartość skali dla ikony pinezki. Wybierz liczbę większą niż 0.
 
 Określ wartości etykiet dla każdej lokalizacji numeru PIN. Takie podejście jest bardziej wydajne niż stosowanie pojedynczej wartości etykiety do wszystkich znaczników na liście lokalizacji. Wartość etykiety może być ciągiem z wieloma znakami. Zawiń ciąg z pojedynczymi cudzysłowami, aby upewnić się, że nie zostanie on pomylony jako wartość stylu lub lokalizacji.
 
@@ -365,10 +365,10 @@ Lokalizacje ścieżki są określone w `latitude1,longitude1|latitude2,longitude
 
 Dodaj style ścieżki w `optionName:value` formacie, Oddziel wiele stylów według znaków potoku ( \| ). I Oddzielaj nazwy opcji i wartości średnikami (:). W następujący sposób: `optionName1:value1|optionName2:value2` . Następujące nazwy opcji stylu mogą służyć do nadawania stylu ścieżkom w usłudze Google Maps:
 
-- `color`— Kolor ścieżki lub konturu wielokąta. Może to być 24-bitowy kolor szesnastkowy ( `0xrrggbb` ), 32-bitowy kolor szesnastkowy ( `0xrrggbbbaa` ) lub jedna z następujących wartości: Black, brązowy, zielony, purpurowy, żółty, niebieski, szary, pomarańczowy, czerwony, biały.
-- `fillColor`— Kolor wypełnienia obszaru ścieżki przy użyciu (Wielokąt). Może to być 24-bitowy kolor szesnastkowy ( `0xrrggbb` ), 32-bitowy kolor szesnastkowy ( `0xrrggbbbaa` ) lub jedna z następujących wartości: Black, brązowy, zielony, purpurowy, żółty, niebieski, szary, pomarańczowy, czerwony, biały.
-- `geodesic`— Wskazuje, czy ścieżka powinna być linią, która jest zgodna z krzywizną ziemi.
-- `weight`— Grubość linii ścieżki w pikselach.
+- `color` — Kolor ścieżki lub konturu wielokąta. Może to być 24-bitowy kolor szesnastkowy ( `0xrrggbb` ), 32-bitowy kolor szesnastkowy ( `0xrrggbbbaa` ) lub jedna z następujących wartości: Black, brązowy, zielony, purpurowy, żółty, niebieski, szary, pomarańczowy, czerwony, biały.
+- `fillColor` — Kolor wypełnienia obszaru ścieżki przy użyciu (Wielokąt). Może to być 24-bitowy kolor szesnastkowy ( `0xrrggbb` ), 32-bitowy kolor szesnastkowy ( `0xrrggbbbaa` ) lub jedna z następujących wartości: Black, brązowy, zielony, purpurowy, żółty, niebieski, szary, pomarańczowy, czerwony, biały.
+- `geodesic` — Wskazuje, czy ścieżka powinna być linią, która jest zgodna z krzywizną ziemi.
+- `weight` — Grubość linii ścieżki w pikselach.
 
 Dodaj nieprzezroczystą linię i grubość pikseli do mapy między współrzędnymi, w parametrze adresu URL. W poniższym przykładzie linia ma nieprzezroczystość 50% i grubość czterech pikseli. Współrzędne to długość geograficzna:-110, Szerokość geograficzna: 45 i Długość geograficzna:-100, Szerokość geograficzna: 50.
 
@@ -392,12 +392,12 @@ Gdy powróci do lokalizacji ścieżki, Azure Maps wymaga, aby współrzędne by�
 
 Dodaj style ścieżki w `optionNameValue` formacie. Oddziel wiele stylów według znaków potoku ( \| ), takich jak ten `optionName1Value1|optionName2Value2` . Nazwy i wartości opcji nie są oddzielone. Użyj następujących nazw opcji stylu do ścieżek stylów w Azure Maps:
 
-- `fa`— Nieprzezroczystość koloru wypełnienia (alfa) użyta podczas renderowania wielokątów. Wybierz liczbę z zakresu od 0 do 1.
-- `fc`— Kolor wypełnienia używany do renderowania obszaru wielokąta.
-- `la`— Nieprzezroczystość koloru linii (alfa) używana podczas renderowania linii i konspektu wielokątów. Wybierz liczbę z zakresu od 0 do 1.
-- `lc`— Kolor linii używany do renderowania linii i konspektu wielokątów.
-- `lw`— Szerokość linii w pikselach.
-- `ra`– Określa promień okręgów w metrach.
+- `fa` — Nieprzezroczystość koloru wypełnienia (alfa) użyta podczas renderowania wielokątów. Wybierz liczbę z zakresu od 0 do 1.
+- `fc` — Kolor wypełnienia używany do renderowania obszaru wielokąta.
+- `la` — Nieprzezroczystość koloru linii (alfa) używana podczas renderowania linii i konspektu wielokątów. Wybierz liczbę z zakresu od 0 do 1.
+- `lc` — Kolor linii używany do renderowania linii i konspektu wielokątów.
+- `lw` — Szerokość linii w pikselach.
+- `ra` – Określa promień okręgów w metrach.
 
 Dodaj nieprzezroczystość czerwoną linii i grubość pikseli między współrzędnymi, w parametrze adresu URL. W poniższym przykładzie linia ma wartość nieprzezroczystość 50% i grubość czterech pikseli. Współrzędne mają następujące wartości: Długość geograficzna:-110, Szerokość geograficzna: 45 i Długość geograficzna:-100, Szerokość geograficzna: 50.
 
@@ -425,11 +425,11 @@ Ta tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google 
 | `arrivial_time`                | `arriveAt`                           |
 | `avoid`                        | `avoid`                              |
 | `depature_time`                | `departAt`                           |
-| `destinations`                 | `destination`— Określ w treści żądania POST jako GEOJSON. |
-| `key`                          | `subscription-key`— Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
-| `language`                     | `language`— Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
+| `destinations`                 | `destination` — Określ w treści żądania POST jako GEOJSON. |
+| `key`                          | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
+| `language`                     | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `mode`                         | `travelMode`                         |
-| `origins`                      | `origins`— Określ w treści żądania POST jako GEOJSON.  |
+| `origins`                      | `origins` — Określ w treści żądania POST jako GEOJSON.  |
 | `region`                       | Nie *dotyczy — ta* funkcja jest związana z geokodowaniem. Użyj `countrySet` parametru podczas korzystania z interfejsu API Azure Maps geokodowania. |
 | `traffic_model`                | Nie *dotyczy — można* określić tylko wtedy, gdy dane o ruchu mają być używane z `traffic` parametrem. |
 | `transit_mode`                 | Macierze *oparte na* trasach nie są obecnie obsługiwane.  |
@@ -451,8 +451,8 @@ Ta tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google 
 
 | Parametr interfejsu API usługi Google Maps | Porównywalny parametr interfejsu API Azure Maps   |
 |---------------------------|---------------------------------------|
-| `key`                       | `subscription-key`— Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) .       |
-| `language`                  | `language`— Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .    |
+| `key`                       | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) .       |
+| `language`                  | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .    |
 | `location`                  | `query`             |
 | `timestamp`                 | `timeStamp`         |
 
@@ -468,7 +468,7 @@ Oprócz tego interfejsu API Azure Maps udostępnia wiele interfejsów API strefy
 
 Azure Maps udostępnia biblioteki klienckie dla następujących języków programowania:
 
-- JavaScript, TypeScript, Node. js — [Dokumentacja](how-to-use-services-module.md) \| [npm pakietu](https://www.npmjs.com/package/azure-maps-rest)
+- JavaScript, TypeScript, Node.js — [Dokumentacja](how-to-use-services-module.md) \| [pakietu npm](https://www.npmjs.com/package/azure-maps-rest)
 
 Te biblioteki klienckie typu "open source" są przeznaczone dla innych języków programowania:
 

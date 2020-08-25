@@ -8,16 +8,16 @@ ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
 ms.openlocfilehash: 8af1acb67961de105e5bf5900d7b10c437cb30d8
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83835873"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Odpowiadanie na zdarzenia przy użyciu alertów platformy Azure Monitor
 Alerty platformy Azure Monitor mogą identyfikować ważne informacje w repozytorium usługi Log Analytics. Są one tworzone przy użyciu reguł alertów, które automatycznie uruchamiają przeszukiwanie dzienników w regularnych odstępach czasu. Jeśli wyniki przeszukiwania dzienników pasują do danych kryteriów, zostaje utworzony rekord alertu. Ponadto można go skonfigurować tak, aby generował automatyczną odpowiedź.  Ten samouczek jest kontynuacją samouczka [Tworzenie i udostępnianie pulpitów nawigacyjnych z danymi usługi Log Analytics](tutorial-logs-dashboards.md).   
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie reguły alertu
@@ -55,7 +55,7 @@ W poniższym przykładzie tworzona jest reguła alertu pomiaru metryki na podsta
 
     ![Tworzenie nowej grupy akcji](./media/tutorial-response/action-group-properties-01.png)
 
-10. Kliknij przycisk **OK**, aby zakończyć definiowanie grupy akcji. 
+10. Kliknij pozycję **OK**, aby ukończyć konfigurowanie grupy akcji. 
 11. Kliknij przycisk **Utwórz regułę alertu**, aby zdefiniować regułę alertu. Rozpoczyna ona działanie od razu.<br><br> ![Zakończenie tworzenia nowej reguły alertu](./media/tutorial-response/alert-rule-01.png)<br> 
 
 ## <a name="view-your-alerts-in-azure-portal"></a>Wyświetlanie alertów w witrynie Azure Portal

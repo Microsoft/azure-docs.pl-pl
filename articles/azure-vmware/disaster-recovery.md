@@ -1,14 +1,14 @@
 ---
 title: Wykonaj odzyskiwanie po awarii maszyn wirtualnych
-description: W tym artykule pokazano, jak wykonać odzyskiwanie po awarii maszyn wirtualnych przy użyciu funkcji automatycznej synchronizacji
+description: W tym artykule pokazano, jak wykonać odzyskiwanie po awarii maszyn wirtualnych przy użyciu rozwiązania Azure VMware
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 5ccaa009c8e3e059597636a8bb78cc3bd255fe68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76a417b9ba00c4c0e6e958e5a04d19aecfe24563
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749951"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752272"
 ---
 # <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Kończenie odzyskiwania po awarii maszyn wirtualnych przy użyciu rozwiązania Azure VMware
 
@@ -46,7 +46,7 @@ Wprowadź obszar **odzyskiwania po awarii** i kliknij pozycję **Chroń maszyny 
 
 :::image type="content" source="./media/disaster-recovery/protect-virtual-machine.png" alt-text="Wybierz pozycję Chroń maszyny wirtualne" border="true":::
 
-W otwartym oknie Wybierz źródło i lokacje zdalne, a w tym przypadku lokację zdalną powinna być chmurą prywatną.
+W otwartym oknie Wybierz źródło i zdalne lokacje, w tym przypadku powinna być chmurą prywatną rozwiązania Azure VMware.
 
 :::image type="content" source="./media/disaster-recovery/protect-virtual-machines.png" alt-text="okno ochrony maszyn wirtualnych" border="true":::
 
@@ -56,7 +56,7 @@ W razie konieczności wybierz domyślne opcje replikacji:
 
 - **Włącz Quiescence:** Wstrzymuje maszynę wirtualną, aby upewnić się, że spójna kopia jest synchronizowana z lokacją zdalną.
 
-- **Magazyn docelowy:** Wybierz zdalny magazyn danych dla chronionych maszyn wirtualnych. W chmurze prywatnej automatycznej synchronizacji ten wybór powinien być magazynem danych sieci vSAN.
+- **Magazyn docelowy:** Wybierz zdalny magazyn danych dla chronionych maszyn wirtualnych. W chmurze prywatnej rozwiązania VMware platformy Azure ten wybór powinien być magazynem danych sieci vSAN.
 
 - **Kontener obliczeniowy:** Zdalny klaster vSphere lub Pula zasobów.
 
@@ -95,7 +95,7 @@ Po włączeniu maszyny wirtualnej rozpocznie się synchronizowanie procesu z lok
 
 ## <a name="complete-a-test-recover-of-virtual-machines"></a>Ukończ odzyskiwanie testów maszyn wirtualnych
 
-Zaloguj się do **VSphere Client** w zdalnej witrynie, która jest chmurą prywatną. W ramach **wtyczki HCX**w obszarze odzyskiwania po awarii wybierz wielokropek pionowy na dowolnej maszynie wirtualnej, aby wyświetlić menu operacje. Wybierz pozycję **Testuj odzyskiwanie maszyny wirtualnej**.
+Zaloguj się do **VSphere Client** w zdalnej witrynie, która jest chmurą prywatną rozwiązania Azure VMware. W ramach **wtyczki HCX**w obszarze odzyskiwania po awarii wybierz wielokropek pionowy na dowolnej maszynie wirtualnej, aby wyświetlić menu operacje. Wybierz pozycję **Testuj odzyskiwanie maszyny wirtualnej**.
 
 :::image type="content" source="./media/disaster-recovery/test-recover-virtual-machine.png" alt-text="Wybierz test odzyskiwania maszyny wirtualnej" border="true":::
 
@@ -105,7 +105,7 @@ W nowym oknie wybierz Opcje testu. Wybierz migawkę, która ma być używana do 
 
 Po kliknięciu **testu**zostanie rozpoczęta operacja odzyskiwania.
 
-Po zakończeniu testowego odzyskiwania można sprawdzić nową maszynę wirtualną w programie vCenter w chmurze prywatnej chmury.
+Po zakończeniu testowego odzyskiwania można sprawdzić nową maszynę wirtualną w rozwiązaniu Azure VMware Private Cloud vCenter.
 
 :::image type="content" source="./media/disaster-recovery/verify-test-recovery.png" alt-text="Sprawdź operację odzyskiwania" border="true":::
 
@@ -115,7 +115,7 @@ Na koniec po zakończeniu testowania na maszynie wirtualnej lub dowolna uruchomi
 
 ## <a name="recover-virtual-machines"></a>Odzyskiwanie maszyn wirtualnych
 
-Zaloguj się do **VSphere Client** w zdalnej witrynie, która jest chmurą prywatną do automatycznej synchronizacji, i uzyskaj dostęp do **wtyczki HCX**.
+Zaloguj się do **VSphere Client** w zdalnej witrynie, która jest chmurą prywatną rozwiązania Azure VMware, i uzyskaj dostęp do **wtyczki HCX**.
 
 W przypadku scenariusza odzyskiwania Grupa maszyn wirtualnych użyta w tym przykładzie.
 
@@ -131,7 +131,7 @@ Po zakończeniu operacji odzyskiwania nowe maszyny wirtualne będą widoczne w s
 
 ## <a name="complete-a-reverse-replication-on-virtual-machines"></a>Wykonaj replikację odwrotną na maszynach wirtualnych
 
-Zaloguj się do **klienta usługi vSphere** w chmurze prywatnej automatycznej synchronizacji i uzyskaj dostęp do **wtyczki HCX**.
+Zaloguj się do **klienta vSphere** w chmurze prywatnej rozwiązania platformy Azure VMware i uzyskaj dostęp do **wtyczki HCX**.
 Przed rozpoczęciem replikacji odwrotnej wymagane jest, aby oryginalne maszyny wirtualne w lokacji źródłowej były wyłączone. Operacja kończy się niepowodzeniem, jeśli maszyny wirtualne nie są wyłączone.
 
 Wybierz Maszyny wirtualne, które mają być replikowane z powrotem do lokacji źródłowej z listy, otwórz menu **Akcje** i wybierz polecenie **Odwróć**. W oknie podręcznym kliknij pozycję **Odwróć** , aby rozpocząć replikację.
@@ -166,7 +166,7 @@ Te interfejsy API obejmują następujące operacje odzyskiwania po awarii.
 
 - Wstrzymanie
 
-- Wznawianie
+- Wznów
 
 - Usuń ochronę
 

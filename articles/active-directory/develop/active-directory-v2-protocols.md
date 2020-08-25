@@ -13,12 +13,12 @@ ms.date: 07/21/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2be68a858773dd4e76126ba6cd04ad98a2fd6a06
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 12edbcda7354d9d6d4b03ebe32304d988b2eb579
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313442"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751446"
 ---
 # <a name="oauth-20-and-openid-connect-protocols-on-microsoft-identity-platform"></a>Protokoły uwierzytelniania OAuth 2,0 i OpenID Connect w usłudze Microsoft Identity platform
 
@@ -30,7 +30,7 @@ W prawie wszystkie przepływy za pomocą protokołu OAuth 2,0 i OpenID Connect �
 
 ![Diagram przedstawiający role OAuth 2,0](./media/active-directory-v2-flows/protocols-roles.svg)
 
-* **Serwer autoryzacji** jest punktem końcowym platformy tożsamości firmy Microsoft, który jest odpowiedzialny za zapewnienie tożsamości użytkownika, przydzielanie i odwoływanie dostępu do zasobów oraz wystawianie tokenów. Serwer autoryzacji znany również jako dostawca tożsamości — bezpiecznie obsługuje wszystko, aby zrobić z informacjami o użytkowniku, ich dostępem i relacjami zaufania między stronami w przepływie.
+* **Serwer autoryzacji** jest punktem końcowym platformy tożsamości firmy Microsoft, który jest odpowiedzialny za zapewnienie tożsamości użytkownika, przydzielanie i odwoływanie dostępu do zasobów oraz wystawianie tokenów. Serwer autoryzacji jest również znany jako dostawca tożsamości — bezpiecznie obsługuje wszystko, aby zrobić z informacjami o użytkowniku, ich dostępem i relacjami zaufania między stronami w przepływie.
 * **Właścicielem zasobu** jest zazwyczaj użytkownik końcowy. Jest to strona, która jest właścicielem danych i ma możliwość zezwalania klientom na dostęp do tych danych lub zasobów.
 * **Klient OAuth** jest aplikacją identyfikowaną przez identyfikator aplikacji. Klient uwierzytelniania OAuth jest zwykle stroną, z którą użytkownik końcowy współdziała, i żąda tokenów z serwera autoryzacji. Klient musi mieć przyznane uprawnienie dostępu do zasobu przez właściciela zasobu.
 * **Serwer zasobów** jest miejscem, w którym znajdują się zasoby lub dane. Ufa serwerowi autoryzacji do bezpiecznego uwierzytelniania i autoryzacji klienta OAuth i używa tokenów dostępu okaziciela, aby zapewnić, że dostęp do zasobu można udzielić.

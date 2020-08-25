@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 2ffe9d525e92fa2154889cea43f681a0f31a18ab
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 5095931e28438beebf3250155ede1a8af0bb5c64
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214219"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796973"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Dostosowywanie ruchu wychodzącego klastra przy użyciu trasy zdefiniowanej przez użytkownika
 
@@ -32,7 +32,7 @@ W tym artykule opisano sposób dostosowywania trasy ruchu wychodzącego klastra 
 
 ## <a name="overview-of-outbound-types-in-aks"></a>Przegląd typów wychodzących w AKS
 
-Klaster AKS można dostosować przy użyciu unikatowego `outboundType` typu modułu równoważenia obciążenia lub routingu zdefiniowanego przez użytkownika.
+Klaster AKS można dostosować przy użyciu unikatowego `outboundType` typu `loadBalancer` lub `userDefinedRouting` .
 
 > [!IMPORTANT]
 > Typ wychodzący ma wpływ tylko na ruch wyjściowy klastra. Aby uzyskać więcej informacji, zobacz [Konfigurowanie kontrolerów danych wejściowych](ingress-basic.md).
@@ -62,7 +62,11 @@ Jeśli `userDefinedRouting` jest ustawiona, AKS nie konfiguruje automatycznie ś
 
 Klaster AKS musi zostać wdrożony w istniejącej sieci wirtualnej z podsiecią, która została wcześniej skonfigurowana, ponieważ w przypadku braku korzystania ze standardowej architektury modułu równoważenia obciążenia należy ustanowić jawne dane wyjściowe. W związku z tym ta architektura wymaga jawnego wysłania ruchu wychodzącego do urządzenia, takiego jak zapora, Brama lub serwer proxy lub umożliwienie translacji adresów sieciowych (NAT) przez publiczny adres IP przypisany do standardowego modułu równoważenia obciążenia lub urządzenia.
 
-Dostawca zasobów AKS będzie wdrażać usługę równoważenia obciążenia w warstwie Standardowa. Moduł równoważenia obciążenia nie jest skonfigurowany z żadną regułą i [nie powoduje naliczania opłat do momentu, gdy reguła zostanie umieszczona](https://azure.microsoft.com/pricing/details/load-balancer/). Usługa AKS **nie będzie** automatycznie inicjować publicznego adresu IP dla FRONTONU modułu równoważenia obciążenia ani automatycznie konfigurować puli zaplecza modułu równoważenia obciążeń.
+#### <a name="load-balancer-creation-with-userdefinedrouting"></a>Tworzenie modułu równoważenia obciążenia za pomocą usługi userDefinedRouting
+
+Klastry AKS z typem wychodzącym UDR otrzymują moduł równoważenia obciążenia w warstwie Standardowa, tylko wtedy, gdy jest wdrożona pierwsza usługa Kubernetes typu "równoważenia obciążenia". Moduł równoważenia obciążenia jest skonfigurowany z publicznym adresem IP dla żądań *przychodzących* i puli zaplecza dla żądań *przychodzących* . Reguły ruchu przychodzącego są konfigurowane przez dostawcę chmury platformy Azure, ale **żaden publiczny adres IP lub reguły** wychodzące nie są konfigurowane w wyniku posiadania typu wychodzącego UDR. UDR będzie nadal jedynym źródłem ruchu wychodzącego.
+
+Usługi równoważenia obciążenia Azure [nie wiążą się z opłatą do momentu, gdy reguła zostanie umieszczona](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ## <a name="deploy-a-cluster-with-outbound-type-of-udr-and-azure-firewall"></a>Wdrażanie klastra z typem wychodzącym UDR i zaporą platformy Azure
 
@@ -70,9 +74,7 @@ Aby zilustrować aplikację klastra z typem wychodzącym przy użyciu trasy zdef
 
 > [!IMPORTANT]
 > Typ wychodzący UDR wymaga trasy dla 0.0.0.0/0 i lokalizacji docelowej następnego przeskoku urządzenie WUS (sieciowe urządzenie wirtualne) w tabeli tras.
-> Tabela tras ma już domyślne wartości 0.0.0.0/0 do Internetu, bez publicznego adresu IP do podłączania, po prostu dodanie tej trasy nie spowoduje wypróbowania ruchu wychodzącego. AKS sprawdzi, czy nie utworzysz trasy 0.0.0.0/0 wskazującej Internet, ale zamiast urządzenie WUS lub bramy itd.
-> 
-> Gdy jest używany typ wychodzący UDR, publiczny adres IP modułu równoważenia obciążenia nie jest tworzony, chyba że jest skonfigurowana usługa typu *równoważenia* obciążenia.
+> Tabela tras ma już domyślne wartości 0.0.0.0/0 do Internetu, bez publicznego adresu IP do podłączania, po prostu dodanie tej trasy nie spowoduje wypróbowania ruchu wychodzącego. AKS sprawdzi, czy nie utworzysz trasy 0.0.0.0/0 wskazującej Internet, ale zamiast urządzenie WUS lub bramy itd. W przypadku korzystania z typu wychodzącego UDR, publiczny adres IP modułu równoważenia obciążenia dla **żądań przychodzących** nie zostanie utworzony, chyba że jest skonfigurowana usługa typu *równoważenia* obciążenia. Publiczny adres IP dla **żądań wychodzących** nigdy nie jest tworzony przez AKS, jeśli ustawiono typ wychodzący UDR.
 
 ## <a name="next-steps"></a>Następne kroki
 

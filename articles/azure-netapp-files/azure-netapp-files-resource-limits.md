@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/07/2020
+ms.date: 08/21/2020
 ms.author: b-juche
-ms.openlocfilehash: 0c790d1d8bec972135796533542a5efad6094d7c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 9facbc1629b8e1330c6bbafb4444d5bfc237d16f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006676"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752296"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limity zasobów dla usługi Azure NetApp Files
 
@@ -33,8 +33,8 @@ W poniższej tabeli opisano limity zasobów dla Azure NetApp Files:
 |----------------|---------------------|--------------------------------------|
 |  Liczba kont NetApp na region platformy Azure   |  10    |  Tak   |
 |  Liczba pul pojemności na konto NetApp   |    25     |   Tak   |
-|  Liczba woluminów na konto NetApp   |    500     |   Tak   |
-|  Liczba woluminów na pulę pojemności     |    500   |    Yes     |
+|  Liczba woluminów na subskrypcję   |    500     |   Tak   |
+|  Liczba woluminów na pulę pojemności     |    500   |    Tak     |
 |  Liczba migawek na wolumin       |    255     |    Nie        |
 |  Liczba podsieci delegowanych do Azure NetApp Files (Microsoft. NetApp/Volumes) na platformie Azure Virtual Network    |   1   |    Nie    |
 |  Liczba używanych adresów IP w sieci wirtualnej (w tym natychmiastowo sieci wirtualnych komunikacji równorzędnej) z Azure NetApp Files   |    1000   |    Nie   |
@@ -48,7 +48,7 @@ W poniższej tabeli opisano limity zasobów dla Azure NetApp Files:
 
 Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące zarządzania pojemnością](azure-netapp-files-faqs.md#capacity-management-faqs).
 
-## <a name="maxfiles-limits"></a>Limity maxfiles<a name="maxfiles"></a> 
+## <a name="maxfiles-limits"></a>Limity maxfiles <a name="maxfiles"></a> 
 
 Woluminy Azure NetApp Files mają limit o nazwie *maxfiles*. Limit maxfiles to liczba plików, które może zawierać wolumin. Limit maxfiles dla woluminu Azure NetApp Files jest indeksowany na podstawie rozmiaru (przydziału) woluminu. Limit maxfiles dla woluminu rośnie lub zmniejsza się o szybkości 20 000 000 plików na TiB rozmiaru woluminu. 
 
@@ -64,7 +64,7 @@ Usługa dynamicznie dostosowuje limit maxfiles dla woluminu na podstawie jego ro
 
 Jeśli przydzielono już co najmniej 4 TiB przydziału dla woluminu, można zainicjować [żądanie obsługi](#limit_increase) , aby zwiększyć limit maxfiles przekraczający 100 000 000.
 
-## <a name="request-limit-increase"></a>Zwiększenie limitu żądań<a name="limit_increase"></a> 
+## <a name="request-limit-increase"></a>Zwiększenie limitu żądań <a name="limit_increase"></a> 
 
 Możesz utworzyć żądanie pomocy technicznej platformy Azure, aby zwiększyć regulowane limity z powyższej tabeli. 
 

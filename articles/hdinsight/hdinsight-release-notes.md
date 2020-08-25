@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/09/2020
-ms.openlocfilehash: 82a66d88b3c7c3492e7cb90116ff8ff8e61ca1b0
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.date: 08/21/2020
+ms.openlocfilehash: ba3c7304b0ce52cb720a9e2ac7ae6cf1b5ffeeea
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036593"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751471"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Informacje o wersji usługi Azure HDInsight
 
@@ -72,3 +72,7 @@ Poniżej JIRAs są ponownie przyłączone do HBase:
 
 ## <a name="component-version-change"></a>Zmiana wersji składnika
 Brak zmian wersji składnika dla tej wersji. Bieżące wersje składników usługi HDInsight 4,0 i HDInsight 3,6 można znaleźć w [tym dokumencie](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
+
+## <a name="known-issues"></a>Znane problemy
+
+Podczas próby utworzenia klastra usługi Azure HDInsight na podstawie Azure Portal i użycia typu uwierzytelniania SSH dla klucza publicznego użytkownicy napotykają błąd po kliknięciu opcji **Przegląd + Utwórz**. Błąd w portalu to "nie może zawierać żadnych trzech następujących po sobie znaków z nazwy użytkownika SSH". Ten problem jest rozwiązywany; Jednak w przypadku wystąpienia tego błędu obejście powoduje utworzenie klastra z szablonem ARM. 

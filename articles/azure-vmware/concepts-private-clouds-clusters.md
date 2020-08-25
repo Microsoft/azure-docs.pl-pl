@@ -3,18 +3,18 @@ title: Pojęcia — chmury prywatne i klastry
 description: Dowiedz się więcej na temat kluczowych funkcji centrów danych zdefiniowanych przez oprogramowanie VMware platformy Azure i klastrów vSphere w rozwiązaniu VMware na platformie Azure.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 09e1fd45b1dd873509f942ef8b524783acfed4ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06161d2ce95415ae3309d58ad18ad0d40b3782fb
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84906993"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752280"
 ---
-# <a name="azure-vmware-solution-avs-preview-private-cloud-and-cluster-concepts"></a>Azure VMware Solution (wersja zapoznawcza) — Podgląd chmury prywatnej i pojęcia dotyczące klastrów
+# <a name="azure-vmware-solution-preview-private-cloud-and-cluster-concepts"></a>Azure VMware — Omówienie wersji zapoznawczej chmury prywatnej i klastra
 
-Rozwiązanie Azure VMware (Automatyczna synchronizacja) zapewnia chmurę prywatną opartą na oprogramowaniu VMware na platformie Azure. Chmury prywatne są zbudowane z klastrów dedykowanych hostów bez systemu operacyjnego, które są wdrażane i zarządzane za pośrednictwem Azure Portal. Obsługa klastrów w chmurach prywatnych odbywa się przy użyciu oprogramowania VMware vSphere, vCenter, sieci vSAN i NSX. Automatyczna synchronizacja sprzętu i wdrożeń oprogramowania w chmurze prywatnej jest w pełni zintegrowane i zautomatyzowane na platformie Azure.
+Rozwiązanie Azure VMware zapewnia chmurę prywatną opartą na oprogramowaniu VMware na platformie Azure. Chmury prywatne są zbudowane z klastrów dedykowanych hostów bez systemu operacyjnego, które są wdrażane i zarządzane za pośrednictwem Azure Portal. Obsługa klastrów w chmurach prywatnych odbywa się przy użyciu oprogramowania VMware vSphere, vCenter, sieci vSAN i NSX. Wdrożenie sprzętu i oprogramowania chmury prywatnej na platformie Azure jest w pełni zintegrowane i zautomatyzowane na platformie Azure.
 
-Istnieje relacja logiczna między subskrypcjami platformy Azure, automatyczna synchronizacja chmur prywatnych, klastrów sieci vSAN i hostów. Na diagramie są wyświetlane dwie chmury prywatne w ramach jednej subskrypcji platformy Azure. Chmury prywatne reprezentują programowanie i środowisko produkcyjne, z których każdy ma własną chmurę prywatną. W każdej z tych chmur prywatnych istnieją dwa klastry. Aby pokazać mniejsze potencjalne potrzeby środowiska programistycznego, używane są mniejsze klastry z hostami o niższych pojemnościach. Wszystkie te koncepcje opisano w poniższych sekcjach.
+Istnieje relacja logiczna między subskrypcjami platformy Azure, chmurami prywatnymi rozwiązań VMware platformy Azure, klastrami sieci vSAN i hostami. Na diagramie są wyświetlane dwie chmury prywatne w ramach jednej subskrypcji platformy Azure. Chmury prywatne reprezentują programowanie i środowisko produkcyjne, z których każdy ma własną chmurę prywatną. W każdej z tych chmur prywatnych istnieją dwa klastry. Aby pokazać mniejsze potencjalne potrzeby środowiska programistycznego, używane są mniejsze klastry z hostami o niższych pojemnościach. Wszystkie te koncepcje opisano w poniższych sekcjach.
 
 ![Obraz dwóch chmur prywatnych w ramach subskrypcji klienta](./media/hosts-clusters-private-clouds-final.png)
 
@@ -34,7 +34,7 @@ Tworzenie, usuwanie i skalowanie klastrów odbywa się za pomocą portalu lub in
 
 ## <a name="hosts"></a>Hosts
 
-Węzły infrastruktury, które są zbieżne z funkcją Hyper-in, są używane w ramach automatycznej synchronizacji klastrów w chmurze prywatnej. Pojemność pamięci RAM, procesora CPU i dysku hosta znajduje się w poniższej tabeli. 
+Węzły infrastruktury w chmurze prywatnej rozwiązania Azure VMware są używane w przypadku zbieżnych z funkcją Hyper- Pojemność pamięci RAM, procesora CPU i dysku hosta znajduje się w poniższej tabeli. 
 
 | Typ hosta              |             Procesor CPU             |   Pamięć RAM (GB)   |  Warstwa pamięci podręcznej interfejsu NVMe sieci vSAN (TB, RAW)  |  warstwa pojemności sieci vSAN SSD (TB, RAW)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
@@ -44,27 +44,27 @@ Hosty, które są używane do kompilowania lub skalowania klastrów, są uzyskiw
 
 ## <a name="vmware-software-versions"></a>Wersje oprogramowania VMware
 
-Bieżące wersje oprogramowania VMware używane w ramach automatycznej synchronizacji klastrów w chmurze prywatnej są następujące:
+Bieżące wersje oprogramowania VMware używane w klastrach chmur prywatnych rozwiązania Azure VMware są następujące:
 
 | Oprogramowanie              |    Wersja   |
 | :---                  |     :---:    |
 | VCSA/vSphere/ESXi |    6,7 U2    | 
 | ESXi                  |    6,7 U2    | 
 | Sieci vSAN                  |    6,7 U2    |
-| NSX-T                 |      2.5     |
+| NSX-T                 |      2,5     |
 
 W przypadku każdego nowego klastra w chmurze prywatnej wersja oprogramowania będzie zgodna z bieżącą uruchomioną w chmurze prywatnej. W przypadku każdej nowej chmury prywatnej w ramach subskrypcji klienta jest zainstalowana najnowsza wersja stosu oprogramowania.
 
-Ogólne zasady i procesy uaktualniania oprogramowania platformy do automatycznej synchronizacji są opisane w dokumencie pojęcia dotyczące uaktualniania.
+Ogólne zasady i procesy uaktualniania dotyczące oprogramowania platformy Azure VMware Solution platform opisano w dokumencie pojęcia dotyczące uaktualniania.
 
 ## <a name="host-maintenance-and-lifecycle-management"></a>Zarządzanie konserwacją i cyklem życia hosta
 
 Zarządzanie konserwacją i cyklem życia hosta odbywa się bez wpływu na pojemność ani wydajność klastrów chmury prywatnej. Przykłady automatycznej konserwacji hosta obejmują uaktualnienia oprogramowania układowego i naprawy sprzętu lub wymiany.
 
-Firma Microsoft jest odpowiedzialna za zarządzanie cyklem życia urządzeń NSX-T, takimi jak NSX-T Manager i NSX-T Edge. Firma Microsoft jest odpowiedzialna za uruchamianie konfiguracji sieci, np. Tworzenie bramy warstwy 0 i Włączanie routingu północ-południe. Jako administrator chmury prywatnej do automatycznej synchronizacji użytkownik jest odpowiedzialny za NSXą konfigurację SDN, taką jak segmenty sieci, reguły rozproszonej zapory, bramy warstwy 1 i moduły równoważenia obciążenia.
+Firma Microsoft jest odpowiedzialna za zarządzanie cyklem życia urządzeń NSX-T, takimi jak NSX-T Manager i NSX-T Edge. Firma Microsoft jest odpowiedzialna za uruchamianie konfiguracji sieci, np. Tworzenie bramy warstwy 0 i Włączanie routingu północ-południe. Jako administrator chmury prywatnej rozwiązania Azure VMware jest odpowiedzialny za NSX-T SDN Configuration, takie jak segmenty sieci, reguły rozproszonej zapory, bramy warstwy 1 i moduły równoważenia obciążenia.
 
 > [!IMPORTANT]
-> Administrator automatycznej synchronizacji nie może modyfikować konfiguracji bramy NSX-T ani warstwy "0". Może to spowodować utratę usługi.
+> Administrator rozwiązania VMware platformy Azure nie może modyfikować konfiguracji bramy NSX-T ani warstwy 0. Może to spowodować utratę usługi.
 
 ## <a name="backup-and-restoration"></a>Tworzenie kopii zapasowej i przywracanie
 

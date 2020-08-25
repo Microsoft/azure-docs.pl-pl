@@ -1,18 +1,18 @@
 ---
 title: Uzyskaj pomoc dotyczącą wdrażania rozwiązań VMware platformy Azure lub niepowodzeń aprowizacji
-description: Jak uzyskać potrzebne informacje z chmury prywatnej w rozwiązaniu Azure VMware (Automatyczna synchronizacja), aby wysłać żądanie obsługi na potrzeby wdrożenia automatycznej synchronizacji lub niepowodzeń aprowizacji.
+description: Jak uzyskać potrzebne informacje z chmury prywatnej rozwiązania VMware platformy Azure, aby wysłać żądanie obsługi dla niepowodzeń wdrażania lub aprowizacji rozwiązań VMware platformy Azure.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 05c9dee088b37c37cdcdee7e745cdcd2222b63e0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 63d5440a9e2b15463e465e1d32762889508feca1
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514581"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752238"
 ---
 # <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Uzyskaj pomoc dotyczącą wdrażania rozwiązań VMware platformy Azure lub niepowodzeń aprowizacji
 
-W tym artykule dowiesz się, jak uzyskać pomoc dotyczącą wdrażania lub niepowodzeń aprowizacji rozwiązań VMware firmy Azure w chmurze prywatnej, otwierając żądanie obsługi (SR) w Azure Portal. Najpierw należy zebrać pewne kluczowe informacje w Azure Portal. W większości przypadków potrzebujesz:
+W tym artykule dowiesz się, jak uzyskać pomoc dotyczącą wdrażania rozwiązań VMware platformy Azure lub niepowodzeń aprowizacji w chmurze prywatnej, otwierając żądanie obsługi (SR) w Azure Portal. Najpierw należy zebrać pewne kluczowe informacje w Azure Portal. W większości przypadków potrzebujesz:
 
 - Identyfikator korelacji (dla wdrożenia zakończonego niepowodzeniem)
 - Identyfikator obwodu usługi ExpressRoute (podczas próby skalowania lub komunikacji równorzędnej istniejącej chmury prywatnej za pomocą obwodu prywatnego chmury ExpressRoute i niepowodzenia)
@@ -27,7 +27,7 @@ Oto przykład danych wyjściowych z niepowodzenia wdrożenia chmury prywatnej z 
 
 Skopiuj i Zapisz ten identyfikator korelacji, aby uwzględnić go w żądaniu obsługi. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie żądania obsługi](#create-your-support-request) na końcu tego artykułu.
 
-Jeśli błąd wystąpił w etapach weryfikacji wstępnej przed wdrożeniem chmury prywatnej, nie zostanie wygenerowany żaden identyfikator korelacji. W takim przypadku można po prostu podać informacje używane podczas tworzenia chmury prywatnej automatycznej synchronizacji, w tym:
+Jeśli błąd wystąpił w etapach weryfikacji wstępnej przed wdrożeniem chmury prywatnej, nie zostanie wygenerowany żaden identyfikator korelacji. W takim przypadku można po prostu podać informacje używane podczas tworzenia chmury prywatnej rozwiązania Azure VMware, w tym:
 
 - Lokalizacja
 - Grupa zasobów
@@ -53,7 +53,7 @@ W obszarze powiadomienia wybierz pozycję **więcej zdarzeń w dzienniku aktywno
 
 Następnie wyszukaj nazwę zasobu lub inny unikatowy element informacji użytych podczas tworzenia zasobu, aby znaleźć niepowodzenie wdrożenia i jego identyfikator korelacji. Poniższy przykład przedstawia wyniki wyszukiwania w zasobie chmury prywatnej (pc03).
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Znajdź ostatnie nieudane wdrożenia automatycznej synchronizacji.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Znajdź przeszłe wcześniejsze wdrożenia rozwiązania Azure VMware.":::
  
 Wybranie nazwy operacji wdrożenia zakończonego niepowodzeniem spowoduje otwarcie okna ze szczegółowymi informacjami. Wybierz kartę JSON i poszukaj korelacji. Skopiuj i Dołącz do funkcji SR. 
  
@@ -63,7 +63,7 @@ Być może masz już chmurę prywatną i wystąpił błąd podczas próby skalow
 
 Podczas przeglądania chmury prywatnej w portalu wybierz pozycję **łączność > ExpressRoute** i skopiuj **Identyfikator ExpressRoute** do Schowka.
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Zbierz identyfikator ExpressRoute."::: 
+:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Skopiuj identyfikator ExpressRoute do Schowka."::: 
  
 Wklej identyfikator ExpressRoute do odpowiedniego pola w nowym żądaniu obsługi. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą [tworzenia żądania pomocy technicznej](#create-your-support-request).
  
@@ -74,11 +74,11 @@ Wklej identyfikator ExpressRoute do odpowiedniego pola w nowym żądaniu obsług
 
 Ogólne wskazówki dotyczące tworzenia żądania pomocy technicznej można znaleźć w temacie [jak utworzyć żądanie pomocy technicznej platformy Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
-Poniżej przedstawiono dodatkowe wskazówki dotyczące tworzenia funkcji SR na potrzeby wdrażania automatycznej synchronizacji lub niepowodzeń aprowizacji.
+Poniżej przedstawiono dodatkowe wskazówki dotyczące tworzenia rozwiązania SR dla systemu Azure VMware lub niepowodzeń aprowizacji.
 
 1. Wybierz ikonę **pomocy** , a następnie **+ nowe żądanie obsługi**.
 
-    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Zbierz identyfikator ExpressRoute.":::
+    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Zbierz identyfikator ExpressRoute dla funkcji SR.":::
 
 2. Wypełnij wszystkie wymagane pola i na karcie **podstawowe** :
 

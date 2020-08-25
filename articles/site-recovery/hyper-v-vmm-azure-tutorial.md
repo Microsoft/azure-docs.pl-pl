@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.custom: MVC
 ms.openlocfilehash: f32103adce184a67cec9e5a778ac1d1e6f330f4d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86130228"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Konfigurowanie odzyskiwania po awarii lokalnych maszyn wirtualnych funkcji Hyper-V w chmurach VMM na platformie Azure
@@ -42,7 +42,7 @@ W tym samouczku założono, że zostały już wykonane następujące samouczki:
     1. **Gdzie chcesz replikować maszyny?** wybierz pozycję **na platformie Azure**.
     1. **Czy maszyny są zwirtualizowane?** wybierz pozycję **tak, używając funkcji Hyper-V**.
     1. **Czy używasz programu System Center VMM do zarządzania hostami funkcji Hyper-V?**, wybierz opcję **tak**.
-1. Wybierz pozycję **OK**.
+1. Kliknij **OK**.
 
    ![Cel replikacji](./media/hyper-v-vmm-azure-tutorial/replication-goal.png)
 
@@ -82,7 +82,7 @@ Zainstaluj agenta na każdym hoście funkcji Hyper-V zawierającym maszyny wirtu
 
 W Kreatorze instalacji agenta Microsoft Azure Recovery Services skonfiguruj następujące ustawienia:
 
-1. **Sprawdzanie wymagań wstępnych**. Wybierz opcję **Dalej**. Wszystkie brakujące wymagania wstępne zostaną zainstalowane automatycznie.
+1. **Sprawdzanie wymagań wstępnych**. Wybierz pozycję **Dalej**. Wszystkie brakujące wymagania wstępne zostaną zainstalowane automatycznie.
 1. **Ustawienia instalacji**. Zaakceptuj lokalizację instalacji i lokalizację pamięci podręcznej. Dysk pamięci podręcznej musi mieć co najmniej 5 GB miejsca w magazynie. Zalecamy używanie dysku z 600 GB lub więcej wolnego miejsca. Następnie wybierz pozycję **Zainstaluj**.
 1. **Instalacja**. Po zakończeniu instalacji wybierz pozycję **Zamknij** , aby zakończyć pracę kreatora.
 

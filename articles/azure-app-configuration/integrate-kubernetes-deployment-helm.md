@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
 ms.openlocfilehash: aac42e6f782ac1e939ff955c5811238f99e703eb
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83725673"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Integracja z wdrażaniem Kubernetes przy użyciu usługi Helm
@@ -23,7 +23,7 @@ W trakcie procesu zwalniania program Helm Scala wykres z odpowiednią konfigurac
 
 Wartości przechowywane w *wartościach. YAML* można zastąpić przez udostępnienie dodatkowych YAML plików konfiguracji w wierszu polecenia podczas uruchamiania Helm. Konfiguracja aplikacji platformy Azure obsługuje eksportowanie wartości konfiguracji do plików YAML. Integracja tej możliwości eksportu z wdrożeniem umożliwia aplikacjom Kubernetes korzystanie z wartości konfiguracyjnych przechowywanych w konfiguracji aplikacji.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Użyj wartości z konfiguracji aplikacji podczas wdrażania aplikacji do Kubernetes przy użyciu Helm.
 > * Utwórz wpis tajny Kubernetes na podstawie odwołania Key Vault w konfiguracji aplikacji.
@@ -233,7 +233,7 @@ Jeden wpis tajny, **hasło**, sklepy jako odwołanie Key Vault w konfiguracji ap
 
 ![Lokalne uruchamianie aplikacji z przewodnika Szybki start](./media/kubernetes-dashboard-secrets.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
