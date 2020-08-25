@@ -3,12 +3,12 @@ title: Nietrwałe usuwanie dla programu SQL Server na maszynie wirtualnej platfo
 description: Dowiedz się, jak usuwanie nietrwałe dla programu SQL Server na maszynie wirtualnej platformy Azure i SAP HANA w obciążeniach maszyn wirtualnych platformy Azure zwiększa bezpieczeństwo kopii zapasowych.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: bf9cc2551d85c1bc663db2f9e61e2ea6895f1d23
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 4e001ee460d9b7106d928da32b1620fb117c6b5a
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757476"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825175"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Nietrwałe usuwanie dla programu SQL Server na maszynie wirtualnej platformy Azure i SAP HANA w obciążeniach maszyn wirtualnych platformy Azure
 
@@ -17,7 +17,7 @@ Azure Backup teraz zapewnia nietrwałe usuwanie programu SQL Server na maszynie 
 [Usuwanie nietrwałe](backup-azure-security-feature-cloud.md) to funkcja zabezpieczeń, która pomaga chronić dane kopii zapasowej nawet po usunięciu. W przypadku usuwania nietrwałego, nawet jeśli złośliwy aktor usuwa kopię zapasową bazy danych (lub dane kopii zapasowej są przypadkowo usuwane), dane kopii zapasowej są przechowywane przez 14 dodatkowych dni. Pozwala to na odzyskanie tego elementu kopii zapasowej bez utraty danych. To dodatkowe przechowywanie danych kopii zapasowej w stanie "usuwanie nietrwałe" nie wiąże się z żadnym kosztem dla klienta.
 
 >[!NOTE]
->Gdy w ramach subskrypcji jest włączona wersja zapoznawcza, nie można wyłączyć usuwania nietrwałego tylko dla programu SQL Server lub SAP HANA baz danych przy włączonej obsłużyniu maszyn wirtualnych w tym samym magazynie. Można utworzyć oddzielne magazyny dla szczegółowej kontroli.
+>Po włączeniu wersji zapoznawczej dla subskrypcji nie można wyłączyć usuwania nietrwałego tylko dla programu SQL Server lub SAP HANA baz danych przy włączonej obsłużyniu maszyn wirtualnych w tym samym magazynie. Można utworzyć oddzielne magazyny dla szczegółowej kontroli.
 
 ## <a name="steps-to-enroll-in-preview"></a>Procedura rejestrowania w wersji zapoznawczej
 
@@ -99,7 +99,7 @@ Sekwencja kroków do użycia Azure PowerShell jest taka sama jak w przypadku Azu
 
 ### <a name="delete-the-backup-item-using-azure-powershell"></a>Usuń element kopii zapasowej za pomocą Azure PowerShell
 
-Usuń element kopii zapasowej za pomocą polecenia cmdlet [disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PS.
+Usuń element kopii zapasowej za pomocą polecenia cmdlet [disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) programu PowerShell.
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -117,7 +117,7 @@ Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadTy
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType SQLDataBase -VaultId $myVaultID -Name AppVM1
 ```
 
-Następnie wykonaj operację cofania usuwania przy użyciu polecenia cmdlet [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) PS.
+Następnie wykonaj operację cofania usuwania przy użyciu polecenia cmdlet [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) programu PowerShell.
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force

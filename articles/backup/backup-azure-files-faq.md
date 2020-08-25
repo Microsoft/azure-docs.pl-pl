@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej plików w usłudze Azure Files — często zada
 description: W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące ochrony udziałów plików platformy Azure za pomocą usługi Azure Backup.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6c2ef95a6303fd061b1ce486e893ba9812b83e14
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0db30de655bfc0b98baa81a4ef20532e697fc1f8
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382716"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824733"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Pytania dotyczące tworzenia kopii zapasowej plików w usłudze Azure Files
 
@@ -36,7 +36,7 @@ Podczas próby utworzenia kopii zapasowej, wybranie konta magazynu w celu odnale
 
 ### <a name="why-cant-i-change-the-vault-to-configure-backup-for-the-file-share"></a>Dlaczego nie mogę zmienić magazynu w celu skonfigurowania kopii zapasowej udziału plików?
 
-Jeśli konto magazynu jest już zarejestrowane w magazynie lub inne udziały plików na koncie magazynu są chronione za pomocą magazynu, nie ma możliwości jego zmiany, ponieważ wszystkie udziały plików na koncie magazynu mogą być chronione tylko przez ten sam magazyn. W przypadku zmiany magazynu należy [zatrzymać ochronę wszystkich udziałów plików na koncie magazynu](manage-afs-backup.md#stop-protection-on-a-file-share) z połączonego magazynu, [wyrejestrować](manage-afs-backup.md#unregister-a-storage-account) konto magazynu, a następnie wybrać inny magazyn do ochrony.
+Jeśli konto magazynu jest już zarejestrowane w magazynie lub inne udziały plików na koncie magazynu są chronione za pomocą magazynu, nie ma możliwości jego zmiany. Wszystkie udziały plików na koncie magazynu mogą być chronione tylko przez ten sam magazyn. Jeśli chcesz zmienić magazyn, musisz [zatrzymać ochronę wszystkich udziałów plików na koncie magazynu](manage-afs-backup.md#stop-protection-on-a-file-share) z połączonego magazynu, [wyrejestrować](manage-afs-backup.md#unregister-a-storage-account) konto magazynu, a następnie wybrać inny magazyn do ochrony.
 
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>Czy mogę zmienić magazyn, do którego należy utworzyć kopię zapasową moich udziałów plików?
 
@@ -97,13 +97,13 @@ Oto przykład tego, jak to działa:
 
 |Typ przechowywania |Zaplanuj |Przechowywanie  |
 |---------|---------|---------|
-|Codziennie    |    Codziennie o godzinie 8 PM    |  100 dni       |
+|Codzienne    |    Codziennie o godzinie 8 PM    |  100 dni       |
 
 #### <a name="new-policy-modified-p1"></a>Nowe zasady [zmodyfikowano P1]
 
 | Typ przechowywania | Zaplanuj                       | Przechowywanie |
 | -------------- | ------------------------------ | --------- |
-| Codziennie          | Codziennie o godzinie 9 PM              | 50 dni   |
+| Codzienne          | Codziennie o godzinie 9 PM              | 50 dni   |
 | Co tydzień         | W niedzielę o godzinie 9 PM              | 3 tygodnie   |
 | Co miesiąc        | W ubiegłym poniedziałek o godzinie 9 PM         | 1 miesiąc   |
 | Rocznie         | W sty w trzeciej niedzielę o godzinie 9 PM | 4 lata   |
@@ -131,14 +131,14 @@ Oto przykład tego, jak to działa:
 
 | Typ przechowywania | Zaplanuj           | Przechowywanie |
 | -------------- | ------------------ | --------- |
-| Codziennie          | Codziennie o godzinie 8 PM | 50 dni   |
+| Codzienne          | Codziennie o godzinie 8 PM | 50 dni   |
 | Co tydzień         | W poniedziałek o godzinie 8 PM  | 3 tygodnie   |
 
 #### <a name="new-policy-modified-p2"></a>Nowe zasady [zmodyfikowano P2]
 
 | Typ przechowywania | Zaplanuj               | Przechowywanie |
 | -------------- | ---------------------- | --------- |
-| Codziennie          | Codziennie o godzinie 9 PM     | 10 dni   |
+| Codzienne          | Codziennie o godzinie 9 PM     | 10 dni   |
 | Co tydzień         | W poniedziałek o godzinie 9 PM      | 2 tygodnie   |
 | Co miesiąc        | W ubiegłym poniedziałek o godzinie 9 PM | 2 miesiące  |
 

@@ -4,12 +4,12 @@ description: Znajdź odpowiedzi na często zadawane pytania dotyczące tworzenia
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: a5fdbb78f6d700d14c2458a8d87a4b0f9a971207
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 577f6637ebe96dcabcb1357ca09da75bd9552c30
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762848"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827243"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Często zadawane pytania dotyczące SQL Server baz danych uruchomionych w ramach kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -30,7 +30,7 @@ W pewnych okolicznościach usługa Azure Backup wyzwala odtworzenie kopii zapaso
 - Jeśli zdecydujesz się zastąpić bazę danych podczas przywracania, kolejny dziennik/różnicowe kopie zapasowe nie powiedzie się i zostanie wyzwolona pełna kopia zapasowa.
 - W przypadkach, gdy do resetowania łańcuchów dzienników jest wymagana pełna kopia zapasowa z powodu zmiany modelu odzyskiwania bazy danych, pełna wartość zostanie wyzwolona automatycznie w następnym harmonogramie.
 
-Funkcja Autokorekty jest domyślnie włączona dla wszystkich użytkowników; Jednak w przypadku wybrania opcji rezygnacji z niej wykonaj następujące czynności:
+Funkcja Autokorekty jest domyślnie włączona dla wszystkich użytkowników. Jeśli jednak wybierzesz opcję rezygnacji z niej, wykonaj następujące czynności:
 
 - Na wystąpieniu SQL Server w folderze *C:\Program Files\Azure Backup\bin obciążenie* Utwórz lub Edytuj **ExtensionSettingsOverrides.jsna** pliku.
 - W **ExtensionSettingsOverrides.jsna**, ustaw *{"EnableAutoHealer": false}*.
@@ -56,7 +56,7 @@ Wartość domyślna DefaultBackupTasksThreshold wynosi **20**.
 
 ## <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Czy można uruchamiać pełną kopię zapasową z repliki pomocniczej?
 
-Zgodnie z ograniczeniami SQL można uruchomić kopię pełnej kopii zapasowej na replice pomocniczej; jednak pełna kopia zapasowa jest niedozwolona.
+Zgodnie z ograniczeniami SQL można uruchomić kopię pełnej kopii zapasowej na replice pomocniczej. Jednak pełna kopia zapasowa jest niedozwolona.
 
 ## <a name="can-i-protect-availability-groups-on-premises"></a>Czy można chronić grupy dostępności lokalnie?
 

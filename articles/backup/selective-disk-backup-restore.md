@@ -4,12 +4,12 @@ description: W tym artykule poznasz informacje o kopii zapasowej i przywracaniu 
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: dd4691f6248099bdc4fa713c84d396adac6011fa
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 44454977a977a85b8735657a439a265467f1bcf5
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757442"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824750"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Selektywne tworzenie kopii zapasowych i przywracanie dysków dla maszyn wirtualnych platformy Azure
 
@@ -190,7 +190,7 @@ Po wykonaniu tych poleceń zobaczysz `"diskExclusionProperties": null` .
 
 ## <a name="using-powershell"></a>Korzystanie z programu PowerShell
 
-Upewnij się, że używasz usługi Azure PS w wersji 3.7.0 lub nowszej.
+Upewnij się, że używasz Azure PowerShell w wersji 3.7.0 lub nowszej.
 
 ### <a name="enable-backup-with-powershell"></a>Włączanie tworzenia kopii zapasowych za pomocą programu PowerShell
 
@@ -261,7 +261,7 @@ W tym miejscu można wyświetlić kopię zapasową dysków podczas przywracania,
 Skonfigurowanie środowiska tworzenia kopii zapasowych dysków selektywnych dla maszyny wirtualnej za pomocą Azure Portal jest ograniczone do opcji **tylko dysk systemu operacyjnego kopii zapasowej** . Aby korzystać z kopii zapasowych dysków selektywnych na maszynach wirtualnych z kopią zapasową lub w celu zaawansowania dołączania lub wykluczania określonych dysków danych maszyny wirtualnej, należy użyć programu PowerShell lub interfejsu wiersza polecenia
 
 >[!NOTE]
->Jeśli dane obejmują między dyskami, upewnij się, że wszystkie dyski zależne są zawarte w kopii zapasowej. Jeśli nie utworzysz kopii zapasowej wszystkich dysków zależnych w woluminie, podczas przywracania wolumin zawierający niektóre dyski bez kopii zapasowej nie zostanie utworzony.
+>Jeśli dane obejmują między dyskami, upewnij się, że wszystkie dyski zależne są zawarte w kopii zapasowej. Jeśli nie utworzysz kopii zapasowej wszystkich dysków zależnych w woluminie, podczas przywracania nie zostanie utworzony wolumin składający się z niektórych dysków bez kopii zapasowej.
 
 ### <a name="backup-os-disk-only-in-the-azure-portal"></a>Wykonaj kopię zapasową dysku systemu operacyjnego tylko w Azure Portal
 
@@ -293,5 +293,5 @@ Kopia zapasowa maszyny wirtualnej platformy Azure jest zgodna z istniejącym mod
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tabela obsługi dla maszyn wirtualnych platformy Azure](backup-support-matrix-iaas.md)
+- [Tabela obsługi kopii zapasowych maszyn wirtualnych platformy Azure](backup-support-matrix-iaas.md)
 - [Często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure](backup-azure-vm-backup-faq.md)

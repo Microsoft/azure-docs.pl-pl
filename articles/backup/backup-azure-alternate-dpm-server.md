@@ -3,12 +3,12 @@ title: Odzyskiwanie danych z Azure Backup Server
 description: Odzyskaj dane chronione do magazynu Recovery Services z dowolnego Azure Backup Server zarejestrowanego w tym magazynie.
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 5531a2a9599465bd5ad3410504cbf341fb6c0c0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93ae34184679b5144288a4c8cb4dabd90ae69fa1
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84249080"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827447"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Odzyskiwanie danych z usługi Azure Backup Server
 
@@ -54,7 +54,7 @@ Aby odzyskać dane z Azure Backup Server:
 8. Wybierz opcję powiązaną z poleceniem **Utwórz kopię**, **Pomiń**lub **Zastąp**.
 
    * **Utwórz kopię** — tworzy kopię pliku w przypadku kolizji nazw.
-   * **Pomiń** — Jeśli występuje kolizja nazw, program nie odzyska pliku, co pozostawia oryginalny plik.
+   * **Pomiń** — Jeśli występuje kolizja nazw, nie odzyska pliku, co pozostawia oryginalny plik.
    * **Zastąp** — Jeśli występuje kolizja nazw, zastępuje istniejącą kopię pliku.
 
      Wybierz odpowiednią opcję, aby **przywrócić zabezpieczenia**. Można zastosować ustawienia zabezpieczeń komputera docelowego, na którym dane są odzyskiwane, lub ustawienia zabezpieczeń, które mają zastosowanie do produktu w momencie utworzenia punktu odzyskiwania.
@@ -83,7 +83,7 @@ Aby odzyskać dane z Azure Backup Server:
 | 1. |Ten serwer nie jest zarejestrowany w magazynie określonym przez poświadczenia magazynu. |**Przyczyna:** Ten błąd pojawia się, gdy wybrany plik poświadczeń magazynu nie należy do magazynu Recovery Services skojarzonego z Azure Backup Server, na którym podjęto próbę odzyskania. <br> **Rozwiązanie:** Pobierz plik poświadczeń magazynu z magazynu Recovery Services, do którego zarejestrowano Azure Backup Server. |
 | 2. |Odzyskiwalne dane nie są dostępne lub wybrany serwer nie jest serwerem DPM. |**Przyczyna:** Nie ma innych serwerów Azure Backup zarejestrowanych w magazynie Recovery Services lub serwery nie przesłały jeszcze metadanych lub wybrany serwer nie jest Azure Backup Serverem (przy użyciu systemu Windows Server lub klienta systemu Windows). <br> **Rozwiązanie:** Jeśli istnieją inne Azure Backup serwery zarejestrowane w magazynie Recovery Services, upewnij się, że jest zainstalowany najnowszy Agent Azure Backup. <br>Jeśli istnieją inne Azure Backup serwery zarejestrowane w magazynie Recovery Services, poczekaj na dzień po zakończeniu instalacji, aby rozpocząć proces odzyskiwania. Nocne zadanie przekaże metadane dla wszystkich chronionych kopii zapasowych do chmury. Dane będą dostępne do odzyskania. |
 | 3. |Żaden inny serwer DPM nie jest zarejestrowany w tym magazynie. |**Przyczyna:** Nie ma innych serwerów Azure Backup zarejestrowanych w magazynie, z którego jest podejmowana próba odzyskania.<br>**Rozwiązanie:** Jeśli istnieją inne Azure Backup serwery zarejestrowane w magazynie Recovery Services, upewnij się, że jest zainstalowany najnowszy Agent Azure Backup.<br>Jeśli istnieją inne Azure Backup serwery zarejestrowane w magazynie Recovery Services, poczekaj na dzień po zakończeniu instalacji, aby rozpocząć proces odzyskiwania. Nocne zadanie przekazuje metadane dla wszystkich chronionych kopii zapasowych do chmury. Dane będą dostępne do odzyskania. |
-| 4. |Podane hasło szyfrowania nie jest zgodne z hasłem skojarzonym z następującym serwerem:**\<server name>** |**Przyczyna:** Hasło szyfrowania używane w procesie szyfrowania danych z odzyskiwanych danych Azure Backup Server nie jest zgodne z podanym hasłem szyfrowania. Agent nie może odszyfrować danych, więc odzyskiwanie nie powiedzie się.<br>**Rozwiązanie:** Podaj dokładnie to samo hasło szyfrowania, które jest skojarzone z Azure Backup Server którego dane są odzyskiwane. |
+| 4. |Podane hasło szyfrowania nie jest zgodne z hasłem skojarzonym z następującym serwerem: **\<server name>** |**Przyczyna:** Hasło szyfrowania używane w procesie szyfrowania danych z odzyskiwanych danych Azure Backup Server nie jest zgodne z podanym hasłem szyfrowania. Agent nie może odszyfrować danych, więc odzyskiwanie nie powiedzie się.<br>**Rozwiązanie:** Podaj dokładnie to samo hasło szyfrowania, które jest skojarzone z Azure Backup Server którego dane są odzyskiwane. |
 
 ## <a name="next-steps"></a>Następne kroki
 

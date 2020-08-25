@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 990a2d5279c796f354055328e6968ea705ea10b2
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 7d270ac9a6597645c5a98b6af77d19021ef00329
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873640"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827430"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Używanie obszaru roboczego za zaporą dla Azure Machine Learning
 
@@ -39,7 +39,7 @@ Jeśli nie skonfigurowano go prawidłowo, Zapora może spowodować problemy z u�
 
 Hosty w tej sekcji należą do firmy Microsoft i zapewniają usługi wymagane do prawidłowego działania obszaru roboczego.
 
-| **Nazwa hosta** | **Przeznaczenie** |
+| **Nazwa hosta** | **Cel** |
 | ---- | ---- |
 | **\*. batchai.core.windows.net** | Klastry szkoleniowe |
 | **ml.azure.com** | Studio uczenia maszynowego Azure |
@@ -52,17 +52,18 @@ Hosty w tej sekcji należą do firmy Microsoft i zapewniają usługi wymagane do
 | **\*. instances.azureml.net** | Wystąpienia obliczeniowe Azure Machine Learning |
 | **\*. instances.azureml.ms** | Wystąpienia obliczeniowe Azure Machine Learning, gdy w obszarze roboczym jest włączone łącze prywatne |
 | **windows.net** | Azure Blob Storage |
-| **vault.azure.net** | W usłudze Azure Key Vault |
+| **vault.azure.net** | Azure Key Vault |
 | **azurecr.io** | Azure Container Registry |
 | **mcr.microsoft.com** | Microsoft Container Registry dla podstawowych obrazów platformy Docker |
 | **your-acr-server-name.azurecr.io** | Wymagany tylko wtedy, gdy Azure Container Registry znajduje się za siecią wirtualną. W tej konfiguracji link prywatny jest tworzony ze środowiska firmy Microsoft do wystąpienia usługi ACR w ramach subskrypcji. Użyj nazwy serwera ACR dla obszaru roboczego Azure Machine Learning. |
 | **\*. notebooks.azure.net** | Wymagany przez notesy w programie Azure Machine Learning Studio. |
+| **graph.windows.net** | Potrzeba dla notesów |
 
 ## <a name="python-hosts"></a>Hosty języka Python
 
 Hosty w tej sekcji służą do instalowania pakietów języka Python. Są one wymagane podczas opracowywania, uczenia i wdrażania. 
 
-| **Nazwa hosta** | **Przeznaczenie** |
+| **Nazwa hosta** | **Cel** |
 | ---- | ---- |
 | **anaconda.com** | Służy do instalowania pakietów domyślnych. |
 | **\*. anaconda.org** | Służy do pobierania danych repozytorium. |
@@ -75,9 +76,18 @@ Hosty w tej sekcji służą do instalowania pakietów języka R. Są one wymagan
 > [!IMPORTANT]
 > Wewnętrznie zestaw R SDK dla Azure Machine Learning używa pakietów języka Python. W związku z tym należy również zezwolić hostom języka Python przez zaporę.
 
-| **Nazwa hosta** | **Przeznaczenie** |
+| **Nazwa hosta** | **Cel** |
 | ---- | ---- |
 | **cloud.r-project.org** | Używane podczas instalowania pakietów CRAN. |
+
+## <a name="azure-government-region"></a>Region Azure Government
+
+Adresy URL dla regionów Azure Government.
+
+| **Nazwa hosta** | **Cel** |
+| ---- | ---- |
+| **usgovarizona.api.ml.azure.us** | Region US-Arizona |
+| **usgovvirginia.api.ml.azure.us** | Region US-Wirginia |
 
 ## <a name="next-steps"></a>Następne kroki
 

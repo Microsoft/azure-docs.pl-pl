@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych udziałów plików platformy Azure przy użyci
 description: Dowiedz się, jak używać interfejsu API REST do tworzenia kopii zapasowych udziałów plików platformy Azure w magazynie Recovery Services
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: b3d83104b699740c43b0c6506c00694c2b2ac063
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 8d2d8ed88da133986540a293185c8e37000ab87b
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757136"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824869"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Tworzenie kopii zapasowej udziału plików platformy Azure przy użyciu Azure Backup za pomocą interfejsu API REST
 
@@ -175,7 +175,7 @@ Ustaw zmienne dla identyfikatora URI w następujący sposób:
    W naszym przykładzie jest to *StorageContainer; Chowan Migracji pamięci; testvault2*
 
 >[!NOTE]
-> Zawsze należy przyjmować atrybut name odpowiedzi i wypełnić go w ramach tego żądania. NIE należy nakodować twardej ani utworzyć formatu nazwy kontenera. Jeśli utworzysz lub sformatujesz go, wywołanie interfejsu API zakończy się niepowodzeniem, jeśli format nazwy kontenera zmieni się w przyszłości.
+> Zawsze należy przyjmować atrybut name odpowiedzi i wypełnić go w ramach tego żądania. Nie należy wykodować ani utworzyć formatu nazwy kontenera. Jeśli utworzysz lub sformatujesz go, wywołanie interfejsu API zakończy się niepowodzeniem, jeśli format nazwy kontenera zmieni się w przyszłości.
 
 <br>
 
@@ -373,7 +373,7 @@ W naszym przykładzie identyfikator udziału plików, który chcemy chronić, to
 Lub można odwołać się do atrybutu **name** kontenera ochrony i funkcji chronionych przez elementy.
 
 >[!NOTE]
->Zawsze należy przyjmować atrybut name odpowiedzi i wypełnić go w ramach tego żądania. NIE należy wykodować kodu ani utworzyć formatu nazwy kontenera lub chronionej nazwy elementu. Jeśli utworzysz lub sformatujesz go, wywołanie interfejsu API zakończy się niepowodzeniem w przypadku zmiany formatu nazwy kontenera lub chronionej nazwy elementu w przyszłości.
+>Zawsze należy przyjmować atrybut name odpowiedzi i wypełnić go w ramach tego żądania. Nie należy wykodować kodu ani utworzyć formatu nazwy kontenera lub chronionej nazwy elementu. Jeśli utworzysz lub sformatujesz go, wywołanie interfejsu API zakończy się niepowodzeniem w przypadku zmiany formatu nazwy kontenera lub chronionej nazwy elementu w przyszłości.
 
 <br>
 

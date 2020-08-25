@@ -3,12 +3,12 @@ title: Wskazówki i najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i wskazówki dotyczące tworzenia kopii zapasowych obciążeń w chmurze i lokalnych w chmurze
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 21d3d6b8983d8ce3d0b563785423bc1e503649f3
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 6daa3051a00093f74b8b5dac5c81befe006107a4
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757595"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825583"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Tworzenie kopii zapasowych obciążeń w chmurze i lokalnych w chmurze
 
@@ -28,7 +28,7 @@ Chociaż możesz łatwo rozpocząć ochronę infrastruktury i aplikacji na platf
 
 ![Architektura usługi Azure Backup](./media/guidance-best-practices/azure-backup-architecture.png)
 
-### <a name="workloads"></a>Pakiety robocze
+### <a name="workloads"></a>Obciążenia
 
 Azure Backup umożliwia ochronę danych w różnych obciążeniach (lokalnie i w chmurze). Jest to bezpieczny i niezawodny wbudowany mechanizm ochrony danych na platformie Azure. Może bezproblemowo skalować ochronę wielu obciążeń bez konieczności zarządzania przez Ciebie. Istnieje wiele kanałów automatyzacji, które umożliwiają włączenie tej funkcji (za pośrednictwem programu PowerShell, interfejsu wiersza polecenia, szablonów Azure Resource Manager i interfejsów API REST).
 
@@ -108,7 +108,7 @@ Podczas tworzenia zasad tworzenia kopii zapasowych należy wziąć pod uwagę na
 
 * Długoterminowe przechowywanie:
   * Planowane (wymagania dotyczące zgodności) — Jeśli wiesz już, że dane są wymagane przez lata od bieżącego czasu, użyj długoterminowego przechowywania.
-  * Nieplanowane (wymaganie na żądanie) — Jeśli nie masz z góry pewności, użyj opcji na żądanie z określonymi ustawieniami przechowywania niestandardowego (te niestandardowe ustawienia przechowywania nie mają wpływu na ustawienia zasad).
+  * Nieplanowane (wymaganie na żądanie) — Jeśli nie znasz z góry, użyj opcji na żądanie z określonymi ustawieniami przechowywania niestandardowego (te niestandardowe ustawienia przechowywania nie mają wpływu na ustawienia zasad).
 
 * Tworzenie kopii zapasowej na żądanie z niestandardowym przechowywaniem — Jeśli chcesz utworzyć kopię zapasową zaplanowaną za pomocą zasad tworzenia kopii zapasowych, możesz użyć kopii zapasowej na żądanie. Może to być przydatne w przypadku tworzenia kopii zapasowych, które nie pasują do zaplanowanej kopii zapasowej, ani do tworzenia szczegółowej kopii zapasowej (na przykład wiele kopii zapasowych maszyn wirtualnych IaaS dziennie, ponieważ zaplanowana kopia zapasowa zezwala na wykonywanie tylko jednej Należy pamiętać, że zasady przechowywania zdefiniowane w zaplanowanych zasadach nie mają zastosowania do kopii zapasowych na żądanie.
 
@@ -247,7 +247,7 @@ Jako użytkownik lub administrator kopii zapasowej powinien być w stanie monito
 
 * Azure Backup zapewnia wbudowany mechanizm powiadamiania o **alertach** za pośrednictwem poczty e-mail w przypadku błędów, ostrzeżeń i operacji krytycznych. Po wygenerowaniu alertu można określić poszczególne adresy e-mail lub listy dystrybucyjne. Możesz również wybrać, czy otrzymywać powiadomienia o każdym indywidualnym alercie, czy grupować je w co godzinę, a następnie otrzymywać powiadomienia.
   * Te alerty są definiowane przez usługę i zapewniają obsługę ograniczonych scenariuszy — błędów tworzenia kopii zapasowej/przywracania, zatrzymywania ochrony przy zachowaniu danych/zatrzymywania ochrony przy użyciu usuwania danych itd. [Dowiedz się więcej tutaj](backup-azure-monitoring-built-in-monitor.md#alert-scenarios).
-  * W przypadku wykonania operacji niszczącej, takiej jak zatrzymanie ochrony z usuwaniem danych, zostanie zgłoszony alert, a wiadomość e-mail zostanie wysłana do właścicieli subskrypcji, administratorów i współadministratorów, nawet jeśli nie skonfigurowano powiadomień dla magazynu Recovery Services.
+  * W przypadku wykonania operacji niszczącej, takiej jak zatrzymanie ochrony z usuwaniem danych, zostanie zgłoszony alert, a wiadomość e-mail zostanie wysłana do właścicieli subskrypcji, administratorów i współadministratorów, nawet jeśli **nie** skonfigurowano powiadomień dla magazynu Recovery Services.
   * Niektóre obciążenia mogą generować wysoką częstotliwość niepowodzeń (na przykład SQL Server co 15 minut). Aby zapobiec przeciążeniu alertów zgłoszonych dla każdego wystąpienia błędu, alerty są konsolidowane. [Dowiedz się więcej tutaj](backup-azure-monitoring-built-in-monitor.md#consolidated-alerts).
   * Wbudowane alerty nie mogą być dostosowane i są ograniczone do wiadomości e-mail zdefiniowanych w Azure Portal.
 

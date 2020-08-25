@@ -3,23 +3,23 @@ title: Wdrażanie szablonów aplikacji logiki
 description: Dowiedz się, jak wdrażać szablony Azure Resource Manager utworzone dla Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 08/25/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d3ef4275e5b309bb499338fe90c0f527aeaeb71f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4fce5b191e0af6a69fe218c4ed7272f352c3bdd2
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501512"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827498"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Wdrażanie szablonów usługi Azure Resource Manager dla usługi Azure Logic Apps
 
 Po utworzeniu szablonu Azure Resource Manager dla aplikacji logiki można wdrożyć szablon w następujący sposób:
 
 * [Witryna Azure Portal](#portal)
-* [Program Visual Studio](#visual-studio)
+* [Visual Studio](#visual-studio)
 * [Azure PowerShell](#powershell)
 * [Interfejs wiersza polecenia platformy Azure](#cli)
 * [Interfejs API REST usługi Azure Resource Manager](../azure-resource-manager/templates/deploy-rest.md)
@@ -119,13 +119,18 @@ Poniżej przedstawiono ogólne kroki wysokiego poziomu dotyczące korzystania z 
 
 ## <a name="authorize-oauth-connections"></a>Autoryzuj połączenia OAuth
 
-Po wdrożeniu aplikacja logiki działa na całym końcu z prawidłowymi parametrami. Należy jednak nadal autoryzować wszystkie połączenia OAuth w celu wygenerowania prawidłowych tokenów dostępu do [uwierzytelniania poświadczeń](../active-directory/develop/authentication-vs-authorization.md). Poniżej przedstawiono sposoby autoryzacji połączeń uwierzytelniania OAuth:
+Po wdrożeniu aplikacja logiki działa na całym końcu z prawidłowymi parametrami. Jednak nadal trzeba autoryzować lub używać pretworzonych połączeń OAuth w celu wygenerowania prawidłowych tokenów dostępu do [uwierzytelniania poświadczeń](../active-directory/develop/authentication-vs-authorization.md). Oto kilka sugestii:
 
-* W przypadku zautomatyzowanych wdrożeń można użyć skryptu, który zapewnia zgodę na każde połączenie OAuth. Oto przykładowy skrypt w usłudze GitHub w projekcie [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) .
+* Autoryzuj i udostępniaj zasoby połączeń interfejsu API w aplikacjach logiki, które znajdują się w tym samym regionie. Połączenia interfejsu API są dostępne jako zasoby platformy Azure niezależnie od aplikacji logiki. Chociaż Aplikacje logiki mają zależności od zasobów połączenia interfejsu API, zasoby połączenia interfejsu API nie mają zależności od aplikacji logiki i pozostają po usunięciu zależnych aplikacji logiki. Ponadto aplikacje logiki mogą korzystać z połączeń interfejsu API, które istnieją w innych grupach zasobów. Jednak Projektant aplikacji logiki obsługuje tworzenie połączeń interfejsu API tylko w tej samej grupie zasobów co Aplikacje logiki.
 
-* Aby ręcznie autoryzować połączenia OAuth, Otwórz aplikację logiki w Projektancie aplikacji logiki, w Azure Portal lub w programie Visual Studio. W projektancie Autoryzuj wszystkie wymagane połączenia.
+  > [!NOTE]
+  > Jeśli rozważasz Udostępnianie połączeń interfejsu API, upewnij się, że rozwiązanie może [obsługiwać potencjalne problemy związane z ograniczaniem](../logic-apps/handle-throttling-problems-429-errors.md#connector-throttling). Ograniczanie przepustowości odbywa się na poziomie połączenia, dlatego ponowne użycie tego samego połączenia przez wiele aplikacji logiki może zwiększyć prawdopodobieństwo wystąpienia problemów.
 
-Jeśli zamiast tego autoryzujesz połączenia przy użyciu jednostki [usługi](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory (Azure AD), Dowiedz się, jak [określić parametry jednostki usługi w szablonie aplikacji logiki](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections).
+* Jeśli scenariusz nie obejmuje usług i systemów, które wymagają uwierzytelniania wieloskładnikowego, można użyć skryptu programu PowerShell, aby wyrazić zgodę na każde połączenie OAuth przez uruchomienie ciągłego procesu roboczego integracji jako zwykłego konta użytkownika na maszynie wirtualnej, która ma aktywne sesje przeglądarki z autoryzacjami i już podaną zgodą. Na przykład można przeznaczenie przykładowego skryptu dostarczonego przez [projekt LogicAppConnectionAuth w repozytorium GitHub Logic Apps](https://github.com/logicappsio/LogicAppConnectionAuth).
+
+* Ręcznie Autoryzuj połączenia protokołu OAuth, otwierając aplikację logiki w Projektancie aplikacji logiki, w Azure Portal lub w programie Visual Studio.
+
+* Jeśli zamiast tego autoryzujesz połączenia przy użyciu jednostki [usługi](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory (Azure AD), Dowiedz się, jak [określić parametry jednostki usługi w szablonie aplikacji logiki](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections).
 
 ## <a name="next-steps"></a>Następne kroki
 

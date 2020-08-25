@@ -3,12 +3,12 @@ title: Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych prze
 description: Dowiedz się, jak Azure Backup umożliwia szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 2c83350acad59e72cfabc8e40069aab46d785b63
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 9e299095709e07d3c73c8e8c847042cc51f549dd
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763120"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827345"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta
 
@@ -39,7 +39,7 @@ W tym artykule omówiono następujące zagadnienia:
 
 - Ta funkcja jest obecnie konfigurowalna tylko na podstawie Azure Portal.
 
-Jeśli nie utworzono i nie skonfigurowano magazynu Recovery Services, możesz [zapoznać się z](backup-create-rs-vault.md)artykułem jak to zrobić.
+Jeśli magazyn Recovery Services nie został utworzony i skonfigurowany, możesz [zapoznać się z](backup-create-rs-vault.md)artykułem jak to zrobić.
 
 ## <a name="configuring-a-vault-to-encrypt-using-customer-managed-keys"></a>Konfigurowanie magazynu do szyfrowania przy użyciu kluczy zarządzanych przez klienta
 
@@ -60,7 +60,7 @@ W celu osiągnięcia zamierzonych wyników należy wykonać wszystkie te kroki w
 Azure Backup używa tożsamości zarządzanej przypisanej przez system do uwierzytelniania magazynu Recovery Services w celu uzyskania dostępu do kluczy szyfrowania przechowywanych w Azure Key Vault. Aby włączyć zarządzaną tożsamość magazynu Recovery Services, wykonaj czynności opisane poniżej.
 
 >[!NOTE]
->Po włączeniu nie można wyłączyć zarządzanej tożsamości (nawet tymczasowo). Wyłączenie zarządzanej tożsamości może prowadzić do niespójnych zachowań.
+>Po włączeniu **nie** można wyłączyć zarządzanej tożsamości (nawet tymczasowo). Wyłączenie zarządzanej tożsamości może prowadzić do niespójnych zachowań.
 
 1. Przejdź do magazynu Recovery Services — > **tożsamość**
 
@@ -138,7 +138,7 @@ Możesz również włączyć nietrwałe usuwanie i ochronę przed przeczyszczani
 > - Wszystkie kroki wymienione powyżej zostały pomyślnie wykonane:
 >   - Zarządzana tożsamość magazynu Recovery Services została włączona i przypisano wymagane uprawnienia
 >   - Azure Key Vault z włączonym usuwaniem nietrwałym i przeczyszczaniem
-> - Magazyn Recovery Services, dla którego chcesz włączyć szyfrowanie CMK nie ma żadnych elementów chronionych ani zarejestrowanych w nim
+> - Magazyn Recovery Services, dla którego chcesz **włączyć szyfrowanie CMK nie ma** żadnych elementów chronionych ani zarejestrowanych w nim
 
 Po upewnieniu się, że można kontynuować wybieranie klucza szyfrowania dla magazynu.
 
@@ -240,7 +240,7 @@ Nie, szyfrowanie CMK można włączyć tylko dla nowych magazynów. W związku z
 
 ### <a name="i-tried-to-protect-an-item-to-my-vault-but-it-failed-and-the-vault-still-doesnt-contain-any-items-protected-to-it-can-i-enable-cmk-encryption-for-this-vault"></a>Podjęto próbę włączenia ochrony elementu do mojego magazynu, ale jego awaria nie powiodła się, a magazyn nadal nie zawiera żadnych elementów, do których są chronione. Czy mogę włączyć szyfrowanie CMK dla tego magazynu?
 
-Nie. magazyn nie może mieć żadnych prób ochrony jakichkolwiek elementów w przeszłości.
+Nie. magazyn nie może mieć żadnych prób ochrony żadnych elementów w przeszłości.
 
 ### <a name="i-have-a-vault-that-is-using-cmk-encryption-can-i-later-revert-to-encryption-using-platform-managed-keys-even-if-i-have-backup-items-protected-to-the-vault"></a>Mam magazyn, który korzysta z szyfrowania CMK. Czy można później powracać do szyfrowania przy użyciu kluczy zarządzanych przez platformę, nawet jeśli mam elementy kopii zapasowej chronione do magazynu?
 
@@ -252,7 +252,7 @@ Nie. w tym artykule omówiono szyfrowanie tylko danych kopii zapasowej. W przypa
 
 ### <a name="i-missed-one-of-the-steps-in-this-article-and-went-on-to-protect-my-data-source-can-i-still-use-cmk-encryption"></a>Pominięto jeden z kroków tego artykułu i zaszło do ochrony mojego źródła danych. Czy nadal mogę używać szyfrowania CMK?
 
-Niewykonanie czynności opisanych w artykule i kontynuowanie ochrony elementów może prowadzić do tego, że magazyn nie będzie mógł używać szyfrowania przy użyciu kluczy zarządzanych przez klienta. Dlatego zalecamy odwoływanie się do [tej listy kontrolnej](#backing-up-to-a-vault-encrypted-with-customer-managed-keys) przed kontynuowaniem ochrony elementów.
+Nie wykonano kroków opisanych w artykule i kontynuowanie ochrony elementów może prowadzić do magazynu, w którym nie można używać szyfrowania przy użyciu kluczy zarządzanych przez klienta. Dlatego zalecamy odwoływanie się do [tej listy kontrolnej](#backing-up-to-a-vault-encrypted-with-customer-managed-keys) przed kontynuowaniem ochrony elementów.
 
 ### <a name="does-using-cmk-encryption-add-to-the-cost-of-my-backups"></a>Czy użycie CMK-Encryption umożliwia dodanie kosztu tworzenia kopii zapasowych?
 

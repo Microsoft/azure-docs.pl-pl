@@ -5,20 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 07/21/2020
+ms.date: 08/25/2020
 ms.author: victorh
-ms.openlocfilehash: 9d0a46135e5f763e6253540fe62d63cb59026ccb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 51804a9f98bfa17dcfbeb90a268b91b2d28dbbde
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086595"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827226"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Dzienniki i metryki usługi Azure Firewall
 
 Usługę Azure Firewall możesz monitorować przy użyciu dzienników zapory. Ponadto dzienniki aktywności umożliwiają inspekcję operacji wykonywanych względem zasobów usługi Azure Firewall.
 
-Niektóre z tych dzienników są dostępne za pośrednictwem portalu. Dzienniki mogą być wysyłane do [dzienników usługi Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), usługi Storage i Event Hubs oraz analizowane za pomocą dzienników usługi Azure Monitor lub innych narzędzi, takich jak program Excel i usługa Power BI.
+Niektóre z tych dzienników są dostępne za pośrednictwem portalu. Dzienniki mogą być wysyłane do [Azure monitor dzienników](../azure-monitor/insights/azure-networking-analytics.md), magazynu i Event Hubs i analizowane w dziennikach Azure monitor lub przy użyciu różnych narzędzi, takich jak Excel i Power BI.
 
 Metryki są lekkie i obsługują scenariusze niemal w czasie rzeczywistym, dzięki czemu mogą być używane do tworzenia alertów i szybkiego wykrywania problemów.
 
@@ -111,21 +111,21 @@ Następujące metryki są dostępne dla zapory platformy Azure:
 
     Jednostka: procent
 
-   Ta Metryka ma dwa wymiary:
+   Ta metryka ma dwa wymiary:
   - Stan: możliwe wartości są *zdrowe*, *w*złej *kondycji*.
   - Przyczyna: wskazuje przyczynę odpowiedniego stanu zapory. 
 
-     W przypadku używania portów podłączania adresów sieciowych > 95%, są one uznawane za wyczerpane, a kondycja wynosi 50% ze stanem o**obniżonym obniżyć** i Przyczyna =**port**. Zapora ciągle przetwarza ruch, a istniejące połączenia nie mają na nie oddziaływać. Jednak nowe połączenia mogą nie być ustanawiane sporadycznie.
+     W przypadku używania portów podłączania adresów sieciowych > 95%, są one uznawane za wyczerpane, a kondycja wynosi 50% ze stanem o**obniżonym obniżyć** i Przyczyna =**port**. Zapora nadal przetwarza ruch i nie ma to wpływu na istniejące połączenia. Jednak sporadycznie mogą wystąpić problemy z ustanawianiem nowych połączeń.
 
      Jeśli porty źródłowego translatora adresów sieciowych są używane < 95%, Zapora jest uznawana za w dobrej kondycji, a kondycja jest wyświetlana jako 100%.
 
-     Jeśli nie zgłoszono użycia portów ze współdziałaniem, kondycja jest wyświetlana jako 0%. 
+     Jeśli nie zgłoszono żadnego użycia portów SNAT, dla kondycji jest wyświetlana wartość 0%. 
 
 - **Wykorzystanie portów** przez przystawkę adresów sieciowych — wartość procentowa portów, które zostały wykorzystane przez zaporę.
 
     Jednostka: procent
 
-   Po dodaniu większej liczby publicznych adresów IP do zapory dostępne są więcej portów, co zmniejsza wykorzystanie portów. Ponadto, gdy Zapora skaluje się z różnych powodów (na przykład procesora CPU lub przepływności), dostępne są również dodatkowe porty. W związku z tym, procent wykorzystania portów przydziałów adresów sieciowych może zostać wyłączony bez dodawania jakichkolwiek publicznych adresów IP, po prostu ze względu na skalowanie usługi. Możesz bezpośrednio kontrolować liczbę dostępnych publicznych adresów IP w celu zwiększenia liczby portów dostępnych w zaporze. Nie można jednak bezpośrednio kontrolować skalowania zapory. Obecnie porty protokołu reportowego są dodawane tylko dla pierwszych pięciu publicznych adresów IP.   
+   Gdy dodasz więcej publicznych adresów IP do zapory, więcej portów SNAT będzie dostępnych i zmniejszy się ich wykorzystanie. Ponadto, gdy zapora jest z różnych powodów skalowana w poziomie (na przykład ze względu na procesor CPU lub przepływność), zwalniane są dodatkowe porty SNAT. W związku z tym, procent wykorzystania portów przydziałów adresów sieciowych może zostać wyłączony bez dodawania jakichkolwiek publicznych adresów IP, po prostu ze względu na skalowanie usługi. Możesz bezpośrednio kontrolować liczbę dostępnych publicznych adresów IP w celu zwiększenia liczby portów dostępnych w zaporze. Nie można jednak bezpośrednio kontrolować skalowania zapory.
 
 
 ## <a name="next-steps"></a>Następne kroki

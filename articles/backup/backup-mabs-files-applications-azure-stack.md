@@ -3,19 +3,19 @@ title: Tworzenie kopii zapasowych plików na maszynach wirtualnych Azure Stack
 description: Użyj Azure Backup, aby utworzyć kopię zapasową i odzyskać Azure Stack pliki i aplikacje w środowisku Azure Stack.
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: b45e3a0916f46f247503ea336105646f5538246c
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: caac247b5a972c515b4350f1b0c79792bbf75537
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263133"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825804"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Tworzenie kopii zapasowych plików i aplikacji na Azure Stack
 
 Za pomocą Azure Backup można chronić pliki i aplikacje (lub tworzyć ich kopie zapasowe) w Azure Stack. Aby utworzyć kopię zapasową plików i aplikacji, należy zainstalować program Microsoft Azure Backup Server jako maszynę wirtualną działającą na Azure Stack. Pliki można chronić na dowolnym serwerze Azure Stack w tej samej sieci wirtualnej. Po zainstalowaniu Azure Backup Server Dodaj dyski platformy Azure w celu zwiększenia magazynu lokalnego dostępnego dla krótkoterminowych danych kopii zapasowej. Azure Backup Server używa usługi Azure Storage do długoterminowego przechowywania.
 
 > [!NOTE]
-> Mimo że Azure Backup Server i System Center Data Protection Manager (DPM) są podobne, program DPM nie jest obsługiwany do użycia z programem Azure Stack.
+> Chociaż Azure Backup Server i System Center Data Protection Manager (DPM) są podobne, program DPM nie jest obsługiwany do korzystania z Azure Stack.
 >
 
 Ten artykuł nie obejmuje instalowania Azure Backup Server w środowisku Azure Stack. Aby zainstalować Azure Backup Server na Azure Stack, zobacz artykuł [instalowanie Azure Backup Server](backup-mabs-install-azure-stack.md).
@@ -46,13 +46,13 @@ Aby skonfigurować Azure Backup Server ochrony plików w Azure Stack maszynach w
 
     Firma Microsoft zaleca umieszczenie w jednej grupie ochrony wszystkich danych, które będą współużytkowane z zasadami ochrony. Aby uzyskać pełne informacje o planowaniu i wdrażaniu grup ochrony, zobacz artykuł System Center DPM, [wdrażanie grup ochrony](/system-center/dpm/create-dpm-protection-groups).
 
-4. Na ekranie **Wybierz metodę ochrony danych** wpisz nazwę grupy ochrony. Zaznacz pole wyboru dla **opcji chcę uzyskać krótkoterminową ochronę przy użyciu:** i chcę **chronić w trybie online**. Wybierz opcję **Dalej**.
+4. Na ekranie **Wybierz metodę ochrony danych** wpisz nazwę grupy ochrony. Zaznacz pole wyboru dla **opcji chcę uzyskać krótkoterminową ochronę przy użyciu:** i chcę **chronić w trybie online**. Wybierz pozycję **Dalej**.
 
     ![Wybierz metodę ochrony danych](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
     Aby wybrać opcję chcę **chronić w trybie online**, musisz najpierw wybrać opcję **Chcę uzyskać krótkoterminową ochronę przy użyciu:** dysk. Azure Backup Server nie chroni na taśmie, więc dysk jest jedynym wyborem dla ochrony krótkoterminowej.
 
-5. Na ekranie **Określ cele krótkoterminowe** wybierz, jak długo mają być przechowywane punkty odzyskiwania zapisane na dysku, oraz czas zapisywania przyrostowych kopii zapasowych. Wybierz opcję **Dalej**.
+5. Na ekranie **Określ cele krótkoterminowe** wybierz, jak długo mają być przechowywane punkty odzyskiwania zapisane na dysku, oraz czas zapisywania przyrostowych kopii zapasowych. Wybierz pozycję **Dalej**.
 
     > [!IMPORTANT]
     > Danych odzyskiwania operacyjnego (Backup) **nie** należy przechowywać na dyskach dołączonych Azure Backup Server przez więcej niż pięć dni.

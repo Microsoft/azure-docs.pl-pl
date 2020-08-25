@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej stanu systemu Windows na platformie Azure
 description: Dowiedz się, jak utworzyć kopię zapasową stanu systemu komputerów z systemem Windows Server na platformie Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: a56e500cc0330a6406b4465ab5baeafa39b544aa
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 8ce30b93ebaecec1e69c6c6a6f1064c6cdd3d0f6
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263048"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824466"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Tworzenie kopii zapasowej stanu systemu Windows na platformie Azure
 
@@ -98,7 +98,7 @@ Po utworzeniu magazynu należy skonfigurować go do tworzenia kopii zapasowych s
 ## <a name="install-and-register-the-agent"></a>Instalowanie i rejestrowanie agenta
 
 > [!NOTE]
-> Opcja włączania kopii zapasowych za pośrednictwem witryny Azure Portal jest jeszcze niedostępna. Użyj agenta Microsoft Azure Recovery Services, aby utworzyć kopię zapasową stanu systemu Windows Server.
+> Włączanie tworzenia kopii zapasowej za pomocą Azure Portal jest niedostępne. Użyj agenta Microsoft Azure Recovery Services, aby utworzyć kopię zapasową stanu systemu Windows Server.
 >
 
 1. Zlokalizuj i kliknij dwukrotnie plik **MARSagentinstaller.exe** w folderze Pobrane (lub innej lokalizacji).
@@ -116,7 +116,7 @@ Po utworzeniu magazynu należy skonfigurować go do tworzenia kopii zapasowych s
    * Zapisz hasło szyfrowania w bezpiecznej lokalizacji.
 
      > [!NOTE]
-     > Jeśli utracisz lub zapomnisz hasło, firma Microsoft nie będzie mogła pomóc w odzyskaniu danych kopii zapasowej. Zapisz plik w bezpiecznej lokalizacji. Jest ono wymagane do przywrócenia kopii zapasowej.
+     > Jeśli utracisz lub zapomnisz hasło, firma Microsoft nie może odzyskać danych kopii zapasowej. Zapisz plik w bezpiecznej lokalizacji. Jest to wymagane do przywrócenia kopii zapasowej.
      >
      >
 
@@ -152,7 +152,7 @@ Aby utworzyć początkową kopię zapasową, użyj agenta usługi Microsoft Azur
 
 5. Wybierz pozycję **stan systemu** , a następnie wybierz przycisk **OK**.
 
-6. Wybierz opcję **Dalej**.
+6. Wybierz pozycję **Dalej**.
 
 7. Wybierz żądaną częstotliwość tworzenia kopii zapasowych i zasady przechowywania kopii zapasowych stanu systemu na kolejnych stronach.
 
