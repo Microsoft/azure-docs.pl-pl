@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
@@ -9,10 +9,10 @@ ms.date: 08/01/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 45bdd569741dc13181bcaf9e8587a02b3d02c621
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "68728859"
 ---
 1. Zaloguj się do [konsoli Firebase](https://firebase.google.com/console/). Utwórz nowy projekt Firebase, jeśli jeszcze go nie masz.
@@ -25,9 +25,9 @@ ms.locfileid: "68728859"
 
         ![Określ nazwę pakietu](./media/notification-hubs-enable-firebase-cloud-messaging/specify-package-name-fcm-settings.png)
     2. Wybierz pozycję **zarejestruj aplikację**.  
-    1. Wybierz pozycję **Pobierz Google-Services. JSON**. Następnie Zapisz plik w folderze projektu i wybierz pozycję **dalej**. Jeśli projekt programu Visual Studio nie został jeszcze utworzony, możesz wykonać ten krok po utworzeniu projektu. 
+    1. Wybierz pozycję **pobierz google-services.jsna**. Następnie Zapisz plik w folderze projektu i wybierz pozycję **dalej**. Jeśli projekt programu Visual Studio nie został jeszcze utworzony, możesz wykonać ten krok po utworzeniu projektu. 
 
-        ![Pobierz plik Google-Services. JSON](./media/notification-hubs-enable-firebase-cloud-messaging/download-google-service-button.png)
+        ![Pobierz google-services.jsna](./media/notification-hubs-enable-firebase-cloud-messaging/download-google-service-button.png)
     6. Wybierz pozycję **Dalej**. 
     7. Wybierz pozycję **Pomiń ten krok**. 
 
@@ -35,9 +35,9 @@ ms.locfileid: "68728859"
 8. W konsoli usługi Firebase wybierz koło zębate dla projektu. Następnie wybierz pozycję **Ustawienia projektu**.
 
     ![Wybieranie ustawień projektu](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
-4. Jeśli nie pobrano pliku **Google-Services. JSON** , można go pobrać na tej stronie. 
+4. Jeśli nie pobrano **google-services.js** pliku, możesz go pobrać na tej stronie. 
 
-    ![Pobierz plik Google-Services. JSON z karty Ogólne](./media/notification-hubs-enable-firebase-cloud-messaging/download-google-services-json-general-page.png)
+    ![Pobierz google-services.jsna karcie Ogólne](./media/notification-hubs-enable-firebase-cloud-messaging/download-google-services-json-general-page.png)
 1. Przejdź na kartę usługi **Cloud Messaging** w górnej części strony. Skopiuj i Zapisz **klucz serwera** do późniejszego użycia. Ta wartość służy do konfigurowania centrum powiadomień.
 
     ![Kopiuj klucz serwera](./media/notification-hubs-enable-firebase-cloud-messaging/server-key.png)

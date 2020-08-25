@@ -15,10 +15,10 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13be33843172f505ed8f12293137c0808e9bd2a0
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85920369"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Samouczek: używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej systemu Windows w celu uzyskania dostępu do usługi Azure SQL
@@ -38,7 +38,7 @@ W tym samouczku pokazano, jak uzyskać dostęp do Azure SQL Database za pomocą 
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="enable"></a>Włączenie
+## <a name="enable"></a>Włącz
 
 [!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
 
@@ -79,7 +79,7 @@ Usługa SQL Database wymaga unikatowych nazw wyświetlanych usługi AAD. W zwią
 4. W polu **Nazwa użytkownika** wprowadź nazwę konta usługi Azure AD, które zostało ustawione jako administrator serwera, np. helen@woodgroveonline.com
 5. Kliknij pozycję **Opcje**.
 6. W polu **Połącz z bazą danych** wpisz nazwę niesystemowej bazy danych, którą chcesz skonfigurować.
-7. Kliknij pozycję **Połącz**. Zakończ proces logowania.
+7. Kliknij przycisk **Podłącz**. Zakończ proces logowania.
 8. W **Eksploratorze obiektów** rozwiń folder **Bazy danych**.
 9. Kliknij prawym przyciskiem myszy bazę danych użytkownika, a następnie kliknij pozycję **Nowe zapytanie**.
 10. W oknie zapytania wpisz następujący wiersz, a następnie kliknij przycisk **Wykonaj** na pasku narzędzi:

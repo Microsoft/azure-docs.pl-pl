@@ -15,10 +15,10 @@ ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
 ms.openlocfilehash: 5d4ac5435281f521c71556123f77d737ee6916e9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "73161783"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Tworzenie klastra rozwiązania Pivotal Cloud Foundry na platformie Azure
@@ -64,7 +64,7 @@ Aby uzyskać więcej informacji, zobacz [Use SSH keys with Windows on Azure (Kor
 
     > [!NOTE]
     >
-    > Wybierz własną stronę główną aplikacji i identyfikator URI identyfikatora, na przykład http\://www\.contoso.com.
+    > Wybierz własną stronę główną aplikacji i identyfikator URI identyfikatora, na przykład http \: //www \. contoso.com.
 
 4. Utwórz jednostkę usługi przy użyciu nowego identyfikatora aplikacji.
 

@@ -11,10 +11,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fe2d0a16aeacfc551a6a07a72b58b5f461f93433
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85360524"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>Samouczek: podstawowe środowisko Active Directory
@@ -45,7 +45,7 @@ Poniżej przedstawiono wymagania wstępne niezbędne do wykonania kroków tego s
 W pierwszej kolejności, w której należy wykonać nasze hybrydowe środowisko tożsamości, należy utworzyć maszynę wirtualną, która będzie używana jako serwer lokalnego Active Directory.  Wykonaj następujące czynności:
 
 1. Otwórz program PowerShell ISE jako administrator.
-2. Uruchom następujący skrypt.
+2. Uruchom poniższy skrypt.
 
     ```powershell
     #Declare variables
@@ -90,7 +90,7 @@ Aby zakończyć tworzenie maszyny wirtualnej, należy zakończyć instalację sy
 Teraz, gdy masz już maszynę wirtualną, przed zainstalowaniem Active Directory należy wykonać kilka czynności.  Oznacza to, że należy zmienić nazwę maszyny wirtualnej, ustawić statyczny adres IP i informacje DNS oraz zainstalować narzędzia administracji zdalnej serwera.   Wykonaj następujące czynności:
 
 1. Otwórz program PowerShell ISE jako administrator.
-2. Uruchom następujący skrypt.
+2. Uruchom poniższy skrypt.
 
     ```powershell
     #Declare variables
@@ -126,7 +126,7 @@ Teraz, gdy masz już maszynę wirtualną, przed zainstalowaniem Active Directory
 Teraz, gdy masz utworzoną maszynę wirtualną, a jej nazwa została zmieniona i ma statyczny adres IP, możesz go zainstalować i skonfigurować Active Directory Domain Services.  Wykonaj następujące czynności:
 
 1. Otwórz program PowerShell ISE jako administrator.
-2. Uruchom następujący skrypt.
+2. Uruchom poniższy skrypt.
 
     ```powershell 
     #Declare variables
@@ -157,7 +157,7 @@ Teraz, gdy masz utworzoną maszynę wirtualną, a jej nazwa została zmieniona i
 Teraz, gdy masz nasze środowisko Active Directory, musisz być kontem testowym.  To konto zostanie utworzone w lokalnym środowisku usługi AD, a następnie zsynchronizowane z usługą Azure AD.  Wykonaj następujące czynności:
 
 1. Otwórz program PowerShell ISE jako administrator.
-2. Uruchom następujący skrypt.
+2. Uruchom poniższy skrypt.
 
     ```powershell 
     # Filename:    4_CreateUser.ps1
@@ -199,9 +199,9 @@ Teraz musisz utworzyć dzierżawę usługi Azure AD, aby umożliwić synchroniza
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta, które ma subskrypcję platformy Azure.
 2. Wybierz **ikonę plusa (+)** i wyszukaj pozycję **Azure Active Directory**.
 3. W wynikach wyszukiwania wybierz pozycję **Azure Active Directory**.
-4. Wybierz pozycję **Utwórz**.</br>
+4. Wybierz przycisk **Utwórz**.</br>
 ![Tworzenie](media/tutorial-single-forest/create1.png)</br>
-5. Podaj **nazwę organizacji** wraz z **początkową nazwą domeny**. Następnie wybierz pozycję **Utwórz**. Spowoduje to utworzenie katalogu.
+5. Podaj **nazwę organizacji** wraz z **początkową nazwą domeny**. Następnie wybierz przycisk **Utwórz**. Spowoduje to utworzenie katalogu.
 6. Po zakończeniu kliknij link **tutaj**, aby zarządzać katalogiem.
 
 ## <a name="create-a-global-administrator-in-azure-ad"></a>Tworzenie administratora globalnego w usłudze Azure AD
@@ -223,7 +223,7 @@ Jeśli potrzebujesz tylko dodatkowego serwera, możesz zatrzymać po kroku — *
 ### <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
 1. Otwórz program PowerShell ISE jako administrator.
-2. Uruchom następujący skrypt.
+2. Uruchom poniższy skrypt.
 
     ```powershell
     # Filename:    1_CreateVM_CP.ps1
@@ -277,7 +277,7 @@ Aby zakończyć tworzenie maszyny wirtualnej, należy zakończyć instalację sy
 Teraz, gdy masz już maszynę wirtualną, przed zainstalowaniem Active Directory należy wykonać kilka czynności.  Oznacza to, że należy zmienić nazwę maszyny wirtualnej, ustawić statyczny adres IP i informacje DNS oraz zainstalować narzędzia administracji zdalnej serwera.   Wykonaj następujące czynności:
 
 1. Otwórz program PowerShell ISE jako administrator.
-2. Uruchom następujący skrypt.
+2. Uruchom poniższy skrypt.
 
     ```powershell
     # Filename:    2_ADPrep_CP.ps1
@@ -327,7 +327,7 @@ Teraz, gdy masz już maszynę wirtualną, przed zainstalowaniem Active Directory
 Teraz, gdy masz utworzoną maszynę wirtualną, a jej nazwa została zmieniona i ma statyczny adres IP, możesz go zainstalować i skonfigurować Active Directory Domain Services.  Wykonaj następujące czynności:
 
 1. Otwórz program PowerShell ISE jako administrator.
-2. Uruchom następujący skrypt.
+2. Uruchom poniższy skrypt.
 
     ```powershell
     # Filename:    3_InstallAD_CP.ps1
@@ -373,7 +373,7 @@ Teraz, gdy masz utworzoną maszynę wirtualną, a jej nazwa została zmieniona i
 Teraz, gdy masz nasze środowisko Active Directory, musisz być kontem testowym.  To konto zostanie utworzone w lokalnym środowisku usługi AD, a następnie zsynchronizowane z usługą Azure AD.  Wykonaj następujące czynności:
 
 1. Otwórz program PowerShell ISE jako administrator.
-2. Uruchom następujący skrypt.
+2. Uruchom poniższy skrypt.
 
     ```powershell 
     # Filename:    4_CreateUser_CP.ps1

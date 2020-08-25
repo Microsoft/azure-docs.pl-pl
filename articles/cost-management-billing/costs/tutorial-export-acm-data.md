@@ -3,17 +3,17 @@ title: Samouczek — eksportowanie danych z usługi Azure Cost Management i zarz
 description: W tym artykule pokazano, jak eksportować dane usługi Azure Cost Management i zarządzać nimi, aby można było używać ich w systemach zewnętrznych.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/27/2020
+ms.date: 08/05/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 90334d29ed2f649854863f9ad86f03811728a945
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 69b7b4bff46ba2998ca931ba1cb6bc9e7c1d9096
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142325"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272224"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Samouczek: Eksportowanie danych i zarządzanie nimi
 
@@ -49,40 +49,38 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 ## <a name="create-a-daily-export"></a>Tworzenie codziennego eksportu
 
-Aby utworzyć lub wyświetlić eksport danych bądź zaplanować eksport, otwórz żądany zakres w witrynie Azure Portal i wybierz pozycję **Analiza kosztów** w menu. Na przykład przejdź do obszaru **Subskrypcje**, wybierz subskrypcję z listy, a następnie wybierz pozycję **Analiza kosztów** w menu. W górnej części strony Analiza kosztów wybierz pozycję **Ustawienia** i pozycję **Eksporty**, a następnie wybierz opcję eksportowania.
+Aby utworzyć lub wyświetlić eksport danych bądź zaplanować eksport, otwórz żądany zakres w witrynie Azure Portal i wybierz pozycję **Analiza kosztów** w menu. Na przykład przejdź do obszaru **Subskrypcje**, wybierz subskrypcję z listy, a następnie wybierz pozycję **Analiza kosztów** w menu. W górnej części strony Analiza kosztów wybierz pozycję **Ustawienia**, a następnie **Eksporty**.
 
 > [!NOTE]
-> - Eksporty można tworzyć nie tylko dla subskrypcji, ale również dla grup zasobów, kont, działów i rejestracji. Aby uzyskać więcej informacji na temat zakresów, zobacz [Omówienie zakresów i praca z nimi](understand-work-scopes.md).
+> - Eksporty można tworzyć nie tylko dla subskrypcji, ale również dla grup zasobów, grup zarządzania, działów i rejestracji. Aby uzyskać więcej informacji na temat zakresów, zobacz [Omówienie zakresów i praca z nimi](understand-work-scopes.md).
 >- Po zalogowaniu się jako partner w zakresie konta rozliczeniowego lub dzierżawy klienta możesz wyeksportować dane do konta usługi Azure Storage połączonego z Twoim partnerskim kontem magazynu. Musisz jednak mieć aktywną subskrypcję w dzierżawie dostawców rozwiązań w chmurze.
 
-Wybierz pozycję **Dodaj**, wpisz nazwę zadania eksportu, a następnie wybierz opcję **Codzienny eksport kosztów od początku miesiąca**. Wybierz opcję **Dalej**.
-
-[![Przykład nowego eksportu z pokazanym typem eksportu](./media/tutorial-export-acm-data/basics_exports.png)](./media/tutorial-export-acm-data/basics_exports.png#lightbox)
-
-Podaj subskrypcję zawierającą konto usługi Azure Storage, a następnie wybierz konto usługi Storage.  Określ ścieżkę kontenera i katalogu do zapisania wyeksportowanego pliku. Wybierz opcję **Dalej**.
-
-![Przykład nowego eksportu z pokazanymi szczegółami konta magazynu](./media/tutorial-export-acm-data/storage_exports.png)
-
-Przejrzyj szczegóły eksportu, a następnie wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Dodaj** i wpisz nazwę eksportu. 
+1. W obszarze **Metryka** zaznacz pozycję:
+    - **Koszt rzeczywisty (użycie i zakupy)** — wybierz tę opcję, aby wyeksportować standardowe użycie i zakupy
+    - **Koszt zamortyzowany (użycie i zakupy)** — wybierz tę opcję, aby wyeksportować zamortyzowane koszty zakupów, takich jak rezerwacje platformy Azure
+1. W obszarze **Typ eksportu** zaznacz pozycję:
+    - **Codzienny eksport kosztów od początku miesiąca** — codziennie udostępnia nowy plik eksportu dotyczący kosztów od początku miesiąca. Najnowsze dane są agregowane z poprzednich codziennych eksportów.
+    - **Tygodniowy eksport kosztów z ostatnich 7 dni** — umożliwia utworzenie tygodniowego eksportu kosztów z ostatnich siedmiu dni począwszy od wybranej daty rozpoczęcia eksportu.  
+    - **Miesięczny eksport kosztów z ostatniego miesiąca** — umożliwia eksportowanie kosztów z ostatniego miesiąca w celu porównania ich z eksportem tworzonym w bieżącym miesiącu. Eksport jest uruchamiany zgodnie z harmonogramem w piątym dniu każdego nowego miesiąca i zawiera koszty z poprzednich miesięcy.  
+    - **Eksport jednorazowy**— umożliwia wybranie zakresu dat dla danych historycznych eksportowanych do usługi Azure Blob Storage. Możesz wyeksportować koszty historyczne obejmujące maksymalnie 90 dni począwszy od wskazanego dnia. Eksport jest uruchamiany natychmiast, a na koncie magazynu jest dostępny w ciągu dwóch godzin.  
+        W zależności od typu eksportu możesz wybrać datę rozpoczęcia lub przedział czasowy, wskazując datę początkową (**Od**) i datę końcową (**Do**).
+1. Podaj subskrypcję zawierającą konto usługi Azure Storage, a następnie wybierz grupę zasobów lub utwórz nową. 
+1. Wybierz nazwę konta magazynu lub utwórz nowe konto. 
+1. Wybierz lokalizację (region świadczenia platformy Azure).
+1. Określ ścieżkę kontenera i katalogu do zapisania wyeksportowanego pliku. 
+    :::image type="content" source="./media/tutorial-export-acm-data/basics_exports.png" alt-text="Przykład nowego eksportu" lightbox="./media/tutorial-export-acm-data/basics_exports.png":::
+1. Przejrzyj szczegóły eksportu, a następnie wybierz przycisk **Utwórz**.
 
 Nowy eksport pojawi się na liście eksportów. Domyślnie nowe zadania eksportu są włączone. Jeśli chcesz wyłączyć lub usunąć zaplanowany eksport, wybierz dowolny element na liście, a następnie wybierz pozycję **Wyłącz** lub **Usuń**.
 
-Początkowo uruchomienie eksportu może zająć od jednej do dwóch godzin. Jednak wyświetlenie danych w wyeksportowanych plikach może potrwać nawet cztery godziny.
+Początkowo uruchomienie eksportu może zająć od 12 do 24 godzin. Jednak wyświetlenie danych w wyeksportowanych plikach może potrwać dłużej.
 
-### <a name="export-schedule"></a>Harmonogram eksportu
+### <a name="export-schedule"></a>Eksportowanie harmonogramu
 
-Na zaplanowane eksporty wpływa czas (godzina i dzień tygodnia) początkowego utworzenia eksportu. Po utworzeniu zaplanowanego eksportu eksport będzie uruchamiany z taką samą częstotliwością dla każdego kolejnego wystąpienia eksportu. Na przykład w przypadku ustawienia eksportu od początku miesiąca z częstotliwością raz na dzień, eksport będzie uruchamiany codziennie. Podobnie w przypadku eksportu tygodniowego eksport będzie uruchamiany co tydzień tego samego dnia zgodnie z harmonogramem. Dokładny czas dostarczania eksportu nie jest gwarantowany, a wyeksportowane dane będą dostępne w ciągu czterech godzin od uruchomienia.
-Dla każdego eksportu tworzony jest nowy plik, więc starsze eksporty nie są zastępowane.
+Na zaplanowane eksporty wpływa czas (godzina i dzień tygodnia) początkowego utworzenia eksportu. Po utworzeniu zaplanowanego eksportu eksport będzie uruchamiany z taką samą częstotliwością dla każdego kolejnego wystąpienia eksportu. Na przykład w przypadku ustawienia codziennego eksportu kosztów od początku miesiąca z częstotliwością raz na dzień, eksport będzie uruchamiany codziennie. Podobnie w przypadku eksportu tygodniowego eksport będzie uruchamiany co tydzień tego samego dnia zgodnie z harmonogramem. Dokładny czas dostarczania eksportu nie jest gwarantowany, a wyeksportowane dane będą dostępne w ciągu czterech godzin od uruchomienia.
 
-Istnieją dwa typy opcji eksportu:
-
-**Codzienny eksport kosztów od początku miesiąca** — początkowy eksport jest uruchamiany natychmiast. Kolejne eksporty są uruchamiane następnego dnia o tej samej godzinie, co eksport początkowy. Najnowsze dane są agregowane z poprzednich codziennych eksportów.
-
-**Niestandardowe** — umożliwia zaplanowanie cotygodniowych i comiesięcznych eksportów z opcjami od początku tygodnia i od początku miesiąca. *Początkowy eksport zostanie uruchomiony natychmiast.*
-
-Jeśli masz subskrypcję z płatnością zgodnie z rzeczywistym użyciem, MSDN lub programu Visual Studio, Twój okres rozliczeniowy faktury może nie zgadzać się z miesiącem kalendarzowym. W przypadku tych typów subskrypcji i grup zasobów można utworzyć eksport dopasowany do Twojego okresu faktury lub miesięcy kalendarzowych. Aby utworzyć eksport dopasowany do miesiąca na fakturze, przejdź do obszaru **Niestandardowy**, a następnie wybierz pozycję **Okres rozliczeniowy do dnia bieżącego**.  Aby utworzyć eksport dopasowany do miesiąca kalendarzowego, wybierz pozycję **W ciągu ostatniego miesiąca**.
-
-![Nowy eksport — karta Podstawowe przedstawiająca wybór opcji Niestandardowe, Co tydzień i Od początku tygodnia](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
+Każdy eksport tworzy nowy plik, więc starsze eksporty nie są zastępowane.
 
 #### <a name="create-an-export-for-multiple-subscriptions"></a>Tworzenie eksportu dla wielu subskrypcji
 
@@ -90,10 +88,11 @@ Jeśli masz umowę Enterprise Agreement, możesz użyć grupy zarządzania do ag
 
 Eksporty dla grup zarządzania innych typów subskrypcji nie są obsługiwane.
 
-1. Utwórz grupę zarządzania i przypisz do niej subskrypcje.
-1. W obszarze Eksporty wybierz pozycję **Zakres**.
-1. Wybierz pozycję **wybierz tę grupę zarządzania**.
-1. Utwórz eksport w zakresie, aby uzyskać dane dotyczące zarządzania kosztami dla subskrypcji w grupie zarządzania.
+1. Jeśli grupa zarządzania nie została jeszcze utworzona, utwórz ją i przypisz do niej subskrypcje.
+1. W analizie kosztów ustaw zakres grupy zarządzania i wybierz opcję **Wybierz tę grupę zarządzania**.  
+    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Przykład przedstawiający opcję Wybierz tę grupę zarządzania" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
+1. Utwórz eksport w zakresie, aby uzyskać dane dotyczące zarządzania kosztami dla subskrypcji w grupie zarządzania.  
+    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Przykład przedstawiający opcję Utwórz nowy eksport z zakresem grupy zarządzania":::
 
 ## <a name="verify-that-data-is-collected"></a>Sprawdzanie, czy dane są zbierane
 
@@ -123,6 +122,16 @@ Możesz również pobrać wyeksportowany plik CSV w witrynie Azure Portal. Poni�
 1. Wybierz plik CSV, a następnie wybierz pozycję **Pobierz**.
 
 [![Przykład pobierania eksportu](./media/tutorial-export-acm-data/download-export.png)](./media/tutorial-export-acm-data/download-export.png#lightbox)
+
+## <a name="view-export-run-history"></a>Sprawdzanie historii uruchamiania eksportu  
+
+Aby wyświetlić historię uruchamiania zaplanowanego eksportu, wybierz eksport indywidualny na stronie listy z eksportami. Strona listy z eksportami umożliwia również szybkie wyświetlenie czasu uruchomienia poprzednich eksportów oraz zaplanowanych eksportów. Oto przykładowa historia uruchamiania.
+
+:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Przykład przedstawiający historię uruchamiania eksportu":::
+
+Wybierz eksport, aby wyświetlić jego historię uruchamiania.
+
+:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Przykład przedstawiający historię uruchamiania eksportu":::
 
 ## <a name="access-exported-data-from-other-systems"></a>Uzyskiwanie dostępu do wyeksportowanych danych z poziomu innych systemów
 

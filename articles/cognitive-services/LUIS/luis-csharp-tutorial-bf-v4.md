@@ -4,10 +4,10 @@ description: Przy użyciu języka C# twórz czatbot zintegrowany z usługą Lang
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.openlocfilehash: b9da1d1fecbb251ebf27833cc381eb658a9df46b
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85445903"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Samouczek: używanie bot aplikacji sieci Web z włączonym Language Understanding w języku C #
@@ -25,7 +25,7 @@ Użyj języka C# do kompilowania programu Chat bot zintegrowanego z funkcją int
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Emulator bota](https://aka.ms/abs/build/emulatordownload)
-* [Program Visual Studio](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 
 ## <a name="create-a-web-app-bot-resource"></a>Tworzenie zasobu bot aplikacji sieci Web
 

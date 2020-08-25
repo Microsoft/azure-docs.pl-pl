@@ -4,12 +4,12 @@ description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych pla
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 6cb2f3d099c328f00fab335e1cbe9ea146c0fc55
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c648387547e9543c9e509344aa86285504dced7a
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653651"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761376"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -267,7 +267,7 @@ Dysk w warstwie Premium P20, P30, P40 lub P50 | 16 KB lub większy |20 MB/s | 16
 ## <a name="replicated-machines---networking"></a>Zreplikowane maszyny — sieć
 **Ustawienie** | **Pomoc techniczna** | **Szczegóły**
 --- | --- | ---
-Karta sieciowa | Maksymalna liczba obsługiwana dla określonego rozmiaru maszyny wirtualnej platformy Azure | Karty sieciowe są tworzone podczas pracy w trybie failover.<br/><br/> Liczba kart sieciowych na maszynie wirtualnej trybu failover zależy od liczby kart sieciowych na źródłowej maszynie wirtualnej, gdy replikacja została włączona. Po dodaniu lub usunięciu karty sieciowej po włączeniu replikacji nie ma to wpływu na liczbę kart sieciowych replikowanych maszyn wirtualnych po przejściu w tryb failover. <br/><br/> Kolejność kart sieciowych po przejściu w tryb failover nie gwarantuje, że jest taka sama jak oryginalna kolejność. <br/><br/> Można zmienić nazwy kart sieciowych w regionie docelowym na podstawie konwencji nazewnictwa w organizacji.
+Karta sieciowa | Maksymalna liczba obsługiwana dla określonego rozmiaru maszyny wirtualnej platformy Azure | Karty sieciowe są tworzone podczas pracy w trybie failover.<br/><br/> Liczba kart sieciowych na maszynie wirtualnej trybu failover zależy od liczby kart sieciowych na źródłowej maszynie wirtualnej, gdy replikacja została włączona. Po dodaniu lub usunięciu karty sieciowej po włączeniu replikacji nie ma to wpływu na liczbę kart sieciowych replikowanych maszyn wirtualnych po przejściu w tryb failover. <br/><br/> Kolejność kart sieciowych po przejściu w tryb failover nie gwarantuje, że jest taka sama jak oryginalna kolejność. <br/><br/> Można zmienić nazwy kart sieciowych w regionie docelowym na podstawie konwencji nazewnictwa w organizacji. Zmiana nazwy karty sieciowej jest obsługiwana przy użyciu programu PowerShell.
 Internetowy moduł równoważenia obciążenia | Obsługiwane | Skojarz wstępnie skonfigurowany moduł równoważenia obciążenia za pomocą skryptu Azure Automation w planie odzyskiwania.
 Wewnętrzny moduł równoważenia obciążenia | Obsługiwane | Skojarz wstępnie skonfigurowany moduł równoważenia obciążenia za pomocą skryptu Azure Automation w planie odzyskiwania.
 Publiczny adres IP | Obsługiwane | Skojarz istniejący publiczny adres IP z kartą sieciową. Lub Utwórz publiczny adres IP i skojarz go z kartą sieciową przy użyciu skryptu Azure Automation w planie odzyskiwania.

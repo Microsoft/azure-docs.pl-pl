@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 0726edae7c5f44fae7f573559d561e7ef5773e71
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85801303"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Samouczek: Tworzenie i wdrażanie niestandardowych modułów IoT Edge
@@ -159,7 +159,7 @@ Moduł routera jest ważnym elementem rozwiązania, które zapewnia, że komunik
 
 1. Nazwij moduł **turbofanRouter**.
 
-1. Po wyświetleniu monitu dotyczącego repozytorium obrazów platformy Docker Użyj rejestru z obszaru roboczego usługi Machine Learning (możesz znaleźć rejestr w węźle registryCredentials *wdeployment.template.js* pliku). Ta wartość jest w pełni kwalifikowanym adresem do rejestru, np ** \<your registry\> . azurecr.IO/turbofanrouter**.
+1. Po wyświetleniu monitu dotyczącego repozytorium obrazów platformy Docker Użyj rejestru z obszaru roboczego usługi Machine Learning (możesz znaleźć rejestr w węźle registryCredentials * wdeployment.template.js* pliku). Ta wartość jest w pełni kwalifikowanym adresem do rejestru, np ** \<your registry\> . azurecr.IO/turbofanrouter**.
 
     > [!NOTE]
     > W tym artykule używamy Azure Container Registry, który został utworzony przez obszar roboczy Azure Machine Learning. Jest to wyłącznie wygoda. Możemy utworzyć nowy rejestr kontenerów i opublikować tam nasze moduły.

@@ -4,10 +4,10 @@ description: Użyj wzorców, aby zwiększyć zamiar i prognozowanie jednostek, j
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.openlocfilehash: 3ca8bb15d19b0fa0dd6b33d35a380c0b1b07abe0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86039504"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Samouczek: Dodawanie typowych formatów wypowiedź szablonów wzorców w celu usprawnienia prognoz
@@ -33,7 +33,7 @@ Istnieją dwa typy wyrażenia długości przechowywanych w aplikacji LUIS:
 
 Dodanie wyrażenia długości szablonu jako wzorca pozwala na zapewnienie mniejszej ilości przykładowych wyrażenia długości do zamiaru.
 
-Wzorzec jest stosowany jako kombinacja dopasowania tekstu i uczenia maszynowego.  Szablon wypowiedź we wzorcu, wraz z przykładem wyrażenia długości w zamiarze, zapewnia LUIS lepiej zrozumieć, co wyrażenia długości pasuje do zamiaru.
+Stosowanie wzorca opiera się na połączeniu dopasowania wyrażeń i uczenia maszynowego.  Wypowiedź szablonu we wzorcu wraz z przykładowymi wypowiedziami intencji pozwala usłudze LUIS lepiej zrozumieć, jakie wypowiedzi pasują do intencji.
 
 ## <a name="import-example-app-and-clone-to-new-version"></a>Importowanie przykładowej aplikacji i klonowanie do nowej wersji
 
@@ -191,7 +191,7 @@ Oczekiwano poprawnego górnego celu, `OrgChart-Manager` ale wynik nie jest więk
 Pozostaw drugie okno przeglądarki otwarte. Będzie on używany ponownie później w samouczku.
 
 ## <a name="template-utterances"></a>Wypowiedzi szablonu
-Ze względu na charakter domeny podmiotu zasobów ludzkich istnieje kilka typowych metod zaproszenia o relacje między pracownikami w organizacjach. Przykład:
+Ze względu na charakter domeny podmiotu zasobów ludzkich istnieje kilka typowych metod zaproszenia o relacje między pracownikami w organizacjach. Na przykład:
 
 |Wypowiedzi|
 |--|
@@ -204,8 +204,8 @@ Przykładowe wypowiedzi szablonu dla tej intencji obejmują:
 
 |Przykładowe wypowiedzi szablonu|Znaczenie składni|
 |--|--|
-|`Who does {EmployeeListEntity} report to[?]`|wymienne`{EmployeeListEntity}`<br>Ignoruj`[?]`|
-|`Who reports to {EmployeeListEntity}[?]`|wymienne`{EmployeeListEntity}`<br>Ignoruj`[?]`|
+|`Who does {EmployeeListEntity} report to[?]`|wymienne `{EmployeeListEntity}`<br>Ignoruj `[?]`|
+|`Who reports to {EmployeeListEntity}[?]`|wymienne `{EmployeeListEntity}`<br>Ignoruj `[?]`|
 
 Składnia `{EmployeeListEntity}` oznacza lokalizację jednostki w ramach wypowiedzi szablonu oraz to, która to jednostka. Opcjonalna składnia, `[?]` , znaki wyrazów lub [interpunkcja](luis-reference-application-settings.md#punctuation-normalization) , która jest opcjonalna. Usługa LUIS dopasowuje wypowiedź, ignorując opcjonalny tekst w nawiasie.
 
@@ -249,7 +249,7 @@ Aby wzorzec pasował do elementu wypowiedź, _najpierw_ jednostki w wypowiedź m
 
 Teraz, gdy wzorce są dodawane do aplikacji, uczenie, publikowanie i wysyłanie zapytań do aplikacji w punkcie końcowym przewidywania środowiska uruchomieniowego.
 
-1. Wybierz pozycję **uczenie**. Po zakończeniu szkolenia wybierz pozycję **Publikuj** i wybierz miejsce **produkcyjne** , a następnie wybierz pozycję **gotowe**.
+1. Wybierz pozycję **Przeszkol**. Po zakończeniu szkolenia wybierz pozycję **Publikuj** i wybierz miejsce **produkcyjne** , a następnie wybierz pozycję **gotowe**.
 
 1. Po zakończeniu publikowania Przełącz karty przeglądarki z powrotem na kartę adres URL punktu końcowego.
 
@@ -351,7 +351,7 @@ Poprzednie wypowiedzi szablonu wzorca w tym samouczku miały kilka przykładów 
 
 Przykładowe wypowiedzi:
 
-|Intencja|Przykładowe wypowiedzi z opcjonalnym tekstem i wstępnie skompilowanymi jednostkami|
+|Zamiar|Przykładowe wypowiedzi z opcjonalnym tekstem i wstępnie skompilowanymi jednostkami|
 |:--|:--|
 |OrgChart-Manager|`Who was Jill Jones manager on March 3?`|
 |OrgChart-Manager|`Who is Jill Jones manager now?`|
@@ -362,7 +362,7 @@ Każdy z tych przykładów używa czasowników w różnych czasach: `was`, `is`,
 
 Przykładowy wyrażenia długości szablonu, który zezwala na te informacje opcjonalne:
 
-|Intencja|Przykładowe wypowiedzi z opcjonalnym tekstem i wstępnie skompilowanymi jednostkami|
+|Zamiar|Przykładowe wypowiedzi z opcjonalnym tekstem i wstępnie skompilowanymi jednostkami|
 |:--|:--|
 |OrgChart-Manager|`who was {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 |OrgChart-Manager|`who is {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
@@ -384,7 +384,7 @@ Korzystanie z opcjonalnych składni z nawiasami kwadratowymi, `[]`, sprawia, że
 
 1. W sekcji **Patterns** (Wzorce) części **Build** (Kompiluj) dodaj kilka nowych wypowiedzi szablonu wzorca. Wybierz pozycję **OrgChart-Manager** (Schemat organizacyjny — menedżer) z menu rozwijanego Intent (Intencja) i wprowadź każdą z następujących wypowiedzi szablonu:
 
-    |Intencja|Przykładowe wypowiedzi z opcjonalnym tekstem i wstępnie skompilowanymi jednostkami|
+    |Zamiar|Przykładowe wypowiedzi z opcjonalnym tekstem i wstępnie skompilowanymi jednostkami|
     |--|--|
     |OrgChart-Manager|`who was {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
     |OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[in]{datetimeV2}?]`|
@@ -420,7 +420,7 @@ Kilka z poprzedniego wyrażenia długości szablonu jest bardzo blisko. Użyj **
 
 Poniższe dwa wzorce mogą łączyć się w jeden wzorzec przy użyciu grupy `()` i lub `|` składni.
 
-|Intencja|Przykładowe wypowiedzi z opcjonalnym tekstem i wstępnie skompilowanymi jednostkami|
+|Zamiar|Przykładowe wypowiedzi z opcjonalnym tekstem i wstępnie skompilowanymi jednostkami|
 |--|--|
 |OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[in]{datetimeV2}?]`|
 |OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
@@ -489,7 +489,7 @@ Jednostka Pattern.any wyodrębnia jednostki o różnej długości. Działa tylko
 
 1. Wybierz pozycję **Entities** (Jednostki) na lewym pasku nawigacyjnym.
 
-1. Wybierz pozycję **+ Utwórz**, wprowadź nazwę `FormName` i wybierz opcję **wzorzec. dowolny** jako typ. Wybierz pozycję **Utwórz**.
+1. Wybierz pozycję **+ Utwórz**, wprowadź nazwę `FormName` i wybierz opcję **wzorzec. dowolny** jako typ. Wybierz przycisk **Utwórz**.
 
 ### <a name="add-a-pattern-that-uses-the-patternany"></a>Dodawanie wzorca, który używa jednostki Pattern.any
 
@@ -529,7 +529,7 @@ Jeśli zauważysz, że Twój wzorzec, gdy zawiera jednostkę Pattern.any, niepop
 
 W tym samouczku dodano wzorce umożliwiające LUIS przewidywalność zamiaru z znacznie wyższym wynikiem, bez konieczności dodawania więcej przykładowych wyrażenia długości. Oznaczanie jednostek i tekst możliwy do zignorowania pozwoliły usłudze LUIS na zastosowanie wzorca do szerszego zakresu wypowiedzi.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 

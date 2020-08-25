@@ -10,10 +10,10 @@ ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: bfee4e64070e5f37eaa3d63280409f00c0ed8672
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "73890391"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Samouczek: część 2 — Wyświetlanie rozesłanych komunikatów
@@ -96,7 +96,7 @@ Aby wyświetlić dane w wizualizacji usługi Power BI, najpierw skonfiguruj zada
 
 ### <a name="create-the-stream-analytics-job"></a>Tworzenie zadania usługi Stream Analytics
 
-1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **Utwórz zasób** > **Internet rzeczy** > **Stream Analytics zadanie**.
+1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **Utwórz zasób**  >  **Internet rzeczy**  >  **Stream Analytics zadanie**.
 
 2. Wprowadź poniższe informacje dotyczące zadania.
 
@@ -162,7 +162,7 @@ Aby wyświetlić dane w wizualizacji usługi Power BI, najpierw skonfiguruj zada
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Konfigurowanie zapytania zadania usługi Stream Analytics
 
-1. W obszarze **Topologia zadania** wybierz pozycję **Zapytanie**.
+1. W obszarze **topologia zadania**wybierz pozycję **zapytanie**.
 
 2. Zastąp element `[YourInputAlias]` aliasem wejściowym zadania. W tym samouczku jest używany alias **contosoinputs**.
 
@@ -176,7 +176,7 @@ Aby wyświetlić dane w wizualizacji usługi Power BI, najpierw skonfiguruj zada
 
 ### <a name="run-the-stream-analytics-job"></a>Uruchamianie zadania usługi Stream Analytics
 
-W Stream Analytics zadania wybierz pozycję **Rozpocznij** > **teraz** > **.** Po pomyślnym uruchomieniu zadania jego stan zmieni się z **Zatrzymano** na **Uruchomiono**.
+W Stream Analytics zadania wybierz pozycję **Rozpocznij**  >  **teraz**  >  **Start**. Po pomyślnym uruchomieniu zadania jego stan zmieni się z **Zatrzymano** na **Uruchomiono**.
 
 Do skonfigurowania raportu usługi Power BI potrzebujesz danych, dlatego po utworzeniu urządzenia i uruchomieniu aplikacji do symulacji urządzenia skonfigurujesz usługę Power BI.
 
@@ -280,7 +280,7 @@ Zaloguj się do swojego konta usługi [Power BI](https://powerbi.microsoft.com/)
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Czyszczenie zasobów przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Aby usunąć grupę zasobów, użyj polecenia [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup`została ustawiona na **ContosoResources** z powrotem na początku tego samouczka.
+Aby usunąć grupę zasobów, użyj polecenia [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup` została ustawiona na **ContosoResources** z powrotem na początku tego samouczka.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -288,7 +288,7 @@ az group delete --name $resourceGroup
 
 ### <a name="use-powershell-to-clean-up-resources"></a>Czyszczenie zasobów przy użyciu programu PowerShell
 
-Aby usunąć grupę zasobów, użyj polecenia [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup). `$resourceGroup`została ustawiona na **ContosoResources** z powrotem na początku tego samouczka.
+Aby usunąć grupę zasobów, użyj polecenia [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup). `$resourceGroup` została ustawiona na **ContosoResources** z powrotem na początku tego samouczka.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup

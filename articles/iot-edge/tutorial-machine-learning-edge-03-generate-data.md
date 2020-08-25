@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 8f7a971315183e867ae06b58801d5855f90462a1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "76722386"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Samouczek: generowanie danych symulowanego urządzenia
@@ -67,9 +67,9 @@ Rzeczywisty, podobny do pracy w tym kroku, będzie prawdopodobnie wykonywany prz
 
    ![Monit VS Code przywrócenia](media/tutorial-machine-learning-edge-03-generate-data/restore-package-dependencies.png)
 
-   Jeśli te powiadomienia nie są wyświetlane, Zamknij Visual Studio Code, Usuń pliki bin i obj w `C:\source\IoTEdgeAndMlSample\DeviceHarness`, otwórz Visual Studio Code i ponownie otwórz folder DeviceHarness.
+   Jeśli te powiadomienia nie są wyświetlane, Zamknij Visual Studio Code, Usuń pliki bin i obj w `C:\source\IoTEdgeAndMlSample\DeviceHarness` , otwórz Visual Studio Code i ponownie otwórz folder DeviceHarness.
 
-1. Sprawdź, czy środowisko jest prawidłowo skonfigurowane, wyzwalając kompilację, **Ctrl** + **SHIFT** + **B** **lub** > **zadanie kompilacji Uruchom kompilację**.
+1. Sprawdź, czy środowisko jest prawidłowo skonfigurowane, wyzwalając kompilację, **Ctrl**  +  **SHIFT**  +  **B**lub **Terminal**  >  **zadanie kompilacji Uruchom kompilację**.
 
 1. Zostanie wyświetlony monit o wybranie zadania kompilacji do uruchomienia. Wybierz pozycję **kompilacja**.
 
@@ -77,7 +77,7 @@ Rzeczywisty, podobny do pracy w tym kroku, będzie prawdopodobnie wykonywany prz
 
    ![Pomyślnie zakończono Tworzenie komunikatu wyjściowego](media/tutorial-machine-learning-edge-03-generate-data/build-success.png)
 
-1. Możesz wprowadzić tę kompilację jako domyślne zadanie kompilacji, wybierając pozycję **Terminal** > **Skonfiguruj domyślne zadanie kompilacji...** i wybierając opcję **Kompiluj** z poziomu wiersza polecenia.
+1. Możesz wprowadzić tę kompilację jako domyślne zadanie kompilacji, wybierając pozycję **Terminal**  >  **Skonfiguruj domyślne zadanie kompilacji...** i wybierając opcję **Kompiluj** z poziomu wiersza polecenia.
 
 ## <a name="connect-to-iot-hub-and-run-deviceharness"></a>Nawiązywanie połączenia z usługą IoT Hub i uruchamianie DeviceHarness
 
@@ -85,7 +85,7 @@ Teraz, gdy mamy już kompilację projektu, Połącz się z Centrum IoT Hub, aby 
 
 ### <a name="sign-in-to-azure-in-visual-studio-code"></a>Zaloguj się do platformy Azure w Visual Studio Code
 
-1. `Ctrl + Shift + P` Zaloguj się do subskrypcji platformy Azure w Visual Studio Code, otwierając paletę poleceń lub **wyświetlając** > **paletę poleceń**.
+1. Zaloguj się do subskrypcji platformy Azure w Visual Studio Code, otwierając paletę poleceń `Ctrl + Shift + P` lub **wyświetlając**  >  **paletę poleceń**.
 
 1. Wyszukaj polecenie **Azure: Sign in** .
 
@@ -105,7 +105,7 @@ Teraz, gdy mamy już kompilację projektu, Połącz się z Centrum IoT Hub, aby 
 
 ### <a name="run-the-deviceharness-project"></a>Uruchamianie projektu DeviceHarness
 
-1. Wybierz pozycję **Wyświetl** > **Terminal** , aby otworzyć Visual Studio Code terminala.
+1. Wybierz pozycję **Wyświetl**  >  **Terminal** , aby otworzyć Visual Studio Code terminala.
 
    Jeśli nie widzisz monitu, naciśnij klawisz ENTER.
 
@@ -145,7 +145,7 @@ Dane, które właśnie wysłaliśmy do centrum IoT Hub, zostały przekazane do k
 
 1. W oknie Nawigator konta magazynu wybierz pozycję **Eksplorator usługi Storage (wersja zapoznawcza)**.
 
-1. W Eksploratorze magazynu wybierz pozycję **kontenery obiektów BLOB** `devicedata`.
+1. W Eksploratorze magazynu wybierz pozycję **kontenery obiektów BLOB** `devicedata` .
 
 1. W okienku Zawartość kliknij folder nazwa usługi IoT Hub, a następnie pozycję Year, month, Day i Hour. Po zapisaniu danych zobaczysz kilka folderów reprezentujących minuty.
 

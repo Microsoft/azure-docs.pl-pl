@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 01/16/2020
 ms.custom: mvc
 ms.openlocfilehash: b2ce157f0f192135ab0507e4aae4c0a282bda1ea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "76166193"
 ---
 # <a name="run-a-disaster-recovery-drill-to-a-secondary-region-for-azure-vms"></a>Uruchom przechodzenie do szczegółów odzyskiwania po awarii do regionu pomocniczego dla maszyn wirtualnych platformy Azure
@@ -29,7 +29,7 @@ W tym samouczku przedstawiono sposób uruchamiania próbnego odzyskiwania po awa
 
 Przed wykonaniem tego samouczka zapoznaj się z następującymi elementami:
 
-- Przed uruchomieniem testowego przejścia w tryb failover zalecamy sprawdzenie właściwości maszyny wirtualnej w celu upewnienia się, że jest ona skonfigurowana pod kątem odzyskiwania po awarii.  > Przejdź do**Właściwości** **odzyskiwania po awarii** **operacji** > maszyny wirtualnej, aby wyświetlić właściwości replikacji i trybu failover.
+- Przed uruchomieniem testowego przejścia w tryb failover zalecamy sprawdzenie właściwości maszyny wirtualnej w celu upewnienia się, że jest ona skonfigurowana pod kątem odzyskiwania po awarii. Przejdź do **Operations**  >  **Właściwości odzyskiwania po awarii**operacji maszyny wirtualnej,  >  **Properties** aby wyświetlić właściwości replikacji i trybu failover.
 - **Zalecamy, aby do testowania trybu failover użyć oddzielnej sieci maszyn wirtualnych platformy Azure**, a nie domyślnej sieci skonfigurowanej podczas włączania replikacji.
 - W zależności od konfiguracji sieci źródłowej dla każdej karty sieciowej można określić **podsieć**, **prywatny adres**IP, **publicznych adresów IP**, **sieciową grupę zabezpieczeń**lub **moduł równoważenia obciążenia** w celu dołączenia do każdej karty sieciowej w obszarze Ustawienia testu pracy w trybie failover w **obliczeniach i sieci** przed wykonaniem operacji drążenia odzyskiwania po awarii.
 
@@ -37,7 +37,7 @@ Przed wykonaniem tego samouczka zapoznaj się z następującymi elementami:
 
 Ten przykład pokazuje, jak używać magazynu Recovery Services do przeprowadzenia testowej pracy w trybie failover.
 
-1. Wybierz magazyn i przejdź do **pozycji chronione elementy** > **zreplikowane elementy** i wybierz maszynę wirtualną.
+1. Wybierz magazyn i przejdź do **pozycji chronione elementy**  >  **zreplikowane elementy** i wybierz maszynę wirtualną.
 1. W obszarze **test pracy w trybie failover**wybierz punkt odzyskiwania do użycia w trybie failover:
    - **Najnowsze**: przetwarza wszystkie dane w Site Recovery i zapewnia najniższy RTO (cel czasu odzyskiwania).
    - **Najnowszy przetworzony**: wprowadza maszynę wirtualną w tryb failover do najnowszego punktu odzyskiwania przetworzonego przez usługę Site Recovery. Wyświetlana jest sygnatura czasowa. Po wybraniu tej opcji nie ma czasu poświęcanego na przetwarzanie danych, więc zapewnia to niską RTO.
@@ -48,7 +48,7 @@ Ten przykład pokazuje, jak używać magazynu Recovery Services do przeprowadzen
    > [!NOTE]
    > Jeśli ustawienia testowej pracy w trybie failover są wstępnie skonfigurowane dla zreplikowanego elementu, menu rozwijane służące do wybierania sieci wirtualnej platformy Azure nie jest widoczne.
 
-1. Aby rozpocząć pracę w trybie failover, wybierz **przycisk OK**. Aby śledzić postęp z magazynu, przejdź do pozycji **monitorowanie** > **Site Recovery zadania** i wybierz zadanie **test pracy w trybie failover** .
+1. Aby rozpocząć pracę w trybie failover, wybierz **przycisk OK**. Aby śledzić postęp z magazynu, przejdź do pozycji **monitorowanie**  >  **Site Recovery zadania** i wybierz zadanie **test pracy w trybie failover** .
 1. Po zakończeniu pracy w trybie failover replika maszyny wirtualnej platformy Azure zostanie wyświetlona w **Virtual Machines**Azure Portal. Upewnij się, że maszyna wirtualna jest uruchomiona, ma właściwy rozmiar i została połączona z odpowiednią siecią.
 1. Aby usunąć maszyny wirtualne, które zostały utworzone podczas testu pracy w trybie failover, wybierz pozycję **Oczyść test pracy w trybie failover** dla zreplikowanego elementu lub planu odzyskiwania. W obszarze **uwagi**Zarejestruj i Zapisz wszelkie obserwacje związane z testem pracy w trybie failover.
 

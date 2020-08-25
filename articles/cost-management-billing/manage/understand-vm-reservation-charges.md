@@ -4,14 +4,14 @@ description: Dowiedz się, jak rabat na wystąpienie zarezerwowane maszyny wirtu
 author: yashesvi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 08/13/2020
 ms.author: banders
-ms.openlocfilehash: a9d9a5661e8a094b7d92a9dd83db3cdcd76b8b65
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ddf232dbe6c6ff61f685e2910286188fb92e1f17
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84018386"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192210"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Jak rabat na rezerwację platformy Azure jest stosowany do maszyn wirtualnych
 
@@ -56,11 +56,15 @@ W przypadku uruchamiania wystąpień maszyn wirtualnych z systemem Windows rezer
 
 ## <a name="discount-can-apply-to-different-sizes"></a>Rabat może być stosowany do różnych rozmiarów
 
-Po zakupieniu wystąpienia zarezerwowanego maszyny wirtualnej i wybraniu opcji **Zoptymalizowane pod kątem**: **elastyczność rozmiaru wystąpienia** zastosowanie rabatu zależy od wybranego rozmiaru maszyny wirtualnej. Rezerwacja może dotyczyć rozmiarów maszyn wirtualnych w tej samej grupie serii rozmiarów. Aby uzyskać więcej informacji, zobacz artykuł [Elastyczność rozmiaru maszyny wirtualnej z zarezerwowanymi wystąpieniami maszyn wirtualnych](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+Po zakupieniu wystąpienia zarezerwowanego maszyny wirtualnej i wybraniu opcji **Zoptymalizowane pod kątem elastyczności rozmiaru wystąpienia** rabat dotyczy wybranego rozmiaru maszyny wirtualnej. Może również obejmować inne rozmiary maszyn wirtualnych, które znajdują się w tej samej grupie elastyczności rozmiaru wystąpienia serii. Aby uzyskać więcej informacji, zobacz artykuł [Elastyczność rozmiaru maszyny wirtualnej z zarezerwowanymi wystąpieniami maszyn wirtualnych](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 
-## <a name="discount-applies-to-matching-servicetype-only"></a>Rabat jest stosowany tylko w przypadku pasującej wartości ServiceType
+## <a name="premium-storage-vms-dont-get-non-premium-discounts"></a>Maszyny wirtualne magazynu w warstwie Premium nie są objęte rabatami spoza tej warstwy
 
-Rabat na rezerwację dotyczy tylko użycia maszyny wirtualnej, w którym wartość `ServiceType` w obszarze `AdditionalInfo` odpowiada zakupionej rezerwacji. Przy stosowaniu rabatu na rezerwację miernik używany dla maszyn wirtualnych jest ignorowany i uwzględniana jest tylko wartość `ServiceType`. Należy zwrócić uwagę na typ usługi, dla którego zakupiono maszynę wirtualną. Rezerwację maszyny wirtualnej w warstwie magazynu innej niż Premium można wymienić na rezerwację w warstwie Premium (lub odwrotnie).
+Oto przykład. Załóżmy, że zakupiono rezerwację dla pięciu maszyn wirtualnych w warstwie Standard_D1. W takim wypadku rabat przy rezerwacji dotyczy wyłącznie maszyn wirtualnych Standard_D1 lub innych maszyn wirtualnych należących do tej samej rodziny wystąpień. Rabat nie dotyczy maszyny wirtualnej w warstwie Standard_DS1 ani innych rozmiarów w grupie elastyczności rozmiaru wystąpienia warstwy DS1.
+
+Przy stosowaniu rabatu na rezerwację miernik używany dla maszyn wirtualnych jest ignorowany i uwzględniana jest tylko wartość ServiceType. Znajdź wartość `ServiceType` w elemencie `AdditionalInfo`, aby sprawdzić dane dotyczące grupy/serii elastyczności wystąpienia dla maszyn wirtualnych. Odpowiednie wartości znajdziesz w pliku CSV dotyczącym użycia.
+
+Po zakupie nie możesz zmienić grupy/serii elastyczności wystąpienia rezerwacji. Możesz jednak *zamienić* rezerwację maszyny wirtualnej z jednej grupy/serii elastyczności na inną.
 
 ## <a name="services-that-get-vm-reservation-discounts"></a>Usługi, dla których są stosowane rabaty na rezerwacje maszyn wirtualnych
 

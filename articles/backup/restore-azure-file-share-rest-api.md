@@ -3,12 +3,12 @@ title: Przywracanie udziałów plików platformy Azure za pomocą interfejsu API
 description: Dowiedz się, jak używać interfejsu API REST do przywracania udziałów plików platformy Azure lub określonych plików z punktu przywracania utworzonego przez Azure Backup
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 3a1f2999fa1b50507fd3d1b6f21f508ec9f82841
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 60c73caa5db684e38b94b4d5786f2fd24aa65d08
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538160"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761801"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Przywracanie udziałów plików platformy Azure przy użyciu interfejsu API REST
 
@@ -64,7 +64,7 @@ Identyfikator URI GET zawiera wszystkie wymagane parametry. Nie ma potrzeby doda
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare;azurefiles/recoveryPoints?api-version=2019-05-13
 ```
 
-### <a name="example-response"></a>Przykładowa odpowiedź
+### <a name="example-response-for-fetch-recovery-points"></a>Przykładowa odpowiedź dla punktów odzyskiwania pobierania
 
 Po przesłaniu identyfikatora URI zostanie zwrócona odpowiedź 200:
 
@@ -168,7 +168,7 @@ Aby uzyskać pełną listę definicji treści żądania i innych szczegółów, 
 
 ### <a name="restore-to-original-location"></a>Przywróć do oryginalnej lokalizacji
 
-#### <a name="request-body-example"></a>Przykład treści żądania
+#### <a name="request-body-example-for-restore-to-original-location"></a>Przykład treści żądania przywracania do oryginalnej lokalizacji
 
 Następująca treść żądania definiuje właściwości wymagane do wyzwolenia przywracania udziału plików platformy Azure:
 
@@ -192,7 +192,7 @@ Określ następujące parametry odzyskiwania lokalizacji alternatywnej:
 * **Nazwa**: udział plików w docelowym koncie magazynu, do którego zostanie przywrócona zawartość kopii zapasowej.
 * **targetFolderPath**: folder w udziale plików, do którego przywracane są dane.
 
-#### <a name="request-body-example"></a>Przykład treści żądania
+#### <a name="request-body-example-for-restore-to-alternate-location"></a>Przykład treści żądania przywracania do lokalizacji alternatywnej
 
 Następująca treść żądania przywraca udział plików *migracji pamięci* na koncie magazynu *afsaccount* do udziału plików *azurefiles1* na koncie magazynu *afaccount1* .
 
@@ -217,7 +217,7 @@ Następująca treść żądania przywraca udział plików *migracji pamięci* na
 }
 ```
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 Wyzwalacz operacji przywracania jest [operacją asynchroniczną](../azure-resource-manager/management/async-operations.md). Ta operacja tworzy inną operację, która musi być śledzona oddzielnie.
 Zwraca dwie odpowiedzi: 202 (zaakceptowane), gdy tworzona jest inna operacja, a 200 (OK) po zakończeniu tej operacji.
@@ -366,7 +366,7 @@ Wartości {ContainerName} i {protectedItemName} są ustawione w [tym miejscu](#f
 POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare%3Bazurefiles/recoveryPoints/932886657837421071/restore?api-version=2019-05-13'
 ```
 
-### <a name="create-request-body"></a>Utwórz treść żądania
+### <a name="create-request-body-for-item-level-recovery-using-rest-api"></a>Tworzenie treści żądania odzyskiwania na poziomie elementu przy użyciu interfejsu API REST
 
 Aby wyzwolić przywracanie dla udziału plików platformy Azure, poniżej przedstawiono składniki treści żądania:
 
@@ -376,7 +376,7 @@ Właściwości | AzureFileShareRestoreRequest | Właściwości RestoreRequestRes
 
 Aby uzyskać pełną listę definicji treści żądania i innych szczegółów, zobacz [dokument interfejsu API REST przywracania wyzwalacza](/rest/api/backup/restores/trigger#request-body).
 
-### <a name="restore-to-original-location"></a>Przywróć do oryginalnej lokalizacji
+### <a name="restore-to-original-location-for-item-level-recovery-using-rest-api"></a>Przywróć do oryginalnej lokalizacji odzyskiwania na poziomie elementu przy użyciu interfejsu API REST
 
 Następująca treść żądania polega na przywróceniu pliku *Restoretest.txt* w udziale plików *migracji pamięci* na koncie magazynu *afsaccount* .
 
@@ -402,7 +402,7 @@ Utwórz treść żądania
 }
 ```
 
-### <a name="restore-to-alternate-location"></a>Przywróć do lokalizacji alternatywnej
+### <a name="restore-to-alternate-location-for-item-level-recovery-using-rest-api"></a>Przywracanie do alternatywnej lokalizacji odzyskiwania na poziomie elementu przy użyciu interfejsu API REST
 
 Następująca treść żądania polega na przywróceniu pliku *Restoretest.txt* w udziale plików *migracji pamięci* na koncie magazynu *afsaccount* do folderu *restoredata* w udziale plików *azurefiles1* na koncie magazynu *afaccount1* .
 

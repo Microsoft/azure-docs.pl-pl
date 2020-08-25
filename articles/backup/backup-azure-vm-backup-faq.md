@@ -4,12 +4,12 @@ description: W tym artykule znajdują się odpowiedzi na często zadawane pytani
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 03e2f004fa54ee235eabc49afd6abd7532a6ee44
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: b29f1a11f6600f013fdf1d5aa71883ab44dfe635
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262776"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761512"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure
 
@@ -195,8 +195,8 @@ Tak, istnieje limit 100 maszyn wirtualnych, które mogą być skojarzone z tymi 
 
 ### <a name="how-can-i-view-the-retention-settings-for-my-backups"></a>Jak można wyświetlić ustawienia przechowywania kopii zapasowych?
 
-Obecnie można wyświetlać ustawienia przechowywania na poziomie elementu kopii zapasowej (VM) na podstawie zasad tworzenia kopii zapasowych przypisanych do maszyny wirtualnej. 
+Obecnie można wyświetlać ustawienia przechowywania na poziomie elementu kopii zapasowej (VM) na podstawie zasad tworzenia kopii zapasowych przypisanych do maszyny wirtualnej.
 
 Jednym ze sposobów wyświetlania ustawień przechowywania kopii zapasowych jest przejście do [pulpitu nawigacyjnego](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) elementu kopii zapasowej maszyny wirtualnej w Azure Portal. Kliknięcie linku do jego zasad tworzenia kopii zapasowej ułatwia wyświetlanie czasu przechowywania wszystkich codziennych, cotygodniowych, miesięcznych i rocznych punktów przechowywania skojarzonych z maszyną wirtualną.
 
-Możesz również użyć [Eksploratora kopii zapasowych](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) , aby wyświetlić ustawienia przechowywania dla wszystkich maszyn wirtualnych w jednym okienku szkła. Przejdź do Eksploratora kopii zapasowych z dowolnego magazynu Recovery Services, przejdź do karty **elementy kopii zapasowej** i wybierz widok zaawansowany, aby wyświetlić szczegółowe informacje o przechowywaniu dla każdej maszyny wirtualnej.  
+Możesz również użyć [Eksploratora kopii zapasowych](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) , aby wyświetlić ustawienia przechowywania dla wszystkich maszyn wirtualnych w jednym okienku szkła. Przejdź do Eksploratora kopii zapasowych z dowolnego magazynu Recovery Services, przejdź do karty **elementy kopii zapasowej** i wybierz widok zaawansowany, aby wyświetlić szczegółowe informacje o przechowywaniu dla każdej maszyny wirtualnej.

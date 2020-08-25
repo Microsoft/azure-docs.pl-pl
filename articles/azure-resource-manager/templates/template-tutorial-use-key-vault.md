@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
 ms.openlocfilehash: 73a50c282eee023bff525bc737bd2170938de1dc
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86119280"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Samouczek: Integrowanie Azure Key Vault w rozmieszczeniu szablonu ARM
@@ -27,11 +27,11 @@ Ten samouczek obejmuje następujące zadania:
 > * Przygotowanie magazynu kluczy
 > * Otwieranie szablonu szybkiego startu
 > * Edytowanie pliku parametrów
-> * Wdrożenie szablonu
+> * Wdrażanie szablonu
 > * Weryfikowanie wdrożenia
-> * Czyszczenie zasobów
+> * Oczyszczanie zasobów
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -159,7 +159,7 @@ Przy użyciu metody identyfikatora statycznego nie trzeba wprowadzać żadnych z
 
 1. Zapisz zmiany.
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 1. Zaloguj się do [Azure Cloud Shell](https://shell.azure.com)
 
@@ -190,13 +190,13 @@ Przy użyciu metody identyfikatora statycznego nie trzeba wprowadzać żadnych z
 
 Po pomyślnym wdrożeniu maszyny wirtualnej Przetestuj poświadczenia logowania przy użyciu hasła przechowywanego w magazynie kluczy.
 
-1. Otwórz [witrynę Azure Portal](https://portal.azure.com).
+1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
 
 1. Wybierz pozycję **grupy zasobów**  >  **\<*YourResourceGroupName*>**  >  **simpleWinVM**.
 1. Wybierz pozycję **Połącz** w górnej części.
 1. Wybierz pozycję **Pobierz plik RDP**, a następnie postępuj zgodnie z instrukcjami, aby zalogować się do maszyny wirtualnej przy użyciu hasła przechowywanego w magazynie kluczy.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli zasoby platformy Azure nie są już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

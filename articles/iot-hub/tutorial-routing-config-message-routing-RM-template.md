@@ -10,10 +10,10 @@ ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 8f245653a8b84944e1e8a3f48a49992f0065be58
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "74084403"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Samouczek: używanie szablonu Azure Resource Manager do konfigurowania routingu komunikatów IoT Hub
@@ -30,7 +30,7 @@ ms.locfileid: "74084403"
 
 W drugiej części tego samouczka pobierasz i uruchamiasz aplikację Visual Studio w celu wysyłania komunikatów do IoT Hub. Istnieje folder, który zawiera plik szablonu i parametrów Azure Resource Manager, a także skrypt interfejsu wiersza polecenia platformy Azure i skryptów programu PowerShell.
 
-Możesz teraz pobrać przykłady w [języku C# usługi Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) . Rozpakuj plik Master. zip. Szablon Menedżer zasobów i plik parametrów są w/iot-hub/Tutorials/Routing/SimulatedDevice/resources/jako **template_iothub. JSON** i **template_iothub_parameters. JSON**.
+Możesz teraz pobrać przykłady w [języku C# usługi Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) . Rozpakuj plik master.zip. Szablon Menedżer zasobów i plik parametrów są w/iot-hub/Tutorials/Routing/SimulatedDevice/resources/jako **template_iothub.json** i **template_iothub_parameters.json**.
 
 ## <a name="create-your-resources"></a>Tworzenie zasobów
 
@@ -92,7 +92,7 @@ Te wartości są używane w szablonie i są głównie wyprowadzane z parametrów
 
 ### <a name="resources-storage-account-and-container"></a>Zasoby: konto magazynu i kontener
 
-Pierwszy utworzony zasób to konto magazynu, a także kontener, do którego są kierowane komunikaty. Kontener jest zasobem na koncie magazynu. Ma klauzulę `dependsOn` dla konta magazynu, co wymaga utworzenia konta magazynu przed kontenerem.
+Pierwszy utworzony zasób to konto magazynu, a także kontener, do którego są kierowane komunikaty. Kontener jest zasobem na koncie magazynu. Ma `dependsOn` klauzulę dla konta magazynu, co wymaga utworzenia konta magazynu przed kontenerem.
 
 Oto jak wygląda następująca sekcja:
 
@@ -195,7 +195,7 @@ Następna sekcja to sekcja dotycząca konfiguracji routingu wiadomości dla Cent
 
 Aby utworzyć parametry połączenia dla kolejki, potrzebne jest queueAuthorizationRulesResourcedId, która jest pobierana wewnętrznie. Aby utworzyć parametry połączenia dla konta magazynu, należy pobrać podstawowy klucz magazynu, a następnie użyć go w formacie parametrów połączenia.
 
-Konfiguracja punktu końcowego służy również do ustawiania formatu obiektu BLOB na `AVRO` lub. `JSON`
+Konfiguracja punktu końcowego służy również do ustawiania formatu obiektu BLOB na `AVRO` lub `JSON` .
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
@@ -231,7 +231,7 @@ Konfiguracja punktu końcowego służy również do ustawiania formatu obiektu B
 
 Ta Następna sekcja dotyczy tras komunikatów do punktów końcowych. Istnieje jeden skonfigurowany dla każdego punktu końcowego, dlatego istnieje jeden dla kolejki Service Bus i jeden dla kontenera konta magazynu.
 
-Należy pamiętać, że warunek zapytania dla komunikatów przesyłanych do magazynu jest `level="storage"`i warunek zapytania dla komunikatów kierowanych do kolejki Service Bus `level="critical"`.
+Należy pamiętać, że warunek zapytania dla komunikatów przesyłanych do magazynu jest `level="storage"` i warunek zapytania dla komunikatów kierowanych do kolejki Service Bus `level="critical"` .
 
 ```json
 "routes": [
@@ -303,7 +303,7 @@ Ten kod JSON pokazuje resztę sekcji IoT Hub, która zawiera informacje domyśln
 
 ### <a name="resources-service-bus-queue-authorization-rules"></a>Zasoby: reguły autoryzacji kolejki Service Bus
 
-Reguła autoryzacji kolejki Service Bus służy do pobierania parametrów połączenia dla kolejki Service Bus. Używa `dependsOn` klauzuli, aby upewnić się, że nie została utworzona przed przestrzenią nazw Service Bus i Service Bus kolejką.
+Reguła autoryzacji kolejki Service Bus służy do pobierania parametrów połączenia dla kolejki Service Bus. Używa klauzuli, `dependsOn` Aby upewnić się, że nie została utworzona przed przestrzenią nazw Service Bus i Service Bus kolejką.
 
 ```json
 {

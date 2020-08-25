@@ -14,10 +14,10 @@ ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: e95441aab6c8ce7de37ba5f6b08d5f7d54e13347
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "77201302"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Samouczek: łączenie sieci wirtualnych za pomocą komunikacji równorzędnej sieci wirtualnych z użyciem witryny Azure Portal
@@ -32,7 +32,7 @@ Sieci wirtualne możesz łączyć ze sobą za pomocą komunikacji równorzędnej
 
 Jeśli chcesz, możesz wykonać ten samouczek przy użyciu [interfejsu wiersza polecenia platformy Azure](tutorial-connect-virtual-networks-cli.md) lub [programu Azure PowerShell](tutorial-connect-virtual-networks-powershell.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
@@ -48,7 +48,7 @@ Zaloguj się do witryny Azure Portal na stronie https://portal.azure.com.
     |---|---|
     |Subskrypcja| Wybierz subskrypcję.|
     |Grupa zasobów| Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę *myResourceGroup*.|
-    |Region| Wybierz pozycję **Wschodnie stany USA**.|
+    |Region (Region)| Wybierz pozycję **Wschodnie stany USA**.|
     |Nazwa|myVirtualNetwork1|
 
 4. Na karcie **adresy IP** wprowadź wartość 10.0.0.0/16 dla pola **przestrzeń adresowa** . Kliknij przycisk **Dodaj podsieć** poniżej i wprowadź *Subnet1* dla **nazwy podsieci** i 10.0.0.0/24 dla **zakresu adresów podsieci**.

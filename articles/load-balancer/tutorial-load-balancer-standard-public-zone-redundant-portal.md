@@ -16,10 +16,10 @@ ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: d9f16b612b508a6237c748bd135ff32618015b0b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86057011"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Samouczek: równoważenie obciążenia maszyn wirtualnych w różnych strefach dostępności przy użyciu usługi Load Balancer w strefie Standardowa w witrynie Azure Portal
@@ -57,8 +57,8 @@ Usługa Load Balancer w warstwie Standardowa obsługuje tylko publiczny adres IP
     | Subskrypcja               | Wybierz subskrypcję.    |    
     | Grupa zasobów         | Wybierz pozycję **Utwórz nową** i wpisz *MyResourceGroupLBAZ* w polu tekstowym.|
     | Nazwa                   | *myLoadBalancer*                                   |
-    | Region         | Wybierz pozycję **Europa Zachodnia**.                                        |
-    | Typ          | wybierz pozycję **Publiczny**.                                        |
+    | Region (Region)         | Wybierz pozycję **Europa Zachodnia**.                                        |
+    | Typ          | Wybierz pozycję **Publiczna**.                                        |
     | SKU           | Wybierz pozycję **Standardowy**.                          |
     | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. |
     | Nazwa publicznego adresu IP              | Wpisz *myPublicIP* w polu tekstowym.   |
@@ -77,7 +77,7 @@ W tej sekcji należy zamienić następujące parametry w krokach z poniższymi i
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroupLBAZ (wybierz istniejącą grupę zasobów) |
 | **\<virtual-network-name>** | myVNet          |
-| **\<region-name>**          | Europa Zachodnia      |
+| **\<region-name>**          | West Europe      |
 | **\<IPv4-address-space>**   | 10.0.0.0/16          |
 | **\<subnet-name>**          | myBackendSubnet        |
 | **\<subnet-address-range>** | 10.0.0.0/24          |
@@ -110,7 +110,7 @@ W tej sekcji utworzysz reguły sieciowej grupy zabezpieczeń, aby zezwolić na p
     - *100* — w polu **Priorytet**
     - *myHTTPRule* — jako nazwę reguły modułu równoważenia obciążenia.
     - *Zezwalaj na HTTP* — jako opis reguły modułu równoważenia obciążenia.
-4. Kliknij przycisk **OK**.
+4. Kliknij pozycję **OK**.
  
    ![Tworzenie sieci wirtualnej](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. Powtórz kroki od 2 do 4, używając następujących wartości, aby utworzyć inną regułę o nazwie *myRDPRule* zezwalającą na przychodzące połączenia RDP przy użyciu portu 3389:
@@ -131,7 +131,7 @@ Utwórz maszyny wirtualne w różnych strefach regionu (strefie 1, strefie 2 i s
     - *myVM1* — jako nazwę maszyny wirtualnej.        
     - *azureuser* — jako nazwę użytkownika administratora.    
     - *myResourceGroupLBAZ* — w obszarze **Grupa zasobów** wybierz opcję **Użyj istniejącej**, a następnie wybierz wartość *myResourceGroupLBAZ*.
-2. Kliknij przycisk **OK**.
+2. Kliknij pozycję **OK**.
 3. Wybierz **DS1_V2** jako rozmiar maszyny wirtualnej, a następnie kliknij pozycję **Wybierz**.
 4. Wprowadź następujące wartości ustawień maszyny wirtualnej:
     - *zone 1* — jako strefę dostępności, w której umieszczono maszynę wirtualną.
@@ -198,7 +198,7 @@ Sonda kondycji umożliwia modułowi równoważenia obciążenia monitorowanie st
     - *80* — jako numeru portu.
     - *15* — w polu **Interwał** jako liczbę sekund między próbami sondy.
     - *2* — w polu **Próg złej kondycji** jako liczbę kolejnych niepowodzeń sondy, które muszą wystąpić, aby maszyna wirtualna została uznana za będącą w złej kondycji.
-4. Kliknij przycisk **OK**.
+4. Kliknij pozycję **OK**.
 
    ![Dodawanie sondy](./media/load-balancer-standard-public-availability-zones-portal/4-load-balancer-probes.png)
 
@@ -215,7 +215,7 @@ Reguła modułu równoważenia obciążenia służy do definiowania sposobu dyst
     - *80* — jako portu zaplecza.
     - *myBackendPool* — jako nazwy puli zaplecza.
     - *myHealthProbe* — jako nazwy sondy kondycji.
-4. Kliknij przycisk **OK**.
+4. Kliknij pozycję **OK**.
     
     
     ![Dodawanie reguły równoważenia obciążenia](./media/load-balancer-standard-public-availability-zones-portal/load-balancing-rule.png)
@@ -229,7 +229,7 @@ Reguła modułu równoważenia obciążenia służy do definiowania sposobu dyst
 
 Aby zobaczyć, jak moduł równoważenia obciążenia rozdziela ruch między maszynami wirtualnymi rozproszonymi w strefie, możesz wymusić odświeżenie w przeglądarce internetowej.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy grupa zasobów, moduł równoważenia obciążenia i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Aby to zrobić, wybierz grupę zasobów zawierającą moduł równoważenia obciążenia, a następnie kliknij przycisk **Usuń**.
 

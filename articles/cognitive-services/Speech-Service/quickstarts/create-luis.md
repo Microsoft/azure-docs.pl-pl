@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: trbye
 ms.openlocfilehash: c4195ff1b81097a3620f68939f32147a26e16d60
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85391608"
 ---
 # <a name="quickstart-getting-a-luis-endpoint-key"></a>Szybki Start: Pobieranie klucza punktu końcowego LUIS
@@ -35,7 +35,7 @@ LUIS używa trzech rodzajów kluczy:
 |--------|-------|
 |Tworzenie|Umożliwia programowe tworzenie i modyfikowanie aplikacji LUIS|
 |Starter (początkowy)|Umożliwia testowanie aplikacji LUIS przy użyciu tylko tekstu|
-|Endpoint |Autoryzuje dostęp do określonej aplikacji LUIS|
+|Punkt końcowy |Autoryzuje dostęp do określonej aplikacji LUIS|
 
 W tym samouczku potrzebny jest typ klucza punktu końcowego. W tym samouczku jest używana przykładowa aplikacja LUIS Automation, którą można utworzyć, korzystając z [prebudowanego](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) przewodnika Szybki Start dla aplikacji do automatyzacji domowej. Jeśli utworzono własną aplikację LUIS, można jej użyć zamiast niej.
 

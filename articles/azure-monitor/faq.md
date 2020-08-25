@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: bd575eb5f646b749b431516670c64c764f4d4c9c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a78e1b9cc1d9ca8a815fdb586287983020232fd1
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828510"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782944"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor często zadawane pytania
 
@@ -80,6 +80,10 @@ Azure Data Explorer to szybka i wysoce skalowalna usługa eksploracji danych na 
 
 ### <a name="how-do-i-retrieve-log-data"></a>Jak mogę pobrać danych dziennika?
 Wszystkie dane są pobierane z obszaru roboczego Log Analytics przy użyciu zapytania dziennika, które zapisano przy użyciu języka zapytań Kusto (KQL). Możesz pisać własne zapytania lub używać rozwiązań i szczegółowych informacji, które obejmują zapytania dzienników dla określonej aplikacji lub usługi. Zobacz [Omówienie zapytań dzienników w Azure monitor](log-query/log-query-overview.md).
+
+### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>Czy mogę usunąć dane z obszaru roboczego Log Analytics?
+Dane zostaną usunięte z obszaru roboczego zgodnie z jego [okresem przechowywania](platform/manage-cost-storage.md#change-the-data-retention-period). Można usunąć określone dane ze względu na prywatność lub zgodność. Aby uzyskać więcej informacji [, zobacz Jak eksportować i usuwać dane prywatne](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) .
+
 
 ### <a name="what-is-a-log-analytics-workspace"></a>Co to jest obszar roboczy usługi Log Analytics?
 Wszystkie dane dzienników zbierane przez Azure Monitor są przechowywane w Log Analytics obszarze roboczym. Obszar roboczy jest zasadniczo kontenerem, w którym dane dzienników są zbierane z różnych źródeł. Może istnieć pojedynczy obszar roboczy Log Analytics dla wszystkich danych monitorowania lub może mieć wymagania dotyczące wielu obszarów roboczych. Zobacz [projektowanie wdrożenia dzienników Azure monitor](platform/design-logs-deployment.md).
@@ -171,7 +175,7 @@ Wykonaj kroki opisane w sekcji [Tworzenie nowego alertu dziennika](platform/aler
 - **Zdefiniuj warunek alertu**: Określ obszar roboczy log Analytics jako obiekt docelowy zasobu.
 - **Kryteria alertu** 
    - **Nazwa sygnału**: *niestandardowe wyszukiwanie w dzienniku*
-   - **Zapytanie wyszukiwania**:`Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
+   - **Zapytanie wyszukiwania**: `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
    - **Logika alertu**: **w oparciu o** *liczbę wyników*, **warunek** *większy niż*, **wartość progowa** *0*
    - **Oceniane na podstawie**: **okres (w minutach)** *30*, **częstotliwość (w minutach)** *10*
 - **Definiowanie szczegółów alertu** 
@@ -371,7 +375,7 @@ Użyj pojedynczego zasobu dla wszystkich składników lub ról w jednym systemie
 * Jeśli jeden z rzeczywistych użytkowników korzysta z witryny w różnych przeglądarkach lub korzysta z funkcji przeglądania w trybie prywatnym/incognito lub różnych maszyn, zostaną one zliczone więcej niż jeden raz.
 * Aby zidentyfikować zalogowanego użytkownika na maszynach i w przeglądarkach, należy dodać wywołanie do [setAuthenticatedUserContext ()](app/api-custom-events-metrics.md#authenticated-users).
 
-### <a name="have-i-enabled-everything-in-application-insights"></a><a name="q17"></a>Czy mam wszystko, co jest dostępne w Application Insights?
+### <a name="have-i-enabled-everything-in-application-insights"></a><a name="q17"></a> Czy mam wszystko, co jest dostępne w Application Insights?
 | Co powinno zostać wyświetlone | Jak uzyskać | Dlaczego chcesz |
 | --- | --- | --- |
 | Wykresy dostępności |[Testy sieci Web](app/monitor-web-app-availability.md) |Znajomość aplikacji sieci Web |
@@ -394,7 +398,7 @@ Każdy element, który jest przesyłany, przenosi `itemCount` Właściwość, kt
 ```
 
 
-### <a name="automation"></a>Automatyzacja
+### <a name="automation"></a>Automation
 
 #### <a name="configuring-application-insights"></a>Konfigurowanie Application Insights
 
@@ -430,9 +434,9 @@ Zalecamy używanie naszych zestawów SDK i korzystanie z [interfejsu API zestawu
 ### <a name="can-i-monitor-an-intranet-web-server"></a>Czy mogę monitorować intranetowy serwer sieci Web?
 
 Tak, ale musisz zezwolić na ruch do naszych usług przez wyjątki zapory lub przekierowania serwera proxy.
-- QuickPulse`https://rt.services.visualstudio.com:443` 
-- ApplicationIdProvider`https://dc.services.visualstudio.com:443` 
-- TelemetryChannel`https://dc.services.visualstudio.com:443` 
+- QuickPulse `https://rt.services.visualstudio.com:443` 
+- ApplicationIdProvider `https://dc.services.visualstudio.com:443` 
+- TelemetryChannel `https://dc.services.visualstudio.com:443` 
 
 
 Zapoznaj się z pełną listą usług i adresów IP w [tym miejscu](app/ip-addresses.md).
@@ -714,7 +718,7 @@ Może się to zdarzyć z kilku powodów.  W przypadkach, gdy istnieje przerwy w 
 Tak, po zainstalowaniu agenta zależności Zbieramy informacje z maszyn wirtualnych w celu wyświetlenia grup na podstawie subskrypcji, grupy zasobów, zestawów skalowania maszyn wirtualnych i usług Cloud Services.  Jeśli używasz Service Map i utworzono grupy maszyn, są one również wyświetlane.  Grupy komputerów będą również wyświetlane w filtr grup, jeśli zostały utworzone dla obszaru roboczego, który jest wyświetlany. 
 
 ### <a name="how-do-i-see-the-details-for-what-is-driving-the-95th-percentile-line-in-the-aggregate-performance-charts"></a>Jak mogę wyświetlić szczegółowe informacje o tym, co jest związane z wierszem percentylu używany 95. na zagregowanych wykresach wydajności?
-Domyślnie lista jest sortowana w celu wyświetlenia maszyn wirtualnych o najwyższej wartości używany 95. percentylu dla wybranej metryki, z wyjątkiem dostępnego wykresu pamięci, który pokazuje komputery z najniższą wartością piątego percentylu.  Kliknięcie wykresu spowoduje otwarcie widoku **listy pierwszych N** z wybraną odpowiednią metryką.
+Domyślnie lista jest sortowana w celu wyświetlenia maszyn wirtualnych o najwyższej wartości używany 95. percentylu dla wybranej metryki, z wyjątkiem dostępnego wykresu pamięci, który pokazuje komputery z najniższą wartością piątego percentylu.  Kliknięcie wykresu spowoduje otwarcie widoku **listy pierwszych N**  z wybraną odpowiednią metryką.
 
 ### <a name="how-does-the-map-feature-handle-duplicate-ips-across-different-vnets-and-subnets"></a>Jak funkcja mapy obsługuje zduplikowane adresy IP w różnych sieci wirtualnychach i podsieciach?
 W przypadku duplikowania zakresów adresów IP z maszynami wirtualnymi lub zestawami skalowania maszyn wirtualnych platformy Azure w różnych podsieciach i sieci wirtualnych może dojść do wyświetlania nieprawidłowych informacji na mapie Azure Monitor dla maszyn wirtualnych. Jest to znany problem i badamy opcje w celu ulepszenia tego środowiska.

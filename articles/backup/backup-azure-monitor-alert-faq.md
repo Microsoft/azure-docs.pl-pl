@@ -4,12 +4,12 @@ description: W tym artykule znajdują się odpowiedzi na często zadawane pytani
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: f5be97458ba658f315c31ae34e540842b64e3ec4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28645311328a2e2054851af6bacf07927eaa88aa
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76989573"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761121"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Alert monitorowania Azure Backup — często zadawane pytania
 
@@ -47,22 +47,6 @@ Tak. możesz wyświetlać raporty w magazynach i subskrypcjach, a także w regio
 ### <a name="can-i-view-reports-across-tenants"></a>Czy mogę wyświetlać raporty w ramach dzierżawców?
 
 Jeśli jesteś użytkownikiem [usługi Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) z delegowanym dostępem do subskrypcji klientów lub obszarów roboczych La, możesz użyć raportów kopii zapasowych, aby wyświetlić dane we wszystkich dzierżawach.
-
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Jak długo trwa stan zadania agenta usługi Azure Backup na potrzeby odzwierciedlenia w portalu?
-
-Aby odzwierciedlić stan zadania agenta usługi Azure Backup, Azure Portal może potrwać do 15 minut.
-
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Ile czasu trwa wywołanie alertu po niepowodzeniu zadania tworzenia kopii zapasowej?
-
-Alert jest zgłaszany w ciągu 20 minut awarii usługi Azure Backup.
-
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Czy istnieje przypadek, w którym nie będzie wysyłana wiadomość e-mail, jeśli są skonfigurowane powiadomienia?
-
-Tak. W poniższych sytuacjach powiadomienia nie są wysyłane.
-
-* Jeśli powiadomienia są konfigurowane co godzinę, a alert zostanie zgłoszony i rozwiązany w ciągu godziny
-* Gdy zadanie zostało anulowane
-* Jeśli drugie zadanie tworzenia kopii zapasowej zakończy się niepowodzeniem, ponieważ oryginalne zadanie tworzenia kopii zapasowej jest w toku
 
 ## <a name="recovery-services-vault"></a>Magazyn usługi Recovery Services
 

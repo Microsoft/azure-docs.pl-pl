@@ -8,10 +8,10 @@ ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: 7d92311dfa699247995c7ded3e3930e19a9a537a
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86135475"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Przenoszenie maszyn wirtualnych platformy Azure do stref dostępności
@@ -66,7 +66,7 @@ W scenariuszu, w którym maszyny wirtualne są wdrażane jako *pojedyncze wystą
 
      Następujące dokumenty przedstawiają sposób tworzenia najczęściej używanych zasobów sieciowych, które są odpowiednie dla Ciebie, na podstawie konfiguracji źródłowej maszyny wirtualnej.
 
-    - [Grupy zabezpieczeń sieci](../virtual-network/manage-network-security-group.md)
+    - [Sieciowe grupy zabezpieczeń](../virtual-network/manage-network-security-group.md)
     - [Moduły równoważenia obciążenia](../load-balancer/index.yml)
     - [Publiczny adres IP](../virtual-network/virtual-network-public-ip-address.md)
     
@@ -85,7 +85,7 @@ Poniższe kroki poprowadzą Cię przez Azure Site Recovery, aby włączyć repli
 
 1. W Azure Portal wybierz pozycję **maszyny wirtualne**, a następnie wybierz maszynę wirtualną, do której chcesz przenieść strefy dostępności.
 2. W obszarze **Operacja** wybierz pozycję **Odzyskiwanie po awarii**.
-3. W obszarze Skonfiguruj region docelowy **odzyskiwania po awarii**  >  **Target region**wybierz region docelowy, do którego zostanie zreplikowana replikacja. Upewnij się, że ten region [obsługuje](../availability-zones/az-region.md) strefy dostępności.
+3. W obszarze **Konfigurowanie odzyskiwania po awarii** > **Region docelowy** wybierz region docelowy, w którym maszyna będzie replikowana. Upewnij się, że ten region [obsługuje](../availability-zones/az-region.md) strefy dostępności.
 
     ![Wybór regionu docelowego](media/azure-vms-to-zones/enable-rep-1.PNG)
 
@@ -110,7 +110,7 @@ Po zakończeniu zadania replikacji można sprawdzić stan replikacji, zmodyfikow
 
 ## <a name="test-the-configuration"></a>Testowanie konfiguracji
 
-1. W menu maszyny wirtualnej wybierz pozycję **odzyskiwanie po awarii**.
+1. W menu maszyny wirtualnej wybierz pozycję  **odzyskiwanie po awarii**.
 2. Wybierz ikonę **test pracy w trybie failover** .
 3. W obszarze **test pracy w trybie failover**wybierz punkt odzyskiwania do użycia w trybie failover:
 
@@ -129,7 +129,7 @@ Po zakończeniu zadania replikacji można sprawdzić stan replikacji, zmodyfikow
 
 ## <a name="move-to-the-target-region-and-confirm"></a>Przejdź do regionu docelowego i Potwierdź
 
-1.  W menu maszyny wirtualnej wybierz pozycję **odzyskiwanie po awarii**.
+1.  W menu maszyny wirtualnej wybierz pozycję  **odzyskiwanie po awarii**.
 2. Wybierz ikonę **trybu failover** .
 3. W obszarze **Tryb failover** wybierz pozycję **Najnowsze**. 
 4. Wybierz pozycję **Zamknij maszynę przed rozpoczęciem pracy w trybie failover**. Usługa Site Recovery próbuje zamknąć źródłową maszynę wirtualną przed wyzwoleniem trybu failover. Przełączanie do trybu failover będzie kontynuowane, nawet jeśli zamknięcie nie powiedzie się. Postęp pracy w trybie failover można wykonać na stronie **zadań** . 

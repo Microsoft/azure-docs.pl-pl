@@ -5,10 +5,10 @@ ms.date: 10/14/2019
 ms.topic: tutorial
 ms.reviewer: brendal
 ms.openlocfilehash: 5761bf1294691c2d50e0e389fe69ec286df4a06c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "74324039"
 ---
 # <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Samouczek: korzystanie z aplikacji w usłudze Azure łańcucha bloków Workbench

@@ -83,6 +83,8 @@
           href: devtest-lab-internal-support-message.md
         - name: Ustawianie zasad i harmonogramów
           href: devtest-lab-set-lab-policy.md
+        - name: "Konfigurowanie tożsamości laboratorium\_"
+          href: configure-lab-identity.md
         - name: Konfigurowanie laboratorium w celu użycia bramy pulpitu zdalnego
           href: configure-lab-remote-desktop-gateway.md
         - name: Publikowanie anonsu w laboratorium
@@ -95,8 +97,6 @@
           href: devtest-lab-auto-startup-vm.md
         - name: Skalowanie laboratorium
           href: devtest-lab-scale-lab.md
-        - name: Włączanie tożsamości zarządzanych dla maszyn wirtualnych laboratorium
-          href: enable-managed-identities-lab-vms.md
         - name: Zarządzanie bazami maszyn wirtualnych
           items:
             - name: Konfigurowanie obrazów z witryny Azure Marketplace
@@ -167,6 +167,8 @@
           href: start-machines-use-automation-runbooks.md
         - name: Importowanie maszyn wirtualnych z innego laboratorium
           href: import-virtual-machines-from-another-lab.md
+        - name: Włączanie tożsamości zarządzanych dla maszyn wirtualnych laboratorium
+          href: enable-managed-identities-lab-vms.md
     - name: Korzystanie ze środowisk w laboratorium
       items:
         - name: Tworzenie środowiska

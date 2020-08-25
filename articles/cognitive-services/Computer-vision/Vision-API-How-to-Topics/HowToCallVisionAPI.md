@@ -12,10 +12,10 @@ ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 0d2ef4af8af8ad9545277202f0aa7842ac05ea67
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85957906"
 ---
 # <a name="call-the-computer-vision-api"></a>Wywoływanie interfejsu API przetwarzania obrazów
@@ -148,7 +148,7 @@ W takim przypadku wszystkie parametry zapytania V1 działają w ten sam sposób.
 
 ## <a name="retrieve-and-understand-the-json-output-for-analysis"></a>Pobierz i poznanie danych wyjściowych JSON na potrzeby analizy
 
-Przykład:
+Oto przykład:
 
 ```json
 {  
@@ -182,7 +182,7 @@ Pole | Typ | Zawartość
 Tagi  | `object` | Obiekt najwyższego poziomu dla tablicy tagów.
 tags[].Name | `string`    | Słowo kluczowe ze klasyfikatora tagów.
 tags[].Score    | `number`    | Wynik pewności z zakresu od 0 do 1.
-description     | `object`    | Obiekt najwyższego poziomu opisu.
+description (opis)     | `object`    | Obiekt najwyższego poziomu opisu.
 description.tags[] |    `string`    | Lista tagów.  W przypadku niewystarczającego zaufania do tworzenia podpisów Tagi mogą być jedynymi informacjami dostępnymi dla obiektu wywołującego.
 description.captions[].text    | `string`    | Fraza opisująca obraz.
 description.captions[].confidence    | `number`    | Wynik pewności dla frazy.

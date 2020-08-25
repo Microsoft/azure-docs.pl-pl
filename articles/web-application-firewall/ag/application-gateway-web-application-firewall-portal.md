@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: 68a9f051bf3d59cbf32377cb503e9ded0a54d5e9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "74049219"
 ---
 # <a name="tutorial-create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Samouczek: Tworzenie bramy aplikacji za pomocą zapory aplikacji sieci Web przy użyciu Azure Portal
@@ -32,7 +32,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 <!---If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md) or [Azure CLI](tutorial-restrict-web-traffic-cli.md).--->
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -244,7 +244,7 @@ Wszystkie dostosowania i ustawienia WAF znajdują się w osobnym obiekcie, zwany
 
 Chociaż usługi IIS nie są wymagane do utworzenia bramy aplikacji, zainstalowano ją w celu sprawdzenia, czy platforma Azure pomyślnie utworzyła bramę aplikacji. Użyj usług do przetestowania bramy aplikacji:
 
-1. Na stronie **przeglądowej** Znajdź publiczny adres IP bramy aplikacji. ![Rejestruj publiczny adres IP bramy aplikacji](../media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png) 
+1. Na stronie **przeglądowej** Znajdź publiczny adres IP bramy aplikacji. ![ Rejestruj publiczny adres IP bramy aplikacji](../media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png) 
 
    Możesz też wybrać pozycję **wszystkie zasoby**, wprowadzić wartość *myAGPublicIPAddress* w polu wyszukiwania, a następnie wybrać ją w wynikach wyszukiwania. Platforma Azure wyświetla publiczny adres IP na stronie **Omówienie**.
 1. Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki.

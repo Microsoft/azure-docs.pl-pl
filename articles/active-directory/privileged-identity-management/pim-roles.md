@@ -14,12 +14,12 @@ ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80762511591d10bd2823101e2ff233fdd0f0eb00
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 862b304d1f36567aecd4452f91f31d1a50c3198a
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495628"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782485"
 ---
 # <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Role, którymi nie można zarządzać w Privileged Identity Management
 
@@ -37,7 +37,7 @@ Aby uzyskać więcej informacji na temat ról administratora klasycznej subskryp
 
 ## <a name="what-about-office-365-admin-roles"></a>Jakie są role administratorów pakietu Office 365?
 
-Obsługiwane są wszystkie role usługi Office 365 w witrynie Azure AD role i portalu administratorów, takie jak administrator programu Exchange i administrator programu SharePoint, ale nie są obsługiwane określone role w ramach usług Exchange RBAC lub RBAC programu SharePoint. Aby uzyskać więcej informacji na temat tych usług Office 365, zobacz [role administratora pakietu office 365](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles).
+Obsługiwane są wszystkie role usługi Office 365 w witrynie Azure AD role i portalu administratorów, takie jak administrator programu Exchange i administrator programu SharePoint, ale nie są obsługiwane określone role w ramach usług Exchange RBAC lub RBAC programu SharePoint. Aby uzyskać więcej informacji na temat tych usług Office 365, zobacz [role administratora pakietu office 365](/office365/admin/add-users/about-admin-roles).
 
 > [!NOTE]
 > Uprawnieni użytkownicy dla roli administratora programu SharePoint, roli administratora urządzenia i wszystkich ról próbujących uzyskać dostęp do centrum zabezpieczeń i zgodności firmy Microsoft mogą napotkać opóźnienia nawet kilka godzin po aktywowaniu ich roli. Pracujemy nad tymi zespołami, aby rozwiązać te problemy.

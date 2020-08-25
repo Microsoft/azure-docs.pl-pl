@@ -14,12 +14,12 @@ ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e8250661fdbd6c67faade31caaed61ee8a399fe
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 14df46a921b482b182e0f17754293af37146d1e7
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008098"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783216"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Wdróż Azure AD Privileged Identity Management (PIM)
 
@@ -291,7 +291,7 @@ W tej tabeli Zidentyfikuj użytkowników testowych, którzy weryfikują, że ust
 
 ### <a name="test-implementation"></a>Implementacja testowa
 
-Teraz, po zidentyfikowaniu użytkowników testowych, użyj tego kroku, aby skonfigurować Privileged Identity Management dla użytkowników testowych. Jeśli organizacja chce dołączyć przepływ pracy Privileged Identity Management do własnej aplikacji wewnętrznej zamiast korzystać z Privileged Identity Management w Azure Portal, wszystkie operacje w Privileged Identity Management są również obsługiwane za pośrednictwem [interfejsu API programu Graph](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-root).
+Teraz, po zidentyfikowaniu użytkowników testowych, użyj tego kroku, aby skonfigurować Privileged Identity Management dla użytkowników testowych. Jeśli organizacja chce dołączyć przepływ pracy Privileged Identity Management do własnej aplikacji wewnętrznej zamiast korzystać z Privileged Identity Management w Azure Portal, wszystkie operacje w Privileged Identity Management są również obsługiwane za pośrednictwem [interfejsu API programu Graph](/graph/api/resources/privilegedidentitymanagement-root).
 
 #### <a name="configure-privileged-identity-management-for-azure-ad-roles"></a>Konfigurowanie Privileged Identity Management dla ról usługi Azure AD
 

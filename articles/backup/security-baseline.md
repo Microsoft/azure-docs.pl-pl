@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 72c038bda88ecc9b7518f1f764a41bd4c49f52c6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 2951d0ee8719ec3b0f195a9abcd1af6f65f2c141
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589422"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761818"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Podstawa zabezpieczeń platformy Azure dla kopii zapasowej
 
@@ -186,7 +186,7 @@ Ponadto Azure Backup wysyła zdarzenia diagnostyczne, które mogą być zbierane
 
 ### <a name="26-monitor-and-review-logs"></a>2,6: dzienniki monitorowania i przeglądania
 
-**Wskazówki**: Azure Backup udostępnia wbudowane funkcje monitorowania i alertów w magazynie Recovery Services. Te możliwości są dostępne bez dodatkowej infrastruktury zarządzania. Możesz również zwiększyć skalę monitorowania i raportowania przy użyciu Azure Monitor.
+**Wskazówki**: Azure Backup udostępnia wbudowane funkcje monitorowania i alertów w magazynie Recovery Services. Funkcje te są dostępne bez żadnej dodatkowej infrastruktury zarządzania. Możesz również zwiększyć skalę monitorowania i raportowania przy użyciu Azure Monitor.
 
 Włącz ustawienia diagnostyczne dziennika aktywności platformy Azure i Wyślij dzienniki do obszaru roboczego Log Analytics. Wykonaj zapytania w Log Analytics, aby wyszukiwać terminy, identyfikować trendy, analizować wzorce i udostępniać wiele innych szczegółowych informacji na podstawie danych dziennika aktywności, które mogły zostać zebrane dla Recovery Services magazynów.
 
@@ -202,7 +202,7 @@ Włącz ustawienia diagnostyczne dziennika aktywności platformy Azure i Wyślij
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2,7: Włączanie alertów dla nietypowego działania
 
-**Wskazówki**: Azure Backup udostępnia wbudowane funkcje monitorowania i alertów w magazynie Recovery Services. Te możliwości są dostępne bez dodatkowej infrastruktury zarządzania. Możesz również zwiększyć skalę monitorowania i raportowania przy użyciu Azure Monitor.
+**Wskazówki**: Azure Backup udostępnia wbudowane funkcje monitorowania i alertów w magazynie Recovery Services. Funkcje te są dostępne bez żadnej dodatkowej infrastruktury zarządzania. Możesz również zwiększyć skalę monitorowania i raportowania przy użyciu Azure Monitor.
 
 Alerty są szczególnie sytuacje, w których użytkownicy są powiadamiani, aby mogli podejmować odpowiednie działania. W sekcji alerty kopii zapasowej znajdują się alerty wygenerowane przez usługę Azure Backup. Te alerty są definiowane przez usługę i nie można tworzyć żadnych alertów.
 
@@ -426,7 +426,7 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: Izoluj systemy przechowujące lub przetwarzające informacje poufne
 
-**Wskazówki**: podczas tworzenia kopii zapasowych maszyn wirtualnych usługi Azure IaaS Azure Backup zapewnia niezależne i izolowane kopie zapasowe do ochrony przed przypadkowym zniszczeniem oryginalnych danych. Kopie zapasowe są przechowywane w magazynie Recovery Services przy użyciu wbudowanego zarządzania punktami odzyskiwania.
+**Wskazówki**: podczas tworzenia kopii zapasowych maszyn wirtualnych usługi Azure IaaS Azure Backup zapewnia niezależne i izolowane kopie zapasowe do ochrony przed przypadkowym zniszczeniem oryginalnych danych. Kopie zapasowe są przechowywane w magazynie usługi Recovery Services z wbudowanymi funkcjami zarządzania punktami odzyskiwania.
 
 Zaimplementuj osobne subskrypcje i/lub grupy zarządzania na potrzeby tworzenia, testowania i produkcji Recovery Services magazynów. Zasoby powinny być oddzielone siecią wirtualną/podsieć, odpowiednio otagowane i zabezpieczone przez sieciowej grupy zabezpieczeń lub zaporę platformy Azure. Zasoby przechowujące lub przetwarzające dane poufne powinny być wystarczająco odizolowane. W przypadku Virtual Machines przechowywania lub przetwarzania danych poufnych należy zaimplementować zasady i procedury, aby je wyłączyć, gdy nie są używane.
 

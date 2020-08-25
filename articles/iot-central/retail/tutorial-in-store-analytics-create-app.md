@@ -12,10 +12,10 @@ ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
 ms.openlocfilehash: 50dd6038a8642f13cea7840fff723a5cf12ce2dd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "81000252"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Samouczek: Tworzenie aplikacji do analizy w sklepie na platformie Azure IoT Central
@@ -177,11 +177,11 @@ Aby dostosować wbudowane interfejsy szablonu urządzenia RuuviTag:
 
 1. Wybierz pozycję **Dostosuj** w menu szablonu urządzenia RuuviTag. 
 
-1. Przewiń listę możliwości i Znajdź typ `humidity` telemetrii. Jest to element wiersza z edytowalną **nazwą wyświetlaną** *wilgotności*.
+1. Przewiń listę możliwości i Znajdź `humidity` Typ telemetrii. Jest to element wiersza z edytowalną **nazwą wyświetlaną** *wilgotności*.
 
-W poniższych krokach dostosowujesz typ `humidity` telemetrii dla czujników RuuviTag. Opcjonalnie można dostosować niektóre inne typy telemetrii.
+W poniższych krokach dostosowujesz `humidity` Typ telemetrii dla czujników RuuviTag. Opcjonalnie można dostosować niektóre inne typy telemetrii.
 
-Wprowadź następujące `humidity` zmiany w polu Typ telemetrii:
+`humidity`Wprowadź następujące zmiany w polu Typ telemetrii:
 
 1. Wybierz kontrolkę **Rozwiń** , aby rozwinąć szczegóły schematu dla wiersza.
 
@@ -213,7 +213,7 @@ Określ następujące wartości, aby utworzyć niestandardową właściwość do
 
     ![Dostosowywanie szablonu urządzenia usługi Azure IoT Central RuuviTag](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-cloud-property.png)
 
-1. Wybierz pozycję **Publikuj**. 
+1. Kliknij pozycję **Opublikuj**. 
 
     Opublikowanie szablonu urządzenia sprawia, że jest on widoczny dla operatorów aplikacji. Po opublikowaniu szablonu należy go użyć do wygenerowania symulowanych urządzeń do testowania lub połączenia rzeczywistych urządzeń z aplikacją. Jeśli masz już urządzenia podłączone do aplikacji, opublikowanie niestandardowego szablonu powoduje wypchnięcie zmian na urządzeniach.
 
@@ -244,7 +244,7 @@ Aby utworzyć regułę:
 
 1. Wybierz pozycję **reguły**.
 
-1. Wybierz pozycję **+ Nowy**.
+1. Wybierz pozycję **+ Nowe**.
 
 1. Wprowadź *poziom wilgotności* jako nazwę reguły. 
 

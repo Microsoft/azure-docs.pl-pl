@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: erhopf
 ms.openlocfilehash: 04a6742d3db8d65e06fe3d7b35ed94ebe5dc13a5
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85391217"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Samouczek: Tworzenie modelu dzierżawy (wersja zapoznawcza)
@@ -96,7 +96,7 @@ Gdy wystąpienie modelu dzierżawy jest gotowe, wdróż je, wykonując następuj
 
    ![Łącze "ustawienia modelu dzierżawy"](media/tenant-language-model/tenant-language-settings.png)
 
-1. Wybierz pozycję **Wdróż**.
+1. Wybierz pozycję **Deploy** (Wdróż).
 
    Po wdrożeniu modelu stan zmieni się na *wdrożone*.
 

@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 96846d75111fe11b225704a248baeb006a3df3fb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "66473009"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Samouczek: Integrowanie pojedynczego lasu usługi AD przy użyciu uwierzytelniania przekazywanego (PTA)
@@ -48,7 +48,7 @@ Pierwszą rzeczą, jaką należy zrobić, aby skonfigurować i uruchomić środo
 Wykonaj następujące czynności:
 
 1. Otwórz program PowerShell ISE jako administrator.
-2. Uruchom następujący skrypt.
+2. Uruchom poniższy skrypt.
 
 ```powershell
 #Declare variables
@@ -94,7 +94,7 @@ Maszyna wirtualna jest gotowa. Przed zainstalowaniem usługi Active Directory na
 
 1. Otwórz program PowerShell ISE jako administrator.
 2. Uruchom polecenie `Set-ExecutionPolicy remotesigned` i wybierz odpowiedź „yes to all” [A] (tak na wszystkie).  Naciśnij klawisz Enter.
-3. Uruchom następujący skrypt.
+3. Uruchom poniższy skrypt.
 
 ```powershell
 #Declare variables
@@ -130,7 +130,7 @@ Restart-Computer
 Maszyna wirtualna jest już utworzona, ma już właściwą nazwę i adres statyczny. Czas zainstalować i skonfigurować usługi Active Directory Domain Services.  Wykonaj następujące czynności:
 
 1. Otwórz program PowerShell ISE jako administrator.
-2. Uruchom następujący skrypt.
+2. Uruchom poniższy skrypt.
 
 ```powershell 
 #Declare variables
@@ -161,7 +161,7 @@ Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -Doma
 Środowisko usługi Active Directory jest już gotowe. Potrzebujemy konta testowego.  To konto zostanie utworzone w lokalnym środowisku usługi AD, a następnie zsynchronizowane z usługą Azure AD.  Wykonaj następujące czynności:
 
 1. Otwórz program PowerShell ISE jako administrator.
-2. Uruchom następujący skrypt.
+2. Uruchom poniższy skrypt.
 
 ```powershell 
 #Declare variables
@@ -184,18 +184,18 @@ Set-ADUser -Identity $Identity -PasswordNeverExpires $true -ChangePasswordAtLogo
 ## <a name="create-an-azure-ad-tenant"></a>Tworzenie dzierżawy usługi Azure AD
 Teraz należy utworzyć dzierżawę usługi Azure AD, aby umożliwić synchronizowanie użytkowników z chmurą.  Aby utworzyć nową dzierżawę usługi Azure AD, wykonaj następujące czynności.
 
-1. Przejdź do witryny [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta z subskrypcją platformy Azure.
-2. Wybierz **ikonę plusa (+)** i wyszukaj ciąg **Azure Active Directory**.
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta, które ma subskrypcję platformy Azure.
+2. Wybierz **ikonę plusa (+)** i wyszukaj pozycję **Azure Active Directory**.
 3. W wynikach wyszukiwania wybierz pozycję **Azure Active Directory**.
 4. Wybierz przycisk **Utwórz**.</br>
 ![Tworzenie](media/tutorial-password-hash-sync/create1.png)</br>
-5. Podaj **nazwę organizacji** wraz z **początkową nazwą domeny**. Następnie wybierz pozycję **Utwórz**. Spowoduje to utworzenie katalogu.
+5. Podaj **nazwę organizacji** wraz z **początkową nazwą domeny**. Następnie wybierz przycisk **Utwórz**. Spowoduje to utworzenie katalogu.
 6. Po zakończeniu kliknij link **tutaj**, aby zarządzać katalogiem.
 
 ## <a name="create-a-global-administrator-in-azure-ad"></a>Tworzenie administratora globalnego w usłudze Azure AD
 Dzierżawa usługi Azure AD jest już gotowa. Utworzymy konto administratora globalnego.  To konto posłuży do utworzenia konta Azure AD Connector podczas instalacji programu Azure AD Connect.  Konto łącznika usługi Azure AD służy do zapisywania informacji w usłudze Azure AD.   Aby utworzyć konto administratora globalnego, wykonaj następujące czynności.
 
-1.  W obszarze **Zarządzaj** wybierz pozycję **Użytkownicy**.</br>
+1.  W obszarze **Zarządzanie** wybierz pozycję **Użytkownicy**.</br>
 ![Tworzenie](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Wybierz pozycję **Wszyscy użytkownicy**, a następnie pozycję **+ Nowy użytkownik**.
 3.  Podaj nazwę i nazwę użytkownika dla tego użytkownika. Będzie to administrator globalny dzierżawy. Zmień też **rolę Katalog** na **Administrator globalny**. Możesz również wyświetlić hasło tymczasowe. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.</br>
@@ -244,14 +244,14 @@ Nadszedł czas, aby pobrać i zainstalować program Azure AD Connect.  Po zainst
 Teraz potwierdzimy, że użytkownicy znajdujący się w katalogu lokalnym zostali zsynchronizowani i istnieją teraz w zewnętrznej dzierżawie usługi Azure AD.  Ukończenie tego procesu może potrwać kilka godzin.  Aby potwierdzić, że użytkownicy zostali zsynchronizowani, wykonaj następujące czynności.
 
 
-1. Przejdź do witryny [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta z subskrypcją platformy Azure.
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta, które ma subskrypcję platformy Azure.
 2. W obszarze po lewej stronie wybierz pozycję **Azure Active Directory**.
-3. W obszarze **Zarządzaj** wybierz pozycję **Użytkownicy**.
+3. W obszarze **Zarządzanie** wybierz pozycję **Użytkownicy**.
 4. Potwierdź, że nowi użytkownicy są widoczni w dzierżawie. ![Synchronizacja](media/tutorial-password-hash-sync/synch1.png)
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testowanie logowania się przy użyciu jednego z kont użytkowników
 
-1. Przejdź do[https://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Przejdź do [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Zaloguj się przy użyciu konta użytkownika utworzonego w nowej dzierżawie.  Należy zalogować się przy użyciu następującego formatu: (user@domain.onmicrosoft.com). Użyj tego samego hasła, za pomocą którego użytkownik loguje się lokalnie.
    ![Weryfikacja](media/tutorial-password-hash-sync/verify1.png)
 

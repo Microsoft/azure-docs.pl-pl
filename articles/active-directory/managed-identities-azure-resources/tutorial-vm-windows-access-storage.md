@@ -16,10 +16,10 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 182bf02bfaad598a447304cc9f2ed42f6221176d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "75971959"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Samouczek: używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej systemu Windows w celu uzyskania dostępu do usługi Azure Storage
@@ -42,7 +42,7 @@ W tym samouczku przedstawiono sposób używania tożsamości zarządzanej przypi
 
 
 
-## <a name="enable"></a>Włączanie
+## <a name="enable"></a>Włącz
 
 [!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
 
@@ -69,7 +69,7 @@ W tej sekcji utworzysz konto magazynu.
 Pliki wymagają magazynu obiektów blob, dlatego musimy utworzyć kontener obiektów blob, w którym będziemy przechowywać plik. Następnie przekaż plik do kontenera obiektów blob na nowym koncie magazynu.
 
 1. Przejdź z powrotem do nowo utworzonego konta magazynu.
-2. W obszarze **Blob Service** kliknij pozycję **Kontenery**.
+2. W obszarze **BLOB Service**kliknij pozycję **Containers (kontenery**).
 3. Kliknij pozycję **+ Kontener** w górnej części strony.
 4. W obszarze **Nowy kontener** wprowadź nazwę kontenera, a następnie w obszarze **Poziom dostępu publicznego** zachowaj wartość domyślną.
 
@@ -173,7 +173,7 @@ Odpowiedź zawiera zawartość pliku:
 `Hello world! :)`
 
 
-## <a name="disable"></a>Wyłączanie
+## <a name="disable"></a>Wyłącz
 
 [!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
 
@@ -184,4 +184,4 @@ Odpowiedź zawiera zawartość pliku:
 W tym samouczku pokazano, jak umożliwić przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Windows uzyskiwanie dostępu do usługi Azure Storage.  Aby dowiedzieć się więcej o usłudze Azure Storage, zobacz:
 
 > [!div class="nextstepaction"]
-> [Usługa Azure Storage](/azure/storage/common/storage-introduction)
+> [Azure Storage](/azure/storage/common/storage-introduction)

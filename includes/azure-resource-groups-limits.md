@@ -4,12 +4,12 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 02/24/2020
 ms.author: tomfitz
-ms.openlocfilehash: 33a63280f6973d2c5e29db29f7a6f3fc68c57c77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ab7c2efc499c43245680e56a7e5ca1b5261397
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424755"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88748758"
 ---
 | Zasób | Limit |
 | --- | --- |
@@ -17,7 +17,7 @@ ms.locfileid: "84424755"
 | Zasoby na grupę zasobów dla każdego typu zasobu |800 — niektóre typy zasobów mogą przekraczać limit 800. Zobacz [zasoby nieograniczone do 800 wystąpień na grupę zasobów](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md). |
 | Wdrożenia według grupy zasobów w historii wdrożenia |800<sup>1</sup> |
 | Zasoby na wdrożenie |800 |
-| Blokady zarządzania na unikatowy zakres |20 |
+| Blokady zarządzania na unikatowy [zakres](../articles/azure-resource-manager/management/overview.md#understand-scope)  |20 |
 | Liczba tagów dla zasobu lub grupy zasobów |50 |
 | Długość klucza tagu |512 |
 | Długość wartości tagu |256 |

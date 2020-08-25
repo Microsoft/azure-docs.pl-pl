@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: ea8ed75bf91850abb95ebe983923989375c0fcf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "76759856"
 ---
 Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 w witrynie Azure Portal, wykonaj następujące kroki:
@@ -31,13 +31,13 @@ Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 w witrynie Azure
    |Pole  |Wartość  |
    |---------|---------|
    |Model wdrażania     |Resource Manager         |
-   |Wydajność     |Standardowa (Standard)         |
+   |Wydajność     |Standardowa         |
    |Rodzaj konta     |StorageV2 (ogólnego przeznaczenia wersja 2)         |
    |Replikacja     |Magazyn geograficznie nadmiarowy dostępny do odczytu (RA-GRS)         |
    |Warstwa dostępu     |Gorąca         |
 
 8. Jeśli planujesz używać [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), wybierz kartę **Zaawansowane** , a następnie ustaw **hierarchiczną przestrzeń nazw** na wartość **włączone**.
 9. Wybierz pozycję **Przejrzyj i utwórz**, aby przejrzeć ustawienia konta magazynu i utworzyć konto.
-10. Wybierz pozycję **Utwórz**.
+10. Wybierz przycisk **Utwórz**.
 
 Aby uzyskać więcej informacji na temat typów kont magazynu i innych ustawień konta magazynu, zobacz [Azure storage account overview (Omówienie kont usługi Azure Storage)](https://docs.microsoft.com/azure/storage/common/storage-account-overview). Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Azure Resource Manager przegląd](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). 

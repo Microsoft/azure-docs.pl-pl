@@ -1,5 +1,5 @@
 ---
-title: Samouczek`:` korzystanie z tożsamości zarządzanej w celu uzyskania dostępu do Azure Resource Manager-Windows-Azure AD
+title: Samouczek `:` Korzystanie z tożsamości zarządzanej w celu uzyskania dostępu do Azure Resource Manager-Windows-Azure AD
 description: Samouczek przedstawiający proces użycia przypisanej przez użytkownika tożsamości zarządzanej na maszynie wirtualnej z systemem Windows do uzyskiwania dostępu do usługi Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec9956f0c5d834633646938da19f03e5467a9f6d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "75977849"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Samouczek: używanie tożsamości zarządzanej przypisanej przez użytkownika na maszynie wirtualnej z systemem Windows w celu uzyskania dostępu do Azure Resource Manager
@@ -45,7 +45,7 @@ Omawiane kwestie:
 
 - [Logowanie do witryny Azure Portal](https://portal.azure.com)
 
-- [Utworzenie maszyny wirtualnej z systemem Windows](/azure/virtual-machines/windows/quick-create-portal)
+- [Tworzenie maszyny wirtualnej z systemem Windows](/azure/virtual-machines/windows/quick-create-portal)
 
 - Aby przeprowadzić tworzenie wymaganych zasobów i wykonać kroki zarządzania rolami opisane w tym samouczku, Twoje konto musi mieć uprawnienia „Właściciel” w odpowiednim zakresie (subskrypcji lub grupy zasobów). Jeśli potrzebujesz pomocy dotyczącej przypisania roli, zobacz [Korzystanie z kontroli dostępu opartej na rolach do zarządzania dostępem do zasobów subskrypcji platformy Azure](/azure/role-based-access-control/role-assignments-portal).
 - [Zainstaluj najnowszą wersję modułu programu Azure PowerShell](/powershell/azure/install-az-ps). 
@@ -55,7 +55,7 @@ Omawiane kwestie:
 - Uruchom polecenie `Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease`, aby zainstalować wersję wstępną modułu `Az.ManagedServiceIdentity`, który umożliwia wykonanie opisanych w tym artykule operacji na tożsamości przypisanej przez użytkownika.
 
 
-## <a name="enable"></a>Włączanie
+## <a name="enable"></a>Włącz
 
 W przypadku scenariusza opartego na tożsamości przypisanej do użytkownika należy wykonać następujące czynności:
 
@@ -129,7 +129,7 @@ CanDelegate: False
 
 W pozostałej części tego samouczka będziemy pracować z poziomu wcześniej utworzonej maszyny wirtualnej.
 
-1. Zaloguj się do Azure Portal w[https://portal.azure.com](https://portal.azure.com)
+1. Zaloguj się do Azure Portal w [https://portal.azure.com](https://portal.azure.com)
 
 2. W portalu przejdź do pozycji **Maszyny wirtualne**, a następnie przejdź do maszyny wirtualnej z systemem Windows i w pozycji **Przegląd** kliknij przycisk **Połącz**.
 
@@ -137,7 +137,7 @@ W pozostałej części tego samouczka będziemy pracować z poziomu wcześniej u
 
 4. Teraz, po utworzeniu **Podłączanie pulpitu zdalnego** z maszyną wirtualną, Otwórz program **PowerShell** w sesji zdalnej.
 
-5. Używając polecenia `Invoke-WebRequest` programu PowerShell, wyślij żądanie do lokalnego punktu końcowego tożsamości zarządzanych dla zasobów platformy Azure, aby uzyskać token dostępu na potrzeby usługi Azure Resource Manager.  `client_id` Wartość jest wartością zwracaną podczas tworzenia tożsamości zarządzanej przypisanej przez użytkownika.
+5. Używając polecenia `Invoke-WebRequest` programu PowerShell, wyślij żądanie do lokalnego punktu końcowego tożsamości zarządzanych dla zasobów platformy Azure, aby uzyskać token dostępu na potrzeby usługi Azure Resource Manager.  `client_id`Wartość jest wartością zwracaną podczas tworzenia tożsamości zarządzanej przypisanej przez użytkownika.
 
     ```azurepowershell
     $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=af825a31-b0e0-471f-baea-96de555632f9&resource=https://management.azure.com/' -Method GET -Headers @{Metadata="true"}

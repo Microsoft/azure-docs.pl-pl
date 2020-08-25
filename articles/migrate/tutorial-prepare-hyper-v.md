@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
 ms.openlocfilehash: 5f669de6bd8d767ca7b947fca883187dad9fe29d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86109624"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Przygotowanie do oceny i migracji maszyn wirtualnych funkcji Hyper-V na platformę Azure
@@ -133,7 +133,7 @@ Uruchom skrypt w następujący sposób:
 
 Wartości skrótu to:
 
-| **Skrótu** | **Wartość** |
+| **Skrót** | **Wartość** |
 | --- | --- |
 | **MD5** | 0ef418f31915d01f896ac42a80dc414e |
 | **SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2 |

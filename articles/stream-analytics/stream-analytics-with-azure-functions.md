@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/27/2020
 ms.openlocfilehash: 837174b3ccc08a74583587cb9efd34f8f720aec5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "77589457"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Samouczek: uruchamianie Azure Functions z Azure Stream Analytics zadań 
@@ -52,7 +52,7 @@ Postępuj zgodnie z samouczkiem [Wykrywanie oszustw w czasie rzeczywistym](strea
 
 1. Zobacz sekcję [Tworzenie aplikacji funkcji](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) w dokumentacji usługi Functions. W tej sekcji omówiono sposób tworzenia aplikacji funkcji i [funkcji wyzwalanej przez protokół HTTP w Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function)przy użyciu języka CSharp.  
 
-2. Przejdź do funkcji **run.csx**. Zaktualizuj ją za pomocą następującego kodu. Zastąp **ciąg\<"Twoje dane połączenia w pamięci podręcznej platformy Azure dla usługi Redis\>"** w pamięci podręcznej platformy Azure dla podstawowych parametrów połączenia Redis, które zostały pobrane w poprzedniej sekcji. 
+2. Przejdź do funkcji **run.csx**. Zaktualizuj ją za pomocą następującego kodu. Zastąp element **" \<your Azure Cache for Redis connection string goes here\> "** za pomocą usługi Azure cache for Redis podstawowe parametry połączenia, które zostały pobrane w poprzedniej sekcji. 
 
     ```csharp
     using System;
@@ -140,13 +140,13 @@ Postępuj zgodnie z samouczkiem [Wykrywanie oszustw w czasie rzeczywistym](strea
 
 1. Otwórz zadanie usługi Stream Analytics w witrynie Azure Portal.  
 
-2. Przejdź do funkcji, a następnie wybierz pozycję **Przegląd** > danych**wyjściowych** > **Dodaj**. Aby dodać nowe wyjście, wybierz pozycję **Azure Function** jako opcję ujścia. Adapter wyjściowy usługi Functions ma następujące właściwości:  
+2. Przejdź do funkcji, a następnie wybierz pozycję **Przegląd**danych  >  **wyjściowych**  >  **Dodaj**. Aby dodać nowe wyjście, wybierz pozycję **Azure Function** jako opcję ujścia. Adapter wyjściowy usługi Functions ma następujące właściwości:  
 
    |**Nazwa właściwości**|**Opis**|
    |---|---|
    |Alias danych wyjściowych| Przyjazna nazwa używana w zapytaniu zadania do przywołania wyjścia. |
    |Opcja importu| Można użyć funkcji z bieżącej subskrypcji lub, jeśli funkcja znajduje się w innej subskrypcji, podać ustawienia ręcznie. |
-   |Aplikacja usługi Functions| Nazwa aplikacji usługi Functions. |
+   |Aplikacja funkcji| Nazwa aplikacji usługi Functions. |
    |Funkcja| Nazwa funkcji w aplikacji usługi Functions (nazwa funkcji run.csx).|
    |Maksymalny rozmiar partii|Ustawia maksymalny rozmiar każdej partii wyjściowej, która jest wysyłana do funkcji w bajtach. Domyślnie ta wartość jest równa 262 144 B (256 KB).|
    |Maksymalna liczba partii|Umożliwia określenie maksymalnej liczby zdarzeń w każdej z partii wysyłanych do funkcji. Wartość domyślna to 100. Ta właściwość jest opcjonalna.|
@@ -167,7 +167,7 @@ Postępuj zgodnie z samouczkiem [Wykrywanie oszustw w czasie rzeczywistym](strea
         WHERE CS1.SwitchNum != CS2.SwitchNum
    ```
 
-5. Uruchom aplikację telcodatagen. exe, uruchamiając następujące polecenie w wierszu polecenia. Polecenie używa formatu `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`.  
+5. Uruchom aplikację telcodatagen.exe, uruchamiając następujące polecenie w wierszu polecenia. Polecenie używa formatu `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]` .  
    
    ```cmd
    telcodatagen.exe 1000 0.2 2

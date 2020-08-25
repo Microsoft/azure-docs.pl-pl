@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 01031159d1894c7cb5f36b48f268186dff21fd22
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "77471333"
 ---
 # <a name="tutorial-use-data-box-heavy-to-import-data-as-managed-disks-in-azure"></a>Samouczek: używanie Data Box Heavy do importowania danych jako dysków zarządzanych na platformie Azure
@@ -32,7 +32,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Przed rozpoczęciem upewnij się, że:
 
-1. Ukończono [Samouczek: konfigurowanie Azure Data Box Heavy](data-box-heavy-deploy-set-up.md).
+1. Ukończono [Samouczek: Konfigurowanie urządzenia Azure Data Box Heavy](data-box-heavy-deploy-set-up.md).
 2. Urządzenie Data Box Heavy zostało do Ciebie dostarczone, a stan zamówienia w portalu to **Dostarczono**.
 3. Dysponujesz szybkim połączeniem sieciowym. Aby uzyskać największe szybkości kopiowania, można użyć dwóch równoległych połączeń 40-GbE (po jednym na węzeł). Jeśli nie masz dostępnego połączenia 40-GbE, zalecamy skorzystanie z co najmniej dwóch połączeń 10-GbE (po jednym na węzeł). 
 4. Sprawdzono:
@@ -116,7 +116,7 @@ Jeśli używasz komputera hosta z systemem Linux, wykonaj następujące kroki, a
 
     ![Konfigurowanie dostępu klienta do sieciowego systemu plików 1](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
 
-2. Podaj adres IP klienta sieciowego systemu plików i kliknij przycisk **Dodaj**. Powtarzając ten krok, możesz skonfigurować dostęp dla wielu klientów sieciowego systemu plików. Kliknij przycisk **OK**.
+2. Podaj adres IP klienta sieciowego systemu plików i kliknij przycisk **Dodaj**. Powtarzając ten krok, możesz skonfigurować dostęp dla wielu klientów sieciowego systemu plików. Kliknij pozycję **OK**.
 
     ![Konfigurowanie dostępu klienta do sieciowego systemu plików 2](media/data-box-deploy-copy-data-from-vhds/nfs-client-access2.png)
 
@@ -126,7 +126,7 @@ Jeśli używasz komputera hosta z systemem Linux, wykonaj następujące kroki, a
 
     `sudo mount <Data Box or Data Box Heavy IP>:/<NFS share on Data Box or Data Box Heavy device> <Path to the folder on local Linux computer>`
 
-    Poniższy przykład pokazuje, jak nawiązać połączenie za pośrednictwem systemu plików NFS z udziałem urządzenie Data Box lub Data Box Heavy. Urządzenie Data Box lub Data Box Heavy IP urządzenia to `169.254.250.200`, udział `mydbmdrg1_MDisk` jest zainstalowany w ubuntuVM, punkt instalacji. `/home/databoxubuntuhost/databox`
+    Poniższy przykład pokazuje, jak nawiązać połączenie za pośrednictwem systemu plików NFS z udziałem urządzenie Data Box lub Data Box Heavy. Urządzenie Data Box lub Data Box Heavy IP urządzenia to `169.254.250.200` , udział `mydbmdrg1_MDisk` jest zainstalowany w ubuntuVM, punkt instalacji `/home/databoxubuntuhost/databox` .
 
     `sudo mount -t nfs 169.254.250.200:/mydbmdrg1_MDisk /home/databoxubuntuhost/databox`
 

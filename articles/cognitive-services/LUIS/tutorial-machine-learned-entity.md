@@ -4,10 +4,10 @@ description: Wyodrębnij dane strukturalne z wypowiedź przy użyciu jednostki U
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.openlocfilehash: eb9761a3d3a98a3318fe0adc6fa170652639a9a1
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86045607"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Samouczek: wyodrębnianie danych strukturalnych z wypowiedź użytkownika przy użyciu jednostek uczenia maszynowego w Language Understanding (LUIS)
@@ -114,9 +114,9 @@ Dodawanie listy znanych rozmiarów rozpoznawanych przez aplikację kliencką uł
 
     |Znormalizowana wartość|Synonimy|
     |--|--|
-    |Mały|SM, SML, mały, najmniejszy|
+    |Mała|SM, SML, mały, najmniejszy|
     |Średniaa|MD, MDM, regularne, średnie, środkowe|
-    |Duży|LG, LRG, Big|
+    |Duża|LG, LRG, Big|
     |XLarge|XL, największe, bardzo duże|
 
 

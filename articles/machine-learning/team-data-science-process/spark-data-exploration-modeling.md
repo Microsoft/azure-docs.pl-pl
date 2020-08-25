@@ -12,10 +12,10 @@ ms.date: 06/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
 ms.openlocfilehash: 406092466b7ab5ca729a08f7c703bcb30812901d
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86027515"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Eksplorowanie i modelowanie danych za pomocą platformy Spark
@@ -61,7 +61,7 @@ taxi_train_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windo
 modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/" 
 ```
 
-### <a name="import-libraries"></a>Importuj biblioteki
+### <a name="import-libraries"></a>Importowanie bibliotek
 
 Konfiguracja wymaga również importowania niezbędnych bibliotek. Ustaw kontekst platformy Spark i zaimportuj niezbędne biblioteki przy użyciu następującego kodu:
 

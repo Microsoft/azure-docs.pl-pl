@@ -7,10 +7,10 @@ ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
 ms.openlocfilehash: 88937e5bc9870075bfe273c21b11f886d32bf99d
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85963856"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Samouczek: wyzwalanie zadania usługi Batch przy użyciu Azure Functions
@@ -41,13 +41,13 @@ W tej sekcji użyjesz Batch Explorer do utworzenia puli partii i zadania wsadowe
     1. Wybierz pozycję **Ubuntu 18,04-LTS** jako system operacyjny.
     1. Wybierz `Standard_f2s_v2` rozmiar maszyny wirtualnej.
     1. Włącz zadanie uruchamiania i Dodaj polecenie `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"` . Pamiętaj, aby ustawić tożsamość użytkownika jako **domyślnego użytkownika zadania (administratora)**, co umożliwia uruchamianie zadań w celu uwzględnienia poleceń z `sudo` .
-    1. Wybierz przycisk **OK**.
+    1. Kliknij **OK**.
 ### <a name="create-a-job"></a>Tworzenie zadania
 
 1. Utwórz zadanie w puli, wybierając pozycję **zadania** na pasku po lewej stronie, a następnie przycisk **Dodaj** nad formularzem wyszukiwania. 
     1. Wybierz identyfikator i nazwę wyświetlaną. Będziemy używać `ocr-job` tego przykładu.
     1. Ustaw pulę na `ocr-pool` lub inną nazwę wybraną dla puli.
-    1. Wybierz przycisk **OK**.
+    1. Kliknij **OK**.
 
 
 ## <a name="create-blob-containers"></a>Tworzenie kontenerów obiektów BLOB
@@ -72,8 +72,8 @@ W tej sekcji utworzysz funkcję platformy Azure, która wyzwala zadanie wsadowe 
     1. Po wyświetleniu monitu o konto magazynu Użyj tego samego konta magazynu, które zostało połączone z kontem usługi Batch.
     1. W obszarze **stos środowiska uruchomieniowego**wybierz opcję .NET. Zapiszemy naszą funkcję w języku C#, aby korzystać z zestawu SDK programu .NET.
 1. Po utworzeniu funkcji wyzwalanej przez obiekt BLOB Użyj [`run.csx`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/run.csx) i z usługi [`function.proj`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/function.proj) GitHub w funkcji.
-    * `run.csx`jest uruchamiany po dodaniu nowego obiektu BLOB do wejściowego kontenera obiektów BLOB.
-    * `function.proj`Wyświetla listę zewnętrznych bibliotek w kodzie funkcji, na przykład zestaw SDK usługi Batch dla platformy .NET.
+    * `run.csx` jest uruchamiany po dodaniu nowego obiektu BLOB do wejściowego kontenera obiektów BLOB.
+    * `function.proj` Wyświetla listę zewnętrznych bibliotek w kodzie funkcji, na przykład zestaw SDK usługi Batch dla platformy .NET.
 1. Zmień wartości zastępcze zmiennych w `Run()` funkcji `run.csx` pliku, aby odzwierciedlały poświadczenia dotyczące partii i magazynu. Poświadczenia konta magazynu i partii można znaleźć w Azure Portal w sekcji **klucze** Twojego konta w usłudze Batch.
     * Pobierz poświadczenia konta magazynu i partii w Azure Portal w sekcji **klucze** Twojego konta w usłudze Batch. 
 

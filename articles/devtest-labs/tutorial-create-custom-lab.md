@@ -4,10 +4,10 @@ description: W tym samouczku utworzysz laboratorium w Azure DevTest Labs przy u�
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.openlocfilehash: 9d016b38beb2f338a97ac862a060dc5ec3a77780
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85476567"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Samouczek: konfigurowanie laboratorium przy użyciu usługi Azure DevTest Labs
@@ -84,7 +84,7 @@ Następujące kroki ilustrują tworzenie laboratorium w usłudze Azure DevTest L
     2. Wybierz **użytkownika**, którego chcesz dodać. 
     3. Wybierz pozycję **Zapisz**.
 
-        ![Dodawanie użytkownika](./media/tutorial-create-custom-lab/add-user.png)
+        ![Dodaj użytkownika](./media/tutorial-create-custom-lab/add-user.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 W następnym samouczku pokazano, jak użytkownik laboratorium może przejąć maszynę wirtualną w laboratorium i nawiązać z nią połączenie. Jeśli nie chcesz korzystać z tamtego samouczka i chcesz oczyścić zasoby utworzone w ramach tego samouczka, wykonaj następujące czynności: 

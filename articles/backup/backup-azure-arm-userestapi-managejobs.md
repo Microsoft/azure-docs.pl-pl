@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak śledzić i zarządzać zadaniami 
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: c8dbd6fd7add58f8458c21fc65381a52ff3306d2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b9f69b8815cc8d508d5a10dda82803581216a4eb
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079319"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761631"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Śledzenie zadań tworzenia kopii zapasowej i przywracania za pomocą interfejsu API REST
 
@@ -17,7 +17,7 @@ Usługa Azure Backup wyzwala zadania uruchamiane w tle w różnych scenariuszach
 
 ## <a name="fetch-job-information-from-operations"></a>Pobieranie informacji o zadaniu z operacji
 
-Operacja, taka jak wyzwalanie kopii zapasowej, zawsze zwróci identyfikator zadania. Na przykład: końcowa odpowiedź [operacji interfejsu API REST wykonywania kopii zapasowej wyzwalacza](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) jest następująca:
+Operacja, taka jak wyzwalanie kopii zapasowej, zawsze zwróci identyfikator zadania. Na przykład: końcowa odpowiedź [operacji interfejsu API REST wykonywania kopii zapasowej wyzwalacza](backup-azure-arm-userestapi-backupazurevms.md#example-responses-for-on-demand-backup) jest następująca:
 
 ```http
 {
@@ -43,7 +43,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 `{jobName}`Jest to "jobId" wymienione powyżej. Odpowiedź jest zawsze 200 OK z polem "status" wskazującą bieżący stan zadania. Po "zakończeniu" lub "CompletedWithWarnings" w sekcji "extendedInfo" znajduje się więcej informacji o zadaniu.
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 |Nazwa  |Typ  |Opis  |
 |---------|---------|---------|

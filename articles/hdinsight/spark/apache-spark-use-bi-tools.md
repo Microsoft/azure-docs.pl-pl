@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.custom: hdinsightactive,mvc,seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: 4eb10298ac683c991835f86582d82fb952b314b2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "82195115"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Samouczek: analizowanie danych platformy Apache Spark przy użyciu usługi Power BI w usłudze HDInsight
@@ -23,7 +23,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > [!div class="checklist"]
 > * Wizualizowanie danych platformy Spark przy użyciu usługi Power BI
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -35,7 +35,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 ## <a name="verify-the-data"></a>Weryfikowanie danych
 
-[Notes Jupyter](https://jupyter.org/) utworzony w ramach [poprzedniego samouczka](apache-spark-load-data-run-query.md) zawiera kod do utworzenia tabeli `hvac`. Ta tabela jest oparta na pliku CSV, który jest dostępny we wszystkich klastrach `\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv`usługi HDInsight Spark pod adresem. Postępuj zgodnie z następującą procedurą, aby sprawdzić dane.
+[Notes Jupyter](https://jupyter.org/) utworzony w ramach [poprzedniego samouczka](apache-spark-load-data-run-query.md) zawiera kod do utworzenia tabeli `hvac`. Ta tabela jest oparta na pliku CSV, który jest dostępny we wszystkich klastrach usługi HDInsight Spark pod adresem `\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv` . Postępuj zgodnie z następującą procedurą, aby sprawdzić dane.
 
 1. Z notesu Jupyter wklej poniższy kod, a następnie naciśnij klawisze **SHIFT + ENTER**. Kod sprawdza obecność tabel.
 
@@ -73,7 +73,7 @@ Pierwsze kroki podczas pracy z platformą Spark obejmują połączenie się z kl
 
 1. Otwórz program Power BI Desktop. Zamknij ekran powitalny uruchamiania, jeśli zostanie otwarty.
 
-2. Przejdź na kartę **Narzędzia główne** , aby **uzyskać więcej danych** > **..**.
+2. Przejdź na kartę **Narzędzia główne** , aby **uzyskać**  >  **więcej danych..**.
 
     ![Pobierz dane do Power BI Desktop z usługi HDInsight Apache Spark](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Pobieranie danych do Power BI z poziomu usługi Apache Spark BI")
 
@@ -81,7 +81,7 @@ Pierwsze kroki podczas pracy z platformą Spark obejmują połączenie się z kl
 
     ![Pobieranie danych do Power BI z poziomu usługi Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Pobieranie danych do Power BI z poziomu usługi Apache Spark BI")
 
-4. Wprowadź adres URL klastra (w formularzu `mysparkcluster.azurehdinsight.net`) w polu tekstowym **serwer** .
+4. Wprowadź adres URL klastra (w formularzu `mysparkcluster.azurehdinsight.net` ) w polu tekstowym **serwer** .
 
 5. W obszarze **tryb łączności danych**wybierz pozycję **zapytanie**bezpośrednie. Następnie wybierz pozycję **OK**.
 
@@ -117,7 +117,7 @@ Pierwsze kroki podczas pracy z platformą Spark obejmują połączenie się z kl
 
         ![Wykres warstwowy](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Wykres warstwowy")
 
-9. Przejdź do **File** > **zapisywania**pliku, wprowadź nazwę `BuildingTemperature` pliku, a następnie wybierz pozycję **Zapisz**.
+9. Przejdź do **File**  >  **zapisywania**pliku, wprowadź nazwę `BuildingTemperature` pliku, a następnie wybierz pozycję **Zapisz**.
 
 ### <a name="publish-the-report-to-the-power-bi-service-optional"></a>Publikowanie raportu w usłudze Power BI (opcjonalnie)
 
@@ -127,7 +127,7 @@ Usługa Power BI umożliwia udostępnianie raportów i pulpitów nawigacyjnych w
 
 1. Na karcie **Narzędzia główne** wybierz pozycję **Publikuj**.
 
-    ![Publikowanie z Power BI Desktop](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Publikowanie z programu Power BI Desktop")
+    ![Publikowanie z programu Power BI Desktop](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Publikowanie z programu Power BI Desktop")
 
 1. Wybierz obszar roboczy, w którym chcesz opublikować zestaw danych i raport, a następnie wybierz pozycję **Wybierz**. Na poniższej ilustracji domyślnie wybrany jest **Mój obszar roboczy**.
 
@@ -149,7 +149,7 @@ Usługa Power BI umożliwia udostępnianie raportów i pulpitów nawigacyjnych w
 
     ![Logowanie do klastra Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "Logowanie do klastra Spark")
 
-1. W lewym okienku przejdź do **obszaru obszary robocze** > **raporty****Moje obszary robocze** > , a następnie wybierz pozycję **BuildingTemperature**.
+1. W lewym okienku przejdź do **obszaru obszary robocze**  >  **raporty moje obszary robocze**  >  **REPORTS**, a następnie wybierz pozycję **BuildingTemperature**.
 
     ![Raport wyświetlany w obszarze raporty w okienku po lewej stronie](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "Raport wyświetlany w obszarze raporty w okienku po lewej stronie")
 
@@ -161,7 +161,7 @@ Usługa Power BI umożliwia udostępnianie raportów i pulpitów nawigacyjnych w
 
     ![Raport w usługa Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png "Raport w usługa Power BI")
 
-1. Wybierz pozycję "nowy pulpit nawigacyjny", `Building temperature`wprowadź nazwę, a następnie wybierz pozycję **Przypnij**.
+1. Wybierz pozycję "nowy pulpit nawigacyjny", wprowadź nazwę `Building temperature` , a następnie wybierz pozycję **Przypnij**.
 
     ![Przypnij do nowego pulpitu nawigacyjnego](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "Przypnij do nowego pulpitu nawigacyjnego")
 

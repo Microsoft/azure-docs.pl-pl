@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,10 +11,10 @@ ms.custom: include file
 ms.date: 06/24/2019
 ms.author: diberry
 ms.openlocfilehash: f69502907e2dd3c5b3c64634b1b11e10af5397f5
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "67438435"
 ---
 ## <a name="more-information-about-bots"></a>Więcej informacji na temat botów

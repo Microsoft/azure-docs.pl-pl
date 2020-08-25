@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak rozwiązywać problemy z tworzenie
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 0f598e0058d817fbba8d816500ab252134be0eb5
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: f6085554f64c71c66587587ee03a58ee73c6639a
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371740"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761767"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Rozwiązywanie problemów dotyczących błędów kopii zapasowych w usłudze Azure Virtual Machines
 
@@ -162,7 +162,7 @@ Operacja tworzenia kopii zapasowej nie powiodła się z powodu niespójnego stan
 
 ### <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>ExtensionFailedSnapshotLimitReachedError — operacja migawki nie powiodła się, ponieważ Przekroczono limit migawek dla niektórych dołączonych dysków
 
-Kod błędu: ExtensionFailedSnapshotLimitReachedError <br/>
+Kod błędu: ExtensionFailedSnapshotLimitReachedError  <br/>
 Komunikat o błędzie: operacja migawki nie powiodła się, ponieważ Przekroczono limit migawek dla niektórych dołączonych dysków
 
 Operacja migawki nie powiodła się, ponieważ Przekroczono limit migawek dla niektórych dołączonych dysków. Wykonaj poniższe kroki rozwiązywania problemów, a następnie spróbuj ponownie wykonać operację.
@@ -259,7 +259,7 @@ Jeśli masz Azure Policy, które [regulują Tagi w środowisku](../governance/po
 | Szczegóły błędu | Obejście |
 | --- | --- |
 | Anulowanie nie jest obsługiwane dla tego typu zadania: <br>Poczekaj na zakończenie zadania. |Brak |
-| Zadanie nie jest w stanie do anulowania: <br>Poczekaj na zakończenie zadania. <br>**lub**<br> Wybrane zadanie nie jest w stanie do anulowania: <br>Poczekaj na zakończenie zadania. |Prawdopodobnie zadanie jest niemal ukończone. Poczekaj na zakończenie zadania.|
+| Zadanie nie jest w stanie do anulowania: <br>Poczekaj na zakończenie zadania. <br>**oraz**<br> Wybrane zadanie nie jest w stanie do anulowania: <br>Poczekaj na zakończenie zadania. |Prawdopodobnie zadanie jest niemal ukończone. Poczekaj na zakończenie zadania.|
 | Kopia zapasowa nie może anulować zadania, ponieważ nie jest w toku: <br>Anulowanie jest obsługiwane tylko dla zadań w toku. Spróbuj anulować zadanie w toku. |Ten błąd występuje ze względu na stan przejściowy. Poczekaj chwilę i spróbuj ponownie wykonać operację anulowania. |
 | Wykonanie kopii zapasowej nie powiodło się: <br>Poczekaj na zakończenie zadania. |Brak |
 
@@ -289,23 +289,23 @@ Jeśli kopia zapasowa trwa dłużej niż 12 godzin lub przywracanie trwa ponad 6
 
 Zazwyczaj Agent maszyny wirtualnej znajduje się już w maszynach wirtualnych utworzonych za pomocą galerii platformy Azure. Jednak maszyny wirtualne migrowane z lokalnych centrów danych nie będą miały zainstalowanego agenta maszyny wirtualnej. W przypadku tych maszyn wirtualnych agent maszyny wirtualnej musi zostać zainstalowany jawnie.
 
-#### <a name="windows-vms"></a>Maszyny wirtualne z systemem Windows
+#### <a name="windows-vms---set-up-the-agent"></a>Maszyny wirtualne z systemem Windows — Konfigurowanie agenta
 
 * Pobierz i zainstaluj [plik MSI agenta](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Aby zakończyć instalację, musisz mieć uprawnienia administratora.
 * W przypadku maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania należy [zaktualizować Właściwość maszyny wirtualnej](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) , aby wskazać, że Agent jest zainstalowany. Ten krok nie jest wymagany w przypadku Azure Resource Manager maszyn wirtualnych.
 
-#### <a name="linux-vms"></a>Maszyny wirtualne z systemem Linux
+#### <a name="linux-vms---set-up-the-agent"></a>Maszyny wirtualne z systemem Linux — Konfigurowanie agenta
 
 * Zainstaluj najnowszą wersję agenta z repozytorium dystrybucji. Aby uzyskać szczegółowe informacje na temat nazwy pakietu, zobacz [repozytorium agentów systemu Linux](https://github.com/Azure/WALinuxAgent).
 * W przypadku maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania [zaktualizuj właściwość VM](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) i sprawdź, czy Agent jest zainstalowany. Ten krok nie jest wymagany w przypadku Menedżer zasobów maszyn wirtualnych.
 
 ### <a name="update-the-vm-agent"></a>Aktualizowanie agenta maszyny wirtualnej
 
-#### <a name="windows-vms"></a>Maszyny wirtualne z systemem Windows
+#### <a name="windows-vms---update-the-agent"></a>Maszyny wirtualne z systemem Windows — Aktualizowanie agenta
 
 * Aby zaktualizować agenta maszyny wirtualnej, zainstaluj ponownie [pliki binarne agenta maszyny wirtualnej](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Przed aktualizacją agenta upewnij się, że w trakcie aktualizacji agenta maszyny wirtualnej nie wystąpią żadne operacje tworzenia kopii zapasowej.
 
-#### <a name="linux-vms"></a>Maszyny wirtualne z systemem Linux
+#### <a name="linux-vms---update-the-agent"></a>Maszyny wirtualne z systemem Linux — aktualizowanie agenta
 
 * Aby zaktualizować agenta maszyny wirtualnej z systemem Linux, postępuj zgodnie z instrukcjami zawartymi w artykule [Aktualizowanie agenta maszyny wirtualnej z systemem Linux](../virtual-machines/extensions/update-linux-agent.md?toc=/azure/virtual-machines/linux/toc.json).
 

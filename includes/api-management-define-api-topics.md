@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: vlvinogr
 ms.openlocfilehash: ace11adbaaeebd3101ac621f44408e27ba7d18ab
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "67849586"
 ---
 ## <a name="related-topics"></a>Powiązane tematy
 
 * [Ograniczenia importu interfejsu API](../articles/api-management/api-management-api-import-restrictions.md)
-* [Importowanie specyfikacji OpenAPI](../articles/api-management/import-api-from-oas.md)
-* [Importowanie API SOAP](../articles/api-management/import-soap-api.md)
+* [Importowanie specyfikacji interfejsu OpenAPI](../articles/api-management/import-api-from-oas.md)
+* [Importowanie interfejsu API SOAP](../articles/api-management/import-soap-api.md)
 * [Importowanie interfejsu API SOAP i konwertowanie go na interfejs API REST](../articles/api-management/restify-soap-api.md)
 * [Importowanie aplikacji interfejsu API platformy Azure](../articles/api-management/import-api-app-as-api.md)
 * [Importowanie aplikacji funkcji platformy Azure](../articles/api-management/import-function-app-as-api.md)

@@ -10,10 +10,10 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 911282e71491c86fefa86d342e916cdff4fa8c9b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "80058663"
 ---
 # <a name="connect-an-app-service-app-to-cosmos-db-using-cli"></a>Łączenie aplikacji usługi App Service z usługą Cosmos DB przy użyciu interfejsu wiersza polecenia

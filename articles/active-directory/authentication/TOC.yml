@@ -43,7 +43,7 @@
         - name: Licencje
           href: concept-mfa-licensing.md
         - name: Uwierzytelnianie wieloskładnikowe dla usługi Office 365
-          href: 'https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide'
+          href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
         - name: Często zadawane pytania
           href: multi-factor-authentication-faq.md
     - name: Uwierzytelnianie bez hasła
@@ -87,7 +87,7 @@
         - name: Federacja katalogów
           items:
             - name: Windows Server 2016 — adapter usług AD FS
-              href: 'https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa'
+              href: /windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa
             - name: Usługi Federation Services
               href: multi-factor-authentication-get-started-adfs.md
             - name: Używanie usług AD FS
@@ -119,7 +119,7 @@
         - name: Logowanie za pomocą telefonu bez hasła
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello dla firm
-          href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
+          href: /windows/security/identity-protection/hello-for-business/hello-identity-verification
     - name: Rejestracja informacji zabezpieczających
       items:
         - name: Włączanie rejestracji łączonej
@@ -220,7 +220,7 @@
 - name: Dokumentacja
   items:
     - name: Podręcznik użytkownika uwierzytelniania wieloskładnikowego
-      href: ./end-user/current/multi-factor-authentication-end-user.md
+      href: ../user-help/multi-factor-authentication-end-user-first-time.md
     - name: Przykłady kodu
       href: 'https://azure.microsoft.com/resources/samples/?service=active-directory'
     - name: Polecenia cmdlet programu Azure PowerShell
@@ -234,7 +234,7 @@
     - name: Forum z opiniami na temat platformy Azure
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: Pytania i odpowiedzi Microsoft — strona pytania
-      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
+      href: /answers/topics/azure-active-directory.html
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: Aktualizacje usług

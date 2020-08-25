@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
 ms.openlocfilehash: 78c06cc7f08fe94a25ea63d9bf76cc1352d9f2b7
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "82561684"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Samouczek: łączenie, konfigurowanie, aktywowanie Azure Data Box Gateway
@@ -41,7 +41,7 @@ Przed skonfigurowaniem i skonfigurowaniem Data Box Gateway upewnij się, że:
 
 1. Otwórz okno przeglądarki i uzyskaj dostęp do lokalnego interfejsu użytkownika sieci Web urządzenia w:
    
-   https:\//IP-address-of-Network-Interface
+   https: \/ /IP-address-of-Network-Interface
    
    Użyj adresu URL połączenia zanotowanego w poprzednim samouczku. Zostanie wyświetlony komunikat o błędzie lub ostrzeżenie wskazujący, że wystąpił problem z certyfikatem zabezpieczeń witryny sieci Web.
 
@@ -88,7 +88,7 @@ Pulpit nawigacyjny wyświetla różne ustawienia, które są wymagane do skonfig
    
    Na stronie **serwer proxy sieci Web** wykonaj następujące czynności:
    
-   1. W polu **adres URL serwera proxy sieci Web** wprowadź adres URL w tym formacie `http://&lt;host-IP address or FQDN&gt;:Port number`:. Adresy URL HTTPS nie są obsługiwane.
+   1. W polu **adres URL serwera proxy sieci Web** wprowadź adres URL w tym formacie: `http://&lt;host-IP address or FQDN&gt;:Port number` . Adresy URL HTTPS nie są obsługiwane.
    2. W obszarze **uwierzytelnianie**wybierz opcję **Brak** lub **NTLM**.
    3. Jeśli używasz uwierzytelniania, wprowadź **nazwę użytkownika** i **hasło**.
    4. Aby sprawdzić poprawność skonfigurowanych ustawień serwera proxy sieci Web i zastosować je, wybierz pozycję **Zastosuj**.
@@ -109,7 +109,7 @@ Pulpit nawigacyjny wyświetla różne ustawienia, które są wymagane do skonfig
     1. Z listy rozwijanej **strefa czasowa** wybierz strefę czasową, która odnosi się do lokalizacji geograficznej, w której jest wdrożone urządzenie.
         Domyślna strefa czasowa urządzenia to PST. Wszystkie zaplanowane operacje urządzenia będą wykonywane w ramach tej strefy czasowej.
 
-    2. Określ **podstawowy serwer NTP** dla urządzenia lub Zaakceptuj wartość domyślną `time.windows.com`.   
+    2. Określ **podstawowy serwer NTP** dla urządzenia lub Zaakceptuj wartość domyślną `time.windows.com` .   
         Upewnij się, że sieć zezwala na ruch NTP z centrum danych do Internetu.
 
     3. Opcjonalnie w polu **pomocniczy serwer NTP** wprowadź serwer pomocniczy dla urządzenia.

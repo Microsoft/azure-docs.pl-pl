@@ -7,10 +7,10 @@ ms.custom:
 - MVC
 - fasttrack-edit
 ms.openlocfilehash: 0e909a91d610c032bc1d9d003efae7c555afd8bc
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86108230"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrowanie maszyn wirtualnych funkcji Hyper-V na platformę Azure 
@@ -42,7 +42,7 @@ Przed rozpoczęciem tego samouczka należy:
 1. [Przejrzyj](hyper-v-migration-architecture.md) architekturę migracji funkcji Hyper-V.
 2. [Przegląd](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) Wymagania hosta funkcji Hyper-V dotyczące migracji oraz adresy URL platformy Azure, do których hosty i klastry funkcji Hyper-V potrzebują dostępu do migracji maszyn wirtualnych.
 3. [Zapoznaj](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) się z wymaganiami dotyczącymi maszyn wirtualnych funkcji Hyper-V, które chcesz zmigrować na platformę Azure.
-4. Zalecamy, aby [oceniać maszyny wirtualne funkcji Hyper-V](tutorial-assess-hyper-v.md) przed ich migracją na platformę Azure, ale nie musisz.
+4. Zalecamy, aby  [oceniać maszyny wirtualne funkcji Hyper-V](tutorial-assess-hyper-v.md) przed ich migracją na platformę Azure, ale nie musisz.
 
    
 ## <a name="add-the-azure-migrateserver-migration-tool"></a>Dodawanie Azure Migrate: Narzędzia migracji serwera

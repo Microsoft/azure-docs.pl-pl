@@ -12,10 +12,10 @@ ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
 ms.openlocfilehash: 47edaec54a2470e9b657b2f214be923439e1e8a2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "81000119"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Samouczek: Dostosowywanie pulpitu nawigacyjnego operatora i zarządzanie urządzeniami w usłudze Azure IoT Central
@@ -127,7 +127,7 @@ Po usunięciu nieużywanych kafelków Rozmieść pozostałe kafelki w celu utwor
 
 Aby zmienić rozmieszczenie pozostałych kafelków:
 
-1. Wybierz pozycję **Edit** (Edytuj).
+1. Kliknij pozycję **Edytuj**.
 
 1. Wybierz kafelek **oprogramowanie układowe zajętości** i przeciągnij go na prawo od kafelka baterii **zajętość** .
 
@@ -146,9 +146,9 @@ W tej sekcji dodasz dwa więcej kafelków telemetrycznych, aby pokazać dane tel
 
 Aby dodać kafelki do wyświetlania danych o środowisku z czujników RuuviTag:
 
-1. Wybierz pozycję **Edit** (Edytuj).
+1. Kliknij pozycję **Edytuj**.
 
-1. Wybierz `RuuviTag` pozycję z listy **szablon urządzenia** . 
+1. Wybierz pozycję `RuuviTag` z listy **szablon urządzenia** . 
 
 1. Wybierz **wystąpienie urządzenia** jednej z dwóch czujników RuuviTag. W przykładowym sklepie contoso wybierz opcję `Zone 1 Ruuvi` utworzenia kafelka telemetrii dla Strefa 1. 
 
@@ -178,7 +178,7 @@ Aby dodać kafelki do wyświetlania danych o środowisku z czujników RuuviTag:
 
 Aby edytować kafelek **ruch** dotyczący osób, aby wyświetlić dane telemetryczne tylko dla dwóch stref wyewidencjonowania:
 
-1. Wybierz pozycję **Edit** (Edytuj). 
+1. Kliknij pozycję **Edytuj**. 
 
 1. Wybierz pozycję **Konfiguruj** na kafelku **ruch osób** .
 
@@ -201,9 +201,9 @@ Operatorzy aplikacji używają pulpitu nawigacyjnego do zarządzania urządzenia
 
 Aby dodać kafelek właściwości dla każdego RuuviTagu:
 
-1. Wybierz pozycję **Edit** (Edytuj).
+1. Kliknij pozycję **Edytuj**.
 
-1. Wybierz `RuuviTag` pozycję z listy **szablon urządzenia** . 
+1. Wybierz pozycję `RuuviTag` z listy **szablon urządzenia** . 
 
 1. Wybierz **wystąpienie urządzenia** jednej z dwóch czujników RuuviTag. W przykładowym sklepie contoso wybierz opcję `Zone 1 Ruuvi` utworzenia kafelka telemetrii dla Strefa 1. 
 
@@ -230,9 +230,9 @@ Operatory aplikacji również używają pulpitu nawigacyjnego do zarządzania ur
 
 Aby dodać kafelek poleceń w celu ponownego uruchomienia bramy:
 
-1. Wybierz pozycję **Edit** (Edytuj). 
+1. Kliknij pozycję **Edytuj**. 
 
-1. Wybierz `C500` pozycję z listy **szablon urządzenia** . Jest to szablon bramy usługi Rigado C500. 
+1. Wybierz pozycję `C500` z listy **szablon urządzenia** . Jest to szablon bramy usługi Rigado C500. 
 
 1. Wybierz wystąpienie bramy w **wystąpieniu urządzenia**.
 

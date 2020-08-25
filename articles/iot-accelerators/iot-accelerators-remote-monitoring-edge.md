@@ -10,10 +10,10 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: a812155474b244682613b38b9b9379fa6cdcdcd8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "66117526"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Samouczek: Wykrywanie anomalii na urządzeniach brzegowych za pomocą akceleratora rozwiązania do monitorowania zdalnego
@@ -45,7 +45,7 @@ Na urządzeniu usługi IoT Edge:
 
 W tym samouczku jako urządzenie usługi IoT Edge jest używana maszyna wirtualna z systemem Linux. Instalujesz również moduł usługi Edge symulujący urządzenie pompy olejowej.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
@@ -82,8 +82,8 @@ Aby ułatwić zarządzanie urządzeniami usługi IoT Edge w ramach rozwiązania,
     | ------- | ----- |
     | Zadanie     | Tagi  |
     | Nazwa zadania | AddEdgeTag |
-    | Key     | IsOilPump |
-    | Wartość   | Tak     |
+    | Klucz     | IsOilPump |
+    | Wartość   | T     |
     | Typ    | Tekst  |
 
     [![Dodaj tag](./media/iot-accelerators-remote-monitoring-edge/addtag-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addtag-expanded.png#lightbox)
@@ -99,12 +99,12 @@ Aby ułatwić zarządzanie urządzeniami usługi IoT Edge w ramach rozwiązania,
     | Nazwa    | OilPumps |
     | Pole   | Tags.IsOilPump |
     | Operator | = Równa się |
-    | Wartość    | Tak |
+    | Wartość    | T |
     | Typ     | Tekst |
 
     [![Utwórz grupę urządzeń](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-expanded.png#lightbox)
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 Urządzenie usługi IoT Edge jest teraz w grupie **OilPumps**.
 
@@ -164,7 +164,7 @@ Przed spakowaniem zadania usługi Stream Analytics jako modułu usługi Edge nal
     | Subskrypcja | Twoja subskrypcja platformy Azure |
     | Grupa zasobów | IoTEdgeDevices |
     | Lokalizacja | Wschodnie stany USA |
-    | Środowisko hostingu | Brzeg |
+    | Środowisko hostingu | Edge |
     | Jednostki przesyłania strumieniowego | 1 |
 
 1. Otwórz zadanie usługi Stream Analytics **EdgeDeviceJob** w portalu, kliknij pozycję Dane wejściowe, a następnie dodaj strumień danych wejściowych **Edge Hub** o nazwie **telemetry**.
@@ -209,11 +209,11 @@ Następne należy utworzyć manifest wdrożenia usługi IoT Edge, definiujący m
 
 1. Na stronie **Tworzenie wdrożenia > Dodawanie modułów** kliknij pozycję **+ Dodaj**. Wybierz pozycję **Moduł usługi IoT Edge**.
 
-1. Na panelu **Moduły niestandardowe usługi IoT Edge** wpisz nazwę **temperatureSensor** oraz identyfikator URI obrazu **asaedgedockerhubtest/asa-edge-test-module:sensor-ad-linux-amd64**. Kliknij przycisk **Zapisz**.
+1. Na panelu **Moduły niestandardowe usługi IoT Edge** wpisz nazwę **temperatureSensor** oraz identyfikator URI obrazu **asaedgedockerhubtest/asa-edge-test-module:sensor-ad-linux-amd64**. Kliknij pozycję **Zapisz**.
 
 1. Na stronie **Tworzenie wdrożenia > Dodawanie modułów** kliknij pozycję **+ Dodaj**, aby dodać drugi moduł. Wybierz pozycję **Moduł usługi Azure Stream Analytics**.
 
-1. Na panelu **Wdrożenie usługi Edge** wybierz swoją subskrypcję oraz zadanie **EdgeDeviceJob** utworzone w poprzedniej sekcji. Kliknij przycisk **Zapisz**.
+1. Na panelu **Wdrożenie usługi Edge** wybierz swoją subskrypcję oraz zadanie **EdgeDeviceJob** utworzone w poprzedniej sekcji. Kliknij pozycję **Zapisz**.
 
 1. Na stronie **Tworzenie wdrożenia > Dodawanie modułów** kliknij pozycję **Dalej**.
 
@@ -283,7 +283,7 @@ Teraz możesz przystąpić do wdrażania pakietu na urządzeniu.
 
     [![Utwórz wdrożenie](./media/iot-accelerators-remote-monitoring-edge/createdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdeployment-expanded.png#lightbox)
 
-    Kliknij przycisk **Zastosuj**.
+    Kliknij pozycję **Zastosuj**.
 
 Musisz poczekać kilka minut na wdrożenie pakietu na urządzeniu i rozpoczęcie przesyłania danych telemetrycznych z urządzenia.
 
@@ -317,7 +317,7 @@ Jeśli chcesz, aby operatorzy byli powiadamiani o osiągnięciu wartości progow
     | Nazwa reguły | Temperatura pompy olejowej |
     | Opis | Temperatura pompy olejowej przekracza 300 |
     | Grupa urządzeń | OilPumps |
-    | Obliczenia | Natychmiastowe |
+    | Obliczenia | Błyskawiczne |
     | Pole | temperature |
     | Operator | > |
     | Wartość | 300 |
@@ -325,7 +325,7 @@ Jeśli chcesz, aby operatorzy byli powiadamiani o osiągnięciu wartości progow
 
     [![Utwórz regułę](./media/iot-accelerators-remote-monitoring-edge/newrule-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newrule-expanded.png#lightbox)
 
-    Kliknij przycisk **Zastosuj**.
+    Kliknij pozycję **Zastosuj**.
 
 1. Przejdź do strony **Pulpit nawigacyjny**. Alert zostanie wyświetlony na panelu **Alerty**, gdy temperatura urządzenia **oil-pump** przekroczy 300.
 

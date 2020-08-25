@@ -4,10 +4,10 @@ description: 'Samouczek: Azure Event Grid mogą wyzwalać operacje przekazywania
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.openlocfilehash: 19dfffdcee0fb95ae867b1b26fa51e702658445d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86105816"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Samouczek: Automatyzowanie zmiany rozmiarów załadowanych obrazów przy użyciu Event Grid
@@ -63,7 +63,7 @@ az provider register --namespace Microsoft.EventGrid
 
 ## <a name="create-an-azure-storage-account"></a>Tworzenie konta usługi Azure Storage
 
-Usługa Azure Functions wymaga konta magazynu ogólnego. Oprócz konta usługi Blob Storage utworzonego w poprzednim samouczku utwórz oddzielne konto magazynu ogólnego w grupie zasobów przy użyciu polecenia [az storage account create](/cli/azure/storage/account). Nazwy kont usługi Magazyn muszą mieć długość od 3 do 24 znaków i mogą zawierać tylko cyfry i małe litery.
+Usługa Azure Functions wymaga konta magazynu ogólnego. Oprócz konta usługi Blob Storage utworzonego w poprzednim samouczku utwórz oddzielne konto magazynu ogólnego w grupie zasobów przy użyciu polecenia [az storage account create](/cli/azure/storage/account). Nazwy kont usługi Storage muszą mieć długość od 3 do 24 znaków i mogą zawierać tylko cyfry i małe litery.
 
 1. Ustaw zmienną do przechowywania nazwy grupy zasobów utworzonej w poprzednim samouczku.
 

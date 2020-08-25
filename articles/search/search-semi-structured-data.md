@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.openlocfilehash: 0e6759837519feccf6069e805e3fe0f72562fb7b
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85559021"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Samouczek: indeksowanie obiektów BLOB JSON z usługi Azure Storage przy użyciu interfejsu REST
@@ -340,7 +340,7 @@ W przypadku pomyślnego usunięcia jest zwracany kod stanu 204.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Możesz usuwać zasoby pojedynczo lub usunąć grupę zasobów, aby usunąć cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku wszystkie zasoby lub grupy zasobów w okienku nawigacji po lewej stronie.
 

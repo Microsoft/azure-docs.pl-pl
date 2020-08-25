@@ -3,12 +3,12 @@ title: Model danych dzienników Azure Monitor
 description: W tym artykule dowiesz się więcej na temat Azure Monitor Log Analytics szczegóły modelu danych Azure Backup.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 73247dac1ca829a7893192101da0981c3edcf8d8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 897431feae6cd3166b594d4d6848204df76fe3fa
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539078"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761410"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics model danych dla Azure Backup danych
 
@@ -204,7 +204,7 @@ Ta tabela zawiera szczegółowe informacje dotyczące pól związanych z zasadam
 | YearlyRetentionDaysOfTheMonth_s |Tekst ||Daty w miesiącu wybrane do przechowywania rocznego |
 | SynchronisationFrequencyPerDay_s |Liczbowy całkowity |v2|Liczba przypadków synchronizacji kopii zapasowej plików dla programu SC DPM i serwera usługi MAB |
 | DiffBackupFormat_s |Tekst |v2|Format różnicowych kopii zapasowych dla bazy danych SQL w kopii zapasowej maszyny wirtualnej platformy Azure |
-| DiffBackupTime_s |Czas |v2|Czas różnicowych kopii zapasowych bazy danych SQL w kopii zapasowej maszyny wirtualnej platformy Azure|
+| DiffBackupTime_s |Godzina |v2|Czas różnicowych kopii zapasowych bazy danych SQL w kopii zapasowej maszyny wirtualnej platformy Azure|
 | DiffBackupRetentionDuration_s |Liczba dziesiętna |v2|Czas przechowywania różnicowych kopii zapasowych dla bazy danych SQL w kopii zapasowej maszyny wirtualnej platformy Azure|
 | LogBackupFrequency_s |Liczba dziesiętna |v2|Częstotliwość tworzenia kopii zapasowych dzienników dla bazy danych SQL|
 | LogBackupRetentionDuration_s |Liczba dziesiętna |v2|Czas przechowywania kopii zapasowych dziennika dla bazy danych SQL w kopii zapasowej maszyny wirtualnej platformy Azure|
@@ -258,7 +258,7 @@ Ta tabela zawiera podstawowe pola dotyczące chronionych kontenerów. (Was Prote
 | ProtectedContainerType_s |Tekst |Czy chroniony kontener jest serwerem lub kontenerem |
 | ProtectedContainerProtectionState_s "  |Tekst |Stan ochrony chronionego kontenera |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Magazyn
 
 Ta tabela zawiera szczegółowe informacje o polach związanych z magazynem.
 
@@ -461,35 +461,37 @@ Poniżej przedstawiono kilka przykładów ułatwiających pisanie zapytań dotyc
     ````
 
 ## <a name="v1-schema-vs-v2-schema"></a>Schemat wersji V1 schematu vs v2
-Wcześniej dane diagnostyczne dla agenta Azure Backup i kopii zapasowej maszyny wirtualnej platformy Azure zostały wysłane do tabeli Diagnostyka Azure w schemacie nazywanym ***schematem V1***. Następnie dodano nowe kolumny do obsługi innych scenariuszy i obciążeń, a dane diagnostyczne zostały wypchnięte w nowym schemacie nazywanym ***schematem v2***. 
 
-Ze względu na zgodność z poprzednimi wersjami dane diagnostyczne dla agenta Azure Backup i kopii zapasowej maszyny wirtualnej platformy Azure są obecnie wysyłane do Diagnostyka Azure tabeli w schemacie V1 i v2 (z teraz schematem w wersji 1). Istnieje możliwość zidentyfikowania, które rekordy w Log Analytics znajdują się w schemacie V1 przez filtrowanie rekordów dla SchemaVersion_s = = "v1" w zapytaniach dziennika. 
+Wcześniej dane diagnostyczne dla agenta Azure Backup i kopii zapasowej maszyny wirtualnej platformy Azure zostały wysłane do tabeli Diagnostyka Azure w schemacie nazywanym ***schematem V1***. Następnie dodano nowe kolumny do obsługi innych scenariuszy i obciążeń, a dane diagnostyczne zostały wypchnięte w nowym schemacie nazywanym ***schematem v2***.  
+
+Ze względu na zgodność z poprzednimi wersjami dane diagnostyczne dla agenta Azure Backup i kopii zapasowej maszyny wirtualnej platformy Azure są obecnie wysyłane do Diagnostyka Azure tabeli w schemacie V1 i v2 (z teraz schematem w wersji 1). Istnieje możliwość zidentyfikowania, które rekordy w Log Analytics znajdują się w schemacie V1 przez filtrowanie rekordów dla SchemaVersion_s = = "v1" w zapytaniach dziennika.
 
 Zapoznaj się z trzecią kolumną "Description" w [modelu danych](#using-azure-backup-data-model) opisanym powyżej, aby określić, które kolumny należą do schematu tylko w wersji 1.
 
 ### <a name="modifying-your-queries-to-use-the-v2-schema"></a>Modyfikowanie zapytań do korzystania ze schematu v2
+
 Ponieważ schemat V1 znajduje się w ścieżce przestarzałej, zaleca się używanie tylko schematu v2 we wszystkich niestandardowych zapytaniach dotyczących Azure Backup danych diagnostycznych. Poniżej znajduje się przykład sposobu aktualizowania zapytań w celu usunięcia zależności od schematu V1:
 
 1. Ustal, czy zapytanie używa dowolnego pola, które ma zastosowanie tylko do schematu v1. Załóżmy, że masz zapytanie, aby wyświetlić listę wszystkich elementów kopii zapasowej i skojarzonych z nimi serwerów w następujący sposób:
 
-````Kusto
-AzureDiagnostics
-| where Category=="AzureBackupReport"
-| where OperationName=="BackupItemAssociation"
-| distinct BackupItemUniqueId_s, ProtectedServerUniqueId_s
-````
+    ````Kusto
+    AzureDiagnostics
+    | where Category=="AzureBackupReport"
+    | where OperationName=="BackupItemAssociation"
+    | distinct BackupItemUniqueId_s, ProtectedServerUniqueId_s
+    ````
 
-Powyższe zapytanie używa pola ProtectedServerUniqueId_s, które ma zastosowanie tylko do schematu v1. W tym polu ProtectedContainerUniqueId_s znajduje się odpowiednik schematu w wersji 2 (patrz tabele powyżej). Pole BackupItemUniqueId_s ma zastosowanie nawet w schemacie 2, a to samo pole może być używane w tym zapytaniu.
+    Powyższe zapytanie używa pola ProtectedServerUniqueId_s, które ma zastosowanie tylko do schematu v1. W tym polu ProtectedContainerUniqueId_s znajduje się odpowiednik schematu w wersji 2 (patrz tabele powyżej). Pole BackupItemUniqueId_s ma zastosowanie nawet w schemacie 2, a to samo pole może być używane w tym zapytaniu.
 
 2. Zaktualizuj zapytanie, aby użyć nazw pól schematu w wersji 2. Zaleca się użycie filtru "Where SchemaVersion_s = =" v2 "" we wszystkich zapytaniach, tak aby tylko rekordy odpowiadające schematowi v2 były analizowane przez zapytanie:
 
-````Kusto
-AzureDiagnostics
-| where Category=="AzureBackupReport"
-| where OperationName=="BackupItemAssociation"
-| where SchemaVersion_s=="V2"
-| distinct BackupItemUniqueId_s, ProtectedContainerUniqueId_s 
-````
+    ````Kusto
+    AzureDiagnostics
+    | where Category=="AzureBackupReport"
+    | where OperationName=="BackupItemAssociation"
+    | where SchemaVersion_s=="V2"
+    | distinct BackupItemUniqueId_s, ProtectedContainerUniqueId_s
+    ````
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
 ms.openlocfilehash: 4c3cc572dd9629605414cd88d7735c2b31f92249
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85851258"
 ---
 # <a name="transform-and-protect-your-api"></a>Przekształcanie i ochrona interfejsu API
@@ -74,7 +74,7 @@ Oryginalna odpowiedź powinna wyglądać następująco:
 1. Wybierz **wersję demonstracyjną interfejsu API Conference**.
 2. W górnej części ekranu wybierz kartę **Projektowanie**.
 3. Wybierz opcję **Wszystkie operacje**.
-4. W sekcji **Przetwarzanie danych wychodzących** kliknij ikonę **</>**.
+4. W sekcji **Przetwarzanie wychodzące** kliknij **</>** ikonę.
 5. Umieść kursor wewnątrz elementu ** &lt; wychodzącego &gt; ** .
 6. W okienku po prawej stronie w obszarze **Zasady przekształcania** kliknij dwukrotnie opcję **+ Ustaw nagłówek HTTP** (aby wstawić dwa fragmenty kodu zasad).
 
@@ -113,7 +113,7 @@ Aby zobaczyć oryginalną odpowiedź:
 1.  Wybierz **wersję demonstracyjną interfejsu API Conference**.
 2.  Wybierz opcję **Wszystkie operacje**.
 3.  W górnej części ekranu wybierz kartę **Projektowanie**.
-4.  W sekcji **Przetwarzanie danych wychodzących** kliknij ikonę **</>**.
+4.  W sekcji **Przetwarzanie wychodzące** kliknij **</>** ikonę.
 5.  Umieść kursor wewnątrz elementu ** &lt; wychodzącego &gt; ** , a następnie kliknij przycisk **Pokaż fragmenty kodu** w prawym górnym rogu.
 6.  W oknie po prawej stronie w obszarze **zasady przekształcania**kliknij pozycję **Maskuj adresy URL w obszarze zawartość**.
 

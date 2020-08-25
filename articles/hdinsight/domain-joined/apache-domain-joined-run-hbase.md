@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.openlocfilehash: 89e9faeb3c67d0fd0c57adea3a3f69ec5438e3a0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "73044640"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Samouczek: Konfigurowanie zasad Apache HBase w usłudze HDInsight przy użyciu pakiet Enterprise Security
@@ -28,7 +28,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
 * Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
@@ -95,7 +95,7 @@ Protokół SSH umożliwia połączenie z klastrami HBase, a następnie korzystan
 
 Utwórz zasady platformy Ranger dla użytkowników **sales_user1** i **marketing_user1**.
 
-1. Otwórz **interfejs użytkownika administratora platformy Ranger**. Kliknij pozycję ** \<ClusterName>_hbase** w obszarze **HBase**.
+1. Otwórz **interfejs użytkownika administratora platformy Ranger**. Kliknij ** \<ClusterName> _hbase** w obszarze **HBase**.
 
    ![Interfejs użytkownika administratora usługi HDInsight Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
@@ -161,7 +161,7 @@ Zgodnie ze skonfigurowanymi zasadami platformy Ranger użytkownik **sales_user1*
    kinit sales_user1
    ```
 
-2. Otwórz powłokę HBase i Zeskanuj tabelę `Customers`.
+2. Otwórz powłokę HBase i Zeskanuj tabelę `Customers` .
 
    ```hbaseshell
    hbase shell
@@ -203,7 +203,7 @@ Zgodnie ze skonfigurowanymi zasadami platformy Ranger użytkownik **sales_user1*
    kinit marketing_user1
    ```
 
-1. Otwórz powłokę HBase i Zeskanuj tabelę `Customers`:
+1. Otwórz powłokę HBase i Zeskanuj tabelę `Customers` :
 
     ```hbaseshell
     hbase shell
@@ -239,7 +239,7 @@ Jeśli nie zamierzasz nadal korzystać z tej aplikacji, usuń utworzony klaster 
 2. W polu **Wyszukaj** w górnej części wpisz **HDInsight**. 
 1. Wybierz pozycję **Klastry usługi HDInsight** w obszarze **Usługi**.
 1. Na wyświetlonej liście klastrów usługi HDInsight kliknij symbol **...** obok klastra utworzonego na potrzeby tego samouczka. 
-1. Kliknij przycisk **Usuń**. Kliknij przycisk **tak**.
+1. Kliknij polecenie **Usuń**. Kliknij przycisk **tak**.
 
 ## <a name="next-steps"></a>Następne kroki
 

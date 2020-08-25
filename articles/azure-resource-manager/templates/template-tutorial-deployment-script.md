@@ -14,10 +14,10 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 81574f25e2132a7079fa0242284fb67b0132a8af
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86119331"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Samouczek: Tworzenie certyfikatu z podpisem własnym (wersja zapoznawcza) za pomocą skryptów wdrażania
@@ -32,9 +32,9 @@ Ten samouczek obejmuje następujące zadania:
 > [!div class="checklist"]
 > * Otwieranie szablonu szybkiego startu
 > * Edytowanie szablonu
-> * Wdrożenie szablonu
+> * Wdrażanie szablonu
 > * Debuguj uszkodzony skrypt
-> * Czyszczenie zasobów
+> * Oczyszczanie zasobów
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -282,7 +282,7 @@ Skrypt wdrażania dodaje certyfikat do magazynu kluczy. Skonfiguruj zasady dost�
 
 1. Wybierz pozycję **plik** > **Zapisz** , aby zapisać plik.
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 1. Zaloguj się do [Azure Cloud Shell](https://shell.azure.com)
 
@@ -341,7 +341,7 @@ Usuń wiersz **Write-Output1 i ponownie** Wdróż szablon.
 
 Po pomyślnym uruchomieniu drugiego wdrożenia zasoby skryptu wdrożenia są usuwane przez usługę skryptów, ponieważ właściwość **cleanupPreference** ma wartość **onSuccess**.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

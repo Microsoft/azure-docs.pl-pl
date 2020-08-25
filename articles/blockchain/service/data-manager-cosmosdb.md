@@ -5,10 +5,10 @@ ms.date: 03/08/2020
 ms.topic: tutorial
 ms.reviewer: chroyal
 ms.openlocfilehash: 483a5246274f63549dfb2914361ede6aa001e02e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "79533185"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Samouczek: wysyłanie danych do Azure Cosmos DB za pomocą łańcucha bloków Data Manager
@@ -56,7 +56,7 @@ Wystąpienie Data Manager łańcucha bloków nawiązuje połączenie i monitoruj
     Nazwa połączenia | cosmosdb | Wprowadź unikatową nazwę połączenia wychodzącego, w którym są wysyłane dane transakcji łańcucha bloków.
     Punkt końcowy siatki zdarzeń | Temat | Wybierz temat dotyczący siatki zdarzeń utworzony w ramach wymagania wstępnego. Uwaga: wystąpienie Data Manager łańcucha bloków i temat usługi Event Grid muszą znajdować się w tej samej subskrypcji.
 
-1. Wybierz przycisk **OK**.
+1. Kliknij **OK**.
 
     Utworzenie wystąpienia Data Manager łańcucha bloków może zająć mniej niż minutę. Po wdrożeniu wystąpienia zostanie ono automatycznie uruchomione. Uruchomione wystąpienie Data Manager łańcucha bloków przechwytuje zdarzenia łańcucha bloków z węzła Transaction i wysyła dane do usługi Event Grid.
 
@@ -76,7 +76,7 @@ ABI kontraktu definiuje inteligentne interfejsy kontraktu. Opisuje sposób korzy
 
     ABI kontraktu jest kopiowany do Schowka.
 
-1. Zapisz tablicę **ABI** jako plik JSON. Na przykład *ABI. JSON*. Ten plik jest używany w późniejszym kroku.
+1. Zapisz tablicę **ABI** jako plik JSON. Na przykład *abi.js*. Ten plik jest używany w późniejszym kroku.
 
 Łańcucha bloków Data Manager wymaga wdrożonego kodu bajtowego dla kontraktu inteligentnego. Wdrożony kod bajtowy jest inny niż kod bajtowy kontraktu inteligentnego. Użyj rozszerzenia Azure łańcucha bloków Development Kit, aby skopiować kod bajtowy do Schowka.
 
@@ -88,11 +88,11 @@ ABI kontraktu definiuje inteligentne interfejsy kontraktu. Opisuje sposób korzy
 
     Kod bajtowy jest kopiowany do Schowka.
 
-1. Zapisz wartość **kodu bajtowego** jako plik JSON. Na przykład, *kod bajtowy. JSON*. Ten plik jest używany w późniejszym kroku.
+1. Zapisz wartość **kodu bajtowego** jako plik JSON. Na przykład *bytecode.js*. Ten plik jest używany w późniejszym kroku.
 
-W poniższym przykładzie przedstawiono pliki *ABI. JSON* i *unformating. JSON* otwarte w edytorze vs Code. Pliki powinny wyglądać podobnie.
+Poniższy przykład pokazuje *abi.json* i *bytecode.jsna* plikach otwartych w edytorze vs Code. Pliki powinny wyglądać podobnie.
 
-![Przykład plików ABI. JSON i kodu bajtowego JSON](./media/data-manager-cosmosdb/contract-files.png)
+![Przykład abi.jsi bytecode.jsdla plików](./media/data-manager-cosmosdb/contract-files.png)
 
 ### <a name="create-contract-abi-and-bytecode-url"></a>Utwórz ABI kontraktu i adres URL kodu bajtowego
 
@@ -150,7 +150,7 @@ Dla każdego obiektu BLOB Wygeneruj sygnaturę dostępu współdzielonego.
     ABI kontraktu | Ścieżka URL do pliku ABI kontraktu. Aby uzyskać więcej informacji, zobacz temat [Tworzenie kontraktu ABI i adresu URL kodu bajtowego](#create-contract-abi-and-bytecode-url).
     Kod bajtowy kontraktu | Ścieżka adresu URL do pliku kodu bajtowego. Aby uzyskać więcej informacji, zobacz temat [Tworzenie kontraktu ABI i adresu URL kodu bajtowego](#create-contract-abi-and-bytecode-url).
 
-1. Wybierz przycisk **OK**.
+1. Kliknij **OK**.
 
     Po utworzeniu aplikacji aplikacja zostanie wyświetlona na liście aplikacji łańcucha bloków.
 
@@ -174,11 +174,11 @@ Możesz użyć Eksplorator danych w Azure Portal, aby utworzyć bazę danych i k
     | Ustawienie | Opis
     |---------|-------------|
     | Identyfikator bazy danych | Wprowadź **łańcucha bloków-Data** jako nazwę nowej bazy danych. |
-    | Przepływność | Pozostaw przepływność na **400** jednostek żądań na sekundę (ru/s). Jeśli chcesz zmniejszyć opóźnienie, możesz później przeskalować przepływność w górę.|
+    | Przepływność | Pozostaw przepływność na **400** jednostek żądań na sekundę (ru/s). Jeśli chcesz zmniejszyć opóźnienie, możesz później skalować przepływność w górę.|
     | Identyfikator kontenera | Wprowadź **komunikaty** jako nazwę nowego kontenera. |
     | Klucz partycji | Użyj **/MessageType** jako klucza partycji. |
 
-1. Wybierz przycisk **OK**. W Eksplorator danych zostanie wyświetlona nowa baza danych i kontener, który został utworzony.
+1. Kliknij **OK**. W Eksplorator danych zostanie wyświetlona nowa baza danych i kontener, który został utworzony.
 
 ## <a name="create-logic-app"></a>Tworzenie aplikacji logiki
 
@@ -235,7 +235,7 @@ Dodaj akcję w celu utworzenia dokumentu w Cosmos DB dla każdej transakcji. Uż
     Wyrażenie Pobiera część danych komunikatu i ustawia identyfikator na wartość sygnatury czasowej.
 
 1. Wybierz pozycję **Dodaj nowy parametr** i wybierz pozycję **wartość klucza partycji**.
-1. Ustaw **wartość klucza partycji** `"@{triggerBody()['data']['MessageType']}"`. Wartość musi być ujęta w podwójne cudzysłowy.
+1. Ustaw **wartość klucza partycji** `"@{triggerBody()['data']['MessageType']}"` . Wartość musi być ujęta w podwójne cudzysłowy.
 
     ![Projektant Logic Apps z ustawieniami Cosmos DB](./media/data-manager-cosmosdb/create-action.png)
 

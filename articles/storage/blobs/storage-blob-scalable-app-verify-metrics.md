@@ -8,10 +8,10 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
 ms.openlocfilehash: cfc3c445595bec046de4256a57d566067fe3d29e
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "82692438"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Sprawdzanie metryk przepływności i opóźnień dla konta magazynu
@@ -39,7 +39,7 @@ Następujące metryki umożliwiają sprawdzenie opóźnienia i przepływności a
 |Metryka|Definicja|
 |---|---|
 |**Opóźnienie E2E dla powodzenia**|Średnie całkowite opóźnienie dla żądań zakończonych powodzeniem kierowanych do usługi magazynu lub określonej operacji interfejsu API. Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.|
-|**Opóźnienie serwera dla powodzenia**|Średni czas potrzebny na przetworzenie żądania zakończonego powodzeniem przez usługę Azure Storage. Ta wartość nie obejmuje opóźnienia sieci określonego przez wartość Opóźnienie E2E dla powodzenia. |
+|**Opóźnienie serwera sukcesu**|Średni czas potrzebny na przetworzenie żądania zakończonego powodzeniem przez usługę Azure Storage. Ta wartość nie obejmuje opóźnienia sieci określonego przez wartość Opóźnienie E2E dla powodzenia. |
 |**Transakcje**|Liczba żądań wysyłanych do usługi magazynu lub określonej operacji interfejsu API. Liczba ta obejmuje żądania zakończone zarówno powodzeniem, jak i niepowodzeniem, a także żądania, które wywołały błędy. W tym przykładzie rozmiar bloku został ustawiony na 100 MB. W tym przypadku każdy blok 100 MB jest traktowany jako jedna transakcja.|
 |**Ruch przychodzący**|Ilość danych przychodzących. Ta liczba obejmuje dane przychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane przychodzące w obrębie platformy Azure. |
 |**Ruch wychodzący**|Ilość danych wychodzących. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu. |

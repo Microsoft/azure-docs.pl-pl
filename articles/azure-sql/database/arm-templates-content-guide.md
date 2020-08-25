@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
 ms.openlocfilehash: ee2c6580285246d3b170602e507aed038b2507f4
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85983643"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Szablony Azure Resource Manager dla Azure SQL Database & wystąpienie zarządzane SQL
@@ -27,10 +27,10 @@ Szablony usługi Azure Resource Manager pozwalają zdefiniować Twoją infrastru
 
 Poniższa tabela zawiera linki do szablonów usługi Azure Resource Manager dla usługi Azure SQL Database.
 
-|Link |Opis|
+|Łącze |Opis|
 |---|---|
 | [SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create) | Ten Azure Resource Manager szablonu służy do tworzenia pojedynczej bazy danych w programie Azure SQL Database i konfigurowania reguł zapory adresów IP na poziomie serwera. |
-| [Serwer](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Ten Azure Resource Manager szablon tworzy serwer dla Azure SQL Database. |
+| [Server](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) (Serwer) | Ten Azure Resource Manager szablon tworzy serwer dla Azure SQL Database. |
 | [Pula elastyczna](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create) | Ten szablon umożliwia wdrożenie elastycznej puli i przypisanie do niej baz danych. |
 | [Grupy trybu failover](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-with-failover-group) | Ten szablon tworzy dwa serwery, pojedynczą bazę danych i grupę trybu failover w Azure SQL Database.|
 | [Wykrywanie zagrożeń](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-db-policy-multiple-databases) | Ten szablon umożliwia wdrożenie serwera i zestawu baz danych z włączonym wykrywaniem zagrożeń przy użyciu adresu e-mail dla alertów dla każdej bazy danych. Wykrywanie zagrożeń jest częścią oferty SQL Advanced Threat Protection (ATP) i zapewnia warstwę zabezpieczeń, która reaguje na potencjalne zagrożenia za pośrednictwem serwerów i baz danych.|
@@ -46,7 +46,7 @@ Poniższa tabela zawiera linki do szablonów usługi Azure Resource Manager dla 
 
 Poniższa tabela zawiera linki do Azure Resource Manager szablonów dla wystąpienia zarządzanego usługi Azure SQL.
 
-|Link|Opis|
+|Łącze|Opis|
 |---|---|
 | [Wystąpienie zarządzane SQL w nowej sieci wirtualnej](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet) | Ten Azure Resource Manager szablonu służy do tworzenia nowej skonfigurowanej sieci wirtualnej platformy Azure i wystąpienia zarządzanego w sieci wirtualnej. |
 | [Środowisko sieciowe dla wystąpienia zarządzanego SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | To wdrożenie spowoduje utworzenie skonfigurowanej sieci wirtualnej platformy Azure z dwiema podsieciami, które będą przeznaczone dla wystąpień zarządzanych, oraz inne miejsca, w których można umieścić inne zasoby (na przykład maszyny wirtualne, środowiska App Service itd.). Ten szablon spowoduje utworzenie prawidłowo skonfigurowanego środowiska sieciowego, w którym można wdrożyć wystąpienia zarządzane. |

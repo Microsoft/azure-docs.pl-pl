@@ -9,10 +9,10 @@ ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: 463bd290c304d9436316c9e08778f37ce8bd0b55
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86135437"
 ---
 # <a name="move-azure-vms-to-another-azure-region"></a>Przenoszenie maszyn wirtualnych platformy Azure do innego regionu platformy Azure
@@ -66,7 +66,7 @@ Można przenieść maszyny wirtualne infrastruktury jako usługi (IaaS) platform
 
    Azure Site Recovery automatycznie wykrywa i tworzy sieć wirtualną i konto magazynu po włączeniu replikacji dla źródłowej maszyny wirtualnej. Możesz również wstępnie utworzyć te zasoby i przypisać je do maszyny wirtualnej w ramach kroku włączania replikacji. Ale należy ręcznie utworzyć wszystkie inne zasoby w regionie docelowym. Zapoznaj się z poniższymi dokumentami, aby utworzyć najczęściej używane zasoby sieciowe na podstawie konfiguracji źródłowej maszyny wirtualnej:
 
-   - [Grupy zabezpieczeń sieci](../virtual-network/manage-network-security-group.md)
+   - [Sieciowe grupy zabezpieczeń](../virtual-network/manage-network-security-group.md)
    - [Moduły równoważenia obciążenia](../load-balancer/index.yml)
    - [Publiczny adres IP](../virtual-network/virtual-network-public-ip-address.md)
     

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 06d27c3a3daa4702653a2063d0ac70fd094e2d74
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "78186203"
 ---
 # <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>Samouczek: uwierzytelnianie użytkowników w natywnym kliencie klasycznym przy użyciu Azure Active Directory B2C
@@ -52,8 +52,8 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.g
 
 Aby zaktualizować aplikację do pracy z dzierżawą Azure AD B2C i wywoływać przepływy użytkowników zamiast tych w domyślnej dzierżawie demonstracyjnej:
 
-1. Otwórz rozwiązanie **Active-Directory-B2C-WPF** (`active-directory-b2c-wpf.sln`) w programie Visual Studio.
-2. W projekcie **Active-Directory-B2C-WPF** otwórz plik *App.XAML.cs* i Znajdź następujące definicje zmiennych. Zamień `{your-tenant-name}` na nazwę dzierżawy Azure AD B2C i `{application-ID}` identyfikator aplikacji, który został zarejestrowany wcześniej.
+1. Otwórz rozwiązanie **Active-Directory-B2C-WPF** ( `active-directory-b2c-wpf.sln` ) w programie Visual Studio.
+2. W projekcie **Active-Directory-B2C-WPF** otwórz plik *App.XAML.cs* i Znajdź następujące definicje zmiennych. Zamień `{your-tenant-name}` na nazwę dzierżawy Azure AD B2C i `{application-ID}` Identyfikator aplikacji, który został zarejestrowany wcześniej.
 
     ```csharp
     private static readonly string Tenant = "{your-tenant-name}.onmicrosoft.com";
@@ -61,7 +61,7 @@ Aby zaktualizować aplikację do pracy z dzierżawą Azure AD B2C i wywoływać 
     private static readonly string ClientId = "{application-ID}";
     ```
 
-3. Zaktualizuj zmienne nazw zasad o nazwy przepływów użytkownika, które zostały utworzone w ramach wymagań wstępnych. Przykład:
+3. Zaktualizuj zmienne nazw zasad o nazwy przepływów użytkownika, które zostały utworzone w ramach wymagań wstępnych. Na przykład:
 
     ```csharp
     public static string PolicySignUpSignIn = "B2C_1_signupsignin1";
@@ -89,7 +89,7 @@ Użytkownik może teraz zalogować się i korzystać z aplikacji klasycznej przy
 
 ![Szczegóły tokenu wyświetlane w dolnym okienku aplikacji klasycznej WPF](./media/tutorial-desktop-app/desktop-app-01-post-signin.png)
 
-W przypadku wybrania przycisku **interfejsu API wywołania** zostanie wyświetlony **komunikat o błędzie** . Wystąpił błąd, ponieważ w bieżącym stanie aplikacja próbuje uzyskać dostęp do interfejsu API chronionego przez dzierżawę demonstracyjną `fabrikamb2c.onmicrosoft.com`. Ponieważ token dostępu jest prawidłowy tylko dla dzierżawy Azure AD B2C, wywołanie interfejsu API jest dlatego nieautoryzowane.
+W przypadku wybrania przycisku **interfejsu API wywołania** zostanie wyświetlony **komunikat o błędzie** . Wystąpił błąd, ponieważ w bieżącym stanie aplikacja próbuje uzyskać dostęp do interfejsu API chronionego przez dzierżawę demonstracyjną `fabrikamb2c.onmicrosoft.com` . Ponieważ token dostępu jest prawidłowy tylko dla dzierżawy Azure AD B2C, wywołanie interfejsu API jest dlatego nieautoryzowane.
 
 Przejdź do następnego samouczka, aby zarejestrować chroniony internetowy interfejs API we własnej dzierżawie i włączyć funkcję **interfejsu API wywołania** .
 
@@ -105,4 +105,4 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 Następnie, aby włączyć funkcję **interfejsu API wywołania** , udziel aplikacji klasycznej WPF dostęp do interfejsu API sieci Web zarejestrowanego we własnej dzierżawie Azure AD B2C:
 
 > [!div class="nextstepaction"]
-> [Samouczek: udzielanie dostępu do internetowego interfejsu API platformy Node. js z aplikacji klasycznej >](tutorial-desktop-app-webapi.md)
+> [Samouczek: udzielanie dostępu do Node.js internetowego interfejsu API z poziomu aplikacji klasycznej >](tutorial-desktop-app-webapi.md)

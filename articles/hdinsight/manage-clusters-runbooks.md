@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/27/2019
 ms.openlocfilehash: 05c0aaf6cc33442fa4f36eb38eb0d6d593fc6c1f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "75553513"
 ---
 # <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>Samouczek: tworzenie klastrów usługi Azure HDInsight za pomocą Azure Automation
@@ -66,7 +66,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
     | Potwierdź hasło | `SECURE_PASSWORD` |
 
 1. Wybierz przycisk **Utwórz**.
-1. Powtórz ten sam proces dla nowego poświadczenia `ssh-password` przy użyciu nazwy `sshuser` użytkownika i wybranego hasła. Wybierz przycisk **Utwórz**. To poświadczenie ma na celu przechowywanie hasła SSH dla klastra.
+1. Powtórz ten sam proces dla nowego poświadczenia `ssh-password` przy użyciu nazwy użytkownika `sshuser` i wybranego hasła. Wybierz przycisk **Utwórz**. To poświadczenie ma na celu przechowywanie hasła SSH dla klastra.
 
     ![tworzenie poświadczenia](./media/manage-clusters-runbooks/create-credentials.png)
 
@@ -74,7 +74,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 1. Wybierz pozycję **elementy Runbook** w obszarze **Automatyzacja procesów**.
 1. Wybierz pozycję **Utwórz element Runbook**.
-1. W panelu **Tworzenie elementu Runbook** wprowadź nazwę elementu Runbook, na przykład `hdinsight-cluster-create`. Wybierz opcję **PowerShell** z listy rozwijanej **Typ elementu Runbook** .
+1. W panelu **Tworzenie elementu Runbook** wprowadź nazwę elementu Runbook, na przykład `hdinsight-cluster-create` . Wybierz opcję **PowerShell** z listy rozwijanej **Typ elementu Runbook** .
 1. Wybierz przycisk **Utwórz**.
 
     ![Utwórz element Runbook](./media/manage-clusters-runbooks/create-runbook.png)
@@ -130,7 +130,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 1. Wybierz pozycję **elementy Runbook** w obszarze **Automatyzacja procesów**.
 1. Wybierz pozycję **Utwórz element Runbook**.
-1. W panelu **Tworzenie elementu Runbook** wprowadź nazwę elementu Runbook, na przykład `hdinsight-cluster-delete`. Wybierz opcję **PowerShell** z listy rozwijanej **Typ elementu Runbook** .
+1. W panelu **Tworzenie elementu Runbook** wprowadź nazwę elementu Runbook, na przykład `hdinsight-cluster-delete` . Wybierz opcję **PowerShell** z listy rozwijanej **Typ elementu Runbook** .
 1. Wybierz przycisk **Utwórz**.
 1. Wprowadź następujący kod na ekranie **Edycja elementu Runbook programu PowerShell** i wybierz pozycję **Publikuj**:
 
@@ -153,7 +153,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 ### <a name="create-a-cluster"></a>Tworzenie klastra
 
 1. Wyświetl listę elementów Runbook dla konta usługi Automation, wybierając **elementy Runbook** w obszarze **Automatyzacja procesów**.
-1. Wybierz `hdinsight-cluster-create`lub nazwę, która została użyta podczas tworzenia elementu Runbook tworzenia klastra.
+1. Wybierz `hdinsight-cluster-create` lub nazwę, która została użyta podczas tworzenia elementu Runbook tworzenia klastra.
 1. Wybierz pozycję **Rozpocznij** , aby natychmiast wykonać element Runbook. Można również zaplanować okresowe uruchamianie elementów Runbook. Zobacz [Planowanie elementu Runbook w Azure Automation](../automation/shared-resources/schedules.md)
 1. Wprowadź parametry wymagane dla skryptu i wybierz **przycisk OK**. Spowoduje to utworzenie nowego klastra usługi HDInsight o nazwie określonej w parametrze **ClusterName** .
 

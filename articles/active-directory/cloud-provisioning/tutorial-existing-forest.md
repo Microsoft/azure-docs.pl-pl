@@ -12,17 +12,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d369395cc06902f31bdf17b427ecbb9f71f42001
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86146828"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integrowanie istniejącego i nowego lasu z jedną dzierżawą usługi Azure AD
 
 Ten samouczek przeprowadzi Cię przez proces dodawania aprowizacji w chmurze do istniejącego hybrydowego środowiska tożsamości. 
 
-![Tworzenie](media/tutorial-existing-forest/existing-forest-new-forest.png)
+![Utwórz](media/tutorial-existing-forest/existing-forest-new-forest.png)
 
 Możesz użyć środowiska utworzonego w tym samouczku do testowania lub w celu uzyskania bardziej znajomości sposobu działania tożsamości hybrydowej. 
 
@@ -53,7 +53,7 @@ W tym scenariuszu istnieje synchronizowanie istniejącego lasu przy użyciu Azur
    - Aby sprawdzić poprawność certyfikatu, Odblokuj następujące adresy URL: **mscrl.Microsoft.com:80**, **CRL.Microsoft.com:80**, **OCSP.msocsp.com:80**i **www \. Microsoft.com:80**. Ponieważ te adresy URL są używane do sprawdzania poprawności certyfikatu z innymi produktami firmy Microsoft, te adresy URL mogą już być odblokowane.
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Zainstaluj agenta aprowizacji Azure AD Connect
-1. Zaloguj się na serwerze przyłączonym do domeny.  Jeśli używasz podstawowego samouczka [usługi AD i środowiska Azure](tutorial-basic-ad-azure.md) , będzie to DC1.
+1. Zaloguj się na serwerze przyłączonym do domeny.  Jeśli używasz podstawowego samouczka  [usługi AD i środowiska Azure](tutorial-basic-ad-azure.md) , będzie to DC1.
 2. Zaloguj się do Azure Portal przy użyciu poświadczeń administratora globalnego tylko w chmurze.
 3. Po lewej stronie wybierz pozycję **Azure Active Directory**, kliknij pozycję **Azure AD Connect** i w centrum wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.</br>
 ![Azure Portal](media/how-to-install/install6.png)</br>
@@ -80,7 +80,7 @@ Weryfikacja agenta odbywa się w Azure Portal i na serwerze lokalnym, na którym
 ### <a name="azure-portal-agent-verification"></a>Weryfikacja agenta Azure Portal
 Aby sprawdzić, czy Agent jest widziany przez platformę Azure, wykonaj następujące kroki:
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 2. Po lewej stronie wybierz pozycję **Azure Active Directory**, kliknij pozycję **Azure AD Connect** i w centrum wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.</br>
 ![Azure Portal](media/how-to-install/install6.png)</br>
 
@@ -125,7 +125,7 @@ Teraz sprawdź, czy użytkownicy, którzy mieli dostęp do naszego katalogu loka
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testowanie logowania się przy użyciu jednego z kont użytkowników
 
-1. Przejdź do[https://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Przejdź do [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Zaloguj się przy użyciu konta użytkownika utworzonego w nowej dzierżawie.  Należy zalogować się przy użyciu następującego formatu: (user@domain.onmicrosoft.com). Użyj tego samego hasła, za pomocą którego użytkownik loguje się lokalnie.</br>
    ![Weryfikacja](media/tutorial-single-forest/verify1.png)</br>
 

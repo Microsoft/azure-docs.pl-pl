@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 965c768df9138d850c2ac9f88e3797dcc54fa3fc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "79501862"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Samouczek: Używanie urządzenie Data Box do importowania danych jako dysków zarządzanych na platformie Azure
@@ -32,7 +32,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Przed rozpoczęciem upewnij się, że:
 
-1. Ukończono [Samouczek: konfigurowanie Azure Data Box](data-box-deploy-set-up.md).
+1. Ukończono [Samouczek: konfigurowanie usługi Azure Data Box](data-box-deploy-set-up.md).
 2. Urządzenie Data Box zostało do Ciebie dostarczone, a stan zamówienia w portalu to **Dostarczono**.
 3. Dysponujesz szybkim połączeniem sieciowym. Zdecydowanie zaleca się posiadanie co najmniej jednego połączenia 10 GbE. Jeśli połączenie 10-GbE nie jest dostępne, Użyj linku danych 1 GbE, ale ma to zastosowanie do szybkości kopiowania.
 4. Sprawdzono:
@@ -117,7 +117,7 @@ Jeśli używasz komputera-hosta z systemem Linux, wykonaj następujące czynnoś
 
     ![Konfigurowanie dostępu klienta do sieciowego systemu plików 1](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
 
-2. Podaj adres IP klienta sieciowego systemu plików i kliknij przycisk **Dodaj**. Powtarzając ten krok, możesz skonfigurować dostęp dla wielu klientów sieciowego systemu plików. Kliknij przycisk **OK**.
+2. Podaj adres IP klienta sieciowego systemu plików i kliknij przycisk **Dodaj**. Powtarzając ten krok, możesz skonfigurować dostęp dla wielu klientów sieciowego systemu plików. Kliknij pozycję **OK**.
 
     ![Konfigurowanie dostępu klienta do sieciowego systemu plików 2](media/data-box-deploy-copy-data-from-vhds/nfs-client-access2.png)
 

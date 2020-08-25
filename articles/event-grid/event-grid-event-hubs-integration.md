@@ -4,10 +4,10 @@ description: 'Samouczek: zawiera opis sposobu używania Azure Event Grid i Event
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.openlocfilehash: 9373eb4902d1bc06b394385135d08236cfcea8f4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86117563"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Samouczek: przesyłanie strumieniowe danych Big Data do magazynu danych
@@ -156,7 +156,7 @@ Zamknij usługę Cloud Shell, wybierając przycisk **Cloud Shell** w portalu (lu
 2. Przefiltruj listę grup zasobów, wprowadzając w polu wyszukiwania nazwę grupy zasobów. 
 3. Wybierz grupę zasobów na liście.
 
-    ![Wybieranie grupy zasobów](media/event-grid-event-hubs-integration/select-resource-group.png)
+    ![Wybierz grupę zasobów](media/event-grid-event-hubs-integration/select-resource-group.png)
 4. Sprawdź, czy w grupie zasobów są wyświetlane następujące zasoby:
 
     ![Zasoby w grupie zasobów](media/event-grid-event-hubs-integration/resources-in-resource-group.png)
@@ -235,7 +235,7 @@ Po opublikowaniu funkcji możesz przystąpić do subskrybowania zdarzenia.
 3. Przefiltruj listę grup zasobów, wprowadzając w polu wyszukiwania nazwę grupy zasobów. 
 4. Wybierz grupę zasobów na liście.
 
-    ![Wybieranie grupy zasobów](media/event-grid-event-hubs-integration/select-resource-group.png)
+    ![Wybierz grupę zasobów](media/event-grid-event-hubs-integration/select-resource-group.png)
 4. Wybierz plan App Service (nie App Service) na liście zasobów w grupie zasobów. 
 5. Na stronie Plan usługi App Service wybierz pozycję **Aplikacje** w menu po lewej stronie, a następnie wybierz aplikację funkcji. 
 

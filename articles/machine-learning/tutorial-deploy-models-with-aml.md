@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18
 ms.openlocfilehash: 680b6ec17b65cd9452dd3bd5c0c470e395688cb8
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86025679"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Samouczek: Wdrażanie modelu klasyfikacji obrazów w Azure Container Instances
@@ -37,7 +37,7 @@ Usługa Container Instances to doskonałe rozwiązanie do testowania i interpret
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby uruchomić Notes, najpierw Ukończ szkolenia modelu w [samouczku (część 1): uczenie modelu klasyfikacji obrazów](tutorial-train-models-with-aml.md).   Następnie Otwórz Notes *IMG-klasyfikacyjn-part2-Deploy. ipynb* w folderze klony */Klasyfikacja obrazu-mnist ręcznie-Data* .
+Aby uruchomić Notes, najpierw Ukończ szkolenia modelu w [samouczku (część 1): uczenie modelu klasyfikacji obrazów](tutorial-train-models-with-aml.md).   Następnie Otwórz Notes  *IMG-klasyfikacyjn-part2-Deploy. ipynb* w folderze klony */Klasyfikacja obrazu-mnist ręcznie-Data* .
 
 Ten samouczek jest również dostępny w witrynie [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) , jeśli chcesz używać go w [środowisku lokalnym](how-to-configure-environment.md#local).  Upewnij się, że zainstalowano `matplotlib` i `scikit-learn` w Twoim środowisku. 
 
@@ -343,7 +343,7 @@ print("label:", y_test[random_index])
 print("prediction:", resp.text)
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Aby pozostawić grupę zasobów i obszar roboczy na potrzeby innych samouczków i eksploracji, możesz usunąć tylko wdrożenie usługi Container Instances, używając następującego wywołania interfejsu API:
 

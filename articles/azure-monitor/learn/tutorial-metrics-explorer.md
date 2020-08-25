@@ -7,10 +7,10 @@ ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
 ms.openlocfilehash: d8f72471dd3109bf584d18f032ec2f4d949a4993
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "79082816"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Samouczek: Tworzenie wykresu metryk w Azure Monitor
@@ -33,7 +33,7 @@ Do wykonania czynności w tym samouczku potrzebny jest zasób platformy Azure do
 
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
-Zaloguj się do Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
+Zaloguj się do Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com) .
 
 ## <a name="open-metrics-explorer-and-select-a-scope"></a>Otwórz Eksploratora metryk i wybierz zakres
 Eksploratora metryk można otworzyć z menu Azure Monitor lub z menu zasobów w Azure Portal. Metryki ze wszystkich zasobów są dostępne niezależnie od używanej opcji. 

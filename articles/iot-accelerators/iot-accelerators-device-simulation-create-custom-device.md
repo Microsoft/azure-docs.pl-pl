@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
 ms.openlocfilehash: 302b863e7ad7d6df286adf53342356f279ab92d2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "61450588"
 ---
 # <a name="tutorial-create-a-custom-simulated-device"></a>Samouczek: tworzenie niestandardowego urządzenia symulowanego
@@ -28,7 +28,7 @@ W tym samouczku zostały wykonane następujące czynności:
 > * Klonowanie modelu urządzenia
 > * Usuwanie modelu urządzenia
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -64,7 +64,7 @@ Wypełnij formularz, używając poniższych informacji:
 | ------------------- | ---------------------------------------------------- |
 | Nazwa modelu urządzenia   | Lodówka                                         |
 | Opis modelu   | Lodówka z czujnikami temperatury i wilgotności |
-| Wersja             | 1.0                                                  |
+| Wersja             | 1,0                                                  |
 
 > [!NOTE]
 > Nazwa modelu urządzenia musi być unikatowa.
@@ -73,8 +73,8 @@ Kliknij pozycję **+ Dodaj punkt danych**, aby dodać punkty danych na potrzeby 
 
 | Punkt danych          | Zachowanie        | Wartość minimalna | Wartość maksymalna | Jednostka |
 | ------------------- | --------------- | --------- | --------- | ---- |
-| Temperatura         | Losowe          | -50       | 100       | F    |
-| Wilgotność            | Losowe          | 0         | 100       | %    |
+| Temperatura         | Losowy          | -50       | 100       | F    |
+| Wilgotność            | Losowy          | 0         | 100       | %    |
 
 Kliknij pozycję **Zapisz**, aby zapisać model urządzenia.
 

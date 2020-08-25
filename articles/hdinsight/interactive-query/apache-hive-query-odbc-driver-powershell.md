@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.openlocfilehash: f6139bb98fa0272e43c8e180d4ec029f7a7538bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "73494324"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Samouczek: zapytanie Apache Hive z ODBC i programu PowerShell
@@ -42,7 +42,7 @@ Pobierz i zainstaluj [Sterownik Microsoft Hive ODBC](https://www.microsoft.com/d
 
 Poniższe kroki przedstawiają sposób tworzenia źródła danych Apache Hive ODBC.
 
-1. W systemie Windows przejdź do menu **Start** > **Narzędzia** > administracyjne systemu Windows**źródła danych ODBC (32-bitowe)/(64-bitowe)**.  Otworzy się okno **Administrator źródła danych ODBC** .
+1. W systemie Windows przejdź do **Start**  >  **menu Start Narzędzia administracyjne systemu Windows**  >  **źródła danych ODBC (32-bitowe)/(64-bitowe)**.  Otworzy się okno **Administrator źródła danych ODBC** .
 
     ![Administrator źródła danych OBDC](./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png "Konfigurowanie DSN przy użyciu administratora źródła danych ODBC")
 
@@ -55,7 +55,7 @@ Poniższe kroki przedstawiają sposób tworzenia źródła danych Apache Hive OD
    | Właściwość | Opis |
    | --- | --- |
    |  Data Source Name (Nazwa źródła danych) |Nadaj nazwę źródła danych. |
-   |  Hosty |Wprowadź polecenie `CLUSTERNAME.azurehdinsight.net`. Na przykład: `myHDICluster.azurehdinsight.net` |
+   |  Hosty |Wprowadź `CLUSTERNAME.azurehdinsight.net`. Na przykład `myHDICluster.azurehdinsight.net` |
    |  Port |Użyj portu **443**.|
    |  baza danych |Użyj **domyślnego**. |
    |  Mechanism (Mechanizm) |Wybieranie **usługi HDInsight systemu Windows Azure** |
@@ -109,7 +109,7 @@ function Get-ODBC-Data {
 }
 ```
 
-Poniższy fragment kodu używa funkcji powyżej, aby wykonać zapytanie w klastrze zapytań interaktywnych, który został utworzony na początku samouczka. Zamień `DATASOURCENAME` na **nazwę źródła danych** określoną na ekranie **instalacji sterownik Microsoft Hive ODBC DSN** . Gdy zostanie wyświetlony monit o podanie poświadczeń, wprowadź nazwę użytkownika i hasło wprowadzone w obszarze **Nazwa użytkownika logowania klastra** i **hasło logowania klastra** podczas tworzenia klastra.
+Poniższy fragment kodu używa funkcji powyżej, aby wykonać zapytanie w klastrze zapytań interaktywnych, który został utworzony na początku samouczka. Zamień na `DATASOURCENAME` **nazwę źródła danych** określoną na ekranie **instalacji sterownik Microsoft Hive ODBC DSN** . Gdy zostanie wyświetlony monit o podanie poświadczeń, wprowadź nazwę użytkownika i hasło wprowadzone w obszarze **Nazwa użytkownika logowania klastra** i **hasło logowania klastra** podczas tworzenia klastra.
 
 ```powershell
 

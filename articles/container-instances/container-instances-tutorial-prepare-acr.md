@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 12/18/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 1a5b9555572264b6a00b4ce73eaa0719d94fd99b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "78252154"
 ---
 # <a name="tutorial-create-an-azure-container-registry-and-push-a-container-image"></a>Samouczek: Tworzenie usługi Azure Container Registry i wypychanie obrazu kontenera
@@ -77,7 +77,7 @@ Należy zalogować się do wystąpienia usługi Azure Container Registry przed w
 az acr login --name <acrName>
 ```
 
-Przykład:
+Na przykład:
 
 ```azurecli
 az acr login --name mycontainerregistry082
@@ -170,7 +170,7 @@ Aby sprawdzić, czy właśnie wypchnięty obraz rzeczywiście znalazł się w re
 az acr repository list --name <acrName> --output table
 ```
 
-Przykład:
+Na przykład:
 
 ```azurecli
 az acr repository list --name mycontainerregistry082 --output table
@@ -188,7 +188,7 @@ Aby wyświetlić *tagi* dla określonego obrazu, użyj polecenia [az acr reposit
 az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table
 ```
 
-Powinny zostać wyświetlone dane wyjściowe podobne do następujących:
+Wyświetlone dane wyjściowe powinny przypominać następujące dane:
 
 ```console
 az acr repository show-tags --name mycontainerregistry082 --repository aci-tutorial-app --output table

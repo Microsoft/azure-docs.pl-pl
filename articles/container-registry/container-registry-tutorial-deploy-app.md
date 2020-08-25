@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/20/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 5b075e1065ef8c30837000f490cc93525b4b61cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "74456102"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Samouczek: wdrażanie aplikacji sieci Web z rejestru kontenerów platformy Azure z replikacją geograficzną
@@ -37,11 +37,11 @@ W tym kroku utworzysz wystąpienie usługi Web App for Containers w regionie *Za
 
 Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i przejdź do rejestru utworzonego w poprzednim samouczku.
 
-Wybierz pozycję **repozytoria** > **ACR — HelloWorld**, a następnie kliknij prawym przyciskiem myszy tag **V1** w obszarze **Tagi** i wybierz pozycję **Wdróż w aplikacji sieci Web**:
+Wybierz pozycję **repozytoria**  >  **ACR — HelloWorld**, a następnie kliknij prawym przyciskiem myszy tag **V1** w obszarze **Tagi** i wybierz pozycję **Wdróż w aplikacji sieci Web**:
 
 ![Wdrażanie w usłudze App Service w witrynie Azure Portal][deploy-app-portal-01]
 
-Jeśli polecenie „Wdróż do aplikacji internetowej” jest wyłączone, może to oznaczać, że nie włączono konta administratora rejestru zgodnie ze wskazówkami zawartymi w sekcji [Tworzenie rejestru kontenerów](container-registry-tutorial-prepare-registry.md#create-a-container-registry) w pierwszym samouczku. Użytkownik administracyjny można włączyć w obszarze **Ustawienia** > **klucze dostępu** w Azure Portal.
+Jeśli polecenie „Wdróż do aplikacji internetowej” jest wyłączone, może to oznaczać, że nie włączono konta administratora rejestru zgodnie ze wskazówkami zawartymi w sekcji [Tworzenie rejestru kontenerów](container-registry-tutorial-prepare-registry.md#create-a-container-registry) w pierwszym samouczku. Użytkownik administracyjny można włączyć w obszarze **Ustawienia**  >  **klucze dostępu** w Azure Portal.
 
 W oknie usługi **Web App for Containers** wyświetlonym po wybraniu polecenia „Wdróż do aplikacji internetowej” podaj następujące wartości dla każdego ustawienia:
 
@@ -66,7 +66,7 @@ Po zakończeniu wdrażania możesz wyświetlić uruchomioną aplikację, przecho
 
 W portalu wybierz pozycję **App Services**, a następnie aplikację internetową aprowizowaną w poprzednim kroku. W tym przykładzie aplikacja internetowa nosi nazwę *uniqueregistryname-westus*.
 
-Wybierz adres URL aplikacji internetowej z hiperlinku w prawym górnym rogu okna przeglądu **App Service**, aby wyświetlić uruchomioną aplikację w przeglądarce.
+Wybierz adres URL z hiperłączami aplikacji sieci Web w prawym górnym rogu omówienia **App Service** , aby wyświetlić uruchomioną aplikację w przeglądarce.
 
 ![Aplikacja internetowa w konfiguracji systemu Linux w witrynie Azure Portal][deploy-app-portal-04]
 

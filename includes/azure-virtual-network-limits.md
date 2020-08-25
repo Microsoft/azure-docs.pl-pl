@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 511354633b9f88f3d6cd2e2170ce3b7ca1f4ecdb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 832abd0d8a5b7fad126359edcc7de5019560a82f
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82095936"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88748768"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limity sieci — Azure Resource Manager
 Poniższe limity mają zastosowanie tylko w przypadku zasobów sieciowych zarządzanych za pomocą **Azure Resource Manager** na region na subskrypcję. Dowiedz się, jak [wyświetlić bieżące użycie zasobów względem limitów subskrypcji](../articles/networking/check-usage-against-limits.md).
@@ -100,7 +100,7 @@ Następujące limity mają zastosowanie tylko w przypadku zasobów sieciowych za
 | Prywatne adresy IP na sieć wirtualną |4 096 |4 096 |
 | Współbieżne przepływy TCP lub UDP na kartę sieciową maszyny wirtualnej lub wystąpienia roli |500 000, do 1 000 000 w przypadku co najmniej dwóch kart sieciowych. |500 000, do 1 000 000 w przypadku co najmniej dwóch kart sieciowych. |
 | Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) |200 |200 |
-| Reguły sieciowej grupy zabezpieczeń na sieciową grupę zabezpieczeń |1000 |1000 |
+| Reguły sieciowej grupy zabezpieczeń na sieciową grupę zabezpieczeń |200 |1000 |
 | Tabele tras zdefiniowane przez użytkownika |200 |200 |
 | Trasy zdefiniowane przez użytkownika na tabelę tras |400 |400 |
 | Publiczne adresy IP (dynamiczne) |500 |500 |

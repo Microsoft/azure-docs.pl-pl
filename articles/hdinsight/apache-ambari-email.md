@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
 ms.openlocfilehash: 21376eb40fb40abe67f7e03d15aabd7d89ea62f8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "80082314"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Samouczek: Konfigurowanie powiadomień e-mail Apache Ambari w usłudze Azure HDInsight
@@ -48,7 +48,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="configure-ambari-e-mail-notification"></a>Konfigurowanie powiadomienia e-mail Ambari
 
-1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net/#/main/alerts`lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
+1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net/#/main/alerts` lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
 
 1. Z listy rozwijanej **Akcje** wybierz pozycję **Zarządzaj powiadomieniami**.
 

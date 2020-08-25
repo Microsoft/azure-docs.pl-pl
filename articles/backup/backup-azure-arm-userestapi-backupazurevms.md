@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak konfigurować i inicjować operacj
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 595291549b4d181967ea168d0dc71bc7e2237a67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 48b5a8c596ec5b23d2962acb9c1f95a1d5aafbc0
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514207"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761682"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Tworzenie kopii zapasowej maszyny wirtualnej platformy Azure przy użyciu Azure Backup za pośrednictwem interfejsu API REST
 
@@ -23,7 +23,7 @@ Załóżmy, że chcesz chronić maszynę wirtualną "testVM" w grupie zasobów "
 
 ### <a name="discover-unprotected-azure-vms"></a>Odnajdywanie niechronionych maszyn wirtualnych platformy Azure
 
-Najpierw magazyn powinien być w stanie identyfikować maszynę wirtualną platformy Azure. Jest to wyzwalane przy użyciu [operacji odświeżania](/rest/api/backup/protectioncontainers/refresh). Jest to asynchroniczna operacja *post* , która zapewnia, że magazyn otrzymuje najnowszą listę wszystkich niechronionych maszyn wirtualnych w bieżącej subskrypcji i "pamięci podręcznej". Po zapisaniu maszyny wirtualnej usługi odzyskiwania będą mogły uzyskać dostęp do maszyny wirtualnej i chronić ją.
+Najpierw magazyn powinien być w stanie identyfikować maszynę wirtualną platformy Azure. Jest to wyzwalane przy użyciu [operacji odświeżania](/rest/api/backup/protectioncontainers/refresh). Jest to asynchroniczna operacja *post*  , która zapewnia, że magazyn otrzymuje najnowszą listę wszystkich niechronionych maszyn wirtualnych w bieżącej subskrypcji i "pamięci podręcznej". Po zapisaniu maszyny wirtualnej usługi odzyskiwania będą mogły uzyskać dostęp do maszyny wirtualnej i chronić ją.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
@@ -35,7 +35,7 @@ Identyfikator URI wpisu ma `{subscriptionId}` , `{vaultName}` , `{vaultresourceG
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
 ```
 
-#### <a name="responses"></a>Odpowiedzi
+#### <a name="responses-to-refresh-operation"></a>Odpowiedzi na operację odświeżania
 
 Operacja "Refresh" jest [operacją asynchroniczną](../azure-resource-manager/management/async-operations.md). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
 
@@ -46,7 +46,7 @@ Zwraca dwie odpowiedzi: 202 (zaakceptowane), gdy tworzona jest inna operacja, a 
 |204 Brak zawartości     |         |  OK bez zwracanej zawartości      |
 |202 zaakceptowane     |         |     Zaakceptowano    |
 
-##### <a name="example-responses"></a>Przykładowe odpowiedzi
+##### <a name="example-responses-to-refresh-operation"></a>Przykładowe odpowiedzi na operację odświeżania
 
 Po przesłaniu żądania *post* zostaje zwrócona odpowiedź 202 (zaakceptowana).
 
@@ -92,7 +92,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="selecting-the-relevant-azure-vm"></a>Wybieranie odpowiedniej maszyny wirtualnej platformy Azure
 
- Aby potwierdzić, że "buforowanie" jest wykonywane, należy wyświetlić [listę wszystkich elementów podlegających ochronie](/rest/api/backup/backupprotectableitems/list) w ramach subskrypcji i zlokalizować ŻĄDAną maszynę wirtualną w odpowiedzi. [Odpowiedź tej operacji](#example-responses-1) zawiera również informacje dotyczące sposobu, w jaki Recovery Services identyfikuje maszynę wirtualną.  Po zapoznaniu się ze wzorcem możesz pominąć ten krok i bezpośrednio przejść do [włączania ochrony](#enabling-protection-for-the-azure-vm).
+ Aby potwierdzić, że "buforowanie" jest wykonywane, należy wyświetlić [listę wszystkich elementów podlegających ochronie](/rest/api/backup/backupprotectableitems/list) w ramach subskrypcji i zlokalizować ŻĄDAną maszynę wirtualną w odpowiedzi. [Odpowiedź tej operacji](#example-responses-to-get-operation) zawiera również informacje dotyczące sposobu, w jaki Recovery Services identyfikuje maszynę wirtualną.  Po zapoznaniu się ze wzorcem możesz pominąć ten krok i bezpośrednio przejść do [włączania ochrony](#enabling-protection-for-the-azure-vm).
 
 Ta operacja jest operacją *pobierania* .
 
@@ -102,13 +102,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 Identyfikator URI *Get* zawiera wszystkie wymagane parametry. Żadna dodatkowa treść żądania nie jest wymagana.
 
-#### <a name="responses"></a><a name="responses-1"></a>Odpowiedzi
+#### <a name="responses-to-get-operation"></a>Odpowiedzi na pobieranie operacji
 
 |Nazwa  |Typ  |Opis  |
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
-#### <a name="example-responses"></a><a name="example-responses-1"></a>Przykładowe odpowiedzi
+#### <a name="example-responses-to-get-operation"></a>Przykładowe odpowiedzi na potrzeby pobrania operacji
 
 Po przesłaniu żądania *Get* zostanie zwrócona odpowiedź 200 (ok).
 
@@ -152,8 +152,8 @@ X-Powered-By: ASP.NET
 Odpowiedź zawiera listę wszystkich niechronionych maszyn wirtualnych platformy Azure, a każda z nich `{value}` zawiera wszystkie informacje wymagane przez usługę Azure Recovery w celu skonfigurowania kopii zapasowej. Aby skonfigurować kopię zapasową, zanotuj `{name}` pola i `{virtualMachineId}` pola w `{properties}` sekcji. Utwórz dwie zmienne z tych wartości pól, jak wspomniano poniżej.
 
 - ContainerName = "iaasvmcontainer;" +`{name}`
-- protectedItemName = "VM;" +`{name}`
-- `{virtualMachineId}`jest używany w dalszej [części treści żądania](#example-request-body)
+- protectedItemName = "VM;" + `{name}`
+- `{virtualMachineId}` jest używany w dalszej [części treści żądania](#example-request-body)
 
 W tym przykładzie powyższe wartości przekładają się na:
 
@@ -200,9 +200,9 @@ Następująca treść żądania definiuje właściwości wymagane do utworzenia 
 }
 ```
 
-`{sourceResourceId}`Jest to `{virtualMachineId}` wymienione powyżej z odpowiedzi na [listę elementów podlegających ochronie](#example-responses-1).
+`{sourceResourceId}`Jest to `{virtualMachineId}` wymienione powyżej z odpowiedzi na [listę elementów podlegających ochronie](#example-responses-to-get-operation).
 
-#### <a name="responses"></a>Odpowiedzi
+#### <a name="responses-to-create-protected-item-operation"></a>Odpowiedzi w celu utworzenia operacji chronionego elementu
 
 Tworzenie chronionego elementu jest [operacją asynchroniczną](../azure-resource-manager/management/async-operations.md). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
 
@@ -213,7 +213,7 @@ Zwraca dwie odpowiedzi: 202 (zaakceptowane), gdy tworzona jest inna operacja, a 
 |200 OK     |    [ProtectedItemResource](/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 zaakceptowane     |         |     Zaakceptowano    |
 
-##### <a name="example-responses"></a>Przykładowe odpowiedzi
+##### <a name="example-responses-to-create-protected-item-operation"></a>Przykładowe odpowiedzi na operację tworzenia chronionego elementu
 
 Po przesłaniu żądania *Put* dotyczącego tworzenia lub aktualizowania chronionego elementu początkowa odpowiedź to 202 (zaakceptowane) z nagłówkiem lokalizacji lub z nagłówkiem Azure-Async-header.
 
@@ -284,13 +284,13 @@ Wyzwalanie kopii zapasowej na żądanie jest operacją *post* .
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/backup?api-version=2016-12-01
 ```
 
-`{containerName}`I `{protectedItemName}` są tak skonstruowane jak [powyżej](#responses-1). `{fabricName}`Jest to "Azure". W naszym przykładzie jest to tłumaczone na:
+`{containerName}`I `{protectedItemName}` są tak skonstruowane jak [powyżej](#responses-to-get-operation). `{fabricName}`Jest to "Azure". W naszym przykładzie jest to tłumaczone na:
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM/backup?api-version=2016-12-01
 ```
 
-### <a name="create-the-request-body"></a>Tworzenie treści żądania
+### <a name="create-the-request-body-for-on-demand-backup"></a>Tworzenie treści żądania na potrzeby tworzenia kopii zapasowych na żądanie
 
 Aby wyzwolić kopię zapasową na żądanie, poniżej przedstawiono składniki treści żądania.
 
@@ -300,7 +300,7 @@ Aby wyzwolić kopię zapasową na żądanie, poniżej przedstawiono składniki t
 
 Aby zapoznać się z pełną listą definicji treści żądania i innych szczegółów, zapoznaj się z tematem [wyzwalanie kopii zapasowych dla dokumentów interfejsu API REST elementów chronionych](/rest/api/backup/backups/trigger#request-body).
 
-#### <a name="example-request-body"></a>Przykładowa treść żądania
+#### <a name="example-request-body-for-on-demand-backup"></a>Przykładowa treść żądania na potrzeby tworzenia kopii zapasowych na żądanie
 
 Następująca treść żądania definiuje właściwości wymagane do wyzwolenia kopii zapasowej chronionego elementu. Jeśli przechowywanie nie zostanie określone, będzie przechowywane przez 30 dni od momentu wyzwolenia zadania tworzenia kopii zapasowej.
 
@@ -313,7 +313,7 @@ Następująca treść żądania definiuje właściwości wymagane do wyzwolenia 
 }
 ```
 
-### <a name="responses"></a>Odpowiedzi
+### <a name="responses-for-on-demand-backup"></a>Odpowiedzi na kopie zapasowe na żądanie
 
 Wyzwalanie kopii zapasowej na żądanie jest [operacją asynchroniczną](../azure-resource-manager/management/async-operations.md). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
 
@@ -323,7 +323,7 @@ Zwraca dwie odpowiedzi: 202 (zaakceptowane), gdy tworzona jest inna operacja, a 
 |---------|---------|---------|
 |202 zaakceptowane     |         |     Zaakceptowano    |
 
-#### <a name="example-responses"></a><a name="example-responses-3"></a>Przykładowe odpowiedzi
+#### <a name="example-responses-for-on-demand-backup"></a>Przykładowe odpowiedzi dla kopii zapasowej na żądanie
 
 Po przesłaniu żądania *post* do kopii zapasowej na żądanie początkowa odpowiedź to 202 (zaakceptowana) z nagłówkiem lokalizacji lub z nagłówkiem Azure-Async-header.
 
@@ -399,7 +399,7 @@ Aby zmienić zasady, za pomocą których maszyna wirtualna jest chroniona, możn
 }
 ```
 
-Odpowiedź będzie zgodna z tym samym formatem, jak wspomniano [w celu włączenia ochrony](#responses-2)
+Odpowiedź będzie zgodna z tym samym formatem, jak wspomniano [w celu włączenia ochrony](#responses-to-create-protected-item-operation)
 
 ### <a name="stop-protection-but-retain-existing-data"></a>Zatrzymaj ochronę, ale Zachowaj istniejące dane
 
@@ -415,7 +415,7 @@ Aby usunąć ochronę chronionej maszyny wirtualnej, ale zachować już kopię z
 }
 ```
 
-Odpowiedź będzie zgodna z tym samym formatem, jak wspomniano w [przypadku wyzwalania kopii zapasowej na żądanie](#example-responses-3). Zadanie wynikowe powinno być śledzone zgodnie z opisem w [dokumencie monitorowanie zadań przy użyciu interfejsu API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+Odpowiedź będzie zgodna z tym samym formatem, jak wspomniano w [przypadku wyzwalania kopii zapasowej na żądanie](#example-responses-for-on-demand-backup). Zadanie wynikowe powinno być śledzone zgodnie z opisem w [dokumencie monitorowanie zadań przy użyciu interfejsu API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ### <a name="stop-protection-and-delete-data"></a>Zatrzymywanie ochrony i usuwanie danych
 
@@ -427,13 +427,13 @@ Zatrzymywanie ochrony i usuwanie danych jest operacją *usuwania* .
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
 ```
 
-`{containerName}`I `{protectedItemName}` są tak skonstruowane jak [powyżej](#responses-1). `{fabricName}`to "Azure". W naszym przykładzie jest to tłumaczone na:
+`{containerName}`I `{protectedItemName}` są tak skonstruowane jak [powyżej](#responses-to-get-operation). `{fabricName}` to "Azure". W naszym przykładzie jest to tłumaczone na:
 
 ```http
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
-#### <a name="responses"></a><a name="responses-2"></a>Odpowiedzi
+#### <a name="responses-for-delete-protection"></a>Odpowiedzi dotyczące usuwania ochrony
 
 *Usuwanie* ochrony jest [operacją asynchroniczną](../azure-resource-manager/management/async-operations.md). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
 
@@ -445,13 +445,13 @@ Zwraca dwie odpowiedzi: 202 (zaakceptowane), gdy tworzona jest inna operacja, a 
 |202 zaakceptowane     |         |     Zaakceptowano    |
 
 > [!IMPORTANT]
-> Aby można było chronić przed przypadkowym usunięciem scenariuszy, [dostępna jest funkcja usuwania nietrwałego](use-restapi-update-vault-properties.md#soft-delete-state) dla magazynu usługi Recovery Services. Jeśli stan nietrwałego usuwania magazynu jest ustawiony na włączone, operacja usuwania nie spowoduje natychmiastowego usunięcia danych. Będzie ono przechowywane przez 14 dni, a następnie trwale przeczyszczane. W przypadku tego okresu 14 dni klient nie nalicza opłat za magazyn. Aby cofnąć operację usuwania, zapoznaj się z [sekcją cofanie usunięcia](#undo-the-stop-protection-and-delete-data).
+> Aby można było chronić przed przypadkowym usunięciem scenariuszy, [dostępna jest funkcja usuwania nietrwałego](use-restapi-update-vault-properties.md#soft-delete-state) dla magazynu Recovery Services. Jeśli stan nietrwałego usuwania magazynu jest ustawiony na włączone, operacja usuwania nie spowoduje natychmiastowego usunięcia danych. Będzie ono przechowywane przez 14 dni, a następnie trwale przeczyszczane. W przypadku tego okresu 14 dni klient nie nalicza opłat za magazyn. Aby cofnąć operację usuwania, zapoznaj się z [sekcją cofanie usunięcia](#undo-the-stop-protection-and-delete-data).
 
 ### <a name="undo-the-stop-protection-and-delete-data"></a>Cofnij ochronę i Usuń dane
 
 Cofnięcie przypadkowego usunięcia jest podobne do tworzenia elementu kopii zapasowej. Po cofnięciu usunięcia element jest zachowywany, ale nie są wyzwalane żadne przyszłe kopie zapasowe.
 
-Cofanie usunięcia jest operacją *Put* , która jest bardzo podobna do [zmiany zasad](#changing-the-policy-of-protection) i/lub [włączenia ochrony](#enabling-protection-for-the-azure-vm). Po prostu zażądaj, aby cofnąć usunięcie przy użyciu zmiennej *isRehydrate* w [treści żądania](#example-request-body) i przesłać żądanie. Na przykład: Aby cofnąć usunięcie elementu testVM, należy użyć następującej treści żądania.
+Cofanie usunięcia jest operacją *Put* , która jest bardzo podobna do [zmiany zasad](#changing-the-policy-of-protection) i/lub [włączenia ochrony](#enabling-protection-for-the-azure-vm). Po prostu zażądaj, aby cofnąć usunięcie przy użyciu zmiennej *isRehydrate*  w [treści żądania](#example-request-body) i przesłać żądanie. Na przykład: Aby cofnąć usunięcie elementu testVM, należy użyć następującej treści żądania.
 
 ```http
 {
@@ -464,7 +464,7 @@ Cofanie usunięcia jest operacją *Put* , która jest bardzo podobna do [zmiany 
 }
 ```
 
-Odpowiedź będzie zgodna z tym samym formatem, jak wspomniano w [przypadku wyzwalania kopii zapasowej na żądanie](#example-responses-3). Zadanie wynikowe powinno być śledzone zgodnie z opisem w [dokumencie monitorowanie zadań przy użyciu interfejsu API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+Odpowiedź będzie zgodna z tym samym formatem, jak wspomniano w [przypadku wyzwalania kopii zapasowej na żądanie](#example-responses-for-on-demand-backup). Zadanie wynikowe powinno być śledzone zgodnie z opisem w [dokumencie monitorowanie zadań przy użyciu interfejsu API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ## <a name="next-steps"></a>Następne kroki
 
