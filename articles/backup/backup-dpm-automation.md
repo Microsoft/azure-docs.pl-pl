@@ -3,12 +3,12 @@ title: Używanie programu PowerShell do tworzenia kopii zapasowych obciążeń p
 description: Dowiedz się, jak wdrażać Azure Backup dla Data Protection Manager (DPM) przy użyciu programu PowerShell i zarządzać nimi
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 4d8b8f6ca233c997bc2a94f88903d14009481d37
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8a60d1c412a36c5c2a7ca264eda524b5d5649f1a
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538857"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762746"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Wdrażanie kopii zapasowych serwerów Data Protection Manager (DPM) na platformie Azure i zarządzanie nimi przy użyciu programu PowerShell
 
@@ -127,7 +127,7 @@ MARSAgentInstaller.exe /?
 
 Dostępne opcje to:
 
-| Opcja | Szczegóły | Domyślne |
+| Opcja | Szczegóły | Domyślny |
 | --- | --- | --- |
 | /q |Instalacja cicha |- |
 | /p: "Location" |Ścieżka do folderu instalacji agenta Azure Backup. |C:\Program Files\Microsoft Azure Recovery Services Agent |
@@ -177,7 +177,7 @@ Po zarejestrowaniu serwera programu DPM w magazynie Recovery Services rozpoczyna
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 ```
 
-Wszystkie modyfikacje są wprowadzane do tego lokalnego obiektu programu PowerShell ```$setting``` , a następnie pełny obiekt jest zatwierdzany w programie DPM i Azure Backup, aby je zapisać przy użyciu polecenia cmdlet [Set-DPMCloudSubscriptionSetting](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) . Musisz użyć ```–Commit``` flagi, aby upewnić się, że zmiany są utrwalane. Ustawienia nie będą stosowane i używane przez Azure Backup, chyba że zostanie zatwierdzone.
+Wszystkie modyfikacje są wprowadzane do tego lokalnego obiektu programu PowerShell ```$setting```  , a następnie pełny obiekt jest zatwierdzany w programie DPM i Azure Backup, aby je zapisać przy użyciu polecenia cmdlet [Set-DPMCloudSubscriptionSetting](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) . Musisz użyć ```–Commit``` flagi, aby upewnić się, że zmiany są utrwalane. Ustawienia nie będą stosowane i używane przez Azure Backup, chyba że zostanie zatwierdzone.
 
 ```powershell
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
@@ -323,10 +323,10 @@ Set-DPMProtectionGroup -ProtectionGroup $MPG
 
 W powyższym przykładzie ```$onlineSch``` jest tablicą zawierającą cztery elementy, które zawierają istniejący harmonogram ochrony w trybie online dla grupy ochrony w schemacie GFS:
 
-1. ```$onlineSch[0]```zawiera dzienny harmonogram
-2. ```$onlineSch[1]```zawiera Harmonogram tygodniowy
-3. ```$onlineSch[2]```zawiera Harmonogram miesięczny
-4. ```$onlineSch[3]```zawiera harmonogram roczny
+1. ```$onlineSch[0]``` zawiera dzienny harmonogram
+2. ```$onlineSch[1]``` zawiera Harmonogram tygodniowy
+3. ```$onlineSch[2]``` zawiera Harmonogram miesięczny
+4. ```$onlineSch[3]``` zawiera harmonogram roczny
 
 Dlatego jeśli trzeba zmodyfikować harmonogram tygodniowy, należy odwołać się do ```$onlineSch[1]``` .
 
@@ -354,8 +354,8 @@ Set-DPMProtectionGroup -ProtectionGroup $MPG
 
 Możesz użyć polecenia cmdlet [Get-DPMRecoveryPoint](/powershell/module/dataprotectionmanager/get-dpmrecoverypoint?view=systemcenter-ps-2019) , aby uzyskać listę wszystkich punktów odzyskiwania dla źródła danych. W tym przykładzie będziemy:
 
-* Pobierz wszystkie PGs na serwerze DPM i zapisywanych w tablicy```$PG```
-* Pobierz źródła danych odpowiadające```$PG[0]```
+* Pobierz wszystkie PGs na serwerze DPM i zapisywanych w tablicy ```$PG```
+* Pobierz źródła danych odpowiadające ```$PG[0]```
 * Pobierz wszystkie punkty odzyskiwania dla źródła danych.
 
 ```powershell
@@ -370,7 +370,7 @@ Przywracanie danych jest kombinacją ```RecoverableItem``` obiektu i ```Recovery
 
 W poniższym przykładzie pokazano, jak przywrócić maszynę wirtualną funkcji Hyper-V z Azure Backup przez połączenie punktów kopii zapasowych z celem odzyskiwania. Ten przykład obejmuje:
 
-* Tworzenie opcji odzyskiwania przy użyciu polecenia cmdlet [New-DPMRecoveryOption](/powershell/module/dataprotectionmanager/new-dpmrecoveryoption?view=systemcenter-ps-2019) .
+* Tworzenie opcji odzyskiwania przy użyciu polecenia cmdlet  [New-DPMRecoveryOption](/powershell/module/dataprotectionmanager/new-dpmrecoveryoption?view=systemcenter-ps-2019) .
 * Pobieranie tablicy punktów kopii zapasowych przy użyciu ```Get-DPMRecoveryPoint``` polecenia cmdlet.
 * Wybieranie punktu kopii zapasowej do przywrócenia.
 

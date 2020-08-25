@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 8ecdcf6f44409f3b72d4a8040be348d4a6f9a863
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c62fbe1621e396ab938327d5159ed8ca8fb84fbf
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738196"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756864"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Konfigurowanie dzienników przepływu sieciowych grup zabezpieczeń przy użyciu interfejsu wiersza polecenia platformy Azure
 
 > [!div class="op_single_selector"]
-> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Witryna Azure Portal](network-watcher-nsg-flow-logging-portal.md)
 > - [Program PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Interfejs wiersza polecenia platformy Azure](network-watcher-nsg-flow-logging-cli.md)
 > - [Interfejs API REST](network-watcher-nsg-flow-logging-rest.md)
@@ -44,9 +44,9 @@ az provider register --namespace Microsoft.Insights
 W poniższym przykładzie przedstawiono polecenie umożliwiające włączenie dzienników przepływu:
 
 ```azurecli
-az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
+az network watcher flow-log create --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName --location location
 # Configure 
-az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName  --format JSON --log-version 2
+az network watcher flow-log create --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName --location location --format JSON --log-version 2
 ```
 
 Określone konto magazynu nie może mieć skonfigurowanych reguł sieciowych, które ograniczają dostęp do sieci tylko do usług firmy Microsoft lub określonych sieci wirtualnych. Konto magazynu może być w tej samej lub innej subskrypcji platformy Azure niż sieciowej grupy zabezpieczeń, dla którego włączono dziennik przepływów. Jeśli używasz różnych subskrypcji, muszą one być skojarzone z tą samą dzierżawą Azure Active Directory. Konto używane dla każdej subskrypcji musi mieć [wymagane uprawnienia](required-rbac-permissions.md). 
@@ -63,7 +63,7 @@ az network watcher flow-log configure --resource-group resourceGroupName --enabl
 
 ## <a name="download-a-flow-log"></a>Pobierz dziennik przepływu
 
-Lokalizacja magazynu dziennika przepływu jest definiowana podczas tworzenia. Wygodnym narzędziem do uzyskiwania dostępu do tych dzienników przepływów zapisanych na koncie magazynu jest Eksplorator usługi Microsoft Azure Storage, które można pobrać tutaj:https://storageexplorer.com/
+Lokalizacja magazynu dziennika przepływu jest definiowana podczas tworzenia. Wygodnym narzędziem do uzyskiwania dostępu do tych dzienników przepływów zapisanych na koncie magazynu jest Eksplorator usługi Microsoft Azure Storage, które można pobrać tutaj:  https://storageexplorer.com/
 
 Jeśli określono konto magazynu, pliki dziennika przepływu są zapisywane na koncie magazynu w następującej lokalizacji:
 

@@ -15,17 +15,17 @@ ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ee5fa52f59ea2ef3332fe66c81c24ff44c64e81
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82582878"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Samouczek: automatyczne dodawanie lub usuwanie członków grupy
 
 W usłudze Azure Active Directory (Azure AD) możesz automatycznie dodawać użytkowników do grup zabezpieczeń lub grup usługi Office 365 oraz ich usuwać, dzięki czemu nie musisz zawsze robić tego ręcznie. Zawsze, gdy wszystkie właściwości użytkownika lub urządzenia są zmieniane, usługa Azure AD szacuje wszystkie dynamiczne reguły grupy w organizacji usługi Azure AD, aby sprawdzić, czy zmiana powinna dodawać lub usuwać członków.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Utwórz automatycznie wypełnioną grupę użytkowników-Gości z firmy partnerskiej
 > * Przypisywanie licencji do grupy w celu umożliwienia użytkownikom-gościom uzyskanie dostępu do funkcji specyficznych dla partnera
@@ -84,7 +84,7 @@ Możliwe, że Twoim ostatecznym celem jako administratora jest przypisanie wszys
 
    ![Zmienianie grupy Wszyscy użytkownicy na grupę wyłącznie dla członków](./media/groups-dynamic-tutorial/all-users-edit.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 **Aby usunąć grupę użytkowników-gości**
 

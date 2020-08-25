@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: cc1d6e04b19d36f0ca8c7ed4b2bb3d62f5e8e15a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "78252744"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Samouczek: tworzenie pakietów kontenerów i wdrażanie ich jako aplikacji usługi Service Fabric za pomocą usługi Yeoman
@@ -60,7 +60,7 @@ Usługa Service Fabric udostępnia narzędzia do tworzenia szkieletów, które u
     ```
 2. Wpisz wartość „TestContainer”, aby nadać nazwę aplikacji
 3. Wpisz wartość „azurevotefront”, aby nadać nazwę usłudze aplikacji.
-4. Podaj ścieżkę obrazu kontenera w usłudze ACR dla repozytorium frontonu — na przykład „\<nazwaACR>.azurecr.io/azure-vote-front:v1”. Wartość pola \<nazwaACR> musi być taka sama jak wartość, której użyto w poprzednim samouczku.
+4. Podaj ścieżkę obrazu kontenera w ACR dla repozytorium frontonu — na przykład " \<acrName> . azurecr.IO/Azure-vote-Front:V1". \<acrName>Pole musi być takie samo, jak wartość użyta w poprzednim samouczku.
 5. Naciśnij klawisz Enter, aby pozostawić pustą sekcję Polecenia.
 6. Określ liczbę wystąpień jako „1”.
 
@@ -272,11 +272,11 @@ Użyj skryptu instalacji udostępnionego w katalogu **TestContainer**, aby skopi
 ./install.sh
 ```
 
-Otwórz przeglądarkę i przejdź do Service Fabric Explorer przy użyciu protokołu HTTP\/:/containertestcluster.eastus.cloudapp.Azure.com:19080/Explorer. Rozwiń węzeł Aplikacje i zwróć uwagę, że istnieje wpis dla danego typu aplikacji i inny wpis dla wystąpienia.
+Otwórz przeglądarkę i przejdź do Service Fabric Explorer przy użyciu protokołu http: \/ /containertestcluster.eastus.cloudapp.Azure.com:19080/Explorer. Rozwiń węzeł Aplikacje i zwróć uwagę, że istnieje wpis dla danego typu aplikacji i inny wpis dla wystąpienia.
 
 ![Service Fabric Explorer][sfx]
 
-Aby połączyć się z uruchomioną aplikacją, Otwórz przeglądarkę internetową i przejdź do adresu URL klastra — na przykład http:\//containertestcluster.eastus.cloudapp.Azure.com:80. W przeglądarce powinien zostać wyświetlony internetowy interfejs użytkownika.
+Aby połączyć się z uruchomioną aplikacją, Otwórz przeglądarkę internetową i przejdź do adresu URL klastra — na przykład http: \/ /containertestcluster.eastus.cloudapp.Azure.com:80. W przeglądarce powinien zostać wyświetlony internetowy interfejs użytkownika.
 
 ![votingapp][votingapp]
 

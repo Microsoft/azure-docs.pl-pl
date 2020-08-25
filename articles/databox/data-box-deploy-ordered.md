@@ -2,18 +2,18 @@
 title: Samouczek przedstawiający kolejność Azure Data Box | Microsoft Docs
 description: W tym samouczku dowiesz się, jak Azure Data Box, rozwiązanie hybrydowe, które umożliwia importowanie danych lokalnych na platformę Azure oraz kolejność Azure Data Box.
 services: databox
-author: priestlg
+author: twooley
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.author: v-grpr
-ms.openlocfilehash: 9f742af1a3c9ede4857e329697eb959a5a51dc95
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.author: twooley
+ms.openlocfilehash: 2000ecc84a92bef5ad6b80fecde4aee0157e4bc5
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926369"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783573"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Samouczek: Zamawianie urządzenia Azure Data Box
 
@@ -217,7 +217,7 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
 
    ![Wybierz Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 
    ![Wybierz Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
@@ -322,7 +322,7 @@ Wykonaj następujące kroki, korzystając z interfejsu wiersza polecenia platfor
    |Pomoc| Wyświetl informacje pomocy dla tego polecenia. | --Help-h |
    |tylko-show-Errors| Pokaż tylko błędy, pomijając ostrzeżenia. | --Only-show-Errors |
    |Wyjście-o| Ustawia format danych wyjściowych.  Dozwolone wartości: JSON, jsonc, None, Table, TSV, YAML, yamlc. Wartość domyślna to JSON. | --Output "JSON" |
-   |query| Ciąg zapytania JMESPath. Aby uzyskać więcej informacji, zobacz [JMESPath](http://jmespath.org/). | --zapytanie<string>|
+   |query| Ciąg zapytania JMESPath. Aby uzyskać więcej informacji, zobacz [JMESPath](http://jmespath.org/). | --zapytanie <string>|
    |tryb pełny| Uwzględnij pełne rejestrowanie. | --verbose |
 
 2. W wierszu polecenia wyboru lub terminalu Użyj [zadania AZ Data Box Create](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create) , aby utworzyć zamówienie Azure Data Box.
@@ -509,7 +509,7 @@ Aby uzyskać informacje o śledzeniu jednej istniejącej kolejności Azure Data 
    |Pomoc| Wyświetl informacje pomocy dla tego polecenia. | --Help-h |
    |tylko-show-Errors| Pokaż tylko błędy, pomijając ostrzeżenia. | --Only-show-Errors |
    |Wyjście-o| Ustawia format danych wyjściowych.  Dozwolone wartości: JSON, jsonc, None, Table, TSV, YAML, yamlc. Wartość domyślna to JSON. | --Output "JSON" |
-   |query| Ciąg zapytania JMESPath. Aby uzyskać więcej informacji, zobacz [JMESPath](http://jmespath.org/). | --zapytanie<string>|
+   |query| Ciąg zapytania JMESPath. Aby uzyskać więcej informacji, zobacz [JMESPath](http://jmespath.org/). | --zapytanie <string>|
    |tryb pełny| Uwzględnij pełne rejestrowanie. | --verbose |
 
    Oto przykład polecenia z formatem danych wyjściowych ustawionym na "Tabela":
@@ -550,7 +550,7 @@ W poniższej tabeli przedstawiono informacje o parametrach `az databox job list`
    |Pomoc| Wyświetl informacje pomocy dla tego polecenia. | --Help-h |
    |tylko-show-Errors| Pokaż tylko błędy, pomijając ostrzeżenia. | --Only-show-Errors |
    |Wyjście-o| Ustawia format danych wyjściowych.  Dozwolone wartości: JSON, jsonc, None, Table, TSV, YAML, yamlc. Wartość domyślna to JSON. | --Output "JSON" |
-   |query| Ciąg zapytania JMESPath. Aby uzyskać więcej informacji, zobacz [JMESPath](http://jmespath.org/). | --zapytanie<string>|
+   |query| Ciąg zapytania JMESPath. Aby uzyskać więcej informacji, zobacz [JMESPath](http://jmespath.org/). | --zapytanie <string>|
    |tryb pełny| Uwzględnij pełne rejestrowanie. | --verbose |
 
    Oto przykład polecenia z formatem danych wyjściowych ustawionym na "Tabela":
@@ -580,7 +580,7 @@ W poniższej tabeli przedstawiono informacje o parametrach `az databox job list`
 Aby uzyskać informacje o śledzeniu jednej istniejącej kolejności Azure Data Box, uruchom polecenie [Get-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/Get-AzDataBoxJob). Polecenie wyświetla informacje na temat zamówienia, takie jak, ale nie ograniczone do: nazwa, Grupa zasobów, informacje o śledzeniu, Identyfikator subskrypcji, informacje kontaktowe, typ wysyłki i jednostka SKU urządzenia.
 
 > [!NOTE]
-> `Get-AzDataBoxJob`służy do wyświetlania jednego i wielu zamówień. Różnica polega na tym, że określasz nazwę zamówienia dla pojedynczych zamówień.
+> `Get-AzDataBoxJob` służy do wyświetlania jednego i wielu zamówień. Różnica polega na tym, że określasz nazwę zamówienia dla pojedynczych zamówień.
 
    ```azurepowershell
     Get-AzDataBoxJob -ResourceGroupName <String> -Name <String>
@@ -671,7 +671,7 @@ Aby anulować kolejność Azure Data Box, uruchom polecenie [AZ DATAbox Job Canc
    |Pomoc| Wyświetl informacje pomocy dla tego polecenia. | --Help-h |
    |tylko-show-Errors| Pokaż tylko błędy, pomijając ostrzeżenia. | --Only-show-Errors |
    |Wyjście-o| Ustawia format danych wyjściowych.  Dozwolone wartości: JSON, jsonc, None, Table, TSV, YAML, yamlc. Wartość domyślna to JSON. | --Output "JSON" |
-   |query| Ciąg zapytania JMESPath. Aby uzyskać więcej informacji, zobacz [JMESPath](http://jmespath.org/). | --zapytanie<string>|
+   |query| Ciąg zapytania JMESPath. Aby uzyskać więcej informacji, zobacz [JMESPath](http://jmespath.org/). | --zapytanie <string>|
    |tryb pełny| Uwzględnij pełne rejestrowanie. | --verbose |
 
    Oto przykład polecenia z danymi wyjściowymi:
@@ -708,7 +708,7 @@ Jeśli Azure Data Box zamówienie zostało anulowane, możesz uruchomić polecen
    |Pomoc| Wyświetl informacje pomocy dla tego polecenia. | --Help-h |
    |tylko-show-Errors| Pokaż tylko błędy, pomijając ostrzeżenia. | --Only-show-Errors |
    |Wyjście-o| Ustawia format danych wyjściowych.  Dozwolone wartości: JSON, jsonc, None, Table, TSV, YAML, yamlc. Wartość domyślna to JSON. | --Output "JSON" |
-   |query| Ciąg zapytania JMESPath. Aby uzyskać więcej informacji, zobacz [JMESPath](http://jmespath.org/). | --zapytanie<string>|
+   |query| Ciąg zapytania JMESPath. Aby uzyskać więcej informacji, zobacz [JMESPath](http://jmespath.org/). | --zapytanie <string>|
    |tryb pełny| Uwzględnij pełne rejestrowanie. | --verbose |
 
 Oto przykład polecenia z danymi wyjściowymi:

@@ -1,14 +1,14 @@
 ---
 title: Omówienie usługi Azure Resource Graph
 description: Dowiedz się, w jaki sposób usługa Azure Resource Graph umożliwia tworzenie złożonych zapytań dotyczących zasobów na dużą skalę między subskrypcjami i dzierżawcami.
-ms.date: 07/25/2020
+ms.date: 08/13/2020
 ms.topic: overview
-ms.openlocfilehash: 5a2be5e65ecd5590d992e1883f432c173660e78d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 73143c13fd83c8b784679ac28bd9a14f1c6a6888
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541791"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798537"
 ---
 # <a name="what-is-azure-resource-graph"></a>Co to jest usługa Azure Resource Graph?
 
@@ -37,6 +37,9 @@ Za pomocą usługi Azure Resource Graph można:
 
 - Dostęp do właściwości zwracanych przez dostawców zasobów bez konieczności wykonywania pojedynczych wywołań do każdego dostawcy zasobów.
 - Wyświetlenie ostatnich 14 dni historii zmian w zasobie, aby zobaczyć, jakie właściwości zostały zmienione i kiedy. (wersja zapoznawcza)
+
+> [!NOTE]
+> Jako funkcja w _wersji zapoznawczej_ niektóre `type` obiekty mają dodatkowe dostępne właściwości inne niż Menedżer zasobów. Aby uzyskać więcej informacji, zobacz [właściwości rozszerzone (wersja zapoznawcza)](./concepts/query-language.md#extended-properties).
 
 ## <a name="how-resource-graph-is-kept-current"></a>Sposób przechowywania grafu zasobów
 
@@ -74,8 +77,8 @@ Podaj swój przypadek biznesowy i zaznacz pole wyboru "Firma Microsoft może wys
 
 Wykres zasobów ogranicza zapytania na poziomie użytkownika. Odpowiedź usługi zawiera następujące nagłówki HTTP:
 
-- `x-ms-user-quota-remaining`(int): pozostały przydział zasobów dla użytkownika. Ta wartość jest mapowana na liczbę zapytań.
-- `x-ms-user-quota-resets-after`(hh: mm: SS): czas trwania do momentu zresetowania zużycia przydziału użytkownika
+- `x-ms-user-quota-remaining` (int): pozostały przydział zasobów dla użytkownika. Ta wartość jest mapowana na liczbę zapytań.
+- `x-ms-user-quota-resets-after` (hh: mm: SS): czas trwania do momentu zresetowania zużycia przydziału użytkownika
 
 Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące żądań z ograniczeniami](./concepts/guidance-for-throttled-requests.md).
 

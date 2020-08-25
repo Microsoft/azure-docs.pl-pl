@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak zarządzać kopiami zapasowymi SA
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c47f03b2ac1640c12a833f8bdb53b5d6493d7eb6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 13cd6e33fbec261b52aae73b1b01fe26764885fe
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489439"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757357"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Samouczek: zarządzanie bazami danych SAP HANA na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -80,7 +80,7 @@ cb110094-9b15-4c55-ad45-6899200eb8dd  SAPHANA
 
 ## <a name="protect-new-databases-added-to-an-sap-hana-instance"></a>Chroń nowe bazy danych dodane do wystąpienia SAP HANA
 
-[Zarejestrowanie wystąpienia SAP HANA z magazynem usługi Recovery Services](tutorial-sap-hana-backup-cli.md#register-and-protect-the-sap-hana-instance) spowoduje automatyczne odnalezienie wszystkich baz danych w tym wystąpieniu.
+[Zarejestrowanie wystąpienia SAP HANA z magazynem Recovery Services](tutorial-sap-hana-backup-cli.md#register-and-protect-the-sap-hana-instance) automatycznie odnajduje wszystkie bazy danych w tym wystąpieniu.
 
 Jednak w przypadkach, gdy nowe bazy danych są dodawane do wystąpienia SAP HANA później, użyj polecenia [AZ Backup Protected-Item Initialize](/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-initialize) . To polecenie cmdlet umożliwia odnalezienie nowych baz danych, które zostały dodane.
 
@@ -91,7 +91,7 @@ az backup protectable-item initialize --resource-group saphanaResourceGroup \
     --workload-type SAPHANA
 ```
 
-Następnie użyj polecenia [AZ Backup Protect-Item list](/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-list) , aby wyświetlić listę wszystkich baz danych, które zostały odnalezione w wystąpieniu SAP HANA. Ta lista nie obejmuje jednak tych baz danych, na których została już skonfigurowana kopia zapasowa. Po znalezieniu kopii zapasowej bazy danych programu zapoznaj się z [tematem Włączanie kopii zapasowej w bazie danych SAP HANA](tutorial-sap-hana-backup-cli.md#enable-backup-on-sap-hana-database).
+Następnie użyj polecenia [AZ Backup Protect-Item list](/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-list) , aby wyświetlić listę wszystkich baz danych, które zostały odnalezione w wystąpieniu SAP HANA. Ta lista nie obejmuje jednak tych baz danych, na których została już skonfigurowana kopia zapasowa. Po znalezieniu kopii zapasowej bazy danych programu zapoznaj się z  [tematem Włączanie kopii zapasowej w bazie danych SAP HANA](tutorial-sap-hana-backup-cli.md#enable-backup-on-sap-hana-database).
 
 ```azurecli-interactive
 az backup protectable-item list --resource-group saphanaResourceGroup \

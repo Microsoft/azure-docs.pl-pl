@@ -5,16 +5,16 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 5b2677e7b83c1d86fd12f8c89c51e95460e8694f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0a7dc470bf6392f55b55bfa99268bea4be57e78f
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690667"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757578"
 ---
 # <a name="quickstart-back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>Szybki Start: Tworzenie kopii zapasowej maszyny wirtualnej na platformie Azure przy użyciu szablonu ARM
 
-[Azure Backup](backup-overview.md) tworzyć kopie zapasowe maszyn i aplikacji lokalnych oraz maszyn wirtualnych platformy Azure. W tym artykule opisano sposób tworzenia kopii zapasowej maszyny wirtualnej platformy Azure z szablonem Azure Resource Manager (szablon ARM) i Azure PowerShell. Ten przewodnik Szybki Start koncentruje się na procesie wdrażania szablonu ARM w celu utworzenia magazynu usługi Recovery Services. Aby uzyskać więcej informacji na temat opracowywania szablonów ARM, zapoznaj się z [dokumentacją Azure Resource Manager](../azure-resource-manager/index.yml) i [odwołaniem do szablonu](/azure/templates/microsoft.recoveryservices/allversions).
+[Azure Backup](backup-overview.md) tworzyć kopie zapasowe maszyn i aplikacji lokalnych oraz maszyn wirtualnych platformy Azure. W tym artykule opisano sposób tworzenia kopii zapasowej maszyny wirtualnej platformy Azure z szablonem Azure Resource Manager (szablon ARM) i Azure PowerShell. Ten przewodnik Szybki Start koncentruje się na procesie wdrażania szablonu ARM w celu utworzenia magazynu Recovery Servicesowego. Aby uzyskać więcej informacji na temat opracowywania szablonów ARM, zapoznaj się z [dokumentacją Azure Resource Manager](../azure-resource-manager/index.yml) i [odwołaniem do szablonu](/azure/templates/microsoft.recoveryservices/allversions).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 

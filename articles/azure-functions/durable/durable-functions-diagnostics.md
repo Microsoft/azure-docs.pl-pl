@@ -3,14 +3,14 @@ title: Diagnostyka w Durable Functions — Azure
 description: Dowiedz się, jak zdiagnozować problemy przy użyciu rozszerzenia Durable Functions Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 08/20/2020
 ms.author: azfuncdf
-ms.openlocfilehash: fcd92f1f134b79d23da6848cbb04894b242fcec0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ae721d2a8df981ecf9ab8e8b04d0e0d287d523cd
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081818"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750714"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostyka w usłudze Durable Functions na platformie Azure
 
@@ -88,7 +88,7 @@ Aby włączyć emitowanie pełnych zdarzeń powtarzania aranżacji, `LogReplayEv
 
 #### <a name="functions-20"></a>Funkcje 2,0
 
-```javascript
+```json
 {
     "extensions": {
         "durableTask": {
@@ -103,9 +103,9 @@ Aby włączyć emitowanie pełnych zdarzeń powtarzania aranżacji, `LogReplayEv
 
 ### <a name="single-instance-query"></a>Zapytanie o pojedynczym wystąpieniu
 
-Następujące zapytanie pokazuje historyczne dane śledzenia dla pojedynczego wystąpienia aranżacji funkcji w [sekwencji Hello](durable-functions-sequence.md) . Jest ona zapisywana przy użyciu [języka zapytań Application Insights (AIQL)](https://aka.ms/LogAnalyticsLanguageReference). Filtruje wykonywanie powtarzania, tak aby była wyświetlana tylko ścieżka wykonywania *logicznego* . Zdarzenia mogą być uporządkowane według sortowania według `timestamp` i `sequenceNumber` jak pokazano w poniższym zapytaniu:
+Następujące zapytanie pokazuje historyczne dane śledzenia dla pojedynczego wystąpienia aranżacji funkcji w [sekwencji Hello](durable-functions-sequence.md) . Jest ona zapisywana przy użyciu [języka zapytań Kusto](/azure/data-explorer/kusto/query/). Filtruje wykonywanie powtarzania, tak aby była wyświetlana tylko ścieżka wykonywania *logicznego* . Zdarzenia mogą być uporządkowane według sortowania według `timestamp` i `sequenceNumber` jak pokazano w poniższym zapytaniu:
 
-```AIQL
+```kusto
 let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
 let start = datetime(2018-03-25T09:20:00);
 traces
@@ -124,13 +124,13 @@ traces
 
 Wynik jest listą zdarzeń śledzenia, które pokazują ścieżkę wykonywania aranżacji, łącznie z wszystkimi funkcjami działania uporządkowanymi według czasu wykonywania w kolejności rosnącej.
 
-![Zapytanie Application Insights](./media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
+![Zapytanie o zamówione pojedyncze wystąpienie Application Insights](./media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
 
 ### <a name="instance-summary-query"></a>Zapytanie podsumowania wystąpienia
 
 Następujące zapytanie wyświetla stan wszystkich wystąpień aranżacji, które zostały uruchomione w określonym przedziale czasu.
 
-```AIQL
+```kusto
 let start = datetime(2017-09-30T04:30:00);
 traces
 | where timestamp > start and timestamp < start + 1h
@@ -148,13 +148,61 @@ traces
 
 Wynikiem jest lista identyfikatorów wystąpień i ich bieżący stan środowiska uruchomieniowego.
 
-![Zapytanie Application Insights](./media/durable-functions-diagnostics/app-insights-single-summary-query.png)
+![Zapytanie Application Insights pojedynczego wystąpienia](./media/durable-functions-diagnostics/app-insights-single-summary-query.png)
 
-## <a name="logging"></a>Rejestrowanie
+## <a name="durable-task-framework-logging"></a>Trwałe rejestrowanie struktury zadań
+
+Dzienniki rozszerzeń trwałych są przydatne do poznania zachowań logiki aranżacji. Jednak te dzienniki nie zawierają zawsze wystarczającej ilości informacji do debugowania problemów z wydajnością i niezawodnością na poziomie platformy. Począwszy od **2.3.0** o trwałej rozszerzeniu, dzienniki emitowane przez podstawową strukturę zadań trwałych (DTFx) są również dostępne dla kolekcji.
+
+Podczas przeglądania dzienników emitowanych przez DTFx należy zrozumieć, że aparat DTFx składa się z dwóch składników: podstawowego aparatu wysyłania ( `DurableTask.Core` ) i jednego z wielu obsługiwanych dostawców magazynu (Durable Functions `DurableTask.AzureStorage` domyślnie używane).
+
+* **DurableTask. Core**: zawiera informacje o wykonywaniu aranżacji i planowaniu niskiego poziomu.
+* **DurableTask. AzureStorage**: zawiera informacje dotyczące interakcji z artefaktami usługi Azure Storage, w tym wewnętrzne kolejki, obiekty blob i tabele magazynu używane do przechowywania i pobierania wewnętrznego stanu aranżacji.
+
+Te dzienniki można włączyć, aktualizując `logging/logLevel` sekcjęhost.jsaplikacji funkcji ** w** pliku. Poniższy przykład pokazuje, jak włączyć dzienniki ostrzeżeń i błędów zarówno z poziomu programu `DurableTask.Core` , jak i `DurableTask.AzureStorage` :
+
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "logLevel": {
+      "DurableTask.AzureStorage": "Warning",
+      "DurableTask.Core": "Warning"
+    }
+  }
+}
+```
+
+Jeśli włączono Application Insights, te dzienniki będą automatycznie dodawane do `trace` kolekcji. Można wyszukiwać je w taki sam sposób, jak wyszukiwanie innych `trace` dzienników przy użyciu zapytań Kusto.
+
+> [!NOTE]
+> W przypadku aplikacji produkcyjnych zaleca się włączenie `DurableTask.Core` i wykonanie `DurableTask.AzureStorage` dzienników przy użyciu `"Warning"` filtru. Wyższe filtry szczegółowości, takie jak `"Information"` są bardzo przydatne do debugowania problemów z wydajnością. Jednak te zdarzenia dziennika są duże i mogą znacząco zwiększyć koszty magazynowania danych Application Insights.
+
+Poniższe zapytanie Kusto pokazuje, jak wykonywać zapytania dotyczące dzienników DTFx. Najważniejszym elementem zapytania jest `where customerDimensions.Category startswith "DurableTask"` ponieważ filtrowanie wyników do dzienników w `DurableTask.Core` `DurableTask.AzureStorage` kategorii i.
+
+```kusto
+traces
+| where customDimensions.Category startswith "DurableTask"
+| project
+    timestamp,
+    severityLevel,
+    Category = customDimensions.Category,
+    EventId = customDimensions.EventId,
+    message,
+    customDimensions
+| order by timestamp asc 
+```
+W wyniku tego powstaje zestaw dzienników zapisany przez dostawców dzienników trwałego struktury zadań.
+
+![Application Insights wyniki zapytania DTFx](./media/durable-functions-diagnostics/app-insights-dtfx.png)
+
+Aby uzyskać więcej informacji o tym, jakie zdarzenia dzienników są dostępne, zobacz [dokumentację dotyczącą rejestrowania strukturalnego struktury zadań w witrynie GitHub](https://github.com/Azure/durabletask/tree/master/src/DurableTask.Core/Logging#durabletaskcore-logging).
+
+## <a name="app-logging"></a>Rejestrowanie aplikacji
 
 Ważne jest, aby zachować zachowanie odtwarzania programu Orchestrator podczas pisania dzienników bezpośrednio z poziomu funkcji programu Orchestrator. Rozważmy na przykład następującą funkcję programu Orchestrator:
 
-### <a name="precompiled-c"></a>Wstępnie skompilowany plik C #
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -172,24 +220,7 @@ public static async Task Run(
 }
 ```
 
-### <a name="c-script"></a>Skrypt C#
-
-```csharp
-public static async Task Run(
-    IDurableOrchestrationContext context,
-    ILogger log)
-{
-    log.LogInformation("Calling F1.");
-    await context.CallActivityAsync("F1");
-    log.LogInformation("Calling F2.");
-    await context.CallActivityAsync("F2");
-    log.LogInformation("Calling F3");
-    await context.CallActivityAsync("F3");
-    log.LogInformation("Done!");
-}
-```
-
-### <a name="javascript-functions-20-only"></a>JavaScript (tylko funkcje 2,0)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -204,6 +235,26 @@ module.exports = df.orchestrator(function*(context){
     context.log("Done!");
 });
 ```
+
+# <a name="python"></a>[Python](#tab/python)
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    logging.info("Calling F1.")
+    yield context.call_activity("F1")
+    logging.info("Calling F2.")
+    yield context.call_activity("F2")
+    logging.info("Calling F3.")
+    yield context.call_activity("F3")
+    return None
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+---
 
 Wynikowe dane dziennika są podobne do następujących przykładowych danych wyjściowych:
 
@@ -223,9 +274,9 @@ Done!
 > [!NOTE]
 > Należy pamiętać, że podczas gdy usługa Logs wywołuje wywoływanie F1, F2 i F3, te funkcje są tylko *faktycznie* wywoływane przy pierwszym napotkaniu. Kolejne wywołania, które nastąpiły podczas powtarzania są pomijane, a dane wyjściowe są odtwarzane do logiki programu Orchestrator.
 
-Jeśli chcesz tylko zalogować się do wykonywania bez powtarzania, możesz napisać wyrażenie warunkowe do rejestrowania tylko wtedy, gdy `IsReplaying` jest to `false` . Rozważmy przykład powyżej, ale tym razem z testami powtarzania.
+Jeśli chcesz tylko zapisywać dzienniki dla wykonań, które nie są powtarzane, możesz napisać wyrażenie warunkowe do rejestrowania tylko wtedy, gdy flaga "jest odtwarzana" `false` . Rozważmy przykład powyżej, ale tym razem z testami powtarzania.
 
-#### <a name="precompiled-c"></a>Wstępnie skompilowany plik C #
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -243,40 +294,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="c"></a>C#
-
-```cs
-public static async Task Run(
-    IDurableOrchestrationContext context,
-    ILogger log)
-{
-    if (!context.IsReplaying) log.LogInformation("Calling F1.");
-    await context.CallActivityAsync("F1");
-    if (!context.IsReplaying) log.LogInformation("Calling F2.");
-    await context.CallActivityAsync("F2");
-    if (!context.IsReplaying) log.LogInformation("Calling F3");
-    await context.CallActivityAsync("F3");
-    log.LogInformation("Done!");
-}
-```
-
-#### <a name="javascript-functions-20-only"></a>JavaScript (tylko funkcje 2,0)
-
-```javascript
-const df = require("durable-functions");
-
-module.exports = df.orchestrator(function*(context){
-    if (!context.df.isReplaying) context.log("Calling F1.");
-    yield context.df.callActivity("F1");
-    if (!context.df.isReplaying) context.log("Calling F2.");
-    yield context.df.callActivity("F2");
-    if (!context.df.isReplaying) context.log("Calling F3.");
-    yield context.df.callActivity("F3");
-    context.log("Done!");
-});
-```
-
-Począwszy od Durable Functions 2,0, funkcje programu .NET Orchestrator mają również opcję tworzenia `ILogger` , która automatycznie filtruje instrukcje dziennika podczas odtwarzania. To automatyczne filtrowanie odbywa się przy użyciu `IDurableOrchestrationContext.CreateReplaySafeLogger(ILogger)` interfejsu API.
+Począwszy od Durable Functions 2,0, funkcje programu .NET Orchestrator mają również opcję tworzenia `ILogger` , która automatycznie filtruje instrukcje dziennika podczas odtwarzania. To automatyczne filtrowanie odbywa się przy użyciu interfejsu API [IDurableOrchestrationContext. CreateReplaySafeLogger (ILogger)](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.durablecontextextensions.createreplaysafelogger) .
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -295,6 +313,49 @@ public static async Task Run(
 }
 ```
 
+> [!NOTE]
+> Poprzednie przykłady w języku C# są przeznaczone dla Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableOrchestrationContext` zamiast `IDurableOrchestrationContext` . Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context){
+    if (!context.df.isReplaying) context.log("Calling F1.");
+    yield context.df.callActivity("F1");
+    if (!context.df.isReplaying) context.log("Calling F2.");
+    yield context.df.callActivity("F2");
+    if (!context.df.isReplaying) context.log("Calling F3.");
+    yield context.df.callActivity("F3");
+    context.log("Done!");
+});
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    if not context.is_replaying:
+        logging.info("Calling F1.")
+    yield context.call_activity("F1")
+    if not context.is_replaying:
+        logging.info("Calling F2.")
+    yield context.call_activity("F2")
+    if not context.is_replaying:
+        logging.info("Calling F3.")
+    yield context.call_activity("F3")
+    return None
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+---
+
 W przypadku powyższych zmian dane wyjściowe dziennika są następujące:
 
 ```txt
@@ -304,14 +365,11 @@ Calling F3.
 Done!
 ```
 
-> [!NOTE]
-> Poprzednie przykłady w języku C# są przeznaczone dla Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableOrchestrationContext` zamiast `IDurableOrchestrationContext` . Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
-
 ## <a name="custom-status"></a>Stan niestandardowy
 
-Stan aranżacji niestandardowej pozwala ustawić niestandardową wartość stanu dla funkcji programu Orchestrator. Ten stan jest dostarczany za pośrednictwem interfejsu API zapytania o stan HTTP lub `IDurableOrchestrationClient.GetStatusAsync` interfejsu API. Niestandardowy stan aranżacji umożliwia zaawansowane monitorowanie funkcji programu Orchestrator. Na przykład kod funkcji programu Orchestrator może obejmować `IDurableOrchestrationContext.SetCustomStatus` wywołania do aktualizowania postępu długotrwałej operacji. Klient, taki jak strona sieci Web lub inny system zewnętrzny, może następnie okresowo badać interfejsy API zapytań o stan HTTP w celu uzyskania bardziej szczegółowych informacji o postępie. Poniżej przedstawiono przykład użycia `IDurableOrchestrationContext.SetCustomStatus` :
+Stan aranżacji niestandardowej pozwala ustawić niestandardową wartość stanu dla funkcji programu Orchestrator. Ten stan niestandardowy jest następnie widoczny dla klientów zewnętrznych za pośrednictwem [interfejsu API zapytania o stan http](durable-functions-http-api.md#get-instance-status) lub wywołań interfejsu API specyficznych dla języka. Niestandardowy stan aranżacji umożliwia zaawansowane monitorowanie funkcji programu Orchestrator. Na przykład kod funkcji programu Orchestrator może wywołać interfejs API "Ustawianie stanu niestandardowego", aby zaktualizować postęp długotrwałej operacji. Klient, taki jak strona sieci Web lub inny system zewnętrzny, może następnie okresowo badać interfejsy API zapytań o stan HTTP w celu uzyskania bardziej szczegółowych informacji o postępie. Przykładowy kod służący do ustawiania niestandardowej wartości stanu w funkcji programu Orchestrator jest podany poniżej:
 
-### <a name="precompiled-c"></a>Wstępnie skompilowany plik C #
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("SetStatusTest")]
@@ -330,7 +388,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 > [!NOTE]
 > Poprzedni przykład w języku C# jest przeznaczony dla Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableOrchestrationContext` zamiast `IDurableOrchestrationContext` . Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
 
-### <a name="javascript-functions-20-only"></a>JavaScript (tylko funkcje 2,0)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -346,10 +404,32 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    # ...do work...
+
+    # update the status of the orchestration with some arbitrary data
+    custom_status = {'completionPercentage': 90.0, 'status': 'Updating database records'}
+    context.set_custom_status(custom_status)
+    # ...do more work...
+
+    return None
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+---
+
 Po uruchomieniu aranżacji klienci zewnętrzni mogą pobrać ten stan niestandardowy:
 
 ```http
-GET /admin/extensions/DurableTaskExtension/instances/instance123
+GET /runtime/webhooks/durabletask/instances/instance123?code=XYZ
 
 ```
 
@@ -379,9 +459,9 @@ Azure Functions obsługuje kod funkcji debugowania bezpośrednio, a ta sama obs�
 * **Zatrzymywanie i uruchamianie**: komunikaty w trwałych funkcjach utrzymują się między sesjami debugowania. Jeśli zatrzymasz debugowanie i zakończy proces hosta lokalnego podczas wykonywania trwałej funkcji, ta funkcja może zostać ponownie wykonana automatycznie w przyszłej sesji debugowania. Takie zachowanie może być mylące, gdy nie jest oczekiwane. Czyszczenie wszystkich komunikatów z [wewnętrznych kolejek magazynu](durable-functions-perf-and-scale.md#internal-queue-triggers) między sesjami debugowania jest jedną techniką, aby uniknąć tego zachowania.
 
 > [!TIP]
-> Jeśli ustawienia punktów przerwania w funkcjach programu Orchestrator mają być przerywane tylko przy wykonywaniu niepowtarzania, można ustawić punkt przerwania warunkowego, który działa tylko wtedy, gdy `IsReplaying` jest to `false` .
+> Jeśli ustawienia punktów przerwania w funkcjach programu Orchestrator mają być przerywane tylko przy wykonywaniu bez powtarzania, można ustawić warunkowy punkt przerwania, który jest dzielony tylko wtedy, gdy wartość "jest odtwarzana" `false` .
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Magazyn
 
 Domyślnie magazyny Durable Functions są przechowywane w usłudze Azure Storage. To zachowanie oznacza, że można sprawdzić stan swoich aranżacji przy użyciu narzędzi, takich jak [Eksplorator usługi Microsoft Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 

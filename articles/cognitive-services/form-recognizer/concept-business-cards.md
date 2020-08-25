@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 8519daffd8ee0ad6c12be2f40fd8030caaaf34c8
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 1c9e40738d70b6fbb9fed267a6a047d8330023b7
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724999"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749294"
 ---
 # <a name="business-card-concepts"></a>Pojęcia związane z kartami biznesowymi
 
@@ -69,6 +69,8 @@ Drugim krokiem jest wywołanie operacji [Pobierz wyniki analizy karty biznesowej
 | |  | powodzenie: operacja analizy zakończyła się pomyślnie. |
 
 Gdy wartość w polu **stan** zostanie **zakończona pomyślnie** , odpowiedź JSON będzie zawierać zrozumienie i wyniki rozpoznawania tekstu. Wynik zrozumienie karty biznesowej jest zorganizowany jako słownik nazwanych wartości pól, gdzie każda wartość zawiera wyodrębniony tekst, znormalizowana wartość, pole ograniczenia, pewność i odpowiadające im elementy programu Word. Wynik rozpoznawania tekstu jest zorganizowany jako hierarchia wierszy i słów, z tekstem, obwiednią i informacjami o ufności.
+
+![Wyniki smample firmy Contoso](./media/business-card-results.png)
 
 ### <a name="sample-json-output"></a>Przykładowe dane wyjściowe JSON
 
@@ -374,7 +376,7 @@ Zobacz następujący przykład pomyślnej odpowiedzi JSON: węzeł "readResults"
 }
 ```
 
-Postępuj zgodnie z instrukcjami [Wyodrębnij dane karty biznesowej](./QuickStarts/python-business-cards.md) — Szybki Start, aby zaimplementować wyodrębnianie danych z kart służbowych przy użyciu języka Python i interfejsu API REST.
+Postępuj zgodnie z przewodnikiem Szybki Start dotyczący [wyodrębniania](./QuickStarts/python-business-cards.md) danych z kart służbowych przy użyciu języka Python i interfejsu API REST.
 
 ## <a name="customer-scenarios"></a>Scenariusze klientów  
 

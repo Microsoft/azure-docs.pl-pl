@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 15ba0d4b77461d77a2d0b89ecc9e411a105d49d2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 914c3128805c9875249bb1998fcdb6e456e73b16
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495639"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799319"
 ---
 # <a name="table-statistics-in-synapse-sql-pool"></a>Statystyka tabeli w puli SQL Synapse
 
@@ -149,6 +149,9 @@ left join
 on objIdsWithStats.object_id = actualRowCounts.object_id
 
 ```
+
+>[!TIP]
+> Aby zwiększyć wydajność w programie Synapse SQL, należy rozważyć użycie **tabeli sys. pdw_permanent_table_mappings** zamiast **sys. pdw_table_mappings** w tabelach trwałych użytkowników. Aby uzyskać więcej informacji, zobacz sekcję **[sys. pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
 
 **Zapytanie 2:** Zapoznaj się z wiekiem statystyk, sprawdzając czas ostatniej aktualizacji statystyk w każdej tabeli. 
 
@@ -539,7 +542,7 @@ AND     st.[user_created] = 1
 
 Polecenie DBCC SHOW_STATISTICS () pokazuje dane przechowywane w obiekcie statystyk. Te dane wchodzą w skład trzech części:
 
-- Nagłówek
+- Header
 - Wektor gęstości
 - Histogram
 

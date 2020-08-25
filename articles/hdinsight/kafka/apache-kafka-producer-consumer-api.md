@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/19/2020
 ms.openlocfilehash: 260a3fbb8486a1e9eeaa87e920143615e5fae867
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83681820"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Samouczek: korzystanie z interfejsów API producentów i odbiorców platformy Apache Kafka
@@ -21,7 +21,7 @@ Informacje o sposobie korzystania z interfejsów API producentów i odbiorców p
 
 Interfejs API producenta platformy Kafka umożliwia aplikacjom wysyłanie strumieni danych do klastra Kafka. Interfejs API odbiorcy platformy Kafka umożliwia aplikacjom odczytywanie strumieni danych z klastra.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Wymagania wstępne
@@ -135,7 +135,7 @@ Jeśli chcesz pominąć ten krok, prekompilowane Jars można pobrać z `Prebuilt
     mvn clean package
     ```
 
-    To polecenie tworzy katalog o nazwie `target`, który zawiera plik o nazwie `kafka-producer-consumer-1.0-SNAPSHOT.jar`. W przypadku klastrów ESP plik zostanie`kafka-producer-consumer-esp-1.0-SNAPSHOT.jar`
+    To polecenie tworzy katalog o nazwie `target`, który zawiera plik o nazwie `kafka-producer-consumer-1.0-SNAPSHOT.jar`. W przypadku klastrów ESP plik zostanie `kafka-producer-consumer-esp-1.0-SNAPSHOT.jar`
 
 3. Zamień ciąg `sshuser` na nazwę użytkownika SSH klastra i zamień ciąg `CLUSTERNAME` na nazwę klastra. Wprowadź następujące polecenie, aby skopiować `kafka-producer-consumer-1.0-SNAPSHOT.jar` plik do klastra usługi HDInsight. Po wyświetleniu monitu wprowadź hasło użytkownika SSH.
 
@@ -143,7 +143,7 @@ Jeśli chcesz pominąć ten krok, prekompilowane Jars można pobrać z `Prebuilt
     scp ./target/kafka-producer-consumer*.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
     ```
 
-## <a name="run-the-example"></a><a id="run"></a>Uruchamianie przykładu
+## <a name="run-the-example"></a><a id="run"></a> Uruchamianie przykładu
 
 1. Zamień ciąg `sshuser` na nazwę użytkownika SSH klastra i zamień ciąg `CLUSTERNAME` na nazwę klastra. Otwórz połączenie SSH z klastrem, wprowadzając następujące polecenie. Jeśli zostanie wyświetlony monit, wprowadź hasło konta użytkownika SSH.
 
@@ -221,7 +221,7 @@ Rekordy przechowywane w Kafka są przechowywane w kolejności, w jakiej są odbi
 
 2. **Problem z problemem z klastrami z obsługą ESP** Jeśli operacje tworzenia i zużywania nie powiodą się i jest używany klaster obsługujący ESP, sprawdź, czy użytkownik `kafka` jest obecny we wszystkich zasadach Ranger. Jeśli go nie ma, Dodaj go do wszystkich zasad Rangerymi.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Aby wyczyścić zasoby utworzone w tym samouczku, możesz usunąć grupę zasobów. Usunięcie grupy zasobów powoduje również usunięcie skojarzonego klastra usługi HDInsight i wszystkich innych zasobów skojarzonych z tą grupą zasobów.
 

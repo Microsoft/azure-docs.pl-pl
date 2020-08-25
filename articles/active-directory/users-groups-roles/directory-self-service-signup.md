@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d52384f04fd8a2a2bc3c42af713378ad15d01c42
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 3ec578370d32664e36ffcc4bd075c3f6a3ed68ab
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192702"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795348"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>Co to jest samoobsługowe rejestrowanie się w Azure Active Directory?
 
@@ -64,7 +64,7 @@ Jeśli powyższe warunki są spełnione, wówczas użytkownik będący członkie
 Aby uzyskać więcej informacji na temat usługi Flow i logowania w wersji próbnej usługi PowerApps, zobacz następujące artykuły:
 
 * [Jak uniemożliwić istniejącym użytkownikom rozpoczynanie korzystania z usługi Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
-* [Usługa Flow w organizacji — pytania i odpowiedzi](https://docs.microsoft.com/flow/organization-q-and-a)
+* [Usługa Flow w organizacji — pytania i odpowiedzi](/flow/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>Jak formanty współpracują ze sobą?
 Te dwa parametry mogą być używane w połączeniu do definiowania bardziej precyzyjnej kontroli nad rejestracją samoobsługową. Na przykład następujące polecenie umożliwi użytkownikom wykonywanie rejestracji samoobsługowej, ale tylko wtedy, gdy Ci użytkownicy mają już konto w usłudze Azure AD (innymi słowy, użytkownicy, którzy chcą utworzyć konto zweryfikowane pocztą e-mail do utworzenia, nie mogą wykonać rejestracji samoobsługowej):

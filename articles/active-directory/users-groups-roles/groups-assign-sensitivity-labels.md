@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f80b986a9d1a3b2be9aa413ce4175d8eb88bc4
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 46d692b81d24b6c5088ffc42644ed1dd7f45b2d2
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213827"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795316"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Przypisywanie etykiet czułości do grup Microsoft 365 w Azure Active Directory
 
-Azure Active Directory (Azure AD) obsługuje stosowanie etykiet liter opublikowanych przez [Centrum zgodności Microsoft 365](https://sip.protection.office.com/homepage) do Microsoft 365 grup. Etykiety czułości dotyczą grup różnych usług, takich jak Outlook, Microsoft Teams i SharePoint. Ta funkcja jest obecnie ogólnie dostępna. Aby uzyskać więcej informacji o obsłudze aplikacji pakietu Office 365, zobacz temat [Obsługa etykiet o czułości przez pakiet office 365](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
+Azure Active Directory (Azure AD) obsługuje stosowanie etykiet liter opublikowanych przez [Centrum zgodności Microsoft 365](https://sip.protection.office.com/homepage) do Microsoft 365 grup. Etykiety czułości dotyczą grup różnych usług, takich jak Outlook, Microsoft Teams i SharePoint. Ta funkcja jest obecnie ogólnie dostępna. Aby uzyskać więcej informacji o obsłudze aplikacji pakietu Office 365, zobacz temat [Obsługa etykiet o czułości przez pakiet office 365](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
 
 > [!IMPORTANT]
 > Aby skonfigurować tę funkcję, musi mieć co najmniej jedną aktywną licencję Azure Active Directory — wersja Premium P1 w organizacji usługi Azure AD.
@@ -48,7 +48,7 @@ Aby zastosować opublikowane etykiety do grup, należy najpierw włączyć tę f
     ```
 
     > [!NOTE]
-    > Jeśli nie utworzono żadnych ustawień grupy dla tej organizacji usługi Azure AD, musisz najpierw utworzyć ustawienia. Wykonaj kroki opisane w temacie [polecenia cmdlet Azure Active Directory, aby skonfigurować ustawienia grupy](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-settings-cmdlets) w celu utworzenia ustawień grupy dla tej organizacji usługi Azure AD.
+    > Jeśli nie utworzono żadnych ustawień grupy dla tej organizacji usługi Azure AD, musisz najpierw utworzyć ustawienia. Wykonaj kroki opisane w temacie [polecenia cmdlet Azure Active Directory, aby skonfigurować ustawienia grupy](./groups-settings-cmdlets.md) w celu utworzenia ustawień grupy dla tej organizacji usługi Azure AD.
 
 1. Następnie Wyświetl bieżące ustawienia grupy.
 
@@ -145,7 +145,7 @@ Jeśli musisz wprowadzić zmianę, użyj [skryptu programu PowerShell usługi Az
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Korzystanie z etykiet czułości z firmą Microsoft Teams, grupami Microsoft 365 i witrynami programu SharePoint](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
+- [Korzystanie z etykiet czułości z firmą Microsoft Teams, grupami Microsoft 365 i witrynami programu SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
 - [Ręcznie Aktualizuj grupy po zmianie zasad etykiet przy użyciu skryptu programu PowerShell usługi Azure AD](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1)
-- [Edytowanie ustawień grupy](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal)
-- [Zarządzanie grupami przy użyciu poleceń programu PowerShell](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-settings-v2-cmdlets)
+- [Edytowanie ustawień grupy](../fundamentals/active-directory-groups-settings-azure-portal.md)
+- [Zarządzanie grupami przy użyciu poleceń programu PowerShell](./groups-settings-v2-cmdlets.md)

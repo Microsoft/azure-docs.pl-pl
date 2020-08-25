@@ -8,10 +8,10 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
 ms.openlocfilehash: cfc3c445595bec046de4256a57d566067fe3d29e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82692438"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Sprawdzanie metryk przepływności i opóźnień dla konta magazynu
@@ -58,7 +58,7 @@ Wykresy mogą mieć przypisaną więcej niż jedną metrykę, ale przypisanie wi
 
 ![Metryki konta magazynu — transakcje](./media/storage-blob-scalable-app-verify-metrics/transactions.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć. W tym celu wybierz grupę zasobów maszyny wirtualnej i kliknij pozycję Usuń.
 

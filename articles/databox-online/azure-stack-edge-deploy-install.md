@@ -10,10 +10,10 @@ ms.date: 01/17/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge in datacenter so I can use it to transfer data to Azure.
 ms.openlocfilehash: 429fe0c4db4a7825a6a98aa5d2cd6af609a34a61
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82571000"
 ---
 # <a name="tutorial-install-azure-stack-edge"></a>Samouczek: Instalowanie Azure Stack Edge
@@ -22,7 +22,7 @@ W tym samouczku opisano sposób instalowania urządzenia fizycznego Azure Stack 
 
 Instalacja może potrwać około dwóch godzin.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Rozpakowywanie urządzenia

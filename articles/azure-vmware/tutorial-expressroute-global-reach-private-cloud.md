@@ -1,18 +1,18 @@
 ---
 title: Równorzędne środowiska lokalne z chmurą prywatną
-description: W tym samouczku rozwiązania Azure VMware (Automatyczna synchronizacja) można utworzyć ExpressRoute Global Reach komunikację równorzędną z chmurą prywatną w systemie.
+description: W tym samouczku dotyczącym rozwiązań VMware platformy Azure utworzysz ExpressRoute Global Reach komunikację równorzędną z chmurą prywatną w rozwiązaniu VMware platformy Azure.
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.openlocfilehash: a9a002eab3219a0db74062570d31595bfcc0d6a3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: db3f5988cb8c07d9b6e80f500ac6aff8f96dfded
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101679"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750447"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Samouczek: środowiska lokalne w chmurze do chmury prywatnej
 
-ExpressRoute Global Reach nawiązuje połączenie środowiska lokalnego z chmurami prywatnymi. Połączenie ExpressRoute Global Reach jest ustanawiane między obwodem prywatnej chmury ExpressRoute a istniejącym połączeniem ExpressRoute ze środowiskami lokalnymi.  Istnieją instrukcje dotyczące konfigurowania ExpressRoute Global Reach przy użyciu interfejsu wiersza polecenia platformy Azure i programu PowerShell, a ponadto zostały rozszerzone [polecenia CLI](../expressroute/expressroute-howto-set-global-reach-cli.md) z określonymi szczegółami i przykładami, które ułatwiają konfigurowanie ExpressRoute Global REACH komunikacji równorzędnej między środowiskami lokalnymi a chmurą prywatną rozwiązania Azure VMware (Automatyczna synchronizacja).   
+ExpressRoute Global Reach nawiązuje połączenie środowiska lokalnego z chmurami prywatnymi. Połączenie ExpressRoute Global Reach jest ustanawiane między obwodem prywatnej chmury ExpressRoute a istniejącym połączeniem ExpressRoute ze środowiskami lokalnymi.  Istnieją instrukcje dotyczące konfigurowania ExpressRoute Global Reach przy użyciu interfejsu wiersza polecenia platformy Azure i programu PowerShell, a ponadto zostały rozszerzone [polecenia CLI](../expressroute/expressroute-howto-set-global-reach-cli.md) zawierające szczegółowe informacje i przykłady ułatwiające skonfigurowanie komunikacji równorzędnej ExpressRoute Global REACH między środowiskami lokalnymi a chmurą prywatną rozwiązania Azure VMware.   
 
 Przed włączeniem łączności między dwoma obwodami usługi ExpressRoute przy użyciu usługi ExpressRoute Global Reach zapoznaj się z dokumentacją dotyczącą sposobu [włączania łączności w różnych subskrypcjach platformy Azure](../expressroute/expressroute-howto-set-global-reach-cli.md#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions).  Obwód usługi ExpressRoute, który jest używany podczas [konfigurowania sieci Azure-to-Private w chmurze](tutorial-configure-networking.md) , wymaga tworzenia i używania kluczy autoryzacji podczas komunikacji równorzędnej z bramami ExpressRoute lub z innymi obwodami ExpressRoute przy użyciu Global REACH. Już użyto jednego klucza autoryzacji z obwodu usługi ExpressRoute i utworzysz drugi element do komunikacji równorzędnej z lokalnym obwodem usługi ExpressRoute.
 
@@ -33,19 +33,19 @@ Wymagania wstępne dotyczące tego samouczka:
 - Oddzielny, działający obwód ExpressRoute używany do łączenia środowisk lokalnych z platformą Azure — jest to _obwód 1_ z perspektywy procedur komunikacji równorzędnej.
 - /29 nienakładający się [blok adresów sieciowych](../expressroute/expressroute-routing.md#ip-addresses-used-for-peerings) dla komunikacji równorzędnej ExpressRoute Global REACH.
 
-## <a name="create-an-expressroute-authorization-key-in-the-avs-private-cloud"></a>Utwórz klucz autoryzacji ExpressRoute w chmurze prywatnej automatycznej synchronizacji
+## <a name="create-an-expressroute-authorization-key-in-the-azure-vmware-solution-private-cloud"></a>Tworzenie klucza autoryzacji ExpressRoute w chmurze prywatnej rozwiązania Azure VMware
 
 1. W obszarze **zarządzanie chmurą prywatną w obszarze**Zarządzaj wybierz pozycję **łączność > ExpressRoute > zażądać klucza autoryzacji**.
 
-   :::image type="content" source="media/expressroute-global-reach/start-request-auth-key.png" alt-text="Wybierz pozycję łączność > ExpressRoute > zażądać klucza autoryzacji, aby rozpocząć nowe żądanie":::
+   :::image type="content" source="media/expressroute-global-reach/start-request-auth-key.png" alt-text="Wybierz pozycję łączność > ExpressRoute > zażądać klucza autoryzacji, aby rozpocząć nowe żądanie.":::
 
 2. Wprowadź nazwę klucza autoryzacji i wybierz pozycję **Utwórz**. 
 
-   :::image type="content" source="media/expressroute-global-reach/create-global-reach-auth-key.png" alt-text="Kliknij przycisk Utwórz, aby utworzyć nowy klucz autoryzacji.":::
+   :::image type="content" source="media/expressroute-global-reach/create-global-reach-auth-key.png" alt-text="Kliknij przycisk Utwórz, aby utworzyć nowy klucz autoryzacji. ":::
 
    Po utworzeniu nowy klucz zostanie wyświetlony na liście kluczy autoryzacji dla chmury prywatnej. 
 
-   :::image type="content" source="media/expressroute-global-reach/show-global-reach-auth-key.png" alt-text="Upewnij się, że nowy klucz autoryzacji pojawia się na liście kluczy dla chmury prywatnej.":::
+   :::image type="content" source="media/expressroute-global-reach/show-global-reach-auth-key.png" alt-text="Upewnij się, że nowy klucz autoryzacji pojawia się na liście kluczy dla chmury prywatnej. ":::
 
 3. Zanotuj klucz autoryzacji i identyfikator ExpressRoute wraz z blokiem adresów/29. Będziesz ich używać w następnym kroku do kończenia komunikacji równorzędnej. 
 

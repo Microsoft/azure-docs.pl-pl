@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 08/04/2020
-ms.openlocfilehash: 3e37d907d00acd3e2b368700b70b4e268bad3ec9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 5fd835418a8429fa07325c22b106ee675ba3e2e1
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921949"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756728"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Zautomatyzowane kopie zapasowe — Azure SQL Database & wystąpienia zarządzane SQL
 
@@ -36,14 +36,12 @@ Podczas przywracania bazy danych usługa określa, które pełne, różnicowe i 
 
 ### <a name="backup-storage-redundancy"></a>Nadmiarowość magazynu kopii zapasowych
 
-> [!IMPORTANT]
-> Konfigurowalna nadmiarowość magazynu dla kopii zapasowych jest obecnie dostępna tylko dla wystąpienia zarządzanego SQL i może być określona tylko podczas procesu tworzenia wystąpienia zarządzanego. Po zainicjowaniu obsługi administracyjnej zasobu nie można zmienić opcji nadmiarowości magazynu kopii zapasowej.
+Domyślnie, SQL Database i wystąpienia zarządzane SQL przechowują dane w [magazynach obiektów BLOB](../../storage/common/storage-redundancy.md) geograficznie nadmiarowych (RA-GRS), które są replikowane do [sparowanego regionu](../../best-practices-availability-paired-regions.md). Ułatwia to ochronę przed awariami magazynu kopii zapasowych w regionie podstawowym i umożliwia przywrócenie serwera do innego regionu w przypadku awarii. 
 
-Opcja konfigurowania nadmiarowości magazynu kopii zapasowych zapewnia elastyczność wyboru między obiektami BLOB (LRS), strefami nadmiarowymi (ZRS) lub geograficznie nadmiarowymi (RA-GRS) [magazynu](../../storage/common/storage-redundancy.md). Mechanizmy nadmiarowości magazynu przechowują wiele kopii danych w taki sposób, aby były chronione przed planowanymi i nieplanowanymi zdarzeniami, w tym przejściowym awariami sprzętowymi, siecią lub przestojem lub bardzo naturalnymi katastrofami. Ta funkcja jest obecnie dostępna tylko dla wystąpienia zarządzanego SQL.
+Wystąpienie zarządzane SQL wprowadza możliwość zmiany nadmiarowości magazynu na lokalnie nadmiarowy (LRS) lub obiekty blob magazynu strefowo nadmiarowe (ZRS), aby upewnić się, że dane pozostają w tym samym regionie, w którym wdrożono wystąpienie zarządzane. Mechanizmy nadmiarowości magazynu przechowują wiele kopii danych w taki sposób, aby były chronione przed planowanymi i nieplanowanymi zdarzeniami, w tym przejściowym awariami sprzętowymi, siecią lub przestojem lub bardzo naturalnymi katastrofami. 
 
-Obiekty blob magazynu RA-GRS są replikowane do [sparowanego regionu](../../best-practices-availability-paired-regions.md) w celu ochrony przed awariami magazynu kopii zapasowych w regionie podstawowym i umożliwiają przywrócenie serwera do innego regionu w przypadku awarii. 
+Opcja konfigurowania nadmiarowości magazynu kopii zapasowych zapewnia elastyczność wybierania obiektów blob magazynu LRS, ZRS lub RA-GRS dla wystąpienia zarządzanego SQL. Skonfiguruj nadmiarowość magazynu kopii zapasowych podczas procesu tworzenia wystąpienia zarządzanego, jak po zainicjowaniu obsługi administracyjnej zasobu nie można już zmieniać nadmiarowości magazynu. (Magazyn strefowo nadmiarowy (ZRS) jest obecnie dostępny tylko w [niektórych regionach](../../storage/common/storage-redundancy.md#zone-redundant-storage)).
 
-Z kolei obiekty blob magazynu LRS i ZRS zapewniają, że dane pozostają w tym samym regionie, w którym wdrożono SQL Database lub wystąpienie zarządzane SQL. Magazyn strefowo nadmiarowy (ZRS) jest obecnie dostępny tylko w [niektórych regionach](../../storage/common/storage-redundancy.md#zone-redundant-storage)).
 
 > [!IMPORTANT]
 > W wystąpieniu zarządzanym SQL konfiguracja nadmiarowości kopii zapasowej jest stosowana zarówno do krótkoterminowych ustawień przechowywania kopii zapasowych, które są używane do przywracania do punktu w czasie (kopie), jak i długoterminowego przechowywania kopii zapasowych używanych do długoterminowych kopii zapasowych (LTR).
@@ -116,7 +114,7 @@ Użycie magazynu kopii zapasowej do maksymalnego rozmiaru danych dla bazy danych
 - Należy używać bazy danych TempDB zamiast trwałych tabel w logice aplikacji do przechowywania tymczasowych wyników i/lub danych przejściowych.
 - Użyj lokalnie nadmiarowego magazynu kopii zapasowych zawsze wtedy, gdy jest to możliwe (na przykład środowiska deweloperskie/testowe)
 
-## <a name="backup-retention"></a>Przechowywanie kopii zapasowych
+## <a name="backup-retention"></a>Przechowywanie kopii zapasowej
 
 W przypadku wszystkich nowych, przywróconych i kopiowanych baz danych Azure SQL Database i wystąpienie zarządzane SQL Azure zachowują wystarczające kopie zapasowe, aby domyślnie zezwolić na kopie w ciągu ostatnich 7 dni. Z wyjątkiem baz danych ze skalowaniem można [zmienić okres przechowywania kopii zapasowej](#change-the-pitr-backup-retention-period) dla każdej aktywnej bazy danych w 1-35 dzień. Zgodnie z opisem w temacie [użycie magazynu kopii zapasowych](#backup-storage-consumption), kopie zapasowe przechowywane w celu włączenia kopie mogą być starsze niż okres przechowywania. Tylko w przypadku wystąpienia zarządzanego Azure SQL można ustawić szybkość przechowywania kopii zapasowych kopie po usunięciu bazy danych w zakresie 0-35 dni. 
 
@@ -194,7 +192,7 @@ Dodaj filtr dla **nazwy usługi**, a następnie na liście rozwijanej wybierz po
 
 ## <a name="encrypted-backups"></a>Szyfrowane kopie zapasowe
 
-Jeśli baza danych jest zaszyfrowana przy użyciu programu TDE, kopie zapasowe są automatycznie szyfrowane w stanie spoczynku, łącznie z kopiami zapasowymi LTR. Wszystkie nowe bazy danych w usłudze Azure SQL są domyślnie skonfigurowane z włączoną funkcją TDE. Aby uzyskać więcej informacji na temat TDE, zobacz [transparent Data Encryption z SQL Database & wystąpienie zarządzane SQL](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+Jeśli baza danych jest zaszyfrowana przy użyciu programu TDE, kopie zapasowe są automatycznie szyfrowane w stanie spoczynku, łącznie z kopiami zapasowymi LTR. Wszystkie nowe bazy danych w usłudze Azure SQL są domyślnie skonfigurowane z włączoną funkcją TDE. Aby uzyskać więcej informacji na temat TDE, zobacz  [transparent Data Encryption z SQL Database & wystąpienie zarządzane SQL](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 ## <a name="backup-integrity"></a>Integralność kopii zapasowych
 

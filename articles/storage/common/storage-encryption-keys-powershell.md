@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 08/24/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: a3fdde755a5e024efead5c8861a1d5cd769b6d23
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1c928056ec0e7b101d991c8d8c8db3bd659251ba
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036832"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799132"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Konfigurowanie kluczy zarządzanych przez klienta za pomocą Azure Key Vault przy użyciu programu PowerShell
 
@@ -81,13 +81,16 @@ Szyfrowanie za pomocą usługi Azure Storage obsługuje klucze RSA i RSA-HSM o r
 
 Domyślnie szyfrowanie usługi Azure Storage używa kluczy zarządzanych przez firmę Microsoft. W tym kroku Skonfiguruj konto usługi Azure Storage do używania kluczy zarządzanych przez klienta z usługą Azure Key Vault, a następnie określ klucz, który ma zostać skojarzony z kontem magazynu.
 
-Podczas konfigurowania szyfrowania przy użyciu kluczy zarządzanych przez klienta można automatycznie obrócić klucz używany do szyfrowania, gdy wersja zostanie zmieniona w skojarzonym magazynie kluczy. Alternatywnie można jawnie określić wersję klucza do użycia podczas szyfrowania, dopóki wersja klucza nie zostanie zaktualizowana ręcznie.
+Podczas konfigurowania szyfrowania przy użyciu kluczy zarządzanych przez klienta można wybrać opcję automatycznej aktualizacji klucza używanego do szyfrowania, gdy wersja klucza zostanie zmieniona w skojarzonym magazynie kluczy. Alternatywnie można jawnie określić wersję klucza do użycia podczas szyfrowania, dopóki wersja klucza nie zostanie zaktualizowana ręcznie.
 
-### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>Konfigurowanie szyfrowania na potrzeby automatycznego rotacji kluczy zarządzanych przez klienta
+> [!NOTE]
+> Aby obrócić klucz, Utwórz nową wersję klucza w Azure Key Vault. Usługa Azure Storage nie obsługuje rotacji klucza w Azure Key Vault, więc musisz ręcznie obrócić klucz lub utworzyć funkcję, aby obrócić ją zgodnie z harmonogramem.
 
-Aby skonfigurować szyfrowanie automatycznego rotacji kluczy zarządzanych przez klienta, zainstaluj moduł [AZ. Storage](https://www.powershellgallery.com/packages/Az.Storage) w wersji 2.0.0 lub nowszej.
+### <a name="configure-encryption-to-automatically-update-the-key-version"></a>Skonfiguruj szyfrowanie, aby automatycznie aktualizować wersję klucza
 
-Aby automatycznie obrócić klucze zarządzane przez klienta, należy pominąć wersję klucza podczas konfigurowania kluczy zarządzanych przez klienta dla konta magazynu. Wywołaj polecenie [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) , aby zaktualizować ustawienia szyfrowania konta magazynu, jak pokazano w poniższym przykładzie, i Dołącz opcję **-KeyvaultEncryption** , aby włączyć klucze zarządzane przez klienta dla konta magazynu. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami i użyć zmiennych zdefiniowanych w poprzednich przykładach.
+Aby skonfigurować szyfrowanie przy użyciu kluczy zarządzanych przez klienta w celu automatycznej aktualizacji wersji klucza, zainstaluj moduł [AZ. Storage](https://www.powershellgallery.com/packages/Az.Storage) w wersji 2.0.0 lub nowszej.
+
+Aby automatycznie zaktualizować wersję klucza dla klucza zarządzanego przez klienta, należy pominąć wersję klucza podczas konfigurowania szyfrowania z kluczami zarządzanymi przez klienta dla konta magazynu. Wywołaj polecenie [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) , aby zaktualizować ustawienia szyfrowania konta magazynu, jak pokazano w poniższym przykładzie, i Dołącz opcję **-KeyvaultEncryption** , aby włączyć klucze zarządzane przez klienta dla konta magazynu. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami i użyć zmiennych zdefiniowanych w poprzednich przykładach.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -97,7 +100,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
-### <a name="configure-encryption-for-manual-rotation-of-key-versions"></a>Konfigurowanie szyfrowania do ręcznego rotacji wersji kluczowych
+### <a name="configure-encryption-for-manual-updating-of-key-versions"></a>Skonfiguruj szyfrowanie dla ręcznej aktualizacji wersji kluczy
 
 Aby jawnie określić wersję klucza do użycia na potrzeby szyfrowania, należy podać wersję klucza podczas konfigurowania szyfrowania przy użyciu kluczy zarządzanych przez klienta dla konta magazynu. Wywołaj polecenie [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) , aby zaktualizować ustawienia szyfrowania konta magazynu, jak pokazano w poniższym przykładzie, i Dołącz opcję **-KeyvaultEncryption** , aby włączyć klucze zarządzane przez klienta dla konta magazynu. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami i użyć zmiennych zdefiniowanych w poprzednich przykładach.
 
@@ -110,7 +113,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
-Po ręcznym obróceniu wersji klucza należy zaktualizować ustawienia szyfrowania konta magazynu, aby użyć nowej wersji. Najpierw należy wywołać polecenie [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) , aby uzyskać najnowszą wersję klucza. Następnie Wywołaj polecenie [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) , aby zaktualizować ustawienia szyfrowania konta magazynu tak, aby korzystały z nowej wersji klucza, jak pokazano w poprzednim przykładzie.
+W przypadku ręcznej aktualizacji wersji klucza należy zaktualizować ustawienia szyfrowania konta magazynu, aby użyć nowej wersji. Najpierw należy wywołać polecenie [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) , aby uzyskać najnowszą wersję klucza. Następnie Wywołaj polecenie [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) , aby zaktualizować ustawienia szyfrowania konta magazynu tak, aby korzystały z nowej wersji klucza, jak pokazano w poprzednim przykładzie.
 
 ## <a name="use-a-different-key"></a>Użyj innego klucza
 

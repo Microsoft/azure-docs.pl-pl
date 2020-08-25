@@ -3,18 +3,18 @@ title: Tworzenie kopii zapasowych udziałów plików platformy Azure przy użyci
 description: Dowiedz się, jak używać interfejsu wiersza polecenia platformy Azure do tworzenia kopii zapasowych udziałów plików platformy Azure w magazynie Recovery Services
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 273c8fadc25ed60ba9fb57ec69bda0b59f155f87
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9afd1e866c85770a8797493c3f89e531e2ef72fc
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514445"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763256"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Tworzenie kopii zapasowych udziałów plików platformy Azure przy użyciu interfejsu wiersza polecenia
 
 Interfejs wiersza polecenia platformy Azure udostępnia środowisko wiersza polecenia do zarządzania zasobami platformy Azure. To doskonałe narzędzie do tworzenia niestandardowych automatyzacji do korzystania z zasobów platformy Azure. W tym artykule szczegółowo opisano sposób tworzenia kopii zapasowych udziałów plików platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure. Te kroki można również wykonać przy użyciu programu [Azure PowerShell](./backup-azure-afs-automation.md) lub w witrynie [Azure Portal](backup-afs.md).
 
-Po zakończeniu tego samouczka dowiesz się, jak wykonać poniższe operacje za pomocą interfejsu wiersza polecenia platformy Azure:
+Po zakończeniu tego samouczka dowiesz się, jak wykonać poniższe operacje przy użyciu interfejsu wiersza polecenia platformy Azure:
 
 * Tworzenie magazynu usługi Recovery Services
 * Włącz tworzenie kopii zapasowych dla udziałów plików platformy Azure
@@ -24,11 +24,11 @@ Po zakończeniu tego samouczka dowiesz się, jak wykonać poniższe operacje za 
 
 Aby zainstalować interfejs wiersza polecenia lokalnie i korzystać z niego, należy korzystać z interfejsu wiersza polecenia platformy Azure w wersji 2.0.18 lub nowszej. Aby znaleźć wersję interfejsu wiersza polecenia, `run az --version` . Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu Recovery Services
+## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
 
-Magazyn usługi Recovery Service jest jednostką, która zapewnia skonsolidowany widok i możliwość zarządzania w ramach wszystkich elementów kopii zapasowej. Gdy zadanie tworzenia kopii zapasowej chronionego zasobu zostaje uruchomione, tworzony jest punkt odzyskiwania w magazynie usługi Recovery Services. Następnie można użyć jednego z tych punktów odzyskiwania w celu przywrócenia danych do danego punktu w czasie.
+Magazyn Recovery Services jest jednostką, która zapewnia skonsolidowany widok i możliwość zarządzania w ramach wszystkich elementów kopii zapasowej. Gdy zadanie tworzenia kopii zapasowej chronionego zasobu zostaje uruchomione, tworzony jest punkt odzyskiwania w magazynie usługi Recovery Services. Następnie można użyć jednego z tych punktów odzyskiwania w celu przywrócenia danych do danego punktu w czasie.
 
-Wykonaj następujące kroki, aby utworzyć magazyn usługi Recovery Services:
+Wykonaj następujące kroki, aby utworzyć magazyn Recovery Services:
 
 1. Magazyn znajduje się w grupie zasobów. Jeśli nie masz istniejącej grupy zasobów, Utwórz nową przy użyciu [AZ Group Create](/cli/azure/group?view=azure-cli-latest#az-group-create) . W tym samouczku utworzymy nową grupę zasobów *migracji pamięci* w regionie Wschodnie stany USA.
 
@@ -44,7 +44,7 @@ Wykonaj następujące kroki, aby utworzyć magazyn usługi Recovery Services:
 
 1. Użyj polecenia [AZ Backup magazynu Create](/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) , aby utworzyć magazyn. Określ tę samą lokalizację dla magazynu, który został użyty dla grupy zasobów.
 
-    Poniższy przykład tworzy magazyn usługi Recovery Services o nazwie *azurefilesvault* w regionie Wschodnie stany USA.
+    Poniższy przykład tworzy magazyn Recovery Services o nazwie *azurefilesvault* w regionie Wschodnie stany USA.
 
     ```azurecli-interactive
     az backup vault create --resource-group azurefiles --name azurefilesvault --location eastus --output table

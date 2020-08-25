@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 555da74da65f3b1897a276cf819a263334cfa053
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "80999059"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Samouczek: Tworzenie reguły i Konfigurowanie powiadomień w aplikacji IoT Central platformy Azure
@@ -23,9 +23,9 @@ Za pomocą usługi Azure IoT Central można zdalnie monitorować połączone urz
 
 Urządzenia używają telemetrii do wysyłania danych liczbowych z urządzenia. Reguła jest wyzwalana, gdy wybrana wartość telemetrii urządzenia przekroczy określony próg.
 
-W tym samouczku utworzysz regułę wysyłania wiadomości e-mail, gdy temperatura symulowanego urządzenia czujnika środowiska przekroczy 70&deg; F.
+W tym samouczku utworzysz regułę wysyłania wiadomości e-mail, gdy temperatura symulowanego urządzenia czujnika środowiska przekroczy 70 &deg; F.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -56,7 +56,7 @@ Aby utworzyć regułę telemetrii, szablon urządzenia musi zawierać co najmnie
 
 ### <a name="configure-the-rule-conditions"></a>Skonfiguruj warunki reguły
 
-Warunki określają kryteria monitorowane przez regułę. W tym samouczku skonfigurujesz regułę do uruchamiania, gdy temperatura przekracza 70&deg; F.
+Warunki określają kryteria monitorowane przez regułę. W tym samouczku skonfigurujesz regułę do uruchamiania, gdy temperatura przekracza 70 &deg; F.
 
 1. Wybierz pozycję **temperatura** na liście rozwijanej **telemetrii** .
 

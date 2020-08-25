@@ -150,41 +150,45 @@
       href: concept-ml-pipelines.md
     - name: Gotowość i zabezpieczenia przedsiębiorstwa
       items:
+        - name: Przegląd zabezpieczeń przedsiębiorstwa
+          displayName: authorization authentication encryption aad azure active directory
+          href: concept-enterprise-security.md
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
-        - name: Ład i zabezpieczenia w przedsiębiorstwie
+        - name: Zarządzanie tożsamościami i dostępem
           items:
-            - name: Przegląd zabezpieczeń przedsiębiorstwa
-              displayName: authorization authentication encryption aad azure active directory
-              href: concept-enterprise-security.md
+            - name: Konfigurowanie uwierzytelniania
+              displayName: 'authentication, auth, oauth'
+              href: how-to-setup-authentication.md
             - name: Zarządzanie użytkownikami i rolami
               href: how-to-assign-roles.md
+            - name: Korzystanie z tożsamości usługi Azure AD we wdrożeniach usługi AKS
+              href: how-to-use-azure-ad-identity.md
+        - name: Bezpieczeństwo sieci
+          items:
             - name: Używanie sieci wirtualnych
               displayName: 'vnet, blob'
               href: how-to-enable-virtual-network.md
             - name: Używanie linku prywatnego
               displayName: private endpoint
               href: how-to-configure-private-link.md
-            - name: Zabezpieczanie usług internetowych przy użyciu protokołu TLS
-              displayName: ssl
+            - name: Konfigurowanie bezpiecznych usług internetowych
+              displayName: 'ssl, tls'
               href: how-to-secure-web-service.md
+            - name: Konfigurowanie zapory
+              href: how-to-access-azureml-behind-firewall.md
+        - name: Ochrona danych
+          items:
             - name: Zwiększanie odporności
               displayName: 'high availability, disaster recovery'
               href: how-to-high-availability-machine-learning.md
-            - name: Korzystanie z tożsamości usługi Azure AD we wdrożeniach usługi AKS
-              href: how-to-use-azure-ad-identity.md
             - name: Ponowne generowanie kluczy dostępu do magazynu
               href: how-to-change-storage-access-key.md
-            - name: Korzystanie z usługi Azure Firewall
-              href: how-to-access-azureml-behind-firewall.md
-            - name: Bezpieczne kodowanie
-              href: concept-secure-code-best-practice.md
-              displayName: security threat
-        - name: Konfigurowanie uwierzytelniania
-          displayName: 'authentication, auth, oauth'
-          href: how-to-setup-authentication.md
         - name: Monitorowanie usługi Azure Machine Learning
           href: monitor-azure-machine-learning.md
+        - name: Bezpieczne kodowanie
+          href: concept-secure-code-best-practice.md
+          displayName: security threat
     - name: Odpowiedzialne uczenie maszynowe
       items:
         - name: Omówienie odpowiedzialnego uczenia maszynowego

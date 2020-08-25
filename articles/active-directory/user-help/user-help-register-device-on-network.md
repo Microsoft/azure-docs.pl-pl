@@ -13,12 +13,12 @@ ms.date: 01/04/2019
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 68d7b06aa6473a99422d8cfb51f6e3a465933a0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b59ebe0bdab66a5ce6bdb1eefe6d9ae4b47bba0c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83747391"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799404"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Rejestrowanie urządzenia osobistego w sieci organizacji
 Zarejestruj swoje urządzenie osobiste (zazwyczaj telefon lub tablet) w sieci organizacji. Po zarejestrowaniu urządzenia będzie możliwe uzyskanie dostępu do zasobów z ograniczeniami organizacji.
@@ -31,9 +31,9 @@ Podczas rejestrowania urządzenia w sieci organizacji zostaną wykonane następu
 
 - System Windows rejestruje urządzenie w sieci organizacji.
 
-- Opcjonalnie w zależności od opcji dostępnych w organizacji może zostać wyświetlony monit o skonfigurowanie weryfikacji dwuetapowej za pośrednictwem [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) lub [informacji zabezpieczających](user-help-security-info-overview.md).
+- Opcjonalnie w zależności od opcji dostępnych w organizacji może zostać wyświetlony monit o skonfigurowanie weryfikacji dwuetapowej za pośrednictwem [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) lub [informacji zabezpieczających](./security-info-setup-signin.md).
 
-- Opcjonalnie w zależności od opcji dostępnych w organizacji może być automatycznie rejestrowane w usłudze zarządzania urządzeniami przenośnymi, takie jak Microsoft Intune. Aby uzyskać więcej informacji na temat rejestrowania w Microsoft Intune, zobacz [Rejestrowanie urządzenia w usłudze Intune](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-all).
+- Opcjonalnie w zależności od opcji dostępnych w organizacji może być automatycznie rejestrowane w usłudze zarządzania urządzeniami przenośnymi, takie jak Microsoft Intune. Aby uzyskać więcej informacji na temat rejestrowania w Microsoft Intune, zobacz [Rejestrowanie urządzenia w usłudze Intune](/intune-user-help/enroll-your-device-in-intune-all).
 
 - Przejdziesz przez proces logowania przy użyciu nazwy użytkownika i hasła do konta służbowego.
 
@@ -70,6 +70,3 @@ Możesz sprawdzić, czy Twoje ustawienia zostały zarejestrowane.
 Po zarejestrowaniu urządzenia osobistego w sieci organizacji powinno być możliwe uzyskanie dostępu do większości zasobów.
 
 - Jeśli Twoja organizacja chce dołączyć do urządzenia służbowego, zobacz sekcję [Przyłącz urządzenie służbowe do sieci organizacji](user-help-join-device-on-network.md).
-
-
-

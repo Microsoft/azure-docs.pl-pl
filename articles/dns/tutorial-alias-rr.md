@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: 2b122a34cfd382a58f7680743d3a1cb1ae598fd1
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "76939248"
 ---
 # <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>Samouczek: tworzenie rekordu aliasu do odwoływania do rekordu zasobów w strefie DNS
 
 Rekordy aliasów mogą odwoływać się do innych zestawów rekordów tego samego typu. Na przykład zestaw rekordów DNS CNAME może być aliasem dla innego zestawu rekordów CNAME tego samego typu. Ta funkcja jest przydatna, jeśli chcesz, by z punktu widzenia zachowania niektóre zestawy rekordów były aliasami, a niektóre nie.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie rekordu aliasu dla rekordu zasobów w strefie DNS.
@@ -44,7 +44,7 @@ Utwórz rekord aliasu, który wskazuje na rekord zasobów w strefie DNS.
 3. W polu tekstowym **Nazwa** wprowadź **serwer**.
 4. Dla opcji **Typ** wybierz pozycję **A**.
 5. W polu tekstowym **ADRES IP** wprowadź **10.10.10.10**.
-6. Kliknij **OK**.
+6. Wybierz przycisk **OK**.
 
 ### <a name="create-the-alias-record"></a>Tworzenie rekordu aliasu
 1. Wybierz strefę usługi Azure DNS, aby ją otworzyć.
@@ -53,7 +53,7 @@ Utwórz rekord aliasu, który wskazuje na rekord zasobów w strefie DNS.
 4. Dla opcji **Typ** wybierz pozycję **A**.
 5. Zaznacz pozycję **Tak** w polu wyboru **Zestaw rekordów aliasów**. Następnie wybierz opcję **Zestaw rekordów strefy**.
 6. Dla opcji **Zestaw rekordów strefy** wybierz rekord **serwer**.
-7. Kliknij **OK**.
+7. Wybierz przycisk **OK**.
 
 ## <a name="test-the-alias-record"></a>Testowanie rekordu aliasu
 
@@ -62,7 +62,7 @@ Utwórz rekord aliasu, który wskazuje na rekord zasobów w strefie DNS.
 3. W witrynie Azure Portal zmień rekord A **serwer** na **10.11.11.11**.
 4. Poczekaj kilka minut, a następnie użyj ponownie narzędzia nslookup dla rekordu **test**. W odpowiedzi otrzymasz **10.11.11.11**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie potrzebujesz już zasobów utworzonych w ramach tego samouczka, usuń rekordy zasobów **serwer** i **test** w swojej strefie.
 

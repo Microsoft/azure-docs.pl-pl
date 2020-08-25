@@ -3,12 +3,12 @@ title: Informacje o kopii zapasowej udziału plików platformy Azure
 description: Dowiedz się, jak utworzyć kopię zapasową udziałów plików platformy Azure w magazynie Recovery Services
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 7441157d6346eefc256e9e7c29f9bb1fa5c13b79
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c57537519888138698e9add1a687e0018d330cfa
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289515"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757884"
 ---
 # <a name="about-azure-file-share-backup"></a>Informacje o kopii zapasowej udziału plików platformy Azure
 
@@ -29,7 +29,7 @@ Kopia zapasowa udziału plików platformy Azure to natywne, oparte na chmurze ro
 
 ## <a name="how-the-backup-process-works"></a>Jak działa proces tworzenia kopii zapasowej
 
-1. Pierwszym krokiem w konfigurowaniu kopii zapasowych dla udziałów plików platformy Azure jest utworzenie magazynu usługi Recovery Services. Magazyn umożliwia skonsolidowany widok kopii zapasowych skonfigurowanych w różnych obciążeniach.
+1. Pierwszym krokiem w konfigurowaniu kopii zapasowej dla udziałów plików platformy Azure jest utworzenie magazynu Recovery Services. Magazyn umożliwia skonsolidowany widok kopii zapasowych skonfigurowanych w różnych obciążeniach.
 
 2. Po utworzeniu magazynu usługa Azure Backup odnajduje konta magazynu, które mogą być zarejestrowane w magazynie. Można wybrać konto magazynu obsługujące udziały plików, które mają być chronione.
 
@@ -42,9 +42,9 @@ Kopia zapasowa udziału plików platformy Azure to natywne, oparte na chmurze ro
     >[!NOTE]
     >Dane udziału plików nie są przenoszone do usługi kopii zapasowej, ponieważ usługa Backup tworzy migawki i zarządza nimi, które są częścią Twojego konta magazynu, a kopie zapasowe nie są przenoszone do magazynu.
 
-6. Zawartość udziału plików platformy Azure (poszczególne pliki lub pełny udział) można przywrócić z migawek dostępnych w źródłowym udziale plików. Gdy operacja zostanie wyzwolona, adres URL migawki jest pobierany z magazynu metadanych, a dane są wyświetlane i przesyłane z migawki źródłowej do wybranego docelowego udziału plików. 
+6. Zawartość udziału plików platformy Azure (poszczególne pliki lub pełny udział) można przywrócić z migawek dostępnych w źródłowym udziale plików. Gdy operacja zostanie wyzwolona, adres URL migawki jest pobierany z magazynu metadanych, a dane są wyświetlane i przesyłane z migawki źródłowej do wybranego docelowego udziału plików.
 
-7. Jeśli używasz Azure File Sync, usługa Backup wskazuje usługę Azure File Syncą ścieżki przywracanych plików, a następnie wyzwala proces wykrywania zmian w tle dla tych plików. Wszystkie pliki, które uległy zmianie, są synchronizowane z punktem końcowym serwera. Ten proces odbywa się równolegle z oryginalnym przywracaniem do udziału plików platformy Azure. 
+7. Jeśli używasz Azure File Sync, usługa Backup wskazuje usługę Azure File Syncą ścieżki przywracanych plików, a następnie wyzwala proces wykrywania zmian w tle dla tych plików. Wszystkie pliki, które uległy zmianie, są synchronizowane z punktem końcowym serwera. Ten proces odbywa się równolegle z oryginalnym przywracaniem do udziału plików platformy Azure.
 
 8. Dane monitorowania zadania tworzenia kopii zapasowej i przywracania są przekazywane do usługi monitorowania Azure Backup. Pozwala to monitorować kopie zapasowe w chmurze dla udziałów plików na jednym pulpicie nawigacyjnym. Ponadto można również skonfigurować alerty lub powiadomienia e-mail, gdy będzie to miało stan kondycji kopii zapasowej. Wiadomości e-mail są wysyłane za pośrednictwem usługi poczty e-mail platformy Azure.
 

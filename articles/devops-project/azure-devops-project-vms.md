@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.openlocfilehash: 80a590ff97cc6595f2da6d1e573820324a46c2d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82231518"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-starter"></a>Samouczek: wdrażanie aplikacji ASP.NET na maszynach wirtualnych platformy Azure przy użyciu usługi Azure DevOps Starter
@@ -82,7 +82,7 @@ DevOps Starter automatycznie skonfigurował potok ciągłej integracji/ciągłeg
 
 1. Wskaż pole **stan** , a następnie wybierz przycisk wielokropka (...). Menu wyświetla kilka opcji, takich jak kolejkowanie nowej kompilacji, wstrzymywanie kompilacji i edytowanie potoku kompilacji.
 
-1. Wybierz pozycję **Edytuj**.
+1. Kliknij pozycję **Edytuj**.
 
 1. W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. W ramach kompilacji są wykonywane różne zadania, takie jak pobieranie kodu źródłowego z repozytorium Git, przywracanie zależności i publikowanie danych wyjściowych używanych na potrzeby wdrażania.
 

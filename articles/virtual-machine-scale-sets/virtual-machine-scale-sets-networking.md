@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 6113ee61d4949649b65607c0f1bd606be4edb2ac
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 91157f625b328dfc03927cf0036aea1b6040cdbf
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837163"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783726"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Obsługa sieci w kontekście zestawów skalowania maszyn wirtualnych platformy Azure
 
@@ -43,28 +43,7 @@ Usługa Azure Accelerated Networking zwiększa wydajność sieci, umożliwiając
 ```
 
 ## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Zestawy skalowania maszyn wirtualnych platformy Azure z Azure Load Balancer
-
-Podczas pracy z zestawami skalowania maszyn wirtualnych i usługą równoważenia obciążenia należy wziąć pod uwagę następujące elementy:
-
-* **Wiele zestawów skalowania maszyn wirtualnych nie może korzystać z tego samego modułu równoważenia obciążenia**.
-* **Przekazywanie portów i reguły NAT dla ruchu przychodzącego**:
-  * Każdy zestaw skalowania maszyn wirtualnych musi mieć regułę NAT dla ruchu przychodzącego.
-  * Po utworzeniu zestawu skalowania nie można zmodyfikować portu zaplecza dla reguły równoważenia obciążenia używanej przez sondę kondycji modułu równoważenia obciążenia. Aby zmienić port, można usunąć sondę kondycji, aktualizując zestaw skalowania maszyn wirtualnych platformy Azure, zaktualizować port, a następnie ponownie skonfiguruj sondę kondycji.
-  * W przypadku korzystania z zestawu skalowania maszyn wirtualnych w puli zaplecza modułu równoważenia obciążenia domyślne reguły NAT dla ruchu przychodzącego są tworzone automatycznie.
-* **Pula NAT dla ruchu przychodzącego**:
-  * Pula NAT dla ruchu przychodzącego jest kolekcją reguł NAT dla ruchu przychodzącego. Jedna pula NAT dla ruchu przychodzącego nie obsługuje wielu zestawów skalowania maszyn wirtualnych.
-* **Reguły równoważenia obciążenia**:
-  * W przypadku korzystania z zestawu skalowania maszyn wirtualnych w puli zaplecza modułu równoważenia obciążenia domyślna reguła równoważenia obciążenia zostanie utworzona automatycznie.
-* **Reguły ruchu wychodzącego**:
-  *  Aby utworzyć regułę ruchu wychodzącego dla puli zaplecza, do której już odwołuje się reguła równoważenia obciążenia, należy najpierw zaznaczyć **opcję "Utwórz niejawne reguły wychodzące"** **w portalu, gdy** zostanie utworzona reguła równoważenia obciążenia przychodzącego.
-
-  :::image type="content" source="./media/vmsslb.png" alt-text="Tworzenie reguły równoważenia obciążenia" border="true":::
-
-Poniższe metody umożliwiają wdrożenie zestawu skalowania maszyn wirtualnych z istniejącym modułem równoważenia obciążenia platformy Azure.
-
-* [Skonfiguruj zestaw skalowania maszyn wirtualnych za pomocą istniejącego Azure Load Balancer przy użyciu Azure Portal](../load-balancer/configure-vm-scale-set-portal.md).
-* [Skonfiguruj zestaw skalowania maszyn wirtualnych za pomocą istniejącego Azure Load Balancer przy użyciu Azure PowerShell](../load-balancer/configure-vm-scale-set-powershell.md).
-* [Skonfiguruj zestaw skalowania maszyn wirtualnych za pomocą istniejącego Azure Load Balancer przy użyciu interfejsu wiersza polecenia platformy Azure](../load-balancer/configure-vm-scale-set-cli.md).
+Zobacz [Azure Load Balancer i Virtual Machine Scale Sets](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-virtual-machine-scale-sets) , aby dowiedzieć się więcej o konfigurowaniu usługa Load Balancer w warstwie Standardowa z Virtual Machine Scale Sets w oparciu o twój scenariusz.
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Tworzenie zestawu skalowania, który odwołuje się do usługi Application Gateway
 Aby utworzyć zestaw skalowania, który używa bramy aplikacji, należy odwołać się do puli adresów zaplecza bramy aplikacji w sekcji ipConfiguration zestawu skalowania, tak jak w tej konfiguracji szablonu usługi ARM:

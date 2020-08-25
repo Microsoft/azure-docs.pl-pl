@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c26951d5ab7552dc6c63288ce92cdb8134bd58ed
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 468b874ae4a19b8b5ea2a9a91a258722cef60e3a
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498229"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798605"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegowanie administracji w Azure Active Directory
 
@@ -60,7 +60,7 @@ Określ Active Directory zadania, które są wykonywane przez administratorów i
 Każde zadanie powinno być oceniane pod kątem częstotliwości, ważności i trudności. Te kryteria są istotnymi aspektami definicji zadania, ponieważ określają, czy uprawnienie powinno być delegowane:
 
 * Zadania, które wykonują rutynowo, mają ograniczone ryzyko i są proste do zapełnienia, są doskonałymi kandydatami do delegowania.
-* Zadania, które można wykonać rzadko, ale mają doskonały wpływ na organizację i wymagają dużej ilości umiejętności, powinny być uważane za bardzo uważnie przed delegowaniem. Zamiast tego można [tymczasowo podnieść poziom konta do wymaganej roli](../active-directory-privileged-identity-management-configure.md) lub ponownie przypisać zadanie.
+* Zadania, które można wykonać rzadko, ale mają doskonały wpływ na organizację i wymagają dużej ilości umiejętności, powinny być uważane za bardzo uważnie przed delegowaniem. Zamiast tego można [tymczasowo podnieść poziom konta do wymaganej roli](../privileged-identity-management/pim-configure.md) lub ponownie przypisać zadanie.
 
 ## <a name="delegate-app-administration"></a>Delegowanie administrowania aplikacjami
 
@@ -110,7 +110,7 @@ Osoby atakujące, które uzyskują kontrolę nad kontami uprzywilejowanymi, mog�
 
 ## <a name="elevate-privilege-temporarily"></a>Tymczasowe podwyższenie poziomu uprawnień
 
-W przypadku większości codziennych działań nie wszyscy użytkownicy muszą mieć prawa administratora globalnego, a nie wszystkie z nich powinny być trwale przypisane do roli administratora globalnego. Gdy użytkownicy potrzebują uprawnień administratora globalnego, powinni aktywować przypisanie roli w usłudze Azure AD [Privileged Identity Management](../active-directory-privileged-identity-management-configure.md) przy użyciu własnego konta lub alternatywnego konta administracyjnego.
+W przypadku większości codziennych działań nie wszyscy użytkownicy muszą mieć prawa administratora globalnego, a nie wszystkie z nich powinny być trwale przypisane do roli administratora globalnego. Gdy użytkownicy potrzebują uprawnień administratora globalnego, powinni aktywować przypisanie roli w usłudze Azure AD [Privileged Identity Management](../privileged-identity-management/pim-configure.md) przy użyciu własnego konta lub alternatywnego konta administracyjnego.
 
 ## <a name="next-steps"></a>Następne kroki
 

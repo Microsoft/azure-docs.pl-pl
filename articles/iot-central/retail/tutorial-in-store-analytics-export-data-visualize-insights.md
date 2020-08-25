@@ -12,10 +12,10 @@ ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
 ms.openlocfilehash: 6062e8a74af4bb0a19d02ccf9a4c50da0cc4a7c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "81000105"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Samouczek: eksportowanie danych z platformy Azure IoT Central i wizualizacja szczegółowych informacji w programie Power BI
@@ -35,7 +35,7 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 * Aby wykonać poprzednie dwa samouczki, [Utwórz aplikację analizy w sklepie na platformie azure IoT Central](./tutorial-in-store-analytics-create-app.md) i [Dostosuj pulpit nawigacyjny operatora i Zarządzaj urządzeniami w usłudze Azure IoT Central](./tutorial-in-store-analytics-customize-dashboard.md).
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Konto usługi Power BI. Jeśli nie masz konta Power BI, przed rozpoczęciem Zarejestruj się, aby uzyskać [bezpłatną Power BI Pro wersję próbną](https://app.powerbi.com/signupredirect?pbi_source=web) .
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
@@ -66,7 +66,7 @@ Aby można było skonfigurować aplikację do monitorowania handlu detalicznego 
     * Wybierz grupę zasobów **analizy handlu detalicznego** .
     * Wybierz tę samą lokalizację, która była używana dla aplikacji IoT Central.
     * Wybierz przycisk **Utwórz**. Może być konieczne odczekanie kilku minut, aż system udostępni Zasoby.
-1. W portalu przejdź do grupy zasobów **analizy handlu detalicznego** . Zaczekaj na zakończenie wdrożenia. Może być konieczne wybranie opcji **Odśwież** , aby zaktualizować stan wdrożenia. Możesz również sprawdzić stan tworzenia przestrzeni nazw centrum zdarzeń w **powiadomieniach**.
+1. W portalu przejdź do grupy zasobów **analizy handlu detalicznego** . Zaczekaj na zakończenie wdrażania. Może być konieczne wybranie opcji **Odśwież** , aby zaktualizować stan wdrożenia. Możesz również sprawdzić stan tworzenia przestrzeni nazw centrum zdarzeń w **powiadomieniach**.
 1. W grupie zasobów **analizy sprzedaży detalicznej** wybierz **Event Hubs przestrzeni nazw**. Zostanie wyświetlona strona główna **obszaru nazw Event Hubs** w portalu.
 
 Teraz masz **Event Hubs przestrzeni nazw**, możesz utworzyć **centrum zdarzeń** do użycia z aplikacją IoT Central:
@@ -110,7 +110,7 @@ Pulpit nawigacyjny Power BI będzie wyświetlał dane z aplikacji do monitorowan
 
     | Nazwa wartości  | Typ wartości |
     | ----------- | ---------- |
-    | Znacznik czasu   | DateTime   |
+    | Timestamp   | DateTime   |
     | Wilgotność    | Liczba     |
     | Temperatura | Liczba     |
 
@@ -133,7 +133,7 @@ Wymagany jest również zestaw danych przesyłania strumieniowego dla telemetrii
 
     | Nazwa wartości     | Typ wartości |
     | -------------- | ---------- |
-    | Znacznik czasu      | DateTime   |
+    | Timestamp      | DateTime   |
     | Długość kolejki 1 | Liczba     |
     | Długość kolejki 2 | Liczba     |
     | Czas mieszkania 1   | Liczba     |
@@ -179,11 +179,11 @@ Poniższe kroki pokazują, jak utworzyć aplikację logiki w Azure Portal:
     * W polu **nazwa centrum zdarzeń**wybierz pozycję **Magazyn-Telemetria**.
     * W polu **Typ zawartości**wybierz pozycję **Application/JSON**.
     * Ustaw **Interwał** na wartość 3 i **częstotliwość** na sekundy
-1. Wybierz pozycję **Zapisz** , aby zapisać aplikację logiki.
+1. Wybierz pozycję **Zapisz**, aby zapisać aplikację logiki.
 
 Aby dodać logikę do projektu aplikacji logiki, wybierz pozycję **Widok kodu**:
 
-1. Zamień `"actions": {},` na poniższy kod JSON. Zastąp dwa symbole `[YOUR RUUVITAG DEVICE ID 1]` zastępcze `[YOUR RUUVITAG DEVICE ID 2]` i identyfikatorami zanotowanymi dla dwóch urządzeń RuuviTag:
+1. Zamień `"actions": {},` na poniższy kod JSON. Zastąp dwa symbole zastępcze `[YOUR RUUVITAG DEVICE ID 1]` i `[YOUR RUUVITAG DEVICE ID 2]` identyfikatorami zanotowanymi dla dwóch urządzeń RuuviTag:
 
     ```json
     "actions": {
@@ -384,7 +384,7 @@ Aby dodać logikę do projektu aplikacji logiki, wybierz pozycję **Widok kodu**
     * Zaznacz pole **sygnatura czasowa** , a następnie wybierz pozycję **x-opt-enqueuedtime** z listy **zawartość dynamiczna** .
     * Zaznacz pole **wilgotność** , a następnie wybierz pozycję **Zobacz więcej** obok pozycji **Analizuj dane telemetryczne**. Następnie wybierz pozycję **wilgotność**.
     * Wybierz pole **temperatura** , a następnie wybierz pozycję **Zobacz więcej** obok pozycji **Analizuj dane telemetryczne**. Następnie wybierz pozycję **temperatura**.
-    * Wybierz przycisk **Zapisz**, aby zapisać zmiany. Akcja **środowiska Strefa 1** wygląda następująco: ![Strefa 1 Environment](./media/tutorial-in-store-analytics-visualize-insights/zone-1-action.png)
+    * Wybierz przycisk **Zapisz**, aby zapisać zmiany. Akcja **środowiska Strefa 1** wygląda następująco: ![ Strefa 1 Environment](./media/tutorial-in-store-analytics-visualize-insights/zone-1-action.png)
 1. Wybierz akcję **środowiska strefa 2** , a następnie wybierz pozycję **Dodaj akcję**.
 1. W obszarze **łączniki i akcje wyszukiwania**wprowadź **Power BI**, a następnie naciśnij klawisz **Enter**.
 1. Wybierz akcję **Dodaj wiersze do zestawu danych (wersja zapoznawcza)** .
@@ -396,7 +396,7 @@ Aby dodać logikę do projektu aplikacji logiki, wybierz pozycję **Widok kodu**
     * Zaznacz pole **sygnatura czasowa** , a następnie wybierz pozycję **x-opt-enqueuedtime** z listy **zawartość dynamiczna** .
     * Zaznacz pole **wilgotność** , a następnie wybierz pozycję **Zobacz więcej** obok pozycji **Analizuj dane telemetryczne**. Następnie wybierz pozycję **wilgotność**.
     * Wybierz pole **temperatura** , a następnie wybierz pozycję **Zobacz więcej** obok pozycji **Analizuj dane telemetryczne**. Następnie wybierz pozycję **temperatura**.
-    Wybierz przycisk **Zapisz**, aby zapisać zmiany.  Akcja **środowiska strefa 2** wygląda następująco: ![strefa 2 Environment](./media/tutorial-in-store-analytics-visualize-insights/zone-2-action.png)
+    Wybierz przycisk **Zapisz**, aby zapisać zmiany.  Akcja **środowiska strefa 2** wygląda następująco: ![ strefa 2 Environment](./media/tutorial-in-store-analytics-visualize-insights/zone-2-action.png)
 1. Wybierz akcję **zajętości** , a następnie wybierz akcję **przełączenia przez identyfikator interfejsu** .
 1. Wybierz akcję **interfejs czasu mieszkania** i wybierz pozycję **Dodaj akcję**.
 1. W obszarze **łączniki i akcje wyszukiwania**wprowadź **Power BI**, a następnie naciśnij klawisz **Enter**.
@@ -409,7 +409,7 @@ Aby dodać logikę do projektu aplikacji logiki, wybierz pozycję **Widok kodu**
     * Zaznacz pole **sygnatura czasowa** , a następnie wybierz pozycję **x-opt-enqueuedtime** z listy **zawartość dynamiczna** .
     * Wybierz pole **czas mieszkania 1** , a następnie wybierz pozycję **Zobacz więcej** obok pozycji **Analizuj dane telemetryczne**. Następnie wybierz pozycję **DwellTime1**.
     * Wybierz pole **czas mieszkania 2** , a następnie wybierz pozycję **Zobacz więcej** obok pozycji **Analizuj dane telemetryczne**. Następnie wybierz pozycję **DwellTime2**.
-    * Wybierz przycisk **Zapisz**, aby zapisać zmiany. Akcja **interfejsu czasu mieszkania** wygląda jak na poniższym zrzucie ekranu: ![akcja zajętości](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
+    * Wybierz przycisk **Zapisz**, aby zapisać zmiany. Akcja **interfejsu czasu mieszkania** wygląda jak na poniższym zrzucie ekranu: ![ Akcja zajętości](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
 1. Wybierz akcję **Liczba osób** , a następnie wybierz pozycję **Dodaj akcję**.
 1. W obszarze **łączniki i akcje wyszukiwania**wprowadź **Power BI**, a następnie naciśnij klawisz **Enter**.
 1. Wybierz akcję **Dodaj wiersze do zestawu danych (wersja zapoznawcza)** .
@@ -421,11 +421,11 @@ Aby dodać logikę do projektu aplikacji logiki, wybierz pozycję **Widok kodu**
     * Zaznacz pole **sygnatura czasowa** , a następnie wybierz pozycję **x-opt-enqueuedtime** z listy **zawartość dynamiczna** .
     * Zaznacz pole **Długość kolejki 1** , a następnie wybierz pozycję **Zobacz więcej** obok pozycji **Analizuj dane telemetryczne**. Następnie wybierz pozycję **count1**.
     * Wybierz pole **Długość kolejki 2** , a następnie wybierz pozycję **Zobacz więcej** obok pozycji **Analizuj dane telemetryczne**. Następnie wybierz pozycję **count2**.
-    * Wybierz przycisk **Zapisz**, aby zapisać zmiany. Akcja **interfejsu liczba osób** wygląda jak na poniższym zrzucie ekranu: ![akcja zajętości](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-2.png)
+    * Wybierz przycisk **Zapisz**, aby zapisać zmiany. Akcja **interfejsu liczba osób** wygląda jak na poniższym zrzucie ekranu: ![ Akcja zajętości](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-2.png)
 
 Aplikacja logiki zostanie uruchomiona automatycznie. Aby wyświetlić stan każdego przebiegu, przejdź do strony **Przegląd** dla aplikacji logiki w Azure Portal:
 
-## <a name="create-a-power-bi-dashboard"></a>Tworzenie pulpitu nawigacyjnego Power BI
+## <a name="create-a-power-bi-dashboard"></a>Tworzenie pulpitu nawigacyjnego usługi Power BI
 
 Teraz dane telemetryczne są przesyłane z aplikacji IoT Central za pośrednictwem centrum zdarzeń. Następnie aplikacja logiki analizuje komunikaty centrum zdarzeń i dodaje je do Power BI zestawu danych przesyłania strumieniowego. Teraz możesz utworzyć pulpit nawigacyjny Power BI, aby wizualizował dane telemetryczne:
 
@@ -440,9 +440,9 @@ Dodaj cztery kafelki wykresu liniowego, aby pokazać temperaturę i wilgotność
 
 | Ustawienie | #1 wykresu | #2 wykresu | #3 wykresu | #4 wykresu |
 | ------- | -------- | -------- | -------- | -------- |
-| Dataset | Czujnik Strefa 1 | Czujnik Strefa 1 | Czujnik Strefa 2 | Czujnik Strefa 2 |
+| Zestaw danych | Czujnik Strefa 1 | Czujnik Strefa 1 | Czujnik Strefa 2 | Czujnik Strefa 2 |
 | Typ wizualizacji | Wykres liniowy | Wykres liniowy | Wykres liniowy | Wykres liniowy |
-| Oś | Znacznik czasu | Znacznik czasu | Znacznik czasu | Znacznik czasu |
+| Oś | Timestamp | Timestamp | Timestamp | Timestamp |
 | Wartości | Temperatura | Wilgotność | Temperatura | Wilgotność |
 | Przedział czasu | 60 minut | 60 minut | 60 minut | 60 minut |
 | Tytuł | Temperatura (1 godzina) | Wilgotność (1 godzina) | Temperatura (1 godzina) | Wilgotność (1 godzina) |
@@ -458,7 +458,7 @@ Dodaj cztery kafelki kart, aby wyświetlić najnowsze wartości temperatury i wi
 
 | Ustawienie | #1 karty | #2 karty | #3 karty | #4 karty |
 | ------- | ------- | ------- | ------- | ------- |
-| Dataset | Czujnik Strefa 1 | Czujnik Strefa 1 | Czujnik Strefa 2 | Czujnik Strefa 2 |
+| Zestaw danych | Czujnik Strefa 1 | Czujnik Strefa 1 | Czujnik Strefa 2 | Czujnik Strefa 2 |
 | Typ wizualizacji | Karta | Karta | Karta | Karta |
 | Pola | Temperatura | Wilgotność | Temperatura | Wilgotność |
 | Tytuł | Temperatura (F) | Wilgotność (%) | Temperatura (F) | Wilgotność (%) |
@@ -474,11 +474,11 @@ Dodaj cztery kafelki kart, aby wyświetlić długość kolejki i czas mieszkania
 
 | Ustawienie | #1 karty | #2 karty | #3 karty | #4 karty |
 | ------- | ------- | ------- | ------- | ------- |
-| Dataset | Czujnik zajętości | Czujnik zajętości | Czujnik zajętości | Czujnik zajętości |
+| Zestaw danych | Czujnik zajętości | Czujnik zajętości | Czujnik zajętości | Czujnik zajętości |
 | Typ wizualizacji | Wykres kolumnowy grupowany | Wykres kolumnowy grupowany | Miernik | Miernik |
-| Oś    | Znacznik czasu | Znacznik czasu | Nie dotyczy | Nie dotyczy |
+| Oś    | Timestamp | Timestamp | NIE DOTYCZY | NIE DOTYCZY |
 | Wartość | Czas mieszkania 1 | Czas mieszkania 2 | Długość kolejki 1 | Długość kolejki 2 |
-| Przedział czasu | 60 minut | 60 minut |  Nie dotyczy | Nie dotyczy |
+| Przedział czasu | 60 minut | 60 minut |  NIE DOTYCZY | NIE DOTYCZY |
 | Tytuł | Czas mieszkania | Czas mieszkania | Długość kolejki | Długość kolejki |
 | Podtytuł | Wyewidencjonowanie 1 | Wyewidencjonowanie 2 | Wyewidencjonowanie 1 | Wyewidencjonowanie 2 |
 
@@ -490,7 +490,7 @@ Możesz dodać kilka dodatkowych zasobów graficznych, aby dodatkowo dostosować
 
 ![Pulpit nawigacyjny usługi Power BI](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard-graphics.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zakończysz pracę z aplikacją IoT Central, możesz ją usunąć, logując się do aplikacji i przechodząc do strony **Ustawienia aplikacji** w sekcji **Administracja** .
 

@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: d3017d09e94040d16950598dad360fe32930c16b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "80985443"
 ---
 # <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Samouczek: konfigurowanie rekordu aliasu w celu odwoływania się do publicznego adresu IP platformy Azure 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie infrastruktury sieci.
@@ -38,14 +38,14 @@ Przykładowa domena używana w tym samouczku to contoso.com, ale skorzystaj z w�
 Najpierw utwórz sieć wirtualną i podsieć, aby umieścić w nich serwery internetowe.
 1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 2. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**. W polu wyszukiwania wprowadź *grupę zasobów*, a następnie utwórz grupę zasobów o nazwie **RG-DNS-Alias-pip**.
-3. Wybierz pozycję **Utwórz zasób** > **Networking** > Sieć**sieci wirtualnej**.
+3. Wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **sieci wirtualnej**.
 4. Utwórz sieć wirtualną o nazwie **VNet-Servers**. Umieść ją w grupie zasobów **RG-DNS-Alias-pip**, a następnie nadaj podsieci nazwę **SN-Web**.
 
 ## <a name="create-a-web-server-virtual-machine"></a>Tworzenie maszyny wirtualnej serwera sieci Web
-1. Wybierz pozycję **Utwórz zasób** > **Windows Server 2016 VM**.
+1. Wybierz pozycję **Utwórz zasób**  >  **Windows Server 2016 VM**.
 2. Wprowadź nazwę **Web-01** i umieść maszynę wirtualną w grupie zasobów **RG-DNS-Alias-TM**. Wprowadź nazwę użytkownika i hasło, a następnie wybierz pozycję **OK**.
 3. W obszarze **Rozmiar** wybierz jednostkę magazynową zawierającą 8 GB pamięci RAM.
-4. W obszarze **Ustawienia** wybierz sieć wirtualną **VNet-Servers** i podsieć **SN-Web**. W przypadku publicznych portów przychodzących wybierz pozycję **http** > **https** > **RDP (3389)**, a następnie wybierz przycisk **OK**.
+4. W obszarze **Ustawienia** wybierz sieć wirtualną **VNet-Servers** i podsieć **SN-Web**. W przypadku publicznych portów przychodzących wybierz pozycję **http**  >  **https**  >  **RDP (3389)**, a następnie wybierz przycisk **OK**.
 5. Na stronie **Podsumowanie** wybierz pozycję **Utwórz**.
 
 Wykonanie tej procedury trwa kilka minut. Maszyna wirtualna będzie miała dołączoną kartę sieciową, która będzie miała podstawowy dynamiczny adres IP o nazwie Web-01-IP. Publiczny adres IP zmieni się za każdym razem, gdy maszyna wirtualna zostanie ponownie uruchomiona.
@@ -84,7 +84,7 @@ Utwórz rekord aliasu wskazujący na publiczny adres IP.
 
 Wykonanie procedury kończy się pomyślnie, ponieważ użyto rekordu aliasu w celu wskazania publicznego zasobu adresu IP, a nie standardowego rekordu A.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie potrzebujesz już zasobów utworzonych w ramach tego samouczka, usuń grupę zasobów **RG-DNS-Alias-pip**.
 

@@ -1,16 +1,16 @@
 ---
 title: Pojęcia — tożsamość i dostęp
-description: Dowiedz się więcej na temat pojęć dotyczących tożsamości i dostępu do rozwiązania Azure VMware (Automatyczna synchronizacja)
+description: Dowiedz się więcej na temat pojęć dotyczących tożsamości i uzyskiwania dostępu do rozwiązania Azure VMware
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: ce85b60b38db86af14b9e9aa06e568436dc76658
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d5b7b4c7c2e0d55cffc99a3f371494f40320a16
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82740956"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750589"
 ---
-# <a name="azure-vmware-solution-avs-identity-concepts"></a>Pojęcia dotyczące tożsamości (Automatyczna synchronizacja) oprogramowania VMware na platformie Azure
+# <a name="azure-vmware-solution-identity-concepts"></a>Pojęcia dotyczące tożsamości rozwiązań VMware platformy Azure
 
 Program vCenter Server i Menedżer NSX-T są inicjowane podczas wdrażania chmury prywatnej. Program vCenter służy do zarządzania obciążeniami maszyny wirtualnej i menedżerem NSX-T w celu rozbudowania sieci zdefiniowanej przez oprogramowanie w chmurze prywatnej.
 

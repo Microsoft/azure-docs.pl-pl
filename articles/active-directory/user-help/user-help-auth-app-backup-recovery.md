@@ -11,12 +11,12 @@ ms.topic: end-user-help
 ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: b13de16b2080d28d3b779921456cfb20d99f0af9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3148f8ba84674c79764d0fc69acdbc02e7a12dc4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84416015"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798996"
 ---
 # <a name="back-up-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Tworzenie kopii zapasowej i odzyskiwanie poświadczeń konta przy użyciu aplikacji Microsoft Authenticator
 
@@ -100,7 +100,7 @@ W przypadku osobistych kont Microsoft można potwierdzić swoją tożsamość, w
     :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="Wystawca uwierzytelnienia przedstawia hasło jednorazowe jako kod weryfikacyjny" border="true":::
 
 >[!NOTE]
->Aby uzyskać więcej informacji na temat kodów QR i sposobu ich uzyskania, zobacz [Rozpoczynanie pracy z aplikacją Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) lub [Konfigurowanie informacji zabezpieczających do korzystania z aplikacji Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app)w zależności od tego, czy administrator włączył informacje zabezpieczające.
+>Aby uzyskać więcej informacji na temat kodów QR i sposobu ich uzyskania, zobacz [Rozpoczynanie pracy z aplikacją Microsoft Authenticator](./user-help-auth-app-download-install.md) lub [Konfigurowanie informacji zabezpieczających do korzystania z aplikacji Authenticator](./security-info-setup-auth-app.md)w zależności od tego, czy administrator włączył informacje zabezpieczające.
 >
 >Jeśli konfigurujesz aplikację Microsoft Authenticator po raz pierwszy, może zostać wyświetlony monit z pytaniem, czy zezwolić aplikacji na dostęp do aparatu (iOS), czy zezwolić aplikacji na wykonywanie zdjęć i nagrywanie wideo (Android). Musisz wybrać opcję **Zezwól** , aby aplikacja Authenticator mogła uzyskać dostęp do Twojego aparatu, aby w następnym kroku uzyskać zdjęcie kodu QR. Jeśli nie zezwolisz na korzystanie z aparatu, nadal możesz skonfigurować aplikację uwierzytelniającej, ale musisz ręcznie dodać informacje o kodzie. Aby dowiedzieć się, jak ręcznie dodać kod, zobacz temat [Ręczne dodawanie konta do aplikacji](user-help-auth-app-add-account-manual.md).
 
@@ -130,4 +130,4 @@ Teraz, po wykonaniu kopii zapasowej i odzyskaniu poświadczeń konta na nowym ur
 
 - [Microsoft Authenticator app FAQ (Aplikacja Microsoft Authenticator — często zadawane pytania)](user-help-auth-app-faq.md)
 
-- [Uwierzytelnianie wieloskładnikowe](https://docs.microsoft.com/azure/multi-factor-authentication/)
+- [Uwierzytelnianie wieloskładnikowe](/azure/multi-factor-authentication/)

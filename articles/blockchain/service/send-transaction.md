@@ -5,10 +5,10 @@ ms.date: 04/22/2020
 ms.topic: tutorial
 ms.reviewer: caleteet
 ms.openlocfilehash: dc23c680dfb2ed33cae2a251af16e1b1f25c6ac7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82086661"
 ---
 # <a name="tutorial-create-buildanddeploysmartcontracts-on-azure-blockchain-service"></a>Samouczek: Tworzenie, kompilowanie i wdrażanie inteligentnych kontraktów w usłudze Azure łańcucha bloków Service
@@ -29,17 +29,17 @@ Używasz zestawu Azure łańcucha bloków Development Kit dla Ethereum:
 * Kończenie [szybkiego startu: użyj Visual Studio Code, aby nawiązać połączenie z siecią Azure łańcucha bloków Service Consortium](connect-vscode.md)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 * [Rozszerzenie Azure łańcucha bloków Development Kit dla rozszerzenia Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
-* [Node. js 10.15. x lub nowszy](https://nodejs.org/download)
+* [Node.js 10.15. x lub wyższy](https://nodejs.org/download)
 * [Git 2.10. x lub nowszy](https://git-scm.com)
-* [2.7.15 Python](https://www.python.org/downloads/release/python-2715/) Dodaj język Python. exe do ścieżki. Wersja 2.7.15 języka Python w ścieżce jest wymagana w przypadku zestawu Azure łańcucha bloków Development Kit.
+* [2.7.15 Python](https://www.python.org/downloads/release/python-2715/) Dodaj python.exe do ścieżki. Wersja 2.7.15 języka Python w ścieżce jest wymagana w przypadku zestawu Azure łańcucha bloków Development Kit.
 * [Truffle 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
 * [Interfejs wiersza polecenia ganache 6.0.0](https://github.com/trufflesuite/ganache-cli)
 
 W systemie Windows zainstalowany kompilator języka C++ jest wymagany dla modułu Node-GYP. Możesz użyć narzędzi MSBuild:
 
-* Jeśli zainstalowano program Visual Studio 2017, należy skonfigurować npm do korzystania z narzędzi MSBuild przy użyciu polecenia`npm config set msvs_version 2017 -g`
-* Jeśli zainstalowano program Visual Studio 2019, Ustaw ścieżkę Microsoft Build Tools for npm. Na przykład: `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
-* W przeciwnym razie zainstaluj autonomiczne narzędzia programu VS Build przy `npm install --global windows-build-tools` użyciu programu w powłoce poleceń *Uruchom jako administrator* z podwyższonym poziomem uprawnień.
+* Jeśli zainstalowano program Visual Studio 2017, należy skonfigurować npm do korzystania z narzędzi MSBuild przy użyciu polecenia `npm config set msvs_version 2017 -g`
+* Jeśli zainstalowano program Visual Studio 2019, Ustaw ścieżkę Microsoft Build Tools for npm. Na przykład `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
+* W przeciwnym razie zainstaluj autonomiczne narzędzia programu VS Build przy użyciu `npm install --global windows-build-tools` programu w powłoce poleceń *Uruchom jako administrator* z podwyższonym poziomem uprawnień.
 
 Aby uzyskać więcej informacji na temat węzła Node-GYP, zobacz [repozytorium Node-GYP w witrynie GitHub](https://github.com/nodejs/node-gyp).
 
@@ -104,9 +104,9 @@ Po przetworzeniu transakcji sekcja interakcji odzwierciedla zmiany stanu.
 
 Funkcja SendRequest ustawia pola **RequestMessage** i **State** . Bieżący stan dla **RequestMessage** jest argumentem, który przeszedł do **Hello, łańcucha bloków**. Wartość pola **stan** jest **niepożądana**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy zasoby nie będą już potrzebne, można je usunąć przez usunięcie grupy `myResourceGroup` zasobów utworzonej w ramach przewodnika Szybki Start dotyczącego *tworzenia elementu członkowskiego łańcucha bloków* .
+Gdy zasoby nie będą już potrzebne, można je usunąć przez usunięcie `myResourceGroup` grupy zasobów utworzonej w ramach przewodnika Szybki Start dotyczącego *tworzenia elementu członkowskiego łańcucha bloków* .
 
 Aby usunąć grupę zasobów:
 

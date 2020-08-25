@@ -14,16 +14,16 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89c96da30411705bf33b1c63f79a9beef11962a1
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: a752eb8f38c5a2ccc88d7ceed3d3b342d20d3f51
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223826"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795308"
 ---
 # <a name="what-is-enterprise-user-management"></a>Co to jest zarządzanie użytkownikami w przedsiębiorstwie?
 
-Ten artykuł, przeznaczony dla administratorów usługi Azure AD, zawiera wprowadzenie do relacji między najważniejszymi zadaniami [zarządzania tożsamościami](/azure/active-directory/fundamentals/identity-fundamentals?context=azure/active-directory/users-groups-roles/context/ugr-context) użytkowników pod kątem grup, licencji, wdrożonych aplikacji dla przedsiębiorstw i ról administratora. Rozwój organizacji zwiększa przydatność grup i ról administratora usługi Azure AD, które pozwalają wykonywać następujące zadania:
+Ten artykuł, przeznaczony dla administratorów usługi Azure AD, zawiera wprowadzenie do relacji między najważniejszymi zadaniami [zarządzania tożsamościami](../fundamentals/active-directory-whatis.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) użytkowników pod kątem grup, licencji, wdrożonych aplikacji dla przedsiębiorstw i ról administratora. Rozwój organizacji zwiększa przydatność grup i ról administratora usługi Azure AD, które pozwalają wykonywać następujące zadania:
 
 * Przypisywanie licencji grupom, a nie do poszczególnym użytkownikom
 * Delegowanie uprawnień w celu rozdzielenia zadań zarządzania usługą Azure AD na mniej uprzywilejowane role
@@ -37,7 +37,7 @@ Aby zwiększyć elastyczność i ograniczyć nakład pracy związanej z zarządz
 
 ## <a name="assign-licenses-to-groups"></a>Przypisywanie licencji do grup
 
-Przypisywanie lub usuwanie licencji dla poszczególnych użytkowników bywa czasochłonne i wymaga skupienia uwagi. Z kolei [przypisywanie licencji do grup](/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context) może ułatwić zarządzanie licencjami na dużą skalę.
+Przypisywanie lub usuwanie licencji dla poszczególnych użytkowników bywa czasochłonne i wymaga skupienia uwagi. Z kolei [przypisywanie licencji do grup](../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) może ułatwić zarządzanie licencjami na dużą skalę.
 
 Dodanie użytkowników do licencjonowanej grupy w usłudze Azure AD powoduje automatyczne przypisanie im odpowiednich licencji. Gdy użytkownicy opuszczają grupę, usługa Azure AD usuwa dla nich przypisania licencji. Jeśli grupy usługi Azure AD nie są używane, zbiorcze dodawanie lub usuwanie licencji użytkowników — którzy są zatrudniani przez organizację lub odchodzą z niej — wymaga napisania skryptu programu PowerShell lub użycia interfejsu API programu Graph.
 
@@ -60,7 +60,7 @@ Aktualnie są dodawane nowe role administratora usługi Azure AD. Informacje o a
 
 ## <a name="assign-app-access"></a>Przyznawanie dostępu do aplikacji
 
-Za pomocą usługi Azure AD można przypisywać dostęp grup do [aplikacji dla przedsiębiorstw wdrożonych w organizacji usługi Azure AD](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context). Połączenie grup dynamicznych z grupowym przypisaniem aplikacji umożliwia automatyzowanie przypisań dostępu użytkowników do aplikacji w miarę rozwoju organizacji. Przyznawanie dostępu do aplikacji przedsiębiorstwa wymaga licencji usługi Azure Active Directory w wersji Premium P1 lub Premium P2.
+Za pomocą usługi Azure AD można przypisywać dostęp grup do [aplikacji dla przedsiębiorstw wdrożonych w organizacji usługi Azure AD](../manage-apps/assign-user-or-group-access-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context). Połączenie grup dynamicznych z grupowym przypisaniem aplikacji umożliwia automatyzowanie przypisań dostępu użytkowników do aplikacji w miarę rozwoju organizacji. Przyznawanie dostępu do aplikacji przedsiębiorstwa wymaga licencji usługi Azure Active Directory w wersji Premium P1 lub Premium P2.
 
 Usługa Azure AD umożliwia również precyzyjną kontrolę danych przesyłanych między aplikacją a grupami, którym przyznano dostęp. Po otwarciu aplikacji w bloku [Aplikacje dla przedsiębiorstw](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) i wybraniu pozycji **Inicjowanie obsługi administracyjnej** można wykonywać następujące czynności:
 
@@ -72,6 +72,6 @@ Usługa Azure AD umożliwia również precyzyjną kontrolę danych przesyłanych
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli dopiero zaczynasz administrować usługą Azure AD, zapoznaj się z [podstawową dokumentacją usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/index).
+Jeśli dopiero zaczynasz administrować usługą Azure AD, zapoznaj się z [podstawową dokumentacją usługi Azure Active Directory](../fundamentals/index.yml).
 
-Możesz również zacząć [tworzyć grupy](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context), [przypisywać licencje](/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context), [przyznawać dostęp do aplikacji](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context) lub [przypisywać role administratora](directory-assign-admin-roles.md).
+Możesz również zacząć [tworzyć grupy](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context), [przypisywać licencje](../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context), [przyznawać dostęp do aplikacji](../manage-apps/assign-user-or-group-access-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) lub [przypisywać role administratora](directory-assign-admin-roles.md).

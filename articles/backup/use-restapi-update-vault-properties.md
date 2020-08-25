@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak zaktualizować konfigurację magaz
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 1f0fee505443b15ba2ea97710efc220ef05df738
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c3f964032d10988bf7ae615eb64d3b56b99a7747
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513119"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757306"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Aktualizowanie konfiguracji magazynu Recovery Services platformy Azure przy użyciu interfejsu API REST
 
@@ -65,7 +65,7 @@ Po przesłaniu żądania "GET" zostanie zwrócona odpowiedź 200 (powodzenie).
 
 ### <a name="update-soft-delete-state-using-rest-api"></a>Zaktualizuj stan usuwania nietrwałego za pomocą interfejsu API REST
 
-Aby zaktualizować stan nietrwałego usuwania magazynu usługi Recovery Services przy użyciu interfejsu API REST, należy użyć następującej operacji *patch*
+Aby zaktualizować stan nietrwałego usuwania magazynu Recovery Services przy użyciu interfejsu API REST, należy użyć następującej operacji *patch*
 
 ```http
 PATCH https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
@@ -85,8 +85,8 @@ Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją interfejsu API R
 
 |Nazwa  |Wymagany  |Typ  |Opis  |
 |---------|---------|---------|---------|
-|Element ETag     |         |   String (ciąg)      |  Opcjonalny element eTag       |
-|location     |  true       |String (ciąg)         |   Lokalizacja zasobu      |
+|Element ETag     |         |   Ciąg      |  Opcjonalny element eTag       |
+|location     |  true       |Ciąg         |   Lokalizacja zasobu      |
 |properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Właściwości magazynu       |
 |tags     |         | Obiekt        |     Tagi zasobów    |
 
@@ -103,7 +103,7 @@ Poniższy przykład służy do aktualizowania stanu nietrwałego usuwania do "Di
 }
 ```
 
-#### <a name="responses"></a>Odpowiedzi
+#### <a name="responses-for-the-patch-operation"></a>Odpowiedzi dla operacji PATCH
 
 Poniższa odpowiedź dla operacji "PATCH" została pokazana poniżej:
 
@@ -111,7 +111,7 @@ Poniższa odpowiedź dla operacji "PATCH" została pokazana poniżej:
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
-##### <a name="example-response"></a>Przykładowa odpowiedź
+##### <a name="example-response-for-the-patch-operation"></a>Przykładowa odpowiedź dla operacji PATCH
 
 Po przesłaniu żądania "Poprawka" zostanie zwrócona odpowiedź 200 (powodzenie).
 

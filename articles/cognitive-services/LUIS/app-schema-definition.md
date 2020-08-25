@@ -2,13 +2,13 @@
 title: Definicja schematu aplikacji
 description: Aplikacja LUIS jest reprezentowana w `.json` lub `.lu` i zawiera wszystkie intencje, jednostki, przykład wyrażenia długości, funkcje i ustawienia.
 ms.topic: reference
-ms.date: 05/05/2020
-ms.openlocfilehash: dbbeb4eacbe8e07cf080b3a1527ca39c2b9a5991
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 08/22/2020
+ms.openlocfilehash: 816a6c50129f37a55ab3dba72319358e832a6b8b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684356"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756792"
 ---
 # <a name="app-schema-definition"></a>Definicja schematu aplikacji
 
@@ -55,12 +55,30 @@ Podczas importowania i eksportowania aplikacji wybierz opcję `.json` lub `.lu` 
   "tokenizerVersion": "1.0.0",
   "patternAnyEntities": [],
   "regex_entities": [],
-  "phraselists": [],
+  "phraselists": [
+  ],
   "regex_features": [],
   "patterns": [],
   "settings": []
 }
 ```
+
+|  — element                  | Komentarz                              |
+|--------------------------|--------------------------------------|
+| "hierarchie": [],     | Przestarzałe, użyj [jednostek uczenia maszynowego](luis-concept-entity-types.md).   |
+| "kompozyty": [],        | Przestarzałe, użyj [jednostek uczenia maszynowego](luis-concept-entity-types.md). Odwołanie do [jednostki złożonej](reference-entity-composite.md) . |
+| "closedLists": [],       | [Lista](reference-entity-list.md) odwołań do jednostek, używana głównie jako funkcje do jednostek.    |
+| "versionId": "0,1",      | Wersja aplikacji LUIS.|
+| "name": "example-App",   | Nazwa aplikacji LUIS. |
+| "DESC": "",              | Opcjonalny opis aplikacji LUIS.  |
+| "Kultura": "en-us",      | [Język](luis-language-support.md) aplikacji ma wpływ na podstawowe funkcje, takie jak wstępnie zbudowane jednostki, uczenie maszynowe i tokenizatora.  |
+| "tokenizerVersion": "1.0.0", | [Tokenizatora](luis-language-support.md#tokenization)  |
+| "patternAnyEntities": [],   | [Jednostka Pattern.any](reference-entity-pattern-any.md)    |
+| "regex_entities": [],    |  [Jednostka wyrażenia regularnego](reference-entity-regular-expression.md)   |
+| "phraselists": [],       |  [Listy fraz (funkcja)](luis-concept-feature.md#create-a-phrase-list-for-a-concept)   |
+| "regex_features": [],    |  Przestarzałe, użyj [jednostek uczenia maszynowego](luis-concept-entity-types.md). |
+| "wzorce": [],          |  [Wzorce poprawiają dokładność przewidywania](luis-concept-patterns.md) ze [składnią wzorca](reference-pattern-syntax.md)   |
+| "Ustawienia": []           | [Ustawienia aplikacji](luis-reference-application-settings.md)|
 
 ## <a name="version-6x"></a>Wersja 6. x
 

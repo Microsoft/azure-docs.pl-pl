@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak utworzyć magazyn Recovery Servic
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: ed91105488b812131d3a908c509998c955cec299
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 76c09cc02a3545d975de5d6d49b396b12f8abb44
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263422"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757510"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Tworzenie kopii zapasowych wielu maszyn wirtualnych za pomocą witryny Azure Portal
 
@@ -136,7 +136,7 @@ Aby uruchomić zadanie tworzenia kopii zapasowej na żądanie:
 
 1. W menu kontekstowym wybierz pozycję **Utwórz teraz kopię zapasową**.
 
-    ![Menu Kontekst](./media/tutorial-backup-vm-at-scale/context-menu.png)
+    ![Menu kontekstowe — wybierz pozycję Utwórz kopię zapasową teraz](./media/tutorial-backup-vm-at-scale/context-menu.png)
 
     Zostanie otwarte menu Utwórz teraz kopię zapasową.
 
@@ -166,7 +166,7 @@ Jeśli planujesz kontynuować pracę z kolejnymi samouczkami, nie czyść zasob�
 
 1. W menu **elementy kopii zapasowej** wybierz wielokropek, aby otworzyć menu kontekstowe.
 
-    ![Menu Kontekst](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
+    ![W menu elementy kopii zapasowej Otwórz menu kontekstowe](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
 
 1. W menu kontekstowym wybierz polecenie **Zatrzymaj tworzenie kopii zapasowej** , aby otworzyć menu Zatrzymaj kopię zapasową.
 

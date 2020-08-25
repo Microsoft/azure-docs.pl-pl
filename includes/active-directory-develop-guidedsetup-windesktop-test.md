@@ -15,13 +15,13 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 2325509f68ced7c66d9f733b07247ae01301b565
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82181543"
 ---
-## <a name="test-your-code"></a>testowanie kodu
+## <a name="test-your-code"></a>Testowanie kodu
 
 Aby uruchomić projekt, w programie Visual Studio wybierz **F5**. Zostanie wyświetlona **MainWindow** aplikacji, jak pokazano poniżej:
 
@@ -43,7 +43,7 @@ Po zalogowaniu powinna zostać wyświetlona informacja o profilu użytkownika, k
 
 |Właściwość  |Format  |Opis |
 |---------|---------|---------|
-|**Uż** |<span>user@domain.com</span> |Nazwa użytkownika służąca do identyfikowania użytkownika.|
+|**Nazwa użytkownika** |<span>user@domain.com</span> |Nazwa użytkownika służąca do identyfikowania użytkownika.|
 |**Token wygasa** |DateTime |Godzina wygaśnięcia tokenu. MSAL rozszerza datę wygaśnięcia przez odnowienie tokenu w razie potrzeby.|
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Więcej informacji na temat zakresów i uprawnień delegowanych

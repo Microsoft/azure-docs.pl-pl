@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: 6c93f34068cd296cb2d3a59f208fa644cdbf2260
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17c0b7bd802d4a50343f88b9517313489943e10c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83745730"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799489"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Przyłącz urządzenie służbowe do sieci organizacji
 Dołącz do sieci swojej organizacji swoje urządzenie z systemem Windows 10, aby uzyskać dostęp do zasobów, które mogą być ograniczone.
@@ -27,9 +27,9 @@ Po dołączeniu urządzenia z systemem Windows 10 do sieci organizacji zostaną 
 
 - System Windows rejestruje urządzenie w sieci organizacji, umożliwiając dostęp do zasobów przy użyciu konta osobistego. Gdy urządzenie zostanie zarejestrowane, system Windows przyłączy urządzenie do sieci, dzięki czemu możesz zalogować się i uzyskać dostęp do zasobów z ograniczeniami, korzystając z nazwy użytkownika i hasła swojej organizacji.
 
-- Opcjonalnie w zależności od opcji dostępnych w organizacji może zostać wyświetlony monit o skonfigurowanie weryfikacji dwuetapowej za pośrednictwem [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) lub [informacji zabezpieczających](user-help-security-info-overview.md).
+- Opcjonalnie w zależności od opcji dostępnych w organizacji może zostać wyświetlony monit o skonfigurowanie weryfikacji dwuetapowej za pośrednictwem [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) lub [informacji zabezpieczających](./security-info-setup-signin.md).
 
-- Opcjonalnie w zależności od opcji dostępnych w organizacji może być automatycznie rejestrowane w usłudze zarządzania urządzeniami przenośnymi, takie jak Microsoft Intune. Aby uzyskać więcej informacji na temat rejestrowania w Microsoft Intune, zobacz [Rejestrowanie urządzenia w usłudze Intune](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-all).
+- Opcjonalnie w zależności od opcji dostępnych w organizacji może być automatycznie rejestrowane w usłudze zarządzania urządzeniami przenośnymi, takie jak Microsoft Intune. Aby uzyskać więcej informacji na temat rejestrowania w Microsoft Intune, zobacz [Rejestrowanie urządzenia w usłudze Intune](/intune-user-help/enroll-your-device-in-intune-all).
 
 - Przejdziesz przez proces logowania, korzystając z automatycznego logowania przy użyciu konta organizacyjnego.
 
@@ -91,7 +91,7 @@ Jeśli urządzenie zostało już przez pewien czas skonfigurowane, możesz wykon
 
     ![Ekran powiadomień mobilnych](./media/user-help-join-device-on-network/join-device-setup-mobile.png)
 
-7. Na ekranie **upewnij się, że jest to Twoja organizacja** , zapoznaj się z informacjami, aby upewnić się, że są odpowiednie, a następnie wybierz pozycję **Dołącz**.
+7. Na ekranie  **upewnij się, że jest to Twoja organizacja** , zapoznaj się z informacjami, aby upewnić się, że są odpowiednie, a następnie wybierz pozycję **Dołącz**.
 
     ![Upewnij się, że jest ekran weryfikacji organizacji](./media/user-help-join-device-on-network/join-device-setup-confirm.png)
 
@@ -115,4 +115,4 @@ Po dołączeniu urządzenia do sieci organizacji powinno być możliwe uzyskanie
 
 - Jeśli Twoja organizacja chce zarejestrować urządzenie osobiste, takie jak telefon, zobacz temat [Rejestrowanie urządzenia osobistego w sieci organizacji](user-help-register-device-on-network.md).
 
-- Jeśli Twoja organizacja jest zarządzana przy użyciu Microsoft Intune i masz pytania dotyczące rejestracji, logowania lub dowolnego problemu związanego z usługą Intune, zobacz [zawartość pomocy użytkownika usługi Intune](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).
+- Jeśli Twoja organizacja jest zarządzana przy użyciu Microsoft Intune i masz pytania dotyczące rejestracji, logowania lub dowolnego problemu związanego z usługą Intune, zobacz [zawartość pomocy użytkownika usługi Intune](/intune-user-help/use-managed-devices-to-get-work-done).

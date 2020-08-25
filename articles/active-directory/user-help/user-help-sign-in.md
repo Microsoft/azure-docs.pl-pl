@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 07/18/2019
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: c7e2b522d475a49f694a8cb57bf57f62900948b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42ced6632ebfa56af8fe13a02f531b9835e13df3
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83743189"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799387"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Zaloguj się przy użyciu weryfikacji dwuetapowej lub informacji zabezpieczających
 
@@ -90,9 +90,9 @@ Jeśli z jakiegoś powodu nie możesz użyć podstawowej metody logowania, może
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Informacje o zabezpieczeniach w artykule [Przegląd informacji zabezpieczających (wersja zapoznawcza)](user-help-security-info-overview.md) .
+- Informacje o zabezpieczeniach w artykule [Przegląd informacji zabezpieczających (wersja zapoznawcza)](./security-info-setup-signin.md) .
 
-- Więcej informacji na temat weryfikacji dwuetapowej w artykule [Przegląd weryfikacji dwuetapowej](user-help-two-step-verification-overview.md) .
+- Więcej informacji na temat weryfikacji dwuetapowej w artykule [Przegląd weryfikacji dwuetapowej](./multi-factor-authentication-end-user-first-time.md) .
 
 - Zresetuj hasło, jeśli zostało zgubione lub zapomniane, z poziomu [portalu resetowania haseł](https://passwordreset.microsoftonline.com/)
 

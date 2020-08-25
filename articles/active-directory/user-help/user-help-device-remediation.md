@@ -13,12 +13,12 @@ ms.date: 10/10/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: b76e84f6ae2449347604ab823fde5b74d5c68f07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df3941c895ce67862eb53b8e96bc7a6d53c1ed02
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83740992"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799421"
 ---
 # <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>Komunikat o błędzie "nie można uzyskać z tego miejsca"
 
@@ -68,6 +68,6 @@ Jeśli urządzenie nie jest przyłączone do sieci organizacji, możesz wykonać
 - **Zarejestruj swoje urządzenie osobiste w celu pracy.** Zarejestrowanie urządzenia osobistego, zazwyczaj telefonu lub tabletu, w sieci organizacji. Po zarejestrowaniu urządzenia będzie można uzyskać dostęp do zasobów ograniczonych w organizacji. Aby uzyskać więcej informacji oraz instrukcje krok po kroku, zobacz temat [Rejestrowanie urządzenia osobistego w sieci organizacji](user-help-register-device-on-network.md).
 
 ## <a name="next-steps"></a>Następne kroki
-- [Co to jest portal aplikacji?](active-directory-saas-access-panel-introduction.md)
+- [Co to jest portal aplikacji?](./my-apps-portal-end-user-access.md)
 
 - [Logowanie się za pomocą telefonu zamiast hasła](user-help-auth-app-sign-in.md)

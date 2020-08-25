@@ -3,12 +3,12 @@ title: Kopia zapasowa offline z Azure Data Boxami dla programu DPM i serwera us�
 description: Za pomocą Azure Data Box można wypełniać początkowe dane kopii zapasowej w trybie offline z programu DPM i serwera usługi MAB.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 8b585dc46eb2bdd54e48950ca861f0edc8f0a7ed
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: d6305607170e02c2f6e104ff8b18011b8657947b
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88187045"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762457"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Używanie Azure Data Box dla programu DPM i serwera usługi MAB (wersja zapoznawcza)
 
@@ -48,7 +48,7 @@ Obsługiwane są następujące jednostki SKU urządzenie Data Box:
 > [!IMPORTANT]
 > Początkowe dane kopii zapasowej z pojedynczego źródła danych muszą być zawarte w obrębie jednego Azure Data Box lub Azure Data Box dysku i nie mogą być współużytkowane przez wiele urządzeń z tymi samymi lub różnymi jednostkami SKU. Jednak Azure Data Box mogą zawierać początkowe kopie zapasowe z wielu źródeł danych.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Agent MARS uruchomiony w programie DPM/serwera usługi MAB powinien zostać uaktualniony do [najnowszej wersji](https://aka.ms/azurebackup_agent) (2.0.9171.0 lub nowszej).
 
@@ -67,7 +67,7 @@ Uwaga:
 Przed wyzwoleniem kopii zapasowej offline upewnij się, że wymagane urządzenia urządzenie Data Box są w stanie *dostarczone* . Zobacz [rozmiar danych kopii zapasowej i obsługiwane urządzenie Data Box jednostek SKU](#backup-data-size-and-supported-data-box-skus) , aby zamówić najbardziej odpowiednią jednostkę SKU dla danego wymagania. Wykonaj kroki opisane w [tym artykule](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-ordered) , aby zamówić i odbierać urządzenie Data Box urządzenia.
 
 > [!IMPORTANT]
-> Nie wybieraj *BlobStorage* dla **rodzaju konta**. Serwer DPM/serwera usługi MAB wymaga konta, które obsługuje stronicowe obiekty blob, które nie są obsługiwane, jeśli wybrano *BlobStorage* . Wybierz pozycję **Storage v2 (ogólnego przeznaczenia w wersji 2)** jako **rodzaj konta** podczas tworzenia docelowego konta magazynu dla zadania Azure Data Box.
+> Nie wybieraj *BlobStorage* dla **rodzaju konta**. Serwer DPM/serwera usługi MAB wymaga konta, które obsługuje stronicowe obiekty blob, które nie są obsługiwane, jeśli wybrano *BlobStorage* . Wybierz pozycję  **Storage v2 (ogólnego przeznaczenia w wersji 2)** jako **rodzaj konta** podczas tworzenia docelowego konta magazynu dla zadania Azure Data Box.
 
 ![Konfigurowanie usługi Azure DATAbox](./media/offline-backup-azure-data-box-dpm-mabs/setup-azure-databox.png)
 
@@ -143,10 +143,10 @@ Określ alternatywne źródło: *wim: D: \Sources\Install.wim: 4*
      > Pierwsze logowanie trwa dłużej niż zwykle. Moduł Azure PowerShell jest instalowany w tle, a także aplikacja usługi Azure AD jest zarejestrowana.
      >
      >  - Następujące moduły programu PowerShell są zainstalowane:<br>
-          -AzureRM. profile *5.8.3*<br>
-          -AzureRM. resources *6.7.3*<br>
-          -AzureRM. Storage *5.2.0*<br>
-          — Azure. Storage *4.6.1*<br>
+          -AzureRM. profile     *5.8.3*<br>
+          -AzureRM. resources   *6.7.3*<br>
+          -AzureRM. Storage     *5.2.0*<br>
+          — Azure. Storage       *4.6.1*<br>
      >  - Aplikacja usługi Azure AD jest zarejestrowana *jako \<object GUID of the user> AzureOfflineBackup_*.
 
 13. Wybierz prawidłową kolejność pól danych, dla której zostało rozpakowane, połączone i odblokowane urządzenie Data Box dysk. Wybierz pozycję **Dalej**.
@@ -243,7 +243,7 @@ Aby rozwiązać ten problem, wykonaj następujące kroki i spróbuj ponownie wyk
 Na serwerze DPM/serwera usługi MAB próbujesz skonfigurować kopię zapasową offline, wykonaj następujące czynności:
 
 1. Otwórz kartę **osobisty zarządzanie certyfikatem komputera**  >  **Personal** i poszukaj certyfikatu o nazwie `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
-2. Wybierz powyższy certyfikat, kliknij prawym przyciskiem myszy **wszystkie zadania** i **Eksportuj** bez klucza prywatnego w formacie CER.
+2. Wybierz certyfikat powyżej, kliknij prawym przyciskiem myszy **wszystkie zadania** i **Eksportuj** bez klucza prywatnego w formacie CER.
 3. Przejdź do aplikacji usługi Azure offline Backup wymienionej w **punkcie 2**. W polu **Ustawienia**  >  **klucze**  >  **Przekaż klucz publiczny** Przekaż certyfikat wyeksportowany w powyższym kroku.
 
    ![Przekaż klucze publiczne](./media/offline-backup-azure-data-box-dpm-mabs/upload-public-keys.png)
@@ -258,9 +258,9 @@ Na serwerze DPM/serwera usługi MAB próbujesz skonfigurować kopię zapasową o
     > - Przejdź do ścieżki rejestru `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup` o nazwie *CurrentUserId*.
 
 6. Kliknij prawym przyciskiem myszy ciąg dodany w powyższym kroku i wybierz polecenie **Modyfikuj**. W polu wartość Podaj odcisk palca certyfikatu wyeksportowanego w **punkcie 2** i wybierz **przycisk OK**.
-7. Aby uzyskać wartość odcisku palca, kliknij dwukrotnie certyfikat, a następnie wybierz pozycję **szczegóły** i przewiń w dół do momentu wyświetlenia pola odcisk palca. Wybierz **odcisk palca** i skopiuj wartość.
+7. Aby uzyskać wartość odcisku palca, kliknij dwukrotnie certyfikat, a następnie wybierz pozycję **szczegóły**  i przewiń w dół do momentu wyświetlenia pola odcisk palca. Wybierz **odcisk palca** i skopiuj wartość.
 
-   ![Certyfikat](./media/offline-backup-azure-data-box-dpm-mabs/certificate.png)
+   ![Wartość odcisku palca](./media/offline-backup-azure-data-box-dpm-mabs/certificate.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,16 +1,16 @@
 ---
-title: 'Samouczek: Tworzenie biblioteki zawartości w celu wdrażania maszyn wirtualnych w rozwiązaniu programu Azure VMware (Automatyczna synchronizacja)'
-description: W tym samouczku dotyczącym rozwiązania Azure VMware (Automatyczna synchronizacja) można utworzyć bibliotekę zawartości służącą do wdrażania maszyny wirtualnej w chmurze prywatnej o automatycznej synchronizacji.
+title: 'Samouczek: Tworzenie biblioteki zawartości w celu wdrażania maszyn wirtualnych w rozwiązaniu VMware platformy Azure'
+description: W tym samouczku dotyczącym rozwiązania VMware platformy Azure utworzysz bibliotekę zawartości, aby wdrożyć maszynę wirtualną w chmurze prywatnej rozwiązania VMware platformy Azure.
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.openlocfilehash: d86f9cb92dcb8a852b9b178a5e160da0d1a3a692
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 3abaafac0dbd6f3537d2ca30a093627230780eb5
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612796"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750554"
 ---
-# <a name="tutorial-create-a-content-library-to-deploy-vms-in-azure-vmware-solution-avs"></a>Samouczek: Tworzenie biblioteki zawartości w celu wdrażania maszyn wirtualnych w rozwiązaniu programu Azure VMware (Automatyczna synchronizacja)
+# <a name="tutorial-create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Samouczek: Tworzenie biblioteki zawartości w celu wdrażania maszyn wirtualnych w rozwiązaniu VMware platformy Azure
 
 Biblioteka zawartości przechowuje zawartość w postaci elementów biblioteki i zarządza nią. Pojedynczy element biblioteki składa się z co najmniej jednego pliku, który służy do wdrażania maszyn wirtualnych. 
  
@@ -22,7 +22,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do ukończenia tego samouczka są wymagane segmenty przełącznika logicznego NSX-T i zarządzana usługa DHCP.  Aby uzyskać szczegółowe informacje, zobacz artykuł [jak zarządzać serwerem DHCP w programie Azure VMware (wersja zapoznawcza)](manage-dhcp.md) .
+Do ukończenia tego samouczka są wymagane segmenty przełącznika logicznego NSX-T i zarządzana usługa DHCP.  Aby uzyskać szczegółowe informacje, zobacz artykuł [jak zarządzać usługą DHCP w programie Azure VMware Solution Preview](manage-dhcp.md) .
 
 ## <a name="create-a-content-library"></a>Tworzenie biblioteki zawartości
 

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 4df49b4e68769a907423c4edef9f8820df4d20b7
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "83006466"
 ---
 ## <a name="locate-a-cloud-spatial-anchor"></a>Znajdź kotwicę przestrzenną w chmurze
@@ -18,4 +18,4 @@ Możliwość lokalizowania wcześniej zapisanego zakotwiczenia w chmurze jest je
 
 W przypadku lokalizowania kotwic w chmurze według identyfikatora, należy zapisać identyfikator kotwicy w chmurze w usłudze zaplecza aplikacji i udostępnić go wszystkim urządzeniom, które mogą prawidłowo uwierzytelniać się w nim. Aby zapoznać się z przykładem, zobacz [Samouczek: udostępnianie kotwic przestrzenny między urządzeniami](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices/).
 
-Tworzenie wystąpienia `AnchorLocateCriteria` obiektu, Ustawianie identyfikatorów, których szukasz, i wywoływanie `CreateWatcher` metody w sesji przez udostępnienie. `AnchorLocateCriteria`
+Tworzenie wystąpienia `AnchorLocateCriteria` obiektu, Ustawianie identyfikatorów, których szukasz, i wywoływanie `CreateWatcher` metody w sesji przez udostępnienie `AnchorLocateCriteria` .

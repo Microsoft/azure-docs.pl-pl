@@ -5,10 +5,10 @@ ms.date: 04/22/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: b8163c357f184ac41ce72dc8c89fcc5030c3180d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86118923"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Samouczek: Ciągła integracja szablonów Azure Resource Manager z Azure Pipelines
@@ -25,13 +25,13 @@ Ten samouczek obejmuje następujące zadania:
 
 > [!div class="checklist"]
 > * Przygotowywanie repozytorium GitHub
-> * Tworzenie projektu DevOps platformy Azure
+> * Tworzenie projektu usługi Azure DevOps
 > * Tworzenie potoku platformy Azure
 > * Weryfikowanie wdrożenia potoku
 > * Zaktualizuj szablon i Wdróż ponownie
-> * Czyszczenie zasobów
+> * Oczyszczanie zasobów
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -83,8 +83,8 @@ Folder **CreateWebApp** jest folderem, w którym przechowywany jest szablon. **P
 
 Zamiast tworzyć szablony, można pobrać szablony i zapisać je w folderze **CreateWebApp** .
 
-* Główny szablon:https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
-* Połączony szablon:https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
+* Główny szablon: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
+* Połączony szablon: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
 
 Nazwa folderu i nazwy plików są używane, ponieważ znajdują się w potoku.  W przypadku zmiany tych nazw należy zaktualizować nazwy używane w potoku.
 
@@ -120,14 +120,14 @@ Aby można było wykonać następną procedurę, wymagana jest organizacja DevOp
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines tworzenia projektu DevOps platformy Azure](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-create-devops-project.png)
 
-1. Wybierz pozycję **New project** (Nowy projekt). Jeśli nie masz żadnych projektów, Strona Tworzenie projektu zostanie otwarta automatycznie.
+1. Wybierz pozycję **Nowy projekt**. Jeśli nie masz żadnych projektów, Strona Tworzenie projektu zostanie otwarta automatycznie.
 1. Wprowadź następujące wartości:
 
     * **Nazwa projektu**: Wprowadź nazwę projektu. Możesz użyć nazwy projektu, która została pobrana na początku samouczka.
     * **Kontrola wersji**: wybierz pozycję **git**. Może być konieczne rozszerzenie **Zaawansowane** , aby zobaczyć **kontrolę wersji**.
 
     Użyj wartości domyślnej dla innych właściwości.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 Utwórz połączenie usługi używane do wdrażania projektów na platformie Azure.
 
@@ -138,7 +138,7 @@ Utwórz połączenie usługi używane do wdrażania projektów na platformie Azu
 1. Wprowadź następujące wartości:
 
     * **Poziom zakresu**: Wybierz **subskrypcję**.
-    * **Subskrypcja**: wybierz subskrypcję.
+    * **Subskrypcja**: wybierz swoją subskrypcję.
     * **Grupa zasobów**: pozostaw to pole puste.
     * **Nazwa połączenia**: Wprowadź nazwę połączenia. Na przykład **AzureRmPipeline-poł**. Zapisz tę nazwę, podczas tworzenia potoku musisz mieć nazwę.
     * **Udziel uprawnienia dostępu do wszystkich potoków**. niezaznaczone
@@ -228,7 +228,7 @@ Gdy aktualizujesz szablon i wypychasz zmiany do repozytorium zdalnego, potok aut
 
 Aby sprawdzić zmiany, można sprawdzić Właściwość replikacji konta magazynu.  Zobacz [weryfikacja wdrożenia](#verify-the-deployment).
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

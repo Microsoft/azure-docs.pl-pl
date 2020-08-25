@@ -6,10 +6,10 @@ ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 3c7b74d31bc3c4e2276cd52c8e6450630dc99bcd
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86058031"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Samouczek: korzystanie z kontroli kondycji w usłudze Azure Menedżer wdrażania (publiczna wersja zapoznawcza)
@@ -31,14 +31,14 @@ Ten samouczek obejmuje następujące zadania:
 > * Weryfikowanie wdrożenia wdrażania
 > * Wdrażanie wdrożenia ze stanem kondycji
 > * Weryfikowanie wdrożenia wdrażania
-> * Czyszczenie zasobów
+> * Oczyszczanie zasobów
 
 Dodatkowe zasoby:
 
 * [Dokumentacja interfejsu API REST usługi Azure Menedżer wdrażania](/rest/api/deploymentmanager/).
 * [Przykład Menedżer wdrażania platformy Azure](https://github.com/Azure-Samples/adm-quickstart).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -73,7 +73,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 Aby sprawdzić i przetestować funkcję platformy Azure:
 
-1. Otwórz [witrynę Azure Portal](https://portal.azure.com).
+1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
 1. Otwórz grupę zasobów.  Nazwa domyślna to nazwa projektu z dołączoną **RG** .
 1. Wybierz usługę App Service z grupy zasobów.  Domyślną nazwą usługi App Service jest nazwa projektu z dołączoną **webapp** .
 1. Rozwiń pozycję **funkcje**, a następnie wybierz pozycję **HttpTrigger1**.
@@ -265,7 +265,7 @@ New-AzResourceGroupDeployment `
 ```
 
 > [!NOTE]
-> `New-AzResourceGroupDeployment`jest wywołaniem asynchronicznym. Komunikat o powodzeniu oznacza, że wdrożenie zostało pomyślnie rozpoczęte. Aby zweryfikować wdrożenie, użyj programu `Get-AZDeploymentManagerRollout` .  Zobacz następną procedurę.
+> `New-AzResourceGroupDeployment` jest wywołaniem asynchronicznym. Komunikat o powodzeniu oznacza, że wdrożenie zostało pomyślnie rozpoczęte. Aby zweryfikować wdrożenie, użyj programu `Get-AZDeploymentManagerRollout` .  Zobacz następną procedurę.
 
 Aby sprawdzić postęp wdrażania przy użyciu następującego skryptu programu PowerShell:
 
@@ -348,11 +348,11 @@ Powtórz tę sekcję, aby ponownie wdrożyć wdrożenie przy użyciu adresu URL 
 
 ## <a name="verify-the-deployment"></a>Weryfikowanie wdrożenia
 
-1. Otwórz [witrynę Azure Portal](https://portal.azure.com).
+1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
 2. Przejdź do nowo utworzonych aplikacji internetowych w obrębie nowych grup zasobów utworzonych przez wdrożenie wprowadzania.
 3. Otwórz aplikację internetową w przeglądarce internetowej. Sprawdź lokalizację i wersję w pliku index.html.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

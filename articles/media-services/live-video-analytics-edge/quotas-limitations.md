@@ -3,12 +3,12 @@ title: Analiza filmów wideo na żywo na IoT Edge przydziałów — Azure
 description: W tym artykule opisano przydziały i ograniczenia dotyczące usługi wideo na żywo w IoT Edge.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 90141fa850c9ab3e3abbea15001249da0736ac45
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 32a24079b36655bfdacd25b07d419009f5012507
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091814"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750225"
 ---
 # <a name="quotas-and-limitations"></a>Limity przydziału i ograniczenia
 
@@ -36,21 +36,23 @@ W wersji zapoznawczej istnieją ograniczenia w różnych węzłach, które możn
    * Dozwolone jest tylko jedno źródło RTSP dla topologii wykresu.
 * Procesor filtru szybkości klatek
    * Musi być od razu przechodząca od procesora lub od wykrywania ruchu.
-   * Nie można użyć w ramach procesora rozszerzenia HTTP.
+   * Nie można użyć z procesora rozszerzenia HTTP lub gRPC.
    * Nie może być elementem nadrzędnym z procesora wykrywania ruchu.
 * Procesor rozszerzeń HTTP
+   * Może być co najwyżej jeden taki procesor na topologię grafu.
+* Procesor rozszerzenia gRPC
    * Może być co najwyżej jeden taki procesor na topologię grafu.
 * Procesor wykrywania ruchu
    * Musi być natychmiast od źródła RTSP.
    * Może być co najwyżej jeden taki procesor na topologię grafu.
-   * Nie można użyć w ramach procesora rozszerzenia HTTP.
+   * Nie można użyć w ramach procesora HTTP lub gRPC rozszerzenia.
 * Procesor bramy sygnałów
    * Musi być natychmiast od źródła RTSP.
 * Ujścia zasobów 
    * Musi być od razu przypadać od źródła RTSP lub procesora bramy sygnałów.
 * Ujścia plików
    * Musi być natychmiast od procesora sygnałów bramy.
-   * Nie można bezpośrednio przypadać na procesor rozszerzenia HTTP ani procesora wykrywania ruchu
+   * Nie może być bezpośrednio przypadające na procesor rozszerzenia HTTP lub gRPC lub procesor wykrywania ruchu
 * IoT Hub ujścia
    * Nie może być bezpośrednio elementem podrzędnym źródła danych IoT Hub.
 

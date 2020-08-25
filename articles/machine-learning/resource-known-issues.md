@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 71457be4e572a0e04dfffd0689bfbd458f7c2622
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 02c733c7849c89f9d48ddbe75ffbb2235e1be58e
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190514"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757289"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Znane problemy i rozwiązywanie problemów w Azure Machine Learning
 
@@ -121,6 +121,18 @@ Czasami pomocne może być podanie informacji diagnostycznych podczas pytania o 
     pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
     ```
 
+* **Wystąpił błąd instalacji zestawu SDK Azure Machine Learning z powodu wyjątku: ModuleNotFoundError: Brak modułu o nazwie "ruamel" lub "ImportError: No module o nazwie ruamel. YAML"**
+   
+   Ten problem występuje podczas instalacji zestawu SDK programu Azure Machine Learning dla języka Python na najnowszym PIP (>20.1.1) w środowisku podstawowym Conda dla wszystkich opublikowanych wersji zestawu SDK Azure Machine Learning dla języka Python. Zapoznaj się z następującymi obejściami:
+
+    * Unikaj instalowania zestawu SDK języka Python w środowisku podstawowym Conda, zamiast tworzyć środowisko Conda i instalować zestaw SDK na nowo utworzonym środowisku użytkownika. Najnowsza wersja PIP powinna współpracować z nowym środowiskiem Conda.
+
+    * W przypadku tworzenia obrazów w platformie Docker, w której nie można przełączać się w środowisku Conda Base, przypinaj polecenie PIP<= 20.1.1 w pliku Docker.
+
+    ```Python
+    conda install -c r -y conda python=3.6.2 pip=20.1.1
+    ```
+    
 * **Wystąpił błąd podczas instalowania pakietów**
 
     Azure Machine Learning Instalacja zestawu SDK kończy się niepowodzeniem na Azure Databricks po zainstalowaniu większej liczby pakietów. Niektóre pakiety, takie jak `psutil` , mogą spowodować konflikty. Aby uniknąć błędów instalacji, należy zainstalować pakiety przez zamarzanie wersji biblioteki. Ten problem jest związany z kostkami, a nie z zestawem SDK Azure Machine Learning. Ten problem może również wystąpić z innymi bibliotekami. Przykład:
@@ -369,7 +381,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 Wykonaj następujące akcje dla następujących błędów:
 
-|Błąd  | Rozwiązanie  |
+|Error  | Rozwiązanie  |
 |---------|---------|
 |Niepowodzenie kompilowania obrazu podczas wdrażania usługi sieci Web     |  Dodaj "pynacl = = 1.2.1" jako zależność PIP do pliku Conda na potrzeby konfiguracji obrazu       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Zmień jednostkę SKU dla maszyn wirtualnych używanych we wdrożeniu na taką, która ma więcej pamięci. |

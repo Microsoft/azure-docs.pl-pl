@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2018
 ms.author: curtand
-ms.openlocfilehash: e5ad882f172007e2563f832ec8eb61145cd0b36a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9de054162a59b10fbd02bed9b3e84634ee12125b
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744508"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799200"
 ---
 # <a name="create-app-passwords-from-the-security-info-preview-page"></a>Tworzenie haseł aplikacji na stronie informacje zabezpieczające (wersja zapoznawcza)
 
@@ -84,4 +84,4 @@ Jeśli nie musisz już korzystać z aplikacji, która wymaga hasła aplikacji, m
 
 ## <a name="for-more-information"></a>Więcej informacji
 
-- Aby uzyskać więcej informacji na temat strony **informacje zabezpieczające** i sposobu jej konfiguracji, zobacz [informacje zabezpieczające — Omówienie](user-help-security-info-overview.md)
+- Aby uzyskać więcej informacji na temat strony **informacje zabezpieczające** i sposobu jej konfiguracji, zobacz [informacje zabezpieczające — Omówienie](./security-info-setup-signin.md)

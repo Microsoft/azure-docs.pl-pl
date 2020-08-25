@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 956e61894113b4728760de519ad49be71ed184cc
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c69a5e153377eee86eaf0c43d6c982dee2938ddf
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605007"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783675"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Co to są przeglądy dostępu w usłudze Azure AD?
 
@@ -81,7 +81,7 @@ Katalog wymaga co najmniej tylu licencji na Azure AD — wersja Premium P2 jako 
 
 Licencje na Azure AD — wersja Premium P2 **nie** są wymagane dla użytkowników z rolami administratora globalnego lub administratora użytkowników, którzy konfigurują przeglądy dostępu, konfigurują ustawienia lub stosują decyzje z przeglądu.
 
-W przypadku każdej płatnej Azure AD — wersja Premiumej licencji P2 przypisanej do jednej z użytkowników Twojej organizacji możesz użyć usługi Azure AD Business-to-Business (B2B), aby zaprosić do pięciu użytkowników-Gości w ramach doliczenia użytkowników zewnętrznych. Ci użytkownicy-Goście mogą również korzystać z funkcji Azure AD — wersja Premium P2. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące licencjonowania współpracy B2B usługi Azure AD](../b2b/licensing-guidance.md).
+W przypadku każdej płatnej Azure AD — wersja Premiumej licencji P2 przypisanej do jednej z użytkowników Twojej organizacji możesz użyć usługi Azure AD Business-to-Business (B2B), aby zaprosić do pięciu użytkowników-Gości w ramach doliczenia użytkowników zewnętrznych. Ci użytkownicy-Goście mogą również korzystać z funkcji Azure AD — wersja Premium P2. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące licencjonowania współpracy B2B usługi Azure AD](../external-identities/licensing-guidance.md).
 
 Aby uzyskać więcej informacji na temat licencji, zobacz [przypisywanie lub usuwanie licencji przy użyciu portalu Azure Active Directory](../fundamentals/license-users-groups.md).
 
