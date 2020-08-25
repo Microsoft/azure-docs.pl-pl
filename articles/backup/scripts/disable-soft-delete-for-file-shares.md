@@ -4,10 +4,10 @@ description: Dowiedz się, jak za pomocą skryptu wyłączyć usuwanie nietrwał
 ms.topic: sample
 ms.date: 02/02/2020
 ms.openlocfilehash: 172a7bd19ffd07ca7900a457c447362343e5f185
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84122796"
 ---
 # <a name="disable-soft-delete-for-file-shares-in-a-storage-account"></a>Wyłącz usuwanie nietrwałe dla udziałów plików na koncie magazynu

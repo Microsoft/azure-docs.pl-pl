@@ -4,10 +4,10 @@ description: Omówienie przykładu strategii CIS Microsoft Azure Foundations Ben
 ms.date: 06/02/2020
 ms.topic: sample
 ms.openlocfilehash: 6cc985fe127eae795d9a8e37624c403dd6e6f96a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84740307"
 ---
 # <a name="cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Przykład usługi CIS Microsoft Azure przykłady planów testów porównawczych
@@ -18,7 +18,7 @@ Przykład strategii CIS Microsoft Azure Foundations Benchmark ułatwia zapewnien
 
 [Azure Policy mapowanie rekomendacji](../../policy/samples/cis-azure-1-1-0.md) zawiera szczegółowe informacje dotyczące definicji zasad uwzględnionych w ramach tego planu oraz sposób mapowania tych definicji zasad na **domeny zgodności** i **kontrolki** w usłudze CIS Microsoft Azure wykryto testy testowe 1.1.0. Po przypisaniu do architektury zasoby są oceniane przez Azure Policy w przypadku braku zgodności z przypisanymi definicjami zasad. Aby uzyskać więcej informacji, zobacz [Azure Policy](../../policy/overview.md).
 
-## <a name="deploy"></a>Wdróż
+## <a name="deploy"></a>Wdrażanie
 
 Aby wdrożyć plan platformy Azure usługi CIS Microsoft Azure przykłady planów testów porównawczych, należy wykonać następujące czynności:
 
@@ -101,8 +101,8 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 
 |Nazwa artefaktu|Typ artefaktu|Nazwa parametru|Opis|
 |-|-|-|-|
-|Inspekcja wykrytych usług CIS Microsoft Azure testów porównawczych 1.1.0 i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisywanie zasad|Lista regionów, w których należy włączyć Network Watcher|Rozdzielana średnikami lista regionów. Aby wyświetlić pełną listę regionów, Użyj Get-AzLocation. Np.: wschód; eastus2|
-|Inspekcja wykrytych usług CIS Microsoft Azure testów porównawczych 1.1.0 i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisywanie zasad|Lista rozszerzeń maszyn wirtualnych, które są zatwierdzone do użycia|Rozdzielana średnikami lista rozszerzeń. Aby wyświetlić pełną listę rozszerzeń maszyn wirtualnych, użyj polecenie Get-AzVMExtensionImage. Np.: AzureDiskEncryption; IaaSAntimalware|
+|Inspekcja wykrytych usług CIS Microsoft Azure testów porównawczych 1.1.0 i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisanie zasad|Lista regionów, w których należy włączyć Network Watcher|Rozdzielana średnikami lista regionów. Aby wyświetlić pełną listę regionów, Użyj Get-AzLocation. Np.: wschód; eastus2|
+|Inspekcja wykrytych usług CIS Microsoft Azure testów porównawczych 1.1.0 i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisanie zasad|Lista rozszerzeń maszyn wirtualnych, które są zatwierdzone do użycia|Rozdzielana średnikami lista rozszerzeń. Aby wyświetlić pełną listę rozszerzeń maszyn wirtualnych, użyj polecenie Get-AzVMExtensionImage. Np.: AzureDiskEncryption; IaaSAntimalware|
 
 ## <a name="next-steps"></a>Następne kroki
 

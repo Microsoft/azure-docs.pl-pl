@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/21/2020
+ms.date: 08/14/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 577c184f78c5784b29db7562f3c33a3cb7518f0c
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 1d84d25e5605ede064ddc853a4249ba49d59513d
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142047"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257756"
 ---
 ::: zone target="docs"
 
@@ -352,7 +352,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ## <a name="self-managed"></a>[Samodzielne zarządzanie](#tab/in-selfmanaged)
 
-Jeśli korzystasz z urządzenia Data Box w Japonii, Singapurze, Korei, Indiach, Republice Południowej Afryki lub Europie Zachodniej oraz masz wybraną opcję samodzielnego zarządzania wysyłką, postępuj zgodnie z następującymi instrukcjami podczas tworzenia zamówienia. 
+Jeśli korzystasz z urządzenia Data Box w Japonii, Singapurze, Korei, Indiach, Republice Południowej Afryki, Europie Zachodniej lub w instytucji rządowej USA oraz masz wybraną opcję samodzielnego zarządzania wysyłką, postępuj zgodnie z następującymi instrukcjami podczas tworzenia zamówienia. 
 
 1. Zanotuj kod autoryzacji widoczny na stronie przygotowywania do wysyłki w lokalnym internetowym interfejsie użytkownika urządzenia Data Box po pomyślnym ukończeniu tego kroku.
 2. Wyłącz urządzenie i odłącz kable. Zwiń przewód zasilający dostarczony wraz z urządzeniem i umieść go bezpiecznie z tyłu urządzenia.

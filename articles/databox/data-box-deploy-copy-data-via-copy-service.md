@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: alkohli
 ms.openlocfilehash: 5b3db919056f24ad8b46c9925c044453e671d99f
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84219163"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Samouczek: używanie usługi kopiowania danych do kopiowania danych do Azure Data Box (wersja zapoznawcza)
@@ -51,7 +51,7 @@ Po nawiązaniu połączenia z urządzeniem NAS następnym krokiem jest skopiowan
 * Jeśli dane są modyfikowane podczas ich odczytywania przez usługę kopiowania danych, mogą wystąpić niepowodzenia lub uszkodzenie danych.
 
 > [!IMPORTANT]
-> Upewnij się, że przechowujesz kopię danych źródłowych do momentu potwierdzenia, że urządzenie Data Box przeniósł dane do usługi Azure Storage.
+> Pamiętaj, aby zachować kopię danych źródłowych do czasu potwierdzenia, że usługa Data Box przeniosła Twoje dane do usługi Azure Storage.
 
 Aby skopiować dane za pomocą usługi kopiowania danych, należy utworzyć zadanie:
 
@@ -64,9 +64,9 @@ Aby skopiować dane za pomocą usługi kopiowania danych, należy utworzyć zada
     
     |Pole                          |Wartość    |
     |-------------------------------|---------|
-    |**Nazwa zadania**                       |Unikatową nazwę zadania składającą się z mniej niż 230 znaków. Te znaki nie są dozwolone w nazwie zadania:,,,,,, \<, \> \| \? \* \\ \: \/ , i\\\.         |
+    |**Nazwa zadania**                       |Unikatową nazwę zadania składającą się z mniej niż 230 znaków. Te znaki nie są dozwolone w nazwie zadania:,,,,,, \<, \> \| \? \* \\ \: \/ , i \\\.         |
     |**Lokalizacja źródła**                |Podaj ścieżkę SMB do źródła danych w formacie: `\\<ServerIPAddress>\<ShareName>` lub `\\<ServerName>\<ShareName>`.        |
-    |**Uż**                       |Nazwa użytkownika w formacie `\\<DomainName><UserName>` używana do uzyskiwania dostępu do źródła danych. Jeśli administrator lokalny nawiązuje połączenie, będą musieli mieć jawne uprawnienia zabezpieczeń. Kliknij prawym przyciskiem myszy folder, wybierz pozycję **Właściwości** , a następnie wybierz pozycję **zabezpieczenia**. Powinno to spowodować dodanie administratora lokalnego na karcie **zabezpieczenia** .       |
+    |**Nazwa użytkownika**                       |Nazwa użytkownika w formacie `\\<DomainName><UserName>` używana do uzyskiwania dostępu do źródła danych. Jeśli administrator lokalny nawiązuje połączenie, będą musieli mieć jawne uprawnienia zabezpieczeń. Kliknij prawym przyciskiem myszy folder, wybierz pozycję **Właściwości** , a następnie wybierz pozycję **zabezpieczenia**. Powinno to spowodować dodanie administratora lokalnego na karcie **zabezpieczenia** .       |
     |**Hasło**                       |Hasło używane do uzyskiwania dostępu do źródła danych.           |
     |**Docelowe konto magazynu**    |Z listy wybierz docelowe konto magazynu, do którego będą przekazywane dane.         |
     |**Typ docelowy**       |Wybierz docelowy typ magazynu z listy: **blokowy obiekt BLOB**, **stronicowy obiekt BLOB**lub **Azure Files**.        |
@@ -119,9 +119,9 @@ Aby skopiować dane za pomocą usługi kopiowania danych, należy utworzyć zada
 6. Podczas przetwarzania zadania na stronie **Kopiowanie danych** można zauważyć następujące elementy:
 
     - W kolumnie **Stan** można wyświetlić stan zadania kopiowania. Możliwe stany to:
-        - **Uruchomiono**
+        - **Uruchomienie**
         - **Niepowodzenie**
-        - **Sukces**
+        - **Powiodło się**
         - **Wstrzymywanie**
         - **Wstrzymano**
         - **Anulowanie**

@@ -8,7 +8,14 @@
   expanded: true
   items:
     - name: Tworzenie pierwszej statycznej aplikacji internetowej
-      href: getting-started.md
+      expanded: true
+      items:
+        - name: Visual Studio Code
+          href: getting-started.md
+        - name: Azure Portal
+          href: get-started-portal.md
+        - name: Interfejs wiersza polecenia platformy Azure
+          href: get-started-cli.md
 - name: Pojęcia
   items:
     - name: Obsługa interfejsów API za pomocą usługi Azure Functions

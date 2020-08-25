@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 5e344eb37af4fc1fae35a1f0c036ed1582054ea5
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83747432"
 ---
 # <a name="migrate-an-android-app-from-google-maps"></a>Migrowanie aplikacji systemu Android ze sklepu Google Maps
@@ -52,7 +52,7 @@ Aby wyświetlić mapę przy użyciu zestawu SDK usługi Google Maps dla systemu 
 
     `implementation 'com.google.android.gms:play-services-maps:17.0.0'`
 
-1.  Dodaj klucz interfejsu API usługi Google Maps w sekcji aplikacji w pliku ** \_ \_ XML usługi Google Maps** :
+1.  Dodaj klucz interfejsu API usługi Google Maps w sekcji aplikacji pliku usługi  **Google \_ Maps \_api.xml** :
     
     ```xml
     <meta-data android:name="com.google.android.geo.API_KEY" android:value="YOUR_GOOGLE_MAPS_KEY"/>
@@ -182,7 +182,7 @@ Aby wyświetlić mapę przy użyciu zestawu Azure Maps SDK dla systemu Android, 
         > Android SDK Azure Maps są regularnie uaktualniane i rozszerzane. Aby uzyskać najnowszy Azure Maps numer wersji, można zobaczyć [formant wprowadzenie do mapy systemu Android](how-to-use-android-map-control-library.md) . Ponadto można ustawić numer wersji z "0,2" na "0 +", aby kod zawsze wskazywał najnowszą wersję.
     
     4. Przejdź do **pliku** na pasku narzędzi, a następnie kliknij pozycję **Synchronizuj projekt z plikami Gradle**.
-3. Dodaj fragment mapy do działania głównego ( \> Układ zasobów \> \_ Main. xml):
+3. Dodaj fragment mapy do działania głównego ( \> działanie układu zasobów \> \_main.xml):
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -495,7 +495,7 @@ Obrazy niestandardowe mogą służyć do reprezentowania punktów na mapie. Mapa
 <center>
 
 ![żółty obraz pinezki](media/migrate-google-maps-web-app/ylw_pushpin.png)<br/>
-YLW \_ pinezki. png</center>
+YLW \_pushpin.png</center>
 
 W obu przykładach Powyższy obraz jest dodawany do folderu do rysowania zasobów aplikacji.
 
@@ -725,7 +725,7 @@ public void onMapReady(GoogleMap googleMap) {
 Warstwę kafelków można dodać do mapy w podobny sposób, jak każda inna warstwa. Sformatowany adres URL, który ma symbole zastępcze x, y i zoom; `{x}`, `{y}` `{z}` odpowiednio jest używany do określenia warstwy, w której mają być dostępne kafelki. Ponadto warstwy kafelków w Azure Maps obsługują `{quadkey}` , `{bbox-epsg-3857}` i `{subdomain}` symboli zastępczych. Aby warstwa kafelków została częściowo przezroczysta, używana jest wartość nieprzezroczystości 0,8. Nieprzezroczystość i przezroczystość, chociaż podobne, używaj odwróconych wartości. Aby przeprowadzić konwersję między obiema opcjami, Odejmij ich wartość od liczby.
 
 > [!TIP]
-> W Azure Maps jest wygodne renderowanie warstw poniżej innych warstw, w tym warstw mapy podstawowej. Ponadto często pożądane jest renderowanie warstw kafelków poniżej etykiet mapy, dzięki czemu można je łatwo odczytać. `map.layers.add`Metoda przyjmuje drugi parametr, który jest identyfikatorem warstwy, w której ma zostać wstawiona Nowa warstwa poniżej. Aby wstawić warstwę kafelków pod etykietami mapy, można użyć następującego kodu:`map.layers.add(myTileLayer, "labels");`
+> W Azure Maps jest wygodne renderowanie warstw poniżej innych warstw, w tym warstw mapy podstawowej. Ponadto często pożądane jest renderowanie warstw kafelków poniżej etykiet mapy, dzięki czemu można je łatwo odczytać. `map.layers.add`Metoda przyjmuje drugi parametr, który jest identyfikatorem warstwy, w której ma zostać wstawiona Nowa warstwa poniżej. Aby wstawić warstwę kafelków pod etykietami mapy, można użyć następującego kodu: `map.layers.add(myTileLayer, "labels");`
 
 ```java
 mapControl.onReady(map -> {

@@ -7,12 +7,12 @@ ms.date: 09/25/2019
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 658defef93a7dffe9a0d707e128ab5d5ef382849
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9dfce7b76eed5bfc9f4979c0e3041b6c65c28422
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88701640"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749374"
 ---
 # <a name="use-azure-storage-explorer-to-manage-azure-managed-disks"></a>Zarządzanie usługą Azure Managed disks za pomocą Eksplorator usługi Azure Storage
 
@@ -132,6 +132,6 @@ Za pomocą Eksplorator usługi Storage można skopiować dysk z zarządzaniem do
 ## <a name="next-steps"></a>Następne kroki
 
 
-Dowiedz się [, jak utworzyć maszynę wirtualną na podstawie dysku VHD przy użyciu Azure Portal](./windows/create-vm-specialized-portal.md).
+Dowiedz się [, jak utworzyć maszynę wirtualną na podstawie dysku VHD przy użyciu Azure Portal](windows/create-vm-specialized-portal.md).
 
-Dowiedz się [, jak dołączyć zarządzany dysk danych do maszyny wirtualnej z systemem Windows przy użyciu Azure Portal](./windows/attach-managed-disk-portal.md).
+Dowiedz się [, jak dołączyć zarządzany dysk danych do maszyny wirtualnej z systemem Windows przy użyciu Azure Portal](windows/attach-managed-disk-portal.md).

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 307b1a6838c3a78c04ba6a36ffd52bd6b98aae04
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: ec38f16c5a658848eab505794ed1a2d072f22aea
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722827"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749611"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Zagadnienia dotyczące projektowania sieci wirtualnej i opcje konfiguracji Azure Active Directory Domain Services
 
@@ -104,7 +104,7 @@ Domena zarządzana tworzy pewne zasoby sieciowe podczas wdrażania. Te zasoby s�
 
 ## <a name="network-security-groups-and-required-ports"></a>Sieciowe grupy zabezpieczeń i wymagane porty
 
-[Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń)](../virtual-network/virtual-network-vnet-plan-design-arm.md) zawiera listę reguł, które zezwalają na ruch sieciowy w sieci wirtualnej platformy Azure lub odmawiają go. Grupa zabezpieczeń sieci jest tworzona podczas wdrażania domeny zarządzanej zawierającej zestaw reguł umożliwiających usłudze udostępnianie funkcji uwierzytelniania i zarządzania. Ta domyślna grupa zabezpieczeń sieci jest skojarzona z podsiecią sieci wirtualnej, w której wdrożono domenę zarządzaną.
+[Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń)](../virtual-network/security-overview.md) zawiera listę reguł, które zezwalają na ruch sieciowy w sieci wirtualnej platformy Azure lub odmawiają go. Grupa zabezpieczeń sieci jest tworzona podczas wdrażania domeny zarządzanej zawierającej zestaw reguł umożliwiających usłudze udostępnianie funkcji uwierzytelniania i zarządzania. Ta domyślna grupa zabezpieczeń sieci jest skojarzona z podsiecią sieci wirtualnej, w której wdrożono domenę zarządzaną.
 
 Następujące reguły sieciowej grupy zabezpieczeń są wymagane dla domeny zarządzanej w celu zapewnienia usług uwierzytelniania i zarządzania. Nie Edytuj ani nie usuwaj tych reguł sieciowej grupy zabezpieczeń dla podsieci sieci wirtualnej, w której jest wdrożona domena zarządzana.
 

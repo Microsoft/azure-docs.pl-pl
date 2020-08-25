@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
 ms.openlocfilehash: 6eec9c197f0bc17a5237a05e198b12cb769da89d
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84194582"
 ---
 # <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Samouczek: kopiowanie danych z bazy danych SQL Server do usługi Azure Blob Storage
@@ -299,7 +299,7 @@ W tej sekcji utworzysz własne środowisko Integration Runtime i skojarzysz je z
 
     f. Wprowadź nazwę użytkownika.
 
-    g. Wprowadź hasło powiązane z tą nazwą użytkownika.
+    przykład Wprowadź hasło powiązane z tą nazwą użytkownika.
 
     h. Wybierz przycisk **Testuj**, aby upewnić się, że środowisko Integration Runtime może połączyć się z wystąpieniem programu SQL Server.  
     ![Łączność powiodła się](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png)
@@ -413,7 +413,7 @@ W tym kroku połączysz wystąpienie SQL Server z fabryką danych.
 
     > [!IMPORTANT]
     > - Wybierz właściwą sekcję na podstawie metody uwierzytelniania używanej do nawiązywania połączenia z wystąpieniem programu SQL Server.
-    > - Zamień na **\<integration runtime name>** nazwę Twojego środowiska Integration Runtime.
+    > - Zamień na  **\<integration runtime name>** nazwę Twojego środowiska Integration Runtime.
     > - Przed zapisaniem pliku Zastąp **\<servername>** wartości,, **\<databasename>** **\<username>** i **\<password>** wartościami wystąpienia SQL Server.
     > - Jeśli musisz użyć znaku ukośnika (\\) w nazwie konta użytkownika lub nazwie serwera, poprzedź go znakiem ucieczki (\\). Na przykład użyj elementu *webdomain \\ \\ *.
 

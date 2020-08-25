@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: udzielanie dostępu do internetowego interfejsu API platformy Node. js z aplikacji klasycznej'
-description: Samouczek dotyczący sposobu używania Active Directory B2C do ochrony interfejsu API sieci Web Node. js i wywoływania go z aplikacji klasycznej platformy .NET.
+title: 'Samouczek: udzielanie dostępu do Node.js internetowego interfejsu API z aplikacji klasycznej'
+description: Samouczek dotyczący sposobu używania Active Directory B2C do ochrony internetowego interfejsu API Node.js i wywoływania go z poziomu aplikacji klasycznej platformy .NET.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,17 +11,17 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 8ebfbeeb4533f21bc0fa10a5fee7b88ef069c262
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84298855"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Samouczek — udzielanie dostępu do internetowego interfejsu API platformy Node.js z aplikacji klasycznej przy użyciu usługi Azure Active Directory B2C
 
-W tym samouczku pokazano, jak wywołać interfejs API sieci Web w środowisku Node. js chronionych przez program Azure Active Directory B2C (Azure AD B2C) z aplikacji klasycznej Windows Presentation Foundation (WPF), a także chronić ją przez Azure AD B2C.
+W tym samouczku przedstawiono sposób wywoływania Node.js internetowego interfejsu API chronionego przez program Azure Active Directory B2C (Azure AD B2C) z aplikacji klasycznej programu Windows Presentation Foundation (WPF), również chronionej przez Azure AD B2C.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Dodawanie aplikacji internetowego interfejsu API
@@ -51,7 +51,7 @@ Aby wywołać chroniony internetowy interfejs API z natywnej aplikacji klienckie
 
 W samouczku wymagań wstępnych zarejestrowano natywną aplikację kliencką o nazwie *nativeapp1*. Poniższe kroki umożliwiają skonfigurowanie natywnej rejestracji aplikacji przy użyciu zakresów interfejsu API, które zostały uwidocznione dla *webapi1* w poprzedniej sekcji. Dzięki temu aplikacja klasyczna może uzyskać token dostępu z Azure AD B2C, z którego korzysta interfejs API sieci Web w celu sprawdzenia i zapewnienia dostępu do zakresu zasobów. W dalszej części tego samouczka konfigurujesz i uruchamiasz zarówno przykład kodu aplikacji klasycznych, jak i interfejsu API sieci Web.
 
-Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego nowego środowiska **rejestracje aplikacji** lub naszych starszych **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregtraining).
+Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego nowego środowiska **rejestracje aplikacji** lub naszych starszych  **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregtraining).
 
 #### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/)
 
@@ -73,7 +73,7 @@ Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego
 1. Wybierz pozycję **Dostęp do interfejsu API**, a następnie wybierz polecenie **Dodaj**.
 1. Na liście rozwijanej **Wybierz interfejs API** wybierz pozycję *webapi1*.
 1. Z listy rozwijanej **Wybierz zakresy** wybierz zdefiniowane wcześniej zakresy. Na przykład *Demonstracja. odczyt* i *Demonstracja. Write*.
-1. Wybierz przycisk **OK**.
+1. Kliknij **OK**.
 
 * * *
 
@@ -99,9 +99,9 @@ W ramach wymagań wstępnych dotyczących tego artykułu zmodyfikowano [aplikacj
     public static string ApiEndpoint = "http://localhost:5000";
     ```
 
-### <a name="get-and-update-the-nodejs-api-sample"></a>Pobierz i zaktualizuj przykład interfejsu API środowiska Node. js
+### <a name="get-and-update-the-nodejs-api-sample"></a>Pobierz i zaktualizuj przykład interfejsu API Node.js
 
-Następnie Pobierz przykład kodu internetowego interfejsu API środowiska Node. js z usługi GitHub i skonfiguruj go tak, aby korzystał z internetowego interfejsu API, który został zarejestrowany w dzierżawie Azure AD B2C.
+Następnie Pobierz przykładowy kod internetowego interfejsu API Node.js z usługi GitHub i skonfiguruj go tak, aby korzystał z internetowego interfejsu API zarejestrowanego w dzierżawie Azure AD B2C.
 
 [Pobierz plik zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi/archive/master.zip) lub sklonuj przykładową aplikację internetową z usługi GitHub.
 
@@ -128,7 +128,7 @@ Przykładowy internetowy interfejs API platformy Node.js korzysta z biblioteki P
 
 ## <a name="run-the-samples"></a>Uruchamianie przykładów
 
-### <a name="run-the-nodejs-web-api"></a>Uruchamianie interfejsu API sieci Web środowiska Node. js
+### <a name="run-the-nodejs-web-api"></a>Uruchamianie interfejsu API sieci Web Node.js
 
 1. Uruchom wiersz polecenia platformy Node.js.
 2. Przejdź do katalogu zawierającego przykład platformy Node.js. Na przykład `cd c:\active-directory-b2c-javascript-nodejs-webapi`

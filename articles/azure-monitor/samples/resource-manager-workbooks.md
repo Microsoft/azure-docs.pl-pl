@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
 ms.openlocfilehash: 72e6e085135c07e962dea6253af7d40333295a86
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83854498"
 ---
 # <a name="resource-manager-template-samples-for-workbooks-in-azure-monitor"></a>Przykłady szablonów Menedżer zasobów dla skoroszytów w Azure Monitor

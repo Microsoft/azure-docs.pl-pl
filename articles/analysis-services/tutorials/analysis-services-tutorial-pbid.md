@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: 4d8c753f06e58fd1cce1c55eca213637cb70e436
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "73572319"
 ---
 # <a name="tutorial-connect-with-power-bi-desktop"></a>Samouczek: nawiązywanie połączenia za pomocą programu Power BI Desktop
@@ -43,7 +43,7 @@ Skopiuj nazwę serwera z **portalu Azure** > serwer > **Omówienie** > **Nazwa s
 
 ## <a name="connect-in-power-bi-desktop"></a>Nawiązywanie połączenie w programie Power BI Desktop
 
-1. W Power BI Desktop kliknij pozycję **Pobierz dane** > **Azure** > **Azure Analysis Services Database**.
+1. W Power BI Desktop kliknij pozycję **Pobierz dane**  >  **Azure**  >  **Azure Analysis Services Database**.
 
    ![Łączenie w oknie Pobieranie danych](./media/analysis-services-tutorial-pbid/aas-pbid-connect-aasserver.png)
 
@@ -59,13 +59,13 @@ Skopiuj nazwę serwera z **portalu Azure** > serwer > **Omówienie** > **Nazwa s
 
    ![Wizualizacje](./media/analysis-services-tutorial-pbid/aas-pbid-visualizations-report.png)
 
-5. W obszarze **pola** > tabela**Sprzedaż internetowa** wybierz pozycję miary **Sales Total** i **Margin** . W tabeli **Product Category** wybierz miarę **Product Category Name**.
+5. W obszarze **pola**  >  tabela**Sprzedaż internetowa** wybierz pozycję miary **Sales Total** i **Margin** . W tabeli **Product Category** wybierz miarę **Product Category Name**.
 
    ![Ukończony raport](./media/analysis-services-tutorial-pbid/aas-pbid-complete-report.png)
 
     Poświęć kilka minut, aby poznać przykładowy model adventureworks. Możesz utworzyć różne wizualizacje i wyciąć niektóre dane oraz metryki. Po zakończeniu modyfikowania raportu pamiętaj, aby go zapisać.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli raport nie będzie już potrzebny, nie zapisuj go lub usuń pliki, jeśli raport został już zapisany.
 

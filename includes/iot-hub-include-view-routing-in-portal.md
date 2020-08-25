@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -9,10 +9,10 @@ ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 178236f774b0e1a6fe20c73afe0e7fd6965e67a5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "67235399"
 ---
 Teraz, gdy punkty końcowe i trasy komunikatów zostały skonfigurowane, można wyświetlić ich konfigurację w portalu. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do pozycji **grupy zasobów**. Następnie wybierz grupę zasobów, a następnie wybierz centrum (nazwa centrum rozpoczyna się od w ramach `ContosoTestHub` tego samouczka). Zobaczysz okienko IoT Hub.

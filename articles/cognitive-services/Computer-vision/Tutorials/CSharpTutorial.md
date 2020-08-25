@@ -12,10 +12,10 @@ ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 4445fd893027f21adfcf6a273d1ba6360087ec49
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84983612"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Przykład: Eksplorowanie aplikacji do przetwarzania obrazów przy użyciu języka C #
@@ -306,7 +306,7 @@ Metoda `UploadAndThumbnailImageAsync` tworzy nowe wystąpienie `ComputerVisionCl
 
 Metoda `RecognizeUrlAsync` tworzy nowe wystąpienie `ComputerVisionClient`, używając określonego klucza subskrypcji i adresu URL punktu końcowego. Wywołuje to metodę `ComputerVisionClient.GenerateThumbnailAsync` przekazującą szerokość, wysokość, adres URL dla pliku oraz to, czy ma być użyte inteligentne przycinanie, a następnie zwraca wynik w postaci `Stream`. Metody odziedziczone po klasie `ImageScenarioPage` przedstawiają zwracane wyniki na stronie scenariusza.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie jest już potrzebny, usuń folder, do którego zostało sklonowane repozytorium `Microsoft/Cognitive-Vision-Windows`. Jeśli postanowisz użyć przykładowych obrazów, również usuń folder, do którego zostało sklonowane repozytorium `Microsoft/Cognitive-Face-Windows`.
 

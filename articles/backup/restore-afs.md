@@ -3,12 +3,12 @@ title: Przywracanie udziałów plików platformy Azure
 description: Dowiedz się, w jaki sposób używać Azure Portal do przywracania całego udziału plików lub określonych plików z punktu przywracania utworzonego przez Azure Backup.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: f0e232fcde12a0c035afa139e3043bfa52fbe714
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 92cc40d1a6b332ab524049322eb2d1afcb76082e
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503646"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761852"
 ---
 # <a name="restore-azure-file-shares"></a>Przywracanie udziałów plików platformy Azure
 
@@ -66,7 +66,7 @@ Można użyć tej opcji przywracania, aby przywrócić pełny udział plików w 
     * **Oryginalna lokalizacja**: Przywróć pełny udział plików w tej samej lokalizacji, w której znajduje się oryginalne źródło.
     * **Lokalizacja alternatywna**: Przywróć pełny udział plików w alternatywnej lokalizacji i Zachowaj oryginalny udział plików w formacie.
 
-#### <a name="restore-to-the-original-location"></a>Przywróć do oryginalnej lokalizacji
+#### <a name="restore-to-the-original-location-full-share-recovery"></a>Przywracanie do oryginalnej lokalizacji (pełne udostępnianie udziałów)
 
 1. Wybierz opcję **Oryginalna lokalizacja** jako **lokalizację docelową odzyskiwania**, a następnie wybierz, czy pominąć lub zastąpić w przypadku konfliktów, wybierając odpowiednią opcję z listy rozwijanej **w przypadku konfliktów** .
 
@@ -74,7 +74,7 @@ Można użyć tej opcji przywracania, aby przywrócić pełny udział plików w 
 
     ![Wybierz pozycję Przywróć, aby rozpocząć](./media/restore-afs/click-restore.png)
 
-#### <a name="restore-to-an-alternate-location"></a>Przywracanie do lokalizacji alternatywnej
+#### <a name="restore-to-an-alternate-location-full-share-recovery"></a>Przywracanie do lokalizacji alternatywnej (pełne udziały odzyskiwania)
 
 1. Wybierz **lokalizację alternatywną** jako **miejsce docelowe odzyskiwania**.
 1. Wybierz docelowe konto magazynu, do którego ma zostać przywrócona zawartość kopii zapasowej z listy rozwijanej **konto magazynu** .
@@ -106,7 +106,7 @@ Ta opcja przywracania służy do przywracania pojedynczych plików lub folderów
     * **Oryginalna lokalizacja**: Przywróć wybrane pliki lub foldery do tego samego udziału plików, co oryginalne źródło.
     * **Lokalizacja alternatywna**: Przywróć wybrane pliki lub foldery do lokalizacji alternatywnej i Zachowaj oryginalną zawartość udziału plików.
 
-#### <a name="restore-to-the-original-location"></a>Przywróć do oryginalnej lokalizacji
+#### <a name="restore-to-the-original-location-item-level-recovery"></a>Przywróć do oryginalnej lokalizacji (odzyskiwanie na poziomie elementu)
 
 1. Wybierz opcję **Oryginalna lokalizacja** jako **lokalizację docelową odzyskiwania**, a następnie wybierz, czy pominąć lub zastąpić, jeśli występują konflikty, wybierając odpowiednią opcję z listy rozwijanej **w przypadku konfliktów** .
 
@@ -125,7 +125,7 @@ Ta opcja przywracania służy do przywracania pojedynczych plików lub folderów
 
     ![Wybierz pozycję Przywróć, aby rozpocząć](./media/restore-afs/click-restore.png)
 
-#### <a name="restore-to-an-alternate-location"></a>Przywracanie do lokalizacji alternatywnej
+#### <a name="restore-to-an-alternate-location-item-level-recovery"></a>Przywracanie do lokalizacji alternatywnej (odzyskiwanie na poziomie elementu)
 
 1. Wybierz **lokalizację alternatywną** jako **miejsce docelowe odzyskiwania**.
 1. Wybierz docelowe konto magazynu, do którego ma zostać przywrócona zawartość kopii zapasowej z listy rozwijanej **konto magazynu** .

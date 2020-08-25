@@ -10,10 +10,10 @@ ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: a4087ef56712e098443009bd0457029394ea7b51
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84235036"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>Konfigurowanie modułów IoT Edge i połączeń
@@ -34,7 +34,7 @@ Po utworzeniu zadania Azure Stream Analytics przy użyciu środowiska hostingu u
    Pole|Wartość
    -----|-----
    Format serializacji zdarzeń|JSON
-   Kodowanie|UTF-8
+   Encoding|UTF-8
    Typ kompresji zdarzenia|Brak
 
 2. Aby utworzyć **dane wyjściowe**, kliknij pozycję **+ dodaj** i wybierz SQL Database. Wypełnij sekcję Szczegóły, korzystając z poniższych informacji.
@@ -44,7 +44,7 @@ Po utworzeniu zadania Azure Stream Analytics przy użyciu środowiska hostingu u
 
    Pole|Wartość
    -----|-----
-   Baza danych|IronOreSilicaPrediction
+   baza danych|IronOreSilicaPrediction
    Nazwa serwera|TCP:., 1433
    Nazwa użytkownika|sa
    Hasło|Określ silne hasło
@@ -91,7 +91,7 @@ Teraz określ poświadczenia kontenera w module IoT Edge.
 
    *serwer logowania containerregistry* / *Nazwa repozytorium*:*nazwa tagu*
 
-   Przykład:
+   Na przykład:
 
    ```
    ASEdemocontregistry.azurecr.io/silicaprediction:amd64
@@ -110,7 +110,7 @@ Teraz określ poświadczenia kontenera w module IoT Edge.
    BrokeredEndpoint("/modules/<your_azure_sql_edge_module>/inputs/<your_input_stream_name>")
    ```
 
-   Przykład:
+   Na przykład:
 
    ```
    FROM /messages/modules/ASEDataGenerator/outputs/IronOreMeasures INTO BrokeredEndpoint("/modules/AzureSQLEdge/inputs/Input1")

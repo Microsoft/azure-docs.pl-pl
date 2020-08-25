@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/30/2020
+ms.date: 08/24/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: e82f5fb868dd728d439c68943c8809c5373ae133
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: ff3e2c9f989a6688e200a1c34e85ef3a22860840
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115734"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794683"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji
 
@@ -59,8 +59,8 @@ Zestaw opcjonalnych oświadczeń dostępnych domyślnie dla aplikacji do użycia
 | `verified_secondary_email` | Źródłem z SecondaryAuthoritativeEmail użytkownika   | JWT        |           |        |
 | `vnet`                     | Informacje o specyfikatorze sieci wirtualnej. | JWT        |           |      |
 | `fwd`                      | Adres IP.| JWT    |   | Dodaje oryginalny adres IPv4 klienta żądającego (w sieci wirtualnej) |
-| `ctry`                     | Kraj/region użytkownika | JWT |  | Usługa Azure AD zwraca `ctry` opcjonalne, jeśli jest obecne, a wartość zgłoszenia to standardowy dwuliterowy kod kraju/regionu, taki jak fr, JP, sz i tak dalej. |
-| `tenant_ctry`              | Kraj/region dzierżawy zasobów | JWT | | |
+| `ctry`                     | Kraj/region użytkownika | JWT |  | Usługa Azure AD zwraca `ctry` opcjonalne pole, jeśli jest obecne, a wartość pola to standardowy dwuliterowy kod kraju/regionu, taki jak fr, JP, sz i tak dalej. |
+| `tenant_ctry`              | Kraj dzierżawy zasobu | JWT | | Taka sama jak `ctry` z wyjątkiem ustawionych na poziomie dzierżawy przez administratora.  Musi być również standardowa dwuliterowa wartość. |
 | `xms_pdl`             | Preferowana lokalizacja danych   | JWT | | W przypadku dzierżaw z wieloma lokalizacjami geograficznymi preferowaną lokalizacją danych jest kod składający się z regionu geograficznego, w którym znajduje się użytkownik. Aby uzyskać więcej informacji, zobacz [dokumentację Azure AD Connect dotyczącą preferowanej lokalizacji danych](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md).<br/>Na przykład: `APC` dla Azja i Pacyfik. |
 | `xms_pl`                   | Preferowany język użytkownika  | JWT ||Preferowany język użytkownika, jeśli jest ustawiony. Pochodzący od swojej dzierżawy domowej w scenariuszach dostępu gościa. Sformatowane — DW ("pl-US"). |
 | `xms_tpl`                  | Preferowany język dzierżawy| JWT | | Preferowany język dzierżawy zasobu, jeśli został ustawiony. Sformatowane w szystkie ("en"). |
@@ -98,7 +98,7 @@ Niektóre opcjonalne oświadczenia można skonfigurować w celu zmiany sposobu z
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Może być używany w przypadku odpowiedzi SAML i JWT oraz dla tokenów v 1.0 i v 2.0. |
 |                | `include_externally_authenticated_upn`  | Zawiera nazwę UPN gościa przechowywaną w dzierżawie zasobów. Na przykład `foo_hometenant.com#EXT#@resourcetenant.com` |
-|                | `include_externally_authenticated_upn_without_hash` | Tak samo jak powyżej, z tą różnicą, że znaki hash ( `#` ) są zastępowane znakami podkreślenia ( `_` ), na przykład`foo_hometenant.com_EXT_@resourcetenant.com` |
+|                | `include_externally_authenticated_upn_without_hash` | Tak samo jak powyżej, z tą różnicą, że znaki hash ( `#` ) są zastępowane znakami podkreślenia ( `_` ), na przykład `foo_hometenant.com_EXT_@resourcetenant.com` |
 
 #### <a name="additional-properties-example"></a>Przykład dodatkowych właściwości
 
@@ -216,9 +216,9 @@ Rozszerzenia schematu i otwarte nie są obsługiwane przez oświadczenia opcjona
 
 Podczas konfigurowania opcjonalnych oświadczeń rozszerzenia katalogu przy użyciu manifestu aplikacji należy użyć pełnej nazwy rozszerzenia (w formacie: `extension_<appid>_<attributename>` ). `<appid>`Musi być zgodna z identyfikatorem aplikacji żądającej żądania.
 
-W ramach tokenu JWT te oświadczenia będą emitowane z następującym formatem nazw: `extn.<attributename>` .
+W ramach tokenu JWT te oświadczenia będą emitowane z następującym formatem nazw:  `extn.<attributename>` .
 
-W ramach tokenów SAML te oświadczenia będą emitowane przy użyciu następującego formatu identyfikatora URI:`http://schemas.microsoft.com/identity/claims/extn.<attributename>`
+W ramach tokenów SAML te oświadczenia będą emitowane przy użyciu następującego formatu identyfikatora URI: `http://schemas.microsoft.com/identity/claims/extn.<attributename>`
 
 ## <a name="configuring-groups-optional-claims"></a>Konfigurowanie opcjonalnych oświadczeń grup
 
@@ -241,7 +241,7 @@ W tej sekcji omówiono opcje konfiguracji w obszarze opcjonalne oświadczenia do
 1. Wybieranie **żądania dodania grup**
 1. Wybierz typy grup do zwrócenia (**wszystkie grupy**, **zabezpieczenia**lub **DirectoryRole**). Opcja **wszystkie grupy** zawiera pozycje **Security**Group, **DirectoryRole**i **DistributionList**
 1. Opcjonalnie: wybierz właściwości określonego typu tokenu, aby zmodyfikować wartość roli role, aby zawierała atrybuty grupy lokalnej lub aby zmienić typ zgłoszenia na rolę
-1. Wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Zapisz**
 
 **Konfigurowanie grup opcjonalnych oświadczeń za pomocą manifestu aplikacji:**
 

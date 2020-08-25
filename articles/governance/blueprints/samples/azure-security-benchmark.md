@@ -4,10 +4,10 @@ description: Omówienie przykładu strategii testu porównawczego zabezpieczeń 
 ms.date: 06/02/2020
 ms.topic: sample
 ms.openlocfilehash: 780d16cd52ef9ea8b5edd654d6c80b9db593ab6d
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84740379"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Przykładowy plan usługi Azure Security test
@@ -18,7 +18,7 @@ Przykład strategii testu porównawczego zabezpieczeń platformy Azure zapewnia 
 
 [Mapowanie formantów Azure Policy](../../policy/samples/azure-security-benchmark.md) zawiera szczegółowe informacje o definicjach zasad uwzględnionych w ramach tego planu oraz o tym, jak te definicje zasad są mapowane do **domen zgodności** i **kontroli** w ramach testu porównawczego zabezpieczeń platformy Azure. Po przypisaniu do architektury zasoby są oceniane przez Azure Policy w przypadku braku zgodności z przypisanymi definicjami zasad. Aby uzyskać więcej informacji, zobacz [Azure Policy](../../policy/overview.md).
 
-## <a name="deploy"></a>Wdróż
+## <a name="deploy"></a>Wdrażanie
 
 Aby wdrożyć plan platformy Azure dotyczący planu wydajności Azure Security test, należy wykonać następujące czynności:
 
@@ -101,18 +101,18 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 
 |Nazwa artefaktu|Typ artefaktu|Nazwa parametru|Opis|
 |-|-|-|-|
-|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisywanie zasad|Lista użytkowników wykluczonych z grupy administratorów maszyn wirtualnych systemu Windows|Rozdzielana średnikami lista elementów członkowskich, które powinny być wykluczone w grupie lokalnej Administratorzy. Przykład: administrator; Użytkownik1; Do|
-|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisywanie zasad|Lista użytkowników, którzy muszą być uwzględnieni w grupie administratorów maszyn wirtualnych z systemem Windows|Rozdzielana średnikami lista elementów członkowskich, które powinny być uwzględnione w lokalnej grupie Administratorzy. Przykład: administrator; Użytkownik1; Do|
-|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisywanie zasad|Lista użytkowników, których Grupa Administratorzy maszyny wirtualnej systemu Windows musi zawierać *tylko*|Rozdzielana średnikami lista wszystkich oczekiwanych członków lokalnej grupy Administratorzy. Przykład: administrator; Użytkownik1; Do|
-|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisywanie zasad|Lista regionów, w których należy włączyć Network Watcher|Aby wyświetlić pełną listę regionów, Użyj Get-AzLocation|
-|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisywanie zasad|Sieć wirtualna, w której powinny być połączone maszyny wirtualne|Przykład:/subscriptions/YourSubscriptionId/resourceGroups/YourResourceGroupName/providers/Microsoft.Network/virtualNetworks/Name|
-|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisywanie zasad|Brama sieci, która powinna być używana przez sieci wirtualne|Przykład:/subscriptions/YourSubscriptionId/resourceGroups/YourResourceGroup/providers/Microsoft.Network/virtualNetworkGateways/Name|
-|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisywanie zasad|Lista identyfikatorów obszarów roboczych, do których mają być nawiązywane połączenia Log Analytics agenci|Rozdzielana średnikami lista identyfikatorów obszaru roboczego, z którymi ma być połączony Agent Log Analytics|
-|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisywanie zasad|Lista typów zasobów, dla których włączono obsługę dzienników diagnostycznych|Inspekcja ustawień diagnostycznych dla wybranych typów zasobów|
-|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisywanie zasad|Najnowsza wersja języka PHP|Najnowsza obsługiwana wersja języka PHP dla App Services|
-|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisywanie zasad|Najnowsza wersja języka Java|Najnowsza obsługiwana wersja języka Java dla App Services|
-|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisywanie zasad|Najnowsza wersja języka Python systemu Windows|Najnowsza obsługiwana wersja języka Python dla App Services|
-|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisywanie zasad|Najnowsza wersja języka Python dla systemu Linux|Najnowsza obsługiwana wersja języka Python dla App Services|
+|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisanie zasad|Lista użytkowników wykluczonych z grupy administratorów maszyn wirtualnych systemu Windows|Rozdzielana średnikami lista elementów członkowskich, które powinny być wykluczone w grupie lokalnej Administratorzy. Przykład: administrator; Użytkownik1; Do|
+|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisanie zasad|Lista użytkowników, którzy muszą być uwzględnieni w grupie administratorów maszyn wirtualnych z systemem Windows|Rozdzielana średnikami lista elementów członkowskich, które powinny być uwzględnione w lokalnej grupie Administratorzy. Przykład: administrator; Użytkownik1; Do|
+|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisanie zasad|Lista użytkowników, których Grupa Administratorzy maszyny wirtualnej systemu Windows musi zawierać *tylko*|Rozdzielana średnikami lista wszystkich oczekiwanych członków lokalnej grupy Administratorzy. Przykład: administrator; Użytkownik1; Do|
+|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisanie zasad|Lista regionów, w których należy włączyć Network Watcher|Aby wyświetlić pełną listę regionów, Użyj Get-AzLocation|
+|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisanie zasad|Sieć wirtualna, w której powinny być połączone maszyny wirtualne|Przykład:/subscriptions/YourSubscriptionId/resourceGroups/YourResourceGroupName/providers/Microsoft.Network/virtualNetworks/Name|
+|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisanie zasad|Brama sieci, która powinna być używana przez sieci wirtualne|Przykład:/subscriptions/YourSubscriptionId/resourceGroups/YourResourceGroup/providers/Microsoft.Network/virtualNetworkGateways/Name|
+|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisanie zasad|Lista identyfikatorów obszarów roboczych, do których mają być nawiązywane połączenia Log Analytics agenci|Rozdzielana średnikami lista identyfikatorów obszaru roboczego, z którymi ma być połączony Agent Log Analytics|
+|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisanie zasad|Lista typów zasobów, dla których włączono obsługę dzienników diagnostycznych|Inspekcja ustawień diagnostycznych dla wybranych typów zasobów|
+|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisanie zasad|Najnowsza wersja języka PHP|Najnowsza obsługiwana wersja języka PHP dla App Services|
+|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisanie zasad|Najnowsza wersja języka Java|Najnowsza obsługiwana wersja języka Java dla App Services|
+|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisanie zasad|Najnowsza wersja języka Python systemu Windows|Najnowsza obsługiwana wersja języka Python dla App Services|
+|Inspekcja zaleceń usługi Azure Security test i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisanie zasad|Najnowsza wersja języka Python dla systemu Linux|Najnowsza obsługiwana wersja języka Python dla App Services|
 
 ## <a name="next-steps"></a>Następne kroki
 

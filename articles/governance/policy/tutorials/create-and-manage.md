@@ -4,10 +4,10 @@ description: W tym samouczku użyjesz zasad, aby wymusić standardy, kontrolowa�
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.openlocfilehash: 90ac6d1c4121b8672e561ff633263775bbad5357
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84781131"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Samouczek: Tworzenie zasad i zarządzanie nimi w celu wymuszenia zgodności
@@ -86,7 +86,7 @@ Teraz, gdy wbudowana definicja zasad została przypisana, możesz wykonywać dal
 
 1. Wybierz **+ Definicja zasad** w górnej części strony. Ten przycisk powoduje otwarcie strony **Definicja zasad**.
 
-1. Wprowadź następujące informacje.
+1. Wprowadź następujące informacje:
 
    - Grupa zarządzania lub subskrypcji, w której zapisano definicję zasad. Wybierz, używając wielokropka w polu **Lokalizacja definicji**.
 
@@ -428,7 +428,7 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
    :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Przypisz definicję ze strony definicji inicjatywy" border="false":::
 
-   Możesz również kliknąć prawym przyciskiem myszy wybrany wiersz lub wybrać wielokropek na końcu wiersza menu kontekstowego. Następnie wybierz opcję **Przypisz**.
+   Możesz również kliknąć prawym przyciskiem myszy wybrany wiersz lub wybrać wielokropek na końcu wiersza menu kontekstowego. Następnie wybierz pozycję **Przypisz**.
 
    :::image type="content" source="../media/create-and-manage/select-right-click.png" alt-text="Alternatywne opcje dla inicjatywy" border="false":::
 
@@ -496,7 +496,7 @@ W tym przykładzie Trent Baker, jeden z doświadczonych specjalistów firmy Cont
 
 W tej sekcji rozwiązano problem z odmową żądania przez utworzenie wykluczenia pojedynczej grupy zasobów.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli wykonujesz pracę z zasobami z tego samouczka, wykonaj następujące kroki, aby usunąć wszystkie utworzone powyżej przypisania zasad lub definicje:
 

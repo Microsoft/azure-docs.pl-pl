@@ -10,10 +10,10 @@ ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 8c17351c049ef419ab95f46a54aa9f8cc523f7cf
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84887452"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>Instalowanie oprogramowania i Konfigurowanie zasobów dla samouczka
@@ -22,7 +22,7 @@ W tym samouczku z trzema częściami utworzysz model uczenia maszynowego służ�
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-1. Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+1. Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 2. Zainstaluj środowisko [Python 3.6.8](https://www.python.org/downloads/release/python-368/).
       * Użyj Instalatora plików wykonywalnych systemu Windows x86-x64
       * Dodaj `python.exe` do zmiennej środowiskowej PATH pobiera/). Pobieranie można znaleźć w sekcji "Tools for Visual Studio 2019".

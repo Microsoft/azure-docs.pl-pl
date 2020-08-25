@@ -89,6 +89,8 @@
       href: ../../data-lake-analytics/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi DDoS Protection
       href: ../fundamentals/ddos-protection-security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Event Grid
+      href: ../../event-grid/security-baseline.md
     - name: Punkt odniesienia usługi Event Hubs
       href: ../../event-hubs/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi ExpressRoute

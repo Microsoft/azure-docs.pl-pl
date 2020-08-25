@@ -8,23 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 08/20/2020
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 27e26bb37b444b49797d46dd4e12b61f8fe11b16
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: b0574c41042e172af78365bb273c81729ce204ab
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84782538"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749315"
 ---
 # <a name="speech-service-supported-regions"></a>Obsługiwane regiony usługi Speech
 
 Usługa mowy umożliwia aplikacji Konwertowanie dźwięku na tekst, wykonywanie tłumaczeń mowy i przekonwertować tekstu na mowę. Usługa jest dostępna w wielu regionach z unikatowymi punktami końcowymi zestawu Speech SDK i interfejsów API REST.
 
-Portal mowy do wykonywania niestandardowych konfiguracji w środowisku mowy dla wszystkich regionów jest dostępny tutaj:https://speech.microsoft.com
+Portal mowy do wykonywania niestandardowych konfiguracji w środowisku mowy dla wszystkich regionów jest dostępny tutaj: https://speech.microsoft.com
 
-W przypadku wywołań usługi mowy upewnij się, że wywołanie jest zgodne z regionem subskrypcji.
+Należy pamiętać o następujących kwestiach podczas rozważania regionów:
+
+* Jeśli aplikacja korzysta z [zestawu Speech SDK](speech-sdk.md), `westus` podczas tworzenia konfiguracji mowy należy podać identyfikator regionu, taki jak.
+* Jeśli aplikacja używa jednego z [interfejsów API REST](rest-apis.md)usługi mowy, region jest częścią identyfikatora URI punktu końcowego, który jest używany podczas tworzenia żądań.
+* Klucze utworzone dla regionu są prawidłowe tylko w tym regionie. Próba użycia ich z innymi regionami spowoduje błędy uwierzytelniania.
 
 ## <a name="speech-sdk"></a>Zestaw SDK rozpoznawania mowy
 
@@ -32,7 +36,7 @@ W [zestawie mowy SDK](speech-sdk.md)regiony są określone jako ciąg (na przyk�
 
 ### <a name="speech-to-text-text-to-speech-and-translation"></a>Zamiana mowy na tekst, zamiana tekstu na mowę i tłumaczenie
 
-Portal dostosowania mowy jest dostępny tutaj:https://speech.microsoft.com
+Portal dostosowania mowy jest dostępny tutaj: https://speech.microsoft.com
 
 Usługa Speech jest dostępna w tych regionach na potrzeby **rozpoznawania mowy**, **zamiany tekstu na mowę**i **tłumaczenia**:
 
@@ -44,20 +48,20 @@ Jeśli używasz [zestawu Speech SDK](speech-sdk.md), regiony są określane prze
 
 Dostępne regiony do **rozpoznawania intencji** za pośrednictwem zestawu Speech SDK są następujące:
 
-| Region globalny | Region           | Identyfikator regionu |
+| Region globalny | Region (Region)           | Identyfikator regionu |
 | ------------- | ---------------- | -------------------- |
 | Azja          | Azja Wschodnia        | `eastasia`           |
-| Azja          | Azja Południowo-Wschodnia   | `southeastasia`      |
+| Azja          | Southeast Asia   | `southeastasia`      |
 | Australia     | Australia Wschodnia   | `australiaeast`      |
 | Europa        | Europa Północna     | `northeurope`        |
-| Europa        | Europa Zachodnia      | `westeurope`         |
-| Ameryka Północna | Wschodnie stany USA          | `eastus`             |
+| Europa        | West Europe      | `westeurope`         |
+| Ameryka Północna | East US          | `eastus`             |
 | Ameryka Północna | Wschodnie stany USA 2        | `eastus2`            |
-| Ameryka Północna | Południowo-środkowe stany USA | `southcentralus`     |
+| Ameryka Północna | South Central US | `southcentralus`     |
 | Ameryka Północna | Zachodnio-środkowe stany USA  | `westcentralus`      |
 | Ameryka Północna | Zachodnie stany USA          | `westus`             |
 | Ameryka Północna | Zachodnie stany USA 2        | `westus2`            |
-| Ameryka Południowa | Brazylia Południowa     | `brazilsouth`        |
+| Ameryka Południowa | Brazil South     | `brazilsouth`        |
 
 Jest to podzestaw regionów publikowania obsługiwanych przez [usługę Language Understanding (Luis)](/azure/cognitive-services/luis/luis-reference-regions).
 
@@ -65,13 +69,13 @@ Jest to podzestaw regionów publikowania obsługiwanych przez [usługę Language
 
 [Zestaw Speech SDK](speech-sdk.md) obsługuje funkcje **asystenta głosowego** w następujących regionach:
 
-| Region         | Identyfikator regionu |
+| Region (Region)         | Identyfikator regionu |
 | -------------- | -------------------- |
 | Zachodnie stany USA        | `westus`             |
 | Zachodnie stany USA 2      | `westus2`            |
-| Wschodnie stany USA        | `eastus`             |
+| East US        | `eastus`             |
 | Wschodnie stany USA 2      | `eastus2`            |
-| Europa Zachodnia    | `westeurope`         |
+| West Europe    | `westeurope`         |
 | Europa Północna   | `northeurope`        |
 | Azja Południowo-Wschodnia | `southeastasia`      |
 

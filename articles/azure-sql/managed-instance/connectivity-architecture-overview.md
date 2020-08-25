@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 115cf589c6aa0786026f68eff839a7a2ad6aa9ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 059828336288eeadc0567fed060db07e323f885c
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706209"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761869"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Architektura łączności dla usługi Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -89,7 +89,12 @@ Aby rozwiązać wymagania dotyczące zabezpieczeń i możliwości zarządzania p
 
 W przypadku konfigurowania podsieci z obsługą usług użytkownik ma pełną kontrolę nad ruchem danych (TDS), natomiast wystąpienie zarządzane SQL jest odpowiedzialne za zapewnienie nieprzerwanego przepływu ruchu związanego z zarządzaniem w celu spełnienia warunków umowy SLA.
 
-Konfiguracja podsieci wspomagana przez usługę jest oparta na funkcji [delegowania podsieci](../../virtual-network/subnet-delegation-overview.md) sieci wirtualnej w celu zapewnienia automatycznego zarządzania konfiguracją sieci i włączania punktów końcowych usługi. Punkty końcowe usługi mogą służyć do konfigurowania reguł zapory sieci wirtualnej na kontach magazynu, które przechowują kopie zapasowe i dzienniki inspekcji.
+Konfiguracja podsieci wspomagana przez usługę jest oparta na funkcji [delegowania podsieci](../../virtual-network/subnet-delegation-overview.md) sieci wirtualnej w celu zapewnienia automatycznego zarządzania konfiguracją sieci i włączania punktów końcowych usługi. 
+
+Punkty końcowe usługi mogą służyć do konfigurowania reguł zapory sieci wirtualnej na kontach magazynu, które przechowują kopie zapasowe i dzienniki inspekcji. Nawet z włączonymi punktami końcowymi usługi klienci są zachęcani do korzystania z [prywatnego linku](../../private-link/private-link-overview.md) zapewniającego dodatkowe zabezpieczenia przed punktami końcowymi usługi.
+
+> [!IMPORTANT]
+> Ze względu na specyfikę konfiguracji płaszczyzny kontroli, konfiguracja podsieci z obsługą usług nie powoduje włączenia punktów końcowych usługi w chmurach krajowych. 
 
 ### <a name="network-requirements"></a>Wymagania dotyczące sieci
 
@@ -123,7 +128,7 @@ Wdróż wystąpienie zarządzane SQL w dedykowanej podsieci w sieci wirtualnej. 
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Trasy zdefiniowane przez użytkownika z konfiguracją podsieci z obsługą usług
 
-|Nazwa|Prefiks adresu|Następny przeskok|
+|Nazwa|Prefiks adresu|Narzędzie Następny przeskok|
 |----|--------------|-------|
 |podsieć do vnetlocal|MI PODSIEĆ|Sieć wirtualna|
 |mi-13-64-11-skoku — Internet|13.64.0.0/11|Internet|
@@ -294,7 +299,7 @@ Wdróż wystąpienie zarządzane SQL w dedykowanej podsieci w sieci wirtualnej. 
 |mi-204-79-180-24-skoku — Internet|204.79.180.0/24|Internet|
 ||||
 
-\*Podsieć MI odnosi się do zakresu adresów IP podsieci w postaci x. x. x. x/y. Te informacje można znaleźć w Azure Portal, we właściwościach podsieci.
+\* Podsieć MI odnosi się do zakresu adresów IP podsieci w postaci x. x. x. x/y. Te informacje można znaleźć w Azure Portal, we właściwościach podsieci.
 
 Ponadto można dodać pozycje do tabeli tras, aby skierować ruch, który ma lokalne prywatne zakresy adresów IP jako miejsce docelowe za pomocą bramy sieci wirtualnej lub urządzenia sieci wirtualnej (urządzenie WUS).
 
@@ -342,7 +347,7 @@ Wdróż wystąpienie zarządzane SQL w dedykowanej podsieci w sieci wirtualnej. 
 > [!IMPORTANT]
 > Upewnij się, że istnieje tylko jedna Reguła ruchu przychodzącego dla portów 9000, 9003, 1438, 1440 i 1452 oraz jednej reguły ruchu wychodzącego dla portów 443 i 12000. Inicjowanie obsługi wystąpień zarządzanych przez program SQL za Azure Resource Manager wdrożeń nie powiedzie się, jeśli reguły ruchu przychodzącego i wychodzącego są konfigurowane osobno dla każdego portu. Jeśli te porty są w oddzielnych regułach, wdrożenie zakończy się niepowodzeniem z kodem błędu `VnetSubnetConflictWithIntendedPolicy` .
 
-\*Podsieć MI odnosi się do zakresu adresów IP podsieci w postaci x. x. x. x/y. Te informacje można znaleźć w Azure Portal, we właściwościach podsieci.
+\* Podsieć MI odnosi się do zakresu adresów IP podsieci w postaci x. x. x. x/y. Te informacje można znaleźć w Azure Portal, we właściwościach podsieci.
 
 > [!IMPORTANT]
 > Chociaż wymagane reguły zabezpieczeń dla ruchu przychodzącego zezwalają na ruch z _dowolnego_ źródła na portach 9000, 9003, 1438, 1440 i 1452, te porty są chronione przez wbudowaną zaporę. Aby uzyskać więcej informacji, zobacz [Określanie adresu punktu końcowego zarządzania](management-endpoint-find-ip-address.md).
@@ -352,7 +357,7 @@ Wdróż wystąpienie zarządzane SQL w dedykowanej podsieci w sieci wirtualnej. 
 
 ### <a name="user-defined-routes"></a>Trasy zdefiniowane przez użytkownika
 
-|Nazwa|Prefiks adresu|Następny przeskok|
+|Nazwa|Prefiks adresu|Narzędzie Następny przeskok|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI PODSIEĆ|Sieć wirtualna|
 |mi-13-64-11-skoku — Internet|13.64.0.0/11|Internet|

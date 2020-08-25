@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
 ms.openlocfilehash: 69a0fec0dd5036b021926045ff3a63a011966654
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85118886"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Samouczek: opracowywanie aplikacji sieci Web ASP.NET Core MVC z Azure Cosmos DB przy użyciu zestawu SDK platformy .NET
@@ -102,7 +102,7 @@ Teraz, gdy mamy najwięcej ASP.NET Core kodu platformy MVC dla tego rozwiązania
 
 Teraz Dodajmy modele, widoki i kontrolery do tej aplikacji MVC.
 
-### <a name="add-a-model"></a><a name="add-a-model"></a>Dodawanie modelu
+### <a name="add-a-model"></a><a name="add-a-model"></a> Dodawanie modelu
 
 1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **modele** , a następnie wybierz polecenie **Dodaj**  >  **klasę**.
 

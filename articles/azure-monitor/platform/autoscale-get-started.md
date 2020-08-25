@@ -4,12 +4,12 @@ description: Dowiedz się, jak skalować aplikację internetową zasobów, usłu
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 67b041476ecc5b5da389ab1377025a94675fc42a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 710d4e1aa77f8ab3153dafc77a72eec2192cf205
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078890"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794532"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Wprowadzenie do skalowania automatycznego na platformie Azure
 W tym artykule opisano sposób konfigurowania ustawień automatycznego skalowania dla zasobu w Microsoft Azure Portal.
@@ -112,6 +112,28 @@ Teraz można ustawić liczbę wystąpień, które mają być skalowane ręcznie.
 ![Ustaw skalowanie ręczne][14]
 
 Zawsze możesz wrócić do automatycznego skalowania, klikając pozycję **Włącz automatyczne skalowanie** , a następnie przycisk **Zapisz**.
+
+## <a name="route-traffic-to-healthy-instances-app-service"></a>Kierowanie ruchu do wystąpień w dobrej kondycji (App Service)
+
+Po skalowaniu do wielu wystąpień App Service może przeprowadzić kontrolę kondycji wystąpień w celu kierowania ruchu tylko do wystąpień w dobrej kondycji. Aby to zrobić, Otwórz Portal w App Service, a następnie wybierz pozycję **Sprawdzanie kondycji** w obszarze **monitorowanie**. Wybierz pozycję **Włącz** i podaj prawidłową ścieżkę URL w aplikacji, na przykład `/health` lub `/api/health` . Kliknij pozycję **Zapisz**.
+
+### <a name="health-check-path"></a>Ścieżka sprawdzania kondycji
+
+Ścieżka musi odpowiadać w ciągu dwóch minut od kodu stanu z przedziału od 200 do 299 (włącznie). Jeśli ścieżka nie odpowiada w ciągu dwóch minut lub zwraca kod stanu spoza zakresu, wystąpienie jest uznawane za "w złej kondycji". Kontrola kondycji integruje się z funkcjami uwierzytelniania i autoryzacji App Service, system dociera do punktu końcowego, nawet jeśli te funkcje Secuity są włączone. Jeśli używasz własnego systemu uwierzytelniania, ścieżka sprawdzania kondycji musi zezwalać na dostęp anonimowy. Jeśli w lokacji włączono protokół HTTP**s** , Healthcheck będzie przestrzegać protokołu HTTP**s** i wysłać żądanie przy użyciu tego protokołu.
+
+Ścieżka sprawdzania kondycji powinna sprawdzać krytyczne składniki aplikacji. Na przykład jeśli aplikacja zależy od bazy danych i systemu obsługi komunikatów, punkt końcowy sprawdzania kondycji powinien łączyć się z tymi składnikami. Jeśli aplikacja nie może połączyć się ze składnikiem krytycznym, ścieżka powinna zwrócić kod odpowiedzi 500 na poziomie, aby wskazać, że aplikacja jest w złej kondycji.
+
+### <a name="behavior"></a>Zachowanie
+
+Gdy zostanie podana ścieżka sprawdzania kondycji, App Service będzie wysyłać polecenie ping do ścieżki we wszystkich wystąpieniach. Jeśli nie otrzymasz pomyślnego kodu odpowiedzi po 5 poleceniach ping, to wystąpienie jest uznawane za "w złej kondycji". Wystąpienia w złej kondycji zostaną wykluczone z obrotu modułu równoważenia obciążenia. Ponadto podczas skalowania w górę lub w dół App Service wyśle polecenie ping do ścieżki sprawdzania kondycji, aby upewnić się, że nowe wystąpienia są gotowe do żądania.
+
+Pozostałe wystąpienia w dobrej kondycji mogą zwiększyć obciążenie. Aby uniknąć przeciążenia pozostałych wystąpień, nie zostaną wykluczone więcej niż połowę wystąpień. Na przykład jeśli plan App Service zostanie przeskalowany do 4 wystąpień i 3 w złej kondycji, co najwyżej 2 zostanie wykluczone z obrotu modułu równoważenia obciążenia. Pozostałe 2 wystąpienia (1 w złej kondycji i 1 w niezdrowych) będą nadal otrzymywać żądania. W scenariuszu najgorszego przypadku, w którym wszystkie wystąpienia są złej kondycji, żaden z nich nie zostanie wykluczony.
+
+Jeśli wystąpienie pozostaje w złej kondycji w ciągu godziny, zostanie zastąpione nowym wystąpieniem. Co najwyżej jedno wystąpienie zostanie zastąpione na godzinę, co najwyżej trzy wystąpienia dziennie na App Service plan.
+
+### <a name="monitoring"></a>Monitorowanie
+
+Po podaniu ścieżki sprawdzania kondycji aplikacji można monitorować kondycję lokacji przy użyciu Azure Monitor. W bloku **Sprawdzanie kondycji** w portalu kliknij **metryki** na górnym pasku narzędzi. Spowoduje to otwarcie nowego bloku, w którym można zobaczyć historyczny stan kondycji lokacji i utworzyć nową regułę alertu. Więcej informacji o monitorowaniu lokacji [znajduje się w przewodniku na Azure monitor](../../app-service/web-sites-monitor.md).
 
 ## <a name="next-steps"></a>Następne kroki
 - [Tworzenie alertu dziennika aktywności w celu monitorowania wszystkich operacji aparatu automatycznego skalowania w ramach subskrypcji](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

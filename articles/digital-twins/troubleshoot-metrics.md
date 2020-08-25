@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 5e061e4d6f9e67cc7d92548f54add94097ede7d1
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: dafea083e68b2afe6b6bcf45b4cff8779f817049
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905209"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749025"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Rozwiązywanie problemów z usługą Azure Digital bliźniaczych reprezentacji: metryki
 
@@ -88,9 +88,9 @@ Metryki, które mają wykonywać Routing:
 
 | Metryka | Nazwa wyświetlana metryki | Jednostka | Typ agregacji| Opis | Wymiary |
 | --- | --- | --- | --- | --- | --- |
-| MessagesRouted | Komunikaty kierowane (wersja zapoznawcza) | Liczba | Łącznie | Liczba komunikatów kierowanych do usługi platformy Azure dla punktów końcowych, takich jak centrum zdarzeń, Service Bus lub Event Grid. | Operacje <br>Wynik |
-| RoutingFailureRate | Współczynnik błędów routingu (wersja zapoznawcza) | Procent | Średnia | Wartość procentowa zdarzeń spowodowanych błędem, ponieważ są one kierowane z usługi Azure Digital bliźniaczych reprezentacji do usługi platformy Azure w punkcie końcowym, takiej jak centrum zdarzeń, Service Bus lub Event Grid. | Operacje <br>Wynik |
-| RoutingLatency | Opóźnienie routingu (wersja zapoznawcza) | ) | Średnia | Czas między zdarzeniem, które ma być przesyłane z usługi Azure Digital bliźniaczych reprezentacji do momentu opublikowania w usłudze Azure Endpoint Service, takiej jak centrum zdarzeń, Service Bus lub Event Grid. | Operacje <br>Wynik |
+| MessagesRouted | Komunikaty kierowane (wersja zapoznawcza) | Liczba | Łącznie | Liczba komunikatów kierowanych do usługi platformy Azure dla punktów końcowych, takich jak centrum zdarzeń, Service Bus lub Event Grid. | Typ punktu końcowego, <br>Wynik |
+| RoutingFailureRate | Współczynnik błędów routingu (wersja zapoznawcza) | Procent | Średnia | Wartość procentowa zdarzeń spowodowanych błędem, ponieważ są one kierowane z usługi Azure Digital bliźniaczych reprezentacji do usługi platformy Azure w punkcie końcowym, takiej jak centrum zdarzeń, Service Bus lub Event Grid. | Typ punktu końcowego, <br>Wynik |
+| RoutingLatency | Opóźnienie routingu (wersja zapoznawcza) | ) | Średnia | Czas między zdarzeniem, które ma być przesyłane z usługi Azure Digital bliźniaczych reprezentacji do momentu opublikowania w usłudze Azure Endpoint Service, takiej jak centrum zdarzeń, Service Bus lub Event Grid. | Typ punktu końcowego, <br>Wynik |
 
 ## <a name="dimensions"></a>Wymiary
 
@@ -100,7 +100,7 @@ Wymiary ułatwiają znalezienie dodatkowych informacji o metrykach. Niektóre me
 | --- | --- |
 | Uwierzytelnianie | OAuth |
 | Operacja (dla żądań interfejsu API) | Microsoft. DigitalTwins/DigitalTwins/Delete, <br>Microsoft. DigitalTwins/DigitalTwins/Write, <br>Microsoft. DigitalTwins/DigitalTwins/odczyt, <br>Microsoft. DigitalTwins/eventroutes/odczyt, <br>Microsoft. DigitalTwins/eventroutes/Write, <br>Microsoft. DigitalTwins/eventroutes/Delete, <br>Microsoft. DigitalTwins/modele/odczyt, <br>Microsoft. DigitalTwins/modele/zapis, <br>Microsoft. DigitalTwins/modele/usuwanie, <br>Microsoft. DigitalTwins/kwerenda/akcja |
-| Operacja (dla routingu) | Event Grid <br>Centrum zdarzeń, <br>Service Bus |
+| Typ punktu końcowego | Event Grid <br>Centrum zdarzeń, <br>Service Bus |
 | Protokół | HTTPS |
 | Wynik | Prawnego <br>Niepowodzenie |
 | Kod stanu | 200, 404, 500 i tak dalej. |

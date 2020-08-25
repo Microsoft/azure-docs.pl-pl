@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: azure-sentinel
 author: yelevin
 ms.service: azure-sentinel
@@ -8,25 +8,25 @@ ms.topic: include
 ms.date: 06/28/2020
 ms.author: yelevin
 ms.custom: include file
-ms.openlocfilehash: 76020b3c1f28e5b5f6363aef181b76bc93a9613e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 63cb53dc60a718892d4bf86140e7fd51303bd61c
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294239"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761727"
 ---
 ### <a name="the-data-model-of-the-schema"></a>Model danych schematu
 
 | Pole | Typ danych | Opis |
 | ---- | ---- | ---- |
-| **AdditionalData** | dynamic | Liczba alertów, Liczba zakładek, Liczba komentarzy, nazwy produktów alertów i taktykę |
-| **AlertIds** | dynamic | Alerty, z których zostało utworzone zdarzenie |
-| **BookmarkIds** | dynamic | Jednostki z zakładkami |
+| **AdditionalData** | dynamiczna | Liczba alertów, Liczba zakładek, Liczba komentarzy, nazwy produktów alertów i taktykę |
+| **AlertIds** | dynamiczna | Alerty, z których zostało utworzone zdarzenie |
+| **BookmarkIds** | dynamiczna | Jednostki z zakładkami |
 | **Klasyfikacja** | ciąg | Klasyfikacja zamykania zdarzenia |
 | **ClassificationComment** | ciąg | Komentarz dotyczący klasyfikacji zamknięcia zdarzenia |
 | **ClassificationReason** | ciąg | Przyczyna zamknięcia zdarzenia |
-| **ClosureTime** | datetime | Sygnatura czasowa (UTC) czasu ostatniego zamknięcia zdarzenia |
-| **Komentarze** | dynamic | Komentarze do zdarzeń |
+| **ClosedTime** | datetime | Sygnatura czasowa (UTC) czasu ostatniego zamknięcia zdarzenia |
+| **Komentarze** | dynamiczna | Komentarze do zdarzeń |
 | **CreatedTime** | datetime | Sygnatura czasowa (UTC) czasu utworzenia zdarzenia |
 | **Opis** | ciąg | Opis zdarzenia |
 | **FirstActivityTime** | datetime | Czas pierwszego zdarzenia |
@@ -34,12 +34,12 @@ ms.locfileid: "87294239"
 | **Zdarzeniename** | ciąg | Wewnętrzny identyfikator GUID |
 | **IncidentNumber** | int |  |
 | **IncidentUrl** | ciąg | Łącze do zdarzenia |
-| **Etykiety** | dynamic | Tagi |
+| **Etykiety** | dynamiczna | Tagi |
 | **LastActivityTime** | datetime | Czas ostatniego zdarzenia |
 | **LastModifiedTime** | datetime | Sygnatura czasowa (UTC) czasu ostatniej modyfikacji zdarzenia <br>(modyfikacja opisana przez bieżący rekord) |
 | **ModifiedBy** | ciąg | Użytkownik lub system, który zmodyfikował zdarzenie |
-| **Właściciel** | dynamic |  |
-| **RelatedAnalyticRuleIds** | dynamic | Reguły, z których zostały wyzwolone alerty zdarzenia |
+| **Właściciel** | dynamiczna |  |
+| **RelatedAnalyticRuleIds** | dynamiczna | Reguły, z których zostały wyzwolone alerty zdarzenia |
 | **Ważność** | ciąg | Ważność incydentu (Wysoka/Średnia/niska/informacyjna) |
 | **SourceSystem** | ciąg | Stała ("Azure") |
 | **Stan** | ciąg |  |
