@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.openlocfilehash: 250be11f498e825c3e487abfac1c0acc585e5317
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85297945"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Samouczek: publikowanie witryny Hugo w wersji zapoznawczej usługi Azure static Web Apps
 
 W tym artykule pokazano, jak utworzyć i wdrożyć aplikację sieci Web [Hugo](https://gohugo.io/) w usłudze [Azure static Web Apps](overview.md). Ostatnim wynikiem jest nowa statyczna aplikacja internetowa platformy Azure ze skojarzonymi akcjami GitHub, która zapewnia kontrolę nad sposobem kompilowania i publikowania aplikacji.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -97,11 +97,11 @@ Poniższe kroki pokazują, jak utworzyć nową aplikację ze statyczną lokacją
 
 ### <a name="create-the-application"></a>Tworzenie aplikacji
 
-1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
+1. Przejdź do [Azure Portal](https://portal.azure.com)
 1. Kliknij pozycję **Utwórz zasób**
-1. Wyszukaj **Web Apps statyczny**
-1. Kliknij pozycję **statyczne Web Apps (wersja zapoznawcza)**
-1. Kliknij przycisk **Utwórz**
+1. Wyszukaj usługę **Static Web Apps**
+1. Kliknij pozycję **Static Web Apps (wersja zapoznawcza)**
+1. Kliknij pozycję **Utwórz**
 
    :::image type="content" source="./media/publish-hugo/create-in-portal.png" alt-text="Tworzenie zasobu usługi Azure static Web Apps w portalu":::
 
@@ -131,7 +131,7 @@ Poniższe kroki pokazują, jak utworzyć nową aplikację ze statyczną lokacją
 
 Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompilacji do kompilowania aplikacji. Poniższe ustawienia umożliwiają skonfigurowanie pliku przepływu pracy akcji usługi GitHub.
 
-1. Kliknij przycisk **Dalej: kompiluj >** , aby edytować konfigurację kompilacji
+1. Kliknij przycisk **Dalej: Skompiluj >**, aby edytować konfigurację kompilacji
 
 1. Ustaw _lokalizację aplikacji_ na **/** .
 
@@ -139,7 +139,7 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
 
    Wartość _lokalizacji interfejsu API_ nie jest konieczna, ponieważ w tej chwili nie jest WDRAŻANY interfejs API.
 
-### <a name="review-and-create"></a>Przejrzyj i utwórz
+### <a name="review-and-create"></a>Przegląd i tworzenie
 
 1. Kliknij przycisk **Recenzja + Utwórz** , aby sprawdzić, czy szczegóły są poprawne.
 
@@ -151,7 +151,7 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
 
    :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Wdrożona aplikacja":::
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [cleanup-resource](../../includes/static-web-apps-cleanup-resource.md)]
 

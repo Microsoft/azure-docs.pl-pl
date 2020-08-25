@@ -9,10 +9,10 @@ ms.date: 06/22/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: ee8b8c2931d006dbb3d472b545030d3aff79c56a
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85297991"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Samouczek: instrukcje krok po kroku dotyczące tworzenia nowej aplikacji HoloLens Unity przy użyciu kotwic przestrzennych platformy Azure
@@ -212,7 +212,7 @@ Jedno zakotwiczenie zostanie przekazane do chmury. wszystko jest gotowe do ponow
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=273-311&highlight=13-31,35-36)]
 
-Dodajmy teraz nasze `ResetSession()` metody i `CleanupObjects()` . Można je umieścić poniżej`QueueOnUpdate()`
+Dodajmy teraz nasze `ResetSession()` metody i `CleanupObjects()` . Można je umieścić poniżej `QueueOnUpdate()`
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=124-177)]
 
@@ -225,6 +225,6 @@ Teraz pozwala dodać kod, który zostanie utworzony, & umieścić zieloną sfer�
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=234-271)]
 
-To wszystko. Uruchom aplikację z **programu Visual Studio** po raz ostatni, aby wypróbować cały scenariusz do końca. Poruszaj się po urządzeniu i umieść swoją białą sferę. Następnie kontynuuj przesuwanie głowy, aby przechwycić dane środowiska do momentu, gdy sfera zmieni kolor na żółty. Twoje lokalne zakotwiczenie zostanie przekazane, a SFERA zmieni kolor na niebiesko. Na koniec naciśnij swój ekran jeszcze raz, aby lokalne zakotwiczenie zostało usunięte, a następnie będziemy wysyłać zapytania o jego odpowiednik w chmurze. Kontynuuj przenoszenie urządzenia do momentu, gdy zakotwiczenie chmury nie zostanie umieszczone. Zielona kula powinna pojawić się w poprawnej lokalizacji i można wypłukać & powtórzyć cały scenariusz ponownie.
+Gotowe. Uruchom aplikację z **programu Visual Studio** po raz ostatni, aby wypróbować cały scenariusz do końca. Poruszaj się po urządzeniu i umieść swoją białą sferę. Następnie kontynuuj przesuwanie głowy, aby przechwycić dane środowiska do momentu, gdy sfera zmieni kolor na żółty. Twoje lokalne zakotwiczenie zostanie przekazane, a SFERA zmieni kolor na niebiesko. Na koniec naciśnij swój ekran jeszcze raz, aby lokalne zakotwiczenie zostało usunięte, a następnie będziemy wysyłać zapytania o jego odpowiednik w chmurze. Kontynuuj przenoszenie urządzenia do momentu, gdy zakotwiczenie chmury nie zostanie umieszczone. Zielona kula powinna pojawić się w poprawnej lokalizacji i można wypłukać & powtórzyć cały scenariusz ponownie.
 
 [!INCLUDE [AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md)]

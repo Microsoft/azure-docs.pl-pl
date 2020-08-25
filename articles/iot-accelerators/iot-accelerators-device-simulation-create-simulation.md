@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
 ms.openlocfilehash: 09a6920e0d3a50da1bdacbf2bc7a80396c885897
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "61448560"
 ---
 # <a name="tutorial-create-and-run-an-iot-device-simulation"></a>Samouczek: tworzenie i uruchamianie symulacji urządzenia usługi IoT
@@ -28,7 +28,7 @@ W tym samouczku zostały wykonane następujące czynności:
 > * Wyświetlanie metryk symulacji
 > * Zatrzymywanie symulacji
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -77,4 +77,4 @@ Aby zakończyć symulację, kliknij pozycję **Zatrzymaj symulację** na pasku a
 W tym samouczku przedstawiono sposób tworzenia, uruchamiania i zatrzymywania symulacji. Pokazano również, jak wyświetlać szczegóły symulacji. Aby dowiedzieć się więcej na temat sposobu uruchamiania symulacji, przejdź do następnego samouczka:
 
 > [!div class="nextstepaction"]
-> [Utwórz niestandardowe urządzenie symulowane](iot-accelerators-device-simulation-create-custom-device.md)
+> [Tworzenie niestandardowego symulowanego urządzenia](iot-accelerators-device-simulation-create-custom-device.md)

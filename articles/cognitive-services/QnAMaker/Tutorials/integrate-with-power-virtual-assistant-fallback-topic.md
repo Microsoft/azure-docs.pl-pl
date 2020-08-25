@@ -4,10 +4,10 @@ description: W tym samouczku poprawisz jakość bazy wiedzy o aktywnej uczeniu. 
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.openlocfilehash: f1d51f6ad8892252161238eb71fbb02f463463fd
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84635391"
 ---
 # <a name="tutorial-add-your-knowledge-base-to-power-virtual-agents"></a>Samouczek: Dodawanie bazy wiedzy do zaawansowanych agentów
@@ -214,9 +214,9 @@ Poniżej przedstawiono ostateczną kanwę agenta.
     |--|--|--|
     |1|Hello|Rozpocznij KONWERSACJĘ|
     |2|Godziny przechowywania|Przykładowy temat. Jest to skonfigurowane dla Ciebie bez żadnej dodatkowej pracy z Twoją częścią.|
-    |3|Tak|W odpowiedzi na`Did that answer your question?`|
-    |4|Doskonałe|W odpowiedzi na`Please rate your experience.`|
-    |5|Tak|W odpowiedzi na`Can I help with anything else?`|
+    |3|Tak|W odpowiedzi na `Did that answer your question?`|
+    |4|Doskonałe|W odpowiedzi na `Please rate your experience.`|
+    |5|Tak|W odpowiedzi na `Can I help with anything else?`|
     |6|Jak można poprawić przepływność dla prognoz zapytania?|To pytanie wyzwala akcję rezerwową, która wysyła do odpowiedzi tekst do bazy wiedzy. Następnie zostanie wyświetlona odpowiedź. zielone znaczniki wyboru dla poszczególnych akcji wskazują na powodzenie dla każdej akcji.|
 
     :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test-tracked.png" alt-text="Zrzut ekranu przedstawiający czat bot z kanwą wskazujący na zieloną liczbę operacji zakończonych powodzeniem.":::
@@ -229,7 +229,7 @@ Aby udostępnić agenta wszystkim członkom Twojej szkoły lub organizacji, musi
 
 1. Wypróbuj bot w witrynie sieci Web demonstracyjnej (Poszukaj linku w obszarze **Publikowanie**).
 
-    Zostanie otwarta nowa strona sieci Web z Twoim bot. Podawaj bot tego samego pytania testowego:`How can I improve the throughput performance for query predictions?`
+    Zostanie otwarta nowa strona sieci Web z Twoim bot. Podawaj bot tego samego pytania testowego: `How can I improve the throughput performance for query predictions?`
 
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu przedstawiający końcową kanwę agenta](../media/how-to-integrate-power-virtual-agent/demo-chat-bot.png)
@@ -252,7 +252,7 @@ Po zakończeniu pracy z bazą wiedzy Usuń QnA Maker zasoby z Azure Portal.
 
 [Uzyskiwanie danych analitycznych na potrzeby bazy wiedzy](../How-To/get-analytics-knowledge-base.md)
 
-Dowiedz się więcej:
+Dowiedz się więcej na następujące tematy:
 * [Power Virtual Agents](https://docs.microsoft.com/power-virtual-agents/)
 * [Power Automate](https://docs.microsoft.com/power-automate/)
 * [QNA Maker łącznika](https://us.flow.microsoft.com/connectors/shared_cognitiveservicesqnamaker/qna-maker/) i [Ustawienia łącznika](https://docs.microsoft.com/connectors/cognitiveservicesqnamaker/)

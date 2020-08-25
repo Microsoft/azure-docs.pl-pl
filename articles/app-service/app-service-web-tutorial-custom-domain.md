@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/13/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: c301876a57b3be4a112c7df2706bf17389a5af44
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 1496f46eb29831dfb858f061ccc00c9e3dbc2e75
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190072"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782315"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Samouczek: mapowanie istniejącej niestandardowej nazwy DNS na Azure App Service
 
@@ -20,7 +20,7 @@ ms.locfileid: "88190072"
 
 ![Nawigacja w portalu do aplikacji platformy Azure](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Mapowanie poddomeny (na przykład `www.contoso.com`) przy użyciu rekordu CNAME
@@ -47,7 +47,7 @@ Aby zamapować niestandardową nazwę DNS na aplikację internetową, dla tej ap
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Otwórz witrynę [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta platformy Azure.
 
@@ -83,7 +83,7 @@ Jeśli plan usługi App Service nie znajduje się w warstwie **F1**, zamknij str
 
 Wybierz jedną z płatnych warstw (**D1**, **B1**, **B2**, **B3** lub dowolną warstwę z kategorii **Produkcja**). Aby uzyskać dodatkowe opcje, kliknij pozycję **Wyświetl dodatkowe opcje**.
 
-Kliknij przycisk **Zastosuj**.
+Kliknij pozycję **Zastosuj**.
 
 ![Sprawdzanie warstwy cenowej](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -277,7 +277,7 @@ Po dodaniu tego rekordu CNAME strona rekordów DNS wygląda podobnie jak w nast�
 
 #### <a name="enable-the-cname-record-mapping-in-the-app"></a>Włączanie mapowania rekordów CNAME w aplikacji
 
-Teraz możesz dodać dowolną poddomenę zgodną z nazwą symbolu wieloznacznego w aplikacji (na przykład `sub1.contoso.com` i `sub2.contoso.com` oba dopasowania `*.contoso.com` ).
+Teraz możesz dodać dowolną poddomenę zgodną z nazwą symbolu wieloznacznego w aplikacji (na przykład, `sub1.contoso.com` `sub2.contoso.com` i `*.contoso.com` oba te dopasowania `*.contoso.com` ).
 
 W lewym obszarze nawigacji na stronie aplikacji w witrynie Azure Portal wybierz pozycję **Domeny niestandardowe**.
 

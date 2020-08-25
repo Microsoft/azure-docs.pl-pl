@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 91bf2ba0957104b7ccba330f914734a362c3e309
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85255436"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Samouczek: Synchronizowanie danych z programu SQL Edge z usługą Azure Blob Storage za pomocą Azure Data Factory
@@ -107,7 +107,7 @@ Utwórz fabrykę danych, wykonując instrukcje podane w [tym samouczku](../data-
 
     ![Tworzenie usługi połączonej](media/tutorial-sync-data-factory/create-linked-service.png)
 
-    7. Wybierz przycisk **OK**.
+    7. Kliknij **OK**.
 
 8. Na karcie **Ustawienia** wybierz pozycję **Edytuj**.
 
@@ -125,7 +125,7 @@ Utwórz fabrykę danych, wykonując instrukcje podane w [tym samouczku](../data-
 
     2. W obszarze **tabela**wybierz tabelę, którą chcesz synchronizować. Możesz również określić zapytanie dla tego zestawu danych, zgodnie z opisem w dalszej części tego samouczka. Zapytanie ma pierwszeństwo przed tabelą określoną w tym kroku.
 
-    3. Wybierz przycisk **OK**.
+    3. Kliknij **OK**.
 
 14. Przejdź do edytora potoku, wybierając kartę potok u góry lub wybierając nazwę potoku w widoku drzewa po lewej stronie. W oknie właściwości działania Lookup upewnij się, że wybrano pozycję **SourceDataset** na liście **źródłowych zestawów danych** .
 
@@ -210,7 +210,7 @@ Utwórz fabrykę danych, wykonując instrukcje podane w [tym samouczku](../data-
 
 2. Nazwij wyzwalacz **HourlySync**. W obszarze **Typ**wybierz pozycję **harmonogram**. Ustaw **cykl** na co 1 godzinę.
 
-3. Wybierz przycisk **OK**.
+3. Kliknij **OK**.
 
 4. Wybierz pozycję **Opublikuj wszystkie**.
 

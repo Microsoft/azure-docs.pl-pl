@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,10 +11,10 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.author: diberry
 ms.openlocfilehash: 01d102de24185eba789e041d8534d6fdce8c260b
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "87375145"
 ---
 W sekcji **Zarządzanie** (menu w prawym górnym rogu) na stronie **zasoby platformy Azure** (menu po lewej) Skopiuj przykładowy adres URL **zapytania** i wklej go do nowej karty przeglądarki.

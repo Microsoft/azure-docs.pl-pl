@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/17/2020
-ms.openlocfilehash: 01e33f7b0133eb5d081e6e8f3c3c9497c11bae95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 916d23670e1db22efe43e2966d96aa1c82f1852a
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983415"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782162"
 ---
 # <a name="tune-model-hyperparameters"></a>Dostrajanie hiperparametrów modelu
 
@@ -77,11 +77,11 @@ W tej sekcji opisano, jak wykonać podstawowe odwzorowanie parametrów, które p
 
 Po zakończeniu szkolenia:
 
-+ Aby wyświetlić zestaw metryk dokładności dla najlepszego modelu, kliknij prawym przyciskiem myszy moduł, a następnie wybierz polecenie **Wizualizuj**.
++ Aby wyświetlić wyniki odchylenia, kliknij prawym przyciskiem myszy moduł, a następnie wybierz polecenie **Wizualizuj**.
 
-    Dane wyjściowe obejmują wszystkie metryki dokładności, które są stosowane do typu modelu, ale Metryka wybrana do klasyfikacji określa model, który jest uznawany za "Najlepsza".
+    Dane wyjściowe obejmują wszystkie metryki odchylenia i dokładności parametrów, które mają zastosowanie do typu modelu, ale Metryka wybrana do klasyfikowania Określa model, który jest uważany za "Najlepsza".
 
-+ Aby zapisać migawkę przeszkolonego modelu, wybierz kartę dane **wyjściowe** w prawym panelu modułu **uczenie modelu** . Wybierz ikonę **zarejestruj zestaw danych** , aby zapisać model jako moduł wielokrotnego użytku.
++ Aby zapisać migawkę przeszkolonego modelu, wybierz kartę **wyjściowe + dzienniki** w prawym panelu modułu **uczenie modelu** . Wybierz ikonę **zarejestruj zestaw danych** , aby zapisać model jako moduł wielokrotnego użytku.
 
 
 ## <a name="technical-notes"></a>Uwagi techniczne

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
 ms.openlocfilehash: e7846ae0f52dfee4260838302d55213d2791eb07
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85250965"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Przyrostowe ładowanie danych z wielu tabel w SQL Server do Azure SQL Database przy użyciu programu PowerShell
@@ -65,7 +65,7 @@ Poniżej przedstawiono ważne czynności związane z tworzeniem tego rozwiązani
     ![Przyrostowe ładowanie danych](media/tutorial-incremental-copy-multiple-tables-powershell/high-level-solution-diagram.png)
 
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

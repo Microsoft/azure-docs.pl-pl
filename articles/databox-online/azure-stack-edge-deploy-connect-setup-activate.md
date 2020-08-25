@@ -10,10 +10,10 @@ ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
 ms.openlocfilehash: e0a0d9415cc55c24bb4dc0690c73d9f79fc0ce0e
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84608438"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-stack-edge"></a>Samouczek: łączenie, Konfigurowanie i aktywowanie Azure Stack Edge 
@@ -134,7 +134,7 @@ Pulpit nawigacyjny wyświetla różne ustawienia, które są wymagane do skonfig
 6. W lewym okienku wybierz pozycję **Ustawienia chmury**, a następnie aktywuj urządzenie przy użyciu usługi Azure Stack Edge w Azure Portal.
     
     1. W polu **klucz aktywacji** wprowadź klucz aktywacji uzyskany w polu [Pobierz klucz aktywacji](azure-stack-edge-deploy-prep.md#get-the-activation-key) dla Azure Stack Edge.
-    2. Wybierz pozycję **Zastosuj**.
+    2. Wybierz przycisk **Zastosuj**.
        
         ![Strona lokalnego interfejsu użytkownika sieci Web "Ustawienia chmury"](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-6.png)
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/08/2020
 ms.openlocfilehash: f11498812c3923f75ca84e66cab9098e86cc192e
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84660993"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Kopiowanie danych z bazy danych SQL Server do usługi Azure Blob Storage
@@ -100,7 +100,7 @@ W tej sekcji utworzysz kontener obiektów blob o nazwie **adftutorial** w usłud
 
 1. W oknie **kontenery** wybierz pozycję **+ kontener** , aby utworzyć nowy.
 
-1. W oknie **Nowy kontener** w polu **Nazwa** wprowadź wartość **adftutorial**. Następnie wybierz pozycję **Utwórz**.
+1. W oknie **Nowy kontener** w polu **Nazwa** wprowadź wartość **adftutorial**. Następnie wybierz przycisk **Utwórz**.
 
 1. Na liście kontenerów wybierz opcję **adftutorial** , która została właśnie utworzona.
 
@@ -159,7 +159,7 @@ W tym kroku utworzysz fabrykę danych i uruchomisz interfejs użytkownika usług
 
 1. W oknie dialogowym **konfiguracja Integration Runtime** wybierz pozycję **samodzielny**, a następnie wybierz pozycję **Kontynuuj**.
 
-1. W polu Nazwa wprowadź **TutorialIntegrationRuntime**. Następnie wybierz pozycję **Utwórz**.
+1. W polu Nazwa wprowadź **TutorialIntegrationRuntime**. Następnie wybierz przycisk **Utwórz**.
 
 1. W obszarze Ustawienia wybierz **pozycję kliknij tutaj, aby uruchomić instalację ekspresową dla tego komputera**. Ta akcja instaluje na komputerze środowisko Integration Runtime i rejestruje je w usłudze Data Factory. Ewentualnie można użyć opcji instalacji ręcznej w celu pobrania pliku instalacyjnego, uruchomienia go i zarejestrowania środowiska Integration Runtime za pomocą klucza.
     ![Instalacja środowiska Integration Runtime](./media/tutorial-hybrid-copy-portal/intergration-runtime-setup.png)
@@ -182,17 +182,17 @@ W tym kroku utworzysz fabrykę danych i uruchomisz interfejs użytkownika usług
 
     f. Wybierz pozycję **Testuj połączenie**. Ten krok polega na potwierdzeniu, że Data Factory może nawiązać połączenie z bazą danych SQL Server za pomocą utworzonego przez siebie środowiska Integration Runtime.
 
-    g. Aby zapisać połączoną usługę, wybierz pozycję **Utwórz**.
+    przykład Aby zapisać połączoną usługę, wybierz pozycję **Utwórz**.
  
     ![Nowa połączona usługa (SQL Server)](./media/tutorial-hybrid-copy-portal/new-sqlserver-linked-service.png)
 
-1. Po utworzeniu połączonej usługi nastąpi powrót do strony **Ustawianie właściwości** dla SqlServerDataset. Wykonaj następujące czynności:
+1. Po utworzeniu połączonej usługi nastąpi powrót do strony **Ustawianie właściwości** dla SqlServerDataset. Wykonaj następujące kroki:
 
     a. Upewnij się, że dla ustawienia **Połączona usługa** jest wyświetlana wartość **SqlServerLinkedService**.
 
     b. W obszarze **Nazwa tabeli**wybierz pozycję **[dbo]. [ EMP]**.
     
-    c. Wybierz przycisk **OK**.
+    c. Kliknij **OK**.
 
 1. Przejdź do karty z elementem **SQLServerToBlobPipeline** lub wybierz pozycję **SQLServerToBlobPipeline** w widoku drzewa.
 
@@ -208,7 +208,7 @@ W tym kroku utworzysz fabrykę danych i uruchomisz interfejs użytkownika usług
 
 1. W oknie dialogowym **Nowa połączona usługa (Azure Blob Storage)** wprowadź **AzureStorageLinkedService** jako nazwę, a następnie wybierz konto magazynu z listy Nazwa **konta magazynu** . Test connection, a następnie wybierz pozycję **Utwórz** , aby wdrożyć połączoną usługę.
 
-1. Po utworzeniu połączonej usługi nastąpi powrót do strony **Ustawianie właściwości** . Wybierz przycisk **OK**.
+1. Po utworzeniu połączonej usługi nastąpi powrót do strony **Ustawianie właściwości** . Kliknij **OK**.
 
 1. Otwórz zestaw danych ujścia. Na karcie **Połączenie** wykonaj następujące kroki:
 

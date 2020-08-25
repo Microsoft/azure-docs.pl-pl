@@ -4,15 +4,15 @@ description: Rozwiązywanie znanych problemów z wydajnością przy użyciu udzi
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 04/25/2019
+ms.date: 08/24/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 6739e5619a0dcaa940d38571c4a88c4f68971dfe
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: fe1460d4353addff1b8e3095cfe06c1fcb3b7bd0
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009277"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782374"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Rozwiązywanie problemów z wydajnością Azure Files
 
@@ -20,9 +20,9 @@ W tym artykule wymieniono niektóre typowe problemy związane z udziałami plik�
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Duże opóźnienia, niska przepływność i ogólne problemy z wydajnością
 
-### <a name="cause-1-share-experiencing-throttling"></a>Przyczyna 1: udostępnianie z ograniczeniami
+### <a name="cause-1-share-was-throttled"></a>Przyczyna 1: udział został ograniczony
 
-Domyślny limit przydziału dla udziału w warstwie Premium to 100 GiB, który 100 zapewnia liczbę operacji wejścia/wyjścia na sekundę (z możliwością przekroczenia do 300 przez godzinę). Aby uzyskać więcej informacji o aprowizacji i jej relacji z wieloma operacjami we/wy, zobacz sekcję udostępniane [udziały](storage-files-planning.md#understanding-provisioning-for-premium-file-shares) w przewodniku planowania.
+Żądania są ograniczane, gdy osiągnięto limit operacji we/wy na sekundę dla udziału plików. Aby zrozumieć limity dla udziałów plików w warstwach Standardowa i Premium, zobacz [elementy docelowe udziałów plików i skalowania plików](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets).
 
 Aby potwierdzić, że Twój udział jest ograniczany, możesz skorzystać z metryk platformy Azure w portalu.
 
@@ -47,7 +47,8 @@ Aby potwierdzić, że Twój udział jest ograniczany, możesz skorzystać z metr
 
 ### <a name="solution"></a>Rozwiązanie
 
-- Zwiększ pojemność udostępniania udziałów, określając wyższy limit przydziału w udziale.
+- Jeśli używasz standardowego udziału plików, Włącz [duże udziały plików](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share?tabs=azure-portal) na koncie magazynu. Duże udziały plików obsługują do 10 000 operacji we/wy na udział.
+- W przypadku korzystania z udziału plików w warstwie Premium Zwiększ rozmiar udostępnianego udziału plików, aby zwiększyć limit operacji we/wy. Aby dowiedzieć się więcej, zobacz sekcję [Omówienie udostępniania plików w warstwie Premium](https://docs.microsoft.com/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares) w podręczniku planowania Azure Files.
 
 ### <a name="cause-2-metadatanamespace-heavy-workload"></a>Przyczyna 2: duże obciążenie metadanych/przestrzeni nazw
 
@@ -202,7 +203,7 @@ Większe niż oczekiwane opóźnienie dostępu Azure Files do obciążeń intens
 
 Aby dowiedzieć się więcej o konfigurowaniu alertów w Azure Monitor, zobacz [Omówienie alertów w Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Rozwiązywanie problemów Azure Files w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Rozwiązywanie problemów Azure Files w systemie Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Często zadawane pytania dotyczące usługi Azure Files](storage-files-faq.md)

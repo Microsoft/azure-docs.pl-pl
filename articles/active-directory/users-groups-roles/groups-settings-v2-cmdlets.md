@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce3a97678dea7e7b26caa3b1b091b023eca1a555
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e2da67b9996156f136aa2eddb8aa3d2b1777a554
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015701"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794561"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Polecenia cmdlet Azure Active Directory w wersji 2 dla zarządzania grupami
 
@@ -134,7 +134,7 @@ Można wyszukać określoną grupę przy użyciu parametru-Filter. Ten parametr 
 ```
 
 > [!NOTE]
-> Polecenia cmdlet programu PowerShell usługi Azure AD implementują Standard zapytania OData. Aby uzyskać więcej informacji, zobacz **$Filter** w [opcjach zapytania systemowego OData przy użyciu punktu końcowego OData](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
+> Polecenia cmdlet programu PowerShell usługi Azure AD implementują Standard zapytania OData. Aby uzyskać więcej informacji, zobacz **$Filter** w [opcjach zapytania systemowego OData przy użyciu punktu końcowego OData](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)#BKMK_filter).
 
 ## <a name="create-groups"></a>Tworzenie grup
 

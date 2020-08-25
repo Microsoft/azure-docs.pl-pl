@@ -1,15 +1,15 @@
 ---
 title: Jak przenieść magazyny Recovery Services Azure Backup
-description: Instrukcje dotyczące przenoszenia magazynu usług Recovery Services między subskrypcjami i grupami zasobów platformy Azure.
+description: Instrukcje dotyczące przenoszenia magazynu Recovery Services w ramach subskrypcji i grup zasobów platformy Azure.
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 4751a6068904ef03a4d30d322a285e4074476b70
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: b4de4c58e6a6551fa7c27db9755bb02a11700721
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650917"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755742"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Przenoszenie magazynu Recovery Services w ramach subskrypcji i grup zasobów platformy Azure
 
@@ -50,12 +50,12 @@ Francja środkowa, Francja Południowa, Niemcy Południowe, Niemcy środkowe, US
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Przenoszenie magazynu Recovery Services do innej grupy zasobów przy użyciu Azure Portal
 
-Aby przenieść magazyn usługi Recovery Services i skojarzone z nim zasoby do innej grupy zasobów
+Aby przenieść magazyn Recovery Services i powiązane z nim zasoby do innej grupy zasobów:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Otwórz listę **magazynów Recovery Services** i wybierz magazyn, który chcesz przenieść. Gdy zostanie otwarty pulpit nawigacyjny magazynu, zostanie on wyświetlony jak pokazano na poniższej ilustracji.
 
-   ![Otwórz magazyn usługi odzyskiwania](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
+   ![Otwórz magazyn Recovery Services](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
    Jeśli nie widzisz informacji **podstawowe** dla magazynu, wybierz ikonę listy rozwijanej. Należy teraz zobaczyć podstawowe informacje dotyczące magazynu.
 
@@ -84,7 +84,7 @@ Magazyn Recovery Services i powiązane z nim zasoby można przenieść do innej 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Otwórz listę magazynów Recovery Services i wybierz magazyn, który chcesz przenieść. Po otwarciu pulpitu nawigacyjnego magazynu pojawia się on jak pokazano na poniższej ilustracji.
 
-    ![Otwórz magazyn usługi odzyskiwania](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
+    ![Otwórz magazyn Recovery Services](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
     Jeśli nie widzisz informacji **podstawowe** dla magazynu, wybierz ikonę listy rozwijanej. Należy teraz zobaczyć podstawowe informacje dotyczące magazynu.
 

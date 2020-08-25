@@ -16,22 +16,22 @@ ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: da7d56a0fd8571e796567331a7543074f0bf1eda
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84808705"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Samouczek: rejestrowanie przepływu ruchu sieciowego do i z maszyny wirtualnej przy użyciu witryny Azure Portal
 
 > [!div class="op_single_selector"]
-> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
-> - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
+> - [Witryna Azure Portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Program PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Interfejs wiersza polecenia platformy Azure](network-watcher-nsg-flow-logging-cli.md)
 > - [Interfejs API REST](network-watcher-nsg-flow-logging-rest.md)
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
-Sieciowa grupa zabezpieczeń umożliwia filtrowanie ruchu przychodzącego do i wychodzącego z maszyny wirtualnej. Możesz rejestrować ruch sieciowy, który przepływa przez sieciową grupę zabezpieczeń z możliwością rejestrowania dziennika przepływu sieciowej grupy zabezpieczeń usługi Network Watcher. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Sieciowa grupa zabezpieczeń umożliwia filtrowanie ruchu przychodzącego do i wychodzącego z maszyny wirtualnej. Możesz rejestrować ruch sieciowy, który przepływa przez sieciową grupę zabezpieczeń z możliwością rejestrowania dziennika przepływu sieciowej grupy zabezpieczeń usługi Network Watcher. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie maszyny wirtualnej przy użyciu sieciowej grupy zabezpieczeń
@@ -67,7 +67,7 @@ W ciągu kilku minut zostanie utworzona maszyna wirtualna. Nie wykonuj pozostał
 
 Jeśli masz już włączoną usługę Network Watcher w regionie Wschodnie stany USA, przejdź do sekcji [Rejestrowanie dostawcy usługi Insights](#register-insights-provider).
 
-1. W portalu wybierz pozycję **Wszystkie usługi**. W **polu filtru** wprowadź ciąg *Network Watcher*. Gdy w wynikach pojawi się nazwa **Network Watcher**, wybierz ją.
+1. W portalu wybierz pozycję **Wszystkie usługi**. W **polu filtru** wprowadź ciąg *Network Watcher*. Gdy **Network Watcher** pojawi się w wynikach, wybierz ją.
 2. Wybierz węzeł **Regiony**, aby go rozwinąć, a następnie wybierz symbol **...** z prawej strony pozycji **Wschodnie stany USA**, jak pokazano na poniższej ilustracji:
 
     ![Włączanie usługi Network Watcher](./media/network-watcher-nsg-flow-logging-portal/enable-network-watcher.png)
@@ -205,7 +205,7 @@ Poniższy kod JSON to przykład kodu widocznego w pliku PT1H.json dla każdego p
 
 Wartość elementu **mac** w poprzednich danych wyjściowych to adres MAC interfejsu sieciowego, który został utworzony podczas tworzenia maszyny wirtualnej. Informacje rozdzielone przecinkami dotyczące elementu **flowTuples** są następujące:
 
-| Przykładowe dane | Co reprezentują dane   | Wyjaśnienie                                                                              |
+| Przykładowe dane | Co reprezentują dane   | Objaśnienie                                                                              |
 | ---          | ---                    | ---                                                                                      |
 | 1542110377   | Znacznik czasu             | Znacznik czasu wystąpienia przepływu w formacie EPOCH systemu UNIX. W poprzednim przykładzie data zmienia się na 1 maja 2018 o 14:59:05 GMT.                                                                                    |
 | 10.0.0.4  | Źródłowy adres IP      | Źródłowy adres IP, z którego był zainicjowany przepływ. 10.0.0.4 to prywatny adres IP maszyny wirtualnej utworzonej w sekcji [Tworzenie maszyny wirtualnej](#create-a-vm).

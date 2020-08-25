@@ -17,10 +17,10 @@ ms.author: markvi
 ROBOTS: NOINDEX,NOFOLLOW
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57b68ebb21c0c10c3fbe3fd77d11785d16a10053
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "60443470"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Samouczek: używanie tożsamości zarządzanej przypisanej przez użytkownika na maszynie wirtualnej z systemem Linux do uzyskiwania dostępu do usługi Azure Resource Manager
@@ -29,7 +29,7 @@ ms.locfileid: "60443470"
 
 W tym samouczku przedstawiono sposób tworzenia tożsamości zarządzanej przypisanej przez użytkownika, przypisywania jej do maszyny wirtualnej z systemem Linux, a następnie używania tej tożsamości w celu uzyskania dostępu do interfejsu API usługi Azure Resource Manager. Tożsamości zarządzane dla zasobów platformy Azure są zarządzane automatycznie przez platformę Azure. Umożliwiają one uwierzytelnianie do usług, które obsługują uwierzytelnianie usługi Azure AD bez konieczności osadzania poświadczeń w kodzie. 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie tożsamości zarządzanej przypisanej przez użytkownika

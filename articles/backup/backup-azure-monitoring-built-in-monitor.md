@@ -4,12 +4,12 @@ description: W tym artykule omówiono możliwości monitorowania i powiadamiania
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 07c22f4af08fd4032eeab91f0eada7797d04ebaa
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: ec0453725186ddef359f85f8c3e5554ff240d3e3
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654127"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755725"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorowanie obciążeń Azure Backup
 
@@ -95,7 +95,7 @@ Jeśli częstotliwość została ustawiona na podsumowanie godzinowe, a alert zo
 
 > [!NOTE]
 >
-> - W przypadku wykonania operacji niszczącej, takiej jak **zatrzymanie ochrony z usuwaniem danych** , zostanie zgłoszony alert, a wiadomość e-mail zostanie wysłana do właścicieli subskrypcji, administratorów i współadministratorów, nawet jeśli nie skonfigurowano powiadomień dla magazynu usługi odzyskiwania.
+> - W przypadku wykonania operacji niszczącej, takiej jak **zatrzymanie ochrony z usuwaniem danych** , zostanie zgłoszony alert, a wiadomość e-mail zostanie wysłana do właścicieli subskrypcji, administratorów i współadministratorów, nawet jeśli nie skonfigurowano powiadomień dla magazynu Recovery Services.
 > - Aby skonfigurować powiadomienie dla zadań zakończonych powodzeniem, użyj [log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
 ## <a name="inactivating-alerts"></a>Dezaktywacja alertów

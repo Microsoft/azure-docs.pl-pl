@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 235b2a1e3a75c01c8e57a0e4b0c27664f638385f
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: c93f4f3976e4e036aa47144618145461ac37ad4d
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723524"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755623"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Szybki Start: wyodrębnianie danych przyjęcia przy użyciu interfejsu API REST aparatu rozpoznawania w języku Python
 
@@ -44,9 +44,9 @@ Aby rozpocząć analizowanie paragonu, należy wywołać interfejs API **[analiz
 1. Zamień `<your receipt URL>` na adres URL obrazu paragonu.
 1. Zamień `<subscription key>` na klucz subskrypcji skopiowany z poprzedniego kroku.
 
-  # <a name="v20"></a>[Wersja 2.0](#tab/v2-0)    
-    ```
-    python
+# <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
+
+```python
     ########### Python Form Recognizer Async Receipt #############
 
     import json
@@ -82,11 +82,10 @@ Aby rozpocząć analizowanie paragonu, należy wywołać interfejs API **[analiz
     except Exception as e:
         print("POST analyze failed:\n%s" % str(e))
         quit()
-    ```
+```
     
-   # <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)    
-    ```
-    python
+# <a name="v21-preview1"></a>[v 2.1 — wersja zapoznawcza 1](#tab/v2-1)    
+```python
     ########### Python Form Recognizer Async Receipt #############
 
     import json
@@ -96,7 +95,7 @@ Aby rozpocząć analizowanie paragonu, należy wywołać interfejs API **[analiz
     # Endpoint URL
     endpoint = r"<Endpoint>"
     apim_key = "<subscription key>"
-    post_url = endpoint + "/formrecognizer/v2.0/prebuilt/receipt/analyze"
+    post_url = endpoint + "/formrecognizer/v2.1-preview.1/prebuilt/receipt/analyze"
     source = r"<path to your receipt>"
     
     headers = {
@@ -123,11 +122,14 @@ Aby rozpocząć analizowanie paragonu, należy wywołać interfejs API **[analiz
     except Exception as e:
         print("POST analyze failed:\n%s" % str(e))
         quit()
-    ```
+```
+
 > [!NOTE]
 > **Dane wejściowe języka** 
 >
 > Analzye odbioru 2,1 ma opcjonalny parametr żądania dla języka, ustawienia regionalne paragonu. Obsługiwane ustawienia regionalne obejmują: en-AU, en-CA, en-GB, pl-IN, en-US. 
+
+---
 
 1. Zapisz kod w pliku z rozszerzeniem. pr. Na przykład *form-Recognizer-Receipts.py*.
 1. Otwórz okno wiersza polecenia.
@@ -135,9 +137,15 @@ Aby rozpocząć analizowanie paragonu, należy wywołać interfejs API **[analiz
 
 Otrzymasz `202 (Success)` odpowiedź, która zawiera nagłówek **operacji-Location** , który skrypt będzie drukowany w konsoli programu. Ten nagłówek zawiera identyfikator operacji, którego można użyć do zbadania stanu operacji asynchronicznej i uzyskania wyników. W poniższym przykładzie wartość ciąg po `operations/` to identyfikator operacji.
 
+# <a name="v20"></a>[Wersja 2.0](#tab/v2-0)    
 ```console
 https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
+# <a name="v21-preview1"></a>[v 2.1 — wersja zapoznawcza 1](#tab/v2-1)    
+```console
+https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+```
+---
 
 ## <a name="get-the-receipt-results"></a>Pobierz wyniki odbioru
 
@@ -175,13 +183,13 @@ while n_try < n_tries:
 
 ### <a name="examine-the-response"></a>Sprawdzanie odpowiedzi
 
-Skrypt będzie drukował odpowiedzi do konsoli do momentu zakończenia operacji **analizy paragonu** . Następnie drukuje wyodrębnione dane tekstowe w formacie JSON. `"recognitionResults"`Pole zawiera wszystkie wiersze tekstu wyodrębnione z paragonu, a `"understandingResults"` pole zawiera informacje o kluczu/wartości dla najbardziej odpowiednich części paragonu.
+Skrypt będzie drukował odpowiedzi do konsoli do momentu zakończenia operacji **analizy paragonu** . Następnie drukuje wyodrębnione dane tekstowe w formacie JSON. `"readResults"`Pole zawiera wszystkie wiersze tekstu wyodrębnione z paragonu, a `"documentResults"` pole zawiera informacje o kluczu/wartości dla najbardziej odpowiednich części paragonu.
 
 Zapoznaj się z poniższym obrazem paragonu i odpowiednimi danymi wyjściowymi JSON. Dane wyjściowe zostały skrócone w celu zapewnienia czytelności.
 
 ![Potwierdzenie ze sklepu contoso](../media/contoso-allinone.jpg)
 
-`"recognitionResults"`Węzeł zawiera cały rozpoznany tekst. Tekst jest zorganizowany według strony, następnie według wiersza, a następnie poszczególnych słów. `"understandingResults"`Węzeł zawiera wartości specyficzne dla paragonu wykryte przez model. Tutaj znajdziesz przydatne pary klucz/wartość, takie jak podatek, łączny, adres handlowca itd.
+`"readResults"`Węzeł zawiera cały rozpoznany tekst. Tekst jest zorganizowany według strony, następnie według wiersza, a następnie poszczególnych słów. `"documentResults"`Węzeł zawiera wartości specyficzne dla paragonu wykryte przez model. Tutaj znajdziesz przydatne pary klucz/wartość, takie jak podatek, łączny, adres handlowca itd.
 
 ```json
 { 

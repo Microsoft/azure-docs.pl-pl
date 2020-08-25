@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: aahi
 ms.openlocfilehash: 272a10e211e99e200b82807b188d828a9ece42d8
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85609439"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Tworzenie klienta wyszukiwania aplikacji konsoli w języku C #
@@ -48,7 +48,7 @@ Nadaj aplikacji nazwę **MyConsoleSearchApp**, a następnie kliknij przycisk **O
 JSON.net umożliwia działanie z odpowiedziami JSON zwracanymi przez interfejs API. Dodaj swój pakiet NuGet do projektu:
 
 - W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Zarządzaj pakietami NuGet..**..
-- Na karcie **Przeglądaj** Wyszukaj pozycję `Newtonsoft.Json` . Wybierz najnowszą wersję, a następnie kliknij przycisk **Instaluj**.
+- Na karcie  **Przeglądaj** Wyszukaj pozycję `Newtonsoft.Json` . Wybierz najnowszą wersję, a następnie kliknij przycisk **Instaluj**.
 - Kliknij przycisk **OK** w oknie **Przegląd zmian** .
 - Zamknij kartę programu Visual Studio zatytułowaną **NuGet: MyConsoleSearchApp**.
 
@@ -275,7 +275,7 @@ static void DisplayAllRankedResults(Newtonsoft.Json.Linq.JObject responseObjects
 Ta metoda:
 
 - Pętle względem `rankingResponse` grup, które zawiera odpowiedź
-- Wyświetla elementy w każdej grupie przez wywołanie`DisplaySpecificResults(...)`
+- Wyświetla elementy w każdej grupie przez wywołanie `DisplaySpecificResults(...)`
 
 W **program.cs**Dodaj następujące dwie metody:
 

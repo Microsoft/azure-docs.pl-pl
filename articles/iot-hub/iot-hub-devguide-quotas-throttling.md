@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: bee22391664250888816dc2b4bbb93622cab7942
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: f8522171fca6a88f81c3b8f0161fc382041aae1e
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87335566"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782570"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Przydziały IoT Hub i ograniczanie przepustowości
 
@@ -111,7 +111,8 @@ IoT Hub wymusza inne limity operacyjne:
 | Automatyczne konfiguracje urządzeń i modułów<sup>1</sup> | 100 konfiguracje na płatne centra SKU. 20 konfiguracji na bezpłatne centrum SKU. |
 | IoT Edge wdrożeń automatycznych<sup>1</sup> | 50 modułów na wdrożenie. 100 wdrożenia (w tym wdrożenia warstwowe) na płatne centra SKU. 10 wdrożeń na bezpłatne centrum SKU. |
 | Bliźniaczych reprezentacji<sup>1</sup> | Maksymalny rozmiar żądanych właściwości i raportowane sekcje są 32 KB każdego z nich. Maksymalny rozmiar sekcji tagów to 8 KB. |
-| Zasady dostępu współużytkowanego | Maksymalna liczba zasad dostępu współdzielonego wynosi 16 |
+| Zasady dostępu współużytkowanego | Maksymalna liczba zasad dostępu współdzielonego wynosi 16. |
+| Certyfikaty urzędów certyfikacji | Maksymalna liczba certyfikatów urzędu certyfikacji X. 509, które mogą być zarejestrowane, to 25. |
 
 <sup>1</sup> Ta funkcja nie jest dostępna w warstwie Podstawowa IoT Hub. Aby uzyskać więcej informacji, zobacz [jak wybrać właściwy IoT Hub](iot-hub-scaling.md).
 

@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1c9255de6b9f449a89a994cb3286139daa28ea9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 24b7845ec66a85e6ced4f1df9caec409a94016bf
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034103"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782604"
 ---
 # <a name="use-azure-custom-roles-in-privileged-identity-management"></a>Korzystanie z ról niestandardowych platformy Azure w Privileged Identity Management
 
@@ -31,7 +31,7 @@ Wykonaj kroki opisane w następnej sekcji, aby skonfigurować ustawienia Privile
 
 ## <a name="create-the-custom-role"></a>Utwórz rolę niestandardową
 
-Aby utworzyć rolę niestandardową dla zasobu, wykonaj kroki opisane w temacie [role niestandardowe platformy Azure](../role-based-access-control-custom-roles.md).
+Aby utworzyć rolę niestandardową dla zasobu, wykonaj kroki opisane w temacie [role niestandardowe platformy Azure](../../role-based-access-control/custom-roles.md).
 
 Podczas tworzenia roli niestandardowej należy uwzględnić opisową nazwę, aby można było łatwo zapamiętać, która wbudowana rola została zaprojektowana.
 

@@ -8,19 +8,21 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/22/2020
-ms.openlocfilehash: 6b72d80f0be65af22bf334752052757346457a67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/24/2020
+ms.openlocfilehash: 171c53aa36ecc854cf32a64f9f2639a7086c24e5
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84448635"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782587"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Moduł regresji drzewa decyzyjnego
 
 W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
 
 Ten moduł służy do tworzenia kompletu drzew regresji przy użyciu zwiększania. *Zwiększenie wydajności* oznacza, że każde drzewo jest zależne od wcześniejszych drzew. Algorytm uczy się, instalując resztę drzew, które je poprzedza. W tym celu zwiększenie dokładności w drzewie decyzyjnym pozwala zwiększyć dokładność z mniejszym ryzykiem.  
+
+Ten moduł jest oparty na algorytmie LightGBM.
   
 Ta metoda regresji jest metodą uczenia nadzorowanego i dlatego wymaga *oznaczonego zestawu danych*. Kolumna Label musi zawierać wartości numeryczne.  
 

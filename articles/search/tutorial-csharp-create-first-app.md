@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
 ms.openlocfilehash: 4c96dfa078ec12e0681574629276c48af2c1760d
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85261464"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Samouczek: Tworzenie pierwszej aplikacji wyszukiwania przy użyciu zestawu .NET SDK
 
 Dowiedz się, jak utworzyć interfejs sieci Web, aby wykonywać zapytania i przedstawić wyniki wyszukiwania w indeksie przy użyciu usługi Azure Wyszukiwanie poznawcze. Ten samouczek rozpoczyna się od istniejącego, hostowanego indeksu, dzięki czemu możesz skupić się na tworzeniu strony wyszukiwania. Indeks zawiera fikcyjne dane hotelu. Gdy masz stronę podstawową, możesz ją ulepszyć w kolejnych lekcjach w celu uwzględnienia stronicowania, aspektów i środowiska z wyprzedzeniem.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Konfigurowanie środowiska deweloperskiego
 > * Struktury danych modelu
@@ -504,7 +504,7 @@ Wywołanie Wyszukiwanie poznawcze platformy Azure jest hermetyzowane w naszej me
 
     Wywołanie asynchroniczne do wyszukiwania (**model. resultList = await _indexClient.Documents. SearchAsync &lt; Hotel &gt; (model. tekstprzeszukiwany, Parameters);**) to informacje o tym samouczku i aplikacji. Klasa **DocumentSearchResult** jest interesująca, a dobrym pomysłem (gdy aplikacja jest uruchomiona) polega na tym, że w tym miejscu należy ustawić punkt przerwania i użyć debugera do sprawdzenia zawartości **modelu. resultList**. Należy się przekonać, że jest intuicyjny, dostarczając dane, których dotyczy żądanie, a nie wiele innych.
 
-Teraz na chwilę zaistnienia prawdy.
+Nadeszła chwila prawdy.
 
 ### <a name="test-the-app"></a>Testowanie aplikacji
 

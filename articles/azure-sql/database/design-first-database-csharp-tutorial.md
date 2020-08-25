@@ -11,10 +11,10 @@ ms.author: genemi
 ms.reviewer: carlrab
 ms.date: 07/29/2019
 ms.openlocfilehash: 057ffcdc8a21567e909d768236e454ee10036115
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84216557"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-cx23-and-adonet"></a>Samouczek: projektowanie relacyjnej bazy danych w Azure SQL Database C&#x23; i ADO.NET

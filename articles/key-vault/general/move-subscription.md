@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: d37fae18cd2f3e3bfad647cc176253dc6bb101ab
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b37b327a535b716bbce845cd5883e58ec5379c48
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585785"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782723"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Przeniesienie Azure Key Vault do innej subskrypcji
 
@@ -59,7 +59,9 @@ Upewnij się, że przejdź do strony Azure Policy na Azure Portal i przyjrzyj si
 
 ## <a name="procedure"></a>Procedura
 
-### <a name="initial-steps-moving-key-vault"></a>Początkowe kroki (trwa przechodzenie Key Vault)
+Jeśli użytkownik 
+
+### <a name="moving-key-vault-to-a-new-subscription-within-the-same-tenant"></a>Przeniesienie Key Vault do nowej subskrypcji w ramach tej samej dzierżawy
 
 1. Logowanie do witryny Azure Portal
 2. Przejdź do magazynu kluczy
@@ -70,9 +72,9 @@ Upewnij się, że przejdź do strony Azure Policy na Azure Portal i przyjrzyj si
 7. Potwierdzenie ostrzeżenia dotyczącego przeniesienia zasobów
 8. Wybierz pozycję "OK"
 
-### <a name="additional-steps-post-move"></a>Dodatkowe kroki (po przeniesieniu)
+### <a name="additional-steps-if-you-moved-key-vault-to-a-subscription-in-a-new-tenant"></a>Dodatkowe kroki w przypadku przeniesienia magazynu kluczy do subskrypcji w nowej dzierżawie
 
-Po przeniesieniu magazynu kluczy do nowej subskrypcji należy zaktualizować identyfikator dzierżawy i usunąć stare zasady dostępu. Poniżej przedstawiono samouczki dotyczące tych kroków w programie PowerShell i interfejsie wiersza polecenia platformy Azure.
+Jeśli magazyn kluczy został przeniesiony do subskrypcji w nowej dzierżawie, musisz ręcznie zaktualizować identyfikator dzierżawy i usunąć stare zasady dostępu. Poniżej przedstawiono samouczki dotyczące tych kroków w programie PowerShell i interfejsie wiersza polecenia platformy Azure. Jeśli używasz programu PowerShell, może być konieczne uruchomienie polecenia Clear-AzContext opisane poniżej, aby umożliwić wyświetlanie zasobów poza bieżącym wybranym zakresem. 
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription

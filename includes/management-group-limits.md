@@ -7,16 +7,16 @@ ms.topic: include
 ms.date: 03/26/2020
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 9b2bf8763d175bca028be1fcceda921e87eb5b23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 204ca121045d1bd53fd507acc7ea9691bfeac12e
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334631"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88748863"
 ---
 | Zasób | Limit |
 | --- | --- |
-| Grupy zarządzania na katalog | 10 000 |
+| Grupy zarządzania dla dzierżawy usługi Azure AD | 10 000 |
 | Subskrypcje na grupę zarządzania | Ograniczona. |
 | Poziomy hierarchii grup zarządzania | Poziom główny plus 6 poziomów<sup>1</sup> |
 | Bezpośrednia nadrzędna grupa zarządzania na grupę zarządzania | Jeden |

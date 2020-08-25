@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: 3d4d1e65c2200aee178abefb46d3e330acbd3108
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85563644"
 ---
 # <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager"></a>Samouczek: Zabezpieczanie sieci wirtualnej centrum przy użyciu Menedżera zapory platformy Azure
@@ -58,7 +58,7 @@ Sieć hybrydowa używa modelu architektury Hub i szprych do kierowania ruchu mi�
 Zapoznaj się z sekcją [Tworzenie tras](#create-the-routes) w tym samouczku, aby zobaczyć, jak te trasy zostały utworzone.
 
 >[!NOTE]
->Zapora platformy Azure musi mieć bezpośrednią łączność z Internetem. Jeśli AzureFirewallSubnet nauczy trasy domyślnej do sieci lokalnej za pośrednictwem protokołu BGP, należy przesłonić ten element przy użyciu wartości 0.0.0.0/0 UDR z wartością **NextHopType** ustawioną jako **Internet** w celu utrzymania bezpośredniej łączności z Internetem.
+>Usługa Azure Firewall musi mieć bezpośrednie połączenie z Internetem. Jeśli AzureFirewallSubnet nauczy trasy domyślnej do sieci lokalnej za pośrednictwem protokołu BGP, należy przesłonić ten element przy użyciu wartości 0.0.0.0/0 UDR z wartością **NextHopType** ustawioną jako **Internet** w celu utrzymania bezpośredniej łączności z Internetem.
 >
 >Zaporę platformy Azure można skonfigurować do obsługi wymuszonego tunelowania. Aby uzyskać więcej informacji, zobacz [tunelowanie wymuszone przez zaporę platformy Azure](../firewall/forced-tunneling.md).
 
@@ -152,7 +152,7 @@ Po wdrożeniu sieci wirtualnej należy utworzyć drugą podsieć dla bramy.
 2. Wybierz pozycję **+ podsieć**.
 3. W obszarze **Nazwa**wpisz **GatewaySubnet**.
 4. W obszarze **zakres adresów (blok CIDR)** wpisz **192.168.2.0/24**.
-5. Wybierz przycisk **OK**.
+5. Kliknij **OK**.
 
 ### <a name="create-a-public-ip-address"></a>Tworzenie publicznego adresu IP
 
@@ -236,7 +236,7 @@ W tym kroku utworzysz połączenie z sieci wirtualnej koncentratora do lokalnej 
 5. Wybierz pozycję **Sieć wirtualna-sieć wirtualna** dla **typu połączenia**.
 6. W przypadku **drugiej bramy sieci wirtualnej**wybierz pozycję **GW-lokalnego**.
 7. Dla **klucza współużytkowanego (PSK)** wpisz **AzureA1b2C3**.
-8. Wybierz przycisk **OK**.
+8. Kliknij **OK**.
 
 Utwórz połączenie z lokalnej sieci wirtualnej do sieci wirtualnej koncentratora. Ten krok jest podobny do poprzedniego, jednak w tym przypadku tworzysz połączenie z sieci VNet-Onprem do sieci VNet-hub. Upewnij się, że klucze współużytkowane są zgodne. Po kilku minutach połączenie zostanie ustanowione.
 
@@ -247,7 +247,7 @@ Utwórz połączenie z lokalnej sieci wirtualnej do sieci wirtualnej koncentrato
 5. Wybierz pozycję **Sieć wirtualna-sieć wirtualna** dla **typu połączenia**.
 6. W przypadku **drugiej bramy sieci wirtualnej**wybierz pozycję **GW-Hub**.
 7. Dla **klucza współużytkowanego (PSK)** wpisz **AzureA1b2C3**.
-8. Wybierz przycisk **OK**.
+8. Kliknij **OK**.
 
 
 #### <a name="verify-the-connection"></a>Weryfikowanie połączenia
@@ -267,7 +267,7 @@ Teraz nawiąż komunikację równorzędną pomiędzy siecią wirtualną koncentr
 5. Dla **sieci wirtualnej**wybierz opcję Sieć wirtualna **-szprycha**
 6. Aby uzyskać nazwę komunikacji równorzędnej z VNetSpoke do koncentratora sieci wirtualnej, wpisz **SpoketoHub**.
 7. Wybierz pozycję **Zezwalaj na tranzyt bramy**.
-8. Wybierz przycisk **OK**.
+8. Kliknij **OK**.
 
 ### <a name="configure-additional-settings-for-the-spoketohub-peering"></a>Konfigurowanie dodatkowych ustawień komunikacji równorzędnej SpoketoHub
 
@@ -301,7 +301,7 @@ Następnie należy utworzyć kilka tras:
 14. Dla prefiksu adresu wpisz **10.6.0.0/16**.
 15. W polu Typ następnego przeskoku wybierz pozycję **urządzenie wirtualne**.
 16. W polu adres następnego przeskoku wpisz zanotowany wcześniej prywatny adres IP zapory.
-17. Wybierz przycisk **OK**.
+17. Kliknij **OK**.
 
 Teraz Skojarz trasę z podsiecią.
 
@@ -309,7 +309,7 @@ Teraz Skojarz trasę z podsiecią.
 2. Wybierz pozycję **Skojarz**.
 4. W obszarze **Sieć wirtualna**wybierz pozycję Virtual **-Hub**.
 5. W obszarze **podsieć**wybierz pozycję **GatewaySubnet**.
-6. Wybierz przycisk **OK**.
+6. Kliknij **OK**.
 
 Teraz Utwórz trasę domyślną z podsieci szprych.
 
@@ -329,7 +329,7 @@ Teraz Utwórz trasę domyślną z podsieci szprych.
 6. Dla prefiksu adresu wpisz **0.0.0.0/0**.
 7. W polu Typ następnego przeskoku wybierz pozycję **urządzenie wirtualne**.
 8. W polu adres następnego przeskoku wpisz zanotowany wcześniej prywatny adres IP zapory.
-9. Wybierz przycisk **OK**.
+9. Kliknij **OK**.
 
 Teraz Skojarz trasę z podsiecią.
 
@@ -337,7 +337,7 @@ Teraz Skojarz trasę z podsiecią.
 2. Wybierz pozycję **Skojarz**.
 4. W obszarze **Sieć wirtualna**wybierz pozycję **VNET-szprychy**.
 5. W obszarze **podsieć**wybierz pozycję **SN-obciążenie**.
-6. Wybierz przycisk **OK**.
+6. Kliknij **OK**.
 
 ## <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 

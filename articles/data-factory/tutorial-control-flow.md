@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
 ms.openlocfilehash: 0330e72ad74726f97bfdfd78ef8d5f9b24a5d172
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85513318"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Rozgałęzianie działań i tworzenie łańcuchów działań w potoku usługi Data Factory
@@ -48,8 +48,8 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 * Konto usługi Azure Storage. Magazyn obiektów BLOB jest używany jako magazyn danych źródłowych. Jeśli nie masz konta usługi Azure Storage, zobacz [Tworzenie konta magazynu](../storage/common/storage-account-create.md).
 * Eksplorator usługi Azure Storage. Aby zainstalować to narzędzie, zobacz [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
-* usługą Azure SQL Database. Baza danych jest używana jako magazyn danych będący ujściem. Jeśli nie masz bazy danych w Azure SQL Database, zapoznaj się z tematem [Tworzenie bazy danych w programie Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
-* Program Visual Studio. W tym artykule jest wykorzystywany program Visual Studio 2019.
+* Azure SQL Database. Baza danych jest używana jako magazyn danych będący ujściem. Jeśli nie masz bazy danych w Azure SQL Database, zapoznaj się z tematem [Tworzenie bazy danych w programie Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
+* Programu Visual Studio. W tym artykule jest wykorzystywany program Visual Studio 2019.
 * Zestaw Azure .NET SDK. Pobierz i zainstaluj [zestaw Azure .NET SDK](https://azure.microsoft.com/downloads/).
 
 Listę regionów świadczenia usługi Azure, w których Data Factory są obecnie dostępne, można znaleźć w temacie [produkty dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/). Magazyny danych i obliczenia mogą znajdować się w innych regionach. Magazyny obejmują usługę Azure Storage i Azure SQL Database. Obliczenia obejmują HDInsight, który Data Factory używany.
@@ -65,7 +65,7 @@ Utwórz aplikację zgodnie z opisem w temacie [Tworzenie aplikacji Azure Active 
    Tamika|Walsh
    ```
 
-1. Otwórz Eksplorator usługi Azure Storage. Rozwiń konto magazynu. Kliknij prawym przyciskiem myszy **kontenery obiektów BLOB** i wybierz pozycję **Utwórz kontener obiektów BLOB**.
+1. Otwórz Eksplorator usługi Azure Storage. Rozwiń konto magazynu. Kliknij prawym przyciskiem myszy pozycję **Blob Containers** (Kontenery obiektów blob) i wybierz polecenie **Create Blob Container** (Utwórz kontener obiektów blob).
 1. Nazwij nowy kontener *adfv2branch* i wybierz pozycję **Przekaż** , aby dodać plik *input.txt* do kontenera.
 
 ## <a name="create-visual-studio-project"></a>Tworzenie projektu programu Visual Studio<a name="create-visual-studio-project"></a>
@@ -236,7 +236,7 @@ static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient c
 
 Należy zdefiniować zestaw danych reprezentujący źródło danych w obiekcie blob platformy Azure. Ten zestaw danych obiektu BLOB odwołuje się do połączonej usługi Azure Storage obsługiwanej w poprzednim kroku. Zestaw danych obiektów BLOB opisuje lokalizację obiektu BLOB do skopiowania: *FolderPath* i *filename*.
 
-Zwróć uwagę na użycie parametrów dla *FolderPath*. `sourceBlobContainer`jest nazwą parametru, a wyrażenie jest zamieniane na wartości przesłane w przebiegu potoku. Składnia umożliwiająca zdefiniowanie parametrów: `@pipeline().parameters.<parameterName>`
+Zwróć uwagę na użycie parametrów dla *FolderPath*. `sourceBlobContainer` jest nazwą parametru, a wyrażenie jest zamieniane na wartości przesłane w przebiegu potoku. Składnia umożliwiająca zdefiniowanie parametrów: `@pipeline().parameters.<parameterName>`
 
 ### <a name="create-a-dataset-for-a-sink-azure-blob"></a>Tworzenie zestawu danych dla ujścia obiektu blob platformy Azure
 
@@ -336,7 +336,7 @@ Przepływ pracy wygląda podobnie do poniższego przykładu:
 
 Zawartość JSON jest wyrównywana z `EmailRequest` klasą utworzoną w poprzedniej sekcji.
 
-Dodaj akcję `Office 365 Outlook – Send an email` . W przypadku akcji **Wyślij wiadomość e-mail** Dostosuj sposób formatowania wiadomości e-mail przy użyciu właściwości przekazaną w schemacie JSON **treści** żądania. Przykład:
+Dodaj akcję `Office 365 Outlook – Send an email` . W przypadku akcji **Wyślij wiadomość e-mail** Dostosuj sposób formatowania wiadomości e-mail przy użyciu właściwości przekazaną w schemacie JSON **treści** żądania. Oto przykład:
 
 ![Projektant aplikacji logiki — wysyłanie akcji poczty e-mail](media/tutorial-control-flow/customize-send-email-action.png)
 

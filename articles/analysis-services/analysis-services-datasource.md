@@ -4,15 +4,15 @@ description: Opisuje źródła danych i łączniki obsługiwane w przypadku tabe
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 72a1a37bf240355e6bc87cbfd62b0dc2d25ce68b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b99ac957c9c5030b484b244223847be4aa53a39d
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503603"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749086"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Źródła danych obsługiwane w usługach Azure Analysis Services.
 
@@ -22,15 +22,15 @@ ms.locfileid: "87503603"
 
 |Źródło danych  |W pamięci  |DirectQuery  |Uwagi |
 |---------|---------|---------|---------|
-|Azure SQL Database      |   Tak      |    Yes      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
-|Azure Synapse Analytics (SQL DW)      |   Tak      |   Yes       |<sup>[2](#azprovider)</sup>|
-|Azure Blob Storage      |   Yes       |    Nie      | <sup>[jedno](#tab1400a)</sup> |
-|Azure Table Storage     |   Yes       |    Nie      | <sup>[jedno](#tab1400a)</sup>|
-|Azure Cosmos DB     |  Yes        |  Nie        |<sup>[jedno](#tab1400a)</sup> |
-|Azure Data Lake Store Gen1      |   Yes       |    Nie      |<sup>[jedno](#tab1400a)</sup> |
-|Azure Data Lake Store Gen2       |   Yes       |    Nie      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
-|Usługa Azure HDInsight w systemie plików HDFS    |     Yes     |   Nie       |<sup>[jedno](#tab1400a)</sup> |
-|Azure HDInsight Spark     |   Yes       |   Nie       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
+|Azure SQL Database      |   Tak      |    Tak      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
+|Azure Synapse Analytics (SQL DW)      |   Tak      |   Tak       |<sup>[2](#azprovider)</sup>|
+|Azure Blob Storage      |   Tak       |    Nie      | <sup>[1](#tab1400a)</sup> |
+|Azure Table Storage     |   Tak       |    Nie      | <sup>[1](#tab1400a)</sup>|
+|Azure Cosmos DB     |  Tak        |  Nie        |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen1      |   Tak       |    Nie      |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen2       |   Tak       |    Nie      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
+|Usługa Azure HDInsight w systemie plików HDFS    |     Tak     |   Nie       |<sup>[1](#tab1400a)</sup> |
+|Azure HDInsight Spark     |   Tak       |   Nie       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
 ||||
 
 **Uwagi:**
@@ -45,35 +45,35 @@ Program <a name="gen2">5</a> ADLS Gen2 łącznik nie jest obecnie obsługiwany, 
 
 |Źródło danych | W pamięci | DirectQuery |Uwagi   |
 |  --- | --- | --- | --- |
-|Baza danych programu Access     |  Yes | Nie |  |
-|Usługa Active Directory     |  Yes | Nie | <sup>[ust](#tab1400b)</sup>  |
-|Analysis Services     |  Yes | Nie |  |
-|System platformy analizy     |  Yes | Nie |  |
-|Plik CSV  |Yes | Nie |  |
-|Dynamics 365     |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
-|Skoroszyt programu Excel     |  Yes | Nie |  |
-|Exchange      |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
+|Baza danych programu Access     |  Tak | Nie |  |
+|Active Directory     |  Tak | Nie | <sup>[ust](#tab1400b)</sup>  |
+|Analysis Services     |  Tak | Nie |  |
+|System platformy analizy     |  Tak | Nie |  |
+|Plik CSV  |Tak | Nie |  |
+|Dynamics 365     |  Tak | Nie | <sup>[ust](#tab1400b)</sup> |
+|Skoroszyt programu Excel     |  Tak | Nie |  |
+|Exchange      |  Tak | Nie | <sup>[ust](#tab1400b)</sup> |
 |Folder      |Tak | Nie | <sup>[ust](#tab1400b)</sup> |
-|IBM Informix  |Yes | Nie |  |
-|Dokument JSON      |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
-|Wiersze z pliku binarnego      | Yes | Nie | <sup>[ust](#tab1400b)</sup> |
-|Baza danych MySQL     | Yes | Nie |  |
-|Źródło danych OData      |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
-|Zapytanie ODBC     | Yes | Nie |  |
-|OLE DB     |   Yes | Nie |  |
-|Oracle  | Tak  |Yes  | <sup>[9](#oracle)</sup> |
-|Baza danych PostgreSQL   | Yes | Nie | <sup>[ust](#tab1400b)</sup> |
-|Obiekty Salesforce|  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
-|Raporty usługi Salesforce |Yes | Nie | <sup>[ust](#tab1400b)</sup> |
-|SAP HANA     |  Yes | Nie |  |
-|SAP Business Warehouse    |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
-|Listy programu SharePoint      |   Yes | Nie | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
-|SQL Server |Tak   | Yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
-|Magazyn danych SQL Server |Tak   | Yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
-|Baza danych Sybase     |  Yes | Nie |  |
-|Teradata | Tak  | Yes  | <sup>[dziesięć](#teradata)</sup> |
-|Plik TXT  |Yes | Nie |  |
-|Tabela XML    |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
+|IBM Informix  |Tak | Nie |  |
+|Dokument JSON      |  Tak | Nie | <sup>[ust](#tab1400b)</sup> |
+|Wiersze z pliku binarnego      | Tak | Nie | <sup>[ust](#tab1400b)</sup> |
+|Baza danych MySQL     | Tak | Nie |  |
+|Źródło danych OData      |  Tak | Nie | <sup>[ust](#tab1400b)</sup> |
+|Zapytanie ODBC     | Tak | Nie |  |
+|OLE DB     |   Tak | Nie |  |
+|Oracle  | Tak  |Tak  | <sup>[9](#oracle)</sup> |
+|Baza danych PostgreSQL   | Tak | Nie | <sup>[ust](#tab1400b)</sup> |
+|Obiekty Salesforce|  Tak | Nie | <sup>[ust](#tab1400b)</sup> |
+|Raporty usługi Salesforce |Tak | Nie | <sup>[ust](#tab1400b)</sup> |
+|SAP HANA     |  Tak | Nie |  |
+|SAP Business Warehouse    |  Tak | Nie | <sup>[ust](#tab1400b)</sup> |
+|Listy programu SharePoint      |   Tak | Nie | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
+|SQL Server |Tak   | Tak  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
+|Magazyn danych SQL Server |Tak   | Tak  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
+|Baza danych Sybase     |  Tak | Nie |  |
+|Teradata | Tak  | Tak  | <sup>[dziesięć](#teradata)</sup> |
+|Plik TXT  |Tak | Nie |  |
+|Tabela XML    |  Tak | Nie | <sup>[ust](#tab1400b)</sup> |
 | | | |
 
 **Uwagi:**  
@@ -120,7 +120,7 @@ W przypadku źródeł danych w chmurze:
 
 ## <a name="oauth-credentials"></a>Poświadczenia uwierzytelniania OAuth
 
-Dla modeli tabelarycznych na poziomie zgodności 1400 i wyższych przy użyciu trybu w pamięci, Azure SQL Database, Azure Synapse (dawniej SQL Data Warehouse), Dynamics 365 i lista programu SharePoint obsługują poświadczenia uwierzytelniania OAuth. Azure Analysis Services zarządza odświeżanie tokenów dla źródeł danych OAuth w celu uniknięcia przekroczeń limitu czasu dla długotrwałych operacji odświeżania. Aby wygenerować prawidłowe tokeny, Ustaw poświadczenia za pomocą programu SSMS.
+Dla modeli tabelarycznych na poziomie zgodności 1400 i wyższych przy użyciu trybu w pamięci, Azure SQL Database, Azure Synapse (dawniej SQL Data Warehouse), Dynamics 365 i lista programu SharePoint obsługują poświadczenia uwierzytelniania OAuth. Azure Analysis Services zarządza odświeżanie tokenów dla źródeł danych OAuth w celu uniknięcia przekroczeń limitu czasu dla długotrwałych operacji odświeżania. Aby wygenerować prawidłowe tokeny, Ustaw poświadczenia przy użyciu Power Query.
 
 Tryb zapytania bezpośredniego nie jest obsługiwany z poświadczeniami uwierzytelniania OAuth.
 

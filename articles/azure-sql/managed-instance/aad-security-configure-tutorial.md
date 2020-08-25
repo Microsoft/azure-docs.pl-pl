@@ -11,10 +11,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
 ms.openlocfilehash: 05103052308b6dbf1314348f7d45abc9cba79827
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84706447"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Samouczek: zabezpieczenia w wystąpieniu zarządzanym usługi Azure SQL przy użyciu podmiotów zabezpieczeń serwera usługi Azure AD (nazwy logowania)
@@ -27,7 +27,7 @@ Wystąpienie zarządzane usługi Azure SQL zapewnia niemal wszystkie funkcje zab
 - Stosowanie autoryzacji za pośrednictwem członkostwa i uprawnień opartych na rolach.
 - Włączanie funkcji zabezpieczeń.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -48,7 +48,7 @@ Aby ukończyć ten samouczek, upewnij się, że dysponujesz następującymi elem
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
 - Wystąpienie zarządzane
   - Wykonaj czynności opisane w tym artykule: [Szybki Start: Tworzenie wystąpienia zarządzanego](instance-create-quickstart.md)
-- Możliwość dostępu do wystąpienia zarządzanego oraz [aprowizowanego administratora usługi Azure AD dla wystąpienia zarządzanego](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). Aby dowiedzieć się więcej, zobacz:
+- Możliwość dostępu do wystąpienia zarządzanego oraz [aprowizowanego administratora usługi Azure AD dla wystąpienia zarządzanego](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). Aby dowiedzieć się więcej, zobacz następujące artykuły:
   - [Connect your application to a managed instance](connect-application-instance.md) (Łączenie aplikacji z wystąpieniem zarządzanym)
   - [Architektura łączności wystąpienia zarządzanego SQL](connectivity-architecture-overview.md)
   - [Configure and manage Azure Active Directory authentication with SQL (Konfigurowanie uwierzytelniania w usłudze Azure Active Directory i zarządzanie nim przy użyciu języka SQL)](../database/authentication-aad-configure.md)
