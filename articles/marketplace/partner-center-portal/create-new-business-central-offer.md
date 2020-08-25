@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: 0d00f779031ec294523c861a4e9868f7cbbe790d
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 4226f9cc45589b8c555d3d54918e31a04acbfc6b
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606142"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88817055"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Tworzenie oferty Dynamics 365 Business Central
 
@@ -182,16 +182,16 @@ Podaj co najmniej jeden (i maksymalnie trzy) powiązane dokumenty marketingowe, 
 
 ### <a name="marketplace-images"></a>Obrazy z witryny Marketplace
 
-Podaj logo i obrazy oferty. Wszystkie obrazy muszą mieć format PNG. 
+Podaj plik PNG dla logo o **dużym** rozmiarze. Centrum partnerskie będzie używać tego do tworzenia **małych** logo. Opcjonalnie można zastąpić ten inny obraz później.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+- **Duże** (od 216 x 216 do 350 x 350 px, wymagane)
+- **Mały** (48 x 48 pikseli, opcjonalnie)
 
-Przekaż logo oferty o dwa rozmiary:
-
-* **Mały** (48 x 48 pikseli)
-* **Duże** (216 x 216 pikseli)
+Te logo są używane w różnych miejscach na liście:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >Jeśli występuje problem z przekazywaniem plików, upewnij się, że sieć lokalna nie blokuje `https://upload.xboxlive.com` usługi używanej przez centrum partnerskie.
@@ -200,7 +200,7 @@ Przekaż logo oferty o dwa rozmiary:
 
 Dodaj zrzuty ekranu pokazujące, jak działa Twoja oferta. Wymagane są co najmniej trzy zrzuty ekranu i można dodać maksymalnie pięć. Wszystkie zrzuty ekranu muszą mieć 1280 x 720 pikseli.
 
-#### <a name="videos"></a>Filmy wideo
+#### <a name="videos"></a>Wideo
 
 Opcjonalnie możesz dodać maksymalnie pięć filmów wideo, które demonstrują Twoją ofertę. Te filmy wideo powinny być hostowane w usłudze YouTube i/lub Vimeo. Dla każdej z nich wprowadź nazwę filmu wideo, jego adres URL i obraz miniatury filmu wideo (1280 x 720 pikseli).
 

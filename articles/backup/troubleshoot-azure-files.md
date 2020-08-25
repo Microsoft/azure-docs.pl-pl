@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z usługą Azure File Share
 description: W tym artykule znajdują się informacje dotyczące rozwiązywania problemów występujących podczas ochrony udziałów plików platformy Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 7b007a9ef893bb772929584eb3137c7a5200d756
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2030620446f414f985f86218b96c6db78ab090a1
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524492"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763681"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Rozwiązywanie problemów podczas tworzenia kopii zapasowych udziałów plików platformy Azure
 
@@ -22,10 +22,10 @@ Ten artykuł zawiera informacje dotyczące rozwiązywania problemów w celu rozw
 - Sprawdź, czy udział plików w ramach konta magazynu jest już chroniony przez inny magazyn Recovery Services.
 
   >[!NOTE]
-  >wszystkie udziały plików konta magazynu mogą być chronione w ramach jednego magazynu usługi Recovery Services. Za pomocą [tego skryptu](scripts/backup-powershell-script-find-recovery-services-vault.md) można znaleźć magazyn usługi Recovery Services, w którym zarejestrowano konto magazynu.
+  >wszystkie udziały plików konta magazynu mogą być chronione w ramach jednego magazynu usługi Recovery Services. Za pomocą [tego skryptu](scripts/backup-powershell-script-find-recovery-services-vault.md) można znaleźć magazyn Recovery Services, w którym zarejestrowano konto magazynu.
 
 - Upewnij się, że udział plików nie znajduje się na żadnym z nieobsługiwanych kont magazynu. Aby znaleźć obsługiwane konta magazynu, można zapoznać się z [macierzą pomocy technicznej dla kopii zapasowej udziału plików platformy Azure](azure-file-share-support-matrix.md) .
-- Upewnij się, że łączna długość nazwy konta magazynu i nazwy grupy zasobów nie przekracza 84 znaków w przypadku nowych kont magazynu i 77 znaków w przypadku klasycznych kont magazynu. 
+- Upewnij się, że łączna długość nazwy konta magazynu i nazwy grupy zasobów nie przekracza 84 znaków w przypadku nowych kont magazynu i 77 znaków w przypadku klasycznych kont magazynu.
 - Sprawdź ustawienia zapory konta magazynu, aby upewnić się, że opcja zezwalania zaufanym usługom firmy Microsoft na dostęp do konta magazynu jest włączona.
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Błąd w portalu odnajdywanie kont magazynu nie powiodło się
@@ -54,7 +54,7 @@ Ponów próbę rejestracji. Jeśli problem będzie się powtarzać, skontaktuj s
 W Azure Portal Otwórz **Vault**  >  konta magazynu**infrastruktury kopii zapasowej**magazynu  >  **Storage accounts** , a następnie kliknij pozycję **Wyrejestruj** , aby usunąć konta magazynu z magazynu Recovery Services.
 
 >[!NOTE]
->Magazyn usługi Recovery Services można usunąć tylko po wyrejestrowaniu wszystkich kont magazynu zarejestrowanych w magazynie.
+>Magazyn Recovery Services można usunąć tylko po wyrejestrowaniu wszystkich kont magazynu zarejestrowanych w magazynie.
 
 ## <a name="common-backup-or-restore-errors"></a>Typowe błędy tworzenia kopii zapasowej lub przywracania
 

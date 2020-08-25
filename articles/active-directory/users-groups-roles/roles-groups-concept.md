@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30d18041a746a0c1046a51cf408494ccb81019c9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: fe509879c38f979525a673890c05fcfe5c8e3880
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183211"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798316"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Zarządzanie przypisaniami ról w programie Azure Active Directory przy użyciu grup chmurowych (wersja zapoznawcza)
 
@@ -33,7 +33,7 @@ Utwórz nowy pakiet Office 365 lub grupę zabezpieczeń z właściwością "isAs
 Jeśli nie chcesz, aby członkowie grupy mieli stały dostęp do roli, możesz użyć Azure AD Privileged Identity Management. Przypisz grupę jako uprawniony członek roli usługi Azure AD. Każdy członek grupy jest następnie uprawniony do przypisywania do roli, do której przypisano grupę. Mogą oni następnie aktywować ich przypisanie roli przez ustalony czas trwania.
 
 > [!Note]
-> Aby można było przypisać grupę do roli usługi Azure AD za pośrednictwem programu PIM, należy mieć zaktualizowaną wersję programu Privileged Identity Management. Możesz korzystać ze starszej wersji usługi PIM, ponieważ organizacja usługi Azure AD korzysta z interfejsu API Privileged Identity Management. Skontaktuj się z aliasem, pim_preview@microsoft.com Aby przenieść swoją organizację i zaktualizować interfejs API. Dowiedz się więcej na temat [ról i funkcji usługi Azure AD w programie PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-ad-roles-features).
+> Aby można było przypisać grupę do roli usługi Azure AD za pośrednictwem programu PIM, należy mieć zaktualizowaną wersję programu Privileged Identity Management. Możesz korzystać ze starszej wersji usługi PIM, ponieważ organizacja usługi Azure AD korzysta z interfejsu API Privileged Identity Management. Skontaktuj się z aliasem, pim_preview@microsoft.com Aby przenieść swoją organizację i zaktualizować interfejs API. Dowiedz się więcej na temat [ról i funkcji usługi Azure AD w programie PIM](../privileged-identity-management/azure-ad-roles-features.md).
 
 ## <a name="why-we-enforce-creation-of-a-special-group-for-assigning-it-to-a-role"></a>Dlaczego wymuszamy tworzenie specjalnej grupy do przypisywania jej do roli
 
@@ -65,7 +65,7 @@ Następujące scenariusze nie są obecnie obsługiwane:
   - W portalu PIM **role** mogą wyświetlać tylko jedno przypisanie roli bez względu na liczbę metod, do których przypisano przypisanie (za pomocą jednej lub kilku grup i bezpośrednio).
 - *Tylko licencjonowani klienci usługi Azure AD P2* Nawet po usunięciu grupy nadal jest widoczny uprawniony członek roli w interfejsie użytkownika PIM. Funkcjonalnie nie ma problemu; jest to tylko problem z pamięcią podręczną w Azure Portal.  
 - Centrum administracyjne programu Exchange nie rozpoznaje jeszcze członkostwa w roli za pośrednictwem grupy, ale działa polecenie cmdlet programu PowerShell.
-- Portal Azure Information Protection (Portal klasyczny) nie rozpoznaje jeszcze członkostwa w roli za pośrednictwem grupy. Można [przeprowadzić migrację na platformę o ujednoliconej czułości](https://docs.microsoft.com/azure/information-protection/configure-policy-migrate-labels) , a następnie użyć Centrum zgodności z pakietem Office 365 Security &, aby użyć przypisań grup do zarządzania rolami.
+- Portal Azure Information Protection (Portal klasyczny) nie rozpoznaje jeszcze członkostwa w roli za pośrednictwem grupy. Można [przeprowadzić migrację na platformę o ujednoliconej czułości](/azure/information-protection/configure-policy-migrate-labels) , a następnie użyć Centrum zgodności z pakietem Office 365 Security &, aby użyć przypisań grup do zarządzania rolami.
 
 Naprawiamy te problemy.
 

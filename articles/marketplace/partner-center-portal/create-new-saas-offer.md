@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 7500eddc2416a1cb705ef207930c5fe4c6f1068a
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6344cb5f1a4bd52395378f97ba2848eeec336572
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604746"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88817021"
 ---
 # <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Tworzenie oferty SaaS w komercyjnej witrynie Marketplace
 
@@ -282,18 +282,19 @@ To pole jest wymagane.
 #### <a name="files-and-images"></a>Pliki i obrazy
 
 - **Dokumenty** (wymagane) — Dodaj powiązane dokumenty marketingowe dla oferty w formacie PDF — co najmniej jeden i maksymalnie trzy dokumenty na ofertę.
-- **Obrazy**  — Przekaż obrazy logo w formacie PNG:
+- **Obrazy** (wymagane) — istnieje wiele miejsc, w których obrazy logo oferty mogą pojawić się w całym portalu Marketplace. Podaj plik PNG dla logo o **dużym** rozmiarze. Centrum partnerskie będzie używać tego do tworzenia **małych** i **średnich** logo. Opcjonalnie można zastąpić je innymi obrazami później.
 
-  - **Mały** (48 x 48 pikseli, wymagana)
-  - **Średni** (90 x 90 pikseli, wymagana)
-  - **Duże** (216 x 216 pikseli, wymagane)
-  - **Szerokie** (255 x 115 pikseli) (opcjonalnie)
+  - **Duże** (od 216 x 216 do 350 x 350 px, wymagane)
+  - **Średnia** (90 x 90 pikseli, opcjonalnie)
+  - **Mały** (48 x 48 pikseli, opcjonalnie)
+  
+  Te logo są używane w różnych miejscach na liście:
 
-   Te trzy rozmiary logo są używane w różnych miejscach w sklepach online:
+   - Duże logo pojawia się na stronie aukcji oferty w witrynie Azure Marketplace i Microsoft AppSource.
+   - Średnie logo pojawia się podczas tworzenia nowego zasobu w Microsoft Azure.
+   - Małe logo pojawia się w wynikach wyszukiwania Azure Marketplace i na stronie głównej Microsoft AppSource i wynikach wyszukiwania.
 
-   -   Małe logo (48 x 48 pikseli) pojawia się w wynikach wyszukiwania Azure Marketplace i na stronie głównej Microsoft AppSource i wynikach wyszukiwania. 
-   -   Średnie logo (90 x 90 pikseli) pojawia się podczas tworzenia nowego zasobu w Microsoft Azure.
-   -   Duże logo (od 216 x 216 i 350 x 350 pikseli) pojawia się na stronie aukcji oferty w witrynie Azure Marketplace i Microsoft AppSource.
+   [!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 - **Zrzuty ekranu** (wymagane) — Dodaj maksymalnie pięć zrzutów ekranu pokazujących Twoją ofertę o rozmiarze 1280 x 720 pikseli. Wszystkie obrazy muszą znajdować się w. Format PNG.
 - **Wideo** (opcjonalnie) — umożliwia dodanie linków do filmów wideo pokazujących Twoją ofertę. Możesz używać linków do filmów wideo w usłudze YouTube i/lub Vimeo, które są wyświetlane wraz z ofertą dla klientów. Należy również wprowadzić obraz miniatury wideo o rozmiarach do 1280 x 720 pikseli w formacie PNG. Możesz wyświetlić maksymalnie cztery wideo dla każdej oferty.
@@ -441,7 +442,7 @@ Aby uzyskać informacje o subskrypcjach klientów, które aktualnie uczestniczą
 
 Każdy plan można skonfigurować tak, aby był widoczny dla wszystkich, lub tylko do określonych odbiorców. Członkostwo w tych ograniczonych odbiorcach można przypisywać przy użyciu identyfikatorów dzierżaw usługi Azure AD.
 
-##### <a name="privacy"></a>Prywatność
+##### <a name="privacy"></a>Ochrona prywatności
 
 Wybierz opcję **to jest plan prywatny** , aby Twój plan był prywatny i widoczny tylko dla wybranych odbiorców z ograniczeniami. Po opublikowaniu jako planu prywatnego możesz zaktualizować odbiorców lub wybrać opcję udostępnienia planu wszystkim użytkownikom. Gdy plan zostanie opublikowany jako widoczny dla wszystkich użytkowników, musi pozostawać widoczny dla wszystkich (nie może zostać ponownie skonfigurowany jako plan prywatny).
 

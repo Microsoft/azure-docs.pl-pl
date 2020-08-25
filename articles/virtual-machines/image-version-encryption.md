@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 0d2b840b401dc90b332f91c93a9eda03d6643432
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 21e6dc5a975f43456a077559eebafd975cea66a1
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245557"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816494"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Wersja zapoznawcza: Używanie kluczy zarządzanych przez klienta do szyfrowania obrazów
 
@@ -27,9 +27,9 @@ Szyfrowanie po stronie serwera przy użyciu kluczy zarządzanych przez klienta u
 
 Ten artykuł wymaga, aby na potrzeby obrazu było już ustawione szyfrowanie dysków.
 
-- Aby użyć tylko klucza zarządzanego przez klienta, zobacz temat **Włączanie kluczy zarządzanych przez klienta za pomocą szyfrowania po stronie serwera** przy użyciu [Azure Portal](./windows/disks-enable-customer-managed-keys-portal.md) lub [programu PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+- Aby użyć tylko klucza zarządzanego przez klienta, zobacz temat **Włączanie kluczy zarządzanych przez klienta za pomocą szyfrowania po stronie serwera** przy użyciu [Azure Portal](./disks-enable-customer-managed-keys-portal.md) lub [programu PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
 
-- Aby korzystać z kluczy zarządzanych przez platformę i klienta (w przypadku szyfrowania podwójnego), zobacz **Włącz podwójne szyfrowanie w spoczynku** przy użyciu [Azure Portal](./windows/disks-enable-double-encryption-at-rest-portal.md) lub [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
+- Aby korzystać z kluczy zarządzanych przez platformę i klienta (w przypadku szyfrowania podwójnego), zobacz **Włącz podwójne szyfrowanie w spoczynku** przy użyciu [Azure Portal](./disks-enable-double-encryption-at-rest-portal.md) lub [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
     > [!IMPORTANT]
     > Musisz użyć tego linku, [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) Aby uzyskać dostęp do Azure Portal. Podwójne szyfrowanie w czasie spoczynku nie jest obecnie widoczne w publicznej Azure Portal bez użycia linku.
 

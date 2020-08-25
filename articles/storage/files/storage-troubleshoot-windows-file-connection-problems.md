@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 322a3b4e8d362d1b751b2c016e6f7cf904f11d7e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e9384dd3865b106488dc8ec303b060736f23ded7
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752337"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797789"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Rozwiązywanie problemów z usługą Azure Files w systemie Windows
 
@@ -369,7 +369,7 @@ Zalecamy użycie [Narzędzia icacls](https://docs.microsoft.com/windows-server/a
 
 ### <a name="error-the-directory-service-was-unable-to-allocate-a-relative-identifier"></a>Błąd: "usługa katalogowa nie może przydzielić identyfikatora względnego"
 
-Ten błędu może wystąpić, Jeśli kontroler domeny, który posiada główną rolę FSMO RID jest niedostępny lub został usunięty z domeny i przywrócono z kopii zapasowej.  Upewnij się, że wszystkie kontrolery domeny są uruchomione i dostępne.
+Ten błąd może wystąpić, Jeśli kontroler domeny z rolą FSMO głównego identyfikatora RID jest niedostępny lub został usunięty z domeny i przywrócony z kopii zapasowej.  Upewnij się, że wszystkie kontrolery domeny są uruchomione i dostępne.
 
 ### <a name="error-cannot-bind-positional-parameters-because-no-names-were-given"></a>Błąd: „Nie można powiązać parametrów pozycyjnych, ponieważ nie podano nazw”
 

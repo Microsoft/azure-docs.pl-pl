@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 45e091fe1ed77a4efc90d426b1d9a2842ae00175
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: aa16952d2b2dff6f69abfc37090a9e00b7d48a27
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88725447"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751134"
 ---
 # <a name="quickstart-extract-business-card-data-using-the-form-recognizer-rest-api-with-python"></a>Szybki Start: wyodrębnianie danych z kart służbowych przy użyciu interfejsu API REST usługi rozpoznawania formularzy w języku Python
 
@@ -89,7 +89,7 @@ Aby rozpocząć analizowanie karty biznesowej, należy wywołać interfejs API *
 Otrzymasz `202 (Success)` odpowiedź, która zawiera nagłówek **operacji-Location** , który skrypt będzie drukowany w konsoli programu. Ten nagłówek zawiera identyfikator operacji, którego można użyć do zbadania stanu operacji asynchronicznej i uzyskania wyników. W poniższym przykładzie wartość ciąg po `operations/` to identyfikator operacji.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyzeresults{operationID}
+https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyzeresults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ## <a name="get-the-business-card-results"></a>Pobierz wyniki z karty biznesowej
@@ -127,12 +127,124 @@ while n_try < n_tries:
 1. Ponownie Użyj `python` polecenia, aby uruchomić przykład. Na przykład `python form-recognizer-businesscards.py`.
 
 ### <a name="examine-the-response"></a>Sprawdzanie odpowiedzi
-
-Skrypt będzie drukował odpowiedzi do konsoli do momentu zakończenia operacji **analizowania karty biznesowej** . Następnie drukuje wyodrębnione dane tekstowe w formacie JSON. `"recognitionResults"`Pole zawiera wszystkie wiersze tekstu wyodrębnione z karty biznesowej, a `"understandingResults"` pole zawiera informacje o kluczu/wartości dla najbardziej odpowiednich części karty biznesowej.
-
 ![Wizytówka firmy Contoso](../media/business-card-english.jpg)
 
-`"recognitionResults"`Węzeł zawiera cały rozpoznany tekst. Tekst jest zorganizowany według strony, następnie według wiersza, a następnie poszczególnych słów. `"understandingResults"`Węzeł zawiera wartości specyficzne dla karty biznesowej, które zostały odnalezione przez model. Tutaj znajdziesz przydatne pary klucz/wartość, takie jak podatek, łączny, adres handlowca itd.
+Ten przykład ilustruje dane wyjściowe JSON zwrócone przez aparat rozpoznawania formularza. Te próbki zostały obcięte na potrzeby odczytywania przykładu.
+
+```json
+{
+    "status": "succeeded",
+    "createdDateTime": "2020-06-04T08:19:29Z",
+    "lastUpdatedDateTime": "2020-06-04T08:19:35Z",
+    "analyzeResult": {
+        "version": "2.1.1",
+        "readResults": [
+            {
+                "page": 1,
+                "angle": -17.0956,
+                "width": 4032,
+                "height": 3024,
+                "unit": "pixel"
+            }
+        ],
+        "documentResults": [
+            {
+                "docType": "prebuilt:businesscard",
+                "pageRange": [
+                    1,
+                    1
+                ],
+                "fields": {
+                    "ContactNames": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "object",
+                                "valueObject": {
+                                    "FirstName": {
+                                        "type": "string",
+                                        "valueString": "Avery",
+                                        "text": "Avery",
+                                        "boundingBox": [
+                                            703,
+                                            1096,
+                                            1134,
+                                            989,
+                                            1165,
+                                            1109,
+                                            733,
+                                            1206
+                                        ],
+                                        "page": 1
+                                },
+                                "text": "Dr. Avery Smith",
+                                "boundingBox": [
+                                    419.3,
+                                    1154.6,
+                                    1589.6,
+                                    877.9,
+                                    1618.9,
+                                    1001.7,
+                                    448.6,
+                                    1278.4
+                                ],
+                                "confidence": 0.993
+                            }
+                        ]
+                    },
+                    "Emails": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "string",
+                                "valueString": "avery.smith@contoso.com",
+                                "text": "avery.smith@contoso.com",
+                                "boundingBox": [
+                                    2107,
+                                    934,
+                                    2917,
+                                    696,
+                                    2935,
+                                    764,
+                                    2126,
+                                    995
+                                ],
+                                "page": 1,
+                                "confidence": 0.99
+                            }
+                        ]
+                    },
+                    "Websites": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "string",
+                                "valueString": "https://www.contoso.com/",
+                                "text": "https://www.contoso.com/",
+                                "boundingBox": [
+                                    2121,
+                                    1002,
+                                    2992,
+                                    755,
+                                    3014,
+                                    826,
+                                    2143,
+                                    1077
+                                ],
+                                "page": 1,
+                                "confidence": 0.995
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}
+```
+
+Skrypt będzie drukował odpowiedzi do konsoli do momentu zakończenia operacji **analizowania karty biznesowej** . `"readResults"`Węzeł zawiera cały rozpoznany tekst. Tekst jest zorganizowany według strony, następnie według wiersza, a następnie poszczególnych słów. `"documentResults"`Węzeł zawiera wartości specyficzne dla karty biznesowej, które zostały odnalezione przez model. Tutaj znajdziesz przydatne pary klucz/wartość, takie jak nazwa firmy, imię, nazwisko, telefon i tak dalej.
+
 
 ## <a name="next-steps"></a>Następne kroki
 
