@@ -1,6 +1,6 @@
 ---
-title: Testowanie piórem | Microsoft Docs
-description: Artykuł zawiera omówienie procesu testowania penetracji (Pentest) i sposobu, w jaki Pentest aplikacje działające w infrastrukturze platformy Azure.
+title: Testowanie penetracji | Microsoft Docs
+description: Artykuł zawiera omówienie procesu testowania penetracji oraz sposób wykonywania testu pióra względem aplikacji działającej w infrastrukturze platformy Azure.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -13,25 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/13/2018
+ms.date: 08/24/2020
 ms.author: terrylan
-ms.openlocfilehash: db6e25b6304ee9ac41ca95d5a3a6eac0e91eb41b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: dfacf124f8db0e5323c9abff56c4a78f85f6f014
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287765"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816137"
 ---
-# <a name="penetration-testing"></a>Testowanie penetracji
+# <a name="penetration-testing"></a>Testy penetracyjne
+
 Jedną z zalet korzystania z platformy Azure do testowania i wdrażania aplikacji jest możliwość szybkiego uzyskiwania utworzonych środowisk. Nie musisz martwić się o rozmieszczenie, nabywanie i "rozmieszczenie" sprzętu lokalnego.
 
-Jest to doskonałe rozwiązanie, ale nadal trzeba upewnić się, że wykonywane jest normalne zachowanie zabezpieczeń. Jednym z elementów, które prawdopodobnie chcesz zrobić, jest przetestowanie aplikacji wdrażanych na platformie Azure.
+Szybkie tworzenie środowisk jest doskonałe, ale nadal musisz mieć pewność, że chcesz mieć normalne zachowanie z powodu zabezpieczeń. Jednym z elementów, które prawdopodobnie chcesz zrobić, jest przetestowanie aplikacji wdrażanych na platformie Azure.
 
-Być może wiesz już, że firma Microsoft przeprowadza [testowanie penetracji środowiska platformy Azure](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). Ułatwia to rozwiązanie ulepszeń platformy Azure.
+Być może wiesz już, że firma Microsoft przeprowadza [testowanie penetracji środowiska platformy Azure](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). Ten test ułatwia zwiększenie ulepszeń platformy Azure.
 
-Nie przejdziemy do przetestowania aplikacji, ale zdajemy sobie sprawę, że będziesz mieć możliwość testowania własnych aplikacji. Jest to dobry efekt, ponieważ w przypadku zwiększenia bezpieczeństwa aplikacji pomaga zwiększyć bezpieczeństwo całego ekosystemu platformy Azure.
+Nie przeprowadzimy testów dla aplikacji, ale rozumiemy, że chcesz, aby przetestować swoje aplikacje. Jest to dobry efekt, ponieważ w przypadku zwiększenia bezpieczeństwa aplikacji pomaga zwiększyć bezpieczeństwo całego ekosystemu platformy Azure.
 
-Od 15 czerwca 2017 firma Microsoft nie wymaga już wstępnego zatwierdzenia, aby przeprowadzić test penetracji zasobów platformy Azure. Klienci, którzy chcą formalnie udokumentować zaangażowanie w testowanie penetracji w odniesieniu do Microsoft Azure są zachęcani do wypełniania [formularza powiadomienia o testowaniu usługi platformy Azure](https://portal.msrc.microsoft.com/en-us/engage/pentest). Ten proces dotyczy wyłącznie Microsoft Azure i nie ma zastosowania do żadnej innej usługi Microsoft Cloud.
+Od 15 czerwca 2017 firma Microsoft nie wymaga już wstępnego zatwierdzenia, aby przeprowadzić test penetracji zasobów platformy Azure. Ten proces dotyczy wyłącznie Microsoft Azure i nie ma zastosowania do żadnej innej usługi Microsoft Cloud.
 
 >[!IMPORTANT]
 >Chociaż powiadomienie firmy Microsoft o działaniach związanych z testowaniem pióra nie jest już wymagane, klienci muszą nadal przestrzegać [Microsoft Cloud ujednoliconych reguł testowania penetracji](https://technet.microsoft.com/mt784683).
@@ -42,6 +43,11 @@ Standardowe testy, które można wykonać, obejmują:
 * [Testy rozmyte](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) dla punktów końcowych
 * [Skanowanie portów](https://en.wikipedia.org/wiki/Port_scanner) punktów końcowych
 
+Jednym z typów testów pióra, których nie można wykonać, jest atak [typu "odmowa usługi" (DOS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) . Ten test obejmuje zainicjowanie samego ataku systemu DoS lub wykonanie powiązanych testów, które mogą ustalić, przedstawić lub symulować ataki typu DoS.
+
+>[!Note]
+>Firma Microsoft połączyła się z chmurą BreakingPoint, aby utworzyć interfejs, w którym można generować ruch dla publicznych adresów IP z włączoną obsługą DDoS Protection na potrzeby symulacji. Aby dowiedzieć się więcej na temat symulacji chmury w punkcie przerwania, zobacz [Weryfikowanie wykrywania DDoS](../../virtual-network/manage-ddos-protection.md#validate-ddos-detection).
+
 ## <a name="next-steps"></a>Następne kroki
 
-- Jeśli chcesz formalnie udokumentować nadchodzące testy penetracji dla aplikacji hostowanych w Microsoft Azure, przejdź do sekcji [reguły testowania penetracji zaangażowania](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=2) i wypełnij formularz powiadomienia o testowaniu.
+* Dowiedz się więcej na temat [reguł testowania penetracji](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=2).

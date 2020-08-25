@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: 93507bae3f817f92cfa427ceca10f651352a46bc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a8b5ec48b64341ad9eabd087d7ee20bb703198c6
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497583"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816239"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift — często zadawane pytania
 
@@ -65,25 +65,9 @@ W przypadku klastrów Azure Red Hat OpenShift 4. x węzły infrastruktury nie s�
 
 W przypadku klastrów z systemem Red Hat OpenShift 3,11 węzły infrastruktury są domyślnie uwzględniane.
 
-## <a name="upgrades"></a>Uaktualnienia
+## <a name="how-do-i-handle-cluster-upgrades"></a>Jak mogę obsługiwać uaktualnienia klastra?
 
-###  <a name="what-is-the-general-upgrade-process"></a>Co to jest ogólny proces uaktualniania?
-
-Poprawki są automatycznie stosowane do klastra. Nie trzeba podejmować żadnych działań w celu otrzymywania uaktualnień poprawek w klastrze.
-
-Wykonanie uaktualnienia to bezpieczny proces do uruchomienia i nie należy zakłócać usług klastra. Zespół firmy Microsoft-Red Hat może wyzwolić proces uaktualniania, gdy są dostępne nowe wersje lub często występują luki w zabezpieczeniach. Dostępne aktualizacje są testowane w środowisku przejściowym, a następnie stosowane do klastrów produkcyjnych. Poniższe najlepsze rozwiązania ułatwiają zapewnienie nieprzerwanego przestoju.
-
-Planowana konserwacja nie jest zaplanowana na klienta. Powiadomienia związane z konserwacją mogą być wysyłane za pośrednictwem poczty e-mail.
-
-### <a name="what-is-the-azure-red-hat-openshift-maintenance-process"></a>Co to jest proces konserwacji usługi Azure Red Hat OpenShift?
-
-Istnieją dwa typy czynności konserwacyjnych usługi Azure Red Hat OpenShift: uaktualnienia i konserwacja inicjowana przez dostawcę w chmurze.
-- Uaktualnienia obejmują uaktualnienia oprogramowania i typowe luki w zabezpieczeniach.
-- Konserwacja inicjowana przez dostawcę chmury obejmuje awarię sieci, magazynu i regionalne. Konserwacja jest zależna od dostawcy chmury i opiera się na aktualizacjach dostarczonych przez dostawcę.
-
-### <a name="what-about-emergency-vs-planned-maintenance-windows"></a>Co z awaryjnymi oknami konserwacyjnymi a planowanymi konserwacjami?
-
-Nie rozróżniamy między dwoma rodzajami konserwacji. Nasze zespoły są dostępne 24/7/365 i nie należy używać tradycyjnych zaplanowanych okien obsługi.
+Aby uzyskać informacje na temat uaktualnień, konserwacji i obsługiwanych wersji, zobacz [Przewodnik dotyczący cyklu pomocy technicznej](support-lifecycle.md).
 
 ### <a name="how-will-the-host-operating-system-and-openshift-software-be-updated"></a>Jak będzie aktualizowany system operacyjny hosta i oprogramowanie OpenShift?
 
@@ -143,7 +127,7 @@ W przypadku klastrów 4. x należy uwidocznić bezpieczny rejestr i skonfigurowa
 
 W przypadku klastrów 3,11 jest dostępny rejestr platformy Docker. Rejestr platformy Docker jest dostępny z programu `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` . Możesz również użyć Azure Container Registry.
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 ### <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>Czy mogę wdrożyć klaster w istniejącej sieci wirtualnej?
 
@@ -157,7 +141,7 @@ Administratorzy klienta i indywidualnego projektu mogą dostosowywać sieci obej
 
 ### <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Próbuję przejść do sieci wirtualnej w innej subskrypcji, ale nie udało się uzyskać błędu CIDR sieci wirtualnej.
 
-W subskrypcji z siecią wirtualną upewnij się, że zarejestrowano `Microsoft.ContainerService` dostawcę przy użyciu następującego polecenia:`az provider register -n Microsoft.ContainerService --wait`
+W subskrypcji z siecią wirtualną upewnij się, że zarejestrowano `Microsoft.ContainerService` dostawcę przy użyciu następującego polecenia: `az provider register -n Microsoft.ContainerService --wait`
 
 ### <a name="can-we-specify-ip-ranges-for-deployment-on-the-private-vnet-avoiding-clashes-with-other-corporate-vnets-once-peered"></a>Czy można określić zakresy adresów IP do wdrożenia w prywatnej sieci wirtualnej, unikając konfliktów z innymi firmowymi sieci wirtualnych po utworzeniu komunikacji równorzędnej?
 
@@ -218,7 +202,7 @@ W przypadku klastrów 4. x należy skonfigurować własnego dostawcę tożsamoś
 
 W przypadku klastrów 3,11 można korzystać z integracji usługi Azure AD. 
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 ### <a name="is-data-on-my-cluster-encrypted"></a>Czy dane w moim klastrze są szyfrowane?
 

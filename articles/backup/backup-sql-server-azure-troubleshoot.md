@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z kopiami zapasowymi SQL Server Database
 description: Informacje dotyczące rozwiązywania problemów dotyczących tworzenia kopii zapasowych SQL Server baz danych działających na maszynach wirtualnych platformy Azure z Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 1d692d0bacbcb26090d17bf905b959f870eed3f8
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 98240254a71695fa72acaf5c7f930c11d9f99cae
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660147"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756915"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Rozwiązywanie problemów z kopiami zapasowymi SQL Server Database przy użyciu Azure Backup
 
@@ -24,7 +24,7 @@ Aby skonfigurować ochronę bazy danych SQL Server na maszynie wirtualnej, nale�
 
 Po utworzeniu i skonfigurowaniu magazynu Recovery Services odnajdywania baz danych i konfigurowania kopii zapasowej jest procesem dwuetapowym.<br>
 
-![sql](./media/backup-azure-sql-database/sql.png)
+![Cel kopii zapasowej — SQL Server na maszynie wirtualnej platformy Azure](./media/backup-azure-sql-database/sql.png)
 
 Podczas konfigurowania kopii zapasowej, jeśli maszyna wirtualna SQL i jej wystąpienia nie są widoczne na **maszynach wirtualnych baz danych** i **konfiguruje kopię zapasową** (zapoznaj się z powyższym obrazem), upewnij się, że:
 

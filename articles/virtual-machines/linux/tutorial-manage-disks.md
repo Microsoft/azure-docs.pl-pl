@@ -5,16 +5,16 @@ author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: tutorial
 ms.workload: infrastructure
-ms.date: 11/14/2018
+ms.date: 08/20/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.subservice: disks
-ms.openlocfilehash: 5ebb3883304584570759ea02a2de7187efcdaf26
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 4806fa51be859bd1bdc2a2abd5410f8aa8f4a32b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718683"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757677"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Samouczek — zarządzanie dyskami platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -50,6 +50,7 @@ Na platformie Azure dostępne są dwa typy dysków.
 **Dyski w warstwie Premium** — obsługiwane przez dysk SSD o wysokiej wydajności i małych opóźnieniach. Idealnie nadają się one dla maszyn wirtualnych z uruchomionym obciążeniem produkcyjnym. Rozmiary maszyn wirtualnych mające wartość  **S** w [nazwie size](../vm-naming-conventions.md)zazwyczaj obsługują Premium Storage. Na przykład maszyny wirtualne z serii DS, DSv2, GS i FS obsługują usługę Premium Storage. Podczas wybierania rozmiaru dysku wartość jest zaokrąglana do następnego typu. Na przykład jeśli rozmiar dysku jest większy niż 64 GB, ale mniejszy niż 128 GB, typ dysku to P10. 
 
 <br>
+
 
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
@@ -112,16 +113,17 @@ Utwórz połączenie SSH z maszyną wirtualną. Zastąp przykładowy adres IP pu
 ssh 10.101.10.10
 ```
 
-Podziel dysk na partycje za pomocą polecenia `fdisk`.
+Podziel dysk na partycje za pomocą polecenia `parted`.
 
 ```bash
-(echo n; echo p; echo 1; echo ; echo ; echo w) | sudo fdisk /dev/sdc
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
 ```
 
-Utwórz na partycji system plików za pomocą polecenia `mkfs`.
+Utwórz na partycji system plików za pomocą polecenia `mkfs`. Użyj, `partprobe` Aby zapewnić, że system operacyjny wie o zmianie.
 
 ```bash
-sudo mkfs -t ext4 /dev/sdc1
+sudo mkfs.xfs /dev/sdc1
+sudo partprobe /dev/sdc1
 ```
 
 Zainstaluj nowy dysk, aby był dostępny w systemie operacyjnym.
@@ -130,18 +132,19 @@ Zainstaluj nowy dysk, aby był dostępny w systemie operacyjnym.
 sudo mkdir /datadrive && sudo mount /dev/sdc1 /datadrive
 ```
 
-Do tego dysku można teraz uzyskać dostęp za pośrednictwem punktu instalacji *datadrive*, co można zweryfikować, uruchamiając polecenie `df -h`.
+Dostęp do dysku można teraz uzyskać za pomocą `/datadrive` mountpoint, który można zweryfikować, uruchamiając `df -h` polecenie.
 
 ```bash
-df -h
+df -h | grep -i "sd"
 ```
 
-W danych wyjściowych widoczny jest nowy dysk zainstalowany w punkcie instalacji */datadrive*.
+W danych wyjściowych zostanie wyświetlony nowy dysk, na którym jest zainstalowany system `/datadrive` .
 
 ```bash
 Filesystem      Size  Used Avail Use% Mounted on
-/dev/sda1        30G  1.4G   28G   5% /
-/dev/sdb1       6.8G   16M  6.4G   1% /mnt
+/dev/sda1        29G  2.0G   27G   7% /
+/dev/sda15      105M  3.6M  101M   4% /boot/efi
+/dev/sdb1        14G   41M   13G   1% /mnt
 /dev/sdc1        50G   52M   47G   1% /datadrive
 ```
 
@@ -157,11 +160,22 @@ Identyfikator UUID dysku jest wyświetlany w danych wyjściowych, w tym przypadk
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
-Dodaj do pliku */etc/fstab* wiersz podobny do następującego.
+> [!NOTE]
+> Niewłaściwe edytowanie pliku **/etc/fstab** może spowodować, że system nie zostanie rozruchowy. Jeśli nie masz pewności, jak to zrobić, sprawdź informacje na temat prawidłowego edytowania tego pliku w dokumentacji dystrybucji. Przed rozpoczęciem edycji zaleca się również utworzenie kopii zapasowej pliku/etc/fstab.
+
+Otwórz `/etc/fstab` plik w edytorze tekstów w następujący sposób:
+
+```bash
+sudo nano /etc/fstab
+```
+
+Dodaj wiersz podobny do poniższego do pliku */etc/fstab* , zastępując jego wartość UUID własnym.
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail   1  2
 ```
+
+Po zakończeniu edytowania pliku Użyj polecenia, `Ctrl+O` Aby napisać plik i `Ctrl+X` zamknąć Edytor.
 
 Teraz, gdy dysk został skonfigurowany, zamknij sesję SSH.
 
@@ -175,7 +189,7 @@ Utworzenie migawki dysku powoduje utworzenie przez platformę Azure jego kopii t
 
 ### <a name="create-snapshot"></a>Tworzenie migawki
 
-Aby utworzyć migawkę dysku maszyny wirtualnej, należy najpierw uzyskać identyfikator i nazwę dysku. Za pomocą polecenia [az vm show](/cli/azure/vm#az-vm-show) wyświetl identyfikator dysku. W tym przykładzie identyfikator dysku jest przechowywany w zmiennej, aby można go było użyć w późniejszym kroku.
+Przed utworzeniem migawki należy potrzebować identyfikatora lub nazwy dysku. Użyj [AZ VM show](/cli/azure/vm#az-vm-show) do zrzutu identyfikatora dysku. W tym przykładzie identyfikator dysku jest przechowywany w zmiennej, aby można go było użyć w późniejszym kroku.
 
 ```azurecli-interactive
 osdiskid=$(az vm show \
@@ -185,7 +199,7 @@ osdiskid=$(az vm show \
    -o tsv)
 ```
 
-Gdy masz już identyfikator dysku maszyny wirtualnej, za pomocą poniższego polecenia możesz utworzyć migawkę tego dysku.
+Teraz, gdy masz identyfikator, użyj [AZ Snapshot Create](/cli/azure/snapshot#az-snapshot-create) , aby utworzyć migawkę dysku.
 
 ```azurecli-interactive
 az snapshot create \
@@ -196,7 +210,7 @@ az snapshot create \
 
 ### <a name="create-disk-from-snapshot"></a>Tworzenie dysku z migawki
 
-Tę migawkę można następnie przekonwertować na dysk, przy użyciu którego można odtworzyć maszynę wirtualną.
+Tę migawkę można następnie przekonwertować na dysk przy użyciu polecenia [AZ Disk Create](/cli/azure/disk#az-disk-create), którego można użyć do odtworzenia maszyny wirtualnej.
 
 ```azurecli-interactive
 az disk create \
@@ -207,7 +221,7 @@ az disk create \
 
 ### <a name="restore-virtual-machine-from-snapshot"></a>Przywracanie maszyny wirtualnej z migawki
 
-Aby zademonstrować odzyskiwanie maszyny wirtualnej, usuń istniejącą maszynę wirtualną.
+Aby zademonstrować odzyskiwanie maszyny wirtualnej, Usuń istniejącą maszynę wirtualną za pomocą polecenia [AZ VM Delete](/cli/azure/vm#az-vm-delete).
 
 ```azurecli-interactive
 az vm delete \
@@ -229,7 +243,7 @@ az vm create \
 
 Wszystkie dyski z danymi należy ponownie dołączyć do maszyny wirtualnej.
 
-Najpierw odnajdź nazwę dysku z danymi za pomocą polecenia [az disk list](/cli/azure/disk#az-disk-list). W tym przykładzie nazwę dysku umieszczono w zmiennej o nazwie *datadisk*, która zostanie użyta w następnym kroku.
+Znajdź nazwę dysku danych za pomocą polecenia [AZ Disk list](/cli/azure/disk#az-disk-list) . Ten przykład umieszcza nazwę dysku w zmiennej o nazwie `datadisk` , która jest używana w następnym kroku.
 
 ```azurecli-interactive
 datadisk=$(az disk list \

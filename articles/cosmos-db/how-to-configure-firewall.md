@@ -4,15 +4,15 @@ description: Dowiedz się, jak skonfigurować zasady kontroli dostępu do adres�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/31/2019
+ms.date: 08/24/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 36afc42844203436313f2a5b15975746f2acd349
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 69c39d2478ed7d488c1209c2c7e16c241c59bcef
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494359"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814182"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Konfigurowanie zapory IP w Azure Cosmos DB
 
@@ -22,7 +22,7 @@ Dane przechowywane na koncie usługi Azure Cosmos DB można zabezpieczyć za pom
 * Deklaratywnie za pomocą szablonu usługi Azure Resource Manager
 * Programowo za pomocą interfejsu wiersza polecenia platformy Azure lub Azure PowerShell, aktualizując Właściwość **ipRangeFilter**
 
-## <a name="configure-an-ip-firewall-by-using-the-azure-portal"></a><a id="configure-ip-policy"></a>Skonfiguruj zaporę IP przy użyciu Azure Portal
+## <a name="configure-an-ip-firewall-by-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Skonfiguruj zaporę IP przy użyciu Azure Portal
 
 Aby ustawić zasady kontroli dostępu IP w Azure Portal, przejdź do strony konto Azure Cosmos DB i wybierz opcję **Zapora i sieci wirtualne** w menu nawigacji. Zmień wartość **Zezwalaj na dostęp z** wartości na **wybrane sieci**, a następnie wybierz pozycję **Zapisz**.
 
@@ -37,7 +37,7 @@ Po włączeniu kontroli dostępu do adresów IP Azure Portal zapewnia możliwoś
 
 Po włączeniu programowo zasad kontroli dostępu IP należy dodać adres IP dla Azure Portal do właściwości **ipRangeFilter** , aby zachować dostęp. Adresy IP portalu to:
 
-|Region|Adres IP|
+|Region (Region)|Adres IP|
 |------|----------|
 |Niemcy|51.4.229.218|
 |Chiny|139.217.8.252|
@@ -52,7 +52,7 @@ Po włączeniu programowo zasad kontroli dostępu IP należy dodać adres IP dla
 
 W przypadku uzyskania dostępu do konta Azure Cosmos DB z usług, które nie zapewniają statycznego adresu IP (na przykład Azure Stream Analytics i Azure Functions), można nadal korzystać z zapory IP w celu ograniczenia dostępu. Możesz włączyć dostęp z innych źródeł w ramach platformy Azure, wybierając opcję **Akceptuj połączenia z poziomu centrów danych platformy Azure** , jak pokazano na poniższym zrzucie ekranu:
 
-:::image type="content" source="./media/how-to-configure-firewall/enable-azure-services.png" alt-text="Zrzut ekranu przedstawiający sposób otwierania strony zapory w Azure Portal":::
+:::image type="content" source="./media/how-to-configure-firewall/enable-azure-services.png" alt-text="Zrzut ekranu przedstawiający sposób akceptowania połączeń z centrów danych platformy Azure":::
 
 Po włączeniu tej opcji adres IP `0.0.0.0` zostanie dodany do listy dozwolonych adresów IP. `0.0.0.0`Adres IP ogranicza żądania do konta Azure Cosmos DB z zakresu adresów IP centrum danych platformy Azure. To ustawienie nie zezwala na dostęp do konta usługi Azure Cosmos DB z jakiegokolwiek innego adresu IP.
 
@@ -95,7 +95,44 @@ W przypadku uzyskiwania dostępu do konta Azure Cosmos DB z komputera w Internec
 
 ## <a name="configure-an-ip-firewall-by-using-a-resource-manager-template"></a><a id="configure-ip-firewall-arm"></a>Konfigurowanie zapory IP przy użyciu szablonu Menedżer zasobów
 
-Aby skonfigurować kontrolę dostępu do konta Azure Cosmos DB, upewnij się, że szablon Menedżer zasobów określa atrybut **ipRangeFilter** z listą dozwolonych zakresów adresów IP. W przypadku konfigurowania zapory IP dla już wdrożonego konta Cosmos upewnij się, że `locations` Tablica jest zgodna z aktualnie wdrożonym. Nie można jednocześnie zmodyfikować `locations` tablicy i innych właściwości. Aby uzyskać więcej informacji i przykłady szablonów Azure Resource Manager dla Azure Cosmos DB Zobacz, [Azure Resource Manager szablony dla Azure Cosmos DB](resource-manager-samples.md)
+Aby skonfigurować kontrolę dostępu do konta Azure Cosmos DB, upewnij się, że szablon Menedżer zasobów określa właściwość **ipRules** z tablicą dozwolonych zakresów adresów IP. W przypadku konfigurowania zapory IP dla już wdrożonego konta Cosmos upewnij się, że `locations` Tablica jest zgodna z aktualnie wdrożonym. Nie można jednocześnie zmodyfikować `locations` tablicy i innych właściwości. Aby uzyskać więcej informacji i przykłady szablonów Azure Resource Manager dla Azure Cosmos DB Zobacz, [Azure Resource Manager szablony dla Azure Cosmos DB](resource-manager-samples.md)
+
+> [!IMPORTANT]
+> Właściwość **ipRules** została wprowadzona przy użyciu interfejsu API w wersji 2020-04-01. Poprzednie wersje uwidaczniają Właściwość **ipRangeFilter** , czyli listę adresów IP rozdzielonych przecinkami.
+
+W poniższym przykładzie pokazano, jak Właściwość **ipRules** jest uwidaczniana w interfejsie API w wersji 2020-04-01 lub nowszej:
+
+```json
+{
+  "type": "Microsoft.DocumentDB/databaseAccounts",
+  "name": "[variables('accountName')]",
+  "apiVersion": "2020-04-01",
+  "location": "[parameters('location')]",
+  "kind": "GlobalDocumentDB",
+  "properties": {
+    "consistencyPolicy": "[variables('consistencyPolicy')[parameters('defaultConsistencyLevel')]]",
+    "locations": "[variables('locations')]",
+    "databaseAccountOfferType": "Standard",
+    "enableAutomaticFailover": "[parameters('automaticFailover')]",
+    "ipRules": [
+      {
+        "ipAddressOrRange": "40.76.54.131"
+      },
+      {
+        "ipAddressOrRange": "52.176.6.30"
+      },
+      {
+        "ipAddressOrRange": "52.169.50.45"
+      },
+      {
+        "ipAddressOrRange": "52.187.184.26"
+      }
+    ]
+  }
+}
+```
+
+Jest to ten sam przykład dla dowolnej wersji interfejsu API sprzed 2020-04-01:
 
 ```json
 {
@@ -141,7 +178,7 @@ Poniższy skrypt pokazuje, jak utworzyć konto Azure Cosmos DB przy użyciu kont
 # Create a Cosmos DB account with default values and IP Firewall enabled
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
-$ipRangeFilter = "192.168.221.17,183.240.196.255,40.76.54.131"
+$ipRules = @("192.168.221.17","183.240.196.255","40.76.54.131")
 
 $locations = @(
     @{ "locationName"="West US 2"; "failoverPriority"=0; "isZoneRedundant"=False },
@@ -152,11 +189,11 @@ $locations = @(
 $CosmosDBProperties = @{
     "databaseAccountOfferType"="Standard";
     "locations"=$locations;
-    "ipRangeFilter"=$ipRangeFilter
+    "ipRules"=$ipRules
 }
 
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -ApiVersion "2020-04-01" -ResourceGroupName $resourceGroupName `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
@@ -179,6 +216,10 @@ Włącz rejestrowanie diagnostyczne na koncie Azure Cosmos DB. Te dzienniki zawi
 ### <a name="requests-from-a-subnet-with-a-service-endpoint-for-azure-cosmos-db-enabled"></a>Żądania z podsieci z punktem końcowym usługi dla Azure Cosmos DB włączone
 
 Żądania z podsieci w sieci wirtualnej, która ma punkt końcowy usługi dla Azure Cosmos DB włączone, wysyła do kont Azure Cosmos DB sieć wirtualną i tożsamość podsieci. Te żądania nie mają publicznego adresu IP źródła, więc filtry adresów IP są odrzucane. Aby zezwolić na dostęp z określonych podsieci w sieciach wirtualnych, należy dodać listę kontroli dostępu, jak opisano w temacie [jak skonfigurować sieć wirtualną i dostęp oparty na podsieci dla konta Azure Cosmos DB](how-to-configure-vnet-service-endpoint.md). Zastosowanie reguł zapory może potrwać do 15 minut.
+
+### <a name="private-ip-addresses-in-list-of-allowed-addresses"></a>Prywatne adresy IP na liście dozwolonych adresów
+
+Utworzenie lub zaktualizowanie konta usługi Azure Cosmos za pomocą listy dozwolonych adresów, które zawierają prywatne adresy IP, zakończy się niepowodzeniem. Upewnij się, że na liście nie określono prywatnego adresu IP.
 
 ## <a name="next-steps"></a>Następne kroki
 
