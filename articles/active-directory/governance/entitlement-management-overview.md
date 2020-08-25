@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 710c81c7b5c6abbf499f2cb43570db94df1a3db5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 25c43281ac213137d4a2ef39e76b3f13ffdad746
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034406"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783896"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Co to jest zarządzanie upoważnieniami w usłudze Azure AD?
 
@@ -149,7 +149,7 @@ Licencje na Azure AD — wersja Premium P2 **nie** są wymagane dla następując
 - Nie są wymagane żadne licencje dla użytkowników, którzy zostali delegowane zadania administracyjne, takie jak twórca katalogu, właściciel katalogu i Menedżer pakietów dostępu.
 - Dla Gości, którzy **mogą** żądać pakietów dostępu, nie są wymagane żadne licencje, ale **nie** żądają pakietu dostępu.
 
-Dla każdej płatnej licencji na Azure AD — wersja Premium P2, która została zakupiona dla użytkowników należących do członków (pracowników), możesz użyć usługi Azure AD B2B, aby zaprosić do 5 użytkowników-Gości. Ci użytkownicy-Goście mogą również korzystać z funkcji Azure AD — wersja Premium P2. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące licencjonowania współpracy B2B usługi Azure AD](../b2b/licensing-guidance.md).
+Dla każdej płatnej licencji na Azure AD — wersja Premium P2, która została zakupiona dla użytkowników należących do członków (pracowników), możesz użyć usługi Azure AD B2B, aby zaprosić do 5 użytkowników-Gości. Ci użytkownicy-Goście mogą również korzystać z funkcji Azure AD — wersja Premium P2. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące licencjonowania współpracy B2B usługi Azure AD](../external-identities/licensing-guidance.md).
 
 Aby uzyskać więcej informacji na temat licencji, zobacz [przypisywanie lub usuwanie licencji przy użyciu portalu Azure Active Directory](../fundamentals/license-users-groups.md).
 

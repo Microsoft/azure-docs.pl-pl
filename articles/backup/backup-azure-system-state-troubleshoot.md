@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak rozwiązywać problemy z tworzenie
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: e588ce4e3458634be32a7129b40906c98fc02ac0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: add54955def7df31f8e1688f56382067343616fe
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513854"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763392"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Rozwiązywanie problemów z kopią zapasową stanu systemu
 
@@ -17,7 +17,7 @@ W tym artykule opisano rozwiązania problemów, które mogą występować podcza
 
 ## <a name="basic-troubleshooting"></a>Podstawowe rozwiązywanie problemów
 
-Przed rozpoczęciem rozwiązywania problemów z kopiami zapasowymi stanu systemu zalecamy wykonanie poniższej weryfikacji:
+Przed rozpoczęciem rozwiązywania problemów z kopiami zapasowymi stanu systemu zalecamy wykonanie następujących kroków weryfikacji:
 
 - [Upewnij się, że agent Microsoft Azure Recovery Services (MARS) jest aktualny](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Upewnij się, że istnieje połączenie sieciowe między agentem MARS i platformą Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
@@ -42,7 +42,7 @@ Przed rozpoczęciem rozwiązywania problemów z kopiami zapasowymi stanu systemu
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem rozwiązywania problemów z tworzeniem kopii zapasowej stanu systemu za pomocą Azure Backup wykonaj poniższe czynności.  
+Przed rozpoczęciem rozwiązywania problemów z kopiami zapasowymi stanu systemu za pomocą Azure Backup wykonaj następujące czynności.  
 
 ### <a name="verify-windows-server-backup-is-installed"></a>Sprawdź, czy Kopia zapasowa systemu Windows Server jest zainstalowana
 
@@ -64,7 +64,7 @@ Aby zainstalować Kopia zapasowa systemu Windows Server przy użyciu programu Po
 
 #### <a name="method-2-install-windows-server-backup-using-server-manager"></a>Metoda 2. Instalowanie Kopia zapasowa systemu Windows Server przy użyciu Menedżer serwera
 
-Aby zainstalować Kopia zapasowa systemu Windows Server przy użyciu Menedżer serwera, wykonaj poniższe czynności:
+Aby zainstalować Kopia zapasowa systemu Windows Server przy użyciu Menedżer serwera, wykonaj następujące czynności:
 
 1. W oknie **Menedżer serwera**kliknij pozycję **Dodaj role i funkcje**. Zostanie wyświetlony **Kreator dodawania ról i funkcji** .
 
@@ -77,16 +77,16 @@ Aby zainstalować Kopia zapasowa systemu Windows Server przy użyciu Menedżer s
 3. Wybierz serwer z puli serwerów, a następnie kliknij przycisk **dalej**. W roli serwera pozostaw wybór domyślny i kliknij przycisk **dalej**.
 4. Wybierz pozycję **kopia zapasowa systemu Windows Server** na karcie **funkcje** i kliknij przycisk **dalej**.
 
-    ![funkcje](./media/backup-azure-system-state-troubleshoot/features.png)
+    ![Wybierz okno funkcji](./media/backup-azure-system-state-troubleshoot/features.png)
 
 5. Na karcie **potwierdzenie** kliknij przycisk **Zainstaluj** , aby rozpocząć proces instalacji.
 6. Na karcie **wyniki** zostanie wyświetlona funkcja kopia zapasowa systemu Windows Server pomyślnie zainstalowana na serwerze z systemem Windows.
 
-    ![result](./media/backup-azure-system-state-troubleshoot/results.jpg)
+    ![Wyniki instalacji](./media/backup-azure-system-state-troubleshoot/results.jpg)
 
 ### <a name="system-volume-information-permission"></a>Uprawnienie do informacji o woluminie systemowym
 
-Upewnij się, że SYSTEM lokalny ma pełną kontrolę nad folderem **informacji o woluminie systemowym** , który znajduje się w woluminie, na którym zainstalowano system Windows. Zwykle jest to **C:\System informacje o woluminie**. Kopia zapasowa systemu Windows Server może zakończyć się niepowodzeniem, jeśli powyższe uprawnienia nie są ustawione prawidłowo
+Upewnij się, że SYSTEM lokalny ma pełną kontrolę nad folderem **informacji o woluminie systemowym** , który znajduje się w woluminie, na którym zainstalowano system Windows. Zwykle jest to **C:\System informacje o woluminie**. Kopia zapasowa systemu Windows Server może zakończyć się niepowodzeniem, jeśli powyższe uprawnienia nie są ustawione prawidłowo.
 
 ### <a name="dependent-services"></a>Usługi zależne
 

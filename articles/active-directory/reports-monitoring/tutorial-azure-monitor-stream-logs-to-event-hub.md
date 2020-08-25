@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eba44252672248b983d7f6e0c843f638e5f73447
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74007651"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Samouczek: przesyłanie strumieniowe dzienników Azure Active Directory do centrum zdarzeń platformy Azure
@@ -30,7 +30,7 @@ W tym samouczku przedstawiono informacje na temat sposobu konfigurowania ustawie
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-Aby używać tej funkcji, potrzebujesz następujących elementów:
+Do korzystania z tej funkcji są potrzebne następujące elementy:
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, możesz skorzystać z [bezpłatnej wersji próbnej](https://azure.microsoft.com/free/).
 * Dzierżawa usługi Azure AD.
@@ -41,7 +41,7 @@ Aby używać tej funkcji, potrzebujesz następujących elementów:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 
-2. Wybierz kolejno pozycje **Azure Active Directory** > **monitorowanie** > **dzienników inspekcji**. 
+2. Wybierz kolejno pozycje **Azure Active Directory**  >  **monitorowanie**  >  **dzienników inspekcji**. 
 
 3. Wybierz pozycję **Eksportuj ustawienia**.  
     

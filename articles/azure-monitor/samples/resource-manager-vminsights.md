@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
 ms.openlocfilehash: 3bd14b1caa9ff905a585b12b7e3887d3a7a81d58
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83854510"
 ---
 # <a name="resource-manager-template-samples-for-azure-monitor-for-vms"></a>Przykłady szablonów Menedżer zasobów dla Azure Monitor dla maszyn wirtualnych

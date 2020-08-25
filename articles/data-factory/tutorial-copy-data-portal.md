@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.date: 05/28/2020
 ms.author: jingwang
 ms.openlocfilehash: 16b5eeb33f8be07d6257d8d7957ea2526ab9d3f1
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85253970"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiowanie danych z usługi Azure Blob Storage do bazy danych w Azure SQL Database przy użyciu Azure Data Factory
@@ -141,7 +141,7 @@ W tym samouczku zaczniesz od utworzenia potoku. Następnie utworzysz usługi po�
 
 1. Przejdź do folderu **adftutorial/Input** , wybierz plik **emp.txt** , a następnie wybierz przycisk **OK**.
 
-1. Wybierz przycisk **OK**. Automatycznie przechodzi do strony potoku. Na karcie **Źródło** upewnij się, że wybrano opcję **SourceBlobDataset** . Aby wyświetlić podgląd danych na tej stronie, wybierz pozycję **Podgląd danych**.
+1. Kliknij **OK**. Automatycznie przechodzi do strony potoku. Na karcie **Źródło** upewnij się, że wybrano opcję **SourceBlobDataset** . Aby wyświetlić podgląd danych na tej stronie, wybierz pozycję **Podgląd danych**.
 
     ![Zestaw danych źródłowych](./media/tutorial-copy-data-portal/source-dataset-selected.png)
 
@@ -170,7 +170,7 @@ W tym samouczku zaczniesz od utworzenia potoku. Następnie utworzysz usługi po�
 
     f. Wybierz pozycję **Testuj połączenie**, aby przetestować połączenie.
 
-    g. Wybierz pozycję **Utwórz** , aby wdrożyć połączoną usługę.
+    przykład Wybierz pozycję **Utwórz** , aby wdrożyć połączoną usługę.
 
     ![Zapisywanie nowej połączonej usługi](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
 
@@ -232,11 +232,11 @@ W tym kroku utworzysz wyzwalacz harmonogramu potoku. Wyzwalacz uruchamia potok z
 
     e. Zaktualizuj część **godziny zakończenia** do kilku minut przed bieżącą datą i godziną. Wyzwalacz zostanie aktywowany tylko w przypadku, gdy opublikujesz zmiany. Jeśli ustawisz ją na kilka minut od siebie i nie opublikujesz jej w tym czasie, nie zobaczysz uruchomienia wyzwalacza.
 
-    f. Wybierz przycisk **OK**.
+    f. Kliknij **OK**.
 
-    g. Dla opcji **aktywowana** wybierz pozycję **tak**.
+    przykład Dla opcji **aktywowana** wybierz pozycję **tak**.
 
-    h. Wybierz przycisk **OK**.
+    h. Kliknij **OK**.
 
     > [!IMPORTANT]
     > Za poszczególne uruchomienia potoku są naliczane opłaty, zatem określ stosowną datę zakończenia.

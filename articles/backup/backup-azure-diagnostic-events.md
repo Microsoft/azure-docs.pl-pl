@@ -3,12 +3,12 @@ title: Użyj ustawień diagnostycznych dla Recovery Services magazynów
 description: W tym artykule opisano, jak używać starych i nowych zdarzeń diagnostycznych dla Azure Backup.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 2b562ee7fc4afbc28119aa36cfa071291dd61f12
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 908420a3447869d3e417da51e6b2501fbf2fa5a0
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612626"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763528"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Użyj ustawień diagnostycznych dla Recovery Services magazynów
 
@@ -29,7 +29,7 @@ Azure Backup udostępnia następujące zdarzenia diagnostyczne. Każde zdarzenie
 * AddonAzureBackupPolicy
 * AddonAzureBackupStorage
 
-Jeśli używasz [starszej wersji usługi Event](#legacy-event) AzureBackupReport, zaleca się przełączenie na używanie powyższych zdarzeń w najkrótszym czasie.
+Jeśli nadal używasz [starszej wersji usługi Event](#legacy-event) AzureBackupReport, zalecamy przełączenie do korzystania z powyższych zdarzeń.
 
 Aby uzyskać więcej informacji, zobacz [model danych dla zdarzeń diagnostyki Azure Backup](./backup-azure-reports-data-model.md).
 

@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: a77bb5211d13f9b0566f4226163918a5310287bd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ed5c0a140c69e9042fc9b85589719a54b65e985e
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075723"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763137"
 ---
 # <a name="partitioning-tables-in-synapse-sql-pool"></a>Partycjonowanie tabel w puli SQL Synapse
 
@@ -30,7 +30,7 @@ Partycjonowanie może korzystać z konserwacji danych i wydajności zapytań. Ni
 
 ### <a name="benefits-to-loads"></a>Zalety ładowania
 
-Główną zaletą partycjonowania w puli SQL Synapse jest poprawa wydajności i wydajności ładowania danych przy użyciu usuwania partycji, przełączania i scalania. W większości przypadków dane są partycjonowane w kolumnie dat, która jest ściśle związana z kolejnością, w której dane są ładowane do bazy danych. Jedną z największych korzyści wynikających z używania partycji do obsługi danych w celu uniknięcia rejestrowania transakcji. Podczas gdy po prostu Wstawianie, aktualizowanie lub usuwanie danych może być najbardziej prostym podejściem, przy użyciu partycjonowania podczas procesu ładowania może znacznie poprawić wydajność.
+Główną zaletą partycjonowania w puli SQL Synapse jest poprawa wydajności i wydajności ładowania danych przy użyciu usuwania partycji, przełączania i scalania. W większości przypadków dane są partycjonowane w kolumnie dat, która jest ściśle związana z kolejnością, w której dane są ładowane do bazy danych. Jedną z największych korzyści wynikających z używania partycji do obsługi danych jest unikanie rejestrowania transakcji. Podczas gdy po prostu Wstawianie, aktualizowanie lub usuwanie danych może być najbardziej prostym podejściem, przy użyciu partycjonowania podczas procesu ładowania może znacznie poprawić wydajność.
 
 Przełączanie partycji może służyć do szybkiego usuwania lub zastępowania sekcji tabeli.  Na przykład tabela faktów sprzedaży może zawierać tylko dane dla ostatnich 36 miesięcy. Na koniec każdego miesiąca z tabeli jest usuwany najstarszy miesiąc danych sprzedaży.  Te dane można usunąć za pomocą instrukcji DELETE w celu usunięcia danych z najstarszego miesiąca. 
 
@@ -303,7 +303,7 @@ Aby uniknąć definicji tabeli z **rusting** w systemie kontroli źródła, wart
     ;
     ```
 
-1. `SPLIT`tabela w ramach procesu wdrażania:
+1. `SPLIT` tabela w ramach procesu wdrażania:
 
     ```sql
      -- Create a table containing the partition boundaries

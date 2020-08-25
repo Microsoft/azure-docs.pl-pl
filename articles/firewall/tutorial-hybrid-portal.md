@@ -9,10 +9,10 @@ ms.date: 03/24/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ms.openlocfilehash: 5ba9bb723ab7b052440eea2ac509692200b80f6e
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84750699"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Samouczek: wdrażanie i Konfigurowanie zapory platformy Azure w sieci hybrydowej przy użyciu Azure Portal
@@ -29,7 +29,7 @@ W tym samouczku zostaną utworzone trzy sieci wirtualne:
 
 ![Zapora w sieci hybrydowej](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Deklarowanie zmiennych
@@ -60,7 +60,7 @@ Sieć hybrydowa używa modelu architektury Hub i szprych do kierowania ruchu mi�
 Zapoznaj się z sekcją [Tworzenie tras](#create-the-routes) w tym samouczku, aby zobaczyć, jak te trasy zostały utworzone.
 
 >[!NOTE]
->Zapora platformy Azure musi mieć bezpośrednią łączność z Internetem. Jeśli AzureFirewallSubnet nauczy trasy domyślnej do sieci lokalnej za pośrednictwem protokołu BGP, należy przesłonić ten element przy użyciu wartości 0.0.0.0/0 UDR z wartością **NextHopType** ustawioną jako **Internet** w celu utrzymania bezpośredniej łączności z Internetem.
+>Usługa Azure Firewall musi mieć bezpośrednie połączenie z Internetem. Jeśli AzureFirewallSubnet nauczy trasy domyślnej do sieci lokalnej za pośrednictwem protokołu BGP, należy przesłonić ten element przy użyciu wartości 0.0.0.0/0 UDR z wartością **NextHopType** ustawioną jako **Internet** w celu utrzymania bezpośredniej łączności z Internetem.
 >
 >Zaporę platformy Azure można skonfigurować do obsługi wymuszonego tunelowania. Aby uzyskać więcej informacji, zobacz [tunelowanie wymuszone przez zaporę platformy Azure](forced-tunneling.md).
 
@@ -129,7 +129,7 @@ Teraz Utwórz drugą podsieć dla bramy.
 2. Wybierz pozycję **+ podsieć**.
 3. W obszarze **Nazwa**wpisz **GatewaySubnet**.
 4. W obszarze **zakres adresów (blok CIDR)** wpisz **192.168.2.0/24**.
-5. Wybierz przycisk **OK**.
+5. Kliknij **OK**.
 
 ## <a name="configure-and-deploy-the-firewall"></a>Konfigurowanie i wdrażanie zapory
 
@@ -145,10 +145,10 @@ Teraz Wdróż zaporę w sieci wirtualnej centrum zapory.
    |Grupa zasobów     |**PD-test hybrydowy** |
    |Nazwa     |**AzFW01**|
    |Lokalizacja     |Wybierz tę samą lokalizację, której użyto poprzednio|
-   |Wybieranie sieci wirtualnej     |**Use Existing** (Użyj istniejącej):<br> **Sieć wirtualna — koncentrator**|
+   |Wybieranie sieci wirtualnej     |**Użyj istniejącej**:<br> **Sieć wirtualna — koncentrator**|
    |Publiczny adres IP     |Utwórz nowy: <br>**Nazwa**  -  **PD-PIP**. |
 
-5. Wybierz pozycję **Przegląd + utwórz**.
+5. Wybierz pozycję **Przejrzyj i utwórz**.
 6. Przejrzyj podsumowanie, a następnie wybierz pozycję **Utwórz** , aby utworzyć zaporę.
 
    Wdrożenie może potrwać kilka minut.
@@ -235,7 +235,7 @@ W tym kroku utworzysz połączenie z sieci wirtualnej koncentratora do lokalnej 
 5. Wybierz pozycję **Sieć wirtualna-sieć wirtualna** dla **typu połączenia**.
 6. W przypadku **drugiej bramy sieci wirtualnej**wybierz pozycję **GW-lokalnego**.
 7. Dla **klucza współużytkowanego (PSK)** wpisz **AzureA1b2C3**.
-8. Wybierz przycisk **OK**.
+8. Kliknij **OK**.
 
 Utwórz połączenie z lokalnej sieci wirtualnej do sieci wirtualnej koncentratora. Ten krok jest podobny do poprzedniego, jednak w tym przypadku tworzysz połączenie z sieci VNet-Onprem do sieci VNet-hub. Upewnij się, że klucze współużytkowane są zgodne. Po kilku minutach połączenie zostanie ustanowione.
 
@@ -246,7 +246,7 @@ Utwórz połączenie z lokalnej sieci wirtualnej do sieci wirtualnej koncentrato
 5. Wybierz pozycję **Sieć wirtualna-sieć wirtualna** dla **typu połączenia**.
 6. W przypadku **drugiej bramy sieci wirtualnej**wybierz pozycję **GW-Hub**.
 7. Dla **klucza współużytkowanego (PSK)** wpisz **AzureA1b2C3**.
-8. Wybierz przycisk **OK**.
+8. Kliknij **OK**.
 
 
 #### <a name="verify-the-connection"></a>Weryfikowanie połączenia
@@ -266,7 +266,7 @@ Teraz nawiąż komunikację równorzędną pomiędzy siecią wirtualną koncentr
 5. Dla **sieci wirtualnej**wybierz opcję Sieć wirtualna **-szprycha**
 6. Aby uzyskać nazwę komunikacji równorzędnej z VNetSpoke do koncentratora sieci wirtualnej, wpisz **SpoketoHub**.
 7. Wybierz pozycję **Zezwalaj na tranzyt bramy**.
-8. Wybierz przycisk **OK**.
+8. Kliknij **OK**.
 
 ### <a name="configure-additional-settings-for-the-spoketohub-peering"></a>Konfigurowanie dodatkowych ustawień komunikacji równorzędnej SpoketoHub
 
@@ -300,7 +300,7 @@ Następnie należy utworzyć kilka tras:
 14. Dla prefiksu adresu wpisz **10.6.0.0/16**.
 15. W polu Typ następnego przeskoku wybierz pozycję **urządzenie wirtualne**.
 16. W polu adres następnego przeskoku wpisz zanotowany wcześniej prywatny adres IP zapory.
-17. Wybierz przycisk **OK**.
+17. Kliknij **OK**.
 
 Teraz Skojarz trasę z podsiecią.
 
@@ -309,7 +309,7 @@ Teraz Skojarz trasę z podsiecią.
 3. Wybierz pozycję **Wybierz sieć wirtualną**.
 4. Wybierz pozycję **Sieć wirtualna — koncentrator**.
 5. Wybierz pozycję **GatewaySubnet**.
-6. Wybierz przycisk **OK**.
+6. Kliknij **OK**.
 
 Teraz Utwórz trasę domyślną z podsieci szprych.
 
@@ -329,7 +329,7 @@ Teraz Utwórz trasę domyślną z podsieci szprych.
 6. Dla prefiksu adresu wpisz **0.0.0.0/0**.
 7. W polu Typ następnego przeskoku wybierz pozycję **urządzenie wirtualne**.
 8. W polu adres następnego przeskoku wpisz zanotowany wcześniej prywatny adres IP zapory.
-9. Wybierz przycisk **OK**.
+9. Kliknij **OK**.
 
 Teraz Skojarz trasę z podsiecią.
 
@@ -338,7 +338,7 @@ Teraz Skojarz trasę z podsiecią.
 3. Wybierz pozycję **Wybierz sieć wirtualną**.
 4. Wybierz pozycję **Sieć wirtualna-szprycha**.
 5. Wybierz pozycję **SN-obciążenie**.
-6. Wybierz przycisk **OK**.
+6. Kliknij **OK**.
 
 ## <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
@@ -434,7 +434,7 @@ Następnie zmień ustawienie akcji kolekcji reguł sieci zapory na **Odmów**, a
 
 Zamknij wszystkie zdalne pulpity, zanim zaczniesz testować zmienione zasady. Teraz ponownie uruchom testy. Tym razem wszystkie powinny zakończyć się niepowodzeniem.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Możesz zachować zasoby zapory na potrzeby kolejnego samouczka, a jeśli nie będą już potrzebne, możesz usunąć grupę zasobów **FW-Hybrid-Test**, aby usunąć wszystkie zasoby związane z zaporą.
 

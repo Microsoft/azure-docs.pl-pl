@@ -6,13 +6,13 @@ manager: barbkess
 ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
-ms.custom: security-recommendations
-ms.openlocfilehash: 5e1f2108c5607917c77330f362952f960e57e03a
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: security-recommendations,fasttrack-edit
+ms.openlocfilehash: 39073169fbc4558492a47f78f0840a0e314b3ee8
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447914"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763562"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Rozwiązywanie problemów sporadyczne błędy połączenia wychodzącego w Azure App Service
 
@@ -64,7 +64,7 @@ Domyślnie połączenia dla NodeJS nie są aktywne. Poniżej znajdują się popu
 Utrzymywanie HTTP-Alive
 
 * [agentkeepalive](https://www.npmjs.com/package/agentkeepalive)
-* [Dokumentacja dotyczącaNode.js v 13.9.0](https://nodejs.org/api/http.html)
+* [ Dokumentacja dotyczącaNode.js v 13.9.0](https://nodejs.org/api/http.html)
 
 #### <a name="java"></a>Java
 
@@ -120,7 +120,7 @@ W przypadku innych środowisk zapoznaj się z tematem dostawca lub dokumenty spe
 * [Test obciążenia](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test) powinien symulować rzeczywiste dane świata w stałej szybkości żywienia. Testowanie aplikacji i funkcji w ramach rzeczywistego środowiska światowego może identyfikować i rozwiązywać problemy z wyczerpaniem portów podkluczy adresów w czasie.
 * Upewnij się, że usługi zaplecza mogą szybko zwracać odpowiedzi. Rozwiązywanie problemów z wydajnością Azure SQL Database można znaleźć w tematach [Rozwiązywanie problemów z wydajnością Azure SQL Database z Intelligent Insights](https://docs.microsoft.com/azure/sql-database/sql-database-intelligent-insights-troubleshoot-performance#recommended-troubleshooting-flow).
 * Skaluj w poziomie plan App Service do większej liczby wystąpień. Aby uzyskać więcej informacji na temat skalowania, zobacz [skalowanie aplikacji w Azure App Service](https://docs.microsoft.com/azure/app-service/manage-scale-up). Każde wystąpienie procesu roboczego w planie usługi App Service ma przydzieloną liczbę portów przydziałów adresów sieciowych. W przypadku rozłożenia użycia w większej liczbie wystąpień można uzyskać dostęp do portów dla danego wystąpienia, poniżej zalecanego limitu 100 połączeń wychodzących, na unikatowy zdalny punkt końcowy.
-* Rozważ przeniesienie do [App Service Environment (ASE)](https://docs.microsoft.com/azure/app-service/environment/using-an-ase), w którym ma zostać przydzielony pojedynczy wychodzący adres IP, a limity dla połączeń i portów podłączania adresów sieciowych są znacznie wyższe.
+* Rozważ przeniesienie do [App Service Environment (ASE)](https://docs.microsoft.com/azure/app-service/environment/using-an-ase), w którym ma zostać przydzielony pojedynczy wychodzący adres IP, a limity dla połączeń i portów podłączania adresów sieciowych są znacznie wyższe. W środowisku ASE liczba portów przydziałów adresów sieciowych na wystąpienie jest oparta na [tabeli alokacji wstępnej modułu równoważenia obciążenia platformy Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#snatporttable) , więc przykładowo środowisko ase z 1-50 wystąpieniami roboczymi ma 1024 wstępnie przydzielone porty na wystąpienie, podczas gdy środowisko ase z 51-100 wystąpieniami procesów roboczych ma 512 wstępnie przydzielone porty na wystąpienie.
 
 Uniknięcie limitów wychodzącego protokołu TCP jest łatwiejsze do rozwiązania, ponieważ limity są ustawiane przez rozmiar procesu roboczego. Limity można zobaczyć w obszarze [limity liczbowe między maszynami wirtualnymi piaskownic — połączenia TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 

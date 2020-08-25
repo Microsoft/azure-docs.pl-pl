@@ -1,15 +1,15 @@
 ---
 title: Tworzenie aplikacji łańcucha bloków — Azure łańcucha bloków Workbench
 description: Samouczek dotyczący sposobu tworzenia aplikacji łańcucha bloków dla usługi Azure łańcucha bloków Workbench Preview.
-ms.date: 10/14/2019
+ms.date: 08/24/2020
 ms.topic: tutorial
-ms.reviewer: brendal
-ms.openlocfilehash: 7be79757f506ea9fb854a248e77f0ff4f1b74f47
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: ravastra
+ms.openlocfilehash: add790a069d2e0ea66d84bbd632825cf9331fd38
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073111"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88784032"
 ---
 # <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Samouczek: Tworzenie aplikacji łańcucha bloków dla usługi Azure łańcucha bloków Workbench
 
@@ -40,7 +40,7 @@ Postępuj zgodnie z procedurą, aby utworzyć pliki aplikacji. Możesz też [pob
 
 ## <a name="configuration-file"></a>Plik konfiguracji
 
-Metadane konfiguracji definiują ogólne przepływy pracy i model interakcji aplikacji łańcucha bloków. Metadane konfiguracji reprezentują etapy przepływów pracy i model interakcji aplikacji łańcucha bloków.
+Metadane konfiguracji definiują ogólne przepływy pracy i model interakcji aplikacji łańcucha bloków. Metadane konfiguracji reprezentują etapy przepływów pracy i model interakcji aplikacji łańcucha bloków. Aby uzyskać więcej informacji o zawartości plików konfiguracji, zobacz [Dokumentacja konfiguracji usługi Azure Blockchain Workflow](configuration.md).
 
 1. Utwórz plik o nazwie `HelloBlockchain.json` w swoim ulubionym edytorze.
 2. Dodaj następujący kod JSON, aby zdefiniować konfigurację aplikacji łańcucha bloków.
@@ -208,11 +208,9 @@ Na początku pliku konfiguracji znajdują się informacje o aplikacji, w tym naz
 
 W sekcji ról aplikacji są definiowane role użytkowników, którzy mogą działać lub uczestniczyć w ramach aplikacji łańcucha bloków. Definiowany jest zestaw odrębnych ról na podstawie funkcjonalności. W scenariuszu żądanie-odpowiedź występuje rozróżnienie między funkcjonalnością osoby żądającej jako jednostki tworzącej żądania oraz osoby odpowiadającej jako jednostki tworzącej odpowiedzi.
 
-### <a name="workflows"></a>Przepływy
+### <a name="workflows"></a>Przepływy pracy
 
 Przepływy pracy definiują co najmniej jeden etap i co najmniej jedną akcję kontraktu. W scenariuszu żądanie-odpowiedź pierwszy etap (stan) przepływu pracy to wykonanie akcji (przejście) wysłania żądania (funkcja) przez osobę żądającą (rola). W kolejnym etapie (stan) osoba odpowiadająca (rola) wykonuje akcję (przejście) wysłania odpowiedzi (funkcja). Przepływ pracy aplikacji może obejmować właściwości, funkcje i stany wymagane do opisania przepływu kontraktu.
-
-Aby uzyskać więcej informacji o zawartości plików konfiguracji, zobacz [Dokumentacja konfiguracji usługi Azure Blockchain Workflow](configuration.md).
 
 ## <a name="smart-contract-code-file"></a>Plik kodu kontraktu inteligentnego
 

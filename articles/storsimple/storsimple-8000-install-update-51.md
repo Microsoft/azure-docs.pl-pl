@@ -3,7 +3,7 @@ title: Zainstaluj aktualizację 5,1 na urządzeniu z serii StorSimple 8000 | Mic
 description: Wyjaśniono, jak zainstalować aktualizację z serii StorSimple 8000 5,1 na urządzeniu z serii StorSimple 8000.
 services: storsimple
 documentationcenter: NA
-author: priestlg
+author: twooley
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/05/2020
-ms.author: v-grpr
-ms.openlocfilehash: fb2123bdb0e12571a58a32e414a610665935ebb6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: twooley
+ms.openlocfilehash: f9cc5181d6cc29ee4b3c2373dbbc91d6290fbe6e
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508218"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782774"
 ---
 # <a name="install-update-51-on-your-storsimple-device"></a>Zainstaluj aktualizację 5,1 na urządzeniu StorSimple
 

@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
 ms.openlocfilehash: 3ebe1ec4c0292a530e5ef2c754e9b002e931300e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84680312"
 ---
 #### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/) 
@@ -21,13 +21,13 @@ ms.locfileid: "84680312"
 1. Zastąp wartość domyślną (GUID) wartością `api` , a następnie wybierz pozycję **Zapisz**. Pełny identyfikator URI jest wyświetlany i powinien być w formacie `https://your-tenant-name.onmicrosoft.com/api` . Gdy aplikacja sieci Web żąda tokenu dostępu dla interfejsu API, powinien dodać ten identyfikator URI jako prefiks dla każdego zakresu zdefiniowanego dla interfejsu API.
 1. W obszarze **zakresy zdefiniowane przez ten interfejs API**wybierz pozycję **Dodaj zakres**.
 1. Wprowadź następujące wartości, aby utworzyć zakres, który definiuje dostęp do odczytu do interfejsu API, a następnie wybierz pozycję **Dodaj zakres**:
-    1. **Nazwa zakresu**:`demo.read`
-    1. **Nazwa wyświetlana zgody administratora**:`Read access to demo API`
-    1. **Opis zgody administratora**:`Allows read access to the demo API`
+    1. **Nazwa zakresu**: `demo.read`
+    1. **Nazwa wyświetlana zgody administratora**: `Read access to demo API`
+    1. **Opis zgody administratora**: `Allows read access to the demo API`
 1. Wybierz pozycję **Dodaj zakres**, wprowadź następujące wartości, aby dodać zakres, który definiuje dostęp do zapisu do interfejsu API, a następnie wybierz pozycję **Dodaj zakres**:
-    1. **Nazwa zakresu**:`demo.write`
-    1. **Nazwa wyświetlana zgody administratora**:`Write access to demo API`
-    1. **Opis zgody administratora**:`Allows write access to the demo API`
+    1. **Nazwa zakresu**: `demo.write`
+    1. **Nazwa wyświetlana zgody administratora**: `Write access to demo API`
+    1. **Opis zgody administratora**: `Allows write access to the demo API`
 
 #### <a name="applications-legacy"></a>[Aplikacje (starsze)](#tab/applications-legacy/)
 

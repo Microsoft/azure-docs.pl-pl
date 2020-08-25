@@ -9,10 +9,10 @@ ms.date: 06/22/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 3ef24e29e5dde90aa829c46d789256e6e5f3233b
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85296206"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Samouczek: instrukcje krok po kroku dotyczące tworzenia nowej aplikacji dla systemu Android przy użyciu kotwic przestrzennych platformy Azure
@@ -134,7 +134,7 @@ dependencies {
 }
 ```
 
-Kliknij prawym przyciskiem myszy `app\java\<PackageName>` -> **nową** -> **klasę Java**. Ustaw **nazwę** na _mojapierwszaaplikacja_i **Superklasa** na system _Android. app. Application_. Pozostaw inne opcje. Kliknij przycisk **OK**. Zostanie utworzony plik o nazwie `MyFirstApp.java` . Dodaj do niego następujący import:
+Kliknij prawym przyciskiem myszy `app\java\<PackageName>` -> **nową** -> **klasę Java**. Ustaw **nazwę** na _mojapierwszaaplikacja_i **Superklasa** na system _Android. app. Application_. Pozostaw inne opcje. Kliknij pozycję **OK**. Zostanie utworzony plik o nazwie `MyFirstApp.java` . Dodaj do niego następujący import:
 
 ```java
 import com.microsoft.CloudServices;
@@ -227,6 +227,6 @@ Teraz przechwytuje kod, który zostanie wywołany, gdy zakotwiczenie zostanie um
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?name=initializeSession&highlight=34-53)]
 
-To wszystko. Ponownie [Wdróż](#trying-it-out) aplikację po raz ostatni, aby wypróbować cały scenariusz. Poruszaj się po urządzeniu i umieść swoją czarną sferę. Następnie kontynuuj przeniesienie urządzenia do przechwytywania klatek kamer, dopóki sfera nie zmieni się na żółty. Twoje lokalne zakotwiczenie zostanie przekazane, a SFERA zmieni kolor na niebiesko. Na koniec naciśnij swój ekran jeszcze raz, aby lokalne zakotwiczenie zostało usunięte, a następnie będziemy wysyłać zapytania o jego odpowiednik w chmurze. Kontynuuj przenoszenie urządzenia do momentu, gdy zakotwiczenie chmury nie zostanie umieszczone. Zielona kula powinna pojawić się w poprawnej lokalizacji i można wypłukać & powtórzyć cały scenariusz ponownie.
+Gotowe. Ponownie [Wdróż](#trying-it-out) aplikację po raz ostatni, aby wypróbować cały scenariusz. Poruszaj się po urządzeniu i umieść swoją czarną sferę. Następnie kontynuuj przeniesienie urządzenia do przechwytywania klatek kamer, dopóki sfera nie zmieni się na żółty. Twoje lokalne zakotwiczenie zostanie przekazane, a SFERA zmieni kolor na niebiesko. Na koniec naciśnij swój ekran jeszcze raz, aby lokalne zakotwiczenie zostało usunięte, a następnie będziemy wysyłać zapytania o jego odpowiednik w chmurze. Kontynuuj przenoszenie urządzenia do momentu, gdy zakotwiczenie chmury nie zostanie umieszczone. Zielona kula powinna pojawić się w poprawnej lokalizacji i można wypłukać & powtórzyć cały scenariusz ponownie.
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-new-android-app-finished.md)]

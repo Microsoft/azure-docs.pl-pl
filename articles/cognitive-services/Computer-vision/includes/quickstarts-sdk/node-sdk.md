@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 01/22/2020
 ms.author: pafarley
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 861e6528b52af39a56cc6b936eae0d68df2eecf5
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4d025057cf8992e1dc54a0fd4a07814c7cbb13d3
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841933"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88748860"
 ---
 <a name="HOLTop"></a>
 
@@ -208,9 +208,9 @@ Zdefiniuj funkcję pomocnika `describeType` :
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imagetype_describe)]
 
-## <a name="read-printed-and-handwritten-text"></a>Odczytaj tekst drukowany i odręczny
+## <a name="extract-text-ocr-with-read"></a>Wyodrębnij tekst (OCR) z odczytem
 
-Przetwarzanie obrazów może odczytać widoczny tekst w obrazie i przekonwertować go na strumień znaków.
+Przetwarzanie obrazów może wyodrębnić widoczny tekst w obrazie i przekonwertować go na strumień znaków. Ten przykład używa operacji odczytu.
 
 > [!NOTE]
 > Możesz również odczytać tekst z lokalnego obrazu. Zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) , aby poznać scenariusze dotyczące obrazów lokalnych.
@@ -221,17 +221,17 @@ Zapisz odwołanie do adresu URL obrazów, z których ma zostać wyodrębniony te
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_images)]
 
-### <a name="call-the-recognize-api"></a>Wywoływanie interfejsu API rozpoznawania
+### <a name="call-the-read-api"></a>Wywoływanie interfejsu API odczytu
 
-Dodaj poniższy kod, który wywołuje `recognizeText` funkcję dla danego obrazu.
+Dodaj poniższy kod, który wywołuje `readTextFromURL` `readTextFromFile` funkcje i dla danego obrazu.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_call)]
 
-Zdefiniuj `recognizeText` funkcję. Powoduje to wywołanie metody **recognizeText** w obiekcie Client, która zwraca identyfikator operacji i uruchamia proces asynchroniczny w celu odczytania zawartości obrazu. Następnie używa identyfikatora operacji do sprawdzenia operacji w okresach jednego sekundy do momentu zwrócenia wyników. Następnie zwraca wyodrębnione wyniki.
+Zdefiniuj `readTextFromURL` funkcje i `readTextFromFile` . Wywołują metody **Read** i **readInStream** w obiekcie Client, które zwracają identyfikator operacji i uruchamiają proces asynchroniczny w celu odczytania zawartości obrazu. Następnie używają identyfikatora operacji do sprawdzania stanu operacji do momentu zwrócenia wyników. Następnie zwracają wyodrębnione wyniki.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_helper)]
 
-Następnie zdefiniuj funkcję pomocnika `printRecText` , która drukuje wyniki operacji rozpoznawania w konsoli programu.
+Następnie zdefiniuj funkcję pomocnika `printRecText` , która drukuje wyniki operacji odczytu w konsoli programu.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_print)]
 

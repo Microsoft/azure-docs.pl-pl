@@ -4,12 +4,12 @@ description: Rozwiązywanie problemów z instalacją, rejestracją Azure Backup 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 54b7295eaed5f04a118cf5097ebc7b25b18f67d2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 40f461c1c2e62b12497800bb1a4d1c0ee0b04579
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522848"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763494"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Rozwiązywanie problemów ze składnikiem Azure Backup Server
 
@@ -17,7 +17,7 @@ Skorzystaj z informacji podanych w poniższych tabelach, aby rozwiązać problem
 
 ## <a name="basic-troubleshooting"></a>Podstawowe rozwiązywanie problemów
 
-Przed rozpoczęciem rozwiązywania problemów Microsoft Azure Backup Server (serwera usługi MAB) zalecamy wykonanie poniższej weryfikacji:
+Przed rozpoczęciem rozwiązywania problemów Microsoft Azure Backup Server (serwera usługi MAB) zalecamy wykonanie następującej weryfikacji:
 
 - [Upewnij się, że agent Microsoft Azure Recovery Services (MARS) jest aktualny](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Zapewnianie łączności sieciowej między agentem MARS i platformą Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
@@ -83,7 +83,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Operacja | Szczegóły błędu | Obejście |
 | --- | --- | --- |
-| Przywracanie | **Kod błędu**: błąd CBPServerRegisteredVaultDontMatchWithCurrent/poświadczeń magazynu: 100110 <br/> <br/>**Komunikat o błędzie**: oryginalne i zewnętrzne serwery DPM muszą być zarejestrowane w tym samym magazynie | **Przyczyna**: ten problem występuje, gdy próbujesz przywrócić pliki na alternatywny serwer z oryginalnego serwera przy użyciu opcji odzyskiwania zewnętrznego programu DPM i jeśli przywracany serwer i oryginalny serwer, z którego są tworzone kopie zapasowe, nie są skojarzone z tym samym magazynem usługi odzyskiwania.<br/> <br/>**Obejście problemu** Aby rozwiązać ten problem, upewnij się, że oryginalny i alternatywny serwer jest zarejestrowany w tym samym magazynie.|
+| Przywracanie | **Kod błędu**: błąd CBPServerRegisteredVaultDontMatchWithCurrent/poświadczeń magazynu: 100110 <br/> <br/>**Komunikat o błędzie**: oryginalne i zewnętrzne serwery DPM muszą być zarejestrowane w tym samym magazynie | **Przyczyna**: ten problem występuje, gdy próbujesz przywrócić pliki na alternatywny serwer z oryginalnego serwera przy użyciu opcji odzyskiwania zewnętrznego programu DPM i jeśli przywracany serwer i oryginalny serwer, z którego są tworzone kopie zapasowe, nie są skojarzone z tym samym magazynem Recovery Services.<br/> <br/>**Obejście problemu** Aby rozwiązać ten problem, upewnij się, że oryginalny i alternatywny serwer jest zarejestrowany w tym samym magazynie.|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>Zadania tworzenia punktu odzyskiwania w trybie online dla maszyny wirtualnej VMware kończą się niepowodzeniem
 
@@ -119,7 +119,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 | Konfigurowanie grup ochrony | Program DPM nie mógł wyliczyć składnika aplikacji na chronionym komputerze (nazwa komputera chronionego). | Wybierz pozycję **Odśwież** na ekranie Konfigurowanie interfejsu użytkownika grupy ochrony na odpowiednim poziomie źródła danych/składnika. |
 | Konfigurowanie grup ochrony | Nie można skonfigurować ochrony | Jeśli chroniony serwer jest serwerem SQL, upewnij się, że uprawnienia roli sysadmin zostały przekazane do konta systemowego (systemowe NTAUTHORITY\SYSTEM) na komputerze chronionym, zgodnie z opisem w [tym artykule](/system-center/dpm/back-up-sql-server?view=sc-dpm-2019).
 | Konfigurowanie grup ochrony | Brak wystarczającej ilości wolnego miejsca w puli magazynów dla tej grupy ochrony. | Dyski dodane do puli magazynów [nie powinny zawierać partycji](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019). Usuń wszystkie woluminy istniejące na dyskach. Następnie dodaj je do puli magazynów.|
-| Zmiana zasad |Nie można zmodyfikować zasad tworzenia kopii zapasowych. Błąd: bieżąca operacja nie powiodła się z powodu wewnętrznego błędu usługi [0x29834]. Spróbuj ponownie wykonać operację po upływie pewnego czasu. Jeśli problem będzie się powtarzał, skontaktuj się z pomocą techniczną firmy Microsoft. | **Może**<br/>Ten błąd występuje w trzech warunkach: gdy ustawienia zabezpieczeń są włączone, przy próbie zmniejszenia zakresu przechowywania poniżej wartości minimalnej określonych wcześniej, a jeśli jesteś w nieobsługiwanej wersji. (Wersje obsługiwane poniżej Microsoft Azure Backup Server w wersji: 2.0.9052 i Azure Backup Server Update 1). <br/>**Zalecana akcja:**<br/> Aby kontynuować aktualizacje związane z zasadami, należy ustawić okres przechowywania powyżej minimalnego określonego okresu przechowywania. (Minimalny okres przechowywania wynosi siedem dni dziennie, cztery tygodnie przez tydzień, trzy tygodnie dla co miesiąc lub jeden rok przez rok). <br><br>Opcjonalnie należy zaktualizować agenta kopii zapasowej i Azure Backup Server, aby wykorzystać wszystkie aktualizacje zabezpieczeń. |
+| Zmiana zasad |Nie można zmodyfikować zasad tworzenia kopii zapasowych. Błąd: bieżąca operacja nie powiodła się z powodu wewnętrznego błędu usługi [0x29834]. Spróbuj ponownie wykonać operację po upływie pewnego czasu. Jeśli problem będzie się powtarzał, skontaktuj się z pomocą techniczną firmy Microsoft. | **Może**<br/>Ten błąd występuje w trzech warunkach: gdy ustawienia zabezpieczeń są włączone, przy próbie zmniejszenia zakresu przechowywania poniżej wartości minimalnej określonych wcześniej, a jeśli jesteś w nieobsługiwanej wersji. (Wersje nieobsługiwane są takie same jak Microsoft Azure Backup Server w wersji: 2.0.9052 i Azure Backup Server Update 1). <br/>**Zalecana akcja:**<br/> Aby kontynuować aktualizacje związane z zasadami, należy ustawić okres przechowywania powyżej minimalnego określonego okresu przechowywania. (Minimalny okres przechowywania wynosi siedem dni dziennie, cztery tygodnie przez tydzień, trzy tygodnie dla co miesiąc lub jeden rok przez rok). <br><br>Opcjonalnie należy zaktualizować agenta kopii zapasowej i Azure Backup Server, aby wykorzystać wszystkie aktualizacje zabezpieczeń. |
 
 ## <a name="backup"></a>Backup
 

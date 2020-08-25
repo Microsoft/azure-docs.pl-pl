@@ -4,10 +4,10 @@ description: 'Samouczek: Wizualizuj anomalie danych w zdarzeniach w czasie rzecz
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.openlocfilehash: 595c0e06750171c844249a77ecef16c84dc8ada5
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85315614"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Samouczek: wizualizowanie anomalii dotyczących danych w zdarzeniach w czasie rzeczywistym wysyłanych do usługi Azure Event Hubs
@@ -172,7 +172,7 @@ Teraz możesz przesyłać strumieniowo dane do centrum zdarzeń. Aby użyć tych
 
    **Nazwa zadania**: użyj nazwy **contosoEHjob**. To pole określa nazwę zadania i musi być ona globalnie unikatowa.
 
-   **Subskrypcja**: wybierz subskrypcję.
+   **Subskrypcja**: Wybierz subskrypcję.
 
    **Grupa zasobów**: użyj tej samej grupy zasobów, które są używane przez centrum zdarzeń (**ContosoResourcesEH**).
 
@@ -180,7 +180,7 @@ Teraz możesz przesyłać strumieniowo dane do centrum zdarzeń. Aby użyć tych
 
    ![Zrzut ekranu pokazujący sposób tworzenia nowego zadania usługi Azure Stream Analytics.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-add-job.png)
 
-    Zaakceptuj wartości domyślne w pozostałych polach. Kliknij pozycję **Utwórz**. 
+    Zaakceptuj wartości domyślne w pozostałych polach. Kliknij przycisk **Utwórz**. 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Dodawanie danych wejściowych do zadania usługi Stream Analytics
 
@@ -197,7 +197,7 @@ Danymi wejściowymi dla zadania usługi Stream Analytics są transakcje kart kre
 
    **Alias danych wejściowych**: użyj **contosoinputs**. To pole zawiera nazwę strumienia wejściowego używanego podczas definiowania zapytań dla danych.
 
-   **Subskrypcja**: wybierz subskrypcję.
+   **Subskrypcja**: Wybierz subskrypcję.
 
    **Przestrzeń nazw usługi Event Hubs**: wybierz swoją przestrzeń nazw centrum zdarzeń ($**eventHubNamespace**). 
 
@@ -314,7 +314,7 @@ W ramach zadania usługi Stream Analytics kliknij pozycje **Uruchom**, następni
 
    Kliknij przycisk **Dalej**.
 
-10. Ustaw tytuł **Oszukańcze użycia** i podtytuł **Suma w ciągu kilku ostatnich minut**. Kliknij przycisk **Zastosuj**. Kafelek zostanie zapisany na pulpicie nawigacyjnym.
+10. Ustaw tytuł **Oszukańcze użycia** i podtytuł **Suma w ciągu kilku ostatnich minut**. Kliknij pozycję **Zastosuj**. Kafelek zostanie zapisany na pulpicie nawigacyjnym.
 
     ![Zrzut ekranu przedstawiający określanie tytułu i podtytułu dla kafelka pulpitu nawigacyjnego.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-tile-details.png)
 
@@ -322,7 +322,7 @@ W ramach zadania usługi Stream Analytics kliknij pozycje **Uruchom**, następni
     > Po uruchomieniu przykładowej aplikacji i rozpoczęciu strumieniowego przesyłania danych do centrum zdarzeń liczba na tym kafelku zacznie się szybko zmieniać (co sekundę). Oznacza to, że zapytanie usługi Stream Analytics faktycznie aktualizuje wartość **co sekundę**. Zaktualizuj zapytanie do 3-minutowego okna wirowania, aby wyświetlać sumę z ostatnich kilku minut. 
 11. Dodaj kolejną wizualizację. Powtórz ponownie kilka pierwszych kroków:
 
-    * Kliknij przycisk **Dodaj kafelek**.
+    * Kliknij pozycję **Dodaj kafelek**.
     * Wybierz pozycję **Niestandardowe dane przesyłane strumieniowo**. 
     * Kliknij przycisk **Dalej**.
     * Wybierz zestaw danych, a następnie kliknij przycisk **Dalej**. 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 2b8a5cf1bd3df1405f148c5fe84701c04a4d0c0a
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 53089fa42c536cbdc59865f80f63a77c76720e2c
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658116"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752012"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Jakie typy dysków są dostępne na platformie Azure?
 
@@ -26,7 +26,7 @@ Poniższa tabela zawiera porównanie dysków twardych, dysków półprzewodnikow
 | Szczegóły | Dysk w warstwie Ultra | Dysk SSD w warstwie Premium | Dysk SSD w warstwie Standardowa | Dysk HDD w warstwie Standardowa |
 | ------ | ---------- | ----------- | ------------ | ------------ |
 |Typ dysku   |SSD   |SSD   |SSD   |HDD   |
-|Scenariusz   |Obciążenia intensywnie korzystające z operacji we/wy, takie jak [SAP HANA](~/articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), baz danych najwyższej warstwy (na przykład SQL, Oracle) i innych obciążeń intensywnie korzystających z transakcji.   |Obciążenia produkcyjne i wrażliwe na wydajność   |Serwery internetowe, aplikacje dla przedsiębiorstw używane w niewielkim stopniu oraz tworzenie i testowanie rozwiązań   |Kopia zapasowa, rozwiązania niekrytyczne, rzadki dostęp   |
+|Scenariusz   |Obciążenia intensywnie korzystające z operacji we/wy, takie jak [SAP HANA](workloads/sap/hana-vm-operations-storage.md), baz danych najwyższej warstwy (na przykład SQL, Oracle) i innych obciążeń intensywnie korzystających z transakcji.   |Obciążenia produkcyjne i wrażliwe na wydajność   |Serwery internetowe, aplikacje dla przedsiębiorstw używane w niewielkim stopniu oraz tworzenie i testowanie rozwiązań   |Kopia zapasowa, rozwiązania niekrytyczne, rzadki dostęp   |
 |Maksymalny rozmiar dysku   |65 536 gibibajtów (GiB)    |32 767 GiB    |32 767 GiB   |32 767 GiB   |
 |Maksymalna przepustowość   |2 000 MB/s    |900 MB/s   |750 MB/s   |500 MB/s   |
 |Maks. liczba operacji we/wy na sekundę   |160 000    |20 000   |6000   |2000   |
@@ -62,7 +62,7 @@ Niektóre kluczowe możliwości Ultra disks to:
 
 ### <a name="ga-scope-and-limitations"></a>Zakres i ograniczenia dotyczące GA
 
-[!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](~/includes/managed-disks-ultra-disks-GA-scope-and-limitations.md)]
+[!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](../../includes/managed-disks-ultra-disks-GA-scope-and-limitations.md)]
 
 
 Jeśli chcesz zacząć korzystać z usługi Ultra disks, zapoznaj się z artykułem na temat tematu: [Korzystanie z platformy Azure Ultra disks](disks-enable-ultra-ssd.md).
@@ -71,10 +71,10 @@ Jeśli chcesz zacząć korzystać z usługi Ultra disks, zapoznaj się z artyku�
 
 Usługa Azure Premium dysków SSD zapewnia obsługę dysków o wysokiej wydajności i małych opóźnieniach dla maszyn wirtualnych z intensywnymi obciążeniami we/wy (IO). Aby skorzystać z szybkości i wydajności dysków magazynu w warstwie Premium, można migrować istniejące dyski maszyn wirtualnych do dysków SSD Premium. Dysków SSD Premium są odpowiednie dla aplikacji produkcyjnych o kluczowym znaczeniu. Dysków SSD Premium można używać tylko z seriami maszyn wirtualnych, które są zgodne z magazynem w warstwie Premium.
 
-Aby dowiedzieć się więcej o poszczególnych typach maszyn wirtualnych i rozmiarach na platformie Azure dla systemu Windows, w tym o rozmiarach, które są zgodne z magazynem Premium, zobacz [rozmiary maszyn wirtualnych z systemem Windows](~/articles/virtual-machines/windows/sizes.md). Aby dowiedzieć się więcej o poszczególnych typach maszyn wirtualnych i rozmiarach na platformie Azure dla systemu Linux, w tym o rozmiarach, które są zgodne z magazynem Premium, zobacz [rozmiary maszyn wirtualnych z systemem Linux](~/articles/virtual-machines/linux/sizes.md). Z dowolnego z tych artykułów należy sprawdzić każdy artykuł o rozmiarze poszczególnych maszyn wirtualnych, aby określić, czy jest on zgodny z magazynem w warstwie Premium.
+Aby dowiedzieć się więcej o poszczególnych typach maszyn wirtualnych i rozmiarach na platformie Azure dla systemu Windows lub Linux, w tym o rozmiarach, które są zgodne z magazynem w warstwie Premium, zobacz [rozmiary maszyn wirtualnych na platformie Azure](sizes.md). Aby dowiedzieć się więcej o poszczególnych typach maszyn wirtualnych i rozmiarach na platformie Azure dla systemu Linux, w tym o rozmiarach, które są zgodne z magazynem w warstwie Premium, zobacz [rozmiary maszyn wirtualnych na platformie Azure](sizes.md). Z dowolnego z tych artykułów należy sprawdzić każdy artykuł o rozmiarze poszczególnych maszyn wirtualnych, aby określić, czy jest on zgodny z magazynem w warstwie Premium.
 
 ### <a name="disk-size"></a>Rozmiar dysku
-[!INCLUDE [disk-storage-premium-ssd-sizes](~/includes/disk-storage-premium-ssd-sizes.md)]
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
 
 Po udostępnieniu dysku magazynu w warstwie Premium, w przeciwieństwie do magazynu w warstwie Standardowa, gwarantujesz pojemność, liczbę operacji we/wy na sekundę oraz przepływność tego dysku. Na przykład, jeśli utworzysz dysk P50, platforma Azure ma 4 095 GB pamięci 7 500 masowej, szybkość operacji we/wy na sekundę i 250 MB/s dla tego dysku. Aplikacja może używać całości lub części pojemności i wydajności. SSD w warstwie Premium dyski zostały zaprojektowane w celu zapewnienia niskich opóźnień w milisekundach i docelowej liczby operacji we/wy i przepływności opisanej w poprzedniej tabeli o 99,9% czasu.
 
@@ -82,7 +82,7 @@ Po udostępnieniu dysku magazynu w warstwie Premium, w przeciwieństwie do magaz
 
 SSD w warstwie Premium rozmiary mniejsze niż P30 teraz oferują możliwość naliczania dysków na dyskach, a ich liczba operacji we/wy na sekundę wynosi do 3 500 i przepustowość do 170 MB/s. Rozliczanie jest zautomatyzowane i działa na podstawie systemu kredytowego. Kredyty są automatycznie sumowane w zasobniku szeregowym, gdy ruch dysku jest niższy od zainicjowanej wartości docelowej wydajności, a kredyty są automatycznie zużywane, gdy ruch przekracza miejsce docelowe, do maksymalnego limitu. Maksymalny limit serii określa limit liczby operacji we/wy dysku & przepustowości, nawet jeśli masz kredyty na korzystanie z serii. Szeregowanie dysków zapewnia lepszą tolerancję w nieprzewidywalnych zmianach wzorców we/wy. Można go najlepiej wykorzystać do rozruchu z dysku systemu operacyjnego i aplikacji z ruchem pochodzącym.    
 
-Obsługa serii dysków zostanie włączona w nowych wdrożeniach odpowiednich rozmiarów dysków domyślnie, bez konieczności wykonywania jakiejkolwiek czynności przez użytkownika. W przypadku istniejących dysków o odpowiednich rozmiarach można włączyć korzystanie z jednej z dwóch opcji: Odłącz i ponownie podłącz dysk lub zatrzymywanie i ponowne uruchamianie dołączonej maszyny wirtualnej. Wszystkie odpowiednie rozmiary dysku będą rozpoczynać się od pełnego zasobnika kredytowego, gdy dysk jest podłączony do maszyny wirtualnej, która obsługuje maksymalny czas trwania w szczycie maksymalnego limitu wynoszącym 30 minut. Aby dowiedzieć się więcej o sposobach tworzenia zadań na dyskach platformy Azure, zobacz [SSD w warstwie Premiuming](~/articles/virtual-machines/linux/disk-bursting.md). 
+Obsługa serii dysków zostanie włączona w nowych wdrożeniach odpowiednich rozmiarów dysków domyślnie, bez konieczności wykonywania jakiejkolwiek czynności przez użytkownika. W przypadku istniejących dysków o odpowiednich rozmiarach można włączyć korzystanie z jednej z dwóch opcji: Odłącz i ponownie podłącz dysk lub zatrzymywanie i ponowne uruchamianie dołączonej maszyny wirtualnej. Wszystkie odpowiednie rozmiary dysku będą rozpoczynać się od pełnego zasobnika kredytowego, gdy dysk jest podłączony do maszyny wirtualnej, która obsługuje maksymalny czas trwania w szczycie maksymalnego limitu wynoszącym 30 minut. Aby dowiedzieć się więcej o sposobach tworzenia zadań na dyskach platformy Azure, zobacz [SSD w warstwie Premiuming](linux/disk-bursting.md). 
 
 ### <a name="transactions"></a>Transakcje
 
@@ -93,7 +93,7 @@ W przypadku usługi Premium dysków SSD każda operacja we/wy mniejsza lub równ
 Azure Standard dysków SSD to ekonomiczna opcja magazynowania zoptymalizowana pod kątem obciążeń, które wymagają spójnej wydajności na niższych poziomach IOPS. SSD w warstwie Standardowa oferuje dobry komfort na poziomie wpisu dla osób, które chcą przejść do chmury, szczególnie w przypadku wystąpienia problemów z wariancją obciążeń uruchomionych na rozwiązaniach dysków twardych. W porównaniu do standardowej HDD, standardowa dysków SSD zapewnia lepszą dostępność, spójność, niezawodność i opóźnienia. Standardowe dysków SSD są odpowiednie dla serwerów sieci Web, serwerów aplikacji o małej liczbie IOPS, nieużywanych aplikacji dla przedsiębiorstw oraz obciążeń deweloperskich i testowych. Podobnie jak w przypadku standardowych HDD, standardowe dysków SSD są dostępne na wszystkich maszynach wirtualnych platformy Azure.
 
 ### <a name="disk-size"></a>Rozmiar dysku
-[!INCLUDE [disk-storage-standard-ssd-sizes](~/includes/disk-storage-standard-ssd-sizes.md)]
+[!INCLUDE [disk-storage-standard-ssd-sizes](../../includes/disk-storage-standard-ssd-sizes.md)]
 
 Standard dysków SSD został zaprojektowany w celu zapewnienia jednocyfrowych opóźnień i liczby operacji we/wy na sekundę i przepływności do limitów opisanych w powyższej tabeli 99% czasu. Rzeczywiste operacje we/wy i przepływność mogą się czasami różnić w zależności od wzorców ruchu. Standardowa dysków SSD zapewnia bardziej spójną wydajność niż dyski twarde z mniejszym opóźnieniem.
 
@@ -106,7 +106,7 @@ W przypadku standardowej dysków SSD każda operacja we/wy mniejsza lub równa 2
 Usługa Azure Standard HDD zapewnia niezawodną, tańszą obsługę dysków dla maszyn wirtualnych, na których działają obciążenia bez uwzględniania opóźnień. W przypadku magazynu w warstwie Standardowa dane są przechowywane na dyskach twardych (HDD). Opóźnienia, operacje we/wy i przepływność dysków HDD w warstwie Standardowa mogą być różne w porównaniu z dyskami SSD. HDD w warstwie Standardowa dyski zostały zaprojektowane w celu zapewnienia opóźnień zapisu w obszarze 10 ms i odczyt opóźnień w obszarze 20ms dla większości operacji we/wy, jednak Rzeczywista wydajność może się różnić w zależności od rozmiaru operacji we/wy i wzorca obciążenia. Podczas pracy z maszynami wirtualnymi można używać standardowych dysków DYSKowych na potrzeby scenariuszy tworzenia i testowania oraz mniej krytycznych obciążeń. Standardowe HDD są dostępne we wszystkich regionach świadczenia usługi Azure i mogą być używane ze wszystkimi maszynami wirtualnymi platformy Azure.
 
 ### <a name="disk-size"></a>Rozmiar dysku
-[!INCLUDE [disk-storage-standard-hdd-sizes](~/includes/disk-storage-standard-hdd-sizes.md)]
+[!INCLUDE [disk-storage-standard-hdd-sizes](../../includes/disk-storage-standard-hdd-sizes.md)]
 
 ### <a name="transactions"></a>Transakcje
 
@@ -139,7 +139,7 @@ Aby uzyskać szczegółowe informacje na temat cen Managed Disks, w tym kosztów
 Maszyny wirtualne platformy Azure mają możliwość wskazywania, czy są one zgodne z Ultra Disks. Maszyna wirtualna zgodne z dyskami jest przydzielona dedykowanej przepustowości między wystąpieniem maszyny wirtualnej obliczeniowej a jednostką skali magazynu blokowego w celu zoptymalizowania wydajności i skrócenia opóźnień. Dodanie tej funkcji na maszynie wirtualnej spowoduje naliczenie opłaty za rezerwację, która jest nałożona tylko wtedy, gdy na maszynie wirtualnej jest włączona funkcja Ultra Disk bez dołączania do niej dysku. Gdy dysk jest podłączony do maszyny wirtualnej zgodnej z dyskiem Ultra, ta opłata nie zostanie zastosowana. Ta opłata jest naliczana za vCPU na maszynie wirtualnej. 
 
 > [!Note]
-> W przypadku [ograniczonych rozmiarów maszyn wirtualnych](~/articles/virtual-machines/linux/constrained-vcpu.md)opłata za rezerwację jest oparta na rzeczywistej liczbie procesorów wirtualnych vCPU, a nie w ograniczonych rdzeniach. W przypadku Standard_E32-8s_v3 opłata za rezerwację będzie oparta na 32 rdzeniach. 
+> W przypadku [ograniczonych rozmiarów maszyn wirtualnych](constrained-vcpu.md)opłata za rezerwację jest oparta na rzeczywistej liczbie procesorów wirtualnych vCPU, a nie w ograniczonych rdzeniach. W przypadku Standard_E32-8s_v3 opłata za rezerwację będzie oparta na 32 rdzeniach. 
 
 Zapoznaj się ze [stroną cennika usługi Azure disks](https://azure.microsoft.com/pricing/details/managed-disks/) , aby uzyskać szczegółowe informacje o cenach.
 

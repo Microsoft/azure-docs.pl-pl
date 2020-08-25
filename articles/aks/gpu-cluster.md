@@ -3,13 +3,15 @@ title: Korzystanie z procesorów GPU w usłudze Azure Kubernetes Service (AKS)
 description: Dowiedz się, jak korzystać z procesorów GPU w przypadku obliczeń o wysokiej wydajności lub obciążeń intensywnie wykorzystujących grafikę w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/27/2020
-ms.openlocfilehash: ed655a6809f2932bbe8e85fb1cd9fd7996cf7647
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 08/21/2020
+ms.author: jpalma
+author: palma21
+ms.openlocfilehash: d19bfac318ab2ed20d021e10b43b691b525ba897
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213183"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749139"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Korzystanie z procesorów GPU na potrzeby obciążeń intensywnie korzystających z obliczeń w usłudze Azure Kubernetes Service (AKS)
 
@@ -20,7 +22,7 @@ Jednostki procesora graficznego (GPU) są często używane do obciążeń intens
 
 Obecnie użycie pul węzłów z obsługą procesora GPU jest dostępne tylko dla pul węzłów systemu Linux.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W tym artykule założono, że masz istniejący klaster AKS z węzłami obsługującymi procesory GPU. Klaster AKS musi mieć uruchomioną Kubernetes 1,10 lub nowszą. Jeśli potrzebujesz klastra AKS, który spełnia te wymagania, zapoznaj się z pierwszą sekcją tego artykułu, aby [utworzyć klaster AKS](#create-an-aks-cluster).
 
@@ -117,6 +119,65 @@ $ kubectl apply -f nvidia-device-plugin-ds.yaml
 
 daemonset "nvidia-device-plugin" created
 ```
+
+## <a name="use-the-aks-specialized-gpu-image-preview"></a>Korzystanie z AKS wyspecjalizowanego obrazu procesora GPU (wersja zapoznawcza)
+
+Jako alternatywa dla tych kroków AKS udostępnia w pełni skonfigurowany obraz AKS, który zawiera już [wtyczkę urządzenia NVIDIA dla Kubernetes][nvidia-github].
+
+> [!WARNING]
+> Nie należy ręcznie instalować zestawu demona wtyczki urządzenia NVIDIA dla klastrów przy użyciu nowego obrazu AKS wyspecjalizowanego procesora GPU.
+
+
+Zarejestruj `GPUDedicatedVHDPreview` funkcję:
+
+```azurecli
+az feature register --name GPUDedicatedVHDPreview --namespace Microsoft.ContainerService
+```
+
+Wyświetlenie stanu jako **zarejestrowanego**może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) :
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/GPUDedicatedVHDPreview')].{Name:name,State:properties.state}"
+```
+
+Gdy stan jest wyświetlany jako zarejestrowane, Odśwież rejestrację `Microsoft.ContainerService` dostawcy zasobów przy użyciu polecenia [AZ Provider Register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) :
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```
+
+Aby zainstalować rozszerzenie interfejsu wiersza polecenia AKS-Preview, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+Aby zaktualizować rozszerzenie interfejsu wiersza polecenia AKS-Preview, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+### <a name="use-the-aks-specialized-gpu-image-on-new-clusters-preview"></a>Korzystanie z AKS wyspecjalizowanego obrazu procesora GPU w nowych klastrach (wersja zapoznawcza)
+
+Skonfiguruj klaster tak, aby korzystał z AKS wyspecjalizowanego obrazu procesora GPU podczas tworzenia klastra. Użyj `--aks-custom-headers` flagi dla węzłów agenta procesora GPU w nowym klastrze, aby użyć obrazu wyspecjalizowanego procesora GPU AKS.
+
+```azure-cli
+az aks create --name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6s_v2 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
+```
+
+Jeśli chcesz utworzyć klaster przy użyciu zwykłych obrazów AKS, możesz to zrobić, pomijając `--aks-custom-headers` znacznik niestandardowy. Możesz również dodać bardziej wyspecjalizowane pule węzłów procesora GPU jak poniżej.
+
+
+### <a name="use-the-aks-specialized-gpu-image-on-existing-clusters-preview"></a>Korzystanie z AKS wyspecjalizowanego obrazu procesora GPU w istniejących klastrach (wersja zapoznawcza)
+
+Skonfiguruj nową pulę węzłów, aby używać AKS wyspecjalizowanego obrazu procesora GPU. Użyj `--aks-custom-headers` flagi flagi dla węzłów agenta procesora GPU w nowej puli węzłów, aby użyć obrazu AKS wyspecjalizowanego procesora GPU.
+
+```azure-cli
+az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
+```
+
+Jeśli chcesz utworzyć pulę węzłów przy użyciu zwykłych obrazów AKS, możesz to zrobić, pomijając `--aks-custom-headers` tag niestandardowy. 
 
 ## <a name="confirm-that-gpus-are-schedulable"></a>Upewnij się, że procesory GPU są harmonogramie
 
@@ -319,7 +380,7 @@ Accuracy at step 490: 0.9494
 Adding run metadata for 499
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Aby usunąć skojarzone obiekty Kubernetes utworzone w tym artykule, użyj polecenia [Usuń zadanie polecenia kubectl][kubectl delete] w następujący sposób:
 

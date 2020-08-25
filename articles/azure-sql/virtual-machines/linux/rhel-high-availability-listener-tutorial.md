@@ -9,10 +9,10 @@ ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
 ms.openlocfilehash: f60cb3f28c57d6df4a309a7630d078c593d75410
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84343768"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Samouczek: Konfigurowanie odbiornika grupy dostępności dla SQL Server na maszynach wirtualnych RHEL na platformie Azure
@@ -60,8 +60,8 @@ Poniższe instrukcje przeprowadzi Cię przez kroki od 1 do 4 z tematu [Tworzenie
    | **Nazwa** |Nazwa tekstowa reprezentująca moduł równoważenia obciążenia. Na przykład **sqlLB**. |
    | **Typ** |**Wewnętrz** |
    | **Sieć wirtualna** |Domyślna Sieć wirtualna, która została utworzona, powinna mieć nazwę **VM1VNET**. |
-   | **Podsieci** |Wybierz podsieć, w której znajdują się wystąpienia SQL Server. Wartość domyślna to **VM1Subnet**.|
-   | **Przypisanie adresu IP** |**Ruchom** |
+   | **Podsieć** |Wybierz podsieć, w której znajdują się wystąpienia SQL Server. Wartość domyślna to **VM1Subnet**.|
+   | **Przypisanie adresu IP** |**Statyczny** |
    | **Prywatny adres IP** |Użyj `virtualip` adresu IP, który został utworzony w klastrze. |
    | **Subskrypcja** |Użyj subskrypcji, która została użyta dla grupy zasobów. |
    | **Grupa zasobów** |Wybierz grupę zasobów, w której znajdują się wystąpienia SQL Server. |
@@ -100,11 +100,11 @@ Sonda definiuje, w jaki sposób platforma Azure weryfikuje, które wystąpienia 
    | --- | --- |
    | **Nazwa** |Nazwa tekstowa reprezentująca sondę. Na przykład **SQLAlwaysOnEndPointProbe**. |
    | **Protokół** |**TCP** |
-   | **Przewożąc** |Możesz użyć dowolnego dostępnego portu. Na przykład *59999*. |
-   | **Dat** |*5* |
+   | **Port** |Możesz użyć dowolnego dostępnego portu. Na przykład *59999*. |
+   | **Interwał** |*5* |
    | **Próg złej kondycji** |*2* |
 
-4.  Kliknij przycisk **OK**. 
+4.  Kliknij pozycję **OK**. 
 
 5. Zaloguj się do wszystkich maszyn wirtualnych i Otwórz port sondowania przy użyciu następujących poleceń:
 
@@ -129,7 +129,7 @@ Zasady równoważenia obciążenia umożliwiają skonfigurowanie sposobu, w jaki
    | --- | --- |
    | **Nazwa** |Nazwa tekstowa reprezentująca reguły równoważenia obciążenia. Na przykład **SQLAlwaysOnEndPointListener**. |
    | **Protokół** |**TCP** |
-   | **Przewożąc** |*1433* |
+   | **Port** |*1433* |
    | **Port zaplecza** |*1433*. Ta wartość jest ignorowana, ponieważ ta reguła używa **zmiennoprzecinkowego adresu IP (bezpośredni zwrot serwera)**. |
    | **Badane** |Użyj nazwy sondy utworzonej dla tego modułu równoważenia obciążenia. |
    | **Trwałość sesji** |**Brak** |
@@ -138,7 +138,7 @@ Zasady równoważenia obciążenia umożliwiają skonfigurowanie sposobu, w jaki
 
    :::image type="content" source="media/rhel-high-availability-listener-tutorial/add-load-balancing-rule.png" alt-text="Dodaj regułę równoważenia obciążenia":::
 
-4. Kliknij przycisk **OK**. 
+4. Kliknij pozycję **OK**. 
 5. Platforma Azure konfiguruje regułę równoważenia obciążenia. Teraz moduł równoważenia obciążenia jest skonfigurowany do kierowania ruchu do wystąpienia SQL Server, które hostuje odbiornik dla grupy dostępności. 
 
 W tym momencie Grupa zasobów ma moduł równoważenia obciążenia, który łączy się ze wszystkimi maszynami SQL Server. Moduł równoważenia obciążenia zawiera również adres IP dla SQL Server zawsze włączony odbiornik grupy dostępności, dzięki czemu każda maszyna może odpowiadać na żądania dotyczące grup dostępności.

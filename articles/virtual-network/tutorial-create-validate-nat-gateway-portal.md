@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
 ms.openlocfilehash: d798725892a9586c17cd7023863fe5cf7df05cb6
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84417841"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Samouczek: Tworzenie bramy NAT przy użyciu Azure Portal i testowanie usługi translatora adresów sieciowych
@@ -83,7 +83,7 @@ Możesz również utworzyć tę maszynę wirtualną bez publicznego adresu IP i 
 
 4. Na karcie **Zarządzanie** w obszarze **monitorowanie**ustaw opcję **Diagnostyka rozruchu** na **wyłączona**.
 
-5. Wybierz pozycję **Przegląd + utwórz**.
+5. Wybierz pozycję **Przejrzyj i utwórz**.
 
 6. Przejrzyj ustawienia i kliknij przycisk **Utwórz**.
 
@@ -147,7 +147,7 @@ W tej sekcji szczegółowo opisano, jak utworzyć i skonfigurować następujące
    - **Virtual Network**: wybierz pozycję **myResourceGroupNAT**  >  **myVnetsource**.
    - **Nazwa podsieci**: zaznacz pole wyboru obok pozycji **mySubnetsource**.
 
-5. Wybierz pozycję **Przegląd + utwórz**.
+5. Wybierz pozycję **Przejrzyj i utwórz**.
 
 6. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 
@@ -200,7 +200,7 @@ W tej sekcji należy zamienić następujące parametry w krokach z poniższymi i
 
 4. Na karcie **Zarządzanie** w obszarze **monitorowanie**ustaw opcję **Diagnostyka rozruchu** na **wyłączona**.
 
-5. Wybierz pozycję **Przegląd + utwórz**.
+5. Wybierz pozycję **Przejrzyj i utwórz**.
 
 6. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 

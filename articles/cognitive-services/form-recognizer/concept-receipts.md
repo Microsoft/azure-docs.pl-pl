@@ -10,24 +10,24 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 7a14b3c93a6c545648faf28c991764e990e487b1
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: fd0a782fc0c54cf14db9cac07712dea6d8f2e523
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724985"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751975"
 ---
 # <a name="receipt-concepts"></a>Pojęcia dotyczące odbioru
 
-Aparat rozpoznawania AzureForm może analizować potwierdzenia przy użyciu jednego ze wstępnie skompilowanych modeli. Interfejs API paragonu wyodrębnia najważniejsze informacje z przyjęć sprzedaży w języku angielskim, takie jak nazwa handlowa, Data transakcji, Suma transakcji, elementy wiersza itd. 
+Aparat rozpoznawania formularzy platformy Azure może analizować potwierdzenia przy użyciu jednego ze wstępnie skompilowanych modeli. Interfejs API paragonu wyodrębnia najważniejsze informacje z przyjęć sprzedaży w języku angielskim, takie jak nazwa handlowa, Data transakcji, Suma transakcji, elementy wiersza itd. 
 
 ## <a name="understanding-receipts"></a>Informacje o potwierdzeniach 
 
-Wiele firm i osób nadal opiera się na ręcznym wyodrębnianiu danych z ich przyjęć sprzedaży, niezależnie od tego, czy są to raporty z wydatków biznesowych, zwrotne, cele podatkowe, budżetowanie czy inne. Często w tych scenariuszach obrazy fizycznego paragonu są wymagane do celów weryfikacji.  
+Wiele firm i osób nadal polegają na ręcznym wyodrębnieniu danych z ich przyjęć sprzedaży, niezależnie od tego, czy są to raporty z wydatków biznesowych, zwrotne, inspekcje, cele podatkowe, budżetowanie, marketing lub inne cele. Często w tych scenariuszach obrazy fizycznego paragonu są wymagane do celów weryfikacji.  
 
-Automatyczne wyodrębnianie danych z tych przyjęć może być skomplikowane. Odbiory mogą być crumplede i trudne do odczytania, a obrazy smartphone mogą mieć niską jakość. Ponadto szablony i pola paragonów mogą się różnić w zależności od rynku, regionu i handlowca. Te wyzwania w przypadku wyodrębniania danych i wykrywania pól sprawiają, że podczas przetwarzania przez funkcję odbioru występuje unikatowy problem.  
+Automatyczne wyodrębnianie danych z tych przyjęć może być skomplikowane. Paragony mogą być crumplede i trudne do odczytania, wydrukowanych lub odręcznych, a obrazy smartphone mogą mieć niską jakość. Ponadto szablony i pola paragonów mogą się różnić w zależności od rynku, regionu i handlowca. Te wyzwania w przypadku wyodrębniania danych i wykrywania pól sprawiają, że podczas przetwarzania przez funkcję odbioru występuje unikatowy problem.  
 
-Korzystając z funkcji optycznego rozpoznawania znaków (OCR) i naszego prekompilowanego modelu paragonów, interfejs API paragonów włącza te scenariusze przetwarzania paragonów. Ze względu na to, że model jest wstępnie szkolony na naszych danych, można łatwo przeanalizować swoje wpłaty w jednym kroku &mdash; bez konieczności uczenia ani etykietowania modeli.
+Korzystając z funkcji optycznego rozpoznawania znaków (OCR) i naszego prekompilowanego modelu paragonów, interfejs API paragonów włącza te scenariusze przetwarzania paragonów i wyodrębnia dane z przyjęć, takich jak nazwa handlowa, Porada, suma, elementy wiersza itd. Za pomocą tego interfejsu API nie ma potrzeby uczenia modelu, który właśnie wyśle potwierdzenie do interfejsu API analizy paragonów, a dane są wyodrębniane.
 
 ![Przykładowe potwierdzenie](./media/contoso-receipt-small.png)
 
@@ -55,6 +55,7 @@ Interfejs API paragonu zwraca również następujące informacje:
 * Typ paragonu (na przykład element, karta kredytowa itd.)
 * Poziom ufności pól (każde pole zwraca skojarzoną wartość zaufania)
 * Tekst nieprzetworzony OCR (wyodrębniany tekst wyjściowy tekstu dla całego potwierdzenia)
+* Pole ograniczenia dla każdej wartości, wiersza i słowa
 
 ## <a name="input-requirements"></a>Wymagania wejściowe
 
@@ -73,6 +74,363 @@ Interfejs API paragonu zwraca również następujące informacje:
   > Dane wejściowe języka 
   >
   > Wstępnie utworzone przyjęcie — wersja zapoznawcza. 1 ma opcjonalny parametr żądania, aby określić ustawienia regionalne odbioru z dodatkowych rynków w języku angielskim. W przypadku przyjęć sprzedaży w języku angielskim z Australii (EN-AU), Kanada (EN-CA), Wielka Brytania (en-GB) i Indie (EN-IN) można określić ustawienia regionalne, aby uzyskać ulepszone wyniki. Jeśli nie określono ustawień regionalnych w wersji 2.1-Preview. 1, model będzie domyślnie modelem EN-US.
+  
+ ### <a name="input-requirements"></a>Wymagania wejściowe 
+
+[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+
+## <a name="the-analyze-receipt-operation"></a>Operacja analizy przychodu
+
+[Przeanalizuj potwierdzenie](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) pobiera obraz lub plik PDF z paragonu jako dane wejściowe i wyodrębnia wartości intrest i Text. Wywołanie zwraca pole nagłówka odpowiedzi o nazwie `Operation-Location` . `Operation-Location`Wartość jest adresem URL, który zawiera identyfikator wynik do użycia w następnym kroku.
+
+|Nagłówek odpowiedzi| Adres URL wyniku |
+|:-----|:----|
+|Lokalizacja operacji | `https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/analyzeResults/56a36454-fc4d-4354-aa07-880cfbf0064f` |
+
+## <a name="the-get-analyze-receipt-result-operation"></a>Operacja pobrania wyniku analizy przychodu
+
+Drugim krokiem jest wywołanie operacji [Get Analizuj wynik przyjęcia](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult) . Ta operacja przyjmuje jako dane wejściowe Identyfikator wyniku, który został utworzony przez operację Analizuj potwierdzenie. Zwraca odpowiedź JSON, która zawiera pole **stanu** z następującymi możliwymi wartościami. Tę operację można wywołać iteracyjnie, dopóki nie zwróci wartości z wartością **sukces** . Użyj interwału od 3 do 5 sekund, aby uniknąć przekroczenia liczby żądań na sekundę (RPS pliku).
+
+|Pole| Typ | Możliwe wartości |
+|:-----|:----:|:----|
+|status | ciąg | notStarted: operacja analizy nie została rozpoczęta. |
+| |  | Uruchamianie: operacja analizy jest w toku. |
+| |  | Niepowodzenie: operacja analizy zakończyła się niepowodzeniem. |
+| |  | powodzenie: operacja analizy zakończyła się pomyślnie. |
+
+Gdy wartość w polu **stan** zostanie **zakończona pomyślnie** , odpowiedź JSON będzie zawierać opis potwierdzenia i wyniki rozpoznawania tekstu. Wynik interpretacji paragonu jest zorganizowany jako słownik nazwanych wartości pól, gdzie każda wartość zawiera wyodrębniony tekst, znormalizowana wartość, pole ograniczenia, pewność i odpowiednie elementy programu Word. Wynik rozpoznawania tekstu jest zorganizowany jako hierarchia wierszy i słów, z tekstem, obwiednią i informacjami o ufności.
+
+![Przykładowe wyniki odbioru](./media/contoso-receipt-2-information.png)
+
+### <a name="sample-json-output"></a>Przykładowe dane wyjściowe JSON
+
+Zobacz następujący przykład pomyślnej odpowiedzi JSON: węzeł "readResults" zawiera wszystkie rozpoznane teksty. Tekst jest zorganizowany według strony, następnie według wiersza, a następnie poszczególnych słów. Węzeł "documentResults" zawiera wartości specyficzne dla karty biznesowej, które zostały odnalezione przez model. W tym miejscu znajdziesz przydatne pary klucz/wartość, takie jak imię, nazwisko, nazwa firmy i inne.
+
+```json
+{ 
+  "status":"succeeded",
+  "createdDateTime":"2019-12-17T04:11:24Z",
+  "lastUpdatedDateTime":"2019-12-17T04:11:32Z",
+  "analyzeResult":{ 
+    "version":"2.0.0",
+    "readResults":[ 
+      { 
+        "page":1,
+        "angle":0.6893,
+        "width":1688,
+        "height":3000,
+        "unit":"pixel",
+        "language":"en",
+        "lines":[ 
+          { 
+            "text":"Contoso",
+            "boundingBox":[ 
+              635,
+              510,
+              1086,
+              461,
+              1098,
+              558,
+              643,
+              604
+            ],
+            "words":[ 
+              { 
+                "text":"Contoso",
+                "boundingBox":[ 
+                  639,
+                  510,
+                  1087,
+                  461,
+                  1098,
+                  551,
+                  646,
+                  604
+                ],
+                "confidence":0.955
+              }
+            ]
+          },
+          ...
+        ]
+      }
+    ],
+    "documentResults":[ 
+      { 
+        "docType":"prebuilt:receipt",
+        "pageRange":[ 
+          1,
+          1
+        ],
+        "fields":{ 
+          "ReceiptType":{ 
+            "type":"string",
+            "valueString":"Itemized",
+            "confidence":0.692
+          },
+          "MerchantName":{ 
+            "type":"string",
+            "valueString":"Contoso Contoso",
+            "text":"Contoso Contoso",
+            "boundingBox":[ 
+              378.2,
+              292.4,
+              1117.7,
+              468.3,
+              1035.7,
+              812.7,
+              296.3,
+              636.8
+            ],
+            "page":1,
+            "confidence":0.613,
+            "elements":[ 
+              "#/readResults/0/lines/0/words/0",
+              "#/readResults/0/lines/1/words/0"
+            ]
+          },
+          "MerchantAddress":{ 
+            "type":"string",
+            "valueString":"123 Main Street Redmond, WA 98052",
+            "text":"123 Main Street Redmond, WA 98052",
+            "boundingBox":[ 
+              302,
+              675.8,
+              848.1,
+              793.7,
+              809.9,
+              970.4,
+              263.9,
+              852.5
+            ],
+            "page":1,
+            "confidence":0.99,
+            "elements":[ 
+              "#/readResults/0/lines/2/words/0",
+              "#/readResults/0/lines/2/words/1",
+              "#/readResults/0/lines/2/words/2",
+              "#/readResults/0/lines/3/words/0",
+              "#/readResults/0/lines/3/words/1",
+              "#/readResults/0/lines/3/words/2"
+            ]
+          },
+          "MerchantPhoneNumber":{ 
+            "type":"phoneNumber",
+            "valuePhoneNumber":"+19876543210",
+            "text":"987-654-3210",
+            "boundingBox":[ 
+              278,
+              1004,
+              656.3,
+              1054.7,
+              646.8,
+              1125.3,
+              268.5,
+              1074.7
+            ],
+            "page":1,
+            "confidence":0.99,
+            "elements":[ 
+              "#/readResults/0/lines/4/words/0"
+            ]
+          },
+          "TransactionDate":{ 
+            "type":"date",
+            "valueDate":"2019-06-10",
+            "text":"6/10/2019",
+            "boundingBox":[ 
+              265.1,
+              1228.4,
+              525,
+              1247,
+              518.9,
+              1332.1,
+              259,
+              1313.5
+            ],
+            "page":1,
+            "confidence":0.99,
+            "elements":[ 
+              "#/readResults/0/lines/5/words/0"
+            ]
+          },
+          "TransactionTime":{ 
+            "type":"time",
+            "valueTime":"13:59:00",
+            "text":"13:59",
+            "boundingBox":[ 
+              541,
+              1248,
+              677.3,
+              1261.5,
+              668.9,
+              1346.5,
+              532.6,
+              1333
+            ],
+            "page":1,
+            "confidence":0.977,
+            "elements":[ 
+              "#/readResults/0/lines/5/words/1"
+            ]
+          },
+          "Items":{ 
+            "type":"array",
+            "valueArray":[ 
+              { 
+                "type":"object",
+                "valueObject":{ 
+                  "Quantity":{ 
+                    "type":"number",
+                    "text":"1",
+                    "boundingBox":[ 
+                      245.1,
+                      1581.5,
+                      300.9,
+                      1585.1,
+                      295,
+                      1676,
+                      239.2,
+                      1672.4
+                    ],
+                    "page":1,
+                    "confidence":0.92,
+                    "elements":[ 
+                      "#/readResults/0/lines/7/words/0"
+                    ]
+                  },
+                  "Name":{ 
+                    "type":"string",
+                    "valueString":"Cappuccino",
+                    "text":"Cappuccino",
+                    "boundingBox":[ 
+                      322,
+                      1586,
+                      654.2,
+                      1601.1,
+                      650,
+                      1693,
+                      317.8,
+                      1678
+                    ],
+                    "page":1,
+                    "confidence":0.923,
+                    "elements":[ 
+                      "#/readResults/0/lines/7/words/1"
+                    ]
+                  },
+                  "TotalPrice":{ 
+                    "type":"number",
+                    "valueNumber":2.2,
+                    "text":"$2.20",
+                    "boundingBox":[ 
+                      1107.7,
+                      1584,
+                      1263,
+                      1574,
+                      1268.3,
+                      1656,
+                      1113,
+                      1666
+                    ],
+                    "page":1,
+                    "confidence":0.918,
+                    "elements":[ 
+                      "#/readResults/0/lines/8/words/0"
+                    ]
+                  }
+                }
+              },
+              ...
+            ]
+          },
+          "Subtotal":{ 
+            "type":"number",
+            "valueNumber":11.7,
+            "text":"11.70",
+            "boundingBox":[ 
+              1146,
+              2221,
+              1297.3,
+              2223,
+              1296,
+              2319,
+              1144.7,
+              2317
+            ],
+            "page":1,
+            "confidence":0.955,
+            "elements":[ 
+              "#/readResults/0/lines/13/words/1"
+            ]
+          },
+          "Tax":{ 
+            "type":"number",
+            "valueNumber":1.17,
+            "text":"1.17",
+            "boundingBox":[ 
+              1190,
+              2359,
+              1304,
+              2359,
+              1304,
+              2456,
+              1190,
+              2456
+            ],
+            "page":1,
+            "confidence":0.979,
+            "elements":[ 
+              "#/readResults/0/lines/15/words/1"
+            ]
+          },
+          "Tip":{ 
+            "type":"number",
+            "valueNumber":1.63,
+            "text":"1.63",
+            "boundingBox":[ 
+              1094,
+              2479,
+              1267.7,
+              2485,
+              1264,
+              2591,
+              1090.3,
+              2585
+            ],
+            "page":1,
+            "confidence":0.941,
+            "elements":[ 
+              "#/readResults/0/lines/17/words/1"
+            ]
+          },
+          "Total":{ 
+            "type":"number",
+            "valueNumber":14.5,
+            "text":"$14.50",
+            "boundingBox":[ 
+              1034.2,
+              2617,
+              1387.5,
+              2638.2,
+              1380,
+              2763,
+              1026.7,
+              2741.8
+            ],
+            "page":1,
+            "confidence":0.985,
+            "elements":[ 
+              "#/readResults/0/lines/19/words/0"
+            ]
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
 
 ## <a name="customer-scenarios"></a>Scenariusze klientów  
 
@@ -93,4 +451,12 @@ Dane wyjściowe paragonu są również przydatne do ogólnego utrzymywania się 
 ### <a name="consumer-behavior"></a>Zachowanie konsumentów 
 
 Paragony zawierają przydatne dane, których można użyć do analizowania zachowań klientów i trendów zakupów.
+
+Interfejs API paragonów zapewnia również [funkcję przetwarzania AIBuilder](https://docs.microsoft.com/ai-builder/prebuilt-receipt-processing).
+
+## <a name="next-steps"></a>Następne kroki
+
+- Postępuj zgodnie z przewodnikiem Szybki Start, aby rozpocząć pracę z [interfejsem API](./quickstarts/python-receipts.md)w języku Python
+- Dowiedz się więcej o [interfejsie API REST aparatu rozpoznawania formularzy](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api).
+- Dowiedz się więcej o [aparacie rozpoznawania formularzy](overview.md).
 

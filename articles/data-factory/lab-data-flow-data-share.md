@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
 ms.openlocfilehash: dac018db1737b0395f78955d16dd753c6ac2f359
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85252665"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integracja danych przy użyciu Azure Data Factory i udziału danych platformy Azure
@@ -176,7 +176,7 @@ Przepływ danych utworzony w tym kroku wewnętrzny przyłączy zestaw danych "Tr
 1. W okienku działania kanwy potoku Otwórz przystawkę **przenoszenie i przekształcanie** i przeciągnij aktywność **przepływu danych** na kanwę.
 
     ![Portal](media/lab-data-flow-data-share/dataflow1.png)
-1. W okienku po otwarciu wybierz pozycję **Utwórz nowy przepływ danych** i wybierz pozycję **Mapowanie przepływu danych**. Kliknij przycisk **OK**.
+1. W okienku po otwarciu wybierz pozycję **Utwórz nowy przepływ danych** i wybierz pozycję **Mapowanie przepływu danych**. Kliknij pozycję **OK**.
 
     ![Portal](media/lab-data-flow-data-share/dataflow2.png)
 1. Nastąpi przekierowanie do kanwy przepływu danych, w której będziesz kompilować logikę transformacji. Na karcie Ogólne Nadaj nazwę przepływowi danych "JoinAndAggregateData".
@@ -226,7 +226,7 @@ Przepływ danych utworzony w tym kroku wewnętrzny przyłączy zestaw danych "Tr
     ![Portal](media/lab-data-flow-data-share/join1.png)
 1. Nazwij transformację join "InnerJoinWithTripFares". Wybierz pozycję "TripFaresSQL" z listy rozwijanej odpowiedniego strumienia. Wybierz pozycję **wewnętrzne** jako typ sprzężenia. Aby dowiedzieć się więcej o różnych typach sprzężeń w mapowaniu przepływu danych, zobacz [typy sprzężeń](https://docs.microsoft.com/azure/data-factory/data-flow-join#join-types).
 
-    Wybierz kolumny, które mają być zgodne z każdym strumieniem za pomocą listy rozwijanej **warunki sprzężenia** . Aby dodać dodatkowy warunek sprzężenia, kliknij ikonę znaku plus obok istniejącego warunku. Domyślnie wszystkie warunki sprzężenia są łączone za pomocą operatora i, co oznacza, że wszystkie warunki muszą zostać spełnione w celu dopasowania. W tym laboratorium chcemy dopasować kolumny `medallion` , `hack_license` , `vendor_id` i`pickup_datetime`
+    Wybierz kolumny, które mają być zgodne z każdym strumieniem za pomocą listy rozwijanej **warunki sprzężenia** . Aby dodać dodatkowy warunek sprzężenia, kliknij ikonę znaku plus obok istniejącego warunku. Domyślnie wszystkie warunki sprzężenia są łączone za pomocą operatora i, co oznacza, że wszystkie warunki muszą zostać spełnione w celu dopasowania. W tym laboratorium chcemy dopasować kolumny `medallion` , `hack_license` , `vendor_id` i `pickup_datetime`
 
     ![Portal](media/lab-data-flow-data-share/join2.png)
 1. Sprawdź, czy pomyślnie dołączono 25 kolumn wraz z podglądem danych.
@@ -372,7 +372,7 @@ Po utworzeniu udziału danych następnie Przełącz systemy i Zostań *konsument
 
     ![Dodaj zestaw danych](media/lab-data-flow-data-share/add-dataset-adls.png)
 
-1. Wybierz pozycję **dalej**
+1. Wybierz pozycję **Dalej**
 
 1. Rozwiń węzeł *wwtaxidata*. Rozwiń pozycję *dane dotyczące taksówki Boston*. Zwróć uwagę, że możesz udostępnić na poziomie pliku. 
 
@@ -382,7 +382,7 @@ Po utworzeniu udziału danych następnie Przełącz systemy i Zostań *konsument
 
 1. Przejrzyj zestawy danych, które zostały dodane. Do udziału danych powinna zostać dodana tabela SQL i folder ADLSGen2. 
 
-1. Wybierz pozycję **Kontynuuj**
+1. Wybierz przycisk **Kontynuuj**
 
 1. Na tym ekranie możesz dodać odbiorców do udziału danych. Dodanie adresatów spowoduje odebranie zaproszeń do udziału danych. Na potrzeby tego laboratorium należy dodać 2 adresy e-mail:
 

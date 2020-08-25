@@ -2,18 +2,18 @@
 title: Microsoft Azure Stack Edge — specyfikacje techniczne na podstawie lokalizacji | Microsoft Docs
 description: Dowiedz się więcej na temat specyfikacji technicznych dla Azure Stack brzegowej.
 services: databox
-author: priestlg
+author: twooley
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
 ms.date: 04/16/2020
-ms.author: v-grpr
-ms.openlocfilehash: 2fb28bcb1edb9a18b4d1628e211f87f2c772ef80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: twooley
+ms.openlocfilehash: 8248f0a8e003351449186638fd4914c6b6fe4bed
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83664655"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783981"
 ---
 # <a name="azure-stack-edge-power-cord-specifications"></a>Azure Stack brzegowe wymagania dotyczące przewodu zasilającego
 
@@ -76,7 +76,7 @@ W poniższej tabeli można znaleźć prawidłowe specyfikacje dotyczące przewod
 |Indie|250|10|IS694 3.|JEST 1293|C13|1830|
 |Indonezja|250|10|H05Z1Z1 3.|CEE 7|C13|1830|
 |Irlandia|250|5|H05VV-F 3.0,75|BS 1363/SS145/A|C13|1800|
-|Izrael|250|2.5|H05VV-F 3.1,00|SI 32|C13|2000|
+|Izrael|250|2,5|H05VV-F 3.1,00|SI 32|C13|2000|
 |Włochy|250|10|H05VV-F 3.0,75|CEI 23-50|C13|1800|
 |Jamajka|125|10|SVE 18/3|NEMA 5 — 15P|C13|1830|
 |Japonia|125|15|VCTF 3 x 2,00|JIS C 8303|C13|2300|

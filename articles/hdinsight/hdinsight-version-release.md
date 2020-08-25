@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/14/2020
-ms.openlocfilehash: b2e77049d121a11a45a096017f18f1345f6c6884
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/21/2020
+ms.openlocfilehash: 37f0a8d1f70fa96db505973d097febabe99ab7a8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374852"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749176"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Omówienie usługi Azure HDInsight 4,0
 
@@ -92,7 +92,7 @@ Nie ma żadnej obsługiwanej ścieżki uaktualnienia z poprzednich wersji usług
 * Usługa HDInsight 4,0 nie obsługuje MapReduce dla Apache Hive. Zamiast tego należy użyć środowiska Apache Tez. Dowiedz się więcej o środowisku [Apache Tez](https://tez.apache.org/).
 * Usługa HDInsight 4,0 nie obsługuje Apache Storm.
 * Usługa HDInsight 4,0 nie obsługuje typu klastra usługi ML.
-* Widok Hive nie jest już dostępny w usłudze HDInsight 4,0.
+* Widok Hive jest dostępny tylko w przypadku klastrów usługi HDInsight 4,0 z numerem wersji równym lub większym niż 4,1. Ten numer wersji jest dostępny w wersji > administratora.
 * Interpreter powłoki w programie Apache Zeppelin nie jest obsługiwany w przypadku klastrów Spark i Interactive zapytania zapytań.
 * Nie można *wyłączyć* funkcji LLAP w klastrze Spark LLAP. Można tylko wyłączyć funkcję LLAP.
 * Azure Data Lake Storage Gen2 nie można zapisać notesów Jupyter w klastrze Spark.

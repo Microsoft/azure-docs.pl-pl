@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 ms.openlocfilehash: 1b90364bee42b31843ac8d84f5a692a3eeb6d3f1
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84417610"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Samouczek: Dodawanie urządzenia Azure IoT Edge do aplikacji IoT Central platformy Azure
@@ -36,7 +36,7 @@ Aby wykonać kroki opisane w tym samouczku, musisz mieć aktywną subskrypcję p
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Pobierz plik manifestu IoT Edge z usługi GitHub. Kliknij prawym przyciskiem myszy poniższy link, a następnie wybierz pozycję **Zapisz link jako**: [EnvironmentalSensorManifest. JSON](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/master/iotedge/EnvironmentalSensorManifest.json)
+Pobierz plik manifestu IoT Edge z usługi GitHub. Kliknij prawym przyciskiem myszy poniższy link, a następnie wybierz pozycję **Zapisz link jako**: [EnvironmentalSensorManifest.js](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/master/iotedge/EnvironmentalSensorManifest.json)
 
 ## <a name="create-device-template"></a>Utwórz szablon urządzenia
 
@@ -50,7 +50,7 @@ Aby utworzyć szablon urządzenia na podstawie manifestu IoT Edge:
 
 1. Na stronie **Wybieranie typu szablonu** wybierz kafelek **Azure IoT Edge** . Następnie wybierz pozycję **Dalej: Dostosuj**.
 
-1. Na stronie **Przekaż manifest wdrożenia Azure IoT Edge** wprowadź w polu Nazwa szablonu urządzenia *Urządzenie brzegowe czujnika środowiska* . Następnie wybierz pozycję **Przeglądaj** , aby przekazać pobrany wcześniej plik **EnvironmentalSensorManifest. JSON** . Następnie wybierz kolejno pozycje **Dalej: przegląd**.
+1. Na stronie **Przekaż manifest wdrożenia Azure IoT Edge** wprowadź w polu Nazwa szablonu urządzenia *Urządzenie brzegowe czujnika środowiska* . Następnie wybierz pozycję **Przeglądaj** , aby przekazać wcześniej pobrany **EnvironmentalSensorManifest.js** . Następnie wybierz kolejno pozycje **Dalej: przegląd**.
 
 1. Na stronie **Przegląd** wybierz pozycję **Utwórz**.
 
@@ -144,7 +144,7 @@ Wdrożenie urządzenia IoT Edge w dalszej części tego samouczka wymaga poświa
 
 1. Na stronie **połączenie urządzenia** Zanotuj **zakres identyfikatorów**, **Identyfikator urządzenia**i **klucz podstawowy**. Te wartości są używane później.
 
-1. Wybierz pozycję **Zamknij**.
+1. Wybierz pozycję **Close** (Zamknij).
 
 Zakończono konfigurowanie aplikacji IoT Central, aby umożliwić urządzeniu IoT Edge nawiązywanie połączenia.
 
@@ -152,7 +152,7 @@ Zakończono konfigurowanie aplikacji IoT Central, aby umożliwić urządzeniu Io
 
 W tym samouczku zostanie użyta maszyna wirtualna z systemem Linux z obsługą Azure IoT Edge, utworzona na platformie Azure w celu symulowania urządzenia IoT Edge. Aby utworzyć maszynę wirtualną z obsługą IoT Edge w ramach subskrypcji platformy Azure, kliknij:
 
-[![Przycisk Wdróż na platformie Azure dla iotedge-VM-Deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
+[![Przycisk Wdrażanie na platformie Azure dla szablonu iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
 
 Na stronie **wdrożenie niestandardowe** :
 
@@ -228,7 +228,7 @@ Aby skonfigurować IoT Edge na maszynie wirtualnej w celu zarejestrowania i nawi
     ```
 
     > [!TIP]
-    > Upewnij się, że nie ma miejsca na początku`provisioning:`
+    > Upewnij się, że nie ma miejsca na początku `provisioning:`
 
 1. Zamień `{scope_id}` na **zakres identyfikatorów** , który został wcześniej zanotowany.
 

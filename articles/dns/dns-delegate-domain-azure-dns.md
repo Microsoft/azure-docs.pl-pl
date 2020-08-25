@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
 ms.openlocfilehash: 8f29a2bbe0eb392927dd111b13e2260111ddd18e
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84710137"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Samouczek: hostowanie własnej domeny w usłudze Azure DNS
@@ -21,7 +21,7 @@ Za pomocą usługi Azure DNS można hostować swoją domenę DNS i zarządzać r
 Załóżmy, że masz zakupioną domenę „contoso.net” od rejestratora nazw domen i tworzysz strefę o nazwie „contoso.net” w usłudze Azure DNS. Ponieważ jesteś właścicielem domeny, rejestrator oferuje Ci opcję skonfigurowania rekordów serwerów nazw (NS) dla domeny. Rejestrator przechowuje rekordy NS w strefie nadrzędnej „.net”. Użytkownicy Internetu na całym świecie są kierowani do Twojej domeny w strefie usługi Azure DNS podczas próby rozpoznania rekordów DNS w strefie contoso.net.
 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie strefy DNS.
@@ -52,7 +52,7 @@ Przykładową domeną używaną dla tego samouczka jest contoso.net, ale należy
    |**Nazwa**|[nazwa Twojej domeny] |Nazwa zakupionej domeny. W tym samouczku używana jest przykładowa nazwa „contoso.net”.|
    |**Subskrypcja**|[Twoja subskrypcja]|Wybierz subskrypcję, w której chcesz utworzyć strefę.|
    |**Grupa zasobów**|**Utwórz nową:** contosoRG|Utwórz grupę zasobów. Nazwa grupy zasobów musi być unikatowa w obrębie wybranej subskrypcji.<br>Lokalizacja grupy zasobów nie ma wpływu na strefę DNS. Lokalizacja strefy DNS jest zawsze „globalna” i nie jest wyświetlana.|
-   |**Lokalizacja**|Wschodnie stany USA||
+   |**Lokalizacja**|East US||
 
 ## <a name="retrieve-name-servers"></a>Pobieranie serwerów nazw
 
@@ -107,7 +107,7 @@ Określenie serwerów nazw usługi Azure DNS nie jest konieczne. Jeśli delegowa
    default TTL = 300 (5 mins)
    ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli planujesz wykonanie następnego samouczka, możesz zachować grupę zasobów **contosoRG**. W przeciwnym razie usuń grupę zasobów **contosoRG**, co spowoduje usunięcie zasobów utworzonych w ramach tego samouczka.
 

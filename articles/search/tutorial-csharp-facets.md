@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
 ms.openlocfilehash: 7d91348b727c1c43f010ec9f60ae9abd33978ce8
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85257520"
 ---
 # <a name="tutorial-add-faceted-navigation-using-the-net-sdk"></a>Samouczek: Dodawanie nawigacji aspektowej przy użyciu zestawu .NET SDK
@@ -21,7 +21,7 @@ Zestawy reguł służą do ułatwienia nawigacji, dostarczając użytkownikowi z
 
 Ten samouczek kompiluje się do projektu stronicowania utworzonego w [samouczku języka C#: wyniki wyszukiwania stronicowania — Samouczek platformy Azure wyszukiwanie poznawcze](tutorial-csharp-paging.md) .
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Ustaw właściwości modelu jako _Isuderzający_
 > * Dodawanie nawigacji aspektu do aplikacji

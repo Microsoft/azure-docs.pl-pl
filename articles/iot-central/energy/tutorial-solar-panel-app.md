@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: 5a48ea0747a110720a29a9c34fa2dca0f5a74f16
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84310006"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Samouczek: Tworzenie i przechodzenie przez szablon aplikacji monitorującej panel słoneczny 
@@ -52,7 +52,7 @@ Tę aplikację można utworzyć w trzech prostych krokach:
     * **7-dniowa bezpłatna wersja próbna**: Jeśli masz już subskrypcję platformy Azure, zalecane jest ustawienie domyślne. Jeśli nie masz subskrypcji platformy Azure, Zacznij od bezpłatnej wersji próbnej.
     * **Informacje o rozliczeniach**: sama aplikacja jest bezpłatna. Szczegóły katalogu, subskrypcji platformy Azure i regionu są wymagane do aprowizacji zasobów aplikacji.
     * Kliknij przycisk **Utwórz** w dolnej części strony, a Twoja aplikacja zostanie utworzona na minutę lub w ten sposób.
-        ![Formularz nowej aplikacji](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
+        ![Formularz Nowa aplikacja](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
         
         ![Nowe informacje o rozliczeniu formularza aplikacji](media/tutorial-iot-central-solar-panel/solar-panel-create-app-billinginfo.png)
 
@@ -76,7 +76,7 @@ Adatum to fikcyjna firma energetyczna, która monitoruje panele słoneczne i zar
 > [!div class="mx-imgBorder"]
 > ![Pulpit nawigacyjny monitorowania panelu słonecznego](media/tutorial-iot-central-solar-panel/solar-panel-dashboard.png)
 
-### <a name="devices"></a>Urządzenia
+### <a name="devices"></a>Devices
 Aplikacja jest dostępna z przykładowym urządzeniem panelu słonecznym. Aby wyświetlić szczegóły urządzenia, kliknij kartę **urządzenia** .
 
 > [!div class="mx-imgBorder"]
@@ -103,7 +103,7 @@ Jeśli zdecydujesz, aby nie używać tej aplikacji, Usuń aplikację, wykonując
 2. Wybierz pozycję Ustawienia aplikacji, a następnie kliknij przycisk Usuń u dołu strony. 
 
     > [!div class="mx-imgBorder"]
-    > ![Usuwanie aplikacji](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
+    > ![Usuń aplikację](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
 
 
 ## <a name="next-steps"></a>Następne kroki

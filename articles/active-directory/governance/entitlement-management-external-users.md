@@ -16,26 +16,26 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8576088069f419872db57b063163e8d9b1968b33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef88a15286389c98bb77f982afbc54358897eef4
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338218"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783862"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Zarządzanie dostępem użytkowników zewnętrznych w usłudze Azure AD upoważnienia
 
-Zarządzanie prawami w usłudze Azure AD wykorzystuje [usługę Azure AD Business-to-Business (B2B)](../b2b/what-is-b2b.md) do współpracy z osobami spoza organizacji w innym katalogu. Przy użyciu usługi Azure AD B2B użytkownicy zewnętrzni są uwierzytelniani w katalogu macierzystym, ale mają reprezentację w katalogu. Reprezentacja w katalogu umożliwia użytkownikowi przypisanie dostępu do zasobów.
+Zarządzanie prawami w usłudze Azure AD wykorzystuje [usługę Azure AD Business-to-Business (B2B)](../external-identities/what-is-b2b.md) do współpracy z osobami spoza organizacji w innym katalogu. Przy użyciu usługi Azure AD B2B użytkownicy zewnętrzni są uwierzytelniani w katalogu macierzystym, ale mają reprezentację w katalogu. Reprezentacja w katalogu umożliwia użytkownikowi przypisanie dostępu do zasobów.
 
 W tym artykule opisano ustawienia, które można określić, aby zarządzać dostępem użytkowników zewnętrznych.
 
 ## <a name="how-entitlement-management-can-help"></a>Jak zarządzanie uprawnieniami może pomóc
 
-W przypadku korzystania z funkcji zapraszania [B2B usługi Azure AD](../b2b/what-is-b2b.md) musisz znać adresy e-mail użytkowników zewnętrznych Gości, którzy chcą umieścić w katalogu zasobów i pracy z programem. Jest to doskonałe rozwiązanie, gdy pracujesz nad mniejszym lub krótkoterminowym projektem i znasz już wszystkich uczestników, ale jest to trudniejsze do zarządzania, jeśli masz wielu użytkowników, z którymi chcesz pracować, lub jeśli uczestnicy zmieniają się z upływem czasu.  Na przykład użytkownik może pracować z inną organizacją i mieć jeden punkt kontaktu z tą organizacją, ale w miarę upływu czasu dodatkowi użytkownicy z tej organizacji będą musieli również uzyskać dostęp.
+W przypadku korzystania z funkcji zapraszania [B2B usługi Azure AD](../external-identities/what-is-b2b.md) musisz znać adresy e-mail użytkowników zewnętrznych Gości, którzy chcą umieścić w katalogu zasobów i pracy z programem. Jest to doskonałe rozwiązanie, gdy pracujesz nad mniejszym lub krótkoterminowym projektem i znasz już wszystkich uczestników, ale jest to trudniejsze do zarządzania, jeśli masz wielu użytkowników, z którymi chcesz pracować, lub jeśli uczestnicy zmieniają się z upływem czasu.  Na przykład użytkownik może pracować z inną organizacją i mieć jeden punkt kontaktu z tą organizacją, ale w miarę upływu czasu dodatkowi użytkownicy z tej organizacji będą musieli również uzyskać dostęp.
 
 Za pomocą zarządzania uprawnieniami można zdefiniować zasady, które umożliwią użytkownikom z określonych organizacji określenie, że możliwość samodzielnego żądania pakietu dostępu. Można określić, czy wymagane jest zatwierdzenie oraz datę wygaśnięcia dostępu. Jeśli jest wymagane zatwierdzenie, można także zaprosić jednego lub kilku użytkowników z organizacji zewnętrznej do katalogu i wyznaczyć ich jako osoby zatwierdzające, ponieważ mogą oni wiedzieć, którzy użytkownicy zewnętrzni z organizacji potrzebują dostępu. Po skonfigurowaniu pakietu dostępu można wysłać link do osoby kontaktowej (sponsora) w organizacji zewnętrznej. Ten kontakt może współdzielić z innymi użytkownikami w organizacji zewnętrznej i może użyć tego linku, aby zażądać pakietu dostępu. Użytkownicy z tej organizacji, którzy zostali już zaproszeni do katalogu, mogą również korzystać z tego linku.
 
-Gdy żądanie zostanie zatwierdzone, zarządzanie prawami zapewni użytkownikowi dostęp do niezbędnego dostępu, który może obejmować zaproszenie użytkownika, jeśli nie znajdują się jeszcze w Twoim katalogu. Usługa Azure AD automatycznie utworzy dla nich konto gościa B2B. Należy pamiętać, że administrator może wcześniej ograniczyć, które organizacje są dozwolone do współpracy, ustawiając [listę dozwolonych lub](../b2b/allow-deny-list.md) zablokowanych B2B, aby zezwalać na zaproszenia do innych organizacji lub je blokować.  Jeśli użytkownik nie jest dozwolony przez listę dozwolonych lub zablokowanych, nie będzie zapraszany.
+Gdy żądanie zostanie zatwierdzone, zarządzanie prawami zapewni użytkownikowi dostęp do niezbędnego dostępu, który może obejmować zaproszenie użytkownika, jeśli nie znajdują się jeszcze w Twoim katalogu. Usługa Azure AD automatycznie utworzy dla nich konto gościa B2B. Należy pamiętać, że administrator może wcześniej ograniczyć, które organizacje są dozwolone do współpracy, ustawiając [listę dozwolonych lub](../external-identities/allow-deny-list.md) zablokowanych B2B, aby zezwalać na zaproszenia do innych organizacji lub je blokować.  Jeśli użytkownik nie jest dozwolony przez listę dozwolonych lub zablokowanych, nie będzie zapraszany.
 
 Ponieważ nie chcesz, aby użytkownik zewnętrzny miał dostęp do ostatniej nieograniczonej, należy określić datę wygaśnięcia zasad, na przykład 180 dni. Po 180 dniach, jeśli ich dostęp nie zostanie rozszerzony, zarządzanie uprawnieniami spowoduje usunięcie wszystkich dostępu skojarzonych z tym pakietem dostępu. Domyślnie, jeśli użytkownik, który został zaproszony za pośrednictwem usługi zarządzania prawami, nie ma żadnych innych przypisań pakietów dostępu, wówczas po utracie ostatniego przypisania ich konto gościa nie zostanie zalogowany przez 30 dni, a następnie usunięte. Zapobiega to rozmnożenia niepotrzebnych kont. Jak opisano w poniższych sekcjach, te ustawienia można konfigurować.
 
@@ -57,7 +57,7 @@ Poniższy diagram i kroki zawierają omówienie sposobu udzielania dostępu uży
 
 1. Żądanie przechodzi do [stanu dostarczania](entitlement-management-process.md).
 
-1. Przy użyciu procesu zapraszania B2B konto użytkownika-gościa jest tworzone w Twoim katalogu (w tym przykładzie jest to**osoba żądająca a)** . Jeśli zdefiniowano [listę dozwolonych lub Odmów](../b2b/allow-deny-list.md) , zostanie zastosowane ustawienie listy.
+1. Przy użyciu procesu zapraszania B2B konto użytkownika-gościa jest tworzone w Twoim katalogu (w tym przykładzie jest to**osoba żądająca a)** . Jeśli zdefiniowano [listę dozwolonych lub Odmów](../external-identities/allow-deny-list.md) , zostanie zastosowane ustawienie listy.
 
 1. Użytkownik-Gość ma przypisany dostęp do wszystkich zasobów w pakiecie dostępu. Wprowadzenie zmian w usłudze Azure AD i innych usługach online firmy Microsoft lub połączonych aplikacjach SaaS może zająć trochę czasu. Aby uzyskać więcej informacji, zobacz [kiedy zmiany są stosowane](entitlement-management-access-package-resources.md#when-changes-are-applied).
 
@@ -84,8 +84,8 @@ Aby zapewnić, że osoby spoza organizacji mogą żądać dostępu do pakietów 
 - Zezwolenie Gościom na Zapraszanie innych Gości do katalogu oznacza, że zaproszenia gościa mogą wystąpić poza zarządzaniem prawami. Zalecamy ustawienie **Gości** w taki sposób, aby **nie** zezwalać na prawidłowe wykonywanie zaproszeń.
 - W przypadku korzystania z listy dozwolonych aplikacji B2B musisz upewnić się, że wszystkie domeny, z którymi chcesz się połączyć za pomocą usługi zarządzania prawami, zostaną dodane do listy. Alternatywnie, jeśli używasz listy Odmów B2B, musisz upewnić się, że wszystkie domeny, z którymi chcesz się połączyć, nie zostaną dodane do listy.
 - Jeśli utworzysz zasady zarządzania uprawnieniami dla **wszystkich użytkowników** (wszystkie połączone organizacje + wszyscy użytkownicy zewnętrzni), pierwszeństwo mają wszystkie ustawienia listy dozwolonych lub zablokowanych B2B. W związku z tym Pamiętaj o uwzględnieniu domen, które mają zostać uwzględnione w tych zasadach, na liście dozwolonych, jeśli są używane, i wykluczyć je z listy Odmów, jeśli używasz listy Odmów.
-- Jeśli chcesz utworzyć zasady zarządzania uprawnieniami, które obejmują **wszystkich użytkowników** (wszystkie połączone organizacje + wszyscy wszyscy użytkownicy zewnętrzni), musisz najpierw włączyć uwierzytelnianie za pośrednictwem poczty e-mail jednorazowo dla katalogu. Aby uzyskać więcej informacji, zobacz [jednorazowe uwierzytelnianie kodu dostępu za pośrednictwem poczty e-mail (wersja zapoznawcza)](../b2b/one-time-passcode.md#opting-in-to-the-preview).
-- Aby uzyskać więcej informacji na temat zewnętrznych ustawień współpracy B2B usługi Azure AD, zobacz [Włączanie współpracy zewnętrznej B2B i zarządzanie osobami, które mogą zapraszać Gości](../b2b/delegate-invitations.md).
+- Jeśli chcesz utworzyć zasady zarządzania uprawnieniami, które obejmują **wszystkich użytkowników** (wszystkie połączone organizacje + wszyscy wszyscy użytkownicy zewnętrzni), musisz najpierw włączyć uwierzytelnianie za pośrednictwem poczty e-mail jednorazowo dla katalogu. Aby uzyskać więcej informacji, zobacz [jednorazowe uwierzytelnianie kodu dostępu za pośrednictwem poczty e-mail (wersja zapoznawcza)](../external-identities/one-time-passcode.md#opting-in-to-the-preview).
+- Aby uzyskać więcej informacji na temat zewnętrznych ustawień współpracy B2B usługi Azure AD, zobacz [Włączanie współpracy zewnętrznej B2B i zarządzanie osobami, które mogą zapraszać Gości](../external-identities/delegate-invitations.md).
 
     ![Ustawienia współpracy zewnętrznej usługi Azure AD](./media/entitlement-management-external-users/collaboration-settings.png)
 
@@ -97,17 +97,17 @@ Aby zapewnić, że osoby spoza organizacji mogą żądać dostępu do pakietów 
 
 ### <a name="review-your-sharepoint-online-external-sharing-settings"></a>Przejrzyj ustawienia udostępniania zewnętrznego usługi SharePoint Online
 
-- Jeśli chcesz dołączyć witryny usługi SharePoint Online do pakietów dostępu dla użytkowników zewnętrznych, upewnij się, że ustawienie udostępniania zewnętrznego na poziomie organizacji jest ustawione na wartość **Wszyscy** (użytkownicy nie wymagają logowania) lub **nowi i istniejący Goście** (Goście muszą się zalogować lub podać kod weryfikacyjny). Aby uzyskać więcej informacji, zobacz [Włączanie lub wyłączanie udostępniania zewnętrznego](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+- Jeśli chcesz dołączyć witryny usługi SharePoint Online do pakietów dostępu dla użytkowników zewnętrznych, upewnij się, że ustawienie udostępniania zewnętrznego na poziomie organizacji jest ustawione na wartość **Wszyscy** (użytkownicy nie wymagają logowania) lub **nowi i istniejący Goście** (Goście muszą się zalogować lub podać kod weryfikacyjny). Aby uzyskać więcej informacji, zobacz [Włączanie lub wyłączanie udostępniania zewnętrznego](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- Jeśli chcesz ograniczyć udostępnianie zewnętrzne poza zarządzaniem prawami, możesz ustawić ustawienie Udostępnianie zewnętrzne dla **istniejących Gości**. Następnie tylko nowi użytkownicy zapraszani za poorednictwem zarządzania uprawnieniami będą mogli uzyskać dostęp do tych witryn. Aby uzyskać więcej informacji, zobacz [Włączanie lub wyłączanie udostępniania zewnętrznego](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+- Jeśli chcesz ograniczyć udostępnianie zewnętrzne poza zarządzaniem prawami, możesz ustawić ustawienie Udostępnianie zewnętrzne dla **istniejących Gości**. Następnie tylko nowi użytkownicy zapraszani za poorednictwem zarządzania uprawnieniami będą mogli uzyskać dostęp do tych witryn. Aby uzyskać więcej informacji, zobacz [Włączanie lub wyłączanie udostępniania zewnętrznego](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- Upewnij się, że ustawienia na poziomie witryny umożliwiają dostęp gościa (takie same opcje jak wcześniej wymienione). Aby uzyskać więcej informacji, zobacz [Włączanie lub wyłączanie udostępniania zewnętrznego dla witryny](https://docs.microsoft.com/sharepoint/change-external-sharing-site).
+- Upewnij się, że ustawienia na poziomie witryny umożliwiają dostęp gościa (takie same opcje jak wcześniej wymienione). Aby uzyskać więcej informacji, zobacz [Włączanie lub wyłączanie udostępniania zewnętrznego dla witryny](/sharepoint/change-external-sharing-site).
 
 ### <a name="review-your-microsoft-365-group-sharing-settings"></a>Przejrzyj ustawienia udostępniania grupy Microsoft 365
 
-- Jeśli chcesz uwzględnić grupy Microsoft 365 w pakietach dostępu dla użytkowników zewnętrznych, upewnij się, że dla opcji Zezwalaj **użytkownikom na dodawanie nowych Gości do organizacji** jest ustawiona wartość **Zezwalaj na dostęp** gościa. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem gościa do grup Microsoft 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
+- Jeśli chcesz uwzględnić grupy Microsoft 365 w pakietach dostępu dla użytkowników zewnętrznych, upewnij się, że dla opcji Zezwalaj **użytkownikom na dodawanie nowych Gości do organizacji** jest ustawiona wartość **Zezwalaj na dostęp** gościa. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem gościa do grup Microsoft 365](/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
 
-- Jeśli chcesz, aby użytkownicy zewnętrzni mieli dostęp do witryny usługi SharePoint Online i zasobów skojarzonych z grupą Microsoft 365, upewnij się, że włączasz udostępnianie zewnętrzne w usłudze SharePoint Online. Aby uzyskać więcej informacji, zobacz [Włączanie lub wyłączanie udostępniania zewnętrznego](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+- Jeśli chcesz, aby użytkownicy zewnętrzni mieli dostęp do witryny usługi SharePoint Online i zasobów skojarzonych z grupą Microsoft 365, upewnij się, że włączasz udostępnianie zewnętrzne w usłudze SharePoint Online. Aby uzyskać więcej informacji, zobacz [Włączanie lub wyłączanie udostępniania zewnętrznego](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
 - Aby uzyskać informacje na temat sposobu ustawiania zasad gościa dla grup Microsoft 365 na poziomie katalogu w programie PowerShell, zobacz [przykład: Konfigurowanie zasad gościa dla grup na poziomie katalogu](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
 
