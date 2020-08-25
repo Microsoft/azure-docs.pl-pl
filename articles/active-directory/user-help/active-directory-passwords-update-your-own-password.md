@@ -11,21 +11,21 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: 58ec2c00e75b12d6010b106ca7daed0da234bf1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b83cdf0b069eac2e46cfdd54edc11a1aa5a41075
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266121"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799047"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Zresetuj hasło służbowe przy użyciu informacji zabezpieczających
 
-Jeśli nie pamiętasz hasła służbowego, nigdy nie otrzymasz hasła z Twojej organizacji lub nie masz zablokowanego konta, możesz użyć informacji zabezpieczających i urządzenia przenośnego, aby zresetować hasło służbowe. Administrator musi włączyć tę funkcję, aby móc skonfigurować informacje i [zresetować własne hasło](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-reset-register).
+Jeśli nie pamiętasz hasła służbowego, nigdy nie otrzymasz hasła z Twojej organizacji lub nie masz zablokowanego konta, możesz użyć informacji zabezpieczających i urządzenia przenośnego, aby zresetować hasło służbowe. Administrator musi włączyć tę funkcję, aby móc skonfigurować informacje i [zresetować własne hasło](./active-directory-passwords-reset-register.md).
 
-Jeśli znasz hasło i chcesz je zmienić, zapoznaj się z sekcjami [zmiana hasła](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) w tym artykule.
+Jeśli znasz hasło i chcesz je zmienić, zapoznaj się z sekcjami [zmiana hasła](#how-to-change-your-password) w tym artykule.
 
 >[!Important]
->Ten artykuł jest przeznaczony dla użytkowników próbujących zresetować zapomniane lub nieznane hasło konta służbowego. Jeśli jesteś administratorem, aby uzyskać informacje na temat włączania samoobsługowego resetowania haseł dla pracowników lub innych użytkowników, zobacz Wdrażanie funkcji samoobsługowego [resetowania haseł w usłudze Azure AD i innych artykułów](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
+>Ten artykuł jest przeznaczony dla użytkowników próbujących zresetować zapomniane lub nieznane hasło konta służbowego. Jeśli jesteś administratorem, aby uzyskać informacje na temat włączania samoobsługowego resetowania haseł dla pracowników lub innych użytkowników, zobacz Wdrażanie funkcji samoobsługowego [resetowania haseł w usłudze Azure AD i innych artykułów](../authentication/howto-sspr-deployment.md).
 
 ## <a name="how-to-reset-or-unlock-your-password-for-a-work-or-school-account"></a>Jak zresetować lub odblokować hasło dla konta służbowego
 
@@ -164,6 +164,6 @@ Poniżej przedstawiono kilka typowych przypadków błędów i ich rozwiązań:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Informacje o zabezpieczeniach w artykule [Przegląd informacji zabezpieczających (wersja zapoznawcza)](user-help-security-info-overview.md) .
+- Informacje o zabezpieczeniach w artykule [Przegląd informacji zabezpieczających (wersja zapoznawcza)](./security-info-setup-signin.md) .
 
 - Jeśli próbujesz wrócić do konta osobistego, takiego jak Xbox, hotmail.com lub outlook.com, wypróbuj sugestie w programie, [gdy nie możesz zalogować się do konto Microsoft artykułu](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

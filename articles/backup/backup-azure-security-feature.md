@@ -4,12 +4,12 @@ description: Dowiedz się, jak używać funkcji zabezpieczeń w programie Azure 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 03bbcef2ce408a1b1f5e2c2d909728d3ed8e7e19
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 170ecf364e01ba4b098da289f9d213716e74e0ee
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611249"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757034"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe, które używają Azure Backup
 
@@ -39,7 +39,7 @@ Jeśli tworzysz magazyn Recovery Services, możesz użyć wszystkich funkcji zab
 
     ![Zrzut ekranu przedstawiający opcję Azure Portal Browse](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
 
-    Zostanie wyświetlona lista magazynów usługi Recovery Services. Z tej listy wybierz magazyn. Zostanie otwarty pulpit nawigacyjny wybranego magazynu.
+    Zostanie wyświetlona lista magazynów Usług odzyskiwania. Z tej listy wybierz magazyn. Zostanie otwarty pulpit nawigacyjny wybranego magazynu.
 3. Z listy elementów, które pojawiają się w magazynie, w obszarze **Ustawienia**wybierz pozycję **Właściwości**.
 
     ![Zrzut ekranu przedstawiający opcje magazynu Recovery Services](./media/backup-azure-security-feature/vault-list-properties.png)

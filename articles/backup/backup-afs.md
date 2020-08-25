@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych udziałów plików platformy Azure w Azure Por
 description: Dowiedz się, jak używać Azure Portal do tworzenia kopii zapasowych udziałów plików platformy Azure w magazynie Recovery Services
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: e0d9edbcb89dbdcac51893eb720da880a150bc7b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 40b966d719360570a472b17fbf733aa4c8795b4d
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532702"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757799"
 ---
 # <a name="back-up-azure-file-shares"></a>Tworzenie kopii zapasowej udziałów plików platformy Azure
 
@@ -31,7 +31,7 @@ W tym artykule dowiesz się, jak:
 
 ## <a name="configure-backup-from-the-recovery-services-vault"></a>Konfigurowanie kopii zapasowej z magazynu Recovery Services
 
-Poniższe kroki wyjaśniają, jak można skonfigurować tworzenie kopii zapasowych wielu udziałów plików z poziomu okienka magazyn usługi Recovery Service:
+Poniższe kroki wyjaśniają, jak można skonfigurować tworzenie kopii zapasowych wielu udziałów plików w okienku magazynu Recovery Services:
 
 1. W [Azure Portal](https://portal.azure.com/)otwórz magazyn Recovery Services, którego chcesz użyć do skonfigurowania kopii zapasowej udziału plików.
 
@@ -67,7 +67,7 @@ Poniższe kroki wyjaśniają, jak można skonfigurować tworzenie kopii zapasowy
 
 1. Po prawej stronie zostanie otwarte okienko kontekstowe **udziały plików** . Platforma Azure przeszukuje konto magazynu pod kątem udziałów plików, których kopię zapasową można utworzyć. Jeśli niedawno dodano udziały plików i nie są one widoczne na liście, poczekaj chwilę na wyświetlenie udziałów plików.
 
-1. Z listy **Wybierz udziały plików** wybierz co najmniej jeden udział plików, dla którego chcesz utworzyć kopię zapasową. Wybierz przycisk **OK**.
+1. Z listy **Wybierz udziały plików** wybierz co najmniej jeden udział plików, dla którego chcesz utworzyć kopię zapasową. Kliknij **OK**.
 
    ![Wybierz udziały plików](./media/backup-afs/select-file-shares.png)
 
@@ -123,16 +123,16 @@ Poniższe kroki wyjaśniają, jak można skonfigurować kopię zapasową poszcze
 
 1. Aby wybrać magazyn Recovery Services, wykonaj jedną z następujących czynności:
 
-    * Jeśli masz już magazyn, wybierz przycisk radiowy **Wybierz istniejący** magazyn usługi Recovery Service, a następnie wybierz jeden z istniejących magazynów z menu rozwijanego **Nazwa magazynu** .
+    * Jeśli masz już magazyn, wybierz przycisk radiowy **Wybierz istniejący** Recovery Services magazyn, a następnie wybierz jeden z istniejących magazynów z menu rozwijanego **Nazwa magazynu** .
 
        ![Wybierz istniejący magazyn](./media/backup-afs/select-existing-vault.png)
 
-    * Jeśli nie masz magazynu, wybierz przycisk radiowy **Utwórz nowy** magazyn usługi Recovery Service. Określ nazwę magazynu. Jest on tworzony w tym samym regionie co udział plików. Domyślnie magazyn jest tworzony w tej samej grupie zasobów co udział plików. Jeśli chcesz wybrać inną grupę zasobów, wybierz pozycję **Utwórz nowe** łącze poniżej listy rozwijanej **Typ zasobu** i określ nazwę grupy zasobów. Kliknij przycisk **OK**, aby kontynuować.
+    * Jeśli nie masz magazynu, wybierz przycisk radiowy **Utwórz nowy** magazyn Recovery Services. Określ nazwę magazynu. Jest on tworzony w tym samym regionie co udział plików. Domyślnie magazyn jest tworzony w tej samej grupie zasobów co udział plików. Jeśli chcesz wybrać inną grupę zasobów, wybierz pozycję **Utwórz nowe** łącze poniżej listy rozwijanej **Typ zasobu** i określ nazwę grupy zasobów. Kliknij przycisk **OK**, aby kontynuować.
 
        ![Tworzenie nowego magazynu](./media/backup-afs/create-new-vault.png)
 
       >[!IMPORTANT]
-      >Jeśli konto magazynu jest zarejestrowane w magazynie lub istnieje kilka chronionych udziałów na koncie magazynu hostującym udział plików, który próbujesz chronić, nazwa magazynu usług Recovery Services zostanie wstępnie wypełniona i nie będzie można jej edytować [więcej informacji](backup-azure-files-faq.md#why-cant-i-change-the-vault-to-configure-backup-for-the-file-share).
+      >Jeśli konto magazynu jest zarejestrowane w magazynie lub istnieje kilka chronionych udziałów na koncie magazynu hostującym udział plików, który próbujesz chronić, nazwa magazynu Recovery Services zostanie wstępnie wypełniona i nie będzie można jej edytować [więcej informacji](backup-azure-files-faq.md#why-cant-i-change-the-vault-to-configure-backup-for-the-file-share).
 
 1. Dla opcji wybór **zasad tworzenia kopii zapasowej** wykonaj jedną z następujących czynności:
 
@@ -168,7 +168,7 @@ Poniższe kroki wyjaśniają, jak można skonfigurować kopię zapasową poszcze
 
 Czasami może być konieczne wygenerowanie migawki kopii zapasowej lub punktu odzyskiwania poza godzinami zaplanowanymi w ramach zasad tworzenia kopii zapasowych. Typowym powodem generowania kopii zapasowej na żądanie jest prawidłowe po skonfigurowaniu zasad tworzenia kopii zapasowych. Na podstawie harmonogramu w ramach zasad tworzenia kopii zapasowych może to potrwać kilka godzin lub dni do momentu utworzenia migawki. Aby chronić dane przed rozpoczęciem obowiązywania zasad tworzenia kopii zapasowych, zainicjuj tworzenie kopii zapasowej na żądanie. Tworzenie kopii zapasowej na żądanie jest często wymagane przed wprowadzeniem planowanych zmian w udziałach plików.
 
-### <a name="from-the-recovery-services-vault"></a>Z magazynu usługi Recovery Services
+### <a name="from-the-recovery-services-vault"></a>Z magazynu Recovery Services
 
 1. Otwórz magazyn Recovery Services użyty do utworzenia kopii zapasowej udziału plików. W okienku **Przegląd** wybierz pozycję **elementy kopii zapasowej** w sekcji **chronione elementy** .
 

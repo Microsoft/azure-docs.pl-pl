@@ -2,19 +2,19 @@
 title: Zasady ponownego uruchamiania dla zadań uruchamianych jednokrotnie
 description: Dowiedz się, w jaki sposób używać Azure Container Instances do wykonywania zadań, które są wykonywane do ukończenia, na przykład w ramach zadań kompilowania, testowania lub renderowania obrazu.
 ms.topic: article
-ms.date: 04/15/2019
-ms.openlocfilehash: a582036ae54a0b100b768e37bcf0d952521559d9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 08/11/2020
+ms.openlocfilehash: 336a31a03cdc9dfdfebe79ef47b59ef90053f523
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261340"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798945"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Uruchamianie zadań konteneryzowanych przy użyciu zasad ponownego uruchamiania
 
 Łatwość i szybkość wdrażania kontenerów w usłudze Azure Container Instances zapewnia atrakcyjną platformę do wykonywania jednorazowych zadań, takich jak kompilacje, testy i renderowanie obrazów w wystąpieniu kontenera.
 
-Dzięki możliwym do skonfigurowania zasadom ponownego uruchamiania możesz określić, aby Twoje kontenery zatrzymały się po zakończeniu wykonywania procesów. Ponieważ opłaty za wystąpienia kontenerów są naliczane za sekundę, rozliczeniu podlegają tylko zasoby obliczeniowe używane, kiedy działa kontener wykonujący zadanie.
+Dzięki możliwym do skonfigurowania zasadom ponownego uruchamiania możesz określić, aby Twoje kontenery zatrzymały się po zakończeniu wykonywania procesów. Ponieważ opłaty za wystąpienia kontenerów są naliczane za sekundę, rozliczeniu podlegają tylko zasoby obliczeniowe używane wtedy, kiedy działa kontener wykonujący zadanie.
 
 Przykłady przedstawione w tym artykule korzystają z interfejsu wiersza polecenia platformy Azure. Musisz mieć [zainstalowany][azure-cli-install]interfejs wiersza polecenia platformy Azure w wersji 2.0.21 lub nowszej lub użyć interfejsu wiersza polecenia w [Azure Cloud Shell](../cloud-shell/overview.md).
 
@@ -25,8 +25,10 @@ Podczas tworzenia [grupy kontenerów](container-instances-container-groups.md) w
 | Zasady ponownego uruchamiania   | Opis |
 | ---------------- | :---------- |
 | `Always` | Kontenery w grupie kontenerów są zawsze uruchamiane ponownie. Jest to **domyślne** ustawienie stosowane, gdy podczas tworzenia kontenera nie zostanie określona żadna zasada ponownego uruchamiania. |
-| `Never` | Kontenery w grupie kontenerów nigdy nie są uruchamiane ponownie. Kontenery są uruchamiane co najwyżej raz. |
+| `Never` | Kontenery w grupie kontenerów nie są nigdy uruchamiane ponownie. Kontenery są uruchamiane co najwyżej raz. |
 | `OnFailure` | Kontenery w grupie kontenerów są uruchamiane ponownie tylko wtedy, gdy proces wykonywany w kontenerze zakończy się niepowodzeniem (zostanie przerwany z kodem zakończenia różnym od zera). Kontenery są uruchamiane co najmniej raz. |
+
+[!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 
 ## <a name="specify-a-restart-policy"></a>Określ zasady ponownego uruchamiania
 

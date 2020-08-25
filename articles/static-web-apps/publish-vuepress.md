@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 6f5e05e9bfea6b14e46bbde8d17fba2d2a3b7b07
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c689b31f73d732dda37b64793f988febc409e6da
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429504"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797959"
 ---
 # <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>Samouczek: publikowanie witryny VuePress w wersji zapoznawczej usługi Azure static Web Apps
 
 W tym artykule pokazano, jak utworzyć i wdrożyć aplikację sieci Web [VuePress](https://vuepress.vuejs.org/) w usłudze [Azure static Web Apps](overview.md). Końcowym wynikiem jest nowa aplikacja usługi Azure static Web Apps ze skojarzonymi akcjami GitHub, które zapewniają kontrolę nad sposobem kompilowania i publikowania aplikacji.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -153,7 +153,7 @@ Wartość _lokalizacji interfejsu API_ nie jest konieczna, ponieważ w tej chwil
 
    :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="Ustawienia kompilacji":::
 
-### <a name="review-and-create"></a>Przejrzyj i utwórz
+### <a name="review-and-create"></a>Przegląd i tworzenie
 
 1. Kliknij przycisk **Recenzja + Utwórz** , aby sprawdzić, czy szczegóły są poprawne.
 
@@ -165,7 +165,7 @@ Wartość _lokalizacji interfejsu API_ nie jest konieczna, ponieważ w tej chwil
 
    :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="Wdrożona aplikacja":::
 
-### <a name="clean-up-resources"></a>Oczyszczanie zasobów
+### <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [cleanup-resource](../../includes/static-web-apps-cleanup-resource.md)]
 

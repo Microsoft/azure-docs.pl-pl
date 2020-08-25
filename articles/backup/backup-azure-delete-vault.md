@@ -3,12 +3,12 @@ title: Usuwanie magazynu Microsoft Azure Recovery Services
 description: W tym artykule dowiesz się, jak usunąć zależności, a następnie usunąć Magazyn Azure Backup Recovery Services.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: ffe8005ed6c2583763a10ba515ff19f0ef62ae0d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a7e922069f567a0b907c2f2cd28fe09de040cdee
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652835"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757221"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Usuwanie magazynu Recovery Services Azure Backup
 
@@ -294,7 +294,7 @@ Aby usunąć magazyn Recovery Services:
       [<CommonParameters>]
    ```
 
-[Dowiedz się więcej](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) na temat usuwania magazynu usługi Recovery Services.
+[Dowiedz się więcej](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) na temat usuwania magazynu Recovery Services.
 
 ## <a name="delete-the-recovery-services-vault-by-using-cli"></a>Usuwanie magazynu Recovery Services przy użyciu interfejsu wiersza polecenia
 
@@ -303,7 +303,7 @@ Najpierw zapoznaj się z sekcją **[przed rozpoczęciem](#before-you-start)** , 
 > [!NOTE]
 > Obecnie Azure Backup interfejs wiersza polecenia obsługuje zarządzanie tylko kopiami zapasowymi maszyny wirtualnej platformy Azure, więc następujące polecenie usuwania magazynu działa tylko wtedy, gdy magazyn zawiera kopie zapasowe maszyn wirtualnych platformy Azure. Nie można usunąć magazynu przy użyciu interfejsu wiersza polecenia Azure Backup, jeśli magazyn zawiera element kopii zapasowej typu innego niż maszyny wirtualne platformy Azure.
 
-Aby usunąć istniejący magazyn usługi Recovery Services, wykonaj następujące czynności:
+Aby usunąć istniejący magazyn Recovery Services, wykonaj następujące czynności:
 
 - Aby zatrzymać ochronę i usunąć dane kopii zapasowej
 
@@ -320,7 +320,7 @@ Aby usunąć istniejący magazyn usługi Recovery Services, wykonaj następując
 
     Aby uzyskać więcej informacji, zobacz ten [artykuł](/cli/azure/backup/protection#az-backup-protection-disable).
 
-- Usuń istniejący magazyn usług Recovery Services:
+- Usuń istniejący magazyn Recovery Services:
 
     ```azurecli
     az backup vault delete [--force]
@@ -357,13 +357,13 @@ Aby uzyskać więcej informacji na temat polecenia ARMClient, zobacz [plik Readm
 1. Uruchom następujące polecenie, używając identyfikatora subskrypcji, nazwy grupy zasobów i nazwy magazynu. Jeśli nie masz żadnych zależności, magazyn zostanie usunięty po uruchomieniu następującego polecenia:
 
    ```azurepowershell
-   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<Recovery Services vault name>?api-version=2015-03-15
    ```
 
 2. Jeśli magazyn nie jest pusty, zostanie wyświetlony następujący komunikat o błędzie: *nie można usunąć magazynu, ponieważ w tym magazynie znajdują się zasoby.* Aby usunąć chroniony element lub kontener w ramach magazynu, uruchom następujące polecenie:
 
    ```azurepowershell
-   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<Recovery Services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 
 3. W Azure Portal upewnij się, że magazyn został usunięty.

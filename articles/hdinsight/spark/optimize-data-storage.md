@@ -7,12 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 7162e2e8c42f3e83a47c46d739f93cfc4cfcaac6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: contperfq1
+ms.openlocfilehash: 092757728e791f60616d9dceca43e109e7f0019e
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737635"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757816"
 ---
 # <a name="data-storage-optimization-for-apache-spark"></a>Optymalizacja magazynu danych dla Apache Spark
 
@@ -43,7 +44,7 @@ Starsze wersje platformy Spark używają odporne do danych abstrakcyjnych, Spark
     * Dodaje narzuty serializacji/deserializacji.
     * Duże obciążenie GC.
     * Przerywa generowanie kodu w całym etapie.
-* **Odporne**
+* **RDD**
     * Nie musisz używać odporne, chyba że trzeba utworzyć nową niestandardową RDD.
     * Brak optymalizacji zapytania za poorednictwem katalizatora.
     * Brak generowania kodu w całości.
@@ -56,8 +57,8 @@ Podczas tworzenia nowego klastra Spark można wybrać platformę Azure Blob Stor
 
 | Typ sklepu | System plików | Szybkość | Administracyjnej | Przypadki użycia |
 | --- | --- | --- | --- | --- |
-| Azure Blob Storage | **wasb:**//URL/ | **Standardowa (Standard)** | Tak | Przejściowy klaster |
-| Azure Blob Storage (bezpieczna) | **wasbs:**//URL/ | **Standardowa (Standard)** | Tak | Przejściowy klaster |
+| Azure Blob Storage | **wasb:**//URL/ | **Standardowa** | Tak | Przejściowy klaster |
+| Azure Blob Storage (bezpieczna) | **wasbs:**//URL/ | **Standardowa** | Tak | Przejściowy klaster |
 | Azure Data Lake Storage Gen 2| **ABFS:**//URL/ | **Większej** | Tak | Przejściowy klaster |
 | Azure Data Lake Storage Gen 1| **ADL:**//URL/ | **Większej** | Tak | Przejściowy klaster |
 | Lokalny system plików HDFS | **HDFS:**//URL/ | **Najlepszy** | Nie | Interaktywny klaster 24/7 |
@@ -77,7 +78,7 @@ Platforma Spark zapewnia własne natywne mechanizmy buforowania, które mogą by
     * Używa buforowania w pamięci i dysku SSD.
 
 * Lokalny system plików HDFS (zalecane)
-    * `hdfs://mycluster`ścieżka.
+    * `hdfs://mycluster` ścieżka.
     * Używa buforowania SSD.
     * Dane w pamięci podręcznej zostaną utracone po usunięciu klastra, co wymaga odbudowania pamięci podręcznej.
 
@@ -86,7 +87,7 @@ Platforma Spark zapewnia własne natywne mechanizmy buforowania, które mogą by
 Zadania platformy Spark są dystrybuowane, więc odpowiednia Serializacja danych jest ważna dla najlepszej wydajności.  Istnieją dwie opcje serializacji dla platformy Spark:
 
 * Wartością domyślną jest Serializacja języka Java.
-* `Kryo`Serializacja jest w nowszym formacie i może prowadzić do szybszej i bardziej kompaktowej serializacji niż w przypadku języka Java.  `Kryo`wymaga zarejestrowania klas w programie i nie obsługuje jeszcze wszystkich typów możliwych do serializacji.
+* `Kryo` Serializacja jest w nowszym formacie i może prowadzić do szybszej i bardziej kompaktowej serializacji niż w przypadku języka Java.  `Kryo` wymaga zarejestrowania klas w programie i nie obsługuje jeszcze wszystkich typów możliwych do serializacji.
 
 ## <a name="use-bucketing"></a>Korzystanie z zasobników
 

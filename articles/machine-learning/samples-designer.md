@@ -10,12 +10,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 03/29/2020
 ms.custom: designer
-ms.openlocfilehash: c1d927583ecf0ac5684c607b7d203c3224fe87b1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c4fa5a2554f10a720c0f2241e17514e798cf7f4c
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318831"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88812941"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer-preview"></a>Przykładowe potoki & zestawy danych dla programu Azure Machine Learning Designer (wersja zapoznawcza)
 
@@ -55,9 +55,9 @@ Poniżej przedstawiono sposób użycia przykładu projektanta:
 
 1. Po zakończeniu potoku możesz przejrzeć potok i wyświetlić dane wyjściowe dla każdego modułu, aby dowiedzieć się więcej. Wykonaj następujące kroki, aby wyświetlić dane wyjściowe modułu:
 
-   1. Wybierz moduł na kanwie.
+   1. Kliknij prawym przyciskiem myszy moduł na kanwie, którego dane wyjściowe chcesz zobaczyć.
+   1. Wybierz opcję **Wizualizuj**.
 
-   1. W okienku Szczegóły modułu z prawej strony kanwy wybierz pozycję dane **wyjściowe + dzienniki**. Wybierz ![ ikonę wizualizacji ikona Graf, ](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) Aby zobaczyć wyniki każdego modułu. 
 
    Użyj przykładów jako punktów początkowych dla niektórych najpopularniejszych scenariuszy uczenia maszynowego.
 
@@ -123,7 +123,7 @@ Przykładowe zestawy danych są dostępne w kategorii **przykłady zestawów dan
 |Zestaw danych witryny Wikipedia SP 500|Dane są wyprowadzane z witryny Wikipedia ( https://www.wikipedia.org/) na podstawie artykułów każdej usługi S&P 500 firmy, przechowywanej jako dane XML.    <br/>Przed przekazaniem do projektanta zestaw danych został przetworzony w następujący sposób:    <br/> -Wyodrębnij zawartość tekstową dla każdej konkretnej firmy    <br/> -Usuń formatowanie wiki    <br/> -Usuń znaki inne niż alfanumeryczne    <br/> — Konwertuj cały tekst na małe litery    <br/> -Znane kategorie firmy zostały dodane    <br/>Należy zauważyć, że w niektórych firmach nie znaleziono artykułu, więc liczba rekordów jest mniejsza niż 500.|
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 

@@ -3,12 +3,12 @@ title: Wskazówki i najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i wskazówki dotyczące tworzenia kopii zapasowych obciążeń w chmurze i lokalnych w chmurze
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 1e2680c5fbcdb685e13b6ad990aaf98b013c98bb
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 21d3d6b8983d8ce3d0b563785423bc1e503649f3
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650880"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757595"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Tworzenie kopii zapasowych obciążeń w chmurze i lokalnych w chmurze
 
@@ -48,7 +48,7 @@ Azure Backup umożliwia ochronę danych w różnych obciążeniach (lokalnie i w
 
 ### <a name="management-plane"></a>Płaszczyzna zarządzania
 
-* **Kontrola dostępu** — magazyn usługi Recovery Service zapewnia możliwości zarządzania i jest dostępny za pośrednictwem interfejsów api REST Azure Portal, SDK, interfejsu wiersza polecenia i nawet. Jest ona również granicą RBAC, zapewniając możliwość ograniczenia dostępu do kopii zapasowych tylko dla autoryzowanych administratorów kopii zapasowych.
+* **Kontrola dostępu** — magazyn Recovery Services udostępnia możliwości zarządzania i jest dostępny za pośrednictwem Azure Portal, zestawu SDK, interfejsu wiersza polecenia, a nawet interfejsów API REST. Jest ona również granicą RBAC, zapewniając możliwość ograniczenia dostępu do kopii zapasowych tylko dla autoryzowanych administratorów kopii zapasowych.
 
 * **Zarządzanie zasadami** — zasady Azure Backup w ramach każdego magazynu definiują, kiedy kopie zapasowe mają być wyzwalane oraz jak długo muszą być przechowywane. Można także zarządzać tymi zasadami i stosować je w wielu elementach.
 
@@ -72,7 +72,7 @@ Za pomocą jednego magazynu lub wielu magazynów można organizować kopie zapas
 
 * Jeśli Twoje obciążenia są rozłożone między subskrypcjami, możesz utworzyć wiele magazynów, co najmniej jedną subskrypcję.
   * Aby uprościć monitorowanie działań operacyjnych w ramach wszystkich magazynów, subskrypcji i dzierżawców, można użyć Eksploratora i raportów kopii zapasowych. [Dowiedz się więcej tutaj](monitor-azure-backup-with-backup-explorer.md) , aby uzyskać Zagregowany widok.
-  * Jeśli potrzebujesz spójnych zasad w różnych magazynach, możesz użyć usługi Azure Policy do propagowania zasad tworzenia kopii zapasowych w wielu magazynach. Można napisać niestandardową [definicję Azure Policy](../governance/policy/concepts/definition-structure.md) , która używa efektu ["deployifnotexists"](../governance/policy/concepts/effects.md#deployifnotexists) do propagowania zasad tworzenia kopii zapasowych w wielu magazynach. Można [przypisać](../governance/policy/assign-policy-portal.md) tę Azure Policy definicję do określonego zakresu (subskrypcja lub RG), tak aby wdrażał zasób "zasady kopii zapasowych" do wszystkich magazynów usługi Recovery Services w zakresie przypisania Azure Policy. Ustawienia zasad tworzenia kopii zapasowych (takie jak częstotliwość tworzenia kopii zapasowych, przechowywanie i tak dalej) powinny zostać określone przez użytkownika jako parametry w przypisaniu Azure Policy.
+  * Jeśli potrzebujesz spójnych zasad w różnych magazynach, możesz użyć usługi Azure Policy do propagowania zasad tworzenia kopii zapasowych w wielu magazynach. Można napisać niestandardową [definicję Azure Policy](../governance/policy/concepts/definition-structure.md) , która używa efektu ["deployifnotexists"](../governance/policy/concepts/effects.md#deployifnotexists) do propagowania zasad tworzenia kopii zapasowych w wielu magazynach. Można [przypisać](../governance/policy/assign-policy-portal.md) tę Azure Policy definicję do określonego zakresu (subskrypcja lub RG), tak aby wdrażał zasób "zasady kopii zapasowych" do wszystkich magazynów Recovery Services w zakresie przypisania Azure Policy. Ustawienia zasad tworzenia kopii zapasowych (takie jak częstotliwość tworzenia kopii zapasowych, przechowywanie i tak dalej) powinny zostać określone przez użytkownika jako parametry w przypisaniu Azure Policy.
 
 * W miarę rozwoju Twojej organizacji można przenieść obciążenia między subskrypcjami z następujących powodów: Wyrównaj według zasad tworzenia kopii zapasowej, Konsoliduj magazyny, a także Obniż poziom nadmiarowości, aby zaoszczędzić koszt (przechodzenie od GRS do LRS).  Azure Backup obsługuje przeniesienie magazynu Recovery Services między subskrypcjami platformy Azure lub inną grupą zasobów w ramach tej samej subskrypcji. [Dowiedz się więcej tutaj](backup-azure-move-recovery-services-vault.md).
 
@@ -143,7 +143,7 @@ Aby pomóc w ochronie danych kopii zapasowych i spełnieniu potrzeb związanych 
 
 * Azure Backup ma kilka kontrolek zabezpieczeń wbudowanych w usługę, aby zapobiec wykryciu luk w zabezpieczeniach, wykrywać je i reagować na nie (Dowiedz się więcej)
 
-* Konta magazynu używane przez magazyny usługi Recovery Services są izolowane i nie są dostępne dla użytkowników w przypadku jakichkolwiek złośliwych celów. Dostęp jest dozwolony tylko za pomocą Azure Backup operacji zarządzania, takich jak przywracanie.
+* Konta magazynu używane przez magazyny Recovery Services są izolowane i nie są dostępne dla użytkowników w żadnych złośliwych celach. Dostęp jest dozwolony tylko za pomocą Azure Backup operacji zarządzania, takich jak przywracanie.
 
 ### <a name="encryption-of-data-in-transit-and-at-rest"></a>Szyfrowanie danych podczas przesyłania i przechowywania
 
@@ -247,7 +247,7 @@ Jako użytkownik lub administrator kopii zapasowej powinien być w stanie monito
 
 * Azure Backup zapewnia wbudowany mechanizm powiadamiania o **alertach** za pośrednictwem poczty e-mail w przypadku błędów, ostrzeżeń i operacji krytycznych. Po wygenerowaniu alertu można określić poszczególne adresy e-mail lub listy dystrybucyjne. Możesz również wybrać, czy otrzymywać powiadomienia o każdym indywidualnym alercie, czy grupować je w co godzinę, a następnie otrzymywać powiadomienia.
   * Te alerty są definiowane przez usługę i zapewniają obsługę ograniczonych scenariuszy — błędów tworzenia kopii zapasowej/przywracania, zatrzymywania ochrony przy zachowaniu danych/zatrzymywania ochrony przy użyciu usuwania danych itd. [Dowiedz się więcej tutaj](backup-azure-monitoring-built-in-monitor.md#alert-scenarios).
-  * W przypadku wykonania operacji niszczącej, takiej jak zatrzymanie ochrony z usuwaniem danych, zostanie zgłoszony alert, a wiadomość e-mail zostanie wysłana do właścicieli subskrypcji, administratorów i współadministratorów, nawet jeśli nie skonfigurowano powiadomień dla magazynu usługi Recovery Service.
+  * W przypadku wykonania operacji niszczącej, takiej jak zatrzymanie ochrony z usuwaniem danych, zostanie zgłoszony alert, a wiadomość e-mail zostanie wysłana do właścicieli subskrypcji, administratorów i współadministratorów, nawet jeśli nie skonfigurowano powiadomień dla magazynu Recovery Services.
   * Niektóre obciążenia mogą generować wysoką częstotliwość niepowodzeń (na przykład SQL Server co 15 minut). Aby zapobiec przeciążeniu alertów zgłoszonych dla każdego wystąpienia błędu, alerty są konsolidowane. [Dowiedz się więcej tutaj](backup-azure-monitoring-built-in-monitor.md#consolidated-alerts).
   * Wbudowane alerty nie mogą być dostosowane i są ograniczone do wiadomości e-mail zdefiniowanych w Azure Portal.
 

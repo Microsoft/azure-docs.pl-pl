@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej maszyny wirtualnej SQL Server z okienka maszyny
 description: W tym artykule dowiesz się, jak utworzyć kopię zapasową SQL Server baz danych w usłudze Azure Virtual Machines z okienka maszyny wirtualnej.
 ms.topic: conceptual
 ms.date: 08/13/2020
-ms.openlocfilehash: dd30ca1fb138d3e3bd44633b9d5e71beae6d96be
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: d7cdf0a04acc57341200b363da4d012f04fe3454
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227250"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755249"
 ---
 # <a name="back-up-a-sql-server-from-the-vm-pane"></a>Tworzenie kopii zapasowej SQL Server z okienka maszyny wirtualnej
 
@@ -62,7 +62,7 @@ Tworzenie kopii zapasowych na maszynie wirtualnej SQL Server można włączyć z
 
     ![Gotowość do tworzenia kopii zapasowych nie jest gotowa](./media/backup-sql-server-vm-from-vm-pane/backup-readiness-not-ready.png)
 
-8. Aby uzyskać więcej operacji lub monitorowania, które należy wykonać w ramach kopii zapasowej SQL Server maszynie wirtualnej, przejdź do odpowiedniego magazynu usługi Recovery Service. Przejdź do **pozycji elementy kopii zapasowej** , aby wyświetlić wszystkie bazy danych, których kopię zapasową utworzono w tym magazynie, i Wyzwól operacje, takie jak tworzenie kopii zapasowych na żądanie i przywracanie. Analogicznie przejdź do **zadania tworzenia kopii zapasowej** , aby [monitorować](manage-monitor-sql-database-backup.md) zadania odpowiadające operacjom, takim jak Konfigurowanie ochrony, kopii zapasowej i przywracania.
+8. Aby uzyskać więcej operacji lub monitorowania, które należy wykonać w ramach kopii zapasowej SQL Server maszynie wirtualnej, przejdź do odpowiedniego magazynu Recovery Services. Przejdź do **pozycji elementy kopii zapasowej** , aby wyświetlić wszystkie bazy danych, których kopię zapasową utworzono w tym magazynie, i Wyzwól operacje, takie jak tworzenie kopii zapasowych na żądanie i przywracanie. Analogicznie przejdź do **zadania tworzenia kopii zapasowej** , aby [monitorować](manage-monitor-sql-database-backup.md) zadania odpowiadające operacjom, takim jak Konfigurowanie ochrony, kopii zapasowej i przywracania.
 
     ![Wyświetlanie kopii zapasowych baz danych w elementach kopii zapasowej](./media/backup-sql-server-vm-from-vm-pane/backup-items.png)
 

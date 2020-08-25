@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1c9e40738d70b6fbb9fed267a6a047d8330023b7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 2fc87f08b30d648ec38d2b93e96a32d125b856be
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749294"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757918"
 ---
 # <a name="business-card-concepts"></a>Pojęcia związane z kartami biznesowymi
 
@@ -391,9 +391,8 @@ Interfejs API kart służbowych zapewnia również [funkcję przetwarzania karty
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby rozpocząć, postępuj zgodnie z przewodnikiem Szybki Start 
-- [Interfejs API języka Python dla kart służbowych — Szybki Start](./quickstarts/python-business-cards.md)
-- Dowiedz się więcej o [interfejsie API REST aparatu rozpoznawania formularzy](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api)
+- Skorzystaj z przewodnika Szybki Start, aby rozpocząć pracę z [kartami biznesowymi interfejs API Python](./quickstarts/python-business-cards.md)
+- Dowiedz się więcej o [interfejsie API REST aparatu rozpoznawania formularzy](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
 - Dowiedz się więcej o [aparacie rozpoznawania formularzy](overview.md)
 
 

@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 4ed8ada306720b7a8b44ddd59cefe399238c906a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b60a86d09e5d6f7d1108595253349bbd0784e4d3
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80128066"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799353"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Przesyłanie strumieniowe zawartości z integracją z usługą CDN
 
@@ -33,7 +33,7 @@ Przy podejmowaniu decyzji o tym, czy włączyć usługę CDN w [punkcie końcowy
 
 W tym temacie omówiono Włączanie integracji z siecią [CDN](#enable-azure-cdn-integration). Opisano w nim również wstępne pobieranie (aktywne buforowanie) i koncepcję z [wyprzedzeniem](#origin-assist-cdn-prefetch) dotyczącej usługi CDN.
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 * [Punkt końcowy przesyłania strumieniowego](streaming-endpoint-concept.md) `hostname` i adres URL przesyłania strumieniowego pozostają takie same niezależnie od tego, czy jest włączona sieć CDN.
 * Jeśli potrzebujesz możliwości testowania zawartości z użyciem usługi CDN lub bez niej, Utwórz inny punkt końcowy przesyłania strumieniowego, który nie jest włączony w sieci CDN.
@@ -47,7 +47,7 @@ W tym temacie omówiono Włączanie integracji z siecią [CDN](#enable-azure-cdn
 
 Po udostępnieniu punktu końcowego przesyłania strumieniowego z włączoną usługą CDN jest zdefiniowany czas oczekiwania na Media Services przed aktualizacją usługi DNS w celu zamapowania punktu końcowego przesyłania strumieniowego na punkt końcowy usługi CDN.
 
-Jeśli zechcesz później wyłączyć/włączyć usługę CDN, punkt końcowy przesyłania strumieniowego musi znajdować się w stanie **zatrzymanym** . Włączenie integracji Azure CDN może potrwać do dwóch godzin, a zmiany zostaną uaktywnione we wszystkich punktach pop usługi CDN. Można jednak uruchomić punkt końcowy przesyłania strumieniowego i strumień bez przerw w punkcie końcowym przesyłania strumieniowego. Po zakończeniu integracji strumień jest dostarczany z sieci CDN. W trakcie okresu aprowizacji punkt końcowy przesyłania strumieniowego będzie w stanie **uruchomienia** i może wystąpić spadek wydajności.
+Jeśli zechcesz później wyłączyć/włączyć usługę CDN, punkt końcowy przesyłania strumieniowego musi znajdować się w stanie **zatrzymanym** . Gdy punkt końcowy przesyłania strumieniowego zostanie uruchomiony, może upłynąć do dwóch godzin, aby można było włączyć integrację Azure CDN i aby zmiany były aktywne we wszystkich punktach pop usługi CDN. Można jednak uruchomić punkt końcowy przesyłania strumieniowego i strumień bez przerw w punkcie końcowym przesyłania strumieniowego. Po zakończeniu integracji strumień jest dostarczany z sieci CDN. W trakcie okresu aprowizacji punkt końcowy przesyłania strumieniowego będzie w stanie **uruchomienia** i może wystąpić spadek wydajności.
 
 Po utworzeniu standardowego punktu końcowego przesyłania strumieniowego jest on konfigurowany domyślnie przy użyciu standardowego Verizon. Korzystając z interfejsów API REST, można skonfigurować Verizon Premium lub standardowego dostawcy Akamai.
 
@@ -71,7 +71,7 @@ Aby osiągnąć ten cel, punkt końcowy przesyłania strumieniowego (Źródło) 
 - Pochodzenie Media Services musi mieć "inteligencję" (Źródło), aby poinformować sieć CDN o następnym obiekcie do pobrania z wyprzedzeniem.
 - Usługa CDN umożliwia pobieranie z wyprzedzeniem i buforowanie (część usługi CDN — pobieranie z wyprzedzeniem). Usługa CDN musi również mieć "inteligencję", aby poinformować źródło o tym, czy jest to pobieranie z wyprzedzeniem czy regularne pobieranie, obsługiwać odpowiedzi 404 i sposób unikania nieskończonej pętli pobierania z wyprzedzeniem.
 
-### <a name="benefits"></a>Zalety
+### <a name="benefits"></a>Korzyści
 
 Zalety funkcji pobierania z *wyprzedzeniem usługi CDN* to:
 

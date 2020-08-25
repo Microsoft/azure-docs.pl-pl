@@ -3,10 +3,8 @@
 - name: Omówienie
   expanded: true
   items:
-    - name: Czym jest usługa rozpoznawania mowy?
+    - name: Omówienie usługi Mowa
       href: overview.md
-    - name: Wypróbuj bezpłatnie usługę rozpoznawania mowy
-      href: get-started.md
     - name: Obsługa języka i głosu
       displayName: 'languages,locales,voice,gender,language code,locale,locale code,neural voice,standard voice'
       href: language-support.md

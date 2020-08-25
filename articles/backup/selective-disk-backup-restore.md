@@ -4,12 +4,12 @@ description: W tym artykule poznasz informacje o kopii zapasowej i przywracaniu 
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 6a5e574795dfded98260da20711dab7d16cabd5b
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: dd4691f6248099bdc4fa713c84d396adac6011fa
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566237"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757442"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Selektywne tworzenie kopii zapasowych i przywracanie dysków dla maszyn wirtualnych platformy Azure
 
@@ -38,7 +38,7 @@ Upewnij się, że używasz polecenia AZ CLI w wersji 2.0.80 lub nowszej. Wersję
 az --version
 ```
 
-Zaloguj się do identyfikatora subskrypcji, w którym znajduje się magazyn usługi Recovery Services i maszyna wirtualna:
+Zaloguj się do identyfikatora subskrypcji, w którym znajduje się magazyn Recovery Services i maszyna wirtualna:
 
 ```azurecli
 az account set -s {subscriptionID}

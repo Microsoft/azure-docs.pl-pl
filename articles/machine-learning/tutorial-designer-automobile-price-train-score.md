@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 4a925fb4352ac81e5879bb925ee1d743a77ffd5c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3992bbe466241eb388874905237dbe00f07b3752
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290294"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88812989"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Samouczek: przewidywanie ceny za samochód przy użyciu projektanta (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -104,13 +104,7 @@ Projektant zawiera kilka przykładowych zestawów danych, z którymi można eksp
 
 Możesz wizualizować dane, aby zrozumieć zestaw danych, który będzie używany.
 
-1. Wybierz moduł **dane cen samochodów (RAW)** .
-
-1. W okienku Szczegóły modułu z prawej strony kanwy wybierz pozycję dane **wyjściowe + dziennik**.
-
-1. Wybierz ikonę grafu, aby wizualizować dane.
-    
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/visualize-data.png"alt-text="Tekst alternatywny.":::
+1. Kliknij prawym przyciskiem myszy **dane cen samochodów (RAW)** i wybierz polecenie **Wizualizuj**.
 
 1. Wybierz różne kolumny w oknie dane, aby wyświetlić informacje o każdej z nich.
 
@@ -140,7 +134,7 @@ Podczas uczenia modelu trzeba wykonać coś dotyczące brakujących danych. W ty
 
 1. W okienku Szczegóły modułu z prawej strony kanwy wybierz pozycję **Edytuj kolumnę**.
 
-1. Rozwiń listę rozwijaną **nazwy kolumn** obok pozycji **Dołącz**, a następnie wybierz pozycję **wszystkie kolumny**.
+1. Rozwiń listę rozwijaną **nazwy kolumn** obok pozycji **Dołącz**, a następnie wybierz pozycję  **wszystkie kolumny**.
 
 1. Wybierz opcję, **+** Aby dodać nową regułę.
 
@@ -212,7 +206,7 @@ Dzielenie danych to typowe zadanie w usłudze Machine Learning. Dane zostaną po
 
 1. W okienku Szczegóły modułu z prawej strony kanwy wybierz pole **komentarz** i wprowadź *Podziel zestaw danych na zestaw szkoleniowy (0,7) i zestaw testów (0,3)*.
 
-### <a name="train-the-model"></a>Szkolenie modelu
+### <a name="train-the-model"></a>Trenowanie modelu
 
 Nauczenie modelu przez nadanie mu zestawu danych, który zawiera cenę. Algorytm tworzy model, który objaśnia relacje między funkcjami a ceną zaprezentowaną przez dane szkoleniowe.
 
@@ -291,9 +285,7 @@ Teraz, gdy potok jest skonfigurowany, możesz przesłać uruchomienie potoku w c
 
 Po zakończeniu przebiegu można wyświetlić wyniki uruchomienia potoku. Najpierw zapoznaj się z przewidywaniami wygenerowanymi przez model regresji.
 
-1. Wybierz moduł **model oceny** , aby wyświetlić jego dane wyjściowe.
-
-1. W okienku Szczegóły modułu z prawej strony kanwy wybierz pozycję dane **wyjściowe + dzienniki** > ikona Wizualizacja ikony grafu, ![ ](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) Aby wyświetlić wyniki.
+1. Kliknij prawym przyciskiem myszy moduł **model oceny** i wybierz polecenie **Wizualizacja** , aby wyświetlić jego dane wyjściowe.
 
     W tym miejscu możesz zobaczyć przewidywane ceny i rzeczywiste ceny z danych testowych.
 
@@ -303,9 +295,7 @@ Po zakończeniu przebiegu można wyświetlić wyniki uruchomienia potoku. Najpie
 
 Użyj **modelu szacowania** , aby zobaczyć, jak dobrze szkolony model jest wykonywany na testowym zestawie danych.
 
-1. Wybierz moduł **Oceń model** , aby wyświetlić jego dane wyjściowe.
-
-1. W okienku Szczegóły modułu z prawej strony kanwy wybierz pozycję dane **wyjściowe + dzienniki** > ikona Wizualizacja ikony grafu, ![ ](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) Aby wyświetlić wyniki.
+1. Kliknij prawym przyciskiem myszy moduł **Oceń model** i wybierz polecenie **Wizualizacja** , aby wyświetlić jego dane wyjściowe.
 
 Następujące statystyki są wyświetlane dla modelu:
 
@@ -317,7 +307,7 @@ Następujące statystyki są wyświetlane dla modelu:
 
 W przypadku wszystkich powyższych statystyk mniejsze wartości oznaczają lepszą jakość modelu. Mniejsza wartość wskazuje, że przewidywania są bliżej rzeczywistych wartości. Dla współczynnika wyznaczania wartość bliższej wartości to 1 (1,0), tym lepsze przewidywania.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Pomiń tę sekcję, jeśli chcesz kontynuować w części 2 samouczka [Wdrażanie modeli](tutorial-designer-automobile-price-deploy.md).
 

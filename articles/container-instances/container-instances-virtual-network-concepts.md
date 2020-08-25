@@ -2,14 +2,14 @@
 title: Scenariusze korzystania z sieci wirtualnej
 description: Scenariusze, zasoby i ograniczenia dotyczące wdrażania grup kontenerów w sieci wirtualnej platformy Azure.
 ms.topic: article
-ms.date: 04/29/2020
+ms.date: 08/11/2020
 ms.author: danlep
-ms.openlocfilehash: c4e983e7d83e661b4ba50ebe2c6d65bce2f42514
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d904f1333ddf4b22bfca2546bd064b1ae8f299dd
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259540"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797868"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Scenariusze i zasoby sieci wirtualnej
 
@@ -43,6 +43,8 @@ Grupy kontenerów wdrożone w usłudze Azure Virtual Network umożliwiają włą
 * Nie można włączyć [sondy na żywo](container-instances-liveness-probe.md) lub [sondy gotowości](container-instances-readiness-probe.md) w grupie kontenerów wdrożonej w sieci wirtualnej.
 * Ze względu na dodatkowe zasoby sieci, wdrożenia w sieci wirtualnej są zwykle wolniejsze niż wdrożenie standardowego wystąpienia kontenera.
 
+[!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
+
 ## <a name="where-to-deploy"></a>Miejsce wdrożenia
 
 Poniższe regiony i maksymalne zasoby są dostępne do wdrożenia grupy kontenerów w sieci wirtualnej platformy Azure.
@@ -63,7 +65,7 @@ Podsieci umożliwiają segmentację sieci wirtualnej na oddzielne przestrzenie a
 
 Podsieć używana dla grup kontenerów może zawierać tylko grupy kontenerów. Podczas pierwszego wdrażania grupy kontenerów w podsieci usługa Azure deleguje tę podsieć do Azure Container Instances. Po delegowaniu ta podsieć może być używana tylko dla grup kontenerów. Jeśli podjęto próbę wdrożenia zasobów innych niż grupy kontenerów w delegowanej podsieci, operacja zakończy się niepowodzeniem.
 
-### <a name="network-profile"></a>Profil sieciowy
+### <a name="network-profile"></a>Profil sieci
 
 Profil sieci to szablon konfiguracji sieci dla zasobów platformy Azure. Określa pewne właściwości sieci dla zasobu, na przykład podsieć, w której ma zostać wdrożona. Po pierwszym użyciu polecenia [AZ Container Create][az-container-create] do wdrożenia grupy kontenerów w podsieci (i w ten sposób do sieci wirtualnej) platforma Azure tworzy profil sieciowy. Tego profilu sieciowego można następnie użyć do przyszłych wdrożeń w podsieci. 
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 06/09/2020
 ms.author: rolyon
-ms.openlocfilehash: a93901bd95d57b29aeb1464652737a77a1a84376
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 343f6b7a78ca98615d512d31d7ac1c10d9de8f10
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84792000"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799336"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Podnoszenie poziomu dostępu w celu zarządzania wszystkimi subskrypcjami platformy Azure i grupami zarządzania
 
@@ -144,6 +144,22 @@ Aby usunąć przypisanie roli administratora dostępu użytkownika dla siebie lu
     ```
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+
+### <a name="elevate-access-for-a-global-administrator"></a>Podnieś poziom dostępu dla administratora globalnego
+
+Wykonaj następujące podstawowe kroki, aby podwyższyć poziom dostępu administratora globalnego przy użyciu interfejsu wiersza polecenia platformy Azure.
+
+1. Użyj polecenia [AZ REST](/cli/azure/reference-index?view=azure-cli-latest#az-rest) , aby wywołać `elevateAccess` punkt końcowy, który przyznaje rolę administratora dostępu użytkownika w zakresie głównym ( `/` ).
+
+    ```azurecli
+    az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
+    ```
+
+1. Wprowadź zmiany, które należy wprowadzić w celu uzyskania dostępu z podwyższonym poziomem uprawnień.
+
+    Informacje o przypisywaniu ról można znaleźć w temacie [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](role-assignments-cli.md).
+
+1. Wykonaj kroki opisane w dalszej części sekcji, aby usunąć podwyższony poziom dostępu.
 
 ### <a name="list-role-assignment-at-root-scope-"></a>Wyświetl listę przypisań ról w zakresie głównym (/)
 
@@ -275,7 +291,7 @@ Po wywołaniu `elevateAccess` Utwórz przypisanie roli dla siebie, więc aby odw
     ```
         
     >[!NOTE] 
-    >Administrator katalogu nie powinien mieć wielu przypisań, jeśli poprzednia kwerenda zwróci zbyt wiele przypisań, można również wykonać zapytania dotyczące wszystkich przypisań tylko na poziomie zakresu katalogu, a następnie filtrować wyniki:`GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
+    >Administrator katalogu nie powinien mieć wielu przypisań, jeśli poprzednia kwerenda zwróci zbyt wiele przypisań, można również wykonać zapytania dotyczące wszystkich przypisań tylko na poziomie zakresu katalogu, a następnie filtrować wyniki: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
             
 1. Poprzednie wywołania zwracają listę przypisań ról. Znajdź przypisanie roli, w którym zakres jest `"/"` i `roleDefinitionId` KOŃCZĄ się identyfikatorem nazwy roli znalezionej w kroku 1 i `principalId` dopasowuje objectid administratora katalogu. 
     

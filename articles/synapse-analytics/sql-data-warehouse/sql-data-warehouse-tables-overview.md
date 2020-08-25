@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f4cf9e2d02030021d3092629731fcd8b77566907
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eaea80ae874b93a640c885e0d4b7afde2a165c16
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213945"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798571"
 ---
 # <a name="design-tables-in-synapse-sql-pool"></a>Projektowanie tabel w puli SQL Synapse
 
@@ -46,7 +46,7 @@ Aby wyświetlić organizację tabel w puli SQL, można użyć faktów, Dim i int
 
 | Tabela WideWorldImportersDW  | Typ tabeli | Pula SQL |
 |:-----|:-----|:------|:-----|
-| Miasto | Wymiar | WWI. DimCity |
+| City (Miasto) | Wymiar | WWI. DimCity |
 | Zamówienie | Fact | WWI. FactOrder |
 
 ## <a name="table-persistence"></a>Trwałość tabeli
@@ -65,7 +65,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 
 Tabela tymczasowa istnieje tylko na czas trwania sesji. Możesz użyć tabeli tymczasowej, aby uniemożliwić innym użytkownikom wyświetlanie wyników tymczasowych, a także ograniczyć potrzebę czyszczenia.  
 
-Tabele tymczasowe wykorzystują magazyn lokalny do zapewnienia szybkiej wydajności.  Aby uzyskać więcej informacji, zobacz [tabele tymczasowe](sql-data-warehouse-tables-temporary.md).
+Tabele tymczasowe wykorzystują magazyn lokalny do zapewnienia szybkiej wydajności.  Aby uzyskać więcej informacji, zobacz  [tabele tymczasowe](sql-data-warehouse-tables-temporary.md).
 
 ### <a name="external-table"></a>Tabela zewnętrzna
 
@@ -107,7 +107,7 @@ Kategoria tabeli często określa, którą opcję należy wybrać do dystrybucji
 |:---------------|:--------------------|
 | Fact           | Używaj dystrybucji skrótów z klastrowanym indeksem magazynu kolumn. Zwiększona wydajność, gdy dwie tabele skrótów są przyłączone do tej samej kolumny dystrybucji. |
 | Wymiar      | Użyj replikacji dla mniejszych tabel. Jeśli tabele są zbyt duże, aby były przechowywane w poszczególnych węzłach obliczeniowych, użyj rozproszonego tworzenia skrótów. |
-| Przygotowanie        | Użyj działania okrężnego dla tabeli przemieszczania. Ładowanie za pomocą CTAS jest szybkie. Gdy dane są w tabeli przemieszczania, użyj instrukcji INSERT... Wybierz, aby przenieść dane do tabel produkcyjnych. |
+| Podział na etapy        | Użyj działania okrężnego dla tabeli przemieszczania. Ładowanie za pomocą CTAS jest szybkie. Gdy dane są w tabeli przemieszczania, użyj instrukcji INSERT... Wybierz, aby przenieść dane do tabel produkcyjnych. |
 
 ## <a name="table-partitions"></a>Partycje tabeli
 
@@ -294,6 +294,9 @@ SELECT *
 FROM size
 ;
 ```
+
+>[!TIP]
+> Aby zwiększyć wydajność w programie Synapse SQL, należy rozważyć użycie **tabeli sys. pdw_permanent_table_mappings** zamiast **sys. pdw_table_mappings** w tabelach trwałych użytkowników. Aby uzyskać więcej informacji, zobacz sekcję **[sys. pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
 
 ### <a name="table-space-summary"></a>Podsumowanie obszaru tabeli
 

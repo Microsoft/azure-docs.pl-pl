@@ -3,12 +3,12 @@ title: Nietrwałe usuwanie dla programu SQL Server na maszynie wirtualnej platfo
 description: Dowiedz się, jak usuwanie nietrwałe dla programu SQL Server na maszynie wirtualnej platformy Azure i SAP HANA w obciążeniach maszyn wirtualnych platformy Azure zwiększa bezpieczeństwo kopii zapasowych.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: c0eaedea2d5428376befaade42f87348cf84e7bc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bf9cc2551d85c1bc663db2f9e61e2ea6895f1d23
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538194"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757476"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Nietrwałe usuwanie dla programu SQL Server na maszynie wirtualnej platformy Azure i SAP HANA w obciążeniach maszyn wirtualnych platformy Azure
 
@@ -62,7 +62,7 @@ Azure Backup teraz zapewnia nietrwałe usuwanie programu SQL Server na maszynie 
 >[!NOTE]
 >Te instrukcje dotyczą również SAP HANA na maszynie wirtualnej platformy Azure.
 
-1. Aby usunąć dane kopii zapasowej bazy danych programu SQL Server, należy zatrzymać wykonywanie kopii zapasowej. W Azure Portal przejdź do magazynu usługi Recovery Services, przejdź do elementu kopii zapasowej, a następnie wybierz pozycję **Zatrzymaj tworzenie kopii zapasowej**.
+1. Aby usunąć dane kopii zapasowej bazy danych programu SQL Server, należy zatrzymać wykonywanie kopii zapasowej. W Azure Portal przejdź do magazynu Recovery Services, przejdź do elementu kopii zapasowej, a następnie wybierz pozycję **Zatrzymaj tworzenie kopii zapasowej**.
 
    ![Zatrzymaj kopię zapasową](./media/soft-delete-sql-saphana-in-azure-vm/stop-backup.png)
 

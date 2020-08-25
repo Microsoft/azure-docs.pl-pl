@@ -4,16 +4,16 @@ description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punk
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: ab0722bfee0f8165971b5e3351640f0d3c00bea3
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: e913fa1e609eff687b5757a566583539b32b1b8e
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654161"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757153"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
-Azure Backup oferuje możliwość przywracania [maszyn wirtualnych platformy Azure i dysków](./backup-azure-arm-restore-vms.md) z kopii zapasowych maszyny wirtualnej platformy Azure, znanych również jako punkty odzyskiwania. W tym artykule wyjaśniono, jak odzyskiwać pliki i foldery z kopii zapasowej maszyny wirtualnej platformy Azure. Przywracanie plików i folderów jest dostępne tylko dla maszyn wirtualnych platformy Azure wdrożonych przy użyciu modelu Menedżer zasobów i chronionych do magazynu usługi Recovery Services.
+Azure Backup oferuje możliwość przywracania [maszyn wirtualnych platformy Azure i dysków](./backup-azure-arm-restore-vms.md) z kopii zapasowych maszyny wirtualnej platformy Azure, znanych również jako punkty odzyskiwania. W tym artykule wyjaśniono, jak odzyskiwać pliki i foldery z kopii zapasowej maszyny wirtualnej platformy Azure. Przywracanie plików i folderów jest dostępne tylko dla maszyn wirtualnych platformy Azure wdrożonych przy użyciu modelu Menedżer zasobów i chronionych z magazynem Recovery Services.
 
 > [!NOTE]
 > Ta funkcja jest dostępna dla maszyn wirtualnych platformy Azure wdrożonych przy użyciu modelu Menedżer zasobów i chronionych z magazynem Recovery Services.
@@ -68,7 +68,7 @@ Zapoznaj się z sekcją [wymagania dostępu](#access-requirements) , aby upewni�
 
 Po uruchomieniu pliku wykonywalnego system operacyjny instaluje nowe woluminy i przypisuje litery dysku. Aby przeglądać te dyski, można użyć Eksploratora Windows lub Eksploratora plików. Litery dysku przypisane do woluminów mogą nie być takie same jak oryginalna maszyna wirtualna. Jednak nazwa woluminu jest zachowywana. Na przykład jeśli wolumin na oryginalnej maszynie wirtualnej to "dysk danych (E: `\` )", wolumin ten można dołączyć na komputerze lokalnym jako "dysk danych (" dowolna litera ": `\` ). Przeglądaj wszystkie woluminy wymienione w danych wyjściowych skryptu do momentu znalezienia plików lub folderu.  
 
-   ![Menu odzyskiwania plików](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
+   ![Dołączone woluminy odzyskiwania](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
 #### <a name="for-linux"></a>W przypadku systemu Linux
 
@@ -302,7 +302,7 @@ Skrypt wymaga również, aby składniki Python i bash były bezpiecznie wykonywa
 W przypadku uruchamiania skryptu na komputerze z ograniczonym dostępem upewnij się, że masz dostęp do:
 
 - `download.microsoft.com`
-- Adresy URL usługi odzyskiwania (nazwa geograficzna odnosi się do regionu, w którym znajduje się magazyn usługi odzyskiwania)
+- Adresy URL usługi odzyskiwania (geograficzne nazwy odnoszą się do regionu, w którym znajduje się magazyn Recovery Services)
   - `https://pod01-rec2.geo-name.backup.windowsazure.com` (W przypadku regionów publicznych platformy Azure)
   - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (W przypadku platformy Azure — Chiny)
   - `https://pod01-rec2.geo-name.backup.windowsazure.us` (Dla instytucji rządowych USA platformy Azure)
@@ -332,7 +332,7 @@ Ponieważ proces odzyskiwania plików dołącza wszystkie dyski z kopii zapasowe
     - Upewnij się, że system operacyjny jest w wersji WS 2012 lub nowszej.
     - Upewnij się, że klucze rejestru zostały ustawione zgodnie z sugerowaną poniżej na serwerze przywracania, i upewnij się, że serwer jest ponownie uruchamiany. Liczba obok identyfikatora GUID może być z zakresu od 0001-0005. W poniższym przykładzie jest to 0,004. Przejdź przez ścieżkę klucza rejestru do sekcji parametry.
 
-    ![iscsi-reg-key-changes.png](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
+    ![Zmiany klucza rejestru](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
 
 ```registry
 - HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
@@ -343,7 +343,7 @@ Ponieważ proces odzyskiwania plików dołącza wszystkie dyski z kopii zapasowe
 
 - Jeśli serwer przywracania jest maszyną wirtualną z systemem Linux:
   - W pliku/etc/iSCSI/iscsid.conf Zmień ustawienie z:
-    - Node. poł. [0]. Timeo. noop_out_timeout = 5 do węzła. poł. [0]. Timeo. noop_out_timeout = 30
+    - `node.conn[0].timeo.noop_out_timeout = 5`  do `node.conn[0].timeo.noop_out_timeout = 30`
 - Po wprowadzeniu zmiany należy ponownie uruchomić skrypt. Po wprowadzeniu tych zmian bardzo prawdopodobne jest, że odzyskiwanie plików powiedzie się.
 - Za każdym razem, gdy użytkownik pobiera skrypt, Azure Backup inicjuje proces przygotowywania punktu odzyskiwania do pobrania. W przypadku dużych dysków ten proces zajmie dużo czasu. W przypadku kolejnych serii żądań przygotowanie docelowe przejdzie do spirali pobierania. Dlatego zaleca się pobranie skryptu z portalu/programu PowerShell/interfejsu wiersza polecenia, odczekanie przez 20-30 minut (heurystyka), a następnie uruchomienie go. W tym czasie obiekt docelowy powinien być gotowy do połączenia ze skryptem.
 - Po odzyskaniu plików upewnij się, że Wróć do portalu i wybierz opcję **odinstalowania dysków** dla punktów odzyskiwania, w których nie można było zainstalować woluminów. Zasadniczo ten krok spowoduje wyczyszczenie wszystkich istniejących procesów/sesji i zwiększenie możliwości odzyskania.

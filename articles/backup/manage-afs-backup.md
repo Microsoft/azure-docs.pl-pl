@@ -3,12 +3,12 @@ title: Zarządzanie kopiami zapasowymi udziałów plików platformy Azure
 description: W tym artykule opisano typowe zadania związane z zarządzaniem udziałami plików platformy Azure i ich monitorowaniem, które są tworzone przez Azure Backup.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 6684cb348c9edb35b5f3e46fb7922e9aa265c725
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 784b22f11b57fb025f6d9401e10d527c83751898
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073294"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757629"
 ---
 # <a name="manage-azure-file-share-backups"></a>Zarządzanie kopiami zapasowymi udziałów plików platformy Azure
 
@@ -143,7 +143,7 @@ Aby usunąć dane kopii zapasowej udziału plików platformy Azure:
 
 ## <a name="unregister-a-storage-account"></a>Wyrejestrowywanie konta magazynu
 
-Aby chronić udziały plików na określonym koncie magazynu przy użyciu innego magazynu usługi Recovery Services, należy najpierw [zatrzymać ochronę wszystkich udziałów plików](#stop-protection-on-a-file-share) na tym koncie magazynu. Następnie Wyrejestruj konto z bieżącego magazynu usług Recovery Services używanego do ochrony.
+Aby chronić udziały plików na określonym koncie magazynu przy użyciu innego magazynu Recovery Services, należy najpierw [zatrzymać ochronę wszystkich udziałów plików](#stop-protection-on-a-file-share) na tym koncie magazynu. Następnie Wyrejestruj konto z bieżącego magazynu Recovery Services używanego do ochrony.
 
 W poniższej procedurze przyjęto założenie, że ochrona została zatrzymana dla wszystkich udziałów plików na koncie magazynu, które chcesz wyrejestrować.
 

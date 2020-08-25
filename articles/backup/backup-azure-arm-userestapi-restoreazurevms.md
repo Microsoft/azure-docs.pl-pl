@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak zarządzać operacjami przywracani
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: add4bdeaa202c244ce2e0e83f999f29afdca5c28
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: eef30808dddfb20d01fcb6e25a88b9a64e4445d8
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761478"
+ms.locfileid: "88763545"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Przywracanie maszyn wirtualnych platformy Azure przy użyciu interfejsu API REST
 
@@ -115,11 +115,16 @@ X-Powered-By: ASP.NET
 
 Punkt odzyskiwania jest identyfikowany z `{name}` polem w powyższej odpowiedzi.
 
-## <a name="restore-disks"></a>Przywróć dyski
+## <a name="restore-operations"></a>Operacje przywracania
 
-Jeśli istnieje potrzeba dostosowania tworzenia maszyny wirtualnej na podstawie danych kopii zapasowej, jedna z nich może przywrócić dyski na wybrane konto magazynu i utworzyć maszynę wirtualną na podstawie tych dysków zgodnie z ich wymaganiami. Konto magazynu powinno znajdować się w tym samym regionie co magazyn Recovery Services i nie powinno być nadmiarowe strefy. Dyski, a także Konfiguracja kopii zapasowej maszyny wirtualnej ("vmconfig.json") będą przechowywane na danym koncie magazynu.
+Po wybraniu [odpowiedniego punktu przywracania](#select-recovery-point)należy wykonać operację przywracania.
 
-Wyzwalanie dysków przywracania to żądanie *post* . Aby dowiedzieć się więcej o operacji przywracania dysków, zapoznaj się z [interfejsem API REST "Wyzwól przywracanie"](/rest/api/backup/restores/trigger).
+***Wszystkie operacje przywracania na elemencie kopii zapasowej są wykonywane przy użyciu tego samego, *końcowego* interfejsu API. Tylko treść żądania zmienia się z scenariuszami przywracania.***
+
+> [!IMPORTANT]
+> Wszystkie szczegóły dotyczące różnych opcji przywracania i ich zależności są wymienione [tutaj](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-options). Przejrzyj przed kontynuowaniem, aby wyzwolić te operacje.
+
+Wyzwalanie operacji przywracania jest żądaniem *post* . Aby dowiedzieć się więcej o interfejsie API, zapoznaj się z [interfejsem API REST "Wyzwól przywracanie"](/rest/api/backup/restores/trigger).
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13
@@ -127,41 +132,15 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 `{containerName}`I `{protectedItemName}` są tak skonstruowane w [tym miejscu](backup-azure-arm-userestapi-backupazurevms.md#example-responses-to-get-operation). `{fabricName}` to "Azure", a to `{recoveryPointId}` `{name}` pole jest polem punktu odzyskiwania wymienionego [powyżej](#example-response).
 
-### <a name="create-request-body"></a>Utwórz treść żądania
+Po uzyskaniu punktu odzyskiwania musimy skonstruować treść żądania dla odpowiedniego scenariusza przywracania. W poniższych sekcjach opisano treść żądania dla każdego scenariusza.
 
-Aby wyzwolić przywracanie dysku z kopii zapasowej maszyny wirtualnej platformy Azure, poniżej przedstawiono składniki treści żądania.
+- [Przywróć dyski](#restore-disks)
+- [Zastąp dyski](#replace-disks-in-a-backed-up-virtual-machine)
+- [Przywróć jako nową maszynę wirtualną](#restore-as-another-virtual-machine)
 
-|Nazwa  |Typ  |Opis  |
-|---------|---------|---------|
-|properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
+### <a name="restore-response"></a>Przywróć odpowiedź
 
-Pełną listę definicji treści żądania oraz inne szczegóły znajdują się w [dokumencie wyzwalacze przywracania interfejsu API REST](/rest/api/backup/restores/trigger#request-body).
-
-#### <a name="example-request"></a>Przykładowe żądanie
-
-Następująca treść żądania definiuje właściwości wymagane do wyzwolenia przywracania dysku.
-
-```json
-{
-  "properties": {
-    "objectType": "IaasVMRestoreRequest",
-    "recoveryPointId": "20982486783671",
-    "recoveryType": "RestoreDisks",
-    "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
-    "storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Storage/storageAccounts/testAccount",
-    "region": "westus",
-    "createNewCloudService": false,
-    "originalStorageAccountOption": false,
-    "encryptionDetails": {
-      "encryptionEnabled": false
-    }
-  }
-}
-```
-
-### <a name="response"></a>Reakcja
-
-Wyzwalanie dysku przywracania jest [operacją asynchroniczną](../azure-resource-manager/management/async-operations.md). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
+Wyzwalacz operacji przywracania jest [operacją asynchroniczną](../azure-resource-manager/management/async-operations.md). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
 
 Zwraca dwie odpowiedzi: 202 (zaakceptowane), gdy tworzona jest inna operacja, a następnie 200 (OK) po zakończeniu tej operacji.
 
@@ -227,15 +206,90 @@ X-Powered-By: ASP.NET
 }
 ```
 
-Ponieważ zadanie tworzenia kopii zapasowej jest długotrwałą operacją, powinno być śledzone w sposób opisany w [dokumencie monitorowanie zadań przy użyciu interfejsu API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+Ponieważ zadanie przywracania jest długotrwałą operacją, powinno być śledzone zgodnie z opisem w [dokumencie monitorowanie zadań przy użyciu interfejsu API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
-Po zakończeniu długotrwałego zadania dyski i Konfiguracja kopii zapasowej maszyny wirtualnej ("VMConfig.json") będą obecne na danym koncie magazynu.
+### <a name="restore-disks"></a>Przywróć dyski
 
-## <a name="restore-as-another-virtual-machine"></a>Przywróć jako inną maszynę wirtualną
+Jeśli istnieje potrzeba dostosowania tworzenia maszyny wirtualnej na podstawie danych kopii zapasowej, jedna z nich może przywrócić dyski na wybrane konto magazynu i utworzyć maszynę wirtualną na podstawie tych dysków zgodnie z ich wymaganiami. Konto magazynu powinno znajdować się w tym samym regionie co magazyn Recovery Services i nie powinno być nadmiarowe strefy. Dyski, a także Konfiguracja kopii zapasowej maszyny wirtualnej ("vmconfig.json") będą przechowywane na danym koncie magazynu. Zgodnie z [powyższymi](#restore-operations)szczegółami poniżej przedstawiono odpowiednią treść żądania dla dysków przywracania.
 
-[Wybierz punkt odzyskiwania](#select-recovery-point) i Utwórz treść żądania zgodnie z poniższą opcją, aby utworzyć inną maszynę wirtualną platformy Azure z danymi z punktu odzyskiwania.
+#### <a name="create-request-body"></a>Utwórz treść żądania
 
-Następująca treść żądania definiuje właściwości wymagane do wyzwolenia przywracania maszyny wirtualnej.
+Aby wyzwolić przywracanie dysku z kopii zapasowej maszyny wirtualnej platformy Azure, poniżej przedstawiono składniki treści żądania.
+
+|Nazwa  |Typ  |Opis  |
+|---------|---------|---------|
+|properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
+
+Pełną listę definicji treści żądania oraz inne szczegóły znajdują się w [dokumencie wyzwalacze przywracania interfejsu API REST](/rest/api/backup/restores/trigger#request-body).
+
+##### <a name="example-request"></a>Przykładowe żądanie
+
+Następująca treść żądania definiuje właściwości wymagane do wyzwolenia przywracania dysku.
+
+```json
+{
+  "properties": {
+    "objectType": "IaasVMRestoreRequest",
+    "recoveryPointId": "20982486783671",
+    "recoveryType": "RestoreDisks",
+    "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+    "storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Storage/storageAccounts/testAccount",
+    "region": "westus",
+    "createNewCloudService": false,
+    "originalStorageAccountOption": false,
+    "encryptionDetails": {
+      "encryptionEnabled": false
+    }
+  }
+}
+```
+
+Po przeprowadzeniu śledzenia odpowiedzi zgodnie z [powyższym](#responses)opisem, gdy długotrwałe zadanie jest ukończone, dyski i Konfiguracja kopii zapasowej maszyny wirtualnej ("VMConfig.json") będą obecne na danym koncie magazynu.
+
+### <a name="replace-disks-in-a-backed-up-virtual-machine"></a>Zastępowanie dysków w kopii zapasowej maszyny wirtualnej
+
+Podczas przywracania dysków tworzone są dyski z punktu odzyskiwania, zastąp dyski zastępuje bieżące dyski maszyny wirtualnej kopii zapasowej z dyskami z punktu odzyskiwania. Zgodnie z [powyższym](#restore-operations)opisem należy określić odpowiednią treść żądania dla zastępowania dysków.
+
+#### <a name="create-request-body"></a>Utwórz treść żądania
+
+Aby wyzwolić zastąpienie dysku z kopii zapasowej maszyny wirtualnej platformy Azure, poniżej przedstawiono składniki treści żądania.
+
+|Nazwa  |Typ  |Opis  |
+|---------|---------|---------|
+|properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
+
+Pełną listę definicji treści żądania oraz inne szczegóły znajdują się w [dokumencie wyzwalacze przywracania interfejsu API REST](/rest/api/backup/restores/trigger#request-body).
+
+#### <a name="example-request"></a>Przykładowe żądanie
+
+Następująca treść żądania definiuje właściwości wymagane do wyzwolenia przywracania dysku.
+
+```json
+{
+    "properties": {
+        "objectType": "IaasVMRestoreRequest",
+        "recoveryPointId": "20982486783671",
+        "recoveryType": "OriginalLocation",
+        "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+        "storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Storage/storageAccounts/testAccount",  
+        "region": "westus",
+        "createNewCloudService": false,
+        "originalStorageAccountOption": false,
+        "affinityGroup": "",
+        "diskEncryptionSetId": null,
+        "subnetId": null,
+        "targetDomainNameId": null,
+        "targetResourceGroupId": null,
+        "targetVirtualMachineId": null,
+        "virtualNetworkId": null
+     }
+}
+
+```
+
+### <a name="restore-as-another-virtual-machine"></a>Przywróć jako inną maszynę wirtualną
+
+Jak wyjaśniono [powyżej](#restore-operations), następująca treść żądania definiuje właściwości wymagane do wyzwolenia przywracania maszyny wirtualnej.
 
 ```json
 {
@@ -271,7 +325,7 @@ Następująca treść żądania definiuje właściwości wymagane do wyzwolenia 
 }
 ```
 
-Odpowiedź powinna być obsługiwana w taki sam sposób, jak [wyjaśniono powyżej w przypadku przywracania dysków](#response).
+Odpowiedź powinna być obsługiwana w taki sam sposób, jak [wyjaśniono powyżej w przypadku przywracania dysków](#responses).
 
 ## <a name="next-steps"></a>Następne kroki
 

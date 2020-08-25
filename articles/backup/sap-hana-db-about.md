@@ -3,12 +3,12 @@ title: Informacje o kopii zapasowej bazy danych SAP HANA na maszynach wirtualnyc
 description: W tym artykule dowiesz się, jak tworzyć kopie zapasowe baz danych SAP HANA, które są uruchomione na maszynach wirtualnych platformy Azure.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: a6c4f627059a8d536e1d006103650dca5d2f5109
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e30507e433ff9a828266c88ca79e576c508edc31
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533448"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757544"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Informacje o kopii zapasowej bazy danych SAP HANA na maszynach wirtualnych platformy Azure
 
@@ -31,9 +31,9 @@ Aby wyświetlić scenariusze tworzenia kopii zapasowych i przywracania, które o
 
 ![Diagram architektury tworzenia kopii zapasowych](./media/sap-hana-db-about/backup-architecture.png)
 
-* Proces tworzenia kopii zapasowej rozpoczyna się od [utworzenia magazynu usługi Recovery Services](./tutorial-backup-sap-hana-db.md#create-a-recovery-service-vault) na platformie Azure. Ten magazyn będzie używany do przechowywania kopii zapasowych i punktów odzyskiwania utworzonych w czasie.
+* Proces tworzenia kopii zapasowej rozpoczyna się od [utworzenia magazynu Recovery Services](./tutorial-backup-sap-hana-db.md#create-a-recovery-services-vault) na platformie Azure. Ten magazyn będzie używany do przechowywania kopii zapasowych i punktów odzyskiwania utworzonych w czasie.
 * Maszyna wirtualna platformy Azure z systemem SAP HANA Server jest zarejestrowana w magazynie, a bazy danych do utworzenia kopii zapasowej są [odnajdywane](./tutorial-backup-sap-hana-db.md#discover-the-databases). Aby umożliwić usłudze Azure Backup odnajdywanie baz danych, należy uruchomić [skrypt rejestracji](https://aka.ms/scriptforpermsonhana) na serwerze Hana jako użytkownik główny.
-* Ten skrypt tworzy użytkownika **AZUREWLBACKUPHANAUSER** DB i odpowiadający mu klucz o tej samej nazwie w **hdbuserstore**. Zapoznaj się z sekcją co to jest [skrypt poprzedzający rejestrację](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) , aby dowiedzieć się więcej na temat tego, co robi skrypt.
+* Ten skrypt tworzy użytkownika **AZUREWLBACKUPHANAUSER** DB i odpowiadający mu klucz o tej samej nazwie w **hdbuserstore**. Zapoznaj się z sekcją co to jest  [skrypt poprzedzający rejestrację](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) , aby dowiedzieć się więcej na temat tego, co robi skrypt.
 * Usługa Azure Backup teraz instaluje **wtyczkę Azure Backup dla platformy Hana** na zarejestrowanym serwerze SAP HANA.
 * Użytkownik **AZUREWLBACKUPHANAUSER** DB utworzony przez skrypt przedrejestrowania jest używany przez **wtyczkę Azure Backup platformy Hana** do wykonywania wszystkich operacji tworzenia kopii zapasowej i przywracania. W przypadku próby skonfigurowania kopii zapasowej dla SAP HANA baz danych bez uruchamiania tego skryptu może zostać wyświetlony następujący błąd: **UserErrorHanaScriptNotRun**.
 * Aby [skonfigurować tworzenie kopii zapasowych](./tutorial-backup-sap-hana-db.md#configure-backup) w odnalezionych bazach danych, wybierz wymagane zasady tworzenia kopii zapasowych i Włącz kopie zapasowe.

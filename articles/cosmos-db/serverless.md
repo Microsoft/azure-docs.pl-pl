@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: d99deea8271a3f9e630a7d2e8cd9f73bd41645a2
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: ef681f861a14fbbf86e7e350441d05f84fc95f58
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88608871"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757901"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB bezserwerowe (wersja zapoznawcza)
 
@@ -82,7 +82,7 @@ Ten sam wykres można znaleźć podczas korzystania z Azure Monitor, zgodnie z o
 Zasoby bezserwerowe mają szczególne cechy wydajności, które różnią się od obsługiwanych zasobów przepływności:
 
 - **Dostępność**: gdy oferta bezserwerowa stanie się ogólnie dostępna, dostępność kontenerów bezserwerowych zostanie objęta umowa dotycząca poziomu usług (SLA) 99,9%, gdy strefy dostępności (nadmiarowość strefy) nie są używane. W przypadku używania Strefy dostępności umowa SLA wynosi 99,99%.
-- **Opóźnienie**: po ogólnym udostępnieniu oferty bezserwerowej opóźnienie kontenerów bezserwerowych zostanie objęte przeznaczeniem poziomu usługi (SLO) wynoszącym 10 milisekund lub mniej w przypadku operacji odczytu i 30 milisekund. Operacje odczytu punktu obejmują Pobieranie pojedynczego elementu według jego identyfikatora i wartości klucza partycji.
+- **Opóźnienie**: po ogólnym udostępnieniu oferty bezserwerowej opóźnienie kontenerów bezserwerowych zostanie objęte przeznaczeniem poziomu usługi (SLO) wynoszącym 10 milisekund lub mniej w przypadku operacji odczytu i 30 milisekund. Operacja odczytu punktu polega na pobieraniu pojedynczego elementu przez jego identyfikator i wartość klucza partycji.
 - Możliwości **przenoszenia: gdy**oferta bezserwerowa będzie ogólnie dostępna, możliwości przenoszenia kontenerów bezserwerowych będą objęte celem poziomu usługi (SLO) wynoszącym 95%. Oznacza to, że maksymalne możliwości można osiągnąć przez co najmniej 95% czasu.
 
 > [!NOTE]
@@ -93,5 +93,5 @@ Zasoby bezserwerowe mają szczególne cechy wydajności, które różnią się o
 Rozpocznij pracę z następującymi artykułami:
 
 - [Jednostki żądania w usłudze Azure Cosmos DB](request-units.md)
-- [Wybór między zainicjowaną przepływność a bezserwerowym](throughput-serverless.md)
+- [Wybór między trybem aprowizowanej przepływności a bezserwerowym](throughput-serverless.md)
 - [Model cen w usłudze Azure Cosmos DB](how-pricing-works.md)

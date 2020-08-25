@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9cb1b4d33a538b48ca1519d66f6602d902033c3e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 3bf180c2b70a686879082888e45e67936cdbec67
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494829"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799234"
 ---
 # <a name="design-tables-using-synapse-sql"></a>Projektowanie tabel przy użyciu języka SQL Synapse
 
@@ -27,27 +27,27 @@ W poniższej tabeli wymieniono tematy istotne dla puli SQL i programu SQL na ż�
 
 | Temat                                                        | Pula SQL | SQL na żądanie |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |
-| [Określanie kategorii tabeli](#determine-table-category)        | Yes                | Nie                      |
+| [Określanie kategorii tabeli](#determine-table-category)        | Tak                | Nie                      |
 | [Nazwy schematów](#schema-names)                                | Tak                | Tak                     |
-| [Nazwy tabel](#table-names)                                  | Yes                | Nie                      |
-| [Trwałość tabeli](#table-persistence)                      | Yes                | Nie                      |
-| [Zwykła tabela](#regular-table)                              | Yes                | Nie                      |
+| [Nazwy tabel](#table-names)                                  | Tak                | Nie                      |
+| [Trwałość tabeli](#table-persistence)                      | Tak                | Nie                      |
+| [Zwykła tabela](#regular-table)                              | Tak                | Nie                      |
 | [Tabela tymczasowa](#temporary-table)                          | Tak                | Tak                     |
 | [Tabela zewnętrzna](#external-table)                            | Tak                | Tak                     |
 | [Typy danych](#data-types)                                    | Tak                | Tak                     |
-| [Rozproszone tabele](#distributed-tables)                    | Yes                | Nie                      |
-| [Tabele dystrybuowane przy użyciu skrótu](#hash-distributed-tables)          | Yes                | Nie                      |
-| [Zreplikowane tabele](#replicated-tables)                      | Yes                | Nie                      |
-| [Tabele działające w trybie okrężnym](#round-robin-tables)                    | Yes                | Nie                      |
-| [Typowe metody dystrybucji dla tabel](#common-distribution-methods-for-tables) | Yes                | Nie                      |
+| [Rozproszone tabele](#distributed-tables)                    | Tak                | Nie                      |
+| [Tabele dystrybuowane przy użyciu skrótu](#hash-distributed-tables)          | Tak                | Nie                      |
+| [Zreplikowane tabele](#replicated-tables)                      | Tak                | Nie                      |
+| [Tabele działające w trybie okrężnym](#round-robin-tables)                    | Tak                | Nie                      |
+| [Typowe metody dystrybucji dla tabel](#common-distribution-methods-for-tables) | Tak                | Nie                      |
 | [Partycje](#partitions)                                    | Tak                | Tak                     |
-| [Indeksy magazynu kolumn](#columnstore-indexes)                  | Yes                | Nie                      |
+| [Indeksy magazynu kolumn](#columnstore-indexes)                  | Tak                | Nie                      |
 | [Statystyki](#statistics)                                    | Tak                | Tak                     |
-| [Klucz podstawowy i unikatowy klucz](#primary-key-and-unique-key)    | Yes                | Nie                      |
-| [Polecenia służące do tworzenia tabel](#commands-for-creating-tables) | Yes                | Nie                      |
-| [Wyrównywanie danych źródłowych z magazynem danych](#align-source-data-with-the-data-warehouse) | Yes                | Nie                      |
-| [Nieobsługiwane funkcje tabeli](#unsupported-table-features)    | Yes                | Nie                      |
-| [Zapytania o rozmiar tabeli](#table-size-queries)                    | Yes                | Nie                      |
+| [Klucz podstawowy i unikatowy klucz](#primary-key-and-unique-key)    | Tak                | Nie                      |
+| [Polecenia służące do tworzenia tabel](#commands-for-creating-tables) | Tak                | Nie                      |
+| [Wyrównywanie danych źródłowych z magazynem danych](#align-source-data-with-the-data-warehouse) | Tak                | Nie                      |
+| [Nieobsługiwane funkcje tabeli](#unsupported-table-features)    | Tak                | Nie                      |
+| [Zapytania o rozmiar tabeli](#table-size-queries)                    | Tak                | Nie                      |
 
 ## <a name="determine-table-category"></a>Określanie kategorii tabeli
 
@@ -75,7 +75,7 @@ Aby wyświetlić organizację tabel w puli SQL, można użyć faktów, Dim i int
 
 | Tabela WideWorldImportersDW  | Typ tabeli | Pula SQL |
 |:-----|:-----|:------|:-----|
-| Miasto | Wymiar | WWI. DimCity |
+| City (Miasto) | Wymiar | WWI. DimCity |
 | Zamówienie | Fact | WWI. FactOrder |
 
 ## <a name="table-persistence"></a>Trwałość tabeli
@@ -96,7 +96,7 @@ Tabela tymczasowa istnieje tylko na czas trwania sesji. Możesz użyć tabeli ty
 
 SQL na żądanie obsługuje tabele tymczasowe. Jednak jego użycie jest ograniczone, ponieważ można wybrać z tabeli tymczasowej, ale nie można dołączyć jej do plików w magazynie.
 
-Aby uzyskać więcej informacji, zobacz [tabele tymczasowe](develop-tables-temporary.md).
+Aby uzyskać więcej informacji, zobacz  [tabele tymczasowe](develop-tables-temporary.md).
 
 ### <a name="external-table"></a>Tabela zewnętrzna
 
@@ -360,6 +360,9 @@ SELECT *
 FROM size
 ;
 ```
+
+>[!TIP]
+> Aby zwiększyć wydajność w programie Synapse SQL, należy rozważyć użycie **tabeli sys. pdw_permanent_table_mappings** zamiast **sys. pdw_table_mappings** w tabelach trwałych użytkowników. Aby uzyskać więcej informacji, zobacz sekcję **[sys. pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
 
 ### <a name="table-space-summary"></a>Podsumowanie obszaru tabeli
 

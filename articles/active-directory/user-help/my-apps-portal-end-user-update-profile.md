@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: edbe76145c83e000c549f7e0dd89cc500e6f05f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b442d5dfae6596b3aea9301d86e9a7cb6d2cbb9f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741769"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799217"
 ---
 # <a name="update-your-profile-and-account-information-on-the-my-apps-portal"></a>Aktualizowanie informacji o profilu i koncie w portalu My Apps
 
@@ -33,7 +33,7 @@ Jeśli nie masz dostępu do portalu **Moje aplikacje** , musisz skontaktować si
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 > [!Important]
-> Ta zawartość jest przeznaczona dla użytkowników **moich aplikacji** . Jeśli jesteś administratorem, możesz znaleźć więcej informacji na temat sposobu konfigurowania i zarządzania aplikacjami opartymi na chmurze w [dokumentacji zarządzania aplikacjami](https://docs.microsoft.com/azure/active-directory/manage-apps).
+> Ta zawartość jest przeznaczona dla użytkowników **moich aplikacji** . Jeśli jesteś administratorem, możesz znaleźć więcej informacji na temat sposobu konfigurowania i zarządzania aplikacjami opartymi na chmurze w [dokumentacji zarządzania aplikacjami](../manage-apps/index.yml).
 
 ## <a name="view-your-organization-related-profile-information"></a>Wyświetlanie informacji o profilu związanym z organizacją
 

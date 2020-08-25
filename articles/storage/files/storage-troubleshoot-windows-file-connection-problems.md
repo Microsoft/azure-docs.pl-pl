@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f9e4fdb0fe8872c505bbbbb10da11d8fb74a22b3
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 322a3b4e8d362d1b751b2c016e6f7cf904f11d7e
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927219"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752337"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Rozwiązywanie problemów z usługą Azure Files w systemie Windows
 
@@ -364,6 +364,16 @@ Podczas próby skonfigurowania list ACL systemu Windows za pomocą Eksploratora 
 ### <a name="solution"></a>Rozwiązanie
 
 Zalecamy użycie [Narzędzia icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) w celu skonfigurowania uprawnień na poziomie katalogu/pliku jako obejścia. 
+
+## <a name="errors-when-running-join-azstorageaccountforauth-cmdlet"></a>Błędy podczas uruchamiania polecenia cmdlet Join-AzStorageAccountForAuth
+
+### <a name="error-the-directory-service-was-unable-to-allocate-a-relative-identifier"></a>Błąd: "usługa katalogowa nie może przydzielić identyfikatora względnego"
+
+Ten błędu może wystąpić, Jeśli kontroler domeny, który posiada główną rolę FSMO RID jest niedostępny lub został usunięty z domeny i przywrócono z kopii zapasowej.  Upewnij się, że wszystkie kontrolery domeny są uruchomione i dostępne.
+
+### <a name="error-cannot-bind-positional-parameters-because-no-names-were-given"></a>Błąd: „Nie można powiązać parametrów pozycyjnych, ponieważ nie podano nazw”
+
+Ten błąd jest najprawdopodobniej wyzwalany przez błąd składniowy w poleceniu Join-AzStorageAccountforAuth.  Sprawdź polecenie w poszukiwaniu błędów pisowni lub składni i sprawdź, czy Najnowsza wersja modułu AzFilesHybrid ( https://github.com/Azure-Samples/azure-files-samples/releases) jest zainstalowana).  
 
 ## <a name="need-help-contact-support"></a>Potrzebujesz pomocy? Skontaktuj się z pomocą techniczną.
 Jeśli nadal potrzebujesz pomocy, [skontaktuj się z pomocą techniczną](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , aby szybko rozwiązać problem.

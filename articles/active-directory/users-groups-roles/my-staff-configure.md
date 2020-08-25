@@ -13,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: dc4e71f4283d78c2b241441810a8c1313f002152
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: da358ecb126dda21d18120bbe698fec234c85e4f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850897"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798962"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Zarządzanie użytkownikami za pomocą mojego personelu (wersja zapoznawcza)
 
@@ -64,7 +64,7 @@ Po skonfigurowaniu określania zespołu, możesz zastosować ten zakres do użyt
 
 Portal mojego personelu można chronić za pomocą zasad dostępu warunkowego usługi Azure AD. Użyj jej do zadań, takich jak wymaganie uwierzytelniania wieloskładnikowego przed uzyskaniem dostępu do mojego personelu.
 
-Zdecydowanie zalecamy ochronę mojego personelu przy użyciu [zasad dostępu warunkowego usługi Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/). Aby zastosować zasady dostępu warunkowego do mojego personelu, musisz ręcznie utworzyć główną nazwę usługi Personaler przy użyciu programu PowerShell.
+Zdecydowanie zalecamy ochronę mojego personelu przy użyciu [zasad dostępu warunkowego usługi Azure AD](../conditional-access/index.yml). Aby zastosować zasady dostępu warunkowego do mojego personelu, musisz ręcznie utworzyć główną nazwę usługi Personaler przy użyciu programu PowerShell.
 
 ### <a name="apply-a-conditional-access-policy-to-my-staff"></a>Zastosuj zasady dostępu warunkowego do mojego personelu
 
@@ -119,7 +119,7 @@ Aby zarządzać numerem telefonu użytkownika, należy przypisać jedną z nast�
 - [Administrator uprzywilejowanego uwierzytelniania](directory-assign-admin-roles.md#privileged-authentication-administrator)
 - [Administrator globalny](directory-assign-admin-roles.md#global-administrator--company-administrator)
 
-## <a name="search"></a>Wyszukiwanie
+## <a name="search"></a>Wyszukaj
 
 Na pasku wyszukiwania w obszarze Moi pracownicy można wyszukiwać w swojej organizacji jednostki organizacyjne i użytkowników. Możesz przeszukiwać wszystkich jednostek i użytkowników w organizacji, ale możesz wprowadzać zmiany tylko dla użytkowników, którzy znajdują się w usłudze AU, w której masz uprawnienia administratora.
 

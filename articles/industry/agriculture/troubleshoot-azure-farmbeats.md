@@ -5,16 +5,16 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 110fef2dcb4c1581d49fcb776276ebd9c4ae2235
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c66d3d6fd3ee0bcba01db61183f40cd3ccf3f39d
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497067"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797942"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>Rozwiązywanie problemów z projektem Azure FarmBeats
 
-Ten artykuł zawiera rozwiązania typowych problemów z usługą Azure FarmBeats. Aby uzyskać dodatkową pomoc, skontaktuj się z naszym [forum pomocy technicznej](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) lub Wyślij wiadomość e-mail na adres farmbeatssupport@microsoft.com .
+Ten artykuł zawiera rozwiązania typowych problemów z usługą Azure FarmBeats. Aby uzyskać dodatkową pomoc, skontaktuj się z nami [&forum pomocy technicznej](https://aka.ms/farmbeatssupport) lub Wyślij wiadomość e-mail na adres farmbeatssupport@microsoft.com .
 
 > [!NOTE]
   > Jeśli zainstalowano FarmBeats w kwietniu, a zadania kończą się niepowodzeniem z pustym komunikatem o błędzie, instalacja mogła nie zostać przypisana do przydziału usługi Batch w celu określenia priorytetów wsparcia dla krytycznych organizacji kondycji i bezpieczeństwa. Aby uzyskać więcej informacji, zobacz [tutaj](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) . Musisz zażądać przydzielenia maszyn wirtualnych do konta wsadowego, aby pomyślnie uruchomić zadania.

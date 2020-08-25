@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2f055a6b8f4a8876c024bdd131a6001e21004e5
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 937c5dbf3417e5914a0b4285c3bb114d7499e0fb
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209474"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799064"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenariusze, ograniczenia i znane problemy przy użyciu grup do zarządzania licencjonowaniem w programie Azure Active Directory
 
@@ -211,7 +211,7 @@ W przypadku korzystania z licencjonowania opartego na grupach warto zapoznać si
 
 - Gdy licencje są przypisywane lub modyfikowane dla dużej grupy (na przykład 100 000 użytkowników), może to mieć wpływ na wydajność. W odniesieniu do wielkości zmian wygenerowanych przez usługę Azure AD Automation może niekorzystnie wpłynąć na wydajność synchronizacji katalogów między systemami Azure AD i lokalnymi.
 
-- Jeśli używasz grup dynamicznych do zarządzania członkostwem użytkowników, sprawdź, czy dany użytkownik należy do grupy. Jest to wymagane do przypisania licencji. Jeśli tak nie jest, [sprawdź stan przetwarzania reguły członkostwa](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule) grupy dynamicznej.
+- Jeśli używasz grup dynamicznych do zarządzania członkostwem użytkowników, sprawdź, czy dany użytkownik należy do grupy. Jest to wymagane do przypisania licencji. Jeśli tak nie jest, [sprawdź stan przetwarzania reguły członkostwa](./groups-create-rule.md) grupy dynamicznej.
 
 - W pewnych sytuacjach wymagających dużego obciążenia może upłynąć dużo czasu, aby przetwarzać zmiany w grupach lub zmianach członkostwa w grupach z istniejącymi licencjami. Jeśli zobaczysz, że zmiany będą trwać dłużej niż 24 godziny w celu przetworzenia rozmiaru grupy 60K użytkowników lub mniej, [Otwórz bilet pomocy technicznej](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) , aby umożliwić nam zbadanie. 
 

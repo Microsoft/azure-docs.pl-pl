@@ -3,18 +3,18 @@ title: Tworzenie kopii zapasowych udziałów plików platformy Azure przy użyci
 description: Dowiedz się, jak używać interfejsu API REST do tworzenia kopii zapasowych udziałów plików platformy Azure w magazynie Recovery Services
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: bf737dfa366796c4a392ec3d00609134978057ac
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: b3d83104b699740c43b0c6506c00694c2b2ac063
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654144"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757136"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Tworzenie kopii zapasowej udziału plików platformy Azure przy użyciu Azure Backup za pomocą interfejsu API REST
 
 W tym artykule opisano sposób tworzenia kopii zapasowej udziału plików platformy Azure przy użyciu Azure Backup za pośrednictwem interfejsu API REST.
 
-W tym artykule przyjęto założenie, że utworzono już magazyn i zasady usługi Recovery Services w celu skonfigurowania kopii zapasowej udziału plików. Jeśli nie, zapoznaj się z samouczkiem [Tworzenie magazynu](./backup-azure-arm-userestapi-createorupdatevault.md) i interfejs API REST [zasad](./backup-azure-arm-userestapi-createorupdatepolicy.md) , aby utworzyć nowe magazyny i zasady.
+W tym artykule przyjęto założenie, że utworzono już magazyn Recovery Services i zasady dotyczące konfigurowania kopii zapasowej udziału plików. Jeśli nie, zapoznaj się z samouczkiem [Tworzenie magazynu](./backup-azure-arm-userestapi-createorupdatevault.md) i interfejs API REST [zasad](./backup-azure-arm-userestapi-createorupdatepolicy.md) , aby utworzyć nowe magazyny i zasady.
 
 W tym artykule będziemy używać następujących zasobów:
 
@@ -156,7 +156,7 @@ protectableContainers/StorageContainer;Storage;AzureFiles;testvault2",
 }
 ```
 
-Ponieważ firma Microsoft może zlokalizować konto magazynu *testvault2* w treści odpowiedzi o przyjaznej nazwie, wykonana powyżej operacja odświeżania powiodła się. Magazyn usługi Recovery Services może teraz pomyślnie wykryć konta magazynu z udziałami plików niechronionymi w tej samej subskrypcji.
+Ponieważ firma Microsoft może zlokalizować konto magazynu *testvault2* w treści odpowiedzi o przyjaznej nazwie, wykonana powyżej operacja odświeżania powiodła się. Magazyn Recovery Services może teraz pomyślnie odnajdywać konta magazynu z udziałami plików niechronionymi w tej samej subskrypcji.
 
 ### <a name="register-storage-account-with-recovery-services-vault"></a>Rejestrowanie konta magazynu w magazynie Recovery Services
 

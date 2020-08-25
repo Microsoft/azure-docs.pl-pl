@@ -3,12 +3,12 @@ title: Dowiedz się, jak przeprowadzić inspekcję zawartości maszyn wirtualnyc
 description: Dowiedz się, w jaki sposób Azure Policy używa agenta konfiguracji gościa do inspekcji ustawień wewnątrz maszyn wirtualnych.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: af913a6bb1fb7c871a7f6740a0fb2d66efa3f712
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 951960793ebda50fdb87d266c4dc8561f2fcd70f
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717580"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756694"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Opis konfiguracji gościa usługi Azure Policy
 
@@ -111,25 +111,16 @@ Jeśli komputer ma obecnie tożsamość systemową przypisaną przez użytkownik
 
 ## <a name="guest-configuration-definition-requirements"></a>Wymagania definicji konfiguracji gościa
 
-Każde uruchomienie inspekcji według konfiguracji gościa wymaga dwóch definicji zasad, definicji **DeployIfNotExists** i definicji **AuditIfNotExists** . Definicje zasad **DeployIfNotExists** zarządzają zależnościami dla przeprowadzania inspekcji na poszczególnych komputerach.
+Zasady konfiguracji gościa używają efektu **AuditIfNotExists** . Po przypisaniu definicji usługa zaplecza automatycznie obsługuje cykl życia wszystkich wymagań `Microsoft.GuestConfiguration` dostawcy zasobów platformy Azure.
 
-Definicja zasad **DeployIfNotExists** weryfikuje i koryguje następujące elementy:
+Zasady **AuditIfNotExists** nie będą zwracać wyników zgodności, dopóki nie zostaną spełnione wszystkie wymagania na komputerze. Wymagania są opisane w sekcji [wdrażanie wymagań dla usługi Azure Virtual Machines](#deploy-requirements-for-azure-virtual-machines)
 
-- Sprawdź, czy na komputerze została przypisana konfiguracja do obliczenia. Jeśli żadne przypisanie nie jest obecnie dostępne, Pobierz przypisanie i przygotuj maszynę przez:
-  - Uwierzytelnianie na maszynie przy użyciu [tożsamości zarządzanej](../../../active-directory/managed-identities-azure-resources/overview.md)
-  - Instalowanie najnowszej wersji rozszerzenia **Microsoft. GuestConfiguration**
-  - Instalowanie [narzędzi i zależności walidacji](#validation-tools) , w razie konieczności
-
-Jeśli przypisanie **DeployIfNotExists** jest niezgodne, może zostać użyte [zadanie korygowania](../how-to/remediate-resources.md#create-a-remediation-task) .
-
-Gdy przypisanie **DeployIfNotExists** jest zgodne, przypisanie zasad **AuditIfNotExists** określa, czy przypisanie gościa jest zgodne, czy niezgodne. Narzędzie sprawdzania poprawności zapewnia wyniki dla klienta konfiguracji gościa. Klient przekazuje wyniki do rozszerzenia gościa, co sprawia, że są dostępne za pomocą dostawcy zasobów konfiguracji gościa.
+> [!IMPORTANT]
+> W poprzedniej wersji konfiguracji gościa, do łączenia definicji **DeployIfNoteExists** i **AuditIfNotExists** , wymagana była inicjatywa. Definicje **DeployIfNotExists** nie są już wymagane. Definicje i intiaitives są oznaczone etykietami, `[Deprecated]` ale istniejące przypisania będą nadal działać.
+>
+> Wymagany jest krok ręczny. Jeśli wcześniej przypisano inicjatywy zasad w kategorii `Guest Configuration` , usuń przypisanie zasad i przypisz nową definicję. Zasady konfiguracji gościa mają wzorzec nazwy w następujący sposób: `Audit <Windows/Linux> machines that <non-compliant condition>`
 
 Azure Policy używa właściwości **complianceStatus** dostawcy zasobów konfiguracji gościa, aby zgłosić zgodność w węźle **zgodność** . Aby uzyskać więcej informacji, zobacz [pobieranie danych zgodności](../how-to/get-compliance-data.md).
-
-> [!NOTE]
-> Zasady **DeployIfNotExists** są wymagane do zwracania wyników przez zasady **AuditIfNotExists** . Bez **DeployIfNotExists**zasady **AuditIfNotExists** są wyświetlane jako stan zasobów "0 z 0".
-
-Wszystkie wbudowane zasady konfiguracji gościa są zawarte w inicjatywie do grupowania definicji do użycia w przypisaniach. Wbudowana inicjatywa o nazwie _ \[ wersja zapoznawcza \] : Inspekcja zabezpieczeń haseł w systemach Linux i Windows_ zawiera 18 zasad. Istnieje sześć par **DeployIfNotExists** i **AuditIfNotExists** dla systemu Windows i trzech par w systemie Linux. Logika [definicji zasad](definition-structure.md#policy-rule) sprawdza, czy jest oceniany tylko docelowy system operacyjny.
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Inspekcja ustawień systemu operacyjnego po liniach bazowych branżowych
 

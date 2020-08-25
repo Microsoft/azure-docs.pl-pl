@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: d19bfac318ab2ed20d021e10b43b691b525ba897
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 27c284ff7e806c9f194005ed26c05e99c4697083
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749139"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757646"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Korzystanie z procesorów GPU na potrzeby obciążeń intensywnie korzystających z obliczeń w usłudze Azure Kubernetes Service (AKS)
 
@@ -158,12 +158,12 @@ Aby zaktualizować rozszerzenie interfejsu wiersza polecenia AKS-Preview, użyj 
 az extension update --name aks-preview
 ```
 
-### <a name="use-the-aks-specialized-gpu-image-on-new-clusters-preview"></a>Korzystanie z AKS wyspecjalizowanego obrazu procesora GPU w nowych klastrach (wersja zapoznawcza)
+### <a name="use-the-aks-specialized-gpu-image-on-new-clusters-preview"></a>Korzystanie z AKS wyspecjalizowanego obrazu procesora GPU w nowych klastrach (wersja zapoznawcza)    
 
 Skonfiguruj klaster tak, aby korzystał z AKS wyspecjalizowanego obrazu procesora GPU podczas tworzenia klastra. Użyj `--aks-custom-headers` flagi dla węzłów agenta procesora GPU w nowym klastrze, aby użyć obrazu wyspecjalizowanego procesora GPU AKS.
 
 ```azure-cli
-az aks create --name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6s_v2 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
+az aks create --name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
 ```
 
 Jeśli chcesz utworzyć klaster przy użyciu zwykłych obrazów AKS, możesz to zrobić, pomijając `--aks-custom-headers` znacznik niestandardowy. Możesz również dodać bardziej wyspecjalizowane pule węzłów procesora GPU jak poniżej.
@@ -178,6 +178,12 @@ az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myRe
 ```
 
 Jeśli chcesz utworzyć pulę węzłów przy użyciu zwykłych obrazów AKS, możesz to zrobić, pomijając `--aks-custom-headers` tag niestandardowy. 
+
+> [!NOTE]
+> Jeśli jednostka SKU procesora GPU wymaga maszyn wirtualnych generacji 2, można utworzyć:
+> ```azure-cli
+> az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6s_v2 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true,usegen2vm=true
+> ```
 
 ## <a name="confirm-that-gpus-are-schedulable"></a>Upewnij się, że procesory GPU są harmonogramie
 

@@ -4,12 +4,12 @@ description: Azure Resource Manager szablonów do użycia z magazynami Recovery 
 ms.topic: sample
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 09962a37f36621950189e9446099c349de9430bb
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 29a2499bfd3125cad98e72f7543bb9a29293f624
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170993"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755198"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Szablony usługi Azure Resource Manager dla usługi Azure Backup
 

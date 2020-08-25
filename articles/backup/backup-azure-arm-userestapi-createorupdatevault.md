@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak zarządzać operacją tworzenia ko
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 0170bda1ca956efe971695e34dc0d14b68eb109a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c4aa88399bfbdd7814864170d9861a7b7d14dc58
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079336"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757255"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Tworzenie magazynu Recovery Services platformy Azure przy użyciu interfejsu API REST
 
@@ -30,7 +30,7 @@ Wymagane są następujące nagłówki:
 | Nagłówek żądania   | Opis |
 |------------------|-----------------|
 | *Content-Type:*  | Wymagany. Ustaw wartość `application/json`. |
-| *Authorization:* | Wymagany. Ustaw na prawidłowy  [token dostępu](/rest/api/azure/#authorization-code-grant-interactive-clients)`Bearer`. |
+| *Authorization:* | Wymagany. Ustaw na prawidłowy [token dostępu](/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer`. |
 
 Aby uzyskać więcej informacji na temat sposobu tworzenia żądania, zobacz [składniki żądania/odpowiedzi interfejsu API REST](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -40,8 +40,8 @@ Następujące typowe definicje są używane do kompilowania treści żądania:
 
 |Nazwa  |Wymagany  |Typ  |Opis  |
 |---------|---------|---------|---------|
-|Element ETag     |         |   String (ciąg)      |  Opcjonalny element eTag       |
-|location     |  true       |String (ciąg)         |   Lokalizacja zasobu      |
+|Element ETag     |         |   Ciąg      |  Opcjonalny element eTag       |
+|location     |  true       |Ciąg         |   Lokalizacja zasobu      |
 |properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Właściwości magazynu       |
 |sku     |         |  [Magazyn](/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identyfikuje unikatowy identyfikator systemowy dla poszczególnych zasobów platformy Azure     |
 |tags     |         | Obiekt        |     Tagi zasobów    |

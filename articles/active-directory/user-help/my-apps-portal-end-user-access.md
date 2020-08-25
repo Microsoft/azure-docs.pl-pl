@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: aa9813480425d179bdd11bac6f6f944f9f65e3ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78204be967bafdd7d01af4f9f286bd15347e4a9f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741962"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798044"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Logowanie i uruchamianie aplikacji z poziomu portalu My Apps
 
@@ -33,7 +33,7 @@ Jeśli nie masz dostępu do portalu **Moje aplikacje** , skontaktuj się z pomoc
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 > [!Important]
-> Ta zawartość jest przeznaczona dla użytkowników moich aplikacji. Jeśli jesteś administratorem, możesz znaleźć więcej informacji na temat sposobu konfigurowania i zarządzania aplikacjami opartymi na chmurze w [dokumentacji zarządzania aplikacjami](https://docs.microsoft.com/azure/active-directory/manage-apps).
+> Ta zawartość jest przeznaczona dla użytkowników moich aplikacji. Jeśli jesteś administratorem, możesz znaleźć więcej informacji na temat sposobu konfigurowania i zarządzania aplikacjami opartymi na chmurze w [dokumentacji zarządzania aplikacjami](../manage-apps/index.yml).
 
 ## <a name="supported-browsers"></a>Obsługiwane przeglądarki
 
@@ -59,7 +59,7 @@ To rozszerzenie ułatwia:
 
 - Zobacz ostatnie aplikacje używane w **ostatnio używanych** sekcjach.
 
-- Użyj wewnętrznych adresów URL firmy podczas zdalnego korzystania z [serwera proxy aplikacji](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
+- Użyj wewnętrznych adresów URL firmy podczas zdalnego korzystania z [serwera proxy aplikacji](../manage-apps/application-proxy.md).
 
 ### <a name="to-download-and-install-the-extension"></a>Aby pobrać i zainstalować rozszerzenie
 
