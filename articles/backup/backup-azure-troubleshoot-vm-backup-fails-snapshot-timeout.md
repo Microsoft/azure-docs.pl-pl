@@ -4,12 +4,12 @@ description: Objawy, przyczyny i rozwiązania błędów Azure Backup związanych
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 99e175f20247058a57bb64a47465cce1ce7fbd75
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: a3fe61bf5d116d257ed7aeb32226a437d0193c54
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826057"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892392"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Rozwiązywanie problemów z błędem Azure Backup: problemy z agentem lub rozszerzeniem
 
@@ -119,7 +119,7 @@ Ten błąd występuje, gdy jeden z błędów rozszerzenia przełączy maszynę w
 Zalecana akcja:<br>
 Aby rozwiązać ten problem, Usuń blokadę z grupy zasobów maszyny wirtualnej, a następnie ponów operację, aby wyzwolić czyszczenie.
 > [!NOTE]
-> Usługa Backup tworzy oddzielną grupę zasobów niż grupa zasobów maszyny wirtualnej do przechowywania kolekcji punktów przywracania. Zaleca się, aby nie blokować grupy zasobów utworzonej do użycia przez usługę kopii zapasowej. Format nazewnictwa grupy zasobów utworzonej przez usługę kopii zapasowej to: AzureBackupRG_ `<Geo>` _ `<number>` . Na przykład: *AzureBackupRG_northeurope_1*
+> Usługa Backup tworzy oddzielną grupę zasobów niż grupa zasobów maszyny wirtualnej do przechowywania kolekcji punktów przywracania. Zalecane jest, aby nie blokować grupy zasobów utworzonej do użycia przez usługę kopii zapasowej. Format nazewnictwa grupy zasobów utworzonej przez usługę kopii zapasowej to: AzureBackupRG_ `<Geo>` _ `<number>` . Na przykład: *AzureBackupRG_northeurope_1*
 
 **Krok 1. [Usuwanie blokady z grupy zasobów punktu przywracania](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Krok 2. [czyszczenie kolekcji punktów przywracania](#clean_up_restore_point_collection)**<br>

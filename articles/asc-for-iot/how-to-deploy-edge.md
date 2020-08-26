@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 4dd7ca8f926862487b9505731c0662e68ee3d7c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c646c750cb54228211fadb0a4f6733d495e9219
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311281"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892069"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Wdrażanie modułu zabezpieczeń na urządzeniu IoT Edge
 
@@ -47,7 +47,7 @@ Wykonaj następujące kroki, aby wdrożyć Azure Security Center dla modułu zab
     - Sprawdź, czy inspekcja jest aktywna, uruchamiając następujące polecenie:
 
     `sudo systemctl status auditd`<br>
-    - Oczekiwana odpowiedź:`active (running)`
+    - Oczekiwana odpowiedź: `active (running)`
 
 ### <a name="deployment-using-azure-portal"></a>Wdrażanie przy użyciu Azure Portal
 
@@ -93,11 +93,23 @@ Wykonaj każdy krok, aby ukończyć wdrożenie IoT Edge dla Azure Security Cente
 
 1. Na karcie **Ustawienia sznurka modułu** Dodaj następującą konfigurację:
 
-    ``` json
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
-    ```
+   Właściwość sznurka modułu:
+   
+   ``` json
+     "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
+   ```
 
-1. Wybierz pozycję **Update** (Aktualizuj).
+   Zawartość właściwości sznurka modułu: 
+
+   ```json
+     {
+
+     }
+   ```
+    
+   Więcej informacji o konfigurowaniu agenta znajduje się w temacie [Konfigurowanie agentów zabezpieczeń](https://docs.microsoft.com/azure/asc-for-iot/how-to-agent-configuration).
+
+1. Wybierz pozycję **Aktualizuj**.
 
 #### <a name="step-2-runtime-settings"></a>Krok 2. Ustawienia środowiska uruchomieniowego
 

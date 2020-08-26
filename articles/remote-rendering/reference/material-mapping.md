@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: f1ae8ca1ef940e45c2d32adc9a002b349f9e1b44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8313243bf680ea1a1d63f2719b647149a04935a9
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783014"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893102"
 ---
 # <a name="material-mapping-for-model-formats"></a>Mapowanie materiałów dla formatów modelu
 
@@ -101,29 +101,30 @@ Powyższe mapowanie to najbardziej złożona część konwersji materiału ze wz
 Niektóre definicje użyte poniżej:
 
 * `Specular` =  `SpecularColor` * `SpecularFactor`
-* `SpecularIntensity` = `Specular`. Red ∗ 0,2125 + `Specular` . Zielony ∗ 0,7154 + `Specular` . Niebieska ∗ 0,0721
-* `DiffuseBrightness`= 0,299 * `Diffuse` . Czerwony<sup>2</sup> + 0,587 * `Diffuse` . Zielony<sup>2</sup> + 0,114 * `Diffuse` . Niebieski<sup>2</sup>
-* `SpecularBrightness`= 0,299 * `Specular` . Czerwony<sup>2</sup> + 0,587 * `Specular` . Zielony<sup>2</sup> + 0,114 * `Specular` . Niebieski<sup>2</sup>
-* `SpecularStrength`= Max ( `Specular` . Czerwony, `Specular` . Zielony, `Specular` . Świetlon
+* `SpecularIntensity` = `Specular`. Red ∗ 0,2125 +  `Specular` . Zielony ∗ 0,7154 + `Specular` . Niebieska ∗ 0,0721
+* `DiffuseBrightness` = 0,299 * `Diffuse` . Czerwony<sup>2</sup> + 0,587 * `Diffuse` . Zielony<sup>2</sup> + 0,114 * `Diffuse` . Niebieski<sup>2</sup>
+* `SpecularBrightness` = 0,299 * `Specular` . Czerwony<sup>2</sup> + 0,587 * `Specular` . Zielony<sup>2</sup> + 0,114 * `Specular` . Niebieski<sup>2</sup>
+* `SpecularStrength` = Max ( `Specular` . Czerwony, `Specular` . Zielony, `Specular` . Świetlon
 
 W [tym miejscu](https://en.wikipedia.org/wiki/Luma_(video))zostanie uzyskana formuła SpecularIntensity.
 Formuła jasności jest opisana w tej [specyfikacji](http://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.601-7-201103-I!!PDF-E.pdf).
 
 ### <a name="roughness"></a>Niesztywność
 
-`Roughness`jest obliczany z `Specular` i `ShininessExponent` przy użyciu [tej formuły](https://www.cs.cornell.edu/~srm/publications/EGSR07-btdf.pdf). Formuła to przybliżenie przybliżonej wartości z wykładnika podstawowego Phong odblasków:
+`Roughness` jest obliczany z `Specular` i `ShininessExponent` przy użyciu [tej formuły](https://www.cs.cornell.edu/~srm/publications/EGSR07-btdf.pdf). Formuła to przybliżenie przybliżonej wartości z wykładnika podstawowego Phong odblasków:
 
-```Cpp
+```cpp
 Roughness = sqrt(2 / (ShininessExponent * SpecularIntensity + 2))
 ```
 
 ### <a name="metalness"></a>Metalowy
 
-`Metalness`jest obliczany z `Diffuse` i `Specular` przy użyciu tej [formuły ze specyfikacji glTF](https://github.com/bghgary/glTF/blob/gh-pages/convert-between-workflows-bjs/js/babylon.pbrUtilities.js).
+`Metalness` jest obliczany z `Diffuse` i `Specular` przy użyciu tej [formuły ze specyfikacji glTF](https://github.com/bghgary/glTF/blob/gh-pages/convert-between-workflows-bjs/js/babylon.pbrUtilities.js).
 
 Pomysłem jest to, że rozwiązujemy równanie: AX<sup>2</sup> + BX + C = 0.
 Zasadniczo, oddzielne powierzchnie odzwierciedlają około 4% światła w odblasków sposób, a reszta jest rozpraszana. Powierzchnie metalowe nie odzwierciedlają światła w sposób rozpraszania, ale wszystko to w odblasków sposób.
 Ta formuła zawiera kilka wad, ponieważ nie ma możliwości rozróżniania między błyszczącymi plastikowymi i błyszczącymi powierzchniami metalicznymi. Przyjmujemy większość czasu, gdy powierzchnia ma metaliczne właściwości, a w efekcie błyszczące plastyczne i gumowe powierzchnie mogą nie wyglądać zgodnie z oczekiwaniami.
+
 ```cpp
 dielectricSpecularReflectance = 0.04
 oneMinusSpecularStrength = 1 - SpecularStrength
@@ -138,12 +139,12 @@ Metalness = clamp(value, 0.0, 1.0);
 
 ### <a name="albedo"></a>Albedo
 
-`Albedo`jest obliczany z `Diffuse` , `Specular` , i `Metalness` .
+`Albedo` jest obliczany z `Diffuse` , `Specular` , i `Metalness` .
 
 Zgodnie z opisem w sekcji metalu, powierzchnie odelektryczne odzwierciedlają około 4% światła.  
 Pomysłem jest liniowe Interpolacja między `Dielectric` i `Metal` kolorami przy użyciu `Metalness` wartości jako czynnika. Jeśli metalu jest `0.0` , w zależności od odblasków będzie to kolor ciemny (jeśli odblasków jest wysoki) lub Dyfuzja nie ulegnie zmianie (jeśli nie odblasków jest obecny). Jeśli metal jest dużą wartością, kolor rozpraszania będzie znikał na korzyść koloru odblasków.
 
-```Cpp
+```cpp
 dielectricSpecularReflectance = 0.04
 oneMinusSpecularStrength = 1 - SpecularStrength
 
@@ -153,13 +154,13 @@ albedoRawColor = lerpColors(dielectricColor, metalColor, metalness * metalness)
 AlbedoRGB = clamp(albedoRawColor, 0.0, 1.0);
 ```
 
-`AlbedoRGB`został obliczony przez powyższą formułę, ale kanał alfa wymaga dodatkowych obliczeń. Format FBX jest niezrozumiały dla przejrzystości i ma wiele sposobów na jego Definiowanie. Różne narzędzia zawartości używają różnych metod. Dobrym pomysłem jest ujednolicenie ich do jednej formuły. Niektóre elementy zawartości nieprawidłowo pokazywane jako przezroczyste, ale jeśli nie są tworzone w typowy sposób.
+`AlbedoRGB` został obliczony przez powyższą formułę, ale kanał alfa wymaga dodatkowych obliczeń. Format FBX jest niezrozumiały dla przejrzystości i ma wiele sposobów na jego Definiowanie. Różne narzędzia zawartości używają różnych metod. Dobrym pomysłem jest ujednolicenie ich do jednej formuły. Niektóre elementy zawartości nieprawidłowo pokazywane jako przezroczyste, ale jeśli nie są tworzone w typowy sposób.
 
 Jest on obliczany z `TransparentColor` , `TransparencyFactor` , `Opacity` :
 
 Jeśli `Opacity` jest zdefiniowany, użyj go bezpośrednio: `AlbedoAlpha`  =  `Opacity` else  
 Jeśli `TransparencyColor` jest zdefiniowany, then `AlbedoAlpha` = 1,0-(( `TransparentColor` . Czerwony + `TransparentColor` . Zielony + `TransparentColor` . Niebieski)/3,0) inny  
-Jeśli `TransparencyFactor` , then `AlbedoAlpha` = 1,0-`TransparencyFactor`
+Jeśli `TransparencyFactor` , then `AlbedoAlpha` = 1,0- `TransparencyFactor`
 
 Końcowy `Albedo` kolor ma cztery kanały, łącząc przy `AlbedoRGB` użyciu `AlbedoAlpha` .
 

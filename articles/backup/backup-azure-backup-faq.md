@@ -3,12 +3,12 @@ title: Odpowiedzi na często zadawane pytania
 description: 'Odpowiedzi na typowe pytania dotyczące funkcji usługi Azure Backup, w tym magazynów usług Recovery Services, elementów, których kopie zapasowe można tworzyć, sposobu działania, szyfrowania i ograniczeń. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 332b86d58e4c3f64dfbc528b4fe30399ef69d2a3
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: ea4cc792100edf59188a9be99c384747267dc0d8
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827396"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892766"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup — często zadawane pytania
 
@@ -26,7 +26,7 @@ W magazynie można zarejestrować maksymalnie 1000 maszyn wirtualnych platformy 
 
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Ile źródeł danych / elementów można objąć ochroną w magazynie?
 
-Ochroną można objąć maksymalnie 2000 źródeł danych / elementów we wszystkich obciążeniach (maszyna wirtualna IaaS, SQL, AFS itp.) w magazynie.
+Można chronić maksymalnie 2000 źródeł danych/elementów we wszystkich obciążeniach (takich jak IaaS VM, SQL, AFS) w magazynie.
 Jeśli na przykład masz już chronione 500 maszyn wirtualnych i 400 Azure Files w magazynie, możesz chronić tylko do 1100 baz danych SQL.
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>Ile zasad można utworzyć dla danego magazynu?

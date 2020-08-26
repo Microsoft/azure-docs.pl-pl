@@ -3,12 +3,12 @@ title: Zarządzanie kopiami zapasowymi maszyn wirtualnych platformy Azure i ich 
 description: Dowiedz się, jak zarządzać kopiami zapasowymi maszyny wirtualnej platformy Azure i monitorować je za pomocą usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: cbe0ccef9df27af032cf849b302f6a6211383fe8
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: a3349d30d5913781fb3348e7f5622366b3abc1d0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532049"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892171"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Zarządzanie kopiami zapasowymi maszyn wirtualnych platformy Azure za pomocą usługi Azure Backup
 
@@ -188,7 +188,7 @@ Aby chronić dane, Azure Backup obejmuje funkcję usuwania nietrwałego. W przyp
 
 * Jeśli maszyny wirtualne platformy Azure skonfigurowane dla usługi Azure Backup zostaną usunięte lub przeniesione bez zatrzymywania ochrony, wówczas zarówno zaplanowane zadania tworzenia kopii zapasowej, jak i zadania tworzenia kopii zapasowych na żądanie (ad hoc) zakończą się niepowodzeniem z powodu błędu UserErrorVmNotFoundV2. Wstępne sprawdzanie kopii zapasowej będzie wyświetlane jako krytyczne tylko dla nieudanych zadań tworzenia kopii zapasowej na żądanie (zakończone niepowodzeniem zaplanowane zadania nie są wyświetlane).
 * Te elementy kopii zapasowej pozostają aktywne w systemie zgodnie z zasadami tworzenia kopii zapasowych i przechowywania ustawionych przez użytkownika. Dane kopii zapasowej dla tych maszyn wirtualnych platformy Azure będą przechowywane zgodnie z zasadami przechowywania. Wygasłe punkty odzyskiwania (z wyjątkiem ostatniego punktu odzyskiwania) są czyszczone zgodnie z zakresem przechowywania określonym w zasadach tworzenia kopii zapasowych.
-* Użytkownicy są zalecani do usunięcia elementów kopii zapasowych, w których główne źródło danych już nie istnieje, aby uniknąć dodatkowych kosztów, jeśli element kopii zapasowej/dane dla zasobów usuwania nie są już wymagane, ponieważ ostatni punkt odzyskiwania jest zachowywany w nieskończoność, a użytkownik jest obciążany zgodnie z obowiązującymi cenami.
+* Zalecamy usunięcie elementów kopii zapasowej, w których pierwotne źródło danych już nie istnieje, aby uniknąć dodatkowego kosztu, jeśli element/dane kopii zapasowej dla operacji usuwania nie są już wymagane, ponieważ ostatni punkt odzyskiwania jest zachowywany w nieskończoność, a użytkownik jest obciążany zgodnie z cenami za tworzenie kopii zapasowych.
 
 ## <a name="next-steps"></a>Następne kroki
 

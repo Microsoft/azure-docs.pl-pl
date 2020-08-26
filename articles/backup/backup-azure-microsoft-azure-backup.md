@@ -3,12 +3,12 @@ title: Użyj Azure Backup Server, aby utworzyć kopię zapasową obciążeń
 description: W tym artykule dowiesz się, jak przygotować środowisko do ochrony i tworzenia kopii zapasowych obciążeń przy użyciu Microsoft Azure Backup Server (serwera usługi MAB).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 74d4d01d535f7148d3c3878a431dac2f951ae134
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 553073cf70e6806077a4df98e237bbbe0d2bb21a
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827379"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892290"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalowanie i uaktualnianie Azure Backup Server
 
@@ -129,7 +129,7 @@ Aby edytować ustawienia replikacji magazynu:
     **Wprowadzenie Kreatora tworzenia kopii zapasowych** przełącza opcję **Przygotuj infrastrukturę** , aby utworzyć kopię zapasową obciążeń na platformie Azure.
 
    > [!NOTE]
-   > Jeśli chcesz tylko tworzyć kopie zapasowe plików i folderów, zalecamy użycie agenta Azure Backup i postępując zgodnie ze wskazówkami zawartymi w artykule, [najpierw Zobacz: Tworzenie kopii zapasowych plików i folderów](./backup-windows-with-mars-agent.md). Jeśli chcesz chronić więcej niż pliki i foldery lub planujesz rozszerzyć potrzeby ochrony w przyszłości, wybierz te obciążenia.
+   > Jeśli chcesz tylko tworzyć kopie zapasowe plików i folderów, zalecamy użycie agenta Azure Backup i postępując zgodnie ze wskazówkami zawartymi w artykule, [najpierw Zobacz: Tworzenie kopii zapasowych plików i folderów](./backup-windows-with-mars-agent.md). Jeśli zamierzasz chronić więcej niż pliki i foldery lub planujesz rozszerzyć potrzeby ochrony w przyszłości, wybierz te obciążenia.
    >
    >
 

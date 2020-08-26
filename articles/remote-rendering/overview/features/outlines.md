@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 4f3889a0ba121cb9a3167c1f6ac95f0bed280539
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 566bbca4c9b5c2f2a96ad231d69dda94374c7db2
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83759017"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893004"
 ---
 # <a name="outline-rendering"></a>Renderowanie konturów
 
@@ -18,7 +18,7 @@ Wybrane obiekty można wizualnie podświetlone, dodając renderowanie konspektu 
 
 Właściwości konspektu to ustawienie globalne. Wszystkie obiekty, które używają renderowania konturu, będą używać tego samego ustawienia — nie można użyć koloru konturu dla obiektu.
 
-## <a name="parameters-for-outlinesettings"></a>Parametry dla`OutlineSettings`
+## <a name="parameters-for-outlinesettings"></a>Parametry dla `OutlineSettings`
 
 Klasa `OutlineSettings` przechowuje ustawienia związane z właściwościami konspektu globalnego. Uwidacznia następujące elementy członkowskie:
 
@@ -47,12 +47,12 @@ void SetOutlineParameters(AzureSession session)
 ```cpp
 void SetOutlineParameters(ApiHandle<AzureSession> session)
 {
-    ApiHandle<OutlineSettings> outlineSettings = *session->Actions()->OutlineSettings();
+    ApiHandle<OutlineSettings> outlineSettings = session->Actions()->GetOutlineSettings();
     Color4Ub outlineColor;
     outlineColor.channels = { 255, 255, 0, 255 };
-    outlineSettings->Color(outlineColor);
-    outlineSettings->PulseRateHz(2.0f);
-    outlineSettings->PulseIntensity(0.5f);
+    outlineSettings->SetColor(outlineColor);
+    outlineSettings->SetPulseRateHz(2.0f);
+    outlineSettings->SetPulseIntensity(0.5f);
 }
 ```
 

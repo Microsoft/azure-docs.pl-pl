@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: bd6891ff4d15dc326c846efbaa37aea997ef2e17
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b09fb7cb5e631d3405adf39d5c92a72288249aff
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320684"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893145"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące zabezpieczeń na platformie Azure Kubernetes Service (AKS)
 
@@ -42,7 +42,7 @@ Kontekst zabezpieczeń pod może również definiować dodatkowe możliwości lu
 W poniższym przykładzie manifestu YAML ustawia ustawienia kontekstu zabezpieczeń, aby zdefiniować:
 
 * Pod uruchomieniem jako identyfikator użytkownika *1000* i częścią grupy o identyfikatorze *2000*
-* Nie można eskalować uprawnień do użycia`root`
+* Nie można eskalować uprawnień do użycia `root`
 * Umożliwia funkcjom systemu Linux dostęp do interfejsów sieciowych i zegara czasu rzeczywistego hosta (sprzętu)
 
 ```yaml
@@ -85,7 +85,7 @@ Następujące [skojarzone projekty typu open source AKS][aks-associated-projects
 
 Zarządzana tożsamość zasobów platformy Azure pozwala na uwierzytelnianie pod względem usług platformy Azure, które go obsługują, takich jak Storage czy SQL. W obszarze jest przypisana tożsamość platformy Azure, która umożliwia im uwierzytelnianie Azure Active Directory i odbieranie cyfrowego tokenu. Ten token cyfrowy może być przedstawiony innym usługom platformy Azure, które sprawdzają, czy jest on autoryzowany do uzyskiwania dostępu do usługi i wykonując wymagane akcje. Takie podejście oznacza, że dla parametrów połączenia bazy danych nie są wymagane żadne wpisy tajne. Uproszczony przepływ pracy dotyczący tożsamości zarządzanej pod, jest przedstawiony na poniższym diagramie:
 
-![Uproszczony przepływ pracy dla tożsamości zarządzanej pod na platformie Azure](media/developer-best-practices-pod-security/basic-pod-identity.png)
+:::image type="content" source="media/developer-best-practices-pod-security/basic-pod-identity.svg" alt-text="Uproszczony przepływ pracy dla tożsamości zarządzanej pod na platformie Azure":::
 
 Przy użyciu tożsamości zarządzanej kod aplikacji nie musi zawierać poświadczeń, aby uzyskać dostęp do usługi, takiej jak usługa Azure Storage. Każdy z nich jest uwierzytelniany przy użyciu własnej tożsamości, dzięki czemu można przeprowadzać inspekcję i przeglądanie dostępu. Jeśli aplikacja łączy się z innymi usługami platformy Azure, Użyj tożsamości zarządzanych, aby ograniczyć ponowne użycie poświadczeń i ryzyko narażenia.
 
@@ -97,7 +97,7 @@ Korzystanie z projektu tożsamości pod Identity umożliwia uwierzytelnianie w c
 
 Gdy aplikacje potrzebują poświadczeń, komunikują się z magazynem cyfrowym, pobierają najnowszą zawartość, a następnie nawiązują połączenie z wymaganą usługą. Azure Key Vault może to być ten magazyn cyfrowy. Uproszczony przepływ pracy służący do pobierania poświadczeń z Azure Key Vault przy użyciu tożsamości zarządzanych pod na poniższym diagramie:
 
-![Uproszczony przepływ pracy służący do pobierania poświadczeń z Key Vault przy użyciu tożsamości zarządzanej pod](media/developer-best-practices-pod-security/basic-key-vault.png)
+:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Uproszczony przepływ pracy służący do pobierania poświadczeń z Key Vault przy użyciu tożsamości zarządzanej pod":::
 
 Dzięki Key Vault można przechowywać i regularnie przekazywać wpisy tajne, takie jak poświadczenia, klucze konta magazynu lub certyfikaty. Azure Key Vault można zintegrować z klastrem AKS przy użyciu [dostawcy Azure Key Vault dla sterownika CSI magazynu](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)Secret. Sterownik CSI magazynu wpisów tajnych umożliwia klastrowi AKS natywne pobieranie zawartości wpisu tajnego z Key Vault i bezpieczne dostarczanie ich tylko do żądania pod. Pracuj z operatorem klastra, aby wdrożyć sterownik CSI magazynu kluczy tajnych na węzłach procesu roboczego AKS. Możesz użyć tożsamości zarządzanej pod, aby zażądać dostępu do Key Vault i pobrać zawartość klucza tajnego wymaganą przez sterownik CSI magazynu wpisów tajnych.
 

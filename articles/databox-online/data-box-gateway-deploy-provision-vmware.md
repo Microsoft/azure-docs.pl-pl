@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 64a33b12da0e9b90eaeb7039f65b2493a839a0c4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6488871067416b2cee533561bae47874413d9012
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054114"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892120"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Samouczek: Inicjowanie obsługi Azure Data Box Gateway w oprogramowaniu VMware
 
@@ -23,7 +23,7 @@ W tym samouczku opisano sposób aprowizacji usługi Data Box Gateway w systemie 
 
 Do aprowizowania urządzenia wirtualnego i nawiązania z nim połączenia wymagane są uprawnienia administratora. Aprowizacja i wstępna konfiguracja może zająć około 10 minut. 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Sprawdzanie, czy host spełnia minimalne wymagania dotyczące urządzenia
@@ -200,7 +200,7 @@ Wykonaj poniższe kroki, aby uruchomić urządzenie wirtualne i nawiązać z nim
 
 8. Skonfiguruj sieć za pomocą polecenia cmdlet `Set-HcsIpAddress`. Przykład przedstawiono poniżej:
 
-    `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
+    `Set-HcsIpAddress –Name Ethernet0 –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
 9. Po zakończeniu początkowej konfiguracji i uruchomieniu urządzenia zobaczysz tekst baneru urządzenia. Zanotuj adresy IP i URL wyświetlane w tekście baneru. Posłużą one do zarządzania urządzeniem. Za pomocą tego adresu IP nawiążesz połączenie z internetowym interfejsem użytkownika urządzenia wirtualnego oraz dokończysz lokalną konfigurację i aktywację urządzenia.
 

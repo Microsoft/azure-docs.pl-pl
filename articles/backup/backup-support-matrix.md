@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień obsługi i ograniczeń dotyczących 
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 41bc06e2c63b1b35bb789636bcd269439078be70
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 9b0698b16d3432c1bfefd3cf909cdfdf5529200e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825192"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892188"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Macierz obsługi dla Azure Backup
 
@@ -113,10 +113,10 @@ Azure Backup obsługuje szyfrowanie danych w trakcie przesyłania i w czasie spo
 
 **Maszyna** | **Przesyłanie** | **Magazynowanie**
 --- | --- | ---
-**Lokalne maszyny z systemem Windows bez programu DPM/usługi MABS** | ![Tak][green] | ![Tak][green]
-**Maszyny wirtualne platformy Azure** | ![Tak][green] | ![Tak][green]
-**Lokalne komputery z systemem Windows lub maszyny wirtualne platformy Azure z programem DPM** | ![Tak][green] | ![Tak][green]
-**Lokalne komputery z systemem Windows lub maszyny wirtualne platformy Azure z usługą serwera usługi MAB** | ![Tak][green] | ![Tak][green]
+**Lokalne maszyny z systemem Windows bez programu DPM/usługi MABS** | ![Yes][green] | ![Yes][green]
+**Maszyny wirtualne platformy Azure** | ![Yes][green] | ![Yes][green]
+**Lokalne komputery z systemem Windows lub maszyny wirtualne platformy Azure z programem DPM** | ![Yes][green] | ![Yes][green]
+**Lokalne komputery z systemem Windows lub maszyny wirtualne platformy Azure z usługą serwera usługi MAB** | ![Yes][green] | ![Yes][green]
 
 ## <a name="compression-support"></a>Obsługa kompresji
 
@@ -129,7 +129,7 @@ Funkcja Backup obsługuje kompresję ruchu kopii zapasowej, jak przedstawiono w 
 --- | --- | ---
 **Bezpośrednia kopia zapasowa lokalnych maszyn z systemem Windows** | Nie dotyczy | ![Yes][green]
 **Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure przy użyciu rozszerzenia maszyny wirtualnej** | Nie dotyczy | Nie dotyczy
-**Tworzenie kopii zapasowych na maszynach lokalnych/na platformie Azure przy użyciu serwera usługi MAB/DPM** | ![Tak][green] | ![Tak][green]
+**Tworzenie kopii zapasowych na maszynach lokalnych/na platformie Azure przy użyciu serwera usługi MAB/DPM** | ![Yes][green] | ![Yes][green]
 
 ## <a name="retention-limits"></a>Limity przechowywania
 
@@ -145,7 +145,7 @@ Funkcja Backup obsługuje kompresję ruchu kopii zapasowej, jak przedstawiono w 
 
 ## <a name="cross-region-restore"></a>Przywracanie między regionami
 
-Azure Backup dodano funkcję przywracania między regionami w celu wzmocnienia dostępności i możliwości odporności danych, dzięki czemu klienci mają pełną kontrolę nad przywracaniem danych do regionu pomocniczego. Aby skonfigurować tę funkcję, przejdź [do artykułu Ustawianie Międzyregionowego przywracania.](backup-create-rs-vault.md#set-cross-region-restore) Ta funkcja jest obsługiwana dla następujących typów zarządzania:
+Azure Backup dodano funkcję przywracania między regionami w celu wzmocnienia dostępności i możliwości odporności danych, co zapewnia pełną kontrolę nad przywracaniem danych do regionu pomocniczego. Aby skonfigurować tę funkcję, przejdź [do artykułu Ustawianie Międzyregionowego przywracania.](backup-create-rs-vault.md#set-cross-region-restore) Ta funkcja jest obsługiwana dla następujących typów zarządzania:
 
 | Typ zarządzania kopiami zapasowymi | Obsługiwane                                                    | Obsługiwane regiony |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |

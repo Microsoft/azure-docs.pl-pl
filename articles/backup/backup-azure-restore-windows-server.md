@@ -3,12 +3,12 @@ title: Przywracanie plików do systemu Windows Server przy użyciu agenta MARS
 description: W tym artykule dowiesz się, jak przywrócić dane przechowywane na platformie Azure na komputerze z systemem Windows Server lub Windows za pomocą agenta Microsoft Azure Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 78663edadfdef581dbdd259882a6dd4afe5a4b0b
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: e61ad7083a7b6979222566112820bad133022844
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871262"
+ms.locfileid: "88892511"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Przywracanie plików do systemu Windows Server przy użyciu agenta MARS
 
@@ -75,7 +75,7 @@ Jeśli przypadkowo usunięto plik i chcesz przywrócić go na tym samym komputer
     ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych strona przeglądanie i odzyskiwanie plików (przywracanie do tego samego komputera) — potwierdzenie odinstalowania woluminu odzyskiwania](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Jeśli nie wybierzesz opcji **Odinstaluj**, wolumin odzyskiwania pozostanie zainstalowany przez 6 godzin od momentu zainstalowania. Jednak czas instalacji jest rozszerzony do maksymalnie 24 godzin w przypadku trwającej kopii pliku. Podczas montowania woluminu nie będą wykonywane żadne operacje tworzenia kopii zapasowej. Każda operacja tworzenia kopii zapasowej zaplanowana do uruchomienia w czasie, gdy wolumin zostanie zainstalowany, zostanie uruchomiona po odinstalowaniu woluminu odzyskiwania.
+    > Jeśli nie wybierzesz opcji **Odinstaluj**, wolumin odzyskiwania pozostanie zainstalowany przez 6 godzin od momentu zainstalowania. Czas instalacji jest jednak dłuższy niż 24 godziny w przypadku trwającej kopii pliku. Podczas montowania woluminu nie będą wykonywane żadne operacje tworzenia kopii zapasowej. Każda operacja tworzenia kopii zapasowej zaplanowana do uruchomienia w czasie, gdy wolumin zostanie zainstalowany, zostanie uruchomiona po odinstalowaniu woluminu odzyskiwania.
     >
 
 ## <a name="use-instant-restore-to-restore-data-to-an-alternate-machine"></a>Przywracanie danych do alternatywnej maszyny przy użyciu funkcji natychmiastowej przywracania
@@ -138,7 +138,7 @@ Te kroki obejmują następującą terminologię:
     ![Odinstalowywanie woluminu (przywracanie do komputera alternatywnego)](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Jeśli nie wybierzesz opcji **Odinstaluj**, wolumin odzyskiwania pozostanie zainstalowany przez 6 godzin od momentu zainstalowania. Jednak czas instalacji jest rozszerzony do maksymalnie 24 godzin w przypadku trwającej kopii pliku. Podczas montowania woluminu nie będą wykonywane żadne operacje tworzenia kopii zapasowej. Każda operacja tworzenia kopii zapasowej zaplanowana do uruchomienia w czasie, gdy wolumin zostanie zainstalowany, zostanie uruchomiona po odinstalowaniu woluminu odzyskiwania.
+    > Jeśli nie wybierzesz opcji **Odinstaluj**, wolumin odzyskiwania pozostanie zainstalowany przez 6 godzin od momentu zainstalowania. Czas instalacji jest jednak dłuższy niż 24 godziny w przypadku trwającej kopii pliku. Podczas montowania woluminu nie będą wykonywane żadne operacje tworzenia kopii zapasowej. Każda operacja tworzenia kopii zapasowej zaplanowana do uruchomienia w czasie, gdy wolumin zostanie zainstalowany, zostanie uruchomiona po odinstalowaniu woluminu odzyskiwania.
     >
 
 ## <a name="next-steps"></a>Następne kroki

@@ -4,12 +4,12 @@ description: Dowiedz się, jak za pomocą usługi Azure Import/Export korzystać
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: e5761f56106989084f12b80620ffc417b781965d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: f3cf44a34babab79d135923db040630a1c8e3dfe
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187833"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892018"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Przepływ pracy kopii zapasowej offline w Azure Backup
 
@@ -148,7 +148,7 @@ Narzędzie *AzureOfflineBackupDiskPrep* przygotowuje dyski SATA, które są wysy
 
     ![Logowanie do subskrypcji platformy Azure](./media/backup-azure-backup-import-export/signindiskprep.png) <br/>
 
-    Następnie narzędzie rozpocznie przygotowanie dysku i skopiowanie danych kopii zapasowej. Może być konieczne dołączenie dodatkowych dysków po wyświetleniu monitu przez narzędzie w przypadku, gdy udostępniony dysk nie ma wystarczającej ilości miejsca na dane kopii zapasowej. <br/>
+    Następnie narzędzie rozpocznie przygotowanie dysku i skopiowanie danych kopii zapasowej. Jeśli udostępniony dysk nie ma wystarczającej ilości miejsca na dane kopii zapasowej, może być konieczne dołączenie dodatkowych dysków po wyświetleniu monitu przez narzędzie. <br/>
 
     Po pomyślnym wykonaniu tego narzędzia wiersz polecenia zawiera trzy informacje:
 

@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: fd04c6315a5a6915159c0cbb6a9640ae0695ed73
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 1bf0ea35c51b063a7720a1542a23a49fbcdbc557
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117228"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892987"
 ---
 # <a name="create-php-web-and-worker-roles"></a>Tworzenie roli internetowej i procesu roboczego PHP
 
@@ -75,7 +75,7 @@ Aby skonfigurować rolę sieci Web do używania środowiska uruchomieniowego PHP
 
 1. Utwórz projekt usługi platformy Azure i dodaj rolę sieci Web w języku PHP, jak opisano wcześniej w tym temacie.
 2. Utwórz `php` folder w folderze, `bin` który znajduje się w katalogu głównym roli sieci Web, a następnie Dodaj do folderu środowisko uruchomieniowe php (wszystkie dane binarne, pliki konfiguracji, podfoldery itp.) `php` .
-3. OBOWIĄZKOWE Jeśli środowisko uruchomieniowe PHP korzysta ze [sterowników firmy Microsoft dla języka PHP dla SQL Server][sqlsrv drivers], należy skonfigurować rolę sieci Web w celu zainstalowania [SQL Server Native Client 2012][sql native client] po zainicjowaniu obsługi administracyjnej. W tym celu należy dodać [instalatorasqlncli.msi x64] do `bin` folderu w katalogu głównym roli sieci Web. Skrypt uruchamiania opisany w następnym kroku uruchomi Instalatora w trybie dyskretnym, gdy rola zostanie zainicjowana. Jeśli środowisko uruchomieniowe PHP nie korzysta ze sterowników firmy Microsoft dla języka PHP dla SQL Server, można usunąć następujący wiersz ze skryptu pokazanego w następnym kroku:
+3. OBOWIĄZKOWE Jeśli środowisko uruchomieniowe PHP korzysta ze [sterowników firmy Microsoft dla języka PHP dla SQL Server][sqlsrv drivers], należy skonfigurować rolę sieci Web w celu zainstalowania [SQL Server Native Client 2012][sql native client] po zainicjowaniu obsługi administracyjnej. W tym celu należy dodać [ instalatorasqlncli.msi x64] do `bin` folderu w katalogu głównym roli sieci Web. Skrypt uruchamiania opisany w następnym kroku uruchomi Instalatora w trybie dyskretnym, gdy rola zostanie zainicjowana. Jeśli środowisko uruchomieniowe PHP nie korzysta ze sterowników firmy Microsoft dla języka PHP dla SQL Server, można usunąć następujący wiersz ze skryptu pokazanego w następnym kroku:
 
    ```console
    msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
@@ -114,7 +114,7 @@ Aby skonfigurować rolę procesu roboczego do korzystania z środowiska uruchomi
 
 1. Utwórz projekt usługi platformy Azure i dodaj rolę procesu roboczego PHP, jak opisano wcześniej w tym temacie.
 2. Utwórz `php` folder w katalogu głównym roli proces roboczy, a następnie Dodaj do tego folderu środowisko uruchomieniowe php (wszystkie dane binarne, pliki konfiguracji, podfoldery itp.) `php` .
-3. OBOWIĄZKOWE Jeśli środowisko uruchomieniowe PHP używa [sterowników firmy Microsoft dla języka PHP dla SQL Server][sqlsrv drivers], należy skonfigurować rolę procesu roboczego w celu zainstalowania [SQL Server Native Client 2012][sql native client] po zainicjowaniu obsługi administracyjnej. W tym celu należy dodać [instalatorasqlncli.msi x64] do katalogu głównego roli procesu roboczego. Skrypt uruchamiania opisany w następnym kroku uruchomi Instalatora w trybie dyskretnym, gdy rola zostanie zainicjowana. Jeśli środowisko uruchomieniowe PHP nie korzysta ze sterowników firmy Microsoft dla języka PHP dla SQL Server, można usunąć następujący wiersz ze skryptu pokazanego w następnym kroku:
+3. OBOWIĄZKOWE Jeśli środowisko uruchomieniowe PHP używa [sterowników firmy Microsoft dla języka PHP dla SQL Server][sqlsrv drivers], należy skonfigurować rolę procesu roboczego w celu zainstalowania [SQL Server Native Client 2012][sql native client] po zainicjowaniu obsługi administracyjnej. W tym celu należy dodać [ instalatorasqlncli.msi x64] do katalogu głównego roli procesu roboczego. Skrypt uruchamiania opisany w następnym kroku uruchomi Instalatora w trybie dyskretnym, gdy rola zostanie zainicjowana. Jeśli środowisko uruchomieniowe PHP nie korzysta ze sterowników firmy Microsoft dla języka PHP dla SQL Server, można usunąć następujący wiersz ze skryptu pokazanego w następnym kroku:
 
    ```console
    msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
@@ -194,4 +194,4 @@ Aby uzyskać więcej informacji, zobacz [Centrum deweloperów języka PHP](https
 [iis.net]: https://www.iis.net/
 [sql native client]: https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation
 [sqlsrv drivers]: https://php.net/sqlsrv
-[Instalatorsqlncli.msi x64]: https://go.microsoft.com/fwlink/?LinkID=239648
+[ Instalatorsqlncli.msi x64]: https://go.microsoft.com/fwlink/?LinkID=239648

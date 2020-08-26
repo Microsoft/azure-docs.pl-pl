@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 9238a65643c9ff24166e9a9b9a05e8c924abfb37
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d629e5d572f1e8fff05104a4a5004b7aaa8c7a0d
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544483"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892953"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Confluence SAML SSO przez firmę Microsoft
 
@@ -63,7 +63,7 @@ Aktualnie obsługiwane są następujące wersje aplikacji Confluence:
 
 - Confluence: 5,0 do 5,10
 - Confluence: 6.0.1 do 6.15.9
-- Confluence: 7.0.1 do 7.6.1
+- Confluence: 7.0.1 do 7.7.2
 
 > [!NOTE]
 > Należy pamiętać, że nasza wtyczka Confluence działa również na Ubuntu w wersji 16,04

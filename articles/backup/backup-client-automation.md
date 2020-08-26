@@ -3,12 +3,12 @@ title: Używanie programu PowerShell do tworzenia kopii zapasowych systemu Windo
 description: W tym artykule dowiesz się, jak skonfigurować Azure Backup w systemie Windows Server lub kliencie systemu Windows przy użyciu programu PowerShell, a także zarządzać kopiami zapasowymi i odzyskiwaniem.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 8e9b2f0adc2cdd4e0d17f618b516486d8ca9f8a8
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 47c8fc39626d3bca3355c1d1e46f1634327748a8
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826331"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892375"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Wdrażanie kopii zapasowych systemu Windows Server/Windows Client na platformie Azure i zarządzanie nimi przy użyciu programu PowerShell
 
@@ -45,7 +45,7 @@ Poniższe kroki umożliwiają utworzenie magazynu Recovery Services. Magazyn Rec
 4. Określ typ nadmiarowości magazynu, który ma być używany. Można użyć [magazynu lokalnie nadmiarowego (LRS)](../storage/common/storage-redundancy.md) lub [magazynu geograficznie nadmiarowego (GRS)](../storage/common/storage-redundancy.md). W poniższym przykładzie pokazano opcję **-BackupStorageRedundancy** dla *testVault* jest ustawiona na wartość **geomiarowa**.
 
    > [!TIP]
-   > Wiele poleceń cmdlet usługi Azure Backup wymaga obiektu magazynu usługi Recovery Services jako danych wejściowych. Z tego powodu wygodne jest przechowywanie obiektu magazynu usługi Backup Recovery Services w zmiennej.
+   > Wiele poleceń cmdlet usługi Azure Backup wymaga obiektu magazynu usługi Recovery Services jako danych wejściowych. Z tego powodu wygodnie jest przechowywać obiekt magazynu Recovery Services kopii zapasowej w zmiennej.
    >
    >
 

@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: larryfr
 author: Blackmist
 ms.date: 07/27/2020
-ms.openlocfilehash: 05a45a2a8aeabae2b160701020e5deb89fb3aa81
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1d405aff5233f38aee2031220fd119693da64abb
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751713"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892868"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Użyj szablonu Azure Resource Manager, aby utworzyć obszar roboczy dla Azure Machine Learning
 
@@ -120,7 +120,7 @@ New-AzResourceGroupDeployment `
 Domyślnie wszystkie zasoby utworzone w ramach szablonu są nowe. Istnieje również możliwość korzystania z istniejących zasobów. Podając dodatkowe parametry szablonu, można użyć istniejących zasobów. Na przykład jeśli chcesz użyć istniejącego konta magazynu, ustaw wartość **storageAccountOption** na **istniejąca** i podaj nazwę konta magazynu w parametrze **storageAccountName** .
 
 > [!IMPORTANT]
-> Jeśli chcesz użyć istniejącego konta usługi Azure Storage, nie może ono być kontem Premium (Premium_LRS i Premium_GRS). Nie może ona również mieć hierarchicznej przestrzeni nazw (używane z Azure Data Lake Storage Gen2). W przypadku konta magazynu w warstwie Premium ani hierarchicznej przestrzeni nazw nie są obsługiwane.
+> Jeśli chcesz użyć istniejącego konta usługi Azure Storage, nie może ono być kontem Premium (Premium_LRS i Premium_GRS). Nie może ona również mieć hierarchicznej przestrzeni nazw (używane z Azure Data Lake Storage Gen2). W przypadku konta magazynu w warstwie Premium ani hierarchicznej przestrzeni nazw nie są obsługiwane. W przypadku _domyślnego_ konta magazynu obszaru roboczego nie są obsługiwane żadne magazyny w warstwie Premium ani hierarchiczne przestrzenie nazw. Możesz użyć magazynu w warstwie Premium lub hierarchicznej przestrzeni nazw z kontami magazynu _innego niż domyślne_ .
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azcli)
 
@@ -540,7 +540,7 @@ New-AzResourceGroupDeployment `
    * Region: Wybierz region świadczenia usługi Azure, w którym zostaną utworzone zasoby.
    * Nazwa obszaru roboczego: Nazwa do użycia dla obszaru roboczego Azure Machine Learning, który zostanie utworzony. Nazwa obszaru roboczego musi zawierać od 3 do 33 znaków. Może zawierać tylko znaki alfanumeryczne i znak "-".
    * Lokalizacja: Wybierz lokalizację, w której zostaną utworzone zasoby.
-1. Wybierz pozycję __Przejrzyj i utwórz__.
+1. Wybierz pozycję __Przeglądanie + tworzenie__.
 1. Na ekranie __Recenzja + tworzenie__ Zaakceptuj wymienione warunki i postanowienia, a następnie wybierz pozycję __Utwórz__.
 
 Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów z szablonu niestandardowego](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).

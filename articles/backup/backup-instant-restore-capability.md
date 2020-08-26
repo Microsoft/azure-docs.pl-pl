@@ -4,17 +4,17 @@ description: Funkcja błyskawicznego przywracania platformy Azure i często zada
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: e8037af9433cc642f57c1ab6ca2709a3d92c2f81
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: ddc8e8fa460943c09f80ebb462b1dbd578f9b23b
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825855"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892630"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Uzyskiwanie ulepszonej wydajności tworzenia kopii zapasowych i przywracania dzięki funkcji Azure Backup natychmiastowego przywracania
 
 > [!NOTE]
-> Na podstawie informacji zwrotnych od użytkowników zmieniamy nazwy **stosu kopii zapasowych maszyny wirtualnej v2** na **natychmiastowe przywracanie** , aby zmniejszyć liczbę pomyłek przy użyciu funkcji Azure Stack.
+> W oparciu o opinie użytkowników zmieniono nazwę **stosu kopii zapasowych maszyny wirtualnej v2** na **natychmiastowe przywracanie** , aby zmniejszyć liczbę nieporozumień przy użyciu funkcji Azure Stack.
 > Wszyscy użytkownicy usługi Azure Backup zostali teraz uaktualnioni do **natychmiastowego przywracania**.
 
 Nowy model do natychmiastowego przywracania zapewnia następujące udoskonalenia funkcji:
@@ -76,7 +76,7 @@ $bkpPol.SnapshotRetentionInDays=5
 Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 
-Domyślne przechowywanie migawek dla każdej zasady jest ustawione na dwa dni. Użytkownik może zmienić wartość na co najmniej 1 i maksymalnie pięć dni. W przypadku zasad cotygodniowych przechowywanie migawek jest stałe do pięciu dni.
+Domyślne przechowywanie migawek dla każdej zasady jest ustawione na dwa dni. Można zmienić wartość na co najmniej 1 i maksymalnie pięć dni. W przypadku zasad cotygodniowych przechowywanie migawek jest stałe do pięciu dni.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 

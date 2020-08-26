@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 08/26/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: a45a47b36ca0e9c426c84bb4b9f87ee5bdeccb84
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5adc15eb7beab4d54156456ee447a7e6039b6c6d
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87309158"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892613"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Wykonywanie operacji zbiorczych w usłudze Azure Cosmos DB przy użyciu biblioteki funkcji wykonawczej Java operacji zbiorczych
 
@@ -183,7 +183,8 @@ Istniejące dokumenty można aktualizować za pomocą interfejsu API BulkUpdateA
    |int getNumberOfDocumentsUpdated ()  |   Całkowita liczba dokumentów, które zostały pomyślnie zaktualizowane z dokumentów dostarczonych do wywołania interfejsu API aktualizacji zbiorczej.      |
    |Podwójna getTotalRequestUnitsConsumed () |  Łączna liczba jednostek żądań (RU) zużytych przez wywołanie interfejsu API aktualizacji zbiorczej.       |
    |Czas trwania getTotalTimeTaken ()  |   Łączny czas trwania wywołania interfejsu API aktualizacji zbiorczej w celu ukończenia wykonywania.      |
-   |Lista \<Exception> GetErrors ()   |       Pobiera listę błędów, jeśli niektóre dokumenty z partii dostarczone do wywołania interfejsu API aktualizacji zbiorczej nie zostały wstawione.      |
+   |Lista \<Exception> GetErrors ()   |       Pobiera listę problemów operacyjnych lub sieciowych związanych z operacją aktualizacji.      |
+   |Lista \<BulkUpdateFailure> getFailedUpdates ()   |       Pobiera listę aktualizacji, których nie można było ukończyć wraz z określonymi wyjątkami prowadzącymi do błędów.|
 
 3. Po przygotowaniu zbiorczej aktualizacji aplikacji Utwórz narzędzie wiersza polecenia ze źródła przy użyciu polecenia "MVN Clean Package". To polecenie generuje plik JAR w folderze docelowym:  
 

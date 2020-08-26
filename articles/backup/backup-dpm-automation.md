@@ -3,12 +3,12 @@ title: Używanie programu PowerShell do tworzenia kopii zapasowych obciążeń p
 description: Dowiedz się, jak wdrażać Azure Backup dla Data Protection Manager (DPM) przy użyciu programu PowerShell i zarządzać nimi
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 1f77337c9b5b1dce73f39cff7090bb5d892c29cd
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 91fd8559b1561ae83967c7fc74a2390ce2460c95
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825974"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892324"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Wdrażanie kopii zapasowych serwerów Data Protection Manager (DPM) na platformie Azure i zarządzanie nimi przy użyciu programu PowerShell
 
@@ -72,7 +72,7 @@ Poniższe kroki umożliwiają utworzenie magazynu Recovery Services. Magazyn Rec
 4. Określ typ nadmiarowości magazynu, który ma być używany. Można użyć [magazynu lokalnie nadmiarowego (LRS)](../storage/common/storage-redundancy.md) lub [magazynu geograficznie nadmiarowego (GRS)](../storage/common/storage-redundancy.md). W poniższym przykładzie pokazano opcję-BackupStorageRedundancy dla testVault jest ustawiona na wartość geomiarowa.
 
    > [!TIP]
-   > Wiele poleceń cmdlet usługi Azure Backup wymaga obiektu magazynu usługi Recovery Services jako danych wejściowych. Z tego powodu wygodne jest przechowywanie obiektu magazynu usługi Backup Recovery Services w zmiennej.
+   > Wiele poleceń cmdlet usługi Azure Backup wymaga obiektu magazynu usługi Recovery Services jako danych wejściowych. Z tego powodu wygodnie jest przechowywać obiekt magazynu Recovery Services kopii zapasowej w zmiennej.
    >
    >
 
@@ -183,7 +183,7 @@ Wszystkie modyfikacje są wprowadzane do tego lokalnego obiektu programu PowerSh
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 Jeśli łączność maszyny programu DPM z usługą Azure Backup w Internecie odbywa się za pośrednictwem serwera proxy, należy zapewnić ustawienia serwera proxy dla udanych kopii zapasowych. W tym celu ```-ProxyServer``` należy użyć parametrów i ```-ProxyPort``` i ```-ProxyUsername``` ```ProxyPassword``` parametru z poleceniem cmdlet [Set-DPMCloudSubscriptionSetting](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) . W tym przykładzie nie ma serwera proxy, dlatego wszystkie informacje związane z serwerem proxy są wyraźnie wyczyszczone.
 

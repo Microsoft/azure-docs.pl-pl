@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych i odzyskiwanie maszyn wirtualnych platformy Az
 description: Zawiera opis sposobu tworzenia kopii zapasowych i odzyskiwania maszyn wirtualnych platformy Azure przy użyciu Azure Backup programu PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: f5d2e10213970ce6f9d1f9c77ff8f7f4c36c3547
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: f34dc0b5ce4b230b3bc2408bd011180cb855cf17
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826450"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892409"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Tworzenie kopii zapasowej i przywracanie maszyn wirtualnych platformy Azure przy użyciu programu PowerShell
 
@@ -104,7 +104,7 @@ Poniższe kroki umożliwiają utworzenie magazynu Recovery Services. Magazyn Rec
     ```
 
    > [!TIP]
-   > Wiele poleceń cmdlet usługi Azure Backup wymaga obiektu magazynu usługi Recovery Services jako danych wejściowych. Z tego powodu wygodne jest przechowywanie obiektu magazynu usługi Backup Recovery Services w zmiennej.
+   > Wiele poleceń cmdlet usługi Azure Backup wymaga obiektu magazynu usługi Recovery Services jako danych wejściowych. Z tego powodu wygodnie jest przechowywać obiekt magazynu Recovery Services kopii zapasowej w zmiennej.
    >
    >
 
@@ -228,7 +228,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 Po zdefiniowaniu zasad ochrony nadal należy włączyć zasady dla elementu. Aby włączyć ochronę, użyj [enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) . Włączenie ochrony wymaga dwóch obiektów — elementu i zasad. Po skojarzeniu zasad z magazynem przepływ pracy tworzenia kopii zapasowej jest wyzwalany w czasie zdefiniowanym w harmonogramie zasad.
 
 > [!IMPORTANT]
-> Podczas korzystania z programu PowerShell w celu jednoczesnego włączenia tworzenia kopii zapasowych wielu maszyn wirtualnych upewnij się, że z jednymi zasadami nie są skojarzone więcej niż 100 maszyn wirtualnych. Jest to [zalecane najlepsze rozwiązanie](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Obecnie klient programu PowerShell nie jest jawnie blokowany, jeśli istnieje więcej niż 100 maszyn wirtualnych, ale w przyszłości zaplanowano dodanie kontroli.
+> Podczas korzystania z programu PowerShell w celu jednoczesnego włączenia tworzenia kopii zapasowych wielu maszyn wirtualnych upewnij się, że z jednymi zasadami nie są skojarzone więcej niż 100 maszyn wirtualnych. Jest to [zalecane najlepsze rozwiązanie](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Obecnie klient programu PowerShell nie jest jawnie blokowany, jeśli istnieje więcej niż 100 maszyn wirtualnych, ale w przyszłości sprawdzanie jest planowane.
 
 W poniższych przykładach włączono ochronę dla elementu, V2VM, przy użyciu zasad, NewPolicy. Przykłady różnią się w zależności od tego, czy maszyna wirtualna jest zaszyfrowana, oraz jakiego typu szyfrowanie.
 
@@ -256,7 +256,7 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 ```
 
 > [!NOTE]
-> Jeśli używasz chmury Azure Government, użyj wartości ff281ffe-705c-4f53-9f37-a40e6f2c68f3 dla parametru ServicePrincipalName w poleceniu [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) .
+> Jeśli używasz chmury Azure Government, użyj wartości `ff281ffe-705c-4f53-9f37-a40e6f2c68f3` parametru **ServicePrincipalName** w poleceniu cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) .
 >
 
 ## <a name="monitoring-a-backup-job"></a>Monitorowanie zadania tworzenia kopii zapasowej
@@ -294,7 +294,7 @@ Podczas tworzenia zasad ochrony domyślnie przypisywany jest czas rozpoczęcia. 
 
 ````powershell
 $SchPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
-$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z" (This is the time that the customer wants to start the backup)
+$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z" (This is the time that you want to start the backup)
 $UtcTime = $UtcTime.ToUniversalTime()
 $SchPol.ScheduleRunTimes[0] = $UtcTime
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -VaultId $targetVault.ID
@@ -323,7 +323,7 @@ $bkpPol.SnapshotRetentionInDays=7
 Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol -VaultId $targetVault.ID
 ````
 
-Wartość domyślna to 2, użytkownik może ustawić wartość minimalną 1 i maksymalnie 5. W przypadku tygodniowych zasad tworzenia kopii zapasowych okres jest ustawiany na 5 i nie można go zmienić.
+Wartość domyślna to 2. Można ustawić wartość minimalną 1 i maksymalnie 5. W przypadku tygodniowych zasad tworzenia kopii zapasowych okres jest ustawiany na 5 i nie można go zmienić.
 
 #### <a name="creating-azure-backup-resource-group-during-snapshot-retention"></a>Tworzenie Azure Backup grupy zasobów podczas przechowywania migawek
 
@@ -365,7 +365,7 @@ V2VM              Backup              InProgress          4/23/2016             
 
 ### <a name="change-policy-for-backup-items"></a>Zmień zasady dla elementów kopii zapasowej
 
-Użytkownik może zmodyfikować istniejące zasady lub zmienić zasady kopii zapasowej elementu z Policy1 na Policy2. Aby przełączyć zasady dla elementu kopii zapasowej, należy pobrać odpowiednie zasady i wykonać kopię zapasową, a następnie użyć polecenia [enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) z elementem kopii zapasowej jako parametru.
+Możesz zmodyfikować istniejące zasady lub zmienić zasady kopii zapasowej elementu z Policy1 na Policy2. Aby przełączyć zasady dla elementu kopii zapasowej, należy pobrać odpowiednie zasady i wykonać kopię zapasową, a następnie użyć polecenia [enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) z elementem kopii zapasowej jako parametru.
 
 ````powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName> -VaultId $targetVault.ID
@@ -570,7 +570,7 @@ Szablon nie jest dostępny bezpośrednio, ponieważ znajduje się na koncie maga
 W poniższej sekcji przedstawiono kroki niezbędne do utworzenia maszyny wirtualnej przy użyciu pliku "VMConfig".
 
 > [!NOTE]
-> Zdecydowanie zaleca się użycie szablonu wdrożenia szczegółowego powyżej w celu utworzenia maszyny wirtualnej. Ta sekcja (punkty 1-6) zostanie wkrótce wycofana.
+> Zdecydowanie zaleca się użycie szablonu wdrożenia szczegółowego powyżej, aby utworzyć maszynę wirtualną. Ta sekcja (punkty 1-6) zostanie wkrótce wycofana.
 
 1. Wykonaj zapytanie dotyczące przywróconych właściwości dysku w celu uzyskania szczegółowych informacji o zadaniu.
 

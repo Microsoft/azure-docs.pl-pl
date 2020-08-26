@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych baz danych programu SQL Server na platformie A
 description: W tym artykule opisano sposób tworzenia kopii zapasowych SQL Server na platformie Azure. W artykule objaśniono również proces odzyskiwania programu SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 88ac95a3e21269ccb5ca2c0fed1c1444af2f4d11
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: d8cdafe215d9271151d8dacee114d40108e907bd
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826926"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892443"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Informacje o kopii zapasowej programu SQL Server na maszynach wirtualnych platformy Azure
 
@@ -51,9 +51,9 @@ Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagani
 * Tworzy konto NT SERVICE\AzureWLBackupPluginSvc do odnajdywania baz danych na maszynie wirtualnej. To konto jest używane do tworzenia kopii zapasowych i przywracania oraz wymaga uprawnień administratora systemu SQL.
 * Odnajduje bazy danych, które są uruchomione na maszynie wirtualnej, Azure Backup korzysta z konta NT NT\SYSTEM. To konto musi być publicznym logowaniem na serwerze SQL.
 
-Jeśli maszyna wirtualna SQL Server nie została utworzona w witrynie Azure Marketplace lub korzystasz z usług SQL 2008 i 2008 R2, może wystąpić błąd **UserErrorSQLNoSysadminMembership** .
+Jeśli maszyna wirtualna SQL Server nie została utworzona w witrynie Azure Marketplace lub w przypadku korzystania z programu SQL 2008 lub 2008 R2, może wystąpić błąd **UserErrorSQLNoSysadminMembership** .
 
-W przypadku nadawania uprawnień w przypadku **programów SQL 2008** i **2008 R2** uruchomionych w systemie Windows 2008 R2 zapoznaj się [tutaj](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
+W przypadku nadawania uprawnień w przypadku **programów SQL 2008** i **2008 R2** uruchomionych w systemie Windows 2008 R2 zapoznaj się z [tym](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2)artykułem.
 
 W przypadku wszystkich innych wersji należy rozwiązać uprawnienia, wykonując następujące czynności:
 

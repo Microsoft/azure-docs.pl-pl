@@ -4,12 +4,12 @@ description: Informacje o sposobach zarządzania kopiami zapasowymi agenta Micro
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: b6f6d9ca94b2fda54c9f9aa8048660af450e0d31
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: b46303bdb7fc6c39aafd3046a4bcbc5e0ba75766
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757170"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893072"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Zarządzanie kopiami zapasowymi agentów Microsoft Azure Recovery Services (MARS) za pomocą usługi Azure Backup
 
@@ -80,7 +80,7 @@ Można dodać reguły wykluczeń, aby pominąć pliki i foldery, których kopie 
     ![Wybierz elementy do usunięcia](./media/backup-azure-manage-mars/select-items-remove.png)
 
     > [!NOTE]
-    > Po całkowitym usunięciu woluminu z zasad należy zachować ostrożność.  Jeśli musisz dodać go ponownie, będzie on traktowany jako nowy wolumin. Następna zaplanowana kopia zapasowa wykona początkową kopię zapasową (pełną kopię zapasową) zamiast przyrostowej kopii zapasowej. Jeśli trzeba tymczasowo usunąć i dodać elementy później, zaleca się używanie **ustawień wykluczeń** zamiast **usuwać elementy** , aby zapewnić przyrostową kopię zapasową zamiast pełnej kopii zapasowej.
+    > Po całkowitym usunięciu woluminu z zasad należy zachować ostrożność.  Jeśli musisz dodać go ponownie, będzie on traktowany jako nowy wolumin. Następna zaplanowana kopia zapasowa wykona początkową kopię zapasową (pełną kopię zapasową) zamiast przyrostowej kopii zapasowej. Jeśli trzeba tymczasowo usunąć i dodać elementy później, zaleca się użycie **ustawień wykluczenia** zamiast **usuwania elementów** , aby zapewnić przyrostową kopię zapasową zamiast pełnej kopii zapasowej.
 
 2. Wykonaj następne kroki i wybierz pozycję **Zakończ** , aby ukończyć operację.
 

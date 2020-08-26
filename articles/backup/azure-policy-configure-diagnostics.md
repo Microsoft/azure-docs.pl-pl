@@ -3,12 +3,12 @@ title: Konfigurowanie ustawień diagnostyki magazynu w odpowiedniej skali
 description: Skonfiguruj ustawienia diagnostyki Log Analytics dla wszystkich magazynów w danym zakresie przy użyciu Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: dabf9798ba80600d638318304c8ef3c7e40d7ecf
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 17a5ee5a541c3317c9ec9a6cfbed57d85f5116b4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824053"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892239"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Konfigurowanie ustawień diagnostyki magazynu w odpowiedniej skali
 
@@ -20,9 +20,9 @@ Aby uprościć tworzenie ustawień diagnostycznych na dużą skalę (z LA jako m
 
 ## <a name="supported-scenarios"></a>Scenariusze obsługiwane
 
-* Zasady mogą być stosowane jednocześnie do wszystkich magazynów Recovery Services w określonej subskrypcji (lub w grupie zasobów w ramach subskrypcji). Użytkownik przypisujący zasady musi mieć dostęp "właściciel" do subskrypcji, do której przypisane są zasady.
+* Zasady mogą być stosowane jednocześnie do wszystkich magazynów Recovery Services w określonej subskrypcji (lub w grupie zasobów w ramach subskrypcji). Użytkownik przypisujący zasady musi mieć dostęp **właściciela** do subskrypcji, do której przypisane są zasady.
 
-* Obszar roboczy LA określony przez użytkownika (do którego będą wysyłane dane diagnostyczne) może znajdować się w innej subskrypcji niż magazyny, do których te zasady są przypisane. Użytkownik musi mieć dostęp "czytelnik", "Współautor" lub "właściciel" do subskrypcji, w której znajduje się określony obszar roboczy LA.
+* Obszar roboczy LA określony przez użytkownika (do którego będą wysyłane dane diagnostyczne) może znajdować się w innej subskrypcji niż magazyny, do których te zasady są przypisane. Użytkownik musi mieć dostęp **czytelnika**, **współautora** lub **właściciela** do subskrypcji, w której istnieje określony obszar roboczy La.
 
 * Zakres grupy zarządzania nie jest obecnie obsługiwany.
 

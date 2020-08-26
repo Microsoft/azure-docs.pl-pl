@@ -2,15 +2,15 @@
 title: Wdrażanie szablonów za pomocą usługi Azure Menedżer wdrażania
 description: Dowiedz się, jak wdrażać zasoby platformy Azure za pomocą szablonów Menedżer zasobów za pomocą usługi Azure Menedżer wdrażania.
 author: mumian
-ms.date: 12/04/2019
+ms.date: 08/25/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d7d0979a52b4762ec4cc2fa82f507e8ce2b083c9
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 49465f05b5484dfd358136866b67ce35f789799f
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870667"
+ms.locfileid: "88892936"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Samouczek: używanie usługi Azure Deployment Manager z szablonami usługi Resource Manager (publiczna wersja zapoznawcza)
 

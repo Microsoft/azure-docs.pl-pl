@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/15/2020
 ms.author: radeltch
-ms.openlocfilehash: e018f2320b505a174850472d85ec2ebd59310560
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 9978137edb7874a8b93e0c9a5f1f9979ce449277
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406575"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893174"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Wdróż system SAP HANA skalowalny w poziomie z aktywnym węzłem na maszynach wirtualnych platformy Azure przy użyciu Azure NetApp Files na Red Hat Enterprise Linux 
 
@@ -110,10 +110,10 @@ Woluminy usługi Azure NetApp znajdują się w osobnej podsieci [delegowanej do 
 
 W tej przykładowej konfiguracji podsieci są następujące:  
 
-  - `client`10.9.1.0/26  
-  - `storage`10.9.3.0/26  
-  - `hana`10.9.2.0/26  
-  - `anf`10.9.0.0/26 (delegowana podsieć do Azure NetApp Files)
+  - `client` 10.9.1.0/26  
+  - `storage` 10.9.3.0/26  
+  - `hana` 10.9.2.0/26  
+  - `anf` 10.9.0.0/26 (delegowana podsieć do Azure NetApp Files)
 
 ## <a name="set-up-the-azure-netapp-files-infrastructure"></a>Konfigurowanie infrastruktury Azure NetApp Files 
 
@@ -153,7 +153,7 @@ W poniższych instrukcjach przyjęto założenie, że [usługa Azure Virtual Net
    
    W tym przykładzie użyto oddzielnego woluminu Azure NetApp Files dla każdego woluminu danych i dziennika platformy HANA. Aby uzyskać bardziej zoptymalizowaną pod względem kosztów konfigurację w mniejszych lub nieproduktywnych systemach, można umieścić wszystkie instalacje danych na pojedynczym woluminie, a wszystkie dzienniki są instalowane na innym pojedynczym woluminie.  
 
-### <a name="important-considerations"></a>Istotne zagadnienia
+### <a name="important-considerations"></a>Ważne zagadnienia
 
 W miarę tworzenia SAP HANA Azure NetApp Files skalowanie w poziomie za pomocą scenariusza rozwiązaniu z węzłami należy pamiętać o następujących kwestiach:
 
@@ -239,7 +239,7 @@ W następnych instrukcjach przyjęto założenie, że utworzono już grupę zaso
 
 3. Utwórz trzy interfejsy sieciowe — jeden dla każdej maszyny wirtualnej dla `storage` podsieci sieci wirtualnej (w tym przykładzie **hanadb1-Storage**, **hanadb2-** Storage i **hanadb3-Storage**).  
 
-4. Utwórz trzy interfejsy sieciowe — jeden dla każdej maszyny wirtualnej dla `hana` podsieci sieci wirtualnej (w tym przykładzie **hanadb1-Hana**, **hanadb2-Hana**i **hanadb3-Hana**).  
+4. Utwórz trzy interfejsy sieciowe — jeden dla każdej maszyny wirtualnej dla `hana`  podsieci sieci wirtualnej (w tym przykładzie **hanadb1-Hana**, **hanadb2-Hana**i **hanadb3-Hana**).  
 
 5. Dołącz nowo utworzone interfejsy sieci wirtualnej do odpowiednich maszyn wirtualnych, wykonując następujące czynności:  
 
@@ -253,7 +253,7 @@ W następnych instrukcjach przyjęto założenie, że utworzono już grupę zaso
     
     e. Wybierz pozycję **Zapisz**. 
  
-    f. Powtórz kroki od b do e dla pozostałych maszyn wirtualnych (w naszym przykładzie **hanadb2** i **hanadb3**).
+    f. Powtórz kroki od b do e dla pozostałych maszyn wirtualnych (w naszym przykładzie  **hanadb2** i **hanadb3**).
  
     przykład Pozostaw teraz maszyny wirtualne w stanie zatrzymania. Następnie włączysz [przyspieszoną sieć](../../../virtual-network/create-vm-accelerated-networking-cli.md) dla wszystkich nowo dołączonych interfejsów sieciowych.  
 
@@ -349,7 +349,9 @@ Skonfiguruj i przygotuj system operacyjny, wykonując następujące czynności:
     net.core.optmem_max = 16777216
     net.ipv4.tcp_rmem = 65536 16777216 16777216
     net.ipv4.tcp_wmem = 65536 16777216 16777216
-    net.core.netdev_max_backlog = 300000 net.ipv4.tcp_slow_start_after_idle=0 net.ipv4.tcp_no_metrics_save = 1
+    net.core.netdev_max_backlog = 300000 
+    net.ipv4.tcp_slow_start_after_idle=0 
+    net.ipv4.tcp_no_metrics_save = 1
     net.ipv4.tcp_moderate_rcvbuf = 1
     net.ipv4.tcp_window_scaling = 1
     net.ipv4.tcp_timestamps = 1
@@ -563,7 +565,7 @@ W tym przykładzie w celu wdrożenia SAP HANA w konfiguracji skalowania w poziom
      * W obszarze **czy chcesz dodać hosty do systemu?**: wprowadź wartość **y**
      * Aby **dodać nazwy hostów rozdzielane przecinkami**: wpisz **hanadb2, hanadb3**
      * Dla **nazwy użytkownika głównego** [root]: naciśnij klawisz ENTER, aby zaakceptować wartość domyślną
-     * W przypadku ról dla hosta hanadb2: wprowadź **1** (dla procesu roboczego)
+     * W przypadku ról dla hosta hanadb2: wprowadź **1**  (dla procesu roboczego)
      * Dla **grupy hostów trybu failover hosta** hanadb2 [domyślnie]: naciśnij klawisz ENTER, aby zaakceptować wartość domyślną
      * **Numer partycji magazynu** dla hanadb2 hosta [<<assign automatically>>]: naciśnij klawisz ENTER, aby zaakceptować wartość domyślną
      * Dla **grupy procesów roboczych** dla hosta hanadb2 [domyślnie]: naciśnij klawisz ENTER, aby zaakceptować wartość domyślną
