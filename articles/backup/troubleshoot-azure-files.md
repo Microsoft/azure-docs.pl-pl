@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z usługą Azure File Share
 description: W tym artykule znajdują się informacje dotyczące rozwiązywania problemów występujących podczas ochrony udziałów plików platformy Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: e6aec34bea32d33e7a202cb9afb1aae6e1047f18
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: b6f4c74f6e2e8c463d1bcbd78d6ff79d3fb6ee56
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825464"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889812"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Rozwiązywanie problemów podczas tworzenia kopii zapasowych udziałów plików platformy Azure
 
@@ -300,7 +300,7 @@ Komunikat o błędzie: wymienione punkty przywracania nie są dostępne, poniewa
 Sprawdź, czy kopia zapasowa udziału plików jest usuwana. Jeśli był w stanie nietrwałego usunięcia, sprawdź, czy okres przechowywania nieprzerwanego usuwania jest wyższy i nie został odzyskany ponownie. W każdym z tych przypadków wszystkie migawki zostaną trwale utracone i nie będzie można odzyskać danych.
 
 >[!NOTE]
-> Zalecamy, aby nie usuwać kopii zapasowej udziału plików lub jeśli jest w stanie nietrwałego usunięcia, cofanie usunięcia przed zakończeniem nietrwałego okresu przechowywania, aby uniknąć utraty wszystkich punktów przywracania.
+> Zalecamy, aby nie usuwać kopii zapasowej udziału plików lub jeśli jest w stanie nietrwałego usunięcia, cofanie usunięcia przed zakończeniem usuwania nietrwałego okresu przechowywania, aby uniknąć utraty wszystkich punktów przywracania.
 
 ### <a name="usererrorbackupafsinsoftdeletestate---backup-failed-as-the-azure-file-share-is-in-soft-deleted-state"></a>UserErrorBackupAFSInSoftDeleteState — tworzenie kopii zapasowej nie powiodło się, ponieważ udział plików platformy Azure jest w stanie usuwania nietrwałego
 

@@ -3,12 +3,12 @@ title: Omówienie magazynów usługi Recovery Services
 description: Omówienie i porównanie między magazynami Recovery Services i magazynami Azure Backup.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: c69883a88473cd304bb772430ddfe662da4d8fac
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 6b6550bc8c5221547d55ad1e81a985b8ecd303e0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757102"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889621"
 ---
 # <a name="recovery-services-vaults-overview"></a>Przegląd magazynów usługi Recovery Services
 
@@ -20,7 +20,7 @@ W tym artykule opisano funkcje magazynu Recovery Services. Magazyn Recovery Serv
 
 - **Access Control oparte na rolach (RBAC)**: RBAC zapewnia precyzyjną kontrolę zarządzania dostępem na platformie Azure. [Platforma Azure udostępnia różne wbudowane role](../role-based-access-control/built-in-roles.md), a Azure Backup ma trzy [wbudowane role do zarządzania punktami odzyskiwania](backup-rbac-rs-vault.md). Magazyny Recovery Services są zgodne z RBAC, które ograniczają dostęp do kopii zapasowych i przywracania do zdefiniowanego zestawu ról użytkownika. [Dowiedz się więcej](backup-rbac-rs-vault.md)
 
-- **Usuwanie nietrwałe**: usuwanie nietrwałe, nawet jeśli złośliwy aktor usuwa kopię zapasową (lub dane kopii zapasowej są przypadkowo usuwane), dane kopii zapasowej są przechowywane przez 14 dodatkowych dni, co pozwala na odzyskanie tego elementu kopii zapasowej bez utraty danych. Dodatkowe 14 dni przechowywania danych kopii zapasowej w stanie "usuwanie nietrwałe" nie wiążą się z kosztem dla klienta. [Dowiedz się więcej](backup-azure-security-feature-cloud.md).
+- **Usuwanie nietrwałe**: usuwanie nietrwałe, nawet jeśli złośliwy aktor usuwa kopię zapasową (lub dane kopii zapasowej są przypadkowo usuwane), dane kopii zapasowej są przechowywane przez 14 dodatkowych dni, co pozwala na odzyskanie tego elementu kopii zapasowej bez utraty danych. Dodatkowe 14 dni przechowywania danych kopii zapasowej w stanie "usuwanie nietrwałe" nie wiążą się z pozostałymi kosztami. [Dowiedz się więcej](backup-azure-security-feature-cloud.md).
 
 - **Przywracanie między regionami**: Przywracanie między regionami (CRR) umożliwia przywracanie maszyn wirtualnych platformy Azure w regionie pomocniczym, który jest sparowanym regionem platformy Azure. Jeśli platforma Azure deklaruje awarię w regionie podstawowym, dane zreplikowane w regionie pomocniczym są dostępne do przywrócenia w regionie pomocniczym w celu ograniczenia rzeczywistego przestoju awaryjnego w regionie podstawowym środowiska. [Dowiedz się więcej](backup-azure-arm-restore-vms.md#cross-region-restore).
 

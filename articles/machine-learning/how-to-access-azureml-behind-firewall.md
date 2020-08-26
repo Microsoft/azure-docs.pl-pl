@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 7d270ac9a6597645c5a98b6af77d19021ef00329
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 581feff516e0f0cd820c94290d4aaa729cc4d3a4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827430"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889944"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Używanie obszaru roboczego za zaporą dla Azure Machine Learning
 
@@ -24,9 +24,9 @@ W tym artykule dowiesz się, jak skonfigurować zaporę platformy Azure w celu k
 
 Informacje zawarte w tym dokumencie opierają się na korzystaniu z [zapory platformy Azure](../firewall/tutorial-firewall-deploy-portal.md), dlatego można z nich korzystać z innych produktów zapory. Jeśli masz pytania dotyczące sposobu zezwalania na komunikację za pośrednictwem zapory, zapoznaj się z dokumentacją używanej zapory.
 
-## <a name="network-rules"></a>Reguły sieci
+## <a name="application-rules"></a>Reguły aplikacji
 
-Na zaporze Utwórz regułę sieci zezwalającą na ruch do i z adresów w tym artykule.
+Na zaporze Utwórz _regułę aplikacji_ zezwalającą na ruch do i z adresów w tym artykule.
 
 > [!TIP]
 > Podczas dodawania reguły sieci należy ustawić __Protokół__ na dowolny, a porty do `*` .
@@ -52,7 +52,7 @@ Hosty w tej sekcji należą do firmy Microsoft i zapewniają usługi wymagane do
 | **\*. instances.azureml.net** | Wystąpienia obliczeniowe Azure Machine Learning |
 | **\*. instances.azureml.ms** | Wystąpienia obliczeniowe Azure Machine Learning, gdy w obszarze roboczym jest włączone łącze prywatne |
 | **windows.net** | Azure Blob Storage |
-| **vault.azure.net** | Azure Key Vault |
+| **vault.azure.net** | W usłudze Azure Key Vault |
 | **azurecr.io** | Azure Container Registry |
 | **mcr.microsoft.com** | Microsoft Container Registry dla podstawowych obrazów platformy Docker |
 | **your-acr-server-name.azurecr.io** | Wymagany tylko wtedy, gdy Azure Container Registry znajduje się za siecią wirtualną. W tej konfiguracji link prywatny jest tworzony ze środowiska firmy Microsoft do wystąpienia usługi ACR w ramach subskrypcji. Użyj nazwy serwera ACR dla obszaru roboczego Azure Machine Learning. |

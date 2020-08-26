@@ -3,12 +3,12 @@ title: Kopia zapasowa offline dla Data Protection Manager (DPM) i Microsoft Azur
 description: Za pomocą Azure Backup można wysyłać dane z sieci za pomocą usługi Azure Import/Export. W tym artykule opisano przepływ pracy kopii zapasowej offline dla poprzednich wersji programu DPM i Azure Backup Server.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 45518607b96848dc211c1a787ecfa85432cd842e
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: b747fd3c682dc1caf7312ba7279470a1e6b38bd5
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826603"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890097"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server (poprzednie wersje)
 
@@ -203,7 +203,7 @@ Narzędzie *AzureOfflineBackupDiskPrep* służy do przygotowywania dysków SATA,
 
 1. Wprowadź literę dysku bez kropki końcowej dla zainstalowanego dysku, który ma zostać przygotowany do przeniesienia na platformę Azure. Po wyświetleniu monitu podaj potwierdzenie formatowania dysku.
 
-    Następnie narzędzie rozpocznie przygotowanie dysku i skopiowanie danych kopii zapasowej. Może być konieczne dołączenie dodatkowych dysków po wyświetleniu monitu przez narzędzie w przypadku, gdy udostępniony dysk nie ma wystarczającej ilości miejsca na dane kopii zapasowej. <br/>
+    Następnie narzędzie rozpocznie przygotowanie dysku i skopiowanie danych kopii zapasowej. Jeśli udostępniony dysk nie ma wystarczającej ilości miejsca na dane kopii zapasowej, może być konieczne dołączenie dodatkowych dysków po wyświetleniu monitu przez narzędzie. <br/>
 
     Po pomyślnym zakończeniu działania narzędzia zostanie przygotowany co najmniej jeden dostarczony dysk do wysyłki na platformę Azure. Zadanie importu o nazwie podanej podczas przepływu pracy w sekcji "Inicjowanie kopii zapasowej w trybie offline" jest również tworzone na platformie Azure. Na koniec narzędzie wyświetla adres wysyłkowy centrum danych platformy Azure, w którym należy dostarczyć dyski.
 

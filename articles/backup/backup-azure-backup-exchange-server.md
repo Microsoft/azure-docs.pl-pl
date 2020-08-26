@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć kopię zapasową serwera programu Excha
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 139741c4f721f0fd86cc585b4cfb2ed97c45b25c
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 48a0e0f4b838b3f9b26de5a9cf297ddcdfc2a7e9
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827413"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889723"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Tworzenie kopii zapasowych serwera programu Exchange do usługi Azure Backup przy użyciu programu System Center 2012 R2 DPM
 
@@ -32,7 +32,7 @@ Przed kontynuowaniem upewnij się, że spełniono wszystkie [wymagania wstępne]
 * Poświadczenia agenta i magazynu zostały pobrane na serwer programu DPM.
 * Agent jest zainstalowany na serwerze programu DPM.
 * Poświadczenia magazynu zostały użyte do zarejestrowania serwera programu DPM.
-* W przypadku ochrony programu Exchange 2016 należy uaktualnić do programu DPM 2012 R2 UR9 lub nowszego
+* W przypadku ochrony programu Exchange 2016 należy przeprowadzić uaktualnienie do programu DPM 2012 R2 UR9 lub nowszego.
 
 ## <a name="dpm-protection-agent"></a>Agent ochrony DPM
 
@@ -49,7 +49,7 @@ Aby zainstalować agenta ochrony programu DPM na serwerze Exchange, wykonaj nast
 4. Wybierz bazę danych programu Exchange Server, którą chcesz chronić, a następnie kliknij przycisk **dalej**.
 
    > [!NOTE]
-   > W przypadku ochrony programu Exchange 2013 Sprawdź [wymagania wstępne programu exchange 2013](/system-center/dpm/back-up-exchange).
+   > Jeśli chronisz program Exchange 2013, sprawdź [wymagania wstępne programu exchange 2013](/system-center/dpm/back-up-exchange).
    >
    >
 
@@ -83,10 +83,10 @@ Aby zainstalować agenta ochrony programu DPM na serwerze Exchange, wykonaj nast
 11. Sprawdź ilość dostępnego miejsca na dysku, a następnie kliknij przycisk **dalej**.
 12. Wybierz czas, w którym serwer programu DPM utworzy replikację początkową, a następnie kliknij przycisk **dalej**.
 13. Wybierz opcje sprawdzania spójności, a następnie kliknij przycisk **dalej**.
-14. Wybierz bazę danych, dla której chcesz utworzyć kopię zapasową na platformie Azure, a następnie kliknij przycisk **dalej**. Na przykład:
+14. Wybierz bazę danych, dla której chcesz utworzyć kopię zapasową na platformie Azure, a następnie kliknij przycisk **dalej**. Przykład:
 
     ![Określ dane ochrony w trybie online](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Zdefiniuj harmonogram **Azure Backup**, a następnie kliknij przycisk **dalej**. Na przykład:
+15. Zdefiniuj harmonogram **Azure Backup**, a następnie kliknij przycisk **dalej**. Przykład:
 
     ![Określ harmonogram kopii zapasowych online](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

@@ -4,15 +4,15 @@ description: Znajdź przykłady szablonów Azure Resource Manager dla niektóryc
 author: tfitzmac
 tags: azure-service-management
 ms.topic: sample
-ms.date: 01/04/2019
+ms.date: 08/26/2020
 ms.author: tomfitz
 ms.custom: mvc, fasttrack-edit
-ms.openlocfilehash: 4ac8e7d51ce9a3d5694f2853219bb04869a91734
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5129fccceb633991767cdd3b52bbb5b6af067270
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517709"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891049"
 ---
 # <a name="azure-resource-manager-templates-for-app-service"></a>Szablony usługi Azure Resource Manager dla usługi App Service
 
@@ -44,6 +44,7 @@ Aby poznać składnię JSON i właściwości dla zasobów usługi App Services, 
 | [Aplikacja z bazą danych w Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| Wdraża aplikację App Service i bazę danych w Azure SQL Database na podstawowym poziomie usługi. |
 | [Aplikacja z połączeniem z usługą Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-blob-connection)| Wdraża aplikację usługi App Service z parametrami połączenia usługi Azure Blob Storage. Umożliwia to użycie usługi Azure Blob Storage z poziomu aplikacji. |
 | [Aplikacja z pamięcią podręczną Azure Cache for Redis](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache)| Wdraża aplikację usługi App Service z pamięcią podręczną Azure Cache for Redis. |
+| [Aplikacja połączona z webapp zaplecza](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-privateendpoint-vnet-injection)| Wdraża dwie aplikacje sieci Web (frontonu i zaplecza) bezpiecznie połączone ze sobą przy użyciu iniekcji wirtualnej i prywatnego punktu końcowego. |
 |**Środowisko usługi App Service**| **Opis** |
 | [Tworzenie środowiska usługi App Service w wersji 2](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-create) | Tworzy środowisko usługi App Service w wersji 2 w sieci wirtualnej. |
 | [Tworzenie środowiska usługi App Service w wersji 2 przy użyciu adresu wewnętrznego modułu równoważenia obciążenia](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-ilb-create/) | Tworzy środowisko usługi App Service w wersji 2 w sieci wirtualnej przy użyciu prywatnego adresu wewnętrznego modułu równoważenia obciążenia. |

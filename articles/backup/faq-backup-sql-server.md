@@ -4,12 +4,12 @@ description: Znajdź odpowiedzi na często zadawane pytania dotyczące tworzenia
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 577f6637ebe96dcabcb1357ca09da75bd9552c30
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: d69a2aff900dc3185aafbcb2d655a29d2fff06e3
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827243"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890560"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Często zadawane pytania dotyczące SQL Server baz danych uruchomionych w ramach kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -68,7 +68,7 @@ Magazyn Azure Backup Recovery Services może wykrywać i chronić wszystkie węz
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>Czy zakończone pomyślnie zadania tworzenia kopii zapasowej tworzą alerty?
 
-Nie. Zakończone pomyślnie zadania tworzenia kopii zapasowej nie generują alertów. Alerty są wysyłane tylko w przypadku zadań tworzenia kopii zapasowej, które się nie powiodły. Szczegółowe zachowanie alertów portalu zostało udokumentowane w [tym miejscu](backup-azure-monitoring-built-in-monitor.md). Jeśli jednak chcesz mieć alerty nawet w przypadku zadań zakończonych powodzeniem, możesz użyć [monitorowania za pomocą Azure monitor](backup-azure-monitoring-use-azuremonitor.md).
+Nie. Zakończone pomyślnie zadania tworzenia kopii zapasowej nie generują alertów. Alerty są wysyłane tylko w przypadku zadań tworzenia kopii zapasowej, które się nie powiodły. Szczegółowe zachowanie alertów portalu zostało udokumentowane w [tym miejscu](backup-azure-monitoring-built-in-monitor.md). Jednak jeśli interesuje Cię posiadanie alertów nawet w przypadku zadań zakończonych powodzeniem, możesz użyć [monitorowania za pomocą Azure monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Czy można zobaczyć zaplanowane zadania tworzenia kopii zapasowej w menu zadania tworzenia kopii zapasowej?
 
@@ -94,7 +94,7 @@ Jeśli **zatrzymasz tworzenie kopii zapasowej z usuwaniem danych**, nie będą w
 
 Baza danych o zmienionej nazwie jest traktowana jako nowa baza danych. W związku z tym usługa będzie traktować tę sytuację tak, jakby baza danych nie została znaleziona, a kopie zapasowe kończą się niepowodzeniem.
 
-Możesz wybrać bazę danych, która została zmieniona na nazwę i skonfigurować na niej ochronę. W przypadku włączenia ochrony automatycznej w wystąpieniu baza danych o zmienionej nazwie zostanie automatycznie wykryta i będzie chroniona.
+Możesz wybrać bazę danych, która została zmieniona na nazwę i skonfigurować na niej ochronę. Jeśli w wystąpieniu włączono automatyczną ochronę, baza danych o zmienionej nazwie zostanie automatycznie wykryta i będzie chroniona.
 
 ## <a name="why-cant-i-see-an-added-database-for-an-autoprotected-instance"></a>Dlaczego nie mogę zobaczyć dodanej bazy danych dla wystąpienia z ochroną chronioną?
 

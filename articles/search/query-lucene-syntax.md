@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 3bf9dc0e69707eaed8c2a844f6ed3169e65a5342
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 088f3c78e0840ca435d70d6844b0eb932a07ccb7
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564087"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891100"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Składnia zapytań Lucene w usłudze Azure Wyszukiwanie poznawcze
 
@@ -65,7 +65,7 @@ Aby uzyskać więcej przykładów, zobacz [przykłady składni zapytań Lucene d
 > [!NOTE]  
 >  Usługa Azure Wyszukiwanie poznawcze obsługuje także [prostą składnię zapytań](query-simple-syntax.md), prosty i niezawodny język zapytań, który może służyć do prostego wyszukiwania słów kluczowych.  
 
-##  <a name="syntax-fundamentals"></a><a name="bkmk_syntax"></a>Podstawy składni  
+##  <a name="syntax-fundamentals"></a><a name="bkmk_syntax"></a> Podstawy składni  
 
 poniższe podstawowe informacje o składni dotyczą wszystkich zapytań, które używają składni Lucene.  
 
@@ -95,7 +95,7 @@ Upewnij się, że wszystkie znaki niebezpieczne i zarezerwowane są zakodowane w
 
 Niebezpieczne znaki to ``" ` < > # % { } | \ ^ ~ [ ]`` . Znaki zarezerwowane są `; / ? : @ = + &` .
 
-###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a>Limity rozmiaru zapytań
+###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a> Limity rozmiaru zapytań
 
  Istnieje ograniczenie rozmiaru zapytań, które można wysłać do usługi Azure Wyszukiwanie poznawcze. W szczególności można mieć co najwyżej 1024 klauzul (wyrażenia oddzielone znakami i, lub itd.). Obowiązuje również limit około 32 KB na rozmiar każdego pojedynczego okresu zapytania. Jeśli aplikacja generuje zapytania wyszukiwania programowo, zalecamy zaprojektowanie go w taki sposób, aby nie generował zapytań o nieograniczonego rozmiaru.  
 
@@ -105,31 +105,31 @@ Niebezpieczne znaki to ``" ` < > # % { } | \ ^ ~ [ ]`` . Znaki zarezerwowane są
 
 Grupowanie pól jest podobne, ale zakresy grupowanie do jednego pola. Na przykład `hotelAmenities:(gym+(wifi||pool))` szuka pola "hotelAmenities" dla "treningów" i "Wi-Fi", "treningów" i "Pool".  
 
-##  <a name="boolean-search"></a><a name="bkmk_boolean"></a>Wyszukiwanie wartości logicznych
+##  <a name="boolean-search"></a><a name="bkmk_boolean"></a> Wyszukiwanie wartości logicznych
 
  Zawsze określaj operatory wartości tekstowych (i, lub, nie) we wszystkich wersalikach.  
 
 ### <a name="or-operator-or-or-"></a>`OR`Operator OR lub`||`
 
-Operator OR jest pionowym znakiem kreski lub potoku. Na przykład: `wifi || luxury` program przeszuka dokumenty zawierające "Wi-Fi" lub "możliwość zaprojektowania". Ponieważ lub jest domyślnym operatorem połączenia, można go również pozostawić, tak aby `wifi luxury` był odpowiednikiem `wifi || luxury` .
+Operator OR jest pionowym znakiem kreski lub potoku. Na przykład: `wifi || luxury` program przeszuka dokumenty zawierające "Wi-Fi" lub "możliwość zaprojektowania". Ponieważ lub jest domyślnym operatorem połączenia, można go również pozostawić, tak aby `wifi luxury` był odpowiednikiem  `wifi || luxury` .
 
-### <a name="and-operator-and--or-"></a>Operator AND `AND` `&&` lub`+`
+### <a name="and-operator-and--or-"></a>Operator AND `AND` `&&` lub `+`
 
 Operator i jest znakiem handlowego "i". Na przykład: `wifi && luxury` program przeszuka dokumenty zawierające zarówno "Wi-Fi", jak i "możliwość zaprojektowania". Znak plus (+) jest używany dla wymaganych warunków. Na przykład program `+wifi +luxury` określa, że oba warunki muszą znajdować się gdzieś w polu jednego dokumentu.
 
-### <a name="not-operator-not--or--"></a>NOT `NOT` — operator `!` lub`-`
+### <a name="not-operator-not--or--"></a>NOT `NOT` — operator `!` lub `-`
 
 Operator NOT jest znakiem minus. Program przeszuka na przykład `wifi –luxury` dokumenty, które mają `wifi` termin i/lub nie mają `luxury` .
 
 Parametr **searchmode** w żądaniu zapytania kontroluje, czy termin z operatorem NOT jest ANDed lub logicznie innym warunkiem w zapytaniu (przy założeniu, że nie `+` ma `|` operatora OR w innych warunkach). Prawidłowe wartości to include `any` lub `all` .
 
-`searchMode=any`zwiększa odwoływanie zapytań przez dołączenie większej liczby wyników i domyślnie `-` będzie interpretowane jako "lub" nie ". Na przykład program `wifi -luxury` będzie pasował do dokumentów, które zawierają termin `wifi` lub te, które nie zawierają warunków `luxury` .
+`searchMode=any` zwiększa odwoływanie zapytań przez dołączenie większej liczby wyników i domyślnie `-` będzie interpretowane jako "lub" nie ". Na przykład program `wifi -luxury` będzie pasował do dokumentów, które zawierają termin `wifi` lub te, które nie zawierają warunków `luxury` .
 
-`searchMode=all`zwiększa precyzję zapytań, dołączając mniejszą liczbę wyników i domyślnie — będzie interpretowana jako "i". Na przykład program `wifi -luxury` będzie pasował do dokumentów zawierających termin `wifi` i nie zawiera terminu "możliwość zaprojektowania". Jest to raczej bardziej intuicyjne zachowanie `-` operatora. W związku z tym należy rozważyć użycie zamiast tego, `searchMode=all` `searchMode=any` Jeśli chcesz zoptymalizować wyszukiwanie pod kątem precyzji zamiast odwołania, *a* użytkownicy często używają `-` operatora w wyszukiwaniach.
+`searchMode=all` zwiększa precyzję zapytań, dołączając mniejszą liczbę wyników i domyślnie — będzie interpretowana jako "i". Na przykład program `wifi -luxury` będzie pasował do dokumentów zawierających termin `wifi` i nie zawiera terminu "możliwość zaprojektowania". Jest to raczej bardziej intuicyjne zachowanie `-` operatora. W związku z tym należy rozważyć użycie zamiast tego, `searchMode=all` `searchMode=any` Jeśli chcesz zoptymalizować wyszukiwanie pod kątem precyzji zamiast odwołania, *a* użytkownicy często używają `-` operatora w wyszukiwaniach.
 
 Podczas decydowania o ustawieniu **searchmode** należy wziąć pod uwagę wzorce interakcji użytkownika dotyczące zapytań w różnych aplikacjach. Użytkownicy poszukujący informacji mogą dołączać operator do zapytania, w przeciwieństwie do witryn handlu elektronicznego, które mają bardziej wbudowaną strukturę nawigacji.
 
-##  <a name="fielded-search"></a><a name="bkmk_fields"></a>Wyszukiwanie polowe
+##  <a name="fielded-search"></a><a name="bkmk_fields"></a> Wyszukiwanie polowe
 
 Można zdefiniować operację wyszukiwania w polu z `fieldName:searchExpression` składnią, gdzie wyrażenie wyszukiwania może być pojedynczym słowem lub frazą lub bardziej skomplikowanym wyrażeniem w nawiasach, opcjonalnie z operatorami logicznymi. Oto kilka przykładów:  
 
@@ -144,7 +144,7 @@ Pole określone w elemencie `fieldName:searchExpression` musi być `searchable` 
 > [!NOTE]
 > W przypadku korzystania z wyrażeń wyszukiwania w polu nie trzeba używać `searchFields` parametru, ponieważ każde wyrażenie wyszukiwania w polu ma jawnie określoną nazwę pola. Jednak nadal można użyć `searchFields` parametru, jeśli chcesz uruchomić kwerendę, w której niektóre części są objęte zakresem określonego pola, a reszta może mieć zastosowanie do kilku pól. Na przykład zapytanie `search=genre:jazz NOT history&searchFields=description` byłoby zgodne tylko z `jazz` `genre` polem, podczas gdy byłoby zgodne `NOT history` z `description` polem. Nazwa pola podana w `fieldName:searchExpression` zawsze ma pierwszeństwo przed `searchFields` parametrem, co oznacza, że w tym przykładzie nie trzeba dołączać do `genre` `searchFields` parametru.
 
-##  <a name="fuzzy-search"></a><a name="bkmk_fuzzy"></a>Wyszukiwanie rozmyte
+##  <a name="fuzzy-search"></a><a name="bkmk_fuzzy"></a> Wyszukiwanie rozmyte
 
 Wyszukiwanie rozmyte umożliwia znalezienie dopasowań w warunkach, które mają podobną konstrukcję, i rozszerza termin do maksymalnie 50 warunków, które spełniają kryteria odległości co najmniej dwóch. Aby uzyskać więcej informacji, zobacz [Wyszukiwanie rozmyte](search-query-fuzzy.md).
 
@@ -152,27 +152,27 @@ Wyszukiwanie rozmyte umożliwia znalezienie dopasowań w warunkach, które mają
 
  Wyszukiwanie rozmyte może być stosowane tylko do warunków, a nie fraz, ale do każdego terminu można dołączać pojedyncze części nazwy lub frazy. Na przykład "Unviersty ~ of ~" Wshington ~ "byłoby zgodne z" University of Waszyngton ".
  
-##  <a name="proximity-search"></a><a name="bkmk_proximity"></a>Wyszukiwanie w sąsiedztwie
+##  <a name="proximity-search"></a><a name="bkmk_proximity"></a> Wyszukiwanie w sąsiedztwie
 
 Wyszukiwania w sąsiedztwie są używane do znajdowania terminów blisko siebie w dokumencie. Wstaw symbol tyldy "~" na końcu frazy, a po niej liczbę słów, które tworzą granicę bliskości. Na przykład `"hotel airport"~5` w dokumencie znajdą się terminy "Hotel" i "Lotnisko" w 5 wyrazach innych.  
 
 
-##  <a name="term-boosting"></a><a name="bkmk_termboost"></a>Zwiększenie warunków
+##  <a name="term-boosting"></a><a name="bkmk_termboost"></a> Zwiększenie warunków
 
 Zwiększenie warunków dotyczy klasyfikacji dokumentu, jeśli zawiera on podwyższony termin względem dokumentów, które nie zawierają warunków. Różni się to od profilów oceniania w tych profilach oceniania, a nie konkretnych warunków.  
 
-Poniższy przykład pomaga zilustrować różnice. Załóżmy, że istnieje profil oceniania, który zwiększa zgodność w określonym polu, podyktuj *gatunek* w [przykładowym musicstoreindex](index-add-scoring-profiles.md#bkmk_ex). Zwiększenie okresu może służyć do dalszej promocji niektórych wyszukiwanych terminów wyższych niż inne. Na przykład program `rock^2 electronic` będzie ulepszał dokumenty, które zawierają terminy wyszukiwania w polu gatunek powyżej innych pól, które można wyszukiwać w indeksie. Ponadto dokumenty zawierające wyszukiwany termin *skały* są wyższe niż w przypadku innych wyszukiwanych warunków w postaci *elektronicznej* w wyniku okresu zwiększenia wartości (2).  
+Poniższy przykład pomaga zilustrować różnice. Załóżmy, że istnieje profil oceniania, który zwiększa zgodność w określonym polu, podyktuj *gatunek* w  [przykładowym musicstoreindex](index-add-scoring-profiles.md#bkmk_ex). Zwiększenie okresu może służyć do dalszej promocji niektórych wyszukiwanych terminów wyższych niż inne. Na przykład program `rock^2 electronic` będzie ulepszał dokumenty, które zawierają terminy wyszukiwania w polu gatunek powyżej innych pól, które można wyszukiwać w indeksie. Ponadto dokumenty zawierające wyszukiwany termin *skały* są wyższe niż w przypadku innych wyszukiwanych warunków w postaci *elektronicznej* w wyniku okresu zwiększenia wartości (2).  
 
  Aby zwiększyć okres korzystania z karetki, "^", symbol z współczynnikem wzrostu (liczbą) na końcu wyszukiwanego okresu. Możesz również poprawić frazy. Im wyższy współczynnik zwiększania wydajności, tym bardziej istotny termin będzie odnosić się do innych wyszukiwanych terminów. Domyślnie współczynnik zwiększania wynosi 1. Chociaż współczynnik zwiększania wartości musi być dodatni, może być mniejszy niż 1 (na przykład 0,20).  
 
-##  <a name="regular-expression-search"></a><a name="bkmk_regex"></a>Wyszukiwanie wyrażeń regularnych  
+##  <a name="regular-expression-search"></a><a name="bkmk_regex"></a> Wyszukiwanie wyrażeń regularnych  
  Wyszukiwanie w wyrażeniu regularnym wyszukuje dopasowanie na podstawie wzorców, które są prawidłowe w ramach oprogramowania Apache Lucene, zgodnie z opisem w [klasie RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html). W Wyszukiwanie poznawcze na platformie Azure wyrażenie regularne jest ujęte między ukośnikami `/` .
 
  Na przykład, aby znaleźć dokumenty zawierające "Motel" lub "Hotel", określ `/[mh]otel/` . Wyszukiwania wyrażeń regularnych są dopasowywane do pojedynczych wyrazów.
 
 Niektóre narzędzia i języki nakładają dodatkowe wymagania dotyczące znaków ucieczki. W przypadku formatu JSON ciągi zawierające ukośnik są wyprowadzane z ukośnikiem odwrotnym: "microsoft.com/azure/", `search=/.*microsoft.com\/azure\/.*/` gdzie `search=/.* <string-placeholder>.*/` konfiguruje wyrażenie regularne i `microsoft.com\/azure\/` jest ciągiem z odwróconym ukośnikiem.
 
-##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a>Wyszukiwanie symboli wieloznacznych
+##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a> Wyszukiwanie symboli wieloznacznych
 
 Można użyć ogólnie rozpoznanej składni dla wielu `*` symboli wieloznacznych () lub pojedynczych ( `?` ). Na przykład wyrażenie zapytania `search=alpha*` zwraca wartość "alfanumeryczne" lub "alfabetyczne". Zwróć uwagę, że Analizator zapytań Lucene obsługuje używanie tych symboli z pojedynczym terminem, a nie frazą.
 
@@ -183,13 +183,22 @@ Dopasowanie sufiksu, Where `*` lub `?` poprzedzające ciąg (as in `search=/.*nu
 > [!NOTE]  
 > Zgodnie z regułą dopasowanie wzorców jest powolne, dlatego warto poznać alternatywne metody, takie jak Edge n-gram tokenizacji, które tworzy tokeny dla sekwencji znaków w danym okresie. Indeks będzie większy, ale zapytania mogą działać szybciej, w zależności od konstrukcji wzorca i długości ciągów, które są indeksowane.
 >
-> Podczas analizowania zapytania zapytania, które są formułowane jako prefiks, sufiks, symbole wieloznaczne lub wyrażenia regularne są przesyłane jako-do drzewa zapytań, pomijając [analizę leksykalną](search-lucene-query-architecture.md#stage-2-lexical-analysis). Dopasowania będą znajdować się tylko wtedy, gdy indeks zawiera ciągi w formacie używanym przez zapytanie. W większości przypadków będzie potrzebny alternatywny Analizator podczas indeksowania, które zachowuje integralność ciągów, tak aby częściowe dopasowanie terminu i wzorca powiodło się. Aby uzyskać więcej informacji, zobacz [częściowe wyszukiwanie warunków na platformie Azure wyszukiwanie poznawcze zapytań](search-query-partial-matching.md).
 
-##  <a name="scoring-wildcard-and-regex-queries"></a><a name="bkmk_searchscoreforwildcardandregexqueries"></a>Ocenianie symboli wieloznacznych i wyrażeń regularnych
+### <a name="impact-of-an-analyzer-on-wildcard-queries"></a>Wpływ analizatora na zapytania z symbolami wieloznacznymi
+
+Podczas analizowania zapytania zapytania, które są formułowane jako prefiks, sufiks, symbole wieloznaczne lub wyrażenia regularne są przesyłane jako-do drzewa zapytań, pomijając [analizę leksykalną](search-lucene-query-architecture.md#stage-2-lexical-analysis). Dopasowania będą znajdować się tylko wtedy, gdy indeks zawiera ciągi w formacie używanym przez zapytanie. W większości przypadków podczas indeksowania będzie potrzebna Analizator, który zachowuje integralność ciągów, aby częściowe dopasowanie warunku i wzorca zakończyło się powodzeniem. Aby uzyskać więcej informacji, zobacz [częściowe wyszukiwanie warunków na platformie Azure wyszukiwanie poznawcze zapytań](search-query-partial-matching.md).
+
+Rozważ sytuację, w której można chcieć, aby zapytanie wyszukiwania "terminat *" zwracało wyniki zawierające takie terminy jak "Przerwij", "zakończenie" i "zakończenia".
+
+W przypadku korzystania z analizatora pl. Lucene (w języku angielskim) zastosowanie ma agresywne wyszukanie każdego z nich. Na przykład, "Przerwij", "zakończenie", "zakończenia" spowoduje, że wszystkie tokeny zostaną rozpodzielone na token "termi" w indeksie. Po drugiej stronie terminy w zapytaniach używające symboli wieloznacznych lub wyszukiwania rozmytego nie są analizowane wcale., dlatego nie będą miały wyników pasujących do zapytania "terminat *".
+
+Z drugiej strony analizatory firmy Microsoft (w tym przypadku, The en. Microsoft Analyzer) są nieco bardziej zaawansowane i używają Lematyzacja zamiast rdzeni. Oznacza to, że wszystkie wygenerowane tokeny powinny być prawidłowymi wyrazami w języku angielskim. Na przykład, "zakończenie", "zakończenia" i "zakończenie" będzie zbyt całkowicie w indeksie i byłoby to preferowany wybór dla scenariuszy, które są zależne od dużej ilości symboli wieloznacznych i wyszukiwania rozmytego.
+
+##  <a name="scoring-wildcard-and-regex-queries"></a><a name="bkmk_searchscoreforwildcardandregexqueries"></a> Ocenianie symboli wieloznacznych i wyrażeń regularnych
 
 Usługa Azure Wyszukiwanie poznawcze używa oceniania opartego na częstotliwościach ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) na potrzeby zapytań tekstowych. Jednakże w przypadku zapytań wieloznacznych i wyrażeń regularnych, w których zakres terminów może być bardzo szeroki, współczynnik częstotliwości jest ignorowany, aby zapobiec rozliczeniu na dopasowania od rzadkich warunków. Wszystkie dopasowania są traktowane równo w przypadku wyszukiwania symboli wieloznacznych i wyrażeń regularnych.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Przykłady zapytań dla prostego wyszukiwania](search-query-simple-examples.md)
 + [Przykłady zapytań dla pełnego wyszukiwania Lucene](search-query-lucene-examples.md)

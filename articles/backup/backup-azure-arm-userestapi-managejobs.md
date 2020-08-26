@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak śledzić i zarządzać zadaniami 
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: b9f69b8815cc8d508d5a10dda82803581216a4eb
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: ced0e0020fe955734bf6cc767480fbadd6eaffc1
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761631"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890284"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Śledzenie zadań tworzenia kopii zapasowej i przywracania za pomocą interfejsu API REST
 

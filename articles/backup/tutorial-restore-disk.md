@@ -4,12 +4,12 @@ description: Dowiedz się, jak przywrócić dysk i utworzyć odzyskaną maszynę
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: f13ff10579e7413a2ee7c64cafc2db856559a9d7
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: d93f3d24762f4b9a3da4a9e725d28810f6700fe0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824444"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890709"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Przywracanie maszyny wirtualnej za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -59,7 +59,7 @@ az backup recoverypoint list \
 ## <a name="restore-a-vm-disk"></a>Przywracanie dysku maszyny wirtualnej
 
 > [!IMPORTANT]
-> Zdecydowanie zaleca się używanie polecenia AZ CLI Version 2.0.74 lub nowszego, aby uzyskać wszystkie zalety szybkiego przywracania, w tym przywracania dysku zarządzanego. Najlepiej, jeśli użytkownik zawsze używa najnowszej wersji.
+> Bardzo zdecydowanie zaleca się użycie polecenia AZ CLI Version 2.0.74 lub nowszego, aby uzyskać wszystkie zalety szybkiego przywracania, w tym przywracania dysków zarządzanych. Najlepiej jest używać najnowszej wersji.
 
 ### <a name="managed-disk-restore"></a>Przywracanie dysku zarządzanego
 
@@ -88,7 +88,7 @@ Jeśli kopia zapasowa maszyny wirtualnej ma dyski zarządzane i chcesz przywróc
     ```
 
     > [!WARNING]
-    > Jeśli nie podano **grupy Target-Resource-Group** , dyski zarządzane zostaną przywrócone jako dyski niezarządzane do danego konta magazynu. Będzie to miało znaczący wpływ na czas przywracania, ponieważ czas potrzebny do przywrócenia dysków jest całkowicie zależny od danego konta magazynu. Klienci będą mogli korzystać z funkcji natychmiastowego przywracania tylko wtedy, gdy zostanie określony parametr Target-Resource-Group. Jeśli zamiarem jest przywrócenie dysków zarządzanych jako niezarządzanych, nie należy podawać parametru **Target-Resource-Group** i zamiast tego podać parametr **"Przywracanie jako niezarządzany-dysk"** , jak pokazano poniżej. Ten parametr jest dostępny w AZ 3.4.0 lub nowszym.
+    > Jeśli nie podano **grupy Target-Resource-Group** , dyski zarządzane zostaną przywrócone jako dyski niezarządzane do danego konta magazynu. Będzie to miało znaczący wpływ na czas przywracania, ponieważ czas potrzebny do przywrócenia dysków jest całkowicie zależny od danego konta magazynu. Skorzystaj z zalet natychmiastowego przywrócenia tylko wtedy, gdy zostanie określony parametr Target-Resource-Group. Jeśli zamiarem jest przywrócenie dysków zarządzanych jako niezarządzanych, nie należy podawać parametru **Target-Resource-Group** i zamiast tego podać parametr **"Przywracanie jako niezarządzany-dysk"** , jak pokazano poniżej. Ten parametr jest dostępny w AZ 3.4.0 lub nowszym.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -105,7 +105,7 @@ Spowoduje to przywrócenie dysków zarządzanych jako dysków niezarządzanych d
 
 ### <a name="unmanaged-disks-restore"></a>Przywracanie dysków niezarządzanych
 
-Jeśli kopia zapasowa maszyny wirtualnej zawiera dyski niezarządzane i chcesz przywrócić dyski z punktu odzyskiwania, najpierw Podaj konto usługi Azure Storage. To konto magazynu służy do przechowywania konfiguracji maszyny wirtualnej i szablonu wdrożenia, którego można później użyć do wdrożenia maszyny wirtualnej z przywróconych dysków. Domyślnie dyski niezarządzane zostaną przywrócone do ich oryginalnych kont magazynu. Jeśli użytkownik chce przywrócić wszystkie dyski niezarządzane do jednego miejsca, można również użyć danego konta magazynu jako lokalizacji przejściowej dla tych dysków.
+Jeśli kopia zapasowa maszyny wirtualnej zawiera dyski niezarządzane i chcesz przywrócić dyski z punktu odzyskiwania, najpierw Podaj konto usługi Azure Storage. To konto magazynu służy do przechowywania konfiguracji maszyny wirtualnej i szablonu wdrożenia, którego można później użyć do wdrożenia maszyny wirtualnej z przywróconych dysków. Domyślnie dyski niezarządzane zostaną przywrócone do ich oryginalnych kont magazynu. Jeśli chcesz przywrócić wszystkie dyski niezarządzane do jednego miejsca, można również użyć danego konta magazynu jako lokalizacji przejściowej dla tych dysków.
 
 Dodatkowe czynności obejmują tworzenie maszyny wirtualnej przy użyciu przywróconego dysku.
 

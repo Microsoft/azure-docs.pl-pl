@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową SAP HA
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 505c4502281f4d32e1e28d913ed5a040e533cfb2
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: fbf50a9b1fa33e86777c25dcbeee9681aa2dda62
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824325"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890607"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Samouczek: Tworzenie kopii zapasowych baz danych SAP HANA na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -141,7 +141,7 @@ Name                                  Operation         Status     Item Name   S
 e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2019-12-03T03:09:210831+00:00  
 ```
 
-Polecenie cmdlet [AZ Backup Job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) zawiera wszystkie zadania tworzenia kopii zapasowej (zaplanowane lub na żądanie), które zostały uruchomione lub są aktualnie uruchomione w chronionej bazie danych, a także inne operacje, takie jak rejestrowanie, konfigurowanie kopii zapasowej, usuwanie danych kopii zapasowej itp.
+Polecenie polecenia [AZ Backup Job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) wyświetla wszystkie zadania tworzenia kopii zapasowej (zaplanowane lub na żądanie), które zostały uruchomione lub są aktualnie uruchomione w chronionej bazie danych, a także inne operacje, takie jak rejestrowanie, konfigurowanie kopii zapasowej i usuwanie danych kopii zapasowej.
 
 >[!NOTE]
 >Azure Backup nie dostosowuje się automatycznie podczas tworzenia kopii zapasowej bazy danych SAP HANA uruchomionej na maszynie wirtualnej platformy Azure.

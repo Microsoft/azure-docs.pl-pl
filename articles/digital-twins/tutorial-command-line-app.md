@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 58013ba84e1ede36ed54284af4d20b943d63436f
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 0fc79cab5868ec7d676c956581407dce308d80ad
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855869"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891502"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Samouczek: Eksplorowanie usługi Azure Digital bliźniaczych reprezentacji za pomocą przykładowej aplikacji klienckiej
 
@@ -288,24 +288,7 @@ Główną funkcją usługi Azure Digital bliźniaczych reprezentacji jest możli
 Projekt w tym samouczku stanowi podstawę dla następnego samouczka, [*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md). Jeśli planujesz przejść do następnego samouczka, możesz zachować tutaj skonfigurowane zasoby, aby nadal korzystać z tego wystąpienia usługi Azure Digital bliźniaczych reprezentacji i skonfigurowanej przykładowej aplikacji.
 * W takim przypadku można użyć przykładowej aplikacji `DeleteAllTwins` i `DeleteAllModels` poleceń, aby wyczyścić odpowiednio bliźniaczych reprezentacji i modele w wystąpieniu. Spowoduje to wyczyszczenie do następnego samouczka.
 
-Jeśli zasoby utworzone w tym samouczku nie są już potrzebne, wykonaj następujące kroki, aby je usunąć.
-
-Za pomocą [Azure Cloud Shell](https://shell.azure.com)można usunąć wszystkie zasoby platformy Azure w grupie zasobów za pomocą polecenia [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) . Spowoduje to usunięcie grupy zasobów i wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
-
-> [!IMPORTANT]
-> Usunięcie grupy zasobów jest nieodwracalne. Grupa zasobów oraz wszystkie zawarte w niej zasoby zostaną trwale usunięte. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub grupy zasobów. 
-
-Otwórz Azure Cloud Shell i uruchom następujące polecenie, aby usunąć grupę zasobów i wszystkie elementy, które zawiera.
-
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
-
-Następnie usuń Azure Active Directory rejestrację aplikacji utworzoną dla aplikacji klienckiej przy użyciu tego polecenia:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
 Na koniec Usuń folder przykładowego projektu pobrany na komputer lokalny.
 

@@ -3,12 +3,12 @@ title: Model danych dzienników Azure Monitor
 description: W tym artykule dowiesz się więcej na temat Azure Monitor Log Analytics szczegóły modelu danych Azure Backup.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 897431feae6cd3166b594d4d6848204df76fe3fa
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 7822f88c9ea3e0cd83b7e600d63984a8a51becb1
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761410"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890267"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics model danych dla Azure Backup danych
 
@@ -94,14 +94,14 @@ Ta tabela zawiera szczegółowe informacje o skojarzeniach elementów kopii zapa
 
 | Pole | Typ danych | Opis |
 | --- | --- | --- |
-| EventName_s |Tekst |To pole reprezentuje nazwę tego zdarzenia, jest zawsze AzureBackupCentralReport |  
+| EventName_s |Tekst |To pole reprezentuje nazwę tego zdarzenia. Zawsze jest AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Tekst |Unikatowy identyfikator elementu kopii zapasowej |
-| SchemaVersion_s |Tekst |To pole oznacza bieżącą wersję schematu, to **v2** |
+| SchemaVersion_s |Tekst |To pole oznacza bieżącą wersję schematu. Jest to **wersja 2** |
 | State_s |Tekst |Bieżący stan obiektu skojarzenia elementu kopii zapasowej, na przykład aktywny, usunięty |
 | BackupManagementType_s |Tekst |Typ dostawcy dla serwera wykonującego zadanie tworzenia kopii zapasowej, na przykład IaaSVM, FileFolder |
 | BackupItemSourceSize_s |Tekst | Rozmiar frontonu elementu kopii zapasowej |
 | BackupManagementServerUniqueId_s |Tekst | Pole, aby jednoznacznie identyfikować serwer zarządzania kopiami zapasowymi, za pomocą którego jest chroniony element kopii zapasowej, w razie potrzeby |
-| Kategoria |Tekst |To pole reprezentuje kategorię danych diagnostycznych wypychanych do Log Analytics, AzureBackupReport |
+| Kategoria |Tekst |To pole reprezentuje kategorię danych diagnostycznych wypychanych do Log Analytics. Jest AzureBackupReport |
 | OperationName |Tekst |To pole reprezentuje nazwę bieżącej operacji — BackupItemAssociation |
 | Zasób |Tekst |Jest to zasób, dla którego zbierane są dane, zawiera Recovery Services nazwa magazynu |
 | ProtectedContainerUniqueId_s |Tekst |Unikatowy identyfikator chronionego serwera skojarzony z elementem kopii zapasowej (został ProtectedServerUniqueId_s w wersji 1) |
@@ -144,7 +144,7 @@ Ta tabela zawiera szczegółowe informacje o polach związanych z zadaniami.
 | State_s |Tekst |Bieżący stan obiektu zadania, na przykład aktywny, usunięty |
 | BackupManagementType_s |Tekst |Typ dostawcy dla serwera wykonującego zadanie tworzenia kopii zapasowej, na przykład IaaSVM, FileFolder |
 | OperationName |Tekst |To pole reprezentuje nazwę bieżącej operacji — zadanie |
-| Kategoria |Tekst |To pole reprezentuje kategorię danych diagnostycznych wypychanych do dzienników Azure Monitor, AzureBackupReport |
+| Kategoria |Tekst |To pole reprezentuje kategorię danych diagnostycznych wypychanych do dzienników Azure Monitor. Jest AzureBackupReport |
 | Zasób |Tekst |Jest to zasób, dla którego zbierane są dane, zawiera Recovery Services nazwa magazynu |
 | ProtectedServerUniqueId_s |Tekst |Unikatowy identyfikator chronionego serwera skojarzonego z zadaniem |
 | ProtectedContainerUniqueId_s |Tekst | Unikatowy identyfikator identyfikujący chroniony kontener, w którym jest uruchamiane zadanie |
@@ -174,12 +174,12 @@ Ta tabela zawiera szczegółowe informacje dotyczące pól związanych z zasadam
 
 | Pole | Typ danych | Odpowiednie wersje | Opis |
 | --- | --- | --- | --- |
-| EventName_s |Tekst ||To pole reprezentuje nazwę tego zdarzenia, jest zawsze AzureBackupCentralReport |
-| SchemaVersion_s |Tekst ||To pole oznacza bieżącą wersję schematu, to **v2** |
+| EventName_s |Tekst ||To pole reprezentuje nazwę tego zdarzenia. Zawsze jest AzureBackupCentralReport |
+| SchemaVersion_s |Tekst ||To pole oznacza bieżącą wersję schematu. Jest to **wersja 2** |
 | State_s |Tekst ||Bieżący stan obiektu zasad, na przykład aktywny, usunięty |
 | BackupManagementType_s |Tekst ||Typ dostawcy dla serwera wykonującego zadanie tworzenia kopii zapasowej, na przykład IaaSVM, FileFolder |
 | OperationName |Tekst ||To pole reprezentuje nazwę bieżącej operacji — zasady |
-| Kategoria |Tekst ||To pole reprezentuje kategorię danych diagnostycznych wypychanych do dzienników Azure Monitor, AzureBackupReport |
+| Kategoria |Tekst ||To pole reprezentuje kategorię danych diagnostycznych wypychanych do dzienników Azure Monitor. Jest AzureBackupReport |
 | Zasób |Tekst ||Jest to zasób, dla którego zbierane są dane, zawiera Recovery Services nazwa magazynu |
 | PolicyUniqueId_g |Tekst ||Unikatowy identyfikator identyfikujący zasady |
 | PolicyName_s |Tekst ||Nazwa zdefiniowanych zasad |
@@ -196,7 +196,7 @@ Ta tabela zawiera szczegółowe informacje dotyczące pól związanych z zasadam
 | MonthlyRetentionTimes_s |Tekst ||Data i godzina skonfigurowania miesięcznego przechowywania |
 | MonthlyRetentionFormat_s |Tekst ||Typ konfiguracji do przechowywania miesięcznego, na przykład dziennie na podstawie dnia, co tydzień w oparciu o tydzień |
 | MonthlyRetentionDaysOfTheWeek_s |Tekst ||Dni tygodnia wybrane do przechowywania miesięcznie |
-| MonthlyRetentionWeeksOfTheMonth_s |Tekst ||Tygodnie miesiąca, w którym jest skonfigurowane przechowywanie miesięczne, na przykład pierwsze, ostatnie itd. |
+| MonthlyRetentionWeeksOfTheMonth_s |Tekst ||Tygodnie miesiąca, w którym jest skonfigurowane przechowywanie miesięczne, na przykład First, Last |
 | YearlyRetentionDuration_s |Liczba dziesiętna ||Łączny czas przechowywania w latach dla skonfigurowanych kopii zapasowych |
 | YearlyRetentionTimes_s |Tekst ||Data i godzina skonfigurowania okresu przechowywania rocznego |
 | YearlyRetentionMonthsOfTheYear_s |Tekst ||Miesiąc roku wybranego do przechowywania rocznego |
@@ -222,15 +222,15 @@ Ta tabela zawiera szczegółowe informacje o skojarzeniach zasad z różnymi jed
 
 | Pole | Typ danych | Odpowiednie wersje | Opis |
 | --- | --- | --- | --- |
-| EventName_s |Tekst ||To pole reprezentuje nazwę tego zdarzenia, jest zawsze AzureBackupCentralReport |
-| SchemaVersion_s |Tekst ||To pole oznacza bieżącą wersję schematu, to **v2** |
+| EventName_s |Tekst ||To pole reprezentuje nazwę tego zdarzenia. Zawsze jest AzureBackupCentralReport |
+| SchemaVersion_s |Tekst ||To pole oznacza bieżącą wersję schematu. Jest to **wersja 2** |
 | State_s |Tekst ||Bieżący stan obiektu zasad, na przykład aktywny, usunięty |
 | BackupManagementType_s |Tekst ||Typ dostawcy dla serwera wykonującego zadanie tworzenia kopii zapasowej, na przykład IaaSVM, FileFolder |
 | OperationName |Tekst ||To pole reprezentuje nazwę bieżącej operacji — PolicyAssociation |
-| Kategoria |Tekst ||To pole reprezentuje kategorię danych diagnostycznych wypychanych do dzienników Azure Monitor, AzureBackupReport |
+| Kategoria |Tekst ||To pole reprezentuje kategorię danych diagnostycznych wypychanych do dzienników Azure Monitor. Jest AzureBackupReport |
 | Zasób |Tekst ||Jest to zasób, dla którego zbierane są dane, zawiera Recovery Services nazwa magazynu |
 | PolicyUniqueId_g |Tekst ||Unikatowy identyfikator identyfikujący zasady |
-| VaultUniqueId_s |Tekst ||Unikatowy identyfikator magazynu, do którego należą te zasady |
+| VaultUniqueId_s |Tekst ||Unikatowy identyfikator magazynu, do którego należy ta zasada |
 | BackupManagementServerUniqueId_s |Tekst |v2 |Pole, aby jednoznacznie identyfikować serwer zarządzania kopiami zapasowymi, za pomocą którego jest chroniony element kopii zapasowej, w razie potrzeby        |
 | SourceSystem |Tekst ||System źródłowy bieżących danych — Azure |
 | ResourceId |Tekst ||Identyfikator zasobu zbieranych danych. Na przykład identyfikator zasobu magazynu Recovery Services |
@@ -266,12 +266,12 @@ Ta tabela zawiera szczegółowe informacje o polach związanych z magazynem.
 | --- | --- | --- |
 | CloudStorageInBytes_s |Liczba dziesiętna |Magazyn kopii zapasowych w chmurze używany przez kopie zapasowe, obliczony na podstawie najnowszej wartości (to pole jest tylko dla schematu v1)|
 | ProtectedInstances_s |Liczba dziesiętna |Liczba chronionych wystąpień używanych do obliczenia magazynu frontonu w ramach rozliczeń obliczonych na podstawie najnowszej wartości |
-| EventName_s |Tekst |To pole reprezentuje nazwę tego zdarzenia, jest zawsze AzureBackupCentralReport |
-| SchemaVersion_s |Tekst |To pole oznacza bieżącą wersję schematu, to **v2** |
+| EventName_s |Tekst |To pole reprezentuje nazwę tego zdarzenia. Zawsze jest AzureBackupCentralReport |
+| SchemaVersion_s |Tekst |To pole oznacza bieżącą wersję schematu. Jest to **wersja 2** |
 | State_s |Tekst |Bieżący stan obiektu magazynu, na przykład aktywny, usunięty |
 | BackupManagementType_s |Tekst |Typ dostawcy dla serwera wykonującego zadanie tworzenia kopii zapasowej, na przykład IaaSVM, FileFolder |
 | OperationName |Tekst |To pole reprezentuje nazwę bieżącej operacji — Storage |
-| Kategoria |Tekst |To pole reprezentuje kategorię danych diagnostycznych wypychanych do dzienników Azure Monitor, AzureBackupReport |
+| Kategoria |Tekst |To pole reprezentuje kategorię danych diagnostycznych wypychanych do dzienników Azure Monitor. Jest AzureBackupReport |
 | Zasób |Tekst |Jest to zasób, dla którego zbierane są dane, zawiera Recovery Services nazwa magazynu |
 | ProtectedServerUniqueId_s |Tekst |Unikatowy identyfikator serwera chronionego, dla którego jest naliczany magazyn |
 | VaultUniqueId_s |Tekst |Unikatowy identyfikator magazynu dla magazynu jest obliczany |
@@ -293,7 +293,7 @@ Ta tabela zawiera podstawowe pola powiązane z magazynem łączące magazyn z in
 | Pole | Typ danych | Opis |
 | --- | --- |  --- |
 | StorageUniqueId_s |Tekst |Unikatowy identyfikator używany do identyfikowania jednostki magazynu |
-| SchemaVersion_s |Tekst |To pole oznacza bieżącą wersję schematu, to **v2** |
+| SchemaVersion_s |Tekst |To pole oznacza bieżącą wersję schematu. Jest to **wersja 2** |
 | BackupItemUniqueId_s |Tekst |Unikatowy identyfikator używany do identyfikowania elementu kopii zapasowej powiązanego z jednostką magazynu |
 | BackupManagementServerUniqueId_s |Tekst |Unikatowy identyfikator używany do identyfikowania serwera zarządzania kopiami zapasowymi powiązanego z jednostką magazynową|
 | VaultUniqueId_s |Tekst |Unikatowy identyfikator używany do identyfikowania magazynu związanego z jednostką magazynu|
@@ -306,11 +306,11 @@ Ta tabela zawiera szczegółowe informacje o polach związanych z magazynem.
 
 | Pole | Typ danych | Opis |
 | --- | --- | --- |
-| EventName_s |Tekst |To pole reprezentuje nazwę tego zdarzenia, jest zawsze AzureBackupCentralReport |
-| SchemaVersion_s |Tekst |To pole oznacza bieżącą wersję schematu, to **v2** |
+| EventName_s |Tekst |To pole reprezentuje nazwę tego zdarzenia. Zawsze jest AzureBackupCentralReport |
+| SchemaVersion_s |Tekst |To pole oznacza bieżącą wersję schematu. Jest to **wersja 2** |
 | State_s |Tekst |Bieżący stan obiektu magazynu, na przykład aktywny, usunięty |
 | OperationName |Tekst |To pole reprezentuje nazwę bieżącego magazynu operacji |
-| Kategoria |Tekst |To pole reprezentuje kategorię danych diagnostycznych wypychanych do dzienników Azure Monitor, AzureBackupReport |
+| Kategoria |Tekst |To pole reprezentuje kategorię danych diagnostycznych wypychanych do dzienników Azure Monitor. Jest AzureBackupReport |
 | Zasób |Tekst |Jest to zasób, dla którego zbierane są dane, zawiera Recovery Services nazwa magazynu |
 | VaultUniqueId_s |Tekst |Unikatowy identyfikator magazynu |
 | VaultName_s |Tekst |Nazwa magazynu |
@@ -483,7 +483,7 @@ Ponieważ schemat V1 znajduje się w ścieżce przestarzałej, zaleca się używ
 
     Powyższe zapytanie używa pola ProtectedServerUniqueId_s, które ma zastosowanie tylko do schematu v1. W tym polu ProtectedContainerUniqueId_s znajduje się odpowiednik schematu w wersji 2 (patrz tabele powyżej). Pole BackupItemUniqueId_s ma zastosowanie nawet w schemacie 2, a to samo pole może być używane w tym zapytaniu.
 
-2. Zaktualizuj zapytanie, aby użyć nazw pól schematu w wersji 2. Zaleca się użycie filtru "Where SchemaVersion_s = =" v2 "" we wszystkich zapytaniach, tak aby tylko rekordy odpowiadające schematowi v2 były analizowane przez zapytanie:
+2. Zaktualizuj zapytanie, aby użyć nazw pól schematu w wersji 2. Zaleca się użycie filtru, **gdzie SchemaVersion_s = = "v2"** we wszystkich zapytaniach, tak aby tylko rekordy odpowiadające schematowi v2 były analizowane przez zapytanie:
 
     ````Kusto
     AzureDiagnostics

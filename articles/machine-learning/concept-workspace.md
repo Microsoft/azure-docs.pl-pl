@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/08/2020
-ms.openlocfilehash: 53f151c63c85e958aad3bd0eaf16c50294bf250f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 437c2b8e42ed5128cc716eee23b8702ec012b481
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287222"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890918"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Co to jest obszar roboczy Azure Machine Learning?
 
@@ -52,7 +52,7 @@ Z obszarem roboczym można korzystać w następujący sposób:
 > Wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 + W sieci Web:
-    + [Azure Machine Learning Studio](https://ml.azure.com) 
+    + [Azure Machine Learning Studio ](https://ml.azure.com) 
     + [Azure Machine Learning Designer (wersja zapoznawcza)](concept-designer.md) — dostępne tylko w obszarze roboczym [wersji Enterprise Edition](overview-what-is-azure-ml.md#sku) .
 + W dowolnym środowisku języka Python z [zestawem SDK Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + W dowolnym środowisku R z [zestawem SDK Azure Machine Learning dla języka r (wersja zapoznawcza)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
@@ -87,7 +87,7 @@ Można również wykonać następujące zadania zarządzania obszarem roboczym:
 > [!WARNING]
 > Przeniesienie obszaru roboczego Azure Machine Learning do innej subskrypcji lub przeniesienie subskrypcji będącej właścicielem do nowej dzierżawy nie jest obsługiwane. Wykonanie tej operacji może spowodować błędy.
 
-## <a name="create-a-workspace"></a><a name='create-workspace'></a>Tworzenie obszaru roboczego
+## <a name="create-a-workspace"></a><a name='create-workspace'></a> Tworzenie obszaru roboczego
 
 Podczas tworzenia obszaru roboczego należy zdecydować, czy ma on zostać utworzony w [wersji Basic](overview-what-is-azure-ml.md#sku), czy Enterprise. Wersja określa funkcje dostępne w obszarze roboczym. W przypadku innych funkcji wersja Enterprise Edition zapewnia dostęp do programu [Azure Machine Learning Designer](concept-designer.md) i wersji Studio, w której można tworzyć [zautomatyzowane eksperymenty w usłudze Machine Learning](tutorial-first-experiment-automated-ml.md).  Aby uzyskać więcej informacji i uzyskać informacje o cenach, zobacz [Azure Machine Learning Cennik](https://azure.microsoft.com/pricing/details/machine-learning/).
 
@@ -101,11 +101,11 @@ Istnieje wiele sposobów tworzenia obszaru roboczego:
 > [!NOTE]
 > W nazwie obszaru roboczego nie jest rozróżniana wielkość liter.
 
-## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a>Uaktualnianie do wersji Enterprise
+## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a> Uaktualnianie do wersji Enterprise
 
 Możesz [uaktualnić obszar roboczy z wersji Basic do Enterprise Edition](how-to-manage-workspace.md#upgrade) przy użyciu Azure Portal. Nie można obniżyć poziomu obszaru roboczego Enterprise Edition do obszaru roboczego wersja podstawowa. 
 
-## <a name="associated-resources"></a><a name="resources"></a>Skojarzone zasoby
+## <a name="associated-resources"></a><a name="resources"></a> Skojarzone zasoby
 
 Podczas tworzenia nowego obszaru roboczego program automatycznie tworzy kilka zasobów platformy Azure, które są używane przez obszar roboczy:
 
@@ -117,8 +117,16 @@ Podczas tworzenia nowego obszaru roboczego program automatycznie tworzy kilka za
 > [!NOTE]
 > Oprócz tworzenia nowych wersji, można również korzystać z istniejących usług platformy Azure.
 
+### <a name="azure-storage-account"></a>Konto magazynu Azure
+
+Konto usługi Azure Storage utworzone domyślnie z obszarem roboczym jest kontem ogólnego przeznaczenia w wersji 1. Można go uaktualnić do ogólnego przeznaczenia w wersji 2 po utworzeniu obszaru roboczego, wykonując kroki opisane w artykule [uaktualnienie do konta magazynu ogólnego przeznaczenia w wersji 2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) .
+
 > [!IMPORTANT]
-> Jeśli chcesz użyć istniejącego konta usługi Azure Storage, nie może ono być kontem Premium (Premium_LRS i Premium_GRS). Nie może ona również mieć hierarchicznej przestrzeni nazw (używane z Azure Data Lake Storage Gen2). _W przypadku konta magazynu w_ warstwie Premium ani hierarchicznej przestrzeni nazw nie są obsługiwane. Możesz użyć magazynu w warstwie Premium lub hierarchicznej przestrzeni nazw z kontami magazynu _innego niż domyślne_ .
+> Nie włączaj hierarchicznej przestrzeni nazw na koncie magazynu po uaktualnieniu do ogólnego przeznaczenia w wersji 2.
+
+Jeśli chcesz użyć istniejącego konta usługi Azure Storage, nie może ono być kontem Premium (Premium_LRS i Premium_GRS). Nie może ona również mieć hierarchicznej przestrzeni nazw (używane z Azure Data Lake Storage Gen2). W przypadku _domyślnego_ konta magazynu obszaru roboczego nie są obsługiwane żadne magazyny w warstwie Premium ani hierarchiczne przestrzenie nazw. Możesz użyć magazynu w warstwie Premium lub hierarchicznej przestrzeni nazw z kontami magazynu _innego niż domyślne_ .
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 

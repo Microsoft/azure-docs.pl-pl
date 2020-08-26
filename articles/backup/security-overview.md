@@ -3,12 +3,12 @@ title: Omówienie funkcji zabezpieczeń
 description: Dowiedz się więcej o możliwościach zabezpieczeń w Azure Backup, które ułatwiają ochronę danych kopii zapasowych i zaspokajanie potrzeb firmy.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 0354e319c82e02072a8771f9aae383bf0b6240f6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: f9a505723b40df61665a99e898d59ecfb8c03fd5
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824598"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890471"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Omówienie funkcji zabezpieczeń w programie Azure Backup
 
@@ -56,7 +56,7 @@ Szyfrowanie chroni dane i pomaga sprostać wymaganiom dotyczącym zabezpieczeń 
 
 ## <a name="protection-of-backup-data-from-unintentional-deletes"></a>Ochrona danych kopii zapasowej przed przypadkowym usunięciem
 
-Azure Backup zapewnia funkcje zabezpieczeń chroniące dane kopii zapasowej nawet po usunięciu. W przypadku usuwania nietrwałego, jeśli użytkownik usunie kopię zapasową maszyny wirtualnej, dane kopii zapasowej są przechowywane przez 14 dodatkowych dni, umożliwiając odzyskanie tego elementu kopii zapasowej bez utraty danych. Dodatkowe 14 dni przechowywania danych kopii zapasowej w stanie "usuwanie nietrwałe" nie wiążą się z kosztem dla klienta. [Dowiedz się więcej na temat usuwania nietrwałego](backup-azure-security-feature-cloud.md).
+Azure Backup zapewnia funkcje zabezpieczeń chroniące dane kopii zapasowej nawet po usunięciu. W przypadku usuwania nietrwałego, jeśli użytkownik usunie kopię zapasową maszyny wirtualnej, dane kopii zapasowej są przechowywane przez 14 dodatkowych dni, umożliwiając odzyskanie tego elementu kopii zapasowej bez utraty danych. Dodatkowe 14 dni przechowywania danych kopii zapasowej w stanie "usuwanie nietrwałe" nie wiążą się z pozostałymi kosztami. [Dowiedz się więcej na temat usuwania nietrwałego](backup-azure-security-feature-cloud.md).
 
 ## <a name="monitoring-and-alerts-of-suspicious-activity"></a>Monitorowanie i alerty podejrzanych działań
 

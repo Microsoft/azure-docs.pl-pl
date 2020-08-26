@@ -3,12 +3,12 @@ title: Prywatne punkty końcowe
 description: Zapoznaj się z procesem tworzenia prywatnych punktów końcowych dla Azure Backup i scenariuszy, w których używanie prywatnych punktów końcowych pomaga zachować bezpieczeństwo zasobów.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: b7f7c6461701b6f4e438cbead60456b327c7c207
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4f41eee7a84308eb9f4da56f087b2c36e09148f0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871551"
+ms.locfileid: "88890896"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Prywatne punkty końcowe dla Azure Backup
 
@@ -41,7 +41,7 @@ Gdy prywatne punkty końcowe są włączone dla magazynu, są używane do tworze
 W tej sekcji omówiono kroki związane z tworzeniem i używaniem prywatnych punktów końcowych w celu Azure Backup wewnątrz sieci wirtualnych.
 
 >[!IMPORTANT]
-> Zdecydowanie zaleca się wykonanie kroków opisanych w tej samej sekwencji, jak wspomniano w tym dokumencie. Niewykonanie tej czynności może spowodować, że magazyn jest renderowany niezgodny z prywatnymi punktami końcowymi i wymaga ponownego uruchomienia procesu z nowym magazynem.
+> Zdecydowanie zaleca się wykonanie kroków w tej samej kolejności, jak wspomniano w tym dokumencie. Niewykonanie tej czynności może spowodować, że magazyn jest renderowany niezgodny z prywatnymi punktami końcowymi i wymaga ponownego uruchomienia procesu z nowym magazynem.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -99,7 +99,7 @@ Istnieją dwie obowiązkowe strefy DNS, które należy utworzyć:
 
 ### <a name="optional-dns-zone"></a>Opcjonalna strefa DNS
 
-Klienci mogą wybrać integrację prywatnych punktów końcowych z prywatnymi strefami DNS dla Azure Backup (omówione w sekcji dotyczącej tworzenia prywatnych punktów końcowych) w celu komunikacji z usługą. Jeśli nie chcesz zintegrować z prywatną strefą DNS, możesz wybrać opcję użycia własnego serwera DNS lub oddzielnie utworzyć prywatną strefę DNS. Jest to uzupełnienie dwóch obowiązkowych prywatnych stref DNS omówionych w poprzedniej sekcji.
+Możesz zintegrować prywatne punkty końcowe ze prywatnymi strefami DNS dla Azure Backup (omówione w sekcji [Tworzenie i używanie prywatnych punktów końcowych w celu tworzenia kopii zapasowych](#creating-and-using-private-endpoints-for-backup)) na potrzeby komunikacji z usługą. Jeśli nie chcesz zintegrować z prywatną strefą DNS, możesz wybrać opcję użycia własnego serwera DNS lub oddzielnie utworzyć prywatną strefę DNS. Jest to uzupełnienie dwóch obowiązkowych prywatnych stref DNS omówionych w poprzedniej sekcji.
 
 Jeśli chcesz utworzyć oddzielną prywatną strefę DNS na platformie Azure, możesz to zrobić przy użyciu tych samych kroków, które są używane do tworzenia obowiązkowych stref DNS. Szczegóły nazewnictwa i subskrypcji są udostępniane poniżej:
 

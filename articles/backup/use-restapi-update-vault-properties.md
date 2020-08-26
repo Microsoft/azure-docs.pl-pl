@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak zaktualizować konfigurację magaz
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: c68d3accfc6963d7a5eebfef128e3521b45ac886
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 3ee2d57b5589daa756020ebb787a5400ed244506
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827260"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890046"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Aktualizowanie konfiguracji magazynu Recovery Services platformy Azure przy użyciu interfejsu API REST
 
@@ -17,7 +17,7 @@ W tym artykule opisano sposób aktualizowania konfiguracji związanych z kopiami
 
 ## <a name="soft-delete-state"></a>Stan usuwania nietrwałego
 
-Usuwanie kopii zapasowych chronionego elementu jest istotną operacją, która musi być monitorowana. Aby chronić przed przypadkowym usunięciem, magazyn usługi Azure Recovery Services ma możliwość usuwania nietrwałego. Ta funkcja umożliwia klientom przywrócenie usuniętych kopii zapasowych w razie potrzeby w okresie po usunięciu.
+Usuwanie kopii zapasowych chronionego elementu jest istotną operacją, która musi być monitorowana. Aby chronić przed przypadkowym usunięciem, magazyn usługi Azure Recovery Services ma możliwość usuwania nietrwałego. Ta funkcja umożliwia przywrócenie usuniętych kopii zapasowych, w razie potrzeby, w czasie po usunięciu.
 
 Ale istnieją scenariusze, w których ta funkcja nie jest wymagana. Nie można usunąć magazynu usługi Azure Recovery Services, jeśli w nim znajdują się elementy kopii zapasowej, nawet nietrwałe usunięte. Może to stanowić problem, jeśli magazyn musi być natychmiast usunięty. Na przykład: operacje wdrażania często czyści utworzone zasoby w tym samym przepływie pracy. Wdrożenie może utworzyć magazyn, skonfigurować kopie zapasowe dla elementu, wykonać przywracanie testowe, a następnie wykonać operację usuwania elementów kopii zapasowych i magazynu. Jeśli usunięcie magazynu nie powiedzie się, całe wdrożenie może się nie powieść. Wyłączenie usuwania nietrwałego jest jedynym sposobem na zagwarantowanie natychmiastowego usunięcia.
 

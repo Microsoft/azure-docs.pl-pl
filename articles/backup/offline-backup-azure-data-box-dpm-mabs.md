@@ -3,18 +3,18 @@ title: Kopia zapasowa offline z Azure Data Boxami dla programu DPM i serwera us�
 description: Za pomocą Azure Data Box można wypełniać początkowe dane kopii zapasowej w trybie offline z programu DPM i serwera usługi MAB.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 974be6d337c3376d10e09ba6211f7804c2c8cada
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 33515cdd943f3816328bfd77d831288c5ee0a608
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824563"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890029"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Używanie Azure Data Box dla programu DPM i serwera usługi MAB (wersja zapoznawcza)
 
 > [!NOTE]
 > Ta funkcja ma zastosowanie do Data Protection Manager (DPM) 2019 UR2 i nowszych.<br><br>
-> Ta funkcja jest obecnie dostępna w wersji zapoznawczej serwera Microsoft Azure Backup (serwera usługi MAB). Jeśli interesuje Cię używanie Azure Data Box do rozsadzenia w trybie offline za pomocą usługi serwera usługi MAB, skontaktuj się z nami w serwisie [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com) .
+> Ta funkcja jest obecnie dostępna w wersji zapoznawczej serwera Microsoft Azure Backup (serwera usługi MAB). Jeśli interesuje Cię korzystanie z Azure Data Box do rozsadzenia w trybie offline za pomocą serwera usługi MAB, skontaktuj się z nami w serwisie [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com) .
 
 W tym artykule wyjaśniono, jak używać Azure Data Box do tworzenia początkowych danych kopii zapasowej w trybie offline z programu DPM i serwera usługi MAB do magazynu Recovery Services platformy Azure.
 

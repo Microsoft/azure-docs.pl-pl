@@ -4,12 +4,12 @@ description: Dowiedz się, jak przeprowadzić przywracanie na poziomie plików n
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: bb327d014efc3df02edd14afafe1e2e7c1ea9d73
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: f972913bcae68297ed166f82fd78a047ce9d475d
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824478"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890660"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Przywracanie plików na maszynę wirtualną na platformie Azure
 
@@ -139,7 +139,7 @@ Po skopiowaniu skryptu odzyskiwania na maszynę wirtualną możesz nawiązać po
     ./myVM_we_1571974050985163527.sh
     ```
 
-    Po uruchomieniu skryptu zostanie wyświetlony monit o wprowadzenie hasła dostępu do punktu odzyskiwania. Wprowadź hasło wyświetlone w danych wyjściowych polecenia [az backup restore files mount-rp](/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-mount-rp) użytego wcześniej do wygenerowania skryptu odzyskiwania.
+    Po uruchomieniu skryptu zostanie wyświetlony monit o wprowadzenie hasła w celu uzyskania dostępu do punktu odzyskiwania. Wprowadź hasło wyświetlone w danych wyjściowych polecenia [az backup restore files mount-rp](/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-mount-rp) użytego wcześniej do wygenerowania skryptu odzyskiwania.
 
     Dane wyjściowe skryptu zawierają ścieżkę punktu odzyskiwania. Dane wyjściowe w poniższym przykładzie wskazują, że punkt odzyskiwania został zainstalowany w lokalizacji */home/azureuser/myVM-20170919213536/Volume1*:
 

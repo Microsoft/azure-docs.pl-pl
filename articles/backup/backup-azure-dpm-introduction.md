@@ -3,12 +3,12 @@ title: Przygotuj serwer programu DPM do tworzenia kopii zapasowych obciążeń
 description: W tym artykule dowiesz się, jak przygotować się do tworzenia kopii zapasowych programu System Center Data Protection Manager (DPM) na platformie Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 86becc2b989c55ac080b9bdcbfcca182987e9fb2
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 96eadb4d600b6aa842cdbded2a906d70f27cf55e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827311"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890811"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Przygotowanie do tworzenia kopii zapasowych obciążeń na platformie Azure przy użyciu programu System Center DPM
 
@@ -90,7 +90,7 @@ Aby uzyskać poświadczenia, Pobierz plik poświadczeń magazynu za pośrednictw
 - Poświadczenia magazynu są używane tylko podczas przepływu pracy rejestracji.
 - Odpowiedzialność za zapewnienie, że plik poświadczeń magazynu jest bezpieczny i nie został naruszony.
   - Jeśli kontrola poświadczeń zostanie utracona, poświadczenia magazynu mogą służyć do rejestrowania innych maszyn w magazynie.
-  - Jednak dane kopii zapasowej są szyfrowane przy użyciu hasła, które należy do klienta, więc nie można złamać istniejących danych kopii zapasowej.
+  - Jednak dane kopii zapasowej są szyfrowane przy użyciu hasła, które należy do Ciebie, dlatego nie można złamać istniejących danych kopii zapasowej.
 - Upewnij się, że plik jest zapisany w lokalizacji, do której można uzyskać dostęp z serwera DPM. Jeśli jest przechowywany w udziale plików/SMB, Sprawdź uprawnienia dostępu.
 - Poświadczenia magazynu wygasają po upływie 48 godzin. Nowe poświadczenia magazynu można pobrać dowolną liczbę razy. Jednak podczas przepływu pracy rejestracji można używać tylko najnowszego pliku poświadczeń magazynu.
 - Usługa Azure Backup nie ma informacji o kluczu prywatnym certyfikatu, a klucz prywatny nie jest dostępny w portalu lub usłudze.

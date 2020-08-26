@@ -3,12 +3,12 @@ title: Kopia zapasowa offline dla programu DPM i usługi Azure Backup Server
 description: Za pomocą Azure Backup można wysyłać dane z sieci za pomocą usługi Azure Import/Export. W tym artykule wyjaśniono przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 30c8526271a636b8890dde0079e27374df9c38af
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 221424871aa4f022e199c98e95024ec20e55d803
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757272"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890080"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server (serwera usługi MAB)
 
@@ -136,7 +136,7 @@ Narzędzie *AzureOfflineBackupDiskPrep* przygotowuje dyski SATA, które są wysy
 
     ![Ekran logowania platformy Azure](./media/backup-azure-backup-server-import-export/signin-disk-prep.png)
 
-    Następnie narzędzie rozpocznie przygotowanie dysku i skopiowanie danych kopii zapasowej. Może być konieczne dołączenie dodatkowych dysków po wyświetleniu monitu przez narzędzie w przypadku, gdy udostępniony dysk nie ma wystarczającej ilości miejsca na dane kopii zapasowej. <br/>
+    Następnie narzędzie rozpocznie przygotowanie dysku i skopiowanie danych kopii zapasowej. Jeśli udostępniony dysk nie ma wystarczającej ilości miejsca na dane kopii zapasowej, może być konieczne dołączenie dodatkowych dysków po wyświetleniu monitu przez narzędzie. <br/>
 
     Po pomyślnym wykonaniu tego narzędzia wiersz polecenia zawiera trzy informacje:
     * Co najmniej jeden z podanych dysków jest przygotowywany do wysyłania do platformy Azure.
