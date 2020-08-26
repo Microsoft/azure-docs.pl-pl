@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 08/21/2020
 ms.author: pafarley
-ms.openlocfilehash: 34f972624d1b7dd56fd6271baeaa855627eb870c
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1c24eba79c26c4540e9d97a3e2b6646fd0b5439c
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88753046"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864777"
 ---
 > [!IMPORTANT]
 > * Zestaw SDK aparatu rozpoznawania formularzy obecnie jest przeznaczony dla wersji v 2.0 z usługi rozpoznawania.
@@ -66,6 +66,8 @@ npm install @azure/ai-form-recognizer
 
 ## <a name="object-model"></a>Model obiektów 
 
+Za pomocą aparatu rozpoznawania formularzy można utworzyć dwa różne typy klientów. Pierwszy `FormRecognizerClient` jest używany do wysyłania zapytań do usługi do rozpoznanych pól formularzy i zawartości. Drugi — `FormTrainingClient` służy do tworzenia modeli niestandardowych i zarządzania nimi, których można użyć w celu usprawnienia rozpoznawania. 
+
 ### <a name="formrecognizerclient"></a>FormRecognizerClient
 `FormRecognizerClient` zawiera operacje dla:
 
@@ -76,12 +78,12 @@ npm install @azure/ai-form-recognizer
 ### <a name="formtrainingclient"></a>FormTrainingClient
 `FormTrainingClient` zawiera operacje dla:
 
-* Szkolenie modeli niestandardowych w celu rozpoznania wszystkich pól i wartości znalezionych w formularzach niestandardowych. `CustomFormModel`Jest zwracany, wskazując typy formularzy, które będą rozpoznawane przez model, oraz pola, które będą wyodrębniane dla każdego typu formularza. Aby uzyskać bardziej szczegółowy opis tworzenia zestawu danych szkoleniowych, zobacz dokumentację usługi w przypadku nieoznaczonego szkolenia modelu. [FR-pociąg-bez etykiet].
-* Szkolenie modeli niestandardowych w celu rozpoznawania określonych pól i wartości, które można określić przez etykietowanie formularzy niestandardowych. `CustomFormModel`Zwraca wartość wskazującą pola, które będą wyodrębniane przez model, a także szacowaną dokładność dla każdego pola. Aby uzyskać bardziej szczegółowy opis stosowania etykiet do zestawu danych szkoleniowych, zapoznaj się z dokumentacją usługi w ramach szkolenia modelowego z etykietą. [FR-pociąg-with-labels].
+* Szkolenie modeli niestandardowych w celu rozpoznania wszystkich pól i wartości znalezionych w formularzach niestandardowych. `CustomFormModel`Jest zwracany, wskazując typy formularzy, które będą rozpoznawane przez model, oraz pola, które będą wyodrębniane dla każdego typu formularza. Zapoznaj się z [dokumentacją usługi dotyczącą nieoznaczonego szkolenia modelu](#train-a-model-without-labels) , aby uzyskać bardziej szczegółowy opis tworzenia zestawu danych szkoleniowych.
+* Szkolenie modeli niestandardowych w celu rozpoznawania określonych pól i wartości, które można określić przez etykietowanie formularzy niestandardowych. `CustomFormModel`Zwraca wartość wskazującą pola, które będą wyodrębniane przez model, a także szacowaną dokładność dla każdego pola. Zapoznaj się z [dokumentacją usługi w obszarze zatytułowany model szkoleń](#train-a-model-with-labels) , aby uzyskać bardziej szczegółowy opis stosowania etykiet do zestawu danych szkoleniowych.
 * Zarządzanie modelami utworzonymi na Twoim koncie.
 * Kopiowanie modelu niestandardowego z jednego do drugiego zasobu aparatu rozpoznawania formularza.
 
-Należy pamiętać, że modele można również przeszkolić przy użyciu graficznego interfejsu użytkownika, takiego jak narzędzie do etykietowania aparatów rozpoznawania formularzy] [ https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool ].
+Należy pamiętać, że modele można również przeszkolić przy użyciu graficznego interfejsu użytkownika, takiego jak [Narzędzie do etykietowania aparatów rozpoznawania formularzy](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
 
 ## <a name="code-examples"></a>Przykłady kodu
 
@@ -256,7 +258,7 @@ Poniższa funkcja pociąga za model dla danego zestawu dokumentów i drukuje sta
 ```javascript
 async function trainModel() {
 
-    const containerSasUrl = "https://formtraningiron.blob.core.windows.net/form-training-data";
+    const containerSasUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
     const trainingClient = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));
 
     const poller = await trainingClient.beginTraining(containerSasUrl, false, {
@@ -342,7 +344,7 @@ Można także uczenie modeli niestandardowych przez ręczne etykietowanie dokume
 ```javascript
 async function trainModelLabels() {
 
-    const containerSasUrl = "https://formtraningiron.blob.core.windows.net/form-training-data";
+    const containerSasUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
     const trainingClient = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));
 
     const poller = await trainingClient.beginTraining(containerSasUrl, true, {
@@ -650,7 +652,7 @@ Aplikację można uruchomić w dowolnym momencie z dowolną liczbą funkcji, kt�
 node index.js
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
 
@@ -676,6 +678,6 @@ W tym przewodniku szybki start użyto biblioteki klienckiej aparatu rozpoznawani
 > [!div class="nextstepaction"]
 > [Tworzenie zestawu danych szkoleniowych](../../build-training-data-set.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Co to jest rozpoznawanie formularzy?](../../overview.md)

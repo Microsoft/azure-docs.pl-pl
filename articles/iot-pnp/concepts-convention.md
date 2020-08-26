@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 126673391b49f884a51521d462060c425a314667
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: ef29be53e776c4c185ac8430b3340c53ca85d855
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475672"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856055"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Konwencje technologii IoT Plug and Play
 
@@ -35,7 +35,7 @@ Aby zidentyfikować model, który implementuje urządzenie, usługa może pobra�
 - Pole cyfrowej przędzy `$metadata.$model` .
 - Powiadomienie o zmianie dwuosiowej zmiany.
 
-## <a name="telemetry"></a>Telemetry
+## <a name="telemetry"></a>Telemetria
 
 Dane telemetryczne wysyłane z żadnego urządzenia do składników nie wymagają żadnych dodatkowych metadanych. System dodaje `dt-dataschema` Właściwość.
 
@@ -127,10 +127,10 @@ Urządzenie musi dodać `{"__t": "c"}` znacznik, aby wskazać, że element odwo�
 
 Urządzenie powinno potwierdzić, że otrzymał Właściwość przez wysłanie raportowanej właściwości. Raportowana właściwość powinna obejmować:
 
-- `value`— wartość odebrana przez urządzenie.
-- `ac`-kod potwierdzający, który używa kodu stanu HTTP.
-- `av`-wersja potwierdzenia odwołująca się do `$version` żądanej właściwości.
-- `ad`— opcjonalny opis potwierdzenia.
+- `value` — rzeczywista wartość właściwości (zazwyczaj odebrana wartość, ale urządzenie może zdecydować o zgłoszeniu innej wartości).
+- `ac` -kod potwierdzający, który używa kodu stanu HTTP.
+- `av` -wersja potwierdzenia odwołująca się do `$version` żądanej właściwości.
+- `ad` — opcjonalny opis potwierdzenia.
 
 ### <a name="sample-no-component-writable-property"></a>Przykład brakujący właściwości składnika do zapisu
 

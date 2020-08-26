@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 6f633a585e4fa6ebd12e8d12408847b5ee758855
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: da75e1d6208db5adf5f0f63d2a5525fc651513b0
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513202"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855917"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Rozbudowana technicznie migracja z obsługą platformy od modelu klasycznego do modelu opartego na usłudze Azure Resource Manager
 
@@ -33,7 +33,7 @@ Najpierw należy zrozumieć różnicę między operacjami płaszczyzny danych i 
 
 Płaszczyzna danych jest taka sama między klasycznym modelem wdrażania a stosami Menedżer zasobów. Różnica polega na tym, że podczas procesu migracji firma Microsoft tłumaczy reprezentację zasobów z klasycznego modelu wdrażania do tego w stosie Menedżer zasobów. W związku z tym należy użyć nowych narzędzi, interfejsów API i zestawów SDK do zarządzania zasobami w stosie Menedżer zasobów.
 
-![Diagram, który pokazuje różnicę między płaszczyzną zarządzania a warstwą kontroli i płaszczyzną danych](~/articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
+![Diagram, który pokazuje różnicę między płaszczyzną zarządzania a warstwą kontroli i płaszczyzną danych](media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
 
 
 > [!NOTE]
@@ -52,7 +52,7 @@ Przed rozpoczęciem migracji:
 
 Przepływ pracy migracji jest następujący:
 
-![Diagram przedstawiający przepływ pracy migracji](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-workflow.png)
+![Diagram przedstawiający przepływ pracy migracji](windows/media/migration-classic-resource-manager/migration-workflow.png)
 
 > [!NOTE]
 > Wszystkie operacje opisane w poniższych sekcjach dotyczą wszystkich idempotentne. Jeśli masz problem inny niż nieobsługiwana funkcja lub błąd konfiguracji, ponów próbę wykonania operacji przygotowywania, przerwania lub zatwierdzania. Platforma Azure próbuje wykonać akcję ponownie.
@@ -94,17 +94,17 @@ Na platformie Azure rozpocznie się migracja metadanych z klasycznego modelu wdr
 Po zakończeniu operacji przygotowywania można wizualizować zasoby zarówno w klasycznym modelu wdrażania, jak i w Menedżer zasobów. Dla każdej usługi w chmurze w klasycznym modelu wdrażania platforma Azure tworzy nazwę grupy zasobów zgodnie ze wzorcem `cloud-service-name>-Migrated`.
 
 > [!NOTE]
-> Nie można wybrać nazwy grupy zasobów utworzonej dla zmigrowanych zasobów (czyli "-zmigrowany"). Po zakończeniu migracji można jednak użyć funkcji przenoszenia programu Azure Resource Manager, aby przenieść zasoby do dowolnej grupy zasobów. Aby uzyskać więcej informacji, zobacz [Move resources to new resource group or subscription](~/articles/resource-group-move-resources.md) (Przenoszenie zasobów do nowej grupy lub subskrypcji).
+> Nie można wybrać nazwy grupy zasobów utworzonej dla zmigrowanych zasobów (czyli "-zmigrowany"). Po zakończeniu migracji można jednak użyć funkcji przenoszenia programu Azure Resource Manager, aby przenieść zasoby do dowolnej grupy zasobów. Aby uzyskać więcej informacji, zobacz [Move resources to new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md) (Przenoszenie zasobów do nowej grupy lub subskrypcji).
 
 Poniższe dwa zrzuty ekranu pokazują wynik po pomyślnej operacji przygotowania. Pierwszy z nich zawiera grupę zasobów zawierającą oryginalną usługę w chmurze. Druga z nich zawiera nową grupę zasobów "-zmigrowany", która zawiera równoważne zasoby Azure Resource Manager.
 
-![Zrzut ekranu przedstawiający oryginalną usługę w chmurze](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-classic.png)
+![Zrzut ekranu przedstawiający oryginalną usługę w chmurze](windows/media/migration-classic-resource-manager/portal-classic.png)
 
-![Zrzut ekranu przedstawiający zasoby Azure Resource Manager w operacji przygotowywania](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-arm.png)
+![Zrzut ekranu przedstawiający zasoby Azure Resource Manager w operacji przygotowywania](windows/media/migration-classic-resource-manager/portal-arm.png)
 
 W tym miejscu znajdują się w tle zasoby po zakończeniu fazy przygotowania. Należy pamiętać, że zasób w płaszczyźnie danych jest taki sam. Jest reprezentowana w płaszczyźnie zarządzania (klasyczny model wdrażania) i płaszczyzny kontroli (Menedżer zasobów).
 
-![Diagram fazy przygotowania](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
+![Diagram fazy przygotowania](windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
 
 > [!NOTE]
 > Maszyny wirtualne, które nie znajdują się w sieci wirtualnej w klasycznym modelu wdrażania, są zatrzymane i cofnięte w tej fazie migracji.
@@ -124,7 +124,7 @@ Jeśli napotkasz jakiekolwiek problemy, zawsze możesz przerwać migrację i wr�
 ### <a name="abort"></a>Przerwanie
 Jest to opcjonalny krok, jeśli chcesz cofnąć zmiany do klasycznego modelu wdrażania i zatrzymać migrację. Ta operacja usuwa metadane Menedżer zasobów (utworzone w kroku Prepare) dla zasobów. 
 
-![Diagram kroku przerwania](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
+![Diagram kroku przerwania](windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
 
 
 > [!NOTE]
@@ -139,13 +139,13 @@ Po zakończeniu walidacji możesz zatwierdzić migrację. Zasoby nie pojawiają 
 >
 >
 
-![Diagram kroku zatwierdzania](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
+![Diagram kroku zatwierdzania](windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
 
 ## <a name="migration-flowchart"></a>Schemat blokowy migracji
 
 Oto schemat blokowy pokazujący, jak kontynuować migrację:
 
-![Zrzut ekranu przedstawiający kroki migracji](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
+![Zrzut ekranu przedstawiający kroki migracji](windows/media/migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="translation-of-the-classic-deployment-model-to-resource-manager-resources"></a>Tłumaczenie klasycznego modelu wdrażania na Menedżer zasobów zasobów
 Możesz znaleźć klasyczny model wdrażania i Menedżer zasobów reprezentacje zasobów w poniższej tabeli. Inne funkcje i zasoby nie są obecnie obsługiwane.

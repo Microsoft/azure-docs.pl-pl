@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 24f92443acddb17c0a2d337f51dbf9183996c49f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 62c2193a0045cc2ee35930e87b360446e94ba861
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520530"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864855"
 ---
 Azure Files oferuje cztery różne warstwy magazynu, Premium, zoptymalizowane, gorąca i chłodna, aby umożliwić dostosowanie Twoich udziałów do wymagań dotyczących wydajności i cen w Twoim scenariuszu:
 
@@ -32,7 +32,22 @@ Gorące i chłodne udziały plików są obecnie dostępne w następującym podzb
 - Australia Południowo-Wschodnia
 - Francja Środkowa
 - Francja Południowa
+- Niemcy Północne (Publiczny)
+- Niemcy Środkowo-Zachodnie (Publiczny)
+- Indie Środkowe
+- Indie Południowe
+- Indie Zachodnie
+- Japonia Wschodnia
+- Japonia Zachodnia
 - Korea Środkowa
 - Korea Południowa
+- Norwegia Wschodnia
+- Norwegia Zachodnia
+- Północna Republika Południowej Afryki
+- Zachodnia Republika Południowej Afryki
+- Środkowy Zjednoczone Emiraty Arabskie
+- Północne Zjednoczone Emiraty Arabskie
+- Południowe Zjednoczone Królestwo
+- Zachodnie Zjednoczone Królestwo
 
 Aby wdrożyć gorącą lub chłodną część pliku, zobacz [Tworzenie gorącego lub chłodnego udziału plików](../articles/storage/files/storage-how-to-create-file-share.md#create-a-hot-or-cool-file-share). 

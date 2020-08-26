@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: a9e8574ea2d7222871c7f065383e6c0c62057dd3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cb7753f54e9c1334e35635c227f776041631f1d
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81007816"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864879"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Generuj plik żądania podpisania certyfikatu
 
@@ -95,7 +95,7 @@ Nowsze podejście ma wiele korzyści (w porównaniu z użyciem certyfikatów), z
     Zostanie wyświetlony ekran **Utwórz nowy certyfikat** .
 
     > [!NOTE]
-    > Instrukcje w tym samouczku obejmują użycie certyfikatu deweloperskiego. Ten sam proces jest używany podczas rejestrowania certyfikatu produkcyjnego. Należy po prostu pamiętać, aby używać tego samego typu certyfikatu podczas wysyłania powiadomień.
+    > W tym samouczku jest używany certyfikat programistyczny używany przez aplikację do generowania unikatowego tokenu urządzenia. Ten sam proces jest używany podczas rejestrowania certyfikatu produkcyjnego. Należy po prostu pamiętać, aby używać tego samego typu certyfikatu podczas wysyłania powiadomień.
 
 3. Wybierz pozycję **Wybierz plik**, przejdź do lokalizacji, w której ZAPISANO plik CSR z pierwszego zadania, a następnie kliknij dwukrotnie nazwę certyfikatu w celu jego załadowania. Następnie wybierz pozycję **Kontynuuj**.
 
@@ -211,7 +211,7 @@ W tej sekcji utworzysz centrum powiadomień i skonfigurujesz uwierzytelnianie za
 W obszarze **usługi powiadomień**wybierz pozycję **Apple (APNs)** , a następnie postępuj zgodnie z odpowiednimi instrukcjami w sekcji [Tworzenie certyfikatu dla Notification Hubs](#creating-a-certificate-for-notification-hubs) .  
 
 > [!NOTE]
-> Użyj środowiska **produkcyjnego** w **trybie aplikacji** tylko wtedy, gdy chcesz wysyłać powiadomienia wypychane do użytkowników, którzy kupili aplikację ze sklepu.
+> W przypadku kompilowania aplikacji za pomocą sklepu z aplikacjami lub profilu dystrybucji ad hoc Użyj środowiska **produkcyjnego** dla **trybu aplikacji**. Umożliwi to urządzeniu wysyłanie powiadomień wypychanych do użytkowników, którzy kupili aplikację ze sklepu.
 
 ### <a name="option-1-using-a-p12-push-certificate"></a>Opcja 1: używanie certyfikatu wypychania z. p12
 

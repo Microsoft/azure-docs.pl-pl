@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 335b2f345cbebc55ad7ddd60487cfd17288d547d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c0627dd0833e3b20468eb5f50fbeb9fd9d9ae2b3
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88704238"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864724"
 ---
 **Wychodzące transfery danych**: [wychodzące transfery danych](https://azure.microsoft.com/pricing/details/bandwidth/) (dane przesyłane z centrów danych platformy Azure) powodują naliczanie opłat za użycie przepustowości.
 
@@ -26,7 +26,7 @@ Aby uzyskać szczegółowe informacje na temat cen Managed Disks, w tym kosztów
 Maszyny wirtualne platformy Azure mają możliwość wskazywania, czy są one zgodne z Ultra Disks. Maszyna wirtualna zgodne z dyskami jest przydzielona dedykowanej przepustowości między wystąpieniem maszyny wirtualnej obliczeniowej a jednostką skali magazynu blokowego w celu zoptymalizowania wydajności i skrócenia opóźnień. Dodanie tej funkcji na maszynie wirtualnej spowoduje naliczenie opłaty za rezerwację, która jest nałożona tylko wtedy, gdy na maszynie wirtualnej jest włączona funkcja Ultra Disk bez dołączania do niej dysku. Gdy dysk jest podłączony do maszyny wirtualnej zgodnej z dyskiem Ultra, ta opłata nie zostanie zastosowana. Ta opłata jest naliczana za vCPU na maszynie wirtualnej. 
 
 > [!Note]
-> W przypadku [ograniczonych rozmiarów maszyn wirtualnych](~/articles/virtual-machines/constrained-vcpu.md)opłata za rezerwację jest oparta na rzeczywistej liczbie procesorów wirtualnych vCPU, a nie w ograniczonych rdzeniach. W przypadku Standard_E32-8s_v3 opłata za rezerwację będzie oparta na 32 rdzeniach. 
+> W przypadku [ograniczonych rozmiarów maszyn wirtualnych](../articles/virtual-machines/constrained-vcpu.md)opłata za rezerwację jest oparta na rzeczywistej liczbie procesorów wirtualnych vCPU, a nie w ograniczonych rdzeniach. W przypadku Standard_E32-8s_v3 opłata za rezerwację będzie oparta na 32 rdzeniach. 
 
 Zapoznaj się ze [stroną cennika usługi Azure disks](https://azure.microsoft.com/pricing/details/managed-disks/) , aby uzyskać szczegółowe informacje o cenach.
 

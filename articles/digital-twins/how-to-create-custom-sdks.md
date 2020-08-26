@@ -8,12 +8,12 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a93e0b6d29bb10e5e71f48134916cac9cd563fb2
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3cf14ce3e8ef9b1d783191fe6c01c5e311d57786
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420043"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855946"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Tworzenie niestandardowych zestawów SDK dla usługi Azure Digital bliźniaczych reprezentacji przy użyciu funkcji AutoRest
 
@@ -41,10 +41,10 @@ npm install -g autorest@2.0.4413
 Aby uruchomić polecenie AutoRest dla pliku programu Azure Digital bliźniaczych reprezentacji Swagger, wykonaj następujące kroki:
 1. Skopiuj plik programu Azure Digital bliźniaczych reprezentacji Swagger i dołączony do niego folder przykładów do katalogu roboczego.
 2. Użyj okna wiersza polecenia, aby przełączyć się do tego katalogu roboczego.
-3. Uruchom polecenie AutoRest przy użyciu poniższego polecenia. Zastąp `<language>` symbol zastępczy wybranym językiem: `--python` , `--java` , `--go` , i tak dalej. (Pełną listę opcji można znaleźć w [pliku Readme AutoRest](https://github.com/Azure/autorest)).
+3. Uruchom polecenie AutoRest przy użyciu poniższego polecenia. Zastąp `<language>` symbol zastępczy wybranym językiem: `python` , `java` , `go` , i tak dalej. (Pełną listę opcji można znaleźć w [pliku Readme AutoRest](https://github.com/Azure/autorest)).
 
 ```cmd/sh
-autorest --input-file=adtApiSwagger.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
+autorest --input-file=digitaltwins.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
 W związku z tym zobaczysz nowy folder o nazwie *ADTApi* w katalogu roboczym. Wygenerowane pliki zestawu SDK będą mieć *ADTApi*przestrzeni nazw. Ta przestrzeń nazw będzie nadal używana przez pozostałe przykłady użycia w tym artykule.
@@ -83,7 +83,7 @@ Teraz można skompilować projekt i dołączyć go jako odwołanie do projektu w
 
 ## <a name="general-guidelines-for-generated-sdks"></a>Ogólne wytyczne dotyczące wygenerowanych zestawów SDK
 
-Ta sekcja zawiera ogólne informacje na temat i wskazówki dotyczące korzystania z wygenerowanego zestawu SDK.
+Ta sekcja zawiera ogólne informacje i wskazówki dotyczące korzystania z wygenerowanego zestawu SDK.
 
 ### <a name="synchronous-and-asynchronous-calls"></a>Wywołania synchroniczne i asynchroniczne
 

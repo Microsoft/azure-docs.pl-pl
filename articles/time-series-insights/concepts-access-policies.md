@@ -9,14 +9,14 @@ manager: dviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: 149d1eab696ae8419bed79cd2cdc0b066c32060c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 35a2be5c9f418bc423ae56c456db0062677a33c2
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531421"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856113"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Przyznawanie dostępu do danych w środowisku
 
@@ -64,7 +64,7 @@ Wykonaj następujące kroki, aby udzielić dostępu do danych dla podmiotu zabez
 
 Wykonaj następujące kroki, aby przyznać dostęp gościa do środowiska Azure Time Series Insights do użytkownika usługi Azure AD z innej dzierżawy.
 
-1. Przejdź do Azure Portal, kliknij przycisk **Azure Active Directory**, przewiń w dół na karcie **Przegląd** , a następnie wybierz pozycję **użytkownik-Gość**.
+1. Przejdź do Azure Portal, kliknij przycisk  **Azure Active Directory**, przewiń w dół na karcie **Przegląd** , a następnie wybierz pozycję **użytkownik-Gość**.
 
     [![Wybierz zasady dostępu do danych, a następnie + Zaproś](media/data-access/data-access-invite-another-aad-tenant.png)](media/data-access/data-access-invite-another-aad-tenant.png#lightbox)
 
@@ -106,7 +106,7 @@ Wykonaj następujące kroki, aby przyznać dostęp gościa do środowiska Azure 
 
 1. Administrator [współużytkuje adres URL środowiska](time-series-insights-parameterized-urls.md) z gościem.
 
-1. Gdy użytkownik-Gość zostanie zalogowany na adres e-mail, który został użyty do jego zaproszenia i zaakceptuje zaproszenie, zostanie skierowany do Azure Portal. 
+1. Gdy użytkownik-Gość zostanie zalogowany na adres e-mail, który został użyty do jego zaproszenia i zaakceptuje zaproszenie, zostanie skierowany do Azure Portal.
 
 1. Gość może teraz uzyskiwać dostęp do udostępnionego środowiska przy użyciu adresu URL środowiska udostępnionego przez administratora. Mogą oni wprowadzić ten adres URL w przeglądarce sieci Web, aby uzyskać natychmiastowy dostęp.
 
@@ -114,14 +114,14 @@ Wykonaj następujące kroki, aby przyznać dostęp gościa do środowiska Azure 
 
     [![Wybór awatara w insights.azure.com](media/data-access/data-access-select-tenant-and-instance.png)](media/data-access/data-access-select-tenant-and-instance.png#lightbox)
 
+    Po wybraniu dzierżawy przez użytkownika-gościa będzie można wybrać środowisko udostępnione Azure Time Series Insights.
 
-    Po wybraniu dzierżawy przez użytkownika-gościa będzie można wybrać środowisko udostępnione Azure Time Series Insights. 
-    
     Mają teraz wszystkie możliwości skojarzone z rolą podaną w **kroku 5**.
 
     [![Użytkownik-Gość wybiera dzierżawę platformy Azure z listy rozwijanej](media/data-access/data-access-all-capabilities.png)](media/data-access/data-access-all-capabilities.png#lightbox)
 
 ## <a name="next-steps"></a>Następne kroki
+
 * Odczytaj [uwierzytelnianie i autoryzację](time-series-insights-authentication-and-authorization.md) dla Azure Active Directory kroków rejestracji aplikacji.
 
-* Wyświetl [swoje środowisko w Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md).
+* Wyświetl [swoje środowisko w eksploratorze Azure Time Series INSIGHTS TSI](./time-series-insights-update-explorer.md).

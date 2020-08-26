@@ -8,12 +8,12 @@ ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 008d5f22a48fdd31c90e63643adc94b26a975ca2
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 00219dbebb8e84c21b9e5b84cf71309c63fc518e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589371"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855960"
 ---
 # <a name="write-client-app-authentication-code"></a>Napisz kod uwierzytelniania aplikacji klienckiej
 
@@ -39,18 +39,19 @@ Najpierw należy uwzględnić następujące pakiety w projekcie, aby można był
 
 W zależności od wybranych narzędzi można dołączyć pakiety przy użyciu Menedżera pakietów programu Visual Studio lub `dotnet` narzędzia wiersza polecenia. 
 
-Aby uwierzytelnić się za pomocą zestawu .NET SDK, użyj jednej z metod uzyskiwania poświadczeń, które są zdefiniowane w bibliotece [Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) .
-
-Poniżej przedstawiono dwa często używane: 
-* [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet). Ta metoda jest przeznaczona dla aplikacji interaktywnych i umożliwia wyświetlenie przeglądarki sieci Web na potrzeby uwierzytelniania.
-* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet). Ta metoda działa dobrze w przypadkach, gdy potrzebne są [tożsamości zarządzane (msi)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)— na przykład podczas pracy z Azure Functions. 
-
 Potrzebne są również następujące instrukcje using:
 
 ```csharp
 using Azure.Identity;
 using Azure.DigitalTwins.Core;
 ```
+Aby uwierzytelnić się za pomocą zestawu .NET SDK, użyj jednej z metod uzyskiwania poświadczeń, które są zdefiniowane w bibliotece [Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) . Poniżej przedstawiono dwa, które są często używane (nawet razem w tej samej aplikacji):
+
+* [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) jest przeznaczony dla aplikacji interaktywnych i może służyć do tworzenia uwierzytelnionego klienta SDK
+* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) działa doskonale w przypadkach, gdy potrzebne są tożsamości zarządzane (msi), i jest dobrym kandydatem do pracy z Azure Functions
+
+### <a name="interactivebrowsercredential-method"></a>InteractiveBrowserCredential, Metoda
+Metoda [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) jest przeznaczona dla aplikacji interaktywnych i umożliwia wyświetlenie przeglądarki sieci Web w celu uwierzytelnienia.
 
 Aby użyć poświadczeń interaktywnej przeglądarki do utworzenia uwierzytelnionego klienta zestawu SDK, Dodaj następujący kod:
 
@@ -79,7 +80,9 @@ try
 >[!NOTE]
 > Identyfikator klienta, identyfikator dzierżawy i adres URL wystąpienia można umieścić bezpośrednio w kodzie jak pokazano powyżej. dobrym pomysłem jest, że kod pobiera te wartości z pliku konfiguracji lub zmiennej środowiskowej.
 
-W funkcji platformy Azure można następnie użyć poświadczeń tożsamości zarządzanej, takich jak:
+### <a name="managedidentitycredential-method"></a>ManagedIdentityCredential, Metoda
+ Metoda [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) działa dobrze w przypadkach, gdy potrzebne są [tożsamości zarządzane (msi)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)— na przykład podczas pracy z Azure Functions.
+W funkcji platformy Azure można użyć poświadczeń tożsamości zarządzanej, takich jak:
 
 ```csharp
 ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);

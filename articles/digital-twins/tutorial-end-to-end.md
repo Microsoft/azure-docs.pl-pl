@@ -1,5 +1,5 @@
 ---
-title: Łączenie kompleksowego rozwiązania
+title: 'Samouczek: łączenie kompleksowego rozwiązania'
 titleSuffix: Azure Digital Twins
 description: Samouczek przedstawiający kompleksowe rozwiązanie bliźniaczych reprezentacji Digital na platformie Azure, które jest sterowane danymi urządzeń.
 author: baanders
@@ -7,14 +7,14 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0407046dcafb0dcc1872d5083669e09b378a75cd
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0f4155c479151c5af64049e0cf9a6a1c4dc4a553
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827388"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855897"
 ---
-# <a name="build-out-an-end-to-end-solution"></a>Tworzenie kompleksowego rozwiązania
+# <a name="tutorial-build-out-an-end-to-end-solution"></a>Samouczek: Tworzenie kompleksowego rozwiązania
 
 Aby skonfigurować kompleksowe rozwiązanie oparte na danych na żywo ze środowiska, możesz połączyć wystąpienie usługi Azure Digital bliźniaczych reprezentacji z innymi usługami platformy Azure w celu zarządzania urządzeniami i danymi.
 
@@ -429,7 +429,7 @@ Oto przegląd scenariusza, który został utworzony w tym samouczku.
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zasoby utworzone w tym samouczku nie są już potrzebne, wykonaj następujące kroki, aby je usunąć. 
 
@@ -455,7 +455,5 @@ Na koniec Usuń folder przykładowego projektu pobrany z komputera lokalnego.
 W tym samouczku opisano tworzenie kompleksowego scenariusza, który pokazuje, że usługa Azure Digital bliźniaczych reprezentacji jest obsługiwana przez dane urządzenia na żywo.
 
 Następnie zacznij od dokumentacji koncepcji, aby dowiedzieć się więcej o elementach, z którymi pracujesz w samouczku:
-* [*Koncepcje: modele niestandardowe*](concepts-models.md)
-
-Możesz też zapoznać się z bardziej szczegółowymi procesami w tym samouczku, uruchamiając artykuły z przewodnikiem:
-* [*Instrukcje: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji*](how-to-use-cli.md)
+> [!div class="nextstepaction"]
+> [*Koncepcje: modele niestandardowe*](concepts-models.md)

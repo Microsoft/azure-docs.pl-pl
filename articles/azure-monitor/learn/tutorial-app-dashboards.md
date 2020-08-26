@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: 49984349ce8d9d1bc43778c0042dd21485eded15
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1b6fdbdfaef601751961d022858545d731fe62a8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829683"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856011"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Tworzenie niestandardowych pulpitów nawigacyjnych wskaźników KPI przy użyciu usługi Azure Application Insights
 
@@ -40,6 +40,9 @@ W celu ukończenia tego samouczka:
 Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-new-dashboard"></a>Tworzenie nowego pulpitu nawigacyjnego
+> [!WARNING]
+> Jeśli przeniesiesz zasób usługi Application Insights do innej grupy zasobów lub subskrypcji, musisz ręcznie zaktualizować pulpit nawigacyjny, usuwając stare kafelki i przypinając nowe kafelki z tego samego zasobu usługi Application Insights w nowej lokalizacji. 
+
 Pojedynczy pulpit nawigacyjny może zawierać zasoby z wielu aplikacji, subskrypcji i grup zasobów.  Aby rozpocząć wykonywanie kroków tego samouczka, utwórz nowy pulpit nawigacyjny aplikacji.  
 
 1. W okienku pulpitów nawigacyjnych wybierz pozycję **Nowy pulpit nawigacyjny**.

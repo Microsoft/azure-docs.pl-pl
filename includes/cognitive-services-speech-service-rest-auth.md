@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: dc5e251fee00ee22edb2261c1abd8404714834ba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b5a3ec1d6e33c08b460088c9aeb4fd18f6bf29ff
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78669310"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864830"
 ---
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 
 Każde żądanie wymaga nagłówka autoryzacji. W tej tabeli przedstawiono nagłówki, które są obsługiwane dla każdej usługi:
 
@@ -20,25 +20,25 @@ Każde żądanie wymaga nagłówka autoryzacji. W tej tabeli przedstawiono nagł
 | Ocp-Apim-Subscription-Key | Tak | Nie |
 | Autoryzacja: okaziciela | Tak | Tak |
 
-W przypadku korzystania `Ocp-Apim-Subscription-Key` z nagłówka wymagane jest tylko podanie klucza subskrypcji. Przykład:
+W przypadku korzystania z `Ocp-Apim-Subscription-Key` nagłówka wymagane jest tylko podanie klucza subskrypcji. Na przykład:
 
 ```http
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-W przypadku korzystania `Authorization: Bearer` z nagłówka wymagane jest żądanie żądania do `issueToken` punktu końcowego. W ramach tego żądania użytkownik wymienia swój klucz subskrypcji dla tokenu dostępu, który jest ważny przez 10 minut. W kilku następnych sekcjach dowiesz się, jak uzyskać token i użyć tokenu.
+W przypadku korzystania z `Authorization: Bearer` nagłówka wymagane jest żądanie żądania do `issueToken` punktu końcowego. W ramach tego żądania użytkownik wymienia swój klucz subskrypcji dla tokenu dostępu, który jest ważny przez 10 minut. W kilku następnych sekcjach dowiesz się, jak uzyskać token i użyć tokenu.
 
 ### <a name="how-to-get-an-access-token"></a>Jak uzyskać token dostępu
 
-Aby uzyskać token dostępu, musisz wykonać żądanie do `issueToken` punktu końcowego przy użyciu klucza subskrypcji `Ocp-Apim-Subscription-Key` i.
+Aby uzyskać token dostępu, musisz wykonać żądanie do `issueToken` punktu końcowego przy użyciu `Ocp-Apim-Subscription-Key` klucza subskrypcji i.
 
-`issueToken` Punkt końcowy ma następujący format:
+`issueToken`Punkt końcowy ma następujący format:
 
 ```http
 https://<REGION_IDENTIFIER>.api.cognitive.microsoft.com/sts/v1.0/issueToken
 ```
 
-Zamień `<REGION_IDENTIFIER>` na identyfikator pasujący do regionu subskrypcji z tej tabeli:
+Zamień na `<REGION_IDENTIFIER>` Identyfikator pasujący do regionu subskrypcji z tej tabeli:
 
 [!INCLUDE [](cognitive-services-speech-service-region-identifier.md)]
 
@@ -46,7 +46,7 @@ Te przykłady umożliwiają utworzenie żądania tokenu dostępu.
 
 #### <a name="http-sample"></a>Przykład HTTP
 
-Ten przykład to proste żądanie HTTP do pobrania tokenu. Zamień `YOUR_SUBSCRIPTION_KEY` na klucz subskrypcji usługi rozpoznawania mowy. Jeśli Twoja subskrypcja nie znajduje się w regionie zachodnie stany USA `Host` , Zastąp nagłówek nazwą hosta regionu.
+Ten przykład to proste żądanie HTTP do pobrania tokenu. Zamień `YOUR_SUBSCRIPTION_KEY` na klucz subskrypcji usługi rozpoznawania mowy. Jeśli Twoja subskrypcja nie znajduje się w regionie zachodnie stany USA, Zastąp `Host` nagłówek nazwą hosta regionu.
 
 ```http
 POST /sts/v1.0/issueToken HTTP/1.1
@@ -82,7 +82,7 @@ $OAuthToken
 Zwinięcie to narzędzie wiersza polecenia dostępne w systemie Linux (i w podsystemie Windows dla systemu Linux). W tym zaleceniu pokazano, jak uzyskać token dostępu. Zamień `YOUR_SUBSCRIPTION_KEY` na klucz subskrypcji usługi rozpoznawania mowy. Upewnij się, że jest używany prawidłowy punkt końcowy dla regionu zgodnego z subskrypcją. Ten przykład jest obecnie ustawiony na zachodnie stany USA.
 
 ```console
-curl -v -X POST
+curl -v -X POST \
  "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
  -H "Content-type: application/x-www-form-urlencoded" \
  -H "Content-Length: 0" \
@@ -91,7 +91,7 @@ curl -v -X POST
 
 #### <a name="c-sample"></a>Przykład w języku C#
 
-Ta klasa języka C# ilustruje sposób uzyskiwania tokenu dostępu. Przekaż swój klucz subskrypcji usługi rozpoznawania mowy podczas tworzenia wystąpienia klasy. Jeśli Twoja subskrypcja nie znajduje się w regionie zachodnie stany USA, Zmień `FetchTokenUri` wartość tak, aby była zgodna z regionem subskrypcji.
+Ta klasa języka C# ilustruje sposób uzyskiwania tokenu dostępu. Przekaż swój klucz subskrypcji usługi rozpoznawania mowy podczas tworzenia wystąpienia klasy. Jeśli Twoja subskrypcja nie znajduje się w regionie zachodnie stany USA, Zmień wartość tak, `FetchTokenUri` aby była zgodna z regionem subskrypcji.
 
 ```csharp
 public class Authentication

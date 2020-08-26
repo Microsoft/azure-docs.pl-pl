@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ef221ea068f2786a4a84f20a29e80dd7176f06c6
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 9e6d13fedbfa495448164c1354868e12992dd71c
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337419"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856034"
 ---
 # <a name="iot-plug-and-play-preview-developer-guide"></a>Przewodnik dla deweloperów Plug and Play IoT w wersji zapoznawczej
 
@@ -55,11 +55,21 @@ Anons identyfikatora modelu został dodany do następnych wersji zestawów SDK
 |Węzeł|1.17.0|
 |Python|2.1.4|
 
+## <a name="dps-payload"></a>Ładunek DPS
+
+Urządzenia korzystające z [usługi Device Provisioning (DPS)](/iot-dps/) mogą zawierać `modelId` do użycia podczas procesu aprowizacji przy użyciu następującego ładunku JSON.
+
+```json
+{
+    "modelId" : "dtmi:com:example:Thermostat;1"
+}
+```
+
 ## <a name="implement-telemetry-properties-and-commands"></a>Implementowanie danych telemetrycznych, właściwości i poleceń
 
 Zgodnie z opisem w artykule [Omówienie składników w modelach Plug and Play IoT](concepts-components.md), konstruktory urządzeń muszą zdecydować, czy chcą używać składników do opisywania swoich urządzeń. W przypadku korzystania ze składników urządzenia muszą przestrzegać zasad opisanych w tej sekcji.
 
-### <a name="telemetry"></a>Telemetry
+### <a name="telemetry"></a>Telemetria
 
 Modele bez składników nie wymagają żadnej specjalnej właściwości.
 

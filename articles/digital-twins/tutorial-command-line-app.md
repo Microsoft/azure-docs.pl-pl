@@ -1,5 +1,5 @@
 ---
-title: Eksplorowanie podstaw za pomocą przykładowej aplikacji klienckiej
+title: 'Samouczek: Eksplorowanie podstaw za pomocą przykładowej aplikacji klienckiej'
 titleSuffix: Azure Digital Twins
 description: Samouczek przedstawiający Eksplorowanie zestawów SDK Digital bliźniaczych reprezentacji platformy Azure przy użyciu przykładowej aplikacji wiersza polecenia
 author: baanders
@@ -7,14 +7,14 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d02766d82690d2f546fdcbad76efcda043f54471
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 58013ba84e1ede36ed54284af4d20b943d63436f
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986275"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855869"
 ---
-# <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Poznaj usługę Azure Digital bliźniaczych reprezentacji za pomocą przykładowej aplikacji klienckiej
+# <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Samouczek: Eksplorowanie usługi Azure Digital bliźniaczych reprezentacji za pomocą przykładowej aplikacji klienckiej
 
 W tym samouczku przedstawiono przykładową aplikację, która implementuje aplikację kliencką wiersza polecenia, aby można było korzystać z usługi Azure Digital bliźniaczych reprezentacji. Aplikacja kliencka jest podobna do tej, która została zapisywana w [*samouczku: kod aplikacji klienckiej*](tutorial-code.md).
 
@@ -314,12 +314,5 @@ Na koniec Usuń folder przykładowego projektu pobrany na komputer lokalny.
 W tym samouczku przedstawiono rozpoczęcie pracy z usługą Azure Digital bliźniaczych reprezentacji przez skonfigurowanie wystąpienia i aplikacji klienckiej w celu korzystania z tego wystąpienia. Aplikacja kliencka została użyta do eksplorowania usługi Azure Digital bliźniaczych reprezentacji, tworzenia modeli, cyfrowego bliźniaczych reprezentacji i relacji. W rozwiązaniu uruchomiono również pewne zapytania, aby poznać, jakie rodzaje pytań można znaleźć w usłudze Azure Digital bliźniaczych reprezentacji.
 
 Przejdź do następnego samouczka, aby użyć przykładowej aplikacji wiersza polecenia w połączeniu z innymi usługami platformy Azure, aby ukończyć Scenariusz oparty na danych, kompleksowo:
-
 > [!div class="nextstepaction"]
 > [*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)
-
-Możesz też zacząć od dokumentacji koncepcji, aby dowiedzieć się więcej o elementach, z którymi pracujesz w samouczku:
-* [*Koncepcje: modele niestandardowe*](concepts-models.md)
-
-Więcej szczegółowych informacji na temat procesów w tym samouczku można również uzyskać, uruchamiając artykuły z przewodnikiem:
-* [*Instrukcje: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji*](how-to-use-cli.md)

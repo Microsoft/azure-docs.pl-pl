@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 08/21/2020
 ms.author: pafarley
-ms.openlocfilehash: b7ee606ab17171c5f2fcf20d94ff18de8b05b773
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: b178a0b347888f22d9a3c0ee88a203e377cb15be
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88753001"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864695"
 ---
 > [!IMPORTANT]
 > * Zestaw SDK aparatu rozpoznawania formularzy obecnie jest przeznaczony dla wersji v 2.0 z usługi rozpoznawania.
@@ -30,6 +30,27 @@ ms.locfileid: "88753001"
 * Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Utwórz zasób aparatu rozpoznawania formularzy "  target="_blank"> Utwórz zasób aparatu rozpoznawania formularza <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
     * Będziesz potrzebować klucza i punktu końcowego z zasobu, który utworzysz, aby połączyć aplikację z interfejsem API rozpoznawania formularzy. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
     * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
+
+## <a name="object-model"></a>Model obiektów 
+
+Za pomocą aparatu rozpoznawania formularzy można utworzyć dwa różne typy klientów. Pierwszy `form_recognizer_client` jest używany do wysyłania zapytań do usługi do rozpoznanych pól formularzy i zawartości. Drugi — `form_training_client` służy do tworzenia modeli niestandardowych i zarządzania nimi, których można użyć w celu usprawnienia rozpoznawania. 
+
+### <a name="formrecognizerclient"></a>FormRecognizerClient
+`form_recognizer_client` zawiera operacje dla:
+
+ * Rozpoznawanie pól formularzy i zawartości przy użyciu modeli niestandardowych przeszkolonych w celu rozpoznawania formularzy niestandardowych. 
+ * Rozpoznawanie zawartości formularza, w tym tabel, wierszy i słów, bez konieczności uczenia modelu. 
+ * Rozpoznawanie typowych pól z przyjęć przy użyciu wstępnie przeszkolonego modelu paragonów w usłudze aparat rozpoznawania formularzy.
+
+### <a name="formtrainingclient"></a>FormTrainingClient
+`form_training_client` zawiera operacje dla:
+
+* Szkolenie modeli niestandardowych w celu rozpoznania wszystkich pól i wartości znalezionych w formularzach niestandardowych. Zapoznaj się z [dokumentacją usługi dotyczącą nieoznaczonego szkolenia modelu](#train-a-model-without-labels) , aby uzyskać bardziej szczegółowy opis tworzenia zestawu danych szkoleniowych.
+* Szkolenie modeli niestandardowych w celu rozpoznawania określonych pól i wartości, które można określić przez etykietowanie formularzy niestandardowych. Zapoznaj się z [dokumentacją usługi w obszarze zatytułowany model szkoleń](#train-a-model-with-labels) , aby uzyskać bardziej szczegółowy opis stosowania etykiet do zestawu danych szkoleniowych.
+* Zarządzanie modelami utworzonymi na Twoim koncie.
+* Kopiowanie modelu niestandardowego z jednego do drugiego zasobu aparatu rozpoznawania formularza.
+
+Należy pamiętać, że modele mogą być również przeszkolone przy użyciu graficznego interfejsu użytkownika, takiego jak [Narzędzie do etykietowania aparatu rozpoznawania formularzy](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
 
 ## <a name="setting-up"></a>Konfigurowanie
 
@@ -346,9 +367,7 @@ W tej sekcji pokazano, jak wyodrębnić informacje o kluczu/wartości i innej za
 > [!IMPORTANT]
 > Aby zaimplementować ten scenariusz, należy wcześniej przeszkolić model, aby można było przekazać jego identyfikator do metody poniżej. Zobacz sekcję [uczenie modelu](#train-a-model-without-labels) .
 
-<<<<<<< , użyjemy `begin_recognize_custom_forms_from_url` metody. Zwracana wartość jest kolekcją `RecognizedForm` obiektów: jeden dla każdej strony w przesłanym dokumencie. Poniższy kod drukuje wyniki analizy w konsoli programu. Wypisuje wszystkie rozpoznane pola i odpowiadające im wartości, a także ocenę ufności.
-= = = = = = = Zostanie użyta metoda **begin_recognize_custom_forms_from_url** . Zwracana wartość jest kolekcją obiektów **RecognizedForm** . Wypisuje wszystkie rozpoznane pola i odpowiadające im wartości, a także ocenę ufności.
->>>>>>> 4c76de6b4e93d2a4669953300c5686837b3be13c
+Ta metoda zostanie użyta `begin_recognize_custom_forms_from_url` . Zwracana wartość jest kolekcją `RecognizedForm` obiektów: jeden dla każdej strony w przesłanym dokumencie. Poniższy kod drukuje wyniki analizy w konsoli programu. Wypisuje wszystkie rozpoznane pola i odpowiadające im wartości, a także ocenę ufności.
 
 ```python
 # Model ID from when you trained your model.
@@ -483,13 +502,13 @@ except ResourceNotFoundError:
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
-Uruchom aplikację za pomocą `python` polecenia w pliku szybkiego startu.
+Aplikację można uruchomić w dowolnym momencie z dowolną liczbą funkcji, które zostały odczytane w tym przewodniku szybki start za pomocą tego polecenia:
 
 ```console
 python quickstart-file.py
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
 
@@ -542,6 +561,6 @@ W tym przewodniku szybki start użyto biblioteki klienckiej aparatu rozpoznawani
 > [!div class="nextstepaction"]
 > [Tworzenie zestawu danych szkoleniowych](../../build-training-data-set.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Co to jest rozpoznawanie formularzy?](../../overview.md)

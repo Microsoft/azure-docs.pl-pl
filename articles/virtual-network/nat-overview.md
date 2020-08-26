@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2020
+ms.date: 08/25/2020
 ms.author: allensu
-ms.openlocfilehash: 63c687cdfe3e014617b5a8773136dfb6513178ed
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 3180fa34b85c3ec5f7cb1d2d9da8c2e1b528bd69
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135814"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855791"
 ---
 # <a name="what-is-virtual-network-nat"></a>Co to jest Virtual Network translator adresów sieciowych?
 
@@ -123,31 +123,17 @@ Można monitorować operacje NAT za pomocą wielowymiarowych metryk uwidoczniony
 
 Przy ogólnej dostępności ścieżka danych NAT jest dostępna co najmniej 99,9%.
 
-
 ## <a name="pricing"></a>Cennik
 
-Brama translatora adresów sieciowych jest rozliczana przy użyciu dwóch oddzielnych liczników:
-
-| Miernik | Stawka |
-| --- | --- |
-| Godziny zasobów | $0.045/godz. |
-| Przetworzone dane | $0.045/GB |
-
-Godziny zasobów dla czasu trwania, w którym znajduje się zasób bramy translatora adresów sieciowych.
-Przetworzone dane kont dla całego ruchu przetworzonego przez zasób bramy translatora adresów sieciowych.
+Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network).
 
 ## <a name="availability"></a>Dostępność
 
-Virtual Network translator adresów sieciowych i zasób bramy NAT są dostępne we wszystkich [regionach](https://azure.microsoft.com/global-infrastructure/regions/)chmury publicznej platformy Azure.
-
-## <a name="support"></a>Pomoc techniczna
-
-Translator adresów sieciowych jest obsługiwany za pomocą zwykłych kanałów pomocy technicznej.
+Virtual Network translator adresów sieciowych i zasób bramy NAT są dostępne we wszystkich regionach wszystkich [regionów](https://azure.microsoft.com/global-infrastructure/regions/)chmur platformy Azure.
 
 ## <a name="suggestions"></a>Sugestie
 
 Chcemy wiedzieć, jak możemy ulepszyć usługę. Zaproponuj i zagłosuj na to, co będziemy kompilować dalej w usłudze [UserVoice dla translatora adresów sieciowych](https://aka.ms/natuservoice).
-
 
 ## <a name="limitations"></a>Ograniczenia
 

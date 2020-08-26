@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: f874e69ff2e08b9be11e6d3e267808d37c084d81
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: c5c7d1b79f9dd74db8bb8241166b4a0fbc5954c1
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "83854528"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855730"
 ---
 # <a name="resource-manager-template-samples-for-log-queries-in-azure-monitor"></a>Przykłady szablonów Menedżer zasobów dla zapytań dzienników w Azure Monitor
 Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do tworzenia i konfigurowania zapytań dzienników w programie Azure monitor. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
@@ -30,7 +30,7 @@ Poniższy przykład dodaje zapytanie dziennika do obszaru roboczego Log Analytic
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "workspaceName": {
@@ -43,7 +43,7 @@ Poniższy przykład dodaje zapytanie dziennika do obszaru roboczego Log Analytic
   "resources": [
     {
       "type": "Microsoft.OperationalInsights/workspaces",
-      "apiVersion": "2020-03-01-preview",
+      "apiVersion": "2020-08-01",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "resources": [
@@ -73,7 +73,7 @@ Poniższy przykład dodaje zapytanie dziennika do obszaru roboczego Log Analytic
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -93,7 +93,7 @@ Poniższy przykład dodaje zapytanie dziennika jako funkcję do obszaru roboczeg
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "workspaceName": {
@@ -112,7 +112,7 @@ Poniższy przykład dodaje zapytanie dziennika jako funkcję do obszaru roboczeg
       "resources": [
         {
           "type": "savedSearches",
-          "apiVersion": "2020-03-01-preview",
+          "apiVersion": "2020-08-01",
           "name": "Cross workspace query",
             "dependsOn": [
               "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -142,7 +142,7 @@ Poniższy przykład dodaje zapytanie dziennika jako funkcję do obszaru roboczeg
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -165,7 +165,7 @@ Poniższy przykład dodaje zapytanie dziennika jako funkcję, która używa para
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "workspaceName": {
@@ -178,13 +178,13 @@ Poniższy przykład dodaje zapytanie dziennika jako funkcję, która używa para
   "resources": [
     {
       "type": "Microsoft.OperationalInsights/workspaces",
-      "apiVersion": "2017-03-15-preview",
+      "apiVersion": "2020-08-01",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "resources": [
         {
           "type": "savedSearches",
-          "apiVersion": "2017-04-26-preview",
+          "apiVersion": "2020-08-01",
           "name": "Parameterized function",
             "dependsOn": [
               "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -200,7 +200,7 @@ Poniższy przykład dodaje zapytanie dziennika jako funkcję, która używa para
         },
         {
           "type": "savedSearches",
-          "apiVersion": "2017-04-26-preview",
+          "apiVersion": "2020-08-01",
           "name": "Query using function",
             "dependsOn": [
               "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -223,7 +223,7 @@ Poniższy przykład dodaje zapytanie dziennika jako funkcję, która używa para
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {

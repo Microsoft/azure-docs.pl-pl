@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 885394b2dd50b9f8a94ece409c47609c8f7f18fd
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 39c33efb4896893c8baa18d06f62defc26c64949
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587568"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855873"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Korzystanie z interfejsów API i zestawów SDK usługi Azure Digital Twins
 
@@ -63,7 +63,7 @@ Możesz również wykonywać interfejsy API płaszczyzny danych, współpracują
 Zestaw SDK platformy Azure Digital bliźniaczych reprezentacji .NET (C#) jest częścią zestawu Azure SDK dla platformy .NET. Jest to element Open Source, który jest oparty na interfejsie API płaszczyzny danych Digital bliźniaczych reprezentacji na platformie Azure.
 
 > [!NOTE]
-> Aby uzyskać szczegółowe informacje na temat projektowania zestawu SDK, zobacz Ogólne [zasady projektowania dotyczące zestawów SDK platformy Azure](https://azure.github.io/azure-sdk/general_introduction.html) i szczegółowe [wskazówki dotyczące projektowania platformy .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html).
+> Aby uzyskać więcej informacji na temat projektowania zestawu SDK, zobacz Ogólne [zasady projektowania dotyczące zestawów SDK platformy Azure](https://azure.github.io/azure-sdk/general_introduction.html) i szczegółowe [wskazówki dotyczące projektowania platformy .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html).
 
 Aby użyć zestawu SDK, Dołącz pakiet NuGet **Azure. DigitalTwins. Core** z projektem. Wymagany jest również pakiet **Azure. Identity** (wersja 1.1.1).
 
@@ -143,7 +143,7 @@ Możesz również znaleźć dodatkowe przykłady w [repozytorium GitHub dla zest
 
 #### <a name="serialization-helpers"></a>Pomocnicy serializacji
 
-Zgodnie z wcześniejszym opisem podstawowe metody zestawu SDK zwracają dane dwuosiowe w formacie JSON. Jednak zestaw SDK zawiera również klasy pomocników do serializacji. Te funkcje pomocnika umożliwiają szybkie tworzenie i deserializacja danych bliźniaczych w celu uzyskania dostępu do podstawowych informacji.
+Pomocnicy serializacji to funkcje pomocnicze dostępne w ramach zestawu SDK umożliwiające szybkie tworzenie i deserializacja danych bliźniaczych w celu uzyskania dostępu do podstawowych informacji. Ponieważ podstawowe metody zestawu SDK zwracają dane dwuosiowe jako plik JSON domyślnie, pomocne może być użycie tych klas pomocniczych w celu dalszej przerwy w działaniu danych.
 
 Dostępne są następujące klasy pomocnika:
 * `BasicDigitalTwin`: Reprezentuje podstawowe dane dwuosiowa cyfra
@@ -230,7 +230,7 @@ foreach (string prop in rel.CustomProperties.Keys)
 
 ##### <a name="create-a-relationship"></a>Tworzenie relacji
 
-Korzystając z `BasicDigitalTwin` klasy, można również przygotować dane do tworzenia relacji w wystąpieniu bliźniaczych:
+Korzystając z `BasicRelationship` klasy, można również przygotować dane do tworzenia relacji w wystąpieniu bliźniaczych:
 
 ```csharp
 BasicRelationship rel = new BasicRelationship();
