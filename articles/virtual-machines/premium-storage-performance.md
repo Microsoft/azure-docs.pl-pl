@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0fab0bf956790db2860daf75866d84173bfa6cbf
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a13fa7c819dcccc101c23015214bac55d2ab26c9
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751510"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855547"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: projektowanie pod kątem wysokiej wydajności
 
@@ -230,7 +230,7 @@ W poniższej tabeli zestawiono podział kosztów tego scenariusza dla standardó
 
 *Dystrybucje systemu Linux*  
 
-Dzięki platformie Azure Premium Storage uzyskasz ten sam poziom wydajności dla maszyn wirtualnych z systemami Windows i Linux. Obsługujemy wiele rodzajów systemu Linux dystrybucje. pełną listę można zobaczyć [tutaj](~/articles/virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Należy pamiętać, że różne dystrybucje są lepiej dopasowane do różnych typów obciążeń. Zobaczysz różne poziomy wydajności w zależności od dystrybucji, w którym działa obciążenie. Przetestuj dystrybucje systemu Linux przy użyciu aplikacji i wybierz ten, który działa najlepiej.
+Dzięki platformie Azure Premium Storage uzyskasz ten sam poziom wydajności dla maszyn wirtualnych z systemami Windows i Linux. Obsługujemy wiele rodzajów systemu Linux dystrybucje. pełną listę można zobaczyć [tutaj](linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Należy pamiętać, że różne dystrybucje są lepiej dopasowane do różnych typów obciążeń. Zobaczysz różne poziomy wydajności w zależności od dystrybucji, w którym działa obciążenie. Przetestuj dystrybucje systemu Linux przy użyciu aplikacji i wybierz ten, który działa najlepiej.
 
 Podczas uruchamiania systemu Linux z Premium Storage Sprawdź najnowsze aktualizacje dotyczące wymaganych sterowników, aby zapewnić wysoką wydajność.
 

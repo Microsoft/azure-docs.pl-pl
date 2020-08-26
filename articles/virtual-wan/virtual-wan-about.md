@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/18/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 5a0c9d1888f1efbd90ef345cecabe244422abe95
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 2d8ac3775021c574d3c03e44b06d6b5e689070e7
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763630"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852663"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Co to jest usługa Azure Virtual WAN?
 
@@ -132,7 +132,7 @@ Tabele tras mają teraz funkcje do skojarzenia i propagacji. Istniejąca tabela 
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 
-## <a name="view-the-latest-feature-updates"></a><a name="new"></a>Wyświetlanie najnowszych aktualizacji funkcji
+## <a name="whats-new"></a><a name="new"></a>Co nowego?
 
 Zasubskrybuj źródło danych RSS i zapoznaj się z najnowszymi aktualizacjami funkcji wirtualnej sieci WAN na stronie [aktualizacji platformy Azure](https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN) .
 

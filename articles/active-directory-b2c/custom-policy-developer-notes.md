@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 255e0e38d8dc434843452308d2eebc2fd4774c50
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 23e443a542ed22906abb237e402834b707e623a9
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116525"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852036"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Uwagi dla deweloperów dotyczące zasad niestandardowych w Azure Active Directory B2C
 
@@ -63,7 +63,7 @@ Niestandardowe i szybkie opracowywanie możliwości struktury środowiska obsłu
 
 ### <a name="protocols-and-authorization-flows"></a>Protokoły i przepływy autoryzacji
 
-| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [Kod autoryzacji OAuth2](authorization-code-flow.md) |  |  | X |  |
 | OAuth2 kod autoryzacji z PKCE |  |  | X | Tylko aplikacje mobilne  |
@@ -76,7 +76,7 @@ Niestandardowe i szybkie opracowywanie możliwości struktury środowiska obsłu
 
 ### <a name="identify-providers-federation"></a>Identyfikowanie Federacji dostawców 
 
-| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | Na przykład Google +.  |
 | [OAuth2](oauth2-technical-profile.md) |  |  | X | Na przykład w serwisie Facebook.  |
@@ -87,7 +87,7 @@ Niestandardowe i szybkie opracowywanie możliwości struktury środowiska obsłu
 
 ### <a name="rest-api-integration"></a>Integracja interfejsu API REST
 
-| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [Interfejs API REST z uwierzytelnianiem podstawowym](secure-rest-api.md#http-basic-authentication) |  |  | X |  |
 | [Interfejs API REST z uwierzytelnianiem certyfikatu klienta](secure-rest-api.md#https-client-certificate-authentication) |  |  | X |  |
@@ -95,7 +95,7 @@ Niestandardowe i szybkie opracowywanie możliwości struktury środowiska obsłu
 
 ### <a name="component-support"></a>Obsługa składników
 
-| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Uwierzytelnianie przy współczynniku telefonicznym](phone-factor-technical-profile.md) |  |  | X |  |
 | [Uwierzytelnianie usługi Azure MFA](multi-factor-auth-technical-profile.md) |  | X |  |  |
@@ -110,27 +110,27 @@ Niestandardowe i szybkie opracowywanie możliwości struktury środowiska obsłu
 
 ### <a name="page-layout-versions"></a>Wersje układu strony
 
-| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| [2.0.0](page-layout.md#200) |  | X |  |  |
-| [1.2.0](page-layout.md#120) |  | X |  |  |
-| [1.1.0](page-layout.md#110) |  |  | X |  |
-| [1.0.0](page-layout.md#100) |  |  | X |  |
+| [2.0.0](page-layout.md) |  | X |  |  |
+| [1.2.0](page-layout.md) |  | X |  |  |
+| [1.1.0](page-layout.md) |  |  | X |  |
+| [1.0.0](page-layout.md) |  |  | X |  |
 | [Obsługa języka JavaScript](javascript-samples.md) |  | X |  |  |
 
 ### <a name="app-ief-integration"></a>Integracja App-IEF
 
-| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Parametr ciągu zapytania`domain_hint` |  |  | X | Dostępne jako roszczeń mogą być przesyłane do dostawcy tożsamości. |
-| Parametr ciągu zapytania`login_hint` |  |  | X | Dostępne jako roszczeń mogą być przesyłane do dostawcy tożsamości. |
-| Wstaw dane JSON do podróży użytkownika za pośrednictwem`client_assertion` | X |  |  | Będzie przestarzałe. |
-| Wstaw dane JSON do podróży użytkownika jako`id_token_hint` |  | X |  | Podejście do przodu do przekazywania kodu JSON. |
+| Parametr ciągu zapytania `domain_hint` |  |  | X | Dostępne jako roszczeń mogą być przesyłane do dostawcy tożsamości. |
+| Parametr ciągu zapytania `login_hint` |  |  | X | Dostępne jako roszczeń mogą być przesyłane do dostawcy tożsamości. |
+| Wstaw dane JSON do podróży użytkownika za pośrednictwem `client_assertion` | X |  |  | Będzie przestarzałe. |
+| Wstaw dane JSON do podróży użytkownika jako `id_token_hint` |  | X |  | Podejście do przodu do przekazywania kodu JSON. |
 | [Przekaż token dostawcy tożsamości do aplikacji](idp-pass-through-custom.md) |  | X |  | Na przykład z usługi Facebook do aplikacji. |
 
 ### <a name="session-management"></a>Zarządzanie sesjami
 
-| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Domyślny dostawca sesji SSO](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
 | [Dostawca sesji logowania zewnętrznego](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
@@ -140,7 +140,7 @@ Niestandardowe i szybkie opracowywanie możliwości struktury środowiska obsłu
 
 ### <a name="security"></a>Zabezpieczenia
 
-| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | Klucze zasad — generowanie, ręczne, przekazywanie |  |  | X |  |
 | Klucze zasad — RSA/certyfikat, wpisy tajne |  |  | X |  |
@@ -148,7 +148,7 @@ Niestandardowe i szybkie opracowywanie możliwości struktury środowiska obsłu
 
 ### <a name="developer-interface"></a>Interfejs dewelopera
 
-| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Witryna Azure Portal — środowisko IEF |  |  | X |  |
 | Przekazywanie zasad |  |  | X |  |

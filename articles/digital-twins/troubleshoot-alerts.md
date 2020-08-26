@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 1b296cd942e36817da2832467ab603ebd833f825
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: ded2f54379e60e8e3fc26d9c2166930a6f953078
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909867"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854852"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Rozwiązywanie problemów z usługą Azure Digital bliźniaczych reprezentacji: alerty
 
@@ -28,13 +28,17 @@ Poniżej przedstawiono sposób włączania alertów dla wystąpienia usługi Azu
 
 2. Z menu wybierz opcję **alerty** , a następnie pozycję **+ Nowa reguła alertu**.
 
-    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Zrzut ekranu przedstawiający stronę alerty i przycisk do dodania. Nie skonfigurowano jeszcze żadnych alertów" lightbox="media/troubleshoot-alerts/alerts-pre.png":::
-
 3. Na stronie *Tworzenie reguły alertu* , która znajduje się poniżej, można postępować zgodnie z monitami, aby zdefiniować warunki, akcje, które mają być wyzwalane, oraz szczegóły alertu.     
-    * Szczegóły **zakresu** powinny być wypełniane automatycznie przy użyciu szczegółów dla danego wystąpienia.
+    * Szczegóły **zakresu** powinny być wypełniane automatycznie przy użyciu szczegółów dla danego wystąpienia
     * Zdefiniuj **warunek** i szczegóły **grupy akcji** , aby dostosować wyzwalacze i odpowiedzi alertów.
+    * W sekcji **szczegóły reguły alertu** wprowadź _nazwę reguły alertu_, _Opis (opcjonalnie)_. Możesz zaznaczyć pole wyboru _Włącz regułę alertu przy tworzeniu_ , jeśli chcesz, aby alert stał się aktywny zaraz po jego utworzeniu.
+    * W oparciu o niektóre warunki i akcje, które można dodać, należy wybrać pozycję _Zapisz regułę alertu w grupie zasobów_ i _ważności_ z odpowiednich list rozwijanych.
 
-    :::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie reguły alertów z sekcjami dotyczącymi zakresu, warunku i grupy akcji" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
+4. Wybierz przycisk _Utwórz regułę alertu_ , aby utworzyć regułę alertu.
+
+:::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie reguły alertów z sekcjami dotyczącymi zakresu, warunku i grupy akcji" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
+
+:::image type="content" source="media/troubleshoot-alerts/alert-rule-details.png" alt-text="Zrzut ekranu przedstawiający sekcję szczegółów reguły alertu dotyczącego tworzenia reguły alertu" lightbox="media/troubleshoot-alerts/alert-rule-details.png":::
 
 Aby zapoznać się z przewodnikiem dotyczącym wypełniania tych pól, zobacz [*Omówienie alertów w Microsoft Azure*](../azure-monitor/platform/alerts-overview.md). Poniżej przedstawiono kilka przykładów, które będą wyglądały tak, jak w przypadku usługi Azure Digital bliźniaczych reprezentacji.
 

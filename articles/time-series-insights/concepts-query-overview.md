@@ -8,18 +8,18 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: 61c969bc0c0ac9731ae35e445b82db633c3c5191
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cbf1c678307d76361e6083f4e2231fb9e48a112f
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163173"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855152"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Wykonywanie zapytania dotyczącego danych z Azure Time Series Insights Gen2
 
-Azure Time Series Insights Gen2 umożliwia wykonywanie zapytań dotyczących danych dotyczących zdarzeń i metadanych przechowywanych w środowisku za pośrednictwem publicznych interfejsów API. Te interfejsy API są również używane przez [Azure Time Series Insights Eksploratora Gen2](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
+Azure Time Series Insights Gen2 umożliwia wykonywanie zapytań dotyczących danych dotyczących zdarzeń i metadanych przechowywanych w środowisku za pośrednictwem publicznych interfejsów API. Te interfejsy API są również używane przez [eksploratora Azure Time Series INSIGHTS TSI](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
 
 Trzy podstawowe kategorie interfejsu API są dostępne w Azure Time Series Insights Gen2:
 
@@ -73,4 +73,4 @@ Te interfejsy API są dostępne w ramach rozwiązania magazynu wielowarstwowego 
 ## <a name="next-steps"></a>Następne kroki
 
 * Przeczytaj więcej na temat różnych zmiennych, które można zdefiniować w [modelu szeregów czasowych](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-tsm).
-* Przeczytaj więcej na temat wykonywania zapytań dotyczących danych w [eksploratorze Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
+* Przeczytaj więcej na temat wykonywania zapytań dotyczących danych z [eksploratora Azure Time Series INSIGHTS TSI](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).

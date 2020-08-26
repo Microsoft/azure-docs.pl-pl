@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a8bed6c46b0660d5bf43863a5c7aaf4eeaf7e26f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6b62f8c33c73ded978c0c2e3a8c3b7fadea49c96
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853231"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852089"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scenariusz: kierowanie ruchu przez urządzenie WUS
 
 Podczas pracy z routingiem wirtualnego koncentratora sieci WAN jest dość kilka dostępnych scenariuszy. W tym scenariuszu urządzenie WUS celem jest kierowanie ruchu przez urządzenie WUS (sieciowe urządzenie wirtualne) dla gałęzi do sieci wirtualnej i sieci wirtualnej do gałęzi. Aby uzyskać informacje na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> Niektóre możliwości routingu mogą nadal zostać wycofane. Jeśli wdrożenie nie zakończyło się jeszcze w Twoim regionie, wykonaj kroki opisane w tych wersjach artykułów w międzyczasie:
+> Jeśli masz już skonfigurowaną funkcję z trasami wcześniejszymi niż nowe możliwości [konfigurowania routingu koncentratorów wirtualnych](how-to-virtual-hub-routing.md) , wykonaj kroki opisane w tych wersjach artykułów:
 >* [Azure Portal artykuł](virtual-wan-route-table-nva-portal.md)
 >* [Artykuł programu PowerShell](virtual-wan-route-table-nva.md)
 >
 
-## <a name="design"></a><a name="design"></a>Projektowanie
+## <a name="design"></a><a name="design"></a>Projekt
 
 W tym scenariuszu będziemy używać konwencji nazewnictwa:
 

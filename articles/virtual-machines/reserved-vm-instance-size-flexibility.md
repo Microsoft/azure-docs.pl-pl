@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: manshuk
-ms.openlocfilehash: 05119a6f9af935a0f4a2887eae53f3d5bdb1a482
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 381023a0650b078a74c01ff7b698aebacb256147
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658186"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855505"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Elastyczność rozmiaru maszyny wirtualnej w usłudze Reserved VM Instances
 
-Podczas zakupu wystąpienia zarezerwowanego maszyny wirtualnej można zoptymalizować pod kątem elastyczności rozmiaru wystąpienia lub priorytetu pojemności. Aby uzyskać więcej informacji na temat ustawiania lub zmieniania ustawienia optymalizacji dla wystąpień zarezerwowanych maszyn wirtualnych, zobacz [Zmiana ustawienia optymalizacji dla wystąpień zarezerwowanych maszyn wirtualnych](~/articles/cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
+Podczas zakupu wystąpienia zarezerwowanego maszyny wirtualnej można zoptymalizować pod kątem elastyczności rozmiaru wystąpienia lub priorytetu pojemności. Aby uzyskać więcej informacji na temat ustawiania lub zmieniania ustawienia optymalizacji dla wystąpień zarezerwowanych maszyn wirtualnych, zobacz [Zmiana ustawienia optymalizacji dla wystąpień zarezerwowanych maszyn wirtualnych](../cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
 
 W przypadku wystąpienia zarezerwowanej maszyny wirtualnej, która jest zoptymalizowana pod kątem elastyczności rozmiaru wystąpienia, rezerwacja kupowana może być stosowana do rozmiarów maszyn wirtualnych w tej samej elastycznej grupie o rozmiarze. Jeśli na przykład zakupisz rezerwację dla rozmiaru maszyny wirtualnej, która jest wymieniona w serii DSv2, tak jak Standard_DS5_v2, Rabat rezerwacji może dotyczyć innych czterech rozmiarów, które są wymienione w tej samej elastycznej grupie o rozmiarze wystąpienia:
 
@@ -52,4 +52,4 @@ Zachowamy adres URL pliku i schemat, aby można było programowo wykorzystać te
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji, zobacz [co to są Azure Reservations](~/articles/cost-management-billing/reservations/save-compute-costs-reservations.md).
+Aby uzyskać więcej informacji, zobacz [co to są Azure Reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md).

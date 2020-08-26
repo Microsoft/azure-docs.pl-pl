@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 47582f941c314933baf378478b1380cb8316935b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 60c7ac6a86c963a4a133f06ba6d9d602cb9090d0
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066614"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854540"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)
 
@@ -27,8 +27,8 @@ Aby kompleksowo chronić dane obiektów blob, firma Microsoft zaleca włączenie
 - Usuwanie nietrwałe obiektów blob, aby chronić przed przypadkowym usunięciem lub zastępowaniem pojedynczego obiektu BLOB. Aby dowiedzieć się, jak włączyć usuwanie nietrwałe obiektów blob, zobacz [usuwanie nietrwałe dla obiektów BLOB](soft-delete-blob-overview.md).
 - Przechowywanie wersji obiektów BLOB (wersja zapoznawcza) w celu automatycznego zachowywania poprzednich wersji obiektu BLOB. Po włączeniu obsługi wersji obiektów BLOB można przywrócić wcześniejszą wersję obiektu BLOB, aby odzyskać dane, jeśli są one błędnie modyfikowane lub usuwane. Aby dowiedzieć się, jak włączyć obsługę wersji obiektów blob, zobacz [Włączanie obsługi wersji obiektów blob i zarządzanie nimi](versioning-enable.md).
 
-> [!IMPORTANT]
-> Aby zapobiec przypadkowemu usunięciu konta magazynu, Skonfiguruj blokadę **CannotDelete** dla zasobu konta magazynu. Aby uzyskać więcej informacji na temat blokowania zasobów platformy Azure, zobacz [blokowanie zasobów, aby zapobiec nieoczekiwanym zmianom](../../azure-resource-manager/management/lock-resources.md).
+> [!WARNING]
+> Nie można cofnąć usunięcia konta magazynu. Usuwanie nietrwałe nie chroni przed usunięciem konta magazynu. Aby zapobiec przypadkowemu usunięciu konta magazynu, Skonfiguruj blokadę **CannotDelete** dla zasobu konta magazynu. Aby uzyskać więcej informacji na temat blokowania zasobów platformy Azure, zobacz [blokowanie zasobów, aby zapobiec nieoczekiwanym zmianom](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="how-container-soft-delete-works"></a>Jak działa usuwanie nietrwałe kontenera
 
@@ -122,5 +122,5 @@ Nie ma dodatkowej opłaty za włączenie usuwania nietrwałego kontenera. Opłat
 ## <a name="next-steps"></a>Następne kroki
 
 - [Konfiguruj usuwanie nietrwałe kontenera](soft-delete-container-enable.md)
-- [Usuwanie nietrwałe dla obiektów BLOB](soft-delete-blob-overview.md)
+- [Usuwanie nietrwałe dla obiektów blob](soft-delete-blob-overview.md)
 - [Przechowywanie wersji obiektów BLOB (wersja zapoznawcza)](versioning-overview.md)

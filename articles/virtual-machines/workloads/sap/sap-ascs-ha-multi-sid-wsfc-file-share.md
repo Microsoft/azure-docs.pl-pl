@@ -13,19 +13,19 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/03/2019
+ms.date: 08/24/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: acf60138aaecd914b30a020fdead292eb0ef1473
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5a356e96b82e6fbe855d0b474dcb6b1f59c98333
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035982"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855211"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Rozwiązanie SAP ASCS/SCS o wysokiej dostępności z użyciem klastra trybu failover systemu Windows Server i udziału plików na platformie Azure
 
-> ![Windows][Logo_Windows] Windows
+> ![System operacyjny Windows][Logo_Windows] Windows
 >
 
 Można zarządzać wieloma wirtualnymi adresami IP przy użyciu [wewnętrznego modułu równoważenia obciążenia platformy Azure][load-balancer-multivip-overview]. 
@@ -61,6 +61,7 @@ _**Rysunek 1.** Wystąpienie SAP ASCS/SCS i SOFS wdrożone w dwóch klastrach_
 > * Różne udziały plików hostów globalnych SAP należące do różnych identyfikatorów SID SAP muszą współdzielić ten sam klaster SOFS.
 > * Każdy identyfikator SID systemu zarządzania bazami danych (DBMS) musi mieć własny dedykowany klaster usługi WSFC.
 > * Serwery aplikacji SAP należące do jednego identyfikatora SID systemu SAP muszą mieć własne dedykowane maszyny wirtualne.
+> * Mieszany serwer replikacji z kolejki 1 i kolejki serwer replikacji 2 w tym samym klastrze nie jest obsługiwany.  
 
 ## <a name="sap-ascsscs-multi-sid-architecture-with-file-share"></a>Architektura protokołu SAP ASCS/SCS z udziałem plików
 

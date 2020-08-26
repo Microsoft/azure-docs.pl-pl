@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: f62a7eb895248f5d39f5c3df136c88a9b1f0e5b1
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 18212bf92304e75c702c51ff12628cd670755bb0
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141724"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855209"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Model szeregów czasowych w Azure Time Series Insights Gen2
 
@@ -24,7 +24,7 @@ W tym artykule opisano model szeregów czasowych, możliwości i sposób rozpocz
 > [!TIP]
 >
 > * Zapoznaj się z przykładem środowiska [demonstracyjnego farmy wiatrów firmy Contoso](https://insights.timeseries.azure.com/preview/samples) w przypadku modelu na żywo.
-> * Dowiedz się, [jak korzystać z modelu szeregów czasowych](/azure/time-series-insights/how-to-edit-your-model) przy użyciu Azure Time Series Insights Gen2 Explorer.
+> * Dowiedz się, [jak korzystać z modelu szeregów czasowych](/azure/time-series-insights/how-to-edit-your-model) przy użyciu EKSPLORATORA Azure Time Series Insights TSI.
 
 ## <a name="summary"></a>Podsumowanie
 
@@ -75,7 +75,7 @@ Te składniki są łączone w celu określenia modelu szeregów czasowych i orga
 
 [![Wykres przeglądów modelu szeregów czasowych](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-Model szeregów czasowych można utworzyć i zarządzać nim za pomocą [Azure Time Series Insights Gen2 Explorer](/azure/time-series-insights/concepts-model-overview). Ustawienia modelu szeregów czasowych mogą być zarządzane za pomocą [interfejsu API ustawień modelu](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
+Model szeregów czasowych można utworzyć i zarządzać nim za pomocą [eksploratora Azure Time Series INSIGHTS TSI](/azure/time-series-insights/concepts-model-overview). Ustawienia modelu szeregów czasowych mogą być zarządzane za pomocą [interfejsu API ustawień modelu](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
 
 ## <a name="time-series-model-instances"></a>Wystąpienia modelu szeregów czasowych
 
@@ -87,7 +87,7 @@ Wystąpienia mają opisowe informacje skojarzone z tymi nazwami *Właściwości 
 
 *Pola wystąpienia* to zbiór informacji opisowych, które mogą zawierać wartości poziomów hierarchii, a także producenta, operatora i tak dalej.
 
-Po skonfigurowaniu źródła zdarzeń dla środowiska Azure Time Series Insights Gen2 wystąpienia są automatycznie odnajdywane i tworzone w modelu szeregów czasowych. Wystąpienia można utworzyć lub zaktualizować za pomocą Azure Time Series Insights Gen2 Explorer za pomocą zapytań modelu szeregów czasowych.
+Po skonfigurowaniu źródła zdarzeń dla środowiska Azure Time Series Insights Gen2 wystąpienia są automatycznie odnajdywane i tworzone w modelu szeregów czasowych. Wystąpienia można tworzyć lub aktualizować za pośrednictwem Eksploratora Azure Time Series Insights TSI przy użyciu zapytań modelu szeregów czasowych.
 
 [Demonstracja farmy wiatrów firmy Contoso](https://insights.timeseries.azure.com/preview/samples) zawiera kilka przykładów wystąpienia na żywo.
 
@@ -182,8 +182,8 @@ Hierarchie są reprezentowane w formacie JSON jako:
 
 W poprzednim przykładzie JSON:
 
-* `Location`definiuje hierarchię z elementem nadrzędnym `states` i podrzędnym `cities` . Każdy `location` z nich może mieć wielokrotność `states` , która z kolei może mieć wiele `cities` .
-* `ManufactureDate`definiuje hierarchię z elementem nadrzędnym `year` i podrzędnym `month` . Każdy `ManufactureDate` z nich może mieć wielokrotność `years` , która z kolei może mieć wiele `months` .
+* `Location` definiuje hierarchię z elementem nadrzędnym `states` i podrzędnym `cities` . Każdy `location` z nich może mieć wielokrotność `states` , która z kolei może mieć wiele `cities` .
+* `ManufactureDate` definiuje hierarchię z elementem nadrzędnym `year` i podrzędnym `month` . Każdy `ManufactureDate` z nich może mieć wielokrotność `years` , która z kolei może mieć wiele `months` .
 
 > [!TIP]
 > Aby uzyskać pomoc dotyczącą tworzenia, odczytywania, aktualizowania i usuwania interfejsu API hierarchii, przeczytaj artykuł dotyczący [zapytań dotyczących danych](concepts-query-overview.md#time-series-model-query-tsm-q-apis) oraz [dokumentację interfejsu API REST usługi Hierarchy](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#hierarchies-api).
@@ -216,7 +216,7 @@ W przypadku pól wystąpienia używanych w poprzedniej definicji i kilku szereg�
 | ID4 | "Building" = "1000", "piętro" = "10"  |
 | ID5 | Nie ustawiono żadnego z "kompilowania", "podłogi" lub "pokoju". |
 
-Szeregi czasowe **ID1** i **ID4** są wyświetlane jako część hierarchii **H1** w [Eksploratorze Azure Time Series Insights Gen2](time-series-insights-update-explorer.md) , ponieważ mają w pełni zdefiniowane i prawidłowo uporządkowane parametry *kompilacji*, *podłogi*i *pokoju* .
+Szeregi czasowe **ID1** i **ID4** są wyświetlane jako część hierarchii **H1** w [Eksploratorze Azure Time Series Insights TSI](time-series-insights-update-explorer.md) , ponieważ mają w pełni zdefiniowane i prawidłowo uporządkowane parametry *kompilacji*, *podłogi*i *pokoju* .
 
 Inne są klasyfikowane jako *nienadrzędne wystąpienia* , ponieważ nie są zgodne z określoną hierarchią danych.
 

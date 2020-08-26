@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 08/25/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4fce5b191e0af6a69fe218c4ed7272f352c3bdd2
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 8c51095c9e33cd9e5f6da7e972e0cc596eec6478
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827498"
+ms.locfileid: "88855589"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Wdrażanie szablonów usługi Azure Resource Manager dla usługi Azure Logic Apps
 
@@ -119,7 +119,9 @@ Poniżej przedstawiono ogólne kroki wysokiego poziomu dotyczące korzystania z 
 
 ## <a name="authorize-oauth-connections"></a>Autoryzuj połączenia OAuth
 
-Po wdrożeniu aplikacja logiki działa na całym końcu z prawidłowymi parametrami. Jednak nadal trzeba autoryzować lub używać pretworzonych połączeń OAuth w celu wygenerowania prawidłowych tokenów dostępu do [uwierzytelniania poświadczeń](../active-directory/develop/authentication-vs-authorization.md). Oto kilka sugestii:
+Po wdrożeniu aplikacja logiki działa od końca do końca z prawidłowymi parametrami, ale w celu wygenerowania prawidłowych tokenów dostępu do [uwierzytelniania poświadczeń](../active-directory/develop/authentication-vs-authorization.md)nadal trzeba autoryzować lub używać wstępnie utworzonych połączeń protokołu OAuth. Należy jednak tylko raz wdrażać i uwierzytelniać zasoby połączenia interfejsu API, co oznacza, że nie trzeba uwzględniać tych zasobów połączenia w kolejnych wdrożeniach, chyba że trzeba zaktualizować informacje o połączeniu. W przypadku korzystania z potoku ciągłej integracji i ciągłego wdrażania należy wdrożyć tylko zaktualizowane Logic Apps zasoby i nie trzeba ponownie autoryzować połączeń za każdym razem.
+
+Poniżej przedstawiono kilka sugestii obsługi autoryzacji połączeń:
 
 * Autoryzuj i udostępniaj zasoby połączeń interfejsu API w aplikacjach logiki, które znajdują się w tym samym regionie. Połączenia interfejsu API są dostępne jako zasoby platformy Azure niezależnie od aplikacji logiki. Chociaż Aplikacje logiki mają zależności od zasobów połączenia interfejsu API, zasoby połączenia interfejsu API nie mają zależności od aplikacji logiki i pozostają po usunięciu zależnych aplikacji logiki. Ponadto aplikacje logiki mogą korzystać z połączeń interfejsu API, które istnieją w innych grupach zasobów. Jednak Projektant aplikacji logiki obsługuje tworzenie połączeń interfejsu API tylko w tej samej grupie zasobów co Aplikacje logiki.
 

@@ -3,20 +3,20 @@ title: Korzystanie ze środowisk oprogramowania
 titleSuffix: Azure Machine Learning
 description: Twórz środowiska i zarządzaj nimi, aby uzyskać model szkoleń i wdrożeń. Zarządzaj pakietami języka Python i innymi ustawieniami środowiska.
 services: machine-learning
-author: rastala
-ms.author: roastala
+author: saachigopal
+ms.author: sagopal
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a08575ac118f38361d82198ccc86a09f7b2558d6
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 1994407de579e8fd7bc6dfc2ecc9f021d1bf0ec5
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783743"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853238"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Tworzenie & korzystania ze środowisk oprogramowania w programie Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -153,7 +153,7 @@ Dodaj pakiety do środowiska przy użyciu plików Conda, PIP lub Private koła. 
 
 Jeśli pakiet jest dostępny w repozytorium pakietu Conda, zalecamy użycie instalacji programu Conda zamiast instalacji PIP. Pakiety Conda są zwykle dołączone do wstępnie skompilowanych plików binarnych, które zwiększają niezawodność instalacji.
 
-Poniższy przykład dodaje do środowiska. Dodaje wersję 1.17.0 `numpy` . Dodaje również `pillow` pakiet, `myenv` . W przykładzie zastosowano [`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-) odpowiednio metodę i [`add_pip_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-) metodę.
+Poniższy przykład dodaje do środowiska `myenv` . Dodaje wersję 1.17.0 `numpy` . Dodaje również `pillow` pakiet. W przykładzie zastosowano [`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-) odpowiednio metodę i [`add_pip_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-) metodę.
 
 ```python
 from azureml.core.environment import Environment
@@ -245,7 +245,7 @@ build.wait_for_completion(show_output=True)
 Warto najpierw skompilować obrazy lokalnie przy użyciu [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) metody. Ustawienie parametru opcjonalnego `pushImageToWorkspaceAcr = True` spowoduje wypychanie obrazu do rejestru kontenerów obszaru roboczego usługi Azure ml. 
 
 > [!WARNING]
->  Zmiana kolejności zależności lub kanałów w środowisku spowoduje nowe środowisko i będzie wymagało nowej kompilacji obrazu.
+>  Zmiana kolejności zależności lub kanałów w środowisku spowoduje nowe środowisko i będzie wymagało nowej kompilacji obrazu. Ponadto wywoływanie `build()` metody dla istniejącego obrazu spowoduje zaktualizowanie jego zależności, jeśli są dostępne nowe wersje. 
 
 ## <a name="enable-docker"></a>Włącz platformę Docker
 
@@ -323,7 +323,7 @@ myenv.python.interpreter_path = "/opt/miniconda/bin/python"
 W przypadku zarejestrowanego środowiska można pobrać szczegóły obrazu przy użyciu następującego kodu, gdzie `details` jest wystąpieniem [DockerImageDetails](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockerimagedetails?view=azure-ml-py) (azure Python SDK >= 1,11) i zawiera wszystkie informacje o obrazie środowiska, takie jak pliku dockerfile, rejestr i nazwa obrazu.
 
 ```python
-details = environment.get_image_details()
+details = environment.get_image_details(workspace=ws)
 ```
 
 ## <a name="use-environments-for-training"></a>Używanie środowisk do szkolenia

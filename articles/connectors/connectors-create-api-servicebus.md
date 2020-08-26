@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2020
 tags: connectors
-ms.openlocfilehash: d02467fddcce77340b9845fe084bf5a2fb8b01f3
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 13732c6d31f19dfb2548154feb8336a1dff3a529
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815740"
+ms.locfileid: "88853291"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Wymiana komunikatów w chmurze przy użyciu Azure Logic Apps i Azure Service Bus
 
@@ -85,23 +85,23 @@ Upewnij się, że aplikacja logiki ma uprawnienia do uzyskiwania dostępu do prz
 
    1. Podaj nazwę połączenia i wybierz swoją przestrzeń nazw Service Bus.
 
-      ![Utwórz połączenie Service Bus, część 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
+      ![Zrzut ekranu pokazujący podawanie nazwy połączenia i wybieranie Service Bus przestrzeni nazw](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
 
       Aby zamiast tego wprowadzić parametry połączenia, wybierz pozycję **ręcznie wprowadź informacje o połączeniu**. Jeśli nie masz parametrów połączenia, Dowiedz się, [jak znaleźć parametry połączenia](#permissions-connection-string).
 
    1. Wybierz zasady Service Bus i wybierz pozycję **Utwórz**.
 
-      ![Utwórz połączenie Service Bus, część 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
+      ![Zrzut ekranu pokazujący wybór zasad Service Bus](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
 
    1. Wybierz żądaną jednostkę obsługi komunikatów, na przykład kolejkę lub temat. Na potrzeby tego przykładu wybierz kolejkę Service Bus.
    
-      ![Wybierz kolejkę Service Bus](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
+      ![Zrzut ekranu pokazujący wybór kolejki Service Bus](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
 
 1. Podaj informacje niezbędne do wybranego wyzwalacza. Aby dodać inne dostępne właściwości do akcji, Otwórz listę **Dodaj nowy parametr** i wybierz żądane właściwości.
 
    Dla wyzwalacza tego przykładu wybierz interwał sondowania i częstotliwość sprawdzania kolejki.
 
-   ![Konfigurowanie interwału sondowania](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
+   ![Zrzut ekranu, który pokazuje ustawienie interwału sondowania w wyzwalaczu Service Bus](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
    Aby uzyskać więcej informacji o dostępnych wyzwalaczach i właściwościach, zobacz [stronę odwołania](/connectors/servicebus/)łącznika.
 
@@ -123,29 +123,29 @@ Upewnij się, że aplikacja logiki ma uprawnienia do uzyskiwania dostępu do prz
 
    Na potrzeby tego przykładu wybierz akcję **Wyślij wiadomość** .
 
-   ![Wybierz akcję Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
+   ![Zrzut ekranu pokazujący wybór akcji Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
 
 1. Jeśli akcja nawiązuje połączenie z przestrzenią nazw Service Bus po raz pierwszy, wykonaj następujące kroki, gdy projektant aplikacji logiki monituje o informacje o połączeniu.
 
    1. Podaj nazwę połączenia i wybierz swoją przestrzeń nazw Service Bus.
 
-      ![Utwórz połączenie Service Bus, część 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
+      ![Zrzut ekranu pokazujący podawanie nazwy połączenia i wybieranie Service Bus przestrzeni nazw](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
 
       Aby zamiast tego wprowadzić parametry połączenia, wybierz pozycję **ręcznie wprowadź informacje o połączeniu**. Jeśli nie masz parametrów połączenia, Dowiedz się, [jak znaleźć parametry połączenia](#permissions-connection-string).
 
    1. Wybierz zasady Service Bus i wybierz pozycję **Utwórz**.
 
-      ![Utwórz połączenie Service Bus, część 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
+      ![Zrzut ekranu pokazujący Wybieranie zasad Service Bus i wybieranie przycisku Utwórz](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
 
    1. Wybierz żądaną jednostkę obsługi komunikatów, na przykład kolejkę lub temat. Na potrzeby tego przykładu wybierz kolejkę Service Bus.
 
-      ![Wybierz kolejkę Service Bus](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
+      ![Zrzut ekranu pokazujący wybór kolejki Service Bus](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
 
 1. Podaj niezbędne szczegóły wybranej akcji. Aby dodać inne dostępne właściwości do akcji, Otwórz listę **Dodaj nowy parametr** i wybierz żądane właściwości.
 
    Na przykład wybierz **zawartość** i właściwości **typu zawartości** , aby dodać je do akcji. Następnie określ zawartość wiadomości, która ma zostać wysłana.
 
-   ![Podaj zawartość wiadomości i szczegóły](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
+   ![Zrzut ekranu pokazujący podanie typu zawartości komunikatu i szczegółów](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 
    Aby uzyskać więcej informacji o dostępnych akcjach i ich właściwościach, zobacz [stronę odwołania](/connectors/servicebus/)łącznika.
 

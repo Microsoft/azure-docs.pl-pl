@@ -13,26 +13,24 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e8c235cd204b86573746be4bce615939f3b072fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 332c81c8502dac6f057c6ea41c7662e1edde1599
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82977910"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855191"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-shared-disk-on-azure"></a>Rozwiązanie SAP ASCS/SCS o wysokiej dostępności z użyciem usługi Windows Server Failover Clustering i dysku udostępnionego na platformie Azure
 
-> ![Windows][Logo_Windows] Windows
+> ![System operacyjny Windows][Logo_Windows] Windows
 >
-
-We wrześniu 2016 firma Microsoft udostępniła funkcję, w której można zarządzać wieloma wirtualnymi adresami IP przy użyciu [wewnętrznego modułu równoważenia obciążenia platformy Azure][load-balancer-multivip-overview]. Ta funkcja już istnieje w zewnętrznym module równoważenia obciążenia platformy Azure. 
 
 Jeśli masz wdrożenie SAP, musisz użyć wewnętrznego modułu równoważenia obciążenia, aby utworzyć konfigurację klastra systemu Windows dla wystąpień usług SAP Central Services (ASCS/SCS).
 
-Ten artykuł koncentruje się na sposobie przenoszenia z jednej instalacji ASCS/SCS do konfiguracji protokołu SAP o wiele identyfikatorów SID, instalując dodatkowe wystąpienia klastrowane ASCS/SCS w istniejącym klastrze usługi Windows Server Failover Clustering (WSFC) z dyskiem udostępnionym. Po zakończeniu tego procesu skonfigurowano klaster SAP z obsługą wiele identyfikatorów SID.
+Ten artykuł koncentruje się na sposobie przenoszenia z jednej instalacji ASCS/SCS do konfiguracji protokołu SAP o wiele identyfikatorów SID, instalując dodatkowe wystąpienia klastrowane ASCS/SCS w istniejącym klastrze usługi Windows Server Failover Clustering (WSFC) z dyskiem udostępnionym, używając programu oprogramowanie SIOS do symulowania dysku udostępnionego. Po zakończeniu tego procesu skonfigurowano klaster SAP z obsługą wiele identyfikatorów SID.
 
 > [!NOTE]
 > Ta funkcja jest dostępna tylko w modelu wdrażania Azure Resource Manager.
@@ -54,9 +52,10 @@ Klaster usługi WSFC został już skonfigurowany do użycia w jednym wystąpieni
 
 > [!IMPORTANT]
 > Instalator musi spełniać następujące warunki:
-> * Wystąpienia SAP ASCS/SCS muszą współdzielić ten sam klaster usługi WSFC.
-> * Każdy identyfikator SID systemu zarządzania bazami danych (DBMS) musi mieć własny dedykowany klaster usługi WSFC.
-> * Serwery aplikacji SAP należące do jednego identyfikatora SID systemu SAP muszą mieć własne dedykowane maszyny wirtualne.
+> * Wystąpienia SAP ASCS/SCS muszą współdzielić ten sam klaster usługi WSFC.  
+> * Każdy identyfikator SID systemu zarządzania bazami danych (DBMS) musi mieć własny dedykowany klaster usługi WSFC.  
+> * Serwery aplikacji SAP należące do jednego identyfikatora SID systemu SAP muszą mieć własne dedykowane maszyny wirtualne.  
+> * Mieszany serwer replikacji z kolejki 1 i kolejki serwer replikacji 2 w tym samym klastrze nie jest obsługiwany.  
 
 ## <a name="sap-ascsscs-multi-sid-architecture-with-shared-disk"></a>Architektura protokołu SAP ASCS/SCS z udostępnionym dyskiem
 
@@ -70,7 +69,7 @@ Pełna krajobraz z dwoma systemami SAP wysokiej dostępności będzie wyglądać
 
 ![Konfiguracja wielościeżkowego protokołu SAP o wysokiej dostępności przy użyciu dwóch identyfikatorów SID systemu SAP][sap-ha-guide-figure-6003]
 
-## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a><a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a>Przygotowywanie infrastruktury dla scenariusza z obsługą protokołu SAP o wiele identyfikatorów SID
+## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a><a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a> Przygotowywanie infrastruktury dla scenariusza z obsługą protokołu SAP o wiele identyfikatorów SID
 
 Aby przygotować infrastrukturę, można zainstalować dodatkowe wystąpienie SAP ASCS/SCS z następującymi parametrami:
 
@@ -246,8 +245,6 @@ Procedura wysokiego poziomu jest następująca:
 
     Otwórz również port sondy wewnętrznego modułu równoważenia obciążenia platformy Azure, który jest 62350 w naszym scenariuszu. Jest on opisany [w tym artykule][sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port].
 
-7. [Zmień typ uruchomienia wystąpienia usługi systemu Windows z wyliczeniem wykres wywołujących (SAP)][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type].
-
 8. Zainstaluj podstawowy serwer aplikacji SAP na nowej dedykowanej maszynie wirtualnej, zgodnie z opisem w przewodniku instalacji SAP.  
 
 9. Zainstaluj dodatkowy serwer aplikacji SAP na nowej dedykowanej maszynie wirtualnej, zgodnie z opisem w przewodniku instalacji SAP.
@@ -285,7 +282,7 @@ Procedura wysokiego poziomu jest następująca:
 [sap-high-availability-installation-wsfc-shared-disk]:sap-high-availability-installation-wsfc-shared-disk.md
 [sap-hana-ha]:sap-hana-high-availability.md
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
-[sap-net-weaver-ports-ascs-scs-ports]:sap-high-availability-infrastructure-wsfc-shared-disk.md#0f3ee255-b31e-4b8a-a95a-d9ed6200468b
+[sap-net-weaver-ports-ascs-scs-ports]:sap-high-availability-infrastructure-wsfc-shared-disk.md#fe0bd8b5-2b43-45e3-8295-80bee5415716
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 

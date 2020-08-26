@@ -13,12 +13,12 @@ ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: 3de252b22d7b33e45c3b45e2b6c05e4b33df663d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f5950347fff380fcfbaa89834407ff5f497a9719
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027057"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854919"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Plik konfiguracji biblioteki uwierzytelniania firmy Microsoft dla systemu Android
 
@@ -32,11 +32,11 @@ Ten artykuł pomoże zrozumieć różne ustawienia w pliku konfiguracji oraz spo
 
 | Właściwość | Typ danych | Wymagane | Uwagi |
 |-----------|------------|-------------|-------|
-| `client_id` | String (ciąg) | Tak | Identyfikator klienta aplikacji na [stronie rejestracji aplikacji](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `redirect_uri`   | String (ciąg) | Tak | Identyfikator URI przekierowania aplikacji ze [strony rejestracji aplikacji](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `client_id` | Ciąg | Tak | Identyfikator klienta aplikacji na [stronie rejestracji aplikacji](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `redirect_uri`   | Ciąg | Tak | Identyfikator URI przekierowania aplikacji ze [strony rejestracji aplikacji](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `authorities` | Staw\<Authority> | Nie | Lista urzędów, których potrzebuje aplikacja |
-| `authorization_user_agent` | AuthorizationAgent (enum) | Nie | Możliwe wartości: `DEFAULT` , `BROWSER` ,`WEBVIEW` |
-| `http` | HttpConfiguration | Nie | Skonfiguruj `HttpUrlConnection` `connect_timeout` i`read_timeout` |
+| `authorization_user_agent` | AuthorizationAgent (enum) | Nie | Możliwe wartości: `DEFAULT` , `BROWSER` , `WEBVIEW` |
+| `http` | HttpConfiguration | Nie | Skonfiguruj `HttpUrlConnection` `connect_timeout` i `read_timeout` |
 | `logging` | LoggingConfiguration | Nie | Określa poziom szczegółowości rejestrowania. Konfiguracje opcjonalne obejmują: `pii_enabled` , która przyjmuje wartość logiczną, i `log_level` , która przyjmuje `ERROR` , `WARNING` , `INFO` lub `VERBOSE` . |
 
 ### <a name="client_id"></a>client_id
@@ -58,7 +58,7 @@ Lista znanych i zaufanych urzędów. Oprócz urzędów wymienionych w tym miejsc
     "audience": {
         "type": "AzureADandPersonalMicrosoftAccount"
     },
-    "default": true // Indicates that this is the default to use if not provided as part of the acquireToken or acquireTokenSilent call
+    "default": true // Indicates that this is the default to use if not provided as part of the acquireToken call
 },
 // Example AzureAD My Organization
 {
@@ -88,7 +88,7 @@ Lista znanych i zaufanych urzędów. Oprócz urzędów wymienionych w tym miejsc
 
 | Typ | Grupy odbiorców | Identyfikator dzierżawy | Authority_Url | Wynikający punkt końcowy | Uwagi |
 |------|------------|------------|----------------|----------------------|---------|
-| AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common`jest aliasem dzierżawy, w którym znajduje się konto. Takie jak określona dzierżawa Azure Active Directory lub system konto Microsoft. |
+| AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common` jest aliasem dzierżawy, w którym znajduje się konto. Takie jak określona dzierżawa Azure Active Directory lub system konto Microsoft. |
 | AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Tylko konta obecne w contoso.com mogą uzyskać token. Każda zweryfikowana domena lub identyfikator GUID dzierżawy może być używany jako identyfikator dzierżawy. |
 | AAD | AzureADMultipleOrgs | | | `https://login.microsoftonline.com/organizations` | Tylko konta Azure Active Directory mogą być używane z tym punktem końcowym. Konta Microsoft mogą należeć do organizacji. Aby uzyskać token przy użyciu konto Microsoft dla zasobu w organizacji, określ dzierżawę organizacyjną, z której ma być używany token. |
 | AAD | PersonalMicrosoftAccount | | | `https://login.microsoftonline.com/consumers` | Tylko konta Microsoft mogą korzystać z tego punktu końcowego. |
@@ -103,17 +103,17 @@ Lista znanych i zaufanych urzędów. Oprócz urzędów wymienionych w tym miejsc
 
 | Właściwość | Typ danych  | Wymagane | Uwagi |
 |-----------|-------------|-----------|--------|
-| `type` | String (ciąg) | Tak | Odzwierciedla grupę odbiorców lub konto, do którego należy aplikacja. Możliwe wartości: `AAD` ,`B2C` |
+| `type` | Ciąg | Tak | Odzwierciedla grupę odbiorców lub konto, do którego należy aplikacja. Możliwe wartości: `AAD` , `B2C` |
 | `audience` | Obiekt | Nie | Stosuje się tylko wtedy, gdy typ = `AAD` . Określa tożsamość, która jest przeznaczona dla aplikacji. Użyj wartości z rejestracji aplikacji |
-| `authority_url` | String (ciąg) | Tak | Wymagane tylko wtedy, gdy typ = `B2C` . Określa adres URL urzędu lub zasady, które powinny być używane przez aplikację  |
+| `authority_url` | Ciąg | Tak | Wymagane tylko wtedy, gdy typ = `B2C` . Określa adres URL urzędu lub zasady, które powinny być używane przez aplikację  |
 | `default` | boolean | Tak | Jeden `"default":true` jest wymagany w przypadku określenia co najmniej jednego urzędu. |
 
 #### <a name="audience-properties"></a>Właściwości odbiorców
 
 | Właściwość | Typ danych  | Wymagane | Uwagi |
 |-----------|-------------|------------|-------|
-| `type` | String (ciąg) | Tak | Określa odbiorców, do których aplikacja chce kierować. Możliwe wartości: `AzureADandPersonalMicrosoftAccount` , `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` ,`AzureADMyOrg` |
-| `tenant_id` | String (ciąg) | Tak | Wymagane tylko wtedy, gdy `"type":"AzureADMyOrg"` . Opcjonalne dla innych `type` wartości. Może to być domena dzierżawy, taka jak `contoso.com` lub identyfikator dzierżawy, taki jak `72f988bf-86f1-41af-91ab-2d7cd011db46` ). |
+| `type` | Ciąg | Tak | Określa odbiorców, do których aplikacja chce kierować. Możliwe wartości: `AzureADandPersonalMicrosoftAccount` , `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` , `AzureADMyOrg` |
+| `tenant_id` | Ciąg | Tak | Wymagane tylko wtedy, gdy `"type":"AzureADMyOrg"` . Opcjonalne dla innych `type` wartości. Może to być domena dzierżawy, taka jak `contoso.com` lub identyfikator dzierżawy, taki jak `72f988bf-86f1-41af-91ab-2d7cd011db46` ). |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
 
@@ -157,7 +157,7 @@ Następujące ustawienia globalne dotyczą rejestrowania:
 
 Określa liczbę kont, które mogą być używane w aplikacji w danym momencie. Możliwe wartości są następujące:
 
-- `MULTIPLE`Wartooć
+- `MULTIPLE` Wartooć
 - `SINGLE`
 
 Konstruowanie `PublicClientApplication` przy użyciu trybu konta, który nie jest zgodny z tym ustawieniem, spowoduje wyjątek.

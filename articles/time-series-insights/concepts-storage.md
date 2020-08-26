@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: 77616afa95b61d5a0ca726db0d66734fc57133f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a0f1e7789c0cebdd1cb5b22f21151020a0be09c9
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495367"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855117"
 ---
 # <a name="data-storage"></a>Magazyn danych
 
@@ -24,7 +24,7 @@ Podczas tworzenia środowiska Azure Time Series Insights Gen2 należy utworzyć 
 * Środowisko Azure Time Series Insights Gen2, które można skonfigurować pod kątem magazynowania w pamięci podgrzanej.
 * Konto usługi Azure Storage na potrzeby magazynu zimnych danych.
 
-Dane w magazynie ciepłym są dostępne tylko za pośrednictwem [interfejsów API zapytań szeregów czasowych](./time-series-insights-update-tsq.md) i [Eksploratora Azure Time Series Insights Gen2](./time-series-insights-update-explorer.md). Sklep ciepły będzie zawierał ostatnie dane w [okresie przechowywania](./time-series-insights-update-plan.md#the-preview-environment) wybranym podczas tworzenia środowiska Azure Time Series Insights Gen2.
+Dane w magazynie ciepłym są dostępne tylko za pośrednictwem [interfejsów API zapytań szeregów czasowych](./time-series-insights-update-tsq.md) i [Eksploratora TSI Azure Time Series Insights](./time-series-insights-update-explorer.md). Sklep ciepły będzie zawierał ostatnie dane w [okresie przechowywania](./time-series-insights-update-plan.md#the-preview-environment) wybranym podczas tworzenia środowiska Azure Time Series Insights Gen2.
 
 Azure Time Series Insights Gen2 zapisuje dane w chłodnym sklepie w usłudze Azure Blob Storage w [formacie pliku Parquet](#parquet-file-format-and-folder-structure). Azure Time Series Insights Gen2 zarządza wyłącznie tym zimnym magazynem danych, ale jest dostępny do odczytu bezpośrednio jako standardowe pliki Parquet.
 
@@ -58,7 +58,7 @@ Aby zapewnić wydajność zapytań i dostępność danych, nie należy edytować
 
 #### <a name="accessing-cold-store-data"></a>Uzyskiwanie dostępu do danych zimnego magazynu
 
-Oprócz uzyskiwania dostępu do danych z interfejsów API programu [Azure Time Series Insights Gen2](./time-series-insights-update-explorer.md) i [zapytań szeregów czasowych](./time-series-insights-update-tsq.md)możesz również uzyskać dostęp do danych bezpośrednio z plików Parquet przechowywanych w chłodnym magazynie. Na przykład można odczytywać, przekształcać i czyścić dane w notesie Jupyter, a następnie używać go do uczenia modelu Azure Machine Learning w tym samym przepływie pracy platformy Spark.
+Oprócz uzyskiwania dostępu do danych z interfejsów API programu [Azure Time Series INSIGHTS TSI](./time-series-insights-update-explorer.md) i [zapytań szeregów czasowych](./time-series-insights-update-tsq.md)możesz również uzyskać dostęp do danych bezpośrednio z plików Parquet przechowywanych w chłodnym magazynie. Na przykład można odczytywać, przekształcać i czyścić dane w notesie Jupyter, a następnie używać go do uczenia modelu Azure Machine Learning w tym samym przepływie pracy platformy Spark.
 
 Aby uzyskać dostęp do danych bezpośrednio z konta usługi Azure Storage, musisz mieć dostęp do odczytu do konta używanego do przechowywania Azure Time Series Insights danych Gen2. Następnie można odczytać wybrane dane na podstawie czasu utworzenia pliku Parquet znajdującego się w `PT=Time` folderze opisanym poniżej w sekcji [Format pliku Parquet](#parquet-file-format-and-folder-structure) .  Aby uzyskać więcej informacji na temat włączania dostępu do odczytu do konta magazynu, zobacz [Zarządzanie dostępem do zasobów konta magazynu](../storage/blobs/storage-manage-access-to-resources.md).
 
@@ -84,15 +84,15 @@ Azure Time Series Insights Gen2 przechowuje kopie danych w następujący sposób
 
 Sygnatura czasowa w nazwach obiektów BLOB w `PT=Time` folderze odpowiada czasowi przybycia danych do Azure Time Series Insights Gen2, a nie sygnatury czasowej zdarzeń.
 
-Dane w `PT=TsId` folderze zostaną zoptymalizowane pod kątem zapytania w czasie i nie są statyczne. Podczas ponownego partycjonowania niektóre zdarzenia mogą być obecne w wielu obiektach Blob. Nazwy obiektów BLOB w tym folderze nie mogą pozostać takie same. 
+Dane w `PT=TsId` folderze zostaną zoptymalizowane pod kątem zapytania w czasie i nie są statyczne. Podczas ponownego partycjonowania niektóre zdarzenia mogą być obecne w wielu obiektach Blob. Nazwy obiektów BLOB w tym folderze nie mogą pozostać takie same.
 
-Ogólnie rzecz biorąc, jeśli musisz uzyskać dostęp do danych bezpośrednio za pośrednictwem plików Parquet, użyj tego `PT=Time` folderu.  W przyszłości będzie możliwe wydajne dostęp do `PT=TsId` folderu. 
+Ogólnie rzecz biorąc, jeśli musisz uzyskać dostęp do danych bezpośrednio za pośrednictwem plików Parquet, użyj tego `PT=Time` folderu.  W przyszłości będzie możliwe wydajne dostęp do `PT=TsId` folderu.
 
 > [!NOTE]
 >
-> * `<YYYY>`mapuje do czwartej reprezentacji rocznej.
-> * `<MM>`mapuje na dwucyfrowe reprezentację miesiąca.
-> * `<YYYYMMDDHHMMSSfff>`mapuje do sygnatury czasowej z czterocyfrowym rokiem ( `YYYY` ), dwucyfrowym miesiącem ( `MM` ), dwucyfrowym dniem ( `DD` ), dwucyfrowym godzinem ( `HH` ), dwucyfrowym ( `MM` ), dwucyfrowym ( `SS` ) i 3-cyfrowym milisekundy ( `fff` ).
+> * `<YYYY>` mapuje do czwartej reprezentacji rocznej.
+> * `<MM>` mapuje na dwucyfrowe reprezentację miesiąca.
+> * `<YYYYMMDDHHMMSSfff>` mapuje do sygnatury czasowej z czterocyfrowym rokiem ( `YYYY` ), dwucyfrowym miesiącem ( `MM` ), dwucyfrowym dniem ( `DD` ), dwucyfrowym godzinem ( `HH` ), dwucyfrowym ( `MM` ), dwucyfrowym ( `SS` ) i 3-cyfrowym milisekundy ( `fff` ).
 
 Azure Time Series Insights zdarzenia Gen2 są mapowane do zawartości pliku Parquet w następujący sposób:
 

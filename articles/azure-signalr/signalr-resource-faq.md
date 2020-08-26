@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: c944ae3a5d647cc457edd20a5d3dd0489e19e286
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 6d104e41a0cae906c346e81a26617a9d29795fb3
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192280"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853285"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR Service — FAQ
 
@@ -78,8 +78,8 @@ W bloku przeglądu zasobów usługi Azure Signal Service został już wybrany od
 ## <a name="what-is-the-meaning-of-service-mode-defaultserverlessclassic-how-can-i-choose"></a>Czym jest znaczenie trybu usługi `Default` / `Serverless` / `Classic` ? Jak mogę wybrać?
 
 Środka
-* `Default` tryb **wymaga** serwera centrum. Jeśli dla centrum nie ma dostępnego połączenia z serwerem, klient próbuje nawiązać połączenie z tym centrum.
-* `Serverless` tryb nie **zezwala na** żadne połączenie z serwerem, czyli spowoduje odrzucenie wszystkich połączeń z serwerem, wszyscy klienci muszą w trybie bezserwerowym.
+* `Default` tryb *wymaga* serwera centrum. W tym trybie usługa Azure Signal kieruje ruch klienta do podłączonych połączeń serwera Hub. Usługa Azure Signal testuje podłączony serwer centrum. Jeśli podłączony serwer centralny nie zostanie znaleziony, usługa Azure Signal odrzuca przychodzące połączenia klientów. W tym trybie można także użyć **interfejsu API zarządzania** , aby zarządzać połączonymi klientami bezpośrednio za pomocą usługi Azure signaler.
+* `Serverless` tryb *nie* zezwala na żadne połączenie z serwerem, czyli spowoduje odrzucenie wszystkich połączeń z serwerem. Wszyscy klienci muszą mieć tryb bezserwerowy. Klienci łączą się z usługą Azure sygnalizujący, a użytkownicy zazwyczaj używają technologii bezserwerowych, takich jak **Azure Function** , do obsługi logiki centrum. Zobacz [prosty przykład](https://docs.microsoft.com/azure/azure-signalr/signalr-quickstart-azure-functions-javascript?WT.mc_id=signalrquickstart-github-antchu) , który używa trybu bezserwerowego usługi Azure Signal.
 * `Classic` tryb jest stanem mieszanym. Gdy koncentrator ma połączenie z serwerem, nowy klient zostanie rozesłany do serwera Hub, w przeciwnym razie klient przejdzie do trybu bezserwerowego.
 
   Może to spowodować jakiś problem, na przykład w przypadku utraty wszystkich połączeń z serwerem, niektórzy klienci będą wprowadzać tryb bez serwera zamiast kierować do serwera Hub.

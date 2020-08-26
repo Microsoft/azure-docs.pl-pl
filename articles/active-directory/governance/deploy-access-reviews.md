@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb74fae150d4c8e5dda6978c272d358bdec6ca25
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 46a56e830c8c9b55c9bbe48cd7d23ad8475b51b8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783607"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853023"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planowanie wdrożenia Azure Active Directory przeglądy dostępu
 
@@ -283,7 +283,7 @@ Tożsamościom zewnętrznym można udzielić dostępu do zasobów firmy za pomoc
 
 * Przypisano rolę uprzywilejowaną w usłudze Azure AD lub w ramach subskrypcji platformy Azure
 
-Zobacz [przykładowy skrypt](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse.). Skrypt będzie przedstawiał użycie tożsamości zewnętrznych zaproszonych do dzierżawy. W usłudze Azure AD można zobaczyć członkostwo w grupach użytkowników zewnętrznych, przypisania ról i przypisania aplikacji. Skrypt nie będzie zawierać żadnych przypisań poza usługą Azure AD, na przykład bezpośrednie przypisanie praw do zasobów programu SharePoint bez użycia grup.
+Zobacz [przykładowy skrypt](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse). Skrypt będzie przedstawiał użycie tożsamości zewnętrznych zaproszonych do dzierżawy. W usłudze Azure AD można zobaczyć członkostwo w grupach użytkowników zewnętrznych, przypisania ról i przypisania aplikacji. Skrypt nie będzie zawierać żadnych przypisań poza usługą Azure AD, na przykład bezpośrednie przypisanie praw do zasobów programu SharePoint bez użycia grup.
 
 Podczas tworzenia przeglądu dostępu dla grup lub aplikacji można wybrać opcję zezwalania Fokusowi recenzenta na wszystkich użytkowników z dostępem lub tylko Gości. Wybierając pozycję tylko użytkownicy-Goście, recenzenci otrzymują skoncentrowaną listę tożsamości zewnętrznych z usługi Azure AD B2B, która ma dostęp do zasobu.
 

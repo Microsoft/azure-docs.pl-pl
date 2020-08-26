@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.date: 08/20/2020
-ms.openlocfilehash: f423ae957d11248b16a180e22647d6566157b7be
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 3a6ecc44791602ea074ebdd1fdf4e11393e10a4b
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782842"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852156"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Autouczenie modelu prognozowania szeregów czasowych
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -178,6 +178,7 @@ Poniższa tabela zawiera podsumowanie tych dodatkowych parametrów. Zobacz [doku
 |`enable_dnn`|[Włącz prognozowanie DNNs]().||
 |`time_series_id_column_names`|Nazwy kolumn używane do unikatowego identyfikowania szeregów czasowych w danych, które mają wiele wierszy z tą samą sygnaturą czasową. Jeśli identyfikatory szeregów czasowych nie są zdefiniowane, zakłada się, że zestaw danych jest jedną serią czasową. Aby dowiedzieć się więcej o pojedynczych seriach czasowych, zobacz [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).||
 |`target_lags`|Liczba wierszy do rozłożeniu wartości docelowych na podstawie częstotliwości danych. Opóźnienie jest reprezentowane jako lista lub jedna liczba całkowita. Zwłoki należy używać, gdy relacja między zmiennymi niezależnymi i zmienną zależną nie jest zgodna ani nie jest domyślnie skorelowana. ||
+|`feature_lags`| Funkcja zwłoki zostanie automatycznie podjęta przy użyciu zautomatyzowanej ML `target_lags` , gdy są ustawione i `feature_lags` ma ustawioną wartość `auto` . Włączenie funkcji spowolnienia może pomóc w zwiększeniu dokładności. Funkcja spowolnienia jest domyślnie wyłączona. ||
 |`target_rolling_window_size`|*n* okresy historyczne używane do generowania prognozowanych wartości, <= rozmiar zestawu szkoleniowego. W przypadku pominięcia *n* to pełny rozmiar zestawu szkoleniowego. Określ ten parametr, jeśli chcesz wziąć pod uwagę tylko określoną ilość historii podczas uczenia modelu. Dowiedz się więcej o [agregacji przedziałów okien docelowych](#target-rolling-window-aggregation).||
 
 

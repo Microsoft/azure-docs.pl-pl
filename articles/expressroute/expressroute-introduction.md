@@ -5,14 +5,14 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: overview
-ms.date: 09/18/2019
+ms.date: 08/25/2020
 ms.author: mialdrid
-ms.openlocfilehash: 2fda31b97314347f52b0cd1bbe9e1b54d01af807
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6621a9778025d67046722b7cd60e32a62b574ee5
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607109"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852944"
 ---
 # <a name="what-is-azure-expressroute"></a>Co to jest usługa Azure ExpressRoute?
 Usługa ExpressRoute umożliwia rozszerzenie sieci lokalnych na chmurę firmy Microsoft za pośrednictwem połączenia prywatnego obsługiwanego przez dostawcę połączenia. Dzięki usłudze ExpressRoute możesz ustanowić połączenia z usługami firmy Microsoft w chmurze, na przykład Microsoft Azure i Office 365.
@@ -111,6 +111,10 @@ Możesz wybrać najlepszy dla siebie model rozliczeń. Wybierz z modeli rozlicze
 
 ## <a name="faq"></a>Często zadawane pytania
 Często zadawane pytania dotyczące usługi ExpressRoute można znaleźć na stronie [Usługa ExpressRoute — często zadawane pytania](expressroute-faqs.md).
+
+## <a name="whats-new"></a><a name="new"></a>Co nowego?
+
+Zasubskrybuj źródło danych RSS i Wyświetl najnowsze aktualizacje funkcji ExpressRoute na stronie [aktualizacji platformy Azure](https://azure.microsoft.com/updates/?category=networking&query=ExpressRoute) .
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [modelach połączeń usługi ExpressRoute](expressroute-connectivity-models.md).

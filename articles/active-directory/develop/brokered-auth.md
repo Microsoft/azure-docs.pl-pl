@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/14/2019
+ms.date: 08/25/2020
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman, hahamil, brianmel
-ms.openlocfilehash: a734589178438fd65d9a2d156fd91fc82807f578
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9042318d29b9a7fc8c2064bdf845d6f0d5a4f3e8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76697901"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853852"
 ---
 # <a name="brokered-authentication-in-android"></a>Uwierzytelnianie obsługiwane przez brokera w systemie Android
 
@@ -58,7 +58,7 @@ Jeśli na urządzeniu nie ma jeszcze zainstalowanej aplikacji brokera, MSAL naka
 
 Gdy na urządzeniu jest zainstalowany Broker, wszystkie kolejne żądania tokenu interakcyjnego (wywołania do `acquireToken()` ) są obsługiwane przez brokera, a nie lokalnie przez MSAL. Wszystkie Stany logowania jednokrotnego, wcześniej dostępne dla MSAL, nie są dostępne dla brokera. W związku z tym użytkownik będzie musiał ponownie przeprowadzić uwierzytelnienie lub wybrać konto z istniejącej listy kont znanych urządzeniu.
 
-Zainstalowanie brokera nie wymaga ponownego zalogowania użytkownika. Tylko wtedy, gdy użytkownik musi rozpoznać `MsalUiRequiredException` żądanie, zostanie przejdzie do brokera. `MsalUiRequiredException`jest zgłaszany z kilku powodów i musi zostać rozwiązany interaktywnie. Oto najczęstsze przyczyny:
+Zainstalowanie brokera nie wymaga ponownego zalogowania użytkownika. Tylko wtedy, gdy użytkownik musi rozpoznać `MsalUiRequiredException` żądanie, zostanie przejdzie do brokera. `MsalUiRequiredException` jest zgłaszany z kilku powodów i musi zostać rozwiązany interaktywnie. Oto najczęstsze przyczyny:
 
 - Użytkownik zmienił hasło skojarzone z kontem.
 - Konto użytkownika nie spełnia już zasad dostępu warunkowego.
@@ -76,7 +76,7 @@ Jeśli Intune — Portal firmy jest zainstalowana i działa jako aktywny Broker,
 
 Należy zarejestrować identyfikator URI przekierowania, który jest zgodny z brokerem. Identyfikator URI przekierowania dla brokera musi zawierać nazwę pakietu aplikacji, a także reprezentację sygnatury zakodowanej w formacie base64.
 
-Format identyfikatora URI przekierowania to:`msauth://<yourpackagename>/<base64urlencodedsignature>`
+Format identyfikatora URI przekierowania to: `msauth://<yourpackagename>/<base64urlencodedsignature>`
 
 Wygeneruj podpis kodowany przez adres URL w formacie base64 przy użyciu kluczy podpisywania aplikacji. Oto kilka przykładowych poleceń korzystających z kluczy podpisywania debugowania:
 
@@ -122,3 +122,12 @@ Jeśli zostanie wyświetlony `MsalClientException` Kod błędu `"BROKER_BIND_FAI
 
 - Poproszenie użytkownika o wyłączenie optymalizacji zużycia baterii dla aplikacji Microsoft Authenticator i Intune — Portal firmy.
 - Poproszenie użytkownika o przyznanie `"READ_CONTACTS"` uprawnienia
+
+## <a name="verifying-broker-integration"></a>Weryfikowanie integracji brokera
+
+Może nie być od razu jasne, że integracja z brokerem działa, ale można wykonać następujące czynności, aby sprawdzić:
+
+1. Na urządzeniu z systemem Android Ukończ żądanie przy użyciu brokera.
+1. W ustawieniach na urządzeniu z systemem Android Wyszukaj nowo utworzone konto odpowiadające kontu uwierzytelnionemu przez użytkownika. Konto powinno być kontem typu *służbowego*.
+
+Jeśli chcesz powtórzyć test, możesz usunąć konto z ustawień.

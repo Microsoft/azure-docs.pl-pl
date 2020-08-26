@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 06/01/2020
 ms.author: cherylmc
-ms.openlocfilehash: d7b9077af50115e912415d784dc98ace081c0c88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0bcd0608796545a4982f72f276399d5f692e765
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300323"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852707"
 ---
 # <a name="vpn-gateway-design"></a>Projekt VPN Gateway
 
@@ -26,6 +26,8 @@ Dostępne są różne konfiguracje połączeń bramy sieci VPN. Należy określi
 Połączenie bramy sieci VPN typu lokacja-lokacja to połączenie nawiązywane za pośrednictwem tunelu sieci VPN wykorzystującego protokół IPsec/IKE (IKEv1 lub IKEv2). Z połączeń typu lokacja-lokacja (S2S) można korzystać w ramach konfiguracji hybrydowych i obejmujących wiele lokalizacji. Połączenie S2S wymaga, aby urządzenie sieci VPN znajdowało się w środowisku lokalnym, które ma przypisany publiczny adres IP. Aby uzyskać informacje o wybieraniu urządzenia VPN, zobacz [Brama VPN Gateway — często zadawane pytania dotyczące urządzeń VPN](vpn-gateway-vpn-faq.md#s2s).
 
 ![Przykład połączenia typu lokacja-lokacja w usłudze Azure VPN Gateway](./media/design/vpngateway-site-to-site-connection-diagram.png)
+
+VPN Gateway można skonfigurować w trybie aktywny-gotowość przy użyciu jednego publicznego adresu IP lub w trybie aktywny-aktywny przy użyciu dwóch publicznych adresów IP. W trybie aktywny-Standby jeden tunel IPsec jest aktywny, a drugi tunel jest w stanie wstrzymania. W tej konfiguracji ruch przechodzi przez aktywny tunel, a jeśli jakiś problem występuje z tym tunelem, ruch jest przełączany do tunelu w stanie wstrzymania. Ustawienie VPN Gateway w trybie aktywny-aktywny jest *zalecane* , gdy tunele IPSec są jednocześnie aktywne, z danymi przepływanymi jednocześnie przez oba tunele. Dodatkową zaletą trybu Active-Active jest to, że klienci mogą uzyskać większą przepływność.
 
 ### <a name="multi-site"></a><a name="Multi"></a>Wiele lokacji
 
@@ -75,7 +77,7 @@ Można utworzyć połączenie przy użyciu komunikacji równorzędnej sieci wirt
 
 ## <a name="expressroute-private-connection"></a><a name="ExpressRoute"></a>ExpressRoute (połączenie prywatne)
 
-Usługa ExpressRoute umożliwia rozszerzanie sieci lokalnych na chmurę Microsoft za pośrednictwem połączenia prywatnego obsługiwanego przez dostawcę połączenia. Dzięki usłudze ExpressRoute można ustanowić połączenia z usługami Microsoft w chmurze, np. Microsoft Azure, Office 365 i CRM Online. Łączność może być z sieci typu dowolna-dowolna (IP VPN), sieci Ethernet typu punkt-punkt lub wirtualnego połączenia krzyżowego za pośrednictwem dostawcy łączności w ramach funkcji wspólnej lokalizacji.
+Usługa ExpressRoute umożliwia rozszerzenie sieci lokalnych na chmurę firmy Microsoft za pośrednictwem połączenia prywatnego obsługiwanego przez dostawcę połączenia. Dzięki usłudze ExpressRoute można ustanowić połączenia z usługami Microsoft w chmurze, np. Microsoft Azure, Office 365 i CRM Online. Łączność może być z sieci typu dowolna-dowolna (IP VPN), sieci Ethernet typu punkt-punkt lub wirtualnego połączenia krzyżowego za pośrednictwem dostawcy łączności w ramach funkcji wspólnej lokalizacji.
 
 Połączenia ExpressRoute nie odbywają się za pośrednictwem publicznego Internetu. Dzięki temu oferują one większą niezawodność i szybkość oraz mniejsze opóźnienia i lepsze zabezpieczenia niż typowe połączenia przez Internet.
 

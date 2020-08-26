@@ -6,12 +6,12 @@ ms.service: azure-policy
 ms.topic: include
 ms.date: 08/07/2020
 ms.author: dacoulte
-ms.openlocfilehash: e22594a50a9c0d814ef7d66443f8253f5832cb1d
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 9fcaca3f89217f649eb970ec70514a5735222782
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038492"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854083"
 ---
 Dla każdego typu obiektu dla Azure Policy istnieje maksymalna liczba. Wpis _Zakres_ oznacza subskrypcję lub [grupę zarządzania](../articles/governance/management-groups/overview.md).
 
@@ -26,4 +26,4 @@ Dla każdego typu obiektu dla Azure Policy istnieje maksymalna liczba. Wpis _Zak
 | Definicja inicjatywy | Parametry | 100 |
 | Zasady lub przypisania inicjatywy | Wykluczenia (notScopes) | 400 |
 | Reguła zasad | Zagnieżdżone uwarunkowania | 512 |
-| Zadanie korygowania | Zasoby | 1000 |
+| Zadanie korygowania | Zasoby | 500 |

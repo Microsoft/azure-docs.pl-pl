@@ -2,17 +2,20 @@
 title: Bezpieczne wdrażanie szablonu z tokenem SAS
 description: Wdróż zasoby na platformie Azure przy użyciu szablonu Azure Resource Manager, który jest chroniony przez token sygnatury dostępu współdzielonego. Pokazuje Azure PowerShell i interfejs wiersza polecenia platformy Azure.
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: 42eaae316d4fd0575102323933f849a3058228a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/25/2020
+ms.openlocfilehash: 8b35e82da8ebca98ec9fe1fb7441612bf61fb142
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80156399"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855652"
 ---
 # <a name="deploy-private-arm-template-with-sas-token"></a>Wdróż prywatny szablon ARM z tokenem SAS
 
-Gdy szablon Azure Resource Manager (ARM) znajduje się na koncie magazynu, możesz ograniczyć dostęp do szablonu, aby uniknąć ujawniania go publicznie. Dostęp do bezpiecznego szablonu można uzyskać, tworząc token sygnatury dostępu współdzielonego (SAS) dla szablonu i dostarczając ten token podczas wdrażania. W tym artykule wyjaśniono, jak używać Azure PowerShell lub interfejsu wiersza polecenia platformy Azure do wdrożenia szablonu z tokenem SAS.
+Gdy szablon Azure Resource Manager (szablon ARM) znajduje się na koncie magazynu, możesz ograniczyć dostęp do szablonu, aby zapobiec ujawnieniu go publicznie. Dostęp do bezpiecznego szablonu można uzyskać, tworząc token sygnatury dostępu współdzielonego (SAS) dla szablonu i dostarczając ten token podczas wdrażania. W tym artykule wyjaśniono, jak używać Azure PowerShell lub interfejsu wiersza polecenia platformy Azure do wdrożenia szablonu z tokenem SAS.
+
+> [!IMPORTANT]
+> Zamiast zabezpieczać szablon przy użyciu tokenu SAS, rozważ użycie [specyfikacji szablonu](template-specs.md). Specyfikacje szablonu umożliwiają udostępnianie szablonów innym użytkownikom w organizacji oraz zarządzanie dostępem do szablonów za pomocą kontroli RBAC platformy Azure.
 
 ## <a name="create-storage-account-with-secured-container"></a>Utwórz konto magazynu z bezpiecznym kontenerem
 
@@ -110,6 +113,8 @@ New-AzResourceGroupDeployment `
 ```
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Poniższy przykład współpracuje ze środowiskiem bash w Cloud Shell. Inne środowiska mogą wymagać innej składni w celu utworzenia czasu wygaśnięcia dla tokenu SAS.
 
 ```azurecli-interactive
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)

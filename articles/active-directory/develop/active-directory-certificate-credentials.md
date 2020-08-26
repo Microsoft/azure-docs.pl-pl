@@ -13,16 +13,16 @@ ms.date: 08/12/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 06f15257148342879a164005a8f4fb302c539e67
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 6330621aac78d5e9df52f2cd3ad9c3968bb0120d
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163666"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853382"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Poświadczenia certyfikatu uwierzytelniania aplikacji platformy tożsamości firmy Microsoft
 
-Platforma tożsamości firmy Microsoft umożliwia aplikacji używanie własnych poświadczeń na potrzeby uwierzytelniania, na przykład w przepływie [przydzielenia poświadczeń klienta](v2-oauth2-client-creds-grant-flow.md) OAuth 2,0 i przepływie [w imieniu](v2-oauth2-on-behalf-of-flow.md) (OBO).
+Platforma tożsamości firmy Microsoft umożliwia aplikacji używanie własnych poświadczeń na potrzeby uwierzytelniania, na przykład w przepływie  [przydzielenia poświadczeń klienta](v2-oauth2-client-creds-grant-flow.md) OAuth 2,0 i przepływie [w imieniu](v2-oauth2-on-behalf-of-flow.md) (OBO).
 
 Jedną z poświadczeń, których może używać aplikacja do uwierzytelniania, jest potwierdzenie [tokenu sieci Web JSON](./security-tokens.md#json-web-tokens-jwts-and-claims) (JWT) podpisane przy użyciu certyfikatu, którego właścicielem jest aplikacja.
 
@@ -36,13 +36,13 @@ Aby obliczyć potwierdzenie, można użyć jednej z wielu bibliotek JWT w wybran
 | --- | --- |
 | `alg` | Powinien być **RS256** |
 | `typ` | Powinien być **JWT** |
-| `x5t` | Skrót certyfikatu X. 509 (znany również jako *odcisk palca*SHA-1 certyfikatu) zakodowany jako wartość ciągu Base64. Na przykład, na podstawie wartości skrótu certyfikatu X. 509 z `84E05C1D98BCE3A5421D225B140B36E86A3D5534` , `x5t` może to być `hOBcHZi846VCHSJbFAs26Go9VTQ` . |
+| `x5t` | Wartość skrótu certyfikatu X. 509 (określana także jako *odcisk palca*SHA-1 certyfikatu) zakodowana w postaci wartości ciągu Base64. Na przykład, przy użyciu skrótu certyfikatu X. 509 `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (szesnastkowo), wartość tego `x5t` żądania będzie `hOBcHZi846VCHSJbFAs26Go9VTQ=` (base64). |
 
 ### <a name="claims-payload"></a>Oświadczenia (ładunek)
 
 | Parametr |  Uwagi |
 | --- | --- |
-| `aud` | Odbiorcy: powinien być`https://login.microsoftonline.com/<your-tenant-id>/oauth2/token` |
+| `aud` | Odbiorcy: powinien być `https://login.microsoftonline.com/<your-tenant-id>/oauth2/token` |
 | `exp` | Data wygaśnięcia: Data wygaśnięcia tokenu. Czas jest reprezentowany jako liczba sekund od 1 stycznia 1970 (1970-01-01T0:0: 0Z) UTC do momentu wygaśnięcia ważności tokenu. Zalecamy użycie krótkiego czasu wygaśnięcia — 10 minut na godzinę.|
 | `iss` | Wystawca: powinien być client_id (*Identyfikator klienta)* usługi klienta. |
 | `jti` | GUID: Identyfikator JWT |
@@ -103,8 +103,8 @@ W usłudze Azure App Registration dla aplikacji klienckiej:
 
 Mając certyfikat, należy obliczyć:
 
-- `$base64Thumbprint`— Zakodowana algorytmem Base64 wartość skrótu certyfikatu
-- `$base64Value`— Zakodowana algorytmem Base64 wartość danych pierwotnych certyfikatu
+- `$base64Thumbprint` — Zakodowana algorytmem Base64 wartość skrótu certyfikatu
+- `$base64Value` — Zakodowana algorytmem Base64 wartość danych pierwotnych certyfikatu
 
 Należy również podać identyfikator GUID, aby zidentyfikować klucz w manifeście aplikacji ( `$keyId` ).
 

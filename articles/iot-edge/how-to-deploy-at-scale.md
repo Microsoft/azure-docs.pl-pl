@@ -9,12 +9,12 @@ ms.date: 4/21/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b0952f31bf6e327ff6d9f632f242919139ed6cae
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0c1d83c2dac0163cd9b9cbc07969103381e85471
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512014"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855393"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Wdrażanie modułów IoT Edge na dużą skalę przy użyciu Azure Portal
 
@@ -61,7 +61,7 @@ Istnieje pięć kroków, które należy wykonać, aby utworzyć wdrożenie. W po
 
 ### <a name="step-2-modules"></a>Krok 2. moduły
 
-Do wdrożenia można dodać do 30 modułów. Jeśli utworzysz wdrożenie bez modułów, spowoduje to usunięcie wszystkich bieżących modułów z urządzeń docelowych.
+Do wdrożenia można dodać do 50 modułów. Jeśli utworzysz wdrożenie bez modułów, spowoduje to usunięcie wszystkich bieżących modułów z urządzeń docelowych.
 
 W obszarze wdrożenia można zarządzać ustawieniami agenta IoT Edge i IoT Edge modułów centrów. Wybierz pozycję **Ustawienia środowiska uruchomieniowego** , aby skonfigurować dwa moduły środowiska uruchomieniowego. W przypadku wdrażania warstwowego moduły środowiska uruchomieniowego nie są uwzględniane, więc nie można ich skonfigurować.
 

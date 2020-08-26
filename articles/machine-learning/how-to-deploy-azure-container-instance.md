@@ -11,14 +11,14 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: 9ee0fbd69c0004306b67cbff0aca3b257d905eeb
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: cbba0dd5341ad148831ac3b1f94685bf2beddd5a
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541128"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855277"
 ---
-# <a name="deploy-a-model-to-azure-container-instances"></a>Wdróż model do Azure Container Instances
+# <a name="deploy-a-model-to-azure-container-instances"></a>Wdrażanie modelu w usłudze Azure Container Instances
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dowiedz się, jak za pomocą Azure Machine Learning wdrożyć model jako usługę sieci Web na Azure Container Instances (ACI). Użyj Azure Container Instances, jeśli spełniony jest jeden z następujących warunków:
@@ -31,7 +31,7 @@ Aby uzyskać informacje dotyczące przydziału i dostępności regionów dla us�
 > [!IMPORTANT]
 > Zdecydowanie zaleca się debugowanie lokalnie przed wdrożeniem w usłudze sieci Web. Aby uzyskać więcej informacji, zobacz [debugowanie lokalne](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
 >
-> Możesz również zapoznać się z artykułem Azure Machine Learning- [Deploy do lokalnego notesu](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
+> Możesz również skorzystać z usługi Azure Machine Learning — [Wdrażanie w notesie lokalnym](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -43,9 +43,9 @@ Aby uzyskać informacje dotyczące przydziału i dostępności regionów dla us�
 
 - W fragmentach kodu w języku __Python__ w tym artykule założono, że ustawiono następujące zmienne:
 
-    * `ws`-Ustaw na obszar roboczy.
-    * `model`-Ustaw na zarejestrowany model.
-    * `inference_config`-Ustaw na konfigurację wnioskowania dla modelu.
+    * `ws` -Ustaw na obszar roboczy.
+    * `model` -Ustaw na zarejestrowany model.
+    * `inference_config` -Ustaw na konfigurację wnioskowania dla modelu.
 
     Aby uzyskać więcej informacji na temat ustawiania tych zmiennych, zobacz [jak i gdzie wdrażać modele](how-to-deploy-and-where.md).
 
@@ -56,8 +56,9 @@ Aby uzyskać informacje dotyczące przydziału i dostępności regionów dla us�
 Aby wdrożyć model do Azure Container Instances, należy utworzyć __konfigurację wdrożenia__ opisującą wymaganą wartość zasobów obliczeniowych. Na przykład liczba rdzeni i pamięć. Potrzebna jest również __Konfiguracja wnioskowania__opisująca środowisko wymagane do hostowania modelu i usługi sieci Web. Aby uzyskać więcej informacji na temat tworzenia konfiguracji wnioskowania, zobacz [jak i gdzie wdrażać modele](how-to-deploy-and-where.md).
 
 > [!NOTE]
-> * ACI jest odpowiednia tylko dla małych modeli <1 GB. 
-> * Zalecamy użycie jednego węzła AKS do tworzenia i testowania większych modeli.
+> * ACI jest odpowiednia tylko w przypadku małych modeli, których rozmiar przekracza 1 GB. 
+> * Zalecamy użycie AKS z jednym węzłem do tworzenia i testowania większych modeli.
+> * Liczba modeli do wdrożenia jest ograniczona do 1 000 modeli na wdrożenie (na kontener). 
 
 ### <a name="using-the-sdk"></a>Używanie zestawu SDK
 
@@ -102,7 +103,7 @@ Zobacz [Wdrażanie modeli przy użyciu vs Code](tutorial-train-deploy-image-clas
 * [Jak wdrożyć model przy użyciu niestandardowego obrazu platformy Docker](how-to-deploy-custom-docker-image.md)
 * [Rozwiązywanie problemów z wdrażaniem](how-to-troubleshoot-deployment.md)
 * [Aktualizowanie usługi sieci Web](how-to-deploy-update-web-service.md)
-* [Użyj protokołu TLS do zabezpieczenia usługi sieci Web za pomocą Azure Machine Learning](how-to-secure-web-service.md)
+* [Zabezpieczanie usługi internetowej za pomocą usługi Azure Machine Learning przy użyciu protokołu TLS](how-to-secure-web-service.md)
 * [Korzystanie z modelu ML wdrożonego jako usługa sieci Web](how-to-consume-web-service.md)
 * [Monitoruj modele Azure Machine Learning przy użyciu Application Insights](how-to-enable-app-insights.md)
 * [Zbieranie danych dla modeli w środowisku produkcyjnym](how-to-enable-data-collection.md)

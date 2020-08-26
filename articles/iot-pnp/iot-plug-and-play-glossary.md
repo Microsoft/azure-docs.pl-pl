@@ -7,12 +7,12 @@ ms.date: 07/22/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: d8efec0517cd0b4bdcba643a0936b474593d58c4
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 2320bed07f574c096be1883a9d82da7311e92fa7
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475468"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854213"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Słownik terminów dotyczących usługi IoT Plug and Play w wersji zapoznawczej
 
@@ -54,6 +54,10 @@ Parametry połączenia hermetyzują informacje wymagane do nawiązania połącze
 
 - Parametry połączenia urządzeń umożliwiają [urządzeniom Plug and Play IoT](#iot-plug-and-play-device) łączenie się z punktami końcowymi dostępnymi dla urządzeń w centrum IoT. Kod klienta na urządzeniu używa parametrów połączenia w celu nawiązania bezpiecznego połączenia z usługą IoT Hub.
 - IoT Hub parametry połączenia umożliwiają bezpieczne łączenie rozwiązań i narzędzi zaplecza z punktami końcowymi dostępnymi do usługi w usłudze IoT Hub. Te rozwiązania i narzędzia umożliwiają zarządzanie usługą IoT Hub i podłączonymi do niej urządzeniami.
+
+## <a name="device-certification"></a>Certyfikacja urządzenia
+
+Program certyfikacji urządzenia Plug and Play IoT sprawdza, czy urządzenie spełnia wymagania certyfikacji Plug and Play IoT. Można dodać certyfikowane urządzenie do [wykazu urządzeń usługi Azure IoT z certyfikatem](https://aka.ms/devicecatalog)publicznym.
 
 ## <a name="device-model"></a>Model urządzenia
 
@@ -103,7 +107,7 @@ Usługi IoT [Plug and Play są](#iot-plug-and-play-device) zgodne z zestawem [Ko
 
 Gdy urządzenie IoT Plug and Play nawiązuje połączenie z IoT Hub wysyła **Identyfikator modelu** modelu [DTDL](#digital-twins-definition-language) , który implementuje. Umożliwia to rozwiązanie znalezienie modelu urządzenia.
 
-## <a name="model-repository"></a>Repozytorium modelu
+## <a name="model-repository"></a>Repozytorium modeli
 
 [Repozytorium modeli](concepts-model-repository.md) przechowuje [modele urządzeń](#device-model) i [interfejsy](#interface).
 
@@ -123,6 +127,6 @@ Sygnatury dostępu współdzielonego są mechanizmem uwierzytelniania opartym na
 
 Konstruktor rozwiązań tworzy zaplecze rozwiązania. Konstruktor rozwiązań zwykle współpracuje z zasobami platformy Azure, takimi jak [IoT Hub](#azure-iot-hub) i [repozytoria modeli](#model-repository).
 
-## <a name="telemetry"></a>Telemetry
+## <a name="telemetry"></a>Telemetria
 
 Pola telemetrii zdefiniowane w [interfejsie](#interface) reprezentują pomiary. Te pomiary są zazwyczaj wartościami, takimi jak odczyty czujników, które są wysyłane przez [urządzenie Plug and Play IoT](#iot-plug-and-play-device) jako strumień danych.

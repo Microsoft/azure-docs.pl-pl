@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
-ms.openlocfilehash: 6e404c710a244f06676edf50c3f5c95a7d681e35
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 14fd7c2b034077d818d1a1224d3c4c12a7fc07bc
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219237"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855644"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Przesunięcie tekstu w danych wyjściowych interfejs API analizy tekstu
 
-Obsługa wielojęzycznych i Emoji prowadzi do kodowania Unicode, które używają więcej niż jednego [punktu kodu](https://wikipedia.org/wiki/Code_point) do reprezentowania pojedynczego wyświetlanego znaku o nazwie Grapheme. Na przykład znaki emoji, takie jak 🌷 👍 i mogą używać kilku znaków do redagowania kształtu z dodatkowymi znakami dla atrybutów wizualnych, takich jak odcienie skórki. Podobnie słowo `अनुच्छेद` w języku hindi jest kodowane jako pięć liter i trzy znaki łączące.
+Obsługa wielojęzycznych i Emoji prowadzi do kodowania Unicode, które używają więcej niż jednego [punktu kodu](https://wikipedia.org/wiki/Code_point) do reprezentowania pojedynczego wyświetlanego znaku o nazwie Grapheme. Na przykład znaki emoji, takie jak 🌷 i 👍 mogą używać kilku znaków do redagowania kształtu z dodatkowymi znakami dla atrybutów wizualnych, takich jak odcienie skórki. Podobnie słowo w języku hindi `अनुच्छेद` jest kodowane jako pięć liter i trzy znaki łączące.
 
 Ze względu na różne długości możliwych kodowań wielojęzycznych i emoji, interfejs API analizy tekstu mogą zwracać przesunięcia w odpowiedzi.
 
@@ -40,9 +40,19 @@ W programie .NET Rozważ użycie klasy [StringInfo](https://docs.microsoft.com/d
 
 Interfejs API analizy tekstu zwraca te elementy tekstowe również dla wygody.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="offsets-in-api-version-31-preview"></a>Przesunięcia w interfejsie API w wersji 3,1 — wersja zapoznawcza
 
-* [Przegląd analiza tekstu](../overview.md)
+Począwszy od interfejsu API w wersji 3,1-Preview. 1, wszystkie interfejs API analizy tekstu punkty końcowe, które zwracają przesunięcie, będą obsługiwały `stringIndexType` parametr. Ten parametr dostosowuje `offset` atrybuty i `length` w danych wyjściowych interfejsu API zgodnie z żądanym schematem iteracji ciągu. Obecnie obsługujemy trzy typy:
+
+1. `textElement_v8`(domyślnie): wykonuje iterację przez graphemes zgodnie z definicją w standardzie [Unicode 8.0.0](https://unicode.org/versions/Unicode8.0.0)
+2. `unicodeCodePoint`: wykonuje iterację w [punktach kodowych Unicode](http://www.unicode.org/versions/Unicode13.0.0/ch02.pdf#G25564), domyślny schemat dla języka Python 3
+3. `utf16CodeUnit`: wykonuje iterację w [jednostkach kodu UTF-16](https://unicode.org/faq/utf_bom.html#UTF16), domyślnym schemacie dla języków JavaScript, Java i .NET.
+
+Jeśli `stringIndexType` żądane dopasowanie do wybranego środowiska programistycznego, wyodrębnianie podciągów można wykonać przy użyciu standardowych podciągów lub metod wycinka. 
+
+## <a name="see-also"></a>Zobacz też
+
+* [Przegląd analizy tekstu](../overview.md)
 * [Analiza tonacji](../how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Rozpoznawanie jednostek](../how-tos/text-analytics-how-to-entity-linking.md)
 * [Wykrywanie języka](../how-tos/text-analytics-how-to-keyword-extraction.md)

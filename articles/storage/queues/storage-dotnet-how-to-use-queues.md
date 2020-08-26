@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: b0415542d737fa2ab926eb572855dce5ef81690e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11fa99acda5f1c8edac3026961c426257bb74d92
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808837"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853673"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Rozpoczynanie pracy z usługą Azure Queue Storage przy użyciu platformy .NET
 
@@ -29,7 +29,7 @@ W tym samouczku pokazano, jak napisać kod .NET dla niektórych typowych scenari
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-- [Program Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
+- [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 - [Wspólna Biblioteka klienta usługi Azure Storage dla platformy .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
 - [Biblioteka kliencka kolejki usługi Azure Storage dla platformy .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
 - [Menedżer konfiguracji Azure dla programu .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
@@ -49,7 +49,7 @@ W programie Visual Studio utwórz nową aplikację konsoli dla systemu Windows. 
 
 1. Wybierz pozycję **plik**  >  **Nowy**  >  **projekt**
 2. Wybierz **Platform**  >  **okna** platformy
-3. Wybierz pozycję **Aplikacja konsoli (.NET Framework)**
+3. Wybieranie **aplikacji konsolowej (.NET Framework)**
 4. Wybierz pozycję **Dalej**
 5. W polu **Nazwa projektu** wprowadź nazwę aplikacji
 6. Wybierz pozycję **Utwórz**
@@ -154,6 +154,8 @@ Aby kierować emulator magazynu azurite, można użyć skrótu, który jest mapo
 ```
 
 ### <a name="add-using-directives"></a>Dodawanie dyrektyw using
+
+[!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 Dodaj następujące dyrektywy `using` na początku pliku `Program.cs`:
 

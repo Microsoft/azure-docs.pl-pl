@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: 6148cedbf004e3e63200ac50b91a40866c5b18db
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 1af3ce7125d30ed0cb9b8ca6b3cb9322dc14c520
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719723"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855245"
 ---
 # <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>Rozwiązywanie problemów dotyczących kondycji zasobów, frontonu i dostępności zaplecza 
 
@@ -30,6 +30,9 @@ Metryka dostępności ścieżki danych jest generowana przez polecenie TCP ping 
 
 ## <a name="health-probe-status"></a>Stan sondy kondycji
 Metryka stanu sondy kondycji jest generowana za pomocą polecenia ping protokołu zdefiniowanego w sondy kondycji. To polecenie ping jest wysyłane do każdego wystąpienia w puli zaplecza i na porcie zdefiniowanym w sondie kondycji. W przypadku sond protokołu HTTP i HTTPS pomyślne polecenie ping wymaga odpowiedzi HTTP 200 OK, gdy z sondami TCP dowolna odpowiedź jest uznawana za pomyślne. Kolejne sukcesy i niepowodzenia każdej sondy określają, czy wystąpienie zaplecza jest w dobrej kondycji i może odbierać ruch dla reguł równoważenia obciążenia, do których przypisano pulę zaplecza. Podobnie jak w przypadku dostępności ścieżki danych używamy średniej agregacji, która informuje nas o średnim pomyślnym/łącznym użyciu poleceń ping w interwale próbkowania. Ta wartość stanu sondy kondycji wskazuje kondycję zaplecza w izolacji od modułu równoważenia obciążenia przez sondowanie wystąpień zaplecza bez wysyłania ruchu przez fronton.
+
+>[!IMPORTANT]
+>Stan sondy kondycji jest próbkowany co minutę. Może to prowadzić do drobnych wahań w przypadku stałej wartości w inny sposób. Na przykład jeśli istnieją dwa wystąpienia zaplecza, jeden z sondowaniem i jedna sonda w dół, usługa badania kondycji może przechwytywać 7 próbek dla wystąpienia kondycji i 6 dla wystąpienia w złej kondycji. Spowoduje to, że wcześniej stała wartość 50 wyświetlana jako 46,15 przez jedną minutę. 
 
 ## <a name="diagnose-degraded-and-unavailable-load-balancers"></a>Diagnozowanie obniżonych i niedostępnych modułów równoważenia obciążenia
 Zgodnie z opisem w [artykule dotyczącym kondycji zasobów](load-balancer-standard-diagnostics.md#resource-health-status)obniżona usługa równoważenia obciążenia jest taka, która pokazuje od 25% i 90% dostępności ścieżki danych, a niedostępna usługa równoważenia obciążenia jest taka, która ma mniej niż 25% czasu dostępności ścieżki danych w ciągu dwóch minut. Te same kroki można wykonać w celu zbadania awarii widocznej w każdym skonfigurowanym stanie sondy kondycji lub w ścieżce danych. Zapoznajemy się z sytuacją, w której sprawdzono nasze informacje o kondycji zasobów i że nasza usługa równoważenia obciążenia jest niedostępna z dostępnością ścieżki danych wynoszącą 0%-naszej usługi.

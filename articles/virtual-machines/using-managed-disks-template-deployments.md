@@ -10,12 +10,12 @@ ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: 15c3f2de30509a7dc6836f5d39fac4c0ea8b7f25
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 708df0a8ed1085c6e7d435c6f3c3b811ef2ed64e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513272"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854336"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Używanie Managed Disks w szablonach Azure Resource Manager
 
@@ -263,7 +263,7 @@ Aby uzyskać pełne informacje na temat specyfikacji interfejsu API REST, zapozn
 * Aby zapoznać się z pełnymi szablonami, które korzystają z usługi Managed disks, odwiedź następujące linki do szybkiego startu
     * [Maszyna wirtualna z systemem Windows z dyskiem zarządzanym](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
     * [Maszyna wirtualna z systemem Linux z dyskiem zarządzanym](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
-* Aby dowiedzieć się więcej o dyskach zarządzanych, odwiedź stronę z [omówieniem usługi Azure Managed disks](~/articles/virtual-machines/windows/managed-disks-overview.md) .
+* Aby dowiedzieć się więcej o dyskach zarządzanych, odwiedź stronę z [omówieniem usługi Azure Managed disks](managed-disks-overview.md) .
 * Zapoznaj się z dokumentacją dotyczącą szablonu zasobów maszyny wirtualnej, odwiedzając dokument [referencyjny szablonu Microsoft. COMPUTE/virtualMachines](/azure/templates/microsoft.compute/virtualmachines) .
 * Zapoznaj się z dokumentacją dotyczącą szablonu zasobów dyskowych, odwiedzając dokument [referencyjny szablonu Microsoft. COMPUTE/disks](/azure/templates/microsoft.compute/disks) .
 * Aby uzyskać informacje na temat korzystania z dysków zarządzanych w usłudze Azure Virtual Machine Scale Sets, przejdź do dokumentu [Korzystanie z dysków danych z zestawami skalowania](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks) .

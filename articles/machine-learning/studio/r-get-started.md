@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 719b96c9186d463ca3ee41c6fb401a8f22c4c11c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: b4f3733806eb810cff7722e6432bb274b6d46a37
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431960"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854820"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Wprowadzenie do Azure Machine Learning Studio (klasyczne) w języku R
 
@@ -162,7 +162,7 @@ Teraz, gdy mamy pewne dane w Machine Learning Studio (klasyczne), musimy utworzy
 1. Wybierz pozycję **+ Nowy** w lewym dolnym rogu, a następnie wybierz pozycję **eksperymenty**, a następnie przycisk **pusty eksperyment**.
 1. Możesz nazwać eksperyment poprzez wybranie i zmodyfikowanie **eksperymentu utworzonego w...** title w górnej części strony. Na przykład zmiana na **przeanalizowanie mleczarni urzędu certyfikacji**.
 1. Po lewej stronie eksperymentu rozwiń pozycję **zapisane zestawy danych**, a następnie **Moje zestawy danych**. Powinien zostać wyświetlony wcześniej przekazany **cadairydata.csv** .
-1. Przeciągnij i upuść **zestaw danychcsdairydata.csv** na eksperyment.
+1. Przeciągnij i upuść ** zestaw danychcsdairydata.csv** na eksperyment.
 1. W polu **Wyszukaj elementy eksperymentu** w górnej części okienka po lewej stronie wpisz polecenie [Execute R Script][execute-r-script]. Moduł zostanie wyświetlony na liście wyszukiwania.
 1. Przeciągnij i upuść moduł [Wykonaj skrypt R][execute-r-script] na palecie.  
 1. Połącz dane wyjściowe **csdairydata.csv zestawu danych** z lewej strony wejściowej (**pozycję DataSet1**) [skryptu Execute języka R][execute-r-script].
@@ -176,7 +176,7 @@ W tym momencie eksperyment powinien wyglądać jak rysunek 3.
 
 #### <a name="check-on-the-data"></a>Sprawdź dane
 
-Spójrzmy na dane, które zostały załadowane do naszego eksperymentu. W eksperymentie wybierz dane wyjściowe **zestawu danychcadairydata.csv** i wybierz opcję **Wizualizuj**. Powinien pojawić się rysunek 4.  
+Spójrzmy na dane, które zostały załadowane do naszego eksperymentu. W eksperymentie wybierz dane wyjściowe ** zestawu danychcadairydata.csv** i wybierz opcję **Wizualizuj**. Powinien pojawić się rysunek 4.  
 
 ![Podsumowanie zestawu danych cadairydata.csv](./media/r-quickstart/fig4.png)
 
@@ -225,7 +225,7 @@ load("src/yourData.rdata") # Reads a zipped R data file
 
 Omawiamy już sposób ładowania zestawów [danych w załadowaniu elementu DataSet](#loading). Po utworzeniu i przetestowaniu skryptu języka R wyświetlanego w poprzedniej sekcji wykonaj następujące czynności:
 
-1. Zapisz skrypt języka R w. Plik języka R. Nazywam mi plik skryptu "simpleplot. R ". Oto zawartość.
+1. Zapisz skrypt języka R w. Plik języka R. Nazywam mi plik skryptu "simpleplot. R ". Oto nowości w pliku:
 
    ```r
    ## Only one of the following two lines should be used
@@ -570,11 +570,11 @@ Wygląda na to, że wszystko działa. Mamy nową kolumnę o oczekiwanych wartoś
 
 W tej sekcji wykonamy niektóre proste przekształcenia dotyczące wartości w niektórych kolumnach naszej ramki danych. Język R obsługuje niemal dowolne przekształcenia wartości. Odwołania do [dalszych odczytów](#appendixb) poniżej zawierają obszerne przykłady.
 
-Jeśli zobaczysz wartości w podsumowaniu naszej ramki danych, zobaczysz coś niewidocznego w tym miejscu. Czy jest więcej lodów niż mleko produkowane w Kalifornii? Nie, oczywiście nie, ponieważ nie ma sensu, Sad, ponieważ ten fakt może być częścią Lovers lodów. Jednostki są różne. Cena jest w jednostkach funtów amerykańskich, mleko jest w jednostkach 1 M funtów amerykańskich, lody lodów jest w jednostkach 1 000 USD, a ser Cottage jest w jednostkach 1 000 funtów USD. Przy założeniu, że lody jest ważone o 6,5 funtów na galon, można łatwo wykonać mnożenie, aby przekonwertować te wartości, tak aby znajdowały się one w równych jednostkach 1 000 funtów.
+Jeśli zobaczysz wartości w podsumowaniu naszej ramki danych, zobaczysz coś niewidocznego w tym miejscu. Czy jest więcej lodów niż mleko produkowane w Kalifornii? Nie, oczywiście nie, ponieważ nie ma sensu, Sad, ponieważ ten fakt może być częścią Lovers lodów. Jednostki są różne. Cena jest w jednostkach funtów amerykańskich, mleko jest w jednostkach 1 M funtów amerykańskich, lody lodów jest w jednostkach 1 000 USD, a ser Cottage jest w jednostkach 1 000 funtów USD. Przy założeniu, że lody odpada około 6,5 funtów na galon, możemy łatwo wykonać mnożenie w celu przekonwertowania tych wartości, tak aby znajdowały się one w równych jednostkach 1 000 funtów.
 
 Nasz model prognozowania używa modelu mnożenia na potrzeby trendu i sezonowego dostosowywania tych danych. Transformacja dzienników pozwala nam korzystać z modelu liniowego, upraszczając ten proces. Możemy zastosować transformację dziennika w tej samej funkcji, w której jest stosowany mnożnik.
 
-W poniższym kodzie definiuję nową funkcję `log.transform()` i stosujemy ją do wierszy zawierających wartości liczbowe. Funkcja R `Map()` służy do zastosowania `log.transform()` funkcji do wybranych kolumn w ramce Dataframe. `Map()`jest podobna do `apply()` , ale zezwala na więcej niż jedną listę argumentów funkcji. Należy zauważyć, że lista mnożników dostarcza drugi argument do `log.transform()` funkcji. `na.omit()`Funkcja jest używana jako bit oczyszczania, aby upewnić się, że w ramce danych nie ma wartości brakujące lub niezdefiniowane.
+W poniższym kodzie definiuję nową funkcję `log.transform()` i stosujemy ją do wierszy zawierających wartości liczbowe. Funkcja R `Map()` służy do zastosowania `log.transform()` funkcji do wybranych kolumn w ramce Dataframe. `Map()` jest podobna do `apply()` , ale zezwala na więcej niż jedną listę argumentów funkcji. Należy zauważyć, że lista mnożników dostarcza drugi argument do `log.transform()` funkcji. `na.omit()`Funkcja jest używana jako bit oczyszczania, aby upewnić się, że w ramce danych nie ma wartości brakujące lub niezdefiniowane.
 
 ```r
 log.transform <- function(invec, multiplier = 1) {
@@ -773,7 +773,7 @@ Relacje między tymi zmiennymi zawiera nieparzystą strukturę. Może to być sp
 
 ### <a name="correlation-analysis"></a>Analiza korelacji
 
-Aby przeprowadzić analizę korelacji, musimy jednocześnie wycofać trendy i znormalizować zmienne. Można po prostu użyć funkcji języka R `scale()` , która w obu centrach i skaluje zmienne. Ta funkcja może być również szybsza. Jednak chcę pokazać przykład programów obronnych w języku R.
+Aby przeprowadzić analizę korelacji, musimy jednocześnie wycofać trendy i znormalizować zmienne. Można po prostu użyć funkcji języka R `scale()` , która w obu centrach i skaluje zmienne. Ta funkcja może być również szybsza. Jednak chcę pokazać przykład programowania obronnego w języku R.
 
 `ts.detrend()`Funkcja pokazana poniżej wykonuje obie te operacje. Poniższe dwa wiersze kodu usuwają trendy danych, a następnie standaryzacją wartości.
 
@@ -828,7 +828,7 @@ Omawiamy już przykład programowania obronnego w transformacjach wartości. Oba
 
 Należy zauważyć, że regresja liniowa używana na potrzeby detrendu jest regresją szeregów czasowych. Zmienna predykcyjna to obiekt szeregów czasowych.  
 
-Po `ts.detrend()` zdefiniowaniu, stosujemy go do zmiennych interesujących w naszej ramce danych. Należy wymusić wynikową listę utworzoną przez program `lapply()` do Dataframe danych przy użyciu polecenia `as.data.frame()` . Ze względu na aspekty obronne `ts.detrend()` , Niepowodzenie przetworzenia jednej ze zmiennych nie uniemożliwi prawidłowego przetwarzania innych elementów.  
+Gdy `ts.detrend()` jest zdefiniowany, stosujemy go do zmiennych interesujących w naszej ramce Dataframe. Należy wymusić wynikową listę utworzoną przez program `lapply()` do Dataframe danych przy użyciu polecenia `as.data.frame()` . Ze względu na aspekty obronne `ts.detrend()` , Niepowodzenie przetworzenia jednej ze zmiennych nie uniemożliwi prawidłowego przetwarzania innych elementów.  
 
 Ostatni wiersz kodu tworzy scatterplot parowania. Po uruchomieniu kodu języka R wyniki scatterplot są pokazane na rysunku 17.
 
@@ -1136,7 +1136,7 @@ Wygląda na to, że model trendu pasuje do danych dość dobrze. Jeszcze nie wyd
 
 Dzięki modelowi trendu musimy przeprowadzić wypychanie i uwzględnić efekty sezonowe. Użyjemy miesiąca roku jako fikcyjnej zmiennej w modelu liniowym, aby przechwycić wpływ na miesiąc. Należy pamiętać, że po wprowadzeniu zmiennych współczynnika do modelu nie można obliczyć przechwycenia. Jeśli to nie zrobisz, formuła jest przekroczenia, a R porzuca jeden z żądanych czynników, ale utrzymuje okres przechwycenia.
 
-Ze względu na to, że mamy zadowalający model trendów, możemy użyć `update()` funkcji, aby dodać nowe warunki do istniejącego modelu. Wartość-1 w formule aktualizacji opuszcza okres przechwycenia. W tej chwili nadal trwa RStudio:
+Ze względu na to, że mamy zadowalający model trendu, możemy użyć `update()` funkcji, aby dodać nowe warunki do istniejącego modelu. Wartość-1 w formule aktualizacji opuszcza okres przechwycenia. W tej chwili nadal trwa RStudio:
 
 ```r
 milk.lm2 <- update(milk.lm, . ~ . + Month - 1)
@@ -1338,7 +1338,7 @@ RStudio jest całkiem dobrze udokumentowane. Oto kilka linków do najważniejszy
 Ten samouczek programowania w języku R obejmuje podstawowe informacje o tym, co jest potrzebne do korzystania z języka R z Azure Machine Learning Studio (klasyczny). Jeśli nie znasz języka R, dostępne są dwa wprowadzenie w witrynie CRAN:
 
 * Emmanuel Paradis jest dobrym [miejscem do rozpoczęcia](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) pracy.  
-* [Wprowadzenie do języka R](https://cran.r-project.org/doc/manuals/R-intro.html) przez w. N. Venables et. współpracowników przechodzi do większej głębi.
+* [Wprowadzenie do języka R](https://cran.r-project.org/doc/manuals/R-intro.html) przez w. N. Venables et al. przechodzi do większej głębi.
 
 Istnieje wiele książek w języku R, które mogą pomóc Ci rozpocząć pracę. Poniżej znajdują się informacje przydatne:
 
@@ -1355,7 +1355,8 @@ Wykaz pakietów szeregów czasowych języka R można znaleźć w [widoku zadań 
 Oto kilka doskonałych zasobów internetowych:
 
 * Datacamp uczą się języka R w celu wygody swojej przeglądarki dzięki wykorzystaniu lekcji wideo i ćwiczeń programistycznych. Istnieją Interaktywne samouczki dotyczące najnowszych technik i pakietów języka R. Wykonaj bezpłatny [samouczek języka R](https://www.datacamp.com/courses/introduction-to-r)w trybie interaktywnym.
-* [Poznaj Programowanie języka R, ostateczny Przewodnik](https://www.programiz.com/r-programming) od Programiz.
+* [Poznaj programowanie w języku R, a ostateczny Przewodnik](https://www.datamentor.io/r-programming/) z datadoradcy.
+* [kod języka R](https://r-coder.com/). Szczegółowe samouczki języka R oraz bezpłatny kurs R dla początkujących.
 * Szybki [samouczek języka R](https://www.cyclismo.org/tutorial/R/) , Kelly czerń z Clarkson University.
 * Istnieje ponad 60 zasobów R wymienionych w [najważniejszych zasobach języka r, aby zwiększyć swoje umiejętności związane z danymi](https://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html).
 

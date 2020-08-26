@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 1ac7f27015812756a8de9736351cc1fe0e374e0c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 54bbd5d45e14c1d345570eea9dc5469f77694154
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799528"
+ms.locfileid: "88853931"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Kopia zapasowa online i przywracanie danych na żądanie w Azure Cosmos DB
 
@@ -26,7 +26,7 @@ W przypadku Azure Cosmos DB nie tylko Twoich danych, ale również kopie zapasow
 
 * Azure Cosmos DB przechowuje te kopie zapasowe w usłudze Azure Blob Storage, a rzeczywiste dane znajdują się lokalnie w Azure Cosmos DB.
 
-*  W celu zagwarantowania małych opóźnień migawka kopii zapasowej jest przechowywana w usłudze Azure Blob Storage w tym samym regionie co bieżący region zapisu (lub **jeden** z regionów zapisu w przypadku konfiguracji z wieloma wzorcami). Aby zapewnić odporność na awarie regionalne, każda migawka danych kopii zapasowej w usłudze Azure Blob Storage jest ponownie replikowana do innego regionu za pomocą magazynu geograficznie nadmiarowego (GRS). Region, do którego jest replikowana kopia zapasowa, jest oparty na regionie źródłowym i pary regionalnej skojarzonej z regionem źródłowym. Aby dowiedzieć się więcej, zobacz [listę par geograficznie nadmiarowych w regionach platformy Azure](../best-practices-availability-paired-regions.md) . Nie można uzyskać dostępu bezpośrednio do tej kopii zapasowej. Zespół Azure Cosmos DB będzie przywracał kopię zapasową, gdy zostanie wysłane żądanie pomocy technicznej.
+* W celu zagwarantowania małych opóźnień migawka kopii zapasowej jest przechowywana w usłudze Azure Blob Storage w tym samym regionie co bieżący region zapisu (lub **jeden** z regionów zapisu w przypadku konfiguracji z wieloma wzorcami). Aby zapewnić odporność na awarie regionalne, każda migawka danych kopii zapasowej w usłudze Azure Blob Storage jest ponownie replikowana do innego regionu za pomocą magazynu geograficznie nadmiarowego (GRS). Region, do którego jest replikowana kopia zapasowa, jest oparty na regionie źródłowym i pary regionalnej skojarzonej z regionem źródłowym. Aby dowiedzieć się więcej, zobacz [listę par geograficznie nadmiarowych w regionach platformy Azure](../best-practices-availability-paired-regions.md) . Nie można uzyskać dostępu bezpośrednio do tej kopii zapasowej. Zespół Azure Cosmos DB będzie przywracał kopię zapasową, gdy zostanie wysłane żądanie pomocy technicznej.
 
    Na poniższej ilustracji przedstawiono sposób tworzenia kopii Blob Storage zapasowej kontenera usługi Azure Cosmos ze wszystkimi trzema podstawowymi partycjami fizycznymi w regionie zachodnie stany USA.
 
@@ -42,15 +42,15 @@ Za pomocą Azure Cosmos DB kont interfejsu API SQL można również zachować w�
 
 * Użyj Azure Cosmos DB [źródła zmian](change-feed.md) , aby okresowo odczytywać dane dla pełnych kopii zapasowych lub przyrostowych zmian, i przechowywać je w magazynie.
 
-## <a name="backup-interval-and-retention-period"></a>Interwał kopii zapasowych i okres przechowywania
+## <a name="modify-the-backup-interval-and-retention-period"></a>Modyfikowanie interwału i okresu przechowywania kopii zapasowych
 
-Azure Cosmos DB automatycznie wykonuje kopię zapasową danych przez co 4 godziny i w dowolnym momencie są przechowywane najnowsze kopie zapasowe. Ta konfiguracja jest opcją domyślną i jest oferowana bez dodatkowych kosztów. Jeśli istnieją obciążenia, w których domyślny interwał tworzenia kopii zapasowych i okres przechowywania nie są wystarczające, można je zmienić. Te wartości można zmienić podczas tworzenia konta usługi Azure Cosmos lub po utworzeniu konta. Konfiguracja kopii zapasowej jest ustawiana na poziomie konta usługi Azure Cosmos i należy ją skonfigurować na każdym koncie. Po skonfigurowaniu opcji tworzenia kopii zapasowej dla konta są one stosowane do wszystkich kontenerów w ramach tego konta. Obecnie można zmienić opcje tworzenia kopii zapasowej tylko z Azure Portal.
+Azure Cosmos DB automatycznie wykonuje kopię zapasową danych przez co 4 godziny i w dowolnym momencie są przechowywane najnowsze kopie zapasowe. Ta konfiguracja jest opcją domyślną i jest oferowana bez dodatkowych kosztów. Można zmienić domyślny interwał tworzenia kopii zapasowych i okres przechowywania podczas tworzenia konta usługi Azure Cosmos lub po utworzeniu konta. Konfiguracja kopii zapasowej jest ustawiana na poziomie konta usługi Azure Cosmos i należy ją skonfigurować na każdym koncie. Po skonfigurowaniu opcji tworzenia kopii zapasowej dla konta są one stosowane do wszystkich kontenerów w ramach tego konta. Obecnie można zmienić opcje tworzenia kopii zapasowej tylko z Azure Portal.
 
 Jeśli dane zostały przypadkowo usunięte lub uszkodzone, **przed utworzeniem żądania obsługi w celu przywrócenia danych należy zwiększyć czas przechowywania kopii zapasowej dla konta na co najmniej siedem dni. Najlepszym rozwiązaniem jest zwiększenie okresu przechowywania w ciągu 8 godzin od tego zdarzenia.** W ten sposób zespół Azure Cosmos DB ma wystarczająco dużo czasu na przywrócenie Twojego konta.
 
 Wykonaj następujące kroki, aby zmienić domyślne opcje tworzenia kopii zapasowej dla istniejącego konta usługi Azure Cosmos:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/)
+1. Zaloguj się do [Azure Portal.](https://portal.azure.com/)
 1. Przejdź do konta usługi Azure Cosmos i Otwórz okienko **& przywracanie kopii zapasowej** . W razie potrzeby zaktualizuj interwał tworzenia kopii zapasowych i okres przechowywania kopii zapasowych.
 
    * **Interwał tworzenia kopii zapasowych** — jest to interwał, w którym Azure Cosmos DB próbuje wykonać kopię zapasową danych. Kopia zapasowa pobiera niezerową ilość czasu, a w niektórych przypadkach może się nie powieść z powodu zależności podrzędnych. Azure Cosmos DB próbuje utworzyć kopię zapasową w skonfigurowanym interwale, ale nie gwarantuje to, że wykonywanie kopii zapasowej zakończy się w tym przedziale czasu. Tę wartość można skonfigurować w godzinach lub minutach. Interwał tworzenia kopii zapasowej nie może być krótszy niż 1 godzina i dłuższy niż 24 godziny. Po zmianie tego interwału nowy interwał zacznie obowiązywać od momentu utworzenia ostatniej kopii zapasowej.

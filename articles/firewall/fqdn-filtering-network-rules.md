@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 07/30/2020
+ms.date: 08/25/2020
 ms.author: victorh
-ms.openlocfilehash: 6e90a8bc0998b43a84658958215e4b7977f8fdd0
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 1a35d9c48dd46d5d220699589f4ed758d21feca8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461310"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854277"
 ---
 # <a name="use-fqdn-filtering-in-network-rules-preview"></a>Używanie filtrowania nazw FQDN w regułach sieci (wersja zapoznawcza)
 
@@ -21,6 +21,9 @@ ms.locfileid: "87461310"
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 W pełni kwalifikowana nazwa domeny (FQDN) reprezentuje nazwę domeny hosta lub adresy IP. W regułach sieci można używać nazw FQDN opartych na rozpoznawaniu nazw DNS w zaporze platformy Azure i zasadach zapory. Ta funkcja umożliwia filtrowanie ruchu wychodzącego za pomocą dowolnego protokołu TCP/UDP (w tym NTP, SSH, RDP i innych). Aby używać nazw FQDN w regułach sieci, należy włączyć serwer proxy DNS. Aby uzyskać więcej informacji, zobacz [Ustawienia usługi DNS zapory platformy Azure (wersja zapoznawcza)](dns-settings.md).
+
+> [!NOTE]
+> Zgodnie z projektem filtrowanie nazw FQDN nie obsługuje symboli wieloznacznych.
 
 ## <a name="how-it-works"></a>Jak to działa
 

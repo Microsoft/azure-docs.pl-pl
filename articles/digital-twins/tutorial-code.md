@@ -1,5 +1,5 @@
 ---
-title: Kodowanie aplikacji klienckiej
+title: 'Samouczek: kod aplikacji klienckiej'
 titleSuffix: Azure Digital Twins
 description: Samouczek, w którym można napisać minimalny kod aplikacji klienckiej przy użyciu zestawu SDK platformy .NET (C#).
 author: baanders
@@ -7,16 +7,23 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 52a22dd215769208b60f180b576ae5763d67eade
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 282c506f509adce4c616615e8b8e3580166052e6
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723473"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854679"
 ---
-# <a name="coding-with-the-azure-digital-twins-apis"></a>Kodowanie za pomocą cyfrowych interfejsów API usługi Azure bliźniaczych reprezentacji
+# <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Samouczek: kodowanie za pomocą cyfrowych interfejsów API usługi Azure bliźniaczych reprezentacji
 
 W przypadku deweloperów pracujących z usługą Azure Digital bliźniaczych reprezentacji można napisać aplikację kliencką do współdziałania z ich wystąpieniem usługi Azure Digital bliźniaczych reprezentacji. Ten samouczek ukierunkowany na dewelopera zawiera wprowadzenie do programowania w usłudze Azure Digital bliźniaczych reprezentacji, przy użyciu [biblioteki klienckiej Digital bliźniaczyej usługi Azure IoT dla platformy .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Przeprowadzi Cię przez proces pisania aplikacji klienckiej w języku C# krok po kroku, rozpoczynając od podstaw.
+
+> [!div class="checklist"]
+> * Konfigurowanie projektu
+> * Wprowadzenie do kodu projektu   
+> * Pełny przykładowy kod
+> * Czyszczenie zasobów
+> * Następne kroki
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -528,7 +535,7 @@ namespace minimal
     }
 }
 ```
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
  
 Wystąpienie używane w tym samouczku można ponownie wykorzystać w następnym samouczku, [*samouczku: Eksplorowanie podstaw za pomocą przykładowej aplikacji klienckiej*](tutorial-command-line-app.md). Jeśli planujesz przejść do następnego samouczka, możesz zachować tutaj skonfigurowane wystąpienie usługi Azure Digital bliźniaczych reprezentacji.
  
@@ -561,7 +568,3 @@ Przejdź do następnego samouczka, aby poznać czynności, które możesz wykona
 
 > [!div class="nextstepaction"]
 > [*Samouczek: Eksplorowanie podstaw za pomocą przykładowej aplikacji klienckiej*](tutorial-command-line-app.md)
-
-Możesz również dodać do kodu napisanego w tym samouczku, aby poznać więcej operacji zarządzania w artykułach z przewodnikiem lub zacząć od dokumentacji koncepcji, aby dowiedzieć się więcej o elementach, z którymi pracujesz w samouczku.
-* [*Instrukcje: Zarządzanie modelami niestandardowymi*](how-to-manage-model.md)
-* [*Koncepcje: modele niestandardowe*](concepts-models.md)
