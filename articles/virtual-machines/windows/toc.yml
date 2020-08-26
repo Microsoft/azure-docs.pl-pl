@@ -282,7 +282,7 @@
               href: ../reserved-vm-instance-size-flexibility.md
         - name: Maszyny wirtualne typu spot
           displayName: 'pre-empt, preempt'
-          href: spot-vms.md
+          href: ../spot-vms.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Maszyny wirtualne platformy Azure bez dysku tymczasowego
           href: ../azure-vms-no-temp-disk.md
         - name: Konwencje nazewnictwa rozmiarów maszyn wirtualnych platformy Azure
@@ -879,15 +879,15 @@
             - name: Włączanie szyfrowania na hoście — PowerShell
               href: disks-enable-host-based-encryption-powershell.md
             - name: Włączanie szyfrowania na hoście — portal
-              href: disks-enable-host-based-encryption-portal.md
+              href: ../disks-enable-host-based-encryption-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Włączanie kluczy zarządzanych przez klienta — PowerShell
               href: disks-enable-customer-managed-keys-powershell.md
             - name: Włączanie kluczy zarządzanych przez klienta — portal
-              href: disks-enable-customer-managed-keys-portal.md
+              href: ../disks-enable-customer-managed-keys-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Włączanie podwójnego szyfrowania danych magazynowanych
               href: disks-enable-double-encryption-at-rest-powershell.md
             - name: Włączanie podwójnego szyfrowania danych magazynowanych — portal
-              href: disks-enable-double-encryption-at-rest-portal.md
+              href: ../disks-enable-double-encryption-at-rest-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Migracja i konwersja
           items:
             - name: Konwertowanie dysku między warstwami Standardowa i Premium
@@ -911,7 +911,7 @@
         - name: Znajdowanie niedołączonych dysków — portal
           href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Często zadawane pytania dotyczące dysków
-          href: faq-for-disks.md
+          href: ../faq-for-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Zarządzanie siecią
       href: ps-common-network-ref.md
       items:

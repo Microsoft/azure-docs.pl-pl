@@ -117,6 +117,8 @@
           href: network-security.md
 - name: Przewodniki z instrukcjami
   items:
+    - name: Przechodzenie między regionami
+      href: move-across-regions.md
     - name: Migrowanie z interfejsów API usługi Azure Service Manager (klasycznej) do interfejsów API usługi Resource Manager
       href: deprecate-service-bus-management.md
     - name: Tworzenie przestrzeni nazw

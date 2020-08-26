@@ -510,6 +510,8 @@
           href: unique-keys.md
         - name: Transakcje i optymistyczna kontrola współbieżności
           href: database-transactions-optimistic-concurrency.md
+        - name: Załączniki
+          href: attachments.md
     - name: Źródło zmian
       items:
         - name: Omówienie zestawienia zmian

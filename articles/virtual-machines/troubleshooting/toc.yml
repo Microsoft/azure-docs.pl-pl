@@ -195,7 +195,7 @@
     - name: Omówienie
       href: ../managed-disks-overview.md
     - name: Często zadawane pytania
-      href: ../windows/faq-for-disks.md
+      href: ../faq-for-disks.md
     - name: Błędy podczas usuwania zasobów magazynu
       href: storage-resource-deletion-errors.md
     - name: Błędy podczas usuwania klasycznych zasobów magazynu

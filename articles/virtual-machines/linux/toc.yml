@@ -297,7 +297,7 @@
               href: ../reserved-vm-instance-size-flexibility.md
         - name: Maszyny wirtualne typu spot
           displayName: 'pre-empt, preempt'
-          href: spot-vms.md
+          href: ../spot-vms.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Maszyny wirtualne platformy Azure bez dysku tymczasowego
           href: ../azure-vms-no-temp-disk.md
         - name: Konwencje nazewnictwa rozmiarów maszyn wirtualnych platformy Azure
@@ -984,15 +984,15 @@
             - name: Włączanie szyfrowania na hoście — interfejs wiersza polecenia
               href: disks-enable-host-based-encryption-cli.md
             - name: Włączanie szyfrowania na hoście — portal
-              href: disks-enable-host-based-encryption-portal.md
+              href: ../disks-enable-host-based-encryption-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Włączanie kluczy zarządzanych przez klienta — interfejs wiersza polecenia
               href: disks-enable-customer-managed-keys-cli.md
             - name: Włączanie kluczy zarządzanych przez klienta — portal
-              href: disks-enable-customer-managed-keys-portal.md
+              href: ../disks-enable-customer-managed-keys-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Włączanie podwójnego szyfrowania danych magazynowanych — interfejs wiersza polecenia
               href: disks-enable-double-encryption-at-rest-cli.md
             - name: Włączanie podwójnego szyfrowania danych magazynowanych — portal
-              href: disks-enable-double-encryption-at-rest-portal.md
+              href: ../disks-enable-double-encryption-at-rest-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Migracja i konwersja
           items:
             - name: Migrowanie do usługi Premium Storage przy użyciu usługi Azure Site Recovery
@@ -1024,7 +1024,7 @@
         - name: Korzystanie z usługi File Storage
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Często zadawane pytania dotyczące dysków
-          href: faq-for-disks.md
+          href: ../faq-for-disks.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Zarządzanie siecią
       items:
         - name: Tworzenie sieci wirtualnej

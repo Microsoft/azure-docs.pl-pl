@@ -41,6 +41,10 @@
           href: tutorial-alias-rr.md
 - name: Pojęcia
   items:
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
     - name: Publiczna usługa DNS
       items:
         - name: Strefy i rekordy

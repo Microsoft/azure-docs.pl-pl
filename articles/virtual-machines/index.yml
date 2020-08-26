@@ -11,12 +11,12 @@ metadata:
   author: cynthn
   ms.author: cynthn
   ms.date: 02/14/2020
-  ms.openlocfilehash: ea9b89a92aa271065a59de561dc684263ce1cdc4
-  ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+  ms.openlocfilehash: eb7d7c911fc099a5f3b5456d7fb77688e0b06af5
+  ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 08/06/2020
-  ms.locfileid: "87829037"
+  ms.lasthandoff: 08/25/2020
+  ms.locfileid: "88816477"
 highlightedContent:
   items:
   - title: Tworzenie maszyny wirtualnej z systemem Linux za pomocą interfejsu wiersza polecenia platformy Azure
@@ -30,7 +30,7 @@ highlightedContent:
     url: ../virtual-machine-scale-sets/quick-create-portal.md
   - title: Maszyny wirtualne typu spot — używaj naszej niewykorzystanej pojemności po znacznie obniżonych kosztach.
     itemType: concept
-    url: ./linux/spot-vms.md
+    url: ./spot-vms.md
   - title: Dedykowane hosty — serwery fizyczne do hostowania jednej lub wielu maszyn wirtualnych.
     itemType: concept
     url: ./linux/dedicated-hosts.md
