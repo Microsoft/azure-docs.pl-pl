@@ -4,14 +4,14 @@ description: Dowiedz się, jak migrować niestandardową nazwę domeny DNS, któ
 tags: top-support-issue
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: bd11690f2a3597d6e1a835ad7ca9c5880117eeea
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: c51745b7760573aa3c6ae067e9a6c1cc315f8e56
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782213"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871398"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrowanie aktywnej nazwy DNS do Azure App Service
 
@@ -59,31 +59,27 @@ Na stronie rekordów DNS Zwróć uwagę na typ rekordu nazwy DNS, którą chcesz
 
 ### <a name="enable-the-domain-for-your-app"></a>Włącz domenę dla aplikacji
 
-W [Azure Portal](https://portal.azure.com)w lewym okienku nawigacji strony aplikacji wybierz pozycję **domeny niestandardowe**. 
+1. W [Azure Portal](https://portal.azure.com)w lewym okienku nawigacji strony aplikacji wybierz pozycję **domeny niestandardowe**. 
 
-![Menu domen niestandardowych](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![Menu domen niestandardowych](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Na stronie **domeny niestandardowe** wybierz **+** ikonę obok pozycji **Dodaj nazwę hosta**.
+1. Na stronie **domeny niestandardowe** wybierz pozycję **Dodaj domenę niestandardową**.
 
-![Dodawanie nazwy hosta](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+    ![Dodawanie nazwy hosta](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Wpisz w pełni kwalifikowaną nazwę domeny, która ma zostać poddana migracji, która odnosi się do tworzonego rekordu TXT, takiego jak `contoso.com` , `www.contoso.com` lub `*.contoso.com` .
+1. Wpisz w pełni kwalifikowaną nazwę domeny, która ma zostać poddana migracji, która odnosi się do tworzonego rekordu TXT, takiego jak `contoso.com` , `www.contoso.com` lub `*.contoso.com` . Wybierz przycisk **Weryfikuj**.
 
-Wybierz przycisk **Weryfikuj**.
+    Przycisk **Dodaj domenę niestandardową** jest aktywowany. 
 
-Zostanie aktywowany przycisk **Dodaj nazwę hosta**. 
+1. Upewnij się, że **Typ rekordu nazwy hosta** jest ustawiony na typ rekordu DNS, który ma zostać zmigrowany. Wybierz przycisk **Dodaj nazwę hosta**.
 
-Upewnij się, że **Typ rekordu nazwy hosta** jest ustawiony na typ rekordu DNS, który ma zostać zmigrowany.
+    ![Dodawanie nazwy DNS do aplikacji](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-Wybierz przycisk **Dodaj nazwę hosta**.
+    Może upłynąć trochę czasu, zanim nowa nazwa hosta zostanie odzwierciedlona na stronie **Domeny niestandardowe** aplikacji. Spróbuj odświeżyć przeglądarkę, aby zaktualizować dane.
 
-![Dodawanie nazwy DNS do aplikacji](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+    ![Dodany rekord CNAME](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
-Może upłynąć trochę czasu, zanim nowa nazwa hosta zostanie odzwierciedlona na stronie **Domeny niestandardowe** aplikacji. Spróbuj odświeżyć przeglądarkę, aby zaktualizować dane.
-
-![Dodany rekord CNAME](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
-
-Niestandardowa nazwa DNS jest teraz włączona w aplikacji platformy Azure. 
+    Niestandardowa nazwa DNS jest teraz włączona w aplikacji platformy Azure. 
 
 ## <a name="remap-the-active-dns-name"></a>Ponowne mapowanie aktywnej nazwy DNS
 
@@ -96,8 +92,6 @@ Jedyną czynnością, którą pozostało do wykonania, jest ponowne mapowanie ak
 Jeśli ponownie mapujesz rekord CNAME, Pomiń tę sekcję. 
 
 Aby ponownie zamapować rekord A, potrzebny jest zewnętrzny adres IP aplikacji App Service, który jest wyświetlany na stronie **domeny niestandardowe** .
-
-Zamknij stronę **Dodawanie nazwy hosta** , wybierając pozycję **X** w prawym górnym rogu. 
 
 Na stronie **Domeny niestandardowe** skopiuj adres IP aplikacji.
 

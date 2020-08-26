@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 55e79877fb186a5ba2aece316c61f542adeda60c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6318f426e42612f21da7a43c9857894ae610f68e
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796939"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871188"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Rozwiązywanie problemów z replikacją w przypadku migracji maszyn wirtualnych VMware bez agentów
 
@@ -30,13 +30,36 @@ Wykonaj następujące kroki, aby monitorować stan replikacji dla maszyn wirtual
 
   1. Przejdź do strony serwery w Azure Migrate na Azure Portal.
   2. Przejdź do strony "replikowanie maszyn", klikając pozycję "replikowanie serwerów" na kafelku Migracja serwera.
-  3. Zostanie wyświetlona lista serwerów replikowanych wraz z dodatkowymi informacjami, takimi jak stan, kondycja, czas ostatniej synchronizacji itd. Kolumna kondycja wskazuje bieżącą kondycję replikacji maszyny wirtualnej. Wartość ostrzeżenia "Critical'or" w kolumnie kondycji zwykle wskazuje, że poprzedni cykl replikacji dla maszyny wirtualnej nie powiódł się. Aby uzyskać więcej szczegółów, kliknij prawym przyciskiem myszy maszynę wirtualną, a następnie wybierz pozycję "Szczegóły błędu". Strona szczegóły błędu zawiera informacje na temat błędu i dodatkowe informacje dotyczące rozwiązywania problemów. Zobaczysz również link "ostatnie zdarzenia", którego można użyć, aby przejść do strony zdarzenia dla maszyny wirtualnej.
+  3. Zostanie wyświetlona lista serwerów replikowanych wraz z dodatkowymi informacjami, takimi jak stan, kondycja, czas ostatniej synchronizacji itd. Kolumna kondycja wskazuje bieżącą kondycję replikacji maszyny wirtualnej. Wartość "krytyczna" lub "ostrzeżenie" w kolumnie kondycji zwykle wskazuje, że poprzedni cykl replikacji maszyny wirtualnej nie powiódł się. Aby uzyskać więcej szczegółów, kliknij prawym przyciskiem myszy maszynę wirtualną, a następnie wybierz pozycję "Szczegóły błędu". Strona szczegóły błędu zawiera informacje na temat błędu i dodatkowe informacje dotyczące rozwiązywania problemów. Zobaczysz również link "ostatnie zdarzenia", którego można użyć, aby przejść do strony zdarzenia dla maszyny wirtualnej.
   4. Kliknij pozycję "ostatnie zdarzenia", aby zobaczyć poprzednie błędy cyklu replikacji dla maszyny wirtualnej. Na stronie zdarzenia Znajdź najnowsze zdarzenie typu "cykl replikacji nie powiodło się" lub "cykl replikacji nie powiódł się dla dysku" dla maszyny wirtualnej.
   5. Kliknij zdarzenie, aby zrozumieć możliwe przyczyny błędu i zalecane czynności zaradcze. Skorzystaj z informacji podanych w celu rozwiązania problemu i skorygowania błędu.
     
 ## <a name="common-replication-errors"></a>Typowe błędy replikacji
 
 W tej sekcji opisano niektóre typowe błędy i sposoby ich rozwiązywania.
+
+## <a name="key-vault-operation-failed-error-when-trying-to-replicate-vms"></a>Wystąpił błąd operacji Key Vault podczas próby replikowania maszyn wirtualnych
+
+**Błąd:** "Key Vault operacji nie powiodła się. Operacja: Konfigurowanie zarządzanego konta magazynu, Key Vault: nazwa magazynu kluczy, konto magazynu: nazwa konta magazynu nie powiodła się z powodu błędu: "
+
+**Błąd:** "Key Vault operacji nie powiodła się. Operacja: generowanie definicji sygnatury dostępu współdzielonego, Key Vault: nazwa magazynu kluczy, konto magazynu: nazwa konta magazynu nie powiodła się z powodu błędu: "
+
+![Key Vault](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
+
+Ten błąd zazwyczaj występuje, ponieważ zasady dostępu użytkownika dla Key Vault nie dają obecnie zalogowanemu użytkownikowi uprawnień niezbędnych do skonfigurowania kont magazynu, które mają być Key Vault zarządzane. Aby sprawdzić zasady dostępu użytkowników w magazynie kluczy, przejdź do strony Magazyn kluczy w portalu dla magazynu kluczy i wybierz pozycję Zasady dostępu 
+
+Gdy w portalu zostanie utworzony magazyn kluczy, dodaje także zasady dostępu użytkownika udzielające aktualnie zalogowanych uprawnień użytkowników w celu skonfigurowania kont magazynu, które mają być Key Vault zarządzane. Może to się nie powieść z dwóch powodów
+
+- Zalogowany użytkownik jest obiektem zdalnym w dzierżawie platformy Azure dla klientów (subskrypcja CSP — a zalogowany użytkownik jest administratorem partnera). Obejście w tym przypadku polega na usunięciu magazynu kluczy, wylogowaniu z portalu, a następnie zalogowaniu się przy użyciu konta użytkownika z dzierżawy klientów (a nie z podmiotem zdalnego), a następnie ponów próbę wykonania operacji. Partner programu CSP zazwyczaj będzie miał konto użytkownika w ramach klientów Azure Active Directory dzierżawy, których mogą używać. Jeśli nie można utworzyć nowego konta użytkownika dla siebie w dzierżawie klientów Azure Active Directory, zaloguj się do portalu jako nowy użytkownik, a następnie ponów operację replikacji. Używane konto musi mieć uprawnienia administratora lub współautora i dostępu użytkownika przyznane do konta w grupie zasobów (Migrowanie grupy zasobów projektu)
+
+- W przeciwnym razie może się zdarzyć, że jeden użytkownik (Użytkownik1) próbował skonfigurować replikację początkowo i napotkał błąd, ale Magazyn kluczy został już utworzony (a zasady dostępu użytkownika zostały odpowiednio przypisane do tego użytkownika). Teraz w późniejszym momencie inny użytkownik (do) próbuje skonfigurować replikację, ale operacja Konfiguruj zarządzane konto magazynu lub Generuj definicję SAS nie powiedzie się, ponieważ w magazynie kluczy nie ma zasad dostępu do zasobów.
+
+**Rozwiązanie**: Aby obejść ten problem, należy utworzyć zasady dostępu użytkownika dla konta w magazynie kluczy Granted, aby skonfigurować zarządzane konto magazynu i generować definicje SAS. Wartość można wykonać w Azure PowerShell przy użyciu poniższych poleceń cmdlet:
+
+$userPrincipalId = $ (Get-AzureRmADUser-UserPrincipalName "user2_email_address"). #C1
+
+Set-AzureRmKeyVaultAccessPolicy-Magazynname "kluczy magazynu"-ObjectId $userPrincipalId-PermissionsToStorage Get, list, DELETE, Set, Update, regeneratekey, getsas, listsas, deletesas, setsas, Recover, Backup, Restore, przeczyszczanie
+
 
 ## <a name="disposeartefactstimedout"></a>DisposeArtefactsTimedOut
 

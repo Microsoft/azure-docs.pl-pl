@@ -11,12 +11,12 @@ author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 90d3507a8867ad3556891f6001f0e15ebda8c4f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 945e9019d75f9597d89a63c9322cbd4a8d502f15
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345363"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869868"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Przesyłanie strumieniowe danych do Azure SQL Database przy użyciu integracji Azure Stream Analytics (wersja zapoznawcza)
 
@@ -31,7 +31,7 @@ Użytkownicy mogą teraz pozyskiwanie, przetwarzać, wyświetlać i analizować 
 - Dodatkowa łatwość użycia z podglądem danych: Podgląd danych przychodzących ze źródła zdarzeń (centrum zdarzeń/IoT Hub) w kontekście wybranej tabeli
 
 > [!IMPORTANT]
-> Zadanie Azure Stream Analytics może wyprowadzać dane wyjściowe do Azure SQL Database, wystąpienia zarządzanego Azure SQL lub usługi Azure Synapse Analytics (dawniej Azure SQL Data Warehouse). Aby uzyskać więcej informacji, zobacz dane [wyjściowe](../../stream-analytics/stream-analytics-define-outputs.md#sql-database).
+> Zadanie Azure Stream Analytics może wyprowadzać dane wyjściowe do Azure SQL Database, wystąpienia zarządzanego Azure SQL lub usługi Azure Synapse Analytics (dawniej Azure SQL Data Warehouse). Aby uzyskać więcej informacji, zobacz dane [wyjściowe](../../stream-analytics/sql-database-output.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -50,7 +50,7 @@ Aby wykonać kroki opisane w tym artykule, potrzebne są następujące zasoby:
 
 3. Aby rozpocząć pozyskiwanie danych przesyłanych strumieniowo do tej bazy danych, wybierz pozycję **Utwórz** i nadaj jej nazwę zadanie przesyłania strumieniowego, a następnie wybierz kolejno pozycje **Dalej: dane wejściowe**.
 
-    ![Tworzenie zadania Stream Analytics](./media/stream-data-stream-analytics-integration/create-job.png)
+    ![Skonfiguruj podstawowe informacje o zadaniach Stream Analytics](./media/stream-data-stream-analytics-integration/create-job.png)
 
 4. Wprowadź szczegóły źródła zdarzeń, a następnie wybierz pozycję **Dalej: dane wyjściowe**.
 
@@ -64,7 +64,7 @@ Aby wykonać kroki opisane w tym artykule, potrzebne są następujące zasoby:
 
       Zalecamy utworzenie grupy odbiorców i zasad dla każdego nowego zadania Azure Stream Analytics utworzonego w tym miejscu. Grupy konsumentów zezwalają tylko na pięć współbieżnych czytników, dlatego udostępnienie dedykowanej grupy odbiorców dla każdego zadania spowoduje uniknięcie wszelkich błędów, które mogą wynikać z przekroczenia tego limitu. Dedykowane zasady umożliwiają obracanie klucza lub Odwoływanie uprawnień bez wpływu na inne zasoby.
 
-     ![Tworzenie zadania Stream Analytics](./media/stream-data-stream-analytics-integration/create-job-output.png)
+     ![Konfigurowanie danych wyjściowych zadania Stream Analytics](./media/stream-data-stream-analytics-integration/create-job-output.png)
 
 5. Wybierz tabelę, do której chcesz pozyskać dane przesyłane strumieniowo. Po zakończeniu wybierz pozycję **Utwórz**.
 

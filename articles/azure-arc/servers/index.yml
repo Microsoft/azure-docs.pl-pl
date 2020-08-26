@@ -1,0 +1,32 @@
+### YamlMime:Landing
+title: Serwery usługi Azure Arc (wersja zapoznawcza)
+summary: Serwery usługi Azure Arc
+metadata:
+  title: Serwery usługi Azure Arc
+  description: Dowiedz się, jak zarządzać komputerami lokalnymi na platformie Azure
+  author: mgoedtel
+  ms.service: azure-arc
+  ms.topic: landing-page
+  ms.date: 06/26/2020
+  ms.author: magoedte
+  ms.openlocfilehash: 9080f5bb770f5cb86284b5816c340a614843038c
+  ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 08/24/2020
+  ms.locfileid: "88763817"
+landingContent:
+- title: Łączenie maszyn z platformą Azure przy użyciu serwerów z obsługą usługi Azure Arc
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to są serwery z obsługą usługi Azure Arc?
+      url: overview.md
+  - linkListType: quickstart
+    links:
+    - text: Łączenie maszyn z usługą Azure Arc z poziomu witryny Azure Portal
+      url: onboard-portal.md
+    - text: Łączenie maszyn na dużą skalę przy użyciu jednostki usługi
+      url: onboard-service-principal.md
+    - text: Łączenie maszyn z platformą Azure przy użyciu rozszerzenia DSC programu PowerShell
+      url: onboard-dsc.md

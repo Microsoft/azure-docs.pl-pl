@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: a5d002532adb043fa5196231964d5b6e2c81417c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a04f4879bbd06c2fa6c1af921d7adafdef9417d6
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706379"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871449"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Łączenie aplikacji z wystąpieniem zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -42,7 +42,7 @@ Połączenie aplikacji znajdującej się w innej sieci wirtualnej z wystąpienia
 
 Istnieją dwie opcje łączenia sieci wirtualnych:
 
-- [Komunikacja równorzędna sieci VPN platformy Azure](../../virtual-network/virtual-network-peering-overview.md)
+- [Komunikacja równorzędna sieci wirtualnej platformy Azure](../../virtual-network/virtual-network-peering-overview.md)
 - Brama sieci VPN typu sieć wirtualna-sieć wirtualna ([Azure Portal](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [interfejs wiersza polecenia platformy Azure](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
 Komunikacja równorzędna jest preferowana, ponieważ używa sieci szkieletowej firmy Microsoft, dlatego z punktu widzenia łączności nie ma zauważalnej różnicy opóźnienia między maszynami wirtualnymi w wirtualnej sieci równorzędnej i w tej samej sieci wirtualnej. Wirtualne sieci równorzędne są ograniczone do sieci w tym samym regionie.  
@@ -63,13 +63,13 @@ Jeśli nawiązanie połączenia lokalnego z platformą Azure powiodło się i ni
 
 ## <a name="connect-the-developer-box"></a>Połącz pole dewelopera
 
-Istnieje również możliwość połączenia Twojego dewelopera z wystąpieniem zarządzanym SQL. Do wystąpienia zarządzanego SQL można uzyskać dostęp tylko za pośrednictwem prywatnego adresu IP, dlatego w celu uzyskania dostępu do niego z poziomu dewelopera musisz najpierw nawiązać połączenie między polem dewelopera i siecią wirtualną wystąpienia zarządzanego SQL. W tym celu należy skonfigurować połączenie typu punkt-lokacja z siecią wirtualną przy użyciu natywnego uwierzytelniania certyfikatu platformy Azure. Aby uzyskać więcej informacji, zobacz [Konfigurowanie połączenia punkt-lokacja w celu nawiązania połączenia z wystąpieniem zarządzanym usługi Azure SQL na komputerze lokalnym](point-to-site-p2s-configure.md).
+Istnieje również możliwość połączenia Twojego dewelopera z wystąpieniem zarządzanym SQL. Do wystąpienia zarządzanego SQL można uzyskać dostęp tylko za pośrednictwem prywatnego adresu IP, dlatego w celu uzyskania dostępu do niego z poziomu dewelopera musisz najpierw nawiązać połączenie między polem dewelopera i siecią wirtualną wystąpienia zarządzanego SQL. W tym celu należy skonfigurować połączenie typu punkt-lokacja z siecią wirtualną przy użyciu natywnego uwierzytelniania certyfikatu platformy Azure. Aby uzyskać więcej informacji, zobacz  [Konfigurowanie połączenia punkt-lokacja w celu nawiązania połączenia z wystąpieniem zarządzanym usługi Azure SQL na komputerze lokalnym](point-to-site-p2s-configure.md).
 
 ## <a name="connect-with-vnet-peering"></a>Nawiązywanie połączenia przy użyciu komunikacji równorzędnej sieci wirtualnych
 
 Innym scenariuszem wdrożonym przez klientów jest to, że Brama sieci VPN jest zainstalowana w oddzielnej sieci wirtualnej i subskrypcji z jednego hostingu wystąpienia zarządzanego SQL. Dwie sieci wirtualne są następnie połączone za pomocą komunikacji równorzędnej. Poniższy przykładowy diagram architektury przedstawia, w jaki sposób można go zaimplementować.
 
-![Wirtualne sieci równorzędne](./media/connect-application-instance/vnet-peering.png)
+![Komunikacja równorzędna sieci wirtualnych](./media/connect-application-instance/vnet-peering.png)
 
 Po skonfigurowaniu podstawowej infrastruktury należy zmodyfikować niektóre ustawienia, aby Brama sieci VPN widziała adresy IP w sieci wirtualnej, która hostuje wystąpienie zarządzane SQL. W tym celu wprowadź następujące bardzo szczegółowe zmiany w obszarze **ustawienia komunikacji równorzędnej**.
 

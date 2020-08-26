@@ -5,12 +5,12 @@ description: Dowiedz się, jak zaktualizować lub zresetować poświadczenia naz
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: a824606bc0e77ba069b6b54725645ee3f348de27
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: e787322f421094cf9ac6681df0119ba820b654ea
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386932"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871228"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Aktualizowanie lub obracanie poświadczeń usługi Azure Kubernetes Service (AKS)
 
@@ -20,7 +20,7 @@ Możesz również [zintegrować klaster AKS z Azure Active Directory][aad-integr
 
 Alternatywnie można użyć tożsamości zarządzanej w celu uzyskania uprawnień zamiast nazwy głównej usługi. Zarządzane tożsamości są łatwiejsze do zarządzania niż nazwy główne usługi i nie wymagają aktualizacji ani rotacji. Aby uzyskać więcej informacji, zobacz [Korzystanie z tożsamości zarządzanych](use-managed-identity.md).
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.65 lub nowszej. Uruchom polecenie  `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie przeprowadzenie instalacji lub uaktualnienia, zobacz  [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
@@ -31,7 +31,8 @@ Jeśli chcesz zaktualizować poświadczenia dla klastra AKS, możesz wybrać jed
 * Zaktualizuj poświadczenia dla istniejącej nazwy głównej usługi.
 * Utwórz nową nazwę główną usługi i zaktualizuj klaster tak, aby korzystał z tych nowych poświadczeń. 
 
-> ! WYŚWIETLANIA Jeśli zdecydujesz się utworzyć *nową* nazwę główną usługi, aktualizowanie dużego klastra AKS do korzystania z tych poświadczeń może zająć dużo czasu.
+> [!WARNING]
+> Jeśli zdecydujesz się utworzyć *nową* nazwę główną usługi, aktualizowanie dużego klastra AKS do korzystania z tych poświadczeń może zająć dużo czasu.
 
 ### <a name="check-the-expiration-date-of-your-service-principal"></a>Sprawdzanie daty wygaśnięcia nazwy głównej usługi
 

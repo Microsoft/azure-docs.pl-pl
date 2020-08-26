@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: e75ea5a8f5fdeaf7c3562e50d9493341d41ce393
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 793f3869a9534c71d860cc8dea7a1995f5ee278d
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037154"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871245"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferowanie danych za pomocą narzędzia AzCopy i magazynu plików 
 
@@ -306,7 +306,8 @@ Jeśli ustawisz `--delete-destination` flagę na `true` AzCopy usuwa pliki bez w
 >
 > |Scenariusz|Flaga|
 > |---|---|
-> |Określ, jak ściśle skróty MD5 mają być weryfikowane podczas pobierania.|**--check-MD5** = \[ NOCHECK \| FailIfDifferent logowanie \| \| FailIfDifferentOrMissing\]|
+> |Kopiuj listy kontroli dostępu (ACL) wraz z plikami.|**--Preserve-SMB-uprawnienia** = \[ prawda \| Fałsz\]|
+> |Skopiuj informacje o właściwościach protokołu SMB wraz z plikami.|**--Preserve-SMB-info** = \[ prawda \| Fałsz\]|
 > |Wyklucz pliki na podstawie wzorca.|**--Exclude-Path**|
 > |Określ, jak Szczegółowa ma być liczba wpisów dziennika związanych z synchronizacją.|**--poziom dziennika** = \[ Ostrzeżenie \| \| Brak informacji o błędzie \|\]|
 > 

@@ -8,12 +8,12 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 8/20/2020
 ms.author: allensu
-ms.openlocfilehash: ed6c60b4f66361e87f67f3c64bb60846b2df757b
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: c7e6733079dbd867255e604f6f8d4459f647cc93
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817582"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870468"
 ---
 # <a name="azure-cdn-endpoint-multi-origin"></a>Azure CDN wiele lokalizacji punktu końcowego
 
@@ -66,6 +66,7 @@ Skonfiguruj jedną lub więcej grup pochodzenia i wybierz domyślną grupę pier
 
    | Ustawienie           | Wartość                                                                 |
    |-------------------|-----------------------------------------------------------------------|
+   | Nazwa        | Wprowadź nazwę źródła.        |
    | Typ źródła | Wybierz pozycję **Magazyn**, **Usługa w chmurze**, **aplikacja internetowa**lub **Źródło niestandardowe**.                                   |
    | Nazwa hosta źródła        | Wybierz lub wprowadź nazwę hosta źródła.  Na liście rozwijanej są wyświetlane wszystkie dostępne źródła typu określonego w poprzednim ustawieniu. W przypadku wybrania jako typu źródła **niestandardowego źródła** danych wprowadź domenę serwera pochodzenia klienta. |
    | Nagłówek hosta źródła    | Wprowadź nagłówek hosta, który ma Azure CDN wysyłać z każdym żądaniem, lub pozostaw wartość domyślną.                        |
@@ -114,6 +115,34 @@ Gdy masz kilka źródeł i grupę pierwotną, możesz dodawać lub usuwać źró
 2. Aby usunąć źródło z grupy pierwotnej, wybierz ikonę kosza obok początku i wybierz pozycję **Zapisz**:
 
     :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-11.png" alt-text="Aktualizowanie źródła usuwania grupy pochodzenia" border="true":::
+
+## <a name="override-origin-group-with-rules-engine"></a>Przesłoń grupę pierwotną z aparatem reguł
+
+Dostosuj sposób dystrybucji ruchu do różnych grup pochodzenia przy użyciu standardowego aparatu reguł.
+
+Dystrybuuj ruch do innej grupy w oparciu o adres URL żądania.
+
+1. W punkcie końcowym usługi CDN wybierz opcję **aparat reguł** w obszarze **Ustawienia**:
+
+:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-12.png" alt-text="Aparat reguł" border="true":::
+
+2. Wybierz pozycję **+ Dodaj regułę**.
+
+3. Wprowadź nazwę reguły w polu **Nazwa**.
+
+4. Wybierz pozycję **+ warunek**, a następnie wybierz pozycję **Ścieżka adresu URL**.
+
+5. W polu ściąganie **operatora** wybierz pozycję **zawiera**.
+
+6. W polu **wartość**wprowadź **/images**.
+
+7. Wybierz pozycję **+ Dodaj akcję**, a następnie wybierz pozycję **Przesłoń grupę pierwotną**.
+
+8. W **grupie pierwotnej**wybierz grupę pierwotną w polu ściągania.
+
+:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-13.png" alt-text="Warunki aparatu reguł" border="true":::
+
+W przypadku wszystkich żądań przychodzących, gdy ścieżka URL zawiera **/images**, żądanie zostanie przypisane do grupy pierwotnej w sekcji akcji **(obiekt pochodzenia)**. 
 
 ## <a name="next-steps"></a>Następne kroki
 W tym artykule włączono obsługę wielopunktowego punktu końcowego Azure CDN.
