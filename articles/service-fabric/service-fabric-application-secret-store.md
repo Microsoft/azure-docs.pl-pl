@@ -3,16 +3,19 @@ title: Magazyn centralnych wpisów tajnych usługi Azure Service Fabric
 description: W tym artykule opisano sposób korzystania z magazynu centralnych wpisów tajnych w usłudze Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.openlocfilehash: c48be8945326f0f11ded7c5700cd70043830e4db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9fd435803ad5354b0eb2d4f5de50009a8cbbfe2
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83197762"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869759"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Magazyn centralnych wpisów tajnych na platformie Azure Service Fabric 
 W tym artykule opisano sposób korzystania z magazynu centralnych wpisów tajnych (CSS) w usłudze Azure Service Fabric do tworzenia wpisów tajnych w aplikacjach Service Fabric. CSS to lokalna pamięć podręczna magazynu lokalnego wpisu tajnego, która przechowuje dane poufne, takie jak hasło, tokeny i klucze, szyfrowane w pamięci.
 
+  > [!NOTE] 
+  > Podczas aktywowania CSS po raz pierwszy przed wersjami 7,1. CU3 Aktywacja może zakończyć się niepowodzeniem i pozostawić kod CSS w złej kondycji, jeśli: CSS jest aktywowany w uwierzytelnianym klastrze systemu Windows; CSS jest aktywowany w dowolnym klastrze `EncryptionCertificateThumbprint` , ale jest nieprawidłowo zadeklarowany lub odpowiedni certyfikat nie jest zainstalowany/list ACL-ED w węzłach. W przypadku klastra uwierzytelniania systemu Windows Weź pod 7,1. CU3 przed kontynuowaniem. W przypadku innych klastrów należy dokładnie sprawdzić te nieposiadane warianty lub zachodzą na 7,1. CU3.
+  
 ## <a name="enable-central-secrets-store"></a>Włącz magazyn centralnych wpisów tajnych
 Dodaj następujący skrypt do konfiguracji klastra w `fabricSettings` celu włączenia CSS. Zalecamy użycie certyfikatu innego niż certyfikat klastra dla CSS. Upewnij się, że certyfikat szyfrowania został zainstalowany we wszystkich węzłach i `NetworkService` ma uprawnienia do odczytu klucza prywatnego certyfikatu.
   ```json

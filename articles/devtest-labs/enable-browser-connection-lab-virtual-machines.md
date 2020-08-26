@@ -3,12 +3,12 @@ title: Włącz połączenie przeglądarki na Azure DevTest Labs maszynach wirtua
 description: DevTest Labs teraz integrują się z usługą Azure bastionu, jako właściciel laboratorium można włączyć dostęp do wszystkich maszyn wirtualnych laboratorium za pomocą przeglądarki.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8c78b872855b3fe21f2cb41d394c599aeca7a790
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 28a3c11f3df578265f9746a173fcb3029a132b26
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87272355"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870497"
 ---
 # <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Włącz połączenie przeglądarki na Azure DevTest Labs maszynach wirtualnych 
 DevTest Labs integrują się z [usługą Azure bastionu](../bastion/index.yml), która umożliwia łączenie się z maszynami wirtualnymi za pomocą przeglądarki. Najpierw należy włączyć połączenie przeglądarki na maszynach wirtualnych laboratorium.
@@ -19,14 +19,12 @@ Jako właściciel laboratorium można włączyć dostęp do wszystkich maszyn wi
 W tym artykule przedstawiono sposób włączania połączenia przeglądarki na maszynach wirtualnych laboratorium.
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
-Wdróż hosta bastionu w istniejącej sieci wirtualnej laboratorium **(lub)** Połącz laboratorium ze skonfigurowaną siecią wirtualną bastionu. 
-
-Aby dowiedzieć się, jak wdrożyć hosta bastionu w sieci wirtualnej, zobacz [Tworzenie hosta usługi Azure bastionu](../bastion/bastion-create-host-portal.md). Podczas tworzenia hosta bastionu wybierz sieć wirtualną laboratorium. 
-
-Najpierw należy utworzyć drugą podsieć w sieci wirtualnej bastionu, ponieważ AzureBastionSubnet nie zezwala na tworzenie zasobów innych niż bastionu. 
+- Wdróż hosta bastionu w istniejącej sieci wirtualnej laboratorium **(lub)** Połącz laboratorium ze skonfigurowaną siecią wirtualną bastionu.
+Aby dowiedzieć się, jak wdrożyć hosta bastionu w sieci wirtualnej, zobacz  [Tworzenie hosta usługi Azure bastionu](../bastion/bastion-create-host-portal.md). Podczas tworzenia hosta bastionu wybierz sieć wirtualną laboratorium. 
+- Użytkownik laboratorium musi mieć rolę **czytelnika** na hoście bastionu i sieci wirtualnej, dla której skonfigurowano bastionu. 
 
 ## <a name="create-a-second-sub-net-in-the-bastion-virtual-network"></a>Utwórz drugą podsieć w sieci wirtualnej bastionu
-Nie można tworzyć maszyn wirtualnych laboratorium w podsieci usługi Azure bastionu. Utwórz inną podsieć w sieci wirtualnej bastionu, jak pokazano na poniższej ilustracji:
+Najpierw należy utworzyć drugą podsieć w sieci wirtualnej bastionu, ponieważ AzureBastionSubnet nie zezwala na tworzenie zasobów innych niż bastionu. Utwórz inną podsieć w sieci wirtualnej bastionu, jak pokazano na poniższej ilustracji:
 
 ![Druga podsieć w sieci wirtualnej Azure bastionu](./media/connect-virtual-machine-through-browser/second-subnet.png)
 

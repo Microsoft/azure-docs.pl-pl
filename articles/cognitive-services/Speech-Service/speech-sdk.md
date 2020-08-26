@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 79f7924b021de9426eeb66adf2ec12f8033efcea
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: ad26fe0d869a2e892a419b1732727c3ff1d1e9a2
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056860"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870718"
 ---
 # <a name="about-the-speech-sdk"></a>Informacje o zestawie SDK usługi Mowa
 
@@ -31,17 +31,52 @@ Zestaw Speech SDK uwidacznia wiele funkcji usługi Speech, ale nie wszystkie z n
 
 Funkcja [zamiany mowy na tekst](speech-to-text.md) (znana także jako *rozpoznawanie mowy*) przekształca strumienie audio do tekstu, który mogą być używane przez aplikacje, narzędzia lub urządzenia. Używaj zamiany mowy na tekst za pomocą [Language Understanding (Luis)](../luis/index.yml) , aby uzyskać intencje użytkownika z uzyskanego mowy i korzystać z poleceń głosowych. Użyj [tłumaczenia mowy](speech-translation.md) , aby przetłumaczyć dane wejściowe mowy na inny język przy użyciu jednego wywołania. Aby uzyskać więcej informacji, zobacz podstawowe informacje o [zamiany mowy na tekst](speech-to-text-basics.md).
 
+Funkcja **rozpoznawania mowy (SR), lista fraz, zamierzenia, tłumaczenia i kontenery lokalne** są dostępne na następujących platformach:
+
+  - C++/Windows & Linux & macOS
+  - C# (Framework & .NET Core)/Windows & platformy UWP & Unity & Xamarin & Linux & macOS
+  - Java (JRE i Android)
+  - JavaScript (przeglądarce i NodeJS)
+  - Python
+  - Swift
+  - Objective-C  
+  - Go (tylko SR)
+
 ### <a name="text-to-speech"></a>Zamiana tekstu na mowę
 
 Zamiana [tekstu na mowę](text-to-speech.md) (znana także jako *synteza mowy*) polega na konwertowaniu tekstu na mowę, podobnie jak w przypadku wypowiedzi. Tekst wejściowy to literały ciągu lub użycie [języka SSML (Speech syntezing Language)](speech-synthesis-markup.md). Aby uzyskać więcej informacji o odniesieniu do standardowych lub neuronowych głosów, zobacz [język zamiany tekstu na mowę i obsługę głosu](language-support.md#text-to-speech).
+
+Funkcja **zamiany tekstu na mowę (TTS)** jest dostępna na następujących platformach:
+
+  - C++/Windows & Linux
+  - C#/Windows & platformy UWP & Unity
+  - Java (JRE i Android)
+  - Python
+  - Swift
+  - Objective-C
+  - Interfejs API REST usługi TTS może być używany w każdej innej sytuacji.
 
 ### <a name="voice-assistants"></a>Asystenci głosowi
 
 [Asystentzy głosu](voice-assistants.md) korzystający z zestawu Speech SDK umożliwiają deweloperom tworzenie naturalnych, przypominających konwersacje interfejsów dla swoich aplikacji i środowisk. Usługa asystenta głosowego zapewnia szybką i niezawodną interakcję między urządzeniem i asystentem. Implementacja używa kanału mowy linii Direct line bot Framework lub zintegrowanej usługi poleceń niestandardowych (wersja zapoznawcza) w celu ukończenia zadania. Ponadto Asystenci głosu mogą używać niestandardowych głosów utworzonych w [niestandardowym portalu głosu](https://aka.ms/customvoice) , aby dodać unikatowe środowisko danych wyjściowych.
 
+**Asystenci głosu** są dostępni na następujących platformach:
+
+  - C++/Windows & Linux & macOS
+  - C#/Windows
+  - Java/Windows & Linux & macOS & Android (Speech Devices SDK)
+
 #### <a name="keyword-spotting"></a>Wykrywania trendów słowa kluczowego
 
 Koncepcja [wykrywania trendów słowa kluczowego](speech-devices-sdk-create-kws.md) jest obsługiwana w zestawie mowy SDK. Wykrywania trendów słowa kluczowego to czynność identyfikująca słowo kluczowe w zamiany, a następnie akcję po wysłuchaniu słowa kluczowego. Na przykład "Hey Cortana" spowoduje uaktywnienie asystenta Cortany.
+
+**Słowo kluczowe wykrywania trendów (KWS)** jest dostępne na następujących platformach:
+
+  - C++/Windows & Linux
+  - C#/Windows & Linux
+  - Python/Windows & Linux
+  - Java/Windows & Linux & Android (Speech Devices SDK)
+  - Funkcja wykrywania trendów słowa kluczowego (KWS) może działać z dowolnym typem mikrofonu, oficjalną obsługą KWS, ale jest obecnie ograniczona do tablic mikrofonów znajdujących się na sprzęcie platformy Azure urządzenia Kinect DK lub zestawu Speech Devices SDK
 
 ### <a name="meeting-scenarios"></a>Scenariusze spotkań
 
@@ -51,9 +86,20 @@ Zestaw Speech SDK doskonale nadaje się do scenariuszy spotkań jego przepisywan
 
 [Transkrypcja konwersacji](conversation-transcription.md) umożliwia rozpoznawanie mowy w czasie rzeczywistym (i asynchronicznie), identyfikację głosu i przypisanie zdania do każdego głośnika (znanego również jako *diarization*). Doskonale nadaje się do jego przepisywaniach spotkań osób z możliwością odróżniania głośników.
 
+**Transkrypcja konwersacji** jest dostępna na następujących platformach:
+
+  - C++/Windows & Linux
+  - C# (Framework & .NET Core)/Windows & platformy UWP & Linux
+  - Java/Windows & Linux & Android (Speech Devices SDK)
+
 #### <a name="multi-device-conversation"></a>Konwersacja z obsługą kilku urządzeń
 
 W przypadku [konwersacji z wieloma urządzeniami](multi-device-conversation.md)Połącz wiele urządzeń lub klientów w konwersacji w celu wysyłania komunikatów opartych na mowie lub tekstowych przy użyciu łatwej obsługi transkrypcji i tłumaczenia.
+
+**Konwersacja** z różnymi urządzeniami jest dostępna na następujących platformach:
+
+  - C++/Windows
+  - C# (Framework & .NET Core)/Windows
 
 ### <a name="custom--agent-scenarios"></a>Scenariusze niestandardowe/agenta
 
@@ -63,9 +109,17 @@ Zestaw mowy SDK może być używany do scenariuszy centrum połączeń jego prze
 
 [Transkrypcja centrum rozmów](call-center-transcription.md) jest typowym scenariuszem dla zamiany mowy na tekst dla jego przepisywania dużych ilości danych telefonii, które mogą pochodzić z różnych systemów, takich jak interaktywna Odpowiedź głosowa (IVR). Najnowsze modele rozpoznawania mowy z usługi mowy w programie Excel pod adresem jego przepisywania te dane, nawet w przypadkach, gdy dane są trudne do zrozumienia przez człowieka.
 
+**Transkrypcja centrum połączeń** jest dostępna za pośrednictwem usługi Batch Speech Service za pośrednictwem interfejsu API REST i może być używana w każdej sytuacji.
+
 ### <a name="codec-compressed-audio-input"></a>Koder-dekoder skompresowanego sygnału audio
 
 Kilka języków programowania zestawu mowy SDK obsługuje kodery audio w postaci skompresowanego strumienia danych. Aby uzyskać więcej informacji, zobacz <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">Korzystanie z formatów <span class="docon docon-navigate-external x-hidden-focus"></span> danych wejściowych kompresji dźwiękowej </a>.
+
+**Skompresowane dane wejściowe audio kodera-dekoder** są dostępne na następujących platformach:
+
+  - C++/Linux
+  - /Linux C#
+  - Java/Linux, Android i iOS
 
 ## <a name="rest-api"></a>Interfejs API REST
 

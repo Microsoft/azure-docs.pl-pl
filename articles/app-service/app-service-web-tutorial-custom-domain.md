@@ -5,14 +5,14 @@ keywords: app service, azure app service, mapowanie domeny, nazwa domeny, istnie
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 08/13/2020
+ms.date: 08/25/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 1496f46eb29831dfb858f061ccc00c9e3dbc2e75
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: bbf8eb507e534c938ab98eb6a354e1051592fd8e
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782315"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871058"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Samouczek: mapowanie istniejącej niestandardowej nazwy DNS na Azure App Service
 
@@ -138,38 +138,34 @@ Po dodaniu rekordów CNAME i TXT Strona rekordów DNS wygląda następująco:
 
 #### <a name="enable-the-cname-record-mapping-in-azure"></a>Włączanie mapowania rekordów CNAME na platformie Azure
 
-W lewym obszarze nawigacji na stronie aplikacji w witrynie Azure Portal wybierz pozycję **Domeny niestandardowe**.
+1. W lewym obszarze nawigacji na stronie aplikacji w witrynie Azure Portal wybierz pozycję **Domeny niestandardowe**.
 
-![Menu domen niestandardowych](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![Menu domen niestandardowych](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Na stronie **Domeny niestandardowe** aplikacji dodaj do listy w pełni kwalifikowaną niestandardową nazwę DNS (`www.contoso.com`).
+1. Na stronie **Domeny niestandardowe** aplikacji dodaj do listy w pełni kwalifikowaną niestandardową nazwę DNS (`www.contoso.com`).
 
-Wybierz **+** ikonę obok pozycji **Dodaj domenę niestandardową**.
+1. Wybierz pozycję **Dodaj domenę niestandardową**.
 
-![Dodawanie nazwy hosta](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+    ![Dodawanie nazwy hosta](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Wpisz w pełni kwalifikowaną nazwę domeny, dla której dodano rekord CNAME, na przykład `www.contoso.com`.
+1. Wpisz w pełni kwalifikowaną nazwę domeny, dla której dodano rekord CNAME, na przykład `www.contoso.com`.
 
-Wybierz przycisk **Weryfikuj**.
+1. Wybierz przycisk **Weryfikuj**. Zostanie wyświetlona strona **Dodaj domenę niestandardową** .
 
-Zostanie wyświetlona strona **Dodaj domenę niestandardową** .
+1. Upewnij się, że **Typ rekordu nazwy hosta** ma wartość **CNAME ( \. example.com www lub dowolna poddomena)**. Wybierz pozycję **Dodaj domenę niestandardową**.
 
-Upewnij się, że **Typ rekordu nazwy hosta** ma wartość **CNAME ( \. example.com www lub dowolna poddomena)**.
+    ![Dodawanie nazwy DNS do aplikacji](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-Wybierz pozycję **Dodaj domenę niestandardową**.
+    Może upłynąć trochę czasu, zanim nowa domena niestandardowa zostanie odzwierciedlona na stronie **domeny niestandardowe** aplikacji. Spróbuj odświeżyć przeglądarkę, aby zaktualizować dane.
 
-![Dodawanie nazwy DNS do aplikacji](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+    ![Dodany rekord CNAME](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
-Może upłynąć trochę czasu, zanim nowa domena niestandardowa zostanie odzwierciedlona na stronie **domeny niestandardowe** aplikacji. Spróbuj odświeżyć przeglądarkę, aby zaktualizować dane.
+    > [!NOTE]
+    > Etykieta ostrzeżenia dla domeny niestandardowej oznacza, że nie jest ona jeszcze powiązana z certyfikatem TLS/SSL, a wszystkie żądania HTTPS z przeglądarki do domeny niestandardowej otrzymają komunikat o błędzie i błąd lub ostrzeżenie, w zależności od przeglądarki. Aby dodać powiązanie TLS, zobacz temat [Zabezpieczanie niestandardowej nazwy DNS z powiązaniem TLS/SSL w Azure App Service](configure-ssl-bindings.md).
 
-![Dodany rekord CNAME](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
+    Jeśli pominięto jakiś krok lub popełniono gdzieś błąd w pisowni, w dolnej części strony zostanie wyświetlony komunikat o błędzie weryfikacji.
 
-> [!NOTE]
-> Etykieta **niezabezpieczona** dla domeny niestandardowej oznacza, że nie jest ona jeszcze powiązana z certyfikatem TLS/SSL, a wszystkie żądania HTTPS z przeglądarki do domeny niestandardowej otrzymają komunikat o błędzie lub ostrzeżenie, w zależności od przeglądarki. Aby dodać powiązanie TLS, zobacz temat [Zabezpieczanie niestandardowej nazwy DNS z powiązaniem TLS/SSL w Azure App Service](configure-ssl-bindings.md).
-
-Jeśli pominięto jakiś krok lub popełniono gdzieś błąd w pisowni, w dolnej części strony zostanie wyświetlony komunikat o błędzie weryfikacji.
-
-![Błąd weryfikacji](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
+    ![Błąd weryfikacji](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
 <a name="a" aria-hidden="true"></a>
 
@@ -223,33 +219,29 @@ Po dodaniu tych rekordów strona rekordów DNS wygląda podobnie jak w następuj
 
 Ponownie na stronie **Domeny niestandardowe** aplikacji w witrynie Azure Portal dodaj do listy w pełni kwalifikowaną niestandardową nazwę DNS (na przykład `contoso.com`).
 
-Wybierz **+** ikonę obok pozycji **Dodaj domenę niestandardową**.
+1. Wybierz pozycję **Dodaj domenę niestandardową**.
 
-![Dodawanie nazwy hosta](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+    ![Dodawanie nazwy hosta](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Wpisz w pełni kwalifikowaną nazwę domeny, dla której skonfigurowano rekord A, na przykład `contoso.com`.
+1. Wpisz w pełni kwalifikowaną nazwę domeny, dla której skonfigurowano rekord A, na przykład `contoso.com`. 
 
-Wybierz przycisk **Weryfikuj**.
+1. Wybierz przycisk **Weryfikuj**. Zostanie wyświetlona strona **Dodaj domenę niestandardową** .
 
-Zostanie wyświetlona strona **Dodaj domenę niestandardową** .
+1. Upewnij się, że opcja **Typ rekordu nazwy hosta** jest ustawiona na wartość **Rekord A (example.com)**. Wybierz pozycję **Dodaj domenę niestandardową**.
 
-Upewnij się, że opcja **Typ rekordu nazwy hosta** jest ustawiona na wartość **Rekord A (example.com)**.
+    ![Dodawanie nazwy DNS do aplikacji](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
 
-Wybierz pozycję **Dodaj domenę niestandardową**.
+    Może upłynąć trochę czasu, zanim nowa domena niestandardowa zostanie odzwierciedlona na stronie **domeny niestandardowe** aplikacji. Spróbuj odświeżyć przeglądarkę, aby zaktualizować dane.
 
-![Dodawanie nazwy DNS do aplikacji](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
+    ![Dodany rekord A](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
-Może upłynąć trochę czasu, zanim nowa domena niestandardowa zostanie odzwierciedlona na stronie **domeny niestandardowe** aplikacji. Spróbuj odświeżyć przeglądarkę, aby zaktualizować dane.
-
-![Dodany rekord A](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
-
-> [!NOTE]
-> Etykieta **niezabezpieczona** dla domeny niestandardowej oznacza, że nie jest ona jeszcze powiązana z certyfikatem TLS/SSL, a wszystkie żądania HTTPS z przeglądarki do domeny niestandardowej otrzymają komunikat o błędzie lub ostrzeżenie, w zależności od przeglądarki. Aby dodać powiązanie TLS, zobacz temat [Zabezpieczanie niestandardowej nazwy DNS z powiązaniem TLS/SSL w Azure App Service](configure-ssl-bindings.md).
-
-Jeśli pominięto jakiś krok lub popełniono gdzieś błąd w pisowni, w dolnej części strony zostanie wyświetlony komunikat o błędzie weryfikacji.
-
-![Błąd weryfikacji](./media/app-service-web-tutorial-custom-domain/verification-error.png)
-
+    > [!NOTE]
+    > Etykieta ostrzeżenia dla domeny niestandardowej oznacza, że nie jest ona jeszcze powiązana z certyfikatem TLS/SSL, a wszystkie żądania HTTPS z przeglądarki do domeny niestandardowej otrzymają komunikat o błędzie i błąd lub ostrzeżenie, w zależności od przeglądarki. Aby dodać powiązanie TLS, zobacz temat [Zabezpieczanie niestandardowej nazwy DNS z powiązaniem TLS/SSL w Azure App Service](configure-ssl-bindings.md).
+    
+    Jeśli pominięto jakiś krok lub popełniono gdzieś błąd w pisowni, w dolnej części strony zostanie wyświetlony komunikat o błędzie weryfikacji.
+    
+    ![Błąd weryfikacji](./media/app-service-web-tutorial-custom-domain/verification-error.png)
+    
 <a name="wildcard" aria-hidden="true"></a>
 
 ### <a name="map-a-wildcard-domain"></a>Mapowanie domeny z symbolami wieloznacznymi
@@ -279,33 +271,31 @@ Po dodaniu tego rekordu CNAME strona rekordów DNS wygląda podobnie jak w nast�
 
 Teraz możesz dodać dowolną poddomenę zgodną z nazwą symbolu wieloznacznego w aplikacji (na przykład, `sub1.contoso.com` `sub2.contoso.com` i `*.contoso.com` oba te dopasowania `*.contoso.com` ).
 
-W lewym obszarze nawigacji na stronie aplikacji w witrynie Azure Portal wybierz pozycję **Domeny niestandardowe**.
+1. W lewym obszarze nawigacji na stronie aplikacji w witrynie Azure Portal wybierz pozycję **Domeny niestandardowe**.
 
-![Menu domen niestandardowych](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![Menu domen niestandardowych](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Wybierz **+** ikonę obok pozycji **Dodaj domenę niestandardową**.
+1. Wybierz pozycję **Dodaj domenę niestandardową**.
 
-![Dodawanie nazwy hosta](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+    ![Dodawanie nazwy hosta](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Wpisz w pełni kwalifikowany nazwę domeny, która pasuje do domeny z symbolami wieloznacznymi (na przykład `sub1.contoso.com`), a następnie wybierz przycisk **Weryfikuj**.
+1. Wpisz w pełni kwalifikowany nazwę domeny, która pasuje do domeny z symbolami wieloznacznymi (na przykład `sub1.contoso.com`), a następnie wybierz przycisk **Weryfikuj**.
 
-Przycisk **Dodaj domenę niestandardową** jest aktywowany.
+    Przycisk **Dodaj domenę niestandardową** jest aktywowany.
 
-Upewnij się, że **Typ rekordu nazwy hosta** jest ustawiony na **rekord CNAME ( \. example.com www lub dowolna poddomena)**.
+1. Upewnij się, że **Typ rekordu nazwy hosta** jest ustawiony na **rekord CNAME ( \. example.com www lub dowolna poddomena)**. Wybierz pozycję **Dodaj domenę niestandardową**.
 
-Wybierz pozycję **Dodaj domenę niestandardową**.
+    ![Dodawanie nazwy DNS do aplikacji](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
 
-![Dodawanie nazwy DNS do aplikacji](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
+    Może upłynąć trochę czasu, zanim nowa domena niestandardowa zostanie odzwierciedlona na stronie **domeny niestandardowe** aplikacji. Spróbuj odświeżyć przeglądarkę, aby zaktualizować dane.
 
-Może upłynąć trochę czasu, zanim nowa domena niestandardowa zostanie odzwierciedlona na stronie **domeny niestandardowe** aplikacji. Spróbuj odświeżyć przeglądarkę, aby zaktualizować dane.
+1. Wybierz **+** ponownie ikonę, aby dodać kolejną domenę niestandardową, która pasuje do domeny z symbolami wieloznacznymi. Na przykład dodaj `sub2.contoso.com`.
 
-Wybierz **+** ponownie ikonę, aby dodać kolejną domenę niestandardową, która pasuje do domeny z symbolami wieloznacznymi. Na przykład dodaj `sub2.contoso.com`.
+    ![Dodany rekord CNAME](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard-2.png)
 
-![Dodany rekord CNAME](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
-
-> [!NOTE]
-> **Uwaga bezpieczna** etykieta dla domeny niestandardowej oznacza, że nie jest ona jeszcze powiązana z certyfikatem TLS/SSL, a wszystkie żądania HTTPS z przeglądarki do domeny niestandardowej będą odbierane oraz błędne lub ostrzegawcze w zależności od przeglądarki. Aby dodać powiązanie TLS, zobacz temat [Zabezpieczanie niestandardowej nazwy DNS z powiązaniem TLS/SSL w Azure App Service](configure-ssl-bindings.md).
-
+    > [!NOTE]
+    > Etykieta ostrzeżenia dla domeny niestandardowej oznacza, że nie jest ona jeszcze powiązana z certyfikatem TLS/SSL, a wszystkie żądania HTTPS z przeglądarki do domeny niestandardowej otrzymają komunikat o błędzie i błąd lub ostrzeżenie, w zależności od przeglądarki. Aby dodać powiązanie TLS, zobacz temat [Zabezpieczanie niestandardowej nazwy DNS z powiązaniem TLS/SSL w Azure App Service](configure-ssl-bindings.md).
+    
 ## <a name="test-in-browser"></a>Testowanie w przeglądarce
 
 Przejdź do nazw DNS, które zostały wcześniej skonfigurowane (na przykład `contoso.com`, `www.contoso.com`, `sub1.contoso.com` lub `sub2.contoso.com`).

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 50c6d3ff6e1e8b979b3544c423a15ae8e1e42f6f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: dba43c9e9b214a1ad077a2a15bdf014e057bb04e
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592155"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869885"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Obsługa języka naturalnego na platformie Azure Cognitive Services
 
@@ -28,19 +28,19 @@ Te Cognitive Services są w języku niezależny od i nie mają ograniczeń opart
 * [Rozpoznawanie twarzy](./face/index.yml)
 * [Personalizacja](./personalizer/index.yml)
 
-## <a name="vision"></a>Wizja
+## <a name="vision"></a>Obraz
 
-* [Przetwarzanie obrazów](./computer-vision/language-support.md)
+* [przetwarzanie obrazów](./computer-vision/language-support.md)
 * [Rozpoznawanie formularzy (wersja zapoznawcza)](./form-recognizer/language-support.md)
 * [Rozpoznawanie pisma odręcznego (wersja zapoznawcza)](./ink-recognizer/language-support.md)
 * [Indeksator wideo](https://docs.microsoft.com/azure/media-services/video-indexer/language-identification-model#guidelines-and-limitations)
 
 ## <a name="language"></a>Język
 
-* [Czytnik immersyjny (wersja zapoznawcza)](./immersive-reader/language-support.md)
+* [Czytnik immersyjny](./immersive-reader/language-support.md)
 * [Language Understanding (LUIS)](./luis/luis-supported-languages.md)
 * [QnA Maker](./qnamaker/overview/languages-supported.md)
-* [Analiza tekstu](./text-analytics/text-analytics-supported-languages.md)
+* [analiza tekstu](./text-analytics/text-analytics-supported-languages.md)
 * [Translator](./translator/languages.md)
 
 ## <a name="speech"></a>Mowa
@@ -52,8 +52,8 @@ Te Cognitive Services są w języku niezależny od i nie mają ograniczeń opart
 ## <a name="search"></a>Wyszukaj
 
 * [Wyszukiwanie niestandardowe Bing](./bing-custom-search/supported-countries-markets.md)
-* [Wyszukiwanie obrazów Bing](./bing-image-search/supported-countries-markets.md)
-* [Wyszukiwanie wiadomości Bing](./bing-news-search/supported-countries-markets.md)
+* [Wyszukiwanie obrazów w usłudze Bing](./bing-image-search/supported-countries-markets.md)
+* [Wyszukiwanie wiadomości (Bing)](./bing-news-search/supported-countries-markets.md)
 * [Automatyczne sugerowanie Bing](./Bing-Autosuggest/bing-autosuggest-supported-languages.md)
 * [Sprawdzanie pisowni Bing](./bing-spell-check/bing-spell-check-supported-languages.md)
 * [Wyszukiwanie wizualne Bing](./bing-visual-search/supported-countries-markets.md)
@@ -63,7 +63,7 @@ Te Cognitive Services są w języku niezależny od i nie mają ograniczeń opart
 
 * [Content Moderator](./content-moderator/text-moderation-api-languages.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Co to jest Cognitive Services?](welcome.md)
 * [Tworzenie konta](cognitive-services-apis-create-account.md)

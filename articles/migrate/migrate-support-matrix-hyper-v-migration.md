@@ -3,12 +3,12 @@ title: Obsługa migracji funkcji Hyper-V w Azure Migrate
 description: Dowiedz się więcej o obsłudze migracji funkcji Hyper-V za pomocą Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 1ea7d139b3d3cc8c14e43ccfb7c233fcbe4c564c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5af2c296147bb972d121183a7d552157b4b824c7
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122068"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871500"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Macierz obsługi dla migracji funkcji Hyper-V
 
@@ -25,7 +25,7 @@ Można wybrać maksymalnie 10 maszyn wirtualnych na potrzeby replikacji. Jeśli 
 | :-------------------       | :------------------- |
 | **Wdrożenie**       | Host funkcji Hyper-V może być autonomiczny lub wdrożony w klastrze. <br/>Na hostach funkcji Hyper-V jest zainstalowane oprogramowanie do replikacji Azure Migrate (dostawca replikacji funkcji Hyper-V).|
 | **Uprawnienia**           | Wymagane są uprawnienia administratora na hoście funkcji Hyper-V. |
-| **System operacyjny hosta** | Windows Server 2019, Windows Server 2016 lub Windows Server 2012 R2. |
+| **System operacyjny hosta** | Windows Server 2019, Windows Server 2016 lub Windows Server 2012 R2 z najnowszymi aktualizacjami. Należy zauważyć, że jest również obsługiwana instalacja Server Core tych systemów operacyjnych. |
 | **Dostęp do portu** |  Połączenia wychodzące na porcie HTTPS 443 do wysyłania danych replikacji maszyny wirtualnej.
 
 
@@ -38,7 +38,7 @@ Można wybrać maksymalnie 10 maszyn wirtualnych na potrzeby replikacji. Jeśli 
 **Maszyny wirtualne z systemem Linux na platformie Azure** | Niektóre maszyny wirtualne mogą wymagać zmian, aby mogły być uruchamiane na platformie Azure.<br/><br/> W przypadku systemu Linux Azure Migrate automatycznie wprowadza zmiany w następujących systemach operacyjnych:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8. W przypadku innych systemów operacyjnych należy ręcznie wprowadzić [wymagane zmiany](prepare-for-migration.md#linux-machines) .
 | **Wymagane zmiany dotyczące platformy Azure** | Niektóre maszyny wirtualne mogą wymagać zmian, aby mogły być uruchamiane na platformie Azure. Ręcznie wprowadź korekty przed migracją. Odpowiednie artykuły zawierają instrukcje, jak to zrobić. |
 | **Rozruch systemu Linux**                 | Jeśli/Boot znajduje się na dedykowanej partycji, powinien znajdować się na dysku systemu operacyjnego i nie można go rozłożyć na wiele dysków.<br/> Jeśli/boot jest częścią partycji głównej (/), partycja "/" powinna znajdować się na dysku systemu operacyjnego i nie może obejmować innych dysków. |
-| **Rozruch z interfejsem UEFI**                  | Migrowana maszyna wirtualna na platformie Azure zostanie automatycznie przekonwertowana na maszynę wirtualną rozruchową w systemie BIOS. Na maszynie wirtualnej powinien działać system Windows Server 2012 lub nowszy. Dysk systemu operacyjnego powinien mieć maksymalnie pięć partycji lub mniej, a rozmiar dysku systemu operacyjnego musi być mniejszy niż 300 GB.|
+| **Rozruch z interfejsem UEFI**                  | Obsługiwane. Upewnij się, że wybrano rozmiar maszyny wirtualnej obsługiwaną przez maszynę wirtualną generacji 2 platformy Azure  |
 | **Rozmiar dysku**                  | 2 TB dla dysku systemu operacyjnego, 4 TB dla dysków z danymi.|
 | **Numer dysku** | Maksymalnie 16 dysków na maszynę wirtualną.|
 | **Zaszyfrowane dyski/woluminy**    | Migracja nie jest obsługiwana.|
@@ -50,7 +50,7 @@ Można wybrać maksymalnie 10 maszyn wirtualnych na potrzeby replikacji. Jeśli 
 | **Protokół IPv6** | Nieobsługiwane.|
 | **Tworzenie zespołu kart interfejsu sieciowego** | Nieobsługiwane.|
 | **Azure Site Recovery** | Nie można przeprowadzić replikacji przy użyciu migracji serwera Azure Migrate, jeśli maszyna wirtualna ma włączoną replikację z Azure Site Recovery.|
-| **Np** | Połączenia wychodzące na porcie HTTPS 443 do wysyłania danych replikacji maszyny wirtualnej.|
+| **Porty** | Połączenia wychodzące na porcie HTTPS 443 do wysyłania danych replikacji maszyny wirtualnej.|
 
 ### <a name="url-access-public-cloud"></a>Dostęp do adresów URL (chmura publiczna)
 

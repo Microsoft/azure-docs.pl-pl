@@ -12,16 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 08/25/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25c43281ac213137d4a2ef39e76b3f13ffdad746
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.custom: contperfq1
+ms.openlocfilehash: dbcd8ab2f2825e18943436dcc1a9ca4ff38e2d8d
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783896"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871211"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Co to jest zarządzanie upoważnieniami w usłudze Azure AD?
 
@@ -38,7 +39,7 @@ Organizacje korporacyjne często napotykają problemy związane z zarządzaniem 
 - Użytkownicy mogą nie wiedzieć, jaki ma dostęp, a nawet jeśli tak, mogą mieć problemy z lokalizowaniem właściwych osób w celu zatwierdzenia dostępu
 - Gdy użytkownicy znajdą i uzyskają dostęp do zasobu, mogą uzyskać dostęp do niego dłużej niż jest to wymagane do celów służbowych
 
-Te problemy są złożone dla użytkowników, którzy potrzebują dostępu z innej organizacji, takich jak użytkownicy zewnętrzni z organizacji łańcucha dostaw lub innych partnerów firmy. Na przykład:
+Te problemy są złożone dla użytkowników, którzy potrzebują dostępu z innej organizacji, takich jak użytkownicy zewnętrzni z organizacji łańcucha dostaw lub innych partnerów firmy. Przykład:
 
 - Żadna osoba nie może znać wszystkich konkretnych osób w katalogach innych organizacji, aby móc je zapraszać
 - Nawet jeśli udało Ci się zaprosić tych użytkowników, nikt w tej organizacji nie może pamiętać o konieczności spójnego zarządzania wszystkimi dostępem użytkowników
@@ -54,7 +55,10 @@ Poniżej przedstawiono niektóre możliwości zarządzania uprawnieniami:
 - Delegowanie do innych niż administratorów możliwości tworzenia pakietów dostępu. Te pakiety dostępu zawierają zasoby, których użytkownicy mogą żądać, a menedżerowie pakietów dostępu delegowanego mogą definiować zasady z regułami, dla których użytkownicy mogą zażądać, którzy muszą zatwierdzić dostęp, a po wygaśnięciu dostępu.
 - Wybierz połączone organizacje, których użytkownicy mogą żądać dostępu.  Gdy użytkownik, który nie znajduje się jeszcze w katalogu, zażąda dostępu i jest zatwierdzony, zostaje automatycznie zaproszony do katalogu i przypisany dostęp.  Po wygaśnięciu ich dostępu, jeśli nie mają żadnych innych przypisań pakietów dostępu, konto B2B w katalogu można automatycznie usunąć.
 
-Możesz rozpocząć pracę z naszym [samouczkiem, aby utworzyć pierwszy pakiet dostępu](entitlement-management-access-package-first.md). Możesz również zapoznać się z [typowymi scenariuszami](entitlement-management-scenarios.md)lub obejrzeć wideo, w tym
+>[!NOTE]
+>Jeśli jesteś gotowy do wypróbowania zarządzania prawami, możesz rozpocząć pracę z naszym [samouczkiem, aby utworzyć pierwszy pakiet dostępu](entitlement-management-access-package-first.md).
+
+Możesz również zapoznać się z [typowymi scenariuszami](entitlement-management-scenarios.md)lub obejrzeć wideo, w tym
 
 - [Jak wdrożyć Zarządzanie prawami w usłudze Azure AD w organizacji](https://www.youtube.com/watch?v=zaaKvaaYwI4)
 - [Jak monitorować i skalować korzystanie z funkcji zarządzania prawami usługi Azure AD](https://www.youtube.com/watch?v=omtNJ7ySjS0)
@@ -71,7 +75,7 @@ Zarządzanie prawami wprowadza do usługi Azure AD pojęcie *pakietu dostępu*. 
 - Przypisywanie do aplikacji usługi Azure AD Enterprise, w tym aplikacji SaaS i aplikacji zintegrowanych niestandardowo obsługujących Federacji/Logowanie jednokrotne i/lub obsługę administracyjną
 - Członkostwo w witrynach usługi SharePoint Online
 
-Można również kontrolować dostęp do innych zasobów, które są zależne od grup zabezpieczeń usługi Azure AD lub grup Microsoft 365.  Na przykład:
+Można również kontrolować dostęp do innych zasobów, które są zależne od grup zabezpieczeń usługi Azure AD lub grup Microsoft 365.  Przykład:
 
 - Można udzielić użytkownikom licencji na Microsoft 365 za pomocą grupy zabezpieczeń usługi Azure AD w pakiecie dostępu i konfigurowania [licencjonowania opartego na grupach](../users-groups-roles/licensing-groups-assign.md) dla tej grupy.
 - Można udzielić użytkownikom dostępu do zarządzania zasobami platformy Azure za pomocą grupy zabezpieczeń usługi Azure AD w pakiecie dostępu i tworzenia [przypisania roli platformy Azure](../../role-based-access-control/role-assignments-portal.md) dla tej grupy
@@ -99,16 +103,16 @@ Na poniższym diagramie przedstawiono przykład różnych elementów w usłudze 
 
 ## <a name="when-should-i-use-access-packages"></a>Kiedy należy używać pakietów dostępu?
 
-Pakiety dostępu nie zastępują innych mechanizmów do przypisywania dostępu.  Są one najbardziej odpowiednie w sytuacjach, takich jak następujące:
+Pakiety dostępu nie zastępują innych mechanizmów do przypisywania dostępu.  Są one najbardziej odpowiednie w sytuacjach, takich jak:
 
 - Pracownicy potrzebują ograniczonego czasu dostępu do określonego zadania.  Na przykład można użyć licencjonowania opartego na grupach i grupy dynamicznej, aby upewnić się, że wszyscy pracownicy mają skrzynkę pocztową usługi Exchange Online, a następnie używają pakietów dostępu dla sytuacji, w których pracownicy potrzebują dodatkowego dostępu, na przykład w celu odczytu zasobów działu z innego działu.
-- Dostęp musi zostać zatwierdzony przez Menedżera pracownika lub innych wyznaczeniów osób.
+- Dostęp, który wymaga zatwierdzenia kierownika pracownika lub innych wyznaczeniów osób.
 - Działy chcą zarządzać własnymi zasadami dostępu dla swoich zasobów bez udziału IT.  
 - Co najmniej dwie organizacje współpracują nad projektem i w związku z tym wiele użytkowników z jednej organizacji będzie musiała zostać przeprowadzona za pośrednictwem usługi Azure AD B2B w celu uzyskania dostępu do zasobów innej organizacji.
 
 ## <a name="how-do-i-delegate-access"></a>Jak mogę delegować dostęp?
 
- Pakiety dostępu są definiowane w kontenerach o nazwie *wykazów*.  Istnieje jeden wykaz dla wszystkich pakietów dostępu lub można wyznaczyć poszczególne osoby do tworzenia i posiadania własnych katalogów. Administrator może dodać zasoby do dowolnego wykazu, ale nie administrator może dodać go tylko do katalogu, do którego należą zasoby. Właściciel wykazu może dodawać innych użytkowników jako współwłaścicieli katalogu lub jako menedżerów pakietów dostępu.  Te scenariusze są opisane w temacie [delegowanie i role w temacie Zarządzanie prawami usługi Azure AD](entitlement-management-delegate.md).
+ Pakiety dostępu są definiowane w kontenerach o nazwie *wykazów*.  Istnieje jeden wykaz dla wszystkich pakietów dostępu lub można wyznaczyć poszczególne osoby do tworzenia i posiadania własnych katalogów. Administrator może dodać zasoby do dowolnego wykazu, ale nie administrator może dodać go tylko do wykazu należących do nich zasobów. Właściciel wykazu może dodawać innych użytkowników jako współwłaścicieli katalogu lub jako menedżerów pakietów dostępu.  Te scenariusze są opisane w temacie [delegowanie i role w temacie Zarządzanie prawami usługi Azure AD](entitlement-management-delegate.md).
 
 ## <a name="summary-of-terminology"></a>Podsumowanie terminologii
 
@@ -149,7 +153,7 @@ Licencje na Azure AD — wersja Premium P2 **nie** są wymagane dla następując
 - Nie są wymagane żadne licencje dla użytkowników, którzy zostali delegowane zadania administracyjne, takie jak twórca katalogu, właściciel katalogu i Menedżer pakietów dostępu.
 - Dla Gości, którzy **mogą** żądać pakietów dostępu, nie są wymagane żadne licencje, ale **nie** żądają pakietu dostępu.
 
-Dla każdej płatnej licencji na Azure AD — wersja Premium P2, która została zakupiona dla użytkowników należących do członków (pracowników), możesz użyć usługi Azure AD B2B, aby zaprosić do 5 użytkowników-Gości. Ci użytkownicy-Goście mogą również korzystać z funkcji Azure AD — wersja Premium P2. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące licencjonowania współpracy B2B usługi Azure AD](../external-identities/licensing-guidance.md).
+Dla każdej płatnej licencji na Azure AD — wersja Premium P2, która została zakupiona dla użytkowników należących do członków (pracowników), możesz użyć usługi Azure AD B2B, aby zaprosić do pięciu użytkowników-Gości. Ci użytkownicy-Goście mogą również korzystać z funkcji Azure AD — wersja Premium P2. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące licencjonowania współpracy B2B usługi Azure AD](../external-identities/licensing-guidance.md).
 
 Aby uzyskać więcej informacji na temat licencji, zobacz [przypisywanie lub usuwanie licencji przy użyciu portalu Azure Active Directory](../fundamentals/license-users-groups.md).
 

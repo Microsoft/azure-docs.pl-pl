@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/20/2020
-ms.openlocfilehash: 6880706300597e925267dae1230a87d17cd5c028
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5dd061309447dd6037d2dd664e7c5db2c7df38cc
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688355"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870208"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Uaktualnianie do platformy Azure Wyszukiwanie poznawcze .NET SDK wersja 11
 
@@ -153,6 +153,8 @@ Poniższe kroki ułatwiają rozpoczęcie migracji kodu przez przechodzenie przez
    using Azure.Search.Documents.Indexes.Models;
    using Azure.Search.Documents.Models;
    ```
+
+1. Dla klas, które wymagają serializacji JSON, Zamień `using Newtonsoft.Json` na `using System.Text.Json.Serialization` .
 
 1. Popraw kod uwierzytelniania klienta. W poprzednich wersjach można użyć właściwości obiektu klienta, aby ustawić klucz interfejsu API (na przykład właściwość [SearchServiceClient. Credentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) ). W bieżącej wersji Użyj klasy [AzureKeyCredential](https://docs.microsoft.com/dotnet/api/azure.azurekeycredential) , aby przekazać klucz jako poświadczenia, tak aby w razie potrzeby można było zaktualizować klucz interfejsu API bez tworzenia nowych obiektów klienta.
 

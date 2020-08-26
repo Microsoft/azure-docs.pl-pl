@@ -155,7 +155,7 @@
           href: search-howto-large-index.md
         - name: Obsługa równoczesnych aktualizacji
           href: search-howto-concurrency.md
-    - name: Pozyskiwanie danych platformy Azure
+    - name: Pozyskiwanie danych tylko platformy Azure
       items:
         - name: Konfiguruj indeksatory
           href: search-indexer-overview.md
@@ -203,7 +203,7 @@
               href: search-howto-managed-identities-cosmos-db.md
             - name: Baza danych SQL
               href: search-howto-managed-identities-sql.md
-    - name: Pozyskiwanie przy użyciu AI
+    - name: Korzystanie z umiejętności (AI)
       items:
         - name: Dołączanie zasobu usługi Cognitive Services
           href: cognitive-search-attach-cognitive-services.md
@@ -215,7 +215,7 @@
               href: cognitive-search-concept-annotations-syntax.md
             - name: Tworzenie mapowania na pola indeksu
               href: cognitive-search-output-field-mapping.md
-            - name: Wyodrębnianie informacji z obrazów
+            - name: Przetwarzanie plików obrazów
               href: cognitive-search-concept-image-scenarios.md
             - name: Wzbogacanie pamięci podręcznej (przyrostowe)
               href: search-howto-incremental-index.md

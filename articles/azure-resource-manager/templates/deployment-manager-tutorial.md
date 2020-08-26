@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 43291bdaa277c06262be2d7bb5ba8d3f61ff35ea
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: d7d0979a52b4762ec4cc2fa82f507e8ce2b083c9
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86056892"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870667"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Samouczek: używanie usługi Azure Deployment Manager z szablonami usługi Resource Manager (publiczna wersja zapoznawcza)
 
@@ -36,7 +36,7 @@ Ten samouczek obejmuje następujące zadania:
 > * Wdrażanie szablonów
 > * Weryfikowanie wdrożenia
 > * Wdrażanie nowszej wersji
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 Dodatkowe zasoby:
 
@@ -61,7 +61,7 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
 ## <a name="understand-the-scenario"></a>Omówienie scenariusza
 
-Szablon topologii usługi opisuje zasoby platformy Azure składające się na usługę oraz miejsce ich wdrożenia. Definicja topologii usługi ma następującą hierarchię:
+Szablon topologii usług zawiera opis zasobów platformy Azure, które składają się na usługę i gdzie należy je wdrożyć. Definicja topologii usługi ma następującą hierarchię:
 
 * Topologia usługi
   * Usługi
@@ -440,7 +440,7 @@ Jeśli masz nową wersję (1.0.0.1) aplikacji internetowej. Możesz użyć poni�
 3. Ponownie wdróż wprowadzanie zgodnie z instrukcjami w sekcji [Wdrażanie szablonów](#deploy-the-rollout-template).
 4. Sprawdź wdrożenie zgodnie z instrukcjami w sekcji [Weryfikowanie wdrożenia](#verify-the-deployment). Strona internetowa powinna teraz wyświetlać wersję 1.0.0.1.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

@@ -509,6 +509,8 @@
       href: monitor-resource-reference.md
     - name: Dokumentacja języka YAML potoku uczenia maszynowego
       href: reference-pipeline-yaml.md
+    - name: Równoważność suwerennej chmury
+      href: reference-machine-learning-cloud-parity.md
 - name: Zasoby
   items:
     - name: Informacje o wersji

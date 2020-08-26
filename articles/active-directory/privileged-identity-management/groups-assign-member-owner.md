@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2020
+ms.date: 08/18/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1dcc98366e37455f462fe1a0740aa161201912f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 06e61bb966313265f7e3772dbbf6017a03a42386
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87506227"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869663"
 ---
 # <a name="assign-eligibility-for-a-privileged-access-group-preview-in-privileged-identity-management"></a>Przypisywanie uprawnień do uprzywilejowanej grupy dostępu (wersja zapoznawcza) w Privileged Identity Management
 
@@ -33,19 +33,14 @@ Usługa Azure Active Directory (Azure AD) Privileged Identity Management (PIM) m
 
 Wykonaj następujące kroki, aby użytkownik mógł być członkiem lub właścicielem grupy uprzywilejowanych dostępu.
 
-1. Zaloguj się do [Privileged Identity Management](https://portal.azure.com/) w Azure Portal z uprawnieniami roli [administrator ról uprzywilejowanych](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. [Zaloguj się do usługi Azure AD](https://aad.portal.azure.com) za pomocą uprawnień administratora globalnego lub właściciela grupy.
+1. Wybierz pozycję **grupy** , a następnie wybierz grupę, do której chcesz zarządzać. Można wyszukiwać lub filtrować listę.
 
-    Aby uzyskać informacje na temat udzielania innym administratorom dostępu do zarządzania Privileged Identity Management, zobacz [udzielanie dostępu innym administratorom w celu zarządzania Privileged Identity Management](pim-how-to-give-access-to-pim.md).
+    ![Znajdowanie grupy przypisanej do roli do zarządzania w usłudze PIM](./media/groups-assign-member-owner/groups-list-in-azure-ad.png)
 
-1. Otwórz **Azure AD Privileged Identity Management**.
+1. Otwórz grupę i wybierz pozycję **dostęp uprzywilejowany (wersja zapoznawcza)**.
 
-1. Wybierz pozycję **dostęp uprzywilejowany (wersja zapoznawcza)**.
-
-1. Możesz wyszukać nazwę grupy i użyć **typu grupy** do filtrowania listy, aby wybrać grupę, którą chcesz zarządzać.
-
-    ![Lista uprzywilejowanych grup dostępu do zarządzania](./media/groups-assign-member-owner/privileged-access-list.png)
-
-1. W obszarze **Zarządzaj**wybierz pozycję **przypisania**.
+    ![Otwórz środowisko Privileged Identity Management](./media/groups-assign-member-owner/groups-discover-groups.png)
 
 1. Wybierz pozycję **Dodaj przypisania**.
 
@@ -77,21 +72,20 @@ Wykonaj następujące kroki, aby użytkownik mógł być członkiem lub właści
 
 Wykonaj następujące kroki, aby zaktualizować lub usunąć istniejące przypisanie roli.
 
-1. Otwórz **Azure AD Privileged Identity Management**.
+1. [Zaloguj się do usługi Azure AD](https://aad.portal.azure.com) za pomocą uprawnień administratora globalnego lub właściciela grupy.
+1. Wybierz pozycję **grupy** , a następnie wybierz grupę, do której chcesz zarządzać. Można wyszukiwać lub filtrować listę.
 
-1. Wybierz pozycję **dostęp uprzywilejowany (wersja zapoznawcza)**.
+    ![Znajdowanie grupy przypisanej do roli do zarządzania w usłudze PIM](./media/groups-assign-member-owner/groups-list-in-azure-ad.png)
 
-1. Możesz wyszukać nazwę grupy i użyć **typu grupy** do filtrowania listy, aby wybrać grupę, którą chcesz zarządzać.
+1. Otwórz grupę i wybierz pozycję **dostęp uprzywilejowany (wersja zapoznawcza)**.
 
-    ![Lista uprzywilejowanych grup dostępu do zarządzania](./media/groups-assign-member-owner/privileged-access-list.png)
-
-1. W obszarze **Zarządzaj**wybierz pozycję **przypisania**.
+    ![Otwórz środowisko Privileged Identity Management](./media/groups-assign-member-owner/groups-discover-groups.png)
 
 1. Wybierz rolę, którą chcesz zaktualizować lub usunąć.
 
 1. Znajdź przypisanie roli na kartach **kwalifikujące się role** lub **role aktywne** .
 
-    ![Aktualizowanie lub usuwanie przypisania roli](./media/groups-assign-member-owner/groups-add-assignment.png)
+    ![Aktualizowanie lub usuwanie przypisania roli](./media/groups-assign-member-owner/groups-bring-under-management.png)
 
 1. Wybierz pozycję **Aktualizuj** lub **Usuń** , aby zaktualizować lub usunąć przypisanie roli.
 

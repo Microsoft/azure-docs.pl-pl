@@ -4,12 +4,12 @@ description: Scenariusze, zasoby i ograniczenia dotyczące wdrażania grup konte
 ms.topic: article
 ms.date: 08/11/2020
 ms.author: danlep
-ms.openlocfilehash: d904f1333ddf4b22bfca2546bd064b1ae8f299dd
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 0474a5f85829080a89a74195483484c464de5840
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797868"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870769"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Scenariusze i zasoby sieci wirtualnej
 
@@ -80,6 +80,7 @@ Na poniższym diagramie kilka grup kontenerów zostało wdrożonych w podsieci d
 * Przykłady wdrożenia z interfejsem wiersza polecenia platformy Azure można znaleźć [w temacie Deploying instance Containers to the Azure Virtual Network](container-instances-vnet.md).
 * Aby wdrożyć nową sieć wirtualną, podsieć, profil sieci i grupę kontenerów przy użyciu szablonu Menedżer zasobów, zobacz [Tworzenie grupy kontenerów platformy Azure przy](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
 )użyciu sieci wirtualnej.
+* Podczas tworzenia wystąpienia kontenera przy użyciu [Azure Portal](container-instances-quickstart-portal.md) można także podać ustawienia dla nowej lub exsting sieci wirtualnej na karcie **Sieć** .
 
 
 <!-- IMAGES -->

@@ -3,12 +3,12 @@ title: Prywatne punkty końcowe
 description: Zapoznaj się z procesem tworzenia prywatnych punktów końcowych dla Azure Backup i scenariuszy, w których używanie prywatnych punktów końcowych pomaga zachować bezpieczeństwo zasobów.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 5c2c994b48fb2b950afb67f5c8b6d3c4f7d01e39
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: b7f7c6461701b6f4e438cbead60456b327c7c207
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826654"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871551"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Prywatne punkty końcowe dla Azure Backup
 
@@ -21,7 +21,7 @@ Ten artykuł pomoże Ci zrozumieć proces tworzenia prywatnych punktów końcowy
 - Prywatne punkty końcowe można utworzyć tylko dla nowych magazynów Recovery Services (nie ma żadnych elementów zarejestrowanych w magazynie). Należy utworzyć prywatne punkty końcowe przed podjęciem próby ochrony wszystkich elementów w magazynie.
 - Jedna sieć wirtualna może zawierać prywatne punkty końcowe dla wielu magazynów Recovery Services. Ponadto jeden magazyn Recovery Services może mieć prywatne punkty końcowe dla niego w wielu sieciach wirtualnych. Jednak Maksymalna liczba prywatnych punktów końcowych, które można utworzyć dla magazynu, wynosi 12.
 - Po utworzeniu prywatnego punktu końcowego dla magazynu magazyn zostanie zablokowany. Nie będzie on dostępny (w przypadku tworzenia kopii zapasowych i przywracania) z sieci poza tymi, które zawierają prywatny punkt końcowy dla magazynu. Jeśli wszystkie prywatne punkty końcowe dla magazynu zostaną usunięte, magazyn będzie dostępny ze wszystkich sieci.
-- Połączenie prywatnego punktu końcowego dla kopii zapasowej używa łącznie 11 prywatnych adresów IP w podsieci. Ta liczba może być większa (do 25) w przypadku niektórych regionów świadczenia usługi Azure. Zalecamy, aby przy próbie utworzenia prywatnych punktów końcowych dla kopii zapasowej była dostępna wystarczająca liczba prywatnych adresów IP.
+- Połączenie prywatnego punktu końcowego dla kopii zapasowej używa łącznie 11 prywatnych adresów IP w podsieci, łącznie z tymi używanymi przez Azure Backup na potrzeby magazynu. Ta liczba może być większa (do 25) w przypadku niektórych regionów świadczenia usługi Azure. Zalecamy, aby przy próbie utworzenia prywatnych punktów końcowych dla kopii zapasowej była dostępna wystarczająca liczba prywatnych adresów IP.
 - Magazyn Recovery Services jest używany przez program (oba) Azure Backup i Azure Site Recovery w tym artykule omówiono użycie prywatnych punktów końcowych tylko dla Azure Backup.
 - Azure Active Directory nie obsługuje obecnie prywatnych punktów końcowych. Aby adresy IP i nazwy FQDN wymagane do Azure Active Directory pracy w regionie muszą mieć dozwolony dostęp wychodzący z zabezpieczonej sieci podczas wykonywania kopii zapasowej baz danych na maszynach wirtualnych platformy Azure i kopii zapasowej przy użyciu agenta MARS. Możesz również użyć tagów sieciowej grupy zabezpieczeń i tagów zapory platformy Azure, aby umożliwić dostęp do usługi Azure AD, zgodnie z wymaganiami.
 - Sieci wirtualne z zasadami sieci nie są obsługiwane dla prywatnych punktów końcowych. Przed kontynuowaniem należy wyłączyć zasady sieci.

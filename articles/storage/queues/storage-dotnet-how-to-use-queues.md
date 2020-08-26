@@ -8,14 +8,16 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 11fa99acda5f1c8edac3026961c426257bb74d92
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 5b8b127391401b956088ddb099d1853700e6f120
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853673"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871313"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Rozpoczynanie pracy z usługą Azure Queue Storage przy użyciu platformy .NET
+
+[!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 ## <a name="overview"></a>Omówienie
 
@@ -154,8 +156,6 @@ Aby kierować emulator magazynu azurite, można użyć skrótu, który jest mapo
 ```
 
 ### <a name="add-using-directives"></a>Dodawanie dyrektyw using
-
-[!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 Dodaj następujące dyrektywy `using` na początku pliku `Program.cs`:
 

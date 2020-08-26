@@ -44,12 +44,18 @@
       href: vm-do-ten-things.md
     - name: Korzystanie z maszyny Data Science Virtual Machine z systemem Linux
       href: linux-dsvm-walkthrough.md
-    - name: Tworzenie skalowanej automatycznie puli maszyn Data Science Virtual Machine
-      href: dsvm-pools.md
-    - name: Integrację z usługą Active Directory
-      href: dsvm-common-identity.md
-    - name: Poświadczenia na potrzeby bezpiecznego dostępu do zasobów
-      href: dsvm-secure-access-keys.md
+    - name: Integracja z usługą Azure Machine Learning
+      items:
+        - name: Śledzenie eksperymentów
+          href: how-to-track-experiments.md
+    - name: Wskazówki dla przedsiębiorstw
+      items:
+        - name: Tworzenie skalowanej automatycznie puli maszyn Data Science Virtual Machine
+          href: dsvm-pools.md
+        - name: Integrację z usługą Active Directory
+          href: dsvm-common-identity.md
+        - name: Poświadczenia na potrzeby bezpiecznego dostępu do zasobów
+          href: dsvm-secure-access-keys.md
 - name: Zasoby
   items:
     - name: Pytania i odpowiedzi Microsoft — strona pytania

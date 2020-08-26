@@ -1,0 +1,38 @@
+### YamlMime:Landing
+title: Platforma Kubernetes z usługą Azure Arc (wersja zapoznawcza)
+summary: Dowiedz się, jak zarządzać klastrami Kubernetes przy użyciu usługi Azure Arc
+metadata:
+  title: Platforma Kubernetes z usługą Azure Arc
+  description: Dowiedz się, jak zarządzać komputerami lokalnymi na platformie Azure
+  author: 
+  ms.service: azure-arc
+  ms.topic: landing-page
+  ms.date: 06/26/2020
+  ms.author: 
+  ms.openlocfilehash: 7c643d10971d93a3c6194bc7390d2271c1ed561b
+  ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 08/24/2020
+  ms.locfileid: "88763769"
+landingContent:
+- title: Łączenie klastrów Kubernetes z platformą Azure przy użyciu usługi Azure Arc
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest platforma Kubernetes z włączoną usługą Azure Arc?
+      url: overview.md
+  - linkListType: quickstart
+    links:
+    - text: Połączenie klastra
+      url: connect-cluster.md
+  - linkListType: how-to-guide
+    links:
+    - text: Wdrażanie konfiguracji przy użyciu metodyki GitOps
+      url: use-gitops-connected-cluster.md
+    - text: Wdrażanie elementów chart programu Helm przy użyciu metodyki GitOps
+      url: use-gitops-with-helm.md
+    - text: Wymuś metodykę GitOps przy użyciu usługi Azure Policy
+      url: use-azure-policy.md
+    - text: Wdrażanie obciążeń usługi Azure IoT Edge
+      url: deploy-azure-iot-edge-workloads.md

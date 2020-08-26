@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: bf16ee0af1c5816822f6a201ad1d5a70127082db
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 10674d15a7515b01b0df6cf37bce89f153cb9b0b
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825382"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870689"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Konwertowanie magazynu Azure Managed disks z wersji Standard do Premium lub Premium na Standard
 
-Istnieją cztery typy dysków zarządzanych przez platformę Azure: Azure Ultra dysków SSD (wersja zapoznawcza), dysk SSD Premium, standardowy dysk SSD i standardowy dysk twardy. W zależności od potrzeb związanych z wydajnością można przełączać się między trzema dyskami z rozpowszechnymi typami dysków (dyski SSD Premium, standardowy dysk SSD i standardowy dysk twardy). Nie można już przełączyć się z programu ani do typu Ultra SSD, należy wdrożyć nowy.
+Istnieją cztery typy dysków zarządzanych przez platformę Azure: Azure Ultra disks, dysk SSD Premium, standardowy dysk SSD i standardowy dysk twardy. W zależności od potrzeb związanych z wydajnością można przełączać się między trzema dyskami z rozpowszechnymi typami dysków (dyski SSD Premium, standardowy dysk SSD i standardowy dysk twardy). Nie można już przełączyć z programu ani na dysk typu Ultra, należy wdrożyć nowy.
 
 Ta funkcja nie jest obsługiwana w przypadku dysków niezarządzanych. Można jednak łatwo [skonwertować dysk niezarządzany na dysk zarządzany](convert-unmanaged-to-managed-disks.md) , aby można było przełączać się między typami dysków.
 

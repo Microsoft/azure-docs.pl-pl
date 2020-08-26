@@ -1,20 +1,40 @@
 ---
-title: Pobieranie informacji o przekonwertowanym modelu
-description: Opis wszystkich parametrów konwersji modelu
+title: Uzyskaj informacje na temat konwersji
+description: Uzyskaj informacje na temat konwersji
 author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: f5c38ac88503416b37b720a091c9e46d819a3146
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 529bfb61b3af7040f3656c04071683841f5abe86
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509301"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870293"
 ---
-# <a name="get-information-about-a-converted-model"></a>Pobieranie informacji o przekonwertowanym modelu
+# <a name="get-information-about-conversions"></a>Uzyskaj informacje na temat konwersji
 
-Plik arrAsset utworzony przez usługę konwersji jest przeznaczony wyłącznie do użytku przez usługę renderowania. Mogą jednak wystąpić sytuacje, w których chcesz uzyskać dostęp do informacji o modelu bez rozpoczynania sesji renderowania. W związku z tym usługa konwersji umieszcza plik JSON obok pliku arrAsset w kontenerze danych wyjściowych. Na przykład jeśli plik `buggy.gltf` zostanie przekonwertowany, kontener wyjściowy będzie zawierać plik o nazwie `buggy.info.json` obok przekonwertowanego elementu zawartości `buggy.arrAsset` . Zawiera informacje o modelu źródłowym, przekonwertowanym modelu i o samej konwersji.
+## <a name="information-about-a-conversion-the-result-file"></a>Informacje o konwersji: plik wynikowy
+
+Gdy usługa konwersji konwertuje element zawartości, zapisuje podsumowanie wszelkich problemów do pliku wynikowego. Na przykład jeśli plik `buggy.gltf` zostanie przekonwertowany, kontener wyjściowy będzie zawierać plik o nazwie `buggy.result.json` .
+
+Plik wynik zawiera listę błędów i ostrzeżeń, które wystąpiły podczas konwersji i zawiera podsumowanie wyników, które są jednym z `succeeded` , `failed` lub `succeeded with warnings` .
+Plik wynikowy jest strukturalny jako tablica obiektów JSON, z których każdy ma właściwość String, która jest jedną z `warning` , `error` ,, `internal warning` `internal error` i `result` . Wystąpił tylko jeden błąd (albo `error` `internal error` ) i będzie on zawsze taki `result` .
+
+## <a name="example-result-file"></a>Przykładowy plik *wyników*
+
+W poniższym przykładzie opisano konwersję, która pomyślnie wygenerowała arrAsset. Jednak ze względu na brak tekstury, arrAsset wyniki mogą nie być zgodne z oczekiwaniami.
+
+```JSON
+[
+  {"warning":"4004","title":"Missing texture","details":{"texture":"buggy_baseColor.png","material":"buggy_col"}},
+  {"result":"succeeded with warnings"}
+]
+```
+
+## <a name="information-about-a-converted-model-the-info-file"></a>Informacje o przekonwertowanym modelu: plik info
+
+Plik arrAsset utworzony przez usługę konwersji jest przeznaczony wyłącznie do użytku przez usługę renderowania. Mogą jednak wystąpić sytuacje, w których chcesz uzyskać dostęp do informacji o modelu bez rozpoczynania sesji renderowania. W celu obsługi tego przepływu pracy usługa konwersji umieszcza plik JSON obok pliku arrAsset w kontenerze danych wyjściowych. Na przykład jeśli plik `buggy.gltf` zostanie przekonwertowany, kontener wyjściowy będzie zawierać plik o nazwie `buggy.info.json` obok przekonwertowanego elementu zawartości `buggy.arrAsset` . Zawiera informacje o modelu źródłowym, przekonwertowanym modelu i o samej konwersji.
 
 ## <a name="example-info-file"></a>Przykładowy plik *informacyjny*
 
@@ -124,6 +144,11 @@ Ta sekcja rejestruje informacje obliczane na podstawie przekonwertowanego elemen
 * `numMeshPartsInstanced`: Liczba siatek, które są ponownie używane w arrAsset.
 * `recenteringOffset`: Gdy `recenterToOrigin` opcja w [ConversionSettings](configure-model-conversion.md) jest włączona, ta wartość jest tłumaczeniem, który przeniesie przekonwertowany model z powrotem do oryginalnego położenia.
 * `boundingBox`: Granice modelu.
+
+## <a name="deprecated-features"></a>Przestarzałe funkcje
+
+Usługa konwersji zapisuje pliki `stdout.txt` i `stderr.txt` do kontenera wyjściowego, a te dane były jedynym źródłem ostrzeżeń i błędów.
+Te pliki są obecnie przestarzałe. Zamiast tego należy użyć [plików wyników](#information-about-a-conversion-the-result-file) do tego celu.
 
 ## <a name="next-steps"></a>Następne kroki
 

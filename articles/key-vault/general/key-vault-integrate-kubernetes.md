@@ -1,23 +1,26 @@
 ---
 title: Integrowanie usługi Azure Key Vault z usługą Kubernetes
 description: W tym samouczku uzyskujesz dostęp do wpisów tajnych z magazynu kluczy platformy Azure i pobierasz je za pomocą sterownika Kubernetes magazynu kontenerów (CSI), aby zainstalować do zasobników.
-author: rkarlin
-ms.author: rkarlin
+author: ShaneBala-keyvault
+ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
-ms.date: 06/04/2020
-ms.openlocfilehash: 1942576037c7367612580a04d4187ccf4655aade
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.date: 08/25/2020
+ms.openlocfilehash: bfcaf9d4b1d03457f2e4cddd2e0eaf9d9d58eee2
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685888"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869188"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Samouczek: Konfigurowanie i uruchamianie dostawcy Azure Key Vault dla sterownika CSI magazynu wpisów tajnych w systemie Kubernetes
 
+> [!IMPORTANT]
+> Sterownik CSI to projekt open source, który nie jest obsługiwany przez pomoc techniczną platformy Azure. Zgłoś wszystkie opinie i problemy związane z sterownikiem CSI Key Vault integrację z linkiem GitHub w dolnej części strony. To narzędzie jest udostępniane użytkownikom do samodzielnego instalowania w klastrach i zbierania informacji zwrotnych z naszej społeczności.
+
 Korzystając z tego samouczka, możesz uzyskać dostęp do wpisów tajnych z magazynu kluczy platformy Azure i pobrać je z niego przy użyciu sterownika Kubernetes magazynu kontenerów (CSI).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Utwórz nazwę główną usługi lub użyj zarządzanych tożsamości.

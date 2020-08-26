@@ -3,12 +3,12 @@ title: Zarządzanie certyfikatami w klastrze usługi Azure Service Fabric
 description: Opisuje, jak dodać nowe certyfikaty, certyfikat przerzucania i usunąć certyfikat do lub z klastra Service Fabric.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 43e9c95e0fb8484f7b24c5a0c409d3aa6a68eabc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1ccf83e666f9106a31809ff41d55062826be78c
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83658386"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869766"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Add or remove certificates for a Service Fabric cluster in Azure (Dodawanie lub usuwanie certyfikatów dla klastra usługi Service Fabric na platformie Azure)
 Zaleca się zapoznanie się ze sposobem, w jaki Service Fabric używa certyfikatów X. 509, i zna [scenariusze zabezpieczeń klastra](service-fabric-cluster-security.md). Przed kontynuowaniem należy zrozumieć, czym jest certyfikat klastra i co jest używane w programie.
@@ -260,7 +260,7 @@ Oprócz certyfikatów klastra można dodać certyfikaty klienta, aby wykonywać 
 
 Można dodać dwa rodzaje certyfikatów klienta — administrator lub tylko do odczytu. Służą one do kontrolowania dostępu do operacji administracyjnych i operacji zapytań w klastrze. Domyślnie certyfikaty klastra są dodawane do listy dozwolonych certyfikatów administracyjnych.
 
-można określić dowolną liczbę certyfikatów klienta. Każde Dodawanie/usuwanie powoduje aktualizację konfiguracji klastra Service Fabric
+Można określić dowolną liczbę certyfikatów klienta. Każde dodanie/usunięcie powoduje aktualizację konfiguracji klastra Service Fabric.
 
 
 ### <a name="adding-client-certificates---admin-or-read-only-via-portal"></a>Dodawanie certyfikatów klienta — administrator lub tylko do odczytu za pośrednictwem portalu

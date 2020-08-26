@@ -16,6 +16,8 @@
       href: quickstart-load-balancer-standard-public-template.md
     - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — portal
       href: quickstart-load-balancer-standard-internal-portal.md
+    - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — interfejs wiersza polecenia platformy Azure
+      href: quickstart-load-balancer-standard-internal-cli.md
   expanded: true
 - name: Samouczki
   items:

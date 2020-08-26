@@ -3,12 +3,12 @@ title: Przywracanie plików do systemu Windows Server przy użyciu agenta MARS
 description: W tym artykule dowiesz się, jak przywrócić dane przechowywane na platformie Azure na komputerze z systemem Windows Server lub Windows za pomocą agenta Microsoft Azure Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: e5158681971c5c10e813187fedb61bc0022ee9e1
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 78663edadfdef581dbdd259882a6dd4afe5a4b0b
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827073"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871262"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Przywracanie plików do systemu Windows Server przy użyciu agenta MARS
 
@@ -50,7 +50,7 @@ Jeśli przypadkowo usunięto plik i chcesz przywrócić go na tym samym komputer
    > Opcja przywrócenia poszczególnych plików i folderów wymaga .NET Framework 4.5.2 lub nowszego. Jeśli nie widzisz opcji **pojedyncze pliki i foldery** , musisz uaktualnić .NET Framework do wersji 4.5.2 lub nowszej, a następnie spróbować ponownie.
 
    > [!TIP]
-   > Opcja **poszczególne pliki i foldery** umożliwia szybki dostęp do danych punktów odzyskiwania. Jest to odpowiednie do odzyskiwania poszczególnych plików, których rozmiar nie przekracza 80 GB i oferuje szybkość przesyłania lub kopiowania do 6 MB/s podczas odzyskiwania. Opcja **woluminu** odzyskuje wszystkie dane kopii zapasowej w określonym woluminie. Ta opcja zapewnia szybsze szybkości transferu (do 40 MB/s), co jest idealne do odzyskiwania danych o dużych rozmiarach lub całych woluminów.
+   > Opcja **poszczególne pliki i foldery** umożliwia szybki dostęp do danych punktów odzyskiwania. Jest to odpowiednie do odzyskiwania poszczególnych plików i jest zalecane w przypadku całkowitego rozmiaru mniejszego niż 80 GB. Umożliwia transfer lub kopiowanie przyspiesza do 6 MB/s podczas odzyskiwania. Opcja **woluminu** odzyskuje wszystkie dane kopii zapasowej w określonym woluminie. Ta opcja zapewnia szybsze szybkości transferu (do 40 MB/s) i jest zalecane do odzyskiwania danych o dużych rozmiarach lub całych woluminów.
 
 5. Na stronie **Wybierz wolumin i datę** Wybierz wolumin zawierający pliki i foldery, które chcesz przywrócić.
 

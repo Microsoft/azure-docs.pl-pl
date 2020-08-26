@@ -97,6 +97,8 @@
       href: supported-resources.md
     - name: Obsługiwane zasoby dla usługi Azure Red Hat OpenShift 4.3
       href: support-policies-v4.md
+    - name: Cykl życia wsparcia platformy Azure Red Hat OpenShift 4
+      href: support-lifecycle.md
     - name: Dostępność regionalna
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Dokumentacja usługi Azure Red Hat OpenShift 4.3

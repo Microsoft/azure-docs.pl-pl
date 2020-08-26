@@ -155,6 +155,18 @@
       items:
         - name: Problemy z opóźnieniami
           href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+- name: Zasoby
+  items:
+    - name: Aktualizacje platformy Azure
+      href: 'https://azure.microsoft.com/updates/?product=storage'
+    - name: Usługa Azure Storage w witrynie Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-table-storage.html'
+    - name: Usługa Azure Storage w witrynie Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
+    - name: Cennik usługi Table Storage
+      href: 'https://azure.microsoft.com/en-us/pricing/details/storage/tables/'
+    - name: Kalkulator cen platformy Azure
+      href: 'https://azure.microsoft.com/pricing/calculator/'
 - name: Dokumentacja
   items:
     - name: Cele dotyczące skalowalności i wydajności

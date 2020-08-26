@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/21/2020
+ms.date: 08/25/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b1705fbfae297c7f92de6b4080569deaad3de98
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 704d4c1b4e4e4229f35526748494aaac2e351f99
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749669"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871381"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Korzystanie z platformy Azure do hostowania i uruchamiania scenariuszy obciążeń SAP
 
@@ -88,6 +88,9 @@ Aby uzyskać informacje na temat integracji usług platformy Azure z składnikam
 
 ## <a name="change-log"></a>Dziennik zmian
 
+- 08/25/2020: Przejdź do [przewodnika ha dla oprogramowania SAP ASCS/SCS za pomocą usługi WSFC i dysku udostępnionego](./sap-high-availability-guide-wsfc-shared-disk.md), [Przygotuj infrastrukturę platformy Azure dla oprogramowania SAP ASCS/SCS przy użyciu usługi WSFC i dysku udostępnionego](./sap-high-availability-infrastructure-wsfc-shared-disk.md) oraz [Zainstaluj rozwiązanie SAP NW ha z usługą WSFC i dyskiem udostępnionym](./sap-high-availability-guide-wsfc-shared-disk.md) , aby wprowadzić opcję używania dysku udostępnionego na platformie Azure i dokumentu SAP ERS2 Architecture
+- 08/25/2020: wydanie [WIELOidentyfikatorowego przewodnika o wysokiej dostępności dla oprogramowania SAP ASCS/SCS za pomocą usługi WSFC i udostępnionego dysku platformy Azure](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md)
+- 08/25/2020: Przejdź [do przewodnika ha dla oprogramowania SAP ASCS/SCS za pomocą usługi WSFC i Azure NetApp Files (SMB)](./high-availability-guide-windows-netapp-files-smb.md), [Przygotuj infrastrukturę platformy Azure dla oprogramowania SAP ASCS/SCS za pomocą usługi WSFC i udziału plików](./sap-high-availability-infrastructure-wsfc-file-share.md), [przewodnika o wysokiej dostępności dla oprogramowania SAP ASCS/SCS za pomocą usługi WSFC i dysku udostępnionego](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) oraz [wieloidentyfikatorowego przewodnika o wysokiej dostępności dla oprogramowania SAP ASCS/SCS](./sap-ascs-ha-multi-sid-wsfc-file-share.md) z usługą WSFC i z udziałem plików w systemie. 
 - 08/21/2020: Dodawanie nowej wersji systemu operacyjnego do [zgodnych systemów operacyjnych dla dużych wystąpień platformy Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance) jako dostępnego systemu operacyjnego dla jednostek.
 - 08/18/2020: wydanie [ha dla SAP HANA skalowanie w górę przy użyciu ANF na RHEL](./sap-hana-high-availability-netapp-files-red-hat.md)
 - 08/17/2020: Dodaj informacje o używaniu Azure Site Recovery do przeniesienia systemów SAP NetWeaver ze środowiska lokalnego na platformę Azure w artykule [Virtual Machines planowanie i wdrażanie oprogramowania SAP NetWeaver](./planning-guide.md)

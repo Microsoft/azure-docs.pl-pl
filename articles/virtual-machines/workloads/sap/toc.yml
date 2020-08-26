@@ -227,6 +227,8 @@
               href: high-availability-guide-rhel-netapp-files.md
         - name: SAP — wiele identyfikatorów SID
           items:
+            - name: System Windows z dyskiem udostępnionym platformy Azure na potrzeby wystąpienia (A)SCS
+              href: sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md
             - name: System Windows z udostępnionym dyskiem na potrzeby wystąpienia (A)SCS
               href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
             - name: System Windows z udziałem plików SOFS na potrzeby wystąpienia (A)SCS

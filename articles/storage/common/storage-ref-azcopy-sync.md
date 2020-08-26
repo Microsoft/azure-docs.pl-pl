@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 04b87f8d0dd6a8fff35e3ae769652b50e7d0ef34
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 16ee2f01e1b7771e71afe49c4b69b1fb39e43f37
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285207"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869443"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -42,7 +42,7 @@ Polecenie Sync różni się od polecenia copy na kilka sposobów:
 - [Transferowanie danych za pomocą narzędzia AzCopy i magazynu plików](storage-use-azcopy-files.md)
 - [Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy](storage-use-azcopy-configure.md)
 
-### <a name="advanced"></a>Zaawansowane
+### <a name="advanced"></a>Zaawansowany
 
 Jeśli nie określisz rozszerzenia pliku, AzCopy automatycznie wykryje typ zawartości plików podczas przekazywania z dysku lokalnego na podstawie rozszerzenia lub zawartości pliku (jeśli nie określono rozszerzenia).
 
@@ -143,13 +143,17 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--exclude-String wykluczanie** plików, w których nazwa jest zgodna z listą wzorców. Na przykład: `*.jpg;*.pdf;exactName`
 
-**--** pomoc dla synchronizacji.
+**--**    pomoc dla synchronizacji.
 
 **--include — ciąg atrybutów** (tylko system Windows) zawiera tylko pliki, których atrybuty pasują do listy atrybutów. Na przykład: `A;S;R`
 
 **--dołączany** ciąg do wzorca zawiera tylko pliki, w których nazwa jest zgodna z listą wzorców. Na przykład: `*.jpg;*.pdf;exactName`
 
 **--ciąg na poziomie dziennika** definiuje szczegółowość dziennika dla pliku dziennika, dostępne poziomy: `INFO` (wszystkie żądania i odpowiedzi), `WARNING` (wolne odpowiedzi), `ERROR` (tylko Nieudane żądania) i `NONE` (bez dzienników wyjściowych). (wartość domyślna `INFO` ). 
+
+**--Preserve-SMB-info**     Domyślnie wartość false.Zachowuje informacje o właściwościach protokołu SMB (czas ostatniego zapisu, czas utworzenia, bity atrybutów) między zasobami opartymi na protokole SMB (Windows i Azure Files).Ta flaga ma zastosowanie do plików i folderów, chyba że określony jest filtr tylko dla plików (na przykład include-Pattern).Informacje przesyłane do folderów są takie same jak dla plików, z wyjątkiem czasu ostatniego zapisu, który nie jest zachowywany dla folderów.
+
+**--Preserve-SMB-uprawnienia**     Domyślnie wartość false.Zachowuje listy ACL protokołu SMB między zasobami zależnymi (Windows i Azure Files).Ta flaga ma zastosowanie do plików i folderów, chyba że określony jest filtr tylko dla plików (na przykład  `include-pattern` ).
 
 **--Put-MD5**     Utwórz skrót MD5 każdego pliku i Zapisz skrót jako właściwość Content-MD5 docelowego obiektu BLOB lub pliku. (Domyślnie skrót nie jest tworzony). Dostępne tylko podczas przekazywania.
 
@@ -165,6 +169,6 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 |--ciąg typu wyjściowego|Format danych wyjściowych polecenia. Dostępne opcje to: text, JSON. Wartość domyślna to "text".|
 |--Zaufane — ciąg sufiksów firmy Microsoft   |Określa dodatkowe sufiksy domeny, w których mogą być wysyłane Azure Active Directory tokeny logowania.  Wartość domyślna to "*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. Wszystkie wymienione tutaj są dodawane do ustawień domyślnych. W celu zapewnienia bezpieczeństwa należy tu umieścić tylko domeny Microsoft Azure. Rozdziel wiele wpisów średnikami.|
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [azcopy](storage-ref-azcopy.md)

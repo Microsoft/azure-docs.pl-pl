@@ -53,6 +53,9 @@
           href: quickstart-device-streams-proxy-nodejs.md
         - name: C
           href: quickstart-device-streams-proxy-c.md
+    - name: Automatyczny routing komunikatów przy użyciu szablonu usługi ARM
+      displayName: Resource Manager
+      href: horizontal-arm-route-messages.md
 - name: Samouczki
   items:
     - name: Routing wiadomości
