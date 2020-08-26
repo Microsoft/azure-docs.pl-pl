@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej pod
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: f0783d937178c88265c33c8b7339f71520506fc5
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 6cb9f53bceb6caaac77dddd6828c46842e53d257
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816120"
+ms.locfileid: "88825260"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tabela obsługi dla maszyn wirtualnych platformy Azure
 
@@ -49,7 +49,7 @@ Kopie zapasowe dziennie (za pośrednictwem programu DPM/serwera usługi MAB) | D
 Kopia zapasowa co miesiąc/co rok| Nieobsługiwane podczas tworzenia kopii zapasowej przy użyciu rozszerzenia maszyny wirtualnej platformy Azure. Obsługiwane są tylko codziennie i co tydzień.<br/><br/> Można skonfigurować zasady, aby zachować codzienne/cotygodniowe kopie zapasowe w okresie przechowywania miesięcznego/rocznego.
 Automatyczne dostosowanie zegara | Nieobsługiwane.<br/><br/> Podczas tworzenia kopii zapasowej maszyny wirtualnej Azure Backup nie jest automatycznie dostosowywana do zmian czasu letniego.<br/><br/>  Zmodyfikuj zasady ręcznie w razie konieczności.
 [Funkcje zabezpieczeń hybrydowej kopii zapasowej](./backup-azure-security-feature.md) |Wyłączenie funkcji zabezpieczeń nie jest obsługiwane.
-Tworzenie kopii zapasowej maszyny wirtualnej, której czas maszyny został zmieniony | Nieobsługiwane.<br/><br/> Jeśli czas komputera zostanie zmieniony na przyszłą datę i godzinę po włączeniu kopii zapasowej dla tej maszyny wirtualnej; Jednak nawet jeśli zmiana czasu zostanie wycofana, powodzenie tworzenia kopii zapasowej nie jest gwarantowane.
+Tworzenie kopii zapasowej maszyny wirtualnej, której czas maszyny został zmieniony | Nieobsługiwane.<br/><br/> Jeśli czas komputera zostanie zmieniony na przyszłą datę i godzinę po włączeniu kopii zapasowej dla tej maszyny wirtualnej, jednak nawet jeśli zmiana czasu zostanie wycofana, pomyślne utworzenie kopii zapasowej nie jest gwarantowane.
 Maszyny wirtualne platformy Azure w [zestawach skalowania maszyn wirtualnych](../virtual-machine-scale-sets/overview.md) | Tworzenie kopii zapasowych i przywracanie jest obsługiwane dla maszyn wirtualnych z [trybem aranżacji](../virtual-machine-scale-sets/orchestration-modes.md#orchestration-modes) ustawionym na 3. <br><br>Zestawy dostępności nie są obsługiwane.
 
 ## <a name="operating-system-support-windows"></a>Obsługa systemu operacyjnego (Windows)

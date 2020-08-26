@@ -3,12 +3,12 @@ title: Użyj Azure Backup Server, aby utworzyć kopię zapasową obciążeń
 description: W tym artykule dowiesz się, jak przygotować środowisko do ochrony i tworzenia kopii zapasowych obciążeń przy użyciu Microsoft Azure Backup Server (serwera usługi MAB).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 802b7919abcd510db68396b2d9576f8cacc06a6e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 74d4d01d535f7148d3c3878a431dac2f951ae134
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756014"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827379"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalowanie i uaktualnianie Azure Backup Server
 
@@ -170,7 +170,7 @@ Po zakończeniu procesu wyodrębniania zaznacz pole wyboru w celu uruchomienia �
 
     >[!NOTE]
     >Jeśli chcesz użyć własnego programu SQL Server, obsługiwane wersje SQL Server są SQL Server 2014 SP1 lub nowsze, 2016 i 2017.  Wszystkie SQL Server wersje powinny mieć wersję Standard lub Enterprise 64-bit.
-    >Azure Backup Server nie będzie działał ze zdalnym wystąpieniem SQL Server. Wystąpienie używane przez Azure Backup Server musi być lokalne. Jeśli używasz istniejącego programu SQL Server dla programu serwera usługi MAB, Instalator serwera usługi MAB obsługuje tylko *nazwane wystąpienia* programu SQL Server.
+    >Azure Backup Server nie będzie działał z wystąpieniem SQL Server zdalnego. Wystąpienie używane przez Azure Backup Server musi być lokalne. Jeśli używasz istniejącego programu SQL Server dla programu serwera usługi MAB, Instalator serwera usługi MAB obsługuje tylko *nazwane wystąpienia* programu SQL Server.
 
     ![Sprawdzanie Azure Backup Server — SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
@@ -343,7 +343,7 @@ Wykonaj następujące kroki, aby uaktualnić program serwera usługi MAB:
 
    > [!NOTE]
    >
-   > Nie zamykaj, gdy wystąpienie programu SQL jest uaktualniane, wyjście spowoduje odinstalowanie wystąpienia programu SQL Reporting, w związku z czym próba ponownego uaktualnienia serwera usługi MAB zakończy się niepowodzeniem.
+   > Nie zamykaj, gdy wystąpienie programu SQL jest uaktualniane. Zakończenie spowoduje odinstalowanie wystąpienia programu SQL Reporting, dlatego próba ponownego uaktualnienia serwera usługi MAB zakończy się niepowodzeniem.
 
    > [!IMPORTANT]
    >

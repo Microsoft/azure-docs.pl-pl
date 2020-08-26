@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e03d496881b0d563387ee5a5943b60f456530453
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ced763ca4abd32f3b824f05f2f5786a5d9cfd4c4
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009226"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825447"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Tworzenie kontenera profilu przy użyciu Azure Files i AD DS
 
@@ -29,13 +29,13 @@ Najpierw musisz skonfigurować konto magazynu Azure Files.
 
 Aby skonfigurować konto magazynu:
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 
 2. Wyszukaj **konto magazynu** na pasku wyszukiwania.
 
-3. Wybierz pozycję **+ Dodaj**.
+3. Wybierz pozycję **+Dodaj**.
 
-4. Wprowadź następujące informacje na stronie **Tworzenie konta magazynu** :
+4. Wprowadź następujące informacje na stronie  **Tworzenie konta magazynu** :
 
     - Tworzenie nowej grupy zasobów
     - Wprowadź unikatową nazwę konta magazynu.
@@ -60,7 +60,7 @@ Aby utworzyć udział plików:
 
 3. Wybierz pozycję **+ udziały plików**, Utwórz nowy udział plików o nazwie **Profile**, a następnie wprowadź odpowiedni przydział lub pozostaw pole puste, aby nie mieć limitu przydziału.
 
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 
 ## <a name="enable-active-directory-authentication"></a>Włącz uwierzytelnianie Active Directory
 
@@ -127,7 +127,7 @@ Poniżej przedstawiono sposób pobierania ścieżki UNC:
 
 5. Po skopiowaniu identyfikatora URI wykonaj następujące czynności, aby zmienić je na UNC:
 
-    - Usuń `https://` i Zamień na`\\`
+    - Usuń `https://` i Zamień na `\\`
     - Zastąp ukośnik odwrotny `/` ukośnikiem `\` .
     - Dodaj nazwę udziału plików utworzonego w obszarze [Utwórz udział plików platformy Azure](#create-an-azure-file-share) na końcu UNC.
 
@@ -151,15 +151,15 @@ Aby skonfigurować uprawnienia systemu plików NTFS:
 
 1. Otwórz wiersz polecenia na maszynie wirtualnej przyłączonej do domeny.
 
-2. Uruchom następujące polecenie cmdlet, aby zainstalować udział plików platformy Azure i przypisać mu literę dysku: 
+2. Uruchom następujące polecenie, aby zainstalować udział plików platformy Azure i przypisać mu literę dysku:
 
-     ```powershell
+     ```cmd
      net use <desired-drive-letter>: <UNC-pat> <SA-key> /user:Azure\<SA-name>
      ```
 
-3. Uruchom następujące polecenie cmdlet, aby przejrzeć uprawnienia dostępu do udziału plików platformy Azure:
+3. Uruchom następujące polecenie, aby przejrzeć uprawnienia dostępu do udziału plików platformy Azure:
 
-    ```powershell
+    ```cmd
     icacls <mounted-drive-letter>:
     ```
 
@@ -167,9 +167,9 @@ Aby skonfigurować uprawnienia systemu plików NTFS:
 
     Zarówno *Użytkownicy NT Authority\Authenticated* , jak i *BUILTIN\Users* mają określone uprawnienia. Te uprawnienia domyślne umożliwiają użytkownikom odczytywanie kontenerów profilów innych użytkowników. Jednak uprawnienia opisane w artykule [Konfigurowanie uprawnień magazynu do użycia z kontenerami profilów i kontenerami pakietu Office](/fslogix/fslogix-storage-config-ht) nie umożliwiają użytkownikom odczytywania kontenerów profilów profilu.
 
-4. Uruchom następujące polecenia cmdlet, aby umożliwić użytkownikom pulpitu wirtualnego systemu Windows Tworzenie własnych kontenerów profilów przy zablokowaniu dostępu do kontenera profilu od innych użytkowników.
+4. Uruchom następujące polecenia, aby umożliwić użytkownikom pulpitu wirtualnego systemu Windows Tworzenie własnego kontenera profilu podczas blokowania dostępu do kontenerów profilów od innych użytkowników.
 
-     ```powershell
+     ```cmd
      icacls <mounted-drive-letter>: /grant <user-email>:(M)
      icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
      icacls <mounted-drive-letter>: /remove "Authenticated Users"
@@ -179,9 +179,9 @@ Aby skonfigurować uprawnienia systemu plików NTFS:
      - Zastąp <literę dysku zainstalowana> literą dysku użytego do zmapowania dysku.
      - Zastąp <User-e-mail> nazwą UPN grupy użytkowników lub Active Directory zawierającą użytkowników, którzy będą potrzebować dostępu do udziału.
 
-     Przykład:
+     Na przykład:
 
-     ```powershell
+     ```cmd
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
      icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
      icacls <mounted-drive-letter>: /remove "Authenticated Users"

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 91f5ef4a5065079f0fe385b92af2a1c4bfa5ee84
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ea834ed874f3011d95f8b924df860576f72bc4ee
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007713"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825617"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Tworzenie kontenera profilu przy użyciu Azure Files i platformy Azure AD DS
 
@@ -107,25 +107,31 @@ Aby uzyskać klucz dostępu do konta magazynu:
     - Zamień na `<share-name>` nazwę utworzonego wcześniej udziału.
     - Zamień na `<storage-account-key>` klucz konta magazynu z platformy Azure.
 
-    Przykład:
+    Na przykład:
 
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
      ```
 
-8. Uruchom następujące polecenie, aby udzielić użytkownikowi pełnego dostępu do udziału Azure Files.
+8. Uruchom następujące polecenia, aby umożliwić użytkownikom pulpitu wirtualnego systemu Windows Tworzenie własnego kontenera profilu podczas blokowania dostępu do kontenerów profilów od innych użytkowników.
 
      ```cmd
-     icacls <mounted-drive-letter>: /grant <user-email>:(f)
+     icacls <mounted-drive-letter>: /grant <user-email>:(M)
+     icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
+     icacls <mounted-drive-letter>: /remove "Authenticated Users"
+     icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
-    - Zamień na `<mounted-drive-letter>` literę dysku, który ma być używany przez użytkownika.
-    - Zamień na `<user-email>` nazwę UPN użytkownika, który będzie używać tego profilu do uzyskiwania dostępu do maszyn wirtualnych hosta sesji.
+    - Zamień na `<mounted-drive-letter>` literę dysku, który został użyty do mapowania dysku.
+    - Zamień na `<user-email>` nazwę UPN użytkownika lub grupy Active Directory, która zawiera użytkowników, którzy będą potrzebować dostępu do udziału.
 
-    Przykład:
+    Na przykład:
 
      ```cmd
-     icacls y: /grant john.doe@contoso.com:(f)
+     icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
+     icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
+     icacls <mounted-drive-letter>: /remove "Authenticated Users"
+     icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
 ## <a name="create-a-profile-container"></a>Tworzenie kontenera profilu
@@ -200,7 +206,7 @@ Aby przypisać użytkowników:
 
     Podobnie jak w przypadku wcześniejszych poleceń cmdlet, pamiętaj, aby zastąpić `<your-wvd-tenant>` , `<wvd-pool>` i `<user-principal>` z odpowiednimi wartościami.
 
-    Przykład:
+    Na przykład:
 
      ```powershell
      $pool1 = "contoso"
