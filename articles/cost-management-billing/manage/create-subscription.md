@@ -3,15 +3,16 @@ title: Tworzenie dodatkowej subskrypcji platformy Azure
 description: Dowiedz się, jak dodać nową subskrypcję platformy Azure w witrynie Azure Portal. Zapoznaj się z informacjami na temat formularzy kont rozliczeniowych i wyświetl dodatkowe dostępne zasoby.
 author: amberbhargava
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: d27120f6bd0978b69d664ab3ab2e86bfee4f1755
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: df303801daba0509177e48565b3ddbe7674013e8
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460970"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689970"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Tworzenie dodatkowej subskrypcji platformy Azure
 

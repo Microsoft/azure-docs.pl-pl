@@ -5,15 +5,16 @@ author: bandersmsft
 ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: tutorial
-ms.date: 08/12/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 9e141b0cdeeb03882a0baa032f52bc6e451967c8
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 9e5ecc67fe86afa15c66d175f0705818154588bf
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185234"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684358"
 ---
 # <a name="tutorial-review-your-microsoft-partner-agreement-invoice"></a>Samouczek: Przeglądanie faktury dla umowy partnerskiej firmy Microsoft
 

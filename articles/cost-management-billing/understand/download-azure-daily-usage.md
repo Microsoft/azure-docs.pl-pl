@@ -6,14 +6,15 @@ author: bandersmsft
 ms.author: banders
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 07/27/2020
-ms.openlocfilehash: d09f792e784c89e704691975d44cb3cbfa753cf4
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.date: 08/20/2020
+ms.openlocfilehash: 3b16e5b460f5fdfd0668db2b2e2fac78775cd893
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460511"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688916"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Wyświetlanie i pobieranie danych na temat użycia i opłat na platformie Azure
 

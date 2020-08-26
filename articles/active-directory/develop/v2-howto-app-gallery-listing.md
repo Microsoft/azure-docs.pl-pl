@@ -12,12 +12,12 @@ ms.date: 08/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3d810d14dd6b49bc054e3844a60ec33c62dc084c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 1ce8f376d3264a06618cb7321c75142dcf92d9ea
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271247"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891865"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publikowanie aplikacji w galerii aplikacji usługi Azure AD
 
@@ -98,7 +98,7 @@ Uwierzytelnianie OAuth 2,0 jest [standardowym](https://oauth.net/2/) protokołem
 
 ### <a name="saml-20-or-ws-fed"></a>SAML 2,0 lub WS-karmione
 
-Język SAML to wczesne i szeroko przyjęte, jednokrotne logowanie do aplikacji sieci Web. Aby dowiedzieć się więcej na temat używania języka SAML przez platformę Azure, zobacz [jak platforma Azure używa protokołu SAML](active-directory-saml-protocol-reference.md). 
+Język SAML to wczesne i szeroko przyjęte, jednokrotne [Logowanie](https://www.oasis-open.org/standards#samlv2.0) do aplikacji sieci Web. Aby dowiedzieć się więcej na temat używania języka SAML przez platformę Azure, zobacz [jak platforma Azure używa protokołu SAML](active-directory-saml-protocol-reference.md). 
 
 Federacja usług sieci Web (WS-karmione) jest [standardem branżowym](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) zwykle używanym przez aplikacje sieci Web, które są opracowywane przy użyciu platformy .NET.
 
@@ -135,7 +135,7 @@ Aby zapoznać się z konkretnymi przykładami, zobacz [przykłady kodu platformy
 Aby przejrzeć przykłady dotyczące urządzeń przenośnych, zobacz: 
 * [Android](quickstart-v2-android.md)
 * [iOS](quickstart-v2-ios.md)
-* [platforma uniwersalna systemu Windows](quickstart-v2-uwp.md)
+* [Platforma uniwersalna systemu Windows](quickstart-v2-uwp.md)
 
 ### <a name="implement-saml-20"></a>Zaimplementuj element SAML 2,0
 

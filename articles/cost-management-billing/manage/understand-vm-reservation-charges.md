@@ -3,15 +3,16 @@ title: Objaśnienie rabatu na wystąpienia usługi Azure Reserved VM Instances
 description: Dowiedz się, jak rabat na wystąpienie zarezerwowane maszyny wirtualnej platformy Azure jest stosowany do uruchamiania maszyn wirtualnych.
 author: yashesvi
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 08/13/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: ddf232dbe6c6ff61f685e2910286188fb92e1f17
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: dd21faa07426c80bb3a95dbd1b6d4ee93f783881
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192210"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88686449"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Jak rabat na rezerwację platformy Azure jest stosowany do maszyn wirtualnych
 
@@ -93,7 +94,7 @@ Jeśli to ustawienie jest włączone, rabaty na rezerwację są automatycznie st
 
 Sprawdź wartość *ConsumedService* w danych użycia, aby ustalić, czy użycie kwalifikuje się do zastosowania rabatów na rezerwację.
 
-Aby uzyskać więcej informacji o elastyczności rozmiaru wystąpienia, zobacz artykuł [Elastyczność rozmiaru maszyny wirtualnej z zarezerwowanymi wystąpieniami maszyn wirtualnych](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+Aby uzyskać więcej informacji o elastyczności rozmiaru wystąpienia, zobacz artykuł [Elastyczność rozmiaru maszyny wirtualnej z zarezerwowanymi wystąpieniami maszyn wirtualnych](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 
 ## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami
