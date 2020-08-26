@@ -10,12 +10,12 @@ ms.date: 06/10/2020
 ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.topic: quickstart
-ms.openlocfilehash: f6d128ace64f7c100a974883bff82435a496be97
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 9b89c0a4135bf595991439dd47e57a870ea2b0d1
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815457"
+ms.locfileid: "88855059"
 ---
 # <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-an-arm-template"></a>Szybki Start: Tworzenie Ubuntu Data Science Virtual Machine przy użyciu szablonu ARM
 
@@ -37,12 +37,17 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-vm-ubuntu-DSVM-GPU-or-CPU/). Pełny szablon tego artykułu jest zbyt długi, aby można go było wyświetlić w tym miejscu. Aby wyświetlić cały szablon, zobacz [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json). Część definiująca szczegóły DSVM jest pokazana tutaj:
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-vm-ubuntu-DSVM-GPU-or-CPU/).
 
-:::code language="json" source="~/quickstart-templates/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json" range="235-276":::
+:::code language="json" source="~/quickstart-templates/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json":::
 
 Następujące zasoby są zdefiniowane w szablonie:
 
+* [Microsoft. Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
+* [Microsoft. Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
+* [Microsoft. Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
+* [Microsoft. Network/adresów publicipaddress](/azure/templates/microsoft.network/publicipaddresses)
+* [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
 * [Microsoft. COMPUTE/virtualMachines](/azure/templates/microsoft.compute/virtualmachines): Tworzenie maszyny wirtualnej opartej na chmurze. W tym szablonie maszyna wirtualna jest skonfigurowana jako Data Science Virtual Machine z systemem Ubuntu 18,04.
 
 ## <a name="deploy-the-template"></a>Wdrażanie szablonu

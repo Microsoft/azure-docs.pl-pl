@@ -5,18 +5,18 @@ description: Azure SQL Database i wystąpienie zarządzane SQL Azure automatyczn
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
-ms.custom: sqldbrb=2
+ms.custom: references_regions
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 08/04/2020
-ms.openlocfilehash: 5fd835418a8429fa07325c22b106ee675ba3e2e1
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 485a137f552ca06fba366d261eb38268d821ccaf
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756728"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853220"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Zautomatyzowane kopie zapasowe — Azure SQL Database & wystąpienia zarządzane SQL
 
@@ -46,7 +46,14 @@ Opcja konfigurowania nadmiarowości magazynu kopii zapasowych zapewnia elastyczn
 > [!IMPORTANT]
 > W wystąpieniu zarządzanym SQL konfiguracja nadmiarowości kopii zapasowej jest stosowana zarówno do krótkoterminowych ustawień przechowywania kopii zapasowych, które są używane do przywracania do punktu w czasie (kopie), jak i długoterminowego przechowywania kopii zapasowych używanych do długoterminowych kopii zapasowych (LTR).
 
+
+> [!NOTE]
+> Azure SQL Database konfigurowalnej nadmiarowości magazynu kopii zapasowych jest obecnie dostępna jako ograniczona prywatna wersja zapoznawcza niektórych klientów w regionie usługi Azure Południowo-Wschodnia. Jeśli chcesz uwzględnić rejestrację w tej prywatnej wersji zapoznawczej, skontaktuj się z firmą [sqlbackuppreview@microsoft.com](mailto:sqlbackuppreview@microsoft.com) . 
+
+Jeśli reguły ochrony danych wymagają, aby kopie zapasowe były dostępne przez dłuższy czas (do 10 lat), można skonfigurować [długoterminowe przechowywanie](long-term-retention-overview.md) zarówno dla baz danych o pojedynczej, jak i w puli.
+
 ### <a name="backup-usage"></a>Użycie kopii zapasowej
+
 
 Tych kopii zapasowych można użyć w następujących celach:
 

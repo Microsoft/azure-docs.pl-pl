@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 58c28160de15bc99c94c84ab23fdbb358125132d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e98792c81604b0f867343db289a44dfec9704b5e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033585"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853708"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Wydajność i skalowanie w usłudze Durable Functions (Azure Functions)
 
@@ -224,6 +224,10 @@ Istnieją dwa potencjalne downsides tego ustawienia, które należy wziąć pod 
 Przykładowo, jeśli `durableTask/extendedSessionIdleTimeoutInSeconds` jest ustawiona na 30 sekund, a następnie odcinek usługi Orchestrator lub Entity Functions, który jest wykonywany w mniej niż 1 sekund, nadal zajmuje pamięć przez 30 sekund. Liczy się również w stosunku do `durableTask/maxConcurrentOrchestratorFunctions` wspomnianego wcześniej przydziału, co potencjalnie uniemożliwia uruchomienie innych funkcji programu Orchestrator lub Entity.
 
 W następnych sekcjach opisano określone skutki rozszerzonych sesji w programie Orchestrator i w ramach funkcji Entity.
+
+> [!NOTE]
+> Sesje rozszerzone są obecnie obsługiwane tylko w językach .NET, takich jak C# lub F #. Ustawienie `extendedSessionsEnabled` `true` dla innych platform może prowadzić do problemów z czasem wykonywania, takich jak dyskretne niepowodzenie wykonywania działań i funkcji wyzwalanych przez aranżację.
+
 
 ### <a name="orchestrator-function-replay"></a>Powtarzanie funkcji programu Orchestrator
 
