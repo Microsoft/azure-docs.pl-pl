@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 73ee2165b8750b79bc33c76604ffed295fd1ea48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 306445e26e5b236b49273b9ab8888ecc610bc075
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831883"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962047"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certyfikaty i App Service Environment 
 
-App Service Environment (ASE) to wdrożenie Azure App Service, które działa w ramach Virtual Network platformy Azure. Można ją wdrożyć za pomocą punktu końcowego aplikacji dostępnego z Internetu lub punktu końcowego aplikacji znajdującego się w sieci wirtualnej. Jeśli środowisko ASE zostanie wdrożone za pomocą punktu końcowego dostępnego z Internetu, to wdrożenie jest nazywane zewnętrznym środowiskiem ASE. Jeśli środowisko ASE zostanie wdrożone z punktem końcowym w sieci wirtualnej, to wdrożenie jest nazywane ILB ASE. Więcej informacji na temat ILB ASE można znaleźć na stronie [Tworzenie i używanie dokumentu ILB ASE](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase) .
+App Service Environment (ASE) to wdrożenie Azure App Service, które działa w ramach Virtual Network platformy Azure. Można ją wdrożyć za pomocą punktu końcowego aplikacji dostępnego z Internetu lub punktu końcowego aplikacji znajdującego się w sieci wirtualnej. Jeśli środowisko ASE zostanie wdrożone za pomocą punktu końcowego dostępnego z Internetu, to wdrożenie jest nazywane zewnętrznym środowiskiem ASE. Jeśli środowisko ASE zostanie wdrożone z punktem końcowym w sieci wirtualnej, to wdrożenie jest nazywane ILB ASE. Więcej informacji na temat ILB ASE można znaleźć na stronie [Tworzenie i używanie dokumentu ILB ASE](./create-ilb-ase.md) .
 
 Środowisko ASE to pojedynczy system dzierżawy. Ponieważ jest to pojedynczy dzierżawca, niektóre funkcje są dostępne tylko w środowisku ASE, które nie są dostępne w App Service z wieloma dzierżawcami. 
 
@@ -75,7 +75,7 @@ Aby przekazać certyfikat do aplikacji w środowisku ASE:
 
 1. Wygeneruj plik *CER* dla certyfikatu. 
 2. Przejdź do aplikacji, która wymaga certyfikatu w Azure Portal
-3. Przejdź do ustawień protokołu SSL w aplikacji. Kliknij pozycję Przekaż certyfikat. wybierz pozycję Publiczny. Wybierz pozycję komputer lokalny. Podaj nazwę Przeglądaj i wybierz plik *CER* . Wybierz pozycję Przekaż. 
+3. Przejdź do ustawień protokołu SSL w aplikacji. Kliknij pozycję Przekaż certyfikat. Wybierz pozycję Publiczna. Wybierz pozycję komputer lokalny. Podaj nazwę Przeglądaj i wybierz plik *CER* . Wybierz pozycję Przekaż. 
 4. Skopiuj odcisk palca.
 5. Przejdź do pozycji Ustawienia aplikacji. Utwórz ustawienie aplikacji WEBSITE_LOAD_ROOT_CERTIFICATES z odciskiem palca jako wartość. Jeśli masz wiele certyfikatów, możesz je umieścić w tym samym ustawieniu oddzielone przecinkami i bez odstępów, takich jak 
 

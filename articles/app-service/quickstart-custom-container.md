@@ -7,12 +7,12 @@ ms.date: 08/28/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 2aed6a2fea38f10a2e06ea51edb7fb529c8a2dde
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 33eaf6274f2da09ab98a21e6028b0103df817744
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212529"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961367"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Uruchamianie niestandardowego kontenera na platformie Azure
 
@@ -103,7 +103,7 @@ Utwórz aplikację internetową ASP.NET, wykonując następujące czynności:
 
    ![Skonfiguruj Web App for Containers](media/quickstart-custom-container/configure-web-app-continer.png)
 
-    Jeśli masz obraz niestandardowy dla aplikacji internetowej w innym miejscu, na przykład w [usłudze Azure Container Registry](/azure/container-registry/) lub w innym prywatnym repozytorium, możesz skonfigurować go tutaj.
+    Jeśli masz obraz niestandardowy dla aplikacji internetowej w innym miejscu, na przykład w [usłudze Azure Container Registry](../container-registry/index.yml) lub w innym prywatnym repozytorium, możesz skonfigurować go tutaj.
 
 1. Wybierz pozycję **Przejrzyj i Utwórz** , a następnie **Utwórz** i poczekaj na platformę Azure, aby utworzyć wymagane zasoby.
 
@@ -173,22 +173,22 @@ Ponownie [przejdź do aplikacji kontenera](#browse-to-the-container-app). Po od�
 
 Możesz użyć innego niestandardowego obrazu platformy Docker, aby uruchomić aplikację. Należy jednak wybrać odpowiedni [obraz nadrzędny (obraz podstawowy)](https://docs.docker.com/develop/develop-images/baseimages/) dla potrzebnej platformy:
 
-- Aby wdrożyć aplikacje .NET Framework, Użyj obrazu nadrzędnego na podstawie wersji [LTSC (Long-Term Servicing Channel)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) systemu Windows Server Core 2019. 
-- Aby wdrażać aplikacje platformy .NET Core, Użyj obrazu nadrzędnego na podstawie wersji systemu Windows Server nano 1809 [częściowo-rocznego kanału obsługi (SAC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) . 
+- Aby wdrożyć aplikacje .NET Framework, Użyj obrazu nadrzędnego na podstawie wersji [LTSC (Long-Term Servicing Channel)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) systemu Windows Server Core 2019. 
+- Aby wdrażać aplikacje platformy .NET Core, Użyj obrazu nadrzędnego na podstawie wersji systemu Windows Server nano 1809 [częściowo-rocznego kanału obsługi (SAC)](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) . 
 
 Pobieranie obrazu nadrzędnego podczas uruchamiania aplikacji może zająć trochę czasu. Można jednak skrócić czas uruchamiania, korzystając z jednego z następujących obrazów nadrzędnych, które już zostały zbuforowane w usłudze Azure App Service:
 
 - [MCR.Microsoft.com/dotnet/Framework/ASPNET](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/): 4.7.2-windowsservercore-ltsc2019
 - [MCR.Microsoft.com/Windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/): 1809 — ten obraz jest kontenerem bazowym używanym w obrazach Microsoft [ASP.NET Core](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/) Microsoft Windows nano Server.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Migrowanie do kontenera systemu Windows na platformie Azure](tutorial-custom-container.md)
 ::: zone-end  
 
 ::: zone pivot="container-linux"
-App Service w systemie Linux udostępnia wstępnie zdefiniowane stosy aplikacji w systemie Linux z obsługą języków takich jak .NET, PHP, Node.js i innych. Można także użyć niestandardowego obrazu platformy Docker, aby uruchamiać aplikację internetową na stosie aplikacji, który nie jest zdefiniowany na platformie Azure. W tym przewodniku szybki start przedstawiono sposób wdrażania obrazu z [Azure Container Registry](/azure/container-registry) (ACR) do App Service.
+App Service w systemie Linux udostępnia wstępnie zdefiniowane stosy aplikacji w systemie Linux z obsługą języków takich jak .NET, PHP, Node.js i innych. Można także użyć niestandardowego obrazu platformy Docker, aby uruchamiać aplikację internetową na stosie aplikacji, który nie jest zdefiniowany na platformie Azure. W tym przewodniku szybki start przedstawiono sposób wdrażania obrazu z [Azure Container Registry](../container-registry/index.yml) (ACR) do App Service.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -200,7 +200,7 @@ App Service w systemie Linux udostępnia wstępnie zdefiniowane stosy aplikacji 
 
 ## <a name="create-an-image"></a>Tworzenie obrazu
 
-Aby ukończyć ten przewodnik Szybki Start, potrzebny będzie odpowiedni obraz aplikacji sieci Web przechowywany w [Azure Container Registry](/azure/container-registry). Postępuj zgodnie z instrukcjami w [przewodniku szybki start: Tworzenie prywatnego rejestru kontenerów przy użyciu Azure Portal](/azure/container-registry/container-registry-get-started-portal), ale `mcr.microsoft.com/azuredocs/go` zamiast `hello-world` obrazu Użyj obrazu. Aby uzyskać odwołanie, [przykład pliku dockerfile znajduje się w repozytorium przykładów platformy Azure](https://github.com/Azure-Samples/go-docs-hello-world).
+Aby ukończyć ten przewodnik Szybki Start, potrzebny będzie odpowiedni obraz aplikacji sieci Web przechowywany w [Azure Container Registry](../container-registry/index.yml). Postępuj zgodnie z instrukcjami w [przewodniku szybki start: Tworzenie prywatnego rejestru kontenerów przy użyciu Azure Portal](../container-registry/container-registry-get-started-portal.md), ale `mcr.microsoft.com/azuredocs/go` zamiast `hello-world` obrazu Użyj obrazu. Aby uzyskać odwołanie, [przykład pliku dockerfile znajduje się w repozytorium przykładów platformy Azure](https://github.com/Azure-Samples/go-docs-hello-world).
 
 > [!IMPORTANT]
 > Należy pamiętać o ustawieniu opcji **użytkownik administrator** , aby **włączyć** ją podczas tworzenia rejestru kontenerów. Można również ustawić ją z sekcji **klucze dostępu** na stronie rejestru w Azure Portal. To ustawienie jest wymagane do App Service dostępu.
@@ -248,7 +248,7 @@ Panel **dane wyjściowe** zostanie otwarty podczas wdrażania, aby wskazać stan
 > [!div class="nextstepaction"]
 > [Wystąpił problem](https://www.research.net/r/PWZWZ52?tutorial=quickstart-docker&step=deploy-app)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Gratulacje, udało Ci się ukończyć ten przewodnik Szybki Start.
 
@@ -261,4 +261,4 @@ Następnie zapoznaj się z innymi rozszerzeniami platformy Azure.
 
 Lub Pobierz je wszystkie, instalując pakiet rozszerzeń [narzędzi platformy Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) .
 
-::: zone-end  
+::: zone-end

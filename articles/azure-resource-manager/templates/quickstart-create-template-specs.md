@@ -2,15 +2,15 @@
 title: Tworzenie i wdrażanie specyfikacji szablonu
 description: Dowiedz się, jak utworzyć specyfikację szablonu na podstawie szablonu ARM. Następnie wdróż specyfikację szablonu w grupie zasobów w subskrypcji.
 author: tfitzmac
-ms.date: 08/26/2020
+ms.date: 08/27/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: aaceac9fccf21074732c4b6c4b3e72cc09552a65
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 84422862cfa73c2cbb27411bf0c1a7fb3fab9b35
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936388"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962659"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Szybki Start: Tworzenie i wdrażanie specyfikacji szablonu (wersja zapoznawcza)
 
@@ -257,7 +257,7 @@ Teraz można wdrożyć specyfikację szablonu. wdrożenie specyfikacji szablonu 
     ```
 
     > [!NOTE]
-    > Istnieje znany problem dotyczący pobierania identyfikatora specyfikacji szablonu, a następnie przypisywania go do zmiennej w programie Windows PowerShell.
+    > Istnieje znany problem z pobraniem identyfikatora specyfikacji szablonu i przypisaniem go do zmiennej w programie Windows PowerShell.
 
 1. Wdróż specyfikację szablonu.
 
@@ -352,6 +352,6 @@ Aby wyczyścić zasób wdrożony w tym przewodniku Szybki Start, Usuń grupy zas
 
 1. Z górnego menu wybierz pozycję Usuń grupę zasobów.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej o tworzeniu specyfikacji szablonu zawierającej połączone szablony, zobacz [Tworzenie specyfikacji szablonu połączonego szablonu](template-specs-create-linked.md).

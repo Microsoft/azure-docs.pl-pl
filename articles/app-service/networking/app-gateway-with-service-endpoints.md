@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 2bedd8d9ab0b879886042de3dc2fcff7f7b36f2f
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: fdb502685259a5e12bf0182c36aa6c73ec7c1dd5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080936"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958937"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Application Gateway integrację z punktami końcowymi usługi
 Istnieją trzy różnice App Service, które wymagają nieco innej konfiguracji integracji z usługą Azure Application Gateway. Różnice obejmują regularne App Service — nazywane również wieloma dzierżawcami, wewnętrznymi Load Balancer (ILB) App Service Environment (ASE) i zewnętrznym środowiskiem ASE. W tym artykule opisano sposób konfigurowania tego programu przy użyciu App Service (wiele dzierżawców) i omówienia zagadnień dotyczących ILB oraz zewnętrznego środowiska ASE.
@@ -83,7 +83,7 @@ Jeśli chcesz ustawić indywidualne ograniczenia dostępu dla witryny SCM, może
 az webapp config access-restriction add --resource-group myRG --name myWebApp --scm-site --rule-name KudoAccess --priority 200 --ip-address 208.130.0.0/16
 ```
 
-## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji na temat App Service Environment, zobacz [dokumentację dotyczącą App Service Environment](https://docs.microsoft.com/azure/app-service/environment).
+## <a name="next-steps"></a>Kolejne kroki
+Aby uzyskać więcej informacji na temat App Service Environment, zobacz [dokumentację dotyczącą App Service Environment](/azure/app-service/environment).
 
 Aby dodatkowo zabezpieczyć aplikację sieci Web, informacje o zaporze aplikacji sieci Web na Application Gateway można znaleźć w [dokumentacji zapory aplikacji sieci Web platformy Azure](../../web-application-firewall/ag/ag-overview.md).

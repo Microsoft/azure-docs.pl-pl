@@ -2,13 +2,13 @@
 title: Tworzenie specyfikacji szablonu z połączonymi szablonami
 description: Dowiedz się, jak utworzyć specyfikację szablonu z połączonymi szablonami.
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: 49a26bf61c3c66f41761afe293471575e76c4eb9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 08/27/2020
+ms.openlocfilehash: a70d4be2810b8d5a19fa9d806444cac1674e1a05
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936371"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959225"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Samouczek: Tworzenie specyfikacji szablonu z połączonymi szablonami (wersja zapoznawcza)
 
@@ -245,10 +245,10 @@ az deployment group create \
 ```
 
 > [!NOTE]
-> Istnieje znany problem dotyczący pobierania identyfikatora specyfikacji szablonu, a następnie przypisywania go do zmiennej w programie Windows PowerShell.
+> Istnieje znany problem z pobraniem identyfikatora specyfikacji szablonu i przypisaniem go do zmiennej w programie Windows PowerShell.
 
 ---
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej o wdrażaniu specyfikacji szablonu jako połączonego szablonu, zobacz [Samouczek: wdrażanie specyfikacji szablonu jako połączonego szablonu](template-specs-deploy-linked-template.md).

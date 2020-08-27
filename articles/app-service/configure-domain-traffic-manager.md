@@ -5,21 +5,21 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5ae68a8871bc2894191644e4ab183be4b469bf16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e8d5fa14678a2a26234dfcd73f4a50af62ca7aa
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82610245"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962880"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Konfigurowanie niestandardowej nazwy domeny w Azure App Service z integracją Traffic Manager
 
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 > [!NOTE]
-> Aby uzyskać Cloud Services, zobacz [Konfigurowanie niestandardowej nazwy domeny dla usługi w chmurze platformy Azure](../cloud-services/cloud-services-custom-domain-name.md).
+> Aby uzyskać Cloud Services, zobacz [Konfigurowanie niestandardowej nazwy domeny dla usługi w chmurze platformy Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-W przypadku używania [usługi Azure Traffic Manager](/azure/traffic-manager/) do równoważenia obciążenia ruchu do [Azure App Service](overview.md)dostęp do aplikacji App Service można uzyskać za pomocą ** \<traffic-manager-endpoint> . trafficmanager.NET**. Możesz przypisać niestandardową nazwę domeny, taką jak \. contoso.com www, za pomocą aplikacji App Service, aby zapewnić użytkownikom bardziej rozpoznawalną nazwę domeny.
+W przypadku używania [usługi Azure Traffic Manager](../traffic-manager/index.yml) do równoważenia obciążenia ruchu do [Azure App Service](overview.md)dostęp do aplikacji App Service można uzyskać za pomocą ** \<traffic-manager-endpoint> . trafficmanager.NET**. Możesz przypisać niestandardową nazwę domeny, taką jak \. contoso.com www, za pomocą aplikacji App Service, aby zapewnić użytkownikom bardziej rozpoznawalną nazwę domeny.
 
 W tym artykule pokazano, jak skonfigurować niestandardową nazwę domeny za pomocą aplikacji App Service zintegrowanej z [Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 
@@ -51,11 +51,11 @@ Bieżąca warstwa aplikacji jest wyróżniona niebieskim obramowaniem. Upewnij s
 
 Jeśli potrzebujesz skalować w górę aplikacji, wybierz dowolną warstwę cenową w kategorii **produkcja** . Aby uzyskać dodatkowe opcje, kliknij pozycję **Wyświetl dodatkowe opcje**.
 
-Kliknij przycisk **Zastosuj**.
+Kliknij pozycję **Zastosuj**.
 
 ## <a name="create-traffic-manager-endpoint"></a>Utwórz punkt końcowy Traffic Manager
 
-Postępując zgodnie z instrukcjami w obszarze [punkty końcowe dodawania lub usuwania](../traffic-manager/traffic-manager-endpoints.md), dodaj aplikację App Service jako punkt końcowy w profilu Traffic Manager.
+Postępując zgodnie z instrukcjami w obszarze [punkty końcowe dodawania lub usuwania](../traffic-manager/traffic-manager-manage-endpoints.md), dodaj aplikację App Service jako punkt końcowy w profilu Traffic Manager.
 
 Gdy aplikacja App Service jest w obsługiwanej warstwie cenowej, zostanie wyświetlona na liście dostępnych App Service docelowych podczas dodawania punktu końcowego. Jeśli Twoja aplikacja nie znajduje się na liście, [Sprawdź warstwę cenową swojej aplikacji](#prepare-the-app).
 
@@ -96,7 +96,7 @@ Po rozpropagowaniu rekordów dla nazwy domeny Użyj przeglądarki, aby sprawdzi�
 
     ![Dodawanie nazwy DNS do aplikacji](./media/configure-domain-traffic-manager/enable-traffic-manager-domain.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Zabezpieczanie niestandardowej nazwy DNS przy użyciu powiązania SSL w usłudze Azure App Service](configure-ssl-bindings.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/06/2020
-ms.openlocfilehash: d507db415a2438c97444ca008f0c9b182306242b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: e1fa2fe11873d08fae5add1ee3206f6f887975eb
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121531"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88960921"
 ---
 # <a name="log-analytics-agent-overview"></a>Omówienie agenta Log Analytics
 Agent usługi Azure Log Analytics został opracowany z myślą o rozbudowanym zarządzaniu między maszynami wirtualnymi w każdej chmurze, maszynach lokalnych i tych monitorowanych przez [System Center Operations Manager](/system-center/scom/). Agenci systemów Windows i Linux wysyłają zebrane dane z różnych źródeł do obszaru roboczego Log Analytics w Azure Monitor, a także do wszystkich unikatowych dzienników lub metryk zgodnie z definicją w rozwiązaniu monitorowania. Agent Log Analytics obsługuje także szczegółowe informacje i inne usługi w Azure Monitor, takie jak [Azure monitor dla maszyn wirtualnych](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml)i [Azure Automation](../../automation/automation-intro.md).
@@ -22,7 +22,7 @@ Ten artykuł zawiera szczegółowe omówienie wymagań dotyczących agenta, syst
 > Może również zostać wyświetlony Agent Log Analytics nazywany Microsoft Monitoring Agent (MMA) lub agentem usługi OMS Linux.
 
 > [!NOTE]
-> Diagnostyka Azure rozszerzenie jest jednym z agentów dostępnych do zbierania danych monitorowania z systemu operacyjnego gościa zasobów obliczeniowych. Zapoznaj się z [omówieniem agentów Azure monitor](agents-overview.md) , aby uzyskać opis różnych agentów i wskazówki dotyczące wybierania odpowiednich agentów w celu spełnienia określonych wymagań.
+> Diagnostyka Azure rozszerzenie jest jednym z agentów dostępnych do zbierania danych monitorowania z systemu operacyjnego gościa zasobów obliczeniowych. Zapoznaj się z [omówieniem agentów Azure monitor ](agents-overview.md) , aby uzyskać opis różnych agentów i wskazówki dotyczące wybierania odpowiednich agentów w celu spełnienia określonych wymagań.
 
 ## <a name="comparison-to-azure-diagnostics-extension"></a>Porównanie z rozszerzeniem usługi Diagnostyka Azure
 [Rozszerzenia usługi Azure Diagnostics](diagnostics-extension-overview.md) w Azure monitor można także użyć do zbierania danych monitorowania z systemu operacyjnego gościa maszyn wirtualnych platformy Azure. W zależności od potrzeb można użyć lub obu tych opcji. Szczegółowe porównanie agentów Azure Monitor można znaleźć w temacie [Omówienie agentów Azure monitor](agents-overview.md) . 
@@ -118,9 +118,9 @@ Począwszy od wersji wydanej po 2018 sierpnia, wprowadzamy następujące zmiany 
 ### <a name="python-2-requirement"></a>Wymagania dotyczące języka Python 2
  Agent Log Analytics wymaga języka Python 2. Jeśli maszyna wirtualna używa dystrybucji, która domyślnie nie zawiera języka Python 2, należy ją zainstalować. Następujące przykładowe polecenia zainstalują środowisko Python 2 na różnych dystrybucje.
 
- - Red Hat, CentOS, Oracle:`yum install -y python2`
- - Ubuntu, Debian:`apt-get install -y python2`
- - SZŁO`zypper install -y python2`
+ - Red Hat, CentOS, Oracle: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
+ - SZŁO `zypper install -y python2`
 
 Plik wykonywalny python2 musi mieć alias do języka *Python* przy użyciu następującej procedury:
 
@@ -214,9 +214,6 @@ W przypadku agenta systemu Linux serwer proxy jest określony podczas instalacji
 
 `[protocol://][user:password@]proxyhost[:port]`
 
-> [!NOTE]
-> Jeśli serwer proxy nie wymaga uwierzytelniania, Agent systemu Linux nadal wymaga podania pseudo użytkownika/hasła. Może to być dowolna nazwa użytkownika lub hasło.
-
 |Właściwość| Opis |
 |--------|-------------|
 |Protokół | https |
@@ -232,7 +229,7 @@ Na przykład: `https://user01:password@proxy01.contoso.com:30443`
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Przejrzyj [źródła danych](agent-data-sources.md) , aby zrozumieć źródła danych dostępne do zbierania danych z systemu Windows lub Linux. 
 * Informacje na temat [zapytań dzienników](../log-query/log-query-overview.md) w celu analizowania danych zebranych ze źródeł danych i rozwiązań. 

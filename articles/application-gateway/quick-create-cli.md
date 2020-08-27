@@ -1,20 +1,20 @@
 ---
 title: 'Szybki Start: bezpośredni ruch internetowy przy użyciu interfejsu wiersza polecenia'
 titleSuffix: Azure Application Gateway
-description: Informacje dotyczące tworzenia Application Gateway platformy Azure, która kieruje ruch sieci Web do maszyn wirtualnych w puli zaplecza przy użyciu interfejsu wiersza polecenia platformy Azure.
+description: W tym przewodniku szybki start dowiesz się, jak za pomocą interfejsu wiersza polecenia platformy Azure utworzyć Application Gateway platformy Azure, która kieruje ruch sieci Web do maszyn wirtualnych w puli zaplecza.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/05/2020
+ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: d79f51e32fa62527140ccf19cfc3573339d22fab
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b6b2077a71870d619c023b0d66c37ebc043aa3f3
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499130"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961758"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Szybki start: bezpośredni ruch internetowy w usłudze Azure Application Gateway — interfejs wiersza polecenia platformy Azure
 
@@ -24,12 +24,14 @@ Aplikacja Application Gateway kieruje ruch sieci Web aplikacji do określonych z
 
 Ten przewodnik Szybki Start można także wykonać przy użyciu [Azure PowerShell](quick-create-powershell.md) lub [Azure Portal](quick-create-portal.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Interfejs wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej](/cli/azure/install-azure-cli) (w przypadku uruchamiania lokalnego interfejsu wiersza polecenia platformy Azure).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+
 
 ## <a name="create-resource-group"></a>Tworzenie grupy zasobów
 
@@ -193,7 +195,7 @@ Gdy nie potrzebujesz już zasobów utworzonych przy użyciu bramy aplikacji, uż
 az group delete --name myResourceGroupAG
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [zarządzanie ruchem internetowym przy użyciu bramy aplikacji za pomocą interfejsu wiersza polecenia platformy Azure](./tutorial-manage-web-traffic-cli.md)

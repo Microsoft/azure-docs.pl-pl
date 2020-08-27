@@ -7,18 +7,18 @@ ms.author: msangapu
 keywords: Azure App Service, Web App, Linux, Windows, Docker, kontener
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: a3579ba805d0da08184e6274de60086a9d55a938
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: df46d61ddfba5f4da977b19db3158691c78168f8
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212945"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958494"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrowanie oprogramowania niestandardowego do Azure App Service przy użyciu niestandardowego kontenera
 
 ::: zone pivot="container-windows"  
 
-[Usługa Azure App Service](overview.md) udostępnia wstępnie zdefiniowane stosy aplikacji w systemie Windows, takie jak ASP.NET lub Node.js, działające w usługach IIS. Wstępnie skonfigurowane środowisko systemu Windows blokuje możliwość dostępu administracyjnego, instalacji oprogramowania, zmian w globalnej pamięci podręcznej zestawów itd. w systemie operacyjnym. Zobacz [Operating system functionality on Azure App Service](operating-system-functionality.md) (Funkcjonalność systemu operacyjnego w usłudze Azure App Service). Jednak korzystanie z niestandardowego kontenera systemu Windows w App Service (wersja zapoznawcza) umożliwia wprowadzanie zmian systemu operacyjnego wymaganych przez aplikację, co pozwala na łatwe Migrowanie aplikacji lokalnej, która wymaga niestandardowych systemów operacyjnych i konfiguracji oprogramowania. W tym samouczku pokazano, jak przeprowadzić migrację do usługi App Service aplikacji ASP.NET, która korzysta z niestandardowych czcionek zainstalowanych w bibliotece czcionek systemu Windows. Polega to na wdrożeniu skonfigurowanego w sposób niestandardowy obrazu systemu Windows z programu Visual Studio do [usługi Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), a następnie uruchomieniu go w usłudze App Service.
+[Usługa Azure App Service](overview.md) udostępnia wstępnie zdefiniowane stosy aplikacji w systemie Windows, takie jak ASP.NET lub Node.js, działające w usługach IIS. Wstępnie skonfigurowane środowisko systemu Windows blokuje możliwość dostępu administracyjnego, instalacji oprogramowania, zmian w globalnej pamięci podręcznej zestawów itd. w systemie operacyjnym. Zobacz [Operating system functionality on Azure App Service](operating-system-functionality.md) (Funkcjonalność systemu operacyjnego w usłudze Azure App Service). Jednak korzystanie z niestandardowego kontenera systemu Windows w App Service (wersja zapoznawcza) umożliwia wprowadzanie zmian systemu operacyjnego wymaganych przez aplikację, co pozwala na łatwe Migrowanie aplikacji lokalnej, która wymaga niestandardowych systemów operacyjnych i konfiguracji oprogramowania. W tym samouczku pokazano, jak przeprowadzić migrację do usługi App Service aplikacji ASP.NET, która korzysta z niestandardowych czcionek zainstalowanych w bibliotece czcionek systemu Windows. Polega to na wdrożeniu skonfigurowanego w sposób niestandardowy obrazu systemu Windows z programu Visual Studio do [usługi Azure Container Registry](../container-registry/index.yml), a następnie uruchomieniu go w usłudze App Service.
 
 ![Pokazuje aplikację sieci Web działającą w kontenerze systemu Windows.](media/tutorial-custom-container/app-running.png)
 
@@ -92,7 +92,7 @@ W projekcie **CustomFontSample** znajduje się plik _InstallFont.ps1_. Jest to p
 
 ## <a name="publish-to-azure-container-registry"></a>Publikowanie w usłudze Azure Container Registry
 
-Usługa [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) może przechowywać obrazy na potrzeby wdrożeń kontenerów. Usługę App Service można tak skonfigurować, aby używała obrazów hostowanych w usłudze Azure Container Registry.
+Usługa [Azure Container Registry](../container-registry/index.yml) może przechowywać obrazy na potrzeby wdrożeń kontenerów. Usługę App Service można tak skonfigurować, aby używała obrazów hostowanych w usłudze Azure Container Registry.
 
 ### <a name="open-publish-wizard"></a>Otwieranie kreatora publikacji
 
@@ -110,7 +110,7 @@ W Kreatorze publikacji wybierz pozycję **Container Registry**  >  **Utwórz now
 
 W oknie dialogowym **Utwórz nowy rejestr Azure Container Registry** wybierz pozycję **Dodaj konto** i zaloguj się do swojej subskrypcji platformy Azure. Po zalogowaniu wybierz z listy rozwijanej konto zawierające odpowiednią subskrypcję.
 
-![Logowanie się do platformy Azure](./media/tutorial-custom-container/add-an-account.png)
+![Logowanie do platformy Azure](./media/tutorial-custom-container/add-an-account.png)
 
 ### <a name="configure-the-registry"></a>Konfigurowanie rejestru
 
@@ -120,7 +120,7 @@ Skonfiguruj nowy rejestr kontenerów, korzystając z sugerowanych wartości z po
 | ----------------- | ------------ | ----|
 |**Prefiks DNS**| Zachowaj wygenerowaną nazwę rejestru lub zmień ją na inną unikatową nazwę. |  |
 |**Grupa zasobów**| Kliknij pozycję **Nowy**, wpisz **myResourceGroup** i kliknij przycisk **OK**. |  |
-|**SKU**| Podstawowa | [Warstwy cenowe](https://azure.microsoft.com/pricing/details/container-registry/)|
+|**SKU**| Podstawowe | [Warstwy cenowe](https://azure.microsoft.com/pricing/details/container-registry/)|
 |**Lokalizacja rejestru**| West Europe | |
 
 ![Konfigurowanie rejestru kontenerów platformy Azure](./media/tutorial-custom-container/configure-registry.png)
@@ -213,7 +213,7 @@ Przesyłane strumieniowo dzienniki wyglądają następująco:
 
 Azure App Service używa technologii kontenera Docker do hostowania zarówno wbudowanych obrazów, jak i obrazów niestandardowych. Aby wyświetlić listę wbudowanych obrazów, uruchom polecenie interfejsu wiersza polecenia platformy Azure, ["AZ webapp list-Runtimes--Linux"](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). Jeśli te obrazy nie spełniają Twoich potrzeb, można skompilować i wdrożyć niestandardowy obraz.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie obrazu niestandardowego, jeśli żaden wbudowany obraz nie spełnia Twoich potrzeb
@@ -439,7 +439,7 @@ Aby wdrożyć kontener do Azure App Service, należy najpierw utworzyć aplikacj
     
     Aby uzyskać więcej informacji na temat tej zmiennej środowiskowej, zobacz [plik Readme w repozytorium GitHub przykładu](https://github.com/Azure-Samples/docker-django-webapp-linux).
 
-1. Włącz [zarządzaną tożsamość](/azure/app-service/overview-managed-identity) aplikacji sieci Web za pomocą [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) polecenia:
+1. Włącz [zarządzaną tożsamość](./overview-managed-identity.md) aplikacji sieci Web za pomocą [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) polecenia:
 
     ```azurecli-interactive
     az webapp identity assign --resource-group AppSvc-DockerTutorial-rg --name <app-name> --query principalId --output tsv
@@ -466,7 +466,7 @@ Aby wdrożyć kontener do Azure App Service, należy najpierw utworzyć aplikacj
     - `<registry-name>` Nazwa rejestru kontenerów
     - `<subscription-id>` z IDENTYFIKATORem subskrypcji pobranym z `az account show` polecenia
 
-Aby uzyskać więcej informacji o tych uprawnieniach, zobacz [co to jest kontrola dostępu oparta na rolach na platformie Azure](/azure/role-based-access-control/overview) i 
+Aby uzyskać więcej informacji o tych uprawnieniach, zobacz [co to jest kontrola dostępu oparta na rolach na platformie Azure](../role-based-access-control/overview.md) i 
 
 ## <a name="deploy-the-image-and-test-the-app"></a>Wdrażanie obrazu i testowanie aplikacji
 
@@ -618,7 +618,7 @@ Zasoby utworzone w tym artykule mogą wiązać się z bieżącymi kosztami. Aby 
 az group delete --name AppSvc-DockerTutorial-rg
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Które czynności umiesz wykonać:
 

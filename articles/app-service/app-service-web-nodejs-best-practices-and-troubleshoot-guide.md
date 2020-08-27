@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3fd9a013eb3318abc48745e163d9ee0118b52b1d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 3b4a9547a1bd62b7464b4a79fe68720572630f3d
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077479"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961894"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Najlepsze rozwiązania i wskazówki dotyczące rozwiązywania problemów z aplikacjami węzłów w systemie Azure App Service Windows
 
@@ -166,7 +166,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Przejdź do lokacji konsoli debugowania`https://yoursite.scm.azurewebsites.net/DebugConsole`
+Przejdź do lokacji konsoli debugowania `https://yoursite.scm.azurewebsites.net/DebugConsole`
 
 Przejdź do katalogu site/wwwroot. Zobaczysz wiersz polecenia, jak pokazano w następującym przykładzie:
 
@@ -267,15 +267,15 @@ Włącz FREB dla aplikacji, aby zobaczyć kod błędu Win32 (Upewnij się, że F
 | 503 |1002 |Sprawdź kod błędu Win32 dla rzeczywistej przyczyny — nie można wysłać żądania do node.exe. |
 | 503 |1003 |Nazwany potok jest zbyt zajęty — Sprawdź, czy node.exe zużywa nadmierny procesor CPU |
 
-NODE.exe ma wywołane ustawienie `NODE_PENDING_PIPE_INSTANCES` . Na Azure App Service wartość ta jest równa 5000. Oznacza to, że node.exe może akceptować 5000 żądań jednocześnie w nazwanym potoku. Ta wartość powinna być wystarczająca dla większości aplikacji węzłów działających na Azure App Service. 503,1003 na Azure App Service ze względu na wysoką wartość dla`NODE_PENDING_PIPE_INSTANCES`
+NODE.exe ma wywołane ustawienie `NODE_PENDING_PIPE_INSTANCES` . Na Azure App Service wartość ta jest równa 5000. Oznacza to, że node.exe może akceptować 5000 żądań jednocześnie w nazwanym potoku. Ta wartość powinna być wystarczająca dla większości aplikacji węzłów działających na Azure App Service. 503,1003 na Azure App Service ze względu na wysoką wartość dla `NODE_PENDING_PIPE_INSTANCES`
 
 ## <a name="more-resources"></a>Dodatkowe zasoby
 
 Skorzystaj z poniższych linków, aby dowiedzieć się więcej o aplikacjach node.js w Azure App Service.
 
 * [Get started with Node.js web apps in Azure App Service (Rozpoczynanie pracy z aplikacjami internetowymi Node.js w usłudze Azure App Service)](quickstart-nodejs.md)
-* [How to debug a Node.js web app in Azure App Service (Jak debugować aplikację internetową Node.js w usłudze Azure App Service)](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
+* [How to debug a Node.js web app in Azure App Service (Jak debugować aplikację internetową Node.js w usłudze Azure App Service)](/archive/blogs/azureossds/debugging-node-js-apps-on-azure-app-services)
 * [Using Node.js Modules with Azure applications (Używanie modułów Node.js z aplikacjami platformy Azure)](../nodejs-use-node-modules-azure-apps.md)
-* [Azure App Service Web Apps: Node.js (Aplikacje internetowe w usłudze Azure App Service: Node.js)](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
+* [Azure App Service Web Apps: Node.js (Aplikacje internetowe w usłudze Azure App Service: Node.js)](/archive/blogs/silverlining/windows-azure-websites-node-js)
 * [Node.js Developer Center (Centrum deweloperów środowiska Node.js)](../nodejs-use-node-modules-azure-apps.md)
 * [Exploring the Super Secret Kudu Debug Console (Szczegółowe informacje o ściśle tajnej konsoli debugowania aparatu Kudu)](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

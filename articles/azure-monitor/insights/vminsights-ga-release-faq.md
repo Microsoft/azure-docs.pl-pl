@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
-ms.openlocfilehash: df96ceb47bf33b734f2127bade50af18713a97a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be192a5807c40ea65ea6533ec6244183e5a4b644
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82581359"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958800"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Azure Monitor dla maszyn wirtualnych ogólnie dostępna (GA) często zadawanych pytań
 Ta ogólna dostępność często zadawanych pytań dotyczy zmian wprowadzonych w kwartale 2019 i Q1 2020 w miarę przygotowywania do ogólnego użytku.
@@ -39,7 +39,7 @@ Gdy obszar roboczy Log Analytics zostanie uaktualniony do najnowszej wersji Azur
 Użyj następującego polecenia, aby uaktualnić obszar roboczy przy użyciu programu PowerShell:
 
 ```PowerShell
-Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True
+Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True
 ```
 
 ## <a name="what-should-i-do-about-the-performance-counters-in-my-workspace-if-i-install-the-vminsights-solution"></a>Co należy zrobić o licznikach wydajności w obszarze mój obszar roboczy, jeśli zainstaluję rozwiązanie VMInsights?
@@ -110,6 +110,6 @@ Jako istniejący klient można nadal korzystać z funkcji kondycji na maszynach 
 
 Jeśli jesteś istniejącym klientem korzystającym z funkcji kondycji i chcesz go użyć do nowego wdrożenia, skontaktuj się z nami, vminsights@microsoft.com Aby uzyskać instrukcje.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby poznać wymagania i metody, które ułatwiają monitorowanie maszyn wirtualnych, zobacz [wdrażanie Azure monitor dla maszyn wirtualnych](vminsights-enable-overview.md).

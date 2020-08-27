@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6fde04be99eaa61287b486eaefdcb92d66d88bc7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0dfcf74ef07ff2bde7921860c6e13a59b0ccf023
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280923"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962540"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Networking considerations for an App Service Environment (Zagadnienia dotyczące sieci w środowisku App Service Environment) #
 
@@ -157,7 +157,7 @@ Wymagane wpisy w sieciowej grupy zabezpieczeń, dla których środowisko ASE ma 
 * TCP z modułu równoważenia obciążenia na porcie 16001
 * z podsieci środowiska ASE do podsieci środowiska ASE na wszystkich portach
 
-**Wychodzący**
+**Outbound**
 * UDP do wszystkich adresów IP na porcie 53
 * UDP do wszystkich adresów IP na porcie 123
 * TCP do wszystkich adresów IP na portach 80, 443
@@ -244,14 +244,14 @@ Kiedy punkty końcowe usługi są włączone w podsieci z wystąpieniem usługi 
 [NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
-[mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
+[mobileapps]: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ss-cert.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
-[AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [ASEManagement]: ./management-addresses.md
 [serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
 [forcedtunnel]: ./forced-tunnel-support.md

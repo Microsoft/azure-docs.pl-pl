@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: 0d0d0d19b9b84649867085a05efa656131e48c5a
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: ae2d91233df25885bdfd765481f4bb6a1a36da37
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220724"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958732"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Kupowanie niestandardowej nazwy domeny dla usługi Azure App Service
 
@@ -22,7 +22,7 @@ W przypadku maszyny wirtualnej platformy Azure lub usługi Azure Storage, zobacz
 
 W celu ukończenia tego samouczka:
 
-* [Utwórz aplikację usługi App Service](/azure/app-service/) lub użyj aplikacji utworzonej w innym samouczku.
+* [Utwórz aplikację usługi App Service](./index.yml) lub użyj aplikacji utworzonej w innym samouczku.
 * [Usuń limit wydatków dla subskrypcji](../cost-management-billing/manage/spending-limit.md#remove). Nie można kupować App Service domen z bezpłatnymi środkami subskrypcji.
 
 ## <a name="prepare-the-app"></a>Przygotowywanie aplikacji
@@ -108,8 +108,8 @@ Następnie wybierz odpowiednie opcje dla domeny. Zapoznaj się z poniższymi tab
 
 | Ustawienie | Sugerowana wartość | Opis |
 |-|-|-|
-|Ochrona prywatności | Włączanie | Zezwól na "ochronę prywatności", która jest oferowana _bezpłatnie_w cenie zakupu. Niektóre domeny najwyższego poziomu są zarządzane przez rejestratory, które nie obsługują ochrony prywatności i są wyświetlane na stronie **Ochrona prywatności** . |
-| Przypisywanie domyślnych nazw hostów | **www** i**\@** | Wybierz żądane powiązania nazwy hosta, jeśli jest to wymagane. Po zakończeniu operacji zakupu domeny dostęp do aplikacji można uzyskać na wybranych nazwach hostów. Jeśli aplikacja jest za [Traffic managerem platformy Azure](https://azure.microsoft.com/services/traffic-manager/), nie widzisz opcji przypisywania domeny głównej (@), ponieważ Traffic Manager nie obsługuje rekordów. Po zakończeniu zakupu domeny możesz wprowadzić zmiany w przypisaniach do nazwy hosta. |
+|Ochrona prywatności | Włącz | Zezwól na "ochronę prywatności", która jest oferowana _bezpłatnie_w cenie zakupu. Niektóre domeny najwyższego poziomu są zarządzane przez rejestratory, które nie obsługują ochrony prywatności i są wyświetlane na stronie **Ochrona prywatności** . |
+| Przypisywanie domyślnych nazw hostów | **www** i **\@** | Wybierz żądane powiązania nazwy hosta, jeśli jest to wymagane. Po zakończeniu operacji zakupu domeny dostęp do aplikacji można uzyskać na wybranych nazwach hostów. Jeśli aplikacja jest za [Traffic managerem platformy Azure](https://azure.microsoft.com/services/traffic-manager/), nie widzisz opcji przypisywania domeny głównej (@), ponieważ Traffic Manager nie obsługuje rekordów. Po zakończeniu zakupu domeny możesz wprowadzić zmiany w przypisaniach do nazwy hosta. |
 
 ### <a name="accept-terms-and-purchase"></a>Zaakceptuj warunki i zakup
 

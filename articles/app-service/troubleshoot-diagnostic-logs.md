@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 1a6c109907c20e06796744d42feae20dc53f2b52
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 89162a0b8ca20e59319802f9e2359c2f27ff163f
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207527"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962183"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Włączanie rejestrowania diagnostycznego dla aplikacji w Azure App Service
 ## <a name="overview"></a>Omówienie
@@ -46,12 +46,12 @@ Aby włączyć rejestrowanie aplikacji dla aplikacji systemu Windows w [Azure Po
 
 Wybierz opcję **włączone** dla **rejestrowania aplikacji (system plików)** lub **rejestrowania aplikacji (BLOB)** lub obu tych metod. 
 
-Opcja systemu **plików** służy do tymczasowego debugowania i wyłącza się w ciągu 12 godzin. Opcja **obiektu BLOB** służy do rejestrowania długoterminowego i wymaga kontenera magazynu obiektów BLOB do zapisu dzienników.  Opcja **obiektu BLOB** zawiera również dodatkowe informacje w komunikatach dziennika, takie jak identyfikator wystąpienia pierwotnej maszyny wirtualnej komunikatu dziennika ( `InstanceId` ), identyfikator wątku ( `Tid` ) i bardziej szczegółowe sygnatura czasowa ( [`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks) ).
+Opcja systemu **plików** służy do tymczasowego debugowania i wyłącza się w ciągu 12 godzin. Opcja **obiektu BLOB** służy do rejestrowania długoterminowego i wymaga kontenera magazynu obiektów BLOB do zapisu dzienników.  Opcja **obiektu BLOB** zawiera również dodatkowe informacje w komunikatach dziennika, takie jak identyfikator wystąpienia pierwotnej maszyny wirtualnej komunikatu dziennika ( `InstanceId` ), identyfikator wątku ( `Tid` ) i bardziej szczegółowe sygnatura czasowa ( [`EventTickCount`](/dotnet/api/system.datetime.ticks) ).
 
 > [!NOTE]
 > Obecnie tylko Dzienniki aplikacji .NET mogą być zapisywane w magazynie obiektów BLOB. Java, PHP, Node.js, Dzienniki aplikacji Python mogą być przechowywane tylko w systemie plików App Service (bez modyfikacji kodu do zapisu dzienników do magazynu zewnętrznego).
 >
-> Ponadto, jeśli [ponownie wygenerujesz klucze dostępu konta magazynu](../storage/common/storage-create-storage-account.md), należy zresetować odpowiednią konfigurację rejestrowania, aby użyć zaktualizowanych kluczy dostępu. W tym celu:
+> Ponadto, jeśli [ponownie wygenerujesz klucze dostępu konta magazynu](../storage/common/storage-account-create.md), należy zresetować odpowiednią konfigurację rejestrowania, aby użyć zaktualizowanych kluczy dostępu. W tym celu:
 >
 > 1. Na karcie **Konfiguracja** Ustaw odpowiednią funkcję rejestrowania na **off**. Zapisz ustawienie.
 > 2. Ponownie Włącz rejestrowanie do obiektu BLOB konta magazynu. Zapisz ustawienie.
@@ -89,7 +89,7 @@ W przypadku **rejestrowania serwera sieci Web**wybierz pozycję **Magazyn** do p
 W obszarze **okres przechowywania (dni)** Ustaw liczbę dni przechowywania dzienników.
 
 > [!NOTE]
-> W przypadku ponownego [wygenerowania kluczy dostępu konta magazynu](../storage/common/storage-create-storage-account.md)należy zresetować odpowiednią konfigurację rejestrowania, aby użyć zaktualizowanych kluczy. W tym celu:
+> W przypadku ponownego [wygenerowania kluczy dostępu konta magazynu](../storage/common/storage-account-create.md)należy zresetować odpowiednią konfigurację rejestrowania, aby użyć zaktualizowanych kluczy. W tym celu:
 >
 > 1. Na karcie **Konfiguracja** Ustaw odpowiednią funkcję rejestrowania na **off**. Zapisz ustawienie.
 > 2. Ponownie Włącz rejestrowanie do obiektu BLOB konta magazynu. Zapisz ustawienie.
@@ -116,7 +116,7 @@ W kodzie aplikacji należy używać zwykłych funkcji rejestrowania do wysyłani
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
     ```
 
-- Domyślnie ASP.NET Core używa dostawcy rejestrowania [Microsoft. Extensions. Logging. AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) . Aby uzyskać więcej informacji, zobacz [rejestrowanie ASP.NET Core na platformie Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging/).
+- Domyślnie ASP.NET Core używa dostawcy rejestrowania [Microsoft. Extensions. Logging. AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) . Aby uzyskać więcej informacji, zobacz [rejestrowanie ASP.NET Core na platformie Azure](/aspnet/core/fundamentals/logging/).
 
 ## <a name="stream-logs"></a>Strumieniowe przesyłanie dzienników
 
@@ -151,7 +151,7 @@ az webapp log tail --name appname --resource-group myResourceGroup --path http
 
 ### <a name="in-local-terminal"></a>W terminalu lokalnym
 
-Aby przesłać strumieniowo dzienniki w lokalnej konsoli, [Zainstaluj interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) i [Zaloguj się na swoim koncie](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Po zalogowaniu postępować zgodnie z [instrukcjami dotyczącymi Cloud Shell](#in-cloud-shell)
+Aby przesłać strumieniowo dzienniki w lokalnej konsoli, [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i [Zaloguj się na swoim koncie](/cli/azure/authenticate-azure-cli). Po zalogowaniu postępować zgodnie z [instrukcjami dotyczącymi Cloud Shell](#in-cloud-shell)
 
 ## <a name="access-log-files"></a>Pliki dziennika dostępu
 

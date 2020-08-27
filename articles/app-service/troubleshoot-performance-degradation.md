@@ -7,12 +7,12 @@ ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
-ms.openlocfilehash: 2ef4862b629f5d192049c2cb9236a3da2b411960
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9d3de5d4a88c782ad541ceb4916ec90a3bdd7b5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84170770"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958256"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Rozwiązywanie problemów z wydajnością wolniejszych aplikacji w Azure App Service
 Ten artykuł pomaga rozwiązywać problemy związane z wydajnością aplikacji w [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -43,7 +43,7 @@ Rozwiązywanie problemów można podzielić na trzy różne zadania, w kolejnoś
 
 ### <a name="1-observe-and-monitor-application-behavior"></a>1. Obserwuj i monitoruj zachowanie aplikacji
 #### <a name="track-service-health"></a>Śledzenie kondycji usługi
-Microsoft Azure jest w trakcie każdej przerwy w świadczeniu usług lub obniżenia wydajności. Kondycję usługi można śledzić w [Azure Portal](https://portal.azure.com/). Aby uzyskać więcej informacji, zobacz [śledzenie kondycji usługi](../monitoring-and-diagnostics/insights-service-health.md).
+Microsoft Azure jest w trakcie każdej przerwy w świadczeniu usług lub obniżenia wydajności. Kondycję usługi można śledzić w [Azure Portal](https://portal.azure.com/). Aby uzyskać więcej informacji, zobacz [śledzenie kondycji usługi](../service-health/service-notifications.md).
 
 #### <a name="monitor-your-app"></a>Monitorowanie aplikacji
 Ta opcja umożliwia dowiedzieć się, czy aplikacja ma jakiekolwiek problemy. W bloku aplikacji kliknij kafelek **żądania i błędy** . Blok **Metryka** przedstawia wszystkie metryki, które można dodać.
@@ -61,7 +61,7 @@ Niektóre metryki, które mogą być monitorowane dla aplikacji, to
 Aby uzyskać więcej informacji, zobacz:
 
 * [Monitorowanie aplikacji w Azure App Service](web-sites-monitor.md)
-* [Otrzymywanie powiadomień o alertach](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+* [Otrzymywanie powiadomień o alertach](../azure-monitor/platform/alerts-overview.md)
 
 #### <a name="monitor-web-endpoint-status"></a>Monitorowanie stanu punktu końcowego sieci Web
 Jeśli aplikacja jest uruchamiana w warstwie cenowej **standardowa** , App Service pozwala monitorować dwa punkty końcowe z trzech lokalizacji geograficznych.
@@ -161,4 +161,4 @@ Ponowne uruchomienie jest często najprostszym sposobem na odzyskanie po jednora
 
  ![Uruchom ponownie aplikację, aby rozwiązać problemy z wydajnością](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-Możesz również zarządzać aplikacją przy użyciu programu Azure PowerShell. Aby uzyskać więcej informacji, zobacz temat [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md) (Używanie programu Azure PowerShell z usługą Azure Resource Manager).
+Możesz również zarządzać aplikacją przy użyciu programu Azure PowerShell. Aby uzyskać więcej informacji, zobacz temat [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md) (Używanie programu Azure PowerShell z usługą Azure Resource Manager).

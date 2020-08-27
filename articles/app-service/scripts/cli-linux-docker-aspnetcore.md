@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: devx-track-dotnet, mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 37e9ffc96c6bd072a5d0406f059458bfc0a06199
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 25fe0ab86136a1c9667961a5de04e525eb8e8aa2
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207827"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88960568"
 ---
 # <a name="create-an-aspnet-core-app-in-a-docker-container-from-docker-hub-using-azure-cli"></a>Tworzenie aplikacji ASP.NET Core w kontenerze platformy Docker z usługi Docker Hub przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -43,8 +43,8 @@ Ten skrypt używa poniższych poleceń do tworzenia grupy zasobów, aplikacji us
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Tworzy aplikację usługi App Service. |
 | [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) | Ustawia kontener platformy Docker dla aplikacji usługi App Service. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
 Dodatkowe przykłady skryptów interfejsu wiersza polecenia usługi App Service można znaleźć w [dokumentacji usługi Azure App Service](../samples-cli.md).

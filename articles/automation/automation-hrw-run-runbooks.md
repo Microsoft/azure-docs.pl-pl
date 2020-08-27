@@ -3,14 +3,14 @@ title: Uruchamianie Azure Automation elementów Runbook w hybrydowym procesie ro
 description: W tym artykule opisano sposób uruchamiania elementów Runbook na maszynach w lokalnym centrum danych lub dostawcy chmury przy użyciu hybrydowego procesu roboczego elementu Runbook.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/29/2019
+ms.date: 08/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 22ab982abe9f73aa77cb9bb2c8d3eaa383bc42fb
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 13c982dcfab21371ea6017f730065cc5ced4b79e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186218"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959573"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Uruchamianie elementów Runbook w hybrydowym procesie roboczym elementu Runbook
 
@@ -43,7 +43,7 @@ $Computer = Get-AutomationVariable -Name "ComputerName"
 Restart-Computer -ComputerName $Computer -Credential $Cred
 ```
 
-Można również użyć działania [InlineScript](automation-powershell-workflow.md#use-inlinescript) . `InlineScript`umożliwia uruchamianie bloków kodu na innym komputerze z poświadczeniami.
+Można również użyć działania [InlineScript](automation-powershell-workflow.md#use-inlinescript) . `InlineScript` umożliwia uruchamianie bloków kodu na innym komputerze z poświadczeniami.
 
 ## <a name="use-runbook-authentication-with-managed-identities"></a><a name="runbook-auth-managed-identities"></a>Używanie uwierzytelniania elementu Runbook z tożsamościami zarządzanymi
 
@@ -70,7 +70,7 @@ Wykonaj kolejne kroki, aby użyć zarządzanej tożsamości dla zasobów platfor
     ```
 
     > [!NOTE]
-    > `Connect-AzAccount -Identity`działa dla hybrydowego procesu roboczego elementu Runbook przy użyciu tożsamości przypisanej do systemu i pojedynczej tożsamości przypisanej przez użytkownika. Jeśli używasz wielu tożsamości przypisanych przez użytkownika w hybrydowym procesie roboczym elementu Runbook, element Runbook musi określić `AccountId` parametr, `Connect-AzAccount` Aby wybrać określoną tożsamość przypisaną przez użytkownika.
+    > `Connect-AzAccount -Identity` działa dla hybrydowego procesu roboczego elementu Runbook przy użyciu tożsamości przypisanej do systemu i pojedynczej tożsamości przypisanej przez użytkownika. Jeśli używasz wielu tożsamości przypisanych przez użytkownika w hybrydowym procesie roboczym elementu Runbook, element Runbook musi określić `AccountId` parametr, `Connect-AzAccount` Aby wybrać określoną tożsamość przypisaną przez użytkownika.
 
 ## <a name="use-runbook-authentication-with-run-as-account"></a>Korzystanie z uwierzytelniania Runbook przy użyciu konta Uruchom jako
 
@@ -305,7 +305,15 @@ Podczas uruchamiania elementu Runbook przy użyciu programu PowerShell należy u
 Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="logging"></a>Rejestrowanie
+
+Aby ułatwić rozwiązywanie problemów z elementami Runbook uruchomionymi w hybrydowym procesie roboczym elementu Runbook, dzienniki są przechowywane lokalnie w następującej lokalizacji:
+
+* W systemie Windows pod `C:\ProgramData\Microsoft\System Center\Orchestrator\<version>\SMA\Sandboxes` kątem szczegółowego rejestrowania procesów czasu wykonywania zadań. Zdarzenia stanu zadania elementu Runbook wysokiego poziomu są zapisywane w dzienniku zdarzeń **aplikacji i usług Logs\Microsoft-Automation\Operations** .
+
+* W systemie Linux dzienniki hybrydowego procesu roboczego użytkownika znajdują się w lokalizacji `/home/nxautomation/run/worker.log` , a dzienniki procesów roboczych elementów Runbook można znaleźć pod adresem `/var/opt/microsoft/omsagent/run/automationworker/worker.log` .
+
+## <a name="next-steps"></a>Kolejne kroki
 
 * Jeśli elementy Runbook nie zakończą się pomyślnie, zapoznaj się z przewodnikiem rozwiązywania problemów z [błędami wykonywania elementu Runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 * Aby uzyskać więcej informacji na temat programu PowerShell, w tym modułów dokumentacji i uczenia dotyczącej języka, zapoznaj się z dokumentacją programu [PowerShell](/powershell/scripting/overview).

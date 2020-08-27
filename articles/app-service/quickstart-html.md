@@ -7,16 +7,16 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: bd1e44aefed310826465dbf44dee1324f5a085b3
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: d624d332fa35bf458e9158e00aaf83ce495b9061
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88085361"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961348"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Tworzenie statycznej aplikacji internetowej w języku HTML na platformie Azure
 
-[Azure App Service](overview.md) zapewnia wysoce skalowalną, samoobsługową usługę hostingu w sieci Web. W tym samouczku Szybki start przedstawiono sposób wdrażania podstawowej witryny HTML+CSS w usłudze Azure App Service. Ten przewodnik Szybki start można wykonać w usłudze [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), ale można te polecenia uruchomić również lokalnie za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+[Azure App Service](overview.md) zapewnia wysoce skalowalną, samoobsługową usługę hostingu w sieci Web. W tym samouczku Szybki start przedstawiono sposób wdrażania podstawowej witryny HTML+CSS w usłudze Azure App Service. Ten przewodnik Szybki start można wykonać w usłudze [Cloud Shell](../cloud-shell/overview.md), ale można te polecenia uruchomić również lokalnie za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ![Strona główna przykładowej aplikacji](media/quickstart-html/hello-world-in-browser-az.png)
 
@@ -58,7 +58,7 @@ Polecenie `az webapp up` wykonuje następujące akcje:
 
 - Utwórz aplikację z określoną nazwą.
 
-- [Spakuj pliki](https://docs.microsoft.com/azure/app-service/deploy-zip) wdrożenia z bieżącego katalogu roboczego do aplikacji internetowej.
+- [Spakuj pliki](./deploy-zip.md) wdrożenia z bieżącego katalogu roboczego do aplikacji internetowej.
 
 Wykonanie tego polecenia może potrwać kilka minut. Podczas wykonywania polecenie wyświetli informacje podobne do następującego przykładu:
 
@@ -132,7 +132,7 @@ az group delete --name appsvc_rg_Windows_westeurope
 
 Wykonanie tego polecenia może potrwać około minutę.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Mapowanie domeny niestandardowej](app-service-web-tutorial-custom-domain.md)

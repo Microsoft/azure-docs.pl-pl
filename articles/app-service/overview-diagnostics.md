@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: df8f68e47776f46ae2d1331f85bd76d6cfe17b80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d58341979b0bbe0699a5ca293b20394c43cde1d1
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869940"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962812"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Omówienie diagnostyki Azure App Service
 
@@ -20,7 +20,7 @@ Gdy uruchamiasz aplikację sieci Web, chcesz przygotować się do wszelkich prob
 
 Chociaż to środowisko jest najbardziej przydatne, gdy występują problemy z aplikacją w ciągu ostatnich 24 godzin, wszystkie wykresy diagnostyczne są zawsze dostępne do przeanalizowania.
 
-App Service Diagnostics działa nie tylko dla aplikacji w systemie Windows, ale również aplikacje w systemie [Linux/kontenery](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), [App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro)i [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
+App Service Diagnostics działa nie tylko dla aplikacji w systemie Windows, ale również aplikacje w systemie [Linux/kontenery](./overview.md#app-service-on-linux), [App Service Environment](./environment/intro.md)i [Azure Functions](../azure-functions/functions-overview.md).
 
 ## <a name="open-app-service-diagnostics"></a>Otwórz diagnostykę App Service
 
@@ -71,7 +71,7 @@ W programie Health Checkup znajdują się cztery różne wykresy.
 
 ### <a name="investigate-application-code-issues-only-for-windows-app"></a>Zbadaj problemy związane z kodem aplikacji (tylko w przypadku aplikacji systemu Windows)
 
-Ponieważ wiele problemów z aplikacjami jest związanych z problemami w kodzie aplikacji, App Service Diagnostics integruje się z [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) , aby wyróżnić wyjątki i problemy zależności w celu skorelowania z wybranym przestojem. Application Insights musi być włączona osobno.
+Ponieważ wiele problemów z aplikacjami jest związanych z problemami w kodzie aplikacji, App Service Diagnostics integruje się z [Application Insights](../azure-monitor/app/app-insights-overview.md) , aby wyróżnić wyjątki i problemy zależności w celu skorelowania z wybranym przestojem. Application Insights musi być włączona osobno.
 
 ![Application Insights](./media/app-service-diagnostics/application-insights-7.png)
 

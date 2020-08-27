@@ -11,18 +11,18 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
 ms.date: 04/19/2020
-ms.openlocfilehash: 20f8a08cfe31534abe24c7af1055e0945e021643
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6572f2e71b794f9f147278970b3f5f29fceb29d7
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081591"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962693"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Szybki Start: Tworzenie Azure SQL Database pojedynczej bazy danych
 
 W tym przewodniku szybki start użyjesz Azure Portal, skryptu programu PowerShell lub skryptu interfejsu wiersza polecenia platformy Azure, aby utworzyć pojedynczą bazę danych w programie Azure SQL Database. Następnie należy wykonać zapytanie do bazy danych za pomocą **edytora zapytań** w Azure Portal.
 
-[Pojedyncza baza danych](single-database-overview.md) jest najszybszą i najprostszą opcją dla Azure SQL Database. Zarządzasz pojedynczą bazą danych na [serwerze](logical-servers.md), która znajduje się w [grupie zasobów platformy Azure](../../active-directory-b2c/overview.md) w określonym regionie świadczenia usługi Azure. W tym przewodniku szybki start utworzysz nową grupę zasobów i serwer dla nowej bazy danych.
+[Pojedyncza baza danych](single-database-overview.md) jest najszybszą i najprostszą opcją dla Azure SQL Database. Zarządzasz pojedynczą bazą danych na [serwerze](logical-servers.md), która znajduje się w [grupie zasobów platformy Azure](../../azure-resource-manager/management/manage-resource-groups-portal.md) w określonym regionie świadczenia usługi Azure. W tym przewodniku szybki start utworzysz nową grupę zasobów i serwer dla nowej bazy danych.
 
 Można utworzyć pojedynczą bazę danych w warstwie *obliczeniowej lub* *bezserwerowej* . Zainicjowana baza danych jest wstępnie przydzieloną ustaloną ilością zasobów obliczeniowych, w tym procesora CPU i pamięci, i używa jednego z dwóch [modeli zakupu](purchasing-models.md). Ten przewodnik Szybki Start tworzy zainicjowaną bazę danych przy użyciu modelu zakupu [opartego na rdzeń wirtualny](service-tiers-vcore.md) , ale można również wybrać model [oparty na](service-tiers-dtu.md) jednostkach DTU.
 
@@ -67,7 +67,7 @@ Należy zachować grupę zasobów, serwer i pojedynczą bazę danych, aby przej�
 
 Po zakończeniu korzystania z tych zasobów można usunąć utworzoną grupę zasobów, która spowoduje również usunięcie serwera i pojedynczej bazy danych w ramach tej grupy.
 
-### <a name="the-azure-portal"></a>[Witryna Azure Portal](#tab/azure-portal)
+### <a name="the-azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
 Aby usunąć **zasób** i wszystkie jego zasoby przy użyciu Azure Portal:
 
@@ -93,7 +93,7 @@ Remove-AzResourceGroup -Name <your resource group>
 
 ---
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Łączenie i wykonywanie zapytań](connect-query-content-reference-guide.md) dotyczących bazy danych przy użyciu różnych narzędzi i języków:
 > [!div class="nextstepaction"]

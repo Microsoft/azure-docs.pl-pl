@@ -5,12 +5,12 @@ ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 08/01/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 7dea761afb459363e9f469c808b2735ead9f25ab
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 152a000939f74b1852073742e501ac66246389a5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88085319"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961441"
 ---
 # <a name="create-a-php-web-app-in-azure-app-service"></a>Tworzenie aplikacji sieci Web w języku PHP w Azure App Service
 
@@ -22,7 +22,7 @@ ms.locfileid: "88085319"
 [Azure App Service](overview.md) zapewnia wysoce skalowalną, samoobsługową usługę hostingu w sieci Web.  Ten samouczek Szybki start przedstawia sposób wdrażania aplikacji PHP w usłudze Azure App Service w systemie Linux.
 ::: zone-end  
 
-Aplikacja internetowa zostanie utworzona przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) w usłudze Cloud Shell, a przykład kodu w języku PHP zostanie wdrożony w aplikacji internetowej za pomocą usługi Git.
+Aplikacja internetowa zostanie utworzona przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli) w usłudze Cloud Shell, a przykład kodu w języku PHP zostanie wdrożony w aplikacji internetowej za pomocą usługi Git.
 
 ![Przykładowa aplikacja działająca na platformie Azure](media/quickstart-php/hello-world-in-browser.png)
 
@@ -204,7 +204,7 @@ Po zakończeniu wdrożenia wróć do okna przeglądarki otwartego w kroku **prze
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [PHP z bazą danych MySQL](tutorial-php-mysql-app.md)

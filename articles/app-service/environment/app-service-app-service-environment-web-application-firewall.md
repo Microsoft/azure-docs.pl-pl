@@ -7,17 +7,17 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: d629aca791794de6c3e065fdc9f4a9e7f6d8a5df
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e40a42afc99d505dc48794d5ad919e4d682b7070
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85833185"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961843"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Konfigurowanie zapory aplikacji internetowych za pomocą środowiska App Service Environment
 ## <a name="overview"></a>Omówienie
 
-Zapory aplikacji internetowych pomagają w zabezpieczaniu aplikacji internetowych, sprawdzając przychodzący ruch internetowy w celu blokowania wstrzyknięcia kodu SQL, działania skryptów między witrynami, operacji pobierania złośliwego oprogramowania oraz ataków DDoS na aplikacje i innych ataków. Badają one również odpowiedzi z internetowych serwerów zaplecza na potrzeby zapobiegania utracie danych. W połączeniu z izolacją i dodatkowym skalowaniem oferowanym przez środowisko App Service Environment ta funkcja oferuje idealne środowisko hostowania biznesowych aplikacji internetowych o krytycznym znaczeniu, które muszą radzić sobie ze złośliwymi żądaniami i intensywnym ruchem. Platforma Azure oferuje możliwości zapory aplikacji internetowych dzięki usłudze [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).  Aby dowiedzieć się, jak zintegrować środowisko App Service Environment z usługą Application Gateway, zapoznaj się z dokumentem [Integrate your ILB ASE with an Application Gateway (Integrowanie środowiska ASE wewnętrznego modułu równoważenia obciążenia z usługą Application Gateway)](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway).
+Zapory aplikacji internetowych pomagają w zabezpieczaniu aplikacji internetowych, sprawdzając przychodzący ruch internetowy w celu blokowania wstrzyknięcia kodu SQL, działania skryptów między witrynami, operacji pobierania złośliwego oprogramowania oraz ataków DDoS na aplikacje i innych ataków. Badają one również odpowiedzi z internetowych serwerów zaplecza na potrzeby zapobiegania utracie danych. W połączeniu z izolacją i dodatkowym skalowaniem oferowanym przez środowisko App Service Environment ta funkcja oferuje idealne środowisko hostowania biznesowych aplikacji internetowych o krytycznym znaczeniu, które muszą radzić sobie ze złośliwymi żądaniami i intensywnym ruchem. Platforma Azure oferuje możliwości zapory aplikacji internetowych dzięki usłudze [Application Gateway](../../application-gateway/overview.md).  Aby dowiedzieć się, jak zintegrować środowisko App Service Environment z usługą Application Gateway, zapoznaj się z dokumentem [Integrate your ILB ASE with an Application Gateway (Integrowanie środowiska ASE wewnętrznego modułu równoważenia obciążenia z usługą Application Gateway)](./integrate-with-application-gateway.md).
 
 Oprócz usługi Azure Application Gateway istnieje wiele innych opcji, takich jak [zapora aplikacji internetowych Barracuda dla platformy Azure](https://www.barracuda.com/programs/azure), które są dostępne w witrynie [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf?tab=PlansAndPrice). W pozostałej części tego dokumentu skupiono się na sposobie integrowania środowiska App Service Environment z urządzeniem zapory aplikacji internetowych Barracuda.
 
@@ -34,7 +34,7 @@ W przypadku tego dokumentu konfigurujemy środowisko App Service Environment za 
 > 
 
 ## <a name="configuring-your-app-service-environment"></a>Konfigurowanie środowiska App Service Environment
-Aby skonfigurować środowisko App Service Environment, zapoznaj się z [naszą dokumentacją](app-service-web-how-to-create-an-app-service-environment.md) dotyczącą tego tematu. Po utworzeniu środowiska App Service Environment można utworzyć w nim aplikacje internetowe, aplikacje interfejsu API i [aplikacje mobilne](../../app-service-mobile/app-service-mobile-value-prop.md). Będą one chronione za skonfigurowaną w następnej sekcji zaporą aplikacji internetowych.
+Aby skonfigurować środowisko App Service Environment, zapoznaj się z [naszą dokumentacją](app-service-web-how-to-create-an-app-service-environment.md) dotyczącą tego tematu. Po utworzeniu środowiska App Service Environment można utworzyć w nim aplikacje internetowe, aplikacje interfejsu API i [aplikacje mobilne](/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop). Będą one chronione za skonfigurowaną w następnej sekcji zaporą aplikacji internetowych.
 
 ## <a name="configuring-your-barracuda-waf-cloud-service"></a>Konfigurowanie usługi w chmurze zapory aplikacji internetowych Barracuda
 Można zapoznać się ze [szczegółowym artykułem](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) na temat wdrażania zapory aplikacji internetowych usługi Barracuda na maszynie wirtualnej na platformie Azure. Jednak ponieważ potrzebujemy nadmiarowości i nie chcemy wprowadzać ani jednego punktu występowania awarii, warto wdrożyć co najmniej dwie maszyny wirtualne wystąpienia zapory aplikacji internetowych w jednej usłudze w chmurze, wykonując poniższe instrukcje.

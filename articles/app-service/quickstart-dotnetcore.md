@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: b7402dc3f7c1e5c7ff5552b2f454156ef1539711
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 5604153d31a2828bcefbeccbd2f4fea428e878b5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212674"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961537"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Szybki Start: Tworzenie aplikacji internetowej ASP.NET Core na platformie Azure
 
@@ -59,8 +59,8 @@ Aby opublikować aplikację internetową, musisz najpierw utworzyć i skonfiguro
 
 W ramach konfigurowania App Service utworzysz:
 
-- Nowa [Grupa zasobów](https://docs.microsoft.com/azure/azure-resource-manager/management/overview#terminology) zawierająca wszystkie zasoby platformy Azure dla usługi.
-- Nowy [Plan hostingu](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) , który określa lokalizację, rozmiar i funkcje farmy serwerów sieci Web, która hostuje aplikację.
+- Nowa [Grupa zasobów](../azure-resource-manager/management/overview.md#terminology) zawierająca wszystkie zasoby platformy Azure dla usługi.
+- Nowy [Plan hostingu](./overview-hosting-plans.md) , który określa lokalizację, rozmiar i funkcje farmy serwerów sieci Web, która hostuje aplikację.
 
 Wykonaj następujące kroki, aby utworzyć App Service i opublikować aplikację sieci Web:
 
@@ -145,7 +145,7 @@ Strona **Przegląd** dla aplikacji sieci Web zawiera opcje podstawowe zarządzan
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym przewodniku szybki start użyto programu Visual Studio do utworzenia i wdrożenia aplikacji sieci Web ASP.NET Core w Azure App Service.
 
@@ -160,7 +160,7 @@ Przejdź do następnego artykułu, aby dowiedzieć się, jak utworzyć aplikacj�
 ::: zone-end  
 
 ::: zone pivot="platform-linux"
-[App Service w systemie Linux](overview.md#app-service-on-linux) oferuje wysoce skalowalną, samoobsługową usługę hostingu w Internecie przy użyciu systemu operacyjnego Linux. Ten przewodnik szybkiego startu pokazuje, jak utworzyć aplikację platformy [.NET Core](https://docs.microsoft.com/aspnet/core/) w usłudze App Service w systemie Linux. Aplikację możesz utworzyć przy użyciu [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), a usługa Git umożliwia wdrażanie kodu platformy .NET Core w aplikacji.
+[App Service w systemie Linux](overview.md#app-service-on-linux) oferuje wysoce skalowalną, samoobsługową usługę hostingu w Internecie przy użyciu systemu operacyjnego Linux. Ten przewodnik szybkiego startu pokazuje, jak utworzyć aplikację platformy [.NET Core](/aspnet/core/) w usłudze App Service w systemie Linux. Aplikację możesz utworzyć przy użyciu [interfejsu wiersza polecenia Azure](/cli/azure/get-started-with-azure-cli), a usługa Git umożliwia wdrażanie kodu platformy .NET Core w aplikacji.
 
 ![Przykładowa aplikacja działająca na platformie Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -314,7 +314,7 @@ Menu po lewej stronie zawiera różne strony służące do konfigurowania aplika
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Samouczek: ASP.NET Core aplikacji z SQL Database](tutorial-dotnetcore-sqldb-app.md)
@@ -322,4 +322,4 @@ Menu po lewej stronie zawiera różne strony służące do konfigurowania aplika
 > [!div class="nextstepaction"]
 > [Konfigurowanie aplikacji ASP.NET Core](configure-language-dotnetcore.md)
 
-::: zone-end  
+::: zone-end

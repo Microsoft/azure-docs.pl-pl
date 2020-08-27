@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 07/13/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: 1e5c909dfebf9c2073ac1809e0a1b7dcbcc7a297
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: e79381c156247efafa55de51f7e2e0154dbc1b51
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874201"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962506"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Blokowanie App Service Environment
 
 App Service Environment (ASE) ma wiele zależności zewnętrznych wymaganych do poprawnego działania programu. Środowisko ASE działa w usłudze Azure Virtual Network (VNet). Klienci muszą zezwolić na ruch zależności środowiska ASE, który jest problemem dla klientów, którzy chcą zablokować wszystkie dane wyjściowe z sieci wirtualnej.
 
-Istnieje szereg punktów końcowych przychodzących, które są używane do zarządzania środowiskiem ASE. Ruch przychodzący zarządzania nie może być wysyłany przez urządzenie zapory. Adresy źródłowe dla tego ruchu są znane i są publikowane w dokumencie [App Service Environment Management addresss](https://docs.microsoft.com/azure/app-service/environment/management-addresses) . Istnieje również tag usługi o nazwie AppServiceManagement, który może być używany z sieciowymi grupami zabezpieczeń (sieciowych grup zabezpieczeń) w celu zabezpieczania ruchu przychodzącego.
+Istnieje szereg punktów końcowych przychodzących, które są używane do zarządzania środowiskiem ASE. Ruch przychodzący zarządzania nie może być wysyłany przez urządzenie zapory. Adresy źródłowe dla tego ruchu są znane i są publikowane w dokumencie [App Service Environment Management addresss](./management-addresses.md) . Istnieje również tag usługi o nazwie AppServiceManagement, który może być używany z sieciowymi grupami zabezpieczeń (sieciowych grup zabezpieczeń) w celu zabezpieczania ruchu przychodzącego.
 
 Zależności wychodzące środowiska ASE są prawie całkowicie zdefiniowane przy użyciu nazw FQDN, które nie zawierają adresów statycznych. Brak adresów statycznych oznacza, że sieciowe grupy zabezpieczeń nie mogą być używane do blokowania ruchu wychodzącego ze środowiska ASE. Adresy zmieniają się często, ponieważ nie można skonfigurować reguł na podstawie bieżącej rozdzielczości i użyć jej do utworzenia sieciowych grup zabezpieczeń. 
 
@@ -55,7 +55,7 @@ Kroki umożliwiające zablokowanie ruchu wychodzącego z istniejącego środowis
 
    ![Wybierz punkty końcowe usługi][2]
   
-1. Utwórz podsieć o nazwie AzureFirewallSubnet w sieci wirtualnej, w której znajduje się środowisko ASE. Postępuj zgodnie z instrukcjami w [dokumentacji zapory platformy Azure](https://docs.microsoft.com/azure/firewall/) , aby utworzyć zaporę platformy Azure.
+1. Utwórz podsieć o nazwie AzureFirewallSubnet w sieci wirtualnej, w której znajduje się środowisko ASE. Postępuj zgodnie z instrukcjami w [dokumentacji zapory platformy Azure](../../firewall/index.yml) , aby utworzyć zaporę platformy Azure.
 
 1. Z poziomu interfejsu użytkownika zapory platformy Azure > reguł > Kolekcja reguł aplikacji wybierz pozycję Dodaj kolekcję reguł aplikacji. Podaj nazwę, priorytet i ustaw wartość Zezwalaj. W sekcji Tagi FQDN Podaj nazwę, ustaw adresy źródłowe na * i wybierz tag App Service Environment FQDN i Windows Update. 
    
@@ -69,7 +69,7 @@ Kroki umożliwiające zablokowanie ruchu wychodzącego z istniejącego środowis
 
    ![Dodawanie reguły sieci znacznika usługi NTP][6]
    
-1. Utwórz tabelę tras z adresami zarządzania [App Service Environment adresami zarządzania]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) z następnym przeskokiem Internetu. Wpisy tabeli tras są wymagane do uniknięcia problemów z routingiem asymetrycznym. Dodaj trasy dla zależności adresów IP zanotowanych poniżej w zależności od adresu IP z następnym przeskokiem Internetu. Dodaj trasę urządzenia wirtualnego do tabeli tras dla 0.0.0.0/0 przy następnym przeskoku do prywatnego adresu IP zapory platformy Azure. 
+1. Utwórz tabelę tras z adresami zarządzania [App Service Environment adresami zarządzania]( ./management-addresses.md) z następnym przeskokiem Internetu. Wpisy tabeli tras są wymagane do uniknięcia problemów z routingiem asymetrycznym. Dodaj trasy dla zależności adresów IP zanotowanych poniżej w zależności od adresu IP z następnym przeskokiem Internetu. Dodaj trasę urządzenia wirtualnego do tabeli tras dla 0.0.0.0/0 przy następnym przeskoku do prywatnego adresu IP zapory platformy Azure. 
 
    ![Tworzenie tabeli tras][4]
    
@@ -77,7 +77,7 @@ Kroki umożliwiające zablokowanie ruchu wychodzącego z istniejącego środowis
 
 #### <a name="deploying-your-ase-behind-a-firewall"></a>Wdrażanie środowiska ASE za zaporą
 
-Kroki umożliwiające wdrożenie środowiska ASE za zaporą są takie same jak w przypadku konfigurowania istniejącego środowiska ASE przy użyciu zapory platformy Azure, z wyjątkiem sytuacji, w której konieczne będzie utworzenie podsieci środowiska ASE, a następnie wykonanie powyższych kroków. Aby utworzyć środowisko ASE w istniejącej podsieci, należy użyć szablonu Menedżer zasobów, zgodnie z opisem w dokumencie dotyczącym [tworzenia środowiska ASE z szablonem Menedżer zasobów](https://docs.microsoft.com/azure/app-service/environment/create-from-template).
+Kroki umożliwiające wdrożenie środowiska ASE za zaporą są takie same jak w przypadku konfigurowania istniejącego środowiska ASE przy użyciu zapory platformy Azure, z wyjątkiem sytuacji, w której konieczne będzie utworzenie podsieci środowiska ASE, a następnie wykonanie powyższych kroków. Aby utworzyć środowisko ASE w istniejącej podsieci, należy użyć szablonu Menedżer zasobów, zgodnie z opisem w dokumencie dotyczącym [tworzenia środowiska ASE z szablonem Menedżer zasobów](./create-from-template.md).
 
 ## <a name="application-traffic"></a>Ruch aplikacji 
 
@@ -88,7 +88,7 @@ Powyższe kroki pozwolą, aby środowisko ASE mogło działać bez problemów. N
 
 Jeśli aplikacje mają zależności, należy je dodać do zapory platformy Azure. Utwórz reguły aplikacji, aby umożliwić ruch HTTP/HTTPS i reguły sieciowe dla wszystkich innych elementów. 
 
-Jeśli wiesz, z jakim zakresem adresów będzie pochodzą ruch żądania aplikacji, możesz dodać go do tabeli tras przypisanej do podsieci środowiska ASE. Jeśli zakres adresów jest duży lub nieokreślony, możesz użyć urządzenia sieciowego, takiego jak Application Gateway, aby podać jeden adres do dodania do tabeli tras. Aby uzyskać szczegółowe informacje na temat konfigurowania Application Gateway przy użyciu środowiska ILB ASE, przeczytaj artykuł [integrowanie ILB ASE z Application Gateway](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)
+Jeśli wiesz, z jakim zakresem adresów będzie pochodzą ruch żądania aplikacji, możesz dodać go do tabeli tras przypisanej do podsieci środowiska ASE. Jeśli zakres adresów jest duży lub nieokreślony, możesz użyć urządzenia sieciowego, takiego jak Application Gateway, aby podać jeden adres do dodania do tabeli tras. Aby uzyskać szczegółowe informacje na temat konfigurowania Application Gateway przy użyciu środowiska ILB ASE, przeczytaj artykuł [integrowanie ILB ASE z Application Gateway](./integrate-with-application-gateway.md)
 
 To użycie Application Gateway to tylko jeden przykład konfiguracji systemu. Jeśli ta ścieżka była zgodna, należy dodać trasę do tabeli tras podsieci ASE, aby ruch odpowiedzi wysłany do Application Gateway mógł bezpośrednio przejść do sieci. 
 
@@ -100,7 +100,7 @@ Zapora platformy Azure może wysyłać dzienniki do usługi Azure Storage, centr
 AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
-Integrowanie zapory platformy Azure z dziennikami Azure Monitor jest przydatne podczas pierwszego uruchamiania aplikacji, gdy nie są znane wszystkie zależności aplikacji. Więcej informacji na temat dzienników Azure Monitor można znaleźć [w temacie Analizowanie danych dzienników w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Integrowanie zapory platformy Azure z dziennikami Azure Monitor jest przydatne podczas pierwszego uruchamiania aplikacji, gdy nie są znane wszystkie zależności aplikacji. Więcej informacji na temat dzienników Azure Monitor można znaleźć [w temacie Analizowanie danych dzienników w Azure monitor](../../azure-monitor/log-query/log-query-overview.md).
  
 ## <a name="dependencies"></a>Zależności
 
@@ -269,7 +269,7 @@ Za pomocą zapory platformy Azure automatycznie otrzymujesz wszystko skonfigurow
 
 ## <a name="us-gov-dependencies"></a>US Gov zależności
 
-W przypadku środowisk ASE w regionach US Gov należy postępować zgodnie z instrukcjami podanymi w sekcji [Konfigurowanie zapory platformy Azure za pomocą środowiska ASE](https://docs.microsoft.com/azure/app-service/environment/firewall-integration#configuring-azure-firewall-with-your-ase) w tym dokumencie, aby skonfigurować zaporę platformy Azure przy użyciu środowiska ASE.
+W przypadku środowisk ASE w regionach US Gov należy postępować zgodnie z instrukcjami podanymi w sekcji [Konfigurowanie zapory platformy Azure za pomocą środowiska ASE](#configuring-azure-firewall-with-your-ase) w tym dokumencie, aby skonfigurować zaporę platformy Azure przy użyciu środowiska ASE.
 
 Jeśli chcesz używać urządzenia innego niż Zapora platformy Azure w systemie US Gov 
 

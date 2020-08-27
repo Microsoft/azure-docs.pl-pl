@@ -7,12 +7,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 888e0e66c4dafbe7d2613a4b92b1f7b0dfd55eab
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: bbae57f453cfd425da3d294ff96e40a229aa1a49
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "80058599"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962727"
 ---
 # <a name="map-a-custom-domain-to-an-app-service-app-using-cli"></a>Mapowanie domeny niestandardowej na aplikację usługi App Service przy użyciu interfejsu wiersza polecenia
 
@@ -41,8 +41,8 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Tworzy aplikację usługi App Service. |
 | [`az webapp config hostname add`](/cli/azure/webapp/config/hostname?view=azure-cli-latest#az-webapp-config-hostname-add) | Mapuje domenę niestandardową na aplikację usługi App Service. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
 Dodatkowe przykłady skryptów interfejsu wiersza polecenia usługi App Service można znaleźć w [dokumentacji usługi Azure App Service](../samples-cli.md).
