@@ -9,19 +9,19 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9fb43a0d39beacf02a6949228eaa32a719164987
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd6b64f118460a115963ed0bf105641d80334348
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552229"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934994"
 ---
 # <a name="morelikethis-preview-in-azure-cognitive-search"></a>moreLikeThis (wersja zapoznawcza) na platformie Azure Wyszukiwanie poznawcze
 
 > [!IMPORTANT] 
 > Ta funkcja jest obecnie w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Interfejs API REST w wersji 2020-06-30 — wersja zapoznawcza](search-api-preview.md) zawiera tę funkcję. Obecnie nie ma obsługi portalu lub zestawu SDK platformy .NET.
 
-`moreLikeThis=[key]`to parametr zapytania w [interfejsie API dokumentów wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents) , który znajduje dokumenty podobne do dokumentu określonego przez klucz dokumentu. Gdy zostanie wysłane żądanie wyszukiwania `moreLikeThis` , zapytanie jest generowane z wyszukiwanymi terminami wyciągniętymi z danego dokumentu, który opisuje ten dokument. Wygenerowane zapytanie jest następnie używane do wykonywania żądania wyszukiwania. Domyślnie zawartość wszystkich pól, które można przeszukiwać, jest uwzględniana, minus wszystkie pola z ograniczeniami, które zostały określone za pomocą `searchFields` parametru. `moreLikeThis`Nie można użyć parametru z parametrem wyszukiwania `search=[string]` .
+`moreLikeThis=[key]` to parametr zapytania w [interfejsie API dokumentów wyszukiwania](/rest/api/searchservice/search-documents) , który znajduje dokumenty podobne do dokumentu określonego przez klucz dokumentu. Gdy zostanie wysłane żądanie wyszukiwania `moreLikeThis` , zapytanie jest generowane z wyszukiwanymi terminami wyciągniętymi z danego dokumentu, który opisuje ten dokument. Wygenerowane zapytanie jest następnie używane do wykonywania żądania wyszukiwania. Domyślnie zawartość wszystkich pól, które można przeszukiwać, jest uwzględniana, minus wszystkie pola z ograniczeniami, które zostały określone za pomocą `searchFields` parametru. `moreLikeThis`Nie można użyć parametru z parametrem wyszukiwania `search=[string]` .
 
 Domyślnie są brane pod uwagę zawartość wszystkich pól z możliwością wyszukiwania najwyższego poziomu. Jeśli chcesz zamiast tego określić określone pola, możesz użyć `searchFields` parametru. 
 
@@ -52,7 +52,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview
 
 ### <a name="apply-filters"></a>Stosowanie filtrów
 
-`MoreLikeThis`można łączyć z innymi typowymi parametrami zapytania, takimi jak `$filter` . Na przykład zapytanie może być ograniczone tylko do hoteli, którego kategoria ma wartość "budżet" i gdzie klasyfikacja jest wyższa niż 3,5:
+`MoreLikeThis` można łączyć z innymi typowymi parametrami zapytania, takimi jak `$filter` . Na przykład zapytanie może być ograniczone tylko do hoteli, którego kategoria ma wartość "budżet" i gdzie klasyfikacja jest wyższa niż 3,5:
 
 ```
 GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&api-version=2020-06-30-Preview
