@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 4a732bd81b65c0c6b0cc227e1ed82de7bae3a1a0
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: c432b89574949b31612aeba862ece7687c12dde4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230710"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922841"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Jak skonfigurować buforowanie na potrzeby przyrostowego wzbogacania na platformie Azure Wyszukiwanie poznawcze
 
@@ -38,7 +38,7 @@ Jeśli masz istniejący indeksator, który ma już zestawu umiejętności, wykon
 
 Rozpocznij z prawidłowym istniejącym indeksatorem, który ma te składniki: Data Source, zestawu umiejętności, index. Indeksator powinien być możliwy do uruchomienia. 
 
-Za pomocą klienta interfejsu API Utwórz [żądanie pobrania indeksatora](https://docs.microsoft.com/rest/api/searchservice/get-indexer) , aby uzyskać bieżącą konfigurację indeksatora. W przypadku korzystania z wersji zapoznawczej interfejsu API do pobrania indeksatora `cache` do definicji zostanie dodana właściwość o wartości null.
+Za pomocą klienta interfejsu API Utwórz [żądanie pobrania indeksatora](/rest/api/searchservice/get-indexer) , aby uzyskać bieżącą konfigurację indeksatora. W przypadku korzystania z wersji zapoznawczej interfejsu API do pobrania indeksatora `cache` do definicji zostanie dodana właściwość o wartości null.
 
 ```http
 GET https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2020-06-30-Preview
@@ -75,7 +75,7 @@ Zmodyfikuj Obiekt pamięci podręcznej, aby zawierał następujące wymagane i o
 
 ### <a name="step-3-reset-the-indexer"></a>Krok 3. Resetowanie indeksatora
 
-Podczas konfigurowania przyrostowego wzbogacania istniejących indeksatorów jest wymagane Resetowanie indeksatora, aby upewnić się, że wszystkie dokumenty są w spójnym stanie. Do tego zadania można użyć portalu lub klienta interfejsu API i [resetowania interfejsu API REST indeksatora](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) .
+Podczas konfigurowania przyrostowego wzbogacania istniejących indeksatorów jest wymagane Resetowanie indeksatora, aby upewnić się, że wszystkie dokumenty są w spójnym stanie. Do tego zadania można użyć portalu lub klienta interfejsu API i [resetowania interfejsu API REST indeksatora](/rest/api/searchservice/reset-indexer) .
 
 ```http
 POST https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]/reset?api-version=2020-06-30-Preview
@@ -85,7 +85,7 @@ api-key: [YOUR-ADMIN-KEY]
 
 ### <a name="step-4-save-the-updated-definition"></a>Krok 4. zapisywanie zaktualizowanej definicji
 
-[Zaktualizuj indeksator](https://docs.microsoft.com/rest/api/searchservice/preview-api/update-indexer) przy użyciu żądania Put, treść żądania powinna zawierać zaktualizowaną definicję indeksatora, która ma właściwość Cache. Jeśli otrzymujesz 400, sprawdź definicję indeksatora, aby upewnić się, że zostały spełnione wszystkie wymagania (Źródło danych, zestawu umiejętności, indeks).
+[Zaktualizuj indeksator](/rest/api/searchservice/preview-api/update-indexer) przy użyciu żądania Put, treść żądania powinna zawierać zaktualizowaną definicję indeksatora, która ma właściwość Cache. Jeśli otrzymujesz 400, sprawdź definicję indeksatora, aby upewnić się, że zostały spełnione wszystkie wymagania (Źródło danych, zestawu umiejętności, indeks).
 
 ```http
 PUT https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2020-06-30-Preview
@@ -115,7 +115,7 @@ Jeśli masz teraz inne żądanie GET w indeksatorze, odpowiedź z usługi będzi
 
 Aby uruchomić indeksator, możesz użyć portalu lub interfejsu API. W portalu z listy indeksatorów wybierz indeksator, a następnie kliknij przycisk **Uruchom**. Jedną z zalet korzystania z portalu jest możliwość monitorowania stanu indeksatora, zanotowania czasu trwania zadania oraz liczby przetworzonych dokumentów. Strony portalu są odświeżane co kilka minut.
 
-Alternatywnie możesz użyć REST do [uruchomienia indeksatora](https://docs.microsoft.com/rest/api/searchservice/run-indexer):
+Alternatywnie możesz użyć REST do [uruchomienia indeksatora](/rest/api/searchservice/run-indexer):
 
 ```http
 POST https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]/run?api-version=2020-06-30-Preview
@@ -123,7 +123,7 @@ Content-Type: application/json
 api-key: [YOUR-ADMIN-KEY]
 ```
 
-Po uruchomieniu indeksatora można znaleźć pamięć podręczną w usłudze Azure Blob Storage. Nazwa kontenera ma następujący format:`ms-az-search-indexercache-<YOUR-CACHE-ID>`
+Po uruchomieniu indeksatora można znaleźć pamięć podręczną w usłudze Azure Blob Storage. Nazwa kontenera ma następujący format: `ms-az-search-indexercache-<YOUR-CACHE-ID>`
 
 > [!NOTE]
 > Zresetowanie i ponowne uruchomienie indeksatora powoduje pełne Odbudowywanie, aby zawartość mogła być buforowana. Wszystkie, wzbogacanie poznawcze zostanie uruchomione ponownie dla wszystkich dokumentów.
@@ -137,7 +137,7 @@ Ponownie uruchom indeksator. Aktualizowane są tylko te części wzbogaconego dr
 
 ## <a name="enable-caching-on-new-indexers"></a>Włącz buforowanie nowych indeksatorów
 
-Aby skonfigurować przyrostowe wzbogacanie dla nowego indeksatora, wszystkie czynności, które należy wykonać, są uwzględniane `cache` w ładunku definicji indeksatora podczas wywoływania [Create indeksatora (2020-06-30-Preview)](https://docs.microsoft.com/rest/api/searchservice/preview-api/create-indexer). 
+Aby skonfigurować przyrostowe wzbogacanie dla nowego indeksatora, wszystkie czynności, które należy wykonać, są uwzględniane `cache` w ładunku definicji indeksatora podczas wywoływania [Create indeksatora (2020-06-30-Preview)](/rest/api/searchservice/preview-api/create-indexer). 
 
 
 ```json
@@ -165,16 +165,16 @@ Załóżmy na przykład, że zestawu umiejętności, który rozpoczyna się od a
 
 ## <a name="working-with-the-cache"></a>Praca z pamięcią podręczną
 
-Gdy pamięć podręczna działa, indeksatory sprawdzają pamięć podręczną przy każdym wywołaniu [indeksatora](https://docs.microsoft.com/rest/api/searchservice/run-indexer) , aby zobaczyć, które części istniejących danych wyjściowych mogą być używane. 
+Gdy pamięć podręczna działa, indeksatory sprawdzają pamięć podręczną przy każdym wywołaniu [indeksatora](/rest/api/searchservice/run-indexer) , aby zobaczyć, które części istniejących danych wyjściowych mogą być używane. 
 
 W poniższej tabeli zestawiono różne interfejsy API powiązane z pamięcią podręczną:
 
-| API           | Wpływ na pamięć podręczną     |
+| interfejs API           | Wpływ na pamięć podręczną     |
 |---------------|------------------|
-| [Tworzenie indeksatora (2020-06-30 — wersja zapoznawcza)](https://docs.microsoft.com/rest/api/searchservice/preview-api/create-indexer) | Tworzy i uruchamia indeksator przy pierwszym użyciu, w tym tworzenie pamięci podręcznej, jeśli określa ją definicja indeksatora. |
-| [Uruchom indeksator](https://docs.microsoft.com/rest/api/searchservice/run-indexer) | Wykonuje potok wzbogacania na żądanie. Ten interfejs API odczytuje z pamięci podręcznej, jeśli istnieje, lub tworzy pamięć podręczną, jeśli dodano buforowanie do zaktualizowanej definicji indeksatora. Gdy uruchamiasz indeksator, który ma włączone buforowanie, Indeksator pomija kroki, jeśli można użyć buforowanych danych wyjściowych. Można korzystać z ogólnie dostępnej lub wersji zapoznawczej interfejsu API tego interfejsu API.|
-| [Zresetuj indeksator](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)| Czyści indeksator wszelkich przyrostowych informacji o indeksowaniu. Następny indeksator przebiega (na żądanie lub w harmonogramie) to pełne przetworzenie, w tym ponowne uruchamianie wszystkich umiejętności i odbudowanie pamięci podręcznej. Jest on funkcjonalnie równoważny do usunięcia indeksatora i ponownego utworzenia go. Można korzystać z ogólnie dostępnej lub wersji zapoznawczej interfejsu API tego interfejsu API.|
-| [Resetuj umiejętności](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) | Określa, które umiejętności należy uruchomić ponownie przy następnym uruchomieniu indeksatora, nawet jeśli nie zmodyfikowano żadnych umiejętności. Pamięć podręczna jest odpowiednio aktualizowana. Dane wyjściowe, takie jak magazyn wiedzy lub indeks wyszukiwania, są odświeżane przy użyciu danych wielokrotnego użytku z pamięci podręcznej oraz nowej zawartości na zaktualizowane umiejętności. |
+| [Tworzenie indeksatora (2020-06-30 — wersja zapoznawcza)](/rest/api/searchservice/preview-api/create-indexer) | Tworzy i uruchamia indeksator przy pierwszym użyciu, w tym tworzenie pamięci podręcznej, jeśli określa ją definicja indeksatora. |
+| [Uruchom indeksator](/rest/api/searchservice/run-indexer) | Wykonuje potok wzbogacania na żądanie. Ten interfejs API odczytuje z pamięci podręcznej, jeśli istnieje, lub tworzy pamięć podręczną, jeśli dodano buforowanie do zaktualizowanej definicji indeksatora. Gdy uruchamiasz indeksator, który ma włączone buforowanie, Indeksator pomija kroki, jeśli można użyć buforowanych danych wyjściowych. Można korzystać z ogólnie dostępnej lub wersji zapoznawczej interfejsu API tego interfejsu API.|
+| [Zresetuj indeksator](/rest/api/searchservice/reset-indexer)| Czyści indeksator wszelkich przyrostowych informacji o indeksowaniu. Następny indeksator przebiega (na żądanie lub w harmonogramie) to pełne przetworzenie, w tym ponowne uruchamianie wszystkich umiejętności i odbudowanie pamięci podręcznej. Jest on funkcjonalnie równoważny do usunięcia indeksatora i ponownego utworzenia go. Można korzystać z ogólnie dostępnej lub wersji zapoznawczej interfejsu API tego interfejsu API.|
+| [Resetuj umiejętności](/rest/api/searchservice/preview-api/reset-skills) | Określa, które umiejętności należy uruchomić ponownie przy następnym uruchomieniu indeksatora, nawet jeśli nie zmodyfikowano żadnych umiejętności. Pamięć podręczna jest odpowiednio aktualizowana. Dane wyjściowe, takie jak magazyn wiedzy lub indeks wyszukiwania, są odświeżane przy użyciu danych wielokrotnego użytku z pamięci podręcznej oraz nowej zawartości na zaktualizowane umiejętności. |
 
 Aby uzyskać więcej informacji na temat kontrolowania, co się dzieje z pamięcią podręczną, zobacz [Zarządzanie pamięcią podręczną](cognitive-search-incremental-indexing-conceptual.md#cache-management).
 

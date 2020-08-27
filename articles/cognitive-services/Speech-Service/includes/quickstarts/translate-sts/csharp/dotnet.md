@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: erhopf
-ms.openlocfilehash: be20a6e4b6c89bf9d371cdc8620441f066249b94
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f83b15eb229d22a38c77c89e71de7b7035b2bd8a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226087"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926102"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 

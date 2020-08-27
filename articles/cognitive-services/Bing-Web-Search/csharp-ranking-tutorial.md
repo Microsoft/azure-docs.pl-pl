@@ -11,12 +11,13 @@ ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: aahi
-ms.openlocfilehash: 272a10e211e99e200b82807b188d828a9ece42d8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 8bfd7b6e5c9a2a7e3d9ed750e544036f3874271f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85609439"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933226"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Tworzenie klienta wyszukiwania aplikacji konsoli w języku C #
 

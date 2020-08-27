@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 244809db8efac00124a11ab5c163bfefc9ea7dd2
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: dd93ef68b0e0e7ac465584eaecb3b4c8a0c39476
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420604"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934943"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Samouczek: Dodawanie funkcji Autouzupełnianie i sugestii przy użyciu zestawu .NET SDK
 
 Dowiedz się, jak zaimplementować Autouzupełnianie (zapytania typeahead i sugerowane dokumenty), gdy użytkownik zaczyna pisać w polu wyszukiwania. W tym samouczku zostaną pokazane osobno zapytania i wyniki sugestii, a następnie razem. Użytkownik może tylko wpisać dwa lub trzy znaki, aby znaleźć wszystkie dostępne wyniki.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Dodawanie sugestii
 > * Dodawanie wyróżniania do sugestii
@@ -145,7 +145,7 @@ Zacznijmy od najprostszego przypadku zaoferowania użytkownikowi alternatywy: li
  
     ![Wpisywanie "PA" z rozmytym ustawieniem true](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
 
-    Jeśli interesuje Cię, [Składnia zapytania Lucene na platformie Azure wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/query-lucene-syntax) opisuje logikę używaną w przypadku wyszukiwania rozmytego.
+    Jeśli interesuje Cię, [Składnia zapytania Lucene na platformie Azure wyszukiwanie poznawcze](./query-lucene-syntax.md) opisuje logikę używaną w przypadku wyszukiwania rozmytego.
 
 ## <a name="add-highlighting-to-the-suggestions"></a>Dodawanie wyróżniania do sugestii
 
@@ -244,7 +244,7 @@ Inna odmiana, która nieco się różni od sugestii, jest autouzupełniania (cza
 
     Zwróć uwagę, że używamy tej samej funkcji *sugerującej* o nazwie "SG" w wyszukiwaniu autouzupełniania zgodnie z sugestiami (w związku z czym próbujemy tylko Autouzupełnianie nazw hotelów).
 
-    Istnieje wiele ustawień opcji **AutoComplete** i **OneTermWithContext**. Zapoznaj się z [interfejsem API autouzupełniania](https://docs.microsoft.com/rest/api/searchservice/autocomplete) , aby uzyskać opis dodatkowych opcji.
+    Istnieje wiele ustawień opcji **AutoComplete** i **OneTermWithContext**. Zapoznaj się z [interfejsem API autouzupełniania](/rest/api/searchservice/autocomplete) , aby uzyskać opis dodatkowych opcji.
 
 4. Uruchom aplikację. Zwróć uwagę na to, jak zakres opcji wyświetlanych na liście rozwijanej to pojedyncze słowa. Spróbuj wpisać słowa zaczynające się od "re". Zauważ, że liczba opcji jest mniejsza, jeśli wpisano więcej liter.
 
@@ -464,5 +464,3 @@ W następnym samouczku Przyjrzyjmy się innemu sposobowi ulepszania środowiska 
 
 > [!div class="nextstepaction"]
 > [Samouczek języka C#: używanie aspektów w celu ułatwienia nawigacji — Wyszukiwanie poznawcze platformy Azure](tutorial-csharp-facets.md)
-
-

@@ -3,12 +3,13 @@ title: Zmiana danych — LUIS
 description: Dowiedz się, jak można zmienić dane przed przewidywaniami w Language Understanding (LUIS)
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 3a88739caa9b35679f10b0cb63a804e9464c871c
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c675ac246f397b5949c870ad91ab936bbd92c7ef
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872249"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934671"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Zmień wypowiedź danych przed lub podczas przewidywania
 LUIS zapewnia sposoby manipulowania wypowiedź przed lub podczas przewidywania. Obejmują one [naprawianie błędów](luis-tutorial-bing-spellcheck.md)i rozwiązywanie problemów ze strefą czasową dla prekompilowanego [datetimeV2](luis-reference-prebuilt-datetimev2.md).
@@ -30,7 +31,7 @@ Punkt końcowy wymaga dwóch parametrów do działania poprawek pisowni:
 
 |Param|Wartość|
 |--|--|
-|`spellCheck`|wartość logiczna|
+|`spellCheck`|boolean|
 |`bing-spell-check-subscription-key`|Klucz punktu końcowego [wersji 7 interfejsu API sprawdzanie pisowni Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/)|
 
 Gdy [Sprawdzanie pisowni Bing API wersji 7](https://azure.microsoft.com/services/cognitive-services/spell-check/) wykrywa błąd, oryginalny wypowiedź i poprawione wypowiedź są zwracane wraz z przewidywaniami z punktu końcowego.
@@ -80,7 +81,7 @@ Gdy aplikacja LUIS używa wstępnie skompilowanej jednostki [datetimeV2](luis-re
 W wersji 3 `datetimeReference` Określa przesunięcie strefy czasowej. Dowiedz się więcej na temat [prognoz v3](luis-migration-api-v3.md#v3-post-body).
 
 ### <a name="v2-prediction-api-to-alter-timezone"></a>Interfejs API przewidywania wersji 2 w celu zmiany strefy czasowej
-Strefa czasowa jest korygowana przez dodanie strefy czasowej użytkownika do punktu końcowego `timezoneOffset` przy użyciu parametru w oparciu o wersję interfejsu API. Wartość parametru powinna być liczbą dodatnią lub ujemną w minutach, aby zmienić czas.
+Strefa czasowa jest korygowana przez dodanie strefy czasowej użytkownika do punktu końcowego przy użyciu `timezoneOffset` parametru w oparciu o wersję interfejsu API. Wartość parametru powinna być liczbą dodatnią lub ujemną w minutach, aby zmienić czas.
 
 #### <a name="v2-prediction-daylight-savings-example"></a>Przykład 2. przewidywanie oszczędności czasu
 Jeśli potrzebujesz dostosowanej wstępnie wbudowanej datetimeV2 do dostosowywania czasu letniego, należy użyć parametru QueryString z wartością +/-w minutach dla kwerendy [punktu końcowego](https://go.microsoft.com/fwlink/?linkid=2092356) .

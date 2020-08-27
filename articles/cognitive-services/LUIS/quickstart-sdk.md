@@ -3,14 +3,14 @@ title: 'Szybki Start: Language Understanding (LUIS) — biblioteki klienta'
 description: Rozpocznij pracę z biblioteką klienta LUIS za pomocą tego przewodnika Szybki Start. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
 ms.topic: quickstart
 ms.date: 08/13/2020
-ms.custom: devx-track-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: c66635c1b690200d8f792b2d3f267686ff0bb5f5
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 6c21fc4fa826c018cd4070962ed278bbe4540979
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88237388"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934734"
 ---
 # <a name="quickstart-language-understanding-luis-client-library"></a>Szybki Start: Language Understanding (LUIS) — Biblioteka klienta
 

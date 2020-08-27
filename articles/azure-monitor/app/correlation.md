@@ -6,13 +6,13 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.custom: devx-track-python
-ms.openlocfilehash: f2645cc76f6b1a59e84ee01cbc8d4c650cd6c789
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-python, devx-track-csharp
+ms.openlocfilehash: b48b02d20ed3d0b731f04d2c6568274bc0262e2e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843628"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933362"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Korelacja telemetrii w Application Insights
 
@@ -34,7 +34,7 @@ W środowisku mikrousług ślady składników mogą przechodzić do różnych el
 
 ## <a name="example"></a>Przykład
 
-Spójrzmy na przykład. Aplikacja o nazwie ceny giełdowe pokazuje aktualną cenę rynkową przy użyciu zewnętrznego interfejsu API o nazwie Stock. Aplikacja do cen giełdowych ma stronę o nazwie Strona giełdowa, którą otwiera przeglądarka klienta sieci Web za pomocą programu `GET /Home/Stock` . Aplikacja wysyła zapytanie do interfejsu API spisu przy użyciu wywołania HTTP `GET /api/stock/value` .
+Przyjrzyjmy się przykładowi. Aplikacja o nazwie ceny giełdowe pokazuje aktualną cenę rynkową przy użyciu zewnętrznego interfejsu API o nazwie Stock. Aplikacja do cen giełdowych ma stronę o nazwie Strona giełdowa, którą otwiera przeglądarka klienta sieci Web za pomocą programu `GET /Home/Stock` . Aplikacja wysyła zapytanie do interfejsu API spisu przy użyciu wywołania HTTP `GET /api/stock/value` .
 
 Dane telemetryczne mogą być analizowane przez uruchomienie zapytania:
 
@@ -210,11 +210,11 @@ Ta funkcja jest dostępna w programie `Microsoft.ApplicationInsights.JavaScript`
 
 | Application Insights                   | OpenTracing                                        |
 |------------------------------------    |-------------------------------------------------    |
-| `Request`, `PageView`                  | `Span`się`span.kind = server`                    |
-| `Dependency`                           | `Span`się`span.kind = client`                    |
-| `Id`z `Request` i`Dependency`     | `SpanId`                                            |
+| `Request`, `PageView`                  | `Span` się `span.kind = server`                    |
+| `Dependency`                           | `Span` się `span.kind = client`                    |
+| `Id` z `Request` i `Dependency`     | `SpanId`                                            |
 | `Operation_Id`                         | `TraceId`                                           |
-| `Operation_ParentId`                   | `Reference`typu `ChildOf` (zakres nadrzędny)     |
+| `Operation_ParentId`                   | `Reference` typu `ChildOf` (zakres nadrzędny)     |
 
 Aby uzyskać więcej informacji, zobacz [Application Insights model danych telemetrii](../../azure-monitor/app/data-model.md).
 
@@ -308,12 +308,12 @@ Dane dziennika można wyeksportować za pomocą polecenia `AzureLogHandler` . Ab
 
 W miarę upływu czasu platforma .NET określiła kilka sposobów skorelowania dzienników telemetrii i diagnostyki:
 
-- `System.Diagnostics.CorrelationManager`umożliwia śledzenie elementów [LogicalOperationStack i ActivityId](/dotnet/api/system.diagnostics.correlationmanager?view=netcore-3.1).
-- `System.Diagnostics.Tracing.EventSource`i śledzenie zdarzeń systemu Windows (ETW) definiują metodę [SetCurrentThreadActivityId](/dotnet/api/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid?view=netcore-3.1#overloads) .
-- `ILogger`używa [zakresów dzienników](/aspnet/core/fundamentals/logging#log-scopes).
+- `System.Diagnostics.CorrelationManager` umożliwia śledzenie elementów [LogicalOperationStack i ActivityId](/dotnet/api/system.diagnostics.correlationmanager?view=netcore-3.1).
+- `System.Diagnostics.Tracing.EventSource` i śledzenie zdarzeń systemu Windows (ETW) definiują metodę [SetCurrentThreadActivityId](/dotnet/api/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid?view=netcore-3.1#overloads) .
+- `ILogger` używa [zakresów dzienników](/aspnet/core/fundamentals/logging#log-scopes).
 - Windows Communication Foundation (WCF) i HTTP — "bieżące" Propagacja kontekstu.
 
-Jednak te metody nie umożliwiały automatycznej obsługi śledzenia rozproszonego. `DiagnosticSource`obsługuje automatyczną korelację między maszynami. Biblioteki .NET obsługują `DiagnosticSource` i zezwalają na automatyczne propagowanie między maszynami kontekstu korelacji przy użyciu transportu, takiego jak http.
+Jednak te metody nie umożliwiały automatycznej obsługi śledzenia rozproszonego. `DiagnosticSource` obsługuje automatyczną korelację między maszynami. Biblioteki .NET obsługują `DiagnosticSource` i zezwalają na automatyczne propagowanie między maszynami kontekstu korelacji przy użyciu transportu, takiego jak http.
 
 [Podręcznik użytkownika działania](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) w programie `DiagnosticSource` objaśnia podstawy śledzenia działań.
 

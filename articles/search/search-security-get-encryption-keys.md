@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
-ms.openlocfilehash: f6e356f868cdb2107a19084070a85a0388ab4af7
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 37ff94608e9756142f70a4f3c64d0a6f7eeea685
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554865"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932903"
 ---
 # <a name="get-customer-managed-key-information-from-indexes-and-synonym-maps"></a>Uzyskaj informacje o kluczu zarządzanym przez klienta z indeksów i map synonimów
 
@@ -66,6 +66,6 @@ Invoke-RestMethod -Uri $uri -Headers $headers | ConvertTo-Json
 
 Teraz, gdy wiesz, który klucz szyfrowania i wersja jest używana, możesz zarządzać kluczem w Azure Key Vault lub sprawdzić inne ustawienia konfiguracji.
 
-+ [Szybki start: konfigurowanie i pobieranie wpisów tajnych z usługi Azure Key Vault przy użyciu programu PowerShell](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-powershell)
++ [Szybki start: konfigurowanie i pobieranie wpisów tajnych z usługi Azure Key Vault przy użyciu programu PowerShell](../key-vault/secrets/quick-create-powershell.md)
 
 + [Konfigurowanie kluczy zarządzanych przez klienta na potrzeby szyfrowania danych w usłudze Azure Wyszukiwanie poznawcze](search-security-manage-encryption-keys.md)

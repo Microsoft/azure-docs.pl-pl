@@ -3,13 +3,13 @@ title: Obciążenia kontenera
 description: Dowiedz się, jak uruchamiać i skalować aplikacje z obrazów kontenerów na Azure Batch. Utwórz pulę węzłów obliczeniowych, które obsługują Uruchamianie zadań kontenera.
 ms.topic: how-to
 ms.date: 05/20/2020
-ms.custom: seodec18
-ms.openlocfilehash: b1310af2797e43659ac8859e74d1be8bdbab3c98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: a26582572302f670010f3038147687b47feef84a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83726727"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933549"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Uruchamianie aplikacji kontenera na Azure Batch
 
@@ -56,15 +56,15 @@ W przypadku obciążeń kontenerów systemu Linux usługa Batch obecnie obsługu
 
 #### <a name="vm-sizes-without-rdma"></a>Rozmiary maszyn wirtualnych bez funkcji RDMA
 
-- Dawc`microsoft-azure-batch`
-  - Sprzedaży`centos-container`
-  - Sprzedaży`ubuntu-server-container`
+- Dawc `microsoft-azure-batch`
+  - Sprzedaży `centos-container`
+  - Sprzedaży `ubuntu-server-container`
 
 #### <a name="vm-sizes-with-rdma"></a>Rozmiary maszyn wirtualnych przy użyciu funkcji RDMA
 
-- Dawc`microsoft-azure-batch`
-  - Sprzedaży`centos-container-rdma`
-  - Sprzedaży`ubuntu-server-container-rdma`
+- Dawc `microsoft-azure-batch`
+  - Sprzedaży `centos-container-rdma`
+  - Sprzedaży `ubuntu-server-container-rdma`
 
 Te obrazy są obsługiwane tylko w pulach Azure Batch i są przeznaczone do wykonywania kontenera Docker. Funkcje te:
 
@@ -253,7 +253,7 @@ Opcjonalne [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainer
 
 ### <a name="container-task-working-directory"></a>Katalog roboczy zadania kontenera
 
-Zadanie kontenera wsadowego jest wykonywane w katalogu roboczym w kontenerze, który jest bardzo podobny do wsadowego tworzenia zadań (nie kontener). Należy zauważyć, że ten katalog roboczy różni się od [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir) , jeśli jest skonfigurowany na obrazie, lub domyślnego katalogu roboczego kontenera ( `C:\` w kontenerze systemu Windows lub `/` w kontenerze Linux).
+Zadanie kontenera wsadowego jest wykonywane w katalogu roboczym w kontenerze, który jest bardzo podobny do wsadowego tworzenia zadań (nie kontener). Należy zauważyć, że ten katalog roboczy różni się od [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir) , jeśli jest skonfigurowany na obrazie, lub domyślnego katalogu roboczego kontenera ( `C:\`  w kontenerze systemu Windows lub `/` w kontenerze Linux).
 
 Zadanie kontenera usługi Batch:
 

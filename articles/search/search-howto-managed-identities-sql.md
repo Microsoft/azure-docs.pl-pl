@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 321c13e88cb09c7078a169c3e1666cf781ec7787
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8dabf69af8628bb0b168bfea94af5333df341423
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553142"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924133"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>Skonfiguruj połączenie indeksatora, aby Azure SQL Database przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
 
@@ -44,7 +44,7 @@ Po wybraniu pozycji **Zapisz** zostanie wyświetlony identyfikator obiektu przyp
 
 Podczas łączenia się z bazą danych w następnym kroku należy nawiązać połączenie z kontem usługi Azure Active Directory (Azure AD), które ma dostęp administratora do bazy danych, aby umożliwić usłudze wyszukiwania uprawnienie dostępu do bazy danych.
 
-Postępuj zgodnie z instrukcjami znajdującymi się [tutaj](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) , aby nadać kontu usługi Azure AD uprawnienia dostępu do bazy danych.
+Postępuj zgodnie z instrukcjami znajdującymi się [tutaj](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-database) , aby nadać kontu usługi Azure AD uprawnienia dostępu do bazy danych.
 
 ### <a name="3---assign-the-search-service-permissions"></a>3 — Przypisywanie uprawnień usługi wyszukiwania
 
@@ -97,9 +97,9 @@ W tym kroku nadajesz usłudze Azure Wyszukiwanie poznawcze uprawnienia do odczyt
 
 ### <a name="5---create-the-data-source"></a>5 — Tworzenie źródła danych
 
-[Interfejs API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source), Azure Portal i [zestaw SDK platformy .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) obsługują parametry połączenia tożsamości zarządzanej. Poniżej przedstawiono przykład sposobu tworzenia źródła danych do indeksowania danych z Azure SQL Database przy użyciu [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source) i parametrów połączenia zarządzanej tożsamości. Format parametrów połączenia tożsamości zarządzanej jest taki sam dla interfejsu API REST, zestawu .NET SDK i Azure Portal.
+[Interfejs API REST](/rest/api/searchservice/create-data-source), Azure Portal i [zestaw SDK platformy .NET](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) obsługują parametry połączenia tożsamości zarządzanej. Poniżej przedstawiono przykład sposobu tworzenia źródła danych do indeksowania danych z Azure SQL Database przy użyciu [interfejsu API REST](/rest/api/searchservice/create-data-source) i parametrów połączenia zarządzanej tożsamości. Format parametrów połączenia tożsamości zarządzanej jest taki sam dla interfejsu API REST, zestawu .NET SDK i Azure Portal.
 
-Podczas tworzenia źródła danych przy użyciu [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source), źródło danych musi mieć następujące wymagane właściwości:
+Podczas tworzenia źródła danych przy użyciu [interfejsu API REST](/rest/api/searchservice/create-data-source), źródło danych musi mieć następujące wymagane właściwości:
 
 * **Nazwa** jest unikatową nazwą źródła danych w ramach usługi wyszukiwania.
 * **Typ** to `azuresql`
@@ -109,7 +109,7 @@ Podczas tworzenia źródła danych przy użyciu [interfejsu API REST](https://do
         * *Katalog początkowy | Baza danych =**Nazwa bazy**danych; ResourceId =/subscriptions/**Identyfikator subskrypcji**/resourceGroups/**nazwę grupy zasobów**/Providers/Microsoft.SQL/Servers/**swoją nazwę SQL Server**/; Limit czasu połączenia =**Długość limitu czasu połączenia**;*
 * **kontener** określa nazwę tabeli lub widoku, który ma być indeksowany.
 
-Przykład sposobu tworzenia obiektu źródła danych SQL Azure przy użyciu [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
+Przykład sposobu tworzenia obiektu źródła danych SQL Azure przy użyciu [interfejsu API REST](/rest/api/searchservice/create-data-source):
 
 ```
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
@@ -144,7 +144,7 @@ api-key: [admin key]
 }
 ```
 
-Aby uzyskać więcej informacji na temat tworzenia indeksów, zobacz [Tworzenie indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index)
+Aby uzyskać więcej informacji na temat tworzenia indeksów, zobacz [Tworzenie indeksu](/rest/api/searchservice/create-index)
 
 ### <a name="7---create-the-indexer"></a>7. Tworzenie indeksatora
 
@@ -169,13 +169,13 @@ api-key: [admin key]
 
 Ten indeksator będzie uruchamiany co dwie godziny (interwał harmonogramu jest ustawiony na wartość "PT2H"). Aby uruchomić indeksator co 30 minut, ustaw interwał na wartość "PT30M". Najkrótszy obsługiwany interwał to 5 minut. Harmonogram jest opcjonalny — w przypadku pominięcia, indeksator jest uruchamiany tylko raz, gdy zostanie utworzony. Można jednak uruchomić indeksator na żądanie w dowolnym momencie.   
 
-Aby uzyskać więcej informacji na temat interfejsu API tworzenia indeksatora, zapoznaj się z tematem [Tworzenie indeksatora](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Aby uzyskać więcej informacji na temat interfejsu API tworzenia indeksatora, zapoznaj się z tematem [Tworzenie indeksatora](/rest/api/searchservice/create-indexer).
 
 Więcej informacji o definiowaniu harmonogramów indeksatorów znajduje się w temacie [jak zaplanować indeksatory dla platformy Azure wyszukiwanie poznawcze](search-howto-schedule-indexers.md).
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Jeśli zostanie wyświetlony komunikat o błędzie, gdy indeksator podejmie próbę nawiązania połączenia ze źródłem danych, że klient nie może uzyskać dostępu do serwera, zapoznaj się z [typowymi błędami indeksatora](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting).
+Jeśli zostanie wyświetlony komunikat o błędzie, gdy indeksator podejmie próbę nawiązania połączenia ze źródłem danych, że klient nie może uzyskać dostępu do serwera, zapoznaj się z [typowymi błędami indeksatora](./search-indexer-troubleshooting.md).
 
 ## <a name="see-also"></a>Zobacz też
 

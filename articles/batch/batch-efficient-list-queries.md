@@ -3,13 +3,13 @@ title: Projektuj wydajne zapytania dotyczące list
 description: Zwiększenie wydajności przez filtrowanie zapytań podczas żądania informacji o zasobach wsadowych, takich jak pule, zadania, zadania i węzły obliczeniowe.
 ms.topic: how-to
 ms.date: 06/18/2020
-ms.custom: seodec18
-ms.openlocfilehash: bcf99dbc55d708af70a28155a3f98c20003e51f7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 3a767cc8ae3c8c48e1e40e0735c33fa807ba0015
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960609"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933518"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Twórz zapytania umożliwiające wydajne wyświetlanie zasobów wsadowych
 
@@ -55,7 +55,7 @@ W tym przykładowym scenariuszu, jeśli w zadaniu istnieją tysiące zadań, wyn
 
 Interfejsy API usługi [Batch .NET](/dotnet/api/microsoft.azure.batch) i usługi [Batch](/rest/api/batchservice/) umożliwiają zredukowanie liczby elementów, które są zwracane na liście, a także ilości informacji zwracanych dla każdego z nich. W tym celu należy określić parametry **Filter**, **SELECT**i **expand** podczas wykonywania zapytań dotyczących list.
 
-### <a name="filter"></a>Filtr
+### <a name="filter"></a>Zostaną przefiltrowane
 
 Ciąg filtru jest wyrażeniem, które zmniejsza liczbę zwracanych elementów. Można na przykład wyświetlić listę tylko uruchomionych zadań dla zadania lub wyświetlić tylko węzły obliczeniowe, które są gotowe do uruchamiania zadań.
 
@@ -88,8 +88,8 @@ Ten przykład rozszerzający ciąg Określa, że informacje statystyczne powinny
 - We wszystkich nazwach właściwości jest rozróżniana wielkość liter, ale w wartościach właściwości nie jest rozróżniana wielkość liter.
 - Ciągi daty i godziny mogą być jednym z dwóch formatów i muszą być poprzedzone znakiem `DateTime` .
   
-  - Przykład formatu W3C-DTF:`creationTime gt DateTime'2011-05-08T08:49:37Z'`
-  - Przykład formatu RFC 1123:`creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
+  - Przykład formatu W3C-DTF: `creationTime gt DateTime'2011-05-08T08:49:37Z'`
+  - Przykład formatu RFC 1123: `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
 - Ciągi logiczne są albo `true` `false` .
 - Jeśli określono nieprawidłową właściwość lub operator, `400 (Bad Request)` zostanie zwrócony błąd.
 

@@ -4,12 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 8c63c979300af4c180751b3824def0cb974ee186
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 750ce2d19334f549242c37494a11a1f683469f12
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400937"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926148"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -25,15 +26,15 @@ Przed rozpoczęciem upewnij się, że:
 Pierwszym krokiem jest upewnienie się, że projekt jest otwarty w programie Visual Studio.
 
 1. Uruchom program Visual Studio 2019.
-2. Załaduj projekt i Otwórz `Program.cs`go.
+2. Załaduj projekt i otwórz go `Program.cs` .
 
-## <a name="add-a-reference-to-newtonsoftjson"></a>Dodawanie odwołania do pliku Newtonsoft. JSON
+## <a name="add-a-reference-to-newtonsoftjson"></a>Dodaj odwołanie do Newtonsoft.Jsna
 
 1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt **HelloWorld** , a następnie wybierz pozycję **Zarządzaj pakietami NuGet** , aby wyświetlić Menedżera pakietów NuGet.
 1. W prawym górnym rogu Znajdź pole listy rozwijanej **Źródło pakietu** i upewnij się, że **`nuget.org`** jest zaznaczone.
 1. W lewym górnym rogu wybierz pozycję **Przeglądaj**.
-1. W polu wyszukiwania wpisz *Newtonsoft. JSON* i wybierz **Enter**.
-1. Z wyników wyszukiwania wybierz pakiet [**Newtonsoft. JSON**](https://www.nuget.org/packages/Newtonsoft.Json) , a następnie wybierz pozycję **Zainstaluj** , aby zainstalować najnowszą stabilną wersję.
+1. W polu wyszukiwania wpisz *newtonsoft.json* i wybierz **Enter**.
+1. W wynikach wyszukiwania wybierz [**Newtonsoft.Jsw**](https://www.nuget.org/packages/Newtonsoft.Json) pakiecie, a następnie wybierz pozycję **Zainstaluj** , aby zainstalować najnowszą stabilną wersję.
 1. Zaakceptuj wszystkie umowy i licencje, aby rozpocząć instalację.
    Po zainstalowaniu pakietu w oknie **konsola Menedżera pakietów** zostanie wyświetlone potwierdzenie.
 
@@ -84,7 +85,7 @@ class Program
 Jako że żądania API REST w formacie JSON i zwracają wyniki w kodzie JSON, możemy z nich korzystać tylko przy użyciu ciągów, ale nie jest to zalecane.
 Aby ułatwić zarządzanie żądaniami i odpowiedziami, deklarujemy kilka klas do użycia na potrzeby serializowania/deserializacji kodu JSON.
 
-Przejdź dalej i po `TranscribeAsync`.
+Przejdź dalej i po `TranscribeAsync` .
 
 ```csharp
 public class ModelIdentity
@@ -187,7 +188,7 @@ public class TranscriptionDefinition
 
 ## <a name="create-and-configure-an-http-client"></a>Tworzenie i Konfigurowanie klienta http
 Najpierw musimy być klientem http z prawidłowym podstawowym adresem URL i zestawem uwierzytelniania.
-Wstaw ten kod w `TranscribeAsync`.
+Wstaw ten kod w `TranscribeAsync` .
 
 ```csharp
 var client = new HttpClient
@@ -202,7 +203,7 @@ var client = new HttpClient
 ```
 
 ## <a name="generate-a-transcription-request"></a>Generuj żądanie transkrypcji
-Następnie wygenerujemy żądanie transkrypcji. Dodaj ten kod do `TranscribeAsync`.
+Następnie wygenerujemy żądanie transkrypcji. Dodaj ten kod do `TranscribeAsync` .
 
 ```csharp
 var transcriptionDefinition =
@@ -551,8 +552,8 @@ namespace BatchClient
 
 Teraz wszystko jest gotowe do skompilowania aplikacji i przetestowania rozpoznawania mowy przy użyciu usługi mowy.
 
-1. **Skompiluj kod** — na pasku menu programu Visual Studio wybierz polecenie **Kompiluj** > **kompilację rozwiązania**.
-2. **Uruchom aplikację** — z poziomu paska menu wybierz **Debuguj** > **Rozpocznij debugowanie** lub naciśnij klawisz **F5**.
+1. **Skompiluj kod** — na pasku menu programu Visual Studio wybierz polecenie **Kompiluj**  >  **kompilację rozwiązania**.
+2. **Uruchom aplikację** — z poziomu paska menu wybierz **Debuguj**  >  **Rozpocznij debugowanie** lub naciśnij klawisz **F5**.
 3. **Rozpocznij rozpoznawanie** — spowoduje to wyświetlenie monitu o rozmowę w języku angielskim. Twoja mowa jest wysyłana do usługi mowy, uzyskanego jako tekst i renderowany w konsoli programu.
 
 ## <a name="next-steps"></a>Następne kroki

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 959adec9f74a8cda7fde941ccea7db75e981a650
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0f33b5a28d7c83be7e546c3f61bc517047c51312
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201551"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934858"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Składnia $filter OData na platformie Azure Wyszukiwanie poznawcze
 
@@ -67,7 +67,7 @@ Typy wyrażeń logicznych obejmują:
 - Wywołania funkcji logicznych, w tym:
   - `geo.intersects`, który testuje, czy dany punkt znajduje się w obrębie danego wielokąta. Aby uzyskać więcej informacji, zobacz [funkcje geograficzne OData w usłudze Azure wyszukiwanie poznawcze](search-query-odata-geo-spatial-functions.md).
   - `search.in`, która porównuje zmienną pola lub zakresu z każdą wartością na liście wartości. Aby uzyskać więcej informacji, [Zobacz `search.in` Funkcja OData w usłudze Azure wyszukiwanie poznawcze](search-query-odata-search-in-function.md).
-  - `search.ismatch`i `search.ismatchscoring` , które wykonują operacje wyszukiwania pełnotekstowego w kontekście filtru. Aby uzyskać więcej informacji, zobacz [funkcje wyszukiwania pełnotekstowego protokołu OData w usłudze Azure wyszukiwanie poznawcze](search-query-odata-full-text-search-functions.md).
+  - `search.ismatch` i `search.ismatchscoring` , które wykonują operacje wyszukiwania pełnotekstowego w kontekście filtru. Aby uzyskać więcej informacji, zobacz [funkcje wyszukiwania pełnotekstowego protokołu OData w usłudze Azure wyszukiwanie poznawcze](search-query-odata-full-text-search-functions.md).
 - Ścieżki pól lub zmienne zakresowe typu `Edm.Boolean` . Na przykład jeśli indeks ma pole logiczne o nazwie `IsEnabled` i chcesz zwrócić wszystkie dokumenty, w których to pole jest `true` , wyrażenie filtru może być po prostu nazwą `IsEnabled` .
 - Wyrażenia logiczne w nawiasach. Używanie nawiasów może pomóc jawnie określić kolejność operacji w filtrze. Aby uzyskać więcej informacji na temat domyślnego pierwszeństwa operatorów OData, zobacz następną sekcję.
 
@@ -75,7 +75,7 @@ Typy wyrażeń logicznych obejmują:
 
 Jeśli piszesz wyrażenie filtru bez nawiasów wokół jego wyrażeń podrzędnych, usługa Azure Wyszukiwanie poznawcze obliczy go zgodnie z zestawem reguł pierwszeństwa operatora. Reguły te są oparte na tym, które operatory są używane do łączenia wyrażeń podrzędnych. Poniższa tabela zawiera listę grup operatorów w kolejności od najwyższego do najniższego pierwszeństwa:
 
-| Grupa | Operatorzy: |
+| Grupowanie | Operatorzy: |
 | --- | --- |
 | Operatory logiczne | `not` |
 | Operatory porównania | `eq`, `ne`, `gt`, `lt`, `ge`, `le` |
@@ -142,7 +142,7 @@ Znajdź wszystkie hotele, w których znajduje się parking i gdzie nie są nalic
     $filter=ParkingIncluded and Rooms/all(room: not room/SmokingAllowed)
 ```
 
- \-Oraz  
+ \- Oraz  
 
 ```odata-filter-expr
     $filter=ParkingIncluded eq true and Rooms/all(room: room/SmokingAllowed eq false)
@@ -178,7 +178,7 @@ Znajdź wszystkie hotele w ciągu 10 kilometrów danego punktu odwołania (gdzie
     $filter=geo.distance(Location, geography'POINT(-122.131577 47.678581)') le 10
 ```
 
-Znajdź wszystkie hotele w ramach danego okienka ekranu opisane jako wielokąt (gdzie `Location` jest polem typu EDM. geographyPoint względem). Wielokąt musi być zamknięty, co oznacza, że pierwszy i ostatni zestaw punktów muszą być takie same. Ponadto [punkty muszą być wymienione w porządku w lewo](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+Znajdź wszystkie hotele w ramach danego okienka ekranu opisane jako wielokąt (gdzie `Location` jest polem typu EDM. geographyPoint względem). Wielokąt musi być zamknięty, co oznacza, że pierwszy i ostatni zestaw punktów muszą być takie same. Ponadto [punkty muszą być wymienione w porządku w lewo](/rest/api/searchservice/supported-data-types#Anchor_1).
 
 ```odata-filter-expr
     $filter=geo.intersects(Location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
@@ -214,7 +214,7 @@ Znajdź dopasowanie do fraz w kolekcji, takich jak "ogrzewane Stojaki ręcznikó
     $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
 ```
 
-Znajdź dokumenty z wyrazem "Waterfront". To zapytanie filtru jest identyczne z [żądaniem wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents) w `search=waterfront` .
+Znajdź dokumenty z wyrazem "Waterfront". To zapytanie filtru jest identyczne z [żądaniem wyszukiwania](/rest/api/searchservice/search-documents) w `search=waterfront` .
 
 ```odata-filter-expr
     $filter=search.ismatchscoring('waterfront')
@@ -249,4 +249,4 @@ Znajdź Hotele, w których terminy "Hotel" i "Lotnisko" nie są więcej niż pi�
 - [Filtry na platformie Azure Wyszukiwanie poznawcze](search-filters.md)
 - [Omówienie języka wyrażeń OData dla platformy Azure Wyszukiwanie poznawcze](query-odata-filter-orderby-syntax.md)
 - [Dokumentacja składni wyrażenia OData dla usługi Azure Wyszukiwanie poznawcze](search-query-odata-syntax-reference.md)
-- [Wyszukaj dokumenty &#40;interfejs API REST usługi Azure Wyszukiwanie poznawcze&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Wyszukaj dokumenty &#40;interfejs API REST usługi Azure Wyszukiwanie poznawcze&#41;](/rest/api/searchservice/Search-Documents)

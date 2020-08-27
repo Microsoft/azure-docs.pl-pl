@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f22e69cbc625d21c398151e413574387a2587790
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 5171db64f931d59d4f5b66143072cfc8153e8775
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145273"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935198"
 ---
 # <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Jak zarządzać współbieżnością w usłudze Azure Wyszukiwanie poznawcze
 
@@ -28,8 +28,8 @@ Współbieżność optymistyczna jest implementowana za poorednictwem sprawdzani
 
 Wszystkie zasoby mają [*tag jednostki (ETag)*](https://en.wikipedia.org/wiki/HTTP_ETag) , który zawiera informacje o wersji obiektu. Sprawdzając najpierw element ETag, można uniknąć współbieżnych aktualizacji w typowym przepływie pracy (Get, Modify lokalnie, Update), upewniając się, że element ETag zasobu jest zgodny z lokalną kopią.
 
-+ Interfejs API REST używa elementu [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) w nagłówku żądania.
-+ Zestaw SDK platformy .NET ustawia element ETag za pomocą obiektu accessCondition, ustawiając opcję [if-Match | Nagłówek if-Match-none](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) w zasobie. Każdy obiekt dziedziczenia z [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) ma obiekt accessCondition.
++ Interfejs API REST używa elementu [ETag](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) w nagłówku żądania.
++ Zestaw SDK platformy .NET ustawia element ETag za pomocą obiektu accessCondition, ustawiając opcję [if-Match | Nagłówek if-Match-none](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) w zasobie. Każdy obiekt dziedziczenia z [IResourceWithETag (.NET SDK)](/dotnet/api/microsoft.azure.search.models.iresourcewithetag) ma obiekt accessCondition.
 
 Za każdym razem, gdy aktualizujesz zasób, jego element ETag zmienia się automatycznie. W przypadku zaimplementowania zarządzania współbieżnością wszystkie wykonywane czynności są wykonywane w ramach żądania aktualizacji, które wymaga, aby zasób zdalny miał ten sam element ETag, jak kopia zasobu zmodyfikowanego na kliencie. Jeśli zasób zdalny został już zmieniony przez proces współbieżny, element ETag nie będzie zgodny z warunkiem wstępnym, a żądanie zakończy się niepowodzeniem z użyciem protokołu HTTP 412. Jeśli używasz zestawu SDK platformy .NET, te manifesty jako lokalizacji, w `CloudException` której `IsAccessConditionFailed()` Metoda rozszerzania zwraca wartość true.
 
@@ -215,8 +215,8 @@ Spróbuj zmodyfikować jeden z poniższych przykładów, aby dołączyć element
 + [Przykład interfejsu API REST w witrynie GitHub](https://github.com/Azure-Samples/search-rest-api-getting-started)
 + [Przykład zestawu .NET SDK w witrynie GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). To rozwiązanie zawiera projekt "DotNetEtagsExplainer" zawierający kod przedstawiony w tym artykule.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
-[Typowe nagłówki](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) 
- żądań i odpowiedzi http [Kody](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) 
- stanu http [Operacje indeksu (interfejs API REST)](https://docs.microsoft.com/rest/api/searchservice/index-operations)
+[Typowe nagłówki](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) 
+ żądań i odpowiedzi http [Kody](/rest/api/searchservice/http-status-codes) 
+ stanu http [Operacje indeksu (interfejs API REST)](/rest/api/searchservice/index-operations)

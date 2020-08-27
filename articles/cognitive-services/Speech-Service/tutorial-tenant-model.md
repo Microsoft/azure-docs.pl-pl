@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: erhopf
-ms.openlocfilehash: 04a6742d3db8d65e06fe3d7b35ed94ebe5dc13a5
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 52e4271fca02dc9b0eab45ca98581ecd85119b59
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85391217"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934484"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Samouczek: Tworzenie modelu dzierżawy (wersja zapoznawcza)
 
@@ -24,7 +25,7 @@ Model dzierżawy (Custom Speech z danymi pakietu Office 365) to usługa w przypa
 > [!IMPORTANT]
 > Jeśli Twoja organizacja rejestruje się za pomocą usługi modelu dzierżawy, usługa mowy może uzyskać dostęp do modelu języka w organizacji. Model jest generowany na podstawie wiadomości e-mail i dokumentów grup publicznych pakietu Office 365, które mogą być widoczne dla wszystkich użytkowników w organizacji. Administrator usługi Office 365 w organizacji może włączyć lub wyłączyć korzystanie z modelu języka w całej organizacji z poziomu portalu administracyjnego pakietu Office 365.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Rejestrowanie w modelu dzierżawy za pomocą Centrum administracyjnego Microsoft 365
@@ -62,7 +63,7 @@ Aby korzystać z modelu dzierżawy z zestawem SDK mowy, potrzebujesz zasobu mowy
 1. Postępuj zgodnie z instrukcjami wyświetlanymi na ekranie, aby utworzyć zasób. Upewnij się, że:
    * **Lokalizacja** jest ustawiona na **Wschodnie** lub **zachodnie**.
    * **Warstwa cenowa** jest ustawiona na **S0**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
    Po kilku minutach zasób zostanie utworzony. Klucz subskrypcji jest dostępny w sekcji **Przegląd** dla zasobu.
 

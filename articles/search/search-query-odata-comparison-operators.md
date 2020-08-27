@@ -19,14 +19,14 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 572b653a49833ae06ee57b1718000e8555239de7
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: fc5803f96c30ea1df362676aa8c4104bb0b69db3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146024"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934875"
 ---
-# <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Operatory porównania OData na platformie Azure wyszukiwanie poznawcze —,,,, `eq` `ne` `gt` `lt` `ge` i`le`
+# <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Operatory porównania OData na platformie Azure wyszukiwanie poznawcze —,,,, `eq` `ne` `gt` `lt` `ge` i `le`
 
 Najbardziej podstawową operacją w [wyrażeniu filtru OData](query-odata-filter-orderby-syntax.md) na platformie Azure wyszukiwanie poznawcze jest porównanie pola z daną wartością. Dwa typy porównania są możliwym porównaniem równości i porównywaniem zakresu. Aby porównać pole z wartością stałą, można użyć następujących operatorów:
 
@@ -96,11 +96,11 @@ W przypadku porównań, które nie są dozwolone, takich jak porównywanie pola 
 
 <a name="special-case-nan"></a>
 
-### <a name="special-cases-for-null-and-nan"></a>Specjalne przypadki `null` i`NaN`
+### <a name="special-cases-for-null-and-nan"></a>Specjalne przypadki `null` i `NaN`
 
 W przypadku korzystania z operatorów porównania należy pamiętać, że wszystkie pola niebędące kolekcjami w usłudze Azure Wyszukiwanie poznawcze mogą być potencjalnie `null` . W poniższej tabeli przedstawiono wszystkie możliwe wyniki dla wyrażenia porównania, które mogą być `null` :
 
-| Operator | Wynik, gdy tylko pole lub zmienna jest`null` | Wynik, gdy tylko stała jest`null` | Wynik, gdy pole lub zmienna i stała są`null` |
+| Operator | Wynik, gdy tylko pole lub zmienna jest `null` | Wynik, gdy tylko stała jest `null` | Wynik, gdy pole lub zmienna i stała są `null` |
 | --- | --- | --- | --- |
 | `gt` | `false` | HTTP 400: błąd nieprawidłowego żądania | HTTP 400: błąd nieprawidłowego żądania |
 | `lt` | `false` | HTTP 400: błąd nieprawidłowego żądania | HTTP 400: błąd nieprawidłowego żądania |
@@ -113,7 +113,7 @@ Podsumowując, `null` jest równa tylko samemu i nie jest mniejsza ani większa 
 
 Jeśli indeks zawiera pola typu, `Edm.Double` a wartości są przekazywane `NaN` do tych pól, należy uwzględnić to przy pisaniu filtrów. Platforma Azure Wyszukiwanie poznawcze implementuje standard IEEE 754 do obsługi `NaN` wartości i porównania z takimi wartościami tworzą niejasne wyniki, jak pokazano w poniższej tabeli.
 
-| Operator | Wynik, gdy co najmniej jeden operand jest`NaN` |
+| Operator | Wynik, gdy co najmniej jeden operand jest `NaN` |
 | --- | --- |
 | `gt` | `false` |
 | `lt` | `false` |
@@ -169,4 +169,4 @@ Rooms/any(room: room/Type eq 'Deluxe Room')
 - [Filtry na platformie Azure Wyszukiwanie poznawcze](search-filters.md)
 - [Omówienie języka wyrażeń OData dla platformy Azure Wyszukiwanie poznawcze](query-odata-filter-orderby-syntax.md)
 - [Dokumentacja składni wyrażenia OData dla usługi Azure Wyszukiwanie poznawcze](search-query-odata-syntax-reference.md)
-- [Wyszukaj dokumenty &#40;interfejs API REST usługi Azure Wyszukiwanie poznawcze&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Wyszukaj dokumenty &#40;interfejs API REST usługi Azure Wyszukiwanie poznawcze&#41;](/rest/api/searchservice/Search-Documents)

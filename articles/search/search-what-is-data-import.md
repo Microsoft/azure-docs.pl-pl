@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 86982aa418433ecef6a81252363091714185fe22
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 50c95dc9d045711cb6968b98957d255b4ca73d2c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202295"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932767"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Omówienie importowania danych — Wyszukiwanie poznawcze platformy Azure
 
@@ -34,12 +34,12 @@ To podejście jest bardziej elastyczne niż model polegający na ściąganiu, po
 
 Możesz załadować jeden lub wiele dokumentów do indeksu przy użyciu następujących interfejsów API:
 
-+ [Dodawanie, aktualizowanie lub usuwanie dokumentów (interfejs API REST)](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [Klasa indexAction](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) lub [klasa indexBatch](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 
++ [Dodawanie, aktualizowanie lub usuwanie dokumentów (interfejs API REST)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
++ [Klasa indexAction](/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) lub [klasa indexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 
 
 Obecnie nie istnieje wsparcie narzędziowe wypychania danych za pośrednictwem portalu.
 
-Aby zapoznać się z wprowadzeniem do każdej metodologii, zobacz [Szybki Start: Tworzenie indeksu wyszukiwanie poznawcze platformy Azure przy użyciu programu PowerShell](search-create-index-rest-api.md) lub [języka C# — szybki start: Tworzenie indeksu wyszukiwanie poznawcze platformy Azure przy użyciu zestawu .NET SDK](search-get-started-dotnet.md).
+Aby zapoznać się z wprowadzeniem do każdej metodologii, zobacz [Szybki Start: Tworzenie indeksu wyszukiwanie poznawcze platformy Azure przy użyciu programu PowerShell](./search-get-started-powershell.md) lub [języka C# — szybki start: Tworzenie indeksu wyszukiwanie poznawcze platformy Azure przy użyciu zestawu .NET SDK](search-get-started-dotnet.md).
 
 <a name="indexing-actions"></a>
 
@@ -61,7 +61,7 @@ W zestawie SDK platformy .NET Pakuj dane do `IndexBatch` obiektu. `IndexBatch`He
 
 ### <a name="formulate-your-query"></a>Formułowanie zapytania
 
-Istnieją dwie metody [przeszukiwania indeksu przy użyciu interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Pierwsza z nich polega na wysłaniu żądania HTTP POST, w ramach którego parametry zapytania są definiowane w obiekcie JSON w treści żądania. Druga metoda obejmuje wysłanie żądania HTTP GET, w ramach którego parametry zapytania są definiowane w adresie URL żądania. W przypadku żądania POST limity dotyczące rozmiaru parametrów zapytania są [luźniejsze](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) niż dla żądania GET. Z tego powodu zaleca się używanie żądania POST, o ile nie występują specjalne okoliczności, w których korzystanie z żądania GET jest wygodniejsze.
+Istnieją dwie metody [przeszukiwania indeksu przy użyciu interfejsu API REST](/rest/api/searchservice/Search-Documents). Pierwsza z nich polega na wysłaniu żądania HTTP POST, w ramach którego parametry zapytania są definiowane w obiekcie JSON w treści żądania. Druga metoda obejmuje wysłanie żądania HTTP GET, w ramach którego parametry zapytania są definiowane w adresie URL żądania. W przypadku żądania POST limity dotyczące rozmiaru parametrów zapytania są [luźniejsze](/rest/api/searchservice/Search-Documents) niż dla żądania GET. Z tego powodu zaleca się używanie żądania POST, o ile nie występują specjalne okoliczności, w których korzystanie z żądania GET jest wygodniejsze.
 
 W przypadku funkcji POST i GET należy podać *nazwę usługi*, *nazwę indeksu*i *wersję interfejsu API* w adresie URL żądania. 
 
@@ -98,7 +98,7 @@ Szybkim sposobem przeprowadzenia wstępnego sprawdzenia w przekazaniu dokumentu 
 > [!TIP]
 > Wiele [przykładów kodu wyszukiwanie poznawcze platformy Azure](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) obejmuje osadzone lub łatwo dostępne zestawy danych, oferując łatwy sposób na rozpoczęcie pracy. Portal udostępnia również przykładowy indeksator i źródło danych składające się z małego zestawu danych nieruchomości (o nazwie „realestate-us-sample”). Po uruchomieniu wstępnie skonfigurowanego indeksatora w przykładowym źródle danych indeks zostanie utworzony i załadowany z dokumentami, które mogą następnie być badane w Eksploratorze wyszukiwania lub przez zapisanie kodu.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Omówienie indeksatora](search-indexer-overview.md)
 + [Przewodnik po portalu: tworzenie i ładowanie indeksu oraz wykonywanie na nim zapytań](search-get-started-portal.md)

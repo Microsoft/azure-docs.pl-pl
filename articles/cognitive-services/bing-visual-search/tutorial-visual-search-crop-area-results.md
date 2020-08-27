@@ -10,12 +10,13 @@ ms.subservice: bing-visual-search
 ms.topic: tutorial
 ms.date: 03/31/2019
 ms.author: aahi
-ms.openlocfilehash: 3c331faad3c49b91defc9f081352eda80c701b4a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 84cbdfbf4d34e1779fc119e4b6a92a3bbec88bdc
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205387"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88925134"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Samouczek: Kadrowanie obrazu za pomocą zestawu SDK wyszukiwanie wizualne Bing dla języka C #
 
@@ -69,7 +70,7 @@ var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest
 
 ```
 
-## <a name="get-the-url-data-from-imagemoduleaction"></a>Pobierz dane adresu URL z`ImageModuleAction`
+## <a name="get-the-url-data-from-imagemoduleaction"></a>Pobierz dane adresu URL z `ImageModuleAction`
 
 Wyniki wyszukiwanie wizualne Bing są `ImageTag` obiektami. Każdy tag zawiera listę obiektów `ImageAction`. Każdy `ImageAction` z nich zawiera `Data` pole, które jest listą wartości, które są zależne od typu akcji.
 
@@ -112,5 +113,5 @@ Uzyskanie rzeczywistych adresów URL obrazów wymaga rzutowania, które odczytuj
 > [!div class="nextstepaction"]
 > [Tworzenie wyszukiwanie wizualne jednostronicowej aplikacji sieci Web](tutorial-bing-visual-search-single-page-app.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 > [Co to jest interfejs API wyszukiwania wizualnego Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview)

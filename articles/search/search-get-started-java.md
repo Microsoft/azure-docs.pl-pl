@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 993dff37f9bde5e674dbe5d41d6d4c6da92f0bc9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6ac8638efc09efe6d74f634c4042346d738d44ff
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327535"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924201"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w języku Java przy użyciu interfejsów API REST
 > [!div class="op_single_selector"]
@@ -23,7 +23,7 @@ ms.locfileid: "87327535"
 > * [C#](search-get-started-dotnet.md)
 > * [Java](search-get-started-java.md)
 > * [Portal](search-get-started-portal.md)
-> * [Program PowerShell](search-create-index-rest-api.md)
+> * [Program PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
@@ -76,7 +76,7 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
 
 1. Wybierz **File**pozycję  >  **Ustawienia**pliku.
 1. W oknie **Ustawienia** wybierz pozycję **kompilacja, wykonanie,**  >  **narzędzia kompilacji**wdrożenia  >  **Maven**  >  **Importowanie**.
-1. Zaznacz pole wyboru **Importuj projekty Maven automatycznie** , a następnie kliknij przycisk **OK** , aby zamknąć okno. Wtyczki Maven i inne zależności będą teraz automatycznie synchronizowane podczas aktualizacji pliku pom.xml w następnym kroku.
+1. Zaznacz pole wyboru  **Importuj projekty Maven automatycznie** , a następnie kliknij przycisk **OK** , aby zamknąć okno. Wtyczki Maven i inne zależności będą teraz automatycznie synchronizowane podczas aktualizacji pliku pom.xml w następnym kroku.
 
     ![Maven opcji importowania w ustawieniach IntelliJ](media/search-get-started-java/java-quickstart-settings-import-maven-auto.png)
 
@@ -565,13 +565,13 @@ Definicja indeksu hoteli zawiera proste pola i jedno pole złożone. Przykładam
           Thread.sleep(1000L); // wait a second to create the index
     ```
 
-1. Otwórz okno narzędzia **Maven** i wykonaj ten Maven cel:`verify exec:java`
+1. Otwórz okno narzędzia **Maven** i wykonaj ten Maven cel: `verify exec:java`
 
     Po uruchomieniu kodu Poszukaj komunikatu "Tworzenie indeksu", po którym następuje kod odpowiedzi 201. Ten kod odpowiedzi potwierdza, że indeks został utworzony. Przebieg powinien kończyć się komunikatem o POWODZENIU kompilacji i kodem zakończenia równym zero (0).
     
 ## <a name="2---load-documents"></a>2 — ładowanie dokumentów
 
-1. W oknie **projekt** rozwiń drzewo źródłowe, aby uzyskać dostęp do `src`  >   `main`  > `resources`  >  `service` folderu, a następnie Dodaj `hotels.json` plik. Aby to zrobić, wybierz `app` folder, naciśnij klawisze ALT + INSERT, wybierz pozycję **plik**, a następnie wprowadź nazwę pliku.
+1. W oknie **projekt** rozwiń drzewo źródłowe, aby uzyskać dostęp do `src`  >   `main`  > `resources`  >  `service` folderu, a następnie Dodaj `hotels.json` plik. Aby to zrobić, wybierz `app` folder, naciśnij klawisze ALT + INSERT, wybierz pozycję  **plik**, a następnie wprowadź nazwę pliku.
 1. Wstaw następujące dokumenty hotelu do pliku.
 
     ```json
@@ -685,7 +685,7 @@ Definicja indeksu hoteli zawiera proste pola i jedno pole złożone. Przykładam
 
     Po wysłaniu żądania załadowania dokumentu zostanie wstawiona dwusekundowa przerwanie, aby upewnić się, że proces ładujący dokument został ukończony przed wykonaniem zapytania względem indeksu.
 
-1. Otwórz okno narzędzia **Maven** i wykonaj ten Maven cel:`verify exec:java`
+1. Otwórz okno narzędzia **Maven** i wykonaj ten Maven cel: `verify exec:java`
 
     Ze względu na to, że w poprzednim kroku został utworzony indeks "Hotele — Szybki Start", kod zostanie teraz usunięty i ponownie utworzony przed załadowaniem dokumentów hotelowych.
 
@@ -814,11 +814,11 @@ Teraz, gdy załadowałeś dokumenty hoteli, możesz utworzyć zapytania wyszukiw
 
     Istnieją dwa [sposoby dopasowywania terminów do zapytania](search-query-overview.md#types-of-queries): wyszukiwanie pełnotekstowe i filtry. Zapytanie wyszukiwania pełnotekstowego wyszukuje co najmniej jeden termin w `IsSearchable` polach w indeksie. Filtr jest wyrażeniem logicznym, które jest oceniane względem `IsFilterable` pól w indeksie. Możesz użyć wyszukiwania pełnotekstowego i filtrów razem lub oddzielnie.
 
-1. Otwórz okno narzędzia **Maven** i wykonaj ten Maven cel:`verify exec:java`
+1. Otwórz okno narzędzia **Maven** i wykonaj ten Maven cel: `verify exec:java`
 
     Poszukaj podsumowania poszczególnych zapytań i ich wyników. Przebieg powinien zostać ukończony z komunikatem o POWODZENIU kompilacji i kodem zakończenia równym zero (0).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 

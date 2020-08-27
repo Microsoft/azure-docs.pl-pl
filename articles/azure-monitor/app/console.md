@@ -3,13 +3,14 @@ title: Application Insights platformy Azure dla aplikacji konsolowych | Microsof
 description: Monitoruj aplikacje sieci Web pod kątem dostępności, wydajności i użycia.
 ms.topic: conceptual
 ms.date: 05/21/2020
+ms.custom: devx-track-csharp
 ms.reviewer: lmolkova
-ms.openlocfilehash: 28f86e32dd73e25079ca685538fd0cb6f351b2d9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 98f1ea8a4994515b437841174ae95563ea53ed88
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87310467"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933345"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights aplikacji konsolowych .NET
 
@@ -36,7 +37,7 @@ telemetryClient.TrackTrace("Hello World!");
 ```
 
 > [!NOTE]
-> Dane telemetryczne nie są wysyłane natychmiast. Elementy telemetrii są wsadowe i wysyłane przez zestaw ApplicationInsights SDK. W aplikacjach konsolowych, które opuszczają bezpośrednio po wywołaniu `Track()` metody, dane telemetryczne mogą nie być wysyłane, chyba że `Flush()` `Sleep` / `Delay` zostaną wykonane przed zakończeniem działania aplikacji, jak pokazano w [pełnym przykładzie](#full-example) w dalszej części tego artykułu. `Sleep`nie jest wymagane, jeśli używasz programu `InMemoryChannel` . Istnieje aktywny problem dotyczący potrzeb `Sleep` , który jest śledzony w tym miejscu: [ApplicationInsights-dotnet/Issues/407](https://github.com/microsoft/ApplicationInsights-dotnet/issues/407)
+> Dane telemetryczne nie są wysyłane natychmiast. Elementy telemetrii są wsadowe i wysyłane przez zestaw ApplicationInsights SDK. W aplikacjach konsolowych, które opuszczają bezpośrednio po wywołaniu `Track()` metody, dane telemetryczne mogą nie być wysyłane, chyba że `Flush()` `Sleep` / `Delay` zostaną wykonane przed zakończeniem działania aplikacji, jak pokazano w [pełnym przykładzie](#full-example) w dalszej części tego artykułu. `Sleep` nie jest wymagane, jeśli używasz programu `InMemoryChannel` . Istnieje aktywny problem dotyczący potrzeb `Sleep` , który jest śledzony w tym miejscu: [ApplicationInsights-dotnet/Issues/407](https://github.com/microsoft/ApplicationInsights-dotnet/issues/407)
 
 
 * Zainstaluj najnowszą wersję pakietu [Microsoft. ApplicationInsights. DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) — automatycznie śledzi protokół http, SQL lub inne zewnętrzne wywołania zależności.

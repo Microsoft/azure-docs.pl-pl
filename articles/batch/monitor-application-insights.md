@@ -2,13 +2,14 @@
 title: Monitorowanie partii przy użyciu usługi Azure Application Insights
 description: Dowiedz się, jak instrumentować Azure Batch aplikację .NET przy użyciu biblioteki Application Insights platformy Azure.
 ms.topic: how-to
+ms.custom: devx-track-csharp
 ms.date: 04/05/2018
-ms.openlocfilehash: b6817ad1303e6039ebfe5fe5ae6101b9bc192eb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d06e2b61725f05d025acd8a2995ea041f138ae4f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83723616"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933566"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorowanie i debugowanie Azure Batch aplikacji .NET z Application Insights
 
@@ -56,9 +57,9 @@ Aby instrumentować kod, Twoje rozwiązanie musi utworzyć Application Insights 
 Dodaj również klucz Instrumentacji w pliku TopNWords.cs.
 
 W przykładzie w TopNWords.cs są wykorzystywane następujące [wywołania Instrumentacji](../azure-monitor/app/api-custom-events-metrics.md) z interfejsu API Application Insights:
-* `TrackMetric()`-Śledzi, jak długo i średnio, węzeł obliczeniowy pobiera wymagany plik tekstowy.
-* `TrackTrace()`— Dodaje wywołania debugowania do kodu.
-* `TrackEvent()`— Śledzi interesujące zdarzenia do przechwycenia.
+* `TrackMetric()` -Śledzi, jak długo i średnio, węzeł obliczeniowy pobiera wymagany plik tekstowy.
+* `TrackTrace()` — Dodaje wywołania debugowania do kodu.
+* `TrackEvent()` — Śledzi interesujące zdarzenia do przechwycenia.
 
 W tym przykładowym celu pozostawi obsługę wyjątków. Zamiast tego Application Insights automatycznie zgłasza Nieobsłużone wyjątki, co znacznie zwiększa możliwości debugowania. 
 

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 47a8d58d6ca0a8a04823fe09fb52490f13cfead7
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 2211dbe8a5e336ec10562bb8a66ed0e8cc2a9e15
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208735"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935181"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapowania pól i przekształcenia przy użyciu indeksatorów usługi Azure Wyszukiwanie poznawcze
 
@@ -30,7 +30,7 @@ Niektóre sytuacje, w których mapowania pól są użyteczne:
 * Musisz zakodować lub zdekodować dane w formacie base64. Mapowania pól obsługują kilka **funkcji mapowania**, w tym funkcje kodowania i dekodowania Base64.
 
 > [!NOTE]
-> Mapowania pól w indeksatorach to prosty sposób mapowania pól danych do pól indeksu, z możliwością konwersji lekkich danych. Bardziej złożone dane mogą wymagać wstępnego przetwarzania, aby przetworzyć je w postaci, która jest w trakcie indeksowania. Jedna z opcji, którą można rozważyć, to [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/).
+> Mapowania pól w indeksatorach to prosty sposób mapowania pól danych do pól indeksu, z możliwością konwersji lekkich danych. Bardziej złożone dane mogą wymagać wstępnego przetwarzania, aby przetworzyć je w postaci, która jest w trakcie indeksowania. Jedna z opcji, którą można rozważyć, to [Azure Data Factory](../data-factory/index.yml).
 
 ## <a name="set-up-field-mappings"></a>Skonfiguruj mapowania pól
 
@@ -47,7 +47,7 @@ Mapowania pól są dodawane do `fieldMappings` tablicy definicji indeksatora.
 
 ## <a name="map-fields-using-the-rest-api"></a>Mapowanie pól przy użyciu interfejsu API REST
 
-Można dodać mapowania pól podczas tworzenia nowego indeksatora przy użyciu żądania interfejsu API [tworzenia indeksatora](https://docs.microsoft.com/rest/api/searchservice/create-Indexer) . Można zarządzać mapowaniami pól istniejącego indeksatora przy użyciu żądania API [Update indeksator](https://docs.microsoft.com/rest/api/searchservice/update-indexer) .
+Można dodać mapowania pól podczas tworzenia nowego indeksatora przy użyciu żądania interfejsu API [tworzenia indeksatora](/rest/api/searchservice/create-Indexer) . Można zarządzać mapowaniami pól istniejącego indeksatora przy użyciu żądania API [Update indeksator](/rest/api/searchservice/update-indexer) .
 
 Na przykład poniżej przedstawiono sposób mapowania pola źródłowego do pola docelowego o innej nazwie:
 
@@ -80,7 +80,7 @@ Do pola źródłowego można odwoływać się w wielu mapowaniach pól. Poniższ
 
 ## <a name="map-fields-using-the-net-sdk"></a>Mapowanie pól przy użyciu zestawu .NET SDK
 
-Mapowania pól można definiować w zestawie .NET SDK przy użyciu klasy [fieldmapping](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.fieldmapping) , która ma właściwości `SourceFieldName` i `TargetFieldName` i opcjonalne `MappingFunction` odwołanie.
+Mapowania pól można definiować w zestawie .NET SDK przy użyciu klasy [fieldmapping](/dotnet/api/microsoft.azure.search.models.fieldmapping) , która ma właściwości `SourceFieldName` i `TargetFieldName` i opcjonalne `MappingFunction` odwołanie.
 
 Można określić mapowania pól podczas konstruowania indeksatora lub później przez bezpośrednie ustawienie `Indexer.FieldMappings` właściwości.
 
@@ -125,7 +125,7 @@ Wykonuje bezpieczne kodowanie Base64 dla *adresu URL* w ciągu wejściowym. Przy
 
 #### <a name="example---document-key-lookup"></a>Przykład — wyszukiwanie klucza dokumentu
 
-W kluczu dokumentu usługi Azure Wyszukiwanie poznawcze mogą występować tylko bezpieczne znaki w adresie URL (ponieważ klienci muszą mieć możliwość adresowania dokumentu przy użyciu [interfejsu API wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/lookup-document) ). Jeśli pole źródłowe klucza zawiera adresy URL-niebezpieczne, można użyć `base64Encode` funkcji, aby skonwertować ją podczas indeksowania. Jednak klucz dokumentu (zarówno przed, jak i po konwersji) nie może być dłuższy niż 1 024 znaków.
+W kluczu dokumentu usługi Azure Wyszukiwanie poznawcze mogą występować tylko bezpieczne znaki w adresie URL (ponieważ klienci muszą mieć możliwość adresowania dokumentu przy użyciu [interfejsu API wyszukiwania](/rest/api/searchservice/lookup-document) ). Jeśli pole źródłowe klucza zawiera adresy URL-niebezpieczne, można użyć `base64Encode` funkcji, aby skonwertować ją podczas indeksowania. Jednak klucz dokumentu (zarówno przed, jak i po konwersji) nie może być dłuższy niż 1 024 znaków.
 
 Gdy pobierasz zakodowany klucz podczas wyszukiwania, możesz użyć `base64Decode` funkcji, aby uzyskać oryginalną wartość klucza, a następnie użyć jej do pobrania dokumentu źródłowego.
 
@@ -200,10 +200,10 @@ Usługa Azure Wyszukiwanie poznawcze obsługuje dwa różne kodowania base64. Na
 
 Usługa Azure Wyszukiwanie poznawcze obsługuje kodowanie przy użyciu bezpiecznego adresu URL i standardowego kodowania base64. Ciąg szyfrowany algorytmem Base64 podczas indeksowania powinien zostać zdekodowany później przy użyciu tych samych opcji kodowania lub w przeciwnym razie wynik nie będzie zgodny z oryginałem.
 
-Jeśli `useHttpServerUtilityUrlTokenEncode` lub `useHttpServerUtilityUrlTokenDecode` parametry kodowania i dekodowania odpowiednio są ustawione na, to `true` zachowuje się `base64Encode` jak [HttpServerUtility. UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) i zachowuje się `base64Decode` jak [HttpServerUtility. UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
+Jeśli `useHttpServerUtilityUrlTokenEncode` lub `useHttpServerUtilityUrlTokenDecode` parametry kodowania i dekodowania odpowiednio są ustawione na, to `true` zachowuje się `base64Encode` jak [HttpServerUtility. UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode?view=netframework-4.8) i zachowuje się `base64Decode` jak [HttpServerUtility. UrlTokenDecode](/dotnet/api/system.web.httpserverutility.urltokendecode?view=netframework-4.8).
 
 > [!WARNING]
-> Jeśli `base64Encode` jest używany do tworzenia wartości kluczy, `useHttpServerUtilityUrlTokenEncode` należy ustawić wartość true. Dla wartości kluczy można używać tylko bezpiecznego kodowania base64 z adresem URL. Zobacz [reguły nazewnictwa &#40;Azure Wyszukiwanie poznawcze&#41;](https://docs.microsoft.com/rest/api/searchservice/naming-rules) , aby uzyskać pełny zestaw ograniczeń dotyczących znaków w wartościach klucza.
+> Jeśli `base64Encode` jest używany do tworzenia wartości kluczy, `useHttpServerUtilityUrlTokenEncode` należy ustawić wartość true. Dla wartości kluczy można używać tylko bezpiecznego kodowania base64 z adresem URL. Zobacz [reguły nazewnictwa &#40;Azure Wyszukiwanie poznawcze&#41;](/rest/api/searchservice/naming-rules) , aby uzyskać pełny zestaw ograniczeń dotyczących znaków w wartościach klucza.
 
 W bibliotekach platformy .NET na platformie Azure Wyszukiwanie poznawcze założono pełny .NET Framework, który zapewnia wbudowane kodowanie. `useHttpServerUtilityUrlTokenEncode`Opcje i `useHttpServerUtilityUrlTokenDecode` wykorzystują tę wbudowaną funkcję. W przypadku korzystania z platformy .NET Core lub innej platformy zalecamy ustawienie tych opcji na `false` i wywołanie funkcji kodowania i dekodowania struktury.
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 03d4c2e0685ea165cbad524360a3db6e6c809733
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: faa98f1c52cfe2dd0e19f085f4d33dedb6f01851
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146139"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934892"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Wyszukiwanie rozmyte pozwala poprawić błędy pisowni i literówki
 
@@ -82,7 +82,7 @@ Gdy wyniki są niejednoznaczne, [wyróżnianie trafień](search-pagination-page-
 
 ### <a name="example-1-fuzzy-search-with-the-exact-term"></a>Przykład 1: Wyszukiwanie rozmyte z dokładnym terminem
 
-Załóżmy, że następujący ciąg istnieje w `"Description"` polu w dokumencie wyszukiwania:`"Test queries with special characters, plus strings for MSFT, SQL and Java."`
+Załóżmy, że następujący ciąg istnieje w `"Description"` polu w dokumencie wyszukiwania: `"Test queries with special characters, plus strings for MSFT, SQL and Java."`
 
 Rozpocznij od rozmytego wyszukiwania w "specjalny" i Dodaj wyróżnianie trafień do pola Opis:
 
@@ -132,9 +132,9 @@ Zwróć uwagę, że zwracana jest taka sama odpowiedź, ale teraz zamiast dopaso
 
 Tym rozwiniętym przykładem jest zilustrowanie przejrzystości, którą wyróżnianie trafień może doprowadzić do niejednoznacznych wyników. We wszystkich przypadkach zwracany jest ten sam dokument. Czy korzystasz z identyfikatorów dokumentów w celu sprawdzenia dopasowania, być może pominięto zmianę z "Special" na "SQL".
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Wyszukiwanie poznawcze (architektura analizy zapytań)](search-lucene-query-architecture.md)
 + [Eksplorator wyszukiwania](search-explorer.md)
-+ [Jak wykonywać zapytania w programie .NET](search-query-dotnet.md)
-+ [Jak wykonywać zapytania w usłudze REST](search-create-index-rest-api.md)
++ [Jak wykonywać zapytania w programie .NET](./search-get-started-dotnet.md)
++ [Jak wykonywać zapytania w usłudze REST](./search-get-started-powershell.md)

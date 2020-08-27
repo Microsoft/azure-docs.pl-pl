@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 07f3e270e799753a582227abe53223bd05755eb5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: d04311fce81d147a0830918aee1d4a2a9c0808d4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165213"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923402"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Omówienie języka OData dla `$filter` , `$orderby` i `$select` na platformie Azure wyszukiwanie poznawcze
 
@@ -76,8 +76,8 @@ Przykłady ścieżek pól przedstawiono w poniższej tabeli:
 | `Address/City` | Odwołuje się do `City` podpola złożonego pola w indeksie; `Address` jest typu `Edm.ComplexType` w tym przykładzie |
 | `Rooms/Type` | Odwołuje się do `Type` pola podrzędnego złożonego pola kolekcji w indeksie; `Rooms` jest typu `Collection(Edm.ComplexType)` w tym przykładzie |
 | `Stores/Address/Country` | Odwołuje się do `Country` podpola w polu `Address` podrzędnym złożonego pola kolekcji w indeksie; `Stores` jest typu `Collection(Edm.ComplexType)` i `Address` jest typu `Edm.ComplexType` w tym przykładzie |
-| `room/Type` | Odwołuje się do `Type` podpola `room` zmiennej zakresu, na przykład w wyrażeniu filtru`Rooms/any(room: room/Type eq 'deluxe')` |
-| `store/Address/Country` | Odwołuje się do `Country` podpola `Address` podrzędnego podpola `store` zmiennej zakresu, na przykład w wyrażeniu filtru.`Stores/any(store: store/Address/Country eq 'Canada')` |
+| `room/Type` | Odwołuje się do `Type` podpola `room` zmiennej zakresu, na przykład w wyrażeniu filtru `Rooms/any(room: room/Type eq 'deluxe')` |
+| `store/Address/Country` | Odwołuje się do `Country` podpola `Address` podrzędnego podpola `store` zmiennej zakresu, na przykład w wyrażeniu filtru. `Stores/any(store: store/Address/Country eq 'Canada')` |
 
 Znaczenie ścieżki pola różni się w zależności od kontekstu. W filtrach ścieżka pola odnosi się do wartości *pojedynczego wystąpienia* pola w bieżącym dokumencie. W innych kontekstach, takich jak **$OrderBy**, **$SELECT**lub w [wyszukiwaniu w polu Pełna składnia](query-lucene-syntax.md#bkmk_fields), ścieżka pola odnosi się do samego pola. Różnica ta ma pewne konsekwencje dla sposobu używania ścieżek pól w filtrach.
 
@@ -91,25 +91,25 @@ W tym przykładzie zmienna zakresu `room` pojawia się w `room/Type` ścieżce p
 
 ### <a name="using-field-paths"></a>Używanie ścieżek pól
 
-Ścieżki pól są używane w wielu parametrach [interfejsów API REST platformy Azure wyszukiwanie poznawcze](https://docs.microsoft.com/rest/api/searchservice/). W poniższej tabeli wymieniono wszystkie miejsca, w których można ich używać oraz ograniczenia dotyczące ich użycia:
+Ścieżki pól są używane w wielu parametrach [interfejsów API REST platformy Azure wyszukiwanie poznawcze](/rest/api/searchservice/). W poniższej tabeli wymieniono wszystkie miejsca, w których można ich używać oraz ograniczenia dotyczące ich użycia:
 
-| Interfejs API | Nazwa parametru | Ograniczenia |
+| interfejs API | Nazwa parametru | Ograniczenia |
 | --- | --- | --- |
-| [Utwórz](https://docs.microsoft.com/rest/api/searchservice/create-index) lub [zaktualizuj](https://docs.microsoft.com/rest/api/searchservice/update-index) indeks | `suggesters/sourceFields` | Brak |
-| [Utwórz](https://docs.microsoft.com/rest/api/searchservice/create-index) lub [zaktualizuj](https://docs.microsoft.com/rest/api/searchservice/update-index) indeks | `scoringProfiles/text/weights` | Może odwoływać się tylko do pól z **możliwością wyszukiwania** |
-| [Utwórz](https://docs.microsoft.com/rest/api/searchservice/create-index) lub [zaktualizuj](https://docs.microsoft.com/rest/api/searchservice/update-index) indeks | `scoringProfiles/functions/fieldName` | Może odwoływać się tylko do pól z możliwością **filtrowania** |
-| [Wyszukiwanie](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search`gdy `queryType` jest`full` | Może odwoływać się tylko do pól z **możliwością wyszukiwania** |
-| [Wyszukiwanie](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | Może odwoływać się tylko do pól **kroju** |
-| [Wyszukiwanie](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | Może odwoływać się tylko do pól z **możliwością wyszukiwania** |
-| [Wyszukiwanie](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | Może odwoływać się tylko do pól z **możliwością wyszukiwania** |
-| [Sugeruj](https://docs.microsoft.com/rest/api/searchservice/suggestions) i [Autouzupełnianie](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `searchFields` | Może odwoływać się tylko do pól, które są częścią [sugestii](index-add-suggesters.md) |
-| [Wyszukaj](https://docs.microsoft.com/rest/api/searchservice/search-documents), [Sugeruj](https://docs.microsoft.com/rest/api/searchservice/suggestions)i [Autouzupełnianie](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `$filter` | Może odwoływać się tylko do pól z możliwością **filtrowania** |
-| [Wyszukaj](https://docs.microsoft.com/rest/api/searchservice/search-documents) i [Sugeruj](https://docs.microsoft.com/rest/api/searchservice/suggestions) | `$orderby` | Może odwoływać się tylko do pól do **sortowania** |
-| [Wyszukiwanie](https://docs.microsoft.com/rest/api/searchservice/search-documents), [sugerowanie](https://docs.microsoft.com/rest/api/searchservice/suggestions)i [Wyszukiwanie](https://docs.microsoft.com/rest/api/searchservice/lookup-document) | `$select` | Może odwoływać się tylko do pól do **pobierania** |
+| [Utwórz](/rest/api/searchservice/create-index) lub [zaktualizuj](/rest/api/searchservice/update-index) indeks | `suggesters/sourceFields` | Brak |
+| [Utwórz](/rest/api/searchservice/create-index) lub [zaktualizuj](/rest/api/searchservice/update-index) indeks | `scoringProfiles/text/weights` | Może odwoływać się tylko do pól z **możliwością wyszukiwania** |
+| [Utwórz](/rest/api/searchservice/create-index) lub [zaktualizuj](/rest/api/searchservice/update-index) indeks | `scoringProfiles/functions/fieldName` | Może odwoływać się tylko do pól z możliwością **filtrowania** |
+| [Wyszukiwanie](/rest/api/searchservice/search-documents) | `search` gdy `queryType` jest `full` | Może odwoływać się tylko do pól z **możliwością wyszukiwania** |
+| [Wyszukiwanie](/rest/api/searchservice/search-documents) | `facet` | Może odwoływać się tylko do pól **kroju** |
+| [Wyszukiwanie](/rest/api/searchservice/search-documents) | `highlight` | Może odwoływać się tylko do pól z **możliwością wyszukiwania** |
+| [Wyszukiwanie](/rest/api/searchservice/search-documents) | `searchFields` | Może odwoływać się tylko do pól z **możliwością wyszukiwania** |
+| [Sugeruj](/rest/api/searchservice/suggestions) i [Autouzupełnianie](/rest/api/searchservice/autocomplete) | `searchFields` | Może odwoływać się tylko do pól, które są częścią [sugestii](index-add-suggesters.md) |
+| [Wyszukaj](/rest/api/searchservice/search-documents), [Sugeruj](/rest/api/searchservice/suggestions)i [Autouzupełnianie](/rest/api/searchservice/autocomplete) | `$filter` | Może odwoływać się tylko do pól z możliwością **filtrowania** |
+| [Wyszukaj](/rest/api/searchservice/search-documents) i [Sugeruj](/rest/api/searchservice/suggestions) | `$orderby` | Może odwoływać się tylko do pól do **sortowania** |
+| [Wyszukiwanie](/rest/api/searchservice/search-documents), [sugerowanie](/rest/api/searchservice/suggestions)i [Wyszukiwanie](/rest/api/searchservice/lookup-document) | `$select` | Może odwoływać się tylko do pól do **pobierania** |
 
 ## <a name="constants"></a>Stałe
 
-Stałe w protokole OData są wartościami literalnymi dla danego typu [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM). Zobacz [obsługiwane typy danych](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) , aby uzyskać listę obsługiwanych typów w usłudze Azure wyszukiwanie poznawcze. Stałe typów kolekcji nie są obsługiwane.
+Stałe w protokole OData są wartościami literalnymi dla danego typu [Entity Data Model](/dotnet/framework/data/adonet/entity-data-model) (EDM). Zobacz [obsługiwane typy danych](/rest/api/searchservice/supported-data-types) , aby uzyskać listę obsługiwanych typów w usłudze Azure wyszukiwanie poznawcze. Stałe typów kolekcji nie są obsługiwane.
 
 W poniższej tabeli przedstawiono przykłady stałych dla każdego z typów danych obsługiwanych przez usługę Azure Wyszukiwanie poznawcze:
 
@@ -239,10 +239,10 @@ Parametry **$Filter**, **$OrderBy**i **$SELECT** zostały omówione bardziej szc
 - [Składnia $orderby OData na platformie Azure Wyszukiwanie poznawcze](search-query-odata-orderby.md)
 - [Składnia $select OData na platformie Azure Wyszukiwanie poznawcze](search-query-odata-select.md)
 
-## <a name="see-also"></a>Zobacz także  
+## <a name="see-also"></a>Zobacz też  
 
 - [Nawigacja aspektowa na platformie Azure Wyszukiwanie poznawcze](search-faceted-navigation.md)
 - [Filtry na platformie Azure Wyszukiwanie poznawcze](search-filters.md)
-- [Wyszukaj dokumenty &#40;interfejs API REST usługi Azure Wyszukiwanie poznawcze&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Wyszukaj dokumenty &#40;interfejs API REST usługi Azure Wyszukiwanie poznawcze&#41;](/rest/api/searchservice/Search-Documents)
 - [Składnia zapytań Lucene](query-lucene-syntax.md)
 - [Prosta Składnia zapytania w usłudze Azure Wyszukiwanie poznawcze](query-simple-syntax.md)

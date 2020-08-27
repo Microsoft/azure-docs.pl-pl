@@ -10,12 +10,13 @@ ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.author: aahi
-ms.openlocfilehash: 812061bf161a33e4151b7b23265196895e039414
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 127834034cf1de00b61794c6cfd51a041a37a8c3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611241"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88925151"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Szybki Start: wysyłanie zapytania do lokalnego interfejsu API wyszukiwania biznesowego Bing w języku C #
 
@@ -58,7 +59,7 @@ Poniższy kod używa interfejsu API lokalnego wyszukiwania biznesowego Bing w ce
 1. Utwórz nowe rozwiązanie konsoli w programie Visual Studio (wystarczy wersja Community).
 2. Zastąp plik Program.cs kodem przedstawionym poniżej.
 3. Zastąp wartość `accessKey` kluczem dostępu właściwym dla Twojej subskrypcji.
-4. Uruchom program.
+4. Uruchomisz program.
 
 ```csharp
 using System;

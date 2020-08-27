@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 5b585a903267386358552154228705c1921df619
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d07364e20cc11abc52ad9b308eb5daed8a65c146
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255334"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923385"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Prosta Składnia zapytania w usłudze Azure Wyszukiwanie poznawcze
 
@@ -21,7 +21,7 @@ Platforma Azure Wyszukiwanie poznawcze implementuje dwa języki zapytań opartyc
 
 Prosty parser jest bardziej elastyczny i spróbuje zinterpretować żądanie nawet wtedy, gdy nie jest doskonale złożony. Ze względu na tę elastyczność jest to wartość domyślna dla zapytań w usłudze Azure Wyszukiwanie poznawcze. 
 
-Prosta składnia jest używana w wyrażeniach zapytań przesyłanych w `search` parametrach [żądania przeszukiwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/search-documents), które nie należy mylić ze [składnią OData](query-odata-filter-orderby-syntax.md) użytą dla parametru [wyrażeń $Filter](search-filters.md) tego samego interfejsu API dokumentów wyszukiwania. `search`Parametry i `$filter` mają inną składnię z własnymi regułami tworzenia zapytań, ciągów ucieczki itd.
+Prosta składnia jest używana w wyrażeniach zapytań przesyłanych w `search` parametrach [żądania przeszukiwania dokumentów](/rest/api/searchservice/search-documents), które nie należy mylić ze [składnią OData](query-odata-filter-orderby-syntax.md) użytą dla parametru [wyrażeń $Filter](search-filters.md) tego samego interfejsu API dokumentów wyszukiwania. `search`Parametry i `$filter` mają inną składnię z własnymi regułami tworzenia zapytań, ciągów ucieczki itd.
 
 Chociaż prosty parser jest oparty na [prostej klasie analizatora zapytań programu Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) , implementacja na platformie Azure wyszukiwanie poznawcze wyklucza Wyszukiwanie rozmyte. Jeśli potrzebujesz [wyszukiwania rozmytego](search-query-fuzzy.md) lub innych zaawansowanych formularzy zapytań, zamiast tego Rozważ alternatywną [pełną składnię zapytania Lucene](query-lucene-syntax.md) .
 
@@ -43,7 +43,7 @@ Grupowanie pól jest podobne, ale zakresy grupowanie do jednego pola. Na przykł
 
 ### <a name="escaping-search-operators"></a>Operatory wyszukiwania ucieczki  
 
-W prostej składni Operatory wyszukiwania zawierają następujące znaki:`+ | " ( ) ' \`  
+W prostej składni Operatory wyszukiwania zawierają następujące znaki: `+ | " ( ) ' \`  
 
 Jeśli którykolwiek z tych znaków jest częścią tokenu w indeksie, należy to zrobić, wpisując jego prefiks z pojedynczym ukośnikiem odwrotnym ( `\` ) w zapytaniu. Załóżmy na przykład, że użyto analizatora niestandardowego dla całego terminu tokenizacji, a indeks zawiera ciąg "możliwość zaprojektowania + Hotel". Aby uzyskać dokładne dopasowanie dla tego tokenu, Wstaw znak ucieczki:  `search=luxury\+hotel` . 
 
@@ -66,11 +66,11 @@ Niebezpieczne znaki to ``" ` < > # % { } | \ ^ ~ [ ]`` . Znaki zarezerwowane są
 
 W pewnych okolicznościach można wyszukać znak specjalny, taki jak emoji "❤" lub "€". W takim przypadku upewnij się, że używany Analizator nie filtruje tych znaków.  Analizator standardowy ignoruje wiele znaków specjalnych, dzięki czemu nie staną się tokenami w indeksie.
 
-Dlatego najpierw należy upewnić się, że używasz analizatora, który będzie uwzględniać te tokeny elementów. Na przykład Analizator "odstępów" bierze pod uwagę wszystkie sekwencje znaków oddzielone odstępami jako tokeny, więc ciąg "❤" byłby uznawany za token. Ponadto Analizator, taki jak Microsoft English Analyzer ("en. Microsoft"), uwzględnia ciąg "€" jako token. Możesz [przetestować Analizator](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) , aby zobaczyć, jakie tokeny generuje dla danego zapytania.
+Dlatego najpierw należy upewnić się, że używasz analizatora, który będzie uwzględniać te tokeny elementów. Na przykład Analizator "odstępów" bierze pod uwagę wszystkie sekwencje znaków oddzielone odstępami jako tokeny, więc ciąg "❤" byłby uznawany za token. Ponadto Analizator, taki jak Microsoft English Analyzer ("en. Microsoft"), uwzględnia ciąg "€" jako token. Możesz [przetestować Analizator](/rest/api/searchservice/test-analyzer) , aby zobaczyć, jakie tokeny generuje dla danego zapytania.
 
 W przypadku używania znaków Unicode upewnij się, że symbole są prawidłowo w adresie URL zapytania (na przykład dla "❤" będzie używana sekwencja ucieczki `%E2%9D%A4+` ). Program ogłaszający automatycznie wykonuje to tłumaczenie.
 
-###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a>Limity rozmiaru zapytań
+###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a> Limity rozmiaru zapytań
 
  Istnieje ograniczenie rozmiaru zapytań, które można wysłać do usługi Azure Wyszukiwanie poznawcze. W szczególności można mieć co najwyżej 1024 klauzul (wyrażenia oddzielone znakami i, lub itd.). Obowiązuje również limit około 32 KB na rozmiar każdego pojedynczego okresu zapytania. Jeśli aplikacja generuje zapytania wyszukiwania programowo, zalecamy zaprojektowanie go w taki sposób, aby nie generował zapytań o nieograniczonego rozmiaru.  
 
@@ -78,25 +78,25 @@ W przypadku używania znaków Unicode upewnij się, że symbole są prawidłowo 
 
 Można osadzić operatory logiczne (i, nie) w ciągu zapytania w celu utworzenia bogatego zestawu kryteriów, względem których znaleziono pasujące dokumenty. 
 
-### <a name="and-operator-"></a>AND — operator`+`
+### <a name="and-operator-"></a>AND — operator `+`
 
 Operator AND jest znakiem plus. Na przykład program przeszuka `wifi + luxury` dokumenty zawierające zarówno elementy `wifi` , jak i `luxury` .
 
-### <a name="or-operator-"></a>OR — operator`|`
+### <a name="or-operator-"></a>OR — operator `|`
 
 Operator OR jest pionowym znakiem kreski lub potoku. Na przykład program przeszuka `wifi | luxury` dokumenty zawierające jeden `wifi` lub `luxury` oba te elementy.
 
 <a name="not-operator"></a>
 
-### <a name="not-operator--"></a>NOT — operator`-`
+### <a name="not-operator--"></a>NOT — operator `-`
 
 Operator NOT jest znakiem minus. Program przeszuka na przykład `wifi –luxury` dokumenty, które mają `wifi` termin i/lub nie mają `luxury` .
 
 Parametr **searchmode** w żądaniu zapytania kontroluje, czy termin z operatorem NOT jest ANDed lub logicznie innym warunkiem w zapytaniu (przy założeniu, że nie `+` ma `|` operatora OR w innych warunkach). Prawidłowe wartości to include `any` lub `all` .
 
-`searchMode=any`zwiększa odwoływanie zapytań przez dołączenie większej liczby wyników i domyślnie `-` będzie interpretowane jako "lub" nie ". Na przykład program `wifi -luxury` będzie pasował do dokumentów, które zawierają termin `wifi` lub te, które nie zawierają warunków `luxury` .
+`searchMode=any` zwiększa odwoływanie zapytań przez dołączenie większej liczby wyników i domyślnie `-` będzie interpretowane jako "lub" nie ". Na przykład program `wifi -luxury` będzie pasował do dokumentów, które zawierają termin `wifi` lub te, które nie zawierają warunków `luxury` .
 
-`searchMode=all`zwiększa precyzję zapytań, dołączając mniejszą liczbę wyników i domyślnie — będzie interpretowana jako "i". Na przykład program `wifi -luxury` będzie pasował do dokumentów zawierających termin `wifi` i nie zawiera terminu "możliwość zaprojektowania". Jest to raczej bardziej intuicyjne zachowanie `-` operatora. W związku z tym należy rozważyć użycie zamiast tego, `searchMode=all` `searchMode=any` Jeśli chcesz zoptymalizować wyszukiwanie pod kątem precyzji zamiast odwołania, *a* użytkownicy często używają `-` operatora w wyszukiwaniach.
+`searchMode=all` zwiększa precyzję zapytań, dołączając mniejszą liczbę wyników i domyślnie — będzie interpretowana jako "i". Na przykład program `wifi -luxury` będzie pasował do dokumentów zawierających termin `wifi` i nie zawiera terminu "możliwość zaprojektowania". Jest to raczej bardziej intuicyjne zachowanie `-` operatora. W związku z tym należy rozważyć użycie zamiast tego, `searchMode=all` `searchMode=any` Jeśli chcesz zoptymalizować wyszukiwanie pod kątem precyzji zamiast odwołania, *a* użytkownicy często używają `-` operatora w wyszukiwaniach.
 
 Podczas decydowania o ustawieniu **searchmode** należy wziąć pod uwagę wzorce interakcji użytkownika dotyczące zapytań w różnych aplikacjach. Użytkownicy poszukujący informacji mogą dołączać operator do zapytania, w przeciwieństwie do witryn handlu elektronicznego, które mają bardziej wbudowaną strukturę nawigacji.
 
@@ -110,15 +110,15 @@ Podobnie jak w przypadku filtrów, zapytanie o prefiks szuka dokładnego dopasow
 
 W przypadku innych wariantów kwerend symboli wieloznacznych, takich jak sufiks lub wrostkowe dopasowywania do końca lub środka okresu, użyj [pełnej składni Lucene dla wyszukiwania symboli wieloznacznych](query-lucene-syntax.md#bkmk_wildcard).
 
-## <a name="phrase-search-"></a>Wyszukiwanie fraz`"`
+## <a name="phrase-search-"></a>Wyszukiwanie fraz `"`
 
 Wyszukiwanie warunków jest zapytania dla co najmniej jednego terminu, gdzie dowolne z warunków jest uważane za dopasowanie. Wyszukiwanie frazy jest dokładną frazą ujętą w znaki cudzysłowu `" "` . Na przykład podczas `Roach Motel` (bez cudzysłowów) Wyszukiwanie dokumentów zawierających `Roach` i/lub `Motel` wszędzie w dowolnej kolejności `"Roach Motel"` (z cudzysłowami) będzie pasować tylko do dokumentów, które zawierają całą frazę i w tej kolejności (w dalszym ciągu stosuje się analizę leksykalną).
 
-## <a name="see-also"></a>Zobacz także  
+## <a name="see-also"></a>Zobacz też  
 
 + [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Cognitive Search](search-lucene-query-architecture.md)
 + [Przykłady zapytań dla prostego wyszukiwania](search-query-simple-examples.md)
 + [Przykłady zapytań dla pełnego wyszukiwania Lucene](search-query-lucene-examples.md)
-+ [Interfejs API REST wyszukiwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
++ [Interfejs API REST wyszukiwania dokumentów](/rest/api/searchservice/Search-Documents)
 + [Składnia zapytań Lucene](query-lucene-syntax.md)
-+ [Składnia wyrażenia OData](query-odata-filter-orderby-syntax.md) 
++ [Składnia wyrażenia OData](query-odata-filter-orderby-syntax.md)

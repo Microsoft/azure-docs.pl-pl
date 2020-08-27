@@ -4,14 +4,15 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
-ms.openlocfilehash: 21c4f88083fab28ae132379eae1b5d8a2afa5d9f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 313d2717e6e40280ed37322d695a2129d833dd59
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81422328"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934105"
 ---
-Aby przesłać strumieniowo w skompresowanym formacie audio do usługi mowy, `PullAudioInputStream` Utwórz `PushAudioInputStream`lub. Następnie Utwórz obiekt `AudioConfig` z wystąpienia klasy strumienia, określając format kompresji strumienia.
+Aby przesłać strumieniowo w skompresowanym formacie audio do usługi mowy, Utwórz `PullAudioInputStream` lub `PushAudioInputStream` . Następnie Utwórz obiekt `AudioConfig` z wystąpienia klasy strumienia, określając format kompresji strumienia.
 
 Załóżmy, że masz klasę strumienia wejściowego o nazwie `pushStream` i używają Opus/OGG. Twój kod może wyglądać następująco:
 

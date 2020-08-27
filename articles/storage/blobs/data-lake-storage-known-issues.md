@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 0309f4d07056e3986138139e10ab29faa675cfcd
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: fd500b80f0c564fc0f4c7e311483790a83a4101a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056082"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923742"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Znane problemy z Azure Data Lake Storage Gen2
 
@@ -60,13 +60,13 @@ Niezarządzane dyski maszyny wirtualnej nie są obsługiwane na kontach z hierar
 
 <a id="api-scope-data-lake-client-library"></a>
 
-## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>Obsługa systemu plików w zestawach SDK, programie PowerShell i interfejsie wiersza polecenia platformy Azure
+## <a name="support-for-setting-access-control-lists-acls-recursively"></a>Obsługa ustawiania listy kontroli dostępu (ACL) rekursywnie
 
-- Operacje pobierania i ustawiania listy ACL nie są obecnie cykliczne.
+Możliwość stosowania zmian listy ACL rekursywnie z katalogu nadrzędnego do elementów podrzędnych jest w [publicznej wersji zapoznawczej](recursive-access-control-lists.md). W bieżącej wersji tej możliwości można zastosować zmiany ACL przy użyciu programu PowerShell, zestawu .NET SDK i zestawu Python SDK. Pomoc techniczna nie jest jeszcze dostępna dla zestawu Java SDK, interfejsu wiersza polecenia platformy Azure, Azure Portal lub Eksplorator usługi Azure Storage.
 
 <a id="known-issues-tools"></a>
 
-## <a name="azcopy"></a>AzCopy
+## <a name="azcopy"></a>Narzędzie AzCopy
 
 Użyj tylko najnowszej wersji AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)).Wcześniejsze wersje AzCopy, takie jak AzCopy v 8.1, nie są obsługiwane.
 
@@ -96,7 +96,7 @@ Jeśli [anonimowy dostęp do odczytu](storage-manage-access-to-resources.md) zos
 
 ### <a name="diagnostic-logs"></a>Dzienniki diagnostyczne
 
-Nie można jeszcze włączyć dzienników diagnostycznych przy użyciu Azure Portal. Można je włączyć przy użyciu programu PowerShell. Na przykład:
+Nie można jeszcze włączyć dzienników diagnostycznych przy użyciu Azure Portal. Można je włączyć przy użyciu programu PowerShell. Przykład:
 
 ```powershell
 #To login
