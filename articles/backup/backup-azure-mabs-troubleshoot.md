@@ -4,12 +4,12 @@ description: Rozwiązywanie problemów z instalacją, rejestracją Azure Backup 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 40f461c1c2e62b12497800bb1a4d1c0ee0b04579
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: cc62418ed1dec3cbcc944d9b66c691062ca552f8
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763494"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893021"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Rozwiązywanie problemów ze składnikiem Azure Backup Server
 
@@ -71,7 +71,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Operacja | Szczegóły błędu | Obejście |
 | --- | --- | --- |
-| Backup | Replika jest niespójna | Sprawdź, czy opcja automatycznego sprawdzania spójności w Kreatorze grupy ochrony jest włączona. Aby uzyskać więcej informacji na temat opcji replikacji i sprawdzania spójności, zobacz [ten artykuł](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) .<br> <ol><li> W przypadku kopii zapasowej stanu systemu/BMR upewnij się, że na chronionym serwerze zainstalowano Kopia zapasowa systemu Windows Server.</li><li> Sprawdź problemy związane z miejscem w puli magazynów programu DPM na serwerze DPM/Microsoft Azure Backup i Przydziel magazyn zgodnie z potrzebami.</li><li> Sprawdź stan Usługa kopiowania woluminów w tle na chronionym serwerze. Jeśli jest w stanie wyłączonym, ustaw ją na wartość Uruchom ręcznie. Uruchom usługę na serwerze programu. Następnie wróć do konsoli serwera programu DPM/Microsoft Azure Backup i uruchom zadanie Synchronizuj ze sprawdzaniem spójności.</li></ol>|
+| Backup | Replika jest niespójna | Sprawdź, czy opcja automatycznego sprawdzania spójności w Kreatorze grupy ochrony jest włączona. Aby uzyskać więcej informacji na temat opcji replikacji i sprawdzania spójności, zobacz [ten artykuł](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) .<br> <ol><li> W przypadku kopii zapasowej stanu systemu/BMR upewnij się, że na chronionym serwerze zainstalowano Kopia zapasowa systemu Windows Server.</li><li> Sprawdź problemy związane z miejscem w puli magazynów programu DPM na serwerze DPM/Microsoft Azure Backup i Przydziel magazyn zgodnie z potrzebami.</li><li> Sprawdź stan Usługa kopiowania woluminów w tle na chronionym serwerze. Jeśli jest w stanie wyłączonym, ustaw go jako uruchomiony ręcznie. Uruchom usługę na serwerze programu. Następnie wróć do konsoli serwera programu DPM/Microsoft Azure Backup i uruchom zadanie Synchronizuj ze sprawdzaniem spójności.</li></ol>|
 
 ## <a name="online-recovery-point-creation-failed"></a>Tworzenie punktu odzyskiwania w trybie online nie powiodło się
 
@@ -119,7 +119,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 | Konfigurowanie grup ochrony | Program DPM nie mógł wyliczyć składnika aplikacji na chronionym komputerze (nazwa komputera chronionego). | Wybierz pozycję **Odśwież** na ekranie Konfigurowanie interfejsu użytkownika grupy ochrony na odpowiednim poziomie źródła danych/składnika. |
 | Konfigurowanie grup ochrony | Nie można skonfigurować ochrony | Jeśli chroniony serwer jest serwerem SQL, upewnij się, że uprawnienia roli sysadmin zostały przekazane do konta systemowego (systemowe NTAUTHORITY\SYSTEM) na komputerze chronionym, zgodnie z opisem w [tym artykule](/system-center/dpm/back-up-sql-server?view=sc-dpm-2019).
 | Konfigurowanie grup ochrony | Brak wystarczającej ilości wolnego miejsca w puli magazynów dla tej grupy ochrony. | Dyski dodane do puli magazynów [nie powinny zawierać partycji](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019). Usuń wszystkie woluminy istniejące na dyskach. Następnie dodaj je do puli magazynów.|
-| Zmiana zasad |Nie można zmodyfikować zasad tworzenia kopii zapasowych. Błąd: bieżąca operacja nie powiodła się z powodu wewnętrznego błędu usługi [0x29834]. Spróbuj ponownie wykonać operację po upływie pewnego czasu. Jeśli problem będzie się powtarzał, skontaktuj się z pomocą techniczną firmy Microsoft. | **Może**<br/>Ten błąd występuje w trzech warunkach: gdy ustawienia zabezpieczeń są włączone, przy próbie zmniejszenia zakresu przechowywania poniżej wartości minimalnej określonych wcześniej, a jeśli jesteś w nieobsługiwanej wersji. (Wersje nieobsługiwane są takie same jak Microsoft Azure Backup Server w wersji: 2.0.9052 i Azure Backup Server Update 1). <br/>**Zalecana akcja:**<br/> Aby kontynuować aktualizacje związane z zasadami, należy ustawić okres przechowywania powyżej minimalnego określonego okresu przechowywania. (Minimalny okres przechowywania wynosi siedem dni dziennie, cztery tygodnie przez tydzień, trzy tygodnie dla co miesiąc lub jeden rok przez rok). <br><br>Opcjonalnie należy zaktualizować agenta kopii zapasowej i Azure Backup Server, aby wykorzystać wszystkie aktualizacje zabezpieczeń. |
+| Zmiana zasad |Nie można zmodyfikować zasad tworzenia kopii zapasowych. Błąd: bieżąca operacja nie powiodła się z powodu wewnętrznego błędu usługi [0x29834]. Spróbuj ponownie wykonać operację po upływie pewnego czasu. Jeśli problem będzie się powtarzał, skontaktuj się z pomocą techniczną firmy Microsoft. | **Może**<br/>Ten błąd występuje w trzech warunkach: gdy ustawienia zabezpieczeń są włączone, przy próbie zmniejszenia zakresu przechowywania poniżej wartości minimalnej określonych wcześniej, a jeśli korzystasz z nieobsługiwanej wersji. (Wersje nieobsługiwane są takie same jak Microsoft Azure Backup Server w wersji: 2.0.9052 i Azure Backup Server Update 1). <br/>**Zalecana akcja:**<br/> Aby kontynuować aktualizacje związane z zasadami, należy ustawić okres przechowywania powyżej minimalnego określonego okresu przechowywania. (Minimalny okres przechowywania wynosi siedem dni dziennie, cztery tygodnie przez tydzień, trzy tygodnie dla co miesiąc lub jeden rok przez rok). <br><br>Opcjonalnie należy zaktualizować agenta kopii zapasowej i Azure Backup Server, aby wykorzystać wszystkie aktualizacje zabezpieczeń. |
 
 ## <a name="backup"></a>Backup
 

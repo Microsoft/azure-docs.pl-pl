@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 1d84646fcb6769b7489cc0e03085e95fc47ef56c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f3a8cafa907cb66832faf033f7b62e68bf859097
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027634"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918829"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integracja z aplikacją kliencką przy użyciu zestawu Speech SDK
 
@@ -64,7 +65,7 @@ W tym kroku dodamy kod XAML, który definiuje interfejs użytkownika aplikacji, 
 
 Utwórz interfejs użytkownika aplikacji, dodając kod XAML.
 
-1. W **Eksplorator rozwiązań**Otwórz`MainPage.xaml`
+1. W **Eksplorator rozwiązań**Otwórz `MainPage.xaml`
 
 1. W widoku XAML projektanta Zastąp całą zawartość następującym fragmentem kodu:
 
@@ -302,7 +303,7 @@ Dodaj źródło związane z kodem w następujący sposób:
     > 1. Wybierz opcję **Zarządzaj pakietami NuGet dla rozwiązania**, wybierz pozycję **aktualizacje** 
     > 1. Jeśli na liście aktualizacji jest wyświetlany **pakiet Microsoft. WebCore. UniversalWindowsPlatform** , zaktualizuj **pakiet Microsoft. WebCore. UniversalWindowsPlatform** do najnowszej wersji
 
-1. Dodaj następujący kod do treści metody`InitializeDialogServiceConnector`
+1. Dodaj następujący kod do treści metody `InitializeDialogServiceConnector`
 
    ```csharp
    // This code creates the `DialogServiceConnector` with your subscription information.
@@ -319,7 +320,7 @@ Dodaj źródło związane z kodem w następujący sposób:
 
 1. Zastąp ciągi `YourApplicationId` , `YourSpeechSubscriptionKey` i `YourServiceRegion` własnymi wartościami dla swojej aplikacji, subskrypcji mowy i [regionu](regions.md)
 
-1. Dołącz następujący fragment kodu na końcu treści metody`InitializeDialogServiceConnector`
+1. Dołącz następujący fragment kodu na końcu treści metody `InitializeDialogServiceConnector`
 
    ```csharp
    //
@@ -403,7 +404,7 @@ Dodaj źródło związane z kodem w następujący sposób:
 
 1. Na pasku menu wybierz kolejno opcje **plik**  >  **Zapisz wszystko** , aby zapisać zmiany.
 
-## <a name="try-it-out"></a>Wypróbowywanie działania
+## <a name="try-it-out"></a>Czas to wypróbować
 
 1. Na pasku menu wybierz polecenie **Kompiluj**  >  **kompilację rozwiązania** , aby skompilować aplikację. Kod powinien zostać skompilowany bez błędów.
 

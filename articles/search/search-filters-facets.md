@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 852d8f8f85536dc62dd792e5727dd7ec0571ba29
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb5771a6e615535a9a158e6378cd36b6e0df58bc
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084215"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923130"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Jak utworzyć filtr aspektów w usłudze Azure Wyszukiwanie poznawcze 
 
@@ -38,12 +38,12 @@ Zestawy reguł można obliczyć na podstawie pojedynczych pól wartości, a tak�
 
 Aspektowanie jest włączane w zależności od pola podczas tworzenia indeksu przez ustawienie `facetable` atrybutu na `true` . Należy również ustawić `filterable` atrybut na `true` dla takich pól, aby aplikacja wyszukiwania mogła filtrować te pola w oparciu o aspekty wybierane przez użytkownika końcowego. 
 
-Podczas tworzenia indeksu przy użyciu interfejsu API REST każdy [Typ pola](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) , który może być używany w nawigacji aspektowej, jest domyślnie oznaczony jako `facetable` domyślny:
+Podczas tworzenia indeksu przy użyciu interfejsu API REST każdy [Typ pola](/rest/api/searchservice/supported-data-types) , który może być używany w nawigacji aspektowej, jest domyślnie oznaczony jako `facetable` domyślny:
 
 + `Edm.String`
 + `Edm.DateTimeOffset`
 + `Edm.Boolean`
-+ Typy pól liczbowych: `Edm.Int32` , `Edm.Int64` ,`Edm.Double`
++ Typy pól liczbowych: `Edm.Int32` , `Edm.Int64` , `Edm.Double`
 + Kolekcje powyższych typów (na przykład `Collection(Edm.String)` lub `Collection(Edm.Double)` )
 
 Nie można używać `Edm.GeographyPoint` ani `Collection(Edm.GeographyPoint)` pól w nawigacji aspektowej. Zestawy reguł działają najlepiej dla pól o niskiej kardynalności. Ze względu na rozdzielczość geograficzną, rzadko jest, że wszystkie dwa zestawy współrzędnych będą równe w danym zestawie danych. W związku z tym aspekty nie są obsługiwane dla współrzędnych geograficznych. Do zestawu reguł według lokalizacji potrzebne jest pole miasto lub region.
@@ -77,11 +77,11 @@ Atrybuty indeksu kontrolujące sposób użycia pola są dodawane do poszczególn
 ```
 
 > [!Note]
-> Ta definicja indeksu jest kopiowana z [tworzenia indeksu wyszukiwanie poznawcze platformy Azure przy użyciu interfejsu API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Jest on identyczny z wyjątkiem powierzchownych różnic w definicjach pól. `filterable`Atrybuty i `facetable` są jawnie dodawane do `category` pól, `tags` , `parkingIncluded` , `smokingAllowed` i `rating` . W `filterable` `facetable` przypadku korzystania z interfejsu API REST w ramach tych pól zostanie włączona wartość domyślna. W przypadku korzystania z zestawu .NET SDK te atrybuty muszą być włączone jawnie.
+> Ta definicja indeksu jest kopiowana z [tworzenia indeksu wyszukiwanie poznawcze platformy Azure przy użyciu interfejsu API REST](./search-get-started-powershell.md). Jest on identyczny z wyjątkiem powierzchownych różnic w definicjach pól. `filterable`Atrybuty i `facetable` są jawnie dodawane do `category` pól, `tags` , `parkingIncluded` , `smokingAllowed` i `rating` . W `filterable` `facetable` przypadku korzystania z interfejsu API REST w ramach tych pól zostanie włączona wartość domyślna. W przypadku korzystania z zestawu .NET SDK te atrybuty muszą być włączone jawnie.
 
 ## <a name="build-and-load-an-index"></a>Kompilowanie i ładowanie indeksu
 
-Krok pośredni (i prawdopodobnie oczywisty) jest konieczny do [kompilowania i wypełniania indeksu](https://docs.microsoft.com/azure/search/search-get-started-dotnet#1---create-index) przed wyrażeniem zapytania. Ten krok jest tutaj omawiany w celu zapewnienia kompletności. Jednym ze sposobów ustalenia, czy indeks jest dostępny, jest sprawdzenie listy indeksów w [portalu](https://portal.azure.com).
+Krok pośredni (i prawdopodobnie oczywisty) jest konieczny do [kompilowania i wypełniania indeksu](./search-get-started-dotnet.md#1---create-an-index) przed wyrażeniem zapytania. Ten krok jest tutaj omawiany w celu zapewnienia kompletności. Jednym ze sposobów ustalenia, czy indeks jest dostępny, jest sprawdzenie listy indeksów w [portalu](https://portal.azure.com).
 
 ## <a name="add-facet-filters-to-a-query"></a>Dodawanie filtrów aspektów do zapytania
 
@@ -107,7 +107,7 @@ if (!String.IsNullOrEmpty(categoryFacet))
     filter = $"category eq '{categoryFacet}'";
 ```
 
-Jeśli użytkownik kliknie wartość aspektu dla pola kolekcji `tags` , np., na przykład wartość "Pool", aplikacja powinna używać następującej składni filtru:`$filter=tags/any(t: t eq 'pool')`
+Jeśli użytkownik kliknie wartość aspektu dla pola kolekcji `tags` , np., na przykład wartość "Pool", aplikacja powinna używać następującej składni filtru: `$filter=tags/any(t: t eq 'pool')`
 
 ## <a name="tips-and-workarounds"></a>Porady i obejścia
 
@@ -124,5 +124,5 @@ Chociaż jest to typowy przypadek użycia, nie jest to coś, co jest obecnie dos
 ## <a name="see-also"></a>Zobacz też
 
 + [Filtry na platformie Azure Wyszukiwanie poznawcze](search-filters.md)
-+ [Tworzenie interfejsu API REST indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index)
-+ [Interfejs API REST wyszukiwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/search-documents)
++ [Tworzenie interfejsu API REST indeksu](/rest/api/searchservice/create-index)
++ [Interfejs API REST wyszukiwania dokumentów](/rest/api/searchservice/search-documents)

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: eacfc75b31efaf9a53ed116ed9e75983146d8575
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec1e74c6a029ab0f8defc3ae783c9e974f387289
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084130"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922977"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Konfigurowanie połączenia z indeksatora Wyszukiwanie poznawcze platformy Azure do SQL Server na maszynie wirtualnej platformy Azure
 
@@ -29,7 +29,7 @@ Usługa Azure Wyszukiwanie poznawcze wymaga szyfrowanego kanału dla wszystkich 
 
 1. Sprawdź właściwości certyfikatu, aby sprawdzić, czy nazwa podmiotu jest w pełni kwalifikowaną nazwą domeny (FQDN) maszyny wirtualnej platformy Azure. Aby wyświetlić właściwości, można użyć narzędzia, takiego jak CertUtil lub przystawki Certyfikaty. Możesz pobrać nazwę FQDN z sekcji podstawowe bloku usługi maszyny wirtualnej, w polu **publiczny adres IP/etykieta nazwy DNS** w [Azure Portal](https://portal.azure.com/).
    
-   * W przypadku maszyn wirtualnych utworzonych przy użyciu nowszego szablonu **Menedżer zasobów** nazwa FQDN jest formatowana jako`<your-VM-name>.<region>.cloudapp.azure.com`
+   * W przypadku maszyn wirtualnych utworzonych przy użyciu nowszego szablonu **Menedżer zasobów** nazwa FQDN jest formatowana jako `<your-VM-name>.<region>.cloudapp.azure.com`
    * W przypadku starszych maszyn wirtualnych utworzonych jako **klasyczna** maszyna wirtualna nazwa FQDN jest formatowana jako `<your-cloud-service-name.cloudapp.net>` .
 
 2. Skonfiguruj SQL Server, aby używać certyfikatu przy użyciu Edytora rejestru (regedit). 
@@ -53,7 +53,7 @@ Usługa Azure Wyszukiwanie poznawcze wymaga szyfrowanego kanału dla wszystkich 
 Po skonfigurowaniu połączenia szyfrowanego wymaganego przez usługę Azure Wyszukiwanie poznawcze w przypadku maszyn wirtualnych platformy Azure są dostępne dodatkowe SQL Server czynności konfiguracyjne. Jeśli jeszcze tego nie zrobiono, następnym krokiem jest zakończenie konfiguracji przy użyciu jednego z następujących artykułów:
 
 * Aby uzyskać **Menedżer zasobów** maszyny wirtualnej, zobacz [nawiązywanie połączenia z maszyną wirtualną SQL Server na platformie Azure przy użyciu Menedżer zasobów](../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md). 
-* W przypadku **klasycznej** maszyny wirtualnej zobacz [nawiązywanie połączenia z maszyną wirtualną SQL Server w klasycznym systemie Azure](../virtual-machines/windows/classic/sql-connect.md).
+* W przypadku **klasycznej** maszyny wirtualnej zobacz [nawiązywanie połączenia z maszyną wirtualną SQL Server w klasycznym systemie Azure](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect).
 
 W szczególności zapoznaj się z sekcją w każdym artykule dotyczącym łączenia przez Internet.
 
@@ -68,16 +68,16 @@ Poniższe linki zawierają instrukcje dotyczące konfiguracji sieciowej grupy za
 > 
 
 * Aby uzyskać **Menedżer zasobów** maszyny wirtualnej, zobacz [How to Create sieciowych grup zabezpieczeń for ARM Deployments](../virtual-network/tutorial-filter-network-traffic.md). 
-* Aby zapoznać się z **klasyczną** maszyną wirtualną, zobacz [jak utworzyć sieciowych grup zabezpieczeń dla wdrożeń klasycznych](../virtual-network/virtual-networks-create-nsg-classic-ps.md).
+* Aby zapoznać się z **klasyczną** maszyną wirtualną, zobacz [jak utworzyć sieciowych grup zabezpieczeń dla wdrożeń klasycznych](/previous-versions/azure/virtual-network/virtual-networks-create-nsg-classic-ps).
 
 Adresowanie IP może stanowić kilka wyzwań, które można łatwo przezwyciężyć, jeśli masz świadomość problemu i potencjalnych obejść. Pozostałe sekcje zawierają zalecenia dotyczące obsługi problemów związanych z adresami IP na liście ACL.
 
 #### <a name="restrict-access-to-the-azure-cognitive-search"></a>Ograniczanie dostępu do Wyszukiwanie poznawcze platformy Azure
-Zdecydowanie zalecamy, aby ograniczyć dostęp do adresu IP usługi wyszukiwania oraz zakresu adresów IP usługi `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) na liście ACL, a nie do otwierania maszyn wirtualnych usługi SQL Azure na wszystkich żądaniach połączeń.
+Zdecydowanie zalecamy, aby ograniczyć dostęp do adresu IP usługi wyszukiwania oraz zakresu adresów IP usługi `AzureCognitiveSearch` [service tag](../virtual-network/service-tags-overview.md#available-service-tags) na liście ACL, a nie do otwierania maszyn wirtualnych usługi SQL Azure na wszystkich żądaniach połączeń.
 
 Adres IP można sprawdzić, wysyłając polecenie ping do nazwy FQDN (na przykład `<your-search-service-name>.search.windows.net` ) usługi wyszukiwania.
 
-Zakres adresów IP można sprawdzić `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) za pomocą [plików JSON do pobrania](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) lub za pośrednictwem [interfejsu API odnajdywania tagów usługi](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). Zakres adresów IP jest aktualizowany co tydzień.
+Zakres adresów IP można sprawdzić `AzureCognitiveSearch` [service tag](../virtual-network/service-tags-overview.md#available-service-tags) za pomocą [plików JSON do pobrania](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) lub za pośrednictwem [interfejsu API odnajdywania tagów usługi](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview). Zakres adresów IP jest aktualizowany co tydzień.
 
 #### <a name="managing-ip-address-fluctuations"></a>Zarządzanie fluktuacjami adresów IP
 Jeśli usługa wyszukiwania ma tylko jedną jednostkę wyszukiwania (czyli jedną replikę i jedną partycję), adres IP ulegnie zmianie podczas rutynowych ponownych uruchomień usługi. unieważnienie istniejącej listy kontroli dostępu przy użyciu adresu IP usługi wyszukiwania.
@@ -93,4 +93,3 @@ Jeśli używasz Azure Portal do tworzenia indeksatora, logika portalu usługi Az
 
 ## <a name="next-steps"></a>Następne kroki
 Za pomocą konfiguracji możesz teraz określić SQL Server na maszynie wirtualnej platformy Azure jako źródło danych dla indeksatora Wyszukiwanie poznawcze platformy Azure. Aby uzyskać więcej informacji [, zobacz łączenie Azure SQL Database z usługą Azure wyszukiwanie poznawcze przy użyciu indeksatorów](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) .
-

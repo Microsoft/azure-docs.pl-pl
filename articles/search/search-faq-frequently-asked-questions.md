@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: d3c5a998db5e76118b0c5a73b6df8bdedadc6dfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d6acdcf9487b2d1a5964d4ec686cd23666275b0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317234"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923096"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Wyszukiwanie poznawcze platformy Azure — często zadawane pytania
 
@@ -23,7 +23,7 @@ ms.locfileid: "85317234"
 
 ### <a name="how-is-azure-cognitive-search-different-from-full-text-search-in-my-dbms"></a>Jak platforma Azure Wyszukiwanie poznawcze różni się od wyszukiwania pełnotekstowego w systemie DBMS?
 
-Usługa Azure Wyszukiwanie poznawcze obsługuje wiele źródeł danych, [analizę językową dla wielu języków](https://docs.microsoft.com/rest/api/searchservice/language-support), [niestandardową analizę dla interesujących i nietypowych danych wejściowych](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), wyszukiwania rangi przy użyciu [profilów oceniania](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)i funkcji środowiska użytkownika, takich jak typeahead, wyróżnianie trafień i nawigacja aspektów. Zawiera również inne funkcje, takie jak synonimy i rozbudowana składnia zapytań, ale zazwyczaj nie odróżniają funkcji.
+Usługa Azure Wyszukiwanie poznawcze obsługuje wiele źródeł danych, [analizę językową dla wielu języków](/rest/api/searchservice/language-support), [niestandardową analizę dla interesujących i nietypowych danych wejściowych](/rest/api/searchservice/custom-analyzers-in-azure-search), wyszukiwania rangi przy użyciu [profilów oceniania](/rest/api/searchservice/add-scoring-profiles-to-a-search-index)i funkcji środowiska użytkownika, takich jak typeahead, wyróżnianie trafień i nawigacja aspektów. Zawiera również inne funkcje, takie jak synonimy i rozbudowana składnia zapytań, ale zazwyczaj nie odróżniają funkcji.
 
 ### <a name="can-i-pause-azure-cognitive-search-service-and-stop-billing"></a>Czy mogę wstrzymać usługę Azure Wyszukiwanie poznawcze i zatrzymać rozliczanie?
 
@@ -39,7 +39,7 @@ Można również utworzyć kopię zapasową migawki indeksu w plikach, których 
 
 Wszystkie te elementy można wykonać za pomocą przykładowego kodu **index-Backup-Restore** w tym [repozytorium przykładowym platformy Azure wyszukiwanie poznawcze .NET](https://github.com/Azure-Samples/azure-search-dotnet-samples). 
 
-W dowolnym momencie możesz również [uzyskać definicję indeksu](https://docs.microsoft.com/rest/api/searchservice/get-index) przy użyciu interfejsu API REST usługi Azure wyszukiwanie poznawcze.
+W dowolnym momencie możesz również [uzyskać definicję indeksu](/rest/api/searchservice/get-index) przy użyciu interfejsu API REST usługi Azure wyszukiwanie poznawcze.
 
 W Azure Portal obecnie nie ma wbudowanej funkcji wyodrębniania indeksów, migawek ani przywracania kopii zapasowych. Rozważamy jednak Dodawanie funkcji tworzenia kopii zapasowych i przywracania w przyszłej wersji. Jeśli chcesz pokazać pomoc techniczną dotyczącą tej funkcji, dokonaj głosowania na [głos użytkownika](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
 
@@ -53,7 +53,7 @@ Aby odtworzyć indeks, należy ponownie zindeksować dane ze źródeł zewnętrz
 
 Alternatywnie możesz użyć przykładowego kodu w ramach **przywracania z użyciem indeksu kopii zapasowej** w ramach tego [przykładowego repozytorium platformy Azure wyszukiwanie poznawcze .NET](https://github.com/Azure-Samples/azure-search-dotnet-samples) , aby utworzyć kopię zapasową definicji indeksu i migawki indeksu do serii plików JSON. Później można użyć narzędzia i plików, aby przywrócić indeks, w razie potrzeby.  
 
-### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexers"></a>Czy można indeksować z replik SQL Database (dotyczy [Azure SQL Database indeksatorów](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
+### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexers"></a>Czy można indeksować z replik SQL Database (dotyczy [Azure SQL Database indeksatorów](./search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md))
 
 Podczas kompilowania indeksu od podstaw nie ma żadnych ograniczeń dotyczących używania replik podstawowych lub pomocniczych jako źródła danych. Jednak odświeżanie indeksu przy użyciu aktualizacji przyrostowych (na podstawie zmienionych rekordów) wymaga repliki podstawowej. To wymaganie pochodzi z SQL Database, co gwarantuje śledzenie zmian tylko w replikach podstawowych. Jeśli spróbujesz użyć replik pomocniczych dla obciążenia odświeżania indeksu, nie ma gwarancji, że uzyskasz wszystkie dane.
 
@@ -65,17 +65,17 @@ Nie. Ta operacja nie jest obsługiwana. Wyszukiwanie jest zawsze ograniczone do 
 
 ### <a name="can-i-restrict-search-index-access-by-user-identity"></a>Czy mogę ograniczyć dostęp do indeksu wyszukiwania przez tożsamość użytkownika?
 
-[Filtry zabezpieczeń](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search) można zaimplementować z `search.in()` filtrem. Filtr jest dobrze złożony z [usług zarządzania tożsamościami, takich jak Azure Active Directory (AAD)](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad) , aby przyciąć wyniki wyszukiwania na podstawie zdefiniowanego członkostwa w grupie użytkowników.
+[Filtry zabezpieczeń](./search-security-trimming-for-azure-search.md) można zaimplementować z `search.in()` filtrem. Filtr jest dobrze złożony z [usług zarządzania tożsamościami, takich jak Azure Active Directory (AAD)](./search-security-trimming-for-azure-search-with-aad.md) , aby przyciąć wyniki wyszukiwania na podstawie zdefiniowanego członkostwa w grupie użytkowników.
 
 ### <a name="why-are-there-zero-matches-on-terms-i-know-to-be-valid"></a>Dlaczego nie ma żadnych dopasowań dotyczących poprawnych warunków?
 
 Najpopularniejszym przypadkiem nie jest znajomość, że każdy typ zapytania obsługuje różne zachowania wyszukiwania i poziomy analiz językowych. Wyszukiwanie pełnotekstowe, które jest głównym obciążeniem, obejmuje fazę analizy języka, która przerywa warunki do formularzy głównych. Ten aspekt analizy zapytania rzutuje szerszy dostęp do sieci, ponieważ termin tokenów pasuje do większej liczby wariantów.
 
-Zapytania o symbole wieloznaczne, rozmyte i wyrażenia regularnego nie są jednak analizowane jak regularne zapytania warunkowe lub zwrotne i mogą prowadzić do słabego odwołania, jeśli zapytanie nie jest zgodne z przeanalizowanym formularzem wyrazu w indeksie wyszukiwania. Aby uzyskać więcej informacji na temat analizy i analizy zapytań, zobacz temat [Architektura zapytań](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
+Zapytania o symbole wieloznaczne, rozmyte i wyrażenia regularnego nie są jednak analizowane jak regularne zapytania warunkowe lub zwrotne i mogą prowadzić do słabego odwołania, jeśli zapytanie nie jest zgodne z przeanalizowanym formularzem wyrazu w indeksie wyszukiwania. Aby uzyskać więcej informacji na temat analizy i analizy zapytań, zobacz temat [Architektura zapytań](./search-lucene-query-architecture.md).
 
 ### <a name="my-wildcard-searches-are-slow"></a>Wyszukiwanie przy użyciu symboli wieloznacznych jest powolne.
 
-Większość kwerend wyszukiwania wieloznacznego, takich jak prefiks, rozmyte i wyrażenie regularne, są ponownie zapisywane wewnętrznie przy użyciu pasujących terminów w indeksie wyszukiwania. To dodatkowe przetwarzanie skanowania indeksu wyszukiwania powoduje dodanie opóźnienia. Dalsze, szerokie zapytania wyszukiwania, takie jak `a*` na przykład, które mogą być ponownie zapisywane z wieloma terminami, może być bardzo powolne. W przypadku przeszukiwanych symboli wieloznacznych należy rozważyć zdefiniowanie [analizatora niestandardowego](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search).
+Większość kwerend wyszukiwania wieloznacznego, takich jak prefiks, rozmyte i wyrażenie regularne, są ponownie zapisywane wewnętrznie przy użyciu pasujących terminów w indeksie wyszukiwania. To dodatkowe przetwarzanie skanowania indeksu wyszukiwania powoduje dodanie opóźnienia. Dalsze, szerokie zapytania wyszukiwania, takie jak `a*` na przykład, które mogą być ponownie zapisywane z wieloma terminami, może być bardzo powolne. W przypadku przeszukiwanych symboli wieloznacznych należy rozważyć zdefiniowanie [analizatora niestandardowego](/rest/api/searchservice/custom-analyzers-in-azure-search).
 
 ### <a name="why-is-the-search-rank-a-constant-or-equal-score-of-10-for-every-hit"></a>Dlaczego wyszukiwanie określa stałą lub równą ocenę 1,0 dla każdego trafienia?
 
@@ -95,14 +95,14 @@ Dowiedz się więcej na temat [wzbogacania przyrostowego](cognitive-search-incre
 
 ### <a name="what-is-the-best-approach-for-implementing-localized-search"></a>Jaki jest najlepszy sposób implementacji zlokalizowanego wyszukiwania?
 
-Większość klientów wybiera dedykowane pola w kolekcji, gdy ma ona obsługiwać różne ustawienia regionalne (języki) w tym samym indeksie. Pola specyficzne dla ustawień regionalnych umożliwiają przypisanie odpowiedniej analizatora. Na przykład przypisanie analizatora francuskiego firmy Microsoft do pola zawierającego ciągi francuski. Upraszcza to również filtrowanie. Jeśli wiesz, że zapytanie jest inicjowane na stronie fr-fr, możesz ograniczyć wyniki wyszukiwania do tego pola. Lub Utwórz [profil oceniania](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) , aby nadać polu bardziej względną wagę. Usługa Azure Wyszukiwanie poznawcze obsługuje ponad [50 analizatorów języka](https://docs.microsoft.com/azure/search/search-language-support) w celu wyboru.
+Większość klientów wybiera dedykowane pola w kolekcji, gdy ma ona obsługiwać różne ustawienia regionalne (języki) w tym samym indeksie. Pola specyficzne dla ustawień regionalnych umożliwiają przypisanie odpowiedniej analizatora. Na przykład przypisanie analizatora francuskiego firmy Microsoft do pola zawierającego ciągi francuski. Upraszcza to również filtrowanie. Jeśli wiesz, że zapytanie jest inicjowane na stronie fr-fr, możesz ograniczyć wyniki wyszukiwania do tego pola. Lub Utwórz [profil oceniania](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) , aby nadać polu bardziej względną wagę. Usługa Azure Wyszukiwanie poznawcze obsługuje ponad [50 analizatorów języka](./search-language-support.md) w celu wyboru.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Czy masz pytanie dotyczące brakującej funkcji lub funkcji? Zażądaj funkcji w [witrynie sieci Web głosu użytkownika](https://feedback.azure.com/forums/263029-azure-search).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
  [StackOverflow: Azure Wyszukiwanie poznawcze](https://stackoverflow.com/questions/tagged/azure-search)   
  [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Cognitive Search](search-lucene-query-architecture.md)  
- [Co to jest platforma Azure Wyszukiwanie poznawcze?](search-what-is-azure-search.md)
+ [Co to jest wyszukiwanie poznawcze na platformie Azure?](search-what-is-azure-search.md)

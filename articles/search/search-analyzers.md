@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/20/2020
-ms.openlocfilehash: 591bff468c90b17812554b02810d9a6cd4f874d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a05d58108561856f61a8c484882c996eee96e44d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262161"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918081"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analizatory do przetwarzania tekstu na platformie Azure Wyszukiwanie poznawcze
 
@@ -48,7 +48,7 @@ Na poniższej liście opisano, które analizatory są dostępne w usłudze Azure
 |----------|-------------|
 | [Standardowy Analizator Lucene](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Domyślne. Nie jest wymagana Specyfikacja ani konfiguracja. Ten Analizator ogólnego przeznaczenia dobrze sprawdza się w wielu językach i scenariuszach.|
 | Wstępnie zdefiniowane analizatory | Oferowany jako gotowy produkt przeznaczony do użycia w przypadku, gdy jest to możliwe. <br/>Istnieją dwa typy: wyspecjalizowane i językowe. Co sprawia, że "wstępnie zdefiniowane" polega na odwoływaniu się do nich według nazwy, bez konfiguracji ani dostosowywania. <br/><br/>[Analizatory wyspecjalizowane (Language-niezależny od)](index-add-custom-analyzers.md#AnalyzerTable) są używane, gdy dane wejściowe wymagają wyspecjalizowanego przetwarzania lub minimalnego przetwarzania. Analizatory wstępnie zdefiniowane w języku innym niż język to **Asciifolding**, **słowo kluczowe**, **wzorzec**, **prosty**, **stop**, **biały**znak.<br/><br/>[Analizatory języka](index-add-language-analyzers.md) są używane, gdy potrzebna jest zaawansowana obsługa języków w poszczególnych językach. Platforma Azure Wyszukiwanie poznawcze obsługuje analizatory języków Lucene 50 i 35 analizatory przetwarzania języka naturalnego firmy Microsoft. |
-|[Analizatory niestandardowe](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Odnosi się do zdefiniowanej przez użytkownika konfiguracji kombinacji istniejących elementów, która składa się z jednego tokenizatora (wymagane) i opcjonalnych filtrów (Char lub token).|
+|[Analizatory niestandardowe](/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Odnosi się do zdefiniowanej przez użytkownika konfiguracji kombinacji istniejących elementów, która składa się z jednego tokenizatora (wymagane) i opcjonalnych filtrów (Char lub token).|
 
 Kilka wstępnie zdefiniowanych analizatorów, takich jak **wzorzec** lub **Zatrzymywanie**, obsługują ograniczony zestaw opcji konfiguracji. Aby ustawić te opcje, można efektywnie utworzyć Analizator niestandardowy składający się z wstępnie zdefiniowanego analizatora i jedną z opcji alternatywnych udokumentowanych w [wstępnie zdefiniowanych odwołaniach analizatora](index-add-custom-analyzers.md#AnalyzerTable). Podobnie jak w przypadku dowolnej konfiguracji niestandardowej, należy podać nową konfigurację przy użyciu nazwy, takiej jak *myPatternAnalyzer* , aby odróżnić ją od analizatora wzorców Lucene.
 
@@ -56,7 +56,7 @@ Kilka wstępnie zdefiniowanych analizatorów, takich jak **wzorzec** lub **Zatrz
 
 Ustawienie analizatora jest opcjonalne. Jako ogólną regułę spróbuj najpierw użyć domyślnego standardowego analizatora luce, aby zobaczyć, jak to działa. Jeśli zapytania nie zwracają oczekiwanych wyników, przełączenie do innego analizatora jest często odpowiednim rozwiązaniem.
 
-1. Podczas tworzenia definicji pola w [indeksie](https://docs.microsoft.com/rest/api/searchservice/create-index)ustaw właściwość **Analizator** na jedną z następujących opcji: [wstępnie zdefiniowany Analizator](index-add-custom-analyzers.md#AnalyzerTable) , taki jak `keyword` , [Analizator języka](index-add-language-analyzers.md) , taki jak `en.microsoft` , lub Analizator niestandardowy (zdefiniowany w tym samym schemacie indeksu).  
+1. Podczas tworzenia definicji pola w [indeksie](/rest/api/searchservice/create-index)ustaw właściwość  **Analizator** na jedną z następujących opcji: [wstępnie zdefiniowany Analizator](index-add-custom-analyzers.md#AnalyzerTable) , taki jak `keyword` , [Analizator języka](index-add-language-analyzers.md) , taki jak `en.microsoft` , lub Analizator niestandardowy (zdefiniowany w tym samym schemacie indeksu).  
  
    ```json
      "fields": [
@@ -88,7 +88,7 @@ Ustawienie analizatora jest opcjonalne. Jako ogólną regułę spróbuj najpierw
     },
    ```
 
-1. W przypadku tylko analizatorów niestandardowych Utwórz wpis w sekcji **[analizatory]** indeksu, a następnie przypisz Analizator niestandardowy do definicji pola na jeden z poprzednich dwóch kroków. Aby uzyskać więcej informacji, zobacz [Tworzenie indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index) i [Dodawanie niestandardowych analizatorów](index-add-custom-analyzers.md).
+1. W przypadku tylko analizatorów niestandardowych Utwórz wpis w sekcji **[analizatory]** indeksu, a następnie przypisz Analizator niestandardowy do definicji pola na jeden z poprzednich dwóch kroków. Aby uzyskać więcej informacji, zobacz [Tworzenie indeksu](/rest/api/searchservice/create-index) i [Dodawanie niestandardowych analizatorów](index-add-custom-analyzers.md).
 
 ## <a name="when-to-add-analyzers"></a>Kiedy należy dodawać analizatory
 
@@ -96,11 +96,11 @@ Najlepszy czas dodawania i przypisywania analizatorów odbywa się podczas aktyw
 
 Ponieważ analizatory są używane do tokenize warunków, należy przypisać analizatorze podczas tworzenia pola. W rzeczywistości przypisanie **analizatora** lub **indexAnalyzer** do pola, które zostało już utworzone fizycznie jest niedozwolone (chociaż można zmienić właściwość **searchAnalyzer** w dowolnym momencie bez wpływu na indeks).
 
-Aby zmienić Analizator istniejącego pola, należy [całkowicie ponownie skompilować indeks](search-howto-reindex.md) (nie można ponownie skompilować pojedynczych pól). W przypadku indeksów w środowisku produkcyjnym można odroczyć ponowną kompilację przez utworzenie nowego pola z nowym przypisaniem analizatora i rozpoczęcie korzystania z niego zamiast Starego. Użyj [indeksu aktualizacji](https://docs.microsoft.com/rest/api/searchservice/update-index) , aby uwzględnić nowe pole i [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) w celu wypełnienia. Później w ramach planowanej obsługi indeksów można wyczyścić indeks w celu usunięcia przestarzałych pól.
+Aby zmienić Analizator istniejącego pola, należy [całkowicie ponownie skompilować indeks](search-howto-reindex.md) (nie można ponownie skompilować pojedynczych pól). W przypadku indeksów w środowisku produkcyjnym można odroczyć ponowną kompilację przez utworzenie nowego pola z nowym przypisaniem analizatora i rozpoczęcie korzystania z niego zamiast Starego. Użyj [indeksu aktualizacji](/rest/api/searchservice/update-index) , aby uwzględnić nowe pole i [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) w celu wypełnienia. Później w ramach planowanej obsługi indeksów można wyczyścić indeks w celu usunięcia przestarzałych pól.
 
-Aby dodać nowe pole do istniejącego indeksu, wywołaj polecenie [Aktualizuj indeks](https://docs.microsoft.com/rest/api/searchservice/update-index) , aby dodać pole i [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) je wypełnić.
+Aby dodać nowe pole do istniejącego indeksu, wywołaj polecenie [Aktualizuj indeks](/rest/api/searchservice/update-index) , aby dodać pole i [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) je wypełnić.
 
-Aby dodać Analizator niestandardowy do istniejącego indeksu, Przekaż flagę **allowIndexDowntime** w [indeksie aktualizacji](https://docs.microsoft.com/rest/api/searchservice/update-index) , jeśli chcesz uniknąć tego błędu:
+Aby dodać Analizator niestandardowy do istniejącego indeksu, Przekaż flagę **allowIndexDowntime** w [indeksie aktualizacji](/rest/api/searchservice/update-index) , jeśli chcesz uniknąć tego błędu:
 
 *"Aktualizacja indeksu jest niedozwolona, ponieważ spowodowałoby to przestoje. Aby dodać nowe analizatory, tokenizatory, filtry tokenów lub filtry znaków do istniejącego indeksu, ustaw parametr zapytania "allowIndexDowntime" na wartość "true" w żądaniu aktualizacji indeksu. Należy pamiętać, że ta operacja spowoduje przełączenie indeksu w tryb offline przez co najmniej kilka sekund, co spowoduje niepowodzenie żądania indeksowania i zapytań. Dostępność indeksu może być niesparowana przez kilka minut od momentu zaktualizowania indeksu lub dłuższe dla bardzo dużych indeksów.*
 
@@ -120,7 +120,7 @@ Zastępowanie analizatora standardowego wymaga odbudowania indeksu. Jeśli to mo
 
 ### <a name="inspect-tokenized-terms"></a>Sprawdzanie tokenów w terminologii
 
-Jeśli wyszukiwanie nie zwróci oczekiwanych wyników, najbardziej prawdopodobną przyczyną jest niezgodności tokenów między danymi wejściowymi zapytania a terminami tokenów w indeksie. Jeśli tokeny nie są takie same, dopasowań nie powiedzie się zmaterializowania. Aby sprawdzić dane wyjściowe tokenizatora, zalecamy korzystanie z [interfejsu API analizy](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) jako narzędzia do badania. Odpowiedź składa się z tokenów, zgodnie z wygenerowanym przez określony Analizator.
+Jeśli wyszukiwanie nie zwróci oczekiwanych wyników, najbardziej prawdopodobną przyczyną jest niezgodności tokenów między danymi wejściowymi zapytania a terminami tokenów w indeksie. Jeśli tokeny nie są takie same, dopasowań nie powiedzie się zmaterializowania. Aby sprawdzić dane wyjściowe tokenizatora, zalecamy korzystanie z [interfejsu API analizy](/rest/api/searchservice/test-analyzer) jako narzędzia do badania. Odpowiedź składa się z tokenów, zgodnie z wygenerowanym przez określony Analizator.
 
 <a name="examples"></a>
 
@@ -316,7 +316,7 @@ Każdy Analizator, który jest używany jako-is, bez konfiguracji, jest określo
 
 W tym przykładzie przypisujemy do pól opisu język angielski i analizatory francuskie firmy Microsoft. Jest to fragment pochodzący z większej definicji indeksu hoteli, który tworzy się przy użyciu klasy hotelu w pliku hotels.cs przykładu [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) .
 
-[Analizator](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet)wywołań, określający typ [analizatora](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) , który zapewnia analizator tekstu obsługiwany przez wyszukiwanie poznawcze platformy Azure.
+[Analizator](/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet)wywołań, określający typ [analizatora](/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) , który zapewnia analizator tekstu obsługiwany przez wyszukiwanie poznawcze platformy Azure.
 
 ```csharp
     public partial class Hotel
@@ -342,7 +342,7 @@ W tym przykładzie przypisujemy do pól opisu język angielski i analizatory fra
 
 Gdy wymagane jest dostosowanie lub konfiguracja, konieczne będzie dodanie konstrukcji analizatora do indeksu. Po jego zdefiniowaniu można dodać do niego definicję pola, jak pokazano w poprzednim przykładzie.
 
-Utwórz obiekt [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) . Aby uzyskać więcej przykładów, zobacz [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
+Utwórz obiekt [CustomAnalyzer](/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) . Aby uzyskać więcej przykładów, zobacz [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
 
 ```csharp
 {
@@ -368,15 +368,15 @@ Utwórz obiekt [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.
 
 + Zapoznaj się z kompleksowym wyjaśnieniem [działania wyszukiwania pełnotekstowego w usłudze Azure wyszukiwanie poznawcze](search-lucene-query-architecture.md). W tym artykule przedstawiono przykłady zachowań, które mogą wydawać się intuicyjne na powierzchni.
 
-+ Wypróbuj dodatkową składnię zapytania z przykładowej sekcji [Wyszukaj dokumenty](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) lub z [prostej składni zapytania](query-simple-syntax.md) w Eksploratorze wyszukiwania w portalu.
++ Wypróbuj dodatkową składnię zapytania z przykładowej sekcji [Wyszukaj dokumenty](/rest/api/searchservice/search-documents#bkmk_examples) lub z [prostej składni zapytania](query-simple-syntax.md) w Eksploratorze wyszukiwania w portalu.
 
 + Dowiedz się, jak stosować [analizatory leksykalne charakterystyczne dla języka](index-add-language-analyzers.md).
 
 + [Skonfiguruj Niestandardowe analizatory](index-add-custom-analyzers.md) dla minimalnego przetwarzania lub wyspecjalizowanego przetwarzania dla poszczególnych pól.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
- [Interfejs API REST wyszukiwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
+ [Interfejs API REST wyszukiwania dokumentów](/rest/api/searchservice/search-documents) 
 
  [Prosta składnia zapytań](query-simple-syntax.md) 
 

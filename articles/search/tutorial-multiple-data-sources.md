@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: d63e437090b2875c7e6a8273fdf22d49597d408f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 815709611c0d7985a97ce52584b9e223c6d79aa2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85262212"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924116"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Samouczek: indeksowanie z wielu źródeł danych przy użyciu zestawu .NET SDK
 
@@ -21,7 +21,7 @@ Usługa Azure Wyszukiwanie poznawcze umożliwia importowanie, analizowanie i ind
 
 W tym samouczku opisano sposób indeksowania danych hotelu ze źródła danych Azure Cosmos DB i scalania z informacjami o pokoju hotelowym pobranymi z dokumentów Blob Storage platformy Azure. Wynik będzie połączonym indeksem wyszukiwania hotelowego zawierającym złożone typy danych.
 
-Ten samouczek używa języka C# i [zestawu .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search). W tym samouczku wykonasz następujące zadania:
+Ten samouczek używa języka C# i [zestawu .NET SDK](/dotnet/api/overview/azure/search). W tym samouczku wykonasz następujące zadania:
 
 > [!div class="checklist"]
 > * Przekazywanie przykładowych danych i tworzenie źródeł danych
@@ -34,8 +34,8 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-+ [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal)
-+ [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Azure Cosmos DB](../cosmos-db/create-cosmosdb-resources-portal.md)
++ [Azure Storage](../storage/common/storage-account-create.md)
 + [Visual Studio 2019](https://visualstudio.microsoft.com/)
 + [Utwórz](search-create-service-portal.md) lub [Znajdź istniejącą usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
@@ -80,7 +80,7 @@ Ten przykład używa dwóch małych zestawów danych, które opisują siedem fik
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com), przejdź do konta usługi Azure Storage, kliknij pozycję **obiekty blob**, a następnie kliknij pozycję **+ kontener**.
 
-1. [Utwórz kontener obiektów BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) o nazwie **pokoje hotelowe** , aby zapisać przykładowe pliki JSON pokoju hotelowego. Można ustawić poziom dostępu publicznego na dowolną z jego prawidłowych wartości.
+1. [Utwórz kontener obiektów BLOB](../storage/blobs/storage-quickstart-blobs-portal.md) o nazwie **pokoje hotelowe** , aby zapisać przykładowe pliki JSON pokoju hotelowego. Można ustawić poziom dostępu publicznego na dowolną z jego prawidłowych wartości.
 
    ![Tworzenie kontenera obiektów blob](media/tutorial-multiple-data-sources/blob-add-container.png "Tworzenie kontenera obiektów blob")
 
@@ -171,7 +171,7 @@ Ta prosta aplikacja konsolowa języka C#/.NET wykonuje następujące zadania:
 
 ### <a name="create-an-index"></a>Tworzenie indeksu
 
-Ten przykładowy program używa zestawu .NET SDK do definiowania i tworzenia indeksu Wyszukiwanie poznawcze platformy Azure. Wykorzystuje klasę [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) , aby wygenerować strukturę indeksu z klasy modelu danych języka C#.
+Ten przykładowy program używa zestawu .NET SDK do definiowania i tworzenia indeksu Wyszukiwanie poznawcze platformy Azure. Wykorzystuje klasę [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder) , aby wygenerować strukturę indeksu z klasy modelu danych języka C#.
 
 Model danych jest definiowany przez klasę hotelu, która również zawiera odwołania do klas Address i Room. FieldBuilder przechodzi przez wiele definicji klas w celu wygenerowania złożonej struktury danych dla indeksu. Tagi metadanych są używane do definiowania atrybutów poszczególnych pól, na przykład czy można je przeszukiwać czy sortować.
 
@@ -319,7 +319,7 @@ Obiekty blob JSON zawierają pole klucza o nazwie **`Id`** zamiast **`HotelId`**
 
 Indeksatory magazynu obiektów BLOB mogą używać parametrów, które identyfikują tryb analizowania, który ma być używany. Tryb analizy różni się dla obiektów BLOB reprezentujących pojedynczy dokument lub wiele dokumentów w ramach tego samego obiektu BLOB. W tym przykładzie każdy obiekt BLOB reprezentuje pojedynczy dokument indeksu, więc kod używa `IndexingParameters.ParseJson()` parametru.
 
-Aby uzyskać więcej informacji na temat parametrów analizy indeksatora dla obiektów BLOB JSON, zobacz [indeksowanie obiektów BLOB JSON](search-howto-index-json-blobs.md). Aby uzyskać więcej informacji na temat określania tych parametrów przy użyciu zestawu .NET SDK, zobacz Klasa [IndexerParametersExtension](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexingparametersextensions) .
+Aby uzyskać więcej informacji na temat parametrów analizy indeksatora dla obiektów BLOB JSON, zobacz [indeksowanie obiektów BLOB JSON](search-howto-index-json-blobs.md). Aby uzyskać więcej informacji na temat określania tych parametrów przy użyciu zestawu .NET SDK, zobacz Klasa [IndexerParametersExtension](/dotnet/api/microsoft.azure.search.models.indexingparametersextensions) .
 
 Program usunie wszystkie istniejące indeksatory o tej samej nazwie przed utworzeniem nowego, w przypadku, gdy chcesz uruchomić ten przykład więcej niż raz.
 
@@ -363,9 +363,9 @@ Przykładowy kod dla tego samouczka sprawdza istniejące obiekty i usuwa je, aby
 
 Możesz również użyć portalu, aby usunąć indeksy, indeksatory i źródła danych.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Możesz usuwać zasoby pojedynczo lub usunąć grupę zasobów, aby usunąć cały zestaw zasobów.
+Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku wszystkie zasoby lub grupy zasobów w okienku nawigacji po lewej stronie.
 

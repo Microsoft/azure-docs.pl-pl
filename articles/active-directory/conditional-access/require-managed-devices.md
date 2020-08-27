@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf3fd50b907e69311c475af844c7969f081a3094
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 7d3fbb06355772794fbe3fab5cdf3c8622c2baf4
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849934"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948831"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Instrukcje: wymaganie zarządzanych urządzeń dla dostępu do aplikacji w chmurze przy użyciu dostępu warunkowego
 
@@ -28,7 +28,7 @@ W tym artykule wyjaśniono, jak można skonfigurować zasady dostępu warunkoweg
 
 Wymaganie, aby zarządzane urządzenia dla dostępu do aplikacji w chmurze były połączone z **dostępem warunkowym usługi Azure AD** i **zarządzaniem urządzeniami usługi Azure AD** . Jeśli nie znasz jeszcze jednego z tych obszarów, najpierw Przeczytaj następujące tematy:
 
-- **[Dostęp warunkowy w Azure Active Directory](../active-directory-conditional-access-azure-portal.md)** — ten artykuł zawiera omówienie pojęć dotyczących dostępu warunkowego i powiązanej terminologii.
+- **[Dostęp warunkowy w Azure Active Directory](./overview.md)** — ten artykuł zawiera omówienie pojęć dotyczących dostępu warunkowego i powiązanej terminologii.
 - **[Wprowadzenie do zarządzania urządzeniami w Azure Active Directory](../devices/overview.md)** — ten artykuł zawiera omówienie różnych opcji, które należy wykonać, aby uzyskać dostęp do urządzeń objętych kontrolą organizacyjną. 
 - Aby uzyskać pomoc techniczną dla programu Chrome w **aktualizacji systemu Windows 10 dla twórców (wersja 1703)** lub nowszą, zainstaluj [rozszerzenie konta systemu Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). To rozszerzenie jest wymagane, gdy zasady dostępu warunkowego wymagają szczegółowych informacji dotyczących urządzenia.
 
@@ -108,7 +108,7 @@ Aby wymagać korzystania z zarejestrowanego urządzenia przenośnego, organizacj
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie**wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
-   1. Wybierz pozycję **Gotowe**.
+   1. Kliknij **Gotowe**.
 1. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz**wybierz pozycję **Office 365 (wersja zapoznawcza)**.
 1. W obszarze **warunki**wybierz pozycję **platformy urządzeń**.
    1. Ustaw **wartość** **tak**.
@@ -124,6 +124,6 @@ W przypadku korzystania z [przepływu OAuth przy użyciu kodu urządzenia](../de
 
 W systemach Windows 7, iOS, Android, macOS i niektórych przeglądarkach sieci Web innych firm usługa Azure AD identyfikuje urządzenie przy użyciu certyfikatu klienta, który jest inicjowany, gdy urządzenie jest zarejestrowane w usłudze Azure AD. Gdy użytkownik po raz pierwszy zaloguje się za pomocą przeglądarki, użytkownik jest monitowany o wybranie certyfikatu. Użytkownik końcowy musi wybrać ten certyfikat, zanim będzie mógł kontynuować korzystanie z przeglądarki.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Przed skonfigurowaniem zasad dostępu warunkowego opartego na urządzeniach w środowisku należy zapoznać się z [najlepszymi rozwiązaniami dotyczącymi dostępu warunkowego w Azure Active Directory](best-practices.md).

@@ -3,12 +3,13 @@ title: Monitorowanie działającej aplikacji internetowej platformy ASP.NET za p
 description: Monitorowanie wydajności witryny sieci Web bez jej ponownego wdrażania. Współpracuje z usługą ASP.NET Web Apps hostowaną lokalnie lub na maszynach wirtualnych.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 70a405d2c32641be2ed4038fbffebce0e1340f83
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 603cbde20ae6e8d19e4ad3ae290bbfc925483595
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87310450"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923827"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentacja aplikacji sieci Web w środowisku uruchomieniowym z dołączaniem bez kodu Application Insights
 
@@ -39,10 +40,10 @@ Poniżej przedstawiono podsumowanie tego, co można uzyskać, korzystając z dan
 
 |  | W czasie kompilacji | W czasie wykonywania |
 | --- | --- | --- |
-| **Żądania & wyjątki** |Tak |Tak |
-| **[Bardziej szczegółowe wyjątki](./asp-net-exceptions.md)** | |Tak |
+| **Żądania & wyjątki** |Yes |Yes |
+| **[Bardziej szczegółowe wyjątki](./asp-net-exceptions.md)** | |Yes |
 | **[Diagnostyka zależności](./asp-net-dependencies.md)** |Na platformie .NET 4.6 +, ale mniej szczegółów |Tak, kompletne szczegóły: kody wyników, tekst polecenia SQL, czasownik HTTP|
-| **[Liczniki wydajności sytemu](./performance-counters.md)** |Tak |Tak |
+| **[Liczniki wydajności sytemu](./performance-counters.md)** |Yes |Yes |
 | **[Interfejs API dla telemetrii niestandardowej][api]** |Yes |Nie |
 | **[Integracja dziennika śledzenia](./asp-net-trace-logs.md)** |Yes |Nie |
 | **[Widok strony & dane użytkownika](./javascript.md)** |Yes |Nie |
@@ -140,7 +141,7 @@ Aby naprawić web.config:
   
 ### <a name="detailed-logs"></a>Szczegółowe dzienniki
 
-* Domyślnie monitor stanu dane wyjściowe dzienników diagnostycznych znajdują się w:`C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log`
+* Domyślnie monitor stanu dane wyjściowe dzienników diagnostycznych znajdują się w: `C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log`
 
 * Aby wyprowadzić pełne dzienniki, zmodyfikuj plik konfiguracji: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` i Dodaj `<add key="TraceLevel" value="All" />` do `appsettings` .
 Następnie uruchom ponownie Monitor stanu.
@@ -243,7 +244,7 @@ Dowiedz się, które aplikacje są monitorowane:
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
 * `-Name`: nazwa aplikacji internetowej w usługach IIS.
-* `-InstrumentationKey`(Opcjonalnie). Służy do zmiany zasobu, do którego jest wysyłana Telemetria aplikacji.
+* `-InstrumentationKey` (Opcjonalnie). Służy do zmiany zasobu, do którego jest wysyłana Telemetria aplikacji.
 * To polecenie cmdlet:
   * Uaktualnia wskazaną aplikację do ostatniej wersji zestawu SDK pobranej na ten komputer. (Działa tylko wtedy, gdy `SdkState==EnabledAfterDeployment`)
   * Jeśli zostanie wprowadzony klucz instrumentacji, wskazana aplikacja jest konfigurowana ponownie do wysłania telemetrii do zasobu dotyczącego tego klucza. (Działa, jeśli `SdkState != Disabled`)

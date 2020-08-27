@@ -3,12 +3,12 @@ title: Wybierz opcję migracji VMware z migracją na serwer Azure Migrate | Micr
 description: Zawiera omówienie opcji migrowania maszyn wirtualnych VMware na platformę Azure przy użyciu migracji Azure Migrate serwera
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 56398f8bf78cb48b6cfe7a90ffdcbdb72743dc93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e62b9cea80f1ed7f672135b93e52ba606a717a6c
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84769630"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950225"
 ---
 # <a name="select-a-vmware-migration-option"></a>Wybierz opcję migracji VMware
 
@@ -29,7 +29,7 @@ Użyj tych wybranych porównań, aby określić metodę, która ma zostać użyt
 **Wdrażanie urządzenia** | [Urządzenie Azure Migrate](migrate-appliance.md) jest wdrażane lokalnie. | [Urządzenie replikacji Azure Migrate](migrate-replication-appliance.md) jest wdrażane lokalnie.
 **Zgodność Site Recovery** | Zgodność. | Nie można przeprowadzić replikacji z migracją serwera Azure Migrate, jeśli skonfigurowano replikację dla maszyny przy użyciu Site Recovery.
 **Dysk docelowy** | Dyski zarządzane | Dyski zarządzane
-**Limity dysku** | Dysk systemu operacyjnego: 2 TB<br/><br/> Dysk danych: 4 TB<br/><br/> Maksymalna liczba dysków: 60 | Dysk systemu operacyjnego: 2 TB<br/><br/> Dysk danych: 8 TB<br/><br/> Maksymalna liczba dysków: 63
+**Limity dysku** | Dysk systemu operacyjnego: 2 TB<br/><br/> Dysk danych: 8 TB<br/><br/> Maksymalna liczba dysków: 60 | Dysk systemu operacyjnego: 2 TB<br/><br/> Dysk danych: 8 TB<br/><br/> Maksymalna liczba dysków: 63
 **Przekazywanie dysków** | Nieobsługiwane | Obsługiwane
 **Rozruch z interfejsem UEFI** | Nieobsługiwane | Migrowana maszyna wirtualna na platformie Azure zostanie automatycznie przekonwertowana na maszynę wirtualną rozruchową w systemie BIOS.<br/><br/> Dysk systemu operacyjnego powinien mieć maksymalnie cztery partycje, a woluminy powinny być sformatowane w systemie plików NTFS.
 
@@ -51,7 +51,7 @@ Po przejrzeniu ograniczeń można zrozumieć kroki związane z wdrażaniem poszc
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Migrowanie maszyn wirtualnych VMware](tutorial-migrate-vmware.md) z migracją bez agenta.
 
