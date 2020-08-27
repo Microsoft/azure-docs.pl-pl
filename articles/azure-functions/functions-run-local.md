@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: bbdc05d2b5a770791bb81f26a71b9dc3eb7523d5
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 8dfc1471955a6d10199a078922151ff3aeda4294
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505720"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929497"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Korzystanie z narzędzi Azure Functions Core Tools
 
@@ -37,7 +37,7 @@ Istnieją trzy wersje Azure Functions Core Tools. Używana wersja zależy od lok
 
 + **Wersja 1. x**: obsługuje wersję 1. x środowiska uruchomieniowego Azure Functions. Ta wersja narzędzi jest obsługiwana tylko na komputerach z systemem Windows i jest instalowana z [pakietu npm](https://www.npmjs.com/package/azure-functions-core-tools).
 
-Jeśli nie określono inaczej, przykłady w tym artykule dotyczą wersji 3. x.
+Można zainstalować tylko jedną wersję podstawowych narzędzi na danym komputerze. Jeśli nie określono inaczej, przykłady w tym artykule dotyczą wersji 3. x.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -257,20 +257,21 @@ Nawet w przypadku używania emulator magazynu Microsoft Azure do programowania m
 
   ![Kopiuj parametry połączenia z Eksplorator usługi Storage](./media/functions-run-local/storage-explorer.png)
 
-+ Narzędzia podstawowe umożliwiają pobranie parametrów połączenia z platformy Azure przy użyciu jednego z następujących poleceń:
++ Użyj podstawowych narzędzi z katalogu głównego projektu, aby pobrać parametry połączenia z platformy Azure przy użyciu jednego z następujących poleceń:
 
   + Pobierz wszystkie ustawienia z istniejącej aplikacji funkcji:
 
     ```
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
+
   + Pobierz parametry połączenia dla określonego konta magazynu:
 
     ```
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
-    Gdy użytkownik nie jest jeszcze zalogowany do platformy Azure, zostanie wyświetlony monit.
+    Gdy użytkownik nie jest jeszcze zalogowany do platformy Azure, zostanie wyświetlony monit. Te polecenia zastępują wszystkie istniejące ustawienia w local.settings.jspliku. 
 
 ## <a name="create-a-function"></a><a name="create-func"></a>Tworzenie funkcji
 
@@ -332,7 +333,7 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 
 Aby uruchomić projekt funkcji, uruchom hosta funkcji. Host włącza wyzwalacze dla wszystkich funkcji w projekcie. Polecenie uruchamiania różni się w zależności od języka projektu.
 
-# <a name="c"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[S\#](#tab/csharp)
 
 ```
 func start --build

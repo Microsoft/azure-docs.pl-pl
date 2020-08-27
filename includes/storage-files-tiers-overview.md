@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 62c2193a0045cc2ee35930e87b360446e94ba861
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: cace61739e13514bb4aba1169c51ea670a167c9d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88864855"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88944360"
 ---
 Azure Files oferuje cztery różne warstwy magazynu, Premium, zoptymalizowane, gorąca i chłodna, aby umożliwić dostosowanie Twoich udziałów do wymagań dotyczących wydajności i cen w Twoim scenariuszu:
 
@@ -30,6 +30,8 @@ Gorące i chłodne udziały plików są obecnie dostępne w następującym podzb
 - Australia Środkowa 2
 - Australia Wschodnia
 - Australia Południowo-Wschodnia
+- Kanada Wschodnia
+- Kanada Środkowa
 - Francja Środkowa
 - Francja Południowa
 - Niemcy Północne (Publiczny)
@@ -45,6 +47,8 @@ Gorące i chłodne udziały plików są obecnie dostępne w następującym podzb
 - Norwegia Zachodnia
 - Północna Republika Południowej Afryki
 - Zachodnia Republika Południowej Afryki
+- Szwajcaria Północna
+- Szwajcaria Zachodnia
 - Środkowy Zjednoczone Emiraty Arabskie
 - Północne Zjednoczone Emiraty Arabskie
 - Południowe Zjednoczone Królestwo

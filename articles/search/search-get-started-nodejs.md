@@ -10,19 +10,19 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 043d5224c9bfefb189e36c0f4b744c93b376ace0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2c97a770dc10168284bebbc038d8c48145c2a385
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420859"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88917894"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w Node.js przy użyciu interfejsów API REST
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
 > * [Portal](search-get-started-portal.md)
-> * [Program PowerShell](search-create-index-rest-api.md)
+> * [Program PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
@@ -84,7 +84,7 @@ Zacznij od otwarcia konsoli programu PowerShell lub innego środowiska, w który
     npm install --save-dev eslint eslint-config-prettier eslint-config-airbnb-base eslint-plugin-import prettier
     ```
 
-4. Upewnij się, że zostały skonfigurowane projekty i jego zależności, sprawdzając, czy **package.jsw** pliku wygląda podobnie do poniższego:
+4. Upewnij się, że zostały skonfigurowane projekty i jego zależności, sprawdzając, czy  **package.jsw** pliku wygląda podobnie do poniższego:
 
     ```json
     {
@@ -130,7 +130,7 @@ Zastąp `[SERVICE_NAME]` wartość nazwą swojej usługi wyszukiwania. Zamień `
 
 ## <a name="1---create-index"></a>1 — Tworzenie indeksu 
 
-Utwórzhotels_quickstart_index.jspliku **na**.  Ten plik definiuje, w jaki sposób usługa Azure Wyszukiwanie poznawcze współpracuje z dokumentami, które zostaną załadowane w następnym kroku. Każde pole zostanie zidentyfikowane przez `name` i ma określony `type` . Każde pole ma także serię atrybutów indeksu, które określają, czy Wyszukiwanie poznawcze platformy Azure mogą przeszukiwać, filtrować, sortować i aspektować pola. Większość pól to proste typy danych, ale niektóre, takie jak `AddressType` złożone typy, które umożliwiają tworzenie rozbudowanych struktur danych w indeksie.  Więcej informacji o [obsługiwanych typach danych](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) i [atrybutach indeksu](https://docs.microsoft.com/azure/search/search-what-is-an-index#index-attributes)można znaleźć w części. 
+Utwórzhotels_quickstart_index.jspliku ** na**.  Ten plik definiuje, w jaki sposób usługa Azure Wyszukiwanie poznawcze współpracuje z dokumentami, które zostaną załadowane w następnym kroku. Każde pole zostanie zidentyfikowane przez `name` i ma określony `type` . Każde pole ma także serię atrybutów indeksu, które określają, czy Wyszukiwanie poznawcze platformy Azure mogą przeszukiwać, filtrować, sortować i aspektować pola. Większość pól to proste typy danych, ale niektóre, takie jak `AddressType` złożone typy, które umożliwiają tworzenie rozbudowanych struktur danych w indeksie.  Więcej informacji o [obsługiwanych typach danych](/rest/api/searchservice/supported-data-types) i [atrybutach indeksu](./search-what-is-an-index.md#index-attributes)można znaleźć w części. 
 
 Dodaj następujące elementy, aby **hotels_quickstart_index.jsna** lub [pobrać plik](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/hotels_quickstart_index.json). 
 
@@ -346,8 +346,8 @@ static throwOnHttpError(response) {
 Na koniec Dodaj metody, aby wykryć, usunąć i utworzyć indeks Wyszukiwanie poznawcze platformy Azure. Wszystkie te metody mają tę samą strukturę:
 
 * Pobierz punkt końcowy, do którego zostanie wykonane żądanie.
-* Wygeneruj żądanie z odpowiednim punktem końcowym, czasownikiem HTTP, kluczem interfejsu API i, jeśli to konieczne, treści JSON. `indexExistsAsync()`i nie `deleteIndexAsync()` mają treści JSON, ale robi to `createIndexAsync(definition)` .
-* `await`odpowiedź na żądanie.  
+* Wygeneruj żądanie z odpowiednim punktem końcowym, czasownikiem HTTP, kluczem interfejsu API i, jeśli to konieczne, treści JSON. `indexExistsAsync()` i nie `deleteIndexAsync()` mają treści JSON, ale robi to `createIndexAsync(definition)` .
+* `await` odpowiedź na żądanie.  
 * Działanie na kodzie stanu odpowiedzi.
 * Zwróć obietnicę nieprawidłowej wartości (wartości logicznej, `this` lub wyników zapytania). 
 
@@ -610,7 +610,7 @@ Ponownie uruchom program z `node index.js` . Powinien pojawić się nieco inny z
 
 ## <a name="3---search-an-index"></a>3 — Przeszukiwanie indeksu
 
-Wróć do karty **indeksy** w **omówieniu** usługi wyszukiwania na Azure Portal. Indeks zawiera teraz cztery dokumenty i zużywa pewną ilość miejsca w magazynie (może to potrwać kilka minut, aby interfejs użytkownika prawidłowo odzwierciedlał podstawowy stan indeksu). Kliknij nazwę indeksu, który ma zostać przeniesiony do **Eksploratora wyszukiwania**. Na tej stronie można eksperymentować z kwerendami danych. Spróbuj wyszukać ciąg zapytania z `*&$count=true` i uzyskać wszystkie dokumenty oraz liczbę wyników. Spróbuj użyć ciągu zapytania `historic&highlight=Description&$filter=Rating gt 4` i odwrócić pojedynczy dokument z słowem "historyczna" otoczonym `<em></em>` tagami. Przeczytaj więcej na temat [tworzenia zapytania w usłudze Azure wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/search-query-overview). 
+Wróć do karty **indeksy** w **omówieniu** usługi wyszukiwania na Azure Portal. Indeks zawiera teraz cztery dokumenty i zużywa pewną ilość miejsca w magazynie (może to potrwać kilka minut, aby interfejs użytkownika prawidłowo odzwierciedlał podstawowy stan indeksu). Kliknij nazwę indeksu, który ma zostać przeniesiony do **Eksploratora wyszukiwania**. Na tej stronie można eksperymentować z kwerendami danych. Spróbuj wyszukać ciąg zapytania z `*&$count=true` i uzyskać wszystkie dokumenty oraz liczbę wyników. Spróbuj użyć ciągu zapytania `historic&highlight=Description&$filter=Rating gt 4` i odwrócić pojedynczy dokument z słowem "historyczna" otoczonym `<em></em>` tagami. Przeczytaj więcej na temat [tworzenia zapytania w usłudze Azure wyszukiwanie poznawcze](./search-query-overview.md). 
 
 Odtwórz te zapytania w kodzie, otwierając **index.js** i dodając ten kod w górnej części:
 
@@ -691,7 +691,7 @@ Klasa **AzureSearchClient** hermetyzuje konfigurację, adresy URL i podstawowe �
 
 Ogólnym zachowaniem `run` funkcji jest usunięcie indeksu usługi Azure wyszukiwanie poznawcze, jeśli istnieje, utworzenie indeksu, dodanie danych i wykonanie niektórych zapytań.  
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 

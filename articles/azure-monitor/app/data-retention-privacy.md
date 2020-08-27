@@ -3,13 +3,13 @@ title: Przechowywanie i przechowywanie danych w usłudze Azure Application Insig
 description: Zasady przechowywania i zasad zachowania poufności informacji
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 1b1a1e370d55ad58bf1468c2e8b2381b62707b6a
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: f6fa42d6cc20c4d26caa7f571f13bb3917b2c7c5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245948"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929333"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Zbieranie, przechowywanie i magazynowanie danych w Application Insights
 
@@ -175,7 +175,7 @@ Prefiks folderu `appInsights-node` można przesłonić, zmieniając wartość w 
 
 Bufory telemetrii można wyłączyć, ustawiając wartość [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) na `false` . Gdy magazyn sesji jest wyłączony, tablica lokalna jest używana jako magazyn trwały. Ponieważ zestaw JavaScript SDK działa na urządzeniu klienckim, użytkownik ma dostęp do tej lokalizacji magazynu za pomocą narzędzi deweloperskich w przeglądarce.
 
-### <a name="opencensus-python"></a>OpenCensus Python
+### <a name="opencensus-python"></a>Zestaw OpenCensus Python
 
 Domyślnie OpenCensus Python SDK używa bieżącego folderu użytkownika `%username%/.opencensus/.azure/` . Uprawnienia dostępu do tego folderu są ograniczone do bieżącego użytkownika i administratorów. (Zobacz tutaj [implementację](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) ). Folder z danymi utrwalanymi zostanie nazwany po pliku języka Python, który wygenerował dane telemetryczne.
 
